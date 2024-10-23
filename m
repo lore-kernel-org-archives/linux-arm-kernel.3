@@ -4,98 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C2D0BB46
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A27FD0BB46
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDwSkxF7WJ4kfN02Vjn7/1ATHMtONFtEuwuiRviy10s=; b=nYNTdHblUQjE6bsQmBF53EkZGL
-	luWEhdNi74qdupxqE4NSEu1Ndl9vi0jHveK5QbVL1UwsNyxgmbDp7pbHCL5M3EDCLolfVsTF6tAeB
-	1RsxuBGe9siyRwDxOzV1ErdxZXakqSdY8ufapSS5+3nCeG6+WMXZyQRvpTwAOwegt9+SJBtKEfkaD
-	ZFjV3r2vfKeeC07/PV2IuKXCvYReeVQ8hJ8M/kzvht9j51C9bV3QKTn/RMPt8FjUcdwrGtCgYShzG
-	I7g0glYqNxXRDPlMf1W6WwqFfvtZh7IW4UdEASTr/I2qp+KQplANXp9TNfv8vGezG6jIVkcy4b54U
-	byXodClw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9GjLyrUovCAs/itFKkl6SdTkHcCigmbwpVXsabFIzLI=; b=qGNbEXjTPvFp93
+	IddQ82RvxdscAZB6c44YXet7QRtgD8uVGCh95elv0bRqQaM6U5yNeV14c7BYVouGrE6gxoGIekz0V
+	GrEIEU5/8aj/4fbG9uUNxgbtQYKwZZ0II0T7xlAkreQ6xhWU3sW9c9OV46yS6ieBTkebZWcY9gaeM
+	LwCsCR7N3bMmSnytiXMv36RaasAcIWSPZj36yHn5f5ZltygZ1Pp+joNtwdoGff0lpQ4juYNKZhor+
+	3MBQ+5R4HPqRDlR0K2J4VmxwkzeFm9Ja+WgE3PPgzEjYRUcG0iyiL0oekIAvhDUO/NI0+ncz1FpZb
+	7Odp74LZWLlv4BsQmeXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jzR-0000000G79G-3AUG;
-	Wed, 23 Oct 2024 22:38:05 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1t3k0y-0000000G7bO-2jxY;
+	Wed, 23 Oct 2024 22:39:40 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jxs-0000000G6p6-3gnu;
-	Wed, 23 Oct 2024 22:36:30 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2e2bd347124so276147a91.1;
-        Wed, 23 Oct 2024 15:36:28 -0700 (PDT)
+	id 1t3jyZ-0000000G6v8-187c
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 22:37:12 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5c9850ae22eso338101a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 15:37:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729722987; x=1730327787; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eDwSkxF7WJ4kfN02Vjn7/1ATHMtONFtEuwuiRviy10s=;
-        b=IRZUkgIG/MfhJd0qba8D8kWCQtgpmDH+8/RQPGPOgaB+JTv97Y3Kd7lIqbqYF379+m
-         3WsDGUuWwOZp97CbyI5m/Q0V80n+GCRgeOq4TQH2Svyp7oGGSkMXmi7CLVtdQpELLm2Q
-         32OUt7jeEWwcWFo2MThf84+v10CkyHDCeodrGSF+d3bh/3DDX9Dr5BIlfTGXfAv6Bc6Y
-         XIopb0KNHqdCwoRO5iVdv3tEBWWY8hBgte69QG+PE2n5J034bEs2Nsood506aSesDm0Y
-         JoK8wYkGV3HgSlPVEc/SHznr5XykZ/KAZR56Dl3URAGi2ZB5Ie7dg2RIXSLKhgI4YZTb
-         mhdg==
+        d=gmail.com; s=20230601; t=1729723029; x=1730327829; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9GjLyrUovCAs/itFKkl6SdTkHcCigmbwpVXsabFIzLI=;
+        b=HgqS8gQ/LBcFWv6BbnvqH8FbYHiJ0E865DEdh/HiT2NQOHudAM05fGZqCHZzpo557Y
+         puozijtDA7shyzjIqSKgt+Ggg1ldyzLoBsgb4QpbWktqhAoxVWuC50+9fbi6L5RwQ6mO
+         pMSrJH0pCVr8fBUOp7TYB/5ct0RPZ8E/ISMWVTlYzEQcT9CM/wvFJfD9p5N4I6qMRZVw
+         yhnn9RPClGYG4b4eqGcseeQgQFGNLpv1PtM4+H85NfJIfMzvHDaTVS37RDw0lkFhijXu
+         UQxTyUuX6ChvK1SCSqrc42yQQL6iw+sI1U2TAKyMkDpE/Cmo8ucD76UPfEPOZ8cc6Hkq
+         jZvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729722987; x=1730327787;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eDwSkxF7WJ4kfN02Vjn7/1ATHMtONFtEuwuiRviy10s=;
-        b=PmUFga+eUjxQq3vLYNbAUIljSLaH6W21flRcjO1qN0d+iXtTn0INBOIWnEP63t6fwe
-         nIm3hTGOubWditA0mjl5p5ha99Ozv1DZRx0FM908/ajVAt4ApqYZFSUqTsTyfskcS9O0
-         KBOLGcjC4+xT0yh25hJ1axdAxfmmzbBGGYcBHs8JuKrnLrUpq/CJj8mxz0MfYd/bJGNi
-         rgmpr2345qfWUhrNjDZO2Lg3Lep/gnwWe988LRwI/fQR8xDcJH+IWi66qK5uWLXbDkKf
-         ORz6mSjckaJIr//FBruDi7R7hnz6fE+2xUXKS/bTFSXHKt6cZcrF0wSyg+594lrB0Hop
-         IaUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ16lRZfwFbJt0i71JPlOTjRKtRPO669eM9AQEXKAOHgvJn2HeWpRXMAzwChPlRycf27Yy7F9BChuktQU=@lists.infradead.org, AJvYcCWtwIhgF4qGJ20ltBQYk51dnY1zAXIxMXNOoMjMMdc+zVzN5UaItOWR87pp7a6WHgsciKh8cKx4PoJVuI2tQ3Xt@lists.infradead.org
-X-Gm-Message-State: AOJu0YywaBSKn9cJ7rHAuCnmOYoS0PLCZ6AM7feG+6Qq2dX1L3Gw59QQ
-	DaZB+WWLuKQyAZHrOQxH6CBKHtxiPo3RG4tC6kOwaVsbxEXoLVhb
-X-Google-Smtp-Source: AGHT+IHZHuIwRxG7OAHNulcO6fIJfRQUcZc5T2JQxQu8pU9oJ4gNvzh822T/LibfUXWlnPRbU4LzEg==
-X-Received: by 2002:a17:90a:9f8c:b0:2db:89f0:99a3 with SMTP id 98e67ed59e1d1-2e76b6d7175mr4285461a91.26.1729722987343;
-        Wed, 23 Oct 2024 15:36:27 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76ddc9e6dsm2033227a91.0.2024.10.23.15.36.26
+        d=1e100.net; s=20230601; t=1729723029; x=1730327829;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9GjLyrUovCAs/itFKkl6SdTkHcCigmbwpVXsabFIzLI=;
+        b=HzPzV8qBje+xsJjocNsfa2ESmbuz76v4SzoAkPWKvqLjoVnDfn2ZkQ7krFaclzxr0z
+         GvhqQ6fH+L9pu3mMybGcLhFXOgbbSNPdFBI3KcxwkhBhhKqjo6BXpMSwat61ucxhpecP
+         2rFq6IlB0nfHVUnP7C/TAFof9dUP5g07LFlTKU/l5ozAbgLbBjyD9drRFlx9O3OsNTJb
+         aFp7m/+iM+jYZy0VFkTxP0XEFprVyIFEPviuOFLQPuM+JcaIQYExkv0ymU58nYOzmmq5
+         /xjlPmpaYoK7RzMA8Xk9lZ3B2HDzBn7NdC0+db6O4dFcBSnQFEarfAVvva+MqF3i1e//
+         o8OA==
+X-Forwarded-Encrypted: i=1; AJvYcCUcpUhPn15bMkGA89idbiRiJtStY/yoQGCkS/NiHHG7oyr1w11F5CFxXPoPdoRrD/OmA8ccG+iyXA7OBEJPsGoC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzInqSeM5RK9d56k7Zksy7n74KcsfwgemcUquQIUa+rLq63PnEU
+	Dba7+L9+mVUiY03qxyF680w/1LQwEIdzUqmhax0aWWD9I5hXsBs9
+X-Google-Smtp-Source: AGHT+IHq4uQ4ZWTcwAwjlSwm2uiOqT0ZdpoxlLWuEYMeWjs5pOEq1U85++qtkC7hLnSxG8UrS0ec8g==
+X-Received: by 2002:a05:6402:378d:b0:5c5:cd4b:5c4d with SMTP id 4fb4d7f45d1cf-5cb8aca2dd1mr3261325a12.8.1729723028758;
+        Wed, 23 Oct 2024 15:37:08 -0700 (PDT)
+Received: from [192.168.122.1] (93-190-140-122.hosted-by-worldstream.net. [93.190.140.122])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb6696b4easm4907816a12.12.2024.10.23.15.37.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 15:36:26 -0700 (PDT)
-Date: Thu, 24 Oct 2024 06:36:06 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <uzlmckuziavq5qeybvfm7htycprzogvkfdqj2pxrjmdkuovfut@5euc5nou7aly>
-References: <20241021103617.653386-5-inochiama@gmail.com>
- <227daa87-1924-4b0b-80db-77507fc20f19@lunn.ch>
- <gwtiuotmwj2x3d5rhfrploj7o763yjye4jj7vniomv77s7crqx@5jwrpwrlwn4s>
- <65720a16-d165-4379-a01f-54340fb907df@lunn.ch>
- <424erlm55tuorjvs2xgmanzpximvey22ufhzf3fli7trpimxih@st4yz53hpzzr>
- <66f35d1b-fd26-429b-bbf9-d03ed0c1edaf@lunn.ch>
- <zum7n3656qonk4sdfu76owfs4jk2mkjrzayd57uuoqeb6iiris@635pw3mqymqd>
- <d691a687-c0e2-48a9-bf76-d0a086aa7870@lunn.ch>
- <amg64lxjjetkzo5bpi7icmsfgmt5e7jmu2z2h3duqy2jcloj7s@nma2hjk4so5b>
- <79f9b971-8b3f-4f31-ab42-42a31d505607@lunn.ch>
+        Wed, 23 Oct 2024 15:37:08 -0700 (PDT)
+From: Markuss Broks <markuss.broks@gmail.com>
+Subject: [PATCH 00/12] Add support for Exynos9810 SoC and Samsung Galaxy S9
+ (SM-G960F)
+Date: Thu, 24 Oct 2024 01:36:31 +0300
+Message-Id: <20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <79f9b971-8b3f-4f31-ab42-42a31d505607@lunn.ch>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG96GWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDINZNrajMyy+2tDA00E0yTk1NsbQ0TTJIslQCaigoSk3LrAAbFh1bWws
+ Akpg/9lwAAAA=
+X-Change-ID: 20241024-exynos9810-b3eed995b0b9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Markuss Broks <markuss.broks@gmail.com>, 
+ Maksym Holovach <nergzd@nergzd723.xyz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1729723025; l=3314;
+ i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
+ bh=fDYGFSiGfjp1xITeKsF1qgFSp9poh5xdMsaZW2rsHHM=;
+ b=MrsoCLRlSFg+nm88pTF+R79mqB3Q75TI+feiJWmHp6ies/JafB2nr0nxY/Q6GoYmqczv4OhU3
+ u61IG1fjWS5C6gQ8rAXxcj7fdguHLV5SlGpaXKxiGPSxHGqHu9syECh
+X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
+ pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_153628_944063_2D34400E 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20241023_153711_347486_C44E38A5 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,30 +113,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 02:42:16PM +0200, Andrew Lunn wrote:
-> > Yes, this is what I have done at the beginning. At first I only
-> > set up the phy setting and not set the config in the syscon. 
-> > But I got a weird thing: the phy lookback test is timeout. 
-> > Although the datasheet told it just adds a internal delay for 
-> > the phy, I suspect sophgo does something more to set this delay.
-> 
-> You need to understand what is going on here. Just because it works
-> does not mean it is correct.
-> 
+Hello,
 
-It seems like there is a missing info in the SG2044 doc: setting the
-syscon internal delay bit is not enabling the internal mac delay, but
-disable it. Now everything seems like normal: the mac adds no delay,
-and the phy adds its delay. 
+This series adds initial SoC support for the Samsung Exynos 9810
+SoC and initial board support for Samsung Galaxy S9 phone (SM-G960F),
+codenamed starlte.
 
-The sophgo have already confirmed this is a firmware issue that does 
-not set up the mac delay correctly and will fix this in the firmware,
-so the kernal can always have not mac delay. Since this will be fixed
-in the firmware and this interface is not exposed to the kernel, I will
-remove the code setting the syscon bit.
+The Exynos 9810 SoC is also used in S9 Plus (star2lte), Note 9 (crownlte),
+and perhaps more devices. Currently only Galaxy S9 DTS file is added but it
+should be fairly simple to add support for other devices based on this SoC,
+considering they're quite similar.
 
-Thanks for your effort on this.
+The support added in this series includes:
+- cpus
+- pinctrl and gpio
+- simple-framebuffer
 
-Regards,
-Inochi
+This is enough to boot to a minimal initramfs shell.
+
+The preferred way to boot this device is by using a small shim bl called
+uniLoader [1], which packages the mainline kernel and DT and jumps to
+the kernel. This is done in order to work around some issues caused by
+the stock, and non-replacable Samsung S-Boot bootloader. For example,
+S-Boot leaves the decon trigger control unset, which causes the framebuffer
+to not refresh, so simple-framebuffer wouldn't work without a secondary loader.
+Ideally, there'll be a kernel driver for the display subsystem some day to
+resolve this issue.
+
+[1] https://github.com/ivoszbg/uniLoader
+
+Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
+---
+Markuss Broks (12):
+      dt-bindings: arm: cpus: Add Samsung Mongoose M3
+      dt-bindings: hwinfo: samsung,exynos-chipid: Add Samsung exynos9810 compatible
+      dt-bindings: pinctrl: samsung: Add compatible for Exynos9810 SoC
+      dt-bindings: pinctrl: samsung: Add compatible for exynos9810-wakeup-eint
+      dt-bindings: soc: samsung: exynos-pmu: Add exynos9810 compatible
+      dt-bindings: arm: samsung: Document Exynos9810 and starlte board binding
+      dt-bindings: arm: pmu: Add Samsung Mongoose core compatible
+      perf: arm_pmuv3: Add support for Samsung Mongoose PMU
+      soc: samsung: exynos-chipid: Add support for Exynos9810 SoC
+      pinctrl: samsung: Add Exynos9810 SoC specific data
+      arm64: dts: exynos: Add Exynos9810 SoC support
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S9 (SM-G960F)
+
+ Documentation/devicetree/bindings/arm/cpus.yaml    |   1 +
+ Documentation/devicetree/bindings/arm/pmu.yaml     |   1 +
+ .../bindings/arm/samsung/samsung-boards.yaml       |   6 +
+ .../bindings/hwinfo/samsung,exynos-chipid.yaml     |   1 +
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   1 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   1 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |   1 +
+ arch/arm64/boot/dts/exynos/Makefile                |   1 +
+ arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi | 525 +++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos9810-starlte.dts  | 119 +++++
+ arch/arm64/boot/dts/exynos/exynos9810.dtsi         | 256 ++++++++++
+ drivers/perf/arm_pmuv3.c                           |   3 +
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 154 ++++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   1 +
+ drivers/soc/samsung/exynos-chipid.c                |   1 +
+ 16 files changed, 1074 insertions(+)
+---
+base-commit: f2493655d2d3d5c6958ed996b043c821c23ae8d3
+change-id: 20241024-exynos9810-b3eed995b0b9
+
+Best regards,
+-- 
+Markuss Broks <markuss.broks@gmail.com>
+
 
