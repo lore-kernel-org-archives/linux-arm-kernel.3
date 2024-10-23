@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA2CCFA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F171CFA45C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=; b=kI8Gsdvc1BiCtpfV3dpGaNV+XN
-	QJzGhcJlVx3F1WDejSwBLV73/w9Ga1gk45GfwGoSY/MDDVppFvQqsNjxs1quFu1Vm26nMuM1lxlIj
-	aAdLDXlwbDByVOzIIU0HmymGQp/Jsf1MawoQyxFxzC3Ql4d1UbiWpwElYGjSPXAoqGmYxXFFgLUeV
-	5KK0uJfZomWR3ZCOyIl/Y1CsKteI+O+3h4PB9wWv/IpA1vi1WsiETNVPhuMp+krsf/L8u7XdCsD0r
-	LHYvnLokUGToRc8qypPFvCc6/cwT0tWd22Mr2UC+0msf097Xsi2xfhJeqz3f/VBnncOa9UOGFCqmc
-	GQaHaXLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=24JSccvs0HSbNmxvOVItJ4JQKqdo53s7Emj+lH9aPyw=; b=mFDCuzJeEsWN1N0QQtBPSpcPJd
+	p/EM45lhswJcC6sCMeGM71gEeU1MS0zEajKMU9G9G4mygjGacv5Cs2/EJxK/wdY7FxjF+2KvCl4hP
+	G7Tgf0Tsb8GSBvJq+Pk+ZGBVIXsZJ+UrX4W3hlS007wG44IUVKh+2fTCvixognW5LjTRMuVBOcvJ8
+	nX//DJJ6q0drfbEVczKNqsDREKoW2oqKQIkCjwNWo2gp7nXZ58TTBWsinCfzePj78nACihsCoczYT
+	yPIMS/HtdfdkXqfwkO+O9uRQdBNJwFpmEFlnz/cVPh6bLlk5YlCiSctLeijp/WCBRshsaXUZFt5Ar
+	Tfynsd/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fyQ-0000000FVWj-44c3;
-	Wed, 23 Oct 2024 18:20:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3g1U-0000000FVtU-14B6;
+	Wed, 23 Oct 2024 18:23:56 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3evB-0000000FKaj-1qv4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 17:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=; b=Tfk7KD36cL7aQjDSpw/0mXpxsZ
-	X3NkyZc63DLMiQUFyzhDXgbqhVSFjSxPtkOT7NJIsUjYzreESyVD3BIL5+3d9bu6Yd6+MsDB/j6zk
-	xszcDgJUCnbZAh5oyeWnx3A5wrNRMl9KJs+PQi3dBetSkuq9fOnqiFzLjF9vjxKejkcemBRZA//nV
-	BXOJVWNkMAbhs66hp407/fxydxfctWsT2DpgPf998uIPjAYyVouTAJoJF4UB3oHwDySAYT+HV9LPj
-	pgDljESoR9f0oNII9VJRA+2qJs5uBmtJZn3mEnA4FLmoYGxlTw+eOvd4Fmiu1srdpl5vSQXqP4Z0b
-	gegrcDfw==;
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ev5-00000008UBe-0Tcd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 17:13:16 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e28ef71f0d8so68032276.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 10:13:13 -0700 (PDT)
+	id 1t3ewV-0000000FL2d-0ren;
+	Wed, 23 Oct 2024 17:14:44 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4314b316495so68683305e9.2;
+        Wed, 23 Oct 2024 10:14:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729703592; x=1730308392; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=;
-        b=lEF0ryORaXaDmwfTIjAEOqQKauUg6I2lWZApQ12OJqXbF+ffOztUYz6xZ5r7jGc01e
-         MAk6l0MXRePLuMj+78vxyWCdLNzdLRPpq13zzQO116aeLF/wcpLL9nB/zqq6BGJyPkdN
-         HIbSCxVx6FULY4IFBbZydbddsflOxLe8MH/Y6RMh3xT+UfxawaecVnB8L1qxi8JcGIoh
-         wbPylmLQ+yfKsxyiezc9rLtXT71HKOfVGENDUszuQ5JvDvyHxkkEZT7WNWxvaT5OZl+e
-         ybTLJCssjBmcjAKrb9VjdoOnvJgxws4KgB/YjDjtQeNQ1BCQM5lyiXBmyidZS6cBJeN1
-         JFDA==
+        d=gmail.com; s=20230601; t=1729703682; x=1730308482; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=24JSccvs0HSbNmxvOVItJ4JQKqdo53s7Emj+lH9aPyw=;
+        b=XVEQLNC3x1wUxCVq4rt8u2kRNxMZzxWTcY/Q0Ghgz/+jKKnVawjxLTEl6P8JzhzWYK
+         Y+v+H73T1sziUMJ4KAo6PmEweW3qT42gmOqJyD4ELUVPZEGrjE3lqJhlrGyE74OyAUQo
+         eaacqnhvca+xpbIhO5TcoP7G2zKFERphi92DNJ1CFseA6sz9iEnuo5VKXrttjoMjgrc/
+         m7p9A5qvcswmTtHT8+CAmrJu9r7NmuaAUu4Ad97jYEjFsDDie7QoSSg0RhB3TyTJwA+9
+         oFEq4ynWA/RU64ygxhrAlZSB6By2HM6WsJ3h043SgGYp5SiXrcjzOb2xVT9SqMlA2Qx1
+         4diA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729703592; x=1730308392;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=;
-        b=N1HPYmYWGHBqH7bsFfc7bVZa7FNPKqgIlQ6A03RHdT4dn7wXlSZmlpu/RC2WUb0QjG
-         oXLLGdbDqJ5hHOdLjyMmJHnzkO//z8lgN9WfJTvD/98Hh8Lz44dnR6l7mAY0B4smmI9x
-         bUbOl/qogZ5GZe00u6Wt4uGUyIvJjuSt3Ugi0L0+eaRTNL4/iXYMyC42gWZjQs/Vvryd
-         /EJ9djSi9ZgjrylqeIjz6ZT/8kKcLmKudnKZpIHsKn0W+JzmidLtlTSBPlWaji59LVIY
-         e3jHhpfxeCZ+Ldwu9+Nt4ckt/mYF7wvShmlskL3LYPiX5YvGoNMhTfh8I+cYs9rZmOXN
-         Es4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWrZ+lo1ytjdt6g/FAmgq9ePaJy+x8s6EdDGz/3zCKuhIqb1/EmFLdPG1DnmKkbw6P39Tev+GsKDN2Tkd86PII1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzOceKbaZZzvRbb60wbMnRuNklIeS0Zxt4x/3+PoNSdLMnTt44
-	6CLs6s7lrs1TK+NC6vozvLavTb1qwxhYDWA6U01VIKeOk5n6NPG08xSTbj7VzlQnUJbPAfZS2w3
-	WVCpBg9Nadw==
-X-Google-Smtp-Source: AGHT+IFzj+UPbqIngfYZg8jfoSUOtJUbhZmymzy/LpsBgzX9feIS82Pp9ab/ElSPVxx+P987jYpoPGCk3MktKg==
-X-Received: from mostafa.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:333c])
- (user=smostafa job=sendgmr) by 2002:a5b:b90:0:b0:e27:3e6a:345 with SMTP id
- 3f1490d57ef6-e2e3a6dd19amr1836276.10.1729703592399; Wed, 23 Oct 2024 10:13:12
- -0700 (PDT)
-Date: Wed, 23 Oct 2024 17:12:43 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Message-ID: <20241023171244.4031151-1-smostafa@google.com>
-Subject: [PATCH] Documentation: Update the behaviour of "kvm-arm.mode"
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Cc: corbet@lwn.net, Mostafa Saleh <smostafa@google.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1729703682; x=1730308482;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=24JSccvs0HSbNmxvOVItJ4JQKqdo53s7Emj+lH9aPyw=;
+        b=ln4vBrrkynptg8+zpZuh7iVAtM2nAPRsf1Iz/WizbXw4ghX1aXL9bH01CtvqIPgsmQ
+         U7d749RzGu8RgbEx4JuwGCisp1ll410Lk8AAnKwvTjND1jAnPD+n2YnAtDBc0TN9hbVd
+         wB5kwjX7ceoilnpvine7lNzMUb8MHCLSb4plWPHPSvV40XDwU0im1fu98HWvfeDEa1Z7
+         dR8Lt1vEy7woawCLW+Qi7oicCnkyqGOIPMwtQgLIZExs/ngEbfzoAxd21ecSFwwt+VvI
+         j+ktZKIDsArIsVpLTSvtJ9DH7jN5SlU2Y+B0wa2V9wvVqq271wClyEGUUWLde0YpWmXy
+         XQdw==
+X-Forwarded-Encrypted: i=1; AJvYcCUARB73YI0fJ6mKPPAE5Av1IofdC1gD1dG/O1LDnFyefPjWt/wBPL1SmvBug9myfFol+MHkgdbDrISorh8g56c=@lists.infradead.org, AJvYcCUYJgsj2xvyvPfV+7ThlSkfMH7I23Wgmfeuteg6MchYEJZ4zIXf+FcinsE/IY72XtB6LVGyY9F5XNPQX1nITAKO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0BZOVArmsLQXiyICwrWWPjM2dDNroeDT/sKGYvKerr4147UuG
+	uQlhIX3C/ytX1QvSn5gNLpSK+MUaWNJNKxllMPl1f09zJasC6djj
+X-Google-Smtp-Source: AGHT+IFyL3faonwfZbopJADep8Fb7q5nglJ4asw2OSvMdOVlChDa7XsFH3HgPggJz4T2SeNw/my3rA==
+X-Received: by 2002:a05:600c:1c95:b0:42c:bd4d:e8ba with SMTP id 5b1f17b1804b1-4318413e532mr24981595e9.8.1729703681340;
+        Wed, 23 Oct 2024 10:14:41 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43186c3a44asm21554805e9.36.2024.10.23.10.14.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 10:14:40 -0700 (PDT)
+Message-ID: <67192f00.7b0a0220.343b2b.9836@mx.google.com>
+X-Google-Original-Message-ID: <Zxku_anuVj64p9nq@Ansuel-XPS.>
+Date: Wed, 23 Oct 2024 19:14:37 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next RFC PATCH v2 1/3] dt-bindings: net: dsa: Add Airoha
+ AN8855 Gigabit Switch documentation
+References: <20241023161958.12056-1-ansuelsmth@gmail.com>
+ <20241023161958.12056-2-ansuelsmth@gmail.com>
+ <5761bdc3-7224-4de6-b0f5-bedc066c09f6@lunn.ch>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5761bdc3-7224-4de6-b0f5-bedc066c09f6@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_181315_319734_30772148 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20241023_101443_279618_399390F1 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
-VHE support") modified the behaviour of "kvm-arm.mode=protected" without
-the updating the kernel parameters doc.
+On Wed, Oct 23, 2024 at 07:08:57PM +0200, Andrew Lunn wrote:
+> > +  airoha,base_smi_address:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description:
+> > +      Configure and change the base switch PHY address to a new address on
+> > +      the bus.
+> > +      On reset, the switch PHY address is ALWAYS 1.
+> > +    default: 1
+> > +    maximum: 31
+> 
+> Given that this is a 5 port switch, what happens if i pick a value
+> greater than 31 - 5 ?
 
-Update it to match the current implementation.
+The PHY at those address won't be reachable, I didn't think of this, you
+are right.
 
-Cc: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
+> 
+> Do you have a real use case for this? A board which requires the PHYs
+> get shifted from the default of 1? Vendors have all sorts of bells and
+> whistles which we never use. If its not needed, i would not add it,
+> until it is actually needed, if ever.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Well the first case that comes to mind is multiple switch and conflict.
+I have no idea if there are hw strap to configure this so I assume if a
+SoC have 2 switch (maybe of the same type), this permits to configure
+them (with reset pin and deasserting them once the base address is
+correctly configured)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index bb48ae24ae69..59a0dd7e2de6 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2723,8 +2723,12 @@
- 			nvhe: Standard nVHE-based mode, without support for
- 			      protected guests.
- 
--			protected: nVHE-based mode with support for guests whose
-+			protected: hVHE-based mode with support for guests whose
- 				   state is kept private from the host.
-+				   In case hVHE is not supported in hardware, it will
-+				   boot with protected nVHE.
-+				   nVHE protected mode can still be forced on VHE systems
-+				   using "kvm_arm.mode=protected arm64_sw.hvhe=0 id_aa64mmfr1.vh=0"
- 
- 			nested: VHE-based mode with support for nested
- 				virtualization. Requires at least ARMv8.3
+But yes totally ok to drop this if too strange... I assume it's problematic
+that PHY change at runtime.
+
+> 
+> > +  mdio:
+> > +    $ref: /schemas/net/mdio.yaml#
+> > +    unevaluatedProperties: false
+> > +    description:
+> > +      Define the relative address of the internal PHY for each port.
+> > +
+> > +      Each reg for the PHY is relative to the switch base PHY address.
+> 
+> Which is not the usual meaning of reg.
+> 
+> > +            mdio {
+> > +                #address-cells = <1>;
+> > +                #size-cells = <0>;
+> > +
+> > +                internal_phy0: phy@0 {
+> > +                    reg = <0>;
+> 
+> So given that airoha,base_smi_address defaults to 1, this is actually
+> address 1 on the MDIO bus?
+>
+
+Yes correct. One problem I had was that moving this outside the swich
+cause panic as it does conflict with the switch PHY address...
+
 -- 
-2.47.0.105.g07ac214952-goog
-
+	Ansuel
 
