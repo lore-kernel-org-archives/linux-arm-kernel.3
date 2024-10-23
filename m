@@ -4,98 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89386CFA461
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1CCCFA460
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=; b=tVdNFUOBjoxCjxJAowVnRTz1T1
-	F+EOPbHkHKYR+sFHxDgThkVGWxc/BeuQNVCw6PwHmqyhM3Y25ydZ+gXHKI4Y6xTG+JhDqIONh8Nz8
-	uHQLSvGtTuFN8NXH4QJl9RgMX33BZ0lzMfijoMaSCgec8f50vH5GbPSlmV1Jyu0KF9CgbzY7bnBij
-	//oUzOujqPos0L23xJUhn8jD/9qTz1dvZS8cfwitlqH3k+43uRw8BZ/DgVX0lfeX6P/bfNsSKi+Cq
-	z62x83pyxpXhDGjGFDj0EcMfYEWlj04i3LfCrHyrgY+13x4FzeJlYiNi5gVY6JpK8GwdTm01I5HFM
-	V7aTa+Fw==;
+	bh=vqUffkaQVdIiNl5USrnURsXx0coAar7gY7XhicfsWnU=; b=zTt9v+HjPGDNBj35ftOrDou4lb
+	5O1o4roSJJGyUqDO3lL7N30yu7vYlsNicbZmKUf5Gg6q7ESrCoIY3rPF3OMdOC2WEyKCE6LSow1DE
+	GvzunGHrBmBJp6d+mgPBXJdCAWpOr317xWf+nhm/gyHY1b8Zvw4eNA6r1EK4JfjmcN5WXVxocWxRn
+	orGAcUIhiMG1M5zntls0iep6RPnQosC3DG3gukMrCvRK57JX0r+5iio/TD0ayF04r2OHnTHraykc6
+	l2fyx82jNDWqDkvI5yoiNiMci+PYQhe3VQKEO9KV+CkXwaywjNnlY5jW+plqRW57DDEJMeNFFiSf6
+	jUEsDF5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gsf-0000000FdtP-1nZm;
-	Wed, 23 Oct 2024 19:18:53 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1t3gsl-0000000Fdyb-1pA9;
+	Wed, 23 Oct 2024 19:18:59 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eZX-0000000FDkD-15ax
+	id 1t3eaW-0000000FEAb-24lL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:51:01 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d47eff9acso4843504f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702258; x=1730307058; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=;
-        b=E3okqqAfx3M40SK9/zVfWDecTJluypUNBbDBlhQ0EN1RGG0JVYMih5x3cdwiVdsgxk
-         XHC3f7RoEbniMAAp8i9Uabd5sIRUwmlpkKRIO7pOtFm/SyzWzQyZ+NxEucmlULbscVhJ
-         K3UP51Kd9lnX5N+9pKCGVuWOEdTLPv7AWpSlqT77y+L8T5VoUuBdR22APOHUpC1QvEJ5
-         YHMovWw4TEuvRnRSRKS8x+GCq89dsUqpKJ2/oU64gC/TD3+VItxaGfqIflLgpTnk4HHP
-         P//6VHWysZMQaZdeU3VLteTml+erOVit9qpFgKP5u0kDAiQs6quYTzeyufP1j4GCSP7e
-         vgoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702258; x=1730307058;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=;
-        b=SaV+0CpdYKtMQKyfVERwyLBkivkwsBcz8mfghnEuaQ1yD9lV27dGiudwYrJCZ0lXYL
-         bUDLBp4WXCOMRJbvNJEXcb7Pgn94Y6xJVwNZ4gLGawLGHlgrJfT7cNYW31CzjqRGTFTP
-         uuBV/aZ6SCGzh0/F5zieBLxJE6ZDcuDA6YCQcLOl1CjYKtji/momtazTKWyDQwKfo1Xc
-         zGEF/abq2h5UJ9x+JutI4fH21uOmA7GzJ2HTcs3WuIyeI4Vpo+ekNavzKpsm2XmOkqGf
-         HHelLK7dCx0nrSOzgZbPj5WTavzWkR9jiwQCFxa6kweaXbIUg9W3WD94qXwEgNMIeHGj
-         FR2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUHHmDHtGEp1Mv1l8tMnyzWh76NlX4F1vOo4jmZJXdZ//vcVal1u8OPPna1FnkjLZTgrnVa9JZS4dR/7x2SGCSt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvQhQnLLpBAs+V87FRDj40biAbtWN3PKds87J+BVxGqBoJ1cvH
-	25XIwsi8OQC9NS38E71FjmoAHzk5IModC5WIk6SZPQ0AuoFskBaDpqUne8NPfK0=
-X-Google-Smtp-Source: AGHT+IHyDo7gKJ/IShXkUH9eaVP+PbzXws85gi+26NgIg+img0yXRqlCHCujQCnuXRFKsSClohiLPQ==
-X-Received: by 2002:a5d:6102:0:b0:37d:509e:8742 with SMTP id ffacd0b85a97d-37efceee7d5mr2193265f8f.1.1729702257644;
-        Wed, 23 Oct 2024 09:50:57 -0700 (PDT)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:56 -0700 (PDT)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:34 +0100
-Subject: [PATCH 37/37] arm64: dts: broadcom: Add DT for D-step version of
- BCM2712
+	Wed, 23 Oct 2024 16:52:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729702320; x=1761238320;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=40pb8klW+ODECpPhXH68YScfylnlcQv/76gyaYpEBVs=;
+  b=QoubCz+T2s5NhkiZGFakbs04WShyikapbLIgnBJ3EUI99B9OBEUPwNgW
+   4B2o1a8ByFuxuyaymd0NAR1mE3OOeX1gGhFlFWKRRbkNdmkmiONmN63HO
+   xDPTtTwPwACz+Ok3p/Sq+o1M5/b+trnsMb7vt4g8amkk8G9vcdX9yroZn
+   yaxJjt11TWinrPhqQ1DTSv44WL/Krgvw5PWrbsxeitW7bnn5jIqxJzFBk
+   vj6Md6tBsuZHM41rjiuyy3fXqBthgbcqZ9DWjgcn6S4PnbKkDYQ6znMHi
+   vyhKQKoxp0pOxVxYfl11wh1POWZhA4YTuMPNWXXFUctXkfLt3d8Xt2Hk0
+   A==;
+X-CSE-ConnectionGUID: gN4Mais1RaetNfb0FEsPhg==
+X-CSE-MsgGUID: xZrPUavPQbuDoR60WZHHaw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11234"; a="40695412"
+X-IronPort-AV: E=Sophos;i="6.11,226,1725346800"; 
+   d="scan'208";a="40695412"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 09:51:58 -0700
+X-CSE-ConnectionGUID: ILx0V+eORuWSVE0ZoH8Ggg==
+X-CSE-MsgGUID: blE4w4hCRXGtp82vFwdQTg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,226,1725346800"; 
+   d="scan'208";a="84897952"
+Received: from rfrazer-mobl3.amr.corp.intel.com (HELO [10.124.221.6]) ([10.124.221.6])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 09:51:56 -0700
+Message-ID: <6b575236-7e4e-4128-9ab6-7ecec7b81428@intel.com>
+Date: Wed, 23 Oct 2024 09:51:55 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] selftests/mm: Use generic pkey register
+ manipulation
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: akpm@linux-foundation.org, anshuman.khandual@arm.com,
+ aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
+ dave.hansen@linux.intel.com, dave.martin@arm.com, jeffxu@chromium.org,
+ joey.gouly@arm.com, pierre.langlois@arm.com, shuah@kernel.org,
+ sroettger@google.com, will@kernel.org, linux-kselftest@vger.kernel.org,
+ x86@kernel.org
+References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
+ <20241023150511.3923558-5-kevin.brodsky@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20241023150511.3923558-5-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-37-1cc2d5594907@raspberrypi.com>
-References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
-In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
-To: Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Javier Martinez Canillas <javierm@redhat.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095059_355116_65DA7DE2 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241023_095200_632300_C8D896E1 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,74 +135,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The D-Step has some minor variations in the hardware, so needs
-matching changes to DT.
+On 10/23/24 08:05, Kevin Brodsky wrote:
+...> diff --git a/tools/testing/selftests/mm/pkey-x86.h
+b/tools/testing/selftests/mm/pkey-x86.h
+> index 5f28e26a2511..53ed9a336ffe 100644
+> --- a/tools/testing/selftests/mm/pkey-x86.h
+> +++ b/tools/testing/selftests/mm/pkey-x86.h
+> @@ -34,6 +34,8 @@
+>  #define PAGE_SIZE		4096
+>  #define MB			(1<<20)
+>  
+> +#define PKEY_ALLOW_NONE		0x55555555
 
-Add a new DTS file that modifies the existing (C-step) devicetree.
+Hi Kevin,
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
- arch/arm64/boot/dts/broadcom/Makefile              |  1 +
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 37 ++++++++++++++++++++++
- 2 files changed, 38 insertions(+)
+Looking at this in context, I think "PKEY_ALLOW_NONE" is not a great
+name.  On one hand, we have:
 
-diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
-index 92565e9781ad..3d0efb93b06d 100644
---- a/arch/arm64/boot/dts/broadcom/Makefile
-+++ b/arch/arm64/boot/dts/broadcom/Makefile
-@@ -7,6 +7,7 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
- 			      bcm2711-rpi-4-b.dtb \
- 			      bcm2711-rpi-cm4-io.dtb \
- 			      bcm2712-rpi-5-b.dtb \
-+			      bcm2712-d-rpi-5-b.dtb \
- 			      bcm2837-rpi-3-a-plus.dtb \
- 			      bcm2837-rpi-3-b.dtb \
- 			      bcm2837-rpi-3-b-plus.dtb \
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-new file mode 100644
-index 000000000000..7de24d60bcd1
---- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-@@ -0,0 +1,37 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/dts-v1/;
-+
-+#include "bcm2712-rpi-5-b.dts"
-+
-+&gio_aon {
-+	brcm,gpio-bank-widths = <15 6>;
-+
-+	gpio-line-names =
-+		"RP1_SDA", // AON_GPIO_00
-+		"RP1_SCL", // AON_GPIO_01
-+		"RP1_RUN", // AON_GPIO_02
-+		"SD_IOVDD_SEL", // AON_GPIO_03
-+		"SD_PWR_ON", // AON_GPIO_04
-+		"SD_CDET_N", // AON_GPIO_05
-+		"SD_FLG_N", // AON_GPIO_06
-+		"", // AON_GPIO_07
-+		"2712_WAKE", // AON_GPIO_08
-+		"2712_STAT_LED", // AON_GPIO_09
-+		"", // AON_GPIO_10
-+		"", // AON_GPIO_11
-+		"PMIC_INT", // AON_GPIO_12
-+		"UART_TX_FS", // AON_GPIO_13
-+		"UART_RX_FS", // AON_GPIO_14
-+		"", // AON_GPIO_15
-+		"", // AON_GPIO_16
-+
-+		// Pad bank0 out to 32 entries
-+		"", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+
-+		"HDMI0_SCL", // AON_SGPIO_00
-+		"HDMI0_SDA", // AON_SGPIO_01
-+		"HDMI1_SCL", // AON_SGPIO_02
-+		"HDMI1_SDA", // AON_SGPIO_03
-+		"PMIC_SCL", // AON_SGPIO_04
-+		"PMIC_SDA"; // AON_SGPIO_05
-+};
+	PKEY_DISABLE_ACCESS
+	PKEY_DISABLE_WRITE
 
--- 
-2.34.1
+which are values for *A* pkey.
 
+But PKEY_ALLOW_NONE is a whole register value and spans permissions for
+many keys.  We don't want folks trying to do something like:
+
+	pkey_alloc(flags, PKEY_ALLOW_NONE);
+
+If I were naming it in x86 code, I'd probably call it:
+
+	PKRU_ALLOW_NONE
+
+or something.
+
+>  static inline void __page_o_noops(void)
+>  {
+>  	/* 8-bytes of instruction * 512 bytes = 1 page */
+> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> index a8088b645ad6..b5e1767ee5d9 100644
+> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> @@ -37,6 +37,8 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+>  pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+>  siginfo_t siginfo = {0};
+>  
+> +static u64 pkey_reg_no_access;
+
+Ideally, this would be a real const or a #define because it really is
+static.  Right?  Or is there something dynamic about the ARM
+implementation's value?
+
+...
+>  	 * Setup alternate signal stack, which should be pkey_mprotect()ed by
+> @@ -142,7 +145,8 @@ static void *thread_segv_maperr_ptr(void *ptr)
+>  	syscall_raw(SYS_sigaltstack, (long)stack, 0, 0, 0, 0, 0);
+>  
+>  	/* Disable MPK 0.  Only MPK 1 is enabled. */
+> -	__write_pkey_reg(0x55555551);
+> +	pkey_reg = set_pkey_bits(pkey_reg_no_access, 1, 0);
+> +	__write_pkey_reg(pkey_reg);
+
+The existing magic numbers are not great, but could we do:
+
+#define PKEY_ALLOW_ALL 0x0
+
+So that this can be written like this:
+
+	pkey_reg = PKRU_ALLOW_NONE;
+	pkey_reg = set_pkey_bits(pkey_reg, 1, PKEY_ALLOW_ALL);
+
+That would get rid of the magic '0'.
+
+>  	/* Segfault */
+>  	*bad = 1;
+> @@ -240,6 +244,7 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
+>  	int pkey;
+>  	int parent_pid = 0;
+>  	int child_pid = 0;
+> +	u64 pkey_reg;
+>  
+>  	sa.sa_flags = SA_SIGINFO | SA_ONSTACK;
+>  
+> @@ -257,7 +262,9 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
+>  	assert(stack != MAP_FAILED);
+>  
+>  	/* Allow access to MPK 0 and MPK 1 */
+> -	__write_pkey_reg(0x55555550);
+> +	pkey_reg = set_pkey_bits(pkey_reg_no_access, 0, 0);
+> +	pkey_reg = set_pkey_bits(pkey_reg, 1, 0);
+> +	__write_pkey_reg(pkey_reg);
+
+... and using the pattern from above, this is quite a bit more readable:
+
+	pkey_reg = PKRU_ALLOW_NONE;
+	pkey_reg = set_pkey_bits(pkey_reg, 0, PKEY_ALLOW_ALL);
+	pkey_reg = set_pkey_bits(pkey_reg, 1, PKEY_ALLOW_ALL);
+
+...
+> +	/* Only allow X for MPK 0 and nothing for other keys */
+> +	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0,
+> +					   PKEY_DISABLE_ACCESS);
+If the comment says "only allow X", then I'd expect the code to say:
+
+	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0, PKEY_X);
+
+... or something similar.
 
