@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2B9CFA44F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0F1CFA44F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mGNPZ7L2+BANTdVwGnl+FyDwUhdNjCqHTPZtrrx98vE=; b=RwBB28O38KPOK6vToFiYxqZbv0
-	U8+R7I6q7UTFVbz5XnUlPNabsTyBSWnW2fxtS21x25w+kSV81WxZ96JzxcSECROZjULpd8LZvDTyf
-	h4hB60e/eB1kyWLx/8fdX1DKkBgRzfYZCv4TCyfMmChnW0KwL0ehlQmaftFDo1tc5x/Y4IQTjeJwH
-	d1JGWK7YK285JZpUsMj2350EDPuOOvtmXnfkrkT4eSex2THI57jeoO3k98dPz3X6k2AntpmZFiwOR
-	X2TBVHHS0QIq3F6nTq2h4ln1TB2g+2mmn4a5jAkMTbpmy2NgLKHjLic1+W1GA9KsHLrPg0BcQUIJY
-	ss2Oui6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I8bsCbuYj3wrkY+HeSAAVlp5CC82l84u/ffkdl8Y/1g=; b=peVlsPvz7JXDEU5MEUeF6qEQ8e
+	HS6DsHbNIHDw5Tvr5dSeKKWLcdJD7WwtPo/jxiuNYo2edvW7rEnlIjaHMU5kRUMs1MW1IMIDDqUK2
+	jzexpFczDiFuFQfpnDkJDD5OHkeq5NhFqYLic6nWrtaE8ufrprx6C8WhA5ccB6poB8WlWzkLg2MA8
+	ZPk+dmFcAd4VZ6/LdkIh03xYXEo6UuxfooiU5DjugG56V0n05yoBjWNjpEntO823bCso63TeD69pq
+	Z5PvkuiWh/OSk5PN8ubJjLr3w1abwg1BV6jtNMmcN9ZAryh6CPKvggM+f82djLmvNLBbOf6YqLi/K
+	AzPEigOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dx6-0000000F5fv-0ZA4;
-	Wed, 23 Oct 2024 16:11:16 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1t3dyc-0000000F5wj-2kSs;
+	Wed, 23 Oct 2024 16:12:50 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3d7N-0000000Ev4f-3Kts
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 15:17:51 +0000
-Received: from wsk (85-222-111-42.dynamic.chello.pl [85.222.111.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: lukma@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id AC9DA891A3;
-	Wed, 23 Oct 2024 17:17:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1729696661;
-	bh=mGNPZ7L2+BANTdVwGnl+FyDwUhdNjCqHTPZtrrx98vE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sYVNrfG5It5j42lroGwiscpQM1HAuIS/QdVO9YJ8HaIZyQh/dxCHxRnSvanFFc0RB
-	 /XFouyNKsHh8IaqvMYdGocRO5QmCb6IgV2YRLoIpBfso+JPBFviVEIucykdLCrp6rq
-	 limZl21TOiekCVm+qoeL4FxH47tmU5rMFxIjc1iKig0x3e4uGkpTNgeonHlo+HwSfl
-	 d7bhaKDe43GxQjhyxyDqNhliOXHWemqZM++r+44vvzmEDNijbuYY/Ew1RnCU+jurse
-	 G22qMsk1Z6r+p4oJmE5PwF79G8ywCQaJ1XkHYQC9FReKEOunztUPu0bN1Op0efXnZ3
-	 cyxHgwISbA8/Q==
-Date: Wed, 23 Oct 2024 17:17:39 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, broonie@kernel.org, linux-spi@vger.kernel.org,
- shawnguo@kernel.org, linux-arm-kernel@lists.infradead.org, Fabio Estevam
- <festevam@denx.de>
-Subject: Re: [PATCH 1/3] dt-bindings: misc: lwn,bk4-spi: Add binding
-Message-ID: <20241023171739.475a2bb7@wsk>
-In-Reply-To: <20241023120015.1049008-1-festevam@gmail.com>
-References: <20241023120015.1049008-1-festevam@gmail.com>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1t3dDm-0000000EwjO-0Lwh;
+	Wed, 23 Oct 2024 15:24:27 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a99f629a7aaso187030866b.1;
+        Wed, 23 Oct 2024 08:24:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729697064; x=1730301864; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=I8bsCbuYj3wrkY+HeSAAVlp5CC82l84u/ffkdl8Y/1g=;
+        b=YGpmK5oD0trMSah8aPRZypBMyN6e0j8e/eChLo8TRb/fapCWHUcnoENnu/escVFTL1
+         +9lB8p5dGvwh2JLOZm/7Aj20vBzi+Jkc5LWkzwkpkvl8k0gPsZEJRum+O85hybx4L5K1
+         AF2Z/Rm/0FxWYfZ1/XJBmQIz3L282kO0IDy/jqkOFs39E36EnNoKGmlUQaVkUgf8FQsR
+         F0Ou66UCo7cyS4Zurq2IGE3jPCjv3024oKYYiYrimSX/oAo15YdZK2EkOVMQo/fOS+Zc
+         ZlpW7HamuQov1xgH5FpIDyP1c0EGRTWFfzTA0AIW+mE3wVEUAbBt9P8HcMfUObnZu4tU
+         MRCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729697064; x=1730301864;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=I8bsCbuYj3wrkY+HeSAAVlp5CC82l84u/ffkdl8Y/1g=;
+        b=ikGG9K+vklmjOCLxTYtxUL0KIVlg6Yc3Q5NocQbhA2FebReuGxxqyxjv/ph/kQDH9U
+         V23hpF5bPXRp6iO7KD/ONDPIBf1AZXJJoIYjzCL9M5QGae21zTAUMr7eZKsH+TXz5sek
+         7FtuItno0IdjGWKeSdkSfBsjf2UCMukbTYr2s7f/qynNJFZaiOB9oXDQF9714rSWHcfm
+         EWEZRs6GmogBML6RSZme8hvnRhKqx06jdGqeJ64/CujnQ7ixEwHO8HuVGiZ4YebivD6y
+         euWR/gsawQBT1nCU8R81VQx0Pf+wvijj0F+rFwJYV5q2rPe+K0mERjbD+MRHloEiRHvD
+         qqyA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjOZRylhFW1lpbMLlwxLjPPh+29bJOUjBdXbzjbSbXbO8aIldMqdMTbXBSoOD8ht0QngopHg==@lists.infradead.org, AJvYcCXr7nDxOY2KEAnBoudVqFXfy3j6i1zSzFjXOJ2MlHj/WVCudqMe2Z8hHmzhaKtLZ/6c/6uoBfyII2qgOJMudoDKNg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeyHUFx2JQmHS9WLolZe2zOJrR5aLUjk9WNucEfwiR3hDXvD7X
+	krhrjqBwsl2VcZmSCsENLUh2WpcYZBVb80Z3Sxea67H/lwBOQslV
+X-Google-Smtp-Source: AGHT+IGLxU7wxiCH3a1b/uHVpe3fD6Af7zQszRgnPFbDSKYaGfHilRmwG2cZ7GC2/X4IxrDdkB/rog==
+X-Received: by 2002:a17:907:6d0c:b0:a8d:2281:94d9 with SMTP id a640c23a62f3a-a9aaa620d72mr822955666b.23.1729697063565;
+        Wed, 23 Oct 2024 08:24:23 -0700 (PDT)
+Received: from ?IPV6:2a03:83e0:1126:4:eb:d0d0:c7fd:c82c? ([2620:10d:c092:500::7:ca73])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a91559b33sm487702366b.116.2024.10.23.08.24.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 08:24:23 -0700 (PDT)
+Message-ID: <237a32b7-e2c9-4db4-9358-918ce54da779@gmail.com>
+Date: Wed, 23 Oct 2024 16:24:22 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/EXs69__H/ReNKkpgChycJ7c";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] of/kexec: save pa of initial_boot_params for arm64 and
+ use it at kexec
+To: Rob Herring <robh@kernel.org>
+Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org,
+ catalin.marinas@arm.com, saravanak@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org
+References: <20241003113840.2972416-1-usamaarif642@gmail.com>
+ <20241004000316.GA1910499-robh@kernel.org>
+ <d3d90f10-1ccd-4557-843c-5b546d3b913c@gmail.com>
+ <CAL_JsqJVEjPt9tHNr0uAGHQwGnUbZDZoe7kURp3Qx0ce1jv+vw@mail.gmail.com>
+ <4b9456a3-47ea-4a00-92fe-131ccd80e550@gmail.com>
+ <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
+ <1e117d65-b454-4d5c-b03a-c3ab3b078093@gmail.com>
+ <CAL_JsqJhd0X+eCW6WgXUjCLb-dBqHN4_01vzRRLU07Wz5Q2tLw@mail.gmail.com>
+Content-Language: en-US
+From: Usama Arif <usamaarif642@gmail.com>
+In-Reply-To: <CAL_JsqJhd0X+eCW6WgXUjCLb-dBqHN4_01vzRRLU07Wz5Q2tLw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_081750_189569_622E7514 
-X-CRM114-Status: GOOD (  28.97  )
+X-CRM114-CacheID: sfid-20241023_082426_164415_0A67288E 
+X-CRM114-Status: GOOD (  35.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,172 +103,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/EXs69__H/ReNKkpgChycJ7c
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-Hi Fabio,
-
-> From: Fabio Estevam <festevam@denx.de>
->=20
-> Add a lwn,bk4-spi.yaml binding for Liebherr's BK4 external SPI
-> controller.
->=20
-> Currently, the compatible string used for this device is "lwn,bk4",
-> which is the same as the board compatible string documented at
-> fsl.yaml.
->=20
-> This causes several dt-schema warnings:
->=20
-> make dtbs_check DT_SCHEMA_FILES=3Dfsl.yaml
-> ...
->=20
-> ['lwn,bk4'] is too short
-> 'lwn,bk4' is not one of ['tq,imx8dxp-tqma8xdp-mba8xx']
-> 'lwn,bk4' is not one of ['tq,imx8qxp-tqma8xqp-mba8xx']
-> 'lwn,bk4' is not one of ['armadeus,imx1-apf9328', 'fsl,imx1ads']
-> ...
->=20
-> Use a more specific "lwn,bk4-spi" compatible string for this
-> device.
->=20
-
-Thanks for updating this.
-
-BK4 is another example of to be long-time supported device... :-)
-
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> ---
->  .../devicetree/bindings/misc/lwn,bk4-spi.yaml | 54
-> +++++++++++++++++++ .../devicetree/bindings/misc/lwn-bk4.txt      |
-> 26 --------- 2 files changed, 54 insertions(+), 26 deletions(-)
->  create mode 100644
-> Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml delete mode
-> 100644 Documentation/devicetree/bindings/misc/lwn-bk4.txt
->=20
-> diff --git a/Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml
-> b/Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml new file
-> mode 100644 index 000000000000..7fb86e6abade
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/misc/lwn,bk4-spi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Liebherr's BK4 external SPI controller
-> +
-> +maintainers:
-> +  - Lukasz Majewski <lukma@denx.de>
-> +
-> +description: |
-> +  Liebherr's BK4 external SPI controller is a device which handles
-> data
-> +  acquisition from compatible industrial peripherals.
-> +  The SPI is used for data and management purposes in both master and
-> +  slave modes.
-> +
-> +allOf:
-> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: lwn,bk4-spi
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  spi-max-frequency:
-> +    maximum: 30000000
-> +
-> +  fsl,spi-cs-sck-delay: true
-> +
-> +  fsl,spi-sck-cs-delay: true
-> +
-> +required:
-> +  - compatible
-> +  - spi-max-frequency
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    spi {
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        spidev@0 {
-> +            compatible =3D "lwn,bk4-spi";
-> +            reg =3D <0>;
-> +            spi-max-frequency =3D <30000000>;
-> +            fsl,spi-cs-sck-delay =3D <200>;
-> +            fsl,spi-sck-cs-delay =3D <400>;
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/misc/lwn-bk4.txt
-> b/Documentation/devicetree/bindings/misc/lwn-bk4.txt deleted file
-> mode 100644 index d6a8c188c087..000000000000
-> --- a/Documentation/devicetree/bindings/misc/lwn-bk4.txt
-> +++ /dev/null
-> @@ -1,26 +0,0 @@
-> -* Liebherr's BK4 controller external SPI
-> -
-> -A device which handles data acquisition from compatible industrial
-> -peripherals.
-> -The SPI is used for data and management purposes in both master and
-> -slave modes.
-> -
-> -Required properties:
-> -
-> -- compatible : Should be "lwn,bk4"
-> -
-> -Required SPI properties:
-> -
-> -- reg : Should be address of the device chip select within
-> -  the controller.
-> -
-> -- spi-max-frequency : Maximum SPI clocking speed of device in Hz,
-> should be
-> -  30MHz at most for the Liebherr's BK4 external bus.
-> -
-> -Example:
-> -
-> -spidev0: spi@0 {
-> -	compatible =3D "lwn,bk4";
-> -	spi-max-frequency =3D <30000000>;
-> -	reg =3D <0>;
-> -};
 
 
+On 23/10/2024 16:17, Rob Herring wrote:
+> On Wed, Oct 23, 2024 at 9:43 AM Usama Arif <usamaarif642@gmail.com> wrote:
+>>
+>>
+>>
+>> On 23/10/2024 14:40, Rob Herring wrote:
+>>> On Mon, Oct 7, 2024 at 10:30 AM Usama Arif <usamaarif642@gmail.com> wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 07/10/2024 15:39, Rob Herring wrote:
+>>>>> On Mon, Oct 7, 2024 at 9:06 AM Usama Arif <usamaarif642@gmail.com> wrote:
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> On 04/10/2024 01:03, Rob Herring wrote:
+>>>>>>> On Thu, Oct 03, 2024 at 12:38:40PM +0100, Usama Arif wrote:
+>>>>>>>>  __pa() is only intended to be used for linear map addresses and using
+>>>>>>>> it for initial_boot_params which is in fixmap for arm64 will give an
+>>>>>>>> incorrect value. Hence stash the physical address when it is known at
+>>>>>>>> boot time and use it at kexec time instead of converting the virtual
+>>>>>>>> address using __pa().
+>>>>>>>>
+>>>>>>>> Reported-by: Breno Leitao <leitao@debian.org>
+>>>>>>>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+>>>>>>>> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+>>>>>>>> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
+>>>>>>>> ---
+>>>>>>>>  arch/arm64/kernel/setup.c | 8 ++++++++
+>>>>>>>>  drivers/of/fdt.c          | 6 ++++++
+>>>>>>>>  drivers/of/kexec.c        | 8 ++++++--
+>>>>>>>>  include/linux/of_fdt.h    | 2 ++
+>>>>>>>>  4 files changed, 22 insertions(+), 2 deletions(-)
+>>>>>>>>
+>>>>>>>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+>>>>>>>> index b22d28ec8028..a4d96f5e2e05 100644
+>>>>>>>> --- a/arch/arm64/kernel/setup.c
+>>>>>>>> +++ b/arch/arm64/kernel/setup.c
+>>>>>>>> @@ -194,6 +194,14 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
+>>>>>>>>      /* Early fixups are done, map the FDT as read-only now */
+>>>>>>>>      fixmap_remap_fdt(dt_phys, &size, PAGE_KERNEL_RO);
+>>>>>>>>
+>>>>>>>> +    /*
+>>>>>>>> +     * Save dt_phys address so that it can be used later for kexec. This
+>>>>>>>> +     * is done as __pa() is only intended to be used for linear map addresses
+>>>>>>>> +     * and using it for initial_boot_params which is in fixmap will give an
+>>>>>>>> +     * incorrect value.
+>>>>>>>> +     */
+>>>>>>>> +    set_initial_boot_params_pa(dt_phys);
+>>>>>>>
+>>>>>>> No new arch->dt functions please. If we need to save off the PA, then do
+>>>>>>> that when we set initial_boot_params.
+>>>>>>>
+>>>>>>> Rob
+>>>>>>
+>>>>>>
+>>>>>> initial_boot_params is set in early_init_dt_verify, called by early_init_dt_scan.
+>>>>>> This is done in setup_machine_fdt in arm64 where the PA is available,
+>>>>>> but in other functions in other architectures, where the PA is not available.
+>>>>>
+>>>>> Doesn't __pa() work for all the other architectures? That's what your
+>>>>> patch indicates.
+>>>>>
+>>>>
+>>>> Yes, __pa() works for all other architectures.
+>>>>
+>>>> But we would need to add initial_boot_params_pa of type phys_addr_t
+>>>> as an argument for early_init_dt_scan, which is called by all other archs,
+>>>> and we technically cant use 0 as an invalid value.
+>>>>
+>>>> We could convert initial_boot_params_pa to void *, and pass NULL for all
+>>>> other archs. But again, I don't really think we should be changing the
+>>>> early_init_dt_scan(dt_virt) call in all other archs to
+>>>> early_init_dt_scan(dt_virt, NULL) just to save initial_boot_params_pa
+>>>> in arm64?
+>>>>
+>>>>>> So it makes it quite messy to set it in the same place as initial_boot_params.
+>>>>>> Its only needed for arm64 and making a change in all archs probably isnt a good idea?
+>>>>>>
+>>>>>> Any reason to not add a new function to make arch -> of/fdt call?
+>>>>>
+>>>>> Yes. It is the opposite direction I have reworked the interfaces to.
+>>>>> We don't want each arch calling various early DT functions at random
+>>>>> times and order. That's fragile when the DT functions make assumptions
+>>>>> about when they are called or what's been initialized already.
+>>>>>
+>>>>> Another option is to make arm64 copy the DT as some arches do.
+>>>>>
+>>>>> Rob
+>>>>
+>>>> Ah maybe I didn't understand this properly, but isnt early_init_dt_scan an
+>>>> arch -> of/fdt interfaces. set_initial_boot_params_pa is a similar interface
+>>>> to early_init_dt_scan?
+>>>
+>>> Yes, and I don't want more APIs if they can be avoided. When is
+>>> set_initial_boot_params_pa() supposed to be called? Is it before or
+>>> after early_init_dt_scan()?
+>>
+>> Its only needed in arm64, and can be either before or after, as long as its
+>> somewhere in setup_machine_fdt, where dt_phys is available.
+> 
+> Maybe only arm64 today. What happens when riscv decides they too want
+> to support the DT anywhere in memory including outside the linear
+> address map and then they need the same thing.
+> 
+>>> Can subsequent OF functions assume the PA
+>>> is valid?
+>>
+>> After set_initial_boot_params_pa has been called, yes.
+> 
+> How do I know it has been called? Do I have to go wade thru every arch
+> to see? You could document the requirement to be immediately after
+> early_init_dt_scan(), but then how do you enforce that? You can't
+> unless you design the interface to just avoid the problem in the first
+> place.
+> 
+>>> If an arch doesn't call set_initial_boot_params_pa() is
+>>> __pa() valid or did they just forget to call it?
+>>
+>> Only arm64 seems to do the fixmap as discussed in
+>> https://lore.kernel.org/all/1ea5538f-7e96-4034-9af9-e2d5fd72e069@gmail.com/,
+>> so __pa should work in others.
+>>
+>> Requiring the PA to
+>>> be set at the same time as initial_boot_params avoids all those issues
+>>> with any period of time having the PA incorrect.
+>>>
+>>
+>> Are you recommending I send a patch which changes all archs to call
+>> early_init_dt_scan(dt_virt, NULL)?
+>> or maybe early_init_dt_scan(dt_virt, __pa(dt_virt))?
+>> and arm to call early_init_dt_scan(dt_virt, dt_phys).
+> 
+> I believe that's what I suggested already, so yes. Whether NULL or
+> __pa(dt_virt))? __pa() would be better because then the arch has to
+> think about whether that is right or not.
 
 
-Best regards,
+Sounds good! Will send a v2 with the change.
 
-Lukasz Majewski
+Thanks
+> 
+>> Happy to do send a v2 with that if its the way forward, although I feel
+>> set_initial_boot_params_pa() in just one arch might be better than
+>> changing this for all archs.
+> 
+> We don't work around kernel APIs if they don't meet changing needs. We
+> change them.
+> 
+> Rob
 
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/EXs69__H/ReNKkpgChycJ7c
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmcZE5MACgkQAR8vZIA0
-zr2JBgf9H8mKx1+O2rZSlkSQDdOlfnIg8XuozSSDbe6QLKtQYYnxuAEBbjooqYsY
-kYYTOSSlLCNrb8sWtuZFf6zWWmWbPiri4J92hFv/ZC2h6bWIKgaO3fO2nCaar36+
-ANiTgWo83oD1Vd6VfWRIvESzCh+attaDCueKbseaC+BB3uvcu/I+wYmYdv2Cno6C
-Vu9yCAW4v50zPxu98/YtC0fHGmoowqrtXiXkoiPpmkTtzFuAmnKMq/HHMExMgR02
-xp4IgKKS57UdyyEP7K/YA1slem9Hs2UVDQ1r1LnfqUu0T8tGjn2AXmsPGNsfctv6
-AUsEjOKDz1+u8ma39DrHFlLCqtrt/g==
-=OYo+
------END PGP SIGNATURE-----
-
---Sig_/EXs69__H/ReNKkpgChycJ7c--
 
