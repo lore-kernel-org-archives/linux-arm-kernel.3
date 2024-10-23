@@ -4,71 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EAACFA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C84BCFA45C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCXcgtGPtEn2014ULSmg0P/AaZa90Zl7RHG/bEE0dtk=; b=l5+DFG1HQmsYuRfeoC0WkLBf7L
-	9NWS7lFHZh2CFwDh04QJc6BXHUKa7E48XcUdHAG2S3hbbRzhwn0uhxnmt8ux24lSi9O5hQc217/UD
-	+eWl1JUP/XIfI8HlYKPTQbrmYPDY1/Xvx9vHf7pKZN1Vp78FEJwswIXwgzsUyVD9dG2VfZ/lwkCGJ
-	hQs7kTK9kGxxIgalGgc2ZIhSiOL7S/GC4o1ppdCyhcDjGr93za8Qn91Lhs3qNcWPIGYJLBeKRGMkD
-	J+0QaoD/dp1nB4l33NpLvzoecZE8d8xTp2OLGvwsUheDfAYlVpmBYrD3j7ZAoaf3vhXk2ASdgZbFq
-	ggRFRvcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AjLOa+CYvpz+BpNsMyaYFjyUkwYrQkclw8bv+vdgZA4=; b=qFPHxUAm+9JM0ubn0ojsw9pgBc
+	FW91gmvHB0udyKerPf/TppOptvQ8LmlfVU+PxFGgBm6XT04mzfYzZLZa4/nwnEpXGw99YnWMAIe+1
+	+4UE2ZidQwk7iH85x8NjU8PBYtIz0V0EeSWu9Wty3vgBULm7u+Qbdth+6JnB/1/BGR8KuhxkJxn42
+	pfFfMwiUVLR3EUg5sb/kTVmvGZc3i1WzpVnTIPIK/iqf3Q19/5ULg2vcSzyAUSIFbwd1L/V6WbQ3d
+	KWuvcYHt0J6Dec9SjM9XCyA3yG6oNL+/LfKt1cbln//d4ENpwk+RsKGvkey2cHeX0H5nYCksx3Dft
+	bi3oXfUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3g5q-0000000FXMJ-0uP3;
-	Wed, 23 Oct 2024 18:28:26 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t3g7L-0000000FXbG-2uT6;
+	Wed, 23 Oct 2024 18:29:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fKA-0000000FOsZ-1IJd;
-	Wed, 23 Oct 2024 17:39:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hCXcgtGPtEn2014ULSmg0P/AaZa90Zl7RHG/bEE0dtk=; b=qS0cwOVIg/cClPHaWZxurc/tnW
-	LGtkJjOm0+MOJ1UNf1vbNAFHq9PLuCpUAs420xpmvdEPR5yI0Teo3X+WkQVtRR+ickluYg7wmotKa
-	abCoX137Z4CcNo3mVF4Htvp1PwccARknsaQ2CVChwyp6IQaLcb450I7rFx0BBHqhlUvE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t3fK1-00Azxv-Lc; Wed, 23 Oct 2024 19:39:01 +0200
-Date: Wed, 23 Oct 2024 19:39:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next RFC PATCH v2 1/3] dt-bindings: net: dsa: Add Airoha
- AN8855 Gigabit Switch documentation
-Message-ID: <77e99052-a14e-4495-9197-06d98257c590@lunn.ch>
-References: <20241023161958.12056-1-ansuelsmth@gmail.com>
- <20241023161958.12056-2-ansuelsmth@gmail.com>
- <5761bdc3-7224-4de6-b0f5-bedc066c09f6@lunn.ch>
- <67192f00.7b0a0220.343b2b.9836@mx.google.com>
+	id 1t3eZ5-0000000FDQn-0tbH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 16:50:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=AjLOa+CYvpz+BpNsMyaYFjyUkwYrQkclw8bv+vdgZA4=; b=j4JdPNTlHvHAgsHLzVJVoyzcTR
+	btksuir6EGP+J+04+/tkqK3WrZqYiyzgJUoThnDkZ1OUt7LyIXuwmN4569I0w6y5sp2QFlpApeLE7
+	+FX96z3jLaMsFf5yu+Ekh8d3/H7PvXc6VOKp1MYZVf6gXVmayZHW3n0y6U9v00wPasq1GDmpcigpu
+	eESqQ7K0624x1d86/yIPVtEWuHGygGH9giz6/UgKYEqbTG7jwcZq4FN472+vXZvJeVokQBAZDTDpG
+	Ya0ygeWb1D8EJzlu+OjZUW8ejlCYKNUc+F8K6iKahmA/TK0x8j4sHpOFPxq9QssotEFuohRvdnK9m
+	t5y0jZ5A==;
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3eYz-00000008TDc-3MPJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 16:50:29 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-431616c23b5so515695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1729702225; x=1730307025; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AjLOa+CYvpz+BpNsMyaYFjyUkwYrQkclw8bv+vdgZA4=;
+        b=H9nQn2OwyX7cCVGbceqVUksgRhPowze8MJYDgMUifZSn/SiTqyLAwgc0xyI/mp3xL/
+         0IW8rVVyx6vkA90AQUChfKFCtIKFXMls8T71A0GGLrTNIYZMOFE8ajeHyoVguIWipnkP
+         +uQD+QEVieP+UIFhmBl5ZV0uFVmIhE7HRBcdSsPFtPETI5AaX0Gdtx5ke7QLxSp8ZEiN
+         IX4J7GbIzpO+lJBx2uQqw/6xMjMxMtvjIkA1Q1tDYt5NIcfBQpaXMoIIbicY6RSkMsZ4
+         4AUye8Dvjf/NfDhGbsPGE5trT4LsDTs/MTAeeNHoAh2ouk3SU/bZd9otouFpAGm/b+jG
+         6Deg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729702225; x=1730307025;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AjLOa+CYvpz+BpNsMyaYFjyUkwYrQkclw8bv+vdgZA4=;
+        b=I5P3bxQoHYgNG8Wg/bkKEkUhgWrPPOr4FvKC/bahhSWfG7Rpak+sNsuBAijWwR5uck
+         Uw9hoWx/28i404jPKJmlRlFmLIoB7ziZEKweFHoC9spWaIWrMfDX2i8tCy/xG4FetkHM
+         PzbHjAgqtpAcgSGY9Q3vSh3X0OqpNSVYZRmjXC9po9xel3I/NhmDT2TwImC0DmnVMI3B
+         HE1Es4jukWzavRnXqoJFrT4QRsZRUiLxx7/lo4vL42A62FhVAyLfbNpAjDzlHMH2JM77
+         OaZv4VvbBe2+F+Rf/ExaX5xcz9RUOcJnV3eH2pRrspkOlLHSMMlvB1NYQEWmiifWUVny
+         l9CA==
+X-Forwarded-Encrypted: i=1; AJvYcCX0M/tpnu1r8DwZ8Gt5IQl5x25msNqs0900GuuQCo/37Y0LsssCxsYHWOueS0YaNf7KtFmmHiWQIdiAS592IgVV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVbumyKlA44p2c3rMBngckYXKVIQT6+umzKLWVNDxxYhp6mQEK
+	qVAkl2iSby3pO4euPSycQImb8U5b47wDH2y6oIqmGpN//ge5OAiM7H8ZfV3Gy0s=
+X-Google-Smtp-Source: AGHT+IGF/wmrQgX6tkn2u2UHI/gHpOuI8sr3sYRtr4SIzuUG0YYH6LOTQMbTm4H44/RrLqlF3LH1FA==
+X-Received: by 2002:a7b:c455:0:b0:431:7c25:8600 with SMTP id 5b1f17b1804b1-4317c2586e2mr46271995e9.2.1729702224583;
+        Wed, 23 Oct 2024 09:50:24 -0700 (PDT)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 09:50:24 -0700 (PDT)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 23 Oct 2024 17:50:14 +0100
+Subject: [PATCH 17/37] drm/vc4: txp: Add horizontal and vertical size
+ offset toggle bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67192f00.7b0a0220.343b2b.9836@mx.google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241023-drm-vc4-2712-support-v1-17-1cc2d5594907@raspberrypi.com>
+References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+To: Maxime Ripard <mripard@kernel.org>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Javier Martinez Canillas <javierm@redhat.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_103910_399412_732D15AF 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20241023_175026_086582_E218F2BE 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +125,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Well the first case that comes to mind is multiple switch and conflict.
-> I have no idea if there are hw strap to configure this so I assume if a
-> SoC have 2 switch (maybe of the same type), this permits to configure
-> them (with reset pin and deasserting them once the base address is
-> correctly configured)
+From: Maxime Ripard <mripard@kernel.org>
 
-Is this switch internal on an internal MDIO bus, or external?
+The new writeback controllers that can be found on the BCM2712 require
+to have their horizontal and vertical size reduced by one.
 
-Most PHYs and switches i've seen have strapping pins to set the base
-address. It would be unusual if there was not strapping.
+Let's tie that behaviour to the compatible so we can support both the
+new and old controllers.
 
-For the Marvell switches, the strapping moves all the MDIO
-registers. This is why we have a reg at the top level in mv88e6xxx:
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+---
+ drivers/gpu/drm/vc4/vc4_drv.h |  1 +
+ drivers/gpu/drm/vc4/vc4_txp.c | 14 ++++++++++++--
+ 2 files changed, 13 insertions(+), 2 deletions(-)
 
-        ethernet-switch@0 {
-            compatible = "marvell,mv88e6085";
-            reg = <0>;
+diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
+index 27deb4cde02d..984fddae0048 100644
+--- a/drivers/gpu/drm/vc4/vc4_drv.h
++++ b/drivers/gpu/drm/vc4/vc4_drv.h
+@@ -539,6 +539,7 @@ struct vc4_crtc_data {
+ struct vc4_txp_data {
+ 	struct vc4_crtc_data	base;
+ 	unsigned int has_byte_enable:1;
++	unsigned int size_minus_one:1;
+ };
+ 
+ extern const struct vc4_txp_data bcm2835_txp_data;
+diff --git a/drivers/gpu/drm/vc4/vc4_txp.c b/drivers/gpu/drm/vc4/vc4_txp.c
+index eaf30b2cfb5b..d2ee872e9c0b 100644
+--- a/drivers/gpu/drm/vc4/vc4_txp.c
++++ b/drivers/gpu/drm/vc4/vc4_txp.c
+@@ -291,6 +291,8 @@ static void vc4_txp_connector_atomic_commit(struct drm_connector *conn,
+ 	struct drm_gem_dma_object *gem;
+ 	struct drm_display_mode *mode;
+ 	struct drm_framebuffer *fb;
++	unsigned int hdisplay;
++	unsigned int vdisplay;
+ 	u32 ctrl;
+ 	int idx;
+ 	int i;
+@@ -330,9 +332,17 @@ static void vc4_txp_connector_atomic_commit(struct drm_connector *conn,
+ 	gem = drm_fb_dma_get_gem_obj(fb, 0);
+ 	TXP_WRITE(TXP_DST_PTR, gem->dma_addr + fb->offsets[0]);
+ 	TXP_WRITE(TXP_DST_PITCH, fb->pitches[0]);
++
++	hdisplay = mode->hdisplay ?: 1;
++	vdisplay = mode->vdisplay ?: 1;
++	if (txp_data->size_minus_one) {
++		hdisplay -= 1;
++		vdisplay -= 1;
++	}
++
+ 	TXP_WRITE(TXP_DIM,
+-		  VC4_SET_FIELD(mode->hdisplay, TXP_WIDTH) |
+-		  VC4_SET_FIELD(mode->vdisplay, TXP_HEIGHT));
++		  VC4_SET_FIELD(hdisplay, TXP_WIDTH) |
++		  VC4_SET_FIELD(vdisplay, TXP_HEIGHT));
+ 
+ 	TXP_WRITE(TXP_DST_CTRL, ctrl);
+ 
 
-There is one family which use the values of 0 or 16, and each switch
-uses 16 addresses. So you can put two on the bus.
+-- 
+2.34.1
 
-> > > +  mdio:
-> > > +    $ref: /schemas/net/mdio.yaml#
-> > > +    unevaluatedProperties: false
-> > > +    description:
-> > > +      Define the relative address of the internal PHY for each port.
-> > > +
-> > > +      Each reg for the PHY is relative to the switch base PHY address.
-> > 
-> > Which is not the usual meaning of reg.
-> > 
-> > > +            mdio {
-> > > +                #address-cells = <1>;
-> > > +                #size-cells = <0>;
-> > > +
-> > > +                internal_phy0: phy@0 {
-> > > +                    reg = <0>;
-> > 
-> > So given that airoha,base_smi_address defaults to 1, this is actually
-> > address 1 on the MDIO bus?
-> >
-> 
-> Yes correct. One problem I had was that moving this outside the swich
-> cause panic as it does conflict with the switch PHY address...
-
-I would make these addresses absolute, not relative. The example above
-from the marvell switch, the device using addresses 16-31 has its PHYs
-within that range, and we uses the absolute reg values.
-
-	Andrew
 
