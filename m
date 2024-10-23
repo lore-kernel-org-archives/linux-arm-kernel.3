@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D1CD0BB47
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF15D0BB47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXtQqg3yJgLl+HjnpahR8I/TE+d9AkhS+y+OvbC+UXk=; b=opywfDHPJDPFuCxj5d5/JSSfsU
-	N/MQfid598uWk6/oPGr01qMxpDLsw2p6xbwTCzbfzt1uAS6TmO14TDHyxgVTIJC+a6IkoVvPG0xG0
-	HIieJzT8Y9SX/6QjC9JwzDYwFJOq7rg4qnqFa32Y5dp+YdS7AxDbLu19V4c+Hjh1TFJT3X9k2Upkw
-	AXzlaCnTMEa5HB16WnnIDBOI/F3RALn286phD2CkIae2MyBsQcph+icX00g+SEFWbr+/J8z0V4DUQ
-	LaKqvY9ZK2yJqIGyIGJUFQVHYN+2Sb/atzb3KPxPC0LwZaivYl5gFYi7rNFK55hAxyqMx1pA7k+aB
-	6YP2R0Cw==;
+	bh=OWmtqH5N2P1BU0MprmjFDoO+HGgjxkNsdCcT7wh2gr4=; b=FHHTD/TAbqVFVT+mNN/oqCkMpB
+	TVgoo8ZRJu4thn+cTHU5hyHRhLY808TkgScR3gRm4RhKc0TDy2AZ6nSEITPfgJpgmK/sOtvTIN8YN
+	aMvR19evMDe2WBmkeMvfchT0bkvvKsXZsClBq2rI4UyLHaafkJHUTy8oCU2gL/Hmh71cGtvjtG/UJ
+	OXztP0JK6nkvvbM8QGVErpjl8WqQM2xmMqNSVd+R8DO65sNrtrhKiYnDhE/MJ2RE48lkphnaLdEG6
+	pkC77HdLfwpwNPV4DAtp+7CzP9g9l05VJuti0KAbDiVdcKtygaVOzBqPJ0IJ2E39OEw2AmORADCIU
+	vgsYmtWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3k8x-0000000G9nC-1bfZ;
-	Wed, 23 Oct 2024 22:47:55 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1t3kAS-0000000GA0O-2VAL;
+	Wed, 23 Oct 2024 22:49:28 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jyk-0000000G6xJ-3AyV
+	id 1t3jyl-0000000G6xP-3Idy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 22:37:24 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37ed7eb07a4so149035f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 15:37:22 -0700 (PDT)
+	Wed, 23 Oct 2024 22:37:25 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5c9454f3bfaso245877a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 15:37:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729723040; x=1730327840; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1729723042; x=1730327842; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cXtQqg3yJgLl+HjnpahR8I/TE+d9AkhS+y+OvbC+UXk=;
-        b=CK59CH2Pl1ukhSyCv7sIgWN1eWymBpnsyHShqv3VfcwDmLn9SlJDOKckE8Fnxyjye8
-         LORBnZuAYK1daQg+/gVpSFqDMhylW9SADU7OOdLnWGNGMSYA/eTIyq192XRSOynX88iJ
-         fVBlafbN1zy/0n/pwM26v7H3P1RZDzJpG1akySqOJHDqBW5kj12jUvB5ffCjHtb4c+dZ
-         muiWVXpIdGqRqlzkqfc6MPkRU4CXp8mSc1xPxROzx4K55hp7qqK2yw+IvLj+Y8QBYkC/
-         ktRxcgMam2hoYJj+vMjebsrXXgUghE58/oROIyJfMYO50lGK7y8pvwgOZncXTdRf/s+j
-         cIkA==
+        bh=OWmtqH5N2P1BU0MprmjFDoO+HGgjxkNsdCcT7wh2gr4=;
+        b=judEBZuogzdp3ySmHxQeTZcQtxIOv/fEpA0DCEbV7fCo5WuVANcUEuhsgSi4Vizara
+         fA2EvUBqNrMH3U6yeeS1G6zAfU7WIYofucBFmI3IJOp9rXfV+tO5fPkMgq/WWRDxWYAB
+         ZIuoyMV/rsllM06St6Trdlpbl9XJ29ZfhS2P18sjilEMK7VzCxtx4eNshXvIgydAi01e
+         hwCdH1RJEcIEJ2zEC7+HyAEjw8LKEuN132oWEfOvppg+q7Zfu8uipcO/Qbe+dQhA3iLK
+         CGna8a8jcH6QChqo44Q31DrSu7W6s6e1VVVfYy322/FS1FnIMDzMSRwOLdGHsn8YMjlh
+         ZdpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729723040; x=1730327840;
+        d=1e100.net; s=20230601; t=1729723042; x=1730327842;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cXtQqg3yJgLl+HjnpahR8I/TE+d9AkhS+y+OvbC+UXk=;
-        b=lrTsFV1bQ92zMu2WlkoeX5RDcjc3m43XnyV3U8j3qKKLbD6w3kCNCAHOrE6iGc9uBo
-         8zCu419mHH+1RK5rp9j5oaTT1+Buq1d8bj/cF7gLjKLFuEvl33Uq7mIgcLML0BwXqGVG
-         9mqwc/7SDLo7L3ORR0MXaf9FrHqe1SkXxgYi44wDeE0ivLuvT8yDRBFeCZflMbFGmaCS
-         NFu5RuUIxXX/T/QY2IbziTfUI5SNTw1/b7XVEdp8pQzyZvXyECjLFBpnBMYoxayM4upQ
-         sC7icm3Cq2bbJZZug/wVJ+z2svCmTEG7PAYa9KZr6zyEMLZUFEAyMYdneGeMIm7EF1IO
-         uwSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXOw/r4KXbQhsftKR2hQAFRqyPT+ywH4sU+tg6KumwtXT+rzzb6N8nSM+upbqcMPH5POOvAcKlNf1Mm6J8MFOQo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwS/vZvl64ZBmowDZL2aS2OEUuBLi01VEig/LL/tyZBMlXvTkE/
-	DaNy829F/zhLJNrsiTK59arQrN51cdroejtrhU7YGgMSzXW07pbh
-X-Google-Smtp-Source: AGHT+IEv1LT3aXWNGlfQxfdfR1++WDJp/zgt5i4LxTmGAfPafps4VrBKGIrMxV1xd9yfdRIJxSyeHQ==
-X-Received: by 2002:a5d:46c6:0:b0:37d:2d45:b3d4 with SMTP id ffacd0b85a97d-37efcf8530fmr2600249f8f.52.1729723040279;
-        Wed, 23 Oct 2024 15:37:20 -0700 (PDT)
+        bh=OWmtqH5N2P1BU0MprmjFDoO+HGgjxkNsdCcT7wh2gr4=;
+        b=gy60pl4xLup6gbVM+ZvG4Kz4V/VxF8ZL8fWxF6y7ueHvZFv7Is+5lLSO9N4tOU6qMo
+         vVby367VOQ8Jom+WWO++KSzNAsK20jrNxsOPhO7I+ISIz7gH0aYX61/HSiQBvZiXgKwh
+         7sDzQtl3iFmbn89bwww77gU6cBTiFs5BjfjEutAvaSUjfWcwLvt7wrfVYl4c881sQc3G
+         dd77seZ32hTIjgiZ1aRMMavj9Qe080FXmpZE8/yZSQGWWEfJxWfFVl6qDA957rjbiPCP
+         hnNUy8wC5ipy+KjQ+EeuVuvFsJW2NK3qNEz5xJK8kJr+vQucIsgfufZIll3N9ZZHdBEI
+         L5Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCVCtWDE/OstIxEC91zUQlvjEkqtjWHN13LqxxMS5PQuUWuoargP4Kd855dvI1kCoyUhGVlN5pB+XMcvczuCtnRf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEFrNXrsm2ypMEAFCd4wYNSil+16PK9YQKUowmvBeTMeel0AB7
+	uz6F7T0Q06RaSGuqty1bDe+vA4zHz0ZrKgbCwcHA5l9yrsy3u1s5
+X-Google-Smtp-Source: AGHT+IFzgo2JsQ869WZYlAgaH+b7Atn/Vy2II8EQ4rEQzpHOsgtaGvwMKQGxGaJKoqZmvNgB6r9Vzg==
+X-Received: by 2002:a05:6402:1e92:b0:5c8:9f3e:1419 with SMTP id 4fb4d7f45d1cf-5cb8ae70636mr3554294a12.5.1729723041789;
+        Wed, 23 Oct 2024 15:37:21 -0700 (PDT)
 Received: from [192.168.122.1] (93-190-140-122.hosted-by-worldstream.net. [93.190.140.122])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb6696b4easm4907816a12.12.2024.10.23.15.37.18
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb6696b4easm4907816a12.12.2024.10.23.15.37.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 15:37:19 -0700 (PDT)
+        Wed, 23 Oct 2024 15:37:21 -0700 (PDT)
 From: Markuss Broks <markuss.broks@gmail.com>
-Date: Thu, 24 Oct 2024 01:36:36 +0300
-Subject: [PATCH 05/12] dt-bindings: soc: samsung: exynos-pmu: Add
- exynos9810 compatible
+Date: Thu, 24 Oct 2024 01:36:37 +0300
+Subject: [PATCH 06/12] dt-bindings: arm: samsung: Document Exynos9810 and
+ starlte board binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241024-exynos9810-v1-5-ed14d0d60d08@gmail.com>
+Message-Id: <20241024-exynos9810-v1-6-ed14d0d60d08@gmail.com>
 References: <20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com>
 In-Reply-To: <20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Markuss Broks <markuss.broks@gmail.com>, 
  Maksym Holovach <nergzd@nergzd723.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1729723025; l=966;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1729723025; l=1179;
  i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=PQY2vvSVvdmqQTK8ZrI+efD1G2TGl0x3uNfjf2Z5EVY=;
- b=OH1oLPoXvG7knPESg/Z3HUVLfSYDzQCUOPxLstHrQyyXHOQDNxEkrMjK/EUc/OUpMOVfIWGQK
- 90hki70VyyjDgdWkuFx3nYxNtPuJU7T0Bh+EtRjfAuB4uV79nhP89My
+ bh=mDrRM2vw6yzIeJi/+7tORTimRHVKBC8rcLZLB3YC2lk=;
+ b=dlXnErUtfJ/958tawHUHA0uCxWUUQJON3A0WPPEbbxCfpUTu6mkRraEbrWIh4MRKibiMhRJLq
+ QLl7xL0FdHHCMI24G3+dDBIhfnL9b134SuVfqVs7zsmZS9MSk79W3ZL
 X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
  pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_153722_831860_3B078726 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20241023_153723_866219_B12F66A6 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,26 +113,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible for Samsung Exynos9810 PMU to the schema.
+Add the compatibles for Exynos9810 SoC and samsung,starlte board to the
+list of boards.
 
 Co-authored-by: Maksym Holovach <nergzd@nergzd723.xyz>
 Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 ---
- Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-index 5c4ba6c65e6926467ff0e90142ad62fbd0b9e1e8..6cdfe7e059a3556dfb872818f1b2649ab6b0e8af 100644
---- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-@@ -54,6 +54,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index d25a17e697256f8d868e24bea47d21accd1184ed..b5ba5ffc36d687a6fdbc625e6d95c37a8a2e2b93 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -230,6 +230,12 @@ properties:
+               - samsung,dreamlte                # Samsung Galaxy S8 (SM-G950F)
+           - const: samsung,exynos8895
+ 
++      - description: Exynos9810 based boards
++        items:
++          - enum:
++              - samsung,starlte                 # Samsung Galaxy S9 (SM-G960F)
++          - const: samsung,exynos9810
++
+       - description: Exynos990 based boards
+         items:
            - enum:
-               - samsung,exynos7885-pmu
-               - samsung,exynos8895-pmu
-+              - samsung,exynos9810-pmu
-               - samsung,exynosautov9-pmu
-               - samsung,exynosautov920-pmu
-               - tesla,fsd-pmu
 
 -- 
 2.46.2
