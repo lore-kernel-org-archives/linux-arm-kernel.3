@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AD1CF539D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1F1CF5396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKAMRbftUhDsnB3DO79E2412q0qL9eT88TYwlyR5GDU=; b=4C9Z+GWbF5kX+38qAGbl+q2c9G
-	/y9xVNj1ZJLoDAQaFn+67+cxOJfiRYYNDeix2TzO7rN76Z2JNkxyHqyxCeubT3J/JZ1W+wNC6zcAg
-	D2R5sO4vowZ4diZP2K7j4eYhRTgyVH9k4oHWhXt88zgbp+MHa5sSeeB6qOGARYQSxyEgCCIIxnelb
-	5WI/kt1Eg34m1deD24Ms0h5ZSCj2UglRKOBhvsYRObpfHPEPNNtEuwHjuyZcngfkjyzRfjINWiBi4
-	rEG51V8wIk2r3aKxH0vLI1CW8bujdBfuA8C+2CQ7rTWS4t8ygFy5TAEFN5hzVMof7Vm0ofoDlHg6f
-	Ab43jYFA==;
+	bh=6aGTRPFswueXeCZiT71gmlSuW3wbHwKGbQpdBTPnGXM=; b=QFWWLEFkiwHDHER00BkBbOGxYl
+	/Z+p2jW5PRSo4duv2HEVvasBNohKsELDvqvKe4x9Bxq5Z9WCix5S83AwK+nXRCJmZNu65Lkd5o8re
+	t7oQUgA+JENWEFJTMobIXudR7dCJkZpe7B99x/cnaYCucYrfSeAEmqfnRCoWMbJAJ796Lb4BFUcoL
+	aIL1iBLl1r9PTkXP/EBaQzSOHZB+5fivANy91yZDO/EjiGW6OMRqMFXjEwvVBH64E7qRw43gj73kB
+	goXLx9+veXtHpisSUSpVrOvLmpXOFbHOcdZhm7p3Eg7BVHe/xfQJ6GtDDgFHT+KBZeaJqA52f/Jpp
+	sFhVseqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3clX-0000000EphR-0tlU;
-	Wed, 23 Oct 2024 14:55:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3cn4-0000000Eq6f-3o2c;
+	Wed, 23 Oct 2024 14:56:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ci6-0000000Eofy-0WPr;
-	Wed, 23 Oct 2024 14:51:43 +0000
+	id 1t3ckC-0000000EpGs-3ca6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 14:53:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B5CE95C5ECA;
-	Wed, 23 Oct 2024 14:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8EF0C4AF0B;
-	Wed, 23 Oct 2024 14:51:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7ECCA44FB1;
+	Wed, 23 Oct 2024 14:53:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A27FAC4CEE6;
+	Wed, 23 Oct 2024 14:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729695099;
-	bh=V0WnmKHkiubGXH7powCeniKJAeXlAH+b4/k8QVVp3oY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZI5jh9RfHhvV8BXkELReKNk+DT5nZqXcJQanuVnxbnJiUgBsPdOYsrZ4QuA6Vuq+a
-	 8E75CpBgCCLrwe7L+V580X5wva+3hC4FC5gD1J+WnmyMBAYMCRHkE1nOTY19p+OlGC
-	 8GmNkH2/H8NL+4iF41aadGcdnmWOCFp9tdYr8v2ZxeMO48fhIJ+XZtLd09ZtI4goW4
-	 aq2+0nIlPcOtIx8f3RTUJXJYXIP4Z47kWuuTIYCui5KPSnfl0RgWnoB32USvY/CqT8
-	 jL0ZX85cCrSW7lldtTW0H7wxv16fFYmGswFSIE3yUaUR3HMnvCYUBgkgFwNrlJzYPJ
-	 WMs3m3CbPiqmA==
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-2e3d523a24dso5156495a91.0;
-        Wed, 23 Oct 2024 07:51:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWUyqkGxTCHS+cgSvM/k21z8qnaoFMbiKypL9HkRIOYZR9dGuPniytdtc6n0mDYFu9XoFkwcSloEo8KHOo/avEz@lists.infradead.org, AJvYcCXQDxtvmZDDnk7o3e9icql44PUI1p0jwE4Cz1AdoZmlmsNFnSPqUWHSesBFwWoFYxMcGD2VGl7hUGQobAIE3j8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQmsO5x8TlYa88CgUqMR9EljNz2WGArDFuI4ylIQd58J8OClJN
-	05C3J9vlmDiOejG7O5QtpeZ/SuN6Vh0ol2WfC/OHIa5GEa3+m/RfKTIr2ZlCHp+94JjPP/rFqcg
-	Yg6mGE/YIF+TgPHHXoWXp3PUJRQ==
-X-Google-Smtp-Source: AGHT+IGiOV49HPeVWqZgqUDfen8sjZxWmSvuRAGE4z98/inzDbsAH3T7NKTZ/wjACKOgmYMVQ+VQCdv4ftbQedq6e9Q=
-X-Received: by 2002:a17:90a:d512:b0:2e2:e545:82c5 with SMTP id
- 98e67ed59e1d1-2e76b5b7edcmr3019116a91.3.1729695099200; Wed, 23 Oct 2024
- 07:51:39 -0700 (PDT)
+	s=k20201202; t=1729695231;
+	bh=iNfYJ4JXlpAYVqAHGPpB7Ak03akbgaV2OHGu0ciE5wM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mOa9l1fLqxHoh/XYX8XHW0anBL3x6wpjc4bpwozLdbM2uPVZtcuFmFLvh4I2duAIF
+	 kv2RAx1vnmSjRv14ItIOx/RYeYxHLfDV0Y+R6niwTzgbSyv7UOvMmqzI7xxIGnJ78B
+	 jQCXnee4CQTSuXEXhYmpLkLhrDGJ7ngqQ/88eaGK0KsvAKgif1CevJ+PjhafKHYNuL
+	 avRFIQAMVE+gsyfqxuvvcm+SgCTXnyrzPyRiJzhZ/G+5GZyVJab0zYeLC6GDyuG8Zo
+	 tBHZC5LJdqsMefKpJ+6fJNydVOIx2/sP6I8FyOqRAiR86Dx+1rOHATT7oPRhak+/JE
+	 ZFBIJPJOQTeKw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3ck9-0068vz-N6;
+	Wed, 23 Oct 2024 15:53:49 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: [PATCH v5 01/37] arm64: Drop SKL0/SKL1 from TCR2_EL2
+Date: Wed, 23 Oct 2024 15:53:09 +0100
+Message-Id: <20241023145345.1613824-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
+References: <20241023145345.1613824-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20241007022834.4609-1-moudy.ho@mediatek.com>
-In-Reply-To: <20241007022834.4609-1-moudy.ho@mediatek.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 23 Oct 2024 22:52:00 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_-jPWv1nHf9NnxNkVW2+ZOFOagAPf1DFQu5AD1KnCQNYw@mail.gmail.com>
-Message-ID: <CAAOTY_-jPWv1nHf9NnxNkVW2+ZOFOagAPf1DFQu5AD1KnCQNYw@mail.gmail.com>
-Subject: Re: [PATCH v5] dt-bindings: display: mediatek: split: add subschema
- property constraints
-To: Moudy Ho <moudy.ho@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Macpaul Lin <macpaul.lin@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, alexandru.elisei@arm.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_075142_279813_BBB47BE4 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20241023_075352_983216_247158CE 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,110 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Moudy:
+Despite what the documentation says, TCR2_EL2.{SKL0,SKL1} do not exist,
+and the corresponding information is in the respective TTBRx_EL2. This
+is a leftover from a development version of the architecture.
 
-Moudy Ho <moudy.ho@mediatek.com> =E6=96=BC 2024=E5=B9=B410=E6=9C=887=E6=97=
-=A5 =E9=80=B1=E4=B8=80 =E4=B8=8A=E5=8D=8810:28=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> The display node in mt8195.dtsi was triggering a CHECK_DTBS error due
-> to an excessively long 'clocks' property:
->   display@14f06000: clocks: [[31, 14], [31, 43], [31, 44]] is too long
->
-> To resolve this issue, the constraints for 'clocks' and
-> other properties within the subschemas will be reinforced.
+This change makes TCR2_EL2 similar to TCR2_EL1 in that respect.
 
-Applied to mediatek-drm-fixes [1], thanks.
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/tools/sysreg | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8d637ac4b7c6b..ee3adec6a7c82 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2819,8 +2819,7 @@ Field	13	AMEC1
+ Field	12	AMEC0
+ Field	11	HAFT
+ Field	10	PTTWI
+-Field	9:8	SKL1
+-Field	7:6	SKL0
++Res0	9:6
+ Field	5	D128
+ Field	4	AIE
+ Field	3	POE
+-- 
+2.39.2
 
-Regards,
-Chun-Kuang.
-
->
-> Fixes: 739058a9c5c3 ("dt-bindings: display: mediatek: split: add compatib=
-le for MT8195")
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
-> Signed-off-by: Moudy Ho <moudy.ho@mediatek.com>
->
-> --
-> This is based on [v2] dt-bindings: display: mediatek: split: add clocks c=
-ount constraint for MT8195
->
-> Changes since v4:
->   - Eliminate the possibility of varying quantities in the 'clocks'
->     property of mt8195.
->   - Move the constraint for 'power-domains' to the top-level.
->
-> Changes since v3:
->   - Correct the compatible name for the mt8173 split in the subschema.
->
-> Changes since v2:
->   - Revise the commit message.
->   - Enhance the descriptions of 'clocks'.
->   - Strengthen the conditions within the subschema.
->
-> Changes since v1:
->   - Adding functional descriptions and quantity restrictions.
-> ---
->  .../display/mediatek/mediatek,split.yaml      | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-split.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,sp=
-lit.yaml
-> index e4affc854f3d..4b6ff546757e 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,split.y=
-aml
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,split.y=
-aml
-> @@ -38,6 +38,7 @@ properties:
->      description: A phandle and PM domain specifier as defined by binding=
-s of
->        the power controller specified by phandle. See
->        Documentation/devicetree/bindings/power/power-domain.yaml for deta=
-ils.
-> +    maxItems: 1
->
->    mediatek,gce-client-reg:
->      description:
-> @@ -57,6 +58,9 @@ properties:
->    clocks:
->      items:
->        - description: SPLIT Clock
-> +      - description: Used for interfacing with the HDMI RX signal source=
-.
-> +      - description: Paired with receiving HDMI RX metadata.
-> +    minItems: 1
->
->  required:
->    - compatible
-> @@ -72,9 +76,24 @@ allOf:
->              const: mediatek,mt8195-mdp3-split
->
->      then:
-> +      properties:
-> +        clocks:
-> +          minItems: 3
-> +
->        required:
->          - mediatek,gce-client-reg
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt8173-disp-split
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +
->  additionalProperties: false
->
->  examples:
-> --
-> 2.34.1
->
 
