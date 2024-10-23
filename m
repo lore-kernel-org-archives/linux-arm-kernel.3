@@ -4,56 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F7CD2E02B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9883D2E031
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmymba9kwwVrm8HtlOepqxLJNx7hNVVId/nylYyCH3I=; b=i+k/56SowvM+h7PE3FS3vDQtSZ
-	E12rfgzRFNpmV0sByr0X7bjYUh1PEEbAAgvmOPA0UD/gKwaIiunWprUo6uUhNbWBDnDm6yJSOArom
-	mgmsuGGWDW7xxxW5zRSb+Yf3Q4/8ihJFLVdNEH8LKoAI9RyHYEGsaDChA1SQNVeiEkHIydlo+y1eq
-	lJPOjrlpyS0d7MsEonD2WU+S39FC9Pse1OiMUWNF2Z3gAnY+bR7ADsb+Ca16Vl9poYdXVuFDQpKy/
-	bpFobJkknLwG+N8IOVnmTFi/rV0E2M8CvHBaU9x04UQtEOb9wdl1B2RpT0KU0lNw+L0YwYwvPT+89
-	6sV2jrsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0E6dm2trFCh1m2xtWSs2nIXr2PKloTW0ZW6+0Z22lbM=; b=Ifu+snkFzvmr1K/eAsTpcZ/9+W
+	hSmXAQa46Z5t7ynLU9hfB7ri0u2g28JDoZSh4V9qfJ58rPZHZ8h/hCLcV56O0CSuassuaPIJ3Lbs2
+	rHDbZ4xuJfu9yQ4q2O/sExfj3DWPUziQ2YDqc0pdYR7zeBNa+GB4TckmO+Fe2MNIrR48owYgR7/ml
+	V7sNbbeT6yinWdKip7BbfYuRuo//Bv3grM36J3rXD6nnAidWMxKWzkWKo0fAwXWKr17goZhbe1fLX
+	TQfnjEEvDvCg4ZnB0GOG6d0+D/q3O9OWQ5W6sRA5CMeoIIFrcM/9LuNLUp/bLFlJF/TqiFNK6dvyX
+	HmnSNOVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Xdv-0000000Dn0p-1G3C;
-	Wed, 23 Oct 2024 09:27:03 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1t3XfR-0000000DnOC-3KNI;
+	Wed, 23 Oct 2024 09:28:37 +0000
+Received: from relay3.mymailcheap.com ([217.182.66.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XFo-0000000Dggz-2n2u
+	id 1t3XI1-0000000DhRs-2zY4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 09:02:12 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Wed, 23 Oct
- 2024 17:01:53 +0800
-Received: from twmbx02.aspeed.com (192.168.10.152) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
- Transport; Wed, 23 Oct 2024 17:01:53 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: <ryan_chen@aspeedtech.com>, <lee@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
-	<andrew@codeconstruct.com.au>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<dmitry.baryshkov@linaro.org>
-Subject: [PATCH v6 3/3] clk: aspeed: add AST2700 clock driver.
-Date: Wed, 23 Oct 2024 17:01:53 +0800
-Message-ID: <20241023090153.1395220-4-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241023090153.1395220-1-ryan_chen@aspeedtech.com>
-References: <20241023090153.1395220-1-ryan_chen@aspeedtech.com>
+	Wed, 23 Oct 2024 09:04:28 +0000
+Received: from nf2.mymailcheap.com (nf2.mymailcheap.com [54.39.180.165])
+	by relay3.mymailcheap.com (Postfix) with ESMTPS id AF7373E8D7;
+	Wed, 23 Oct 2024 11:04:20 +0200 (CEST)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf2.mymailcheap.com (Postfix) with ESMTPSA id 9C053400EA;
+	Wed, 23 Oct 2024 09:04:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1729674258; bh=KRH+Wl52D5Se1qa1mBsQTE3qJ+LnEYK393f7kHZ0rBg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PnO7S3xMn22qLyZm7rRpCdsAd3U2EBWBtP/TkEIFCYSb6w2FGbpAjwDOSd2r7lO5k
+	 urUvcYeje33rgl7t8xsL2sBDQIkDrsMJTMx2ir2WRle14QvH89rBRsOsAyWmy+fYfu
+	 sKK6nqdr/QZhgUFS3N6vGJZHayfb5MO45tK2IncA=
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id F1573407D9;
+	Wed, 23 Oct 2024 09:04:17 +0000 (UTC)
 MIME-Version: 1.0
+Date: Wed, 23 Oct 2024 17:04:17 +0800
+From: Mingcong Bai <jeffbai@aosc.io>
+To: Kexy Biscuit <kexybiscuit@aosc.io>
+Cc: gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+ torvalds@linux-foundation.org, aospan@netup.ru, conor.dooley@microchip.com,
+ ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org, dushistov@mail.ru,
+ fancer.lancer@gmail.com, geert@linux-m68k.org, hoan@os.amperecomputing.com,
+ ink@jurassic.park.msu.ru, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-spi@vger.kernel.org,
+ manivannan.sadhasivam@linaro.org, mattst88@gmail.com,
+ netdev@vger.kernel.org, nikita@trvn.ru, ntb@lists.linux.dev,
+ patches@lists.linux.dev, richard.henderson@linaro.org, s.shtylyov@omp.ru,
+ serjk@netup.ru, shc_work@mail.ru, tsbogend@alpha.franken.de,
+ v.georgiev@metrotek.ru, wsa+renesas@sang-engineering.com, xeb@mail.ru
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+In-Reply-To: <20241023080935.2945-2-kexybiscuit@aosc.io>
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+Message-ID: <ccab35ddc2edc85a41b5a46c8c5cd62c@aosc.io>
+X-Sender: jeffbai@aosc.io
+Organization: Anthon Open Source Community
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-Rspamd-Server: nf2.mymailcheap.com
+X-Rspamd-Queue-Id: 9C053400EA
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-2.60 / 10.00];
+	REPLY(-4.00)[];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	TAGGED_RCPT(0.00)[renesas];
+	FREEMAIL_CC(0.00)[linuxfoundation.org,uniontech.com,linux-foundation.org,netup.ru,microchip.com,sberdevices.ru,vger.kernel.org,mail.ru,gmail.com,linux-m68k.org,os.amperecomputing.com,jurassic.park.msu.ru,lists.infradead.org,linaro.org,trvn.ru,lists.linux.dev,omp.ru,alpha.franken.de,metrotek.ru,sang-engineering.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,mail.ru];
+	HAS_ORG_HEADER(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	MISSING_XM_UA(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_020208_895378_E14AA0E9 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20241023_020426_082571_B515FEA3 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,1569 +116,398 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add AST2700 clock controller driver and also use axiliary
-device framework register the reset controller driver.
-Due to clock and reset using the same register region.
+Greetings,
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/clk/Kconfig       |    8 +
- drivers/clk/Makefile      |    1 +
- drivers/clk/clk-ast2700.c | 1513 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 1522 insertions(+)
- create mode 100644 drivers/clk/clk-ast2700.c
+在 2024-10-23 16:09，Kexy Biscuit 写道：
+> This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
+> 
+> An absolutely no-one-ever-reviewed patch, not even by the maintainers 
+> who
+> got removed themselves - at least not on the mailing list. Then the 
+> patch
+> just got slipped into an unrelated subsystem pull request, and got 
+> pulled
+> by Torvalds with not even a comment.
+> 
+> What about the next time? Who next would be removed from the 
+> MAINTAINERS
+> file, the kernel.org infrastructure? What if the compliance requires
+> another XZ backdoor to be developed without further explanation? Is the
+> kernel development process still done in public?
+> 
+> Are the "compliance requirements" documented on docs.kernel.org? Who 
+> are
+> responsible for them? Are all that are responsible employees of
+> The Linux Foundation, which is regulated by the U.S. legislature?
 
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 983ef4f36d8c..4cc35ecba1c0 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -269,6 +269,14 @@ config COMMON_CLK_ASPEED
- 	  The G4 and G5 series, including the ast2400 and ast2500, are supported
- 	  by this driver.
- 
-+config COMMON_CLK_AST2700
-+	bool "Clock driver for AST2700 SoC"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	help
-+	  This driver provides support for clock on AST2700 SoC.
-+	  The driver is responsible for managing the various clocks required
-+	  by the peripherals and cores within the AST2700.
-+
- config COMMON_CLK_S2MPS11
- 	tristate "Clock driver for S2MPS1X/S5M8767 MFD"
- 	depends on MFD_SEC_CORE || COMPILE_TEST
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index f793a16cad40..fe95203c3138 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -38,6 +38,7 @@ obj-$(CONFIG_COMMON_CLK_FSL_SAI)	+= clk-fsl-sai.o
- obj-$(CONFIG_COMMON_CLK_GEMINI)		+= clk-gemini.o
- obj-$(CONFIG_COMMON_CLK_ASPEED)		+= clk-aspeed.o
- obj-$(CONFIG_MACH_ASPEED_G6)		+= clk-ast2600.o
-+obj-$(CONFIG_COMMON_CLK_AST2700)	+= clk-ast2700.o
- obj-$(CONFIG_ARCH_HIGHBANK)		+= clk-highbank.o
- obj-$(CONFIG_CLK_HSDK)			+= clk-hsdk-pll.o
- obj-$(CONFIG_COMMON_CLK_K210)		+= clk-k210.o
-diff --git a/drivers/clk/clk-ast2700.c b/drivers/clk/clk-ast2700.c
-new file mode 100644
-index 000000000000..db9ee5031b7c
---- /dev/null
-+++ b/drivers/clk/clk-ast2700.c
-@@ -0,0 +1,1513 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2024 ASPEED Technology Inc.
-+ * Author: Ryan Chen <ryan_chen@aspeedtech.com>
-+ */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/clk-provider.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/units.h>
-+
-+#include <dt-bindings/clock/aspeed,ast2700-scu.h>
-+#include <soc/aspeed/reset-aspeed.h>
-+
-+#define SCU_CLK_12MHZ (12 * HZ_PER_MHZ)
-+#define SCU_CLK_24MHZ (24 * HZ_PER_MHZ)
-+#define SCU_CLK_25MHZ (25 * HZ_PER_MHZ)
-+#define SCU_CLK_192MHZ (192 * HZ_PER_MHZ)
-+
-+/* SOC0 */
-+#define SCU0_HWSTRAP1 0x010
-+#define SCU0_CLK_STOP 0x240
-+#define SCU0_CLK_SEL1 0x280
-+#define SCU0_CLK_SEL2 0x284
-+#define GET_USB_REFCLK_DIV(x) ((GENMASK(23, 20) & (x)) >> 20)
-+#define UART_DIV13_EN BIT(30)
-+#define SCU0_HPLL_PARAM 0x300
-+#define SCU0_DPLL_PARAM 0x308
-+#define SCU0_MPLL_PARAM 0x310
-+#define SCU0_D0CLK_PARAM 0x320
-+#define SCU0_D1CLK_PARAM 0x330
-+#define SCU0_CRT0CLK_PARAM 0x340
-+#define SCU0_CRT1CLK_PARAM 0x350
-+#define SCU0_MPHYCLK_PARAM 0x360
-+
-+/* SOC1 */
-+#define SCU1_REVISION_ID 0x0
-+#define REVISION_ID GENMASK(23, 16)
-+#define SCU1_CLK_STOP 0x240
-+#define SCU1_CLK_STOP2 0x260
-+#define SCU1_CLK_SEL1 0x280
-+#define SCU1_CLK_SEL2 0x284
-+#define UXCLK_MASK GENMASK(1, 0)
-+#define HUXCLK_MASK GENMASK(4, 3)
-+#define SCU1_HPLL_PARAM 0x300
-+#define SCU1_APLL_PARAM 0x310
-+#define SCU1_DPLL_PARAM 0x320
-+#define SCU1_UXCLK_CTRL 0x330
-+#define SCU1_HUXCLK_CTRL 0x334
-+#define SCU1_MAC12_CLK_DLY 0x390
-+#define SCU1_MAC12_CLK_DLY_100M 0x394
-+#define SCU1_MAC12_CLK_DLY_10M 0x398
-+
-+enum {
-+	CLK_MUX,
-+	CLK_PLL,
-+	CLK_GATE,
-+	CLK_MISC,
-+	CLK_FIXED,
-+	CLK_DIVIDER,
-+	CLK_UART_PLL,
-+	CLK_DIV_TABLE,
-+	CLK_FIXED_FACTOR,
-+	CLK_GATE_ASPEED,
-+};
-+
-+struct ast2700_clk_info {
-+	const char *name;
-+	const char * const *parent_names;
-+	const struct clk_div_table *div_table;
-+	unsigned long fixed_rate;
-+	unsigned int mult;
-+	unsigned int div;
-+	u32 reg;
-+	u32 flags;
-+	u32 type;
-+	u8 clk_idx;
-+	u8 bit_shift;
-+	u8 bit_width;
-+	u8 num_parents;
-+};
-+
-+struct ast2700_clk_data {
-+	struct ast2700_clk_info const *clk_info;
-+	unsigned int nr_clks;
-+	const int scu;
-+};
-+
-+struct ast2700_clk_ctrl {
-+	const struct ast2700_clk_data *clk_data;
-+	struct device *dev;
-+	void __iomem *base;
-+	spinlock_t lock; /* clk lock */
-+};
-+
-+static const struct clk_div_table ast2700_rgmii_div_table[] = {
-+	{ 0x0, 4 },
-+	{ 0x1, 4 },
-+	{ 0x2, 6 },
-+	{ 0x3, 8 },
-+	{ 0x4, 10 },
-+	{ 0x5, 12 },
-+	{ 0x6, 14 },
-+	{ 0x7, 16 },
-+	{ 0 }
-+};
-+
-+static const struct clk_div_table ast2700_rmii_div_table[] = {
-+	{ 0x0, 8 },
-+	{ 0x1, 8 },
-+	{ 0x2, 12 },
-+	{ 0x3, 16 },
-+	{ 0x4, 20 },
-+	{ 0x5, 24 },
-+	{ 0x6, 28 },
-+	{ 0x7, 32 },
-+	{ 0 }
-+};
-+
-+static const struct clk_div_table ast2700_clk_div_table[] = {
-+	{ 0x0, 2 },
-+	{ 0x1, 2 },
-+	{ 0x2, 3 },
-+	{ 0x3, 4 },
-+	{ 0x4, 5 },
-+	{ 0x5, 6 },
-+	{ 0x6, 7 },
-+	{ 0x7, 8 },
-+	{ 0 }
-+};
-+
-+static const struct clk_div_table ast2700_clk_div_table2[] = {
-+	{ 0x0, 2 },
-+	{ 0x1, 4 },
-+	{ 0x2, 6 },
-+	{ 0x3, 8 },
-+	{ 0x4, 10 },
-+	{ 0x5, 12 },
-+	{ 0x6, 14 },
-+	{ 0x7, 16 },
-+	{ 0 }
-+};
-+
-+static const struct clk_div_table ast2700_clk_uart_div_table[] = {
-+	{ 0x0, 1 },
-+	{ 0x1, 13 },
-+	{ 0 }
-+};
-+
-+static const struct ast2700_clk_info ast2700_scu0_clk_info[] __initconst = {
-+	[SCU0_CLKIN] = {
-+		.type = CLK_FIXED,
-+		.name = "soc0-clkin",
-+		.fixed_rate = SCU_CLK_25MHZ,
-+	},
-+	[SCU0_CLK_24M] = {
-+		.type = CLK_FIXED,
-+		.name = "soc0-clk24Mhz",
-+		.fixed_rate = SCU_CLK_24MHZ,
-+	},
-+	[SCU0_CLK_192M] = {
-+		.type = CLK_FIXED,
-+		.name = "soc0-clk192Mhz",
-+		.fixed_rate = SCU_CLK_192MHZ,
-+	},
-+	[SCU0_CLK_HPLL] = {
-+		.type = CLK_PLL,
-+		.name = "soc0-hpll",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_HPLL_PARAM,
-+	},
-+	[SCU0_CLK_HPLL_DIV2] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc0-hpll_div2",
-+		.parent_names = (const char *[]){ "soc0-hpll", },
-+		.mult = 1,
-+		.div = 2,
-+	},
-+	[SCU0_CLK_HPLL_DIV4] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc0-hpll_div4",
-+		.parent_names = (const char *[]){ "soc0-hpll", },
-+		.mult = 1,
-+		.div = 4,
-+	},
-+	[SCU0_CLK_HPLL_DIV_AHB] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc0-hpll_div_ahb",
-+		.parent_names = (const char *[]){ "soc0-hpll", },
-+		.reg = SCU0_HWSTRAP1,
-+		.bit_shift = 5,
-+		.bit_width = 2,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU0_CLK_DPLL] = {
-+		.type = CLK_PLL,
-+		.name = "dpll",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_DPLL_PARAM,
-+	},
-+	[SCU0_CLK_MPLL] = {
-+		.type = CLK_PLL,
-+		.name = "soc0-mpll",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_MPLL_PARAM,
-+	},
-+	[SCU0_CLK_MPLL_DIV2] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc0-mpll_div2",
-+		.parent_names = (const char *[]){ "soc0-mpll", },
-+		.mult = 1,
-+		.div = 2,
-+	},
-+	[SCU0_CLK_MPLL_DIV4] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc0-mpll_div4",
-+		.parent_names = (const char *[]){ "soc0-mpll", },
-+		.mult = 1,
-+		.div = 4,
-+	},
-+	[SCU0_CLK_MPLL_DIV8] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc0-mpll_div8",
-+		.parent_names = (const char *[]){ "soc0-mpll", },
-+		.mult = 1,
-+		.div = 8,
-+	},
-+	[SCU0_CLK_MPLL_DIV_AHB] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc0-mpll_div_ahb",
-+		.parent_names = (const char *[]){ "soc0-mpll", },
-+		.reg = SCU0_HWSTRAP1,
-+		.bit_shift = 5,
-+		.bit_width = 2,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU0_CLK_D0] = {
-+		.type = CLK_PLL,
-+		.name = "d0clk",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_D0CLK_PARAM,
-+	},
-+	[SCU0_CLK_D1] = {
-+		.type = CLK_PLL,
-+		.name = "d1clk",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_D1CLK_PARAM,
-+	},
-+	[SCU0_CLK_CRT0] = {
-+		.type = CLK_PLL,
-+		.name = "crt0clk",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_CRT0CLK_PARAM,
-+	},
-+	[SCU0_CLK_CRT1] = {
-+		.type = CLK_PLL,
-+		.name = "crt1clk",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_CRT1CLK_PARAM,
-+	},
-+	[SCU0_CLK_MPHY] = {
-+		.type = CLK_MISC,
-+		.name = "mphyclk",
-+		.parent_names = (const char *[]){ "soc0-hpll", },
-+		.reg = SCU0_MPHYCLK_PARAM,
-+	},
-+	[SCU0_CLK_PSP] = {
-+		.type = CLK_MUX,
-+		.name = "pspclk",
-+		.parent_names = (const char *[]){"soc0-mpll", "soc0-hpll", },
-+		.num_parents = 2,
-+		.reg = SCU0_HWSTRAP1,
-+		.bit_shift = 4,
-+		.bit_width = 1,
-+	},
-+	[SCU0_CLK_AXI0] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "axi0clk",
-+		.parent_names = (const char *[]){"pspclk", },
-+		.mult = 1,
-+		.div = 2,
-+	},
-+	[SCU0_CLK_AHB] = {
-+		.type = CLK_MUX,
-+		.name = "soc0-ahb",
-+		.parent_names = (const char *[]){"soc0-mpll_div_ahb", "soc0-hspll_div_ahb", },
-+		.num_parents = 2,
-+		.reg = SCU0_HWSTRAP1,
-+		.bit_shift = 7,
-+		.bit_width = 1,
-+	},
-+	[SCU0_CLK_AXI1] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "axi1clk",
-+		.parent_names = (const char *[]){ "soc0-ahb", },
-+		.mult = 1,
-+		.div = 2,
-+	},
-+	[SCU0_CLK_APB] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc0-apb",
-+		.parent_names = (const char *[]){ "axi0clk", },
-+		.reg = SCU0_CLK_SEL1,
-+		.bit_shift = 23,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table2,
-+	},
-+	[SCU0_CLK_GATE_MCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "mclk-gate",
-+		.parent_names = (const char *[]){ "soc0-mpll", },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 0,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_ECLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "eclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 1,
-+	},
-+	[SCU0_CLK_GATE_2DCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "gclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 2,
-+	},
-+	[SCU0_CLK_GATE_VCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "vclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 3,
-+	},
-+	[SCU0_CLK_GATE_BCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "bclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 4,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_VGA0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "vga0clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 5,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_REFCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc0-refclk-gate",
-+		.parent_names = (const char *[]){ "soc0-clkin", },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 6,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_U2PHY_REFCLK] = {
-+		.type = CLK_MISC,
-+		.name = "u2phy_refclk",
-+		.parent_names = (const char *[]){ "soc0-mpll_div8", },
-+		.reg = SCU0_CLK_SEL2,
-+	},
-+	[SCU0_CLK_U2PHY_CLK12M] = {
-+		.type = CLK_FIXED,
-+		.name = "u2phy_clk12m",
-+		.parent_names = (const char *[]){  },
-+		.fixed_rate = SCU_CLK_12MHZ,
-+	},
-+	[SCU0_CLK_GATE_PORTBUSB2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "portb-usb2clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 7,
-+	},
-+	[SCU0_CLK_GATE_UHCICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uhciclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 9,
-+	},
-+	[SCU0_CLK_GATE_VGA1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "vga1clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 10,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_DDRPHYCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "ddrphy-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 11,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_E2M0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "e2m0clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 12,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_HACCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "hacclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 13,
-+	},
-+	[SCU0_CLK_GATE_PORTAUSB2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "porta-usb2clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 14,
-+	},
-+	[SCU0_CLK_UART] = {
-+		.type = CLK_MUX,
-+		.name = "soc0-uartclk",
-+		.parent_names = (const char *[]){"soc0-clk24Mhz", "soc0-clk192Mhz", },
-+		.num_parents = 2,
-+		.reg = SCU0_CLK_SEL2,
-+		.bit_shift = 14,
-+		.bit_width = 1,
-+	},
-+	[SCU0_CLK_UART4] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "uart4clk",
-+		.parent_names = (const char *[]){ "soc0-uartclk", },
-+		.reg = SCU0_CLK_SEL2,
-+		.bit_shift = 30,
-+		.bit_width = 1,
-+		.div_table = ast2700_clk_uart_div_table,
-+	},
-+	[SCU0_CLK_GATE_UART4CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart4clk-gate",
-+		.parent_names = (const char *[]){"uart4clk" },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 15,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_SLICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc0-sliclk-gate",
-+		.parent_names = (const char *[]){	},
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 16,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_DACCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "dacclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 17,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_DP] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "dpclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 18,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_E2M1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "e2m1clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 19,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU0_CLK_GATE_CRT0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "crt0clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 20,
-+	},
-+	[SCU0_CLK_GATE_CRT1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "crt1clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 21,
-+	},
-+	[SCU0_CLK_GATE_ECDSACLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "eccclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 23,
-+	},
-+	[SCU0_CLK_GATE_RSACLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "rsaclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 24,
-+	},
-+	[SCU0_CLK_GATE_RVAS0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "rvasclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 25,
-+	},
-+	[SCU0_CLK_GATE_UFSCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "ufsclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 26,
-+	},
-+	[SCU0_CLK_EMMCMUX] = {
-+		.type = CLK_MUX,
-+		.name = "emmcsrc-mux",
-+		.parent_names = (const char *[]){"soc0-mpll_div4", "soc0-hpll_div4", },
-+		.num_parents = 2,
-+		.reg = SCU0_CLK_SEL1,
-+		.bit_shift = 11,
-+		.bit_width = 1,
-+	},
-+	[SCU0_CLK_EMMC] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "emmcclk",
-+		.parent_names = (const char *[]){ "emmcsrc-mux", },
-+		.reg = SCU0_CLK_SEL1,
-+		.bit_shift = 12,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table2,
-+	},
-+	[SCU0_CLK_GATE_EMMCCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "emmcclk-gate",
-+		.parent_names = (const char *[]){ "emmcclk", },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 27,
-+	},
-+	[SCU0_CLK_GATE_RVAS1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "rvas2clk-gate",
-+		.parent_names = (const char *[]){ "emmcclk", },
-+		.reg = SCU0_CLK_STOP,
-+		.clk_idx = 28,
-+	},
-+};
-+
-+static const struct ast2700_clk_info ast2700_scu1_clk_info[] __initconst = {
-+	[SCU1_CLKIN] = {
-+		.type = CLK_FIXED,
-+		.name = "soc1-clkin",
-+		.fixed_rate = SCU_CLK_25MHZ,
-+	},
-+	[SCU1_CLK_HPLL] = {
-+		.type = CLK_PLL,
-+		.name = "soc1-hpll",
-+		.parent_names = (const char *[]){ "soc1-clkin", },
-+		.reg = SCU1_HPLL_PARAM,
-+	},
-+	[SCU1_CLK_APLL] = {
-+		.type = CLK_PLL,
-+		.name = "soc1-apll",
-+		.parent_names = (const char *[]){ "soc1-clkin", },
-+		.reg = SCU1_APLL_PARAM,
-+	},
-+	[SCU1_CLK_APLL_DIV2] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc1-apll_div2",
-+		.parent_names = (const char *[]){ "soc1-apll", },
-+		.mult = 1,
-+		.div = 2,
-+	},
-+	[SCU1_CLK_APLL_DIV4] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "soc1-apll_div4",
-+		.parent_names = (const char *[]){ "soc1-apll", },
-+		.mult = 1,
-+		.div = 4,
-+	},
-+	[SCU1_CLK_DPLL] = {
-+		.type = CLK_PLL,
-+		.name = "soc1-dpll",
-+		.parent_names = (const char *[]){ "soc1-clkin", },
-+		.reg = SCU1_DPLL_PARAM,
-+	},
-+	[SCU1_CLK_UXCLK] = {
-+		.type = CLK_MUX,
-+		.name = "uxclk",
-+		.parent_names = (const char *[]){ "soc1-apll_div4", "soc1-apll_div2",
-+						 "soc1-apll", "soc1-hpll",},
-+		.num_parents = 4,
-+		.reg = SCU1_CLK_SEL2,
-+		.bit_shift = 0,
-+		.bit_width = 2,
-+	},
-+	[SCU1_CLK_UARTX] = {
-+		.type = CLK_UART_PLL,
-+		.name = "uartxclk",
-+		.parent_names = (const char *[]){ "uxclk", },
-+		.reg = SCU1_UXCLK_CTRL,
-+	},
-+	[SCU1_CLK_HUXCLK] = {
-+		.type = CLK_MUX,
-+		.name = "huxclk",
-+		.parent_names = (const char *[]){"soc1-apll_div4", "soc1-apll_div2",
-+						 "soc1-apll", "soc1-hpll",},
-+		.num_parents = 4,
-+		.reg = SCU1_CLK_SEL2,
-+		.bit_shift = 3,
-+		.bit_width = 2,
-+	},
-+	[SCU1_CLK_HUARTX] = {
-+		.type = CLK_UART_PLL,
-+		.name = "huartxclk",
-+		.parent_names = (const char *[]){ "huxclk", },
-+		.reg = SCU1_HUXCLK_CTRL,
-+	},
-+	[SCU1_CLK_AHB] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc1-ahb",
-+		.parent_names = (const char *[]){"soc1-hpll", },
-+		.reg = SCU1_CLK_SEL2,
-+		.bit_shift = 20,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU1_CLK_APB] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc1-apb",
-+		.parent_names = (const char *[]){"soc1-hpll", },
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 18,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table2,
-+	},
-+	[SCU1_CLK_RMII] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "rmii",
-+		.parent_names = (const char *[]){"soc1-hpll", },
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 21,
-+		.bit_width = 3,
-+		.div_table = ast2700_rmii_div_table,
-+	},
-+	[SCU1_CLK_MAC0RCLK] = {
-+		.type = CLK_GATE,
-+		.name = "mac0rclk-gate",
-+		.parent_names = (const char *[]){ "rmii", },
-+		.reg = SCU1_MAC12_CLK_DLY,
-+		.clk_idx = 29,
-+	},
-+	[SCU1_CLK_MAC1RCLK] = {
-+		.type = CLK_GATE,
-+		.name = "mac1rclk-gate",
-+		.parent_names = (const char *[]){ "rmii", },
-+		.reg = SCU1_MAC12_CLK_DLY,
-+		.clk_idx = 30,
-+	},
-+	[SCU1_CLK_RGMII] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "rgmii",
-+		.parent_names = (const char *[]){"soc1-hpll", },
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 25,
-+		.bit_width = 3,
-+		.div_table = ast2700_rgmii_div_table,
-+	},
-+	[SCU1_CLK_MACHCLK] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "machclk",
-+		.parent_names = (const char *[]){"soc1-hpll", },
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 29,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU1_CLK_GATE_LCLK0] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "lclk0-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 0,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_LCLK1] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "lclk1-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 1,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_ESPI0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "espi0clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 2,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_ESPI1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "espi1clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 3,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_APLL_DIVN] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "soc1-apll_divn",
-+		.parent_names = (const char *[]){"soc1-apll", },
-+		.reg = SCU1_CLK_SEL2,
-+		.bit_shift = 8,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU1_CLK_SDMUX] = {
-+		.type = CLK_MUX,
-+		.name = "sdclk-mux",
-+		.parent_names = (const char *[]){ "soc1-hpll", "soc1-apll", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 13,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_SDCLK] = {
-+		.type = CLK_DIV_TABLE,
-+		.name = "sdclk",
-+		.parent_names = (const char *[]){"sdclk-mux", },
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 14,
-+		.bit_width = 3,
-+		.div_table = ast2700_clk_div_table,
-+	},
-+	[SCU1_CLK_GATE_SDCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "sdclk-gate",
-+		.parent_names = (const char *[]){"sdclk", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 4,
-+	},
-+	[SCU1_CLK_GATE_IPEREFCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc1-iperefclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 5,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_REFCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc1-refclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 6,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_LPCHCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "lpchclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 7,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_MAC0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "mac0clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 8,
-+	},
-+	[SCU1_CLK_GATE_MAC1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "mac1clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 9,
-+	},
-+	[SCU1_CLK_GATE_MAC2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "mac2clk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 10,
-+	},
-+	[SCU1_CLK_UART0] = {
-+		.type = CLK_MUX,
-+		.name = "uart0clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 0,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart0clk-gate",
-+		.parent_names = (const char *[]){ "uart0clk", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 11,
-+	},
-+	[SCU1_CLK_UART1] = {
-+		.type = CLK_MUX,
-+		.name = "uart1clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 1,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart1clk-gate",
-+		.parent_names = (const char *[]){ "uart1clk", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 12,
-+	},
-+	[SCU1_CLK_UART2] = {
-+		.type = CLK_MUX,
-+		.name = "uart2clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 2,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart2clk-gate",
-+		.parent_names = (const char *[]){ "uart2clk", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 13,
-+	},
-+	[SCU1_CLK_UART3] = {
-+		.type = CLK_MUX,
-+		.name = "uart3clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 3,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART3CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart3clk-gate",
-+		.parent_names = (const char *[]){ "uart3clk", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 14,
-+	},
-+	[SCU1_CLK_GATE_I2CCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i2cclk-gate",
-+		.parent_names = (const char *[]){	},
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 15,
-+	},
-+	[SCU1_CLK_GATE_I3C0CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c0clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 16,
-+	},
-+	[SCU1_CLK_GATE_I3C1CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c1clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 17,
-+	},
-+	[SCU1_CLK_GATE_I3C2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c2clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 18,
-+	},
-+	[SCU1_CLK_GATE_I3C3CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c3clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 19,
-+	},
-+	[SCU1_CLK_GATE_I3C4CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c4clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 20,
-+	},
-+	[SCU1_CLK_GATE_I3C5CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c5clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 21,
-+	},
-+	[SCU1_CLK_GATE_I3C6CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c6clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 22,
-+	},
-+	[SCU1_CLK_GATE_I3C7CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c7clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 23,
-+	},
-+	[SCU1_CLK_GATE_I3C8CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c8clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 24,
-+	},
-+	[SCU1_CLK_GATE_I3C9CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c9clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 25,
-+	},
-+	[SCU1_CLK_GATE_I3C10CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c10clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 26,
-+	},
-+	[SCU1_CLK_GATE_I3C11CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c11clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 27,
-+	},
-+	[SCU1_CLK_GATE_I3C12CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c12clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 28,
-+	},
-+	[SCU1_CLK_GATE_I3C13CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c13clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 29,
-+	},
-+	[SCU1_CLK_GATE_I3C14CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c14clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 30,
-+	},
-+	[SCU1_CLK_GATE_I3C15CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "i3c15clk-gate",
-+		.parent_names = (const char *[]){ "soc1-ahb", },
-+		.reg = SCU1_CLK_STOP,
-+		.clk_idx = 31,
-+	},
-+	[SCU1_CLK_UART5] = {
-+		.type = CLK_MUX,
-+		.name = "uart5clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 5,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART5CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart5clk-gate",
-+		.parent_names = (const char *[]){ "uart5clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 0,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_UART6] = {
-+		.type = CLK_MUX,
-+		.name = "uart6clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 6,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART6CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart6clk-gate",
-+		.parent_names = (const char *[]){ "uart6clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 1,
-+	},
-+	[SCU1_CLK_UART7] = {
-+		.type = CLK_MUX,
-+		.name = "uart7clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 7,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART7CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart7clk-gate",
-+		.parent_names = (const char *[]){ "uart7clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 2,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_UART8] = {
-+		.type = CLK_MUX,
-+		.name = "uart8clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 8,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART8CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart8clk-gate",
-+		.parent_names = (const char *[]){ "uart8clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 3,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_UART9] = {
-+		.type = CLK_MUX,
-+		.name = "uart9clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 9,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART9CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart9clk-gate",
-+		.parent_names = (const char *[]){ "uart9clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 4,
-+	},
-+	[SCU1_CLK_UART10] = {
-+		.type = CLK_MUX,
-+		.name = "uart10clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 10,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART10CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart10clk-gate",
-+		.parent_names = (const char *[]){ "uart10clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 5,
-+	},
-+	[SCU1_CLK_UART11] = {
-+		.type = CLK_MUX,
-+		.name = "uart11clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 11,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART11CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart11clk-gate",
-+		.parent_names = (const char *[]){ "uart11clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 6,
-+	},
-+	[SCU1_CLK_UART12] = {
-+		.type = CLK_MUX,
-+		.name = "uart12clk",
-+		.parent_names = (const char *[]){"uartxclk", "huartxclk", },
-+		.num_parents = 2,
-+		.reg = SCU1_CLK_SEL1,
-+		.bit_shift = 12,
-+		.bit_width = 1,
-+	},
-+	[SCU1_CLK_GATE_UART12CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "uart12clk-gate",
-+		.parent_names = (const char *[]){ "uart12clk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 7,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_UART13] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "uart13clk",
-+		.parent_names = (const char *[]){ "huartxclk", },
-+		.mult = 1,
-+		.div = 1,
-+	},
-+	[SCU1_CLK_UART14] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "uart14clk",
-+		.parent_names = (const char *[]){ "huartxclk", },
-+		.mult = 1,
-+		.div = 1,
-+	},
-+	[SCU1_CLK_GATE_FSICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "fsiclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 8,
-+	},
-+	[SCU1_CLK_GATE_LTPIPHYCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "ltpiphyclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 9,
-+	},
-+	[SCU1_CLK_GATE_LTPICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "ltpiclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 10,
-+	},
-+	[SCU1_CLK_GATE_VGALCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "vgalclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 11,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_UHCICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "usbuartclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 12,
-+	},
-+	[SCU1_CLK_CAN] = {
-+		.type = CLK_FIXED_FACTOR,
-+		.name = "canclk",
-+		.parent_names = (const char *[]){ "soc1-apll", },
-+		.mult = 1,
-+		.div = 10,
-+	},
-+	[SCU1_CLK_GATE_CANCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "canclk-gate",
-+		.parent_names = (const char *[]){ "canclk", },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 13,
-+	},
-+	[SCU1_CLK_GATE_PCICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "pciclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 14,
-+	},
-+	[SCU1_CLK_GATE_SLICLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc1-sliclk-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 15,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_E2MCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "soc1-e2m-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 16,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_PORTCUSB2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "portcusb2-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 17,
-+		.flags = CLK_IS_CRITICAL,
-+	},
-+	[SCU1_CLK_GATE_PORTDUSB2CLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "portdusb2-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 18,
-+	},
-+	[SCU1_CLK_GATE_LTPI1TXCLK] = {
-+		.type = CLK_GATE_ASPEED,
-+		.name = "ltp1tx-gate",
-+		.parent_names = (const char *[]){  },
-+		.reg = SCU1_CLK_STOP2,
-+		.clk_idx = 19,
-+	},
-+};
-+
-+static struct clk_hw *ast2700_clk_hw_register_pll(int clk_idx, void __iomem *reg,
-+						  const struct ast2700_clk_info *clk,
-+						  struct ast2700_clk_ctrl *clk_ctrl)
-+{
-+	int scu = clk_ctrl->clk_data->scu;
-+	unsigned int mult, div;
-+	u32 val;
-+
-+	if (!scu && clk_idx == SCU0_CLK_HPLL) {
-+		val = readl(clk_ctrl->base + SCU0_HWSTRAP1);
-+		if ((val & GENMASK(3, 2)) != 0) {
-+			switch ((val & GENMASK(3, 2)) >> 2) {
-+			case 1:
-+				return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, "soc0-hpll",
-+								       NULL, 0, 1900000000);
-+			case 2:
-+				return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, "soc0-hpll",
-+								       NULL, 0, 1800000000);
-+			case 3:
-+				return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, "soc0-hpll",
-+								       NULL, 0, 1700000000);
-+			default:
-+				return ERR_PTR(-EINVAL);
-+			}
-+		}
-+	}
-+
-+	val = readl(reg);
-+
-+	if (val & BIT(24)) {
-+		/* Pass through mode */
-+		mult = 1;
-+		div = 1;
-+	} else {
-+		u32 m = val & 0x1fff;
-+		u32 n = (val >> 13) & 0x3f;
-+		u32 p = (val >> 19) & 0xf;
-+
-+		if (scu) {
-+			mult = (m + 1) / (n + 1);
-+			div = (p + 1);
-+		} else {
-+			if (clk_idx == SCU0_CLK_MPLL) {
-+				mult = m / (n + 1);
-+				div = (p + 1);
-+			} else {
-+				mult = (m + 1) / (2 * (n + 1));
-+				div = (p + 1);
-+			}
-+		}
-+	}
-+
-+	return devm_clk_hw_register_fixed_factor(clk_ctrl->dev, clk->name,
-+						 clk->parent_names[0], 0, mult, div);
-+}
-+
-+static struct clk_hw *ast2700_clk_hw_register_uartpll(int clk_idx, void __iomem *reg,
-+						      const struct ast2700_clk_info *clk,
-+						      struct ast2700_clk_ctrl *clk_ctrl)
-+{
-+	unsigned int mult, div;
-+	u32 val = readl(reg);
-+	u32 r = val & 0xff;
-+	u32 n = (val >> 8) & 0x3ff;
-+
-+	mult = r;
-+	div = n * 2;
-+
-+	return devm_clk_hw_register_fixed_factor(clk_ctrl->dev, clk->name,
-+						 clk->parent_names[0], 0, mult, div);
-+}
-+
-+static struct clk_hw *ast2700_clk_hw_register_misc(int clk_idx, void __iomem *reg,
-+						   const struct ast2700_clk_info *clk,
-+						   struct ast2700_clk_ctrl *clk_ctrl)
-+{
-+	u32 div = 0;
-+
-+	if (clk_idx == SCU0_CLK_MPHY)
-+		div = readl(reg) + 1;
-+	else if (clk_idx == SCU0_CLK_U2PHY_REFCLK)
-+		div = (GET_USB_REFCLK_DIV(readl(reg)) + 1) << 1;
-+	else
-+		return ERR_PTR(-EINVAL);
-+
-+	return devm_clk_hw_register_fixed_factor(clk_ctrl->dev, clk->name,
-+						   clk->parent_names[0], clk->flags,
-+						   1, div);
-+}
-+
-+static int ast2700_clk_is_enabled(struct clk_hw *hw)
-+{
-+	struct clk_gate *gate = to_clk_gate(hw);
-+	u32 clk = BIT(gate->bit_idx);
-+	u32 reg;
-+
-+	reg = readl(gate->reg);
-+
-+	return !(reg & clk);
-+}
-+
-+static int ast2700_clk_enable(struct clk_hw *hw)
-+{
-+	struct clk_gate *gate = to_clk_gate(hw);
-+	u32 clk = BIT(gate->bit_idx);
-+
-+	if (readl(gate->reg) & clk)
-+		writel(clk, gate->reg + 0x04);
-+
-+	return 0;
-+}
-+
-+static void ast2700_clk_disable(struct clk_hw *hw)
-+{
-+	struct clk_gate *gate = to_clk_gate(hw);
-+	u32 clk = BIT(gate->bit_idx);
-+
-+	/* Clock is set to enable, so use write to set register */
-+	writel(clk, gate->reg);
-+}
-+
-+static const struct clk_ops ast2700_clk_gate_ops = {
-+	.enable = ast2700_clk_enable,
-+	.disable = ast2700_clk_disable,
-+	.is_enabled = ast2700_clk_is_enabled,
-+};
-+
-+static struct clk_hw *ast2700_clk_hw_register_gate(struct device *dev, const char *name,
-+						   const char *parent_name, unsigned long flags,
-+						   void __iomem *reg, u8 clock_idx,
-+						   u8 clk_gate_flags, spinlock_t *lock)
-+{
-+	struct clk_gate *gate;
-+	struct clk_hw *hw;
-+	struct clk_init_data init;
-+	int ret = -EINVAL;
-+
-+	gate = kzalloc(sizeof(*gate), GFP_KERNEL);
-+	if (!gate)
-+		return ERR_PTR(-ENOMEM);
-+
-+	init.name = name;
-+	init.ops = &ast2700_clk_gate_ops;
-+	init.flags = flags;
-+	init.parent_names = parent_name ? &parent_name : NULL;
-+	init.num_parents = parent_name ? 1 : 0;
-+
-+	gate->reg = reg;
-+	gate->bit_idx = clock_idx;
-+	gate->flags = clk_gate_flags;
-+	gate->lock = lock;
-+	gate->hw.init = &init;
-+
-+	hw = &gate->hw;
-+	ret = clk_hw_register(dev, hw);
-+	if (ret) {
-+		kfree(gate);
-+		hw = ERR_PTR(ret);
-+	}
-+
-+	return hw;
-+}
-+
-+static int ast2700_soc_clk_probe(struct platform_device *pdev)
-+{
-+	struct ast2700_clk_data *clk_data;
-+	struct ast2700_clk_ctrl *clk_ctrl;
-+	struct clk_hw_onecell_data *clk_hw_data;
-+	struct device *dev = &pdev->dev;
-+	void __iomem *clk_base;
-+	struct clk_hw **hws;
-+	char *reset_name;
-+	int ret;
-+	int i;
-+
-+	clk_ctrl = devm_kzalloc(dev, sizeof(*clk_ctrl), GFP_KERNEL);
-+	if (!clk_ctrl)
-+		return -ENOMEM;
-+	clk_ctrl->dev = dev;
-+	dev_set_drvdata(&pdev->dev, clk_ctrl);
-+
-+	spin_lock_init(&clk_ctrl->lock);
-+
-+	clk_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(clk_base))
-+		return PTR_ERR(clk_base);
-+
-+	clk_ctrl->base = clk_base;
-+
-+	clk_data = (struct ast2700_clk_data *)of_device_get_match_data(dev);
-+	if (!clk_data)
-+		return devm_of_platform_populate(dev);
-+
-+	clk_ctrl->clk_data = clk_data;
-+	reset_name = devm_kasprintf(dev, GFP_KERNEL, "reset%d", clk_data->scu);
-+
-+	clk_hw_data = devm_kzalloc(dev, struct_size(clk_hw_data, hws, clk_data->nr_clks),
-+				   GFP_KERNEL);
-+	if (!clk_hw_data)
-+		return -ENOMEM;
-+
-+	clk_hw_data->num = clk_data->nr_clks;
-+	hws = clk_hw_data->hws;
-+
-+	for (i = 0; i < clk_data->nr_clks; i++) {
-+		const struct ast2700_clk_info *clk = &clk_data->clk_info[i];
-+		void __iomem *reg = clk_ctrl->base + clk->reg;
-+
-+		if (clk->type == CLK_FIXED) {
-+			hws[i] = devm_clk_hw_register_fixed_rate(dev, clk->name, NULL,
-+								 clk->flags, clk->fixed_rate);
-+		} else if (clk->type == CLK_FIXED_FACTOR) {
-+			hws[i] = devm_clk_hw_register_fixed_factor(dev, clk->name,
-+								   clk->parent_names[0], clk->flags,
-+								   clk->mult, clk->div);
-+		} else if (clk->type == CLK_PLL) {
-+			hws[i] = ast2700_clk_hw_register_pll(i, reg, clk, clk_ctrl);
-+		} else if (clk->type == CLK_UART_PLL) {
-+			hws[i] = ast2700_clk_hw_register_uartpll(i, reg, clk, clk_ctrl);
-+		} else if (clk->type == CLK_MUX) {
-+			hws[i] = devm_clk_hw_register_mux(dev, clk->name, clk->parent_names,
-+							  clk->num_parents, clk->flags, reg,
-+							  clk->bit_shift, clk->bit_width,
-+							  0, &clk_ctrl->lock);
-+		} else if (clk->type == CLK_MISC) {
-+			hws[i] = ast2700_clk_hw_register_misc(i, reg, clk, clk_ctrl);
-+		} else if (clk->type == CLK_DIVIDER) {
-+			hws[i] = devm_clk_hw_register_divider(dev, clk->name, clk->parent_names[0],
-+							      clk->flags, reg, clk->bit_shift,
-+							      clk->bit_width, 0,
-+							      &clk_ctrl->lock);
-+		} else if (clk->type == CLK_DIV_TABLE) {
-+			hws[i] = clk_hw_register_divider_table(dev, clk->name, clk->parent_names[0],
-+							       clk->flags, reg, clk->bit_shift,
-+							       clk->bit_width, 0,
-+							       clk->div_table, &clk_ctrl->lock);
-+		} else if (clk->type == CLK_GATE_ASPEED) {
-+			hws[i] = ast2700_clk_hw_register_gate(dev, clk->name, clk->parent_names[0],
-+							      clk->flags, reg, clk->clk_idx,
-+							      clk->flags, &clk_ctrl->lock);
-+		} else {
-+			hws[i] = clk_hw_register_gate(dev, clk->name, clk->parent_names[0],
-+						      clk->flags, reg, clk->clk_idx, clk->flags,
-+						      &clk_ctrl->lock);
-+		}
-+
-+		if (IS_ERR(hws[i]))
-+			return PTR_ERR(hws[i]);
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_hw_data);
-+	if (ret)
-+		return ret;
-+
-+	return aspeed_reset_controller_register(dev, clk_base, reset_name);
-+}
-+
-+static const struct ast2700_clk_data ast2700_clk0_data = {
-+	.scu = 0,
-+	.nr_clks = ARRAY_SIZE(ast2700_scu0_clk_info),
-+	.clk_info = ast2700_scu0_clk_info,
-+};
-+
-+static const struct ast2700_clk_data ast2700_clk1_data = {
-+	.scu = 1,
-+	.nr_clks = ARRAY_SIZE(ast2700_scu1_clk_info),
-+	.clk_info = ast2700_scu1_clk_info,
-+};
-+
-+static const struct of_device_id ast2700_scu_match[] = {
-+	{ .compatible = "aspeed,ast2700-scu0", .data = &ast2700_clk0_data },
-+	{ .compatible = "aspeed,ast2700-scu1", .data = &ast2700_clk1_data },
-+	{ /* sentinel */ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, ast2700_scu_match);
-+
-+static struct platform_driver ast2700_scu_driver = {
-+	.driver = {
-+		.name = "clk-ast2700",
-+		.of_match_table = ast2700_scu_match,
-+	},
-+};
-+
-+builtin_platform_driver_probe(ast2700_scu_driver, ast2700_soc_clk_probe);
--- 
-2.34.1
+Bravo.
 
+> 
+> Fixes: 6e90b675cf94 ("MAINTAINERS: Remove some entries due to various 
+> compliance requirements.")
+> Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
+> ---
+> Please keep all discussions on at least one of the mailing lists.
+> 
+>  MAINTAINERS | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 178 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e9659a5a7fb3..501aa5c0887e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -258,6 +258,12 @@ L:	linux-acenic@sunsite.dk
+>  S:	Maintained
+>  F:	drivers/net/ethernet/alteon/acenic*
+> 
+> +ACER ASPIRE 1 EMBEDDED CONTROLLER DRIVER
+> +M:	Nikita Travkin <nikita@trvn.ru>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
+> +F:	drivers/platform/arm64/acer-aspire1-ec.c
+> +
+>  ACER ASPIRE ONE TEMPERATURE AND FAN DRIVER
+>  M:	Peter Kaestle <peter@piie.net>
+>  L:	platform-driver-x86@vger.kernel.org
+> @@ -882,6 +888,7 @@ F:	drivers/staging/media/sunxi/cedrus/
+> 
+>  ALPHA PORT
+>  M:	Richard Henderson <richard.henderson@linaro.org>
+> +M:	Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+>  M:	Matt Turner <mattst88@gmail.com>
+>  L:	linux-alpha@vger.kernel.org
+>  S:	Odd Fixes
+> @@ -2256,6 +2263,12 @@ L:	linux-arm-kernel@lists.infradead.org 
+> (moderated for non-subscribers)
+>  S:	Maintained
+>  F:	arch/arm/mach-ep93xx/ts72xx.c
+> 
+> +ARM/CIRRUS LOGIC CLPS711X ARM ARCHITECTURE
+> +M:	Alexander Shiyan <shc_work@mail.ru>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for 
+> non-subscribers)
+> +S:	Odd Fixes
+> +N:	clps711x
+> +
+>  ARM/CIRRUS LOGIC EP93XX ARM ARCHITECTURE
+>  M:	Hartley Sweeten <hsweeten@visionengravers.com>
+>  M:	Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> @@ -3802,6 +3815,14 @@ F:	drivers/video/backlight/
+>  F:	include/linux/backlight.h
+>  F:	include/linux/pwm_backlight.h
+> 
+> +BAIKAL-T1 PVT HARDWARE MONITOR DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-hwmon@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
+> +F:	Documentation/hwmon/bt1-pvt.rst
+> +F:	drivers/hwmon/bt1-pvt.[ch]
+> +
+>  BARCO P50 GPIO DRIVER
+>  M:	Santosh Kumar Yadav <santoshkumar.yadav@barco.com>
+>  M:	Peter Korsgaard <peter.korsgaard@barco.com>
+> @@ -6455,6 +6476,7 @@ F:	drivers/mtd/nand/raw/denali*
+> 
+>  DESIGNWARE EDMA CORE IP DRIVER
+>  M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> +R:	Serge Semin <fancer.lancer@gmail.com>
+>  L:	dmaengine@vger.kernel.org
+>  S:	Maintained
+>  F:	drivers/dma/dw-edma/
+> @@ -9737,6 +9759,14 @@ F:	drivers/gpio/gpiolib-cdev.c
+>  F:	include/uapi/linux/gpio.h
+>  F:	tools/gpio/
+> 
+> +GRE DEMULTIPLEXER DRIVER
+> +M:	Dmitry Kozlov <xeb@mail.ru>
+> +L:	netdev@vger.kernel.org
+> +S:	Maintained
+> +F:	include/net/gre.h
+> +F:	net/ipv4/gre_demux.c
+> +F:	net/ipv4/gre_offload.c
+> +
+>  GRETH 10/100/1G Ethernet MAC device driver
+>  M:	Andreas Larsson <andreas@gaisler.com>
+>  L:	netdev@vger.kernel.org
+> @@ -12929,6 +12959,12 @@ S:	Maintained
+>  F:	drivers/ata/pata_arasan_cf.c
+>  F:	include/linux/pata_arasan_cf_data.h
+> 
+> +LIBATA PATA DRIVERS
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	linux-ide@vger.kernel.org
+> +F:	drivers/ata/ata_*.c
+> +F:	drivers/ata/pata_*.c
+> +
+>  LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
+>  M:	Linus Walleij <linus.walleij@linaro.org>
+>  L:	linux-ide@vger.kernel.org
+> @@ -12945,6 +12981,15 @@ F:	drivers/ata/ahci_platform.c
+>  F:	drivers/ata/libahci_platform.c
+>  F:	include/linux/ahci_platform.h
+> 
+> +LIBATA SATA AHCI SYNOPSYS DWC CONTROLLER DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-ide@vger.kernel.org
+> +S:	Maintained
+> +T:	git 
+> git://git.kernel.org/pub/scm/linux/kernel/git/dlemoal/libata.git
+> +F:	Documentation/devicetree/bindings/ata/baikal,bt1-ahci.yaml
+> +F:	Documentation/devicetree/bindings/ata/snps,dwc-ahci.yaml
+> +F:	drivers/ata/ahci_dwc.c
+> +
+>  LIBATA SATA PROMISE TX2/TX4 CONTROLLER DRIVER
+>  M:	Mikael Pettersson <mikpelinux@gmail.com>
+>  L:	linux-ide@vger.kernel.org
+> @@ -14140,6 +14185,16 @@ S:	Maintained
+>  T:	git git://linuxtv.org/media_tree.git
+>  F:	drivers/media/platform/nxp/imx-pxp.[ch]
+> 
+> +MEDIA DRIVERS FOR ASCOT2E
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/ascot2e*
+> +
+>  MEDIA DRIVERS FOR CXD2099AR CI CONTROLLERS
+>  M:	Jasmin Jessich <jasmin@anw.at>
+>  L:	linux-media@vger.kernel.org
+> @@ -14148,6 +14203,16 @@ W:	https://linuxtv.org
+>  T:	git git://linuxtv.org/media_tree.git
+>  F:	drivers/media/dvb-frontends/cxd2099*
+> 
+> +MEDIA DRIVERS FOR CXD2841ER
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/cxd2841er*
+> +
+>  MEDIA DRIVERS FOR CXD2880
+>  M:	Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
+>  L:	linux-media@vger.kernel.org
+> @@ -14192,6 +14257,35 @@ F:	drivers/media/platform/nxp/imx-mipi-csis.c
+>  F:	drivers/media/platform/nxp/imx7-media-csi.c
+>  F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> 
+> +MEDIA DRIVERS FOR HELENE
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/helene*
+> +
+> +MEDIA DRIVERS FOR HORUS3A
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/horus3a*
+> +
+> +MEDIA DRIVERS FOR LNBH25
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/lnbh25*
+> +
+>  MEDIA DRIVERS FOR MXL5XX TUNER DEMODULATORS
+>  L:	linux-media@vger.kernel.org
+>  S:	Orphan
+> @@ -14199,6 +14293,16 @@ W:	https://linuxtv.org
+>  T:	git git://linuxtv.org/media_tree.git
+>  F:	drivers/media/dvb-frontends/mxl5xx*
+> 
+> +MEDIA DRIVERS FOR NETUP PCI UNIVERSAL DVB devices
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/pci/netup_unidvb/*
+> +
+>  MEDIA DRIVERS FOR NVIDIA TEGRA - VDE
+>  M:	Dmitry Osipenko <digetx@gmail.com>
+>  L:	linux-media@vger.kernel.org
+> @@ -14842,6 +14946,13 @@ F:	drivers/mtd/
+>  F:	include/linux/mtd/
+>  F:	include/uapi/mtd/
+> 
+> +MEMSENSING MICROSYSTEMS MSA311 DRIVER
+> +M:	Dmitry Rokosov <ddrokosov@sberdevices.ru>
+> +L:	linux-iio@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/iio/accel/memsensing,msa311.yaml
+> +F:	drivers/iio/accel/msa311.c
+> +
+>  MEN A21 WATCHDOG DRIVER
+>  M:	Johannes Thumshirn <morbidrsa@gmail.com>
+>  L:	linux-watchdog@vger.kernel.org
+> @@ -15175,6 +15286,7 @@ F:	drivers/tty/serial/8250/8250_pci1xxxx.c
+> 
+>  MICROCHIP POLARFIRE FPGA DRIVERS
+>  M:	Conor Dooley <conor.dooley@microchip.com>
+> +R:	Vladimir Georgiev <v.georgiev@metrotek.ru>
+>  L:	linux-fpga@vger.kernel.org
+>  S:	Supported
+>  
+> F:	Documentation/devicetree/bindings/fpga/microchip,mpf-spi-fpga-mgr.yaml
+> @@ -15429,6 +15541,17 @@ F:	arch/mips/
+>  F:	drivers/platform/mips/
+>  F:	include/dt-bindings/mips/
+> 
+> +MIPS BAIKAL-T1 PLATFORM
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-mips@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/bus/baikal,bt1-*.yaml
+> +F:	Documentation/devicetree/bindings/clock/baikal,bt1-*.yaml
+> +F:	drivers/bus/bt1-*.c
+> +F:	drivers/clk/baikal-t1/
+> +F:	drivers/memory/bt1-l2-ctl.c
+> +F:	drivers/mtd/maps/physmap-bt1-rom.[ch]
+> +
+>  MIPS BOSTON DEVELOPMENT BOARD
+>  M:	Paul Burton <paulburton@kernel.org>
+>  L:	linux-mips@vger.kernel.org
+> @@ -15441,6 +15564,7 @@ F:	include/dt-bindings/clock/boston-clock.h
+> 
+>  MIPS CORE DRIVERS
+>  M:	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+>  L:	linux-mips@vger.kernel.org
+>  S:	Supported
+>  F:	drivers/bus/mips_cdmm.c
+> @@ -16408,6 +16532,12 @@ F:	include/linux/ntb.h
+>  F:	include/linux/ntb_transport.h
+>  F:	tools/testing/selftests/ntb/
+> 
+> +NTB IDT DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	ntb@lists.linux.dev
+> +S:	Supported
+> +F:	drivers/ntb/hw/idt/
+> +
+>  NTB INTEL DRIVER
+>  M:	Dave Jiang <dave.jiang@intel.com>
+>  L:	ntb@lists.linux.dev
+> @@ -18428,6 +18558,13 @@ F:	drivers/pps/
+>  F:	include/linux/pps*.h
+>  F:	include/uapi/linux/pps.h
+> 
+> +PPTP DRIVER
+> +M:	Dmitry Kozlov <xeb@mail.ru>
+> +L:	netdev@vger.kernel.org
+> +S:	Maintained
+> +W:	http://sourceforge.net/projects/accel-pptp
+> +F:	drivers/net/ppp/pptp.c
+> +
+>  PRESSURE STALL INFORMATION (PSI)
+>  M:	Johannes Weiner <hannes@cmpxchg.org>
+>  M:	Suren Baghdasaryan <surenb@google.com>
+> @@ -19518,6 +19655,15 @@ S:	Supported
+>  F:	Documentation/devicetree/bindings/i2c/renesas,iic-emev2.yaml
+>  F:	drivers/i2c/busses/i2c-emev2.c
+> 
+> +RENESAS ETHERNET AVB DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	netdev@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +F:	Documentation/devicetree/bindings/net/renesas,etheravb.yaml
+> +F:	drivers/net/ethernet/renesas/Kconfig
+> +F:	drivers/net/ethernet/renesas/Makefile
+> +F:	drivers/net/ethernet/renesas/ravb*
+> +
+>  RENESAS ETHERNET SWITCH DRIVER
+>  R:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>  L:	netdev@vger.kernel.org
+> @@ -19567,6 +19713,14 @@ 
+> F:	Documentation/devicetree/bindings/i2c/renesas,rmobile-iic.yaml
+>  F:	drivers/i2c/busses/i2c-rcar.c
+>  F:	drivers/i2c/busses/i2c-sh_mobile.c
+> 
+> +RENESAS R-CAR SATA DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	linux-ide@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/ata/renesas,rcar-sata.yaml
+> +F:	drivers/ata/sata_rcar.c
+> +
+>  RENESAS R-CAR THERMAL DRIVERS
+>  M:	Niklas Söderlund <niklas.soderlund@ragnatech.se>
+>  L:	linux-renesas-soc@vger.kernel.org
+> @@ -19642,6 +19796,16 @@ S:	Supported
+>  F:	Documentation/devicetree/bindings/i2c/renesas,rzv2m.yaml
+>  F:	drivers/i2c/busses/i2c-rzv2m.c
+> 
+> +RENESAS SUPERH ETHERNET DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	netdev@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +F:	Documentation/devicetree/bindings/net/renesas,ether.yaml
+> +F:	drivers/net/ethernet/renesas/Kconfig
+> +F:	drivers/net/ethernet/renesas/Makefile
+> +F:	drivers/net/ethernet/renesas/sh_eth*
+> +F:	include/linux/sh_eth.h
+> +
+>  RENESAS USB PHY DRIVER
+>  M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>  L:	linux-renesas-soc@vger.kernel.org
+> @@ -22295,11 +22459,19 @@ F:	drivers/tty/serial/8250/8250_lpss.c
+> 
+>  SYNOPSYS DESIGNWARE APB GPIO DRIVER
+>  M:	Hoan Tran <hoan@os.amperecomputing.com>
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+>  L:	linux-gpio@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+>  F:	drivers/gpio/gpio-dwapb.c
+> 
+> +SYNOPSYS DESIGNWARE APB SSI DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-spi@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+> +F:	drivers/spi/spi-dw*
+> +
+>  SYNOPSYS DESIGNWARE AXI DMAC DRIVER
+>  M:	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+>  S:	Maintained
+> @@ -23609,6 +23781,12 @@ L:	linux-input@vger.kernel.org
+>  S:	Maintained
+>  F:	drivers/hid/hid-udraw-ps3.c
+> 
+> +UFS FILESYSTEM
+> +M:	Evgeniy Dushistov <dushistov@mail.ru>
+> +S:	Maintained
+> +F:	Documentation/admin-guide/ufs.rst
+> +F:	fs/ufs/
+> +
+>  UHID USERSPACE HID IO DRIVER
+>  M:	David Rheinsberg <david@readahead.eu>
+>  L:	linux-input@vger.kernel.org
+
+Acked-by: Mingcong Bai <jeffbai@aosc.io>
+
+Best Regards,
+Mingcong Bai
 
