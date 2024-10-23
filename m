@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5B4CFA474
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C0DCFA472
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llYcD+Is513zLIjCAA/mbI8o8ziXEE1hVw9PNEMHQRc=; b=dAto6cCyx8Fnuh3EY4UIwfPGO3
-	TjFQqsR7Glle/fyHMUqouTtWYelZLYO6zGc8XZs8FUOiyj7NUdM87Y0PFS7RYPgxGviBgtsWmop3B
-	HRRL72HddHD762FChWUS9aYx+MmtloxZ8xziSSAZlY5OWfc7nGecpozIoFtD3nTMJHUtgzVqFChtS
-	l7oZrfCXJJAOODZ9Aakcm037hQICNAC2l+pkg/4Go0awxt6u+Zq2VCADpmPSHO3PFdbxhcts4tnwQ
-	VbDIlUU95Hl63sv05bq6BjBarQR8RszWV35ZnBzH+k2QjUiWw+/Y7aj0zdHfZBo0rL8JWfRXz3hRB
-	j8gKemCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=btY+eeS2/XeB3r233ksAsdoz3RSaOoRAm8kJIxVf17I=; b=DwmMVwjN1HdivMPZl6F7SiAi4R
+	vkpLIuWIJK1vzcIZ88Yw/8SIysxFQoxeHYirKPp4nHkMf7/DLrXh6ZT0JsCYC3EC8wxrFwpidse86
+	qKUHYBxKeBscuv/2yE1P0q+n8MvWbpoJ4zui3GUqcqr4xSFh9m84H9DlFog0WDPvKL6MpBj1dmfOh
+	J1yWl+GgulkOZFg6p9LrirPbPUC8eioyoeeYRfL07C/09eWkcYNI9Zbk/BKFO3r3AthWfsB7kKLlU
+	fwGLJxc/IhtyipgJqXP5xWPmihMwDebZ2EA5nj4rXMj+lZqN4zfSnWfOkGJrDozmM+naAdJUY2+ch
+	j2wclXbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iJY-0000000FtS1-12J0;
-	Wed, 23 Oct 2024 20:50:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3iL3-0000000FtdY-2TSN;
+	Wed, 23 Oct 2024 20:52:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i94-0000000FrYu-0oIN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:39:55 +0000
+	id 1t3iIZ-0000000FtGx-0xJ3;
+	Wed, 23 Oct 2024 20:49:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 38AEFA414B4;
-	Wed, 23 Oct 2024 20:39:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 839AAC4CECD;
-	Wed, 23 Oct 2024 20:39:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8C795C5E31;
+	Wed, 23 Oct 2024 20:49:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612EEC4CEC6;
+	Wed, 23 Oct 2024 20:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729715993;
-	bh=fVAM10zHyP6GG1K9/Odp1Yp4otIM0+Fw+7dp79I2hf8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kxNgiSR+Wp1mt3SId9CP2ql3ho0BI8q99db+wRWSjZ3R/LkgGZpJe81d40QYGrvvd
-	 FzRFy9z0nlSJhtigrWi5JJNCGYwhCv/pNJu0RRMwfgJbs3rvjUKbeBmeAcZGeKDd44
-	 SLpL0jyCRhQCHGXJA6bSChvSp7A/C7ACk+VfwQUfP6IhA4QiuSqBYHKkHHgcokqmLn
-	 WV4M9CVU1D0qBo7LrIq8ebO5cfa0zzRTIckZgiv1KkfW6f3fw2a8qU6VyAnjYqGXzT
-	 7nV4EC+vphQGdjcgIdgEN3Gg2mRDWS8xfoSBiP6WrbhJGYmdMW900OU5ygoLXJLmhZ
-	 0FohyD/Ua+NdA==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 23 Oct 2024 21:38:34 +0100
-Subject: [PATCH 6/6] kselftest/arm64: Test signal handler state
- modification in fp-stress
+	s=k20201202; t=1729716581;
+	bh=D6rOAupw7nWaOfhbwJhOxY7u+4yNaJ1nMm3CkyxSZ4I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SbsmEFuBcYBJxfd9aKYJEJhvm5sOCBpuq3Gkw8XBVAgaBVAtodo4MzzFydgz9lmre
+	 lYFf+4Bc3gblOkDrHaTeXYplOKsx+ARhDq7I84evZ9AqNJW6sdl8mkvHTdvLRiNWq7
+	 HIxQV0FTIhIlXU1I0UWU0dYoCb4/La4ArGqqwj83V1yPu64TjVihcSJtg+Lv4hnx7j
+	 nsU4mql2Gn/IGBFQELdRYpyG77D96qEA7RspsiJJx3jVWn3y5NFarKPXPlN+Fhh4du
+	 ljtB6NwbDGGW5+zuy3s8XNOWGeFaUUoztmYHWjCyMnJg20bW3Ehuw32LgawaSV0yAA
+	 ne0ctkmBg3+FQ==
+Date: Wed, 23 Oct 2024 21:49:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+Message-ID: <20241023-paper-crease-befa8239f7f0@spud>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-3-inochiama@gmail.com>
+ <20241022-crisply-brute-45f98632ef78@spud>
+ <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-arm64-fp-stress-irritator-v1-6-a51af298d449@kernel.org>
-References: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
-In-Reply-To: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1298; i=broonie@kernel.org;
- h=from:subject:message-id; bh=fVAM10zHyP6GG1K9/Odp1Yp4otIM0+Fw+7dp79I2hf8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8Kfm83OfpsWup68vNgZGsjfwOxMdRatu9MK/EX
- EdADtWGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfCgAKCRAk1otyXVSH0NdBB/
- 4ovaIlGKNe94pSK3mKdh49lKzuMNLJ2f8VGtLwmXBVXGhnglT2HKySG/zPktYrphwp93qyS5YYsieP
- myhszUgkF3kQX80vnQRsEzta0e6Ycs/Q3GhttYo2upy2rIKC8ZV6jCDaLY9XFrJIRk4/B1BtRvlJe3
- dOQGO9MEcDOZ/l59v0sholBFfq+j8jcfk3OUPXQnyNXpKFJymV5+3YZcy53rSRRVCQ22KShEx+P7ju
- Y9bP9QzD6cszgI5i6WM+Ibl7hzFdvjuo/wTlkGBd1Iy+h3h3/W7RnpRt6CHtbpuNIXZBrlnMRj0+cx
- lU2usTwPpNX6XrRhSkWlnQgrE4rBCa
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HZ3OWjJABGOCrTlm"
+Content-Disposition: inline
+In-Reply-To: <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_133954_356535_47CFB4F7 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20241023_134943_506535_7FB32017 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently in fp-stress we test signal delivery to the test threads by
-sending SIGUSR2 which simply counts how many signals are delivered. The
-test programs now also all have a SIGUSR1 handler which for the threads
-doing userspace testing additionally modifies the floating point register
-state in the signal handler, verifying that when we return the saved
-register state is restored from the signal context as expected. Switch over
-to triggering that to validate that we are restoring as expected.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/fp/fp-stress.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--HZ3OWjJABGOCrTlm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
-index faac24bdefeb9436e2daf20b7250d0ae25ca23a7..3d477249dee0632b662b48582433d39323d18e18 100644
---- a/tools/testing/selftests/arm64/fp/fp-stress.c
-+++ b/tools/testing/selftests/arm64/fp/fp-stress.c
-@@ -221,7 +221,7 @@ static void child_output(struct child_data *child, uint32_t events,
- static void child_tickle(struct child_data *child)
- {
- 	if (child->output_seen && !child->exited)
--		kill(child->pid, SIGUSR2);
-+		kill(child->pid, SIGUSR1);
- }
- 
- static void child_stop(struct child_data *child)
+On Wed, Oct 23, 2024 at 08:31:24AM +0800, Inochi Amaoto wrote:
+> On Tue, Oct 22, 2024 at 06:28:06PM +0100, Conor Dooley wrote:
+> > On Mon, Oct 21, 2024 at 06:36:15PM +0800, Inochi Amaoto wrote:
+> > > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> > > with some extra clock.
+> > >=20
+> > > Add necessary compatible string for this device.
+> > >=20
+> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > ---
+> > >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+> > >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++=
+++
+> > >  2 files changed, 146 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg20=
+44-dwmac.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/=
+Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > index 3c4007cb65f8..69f6bb36970b 100644
+> > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > @@ -99,6 +99,7 @@ properties:
+> > >          - snps,dwmac-5.30a
+> > >          - snps,dwxgmac
+> > >          - snps,dwxgmac-2.10
+> > > +        - sophgo,sg2044-dwmac
+> > >          - starfive,jh7100-dwmac
+> > >          - starfive,jh7110-dwmac
+> > > =20
+> > > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwma=
+c.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > new file mode 100644
+> > > index 000000000000..93c41550b0b6
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > @@ -0,0 +1,145 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: StarFive JH7110 DWMAC glue layer
+> > > +
+> > > +maintainers:
+> > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > +
+> > > +select:
+> > > +  properties:
+> > > +    compatible:
+> > > +      contains:
+> > > +        enum:
+> > > +          - sophgo,sg2044-dwmac
+> > > +  required:
+> > > +    - compatible
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - const: sophgo,sg2044-dwmac
+> > > +      - const: snps,dwmac-5.30a
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  clocks:
+> > > +    items:
+> > > +      - description: GMAC main clock
+> > > +      - description: PTP clock
+> > > +      - description: TX clock
+> > > +
+> > > +  clock-names:
+> > > +    items:
+> > > +      - const: stmmaceth
+> > > +      - const: ptp_ref
+> > > +      - const: tx
+> > > +
+> > > +  sophgo,syscon:
+> >=20
+> > How many dwmac instances does the sg2044 have?
+> >=20
+>=20
+> Only one, there is another 100G dwxgmac instance, but it does not
+> use this syscon.
 
--- 
-2.39.2
+That dwxgmac is a different device, with a different compatible etc?
 
+--HZ3OWjJABGOCrTlm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxlhXgAKCRB4tDGHoIJi
+0pO0AQD5Swmhv1mfvz5DiD/5f5DGV3m+rvoUAhPp697EkSD9KgD/fnWAmf29z3yR
+O/N/hNkW71ULWbchz7jsFDwGdd6q4Ao=
+=k7np
+-----END PGP SIGNATURE-----
+
+--HZ3OWjJABGOCrTlm--
 
