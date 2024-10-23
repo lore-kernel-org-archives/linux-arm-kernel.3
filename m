@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BF9CFA464
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D45CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=VcODYa5XUu2qEmw4vh2PCmfqIVYN1Gu4fPkJoZOSZtg=; b=ofVoSWAMcnZ0RE
-	AIM6DudB2j6zSwqnpYGBjvdMRa8cLfUNMdoPGfMysAg1Mde2ifX2ovozcDt0zGw9mU3wybv3819Qq
-	kPLTMkfpOy3oguT5Bb/cWQETesW/l570blgIbbUrIvxLapcTn1mG1f9e2pecCFEq8uqCGw9DBLe2a
-	VyEEtbvFKF8O7q1q/X1IxYg4WpRJBrKp9iq3bWL0BmYXvcMh2DCVKyzsf13KLfcvZ7egESr3xUS9d
-	X6vVF2RTBzpaE3EzJFJJ03hbm44yeJ26nUSL+qwhShGBrXOQUNflVc0H1HwkGetcUYZvSK/48k++c
-	OMt22ayF2VuUtLjcuwvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QZD/0/u7gXlxe9du/g//Uu8khQkQ8pf7JdM6R0YxrK8=; b=FrNVA1YDkM0wvZXnmC47O14Zf7
+	bJsEGMARCN6fgB1nHT2y00nupKrZvVU+SLhyO5xMYf/8QSGpsivuFjhZSaiBWFYEiknjIXAkIYrzc
+	jPN5MNQeIuidC9fGbbP7GoKQleantH9F9pg06sL5uA0KFqzgiE0uSBzWTWjovz/nGCjoyN9kfduw/
+	naZVtgPJGq/dyZusfWnAFi0U/PyFS56aW4JmNSvRhF4RQ0FqlEcxhN70uHZWWoCte9vnKRBEhOyvp
+	wnvUjzIJOceTsYoxWT0hmzyuLry49+gDOiQi5kV7xjQMMnmo+AKCVkUcHNmrLmh5NN1X4YaMdLzKN
+	bmha9q5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hsI-0000000Foo2-2Deh;
-	Wed, 23 Oct 2024 20:22:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3huN-0000000FpA9-39pv;
+	Wed, 23 Oct 2024 20:24:43 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hiT-0000000Fnbz-3tZE
+	id 1t3hsq-0000000FoyE-0uxA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:12:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B813CA44513;
-	Wed, 23 Oct 2024 20:12:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F378C4CEC6;
-	Wed, 23 Oct 2024 20:12:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729714344;
-	bh=XU78OzZBYmidEegNPScpopPHVT1Q0ZqVTdr3ZQvXXNU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=KUFEmcwqycH8VEXE+3URKrH+scZKWIKrAlB/mJ38BzhD6QpwkEC0aeYwTcSalHx0u
-	 ucfRmCYcHMUXasRMiWbPYNyEpxHi5Mmca4eT2SvAj4Y4fCupDM2UgnqPacS1FtjZ0A
-	 61jNd8XVgTbjMXqMai1/N80IFVBb+rxrVS0Vwr9lCxwDjrlGG9zcmTy/NAwKBHILTZ
-	 ZegWP6yNzstozE1/WA8MxumoDJr3S9ebDvNVNc/+MnEzTrIwb1zBXYgMUUO6flLuVB
-	 /aKw+4+B06FLQiJw7LVm+lQdb0iR/PPu22GK2PHe6fABnl3ycgArSMkh49QqOuzSKp
-	 fyXNK952N50wg==
-Date: Wed, 23 Oct 2024 15:12:21 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	francesco.dolcini@toradex.com, Frank.li@nxp.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v3] PCI: imx6: Add suspend/resume support for i.MX6QDL
-Message-ID: <20241023201221.GA926319@bhelgaas>
+	Wed, 23 Oct 2024 20:23:09 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f4d8ef66so242227e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:23:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1729714982; x=1730319782; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QZD/0/u7gXlxe9du/g//Uu8khQkQ8pf7JdM6R0YxrK8=;
+        b=Tbm20PsNdkq6Ro+KvSLiKPNMQiNuSmpI5+z6aSGg1jc5nt0IFRSmb7LFr6KZimU4Vj
+         OlvuTecbmoKIn9mQeNse5AUjheX48vgtbBPcrBMSUkUL5Z8Iz/q1NWZckHB/vFxPfCKE
+         QpH+0HvsOmoxz3G4N6jazW27pUz3lOlfvQw+pYFzwD5BIwj5OsirChKJgjB+prBrCBVa
+         hHFvIW9O5xyKWO55z9IcigtnlSkkAU7a+VR0NfDKuNz9d3X3AUlhwdXuyIr04/LFlX6A
+         DuUI/UkuZr3w0euCfMDWSN2nCp79CbsT9hPSE0nZkY5MXkm64H6BphbpcyF72gXq00mn
+         187g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729714982; x=1730319782;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QZD/0/u7gXlxe9du/g//Uu8khQkQ8pf7JdM6R0YxrK8=;
+        b=X7/IYl32svMwzFyHbJU/+x0MQxoyUp3WXJokjSTl25V26/dHhBcnAqriU/5XYCbXqs
+         YtX8CGtQI+OFbXofW6cs5Bn7iSv0j+gZhnxLW2SJ+FdjsmA8av5jxofiEGA1Cosfi5D8
+         vpVUFG7F0gTfPG2wZFkIvNyp7WSU4Voux9KvLMGbfdee3Q5zX8IYEQzjul+L1ZGOUOzt
+         UK2UW3zAaUWnxFWDeQuXYiRLtPRJkzADUJ5vTXzBXah/O7v8ExDvP7HIG5It6eESSTre
+         OAqO+XYh3JJIWB9eO1TPEzIb6W4h4KQfnpMoF4az+jUTNCqWj/bIUTzdAvFfbq0Ksgxb
+         PgLg==
+X-Forwarded-Encrypted: i=1; AJvYcCU22FLb3IRd22X/tENXeTxaOQsiId7kBZiH/6WxT2ff2RH3bntgQD2ltKHWLU44fr9xmnoFk9dNF7ctQfjAKrcl@lists.infradead.org
+X-Gm-Message-State: AOJu0YySA83G2xri791Gnkifs93QWT2ujW5oJot458hCZbUUlsK8hNpo
+	lWk9DgVn+qZ6rqmrMqtBNWoGnwx+mmeWgp8qyPETdZX92CyOiAeenI1mZQN5CX9AdyXJT1Bd234
+	r82euNr7GRgQG1xR5DD/npYakeBclAwH+soqC
+X-Google-Smtp-Source: AGHT+IGlNI9WaWM+QrYiA17yEQjL8bNc+Jh3lkHinNfgg5TW9AlhOnLoOjeid2kRXVqKu2tTh2RpWrDZehi1hSUFULk=
+X-Received: by 2002:a05:6512:12d2:b0:539:f4a6:ef4b with SMTP id
+ 2adb3069b0e04-53b1a3bf229mr2388184e87.55.1729714981802; Wed, 23 Oct 2024
+ 13:23:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Zxi6f3S5p8Pnto-S@eichest-laptop>
+References: <20240704142319.728-1-jiangkunkun@huawei.com>
+In-Reply-To: <20240704142319.728-1-jiangkunkun@huawei.com>
+From: Jing Zhang <jingzhangos@google.com>
+Date: Wed, 23 Oct 2024 13:22:50 -0700
+Message-ID: <CAAdAUtjnWqDUFfZri10HWk=U+Bsy1_Q8zEe7oucwGzNDJGQYGg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] KVM: arm64: vgic-its: Some fixes about vgic-its
+To: Kunkun Jiang <jiangkunkun@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Eric Auger <eauger@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	wanghaibin.wang@huawei.com, lishusen2@huawei.com, tangnianyao@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_131226_148449_4B2D2197 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20241023_132308_272422_BF221264 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +94,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 10:57:35AM +0200, Stefan Eichenberger wrote:
-> On Tue, Oct 22, 2024 at 10:53:49AM -0500, Bjorn Helgaas wrote:
-> > On Mon, Oct 21, 2024 at 02:49:13PM +0200, Stefan Eichenberger wrote:
-> > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > 
-> > > The suspend/resume support is broken on the i.MX6QDL platform. This
-> > > patch resets the link upon resuming to recover functionality. It shares
-> > > most of the sequences with other i.MX devices but does not touch the
-> > > critical registers, which might break PCIe. This patch addresses the
-> > > same issue as the following downstream commit:
-> > > https://github.com/nxp-imx/linux-imx/commit/4e92355e1f79d225ea842511fcfd42b343b32995
-> > > In comparison this patch will also reset the device if possible because
-> > > the downstream patch alone would still make the ath10k driver crash.
-> > > Without this patch suspend/resume will not work if a PCIe device is
-> > > connected. The kernel will hang on resume and print an error:
-> > > ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
-> ...
+Hi Kunkun,
 
-> > The downstream commit log ("WARNING: this is not the official
-> > workaround; user should take own risk to use it") doesn't exactly
-> > inspire confidence.
-> > 
-> > It sounds like this resets *endpoints*?  That sounds scary and
-> > unexpected in suspend/resume.
-> 
-> Yes, I completely agree with you, but NXP has never come up with an
-> "official" workaround. Our problem is that with the current
-> implementation, suspend/resume is completely broken when a PCIe device
-> is connected. With this proposed patch we at least have a working device
-> after resume. Even for the other i.MX devices, the driver resets the
-> endpoints in the resume function (imx_pcie_resume_noir ->
-> imx_pcie_host_init -> imx_pcie_assert_core_reset), we just do that now
-> for the i.MX6QDL as well. If it is more appropriate to call
-> imx_pcie_assert_core_reset in resume as we do for the other devices,
-> that would be fine with me as well. I was thinking that if we need to
-> reset the device anyway, we could put it into reset on suspend, as this
-> might save some extra power.
+Do you have a plan to respin this patch series?
 
-OK, I have to admit I don't know enough about suspend/resume.  Since
-we already do that for other i.MX platforms, maybe an endpoint reset
-is normal for suspend.  I really don't know.  In any case, if we do it
-for other i.MX platforms, I'm OK doing it for this one too.
+We encountered an issue during the VM suspend/resume test that can be
+resolved by this patch series.
+During VM suspending, the ITS table saving is called multiple times.
+Concurrently, device table and ITT table entries are mapped/unmapped
+due to devices' suspend/resume. This leaves some free entries dirty
+(valid bit equals 1).
+The table restore starts from the first entry to find a valid one.
+There is a chance that the entry found is a free one, but with the
+valid bit as 1.
 
-Bjorn
+Jing
+
+On Thu, Jul 4, 2024 at 7:23=E2=80=AFAM Kunkun Jiang <jiangkunkun@huawei.com=
+> wrote:
+>
+> There are three fixes about vgic-its:
+> Patch 1: A data length check is added in vgic_its_save_*
+> Patch 2-3: Fix two bugs in the scenario of continuous save and restore
+>
+> History:
+> v1 -> v2:
+> - Replaced BUG_ON() with KVM_BUG_ON()
+>
+> Kunkun Jiang (3):
+>   KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
+>   KVM: arm64: vgic-its: Clear dte when mapd unmaps a device
+>   KVM: arm64: vgic-its: Clear ite when discard frees an ite
+>
+>  arch/arm64/kvm/vgic/vgic-its.c | 44 ++++++++++++++++++++++++++++++----
+>  1 file changed, 40 insertions(+), 4 deletions(-)
+>
+> --
+> 2.27.0
+>
+>
 
