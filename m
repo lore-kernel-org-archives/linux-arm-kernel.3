@@ -4,109 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC9FD2E02D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9FFD2E02B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=elHpuajvwiyNA9OK8x4fvj9BtjIaAO6sLsdUEmQFU98=; b=SzeUG/mNVvHgTTayvwP5OIVA02
-	qz1P4dKU0+OISknRCy41KaUIwIo7V6/MbhKvTbW8xhxl3CsoeBctRUYAESLu45MVd4EgCocZ13wLG
-	ujRcbywIOhnLVT1YLXNFoMOGEHfwMUaCfiGk3WCAaV/+C26O++HVzKLuFbPGniHM47RRqQ7m4icNI
-	7naRy63KDWNOYEgDw9mOsKxaxMDSdVKKzDKlPRLkpaLZA5NlYPbEDmJoFoB6l2IwVHbd4daq07vVL
-	nKHMwSFXJxpEcXq0fguKu9SzLd+fGJWo6BzH+QrR74h55fqqD/fZ1ix2ZkmM/WBGXGQsZAuH9rOzF
-	HXqYBZfQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gb32kGLVfatoZORIYp4Czt2X+9VBxinFogN0tShoGEY=; b=lCZfO5F+V9hTsgAbnP055GoSdq
+	G287PCfWJCGrG7McKonVax2SaZrVveDqdGydEVIQBl9l5KyJB+63IUgCszVXYiUnwh0VS1WVIbWg1
+	6NsN6WcGkfHIjWUT1fjxDurOOEZSFaLRMo6wRMk/GSv3gnVaCyZIWK4S1+JO0K6847wfhlRuibTl7
+	Ca7AhVeWxvBhmrvDWGlJPSZR6eP31Sy0VfKKQlrFX2uc0Nfcv3RGrvJ9rl0bD0Q9honLpavXzmH45
+	bqSZ0UjsJw+ZxkTjViSXtAPVKMKDD/a4OheTqzOTlXYqb9G6I/ZG8nVobRMtFIKKxJbyyAMV0riLG
+	yRru5DhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XT2-0000000DkP0-2fW9;
-	Wed, 23 Oct 2024 09:15:48 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1t3XTJ-0000000DkST-3rYd;
+	Wed, 23 Oct 2024 09:16:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WHG-0000000DTgA-1htw
+	id 1t3XDx-0000000Dg6a-0BdL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 07:59:36 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 33E51114018D;
-	Wed, 23 Oct 2024 03:59:31 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 23 Oct 2024 03:59:31 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm3; t=1729670371; x=1729756771; bh=elHpuajvwi
-	yNA9OK8x4fvj9BtjIaAO6sLsdUEmQFU98=; b=H7xCsreudOiEYguWOLp1R2Sj/D
-	WyWe2YygznB/gn24le3RjwDCwf7EHrIrGo+E9bJgmQsjGOSERfMvyD0yhMbUcZDA
-	HVhQYabxYBrMXk0eV3Auvo3WfiNVMzEwVxWUHU+ApIpD2xPH8R9iZ1uM3xd7SdPN
-	wlYYHE8O2TeItYGaf+8wLjBKN6RjYO9zCKxqtoxYil00oeumFNuq8AjDAFrtnIIX
-	o6fb7jlw6Fj+qtku3M+/F2DR4jN71796FjTn75VD72WPz/4WpLGWqGEAx66hExgs
-	WNLTzIzqH+QvFu8Uy+BRfh40Jm9dQnOXHmJVI+Q+/Po4ZTrJsz3isy/ZSocw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1729670371; x=1729756771; bh=elHpuajvwiyNA9OK8x4fvj9BtjIa
-	AO6sLsdUEmQFU98=; b=Q2tKGxnVMxIQa65c+wFeGTQX6ITSsvo+JF/WYL+A4TWV
-	piraClaqQ2kL28TWtzfvNGGCgRpwmBp0puNKPOpkFFA6Wrj7Gh+C5IRiI4EFfShE
-	sOKuhiCHmMDmtApH+t7nuPB48vNQXeJ+6M3qjOzwkkt/SM5NrB/zVgAzRmV0mMy/
-	ttU2sr8jBs6X8C+QKtbStAh6e56A5RehJ6Mk3XOuME5kMRLtCze8jmFKreenGWa7
-	bq9Zj+hAQGS6WJlWoMyrzAWmJTgYt9u8L9SDAqR58U4HGbAIrjFtqYJkGgsu31Sv
-	yRwJINBz1hlD7QN+3Nf74OJ9OQu/HSeyPQbY6Hu+BQ==
-X-ME-Sender: <xms:4qwYZwDk2SV1wvgH2mbnVpZs475ySYiUTvk5pIiyq849nde6IrbkHw>
-    <xme:4qwYZygwlFgO73vhkR-CwSBcJHV_RzYpa8BGWmcwfFSX5SRcNPdI5aQD0_sNSE_oc
-    NyO0PDtzDfM932PpA>
-X-ME-Received: <xmr:4qwYZznJnOZIaJolnFyUKfbyXFJ3fAp5Dy8uaVYZq_yxAB2xX7S7cTSkH4Lv1oQCH54JynFduJq1Cc_pxOuk9AWQS7g1bYeH1-s_eSoA3Ri1XJBJ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddvhecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecu
-    hfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsthdrtg
-    homheqnecuggftrfgrthhtvghrnhepuddvueduueegtdeuffetveevgeehhedvhfefuddu
-    veekgffgfedtheegtefhhfffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgtphht
-    thhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhgihhrugifohhoug
-    esghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehpvghrvgigsehpvghrvgigrdgtiidprhgtphhtthhopehtihifrg
-    hisehsuhhsvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhrtghp
-    thhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
-    epshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehmrggtrhhorghl
-    phhhrgekvdesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnshdrphhhihhlih
-    hpphgvsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:4qwYZ2xP-kAcrAhI2aATOxRvbzHFbJceIaQxRUz-r-8mEWDTy1MeEQ>
-    <xmx:4qwYZ1SdwqndmNEZfjSud9FwtGJvxiGzvab-RJNB9mSkwtovextclA>
-    <xmx:4qwYZxYRjYNYakZsZZz9T5rL9gs7WKrh4EO1s4fdfUuvJZaJ_7pkYg>
-    <xmx:4qwYZ-SbTwfFe4CGkGkFHJOK0PetXn3Y5lngiyDeZ-TzoVQ6az5lqA>
-    <xmx:46wYZ-jIyJQxzc9SqZWKEWc4LRrwhyyJCm-9MpkmEj2N4j4Pqexf26ZJ>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Oct 2024 03:59:26 -0400 (EDT)
-From: Ryan Walklin <ryan@testtoast.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>
-Cc: linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v3 0/7] ASoC: add Allwinner H616 audio codec support
-Date: Wed, 23 Oct 2024 20:56:56 +1300
-Message-ID: <20241023075917.186835-1-ryan@testtoast.com>
-X-Mailer: git-send-email 2.47.0
+	Wed, 23 Oct 2024 09:00:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DC776A4498A;
+	Wed, 23 Oct 2024 09:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 783ADC4CEC7;
+	Wed, 23 Oct 2024 09:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729674011;
+	bh=hfXXhjN8IBJs2miuXdU3mNQG85wax8LY7e36g/COuxE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=t31n1GEmRRzHzzXXxA1f+Nm+OkfDgsCiRvZrGlyDE89ZMgc09HTmRMNigyFkXdV/U
+	 Pj5L/JWTFfyjUwW0EC0tkPComEAa+ltVdZetx2WrdxxyyIq6nd9YDbpJVL1eypwQlU
+	 N+shisCk8toZ88D61nLZ+1+2uqmQKu3fbfW25C/2cIhNqePNYDldq4NUCCWjFphsR9
+	 2USemQI4SNQYT+d9HvFRGgvXv3A21NAypPo0O7BOGIEDUFgABgqL8/pneRg1pR0KEM
+	 /6tO8a7PxnjVvjsiDCRzXk6IiAl0UFyw0p6AqJQlBhs1Vi8sY8AFgztAyzKMs9HYNH
+	 QCdNWjl9sUk+w==
+Message-ID: <1e76bc70-21a6-4ac7-99ea-30a7ccf387bb@kernel.org>
+Date: Wed, 23 Oct 2024 11:00:04 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] firmware: add exynos acpm driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, jassisinghbrar@gmail.com
+Cc: alim.akhtar@samsung.com, mst@redhat.com, javierm@redhat.com,
+ tzimmermann@suse.de, bartosz.golaszewski@linaro.org,
+ luzmaximilian@gmail.com, sudeep.holla@arm.com, conor.dooley@microchip.com,
+ bjorn@rivosinc.com, ulf.hansson@linaro.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, marcan@marcan.st, neal@gompa.dev,
+ alyssa@rosenzweig.io, broonie@kernel.org, andre.draszik@linaro.org,
+ willmcvicker@google.com, peter.griffin@linaro.org, kernel-team@android.com,
+ vincent.guittot@linaro.org, daniel.lezcano@linaro.org
+References: <20241017163649.3007062-1-tudor.ambarus@linaro.org>
+ <20241017163649.3007062-3-tudor.ambarus@linaro.org>
+ <955530a5-ef88-4ed1-94cf-fcd48fd248b2@kernel.org>
+ <d41ee8f6-9a2c-4e33-844a-e71224692133@linaro.org>
+ <1ece02e6-bf78-443a-8143-a54e94dd744c@kernel.org>
+ <d91109a1-532a-4b95-ad4c-3b9cf8e3dbbb@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <d91109a1-532a-4b95-ad4c-3b9cf8e3dbbb@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_005934_706287_ED42A6DF 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20241023_020013_253675_FC23E9F0 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,64 +128,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+On 22/10/2024 09:58, Tudor Ambarus wrote:
+> 
+>>>>
+>>>> I also cannot find any piece of code setting several of above, e.g. tx_base
+>>>
+>>> I'm not writing any SRAM configuration fields, these fields are used to
+>>> read/retrive the channel parameters from SRAM.
+>>
+>> I meany tx_base is always 0. Where is this property set? Ever?
+> 
+> It's not zero. My assumption is it is set in the acpm firmware, but I
 
-V3 of this patch adding support for the Allwinner H616 (and variant)'s audio codec. Some clarification of comments, particularly regarding the clock driver changes, and a small fix for the device tree binding (apologies I forgot to re-run dt_binding_check on V2). Review comments otherwise addressed and reviews noted.
+Where is any assignment to this member?
 
-Changelog v1..v2:
-- Reordered patches to group ASoC changes
-- Corrected PLL_AUDIO clock dividers to match values from manual and vendor SDK.
-- Remove PLL_AUDIO_4X clock from the device tree binding (not used in the driver).
-- Restrict TX-only DMA changes to the H616.
-- Change the codec name to fit into the 16 char limit.
-- Move the codec (and spdif) blocks in the H616 DTSI to restore address-order.
-- Add board enablement (and power/GPIO changes for RG35XX to support speaker amp).
 
-Changelog v2..v3:
-- Update clock driver patch commit message and inline comments to more accurately describe SDM changes.
-- Fix missing "-" in H616 conditional binding as reported by dt_binding_check
-- Add additional clarification of internal playback_only quirk in sun4i-codec driver
-- Add short driver_name to H616 codec driver and restore descriptive name.
-- Remove leading 0 from codec node's address in H616 device tree to match other blocks.
+> don't have access to that to verify. Here are some debug prints made in
+> the linux driver:
+> 
+> [    0.069575][    T1] gs-acpm-ipc 17610000.mailbox:
+> exynos_mbox_chan_init ID = 2 poll = 1, mlen = 16, qlen = 5
+> [    0.069927][    T1] gs-acpm-ipc 17610000.mailbox:
+> exynos_mbox_chan_init ID = 2 offsets: rx_base = 0x00038290 rx_front =
+> 0x0003828c, rx_rear = 0x00038288
+> [    0.070449][    T1] gs-acpm-ipc 17610000.mailbox:
+> exynos_mbox_chan_init ID = 2 offsets: tx_base = 0x000382f0 tx_front =
+> 0x000382ec, tx_rear = 0x000382e8
+> 
+> 
+> tx_base contains the SRAM offset of the RX queue used in linux. The
+> offset is relative to the base address of the SRAM config data.
+> 
+> tx_base is seen/named from the firmware's point of view, thus named TX.
+> I assume the same struct is defined in the acpm firmware.
+> 
+> 
+> Somewhere below in the linux driver I get the RX ring base address by doing:
+> 
+> rx->base = exynos_acpm_get_iomem_addr(base, &shmem_chan->tx_base);
 
-Original blurb below:
+tx_base is still 0.
 
-Hi,
+> 
+> where base is the SRAM base address of the channels configuration data.
+> 
+> static void __iomem *exynos_acpm_get_iomem_addr(void __iomem *base,
+> 
+> 
+>                                                 void __iomem *addr)
+> 
+> 
+> {
+> 
+> 
+>         u32 offset;
+> 
+> 
+> 
+> 
+> 
+>         offset = readl_relaxed(addr);
+> 
+> 
+>         return base + offset;
+> 
+> 
+> }
+> 
+> Hope this clarifies a bit these struct members.
 
-The Allwinner H616 has a playback-only audio codec, with a single stereo or differential-mono line output.
+No, where is tx_base assigned?
 
-This patch adds support for the H616 (and H313/H618/H700/T507) SoC. Based on the  Allwinner kernel SDK driver, and tested on the H700.
-
-Regards,
-
-Ryan
-
-Marcus Cooper (2):
-  ASoC: sun4i-codec: Add support for different DAC FIFOC addresses to
-    quirks
-  ASoC: sun4i-codec: Add playback only flag to quirks
-
-Ryan Walklin (5):
-  clk: sunxi-ng: h616: Add sigma-delta modulation settings for audio PLL
-  dt-bindings: allwinner: add H616 sun4i audio codec binding
-  ASoC: sun4i-codec: support allwinner H616 codec
-  arm64: dts: allwinner: h616: Add audio codec node
-  arm64: dts: allwinner: h313/h616/h618/h700: Enable audio codec for all
-    supported boards
-
- .../sound/allwinner,sun4i-a10-codec.yaml      |  53 +++-
- .../dts/allwinner/sun50i-h313-tanix-tx1.dts   |   5 +
- .../allwinner/sun50i-h616-orangepi-zero.dtsi  |   5 +
- .../dts/allwinner/sun50i-h616-x96-mate.dts    |   5 +
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  44 ++-
- .../allwinner/sun50i-h618-orangepi-zero2w.dts |   5 +
- .../sun50i-h618-transpeed-8k618-t.dts         |   5 +
- .../sun50i-h700-anbernic-rg35xx-2024.dts      |  13 +-
- drivers/clk/sunxi-ng/ccu-sun50i-h616.c        |  46 ++-
- sound/soc/sunxi/sun4i-codec.c                 | 298 +++++++++++++++---
- 10 files changed, 404 insertions(+), 75 deletions(-)
-
--- 
-2.47.0
+Best regards,
+Krzysztof
 
 
