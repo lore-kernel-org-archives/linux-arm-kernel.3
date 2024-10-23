@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E9FCDDE6E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AC9CDDE70
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+6DHJTSut709W1gvwIcBTYBpQuJJJtP9e3Awce/8V+w=; b=OjS8BZKwlkZbWAaYmapXdfMnRH
-	A8tWeNHzeloj8N/Mg608eyc5otNgBqYdWOaV4fd4ix4Cs1vnmaOaU2upfD6zsbyljk8yaPo6x8zNS
-	SBgFwFWxG4PBMpsF9BrhQU40P4na6ixTNOz4Q7O76p4P6d5AVlJn/ohHEC56trBgdH+/DhmLJ/LBt
-	0igTPEOoC4If401ZDM3fzEoK7Q3HiMKa4ZZFPXxMI2f63gSZh02JNKm0xiGjMFbZuUTA+VYd+6jm4
-	ScYaLJ+r/9QUQqTYvrwyyK9yW7q/FBX1Z9BVRva+cX/yxlrujkIjwWrXBylnAwM1W0jgyqrjfWCoZ
-	9nF1/2Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JgV2bop4E+Lefe1b02SOkU11Tjy474hcAgvkx+xv0NY=; b=aYib4AYEZbhKmSoKNhVPCVCky5
+	VyW7t8VHd3uF2pU4C3AnvL901IjKz5NNEWRureDP4VcC8M5d361UVnronjAqldLYsXtgEElOLzglK
+	nI+qqBnmwWOEQQRmz8qkR7VpoIV4FTa9P8JrK9JJJNjfwWqQ7uxoid8EaG0ljAYwV0cUCMS4/65nv
+	7y1FKBnKiDT6bWl3qN/LdXjCyOUByO5R6Ev+eOxmZJH3ETNL+FigDfI39ks5BBEBvLl3odva8OM5/
+	MIbbpBdQBFeGV0VCzFGG+HuvFrlQSAoeFpuAZoKF8j+hkJKszrsUwHn0MDfGrv51yu+wlbYkHtecd
+	Tp5MbL5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zq9-0000000ECln-0os2;
-	Wed, 23 Oct 2024 11:47:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3ZqW-0000000ED95-2D8g;
+	Wed, 23 Oct 2024 11:48:12 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZDM-0000000E5gl-2MVL
+	id 1t3ZOe-0000000E79m-4A1t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:07:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6731E5C5C6B;
-	Wed, 23 Oct 2024 11:07:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CF01C4CEC6;
-	Wed, 23 Oct 2024 11:07:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729681663;
-	bh=lVH6MnxKITbbLVTwdZBysRiSQtubnhnYeW4+iV/DjdI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E3nkyUXpCIUw60Ut1ahkxfsb6ko2wlwoKm8v7ip68Yc9G/pNXB9f5GYPYI+nxDgJB
-	 Myycd0ohPbxwgWoYNYuiTI6HXwa7kUnO0MXVz8kx6NiOk3q2xTNv6XfqYEWU/nIhzA
-	 KwjW+P0DjmO0t00/ja5zTvi+NyD0WXlygeRP9noMs171EY/zM5p0u/zctG9N4qZfSa
-	 oCIt4meSaexNvxxqb5cwZZUUydunkS2Iyn7ue/56NR2hCE++w2kuOdnFZC43Gkfsst
-	 WXxWPh+Z8hP0tBFaP9UPc/OcR7IZXPqSgs5xSsg8RABN9bfysnxqJ7vs8tighnobeW
-	 JQkCZmiwbttlw==
-Date: Wed, 23 Oct 2024 12:07:38 +0100
-From: Simon Horman <horms@kernel.org>
-To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	lftan.linux@gmai.com, Corentin Labbe <clabbe.montjoie@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Maxime Coquelin <maxime.coquelin@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net v3] net: stmmac: dwmac4: Fix high address display by
- updating reg_space[] from register values
-Message-ID: <20241023110738.GM402847@kernel.org>
-References: <20241021054625.1791965-1-leyfoon.tan@starfivetech.com>
+	Wed, 23 Oct 2024 11:19:26 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2e3fca72a41so4596560a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 04:19:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729682363; x=1730287163; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JgV2bop4E+Lefe1b02SOkU11Tjy474hcAgvkx+xv0NY=;
+        b=eUee4qsjlsdJ+68fhiZ6dftHtmvpe0JfNW82aYOoxDLsU/M4dC3I4j5wE4dFPSY9lB
+         qDmb58R8bnQSQ0REYYKfN21kScj7diDMHwvKQPFGGTxzg3iLIWY/pZbY4ZM+/h6ihXyq
+         DKDu98Yo3na42YLK1PWLpP0S1Rb0DQLbPg+wiGakaBO+xbzijVxubCWKcHbVTQtrreZj
+         soWgdSbEvce/npnSjn6dl+EyPEEVp16rzYD1eNQ1jjtnAKsbzyVg1VYdfsazbmdPlu5E
+         wsbwlDFwmLM5ckdOcAd8DsNapT62XITVUA5bT0PsBSWP/b3EV0hcSaOv8F6IE4NPQmZ1
+         hFYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729682363; x=1730287163;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JgV2bop4E+Lefe1b02SOkU11Tjy474hcAgvkx+xv0NY=;
+        b=WK2tJC0At9WKl9ED5MMdXghq7z+b/Tp8E+z2nCgplUdj4uEw/KA7yFiRNSGcEwGv8v
+         ypD/CUHEnHMjB2wjyJlkePciqEZY1T9MwA0TF/hTIau1XdABrbIgnyr2vNSSt6SXrHZN
+         /XaMbT9/uzgbJ0eoEQN5W2A8zp2ix7cefr3IqJ15IgJY+B0mUlabaljVheC1mK5AsvE0
+         Jaok2ovVUhvYsRIFTOtcA1gjicSOwezaCz7n4AFJ0oK8knkX1ITAt9fSdQYZX7eP8M0M
+         bE8VFYcPfyvi1534d406LPHoK1JCBPQPxcoefJbLj/469mSurywtVsACvKZsvHSxi0+J
+         OxBQ==
+X-Gm-Message-State: AOJu0YxfT7qNy3VOU7Z6oen22y2x0Ez+Fnj6Ak+6Sa7vVypWs0uSFJxC
+	5cSzz9FpR3V2SNMU4AeXAR0IFS79gi9NPCiN2qOIVPvMBsZhy665
+X-Google-Smtp-Source: AGHT+IFhAZ88Ov+m4B72gMAynIVK0mE7UZ0VxI7wuNoZF7LTUb4m149scJ3ktLFsatlgiKyvvGr2vA==
+X-Received: by 2002:a17:90a:6f83:b0:2e2:e8a9:a1d with SMTP id 98e67ed59e1d1-2e76b5b67b5mr2016364a91.6.1729682363178;
+        Wed, 23 Oct 2024 04:19:23 -0700 (PDT)
+Received: from localhost.localdomain (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76dfbeca4sm1123022a91.32.2024.10.23.04.19.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 04:19:22 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: ukleinek@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	cwweng@nuvoton.com,
+	Chi-Wen Weng <cwweng.linux@gmail.com>
+Subject: [PATCH v2 0/2] Add support for nuvoton ma35d1 pwm controller
+Date: Wed, 23 Oct 2024 19:18:39 +0800
+Message-Id: <20241023111841.158049-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021054625.1791965-1-leyfoon.tan@starfivetech.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_040744_729512_56AB7E13 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20241023_041925_081870_0226D2D2 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Corentin, Giuseppe, Maxime, Andrew, linux-arm-kernel, linux-stm32
+This patch series adds pwm driver for the nuvoton ma35d1 ARMv8 SoC.
+It includes DT binding documentation and the ma35d1 pwm driver.
 
-  As per output of get_maintainers.pl FILE.patch
-  Please consider doing likewise in future.
+v2:
+  - Update nuvoton,ma35d1-pwm.yaml
+    - Fix 'maxItems' of 'reg' to 1.
+    - Remove unused label
+  - Update ma35d1 pwm driver
+    - Remove MODULE_ALIAS()
+    - Add chip->atomic = true
 
-On Mon, Oct 21, 2024 at 01:46:25PM +0800, Ley Foon Tan wrote:
-> The high address will display as 0 if the driver does not set the
-> reg_space[]. To fix this, read the high address registers and
-> update the reg_space[] accordingly.
-> 
-> Fixes: fbf68229ffe7 ("net: stmmac: unify registers dumps methods")
-> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> ---
-> - Split the patch series to net and net-next. Submit this patch for net.
-> - Rebased to net https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git
-> 
-> v2: https://patchwork.kernel.org/project/netdevbpf/cover/20241016031832.3701260-1-leyfoon.tan@starfivetech.com/
 
-Thanks for the update.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Chi-Wen Weng (2):
+  dt-bindings: pwm: nuvoton: Add MA35D1 pwm
+  pwm: Add Nuvoton MA35D1 PWM controller support
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c | 8 ++++++++
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h | 2 ++
->  2 files changed, 10 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-> index e0165358c4ac..77b35abc6f6f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-> @@ -203,8 +203,12 @@ static void _dwmac4_dump_dma_regs(struct stmmac_priv *priv,
->  		readl(ioaddr + DMA_CHAN_TX_CONTROL(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_RX_CONTROL(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_RX_CONTROL(dwmac4_addrs, channel));
-> +	reg_space[DMA_CHAN_TX_BASE_ADDR_HI(default_addrs, channel) / 4] =
-> +		readl(ioaddr + DMA_CHAN_TX_BASE_ADDR_HI(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_TX_BASE_ADDR(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_TX_BASE_ADDR(dwmac4_addrs, channel));
-> +	reg_space[DMA_CHAN_RX_BASE_ADDR_HI(default_addrs, channel) / 4] =
-> +		readl(ioaddr + DMA_CHAN_RX_BASE_ADDR_HI(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_RX_BASE_ADDR(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_RX_BASE_ADDR(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_TX_END_ADDR(default_addrs, channel) / 4] =
-> @@ -225,8 +229,12 @@ static void _dwmac4_dump_dma_regs(struct stmmac_priv *priv,
->  		readl(ioaddr + DMA_CHAN_CUR_TX_DESC(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_CUR_RX_DESC(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_CUR_RX_DESC(dwmac4_addrs, channel));
-> +	reg_space[DMA_CHAN_CUR_TX_BUF_ADDR_HI(default_addrs, channel) / 4] =
-> +		readl(ioaddr + DMA_CHAN_CUR_TX_BUF_ADDR_HI(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_CUR_TX_BUF_ADDR(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_CUR_TX_BUF_ADDR(dwmac4_addrs, channel));
-> +	reg_space[DMA_CHAN_CUR_RX_BUF_ADDR_HI(default_addrs, channel) / 4] =
-> +		readl(ioaddr + DMA_CHAN_CUR_RX_BUF_ADDR_HI(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_CUR_RX_BUF_ADDR(default_addrs, channel) / 4] =
->  		readl(ioaddr + DMA_CHAN_CUR_RX_BUF_ADDR(dwmac4_addrs, channel));
->  	reg_space[DMA_CHAN_STATUS(default_addrs, channel) / 4] =
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-> index 17d9120db5fe..4f980dcd3958 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-> @@ -127,7 +127,9 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
->  #define DMA_CHAN_SLOT_CTRL_STATUS(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x3c)
->  #define DMA_CHAN_CUR_TX_DESC(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x44)
->  #define DMA_CHAN_CUR_RX_DESC(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x4c)
-> +#define DMA_CHAN_CUR_TX_BUF_ADDR_HI(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x50)
->  #define DMA_CHAN_CUR_TX_BUF_ADDR(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x54)
-> +#define DMA_CHAN_CUR_RX_BUF_ADDR_HI(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x58)
->  #define DMA_CHAN_CUR_RX_BUF_ADDR(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x5c)
->  #define DMA_CHAN_STATUS(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x60)
->  
-> -- 
-> 2.34.1
-> 
-> 
+ .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++++
+ drivers/pwm/Kconfig                           |   9 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-ma35d1.c                      | 169 ++++++++++++++++++
+ 4 files changed, 224 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-ma35d1.c
+
+-- 
+2.25.1
+
 
