@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210A7CFA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2661CFA45E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmEVhBJVJsQXnrJhRZPfZUzFLJqycfl8GOOHTWz4FTY=; b=NBdsDzsIb4hs7ntIrwYOFUa28e
-	uii7hfZ4X5wyqwAgVD5M0+qsM7pR0rDqcT0F864n+Nw0jJmJO35lbHrJYeRBZzA3Cz1G/v+A+fMRP
-	5bNMeo0/1/IJGkZUbdHFttB7njcHvuSg6CK30DNwqYfINNW70XgRQn8sF6HmEWWbcPqqMk63xGw6f
-	2uj42wluQnyLveyRMEEj0Brb+09MBFo2NSL6iIZB+2ZlAhsD5Ba/ALY3SM8Wiak54TXeQ2l8gOT/i
-	8mohE2q1aVRUyrmoKRHJS74FWw+VnZ7IbdUhbs7wKZvrxLLx8/P5CHYgRn7Y4eqZGulktBwYc0J62
-	SN7r4jNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bgC15d/pQkY9/ZdNYZmW9U8JEuWcaoADNmU9EGiwgmk=; b=bDz8P2b3C3Vp/WOP3G6xr7h93k
+	Cot/akY8e9ECdINXLozv0nAjYw88W8srxbzaXWiv7eY3uvqjZJAko3SdLt2GgtzBKqHJkcuLHrJRV
+	bv55K+JLjqUeR7tzWU44QaWdmXjw4I1QJP3cRm6r3nFZwo6I5cic4G1mQ05QGss4Y8/moy+XXzHm3
+	M/8V4DXU4BrhO2eqiNrRDLiEXJpbFGvwzzb7qNRk+zv5VRoA/WZ3Cwd1gQxO6NxEx0YEHsz5fymC8
+	1ZIOe+9R9I06lD31Cr/9nNxjOovEVojeBJBK3I991tZg2aoYf/MfBZuLaNgmmomnfiC+x4BD0zwP0
+	qzn9Uw2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fON-0000000FPRo-19Rj;
-	Wed, 23 Oct 2024 17:43:31 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t3fPs-0000000FPgz-3KjL;
+	Wed, 23 Oct 2024 17:45:04 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3er6-0000000FJ24-2PcJ;
-	Wed, 23 Oct 2024 17:09:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=gmEVhBJVJsQXnrJhRZPfZUzFLJqycfl8GOOHTWz4FTY=; b=hp4wPkSZbMXNN95Uk34gpoCcvo
-	kMgc4Kx2KFDq4hrzZ7/1mBSPikuzlXlMY0EvidbGFVm45qDRNfh+yFDeF+wB3b+fCxQTs7voApWvu
-	WlrFrE9EKhYYh1EHuxgQJ/7nLzKXsh0rFQziXfbsiq9w9vhW7h4xgyxrSA9uDbZ9r+yo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t3eqv-00AzoS-OD; Wed, 23 Oct 2024 19:08:57 +0200
-Date: Wed, 23 Oct 2024 19:08:57 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1t3e7N-0000000F7dQ-3XtN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 16:22:00 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2f75c56f16aso68354571fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:21:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729700511; x=1730305311; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bgC15d/pQkY9/ZdNYZmW9U8JEuWcaoADNmU9EGiwgmk=;
+        b=JE5Vg/TmDlyH4itky0U+yqOXMa8swoIw8ku8GlUYbT3gVFVA+4BibigV4eTmP6Cnhl
+         PU3wfizdO2bufo/2Wb7Un7C29AmomPvRZyWsH+cc+oh5nVRohV4PkdYHXIk7bkAzeBK5
+         KpFDC8VfsMWSy376oNxksHHW04n4hldVjSrM4jl03bU1qoYXtoczUZ0hM0U5+YBRV6YW
+         zUeydasyvQ6S5Qke1K2iB0EHP4sgLJ5nFNubF2015XuBI83xaJn0Zwvw0bk0CjUIfAS1
+         bM3W3SVdUPA/aQJRmlpfZcxSM9hwim9MZRH7bjHz9cAmCariI0qvukCBKYXcyraU8H5o
+         nSJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729700511; x=1730305311;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bgC15d/pQkY9/ZdNYZmW9U8JEuWcaoADNmU9EGiwgmk=;
+        b=KIWbax25ZXjsAF5IriBzlYtyFZRAuw3Uk8MGUbY30qzdMUmUHEKyLs8w2FmOSUjG/s
+         qkEvj2XAlc91HKwNgYiFChsP30WcO0j418coE7q8TwqGG4JAN1B1g7IJ4ZwoepRuO1bS
+         jOVQmO1NoIxk0ycXnPUMg/UCMtlWL+y/I/vy8aAq/CKWndgIT5rnY6FCenDi6idE7ekl
+         IsMPPMj1EZ7jt69igyMtGIhVfD0US7KocGvQ0z5DcZ0VMry1DfgExlzMCYdwg+N/JL9D
+         vwLriyNcBv0sEZlNc8dw/RUlwsYWeJm3pRok0EZJFyaqZZJAwP8Z6cWBTUD28eMj/+tr
+         Vwng==
+X-Forwarded-Encrypted: i=1; AJvYcCVdA00rMt6SB+I4bqKig3+hLUcinUYmqFvVnZJ56wYUcB3t48SXlACJWVYIOsOLipvjBZoSawmjlrdpZ4RG6hvW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVUXdRXVg1fh0g0yGq1LO4eCmt1hQQHSrvHRJCT35WGZwR3u+M
+	TEnxJ2X1weVKlBvEqGADscjucMeWXDvgniOxZyGguaBGxg9loVee
+X-Google-Smtp-Source: AGHT+IH6A0+R1gxcuSRH5wO+QbdVBb6hBn6+S5OLqazKgIRlUbTwpM/jY7yy8fE+80bw1Otx1SyW+w==
+X-Received: by 2002:a2e:be09:0:b0:2fa:e52f:4470 with SMTP id 38308e7fff4ca-2fc9d2ddc23mr14523171fa.9.1729700511046;
+        Wed, 23 Oct 2024 09:21:51 -0700 (PDT)
+Received: from playground.localdomain ([86.127.146.72])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c72609sm4588382a12.88.2024.10.23.09.21.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 09:21:50 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Mark Brown <broonie@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next RFC PATCH v2 1/3] dt-bindings: net: dsa: Add Airoha
- AN8855 Gigabit Switch documentation
-Message-ID: <5761bdc3-7224-4de6-b0f5-bedc066c09f6@lunn.ch>
-References: <20241023161958.12056-1-ansuelsmth@gmail.com>
- <20241023161958.12056-2-ansuelsmth@gmail.com>
+	linux-sound@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/4] dt-bindings: remoteproc: fsl,imx-rproc: add new compatible
+Date: Wed, 23 Oct 2024 12:21:11 -0400
+Message-Id: <20241023162114.3354-2-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
+References: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023161958.12056-2-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_100908_766053_E2391E7B 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20241023_092154_502678_854C524F 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +111,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +  airoha,base_smi_address:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Configure and change the base switch PHY address to a new address on
-> +      the bus.
-> +      On reset, the switch PHY address is ALWAYS 1.
-> +    default: 1
-> +    maximum: 31
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Given that this is a 5 port switch, what happens if i pick a value
-greater than 31 - 5 ?
+Add new compatible for imx95's CM7 with SOF.
 
-Do you have a real use case for this? A board which requires the PHYs
-get shifted from the default of 1? Vendors have all sorts of bells and
-whistles which we never use. If its not needed, i would not add it,
-until it is actually needed, if ever.
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+---
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    | 58 +++++++++++++++++--
+ 1 file changed, 53 insertions(+), 5 deletions(-)
 
-> +  mdio:
-> +    $ref: /schemas/net/mdio.yaml#
-> +    unevaluatedProperties: false
-> +    description:
-> +      Define the relative address of the internal PHY for each port.
-> +
-> +      Each reg for the PHY is relative to the switch base PHY address.
+diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+index 57d75acb0b5e..ab0d8e017965 100644
+--- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+@@ -28,6 +28,15 @@ properties:
+       - fsl,imx8qxp-cm4
+       - fsl,imx8ulp-cm33
+       - fsl,imx93-cm33
++      - fsl,imx95-cm7-sof
++
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: dram
++      - const: mailbox
+ 
+   clocks:
+     maxItems: 1
+@@ -38,10 +47,8 @@ properties:
+       Phandle to syscon block which provide access to System Reset Controller
+ 
+   mbox-names:
+-    items:
+-      - const: tx
+-      - const: rx
+-      - const: rxdb
++    minItems: 1
++    maxItems: 4
+ 
+   mboxes:
+     description:
+@@ -49,7 +56,7 @@ properties:
+       List of <&phandle type channel> - 1 channel for TX, 1 channel for RX, 1 channel for RXDB.
+       (see mailbox/fsl,mu.yaml)
+     minItems: 1
+-    maxItems: 3
++    maxItems: 4
+ 
+   memory-region:
+     description:
+@@ -84,6 +91,10 @@ properties:
+       This property is to specify the resource id of the remote processor in SoC
+       which supports SCFW
+ 
++  port:
++    $ref: /schemas/sound/audio-graph-port.yaml#
++    unevaluatedProperties: false
++
+ required:
+   - compatible
+ 
+@@ -114,6 +125,43 @@ allOf:
+       properties:
+         power-domains: false
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: fsl,imx95-cm7-sof
++    then:
++      properties:
++        mboxes:
++          minItems: 4
++        mbox-names:
++          items:
++            - const: txdb0
++            - const: txdb1
++            - const: rxdb0
++            - const: rxdb1
++        memory-region:
++          maxItems: 1
++      required:
++        - reg
++        - reg-names
++        - mboxes
++        - mbox-names
++        - memory-region
++        - port
++    else:
++      properties:
++        reg: false
++        reg-names: false
++        mboxes:
++          maxItems: 3
++        mbox-names:
++          items:
++            - const: tx
++            - const: rx
++            - const: rxdb
++        port: false
++
+ additionalProperties: false
+ 
+ examples:
+-- 
+2.34.1
 
-Which is not the usual meaning of reg. 
-
-> +            mdio {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                internal_phy0: phy@0 {
-> +                    reg = <0>;
-
-So given that airoha,base_smi_address defaults to 1, this is actually
-address 1 on the MDIO bus?
-
-	Andrew
 
