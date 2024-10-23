@@ -4,61 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308AACDDE74
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1824CCDDE72
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vpLg9OGzAhNCA/ueBvjFO4tB5KkrKG5Fjl+MN0oNc1w=; b=jbR6oT8znTxWwxGC2bq32qknDm
-	tzsSF83MeVNCuGG8juzMj1+HTxJPe4MIRoRaA9CsxG9a0wbRv6iUXyGde/FwGT0l7J25UWh+XKfGh
-	GPeyjs03BeGirwws+04+AcbsAz5JzY7kxTkuZKU6N4NQpQhwKqfXWPwsklv0kaLI8X4+6ga5u9Lus
-	sq23hVQBe1UdefSV5UzucUhXqXDXghlTiuT1J5JMoUQHAEAYPhipqRjaSNeuh49HHLGrzgJCe/k65
-	N5AWnfFAN7PmCBkkNskf4STxYModU5tkyuNfXriaalJfySWk1M6WyxuVNsWwzXSt2s+9vF906ySDa
-	thzTh+xQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xWC94fPWs84vqhZrZ1Lvw+n7vCGXRZsDoRsBHpJ7XAw=; b=wYaGNnNOTE8PLdnwwb/GGZsLZQ
+	phZPOW/oQ12E74xAFx1la7jofu4K8vyNHLcp8Am3/XM4t2vFa6tRglT4pijjd2O0FM5Ne6FNaYSqu
+	0zsdBdKLS515IoT4aZL9uybBnNq70IxsNkSm5lSB8tSBNNRFC3vMcdYgspaq4JFrnfjxzzSTHcRDv
+	aP3eeQcYcPjx6i9eXic+K1gGxJdBQ95Ij1hZWWJ+fHLnYGwojmAXaAWqrtU06oi+nQmi0CvN36FFx
+	eOeYhjnoOnc1d8kzdUuT7Y587WfHKxgy7R1NIymmdwp1/RPcxSOykkEiYOl3xAs8CcKL+IgjpxQpY
+	YlPOdmqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZpD-0000000EBv0-3FlK;
-	Wed, 23 Oct 2024 11:46:51 +0000
+	id 1t3ZpB-0000000EBtZ-2vJk;
+	Wed, 23 Oct 2024 11:46:49 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZAU-0000000E4ur-3lmc;
-	Wed, 23 Oct 2024 11:04:48 +0000
-Received: from umang.jain (unknown [IPv6:2405:201:2015:f873:55d7:c02e:b2eb:ee3f])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DE4A382A;
-	Wed, 23 Oct 2024 13:02:54 +0200 (CEST)
+	id 1t3YtS-0000000E2T6-25hj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 10:47:11 +0000
+Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 47CB7169;
+	Wed, 23 Oct 2024 12:45:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1729681376;
-	bh=mgBvfrl3vzYkOmmt/1RDTsr84t06CJd4a1PW6agEUnY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MC08WefE5jYCOunqjEPolR2OEF0I6OAhIkxuxXTlhlnnW3lTIpfaJmMVVf9yfwnhk
-	 GT+WW9q9HfP3W+Ns8dTw3pel11YPfU+GDlsUK878P1Fy3hv0lz/AD/OTREO22fZrMb
-	 YDczwbS7DzVS1s8rl/6gMoSUBWO3moSQW8M4F0vA=
-From: Umang Jain <umang.jain@ideasonboard.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	kernel-list@raspberrypi.com,
-	Umang Jain <umang.jain@ideasonboard.com>
-Subject: [PATCH 0/6] staging: vc04_services: Clarify bulk 'userdata' usage
-Date: Wed, 23 Oct 2024 16:34:00 +0530
-Message-ID: <20241023110406.885199-1-umang.jain@ideasonboard.com>
-X-Mailer: git-send-email 2.45.2
+	s=mail; t=1729680317;
+	bh=1aUwh7M2CVh9uYUCo+mpzgabGTGHha0z3nBcBVPdCVE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u8gcHKiEZOTbl/vjaUuxKC4po20kbJ5UenYe3R8fefyZ1AAuU7KRkWIjvEsebXKBx
+	 E2B0r36OeLz5cDrd4XnepV6VaQXBu1QbZAsO50ippNXBALwd6dweIdgE5hYAaY3AWL
+	 SURtfEKBU+hKyewWwzkhgdnITdPNLU4l+6POuJlg=
+Message-ID: <f7fbd696-d739-457b-bebb-571b32ecc1d6@ideasonboard.com>
+Date: Wed, 23 Oct 2024 13:47:01 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm: xlnx: zynqmp_dpsub: fix hotplug detection
+To: Steffen Dirkwinkel <lists@steffen.cc>, dri-devel@lists.freedesktop.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241021134115.216568-1-lists@steffen.cc>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20241021134115.216568-1-lists@steffen.cc>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_040447_102287_196364E0 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_034710_694008_AE05A3D4 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,47 +117,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bulk 'userdata' pointer is categorically abused through the
-vc04_services interface. This series attempts to fix it and clarify
-what it is and its usage.
+On 21/10/2024 16:41, Steffen Dirkwinkel wrote:
+> From: Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>
+> 
+> drm_kms_helper_poll_init needs to be called after zynqmp_dpsub_kms_init.
+> zynqmp_dpsub_kms_init creates the connector and without it we don't
+> enable hotplug detection.
+> 
+> Signed-off-by: Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>
+> ---
+>   drivers/gpu/drm/xlnx/zynqmp_kms.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> index bd1368df7870..311397cee5ca 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> @@ -509,12 +509,12 @@ int zynqmp_dpsub_drm_init(struct zynqmp_dpsub *dpsub)
+>   	if (ret)
+>   		return ret;
+>   
+> -	drm_kms_helper_poll_init(drm);
+> -
+>   	ret = zynqmp_dpsub_kms_init(dpsub);
+>   	if (ret < 0)
+>   		goto err_poll_fini;
+>   
+> +	drm_kms_helper_poll_init(drm);
+> +
+>   	/* Reset all components and register the DRM device. */
+>   	drm_mode_config_reset(drm);
+>   
 
-Patch 1/6 simply renames a member for dma_addr handle for better
-readability.
+Thanks, this indeed fixes the HPD issue.
 
-Patch 2/6 dissociates 'userdata' being used as bulk_waiter pointer
-in bulking mode.
+But shouldn't this have a Fixes tag, and cc stable?
 
-Patch 3/6 renames vchiq_bulk 'userdata' to 'cb_data' - which is what it
-essentially is - data pointer to callback in VCHIQ_BULK_CALLBACK_MODE
-
-Patch 4/6 similar to 3/6 for completion_data struct.
-
-Patch 5/6 and 6/6 helps track the data pointer when initiated from
-user interface.
-
-Umang Jain (6):
-  staging: vchiq_arm: Rename a struct vchiq_bulk member
-  staging: vchiq_core: Bulk waiter should not piggy back on bulk
-    userdata
-  staging: vchiq_core: Rename struct vchiq_bulk 'userdata'
-  staging: vchiq: Rename vchiq_completion_data 'bulk_userdata'
-  staging: vchiq_core: Pass vchiq_bulk pointer to
-    make_service_callback()
-  staging: vchiq_arm: Track bulk user data pointer separately
-
- .../bcm2835-audio/bcm2835-vchiq.c             |  3 +-
- .../include/linux/raspberrypi/vchiq.h         |  7 +--
- drivers/staging/vc04_services/interface/TODO  |  4 --
- .../interface/vchiq_arm/vchiq_arm.c           | 39 ++++++++-------
- .../interface/vchiq_arm/vchiq_arm.h           |  3 +-
- .../interface/vchiq_arm/vchiq_core.c          | 48 ++++++++++++-------
- .../interface/vchiq_arm/vchiq_core.h          |  6 ++-
- .../interface/vchiq_arm/vchiq_dev.c           | 16 +++----
- .../interface/vchiq_arm/vchiq_ioctl.h         |  2 +-
- .../vc04_services/vchiq-mmal/mmal-vchiq.c     |  7 +--
- 10 files changed, 74 insertions(+), 61 deletions(-)
-
--- 
-2.45.2
+  Tomi
 
 
