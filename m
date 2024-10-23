@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F162ACF5398
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E825CF5396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kO9dsRxEi7Z6623tuZtbmq5loPcm88aFPb1NoxIjYoM=; b=A+7jw1lWSzb5LwQkhu3AJdRKzs
-	0AsXq7D9+F06HFDULgXmZuvHgJ6OGqT5X5ovLplbA+3dOsV/rSF+kHbP8IudJ0hzqj4/WfjCMTbnK
-	GKXEtPF9TiRkQF5hCmePTOSBy5DXKawUZbvRCA8MMBXDzC1A+5iGOazcFcbVKmLF1yCzBMyyHcHER
-	1jv4zn6s7bfHK0SwvwgykKx0w02kSy1pcI+B4jgRbpKVFza8BFAevM63qPnG+LCPCB2onKy7P94w4
-	qkqFz7qEXkdSJWxOUwIyemJJKoJQJkzhCpoT/vAutNb/g4TJ7ws8JuREN5tSqJeMIdL9iaNyU1ELe
-	X9l08Fnw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WhPKDbFTUZYFFVIAP/OH1JPHMZdUigC397OHZv1u/EA=; b=SfvDI/RBIn4iY/h9Y+/e4BFPD5
+	4Lto8EbYbpqLpCeOivW/1hAlE3rv0s0C2eH4cbu7Rkt5Am3LGLlJIDsGUjKGac5jDWo90+Ds1g0tN
+	liX3mcMHz98Cq7EOtDZAjgoONywXzPRawcp9Neq9TYNVr1oCYiYT5eakPax0ab2fEUmZL1FACloM1
+	pdp1TMd8n8qqyuuwVNjG8YGJvu65M20Nc0BLXfwUYv0R3whPucgm0C6jTKMW0CIawlMm6WIddznjf
+	FVPNc4Qn2zyKXlEDryyo80upOICudr5G++V/eozc5sB/JU3CPoqDuc5kw7rsGgFTzvQmM1gJ1/ucN
+	mjkSxjpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cYh-0000000Elvd-2zkm;
-	Wed, 23 Oct 2024 14:41:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3caE-0000000EmR4-2R5w;
+	Wed, 23 Oct 2024 14:43:34 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cVW-0000000El3C-3Wcu;
-	Wed, 23 Oct 2024 14:38:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B9E08A44F66;
-	Wed, 23 Oct 2024 14:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DCAEC4CEE4;
-	Wed, 23 Oct 2024 14:38:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729694321;
-	bh=0JqvrPoAl0IeTaLk4IwiVcZMi7aNs5KY80Y/mwm0Ihs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Y7jGJCf5XPlg6FhMcZZxHnU43XGMqCWy0zgJZiTZw3LmL9uIaoEggURVp2ODsOpdo
-	 +300kakIpAx0/GKN3TnxZyh5oEhjHgtwTuMtIqsGukcF6Zndd49LtkNXg1gbGYx0vj
-	 5DGX4Dh1AZTC26GNlCEWSzsgFWMxRuV8kJFELNuCzSUcnWlNL2t+ac8d7WNbUeknf6
-	 gRz6eUNoXkcuOIN6xMWt4etfHrdyk/bG4MaA6a0DtuyUQ6tseUKopwP3cPdIzako4Y
-	 CN/903JmCJLvpQokdP3vjoykoEMq9kWDubY2Kpn9uW1DKHPuc++54KNYjkTH1GY53F
-	 +2S2JKwAzjB/g==
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-71e467c3996so4610886b3a.2;
-        Wed, 23 Oct 2024 07:38:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVjU6H6ct9Ihe1sTOPIqNTZc/cnkMl7Vr5xaPI3PeSOt9aeaAqyW8WrWtQPJDeFMzr04sj8sYnf5ZlmGNDY5S6v@lists.infradead.org, AJvYcCWjqdF0brm6d7kNpeU5U7pJlq49QMMg9GsFBxj0vkqikV5jSfUAOyTYpCNB5i/WMPtM6DFnU9aVhV0LoL3Lub8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLeFp69M+qKMtXj36bw3tdzj2eeOhkJl3yMDu1r19jmI92/t3q
-	57eX3UntHrqhcAVi7vF5F77QMuZaOsjJzcRHaSJ69kjtWlCpbwBE9qF1n0v9v5McCSDIdzmIoz6
-	jUe19/93BSkY0eLA05bV/PL5ssQ==
-X-Google-Smtp-Source: AGHT+IG/RdVxY7RG85NyF0P3I6XAtxRrRLMBLPXslpGReJZYhGUeFy1bxVKhKy/eGSVOAqET/hE7xY0gvgcONdeUlT4=
-X-Received: by 2002:a05:6a00:ccf:b0:71e:795f:92e4 with SMTP id
- d2e1a72fcca58-72030a61bccmr4130356b3a.2.1729694321137; Wed, 23 Oct 2024
- 07:38:41 -0700 (PDT)
+	id 1t3cWG-0000000ElJF-1ZZc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 14:39:30 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-50d494ac189so2039006e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:39:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729694363; x=1730299163; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WhPKDbFTUZYFFVIAP/OH1JPHMZdUigC397OHZv1u/EA=;
+        b=eq2jKJzdr7lXXV49NV+qnKAw38ZO4dd6bogp3zhf3IHHoOcCLabWLRU65J4HsxSB/0
+         gx+sA2KXH7nLHzChr6PxKLQ65Cq87z16BefHxrbyPA+WXbunYASwbHIiNeBhQL41aWPB
+         dvoTI5LboR96cXwNghpdXnQcspbCja6V3Mr5395+s8C0XDo4NVWhd2vHhunGH7dCohpI
+         KzI6wbHIjLtM9gCdFeV7Cu/iNc8lpNs0NLjACdSgXo+Pe874pLSuHqMBklzvBxHlJy1Y
+         j87UYaVnU5psrx68i4URSTZsbMe3dB2JrZZtqp0JDXfiZVtHgHldTEL8f3l/42WRA06K
+         kV+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729694363; x=1730299163;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WhPKDbFTUZYFFVIAP/OH1JPHMZdUigC397OHZv1u/EA=;
+        b=H6+rBcFKCf2HJY7tvB1M/Nbexlt8bV23QsiJc8gWlODp7iom3HEmb2TP9FHTDsKGmB
+         ZbO31RgvNUJBu+UFy7H939I65/md48CpPaH4LdKNMhUNumCv9JbENDQ98CI/YONCkUov
+         uhxEXhXzCeFaVUWkZs2Rhfgg0EcIboRhEN7nT+H56o6cQLqBl+2Y0UzsAZkE3kd+ZL2F
+         HOffDRfGw1jugAbveRSDcxGYLRd1xKYju3GzcNwIDxeszJyZ0ESl5pZFY+cEEuguuDAW
+         VSm6w5RdvaRFFyS80MaccL+wUiQ1ME42hkMG/wggGfXYwI/7NumQfqjKft9LklxdDCkP
+         3ltw==
+X-Gm-Message-State: AOJu0YwT668Cz/qw+dql++bjtZBBlF2D319x024azKvaGR0g+zmaCSC6
+	15AlgZKd8qGLsX3EeGCDsI1kngu9Wrzi+LnXbB5DDWpaf+xHvO5Toei3BYlN6ZmFSE4GbNRiGFY
+	/UkCIXu3BkTbEjTPgqBvYSTfBu3XjXgN6qQNtuFo0JYv2Z5TTrfM=
+X-Google-Smtp-Source: AGHT+IEGxTvgFJQKGjPndiT4g1UmrIbaruLgKpKg20RzOuGPbLbHepYglwQf3SmW4/COXfCydu/3Ww6v3WefxwQ10jU=
+X-Received: by 2002:a05:6122:2a53:b0:50d:60fa:183e with SMTP id
+ 71dfb90a1353d-50fd037aecemr2859533e0c.11.1729694363103; Wed, 23 Oct 2024
+ 07:39:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241019052935.553886-1-fshao@chromium.org>
-In-Reply-To: <20241019052935.553886-1-fshao@chromium.org>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 23 Oct 2024 22:39:02 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_9qjcZoQS3KqEqbhKNw9nza+1ggXN44snwThzjLLJ2KNw@mail.gmail.com>
-Message-ID: <CAAOTY_9qjcZoQS3KqEqbhKNw9nza+1ggXN44snwThzjLLJ2KNw@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: display: mediatek: dpi: Update device list
- with power-domains
-To: Fei Shao <fshao@chromium.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, CK Hu <ck.hu@mediatek.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Wed, 23 Oct 2024 20:09:11 +0530
+Message-ID: <CA+G9fYt19NZ=8wY9aQRdYjtsPgiaywUQ2ff+TGkX-6zLBUGsNA@mail.gmail.com>
+Subject: axm55xx_defconfig: ld.lld: error: undefined symbol: lockdown_reasons
+To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, linux-security-module@vger.kernel.org
+Cc: Russell King - ARM Linux <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Paul Moore <paul@paul-moore.com>, 
+	=?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, James Morris <jmorris@namei.org>, 
+	Casey Schaufler <casey@schaufler-ca.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_073843_050359_46FE58D4 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20241023_073928_479908_12AE1FE1 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +92,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Fei:
+The following build regressions are noticed on arm due to following
+Warnings and errors with gcc-13, clang-19 and clang-nightly with
+axm55xx_defconfig.
 
-Fei Shao <fshao@chromium.org> =E6=96=BC 2024=E5=B9=B410=E6=9C=8819=E6=97=A5=
- =E9=80=B1=E5=85=AD =E4=B8=8B=E5=8D=881:30=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> There are two kinds of MediaTek DPI devices in the tree: the ones with a
-> power domain and those without (or missing). The former are the majority
-> and are more common in newer DTs. Only three older DTs fall into the
-> latter category: MT2701, MT7623 and MT8192.
->
-> However, the current binding only allows particular DPI devices to have
-> power domains, which results in spurious binding check errors against
-> existing and new DTs.
->
-> Instead of diligently maintaining the allowed list, let's do it the
-> other way around - create an exception list for devices that are fine
-> not specifying a power domain. This list is expected to be fixed, and it
-> encourages new MTK DPI devices to describe their power domain whenever
-> possible; if not, those should be listed with proper rationale.
+Started happening on next-20241023.
+Good:  next-20241022
+Bad:   next-20241023
 
-I've applied patch [1]. I think that patch fix the same problem with this p=
-atch.
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-commit/?h=3Dmediatek-drm-fixes&id=3Daf6ab107ce2c338790c6629fe0edc0333e708be=
-8
+Build log:
+=E2=80=94-------
+ld.lld: error: undefined symbol: lockdown_reasons
+>>> referenced by lsm_audit.c:417 (security/lsm_audit.c:417)
+>>>               security/lsm_audit.o:(audit_log_lsm_data) in archive vmli=
+nux.a
+>>> referenced by lsm_audit.c:417 (security/lsm_audit.c:417)
+>>>               security/lsm_audit.o:(audit_log_lsm_data) in archive vmli=
+nux.a
 
-Regards,
-Chun-Kuang.
+Links:
+=E2=80=94---
+Download_url:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/2npIko0KV1uYFA7CZM7n=
+R9jHBBO/
 
->
-> Signed-off-by: Fei Shao <fshao@chromium.org>
-> ---
->
->  .../bindings/display/mediatek/mediatek,dpi.yaml   | 15 +++++++--------
->  1 file changed, 7 insertions(+), 8 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.=
-yaml
-> index 3a82aec9021c..c464642bbfb6 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yam=
-l
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yam=
-l
-> @@ -81,14 +81,13 @@ required:
->
->  allOf:
->    - if:
-> -      not:
-> -        properties:
-> -          compatible:
-> -            contains:
-> -              enum:
-> -                - mediatek,mt6795-dpi
-> -                - mediatek,mt8173-dpi
-> -                - mediatek,mt8186-dpi
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - mediatek,mt2701-dpi
-> +              - mediatek,mt7623-dpi
-> +              - mediatek,mt8192-dpi
->      then:
->        properties:
->          power-domains: false
-> --
-> 2.47.0.rc1.288.g06298d1525-goog
->
+Metadata:
+=E2=80=94----
+Git_describe: next-20241023
+Git_repo: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.g=
+it
+Git_sha: ceab669fdf7b7510b4e4997b33d6f66e433a96db
+Build_name: clang-19
+Compiler: clang-19 and gcc-13
+Config: https://storage.tuxsuite.com/public/linaro/lkft/builds/2npIko0KV1uY=
+FA7CZM7nR9jHBBO/config
+Download_url:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/2npIko0KV1uYFA7CZM7n=
+R9jHBBO/
+arch: arm
+config: axm55xx_defconfig
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
