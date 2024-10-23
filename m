@@ -4,101 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA78CCFA460
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF6ECFA460
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbQptFcw9TkcYXo8nXAdvDSpFqHn6tC+BaY9HH4rqfw=; b=a1RSyuf8iyHU8ooL0kZt8QyPJo
-	SwgurZCwfidHCamHRsP6u537UBMJ2a7lB0LtJxIFPHZKPqtUD/S40fz8fvyuAAlvw73qXP3XRP/59
-	c8zFtsd6L3lbrw092Xzf2fNJOe6zXGv5UIUo9pLSeIQrheiTCMv6JgQYLISA3LKxGM7PYeCKMD6cf
-	5e3ZMT3qBcyRhkE+1wm6hb0dVmXJTACzzye2MFu0j2OB9NX+QElMY/zsHY8ar4xda9e1ye29+R9Kh
-	fy3v//6852ZlU7xERSi0TYwbOFas3lUnY/HhCsEhJ4XBzgXOTmAH5xIsHNtME8IPIBv1/BLsI8Mon
-	v69ZGOxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B40E4bt46nDK4RzRO3rXtadFfSkmoJZWh9JosepBs/c=; b=g9QI33o+bhMbEQ63gHVZ4QnUAT
+	W9sWcqed+uYmNx2XnUiDgh9ePZYh1tMnrCgzREODWUWzW7ypQyiXd7aNM1pzvVFf0a/Te23RTf31B
+	PBT6CG16nzO/2FB+HGHaPefxjPFo6YPsXvv4Bz8ei1R4IRBZx6fexg6TCgOtvyxVjyW5exA5V4g5E
+	1LXDO+K+nfkyyjDR3fwCrik5HbUWHmThYmBcFGHCdJIUJvuBIIF4JEQHQ2locgFonl/LwxOA+qVxb
+	LWmBXKCT23M9rv4Pk+RTolces2BPcF9kSXkKRdPzIV0mOiGq88FHvgrE6ng4PTSmkxLWtjZaiA5jI
+	kI8CI25w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gx9-0000000Ffbc-2Msz;
-	Wed, 23 Oct 2024 19:23:31 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1t3gzK-0000000FgHh-13jO;
+	Wed, 23 Oct 2024 19:25:46 +0000
+Received: from mail-am0eur02on20621.outbound.protection.outlook.com ([2a01:111:f403:2606::621] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fnu-0000000FTdc-2vfU
+	id 1t3gPX-0000000Falx-0sRR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 18:09:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729706995; x=1761242995;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2rCl2EkGUq3eQaPQ784zJRGPXTj72TQkCboL00ZG36c=;
-  b=gjmnmg6BcBTklQBGZwaT7TTS9NOkEkPX634zFXoR1iD4/W2BZu+qmGCT
-   81etoWOaJ7JGpOjymrcOs0a8mc/YIDeeZVJpQZRzodIu7Q8kizD5ro35p
-   0WQ2AR40jeyaFdHVCuAyBFRqSzXytsA917fpcvgMh8cMABPHWLADcZr8N
-   rsmrcIkZ+ylnqy+unNriS8pXlQ7nem571+zzrXrWzjJ23U8DeAE/HiZLn
-   RFO38GKDIFXXw8kp85YXR0moDg5b5cgmCPGwFVM/67bV+sFAzmpL9V0CR
-   bfV5ZzxQIc+y1lmuJcb3vfRcShStojNEA9+HiTRB7fEgkMG/SvMfjx65s
-   A==;
-X-CSE-ConnectionGUID: G9S0x2wQSWiGb++X/MBswg==
-X-CSE-MsgGUID: hGT6zUU+QRm9ApP8n/Z5gQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11234"; a="32166882"
-X-IronPort-AV: E=Sophos;i="6.11,226,1725346800"; 
-   d="scan'208";a="32166882"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 11:09:52 -0700
-X-CSE-ConnectionGUID: Zinfi+i6Sa6zRiLFIJWmzA==
-X-CSE-MsgGUID: C/7rh0eMSamHvy3oTBNjfg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,226,1725346800"; 
-   d="scan'208";a="80497846"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.115.59])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 11:09:41 -0700
-Message-ID: <175dc21f-a4e6-484f-8ee0-ec64c6dfc392@intel.com>
-Date: Wed, 23 Oct 2024 21:09:35 +0300
+	Wed, 23 Oct 2024 18:48:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nLPcD/4US0xKog/gDKg6VJ9PuLrlt6XbyC0kczairFlrOgEFdX26tPYUqWhwqqBiMRTFtbfkqX6e6fEt4v7yQR7QYNRjxkgrCAhu0My62Czq3/PqWXhbev7d/omurrvf6zXYRhGPFJCATYopHgPoY3ZN5Xt+VDJ/XO8RVCmoEGCEX1upuNBwSpexxMFoRuOPvXiXLP9HMzDVEc7GuEVMvRi8nepd1tWtob3p9/ieMHQtMema6S2E01WqoXTay9i8bM6zESiGhvgd24xxekMoxL2WsGcrzOBrUFIklaqWmV2WUEvHDZT4bHJ1zevg84/kgw4cXtIetur2oQiYVaOdaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B40E4bt46nDK4RzRO3rXtadFfSkmoJZWh9JosepBs/c=;
+ b=A7xMpBVGE97KB925On9hVNgG0N4GDeW25T77sS1Ej4rZ9LQfplICwf19+AyMOK85ooZ5DdYkGCj7y6nCl+ckWP4c1TOEdAaoTOrETqq8qgtuW/ScymjYcYk+L8CKCT91eGgjr5mW0Y7jX0ZL1D4EzvKDm9fAwnswdCaOiU9DtbaI0BQQkK5K1VQq6NmZdB3dkICdjDwj38DOhjtqEENdUPeQGhoe4rcqKUf7P2nJb5SAYtlyGx3hK0oFKHtlyKW8UsKgcP3ZumARx/cRYnq12s/z2eYzCR/leMyIhq1LL2OVQ5z2H4jrKENXXp67k/BpUuXcI9SblH77qb/2BPrYsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B40E4bt46nDK4RzRO3rXtadFfSkmoJZWh9JosepBs/c=;
+ b=bxT0K3i4F8q+oD5PuGbG33MPWjDXGYzfhtZ8JxVbgKX+x1pNEa7SQtK/HEYpJA2Ns/HWXWF1Wx5fXUNSQSQgmybtW0YzsBQQcl+LIVOjcXdTOnuRQqGLoUDFUBDk3yrok2sBXfdLtnyaC2wiHcF7HyNmRjgBzwBBwQr4OmYceixG5FMgqJzMnfW/fKWo4x/BvUIen3ZvXNHhPMDME1ttSi+4apmgtGnPgg0wM/f/ZfsfIcjOLTRJny4juOIxokvP4MXNrg4XcPp75AiHA/vUN8lrlxHsEhZBHP4M1yGleYaG6za325TplzrC3gqikEfK26tW+baNdS0ePxbPvB2VWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB8214.eurprd04.prod.outlook.com (2603:10a6:20b:3b0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.18; Wed, 23 Oct
+ 2024 18:48:43 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Wed, 23 Oct 2024
+ 18:48:43 +0000
+Date: Wed, 23 Oct 2024 14:48:33 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] arm64: dts: imx: add imx95 dts for sof
+Message-ID: <ZxlFATZW1BpW2t10@lizhi-Precision-Tower-5810>
+References: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
+ <20241023162114.3354-5-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023162114.3354-5-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: BYAPR11CA0044.namprd11.prod.outlook.com
+ (2603:10b6:a03:80::21) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V13 03/14] KVM: x86: Fix Intel PT Host/Guest mode when
- host tracing also
-To: Sean Christopherson <seanjc@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Heiko Carstens <hca@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>,
- Hendrik Brueckner <brueckner@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Yicong Yang <yangyicong@hisilicon.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
- <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
- Ian Rogers <irogers@google.com>, Andi Kleen <ak@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- H Peter Anvin <hpa@zytor.com>, Kan Liang <kan.liang@linux.intel.com>,
- Zhenyu Wang <zhenyuw@linux.intel.com>, mizhang@google.com,
- kvm@vger.kernel.org, Shuah Khan <shuah@kernel.org>,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org
-References: <20241014105124.24473-1-adrian.hunter@intel.com>
- <20241014105124.24473-4-adrian.hunter@intel.com>
- <Zw1iCMNSI4Lc0mSG@google.com>
- <b29e8ba4-5893-4ca0-b2cc-55d95f2fc968@intel.com>
- <ZxfTOQzcXTBEiXMG@google.com>
- <2a8e6f2c-4284-4218-9b91-af6a4d65e982@intel.com>
- <ZxgnoTKt2IBnBBJ2@google.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <ZxgnoTKt2IBnBBJ2@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8214:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7e8b509f-01f0-411e-d30a-08dcf3935140
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vjqRMfPW1ZUMra4Ezfr2jIB4SOBy/Gr9WUrYZrr0vNX3mCB8H/FWERbvntW3?=
+ =?us-ascii?Q?wm8uJGD/6zbAOqYxd01jyju9ndkWwxBdCZHe69cynYy8guY83rcAzMSfIwrC?=
+ =?us-ascii?Q?sgJXLS2nzpEgUMK18odmF5dYw/DIjd6Si5MIJyieU8ms8cGtt7oPw8o6mm0w?=
+ =?us-ascii?Q?9zW39TCajy2RIGGJxtOo1+/qkc8sZSbyqglKxceHpyDBTR8ofEyf8G3GRO3I?=
+ =?us-ascii?Q?8TA4k/oYBZgj9i2q0e0tTCroBt7xtIMJZ2Cc/aUwqKcFOq1ladHsLrqkJOEX?=
+ =?us-ascii?Q?k8C64mKJvhKPjHz/xiZYnhLLW0oVk7+4P0LoLmnaQt+XZtBWTuZ0dn/3IB4q?=
+ =?us-ascii?Q?36TCqQX0gKOhtKXBRp9OTS2of4GlYEZFbkRC4itA2zzvOnB6B+VhwFZekLiA?=
+ =?us-ascii?Q?NCxBoMcJZ2eyyHcHAPScC8bUHKSAWzVf7EpfFAmoOYqthzOZ+S5rgf4s4+uO?=
+ =?us-ascii?Q?UHrduIz/aBB3ryLSwTRuYPYtZBfllLZxTh6UCk0V3xYQ7EA9o58pEpYNQ0RV?=
+ =?us-ascii?Q?PLR3+NM8/L1jwbx9oklhmGDCKaEZlEx4CWhCBFqBMRUyOkoiDhlqc9G8QNHT?=
+ =?us-ascii?Q?zUMKuMCJfJBJoVI3Xk3j6tu4Kp1aqTFZjpKMOOdbjAzmURwOeDKeEQL3+Uxy?=
+ =?us-ascii?Q?qSXgHw35qafjLHwAtUHjZaCpCcY946AnakdHNWkvCuLJJt24drPfUlRZc5Hf?=
+ =?us-ascii?Q?pHTVk/1HcOLmuGzfhMvuh4vbwL9v3aB234TjisP1bBYG4cAsRBl+p07eNXkL?=
+ =?us-ascii?Q?BVDFHSlPXLUXYynY8s8dGLXk9llidclTGy3BiAbUcZoeTfkViQQyTHoKXhgK?=
+ =?us-ascii?Q?fXnOY44d+tYxm9NHYC1fQDkRuYivdJy1/AsAcWk40RmxxwiexU9Rakv0kfor?=
+ =?us-ascii?Q?r5mM9EaENq9r9gXXcM1sNAwnQrSxCovnVaURUdxuRQiG8rNxWQEKgXGCrA6J?=
+ =?us-ascii?Q?iZ3SGjdBjHoy64tU0giXEF5oEPsBpPJtiEMgpIIEBzkvnoJymELn7tkcYjFc?=
+ =?us-ascii?Q?nQqtmUeafAjsjwv1fRWs++wgH3bmbz91VOQp3PvhEK3HitAgfVkZu3FRcSbT?=
+ =?us-ascii?Q?6RIhrzlomz+7B7eWhI8T/HD8R8Inj23c3GuabYpq2aUvCXxfn1Bi5P2xRMoG?=
+ =?us-ascii?Q?VaiD5m5JCgRmtFWACmMeSDO69PqgVwcqgMFCojqZ1m38TZRPSDogxFKEWeNz?=
+ =?us-ascii?Q?Zu/3omrQF37HtbjJupXAhMhnJQLnQM82YGXf92lQjqcF9dM1FN6OdXDPLCod?=
+ =?us-ascii?Q?RZ5ITvMNlMdU/Eq2vZP2PhVnJrDKnPFUQb+lSQ4kO+43lcqPm3YAh81/3gac?=
+ =?us-ascii?Q?gYysjqUWXLkOtWuGHFh6rqXKz95NE5hweFqVwvRrYFnVaeBqFvWTnPYxdCTI?=
+ =?us-ascii?Q?BG3jF9lWyzgOrEPX6Hj7pbu1oSj3?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cFw9Gf8wjRWR1nskaAtphQhLs/KssU+sEQKAip4+yy5ostK3rqm7KK1xsbLC?=
+ =?us-ascii?Q?sBYW48m62vWtQxYft9C5Qeoh63c5sReDekMT0ZX7JuDahEb+jCalJkdTDdtT?=
+ =?us-ascii?Q?zgMniC5D0bU4zCkHe9XmE4Xaql4uu4sutGVHkI7Ji4yt6YQYyQ0rriuevaAA?=
+ =?us-ascii?Q?YMijcjbHt7ZefTOJm3iqHYkdRLxUuL3zEs81Ykz8aEbrd3jOXdIHvJCKDtrH?=
+ =?us-ascii?Q?+w9em2DXeS2vKnTgaUuycsz15eioo+tFNYOsr1w+l+P+66iELV7k9H1lSO2K?=
+ =?us-ascii?Q?hUMfbFm8Sdnd4tRQIJ7YPreXAqcd6cWjTpel+VNuQOvOrLELMLToFAnTroja?=
+ =?us-ascii?Q?PEujJi+75rvLTXgSfzOQ42jggaiFPOJcDsOPli6TyEvTFbs7WCsZQ+SfcPBb?=
+ =?us-ascii?Q?wRIKb++96XV8iAWGEKGLm/oQ/z193tIEhRLQZngTq9ly+mE5EKFqbYKfZtBl?=
+ =?us-ascii?Q?pSkJPNnB6bwjzpmkCPDJF0O6gg/MT57+gL48wRFbB+FFQR4tLIdkY/5ZgbkC?=
+ =?us-ascii?Q?+sKuqsY3fqWR4hML4++YExbW/dZKEIsIAJLvQoaD+CpWwExmXR1CV41DAZFI?=
+ =?us-ascii?Q?/OB/7QM4CCVrE2wlh1xfFcEmoGfxMSHqeAV3kimCte4/XgThA/TZ+uUcFlum?=
+ =?us-ascii?Q?TAWd8ncoPmtrAASR25jL/yde/XA1UZHowPePy8kDox7Jdq+vmcfNeGmilI00?=
+ =?us-ascii?Q?og2A76yN5boHMyCIpLfJjKsjNLEBrJpBo8aTSTdVmjAWC+Wv9zrRWZDaiNVs?=
+ =?us-ascii?Q?8iNUrGWjunRmlmlm3gEpQLjCyo9X6XzMZ0exo3lNOSWrsJL0wlj3yrqPiRNt?=
+ =?us-ascii?Q?p1CkRTmMmYRJPbaebPVxTg5Tp54FbuZiNeN0nzzRZ9M99cORrYkhhdTkrkkj?=
+ =?us-ascii?Q?JX/TwFClxK/DUvaMRZvZ4/OjinGt7XXpzWKJ4SRQSEKPcbRVamm69pcRJqHU?=
+ =?us-ascii?Q?2Bba1D0sCDP8Nhw727R1E30QTEfSsYoeycdvYGRl7JgHDkWt66XFTd3sMzZg?=
+ =?us-ascii?Q?4uzE6w9+r5flHG5r6CeYwJfSy004iWsc+otFYDrN1NiX8ozxJiKXrtD89Fbg?=
+ =?us-ascii?Q?W6/md9kIiVCrZpwCgNoCee109mB80+9ms3ET3MMIn/t3IpHhNrDcj+JSoHR5?=
+ =?us-ascii?Q?PxEfo6Rdp/lcadEIbH9BQ+9xVOTDg/xsejqE/lax7VsLVy2TjtF6Klj8i3Jl?=
+ =?us-ascii?Q?88zksLlhLnDU7eKdzo8+pwUMmEus/ptMa5IXQT3NycFykG7eYwaFUjDGcD2K?=
+ =?us-ascii?Q?PONbsBVoavrWViDKkuiyV4I9HjjWDRvwL7zK/GLToiuTDop8BmccwpE4HL6m?=
+ =?us-ascii?Q?sMsEUbatjpqh55id+D1YZCjBtwxTQBA+CuZo29wBRuMvn6Oo4xshOo2oNYAd?=
+ =?us-ascii?Q?UVU27XmOvXcgn1hQ50JRn8kNDAuEuIncrv50LwGM0PFree5YcPIRNE6B7zdj?=
+ =?us-ascii?Q?rUqBGEzfm3w1I4nsdc94UELe2ob9+FrmUfxkEx3G7BwaFLH2KhYc5UuSw3aR?=
+ =?us-ascii?Q?S5g4XkB3yf6VyyA39atF90vd5ojFiQakAP0UrsjfBf+n2hePnq25nw8BBNdM?=
+ =?us-ascii?Q?EjNPO+O4GkDdbpUY+egspkEwtuGGEDVidRFindlk?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7e8b509f-01f0-411e-d30a-08dcf3935140
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 18:48:43.1376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: McgZ982M/+YdjSjRrE+M6CN8RXR16YUKVYEoQ62NpjL6sOuzyrdWdeFPhrNndDSQGiiq/Hn/NHOkNI784sMahw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8214
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_110954_865152_0F516833 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20241023_114847_292909_E65EA8F9 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,55 +169,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/24 01:30, Sean Christopherson wrote:
-> On Tue, Oct 22, 2024, Adrian Hunter wrote:
->> On 22/10/24 19:30, Sean Christopherson wrote:
->>>>> LOL, yeah, this needs to be burned with fire.  It's wildly broken.  So for stable@,
->>>>
->>>> It doesn't seem wildly broken.  Just the VMM passing invalid CPUID
->>>> and KVM not validating it.
->>>
->>> Heh, I agree with "just", but unfortunately "just ... not validating" a large
->>> swath of userspace inputs is pretty widly broken.  More importantly, it's not
->>> easy to fix.  E.g. KVM could require the inputs to exactly match hardware, but
->>> that creates an ABI that I'm not entirely sure is desirable in the long term.
->>
->> Although the CPUID ABI does not really change.  KVM does not support
->> emulating Intel PT, so accepting CPUID that the hardware cannot support
->> seems like a bit of a lie.
-> 
-> But it's not all or nothing, e.g. KVM should support exposing fewer address ranges
-> than are supported by hardware, so that the same virtual CPU model can be run on
-> different generations of hardware.
-> 
->> Aren't there other features that KVM does not support if the hardware support
->> is not there?
-> 
-> Many.  But either features are one-off things without configurable properties,
-> or KVM does the right thing (usually).  E.g. nested virtualization heavily relies
-> on hardware, and has a plethora of knobs, but KVM (usually) honors and validates
-> the configuration provided by userspace.
-> 
->> To some degree, a testing and debugging feature does not have to be
->> available in 100% of cases because it can still be useful when it is
->> available.
-> 
-> I don't disagree, but "works on my machine" is how KVM has gotten into so many
-> messes with such features.  I also don't necessarily disagree with supporting a
-> very limited subset of use cases, but I want such support to come as well-defined
-> package with proper guard rails, docs, and ideally tests.
+On Wed, Oct 23, 2024 at 12:21:14PM -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Add imx95 DTS for SOF usage.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |  1 +
+>  .../dts/freescale/imx95-19x19-evk-sof.dts     | 86 +++++++++++++++++++
+>  2 files changed, 87 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 2a69b7ec6d6d..94660e3e8b2b 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -267,6 +267,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
+>
+>  imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+> new file mode 100644
+> index 000000000000..b10dc1af5ce2
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+> @@ -0,0 +1,86 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "imx95-19x19-evk.dts"
+> +
+> +/ {
+> +	reserved-memory {
+> +		adma_res: memory@86100000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x0 0x86100000 0x0 0x100000>;
+> +			no-map;
+> +		};
+> +	};
+> +
+> +	sound-wm8962 {
+> +		status = "disabled";
+> +	};
+> +
+> +	sof-sound-wm8962 {
+> +		compatible = "audio-graph-card2";
+> +
+> +		links = <&cpu>;
+> +		label = "wm8962-audio";
+> +
+> +		hp-det-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
+> +
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_hp>;
+> +
+> +		widgets =
+> +			"Headphone", "Headphones",
+> +			"Microphone", "Headset Mic";
+> +		routing =
+> +			"Headphones", "HPOUTL",
+> +			"Headphones", "HPOUTR",
+> +			"Headset Mic", "MICBIAS",
+> +			"IN3R", "Headset Mic",
+> +			"IN1R", "Headset Mic";
+> +	};
+> +
+> +	sof_cpu: cm7-cpu@80000000 {
+> +		compatible = "fsl,imx95-cm7-sof";
 
-Ok, so how about: leave VMM to choose CPUID, but then map it to what the
-hardware actually supports for what is possible.  So the guest user might
-not get trace data exactly as expected, or perhaps not at all, but at least
-KVM doesn't die.  Then add documentation to explain how it all works.
+needn't space, and remove other extra space.
 
-Note, the number of address ranges is not that much of an issue because
-currently all processors that support Intel PT virtualization have 2.
+Can you try https://github.com/lznuaa/dt-format
+to order these nodes and properties.
 
-I have a feeling QEMU was targeting compatibility with IceLake, which
-would probably work for all processors that support Intel PT virtualization
-except for one feature - the maximum number of cycle thresholds (dropped
-from 2048 to 16)
+Frank
 
+> +
+> +		reg = <0x0 0x80000000 0x0 0x400000>,
+> +		      <0x0 0x86000000 0x0 0x3000>;
+> +		reg-names = "dram", "mailbox";
+> +
+> +		memory-region = <&adma_res>;
+> +
+> +		mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
+> +		mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
+> +
+> +		cpu: port {
+> +			cpu_ep: endpoint { remote-endpoint = <&codec_ep>; };
+> +		};
+> +	};
+> +};
+> +
+> +&wm8962 {
+> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
+> +			  <&scmi_clk IMX95_CLK_SAI3>;
+> +	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
+> +	assigned-clock-rates = <3932160000>, <3612672000>,
+> +			       <393216000>, <361267200>,
+> +			       <12288000>;
+> +	status = "okay";
+> +
+> +	port {
+> +		codec_ep: endpoint { remote-endpoint = <&cpu_ep>; };
+> +	};
+> +};
+> +
+> +&edma2 {
+> +	dma-channel-mask = <0x3fffffff>, <0xffffffff>;
+> +};
+> +
+> +&sai3 {
+> +	status = "disabled";
+> +};
+> --
+> 2.34.1
+>
 
