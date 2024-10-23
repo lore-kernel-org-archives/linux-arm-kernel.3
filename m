@@ -4,89 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD8FCF5369
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCCFCF5366
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=keet9JtQaOXuomTlpWdsXaG8WkjQZH50aRx3ATgH1fA=; b=XI2AcqOIBVKfOQIGg97Np8FCwx
-	87Sysg07gddGiEtQMg2BvaXIHNQfgKZv35Da/3D8hnNga4HG4uIekUBPd6ZpAO7MuWILLRwjjCqD3
-	uj5SlsK7os9mZPodlI2TrT/Lkt6m/atcYA38pBWIXEqmBy1QvV4Z53JFZiUhaUNq8P4uLwI3eW7H7
-	LQmDcW26g35Olax1Nro4UpB4Xrntdz+gTBNll3FC0hfb0Fq4l78AMMTupGRCH94hd5l/r/bMVwKqS
-	gnvfy7Yy2y80AStOhs9JCj415JYSQSPT9Ws685uT0oHeHinJYNZkRUTUZnO3cciguclbSe/t1RyJh
-	42bnDuMQ==;
+	bh=u4oaAs9IjvT/27yOm61NDm3mzPtE1R91DY8BXSeCPqI=; b=p+IzCtQeKNSwPeoYcGIjx2uw+U
+	saGfFTZfp1iPqDBPbnr3SrcP1GKtfHyiJqQKGi6eArCccmFVqUoCmpIxq/C927F3jxwGUu7bpuMw+
+	yJK9sHgHJ66GlU+Jc3s9SUCTWVXMBl6KE5iTHo+utOsF3gEuDe0bbXH7SU2sOUQ0DLZtaULG9TFSm
+	nuNGzoBDwMhV4CGRBQgr3uJJKng0tT6DbFJWAbz6B9U9FrV31UsLh539oS3a73sC2CPspW4O29F0j
+	IHMJqoy6j9Vg5y7fxvrjSxCdiTmobAWlTaldYL1r4eBx8BL26coCB8cxjHGScojF/ZwkYY8EnlIPI
+	gC1nuRXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3aLJ-0000000EIJY-2uFr;
-	Wed, 23 Oct 2024 12:20:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t3aLS-0000000EIOg-2ZfC;
+	Wed, 23 Oct 2024 12:20:10 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZvG-0000000EEPF-3o9A
+	id 1t3a4A-0000000EFhs-3uFe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:53:09 +0000
-Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1A3F5BDB;
-	Wed, 23 Oct 2024 13:51:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1729684278;
-	bh=0nXdny8O8iGUgqDAF00HrUd2uDNhZdKpP4uH+IQ26w0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=R59/aJfPnbpZGtwZ1qQSJtD3fHzTy14A3ZzkBQcjjudvVsnTsTwnBwVsMGRi9Dt8M
-	 dyZRJOgtXqbJScn0x5ETzrf//upNQZ9dQD6naMgX4DIjQ011j8KHJv8x3m+xTzSGv+
-	 isbpH4g0GvtP/h4r4pwlUuhVcQKIZRv7QKa74Ad0=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 23 Oct 2024 14:52:41 +0300
-Subject: [PATCH v4 1/3] dt-bindings: display/xlnx/zynqmp-dpsub: Add audio
- DMAs
+	Wed, 23 Oct 2024 12:02:20 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d432f9f5aso393629f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 05:02:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729684937; x=1730289737; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=u4oaAs9IjvT/27yOm61NDm3mzPtE1R91DY8BXSeCPqI=;
+        b=i+7AY3YMejZGUjdwLHqNggPoT8dr3lYXQWBg7OljDUMRYIqXBDJTLxtHJ1Yo1im7/I
+         unYchasxj8Ue8yiiXCepnBUTc3Wb391lKezTPTCFO28GPXWnNaxsdIPSJdhrOPgOeJGJ
+         oKegedM9Zb0oCV3pqRrjUOCrQ0r9DhApGwPrgMWT9LnyQm4UbkV6/3KMVhpZBvuUTlbT
+         Ww76t7SluAFhWRUEMpRcMjNDb/zAbaqaRPFbZYUHbXc6A8Jyf3msGLfpaAHGXHxl+U+U
+         b9DmzhvGOCj3LDL0sU2UvNTpf4Mv/v94BiCGxCN7w7BPtScYumHpPzqAmSXZ2Kp0ts/Z
+         S5xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729684937; x=1730289737;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u4oaAs9IjvT/27yOm61NDm3mzPtE1R91DY8BXSeCPqI=;
+        b=dxWx3opjvgk751ll6kGgxb2xOhKvB9escKOq/JxZskBW6yhwUIT4m6gLD3xMGo0EhB
+         0k6hYC49ULWiltCBz9EAF37IeL2IBHQ/3H0GKyT0UI5EzouRlPvbgBstSdHLo7eHMe5P
+         foW7o9yPkjxmcW74FONwTMNCc2ksx/ScWa3scYZF2Gf6978HkqTthFhLvRmJlSXSGsGW
+         YBxOEJQUHG0AnGFdKhwsOJC/g3FUWYZDrQxX2J74OaW8xI7VPR4DmYuwwe3d8A3gntL7
+         +2qQelQxDNNiL1H3CsJRLu+5dtm0QDjWJHOJJzRbuvDyHZYzFlHLTi1hGYImB8WjnM+0
+         j36Q==
+X-Gm-Message-State: AOJu0YwL3F4RQWA2PVNOOB0ZnTZTHwVN7rqpsMDbQnda8E1zKKPpx4qD
+	Yi2uYsEjsg1hGFto/7cP3mUHgf7RMMwYbXD5PCRjsjyRNlfnsyWIESGpuTUOjvU=
+X-Google-Smtp-Source: AGHT+IGD0cpQahJRUOsJmjkgznVKa4it6d++UeAndXenvIqWjYuKS6rrDZuByP2zwnP4GFe9OFfC6g==
+X-Received: by 2002:a5d:59a2:0:b0:37d:487e:4d9d with SMTP id ffacd0b85a97d-37efcf1c1cbmr817601f8f.8.1729684936845;
+        Wed, 23 Oct 2024 05:02:16 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.211.167])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b9bcc8sm8719693f8f.107.2024.10.23.05.02.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 05:02:16 -0700 (PDT)
+Message-ID: <1087f21b-d56b-4ab0-bb56-96096c23f0d8@linaro.org>
+Date: Wed, 23 Oct 2024 14:02:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
+To: Chi-Wen Weng <cwweng.linux@gmail.com>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+ cwweng@nuvoton.com, Sean Young <sean@mess.org>
+References: <20241023111841.158049-1-cwweng.linux@gmail.com>
+ <20241023111841.158049-3-cwweng.linux@gmail.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20241023111841.158049-3-cwweng.linux@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-xilinx-dp-audio-v4-1-5128881457be@ideasonboard.com>
-References: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
-In-Reply-To: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
-To: Lars-Peter Clausen <lars@metafoo.de>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Simona Vetter <simona.vetter@ffwll.ch>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Vishal Sagar <vishal.sagar@amd.com>, 
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
- =?utf-8?q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>, 
- Markus Elfring <Markus.Elfring@web.de>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2459;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=0nXdny8O8iGUgqDAF00HrUd2uDNhZdKpP4uH+IQ26w0=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnGOOdpKBl+X813tbIgGTmzFFMPK3Gp7XP/9miR
- 7DrnReJ/BuJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZxjjnQAKCRD6PaqMvJYe
- 9eDPD/wLQU9l0Mgkos2zZlF6ZrXjFHLHao6agTr1lVZZUIzUjxr1af0QQDTny61xXmoye15/8DI
- QAAQEwPiE+lrKk3Km831bZx+X3Tjd18G3ag13jpZfng1dbTbzAbfw0ig1QBdKiIG/01H3mkfPvu
- Va8QPgpx0gomtOL1wgogGL51RBQDlBCAXgkQAKVPqftRxVVuA5XaHUkZvNhJzFsSq7q9hBo5HeF
- 4fG/RXkSlCSkkbJszudyuuA3sYp343O7cCyRNQaYSy1ffRT3x8FGlJtWXAjsxm/nIe+gBe2+ZSo
- coylP4n0U79uloKVyUI1zDDdNtUO0ZbZDKsEP7w9Ovn+4jDYhGM0y+WVxJWpoQwPmdqEdHxy6n2
- 3Z8jR2yQhta4IDtT7ksfgK7Yl9JxbF1brXoKftCmbt2JHwxrSdSKzPuplta0mSdZRqVlAuNhWrN
- GmNntwmcXE36tE5OKlhS3fbmIb3XbNjjvr2NU8E2ZY4ZzsTGHOvzjcCrOJA7gJS3b6rbt/UI7+l
- heCEXvjQjLNVy8Bs5rKNRQRB7qCgyUGQmuz20ULmYr/GdQLywiK6jAkI5r77c5L+iPojyk54UXn
- 4Xa+5Nl74vHt/akUuq6l0Z53AQ+KNck6JkMjI+91pBKiXDunDiI/TUP1Af5Yofp45KjdacjXGAE
- SO5CEDH1/vtxjHg==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_045307_130939_2E8E77F9 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20241023_050219_020513_6CA47A15 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +142,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DP subsystem for ZynqMP supports audio via two channels, and the DP
-DMA has dma-engines for those channels. For some reason the DT binding
-has not specified those channels, even if the picture included in
-xlnx,zynqmp-dpsub.yaml shows "2 x aud" DMAs.
+On 23/10/2024 13:18, Chi-Wen Weng wrote:
+> This commit adds a generic PWM framework driver for Nuvoton MA35D1
+> PWM controller.
+> 
+> Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Sean Young <sean@mess.org>
+> Reviewed-by: "Uwe Kleine-Konig" <ukleinek@kernel.org>
 
-This hasn't caused any issues as the drivers have not supported audio,
-and has thus gone unnoticed.
+NAK.
 
-To make it possible to add the audio support to the driver, add the two
-audio DMAs to the binding. While strictly speaking this is an ABI break,
-there should be no regressions caused by this as we're adding new
-entries at the end of the dmas list, and, after the audio support has
-been added in "arm64: dts: zynqmp: Add DMA for DP audio",  the driver
-will treat the audio DMAs as optional to also support the old bindings.
+Stop adding fake tags.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- .../devicetree/bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml    | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml b/Documentation/devicetree/bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml
-index 554f9d5809d4..6b754d4f260e 100644
---- a/Documentation/devicetree/bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml
-+++ b/Documentation/devicetree/bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml
-@@ -100,12 +100,16 @@ properties:
-       - description: Video layer, plane 1 (U/V or U)
-       - description: Video layer, plane 2 (V)
-       - description: Graphics layer
-+      - description: Audio channel 0
-+      - description: Audio channel 1
-   dma-names:
-     items:
-       - const: vid0
-       - const: vid1
-       - const: vid2
-       - const: gfx0
-+      - const: aud0
-+      - const: aud1
- 
-   phys:
-     description: PHYs for the DP data lanes
-@@ -194,11 +198,13 @@ examples:
-         power-domains = <&pd_dp>;
-         resets = <&reset ZYNQMP_RESET_DP>;
- 
--        dma-names = "vid0", "vid1", "vid2", "gfx0";
-+        dma-names = "vid0", "vid1", "vid2", "gfx0", "aud0", "aud1";
-         dmas = <&xlnx_dpdma 0>,
-                <&xlnx_dpdma 1>,
-                <&xlnx_dpdma 2>,
--               <&xlnx_dpdma 3>;
-+               <&xlnx_dpdma 3>,
-+               <&xlnx_dpdma 4>,
-+               <&xlnx_dpdma 5>;
- 
-         phys = <&psgtr 1 PHY_TYPE_DP 0 3>,
-                <&psgtr 0 PHY_TYPE_DP 1 3>;
-
--- 
-2.43.0
+Best regards,
+Krzysztof
 
 
