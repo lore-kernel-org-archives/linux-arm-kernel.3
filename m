@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E59CFA453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41325CFA453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezYfh8vGbBGoL35ugyvD9i4flPvQdh7bUpgBPSQRYk4=; b=FdfqsvkBzp/4zQ6crSmdd3jL3s
-	8VOeSWoZCup6Mqpm0RwDp28eGNCRXq41D4D/siQURBnNJ7Jw7dhTnPoD72KARwd4VLuqB95KEKS0b
-	aQjlr3QhUuPgm+lJJ7O2dautLJ3PkH4OYm03mej9WXlFPBF+OndF7LHyhhsKMPRJMBq0i6okH3ipl
-	duHuLwpGv1qCWNFfC8KQuaF8URPa1v2LQwGG8r1sSXlARM2bXtDb4sy8/zwCj7tMD32naNtIahPJO
-	Txaz4TbYrHiJlOm3higRXqivaOgqXTVOvLyWpBWvjb6fV5tmlbnTbP0JBLEoYQK1CeLIN879YBMYt
-	LQ8moO4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=djumMf8ae9f0crsQukxp64jBfIF3UahDmzCmSZzVmWw=; b=tOFlWydMDCSsTsJ03lI9mET5Zh
+	r0a2yxSDtJ/kB1BvWFHauzZjqYJ++mmpSqY03PcIlf776nsSzk8f7M8b+zKx4rT8fuCrMqT9L6lsk
+	A6QRN2+mWVsGYc/ubE2eekopdXMOFEA5vZtyiyQO7lB646FQErGulcjyxvv2Ukp0jHJFeuGThAmew
+	xpieYbs7QewHIHJYw3cbMsYgMfBy9FoR/7g7FigHcLkNl9omVRz5n0Zyw68T8sPagfb24RlDuwMYq
+	xeCbyM7EqUeU3TOushNk6esxRFVX21PdUvMGyvonAxfwB1SAsvdvAtOcFaE4AHT24VN4EDgdULJZg
+	66FfPRWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3emU-0000000FHtj-2AKK;
-	Wed, 23 Oct 2024 17:04:22 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1t3eny-0000000FI5J-36I6;
+	Wed, 23 Oct 2024 17:05:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eAg-0000000F9J7-3AzJ
+	id 1t3eBX-0000000F9fc-21fp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 16:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=djumMf8ae9f0crsQukxp64jBfIF3UahDmzCmSZzVmWw=; b=LDUWYUHRMt/ue4PZJBQhZ1OIf2
+	sh1cVGSCa2jFCz9sLqqUt/kgK11VksNvX730gVwc8ZRkTFj3o1HoqLiwrDcjfrmYV6HDjHccrYSJB
+	Y8nnU6vVziWPY3nZukf/n/2NMtDgbZsWM94PaeJdJdGeldIxX3s1g3x6BVtUtr4Y/9BGxqwi1qLul
+	yoaaS/RZaSbX/Kllpbe+ws3F5qN43zA+fpM5iEgz2Jc26M9UCmFjGuMg5mHTlVKmInNQjWoe4gajD
+	l3zH7IGdxlYkUHF4/+G/UpYVwLu83GIKrvw/Oa66+YtiRi2z175e3fqMAiHFRrbtTvAw/T1gsZTRl
+	c8OUckbA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3eBT-00000008Ria-3qSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:25:20 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 397861380258;
-	Wed, 23 Oct 2024 12:25:17 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 23 Oct 2024 12:25:17 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1729700717;
-	 x=1729787117; bh=ezYfh8vGbBGoL35ugyvD9i4flPvQdh7bUpgBPSQRYk4=; b=
-	UeHl3464JEn+yoSzXIvaxeQh6e0hcSBe5ww0Ds4gygXos/Ojhd05WqBiyYSXNIdg
-	XGu5wEktHYRy5weGkqVd1IeDtTFwKXtDDtgAPLDtMq9xCJdW8skfzQSW2fZCWzkX
-	uwBurbAo1qfO/hpPWUVzwutGqon5+6knnv0imhktmq7qmBuVP5q0RhLLIqY8ZwFX
-	Mgdaat5xTd/umnkoJdg/p9qsYUFcuSTcL9TUXHB56/2FfwbqE5lqIHMbIdXACGrc
-	v1o3lq3sJ9ivreuS4c5T37FnYcaFXit+Dm1K8EcfmLsyDkqlkeDToh8RQlMjrMm/
-	fxkW6G7+sX3o/VqoQ2sZxA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729700717; x=
-	1729787117; bh=ezYfh8vGbBGoL35ugyvD9i4flPvQdh7bUpgBPSQRYk4=; b=U
-	DSRgzmPXC0B22rx5tQfEA4tfrW3UPXPh07ArM8jXCUiEXFaQ4KBDMpA2l7or30Z6
-	z1SQK0RGWUN6SWPhM2auj7xvPr/+FpwG1urmkZETRx56g4jWaG9lr3+S74yZYGb/
-	wGnsMO8qwA6/UC4aqd+rRavmk86V2sW2VZcaqUEOmKbeArUKcEQWQoZVr+U/Q0q6
-	TDGq2LdauNNmSRUAnSvWbgF1CbGsK/2nd0T0HL9eIWv1tooJpgKgXuhxv11W+yV3
-	jXLXeNJ2FBnKg9PSZMGtEzYTMO6+wSO6LTqmKxL7o/ka1pitetlyDtGnf0n1gBVk
-	e4we+9lB0lV//8284X2ZQ==
-X-ME-Sender: <xms:bCMZZ6cgN86NZjlQ77gb_-7EQEj3WV3bermbUqFqBsR16TaydfTDgg>
-    <xme:bCMZZ0MNuYjpr2z43CfpbdMNe8-EgoUTHaEotzF_-D5CmZdsEtfQ0E1pYbej7qWV2
-    RjrBupl19GXR4MaRjg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeijedgleelucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudeh
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrihhshhifrghrhigrrdhttghvse
-    grrhhmrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdr
-    tghomhdprhgtphhtthhopehvihhntggvnhiiohdrfhhrrghstghinhhosegrrhhmrdgtoh
-    hmpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
-    rghlvgigrdgsvghnnhgvvgeslhhinhgrrhhordhorhhgpdhrtghpthhtoheprghnuggvrh
-    hsrdhrohigvghllheslhhinhgrrhhordhorhhgpdhrtghpthhtohepnhgrrhgvshhhrdhk
-    rghmsghojhhusehlihhnrghrohdrohhrghdprhgtphhtthhopehpvghtvghrrdhmrgihug
-    gvlhhlsehlihhnrghrohdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhn
-    ihigrdguvg
-X-ME-Proxy: <xmx:bCMZZ7gv2cOAzGtQ6izYwfARe9dQFEgcHUsD9NZzPHJ3PkK404tgAQ>
-    <xmx:bCMZZ38N3FZ4uEiq60yrwuxzICelSSESBSVHgH7gMObr6zjJ96fdQA>
-    <xmx:bCMZZ2udKX8GScfWKbHpPMRjTXUwjEReO1paH-uLugCkgT7vO5Rx2A>
-    <xmx:bCMZZ-HEsPGfk_cPUCvItTIBB2VdGuF8SQ6CnOQMI6fsGw-fW72mPg>
-    <xmx:bSMZZ2HyXyBrpdGtVf8NbxzkdUkyA2fOSW33YlwBMcMSwqQau3-neLsV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4FF162220072; Wed, 23 Oct 2024 12:25:16 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 23 Oct 2024 16:26:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DF71D5C5C3A;
+	Wed, 23 Oct 2024 16:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6636C4CEC6;
+	Wed, 23 Oct 2024 16:26:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729700763;
+	bh=ZnAYm2TJOCxsEMUg1iKlsmwaRxpZn2CUIxr94dEYTEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tkVjSHUYFWclSNvqyA9MWWrL9LSNsnCLeltO+unH9duOufiWkrRs4PiDsrAaXaykm
+	 n6sFngrTGkv0VSIcWz9qJgUQeOaHczqi124qBatb0MnCB1w866W18RW4bjAdqBiDlw
+	 ev6K7gnRgeTa98D9PFAWmxVOV8Own4ZKSs+DumtO1m1uuKzulus/X7B07rQAGjDQn+
+	 ggIRAH7kNzXeDtPhEq+dycS9rLeuaZ3GFG0uaVkcuJNCC47vVE0yy5Yfq487Vix6oO
+	 R1GRk3FVuSzKo4wc26oGSqhh2OocxfAVAJo5LbMz5XI1iL8bTEGcV6/i1/IKoPJD+v
+	 dwXe2TIhSw2zA==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1t3eBc-000000006FX-37sy;
+	Wed, 23 Oct 2024 18:26:16 +0200
+Date: Wed, 23 Oct 2024 18:26:16 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, ulf.hansson@linaro.org,
+	jassisinghbrar@gmail.com, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org,
+	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org
+Subject: Re: [PATCH V3 0/4] firmware: arm_scmi: Misc Fixes
+Message-ID: <ZxkjqEmkBAsC6UkL@hovoldconsulting.com>
+References: <20241007060642.1978049-1-quic_sibis@quicinc.com>
+ <ZwfsmqInJlqkQD_3@hovoldconsulting.com>
+ <ae5eaef9-301f-7d3f-c973-faa22ae780ee@quicinc.com>
 MIME-Version: 1.0
-Date: Wed, 23 Oct 2024 16:24:43 +0000
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Naresh Kamboju" <naresh.kamboju@linaro.org>,
- "open list" <linux-kernel@vger.kernel.org>,
- "Linux ARM" <linux-arm-kernel@lists.infradead.org>,
- lkft-triage@lists.linaro.org,
- "Linux Regressions" <regressions@lists.linux.dev>, qemu-devel@nongnu.org
-Cc: "Mark Brown" <broonie@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Aishwarya TCV" <Aishwarya.TCV@arm.com>,
- "Peter Maydell" <peter.maydell@linaro.org>,
- =?UTF-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>,
- "Anders Roxell" <anders.roxell@linaro.org>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>
-Message-Id: <4730e562-7d14-4f12-897a-e23783d094af@app.fastmail.com>
-In-Reply-To: <CA+G9fYsMg0fA-jraEvC==0a-22J97o-uBmbLJt16_ZKBpOT8EQ@mail.gmail.com>
-References: <CA+G9fYt86bUAu_v5dXPWnDUwQNVipj+Wq3Djir1KUSKdr9QLNg@mail.gmail.com>
- <CA+G9fYsMg0fA-jraEvC==0a-22J97o-uBmbLJt16_ZKBpOT8EQ@mail.gmail.com>
-Subject: Re: Qemu v9.0.2: Boot failed qemu-arm with Linux next-20241017 tag.
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ae5eaef9-301f-7d3f-c973-faa22ae780ee@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_092519_344088_5D726455 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20241023_172608_286323_7DC463E9 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,66 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 20, 2024, at 17:39, Naresh Kamboju wrote:
-> On Fri, 18 Oct 2024 at 12:35, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
->>
->> The QEMU-ARMv7 boot has failed with the Linux next-20241017 tag.
->> The boot log is incomplete, and no kernel crash was detected.
->> However, the system did not proceed far enough to reach the login prompt.
->>
+On Wed, Oct 23, 2024 at 01:16:47PM +0530, Sibi Sankar wrote:
+> On 10/10/24 20:32, Johan Hovold wrote:
+> > On Mon, Oct 07, 2024 at 11:36:38AM +0530, Sibi Sankar wrote:
+> >> The series addresses the kernel warnings reported by Johan at [1] and are
+> >> are required to X1E cpufreq device tree changes [2] to land.
+> >>
+> >> [1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+> >> [2] - https://lore.kernel.org/lkml/20240612124056.39230-1-quic_sibis@quicinc.com/
+> >>
+> >> The following warnings remain unadressed:
+> >> arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> >> arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > 
+> > Are there any plans for how to address these?
 
-> Anders bisected this boot regressions and found,
-> # first bad commit:
->   [efe8419ae78d65e83edc31aad74b605c12e7d60c]
->     vdso: Introduce vdso/page.h
->
-> We are investigating the reason for boot failure due to this commit.
+> Sorry missed replying to this. The error implies that duplicate
+> opps are reported by the SCP firmware and appear once during probe.
 
-Anders and I did the analysis on this, the problem turned out
-to be the early_init_dt_add_memory_arch() function in
-drivers/of/fdt.c, which does bitwise operations on PAGE_MASK
-with a 'u64' instead of phys_addr_t:
+I only see it at boot, but it shows up four times here with the CRD:
 
-void __init __weak early_init_dt_add_memory_arch(u64 base, u64 size)
-{
-        const u64 phys_offset = MIN_MEMBLOCK_ADDR;
- 
-        if (size < PAGE_SIZE - (base & ~PAGE_MASK)) {
-                pr_warn("Ignoring memory block 0x%llx - 0x%llx\n",
-                        base, base + size);
-                return;
-        }
+[    8.098452] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+[    8.109647] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+[    8.128970] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+[    8.142455] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
 
-        if (!PAGE_ALIGNED(base)) {
-                size -= PAGE_SIZE - (base & ~PAGE_MASK);
-                base = PAGE_ALIGN(base);
-        }
+> This particular error can be fixed only by a firmware update and you
+> should be able to test it out soon on the CRD first.
 
-On non-LPAE arm32, this broke the existing behavior for
-large 32-bit memory sizes. The obvious fix is to change
-back the PAGE_MASK definition for 32-bit arm to a signed
-number.
+Can you explain why this can only be fixed by a firmware update? Why
+can't we suppress these warnings as well, like we did for the other
+warnings related to the duplicate entries?
 
-mips32, ppc32 and hexagon had the same definition as
-well, so I think we should change at least those in order
-to restore the previous behavior in case they are affected
-by the same bug (or a different one).
+IIUC the firmware is not really broken, but rather describes a feature
+that Linux does not (yet) support, right?
 
-x86-32 and arc git flipped the other way by the patch,
-from unsigned to signed, when CONFIG_ARC_HAS_PAE40
-or CONFIG_X86_PAE are set. I think we should keep
-the 'signed' behavior as this was a bugfix by itself,
-but we may want to change arc and x86-32 with short
-phys_addr_t the same way for consistency.
-
-On csky, m68k, microblaze, nios2, openrisc, parisc32,
-riscv32, sh, sparc32, um and xtensa, we've always used
-the 'unsigned' PAGE_MASK, and there is no 64-bit
-phys_addr_t, so I would lean towards staying with
-'unsigned' in order to not introduce a regression.
-Alternatively we could choose to go with the 'signed'
-version on all 32-bit architectures unconditionally
-for consistency. Any preferences?
-
-      Arnd
+Johan
 
