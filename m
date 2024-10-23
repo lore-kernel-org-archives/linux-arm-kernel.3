@@ -4,192 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC945D0BB4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 23:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C1DD0BB4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 23:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:Mime-Version:References:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1T5iVouKd4kFeV6cF+BxwWcSziD4udw3i9Qxxs607S8=; b=Gf+FX3wlom4vQLkHcalO/TyeZ/
-	cezOCBp6+fF+4sFzOg27hSmSla4RksPP1VzFUzqDnnDUCWDx1klq4DBcc4Hb0F24Y8Yk/t5xZz7c0
-	kO1mcLMnLZOrK95O16cFGhycBlAqE7u2OQjasZrlO1vrdMjOoS6+V/Bo9NtFSN8zooPzM8wpbWQIx
-	mrxRLNps5LbR/+uFlMppE2wKrGZA7Vx+MqEdHXui61QO2nroewEp7f+AWwp36UKPtBm4aP7dtGkEt
-	ZGICybY7XVBn2j/PeDVhLzmu5YT3XEj0qrEFgPDGjKH2aJ1LAKQMIGUFElP7DJtcbuS602zwCbdUo
-	w4cqv1kg==;
+	bh=3PGQu02YnHPlZo11QYKayLhqc6TqDv+KCeQ0Xgfz3C4=; b=N9xXz1Y96e9OE5gMNi22cufjP+
+	ih4/lLA4uCLAQXXJTD516fmEr6oGtSwoms9O1IjZk4x1XTUDTdvwN7OzNAALQvaFQgy/yWJRhEW5R
+	Cm8bPYv/HLzB7SqIJPNAGaLCJXoIC98e7iFOULzD/u/73eM3PzYRvJygNvpeMXbgmsUiFjG4jkEGz
+	VlTLjrBP1lmuYIQcgZjvX+6E64GgZI4dSNFQGM8cXE1+LegvrhhlOGVojSgkJgtXLCi3LAqpy8cfm
+	3jNXx/JeSv7vZ51mk9KDY7536z87HISX3ehTwPBP8qN73FJd3TiJ0Q5tMUCZPmeD0bljIgfW178Rn
+	PT2U5MxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3kxj-0000000GEtb-0Qnj;
-	Wed, 23 Oct 2024 23:40:23 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t3l0S-0000000GFIe-1llP;
+	Wed, 23 Oct 2024 23:43:12 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3kw9-0000000GEYM-26SP
+	id 1t3kyt-0000000GEyn-1gDx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 23:38:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729726725; x=1761262725;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=GV/CvCxxZYx9uOoLaMJjp/MlTpEuTuoqbqLGXsyG2mQ=;
-  b=LED5nAVM1L3xZXh07pzVabBj00bICK29NeNTL19U+NXDxQNYBucD2iJm
-   gMhI09eo/mPxBq+A20MxZ27x+ubFGwS3d4xQJhog9T0bO39oOJwjOI/gt
-   7bAH42zMqz+SdEnRFvcpzFCeHBTTdy8E9/H4tcuPotO9k6X5NrZCiS4XK
-   8AVuvIryb2aG9CMi1Eudy7BV0ShcviyKA6RxINcsDN/dbr5mjsHz0L4jO
-   +aJyw867rnF7rb9bi7l78QncaBPuliEhWQCNKEKCE8N81WX7uH/Zg/NSb
-   Sk3oI66goKlg71VowZCNUF7GBwSfQoTjmipxXG08f0Ijqsck98fJ1S+c/
-   A==;
-X-CSE-ConnectionGUID: rBWeVy1aSE2I66nJPltS3g==
-X-CSE-MsgGUID: 32d9nQBuQ9aLeFZUf+0hgQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11234"; a="29563582"
-X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="29563582"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 16:38:41 -0700
-X-CSE-ConnectionGUID: EsdqAuI9SYm9B2Lo5VLhoQ==
-X-CSE-MsgGUID: K9mEBdz/SGetpXw4+PFzQw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="80830968"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa007.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 23 Oct 2024 16:38:41 -0700
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Wed, 23 Oct 2024 16:38:40 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Wed, 23 Oct 2024 16:38:40 -0700
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.170)
- by edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 23 Oct 2024 16:38:40 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dxXpCSh/m47kU4TSJnwKW5Mw96jOcgh2XC0E2rGPoRntjKlTTytIf881TdJ4TpgiPkX9q8onCbnjOS3XV2XU2TugqkgADnyXUI72TQlLFZHfLp7+9f1abxcBi94nbQTZaWlKX5N/+uhWlD6ssR36yQV6VNdrpXqx2BCmZgZocjn7VURmZm6kWBj94VFX7HZmCuErChQ/njnCsJZxs5fDWt6LGBgV7FZ9pr3LhC9v6dEWDMZ+vHaQ0kItzkaElccVcye9dH5UKyv/VqI60wTLCs/toOhYiV5Jrf3yiSJmjc87NLDdk4sgtWHvcnAHzWTnUyUdMOpem8ux2SZ6Q7tEIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1T5iVouKd4kFeV6cF+BxwWcSziD4udw3i9Qxxs607S8=;
- b=K8dag2F5wiRh4+YpOqCMkYCsridLmINpBoxlRsuET/w0575gtM7QyHgVo7JsHK2wwwZAPjOkT322QQIoaog9POjSb25CGk3gJrbkABGps+UXsMKOdXkmlhI0tKybfoStgBWvQaxXugYQSliXcJ3H2P8a0/RhIzFtn+oxXtHwOvaxGnDC3MqEOyE918atdtJZxMO6F6vW6rUTtPPPSOKItaX7GbOc13Vcvmd6eD/hEYgdzL+TEGXn/UMDogk5zt+9n3fiYWjKynieh+3GiGoqbionAdGJN+TsGK1lWeLDXtOJ8hMJkO9YCycAlvY6hrq2rnUcEhA0Y2MBVwdQHWsXvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by DM4PR11MB6141.namprd11.prod.outlook.com (2603:10b6:8:b3::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16; Wed, 23 Oct
- 2024 23:38:35 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8093.014; Wed, 23 Oct 2024
- 23:38:35 +0000
-Date: Wed, 23 Oct 2024 16:38:30 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Alistair Popple <apopple@nvidia.com>
-CC: Dan Williams <dan.j.williams@intel.com>, <linux-mm@kvack.org>,
-	<vishal.l.verma@intel.com>, <dave.jiang@intel.com>, <logang@deltatee.com>,
-	<bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
-	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
-	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
-	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
-	<david@fromorbit.com>
-Subject: Re: [PATCH 07/12] huge_memory: Allow mappings of PMD sized pages
-Message-ID: <671988f6c0141_4bc2294b9@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.9f0e45d52f5cff58807831b6b867084d0b14b61c.1725941415.git-series.apopple@nvidia.com>
- <b63e8b07ceed8cf7b9cd07332132d6713853c777.1725941415.git-series.apopple@nvidia.com>
- <66f61ce4da80_964f2294fb@dwillia2-xfh.jf.intel.com.notmuch>
- <87bjznnp6v.fsf@nvdebian.thelocal>
- <875xpicsbd.fsf@nvdebian.thelocal>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <875xpicsbd.fsf@nvdebian.thelocal>
-X-ClientProxiedBy: MW3PR06CA0019.namprd06.prod.outlook.com
- (2603:10b6:303:2a::24) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DM4PR11MB6141:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb99e4b2-c0b6-4ec6-671d-08dcf3bbcff7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TMDY8HZb/y3LgkYyTBBZLbckk+tsQbXeNcoAoeSXOvPNYrL+j4UM/x2Y5lF+?=
- =?us-ascii?Q?DMxxPeKx/cT4cMsefW4At2egNUoI7jnvauhhhDVWLtDfGaTq53EoHB/wIJ4R?=
- =?us-ascii?Q?e/nczgfXP1AYLmHbJ8PVSdN8D44clFOLeTEKc/Dd+Gxbj8ggqji5IJfr6tqr?=
- =?us-ascii?Q?iUcPqF9BaTW+xsfHJ+epaxFIuqiAcQNNZAAykv+GYp3JUM6Yvgy25L8SpD9j?=
- =?us-ascii?Q?8vNMdRbvjE0ns4DtQQsY7txQt27N8fcHgQvvp6oNImJihlpV4dDcdAqHPz1z?=
- =?us-ascii?Q?bSO6y8rbBVwyW3mFBsY437RTZ0VmVxVT07wimCTbajTr1z0HVNXn2KsWsV4A?=
- =?us-ascii?Q?ke8K0E24H44Bz/vqurjaLkkBJ4G5wfm4wQVsBdUdMA7hNwnwfzpCmzXGWH3b?=
- =?us-ascii?Q?Tzq95h2BMPvyyI3jO23EM3dL7Xuymk/RO2NOWDyVLrV4ND7AB6GN01KKicD6?=
- =?us-ascii?Q?FQW/BPvud+YEnCNaMC0hlR/NqJtNxbVhSrqOQH9JNVTTMO6oCwmZG8SDK6f8?=
- =?us-ascii?Q?8WgaiPKne+O2DEBJnFysftNdm8e91gBgjaJWijskG+1OFHpcS4ulRFQcFvTi?=
- =?us-ascii?Q?Ry4TwVm80wVaCPpMehI3Lms9BRwnzGqkLEhL9rkImb7Qt+zGp1TPLQpfH2tJ?=
- =?us-ascii?Q?/jh6jCgAUvmM6s5/6pLEQqKjEqDRJPzKiFh3iFpFR6xoHzBaH/SG7Pe3PBnV?=
- =?us-ascii?Q?PzOJc6DkrNjpadwrP0jWdButFt/d3WuqiLSM85K/Y35XQuHlgjpKdEycDNMr?=
- =?us-ascii?Q?p+jfO5+ZbZJfY9JjffeZBaxTQdBEXFptRvc7KkoB4KtNhN5di/9/05gTsBAJ?=
- =?us-ascii?Q?8jJGSe2FzeEOHmpSxgIaF493a/Z1V++kqDrO5C4tqIGIuGlps9fHPs59TafD?=
- =?us-ascii?Q?/K/1HOFTNqNdqOUr0w4vKQZZoP78IVZeXBoQRj1aH+ykB+G1y0iC9WXfq7ha?=
- =?us-ascii?Q?plj+PFmdxMwAQafEEmONsfqIJXEqo6ISzvVed0Uta29pUHP3vW0LpObum58s?=
- =?us-ascii?Q?0jyWGXile1A76Gmp6TRB0SVUydGxZkt8C1T40s7XbFCTJmAnArwyJMsKFa1T?=
- =?us-ascii?Q?kCkrLJJc/ch/L81ut+zo+YJGd5jILAJSv4KMsvNx1UkwO3Fjo5aNWdR/OroV?=
- =?us-ascii?Q?zQddWmtARCxY83Ehv2XtXnuuoD1y2CTWRm/DJhThoJjXLdeeOJZKgJj1a8SC?=
- =?us-ascii?Q?zfn1ae7I1hbSy7830FAmFB9oIYgziCobRFyq+mJwuaTPXFjG7GJLqkNlAs1F?=
- =?us-ascii?Q?gc7d6kU3my6qr3lAkY6FA9ZT5DroW8wZ+cOmOcUHpo/oZzfM0hurJWeouHRm?=
- =?us-ascii?Q?J2U=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PA/gw3JqJgwCyzXb0jMMbu9OwLOn8I/S7YA1XhPnyWqDVmEFyC5ha9RxMQRd?=
- =?us-ascii?Q?jtk87dNjrwsDj5v7z8s70FWmUII6Gu8dVDL/LIS651fwC75zMc99R/bRrc2K?=
- =?us-ascii?Q?9XMNA7qa/kh20sN/2GcZOj8uaB9LvLo/hnKgIpZ+yW+kAZSFyW+wAsT+dRlm?=
- =?us-ascii?Q?Ki1knUJ45u6aHb9jv9zT+DCPASZq7uZzXkW7DSRWiZCDU8FWsRtlefCqhOLo?=
- =?us-ascii?Q?Nblz2GnZBiVsa4AulT0Vq6RVIPC6qn31s7VNGtx+DoT8Em8Q/erhRhfy0JrN?=
- =?us-ascii?Q?pUbVRXG470Dk4gawOZyR6DYoagA4ExWvepqyfzOEFx0JtrEHTkY+LgD4NSrw?=
- =?us-ascii?Q?qO9xE8pVUplrQv0smhMIKXa3vIsjM34PyfFmIyJNZzLORbOwKiOnn5mzQtHM?=
- =?us-ascii?Q?m5PZhMv83iA+3p2vpNCtW5OUNVJ/cEoDvytrYOR/okFfq5CpYCFhywgY1nyC?=
- =?us-ascii?Q?pnz8+m3Zuhqm80nuyQQy+f4hJYULGzQ1PSPbSdTAeshbHoZhXUhccQWK9sl5?=
- =?us-ascii?Q?BfbFys1VnTp46kHuNob+E94zjkYxX70bX+lZVerNvikWbxTxcQBDXs4PdG+f?=
- =?us-ascii?Q?UIaRiW6gWdF1RP+jCOYKFevqntC6ifnDnZkNOClNf4AYLG1TU0UwvKorWNdJ?=
- =?us-ascii?Q?VmxYygZ5F2k/PCG96F5GlPqNbmKENNkIchMDdtSGDvx3i6Y0ZUEX8KjrP8LZ?=
- =?us-ascii?Q?fF7ZZQM0ny1jXH/HedU5JpYNQmvk77dvkye59vPz8/96IibOkFW+tnNpljQX?=
- =?us-ascii?Q?UEdBvrxb1kUhgBcsqu12OaTDJMoL9J5nRZ8/TD9Ee25So6/LCR2WNK8av8uL?=
- =?us-ascii?Q?jeDv1K31d13Sv9Y7GVbSVjRrXPV95tdjuauLtwY9uFd77KXd2n7B+Twk8ycn?=
- =?us-ascii?Q?R+SDnAhM4egjyLu9qypMvLuMWewAyBYcDPJQLu0tKv/vTBVIn88cas+/A4ka?=
- =?us-ascii?Q?7XeFf5UiIJ9/z9N86qTSQap5cvVaSIKRzm6ZsHKUdoniPngvDO5zOgbgZvAJ?=
- =?us-ascii?Q?e8ttjCFPokk/Af6zQRJFEyOF+7ok0NlGGAjXOoA+pM+lG49JdZ8hpSGS8BGt?=
- =?us-ascii?Q?LTtA7x5OEe+45kkX36pQvbaVkxXWTa66+IrF/0Z2nNrFW0UklOM6uLNwcV0e?=
- =?us-ascii?Q?hFyN/djAYPJ3vksaL5W41SVd4U0o40jHDM1mWIaKk9Sh/rcQKzvv2Tg2l4/Y?=
- =?us-ascii?Q?EvQL4XbqqNMrIDpKevTkH9bvwdMMEMtnlsSKdQh0+GZdi/OltyebgrCnYpEb?=
- =?us-ascii?Q?6UyMSy6WT7Zo+r296TcmGCTwjzymINpKShA6Wrq6ngHpiMrpJD9+iMj7Er9/?=
- =?us-ascii?Q?66mCrex9CLaj4z1nqklWu7iZLYh3qC/b0pnoJPK5xje80GiFTvvFMZU11UU+?=
- =?us-ascii?Q?0+Ai0/sk6SauUG4I1QRUIgVx7ik3CdqohRhAmCBhhdMA9sm+GiBbLL5Esl+c?=
- =?us-ascii?Q?1/7rKID9Vw6fvIFmB1nfkfmmkJljk6vQu1B9pMflzISbBEOoeFqwq6WNmLEr?=
- =?us-ascii?Q?1boqrlLvDhANqfC+Mc7aSBCNt3fqs+zX2iljcbeSUNHAW9VYIVltfun6IstC?=
- =?us-ascii?Q?RntaREr1ghoYvK5uVkzjfsP4wOrAqxyNIcEETAryh/pciujDoMRjUYDYv9SN?=
- =?us-ascii?Q?7g=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb99e4b2-c0b6-4ec6-671d-08dcf3bbcff7
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 23:38:35.4723
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dasVcGBbRLKcKPaG9n5hm92IBoaqxMmsJT0zt+bnIul/1D4GhaL9oNXi25fIB9UnbRZ6wcIoY9lXg3TKsa5lGUel6yIMXeYdGP9taTJlU1Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6141
-X-OriginatorOrg: intel.com
+	Wed, 23 Oct 2024 23:41:37 +0000
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4F8043F5E4
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:41:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1729726891;
+	bh=3PGQu02YnHPlZo11QYKayLhqc6TqDv+KCeQ0Xgfz3C4=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=buwQN5GO9H+rZ+f4tPPGVGmHgd5TOz2BW6zwyrpptYsmWjf8dyNVDH6B+gpslvrw9
+	 yiM6xFmEAZp+WKBK5yN7me6ITTZXGEsJrfG5Vls+/rxy6UhNGyZkodJF5L7pKf46yW
+	 VfLMr9BgzhA7eDTc1R8aCBpLsRr+HDC6bWrN8teifhkoTFeVxILeare+w++tY5YFFX
+	 GZnWr04CiCrK/fBDf8IXnw/6YGZMgponNb+Xo5Wg+rZy06MqIHILA80WPvk9CwZaqO
+	 Mr/4E1otpA9fEqzbBER4ReiPd4k2ZLmajMh9FtYwvyxY4SNHmjPhXL2RLCw42N5bYH
+	 /7m0ObJOfMPSA==
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-5eb7e223383so210862eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 16:41:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729726889; x=1730331689;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3PGQu02YnHPlZo11QYKayLhqc6TqDv+KCeQ0Xgfz3C4=;
+        b=dANaJ8bptBmaMuPXLpBrLSGnNjInuIJsXryfNK9WRDZcLOz5I+cP2eLcS1U7kp8y0X
+         9NB263rhmOrAORI9D4wV1HS7/uNiIGGkJUjFArDPNjps2gdb13WIAEjpYu8VJtiDWqi2
+         quXN3f8WoW8BFdWU3UxBf0vtlXvITr1qbUb+xlfUxiJk1+V+C6Yg5anIWmMOPmEdnTin
+         awFpPx7DRSWK6LBSBa5rMunwZQ+KiIxvXYapThQkpGDAnWz6LhPoTE24FvpcOKnYksXl
+         Qgaf8IwL1diVqrMCILMFqPHD8yZznFrt22h9zgvrU+cfuGuX6MEBRbIfPGqAtHB4p9Kq
+         UPsw==
+X-Forwarded-Encrypted: i=1; AJvYcCXMOkrerAqvLGOeDawSebpa7svC65OiRHA9mVgtpfLUOdbPv4Mn0obsR3QnXNMtpWQkmtkhwaXaJky6AxB+Lsa7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFtWo4iaV0HeMmetMMPjsIYttcTS/5ZTwcvqhTTl4uVBFEatsT
+	p+sQKI6Bm1ZKQ/WdfAo+ZAzQ0Tt7nJaMnifvdWOJYBJk70ayQVuFPJyIWUyn1T0fsmliUvmf9yn
+	ZXbPgMBvjZypfJ7D+w/Jy/cWYGQY7m6/7PJHdUbfNuUNNEpmB/78I1l5UjaxxXIM+m7d2KlNIfr
+	CMNurCsrMGJAsmdsI23yPm+3AHyVJcGKmdZj5oC5UzAxZ8Wp0uR1fOP8kqeI5GbPg=
+X-Received: by 2002:a05:6870:a2d4:b0:288:50aa:7714 with SMTP id 586e51a60fabf-28ccb83f8b8mr4707244fac.24.1729726889085;
+        Wed, 23 Oct 2024 16:41:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEmoFBHnCYHUIGE5FQoeW7XP6jvjOogMHggvGexa+v1/qSORAbovEejIXVxUVEWGhexV1ySLJ9KlbQa+3yyW4Y=
+X-Received: by 2002:a05:6870:a2d4:b0:288:50aa:7714 with SMTP id
+ 586e51a60fabf-28ccb83f8b8mr4707213fac.24.1729726888692; Wed, 23 Oct 2024
+ 16:41:28 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 23 Oct 2024 19:41:28 -0400
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20241021103617.653386-3-inochiama@gmail.com>
+References: <20241021103617.653386-1-inochiama@gmail.com> <20241021103617.653386-3-inochiama@gmail.com>
+Mime-Version: 1.0
+Date: Wed, 23 Oct 2024 19:41:28 -0400
+Message-ID: <CAJM55Z8SnjQFui0J2hOD34HmBsGqZfxn8e_KAWhXxiqswqv6Ww@mail.gmail.com>
+Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+To: Inochi Amaoto <inochiama@gmail.com>, Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_163845_610878_E7725295 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20241023_164135_578438_47013AEF 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,49 +107,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alistair Popple wrote:
-> 
-> Alistair Popple <apopple@nvidia.com> writes:
-> 
-> > Alistair Popple wrote:
-> >> Dan Williams <dan.j.williams@intel.com> writes:
-> 
-> [...]
-> 
-> >>> +
-> >>> +	return VM_FAULT_NOPAGE;
-> >>> +}
-> >>> +EXPORT_SYMBOL_GPL(dax_insert_pfn_pmd);
-> >>
-> >> Like I mentioned before, lets make the exported function
-> >> vmf_insert_folio() and move the pte, pmd, pud internal private / static
-> >> details of the implementation. The "dax_" specific aspect of this was
-> >> removed at the conversion of a dax_pfn to a folio.
-> >
-> > Ok, let me try that. Note that vmf_insert_pfn{_pmd|_pud} will have to
-> > stick around though.
-> 
-> Creating a single vmf_insert_folio() seems somewhat difficult because it
-> needs to be called from multiple fault paths (either PTE, PMD or PUD
-> fault) and do something different for each.
-> 
-> Specifically the issue I ran into is that DAX does not downgrade PMD
-> entries to PTE entries if they are backed by storage. So the PTE fault
-> handler will get a PMD-sized DAX entry and therefore a PMD size folio.
-> 
-> The way I tried implementing vmf_insert_folio() was to look at
-> folio_order() to determine which internal implementation to call. But
-> that doesn't work for a PTE fault, because there's no way to determine
-> if we should PTE map a subpage or PMD map the entire folio.
+Inochi Amaoto wrote:
+> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> with some extra clock.
+>
+> Add necessary compatible string for this device.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+>  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
+>  2 files changed, 146 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index 3c4007cb65f8..69f6bb36970b 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -99,6 +99,7 @@ properties:
+>          - snps,dwmac-5.30a
+>          - snps,dwxgmac
+>          - snps,dwxgmac-2.10
+> +        - sophgo,sg2044-dwmac
+>          - starfive,jh7100-dwmac
+>          - starfive,jh7110-dwmac
+>
+> diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> new file mode 100644
+> index 000000000000..93c41550b0b6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> @@ -0,0 +1,145 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 DWMAC glue layer
 
-Ah, that conflict makes sense.
+I think you forgot to change this when you copied the binding.
 
-> We could pass down some context as to what type of fault we're handling,
-> or add it to the vmf struct, but that seems excessive given callers
-> already know this and could just call a specific
-> vmf_insert_page_{pte|pmd|pud}.
+/Emil
 
-Ok, I think it is good to capture that "because dax does not downgrade
-entries it may satisfy PTE faults with PMD inserts", or something like
-that in comment or changelog.
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@gmail.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - sophgo,sg2044-dwmac
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: sophgo,sg2044-dwmac
+> +      - const: snps,dwmac-5.30a
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: GMAC main clock
+> +      - description: PTP clock
+> +      - description: TX clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: stmmaceth
+> +      - const: ptp_ref
+> +      - const: tx
+> +
+> +  sophgo,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to syscon that configures phy
+> +          - description: offset of phy mode register
+> +          - description: length of the phy mode register
+> +    description:
+> +      A phandle to syscon with two arguments that configure phy mode.
+> +      The argument one is the offset of phy mode register, the
+> +      argument two is the length of phy mode register.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - resets
+> +  - reset-names
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: sophgo,sg2044-dwmac
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          minItems: 1
+> +          maxItems: 1
+> +
+> +        interrupt-names:
+> +          minItems: 1
+> +          maxItems: 1
+> +
+> +        resets:
+> +          maxItems: 1
+> +
+> +        reset-names:
+> +          const: stmmaceth
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    ethernet@30006000 {
+> +      compatible = "sophgo,sg2044-dwmac", "snps,dwmac-5.30a";
+> +      reg = <0x30006000 0x4000>;
+> +      clocks = <&clk 151>, <&clk 152>, <&clk 154>;
+> +      clock-names = "stmmaceth", "ptp_ref", "tx";
+> +      interrupt-parent = <&intc>;
+> +      interrupts = <296 IRQ_TYPE_LEVEL_HIGH>;
+> +      interrupt-names = "macirq";
+> +      resets = <&rst 30>;
+> +      reset-names = "stmmaceth";
+> +      snps,multicast-filter-bins = <0>;
+> +      snps,perfect-filter-entries = <1>;
+> +      snps,aal;
+> +      snps,tso;
+> +      snps,txpbl = <32>;
+> +      snps,rxpbl = <32>;
+> +      snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
+> +      snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
+> +      snps,axi-config = <&gmac0_stmmac_axi_setup>;
+> +      status = "disabled";
+> +
+> +      gmac0_mtl_rx_setup: rx-queues-config {
+> +        snps,rx-queues-to-use = <8>;
+> +        snps,rx-sched-wsp;
+> +        queue0 {};
+> +        queue1 {};
+> +        queue2 {};
+> +        queue3 {};
+> +        queue4 {};
+> +        queue5 {};
+> +        queue6 {};
+> +        queue7 {};
+> +      };
+> +
+> +      gmac0_mtl_tx_setup: tx-queues-config {
+> +        snps,tx-queues-to-use = <8>;
+> +        queue0 {};
+> +        queue1 {};
+> +        queue2 {};
+> +        queue3 {};
+> +        queue4 {};
+> +        queue5 {};
+> +        queue6 {};
+> +        queue7 {};
+> +      };
+> +
+> +      gmac0_stmmac_axi_setup: stmmac-axi-config {
+> +        snps,blen = <16 8 4 0 0 0 0>;
+> +        snps,wr_osr_lmt = <1>;
+> +        snps,rd_osr_lmt = <2>;
+> +      };
+> +    };
+> --
+> 2.47.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
