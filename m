@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C675D0BB41
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6DCD0BB41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Gv5a6CXw8C9Rvs5kl0MwkUefSwLGw3s8Bb0/DNmRqk=; b=PROlWNTShHhjH1VP0S14TR9/0Y
-	VzaryZsO9vmIgXOPGlmJiKdFl66CYmI9sg4eaA+dXwzJtvGeBxvLyCkTBIXqsTzobNhHc3QffX+oA
-	oI/DsiPtnI3QeYCTebkc1D7Us9cJdw5s30Sshl+8G5wZVbiKzryF+6wbTVLSHC8WM8xW30iMJHKx6
-	yfwIPSGe90RLw6Qmv6AE7FuY30IjLKgMxQcvAqrgfdeIFCtl0xXYJ9OpoDmfc9tvH1vjb2DfQKZmD
-	adoS15xog5RzlVsmpufFEk+CbmcE9Fe79hE67xDJrOQSp8H7ex6Zbi5pvzyeEX+50CX/IgCdkk6SC
-	5FkuS+og==;
+	bh=I2Wf0AdoYXK4o4bTYIw8LQr7jBWITrws4jbbsIp9Vdk=; b=fxXgHTaujjGR9qkiCpNBwI+HUN
+	NCThHld2y6wV3iPR5vmug02oV4yARy7neBTfIMG5vZlxsgm272Bwjr8dN/9FJ8ZYO7+PoifAG7LS/
+	mY/mwmdRNNC2GP2miOxhH5UeLqfBViLGts8fA2plFt/4OOm+1KftTM8lsho6lMp1XEaqx2qXV4aWf
+	gJvj60V4nzAa6hzSbA4z4nAC/v9ntaDv3HIG7j+4jRDj3GAgTVGD8G7egKpY/rg5yqNaFJSZ9T0BC
+	6FaLJlRHhTLODRoKjfBt7RCdwmiuftO5f21LRhdeZGkMQmMQ+Pcs/aacT3jPXD+YzvzgbqvECg/Dk
+	nYmbg58A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jfQ-0000000G4Z7-2yZs;
-	Wed, 23 Oct 2024 22:17:24 +0000
+	id 1t3jgu-0000000G4ji-2z4H;
+	Wed, 23 Oct 2024 22:18:56 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jRB-0000000G2Gs-1VCN
+	id 1t3jRB-0000000G2Es-3Rbd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 22:02:43 +0000
+	Wed, 23 Oct 2024 22:02:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1729720961; x=1761256961;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=vwMgBh8rF4YruDkEUaNvk44Eb8em21K29W9Ne4EAcnA=;
-  b=PPDnM9NsqgaDc07SKCMsqy9WUCpa8di3rL6ocSDfpvtyNoAMaTLsACrT
-   hMzzS+WSoRcnWszcQ1c/woLbAUJp5u8wbuFPvPEsLNutdZ46qGxktG+Kc
-   ZZGHIntkhY+/t+fzNy2rFiPgSusslnAMCnIu5uFsisQHt6Q9h830NSUnd
-   2O6KDpr+GOHAMbNxgoFGrUtHUwEPOdukwWoREmOL6LYta3H1cXqB5XHPj
-   a5W6DxJ/ABCMGV9SjNEO5ahifpwb5PJBcSR+WvAQNUMiq9oOd6hhVdw43
-   5nXFtmEER/7xBdWHZtvpV0Y/ChUO2V8QslyTPBgmqSR1iOosMqpaJ5knD
-   w==;
+  bh=ZKiUv9DzB/srjyB0nOslYiyXDW2kxgFTeso+UmXKlj8=;
+  b=bUcp+TkCx45YMwBoKEFOSHmuccTVMx3diJgeeVI1im3Ny4jsbHfFAkoz
+   2nkvxoVca6RsYnlIwW/xtuO9o0nu91rAqpqojJMslh3jQvb51YK2xdEV2
+   WIY4UlAKk5DbzwzQBkckY6SQ2WGg7FpsA5x9+oQKDw+PP6I83i8nWOEH6
+   Mj+3829xq1D9ki90kiqL6jebXIORgnZoKq21qbtGDYpW52dO7R9ZghFMh
+   582/E73Eg2JOSyGEjA5dbZQx0qyL/9QTip+VEiQoKbklg4iHUreIlTmVS
+   FCTsGdMJYobq33GqZZk/Zd/cGt5IJgpfbfp6Q6fVfAqfquy3rcdfZEfsx
+   Q==;
 X-CSE-ConnectionGUID: wd8IJW4NTJ64cR86gqDN2Q==
-X-CSE-MsgGUID: uCehCdvbSU2XvHM8M6WRMA==
+X-CSE-MsgGUID: vbpVIdD/Q2+PXaOWlN1TYg==
 X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="200831271"
+   d="scan'208";a="200831272"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:36 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:37 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 23 Oct 2024 15:02:16 -0700
+ 15.1.2507.35; Wed, 23 Oct 2024 15:02:21 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:12 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:17 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 24 Oct 2024 00:01:28 +0200
-Subject: [PATCH net-next v2 09/15] net: lan969x: add lan969x ops to match
- data
+Date: Thu, 24 Oct 2024 00:01:29 +0200
+Subject: [PATCH net-next v2 10/15] net: lan969x: add PTP handler function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-9-a0b5fae88a0f@microchip.com>
+Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-10-a0b5fae88a0f@microchip.com>
 References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 In-Reply-To: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
@@ -79,8 +78,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<steen.hegelund@microchip.com>, <devicetree@vger.kernel.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_150241_589787_291E7CC2 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20241023_150242_016046_586109C3 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,208 +94,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a bunch of small lan969x ops in bulk. These ops are explained in
-detail in a previous series [1].
+Add PTP IRQ handler for lan969x. This is required, as the PTP registers
+are placed in two different targets on Sparx5 and lan969x. The
+implementation is otherwise the same as on Sparx5.
 
-[1] https://lore.kernel.org/netdev/20241004-b4-sparx5-lan969x-switch-driver-v2-8-d3290f581663@microchip.com/
+Also, expose sparx5_get_hwtimestamp() for use by lan969x.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/lan969x/lan969x.c | 122 +++++++++++++++++++++++
- drivers/net/ethernet/microchip/lan969x/lan969x.h |  28 ++++++
- 2 files changed, 150 insertions(+)
+ drivers/net/ethernet/microchip/lan969x/lan969x.c   | 90 ++++++++++++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  5 ++
+ drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c |  9 +--
+ 3 files changed, 99 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-index 19f91e4a9f3e..2c2b86f9144e 100644
+index 2c2b86f9144e..a3b40e09b947 100644
 --- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
 +++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-@@ -6,6 +6,9 @@
+@@ -201,6 +201,95 @@ static int lan969x_port_mux_set(struct sparx5 *sparx5, struct sparx5_port *port,
+ 	return 0;
+ }
  
- #include "lan969x.h"
- 
-+#define LAN969X_SDLB_GRP_CNT 5
-+#define LAN969X_HSCH_LEAK_GRP_CNT 4
-+
- static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
- 	{ TARGET_CPU,                   0xc0000, 0 }, /* 0xe00c0000 */
- 	{ TARGET_FDMA,                  0xc0400, 0 }, /* 0xe00c0400 */
-@@ -92,6 +95,112 @@ static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
- 	{ TARGET_ASM,                 0x3200000, 1 }, /* 0xe3200000 */
- };
- 
-+static struct sparx5_sdlb_group lan969x_sdlb_groups[LAN969X_SDLB_GRP_CNT] = {
-+	{ 1000000000,  8192 / 2, 64 }, /*    1 G */
-+	{  500000000,  8192 / 2, 64 }, /*  500 M */
-+	{  100000000,  8192 / 4, 64 }, /*  100 M */
-+	{   50000000,  8192 / 4, 64 }, /*   50 M */
-+	{    5000000,  8192 / 8, 64 }, /*   10 M */
-+};
-+
-+static u32 lan969x_hsch_max_group_rate[LAN969X_HSCH_LEAK_GRP_CNT] = {
-+	655355, 1048568, 6553550, 10485680
-+};
-+
-+static struct sparx5_sdlb_group *lan969x_get_sdlb_group(int idx)
++static irqreturn_t lan969x_ptp_irq_handler(int irq, void *args)
 +{
-+	return &lan969x_sdlb_groups[idx];
-+}
++	int budget = SPARX5_MAX_PTP_ID;
++	struct sparx5 *sparx5 = args;
 +
-+static u32 lan969x_get_hsch_max_group_rate(int grp)
-+{
-+	return lan969x_hsch_max_group_rate[grp];
-+}
++	while (budget--) {
++		struct sk_buff *skb, *skb_tmp, *skb_match = NULL;
++		struct skb_shared_hwtstamps shhwtstamps;
++		struct sparx5_port *port;
++		struct timespec64 ts;
++		unsigned long flags;
++		u32 val, id, txport;
++		u32 delay;
 +
-+static u32 lan969x_get_dev_mode_bit(struct sparx5 *sparx5, int port)
-+{
-+	if (lan969x_port_is_2g5(port) || lan969x_port_is_5g(port))
-+		return port;
++		val = spx5_rd(sparx5, PTP_TWOSTEP_CTRL);
 +
-+	/* 10G */
-+	switch (port) {
-+	case 0:
-+		return 12;
-+	case 4:
-+		return 13;
-+	case 8:
-+		return 14;
-+	case 12:
-+		return 0;
-+	default:
-+		return port;
-+	}
-+}
++		/* Check if a timestamp can be retrieved */
++		if (!(val & PTP_TWOSTEP_CTRL_PTP_VLD))
++			break;
 +
-+static u32 lan969x_port_dev_mapping(struct sparx5 *sparx5, int port)
-+{
-+	if (lan969x_port_is_5g(port)) {
-+		switch (port) {
-+		case 9:
-+			return 0;
-+		case 13:
-+			return 1;
-+		case 17:
-+			return 2;
-+		case 21:
-+			return 3;
++		WARN_ON(val & PTP_TWOSTEP_CTRL_PTP_OVFL);
++
++		if (!(val & PTP_TWOSTEP_CTRL_STAMP_TX))
++			continue;
++
++		/* Retrieve the ts Tx port */
++		txport = PTP_TWOSTEP_CTRL_STAMP_PORT_GET(val);
++
++		/* Retrieve its associated skb */
++		port = sparx5->ports[txport];
++
++		/* Retrieve the delay */
++		delay = spx5_rd(sparx5, PTP_TWOSTEP_STAMP_NSEC);
++		delay = PTP_TWOSTEP_STAMP_NSEC_NS_GET(delay);
++
++		/* Get next timestamp from fifo, which needs to be the
++		 * rx timestamp which represents the id of the frame
++		 */
++		spx5_rmw(PTP_TWOSTEP_CTRL_PTP_NXT_SET(1),
++			 PTP_TWOSTEP_CTRL_PTP_NXT,
++			 sparx5, PTP_TWOSTEP_CTRL);
++
++		val = spx5_rd(sparx5, PTP_TWOSTEP_CTRL);
++
++		/* Check if a timestamp can be retrieved */
++		if (!(val & PTP_TWOSTEP_CTRL_PTP_VLD))
++			break;
++
++		/* Read RX timestamping to get the ID */
++		id = spx5_rd(sparx5, PTP_TWOSTEP_STAMP_NSEC);
++		id <<= 8;
++		id |= spx5_rd(sparx5, PTP_TWOSTEP_STAMP_SUBNS);
++
++		spin_lock_irqsave(&port->tx_skbs.lock, flags);
++		skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
++			if (SPARX5_SKB_CB(skb)->ts_id != id)
++				continue;
++
++			__skb_unlink(skb, &port->tx_skbs);
++			skb_match = skb;
++			break;
 +		}
++		spin_unlock_irqrestore(&port->tx_skbs.lock, flags);
++
++		/* Next ts */
++		spx5_rmw(PTP_TWOSTEP_CTRL_PTP_NXT_SET(1),
++			 PTP_TWOSTEP_CTRL_PTP_NXT,
++			 sparx5, PTP_TWOSTEP_CTRL);
++
++		if (WARN_ON(!skb_match))
++			continue;
++
++		spin_lock(&sparx5->ptp_ts_id_lock);
++		sparx5->ptp_skbs--;
++		spin_unlock(&sparx5->ptp_ts_id_lock);
++
++		/* Get the h/w timestamp */
++		sparx5_get_hwtimestamp(sparx5, &ts, delay);
++
++		/* Set the timestamp in the skb */
++		shhwtstamps.hwtstamp = ktime_set(ts.tv_sec, ts.tv_nsec);
++		skb_tstamp_tx(skb_match, &shhwtstamps);
++
++		dev_kfree_skb_any(skb_match);
 +	}
 +
-+	if (lan969x_port_is_10g(port)) {
-+		switch (port) {
-+		case 0:
-+			return 0;
-+		case 4:
-+			return 1;
-+		case 8:
-+			return 2;
-+		case 12:
-+			return 3;
-+		case 16:
-+			return 4;
-+		case 20:
-+			return 5;
-+		case 24:
-+			return 6;
-+		case 25:
-+			return 7;
-+		case 26:
-+			return 8;
-+		case 27:
-+			return 9;
-+		}
-+	}
-+
-+	/* 2g5 port */
-+	return port;
-+}
-+
-+static int lan969x_port_mux_set(struct sparx5 *sparx5, struct sparx5_port *port,
-+				struct sparx5_port_config *conf)
-+{
-+	u32 portno = port->portno;
-+	u32 inst;
-+
-+	if (port->conf.portmode == conf->portmode)
-+		return 0; /* Nothing to do */
-+
-+	switch (conf->portmode) {
-+	case PHY_INTERFACE_MODE_QSGMII: /* QSGMII: 4x2G5 devices. Mode Q'  */
-+		inst = (portno - portno % 4) / 4;
-+		spx5_rmw(BIT(inst), BIT(inst), sparx5, PORT_CONF_QSGMII_ENA);
-+		break;
-+	default:
-+		break;
-+	}
-+	return 0;
++	return IRQ_HANDLED;
 +}
 +
  static const struct sparx5_regs lan969x_regs = {
  	.tsize = lan969x_tsize,
  	.gaddr = lan969x_gaddr,
-@@ -123,12 +232,25 @@ static const struct sparx5_consts lan969x_consts = {
- 	.tod_pin             = 4,
+@@ -242,6 +331,7 @@ static const struct sparx5_ops lan969x_ops = {
+ 	.get_hsch_max_group_rate = &lan969x_get_hsch_max_group_rate,
+ 	.get_sdlb_group          = &lan969x_get_sdlb_group,
+ 	.set_port_mux            = &lan969x_port_mux_set,
++	.ptp_irq_handler         = &lan969x_ptp_irq_handler,
  };
  
-+static const struct sparx5_ops lan969x_ops = {
-+	.is_port_2g5             = &lan969x_port_is_2g5,
-+	.is_port_5g              = &lan969x_port_is_5g,
-+	.is_port_10g             = &lan969x_port_is_10g,
-+	.is_port_25g             = &lan969x_port_is_25g,
-+	.get_port_dev_index      = &lan969x_port_dev_mapping,
-+	.get_port_dev_bit        = &lan969x_get_dev_mode_bit,
-+	.get_hsch_max_group_rate = &lan969x_get_hsch_max_group_rate,
-+	.get_sdlb_group          = &lan969x_get_sdlb_group,
-+	.set_port_mux            = &lan969x_port_mux_set,
-+};
-+
  const struct sparx5_match_data lan969x_desc = {
- 	.iomap      = lan969x_main_iomap,
- 	.iomap_size = ARRAY_SIZE(lan969x_main_iomap),
- 	.ioranges   = 2,
- 	.regs       = &lan969x_regs,
- 	.consts     = &lan969x_consts,
-+	.ops        = &lan969x_ops,
- };
- EXPORT_SYMBOL_GPL(lan969x_desc);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index 15f5d38776c4..3f66045c57ef 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -114,6 +114,8 @@ enum sparx5_vlan_port_type {
+ #define SPX5_DSM_CAL_LEN               64
+ #define SPX5_DSM_CAL_MAX_DEVS_PER_TAXI 13
  
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.h b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-index 3b4c9ea30071..ee890b26ea79 100644
---- a/drivers/net/ethernet/microchip/lan969x/lan969x.h
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-@@ -23,4 +23,32 @@ extern const unsigned int lan969x_gsize[GSIZE_LAST];
- extern const unsigned int lan969x_fpos[FPOS_LAST];
- extern const unsigned int lan969x_fsize[FSIZE_LAST];
++#define SPARX5_MAX_PTP_ID	512
++
+ struct sparx5;
  
-+static inline bool lan969x_port_is_2g5(int portno)
-+{
-+	return portno == 1  || portno == 2  || portno == 3  ||
-+	       portno == 5  || portno == 6  || portno == 7  ||
-+	       portno == 10 || portno == 11 || portno == 14 ||
-+	       portno == 15 || portno == 18 || portno == 19 ||
-+	       portno == 22 || portno == 23;
-+}
-+
-+static inline bool lan969x_port_is_5g(int portno)
-+{
-+	return portno == 9 || portno == 13 || portno == 17 ||
-+	       portno == 21;
-+}
-+
-+static inline bool lan969x_port_is_10g(int portno)
-+{
-+	return portno == 0  || portno == 4  || portno == 8  ||
-+	       portno == 12 || portno == 16 || portno == 20 ||
-+	       portno == 24 || portno == 25 || portno == 26 ||
-+	       portno == 27;
-+}
-+
-+static inline bool lan969x_port_is_25g(int portno)
-+{
-+	return false;
-+}
-+
- #endif
+ struct sparx5_calendar_data {
+@@ -499,6 +501,9 @@ void sparx5_ptp_txtstamp_release(struct sparx5_port *port,
+ 				 struct sk_buff *skb);
+ irqreturn_t sparx5_ptp_irq_handler(int irq, void *args);
+ int sparx5_ptp_gettime64(struct ptp_clock_info *ptp, struct timespec64 *ts);
++void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
++			    struct timespec64 *ts,
++			    u32 nsec);
+ 
+ /* sparx5_vcap_impl.c */
+ int sparx5_vcap_init(struct sparx5 *sparx5);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+index a511f14312f1..1c2903700a9c 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+@@ -11,8 +11,6 @@
+ #include "sparx5_main_regs.h"
+ #include "sparx5_main.h"
+ 
+-#define SPARX5_MAX_PTP_ID	512
+-
+ #define TOD_ACC_PIN		0x4
+ 
+ enum {
+@@ -275,9 +273,9 @@ void sparx5_ptp_txtstamp_release(struct sparx5_port *port,
+ 	spin_unlock_irqrestore(&sparx5->ptp_ts_id_lock, flags);
+ }
+ 
+-static void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
+-				   struct timespec64 *ts,
+-				   u32 nsec)
++void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
++			    struct timespec64 *ts,
++			    u32 nsec)
+ {
+ 	/* Read current PTP time to get seconds */
+ 	const struct sparx5_consts *consts = sparx5->data->consts;
+@@ -305,6 +303,7 @@ static void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
+ 
+ 	spin_unlock_irqrestore(&sparx5->ptp_clock_lock, flags);
+ }
++EXPORT_SYMBOL_GPL(sparx5_get_hwtimestamp);
+ 
+ irqreturn_t sparx5_ptp_irq_handler(int irq, void *args)
+ {
 
 -- 
 2.34.1
