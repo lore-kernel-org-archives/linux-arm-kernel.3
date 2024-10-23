@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E57ACDDE64
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5DACDDE63
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OOvHNGAVgHImRA4rtLY0Acms6nJmTWGumvJk2gBIAw=; b=K1/AaxCmJO11xSBUqzL8H7LdPj
-	uwf5YX3OVFPtrlirCjM8IfDLIC444IRZWhgJzdtXhOHzBIxuvu88xa5zgfprMeubM/iIcL8Gft3/o
-	MbHtYv1vw2Hr3j7ozb94M3rpgIRYdhOAvKXmAgjr/i/Iam2yoAKCtKuJNobNT4rL8g2z09VV5ma+U
-	ipbEa9mKpBxldvHv4uDPAGPjynQ+9MK2PNOYcH+uMwKLAGhEXYkmnOYUpPMDXIYrMXyUPgVUkKASX
-	fv0O89SY6x4+MjzciP87H61n6RigG2SXeV6OH9P/ncnkaHPoxgUZ0tbcqRUgVRrJIYrnSktRmnrkZ
-	2DBEfA2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/4EI/BDXJEMcfZo0v6z430d9z4NHU6P6zcwIcR64qw=; b=xAHo0vuqflR5oqq3q09A9W7TeS
+	Hj17+YvS61HNq4AnEianZfdE97zQA7UuDcz+4BgcxBPikOyIw1CmpFVVf9ikyFlca5C/NctAtovc1
+	hMaymyJnULfj0M73fol6W0/KO3pD0/qATLy50+W22MxXLe2CJmJMPd3iBHkmZ8pktYO7nxsygf1KO
+	eEt2VOQMhRkoW5gBKJClxWH4u+7GnbarZNbOTY9/kYy1cVEVt9qhS1U9m/CaNU9T1AmWKBIR6SwAY
+	BiEnpNpYy8NynVOseU9nOX5OVSPWYTK6hnjDk9IvjhJ6fqaMtnv/0HU+NYf8YnE/7m2AdPnhgZ0/Z
+	upMTrbEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Ytg-0000000E2Yn-1Tgu;
-	Wed, 23 Oct 2024 10:47:24 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1t3YvB-0000000E2nK-33uv;
+	Wed, 23 Oct 2024 10:48:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YKa-0000000DwA0-1kOM
+	id 1t3YVV-0000000Dy54-2vey
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 10:11:09 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-539e8607c2aso7295928e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 03:11:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729678266; x=1730283066; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5OOvHNGAVgHImRA4rtLY0Acms6nJmTWGumvJk2gBIAw=;
-        b=Kvm9cBnfUNGDdZoePqFyQjmB12nsYUTfoVODT3SC1cVt1hs4DPSzgVpvGlmoUyHFDQ
-         DToXBuXmryfhReSCRGP7rrNlV+9/0w6G159OJZC5cbobRAZ7gaKsaNL5JSp30mj5SHLh
-         Gt8tsVqM+uD6a+14d3GAszo06Fl0Bj967E7d26cvXAB0xqE7TT0Rv/HIsHPV+uvQ9r9p
-         4BfnQJ2n0NHbQPc82gY20h4UuxaIr6RjSTbSh3FeSgGFi4VOHITXuMkfS2bfOD7BggMh
-         kGi97GVpyaLpvCiu+e8QE/DHCAsJ2s+dFnvZ1poux3gs66BrwWK4UdGfFqQifpIaa8Ig
-         Ojbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729678266; x=1730283066;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5OOvHNGAVgHImRA4rtLY0Acms6nJmTWGumvJk2gBIAw=;
-        b=NOqYCfMHGoXUDlyFD826oVx/TL0e6fJY5I4gpMXjayi1zxVuwsxbjk1VdLycogPzOH
-         RRjbR0rvmy3fHmFUmEOzkIbVsYyh4XM9D5cFk5hJchYNOKU29VFuGccle4n76CP+Qeg6
-         2jEXg9mY/sp4unKObd6g4X1wL+Iu4CNSyw18sCkntURPehEXwLfs/DcWVRh6Br7B+9Q0
-         UviPRZ+k2Iklk0w+bcVDV+qE6CczHlnFASG9xHfoYQDm8E0pMpzf4FR/zQ0Epf+LdbYh
-         e0scEyqTLXTOxzSlfwGMz06o0ozuiVreSmCOvzNuqo/nkGa+2KLW+Su6elmIXjsSv4QL
-         ehXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXpQcaBZ5qAPMFEsex5sONhpYwzLPk8qIcUb5izmKN4LVkGGnBTlCofRxAFAuKy6nn+Gks/dHy1bIdVudNLoWaC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3cK0fMw6l/QdsR2Czbi8udazr9BaBuowz4FBsnnhjTp7BXu62
-	6dSUokwIbklaTzd7LmMsEDDbh1Pdoj8o4+usO/oOZmWMQ7MB9MWAxd7TiPmO/G+H15N7oG2fCDu
-	Gly0VNFqrIfLM5hfDwd1iXsgSJyusnnFduxWP3A==
-X-Google-Smtp-Source: AGHT+IE089tWVwoXd/8Hysqc4S/uDg7EGVHjVvwgua3xypehCFmJa3XmQQ+EwelSROlylF6cOjc2uO3oYJn05SS9GVs=
-X-Received: by 2002:a05:6512:1114:b0:539:fde9:4bbe with SMTP id
- 2adb3069b0e04-53b1a30512fmr994214e87.20.1729678266366; Wed, 23 Oct 2024
- 03:11:06 -0700 (PDT)
+	Wed, 23 Oct 2024 10:22:27 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49N9nORF031140;
+	Wed, 23 Oct 2024 10:22:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	T/4EI/BDXJEMcfZo0v6z430d9z4NHU6P6zcwIcR64qw=; b=NhQFPsWiuaYyJBUs
+	ilhs+jqF7LimSnyzT4t/13HuXAAdt5uxyOxUBtUrMfJcfokDlBubwlfcNxhGP7Iy
+	skQ9FSmvy3Xja3NDABpojSaqAmuoWXeMKAya7n5+kozb74MCjb4i8Qw7vdvaelj/
+	L+oILLxB10LDVfbuixum+gwMj0Yv5ycvnlDIktpvinQJwgnc9EUQldKewtD4Iq11
+	0Zk10+P8Sv0FXVBN2GZSzUE/lq00jfQclyAaLLI0mUkLbEw3mHIid6nSxN3v5C1P
+	vJcsmVvvLRdoWlsIshsvRXlOH85YV/eOGaQ+h6X5reqTuLGrfdvEgzctJj+G8yON
+	oern1w==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3vsu7j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Oct 2024 10:22:16 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49NAMGxN018132
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Oct 2024 10:22:16 GMT
+Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 23 Oct 2024 03:22:11 -0700
+From: Sibi Sankar <quic_sibis@quicinc.com>
+To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>,
+        <ulf.hansson@linaro.org>, <jassisinghbrar@gmail.com>,
+        <dmitry.baryshkov@linaro.org>
+CC: <linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <quic_sibis@quicinc.com>,
+        <johan@kernel.org>, <konradybcio@kernel.org>,
+        <linux-pm@vger.kernel.org>, <tstrudel@google.com>, <rafael@kernel.org>,
+        "Johan Hovold" <johan+linaro@kernel.org>
+Subject: [PATCH V4 2/4] firmware: arm_scmi: Skip opp duplicates
+Date: Wed, 23 Oct 2024 15:51:46 +0530
+Message-ID: <20241023102148.1698910-3-quic_sibis@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241023102148.1698910-1-quic_sibis@quicinc.com>
+References: <20241023102148.1698910-1-quic_sibis@quicinc.com>
 MIME-Version: 1.0
-References: <20241023044423.18294-1-towinchenmi@gmail.com> <CACRpkdZP9oDd+fRKKagFtGbfLx=Rk5LJ7bvaKimw5-t25XZAfQ@mail.gmail.com>
- <5e1b807f-82ac-4ab8-867c-32b2bf2a91ce@gmail.com>
-In-Reply-To: <5e1b807f-82ac-4ab8-867c-32b2bf2a91ce@gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 23 Oct 2024 12:10:55 +0200
-Message-ID: <CACRpkdYjmwHaHPTmjOKR8E9kYQBZAx04Ydby7HKZzE3KhbNh2A@mail.gmail.com>
-Subject: Re: [PATCH v6 RESEND 00/20] Initial device trees for A7-A11 based
- Apple devices
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: IXow5cOgeQhJhFgJW5AvlV08O7-zGwti
+X-Proofpoint-ORIG-GUID: IXow5cOgeQhJhFgJW5AvlV08O7-zGwti
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ malwarescore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
+ mlxlogscore=999 priorityscore=1501 mlxscore=0 suspectscore=0 phishscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410230063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_031108_480356_6021CA98 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20241023_032225_776604_83F6339E 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,37 +103,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 11:37=E2=80=AFAM Nick Chan <towinchenmi@gmail.com> =
-wrote:
-> On 23/10/2024 17:05, Linus Walleij wrote:
-> > On Wed, Oct 23, 2024 at 6:44=E2=80=AFAM Nick Chan <towinchenmi@gmail.co=
-m> wrote:
-> >
-> >> This series adds device trees for all A7-A11 SoC based iPhones, iPads,
-> >> iPod touches and Apple TVs.
-> >
-> > This is a good and important series. FWIW:
-> > Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> >
-> > Are patches not getting applied since you resend them?
->
-> This series along with the watchdog reset delay series mentioned in the
-> cover letter have not been applied.
+From: Cristian Marussi <cristian.marussi@arm.com>
 
-It seems to me that the watchdog series is only a runtime dependency
-and these binding+DTS patches are well ripe for merge.
+Buggy firmware can reply with duplicated PERF opps descriptors.
 
-I suspect the three Asahi-affiliated maintainers are too busy with their
-own stuff (like M3 support...) to respond or queue patches as they haven't
-responded to the patch set for the two months it's been floating. (OK
-Sven Peter did respond to some v1 patches.)
+Ensure that the bad duplicates reported by the platform firmware doesn't
+get added to the opp-tables.
 
-If nothing happens in a week or so, I suggest you just send a pull request
-to the SoC tree (soc@kernel.org) yourself. Perhaps you should even be added=
- as
-comaintainer for the ARM/APPLE machine support so things do not
-stack up like this?
+Reported-by: Johan Hovold <johan+linaro@kernel.org>
+Closes: https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Tested-by: Johan Hovold <johan+linaro@kernel.org>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+---
 
-Yours,
-Linus Walleij
+v3:
+* Pick up R-b, T-b from the list.
+* Pick up the updated patch from Cristian for skipping opps.
+
+ drivers/firmware/arm_scmi/perf.c | 40 ++++++++++++++++++++++++--------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
+index 2d77b5f40ca7..32f9a9acd3e9 100644
+--- a/drivers/firmware/arm_scmi/perf.c
++++ b/drivers/firmware/arm_scmi/perf.c
+@@ -373,7 +373,7 @@ static int iter_perf_levels_update_state(struct scmi_iterator_state *st,
+ 	return 0;
+ }
+ 
+-static inline void
++static inline int
+ process_response_opp(struct device *dev, struct perf_dom_info *dom,
+ 		     struct scmi_opp *opp, unsigned int loop_idx,
+ 		     const struct scmi_msg_resp_perf_describe_levels *r)
+@@ -386,12 +386,16 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
+ 		le16_to_cpu(r->opp[loop_idx].transition_latency_us);
+ 
+ 	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
+-	if (ret)
++	if (ret) {
+ 		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
+ 			 opp->perf, dom->info.name, ret);
++		return ret;
++	}
++
++	return 0;
+ }
+ 
+-static inline void
++static inline int
+ process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
+ 			struct scmi_opp *opp, unsigned int loop_idx,
+ 			const struct scmi_msg_resp_perf_describe_levels_v4 *r)
+@@ -404,9 +408,11 @@ process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
+ 		le16_to_cpu(r->opp[loop_idx].transition_latency_us);
+ 
+ 	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
+-	if (ret)
++	if (ret) {
+ 		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
+ 			 opp->perf, dom->info.name, ret);
++		return ret;
++	}
+ 
+ 	/* Note that PERF v4 reports always five 32-bit words */
+ 	opp->indicative_freq = le32_to_cpu(r->opp[loop_idx].indicative_freq);
+@@ -415,13 +421,21 @@ process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
+ 
+ 		ret = xa_insert(&dom->opps_by_idx, opp->level_index, opp,
+ 				GFP_KERNEL);
+-		if (ret)
++		if (ret) {
+ 			dev_warn(dev,
+ 				 "Failed to add opps_by_idx at %d for %s - ret:%d\n",
+ 				 opp->level_index, dom->info.name, ret);
+ 
++			/* Cleanup by_lvl too */
++			xa_erase(&dom->opps_by_lvl, opp->perf);
++
++			return ret;
++		}
++
+ 		hash_add(dom->opps_by_freq, &opp->hash, opp->indicative_freq);
+ 	}
++
++	return 0;
+ }
+ 
+ static int
+@@ -429,16 +443,22 @@ iter_perf_levels_process_response(const struct scmi_protocol_handle *ph,
+ 				  const void *response,
+ 				  struct scmi_iterator_state *st, void *priv)
+ {
++	int ret;
+ 	struct scmi_opp *opp;
+ 	struct scmi_perf_ipriv *p = priv;
+ 
+-	opp = &p->perf_dom->opp[st->desc_index + st->loop_idx];
++	opp = &p->perf_dom->opp[p->perf_dom->opp_count];
+ 	if (PROTOCOL_REV_MAJOR(p->version) <= 0x3)
+-		process_response_opp(ph->dev, p->perf_dom, opp, st->loop_idx,
+-				     response);
++		ret = process_response_opp(ph->dev, p->perf_dom, opp,
++					   st->loop_idx, response);
+ 	else
+-		process_response_opp_v4(ph->dev, p->perf_dom, opp, st->loop_idx,
+-					response);
++		ret = process_response_opp_v4(ph->dev, p->perf_dom, opp,
++					      st->loop_idx, response);
++
++	/* Skip BAD duplicates received from firmware */
++	if (ret)
++		return ret == -EBUSY ? 0 : ret;
++
+ 	p->perf_dom->opp_count++;
+ 
+ 	dev_dbg(ph->dev, "Level %d Power %d Latency %dus Ifreq %d Index %d\n",
+-- 
+2.34.1
+
 
