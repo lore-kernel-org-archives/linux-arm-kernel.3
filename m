@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D19CF539E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF3DCF539E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flq+Kg0yjRgqYgsW55gdL+GAo5fIdizB5p706tTYebg=; b=FmZXRX5CRYawMvX/ml7Zhyiiuo
-	eA4KOxvnJCE+38Wg3AZdPz0qDnlH4tIfkDt2sZl3FaWK34COHa/onXSM7MXjX2Ki6L9wefwU7yQGL
-	FUQA6v4tUpYLQKYqtncldmXIDe+FPeNp7VMZqbmAG6TNf14R4KkvBO07mtKmH5K1+lQyNgGMpFulv
-	M9UtARUp4paUeqtUZm+ADonriy8FH2Bp8tFzYfAicjTY/DxM8hM7c3TSvlIdMsgRv2wH9jjzK1hqk
-	CQSrgjkmVOLXhX/E1F2iy8Je+CbWMVWmxi1dDiPrQi7C/h6CYwkxbsVJeKizmJqKFJbU5+jKfsYgD
-	Cw3wZJ4w==;
+	bh=gGAk2uRv+7yVnyUwOZXQqu+RWeUcifZVhWERCAO0Xq8=; b=hzJPIUCeJMQgMN8TQmFTCBgGIp
+	3NcU4Nbl5QE5rp42qB8PdRP/4Rv47CRtzvmOkDOpGeumbTfa7afps9y4pa9vwIWUTGBL2Y37A8vCe
+	2n0p2/lBVzScOHR5TyFrD6sNaDQ/ItDq3gJWEO+USEqMzW55NdhAQs5r3zKjfjDyoKYRji/SghhaX
+	Ce6WZuTxhzaD6xI5LUkyfzyiADj4WDNUmeSSBYOKbIVzph4VohpE3KSMc/sUDga0TntBq/JbU8iv7
+	uepUzFJ9JYHpOqgrJ0a7T7Ic337snleGU6TIQyvG1BC1TjIn7DlCmEedYVGHeTQuKiyylz9Kz6KI7
+	eGf9I8AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3czM-0000000EtVA-0G73;
-	Wed, 23 Oct 2024 15:09:32 +0000
+	id 1t3d0s-0000000Eto2-12Lc;
+	Wed, 23 Oct 2024 15:11:06 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckE-0000000EpJ8-3woU
+	id 1t3ckF-0000000EpJL-19z2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:53:59 +0000
+	Wed, 23 Oct 2024 14:54:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 093B3A45013;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 09256A45001;
 	Wed, 23 Oct 2024 14:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B0F6C4CEEA;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0165C4CEEC;
 	Wed, 23 Oct 2024 14:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1729695232;
-	bh=OpE1g1dXxLnO5r+wMmDCsiL9pglyj4L3QL+7VK1XQcA=;
+	bh=qTU8Sn0UfT+g1/7CEvxr+5RdaQfMXlRaTE9fmjoEjhs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pLY9y0HZDVBCHlMKE1/lmPlw7TDpuyoy6w6eXfNDPLlp+Ojh8scPg7jaIAmAt9Ogk
-	 sXpWannjN/2WmZtad+xMRQ3wq188JPrQSexpqshjlDTbKlPPm4iE6dLmfmhix1PeDB
-	 kyb0+IaXsXMsrIGalOuS9BNxnHo0eH+gZtkJ3tAEx3p8GPHKSxNLaICoSkGYMicoHN
-	 R/YfXllqu6KUY9r83iXk7lBj6Z4aANpFr9897T2sW1OEf7qQM+MdIrfcR22Fw3zvMV
-	 DVrhYEf9nA8YfTgI4lu+R+NTxqcqoNyd32GIke8sbKtVjN4qrrKaERN/5Ae5DTHJ80
-	 Xnn/uCIaZfvBA==
+	b=dwaQS/XMU4/rTO4AerKcgN1GHCbJ8UI/gf14ymG0q9krL+G6UrbZWNzWGOWihyUja
+	 8o5kzQB+RbT9V2zLLGHudj6Y1ubHwKoGp275tFNahl1vFRZEimAou7AMtIX7dQYOeA
+	 GE/lEVzBeFOgfGmq7AYaWQZk5/bElJ7uvigEd79jsIG3CS/IUsNQQgi2uItRRRXS+l
+	 fAxU30XBvr91hsYUy6GgeXqPFvINLr+iVtErK6Lwl6z+V18teMER4QSl5ndolCmcVK
+	 JgnIbRJDGnzipbgd5upcfmx5bkCSzaWaogakKEpDj+OmiI1QqV/lcOIQFU7kjkKvIC
+	 lPhg40mhaQF9g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1t3ckA-0068vz-M9;
-	Wed, 23 Oct 2024 15:53:50 +0100
+	id 1t3ckB-0068vz-3H;
+	Wed, 23 Oct 2024 15:53:51 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 06/37] KVM: arm64: nv: Handle CNTHCTL_EL2 specially
-Date: Wed, 23 Oct 2024 15:53:14 +0100
-Message-Id: <20241023145345.1613824-7-maz@kernel.org>
+Subject: [PATCH v5 08/37] KVM: arm64: Correctly access TCR2_EL1, PIR_EL1, PIRE0_EL1 with VHE
+Date: Wed, 23 Oct 2024 15:53:16 +0100
+Message-Id: <20241023145345.1613824-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
 References: <20241023145345.1613824-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_075355_299807_21A57FFE 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20241023_075355_617388_8B460184 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,82 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Accessing CNTHCTL_EL2 is fraught with danger if running with
-HCR_EL2.E2H=1: half of the bits are held in CNTKCTL_EL1, and
-thus can be changed behind our back, while the rest lives
-in the CNTHCTL_EL2 shadow copy that is memory-based.
+For code that accesses any of the guest registers for emulation
+purposes, it is crucial to know where the most up-to-date data is.
 
-Yes, this is a lot of fun!
+While this is pretty clear for nVHE (memory is the sole repository),
+things are a lot muddier for VHE, as depending on the SYSREGS_ON_CPU
+flag, registers can either be loaded on the HW or be in memory.
 
-Make sure that we merge the two on read access, while we can
-write to CNTKCTL_EL1 in a more straightforward manner.
+Even worse with NV, where the loaded state is by definition partial.
 
+For these reasons, KVM offers the vcpu_read_sys_reg() and
+vcpu_write_sys_reg() primitives that always do the right thing.
+However, these primitive must know what register to access, and
+this is the role of the __vcpu_read_sys_reg_from_cpu() and
+__vcpu_write_sys_reg_to_cpu() helpers.
+
+As it turns out, TCR2_EL1, PIR_EL1, PIRE0_EL1 and not described
+in the latter helpers, meaning that the AT code cannot use them
+to emulate S1PIE.
+
+Add the three registers to the (long) list.
+
+Fixes: 86f9de9db178 ("KVM: arm64: Save/restore PIE registers")
 Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
 ---
- arch/arm64/kvm/sys_regs.c    | 28 ++++++++++++++++++++++++++++
- include/kvm/arm_arch_timer.h |  3 +++
- 2 files changed, 31 insertions(+)
+ arch/arm64/include/asm/kvm_host.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 3cd54656a8e2f..932d2fb7a52a0 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -157,6 +157,21 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
- 		if (!is_hyp_ctxt(vcpu))
- 			goto memory_read;
- 
-+		/*
-+		 * CNTHCTL_EL2 requires some special treatment to
-+		 * account for the bits that can be set via CNTKCTL_EL1.
-+		 */
-+		switch (reg) {
-+		case CNTHCTL_EL2:
-+			if (vcpu_el2_e2h_is_set(vcpu)) {
-+				val = read_sysreg_el1(SYS_CNTKCTL);
-+				val &= CNTKCTL_VALID_BITS;
-+				val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
-+				return val;
-+			}
-+			break;
-+		}
-+
- 		/*
- 		 * If this register does not have an EL1 counterpart,
- 		 * then read the stored EL2 version.
-@@ -207,6 +222,19 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
- 		 */
- 		__vcpu_sys_reg(vcpu, reg) = val;
- 
-+		switch (reg) {
-+		case CNTHCTL_EL2:
-+			/*
-+			 * If E2H=0, CNHTCTL_EL2 is a pure shadow register.
-+			 * Otherwise, some of the bits are backed by
-+			 * CNTKCTL_EL1, while the rest is kept in memory.
-+			 * Yes, this is fun stuff.
-+			 */
-+			if (vcpu_el2_e2h_is_set(vcpu))
-+				write_sysreg_el1(val, SYS_CNTKCTL);
-+			return;
-+		}
-+
- 		/* No EL1 counterpart? We're done here.? */
- 		if (reg == el1r)
- 			return;
-diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-index c819c5d16613b..fd650a8789b91 100644
---- a/include/kvm/arm_arch_timer.h
-+++ b/include/kvm/arm_arch_timer.h
-@@ -147,6 +147,9 @@ u64 timer_get_cval(struct arch_timer_context *ctxt);
- void kvm_timer_cpu_up(void);
- void kvm_timer_cpu_down(void);
- 
-+/* CNTKCTL_EL1 valid bits as of DDI0487J.a */
-+#define CNTKCTL_VALID_BITS	(BIT(17) | GENMASK_ULL(9, 0))
-+
- static inline bool has_cntpoff(void)
- {
- 	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 329619c6fa961..1adf68971bb17 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1030,6 +1030,9 @@ static inline bool __vcpu_read_sys_reg_from_cpu(int reg, u64 *val)
+ 	case TTBR0_EL1:		*val = read_sysreg_s(SYS_TTBR0_EL12);	break;
+ 	case TTBR1_EL1:		*val = read_sysreg_s(SYS_TTBR1_EL12);	break;
+ 	case TCR_EL1:		*val = read_sysreg_s(SYS_TCR_EL12);	break;
++	case TCR2_EL1:		*val = read_sysreg_s(SYS_TCR2_EL12);	break;
++	case PIR_EL1:		*val = read_sysreg_s(SYS_PIR_EL12);	break;
++	case PIRE0_EL1:		*val = read_sysreg_s(SYS_PIRE0_EL12);	break;
+ 	case ESR_EL1:		*val = read_sysreg_s(SYS_ESR_EL12);	break;
+ 	case AFSR0_EL1:		*val = read_sysreg_s(SYS_AFSR0_EL12);	break;
+ 	case AFSR1_EL1:		*val = read_sysreg_s(SYS_AFSR1_EL12);	break;
+@@ -1076,6 +1079,9 @@ static inline bool __vcpu_write_sys_reg_to_cpu(u64 val, int reg)
+ 	case TTBR0_EL1:		write_sysreg_s(val, SYS_TTBR0_EL12);	break;
+ 	case TTBR1_EL1:		write_sysreg_s(val, SYS_TTBR1_EL12);	break;
+ 	case TCR_EL1:		write_sysreg_s(val, SYS_TCR_EL12);	break;
++	case TCR2_EL1:		write_sysreg_s(val, SYS_TCR2_EL12);	break;
++	case PIR_EL1:		write_sysreg_s(val, SYS_PIR_EL12);	break;
++	case PIRE0_EL1:		write_sysreg_s(val, SYS_PIRE0_EL12);	break;
+ 	case ESR_EL1:		write_sysreg_s(val, SYS_ESR_EL12);	break;
+ 	case AFSR0_EL1:		write_sysreg_s(val, SYS_AFSR0_EL12);	break;
+ 	case AFSR1_EL1:		write_sysreg_s(val, SYS_AFSR1_EL12);	break;
 -- 
 2.39.2
 
