@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BF4CFA45E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49FECFA45D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ocy032bdcho2couvO6/QgCKu9IriwGzbqAqGCvUdpMA=; b=Ga/rLDDTZSWhiqVlWhc4KBs81O
-	SFkBkmipa1G2TnqFZqaJog13x1Y2+YtxwaNlHo/7uwAFGgEppl6DpP5bBDCxCyN06AvbqdkLSk4v6
-	L2okX1I6eqGEYZ9WkcO3aMfcrlPpC2JvC+wrLfKtW0urO0SHD/BOTv0uGtipNO5kg/xkd/MLlKgUf
-	ZKqvKb2HwMBQIjbxay7q0El+ulTlEcMH5aft6J1SUvlf+9Ap/YAO7JohnNTEThaogflcb0BR6CdFR
-	2Piqn+gxrxI8/aiSsxCTH9S+YZ1VrIABmroP/9Us29VWDvK6JzWfg6DvRFuYIpYDbbCgSCvSNizAp
-	fJlw9SSA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4RFNnnB+O0p0aRvheGlQAuqZY0fWkIb7EfMdt4bgYjU=; b=JiJYFKHezAbr37ULtjgFpGRY81
+	ZJ0Ome5njDlFV+b3DKPZVYwtsyXAM4y/AKn7j/8VImV8kRTgP2OWJkhVCjnGWMjMEGmocghOdtIPA
+	0vT0jPGA9u4EvvTplyPp+081ZOT85mYTTluQ06IhONXcOMEO00o17ICiGTPAtFgtuSHmPnBcP2zIf
+	sBvj4HcqeLeIKU1RB7/v0LMqsU1TFHANUrG0LY3MZQVY/u4gOMn9MYAI51HcPmqkkxP8IXLs4HHEv
+	uQgTLPc5sQq3uiiSj7Osus0MQciV9xEpudpqc7JbOKXkjsS+HebUABpp656v59MgwDXvOGMiqC97A
+	4aFN08uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3g1S-0000000FVso-1L26;
-	Wed, 23 Oct 2024 18:23:54 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1t3g4L-0000000FXAo-0tf2;
+	Wed, 23 Oct 2024 18:26:53 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ewQ-0000000FKzw-3CKQ;
-	Wed, 23 Oct 2024 17:14:41 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-460b2e4c50fso226351cf.0;
-        Wed, 23 Oct 2024 10:14:38 -0700 (PDT)
+	id 1t3fK8-0000000FOsH-3ktJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 17:39:10 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ed9f1bcb6bso21452a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 10:39:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729703677; x=1730308477; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ocy032bdcho2couvO6/QgCKu9IriwGzbqAqGCvUdpMA=;
-        b=DlFascAy0qRppbN6Oq8wVzykesTAfIumgli1icFpEYYkYYXpkjG4xeWFj5kKCeRrPF
-         PBw7ciPkj/kAUbFsDb3nb4GeizIONy8nx61CqyZm2VtLQtXb2wNSYkHJgmCy4Ycf04Vb
-         rQj8AvBMpzC6zQydrGdyPnKZjZTqjURECuQnM/cYNvqkUi4/g+S/evvix4PQAhz0Q6kA
-         NKwGaMehEiyb1948M76tz/K9BQy6+FQtOCcDtUPnFF/6TE/HoZxGLExAPSRnC/aofcmC
-         1Mesf/c5VW9X7PQdTKWAbCIiEvBogzx0u9WAr32A+QDOSi3+v1IxDxbpWigkQBmNzraF
-         u9hg==
+        d=gmail.com; s=20230601; t=1729705148; x=1730309948; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4RFNnnB+O0p0aRvheGlQAuqZY0fWkIb7EfMdt4bgYjU=;
+        b=VsJbGx1kqT+zsOV1i76BGP9BRVaECy3KPWV//2QYzMSn6i7yYNDEfMnOhR30SwnJeh
+         n7LK5c7370zvaX2TdBzVtsjAHeFYCAgJBIttNtMUkASl/jEO3h36MrNbD+ljnJ0hkP2j
+         3ke4LdDZYznasEHdfM5zA4QcXznyhrKqd/PwSuDaJKq1CU0MqrNKVYFTcfjBo7xh0Z+T
+         GGTmLrw0vkOUDymSZ1kEFqlkt98E3POXB9lVJ+q5TPIQPUGqd2ybdEzmEzmeaxNoFWQK
+         969XXGHpiPscXALnDWWcOaWYH5ENMspVngyufr4xoemvrEFEIb7mx1BeGDSXqs/E47Ae
+         UXMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729703677; x=1730308477;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ocy032bdcho2couvO6/QgCKu9IriwGzbqAqGCvUdpMA=;
-        b=lACaTpggdbWR7D5faVhhiij1JNUo1WZMqMo37eszYJjD+u3iTqxC8PKNrSIq5bAZ2R
-         KKRIfDJ2/gDKGBP5uFGRQZTkO6Pk/D8ZtOgunLKzTClyzJO+zROQFq64wwvzG4brCa2+
-         Ee06aCKYRErNPOTJCk5lx03udPFrxV0Hv0zo2fdbvJWdlPGQ2LBVBPkeYOsBaHk68diH
-         QNFfeX5E2dDX+kLmjBV/6OHA3gUHZsQa55h8QWuHnOCiX9J4+ZuhzJbWTTk86q3XZa1r
-         kQgSfsIiWmQtg3xEI1tXIkslpOmFyqtgjzVtrIoYcvvbbpXyIKbmbOEljSnC1MRKsaQR
-         8nHw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ82J3KAx6lrEUbK5PMbdqeVSCr6/96BCruTj/azybSjnJMSLzpapKDrRUArShbuzNeO+NyNkCe+li7yw=@lists.infradead.org, AJvYcCUtgDB/Yu/mG0h83mIipJNLmhBLCAQQuf+OUAd3i9oB3c1Rr7TBkRdHugcA04rhU85WDApYfA==@lists.infradead.org, AJvYcCVCZm8ZGu8XESSmqufbBxpYczZvTsPHMDcgxkUp5asHigu5BtGo31CID7ts1pz6UUJJO3QN9YGPLguzDBIx02K+rw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuOVBd8YM9JMkYRk6fMrUILlJvHhEkYvsf0VFIPxxmzhYG6WJN
-	Fl/ttGteq9o6NBtfbsuE6LUxRzy/LZayB/xOQwKMJW7Qj6QpKhmL
-X-Google-Smtp-Source: AGHT+IH4iUuNlJ5a4C6P+CxLaR5teClGbQdmg1jOeGXfO69rKTgzE6VI3Y8w6vkgZ/WvzrJsQJMOEA==
-X-Received: by 2002:ac8:7f51:0:b0:460:e593:45aa with SMTP id d75a77b69052e-461146c97admr42391941cf.33.1729703677086;
-        Wed, 23 Oct 2024 10:14:37 -0700 (PDT)
-Received: from localhost (fwdproxy-ash-007.fbsv.net. [2a03:2880:20ff:7::face:b00c])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ce009e5407sm41539416d6.129.2024.10.23.10.14.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 10:14:36 -0700 (PDT)
-From: Usama Arif <usamaarif642@gmail.com>
-To: robh@kernel.org,
-	mark.rutland@arm.com,
-	will@kernel.org
-Cc: leitao@debian.org,
-	catalin.marinas@arm.com,
-	tglx@linutronix.de,
-	chris@zankel.net,
-	saravanak@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-sh@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-openrisc@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	Usama Arif <usamaarif642@gmail.com>
-Subject: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
-Date: Wed, 23 Oct 2024 18:14:26 +0100
-Message-ID: <20241023171426.452688-1-usamaarif642@gmail.com>
-X-Mailer: git-send-email 2.43.5
+        d=1e100.net; s=20230601; t=1729705148; x=1730309948;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4RFNnnB+O0p0aRvheGlQAuqZY0fWkIb7EfMdt4bgYjU=;
+        b=jxxeFgx/02jUGLdamI+JRDaRfk1lnz2FHRy4ts9oB+PZQBq/ZDUbPuiSllNcujtVZC
+         kcbyr800jyPr/8fNddnrcL9HacuSaMelWfWC1Fewni3OnXVF/2+ZQcFHCrVb7A7hMOaa
+         1HAw6m6yGAWjM30fcaTjqe1USJJ6FkztJl53vj8EHdzpa2jzMzuN4FaYWvUfPDGCrNl8
+         ko9/P4XAcOoy6uCh4NuLnxKx54TA1lh5AAjc0Yqc+vqrQALSaCyDuVib1ptAbl3EHr/w
+         PuEy39XieVOxaNYKGZ5NoxF85rY0N+JKeVnWW0Jy6jlgYNMvqzidGEkdZHU8flS3lJFW
+         hd6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUJxDkLOy9F7TxYq7rnfVOh0P+OIfjCI9aTDIcrWUn2Uv+mBrlJ55VbILWebbcVHUDa0qd1VBZzexUWyPTqR1OD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu4d4yVDLHiN//Lxt1JVvewoD6ZI6gVGyqvKTtXmRAXYIFHmfW
+	885vm6Bxe4f2Ffx9MsXx959xAd/qASzpEyC69vxWqAlvpwgZLNDeWfce1iZ4ApZu4L/PTTwwyRL
+	zGIWrreEHdyQxeM4rvZcGHCe1XKk=
+X-Google-Smtp-Source: AGHT+IEi3chO4cJaxRAniC9KHshTFGfUXN96jvePl/7aNO37ofgEOlQMW+oad4DUIwtadK1f+w1v1UP4u0KBo3qeVKc=
+X-Received: by 2002:a05:6a21:178a:b0:1d9:aa7:d6cc with SMTP id
+ adf61e73a8af0-1d978b2da18mr4156793637.24.1729705146359; Wed, 23 Oct 2024
+ 10:39:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <CAEf4BzarhiBHAQXECJzP5e-z0fbSaTpfQNPaSXwdgErz2f0vUA@mail.gmail.com>
+In-Reply-To: <CAEf4BzarhiBHAQXECJzP5e-z0fbSaTpfQNPaSXwdgErz2f0vUA@mail.gmail.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 23 Oct 2024 10:38:54 -0700
+Message-ID: <CAEf4BzacLW14OmuW1nV4s=cMcSqcrSAO2Y_0XY3jT2efGNfmuw@mail.gmail.com>
+Subject: Re: The state of uprobes work and logistics
+To: Peter Ziljstra <peterz@infradead.org>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>
+Cc: Linux trace kernel <linux-trace-kernel@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Jiri Olsa <jolsa@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Liao Chang <liaochang1@huawei.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"linux-perf-use." <linux-perf-users@vger.kernel.org>, Kernel Team <kernel-team@meta.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_101438_964690_F606DDD6 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20241023_103908_963258_0FA2C926 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,377 +95,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- __pa() is only intended to be used for linear map addresses and using
-it for initial_boot_params which is in fixmap for arm64 will give an
-incorrect value. Hence save the physical address when it is known at
-boot time when calling early_init_dt_scan for arm64 and use it at kexec
-time instead of converting the virtual address using __pa().
+Ok, 7 days has passed, let's see how we are doing here...
 
-Reported-by: Breno Leitao <leitao@debian.org>
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
----
-v1 -> 2:
-- pass dt_phys in early_init_dt_scan instead of creating
-  anorther arch->dt function (Rob Herring)
----
- arch/arc/kernel/devtree.c              |  2 +-
- arch/arm/kernel/devtree.c              |  2 +-
- arch/arm64/kernel/setup.c              |  6 +++++-
- arch/csky/kernel/setup.c               |  4 ++--
- arch/loongarch/kernel/setup.c          |  2 +-
- arch/microblaze/kernel/prom.c          |  2 +-
- arch/mips/kernel/prom.c                |  2 +-
- arch/mips/kernel/relocate.c            |  2 +-
- arch/nios2/kernel/prom.c               |  4 ++--
- arch/openrisc/kernel/prom.c            |  2 +-
- arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
- arch/powerpc/kernel/prom.c             |  2 +-
- arch/powerpc/platforms/pseries/plpks.c |  2 +-
- arch/riscv/kernel/setup.c              |  2 +-
- arch/sh/kernel/setup.c                 |  2 +-
- arch/um/kernel/dtb.c                   |  2 +-
- arch/x86/kernel/devicetree.c           |  2 +-
- arch/xtensa/kernel/setup.c             |  2 +-
- drivers/of/fdt.c                       | 14 ++++++++------
- drivers/of/kexec.c                     |  2 +-
- include/linux/of_fdt.h                 |  5 +++--
- 21 files changed, 36 insertions(+), 29 deletions(-)
+On Wed, Oct 16, 2024 at 12:35=E2=80=AFPM Andrii Nakryiko
+<andrii.nakryiko@gmail.com> wrote:
+>
+> Hello,
+>
+> I wanted to provide a bit of a context about and tie together a few
+> separate work streams (across a few separate kernel trees) all
+> revolving around uprobe improvements, as there are a bunch of them and
+> I'm sure it's hard to keep track of all of them. And hopefully I can
+> also get Peter and ARM maintainer's input on some specific questions I
+> asked below. Thank you in advance!
+>
+> In short, in the last few months there was a high activity around
+> fixing and improving uprobes. All this is the result of increased and
+> more varied use of uprobes/uretprobe in production settings. Uprobe
+> performance is **very** important, and yes, we do have real use cases
+> that go to millions per second uprobe/uretprobe triggering throughput,
+> unfortunately. So any small bit of performance and scalability
+> improvement is helpful. No, this isn't just some nerdy perf
+> optimization work (I've been asked this a few times, so I thought I'd
+> emphasize this again).
+>
+> So, we've already landed a bunch of work, mainly (not an exhaustive list)=
+:
+>
+>   - various clean ups, API improvements, and bug fixes from Oleg
+> Nesterov ([0], [1]). This simplified internal APIs and was a
+> prerequisite of the rest of the work;
+>   - changes to refcounting and RCU-ifying of uprobe lifetime from me
+> ([2]). This improved single-threaded performance somewhat, but mainly
+> significantly improved scalability in the presence of multiple CPUs
+> triggering lots of uprobes;
+>   - ARM64-specific optimization of uprobe emulation of NOP instruction
+> by Liao Chang ([3]). This change alone gives 2x (!) speed up for a
+> USDT tracing use cases *on ARM64* (we already have this optimization
+> in x86-64);
+>   - there was a bit earlier work by Jiri Olsa ([4]) to add uretprobe()
+> syscall, giving +30% speed ups.
+>
+> And there are a few more outstanding changes:
+>
+>   - Jiri Olsa's uprobe "session" support ([5]). This is less
+> performance focused, but important functionality by itself. But I'm
+> calling this out here because the first two patches are pure uprobe
+> internal changes, and I believe they should go into tip/perf/core to
+> avoid conflicts with the rest of pending uprobe changes.
+>
+> Peter, do you mind applying those two and creating a stable tag for
+> bpf-next to pull? We'll apply the rest of Jiri's series to
+> bpf-next/master.
 
-diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
-index 4c9e61457b2f..cc6ac7d128aa 100644
---- a/arch/arc/kernel/devtree.c
-+++ b/arch/arc/kernel/devtree.c
-@@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt)
- 	const struct machine_desc *mdesc;
- 	unsigned long dt_root;
- 
--	if (!early_init_dt_scan(dt))
-+	if (!early_init_dt_scan(dt, __pa(dt)))
- 		return NULL;
- 
- 	mdesc = of_flat_dt_match_machine(NULL, arch_get_next_mach);
-diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
-index fdb74e64206a..3b78966e750a 100644
---- a/arch/arm/kernel/devtree.c
-+++ b/arch/arm/kernel/devtree.c
-@@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt_virt)
- 
- 	mdesc_best = &__mach_desc_GENERIC_DT;
- 
--	if (!dt_virt || !early_init_dt_verify(dt_virt))
-+	if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
- 		return NULL;
- 
- 	mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index b22d28ec8028..177262739c49 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
- 	if (dt_virt)
- 		memblock_reserve(dt_phys, size);
- 
--	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
-+	/*
-+	 * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used.
-+	 * Pass dt_phys directly.
-+	 */
-+	if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
- 		pr_crit("\n"
- 			"Error: invalid device tree blob at physical address %pa (virtual address 0x%px)\n"
- 			"The dtb must be 8-byte aligned and must not exceed 2 MB in size\n"
-diff --git a/arch/csky/kernel/setup.c b/arch/csky/kernel/setup.c
-index 51012e90780d..fe715b707fd0 100644
---- a/arch/csky/kernel/setup.c
-+++ b/arch/csky/kernel/setup.c
-@@ -112,9 +112,9 @@ asmlinkage __visible void __init csky_start(unsigned int unused,
- 	pre_trap_init();
- 
- 	if (dtb_start == NULL)
--		early_init_dt_scan(__dtb_start);
-+		early_init_dt_scan(__dtb_start, __pa(dtb_start));
- 	else
--		early_init_dt_scan(dtb_start);
-+		early_init_dt_scan(dtb_start, __pa(dtb_start));
- 
- 	start_kernel();
- 
-diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
-index 00e307203ddb..10d878204018 100644
---- a/arch/loongarch/kernel/setup.c
-+++ b/arch/loongarch/kernel/setup.c
-@@ -290,7 +290,7 @@ static void __init fdt_setup(void)
- 	if (!fdt_pointer || fdt_check_header(fdt_pointer))
- 		return;
- 
--	early_init_dt_scan(fdt_pointer);
-+	early_init_dt_scan(fdt_pointer, __pa(fdt_pointer));
- 	early_init_fdt_reserve_self();
- 
- 	max_low_pfn = PFN_PHYS(memblock_end_of_DRAM());
-diff --git a/arch/microblaze/kernel/prom.c b/arch/microblaze/kernel/prom.c
-index e424c796e297..76ac4cfdfb42 100644
---- a/arch/microblaze/kernel/prom.c
-+++ b/arch/microblaze/kernel/prom.c
-@@ -18,7 +18,7 @@ void __init early_init_devtree(void *params)
- {
- 	pr_debug(" -> early_init_devtree(%p)\n", params);
- 
--	early_init_dt_scan(params);
-+	early_init_dt_scan(params, __pa(params));
- 	if (!strlen(boot_command_line))
- 		strscpy(boot_command_line, cmd_line, COMMAND_LINE_SIZE);
- 
-diff --git a/arch/mips/kernel/prom.c b/arch/mips/kernel/prom.c
-index 6062e6fa589a..4fd6da0a06c3 100644
---- a/arch/mips/kernel/prom.c
-+++ b/arch/mips/kernel/prom.c
-@@ -41,7 +41,7 @@ char *mips_get_machine_name(void)
- 
- void __init __dt_setup_arch(void *bph)
- {
--	if (!early_init_dt_scan(bph))
-+	if (!early_init_dt_scan(bph, __pa(bph)))
- 		return;
- 
- 	mips_set_machine_name(of_flat_dt_get_machine_name());
-diff --git a/arch/mips/kernel/relocate.c b/arch/mips/kernel/relocate.c
-index 7eeeaf1ff95d..cda7983e7c18 100644
---- a/arch/mips/kernel/relocate.c
-+++ b/arch/mips/kernel/relocate.c
-@@ -337,7 +337,7 @@ void *__init relocate_kernel(void)
- #if defined(CONFIG_USE_OF)
- 	/* Deal with the device tree */
- 	fdt = plat_get_fdt();
--	early_init_dt_scan(fdt);
-+	early_init_dt_scan(fdt, __pa(fdt));
- 	if (boot_command_line[0]) {
- 		/* Boot command line was passed in device tree */
- 		strscpy(arcs_cmdline, boot_command_line, COMMAND_LINE_SIZE);
-diff --git a/arch/nios2/kernel/prom.c b/arch/nios2/kernel/prom.c
-index 9a8393e6b4a8..db049249766f 100644
---- a/arch/nios2/kernel/prom.c
-+++ b/arch/nios2/kernel/prom.c
-@@ -27,7 +27,7 @@ void __init early_init_devtree(void *params)
- 	if (be32_to_cpup((__be32 *)CONFIG_NIOS2_DTB_PHYS_ADDR) ==
- 		 OF_DT_HEADER) {
- 		params = (void *)CONFIG_NIOS2_DTB_PHYS_ADDR;
--		early_init_dt_scan(params);
-+		early_init_dt_scan(params, __pa(params));
- 		return;
- 	}
- #endif
-@@ -37,5 +37,5 @@ void __init early_init_devtree(void *params)
- 		params = (void *)__dtb_start;
- #endif
- 
--	early_init_dt_scan(params);
-+	early_init_dt_scan(params, __pa(params));
- }
-diff --git a/arch/openrisc/kernel/prom.c b/arch/openrisc/kernel/prom.c
-index 19e6008bf114..e424e9bd12a7 100644
---- a/arch/openrisc/kernel/prom.c
-+++ b/arch/openrisc/kernel/prom.c
-@@ -22,6 +22,6 @@
- 
- void __init early_init_devtree(void *params)
- {
--	early_init_dt_scan(params);
-+	early_init_dt_scan(params, __pa(params));
- 	memblock_allow_resize();
- }
-diff --git a/arch/powerpc/kernel/dt_cpu_ftrs.c b/arch/powerpc/kernel/dt_cpu_ftrs.c
-index af4263594eb2..1bee15c013e7 100644
---- a/arch/powerpc/kernel/dt_cpu_ftrs.c
-+++ b/arch/powerpc/kernel/dt_cpu_ftrs.c
-@@ -867,7 +867,7 @@ bool __init dt_cpu_ftrs_init(void *fdt)
- 	using_dt_cpu_ftrs = false;
- 
- 	/* Setup and verify the FDT, if it fails we just bail */
--	if (!early_init_dt_verify(fdt))
-+	if (!early_init_dt_verify(fdt, __pa(fdt)))
- 		return false;
- 
- 	if (!of_scan_flat_dt(fdt_find_cpu_features, NULL))
-diff --git a/arch/powerpc/kernel/prom.c b/arch/powerpc/kernel/prom.c
-index 0be07ed407c7..88cbe432cad5 100644
---- a/arch/powerpc/kernel/prom.c
-+++ b/arch/powerpc/kernel/prom.c
-@@ -791,7 +791,7 @@ void __init early_init_devtree(void *params)
- 	DBG(" -> early_init_devtree(%px)\n", params);
- 
- 	/* Too early to BUG_ON(), do it by hand */
--	if (!early_init_dt_verify(params))
-+	if (!early_init_dt_verify(params, __pa(params)))
- 		panic("BUG: Failed verifying flat device tree, bad version?");
- 
- 	of_scan_flat_dt(early_init_dt_scan_model, NULL);
-diff --git a/arch/powerpc/platforms/pseries/plpks.c b/arch/powerpc/platforms/pseries/plpks.c
-index 4a595493d28a..b1667ed05f98 100644
---- a/arch/powerpc/platforms/pseries/plpks.c
-+++ b/arch/powerpc/platforms/pseries/plpks.c
-@@ -683,7 +683,7 @@ void __init plpks_early_init_devtree(void)
- out:
- 	fdt_nop_property(fdt, chosen_node, "ibm,plpks-pw");
- 	// Since we've cleared the password, we must update the FDT checksum
--	early_init_dt_verify(fdt);
-+	early_init_dt_verify(fdt, __pa(fdt));
- }
- 
- static __init int pseries_plpks_init(void)
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index a2cde65b69e9..26c886db4fb3 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -227,7 +227,7 @@ static void __init init_resources(void)
- static void __init parse_dtb(void)
- {
- 	/* Early scan of device tree from init memory */
--	if (early_init_dt_scan(dtb_early_va)) {
-+	if (early_init_dt_scan(dtb_early_va, __pa(dtb_early_va))) {
- 		const char *name = of_flat_dt_get_machine_name();
- 
- 		if (name) {
-diff --git a/arch/sh/kernel/setup.c b/arch/sh/kernel/setup.c
-index 620e5cf8ae1e..f2b6f16a46b8 100644
---- a/arch/sh/kernel/setup.c
-+++ b/arch/sh/kernel/setup.c
-@@ -255,7 +255,7 @@ void __ref sh_fdt_init(phys_addr_t dt_phys)
- 	dt_virt = phys_to_virt(dt_phys);
- #endif
- 
--	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
-+	if (!dt_virt || !early_init_dt_scan(dt_virt, __pa(dt_virt))) {
- 		pr_crit("Error: invalid device tree blob"
- 			" at physical address %p\n", (void *)dt_phys);
- 
-diff --git a/arch/um/kernel/dtb.c b/arch/um/kernel/dtb.c
-index 4954188a6a09..8d78ced9e08f 100644
---- a/arch/um/kernel/dtb.c
-+++ b/arch/um/kernel/dtb.c
-@@ -17,7 +17,7 @@ void uml_dtb_init(void)
- 
- 	area = uml_load_file(dtb, &size);
- 	if (area) {
--		if (!early_init_dt_scan(area)) {
-+		if (!early_init_dt_scan(area, __pa(area))) {
- 			pr_err("invalid DTB %s\n", dtb);
- 			memblock_free(area, size);
- 			return;
-diff --git a/arch/x86/kernel/devicetree.c b/arch/x86/kernel/devicetree.c
-index 64280879c68c..59d23cdf4ed0 100644
---- a/arch/x86/kernel/devicetree.c
-+++ b/arch/x86/kernel/devicetree.c
-@@ -305,7 +305,7 @@ void __init x86_flattree_get_config(void)
- 			map_len = size;
- 		}
- 
--		early_init_dt_verify(dt);
-+		early_init_dt_verify(dt, __pa(dt));
- 	}
- 
- 	unflatten_and_copy_device_tree();
-diff --git a/arch/xtensa/kernel/setup.c b/arch/xtensa/kernel/setup.c
-index bdec4a773af0..e51f2060e830 100644
---- a/arch/xtensa/kernel/setup.c
-+++ b/arch/xtensa/kernel/setup.c
-@@ -216,7 +216,7 @@ static int __init xtensa_dt_io_area(unsigned long node, const char *uname,
- 
- void __init early_init_devtree(void *params)
- {
--	early_init_dt_scan(params);
-+	early_init_dt_scan(params, __pa(params));
- 	of_scan_flat_dt(xtensa_dt_io_area, NULL);
- 
- 	if (!command_line[0])
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index 4d528c10df3a..546e76ac407c 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -457,6 +457,7 @@ int __initdata dt_root_addr_cells;
- int __initdata dt_root_size_cells;
- 
- void *initial_boot_params __ro_after_init;
-+phys_addr_t initial_boot_params_pa __ro_after_init;
- 
- #ifdef CONFIG_OF_EARLY_FLATTREE
- 
-@@ -1136,17 +1137,18 @@ static void * __init early_init_dt_alloc_memory_arch(u64 size, u64 align)
- 	return ptr;
- }
- 
--bool __init early_init_dt_verify(void *params)
-+bool __init early_init_dt_verify(void *dt_virt, phys_addr_t dt_phys)
- {
--	if (!params)
-+	if (!dt_virt)
- 		return false;
- 
- 	/* check device tree validity */
--	if (fdt_check_header(params))
-+	if (fdt_check_header(dt_virt))
- 		return false;
- 
- 	/* Setup flat device-tree pointer */
--	initial_boot_params = params;
-+	initial_boot_params = dt_virt;
-+	initial_boot_params_pa = dt_phys;
- 	of_fdt_crc32 = crc32_be(~0, initial_boot_params,
- 				fdt_totalsize(initial_boot_params));
- 
-@@ -1173,11 +1175,11 @@ void __init early_init_dt_scan_nodes(void)
- 	early_init_dt_check_for_usable_mem_range();
- }
- 
--bool __init early_init_dt_scan(void *params)
-+bool __init early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys)
- {
- 	bool status;
- 
--	status = early_init_dt_verify(params);
-+	status = early_init_dt_verify(dt_virt, dt_phys);
- 	if (!status)
- 		return false;
- 
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index 9ccde2fd77cb..5b924597a4de 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -301,7 +301,7 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
- 	}
- 
- 	/* Remove memory reservation for the current device tree. */
--	ret = fdt_find_and_del_mem_rsv(fdt, __pa(initial_boot_params),
-+	ret = fdt_find_and_del_mem_rsv(fdt, initial_boot_params_pa,
- 				       fdt_totalsize(initial_boot_params));
- 	if (ret == -EINVAL) {
- 		pr_err("Error removing memory reservation.\n");
-diff --git a/include/linux/of_fdt.h b/include/linux/of_fdt.h
-index d69ad5bb1eb1..b8d6c0c20876 100644
---- a/include/linux/of_fdt.h
-+++ b/include/linux/of_fdt.h
-@@ -31,6 +31,7 @@ extern void *of_fdt_unflatten_tree(const unsigned long *blob,
- extern int __initdata dt_root_addr_cells;
- extern int __initdata dt_root_size_cells;
- extern void *initial_boot_params;
-+extern phys_addr_t initial_boot_params_pa;
- 
- extern char __dtb_start[];
- extern char __dtb_end[];
-@@ -70,8 +71,8 @@ extern u64 dt_mem_next_cell(int s, const __be32 **cellp);
- /* Early flat tree scan hooks */
- extern int early_init_dt_scan_root(void);
- 
--extern bool early_init_dt_scan(void *params);
--extern bool early_init_dt_verify(void *params);
-+extern bool early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys);
-+extern bool early_init_dt_verify(void *dt_virt, phys_addr_t dt_phys);
- extern void early_init_dt_scan_nodes(void);
- 
- extern const char *of_flat_dt_get_machine_name(void);
--- 
-2.43.5
+Jiri has reposted patches this time CC'ing Peter, heh :), it would be
+great to apply those two patches and get a stable tag. This is
+blocking the landing of uprobe sessions in bpf-next and also my
+remaining patches will be based on top of Jiri's uprobe changes, most
+probably. Peter, please take another look, thank you.
 
+>
+>   - Liao Chang's ARM64-specific STP instruction emulation support
+> ([6]). This one will give 2x (!) improvement for a common case of
+> having STP instruction being a first instruction in traced user
+> function (similar to NOP for USDTs).
+>
+> ARM64 maintainers (cc'ed Catalin, Will, and Mark), can you guys please
+> take another look? This one was a bit more controversial, but
+> hopefully there is a way to massage it to be acceptable and not
+> introduce unnecessary slowdowns (there were some concerns about memory
+> ordering/visibility, which hopefully don't apply to uprobe cases).
+> It's an important improvement, I'd really appreciate it if we can make
+> progress here, thank you!
+>
+
+Ping. ARM64 folks, can you please take a look and reply? Thank you.
+
+>   - my speculative VMA-to-uprobe lookup series ([7]). This makes entry
+> uprobe scalability scale linearly with the number of CPUs (the
+> ultimate goal of uprobe scalability work).
+>
+> I think it's ready to go in. It has **implicit** dependency on
+> Christian Brauner's recent change for FMODE_BACKING, for which he
+> provided a stable tag. Peter, do you have any remaining concerns or
+> this can be also merged soon?
+
+No changes, still ready to go in. Might need a rebase if Jiri's
+patches are applied.
+
+>
+>   - another patch set of mine, switching uretprobe fast path to SRCU
+> (with timeout) ([8]). This makes return uprobes (uretprobes) linearly
+> scalable in the common case (again, the ultimate scalability goal).
+>
+> I haven't gotten much feedback here, would love to get some objective
+> review here. This is an important counterpart to the speculative
+> VMA-to-uprobe lookup series. Both are needed in practice.
+>
+
+The only thing that has progressed, thank you. I'll apply suggested
+state changes, but I intend to postpone delayed_uprobe_lock rework to
+a separate follow up patch set. Just a heads up.
+
+>   - patch set dropping unnecessary siglock usage in uprobe by Liao
+> Chang ([9]). This one removes yet another lock, for a less common case
+> (at least on x86-64) of single-stepped uprobe (where the probed
+> instruction can't be emulated).
+>
+> This one needs a rebase, but it was already acked by Oleg. Liao,
+> please prioritize the rebase and send v4 ASAP, so this is not lost.
+>
+
+This was rebased and acked by Masami. Seems to be ready to be applied.
+
+>
+> As you can see, lots of stuff needs to be landed and most of it is in
+> good shape already. I'd love to hear thoughts of relevant people
+> called out above, thank you!
+>
+>
+>   [0] https://lore.kernel.org/linux-trace-kernel/20240729134444.GA12293@r=
+edhat.com/
+>   [1] https://lore.kernel.org/linux-trace-kernel/20240929144201.GA9429@re=
+dhat.com/
+>   [2] https://lore.kernel.org/linux-trace-kernel/20240903174603.3554182-1=
+-andrii@kernel.org/
+>   [3] https://lore.kernel.org/linux-trace-kernel/20240909071114.1150053-1=
+-liaochang1@huawei.com/
+>   [4] https://lore.kernel.org/linux-trace-kernel/20240523121149.575616-1-=
+jolsa@kernel.org/
+>   [5] https://lore.kernel.org/bpf/20241015091050.3731669-1-jolsa@kernel.o=
+rg/
+>   [6] https://lore.kernel.org/linux-trace-kernel/20240910060407.1427716-1=
+-liaochang1@huawei.com/
+>   [7] https://lore.kernel.org/linux-trace-kernel/20241010205644.3831427-1=
+-andrii@kernel.org/
+>   [8] https://lore.kernel.org/linux-trace-kernel/20241008002556.2332835-1=
+-andrii@kernel.org/
+>   [9] https://lore.kernel.org/linux-trace-kernel/20240815014629.2685155-1=
+-liaochang1@huawei.com/
+>
+> -- Andrii
 
