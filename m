@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81EFCFA453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DE7CFA459
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IRsyBqkiezxBnssjhK1B67iF/aAHVHcHQNujZZby09I=; b=GLX1RPOL/K5MucVIlCaqBvjZ4T
-	KPvPqg8fC+aj/VNf+r1xOyYsstFe+zUjrBUkUKTom0/FppQmZwtYsgkAGb7+MlOPdDQwUEj0BYCfG
-	kI6CjjRZVgUhqruDJ68xKqMKCX/hPwIDWg3Aui4bxhfLIzOc8X26nQ/ts2u+1vqoON4Adtj//g76T
-	FJONebxRyMfdxu09KY1gb5sZ0HRLLfpQuxKqLGYxv6zIb4LUes9Qw6v+MGVGgSM/yyNmyqHjjo9Z1
-	FbK1RtXEOja7XNthRyY8jXsJqcYBW3ZCT8tqSuj7rSDrzJCq4XlyhQ6xoHPJVStIlp4Z7qsNb3ggy
-	pFUTCqwA==;
+	bh=KsBVoQZ8zap5DslrzzzsVJMIsK4Q16E87oM6AvNUOjA=; b=b6GPNycayxH2NzOG/cXbYSDkkk
+	fyBi1zJeKeEQpUvngKD6cKYFpZQjVX15fU+kRbr7B70sBEj4hAIL5bWpFcYrooe7uEyFvI+vFm3GH
+	sipcgI9Rfv4syHRi1v4wTQKCEpJTLfYwlEu9UuZHM5aKH792k+jr+IntOf52c90B5t/ZTfe/UBxbY
+	t3foD8bh1hSgEW2SZMx2g6ZiVLDu8y7prNGI0SHq1bfvTpU0vhoQk/SFi2naMa7vnXkaIo3U1R5J6
+	IgIsST2TXS0uUmnOYnYwPQlTk67VTZrBmhn5F+E2ycmDbsb+0oac3zOS7qjo+NexGm7+NMhlM5wsP
+	81Fppm5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fEB-0000000FNvU-3nPs;
-	Wed, 23 Oct 2024 17:32:59 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1t3fFf-0000000FO3y-2dWI;
+	Wed, 23 Oct 2024 17:34:31 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eYp-0000000FDGE-2JSy
+	id 1t3eYq-0000000FDGr-18WT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:16 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso70102945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:14 -0700 (PDT)
+	Wed, 23 Oct 2024 16:50:17 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d518f9abcso4769582f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702213; x=1730307013; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729702214; x=1730307014; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IRsyBqkiezxBnssjhK1B67iF/aAHVHcHQNujZZby09I=;
-        b=VJYMh1tiCbkxdLFYTMTB8Df3j2I2GPPXwD4cB5MkHe2vOBIi/4fKMM8OGzA+sOkshu
-         UCfF/lf61hG2aCEWPTPO/Wu/BVps3eV+UlvLyl/5tTDxkRHcNiCHucUuzyr5felJL8wO
-         qA+j1c1uuX05as7DD3gQ15r+Vab/STWX0uYRKFIYtoKktJ3lkVzHptord4H+hojI7/tH
-         w6EUl7DtQtqyJBGtUDC/uDa2zK8DyEU6OKyneZlxgetvxq8ufHlJwpJyuarDCIodACm0
-         DKeCRbB9DH3XiDupxEpONISAgut4TOUPl0Nqx9G8zUs2kIEnAl8EhaTRbk+oy7Mp0SDZ
-         Mz6A==
+        bh=KsBVoQZ8zap5DslrzzzsVJMIsK4Q16E87oM6AvNUOjA=;
+        b=cA6fHvDmon2zxoC0GIoefIfPdjrpHXao8SJLDVEF4RTRIEMhbNlewuhb4a5DClKs90
+         OoWv0KD+PXIuhesqsZbMcrhmJnCENwbW2PVFH05buzAk3zEipWL0bbxUS4u0pOueuTND
+         OPNJim7h50qiofFx/yZXbwTeD+nsFsU5oopW0dWHPiPePi6O4+m+nfmVjDssy0aFXlf+
+         rSXuv6qxA1w0rSQ8vlYmEvyD/urf7eGEome55HcK/0NiVuLFKjWfSKzPlvYz2+zuyBRN
+         2et5FrH5HeyfCsDzwSubTF0g7qtZT4aWBHXsDYUw2PbROupd7qhxeh3dxdCiskLUXCVM
+         RvvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702213; x=1730307013;
+        d=1e100.net; s=20230601; t=1729702214; x=1730307014;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IRsyBqkiezxBnssjhK1B67iF/aAHVHcHQNujZZby09I=;
-        b=Z6Mehc/UIhaUuib4h0zZExlQbx5qs/mg4E7OHlRPl+5DSvo1Gwh9jLNZG4H5/a5dT4
-         ryhln0Scjdv+grjtB4I8IGdhsFA2rKenjb+cBaG40L0qzF1iTxRu32Ct+7EFrFXIkBKH
-         nKPw/Tzw+wmjmatussHazIP2A3HXM+wJbEqSLLpn89XrVVh0TTx7EOqndDidzTdsstDK
-         tVzpXabkwMall8ois/3UCKMJjjv+IfJmY3ZNkIf9fHbxv2KkHZnYqHci1xppRoIckDb/
-         7LQAGed03xjsvk9gwl8g11qwBG32nx71Tpk+t5ZbNo7UHaB9hFjqfDHwU6wWi+5eryO3
-         tbMw==
-X-Forwarded-Encrypted: i=1; AJvYcCVCd+oJtv3bkJUm+JDWOgGIZXYUpsqs+9cjra71ZV9wQlUulhCd6rd5RF3aYYLA6khFmMFJrABFM6bdGxTkh5wb@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywlw4C1y+Udzq9UDcXq69PuKvYRbnue2TdCIhFpTtRiA3Vxn67W
-	E4jZ5oMCGluLBEyoeymU8nPJrcS8uBZD8qtvojtn5zQ4DgsvD9zUSdqMrjpP0U0=
-X-Google-Smtp-Source: AGHT+IGDZgGkDPQj1asKApxHb+1RRVP4pBKwGrn8gf3ud6Z4Zj4ffcb+iWXuf3VXHoFcZCsz0HsC3w==
-X-Received: by 2002:a05:600c:35d3:b0:431:1575:2e83 with SMTP id 5b1f17b1804b1-43184201b28mr30823345e9.10.1729702213156;
-        Wed, 23 Oct 2024 09:50:13 -0700 (PDT)
+        bh=KsBVoQZ8zap5DslrzzzsVJMIsK4Q16E87oM6AvNUOjA=;
+        b=Y1XgitVJwu6s3AzzdDjwxswgtSWLq8aMZre7LujxiUCMZ4syw06yhvSgShUuAmyIQb
+         sZwRn4sAYhXoAowTgxBs1UxjSTQMlkt6rIgs4ARIUSX3HP/YtxpbFoGfnhU/M9BrIKQI
+         WVRYCJsZP3dNM1LeUYonLH5fKFxp22YlHthQKUnNijTK1Ps5Z6qwZlwd73IzMF2Z1GNh
+         uFeRp67c9fy1Py6ncL4LDlnEpKIBLn642Q5+O+CLO2eVS3aV6fqscYlY6RGqQFS1IIUS
+         GehWVS3vdH9ll89XI5fLd8D4wmjnMnqh5yKoo4N27AC63PftjSdg9yA/le/G9zbhMobZ
+         /zjw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTm7u+zCrOzi303iCRQ1XhKHtVGdIkkAaTtjFV04A1cDw5O+4yLgOAhY6E2V4tvVpqoDqi17YSemob3YoMlZ0D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxce0D/UyJHZrSSwW6cbYYcjwh9AytTu2iSt4nYX3xjavvOvOph
+	S68K24rNDNr7GoIEVKj2RHFFqy8nNiYdCXPyAjUyWvfq5cTSsL1LqdJaX2jbVrI=
+X-Google-Smtp-Source: AGHT+IEPMevLaP10jHP2kjP5QjuvQyoeAseVICs2i6vuIJvW5BstXAY25poTAtlyrCUn0K4+h2nj6Q==
+X-Received: by 2002:adf:f6d1:0:b0:37c:cfba:d16b with SMTP id ffacd0b85a97d-37efcf84673mr2298249f8f.44.1729702214024;
+        Wed, 23 Oct 2024 09:50:14 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.12
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:12 -0700 (PDT)
+        Wed, 23 Oct 2024 09:50:13 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:02 +0100
-Subject: [PATCH 05/37] dt-bindings: display: Add BCM2712 HVS bindings
+Date: Wed, 23 Oct 2024 17:50:03 +0100
+Subject: [PATCH 06/37] dt-bindings: display: Add BCM2712 PixelValve
+ bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-5-1cc2d5594907@raspberrypi.com>
+Message-Id: <20241023-drm-vc4-2712-support-v1-6-1cc2d5594907@raspberrypi.com>
 References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -93,8 +94,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095015_644799_A7205F3C 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20241023_095016_348773_F17CD74F 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +112,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-The BCM2712 has a completely different HVS than the previous
-generations, so let's add a new compatible for it.
+The BCM2712 has 3 different pixelvalves that are similar to the ones
+found in the previous generations but with slightly different
+capabilities.
+
+Express that using a new set of compatibles.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml          | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-index 2e8566f47e63..f91c9dce2a44 100644
---- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-+++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-@@ -13,6 +13,7 @@ properties:
-   compatible:
-     enum:
-       - brcm,bcm2711-hvs
-+      - brcm,bcm2712-hvs
-       - brcm,bcm2835-hvs
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
+index 4e1ba03f6477..6b5b1d3fbc0b 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
+@@ -20,6 +20,9 @@ properties:
+       - brcm,bcm2711-pixelvalve2
+       - brcm,bcm2711-pixelvalve3
+       - brcm,bcm2711-pixelvalve4
++      - brcm,bcm2712-pixelvalve0
++      - brcm,bcm2712-pixelvalve1
++      - brcm,bcm2712-pixelvalve2
  
    reg:
-@@ -36,7 +37,9 @@ if:
-   properties:
-     compatible:
-       contains:
--        const: brcm,bcm2711-hvs
-+        enum:
-+          - brcm,bcm2711-hvs
-+          - brcm,bcm2712-hvs
- 
- then:
-   required:
+     maxItems: 1
 
 -- 
 2.34.1
