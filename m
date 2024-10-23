@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B89CDDE5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249F6CDDE5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:Date:Cc:To:From:Subject:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bn+zF09KPNYa3iXtf4zTqB+9MiKB/XGy0KKTzUMaa8M=; b=5ClGW9zqlQALLWvm+SO4WNQAzV
-	QTZoGfmsJVYGMw53m8SzmPY4gO2vXBTzQGH3yHK9vjm9OhsqabrTKNKzuQEsXDmLaziOdb+nCEWd4
-	giuN+7jIl0RF+34PtSfLRsOdPMk1K+o1nNn7gBwtdd/CCCc7dFBu7ueXH+VWQXdeaj5kaVTp9uAjx
-	YupR3aBifrp3ZEEUcMKu/JVwSSp+7HIj2LNBYCeCSRznGfY971V580P5JBc6LRdrujpuMSJEqNx+w
-	cfzeY3OdJ9VAftdKN/hFRI6Ja6o4Nq9e52lHujZdMYRfg9XxNMTUTdbrmEKKbhRyLSep5Y8aqFJMo
-	GozSGPcg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=tsV4mDXWEcA6DLH5KJpY3Kl/VfFbOy479A1uRTvdzKU=; b=NezZLWabOcvZ8R++KtdvjPVBz0
+	slb3vG0mR9+z/wMnrXMx+uESVqyB22Op0X1nfFU4NpUEzzl41tkYlxsEw3n+aE4y2aofxJm7sQR1m
+	tk4vQwtBbUQWe5JUaSFxA8mXY7RhaHkif82npuTPFcoDsv1420SiJViG95wrVV69A8yeTPPWR9l8o
+	t+ExRoABoucWAwBOuTRWtcDvmfIJvQAg1QO3jw5N4Oa/he/rjGvTF4bRyRx6dUJ740EawvL4fo5fK
+	7O3q7XlXmrx+Bek5bTtCf1DUoEGRgP3KBH/WqMDCcEh1mArOfzF5sl7n4xUx4OCUy8uGZ92aNo+ew
+	gnlQYRRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YgG-0000000E0I2-1SGc;
-	Wed, 23 Oct 2024 10:33:32 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1t3Yhj-0000000E0S6-14XI;
+	Wed, 23 Oct 2024 10:35:03 +0000
+Received: from forward102b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d102])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YVp-0000000Dy8z-20Sl
+	id 1t3YVv-0000000Dy9W-1sp6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 10:22:47 +0000
-Message-ID: <3fe8183a-08d3-47d3-b1a1-0d84f7bf58b7@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729678960;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Bn+zF09KPNYa3iXtf4zTqB+9MiKB/XGy0KKTzUMaa8M=;
-	b=POCLNRf+fxsROF6+a4fgY3UQqUVnbn0P73g/39VpVcNVfPXWKpOaFFgJbCJ09td4dWQujb
-	1PdGR2v7QmYvwFOr+jhWtpG/o+n8q38oyakHvAQJUX3J/piYXxeKL2HnIcsVpBCMIzaf53
-	PGo1gPjySqNn8jxyt79IeprT7Vhs5AI=
-Date: Wed, 23 Oct 2024 11:22:36 +0100
+	Wed, 23 Oct 2024 10:22:54 +0000
+Received: from mail-nwsmtp-smtp-production-main-87.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-87.sas.yp-c.yandex.net [IPv6:2a02:6b8:c16:201c:0:640:301d:0])
+	by forward102b.mail.yandex.net (Yandex) with ESMTPS id 097A3608FA;
+	Wed, 23 Oct 2024 13:22:44 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-87.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eMQs7b6EhOs0-jQPVzoFY;
+	Wed, 23 Oct 2024 13:22:42 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail;
+	t=1729678962; bh=tsV4mDXWEcA6DLH5KJpY3Kl/VfFbOy479A1uRTvdzKU=;
+	h=Date:In-Reply-To:Cc:To:From:Subject:Message-ID;
+	b=t7k4LGPoi65xE+z+AyehS9q8r89CXR7Mahn1RgGwF5jkOr2zChOBX6LaMSc69iGGo
+	 c9wFIgt2Jz5KDz7InYlVuOcoIwtZU1PBJCnuMRos50Ek+XKT94BieQ2j2LqjBKOo/b
+	 BUaIjLBQDWdundy9pVqYWKTblnoIwciT/qShI9Dc=
+Authentication-Results: mail-nwsmtp-smtp-production-main-87.sas.yp-c.yandex.net; dkim=pass header.i=@maquefel.me
+Message-ID: <5605e699c215c86440972f7fe3e544816c699c15.camel@maquefel.me>
+Subject: Re: [PATCH] MAINTAINERS: Remove some entries due to various
+ compliance requirements.
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: gregkh@linuxfoundation.org
+Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru, 
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com, 
+ geert@linux-m68k.org, gregkh@linuxfoundation.org,
+ hoan@os.amperecomputing.com,  ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org,  linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org,  linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org,  linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org,  linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org,  manivannan.sadhasivam@linaro.org, Matt Turner
+ <mattst88@gmail.com>,  netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev,  patches@lists.linux.dev,
+ richard.henderson@linaro.org, s.shtylyov@omp.ru,  serjk@netup.ru,
+ shc_work@mail.ru, tsbogend@alpha.franken.de,  v.georgiev@metrotek.ru,
+ wangyuli@uniontech.com, wsa+renesas@sang-engineering.com,  xeb@mail.ru
+Date: Wed, 23 Oct 2024 13:22:45 +0300
+In-Reply-To: <2024101835-tiptop-blip-09ed@gregkh>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.50.2 
 MIME-Version: 1.0
-Subject: Re: [PATCH net] net: ti: iccsg-prueth: Fix 1 PPS sync
-To: Meghana Malladi <m-malladi@ti.com>, vigneshr@ti.com, horms@kernel.org,
- jan.kiszka@siemens.com, diogo.ivo@siemens.com, pabeni@redhat.com,
- kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
- andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-References: <20241023091213.593351-1-m-malladi@ti.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20241023091213.593351-1-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_032246_073408_B270D879 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20241023_032252_329313_EE597D26 
+X-CRM114-Status: UNSURE (   5.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,79 +84,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 10:12, Meghana Malladi wrote:
-> The first PPS latch time needs to be calculated by the driver
-> (in rounded off seconds) and configured as the start time
-> offset for the cycle. After synchronizing two PTP clocks
-> running as master/slave, missing this would cause master
-> and slave to start immediately with some milliseconds
-> drift which causes the PPS signal to never synchronize with
-> the PTP master.
-> 
-> Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
->   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 ++++++++++--
->   drivers/net/ethernet/ti/icssg/icssg_prueth.h | 11 +++++++++++
->   2 files changed, 21 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 0556910938fa..6b2cd7c898d0 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -411,6 +411,8 @@ static int prueth_perout_enable(void *clockops_data,
->   	struct prueth_emac *emac = clockops_data;
->   	u32 reduction_factor = 0, offset = 0;
->   	struct timespec64 ts;
-> +	u64 current_cycle;
-> +	u64 start_offset;
->   	u64 ns_period;
->   
->   	if (!on)
-> @@ -449,8 +451,14 @@ static int prueth_perout_enable(void *clockops_data,
->   	writel(reduction_factor, emac->prueth->shram.va +
->   		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
->   
-> -	writel(0, emac->prueth->shram.va +
-> -		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
-> +	current_cycle = icssg_readq(emac->prueth->shram.va +
-> +				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
-> +
-> +	/* Rounding of current_cycle count to next second */
-> +	start_offset = ((current_cycle / MSEC_PER_SEC) + 1) * MSEC_PER_SEC;
+>>Remove some entries due to various compliance requirements. They can
+come back in the future if sufficient documentation is provided.
 
-This looks more like roundup(current_cycle, MSEC_PER_SEC), let's use it
-instead of open coding.
+Greg,
 
-> +
-> +	icssg_writeq(start_offset, emac->prueth->shram.va +
-> +		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
->   
->   	return 0;
->   }
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 8722bb4a268a..a4af2dbcca31 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -330,6 +330,17 @@ static inline int prueth_emac_slice(struct prueth_emac *emac)
->   extern const struct ethtool_ops icssg_ethtool_ops;
->   extern const struct dev_pm_ops prueth_dev_pm_ops;
->   
-> +static inline u64 icssg_readq(const void __iomem *addr)
-> +{
-> +	return readl(addr) + ((u64)readl(addr + 4) << 32);
-> +}
-> +
-> +static inline void icssg_writeq(u64 val, void __iomem *addr)
-> +{
-> +	writel(lower_32_bits(val), addr);
-> +	writel(upper_32_bits(val), addr + 4);
-> +}
-> +
->   /* Classifier helpers */
->   void icssg_class_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac);
->   void icssg_class_set_host_mac_addr(struct regmap *miig_rt, const u8 *mac);
-> 
-> base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
+Among the all possiblities you had, you've chosen the most disgusting
+and shady way of doing this, with no attempt at least moving them to
+CREDITS - the thing they rightfully deserve for their efforts.
 
+As a person with M entries i deeply disrespect the removal and whe way
+it was done.
 
