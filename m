@@ -4,99 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2772CFA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D12CFA45D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fv/1Z9tzison0vWkaRfplbCiwMhfJrTY+JcjjLZ4bRI=; b=JlqG40agnKs1W5
-	+vhQeimBY4wfCZp+KCNW5JCNP3vfnbM9+wSnfJa1KEuB9reu9yYAiDjGReZWvgBBcfABZwaS59Tto
-	3Rk9OUnvGJFnWqU0MRP9nZkBCgDaeMCrU2Cp0I/A1ts5hCPisNqvvZlbHjQlNcvJ7zpM39vBBKfJn
-	AhDVjWXjn8UKgSdwdKVMhmbFuQLvH5sKLyOwSJGlsXWzE5/9wKionu8nvg1PUim8ed4CHMmOmnF2h
-	i1g1edWsVVuvPiWYjQHWT8aeY9K2jvTMltRcZ50UsLWtZT+BdKPBiUIb9+cAgSq4Pnj22jqcbPh0/
-	0U9Ahm6lUlEQeeYxzH8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pujvPXs5pgN2aquzcwxi3OV+hrb00tG5EO/G+ju0/d8=; b=p6DxQCf5F6FCL3YBPuNnAiVHxV
+	8ZBYOYAq/MHdQRXkg76GIEi+as+gPp9r8x46Rd6JK/RTa0r4yeC+y82L+CTIrSVXpCkFt/YVL+Ved
+	EazorE3LR1MX8sIDcHRuuEfWc/FnGtYcgNyhRI8TcEDTWEilaaKlT3da+eYra6Ci0VKY/pg307wQ2
+	MEQ/h3oM/T6neZ9X8/t7CJJso7QGzLjBi1d3J/RSCkzseih+hk8K+516phg5Pbix4r5CFJi2/ySlU
+	lq3AeYyA8AJdpRPA6P6IXjKXbLSRiGQ7eMuhI9Tqc9PMnk8KQBttPBssTtei37MZc0Zx1xEdpegh/
+	0XOOGsOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3g8K-0000000FXqz-2IEl;
-	Wed, 23 Oct 2024 18:31:00 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1t3g8H-0000000FXpL-0Zam;
+	Wed, 23 Oct 2024 18:30:57 +0000
+Received: from mail-dbaeur03on20601.outbound.protection.outlook.com ([2a01:111:f403:260d::601] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eYk-0000000FDE2-3tMe
+	id 1t3dOk-0000000EytF-01rh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:12 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so51296145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702208; x=1730307008; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fv/1Z9tzison0vWkaRfplbCiwMhfJrTY+JcjjLZ4bRI=;
-        b=ZXhERgwW5ZF4z8gT3FeJBJSlVibXil6mNgBaVH2/Hp0FOw9BmypH+uID+Y3LrYWybY
-         1zWgCjIkRoB2f7eV662kbpJPjzTXXLkEwqgtxzp/HUnuh41azedRbUpJsGKPNy74iAvt
-         g0V3uon7Vv3bIY1hleOrkXBroMc6FuBORgCbpR+2ugq8zT2Esas4toTCOSS5HUOGjdob
-         iSrR4EFmIqV1d8ZuzzHF5NiUrQrJSB9YI9sQCDDaXWp6s1Gwdh1sTvkttPTl1Fn2qFBr
-         hov0xOQwfNNYOWuAsVKuqKQeqbkwOyJK2JsDxjOKZcnCAEAR4/7xxWppnbdPsnp5YSkT
-         RGiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702208; x=1730307008;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fv/1Z9tzison0vWkaRfplbCiwMhfJrTY+JcjjLZ4bRI=;
-        b=ZFWVbq9pUVNCaTlgpfoqOMhaGZWKXzBPYoiMHgILXaU9BTpCkdUQ6TdFtAtzRZV2Df
-         7DCjxKg+dyM/89S4lNelFXG3RUjbWLr73BFappCY+c/MgCYOVyRB/56euIT3RvAbYSR7
-         R601BQEynQWoDqrkXMl8fyPcSU7hRkIrUCacoYcOQ2ZntLoyN8UxOo3KmWDyTVkz5F31
-         cC/D+qx3Eo2yTPWpAeCGBgn5PDsOLcEHDSwhOJHmntgq3g5NnVIf8TNLlS2bnRGkjdsY
-         CPotfrwkUUAWfw3XZd46zYFKKZztUTSe8nROkHopaafKoX7/9Fblp50+cwHzzNg5uLeH
-         495Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXlr9Ac3XBEg5T4pC+Yfm5YXmK4Rl+kQ8NuaPJeEucj9UNdbJh2QfOfWEQEfgChMTa3ucIO6LSAm8IZqiTOEm25@lists.infradead.org
-X-Gm-Message-State: AOJu0YziZon8zTZrhYNFYvcJ/lyFI02gkihXfWbh2Vx/opmg0HxojVi/
-	YMtGt7JrFT0fCOL1wOAMNW1fqEDVDwFNhc4WKZJTUKADRNMDibqQTVWpIOSIPJo=
-X-Google-Smtp-Source: AGHT+IFEi6issFTDuLur88QJO6Dp39hCaYAaxys3/Dw/x3s1p+bY6a0qlFbuGvX7ja9zZJDtSqTNRQ==
-X-Received: by 2002:a05:600c:1d99:b0:431:5f1c:8359 with SMTP id 5b1f17b1804b1-4318415f41fmr26199455e9.15.1729702208135;
-        Wed, 23 Oct 2024 09:50:08 -0700 (PDT)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:07 -0700 (PDT)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: [PATCH 00/37] drm/vc4: Add support for BCM2712 / Pi5 display
- hardware
-Date: Wed, 23 Oct 2024 17:49:57 +0100
-Message-Id: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+	Wed, 23 Oct 2024 15:35:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WinBda6CenmlGhATnY6kgOHp4gLhiZDSfo74N2rtjVLGNKauSWOClUuA5FFeBOZhPNPWp8CwBCGwhPgPtHGNbtJnm/B42HAhAMNRgfQV4MG2v7DVfi4eSS2J6vMC3xDcHbF/oZk0jpiWhnAGENRxbL0YAUR1S9ASQscLQ3+8m+x/0Qc6P8U7/8hnbSPJzfwnhftdnMEamfrSIWoaLbIVM5AXb0cSE8B1kK5//Q1QJSg9hph3wlYENdPIEo+43fjt9kToLFHIGqSpIu2Oqw7GlIfaEemkYSY8tWbGnToBkEkmqNlqR5Myb61AaAtQ+GLjLAxOpsNzZ4KpB2Ah4xmtpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pujvPXs5pgN2aquzcwxi3OV+hrb00tG5EO/G+ju0/d8=;
+ b=NGjhlO2jdDJdTob9t7chz78DeXQaU0Eo6OM5ckmXa7mf4KP3L2yB01mn4th4jk1R5GXfNbTK+zK+trZJw6Nu54xVcrh48tnG0Aexzhoh1iHPKUPOsWA424Oi11wKZcdWaJIbZ0cMq/BOYYEgw72IqXQHC8B+HlsZFZ3gL3ya7bpf6erdFJgY7Pzry/hPPeljuBRMI6p4oN8azFY39Nc7+R/RXFS/2e3ATyJPOYU8Hf09x0PEEFkVE5OvifCEmqt7+9PIiFkftVPnq6ZU6i1LtzzF+j4dCjqj0G2ztrfpdyS9spQXf+O0HBBmHXrWmNy+VCtszGWn9YOeIC8nc7sE0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pujvPXs5pgN2aquzcwxi3OV+hrb00tG5EO/G+ju0/d8=;
+ b=m70i6GN+YlKsT4LLwguqBqL/WeiFgHMh3vcq/7zlVmoCvwItwXxoaCmMzeR+2iJdcGfWqT2LuNGPW8k7aQUOsdp+I/K6Aw1ENeZcKJeHRvAVGFykLZImoFWzMqVlE4/+dmY7NrpH+nVQ+VRiA0DIbHO74KqW89pOjGbDAcDA+iph++IEkagGallbbTYcFhiUR1oXJEp5h4I4ur/V51b10ML5U1n9zXj9NN+dXeAevse6Gspf8Ha+HtmQiMFCXpNOso7SWUjdkpDgODu5+OIejrCdJKW8s6sVaJ6l/Z1QvYisX50JiQg9NLrSesSnKbXxUw6lxJkgbQrGZ4uYJWsaAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB10651.eurprd04.prod.outlook.com (2603:10a6:102:483::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16; Wed, 23 Oct
+ 2024 15:35:37 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Wed, 23 Oct 2024
+ 15:35:37 +0000
+Date: Wed, 23 Oct 2024 11:35:29 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Erik Schumacher <erik.schumacher@iris-sensing.com>
+Cc: "ukleinek@kernel.org" <ukleinek@kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH] pwm: imx-tpm: Use correct MODULO value for EPWM mode
+Message-ID: <ZxkXwTXwfkC9W5C3@lizhi-Precision-Tower-5810>
+References: <349a25ddce02d55cf5a321f27133cae1f34f1962.camel@iris-sensing.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <349a25ddce02d55cf5a321f27133cae1f34f1962.camel@iris-sensing.com>
+X-ClientProxiedBy: BYAPR01CA0004.prod.exchangelabs.com (2603:10b6:a02:80::17)
+ To PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADUpGWcC/x3MQQqEMAxA0atI1gbaVJTxKuKitFGzGC2pFkG8+
- 5RZvsX/D2RW4Qxj84BykSzHXmHbBsLm95VRYjWQoc4aQxj1iyV0SIMlzFdKh5748dGR69kFv0B
- Nk/Ii9387ze/7A33lS+JmAAAA
-To: Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Javier Martinez Canillas <javierm@redhat.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Dom Cobley <popcornmix@gmail.com>
-X-Mailer: b4 0.14.1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10651:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5313d03f-f111-4cdb-671e-08dcf37857d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1kj9ueDeiNh1NPtcPLwNC5dIg1wFY5P9uPaWuQGQLA/UDhgPuEbkCcbh+CON?=
+ =?us-ascii?Q?OPd//YL6QVFvDybOE9oO1BA7FNhd9Y5FMpmkkrvyqe9hWu31YIn6d2KwNPTr?=
+ =?us-ascii?Q?bTqvkMN6PlrWXu9UHugSZ/PlNrTm/oKTKkcZDa1QGQB+JOM9bekKlVBO/fBg?=
+ =?us-ascii?Q?AJrHPwhd/5Knv0sj5UusoEoShKIfZVLRkRLTpgTersbynA0ot4rHv5xZM/3U?=
+ =?us-ascii?Q?3dwJVMwV28cw6O9FRrsjLzBNCc9dbq2DzfYc1zmnx904omBl1Zh8BpiUOHET?=
+ =?us-ascii?Q?dqsz8lzsd7T1B2mNWZlMMUwwuQvyWIHGIoSwwSOfDfxnLScfCYhzdVsfQvPO?=
+ =?us-ascii?Q?jZT3kIKZUy40446FXRo+idRktNpKCBFT7+wGriEDd7+nP6/y5hbxPfuBY22l?=
+ =?us-ascii?Q?noskT2hZ1frhsVQIc1CB22inwxnm//OV0dtnwyOeuXwcGxNi7eNgpkW2CONT?=
+ =?us-ascii?Q?iX4XJK6vdnY72FknjWvDyrXyz8oTXu9D//aBPxqeWklfCx1wfv4Uj7b2eM+V?=
+ =?us-ascii?Q?rtX/oFDi3PUpkCMb1ovsb9zoC7ygavjMkA9PrMTPZqjHaZ8mvfqkHVJ5jidW?=
+ =?us-ascii?Q?DYygtpOYppD9SrZUb2VDeehd6mHEqo3j/SmITga0JXQF+gbdiXs3AGvjBBh/?=
+ =?us-ascii?Q?IywLzs8mUjosXdtqNgWZniWkee4I+FGcebJLuqZ0XfJGIf2bqr7UT4QAQv03?=
+ =?us-ascii?Q?FFYpsv9bK88pdRQ+Fmoj90JxSNV2DhQscUNgSRDInjXTcyUNQ2zB0XZW4OKE?=
+ =?us-ascii?Q?Mcr0PeH2ixu6otXos05qQkrECKcNjoN/Jz855IAcB6v654BkmCNAxgLJYzlt?=
+ =?us-ascii?Q?CpJh+um6RYcwloymI4T34RWoZMv5MjL0+vpQ6sWtnG31roNNcNbWLftVYWER?=
+ =?us-ascii?Q?0f//Bc2Iv5ItwYv6+2/UIQ3RdTTUdJIYNPMdUOi2t/NX0hvgDoljjxNVcZ61?=
+ =?us-ascii?Q?M4GQ1EKUg4EzLHDsriu91FRyg47x8NQFJTJ2dBcUv3bTW3OedRqKGMId9ecP?=
+ =?us-ascii?Q?02XsvS0LFK9G2xcbuCcvVpy3FHTMRjhF68HJYVHIr53sP4gSdFbctB76UUXu?=
+ =?us-ascii?Q?wJrhBqkVWG96uK5Ht9Fdyzf66S9ec1NFvr34voAebJOgHB4Zq+pHaR/M2yDU?=
+ =?us-ascii?Q?vM2wCdLqqAtJv+gX42sVgER6DouAuf14r9TnNI/zWJ2ntMlYpSskb5TvCc6c?=
+ =?us-ascii?Q?JIQxiHwFvNy9uI9lqVcCoHAAvvOFU265QAb+U8C6OU6QWGqrY/fXDClvrWw9?=
+ =?us-ascii?Q?KQ+Kj2rS0ySmxySLlFSreKOSFncD00pCfWFvqDUFLFD20XkEHfJpj5qTjGO2?=
+ =?us-ascii?Q?t+WNP7gB2Yqb56La8FhlYQVF/Ya7WjuQu+vXejkbQtMlt6vK4EKT7/y9go/1?=
+ =?us-ascii?Q?n3HOCJM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?J88/I2PVuUsGGU2TKWHaVaBIymucakITxk7LgGTdCR4nD2k9uXrxXhDNuWaW?=
+ =?us-ascii?Q?5Zb10fKd/MQuOhBXS1mmd2Wev5tyIeYFItsSOw6g3Zlj8nz1JVpiuIhdtqNp?=
+ =?us-ascii?Q?+ahoxXJuPcw6jLSqZQyS3I7kd0cq81sOFD4Mcm+bqgegnOynCpCeY5lemIdl?=
+ =?us-ascii?Q?B/CbUxvOV+bm3DG1WaeCV8irSVGbIiFiYflood9PXtBF46GB9izWb948MQju?=
+ =?us-ascii?Q?p69dS3qyHXgTCmA4OnpDanp0eCwogC9weoseHGjTohikD+taeXEQnwGFLfSI?=
+ =?us-ascii?Q?CFW5M3Vy8qH8WMwssnoX5Ny6WSa78GgIMke0++1iRFu3TVw6rocbSMUvZLhG?=
+ =?us-ascii?Q?U6mwO6saxKG3DW5RrjaYYozBPtpj+7Hd26omd/0qB1unUXH1eky4Zn8rKjcE?=
+ =?us-ascii?Q?ijCigeYvS7LnodAcImgPntFRxh5hefC5sRDerFlE1EimidiC+xkrFtA3gwGo?=
+ =?us-ascii?Q?NDXZkO6Vq7SZhdmf+e+FqhwPHvuALjZ4iTF5ygvMwIISjhGaGDzdSOk/hSJ3?=
+ =?us-ascii?Q?F2782GuQ9UDqi2gqQot7/XJ6GjmOK6EBRbDOvdPEulwYbnCdJR3j+5/rcmZa?=
+ =?us-ascii?Q?Fg+43DZkAXx7HBnb+ZZOMWGW2GB7pwaNAyD1eQlyZ/sBmpALjYV5K8xFKaGa?=
+ =?us-ascii?Q?2Ph0h0+d8Qm9GQljSCXLp9Cql9WPMQSEttBiVbShpyGKVrEM+2/ShfMRpKOs?=
+ =?us-ascii?Q?ZTyuysTKLhGV/c8NuWjveo9QAB4b5pWewnYUDGupLlFkiWnFK5hb7CvO1+hp?=
+ =?us-ascii?Q?lFSrfk5REPHYGxS8WDEjCruTO6sYHDO8IY3uNGjkENeQ+wDe0bwTc+C9r3E6?=
+ =?us-ascii?Q?IixeNjjuoBk+PXXkE1846949SqXI7vB5rx86QXegCaa11+HEaGaPLW0owj5i?=
+ =?us-ascii?Q?uod5kfupPoYALASexOVIGKwdLAZCABrqEMvE/am0/1mfej+VhPuux/ceFNTI?=
+ =?us-ascii?Q?2QycE1jlZ9ShIVPWR7lQGknvsnz7/3s8ZoJ8aAGw0fRtLxBOIfw8FySPhi0T?=
+ =?us-ascii?Q?Fd4jk74c4hIn5RyBllFZQu2qw5UhBtJmRVJhfxPdHpVI+9avn8wldR9RYrno?=
+ =?us-ascii?Q?WevG0Am45+H4BwTGuRgosPuiXUSZ7U3ZH0QBFno2X4LBrlHkwZw3IaGrdWvQ?=
+ =?us-ascii?Q?4CCoVb+e9oJbQ5SPvsc0N9E5RH9gzy5uSiCGgci5ARysvICCQ5WmgyDNJPm0?=
+ =?us-ascii?Q?P8I6G19TDWsl0KkH6zOtBAbuMFaZBBGkphx0tIMP7+C4BPfXNebNQZ2O64mH?=
+ =?us-ascii?Q?EMhi3uS+ifTcOGnj9m9FupzOJLT41qoOiQ8InPuU8w+KJaNiLPikQls9AXlZ?=
+ =?us-ascii?Q?hTKsxWkWHfxXC5uqV7PKBgRg3D4fyEAuaHBZLo7Zwq1XF830a04djBps04MH?=
+ =?us-ascii?Q?PA7V+FLXZdJImDXFvCc+dAToF+y/U19M/l8ZC2QZcdsJo/Jpe/mS4l3xw4x8?=
+ =?us-ascii?Q?Vrq6e/3v4SNIPGwVDDe1r7m3BFHXPl2SzZikZiccPNe0HMJ0p6Fz0G6su41g?=
+ =?us-ascii?Q?zjyfe4w+vIZ6XPIkxUpmw/1vusCNMMEyCis50eIIYBI31LUhngtAd2ItkJHp?=
+ =?us-ascii?Q?Z8kOJq4iCSCT017XzAsFPHa6I53MWJ+1/8n7tMYd?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5313d03f-f111-4cdb-671e-08dcf37857d6
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 15:35:37.6960
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bLQWyMDhJPzWoqVR109ZQx4IKYxRi+aftliAmXf3cPlyEiqbcIG40S6bZOp42RMcdX6KMu57Qa71y88hQlnLiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10651
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095011_104072_F9058BE8 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20241023_083546_080098_FA04CCC7 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,104 +160,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the required DRM, clock, and DT changes
-required to support the display hardware on Pi5.
-There are a couple of minor fixes first before the main patches.
+On Wed, Oct 23, 2024 at 12:33:53PM +0000, Erik Schumacher wrote:
+> The modulo register defines the period of the edge-aligned PWM mode
+> (which is the only mode implemented). The reference manual states:
+> "The EPWM period is determined by (MOD + 0001h) ..." So the value that
+> is written to the MOD register must therefore be one less than the
+> calculated period length.
+> A correct MODULO value is particularly relevant if the PWM has to output
+> a high frequency due to a low period value.
+>
+This is bug fix,  add fix tag and cc stable
 
-Many of the patches were authored by Maxime whilst working
-for us, however there have been a number of fixes squashed
-into his original patches as issues have been found. I also
-reworked the way UBM allocations are done to avoid double
-buffering of the handles as they are quite a limited resource.
+Frank
 
-There are 2 variants of the IP. Most Pi5's released to date
-have used the C1 step of the SoC, whilst the 2GB Pi5 released
-in August is using the D0 step, as will other boards in future.
-
-Due to various reasons the register map got reworked between
-the steps, so there is extra code to handle the differences.
-Which step is in use is read out of the hardware, so they
-share a compatible string.
-
-Thanks!
-
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
-Dave Stevenson (12):
-      drm/vc4: Limit max_bpc to 8 on Pi0-3
-      drm/vc4: Use of_device_get_match_data to set generation
-      drm/vc4: Fix reading of frame count on GEN5 / Pi4
-      drm/vc4: drv: Add support for 2712 D-step
-      drm/vc4: hvs: Add in support for 2712 D-step.
-      drm/vc4: plane: Add support for 2712 D-step.
-      drm/vc4: hdmi: Support 2712 D-step register map
-      drm/vc4: Enable bg_fill if there are no planes enabled
-      drm/vc4: Drop planes that are completely off-screen or 0 crtc size
-      arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
-      arm64: dts: broadcom: Add display pipeline support to BCM2712
-      arm64: dts: broadcom: Add DT for D-step version of BCM2712
-
-Dom Cobley (3):
-      clk: bcm: rpi: Add ISP to exported clocks
-      clk: bcm: rpi: Allow cpufreq driver to also adjust gpu clocks
-      clk: bcm: rpi: Enable minimize for all firmware clocks
-
-Maxime Ripard (22):
-      dt-bindings: display: Add BCM2712 HDMI bindings
-      dt-bindings: display: Add BCM2712 HVS bindings
-      dt-bindings: display: Add BCM2712 PixelValve bindings
-      dt-bindings: display: Add BCM2712 MOP bindings
-      dt-bindings: display: Add BCM2712 MOPLET bindings
-      dt-bindings: display: Add BCM2712 KMS driver bindings
-      drm/vc4: drv: Support BCM2712
-      drm/vc4: hvs: Add support for BCM2712 HVS
-      drm/vc4: crtc: Add support for BCM2712 PixelValves
-      drm/vc4: hdmi: Add support for BCM2712 HDMI controllers
-      drm/vc4: txp: Introduce structure to deal with revision differences
-      drm/vc4: txp: Rename TXP data structure
-      drm/vc4: txp: Add byte enable toggle bit
-      drm/vc4: txp: Add horizontal and vertical size offset toggle bit
-      drm/vc4: txp: Handle 40-bits DMA Addresses
-      drm/vc4: txp: Move the encoder type in the variant structure
-      drm/vc4: txp: Add a new TXP encoder type
-      drm/vc4: txp: Add support for BCM2712 MOP
-      drm/vc4: txp: Add BCM2712 MOPLET support
-      drm/vc4: Add additional warn_on for incorrect revisions
-      clk: bcm: rpi: Create helper to retrieve private data
-      clk: bcm: rpi: Add disp clock
-
- .../bindings/display/brcm,bcm2711-hdmi.yaml        |   2 +
- .../bindings/display/brcm,bcm2835-hvs.yaml         |   5 +-
- .../bindings/display/brcm,bcm2835-pixelvalve0.yaml |   3 +
- .../bindings/display/brcm,bcm2835-txp.yaml         |   5 +-
- .../bindings/display/brcm,bcm2835-vc4.yaml         |   1 +
- arch/arm64/boot/dts/broadcom/Makefile              |   1 +
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  37 +
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  42 +
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 188 +++++
- drivers/clk/bcm/clk-raspberrypi.c                  |  34 +-
- drivers/gpu/drm/vc4/tests/vc4_mock.c               |   8 +-
- drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c     | 106 +--
- drivers/gpu/drm/vc4/vc4_crtc.c                     |  96 ++-
- drivers/gpu/drm/vc4/vc4_drv.c                      |  19 +-
- drivers/gpu/drm/vc4/vc4_drv.h                      |  54 +-
- drivers/gpu/drm/vc4/vc4_hdmi.c                     | 112 ++-
- drivers/gpu/drm/vc4/vc4_hdmi.h                     |   4 +
- drivers/gpu/drm/vc4/vc4_hdmi_phy.c                 | 640 +++++++++++++++
- drivers/gpu/drm/vc4/vc4_hdmi_regs.h                | 217 ++++++
- drivers/gpu/drm/vc4/vc4_hvs.c                      | 737 ++++++++++++++++--
- drivers/gpu/drm/vc4/vc4_kms.c                      | 102 ++-
- drivers/gpu/drm/vc4/vc4_plane.c                    | 866 ++++++++++++++++++++-
- drivers/gpu/drm/vc4/vc4_regs.h                     | 297 +++++++
- drivers/gpu/drm/vc4/vc4_txp.c                      |  91 ++-
- include/soc/bcm2835/raspberrypi-firmware.h         |   1 +
- 25 files changed, 3464 insertions(+), 204 deletions(-)
----
-base-commit: 91e21479c81dd4e9e22a78d7446f92f6b96a7284
-change-id: 20241002-drm-vc4-2712-support-9ad3236e3caf
-
-Best regards,
--- 
-Dave Stevenson <dave.stevenson@raspberrypi.com>
-
+> Signed-off-by: Erik Schumacher <erik.schumacher@iris-sensing.com>
+> ---
+>  drivers/pwm/pwm-imx-tpm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
+> index 96ea343856f0..a05b66ffe208 100644
+> --- a/drivers/pwm/pwm-imx-tpm.c
+> +++ b/drivers/pwm/pwm-imx-tpm.c
+> @@ -106,7 +106,7 @@ static int pwm_imx_tpm_round_state(struct pwm_chip *chip,
+>  	p->prescale = prescale;
+>
+>  	period_count = (clock_unit + ((1 << prescale) >> 1)) >> prescale;
+> -	p->mod = period_count;
+> +	p->mod = period_count - 1;
+>
+>  	/* calculate real period HW can support */
+>  	tmp = (u64)period_count << prescale;
+> --
+> 2.47.0
+>
 
