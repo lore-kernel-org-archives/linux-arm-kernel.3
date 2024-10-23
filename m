@@ -4,124 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823BBCFA460
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDE8CFA45F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpQPJd4FmJ84tz4XJt8Eke/grH6KT6GO7DB6hhqQ4ps=; b=iTATOdiLM5nTLbgKt3gxl8Qpk2
-	juJSjZWapppg/Zx18MoZIJ7pBh8Wmo+ehFNOlSrn7LPMPjFEVYN9I7iPU6exVHfySBO+NqLRfY032
-	3cT+Q/KvVouPwJA/Vra7/MHKj8Uolxo1Ciz0+LKw1IIHHqootD8aX5UHIrD+EQOqWU3LEvx3VTMwa
-	uiGSVEr92DU7bThaqsJu8CXHQwLnsz/POHwWM2H+vWcVQE/3V86jCKggameNHSa2uWZPQZDxs7qar
-	B6nBeHw9sWT7OZPtfFNcpp8RsvwVzSMLPQMJa7I2Y+QrQr8yPqUkFCikOYL7XT4SvfC7fsRJKtvQS
-	GbwIMccQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FLwni55Q0o3LkpPoGPWHU+nZClL0F1PcEd+W91uMukA=; b=oQaXbj3P5qf55FsKYTe5EAxllg
+	5tlzkSZK+TJVViG+VqFelb+sqFuGybrQ7a+2LiTmRcx0o0vGOiYzAZsAI2QA6woeBilVbELGPeSQ5
+	BND2M8eQ15+EVRi1cRDQYUkif/yN1eEjiu/phPU01zwIz3Ymr371xsMuqZ2pZLNoCJcCnWA2ODygn
+	FB3Uxg3JwrCmFup1rlscq0Mkm3Oz2mWCP9umxCy+bdZWwJNp8cJBjQS5/97SIKho/TTr8tyUn9dph
+	NcKpwU3Jnqq37qo2wjoqlM7Bj2IKqlic5gRNAOQlPLJr+2EFJeQyraei9OzTjPwpswDbZYnQ0GX45
+	7nRncP/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gwA-0000000Feu2-3nm1;
-	Wed, 23 Oct 2024 19:22:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3gwD-0000000FevP-0inG;
+	Wed, 23 Oct 2024 19:22:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fUN-0000000FQmS-11Uo
+	id 1t3fYO-0000000FRbT-1gH5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 17:53:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FLwni55Q0o3LkpPoGPWHU+nZClL0F1PcEd+W91uMukA=; b=m6ULLC/DeQhP6vfxZN+FFf99EJ
+	cwjZdGSrDT84mlHueSAWRgI7KAndiJYBU0zyQZaOhXIGXdVs+PEXuqwAYHj/i8kbDEaidY4XBgxVd
+	2L5SAzyiTZBeNUcP82Oik/j2OWInQ4PyPDtiHr1cRwBAONnjG0Valv6PD9I3J+/vCS+sk15rQfW8w
+	tyev81VWV4MNNsJ1ZbhwtwWalnFUo/VxF+x7+aA4jPwr8SD4wtYxA4lj9X5HqQuwwe9Y2lq5n/QEy
+	Q+mRernGFgK62l3zUHFKxrpErUedozmOqyn0V5Mhqtyhtz8QHH1n9XWyXdCrcOODfjA05bggzNoWR
+	gckAdm5Q==;
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3fYL-00000008Vt9-0WWr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 17:49:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0E63D5C5C34;
-	Wed, 23 Oct 2024 17:49:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F927C4CEC6;
-	Wed, 23 Oct 2024 17:49:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729705782;
-	bh=Y9TCwZlSJtdxla0/yzCRKiEB7fpt1K0qsHjdub3FmmI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PmaUHOyjsIF/s2la1gyF32OheLEFYO2AI4QhNAUdsnfJrj49zonUU4cw6ibqLFGP5
-	 BK2sMy2qBRhymGxX8A+qajT7n8bfs4XgPN+GP9qcq7pzt+dnPbn4r81WGWuliUXoSo
-	 sR47EOws80W1N1+icMf6x2b1H9Hj9f6nvc5ReYmk94otaSJDMLyg8sPsVRoUag3kyh
-	 hLRT0cQpCjGyeOYDAw1DQNJfqx24+0/Azn+Pv1fS0mCyhsxz1NiED1uVgiRKOU9T3A
-	 fVtbWSb3fqxIsHcvnIcsUGRKPEeGmGHI8TUsrMxSOftwDKuLnaAp428dQ4kz588HVF
-	 m46JExIV5UVxg==
-Message-ID: <fdb76466-3258-4c71-bca3-50fd3cc94a0e@kernel.org>
-Date: Wed, 23 Oct 2024 19:49:34 +0200
+	Wed, 23 Oct 2024 17:53:51 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso30866e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 10:53:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1729706024; x=1730310824; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FLwni55Q0o3LkpPoGPWHU+nZClL0F1PcEd+W91uMukA=;
+        b=GJj03yQeQpIqb8BS1Ld1XjZp+PLq8fuN50Gs52Jbf3hebIix0kPAWd6AXjwIK3DeiL
+         yJXYpHBnB9J+/SzOKvhTOwv6iCHI17bfomO7ubbSEzJV/L8fPRafFXGOgu45nu8CWJxH
+         cKbNCqWMQA1aMTxJWq2OHQ5WEokow87WrzFKc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729706024; x=1730310824;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FLwni55Q0o3LkpPoGPWHU+nZClL0F1PcEd+W91uMukA=;
+        b=oY/b5XsSXPXe4S0jDG2eqkHzMymDFxNebmT5vxlzyEVldQSBY9VsPRPbVrQs946C5g
+         m8X4J6RvOBQvC4Cg38ADNL9nPhj3lQrJIaIBtDcY1s8xF+K3LupocjSRa3x3SaMG4OWU
+         bfGPGz2IruQA9EZwGXvFm52Ine5mVBxuR3gGn24eN82uNBwl6ETN3u54cH0b7sJNXOLQ
+         c4ceiNzfb+LtqDhlt+i6vwoW6xOw9gKKzqeHWbM5wCEtRoyYRhMfzrhbvMSIOnq23KWa
+         gO/I0V6EQwJio12Yv0f0oK7jr7jYk1ScdoZjPzckuO6OZWcO+ab6cgnH0SW5KjLo9Qxr
+         GEOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVXNEQOiaV0CGs4/x68IEg333FWekxH6Xa9VCvC2c5xNFEOTQtxjP0SRzv+F/3kM2pe48F1Uz6VkpAu5V1t0zGw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkvftKPYIeE8BY57cPxPtDwftlrsBbt1JJQoddHqHZ9fXiFRXP
+	o2Low8uzf+HqtO5LrE+Q9dt0R38zuzLHucnQPcbSvicAdxd2+ColXrD240qIVCJEcPj+2Xt8ki0
+	3XEEjEg==
+X-Google-Smtp-Source: AGHT+IGlWPFXFdGLBMt6vrAwWGkJmCfOmVAhMCcQp0CUBjJQwLOOfdBmKBX0DsKeiPAArIZEUIjQrg==
+X-Received: by 2002:a05:6512:118a:b0:539:d428:fbd1 with SMTP id 2adb3069b0e04-53b1a375b3fmr1918659e87.55.1729706024240;
+        Wed, 23 Oct 2024 10:53:44 -0700 (PDT)
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com. [209.85.208.171])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53a224403fcsm1121377e87.280.2024.10.23.10.53.42
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 10:53:43 -0700 (PDT)
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-2fb3da341c9so67611fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 10:53:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWmDlblqymRBKr+fZ9YVZBqiAhtBVheTi7Io3DQrR2esIxbZXoJWLGHjkT7t4mS9zIMD910axKKmX7fWsb5cknT@lists.infradead.org
+X-Received: by 2002:a17:907:94c3:b0:a9a:8042:bbb8 with SMTP id
+ a640c23a62f3a-a9abf94d4b2mr369489566b.47.1729705563762; Wed, 23 Oct 2024
+ 10:46:03 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m-anatop: support spread
- spectrum clocking
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20240928083804.1073942-1-dario.binacchi@amarulasolutions.com>
- <20240928083804.1073942-2-dario.binacchi@amarulasolutions.com>
- <566859c1-a397-4465-987e-0682b07a703e@kernel.org>
- <CABGWkvqqg-PGAZTCz=MMLRx5F93jaN_=z8zJt1sDd3PHXd80PQ@mail.gmail.com>
- <6c3e6071-822f-4230-b76b-276330de07ef@kernel.org>
- <CABGWkvrU507BHoP94Y7fEyFr=chuuy3o=oBHtuWRvwTw3GnxXw@mail.gmail.com>
- <82db5037-bbd3-4005-bde9-02df1bf4c475@kernel.org>
- <CABGWkvqXZ+YAvo-AtUy+Ftdu0xxXKuhOwcSTwO5Fv6D3yzttNg@mail.gmail.com>
- <b847ccb1-1eb8-4119-8612-212804cb50d8@kernel.org>
- <CABGWkvqkmo9O-O1taR651W4xo=yqar=p71e0LKqRte2CGZ2Z8w@mail.gmail.com>
- <7bce31c0-8c74-4d65-812f-01951a0d75d1@kernel.org>
- <CABGWkvqFi_y8OzKbi=K7ucW4RuY_zh6Z4a=uO2oqQRoVE8LaCQ@mail.gmail.com>
- <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io> <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+In-Reply-To: <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 23 Oct 2024 10:45:47 -0700
+X-Gmail-Original-Message-ID: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+Message-ID: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Tor Vic <torvic9@mailbox.org>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io, gregkh@linuxfoundation.org, 
+	wangyuli@uniontech.com, aospan@netup.ru, conor.dooley@microchip.com, 
+	ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org, dushistov@mail.ru, 
+	fancer.lancer@gmail.com, geert@linux-m68k.org, hoan@os.amperecomputing.com, 
+	ink@jurassic.park.msu.ru, linux-alpha@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+	linux-ide@vger.kernel.org, linux-iio@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-spi@vger.kernel.org, 
+	manivannan.sadhasivam@linaro.org, mattst88@gmail.com, netdev@vger.kernel.org, 
+	nikita@trvn.ru, ntb@lists.linux.dev, patches@lists.linux.dev, 
+	richard.henderson@linaro.org, s.shtylyov@omp.ru, serjk@netup.ru, 
+	shc_work@mail.ru, tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, 
+	wsa+renesas@sang-engineering.com, xeb@mail.ru
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_104943_404049_37FE6781 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20241023_185349_345321_8876B3A6 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,42 +127,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 16:58, Dario Binacchi wrote:
->>>>
->>>> This is another commit [1] on enabling spread spectrum that I
->>>> implemented some time ago for
->>>> the am335x. The most evident difference is that in that case the node
->>>> was a clock node and not
->>>> a clock controller, as in the case of anatop. The parameters are also
->>>> not exactly the same, but
->>>> that depends on the platform.
->>>>
->>>> [1] 4a8bc2644ef0cbf8e ("dt-bindings: ti: dpll: add spread spectrum support")
->>>
->>>
->>> OK, I still do not know what "0" was, but the items are fixed, so you
->>> know exactly which clock you are configuring here.
->>
->> So, after delving deeper into the topic, is it now acceptable to use
->> the property
->> "fsl,ssc-clocks" instead of "clocks"?  As in the patch I applied locally?
-> 
-> A gentle ping.
-> Sorry, but I haven't yet received your response to the previous email,
-> and I'm not sure how to proceed.
-> 
+Ok, lots of Russian trolls out and about.
 
-Yeah, the property is fine, but I don't think you need the clock index.
-The lists - like clocks and your spread property - have strictly defined
-items, so it is enough if schema lists items and says which spread
-points to which clock.
+It's entirely clear why the change was done, it's not getting
+reverted, and using multiple random anonymous accounts to try to
+"grass root" it by Russian troll factories isn't going to change
+anything.
 
+And FYI for the actual innocent bystanders who aren't troll farm
+accounts - the "various compliance requirements" are not just a US
+thing.
 
-P.S. I think you might pinged me on IRC, but you know,
-https://nohello.net/en/
+If you haven't heard of Russian sanctions yet, you should try to read
+the news some day.  And by "news", I don't mean Russian
+state-sponsored spam.
 
+As to sending me a revert patch - please use whatever mush you call
+brains. I'm Finnish. Did you think I'd be *supporting* Russian
+aggression? Apparently it's not just lack of real news, it's lack of
+history knowledge too.
 
-Best regards,
-Krzysztof
-
+                      Linus
 
