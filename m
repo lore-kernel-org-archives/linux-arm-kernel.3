@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E65CDDE70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57894CDDE6E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPjbajRR4bOoqdpLgYZ8XbSz5ySdKuEORFF5va6CWng=; b=4VcaZ3F6/cNgcO2nS2g26HKWdM
-	G4INUkIdhJYEuc9FA0hoU91MqRL302X8vjsSh9FUE5oYmNMTb5sHgCWcLSA79dgWnyQH1qYJBwmTb
-	kB6O0IozKarCEVqGsBuE4rQzW2xhYwvbw3+KXhzUv0UWFBe6JnHf7Tt84qDaegDuzWDaj8Mun0r8y
-	nKz6bXv2g3YqF5681przav/dNU1jtKogZFS3fUtVRS7Lqsqcaa6pKwn8JwpFot1zPhn2VnlBPtZIe
-	wTc9jqhDiy3nCDVHV1rbekhGkczDzKb+ZcrrwS0hORccMr39GGHn+CwoCkTRt6oxIpo+8tv+vPa0L
-	qgoj7ZDg==;
+	bh=mgVSkFYW8g++2xOZcgUKg5n6JzMMcQtZaKvUm5z2Urk=; b=1myFVPPOM/XjXtte6mbYDGp4/n
+	CFvqLkiFZKW4wBD+ItH1HPXkKCgSciGwgfWeS4IH/H40shMfJL/o3kXiO7bPCz3MaVeu2wPfrjRfV
+	1eGju3JnGZ+wwBylIcqqk6LkBf6RlJBNhXbXLVSrHMOK8l9ny5vvD7VLXbxoOsXDMAT3Xq2RT1uNm
+	1qwuHkKfAQVNlZdzpZqUvHIWkcgdnrCOaOVLKLUXnHp5WXz2Tj4BI6UvfLMmkJj6t6U/STTsk/jpQ
+	j3WC/d+lbO8EugLhoXGXuQJ3iUcOABjNyMgR5FegAazsglWrBibfYFDTazDiwQ4hUZgbNy7rMvetl
+	hfdjj5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zp9-0000000EBsM-1epL;
-	Wed, 23 Oct 2024 11:46:47 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1t3ZpI-0000000EByc-1PmW;
+	Wed, 23 Oct 2024 11:46:56 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Y5l-0000000DsxO-2L4e
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 09:55:51 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539f0f9ee49so7180299e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 02:55:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729677347; x=1730282147; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mPjbajRR4bOoqdpLgYZ8XbSz5ySdKuEORFF5va6CWng=;
-        b=exB9+M7ariCmE56SnJEiYaCZFpOibpJEY+ewGz+HrinmvhGYN/U8j5ugBMKVf+z7sq
-         oSrJnZBgw/V9PBxDOhd9VghittxEgnubU02IaEj6Yd05x92Yi4mB+g1ul2s+WT9Z+pKM
-         yOF79r5hIWNUWEQUcPk+ogHd+pL1KS2/ILVWXzmatbCbpJqvBwLjVoj9bRS5SSAOSy6O
-         HxeOtNayaBL8IhcUTI5g5q269NfD9QMvPrVzwY7YYpw2BKRfip4dlEV73PQuS5kk1bKg
-         WYCyY4Arw6hC03IuzwdDyTYBdeNqM8ldOJGjqghjgrjGc/a87Tj+DalBkPqFbcag0nFx
-         dFKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729677347; x=1730282147;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mPjbajRR4bOoqdpLgYZ8XbSz5ySdKuEORFF5va6CWng=;
-        b=s9y66tC+QECtVWDFUqJhvu7hWy/yH7hKBmRkoFLS81K1UBjjuLA1QlxzCWUbQ6DQJV
-         2luZzgmuLoXEP4h2AzLzLt6mys7u/jsvEinZ2h5xVu4eZsvIxLs565/TS4nFXkNdApsG
-         c2wgrzl1ZfpfDNFrUbi++XusV8mCVYXn7w+pn7cEINLeDn6+Q4VqbVxpbQcE2+EgniX0
-         U3ZYzwecglFySC+6lfIBmBa3RRoOtk2Z0UQFnzmTPF5OavUmvCxl32/p6mOJOqLDBwAn
-         zINqZnSjDnYTwoXHkPas/ix0OBzduVP006sezUGf4EaqGoMsRlfW2USAqwaOlZjF8chy
-         GbxA==
-X-Gm-Message-State: AOJu0YwsXY/Y9KassRItGJZpcUkolofOlduRpV5dBeJjvwBL+DXLr8nT
-	Vt7Wx7PbbgFaihBUmiT+ETTQH97iPN3X4chdcRsK9A6sU+XTR27qFvHYkrUdB+16kupDtXDC6/n
-	arY+/ZbC7Etekeur6PR6daYZ23wnKycdAqF+xnw==
-X-Google-Smtp-Source: AGHT+IFolzLkC+hFN1J3gwCoJ6YWqJKWTBQDu86gMLl5LAGSfGYrnPJgVActrb1HJVkCYcI4kIlnf6HXC+/7svXA1PM=
-X-Received: by 2002:a05:6512:e99:b0:539:dca9:19a2 with SMTP id
- 2adb3069b0e04-53b1a355155mr926169e87.39.1729677347558; Wed, 23 Oct 2024
- 02:55:47 -0700 (PDT)
+	id 1t3ZAb-0000000E4wn-387a;
+	Wed, 23 Oct 2024 11:04:55 +0000
+Received: from umang.jain (unknown [IPv6:2405:201:2015:f873:55d7:c02e:b2eb:ee3f])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C43E38A9;
+	Wed, 23 Oct 2024 13:03:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1729681385;
+	bh=xHdIxr5t+jY9OyJWLgchvzvtGsJl4NVdoLGbuMoHYRc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=K309Z7iBlCQIl4pVKDO/iH87GRiGHP+2XDgSd71jOvzw37jnV09aiFPwJ9FxgfS2O
+	 MaxBXlc5nVMzurjIR8EVfth49AqTWtWZX3L+/Hcd4vddOZKAZdQo8YmfCdFlhNvL1s
+	 n2AVht3QfvxzbS22SbJaVvxIw+kBrzwaDkYOmWeo=
+From: Umang Jain <umang.jain@ideasonboard.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	kernel-list@raspberrypi.com,
+	Umang Jain <umang.jain@ideasonboard.com>
+Subject: [PATCH 4/6] staging: vchiq: Rename vchiq_completion_data 'bulk_userdata'
+Date: Wed, 23 Oct 2024 16:34:04 +0530
+Message-ID: <20241023110406.885199-5-umang.jain@ideasonboard.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241023110406.885199-1-umang.jain@ideasonboard.com>
+References: <20241023110406.885199-1-umang.jain@ideasonboard.com>
 MIME-Version: 1.0
-References: <20241017211241.170861-1-marex@denx.de>
-In-Reply-To: <20241017211241.170861-1-marex@denx.de>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 23 Oct 2024 11:55:36 +0200
-Message-ID: <CACRpkdYxerBV1sZ7KpOcO9_nwaLd1b+EKpttD2DW7zJx5ikUWg@mail.gmail.com>
-Subject: Re: [PATCH v3 01/12] dt-bindings: pinctrl: fsl,imx6ul-pinctrl:
- Convert i.MX35/5x/6 to YAML
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Stefan Wahren <wahrenst@gmx.net>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	kernel@dh-electronics.com, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_025549_653952_9D3B680F 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20241023_040453_951251_EA0181A7 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 17, 2024 at 11:13=E2=80=AFPM Marek Vasut <marex@denx.de> wrote:
+In a previous commit, struct vchiq_bulk 'userdata' got renamed to
+'cb_data' since it is the data pointer passed in
+VCHIQ_BULK_CALLBACK_MODE's callback. Since struct vchiq_completion_data*
+structs also has 'bulk_userdata' for completion records, rename
+'bulk_userdata' member to 'cb_data' for these structs as well.
 
-> The IOMUXC controller description is almost identical on i.MX35/5x/6 SoCs=
-,
-> except for the configuration bits which differ across SoCs. Rename the
-> fsl,imx6ul-pinctrl.yaml to fsl,imx35-pinctrl.yaml, fill in compatible
-> strings for the other SoCs and fill in the various bits into desciption.
-> This way, i.MX35/5x/6 series SoCs can all be converted to DT schema.
-> Remove the old text DT bindings description.
->
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Marek Vasut <marex@denx.de>
+This brings consistency and clarity for the struct members. No
+functional change in this patch.
 
-This patch (1/12) applied to the pin control tree.
-I expect the rest of the patches to be applied to the SoC tree
-soon so we don't end up with too many warnings.
+Signed-off-by: Umang Jain <umang.jain@ideasonboard.com>
+---
+ .../vc04_services/include/linux/raspberrypi/vchiq.h       | 4 ++--
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_arm.c | 2 +-
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_dev.c | 8 ++++----
+ .../vc04_services/interface/vchiq_arm/vchiq_ioctl.h       | 2 +-
+ 4 files changed, 8 insertions(+), 8 deletions(-)
 
-Yours,
-Linus Walleij
+diff --git a/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h b/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h
+index 6c40d8c1dde6..9a6ab006bed2 100644
+--- a/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h
++++ b/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h
+@@ -64,7 +64,7 @@ struct vchiq_completion_data_kernel {
+ 	enum vchiq_reason reason;
+ 	struct vchiq_header *header;
+ 	void *service_userdata;
+-	void *bulk_userdata;
++	void *cb_data;
+ };
+ 
+ struct vchiq_service_params_kernel {
+@@ -73,7 +73,7 @@ struct vchiq_service_params_kernel {
+ 			enum vchiq_reason reason,
+ 			struct vchiq_header *header,
+ 			unsigned int handle,
+-			void *bulk_userdata);
++			void *cb_data);
+ 	void *userdata;
+ 	short version;       /* Increment for non-trivial changes */
+ 	short version_min;   /* Update for incompatible changes */
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index c06a57ea9cf5..bcfd4ccc8373 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -662,7 +662,7 @@ add_completion(struct vchiq_instance *instance, enum vchiq_reason reason,
+ 	completion->reason = reason;
+ 	/* N.B. service_userdata is updated while processing AWAIT_COMPLETION */
+ 	completion->service_userdata = user_service->service;
+-	completion->bulk_userdata = bulk_userdata;
++	completion->cb_data = bulk_userdata;
+ 
+ 	if (reason == VCHIQ_SERVICE_CLOSED) {
+ 		/*
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
+index c99cd36a2696..fcdf97391fb6 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
+@@ -414,7 +414,7 @@ struct vchiq_completion_data32 {
+ 	enum vchiq_reason reason;
+ 	compat_uptr_t header;
+ 	compat_uptr_t service_userdata;
+-	compat_uptr_t bulk_userdata;
++	compat_uptr_t cb_data;
+ };
+ 
+ static int vchiq_put_completion(struct vchiq_completion_data __user *buf,
+@@ -428,7 +428,7 @@ static int vchiq_put_completion(struct vchiq_completion_data __user *buf,
+ 			.reason		  = completion->reason,
+ 			.header		  = ptr_to_compat(completion->header),
+ 			.service_userdata = ptr_to_compat(completion->service_userdata),
+-			.bulk_userdata	  = ptr_to_compat(completion->bulk_userdata),
++			.cb_data	  = ptr_to_compat(completion->cb_userdata),
+ 		};
+ 		if (copy_to_user(&buf32[index], &tmp, sizeof(tmp)))
+ 			return -EFAULT;
+@@ -550,10 +550,10 @@ static int vchiq_ioc_await_completion(struct vchiq_instance *instance,
+ 			vchiq_service_put(service);
+ 
+ 		/*
+-		 * FIXME: address space mismatch, does bulk_userdata
++		 * FIXME: address space mismatch, does cb_data
+ 		 * actually point to user or kernel memory?
+ 		 */
+-		user_completion.bulk_userdata = completion->bulk_userdata;
++		user_completion.cb_userdata = completion->cb_data;
+ 
+ 		if (vchiq_put_completion(args->buf, &user_completion, ret)) {
+ 			if (ret == 0)
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
+index 17550831f86c..afb71a83cfe7 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
+@@ -47,7 +47,7 @@ struct vchiq_completion_data {
+ 	enum vchiq_reason reason;
+ 	struct vchiq_header __user *header;
+ 	void __user *service_userdata;
+-	void __user *bulk_userdata;
++	void __user *cb_userdata;
+ };
+ 
+ struct vchiq_await_completion {
+-- 
+2.45.2
+
 
