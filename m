@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C225CFA44F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72717CFA44F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=bu1l2ObQ2xP4luAG6wLCI+L1JC9c8VEm7Uvp5bR7kt0=; b=enAsdes0QtzMB7
-	bQTsCra26x/GFCrh3KycVnuRn1iQG2KofMu0UcMvVwX1LhZ07p28s9jgzd7A5vgZfx7U00X0eeKM3
-	LFCa2CizY1Kn+i8CyHEogRHVDB+kqQsUBxkj4POvO9tHZb4Ry7/tt1wnpuLo3nfVaQiLyhXsfFcfD
-	K0B4rDvmPWyecl5s0hwiySmbQYgyWpClbY0SO94IxokqajjEobB4GZrbAfsP/1qSrkDBpSE3q2wtY
-	Sc8XUyLXlLNTQjI4VK1/8elayF0OBdnrrSumgZ4LcTQ3ItR99PSt4MZ1M4jaHnw6Ddv4LH/dKqn6M
-	/jaappLGoZIjQ19oF1aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UN3F8w2GAqRlTo+DXk3As0JrjgXQdaTRiyfZ8AGylyQ=; b=DCgLxymEdP1oCxqeOhGUPg5AK+
+	rYd8QCUMqNZPRppL/naeWZkFgeCFW8V4iArzhy/tyrvl+mdAL0F1+2w13GYLXvoYZ2KCwCTtVRZ/O
+	+qomsZ2MfTfSMwnL7RmddtBpwBAkfFuOsjrUexaM+V0SWkQmi3q4UsNjrPblrOjsGkH8n6QcUfRJB
+	v3yD3OeYtk90cd4HnSZPZEvyc/13tnbWFI1v0ulFiHwWx3VZ+aG1X/2uJNK+3A/aXmaLB0qvxuLhi
+	uAxkyDlbvRFZNSzIKpnDP1OLoSNAn0enW2IpXAXVxgz1wsbHtg60PCvfKEN60odQtyO2D9SPGOA3X
+	fsKjUZhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3du3-0000000F5Ch-2USf;
-	Wed, 23 Oct 2024 16:08:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3dvZ-0000000F5SU-3hMF;
+	Wed, 23 Oct 2024 16:09:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3d4v-0000000EuY7-2KA3;
-	Wed, 23 Oct 2024 15:15:19 +0000
+	id 1t3d77-0000000Ev0s-2AM3;
+	Wed, 23 Oct 2024 15:17:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 111E65C4C78;
-	Wed, 23 Oct 2024 15:15:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10073C4CEC6;
-	Wed, 23 Oct 2024 15:15:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 06CB45C0505;
+	Wed, 23 Oct 2024 15:17:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 309CEC4CEC6;
+	Wed, 23 Oct 2024 15:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729696516;
-	bh=eN8F/lNDkjIAfUB0JM4j0vPqOsiKHYVixWKxi/Pt1pQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=TG+6cHH1+2xLbh2vi1zJtsnou/pAIZQLsuo22e4xHmh/goTCkLgpGqDRnV5Lu7/cz
-	 sJgGvRBpKTwqq+GbMRNbQY+7iVfUHEsDh1tVqS5ya6Httoz9alp1HUi+Ue7IZcslAW
-	 dauJSlRUKWwnZpFOe441ybpb5NI67PvFbMRdwI+dHotS8+cOizF2/a7gmucWmxepOJ
-	 j+BkzNm7tMF0K8W2H+cWyYkyc3jqunBWpKB9m2wYWXPCU0ssaWQxLHmYfG8eKdufh4
-	 Xngd8gMBsw34e+MbFQidmS7VTdwFiUlkFOzMd9++PXJbh6HSNNVdaRKmmUSGlCx63c
-	 b9C1xODOKVipQ==
-Date: Wed, 23 Oct 2024 10:15:14 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jinjian Song <jinjian.song@fibocom.com>
-Cc: chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
-	haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
-	ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
-	ryazanov.s.a@gmail.com, johannes@sipsolutions.net,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-doc@vger.kernel.org,
-	angelogioacchino.delregno@collabora.com,
-	linux-arm-kernel@lists.infradead.org, matthias.bgg@gmail.com,
-	corbet@lwn.net, linux-mediatek@lists.infradead.org,
-	danielwinkler@google.com, korneld@google.com,
-	Jinjian Song <songjinjian@hotmail.com>
-Subject: Re: [net-next,RESEND v6 2/2] net: wwan: t7xx: Add debug port
-Message-ID: <20241023151514.GA888712@bhelgaas>
+	s=k20201202; t=1729696652;
+	bh=Y9lg95AOBx3IZcZyZeGwM2XaFHswE2uhvCfA6MfY39E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LolIzHaGBLQpJYEPCSMlz4zOflsLfvm459UKKZnqVLNnyDBSFjMiM5+4nDE7b09TY
+	 W59UX8xhkcZDTNQjWnZ5g+qI+YpcFQID8DX6WScXw0xrkJnicvZOrqTAcyB+lP9mIB
+	 1OyQUTcT3Pdh46IgiETAZSs01umGdWC07ZsiBv3zfRuqcW2lxDH46g5sIcCoEBwdRe
+	 Rkrm+ABEdixbBQ+3FSFyy+FGkLb6xPZl0wl2lce9J+B30uHVQR6slXPzO3fzG3Ph9p
+	 WJEpm284T6BJt+w1y5P4XXxGxxm5bhuWQwHxyd7I9kpVE/J7n5hWaqvr9ZTx9veeC/
+	 WjzSLT1lKSMPw==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2fb5638dd57so70591321fa.0;
+        Wed, 23 Oct 2024 08:17:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWUBiYz5fm8xhGtu8xLu6QyeLMi7DyhNF08TixMDDAUoBHrSsDQv9j8j26aHj6w+Jj2mjhpTw==@lists.infradead.org, AJvYcCWf42yWQElMw83N1fGfBVmpgOT9CbHNmP8Qa8xbBSQlC/cLvsbXtBpcQNyxhNoV34mxeBRo0uuLdwMs6r72s0Hpeg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoIL/TXrAfGaPCAqSnPU0KU1axOeEuIAjMakrgI0XJAIuk0cR4
+	Z7Rw+LBdQu52G79hv4O2rI5c6EXxSsXzqS6v/PkhwCE12rpm5EwHLcoHWKFdeHlbZ8vfsaeU6ze
+	Xa+bQAR8O1o7MGYy8fQsc1s/r2Q==
+X-Google-Smtp-Source: AGHT+IFO2flos8BmUbUaV2MIys/apvRsxd9oWb6MtoGL3InNud08UQCYJA2+z/ZVPUpl+CBNdQz4CESiW+WTCz4l5os=
+X-Received: by 2002:a05:6512:2c05:b0:53b:1f90:576f with SMTP id
+ 2adb3069b0e04-53b1f905959mr889920e87.22.1729696650524; Wed, 23 Oct 2024
+ 08:17:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021121934.16317-3-jinjian.song@fibocom.com>
+References: <20241003113840.2972416-1-usamaarif642@gmail.com>
+ <20241004000316.GA1910499-robh@kernel.org> <d3d90f10-1ccd-4557-843c-5b546d3b913c@gmail.com>
+ <CAL_JsqJVEjPt9tHNr0uAGHQwGnUbZDZoe7kURp3Qx0ce1jv+vw@mail.gmail.com>
+ <4b9456a3-47ea-4a00-92fe-131ccd80e550@gmail.com> <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
+ <1e117d65-b454-4d5c-b03a-c3ab3b078093@gmail.com>
+In-Reply-To: <1e117d65-b454-4d5c-b03a-c3ab3b078093@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 23 Oct 2024 10:17:16 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJhd0X+eCW6WgXUjCLb-dBqHN4_01vzRRLU07Wz5Q2tLw@mail.gmail.com>
+Message-ID: <CAL_JsqJhd0X+eCW6WgXUjCLb-dBqHN4_01vzRRLU07Wz5Q2tLw@mail.gmail.com>
+Subject: Re: [PATCH] of/kexec: save pa of initial_boot_params for arm64 and
+ use it at kexec
+To: Usama Arif <usamaarif642@gmail.com>
+Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org, 
+	catalin.marinas@arm.com, saravanak@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kexec@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_081517_664542_A67B090E 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241023_081733_738188_3E7A53A3 
+X-CRM114-Status: GOOD (  46.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +88,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 08:19:34PM +0800, Jinjian Song wrote:
-> From: Jinjian Song <songjinjian@hotmail.com>
-> 
-> Add support for userspace to switch on the debug port(ADB,MIPC).
->  - ADB port: /dev/wwan0adb0
->  - MIPC port: /dev/wwan0mipc0
-> 
-> Application can use ADB (Android Debg Bridge) port to implement
-> functions (shell, pull, push ...) by ADB protocol commands.
-> E.g., ADB commands:
->  - A_OPEN: OPEN(local-id, 0, "destination")
->  - A_WRTE: WRITE(local-id, remote-id, "data")
->  - A_OKEY: READY(local-id, remote-id, "")
->  - A_CLSE: CLOSE(local-id, remote-id, "")
+On Wed, Oct 23, 2024 at 9:43=E2=80=AFAM Usama Arif <usamaarif642@gmail.com>=
+ wrote:
+>
+>
+>
+> On 23/10/2024 14:40, Rob Herring wrote:
+> > On Mon, Oct 7, 2024 at 10:30=E2=80=AFAM Usama Arif <usamaarif642@gmail.=
+com> wrote:
+> >>
+> >>
+> >>
+> >> On 07/10/2024 15:39, Rob Herring wrote:
+> >>> On Mon, Oct 7, 2024 at 9:06=E2=80=AFAM Usama Arif <usamaarif642@gmail=
+.com> wrote:
+> >>>>
+> >>>>
+> >>>>
+> >>>> On 04/10/2024 01:03, Rob Herring wrote:
+> >>>>> On Thu, Oct 03, 2024 at 12:38:40PM +0100, Usama Arif wrote:
+> >>>>>>  __pa() is only intended to be used for linear map addresses and u=
+sing
+> >>>>>> it for initial_boot_params which is in fixmap for arm64 will give =
+an
+> >>>>>> incorrect value. Hence stash the physical address when it is known=
+ at
+> >>>>>> boot time and use it at kexec time instead of converting the virtu=
+al
+> >>>>>> address using __pa().
+> >>>>>>
+> >>>>>> Reported-by: Breno Leitao <leitao@debian.org>
+> >>>>>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> >>>>>> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+> >>>>>> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_f=
+dt()")
+> >>>>>> ---
+> >>>>>>  arch/arm64/kernel/setup.c | 8 ++++++++
+> >>>>>>  drivers/of/fdt.c          | 6 ++++++
+> >>>>>>  drivers/of/kexec.c        | 8 ++++++--
+> >>>>>>  include/linux/of_fdt.h    | 2 ++
+> >>>>>>  4 files changed, 22 insertions(+), 2 deletions(-)
+> >>>>>>
+> >>>>>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> >>>>>> index b22d28ec8028..a4d96f5e2e05 100644
+> >>>>>> --- a/arch/arm64/kernel/setup.c
+> >>>>>> +++ b/arch/arm64/kernel/setup.c
+> >>>>>> @@ -194,6 +194,14 @@ static void __init setup_machine_fdt(phys_add=
+r_t dt_phys)
+> >>>>>>      /* Early fixups are done, map the FDT as read-only now */
+> >>>>>>      fixmap_remap_fdt(dt_phys, &size, PAGE_KERNEL_RO);
+> >>>>>>
+> >>>>>> +    /*
+> >>>>>> +     * Save dt_phys address so that it can be used later for kexe=
+c. This
+> >>>>>> +     * is done as __pa() is only intended to be used for linear m=
+ap addresses
+> >>>>>> +     * and using it for initial_boot_params which is in fixmap wi=
+ll give an
+> >>>>>> +     * incorrect value.
+> >>>>>> +     */
+> >>>>>> +    set_initial_boot_params_pa(dt_phys);
+> >>>>>
+> >>>>> No new arch->dt functions please. If we need to save off the PA, th=
+en do
+> >>>>> that when we set initial_boot_params.
+> >>>>>
+> >>>>> Rob
+> >>>>
+> >>>>
+> >>>> initial_boot_params is set in early_init_dt_verify, called by early_=
+init_dt_scan.
+> >>>> This is done in setup_machine_fdt in arm64 where the PA is available=
+,
+> >>>> but in other functions in other architectures, where the PA is not a=
+vailable.
+> >>>
+> >>> Doesn't __pa() work for all the other architectures? That's what your
+> >>> patch indicates.
+> >>>
+> >>
+> >> Yes, __pa() works for all other architectures.
+> >>
+> >> But we would need to add initial_boot_params_pa of type phys_addr_t
+> >> as an argument for early_init_dt_scan, which is called by all other ar=
+chs,
+> >> and we technically cant use 0 as an invalid value.
+> >>
+> >> We could convert initial_boot_params_pa to void *, and pass NULL for a=
+ll
+> >> other archs. But again, I don't really think we should be changing the
+> >> early_init_dt_scan(dt_virt) call in all other archs to
+> >> early_init_dt_scan(dt_virt, NULL) just to save initial_boot_params_pa
+> >> in arm64?
+> >>
+> >>>> So it makes it quite messy to set it in the same place as initial_bo=
+ot_params.
+> >>>> Its only needed for arm64 and making a change in all archs probably =
+isnt a good idea?
+> >>>>
+> >>>> Any reason to not add a new function to make arch -> of/fdt call?
+> >>>
+> >>> Yes. It is the opposite direction I have reworked the interfaces to.
+> >>> We don't want each arch calling various early DT functions at random
+> >>> times and order. That's fragile when the DT functions make assumption=
+s
+> >>> about when they are called or what's been initialized already.
+> >>>
+> >>> Another option is to make arm64 copy the DT as some arches do.
+> >>>
+> >>> Rob
+> >>
+> >> Ah maybe I didn't understand this properly, but isnt early_init_dt_sca=
+n an
+> >> arch -> of/fdt interfaces. set_initial_boot_params_pa is a similar int=
+erface
+> >> to early_init_dt_scan?
+> >
+> > Yes, and I don't want more APIs if they can be avoided. When is
+> > set_initial_boot_params_pa() supposed to be called? Is it before or
+> > after early_init_dt_scan()?
+>
+> Its only needed in arm64, and can be either before or after, as long as i=
+ts
+> somewhere in setup_machine_fdt, where dt_phys is available.
 
-s/Debg/Debug/
+Maybe only arm64 today. What happens when riscv decides they too want
+to support the DT anywhere in memory including outside the linear
+address map and then they need the same thing.
 
-> Link: https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/README.md
-> 
-> Application can use MIPC (Modem Information Process Center) port
-> to debug antenna tunner or noise profiling through this MTK modem
-> diagnostic interface.
+> > Can subsequent OF functions assume the PA
+> > is valid?
+>
+> After set_initial_boot_params_pa has been called, yes.
 
-s/tunner/tuner/
+How do I know it has been called? Do I have to go wade thru every arch
+to see? You could document the requirement to be immediately after
+early_init_dt_scan(), but then how do you enforce that? You can't
+unless you design the interface to just avoid the problem in the first
+place.
 
-> +++ b/Documentation/networking/device_drivers/wwan/t7xx.rst
-> @@ -67,6 +67,28 @@ Write from userspace to set the device mode.
->  ::
->    $ echo fastboot_switching > /sys/bus/pci/devices/${bdf}/t7xx_mode
->  
-> +t7xx_port_mode
-> +--------------
-> +The sysfs interface provides userspace with access to the port mode, this interface
-> +supports read and write operations.
+> > If an arch doesn't call set_initial_boot_params_pa() is
+> > __pa() valid or did they just forget to call it?
+>
+> Only arm64 seems to do the fixmap as discussed in
+> https://lore.kernel.org/all/1ea5538f-7e96-4034-9af9-e2d5fd72e069@gmail.co=
+m/,
+> so __pa should work in others.
+>
+> Requiring the PA to
+> > be set at the same time as initial_boot_params avoids all those issues
+> > with any period of time having the PA incorrect.
+> >
+>
+> Are you recommending I send a patch which changes all archs to call
+> early_init_dt_scan(dt_virt, NULL)?
+> or maybe early_init_dt_scan(dt_virt, __pa(dt_virt))?
+> and arm to call early_init_dt_scan(dt_virt, dt_phys).
 
-This file is not completely consistent, but 90% of it fits in 80
-columns, so I would make your additions fit also.
+I believe that's what I suggested already, so yes. Whether NULL or
+__pa(dt_virt))? __pa() would be better because then the arch has to
+think about whether that is right or not.
+
+> Happy to do send a v2 with that if its the way forward, although I feel
+> set_initial_boot_params_pa() in just one arch might be better than
+> changing this for all archs.
+
+We don't work around kernel APIs if they don't meet changing needs. We
+change them.
+
+Rob
 
