@@ -4,78 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA74ECFA463
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1359CFA462
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZ3gyldhS8joMJJp8RQYoZtzaPSJsdJPE2HaJSDoW4E=; b=wafHbWGugl1/HP/irnxpXdn48P
-	O0uHE8E1H1E6DW8oWgCvxs+AOzRyeJlYWtwTyCNqxl/TsbYK906qhcQcCiyUPzM9+Z4K+cpu/iRKT
-	epRXbLnDDibXYktQOC3EhO3j20uGPvn41OksNQN5r5iNvKnUadl24DXpV82+GyXX7oxaF+5eakwpe
-	FFH0nmGFW7hqsql/BlJAwBRHklodW2FxutbP0A64pNY8y4xQMbwk34ZDsORFn35Nia71f8sGP7ImI
-	P429xi8XgUtmsGyty5ZJU6AJjcNZDq3irzxYZwX/qGhku8GcmAdZ9qiypRFFoQYU/wTVH5ru1SBXr
-	648/1ABA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fLqK+GhGI2GvTP8XVLItGDUPB6k79bfh6wVAO1Pmz6M=; b=YLUVr0/SHbtn/Ri7MVkX6H389T
+	qGAfk04YWt++cblQC86fTM1zBaBBSIhlbRByiZBLzd+sHWpELIG27GAikFvr74P8VwFr10ne3Fv3H
+	ClBePPM8pAEgDhSr9+hxa7MdEY8zSTjUDfpUsCyoMclauYjMKTKXFcC+gZr70FkfoeGLHKYV/flk7
+	JUHsd/DZZsYEuD1GVd/znI1nmTYO98nY/64Zq8MTWWOzq+X8IKSiDRiIAX/h6mmpYAXqsNqwAICHQ
+	ucc8gXCovHvadCNFApp+O4I5ufkngkioN55xAIuFH2neGHQ4Y3t0M00ISPJip0IU6s48A/5jfuzQE
+	POvP7Qkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfq-0000000FlwK-3sFn;
-	Wed, 23 Oct 2024 20:09:42 +0000
-Received: from mail.typeblog.net ([2a0b:8bc0:2:73c1::1])
+	id 1t3hfj-0000000FlrS-1XXS;
+	Wed, 23 Oct 2024 20:09:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gpe-0000000Fd3r-1Qtj
+	id 1t3gAT-0000000FYSD-3FOP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 19:15:48 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9B5D5CFB3CF;
-	Wed, 23 Oct 2024 21:15:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=typeblog.net;
-	s=mailcow; t=1729710935;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=AZ3gyldhS8joMJJp8RQYoZtzaPSJsdJPE2HaJSDoW4E=;
-	b=kCijJnm08z9C55C1OhSt2FDysBPg1YmlgNXc/2YZ0FlY+o4LpPhyVh+A6Z4xKATicIabnV
-	bjOmKV8EeUqsvTwommg0zwOPI8h5oL8stKnjWpYa/Y9vjZOkLBSbC75ZnmuJzab3LLFkV+
-	NxQZ542GYTjTixcGInRplXXhTedUBKUxFHnyaDNzyh3n7srV9ueRkUbJaBjvi/3+wS3xtd
-	yTtWzqgjv/IHq+jH9l/j/ot3YZfV6f8qVVFRrAgA7eKa0iaxH2UOklM9omy/KNe4d9se4T
-	ZrHtzu6J58ko+Ki3zKtJMRnMpiLty2UMLVoEv10mo7x74bsRMHlpc8UyW85UzQ==
-Message-ID: <e25fb178-39fa-4b75-bdc8-a2ec5a7a1bf6@typeblog.net>
-Date: Wed, 23 Oct 2024 15:15:17 -0400
+	Wed, 23 Oct 2024 18:33:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1729708394; x=1761244394;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jTmoWEA/AvudZiXAP5wmbx3SBQUJFGbhGS0+jYMgA9s=;
+  b=V/pFmo5/JFBfyIevIQOGiFQez91GeuOMJAoc45ibnkCWoHnOSf+fxru1
+   4jbD25piPruYI4VKHbYvxAjM/Ka3x+kM40aBC6Hsh70jWzQkag/HeDLwi
+   C5TtHIxrs5OrqSzEPCq7Sj5lgmIJn+KRWMTtNBFEpeg8+pGzUn5Rykgu6
+   a+cCfbe/BixeeNKnGJp0gm3rwXccvseabjd28mlHXro97/XasJi5mkPxI
+   CFDLkrdEDfmRXrkc7HfX4M4LmIYj8Kh90PQkCmWIGAXl/s4HasV9Vlbmg
+   /KrliVE+QkSDeb9dmZyTtZS5y6CyHiSJWofzZCoAnphShbWy6QeeJoLXX
+   w==;
+X-CSE-ConnectionGUID: JDex8fWsSkymE6te52D0xA==
+X-CSE-MsgGUID: BgJUY6LtTXG7CdeXOxbaSQ==
+X-IronPort-AV: E=Sophos;i="6.11,226,1725346800"; 
+   d="scan'208";a="33404578"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 11:33:12 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 23 Oct 2024 11:33:06 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 23 Oct 2024 11:33:02 -0700
+Date: Wed, 23 Oct 2024 18:33:01 +0000
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, <andrew@lunn.ch>, Lars Povlsen
+	<lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
+	<horatiu.vultur@microchip.com>, <jensemil.schulzostergaard@microchip.com>,
+	<Parthiban.Veerasooran@microchip.com>, <Raju.Lakkaraju@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Richard Cochran <richardcochran@gmail.com>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, <jacob.e.keller@intel.com>,
+	<ast@fiberby.net>, <maxime.chevallier@bootlin.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH net-next 14/15] net: sparx5: add compatible strings for
+ lan969x and verify the target
+Message-ID: <20241023183301.5st3aa23ad6nl5xz@DEN-DL-M70577>
+References: <20241021-sparx5-lan969x-switch-driver-2-v1-0-c8c49ef21e0f@microchip.com>
+ <20241021-sparx5-lan969x-switch-driver-2-v1-14-c8c49ef21e0f@microchip.com>
+ <cetor3ohhg6rzf3w2cm6hqxsqukh52nm54mp7tizb2qc3x44j4@n53v6btq6t6r>
+ <20241023110034.jpwoblwrds3ln5nr@DEN-DL-M70577>
+ <24b18f9e-6fbd-48cc-96bd-e634d0af9824@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
- compliance requirements."
-To: Linus Torvalds <torvalds@linux-foundation.org>,
- Tor Vic <torvic9@mailbox.org>
-Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
- gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru,
- conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
- dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
- geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
- mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
- ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
- s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
- tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
- wsa+renesas@sang-engineering.com, xeb@mail.ru
-References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
- <20241023080935.2945-2-kexybiscuit@aosc.io>
- <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
- <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-Content-Language: en-US
-From: Peter Cai <peter@typeblog.net>
-In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <24b18f9e-6fbd-48cc-96bd-e634d0af9824@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_121546_727623_769F8C04 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20241023_113314_177586_433434D2 
+X-CRM114-Status: GOOD (  45.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,80 +98,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi there,
+> > Hi Krzysztof,
+> >
+> >>> Add compatible strings for the twelve lan969x SKU's (Stock Keeping Unit)
+> >>> that we support, and verify that the devicetree target is supported by
+> >>> the chip target.
+> >>>
+> >>> Each SKU supports different bandwidths and features (see [1] for
+> >>> details). We want to be able to run a SKU with a lower bandwidth and/or
+> >>> feature set, than what is supported by the actual chip. In order to
+> >>> accomplish this we:
+> >>>
+> >>>     - add new field sparx5->target_dt that reflects the target from the
+> >>>       devicetree (compatible string).
+> >>>
+> >>>     - compare the devicetree target with the actual chip target. If the
+> >>>       bandwidth and features provided by the devicetree target is
+> >>>       supported by the chip, we approve - otherwise reject.
+> >>>
+> >>>     - set the core clock and features based on the devicetree target
+> >>>
+> >>> [1] https://www.microchip.com/en-us/product/lan9698
+> >>>
+> >>> Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
+> >>> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> >>> ---
+> >>>  drivers/net/ethernet/microchip/sparx5/Makefile     |   1 +
+> >>>  .../net/ethernet/microchip/sparx5/sparx5_main.c    | 194 ++++++++++++++++++++-
+> >>>  .../net/ethernet/microchip/sparx5/sparx5_main.h    |   1 +
+> >>>  3 files changed, 193 insertions(+), 3 deletions(-)
+> >>>
+> >>> diff --git a/drivers/net/ethernet/microchip/sparx5/Makefile b/drivers/net/ethernet/microchip/sparx5/Makefile
+> >>> index 3435ca86dd70..8fe302415563 100644
+> >>> --- a/drivers/net/ethernet/microchip/sparx5/Makefile
+> >>> +++ b/drivers/net/ethernet/microchip/sparx5/Makefile
+> >>> @@ -19,3 +19,4 @@ sparx5-switch-$(CONFIG_DEBUG_FS) += sparx5_vcap_debugfs.o
+> >>>  # Provide include files
+> >>>  ccflags-y += -I$(srctree)/drivers/net/ethernet/microchip/vcap
+> >>>  ccflags-y += -I$(srctree)/drivers/net/ethernet/microchip/fdma
+> >>> +ccflags-y += -I$(srctree)/drivers/net/ethernet/microchip/lan969x
+> >>> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> >>> index 5c986c373b3e..edbe639d98c5 100644
+> >>> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> >>> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> >>> @@ -24,6 +24,8 @@
+> >>>  #include <linux/types.h>
+> >>>  #include <linux/reset.h>
+> >>>
+> >>> +#include "lan969x.h" /* lan969x_desc */
+> >>> +
+> >>>  #include "sparx5_main_regs.h"
+> >>>  #include "sparx5_main.h"
+> >>>  #include "sparx5_port.h"
+> >>> @@ -227,6 +229,168 @@ bool is_sparx5(struct sparx5 *sparx5)
+> >>>       }
+> >>>  }
+> >>>
+> >>> +/* Set the devicetree target based on the compatible string */
+> >>> +static int sparx5_set_target_dt(struct sparx5 *sparx5)
+> >>> +{
+> >>> +     struct device_node *node = sparx5->pdev->dev.of_node;
+> >>> +
+> >>> +     if (is_sparx5(sparx5))
+> >>> +             /* For Sparx5 the devicetree target is always the chip target */
+> >>> +             sparx5->target_dt = sparx5->target_ct;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9691-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9691VAO;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9692-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9692VAO;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9693-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9693VAO;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9694-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9694;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9695-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9694TSN;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9696-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9696;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9697-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9696TSN;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9698-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9698;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan9699-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9698TSN;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan969a-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9694RED;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan969b-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9696RED;
+> >>> +     else if (of_device_is_compatible(node, "microchip,lan969c-switch"))
+> >>> +             sparx5->target_dt = SPX5_TARGET_CT_LAN9698RED;
+> >>> +     else
+> >>> +             return -EINVAL;
+> >>> +
+> >>> +     return 0;
+> >>> +}
+> >>> +
+> >>> +/* Compare the devicetree target with the chip target.
+> >>> + * Make sure the chip target supports the features and bandwidth requested
+> >>> + * from the devicetree target.
+> >>> + */
+> >>> +static int sparx5_verify_target(struct sparx5 *sparx5)
+> >>> +{
+> >>> +     switch (sparx5->target_dt) {
+> >>> +     case SPX5_TARGET_CT_7546:
+> >>> +     case SPX5_TARGET_CT_7549:
+> >>> +     case SPX5_TARGET_CT_7552:
+> >>> +     case SPX5_TARGET_CT_7556:
+> >>> +     case SPX5_TARGET_CT_7558:
+> >>> +     case SPX5_TARGET_CT_7546TSN:
+> >>> +     case SPX5_TARGET_CT_7549TSN:
+> >>> +     case SPX5_TARGET_CT_7552TSN:
+> >>> +     case SPX5_TARGET_CT_7556TSN:
+> >>> +     case SPX5_TARGET_CT_7558TSN:
+> >>> +             return 0;
+> >>
+> >> All this is weird. Why would you verify? You were matched, it cannot be
+> >> mis-matching.
+> >
+> > We are verifying that the match (target/compatible string) from the
+> > device tree is supported by the chip. Maybe I wasn't too clear about the
+> > intend in v1.
+> >
+> > Each target supports different bandwidths and features. If you have a
+> > lan9698 chip, it must, obviously, be possible to run it as a lan9698
+> > target. However, some targets can be run on chip targets other than
+> > themselves, given that the chip supports the bandwidth and features of
+> > the provided target. In contrary, trying to run as a target with a
+> > feature not supported by the chip, or a bandwidth higher than what the
+> > chip supports, should be rejected.
+> 
+> But you are not supposed to compare DT with what you auto-detected.
+> Detect your hardware, test if it is supported and then bail out.
+> 
+> None of above explains the code.
+> 
+> >
+> > Without this logic, the chip id is read and a target is determined. That
+> > means on a lan9698 chip you will always match the lan9698 target.
+> 
+> That's not the job of kernel.
+> 
+> >
+> > With the new logic, it is possible to run as a different target than
+> > what is read from the chip id, given that the target you are trying to
+> > run as, is supported by the chip.
+> 
+> So just run on different target.
+> 
+> >
+> >>
+> >>> +     case SPX5_TARGET_CT_LAN9698RED:
+> >>> +             if (sparx5->target_ct == SPX5_TARGET_CT_LAN9698RED)
+> >>
+> >> What is "ct"? sorry, all this code is a big no.
+> >
+> > In this case we were matched as a SPX5_TARGET_CT_LAN9698RED target. We
+> > are verifying that the chip target (target_ct, which is read from the
+> > chip) supports the target we were matched as.
+> >
+> >> Krzysztof
+> >>
+> >
+> > This is a feature that we would like, as it gives the flexibility of
+> > running different targets on the same chip. Now if this is something
+> > that cannot be accepted, I will have to ditch this part.
+> 
+> I have no clue what the "target" is but so far it looks like you try to
+> validate DT against detected device. That's not how it should work.
 
-Not a maintainer, but I have made several bug reports using this email 
-address. At least 1 reasonably-sized patch is also currently under 
-review in the networking mailing list, along with people from several 
-American corporations, so hopefully you won't automatically assume this 
-email came from a "Russian troll" account.
+I will get rid of the verification in v2.
 
-Ok. With that out of the way, if you still want to bother reading, 
-here's why, in the most un-provocative tone possible, why your comments 
-_completely_ miss the point why people are upset:
+Thanks.
 
-On 10/23/24 1:45 PM, Linus Torvalds wrote:
-> Ok, lots of Russian trolls out and about. >
-> It's entirely clear why the change was done, it's not getting
-> reverted, and using multiple random anonymous accounts to try to
-> "grass root" it by Russian troll factories isn't going to change
-> anything.
+/Daniel
 
-Yes. Everybody who has more than 1 brain cell knows, in general, "why". 
-The point was never to ask for the obvious response.
-
-People are upset because no reference to _exactly which compliance 
-requirement_ resulted in the removal of these maintainers. No 
-open-source project can live outside of a political entity, but that is 
-not the reason why "obviously" can be used to write off such a change.
-
-Even just stating "we were contacted by <...> but details are under NDA" 
-is a **much** better response than "due to various compliance 
-requirements". No one is saying the LF or the Linux kernel should be 
-outside of politics. That's impossible. But it _is_ possible to run the 
-project based on _transparency_ and _honesty_ instead of "why can't you 
-see the obvious".
-
-> And FYI for the actual innocent bystanders who aren't troll farm
-> accounts - the "various compliance requirements" are not just a US
-> thing.
-
-Again -- are you under any sort of NDA not to even refer to a list of 
-these countries?
-
-> If you haven't heard of Russian sanctions yet, you should try to read
-> the news some day.  And by "news", I don't mean Russian
-> state-sponsored spam.
-
-Before calling out community members who raised legit concerns about 
-procedural transparency, maybe it is worth doing a quick fact-check. 
-There are a lot of suspicious looking `.ru` emails in this thread, but 
-they are not who first raised the concern. The revert patch was sent out 
-by someone at aosc.io. Look up who they actually are -- and before you 
-assume "state-sponsored spam" just because of the language of the 
-website, maybe you can also spend more than 1 second to check where the 
-website is even actually located.
-
-> As to sending me a revert patch - please use whatever mush you call
-> brains. I'm Finnish. Did you think I'd be *supporting* Russian
-> aggression? Apparently it's not just lack of real news, it's lack of
-> history knowledge too.
-
-I hope that either this comment wasn't written by the real Linus 
-Torvalds, or that Linus was not under his best judgement when this email 
-was sent. Because just like anyone who reads the news would know about 
-Russian aggression, anyone who knows anything about politics should also 
-be able to understand that individuals and their states are different 
-concepts.
-
-If these maintainers are associated with the Russian state, this should 
-be cited as the reason for their removal. And you know what? Most people 
-wouldn't have any problem with it. And then you can say "we are not 
-supporting Russian aggression" with confidence. But this is **not** what 
-was done.
-
-I seriously hope that Linus Torvalds would have known better.
-
-Thanks,
-Peter.
+> 
+> Best regards,
+> Krzysztof
+> 
 
