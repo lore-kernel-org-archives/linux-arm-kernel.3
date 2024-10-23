@@ -4,92 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 457FCD2E011
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB54D2E03D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7qoBhi0xE/U5iDBqGE6j6rllERkT9TsqQw7ivuvrcg=; b=t+z97ta1eSr8/jpsx2N3HVNAXK
-	VbqtC8UYyhPz2GTYQjEVUA+xAlIeZKPJs8KKuhTCoFNgbVrKUk9IhYRLnQGqXEwlFqhHFI7LUicEV
-	ylzGeamNj0nnGDxeNjstRS5TTY7Yen6JTTYfCyaWCtzp5ie/8zdjwLuZ9pk+4ZbD7u4gxdcuysBNS
-	yzQTx3b69ZOwAGf072FELxLCSCXXn+FzUqzHBfWMMTgCKpX1Qxe5hwXNF55zRZs5/YsF41A3tHgbd
-	gVfsueBY7jIZuUL5JuGIi1d+RjOslGg13yG+7IicJ/QP6xOGP6CeFI7ZHonIz8XfNnAY4JZHwMMGH
-	+PQdpg/Q==;
+	bh=3TInnJKLUkbjN7HN9QOcNUqOGpRWKzJ3tAforkpO8L0=; b=SThv7oxMtY198V6Hd8Oscb9hvF
+	Nk/I8qvUz5b9zMNbK1x59y+F5qjBbdAnFIACa+mT6ixol+aE935XTGyCgzQz1rk1hDIev5HE4oe+K
+	yNvpq3OWPu/4UEtleiqFdpzaBZp/8qaZEf41h68v3EkEYuJycI7jMOVbh/tOEm8viNE+rrv604Pc3
+	n5G7od6HCvKbtbV/mWfgcKaz6dhfp1ZV3EXlIKZsIrKG02ypbxM0yAroLeU1zvWbsz5AhimjY2a4O
+	WB0LL4EIl//cp49tk/BJXHRUQt8gMYO1SfRZongHJMx+4DIfDzH9yJfLmpUnDDFXawWRqubhCNVr7
+	vcsEasIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Y83-0000000DtWJ-325x;
-	Wed, 23 Oct 2024 09:58:11 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Xg7-0000000Dnay-2qOq
+	id 1t3Y9Z-0000000Dtq0-2d8x;
+	Wed, 23 Oct 2024 09:59:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3XkL-0000000Dogk-39RW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 09:29:21 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e2e23f2931so5207388a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 02:29:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729675758; x=1730280558; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g7qoBhi0xE/U5iDBqGE6j6rllERkT9TsqQw7ivuvrcg=;
-        b=eW34bDpwVLurgJi2u1D7/EdP6oKtrzG/x7JiZl4peB5cZWM8BobrD/Is407kDHKqUP
-         2FEGyLEvGEWIT4cMtckbnu2Xv8jx4W8l2W48ZDkScMMDtAL/Am5RDIjKs9fMNuUfRYA6
-         c+7G112HJkFF1sEZxR+lnLcZEtWGfskqcRpV+kbF/CqmL2kevXZRzTdDXvvbcS8Aykq1
-         z78AWWJfkn1vC8Cbz/SrppcawAgd9K49HGFEf/ZZGZNbVqgjY3CPoKl1cwe5GMb9wTpb
-         6C6Fr7aZfe4wGDsPrno40PetrK+Kt/flEEVjcJaRB+Bay+gYfF0gfFG4hVfagGUnKM34
-         661w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729675758; x=1730280558;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g7qoBhi0xE/U5iDBqGE6j6rllERkT9TsqQw7ivuvrcg=;
-        b=AgnSPwCyY977H4eqxOlN1fwhZaf3xhqJ9/784brr0djiPzrOpQY73+H+0IU0f9a8Xn
-         npBfxQ+EwY+TC8xAKlITv11I8uneOGQ6O4TNbgrIZSZa9PumSICjEWrjbaqI0mUzDN48
-         sIW8Vgci/L9Q7rPdqiffJXEKIyUxRfrQRhrCVHJ3gp3kEuVR46sQNTgMte4r5Dn2aytj
-         u25JAyvDyEADNAue+zfpMtFX4ktUcifQGDUe4jU5kBsdDlVtLtK7T3RwLvuZf74gnzck
-         fsErBvtrgp46J5+F0QP5jbjvwWgUvzWQXllTV4asQh+iD9a+6QYEJAJCCHZNISK5X5sc
-         XyvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUCXZYRa17Re7vnmpwu7+fdc2f4hnGO0TYssMXwrOWpWnLS5/3LWf+1b8YTuX+JpG+BxbJIPimYGvpcP+kaBNZS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMW0Qi2zEkD/iH+74tT8LxktOtAATX8dcHtUSK+dveS68g3kbd
-	diwzI2T9xUk1weSPLFFGcBlB5wDhIkebf6gPffm5q881mRDT22htSgYonzcYK2453QqK7B830eE
-	CXwvZf/bKujyQvBAXubo3EpnoOvk=
-X-Google-Smtp-Source: AGHT+IHTd7yTl2EhXEWGqXqQrO3RSi9nHq00JaRKQqBVePw8lv9s1qMh0E1idO3lwTwI8NX8Zju/frALMtTdjUoQ/VI=
-X-Received: by 2002:a17:90b:274e:b0:2e2:e8a9:a1f with SMTP id
- 98e67ed59e1d1-2e76b5dd9e3mr2083690a91.13.1729675757485; Wed, 23 Oct 2024
- 02:29:17 -0700 (PDT)
+	Wed, 23 Oct 2024 09:34:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8EFA339;
+	Wed, 23 Oct 2024 02:34:08 -0700 (PDT)
+Received: from [10.57.66.28] (unknown [10.57.66.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E4E933F71E;
+	Wed, 23 Oct 2024 02:33:37 -0700 (PDT)
+Message-ID: <111ddb4d-4765-4acd-82ba-efe25b3c4470@arm.com>
+Date: Wed, 23 Oct 2024 10:33:37 +0100
 MIME-Version: 1.0
-References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io> <20241023080935.2945-2-kexybiscuit@aosc.io>
-In-Reply-To: <20241023080935.2945-2-kexybiscuit@aosc.io>
-From: Tonghao Zhang <xiangxia.m.yue@gmail.com>
-Date: Wed, 23 Oct 2024 17:28:40 +0800
-Message-ID: <CAMDZJNX6qPiXeaWfb-Yx6HFmX6qWmZjb=FKsz85R-axz40YzyQ@mail.gmail.com>
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
- compliance requirements."
-To: Kexy Biscuit <kexybiscuit@aosc.io>
-Cc: jeffbai@aosc.io, gregkh@linuxfoundation.org, wangyuli@uniontech.com, 
-	torvalds@linux-foundation.org, aospan@netup.ru, conor.dooley@microchip.com, 
-	ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org, dushistov@mail.ru, 
-	fancer.lancer@gmail.com, geert@linux-m68k.org, hoan@os.amperecomputing.com, 
-	ink@jurassic.park.msu.ru, linux-alpha@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org, 
-	linux-ide@vger.kernel.org, linux-iio@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-spi@vger.kernel.org, 
-	manivannan.sadhasivam@linaro.org, mattst88@gmail.com, netdev@vger.kernel.org, 
-	nikita@trvn.ru, ntb@lists.linux.dev, patches@lists.linux.dev, 
-	richard.henderson@linaro.org, s.shtylyov@omp.ru, serjk@netup.ru, 
-	shc_work@mail.ru, tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, 
-	wsa+renesas@sang-engineering.com, xeb@mail.ru
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 RESEND 1/3] coresight-tpdm: Add MCMB dataset support
+Content-Language: en-GB
+To: Mao Jinlong <quic_jinlmao@quicinc.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Tao Zhang <quic_taozha@quicinc.com>
+References: <20241011064732.8480-1-quic_jinlmao@quicinc.com>
+ <20241011064732.8480-2-quic_jinlmao@quicinc.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20241011064732.8480-2-quic_jinlmao@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_022919_769543_F8211789 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20241023_023341_992249_613E7F25 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,396 +68,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 4:19=E2=80=AFPM Kexy Biscuit <kexybiscuit@aosc.io> =
-wrote:
->
-> This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
->
-> An absolutely no-one-ever-reviewed patch, not even by the maintainers who
-> got removed themselves - at least not on the mailing list. Then the patch
-> just got slipped into an unrelated subsystem pull request, and got pulled
-> by Torvalds with not even a comment.
->
-> What about the next time? Who next would be removed from the MAINTAINERS
-> file, the kernel.org infrastructure? What if the compliance requires
-> another XZ backdoor to be developed without further explanation? Is the
-> kernel development process still done in public?
->
-> Are the "compliance requirements" documented on docs.kernel.org? Who are
-> responsible for them? Are all that are responsible employees of
-> The Linux Foundation, which is regulated by the U.S. legislature?
->
-> Fixes: 6e90b675cf94 ("MAINTAINERS: Remove some entries due to various com=
-pliance requirements.")
-> Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
-Acked-by: Tonghao Zhang <xiangxia.m.yue@gmail.com>
+On 11/10/2024 07:47, Mao Jinlong wrote:
+> MCMB (Multi-lane CMB) is a special form of CMB dataset type. MCMB
+> subunit TPDM has the same number and usage of registers as CMB
+> subunit TPDM. MCMB subunit can be enabled for data collection by
+> writing 1 to the first bit of CMB_CR register. The difference is
+> that MCMB subunit TPDM needs to select the lane and enable it in
+> using it.
+> 
+> Signed-off-by: Tao Zhang <quic_taozha@quicinc.com>
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
 > ---
-> Please keep all discussions on at least one of the mailing lists.
->
->  MAINTAINERS | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 178 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e9659a5a7fb3..501aa5c0887e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -258,6 +258,12 @@ L: linux-acenic@sunsite.dk
->  S:     Maintained
->  F:     drivers/net/ethernet/alteon/acenic*
->
-> +ACER ASPIRE 1 EMBEDDED CONTROLLER DRIVER
-> +M:     Nikita Travkin <nikita@trvn.ru>
-> +S:     Maintained
-> +F:     Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
-> +F:     drivers/platform/arm64/acer-aspire1-ec.c
+>   drivers/hwtracing/coresight/coresight-tpda.c |  5 ++-
+>   drivers/hwtracing/coresight/coresight-tpdm.c | 41 +++++++++++++++++---
+>   drivers/hwtracing/coresight/coresight-tpdm.h | 26 ++++++++++++-
+>   3 files changed, 63 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index bfca103f9f84..e063a31ff88a 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -1,6 +1,6 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #include <linux/amba/bus.h>
+> @@ -72,7 +72,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,dsb-element-bits", &drvdata->dsb_esize);
+>   	}
+> -	if (tpdm_has_cmb_dataset(tpdm_data)) {
 > +
->  ACER ASPIRE ONE TEMPERATURE AND FAN DRIVER
->  M:     Peter Kaestle <peter@piie.net>
->  L:     platform-driver-x86@vger.kernel.org
-> @@ -882,6 +888,7 @@ F:  drivers/staging/media/sunxi/cedrus/
->
->  ALPHA PORT
->  M:     Richard Henderson <richard.henderson@linaro.org>
-> +M:     Ivan Kokshaysky <ink@jurassic.park.msu.ru>
->  M:     Matt Turner <mattst88@gmail.com>
->  L:     linux-alpha@vger.kernel.org
->  S:     Odd Fixes
-> @@ -2256,6 +2263,12 @@ L:       linux-arm-kernel@lists.infradead.org (mod=
-erated for non-subscribers)
->  S:     Maintained
->  F:     arch/arm/mach-ep93xx/ts72xx.c
->
-> +ARM/CIRRUS LOGIC CLPS711X ARM ARCHITECTURE
-> +M:     Alexander Shiyan <shc_work@mail.ru>
-> +L:     linux-arm-kernel@lists.infradead.org (moderated for non-subscribe=
-rs)
-> +S:     Odd Fixes
-> +N:     clps711x
-> +
->  ARM/CIRRUS LOGIC EP93XX ARM ARCHITECTURE
->  M:     Hartley Sweeten <hsweeten@visionengravers.com>
->  M:     Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> @@ -3802,6 +3815,14 @@ F:       drivers/video/backlight/
->  F:     include/linux/backlight.h
->  F:     include/linux/pwm_backlight.h
->
-> +BAIKAL-T1 PVT HARDWARE MONITOR DRIVER
-> +M:     Serge Semin <fancer.lancer@gmail.com>
-> +L:     linux-hwmon@vger.kernel.org
-> +S:     Supported
-> +F:     Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
-> +F:     Documentation/hwmon/bt1-pvt.rst
-> +F:     drivers/hwmon/bt1-pvt.[ch]
-> +
->  BARCO P50 GPIO DRIVER
->  M:     Santosh Kumar Yadav <santoshkumar.yadav@barco.com>
->  M:     Peter Korsgaard <peter.korsgaard@barco.com>
-> @@ -6455,6 +6476,7 @@ F:        drivers/mtd/nand/raw/denali*
->
->  DESIGNWARE EDMA CORE IP DRIVER
->  M:     Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> +R:     Serge Semin <fancer.lancer@gmail.com>
->  L:     dmaengine@vger.kernel.org
->  S:     Maintained
->  F:     drivers/dma/dw-edma/
-> @@ -9737,6 +9759,14 @@ F:       drivers/gpio/gpiolib-cdev.c
->  F:     include/uapi/linux/gpio.h
->  F:     tools/gpio/
->
-> +GRE DEMULTIPLEXER DRIVER
-> +M:     Dmitry Kozlov <xeb@mail.ru>
-> +L:     netdev@vger.kernel.org
-> +S:     Maintained
-> +F:     include/net/gre.h
-> +F:     net/ipv4/gre_demux.c
-> +F:     net/ipv4/gre_offload.c
-> +
->  GRETH 10/100/1G Ethernet MAC device driver
->  M:     Andreas Larsson <andreas@gaisler.com>
->  L:     netdev@vger.kernel.org
-> @@ -12929,6 +12959,12 @@ S:     Maintained
->  F:     drivers/ata/pata_arasan_cf.c
->  F:     include/linux/pata_arasan_cf_data.h
->
-> +LIBATA PATA DRIVERS
-> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
-> +L:     linux-ide@vger.kernel.org
-> +F:     drivers/ata/ata_*.c
-> +F:     drivers/ata/pata_*.c
-> +
->  LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
->  M:     Linus Walleij <linus.walleij@linaro.org>
->  L:     linux-ide@vger.kernel.org
-> @@ -12945,6 +12981,15 @@ F:     drivers/ata/ahci_platform.c
->  F:     drivers/ata/libahci_platform.c
->  F:     include/linux/ahci_platform.h
->
-> +LIBATA SATA AHCI SYNOPSYS DWC CONTROLLER DRIVER
-> +M:     Serge Semin <fancer.lancer@gmail.com>
-> +L:     linux-ide@vger.kernel.org
-> +S:     Maintained
-> +T:     git git://git.kernel.org/pub/scm/linux/kernel/git/dlemoal/libata.=
-git
-> +F:     Documentation/devicetree/bindings/ata/baikal,bt1-ahci.yaml
-> +F:     Documentation/devicetree/bindings/ata/snps,dwc-ahci.yaml
-> +F:     drivers/ata/ahci_dwc.c
-> +
->  LIBATA SATA PROMISE TX2/TX4 CONTROLLER DRIVER
->  M:     Mikael Pettersson <mikpelinux@gmail.com>
->  L:     linux-ide@vger.kernel.org
-> @@ -14140,6 +14185,16 @@ S:     Maintained
->  T:     git git://linuxtv.org/media_tree.git
->  F:     drivers/media/platform/nxp/imx-pxp.[ch]
->
-> +MEDIA DRIVERS FOR ASCOT2E
-> +M:     Sergey Kozlov <serjk@netup.ru>
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/dvb-frontends/ascot2e*
-> +
->  MEDIA DRIVERS FOR CXD2099AR CI CONTROLLERS
->  M:     Jasmin Jessich <jasmin@anw.at>
->  L:     linux-media@vger.kernel.org
-> @@ -14148,6 +14203,16 @@ W:     https://linuxtv.org
->  T:     git git://linuxtv.org/media_tree.git
->  F:     drivers/media/dvb-frontends/cxd2099*
->
-> +MEDIA DRIVERS FOR CXD2841ER
-> +M:     Sergey Kozlov <serjk@netup.ru>
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/dvb-frontends/cxd2841er*
-> +
->  MEDIA DRIVERS FOR CXD2880
->  M:     Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
->  L:     linux-media@vger.kernel.org
-> @@ -14192,6 +14257,35 @@ F:     drivers/media/platform/nxp/imx-mipi-csis.=
-c
->  F:     drivers/media/platform/nxp/imx7-media-csi.c
->  F:     drivers/media/platform/nxp/imx8mq-mipi-csi2.c
->
-> +MEDIA DRIVERS FOR HELENE
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/dvb-frontends/helene*
-> +
-> +MEDIA DRIVERS FOR HORUS3A
-> +M:     Sergey Kozlov <serjk@netup.ru>
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/dvb-frontends/horus3a*
-> +
-> +MEDIA DRIVERS FOR LNBH25
-> +M:     Sergey Kozlov <serjk@netup.ru>
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/dvb-frontends/lnbh25*
-> +
->  MEDIA DRIVERS FOR MXL5XX TUNER DEMODULATORS
->  L:     linux-media@vger.kernel.org
->  S:     Orphan
-> @@ -14199,6 +14293,16 @@ W:     https://linuxtv.org
->  T:     git git://linuxtv.org/media_tree.git
->  F:     drivers/media/dvb-frontends/mxl5xx*
->
-> +MEDIA DRIVERS FOR NETUP PCI UNIVERSAL DVB devices
-> +M:     Sergey Kozlov <serjk@netup.ru>
-> +M:     Abylay Ospan <aospan@netup.ru>
-> +L:     linux-media@vger.kernel.org
-> +S:     Supported
-> +W:     https://linuxtv.org
-> +W:     http://netup.tv/
-> +T:     git git://linuxtv.org/media_tree.git
-> +F:     drivers/media/pci/netup_unidvb/*
-> +
->  MEDIA DRIVERS FOR NVIDIA TEGRA - VDE
->  M:     Dmitry Osipenko <digetx@gmail.com>
->  L:     linux-media@vger.kernel.org
-> @@ -14842,6 +14946,13 @@ F:     drivers/mtd/
->  F:     include/linux/mtd/
->  F:     include/uapi/mtd/
->
-> +MEMSENSING MICROSYSTEMS MSA311 DRIVER
-> +M:     Dmitry Rokosov <ddrokosov@sberdevices.ru>
-> +L:     linux-iio@vger.kernel.org
-> +S:     Maintained
-> +F:     Documentation/devicetree/bindings/iio/accel/memsensing,msa311.yam=
-l
-> +F:     drivers/iio/accel/msa311.c
-> +
->  MEN A21 WATCHDOG DRIVER
->  M:     Johannes Thumshirn <morbidrsa@gmail.com>
->  L:     linux-watchdog@vger.kernel.org
-> @@ -15175,6 +15286,7 @@ F:      drivers/tty/serial/8250/8250_pci1xxxx.c
->
->  MICROCHIP POLARFIRE FPGA DRIVERS
->  M:     Conor Dooley <conor.dooley@microchip.com>
-> +R:     Vladimir Georgiev <v.georgiev@metrotek.ru>
->  L:     linux-fpga@vger.kernel.org
->  S:     Supported
->  F:     Documentation/devicetree/bindings/fpga/microchip,mpf-spi-fpga-mgr=
-.yaml
-> @@ -15429,6 +15541,17 @@ F:     arch/mips/
->  F:     drivers/platform/mips/
->  F:     include/dt-bindings/mips/
->
-> +MIPS BAIKAL-T1 PLATFORM
-> +M:     Serge Semin <fancer.lancer@gmail.com>
-> +L:     linux-mips@vger.kernel.org
-> +S:     Supported
-> +F:     Documentation/devicetree/bindings/bus/baikal,bt1-*.yaml
-> +F:     Documentation/devicetree/bindings/clock/baikal,bt1-*.yaml
-> +F:     drivers/bus/bt1-*.c
-> +F:     drivers/clk/baikal-t1/
-> +F:     drivers/memory/bt1-l2-ctl.c
-> +F:     drivers/mtd/maps/physmap-bt1-rom.[ch]
-> +
->  MIPS BOSTON DEVELOPMENT BOARD
->  M:     Paul Burton <paulburton@kernel.org>
->  L:     linux-mips@vger.kernel.org
-> @@ -15441,6 +15564,7 @@ F:      include/dt-bindings/clock/boston-clock.h
->
->  MIPS CORE DRIVERS
->  M:     Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> +M:     Serge Semin <fancer.lancer@gmail.com>
->  L:     linux-mips@vger.kernel.org
->  S:     Supported
->  F:     drivers/bus/mips_cdmm.c
-> @@ -16408,6 +16532,12 @@ F:     include/linux/ntb.h
->  F:     include/linux/ntb_transport.h
->  F:     tools/testing/selftests/ntb/
->
-> +NTB IDT DRIVER
-> +M:     Serge Semin <fancer.lancer@gmail.com>
-> +L:     ntb@lists.linux.dev
-> +S:     Supported
-> +F:     drivers/ntb/hw/idt/
-> +
->  NTB INTEL DRIVER
->  M:     Dave Jiang <dave.jiang@intel.com>
->  L:     ntb@lists.linux.dev
-> @@ -18428,6 +18558,13 @@ F:     drivers/pps/
->  F:     include/linux/pps*.h
->  F:     include/uapi/linux/pps.h
->
-> +PPTP DRIVER
-> +M:     Dmitry Kozlov <xeb@mail.ru>
-> +L:     netdev@vger.kernel.org
-> +S:     Maintained
-> +W:     http://sourceforge.net/projects/accel-pptp
-> +F:     drivers/net/ppp/pptp.c
-> +
->  PRESSURE STALL INFORMATION (PSI)
->  M:     Johannes Weiner <hannes@cmpxchg.org>
->  M:     Suren Baghdasaryan <surenb@google.com>
-> @@ -19518,6 +19655,15 @@ S:     Supported
->  F:     Documentation/devicetree/bindings/i2c/renesas,iic-emev2.yaml
->  F:     drivers/i2c/busses/i2c-emev2.c
->
-> +RENESAS ETHERNET AVB DRIVER
-> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
-> +L:     netdev@vger.kernel.org
-> +L:     linux-renesas-soc@vger.kernel.org
-> +F:     Documentation/devicetree/bindings/net/renesas,etheravb.yaml
-> +F:     drivers/net/ethernet/renesas/Kconfig
-> +F:     drivers/net/ethernet/renesas/Makefile
-> +F:     drivers/net/ethernet/renesas/ravb*
-> +
->  RENESAS ETHERNET SWITCH DRIVER
->  R:     Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
->  L:     netdev@vger.kernel.org
-> @@ -19567,6 +19713,14 @@ F:     Documentation/devicetree/bindings/i2c/ren=
-esas,rmobile-iic.yaml
->  F:     drivers/i2c/busses/i2c-rcar.c
->  F:     drivers/i2c/busses/i2c-sh_mobile.c
->
-> +RENESAS R-CAR SATA DRIVER
-> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
-> +L:     linux-ide@vger.kernel.org
-> +L:     linux-renesas-soc@vger.kernel.org
-> +S:     Supported
-> +F:     Documentation/devicetree/bindings/ata/renesas,rcar-sata.yaml
-> +F:     drivers/ata/sata_rcar.c
-> +
->  RENESAS R-CAR THERMAL DRIVERS
->  M:     Niklas S=C3=B6derlund <niklas.soderlund@ragnatech.se>
->  L:     linux-renesas-soc@vger.kernel.org
-> @@ -19642,6 +19796,16 @@ S:     Supported
->  F:     Documentation/devicetree/bindings/i2c/renesas,rzv2m.yaml
->  F:     drivers/i2c/busses/i2c-rzv2m.c
->
-> +RENESAS SUPERH ETHERNET DRIVER
-> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
-> +L:     netdev@vger.kernel.org
-> +L:     linux-renesas-soc@vger.kernel.org
-> +F:     Documentation/devicetree/bindings/net/renesas,ether.yaml
-> +F:     drivers/net/ethernet/renesas/Kconfig
-> +F:     drivers/net/ethernet/renesas/Makefile
-> +F:     drivers/net/ethernet/renesas/sh_eth*
-> +F:     include/linux/sh_eth.h
-> +
->  RENESAS USB PHY DRIVER
->  M:     Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
->  L:     linux-renesas-soc@vger.kernel.org
-> @@ -22295,11 +22459,19 @@ F:    drivers/tty/serial/8250/8250_lpss.c
->
->  SYNOPSYS DESIGNWARE APB GPIO DRIVER
->  M:     Hoan Tran <hoan@os.amperecomputing.com>
-> +M:     Serge Semin <fancer.lancer@gmail.com>
->  L:     linux-gpio@vger.kernel.org
->  S:     Maintained
->  F:     Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
->  F:     drivers/gpio/gpio-dwapb.c
->
-> +SYNOPSYS DESIGNWARE APB SSI DRIVER
-> +M:     Serge Semin <fancer.lancer@gmail.com>
-> +L:     linux-spi@vger.kernel.org
-> +S:     Supported
-> +F:     Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> +F:     drivers/spi/spi-dw*
-> +
->  SYNOPSYS DESIGNWARE AXI DMAC DRIVER
->  M:     Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
->  S:     Maintained
-> @@ -23609,6 +23781,12 @@ L:     linux-input@vger.kernel.org
->  S:     Maintained
->  F:     drivers/hid/hid-udraw-ps3.c
->
-> +UFS FILESYSTEM
-> +M:     Evgeniy Dushistov <dushistov@mail.ru>
-> +S:     Maintained
-> +F:     Documentation/admin-guide/ufs.rst
-> +F:     fs/ufs/
-> +
->  UHID USERSPACE HID IO DRIVER
->  M:     David Rheinsberg <david@readahead.eu>
->  L:     linux-input@vger.kernel.org
-> --
-> 2.47.0
->
->
+> +	if (tpdm_has_cmb_dataset(tpdm_data) || tpdm_has_mcmb_dataset(tpdm_data)) {
+
+minor nit: All such places could be replaced by
+
+if (tdpm_data->cmb)
+
+Because at probe time we allocate the above structure ?
 
 
---=20
-Best regards, Tonghao
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,cmb-element-bits", &drvdata->cmb_esize);
+>   	}
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index 0726f8842552..58f8c3e804c1 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -1,6 +1,6 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #include <linux/amba/bus.h>
+> @@ -198,7 +198,8 @@ static umode_t tpdm_cmb_is_visible(struct kobject *kobj,
+>   	struct device *dev = kobj_to_dev(kobj);
+>   	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>   
+> -	if (drvdata && tpdm_has_cmb_dataset(drvdata))
+> +	if (drvdata && (tpdm_has_cmb_dataset(drvdata) ||
+> +			tpdm_has_mcmb_dataset(drvdata)))
+
+	if (drvdata && drvdata->cmb) ?
+
+>   		return attr->mode;
+>   
+>   	return 0;
+> @@ -246,8 +247,10 @@ static void tpdm_reset_datasets(struct tpdm_drvdata *drvdata)
+>   		drvdata->dsb->trig_type = false;
+>   	}
+>   
+> -	if (drvdata->cmb)
+> +	if (drvdata->cmb) {
+>   		memset(drvdata->cmb, 0, sizeof(struct cmb_dataset));
+> +		drvdata->cmb->trig_ts = true;
+> +	}
+>   }
+>   
+>   static void set_dsb_mode(struct tpdm_drvdata *drvdata, u32 *val)
+> @@ -388,7 +391,8 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
+>   {
+>   	u32 val, i;
+>   
+> -	if (!tpdm_has_cmb_dataset(drvdata))
+> +	if (!(tpdm_has_cmb_dataset(drvdata) ||
+> +		tpdm_has_mcmb_dataset(drvdata)))
+
+	if (!drvdata->cmb)
+
+>   		return;
+>   
+>   	/* Configure pattern registers */
+> @@ -415,6 +419,19 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
+>   		val |= TPDM_CMB_CR_MODE;
+>   	else
+>   		val &= ~TPDM_CMB_CR_MODE;
+> +
+> +	if (tpdm_has_mcmb_dataset(drvdata)) {
+> +		val &= ~TPDM_CMB_CR_XTRIG_LNSEL;
+> +		/*Set the lane participates in tghe output pattern*/
+
+minor nit: Leave a single space after '/*' and before '*/'
+
+> +		val |= FIELD_PREP(TPDM_CMB_CR_XTRIG_LNSEL,
+> +			drvdata->cmb->mcmb->mcmb_trig_lane);
+> +
+> +		/* Set the enablement of the lane */
+> +		val &= ~TPDM_CMB_CR_E_LN;
+> +		val |= FIELD_PREP(TPDM_CMB_CR_E_LN,
+> +			drvdata->cmb->mcmb->mcmb_lane_select);
+> +	}
+> +
+>   	/* Set the enable bit of CMB control register to 1 */
+>   	val |= TPDM_CMB_CR_ENA;
+>   	writel_relaxed(val, drvdata->base + TPDM_CMB_CR);
+> @@ -474,7 +491,8 @@ static void tpdm_disable_cmb(struct tpdm_drvdata *drvdata)
+>   {
+>   	u32 val;
+>   
+> -	if (!tpdm_has_cmb_dataset(drvdata))
+> +	if (!(tpdm_has_cmb_dataset(drvdata) ||
+> +		tpdm_has_mcmb_dataset(drvdata)))
+
+	if (!drvdata->cmb) ?
+
+>   		return;
+>   
+>   	val = readl_relaxed(drvdata->base + TPDM_CMB_CR);
+> @@ -541,6 +559,19 @@ static int tpdm_datasets_setup(struct tpdm_drvdata *drvdata)
+>   		if (!drvdata->cmb)
+>   			return -ENOMEM;
+>   	}
+> +
+> +	if (tpdm_has_mcmb_dataset(drvdata) && (!drvdata->cmb)) {
+> +		drvdata->cmb = devm_kzalloc(drvdata->dev,
+> +						sizeof(*drvdata->cmb), GFP_KERNEL);
+> +		if (!drvdata->cmb)
+> +			return -ENOMEM;
+> +		drvdata->cmb->mcmb = devm_kzalloc(drvdata->dev,
+> +						sizeof(*drvdata->cmb->mcmb),
+> +						GFP_KERNEL);
+
+Please avoid this ^^, instead embed the fields in drvdata as mentioned
+below.
+
+Is it possible that both CMB and MCMB can be present on the same TPDM ?
+If so, we need to be careful about ^ block ?
+
+
+> +		if (!drvdata->cmb->mcmb)
+> +			return -ENOMEM;
+> +	}
+> +
+>   	tpdm_reset_datasets(drvdata);
+>   
+>   	return 0;
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
+> index e08d212642e3..2e84daad1a58 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+> @@ -1,6 +1,6 @@
+>   /* SPDX-License-Identifier: GPL-2.0 */
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #ifndef _CORESIGHT_CORESIGHT_TPDM_H
+> @@ -9,7 +9,7 @@
+>   /* The max number of the datasets that TPDM supports */
+>   #define TPDM_DATASETS       7
+>   
+> -/* CMB Subunit Registers */
+> +/* CMB/MCMB Subunit Registers */
+>   #define TPDM_CMB_CR		(0xA00)
+>   /* CMB subunit timestamp insertion enable register */
+>   #define TPDM_CMB_TIER		(0xA04)
+> @@ -34,6 +34,10 @@
+>   #define TPDM_CMB_TIER_XTRIG_TSENAB	BIT(1)
+>   /* For timestamp fo all trace */
+>   #define TPDM_CMB_TIER_TS_ALL		BIT(2)
+> +/* MCMB trigger lane select */
+> +#define TPDM_CMB_CR_XTRIG_LNSEL		GENMASK(20, 18)
+> +/* MCMB lane enablement */
+> +#define TPDM_CMB_CR_E_LN		GENMASK(17, 10)
+>   
+>   /* Patten register number */
+>   #define TPDM_CMB_MAX_PATT		2
+> @@ -112,11 +116,13 @@
+>    * PERIPHIDR0[0] : Fix to 1 if ImplDef subunit present, else 0
+>    * PERIPHIDR0[1] : Fix to 1 if DSB subunit present, else 0
+>    * PERIPHIDR0[2] : Fix to 1 if CMB subunit present, else 0
+> + * PERIPHIDR0[6] : Fix to 1 if MCMB subunit present, else 0
+>    */
+>   
+>   #define TPDM_PIDR0_DS_IMPDEF	BIT(0)
+>   #define TPDM_PIDR0_DS_DSB	BIT(1)
+>   #define TPDM_PIDR0_DS_CMB	BIT(2)
+> +#define TPDM_PIDR0_DS_MCMB	BIT(6)
+>   
+>   #define TPDM_DSB_MAX_LINES	256
+>   /* MAX number of EDCR registers */
+> @@ -245,6 +251,16 @@ struct dsb_dataset {
+>   	bool			trig_type;
+>   };
+>   
+> +/**
+> + * struct mcmb_dataset
+> + * @mcmb_trig_lane:       Save data for trigger lane
+> + * @mcmb_lane_select:     Save data for lane enablement
+> + */
+> +struct mcmb_dataset {
+> +	u8		mcmb_trig_lane;
+> +	u8		mcmb_lane_select;
+> +};
+> +
+
+If it is only these two members, why not embed this in the cmb_dataset ?
+This takes just 2bytes and we are instead allocating 2bytes + 4bytes for 
+storing and additional pointer dereference + error handling of
+allocations etc.
+
+>   /**
+>    * struct cmb_dataset
+>    * @trace_mode:       Dataset collection mode
+> @@ -267,6 +283,7 @@ struct cmb_dataset {
+>   	bool			patt_ts;
+>   	bool			trig_ts;
+>   	bool			ts_all;
+> +	struct mcmb_dataset	*mcmb;
+
+	struct 			{
+		u8		trig_lane;
+		u8		lane_select;
+	} mcmb;
+
+?
+
+Suzuki
+
+
+
+>   };
+>   
+>   /**
+> @@ -334,4 +351,9 @@ static bool tpdm_has_cmb_dataset(struct tpdm_drvdata *drvdata)
+>   {
+>   	return (drvdata->datasets & TPDM_PIDR0_DS_CMB);
+>   }
+> +
+> +static bool tpdm_has_mcmb_dataset(struct tpdm_drvdata *drvdata)
+> +{
+> +	return (drvdata->datasets & TPDM_PIDR0_DS_MCMB);
+> +}
+>   #endif  /* _CORESIGHT_CORESIGHT_TPDM_H */
+
 
