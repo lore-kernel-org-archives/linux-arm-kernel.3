@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1032CFA454
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301F8CFA450
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxfnVxjxs+e2TMfqcU/zti9/A8hiBCMmmh5nnYqaFHY=; b=QAlvpMEkEMrq62WAESU4cBWh70
-	KqoUpYTp/nrpkCtMsH+3WutEL9KorqZ3aJSPdA81b8OiInQujKFEj7jFDfJyjj3qnDSi8oryOJshE
-	tvViHVTK1taz4wXuP8hxKPswxzJ4kd05cLXiF+q80pXRSF+1XLLdP7LfcMpj6VrRZNDFDcXYOZaQV
-	4Xs88vdR86p7NXpnaV/jeefQfU7yWoY1hdRxcnSpXW0q66YvTM2oH8vqatvx6rufm0IlFWInsoxqR
-	AWKy/ovoA1l3BiXEAKoxAk6d2d30BnFyvN2pvyaVHdgiqLy1dwQkM101Lh8Otr/smdp32iuxabQFb
-	cEPXAXaQ==;
+	bh=O2vgyHc/qd9IY8tmRPayOa/IPLbcMryM1fWzEPdubOc=; b=PIQOme8Zc6FWjQ2IU9ILNykzDD
+	7GciwB1jy+OiJgptwmSMOmm+3o5KiGxlolRVFieH2aK9NOezq4TPlqw3XlovolYQS2Gt+MGwrlAE7
+	Ljry3790/6pT32FOYjBmXHjeMvC+JGallwYFkiQ0dykpRQt3+o/2rKyMArgbiGVcLVoZRHiCvVBy+
+	zX2X//vxm2Qsp7Dl4SVFHqD6SqrM1fZeuUJPJHigY3qZyIzifEinBF74a5jN/3JmyJKtdh6B0xxx1
+	QtxJo3uZ/xrdfWjMJDztaISLgDIxDYWTIbkljnwAnmOFK4xaJMheKhVwGFH9g2EyShH7UfdAJbPi8
+	9NOhvSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3egX-0000000FFPg-0RYo;
-	Wed, 23 Oct 2024 16:58:13 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1t3egV-0000000FFP2-2xai;
+	Wed, 23 Oct 2024 16:58:11 +0000
+Received: from out162-62-58-211.mail.qq.com ([162.62.58.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cvP-0000000EsYy-1BUf
+	id 1t3cud-0000000EsGv-29T4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 15:05:28 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49NF5LMN071286;
-	Wed, 23 Oct 2024 10:05:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729695921;
-	bh=cxfnVxjxs+e2TMfqcU/zti9/A8hiBCMmmh5nnYqaFHY=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=jvyLBVS8exSaB5VCINBrlNUsLaKuPIwkeN/K9p4A9hFhKP2n5Xxz5bwp5Oo9/N2mw
-	 pLZ5m6vyBWr0A9Iusqv6QadYEvWvVrqVFlvYclX/tj9zFO8Os95DfkK70x/B7i9OMU
-	 JmcvsqQWNBcQPmt6pHNrrqyuKWoF/aMXhUy396oI=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49NF5LJS006302
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Oct 2024 10:05:21 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Oct 2024 10:05:20 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Oct 2024 10:05:21 -0500
-Received: from [172.24.227.91] (psdkl-workstation0.dhcp.ti.com [172.24.227.91])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49NF5GnA065172;
-	Wed, 23 Oct 2024 10:05:17 -0500
-Message-ID: <942f988f-8228-43e0-9b29-41fccddcaaf1@ti.com>
-Date: Wed, 23 Oct 2024 20:35:15 +0530
+	Wed, 23 Oct 2024 15:04:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1729695873; bh=O2vgyHc/qd9IY8tmRPayOa/IPLbcMryM1fWzEPdubOc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nJ8sd2/pn7NVUM1Tp//mID/LOmAdSgfB8yWXWLMFx9cBx35usx4ml1mSU+vlWTF3y
+	 KrlK3MlxAGVg4PdCCyr3inT1ECWWSd+y+ZbbqgYKK7Y2+XpmF0kBXeLBn6UFepSnHb
+	 YWQVB0nyOFhIikw4h7sC2YUM/RTS/6LNYrDU/6ZU=
+Received: from [IPV6:2408:8207:18a1:fd20:ec7f:d727:3cc2:ded9] ([2408:8207:18a1:fd20:ec7f:d727:3cc2:ded9])
+	by newxmesmtplogicsvrsza15-1.qq.com (NewEsmtp) with SMTP
+	id C4982B3; Wed, 23 Oct 2024 23:03:04 +0800
+X-QQ-mid: xmsmtpt1729695784tknky4f7b
+Message-ID: <tencent_E5B5A91C2B70BF6346432A1A3DF9AC047709@qq.com>
+X-QQ-XMAILINFO: NNoVXaH09J17SGad50D8Zq2LBGlcfi9ovxOaekxYE+K6rbvaH0gC7kRcka2hd/
+	 +Vv3XvkKl/5NEuGvqi3HW6J6Ee1dvxvRmSB7BGw0MBKd5+nXUYgVWCA6C5AzRimjFsCReS9Fy4OB
+	 91BW+ZejIyQxEPqJVtM0F34UGWtvl1PgKtg5gh8CfvzwLoktw6ve/1WOi5tdFKtZe0vaIYleQS9Q
+	 +h34lsbAvG4GZbQKfFOhurbUC4b/ugA1qKrURsUYspoRSMB8A0XfyMcfHSrP+DCBrPQHo9gqdxBP
+	 5xc71R9TR2Nhlln4NyBoWnvdptI/yceIfoSYZRVe8iLCxV0nopMXAzrKQdSJogFyumgbva1rbDuw
+	 PBGMLaKVt3f2RtnaUz8Jb+Pauwe5dTUTkSRWBkggMANBc0mV3zgMOToc0gv6/fqpY7UpcCrEMjdJ
+	 jcYm5RLyQWziS/KVrnhQEpk1XorcUWVonMYZmT8gku8X09iO0C3uxkQkPrLm4L6sWgmv4/sQ5w74
+	 5dIgQlzwxA9saWmrV2j46MJ0P6Udk1Q8VGbnYQiME9FUAGpuTA0j1dV1Ytnd37z+JQ6ANQ65dMhp
+	 KkWi98aAhxUF4tWSWEgGx+cmiGu/zHhLo85jZDaVAJE7VzZMLVoUP1azfbDwon1bZJ5o5R/HzJC3
+	 cjP1QS6tj2kxfdJ09joUSMuqFJJRQ2R4NI/eoS0rvJ6sDcYMFdY8AKksk7EKFh1ztkJTyMNsDUhd
+	 fA7WoHYNEvA0aHyuk4p9mA8c05IZMJmNLC8rkTO9YdRvIhKpFNYfHjSZnGUdkVC6NOKBQeYXdx3z
+	 be7Mp8tvGHyyHDmvzDesE7ZX3RWBzDfho62bCvkGLAO784t+zSD1t/fn6f7BSQ6YXkPID9HnwJ0u
+	 3E+hYXSCqcc81KXH/WUcQ5C8gd6c1XvJ3hQA2hOpYzFWBimevp0pVaqTIpQGxnahVyBkXiI5GH1O
+	 +kZtGJRDoPP2RpnSzARO2m9QNSX2Xd7tTsNddPow7bhKbNYsrnWlzGmBAd5/BA0AchBcROo5Ph9o
+	 xHXwBw+Q==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-OQ-MSGID: <ca446a13-76e7-4c04-bc28-070c01bb3428@cyyself.name>
+Date: Wed, 23 Oct 2024 23:03:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/12] arm64: dts: ti: k3-j7200: Add bootph-*
- properties
-To: Manorit Chawdhry <m-chawdhry@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Neha Malcom Francis <n-francis@ti.com>,
-        Udit
- Kumar <u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>, Andrew Davis <afd@ti.com>
-References: <20241023-b4-upstream-bootph-all-v5-0-a974d06370ab@ti.com>
- <20241023-b4-upstream-bootph-all-v5-6-a974d06370ab@ti.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
+ gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+ torvalds@linux-foundation.org
+Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
 Content-Language: en-US
-From: Aniket Limaye <a-limaye@ti.com>
-In-Reply-To: <20241023-b4-upstream-bootph-all-v5-6-a974d06370ab@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+From: Yangyu Chen <cyy@cyyself.name>
+In-Reply-To: <20241023080935.2945-2-kexybiscuit@aosc.io>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_080527_547408_CEF88EA5 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20241023_080440_101819_B40A2661 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,132 +103,399 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 23/10/24 12:27, Manorit Chawdhry wrote:
-> Adds bootph-* properties to the leaf nodes to enable bootloaders to
-> utilise them.
+On 2024/10/23 16:09, Kexy Biscuit wrote:
+> This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
 > 
-> Following adds bootph-* to
-> - System controller nodes that allow controlling power domain, clocks, etc.
-> - secure_proxy_sa3/secure_proxy_main mboxes for communication with
->    System Controller
-> - mcu_ringacc/mcu_udmap for DMA to SMS
-> - chipid for detection soc information.
-> - mcu_timer0 for bootloader tick-timer.
-> - hbmc_mux for enabling Hyperflash support
-> - ESM nodes for enabling ESM support.
-> - wkup_vtm for enabling Adaptive voltage scaling(AVS) support
+> An absolutely no-one-ever-reviewed patch, not even by the maintainers who
+> got removed themselves - at least not on the mailing list. Then the patch
+> just got slipped into an unrelated subsystem pull request, and got pulled
+> by Torvalds with not even a comment.
 > 
-> Signed-off-by: Manorit Chawdhry <m-chawdhry@ti.com>
 
-Thanks for the patch!
+I agree.
 
-Reviewed-by: Aniket Limaye <a-limaye@ti.com>
+> What about the next time? Who next would be removed from the MAINTAINERS
+> file, the kernel.org infrastructure? What if the compliance requires
+> another XZ backdoor to be developed without further explanation? Is the
+> kernel development process still done in public?
+> 
+> Are the "compliance requirements" documented on docs.kernel.org? Who are
+> responsible for them? Are all that are responsible employees of
+> The Linux Foundation, which is regulated by the U.S. legislature?
+> 
 
+Please consider how a neutral maintainer would perceive these commit
+messages; if they sign off on this commit, what does it mean?
+
+I recommend focusing on factual information rather than inciting
+emotions. Including these statements in the commit message may not
+be the best approach to gaining objective support. I suggest removing
+these two paragraphs and submitting a revised patch v2.
+
+Otherwise, it looks good to me.
+
+Reviewed-by: Yangyu Chen <cyy@cyyself.name>
+
+> Fixes: 6e90b675cf94 ("MAINTAINERS: Remove some entries due to various compliance requirements.")
+> Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
+> Acked-by: Nikita Travkin <nikita@trvn.ru>
+> Acked-by: WangYuli <wangyuli@uniontech.com>
+> Acked-by: Mingcong Bai <jeffbai@aosc.io>
+> Acked-by: Tonghao Zhang <xiangxia.m.yue@gmail.com>
+> Acked-by: Nikita Shubin <nikita.shubin@maquefel.me>
 > ---
->   arch/arm64/boot/dts/ti/k3-j7200-main.dtsi       |  2 ++
->   arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi | 11 +++++++++++
->   2 files changed, 13 insertions(+)
+> Please keep all discussions on at least one of the mailing lists.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
-> index 9386bf3ef9f6..ac9c0a939461 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
-> @@ -136,6 +136,7 @@ secure_proxy_main: mailbox@32c00000 {
->   			      <0x00 0x32800000 0x00 0x100000>;
->   			interrupt-names = "rx_011";
->   			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
-> +			bootph-all;
->   		};
+>   MAINTAINERS | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 178 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e9659a5a7fb3..501aa5c0887e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -258,6 +258,12 @@ L:	linux-acenic@sunsite.dk
+>   S:	Maintained
+>   F:	drivers/net/ethernet/alteon/acenic*
 >   
->   		hwspinlock: spinlock@30e00000 {
-> @@ -1527,6 +1528,7 @@ main_r5fss0_core1: r5f@5d00000 {
->   	main_esm: esm@700000 {
->   		compatible = "ti,j721e-esm";
->   		reg = <0x0 0x700000 0x0 0x1000>;
-> +		bootph-pre-ram;
->   		ti,esm-pins = <656>, <657>;
->   	};
->   };
-> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-> index 5097d192c2b2..7e9ad2301937 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-> @@ -21,16 +21,19 @@ dmsc: system-controller@44083000 {
->   		k3_pds: power-controller {
->   			compatible = "ti,sci-pm-domain";
->   			#power-domain-cells = <2>;
-> +			bootph-all;
->   		};
->   
->   		k3_clks: clock-controller {
->   			compatible = "ti,k2g-sci-clk";
->   			#clock-cells = <2>;
-> +			bootph-all;
->   		};
->   
->   		k3_reset: reset-controller {
->   			compatible = "ti,sci-reset";
->   			#reset-cells = <2>;
-> +			bootph-all;
->   		};
->   	};
->   
-> @@ -44,6 +47,7 @@ mcu_timer0: timer@40400000 {
->   		assigned-clocks = <&k3_clks 35 1>;
->   		assigned-clock-parents = <&k3_clks 35 2>;
->   		power-domains = <&k3_pds 35 TI_SCI_PD_EXCLUSIVE>;
-> +		bootph-pre-ram;
->   		ti,timer-pwm;
->   	};
->   
-> @@ -191,6 +195,7 @@ wkup_conf: bus@43000000 {
->   		chipid: chipid@14 {
->   			compatible = "ti,am654-chipid";
->   			reg = <0x14 0x4>;
-> +			bootph-all;
->   		};
->   	};
->   
-> @@ -344,6 +349,7 @@ mcu_ringacc: ringacc@2b800000 {
->   			      <0x00 0x28440000 0x00 0x40000>;
->   			reg-names = "rt", "fifos", "proxy_gcfg",
->   				    "proxy_target", "cfg";
-> +			bootph-all;
->   			ti,num-rings = <286>;
->   			ti,sci-rm-range-gp-rings = <0x1>; /* GP ring range */
->   			ti,sci = <&dmsc>;
-> @@ -363,6 +369,7 @@ mcu_udmap: dma-controller@285c0000 {
->   				    "tchan", "rchan", "rflow";
->   			msi-parent = <&main_udmass_inta>;
->   			#dma-cells = <1>;
-> +			bootph-all;
->   
->   			ti,sci = <&dmsc>;
->   			ti,sci-dev-id = <236>;
-> @@ -383,6 +390,8 @@ secure_proxy_mcu: mailbox@2a480000 {
->   		reg = <0x0 0x2a480000 0x0 0x80000>,
->   		      <0x0 0x2a380000 0x0 0x80000>,
->   		      <0x0 0x2a400000 0x0 0x80000>;
-> +		bootph-pre-ram;
+> +ACER ASPIRE 1 EMBEDDED CONTROLLER DRIVER
+> +M:	Nikita Travkin <nikita@trvn.ru>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
+> +F:	drivers/platform/arm64/acer-aspire1-ec.c
 > +
->   		/*
->   		 * Marked Disabled:
->   		 * Node is incomplete as it is meant for bootloaders and
-> @@ -534,6 +543,7 @@ hbmc_mux: mux-controller@47000004 {
->   			reg = <0x00 0x47000004 0x00 0x4>;
->   			#mux-control-cells = <1>;
->   			mux-reg-masks = <0x0 0x2>; /* HBMC select */
-> +			bootph-all;
->   		};
+>   ACER ASPIRE ONE TEMPERATURE AND FAN DRIVER
+>   M:	Peter Kaestle <peter@piie.net>
+>   L:	platform-driver-x86@vger.kernel.org
+> @@ -882,6 +888,7 @@ F:	drivers/staging/media/sunxi/cedrus/
 >   
->   		hbmc: hyperbus@47034000 {
-> @@ -652,6 +662,7 @@ wkup_vtm0: temperature-sensor@42040000 {
->   		      <0x00 0x42050000 0x00 0x350>;
->   		power-domains = <&k3_pds 154 TI_SCI_PD_EXCLUSIVE>;
->   		#thermal-sensor-cells = <1>;
-> +		bootph-pre-ram;
->   	};
+>   ALPHA PORT
+>   M:	Richard Henderson <richard.henderson@linaro.org>
+> +M:	Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+>   M:	Matt Turner <mattst88@gmail.com>
+>   L:	linux-alpha@vger.kernel.org
+>   S:	Odd Fixes
+> @@ -2256,6 +2263,12 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>   S:	Maintained
+>   F:	arch/arm/mach-ep93xx/ts72xx.c
 >   
->   	mcu_esm: esm@40800000 {
-> 
+> +ARM/CIRRUS LOGIC CLPS711X ARM ARCHITECTURE
+> +M:	Alexander Shiyan <shc_work@mail.ru>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> +S:	Odd Fixes
+> +N:	clps711x
+> +
+>   ARM/CIRRUS LOGIC EP93XX ARM ARCHITECTURE
+>   M:	Hartley Sweeten <hsweeten@visionengravers.com>
+>   M:	Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> @@ -3802,6 +3815,14 @@ F:	drivers/video/backlight/
+>   F:	include/linux/backlight.h
+>   F:	include/linux/pwm_backlight.h
+>   
+> +BAIKAL-T1 PVT HARDWARE MONITOR DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-hwmon@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
+> +F:	Documentation/hwmon/bt1-pvt.rst
+> +F:	drivers/hwmon/bt1-pvt.[ch]
+> +
+>   BARCO P50 GPIO DRIVER
+>   M:	Santosh Kumar Yadav <santoshkumar.yadav@barco.com>
+>   M:	Peter Korsgaard <peter.korsgaard@barco.com>
+> @@ -6455,6 +6476,7 @@ F:	drivers/mtd/nand/raw/denali*
+>   
+>   DESIGNWARE EDMA CORE IP DRIVER
+>   M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> +R:	Serge Semin <fancer.lancer@gmail.com>
+>   L:	dmaengine@vger.kernel.org
+>   S:	Maintained
+>   F:	drivers/dma/dw-edma/
+> @@ -9737,6 +9759,14 @@ F:	drivers/gpio/gpiolib-cdev.c
+>   F:	include/uapi/linux/gpio.h
+>   F:	tools/gpio/
+>   
+> +GRE DEMULTIPLEXER DRIVER
+> +M:	Dmitry Kozlov <xeb@mail.ru>
+> +L:	netdev@vger.kernel.org
+> +S:	Maintained
+> +F:	include/net/gre.h
+> +F:	net/ipv4/gre_demux.c
+> +F:	net/ipv4/gre_offload.c
+> +
+>   GRETH 10/100/1G Ethernet MAC device driver
+>   M:	Andreas Larsson <andreas@gaisler.com>
+>   L:	netdev@vger.kernel.org
+> @@ -12929,6 +12959,12 @@ S:	Maintained
+>   F:	drivers/ata/pata_arasan_cf.c
+>   F:	include/linux/pata_arasan_cf_data.h
+>   
+> +LIBATA PATA DRIVERS
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	linux-ide@vger.kernel.org
+> +F:	drivers/ata/ata_*.c
+> +F:	drivers/ata/pata_*.c
+> +
+>   LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
+>   M:	Linus Walleij <linus.walleij@linaro.org>
+>   L:	linux-ide@vger.kernel.org
+> @@ -12945,6 +12981,15 @@ F:	drivers/ata/ahci_platform.c
+>   F:	drivers/ata/libahci_platform.c
+>   F:	include/linux/ahci_platform.h
+>   
+> +LIBATA SATA AHCI SYNOPSYS DWC CONTROLLER DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-ide@vger.kernel.org
+> +S:	Maintained
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/dlemoal/libata.git
+> +F:	Documentation/devicetree/bindings/ata/baikal,bt1-ahci.yaml
+> +F:	Documentation/devicetree/bindings/ata/snps,dwc-ahci.yaml
+> +F:	drivers/ata/ahci_dwc.c
+> +
+>   LIBATA SATA PROMISE TX2/TX4 CONTROLLER DRIVER
+>   M:	Mikael Pettersson <mikpelinux@gmail.com>
+>   L:	linux-ide@vger.kernel.org
+> @@ -14140,6 +14185,16 @@ S:	Maintained
+>   T:	git git://linuxtv.org/media_tree.git
+>   F:	drivers/media/platform/nxp/imx-pxp.[ch]
+>   
+> +MEDIA DRIVERS FOR ASCOT2E
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/ascot2e*
+> +
+>   MEDIA DRIVERS FOR CXD2099AR CI CONTROLLERS
+>   M:	Jasmin Jessich <jasmin@anw.at>
+>   L:	linux-media@vger.kernel.org
+> @@ -14148,6 +14203,16 @@ W:	https://linuxtv.org
+>   T:	git git://linuxtv.org/media_tree.git
+>   F:	drivers/media/dvb-frontends/cxd2099*
+>   
+> +MEDIA DRIVERS FOR CXD2841ER
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/cxd2841er*
+> +
+>   MEDIA DRIVERS FOR CXD2880
+>   M:	Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
+>   L:	linux-media@vger.kernel.org
+> @@ -14192,6 +14257,35 @@ F:	drivers/media/platform/nxp/imx-mipi-csis.c
+>   F:	drivers/media/platform/nxp/imx7-media-csi.c
+>   F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+>   
+> +MEDIA DRIVERS FOR HELENE
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/helene*
+> +
+> +MEDIA DRIVERS FOR HORUS3A
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/horus3a*
+> +
+> +MEDIA DRIVERS FOR LNBH25
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/dvb-frontends/lnbh25*
+> +
+>   MEDIA DRIVERS FOR MXL5XX TUNER DEMODULATORS
+>   L:	linux-media@vger.kernel.org
+>   S:	Orphan
+> @@ -14199,6 +14293,16 @@ W:	https://linuxtv.org
+>   T:	git git://linuxtv.org/media_tree.git
+>   F:	drivers/media/dvb-frontends/mxl5xx*
+>   
+> +MEDIA DRIVERS FOR NETUP PCI UNIVERSAL DVB devices
+> +M:	Sergey Kozlov <serjk@netup.ru>
+> +M:	Abylay Ospan <aospan@netup.ru>
+> +L:	linux-media@vger.kernel.org
+> +S:	Supported
+> +W:	https://linuxtv.org
+> +W:	http://netup.tv/
+> +T:	git git://linuxtv.org/media_tree.git
+> +F:	drivers/media/pci/netup_unidvb/*
+> +
+>   MEDIA DRIVERS FOR NVIDIA TEGRA - VDE
+>   M:	Dmitry Osipenko <digetx@gmail.com>
+>   L:	linux-media@vger.kernel.org
+> @@ -14842,6 +14946,13 @@ F:	drivers/mtd/
+>   F:	include/linux/mtd/
+>   F:	include/uapi/mtd/
+>   
+> +MEMSENSING MICROSYSTEMS MSA311 DRIVER
+> +M:	Dmitry Rokosov <ddrokosov@sberdevices.ru>
+> +L:	linux-iio@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/iio/accel/memsensing,msa311.yaml
+> +F:	drivers/iio/accel/msa311.c
+> +
+>   MEN A21 WATCHDOG DRIVER
+>   M:	Johannes Thumshirn <morbidrsa@gmail.com>
+>   L:	linux-watchdog@vger.kernel.org
+> @@ -15175,6 +15286,7 @@ F:	drivers/tty/serial/8250/8250_pci1xxxx.c
+>   
+>   MICROCHIP POLARFIRE FPGA DRIVERS
+>   M:	Conor Dooley <conor.dooley@microchip.com>
+> +R:	Vladimir Georgiev <v.georgiev@metrotek.ru>
+>   L:	linux-fpga@vger.kernel.org
+>   S:	Supported
+>   F:	Documentation/devicetree/bindings/fpga/microchip,mpf-spi-fpga-mgr.yaml
+> @@ -15429,6 +15541,17 @@ F:	arch/mips/
+>   F:	drivers/platform/mips/
+>   F:	include/dt-bindings/mips/
+>   
+> +MIPS BAIKAL-T1 PLATFORM
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-mips@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/bus/baikal,bt1-*.yaml
+> +F:	Documentation/devicetree/bindings/clock/baikal,bt1-*.yaml
+> +F:	drivers/bus/bt1-*.c
+> +F:	drivers/clk/baikal-t1/
+> +F:	drivers/memory/bt1-l2-ctl.c
+> +F:	drivers/mtd/maps/physmap-bt1-rom.[ch]
+> +
+>   MIPS BOSTON DEVELOPMENT BOARD
+>   M:	Paul Burton <paulburton@kernel.org>
+>   L:	linux-mips@vger.kernel.org
+> @@ -15441,6 +15564,7 @@ F:	include/dt-bindings/clock/boston-clock.h
+>   
+>   MIPS CORE DRIVERS
+>   M:	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+>   L:	linux-mips@vger.kernel.org
+>   S:	Supported
+>   F:	drivers/bus/mips_cdmm.c
+> @@ -16408,6 +16532,12 @@ F:	include/linux/ntb.h
+>   F:	include/linux/ntb_transport.h
+>   F:	tools/testing/selftests/ntb/
+>   
+> +NTB IDT DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	ntb@lists.linux.dev
+> +S:	Supported
+> +F:	drivers/ntb/hw/idt/
+> +
+>   NTB INTEL DRIVER
+>   M:	Dave Jiang <dave.jiang@intel.com>
+>   L:	ntb@lists.linux.dev
+> @@ -18428,6 +18558,13 @@ F:	drivers/pps/
+>   F:	include/linux/pps*.h
+>   F:	include/uapi/linux/pps.h
+>   
+> +PPTP DRIVER
+> +M:	Dmitry Kozlov <xeb@mail.ru>
+> +L:	netdev@vger.kernel.org
+> +S:	Maintained
+> +W:	http://sourceforge.net/projects/accel-pptp
+> +F:	drivers/net/ppp/pptp.c
+> +
+>   PRESSURE STALL INFORMATION (PSI)
+>   M:	Johannes Weiner <hannes@cmpxchg.org>
+>   M:	Suren Baghdasaryan <surenb@google.com>
+> @@ -19518,6 +19655,15 @@ S:	Supported
+>   F:	Documentation/devicetree/bindings/i2c/renesas,iic-emev2.yaml
+>   F:	drivers/i2c/busses/i2c-emev2.c
+>   
+> +RENESAS ETHERNET AVB DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	netdev@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +F:	Documentation/devicetree/bindings/net/renesas,etheravb.yaml
+> +F:	drivers/net/ethernet/renesas/Kconfig
+> +F:	drivers/net/ethernet/renesas/Makefile
+> +F:	drivers/net/ethernet/renesas/ravb*
+> +
+>   RENESAS ETHERNET SWITCH DRIVER
+>   R:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>   L:	netdev@vger.kernel.org
+> @@ -19567,6 +19713,14 @@ F:	Documentation/devicetree/bindings/i2c/renesas,rmobile-iic.yaml
+>   F:	drivers/i2c/busses/i2c-rcar.c
+>   F:	drivers/i2c/busses/i2c-sh_mobile.c
+>   
+> +RENESAS R-CAR SATA DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	linux-ide@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/ata/renesas,rcar-sata.yaml
+> +F:	drivers/ata/sata_rcar.c
+> +
+>   RENESAS R-CAR THERMAL DRIVERS
+>   M:	Niklas Söderlund <niklas.soderlund@ragnatech.se>
+>   L:	linux-renesas-soc@vger.kernel.org
+> @@ -19642,6 +19796,16 @@ S:	Supported
+>   F:	Documentation/devicetree/bindings/i2c/renesas,rzv2m.yaml
+>   F:	drivers/i2c/busses/i2c-rzv2m.c
+>   
+> +RENESAS SUPERH ETHERNET DRIVER
+> +R:	Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:	netdev@vger.kernel.org
+> +L:	linux-renesas-soc@vger.kernel.org
+> +F:	Documentation/devicetree/bindings/net/renesas,ether.yaml
+> +F:	drivers/net/ethernet/renesas/Kconfig
+> +F:	drivers/net/ethernet/renesas/Makefile
+> +F:	drivers/net/ethernet/renesas/sh_eth*
+> +F:	include/linux/sh_eth.h
+> +
+>   RENESAS USB PHY DRIVER
+>   M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>   L:	linux-renesas-soc@vger.kernel.org
+> @@ -22295,11 +22459,19 @@ F:	drivers/tty/serial/8250/8250_lpss.c
+>   
+>   SYNOPSYS DESIGNWARE APB GPIO DRIVER
+>   M:	Hoan Tran <hoan@os.amperecomputing.com>
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+>   L:	linux-gpio@vger.kernel.org
+>   S:	Maintained
+>   F:	Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+>   F:	drivers/gpio/gpio-dwapb.c
+>   
+> +SYNOPSYS DESIGNWARE APB SSI DRIVER
+> +M:	Serge Semin <fancer.lancer@gmail.com>
+> +L:	linux-spi@vger.kernel.org
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+> +F:	drivers/spi/spi-dw*
+> +
+>   SYNOPSYS DESIGNWARE AXI DMAC DRIVER
+>   M:	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+>   S:	Maintained
+> @@ -23609,6 +23781,12 @@ L:	linux-input@vger.kernel.org
+>   S:	Maintained
+>   F:	drivers/hid/hid-udraw-ps3.c
+>   
+> +UFS FILESYSTEM
+> +M:	Evgeniy Dushistov <dushistov@mail.ru>
+> +S:	Maintained
+> +F:	Documentation/admin-guide/ufs.rst
+> +F:	fs/ufs/
+> +
+>   UHID USERSPACE HID IO DRIVER
+>   M:	David Rheinsberg <david@readahead.eu>
+>   L:	linux-input@vger.kernel.org
+
 
