@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06FBCDDE71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAD1CF5365
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1FiYguMGThHNLA9kFA0q7R/MPGzxBFfJ6/L73aEij8c=; b=IPjoGNlMxYhOUaOSX6MtTlwzR4
-	TeRsGePNT3HM8gKlXF9syDZO0uc8b5E5yGa2rQ4DDGzrdtz+dmTQI75MsR1i+tGiBAkaRONpe2BDk
-	esBW4X34GvmTscSJwTljSi+LAZodZE98NwE0bRSHaGm1lqxFhhW3APutVqAfaUZ1jR/8e4lNGyOlh
-	5hi52Xg7ND3dgkA8QC709ZyqD9qkLL1KDvAHU/y1Uah0w2hrFe+h+lVwnuWxxMx0llkQ+DS1UnIhj
-	K55LUsdxau1RKBffZcoRQcGiRV04c2FnTKlRepadoJ8Y3K05EsOQRrakWY0TTxY5z0ugFy0CyDrUM
-	TgduvFMg==;
+	bh=7BpUiMybXWWR5QAYbcPi83nzo0UAvC/Ct51dVMXRm7k=; b=dqx8r8iBdOVyQorDbPmRENXhWg
+	/Udcy7OU7tn7xYcV4zovfYB2plPnyrl1lM5PSL/lZcVsZ/zcpF7/vYebb7dRpiiDKZEfNLvd9U1Yg
+	xZ6zz42HmCBmDeAjjm8tI7Y2DFI3y9UrhKup74I37a9OtObuNUZaj0DSNPtTrLIZaDx/6dk6azvng
+	1M2FlKnpmbKvMSgLUlaEk7q0w37E5BIunHw/VHPHzfWhewBMGh+pIvHfGghmUeG5nrXtyT8c2NnFu
+	VgXGxvVxRUzCXPEWP8cAEjHlaida4x5lAWOpvCp5p+s4hRtiE2ZWYedtEojFCCRNNGaLQdcFIejq/
+	JSrWzTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zqm-0000000EDO3-2jxt;
-	Wed, 23 Oct 2024 11:48:28 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t3aLI-0000000EIJL-2G2x;
+	Wed, 23 Oct 2024 12:20:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zdi-0000000E9HR-2tqC
+	id 1t3Zu9-0000000EEI3-0LcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:35:00 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49NBYtIb110748;
-	Wed, 23 Oct 2024 06:34:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729683295;
-	bh=1FiYguMGThHNLA9kFA0q7R/MPGzxBFfJ6/L73aEij8c=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=C1MCYWstdBABU7XcD3rpLdWw36KQE7tpoCrmR1WF7FGNYxexKY40g8XdFwJTLqp2P
-	 9qscd7CnUXPbJx5WB9Eacv/xm3CEC4dBjiOkVeQhdLDwPPfiV3zcTO4smgxo2ivqPV
-	 h3zNK7rkEUrpe74KKHKJ8Iqx1VXMNoq/02nb2p74=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49NBYtLQ026165
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Oct 2024 06:34:55 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Oct 2024 06:34:54 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Oct 2024 06:34:54 -0500
-Received: from [172.24.227.36] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [172.24.227.36] (may be forged))
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49NBYocq076796;
-	Wed, 23 Oct 2024 06:34:50 -0500
-Message-ID: <674deca5-9697-40e2-abce-0d3a2193771c@ti.com>
-Date: Wed, 23 Oct 2024 17:04:49 +0530
+	Wed, 23 Oct 2024 11:51:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 04EE5A44BD3;
+	Wed, 23 Oct 2024 11:51:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19307C4CEC6;
+	Wed, 23 Oct 2024 11:51:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729684315;
+	bh=/Q04rYD6s7mKlKohcnk5dUrsgTRIpLrVCMnNLencu9s=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=B52nSJJvrk1x+Gm0WVd0QtrTt/kQAvg/gTJ5WwFkgpFnvCqXP5vXAa9xWfhJRb2+4
+	 ppDiNnThGGu6LXR6bTNjcn5bH2C8Kq3wGB6QmUZ0QdISGv6CQrOR6y7X21kY6E9zJa
+	 9vwrkUKckGRCLSchL3a5y6cDW2TNeYoTIQE0aWjIGeXRlzKhrvc+kXlYhAPuj0JDwz
+	 qhw55fAMdhqHsZ6URpq3buwIcdr2m1Shl1xm3G9qYbZ8zFlYgzIRQuHkxW4kSLROxn
+	 6qKqFa2Oz8NydKeOPgDa/pEWFF8sJ1/ELLBaBrVy05NynUER+qvuA/ufPiyhtHwppd
+	 e+0BeWtVyKong==
+From: Mark Brown <broonie@kernel.org>
+To: perex@perex.cz, tiwai@suse.com, hayashi.kunihiko@socionext.com, 
+ mhiramat@kernel.org, 
+ =?utf-8?q?=28=ED=95=99=EC=83=9D=29_=EC=9E=A5=EC=9D=B8=EA=B7=9C_=28=EC=BB=B4=ED=93=A8=ED=84=B0=EA=B3=B5=ED=95=99=EA=B3=BC=29?= <ingyujang25@unist.ac.kr>
+Cc: lgirdwood@gmail.com, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <SE1P216MB2287962B462AE91B26248D19FD7E2@SE1P216MB2287.KORP216.PROD.OUTLOOK.COM>
+References: <SE1P216MB2287962B462AE91B26248D19FD7E2@SE1P216MB2287.KORP216.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH] ASoc: uniphier: Handle regmap_write errors in
+ aio_iecout_set_enable()
+Message-Id: <172968431380.31331.15335444902728869740.b4-ty@kernel.org>
+Date: Wed, 23 Oct 2024 12:51:53 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 11/12] arm64: dts: ti: k3-j721e-sk*: Add bootph-*
- properties
-To: Manorit Chawdhry <m-chawdhry@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Aniket Limaye <a-limaye@ti.com>,
-        Udit Kumar
-	<u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>, Andrew Davis <afd@ti.com>
-References: <20241023-b4-upstream-bootph-all-v5-0-a974d06370ab@ti.com>
- <20241023-b4-upstream-bootph-all-v5-11-a974d06370ab@ti.com>
-From: Neha Malcom Francis <n-francis@ti.com>
-Content-Language: en-US
-In-Reply-To: <20241023-b4-upstream-bootph-all-v5-11-a974d06370ab@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_043458_872734_F2D00259 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241023_045157_212140_5B55B75D 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,171 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/24 12:27, Manorit Chawdhry wrote:
-> Adds bootph-* properties to the leaf nodes to enable bootloaders to
-> utilise them.
+On Tue, 08 Oct 2024 05:20:30 +0000, (학생) 장인규 (컴퓨터공학과) wrote:
+> The aio_oport_set_stream_type() function did not previously check the
+> return values of regmap_write().
+> If these functions fail, it could lead to silent failures when
+> configuring the audio playback port, causing improper behavior in audio
+> stream output via S/PDIF without any indication of an error.
 > 
-> Following adds bootph-* to:
-> - main_uart0, mcu_uart0(DM), wkup_uart0(TIFS) for Traces
-> - mmc1, usb0, usb1, ospi0 for enabling various bootmodes.
+> This patch modifies aio_oport_set_stream_type() to check the return
+> values of regmap_write().
+> If regmap_write() fails, the error code is propagated back to the caller
+> to ensure proper error handling.
 > 
-> Signed-off-by: Manorit Chawdhry <m-chawdhry@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 18 ++++++++++++++++++
->   1 file changed, 18 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> index 6285e8d94dde..69b3d1ed8a21 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> @@ -346,6 +346,7 @@ J721E_IOPAD(0x244, PIN_INPUT, 0) /* (R25) MMC1_DAT2 */
->   			J721E_IOPAD(0x240, PIN_INPUT, 0) /* (R26) MMC1_DAT3 */
->   			J721E_IOPAD(0x258, PIN_INPUT, 0) /* (P23) MMC1_SDCD */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	main_uart0_pins_default: main-uart0-default-pins {
-> @@ -355,6 +356,7 @@ J721E_IOPAD(0x1f4, PIN_OUTPUT, 0) /* (AB1) UART0_RTSn */
->   			J721E_IOPAD(0x1e8, PIN_INPUT, 0) /* (AB2) UART0_RXD */
->   			J721E_IOPAD(0x1ec, PIN_OUTPUT, 0) /* (AB3) UART0_TXD */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	main_uart1_pins_default: main-uart1-default-pins {
-> @@ -390,12 +392,14 @@ main_usbss0_pins_default: main-usbss0-default-pins {
->   			J721E_IOPAD(0x290, PIN_OUTPUT, 0) /* (U6) USB0_DRVVBUS */
->   			J721E_IOPAD(0x210, PIN_INPUT, 7) /* (W3) MCAN1_RX.GPIO1_3 */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	main_usbss1_pins_default: main-usbss1-default-pins {
->   		pinctrl-single,pins = <
->   			J721E_IOPAD(0x214, PIN_OUTPUT, 4) /* (V4) MCAN1_TX.USB1_DRVVBUS */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	main_csi_mux_sel_pins_default: main-csi-mux-sel-default-pins {
-> @@ -594,6 +598,7 @@ J721E_WKUP_IOPAD(0x24, PIN_INPUT, 0) /* (B22) MCU_OSPI0_D6 */
->   			J721E_WKUP_IOPAD(0x28, PIN_INPUT, 0) /* (G21) MCU_OSPI0_D7 */
->   			J721E_WKUP_IOPAD(0x8, PIN_INPUT, 0) /* (D21) MCU_OSPI0_DQS */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	vdd_mmc1_en_pins_default: vdd-mmc1-en-default-pins {
-> @@ -622,6 +627,7 @@ J721E_WKUP_IOPAD(0xf4, PIN_OUTPUT, 2)/* (D25) MCU_I3C0_SDA.MCU_UART0_RTSn */
->   			J721E_WKUP_IOPAD(0xe4, PIN_INPUT, 0) /* (H28) WKUP_GPIO0_13.MCU_UART0_RXD */
->   			J721E_WKUP_IOPAD(0xe0, PIN_OUTPUT, 0)/* (G29) WKUP_GPIO0_12.MCU_UART0_TXD */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-> @@ -629,6 +635,7 @@ wkup_i2c0_pins_default: wkup-i2c0-default-pins {
->   			J721E_WKUP_IOPAD(0xf8, PIN_INPUT_PULLUP, 0) /* (J25) WKUP_I2C0_SCL */
->   			J721E_WKUP_IOPAD(0xfc, PIN_INPUT_PULLUP, 0) /* (H24) WKUP_I2C0_SDA */
->   		>;
-> +		bootph-all;
->   	};
->   
->   	mcu_mcan0_pins_default: mcu-mcan0-default-pins {
-> @@ -657,6 +664,7 @@ &wkup_uart0 {
->   	status = "reserved";
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&wkup_uart0_pins_default>;
-> +	bootph-all;
->   };
->   
->   &wkup_i2c0 {
-> @@ -821,6 +829,7 @@ &mcu_uart0 {
->   	status = "okay";
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&mcu_uart0_pins_default>;
-> +	bootph-all;
->   };
->   
->   &main_uart0 {
-> @@ -829,6 +838,7 @@ &main_uart0 {
->   	pinctrl-0 = <&main_uart0_pins_default>;
->   	/* Shared with ATF on this platform */
->   	power-domains = <&k3_pds 146 TI_SCI_PD_SHARED>;
-> +	bootph-all;
->   };
->   
->   &main_uart1 {
-> @@ -844,6 +854,7 @@ &main_sdhci1 {
->   	vqmmc-supply = <&vdd_sd_dv_alt>;
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_mmc1_pins_default>;
-> +	bootph-all;
->   	ti,driver-strength-ohm = <50>;
->   	disable-wp;
->   };
-> @@ -908,6 +919,7 @@ partition@800000 {
->   			partition@3fc0000 {
->   				label = "ospi.phypattern";
->   				reg = <0x3fc0000 0x40000>;
-> +				bootph-all;
->   			};
->   		};
->   	};
-> @@ -1003,6 +1015,7 @@ &wkup_gpio0 {
->   
->   &usb_serdes_mux {
->   	idle-states = <1>, <1>; /* USB0 to SERDES3, USB1 to SERDES2 */
-> +	bootph-all;
->   };
->   
->   &serdes_ln_ctrl {
-> @@ -1012,6 +1025,7 @@ &serdes_ln_ctrl {
->   		      <J721E_SERDES3_LANE0_USB3_0_SWAP>, <J721E_SERDES3_LANE1_USB3_0>,
->   		      <J721E_SERDES4_LANE0_EDP_LANE0>, <J721E_SERDES4_LANE1_EDP_LANE1>,
->   		      <J721E_SERDES4_LANE2_EDP_LANE2>, <J721E_SERDES4_LANE3_EDP_LANE3>;
-> +	bootph-all;
->   };
->   
->   &serdes_wiz3 {
-> @@ -1050,6 +1064,7 @@ &mhdp {
->   &usbss0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_usbss0_pins_default>;
-> +	bootph-all;
->   	ti,vbus-divider;
->   };
->   
-> @@ -1058,6 +1073,7 @@ &usb0 {
->   	maximum-speed = "super-speed";
->   	phys = <&serdes3_usb_link>;
->   	phy-names = "cdns3,usb3-phy";
-> +	bootph-all;
->   };
->   
->   &serdes2 {
-> @@ -1073,6 +1089,7 @@ serdes2_usb_link: phy@1 {
->   &usbss1 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_usbss1_pins_default>;
-> +	bootph-all;
->   	ti,vbus-divider;
->   };
->   
-> @@ -1081,6 +1098,7 @@ &usb1 {
->   	maximum-speed = "super-speed";
->   	phys = <&serdes2_usb_link>;
->   	phy-names = "cdns3,usb3-phy";
-> +	bootph-all;
->   };
->   
->   &mcu_cpsw {
-> 
+> [...]
 
-Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
+Applied to
 
--- 
-Thanking You
-Neha Malcom Francis
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/1] ASoc: uniphier: Handle regmap_write errors in aio_iecout_set_enable()
+      commit: 9b0c65115acdcb6fd6bbeb360c1f4f7b14c9a610
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
