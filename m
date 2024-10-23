@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A71FD0BB42
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C675D0BB41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbCamVsAAm7hkHH06xyk1OYRP1zvDvVb7sC8vjiDeEI=; b=mRgdrXLQdChkeZPLjqNPDooJrd
-	IIIZYSRG3PDXK+RjzHuW3CwS59EXuG3p6PjkocRfWPHzgv0EqwIKnhLjSNcAo+e98spFOLNAGvFyy
-	C0NJNC4jq17B3D7YopGKeJAn2c8+reMorTI8EHsZtfRhEWPu5Hu5fQKeD/qMuh8K1unz+zHSHiS4w
-	TaKAcEx8UUo/kY42j3VUIQ07D/swsm3VR+R9BDqYobJ9N5dsGvzgXEuP76z8Wz69iZF10EmLJqgel
-	jppckAnV7rnEI1WTV5/7W4JGii3xQOYXSTwocGYpX8qTWS8nMKtRDOkLwz2/wR0iXBZBMhmMNwvlZ
-	zi/NZbeA==;
+	bh=1Gv5a6CXw8C9Rvs5kl0MwkUefSwLGw3s8Bb0/DNmRqk=; b=PROlWNTShHhjH1VP0S14TR9/0Y
+	VzaryZsO9vmIgXOPGlmJiKdFl66CYmI9sg4eaA+dXwzJtvGeBxvLyCkTBIXqsTzobNhHc3QffX+oA
+	oI/DsiPtnI3QeYCTebkc1D7Us9cJdw5s30Sshl+8G5wZVbiKzryF+6wbTVLSHC8WM8xW30iMJHKx6
+	yfwIPSGe90RLw6Qmv6AE7FuY30IjLKgMxQcvAqrgfdeIFCtl0xXYJ9OpoDmfc9tvH1vjb2DfQKZmD
+	adoS15xog5RzlVsmpufFEk+CbmcE9Fe79hE67xDJrOQSp8H7ex6Zbi5pvzyeEX+50CX/IgCdkk6SC
+	5FkuS+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jdv-0000000G4N3-2sC3;
-	Wed, 23 Oct 2024 22:15:51 +0000
+	id 1t3jfQ-0000000G4Z7-2yZs;
+	Wed, 23 Oct 2024 22:17:24 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jRB-0000000G2Eo-0LHw
+	id 1t3jRB-0000000G2Gs-1VCN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 22:02:42 +0000
+	Wed, 23 Oct 2024 22:02:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1729720960; x=1761256960;
+  t=1729720961; x=1761256961;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=TvHR8qKlsEZ/gYU9wdk5E7vu890MusslQxca3KuHjs0=;
-  b=k1QeqSVLsd6DRLkjqSJWGNr4DuMmuqtexCd/wohzaSJEd/38NYMgftr1
-   jG3dzVsOM57ePQT4AQbGgMauKD4015OsbKCAfW7lhWJyBI9M5JFPOXtcu
-   XnIoBwxoxslhBGr6QTfOPFzOmPB2oPHh2tD9np8HYyXLuVD31hNclVTcV
-   cc0AOO2sqRSCmxr7UTENwoCPkZfM//vK0yTQZzo+PeyesMJ+1GX5YFtyM
-   smCkbg5UHBWGvkY+EDbOdVtYZcek7bim0PNMbQBtgqUHzeMFxwE/R6LBQ
-   6bPyGuIUGhvEIaCGc0kCamuJloQUid0F3Un+HSkcO9yBNweJLX+sRoQuV
-   A==;
+  bh=vwMgBh8rF4YruDkEUaNvk44Eb8em21K29W9Ne4EAcnA=;
+  b=PPDnM9NsqgaDc07SKCMsqy9WUCpa8di3rL6ocSDfpvtyNoAMaTLsACrT
+   hMzzS+WSoRcnWszcQ1c/woLbAUJp5u8wbuFPvPEsLNutdZ46qGxktG+Kc
+   ZZGHIntkhY+/t+fzNy2rFiPgSusslnAMCnIu5uFsisQHt6Q9h830NSUnd
+   2O6KDpr+GOHAMbNxgoFGrUtHUwEPOdukwWoREmOL6LYta3H1cXqB5XHPj
+   a5W6DxJ/ABCMGV9SjNEO5ahifpwb5PJBcSR+WvAQNUMiq9oOd6hhVdw43
+   5nXFtmEER/7xBdWHZtvpV0Y/ChUO2V8QslyTPBgmqSR1iOosMqpaJ5knD
+   w==;
 X-CSE-ConnectionGUID: wd8IJW4NTJ64cR86gqDN2Q==
-X-CSE-MsgGUID: KM0LWttpTwaDnBlVitA/WA==
+X-CSE-MsgGUID: uCehCdvbSU2XvHM8M6WRMA==
 X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="200831269"
+   d="scan'208";a="200831271"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:36 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 23 Oct 2024 15:02:12 -0700
+ 15.1.2507.35; Wed, 23 Oct 2024 15:02:16 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:08 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:12 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 24 Oct 2024 00:01:27 +0200
-Subject: [PATCH net-next v2 08/15] net: lan969x: add constants to match
+Date: Thu, 24 Oct 2024 00:01:28 +0200
+Subject: [PATCH net-next v2 09/15] net: lan969x: add lan969x ops to match
  data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-8-a0b5fae88a0f@microchip.com>
+Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-9-a0b5fae88a0f@microchip.com>
 References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 In-Reply-To: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
@@ -79,8 +79,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<steen.hegelund@microchip.com>, <devicetree@vger.kernel.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_150241_295936_35A51F66 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20241023_150241_589787_291E7CC2 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +95,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the lan969x constants to match data. These are already used
-throughout the Sparx5 code (introduced in earlier series [1]), so no
-need to update any code use.
+Add a bunch of small lan969x ops in bulk. These ops are explained in
+detail in a previous series [1].
 
-[1] https://lore.kernel.org/netdev/20241004-b4-sparx5-lan969x-switch-driver-v2-0-d3290f581663@microchip.com/
+[1] https://lore.kernel.org/netdev/20241004-b4-sparx5-lan969x-switch-driver-v2-8-d3290f581663@microchip.com/
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/lan969x/lan969x.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/net/ethernet/microchip/lan969x/lan969x.c | 122 +++++++++++++++++++++++
+ drivers/net/ethernet/microchip/lan969x/lan969x.h |  28 ++++++
+ 2 files changed, 150 insertions(+)
 
 diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-index 0b47e4e66058..19f91e4a9f3e 100644
+index 19f91e4a9f3e..2c2b86f9144e 100644
 --- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
 +++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-@@ -103,11 +103,32 @@ static const struct sparx5_regs lan969x_regs = {
- 	.fsize = lan969x_fsize,
+@@ -6,6 +6,9 @@
+ 
+ #include "lan969x.h"
+ 
++#define LAN969X_SDLB_GRP_CNT 5
++#define LAN969X_HSCH_LEAK_GRP_CNT 4
++
+ static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
+ 	{ TARGET_CPU,                   0xc0000, 0 }, /* 0xe00c0000 */
+ 	{ TARGET_FDMA,                  0xc0400, 0 }, /* 0xe00c0400 */
+@@ -92,6 +95,112 @@ static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
+ 	{ TARGET_ASM,                 0x3200000, 1 }, /* 0xe3200000 */
  };
  
-+static const struct sparx5_consts lan969x_consts = {
-+	.n_ports             = 30,
-+	.n_ports_all         = 35,
-+	.n_hsch_l1_elems     = 32,
-+	.n_hsch_queues       = 4,
-+	.n_lb_groups         = 5,
-+	.n_pgids             = 1054, /* (1024 + n_ports) */
-+	.n_sio_clks          = 1,
-+	.n_own_upsids        = 1,
-+	.n_auto_cals         = 4,
-+	.n_filters           = 256,
-+	.n_gates             = 256,
-+	.n_sdlbs             = 496,
-+	.n_dsm_cal_taxis     = 5,
-+	.buf_size            = 1572864,
-+	.qres_max_prio_idx   = 315,
-+	.qres_max_colour_idx = 323,
-+	.tod_pin             = 4,
++static struct sparx5_sdlb_group lan969x_sdlb_groups[LAN969X_SDLB_GRP_CNT] = {
++	{ 1000000000,  8192 / 2, 64 }, /*    1 G */
++	{  500000000,  8192 / 2, 64 }, /*  500 M */
++	{  100000000,  8192 / 4, 64 }, /*  100 M */
++	{   50000000,  8192 / 4, 64 }, /*   50 M */
++	{    5000000,  8192 / 8, 64 }, /*   10 M */
++};
++
++static u32 lan969x_hsch_max_group_rate[LAN969X_HSCH_LEAK_GRP_CNT] = {
++	655355, 1048568, 6553550, 10485680
++};
++
++static struct sparx5_sdlb_group *lan969x_get_sdlb_group(int idx)
++{
++	return &lan969x_sdlb_groups[idx];
++}
++
++static u32 lan969x_get_hsch_max_group_rate(int grp)
++{
++	return lan969x_hsch_max_group_rate[grp];
++}
++
++static u32 lan969x_get_dev_mode_bit(struct sparx5 *sparx5, int port)
++{
++	if (lan969x_port_is_2g5(port) || lan969x_port_is_5g(port))
++		return port;
++
++	/* 10G */
++	switch (port) {
++	case 0:
++		return 12;
++	case 4:
++		return 13;
++	case 8:
++		return 14;
++	case 12:
++		return 0;
++	default:
++		return port;
++	}
++}
++
++static u32 lan969x_port_dev_mapping(struct sparx5 *sparx5, int port)
++{
++	if (lan969x_port_is_5g(port)) {
++		switch (port) {
++		case 9:
++			return 0;
++		case 13:
++			return 1;
++		case 17:
++			return 2;
++		case 21:
++			return 3;
++		}
++	}
++
++	if (lan969x_port_is_10g(port)) {
++		switch (port) {
++		case 0:
++			return 0;
++		case 4:
++			return 1;
++		case 8:
++			return 2;
++		case 12:
++			return 3;
++		case 16:
++			return 4;
++		case 20:
++			return 5;
++		case 24:
++			return 6;
++		case 25:
++			return 7;
++		case 26:
++			return 8;
++		case 27:
++			return 9;
++		}
++	}
++
++	/* 2g5 port */
++	return port;
++}
++
++static int lan969x_port_mux_set(struct sparx5 *sparx5, struct sparx5_port *port,
++				struct sparx5_port_config *conf)
++{
++	u32 portno = port->portno;
++	u32 inst;
++
++	if (port->conf.portmode == conf->portmode)
++		return 0; /* Nothing to do */
++
++	switch (conf->portmode) {
++	case PHY_INTERFACE_MODE_QSGMII: /* QSGMII: 4x2G5 devices. Mode Q'  */
++		inst = (portno - portno % 4) / 4;
++		spx5_rmw(BIT(inst), BIT(inst), sparx5, PORT_CONF_QSGMII_ENA);
++		break;
++	default:
++		break;
++	}
++	return 0;
++}
++
+ static const struct sparx5_regs lan969x_regs = {
+ 	.tsize = lan969x_tsize,
+ 	.gaddr = lan969x_gaddr,
+@@ -123,12 +232,25 @@ static const struct sparx5_consts lan969x_consts = {
+ 	.tod_pin             = 4,
+ };
+ 
++static const struct sparx5_ops lan969x_ops = {
++	.is_port_2g5             = &lan969x_port_is_2g5,
++	.is_port_5g              = &lan969x_port_is_5g,
++	.is_port_10g             = &lan969x_port_is_10g,
++	.is_port_25g             = &lan969x_port_is_25g,
++	.get_port_dev_index      = &lan969x_port_dev_mapping,
++	.get_port_dev_bit        = &lan969x_get_dev_mode_bit,
++	.get_hsch_max_group_rate = &lan969x_get_hsch_max_group_rate,
++	.get_sdlb_group          = &lan969x_get_sdlb_group,
++	.set_port_mux            = &lan969x_port_mux_set,
 +};
 +
  const struct sparx5_match_data lan969x_desc = {
@@ -140,10 +255,48 @@ index 0b47e4e66058..19f91e4a9f3e 100644
  	.iomap_size = ARRAY_SIZE(lan969x_main_iomap),
  	.ioranges   = 2,
  	.regs       = &lan969x_regs,
-+	.consts     = &lan969x_consts,
+ 	.consts     = &lan969x_consts,
++	.ops        = &lan969x_ops,
  };
  EXPORT_SYMBOL_GPL(lan969x_desc);
  
+diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.h b/drivers/net/ethernet/microchip/lan969x/lan969x.h
+index 3b4c9ea30071..ee890b26ea79 100644
+--- a/drivers/net/ethernet/microchip/lan969x/lan969x.h
++++ b/drivers/net/ethernet/microchip/lan969x/lan969x.h
+@@ -23,4 +23,32 @@ extern const unsigned int lan969x_gsize[GSIZE_LAST];
+ extern const unsigned int lan969x_fpos[FPOS_LAST];
+ extern const unsigned int lan969x_fsize[FSIZE_LAST];
+ 
++static inline bool lan969x_port_is_2g5(int portno)
++{
++	return portno == 1  || portno == 2  || portno == 3  ||
++	       portno == 5  || portno == 6  || portno == 7  ||
++	       portno == 10 || portno == 11 || portno == 14 ||
++	       portno == 15 || portno == 18 || portno == 19 ||
++	       portno == 22 || portno == 23;
++}
++
++static inline bool lan969x_port_is_5g(int portno)
++{
++	return portno == 9 || portno == 13 || portno == 17 ||
++	       portno == 21;
++}
++
++static inline bool lan969x_port_is_10g(int portno)
++{
++	return portno == 0  || portno == 4  || portno == 8  ||
++	       portno == 12 || portno == 16 || portno == 20 ||
++	       portno == 24 || portno == 25 || portno == 26 ||
++	       portno == 27;
++}
++
++static inline bool lan969x_port_is_25g(int portno)
++{
++	return false;
++}
++
+ #endif
 
 -- 
 2.34.1
