@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863FBCFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492F4CFA46A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=; b=BPpWbwXKoaVh0zMDJnmqL4CK1Q
-	z0U+BCbDUUWPeba9a4aj+t36ssrqU3MeoAi3WNOg0HkwMH8szKhs8vZqg22629/6CFIrL4quVpnzL
-	GyL/7o8E30a+uE87KW0bFROm7PImiyARHe9D3PyMSsDiQL9qmrTR0M77FK9FOHWOnjvrwWGHUY+bF
-	1V4dVu7QfqCYPy9UJAtugTpsmyvB7am09XEqeUSOA1cext2zI23CEcvSK4e3NrlPVVwG5VZe7KZQu
-	hXom8qkDEiUAA90kVaDmbyOUHBakIHQHnIAwUI28/SeK0CwEVou8ZPoccVktH9DIEqz2Ogcsa4bo8
-	Bjym+P1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pz8zjk8EFrO8r6vwJWUFUyel58khFz5T31bsvjzVB38=; b=n8YganzWsIVEVA
+	Wf2raS2I24Xbz+xRgtf/+wxZV+4vqvfO9Xj6QyR+2F4NUwmeKmpHWZy9DFfcIQgllBaTCO4P5daYC
+	nwCmc6Fi0vJI4V2CjgB9ONvLuf+yBjZuUT8JmTz9TbXNJjPKCcAYTJAICpCzv7rcb8rF4itfCezB2
+	JPNQuPlHV1HMhLWWU/L1NrQKLsExPZhwyGptRSU3s95PLfF2o2jq5inwYEk/NesdBIPKni8uZF8cm
+	LhEvvuBl1ZxcLjHihH0stTF+LeNsTYRN0hyNIAFnRgCV0in/8t1cchfMsA0c71j5SkxzwSS1KGTsj
+	XnrHA+HsTQ795KWZVzGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i5Y-0000000FqvL-29aj;
-	Wed, 23 Oct 2024 20:36:16 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1t3iAS-0000000Frqk-3EA0;
+	Wed, 23 Oct 2024 20:41:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i3z-0000000Fqbv-0OcO
+	id 1t3i8r-0000000FrTj-2ofT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:34:40 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5c97c7852e8so231323a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:34:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1729715677; x=1730320477; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=;
-        b=cAsEQCTQgXOdCzuFf+CleXiLLwGN7OgelY94nAO3cmetLh2FPSSKafc9MS9GP2wpE7
-         uUw4gwWbOBfNAHGXmfMLcYnM66IzMx7EOh6B+DstS8sNPdTOVNxBun91bwF4hPHN9psV
-         9gLB4m2HBy7dM312pjMCpc4W9IaB+TpxXqhHI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729715677; x=1730320477;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=;
-        b=KUQFFEgdRO4yzOqmTB1IZ7gRuhCaYQzRgcJfRhMVKscQv7Y/Nzn8ef+LdsE4LR06K+
-         OT9hkTDPvKW4x08xMgjSTOeK07TXMoAEny3sHPxpIYGe0uj038GBmZRgnJFh17rLa7xi
-         5Ful3VRuoQ2xiAsGJ03dtCaRSQrSRE9piFYLVQ6sh57PDveP15fx3GtTa/X4xVSMWbFC
-         CUTd+v6bf+dYUH+lcIM11cXPQXz4bUe63BnHFxGzQk9FCBgCVpJ5vr17SvjAVU1CaSDa
-         mM43YqoLtCXK++Lv8nkIORGjvN9reYDjHGH50hlAEkqm35FpDIz2xeIhm7DGIc0Us+Gn
-         2G2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUBf2800XH6QjlahuP8wWi++YpBbx0nVuY2YGCUyzwOCXftFatFMgo5HIYt/wToWrq1aPPllz+0MMsR4x215ke/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUqin09Dps12cvMS8cRTZZKp1Y2A0VhxyOI6SYfmpU5xc2gXpI
-	ydh3Jul8ONGtn0yMwFWPm6jXYu+l9U9AgHALCK+eKlcPRbulMKwCqgRiImepeIIlV1yX0DztFuY
-	ZdmWAFg==
-X-Google-Smtp-Source: AGHT+IE4e26M1Q7US3RfBwDzLsHNXt/ZbW4gi2UiQuD/JYu1x6bmkSojUAo/ebGHjqGFrPYR69XjLQ==
-X-Received: by 2002:a05:6402:2792:b0:5c9:39d8:58b3 with SMTP id 4fb4d7f45d1cf-5cb8b26317dmr2958031a12.23.1729715676733;
-        Wed, 23 Oct 2024 13:34:36 -0700 (PDT)
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c7262bsm4813864a12.82.2024.10.23.13.34.33
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Oct 2024 13:34:35 -0700 (PDT)
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-a9a26a5d6bfso16587666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:34:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVz2xAW5AxJQSU+zg6POuBgvxREpMaBvjuNtobs+z4ilUvVZF7YulMdsGkq6Zhuhkd39rIfzWWHl39EiYz1SEY+@lists.infradead.org
-X-Received: by 2002:a17:907:72cb:b0:a99:87ea:de57 with SMTP id
- a640c23a62f3a-a9abf852bb7mr329557766b.2.1729715672886; Wed, 23 Oct 2024
- 13:34:32 -0700 (PDT)
+	Wed, 23 Oct 2024 20:39:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8EDA65C5E6A;
+	Wed, 23 Oct 2024 20:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EEA6C4CEE5;
+	Wed, 23 Oct 2024 20:39:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729715980;
+	bh=KVTyCSHO3IKy45k1g82pm2rTQMvLTo5VSsiU946MF+Q=;
+	h=From:Subject:Date:To:Cc:From;
+	b=EMAbHMVYbG9E/UFnp6Gh7YN4EgkfqD4+HH1FzQcZ4tUZdDoge9aKec/xoUEuwPyUB
+	 AYWX4UqKtGwdbAdXIdk8Kg9sRDqD3fQ2zDn8FdaXNk1X7SZczzkSzVhY+SHmI1SEXt
+	 J1gIfbc5KUJ//YeL9YA6Wa3XvcKt/CZJo1/rY0n74FqJggODv+xmU818/s0O6fTVtC
+	 4NZ9zG8NrASnXkPLCGObHArigqg5fPkexmlFH0ewlFS4Rt9RMlkQqvTcFXCKeSHR+p
+	 WFOE6aHXN4GTZrdciurL8RZJ50TRoNtwqpkMIL6rd3BPe8pii4EjX4m6WejjamyVx7
+	 7IbKzN8+QA90w==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/6] kselftest/arm64: Test floating point signal context
+ restore in fp-stress
+Date: Wed, 23 Oct 2024 21:38:28 +0100
+Message-Id: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
 MIME-Version: 1.0
-References: <20240912-seq_optimize-v3-1-8ee25e04dffa@gentwo.org>
- <20240917071246.GA27290@willie-the-truck> <4b546151-d5e1-22a3-a6d5-167a82c5724d@gentwo.org>
- <CAHk-=wgw3UErQuBuUOOfjzejGek6Cao1sSW4AosR9WPZ1dfyZg@mail.gmail.com>
- <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com> <20241023194543.GD11151@noisy.programming.kicks-ass.net>
-In-Reply-To: <20241023194543.GD11151@noisy.programming.kicks-ass.net>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 23 Oct 2024 13:34:16 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wi=Ji6-xi32167i3M1JL_YyRj6tgUAJS=YQ94GKzMBvkg@mail.gmail.com>
-Message-ID: <CAHk-=wi=Ji6-xi32167i3M1JL_YyRj6tgUAJS=YQ94GKzMBvkg@mail.gmail.com>
-Subject: Re: [PATCH v3] Avoid memory barrier in read_seqcount() through load acquire
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>, Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Ingo Molnar <mingo@redhat.com>, 
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arch@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMReGWcC/x3MPQqAMAxA4atIZgNtrYJeRRyKpprBH5IiQvHuF
+ sdveC+DkjApDFUGoZuVz6PA1hXMWzhWQl6KwRnnrXENBtk7j/FCTUKqyCKcQjoFW2/bSL0LC0U
+ o/SUU+fnf4/S+HxgEPM1rAAAA
+X-Change-ID: 20241023-arm64-fp-stress-irritator-5415fe92adef
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1908; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=KVTyCSHO3IKy45k1g82pm2rTQMvLTo5VSsiU946MF+Q=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8F2INtwxgXIoiUoQrRFDtnMbJkUFgtlgl/WYNn
+ rDKLzfeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfBQAKCRAk1otyXVSH0BNIB/
+ 4ih+CnZpppBhkqbwlSYfQYsYtU61752e15oGC34vX3GFkcyMQngwu4YRNYbl4dfb5IQ5L/mMkzWlg8
+ 8aB5EuqMca3/yUHOBfLb6+ZodJuu4si2/v3hFz9vF4ixkcZGablC28XwRxF4hE50mOHniDct3Y3gvG
+ BByBjJgl3tgydbkA2MY+rAFIFKttLAP88Urj1FgqknhLoyqMu/xCXYzaA3ERE6G66IKowL1gNoFks7
+ /NdfQXfchwmZxyqA6ycREy2TUvINBqUhesj7rrrEacTHCQ1UQqBN7CmUMKglNPbkJu+f2VaSU/Q5ta
+ CIhImwroMaSg5wI5B9JGVCuRjWpRKG
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_133439_141826_FF5A8254 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20241023_133941_833169_4F89EA39 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 at 12:45, Peter Zijlstra <peterz@infradead.org> wrote:
->
-> Do we want to do the complementing patch and make write_seqcount_end()
-> use smp_store_release() ?
->
-> I think at least ARM (the 32bit thing) has wmb but uses mb for
-> store_release. But I also think I don't really care about that.
+Currently we test signal delivery to the programs run by fp-stress but
+our signal handlers simply count the number of signals seen and don't do
+anything with the floating point state.  The original fpsimd-test and
+sve-test programs had signal handlers called irritators which modify the
+live register state, verifying that we restore the signal context on
+return, but a combination of misleading comments and code resulted in
+them never being used and the equivalent handlers in the other tests
+being stubbed or omitted.
 
-So unlike the "acquire vs rmb", there are architectures where "wmb" is
-noticeably cheaper than a "store release".
+Clarify the code, implement effective irritator handlers for the test
+programs that can have them and then switch the signals generated by the
+fp-stress program over to use the irritators, ensuring that we validate
+that we restore the saved signal context properly.
 
-Just as an example, on alpha, a "store release" is a full memory
-barrier followed by the store, because it needs to serialize previous
-loads too. But wmp_wmb() is lightweight.
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Mark Brown (6):
+      kselftest/arm64: Correct misleading comments on fp-stress irritators
+      kselftest/arm64: Remove unused ADRs from irritator handlers
+      kselftest/arm64: Corrupt P15 in the irritator when testing SSVE
+      kselftest/arm64: Implement irritators for ZA and ZT
+      kselftest/arm64: Provide a SIGUSR1 handler in the kernel mode FP stress test
+      kselftest/arm64: Test signal handler state modification in fp-stress
 
-Typically in traditional (pre acquire/release) architectures "wmb"
-only ordered the CPU write queues, so "wmb" has always been cheap
-pretty much everywhere.
+ tools/testing/selftests/arm64/fp/fp-stress.c   |  2 +-
+ tools/testing/selftests/arm64/fp/fpsimd-test.S |  4 +---
+ tools/testing/selftests/arm64/fp/kernel-test.c |  4 ++++
+ tools/testing/selftests/arm64/fp/sve-test.S    |  6 ++----
+ tools/testing/selftests/arm64/fp/za-test.S     | 13 ++++---------
+ tools/testing/selftests/arm64/fp/zt-test.S     | 13 ++++---------
+ 6 files changed, 16 insertions(+), 26 deletions(-)
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241023-arm64-fp-stress-irritator-5415fe92adef
 
-And I *suspect* that alpha isn't the outlier in having a much cheaper
-wmb than store-release.
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
-But yeah, it's kind of ugly how we now have three completely different
-orderings for seqcounts:
-
- - the initial load is done with the smp_read_acquire
-
- - the final load (the "retry") is done with a smp_rmb (because an
-acquire orders _subsequent_ loads, not the ones inside the lock: we'd
-actually want a "smp_load_release()", but such a thing doesn't exist)
-
- - the writer side uses smp_wmb
-
-(and arguably there's a fourth pattern: the latching cases uses double
-smp_wmb, because it orders the sequence count wrt both preceding and
-subsequent stores)
-
-Anyway, obviously on x86 (and s390) none of this matters.
-
-On arm64, I _suspect_ they are mostly the same, but it's going to be
-very microarchitecture-dependent. Neither should be expensive, but wmb
-really is a fundamentally lightweight operation.
-
-On 32-bit arm, wmb should be cheaper ("ishst" only waits for earlier stores).
-
-On powerpc, wmb is cheaper on older CPU's (eieio vs sync), but the
-same on newer CPUs (lwsync).
-
-On alpha, wmb is definitely cheaper, but I doubt anybody really cares.
-
-Others? I stopped looking, and am not familiar enough.
-
-          Linus
 
