@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F77CF5396
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6B2CF5398
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drnjFIvwO+HdWpeU95+K1o2fmj1utumcRZT+ucp+B90=; b=VtRNnniasZgDzDJYyWJ8qmvRY4
-	lzefH+px/bdAjGm5EjbHKLpRBK02WHmbWcQ6lVIWrw4nHTonAnBC5PBHRrcVi++SmgQpI5jhRBLKA
-	lo9ZOVL+35f8MT2H/NKRJvVEYb1qOVVfvfsVS/CJBquQXwWagPtYKFnqYB1DGG1MobPwCIoqN2hIT
-	QAW6l5I7w2GrulBs6D1IvcJ2T1LXPxJFqt5SEPMm5CmgYvtUvoyWDPg7TpIkBLR+QQ+dTJMHGKFPL
-	eFReBxcJxqqnqiLGPa3/3L33r419ePxL0QEdYHcMhtBGw5epEZrhHbBRY2kUcDX2uLvjKGBOcQpSv
-	1EmUqInw==;
+	bh=ihQ7iaVq8mW1XVFIl8cNekgcCToqXr0KfMQVuCJfeWs=; b=iCQEh0qdnUT7QPkEog5QTqd5df
+	jMTmDbG1R896C7kJuJuy9/NGNAdYb+8zkNxiMcerbseVlUrl38ZSkF/tvZoIOfs2pCcXeJkVNIrXn
+	kWFmapmSXMRfckNt9SVxVNtTtOOBhO+1Dz8+eWpOro0IIxZbd5ZOK8pCkuMXpC9q7BC4pJTN9DaSO
+	XECALxySAJQA2Az6zpfcvanz2IQ2VwlxMk1gyaIAk85CmkJvoUP9oD+gdxlH0y8zs2RftTRgOu06D
+	K1Asy+M2svE2kiAaiwUoGWmnd35R+REkJHsnGhdiZY1Q+7Lc/fUscF/lViVXZ2R1QGmjFRdWSJL8n
+	4Bh9BoaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cVf-0000000El5s-0JSi;
-	Wed, 23 Oct 2024 14:38:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cSa-0000000Ek64-0YjS;
-	Wed, 23 Oct 2024 14:35:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DAD1FA44F78;
-	Wed, 23 Oct 2024 14:35:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56A0DC4CEC6;
-	Wed, 23 Oct 2024 14:35:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729694138;
-	bh=azQJ3eGowkkRjf7a7p4DUvh4rfik/bDhwyFQa/WiKhg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZnYAi8xhKVOwyN23dtadpHuhJyihl2MDeOhcQoE63BUztJTDrQrBBwrL0rvXULRRk
-	 /EFa+6zg5Ddujjug7EamJ/cDRT+F0n5FadFPs185ur2IGAhnK07Kmcr8OjBt76bQ89
-	 xdKfco3k3sJZQ9GLwbol3zWK6QVhvu+w4FRlxVHZXIFRI2mwDg7qL2wQ+HR6rKvF8G
-	 kUo/FrbFc4h6odrkyoxm7pftbyFcU+pO7+Bz6hiRg52IOGIvtWkFV3jNHNRyyPyj+a
-	 iXHCBRPQD5/Viy+XTVHPQU2zx7IYfNY9fpUDzARmP5MmPnJpLyUW0Gxe88IYv5BtAg
-	 YvuzrVYk9TYRg==
-Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-71ea2643545so4675785b3a.3;
-        Wed, 23 Oct 2024 07:35:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUeLmC8Di9NMphqUkhYZvVRac94FFyHPpZW9LkDHdRPY9b/R9sEZAqvC1PPrgu9gisNYP4ZHMC+A36yz1gSL4A=@lists.infradead.org, AJvYcCXe/AIK/QSa4XzFvfR9PVCRX1EtuknCF/tr2IpKfpP/p4LB8SbAXoJD6L0AQvr3lBWP1UA4CcAEVNTheyXEiLM/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtKh6GxxDcmjhlCGbwte35C0GgurECglvyLD4Mzbd5WtQ9oCQU
-	ESXA49e6SG1/hUbVip9PW9ODdDExOr1eP2DxCRU/5WmTaSrrQd6F70/JgklHJuClHIlcyzmkM2+
-	Fnxi7VgogWADbn1ijQmEIJ7DvBg==
-X-Google-Smtp-Source: AGHT+IGotfPUjuCyXnHej963WsiwtwAVlBk0onYdkHZONBPgcS/jZacTHxq70ShX22L6ObDnMI+HTy8A/5j0aUTa/2E=
-X-Received: by 2002:a05:6a00:3d15:b0:70b:176e:b3bc with SMTP id
- d2e1a72fcca58-72030bdca55mr4263603b3a.28.1729694137938; Wed, 23 Oct 2024
- 07:35:37 -0700 (PDT)
+	id 1t3cXB-0000000ElX9-1DOx;
+	Wed, 23 Oct 2024 14:40:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3cSe-0000000Ek7B-02Fc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 14:35:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E145E339;
+	Wed, 23 Oct 2024 07:36:11 -0700 (PDT)
+Received: from [10.57.23.17] (unknown [10.57.23.17])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 045763F71E;
+	Wed, 23 Oct 2024 07:35:37 -0700 (PDT)
+Message-ID: <7d02ed25-7618-4920-8f35-9e480cdf709f@arm.com>
+Date: Wed, 23 Oct 2024 15:35:35 +0100
 MIME-Version: 1.0
-References: <20241003030919.17980-1-macpaul.lin@mediatek.com> <20241003030919.17980-4-macpaul.lin@mediatek.com>
-In-Reply-To: <20241003030919.17980-4-macpaul.lin@mediatek.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 23 Oct 2024 22:35:58 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_-6tHK7xq3JUWSX--2mZqHQE-bzfaCwzuYHY5crFtYNxQ@mail.gmail.com>
-Message-ID: <CAAOTY_-6tHK7xq3JUWSX--2mZqHQE-bzfaCwzuYHY5crFtYNxQ@mail.gmail.com>
-Subject: Re: [PATCH v6 4/4] dt-bindings: display: mediatek: dpi: correct
- power-domains property
-To: Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yong Wu <yong.wu@mediatek.com>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Rohit Agarwal <rohiagar@chromium.org>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, 
-	Alexandre Mergnat <amergnat@baylibre.com>, Bear Wang <bear.wang@mediatek.com>, 
-	Pablo Sun <pablo.sun@mediatek.com>, Macpaul Lin <macpaul@gmail.com>, 
-	Sen Chu <sen.chu@mediatek.com>, Chris-qj chen <chris-qj.chen@mediatek.com>, 
-	MediaTek Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>, 
-	Chen-Yu Tsai <wenst@chromium.org>, Jitao Shi <jitao.shi@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/43] kvm: arm64: pgtable: Track the number of pages
+ in the entry level
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241004152804.72508-1-steven.price@arm.com>
+ <20241004152804.72508-3-steven.price@arm.com>
+ <032d29e7-b6a3-4493-833b-a9b6d9496a75@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <032d29e7-b6a3-4493-833b-a9b6d9496a75@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_073540_327595_7993EF0E 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20241023_073544_187766_10FE0DD2 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,122 +76,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Macpaul:
+On 23/10/2024 05:03, Gavin Shan wrote:
+> On 10/5/24 1:27 AM, Steven Price wrote:
+>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+>> Keep track of the number of pages allocated for the top level PGD,
+>> rather than computing it every time (though we need it only twice now).
+>> This will be used later by Arm CCA KVM changes.
+>>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_pgtable.h | 2 ++
+>>   arch/arm64/kvm/hyp/pgtable.c         | 5 +++--
+>>   2 files changed, 5 insertions(+), 2 deletions(-)
+>>
+> 
+> If we really want to have the number of pages for the top level PGDs,
+> the existing helpers kvm_pgtable_stage2_pgd_size() for the same purpose
+> needs to replaced by (struct kvm_pgtable::pgd_pages << PAGE_SHIFT) and
+> then removed.
+> 
+> The alternative would be just to use kvm_pgtable_stage2_pgd_size()
+> instead of
+> introducing struct kvm_pgtable::pgd_pages, which will be used in the slow
+> paths where realm is created or destroyed.
 
-Macpaul Lin <macpaul.lin@mediatek.com> =E6=96=BC 2024=E5=B9=B410=E6=9C=883=
-=E6=97=A5 =E9=80=B1=E5=9B=9B =E4=B8=8A=E5=8D=8811:09=E5=AF=AB=E9=81=93=EF=
-=BC=9A
->
-> The MediaTek DPI module is typically associated with one of the
-> following multimedia power domains:
->  - POWER_DOMAIN_DISPLAY
->  - POWER_DOMAIN_VDOSYS
->  - POWER_DOMAIN_MM
-> The specific power domain used varies depending on the SoC design.
->
-> These power domains are shared by multiple devices within the SoC.
-> In most cases, these power domains are enabled by other devices.
-> As a result, the DPI module of legacy SoCs often functions correctly
-> even without explicit configuration.
->
-> It is recommended to explicitly add the appropriate power domain
-> property to the DPI node in the device tree. Hence drop the
-> compatible checking for specific SoCs.
+I think just dropping this patch and using kvm_pgtable_stage2_pgd_size()
+in the slow paths makes sense. I think originally there had been some
+issue with the value being hard to obtain in the relevant path, but I
+can't see any problem now.
 
-Applied to mediatek-drm-fixes [1], thanks.
+Thanks,
+Steve
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+>> diff --git a/arch/arm64/include/asm/kvm_pgtable.h
+>> b/arch/arm64/include/asm/kvm_pgtable.h
+>> index 03f4c3d7839c..25b512756200 100644
+>> --- a/arch/arm64/include/asm/kvm_pgtable.h
+>> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+>> @@ -404,6 +404,7 @@ static inline bool kvm_pgtable_walk_lock_held(void)
+>>    * struct kvm_pgtable - KVM page-table.
+>>    * @ia_bits:        Maximum input address size, in bits.
+>>    * @start_level:    Level at which the page-table walk starts.
+>> + * @pgd_pages:        Number of pages in the entry level of the
+>> page-table.
+>>    * @pgd:        Pointer to the first top-level entry of the page-table.
+>>    * @mm_ops:        Memory management callbacks.
+>>    * @mmu:        Stage-2 KVM MMU struct. Unused for stage-1 page-tables.
+>> @@ -414,6 +415,7 @@ static inline bool kvm_pgtable_walk_lock_held(void)
+>>   struct kvm_pgtable {
+>>       u32                    ia_bits;
+>>       s8                    start_level;
+>> +    u8                    pgd_pages;
+>>       kvm_pteref_t                pgd;
+>>       struct kvm_pgtable_mm_ops        *mm_ops;
+>>   diff --git a/arch/arm64/kvm/hyp/pgtable.c
+>> b/arch/arm64/kvm/hyp/pgtable.c
+>> index b11bcebac908..9e1be28c3dc9 100644
+>> --- a/arch/arm64/kvm/hyp/pgtable.c
+>> +++ b/arch/arm64/kvm/hyp/pgtable.c
+>> @@ -1534,7 +1534,8 @@ int __kvm_pgtable_stage2_init(struct kvm_pgtable
+>> *pgt, struct kvm_s2_mmu *mmu,
+>>       u32 sl0 = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
+>>       s8 start_level = VTCR_EL2_TGRAN_SL0_BASE - sl0;
+>>   -    pgd_sz = kvm_pgd_pages(ia_bits, start_level) * PAGE_SIZE;
+>> +    pgt->pgd_pages = kvm_pgd_pages(ia_bits, start_level);
+>> +    pgd_sz = pgt->pgd_pages * PAGE_SIZE;
+>>       pgt->pgd = (kvm_pteref_t)mm_ops->zalloc_pages_exact(pgd_sz);
+>>       if (!pgt->pgd)
+>>           return -ENOMEM;
+>> @@ -1586,7 +1587,7 @@ void kvm_pgtable_stage2_destroy(struct
+>> kvm_pgtable *pgt)
+>>       };
+>>         WARN_ON(kvm_pgtable_walk(pgt, 0, BIT(pgt->ia_bits), &walker));
+>> -    pgd_sz = kvm_pgd_pages(pgt->ia_bits, pgt->start_level) * PAGE_SIZE;
+>> +    pgd_sz = pgt->pgd_pages * PAGE_SIZE;
+>>       pgt->mm_ops->free_pages_exact(kvm_dereference_pteref(&walker,
+>> pgt->pgd), pgd_sz);
+>>       pgt->pgd = NULL;
+>>   }
+> 
+> Thanks,
+> Gavin
+> 
 
-Regards,
-Chun-Kuang.
-
->
-> Fixes: 5474d49b2f79 ("dt-bindings: display: mediatek: dpi: Add power doma=
-ins")
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
-> Signed-off-by: Jitao Shi <jitao.shi@mediatek.com>
-> Signed-off-by: Pablo Sun <pablo.sun@mediatek.com>
-> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-> ---
->  .../display/mediatek/mediatek,dpi.yaml        | 24 ++++++++-----------
->  1 file changed, 10 insertions(+), 14 deletions(-)
->
-> Changes for v2:
->  - Because of the corresponding dts fix has been reviewed with a Reviewed=
--by: tag.
->    [1] https://lore.kernel.org/all/20240925080515.16377-1-macpaul.lin@med=
-iatek.com/
->    We still need this change to fix the 2 dtbs_check errors.
->    So keeps no change here.
->
-> Changes for v3:
->  - The origin patch is [2]
->    https://lore.kernel.org/all/20240926111449.9245-2-macpaul.lin@mediatek=
-.com/
->  - Thanks for Conor's reminding, after MediaTek's internal discussion,
->    This patch v3 is the replacement of [2] v2.
->    Because the DPI module should has a explicit configuration with power =
-domain.
->  - Drop Acked-by: tag since v3 is nearly a new patch for different approa=
-ch.
->
-> Changes for v4:
->  - No change. Please help to review it again.
->
-> Changes for v5:
->  - Add missing Reviewed-by Tag from Krzysztof. Thanks.
->
-> Changes for v6:
->  - No change.
->
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.=
-yaml
-> index 3a82aec9021c..497c0eb4ed0b 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yam=
-l
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yam=
-l
-> @@ -63,6 +63,16 @@ properties:
->        - const: sleep
->
->    power-domains:
-> +    description: |
-> +      The MediaTek DPI module is typically associated with one of the
-> +      following multimedia power domains:
-> +        POWER_DOMAIN_DISPLAY
-> +        POWER_DOMAIN_VDOSYS
-> +        POWER_DOMAIN_MM
-> +      The specific power domain used varies depending on the SoC design.
-> +
-> +      It is recommended to explicitly add the appropriate power domain
-> +      property to the DPI node in the device tree.
->      maxItems: 1
->
->    port:
-> @@ -79,20 +89,6 @@ required:
->    - clock-names
->    - port
->
-> -allOf:
-> -  - if:
-> -      not:
-> -        properties:
-> -          compatible:
-> -            contains:
-> -              enum:
-> -                - mediatek,mt6795-dpi
-> -                - mediatek,mt8173-dpi
-> -                - mediatek,mt8186-dpi
-> -    then:
-> -      properties:
-> -        power-domains: false
-> -
->  additionalProperties: false
->
->  examples:
-> --
-> 2.45.2
->
 
