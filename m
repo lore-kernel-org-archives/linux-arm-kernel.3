@@ -4,82 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9B5CFA467
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211B5CFA468
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Mime-Version:Message-Id:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9XbsmUl/ykzeRnfUHw2btfSodiXu3QqAkcfgdiNebV8=; b=TSEVire/kLbrtTDP7sarGrJmuc
-	0Iz7xxOxsrgiIXhYZcAsXE26x75sieV+viTFAKrwZSsfRFwJr6jIOpEfEbde9U+tMsmvkbGos4FE6
-	d1gxyIUob7vCO+7jm/wxnnabBRve/PLE93lbWmAFM/BRZ3O7H9nrPCRqWhGVWvYTkU6Mm8iXe2I5u
-	z3W9lqD4VXJiKrJhx2Nk8L5L62imfWYTB/AlLIJvanUE4hvHng7RgwMqbdIgGIzwq1GT4NKmb0NP7
-	ILsalsFRi6dPaSGdr1bUV8B9JXLYax/uOjNCSWDBtMBt6dZJD8n3Wbf4nUeSoeOu6i5i18lDsgKQq
-	wIwdQPZQ==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=o7hOt+PABRrUouevjB+bwk2SiG
+	k5+b9R1xTuVMpidteBShqAHt5UJvj06NBVEOO2aRFbT5rjCbCPpT+tH2NXITJQznMZC+RBfuKMc/f
+	gqh97tgJkEmSiFvImdihGp+zxQYTpD2kzt+48/HJzDIm4zCpFVeNAtVnfjydfQ9fCdfui0RQkk9sL
+	xpE5M1oOqh61GHkuKfJy0D/JJ78vxByMjZ0zoLSGyqA9/9ZpnFsGQB5R9Bj0WLMXaM8iPNGDC7lfO
+	EO4k3EQQR5oD1cjQh4QqNMi7zqyltrlW3+dKauqiTRi7Lx836gW/bgsnhqZe1SD+xPVW5rFEbHwqN
+	20dDP+iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfp-0000000FlvK-3du5;
-	Wed, 23 Oct 2024 20:09:41 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t3hfo-0000000FluC-36sH;
+	Wed, 23 Oct 2024 20:09:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gni-0000000FcrM-0Zdl
+	id 1t3gi7-0000000FcUi-1Rtq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 19:07:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=OgImAO5VS8r0NS6jvOHPdbWjle
+	VG7ctMawVifUQhUbliZ1OJVwykhT+ukEir9kjulaGogCplmogopQtinRHyP3XNjViux2765o5U24+
+	ZocylPHwcdE7vRJ0cAx8qMEbTtKAgt5fcjWLSMa6PEfEHXBsTW8s9R1e0R6ksBRzAb/PviZ2/qW31
+	9AayzRogOvyZFU4fryDiOBnLdj/B17u8INTQ+g66s57/cUj71DQ4wcHc3NudsGwzmcv3vP7CNw2dG
+	WieiNUCDrsUd1M8TVnGBHTOkCu8/SwkU7At4V/ePFdf8cwMIMVxxCluyR8rcts98tQUaaZLtHgymU
+	8cAMLgrQ==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3gi2-00000008Wvy-3tZf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 19:13:47 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e28fc8902e6so287862276.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:13:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729710824; x=1730315624; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:mime-version
-         :message-id:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9XbsmUl/ykzeRnfUHw2btfSodiXu3QqAkcfgdiNebV8=;
-        b=tXz7G/1fXriAf+Sfci2FhYJnWMyiVrILtS4nN1vRS5J2Up8TiFemPhaVl98gaKYtfA
-         xMIg02LZyVmysMOGJNNoZpZppfoXPVk192dzWKlQKTTDn6BOamHOeH0Om+0LR5wbSZDH
-         cudugThcy+6A1mTwz6tdCmCIJekGbFbjJMkc16t01slOkb3x8kIyJfrI1s+j3Xq8ITBu
-         qjZPtnTm4dIk5of3hSNdKUs50M8Yqske9AE/hwSyQ6NNdMTVP4D4yc2ECayQLYyfIZrk
-         DMeJ10sylwDnSQHtvzc+d6+tJc8ozSGrilJozb4eO9cFhEDXODKLRkswSqCSgMz876y7
-         9WKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729710824; x=1730315624;
-        h=content-transfer-encoding:cc:to:from:subject:mime-version
-         :message-id:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9XbsmUl/ykzeRnfUHw2btfSodiXu3QqAkcfgdiNebV8=;
-        b=Hy/jliC9uK7E9BxJsIXnohDQcubhwn+LtsLtdYQjHMXkIW2KUuKnOhFA9VRik5E/uJ
-         gH73DLPY5KoQ9kRKriDjOdHC85CEg9Fu6eyMJfUoYdYONNuSGR0OEefravs4DTxgorav
-         o8fi1GtNuHSyzeVA7VFArNS4nQgvyrFJtrZZCTs+5JJWfUSyVYFZYN8xWjO/CXN3c/AI
-         SnqKUa/VCjaGUvhk1yDqBCfyHj8PF7lh6dQ3io365MtmzPaP6B/Vkp/Kst3XmuQiSdJ9
-         Jh6Vwn2E4OFpov6AdySeW+9DhTgz41cr4aY6CcMaIQcs5e/7PPcHv+FtRKF/Rjg8bLwD
-         Nmvg==
-X-Forwarded-Encrypted: i=1; AJvYcCU9aajz6HYX/8uv6oUNrhaOgKcUu1uSitPmM9ddEMf6HRGgD4rZptAWFGiDKtGcrZMJTqKJY/o8qQz2K3gdoxwP@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe8Fp6vgDEl2U7M3opC3wh2SLJ17wDdC2l8Iie+5BfqFqbED03
-	RLV+0YM8Rbdyd2t82iJ4bavcs3yGGXj9/fnYGdhXiAAnUi5X3Q67NST5EDkNkKmqZps2uFvw2IN
-	xlkAZSMnTjlwAPA==
-X-Google-Smtp-Source: AGHT+IGtw++CFsHM6UsXTaa07P8s7oTXdItvei/TRQB3GwOD9DmownHZlFBOwrDDCuKJGIw70cl6vC5daxpXLbk=
-X-Received: from saravanak.san.corp.google.com ([2620:15c:2d:3:965e:f81d:c9fb:b352])
- (user=saravanak job=sendgmr) by 2002:a5b:602:0:b0:e28:f2a5:f1d with SMTP id
- 3f1490d57ef6-e2e3a632bffmr3981276.4.1729710824576; Wed, 23 Oct 2024 12:13:44
- -0700 (PDT)
-Date: Wed, 23 Oct 2024 12:13:36 -0700
-Message-Id: <20241023191339.1491282-1-saravanak@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH] drm: display: Set fwnode for aux bus devices
-From: Saravana Kannan <saravanak@google.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Saravana Kannan <saravanak@google.com>, 
-	"=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?=" <nfraprado@collabora.com>, Jon Hunter <jonathanh@nvidia.com>, kernel-team@android.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 23 Oct 2024 19:07:57 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49N9hOYe017380;
+	Wed, 23 Oct 2024 19:07:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=jHWR6aDMHlg8B0Pl
+	F/iIeTtU6TlLVTqk3PXadcle7I8mnxZ2ga9Bq/OLU0zaaWin3OZARbzudIDpNza7
+	MpIUgXpjMBgrw37EWC6CmFPPL+lEtfdKXNlYJoFqk3cJZeNDAtRudlOycFDdhx6Y
+	GD1SBudA9c4SIO/LzxP9pGpIy5EgQ4DoePElsLePsUaB6EsqZP1a/0Riw9WHZc4V
+	HH8gGyopHFl3faKXbJQSMSHxKSJHqkJRIcYlfvR/iIGvZqHhuVntcI29iapokkwN
+	R/LzhVtiTsYVF7qok6BDahgTHSjJw9uRFh2NTNhD6+HT6Z1+RF5TR+vGQtPxjpC6
+	rSkwQg==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3wb8hk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Oct 2024 19:07:38 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49NJ7aJ9002251
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Oct 2024 19:07:36 GMT
+Received: from [10.216.33.50] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Oct
+ 2024 12:07:32 -0700
+Message-ID: <c8bdc8e3-91ca-4c1e-81e0-e98cd6b43951@quicinc.com>
+Date: Thu, 24 Oct 2024 00:37:24 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 0/5] iommu/arm-smmu: introduction of ACTLR
+ implementation for Qualcomm SoCs
+To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
+        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
+        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
+CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+Content-Language: en-US
+From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+In-Reply-To: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: qBxp4ICLGut2SPYvkejF8QrimnRTkicQ
+X-Proofpoint-ORIG-GUID: qBxp4ICLGut2SPYvkejF8QrimnRTkicQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
+ mlxscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 clxscore=1011
+ priorityscore=1501 mlxlogscore=999 suspectscore=0 bulkscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2410230122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_121346_186783_955DE4EE 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20241023_200755_688480_6F084CB1 
+X-CRM114-Status: GOOD (  42.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +117,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fwnode needs to be set for a device for fw_devlink to be able to
-track/enforce its dependencies correctly. Without this, you'll see error
-messages like this when the supplier has probed and tries to make sure
-all its fwnode consumers are linked to it using device links:
+Hi Rob,
 
-mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with =
-backlight-lcd0
-tegra-xusb-padctl 3520000.padctl: Failed to create device link (0x180) with=
- 1-0008
+Just wanted to check if anything else need to be addressed here to gain
+further attention on this series.
 
-Reported-by: "N=C3=ADcolas F. R. A. Prado" <nfraprado@collabora.com>
-Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@no=
-tapiano/
-Tested-by: "N=C3=ADcolas F. R. A. Prado" <nfraprado@collabora.com>
-Reported-by: Jon Hunter <jonathanh@nvidia.com>
-Closes: https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia=
-.com/
-Signed-off-by: Saravana Kannan <saravanak@google.com>
----
+Thanks & regards,
+Bibek
 
-Don't pull this into stable branches unless its causing a regression in
-older LTS branches. fw_devlink code is complicated and it might end up
-with missing dependencies picking up changes piecemeal.
-
--Saravana
-
-
- drivers/gpu/drm/display/drm_dp_aux_bus.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/display/drm_dp_aux_bus.c b/drivers/gpu/drm/dis=
-play/drm_dp_aux_bus.c
-index d810529ebfb6..ec7eac6b595f 100644
---- a/drivers/gpu/drm/display/drm_dp_aux_bus.c
-+++ b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-@@ -292,7 +292,7 @@ int of_dp_aux_populate_bus(struct drm_dp_aux *aux,
- 	aux_ep->dev.parent =3D aux->dev;
- 	aux_ep->dev.bus =3D &dp_aux_bus_type;
- 	aux_ep->dev.type =3D &dp_aux_device_type_type;
--	aux_ep->dev.of_node =3D of_node_get(np);
-+	device_set_node(&aux_ep->dev, of_fwnode_handle(of_node_get(np)));
- 	dev_set_name(&aux_ep->dev, "aux-%s", dev_name(aux->dev));
-=20
- 	ret =3D device_register(&aux_ep->dev);
---=20
-2.47.0.105.g07ac214952-goog
-
+On 10/8/2024 6:24 PM, Bibek Kumar Patro wrote:
+> This patch series consist of six parts and covers the following:
+> 
+> 1. Re-enable context caching for Qualcomm SoCs to retain prefetcher
+>     settings during reset and runtime suspend.
+> 
+> 2. Remove cfg inside qcom_smmu structure and replace it with single
+>     pointer to qcom_smmu_match_data avoiding replication of multiple
+>     members from same.
+> 
+> 3. Add support for ACTLR PRR bit setup via adreno-smmu-priv interface.
+> 
+> 4. Introduce intital set of driver changes to implement ACTLR register
+>     for custom prefetcher settings in Qualcomm SoCs.
+> 
+> 5. Add ACTLR data and support for qcom_smmu_500.
+> 
+> Changes in v16 from v15:
+>   - Incorporate Dimitry's suggestion on patch 4/5 to use dev_dbg instead of dev_notice.
+>   - Fix kernel test robot warning [1] coming for 32bit architecture configuration.
+>   - Updatingthe tags
+>   [1]: https://lore.kernel.org/all/202409230343.Q8KnYl2w-lkp@intel.com/
+>   Link to v15:
+>   https://lore.kernel.org/all/20240920155813.3434021-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v15 from v14:
+>   - As discussed with Robin and Dmitry modify the actlr table and logic to use
+>     compatible string instead of sid, mask for device matching which is
+>     similar to qcom_smmu_client_of_match mechanism.
+>   - Expand the comment in qcom_smmu500_reset to document reason why CPRE bit is re-enabled again
+>     after arm_mmu500_reset resets the bit.
+>   - Rearrange the series in order to keep prefetch setting patches in the end.
+>   Link to v14:
+>   https://lore.kernel.org/all/20240816174259.2056829-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v14 from v13:
+>   Patch 6/6:
+>   - As discussed incorprate changes to carry out PRR implementation only for
+>     targets based on MMU-500 by using compat string based SMMU version detection.
+>   - Split the set_actlr interface into two separate interface namely set_prr_bit
+>     and set_prr_addr to set the prr enable bit and prr page address resepectively.
+>   Patch 3/6:
+>    - Fix a bug in gfx actlr_config which is uncovered while testing the gfx actlr setting in sc7280
+>      during PRR experiment which prevented clients on certain sids of gfx smmmu to be skipped during
+>      setting up of the ACTLR values : Fix involves swapping the arguments passed in smr_is_subset to make
+>       device smr <from devicetree> a subset of actlr_config table entries < defined in the driver>.
+>   Patch 4/6, 5/6:
+>    - Sort the actlr table values in increasing order of the SIDs.
+>   Link to v13:
+>   https://lore.kernel.org/all/20240628140435.1652374-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v13 from v12:
+>   - Fix the compilation issues reported by kernel test robot [1].
+>   [1]: https://lore.kernel.org/all/202406281241.xEX0TWjt-lkp@intel.com/#t
+>   Link to v12:
+>   https://lore.kernel.org/all/20240626143020.3682243-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v12 from v11:
+>   Changes to incorporate suggestion from Rob:
+>   - Fix the set and reset logic for prr bit as pointed out in v11-6/6.
+>   - Rename set_actlr_bit function name to set_prr.
+>   - Add extension for PRR name as Partially-Resident-Region in comments
+>     for set_prr function.
+>   - Add few missing sids for sc7280 in patch-5/6.
+>   Link to v11:
+>   https://lore.kernel.org/all/20240605121713.3596499-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v11 from v10:
+>   - Include a new patch 6/6 to add support for ACTLR PRR bit
+>     through adreno-smmu-priv interface as suggested by Rob and Dmitry.
+>   Link to v10:
+>   https://lore.kernel.org/all/20240524131800.2288259-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v10 from v9:
+>   - Added reviewed-by tags 1/5,2/5,3/5.
+>   Changes incorporated:
+>   - Remove redundant PRR bit setting from gfx actlr table(patch 4/5,5/5)
+>     as this bit needs special handling in the gfx driver along with
+>     the associated register settings.
+>   Link to discussion on PRR bit:
+>   https://lore.kernel.org/all/f2222714-1e00-424e-946d-c314d55541b8@quicinc.com/
+>   Link to v9:
+>   https://lore.kernel.org/all/20240123144543.9405-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v9 from v8:
+>   Changes to incorporate suggestions from Konrad as follows:
+>   - Re-wrap struct members of actlr_variant in patch 4/5,5/5
+>     in a cleaner way.
+>   - Move actlr_config members to the header.
+>   Link to v8:
+>   https://lore.kernel.org/all/20240116150411.23876-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v8 from v7:
+>   - Added reviewed-by tags on patch 1/5, 2/5.
+>   Changes to incorporate suggestions from Pavan and Konrad:
+>   - Remove non necessary extra lines.
+>   - Use num_smmu and num_actlrcfg to store the array size and use the
+>     same to traverse the table and save on sentinel space along with
+>     indentation levels.
+>   - Refactor blocks containing qcom_smmu_set_actlr to remove block
+>     repetition in patch 3/5.
+>   - Change copyright year from 2023 to 2022-2023 in patch 3/5.
+>   - Modify qcom_smmu_match_data.actlrvar and actlr_variant.actlrcfg to
+>     const pointer to a const resource.
+>   - use C99 designated initializers and put the address first.
+>   Link to v7:
+>   https://lore.kernel.org/all/20240109114220.30243-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v7 from v6:
+>   Changes to incorporate suggestions from Dmitry as follows:
+>   - Use io_start address instead of compatible string to identify the
+>     correct instance by comparing with smmu start address and check for
+>     which smmu the corresponding actlr table is to be picked.
+> Link to v6:
+> https://lore.kernel.org/all/20231220133808.5654-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v6 from v5:
+>   - Remove extra Suggested-by tags.
+>   - Add return check for arm_mmu500_reset in 1/5 as discussed.
+> Link to v5:
+> https://lore.kernel.org/all/20231219135947.1623-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v5 from v4:
+>   New addition:
+>   - Modify copyright year in arm-smmu-qcom.h to 2023 from 2022.
+>   Changes to incorporate suggestions from Dmitry as follows:
+>   - Modify the defines for prefetch in (foo << bar) format
+>     as suggested.(FIELD_PREP could not be used in defines
+>     is not inside any block/function)
+>   Changes to incorporate suggestions from Konrad as follows:
+>   - Shift context caching enablement patch as 1/5 instead of 5/5 to
+>     be picked up as independent patch.
+>   - Fix the codestyle to orient variables in reverse xmas tree format
+>     for patch 1/5.
+>   - Fix variable name in patch 1/5 as suggested.
+>   Link to v4:
+> https://lore.kernel.org/all/20231215101827.30549-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v4 from v3:
+>   New addition:
+>   - Remove actlrcfg_size and use NULL end element instead to traverse
+>     the actlr table, as this would be a cleaner approach by removing
+>     redundancy of actlrcfg_size.
+>   - Renaming of actlr set function to arm_smmu_qcom based proprietary
+>     convention.
+>   - break from loop once sid is found and ACTLR value is initialized
+>     in qcom_smmu_set_actlr.
+>   - Modify the GFX prefetch value separating into 2 sensible defines.
+>   - Modify comments for prefetch defines as per SMMU-500 TRM.
+>   Changes to incorporate suggestions from Konrad as follows:
+>   - Use Reverse-Christmas-tree sorting wherever applicable.
+>   - Pass arguments directly to arm_smmu_set_actlr instead of creating
+>     duplicate variables.
+>   - Use array indexing instead of direct pointer addressed by new
+>     addition of eliminating actlrcfg_size.
+>   - Switch the HEX value's case from upper to lower case in SC7280
+>     actlrcfg table.
+>   Changes to incorporate suggestions from Dmitry as follows:
+>   - Separate changes not related to ACTLR support to different commit
+>     with patch 5/5.
+>   - Using pointer to struct for arguments in smr_is_subset().
+>   Changes to incorporate suggestions from Bjorn as follows:
+>   - fix the commit message for patch 2/5 to properly document the
+>     value space to avoid confusion.
+>   Fixed build issues reported by kernel test robot [1] for
+>   arm64-allyesconfig [2].
+>   [1]: https://lore.kernel.org/all/202312011750.Pwca3TWE-lkp@intel.com/
+>   [2]:
+> https://download.01.org/0day-ci/archive/20231201/202312011750.Pwca3TWE-lkp@intel.com/config
+>   Link to v3:
+> https://lore.kernel.org/all/20231127145412.3981-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v3 from v2:
+>   New addition:
+>   - Include patch 3/4 for adding ACTLR support and data for SC7280.
+>   - Add driver changes for actlr support in gpu smmu.
+>   - Add target wise actlr data and implementation ops for gpu smmu.
+>   Changes to incorporate suggestions from Robin as follows:
+>   - Match the ACTLR values with individual corresponding SID instead
+>     of assuming that any SMR will be programmed to match a superset of
+>     the data.
+>   - Instead of replicating each elements from qcom_smmu_match_data to
+>     qcom_smmu structre during smmu device creation, replace the
+>     replicated members with qcom_smmu_match_data structure inside
+>     qcom_smmu structre and handle the dereference in places that
+>     requires them.
+>   Changes to incorporate suggestions from Dmitry and Konrad as follows:
+>   - Maintain actlr table inside a single structure instead of
+>     nested structure.
+>   - Rename prefetch defines to more appropriately describe their
+>     behavior.
+>   - Remove SM8550 specific implementation ops and roll back to default
+>     qcom_smmu_500_impl implementation ops.
+>   - Add back the removed comments which are NAK.
+>   - Fix commit description for patch 4/4.
+>   Link to v2:
+> https://lore.kernel.org/all/20231114135654.30475-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v2 from v1:
+>   - Incorporated suggestions on v1 from Dmitry,Konrad,Pratyush.
+>   - Added defines for ACTLR values.
+>   - Linked sm8550 implementation structure to corresponding
+>     compatible string.
+>   - Repackaged actlr value set implementation to separate function.
+>   - Fixed indentation errors.
+>   - Link to v1:
+> https://lore.kernel.org/all/20231103215124.1095-1-quic_bibekkum@quicinc.com/
+> 
+> Changes in v1 from RFC:
+>   - Incorporated suggestion form Robin on RFC
+>   - Moved the actlr data table into driver, instead of maintaining
+>     it inside soc specific DT and piggybacking on exisiting iommus
+>     property (iommu = <SID, MASK, ACTLR>) to set this value during
+>     smmu probe.
+>   - Link to RFC:
+> https://lore.kernel.org/all/a01e7e60-6ead-4a9e-ba90-22a8a6bbd03f@quicinc.com/
+> 
+> Bibek Kumar Patro (5):
+>    iommu/arm-smmu: re-enable context caching in smmu reset operation
+>    iommu/arm-smmu: refactor qcom_smmu structure to include single pointer
+>    iommu/arm-smmu: add support for PRR bit setup
+>    iommu/arm-smmu: introduction of ACTLR for custom prefetcher settings
+>    iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
+> 
+>   .../iommu/arm/arm-smmu/arm-smmu-qcom-debug.c  |   2 +-
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c    | 134 +++++++++++++++++-
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h    |   3 +-
+>   drivers/iommu/arm/arm-smmu/arm-smmu.h         |   2 +
+>   include/linux/adreno-smmu-priv.h              |  10 +-
+>   5 files changed, 144 insertions(+), 7 deletions(-)
+> 
+> --
+> 2.34.1
+> 
 
