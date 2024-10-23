@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211B5CFA468
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA74ECFA463
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=o7hOt+PABRrUouevjB+bwk2SiG
-	k5+b9R1xTuVMpidteBShqAHt5UJvj06NBVEOO2aRFbT5rjCbCPpT+tH2NXITJQznMZC+RBfuKMc/f
-	gqh97tgJkEmSiFvImdihGp+zxQYTpD2kzt+48/HJzDIm4zCpFVeNAtVnfjydfQ9fCdfui0RQkk9sL
-	xpE5M1oOqh61GHkuKfJy0D/JJ78vxByMjZ0zoLSGyqA9/9ZpnFsGQB5R9Bj0WLMXaM8iPNGDC7lfO
-	EO4k3EQQR5oD1cjQh4QqNMi7zqyltrlW3+dKauqiTRi7Lx836gW/bgsnhqZe1SD+xPVW5rFEbHwqN
-	20dDP+iw==;
+	bh=AZ3gyldhS8joMJJp8RQYoZtzaPSJsdJPE2HaJSDoW4E=; b=wafHbWGugl1/HP/irnxpXdn48P
+	O0uHE8E1H1E6DW8oWgCvxs+AOzRyeJlYWtwTyCNqxl/TsbYK906qhcQcCiyUPzM9+Z4K+cpu/iRKT
+	epRXbLnDDibXYktQOC3EhO3j20uGPvn41OksNQN5r5iNvKnUadl24DXpV82+GyXX7oxaF+5eakwpe
+	FFH0nmGFW7hqsql/BlJAwBRHklodW2FxutbP0A64pNY8y4xQMbwk34ZDsORFn35Nia71f8sGP7ImI
+	P429xi8XgUtmsGyty5ZJU6AJjcNZDq3irzxYZwX/qGhku8GcmAdZ9qiypRFFoQYU/wTVH5ru1SBXr
+	648/1ABA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfo-0000000FluC-36sH;
-	Wed, 23 Oct 2024 20:09:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3hfq-0000000FlwK-3sFn;
+	Wed, 23 Oct 2024 20:09:42 +0000
+Received: from mail.typeblog.net ([2a0b:8bc0:2:73c1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gi7-0000000FcUi-1Rtq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 19:07:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=OgImAO5VS8r0NS6jvOHPdbWjle
-	VG7ctMawVifUQhUbliZ1OJVwykhT+ukEir9kjulaGogCplmogopQtinRHyP3XNjViux2765o5U24+
-	ZocylPHwcdE7vRJ0cAx8qMEbTtKAgt5fcjWLSMa6PEfEHXBsTW8s9R1e0R6ksBRzAb/PviZ2/qW31
-	9AayzRogOvyZFU4fryDiOBnLdj/B17u8INTQ+g66s57/cUj71DQ4wcHc3NudsGwzmcv3vP7CNw2dG
-	WieiNUCDrsUd1M8TVnGBHTOkCu8/SwkU7At4V/ePFdf8cwMIMVxxCluyR8rcts98tQUaaZLtHgymU
-	8cAMLgrQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gi2-00000008Wvy-3tZf
+	id 1t3gpe-0000000Fd3r-1Qtj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 19:07:57 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49N9hOYe017380;
-	Wed, 23 Oct 2024 19:07:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ixPboXFLncjCGfcn1Px7/dyiEtdHOB4ARrQRJIwkNrg=; b=jHWR6aDMHlg8B0Pl
-	F/iIeTtU6TlLVTqk3PXadcle7I8mnxZ2ga9Bq/OLU0zaaWin3OZARbzudIDpNza7
-	MpIUgXpjMBgrw37EWC6CmFPPL+lEtfdKXNlYJoFqk3cJZeNDAtRudlOycFDdhx6Y
-	GD1SBudA9c4SIO/LzxP9pGpIy5EgQ4DoePElsLePsUaB6EsqZP1a/0Riw9WHZc4V
-	HH8gGyopHFl3faKXbJQSMSHxKSJHqkJRIcYlfvR/iIGvZqHhuVntcI29iapokkwN
-	R/LzhVtiTsYVF7qok6BDahgTHSjJw9uRFh2NTNhD6+HT6Z1+RF5TR+vGQtPxjpC6
-	rSkwQg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3wb8hk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Oct 2024 19:07:38 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49NJ7aJ9002251
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Oct 2024 19:07:36 GMT
-Received: from [10.216.33.50] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Oct
- 2024 12:07:32 -0700
-Message-ID: <c8bdc8e3-91ca-4c1e-81e0-e98cd6b43951@quicinc.com>
-Date: Thu, 24 Oct 2024 00:37:24 +0530
+	Wed, 23 Oct 2024 19:15:48 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9B5D5CFB3CF;
+	Wed, 23 Oct 2024 21:15:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=typeblog.net;
+	s=mailcow; t=1729710935;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=AZ3gyldhS8joMJJp8RQYoZtzaPSJsdJPE2HaJSDoW4E=;
+	b=kCijJnm08z9C55C1OhSt2FDysBPg1YmlgNXc/2YZ0FlY+o4LpPhyVh+A6Z4xKATicIabnV
+	bjOmKV8EeUqsvTwommg0zwOPI8h5oL8stKnjWpYa/Y9vjZOkLBSbC75ZnmuJzab3LLFkV+
+	NxQZ542GYTjTixcGInRplXXhTedUBKUxFHnyaDNzyh3n7srV9ueRkUbJaBjvi/3+wS3xtd
+	yTtWzqgjv/IHq+jH9l/j/ot3YZfV6f8qVVFRrAgA7eKa0iaxH2UOklM9omy/KNe4d9se4T
+	ZrHtzu6J58ko+Ki3zKtJMRnMpiLty2UMLVoEv10mo7x74bsRMHlpc8UyW85UzQ==
+Message-ID: <e25fb178-39fa-4b75-bdc8-a2ec5a7a1bf6@typeblog.net>
+Date: Wed, 23 Oct 2024 15:15:17 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 0/5] iommu/arm-smmu: introduction of ACTLR
- implementation for Qualcomm SoCs
-To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
-        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
-CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Tor Vic <torvic9@mailbox.org>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
+ gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru,
+ conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+ <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 Content-Language: en-US
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-In-Reply-To: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Peter Cai <peter@typeblog.net>
+In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: qBxp4ICLGut2SPYvkejF8QrimnRTkicQ
-X-Proofpoint-ORIG-GUID: qBxp4ICLGut2SPYvkejF8QrimnRTkicQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
- mlxscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 clxscore=1011
- priorityscore=1501 mlxlogscore=999 suspectscore=0 bulkscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2410230122
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_200755_688480_6F084CB1 
-X-CRM114-Status: GOOD (  42.79  )
+X-CRM114-CacheID: sfid-20241023_121546_727623_769F8C04 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,246 +90,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi there,
 
-Just wanted to check if anything else need to be addressed here to gain
-further attention on this series.
+Not a maintainer, but I have made several bug reports using this email 
+address. At least 1 reasonably-sized patch is also currently under 
+review in the networking mailing list, along with people from several 
+American corporations, so hopefully you won't automatically assume this 
+email came from a "Russian troll" account.
 
-Thanks & regards,
-Bibek
+Ok. With that out of the way, if you still want to bother reading, 
+here's why, in the most un-provocative tone possible, why your comments 
+_completely_ miss the point why people are upset:
 
-On 10/8/2024 6:24 PM, Bibek Kumar Patro wrote:
-> This patch series consist of six parts and covers the following:
-> 
-> 1. Re-enable context caching for Qualcomm SoCs to retain prefetcher
->     settings during reset and runtime suspend.
-> 
-> 2. Remove cfg inside qcom_smmu structure and replace it with single
->     pointer to qcom_smmu_match_data avoiding replication of multiple
->     members from same.
-> 
-> 3. Add support for ACTLR PRR bit setup via adreno-smmu-priv interface.
-> 
-> 4. Introduce intital set of driver changes to implement ACTLR register
->     for custom prefetcher settings in Qualcomm SoCs.
-> 
-> 5. Add ACTLR data and support for qcom_smmu_500.
-> 
-> Changes in v16 from v15:
->   - Incorporate Dimitry's suggestion on patch 4/5 to use dev_dbg instead of dev_notice.
->   - Fix kernel test robot warning [1] coming for 32bit architecture configuration.
->   - Updatingthe tags
->   [1]: https://lore.kernel.org/all/202409230343.Q8KnYl2w-lkp@intel.com/
->   Link to v15:
->   https://lore.kernel.org/all/20240920155813.3434021-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v15 from v14:
->   - As discussed with Robin and Dmitry modify the actlr table and logic to use
->     compatible string instead of sid, mask for device matching which is
->     similar to qcom_smmu_client_of_match mechanism.
->   - Expand the comment in qcom_smmu500_reset to document reason why CPRE bit is re-enabled again
->     after arm_mmu500_reset resets the bit.
->   - Rearrange the series in order to keep prefetch setting patches in the end.
->   Link to v14:
->   https://lore.kernel.org/all/20240816174259.2056829-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v14 from v13:
->   Patch 6/6:
->   - As discussed incorprate changes to carry out PRR implementation only for
->     targets based on MMU-500 by using compat string based SMMU version detection.
->   - Split the set_actlr interface into two separate interface namely set_prr_bit
->     and set_prr_addr to set the prr enable bit and prr page address resepectively.
->   Patch 3/6:
->    - Fix a bug in gfx actlr_config which is uncovered while testing the gfx actlr setting in sc7280
->      during PRR experiment which prevented clients on certain sids of gfx smmmu to be skipped during
->      setting up of the ACTLR values : Fix involves swapping the arguments passed in smr_is_subset to make
->       device smr <from devicetree> a subset of actlr_config table entries < defined in the driver>.
->   Patch 4/6, 5/6:
->    - Sort the actlr table values in increasing order of the SIDs.
->   Link to v13:
->   https://lore.kernel.org/all/20240628140435.1652374-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v13 from v12:
->   - Fix the compilation issues reported by kernel test robot [1].
->   [1]: https://lore.kernel.org/all/202406281241.xEX0TWjt-lkp@intel.com/#t
->   Link to v12:
->   https://lore.kernel.org/all/20240626143020.3682243-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v12 from v11:
->   Changes to incorporate suggestion from Rob:
->   - Fix the set and reset logic for prr bit as pointed out in v11-6/6.
->   - Rename set_actlr_bit function name to set_prr.
->   - Add extension for PRR name as Partially-Resident-Region in comments
->     for set_prr function.
->   - Add few missing sids for sc7280 in patch-5/6.
->   Link to v11:
->   https://lore.kernel.org/all/20240605121713.3596499-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v11 from v10:
->   - Include a new patch 6/6 to add support for ACTLR PRR bit
->     through adreno-smmu-priv interface as suggested by Rob and Dmitry.
->   Link to v10:
->   https://lore.kernel.org/all/20240524131800.2288259-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v10 from v9:
->   - Added reviewed-by tags 1/5,2/5,3/5.
->   Changes incorporated:
->   - Remove redundant PRR bit setting from gfx actlr table(patch 4/5,5/5)
->     as this bit needs special handling in the gfx driver along with
->     the associated register settings.
->   Link to discussion on PRR bit:
->   https://lore.kernel.org/all/f2222714-1e00-424e-946d-c314d55541b8@quicinc.com/
->   Link to v9:
->   https://lore.kernel.org/all/20240123144543.9405-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v9 from v8:
->   Changes to incorporate suggestions from Konrad as follows:
->   - Re-wrap struct members of actlr_variant in patch 4/5,5/5
->     in a cleaner way.
->   - Move actlr_config members to the header.
->   Link to v8:
->   https://lore.kernel.org/all/20240116150411.23876-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v8 from v7:
->   - Added reviewed-by tags on patch 1/5, 2/5.
->   Changes to incorporate suggestions from Pavan and Konrad:
->   - Remove non necessary extra lines.
->   - Use num_smmu and num_actlrcfg to store the array size and use the
->     same to traverse the table and save on sentinel space along with
->     indentation levels.
->   - Refactor blocks containing qcom_smmu_set_actlr to remove block
->     repetition in patch 3/5.
->   - Change copyright year from 2023 to 2022-2023 in patch 3/5.
->   - Modify qcom_smmu_match_data.actlrvar and actlr_variant.actlrcfg to
->     const pointer to a const resource.
->   - use C99 designated initializers and put the address first.
->   Link to v7:
->   https://lore.kernel.org/all/20240109114220.30243-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v7 from v6:
->   Changes to incorporate suggestions from Dmitry as follows:
->   - Use io_start address instead of compatible string to identify the
->     correct instance by comparing with smmu start address and check for
->     which smmu the corresponding actlr table is to be picked.
-> Link to v6:
-> https://lore.kernel.org/all/20231220133808.5654-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v6 from v5:
->   - Remove extra Suggested-by tags.
->   - Add return check for arm_mmu500_reset in 1/5 as discussed.
-> Link to v5:
-> https://lore.kernel.org/all/20231219135947.1623-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v5 from v4:
->   New addition:
->   - Modify copyright year in arm-smmu-qcom.h to 2023 from 2022.
->   Changes to incorporate suggestions from Dmitry as follows:
->   - Modify the defines for prefetch in (foo << bar) format
->     as suggested.(FIELD_PREP could not be used in defines
->     is not inside any block/function)
->   Changes to incorporate suggestions from Konrad as follows:
->   - Shift context caching enablement patch as 1/5 instead of 5/5 to
->     be picked up as independent patch.
->   - Fix the codestyle to orient variables in reverse xmas tree format
->     for patch 1/5.
->   - Fix variable name in patch 1/5 as suggested.
->   Link to v4:
-> https://lore.kernel.org/all/20231215101827.30549-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v4 from v3:
->   New addition:
->   - Remove actlrcfg_size and use NULL end element instead to traverse
->     the actlr table, as this would be a cleaner approach by removing
->     redundancy of actlrcfg_size.
->   - Renaming of actlr set function to arm_smmu_qcom based proprietary
->     convention.
->   - break from loop once sid is found and ACTLR value is initialized
->     in qcom_smmu_set_actlr.
->   - Modify the GFX prefetch value separating into 2 sensible defines.
->   - Modify comments for prefetch defines as per SMMU-500 TRM.
->   Changes to incorporate suggestions from Konrad as follows:
->   - Use Reverse-Christmas-tree sorting wherever applicable.
->   - Pass arguments directly to arm_smmu_set_actlr instead of creating
->     duplicate variables.
->   - Use array indexing instead of direct pointer addressed by new
->     addition of eliminating actlrcfg_size.
->   - Switch the HEX value's case from upper to lower case in SC7280
->     actlrcfg table.
->   Changes to incorporate suggestions from Dmitry as follows:
->   - Separate changes not related to ACTLR support to different commit
->     with patch 5/5.
->   - Using pointer to struct for arguments in smr_is_subset().
->   Changes to incorporate suggestions from Bjorn as follows:
->   - fix the commit message for patch 2/5 to properly document the
->     value space to avoid confusion.
->   Fixed build issues reported by kernel test robot [1] for
->   arm64-allyesconfig [2].
->   [1]: https://lore.kernel.org/all/202312011750.Pwca3TWE-lkp@intel.com/
->   [2]:
-> https://download.01.org/0day-ci/archive/20231201/202312011750.Pwca3TWE-lkp@intel.com/config
->   Link to v3:
-> https://lore.kernel.org/all/20231127145412.3981-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v3 from v2:
->   New addition:
->   - Include patch 3/4 for adding ACTLR support and data for SC7280.
->   - Add driver changes for actlr support in gpu smmu.
->   - Add target wise actlr data and implementation ops for gpu smmu.
->   Changes to incorporate suggestions from Robin as follows:
->   - Match the ACTLR values with individual corresponding SID instead
->     of assuming that any SMR will be programmed to match a superset of
->     the data.
->   - Instead of replicating each elements from qcom_smmu_match_data to
->     qcom_smmu structre during smmu device creation, replace the
->     replicated members with qcom_smmu_match_data structure inside
->     qcom_smmu structre and handle the dereference in places that
->     requires them.
->   Changes to incorporate suggestions from Dmitry and Konrad as follows:
->   - Maintain actlr table inside a single structure instead of
->     nested structure.
->   - Rename prefetch defines to more appropriately describe their
->     behavior.
->   - Remove SM8550 specific implementation ops and roll back to default
->     qcom_smmu_500_impl implementation ops.
->   - Add back the removed comments which are NAK.
->   - Fix commit description for patch 4/4.
->   Link to v2:
-> https://lore.kernel.org/all/20231114135654.30475-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v2 from v1:
->   - Incorporated suggestions on v1 from Dmitry,Konrad,Pratyush.
->   - Added defines for ACTLR values.
->   - Linked sm8550 implementation structure to corresponding
->     compatible string.
->   - Repackaged actlr value set implementation to separate function.
->   - Fixed indentation errors.
->   - Link to v1:
-> https://lore.kernel.org/all/20231103215124.1095-1-quic_bibekkum@quicinc.com/
-> 
-> Changes in v1 from RFC:
->   - Incorporated suggestion form Robin on RFC
->   - Moved the actlr data table into driver, instead of maintaining
->     it inside soc specific DT and piggybacking on exisiting iommus
->     property (iommu = <SID, MASK, ACTLR>) to set this value during
->     smmu probe.
->   - Link to RFC:
-> https://lore.kernel.org/all/a01e7e60-6ead-4a9e-ba90-22a8a6bbd03f@quicinc.com/
-> 
-> Bibek Kumar Patro (5):
->    iommu/arm-smmu: re-enable context caching in smmu reset operation
->    iommu/arm-smmu: refactor qcom_smmu structure to include single pointer
->    iommu/arm-smmu: add support for PRR bit setup
->    iommu/arm-smmu: introduction of ACTLR for custom prefetcher settings
->    iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
-> 
->   .../iommu/arm/arm-smmu/arm-smmu-qcom-debug.c  |   2 +-
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c    | 134 +++++++++++++++++-
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h    |   3 +-
->   drivers/iommu/arm/arm-smmu/arm-smmu.h         |   2 +
->   include/linux/adreno-smmu-priv.h              |  10 +-
->   5 files changed, 144 insertions(+), 7 deletions(-)
-> 
-> --
-> 2.34.1
-> 
+On 10/23/24 1:45 PM, Linus Torvalds wrote:
+> Ok, lots of Russian trolls out and about. >
+> It's entirely clear why the change was done, it's not getting
+> reverted, and using multiple random anonymous accounts to try to
+> "grass root" it by Russian troll factories isn't going to change
+> anything.
+
+Yes. Everybody who has more than 1 brain cell knows, in general, "why". 
+The point was never to ask for the obvious response.
+
+People are upset because no reference to _exactly which compliance 
+requirement_ resulted in the removal of these maintainers. No 
+open-source project can live outside of a political entity, but that is 
+not the reason why "obviously" can be used to write off such a change.
+
+Even just stating "we were contacted by <...> but details are under NDA" 
+is a **much** better response than "due to various compliance 
+requirements". No one is saying the LF or the Linux kernel should be 
+outside of politics. That's impossible. But it _is_ possible to run the 
+project based on _transparency_ and _honesty_ instead of "why can't you 
+see the obvious".
+
+> And FYI for the actual innocent bystanders who aren't troll farm
+> accounts - the "various compliance requirements" are not just a US
+> thing.
+
+Again -- are you under any sort of NDA not to even refer to a list of 
+these countries?
+
+> If you haven't heard of Russian sanctions yet, you should try to read
+> the news some day.  And by "news", I don't mean Russian
+> state-sponsored spam.
+
+Before calling out community members who raised legit concerns about 
+procedural transparency, maybe it is worth doing a quick fact-check. 
+There are a lot of suspicious looking `.ru` emails in this thread, but 
+they are not who first raised the concern. The revert patch was sent out 
+by someone at aosc.io. Look up who they actually are -- and before you 
+assume "state-sponsored spam" just because of the language of the 
+website, maybe you can also spend more than 1 second to check where the 
+website is even actually located.
+
+> As to sending me a revert patch - please use whatever mush you call
+> brains. I'm Finnish. Did you think I'd be *supporting* Russian
+> aggression? Apparently it's not just lack of real news, it's lack of
+> history knowledge too.
+
+I hope that either this comment wasn't written by the real Linus 
+Torvalds, or that Linus was not under his best judgement when this email 
+was sent. Because just like anyone who reads the news would know about 
+Russian aggression, anyone who knows anything about politics should also 
+be able to understand that individuals and their states are different 
+concepts.
+
+If these maintainers are associated with the Russian state, this should 
+be cited as the reason for their removal. And you know what? Most people 
+wouldn't have any problem with it. And then you can say "we are not 
+supporting Russian aggression" with confidence. But this is **not** what 
+was done.
+
+I seriously hope that Linus Torvalds would have known better.
+
+Thanks,
+Peter.
 
