@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99772CFA45F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E094CFA460
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAxKTtO4kugd7yM0ZwL4yTamECyLObrP7YDrcb1pBYU=; b=OLLD80CwRZyVUjGPdEBNFsW0n7
-	JEGKcY1bprkZry62iyDx54cgI3hBa6qW0U0QYxTkWg5Cm3HI81IOmpDC5v+FFAPwaqqZ+HpTqadh1
-	aPK33LU4IEpcryFKzVE/TNmvVjcVKa6WBLN7vTnoVZfoVEv+/HfJxuuWec08QYG2NdfR5UKsMLUc4
-	xnSK9h0UNtnuD86eDOyeLhlPPzNfuEPbyU5fdsCZT1hKhe2pFOiijvNm5ACCb2e0S3TS1G5lFXKHf
-	2EQ0EO3cNFP9xqpysxdgM4RLKjdeub5jU5kETBU9vnTUFvclCbwkjx9/4aMelMxoL6cbXIW9ZV/P9
-	Pz24u+EQ==;
+	bh=YQ0MOKkGPbULQTMowYjQ6c4KVeqZ1O9+c4wm8krnsgw=; b=2l/0TK6cfIWsMQmaWjZ4LXiZM/
+	JTTyswI5vHXBMRIq8r8dTxji25YtTuQvXYnJMExjmCqABRWPCZLjLHzSBt6+dCWutHeXeDngFcTY7
+	5hV56ngSCpnv1GZMYOBR3BNioxb/4VpMz+MJ7CNr8DUffguCxISJ0qtsIXYu+oaaadAIv594jrxei
+	OkrOY1chIhbN8BhH+/GyZmYnHC4SilQD52SoYA/rw8+Wu3XP6GpQI3/Zike/QI6r5kiTRwTj/ruy4
+	1W69QS/bYHU5jYXoWI2PZyo9z7P5siyfnjLaP0B7GRmF7FGtsGO/gKo6syucKfC9AQCHPkd9GOf+5
+	uBuWgWKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gsx-0000000FeAA-2Ujb;
-	Wed, 23 Oct 2024 19:19:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3gt4-0000000FeFn-2sdv;
+	Wed, 23 Oct 2024 19:19:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ec4-0000000FEV3-4C8x;
-	Wed, 23 Oct 2024 16:53:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iAxKTtO4kugd7yM0ZwL4yTamECyLObrP7YDrcb1pBYU=; b=jODv4VM3sPW38wKNHiSrxUwmm5
-	ESPeYRZZyxQ8scznMtH6Enc4Zx1Kc9U7QCwx2Eevi676iWYYJ//lWtDPY/vSVFKDmYunjCUD7AUKS
-	Lt1reOI7jc/W4gXXJVK5NQUawryVn3PuRU/01HRZ58YhStp2hW1Z18RdvQA5/LbjE9OplybVjTwzR
-	fyskxrWRWoHQKEdwOEc1TP9+pikOWLqmYlg24fi5+Xh4IyxGU/efqShW+yNjhi+N/tQ6jhj+79inG
-	rCUsb14YFc3BKiY0iyBX4mgX+Y/Caz29Lxgq0wbY1VCKAoO7xquBCsBRExqYDmAhlugm80Wl8AWks
-	fpJ090gA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ec0-00000008TPc-2Gfo;
-	Wed, 23 Oct 2024 16:53:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iAxKTtO4kugd7yM0ZwL4yTamECyLObrP7YDrcb1pBYU=; b=d+un5T1MRvoFgGi2vvDYjQNQGu
-	cG9TbCVi3QEkrBQ20xMjkz3Dr9do61nv/DV6xicVCFGjY/1BlYjm2UZW5kGBNqY9SbKKX/f8cxkQz
-	JQVXS2Vk5bE5vAkVFiyG/PACeHqWSXjYdkhMQnqtiOc6AlAIl+k8bsClGn3T2DjMp4jU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t3ebi-00Azfr-AO; Wed, 23 Oct 2024 18:53:14 +0200
-Date: Wed, 23 Oct 2024 18:53:14 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next RFC PATCH v2 3/3] net: phy: Add Airoha AN8855 Internal
- Switch Gigabit PHY
-Message-ID: <87aad5ff-4876-4611-8cf8-5c20df3559b3@lunn.ch>
-References: <20241023161958.12056-1-ansuelsmth@gmail.com>
- <20241023161958.12056-4-ansuelsmth@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023161958.12056-4-ansuelsmth@gmail.com>
+	id 1t3ecQ-0000000FEYs-3odi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 16:54:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8116A433F2;
+	Wed, 23 Oct 2024 16:53:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C762C4CEC6;
+	Wed, 23 Oct 2024 16:53:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729702437;
+	bh=jHLJdDp6AeGNoGZXHRp2Mz5fRTwo+HOsHYS1lsR3HYA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a6FfTadmjcr9wKdhYG0klV7Z0lzo73VrNXWYbk+U1tDilcNmPy/+pnX0vp2nn8HMJ
+	 anOgC8WfVnhHac7uz88DKefai0gYObuSd0lC4zMjk+wdM5PK9LCzyWsdhZy/dih15K
+	 adYJAg3vG3PpeOt6bzznN464yM5RFIk+76qbUrX9WqhuVo8xaXvBfCjrsgJ3/Ohnhd
+	 ZAabugxqKUZC/NRC2b0+WG15uZo3JRCbXzjoh3IndJY6JctMILuo/5676dF3N/CWQ8
+	 zOAkK/avvEjUNILLz6DDc9v68b5FLeZDCMP+YqV1eL86I3E+FFkq+QR8CVlFChWUYh
+	 xTpYKMw6gqugQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3ecN-006BwW-C4;
+	Wed, 23 Oct 2024 17:53:55 +0100
+Date: Wed, 23 Oct 2024 17:53:55 +0100
+Message-ID: <86zfmu3gm4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 2/2] KVM: arm64: Don't map 'kvm_vgic_global_state' at EL2 with pKVM
+In-Reply-To: <20241023163907.GD29251@willie-the-truck>
+References: <20241022144016.27350-1-will@kernel.org>
+	<20241022144016.27350-3-will@kernel.org>
+	<865xpk3wde.wl-maz@kernel.org>
+	<20241023163907.GD29251@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, tabba@google.com, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_175332_729639_B455E247 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_095359_101189_390F2FC2 
+X-CRM114-Status: GOOD (  29.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	/* Enable Asymmetric Pause Capability */
-> +	ret = phy_set_bits(phydev, MII_ADVERTISE, ADVERTISE_PAUSE_ASYM);
-> +	if (ret)
-> +		return ret;
+On Wed, 23 Oct 2024 17:39:08 +0100,
+Will Deacon <will@kernel.org> wrote:
+> 
+> On Tue, Oct 22, 2024 at 06:01:17PM +0100, Marc Zyngier wrote:
+> > On Tue, 22 Oct 2024 15:40:16 +0100,
+> > Will Deacon <will@kernel.org> wrote:
+> > > 
+> > > Now that 'kvm_vgic_global_state' is no longer needed for ICC_CTLR_EL1
+> > > emulation on machines with a broken SEIS implementation, drop the
+> > > pKVM hypervisor mapping of the page.
+> > > 
+> > > Cc: Marc Zyngier <maz@kernel.org>
+> > > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > > Signed-off-by: Will Deacon <will@kernel.org>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/setup.c | 17 -----------------
+> > >  1 file changed, 17 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > > index 174007f3fadd..8fec099c2775 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > > @@ -95,7 +95,6 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
+> > >  {
+> > >  	void *start, *end, *virt = hyp_phys_to_virt(phys);
+> > >  	unsigned long pgt_size = hyp_s1_pgtable_pages() << PAGE_SHIFT;
+> > > -	enum kvm_pgtable_prot prot;
+> > >  	int ret, i;
+> > >  
+> > >  	/* Recreate the hyp page-table using the early page allocator */
+> > > @@ -148,22 +147,6 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
+> > >  	}
+> > >  
+> > >  	pkvm_create_host_sve_mappings();
+> > > -
+> > > -	/*
+> > > -	 * Map the host sections RO in the hypervisor, but transfer the
+> > > -	 * ownership from the host to the hypervisor itself to make sure they
+> > > -	 * can't be donated or shared with another entity.
+> > > -	 *
+> > > -	 * The ownership transition requires matching changes in the host
+> > > -	 * stage-2. This will be done later (see finalize_host_mappings()) once
+> > > -	 * the hyp_vmemmap is addressable.
+> > > -	 */
+> > > -	prot = pkvm_mkstate(PAGE_HYP_RO, PKVM_PAGE_SHARED_OWNED);
+> > > -	ret = pkvm_create_mappings(&kvm_vgic_global_state,
+> > > -				   &kvm_vgic_global_state + 1, prot);
+> > > -	if (ret)
+> > > -		return ret;
+> > > -
+> > >  	return 0;
+> > >  }
+> > 
+> > Maybe add a note indicating that nVHE/hVHE still have that particular
+> > mapping via the rodata section?
+> 
+> I can add something to the commit message, is that what you had in mind?
 
-The PHY driver alone does not decide this. The MAC driver needs to
-indicate it supports asym pause by calling phy_supports_asym_pause().
+Yes. But maybe Oliver can add that when applying the series?
 
-> +
-> +	/* Disable EEE */
-> +	ret = phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
-> +	if (ret)
-> +		return ret;
+Thanks,
 
-Again, the core code should handle this, unless EEE is broken and you
-need to force it off.
+	M.
 
-	Andrew
+-- 
+Without deviation from the norm, progress is not possible.
 
