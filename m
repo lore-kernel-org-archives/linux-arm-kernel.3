@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569A4CFA461
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA19CCFA45F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovlO1rlLKJUJX1wYferF0T6vJ4RQ8e45dURb9n1UcwI=; b=nJ+DFEd+MuxE7+XLDUx/sjNVaK
-	Qc560WsooA9Z8FOh6ur7k6j4tJd53nUXDvSM3viCTVDxM1z29aS7pYiT4BRGr0V4GQzBbUBVjRctv
-	whmoC1TFLYGwHvVVnN6gQAM7kzSGb19Tmj35jkkeu1zcQPQDqKW/VV/+CFPDpie7Wio7hF/1sr/zQ
-	eGg52OzZBGhK2g9R9G2QFuKnfUupRf1bAvUGHqf/7jNE5b/jh7vHlPjpGie5T8lhRtmJULEkTA6+/
-	bCzChxQ4OAWoH6fQx/Dx6OvsiGPAV/QBFXmlBBCOouAE9ii9Nx3RTYFzhRx6bvf7x+ieTCO5q2/Jz
-	DtFcAIZw==;
+	bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=; b=G55Uzxz66Tf5fz+2qlO8XueXc4
+	qgViyX+LzdfJlnfKEzAL5Pry/SeBJFaOjSGEOsslTFd2VLOhsbVBbF2edKEozJfF+P0/JBsJzDmOl
+	vJo/PBX1je09AOBDKt/hsXsd9AcdQ7wMkU9zDrr7c4aKK9Iy44+l9aRPR5RQiTeuZwVjhDlyWysYb
+	/jRaVPaCcAZ3c2zCSvnfdPPwweMFjThjrILs5oUPg7j3UWhIDbKTTTfjtvUDBFjgC5vmO6vHXxMV+
+	aq2UyRBzPeHt5H1rUpJ+X+EeBpZHaMUNoZQQrt/NLq0k9r+qBzZHKltHEUH7ZAGjgTir0piUh67f3
+	MYyFXzrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3grw-0000000FdG9-2rLe;
-	Wed, 23 Oct 2024 19:18:08 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1t3gry-0000000FdH4-0iH4;
+	Wed, 23 Oct 2024 19:18:10 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eZA-0000000FDUg-2URJ
+	id 1t3eZH-0000000FDYQ-0bFz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:38 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-37d4c1b1455so4669481f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:36 -0700 (PDT)
+	Wed, 23 Oct 2024 16:50:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43163667f0eso55402695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702235; x=1730307035; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729702241; x=1730307041; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ovlO1rlLKJUJX1wYferF0T6vJ4RQ8e45dURb9n1UcwI=;
-        b=jje7D4nAzfY2noLnTWRR/J49fnujzTsWXvi0ztWUKPxrHEAXWM1Swu96ZtvZQFZQ2V
-         8zolM1xpexb75soiHZ4E+lxJ+R7FFTTjbszia0Wg/ttgHqPx0mdDGOVVvpaNVIz/2mSj
-         QIm32bZQy4dTz2GTL/YD7r4VXGa4S8Y393YdG3l1IxLO4WmFzq8E8S2WPDqe/jC2MR+t
-         6SjgQDeYiBL0BGXuF7RF+vazVuZ4gbN+S8DWMpedWaMZPsHCZeICAB70rFLjKTVAgacA
-         Z2hsVW8sSRGK6nXQPxUPgHVpfCxzws8i1prVLyqv5w36U6ScN8Kki/sPeXvrK3iHwLoB
-         neQA==
+        bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=;
+        b=fiyB6FGovMSGfqLguD2t958PoqV1DhRP/dKRuQtUP2u0mDRI+LVZw1/aKNe0maBp9S
+         X/RZYZNJD6uSKe/u9mG/1B216Fb+yn/I0DCAutujcAGjb/BIRWrKW04kGAeeokQFXygG
+         jKa3+wipt0QTRjqkqkRN1IOthmYgOawdWEehvkQ0UNtEkFYLIgQG2lapuRSbezU/dnJu
+         u0DFqirJuhwpFai+HfWIyUVo4KJL+mZmWvGOGbmbsqHXuYUtjBbXHsTBrjpu1sf/pNiL
+         bSR8zyj1X4oT3vEOYI8MOK5/guiXc59SGpiXoO8TyOYems5vf19MSjmyIERmQhaobuOS
+         Yrpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702235; x=1730307035;
+        d=1e100.net; s=20230601; t=1729702241; x=1730307041;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ovlO1rlLKJUJX1wYferF0T6vJ4RQ8e45dURb9n1UcwI=;
-        b=mJM+0RUUxNmGTEGGCGlUQ1rD5J3Q9UKilktDvCNzb++7Nk+WDuRZp99kXR+im70SOg
-         D/W4RpK/5/F7qXIhCZIBzu/BmnjyU6rW9qbd1Q63ZNNMi3suYUxqvwkmwoAlqrvLjIQj
-         Sm0RaBoy9cG4Z7Y8cGv1qXAgcgFCAa8iwSmKv9E2eyd1lmytBggvVCROottT0hHpxaOm
-         uJB/CMnlTiOZILdxrxzChjcehJSfOPlDd6C1ySe86VSzv7bDz++H43/D6UTgSVzK2dAh
-         6Wg/79EjoE9gw6WqWYh86hyXXTroDt6lQThbigequkQJPuIrh5qsDbZriHbfhYQIwhmy
-         dNjw==
-X-Forwarded-Encrypted: i=1; AJvYcCUG9ggee23FrrFvvB2raAQ4yZg1N4jbpH6/jeCUARmGQRvh6AvaEy/ED/ISBI0HH2CJYbBlsqytKsFCt+r0/nk9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpBZ70H4ODKjta+w/BKqwv8xN3L461NatHicCWN0kApm68Dyw8
-	Oa7/vrxLoz7Jki5EHf7YJ1PfhGAhRmLT2WUi3Lew9VPUbyXEtJFuHe/D82aeids=
-X-Google-Smtp-Source: AGHT+IH4otId80GG9o3ZDhc8LO1QdOrljEks8PDmdlJx1ZkOlo5e4sfIOSj9pzTreVPAVgwLCJZ89w==
-X-Received: by 2002:a5d:63cd:0:b0:37e:d2ba:6f11 with SMTP id ffacd0b85a97d-37efcf8cbe3mr2193817f8f.47.1729702235063;
-        Wed, 23 Oct 2024 09:50:35 -0700 (PDT)
+        bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=;
+        b=vlU48k53zVu3pLP98kINLXY7rgKh06NV2hx8LsB02Gf6RS8TmLZ2H0gdD6D9EjITdd
+         uWMm7hvZK/BWIlctMepjugQpjH8SM/R6XW6dDP8359DTqAsXbiKqxkboePa10OGJddLs
+         3KP4LDWXDOL/3wMYJEmG4FskK/DwFmyIAUHwa3MekJFzJJSjQmM1mUSmm+7eyTKIOxQs
+         9yU+na9tYuLRsraz/fvQRtMRr7sKfUPYjJfF2CmbYPratXnWtlmPu1gz8QpotFnROfMV
+         Cf47ek+he/4WjQwMCUZWoOnOtpcrMjeQGSYjcpbrSB60rAK9EqnZNhH2BdDBjGUfKbHx
+         0Cog==
+X-Forwarded-Encrypted: i=1; AJvYcCX7nKCHlWm0hQf5dyWEx83okMv2GrxHg7urNVhgh8nStoZZwHaHAyqDFZdTul4+qtpPo2ktXxKwQQ3iMJSZcsMY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxgt9cuVvQ3ekn5eiTV+B4RI0yi5UwT3cbZ82XYlvJhV4pDc59i
+	fS2tZWEZwrcegFvpCuthF7gzctkUsE5Ndk+rlPXQGSJmHeImc6m94JbzoVxEZ4c=
+X-Google-Smtp-Source: AGHT+IERYOndgW/udDrkKTC0Se/KUmNKFRwzDAk4TOKT6h49ITwfBkIc/0nZV6Akai4GqaHXpM9b4Q==
+X-Received: by 2002:a05:600c:511c:b0:42f:823d:dddd with SMTP id 5b1f17b1804b1-4318423b856mr23693165e9.27.1729702241069;
+        Wed, 23 Oct 2024 09:50:41 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.31
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:32 -0700 (PDT)
+        Wed, 23 Oct 2024 09:50:40 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:21 +0100
-Subject: [PATCH 24/37] drm/vc4: hvs: Add in support for 2712 D-step.
+Date: Wed, 23 Oct 2024 17:50:23 +0100
+Subject: [PATCH 26/37] drm/vc4: hdmi: Support 2712 D-step register map
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-24-1cc2d5594907@raspberrypi.com>
+Message-Id: <20241023-drm-vc4-2712-support-v1-26-1cc2d5594907@raspberrypi.com>
 References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -93,8 +93,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095036_809062_6C9E5EF7 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20241023_095043_372437_03D0479D 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,467 +109,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-THe registers have been moved around, and a couple of minor changes
-made, so adapt for this.
+The D-step has increased FIFO sizes of the MAI_THR blocks,
+resulting in changes to the register masking. Add support for
+it.
 
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_drv.h  |   6 ++
- drivers/gpu/drm/vc4/vc4_hvs.c  | 154 +++++++++++++++++++++++++++++++++--------
- drivers/gpu/drm/vc4/vc4_kms.c  |   3 +-
- drivers/gpu/drm/vc4/vc4_regs.h | 117 +++++++++++++++++++++++++++----
- 4 files changed, 234 insertions(+), 46 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 19 +++++++++++++++++--
+ drivers/gpu/drm/vc4/vc4_regs.h |  9 +++++++++
+ 2 files changed, 26 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
-index e3983a44e35e..4a078ffd9f82 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.h
-+++ b/drivers/gpu/drm/vc4/vc4_drv.h
-@@ -681,6 +681,12 @@ struct vc4_crtc_state {
- 		writel(val, hvs->regs + (offset));					\
- 	} while (0)
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 95ef8bbe6439..6fcdd1c247d2 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -2128,18 +2128,33 @@ static int vc4_hdmi_audio_prepare(struct device *dev, void *data,
+ 					     VC4_HDMI_AUDIO_PACKET_CEA_MASK);
  
-+#define HVS_READ6(offset) \
-+	HVS_READ(hvs->vc4->gen == VC4_GEN_6_C ? SCALER6_ ## offset : SCALER6D_ ## offset)
-+
-+#define HVS_WRITE6(offset, val) \
-+	HVS_WRITE(hvs->vc4->gen == VC4_GEN_6_C ? SCALER6_ ## offset : SCALER6D_ ## offset, val)
-+
- #define VC4_REG32(reg) { .name = #reg, .offset = reg }
- 
- struct vc4_exec_info {
-diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
-index b698f7070510..e4717ccd0730 100644
---- a/drivers/gpu/drm/vc4/vc4_hvs.c
-+++ b/drivers/gpu/drm/vc4/vc4_hvs.c
-@@ -141,6 +141,66 @@ static const struct debugfs_reg32 vc6_hvs_regs[] = {
- 	VC4_REG32(SCALER6_BAD_AXI),
- };
- 
-+static const struct debugfs_reg32 vc6_d_hvs_regs[] = {
-+	VC4_REG32(SCALER6D_VERSION),
-+	VC4_REG32(SCALER6D_CXM_SIZE),
-+	VC4_REG32(SCALER6D_LBM_SIZE),
-+	VC4_REG32(SCALER6D_UBM_SIZE),
-+	VC4_REG32(SCALER6D_COBA_SIZE),
-+	VC4_REG32(SCALER6D_COB_SIZE),
-+	VC4_REG32(SCALER6D_CONTROL),
-+	VC4_REG32(SCALER6D_FETCHER_STATUS),
-+	VC4_REG32(SCALER6D_FETCH_STATUS),
-+	VC4_REG32(SCALER6D_HANDLE_ERROR),
-+	VC4_REG32(SCALER6D_DISP0_CTRL0),
-+	VC4_REG32(SCALER6D_DISP0_CTRL1),
-+	VC4_REG32(SCALER6D_DISP0_BGND0),
-+	VC4_REG32(SCALER6D_DISP0_BGND1),
-+	VC4_REG32(SCALER6D_DISP0_LPTRS),
-+	VC4_REG32(SCALER6D_DISP0_COB),
-+	VC4_REG32(SCALER6D_DISP0_STATUS),
-+	VC4_REG32(SCALER6D_DISP0_DL),
-+	VC4_REG32(SCALER6D_DISP0_RUN),
-+	VC4_REG32(SCALER6D_DISP1_CTRL0),
-+	VC4_REG32(SCALER6D_DISP1_CTRL1),
-+	VC4_REG32(SCALER6D_DISP1_BGND0),
-+	VC4_REG32(SCALER6D_DISP1_BGND1),
-+	VC4_REG32(SCALER6D_DISP1_LPTRS),
-+	VC4_REG32(SCALER6D_DISP1_COB),
-+	VC4_REG32(SCALER6D_DISP1_STATUS),
-+	VC4_REG32(SCALER6D_DISP1_DL),
-+	VC4_REG32(SCALER6D_DISP1_RUN),
-+	VC4_REG32(SCALER6D_DISP2_CTRL0),
-+	VC4_REG32(SCALER6D_DISP2_CTRL1),
-+	VC4_REG32(SCALER6D_DISP2_BGND0),
-+	VC4_REG32(SCALER6D_DISP2_BGND1),
-+	VC4_REG32(SCALER6D_DISP2_LPTRS),
-+	VC4_REG32(SCALER6D_DISP2_COB),
-+	VC4_REG32(SCALER6D_DISP2_STATUS),
-+	VC4_REG32(SCALER6D_DISP2_DL),
-+	VC4_REG32(SCALER6D_DISP2_RUN),
-+	VC4_REG32(SCALER6D_EOLN),
-+	VC4_REG32(SCALER6D_DL_STATUS),
-+	VC4_REG32(SCALER6D_QOS0),
-+	VC4_REG32(SCALER6D_PROF0),
-+	VC4_REG32(SCALER6D_QOS1),
-+	VC4_REG32(SCALER6D_PROF1),
-+	VC4_REG32(SCALER6D_QOS2),
-+	VC4_REG32(SCALER6D_PROF2),
-+	VC4_REG32(SCALER6D_PRI_MAP0),
-+	VC4_REG32(SCALER6D_PRI_MAP1),
-+	VC4_REG32(SCALER6D_HISTCTRL),
-+	VC4_REG32(SCALER6D_HISTBIN0),
-+	VC4_REG32(SCALER6D_HISTBIN1),
-+	VC4_REG32(SCALER6D_HISTBIN2),
-+	VC4_REG32(SCALER6D_HISTBIN3),
-+	VC4_REG32(SCALER6D_HISTBIN4),
-+	VC4_REG32(SCALER6D_HISTBIN5),
-+	VC4_REG32(SCALER6D_HISTBIN6),
-+	VC4_REG32(SCALER6D_HISTBIN7),
-+	VC4_REG32(SCALER6D_HVS_ID),
-+};
-+
- void vc4_hvs_dump_state(struct vc4_hvs *hvs)
- {
- 	struct drm_device *drm = &hvs->vc4->base;
-@@ -419,6 +479,7 @@ u8 vc4_hvs_get_fifo_frame_count(struct vc4_hvs *hvs, unsigned int fifo)
- 
- 	switch (vc4->gen) {
- 	case VC4_GEN_6_C:
+ 	/* Set the MAI threshold */
+-	if (vc4->gen >= VC4_GEN_5)
++	switch (vc4->gen) {
 +	case VC4_GEN_6_D:
- 		field = VC4_GET_FIELD(HVS_READ(SCALER6_DISPX_STATUS(fifo)),
- 				      SCALER6_DISPX_STATUS_FRCNT);
- 		break;
-@@ -525,6 +586,7 @@ int vc4_hvs_get_fifo_from_output(struct vc4_hvs *hvs, unsigned int output)
- 		}
++		HDMI_WRITE(HDMI_MAI_THR,
++			   VC4_SET_FIELD(0x10, VC6_D_HD_MAI_THR_PANICHIGH) |
++			   VC4_SET_FIELD(0x10, VC6_D_HD_MAI_THR_PANICLOW) |
++			   VC4_SET_FIELD(0x1c, VC6_D_HD_MAI_THR_DREQHIGH) |
++			   VC4_SET_FIELD(0x1c, VC6_D_HD_MAI_THR_DREQLOW));
++		break;
++	case VC4_GEN_6_C:
++	case VC4_GEN_5:
+ 		HDMI_WRITE(HDMI_MAI_THR,
+ 			   VC4_SET_FIELD(0x10, VC4_HD_MAI_THR_PANICHIGH) |
+ 			   VC4_SET_FIELD(0x10, VC4_HD_MAI_THR_PANICLOW) |
+ 			   VC4_SET_FIELD(0x1c, VC4_HD_MAI_THR_DREQHIGH) |
+ 			   VC4_SET_FIELD(0x1c, VC4_HD_MAI_THR_DREQLOW));
+-	else
++		break;
++	case VC4_GEN_4:
+ 		HDMI_WRITE(HDMI_MAI_THR,
+ 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_PANICHIGH) |
+ 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_PANICLOW) |
+ 			   VC4_SET_FIELD(0x6, VC4_HD_MAI_THR_DREQHIGH) |
+ 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_DREQLOW));
++		break;
++	default:
++		drm_err(drm, "Unknown VC4 generation: %d", vc4->gen);
++		break;
++	}
  
- 	case VC4_GEN_6_C:
-+	case VC4_GEN_6_D:
- 		switch (output) {
- 		case 0:
- 			return 0;
-@@ -1132,6 +1194,7 @@ struct vc4_hvs *__vc4_hvs_alloc(struct vc4_dev *vc4,
- 		break;
- 
- 	case VC4_GEN_6_C:
-+	case VC4_GEN_6_D:
- 		dlist_start = HVS_BOOTLOADER_DLIST_END;
- 
- 		/*
-@@ -1177,6 +1240,7 @@ struct vc4_hvs *__vc4_hvs_alloc(struct vc4_dev *vc4,
- 		break;
- 
- 	case VC4_GEN_6_C:
-+	case VC4_GEN_6_D:
- 		/*
- 		 * If we are running a test, it means that we can't
- 		 * access a register. Use a plausible size then.
-@@ -1317,6 +1381,17 @@ static int vc4_hvs_hw_init(struct vc4_hvs *hvs)
- #define CFC1_N_MA_CSC_COEFF_C23(x)	(0xa03c + ((x) * 0x3000))
- #define CFC1_N_MA_CSC_COEFF_C24(x)	(0xa040 + ((x) * 0x3000))
- 
-+#define SCALER_PI_CMP_CSC_RED0(x)		(0x200 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_RED1(x)		(0x204 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_RED_CLAMP(x)		(0x208 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_CFG(x)		(0x20c + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_GREEN0(x)		(0x210 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_GREEN1(x)		(0x214 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_GREEN_CLAMP(x)	(0x218 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_BLUE0(x)		(0x220 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_BLUE1(x)		(0x224 + ((x) * 0x40))
-+#define SCALER_PI_CMP_CSC_BLUE_CLAMP(x)		(0x228 + ((x) * 0x40))
-+
- /* 4 S2.22 multiplication factors, and 1 S9.15 addititive element for each of 3
-  * output components
-  */
-@@ -1384,31 +1459,46 @@ static int vc6_hvs_hw_init(struct vc4_hvs *hvs)
- 		  VC4_SET_FIELD(15, SCALER6_CONTROL_MAX_REQS));
- 
- 	/* Set HVS arbiter priority to max */
--	HVS_WRITE(SCALER6_PRI_MAP0, 0xffffffff);
--	HVS_WRITE(SCALER6_PRI_MAP1, 0xffffffff);
--
--	for (i = 0; i < 6; i++) {
--		coeffs = &csc_coeffs[i / 3][i % 3];
--
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C00(i), coeffs->csc[0][0]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C01(i), coeffs->csc[0][1]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C02(i), coeffs->csc[0][2]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C03(i), coeffs->csc[0][3]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C04(i), coeffs->csc[0][4]);
--
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C10(i), coeffs->csc[1][0]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C11(i), coeffs->csc[1][1]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C12(i), coeffs->csc[1][2]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C13(i), coeffs->csc[1][3]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C14(i), coeffs->csc[1][4]);
--
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C20(i), coeffs->csc[2][0]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C21(i), coeffs->csc[2][1]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C22(i), coeffs->csc[2][2]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C23(i), coeffs->csc[2][3]);
--		HVS_WRITE(CFC1_N_MA_CSC_COEFF_C24(i), coeffs->csc[2][4]);
--
--		HVS_WRITE(CFC1_N_NL_CSC_CTRL(i), BIT(15));
-+	HVS_WRITE(SCALER6(PRI_MAP0), 0xffffffff);
-+	HVS_WRITE(SCALER6(PRI_MAP1), 0xffffffff);
-+
-+	if (hvs->vc4->gen == VC4_GEN_6_C) {
-+		for (i = 0; i < 6; i++) {
-+			coeffs = &csc_coeffs[i / 3][i % 3];
-+
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C00(i), coeffs->csc[0][0]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C01(i), coeffs->csc[0][1]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C02(i), coeffs->csc[0][2]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C03(i), coeffs->csc[0][3]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C04(i), coeffs->csc[0][4]);
-+
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C10(i), coeffs->csc[1][0]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C11(i), coeffs->csc[1][1]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C12(i), coeffs->csc[1][2]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C13(i), coeffs->csc[1][3]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C14(i), coeffs->csc[1][4]);
-+
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C20(i), coeffs->csc[2][0]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C21(i), coeffs->csc[2][1]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C22(i), coeffs->csc[2][2]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C23(i), coeffs->csc[2][3]);
-+			HVS_WRITE(CFC1_N_MA_CSC_COEFF_C24(i), coeffs->csc[2][4]);
-+
-+			HVS_WRITE(CFC1_N_NL_CSC_CTRL(i), BIT(15));
-+		}
-+	} else {
-+		for (i = 0; i < 8; i++) {
-+			HVS_WRITE(SCALER_PI_CMP_CSC_RED0(i), 0x1f002566);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_RED1(i), 0x3994);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_RED_CLAMP(i), 0xfff00000);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_CFG(i), 0x1);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_GREEN0(i), 0x18002566);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_GREEN1(i), 0xf927eee2);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_GREEN_CLAMP(i), 0xfff00000);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_BLUE0(i), 0x18002566);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_BLUE1(i), 0x43d80000);
-+			HVS_WRITE(SCALER_PI_CMP_CSC_BLUE_CLAMP(i), 0xfff00000);
-+		}
- 	}
- 
- 	return 0;
-@@ -1479,26 +1569,27 @@ static int vc4_hvs_cob_init(struct vc4_hvs *hvs)
- 		break;
- 
- 	case VC4_GEN_6_C:
-+	case VC4_GEN_6_D:
- 		#define VC6_COB_LINE_WIDTH	3840
- 		#define VC6_COB_NUM_LINES	4
- 		reg = 0;
- 		top = 3840;
- 
--		HVS_WRITE(SCALER6_DISP2_COB,
-+		HVS_WRITE(SCALER6_DISPX_COB(2),
- 			  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
- 			  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
- 
- 		base = top + 16;
- 		top += VC6_COB_LINE_WIDTH * VC6_COB_NUM_LINES;
- 
--		HVS_WRITE(SCALER6_DISP1_COB,
-+		HVS_WRITE(SCALER6_DISPX_COB(1),
- 			  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
- 			  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
- 
- 		base = top + 16;
- 		top += VC6_COB_LINE_WIDTH * VC6_COB_NUM_LINES;
- 
--		HVS_WRITE(SCALER6_DISP0_COB,
-+		HVS_WRITE(SCALER6_DISPX_COB(0),
- 			  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
- 			  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
- 		break;
-@@ -1529,13 +1620,16 @@ static int vc4_hvs_bind(struct device *dev, struct device *master, void *data)
- 
- 	hvs->regset.base = hvs->regs;
- 
--	if (vc4->gen >= VC4_GEN_6_C) {
-+	if (vc4->gen == VC4_GEN_6_C) {
- 		hvs->regset.regs = vc6_hvs_regs;
- 		hvs->regset.nregs = ARRAY_SIZE(vc6_hvs_regs);
- 
- 		if (VC4_GET_FIELD(HVS_READ(SCALER6_VERSION), SCALER6_VERSION) ==
--						SCALER6_VERSION_D0)
-+						SCALER6_VERSION_D0) {
- 			vc4->gen = VC4_GEN_6_D;
-+			hvs->regset.regs = vc6_d_hvs_regs;
-+			hvs->regset.nregs = ARRAY_SIZE(vc6_d_hvs_regs);
-+		}
- 	} else {
- 		hvs->regset.regs = vc4_hvs_regs;
- 		hvs->regset.nregs = ARRAY_SIZE(vc4_hvs_regs);
-diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
-index 28346729c2dd..ce1154c463ef 100644
---- a/drivers/gpu/drm/vc4/vc4_kms.c
-+++ b/drivers/gpu/drm/vc4/vc4_kms.c
-@@ -328,7 +328,7 @@ static void vc6_hvs_pv_muxing_commit(struct vc4_dev *vc4,
- 	struct drm_crtc *crtc;
- 	unsigned int i;
- 
--	WARN_ON_ONCE(vc4->gen != VC4_GEN_6_C);
-+	WARN_ON_ONCE(vc4->gen != VC4_GEN_6_C && vc4->gen != VC4_GEN_6_D);
- 
- 	for_each_new_crtc_in_state(state, crtc, crtc_state, i) {
- 		struct vc4_crtc_state *vc4_state = to_vc4_crtc_state(crtc_state);
-@@ -448,6 +448,7 @@ static void vc4_atomic_commit_tail(struct drm_atomic_state *state)
- 		break;
- 
- 	case VC4_GEN_6_C:
-+	case VC4_GEN_6_D:
- 		vc6_hvs_pv_muxing_commit(vc4, state);
- 		break;
- 
+ 	HDMI_WRITE(HDMI_MAI_CONFIG,
+ 		   VC4_HDMI_MAI_CONFIG_BIT_REVERSE |
 diff --git a/drivers/gpu/drm/vc4/vc4_regs.h b/drivers/gpu/drm/vc4/vc4_regs.h
-index df44a4a4009f..0efe340f99d4 100644
+index 0046bdb7ca32..27158be19952 100644
 --- a/drivers/gpu/drm/vc4/vc4_regs.h
 +++ b/drivers/gpu/drm/vc4/vc4_regs.h
-@@ -19,6 +19,20 @@
+@@ -987,6 +987,15 @@ enum {
+ # define VC4_HD_MAI_THR_DREQLOW_MASK		VC4_MASK(5, 0)
+ # define VC4_HD_MAI_THR_DREQLOW_SHIFT		0
  
- #define VC4_GET_FIELD(word, field) FIELD_GET(field##_MASK, word)
- 
-+#define VC6_SET_FIELD(value, field)					\
-+	({								\
-+		WARN_ON(!FIELD_FIT(hvs->vc4->gen == VC4_GEN_6_C ?	\
-+				    SCALER6_ ## field ## _MASK :	\
-+				    SCALER6D_ ## field ## _MASK, value));\
-+		FIELD_PREP(hvs->vc4->gen == VC4_GEN_6_C ?		\
-+				    SCALER6_ ## field ## _MASK :	\
-+				    SCALER6D_ ## field ## _MASK, value);	\
-+	 })
++# define VC6_D_HD_MAI_THR_PANICHIGH_MASK	VC4_MASK(29, 23)
++# define VC6_D_HD_MAI_THR_PANICHIGH_SHIFT	23
++# define VC6_D_HD_MAI_THR_PANICLOW_MASK		VC4_MASK(21, 15)
++# define VC6_D_HD_MAI_THR_PANICLOW_SHIFT	15
++# define VC6_D_HD_MAI_THR_DREQHIGH_MASK		VC4_MASK(13, 7)
++# define VC6_D_HD_MAI_THR_DREQHIGH_SHIFT	7
++# define VC6_D_HD_MAI_THR_DREQLOW_MASK		VC4_MASK(6, 0)
++# define VC6_D_HD_MAI_THR_DREQLOW_SHIFT		0
 +
-+#define VC6_GET_FIELD(word, field) FIELD_GET(hvs->vc4->gen == VC4_GEN_6_C ?	\
-+					     SCALER6_ ## field ## _MASK :	\
-+					     SCALER6D_ ## field ## _MASK, word)
-+
- #define V3D_IDENT0   0x00000
- # define V3D_EXPECTED_IDENT0 \
- 	((2 << 24) | \
-@@ -548,8 +562,9 @@
- #define SCALER6_HANDLE_ERROR			0x0000002c
- 
- #define SCALER6_DISP0_CTRL0			0x00000030
--#define SCALER6_DISPX_CTRL0(x)						\
--	(SCALER6_DISP0_CTRL0 + ((x) * (SCALER6_DISP1_CTRL0 - SCALER6_DISP0_CTRL0)))
-+#define SCALER6_DISPX_CTRL0(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_CTRL0 + ((x) * (SCALER6_DISP1_CTRL0 - SCALER6_DISP0_CTRL0))) : \
-+	(SCALER6D_DISP0_CTRL0 + ((x) * (SCALER6D_DISP1_CTRL0 - SCALER6D_DISP0_CTRL0))))
- # define SCALER6_DISPX_CTRL0_ENB		BIT(31)
- # define SCALER6_DISPX_CTRL0_RESET		BIT(30)
- # define SCALER6_DISPX_CTRL0_FWIDTH_MASK	VC4_MASK(28, 16)
-@@ -558,30 +573,34 @@
- # define SCALER6_DISPX_CTRL0_LINES_MASK		VC4_MASK(12, 0)
- 
- #define SCALER6_DISP0_CTRL1			0x00000034
--#define SCALER6_DISPX_CTRL1(x)						\
--	(SCALER6_DISP0_CTRL1 + ((x) * (SCALER6_DISP1_CTRL1 - SCALER6_DISP0_CTRL1)))
-+#define SCALER6_DISPX_CTRL1(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_CTRL1 + ((x) * (SCALER6_DISP1_CTRL1 - SCALER6_DISP0_CTRL1))) : \
-+	(SCALER6D_DISP0_CTRL1 + ((x) * (SCALER6D_DISP1_CTRL1 - SCALER6D_DISP0_CTRL1))))
- # define SCALER6_DISPX_CTRL1_BGENB		BIT(8)
- # define SCALER6_DISPX_CTRL1_INTLACE		BIT(0)
- 
- #define SCALER6_DISP0_BGND			0x00000038
--#define SCALER6_DISPX_BGND(x)						\
--	(SCALER6_DISP0_BGND + ((x) * (SCALER6_DISP1_BGND - SCALER6_DISP0_BGND)))
-+#define SCALER6_DISPX_BGND(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_BGND + ((x) * (SCALER6_DISP1_BGND - SCALER6_DISP0_BGND))) : \
-+	(SCALER6D_DISP0_BGND + ((x) * (SCALER6D_DISP1_BGND - SCALER6D_DISP0_BGND))))
- 
- #define SCALER6_DISP0_LPTRS			0x0000003c
--#define SCALER6_DISPX_LPTRS(x)						\
--	(SCALER6_DISP0_LPTRS + ((x) * (SCALER6_DISP1_LPTRS - SCALER6_DISP0_LPTRS)))
-+#define SCALER6_DISPX_LPTRS(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_LPTRS + ((x) * (SCALER6_DISP1_LPTRS - SCALER6_DISP0_LPTRS))) : \
-+	(SCALER6D_DISP0_LPTRS + ((x) * (SCALER6D_DISP1_LPTRS - SCALER6D_DISP0_LPTRS))))
- # define SCALER6_DISPX_LPTRS_HEADE_MASK		VC4_MASK(11, 0)
- 
- #define SCALER6_DISP0_COB			0x00000040
--#define SCALER6_DISPX_COB(x)						\
--	(SCALER6_DISP0_COB + ((x) * (SCALER6_DISP1_COB - SCALER6_DISP0_COB)))
-+#define SCALER6_DISPX_COB(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_COB + ((x) * (SCALER6_DISP1_COB - SCALER6_DISP0_COB))) : \
-+	(SCALER6D_DISP0_COB + ((x) * (SCALER6D_DISP1_COB - SCALER6D_DISP0_COB))))
- # define SCALER6_DISPX_COB_TOP_MASK		VC4_MASK(31, 16)
- # define SCALER6_DISPX_COB_BASE_MASK		VC4_MASK(15, 0)
- 
- #define SCALER6_DISP0_STATUS			0x00000044
--
--#define SCALER6_DISPX_STATUS(x)						\
--	(SCALER6_DISP0_STATUS + ((x) * (SCALER6_DISP1_STATUS - SCALER6_DISP0_STATUS)))
-+#define SCALER6_DISPX_STATUS(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_STATUS + ((x) * (SCALER6_DISP1_STATUS - SCALER6_DISP0_STATUS))) : \
-+	(SCALER6D_DISP0_STATUS + ((x) * (SCALER6D_DISP1_STATUS - SCALER6D_DISP0_STATUS))))
- # define SCALER6_DISPX_STATUS_EMPTY		BIT(22)
- # define SCALER6_DISPX_STATUS_FRCNT_MASK	VC4_MASK(21, 16)
- # define SCALER6_DISPX_STATUS_OFIELD		BIT(15)
-@@ -594,8 +613,9 @@
- 
- #define SCALER6_DISP0_DL			0x00000048
- 
--#define SCALER6_DISPX_DL(x)						\
--	(SCALER6_DISP0_DL + ((x) * (SCALER6_DISP1_DL - SCALER6_DISP0_DL)))
-+#define SCALER6_DISPX_DL(x)		((hvs->vc4->gen == VC4_GEN_6_C) ? \
-+	(SCALER6_DISP0_DL + ((x) * (SCALER6_DISP1_DL - SCALER6_DISP0_DL))) : \
-+	(SCALER6D_DISP0_DL + ((x) * (SCALER6D_DISP1_DL - SCALER6D_DISP0_DL))))
- # define SCALER6_DISPX_DL_LACT_MASK		VC4_MASK(11, 0)
- 
- #define SCALER6_DISP0_RUN			0x0000004c
-@@ -653,6 +673,73 @@
- #define SCALER6_BAD_UPM				0x0000022c
- #define SCALER6_BAD_AXI				0x00000230
- 
-+#define SCALER6D_VERSION			0x00000000
-+#define SCALER6D_CXM_SIZE			0x00000004
-+#define SCALER6D_LBM_SIZE			0x00000008
-+#define SCALER6D_UBM_SIZE			0x0000000c
-+#define SCALER6D_COBA_SIZE			0x00000010
-+#define SCALER6D_COB_SIZE			0x00000014
-+#define SCALER6D_CONTROL			0x00000020
-+#define SCALER6D_FETCHER_STATUS			0x00000024
-+#define SCALER6D_FETCH_STATUS			0x00000028
-+#define SCALER6D_HANDLE_ERROR			0x0000002c
-+#define SCALER6D_EOLN				0x00000030
-+#define SCALER6D_DL_STATUS			0x00000034
-+#define SCALER6D_PRI_MAP0			0x00000038
-+#define SCALER6D_PRI_MAP1			0x0000003c
-+#define SCALER6D_HISTCTRL			0x000000d0
-+#define SCALER6D_HISTBIN0			0x000000d4
-+#define SCALER6D_HISTBIN1			0x000000d8
-+#define SCALER6D_HISTBIN2			0x000000dc
-+#define SCALER6D_HISTBIN3			0x000000e0
-+#define SCALER6D_HISTBIN4			0x000000e4
-+#define SCALER6D_HISTBIN5			0x000000e8
-+#define SCALER6D_HISTBIN6			0x000000ec
-+#define SCALER6D_HISTBIN7			0x000000f0
-+#define SCALER6D_HVS_ID				0x000000fc
-+
-+#define SCALER6D_DISP0_CTRL0			0x00000100
-+#define SCALER6D_DISP0_CTRL1			0x00000104
-+#define SCALER6D_DISP0_BGND			0x00000108
-+#define SCALER6D_DISP0_LPTRS			0x00000110
-+#define SCALER6D_DISP0_COB			0x00000114
-+#define SCALER6D_DISP0_STATUS			0x00000118
-+#define SCALER6D_DISP0_CTRL0			0x00000100
-+#define SCALER6D_DISP0_CTRL1			0x00000104
-+#define SCALER6D_DISP0_BGND0			0x00000108
-+#define SCALER6D_DISP0_BGND1			0x0000010c
-+#define SCALER6D_DISP0_LPTRS			0x00000110
-+#define SCALER6D_DISP0_COB			0x00000114
-+#define SCALER6D_DISP0_STATUS			0x00000118
-+#define SCALER6D_DISP0_DL			0x0000011c
-+#define SCALER6D_DISP0_RUN			0x00000120
-+#define SCALER6D_QOS0				0x00000124
-+#define SCALER6D_PROF0				0x00000128
-+#define SCALER6D_DISP1_CTRL0			0x00000140
-+#define SCALER6D_DISP1_CTRL1			0x00000144
-+#define SCALER6D_DISP1_BGND0			0x00000148
-+#define SCALER6D_DISP1_BGND1			0x0000014c
-+#define SCALER6D_DISP1_LPTRS			0x00000150
-+#define SCALER6D_DISP1_COB			0x00000154
-+#define SCALER6D_DISP1_STATUS			0x00000158
-+#define SCALER6D_DISP1_DL			0x0000015c
-+#define SCALER6D_DISP1_RUN			0x00000160
-+#define SCALER6D_QOS1				0x00000164
-+#define SCALER6D_PROF1				0x00000168
-+#define SCALER6D_DISP2_CTRL0			0x00000180
-+#define SCALER6D_DISP2_CTRL1			0x00000184
-+#define SCALER6D_DISP2_BGND0			0x00000188
-+#define SCALER6D_DISP2_BGND1			0x0000018c
-+#define SCALER6D_DISP2_LPTRS			0x00000190
-+#define SCALER6D_DISP2_COB			0x00000194
-+#define SCALER6D_DISP2_STATUS			0x00000198
-+#define SCALER6D_DISP2_DL			0x0000019c
-+#define SCALER6D_DISP2_RUN			0x000001a0
-+#define SCALER6D_QOS2				0x000001a4
-+#define SCALER6D_PROF2				0x000001a8
-+
-+#define SCALER6(x) ((hvs->vc4->gen == VC4_GEN_6_C) ? SCALER6_ ## x : SCALER6D_ ## x)
-+
- # define VC4_HDMI_SW_RESET_FORMAT_DETECT	BIT(1)
- # define VC4_HDMI_SW_RESET_HDMI			BIT(0)
- 
+ /* Divider from HDMI HSM clock to MAI serial clock.  Sampling period
+  * converges to N / (M + 1) cycles.
+  */
 
 -- 
 2.34.1
