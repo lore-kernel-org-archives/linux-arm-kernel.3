@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97B5CFA453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D7ECFA452
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8rzrS6ZbZrahYqqHOotPYGbsCmbQtqefypGfCDp/qQM=; b=g2/gvnVfHuFuMJQDZ7I8sU6cNI
-	1YcDPyKJGd5r9rpSb+ys0hWrHwvdYIanBbxejsqfn1urQiBO4KedIEdA/H/tM4qN9wCZssevMh5jo
-	nS0Zx2VyKQUqkqfat8bXLbEVdnZ6W0qfMojx8oRPjH+mTk69YqoSoKVqJDlSXzZHB0otpXJyNgArX
-	TAgUuPcKXFklx9eDSMAf+XMhB2TZLC08qmA9kjOpmg5Luzk4rN3fWfUkLrxwKusHJ54yOPFhlh9Ut
-	MJVjahAKP2NSzd7U6lM3cegutwZBhDLgWUklghKTX4OxI6o+EnDRYZaOWbxYKQ0mGnxmy957KTyH8
-	9PF15DFQ==;
+	bh=y4HMCU5qp8oStHGSj+wqjDqqsvFwav2OV50hFumMiu0=; b=S78KErG6pxSh5l6lCe/ydKE8Ao
+	x+N9NDxepGRdXEoEwqGKW71/tJ+1ulStxRM6Ix8bDyrXYSLXxS1o+ruHDp+hm0EzRfKlDv5zrlnz/
+	R/LMj0GfCyHpMK0Khu0khRp4ozLZHqTAgc1WsdbhnzzehXlJEEdIfwuwaX6/+pakhCEZeIv7o1Tuz
+	okv7YHOr45UYHu9HhWsiWxJA3OZU6Xo/yYFCudDEdJtmjZQjWWvNqevJOpPxATD135D95JDi0T90h
+	BgwYuASTDQF27SwJh4vP/VyWsFZlgdupMA6eSeFpemGOAwgCscnT0MCn7qHU6095xdaXGbQPA3dQk
+	Ckk0H8HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3f1o-0000000FLmo-17df;
-	Wed, 23 Oct 2024 17:20:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3f3I-0000000FM1E-28lE;
+	Wed, 23 Oct 2024 17:21:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eMZ-0000000FBo0-0hc3
+	id 1t3eO9-0000000FC3F-1O6A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:37:37 +0000
+	Wed, 23 Oct 2024 16:39:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8CC0E5C4127;
-	Wed, 23 Oct 2024 16:37:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 618D3C4CEC6;
-	Wed, 23 Oct 2024 16:37:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 47C825C4B2A;
+	Wed, 23 Oct 2024 16:39:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C27BC4CEC6;
+	Wed, 23 Oct 2024 16:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729701453;
-	bh=lRi0/nbBx0EcnpJdJrSER6XlVEOeT8jhZsfMLgBKoX8=;
+	s=k20201202; t=1729701552;
+	bh=gHkjsIBl2zCdBHabptiDZ7pNg52KgG/kROIPc6mU2+E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j0CH/hkMKYH48v8Sr/RQU1IatBjbfb1A2DzaiWFAfPxQLOoJqIJCyH2iKwnPeN4o9
-	 EGJEQciElHcqiqTgwnehDwu0qeuzqrLa42ll5c5uSb/TZ5BN7KboxwHvuNoELmyRBm
-	 E8l1BhxHboj54ZV5pK6wVQAgJxwRjppK4+RdXfVeMJvusitRCvhRKu5ponfvQFH44/
-	 Clr8rAEKVaXAMjdaimhTRk6xe4++CIhSkAG/kiETSLmQuXQWck+pLMger85R0gzGMN
-	 Uu/zsO6f40+7UWC37GEYwVr8ubJ7A16iqEVo82sVHBPlnRflBpCHdv1jWs0FaffKru
-	 tSljbav7LldqQ==
-Date: Wed, 23 Oct 2024 17:37:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, broonie@kernel.org,
-	linux-spi@vger.kernel.org, shawnguo@kernel.org,
-	linux-arm-kernel@lists.infradead.org, lukma@denx.de,
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH 1/3] dt-bindings: misc: lwn,bk4-spi: Add binding
-Message-ID: <20241023-irritate-veal-0423be9e4c45@spud>
-References: <20241023120015.1049008-1-festevam@gmail.com>
+	b=pztSQ2CuekR85kezundgpCWe8ZdHIWxiO+YK3jULQx5DPzZvq/Ou3DmUS9fjUpAqf
+	 +f/9BxxkaxsAfnrdXqAc6EIN33Yo7WGsOOyRAXDHL6MelgurG/x9HAGfapE6j5Co18
+	 dlxpDBmYn9LrhsWksBld1ZnSboYMSm9ZWJtDvZdeXJYzq4pn0ZaL5prsfbHSJi1phf
+	 e0z/UzzPjfltFYS7LYJcH180ZM8sZU5D5BAwZXfdQ3nOPqh6kCwFJeI0mw3LqAg7Ip
+	 St4K8pkkOk7l7FXgIjzzooR7/y49VQ4WBkcVn+AbU8gEaibFLYNIWBoCGPimmJfEmQ
+	 A9f3dB0Q9q6fQ==
+Date: Wed, 23 Oct 2024 17:39:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 2/2] KVM: arm64: Don't map 'kvm_vgic_global_state' at EL2
+ with pKVM
+Message-ID: <20241023163907.GD29251@willie-the-truck>
+References: <20241022144016.27350-1-will@kernel.org>
+ <20241022144016.27350-3-will@kernel.org>
+ <865xpk3wde.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CjG6ETQKo6RDEUwd"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023120015.1049008-1-festevam@gmail.com>
+In-Reply-To: <865xpk3wde.wl-maz@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_093735_319164_A0CAE36D 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20241023_093913_435820_3774E8E4 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,162 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 22, 2024 at 06:01:17PM +0100, Marc Zyngier wrote:
+> On Tue, 22 Oct 2024 15:40:16 +0100,
+> Will Deacon <will@kernel.org> wrote:
+> > 
+> > Now that 'kvm_vgic_global_state' is no longer needed for ICC_CTLR_EL1
+> > emulation on machines with a broken SEIS implementation, drop the
+> > pKVM hypervisor mapping of the page.
+> > 
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/setup.c | 17 -----------------
+> >  1 file changed, 17 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > index 174007f3fadd..8fec099c2775 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > @@ -95,7 +95,6 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
+> >  {
+> >  	void *start, *end, *virt = hyp_phys_to_virt(phys);
+> >  	unsigned long pgt_size = hyp_s1_pgtable_pages() << PAGE_SHIFT;
+> > -	enum kvm_pgtable_prot prot;
+> >  	int ret, i;
+> >  
+> >  	/* Recreate the hyp page-table using the early page allocator */
+> > @@ -148,22 +147,6 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
+> >  	}
+> >  
+> >  	pkvm_create_host_sve_mappings();
+> > -
+> > -	/*
+> > -	 * Map the host sections RO in the hypervisor, but transfer the
+> > -	 * ownership from the host to the hypervisor itself to make sure they
+> > -	 * can't be donated or shared with another entity.
+> > -	 *
+> > -	 * The ownership transition requires matching changes in the host
+> > -	 * stage-2. This will be done later (see finalize_host_mappings()) once
+> > -	 * the hyp_vmemmap is addressable.
+> > -	 */
+> > -	prot = pkvm_mkstate(PAGE_HYP_RO, PKVM_PAGE_SHARED_OWNED);
+> > -	ret = pkvm_create_mappings(&kvm_vgic_global_state,
+> > -				   &kvm_vgic_global_state + 1, prot);
+> > -	if (ret)
+> > -		return ret;
+> > -
+> >  	return 0;
+> >  }
+> 
+> Maybe add a note indicating that nVHE/hVHE still have that particular
+> mapping via the rodata section?
 
---CjG6ETQKo6RDEUwd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I can add something to the commit message, is that what you had in mind?
 
-On Wed, Oct 23, 2024 at 09:00:13AM -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
->=20
-> Add a lwn,bk4-spi.yaml binding for Liebherr's BK4 external SPI controller.
->=20
-> Currently, the compatible string used for this device is "lwn,bk4",
-> which is the same as the board compatible string documented at fsl.yaml.
->=20
-> This causes several dt-schema warnings:
->=20
-> make dtbs_check DT_SCHEMA_FILES=3Dfsl.yaml
-> ...
->=20
-> ['lwn,bk4'] is too short
-> 'lwn,bk4' is not one of ['tq,imx8dxp-tqma8xdp-mba8xx']
-> 'lwn,bk4' is not one of ['tq,imx8qxp-tqma8xqp-mba8xx']
-> 'lwn,bk4' is not one of ['armadeus,imx1-apf9328', 'fsl,imx1ads']
-> ...
->=20
-> Use a more specific "lwn,bk4-spi" compatible string for this
-> device.
->=20
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> ---
->  .../devicetree/bindings/misc/lwn,bk4-spi.yaml | 54 +++++++++++++++++++
->  .../devicetree/bindings/misc/lwn-bk4.txt      | 26 ---------
->  2 files changed, 54 insertions(+), 26 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/misc/lwn,bk4-spi.ya=
-ml
->  delete mode 100644 Documentation/devicetree/bindings/misc/lwn-bk4.txt
->=20
-> diff --git a/Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml b/Do=
-cumentation/devicetree/bindings/misc/lwn,bk4-spi.yaml
-> new file mode 100644
-> index 000000000000..7fb86e6abade
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/misc/lwn,bk4-spi.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/misc/lwn,bk4-spi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Liebherr's BK4 external SPI controller
-> +
-> +maintainers:
-> +  - Lukasz Majewski <lukma@denx.de>
-> +
-> +description: |
-> +  Liebherr's BK4 external SPI controller is a device which handles data
-> +  acquisition from compatible industrial peripherals.
-> +  The SPI is used for data and management purposes in both master and
-> +  slave modes.
-> +
-> +allOf:
-> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: lwn,bk4-spi
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  spi-max-frequency:
-> +    maximum: 30000000
-> +
-> +  fsl,spi-cs-sck-delay: true
-> +
-> +  fsl,spi-sck-cs-delay: true
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Why does this have fsl properties? I figure they're taken from the dts,
-but spidev doesn't use them, right?
+Thanks!
 
-> +
-> +required:
-> +  - compatible
-> +  - spi-max-frequency
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    spi {
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        spidev@0 {
-           ^^^^^^
-This should really be the type of device that this is. The way you word
-the description etc doesn't really make much sense to me but it sounds
-like this is a daisy chained spi controller? Or is it a data acquisition
-device that is a spi "slave"?
-
-> +            compatible =3D "lwn,bk4-spi";
-> +            reg =3D <0>;
-> +            spi-max-frequency =3D <30000000>;
-> +            fsl,spi-cs-sck-delay =3D <200>;
-> +            fsl,spi-sck-cs-delay =3D <400>;
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/misc/lwn-bk4.txt b/Documen=
-tation/devicetree/bindings/misc/lwn-bk4.txt
-> deleted file mode 100644
-> index d6a8c188c087..000000000000
-> --- a/Documentation/devicetree/bindings/misc/lwn-bk4.txt
-> +++ /dev/null
-> @@ -1,26 +0,0 @@
-> -* Liebherr's BK4 controller external SPI
-> -
-> -A device which handles data acquisition from compatible industrial
-> -peripherals.
-> -The SPI is used for data and management purposes in both master and
-> -slave modes.
-> -
-> -Required properties:
-> -
-> -- compatible : Should be "lwn,bk4"
-> -
-> -Required SPI properties:
-> -
-> -- reg : Should be address of the device chip select within
-> -  the controller.
-> -
-> -- spi-max-frequency : Maximum SPI clocking speed of device in Hz, should=
- be
-> -  30MHz at most for the Liebherr's BK4 external bus.
-> -
-> -Example:
-> -
-> -spidev0: spi@0 {
-> -	compatible =3D "lwn,bk4";
-> -	spi-max-frequency =3D <30000000>;
-> -	reg =3D <0>;
-> -};
-> --=20
-> 2.34.1
->=20
-
---CjG6ETQKo6RDEUwd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxkmSQAKCRB4tDGHoIJi
-0vmXAP4xi+mBjk3u9ojzHfEMphla5LEqQXpnG1Pd8VUmTXz7eQEAzhJEl+8likjP
-4CHifmI+fvA19ArkRRuWrqJ9MBetNQM=
-=weg+
------END PGP SIGNATURE-----
-
---CjG6ETQKo6RDEUwd--
+Will
 
