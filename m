@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E03D2E027
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BAED2E02A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Se1VIgGsvPlT3D/sfCOm2ULU4V8mtQ1l49iIAp9o/g8=; b=h1/AUF8fh53ES+EOO8Dr1NsI63
-	GoNl+H5s+hNV8WbpM85I3X7y7TozMSS76vBZnDcUUhVBoU7kDjNaeH0ptXanJaPBelUgJLOPlVdQz
-	M4svnLt8xfJ00qLIMmH9jVoIrkFfaFanzNGgmRD77f8p9YJkv+9RFf+NGU6fwZYaJR7vbQxcG2KG8
-	Qqv9F5Wbs5HK0i2+pTmnIF1QkU0AQlAS7KYv7fLRMCQEHD0MJ9e9JWI4wkcLVh3zZOKPI3WouRhi1
-	WyIAQR1B9YHanTGCCG2LBbIb2i2une1pX4z5eNH9b3uV6kAcGvGuiCDp5FTmb6uxEBly79dCOmWum
-	/1qY/KDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bhlavEV6bEoUmwtwh+KoBaPWNoPVJdtNPzK7rWBZUw=; b=P8pnT89WDg2aZj5pFGs5Gi6a+N
+	jvcBbHbUSsPW3T/pdnUJ9qKEpBjR2whcbhPh8biWygAJdfwo8ULsz7Xesg4iZ15wVSm5iL5W1tcmV
+	pztWwee9xvBoJke5X1yl+aSQAIzC/+vGdM46SChXLLOYGm+5IJ+mS+BTEw8FLedMVXN3H+CvsdOr0
+	YTk2uvzq88tWVU5Yrz7++8ZEWSP96IjrEjJOSECADOXVewECZrPjU1ynSslvildJ8r1ceWt2+7Hqr
+	B0MUHfTt3l36hnZH/R3diWiFYG5jWuVd5cTWmDq+fWa2deByfI7mSOxPhwCJ8wHrAu6WWRbrkg745
+	m/l+CwZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XGw-0000000Dh8r-2oa3;
-	Wed, 23 Oct 2024 09:03:18 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1t3XIV-0000000Dhbf-00c2;
+	Wed, 23 Oct 2024 09:04:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X4k-0000000DddK-44Mm;
-	Wed, 23 Oct 2024 08:50:44 +0000
-X-UUID: dfeb2166911b11ef9048ed6ed365623b-20241023
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Se1VIgGsvPlT3D/sfCOm2ULU4V8mtQ1l49iIAp9o/g8=;
-	b=nQulJnPW1WI+id/H5HuzNgmVJ20f70Eqrf6WUlrGbKk8keMZpUg9IEvE6RW13Z/JyMhavTV5Z54Auywzdth63T++kT7an6kVTZilxP1bNDmIWEA7XLhHItB5Z+a7jlZR8+MF9GycxVYhmk+HZFg+cmlzev5hNttrEIhUsIfaRog=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:72218b3c-21bb-43fe-b214-156e5df9bc29,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:64b0b441-8751-41b2-98dd-475503d45150,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: dfeb2166911b11ef9048ed6ed365623b-20241023
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <macpaul.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1639976620; Wed, 23 Oct 2024 01:50:37 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 23 Oct 2024 16:50:14 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 23 Oct 2024 16:50:14 +0800
-From: Macpaul Lin <macpaul.lin@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Alexandre Mergnat
-	<amergnat@baylibre.com>
-CC: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-usb@vger.kernel.org>, Chris-qj chen <chris-qj.chen@mediatek.com>,
-	Yu-wen Fang <yu-wen.fang@mediatek.com>, Simon Sun <simon.sun@yunjingtech.com>
-Subject: [PATCH] arm64: dts: mediatek: mt8395-genio-1200-evk: add adc and led for mt6360
-Date: Wed, 23 Oct 2024 16:50:10 +0800
-Message-ID: <20241023085010.7524-1-macpaul.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+	id 1t3X5t-0000000DdqE-07fr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 08:51:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E20CE5C5EE1;
+	Wed, 23 Oct 2024 08:51:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E2D1C4CEC6;
+	Wed, 23 Oct 2024 08:51:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729673512;
+	bh=HgvIm+497Hmdq2R0Wn5snLjGoTlA1hQo19CTjG70174=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m+vIG12jWtj69d2TdKEb+dkCv8jMcz0EKHpltNBDS1/400GbeSIBlOjBfIXifOSao
+	 7lVwe2DOdbLkI4ynU6aWPCyBeZxpxNEIcWTRjMCNfAShdZU9wo+G3x1C5rxg8eOTz+
+	 7knWRBkXcPbr0cU4fWLfeEvpL210+BtxZhI2DF8+3Ehm7MJE3Wbh/31v+P34652Hzh
+	 OSOGLh9C2YSVW6Brd2I8ce7rdwt/QowMBuh7OFAvrn85lWHrXF9gCl+iZtIX1LWEPS
+	 ku7mqABnrIxLKHV9pPti3C1e8uXKFOnIUiL7oszjv+3WU3QTUrcRf/cBW1SExRfbzm
+	 TM3BCIrikeLFw==
+Date: Wed, 23 Oct 2024 10:51:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Stephane Danieau <stephane.danieau@foss.st.com>, 
+	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
+	Valentin Caron <valentin.caron@foss.st.com>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Cheick Traore <cheick.traore@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 11/14] dt-bindings: pinctrl: stm32: support for
+ stm32mp215 and additional packages
+Message-ID: <2g65375shtjq4udjfarfspqtpg5q27oeerqskt2uzwj44pvnbb@rderpevnrzxs>
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+ <20241022155658.1647350-12-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--1.494300-8.000000
-X-TMASE-MatchedRID: Mn10dBkbTvtKC7lijxWoOAPZZctd3P4Bf2g6KJZtxl0UtdRZTmEaIb2O
-	4dp/1Rff4vM1YF6AJbbCCfuIMF6xLVgXepbcl7r7ejqoqUDei9WWVgE8Bu1hS0hiHNv5G75DlwA
-	lN0nV/xT6BF14XxOvjI2guP2Quj6armhikiR2ttDg30lwp7cJ8GHE6HLVPu61hJVRlkc0uv5GBX
-	oeyrLHXVBo425nomviD2TeXwRpghyi+kNdVAfMg37cGd19dSFd
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--1.494300-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: D0EE629A02F439079A853651305B65B35D8AF92D7D429C00FA773FB68A4AD7182000:8
-X-MTK: N
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241022155658.1647350-12-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_015043_044631_A3A8B926 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_015153_179286_4D77E509 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +81,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yu-wen Fang <yu-wen.fang@mediatek.com>
+On Tue, Oct 22, 2024 at 05:56:55PM +0200, Antonio Borneo wrote:
+> From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+> 
+> Add support for st,stm32mp215-pinctrl and st,stm32mp215-z-pinctrl.
 
-Enable ADC and LED of MT6360 for MT8395 Genio-1200-EVK board.
+So all previous patches are for this? Then they are supposed to be here.
 
-Signed-off-by: Yu-wen Fang <yu-wen.fang@mediatek.com>
-Signed-off-by: Simon Sun <simon.sun@yunjingtech.com>
-Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
----
- .../arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+> Add packages AM, AN and AO (values : 0x1000, 0x2000 and 0x8000)
+> 
+> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+> ---
+>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml         | 4 +++-
+>  include/dt-bindings/pinctrl/stm32-pinfunc.h                   | 3 +++
+>  2 files changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> index 9a7ecfea6eb5b..0a2d644dbece3 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> @@ -27,6 +27,8 @@ properties:
+>        - st,stm32mp135-pinctrl
+>        - st,stm32mp157-pinctrl
+>        - st,stm32mp157-z-pinctrl
+> +      - st,stm32mp215-pinctrl
+> +      - st,stm32mp215-z-pinctrl
+>        - st,stm32mp257-pinctrl
+>        - st,stm32mp257-z-pinctrl
+>  
+> @@ -59,7 +61,7 @@ properties:
+>        Indicates the SOC package used.
+>        More details in include/dt-bindings/pinctrl/stm32-pinfunc.h
+>      $ref: /schemas/types.yaml#/definitions/uint32
+> -    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800]
+> +    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800, 0x1000, 0x2000, 0x4000]
+>  
+>  patternProperties:
+>    '^gpio@[0-9a-f]*$':
+> diff --git a/include/dt-bindings/pinctrl/stm32-pinfunc.h b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+> index af3fd388329a0..01bc8be78ef72 100644
+> --- a/include/dt-bindings/pinctrl/stm32-pinfunc.h
+> +++ b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+> @@ -41,6 +41,9 @@
+>  #define STM32MP_PKG_AI	0x100
+>  #define STM32MP_PKG_AK	0x400
+>  #define STM32MP_PKG_AL	0x800
+> +#define STM32MP_PKG_AM	0x1000
+> +#define STM32MP_PKG_AN	0x2000
+> +#define STM32MP_PKG_AO	0x4000
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-index 4c11c100e7b6..6aa6fa64044e 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-@@ -264,6 +264,11 @@ mt6360: pmic@34 {
- 		#interrupt-cells = <1>;
- 		pinctrl-0 = <&mt6360_pins>;
- 
-+		adc {
-+			compatible = "mediatek,mt6360-adc";
-+			#io-channel-cells = <1>;
-+		};
-+
- 		charger {
- 			compatible = "mediatek,mt6360-chg";
- 			richtek,vinovp-microvolt = <14500000>;
-@@ -275,6 +280,12 @@ otg_vbus_regulator: usb-otg-vbus-regulator {
- 			};
- 		};
- 
-+		led {
-+			compatible = "mediatek,mt6360-led";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		regulator {
- 			compatible = "mediatek,mt6360-regulator";
- 			LDO_VIN3-supply = <&mt6360_buck2>;
--- 
-2.45.2
+Why these are some random hex values but not for example 0x801, 0x802
+and 0x803? That's an enum, so bitmask does not make sense here.
+
+Best regards,
+Krzysztof
 
 
