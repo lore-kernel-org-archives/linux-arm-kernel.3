@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A501ACFA453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC55CFA453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 17:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mo5TXq2lM94AOYob7sigSv7lm1UH6+vMtcH4MaKVCI=; b=CRcD2yIIPagJQc7Mh22nX7znI6
-	p8etD/NnyhUk1o3rKqGcx80h6rPOozO3aFHazSuI2eFGKFsBjQqXTTIJjlJJU2dTLr5FWMjpSd7bm
-	MAnT8QiMXConLcJQW+3+UF03E+p4K+gWrlA/62+LeUIU3KU1LdYOvufzKsAHIQZYAou9G9ER08xBU
-	JiD+aWZ+F/nuDiMGEJr+2XLnReP+6ILluBxTt+euT25zQRAYb7RK5ohtzbW/6Xa2e+BCqQhg/iIlz
-	O1CWVHT7PTbcE4S1UePGYa+PymD7vAPIDZi/FONQ9/LYykvm0CqpnOS8VNYxhnSdKdJpfvoKmSQ7V
-	xEP3JeWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U10MyS9Lw8JFmiB9HpAbdEI4lyOe06UE+66YRceLvUU=; b=hsvdmBYCGrXTtxlQPZhSpWtf3m
+	5ePURhDxRtjQcf5pg2CIsxU48xpHNd/X22CZDcYbnz0FwAbXt7+HZaJbzmcVlXmeaRwWitGib8hW1
+	jKHbtGNq6uoV5a87PgmK+9TFHiPhF7qCO0dZR4BJ2xtnT2RCW3Gp4E2UmTqICyFQWkVSWOHKkaPGg
+	UyDNPCKEwztV7Qm3phZVNfhwbuv3om6NLpCwKptKnpJDm9ZCPIcQW0gKpf2/8vXe5y0bwM689khKg
+	KyppPBoIY06osRA0P/9XQ7BHcezMu9CE4Q+b9MihPQhWU+0456Y4N+RmogK9eKTiC1iXp1H8SCukB
+	bpbDRGsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eyq-0000000FLRk-00RH;
-	Wed, 23 Oct 2024 17:17:08 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1t3f0J-0000000FLbK-0a2E;
+	Wed, 23 Oct 2024 17:18:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eHx-0000000FBJT-0ucA;
-	Wed, 23 Oct 2024 16:32:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 60BC940002;
-	Wed, 23 Oct 2024 16:32:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1729701164;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2mo5TXq2lM94AOYob7sigSv7lm1UH6+vMtcH4MaKVCI=;
-	b=iAf/g0I2OwQO00ReC6C88G//21aTCm8VlXqLUz0rDUOWS1CRki4N+V3xFVghUaJQNvn72n
-	Qpk5JQCZK/Sbi2XAyf4zsqDNUyew8tVwAhxmYx+ezK0zr5DZgZK5VWfAyA5fzY2IEgyWV7
-	DiH+k8QuSrgZsPY3p0v4k+Fws/eYodmishgCNQXEueUEzM3ZuN3oDY4gGT3ncZGbYTZzWP
-	rFabYPUeE2ili/emKROsPngRGFeG1VimgOrtiIRQrsXqDtagozfdquWUHB5T4aARxllfNU
-	6BsL05hnF4PrqEu0/dx/92y5hfmem7fy6oL2bPaBSJqrQEOsJjSzZonTu+JZGQ==
-Date: Wed, 23 Oct 2024 18:32:40 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Arnd
- Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn
- Helgaas <bhelgaas@google.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, Derek
- Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>, Linus Walleij
- <linus.walleij@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>, St efan Wahren <wahrenst@gmx.net>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Will Deacon
- <will@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- phil@raspberrypi.com, jonathan@raspberrypi.com
-Subject: Re: [PATCH v2 08/14] clk: rp1: Add support for clocks provided by
- RP1
-Message-ID: <20241023183240.0dffae03@bootlin.com>
-In-Reply-To: <ZxkX5gnDkWrTynRv@apocalypse>
-References: <cover.1728300189.git.andrea.porta@suse.com>
-	<022cf4920f8147cc720eaf02fd52c0fa56f565c5.1728300189.git.andrea.porta@suse.com>
-	<611de50b5f083ea4c260f920ccc0e300.sboyd@kernel.org>
-	<ZxkX5gnDkWrTynRv@apocalypse>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1t3eKL-0000000FBZV-49fs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 16:35:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=U10MyS9Lw8JFmiB9HpAbdEI4lyOe06UE+66YRceLvUU=; b=rAt9X5YWdBQO9yzXBTrTmyRsx7
+	ci7Dyl5Nx+zu/fpA3lBJL9NfEJsnyzNZpqkwjtOR3vNIPbehmySR0x7NqMNN251lIdKzgUFwF8hYA
+	QtZrFjW5B6ni+zyDnG11fRlwAcysGPRTmCjpdqKMreKdy967uyCLeuPP9pNPsKlcCfecm9hv0WVo8
+	KIumzW1oadJSKPW7lxhJL6mN37u0Vt5fT2C4p01cNgWG6srfGvU+ixcXssviUJlfPWxJfFZ2JbWx+
+	wtgw5YeEdsLB7dAOhmAxwnTg5WcM6jDaOhWshNMlDX9F6rQRWghrivSZnXkNRQY7ZF9qmGVgwWaau
+	02JOmGZA==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3eKI-00000008ScF-3GxR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 16:35:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4812EA4259E;
+	Wed, 23 Oct 2024 16:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0174C4CEC6;
+	Wed, 23 Oct 2024 16:35:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729701313;
+	bh=+M/rAGDzkw0biZcT2fJ8w/xWO2sn3tGipKuINKaFsRE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eHX0rQLREZcmtw0dTxYhLwGuWXFVOoHu5bIknTnXaqSQQAPq1hvZkmtBlhvFLdRwY
+	 ltq3BR7E3IDrXMz7yY2mJ2GImFUt8nbJLJorY/VKaKzjw2+h/p0cEQC7s0ocLyNOOy
+	 7uDPK/dOXV0Jo8Gfl7j166UvWT/GEX5iMagBrvlJGzDLaKOjgrBDln04BkRSeigj/n
+	 ZNnnb7s1sP34o8ofDpmvWwxtmKU1tW32YwfC/5t7IK+mTB0snDihlLCkDAINhVo6vw
+	 nfwk7tloeWpY7g95JaBd5vFtxLzyGjyK3ANGDGBAz71E+Y6n8rS94UEYfbY7fldhuk
+	 9NtGP8zixMk3w==
+Date: Wed, 23 Oct 2024 17:35:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Huang Shijie <shijie@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com, patches@amperecomputing.com,
+	cl@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, adamli@os.amperecomputing.com
+Subject: Re: [PATCH] arm64: set "rodata=on" as default
+Message-ID: <20241023163507.GC29251@willie-the-truck>
+References: <20241021053948.5848-1-shijie@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241021053948.5848-1-shijie@os.amperecomputing.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_093249_692727_D364BD10 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20241023_173514_980061_F5684189 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +88,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
-
-
-On Wed, 23 Oct 2024 17:36:06 +0200
-Andrea della Porta <andrea.porta@suse.com> wrote:
-
-> Hi Stephen,
+On Mon, Oct 21, 2024 at 01:39:48PM +0800, Huang Shijie wrote:
+> From Documentation/admin-guide/kernel-parameters.txt, we know that:
+>  rodata=	[KNL,EARLY]
+> 	on	Mark read-only kernel memory as read-only (default).
+> 	off	Leave read-only kernel memory writable for debugging.
+> 	full	Mark read-only kernel memory and aliases as read-only
+> 		[arm64]
 > 
-> On 15:08 Wed 09 Oct     , Stephen Boyd wrote:
-> > Quoting Andrea della Porta (2024-10-07 05:39:51)  
-> > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> > > index 299bc678ed1b..537019987f0c 100644
-> > > --- a/drivers/clk/Kconfig
-> > > +++ b/drivers/clk/Kconfig
-> > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
-> > >           These multi-function devices have two fixed-rate oscillators, clocked at 32KHz each.
-> > >           Clkout1 is always on, Clkout2 can off by control register.
-> > >  
-> > > +config COMMON_CLK_RP1
-> > > +       tristate "Raspberry Pi RP1-based clock support"
-> > > +       depends on PCI || COMPILE_TEST  
-> > 
-> > A better limit would be some ARCH_* config.  
+> So the "rodata=on" is the default.
 > 
-> I've avoided ARCH_BCM2835 since the original intention is for this driver
-> to work (in the future) also for custom PCI cards with RP1 on-board, and not
-> only for Rpi5.
+> But the current code does not follow the document, it makes "rodata=full"
+> as the default.
+> 
+> After patch
+>   commit acfa60dbe038 ("arm64: mm: Fix "rodata=on" when CONFIG_RODATA_FULL_DEFAULT_ENABLED=y")
+> the "rodata=on" can works fine now.
+> 
+> The "rodata=on" can provide us more block mappings and contiguous hits
+> to map the linear region which minimize the TLB footprint. And the
+> linear aliases of pages belonging to read-only mappings in vmalloc
+> region are also marked as read-only now.
+> 
+> This patch disables RODATA_FULL_DEFAULT_ENABLED by default,
+> so the default value:
+>      rodata_full=false, rodata_enabled=true
+> then the default behavior follows the "rodata=on".
+> And we can get better performance with the "rodata=on" as the default
+> too.
+> 
+> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+> ---
+>  arch/arm64/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fd9df6dcc593..6f30f749156e 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1649,7 +1649,6 @@ config MITIGATE_SPECTRE_BRANCH_HISTORY
+>  
+>  config RODATA_FULL_DEFAULT_ENABLED
+>  	bool "Apply r/o permissions of VM areas also to their linear aliases"
+> -	default y
+>  	help
+>  	  Apply read-only attributes of VM areas to the linear alias of
+>  	  the backing pages as well. This prevents code or read-only data
 
-Maybe depends on CONFIG_MISC_RP1 ?
-CONFIG_MISC_RP1 enables the RP1 PCI driver
+I think this is the wrong approach.
 
-Best regards,
-Hervé
+The "full" behaviour on arm64 is equivalent to the "on" behaviour on x86
+so the more consistent change to make would be:
+
+  - Make our "on" behaviour be what is currently done by "full"
+  - Remove RODATA_FULL_DEFAULT_ENABLED
+  - Introduce a new option (e.g. "rodata=noalias") which would match the
+    current "on" behaviour
+  - Update (simplify) the documentation
+
+That way, the default behaviour and the "on"/"off" options follow the
+x86 behaviour and expert users can fine-tune the security/performance
+trade-off using the "noalias" option.
+
+Will
 
