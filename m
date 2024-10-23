@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB23D0BB43
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC63D0BB43
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukAi9ZCzivmGOT1+7YeZ8JctNl4jDEaOUq5jA75V+Us=; b=u7FnBO9wtN42D9nwKfxWvtSNv5
-	nLRRUEZnLtHmSSA9ACHSqdC8P4Bf0zlDmaE+likVLyOQGuk27lHnDo7a24Nw/kFPM4iHYuaiX6G2w
-	d5pw11tCOV3dsK3fyfjcmW57UHZoAlE7sS4B+RfkDLaMu7ruta/jqX0SQi1fAo3wMaAtnMe/teQvY
-	htvnFsHjMcVybTvLd4EfMEFLjXiRfYGeJKJcM5fuxo/dL+q2rErsEUXsEqrRPKN45wbFaCbrJENHv
-	FUk//GIDHyi2P4papz1TotbCnc/kXtPlv4x6nNyABa0F8uXGTI3PjvPbUl2TqOqIHMN982muLFguG
-	45pS1WFQ==;
+	bh=uFMp539+IUc6MD0TfmISW90zldpfjVhevqU/3KYfi4s=; b=G/d+Lx/zVaYmJ37wvNCSpN8WNx
+	AEShgd5UlBf2ld+dxI2dJbCh6/LGHm3Q4DVvIpKVvgohW5P/oBiU+6aXsQH2AdS/ICFrWrzuFI6Zc
+	DOgaFHd0WrOb1hrOtxGeExnREANP9oejLDJnHXZBfchzVpF4uvBSQa96XdD/cwuGxSVBAaBrqJCjk
+	IQRWFRGX1WfDP16gZ3lsjL8KSBFACYzlQGzArnyfxYzNc0B1LPsikk5wEEJIbL1WRjp1bt+NXZgpY
+	J9wr0DNwAPwSetDJ5DMR/AKCkJ7o0iagh7ApxjoIyg67If3fTO+MENtnYHo9wQNCovnYKWhnYeVYZ
+	KOKDvL5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jjy-0000000G5E2-4BGA;
-	Wed, 23 Oct 2024 22:22:07 +0000
+	id 1t3jlT-0000000G5NM-0AvK;
+	Wed, 23 Oct 2024 22:23:39 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jRR-0000000G2Mv-1hR8
+	id 1t3jRS-0000000G2NR-1mf4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 22:02:59 +0000
+	Wed, 23 Oct 2024 22:03:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1729720977; x=1761256977;
+  t=1729720978; x=1761256978;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=ALt5Jin6lko80fvAdgpJ8NqUlAgTrlAgzFK9GMWMi4s=;
-  b=lH3Dm8J0iCxQEn89bU0Oax9ovyhO2CS0oavu2KmY6tR2BiQvHv+4Z2os
-   IfoFlU00kuHxSe+rxHRPiOXSa46AbOKGhV3ATP7/Cl+LbIJb3hml0+rvR
-   b69lb5fXDib+mfPBRkQG4oMiXGal7T65m7GXJZjTTuBHJ+IcY3S3l7uyC
-   RWj6726MmzSeqPBX7GvBVbaOaTampWQJFRXOx10dB95RItxzWgxew8zde
-   YE1b1Kod2t0GvE4AiHTFimdQUZUSlOHMKESoUxjirY/qVbzpRqvZuSz6h
-   lptb34MYBz0WefnnO+JyMqui/k44Kv/B5+NMSoObDTP1uOsfa2j0T+B63
-   Q==;
+  bh=/G4iL7GD2FU5sXjacp+RgfYPneZqqpBcs/+YCXekj9Y=;
+  b=t9VWY4tqNwwDyQlPZOmW5sXdXa6HFg4xyoe5o9kA0UHyuuH0H+Vaxqge
+   4j004HF2N5F884gJFA9uinCNLKqVZ3n8CfR474TtS1nrrsgcN56YjnIrk
+   BpIS4MNeaNXcL1GdO+z4Y5+Kfsd6q31sekwTkWak9rMTBLD167iORIpVG
+   DKG27F4z9G5/iuuufKJDvC5aB5TBGByLPJQS187mQQgFHHwDPc4nYyKsM
+   c1LeqipRh0s2qLUXmsK3oSaXlNCpIajaTuP0u/0GvsnwK6R0g3tGN+8py
+   J3nZTMBBX6Jooi0bC8u9gpfsPxCBApbknFt+uTN9DtQYOyF9BC+n/EFQJ
+   w==;
 X-CSE-ConnectionGUID: oMPErp9qRFmiMc0P9W4Bgw==
-X-CSE-MsgGUID: JoEFOq/hRbaehMbIrrjw7A==
+X-CSE-MsgGUID: nRk5MY7RTc+EYXbl9Nc51w==
 X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="264507058"
+   d="scan'208";a="264507059"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:56 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:57 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 23 Oct 2024 15:02:29 -0700
+ 15.1.2507.35; Wed, 23 Oct 2024 15:02:33 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:25 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:29 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 24 Oct 2024 00:01:31 +0200
-Subject: [PATCH net-next v2 12/15] net: sparx5: use is_sparx5() macro
- throughout
+Date: Thu, 24 Oct 2024 00:01:32 +0200
+Subject: [PATCH net-next v2 13/15] dt-bindings: net: add compatible strings
+ for lan969x targets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-12-a0b5fae88a0f@microchip.com>
+Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-13-a0b5fae88a0f@microchip.com>
 References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 In-Reply-To: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
@@ -79,8 +79,9 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<steen.hegelund@microchip.com>, <devicetree@vger.kernel.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_150257_548506_90C4DA3F 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20241023_150258_518724_FDB3CDE9 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,319 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the is_sparx5() macro (introduced in earlier series [1]), in places
-where we need to handle things a bit differently on lan969x.
+Add compatible strings for the twelve different lan969x targets that we
+support. Either a sparx5-switch or lan9691-switch compatible string
+provided on their own, or any lan969x-switch compatible string with a
+fallback to lan9691-switch.
 
-These places are:
-
-    - in sparx5_dsm_calendar_update() we need to switch the calendar
-      from a to b on lan969x.
-
-    - in sparx5_start() we need to make sure the HSCH_SYS_CLK_PER
-      register is only touched on Sparx5.
-
-    - in sparx5_start() we need to disable VCAP and FDMA for lan969x
-      (will come in later series).
-
-    - in sparx5_mirror_port_get() we must make sure the
-      ANA_AC_PROBE_PORT_CFG1 register is only read on Sparx5.
-
-    - sparx5_netdev.c and sparx5_packet.c we need to use different IFH
-      (Internal Frame Header) offsets for lan969x.
-
-    - in sparx5_port_fifo_sz() we must bail out on lan969x.
-
-    - in sparx5_port_config_low_set() we must configure the phase
-      detection registers.
-
-    - in sparx5_port_config() and sparx5_port_init() we must do some
-      additional configuration of the port devices.
-
-    - in sparx5_dwrr_conf_set() we must derive the scheduling layer
-
-[1] https://lore.kernel.org/netdev/20241004-b4-sparx5-lan969x-switch-driver-v2-8-d3290f581663@microchip.com/
+Also, add myself as a maintainer.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../ethernet/microchip/sparx5/sparx5_calendar.c    | 21 +++++++++-
- .../net/ethernet/microchip/sparx5/sparx5_main.c    | 21 +++++-----
- .../net/ethernet/microchip/sparx5/sparx5_mirror.c  | 10 ++++-
- .../net/ethernet/microchip/sparx5/sparx5_netdev.c  | 17 ++++----
- .../net/ethernet/microchip/sparx5/sparx5_packet.c  |  3 +-
- .../net/ethernet/microchip/sparx5/sparx5_port.c    | 46 ++++++++++++++++++++++
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |  3 +-
- 7 files changed, 99 insertions(+), 22 deletions(-)
+ .../bindings/net/microchip,sparx5-switch.yaml        | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_calendar.c b/drivers/net/ethernet/microchip/sparx5/sparx5_calendar.c
-index 64c5ed70cc6b..5fe941c66c17 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_calendar.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_calendar.c
-@@ -531,8 +531,18 @@ static int sparx5_dsm_calendar_check(struct sparx5 *sparx5,
- static int sparx5_dsm_calendar_update(struct sparx5 *sparx5, u32 taxi,
- 				      struct sparx5_calendar_data *data)
- {
--	u32 idx;
--	u32 cal_len = sparx5_dsm_cal_len(data->schedule), len;
-+	u32 cal_len = sparx5_dsm_cal_len(data->schedule), len, idx;
-+
-+	if (!is_sparx5(sparx5)) {
-+		u32 val, act;
-+
-+		val = spx5_rd(sparx5, DSM_TAXI_CAL_CFG(taxi));
-+		act = DSM_TAXI_CAL_CFG_CAL_SEL_STAT_GET(val);
-+
-+		spx5_rmw(DSM_TAXI_CAL_CFG_CAL_PGM_SEL_SET(!act),
-+			 DSM_TAXI_CAL_CFG_CAL_PGM_SEL,
-+			 sparx5, DSM_TAXI_CAL_CFG(taxi));
-+	}
+diff --git a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
+index fcafef8d5a33..dedfad526666 100644
+--- a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
++++ b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
+@@ -9,6 +9,7 @@ title: Microchip Sparx5 Ethernet switch controller
+ maintainers:
+   - Steen Hegelund <steen.hegelund@microchip.com>
+   - Lars Povlsen <lars.povlsen@microchip.com>
++  - Daniel Machon <daniel.machon@microchip.com>
  
- 	spx5_rmw(DSM_TAXI_CAL_CFG_CAL_PGM_ENA_SET(1),
- 		 DSM_TAXI_CAL_CFG_CAL_PGM_ENA,
-@@ -556,6 +566,13 @@ static int sparx5_dsm_calendar_update(struct sparx5 *sparx5, u32 taxi,
- 						       DSM_TAXI_CAL_CFG(taxi)));
- 	if (len != cal_len - 1)
- 		goto update_err;
-+
-+	if (!is_sparx5(sparx5)) {
-+		spx5_rmw(DSM_TAXI_CAL_CFG_CAL_SWITCH_SET(1),
-+			 DSM_TAXI_CAL_CFG_CAL_SWITCH,
-+			 sparx5, DSM_TAXI_CAL_CFG(taxi));
-+	}
-+
- 	return 0;
- update_err:
- 	dev_err(sparx5->dev, "Incorrect calendar length: %u\n", len);
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 9da755c8b894..741404ccd8f5 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -538,10 +538,11 @@ static int sparx5_init_coreclock(struct sparx5 *sparx5)
- 	sparx5->coreclock = freq;
- 	clk_period = sparx5_clk_period(freq);
+ description: |
+   The SparX-5 Enterprise Ethernet switch family provides a rich set of
+@@ -34,7 +35,24 @@ properties:
+     pattern: "^switch@[0-9a-f]+$"
  
--	spx5_rmw(HSCH_SYS_CLK_PER_100PS_SET(clk_period / 100),
--		 HSCH_SYS_CLK_PER_100PS,
--		 sparx5,
--		 HSCH_SYS_CLK_PER);
-+	if (is_sparx5(sparx5))
-+		spx5_rmw(HSCH_SYS_CLK_PER_100PS_SET(clk_period / 100),
-+			 HSCH_SYS_CLK_PER_100PS,
-+			 sparx5,
-+			 HSCH_SYS_CLK_PER);
+   compatible:
+-    const: microchip,sparx5-switch
++    oneOf:
++      - enum:
++          - microchip,lan9691-switch
++          - microchip,sparx5-switch
++      - items:
++          - enum:
++              - microchip,lan969c-switch
++              - microchip,lan969b-switch
++              - microchip,lan969a-switch
++              - microchip,lan9699-switch
++              - microchip,lan9698-switch
++              - microchip,lan9697-switch
++              - microchip,lan9696-switch
++              - microchip,lan9695-switch
++              - microchip,lan9694-switch
++              - microchip,lan9693-switch
++              - microchip,lan9692-switch
++          - const: microchip,lan9691-switch
  
- 	spx5_rmw(ANA_AC_POL_BDLB_DLB_CTRL_CLK_PERIOD_01NS_SET(clk_period / 100),
- 		 ANA_AC_POL_BDLB_DLB_CTRL_CLK_PERIOD_01NS,
-@@ -731,15 +732,17 @@ static int sparx5_start(struct sparx5 *sparx5)
- 	if (err)
- 		return err;
- 
--	err = sparx5_vcap_init(sparx5);
--	if (err) {
--		sparx5_unregister_notifier_blocks(sparx5);
--		return err;
-+	if (is_sparx5(sparx5)) {
-+		err = sparx5_vcap_init(sparx5);
-+		if (err) {
-+			sparx5_unregister_notifier_blocks(sparx5);
-+			return err;
-+		}
- 	}
- 
- 	/* Start Frame DMA with fallback to register based INJ/XTR */
- 	err = -ENXIO;
--	if (sparx5->fdma_irq >= 0) {
-+	if (sparx5->fdma_irq >= 0 && is_sparx5(sparx5)) {
- 		if (GCB_CHIP_ID_REV_ID_GET(sparx5->chip_id) > 0)
- 			err = devm_request_threaded_irq(sparx5->dev,
- 							sparx5->fdma_irq,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c b/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
-index 459a53676ae9..9806729e9c62 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
-@@ -24,8 +24,14 @@ static u32 sparx5_mirror_to_dir(bool ingress)
- /* Get ports belonging to this mirror */
- static u64 sparx5_mirror_port_get(struct sparx5 *sparx5, u32 idx)
- {
--	return (u64)spx5_rd(sparx5, ANA_AC_PROBE_PORT_CFG1(idx)) << 32 |
--	       spx5_rd(sparx5, ANA_AC_PROBE_PORT_CFG(idx));
-+	u64 val;
-+
-+	val = spx5_rd(sparx5, ANA_AC_PROBE_PORT_CFG(idx));
-+
-+	if (is_sparx5(sparx5))
-+		val |= (u64)spx5_rd(sparx5, ANA_AC_PROBE_PORT_CFG1(idx)) << 32;
-+
-+	return val;
- }
- 
- /* Add port to mirror (only front ports) */
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-index a94d9a540bd3..1d34af78166a 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-@@ -64,16 +64,16 @@ void sparx5_set_port_ifh(struct sparx5 *sparx5, void *ifh_hdr, u16 portno)
- 	/* MISC.CPU_MASK/DPORT = Destination port */
- 	ifh_encode_bitfield(ifh_hdr, portno,   29, 8);
- 	/* MISC.PIPELINE_PT */
--	ifh_encode_bitfield(ifh_hdr, 16,       37, 5);
-+	ifh_encode_bitfield(ifh_hdr, is_sparx5(sparx5) ? 16 : 17, 37, 5);
- 	/* MISC.PIPELINE_ACT */
- 	ifh_encode_bitfield(ifh_hdr, 1,        42, 3);
- 	/* FWD.SRC_PORT = CPU */
- 	ifh_encode_bitfield(ifh_hdr, sparx5_get_pgid(sparx5, SPX5_PORT_CPU_0),
--			    46, 7);
-+			    46, is_sparx5(sparx5) ? 7 : 6);
- 	/* FWD.SFLOW_ID (disable SFlow sampling) */
--	ifh_encode_bitfield(ifh_hdr, 124,      57, 7);
-+	ifh_encode_bitfield(ifh_hdr, 124,      is_sparx5(sparx5) ? 57 : 56, 7);
- 	/* FWD.UPDATE_FCS = Enable. Enforce update of FCS. */
--	ifh_encode_bitfield(ifh_hdr, 1,        67, 1);
-+	ifh_encode_bitfield(ifh_hdr, 1,        is_sparx5(sparx5) ? 67 : 66, 1);
- }
- 
- void sparx5_set_port_ifh_rew_op(void *ifh_hdr, u32 rew_op)
-@@ -84,19 +84,22 @@ void sparx5_set_port_ifh_rew_op(void *ifh_hdr, u32 rew_op)
- void sparx5_set_port_ifh_pdu_type(struct sparx5 *sparx5, void *ifh_hdr,
- 				  u32 pdu_type)
- {
--	ifh_encode_bitfield(ifh_hdr, pdu_type, 191, 4);
-+	ifh_encode_bitfield(ifh_hdr, pdu_type, is_sparx5(sparx5) ? 191 : 190,
-+			    4);
- }
- 
- void sparx5_set_port_ifh_pdu_w16_offset(struct sparx5 *sparx5, void *ifh_hdr,
- 					u32 pdu_w16_offset)
- {
--	ifh_encode_bitfield(ifh_hdr, pdu_w16_offset, 195, 6);
-+	ifh_encode_bitfield(ifh_hdr, pdu_w16_offset,
-+			    is_sparx5(sparx5) ? 195 : 194, 6);
- }
- 
- void sparx5_set_port_ifh_timestamp(struct sparx5 *sparx5, void *ifh_hdr,
- 				   u64 timestamp)
- {
--	ifh_encode_bitfield(ifh_hdr, timestamp, 232,  40);
-+	ifh_encode_bitfield(ifh_hdr, timestamp, 232,
-+			    is_sparx5(sparx5) ? 40 : 38);
- }
- 
- static int sparx5_port_open(struct net_device *ndev)
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c b/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-index 57fa9ff9dfce..b6f635d85820 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-@@ -43,7 +43,8 @@ void sparx5_ifh_parse(struct sparx5 *sparx5, u32 *ifh, struct frame_info *info)
- 		((u32)xtr_hdr[29] <<  8) |
- 		((u32)xtr_hdr[30] <<  0);
- 	fwd = (fwd >> 5);
--	info->src_port = FIELD_GET(GENMASK(7, 1), fwd);
-+	info->src_port = spx5_field_get(GENMASK(is_sparx5(sparx5) ? 7 : 6, 1),
-+					fwd);
- 
- 	/*
- 	 * Bit 270-271 are occasionally unexpectedly set by the hardware,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index 0b38b4cb0929..1401761c6251 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -476,6 +476,9 @@ static int sparx5_port_fifo_sz(struct sparx5 *sparx5,
- 	u32 mac_width  = 8;
- 	u32 addition   = 0;
- 
-+	if (!is_sparx5(sparx5))
-+		return 0;
-+
- 	switch (speed) {
- 	case SPEED_25000:
- 		return 0;
-@@ -921,6 +924,20 @@ static int sparx5_port_config_low_set(struct sparx5 *sparx5,
- 		 sparx5,
- 		 DEV2G5_DEV_RST_CTRL(port->portno));
- 
-+	/* Enable PHAD_CTRL for better timestamping */
-+	if (!is_sparx5(sparx5)) {
-+		for (int i = 0; i < 2; ++i) {
-+			/* Divide the port clock by three for the two
-+			 * phase detection registers.
-+			 */
-+			spx5_rmw(DEV2G5_PHAD_CTRL_DIV_CFG_SET(3) |
-+				 DEV2G5_PHAD_CTRL_PHAD_ENA_SET(1),
-+				 DEV2G5_PHAD_CTRL_DIV_CFG |
-+				 DEV2G5_PHAD_CTRL_PHAD_ENA,
-+				 sparx5, DEV2G5_PHAD_CTRL(port->portno, i));
-+		}
-+	}
-+
- 	return 0;
- }
- 
-@@ -978,6 +995,7 @@ int sparx5_port_config(struct sparx5 *sparx5,
- 		       struct sparx5_port_config *conf)
- {
- 	bool high_speed_dev = sparx5_is_baser(conf->portmode);
-+	const struct sparx5_ops *ops = sparx5->data->ops;
- 	int err, urgency, stop_wm;
- 
- 	err = sparx5_port_verify_speed(sparx5, port, conf);
-@@ -993,6 +1011,13 @@ int sparx5_port_config(struct sparx5 *sparx5,
- 	if (err)
- 		return err;
- 
-+	if (!is_sparx5(sparx5) && ops->is_port_10g(port->portno) &&
-+	    conf->speed < SPEED_10000)
-+		spx5_rmw(DSM_DEV_TX_STOP_WM_CFG_DEV10G_SHADOW_ENA_SET(1),
-+			 DSM_DEV_TX_STOP_WM_CFG_DEV10G_SHADOW_ENA,
-+			 sparx5,
-+			 DSM_DEV_TX_STOP_WM_CFG(port->portno));
-+
- 	/* Set the DSM stop watermark */
- 	stop_wm = sparx5_port_fifo_sz(sparx5, port->portno, conf->speed);
- 	spx5_rmw(DSM_DEV_TX_STOP_WM_CFG_DEV_TX_STOP_WM_SET(stop_wm),
-@@ -1144,6 +1169,27 @@ int sparx5_port_init(struct sparx5 *sparx5,
- 			DEV25G_PCS25G_SD_CFG(pix));
- 	}
- 
-+	if (!is_sparx5(sparx5)) {
-+		void __iomem *inst;
-+		u32 dev, tinst;
-+
-+		if (ops->is_port_10g(port->portno)) {
-+			dev = sparx5_to_high_dev(sparx5, port->portno);
-+			tinst = sparx5_port_dev_index(sparx5, port->portno);
-+			inst = spx5_inst_get(sparx5, dev, tinst);
-+
-+			spx5_inst_wr(5, inst,
-+				     DEV10G_PTP_STAMPER_CFG(port->portno));
-+		} else if (ops->is_port_5g(port->portno)) {
-+			dev = sparx5_to_high_dev(sparx5, port->portno);
-+			tinst = sparx5_port_dev_index(sparx5, port->portno);
-+			inst = spx5_inst_get(sparx5, dev, tinst);
-+
-+			spx5_inst_wr(5, inst,
-+				     DEV5G_PTP_STAMPER_CFG(port->portno));
-+		}
-+	}
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-index d065f8c40d37..e580670f3992 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-@@ -367,9 +367,10 @@ static u32 sparx5_weight_to_hw_cost(u32 weight_min, u32 weight)
- static int sparx5_dwrr_conf_set(struct sparx5_port *port,
- 				struct sparx5_dwrr *dwrr)
- {
-+	u32 layer = is_sparx5(port->sparx5) ? 2 : 1;
- 	int i;
- 
--	spx5_rmw(HSCH_HSCH_CFG_CFG_HSCH_LAYER_SET(2) |
-+	spx5_rmw(HSCH_HSCH_CFG_CFG_HSCH_LAYER_SET(layer) |
- 		 HSCH_HSCH_CFG_CFG_CFG_SE_IDX_SET(port->portno),
- 		 HSCH_HSCH_CFG_CFG_HSCH_LAYER | HSCH_HSCH_CFG_CFG_CFG_SE_IDX,
- 		 port->sparx5, HSCH_HSCH_CFG_CFG);
+   reg:
+     items:
 
 -- 
 2.34.1
