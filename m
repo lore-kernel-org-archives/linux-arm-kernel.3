@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA19CCFA45F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7790DCFA461
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=; b=G55Uzxz66Tf5fz+2qlO8XueXc4
-	qgViyX+LzdfJlnfKEzAL5Pry/SeBJFaOjSGEOsslTFd2VLOhsbVBbF2edKEozJfF+P0/JBsJzDmOl
-	vJo/PBX1je09AOBDKt/hsXsd9AcdQ7wMkU9zDrr7c4aKK9Iy44+l9aRPR5RQiTeuZwVjhDlyWysYb
-	/jRaVPaCcAZ3c2zCSvnfdPPwweMFjThjrILs5oUPg7j3UWhIDbKTTTfjtvUDBFjgC5vmO6vHXxMV+
-	aq2UyRBzPeHt5H1rUpJ+X+EeBpZHaMUNoZQQrt/NLq0k9r+qBzZHKltHEUH7ZAGjgTir0piUh67f3
-	MYyFXzrA==;
+	bh=m0VXG7M0+edMYKBQpiJHMGtp1VEyRPMm6kVJ0JBtPBU=; b=U3rzGl/gYWM5ylG234IccCkwpD
+	HdehIZfPwize+z6cHQEYEb8w8UiS5SCjHSVYykk9omZyegpB5cRWLOBw6x3CYwun7hI55i5dAXwpN
+	48O8HZmosG5bS8igdX0ulWHr6V7Wslcpw5rtQKuXMTDizh9r/efmphntqDN0dVN0wJ+me8bYcoJJk
+	O0ST97VabQSYfaQraoWDSW1t48aw3+pbsFYBFlhoiqkprL0cQvzH3G3vX4Dh9sC1ipyLLys0LwHSZ
+	QZxCQeYG0TPO9fkGin7/9vLSuUo5xfTl/YR1kpEpVFC19t5WMYDJUpijjjNIJQODKEo9BTkTIJcn5
+	TsFE2XCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gry-0000000FdH4-0iH4;
-	Wed, 23 Oct 2024 19:18:10 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1t3grs-0000000FdEV-3FzW;
+	Wed, 23 Oct 2024 19:18:04 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eZH-0000000FDYQ-0bFz
+	id 1t3eYl-0000000FDE8-231d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:45 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43163667f0eso55402695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:42 -0700 (PDT)
+	Wed, 23 Oct 2024 16:50:14 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d4c1b1455so4669242f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702241; x=1730307041; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729702209; x=1730307009; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=;
-        b=fiyB6FGovMSGfqLguD2t958PoqV1DhRP/dKRuQtUP2u0mDRI+LVZw1/aKNe0maBp9S
-         X/RZYZNJD6uSKe/u9mG/1B216Fb+yn/I0DCAutujcAGjb/BIRWrKW04kGAeeokQFXygG
-         jKa3+wipt0QTRjqkqkRN1IOthmYgOawdWEehvkQ0UNtEkFYLIgQG2lapuRSbezU/dnJu
-         u0DFqirJuhwpFai+HfWIyUVo4KJL+mZmWvGOGbmbsqHXuYUtjBbXHsTBrjpu1sf/pNiL
-         bSR8zyj1X4oT3vEOYI8MOK5/guiXc59SGpiXoO8TyOYems5vf19MSjmyIERmQhaobuOS
-         Yrpw==
+        bh=m0VXG7M0+edMYKBQpiJHMGtp1VEyRPMm6kVJ0JBtPBU=;
+        b=NgDkx5J7jroME8S1JGXq6CV7chPNPW1OCRahJsBaX5uu+RYPGa7h0WF7mYf3OPsuc7
+         IeGJIa5QcS3PiDUqaKjyKV62f+Nhs2IoR9ZNm/T0HmGSO6Xl5FTLbUXFBcXNKfuaFPt5
+         vCfayb6PwFbEen2Q+02vhVtE46PruFZ/BHeKqKVyJ3ejV/oMbzeYaktuOjpVx5Owc7Aq
+         StgBErEy86YZPvKIon5bapuegbbO1wliHYIkYfq45jvEnFstEKODEQUPFywrwDN5DgYz
+         ty/RkvJ0mcrGe7o6PxAU3AUDO7FjWf4/giDyQgLgoWTUd8V5iWqBBEqoM3JDIMtAjPfR
+         cTog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702241; x=1730307041;
+        d=1e100.net; s=20230601; t=1729702209; x=1730307009;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6vaguUe7juL1LVMz08cL6sDxAEiRfNF+JBFP9wF0Q+s=;
-        b=vlU48k53zVu3pLP98kINLXY7rgKh06NV2hx8LsB02Gf6RS8TmLZ2H0gdD6D9EjITdd
-         uWMm7hvZK/BWIlctMepjugQpjH8SM/R6XW6dDP8359DTqAsXbiKqxkboePa10OGJddLs
-         3KP4LDWXDOL/3wMYJEmG4FskK/DwFmyIAUHwa3MekJFzJJSjQmM1mUSmm+7eyTKIOxQs
-         9yU+na9tYuLRsraz/fvQRtMRr7sKfUPYjJfF2CmbYPratXnWtlmPu1gz8QpotFnROfMV
-         Cf47ek+he/4WjQwMCUZWoOnOtpcrMjeQGSYjcpbrSB60rAK9EqnZNhH2BdDBjGUfKbHx
-         0Cog==
-X-Forwarded-Encrypted: i=1; AJvYcCX7nKCHlWm0hQf5dyWEx83okMv2GrxHg7urNVhgh8nStoZZwHaHAyqDFZdTul4+qtpPo2ktXxKwQQ3iMJSZcsMY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxgt9cuVvQ3ekn5eiTV+B4RI0yi5UwT3cbZ82XYlvJhV4pDc59i
-	fS2tZWEZwrcegFvpCuthF7gzctkUsE5Ndk+rlPXQGSJmHeImc6m94JbzoVxEZ4c=
-X-Google-Smtp-Source: AGHT+IERYOndgW/udDrkKTC0Se/KUmNKFRwzDAk4TOKT6h49ITwfBkIc/0nZV6Akai4GqaHXpM9b4Q==
-X-Received: by 2002:a05:600c:511c:b0:42f:823d:dddd with SMTP id 5b1f17b1804b1-4318423b856mr23693165e9.27.1729702241069;
-        Wed, 23 Oct 2024 09:50:41 -0700 (PDT)
+        bh=m0VXG7M0+edMYKBQpiJHMGtp1VEyRPMm6kVJ0JBtPBU=;
+        b=BU6f8LfCtuib8M1P6BCdqPjY4v963wI+yQwiHVbvFcQNAzBKXBzDRmyKuidpzP2V2t
+         FEDbIBFW46/2uFvsLB4IzLUqEtu+8NH2OPQnOdUwzL5udb0HRxBheNFHeKOfdZm+I6uG
+         Jg4ujRrXSdcVhq0LV8FE2Z4ffK/WCJYDRdNTwRmemJkZxFJl+AXe9besrV+MQx/3rlct
+         Yy5aCN0nOZJgERgzI95A+zTKSnS/6Bmcm1PUukH+lK+yR6MTz/1FVOvxIDXU1uffAGsZ
+         jBAuUoB93roZ/SM45RHZ0CUTtqBXXlkVxZlkza5OAolG7y2/91Ekcdx7KSfslRqFsIgM
+         L0NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVeOSAmQ+L365JuAE7Pk6cDpG8txi1I3yiSJq8uBW+r45dEMW2phRvdu5g8y9D+pbiKDqXtZl/Jwc+Ccc2ugeiy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8slkgCVUHqFDAv6x1Ph3AQKMcD0ri923v+ES4UCWydJ8veoNi
+	/Lk/OGjtHE5mfDaXFNWj4Md6wrgfuElgBC/PSx7sxLOt/hGLRkOvXBqSW5mDi18=
+X-Google-Smtp-Source: AGHT+IERCELF/aNULiFYaJhFKCUgkKnhHnsR2hcb6th/CbnCs93DrujrebahUME8WNgVcpsKAm29Eg==
+X-Received: by 2002:a05:6000:1887:b0:37c:f933:48a9 with SMTP id ffacd0b85a97d-37efcef117cmr2285226f8f.1.1729702209268;
+        Wed, 23 Oct 2024 09:50:09 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.38
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:40 -0700 (PDT)
+        Wed, 23 Oct 2024 09:50:08 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:23 +0100
-Subject: [PATCH 26/37] drm/vc4: hdmi: Support 2712 D-step register map
+Date: Wed, 23 Oct 2024 17:49:58 +0100
+Subject: [PATCH 01/37] drm/vc4: Limit max_bpc to 8 on Pi0-3
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-26-1cc2d5594907@raspberrypi.com>
+Message-Id: <20241023-drm-vc4-2712-support-v1-1-1cc2d5594907@raspberrypi.com>
 References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -93,8 +93,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095043_372437_03D0479D 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20241023_095011_844239_CBA22017 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,76 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The D-step has increased FIFO sizes of the MAI_THR blocks,
-resulting in changes to the register masking. Add support for
-it.
+Pi 0-3 have no deep colour support and only 24bpp output,
+so max_bpc should remain as 8, and no HDR metadata property
+should be registered.
 
+Fixes: ba8c0faebbb0 ("drm/vc4: hdmi: Enable 10/12 bpc output")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_hdmi.c | 19 +++++++++++++++++--
- drivers/gpu/drm/vc4/vc4_regs.h |  9 +++++++++
- 2 files changed, 26 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 95ef8bbe6439..6fcdd1c247d2 100644
+index 62b82b1eeb36..6ebcc38be291 100644
 --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
 +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -2128,18 +2128,33 @@ static int vc4_hdmi_audio_prepare(struct device *dev, void *data,
- 					     VC4_HDMI_AUDIO_PACKET_CEA_MASK);
+@@ -640,6 +640,11 @@ static int vc4_hdmi_connector_init(struct drm_device *dev,
+ 	if (ret)
+ 		return ret;
  
- 	/* Set the MAI threshold */
--	if (vc4->gen >= VC4_GEN_5)
-+	switch (vc4->gen) {
-+	case VC4_GEN_6_D:
-+		HDMI_WRITE(HDMI_MAI_THR,
-+			   VC4_SET_FIELD(0x10, VC6_D_HD_MAI_THR_PANICHIGH) |
-+			   VC4_SET_FIELD(0x10, VC6_D_HD_MAI_THR_PANICLOW) |
-+			   VC4_SET_FIELD(0x1c, VC6_D_HD_MAI_THR_DREQHIGH) |
-+			   VC4_SET_FIELD(0x1c, VC6_D_HD_MAI_THR_DREQLOW));
-+		break;
-+	case VC4_GEN_6_C:
-+	case VC4_GEN_5:
- 		HDMI_WRITE(HDMI_MAI_THR,
- 			   VC4_SET_FIELD(0x10, VC4_HD_MAI_THR_PANICHIGH) |
- 			   VC4_SET_FIELD(0x10, VC4_HD_MAI_THR_PANICLOW) |
- 			   VC4_SET_FIELD(0x1c, VC4_HD_MAI_THR_DREQHIGH) |
- 			   VC4_SET_FIELD(0x1c, VC4_HD_MAI_THR_DREQLOW));
--	else
-+		break;
-+	case VC4_GEN_4:
- 		HDMI_WRITE(HDMI_MAI_THR,
- 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_PANICHIGH) |
- 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_PANICLOW) |
- 			   VC4_SET_FIELD(0x6, VC4_HD_MAI_THR_DREQHIGH) |
- 			   VC4_SET_FIELD(0x8, VC4_HD_MAI_THR_DREQLOW));
-+		break;
-+	default:
-+		drm_err(drm, "Unknown VC4 generation: %d", vc4->gen);
-+		break;
-+	}
- 
- 	HDMI_WRITE(HDMI_MAI_CONFIG,
- 		   VC4_HDMI_MAI_CONFIG_BIT_REVERSE |
-diff --git a/drivers/gpu/drm/vc4/vc4_regs.h b/drivers/gpu/drm/vc4/vc4_regs.h
-index 0046bdb7ca32..27158be19952 100644
---- a/drivers/gpu/drm/vc4/vc4_regs.h
-+++ b/drivers/gpu/drm/vc4/vc4_regs.h
-@@ -987,6 +987,15 @@ enum {
- # define VC4_HD_MAI_THR_DREQLOW_MASK		VC4_MASK(5, 0)
- # define VC4_HD_MAI_THR_DREQLOW_SHIFT		0
- 
-+# define VC6_D_HD_MAI_THR_PANICHIGH_MASK	VC4_MASK(29, 23)
-+# define VC6_D_HD_MAI_THR_PANICHIGH_SHIFT	23
-+# define VC6_D_HD_MAI_THR_PANICLOW_MASK		VC4_MASK(21, 15)
-+# define VC6_D_HD_MAI_THR_PANICLOW_SHIFT	15
-+# define VC6_D_HD_MAI_THR_DREQHIGH_MASK		VC4_MASK(13, 7)
-+# define VC6_D_HD_MAI_THR_DREQHIGH_SHIFT	7
-+# define VC6_D_HD_MAI_THR_DREQLOW_MASK		VC4_MASK(6, 0)
-+# define VC6_D_HD_MAI_THR_DREQLOW_SHIFT		0
++	if (vc4_hdmi->variant->supports_hdr)
++		drm_connector_attach_max_bpc_property(connector, 8, 12);
++	else
++		drm_connector_attach_max_bpc_property(connector, 8, 8);
 +
- /* Divider from HDMI HSM clock to MAI serial clock.  Sampling period
-  * converges to N / (M + 1) cycles.
-  */
+ 	drm_connector_attach_encoder(connector, encoder);
+ 
+ 	return 0;
 
 -- 
 2.34.1
