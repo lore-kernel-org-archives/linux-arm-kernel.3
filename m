@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA56CFA464
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C179CFA462
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnCz4Gz0DfA3iJQbcwkn7pdP+4IKH3HjV3Yhmz6VCSY=; b=gYJXrfG0hDkJLI5sfUa7IBC1UU
-	4OYIf+96bB36Q1YyW8uIyqMc6HgJo42U2+D22BQ3wE0XEzDdUcraGdOM5NTRxBEp+q8x6JW+Gb4CO
-	BjJRE/u2cO0EkuqVzRUwV6EOXvdawhEk03QYjltG9S9N05rGFMKe8yRGT8QJ4bwaweSXyRX7cNzpi
-	3jDkaG57MjDZA6JLeMFs+GOvkdp/mCy6lk62VGGFjB9p0/CIHVSU0p9UEPtSVVCgtQEprqSWRyyDf
-	Q7J0wey3SZKEMhvlMzprGO/j5W8JEkYsoaH/XTOybeUTZxeBU+3HZal9RWlptRf+mJ6epF/jRBtXF
-	E0cy4zFw==;
+	bh=gk6I7i6lxVXlFus2LX683LvbeBFc4hf03we1CgN8ers=; b=s96IG0CgAKA+sn90lV5URiyCsl
+	CwB9MIWeW+IhSio5AttW8cfremTp+bIdac6yDUknlVWVmnImbS5JrbJ4kMuDxOJnmYwP/i4QeRcEM
+	yJYocfyYfBfY4jcs4AXSF17jmp+MNRwodHRGgRG4sWcgD1Y1/bOwfM1D1EPhQJF0YP1f/+0hHm8Db
+	UR+LDGzQDPFfASr6k1werjT3DnaxRPVJiswenILhJthg5s+gfOvJmt2lRfo+DRrFGFKDgyuVtWbEZ
+	Kbwe4hoDXTXRD2zCoI+koup/oMt3pO6NundIufT/cXhh593iWzntgeoZrpXOM0cvgnY65KXVqHp36
+	+zDvJRUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfl-0000000FlsU-0pjJ;
-	Wed, 23 Oct 2024 20:09:37 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1t3hfm-0000000Flt2-2FFK;
+	Wed, 23 Oct 2024 20:09:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gJ9-0000000FZWJ-0Sqa;
-	Wed, 23 Oct 2024 18:42:12 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d6a2aa748so11849f8f.1;
-        Wed, 23 Oct 2024 11:42:10 -0700 (PDT)
+	id 1t3gJS-0000000FZZo-1KlE;
+	Wed, 23 Oct 2024 18:42:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gk6I7i6lxVXlFus2LX683LvbeBFc4hf03we1CgN8ers=; b=LH88+DPjHyGJ0RFcp9Grg6pUHq
+	ae3kLrZSrZdD8tgqGEIv9DDJpjYHURelVYPtf2NeQ8MI99ryaGZQEFajqc20kmidtAdwaBHEqpdev
+	NY09max2slHU4JHDtIEuLwwSdi2XE9KY/hGHdaUOirs90lcJkok44I1uVb0MeRwR7LH0MyxLyUxs5
+	VCPIMcIMzf0pDAE79kCUSlmLlMvLHBTeXDH/TsM+NcNfQr1o3bIWOt6OC+uFuScK4KPLKPsxQ2cqT
+	TiaU4oy8g99Ne8Xul6JMLSlMLV3GCtiqG5emLrwfPGFOIZtGeH4WIIyqBrHzGTPpW7HQ4x/eglaaw
+	TTy+ycGQ==;
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3gJO-00000008Wai-47rZ;
+	Wed, 23 Oct 2024 18:42:29 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-37d6a2aa748so11978f8f.1;
+        Wed, 23 Oct 2024 11:42:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729708929; x=1730313729; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1729708942; x=1730313742; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dnCz4Gz0DfA3iJQbcwkn7pdP+4IKH3HjV3Yhmz6VCSY=;
-        b=hO+2luPLMf/i58KEe2/Rvk/DNve1rwyn6BQSBChSPwKKcdytDZNwXYS/2bmZ/6TqeO
-         PHfYuFTJ+DMM5hdfNBjVYqYmG3jgY2b3Zlwi4dVo/26C03QISqsIIg6R7DlYiwyGzNQ+
-         frVJqsaW7YRpjzgIzD3rkogLb95ItdOMMsDqgAKr+ekU5oQh27r0Qm0SO60rkIOPLF9g
-         EGC/djoYSwiRyiP6MO8xzLygK7MigjfM0fcOWVsYLQ07QgY0ByxejDXPrEJKZDIEAU6g
-         zlP4okXCyu3Jb1Q98qYhEpjINm0X0+UITajXbR3JvJZRDPQjjrlMWf97yERtr2epOtBN
-         aipQ==
+        bh=gk6I7i6lxVXlFus2LX683LvbeBFc4hf03we1CgN8ers=;
+        b=W3Ieowk51YpgAnJzS+owA+w6+R97+8R5qpmORDo6r0/NqHjzCnwxuVOPtlkUtKO59/
+         /wFIYbin0UrKwKXaAfhnRmvi7FKmGo4Is0kcgyk9acbJo/HRuwEvu8TX3LaxXXGm3ViQ
+         CmEK1kRa5a6zoJhn7oq7dEUaREnKhghCr1EIaXTD04jMHo+uHoF8qS6mMpFctJedJ2la
+         qzXLNhPZPQRRecVyYcT50q3gB3KGmNp9uJClYKY7vS44SW/mxJa/xCapW7mfMO5kuDhT
+         koVZD3oSAVMVPUOE8zSeVj0bs6D+HOyBD7x6DB4pTstqJJPn0qtowP9684PRxxgcV/rO
+         EPuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729708929; x=1730313729;
+        d=1e100.net; s=20230601; t=1729708942; x=1730313742;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dnCz4Gz0DfA3iJQbcwkn7pdP+4IKH3HjV3Yhmz6VCSY=;
-        b=djgnZOk0KKC6EWe56JKfncGtc61f7dQlOKumodVAbGTji/kmBzlngHtpVBpVJrFHlK
-         2TIHuCS5kPn/9M59/rh46SRIZCIxOzNE4mpwMYuHgrTQ46ICMKwKkUbQ77R3yO7V0epr
-         +8qlYIwmY3Pv8VfLOhQQom43xljxfXNaUfx3KBrxoMkHGIZVgKNLYGbNUqa6j8IQL6Er
-         H+qds/+mEO7Of1Tt6TZbkfapkTgEqHyCxtvCAtbf4RVlObmIXV4h0XnT/ekzhxd3m+tH
-         Hp9PJlxbolnUvAvViFbLtVTi/QmcVm6qO0lvyqsyn11JsAhxSOGsj0IY7W5TGtKaOtcu
-         tYKA==
-X-Forwarded-Encrypted: i=1; AJvYcCUPS1qGMP/mqqm5/y6J9e3w/Ho0e+f853mbb2JThYD0KHZN9RCSqp9JRoDO9pSjuiBfsRyjGE0LUF03JHU=@lists.infradead.org, AJvYcCXRlDSqIJG+QJ8EXY8Zt/qf9TiusgoQlOjQN97RiUytYbI/0m8Kxaxvq/grZUSRX9PeAPw+u8smZptpG450oJ9c@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvSho65WP0eun0aMgjgkgXpg6+w+s+1UOoCmoRgr288onTrPc3
-	egJt4zpXaA5SMOah4NOGWm28mTnbfjwEPTilSb/dsfsQYfE0Nx8zvsGQGQyUg4qLgzXIet8IVd5
-	xsMoYtxvvwXq1DyDzk918bYT8R+o=
-X-Google-Smtp-Source: AGHT+IGg7n7i3SyqRuIa/xhUMj1hN55mZB4j6qxgVsau7X+77BU2sb51xczx42QYuNHR1RsEnbwZOc1YeDhSyzlxoHQ=
-X-Received: by 2002:a5d:5257:0:b0:37d:614e:2bc5 with SMTP id
- ffacd0b85a97d-37efcf1dbb3mr2066652f8f.29.1729708928528; Wed, 23 Oct 2024
- 11:42:08 -0700 (PDT)
+        bh=gk6I7i6lxVXlFus2LX683LvbeBFc4hf03we1CgN8ers=;
+        b=p6CDx9i/ILzNz2KiTJ5Q7/TbYksDGlEVOb23rw4/+vnRraWFYkHugb3IJEYGnSAx03
+         UVZFGyKxBHrH5yVtwx+qOGaXYTjcHaP1rUea321GdxaS7TdNE7BsdzyiHeIurE3xuWfE
+         9Ud2zdJ/aztXLDS3OsMO3DzwOYXVIuBazix4SPi7hmsnFYXjZdtsOa4dYk6QJwSpDmbO
+         q2x2ERkclZCZ7FyacMGZdIEt6YYOdYkClLAI4CHJ/H4MH3FiboZ7JeLQXlllJOioYGOr
+         G8PZvlwRYwbByyKdZRp70jzhwqQmriNofPxmmxoB4RhoynphbUrHGDrtqczlZ7talGjx
+         oJQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4XNgbRIjZcq0ywWXl+OWljBEiWZxzM4ZlzejM54XDS2e0UqqGDG/4jj1154+Hqcq6Fl6LZUt+2mWFPmw=@lists.infradead.org, AJvYcCX9ZF5koRmcOrBxmz/GGvX70aYakXVRtp5GWLQFR8K8Mjt98YF67L4vjtdQCoTCEHyJOMVZuB1YupUoA5kym5So@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAGV5t3TEW2bQs1/UMlQy7S+zAKsnC19aBDQEZDBGil6Ml7V6C
+	tdzglNESpMYhQG8i5jC22nlNn5CoYtAu8izQ0IYBkJWa+Jv7sgsqeGqksbJze6q90fE8gzzsM2I
+	k80YAS6zSSw/xBug4vJSa4I+eSLQ=
+X-Google-Smtp-Source: AGHT+IFilgJRtKQ5ENiKr5EJJJviK0Aaz3KKXswEzV5EpGM3o8Y3qyTu3AeFjVHnPRBLB4pMjg/HwswZ366QSD0EZyg=
+X-Received: by 2002:adf:e848:0:b0:37d:4fe9:b6a4 with SMTP id
+ ffacd0b85a97d-37efcf897aamr2289592f8f.50.1729708942078; Wed, 23 Oct 2024
+ 11:42:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241022015913.3524425-1-samuel.holland@sifive.com> <20241022015913.3524425-2-samuel.holland@sifive.com>
-In-Reply-To: <20241022015913.3524425-2-samuel.holland@sifive.com>
+References: <20241022015913.3524425-1-samuel.holland@sifive.com> <20241022015913.3524425-10-samuel.holland@sifive.com>
+In-Reply-To: <20241022015913.3524425-10-samuel.holland@sifive.com>
 From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Wed, 23 Oct 2024 20:41:57 +0200
-Message-ID: <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
+Date: Wed, 23 Oct 2024 20:42:11 +0200
+Message-ID: <CA+fCnZcX2AWOu3h2hb-WGK4NQBrvbeEPPUcMd3cNvYPZBQD_yw@mail.gmail.com>
+Subject: Re: [PATCH v2 9/9] riscv: Implement KASAN_SW_TAGS
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
 	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
@@ -79,8 +93,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_114211_211129_7EA3BBFD 
-X-CRM114-Status: GOOD (  48.53  )
+X-CRM114-CacheID: sfid-20241023_194227_185982_20C8EB34 
+X-CRM114-Status: GOOD (  42.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,172 +112,461 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Oct 22, 2024 at 3:59=E2=80=AFAM Samuel Holland
 <samuel.holland@sifive.com> wrote:
 >
-> Currently, kasan_mem_to_shadow() uses a logical right shift, which turns
-> canonical kernel addresses into non-canonical addresses by clearing the
-> high KASAN_SHADOW_SCALE_SHIFT bits. The value of KASAN_SHADOW_OFFSET is
-> then chosen so that the addition results in a canonical address for the
-> shadow memory.
+> Implement support for software tag-based KASAN using the RISC-V pointer
+> masking extension, which supports 7 and/or 16-bit tags. This implemen-
+> tation uses 7-bit tags, so it is compatible with either hardware mode.
 >
-> For KASAN_GENERIC, this shift/add combination is ABI with the compiler,
-> because KASAN_SHADOW_OFFSET is used in compiler-generated inline tag
-> checks[1], which must only attempt to dereference canonical addresses.
+> Pointer masking is an optional ISA extension, and it must be enabled
+> using an SBI call to firmware on each CPU. This SBI call must be made
+> very early in smp_callin(), as dereferencing any tagged pointers before
+> that point will crash the kernel. If the SBI call fails on the boot CPU,
+> then KASAN is globally disabled, and the kernel boots normally (unless
+> stack tagging is enabled). If the SBI call fails on any other CPU, that
+> CPU is excluded from the system.
 >
-> However, for KASAN_SW_TAGS we have some freedom to change the algorithm
-> without breaking the ABI. Because TBI is enabled for kernel addresses,
-> the top bits of shadow memory addresses computed during tag checks are
-> irrelevant, and so likewise are the top bits of KASAN_SHADOW_OFFSET.
-> This is demonstrated by the fact that LLVM uses a logical right shift
-> in the tag check fast path[2] but a sbfx (signed bitfield extract)
-> instruction in the slow path[3] without causing any issues.
+> When pointer masking is enabled for the kernel's privilege mode, it must
+> be more careful about accepting tagged pointers from userspace.
+> Normally, __access_ok() accepts tagged aliases of kernel memory as long
+> as the MSB is zero, since those addresses cannot be dereferenced -- they
+> will cause a page fault in the uaccess routines. But when the kernel is
+> using pointer masking, those addresses are dereferenceable, so
+> __access_ok() must specifically check the most-significant non-tag bit
+> instead of the MSB.
 >
-> Using an arithmetic shift in kasan_mem_to_shadow() provides a number of
-> benefits:
+> Pointer masking does not apply to the operands of fence instructions, so
+> software is responsible for untagging those addresses.
 >
-> 1) The memory layout is easier to understand. KASAN_SHADOW_OFFSET
-> becomes a canonical memory address, and the shifted pointer becomes a
-> negative offset, so KASAN_SHADOW_OFFSET =3D=3D KASAN_SHADOW_END regardles=
-s
-> of the shift amount or the size of the virtual address space.
->
-> 2) KASAN_SHADOW_OFFSET becomes a simpler constant, requiring only one
-> instruction to load instead of two. Since it must be loaded in each
-> function with a tag check, this decreases kernel text size by 0.5%.
->
-> 3) This shift and the sign extension from kasan_reset_tag() can be
-> combined into a single sbfx instruction. When this same algorithm change
-> is applied to the compiler, it removes an instruction from each inline
-> tag check, further reducing kernel text size by an additional 4.6%.
->
-> These benefits extend to other architectures as well. On RISC-V, where
-> the baseline ISA does not shifted addition or have an equivalent to the
-> sbfx instruction, loading KASAN_SHADOW_OFFSET is reduced from 3 to 2
-> instructions, and kasan_mem_to_shadow(kasan_reset_tag(addr)) similarly
-> combines two consecutive right shifts.
->
-> Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/=
-Transforms/Instrumentation/AddressSanitizer.cpp#L1316 [1]
-> Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/=
-Transforms/Instrumentation/HWAddressSanitizer.cpp#L895 [2]
-> Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/=
-Target/AArch64/AArch64AsmPrinter.cpp#L669 [3]
 > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
 >
 > Changes in v2:
->  - Improve the explanation for how KASAN_SHADOW_END is derived
->  - Update the range check in kasan_non_canonical_hook()
+>  - Fix build error with KASAN_GENERIC
+>  - Use symbolic definitons for SBI firmware features call
+>  - Update indentation in scripts/Makefile.kasan
+>  - Use kasan_params to set hwasan-generate-tags-with-calls=3D1
 >
->  arch/arm64/Kconfig              | 10 +++++-----
->  arch/arm64/include/asm/memory.h | 17 +++++++++++++++--
->  arch/arm64/mm/kasan_init.c      |  7 +++++--
->  include/linux/kasan.h           | 10 ++++++++--
->  mm/kasan/report.c               | 22 ++++++++++++++++++----
->  scripts/gdb/linux/mm.py         |  5 +++--
->  6 files changed, 54 insertions(+), 17 deletions(-)
+>  Documentation/dev-tools/kasan.rst | 14 ++++---
+>  arch/riscv/Kconfig                |  4 +-
+>  arch/riscv/include/asm/cache.h    |  4 ++
+>  arch/riscv/include/asm/kasan.h    | 20 ++++++++++
+>  arch/riscv/include/asm/page.h     | 19 ++++++++--
+>  arch/riscv/include/asm/pgtable.h  |  6 +++
+>  arch/riscv/include/asm/tlbflush.h |  4 +-
+>  arch/riscv/kernel/setup.c         |  6 +++
+>  arch/riscv/kernel/smpboot.c       |  8 +++-
+>  arch/riscv/lib/Makefile           |  2 +
+>  arch/riscv/lib/kasan_sw_tags.S    | 61 +++++++++++++++++++++++++++++++
+>  arch/riscv/mm/kasan_init.c        | 32 +++++++++++++++-
+>  arch/riscv/mm/physaddr.c          |  4 ++
+>  scripts/Makefile.kasan            |  5 +++
+>  14 files changed, 174 insertions(+), 15 deletions(-)
+>  create mode 100644 arch/riscv/lib/kasan_sw_tags.S
 >
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fd9df6dcc593..6a326908c941 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -418,11 +418,11 @@ config KASAN_SHADOW_OFFSET
->         default 0xdffffe0000000000 if ARM64_VA_BITS_42 && !KASAN_SW_TAGS
->         default 0xdfffffc000000000 if ARM64_VA_BITS_39 && !KASAN_SW_TAGS
->         default 0xdffffff800000000 if ARM64_VA_BITS_36 && !KASAN_SW_TAGS
-> -       default 0xefff800000000000 if (ARM64_VA_BITS_48 || (ARM64_VA_BITS=
-_52 && !ARM64_16K_PAGES)) && KASAN_SW_TAGS
-> -       default 0xefffc00000000000 if (ARM64_VA_BITS_47 || ARM64_VA_BITS_=
-52) && ARM64_16K_PAGES && KASAN_SW_TAGS
-> -       default 0xeffffe0000000000 if ARM64_VA_BITS_42 && KASAN_SW_TAGS
-> -       default 0xefffffc000000000 if ARM64_VA_BITS_39 && KASAN_SW_TAGS
-> -       default 0xeffffff800000000 if ARM64_VA_BITS_36 && KASAN_SW_TAGS
-> +       default 0xffff800000000000 if (ARM64_VA_BITS_48 || (ARM64_VA_BITS=
-_52 && !ARM64_16K_PAGES)) && KASAN_SW_TAGS
-> +       default 0xffffc00000000000 if (ARM64_VA_BITS_47 || ARM64_VA_BITS_=
-52) && ARM64_16K_PAGES && KASAN_SW_TAGS
-> +       default 0xfffffe0000000000 if ARM64_VA_BITS_42 && KASAN_SW_TAGS
-> +       default 0xffffffc000000000 if ARM64_VA_BITS_39 && KASAN_SW_TAGS
-> +       default 0xfffffff800000000 if ARM64_VA_BITS_36 && KASAN_SW_TAGS
->         default 0xffffffffffffffff
+> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/=
+kasan.rst
+> index d7de44f5339d..6548aebac57f 100644
+> --- a/Documentation/dev-tools/kasan.rst
+> +++ b/Documentation/dev-tools/kasan.rst
+> @@ -22,8 +22,8 @@ architectures, but it has significant performance and m=
+emory overheads.
 >
->  config UNWIND_TABLES
-> diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/mem=
-ory.h
-> index 0480c61dbb4f..a93fc9dc16f3 100644
-> --- a/arch/arm64/include/asm/memory.h
-> +++ b/arch/arm64/include/asm/memory.h
-> @@ -80,7 +80,8 @@
->   * where KASAN_SHADOW_SCALE_SHIFT is the order of the number of bits tha=
-t map
->   * to a single shadow byte and KASAN_SHADOW_OFFSET is a constant that of=
-fsets
->   * the mapping. Note that KASAN_SHADOW_OFFSET does not point to the star=
-t of
-> - * the shadow memory region.
-> + * the shadow memory region, since not all possible addresses have shado=
-w
-> + * memory allocated for them.
-
-I'm not sure this addition makes sense: the original statement was to
-point out that KASAN_SHADOW_OFFSET and KASAN_SHADOW_START are
-different values. Even if we were to map shadow for userspace,
-KASAN_SHADOW_OFFSET would still be a weird offset value for Generic
-KASAN.
-
->   *
->   * Based on this mapping, we define two constants:
->   *
-> @@ -89,7 +90,15 @@
->   *
->   * KASAN_SHADOW_END is defined first as the shadow address that correspo=
-nds to
->   * the upper bound of possible virtual kernel memory addresses UL(1) << =
-64
-> - * according to the mapping formula.
-> + * according to the mapping formula. For Generic KASAN, the address in t=
-he
-> + * mapping formula is treated as unsigned (part of the compiler's ABI), =
-so the
-> + * end of the shadow memory region is at a large positive offset from
-> + * KASAN_SHADOW_OFFSET. For Software Tag-Based KASAN, the address in the
-> + * formula is treated as signed. Since all kernel addresses are negative=
-, they
-> + * map to shadow memory below KASAN_SHADOW_OFFSET, making KASAN_SHADOW_O=
-FFSET
-> + * itself the end of the shadow memory region. (User pointers are positi=
-ve and
-> + * would map to shadow memory above KASAN_SHADOW_OFFSET, but shadow memo=
-ry is
-> + * not allocated for them.)
-
-This looks good!
-
->   *
->   * KASAN_SHADOW_START is defined second based on KASAN_SHADOW_END. The s=
-hadow
->   * memory start must map to the lowest possible kernel virtual memory ad=
-dress
-> @@ -100,7 +109,11 @@
->   */
->  #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
->  #define KASAN_SHADOW_OFFSET    _AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
-> +#ifdef CONFIG_KASAN_GENERIC
->  #define KASAN_SHADOW_END       ((UL(1) << (64 - KASAN_SHADOW_SCALE_SHIFT=
-)) + KASAN_SHADOW_OFFSET)
-> +#else
-> +#define KASAN_SHADOW_END       KASAN_SHADOW_OFFSET
+>  Software Tag-Based KASAN or SW_TAGS KASAN, enabled with CONFIG_KASAN_SW_=
+TAGS,
+>  can be used for both debugging and dogfood testing, similar to userspace=
+ HWASan.
+> -This mode is only supported for arm64, but its moderate memory overhead =
+allows
+> -using it for testing on memory-restricted devices with real workloads.
+> +This mode is only supported on arm64 and riscv, but its moderate memory =
+overhead
+> +allows using it for testing on memory-restricted devices with real workl=
+oads.
+>
+>  Hardware Tag-Based KASAN or HW_TAGS KASAN, enabled with CONFIG_KASAN_HW_=
+TAGS,
+>  is the mode intended to be used as an in-field memory bug detector or as=
+ a
+> @@ -340,12 +340,14 @@ Software Tag-Based KASAN
+>  ~~~~~~~~~~~~~~~~~~~~~~~~
+>
+>  Software Tag-Based KASAN uses a software memory tagging approach to chec=
+king
+> -access validity. It is currently only implemented for the arm64 architec=
+ture.
+> +access validity. It is currently only implemented for the arm64 and risc=
+v
+> +architectures.
+>
+>  Software Tag-Based KASAN uses the Top Byte Ignore (TBI) feature of arm64=
+ CPUs
+> -to store a pointer tag in the top byte of kernel pointers. It uses shado=
+w memory
+> -to store memory tags associated with each 16-byte memory cell (therefore=
+, it
+> -dedicates 1/16th of the kernel memory for shadow memory).
+> +or the pointer masking (Sspm) feature of RISC-V CPUs to store a pointer =
+tag in
+> +the top byte of kernel pointers. It uses shadow memory to store memory t=
+ags
+> +associated with each 16-byte memory cell (therefore, it dedicates 1/16th=
+ of the
+> +kernel memory for shadow memory).
+>
+>  On each memory allocation, Software Tag-Based KASAN generates a random t=
+ag, tags
+>  the allocated memory with this tag, and embeds the same tag into the ret=
+urned
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 62545946ecf4..d08b99f6bf76 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -121,6 +121,7 @@ config RISCV
+>         select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
+>         select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
+>         select HAVE_ARCH_KASAN if MMU && 64BIT
+> +       select HAVE_ARCH_KASAN_SW_TAGS if MMU && 64BIT
+>         select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
+>         select HAVE_ARCH_KFENCE if MMU && 64BIT
+>         select HAVE_ARCH_KGDB if !XIP_KERNEL
+> @@ -291,7 +292,8 @@ config PAGE_OFFSET
+>
+>  config KASAN_SHADOW_OFFSET
+>         hex
+> -       depends on KASAN_GENERIC
+> +       depends on KASAN
+> +       default 0xffffffff00000000 if KASAN_SW_TAGS
+>         default 0xdfffffff00000000 if 64BIT
+>         default 0xffffffff if 32BIT
+>
+> diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cach=
+e.h
+> index 570e9d8acad1..232288a060c6 100644
+> --- a/arch/riscv/include/asm/cache.h
+> +++ b/arch/riscv/include/asm/cache.h
+> @@ -16,6 +16,10 @@
+>  #define ARCH_KMALLOC_MINALIGN  (8)
+>  #endif
+>
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +#define ARCH_SLAB_MINALIGN     (1ULL << KASAN_SHADOW_SCALE_SHIFT)
 > +#endif
->  #define _KASAN_SHADOW_START(va)        (KASAN_SHADOW_END - (UL(1) << ((v=
-a) - KASAN_SHADOW_SCALE_SHIFT)))
->  #define KASAN_SHADOW_START     _KASAN_SHADOW_START(vabits_actual)
->  #define PAGE_END               KASAN_SHADOW_START
-> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-> index b65a29440a0c..6836e571555c 100644
-> --- a/arch/arm64/mm/kasan_init.c
-> +++ b/arch/arm64/mm/kasan_init.c
-> @@ -198,8 +198,11 @@ static bool __init root_level_aligned(u64 addr)
->  /* The early shadow maps everything to a single page of zeroes */
->  asmlinkage void __init kasan_early_init(void)
+> +
+>  /*
+>   * RISC-V requires the stack pointer to be 16-byte aligned, so ensure th=
+at
+>   * the flat loader aligns it accordingly.
+> diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasa=
+n.h
+> index a4e92ce9fa31..f6b378ba936d 100644
+> --- a/arch/riscv/include/asm/kasan.h
+> +++ b/arch/riscv/include/asm/kasan.h
+> @@ -25,7 +25,11 @@
+>   *      KASAN_SHADOW_OFFSET =3D KASAN_SHADOW_END -
+>   *                              (1ULL << (64 - KASAN_SHADOW_SCALE_SHIFT)=
+)
+>   */
+> +#if defined(CONFIG_KASAN_GENERIC)
+>  #define KASAN_SHADOW_SCALE_SHIFT       3
+> +#elif defined(CONFIG_KASAN_SW_TAGS)
+> +#define KASAN_SHADOW_SCALE_SHIFT       4
+> +#endif
+>
+>  #define KASAN_SHADOW_SIZE      (UL(1) << ((VA_BITS - 1) - KASAN_SHADOW_S=
+CALE_SHIFT))
+>  /*
+> @@ -37,6 +41,14 @@
+>
+>  #define KASAN_SHADOW_OFFSET    _AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+>
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +#define KASAN_TAG_KERNEL       0x7f /* native kernel pointers tag */
+> +#endif
+> +
+> +#define arch_kasan_set_tag(addr, tag)  __tag_set(addr, tag)
+> +#define arch_kasan_reset_tag(addr)     __tag_reset(addr)
+> +#define arch_kasan_get_tag(addr)       __tag_get(addr)
+> +
+>  void kasan_init(void);
+>  asmlinkage void kasan_early_init(void);
+>  void kasan_swapper_init(void);
+> @@ -48,5 +60,13 @@ void kasan_swapper_init(void);
+>
+>  #endif /* CONFIG_KASAN */
+>
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +bool kasan_boot_cpu_enabled(void);
+> +int kasan_cpu_enable(void);
+> +#else
+> +static inline bool kasan_boot_cpu_enabled(void) { return false; }
+> +static inline int kasan_cpu_enable(void) { return 0; }
+> +#endif
+> +
+>  #endif
+>  #endif /* __ASM_KASAN_H */
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.=
+h
+> index 6e2f79cf77c5..43c625a4894d 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -89,6 +89,16 @@ typedef struct page *pgtable_t;
+>  #define PTE_FMT "%08lx"
+>  #endif
+>
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +#define __tag_set(addr, tag)   ((void *)((((u64)(addr) << 7) >> 7) | ((u=
+64)(tag) << 57)))
+> +#define __tag_reset(addr)      ((void *)((s64)((u64)(addr) << 7) >> 7))
+> +#define __tag_get(addr)                ((u8)((u64)(addr) >> 57))
+> +#else
+> +#define __tag_set(addr, tag)   (addr)
+> +#define __tag_reset(addr)      (addr)
+> +#define __tag_get(addr)                0
+> +#endif
+> +
+>  #if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
+>  /*
+>   * We override this value as its generic definition uses __pa too early =
+in
+> @@ -168,7 +178,7 @@ phys_addr_t linear_mapping_va_to_pa(unsigned long x);
+>  #endif
+>
+>  #define __va_to_pa_nodebug(x)  ({                                       =
+       \
+> -       unsigned long _x =3D x;                                          =
+         \
+> +       unsigned long _x =3D (unsigned long)__tag_reset(x);              =
+         \
+>         is_linear_mapping(_x) ?                                          =
+       \
+>                 linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x)=
+;      \
+>         })
+> @@ -192,7 +202,10 @@ extern phys_addr_t __phys_addr_symbol(unsigned long =
+x);
+>  #define pfn_to_virt(pfn)       (__va(pfn_to_phys(pfn)))
+>
+>  #define virt_to_page(vaddr)    (pfn_to_page(virt_to_pfn(vaddr)))
+> -#define page_to_virt(page)     (pfn_to_virt(page_to_pfn(page)))
+> +#define page_to_virt(page)     ({                                       =
+       \
+> +       __typeof__(page) __page =3D page;                                =
+         \
+> +       __tag_set(pfn_to_virt(page_to_pfn(__page)), page_kasan_tag(__page=
+));    \
+> +})
+>
+>  #define page_to_phys(page)     (pfn_to_phys(page_to_pfn(page)))
+>  #define phys_to_page(paddr)    (pfn_to_page(phys_to_pfn(paddr)))
+> @@ -209,7 +222,7 @@ static __always_inline void *pfn_to_kaddr(unsigned lo=
+ng pfn)
+>  #endif /* __ASSEMBLY__ */
+>
+>  #define virt_addr_valid(vaddr) ({                                       =
+       \
+> -       unsigned long _addr =3D (unsigned long)vaddr;                    =
+         \
+> +       unsigned long _addr =3D (unsigned long)__tag_reset(vaddr);       =
+         \
+>         (unsigned long)(_addr) >=3D PAGE_OFFSET && pfn_valid(virt_to_pfn(=
+_addr)); \
+>  })
+>
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pg=
+table.h
+> index e79f15293492..ae6fa9dba0fc 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -916,7 +916,13 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pt=
+e)
+>   */
+>  #ifdef CONFIG_64BIT
+>  #define TASK_SIZE_64   (PGDIR_SIZE * PTRS_PER_PGD / 2)
+> +/*
+> + * When pointer masking is enabled for the kernel's privilege mode,
+> + * __access_ok() must reject tagged aliases of kernel memory.
+> + */
+> +#ifndef CONFIG_KASAN_SW_TAGS
+>  #define TASK_SIZE_MAX  LONG_MAX
+> +#endif
+>
+>  #ifdef CONFIG_COMPAT
+>  #define TASK_SIZE_32   (_AC(0x80000000, UL) - PAGE_SIZE)
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/t=
+lbflush.h
+> index 72e559934952..68b3a85c6960 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -31,14 +31,14 @@ static inline void local_flush_tlb_all_asid(unsigned =
+long asid)
+>  /* Flush one page from local TLB */
+>  static inline void local_flush_tlb_page(unsigned long addr)
 >  {
+> -       ALT_SFENCE_VMA_ADDR(addr);
+> +       ALT_SFENCE_VMA_ADDR(__tag_reset(addr));
+>  }
+>
+>  static inline void local_flush_tlb_page_asid(unsigned long addr,
+>                                              unsigned long asid)
+>  {
+>         if (asid !=3D FLUSH_TLB_NO_ASID)
+> -               ALT_SFENCE_VMA_ADDR_ASID(addr, asid);
+> +               ALT_SFENCE_VMA_ADDR_ASID(__tag_reset(addr), asid);
+>         else
+>                 local_flush_tlb_page(addr);
+>  }
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index a2cde65b69e9..fdc72edc4857 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -299,6 +299,12 @@ void __init setup_arch(char **cmdline_p)
+>         riscv_user_isa_enable();
+>  }
+>
+> +void __init smp_prepare_boot_cpu(void)
+> +{
+> +       if (kasan_boot_cpu_enabled())
+> +               kasan_init_sw_tags();
+> +}
+> +
+>  bool arch_cpu_is_hotpluggable(int cpu)
+>  {
+>         return cpu_has_hotplug(cpu);
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 0f8f1c95ac38..a1cc555691b0 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -29,6 +29,7 @@
+>  #include <asm/cacheflush.h>
+>  #include <asm/cpu_ops.h>
+>  #include <asm/irq.h>
+> +#include <asm/kasan.h>
+>  #include <asm/mmu_context.h>
+>  #include <asm/numa.h>
+>  #include <asm/tlbflush.h>
+> @@ -210,7 +211,11 @@ void __init smp_cpus_done(unsigned int max_cpus)
+>  asmlinkage __visible void smp_callin(void)
+>  {
+>         struct mm_struct *mm =3D &init_mm;
+> -       unsigned int curr_cpuid =3D smp_processor_id();
+> +       unsigned int curr_cpuid;
+> +
+> +       /* Must be called first, before referencing any dynamic allocatio=
+ns */
+> +       if (kasan_boot_cpu_enabled() && kasan_cpu_enable())
+> +               return;
+>
+>         if (has_vector()) {
+>                 /*
+> @@ -225,6 +230,7 @@ asmlinkage __visible void smp_callin(void)
+>         mmgrab(mm);
+>         current->active_mm =3D mm;
+>
+> +       curr_cpuid =3D smp_processor_id();
+>         store_cpu_topology(curr_cpuid);
+>         notify_cpu_starting(curr_cpuid);
+>
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 8eec6b69a875..ae36616fe1f5 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -20,3 +20,5 @@ lib-$(CONFIG_RISCV_ISA_ZBC)   +=3D crc32.o
+>  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) +=3D error-inject.o
+>  lib-$(CONFIG_RISCV_ISA_V)      +=3D xor.o
+>  lib-$(CONFIG_RISCV_ISA_V)      +=3D riscv_v_helpers.o
+> +
+> +obj-$(CONFIG_KASAN_SW_TAGS) +=3D kasan_sw_tags.o
+> diff --git a/arch/riscv/lib/kasan_sw_tags.S b/arch/riscv/lib/kasan_sw_tag=
+s.S
+> new file mode 100644
+> index 000000000000..f7d3e0acba6a
+> --- /dev/null
+> +++ b/arch/riscv/lib/kasan_sw_tags.S
+> @@ -0,0 +1,61 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2020 Google LLC
+> + * Copyright (C) 2024 SiFive
+> + */
+> +
+> +#include <linux/linkage.h>
+> +
+> +/*
+> + * Report a tag mismatch detected by tag-based KASAN.
+> + *
+> + * A compiler-generated thunk calls this with a custom calling conventio=
+n.
+> + * Upon entry to this function, the following registers have been modifi=
+ed:
+> + *
+> + *   x1/ra:     clobbered by call to this function
+> + *   x2/sp:     decremented by 256
+> + *   x6/t1:     tag from shadow memory
+> + *   x7/t2:     tag from pointer
+> + *   x10/a0:    fault address
+> + *   x11/a1:    fault description
+> + *   x28/t3:    clobbered by thunk
+> + *   x29/t4:    clobbered by thunk
+> + *   x30/t5:    clobbered by thunk
+> + *   x31/t6:    clobbered by thunk
+> + *
+> + * The caller has decremented the SP by 256 bytes, and stored the follow=
+ing
+> + * registers in slots on the stack according to their number (sp + 8 * x=
+N):
+> + *
+> + *   x1/ra:     return address to user code
+> + *   x8/s0/fp:  saved value from user code
+> + *   x10/a0:    saved value from user code
+> + *   x11/a1:    saved value from user code
+> + */
+> +SYM_CODE_START(__hwasan_tag_mismatch)
+> +       /* Store the remaining unclobbered caller-saved regs */
+> +       sd      t0, (8 *  5)(sp)
+> +       sd      a2, (8 * 12)(sp)
+> +       sd      a3, (8 * 13)(sp)
+> +       sd      a4, (8 * 14)(sp)
+> +       sd      a5, (8 * 15)(sp)
+> +       sd      a6, (8 * 16)(sp)
+> +       sd      a7, (8 * 17)(sp)
+> +
+> +       /* a0 and a1 are already set by the thunk */
+> +       ld      a2, (8 *  1)(sp)
+> +       call    kasan_tag_mismatch
+> +
+> +       ld      ra, (8 *  1)(sp)
+> +       ld      t0, (8 *  5)(sp)
+> +       ld      a0, (8 * 10)(sp)
+> +       ld      a1, (8 * 11)(sp)
+> +       ld      a2, (8 * 12)(sp)
+> +       ld      a3, (8 * 13)(sp)
+> +       ld      a4, (8 * 14)(sp)
+> +       ld      a5, (8 * 15)(sp)
+> +       ld      a6, (8 * 16)(sp)
+> +       ld      a7, (8 * 17)(sp)
+> +       addi    sp, sp, 256
+> +       ret
+> +SYM_CODE_END(__hwasan_tag_mismatch)
+> +EXPORT_SYMBOL(__hwasan_tag_mismatch)
+> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+> index c301c8d291d2..50f0e7a03cc8 100644
+> --- a/arch/riscv/mm/kasan_init.c
+> +++ b/arch/riscv/mm/kasan_init.c
+> @@ -11,6 +11,10 @@
+>  #include <asm/fixmap.h>
+>  #include <asm/pgalloc.h>
+>
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +static bool __kasan_boot_cpu_enabled __ro_after_init;
+> +#endif
+> +
+>  /*
+>   * Kasan shadow region must lie at a fixed address across sv39, sv48 and=
+ sv57
+>   * which is right before the kernel.
+> @@ -323,8 +327,11 @@ asmlinkage void __init kasan_early_init(void)
+>  {
+>         uintptr_t i;
+>
 > -       BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=3D
 > -               KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT=
 )));
@@ -273,138 +576,89 @@ a) - KASAN_SHADOW_SCALE_SHIFT)))
 LE_SHIFT)));
 > +       else
 > +               BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=3D KASAN_SHADOW_END);
->         BUILD_BUG_ON(!IS_ALIGNED(_KASAN_SHADOW_START(VA_BITS), SHADOW_ALI=
-GN));
->         BUILD_BUG_ON(!IS_ALIGNED(_KASAN_SHADOW_START(VA_BITS_MIN), SHADOW=
-_ALIGN));
->         BUILD_BUG_ON(!IS_ALIGNED(KASAN_SHADOW_END, SHADOW_ALIGN));
-> diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-> index 00a3bf7c0d8f..03b440658817 100644
-> --- a/include/linux/kasan.h
-> +++ b/include/linux/kasan.h
-> @@ -58,8 +58,14 @@ int kasan_populate_early_shadow(const void *shadow_sta=
-rt,
->  #ifndef kasan_mem_to_shadow
->  static inline void *kasan_mem_to_shadow(const void *addr)
->  {
-> -       return (void *)((unsigned long)addr >> KASAN_SHADOW_SCALE_SHIFT)
-> -               + KASAN_SHADOW_OFFSET;
-> +       void *scaled;
+>
+>         for (i =3D 0; i < PTRS_PER_PTE; ++i)
+>                 set_pte(kasan_early_shadow_pte + i,
+> @@ -356,6 +363,10 @@ asmlinkage void __init kasan_early_init(void)
+>                                  KASAN_SHADOW_START, KASAN_SHADOW_END);
+>
+>         local_flush_tlb_all();
 > +
-> +       if (IS_ENABLED(CONFIG_KASAN_GENERIC))
-> +               scaled =3D (void *)((unsigned long)addr >> KASAN_SHADOW_S=
-CALE_SHIFT);
-> +       else
-> +               scaled =3D (void *)((long)addr >> KASAN_SHADOW_SCALE_SHIF=
-T);
-> +
-> +       return KASAN_SHADOW_OFFSET + scaled;
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +       __kasan_boot_cpu_enabled =3D !kasan_cpu_enable();
+> +#endif
 >  }
->  #endif
 >
-> diff --git a/mm/kasan/report.c b/mm/kasan/report.c
-> index b48c768acc84..c08097715686 100644
-> --- a/mm/kasan/report.c
-> +++ b/mm/kasan/report.c
-> @@ -644,15 +644,29 @@ void kasan_report_async(void)
->   */
->  void kasan_non_canonical_hook(unsigned long addr)
+>  void __init kasan_swapper_init(void)
+> @@ -534,3 +545,20 @@ void __init kasan_init(void)
+>         csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+>         local_flush_tlb_all();
+>  }
+> +
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +bool kasan_boot_cpu_enabled(void)
+> +{
+> +       return __kasan_boot_cpu_enabled;
+> +}
+> +
+> +int kasan_cpu_enable(void)
+> +{
+> +       struct sbiret ret;
+> +
+> +       ret =3D sbi_ecall(SBI_EXT_FWFT, SBI_EXT_FWFT_SET,
+> +                       SBI_FWFT_POINTER_MASKING_PMLEN, 7, 0, 0, 0, 0);
+> +
+> +       return sbi_err_map_linux_errno(ret.error);
+> +}
+> +#endif
+> diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
+> index 18706f457da7..6d1cf6ffd54e 100644
+> --- a/arch/riscv/mm/physaddr.c
+> +++ b/arch/riscv/mm/physaddr.c
+> @@ -8,6 +8,8 @@
+>
+>  phys_addr_t __virt_to_phys(unsigned long x)
 >  {
-> +       unsigned long max_shadow_size =3D BIT(BITS_PER_LONG - KASAN_SHADO=
-W_SCALE_SHIFT);
->         unsigned long orig_addr;
->         const char *bug_type;
->
+> +       x =3D __tag_reset(x);
+> +
 >         /*
-> -        * All addresses that came as a result of the memory-to-shadow ma=
-pping
-> -        * (even for bogus pointers) must be >=3D KASAN_SHADOW_OFFSET.
-> +        * With the default kasan_mem_to_shadow() algorithm, all addresse=
-s
-> +        * returned by the memory-to-shadow mapping (even for bogus point=
-ers)
-> +        * must be within a certain displacement from KASAN_SHADOW_OFFSET=
-.
-> +        *
-> +        * For Generic KASAN, the displacement is unsigned, so
-> +        * KASAN_SHADOW_OFFSET is the smallest possible shadow address. F=
-or
-
-This part of the comment doesn't seem correct: KASAN_SHADOW_OFFSET is
-still a weird offset value for Generic KASAN, not the smallest
-possible shadow address.
-
-> +        * Software Tag-Based KASAN, the displacement is signed, so
-> +        * KASAN_SHADOW_OFFSET is the center of the range.
+>          * Boundary checking aginst the kernel linear mapping space.
 >          */
-> -       if (addr < KASAN_SHADOW_OFFSET)
-> -               return;
-> +       if (IS_ENABLED(CONFIG_KASAN_GENERIC)) {
-> +               if (addr < KASAN_SHADOW_OFFSET ||
-> +                   addr >=3D KASAN_SHADOW_OFFSET + max_shadow_size)
-> +                       return;
-> +       } else {
-> +               if (addr < KASAN_SHADOW_OFFSET - max_shadow_size / 2 ||
-> +                   addr >=3D KASAN_SHADOW_OFFSET + max_shadow_size / 2)
-> +                       return;
-
-Hm, I might be wrong, but I think this check does not work.
-
-Let's say we have non-canonical address 0x4242424242424242 and number
-of VA bits is 48.
-
-Then:
-
-KASAN_SHADOW_OFFSET =3D=3D 0xffff800000000000
-kasan_mem_to_shadow(0x4242424242424242) =3D=3D 0x0423a42424242424
-max_shadow_size =3D=3D 0x1000000000000000
-KASAN_SHADOW_OFFSET - max_shadow_size / 2 =3D=3D 0xf7ff800000000000
-KASAN_SHADOW_OFFSET + max_shadow_size / 2 =3D=3D 0x07ff800000000000 (overfl=
-ows)
-
-0x0423a42424242424 is < than 0xf7ff800000000000, so the function will
-wrongly return.
-
-> +       }
+> @@ -24,6 +26,8 @@ phys_addr_t __phys_addr_symbol(unsigned long x)
+>         unsigned long kernel_start =3D kernel_map.virt_addr;
+>         unsigned long kernel_end =3D kernel_start + kernel_map.size;
 >
->         orig_addr =3D (unsigned long)kasan_shadow_to_mem((void *)addr);
+> +       x =3D __tag_reset(x);
+> +
+>         /*
+>          * Boundary checking aginst the kernel image mapping.
+>          * __pa_symbol should only be used on kernel symbol addresses.
+> diff --git a/scripts/Makefile.kasan b/scripts/Makefile.kasan
+> index 693dbbebebba..72a8c9d5fb0e 100644
+> --- a/scripts/Makefile.kasan
+> +++ b/scripts/Makefile.kasan
+> @@ -91,6 +91,11 @@ ifeq ($(call clang-min-version, 150000)$(call gcc-min-=
+version, 130000),y)
+>         kasan_params +=3D hwasan-kernel-mem-intrinsic-prefix=3D1
+>  endif
 >
+> +# RISC-V requires dynamically determining if stack tagging can be enable=
+d.
 
-Just to double-check: kasan_shadow_to_mem() and addr_has_metadata()
-don't need any changes, right?
+Please be more explicit here, something like: "RISC-V requires
+dynamically determining if stack tagging can be enabled and thus
+cannot allow the compiler to generate tags via inlined code."
 
-> diff --git a/scripts/gdb/linux/mm.py b/scripts/gdb/linux/mm.py
-> index 7571aebbe650..2e63f3dedd53 100644
-> --- a/scripts/gdb/linux/mm.py
-> +++ b/scripts/gdb/linux/mm.py
-> @@ -110,12 +110,13 @@ class aarch64_page_ops():
->          self.KERNEL_END =3D gdb.parse_and_eval("_end")
+
+> +ifdef CONFIG_RISCV
+> +       kasan_params +=3D hwasan-generate-tags-with-calls=3D1
+> +endif
+> +
+>  endif # CONFIG_KASAN_SW_TAGS
 >
->          if constants.LX_CONFIG_KASAN_GENERIC or constants.LX_CONFIG_KASA=
-N_SW_TAGS:
-> +            self.KASAN_SHADOW_OFFSET =3D constants.LX_CONFIG_KASAN_SHADO=
-W_OFFSET
->              if constants.LX_CONFIG_KASAN_GENERIC:
->                  self.KASAN_SHADOW_SCALE_SHIFT =3D 3
-> +                self.KASAN_SHADOW_END =3D (1 << (64 - self.KASAN_SHADOW_=
-SCALE_SHIFT)) + self.KASAN_SHADOW_OFFSET
->              else:
->                  self.KASAN_SHADOW_SCALE_SHIFT =3D 4
-> -            self.KASAN_SHADOW_OFFSET =3D constants.LX_CONFIG_KASAN_SHADO=
-W_OFFSET
-> -            self.KASAN_SHADOW_END =3D (1 << (64 - self.KASAN_SHADOW_SCAL=
-E_SHIFT)) + self.KASAN_SHADOW_OFFSET
-> +                self.KASAN_SHADOW_END =3D self.KASAN_SHADOW_OFFSET
->              self.PAGE_END =3D self.KASAN_SHADOW_END - (1 << (self.vabits=
-_actual - self.KASAN_SHADOW_SCALE_SHIFT))
->          else:
->              self.PAGE_END =3D self._PAGE_END(self.VA_BITS_MIN)
+>  # Add all as-supported KASAN LLVM parameters requested by the configurat=
+ion.
 > --
 > 2.45.1
 >
-
-Could you also check that everything works when CONFIG_KASAN_SW_TAGS +
-CONFIG_KASAN_OUTLINE? I think it should, be makes sense to confirm.
-
-Thank you!
 
