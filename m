@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5DACDDE63
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B855ACDDE66
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 10:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/4EI/BDXJEMcfZo0v6z430d9z4NHU6P6zcwIcR64qw=; b=xAHo0vuqflR5oqq3q09A9W7TeS
-	Hj17+YvS61HNq4AnEianZfdE97zQA7UuDcz+4BgcxBPikOyIw1CmpFVVf9ikyFlca5C/NctAtovc1
-	hMaymyJnULfj0M73fol6W0/KO3pD0/qATLy50+W22MxXLe2CJmJMPd3iBHkmZ8pktYO7nxsygf1KO
-	eEt2VOQMhRkoW5gBKJClxWH4u+7GnbarZNbOTY9/kYy1cVEVt9qhS1U9m/CaNU9T1AmWKBIR6SwAY
-	BiEnpNpYy8NynVOseU9nOX5OVSPWYTK6hnjDk9IvjhJ6fqaMtnv/0HU+NYf8YnE/7m2AdPnhgZ0/Z
-	upMTrbEA==;
+	bh=N9thzI2s9qip/T79oZliExDHbQAqsITN4CwToGHt28Q=; b=XtyrzOUGkNYXwZLS4aeQOECdSM
+	v7lrwhFSlJP5AskrjAeOIHsXV0K6Xq0+an/TJnUwJVDFP2XRtaESBsEHyxTw7dEGMtPZ3EuDX2tyu
+	ZPy5sGSL6bnCEgCc209wnO/sUe9jt9SfPpaIOugTDt19mGLyBUdM0g4Qp0TS6i2fhtsoEWEEmOyQw
+	a6f+eZ4Oy8bgaEafERx7YmHtF31F/QJdX0uIbmzwevb1I98AMKn6hz5A+dMgSCCsXp0m44kA27RT4
+	3aGN3jkzI5iMdt0/EPPbHWvl1BMwbNyKiMTggUD/aMfJYbbZZFpX7h8pjxusAvj/4cq+4PODf2cPO
+	MGGeppVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YvB-0000000E2nK-33uv;
-	Wed, 23 Oct 2024 10:48:57 +0000
+	id 1t3Ywg-0000000E2zi-2RT3;
+	Wed, 23 Oct 2024 10:50:30 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YVV-0000000Dy54-2vey
+	id 1t3YVb-0000000Dy5v-23lb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 10:22:27 +0000
+	Wed, 23 Oct 2024 10:22:32 +0000
 Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49N9nORF031140;
-	Wed, 23 Oct 2024 10:22:17 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49N9MLis031271;
+	Wed, 23 Oct 2024 10:22:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T/4EI/BDXJEMcfZo0v6z430d9z4NHU6P6zcwIcR64qw=; b=NhQFPsWiuaYyJBUs
-	ilhs+jqF7LimSnyzT4t/13HuXAAdt5uxyOxUBtUrMfJcfokDlBubwlfcNxhGP7Iy
-	skQ9FSmvy3Xja3NDABpojSaqAmuoWXeMKAya7n5+kozb74MCjb4i8Qw7vdvaelj/
-	L+oILLxB10LDVfbuixum+gwMj0Yv5ycvnlDIktpvinQJwgnc9EUQldKewtD4Iq11
-	0Zk10+P8Sv0FXVBN2GZSzUE/lq00jfQclyAaLLI0mUkLbEw3mHIid6nSxN3v5C1P
-	vJcsmVvvLRdoWlsIshsvRXlOH85YV/eOGaQ+h6X5reqTuLGrfdvEgzctJj+G8yON
-	oern1w==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3vsu7j-1
+	N9thzI2s9qip/T79oZliExDHbQAqsITN4CwToGHt28Q=; b=dn9aOaQU6PXp8Q/6
+	ixVAuX6WKDks88F2Ey84Og/gvgTSyUa2SXamDqk+CvDoJ+KI70sx9l95PFS7y6L0
+	T2ilBsDSnIK8R+5D8DVLg6r0XcgB7cNOLG7xW/pn+ynyQk+G8tiFtYdVpvBUgo+5
+	pgFuEg3kGx/1sp6tAA96YruN/SVe5qtgQ9jW83djHPt9Ci5B6Kz4Xz3ebktVD8Ap
+	oTFBu6pt2DxJUazIls1hda8zlZFioOzUMFmeY7CZFa8zJ1whHqTzLbChffbGc8q+
+	OVSkF149QhD7cufV5E7H0ns21QA4MeBQpcJu3uNcpiS0KOpH/xjPqtXHHWVTsFcM
+	GJhfGw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3vsu7q-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Oct 2024 10:22:16 +0000 (GMT)
+	Wed, 23 Oct 2024 10:22:21 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49NAMGxN018132
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49NAMKdb010205
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Oct 2024 10:22:16 GMT
+	Wed, 23 Oct 2024 10:22:21 GMT
 Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 23 Oct 2024 03:22:11 -0700
+ 15.2.1544.9; Wed, 23 Oct 2024 03:22:16 -0700
 From: Sibi Sankar <quic_sibis@quicinc.com>
 To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>,
         <ulf.hansson@linaro.org>, <jassisinghbrar@gmail.com>,
@@ -62,9 +62,9 @@ CC: <linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
         <johan@kernel.org>, <konradybcio@kernel.org>,
         <linux-pm@vger.kernel.org>, <tstrudel@google.com>, <rafael@kernel.org>,
         "Johan Hovold" <johan+linaro@kernel.org>
-Subject: [PATCH V4 2/4] firmware: arm_scmi: Skip opp duplicates
-Date: Wed, 23 Oct 2024 15:51:46 +0530
-Message-ID: <20241023102148.1698910-3-quic_sibis@quicinc.com>
+Subject: [PATCH V4 3/4] pmdomain: core: Fix debugfs node creation failure
+Date: Wed, 23 Oct 2024 15:51:47 +0530
+Message-ID: <20241023102148.1698910-4-quic_sibis@quicinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241023102148.1698910-1-quic_sibis@quicinc.com>
 References: <20241023102148.1698910-1-quic_sibis@quicinc.com>
@@ -76,8 +76,8 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: IXow5cOgeQhJhFgJW5AvlV08O7-zGwti
-X-Proofpoint-ORIG-GUID: IXow5cOgeQhJhFgJW5AvlV08O7-zGwti
+X-Proofpoint-GUID: oMv9eqmeUCp-SpNGElq7Gzy8DpaZYZnT
+X-Proofpoint-ORIG-GUID: oMv9eqmeUCp-SpNGElq7Gzy8DpaZYZnT
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
@@ -87,8 +87,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 imposto
  bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2409260000 definitions=main-2410230063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_032225_776604_83F6339E 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20241023_032231_564625_2F334A28 
+X-CRM114-Status: GOOD (  23.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,123 +103,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+The domain attributes returned by the perf protocol can end up
+reporting identical names across domains, resulting in debugfs
+node creation failure. Fix this failure by ensuring that pm domains
+get a unique name using ida in pm_genpd_init.
 
-Buggy firmware can reply with duplicated PERF opps descriptors.
-
-Ensure that the bad duplicates reported by the platform firmware doesn't
-get added to the opp-tables.
+Logs: [X1E reports 'NCC' for all its scmi perf domains]
+debugfs: Directory 'NCC' with parent 'pm_genpd' already present!
+debugfs: Directory 'NCC' with parent 'pm_genpd' already present!
 
 Reported-by: Johan Hovold <johan+linaro@kernel.org>
 Closes: https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-Tested-by: Johan Hovold <johan+linaro@kernel.org>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Fixes: 718072ceb211 ("PM: domains: create debugfs nodes when adding power domains")
+Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
 ---
 
 v3:
-* Pick up R-b, T-b from the list.
-* Pick up the updated patch from Cristian for skipping opps.
+* Update device names only when a name collision occurs [Dmitry/Ulf]
+* Drop Johan's T-b from "fix debugfs node creation failure"
 
- drivers/firmware/arm_scmi/perf.c | 40 ++++++++++++++++++++++++--------
- 1 file changed, 30 insertions(+), 10 deletions(-)
+ drivers/pmdomain/core.c   | 65 ++++++++++++++++++++++++++++++---------
+ include/linux/pm_domain.h |  1 +
+ 2 files changed, 51 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index 2d77b5f40ca7..32f9a9acd3e9 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -373,7 +373,7 @@ static int iter_perf_levels_update_state(struct scmi_iterator_state *st,
- 	return 0;
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 76490f0bf1e2..756ed0975788 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -7,6 +7,7 @@
+ #define pr_fmt(fmt) "PM: " fmt
+ 
+ #include <linux/delay.h>
++#include <linux/idr.h>
+ #include <linux/kernel.h>
+ #include <linux/io.h>
+ #include <linux/platform_device.h>
+@@ -23,6 +24,9 @@
+ #include <linux/cpu.h>
+ #include <linux/debugfs.h>
+ 
++/* Provides a unique ID for each genpd device */
++static DEFINE_IDA(genpd_ida);
++
+ #define GENPD_RETRY_MAX_MS	250		/* Approximate */
+ 
+ #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
+@@ -189,7 +193,7 @@ static inline bool irq_safe_dev_in_sleep_domain(struct device *dev,
+ 
+ 	if (ret)
+ 		dev_warn_once(dev, "PM domain %s will not be powered off\n",
+-				genpd->name);
++			      dev_name(&genpd->dev));
+ 
+ 	return ret;
+ }
+@@ -274,7 +278,7 @@ static void genpd_debug_remove(struct generic_pm_domain *genpd)
+ 	if (!genpd_debugfs_dir)
+ 		return;
+ 
+-	debugfs_lookup_and_remove(genpd->name, genpd_debugfs_dir);
++	debugfs_lookup_and_remove(dev_name(&genpd->dev), genpd_debugfs_dir);
  }
  
--static inline void
-+static inline int
- process_response_opp(struct device *dev, struct perf_dom_info *dom,
- 		     struct scmi_opp *opp, unsigned int loop_idx,
- 		     const struct scmi_msg_resp_perf_describe_levels *r)
-@@ -386,12 +386,16 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
- 		le16_to_cpu(r->opp[loop_idx].transition_latency_us);
+ static void genpd_update_accounting(struct generic_pm_domain *genpd)
+@@ -731,7 +735,7 @@ static int _genpd_power_on(struct generic_pm_domain *genpd, bool timed)
+ 	genpd->states[state_idx].power_on_latency_ns = elapsed_ns;
+ 	genpd->gd->max_off_time_changed = true;
+ 	pr_debug("%s: Power-%s latency exceeded, new value %lld ns\n",
+-		 genpd->name, "on", elapsed_ns);
++		 dev_name(&genpd->dev), "on", elapsed_ns);
  
- 	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
--	if (ret)
-+	if (ret) {
- 		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
- 			 opp->perf, dom->info.name, ret);
-+		return ret;
-+	}
-+
-+	return 0;
+ out:
+ 	raw_notifier_call_chain(&genpd->power_notifiers, GENPD_NOTIFY_ON, NULL);
+@@ -782,7 +786,7 @@ static int _genpd_power_off(struct generic_pm_domain *genpd, bool timed)
+ 	genpd->states[state_idx].power_off_latency_ns = elapsed_ns;
+ 	genpd->gd->max_off_time_changed = true;
+ 	pr_debug("%s: Power-%s latency exceeded, new value %lld ns\n",
+-		 genpd->name, "off", elapsed_ns);
++		 dev_name(&genpd->dev), "off", elapsed_ns);
+ 
+ out:
+ 	raw_notifier_call_chain(&genpd->power_notifiers, GENPD_NOTIFY_OFF,
+@@ -1941,7 +1945,7 @@ int dev_pm_genpd_add_notifier(struct device *dev, struct notifier_block *nb)
+ 
+ 	if (ret) {
+ 		dev_warn(dev, "failed to add notifier for PM domain %s\n",
+-			 genpd->name);
++			 dev_name(&genpd->dev));
+ 		return ret;
+ 	}
+ 
+@@ -1988,7 +1992,7 @@ int dev_pm_genpd_remove_notifier(struct device *dev)
+ 
+ 	if (ret) {
+ 		dev_warn(dev, "failed to remove notifier for PM domain %s\n",
+-			 genpd->name);
++			 dev_name(&genpd->dev));
+ 		return ret;
+ 	}
+ 
+@@ -2014,7 +2018,7 @@ static int genpd_add_subdomain(struct generic_pm_domain *genpd,
+ 	 */
+ 	if (!genpd_is_irq_safe(genpd) && genpd_is_irq_safe(subdomain)) {
+ 		WARN(1, "Parent %s of subdomain %s must be IRQ safe\n",
+-				genpd->name, subdomain->name);
++		     dev_name(&genpd->dev), subdomain->name);
+ 		return -EINVAL;
+ 	}
+ 
+@@ -2089,7 +2093,7 @@ int pm_genpd_remove_subdomain(struct generic_pm_domain *genpd,
+ 
+ 	if (!list_empty(&subdomain->parent_links) || subdomain->device_count) {
+ 		pr_warn("%s: unable to remove subdomain %s\n",
+-			genpd->name, subdomain->name);
++			dev_name(&genpd->dev), subdomain->name);
+ 		ret = -EBUSY;
+ 		goto out;
+ 	}
+@@ -2199,6 +2203,23 @@ static void genpd_lock_init(struct generic_pm_domain *genpd)
+ 	}
  }
  
--static inline void
-+static inline int
- process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
- 			struct scmi_opp *opp, unsigned int loop_idx,
- 			const struct scmi_msg_resp_perf_describe_levels_v4 *r)
-@@ -404,9 +408,11 @@ process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
- 		le16_to_cpu(r->opp[loop_idx].transition_latency_us);
- 
- 	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
--	if (ret)
-+	if (ret) {
- 		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
- 			 opp->perf, dom->info.name, ret);
-+		return ret;
-+	}
- 
- 	/* Note that PERF v4 reports always five 32-bit words */
- 	opp->indicative_freq = le32_to_cpu(r->opp[loop_idx].indicative_freq);
-@@ -415,13 +421,21 @@ process_response_opp_v4(struct device *dev, struct perf_dom_info *dom,
- 
- 		ret = xa_insert(&dom->opps_by_idx, opp->level_index, opp,
- 				GFP_KERNEL);
--		if (ret)
-+		if (ret) {
- 			dev_warn(dev,
- 				 "Failed to add opps_by_idx at %d for %s - ret:%d\n",
- 				 opp->level_index, dom->info.name, ret);
- 
-+			/* Cleanup by_lvl too */
-+			xa_erase(&dom->opps_by_lvl, opp->perf);
++static bool genpd_name_present(const char *name)
++{
++	bool ret = false;
++	const struct generic_pm_domain *gpd;
 +
++	mutex_lock(&gpd_list_lock);
++	list_for_each_entry(gpd, &gpd_list, gpd_list_node) {
++		if (!strcmp(dev_name(&gpd->dev), name)) {
++			ret = true;
++			break;
++		}
++	}
++	mutex_unlock(&gpd_list_lock);
++
++	return ret;
++}
++
+ /**
+  * pm_genpd_init - Initialize a generic I/O PM domain object.
+  * @genpd: PM domain object to initialize.
+@@ -2226,6 +2247,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+ 	genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
+ 	genpd->device_count = 0;
+ 	genpd->provider = NULL;
++	genpd->device_id = -ENXIO;
+ 	genpd->has_provider = false;
+ 	genpd->accounting_time = ktime_get_mono_fast_ns();
+ 	genpd->domain.ops.runtime_suspend = genpd_runtime_suspend;
+@@ -2266,7 +2288,18 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+ 		return ret;
+ 
+ 	device_initialize(&genpd->dev);
+-	dev_set_name(&genpd->dev, "%s", genpd->name);
++
++	if (!genpd_name_present(genpd->name)) {
++		dev_set_name(&genpd->dev, "%s", genpd->name);
++	} else {
++		ret = ida_alloc(&genpd_ida, GFP_KERNEL);
++		if (ret < 0) {
++			put_device(&genpd->dev);
 +			return ret;
 +		}
-+
- 		hash_add(dom->opps_by_freq, &opp->hash, opp->indicative_freq);
++		genpd->device_id = ret;
++		dev_set_name(&genpd->dev, "%s_%u", genpd->name, genpd->device_id);
++	}
+ 
+ 	mutex_lock(&gpd_list_lock);
+ 	list_add(&genpd->gpd_list_node, &gpd_list);
+@@ -2288,13 +2321,13 @@ static int genpd_remove(struct generic_pm_domain *genpd)
+ 
+ 	if (genpd->has_provider) {
+ 		genpd_unlock(genpd);
+-		pr_err("Provider present, unable to remove %s\n", genpd->name);
++		pr_err("Provider present, unable to remove %s\n", dev_name(&genpd->dev));
+ 		return -EBUSY;
  	}
-+
-+	return 0;
+ 
+ 	if (!list_empty(&genpd->parent_links) || genpd->device_count) {
+ 		genpd_unlock(genpd);
+-		pr_err("%s: unable to remove %s\n", __func__, genpd->name);
++		pr_err("%s: unable to remove %s\n", __func__, dev_name(&genpd->dev));
+ 		return -EBUSY;
+ 	}
+ 
+@@ -2308,9 +2341,11 @@ static int genpd_remove(struct generic_pm_domain *genpd)
+ 	genpd_unlock(genpd);
+ 	genpd_debug_remove(genpd);
+ 	cancel_work_sync(&genpd->power_off_work);
++	if (genpd->device_id != -ENXIO)
++		ida_free(&genpd_ida, genpd->device_id);
+ 	genpd_free_data(genpd);
+ 
+-	pr_debug("%s: removed %s\n", __func__, genpd->name);
++	pr_debug("%s: removed %s\n", __func__, dev_name(&genpd->dev));
+ 
+ 	return 0;
  }
- 
- static int
-@@ -429,16 +443,22 @@ iter_perf_levels_process_response(const struct scmi_protocol_handle *ph,
- 				  const void *response,
- 				  struct scmi_iterator_state *st, void *priv)
- {
-+	int ret;
- 	struct scmi_opp *opp;
- 	struct scmi_perf_ipriv *p = priv;
- 
--	opp = &p->perf_dom->opp[st->desc_index + st->loop_idx];
-+	opp = &p->perf_dom->opp[p->perf_dom->opp_count];
- 	if (PROTOCOL_REV_MAJOR(p->version) <= 0x3)
--		process_response_opp(ph->dev, p->perf_dom, opp, st->loop_idx,
--				     response);
-+		ret = process_response_opp(ph->dev, p->perf_dom, opp,
-+					   st->loop_idx, response);
+@@ -3320,12 +3355,12 @@ static int genpd_summary_one(struct seq_file *s,
  	else
--		process_response_opp_v4(ph->dev, p->perf_dom, opp, st->loop_idx,
--					response);
-+		ret = process_response_opp_v4(ph->dev, p->perf_dom, opp,
-+					      st->loop_idx, response);
-+
-+	/* Skip BAD duplicates received from firmware */
-+	if (ret)
-+		return ret == -EBUSY ? 0 : ret;
-+
- 	p->perf_dom->opp_count++;
+ 		snprintf(state, sizeof(state), "%s",
+ 			 status_lookup[genpd->status]);
+-	seq_printf(s, "%-30s  %-30s  %u", genpd->name, state, genpd->performance_state);
++	seq_printf(s, "%-30s  %-30s  %u", dev_name(&genpd->dev), state, genpd->performance_state);
  
- 	dev_dbg(ph->dev, "Level %d Power %d Latency %dus Ifreq %d Index %d\n",
+ 	/*
+ 	 * Modifications on the list require holding locks on both
+ 	 * parent and child, so we are safe.
+-	 * Also genpd->name is immutable.
++	 * Also the device name is immutable.
+ 	 */
+ 	list_for_each_entry(link, &genpd->parent_links, parent_node) {
+ 		if (list_is_first(&link->parent_node, &genpd->parent_links))
+@@ -3550,7 +3585,7 @@ static void genpd_debug_add(struct generic_pm_domain *genpd)
+ 	if (!genpd_debugfs_dir)
+ 		return;
+ 
+-	d = debugfs_create_dir(genpd->name, genpd_debugfs_dir);
++	d = debugfs_create_dir(dev_name(&genpd->dev), genpd_debugfs_dir);
+ 
+ 	debugfs_create_file("current_state", 0444,
+ 			    d, genpd, &status_fops);
+diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+index 76775ab38898..1106b86de279 100644
+--- a/include/linux/pm_domain.h
++++ b/include/linux/pm_domain.h
+@@ -171,6 +171,7 @@ struct generic_pm_domain {
+ 	atomic_t sd_count;	/* Number of subdomains with power "on" */
+ 	enum gpd_status status;	/* Current state of the domain */
+ 	unsigned int device_count;	/* Number of devices */
++	unsigned int device_id;		/* unique device id */
+ 	unsigned int suspended_count;	/* System suspend device counter */
+ 	unsigned int prepared_count;	/* Suspend counter of prepared devices */
+ 	unsigned int performance_state;	/* Aggregated max performance state */
 -- 
 2.34.1
 
