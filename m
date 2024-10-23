@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8F4CDDE70
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD97CDDE71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/C8z0kUxphmO1mbzxm0HcdfPNxxCScQxUNHOYRipLFU=; b=m/aQQpudEcVhWVi1dEq+bDGGB1
-	y+QdyFbslS1QkYeRpJc4MedFw+kDiPSe/MyD3Wm0LyMG2Vu/sveQkLjt0A095N6+jCmm4gAxocmk3
-	ay2BmXlwUGIBzS1pRRNeWhkN9qkQbDJeI4JX8uflLEnt3In/Tbldqn3Um2NfMmxAgC6z0uMCRvb4W
-	9Kk8/O8qk25tYXgk1jQPh6EGfPVxr8w04GCdKXlRRr08//+MPOfm8zTafKurZFzeQ/Sm4AvhoHcZr
-	ElfrnYVuRisttJyXj4/Ybm0wWvGHUKZQwi9QTuOUxy18athOfXV1//UIF3zhOoA4wMyk6/gH2XLlj
-	EbNQJCeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8rfcjYZptODzf7nQMTdW1N41J94cPXjshHJiOaHntnk=; b=R1pXNZXtZW0O1QuHAy4ZsYqj8H
+	ddvBr2iw5WTAmwD6w1MHY+QQ6R9u2x4lPl64U1uxHjMtxRrjUD4ufhejSdot6Lu6zvGJZekGjdhna
+	tLp9jv0UspwNzohMt4p8VBzWR41ri34fiRgPNzLyPaHyJ2jDmcMuhBlyNfmMOqnBMnXN+bEEdwJ5v
+	CsrginU56yc8bZ2ipZrybyegDgwOxX2PJp129l0T0DssxIfJRVBANLlvg++hlRuKwSgHbn4PNCMnY
+	8d6hIg2ktAv6GT3lUh34TdDtcweJrZnUeXQkGULzEdvjNkRAdYyrMmic2ZqcoxcIBBQ77aDjLyNFL
+	yJn2z36A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zqd-0000000EDFk-0TJ8;
-	Wed, 23 Oct 2024 11:48:19 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1t3Zqf-0000000EDHr-2QSu;
+	Wed, 23 Oct 2024 11:48:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZOs-0000000E7DM-3rbj
+	id 1t3ZPQ-0000000E7Ho-0h7t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:19:40 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2e2e6a1042dso5258918a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 04:19:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729682378; x=1730287178; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/C8z0kUxphmO1mbzxm0HcdfPNxxCScQxUNHOYRipLFU=;
-        b=BgJ5Dk/tSg7AcVJYL7Syo+ZhW+u+EtCd+MJ6igIwKSP1N9T/Wx2+DPiFiX0kYz8xlO
-         B6knuhZqZpRoj6EwoSCkUfmjGV8YEC96ZWQtX3/6lEVj3lDciYOwBqapfvfsRjFEaEAV
-         NyQHY7Dr5msDXRt5Yo3DRuxjmk14kIuPIsw+jGmFrAAbu0GHFOlP4Dh2DfSewtf1exY9
-         zTDYLUdyfLcsY2uqeIgsVkZkM6xKdI9vn6zhgN/c7G/v7mGxk3xrnfG6QKpmF65/Embc
-         u/JYmpenJpM7FilFpD0A951dxtHyPwYY3dTaejFXOy7Zk9jnOZYh5QpzHq+Zszk7YHN8
-         P2WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729682378; x=1730287178;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/C8z0kUxphmO1mbzxm0HcdfPNxxCScQxUNHOYRipLFU=;
-        b=M+Y4wTJvEH1XVUMq91opQrPG2psvvoKL9dcm//xHizEukGBQSVtwlYWu4I1nJRRwXJ
-         k5RjeyPyhV6K6IHYAJ82R1Pdyyw161eZKrWEV5sspM1sKNlpA3U6lNSce3qatZYCRRYr
-         NBWKxeOCwSoSfUFPL9JX5Xx8Y7yDaM/cSG/vUBT97TOsHF0wQ1Rk+x+g6vdlWdksk1j3
-         Kup6q3KtTRHDvo6WkuXl5jSSB8LCn5RbOyEgvIooxt02pfa9q7zSGpQfGVyROy+eZMw0
-         Sy7hAqL0pyLLSdD5KcbSUWFWI/q9fLQMPfNUfudq+el8IiuUP1RrY79COoXHK/ngYMBl
-         xuKQ==
-X-Gm-Message-State: AOJu0Yz1Kqi2EJBsGfhc18qvBERd6VI+Lf0yPmSl/TAbHAR+Wkdz+MoR
-	M3Z+/MlbPkVOC5a1++Dh3IEQmJUvgSO5eHRy43DWU39XpkNxjZWrSUJgq7PN
-X-Google-Smtp-Source: AGHT+IHWkAom48nElv+CrCSKEuuG6+PM4jEwaw8EHQL7k37pr08zJu42eBeE0vJrs4cmc4YKknGc+g==
-X-Received: by 2002:a17:90a:9e3:b0:2e7:6a44:daff with SMTP id 98e67ed59e1d1-2e76b5dd9aamr2507301a91.10.1729682377872;
-        Wed, 23 Oct 2024 04:19:37 -0700 (PDT)
-Received: from localhost.localdomain (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76dfbeca4sm1123022a91.32.2024.10.23.04.19.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 04:19:37 -0700 (PDT)
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	cwweng@nuvoton.com,
-	Chi-Wen Weng <cwweng.linux@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sean Young <sean@mess.org>
-Subject: [PATCH v2 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Wed, 23 Oct 2024 19:18:41 +0800
-Message-Id: <20241023111841.158049-3-cwweng.linux@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241023111841.158049-1-cwweng.linux@gmail.com>
-References: <20241023111841.158049-1-cwweng.linux@gmail.com>
+	Wed, 23 Oct 2024 11:20:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD2E9A44D55;
+	Wed, 23 Oct 2024 11:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7F02C4CEC6;
+	Wed, 23 Oct 2024 11:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729682410;
+	bh=tc4l2Y6qujgXL1mb4ojYmiIMvOzve59JJSCmIJ+XW+Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UbUWV9CsjLgcLVxkjj6MbHCxwwkjEhim+kIbovtrZEWf/RUGeALso976xhda5BPbo
+	 9YxD+w5Fna8Y+/5of3YUc1eIASxnc+etA5geexLSOPIK5ITCDu0H0+oB+EMtal+vQ/
+	 OB5D4b9Sh5CCjtvjTw3e3KnPLScTdIq3bJp29i0lEopFZ1Ex9ZzacapD0+jRc6ESBH
+	 sx5wK3pIdOKTy6/QD6TTf/SHNWwlyWUHC/XMaDT0Oyg9qVmlDCcQKxMnuSM+ZlZY6v
+	 JskejtRimt+PMwEaUACIpfRke6ImGPuddUW9CB7oEkzGbqOI5bmO9vr6b37UvKt/5p
+	 atpLNMYG0qDQQ==
+Date: Wed, 23 Oct 2024 12:20:05 +0100
+From: Simon Horman <horms@kernel.org>
+To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	lftan.linux@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Maxime Coquelin <maxime.coquelin@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next, v1 0/3] net: stmmac: dwmac4: Fixes bugs in
+ dwmac4
+Message-ID: <20241023112005.GN402847@kernel.org>
+References: <20241021054849.1801838-1-leyfoon.tan@starfivetech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241021054849.1801838-1-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_041938_989806_2BD4F938 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20241023_042012_301893_6E588F6C 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,228 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit adds a generic PWM framework driver for Nuvoton MA35D1
-PWM controller.
++ Andrew, Giuseppe, Maxime, linux-arm-kernel, linux-stm32
 
-Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Sean Young <sean@mess.org>
-Reviewed-by: "Uwe Kleine-Konig" <ukleinek@kernel.org>
----
- drivers/pwm/Kconfig      |   9 +++
- drivers/pwm/Makefile     |   1 +
- drivers/pwm/pwm-ma35d1.c | 169 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 179 insertions(+)
- create mode 100644 drivers/pwm/pwm-ma35d1.c
+On Mon, Oct 21, 2024 at 01:48:45PM +0800, Ley Foon Tan wrote:
+> This patch series fixes the bugs in the dwmac4 drivers.
+> 
+> Based on the feedback in [1], split the patch series into net and net-next,
+> and resubmit these three patches to net-next.
+> 
+> [1] https://patchwork.kernel.org/project/netdevbpf/cover/20241016031832.3701260-1-leyfoon.tan@starfivetech.com/
+> 
+> Ley Foon Tan (3):
+>   net: stmmac: dwmac4: Fix MTL_OP_MODE_RTC mask and shift macros
+>   net: stmmac: dwmac4: Fix the MTL_OP_MODE_*_MASK operation
+>   net: stmmac: dwmac4: Receive Watchdog Timeout is not in abnormal
+>     interrupt summary
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4.h     | 4 ++--
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c | 4 ++--
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c | 6 ++++--
+>  3 files changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 0915c1e7df16..97b9e83af020 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -411,6 +411,15 @@ config PWM_LPSS_PLATFORM
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-lpss-platform.
- 
-+config PWM_MA35D1
-+	tristate "Nuvoton MA35D1 PWM support"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	help
-+	  Generic PWM framework driver for Nuvoton MA35D1.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-ma35d1.
-+
- config PWM_MESON
- 	tristate "Amlogic Meson PWM driver"
- 	depends on ARCH_MESON || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 9081e0c0e9e0..c1d3a1d8add0 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -36,6 +36,7 @@ obj-$(CONFIG_PWM_LPC32XX)	+= pwm-lpc32xx.o
- obj-$(CONFIG_PWM_LPSS)		+= pwm-lpss.o
- obj-$(CONFIG_PWM_LPSS_PCI)	+= pwm-lpss-pci.o
- obj-$(CONFIG_PWM_LPSS_PLATFORM)	+= pwm-lpss-platform.o
-+obj-$(CONFIG_PWM_MA35D1)	+= pwm-ma35d1.o
- obj-$(CONFIG_PWM_MESON)		+= pwm-meson.o
- obj-$(CONFIG_PWM_MEDIATEK)	+= pwm-mediatek.o
- obj-$(CONFIG_PWM_MICROCHIP_CORE)	+= pwm-microchip-core.o
-diff --git a/drivers/pwm/pwm-ma35d1.c b/drivers/pwm/pwm-ma35d1.c
-new file mode 100644
-index 000000000000..0c4eec4a0b07
---- /dev/null
-+++ b/drivers/pwm/pwm-ma35d1.c
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the Nuvoton MA35D1 PWM controller
-+ *
-+ * Copyright (C) 2024 Nuvoton Corporation
-+ *               Chi-Wen Weng <cwweng@nuvoton.com>
-+ */
-+
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/io.h>
-+#include <linux/clk.h>
-+#include <linux/math64.h>
-+
-+/* The following are registers for PWM controller */
-+#define REG_PWM_CTL0            (0x00)
-+#define REG_PWM_CNTEN           (0x20)
-+#define REG_PWM_PERIOD0         (0x30)
-+#define REG_PWM_CMPDAT0         (0x50)
-+#define REG_PWM_WGCTL0          (0xB0)
-+#define REG_PWM_POLCTL          (0xD4)
-+#define REG_PWM_POEN            (0xD8)
-+
-+#define PWM_TOTAL_CHANNELS      6
-+#define PWM_CH_REG_SIZE         4
-+
-+struct nuvoton_pwm {
-+	void __iomem *base;
-+	u64 clkrate;
-+};
-+
-+static inline struct nuvoton_pwm *to_nuvoton_pwm(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static int nuvoton_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			     const struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm;
-+	unsigned int ch = pwm->hwpwm;
-+
-+	nvtpwm = to_nuvoton_pwm(chip);
-+	if (state->enabled) {
-+		u64 duty_cycles, period_cycles;
-+
-+		/* Calculate the duty and period cycles */
-+		duty_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+						  state->duty_cycle, NSEC_PER_SEC);
-+		if (duty_cycles > 0xFFFF)
-+			duty_cycles = 0xFFFF;
-+
-+		period_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+						    state->period, NSEC_PER_SEC);
-+		if (period_cycles > 0xFFFF)
-+			period_cycles = 0xFFFF;
-+
-+		/* Write the duty and period cycles to registers */
-+		writel(duty_cycles, nvtpwm->base + REG_PWM_CMPDAT0 + (ch * PWM_CH_REG_SIZE));
-+		writel(period_cycles, nvtpwm->base + REG_PWM_PERIOD0 + (ch * PWM_CH_REG_SIZE));
-+		/* Enable counter */
-+		writel(readl(nvtpwm->base + REG_PWM_CNTEN) | BIT(ch),
-+		       nvtpwm->base + REG_PWM_CNTEN);
-+		/* Enable output */
-+		writel(readl(nvtpwm->base + REG_PWM_POEN) | BIT(ch),
-+		       nvtpwm->base + REG_PWM_POEN);
-+	} else {
-+		/* Disable counter */
-+		writel(readl(nvtpwm->base + REG_PWM_CNTEN) & ~BIT(ch),
-+		       nvtpwm->base + REG_PWM_CNTEN);
-+		/* Disable output */
-+		writel(readl(nvtpwm->base + REG_PWM_POEN) & ~BIT(ch),
-+		       nvtpwm->base + REG_PWM_POEN);
-+	}
-+
-+	/* Set polarity state to register */
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		writel(readl(nvtpwm->base + REG_PWM_POLCTL) & ~BIT(ch),
-+		       nvtpwm->base + REG_PWM_POLCTL);
-+	else
-+		writel(readl(nvtpwm->base + REG_PWM_POLCTL) | BIT(ch),
-+		       nvtpwm->base + REG_PWM_POLCTL);
-+
-+	return 0;
-+}
-+
-+static int nuvoton_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-+				 struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm;
-+	unsigned int duty_cycles, period_cycles, cnten, outen, polarity;
-+	unsigned int ch = pwm->hwpwm;
-+
-+	nvtpwm = to_nuvoton_pwm(chip);
-+
-+	cnten = readl(nvtpwm->base + REG_PWM_CNTEN);
-+	outen = readl(nvtpwm->base + REG_PWM_POEN);
-+	duty_cycles = readl(nvtpwm->base + REG_PWM_CMPDAT0 + (ch * PWM_CH_REG_SIZE));
-+	period_cycles = readl(nvtpwm->base + REG_PWM_PERIOD0 + (ch * PWM_CH_REG_SIZE));
-+	polarity = readl(nvtpwm->base + REG_PWM_POLCTL) & BIT(ch);
-+
-+	state->enabled = (cnten & BIT(ch)) && (outen & BIT(ch));
-+	state->polarity = polarity ? PWM_POLARITY_INVERSED : PWM_POLARITY_NORMAL;
-+	state->duty_cycle = DIV64_U64_ROUND_UP((u64)duty_cycles * NSEC_PER_SEC, nvtpwm->clkrate);
-+	state->period = DIV64_U64_ROUND_UP((u64)period_cycles * NSEC_PER_SEC, nvtpwm->clkrate);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops nuvoton_pwm_ops = {
-+	.apply = nuvoton_pwm_apply,
-+	.get_state = nuvoton_pwm_get_state,
-+};
-+
-+static int nuvoton_pwm_probe(struct platform_device *pdev)
-+{
-+	struct pwm_chip *chip;
-+	struct nuvoton_pwm *nvtpwm;
-+	struct clk *clk;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(&pdev->dev, PWM_TOTAL_CHANNELS, sizeof(*nvtpwm));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	nvtpwm = to_nuvoton_pwm(chip);
-+
-+	nvtpwm->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(nvtpwm->base))
-+		return PTR_ERR(nvtpwm->base);
-+
-+	clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "unable to get the clock");
-+
-+	nvtpwm->clkrate = clk_get_rate(clk);
-+	if (nvtpwm->clkrate > NSEC_PER_SEC)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "pwm clock out of range");
-+
-+	chip->ops = &nuvoton_pwm_ops;
-+	chip->atomic = true;
-+
-+	ret = devm_pwmchip_add(&pdev->dev, chip);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret, "unable to add pwm chip");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nuvoton_pwm_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-pwm" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, nuvoton_pwm_of_match);
-+
-+static struct platform_driver nuvoton_pwm_driver = {
-+	.probe = nuvoton_pwm_probe,
-+	.driver = {
-+		.name = "nuvoton-pwm",
-+		.of_match_table = nuvoton_pwm_of_match,
-+	},
-+};
-+module_platform_driver(nuvoton_pwm_driver);
-+
-+MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
-+MODULE_DESCRIPTION("Nuvoton MA35D1 PWM driver");
-+MODULE_LICENSE("GPL");
+Hi Ley Foon Tan,
+
+Thanks for the updates.
+
+A few more points on process. Sorry for not pointing these out earlier.
+
+* Please base the CC list on the output of get_maintainers.pl FILE.patch.
+  b4 can help with this.
+
+* Please do not include Fixes tags in patches for net-next
+  (while please do for patches for net).
+
+  If you wish to cite a patch you can use the following form,
+  which may be line-wrapped, in the commit message (above the
+  Signed-off-and other tags).
+
+    Some text describing things that relate to
+    commit 48863ce5940f ("stmmac: add DMA support for GMAC 4.xx")
+
+    Signed-off-by: ...
+
+* Please include some informative text in the cover letter.
+  It will form part of git history. E.g.:
+
+  - [PATCH net-next 0/3] net: sysctl: allow dump_cpumask to handle higher numbers of CPUs
+    https://lore.kernel.org/all/20241017152422.487406-1-atenart@kernel.org/
+
+  Which became:
+
+  - Merge branch 'net-sysctl-allow-dump_cpumask-to-handle-higher-numbers-of-cpus'
+    https://git.kernel.org/netdev/net-next/c/94fa523e20c3
+
+More information on process for Networking patches can be found here:
+https://docs.kernel.org/process/maintainer-netdev.html
+
 -- 
-2.25.1
-
+pw-bot: changes-requested
 
