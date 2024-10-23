@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31B8CF538E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9856DCF5392
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=; b=ScpCj4EZAxxJCvzsaHLbqgFwNO
-	p/C4+3xISonGqZTJZjmy05GlY2Wz/ZXBX7Ts6+jBygJUM79PiR8Ksk4Zigg2IRrCPBvNO6IXxcGV0
-	ZphTUlCH4WaYpcIh2sQFNhn/uVr+j9wAS/Gyv7HPo187wuJ+1UV0K9iLhSDTGIABVq2B1TMbxhgVn
-	TwT3/3DBxVfAl6uFlreIWogg4f/ZdqVllFNeG9zJPsRdRjtoGn/XzZ0XqvvRHq0zIe9z9I2AX/cgH
-	F9K600K77Z4rQ4tT09e4IhxpeN8x87MMAA74LggjfHM1KiiyEKkL15Y0O7sV1OT5pOKChLeADOoUb
-	M89ZqWrw==;
+	bh=Kf4Ym45PRfz1AW5IFUzsA8dn4NT4TBP4awad4nDcnnc=; b=kOqBUHKD4Rz4VqgemXd7TJ80Bf
+	eL90JoKCLoBXifJ5Zx3212115tZ4AET/8rFiFyEnl8lDJDmWgN5piLyWwID5LZkMugl2t84UWM1Gy
+	JrrI7WmMKJFGgJ2gAUiDqKK+ZLR0lM40QXF2yeluK/O/Ct6aANVs7b/IZq2lmjM8jjXiXcGwse68v
+	0YvPaw4ZHofpndbD/VddNeTeBnyLtqDJ+wb3rPfw9Qj7Ahk1uRrxMSis27r2aMLgg2yNyPeh6HZ0h
+	cSub2D0Lxy0/TgGKNbCP3+Nllw3Zk9DvWMi1hkGQ2w1QD+3XlXkI1HKomtrgCdkoQs/8gEUDeGnqL
+	rsXAxJ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cC9-0000000EffF-3NmG;
-	Wed, 23 Oct 2024 14:18:41 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1t3cIf-0000000EgfG-3KIB;
+	Wed, 23 Oct 2024 14:25:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cAc-0000000EfUU-0fOT
+	id 1t3cH1-0000000EgLO-3Qht
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:17:08 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c940512711so1228376a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:17:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729693024; x=1730297824; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=;
-        b=UE73F7OT5V7708SO4Ayxhc073KV88JafuOBCjSyAuH/MaPXgv7ARZI2ZuXQiZRfaVX
-         LO9ystpFjxFkQbTk2czkLWV9Sjv8L6SGbtTQGtgyIw1ArxIwRS+1Lf8xrfvnwL9/bq/x
-         maRrjbqZAeCBMGT7s4tZJuWs3Br37KtLDP9kRjJWr5fTNN8TwT09x7EcDPlLVBU12dKw
-         WIV90IMPuE8J+cqDjoIHyVBM7fCOkSwPA4RR9vdm1tHOEJj2so6XSzgKE4sg1dc1uBG8
-         t9dc/mlUuSXLI7RLZLVJjk01cv/wPRAriP+uWMLyPa++Cca70j38Ho7PULoZKQwQS6US
-         xAOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729693024; x=1730297824;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=;
-        b=WQgjoTOsEf/zd/BL9TcO+s+BHsssviOZL4Ufne+QZt/0AVesnVFdUQy5AK4NXY+quW
-         tn685HxVDGRlrs3rnQwY02qEJ8u/H3sa9NP9g4HpC1joChx1cqqC9Ey3yJ3/KpuWbir5
-         ch/GfokQRTYiTMLuEkxA2n3RI0e60tKluA5DM/deIBVwORMp/13O1ixB7LGqCRt2gCYo
-         C4zQbGb2Miu7zR1ihOAGxmkhz6fTnsm4aD+p1TvYHZzpk02XtHD4BD9mfwlgaezbyL8n
-         K+vIPlveDvEWW1i8gsTnGTUGMp204qoDk6jVHBlrNnBcV/NT1Z+Hg3tWamMT5QJ2ANW7
-         erGg==
-X-Forwarded-Encrypted: i=1; AJvYcCWffqeQKUqZ8zeWR/ipVkfPJPfIDElJKrxP1YV25xZklJ5ArcYxUUNXjiKODAyC7/u+Jpn0TdOiVuVSEeRZe+Lg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw1+qohGK0IgNgLfmUi0eL7p6BBMouTxw4nJQnDM46FxWXfvmM
-	br+JPfsxqsez2P89FNs/LOZRzKZzCf0ccjiAkQSU4R5m7YR4qmlv
-X-Google-Smtp-Source: AGHT+IEV0YikMikXJEsk3rCrnY1FH/p9IQzfHmP4dSCxt90dLsVCtjcMi6dhpcSlH+cOBzDnw0R7Bw==
-X-Received: by 2002:a17:906:f5a7:b0:a9a:5b78:cee5 with SMTP id a640c23a62f3a-a9abf92b233mr112552866b.9.1729693024025;
-        Wed, 23 Oct 2024 07:17:04 -0700 (PDT)
-Received: from skbuf ([188.25.134.29])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a9137053csm481018066b.115.2024.10.23.07.17.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 07:17:03 -0700 (PDT)
-Date: Wed, 23 Oct 2024 17:17:00 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v3 3/6] net: stmmac: Refactor FPE functions to
- generic version
-Message-ID: <20241023141700.niz3ow2xu6pbgbg4@skbuf>
-References: <cover.1729663066.git.0x1207@gmail.com>
- <4949cb6845b8a4e7c79af4165814fad270459f7b.1729663066.git.0x1207@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4949cb6845b8a4e7c79af4165814fad270459f7b.1729663066.git.0x1207@gmail.com>
+	Wed, 23 Oct 2024 14:23:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6B39DA44B8A;
+	Wed, 23 Oct 2024 14:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49496C4CEC6;
+	Wed, 23 Oct 2024 14:23:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729693422;
+	bh=UZalNqqn9cg9w1aVQzG5s81lrOQsERIxz1Yb5xKvGk0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j8M+OpB0N9oMssWJR0CxC8YsgqeWBiwoYuhckZGh0U5d3g9UwO4ZsqksS2fkWt0ol
+	 2lBZpH1QWw1Yb+mtJscZ4KGsDKKjNu3ZVicnykzTsGgE6jhXLCGhRzSAZV/QE94xHx
+	 4twGxTV+GEF6s8IiW/gMstmhhYXLSJuJOeU+vpoMDzyDsLV5uPMFU9WTSXTQOHNAbc
+	 sqUZNvGcxA/wnYshf+8dqxnEaw+3WPOL/kDR+TdHAcRvOL40NAhvV7Vu4xxAQ5aBdR
+	 Wdm3m4ZQ91KMgGFRM0VJOhusMWnnifIhXmDEugyLLZoUHraz6fUexZa2Lr8Yk9klmf
+	 vOET/7dCYOOEQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3cGy-00689F-1x;
+	Wed, 23 Oct 2024 15:23:40 +0100
+Date: Wed, 23 Oct 2024 15:23:39 +0100
+Message-ID: <8634km5250.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Kunkun Jiang <jiangkunkun@huawei.com>
+Subject: Re: [PATCH] irqchip/gic-v4: Don't allow a VMOVP on a dying VPE
+In-Reply-To: <bb3a38d9-4eb8-83ff-8b94-dd1bc80d005f@huawei.com>
+References: <20241002204959.2051709-1-maz@kernel.org>
+	<aab45cd3-e5ca-58cf-e081-e32a17f5b4e7@huawei.com>
+	<87wmhztd9z.wl-maz@kernel.org>
+	<bb3a38d9-4eb8-83ff-8b94-dd1bc80d005f@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, jiangkunkun@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_071706_255123_3F3C1FDC 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20241023_072344_024588_8D2BA457 
+X-CRM114-Status: GOOD (  44.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +88,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 03:05:23PM +0800, Furong Xu wrote:
-> -void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
-> -			  u32 num_txq, u32 num_rxq,
-> +void stmmac_fpe_configure(struct stmmac_priv *priv, u32 num_txq, u32 num_rxq,
->  			  bool tx_enable, bool pmac_enable)
->  {
-> +	struct stmmac_fpe_cfg *cfg = &priv->fpe_cfg;
-> +	const struct stmmac_fpe_reg *reg = cfg->reg;
-> +	void __iomem *ioaddr = priv->ioaddr;
->  	u32 value;
->  
-> +	if (!reg)
-> +		return;
-
-What are all these "if (!reg) return" checks protecting against?
-At all call sites you ensure that priv->dma_cap.fpesel is true.
-If defense against driver writers is necessary, check only once at boot
-time that if priv->dma_cap.fpesel is true, we have a way to handle it
-(priv->fpe_cfg.reg is set). Or are there still supported DWMAC variants
-with the FPE hardware capability but without driver support?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index ab547430a717..7874a955ab60 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5944,8 +5944,7 @@ static void stmmac_common_interrupt(struct stmmac_priv *priv)
->  				      &priv->xstats, tx_cnt);
->  
->  	if (priv->dma_cap.fpesel) {
-> -		int status = stmmac_fpe_irq_status(priv, priv->ioaddr,
-> -						   priv->dev);
-> +		int status = stmmac_fpe_irq_status(priv);
->  
->  		stmmac_fpe_event_status(priv, status);
->  	}
-
-I think this coding pattern is illogical, and the code refactoring makes
-it more apparent. stmmac_common_interrupt() does nothing with "status",
-it just takes it as a return code from stmmac_fpe_irq_status(), and
-passes it to stmmac_fpe_event_status(), both of which are in
-stmmac_fpe.c. Why isn't there a direct tail call from one function to
-the other, to simplify the external API exposed by stmmac_fpe.h?
-
-> -- 
-> 2.34.1
+On Wed, 23 Oct 2024 14:51:40 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
 > 
+> On 2024/10/23 16:49, Marc Zyngier wrote:
+> > Hi Zenghui,
+> > 
+> > On Tue, 22 Oct 2024 08:45:17 +0100,
+> > Zenghui Yu <yuzenghui@huawei.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On 2024/10/3 4:49, Marc Zyngier wrote:
+> > > > Kunkun Jiang reports that there is a small window of opportunity for
+> > > > userspace to force a change of affinity for a VPE while the VPE has
+> > > > already been unmapped, but the corresponding doorbell interrupt still
+> > > > visible in /proc/irq/.
+> > > >
+> > > > Plug the race by checking the value of vmapp_count, which tracks whether
+> > > > the VPE is mapped ot not, and returning an error in this case.
+> > > >
+> > > > This involves making vmapp_count common to both GICv4.1 and its v4.0
+> > > > ancestor.
+> > > >
+> > > > Reported-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > > Link: https://lore.kernel.org/r/c182ece6-2ba0-ce4f-3404-dba7a3ab6c52@huawei.com
+> > > > ---
+> > > >  drivers/irqchip/irq-gic-v3-its.c   | 18 ++++++++++++------
+> > > >  include/linux/irqchip/arm-gic-v4.h |  4 +++-
+> > > >  2 files changed, 15 insertions(+), 7 deletions(-)
+> > > >
+> > > > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> > > > index fdec478ba5e7..ab597e74ba08 100644
+> > > > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > > > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > > > @@ -797,8 +797,8 @@ static struct its_vpe *its_build_vmapp_cmd(struct its_node *its,
+> > > >  	its_encode_valid(cmd, desc->its_vmapp_cmd.valid);
+> > > >  
+> > > >  	if (!desc->its_vmapp_cmd.valid) {
+> > > > +		alloc = !atomic_dec_return(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > > >  		if (is_v4_1(its)) {
+> > > > -			alloc = !atomic_dec_return(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > > >  			its_encode_alloc(cmd, alloc);
+> > > >  			/*
+> > > >  			 * Unmapping a VPE is self-synchronizing on GICv4.1,
+> > > > @@ -817,13 +817,13 @@ static struct its_vpe *its_build_vmapp_cmd(struct its_node *its,
+> > > >  	its_encode_vpt_addr(cmd, vpt_addr);
+> > > >  	its_encode_vpt_size(cmd, LPI_NRBITS - 1);
+> > > >  
+> > > > +	alloc = !atomic_fetch_inc(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > > > +
+> > > >  	if (!is_v4_1(its))
+> > > >  		goto out;
+> > > >  
+> > > >  	vconf_addr = virt_to_phys(page_address(desc->its_vmapp_cmd.vpe->its_vm->vprop_page));
+> > > >  
+> > > > -	alloc = !atomic_fetch_inc(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > > > -
+> > > >  	its_encode_alloc(cmd, alloc);
+> > > >  
+> > > >  	/*
+> > > > @@ -3806,6 +3806,13 @@ static int its_vpe_set_affinity(struct irq_data *d,
+> > > >  	struct cpumask *table_mask;
+> > > >  	unsigned long flags;
+> > > >  
+> > > > +	/*
+> > > > +	 * Check if we're racing against a VPE being destroyed, for
+> > > > +	 * which we don't want to allow a VMOVP.
+> > > > +	 */
+> > > > +	if (!atomic_read(&vpe->vmapp_count))
+> > > > +		return -EINVAL;
+> > >
+> > > We lazily map the vPE so that vmapp_count is likely to be 0 on GICv4.0
+> > > implementations with the ITSList feature. Seems that that implementation
+> > > is not affected by the reported race and we don't need to check
+> > > vmapp_count for that.
+> > 
+> > Indeed, the ITSList guards the sending of VMOVP in that case, and we
+> > avoid the original issue in that case. However, this still translates
+> > in the doorbell being moved for no reason (see its_vpe_db_proxy_move).
+> 
+> Yup.
+> 
+> > How about something like this?
+> 
+> I'm pretty sure that the splat will disappear with that.
+> 
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> > index ab597e74ba08..ac8ed56f1e48 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -3810,8 +3810,17 @@ static int its_vpe_set_affinity(struct irq_data *d,
+> >  	 * Check if we're racing against a VPE being destroyed, for
+> >  	 * which we don't want to allow a VMOVP.
+> >  	 */
+> > -	if (!atomic_read(&vpe->vmapp_count))
+> > -		return -EINVAL;
+> > +	if (!atomic_read(&vpe->vmapp_count)) {
+> > +		if (gic_requires_eager_mapping())
+> > +			return -EINVAL;
+> 
+> Nitpick: why do we treat this as an error?
+
+Because at this stage we can't update the affinity anymore, and I see
+it as basic courtesy to let the caller know.
+
+> 
+> > +
+> > +		/*
+> > +		 * If we lazily map the VPEs, this isn't an error, and
+> > +		 * we exit cleanly.
+> > +		 */
+> > +		irq_data_update_effective_affinity(d, cpumask_of(cpu));
+> 
+> @cpu is uninitialized to a sensible value at this point?
+
+Ah! As usual, I wrote this on the train this morning, before having
+had much coffee, and didn't even compile-test it. Here's an amended
+patch, similarly untested.
+
+If that works for you, I'll put that in a proper patch for Thomas to
+merge.
+
+Thanks,
+
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index ab597e74ba08e..52f625e07658c 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3810,8 +3810,18 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	 * Check if we're racing against a VPE being destroyed, for
+ 	 * which we don't want to allow a VMOVP.
+ 	 */
+-	if (!atomic_read(&vpe->vmapp_count))
+-		return -EINVAL;
++	if (!atomic_read(&vpe->vmapp_count)) {
++		if (gic_requires_eager_mapping())
++			return -EINVAL;
++
++		/*
++		 * If we lazily map the VPEs, this isn't an error and
++		 * we can exit cleanly.
++		 */
++		cpu = cpumask_first(mask_val);
++		irq_data_update_effective_affinity(d, cpumask_of(cpu));
++		return IRQ_SET_MASK_OK_DONE;
++	}
+ 
+ 	/*
+ 	 * Changing affinity is mega expensive, so let's be as lazy as
+
+-- 
+Without deviation from the norm, progress is not possible.
 
