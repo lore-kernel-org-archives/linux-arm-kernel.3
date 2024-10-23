@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2056ACFA465
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557BACFA468
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ZZgc7NDi6YlZ282tPqnjhZ3qjRGLRGk4q9ZK0X/XpA=; b=1OtquX3ZEzeOEBVBsULOkdQzTE
-	cIKc3fSMstD5mAjSa1i8xFLQeVgi8NtMcMFnm/gxOyGYvoe1lYZMWUdmjzSHcJN55/l3rg+dJWHsc
-	v8iiFvTzqm4jib4qUZb+Ow70ejvjP6r2ntP0akNjgPaaO4Jn3TQOhjrLLVqLyEkpIyU9FiT4Rjs3O
-	584fB448XImif9iw4iKujEEzjs2v6cOjRIS3VhPh2ApGqhUZoWGi3M8RuJV9wh+mXTJM5zJjtq6zl
-	RDpIA9gPqwRW44ieUgHT9A/RuN9XeNot5k45crlmjTXjofhZsjJx2P9fHHsa/TKWa4QRrD5YzJn3v
-	2rWaMjBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pnofjtWFRW1a3Ex4iamW6Sy5pqigg3kUWm7+B1kI9+Q=; b=B+7a27IFwkCJgaUT5KdhY/QlFj
+	2Sudq11XxnHPNptSW1Q/j30G7DxtexDNYFp+G7FxIOSRJDiywYWd0mzJRq5gwIiSJwN0JEf9G+nDj
+	ErFRXik9W5Bbdih8QMgs29xvVlGTaB/lordk81hasZ1trdOWMYQlyiTHvoVsW/twqFNVlEAFQd/HZ
+	2ha0SHfwluLiz9cKKv0mFrmFmdzgMbfOzrJWhirgRPnHbscL4oCryH2LLiShs37WJqNh27mUn6G5f
+	TFI65cbj6zPHc57mpUa+apBsnNoqpVkFS5KAjhcfKP4TMT7sDAbkmePdgFYnbAdOBA4hYEcjm1Mpy
+	+Ow3aBvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hh6-0000000FmiY-2H3g;
-	Wed, 23 Oct 2024 20:11:00 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1t3hh8-0000000Fmk6-3VlK;
+	Wed, 23 Oct 2024 20:11:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3h0U-0000000FgXD-1ORW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 19:26:59 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7db54269325so87324a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:26:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729711617; x=1730316417; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/ZZgc7NDi6YlZ282tPqnjhZ3qjRGLRGk4q9ZK0X/XpA=;
-        b=hdg9C+EJ1pBEi1MkcCrh9yLnXYujRgYLF5ByunVouk7YwHlPDcYK7t9hGapSsg/BMf
-         MGzU7CzyMysZdzIrh+X8rzf1AfYjTDQH506Y2Y4/lEt3TDPR1ir6iq0zN4TkSbP1tkFa
-         Vgs6LXj2bdUgWWMSiK+qI2K+NcxfU8gxlcPTa+9v+b2Z/++dA4KSKLFvSwKJ0iAL0K8J
-         /fyBRQIrX1mN+u095d+MmN+nsaMDyU7YheHfmZK7dsnev4sajHaqdYlIC+3etpLOK1C/
-         S8WHvPQXvjRzdOY9HX0nWIiRiaYvKBUl1LV4KhPOhLylJ9IQ7VybU2YGSPbQJ9Qnqsrs
-         M9Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729711617; x=1730316417;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/ZZgc7NDi6YlZ282tPqnjhZ3qjRGLRGk4q9ZK0X/XpA=;
-        b=Po44U1QjnOMUa0z02ISDVSZ65mLg11gUiHbn7YgJ7urxlkiWvnHLWotOt/SwVC28se
-         3SsZ2WMy/K+xl15okRgkNDLH/KHPtwvDKVRDmuDvCLkt1GpL9Kx79FRkFZxjJ3pQg2wy
-         N+Wu2fvHjuIrEu4/doEikMccjA2xq8fQwr6jqzpWd4kSaUujefsXD50dhHH6PHc1rAVG
-         9p25n6tKZgMmyOamfsGSqDAF19ygPCvEp9tnDPE4pbC63zJiUlTZBdQhWTWw5xPUajtJ
-         Tq0uTHVwFMkN3rDJ2VbG+oHm/jsSEGwVxLVkOlPzQWu1OkdHU0vPzsdlV1DPofbIH7BU
-         y7tA==
-X-Gm-Message-State: AOJu0YwHFmdISLDRgVubnYyODM+Q4n1XbZ17JqnpWDZdlyOagd8x1oC6
-	riN+lbsd1erO6N9T7McAN3sbytjrNvjmy8YK3UHiG1v3alSeNDfv
-X-Google-Smtp-Source: AGHT+IE8cfK1Q3ro7s4ioQMLwil46AxPf6iM3nXK71sYBrDHb0MP+dy8N3vAGTBNXN/kiXG3Lo3xUQ==
-X-Received: by 2002:a17:90b:3890:b0:2e0:894f:198e with SMTP id 98e67ed59e1d1-2e76b6cdb36mr3930784a91.30.1729711617201;
-        Wed, 23 Oct 2024 12:26:57 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:248:317f:2ba9:e66c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76e0877a6sm1837839a91.54.2024.10.23.12.26.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 12:26:56 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH 2/3] ARM: dts: imx6sl: Remove incorrect mmc fallback compatible
-Date: Wed, 23 Oct 2024 16:26:37 -0300
-Message-Id: <20241023192638.1214045-2-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241023192638.1214045-1-festevam@gmail.com>
-References: <20241023192638.1214045-1-festevam@gmail.com>
+	id 1t3hIk-0000000FjR3-0CFs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 19:45:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pnofjtWFRW1a3Ex4iamW6Sy5pqigg3kUWm7+B1kI9+Q=; b=h/yD9D/860kV5yyshWWgMIMGPr
+	5Y/QxMgy8Qx7w2cTYX6kRQhdlB3KqN+MY4cNRvt94WqfJu2NixJ9fxTo1FARn0AAqDH8Vuz6Y9hDy
+	yCCJe/z8FtwFDDV/NMRQtAnkEH9L7b9ZtlOem2aYepMOLYuKN1/PuTkAA4FZsxMpz0mCfVgCAuGbS
+	+/bRgSqshAfX0KzU0kSNf8eN2HeVbC4k3Oic4VlOhr/Lol8SLWQ/Omq7d2xnGf5jC9cbiwoOSffm1
+	MN/J8bsc2HGzEjpkaTJRCjv0ggYmOAfUtDFpWrw7IXY8d755vXZRD4V+VugCbNw/JRk7466sntgBS
+	o71bzRkw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3hIe-00000008XNO-3Dyc;
+	Wed, 23 Oct 2024 19:45:46 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id D8E61301171; Wed, 23 Oct 2024 21:45:43 +0200 (CEST)
+Date: Wed, 23 Oct 2024 21:45:43 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v3] Avoid memory barrier in read_seqcount() through load
+ acquire
+Message-ID: <20241023194543.GD11151@noisy.programming.kicks-ass.net>
+References: <20240912-seq_optimize-v3-1-8ee25e04dffa@gentwo.org>
+ <20240917071246.GA27290@willie-the-truck>
+ <4b546151-d5e1-22a3-a6d5-167a82c5724d@gentwo.org>
+ <CAHk-=wgw3UErQuBuUOOfjzejGek6Cao1sSW4AosR9WPZ1dfyZg@mail.gmail.com>
+ <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_122658_396908_2162146D 
-X-CRM114-Status: GOOD (  10.87  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On Mon, Sep 23, 2024 at 09:28:31AM -0700, Linus Torvalds wrote:
+> On Wed, 18 Sept 2024 at 08:22, Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
+> >
+> > On Wed, 18 Sept 2024 at 13:15, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
+> > >
+> > > Other arches do not have acquire / release and will create additional
+> > > barriers in the fallback implementation of smp_load_acquire. So it needs
+> > > to be an arch config option.
+> >
+> > Actually, I looked at a few cases, and it doesn't really seem to be true.
+> 
+> Bah. I ended up just committing the minimal version of this all. I
+> gave Christoph credit for the commit, because I stole his commit
+> message, and he did most of the work, I just ended up going "simplify,
+> simplify, simplify".
+> 
+> I doubt anybody will notice, and smp_load_acquire() is the future. Any
+> architecture that does badly on it just doesn't matter (and, as
+> mentioned, I don't think they even exist - "smp_rmb()" is generally at
+> least as expensive).
 
-Per fsl-imx-esdhc.yaml, the correct compatible string for i.MX6SL is:
+Do we want to do the complementing patch and make write_seqcount_end()
+use smp_store_release() ?
 
-compatible = "fsl,imx6sl-usdhc"
-
-Remove the undocumented "fsl,imx6q-usdhc" fallback compatible.
-
-This fixes the following dt-schema warnings:
-
-mmc@2190000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too long
-	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too short
-	'fsl,imx50-esdhc' was expected
-	...
-
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/imx/imx6sl.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-index 6aa61235e39e..0883dee72bb6 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-@@ -859,7 +859,7 @@ fec: ethernet@2188000 {
- 			};
- 
- 			usdhc1: mmc@2190000 {
--				compatible = "fsl,imx6sl-usdhc", "fsl,imx6q-usdhc";
-+				compatible = "fsl,imx6sl-usdhc";
- 				reg = <0x02190000 0x4000>;
- 				interrupts = <0 22 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USDHC1>,
-@@ -871,7 +871,7 @@ usdhc1: mmc@2190000 {
- 			};
- 
- 			usdhc2: mmc@2194000 {
--				compatible = "fsl,imx6sl-usdhc", "fsl,imx6q-usdhc";
-+				compatible = "fsl,imx6sl-usdhc";
- 				reg = <0x02194000 0x4000>;
- 				interrupts = <0 23 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USDHC2>,
-@@ -883,7 +883,7 @@ usdhc2: mmc@2194000 {
- 			};
- 
- 			usdhc3: mmc@2198000 {
--				compatible = "fsl,imx6sl-usdhc", "fsl,imx6q-usdhc";
-+				compatible = "fsl,imx6sl-usdhc";
- 				reg = <0x02198000 0x4000>;
- 				interrupts = <0 24 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USDHC3>,
-@@ -895,7 +895,7 @@ usdhc3: mmc@2198000 {
- 			};
- 
- 			usdhc4: mmc@219c000 {
--				compatible = "fsl,imx6sl-usdhc", "fsl,imx6q-usdhc";
-+				compatible = "fsl,imx6sl-usdhc";
- 				reg = <0x0219c000 0x4000>;
- 				interrupts = <0 25 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USDHC4>,
--- 
-2.34.1
-
+I think at least ARM (the 32bit thing) has wmb but uses mb for
+store_release. But I also think I don't really care about that.
 
