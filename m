@@ -4,151 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F82CFA472
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2CDCFA474
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OwJHVorwmhSHh+9557UmkAFZ8m/q8xP9IECgyyqp5Mc=; b=I+rbUtmOymYtpp1XMxa0p96H0w
-	6kOqdEWOiNm1l0BaWAv5aod3dChnmq8l/wgJgAm9cIW1MhoGzPCMLhamhF5RBtK+B40aE9NZ4wfCy
-	HSitF/UpC/aNZJaFUJxTHuDqgc9AkhEg4Ida2iny9xEL4TrZtC6WmvNrQyzWhD0uMP6JzA1LuYOle
-	+3rPniHOvu7r+iIaVMniWdYzfEFDbdewm/1nhld4PBABQ+XkuA58XYyEhBbQQphOV22Ckh/VVSKI5
-	tjgnQCeylB3+6NbDR+2NBe+xJY+kZIbkH1GvrZ5sbEWb0eSbYcycREI9jq2saexKtUtfsxL2E2rPM
-	cVcisZNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=; b=YtSFnMuLFh7v0VgbBqeHMvl4U2
+	FdKMuzAL9ck2v6UYGkEZ0uhm4Bt63IVEU55GbE5CQQvfcI3f7R5UqhuylE5PRNV7oPtCo53ywhq4n
+	GQXaq+E/dtwXOKVpk3IBLVTFKxZKgLFDTfWtpPSVSSlEvW7VG4dziQ54lbJPhniEaRrPjxB603hR+
+	mlwuk5ebOrBZnYoC1TE0btWiLlvygeYm63L/j6MLp09oWqCEn2uOAWpsRuVBjSIcvGJ8d6q3stXvE
+	wuXvco0Q7FVCzHiIx07MDBBgSahtkSsd2FtR/0dHUZLGqCy+Ng5ZkFcmwiboQObBXlfIZVhcdipdt
+	Lv3Zllpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iXf-0000000Fvdq-0BdO;
-	Wed, 23 Oct 2024 21:05:19 +0000
-Received: from mail-db8eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2614::60d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t3ihy-0000000Fx4Y-03LB;
+	Wed, 23 Oct 2024 21:15:58 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iVz-0000000Fv8Z-3on2
+	id 1t3h0X-0000000FgXo-2eLC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 21:03:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I3p7pfLV4SgiaQKGgu/IKBl2e5990VC9tFIxhrsgz/MN/Gs1kf9p4B9/MhrkSsgIwqKAKBrbVQdlVw74YhKwlPR0wMGlFYIkiNv8cbuV5c+VUOPPAVSuEVyWM6GQR2Y+75PTQo76sc78w0J/JIjq08JIr0/ghuf0sTOGPlXtPZKqr88z3Zp43d0lO3KG0JDgx2p/t22CDX2VxsPuvJNgrmMqo7K8SbeNk/X7QrlH/m0uwE0W7rs6XNnuUfNpETg1yiJ7o74FxFBgk2ZuLWtOvIEFSfNKiPq94R5JEFvhgpHwdhAypsoRZLeb7hdwL0tBJfCo0NXcXu96GwZsGludpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OwJHVorwmhSHh+9557UmkAFZ8m/q8xP9IECgyyqp5Mc=;
- b=bNFuGVOuoHpv/PLkfe5J1xGwtsVZtAElRT4K3MRt5ePTiQxw7vfcfqMAF7e6UyP2oYdExFKLZg4Cjx31/430O9mPlVSWSgu4BW9JDI0UUvD7H7ZIF9MOTjb1f67vLLbc+EU0ICIAtwN69Mne2AQOtvH44zohJLiKOjfzeqmuO19p547rKbbvqi/M7i1z6TtClpOHAbjJT5njhtXcq17gvZPJcDNjpE34wePAMh48YCvx1NkyHaxKRIP0pD+UHkJDmxNsT9X1YK+RUYzXiVuTJtuufQ3AMLzavKDREigi33JD455iBelWC9H+GoE2v4wkISsAYU9H/CX3CRy4SG+h0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OwJHVorwmhSHh+9557UmkAFZ8m/q8xP9IECgyyqp5Mc=;
- b=PeekBMMQQjVBcEo9WSSUqOKKuFv84rJpdQfR93LeWyt+21AwDdW4vkTSJrdZDj86a+goy5Ft+0GqcdiH1s+1F83h5dEnBR3Gmalf3U/df6r35/lQQk2XcxcOI7/6OB14fbfjlUfI4nBj0CAfli+1gEQn/OYJM+sudT83zPTOSc/06lDEeYeaN+s1exFaLGSKLI6Z9k5nlmmHv8irBsyAzxzSvQBfVIy/YwyKYdmSqoB5sUcl3uHzz1QvkrDOEzhQe+xE15S4fWdiq6wDcI6h87kSO/LmeWHoefDkTMsjimnO/Wecsr60uO0tQv5LpTVFVsEL7C9ZXvITdoV/So4bnw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU2PR04MB8853.eurprd04.prod.outlook.com (2603:10a6:10:2e0::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Wed, 23 Oct
- 2024 21:03:31 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Wed, 23 Oct 2024
- 21:03:30 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux@ew.tq-group.com (open list:TQ SYSTEMS BOARD & DRIVER SUPPORT),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 1/1] arm64: dts: imx8mn-tqma8mqnl-mba8mx-usbot: fix coexistence of output-low and output-high in GPIO
-Date: Wed, 23 Oct 2024 17:03:13 -0400
-Message-Id: <20241023210313.1390767-1-Frank.Li@nxp.com>
+	Wed, 23 Oct 2024 19:27:02 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2fb304e7dso176431a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:27:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729711620; x=1730316420; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=;
+        b=W8Wa2VnFkWDnvUl9GxWPRAQ/jc3wU/f+GW98pAeOEZU3c0bBg88TnOohagGKv9gbK6
+         QzsAdq5W1zwaB58+JW+Hdwp1itY1yiMwPMiJ9i7QzQWubJkf4TG9dFQTnV0AItBMekrA
+         rK3mNOLYohmKuhtflp61sppKdcz94fjgUpnTY0HwG9mvhU4ZqT3r5imjXtR1Gi2TfgAy
+         aMFcES37JOSPbqpM/brdzgz475pyUdR/kJcJWLgxokDtgkd1ytP23h++7frxmZEIPqpw
+         mceMadf/w0W039LZ2r+aHWnoQNOerEK0JEyvHcUjjSae1JKddimLDetnP+MYCpxxbwKv
+         POew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729711620; x=1730316420;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=;
+        b=GmwQiEmN033ACetwWH/atFcCN6JV1U6MC9D0TJRBtqY7tpBWf+RGOc78/vmWcundmA
+         nuOyZmZUWT/OF8uwU4sDBxJmv5cqfhRHjdCf2NdIpTp+8TQA/DHqYC59+QNKo9fsSTtp
+         FfzENutbat9EdcFwNTq912YpYa3h9RnzFyoGv5RqTC9eMIDyMIfDCBNbL36IJq0LwFe/
+         2Ocr7EUY0IRE7JB7E9aC+2Q9SbQaUEm4OlGaWS/+/9JOMDRW0/AwftSTFuudV/KKzF4f
+         3ucP22vrJArv+rh3wb6gNWG9jK/MU6RmoASsVSJW9LdT8lPRDxXgwkb8LAcP59uF/QgD
+         c+Yg==
+X-Gm-Message-State: AOJu0Yy7bzw+pf7zieljyXrz8wjsG0MEfWXyCTJ/MyNrQwoIaaV0eLYt
+	fZgaV/GV8dMGbeMqmxjgHbIwT51LDjWJM06RzeB1JpDbUr28qpj2
+X-Google-Smtp-Source: AGHT+IEQiy/xrKWaVqAIUMeAVSlB84ZE8bBKTViAbSYn9QvjbVrK0iE88B1fokuihlvyMJ2UBAPz3w==
+X-Received: by 2002:a17:90a:7e91:b0:2e2:daab:cc69 with SMTP id 98e67ed59e1d1-2e76b5dbaf9mr3946085a91.12.1729711620181;
+        Wed, 23 Oct 2024 12:27:00 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:248:317f:2ba9:e66c])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76e0877a6sm1837839a91.54.2024.10.23.12.26.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 12:26:59 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH 3/3] ARM: dts: imx7ulp: Remove incorrect mmc fallback compatible
+Date: Wed, 23 Oct 2024 16:26:38 -0300
+Message-Id: <20241023192638.1214045-3-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR05CA0111.namprd05.prod.outlook.com
- (2603:10b6:a03:334::26) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+In-Reply-To: <20241023192638.1214045-1-festevam@gmail.com>
+References: <20241023192638.1214045-1-festevam@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB8853:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec178e6f-021b-4b3b-21b3-08dcf3a625fa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IlDN7icGtgw4z6vZFm91XFqU55bPudGbjIqc3qz67rS3FTWWDTvc9fU8bii0?=
- =?us-ascii?Q?zts4QNIz703xhFZeAEZNs97TCCm0MaE9hI4q01Hy4tRS9PsvU6tF4Q/Z+7/8?=
- =?us-ascii?Q?LdhZEmGwFb7b3KBHqK0hkF5qQhIDQedWa8t1mYG/lWxkfUzXhNTrTzo4mxX5?=
- =?us-ascii?Q?Axc4wlfZKiiLi/0QVoHM+NWdFHt/xZ6F1JJrCgjf8hKGDgjaeHDxu6kVuX4n?=
- =?us-ascii?Q?+ZYn6g4CQ4PAy+GmN9dYf6qwoQxoy2BL8rdYI94/hFfPJC0I+u5v18O1yiHh?=
- =?us-ascii?Q?Db/H1fHOo3bKt5cEp+ZsRt70EDZz5j+EtCyUK8GEPsHuBrGGOLlMa9Q/wACn?=
- =?us-ascii?Q?/NEYVeEJtVdo03jgg4FxkSApa8WkBdWNxe/mmF7iBQF6EXDCUuObTfvEp9cf?=
- =?us-ascii?Q?089uGBC1+3ezJHQleGSkJPKA/OYeOeeSBEE3Weap9aKRPDLKwchT8VmtdGfI?=
- =?us-ascii?Q?R0q7+O+8U+ohqOmA3qCXHZad/pGjmf2vhBzhfArjzo54SuyN/i/dgA69lSRh?=
- =?us-ascii?Q?LGib6pWaPO2znOLG4rs9pLS9Qtv8qGG8ZAfyp12uGkLxQstmLVT2Kj3s9Eb3?=
- =?us-ascii?Q?ac0ONtQ+D2i8Ha+0GNBh6iEtMffgH9HKveEKTySvUgHvcJG6IfQTehDTOf2q?=
- =?us-ascii?Q?ZYayijO2tnEkWNLRAzyrclxfunhh88tVm3kHFbo6VfZAaLDdQAkRUqMoHhx5?=
- =?us-ascii?Q?h6fjjfHUZFKS+40VSXgeudne7tx37jai8vGolqUVKHZC5+eBtEbVP02i+jaX?=
- =?us-ascii?Q?kGSQ1CFbMFfMV3mcwuLaaC68PUP3g6aU5elHhl9RN+Lw4R8geuLdhvhnAv5p?=
- =?us-ascii?Q?g6zxdDzjyCDEucD+BIV6Kt8snki7+TzeZt2A0MymITnXY+QU6c2xKr7zkZbY?=
- =?us-ascii?Q?oIwSkRwzpGaCKXT8p/QOeeP0bAtfrZ+uTdFGS8/HbBzFIWxSt8KNDi8fHJcS?=
- =?us-ascii?Q?RRly6sE95bx9DYx8Tt+cW1KOsxRqunt/hHSIi9ztBddKG1arosP8rtWrpLRj?=
- =?us-ascii?Q?w4ids0T5ucsZWOuMGSR8fS7AMD5FCMP/PbPZ2KLhpTQfs8ALeJgRTMGEOylT?=
- =?us-ascii?Q?kbCEDad+ZQqj4JGwuAWxkGLVyiHdqloUchC0IIt4pr9azDyCbTp1wgr1kCbc?=
- =?us-ascii?Q?8hmO+5OAxgLfK0ty5clcCY/RV+gw05DdEwZrQ19uj8tuIiAYImGUGZ7HEwoM?=
- =?us-ascii?Q?sPh7pxB6sLJtpNCJaxHDh3HzJAv30TpYaNtOKJmr1GuhohtMNu7lYNo4FaY1?=
- =?us-ascii?Q?583fP/T6anD72+EUSh8Je0qMZIofi6OwX/Z6Le1dXnqiP3q25GGlSjzTZrYs?=
- =?us-ascii?Q?6F103v9i521hIQrJOttvFzWw4IbjC91YtEO/csGnLgmkPF979cH/N4jYFw1F?=
- =?us-ascii?Q?8SheX9J1EmadzmZB5dABK1x9sn2r?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NtbsnYWOdwWppSJ7qnNPM3qz5VrDGSu9e3TbTU9dxsvJcFzeiT29eA9V3+7w?=
- =?us-ascii?Q?HVWQ3Nj1Op8b2Rne2uRhJuVecFCD0p2kzCryuuJRTVPAalri+k04peVnyc7p?=
- =?us-ascii?Q?nQNCs1mQL8qUmDVJfhIakZIaE11KvcM8hcXCcR29LP9MH7crciaIuZHsGcjp?=
- =?us-ascii?Q?JWfwPZsTFRjo6dcTGVJcEM3/5bcWe/5x4BqLNhHcMeGCswxXh+omHl5hnrCg?=
- =?us-ascii?Q?gr9FXTKmoMtVffH0+I5UTwcJy/jL0oLHzaBykkm48+5yL2VnYc2REIfj/d9n?=
- =?us-ascii?Q?r76SdeMhIL/OYn/ffIN5ewpr1bR5UiL06zORN1B31SK6YK0Niuvq3pP9dSFS?=
- =?us-ascii?Q?Ge7wzb9rR7BllmS8sLadui6ofPCSHiAhNMDfAYapagpgBMuXTu3koug7MBWX?=
- =?us-ascii?Q?9WXKkoh12HN+wIflVjYBKeJ4Ev9sc0+BVVTn4A307ooPS3Af7PZx9OYc9/cG?=
- =?us-ascii?Q?N2KPYYZ4/+bMd5hVTE5/gUKqOoCZBsEFpzUqtkZcuMfxs0QAS7f0HXym7wm2?=
- =?us-ascii?Q?VD77e21QL0wZXBdJUtnUAxlBUCSt3ivNDiv9VTtOsc990ublx3k3gfCjUvas?=
- =?us-ascii?Q?2dLZCCmYA9WAxLp0RXu1stMFRBlD02UoA8/jHIyoIfpAXXDf3nWHClBMDLHV?=
- =?us-ascii?Q?0kkxDKGIsxWSHFUKEIVzznGO0TZQqZbF/9ztDArKY1IeRod5pHH3pXoFW201?=
- =?us-ascii?Q?zNZkomI56i/Au/Tbk/NF6T4Lti0k3Ym0W0ahQX36QQB3rd0NXHBnJEtGkCqZ?=
- =?us-ascii?Q?JMcM3hxAH4+7LZP7l6W+cZJzxJ9LMM9nDU2dyKuoTz6BXi6PMBjcEeLXlG22?=
- =?us-ascii?Q?pGDTFbCbx4Yc2bPt0ILngJqEDningrn20/eCkBBf0kCcsAMkqNNeP6u/ycc5?=
- =?us-ascii?Q?Mjyn89ju/VH92BgFxmtbp0vObYy7qTOG9u+tKuZjZWQOtcCc9UQ3L/X24oJw?=
- =?us-ascii?Q?cPefUYU79kBvIYc3sfd6z1K6qvT5Mub8hwVehcN7cqrye4izkN70cUIy5DF3?=
- =?us-ascii?Q?k1KQVo9naSUySle0Q24jyRfE8578SS8pBrV9RMRDD21Db03Hw+7H0Cuk+eo3?=
- =?us-ascii?Q?+OaWRAwuuV1S/XYjbY8ezy5NW8+Jd9XsWOMyTqxZIQdNcm0UXmYrx7XWXnyV?=
- =?us-ascii?Q?33JHnUwMnfz0+HhZJHeRQ9SowkM9MRCXA8xcSc5GykeOq4mg07muPZ69sJuC?=
- =?us-ascii?Q?CAmbV/2Gb+POhBPE4Ltc4+UH2pybLpEN0SfCC137WW6+ZcL61iIr+s2zvMEO?=
- =?us-ascii?Q?8G8kmZHKGjNruIXdhuC1FxfFD/TSNMqvfDG3ey6dcOno+tOSD0qj2rM9ONZZ?=
- =?us-ascii?Q?qcNClv4nkwZ2ufrT9/UUt3L9ujd39Q/pnqsselOzkTNpaxlDz/luDd+xXlPa?=
- =?us-ascii?Q?XdnCsWZ/hz+ej5cXiNUJP68ajpK82ogLfcV7WF/1tyssUiJTFgSEJqi2NAs4?=
- =?us-ascii?Q?iA7ofiZRByF9HXWUFGJN/BJX2oap9ICvkACDmJXMa/kxAOcHATrCU5cv+pcS?=
- =?us-ascii?Q?rTXxby83CBldVv/tmbpCtJvPUTEufHPgnsSaJc38uAskmlQXW3ckamrZHxUj?=
- =?us-ascii?Q?vBMyYtYUyic6VGFzJJ+4iwUk+nm1exiWQ/yktOuG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec178e6f-021b-4b3b-21b3-08dcf3a625fa
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 21:03:30.8101
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I1dL7a/LQQKNqviSrCTvINmryGUjY8aQPe70+gn0VSy+magZk3Sj8JeFuGdrr5KJAdQittkoxW/R7aZxRdKGPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8853
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_140335_980273_48D49A3A 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20241023_122701_696366_9120595E 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,71 +96,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the issue where both 'output-low' and 'output-high' exist under GPIO
-hog nodes  (rst_usb_hub_hog and sel_usb_hub_hog) when applying device
-tree overlays. Since /delete-property/ is not supported in the overlays,
-setting 'output-low' results in both properties being present. The
-workaround is to disable these hogs and create new ones with 'output-low'
-as needed.
+From: Fabio Estevam <festevam@denx.de>
 
-Fix below CHECK_DTBS warning:
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtb: sel-usb-hub-hog:
-   {'output-low': True, 'gpio-hog': True, 'gpios': [[1, 0]], 'output-high': True, 'phandle': 108, '$nodename': ['sel-usb-hub-hog']}
-       is valid under each of {'required': ['output-low']}, {'required': ['output-high']
+Per fsl-imx-esdhc.yaml, the correct compatible string for i.MX7ULP is:
 
-Fixes: 3f6fc30abebc ("arm64: dts: imx8mn: tqma8mqnl-mba8mx: Add USB DR overlay")
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+compatible = "fsl,imx7ulp-usdhc"
+
+Remove the undocumented "fsl,imx6sx-usdhc" fallback compatible.
+
+This fixes the following dt-schema warnings:
+
+mmc@2198000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too long
+	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too short
+	'fsl,imx50-esdhc' was expected
+	...
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
-Alex:
-	I have not hardware to run it. I check dtb output is correct.
----
- .../imx8mn-tqma8mqnl-mba8mx-usbotg.dtso       | 29 +++++++++++++++++--
- 1 file changed, 27 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-index 96db07fc9bece..1f2a0fe70a0a2 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-@@ -29,12 +29,37 @@ usb_dr_connector: endpoint {
- 	};
- };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+index b093f2a447ae..3c6ef7bfba60 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+@@ -218,7 +218,7 @@ usbphy1: usb-phy@40350000 {
+ 		};
  
-+/*
-+ * rst_usb_hub_hog and sel_usb_hub_hog have property 'output-high',
-+ * dt overlay don't support /delete-property/. Both 'output-low' and
-+ * 'output-high' will be exist under hog nodes if overlay file set
-+ * 'output-low'. Workaround is disable these hog and create new hog with
-+ * 'output-low'.
-+ */
-+
- &rst_usb_hub_hog {
--	output-low;
-+	status = "disabled";
-+};
-+
-+&expander0 {
-+	rst-usb-low-hub-hog {
-+		gpio-hog;
-+		gpios = <13 0>;
-+		output-low;
-+		line-name = "RST_USB_HUB#";
-+	};
- };
+ 		usdhc0: mmc@40370000 {
+-			compatible = "fsl,imx7ulp-usdhc", "fsl,imx6sx-usdhc";
++			compatible = "fsl,imx7ulp-usdhc";
+ 			reg = <0x40370000 0x10000>;
+ 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&scg1 IMX7ULP_CLK_NIC1_BUS_DIV>,
+@@ -232,7 +232,7 @@ usdhc0: mmc@40370000 {
+ 		};
  
- &sel_usb_hub_hog {
--	output-low;
-+	status = "disabled";
-+};
-+
-+&gpio2 {
-+	sel-usb-low-hub-hog {
-+		gpio-hog;
-+		gpios = <1 GPIO_ACTIVE_HIGH>;
-+		output-low;
-+	};
- };
- 
- &usbotg1 {
+ 		usdhc1: mmc@40380000 {
+-			compatible = "fsl,imx7ulp-usdhc", "fsl,imx6sx-usdhc";
++			compatible = "fsl,imx7ulp-usdhc";
+ 			reg = <0x40380000 0x10000>;
+ 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&scg1 IMX7ULP_CLK_NIC1_BUS_DIV>,
 -- 
 2.34.1
 
