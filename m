@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7F9CF538D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31B8CF538E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BTS1ZD5zFFtr7VDgC96a0dUIyX57nD/3Pi8lDmkxgjA=; b=SlUp8cnQAAIjxmOGOSro88fwnE
-	ez5GJsm/5mksbNG5CUdOZIPKj0G1axWRXIP6U7haBo05SLwHa3RXANcqgHAGw6r7HRguGU408HQH+
-	cy7/lpsTUNYbj9s0IEc6P355FcbyjAdD+E8/D3BeH6u5bSJMMfENriH7cUDPRbAfCCP4k/6ubwjMl
-	X7Ly1DVGeodXZXVtacKTSNKa7ipX3d0pTn1IoCi9vhxCSsAg5RoKRL9xA+/Pg9s4ntcHn+jWKK3OS
-	w0fRveuv69EOXLC3k+9a3bjQQGSA71u7t6ThE0+kgPC+oCmO6Ufatw/6HIGH8dCTqRKib9636YvEr
-	ko1FacCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=; b=ScpCj4EZAxxJCvzsaHLbqgFwNO
+	p/C4+3xISonGqZTJZjmy05GlY2Wz/ZXBX7Ts6+jBygJUM79PiR8Ksk4Zigg2IRrCPBvNO6IXxcGV0
+	ZphTUlCH4WaYpcIh2sQFNhn/uVr+j9wAS/Gyv7HPo187wuJ+1UV0K9iLhSDTGIABVq2B1TMbxhgVn
+	TwT3/3DBxVfAl6uFlreIWogg4f/ZdqVllFNeG9zJPsRdRjtoGn/XzZ0XqvvRHq0zIe9z9I2AX/cgH
+	F9K600K77Z4rQ4tT09e4IhxpeN8x87MMAA74LggjfHM1KiiyEKkL15Y0O7sV1OT5pOKChLeADOoUb
+	M89ZqWrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3c9X-0000000EfCi-3rCL;
-	Wed, 23 Oct 2024 14:15:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t3cC9-0000000EffF-3NmG;
+	Wed, 23 Oct 2024 14:18:41 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3c7D-0000000Eem7-1H2a
+	id 1t3cAc-0000000EfUU-0fOT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:13:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729692813;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BTS1ZD5zFFtr7VDgC96a0dUIyX57nD/3Pi8lDmkxgjA=;
-	b=PZLrVOkHAicPV/YwPFYKZQVEbCt3QhgRmh0FRCmFRiYD8tMDR5lyfeqY5dwlonX54DZoTB
-	/mF1Lh9UdGMnXqdYzlKegYX0AYuBsJPysO1EjLYEpWmdQAc1duZp1WobP/O3Rr/h+eBPas
-	oWvhJMJY0jNUu+cC50q7Bg5JYL7mHWU=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-691-aEomGGKKP3qwwjDcwaf07g-1; Wed,
- 23 Oct 2024 10:13:29 -0400
-X-MC-Unique: aEomGGKKP3qwwjDcwaf07g-1
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1A630191914C;
-	Wed, 23 Oct 2024 14:13:18 +0000 (UTC)
-Received: from [172.64.10.91] (unknown [10.30.34.53])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0509D3000B70;
-	Wed, 23 Oct 2024 14:13:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.12.0-rc4,
- arm-next, ce8e6989)
-Date: Wed, 23 Oct 2024 14:13:06 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org
+	Wed, 23 Oct 2024 14:17:08 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c940512711so1228376a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:17:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729693024; x=1730297824; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=;
+        b=UE73F7OT5V7708SO4Ayxhc073KV88JafuOBCjSyAuH/MaPXgv7ARZI2ZuXQiZRfaVX
+         LO9ystpFjxFkQbTk2czkLWV9Sjv8L6SGbtTQGtgyIw1ArxIwRS+1Lf8xrfvnwL9/bq/x
+         maRrjbqZAeCBMGT7s4tZJuWs3Br37KtLDP9kRjJWr5fTNN8TwT09x7EcDPlLVBU12dKw
+         WIV90IMPuE8J+cqDjoIHyVBM7fCOkSwPA4RR9vdm1tHOEJj2so6XSzgKE4sg1dc1uBG8
+         t9dc/mlUuSXLI7RLZLVJjk01cv/wPRAriP+uWMLyPa++Cca70j38Ho7PULoZKQwQS6US
+         xAOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729693024; x=1730297824;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RgEr86OeLs+qLPckKWtoHddsgWSl6fk02nvmP20gJ1s=;
+        b=WQgjoTOsEf/zd/BL9TcO+s+BHsssviOZL4Ufne+QZt/0AVesnVFdUQy5AK4NXY+quW
+         tn685HxVDGRlrs3rnQwY02qEJ8u/H3sa9NP9g4HpC1joChx1cqqC9Ey3yJ3/KpuWbir5
+         ch/GfokQRTYiTMLuEkxA2n3RI0e60tKluA5DM/deIBVwORMp/13O1ixB7LGqCRt2gCYo
+         C4zQbGb2Miu7zR1ihOAGxmkhz6fTnsm4aD+p1TvYHZzpk02XtHD4BD9mfwlgaezbyL8n
+         K+vIPlveDvEWW1i8gsTnGTUGMp204qoDk6jVHBlrNnBcV/NT1Z+Hg3tWamMT5QJ2ANW7
+         erGg==
+X-Forwarded-Encrypted: i=1; AJvYcCWffqeQKUqZ8zeWR/ipVkfPJPfIDElJKrxP1YV25xZklJ5ArcYxUUNXjiKODAyC7/u+Jpn0TdOiVuVSEeRZe+Lg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzw1+qohGK0IgNgLfmUi0eL7p6BBMouTxw4nJQnDM46FxWXfvmM
+	br+JPfsxqsez2P89FNs/LOZRzKZzCf0ccjiAkQSU4R5m7YR4qmlv
+X-Google-Smtp-Source: AGHT+IEV0YikMikXJEsk3rCrnY1FH/p9IQzfHmP4dSCxt90dLsVCtjcMi6dhpcSlH+cOBzDnw0R7Bw==
+X-Received: by 2002:a17:906:f5a7:b0:a9a:5b78:cee5 with SMTP id a640c23a62f3a-a9abf92b233mr112552866b.9.1729693024025;
+        Wed, 23 Oct 2024 07:17:04 -0700 (PDT)
+Received: from skbuf ([188.25.134.29])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a9137053csm481018066b.115.2024.10.23.07.17.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 07:17:03 -0700 (PDT)
+Date: Wed, 23 Oct 2024 17:17:00 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net-next v3 3/6] net: stmmac: Refactor FPE functions to
+ generic version
+Message-ID: <20241023141700.niz3ow2xu6pbgbg4@skbuf>
+References: <cover.1729663066.git.0x1207@gmail.com>
+ <4949cb6845b8a4e7c79af4165814fad270459f7b.1729663066.git.0x1207@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <62468.124102310132902434@us-mta-691.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4949cb6845b8a4e7c79af4165814fad270459f7b.1729663066.git.0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_071335_434305_56006E74 
-X-CRM114-Status: UNSURE (   6.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_071706_255123_3F3C1FDC 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Wed, Oct 23, 2024 at 03:05:23PM +0800, Furong Xu wrote:
+> -void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
+> -			  u32 num_txq, u32 num_rxq,
+> +void stmmac_fpe_configure(struct stmmac_priv *priv, u32 num_txq, u32 num_rxq,
+>  			  bool tx_enable, bool pmac_enable)
+>  {
+> +	struct stmmac_fpe_cfg *cfg = &priv->fpe_cfg;
+> +	const struct stmmac_fpe_reg *reg = cfg->reg;
+> +	void __iomem *ioaddr = priv->ioaddr;
+>  	u32 value;
+>  
+> +	if (!reg)
+> +		return;
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+What are all these "if (!reg) return" checks protecting against?
+At all call sites you ensure that priv->dma_cap.fpesel is true.
+If defense against driver writers is necessary, check only once at boot
+time that if priv->dma_cap.fpesel is true, we have a way to handle it
+(priv->fpe_cfg.reg is set). Or are there still supported DWMAC variants
+with the FPE hardware capability but without driver support?
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index ab547430a717..7874a955ab60 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5944,8 +5944,7 @@ static void stmmac_common_interrupt(struct stmmac_priv *priv)
+>  				      &priv->xstats, tx_cnt);
+>  
+>  	if (priv->dma_cap.fpesel) {
+> -		int status = stmmac_fpe_irq_status(priv, priv->ioaddr,
+> -						   priv->dev);
+> +		int status = stmmac_fpe_irq_status(priv);
+>  
+>  		stmmac_fpe_event_status(priv, status);
+>  	}
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'tip/irq/core' into for-ke=
-rnelci
+I think this coding pattern is illogical, and the code refactoring makes
+it more apparent. stmmac_common_interrupt() does nothing with "status",
+it just takes it as a return code from stmmac_fpe_irq_status(), and
+passes it to stmmac_fpe_event_status(), both of which are in
+stmmac_fpe.c. Why isn't there a direct tail call from one function to
+the other, to simplify the external API exposed by stmmac_fpe.h?
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1508755961
-
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
-robe of ARMHC500:20 failed with error -17
-            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
-YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+> -- 
+> 2.34.1
+> 
 
