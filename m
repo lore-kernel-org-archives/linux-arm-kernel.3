@@ -4,146 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E505CFA463
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7496DCFA465
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=; b=VYign5CRvM+mUhGUihKfFyPRfI
-	sa67uGku8ncpCnu+7/h786UwVsXcP2IYHkxjBjqKisJfur+w2kYlZIu+3nCmuUiTOEtkAUbw2WABT
-	0zTWLrjs3CieO4ptpsviWRNfl0A39fAg1cc9Rpjsae9X7kr5ol1/kbfLFgjamb6FtYtHYomGC0MBz
-	qLd4Izqf0hH+UiXoX8w/ClS5ggRQcpz/IioxYE1DkBIW7zv+lzB3VbIPtnytMw8UiHqZ8moqgFkO9
-	jp8oplVH5hjvJ/nV+hCX9e61tCH2ygDnbS7/FkZupUlapbQFchDqilNIaCUkNE4fKscghpatnA066
-	ZdW48+UQ==;
+	bh=+Dj414ttRumnjAQUaQwV0QHktpoVNPUtabinYhREnog=; b=wDQQy1ebJ7adeswhn2uJg/MGZ0
+	hLkZdZ78vmLbonqvyF903D8kyjqK7lQxaz3iMpCdN7qbvJue1ZPJ1KpP/5/jFnh2+aeyVY/EuUcDk
+	ztsSFVtWiH59W8+jDSwhwZliOPx4mHhrrpD0BBNobd+v2684cvomM41wzRwgSQI0vOR+Me70P0qhZ
+	EWBA70PNuBE4/2vBYpKuzfj9XdYoUUsxMGIWYvBMOufznle++DbGu5bo6+G1WJqPtgYvjoSwcdXeb
+	ztXnWD+f0FgQIQHeqCE4My6xhTA0P9dcq7YJyr4XuhOP+SRj5A7cUQkF+cJy1Sz3niPTLlx1+EG0v
+	0rX1LPtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfn-0000000FltU-1nLw;
-	Wed, 23 Oct 2024 20:09:39 +0000
-Received: from mail-dm6nam12on20604.outbound.protection.outlook.com ([2a01:111:f403:2417::604] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1t3hfj-0000000FlrW-3wDW;
+	Wed, 23 Oct 2024 20:09:35 +0000
+Received: from mail-vi1eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2607::602] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gVp-0000000FbMK-3G9z
+	id 1t3gFt-0000000FZCc-1lma
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 18:55:19 +0000
+	Wed, 23 Oct 2024 18:38:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xO1bNrCVzTzV29z888HcaCAx4r0Ix9o78pI7ofpBKbGcwIX2iF3fqi2V+/Vhy7pvvDQrcXVE/M0+xmAq8ZQB5iekgsmUBn+U/mKHY5APVJIKNAS7RZyPV6f4KT2OgMIlNpayd+lwfMzGq7QkNjX9zRQO+ai6kBkvxAEA+0oOlbj+HI8Mxz1bCEiSUOI4cMc+JWG6yp8b9KGZuoJdHhG3gHicBmD8FPUi3KGybHY+jjFfQwrK0CXUcVFDTQHcrAdy6gf4CoHyxQnjY3bSxdqUOJ6ss+2YBuYbSpoPhAREAEz5vmBEytrTjya+WHWoQ0u62yxySrHxZMzk2HmAhwcYVg==
+ b=hWQdLoeB0JV5FiK77X+JP5n7atsmC9xJL5V4z5wu8R31zLSci8zaPd40/UGOl9bgIQHHjf7mvdj+e/mtSdkwU/TUfUANgAFtIgVb9cPM9mrWHQPnX4MfN0fKa5On0HE07Jg4pAlzUF3xXoLOtTykvErEfgE8JCvVml6axulmkntNVDku4eiMYbDJuQ+CPz5KxF3pu1Rj346DJjQY225fufby9j2CPuu0hlgWkU9sgCeA8OaNFDFnEEfxYWQR1SR+xMIEpg2xtDiuudCKsHhk5T/4QvtLBDCho8b87tU5IYcsPdwB/4pJT6tsZ43IKwot4JZCOpJ47ttHUArj3LOIfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=;
- b=UJm9KXTdLrPjY1+WVF/BY7rsTnnirIy5M6k9C2T2Yn3jadg8DbwXfO7d8vUCxPm0nWEo1CGhHl1eAZGdRUmGFeWVcq8AYKivKttwTleIa+Tvy14XOTPHeLSD97IAsvspdrVNri2ddJliKIKVjK1CBN/PMEAIumi77LOMvYNGfiKOCUi39MuD+JeSKavc5JvXvH0hn/XLKOQdR2ISc7an5q5d6F+rtNTgZ+9TGNQMvpG/5QclEQsOMpSEYD37U2nvICyRAX8tkIlnHFsnDFSSbdLfyuVcV2DS8zZPYVSK7cxhFN6z6HM48NlT/6bQU7zLRsOZ/EcfYVhqsUB+sGDzvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=+Dj414ttRumnjAQUaQwV0QHktpoVNPUtabinYhREnog=;
+ b=iDUrbtyLVJUAa5+UFj4uV/7SS65MD0Nxv5ciY4KAK6+t4MIItGbTknbGgenaRpRiT3m8zod7H1heYsn8lhSC02zr56tgB03wwUtm8SE5TWQojbAMu351a3ryq4RFTdO98zVVcyWD1jVSzXEr+r4oFmMX0M373MB5atlzipwFPXNoNbl+rH5p5V4wKq8i4Ufihp2lmFTZ5kxmID4HCMoC0u2IwEM02rZM24xEvYr5O7mSAt96wkRjGX23vwiO0PpRAkMg6iceICyUOdRzbtUKE5PTrB7OHtq7Uqy5IpnRcb6z877XR2jZidiOTgwtQrXaqHxKA0wa8nOo9+SnVtpMPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=;
- b=QoFnBqqtDrHzQ7GXPZ6jJW3XfgpGp/Jw54xH2hLOZi1TQ2QYclP0XGEsTcks5xLZVgYK9hJTJistp1CqPpkIDSzfSeh1g7Kux/UqQsnrPrQQaLxt7pQCT/47u/WuD7yWMoptg87QMW2wXu2j+I+nzFTvk7ZSig5suHF7OMaNJHpJpY7GTuNVJrvnBJO2gtr8iCiYPQ6SRG2+GftU3yn7BQhYbzi1Pd52P24IUu5O2c0KYLWjbxJXvJCXwBXgmUSX9oA9otaJAoPQTyK+rYzlFfE5wu9sfUu+UdAhc5hLErUNmO7xLCCVrodk8jNoKnM2nj7bOyXyqUkpS+/pS4MUVg==
-Received: from BN9PR03CA0147.namprd03.prod.outlook.com (2603:10b6:408:fe::32)
- by SA1PR12MB6701.namprd12.prod.outlook.com (2603:10b6:806:251::18) with
+ bh=+Dj414ttRumnjAQUaQwV0QHktpoVNPUtabinYhREnog=;
+ b=WKFozdN8uDNsppVocO4OVJuACLvXgQYyhQ1cwINVgRXj2INR5PC0g4WgNqUHhQ930ytSDL2uGnuhrGLdGbMZVboLqYNMTZP1OLC+C+R+vzckLREomYo+1ytURDo8VyyrCrkQmJMfsNjz0HDWlWk4h5nrYQplerTsG28HTTkUs4D9rrGMQwARURg39ovb2jSW/9WmvNboIiVnKfippCTfuY2SWAQhni6HXINgQ7yAMXlP/cGFVn52o0EvV5cWJDCf6fvhMFGZpuNY3gLOkYC5qgPFRuSmlu+QLJWQFLGkBoFsNTXZq3hzpB7IjH6xwnGhbGrODfWPPXYf0+tTaIllfQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA2PR04MB10186.eurprd04.prod.outlook.com (2603:10a6:102:404::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Wed, 23 Oct
- 2024 18:55:11 +0000
-Received: from MN1PEPF0000F0E0.namprd04.prod.outlook.com
- (2603:10b6:408:fe:cafe::13) by BN9PR03CA0147.outlook.office365.com
- (2603:10b6:408:fe::32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16 via Frontend
- Transport; Wed, 23 Oct 2024 18:55:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- MN1PEPF0000F0E0.mail.protection.outlook.com (10.167.242.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.14 via Frontend Transport; Wed, 23 Oct 2024 18:55:11 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Oct
- 2024 11:54:57 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Oct
- 2024 11:54:57 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Wed, 23 Oct 2024 11:54:55 -0700
-Date: Wed, 23 Oct 2024 11:54:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>
-Subject: Re: [PATCH v1 04/10] iommufd/viommu: Allow drivers to control
- vdev_id lifecycle
-Message-ID: <ZxlGfgfwrGZGIbeF@Asurada-Nvidia>
-References: <cover.1724777091.git.nicolinc@nvidia.com>
- <3ab48d4978318938911d91833654b296947668ad.1724777091.git.nicolinc@nvidia.com>
- <20240905180119.GY1358970@nvidia.com>
- <ZxikJwzq8rLPgtmS@Asurada-Nvidia>
- <20241023165905.GI864191@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+ 2024 18:38:34 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Wed, 23 Oct 2024
+ 18:38:34 +0000
+Date: Wed, 23 Oct 2024 14:38:24 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] ASoC: SOF: imx: add driver for imx95
+Message-ID: <ZxlCoOxpf47F+YGF@lizhi-Precision-Tower-5810>
+References: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
+ <20241023162114.3354-4-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023165905.GI864191@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
+In-Reply-To: <20241023162114.3354-4-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: BYAPR11CA0052.namprd11.prod.outlook.com
+ (2603:10b6:a03:80::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E0:EE_|SA1PR12MB6701:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e9c44f8-6b44-4480-5986-08dcf39438bd
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA2PR04MB10186:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a694cdb-b4da-447f-d05f-08dcf391e654
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BTJEaWeGCIrbsr1Ue0YltfUHie92/h6wtttAxAtvRYkRdlYILzmoyXdrepgL?=
- =?us-ascii?Q?N4iASwzRdWCGrdyLFXFXwWrvhtw5ZkC67Zx3R8W2eFHgbi61y8Tti5AEyRsE?=
- =?us-ascii?Q?jxEos//xb4+Sj6zvUfAikI2GcESCLDyY4hADQKuQqiOuYvJa9FIu4Mh/DDT8?=
- =?us-ascii?Q?yUhkepF7cuG7+wRhnPnbNRFokxj97ITM5TGoG9JjEy8vQul1HyCyetklkgSu?=
- =?us-ascii?Q?3BmnaKOoE6IdMAWptM6oceu9yy3Vhj6bJJOdtPKng5zl4V8rTdijwAXi6/QH?=
- =?us-ascii?Q?AjV/QDRpnBc9z3kQCkzMOSMeVzRPO8Fh352DdGFixoSvTYz317JANp8HDFUt?=
- =?us-ascii?Q?vyRcReoWNkXq87vQotl5k48RIeeYQn1ETVKTJkV43xJPqYe2Tse4v4PsEx4P?=
- =?us-ascii?Q?gWMUBdPAPehH8URGP3Tc0E8YNmwvC82qpvfrzOz/sQ8+7Ny4rqbsd51kcs3/?=
- =?us-ascii?Q?5gi1DUV1F6j+sJZzSEFxkMXklhZlahbaDh8s48UJlkWeo1kqa2QGjUTUpfD+?=
- =?us-ascii?Q?DF4GaU00PmNarM2WrA+u7pgePStCS0+PkIT9EJvUl64VAgZo6DJahXKeok2e?=
- =?us-ascii?Q?c6Ps6G80JA359CwIZ2/S27IlUSNgdzqhHbiFOF5GLmgm7LSkwgiI3ncryrF2?=
- =?us-ascii?Q?sJq2/GbvOJ3RrKTaM+pyWSHxm7V/RALvGXgvRMP4HYNypJGURnFEbqG7nTvu?=
- =?us-ascii?Q?fdqK2I4Iqii88SJiu8rrRVrA553AVzrHX1uwN8CRSuO+CfN0m1K0bz+DbOjd?=
- =?us-ascii?Q?hd1B7Ij0CmYyWvHKXK3flA1VGqg9wZevdXMzvYPUQ4jovZio6Snw5o2nzEIo?=
- =?us-ascii?Q?hXjbxjIFiDG0/BFpstK2Py7OSPIx7ofACg2A06kQ748Zic3umUJ5ziqLZENB?=
- =?us-ascii?Q?KwOVYnny5KCI5zUrLueADxCQrb3LOYQhXa6uEKtQGiOthokvoB8Ie2/+6ElS?=
- =?us-ascii?Q?UP/PDDoXipmk98FicSA8tJqNBRa0lshrIYlM/AlHJpoesbg5XTZ+N81LRQOE?=
- =?us-ascii?Q?QEDxwgkF3r8N8DOavJO0/lRRQOPm8WwNCEHnk3pWKJCrUUeni+o2cVhVwRgB?=
- =?us-ascii?Q?3DMdLUYSoNpP2afeYdpP69vTzACjGPGR9UyAbH2x8bwdc0HwwpEuHjlucvMm?=
- =?us-ascii?Q?vLM0+JkZVW5MLc1ARfD4RHV5xFrTvaU3nLA9+5lfUPyiaBDjmxKOyAtg9YGb?=
- =?us-ascii?Q?GegSv6eQOIWFRGZ0mjlbkyJ/TtwpR/vBC6zYpvfP/pHNJxyBSuCMuCiCJ7oF?=
- =?us-ascii?Q?PgUS/qCanGdDWV/eUPfzvKoRuVd/zLe0yNUAfWCDTnRE6QUeY9vxgbslzei8?=
- =?us-ascii?Q?q3JhJxyRJx7jmM611zBmJZnJ6OgKwYqbKkY17W0SYhzt0gsN1c22ENBmHp6Q?=
- =?us-ascii?Q?XSHyhvGObg9as46zW9h8+gHqztVNLU3FtdajBV5O+PQjtpsAtg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 18:55:11.0222
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hj7kt44gS7S9ygWlv9aGtyiwGX0gTYyVSmZbyJ5FJ7w7eIy1HyV4Z/AOgJw9?=
+ =?us-ascii?Q?kdW1bSzJCCjpQwFtQjTvRhwwBj2Ahxzhm5RcS3qEdU5B5+DCgrUSBulyacrH?=
+ =?us-ascii?Q?c1NKGY+lPzHFrv/wT4HhWeWw6YspAPUDcF+A9MuKlkUDgnbkDrkrVoK3tt1V?=
+ =?us-ascii?Q?1Ii7X0Hdr2aVFidVgMc277zfeErgP39JgUxrGtRRtSux4SEtx8TWwP2ukZiX?=
+ =?us-ascii?Q?sYzhsTT+81CUDayziA+Sk4K6dWjad3rKuswSfzvaSr3CWNo276Nx7zUSr34S?=
+ =?us-ascii?Q?Jyj1oDPM4EVWM2SojJ9W1w3TDww+KnFFSAzYvDf6YLUzGBXBNvUZSely1GMD?=
+ =?us-ascii?Q?HyLMqnjw4JY1THJ1AYAFiQKrmhxF4pUbhSaU35MDzDkrRlX11pOYzTqwg2II?=
+ =?us-ascii?Q?5O0eQ/xuUAuAv7xtn6TOFpnjtPLKNyBZg9Mo8Q1M7eUwqrocGJQav+3/p39o?=
+ =?us-ascii?Q?9ZpXukb9qIobrqzO96r8UybBLpZp3yvVIwIJHMgFTcmVHLUsEsMRaqmqzvxo?=
+ =?us-ascii?Q?XVMMwUL28bm784Lj9ud0tNybUmEashe6x8vSwoMwIYuq/STOcpyP0wTWfKum?=
+ =?us-ascii?Q?lZui1RS/ZPtL+eAfzWYpe0ct32BkeacU128Kv30fe7efdfkgrKv7wGaUaMXh?=
+ =?us-ascii?Q?BpWWkfOXSJegYixl6zCdW0ZkPx2Y6k0j8kn6UI2DfUjTEjIRKWb45C/yG/lh?=
+ =?us-ascii?Q?wHSOj7hFCCkA63gbvc7hhWSSIxmp3mior56SQXryjE3WxNsgDJ1DN4LWJQ0W?=
+ =?us-ascii?Q?8GsO+r1w4tNjX+JRC+7wi/WdUhgAhMqs/V+b+U7sGtJ82YJ3tlS4IJbTxnuF?=
+ =?us-ascii?Q?BCKfqtucmsZ8PdQIDJh+S+5vQtDcrz78m3EB0+i4J2FRykd56DzVdATq6O9X?=
+ =?us-ascii?Q?BW3uxP4GhyP0V7b0kM49NAbwOZ/UX5GePhQgaEYV8ayJfasyjZ1GFxlKdxq0?=
+ =?us-ascii?Q?0BRAoXgLEXkjMzTomhGrSE9xxT+szxH2ydo6MuqLFo3kkWFV5XIb6gcmHSF/?=
+ =?us-ascii?Q?Il9guwkv9DiHNRajrP3otXW/akW55RPLqoNNKvm9opdfMEXVZwSAR8pDyJro?=
+ =?us-ascii?Q?Hx32osxCphnTamsc6iAr3pb07T9nbR0G7zK5j3iaXo6UQD8NN4kVZnTdOMX3?=
+ =?us-ascii?Q?gyWZhq+nrSrM4/ugpiJ2RTH9fTGpWC5J5PH1bKAjmx7G3Gixcs84MheYyrFJ?=
+ =?us-ascii?Q?jkttOKSLLpMnYN8GIpGfOzHVlZPRcCNrZrgC5OeLX3HoeLlKfEIKCz6Qg3lg?=
+ =?us-ascii?Q?W8jPlO0Wtchgsg6irY5rwNjpEPTkclWdvhgD1BCXN9QzvQqoyEnFAAD8liuO?=
+ =?us-ascii?Q?4+POBVa1LYGQMj6nKXiwmge5d2K31iSWCGePIsBmoblmxkgE2LsGc4CosJyN?=
+ =?us-ascii?Q?IxHhopg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?683HWISYKdnz4YDnNfP3nUSfrfnX5TCsAKoLOvSxU4pzzv2KCX285C4jClbG?=
+ =?us-ascii?Q?kXRbzu1iWkWD79+5Naw2iomk9BDR9RkEd3YoQqQRWTevt/88tn9840IGtn0/?=
+ =?us-ascii?Q?WnkCr3ArBE98ryhlEOvcO3ywCcFkYa1ThvolQAc5NAPhqv3ACYctMlhhtEX6?=
+ =?us-ascii?Q?X3zyqixWy+giJ0839Ve1NVH+D6g+DzNeyDDrIrshu6yTyMkPLi01Tub4RAgq?=
+ =?us-ascii?Q?vTV/A8iLi4biAY+lDHvAj/AuFZW5q6tjdd0M+ftXhFqEIu7g6lbxEn5xbpp1?=
+ =?us-ascii?Q?iKNNYtkvRRgaUn7NzVgVi4g7yieGb06j34G8nCk73DZIyAlplxAFrAAngZgn?=
+ =?us-ascii?Q?cistqmqjyo73VdQMmyzPHMZs3DjqaMtGwf9SuVL43hIwCOlz8rEq0rPNg/81?=
+ =?us-ascii?Q?PoTn10g92w2GO1CtKf1lZVe7nEJZtq6N4q4OSH1Fentd2/+vPg2OHr9totCt?=
+ =?us-ascii?Q?X5tT4z59xRfM+ZFzFZN/YvYyJNeS4oeHeAhL2kHQC9n4ZzRZuAVloEcute97?=
+ =?us-ascii?Q?nRp7Vy3eyx4cshrvREVxpj6RDJro6QOYHvfiIbh7CLUpVjLsLIoCiFsrrPoe?=
+ =?us-ascii?Q?IVv60Ua7/pLg51q5th3/4ZMlPC7kOw3Tkp4y8eGVvfbFSghB05aQY8ZvyY6l?=
+ =?us-ascii?Q?M8LQR8lVyrUaM1T9rIcPFiB4C2h3P3uyb8khVz2to9zqHNBLCG1d0X3MdZyZ?=
+ =?us-ascii?Q?cd/lokShTV41V7kYmq1ZQkO1nZqlUVMaI5kM+ldK/+LWHbaiDl7AjjsP/W10?=
+ =?us-ascii?Q?X3pDoqrdlt5Oo7Y6pTG9UNUgZbYmaDDcp2MGtvlWCvz1W/MZjceRBG2mDtaY?=
+ =?us-ascii?Q?s5c7e3pqoRUtEtPA9wTiaB7qmV0HAKz8qbEi+3GFuo9VaWQ4Stb7wVa7rjxd?=
+ =?us-ascii?Q?UFIfTW2V0d1CRzE5o8fAt8hf9R0f8d4lPRiuRukm4hXoYs6fipVTNW/8oVwj?=
+ =?us-ascii?Q?qH23XHb+LBTH+F7aOGu3zqQg7t9dcKBJUrsHxau4bVjIr9gzccnw3eP5EVs0?=
+ =?us-ascii?Q?gPsPj7mKkRGzInkvzJySwESA0V5iPn85zLgHFPDmnlpRDZCJ6jGscaecHn1z?=
+ =?us-ascii?Q?7VfYk8l2wu1UxrUM6JOVQzgOlBHQb6IJwavEVCyzFS4n/Eg9+WD+ObHiB8nr?=
+ =?us-ascii?Q?xkMe1ei58SotCyBMkFU4T0A/UMZgOsBpBR18AEFJ5q6kqawfVLEQvt1fg3ch?=
+ =?us-ascii?Q?mUEJNrDhxp8KZRgc/hv6VkNGq0Tt33XpT1uHuam4UWbc9yUg4aJFvN9BWxDB?=
+ =?us-ascii?Q?aCILeCpDZL6PwBxiH04i99Fhj3GERVPzp5BxmRXAstWxIAgUoUFNNUAZ3lLg?=
+ =?us-ascii?Q?78gRlSsS1ChrmwycJYB7L8UDrLQQgF6yIl5VwppreEi1cTe40VfWe/jvwKr+?=
+ =?us-ascii?Q?dIGIrXXxhCA1Dxg4BWv8JEjzGjXEvDimjY6Gpj0JlwLX4PRBMuN7Jwb4w9fk?=
+ =?us-ascii?Q?DqnPpqE9xCN5kpH9hd9E37HXpz2J9WqkcjxBoY6uG+fgQlTtMVNdiCzy+v2u?=
+ =?us-ascii?Q?8VL76CXaKYTgbcw4wEaMI9xSsVHzX/J2E8Vq9IGjgnudpTvivos5kxlUPH3U?=
+ =?us-ascii?Q?xMFlfbqZ47Pw1s8+4Lme96hOaiYaMa68fVcmsbnV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a694cdb-b4da-447f-d05f-08dcf391e654
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 18:38:34.2373
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e9c44f8-6b44-4480-5986-08dcf39438bd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E0.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6701
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UYSqF8G7GmL8NC6XUQLPcBGCqJdK2IR7povwFy64KtB9HMihwaFvLkGBcayYKVkRX4WSKgTKIiNLVI1F3p3E1w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_115517_858163_E4635500 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20241023_113849_852917_2591D542 
+X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,98 +169,446 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 01:59:05PM -0300, Jason Gunthorpe wrote:
-> > [Comparison]      | This v1                 | Draft
-> > 1. Adds to master | A lock and vdev ptr     | A lock and viommu ptr
-> > 2. Set/unset ptr  | In ->vdevice_alloc/free | In all ->attach_dev
-> > 3. Do dev_to_vdev | master->vdev->id        | attach_handle?
-> 
-> The set/unset ops have the major issue that they can get out of sync
-> with the domain. The only time things should be routed to the viommu
-> is when a viommu related domain is attached.
+On Wed, Oct 23, 2024 at 12:21:13PM -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Add SOF driver for imx95.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
+>  sound/soc/sof/imx/Kconfig  |   8 +
+>  sound/soc/sof/imx/Makefile |   2 +
+>  sound/soc/sof/imx/imx95.c  | 383 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 393 insertions(+)
+>  create mode 100644 sound/soc/sof/imx/imx95.c
+>
+> diff --git a/sound/soc/sof/imx/Kconfig b/sound/soc/sof/imx/Kconfig
+> index 4751b04d5e6f..51a70a193533 100644
+> --- a/sound/soc/sof/imx/Kconfig
+> +++ b/sound/soc/sof/imx/Kconfig
+> @@ -50,4 +50,12 @@ config SND_SOC_SOF_IMX8ULP
+>  	  Say Y if you have such a device.
+>  	  If unsure select "N".
+>
+> +config SND_SOC_SOF_IMX95
+> +	tristate "SOF support for i.MX95"
+> +	depends on IMX_DSP
+> +	help
+> +	  This adds support for Sound Open Firmware for NXP i.MX95 platforms.
+> +	  Say Y if you have such a device.
+> +	  If unsure select "N".
+> +
+>  endif ## SND_SOC_SOF_IMX_TOPLEVEL
+> diff --git a/sound/soc/sof/imx/Makefile b/sound/soc/sof/imx/Makefile
+> index be0bf0736dfa..715ac3798668 100644
+> --- a/sound/soc/sof/imx/Makefile
+> +++ b/sound/soc/sof/imx/Makefile
+> @@ -2,10 +2,12 @@
+>  snd-sof-imx8-y := imx8.o
+>  snd-sof-imx8m-y := imx8m.o
+>  snd-sof-imx8ulp-y := imx8ulp.o
+> +snd-sof-imx95-y := imx95.o
+>
+>  snd-sof-imx-common-y := imx-common.o
+>
+>  obj-$(CONFIG_SND_SOC_SOF_IMX8) += snd-sof-imx8.o
+>  obj-$(CONFIG_SND_SOC_SOF_IMX8M) += snd-sof-imx8m.o
+>  obj-$(CONFIG_SND_SOC_SOF_IMX8ULP) += snd-sof-imx8ulp.o
+> +obj-$(CONFIG_SND_SOC_SOF_IMX95) += snd-sof-imx95.o
+>  obj-$(CONFIG_SND_SOC_SOF_IMX_COMMON) += imx-common.o
+> diff --git a/sound/soc/sof/imx/imx95.c b/sound/soc/sof/imx/imx95.c
+> new file mode 100644
+> index 000000000000..3f7ed6a16c42
+> --- /dev/null
+> +++ b/sound/soc/sof/imx/imx95.c
+> @@ -0,0 +1,383 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <sound/sof.h>
+> +#include <linux/arm-smccc.h>
+> +#include <linux/firmware/imx/dsp.h>
+> +#include <linux/of_reserved_mem.h>
+> +#include <linux/clk.h>
 
-Ah, I missed that point.
+sort by alphabet order
 
-> The lock on attach can be reduced:
-> 
->   iommu_group_mutex_assert(dev)
->   if (domain->type == IOMMU_DOMAIN_NESTED)
->  		new_vsmmu = to_smmu_domain(domain)->vsmmu;
->   else
->  		new_vsmmu = NULL;
->   if (new_vsmmu != master->vsmmu) {
->  	down_write(&master->lock);
-> 	master->vsmmu = new_vsmmu;
-> 	up_write(&master->lock);
->   }
-> 
-> And you'd stick this in prepare or commit..
-
-Ack.
-
-> > Both solutions needs a driver-level lock and an extra pointer in
-> > the master structure. And both ISR routines require that driver-
-> > level lock to avoid race against attach_dev v.s. vdev alloc/free.
-> > Overall, taking step.3 into consideration, it seems that letting
-> > master lock&hold the vdev pointer (i.e. this v1) is simpler?
-> 
-> I'm not sure the vdev pointer should even be visible to the drivers..
-
-With the iommufd_vdevice_alloc allocator, we already expose the
-vdevice structure to the drivers, along with the vdevice_alloc
-vdevice_free ops, which would be easier for the vCMDQ driver to
-allocate and hold its own pSID/vSID structure.
-
-And vsid_to_psid() requires to look up the viommu->vdevs xarray.
-If we hid the vDEVICE structure, we'd need something else than
-the vdev_to_dev(). Maybe iommufd_viommu_find_dev_by_virt_id()?
-
-> > As for the implementation of iommufd_viommu_dev_to_vdev(), I read
-> > the attach_handle part in the PRI code, yet I don't see the lock
-> > that protects the handle returned by iommu_attach_handle_get() in
-> > iommu_report_device_fault/find_fault_handler().
-> 
-> It is the xa_lock and some rules about flushing irqs and work queues
-> before allowing the dev to disappear:
-> 
-> >   "Callers are required to synchronize the call of
-> >    iommu_attach_handle_get() with domain attachment
-> >    and detachment. The attach handle can only be used
-> >    during its life cycle."
-> 
-> > But the caller iommu_report_device_fault() is an async event that
-> > cannot guarantee the lifecycle. Would you please shed some light?
-> 
-> The iopf detatch function will act as a barrirer to ensure that all
-> the async work has completed, sort of like how RCU works.
-
-The xa_lock(&group->pasid_array) is released once the handle is
-returned to the iommu_attach_handle_get callers, so it protects
-only for a very short window (T0 below). What if:
-   | detach()                       | isr=>iommu_report_device_fault()
-T0 | Get attach_handle [xa_lock]    | Get attach_handle [xa_lock]
-T1 | Clean deliver Q [fault->mutex] | Waiting for fault->mutex
-T2 | iommufd_eventq_iopf_disable()  | Add new fault to the deliver Q
-T3 | kfree(handle)                  | ?? 
-
-> But here, I think it is pretty simple, isn't it?
-> 
-> When you update the master->vsmmu you can query the vsmmu to get the
-> vdev id of that master, then store it in the master struct and forward
-> it to the iommufd_viommu_report_irq(). That could even search the
-> xarray since attach is not a performance path.
-> 
-> Then it is locked under the master->lock
-
-Yes! I didn't see that coming. vdev->id must be set before the
-attach to a nested domain, and can be cleaned after the device
-detaches. Maybe an attach to vIOMMU-based nested domain should
-just fail if idev->vdev isn't ready?
-
-Then perhaps we can have a struct arm_smmu_vstream to hold all
-the things, such as vsmmu pointer and vdev->id. If vCMDQ needs
-an extra structure, it can be stored there too.
-
-Thanks!
-Nicolin
+> +
+> +#include "../sof-of-dev.h"
+> +#include "../ops.h"
+> +
+> +#define IMX_SIP_SRC 0xC2000005
+> +#define IMX_SIP_SRC_M_RESET_ADDR_SET 0x03
+> +
+> +#define IMX95_CPU_VEC_FLAGS_BOOT BIT(29)
+> +
+> +#define IMX_SIP_LMM 0xC200000F
+> +#define IMX_SIP_LMM_BOOT 0x0
+> +#define IMX_SIP_LMM_SHUTDOWN 0x1
+> +
+> +#define IMX95_M7_LM_ID 0x1
+> +
+> +#define MBOX_DSPBOX_OFFSET 0x1000
+> +
+> +struct imx95_priv {
+> +	struct platform_device *ipc_dev;
+> +	struct imx_dsp_ipc *ipc_handle;
+> +	resource_size_t bootaddr;
+> +};
+> +
+> +static void imx95_ipc_handle_reply(struct imx_dsp_ipc *ipc)
+> +{
+> +	unsigned long flags;
+> +	struct snd_sof_dev *sdev = imx_dsp_get_data(ipc);
+> +
+> +	spin_lock_irqsave(&sdev->ipc_lock, flags);
+> +	snd_sof_ipc_process_reply(sdev, 0);
+> +	spin_unlock_irqrestore(&sdev->ipc_lock, flags);
+> +}
+> +
+> +static void imx95_ipc_handle_request(struct imx_dsp_ipc *ipc)
+> +{
+> +	snd_sof_ipc_msgs_rx(imx_dsp_get_data(ipc));
+> +}
+> +
+> +static struct imx_dsp_ops ipc_ops = {
+> +	.handle_reply = imx95_ipc_handle_reply,
+> +	.handle_request = imx95_ipc_handle_request,
+> +};
+> +
+> +static int imx95_disable_enable_core(bool enable)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	if (enable)
+> +		arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_BOOT, IMX95_M7_LM_ID,
+> +			      0, 0, 0, 0, 0, &res);
+> +	else
+> +		arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_SHUTDOWN, IMX95_M7_LM_ID,
+> +			      0, 0, 0, 0, 0, &res);
+> +
+> +	return res.a0;
+> +}
+> +
+> +static int imx95_run(struct snd_sof_dev *sdev)
+> +{
+> +	return imx95_disable_enable_core(true);
+> +}
+> +
+> +static int imx95_send_msg(struct snd_sof_dev *sdev, struct snd_sof_ipc_msg *msg)
+> +{
+> +	struct imx95_priv *priv = sdev->pdata->hw_pdata;
+> +
+> +	sof_mailbox_write(sdev, sdev->host_box.offset,
+> +			  msg->msg_data, msg->msg_size);
+> +
+> +	imx_dsp_ring_doorbell(priv->ipc_handle, 0);
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx95_get_mailbox_offset(struct snd_sof_dev *sdev)
+> +{
+> +	return MBOX_DSPBOX_OFFSET;
+> +}
+> +
+> +static int imx95_get_bar_index(struct snd_sof_dev *sdev, u32 type)
+> +{
+> +	switch (type) {
+> +	case SOF_FW_BLK_TYPE_SRAM:
+> +	case SOF_FW_BLK_TYPE_DRAM:
+> +		return type;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static int imx95_get_window_offset(struct snd_sof_dev *sdev, u32 id)
+> +{
+> +	/* no offset for window regions - they are already relative
+> +	 * to the mailbox memory region described in DT.
+> +	 */
+> +	return 0;
+> +}
+> +
+> +static int imx95_set_power_state(struct snd_sof_dev *sdev,
+> +				 const struct sof_dsp_power_state *target_state)
+> +{
+> +	sdev->dsp_power_state = *target_state;
+> +
+> +	return 0;
+> +}
+> +
+> +/* no other resources to power on during (runtime) resume so these functions
+> + * don't do any resource management (i.e: clks, PDs, etc...). As for enabling
+> + * the M7 LM: this is taken care of by run(), which is called during sof_resume().
+> + */
+> +static int imx95_runtime_resume(struct snd_sof_dev *sdev)
+> +{
+> +	const struct sof_dsp_power_state target_state = {
+> +		.state = SOF_DSP_PM_D0,
+> +	};
+> +
+> +	return snd_sof_dsp_set_power_state(sdev, &target_state);
+> +}
+> +
+> +static int imx95_resume(struct snd_sof_dev *sdev)
+> +{
+> +	const struct sof_dsp_power_state target_state = {
+> +		.state = SOF_DSP_PM_D0,
+> +	};
+> +
+> +	if (pm_runtime_suspended(sdev->dev)) {
+> +		pm_runtime_disable(sdev->dev);
+> +		pm_runtime_set_active(sdev->dev);
+> +		pm_runtime_mark_last_busy(sdev->dev);
+> +		pm_runtime_enable(sdev->dev);
+> +		pm_runtime_idle(sdev->dev);
+> +	}
+> +
+> +	return snd_sof_dsp_set_power_state(sdev, &target_state);
+> +}
+> +
+> +static int imx95_runtime_suspend(struct snd_sof_dev *sdev)
+> +{
+> +	int ret;
+> +	const struct sof_dsp_power_state target_state = {
+> +		.state = SOF_DSP_PM_D3,
+> +	};
+> +
+> +	ret = imx95_disable_enable_core(false);
+> +	if (ret < 0) {
+> +		dev_err(sdev->dev, "failed to disable core: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	return snd_sof_dsp_set_power_state(sdev, &target_state);
+> +}
+> +
+> +static int imx95_suspend(struct snd_sof_dev *sdev, unsigned int target_state)
+> +{
+> +	int ret;
+> +	const struct sof_dsp_power_state target_power_state = {
+> +		.state = target_state,
+> +	};
+> +
+> +	if (!pm_runtime_suspended(sdev->dev)) {
+> +		ret = imx95_disable_enable_core(false);
+> +		if (ret < 0) {
+> +			dev_err(sdev->dev, "failed to suspend: %d\n", ret);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return snd_sof_dsp_set_power_state(sdev, &target_power_state);
+> +}
+> +
+> +static struct snd_soc_dai_driver imx95_dai[] = {
+> +	{
+> +		.name = "sai3",
+> +		.playback = {
+> +			.channels_min = 1,
+> +			.channels_max = 32,
+> +		},
+> +		.capture = {
+> +			.channels_min = 1,
+> +			.channels_max = 32,
+> +		},
+> +	},
+> +};
+> +
+> +static int imx95_probe(struct snd_sof_dev *sdev)
+> +{
+> +	struct platform_device *pdev;
+> +	struct imx95_priv *priv;
+> +	struct resource *res;
+> +	struct arm_smccc_res smc_ret;
+> +	int ret;
+> +
+> +	pdev = container_of(sdev->dev, struct platform_device, dev);
+> +
+> +	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return dev_err_probe(&pdev->dev, -ENOMEM, "failed to alloc priv\n");
+> +
+> +	sdev->pdata->hw_pdata = priv;
+> +
+> +	/* map DRAM */
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dram");
+> +	if (!res)
+> +		return dev_err_probe(&pdev->dev, -ENODEV,
+> +				     "failed to fetch DRAM region\n");
+> +
+> +	sdev->bar[SOF_FW_BLK_TYPE_DRAM] = devm_ioremap(&pdev->dev, res->start,
+> +						       resource_size(res));
+> +	if (IS_ERR(sdev->bar[SOF_FW_BLK_TYPE_DRAM]))
+> +		return dev_err_probe(&pdev->dev,
+> +				     PTR_ERR(sdev->bar[SOF_FW_BLK_TYPE_DRAM]),
+> +				     "failed to map DRAM region\n");
+> +
+> +	sdev->mmio_bar = SOF_FW_BLK_TYPE_DRAM;
+> +	priv->bootaddr = res->start;
+> +
+> +	/* map mailbox region */
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "mailbox");
+> +	if (!res)
+> +		return dev_err_probe(&pdev->dev, -ENODEV,
+> +				     "failed to fetch MAILBOX region\n");
+> +
+> +	sdev->bar[SOF_FW_BLK_TYPE_SRAM] = devm_ioremap_wc(&pdev->dev, res->start,
+> +							  resource_size(res));
+> +	if (IS_ERR(sdev->bar[SOF_FW_BLK_TYPE_SRAM]))
+> +		return dev_err_probe(&pdev->dev,
+> +				     PTR_ERR(sdev->bar[SOF_FW_BLK_TYPE_SRAM]),
+> +				     "failed to map mailbox region\n");
+> +
+> +	sdev->mailbox_bar = SOF_FW_BLK_TYPE_SRAM;
+> +	sdev->dsp_box.offset = MBOX_DSPBOX_OFFSET;
+> +
+> +	ret = of_reserved_mem_device_init(sdev->dev);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "failed to bind DMA region\n");
+> +
+> +	priv->ipc_dev = platform_device_register_data(&pdev->dev, "imx-dsp",
+> +						      PLATFORM_DEVID_NONE,
+> +						      pdev, sizeof(*pdev));
+> +	if (IS_ERR(priv->ipc_dev))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->ipc_dev),
+> +				     "failed to create IPC device\n");
+> +
+> +	priv->ipc_handle = dev_get_drvdata(&priv->ipc_dev->dev);
+> +	if (!priv->ipc_handle) {
+> +		ret = -EPROBE_DEFER;
+> +		dev_err(&pdev->dev, "failed to fetch ipc handle\n");
+> +		goto err_unregister_ipc_dev;
+> +	}
+> +
+> +	priv->ipc_handle->ops = &ipc_ops;
+> +	imx_dsp_set_data(priv->ipc_handle, sdev);
+> +
+> +	/* set core boot reset address */
+> +	arm_smccc_smc(IMX_SIP_SRC, IMX_SIP_SRC_M_RESET_ADDR_SET, priv->bootaddr,
+> +		      IMX95_CPU_VEC_FLAGS_BOOT, 0, 0, 0, 0, &smc_ret);
+> +	if ((int)smc_ret.a0 < 0) {
+> +		ret = smc_ret.a0;
+> +		dev_err(&pdev->dev, "failed to set boot address: %d", ret);
+> +		goto err_unregister_ipc_dev;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_unregister_ipc_dev:
+> +	platform_device_unregister(priv->ipc_dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void imx95_remove(struct snd_sof_dev *sdev)
+> +{
+> +	struct imx95_priv *priv;
+> +
+> +	priv = sdev->pdata->hw_pdata;
+> +
+> +	if (imx95_disable_enable_core(false))
+> +		dev_err(sdev->dev, "failed to stop core\n");
+> +
+> +	platform_device_unregister(priv->ipc_dev);
+> +}
+> +
+> +static const struct snd_sof_dsp_ops sof_imx95_ops = {
+> +	.probe = imx95_probe,
+> +	.remove = imx95_remove,
+> +
+> +	/* mandatory "DSP" ops */
+> +	.run = imx95_run,
+> +	.block_read = sof_block_read,
+> +	.block_write = sof_block_write,
+> +	.send_msg = imx95_send_msg,
+> +	.load_firmware = snd_sof_load_firmware_memcpy,
+> +	.ipc_msg_data = sof_ipc_msg_data,
+> +
+> +	.mailbox_read = sof_mailbox_read,
+> +	.mailbox_write = sof_mailbox_write,
+> +
+> +	.get_mailbox_offset = imx95_get_mailbox_offset,
+> +	.get_bar_index = imx95_get_bar_index,
+> +	.get_window_offset = imx95_get_window_offset,
+> +
+> +	.pcm_open = sof_stream_pcm_open,
+> +	.pcm_close = sof_stream_pcm_close,
+> +	.set_stream_data_offset = sof_set_stream_data_offset,
+> +
+> +	.runtime_suspend = imx95_runtime_suspend,
+> +	.runtime_resume = imx95_runtime_resume,
+> +
+> +	.resume = imx95_resume,
+> +	.suspend = imx95_suspend,
+> +
+> +	.set_power_state = imx95_set_power_state,
+> +
+> +	.drv = imx95_dai,
+> +	.num_drv = ARRAY_SIZE(imx95_dai),
+> +
+> +	.hw_info = SNDRV_PCM_INFO_MMAP |
+> +		   SNDRV_PCM_INFO_MMAP_VALID |
+> +		   SNDRV_PCM_INFO_INTERLEAVED |
+> +		   SNDRV_PCM_INFO_PAUSE |
+> +		   SNDRV_PCM_INFO_BATCH |
+> +		   SNDRV_PCM_INFO_NO_PERIOD_WAKEUP,
+> +};
+> +
+> +static struct snd_sof_of_mach sof_imx95_machs[] = {
+> +	{
+> +		.compatible = "fsl,imx95-19x19-evk",
+> +		.sof_tplg_filename = "sof-imx95-wm8962.tplg",
+> +		.drv_name = "asoc-audio-graph-card2",
+> +	},
+> +	{
+> +	},
+> +};
+> +
+> +static struct sof_dev_desc sof_of_imx95_desc = {
+> +	.of_machines = sof_imx95_machs,
+> +	.ipc_supported_mask = BIT(SOF_IPC_TYPE_3),
+> +	.ipc_default = SOF_IPC_TYPE_3,
+> +	.default_fw_path = {
+> +		[SOF_IPC_TYPE_3] = "imx/sof",
+> +	},
+> +	.default_tplg_path = {
+> +		[SOF_IPC_TYPE_3] = "imx/sof-tplg",
+> +	},
+> +	.default_fw_filename = {
+> +		[SOF_IPC_TYPE_3] = "sof-imx95.ri",
+> +	},
+> +	.ops = &sof_imx95_ops,
+> +};
+> +
+> +static const struct of_device_id sof_of_imx95_ids[] = {
+> +	{ .compatible = "fsl,imx95-cm7-sof", .data = &sof_of_imx95_desc },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, sof_of_imx95_ids);
+> +
+> +static struct platform_driver snd_sof_of_imx95_driver = {
+> +	.probe = sof_of_probe,
+> +	.remove = sof_of_remove,
+> +	.driver = {
+> +		.name = "sof-audio-of-imx95",
+> +		.pm = &sof_of_pm,
+> +		.of_match_table = sof_of_imx95_ids,
+> +	},
+> +};
+> +module_platform_driver(snd_sof_of_imx95_driver);
+> +
+> +MODULE_LICENSE("Dual BSD/GPL");
+> +MODULE_DESCRIPTION("SOF support for i.MX95 platforms");
+> +MODULE_AUTHOR("Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>");
+> --
+> 2.34.1
+>
 
