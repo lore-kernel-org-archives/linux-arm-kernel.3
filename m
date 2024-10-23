@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557BACFA468
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E3ACFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnofjtWFRW1a3Ex4iamW6Sy5pqigg3kUWm7+B1kI9+Q=; b=B+7a27IFwkCJgaUT5KdhY/QlFj
-	2Sudq11XxnHPNptSW1Q/j30G7DxtexDNYFp+G7FxIOSRJDiywYWd0mzJRq5gwIiSJwN0JEf9G+nDj
-	ErFRXik9W5Bbdih8QMgs29xvVlGTaB/lordk81hasZ1trdOWMYQlyiTHvoVsW/twqFNVlEAFQd/HZ
-	2ha0SHfwluLiz9cKKv0mFrmFmdzgMbfOzrJWhirgRPnHbscL4oCryH2LLiShs37WJqNh27mUn6G5f
-	TFI65cbj6zPHc57mpUa+apBsnNoqpVkFS5KAjhcfKP4TMT7sDAbkmePdgFYnbAdOBA4hYEcjm1Mpy
-	+Ow3aBvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+DiBGY7JXTau9/+lExprJsgF423QWQvTINVO37mbHBA=; b=C+AErQ1ZejcWtGoTW3Eh5wiFdg
+	lW5UZDZZvlDrz9u9NZ4BUJj7D4/2UiBxtjfbjWVG7ttPTt/95gnh3ZFV+bPcecXbTjOt87P8kdOOe
+	2bSjklsyeb7KSI1YU+DAlvCbsCrvEMKmWpZdv5dm2lQWwBeO6dbDSQrdBDnWZFIj5T5ul/va86KJ0
+	VkuPKWw/6z59tJmhbpzQcxs6qGI+wJQeCNgIJ3ubnv9Ut624TwWFFrS0rwj7hBfvBd5ZfPMSlJXpZ
+	pcBXAAGdJOiyi0nGMmYqgZEkCuRk801eLvnYWiLI5LZgWRCBgZPC0eiB21BR376jFUKTsByAgLmsB
+	eImkDvtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hh8-0000000Fmk6-3VlK;
-	Wed, 23 Oct 2024 20:11:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3hhB-0000000Fmlx-1el5;
+	Wed, 23 Oct 2024 20:11:05 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hIk-0000000FjR3-0CFs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 19:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pnofjtWFRW1a3Ex4iamW6Sy5pqigg3kUWm7+B1kI9+Q=; b=h/yD9D/860kV5yyshWWgMIMGPr
-	5Y/QxMgy8Qx7w2cTYX6kRQhdlB3KqN+MY4cNRvt94WqfJu2NixJ9fxTo1FARn0AAqDH8Vuz6Y9hDy
-	yCCJe/z8FtwFDDV/NMRQtAnkEH9L7b9ZtlOem2aYepMOLYuKN1/PuTkAA4FZsxMpz0mCfVgCAuGbS
-	+/bRgSqshAfX0KzU0kSNf8eN2HeVbC4k3Oic4VlOhr/Lol8SLWQ/Omq7d2xnGf5jC9cbiwoOSffm1
-	MN/J8bsc2HGzEjpkaTJRCjv0ggYmOAfUtDFpWrw7IXY8d755vXZRD4V+VugCbNw/JRk7466sntgBS
-	o71bzRkw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hIe-00000008XNO-3Dyc;
-	Wed, 23 Oct 2024 19:45:46 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id D8E61301171; Wed, 23 Oct 2024 21:45:43 +0200 (CEST)
-Date: Wed, 23 Oct 2024 21:45:43 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3] Avoid memory barrier in read_seqcount() through load
- acquire
-Message-ID: <20241023194543.GD11151@noisy.programming.kicks-ass.net>
-References: <20240912-seq_optimize-v3-1-8ee25e04dffa@gentwo.org>
- <20240917071246.GA27290@willie-the-truck>
- <4b546151-d5e1-22a3-a6d5-167a82c5724d@gentwo.org>
- <CAHk-=wgw3UErQuBuUOOfjzejGek6Cao1sSW4AosR9WPZ1dfyZg@mail.gmail.com>
- <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com>
+	id 1t3hNW-0000000FkIx-0o4F
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 19:50:49 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4XYfmH2B6Bz9t06;
+	Wed, 23 Oct 2024 21:50:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1729713039;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+DiBGY7JXTau9/+lExprJsgF423QWQvTINVO37mbHBA=;
+	b=r2hHWu/gsNMva0I9QpfanG6ib8PMatoREIpS03GQI99J5qN8kYcgZDEQ1a0TaReloWibzZ
+	bZ54lvnJek1CXI+BYnY6aZtMSl7X/R5Yv3b6pe0jO21XelmY+QWq7vXPmtSQn9PFTImpvi
+	kvfSOWFc5LEQE3wGn9L8a8wSgSiBfBklT5Y40nj43eWhnILCGp2qEQYbGWfHlsIFZSTy4y
+	hWQalszvnBs3MQa3UbqvIgfi+l7k6QgwiLPkmsDRA9hmJ+JSMhMpGX/Kd2Q514C4QPGfbP
+	3APh6xRPvSFN0/6mnVNau4AeuVXQUkWF6fTS4udK9eWIaW9K9+22sY/0nm7Fsw==
+Message-ID: <dc3df94f-7281-4a42-8db1-ee4f556b3d6f@mailbox.org>
+Date: Wed, 23 Oct 2024 21:50:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+Content-Language: en-US
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
+ gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru,
+ conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+ <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+From: Tor Vic <torvic9@mailbox.org>
+In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: wwofu5okm3posc3pe5gem39bz8ctt5wq
+X-MBO-RS-ID: e798e6f1cba1393a8e6
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241023_125046_477368_B2A59B70 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +95,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 23, 2024 at 09:28:31AM -0700, Linus Torvalds wrote:
-> On Wed, 18 Sept 2024 at 08:22, Linus Torvalds
-> <torvalds@linux-foundation.org> wrote:
-> >
-> > On Wed, 18 Sept 2024 at 13:15, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
-> > >
-> > > Other arches do not have acquire / release and will create additional
-> > > barriers in the fallback implementation of smp_load_acquire. So it needs
-> > > to be an arch config option.
-> >
-> > Actually, I looked at a few cases, and it doesn't really seem to be true.
-> 
-> Bah. I ended up just committing the minimal version of this all. I
-> gave Christoph credit for the commit, because I stole his commit
-> message, and he did most of the work, I just ended up going "simplify,
-> simplify, simplify".
-> 
-> I doubt anybody will notice, and smp_load_acquire() is the future. Any
-> architecture that does badly on it just doesn't matter (and, as
-> mentioned, I don't think they even exist - "smp_rmb()" is generally at
-> least as expensive).
 
-Do we want to do the complementing patch and make write_seqcount_end()
-use smp_store_release() ?
 
-I think at least ARM (the 32bit thing) has wmb but uses mb for
-store_release. But I also think I don't really care about that.
+On 10/23/24 19:45, Linus Torvalds wrote:
+> Ok, lots of Russian trolls out and about.
+> 
+> It's entirely clear why the change was done, it's not getting
+> reverted, and using multiple random anonymous accounts to try to
+> "grass root" it by Russian troll factories isn't going to change
+> anything.
+> 
+
+I'm getting tired of reading this type of accusations.
+
+It's true that I'm just a random unimportant Linux user following the 
+mailing list, but this account is not a "multiple" account emanating 
+from a troll factory.
+
+'git log' gives you more info.
+
+> And FYI for the actual innocent bystanders who aren't troll farm
+> accounts - the "various compliance requirements" are not just a US
+> thing.
+> 
+> If you haven't heard of Russian sanctions yet, you should try to read
+> the news some day.  And by "news", I don't mean Russian
+> state-sponsored spam.
+> 
+> As to sending me a revert patch - please use whatever mush you call
+> brains. I'm Finnish. Did you think I'd be *supporting* Russian
+> aggression? Apparently it's not just lack of real news, it's lack of
+> history knowledge too.
+> 
+>                        Linus
+
 
