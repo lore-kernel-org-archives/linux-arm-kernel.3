@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93455D2E025
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9121D2E027
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UG9Ue1BQggQko55k/ZAoGkmWzjZsKw5/CffpCg23CBs=; b=Gg1S7yMdBISaXB8reTtpU4q3fv
-	fN0CA7pps6Xh+7Zc6sUCZMmZs/YxoM/IBx6jcJfmuFhrUwkSxW1lFWwLHI6P1E4oBBZb5AQ2ylMhH
-	oTqB5/OjFPTx15q7J3jaflmuQfbxS4gVyW9vJctk4VR39aekdpsEUVUTNGV3Z//Wv41Niv/l2iVki
-	0ENu0X6pug7xyYM0UlxQWGob7IS9f9A6mrjzex20Ewo6RaU+kLk2aiewxzhfbf8XmJivbxm2FLgwx
-	HlEYZMs+gm01FFkFExu8h581Wa1NRBt0sXso3cdc0y1Bw22uXKYW0FS2oBQvnijDUEDn9J2RpF94x
-	V52ilxfg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=OTGtBlFhpF4KfA5UaZkwNHNmAJyTL8PF0NqzCKMi89Y=; b=1rD
+	hRRXTf8tF8vCtH1jt89juJzPJ1KfC33NFROi7bf6/qwYcPsF98PKITHStmp7gMHT+MePg8WOq7aBg
+	NQE784NyfBkO0epSbcuhKoemWP6hCOybXHZb5tLIIyXLjcScf/oUtFPssYp84S+AI9BIPt2Ex148K
+	lc4dtfR2PfNV+/EQ04CZTV0HCV3ksZdrK97jXcD41NQ58T5Odv7d5LfCPz+c+ADii+w5k/aTaeM5H
+	4jeijaT9uijG2PgpLk0Sgv+7oTdFnd6hlUXX51NSZUwEQXyQVosqoB/kny0M4LBr81vMvG/chuOW5
+	QM4qO2w9qlO3pWSrBfRIwgZ6sIvSZTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X34-0000000DdFi-41m1;
-	Wed, 23 Oct 2024 08:48:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3X4a-0000000DdaU-0GBE;
+	Wed, 23 Oct 2024 08:50:32 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Wv7-0000000Dbnm-1jGX
+	id 1t3WvP-0000000Dbsa-0cyt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:40:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 69E17A44BE7;
-	Wed, 23 Oct 2024 08:40:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9D07C4CEC6;
-	Wed, 23 Oct 2024 08:40:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729672844;
-	bh=4H0UsMMCB9JmXCIXGi6MOZ2ghoBeo+pJlx+1NAUoIE4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kVe91hxxIAj5lgLDqV3KLSD503KzeVxHdgwyPek9j+R3hPC4ysAw2q+78VZuDW4Di
-	 HKjvz+zuaejEfSonQmlXo9YbCwTqADZxaUULGvURgtSmpoZcAdeOtwFgc83QeKJHKE
-	 bELolJUT8cVHRDa+rE63dvfTgz6Bggp0NLjWgpwD7bB5aeFMpKTGUrwEVLb21ipj5d
-	 MMS2QVkP5HxgB2x+B4vmqV5B2ZGfWZgf8k0Ri7r4Hw3rsMmw29Xtk3BOuKFOAF+1Fx
-	 Hr6OHoLiW6pDSJZx5pX2zgd8sXtjUBXinYooAJRH14s6qfmDWk6cCmlWMSXED+UvXe
-	 POwLXW/I5FBew==
-Date: Wed, 23 Oct 2024 10:40:41 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: mjchen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, mjchen@nuvoton.com, 
-	peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de, conor+dt@kernel.org, 
-	krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
-Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-Message-ID: <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
-References: <20241022063158.5910-1-mjchen0829@gmail.com>
- <20241022063158.5910-2-mjchen0829@gmail.com>
+	Wed, 23 Oct 2024 08:41:23 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37ed3bd6114so3303079f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 01:41:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729672861; x=1730277661; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OTGtBlFhpF4KfA5UaZkwNHNmAJyTL8PF0NqzCKMi89Y=;
+        b=hU4AhDQj+Ypup2UZDIvFX6hkyCAvqDcwD5rymu7BPGokgHGi02PdPvKlVM0rJHtuBx
+         S5gjwNHWyZq3aSo77JBAzxi2icymcPUemI5Kn55S5RkeSGpVXnsa8p8im1Rurb4ZU1H3
+         PKvumR7ImsgaZN05tjtLGZfbePiE8EzO9b8AdEybMxoEIWXi559r3sHBBDWhgxc5CQhU
+         DaFwiosyRA/hHHrjH47SX8kzDtRnMhAzlk34apc0NDEDZls0xr8AofPqRO2UZfdSj/MQ
+         URb+vsvbf3r3DSbV3rlIPNkDEvUyyWfo/pxVD9RfJ2snpYD2CcGEh+diVENJEs+4JIwk
+         m1qA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729672861; x=1730277661;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OTGtBlFhpF4KfA5UaZkwNHNmAJyTL8PF0NqzCKMi89Y=;
+        b=ajVPFfwInVfRq7iR0l6obLvDiO5/vABZxUwxV9Z5HIvp08HGCDh7Ah6smGbW5+9esF
+         mAgI4Gdnw5HFUTpmSC3vz3NZdOM4yZLDli1HDa8/VkhWyQPj2defPOYxtAB6Sx/cuFaE
+         qIx/3hBY499FMXq0xFpcRfYW9uEBVA1IARttYbi7nWdmvfvJ77m0tI/Jk9co5fAmml80
+         tABqwhNLQHH1Pz5yhNnuLziCeKGmsF/ZMkF2ttiMnalQvL5PRlcrSN7xblrCrORu8yoB
+         KRhp3jAe4RAJ7OWVSNgPkcx3o4rVFxB9NHmx2y4aHTHeeN2Tlrfv7rs0+uWZ3drciOu9
+         d0DA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBBvm88oeCsn76l/Xgyu+kE8mo0eOK3LGXdPM4MJgS4Iz73NhTQcOaBOPbalq6ea8n/ihwMrZhBDrdSMYREz5x@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFatTdElY9I9YgP3Hekf1JZX/Ls8FwJOvmfRw7hyytUpLBQlVW
+	xHceuvJIilPBN+fC8fLu+AyWN/jk8j4bvjFpo2JzIfn0lSdvzg1kHwOdpxgvpek=
+X-Google-Smtp-Source: AGHT+IHBkbz8Gkiu8syBDS0U/jZ595MpfEdCm+s1X/ZgIeh+fOEidnPqxPO8f+s/cE9RJuzVEPDXEw==
+X-Received: by 2002:a05:6000:128d:b0:37d:4a68:61a1 with SMTP id ffacd0b85a97d-37efcf926d3mr1140382f8f.56.1729672860806;
+        Wed, 23 Oct 2024 01:41:00 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b93e76sm8408355f8f.82.2024.10.23.01.40.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 01:41:00 -0700 (PDT)
+Date: Wed, 23 Oct 2024 11:40:56 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH next] mtd: rawnand: fix double free in
+ atmel_pmecc_create_user()
+Message-ID: <7d809e5f-32e1-4438-9cc6-3167f27dd239@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241022063158.5910-2-mjchen0829@gmail.com>
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_014045_635480_06B49B55 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20241023_014103_226161_9BCC93EC 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,149 +85,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>, kernel-janitors@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 06:31:57AM +0000, mjchen wrote:
-> From: mjchen <mjchen@nuvoton.com>
-> 
-> Add YAML bindings for MA35D1 SoC keypad.
-> 
-> Signed-off-by: mjchen <mjchen@nuvoton.com>
-> ---
->  .../bindings/input/nvt,ma35d1-keypad.yaml     | 88 +++++++++++++++++++
->  1 file changed, 88 insertions(+)
->  create mode 100755 Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
-> 
+The "user" pointer was converted from being allocated with kzalloc() to
+being allocated by devm_kzalloc().  Calling kfree(user) will lead to a
+double free.
 
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run 'scripts/checkpatch.pl --strict' and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
+Fixes: 6d734f1bfc33 ("mtd: rawnand: atmel: Fix possible memory leak")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/mtd/nand/raw/atmel/pmecc.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-> diff --git a/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
-> new file mode 100755
-> index 000000000000..3d9fc26cc132
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
-
-Filename based on compatible. There is no nvt prefix. Entire filename is
-somehowdifferent than compatible.
-
-> @@ -0,0 +1,88 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/input/nvt,ma35d1-keypad.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NVT MA35D1 Keypad
-
-NVT? Nuvoton?
-
-> +
-> +maintainers:
-> +  - Ming-jen Chen <mjchen0829@gmail.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/input/matrix-keymap.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: nuvoton,ma35d1-kpi
-> +
-> +  debounce-period:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-
-Missing vendor prefix... or why are you not using existing properties?
-
-> +    description: |
-> +      key debounce period select
-
-select? or clock cycles? I don't understand this. Say something useful
-here.
-
-
-> +      0  = 0 clock
-> +      1  = 0 clock
-> +      2  = 0 clock
-
-Heh? So this is just 0
-
-> +      3  = 8 clocks
-
-This is 8
-
-> +      4  = 16 clocks
-
-16, not 4
-
-> +      5  = 32 clocks
-> +      6  = 64 clocks
-> +      7  = 128 clocks
-> +      8  = 256 clocks
-> +      9  = 512 clocks
-> +      10 = 1024 clocks
-> +      11 = 2048 clocks
-> +      12 = 4096 clocks
-> +      13 = 8192 clocks
-
-Use proper enum
-
-
-> +
-> +  per-scale:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
-
-Missing constraints
-
-> +
-> +  per-scalediv:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Per-scale divider (1 to 256).
-
-Missing constraints
-
-Both properties are unexpected... aren't you duplicating existing
-properties?
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - linux,keymap
-> +  - debounce-period
-> +  - per-scale
-> +  - per-scalediv
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/input/input.h>
-> +    keypad: keypad@404A0000 {
-
-Lowercase hex and drop the unused label
-
-> +      compatible = "nuvoton,ma35d1-kpi";
-> +      reg = <0x404A0000 0x10000>;
-
-Lowercase hex
-
-Best regards,
-Krzysztof
+diff --git a/drivers/mtd/nand/raw/atmel/pmecc.c b/drivers/mtd/nand/raw/atmel/pmecc.c
+index a22aab4ed4e8..3c7dee1be21d 100644
+--- a/drivers/mtd/nand/raw/atmel/pmecc.c
++++ b/drivers/mtd/nand/raw/atmel/pmecc.c
+@@ -380,10 +380,8 @@ atmel_pmecc_create_user(struct atmel_pmecc *pmecc,
+ 	user->delta = user->dmu + req->ecc.strength + 1;
+ 
+ 	gf_tables = atmel_pmecc_get_gf_tables(req);
+-	if (IS_ERR(gf_tables)) {
+-		kfree(user);
++	if (IS_ERR(gf_tables))
+ 		return ERR_CAST(gf_tables);
+-	}
+ 
+ 	user->gf_tables = gf_tables;
+ 
+-- 
+2.45.2
 
 
