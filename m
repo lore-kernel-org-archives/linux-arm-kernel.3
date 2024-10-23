@@ -4,81 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7FECFA461
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823BBCFA460
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ovYWQjSscguidicVSZDApcP9vThLQFuZ25Zqnn2i2k=; b=GeGZjvkDYyBoRX4uhZ+liukEYb
-	jUcBrQKhuAQNbrlklUMNTKToszWVLKe0omTq1pupXbx+CmCH4/XCf6of9E49ThXG38S+fNYJQwv1x
-	aYDMn6X2812/HAUEsb7bxCKWwgm22b/trOFqyAiezremGS2MvPIUcayDlWQFU2Q6JJKPbBXvYlWA9
-	eLFCfLbQy3RFMDA2f5W6e8Bk6Ef4yTT7/MY33fZMTrgxUZ4ALBmkmOjKyhNJVg110aSmK1aOJC7Kc
-	kOnENU2lMkxENNgQjz61DqhEVK0tVMUDt1kOfkhL2A9Z4hYPVYgCJjrWEQSqi10X5gGAhWq6HSEud
-	kQqcSL2A==;
+	bh=dpQPJd4FmJ84tz4XJt8Eke/grH6KT6GO7DB6hhqQ4ps=; b=iTATOdiLM5nTLbgKt3gxl8Qpk2
+	juJSjZWapppg/Zx18MoZIJ7pBh8Wmo+ehFNOlSrn7LPMPjFEVYN9I7iPU6exVHfySBO+NqLRfY032
+	3cT+Q/KvVouPwJA/Vra7/MHKj8Uolxo1Ciz0+LKw1IIHHqootD8aX5UHIrD+EQOqWU3LEvx3VTMwa
+	uiGSVEr92DU7bThaqsJu8CXHQwLnsz/POHwWM2H+vWcVQE/3V86jCKggameNHSa2uWZPQZDxs7qar
+	B6nBeHw9sWT7OZPtfFNcpp8RsvwVzSMLPQMJa7I2Y+QrQr8yPqUkFCikOYL7XT4SvfC7fsRJKtvQS
+	GbwIMccQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gw7-0000000FesA-2tJp;
-	Wed, 23 Oct 2024 19:22:27 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1t3gwA-0000000Feu2-3nm1;
+	Wed, 23 Oct 2024 19:22:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fGx-0000000FOEN-14hS;
-	Wed, 23 Oct 2024 17:35:52 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-83ab9445254so176239f.0;
-        Wed, 23 Oct 2024 10:35:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729704949; x=1730309749; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8ovYWQjSscguidicVSZDApcP9vThLQFuZ25Zqnn2i2k=;
-        b=mkUcLud5c0Pb3Fsb4LStOPOgaogGK+O9iUvHo5f1yfAJqGUt5GIbZS+KC+KQtNG82i
-         EBQhZIGESOjdO2PvA5v5MnqRmHM7dFY1Xo1jTeTSvOxm7U6K33ZPrhHFP9kqrzet1lZ5
-         WKtAbbDIFILTlDq1Hvapvn06LdIOnYNOn7lohEzjAvOwfYigc6CxeT4EWeE3245FItzM
-         bZKEUIQYLMiCH14v0UDJtf9L8/fLbrQepHE4s4A9KimidkJ4K/swlhvP2iMAlkrY717x
-         u4MYSUowi0J0OtS1rZ0CIzJKOO+ht/jmQXSW/1dQShxJKR2vcTz8/R4oI49b5H/tNuUf
-         2ooQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729704949; x=1730309749;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8ovYWQjSscguidicVSZDApcP9vThLQFuZ25Zqnn2i2k=;
-        b=no/J3ydjtEE081oKO/25zzDdLscB7wCD8Tnai2nHkGHcMXSOtMQS/Gp5Ts//QD4hgI
-         uKJJ88lmK+aJEnozkL+swAIdDC6M4ApcND0lo1Gc69VvYJMiO0MTRzTzLXp/3bGI5Kkn
-         perRl/pMcj9YrO8oNkUkehmJR0EbWMfIDyCZok/foiarRuLeONuCvQGZRxQqAEISRbtj
-         UkxG3dngXUIbdMhCKjYR8NLr0YuhMQcwwb7TBZxECfHn5SrwzOWD5KISBDtdek0EvsTl
-         kgc7KRYkQn+oUnI+AAf1NIaZoTjwV3FtbYW/JGBICuEFDU1fCpy1D+qfzuEy86wQ4OqT
-         VNqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUJhe6bJTOcZiBX1c2EOk0hRKMUM6pUnnFH5+IzA3woYmnFN2SfVlmbFH10an2jEVRr4VUJl71DNvJhqJ3j+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1OGv29BBxYO7Cx/RtNM7kxmlZBh7nXzzxibASknBndIUg0NZl
-	f7izJSqNWyJ9uOXkebZtcDiBN3JmW1qCimC6lVemxIXWbPJozWEWyxe0ZA==
-X-Google-Smtp-Source: AGHT+IFNcfiRI5mXvySi+X2Q1V2GhkJCnsfc97v6IoePj6n99bdtlwZMFJ+F/+hJRzyQeQU4ZrmN5Q==
-X-Received: by 2002:a05:6e02:1aac:b0:3a3:9792:e9e8 with SMTP id e9e14a558f8ab-3a4d592c8famr36322185ab.5.1729704949159;
-        Wed, 23 Oct 2024 10:35:49 -0700 (PDT)
-Received: from localhost.localdomain (174-20-195-90.mpls.qwest.net. [174.20.195.90])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a4db304c0asm2501945ab.78.2024.10.23.10.35.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 10:35:48 -0700 (PDT)
-From: Shimrra Shai <shimrrashai@gmail.com>
-To: dsimic@manjaro.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	shimrrashai@gmail.com
-Subject: Re: Re: Thinking about firmware and hardware description for latest Rockchip platforms
-Date: Wed, 23 Oct 2024 12:35:14 -0500
-Message-ID: <20241023173514.4538-1-shimrrashai@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <b12103b968cd5817f25deb7277d6054a@manjaro.org>
-References: <b12103b968cd5817f25deb7277d6054a@manjaro.org>
+	id 1t3fUN-0000000FQmS-11Uo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 17:49:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0E63D5C5C34;
+	Wed, 23 Oct 2024 17:49:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F927C4CEC6;
+	Wed, 23 Oct 2024 17:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729705782;
+	bh=Y9TCwZlSJtdxla0/yzCRKiEB7fpt1K0qsHjdub3FmmI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PmaUHOyjsIF/s2la1gyF32OheLEFYO2AI4QhNAUdsnfJrj49zonUU4cw6ibqLFGP5
+	 BK2sMy2qBRhymGxX8A+qajT7n8bfs4XgPN+GP9qcq7pzt+dnPbn4r81WGWuliUXoSo
+	 sR47EOws80W1N1+icMf6x2b1H9Hj9f6nvc5ReYmk94otaSJDMLyg8sPsVRoUag3kyh
+	 hLRT0cQpCjGyeOYDAw1DQNJfqx24+0/Azn+Pv1fS0mCyhsxz1NiED1uVgiRKOU9T3A
+	 fVtbWSb3fqxIsHcvnIcsUGRKPEeGmGHI8TUsrMxSOftwDKuLnaAp428dQ4kz588HVF
+	 m46JExIV5UVxg==
+Message-ID: <fdb76466-3258-4c71-bca3-50fd3cc94a0e@kernel.org>
+Date: Wed, 23 Oct 2024 19:49:34 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m-anatop: support spread
+ spectrum clocking
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+References: <20240928083804.1073942-1-dario.binacchi@amarulasolutions.com>
+ <20240928083804.1073942-2-dario.binacchi@amarulasolutions.com>
+ <566859c1-a397-4465-987e-0682b07a703e@kernel.org>
+ <CABGWkvqqg-PGAZTCz=MMLRx5F93jaN_=z8zJt1sDd3PHXd80PQ@mail.gmail.com>
+ <6c3e6071-822f-4230-b76b-276330de07ef@kernel.org>
+ <CABGWkvrU507BHoP94Y7fEyFr=chuuy3o=oBHtuWRvwTw3GnxXw@mail.gmail.com>
+ <82db5037-bbd3-4005-bde9-02df1bf4c475@kernel.org>
+ <CABGWkvqXZ+YAvo-AtUy+Ftdu0xxXKuhOwcSTwO5Fv6D3yzttNg@mail.gmail.com>
+ <b847ccb1-1eb8-4119-8612-212804cb50d8@kernel.org>
+ <CABGWkvqkmo9O-O1taR651W4xo=yqar=p71e0LKqRte2CGZ2Z8w@mail.gmail.com>
+ <7bce31c0-8c74-4d65-812f-01951a0d75d1@kernel.org>
+ <CABGWkvqFi_y8OzKbi=K7ucW4RuY_zh6Z4a=uO2oqQRoVE8LaCQ@mail.gmail.com>
+ <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_103551_378604_58A28324 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20241023_104943_404049_37FE6781 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,55 +136,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-10-23  2:46, Dragan Simic wrote:
-> As you noted already, the DT definitions are fixed and improved
-> all the time, which is actually great.  However, the backward
-> compatibility is ensured, because newer kernels are guaranteed
-> to work with older DTs, which doesn't mean that the board DTs
-> provided through firmware should become frozen in any way, as
-> explained further below.
+On 23/10/2024 16:58, Dario Binacchi wrote:
+>>>>
+>>>> This is another commit [1] on enabling spread spectrum that I
+>>>> implemented some time ago for
+>>>> the am335x. The most evident difference is that in that case the node
+>>>> was a clock node and not
+>>>> a clock controller, as in the case of anatop. The parameters are also
+>>>> not exactly the same, but
+>>>> that depends on the platform.
+>>>>
+>>>> [1] 4a8bc2644ef0cbf8e ("dt-bindings: ti: dpll: add spread spectrum support")
+>>>
+>>>
+>>> OK, I still do not know what "0" was, but the items are fixed, so you
+>>> know exactly which clock you are configuring here.
+>>
+>> So, after delving deeper into the topic, is it now acceptable to use
+>> the property
+>> "fsl,ssc-clocks" instead of "clocks"?  As in the patch I applied locally?
+> 
+> A gentle ping.
+> Sorry, but I haven't yet received your response to the previous email,
+> and I'm not sure how to proceed.
+> 
 
-Thanks - my concern was about backward compatibility so that if some
-user did not upgrade their FW but then tried to install a *newer*
-Linux found things mysteriously breaking due to that some DT revision
-in code had broken the backwards compatibility. Of course that could
-also be considered a bug, even while new FWs could/would still be
-rolled out.
+Yeah, the property is fine, but I don't think you need the clock index.
+The lists - like clocks and your spread property - have strictly defined
+items, so it is enough if schema lists items and says which spread
+points to which clock.
 
-> Freezing anything would be simply wrong.  It might look good from
-> the perspective of having something "stable", which is similar to
-> how x86_64 firmware works on PC motheboards, but the continual
-> bugfixes and improvements are actually extremely good, because
-> they prevent various ARM boards from effectively becoming abandoned,
-> which is unfortunately rather usual with x86_64 motherboards that
-> become so "stable" that some nasty firmware bugs are never fixed
-> and their users are left high and dry.
 
-Yes, I'm not against new FW upgrades, just the idea of users *having*
-to upgrade their FW simply because a new kernel came out when nothing
-like that is typical on x86 or at least in my experience using it over
-many years).
+P.S. I think you might pinged me on IRC, but you know,
+https://nohello.net/en/
 
-Note that the situation of a DT upgrade that is obtained by FW
-upgrade breaking older kernels, i.e. broken *forward* compatibility of
-the older kernel with later DT, isn't so much a problem because we can
-simply keep the older DT in the FW when issuing the FW upgrade, as I
-believe there is a facility for supporting multiple, versioned DTs in
-that UEFI package [and if not, it could easily be added]. It's the
-backward compatibility that is my issue because reflashing FW, even
-though not too hard on these boards, is perhaps more heady for your
-average PC or smartphone user.
 
-That is to say, I'm imagining the case of bundled computers
-pre-shipped with the loaded FW and OS installed as usual and someone
-says "hey they got a new Ubuntu [or whatever], let's install it!" BAM,
-devices stop working because they did not upgrade FW, forcing an FW
-upgrade in a way an x86 user would not be similarly forced. Though of
-course, that could then be reasonably called a regression bug (as it
-would appear from the user's perspective, not knowing about the FW
-change), if backwards compatibility is indeed already a long-standing
-policy (and is really what I was after with that "freeze" suggestion
-even if it itself would not be the way to get it).
+Best regards,
+Krzysztof
 
- - Shimrra Shai
 
