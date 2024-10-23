@@ -4,90 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73245CFA474
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E8ECFA474
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KA6APa/jjKeIciOgLaFzQ+iScaXp2KcinYd+9dtJWqQ=; b=uzMuuWPI7Djfcs0rrXOUyi9I6s
-	zn84XwqmYr43CHPzSSOiFE3C6NtTFpbWr29Uq1NWpSb+F5rO1XRD+LyTRCVMQT0MinIaviWvtmaLv
-	SiGNY0CSVjZ4dFG8G0y/5//4S5I0tJwiRS4Yhgrj80hlkUhAxW7DpCeHDCm49WeL53y0oDjCkC8E3
-	1+MhNWnYtw8YdopheLVYG2/2W88RJiuSNS6+1idtk4eyh+vCp1+ofIvrkynuI8TV6vzjej7N5Mzds
-	nqcS3c1UkD8li5uBQUfQX1I9CxGxZ7IDFpow0bJELwGvMt7NiM75midQHBIjhrHKYlFKHUzyeNjod
-	CWnVdulg==;
+	bh=b8/TsMfnimcOTnXE9Hv/frtiKX7kzGgNj68na4iCkwg=; b=iaF0f7HIsE8aodBsOgqQ/cOV4I
+	icAmcw2GsE4RZEuhvYHg+pM26vE/YwbUAHKwb6M34jPlMjejSVxLHebSzAq+lpudUKlkCV9OXjHlB
+	IrR5j7jdVX9Ef/FX/ghWfQ6Uqu4+XEbodA889ezB0MWoMyTD3ldyiOmUoz43GQd1WI44ncyJWW9HK
+	WTxj+XQSDOq6LkgOFJFig/leWhco/0Brq74NKoWUt1i8Rf/BcKFHVRbXtIdx8N4jFIVI8iEt5Ao/A
+	0cpmQ7vXvgXMSeZCKv6Qz0sAou6uXXcXZcTA330qCeqRk0nhAfjrvKVbZNpX/57pyEnYuqNKmAPE3
+	sGzbVQiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iOa-0000000Fu6x-0onm;
-	Wed, 23 Oct 2024 20:55:56 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1t3iVo-0000000Fv4k-0lXh;
+	Wed, 23 Oct 2024 21:03:24 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iN1-0000000FtvA-21qF
+	id 1t3iUE-0000000FugA-3oDt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:54:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729716860; x=1761252860;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0ZJH1tg6Y1edCRrqp9Sf6DHWEh8mb9yux+PSI5k4boY=;
-  b=JZaRjA0iC4NVvA01DvEgyhQwmK+sitm2pS/urNoRVUt+CQcEs9y/lf/N
-   XqoPco45fkuPSrCZdSyfDv3A3wnrzTtEZmgKCO2AHIIFUhzDQ/RcW5dst
-   cVk9fkg3zwYwsP2q1Z+WUlwYeHa9soINQcU0RjfCpsUjY7WYC2FAc4mpn
-   uz0WQMsQGz5kBqvlGc50cT/RqozPa7t4oNZcLePuEXJ2VVM2Cd8pi1URf
-   x8RLVR9sUO8elOyyN8elXxb5LdFmbMmw989m9aefsA2Mxnv0SIGtDKTiD
-   UvMixTifRh+wN12iiwiTgy+bJDFbWznqFnIrBUAOVK0cAcdbCXaGyyMp9
-   Q==;
-X-CSE-ConnectionGUID: Qp2BnAd8TK2GURVKNr78cw==
-X-CSE-MsgGUID: eJRv+zrSSemlAH/n7hwqhg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29489451"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="29489451"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2024 13:54:19 -0700
-X-CSE-ConnectionGUID: MKv2nNyiQKCvJu/RCWVqSQ==
-X-CSE-MsgGUID: 3drdinVSRfmhXjb2/4zFKQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="80691801"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 23 Oct 2024 13:54:13 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t3iMt-000VYU-01;
-	Wed, 23 Oct 2024 20:54:11 +0000
-Date: Thu, 24 Oct 2024 04:53:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	andrew@lunn.ch, Lars Povlsen <lars.povlsen@microchip.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	horatiu.vultur@microchip.com,
-	jensemil.schulzostergaard@microchip.com,
-	Parthiban.Veerasooran@microchip.com, Raju.Lakkaraju@microchip.com,
-	UNGLinuxDriver@microchip.com,
-	Richard Cochran <richardcochran@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, jacob.e.keller@intel.com,
-	ast@fiberby.net, maxime.chevallier@bootlin.com
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next 06/15] net: lan969x: add match data for lan969x
-Message-ID: <202410240405.kPh7im63-lkp@intel.com>
-References: <20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f@microchip.com>
+	Wed, 23 Oct 2024 21:01:49 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49NKcbGN010773;
+	Wed, 23 Oct 2024 21:00:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=b8/TsMfnimcOTnXE9Hv/frtiKX7kzGgNj68na4iCkwg=; b=
+	Mst8oX17pYuC+RstFRVSqvxVZpbgff9PoQ7dDW9uv9uXl9HSURrcUEF7SUqMy5O5
+	3KOOcWyv4A42XYC3kMFCDYPQ4cCXZIW2NTJts3Nt+iiHfquhw79GISbHpM9sG4FW
+	ntCIq9C/Wd4ywOnGLc1/vl76WSN4VPyVbtrJWZMX697fkJ3OfEGX4j0vUALykj7+
+	FPoZJimfw8U3o+8uB0puwC1xqms6dQ3sZK/AVh5R9+LV+5RIjcuNzrfGCTcE5h5U
+	+JJ+FJj+g0vPWsmU/oZ47MH4QqOAfji2B0E9kMZAMg/MZmCQuG6/sywN6Q3f330n
+	VqwUkML9QW2CNGfzlGg2Bg==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 42c5ash6ah-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 23 Oct 2024 21:00:56 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 49NJAPWg027452;
+	Wed, 23 Oct 2024 21:00:55 GMT
+Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2044.outbound.protection.outlook.com [104.47.66.44])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 42emh3cd57-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 23 Oct 2024 21:00:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UckxlzepGo4dVNhxyZw9nbEvtqcIDzk60Cz53s4+qcSVca5jlIV5Ial7U8QI0ZF3cnzepkYsKKMVU4lEijjJu6/X29LcADumbGPUSM+GD0CbgxlgqkqC1yYpgInE5BMpiWkM2xxLaUQQxYtVHOdU+10jTekao0RJnxWH8SrU0bkjorC++pI+6T2XGnsA9KXclozdQeOPgiGqDkswzlocBI1E//I8l8sd7P3wbqEs/tZHs+xZTgrKmXu5u3gxVV3fOsPm9ZYEYQirXHItuIIIPTqJC3dLL6EURglY7OrGd8HVhedqbdPQUxVYZ6pe1nkbQMWMWQIibcgj7RclwA9yIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b8/TsMfnimcOTnXE9Hv/frtiKX7kzGgNj68na4iCkwg=;
+ b=TrO+wNA646XwaEWggVP1SjLWrxuZKaPcNP3Og35ZS9ez8bMzsbP/311mheYYj3+kT3u75aXTOA0ssK1PyXiORCMF6MWMke1mPsyBslg2JEwu+kayE4navLAdlejdsoDkQtQdJtB3NNVhomMqcVIBiBnN/F5MFG8lOf1b8kLEmR6TcTGrDvtIfMZoxWSRcXTe7vPdI8Ndyqo8czIOP5ZGAg4v/sqQF93kUGsGvnCgJRi4nzWFSRBTezBEdNLjWlivKn0ltrWBhGejPBnY4p/W5qdw1sc2v8DAP0/7EjbsTLLh+75TytKuLuG+17cUuxv/gn+Rd5QeGtfqY4epHF9K0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b8/TsMfnimcOTnXE9Hv/frtiKX7kzGgNj68na4iCkwg=;
+ b=Lfgit2x4mnYT6hvTbeNA2ZuzkJj8wTBR0hAZ3a4uB6Jem8Tn2xLMBk3z10LS/O4KpHeBBb4SszsG4gqUmXIPxw5YuxTndGZwVEJsOrjrUFF8+SCE6vwspMngZUDZTzwuQSJzSTfAhxo78UPV9ZlJ0tSpY8qkJOHVNEnsAqzRHqM=
+Received: from BLAPR10MB5217.namprd10.prod.outlook.com (2603:10b6:208:327::10)
+ by SN4PR10MB5590.namprd10.prod.outlook.com (2603:10b6:806:205::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.18; Wed, 23 Oct
+ 2024 21:00:52 +0000
+Received: from BLAPR10MB5217.namprd10.prod.outlook.com
+ ([fe80::68fa:11c9:9f82:f7be]) by BLAPR10MB5217.namprd10.prod.outlook.com
+ ([fe80::68fa:11c9:9f82:f7be%5]) with mapi id 15.20.8093.018; Wed, 23 Oct 2024
+ 21:00:52 +0000
+Message-ID: <fed3b427-a600-4ce5-afef-4ccbfff64931@oracle.com>
+Date: Wed, 23 Oct 2024 17:00:45 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
+To: Ryan Roberts <ryan.roberts@arm.com>, Petr Tesarik <ptesarik@suse.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Anshuman Khandual <anshuman.khandual@arm.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        David Hildenbrand <david@redhat.com>,
+        Greg Marsden
+ <greg.marsden@oracle.com>,
+        Ivan Ivanov <ivan.ivanov@suse.com>,
+        Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Matthias Brugger <mbrugger@suse.com>, Miroslav Benes <mbenes@suse.cz>,
+        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241017142752.17f2c816@mordecai.tesarici.cz>
+ <aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
+Content-Language: en-US
+From: Thomas Tai <thomas.tai@oracle.com>
+Organization: Oracle Corporation
+In-Reply-To: <aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BY5PR04CA0026.namprd04.prod.outlook.com
+ (2603:10b6:a03:1d0::36) To BLAPR10MB5217.namprd10.prod.outlook.com
+ (2603:10b6:208:327::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f@microchip.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BLAPR10MB5217:EE_|SN4PR10MB5590:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4bdbc374-98e8-4a5e-b5b3-08dcf3a5c777
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VEl4M0E1Ly95YktxZHlhY1A3VU04Q3pSdFJaZ2hCcmdVbjdsMHZPTWpQZzBN?=
+ =?utf-8?B?ZTVkd2l0QmRJbkllK3NPSW1pekliNjBnL1lSbDdxSytLZXhncXVjVzQxS0JQ?=
+ =?utf-8?B?am9XM0xSdnBPSnVLdFgvcHdnUXd6c0NnTzlINFhIZnUrWEJDSUtaQVliYm9D?=
+ =?utf-8?B?cXBXZW44ekRuVGhuaWVjYVRKNXN3R1F4QmZROHIwcnV2T0xjMG1IMUs4S1R4?=
+ =?utf-8?B?cFoyRUhreUpoTVRHVUVUc29LSEJiL3RhSk95WU1wRnRzT0kxTEQ2dlpPeEIx?=
+ =?utf-8?B?UUo3REh4cE8xdkg5SWk1ZWtXbFM4VjRSN3lyZVRVamRuZU1WOCs0RzdFaUMv?=
+ =?utf-8?B?aFl1bHRrRFRXc05NMDB3QnpaQlF1Z1Z5ZDVMYTV2dkZpRlFUUU9BbGtYczF1?=
+ =?utf-8?B?ZGVGcFA4Wk1rRDR3R0NXamZxVkJxNVdTZlJpOGNlMmxwZmM3emlNQzNxaldI?=
+ =?utf-8?B?VG5mZS9KOUVsb1EvY1FZVFVUOUk4Lzd6cWNZWnNWZjJCYVdONldmZUF2NjI1?=
+ =?utf-8?B?cmkwVVhYeFNFNEYrR21IemFUbmozR2xFSVlIeURsay9zUlMrb1AwNEhwWUVI?=
+ =?utf-8?B?b2hqcS9aSjlPQk8rOG5YWUoreXMzNlMydEZVbnZRWWxSTzZpb3p1NWwvaGZz?=
+ =?utf-8?B?dDFJUkZzWXpXbTlIK2RTczFEVmordzMwNFUrVDFJMzJDNlFEc1pLdWVoZnpn?=
+ =?utf-8?B?T3hadGNiSXRRN0VmbkJvK1dEajJPeTFRNjNxam00TittYkozMnhzWEp2Z29V?=
+ =?utf-8?B?TTBJNFYvYXA1dXBTVml1YS9JM29aZkRRVHBxb1hQWDJVLzU3YUE2UE1uSGxj?=
+ =?utf-8?B?S1VTdGIwMDNmOXdIWnA2SG0xRitMWjJrSUg3K1Z2eGQwcWtTSjVtQUcxRldI?=
+ =?utf-8?B?ei9YdHE5dDJpM01UZVJrK3I1T2o0elF0TGdPdVA5QlFtTjhlcnVtYVdHZGI2?=
+ =?utf-8?B?d3BlUVpmbExWMkZkbllCK3JIdFhscjhqSEpOVDk0QnV4dXB4ekxsV2hDRmFh?=
+ =?utf-8?B?SXJGTlRGNlNFeXY5RlFTdWZsMW9iZmt4RkVNbXBYeWU1b01HWkdVMUJjL1JY?=
+ =?utf-8?B?NS9RZkhQdnVYaEx1eHBrcDdJdVlOdG52ODlneU82cS85WWtpZERsUjZjcWpa?=
+ =?utf-8?B?bmxsL2NtU0VVLzVUOURMQTNFSUhJYnpGWFRpRVFaMGhsUTFTUitoMFBGdWZ4?=
+ =?utf-8?B?Mk5TR0o5N1A1VmhLbFFWbFlySWtmTEJRUFV4QitybHlMWFo5OXpvUS93VXFN?=
+ =?utf-8?B?UzVZaHJyNFZtd2EyRE5IcGFBTlBxSnoxZkV3VHVtWGR6N3l4czcwUWZtM29v?=
+ =?utf-8?B?VStvY2ZvTDg2elVlSFQ1dVE5WEljVVc0MCtScmt0eGNDaFNnUTVlRDIxZTli?=
+ =?utf-8?B?ZjdZSWI3VStjWnViZG9lclhrdWlmZ09PdloxaGI5V0xvNjExT1B1N0l3STJ5?=
+ =?utf-8?B?bFphamhDR05wTC9RSFN1TE0rb0c5ZUdaNjdwRVZieWxWcTJ2QkxhOWVsN1Ey?=
+ =?utf-8?B?RzlkTTVNK0h4dktPbmx0dXpMdXlmRFdjT0haTWFuY1FKQzBlaU8zR1ZUeG9C?=
+ =?utf-8?B?bzBheXNESTd2UHVBNmhsME5EaHBlSU12Q28vSGF6MDIyY2tYNEdQaUZUN1BI?=
+ =?utf-8?B?bURRb0tPeDRRZXlqR0o3aUtRZkxuU0ZuUVlmaDU5bFZNU3NpWE5SZm1UenM5?=
+ =?utf-8?B?VnprNlQyOXh2VWtqTkp4b09vOHpLeVAwU1d6YklFN1FFYW5pa3ZsYlQydDlU?=
+ =?utf-8?Q?nqVWPFB8zedGbdrTGc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BLAPR10MB5217.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RUNpMXEwcHFOQjlacm9HbWFIS3Q1ZWsyT0RxZ2FCN3Yyb1oweXp2QkY5NHY5?=
+ =?utf-8?B?ZEp2Vy8yOVllcVpjOFd6VjFCSm9WLzFlYTRPeGNkaGh4SmkyNmRRMFZsYW10?=
+ =?utf-8?B?UDhuWUlyU25rbmlGMGs1YU1Nd1lNSUI1WXp2anJjYVEwemZmN1NobUZOTEZQ?=
+ =?utf-8?B?VEtzVVlNbkE1WW5IWG9pb2hubVBLdndGam9ua0gwTlBZZDZINkRTWnZzRkp3?=
+ =?utf-8?B?S285TXJkVStxV0V4cWt1ZWZuVTJEbnQ2UC81cURmWXJpZm9qczM2YTczUEU3?=
+ =?utf-8?B?b1BPTmlXY3RmYnVSSXcrT0xkSTYzeHVXY1BMNWV6eEV1ZEY0M1hNRUF5THlR?=
+ =?utf-8?B?R1VaU3YzUjlOdkNWUEQvaEMwQmRzUDZoMi9NeE9YMVdubHUwYkNNa284OXRw?=
+ =?utf-8?B?cm82dWV6NjFOV0pUUEtJTHp5RUo4NTkzbFpnVjZyRmhDdG9zWVlBOEU4aTZH?=
+ =?utf-8?B?c2lsbzUwWWpFSVQxODY4UXVsZFBTcitMWmZheElld1FTd0orS3piSUxOZVlw?=
+ =?utf-8?B?Yy9IakVzQ040Mnp3T3B3d3hldDVaclE4T1U0RWM0Z3I1MHYyOUthWTBscDhB?=
+ =?utf-8?B?Wm5UTFdHSnZEWlh1ZFp2QUJSTTFOdDgzdW9odE10Q0h6UDdxZlNjU0dSdTlX?=
+ =?utf-8?B?dzBZZFRLVi85WlU5M2xzemgwcG5EMnFrL1FaVWtSNGZJeFBiWDg1MUgzangy?=
+ =?utf-8?B?UFpLZExSLzNxWlZIOFhzbSsrcWdyUzdQK3VUd3A0VkhVWU5ZOVNmYkMvRVhX?=
+ =?utf-8?B?WHpGUHpsRGZ0Vkd0S0FiYVVTNXZ1cDU5NzhOWjBwMlU1T0IyMUpPMTlIWlcr?=
+ =?utf-8?B?am9ScDY3d3RmTG44MUc2ZEdDNlVLUmpnQS9OclZTUDZsMlFSbStxTGtpNm1X?=
+ =?utf-8?B?aU55bVVqUkFHS0JzQUNpdUZhVnlPeEZSNExqOHh3bEoxeStjYzVsWlFna3BD?=
+ =?utf-8?B?YzNPU3NZOTVHcmNIMFAxaXl4Ty9BM25nV1NEOXllaTRpb1A1UmYwbU5hSkxX?=
+ =?utf-8?B?aXl3VjRTSVBUdDNwYzM2ZDJlZW8vdEs2aE40NFZVVmd6ZlVwdHNlbk4yRjdq?=
+ =?utf-8?B?cUdNRVN0QmxIZ0twemthMW1FMFlLeldpVTB0bXloc09MSi9ReVIrN3ZocUFC?=
+ =?utf-8?B?OWo1d1d6RkJHWkQ5ZFgxM0M4YlUwYVQrOHJKTnp2MDlMelB6Szl0clBOMU81?=
+ =?utf-8?B?bWhSeDhkUDNlWE1xQUx0L3RRVlNzbUl4eXd1REN4L09BYmxheUtsYlBqSjdm?=
+ =?utf-8?B?aWc0M044aXRsSHhuWkZmdWc3ZWdnRk9xZFlQNk9vU2VuQVdYdGJpRFpoYy9F?=
+ =?utf-8?B?aTFPYWdRMVgzVFZKZGdqNVo3amloV3ZBa0dPY1MzelY3bmQxb3pYL3Z6d0FD?=
+ =?utf-8?B?T3hMRU1sYkdweFhHd2xQSUQ3Q25vZGJxRUt5dytzdFFxQkdmWi84QVR1N1dL?=
+ =?utf-8?B?Z3dTUnhWUW5RNEpnVXdReHlrLzMyUmpBYm0rZHd2STJHU29BV1dyeFN3Sm91?=
+ =?utf-8?B?WTNramZJalFiNFl5TkVuOExWVHUyUWdQcmE5THpFVmM0N2FZS2c3UlkwU01D?=
+ =?utf-8?B?U0NrMm9qRXM5Rk1hQjN2Q1hkNnhYNUJENVpkdk5udWRQOEZWblpYKzhWZFMx?=
+ =?utf-8?B?NWxDVHk0ZnVEdm4vM1BmVTE3a2hrVEZnTHhqdEx1eDRHVE5ocWRWK3lhV29l?=
+ =?utf-8?B?NU5hSzh5MExuamk1RjNaUEg4RFRULzR4cGozRjhMdUFrWTFtSzB4YTR2VHo5?=
+ =?utf-8?B?L0VhUTRLR2diSUt2L0FxZ3hXaEgvSHhhZmFzanQybEtxS2tmYWdMcXhaTHpE?=
+ =?utf-8?B?elRUM1AxNHJKanNMRWpwM3RNUW5ISXFaQVZYdW4xeVRBZDBGVDNpN2hTSVdR?=
+ =?utf-8?B?Q01BMlFjRzU2WHlySzc1cTJqZ3BCUkljSnMvZlpKTXlhNlZxbXdOaC9vTUdM?=
+ =?utf-8?B?ZUxDN09ZMXNidm1CcGNjVkhmZUV6ZUE4S2pCdmtxcW9idWxXSUdhc3hGLzZ5?=
+ =?utf-8?B?ZHlMTUZZQW5XTVh1aUlUSWFydEtxTERxK01FNjQ5djdHRWdpeTNBYk5ONm92?=
+ =?utf-8?B?SG0ybmVVZlBRaUdrYisrbUZnY0pRVlBFR0ZXNVhZUG5HK2RYZmd1MlBhWHlW?=
+ =?utf-8?Q?PDBJZiofp0G+uWXRw6AtvIBdR?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: radnYXZun8YQ1h4DPJQTXtIIMCMeaoiczAxywLx5HD1K9Ljfy9Ah5UWlS2CL3/epHNDEIMB3W1P4yDAcUff362XTfmXVPohayX8g93SnrV/bV20ZbVN5mSMN5+WQBaw1pBnHtXWrY+xrZugaeJ8CzHRMfxyUyrcxDgI0XQjMiW8XVHawyGHqACDFaV/bAfTp+kJdzb74PvfCh3GjBWO+pDJhhTcUP6GcxkdeVc0sidfjT/IyFB3+LNJkta/gTAreqIwwPYZDshTASR1wqqIoX5uZsTVm0NpEE1k4aPJU3yHA7oKbE2AHFBpGp6uxOIJ37R3EBIJ+8L4EbyRKNBvNTcthqD3xl5F+5S5z9hXG/j9KJguWVbdIV1bFSXEMB2PrYO49ZSUHoNJttCU2zZYLLzYTCy3AwlLv7GPGdqGMEO9VDd5O46J/xUoB9P6bXMJYvutQF1chOkRUJKrL92Vo1/BLyct9bhHaGagltZthkJCgkVCMAuFxep1fK5n9f9ViRSj/DkhGVhs/Uss2DON9nEVUcSspGqVccWKAf/RNTHYupJ++hDJLUd0cDOjOSN5tTSx6i5GBnzcSIchz0KWuiS9EWbkCrqoHMUkE482toFo=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bdbc374-98e8-4a5e-b5b3-08dcf3a5c777
+X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5217.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 21:00:52.3247
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nIa3+FjxIE0fgFcNmX58mFstTPkHtEf3DAFKoejjoO5/1iFuCczBuz538Q3DZFu4U8M83U4ufv48oxC3AA2+Xw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR10MB5590
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-23_17,2024-10-23_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 phishscore=0
+ malwarescore=0 adultscore=0 mlxscore=0 mlxlogscore=999 spamscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2409260000 definitions=main-2410230134
+X-Proofpoint-GUID: r8m4XH7Vxm3rVkXWt6AwWYHDvXPXt-Rc
+X-Proofpoint-ORIG-GUID: r8m4XH7Vxm3rVkXWt6AwWYHDvXPXt-Rc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_135419_596085_990E668D 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20241023_140146_979260_A55F6E8F 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +219,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
 
-kernel test robot noticed the following build errors:
+On 10/17/2024 8:32 AM, Ryan Roberts wrote:
+> On 17/10/2024 13:27, Petr Tesarik wrote:
+>> On Mon, 14 Oct 2024 11:55:11 +0100
+>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>>> [...]
+>>> The series is arranged as follows:
+>>>
+>>>    - patch 1:	   Add macros required for converting non-arch code to support
+>>>    		   boot-time page size selection
+>>>    - patches 2-36:  Remove PAGE_SIZE compile-time constant assumption from all
+>>>    		   non-arch code
+>> I have just tried to recompile the openSUSE kernel with these patches
+>> applied, and I'm running into this:
+>>
+>>    CC      arch/arm64/hyperv/hv_core.o
+>> In file included from ../arch/arm64/hyperv/hv_core.c:14:0:
+>> ../include/linux/hyperv.h:158:5: error: variably modified ‘reserved2’ at file scope
+>>    u8 reserved2[PAGE_SIZE - 68];
+>>       ^~~~~~~~~
+>>
+>> It looks like one more place which needs a patch, right?
+> As mentioned in the cover letter, so far I've only converted enough to get the
+> defconfig *image* building (i.e. no modules). If you are compiling a different
+> config or compiling the modules for defconfig, you will likely run into these
+> types of issues.
 
-[auto build test ERROR on 30d9d8f6a2d7e44a9f91737dd409dbc87ac6f6b7]
+It would be nice if you could provide the defconfig you are using; I also ran
+into build issues when using the arch/arm64/configs/defconfig.
+  
+Thank you,
+Thomas
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Machon/net-sparx5-add-support-for-lan969x-SKU-s-and-core-clock/20241021-220557
-base:   30d9d8f6a2d7e44a9f91737dd409dbc87ac6f6b7
-patch link:    https://lore.kernel.org/r/20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f%40microchip.com
-patch subject: [PATCH net-next 06/15] net: lan969x: add match data for lan969x
-config: arm64-randconfig-002-20241024 (https://download.01.org/0day-ci/archive/20241024/202410240405.kPh7im63-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241024/202410240405.kPh7im63-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410240405.kPh7im63-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c: In function 'sparx5_fdma_rx_get_frame':
->> drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c:178:20: error: 'struct sk_buff' has no member named 'offload_fwd_mark'
-     178 |                 skb->offload_fwd_mark = 1;
-         |                    ^~
---
-   drivers/net/ethernet/microchip/sparx5/sparx5_packet.c: In function 'sparx5_xtr_grp':
->> drivers/net/ethernet/microchip/sparx5/sparx5_packet.c:154:20: error: 'struct sk_buff' has no member named 'offload_fwd_mark'
-     154 |                 skb->offload_fwd_mark = 1;
-         |                    ^~
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for SPARX5_SWITCH
-   Depends on [n]: NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_MICROCHIP [=y] && NET_SWITCHDEV [=n] && HAS_IOMEM [=y] && OF [=y] && (ARCH_SPARX5 [=y] || COMPILE_TEST [=y]) && PTP_1588_CLOCK_OPTIONAL [=m] && (BRIDGE [=m] || BRIDGE [=m]=n [=n])
-   Selected by [m]:
-   - LAN969X_SWITCH [=m] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_MICROCHIP [=y]
-
-
-vim +178 drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-
-10615907e9b51c Steen Hegelund 2021-08-19  141  
-10615907e9b51c Steen Hegelund 2021-08-19  142  static bool sparx5_fdma_rx_get_frame(struct sparx5 *sparx5, struct sparx5_rx *rx)
-10615907e9b51c Steen Hegelund 2021-08-19  143  {
-e8218f7a9f4425 Daniel Machon  2024-09-02  144  	struct fdma *fdma = &rx->fdma;
-10615907e9b51c Steen Hegelund 2021-08-19  145  	struct sparx5_port *port;
-8fec1cea941d32 Daniel Machon  2024-09-02  146  	struct fdma_db *db_hw;
-10615907e9b51c Steen Hegelund 2021-08-19  147  	struct frame_info fi;
-10615907e9b51c Steen Hegelund 2021-08-19  148  	struct sk_buff *skb;
-10615907e9b51c Steen Hegelund 2021-08-19  149  
-10615907e9b51c Steen Hegelund 2021-08-19  150  	/* Check if the DCB is done */
-4ff58c394715ee Daniel Machon  2024-09-02  151  	db_hw = fdma_db_next_get(fdma);
-4ff58c394715ee Daniel Machon  2024-09-02  152  	if (unlikely(!fdma_db_is_done(db_hw)))
-10615907e9b51c Steen Hegelund 2021-08-19  153  		return false;
-e8218f7a9f4425 Daniel Machon  2024-09-02  154  	skb = rx->skb[fdma->dcb_index][fdma->db_index];
-4ff58c394715ee Daniel Machon  2024-09-02  155  	skb_put(skb, fdma_db_len_get(db_hw));
-10615907e9b51c Steen Hegelund 2021-08-19  156  	/* Now do the normal processing of the skb */
-aa7dfc6611fae2 Daniel Machon  2024-10-21  157  	sparx5_ifh_parse(sparx5, (u32 *)skb->data, &fi);
-10615907e9b51c Steen Hegelund 2021-08-19  158  	/* Map to port netdev */
-3f9e46347a466a Daniel Machon  2024-10-04  159  	port = fi.src_port < sparx5->data->consts->n_ports ?
-3f9e46347a466a Daniel Machon  2024-10-04  160  		       sparx5->ports[fi.src_port] :
-3f9e46347a466a Daniel Machon  2024-10-04  161  		       NULL;
-10615907e9b51c Steen Hegelund 2021-08-19  162  	if (!port || !port->ndev) {
-10615907e9b51c Steen Hegelund 2021-08-19  163  		dev_err(sparx5->dev, "Data on inactive port %d\n", fi.src_port);
-10615907e9b51c Steen Hegelund 2021-08-19  164  		sparx5_xtr_flush(sparx5, XTR_QUEUE);
-10615907e9b51c Steen Hegelund 2021-08-19  165  		return false;
-10615907e9b51c Steen Hegelund 2021-08-19  166  	}
-10615907e9b51c Steen Hegelund 2021-08-19  167  	skb->dev = port->ndev;
-10615907e9b51c Steen Hegelund 2021-08-19  168  	skb_pull(skb, IFH_LEN * sizeof(u32));
-10615907e9b51c Steen Hegelund 2021-08-19  169  	if (likely(!(skb->dev->features & NETIF_F_RXFCS)))
-10615907e9b51c Steen Hegelund 2021-08-19  170  		skb_trim(skb, skb->len - ETH_FCS_LEN);
-70dfe25cd8666d Horatiu Vultur 2022-03-04  171  
-70dfe25cd8666d Horatiu Vultur 2022-03-04  172  	sparx5_ptp_rxtstamp(sparx5, skb, fi.timestamp);
-10615907e9b51c Steen Hegelund 2021-08-19  173  	skb->protocol = eth_type_trans(skb, skb->dev);
-10615907e9b51c Steen Hegelund 2021-08-19  174  	/* Everything we see on an interface that is in the HW bridge
-10615907e9b51c Steen Hegelund 2021-08-19  175  	 * has already been forwarded
-10615907e9b51c Steen Hegelund 2021-08-19  176  	 */
-10615907e9b51c Steen Hegelund 2021-08-19  177  	if (test_bit(port->portno, sparx5->bridge_mask))
-10615907e9b51c Steen Hegelund 2021-08-19 @178  		skb->offload_fwd_mark = 1;
-10615907e9b51c Steen Hegelund 2021-08-19  179  	skb->dev->stats.rx_bytes += skb->len;
-10615907e9b51c Steen Hegelund 2021-08-19  180  	skb->dev->stats.rx_packets++;
-10615907e9b51c Steen Hegelund 2021-08-19  181  	rx->packets++;
-10615907e9b51c Steen Hegelund 2021-08-19  182  	netif_receive_skb(skb);
-10615907e9b51c Steen Hegelund 2021-08-19  183  	return true;
-10615907e9b51c Steen Hegelund 2021-08-19  184  }
-10615907e9b51c Steen Hegelund 2021-08-19  185  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> That said, I do have some patches to fix Hyper-V, which Michael Kelley was kind
+> enough to send me.
+>
+> I understand that Suse might be able to help with wider performance testing - if
+> that's the reason you are trying to compile, you could send me your config and
+> I'll start working on fixing up other drivers?
+>
+> Thanks,
+> Ryan
+>
+>> Petr T
+>
 
