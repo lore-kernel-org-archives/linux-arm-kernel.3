@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2D9CFA450
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80758CFA453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tDuUDsojeq6tCXNsq1AfOoFFZhg8W/XG0dREoLqX3/Y=; b=oZuRV//so4jqqzPl9EE+MHkjGv
-	8W8fx6OCKm3CG4WHFoVJ2yHww6zKM1qX+8t/L0FbFqMgYGzbFmBiqCMfWylwK0e6fsTRgIX3ZbJOP
-	0WxPKnRnqhHQHPBbofIU2wqzwb2gjLTfVtWb9OdA+Voejd+909dnwCMNAk3KT//CRgIzpdNOqtOxd
-	Nr9Gw6gfub/XqxaWDGenFq34PiUggIJKCRCWrvNrtQMgIAdPGsSc9A6AEH/2dTsw0ageTvukpc8tE
-	iwmrxB0qXBIHpgBAMxw4Tr0wxd81PnsjBPxBEHvU45+AprWp58XKnoMPkL9YaQu18dESXlghaSP/9
-	16I0z6ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A2EE3sVxYqIJ1dH+QTH0uydlcXtt1ReqMB1Nu0t+juU=; b=Yav/4w+f8lBlPw0rHy/nWbq6Iq
+	iXy182ZPCCyaAxiHGLQoZWaNTfo8Sp3R3JMIxBd9tEEzTJYmLjAB4DDQIqf/443FmwhvZsSCK650u
+	exFa0JTCTbHxchcr14teLf13zLDkx0ZutLBXRAJH8fyL2tk09oEoFOcDiBm5g47k1QeaDmyTWa+H4
+	luZ24LSAF8klgNw1Hl0HB2rZvrlqFwb9Teq5naMe0CpFBDMWBu5874P3X8ei9FU2N83jTKpmo1Y+X
+	ybKmgZH8wa4xDjfQnqPYQ6hb354IJiBYDyTYWi7yBbL7Us/bIC+n8sCq/JiFTvI9smotmsKwzQsbc
+	hNl5vuIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3egX-0000000FFQi-3vPU;
-	Wed, 23 Oct 2024 16:58:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cvR-0000000EsZm-0vLS
+	id 1t3egZ-0000000FFRT-2tTk;
+	Wed, 23 Oct 2024 16:58:15 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3dG4-0000000ExJ6-0FKd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 15:05:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64F6C339;
-	Wed, 23 Oct 2024 08:05:56 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A79D63F528;
-	Wed, 23 Oct 2024 08:05:24 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	akpm@linux-foundation.org,
-	anshuman.khandual@arm.com,
-	aruna.ramakrishna@oracle.com,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com,
-	dave.martin@arm.com,
-	jeffxu@chromium.org,
-	joey.gouly@arm.com,
-	pierre.langlois@arm.com,
-	shuah@kernel.org,
-	sroettger@google.com,
-	will@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 0/5] Improve arm64 pkeys handling in signal delivery
-Date: Wed, 23 Oct 2024 16:05:06 +0100
-Message-ID: <20241023150511.3923558-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Oct 2024 15:26:49 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e3705b2883so135070887b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 08:26:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1729697207; x=1730302007; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=A2EE3sVxYqIJ1dH+QTH0uydlcXtt1ReqMB1Nu0t+juU=;
+        b=r5ORK2whcW606TEWWM6c+eG7HcSB8Z2L9qhHXJvApetqz0lOG1zVlN8uRdYFm81vKe
+         X9xCEPekLOYO6NjjUqqVizQWo9bFx61ZxqM+mGwq3QJ2FYhQAR3NDaD6lNdGz2Phw4sl
+         F4hRhT5CZVSw+3uX0jWmrBnh/3nctAsRAMPZfGX85Pr0r40B7BrmL0dk8df3V9mw4c0O
+         +8FD8c0lQvFMQn4Ui0LmbwLmFrXpADbwAVB6ygpbPva/5OxVigZ3PJ/MRgQ/CXxPG2nY
+         7tP7m+vmYl9rIijGJbtfo9g5gXhvpjiNOY+g9zjSnI9F5WiqdJdCbyax2HXGY/K6bH9Z
+         w4KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729697207; x=1730302007;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=A2EE3sVxYqIJ1dH+QTH0uydlcXtt1ReqMB1Nu0t+juU=;
+        b=xB4mSVL44JqBS2ZApCjv/ItRpnpvLHV+ubF0RnLBPdvUb7aG+rP1/jzf2GxlDbjOiR
+         Rb1ZP1GYBYOH7dM5ixY9lbLPcwi32RDv1ItTm1F/FFVqmihBa6C387rZFSaSwZLRJbNc
+         f7SeYDI6dXWzKY+zyXZTo2Sc1KUtHnG+NmygXBVdscAWf/vahvwXxmVmEq/TH6wzsif2
+         Y7PfIc9aPLxbp6IxViochGjIUKWIWfWM/ueQ06vV6WEiJ+YZ8TNqcyd3hSb/oBVX3Ikz
+         MrQ7ZPEo3h0FxUuzLfBIXtVP+coB498B+HNpYF1WKWD1JAYfap8seiBAGJXsfYWoAIuC
+         84VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4m8qMeA+unL5RS+YI1V9R4XZKJZP5oIeRuhrsUSdchhVKrGLRTgVU4rtQgwEYrGPXVH8ri5rJmtxOOYbqZgqN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrX4+QoDj3tT4vjEd9oJXrI8q8H0HO8n7m397aE4pagHCT3T8U
+	hjkNb+KH1C8b3z5vnTPccYBpQr2+f+Q/uv6oz2JczPcrBKDeAGZoNESwdTMWSuo1MVfXmxsLvgS
+	vcZXL1A==
+X-Google-Smtp-Source: AGHT+IFIvoDWzY92c7Ql5MqDK4/LO8cFIPrnyxqxIgb86cVrW0eQyRyYu3QqngJF51cWPwSpHNgspMn0AOrE
+X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fac1])
+ (user=rananta job=sendgmr) by 2002:a25:df45:0:b0:e28:e510:6ab1 with SMTP id
+ 3f1490d57ef6-e2e3a6c91cemr1496276.8.1729697206388; Wed, 23 Oct 2024 08:26:46
+ -0700 (PDT)
+Date: Wed, 23 Oct 2024 15:26:38 +0000
+In-Reply-To: <20241023152638.3317648-1-rananta@google.com>
+Mime-Version: 1.0
+References: <20241023152638.3317648-1-rananta@google.com>
+X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
+Message-ID: <20241023152638.3317648-5-rananta@google.com>
+Subject: [kvm-unit-tests PATCH v2 4/4] arm: fpu: Fix the input/output args for
+ inline asm in fpu.c
+From: Raghavendra Rao Ananta <rananta@google.com>
+To: Subhasish Ghosh <subhasish.ghosh@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Andrew Jones <andrew.jones@linux.dev>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Raghavendra Rao Anata <rananta@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_080529_403151_6B5752C1 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20241023_082648_124685_D3DE86C4 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +92,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is a follow-up to Joey's Permission Overlay Extension (POE)
-series [1] that recently landed on mainline. The goal is to improve the
-way we handle the register that governs which pkeys/POIndex are
-accessible (POR_EL0) during signal delivery. As things stand, we may
-unexpectedly fail to write the signal frame on the stack because POR_EL0
-is not reset before the uaccess operations. See patch 3 for more details
-and the main changes this series brings.
+The macros fpu_reg_{read,write} post-increment the '__val'
+pointer register as a part of 'stp' and 'ldp' instructions.
+As a result, mark it with "+r" for the compiler to treat it
+as read-write operand.
 
-A similar series landed recently for x86/MPK [2]; the present series
-aims at aligning arm64 with x86. Worth noting: once the signal frame is
-written, POR_EL0 is still set to POR_EL0_INIT, granting access to pkey 0
-only. This means that a program that sets up an alternate signal stack
-with a non-zero pkey will need some assembly trampoline to set POR_EL0
-before invoking the real signal handler, as discussed here [3]. This is
-not ideal, but it makes experimentation with pkeys in signal handlers
-possible while waiting for a potential interface to control the pkey
-state when delivering a signal. See Pierre's reply [4] for more
-information about use-cases and a potential interface.
+On the contrary, sve_reg_read() never updates the value of the
+pointer/register. Hence, mark this as "r" for the compiler to
+treat it as read-only operand.
 
-The x86 series also added kselftests to ensure that no spurious SIGSEGV
-occurs during signal delivery regardless of which pkey is accessible at
-the point where the signal is delivered. This series adapts those
-kselftests to allow running them on arm64 (patch 4-5).
+Without these adjustments, the compiler can potentially perform
+optimizations over the registers holding the pointers that could
+lead to data aborts.
 
-Finally patch 2 is a clean-up following feedback on Joey's series [5].
+Fixes: d47d370c8f ("arm: Add test for FPU/SIMD context save/restore")
+Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+---
+ arm/fpu.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-I have tested this series on arm64 and x86_64 (booting and running the
-protection_keys and pkey_sighandler_tests mm kselftests).
-
-v1..v2:
-* In setup_rt_frame(), ensured that POR_EL0 is reset to its original
-  value if we fail to deliver the signal (addresses Catalin's concern [6]).
-* Renamed *unpriv_access* to *user_access* in patch 3 (suggestion from
-  Dave).
-* Made what patch 1-2 do explicit in the commit message body (suggestion
-  from Dave).
-
-- Kevin
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240822151113.1479789-1-joey.gouly@arm.com/
-[2] https://lore.kernel.org/lkml/20240802061318.2140081-1-aruna.ramakrishna@oracle.com/
-[3] https://lore.kernel.org/lkml/CABi2SkWxNkP2O7ipkP67WKz0-LV33e5brReevTTtba6oKUfHRw@mail.gmail.com/
-[4] https://lore.kernel.org/linux-arm-kernel/87plns8owh.fsf@arm.com/
-[5] https://lore.kernel.org/linux-arm-kernel/20241015114116.GA19334@willie-the-truck/
-[6] https://lore.kernel.org/linux-arm-kernel/Zw6D2waVyIwYE7wd@arm.com/
-
-Cc: akpm@linux-foundation.org
-Cc: anshuman.khandual@arm.com
-Cc: aruna.ramakrishna@oracle.com
-Cc: broonie@kernel.org
-Cc: catalin.marinas@arm.com
-Cc: dave.hansen@linux.intel.com
-Cc: dave.martin@arm.com
-Cc: jeffxu@chromium.org
-Cc: joey.gouly@arm.com
-Cc: pierre.langlois@arm.com
-Cc: shuah@kernel.org
-Cc: sroettger@google.com
-Cc: will@kernel.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: x86@kernel.org
-
-
-Kevin Brodsky (5):
-  arm64: signal: Remove unused macro
-  arm64: signal: Remove unnecessary check when saving POE state
-  arm64: signal: Improve POR_EL0 handling to avoid uaccess failures
-  selftests/mm: Use generic pkey register manipulation
-  selftests/mm: Enable pkey_sighandler_tests on arm64
-
- arch/arm64/kernel/signal.c                    |  95 +++++++++++++---
- tools/testing/selftests/mm/Makefile           |   8 +-
- tools/testing/selftests/mm/pkey-arm64.h       |   1 +
- tools/testing/selftests/mm/pkey-x86.h         |   2 +
- .../selftests/mm/pkey_sighandler_tests.c      | 101 +++++++++++++-----
- 5 files changed, 162 insertions(+), 45 deletions(-)
-
+diff --git a/arm/fpu.c b/arm/fpu.c
+index f327a349..f44ed82a 100644
+--- a/arm/fpu.c
++++ b/arm/fpu.c
+@@ -55,7 +55,7 @@ static inline bool arch_collect_entropy(uint64_t *random)
+ 		     "stp q26, q27, [%0], #32\n\t"	\
+ 		     "stp q28, q29, [%0], #32\n\t"	\
+ 		     "stp q30, q31, [%0], #32\n\t"	\
+-		     : "=r" (__val)			\
++		     : "+r" (__val)			\
+ 		     :					\
+ 		     : "v0", "v1", "v2", "v3",		\
+ 			"v4", "v5", "v6", "v7",		\
+@@ -89,8 +89,8 @@ do {							\
+ 		     "ldp q26, q27, [%0], #32\n\t"	\
+ 		     "ldp q28, q29, [%0], #32\n\t"	\
+ 		     "ldp q30, q31, [%0], #32\n\t"	\
++		     : "+r" (__val)			\
+ 		     :					\
+-		     : "r" (__val)			\
+ 		     : "v0", "v1", "v2", "v3",		\
+ 			"v4", "v5", "v6", "v7",		\
+ 			"v8", "v9", "v10", "v11",	\
+@@ -140,8 +140,8 @@ do {							\
+ 		     "str z29, [%0, #29, MUL VL]\n"	\
+ 		     "str z30, [%0, #30, MUL VL]\n"	\
+ 		     "str z31, [%0, #31, MUL VL]\n"	\
+-		     : "=r" (__val)			\
+ 		     :					\
++		     : "r" (__val)			\
+ 		     : "z0", "z1", "z2", "z3",		\
+ 			"z4", "z5", "z6", "z7",		\
+ 			"z8", "z9", "z10", "z11",	\
 -- 
-2.43.0
+2.47.0.105.g07ac214952-goog
 
 
