@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C434DCF5397
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACA6CF5396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TKoI9dEllx1TNgC9xZVCozD6BRiFRJgzuEW3oaX71qI=; b=DUnwfT6FZPlasR3cOFFQY/TKk8
-	jKJ4tejqIRiyP3OuzKikniJcYCSpry17RcFRzf9vEf2jxWaRD/N4BO0Kd/uupf0TOdXvwfuStZeNn
-	EXpwpRd5He+vRgQjpHPDrvM9sg4dtth22HsF/ESytbOtVa7xk92oY5tPTSl/W2lHw+oQ5lAu4GA+F
-	gAybmGHu85JQzxGjCH4P5rrphxafcowO/YbSeXt+UUtoPkoLsbZBFD5fFtWGMC99b5ZmjlLYt6BHy
-	Q793TV/rOAl8rsMxnzq2zHIdhYj1JCYmwhVAS4mpth8vmhGm3B2ByqWPzY5DTlYiDuSvqzKPcR+C5
-	hhyER+Hg==;
+	bh=zNbs7lMxJe0WpEfzvkFkz7bKbVbhuIqCKdgJ6nIjpBo=; b=mLdruLzgHZijH/UuI3x4Y/SKEH
+	sIdxQYQvW+dy81Z1i/3MdiJKfO6QD0JJamPUw3V3iFakMrxph0VxFF4S1cwV67vkcP2zB8c8fsrtM
+	j8ZOMnkHc8z2H5os47DKfI2TbPD/t2VNOBy1l4dD03N1XVNk8CX1fIs50fAS0h/2LvT6yh4HeWQ/5
+	zGsEB9jQJG9UX9LyKNG/CR74JIHaY5Qexg3L5HQlKWNwX2fi2lkABuRoEGkefb1fPRd7xmMvJiVqT
+	vyMXiPk1SXOid0cPSF1+JWdPk66XF5ZXbtEa87wEdMobAcXWoL/sUzS1vaszOr4KFfS1ohewwOaOj
+	NZ6ofyqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cPP-0000000EiMK-00BG;
-	Wed, 23 Oct 2024 14:32:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3cSW-0000000Ek4o-4BQQ;
+	Wed, 23 Oct 2024 14:35:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cNd-0000000EhbT-125x
+	id 1t3cPR-0000000EiND-0mJn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:30:34 +0000
+	Wed, 23 Oct 2024 14:32:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2ED895C57F9;
-	Wed, 23 Oct 2024 14:30:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F5EAC4CEC6;
-	Wed, 23 Oct 2024 14:30:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 292C6A44F62;
+	Wed, 23 Oct 2024 14:32:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED3D3C4CEC6;
+	Wed, 23 Oct 2024 14:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729693832;
-	bh=DTPT4zl44npMYzjERrEH9EvBCMsinVpzO0mfU1W/K+s=;
+	s=k20201202; t=1729693944;
+	bh=ps2pio6F3j0r+hhv1BZ70KY2snpn9xRXWVZg2U276Hw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gZZGLJl+iG9JdNz/tDltYSPBH+P1BzVIeOb+X5mKKGdkSzWrFAIDwkXVngoUfzLxe
-	 Txo7XVFgUlnmwc4msYAbE94uBGxmYdHMhO4Qx+psH5nrx8ZAM0PBGGCY+tLvvgULSx
-	 VBCfOWwe4kx8U2ICOoQus9DH0OBEc7L+k02XMaA9UBKX4PeyTDqihClw36LggcEoYt
-	 RlJbMeDI2IdI4oxEy+mstaLK57kwSWlxi5qnzHMfhOAbl20aMkKJQuIuKhxOcD2ah4
-	 Xk6GdgIBTT74600jLyBof/AxR2HNo+cud8fpLegrixWTzdJFo+/VZWRnYoCb4ypW5x
-	 inqT+FU0B23ig==
+	b=J81qSgJFpjyeoc3DxQxBaFqXCkgX1c4Xnj6oaUPijsX5rIj8FTS6q9TnRIXOeMTkT
+	 b+NyqCgXd8FDTY1mONqj891mJxVlDdX/XvsDrRlBBO9Nd3zWS6sK8jV6YLv57IrZuX
+	 1ZPVhOrCa+IkVwWM5ocB+N8Vtdx/+96W7jMin90GRF7TSLeshHhD2KFonlebT01jJr
+	 JkIbO83Cobkxa2iqRhOA6mcVZHI0U1ENg97wRFcTfzjD9399mfXtsecEDhUHFV0M+7
+	 Uiv63HJGzqUfw9pYLL+DrbSxpwJWHXiyirq4CZWD4ios92cAyDvm6ArWKVIUgPXZST
+	 HLk+su6TPbfNQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Robin Murphy <robin.murphy@arm.com>,
+Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Kevin Brodsky <Kevin.Brodsky@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.11 12/30] iommu/arm-smmu: Clarify MMU-500 CPRE workaround
-Date: Wed, 23 Oct 2024 10:29:37 -0400
-Message-ID: <20241023143012.2980728-12-sashal@kernel.org>
+	pcc@google.com,
+	dawei.li@shingroup.cn,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.1 13/17] arm64: set POR_EL0 for kernel threads
+Date: Wed, 23 Oct 2024 10:31:52 -0400
+Message-ID: <20241023143202.2981992-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241023143012.2980728-1-sashal@kernel.org>
-References: <20241023143012.2980728-1-sashal@kernel.org>
+In-Reply-To: <20241023143202.2981992-1-sashal@kernel.org>
+References: <20241023143202.2981992-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.11.5
+X-stable-base: Linux 6.1.114
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_073033_356241_2B49AD7F 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241023_073225_358409_6039D5B4 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Robin Murphy <robin.murphy@arm.com>
+From: Joey Gouly <joey.gouly@arm.com>
 
-[ Upstream commit 0dfe314cdd0d378f96bb9c6bdc05c8120f48606d ]
+[ Upstream commit e3e85271330b18f487ab3032ea9ca0601efeafaf ]
 
-CPRE workarounds are implicated in at least 5 MMU-500 errata, some of
-which remain unfixed. The comment and warning message have proven to be
-unhelpfully misleading about this scope, so reword them to get the point
-across with less risk of going out of date or confusing users.
+Restrict kernel threads to only have RWX overlays for pkey 0.  This matches
+what arch/x86 does, by defaulting to a restrictive PKRU.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-Link: https://lore.kernel.org/r/dfa82171b5248ad7cf1f25592101a6eec36b8c9a.1728400877.git.robin.murphy@arm.com
+Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Kevin Brodsky <Kevin.Brodsky@arm.com>
+Link: https://lore.kernel.org/r/20241001133618.1547996-2-joey.gouly@arm.com
 Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/iommu/arm/arm-smmu/arm-smmu-impl.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/process.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-impl.c b/drivers/iommu/arm/arm-smmu/arm-smmu-impl.c
-index 9dc772f2cbb27..99030e6b16e7a 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-impl.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-impl.c
-@@ -130,7 +130,7 @@ int arm_mmu500_reset(struct arm_smmu_device *smmu)
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 044a7d7f1f6ad..048fe09da8a07 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -399,6 +399,9 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
  
- 	/*
- 	 * Disable MMU-500's not-particularly-beneficial next-page
--	 * prefetcher for the sake of errata #841119 and #826419.
-+	 * prefetcher for the sake of at least 5 known errata.
- 	 */
- 	for (i = 0; i < smmu->num_context_banks; ++i) {
- 		reg = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
-@@ -138,7 +138,7 @@ int arm_mmu500_reset(struct arm_smmu_device *smmu)
- 		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, reg);
- 		reg = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
- 		if (reg & ARM_MMU500_ACTLR_CPRE)
--			dev_warn_once(smmu->dev, "Failed to disable prefetcher [errata #841119 and #826419], check ACR.CACHE_LOCK\n");
-+			dev_warn_once(smmu->dev, "Failed to disable prefetcher for errata workarounds, check SACR.CACHE_LOCK\n");
+ 		p->thread.cpu_context.x19 = (unsigned long)args->fn;
+ 		p->thread.cpu_context.x20 = (unsigned long)args->fn_arg;
++
++		if (system_supports_poe())
++			p->thread.por_el0 = POR_EL0_INIT;
  	}
- 
- 	return 0;
+ 	p->thread.cpu_context.pc = (unsigned long)ret_from_fork;
+ 	p->thread.cpu_context.sp = (unsigned long)childregs;
 -- 
 2.43.0
 
