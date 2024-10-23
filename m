@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2EDCFA472
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9268FCFA472
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFQqIJMCoI3l4J3byjW/w5j2MNbERlwbMd704JJ1ji4=; b=0/5CzMM/HtPbEMxXYkzfXjodNS
-	ZI63xI/C65lGZ+JBIvuH+gBhYgTohz+A4w2iCZ0aZ0mVv/007FOwcCD2RwvEA6dMZERI69BRa3Bfq
-	U5UOhsw711xOjarVfHVXd7bz4R4hRw0C1sLQzY3NlR6sXEUDezXllBpXtjzIFVz6ZpMYXd3NWlztp
-	IsIh5J8cZE9jQjTZ5u7BVfOp1xoFCI0atyFmXz3T8fzkVXCdT0jUdBv49jWLfPmsoTKoYstRTSlXS
-	pE+VJ2jgI/ozAaUkMuYVMydn5V0LUc9hgVbQSraM7xVlvzLIq5Am34Iq/9RREBRS7ItQjjNiYci9U
-	Xt0qAxtA==;
+	bh=x81WPgjq5SOtyxbakC7ihgczw+G9LIIBElwuB8ruK4c=; b=vIOlxT1re9jmjb9SOojpgw2LKd
+	eRsSZ4DvjJmewvyIpvUDBbiqX6LOAAEJLcBlQKhwbbZgWT9EIyPpyKJ9kmg6xHfohkBonEy83yoIq
+	9y+43XX7J4ct69ikQoKgW0U/97E89Y8UsVmx1WLhz2yX/AkRz1tyIvCvgHvCcjn6GIGBJDaz4HvIb
+	4KEFzBnbsAoCg4+VmGjqd05eFPXTNHu2cnuAtPXE8mjTSdo1Eh9NZklIE//AfUl1USPBCO8rXwdEN
+	2nKr8dRrh+UnCWhS5701CQewTSgn7b7hFHmDrr4PS26nTJ0eA9vq4zFb68JQfZ6Bb/dug2PggbqlA
+	Mx5iRuTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iGY-0000000Ft1u-1xTJ;
-	Wed, 23 Oct 2024 20:47:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3iI2-0000000FtCr-41tG;
+	Wed, 23 Oct 2024 20:49:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i90-0000000FrXd-2Jzg
+	id 1t3i93-0000000FrY2-05nK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:39:52 +0000
+	Wed, 23 Oct 2024 20:39:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 77F87A414B4;
-	Wed, 23 Oct 2024 20:39:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67550C4CEC6;
-	Wed, 23 Oct 2024 20:39:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 592ECA41665;
+	Wed, 23 Oct 2024 20:39:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76CF0C4CEE5;
+	Wed, 23 Oct 2024 20:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729715989;
-	bh=WEpX97GMGue5h7bD/Qq1020rZU1gV6I6QjnRHlLOdmM=;
+	s=k20201202; t=1729715991;
+	bh=2eYH4MlA2swbnr7Adf9Eu7+rMkjhAxSKCoo92NFhmpw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Dahnr0R796Tfqila1uyH46kYi0NyolVV4NVVXPx6GyX+TrSMZvzYKC2IORDw91YcN
-	 tKn1v2LWgFdFPtpoEwjbgjk6TcOIttCRanO+Wn1Kx9ktepzB0DLWfPn2k9kRbxHEpv
-	 QVJKi4Vw2rDOt4PFgydLmUw68t6yFax8L3/qoTLFOZ8PTnT7PfbFP2Bi5t25UtJb/L
-	 6DSwhJRBYZF4xpoY6+nQKd+4pjUNnGnL5IqlXi/vM6Trl54bV9JIarDJsED5Y7BdQA
-	 L+46L5knrXhElA4DrTtP4mAA62AOtl3HX8KthlH7C5vPXUsyLB8HoAnyPG094zqjm1
-	 RfDstiEW0BL5w==
+	b=HHtL0+aZd7/UFWdJoQ1PUrq2RV2TSukC8tOFWZ8I3o8vQY4dHdkOzmBCQTEyb7ZbT
+	 SWbG/D5ipAZWBUWmZjAx5BV1wK9e5KWqWRKargoNf+IfxvN/QS49LScmAQDbWp7/Cq
+	 JKupvjpZWV+jqn+tIXeDNRoTTc7NR060b06Gj5cBV26xRlTQiIjNUpUGlvdzabtVzY
+	 NzE8PG85FZMx6Cs4N4TNBpafoRwq0dfgWBajllRdkkx+fDUOBLLrPGgvwin/aHCnmJ
+	 J2UdHBhfNoBmOB+hFbiyeLd31w14RSqmPogQ8wUUgATZh50KxUFRXJhAq60cNgIesO
+	 wpCwCESrNztFQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 23 Oct 2024 21:38:32 +0100
-Subject: [PATCH 4/6] kselftest/arm64: Implement irritators for ZA and ZT
+Date: Wed, 23 Oct 2024 21:38:33 +0100
+Subject: [PATCH 5/6] kselftest/arm64: Provide a SIGUSR1 handler in the
+ kernel mode FP stress test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-arm64-fp-stress-irritator-v1-4-a51af298d449@kernel.org>
+Message-Id: <20241023-arm64-fp-stress-irritator-v1-5-a51af298d449@kernel.org>
 References: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
 In-Reply-To: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -57,20 +58,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2511; i=broonie@kernel.org;
- h=from:subject:message-id; bh=WEpX97GMGue5h7bD/Qq1020rZU1gV6I6QjnRHlLOdmM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8IqFapOgWCDGYthrlNY7lK+roKfgEiszak93NR
- OziALsmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfCAAKCRAk1otyXVSH0C8aB/
- 9UFKrDED/C0Pc/AaNhAZcgAygaJXFU3+FqMiLgUTnRqeckBQB23OIdfU76q00F6+cT6wcXrddgjfVq
- MN5mRc7jPQF2rWgQEsUviDNoaRJuSk89KZDFW0vOjP0KOqSS3U6rVinrrSGwF/1S3Y2VU9mdRY7ZGY
- gtvGmm+spMMl+ImoOlbp2kwd589P2O798KVzGLyKtjt0vWyzTPzEeNBWN92SbdgYKuH2tBvd35PhEy
- hW1oGvxgsIaWSIuuik8tF7zyvh76LntL4xi+PKyt8f/uv6RFAjkr3TFONT9HaYPi8vg3r9V4EhcHsY
- pwKFhl48BWyYjvD6WHIwzrUzHfEUBP
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1266; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=2eYH4MlA2swbnr7Adf9Eu7+rMkjhAxSKCoo92NFhmpw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8JzNZQSvHQxUSc42pdgj2HsNPx/BcpVh07gynO
+ a+c6ELeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfCQAKCRAk1otyXVSH0A/XB/
+ wKth7XVx9oz7qbfbhUEMkGwkOSykh7+5RLlvAUOJIoBYlh1ieDD1L9OWcTkbAa2RD+uhlnQrQc2eUm
+ eUG/QBJVTQryVUwdV0wPEbOt9JARw63DmunugDrJ5ZzsHKJjNSeVswGtEU+C12ZSO3DmjSt+YQgKiy
+ CML0owjEHha21n4gBuapaeBgeWUlGPAOEcWWFxQDPf/bCigtcl61nptjMwpkHisLNDg34Xw3MoVVbv
+ rJHizDjXjmogDrvp/XAwGY2MZEFOeNcat73ig+/AOhdYuYg54HSQGvrCeRk9tYBZe5iWnjofKP4rdd
+ 5JLYCyp/lk5qIIURn4WaTlXEglTh7G
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_133950_754711_B4E38F6C 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20241023_133953_160892_556088DF 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,76 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently we don't use the irritator signal in our floating point stress
-tests so when we added ZA and ZT stress tests we didn't actually bother
-implementing any actual action in the handlers, we just counted the signal
-deliveries. In preparation for using the irritators let's implement them,
-just trivially SMSTOP and SMSTART to reset all bits in the register to 0.
+The other stress test programs provide a SIGUSR1 handler which modifies the
+live register state in order to validate that signal context is being
+restored during signal return. While we can't usefully do this when testing
+kernel mode FP usage provide a handler for SIGUSR1 which just counts the
+number of signals like we do for SIGUSR2, allowing fp-stress to treat all
+the test programs uniformly.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/za-test.S | 12 ++++--------
- tools/testing/selftests/arm64/fp/zt-test.S | 12 ++++--------
- 2 files changed, 8 insertions(+), 16 deletions(-)
+ tools/testing/selftests/arm64/fp/kernel-test.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
-index 1ee0ec36766d2bef92aff50a002813e76e22963c..f902e6ef9077bfa34fa7f85ce572ce3df4346789 100644
---- a/tools/testing/selftests/arm64/fp/za-test.S
-+++ b/tools/testing/selftests/arm64/fp/za-test.S
-@@ -148,20 +148,16 @@ function check_za
- 	b	memcmp
- endfunction
+diff --git a/tools/testing/selftests/arm64/fp/kernel-test.c b/tools/testing/selftests/arm64/fp/kernel-test.c
+index e8da3b4cbd23202c6504ffd8043f8ef351d739f6..859345379044fc287458644309d66cf5f3d8bdf5 100644
+--- a/tools/testing/selftests/arm64/fp/kernel-test.c
++++ b/tools/testing/selftests/arm64/fp/kernel-test.c
+@@ -267,6 +267,10 @@ int main(void)
+ 		       strerror(errno), errno);
  
--// Any SME register modified here can cause corruption in the main
--// thread -- but *only* the locations modified here.
-+// Modify the live SME register state, signal return will undo our changes
- function irritator_handler
- 	// Increment the irritation signal count (x23):
- 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
- 	add	x0, x0, #1
- 	str	x0, [x2, #ucontext_regs + 8 * 23]
- 
--	// Corrupt some random ZA data
--#if 0
--	movi	v0.8b, #1
--	movi	v9.16b, #2
--	movi	v31.8b, #3
--#endif
-+	// This will reset ZA to all bits 0
-+	smstop
-+	smstart
- 
- 	ret
- endfunction
-diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
-index ade9c98abcdafc2755ef4796670566d99e919e5c..c96cb7c2ad4b406c54099fe3f73917259bd947e4 100644
---- a/tools/testing/selftests/arm64/fp/zt-test.S
-+++ b/tools/testing/selftests/arm64/fp/zt-test.S
-@@ -117,20 +117,16 @@ function check_zt
- 	b	memcmp
- endfunction
- 
--// Any SME register modified here can cause corruption in the main
--// thread -- but *only* the locations modified here.
-+// Modify the live SME register state, signal return will undo our changes
- function irritator_handler
- 	// Increment the irritation signal count (x23):
- 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
- 	add	x0, x0, #1
- 	str	x0, [x2, #ucontext_regs + 8 * 23]
- 
--	// Corrupt some random ZT data
--#if 0
--	movi	v0.8b, #1
--	movi	v9.16b, #2
--	movi	v31.8b, #3
--#endif
-+	// This will reset ZT to all bits 0
-+	smstop
-+	smstart
- 
- 	ret
- endfunction
+ 	sa.sa_sigaction = handle_kick_signal;
++	ret = sigaction(SIGUSR1, &sa, NULL);
++	if (ret < 0)
++		printf("Failed to install SIGUSR1 handler: %s (%d)\n",
++		       strerror(errno), errno);
+ 	ret = sigaction(SIGUSR2, &sa, NULL);
+ 	if (ret < 0)
+ 		printf("Failed to install SIGUSR2 handler: %s (%d)\n",
 
 -- 
 2.39.2
