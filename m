@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E9FCF5368
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1B3CF5365
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OgbVi/i2e2FmnWnQxf8m0K4GdKARclUd2e4HuJyv40I=; b=ZUvXnV/NLMkUm8aaQRBjgLka6T
-	5Y5fTZRDeER5NdQS1V5Wm08pF71Icnkxcux397Nh7QXKzNWVoN+1GUD+j5IMrugej8AtrlLbj0B3n
-	dRJ795IwCju3Q1BSirnaHX+beXUrj2vew8gWuqk4Ur2qYxj5fPxuRKraUCrTJwvhN5WHihIH58qnl
-	0ATsGE8HhUdYrmVnyf5TnQqE1hhQ8S7cnzNgsiw9r9Be2V4EDf2PFq/DxmwSf/jRCSy/jpI0tknaR
-	oSXqk9LCpYrzVvU2wP+2FIGUYy2+N0Gw84pr4rm6RytP60lCda7S3pd0kcuxEoM60rKUJM7LfSK5a
-	sInnfCtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqbz9ghi25MyNM796HfNIo/wGiHciMSp9xBKYdZMdzs=; b=RF+qxhsCIvdS2ds6s/wHaw0ml6
+	4GCsqUffyfIThEd7UW0lLbqykn6ARu+cxzF2SFuDPRYoJ4BwlYebdiJYyuONh+Bm/XwzTP60Q4wD3
+	JrSCwRsmLM2CALAdR0KOua9M9dj4//0qWxw5v2EuNg6o2ZHPk4sNetuNbM41QbC4SXZY7Ydn9k84o
+	AmfMG2nqjxlXF7lr8YFyO0ZJ3cOwV89QVYAVaSIxaD8qVeDNe7xc2AhTMsX42CHyCugbLvTsmPQ7v
+	5+a+eZWqBazEyPuQ94NX8JdgPsgMMOgpkCS4PiWes7UKLQzsi3vvfSKmU9vR28/02PAOpuHzSmHs+
+	0PB/Om+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3aLH-0000000EIJD-3nvd;
-	Wed, 23 Oct 2024 12:19:59 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1t3aLQ-0000000EINE-12aN;
+	Wed, 23 Oct 2024 12:20:08 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZqC-0000000ECnd-1Gje
+	id 1t3a2u-0000000EFVt-3beg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:47:56 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43158124a54so9204115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 04:47:50 -0700 (PDT)
+	Wed, 23 Oct 2024 12:01:05 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53b1fbb8be5so181903e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 05:00:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729684069; x=1730288869; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OgbVi/i2e2FmnWnQxf8m0K4GdKARclUd2e4HuJyv40I=;
-        b=j9leUU7ul+0/wgEKKPEv8EuYWNNl+wVNU8IABySM18veBtcHOfCNT2FDJTQ9Cdx3/c
-         fF1YesVgRiJXk6lkdazn4ERmJ49kTwfuIcFZpuyqyjjhDZH+20magkCQEF8A1e4E0LpQ
-         0Cp0tDB02zRHx0GOqAF+ex2nCdlcZgUlaglQo4junYctEMvx2p4Q0MD78iRZdyIWtFvi
-         a02bR5L+35jk4d2ZeG6BkmC+WyNZ/+rIq++VAJn7gCEs1spCg2gLojZEWuMwAWJyxUbl
-         9A+AQ93rHK/ODdSnYVlbkyl5lT9LGuN/kcFuVA+uRFq9XZzdl9Q81ZhymKkQZk58DL11
-         vcbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729684069; x=1730288869;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1729684858; x=1730289658; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OgbVi/i2e2FmnWnQxf8m0K4GdKARclUd2e4HuJyv40I=;
-        b=a3/6DM3nQ10P1r2LGrbm2ZZB42Y9FbmnfgpjVeCrVl9Br226nqhAyb0HuChrZpAfeB
-         /XkNWd99qef4PCGbQEr53cG1r70VN73avgsXai6lxCZKxJRrxR7BDumU8m78EwDJhhyu
-         pGNwNy4/IVxiJdI5PQYWCkhcvKUHZe129w9aY6kyy4T3B5a9XJCJAkE3E5T0MrJrFtq5
-         N84YECKaFUQkAlP+LkmKSjyhBXorWcmA5sZF7sUvB7+u1htkAeB6KMV4BERI3knXXnTk
-         5Ft9qwZCkR89haywit1HWc165x1ehwCJnGIShVTHu/xmkHFwXU8uPPUiyWdrZZeicrEh
-         eT8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUKy0iIVBtXiJjt7EJGSot0qU32EhBq7xX/3/Y3mKn9ISUljQwFobiFwv4EdmbfTsUrtk0OXqU/St/uSs4toOkF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM86Wps0FZs4Y68cXtDpnFM7TjCQ+IuAYdSMvRGsXwRRjFQ+x2
-	Pws9A5V7X11A0p7g04z4MpsDxOUAAi7oyh+6AxG3Q/TcibG+5Fia
-X-Google-Smtp-Source: AGHT+IFsl0LMOEc+eE6a6V7EEbrOWyNMM3oYwN8FcBYWoU6umXyuPcwsTMJnCTtKZSWtjLAMEmlNCA==
-X-Received: by 2002:a05:600c:4507:b0:431:4e73:a515 with SMTP id 5b1f17b1804b1-43184144103mr9125455e9.3.1729684068910;
-        Wed, 23 Oct 2024 04:47:48 -0700 (PDT)
-Received: from skbuf ([188.25.134.29])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0a48882sm8692867f8f.30.2024.10.23.04.47.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 04:47:48 -0700 (PDT)
-Date: Wed, 23 Oct 2024 14:47:45 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v3 1/6] net: stmmac: Introduce separate files
- for FPE implementation
-Message-ID: <20241023114745.kxntjsjgzzaf4lvz@skbuf>
-References: <cover.1729663066.git.0x1207@gmail.com>
- <cover.1729663066.git.0x1207@gmail.com>
- <49e20bbc94227cc4368dba01016df40dc711ad0a.1729663066.git.0x1207@gmail.com>
- <49e20bbc94227cc4368dba01016df40dc711ad0a.1729663066.git.0x1207@gmail.com>
+        bh=tqbz9ghi25MyNM796HfNIo/wGiHciMSp9xBKYdZMdzs=;
+        b=qzIR22GM7k+O8hOzrji+sRxnCij1RJ9hnvPHHm9f0c13rd2MC8/XJbAa5ZVLLVIerK
+         IdZyOhCKktRv0kVj5OUaB0RuCGmYhgULzTrO9XMWxMSvgQcHtNrG78CVVlT46EqMQTuj
+         yQlphXhoY9yE8v26IF8PUkEB1WR+XvK8SrwGUmjqS1kgmBAI17SDuS0P/Jnp7rIDExPS
+         bbTMsUeyYAZtqOW7YW1H3b3ys/3EWnn2/covhgSD5D634idEv43LFxWrQgJgqnJ1pUJ2
+         occds5RJ4cUkCd1z87XCHHwJvQSg0n+bT1VQUzb8muoNvBXA8gNkpS+mdbJ/Oq2tfMjN
+         cY9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729684858; x=1730289658;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tqbz9ghi25MyNM796HfNIo/wGiHciMSp9xBKYdZMdzs=;
+        b=pqH1rTiibaAKjYG5Z74lHtBlpPG8BGAywTu2WTiHZpgeN8NpD1ex/VNk2jnzQTqFUL
+         rS1qiAHqOVFODIqO/0LOS7FmoI5Ay00w1AZd8VKBuc4eNNtQjGFXbjHxwx7GYKw/P6et
+         VkHaDXrHQnMJsvu6VM8EGY406+fcG+PT4S462Oez+SeGnvKmkNCvxDe70KJX0VzzFhqV
+         RQr6r7Fy5DWcPo+7Mz0tuCH5ClBkHWWuAxrxnfEh30C8s3yllAvI4t8/cW9ktB/kvw4J
+         QjljlY2sUvZkpN7xVb1FIWitROqS6wdbA0Z0KJ/++wiP1vsbys6ckwTqsEYybWTkOojL
+         wqKg==
+X-Forwarded-Encrypted: i=1; AJvYcCV/uZE7g3X/YHjtpiQwrX2wuMdfEB+CZHhdF8sJKdHuKFoednxUM3XvhB2i4cjNryhUXPAUjeLvOdh1bdTJEqN5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8BMAv1aa8AQvckvUxiuhz3/ztI4EOIgzmXhfo9Rh/aXBGA/YY
+	9sYmk7H3C99A87dea3rl15O8o4rVhC04r0FQRKjxR3agc9rHMwAAjhUI6Q4aF6Xj1V2ni0Ufl/y
+	MvlNkqhM55OXqFGgpkxZ8j6bujHgK+vu83wJy8w==
+X-Google-Smtp-Source: AGHT+IE/UAzMY7V3eb5pkqaftwZ38vfA7061nJlGo03pDJqYCoLAKz73v+E375hMTpCsOw6OHL/EGlBNyYbkCpt8l/c=
+X-Received: by 2002:a05:6512:3992:b0:539:f1d2:725b with SMTP id
+ 2adb3069b0e04-53b19c41fbamr866738e87.4.1729684857664; Wed, 23 Oct 2024
+ 05:00:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <49e20bbc94227cc4368dba01016df40dc711ad0a.1729663066.git.0x1207@gmail.com>
- <49e20bbc94227cc4368dba01016df40dc711ad0a.1729663066.git.0x1207@gmail.com>
+References: <20241021-arm-kasan-vmalloc-crash-v4-0-837d1294344f@linaro.org>
+In-Reply-To: <20241021-arm-kasan-vmalloc-crash-v4-0-837d1294344f@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 23 Oct 2024 14:00:45 +0200
+Message-ID: <CACRpkdZfbjorFjZ9P7ifYO4mVa7eVdviyqO8+KjJXW3bhOq7aA@mail.gmail.com>
+Subject: Re: [PATCH v4 0/3] Fix KASAN crash when using KASAN_VMALLOC
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>, Russell King <linux@armlinux.org.uk>, 
+	Melon Liu <melon1335@163.com>, Kees Cook <kees@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mark Brown <broonie@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Antonio Borneo <antonio.borneo@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_044753_182639_5EC8A18C 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_050100_924357_3C72620C 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,14 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 03:05:21PM +0800, Furong Xu wrote:
-> By moving FPE related code info separate files, FPE implementation
-> becomes a separate module initially.
-> No functional change intended.
-> 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> Reviewed-by: Simon Horman <horms@kernel.org>
-> ---
+On Mon, Oct 21, 2024 at 3:03=E2=80=AFPM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
 
-Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
+> This problem reported by Clement LE GOFFIC manifest when
+> using CONFIG_KASAN_IN_VMALLOC and VMAP_STACK:
+> https://lore.kernel.org/linux-arm-kernel/a1a1d062-f3a2-4d05-9836-3b098de9=
+db6d@foss.st.com/
+>
+> After some analysis it seems we are missing to sync the
+> VMALLOC shadow memory in top level PGD to all CPUs.
+>
+> Add some code to perform this sync, and the bug appears
+> to go away.
+>
+> As suggested by Ard, also perform a dummy read from the
+> shadow memory of the new VMAP_STACK in the low level
+> assembly.
+>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+
+As these are regressions that need to go in as fixes I'm putting
+them into Russell's patch tracker now.
+
+The 9427/1 patch:
+https://www.arm.linux.org.uk/developer/patches/viewpatch.php?id=3D9427/1
+
+Need to be avoided as it causes build regressions. Patch 1/3
+supersedes it.
+
+Yours,
+Linus Walleij
 
