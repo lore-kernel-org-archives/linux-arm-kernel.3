@@ -4,83 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7A5CFA464
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E505CFA463
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Ay/OqGD2GTrz3V0tm8K+95EMKdw2lJQesOojfLv6f0=; b=VuJQW0HygcK7QSxq4njRzA8an4
-	JLEXJi+Z0sov72usLMX1EFk+umEsJqdyUncaR5T/36BvhJXbEXtxk7IYoT7CD3wlc3gpoXxCrfPPu
-	mElcr6QfneJBSdSfI+TbIwNUfVRMafM2hLrJ/LpzTeOX+FBbT5fJJOOLJffMlQgZo81iVPP7m/snB
-	tFUOHdywARQhlDNqVMY/u4vJyibhg2BkIH+WpPqUeMjm5DJUsyOLa/xSG3AvfETCbBJQLpqwj9F5Z
-	PzRwmce6DvnMvKlG2bO1WYV7FaFTmfi9fSkwknlCj/phUHJ46uJ3B9TEksw0Vt1fvZwIfRAYv6hja
-	yC7afDzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=; b=VYign5CRvM+mUhGUihKfFyPRfI
+	sa67uGku8ncpCnu+7/h786UwVsXcP2IYHkxjBjqKisJfur+w2kYlZIu+3nCmuUiTOEtkAUbw2WABT
+	0zTWLrjs3CieO4ptpsviWRNfl0A39fAg1cc9Rpjsae9X7kr5ol1/kbfLFgjamb6FtYtHYomGC0MBz
+	qLd4Izqf0hH+UiXoX8w/ClS5ggRQcpz/IioxYE1DkBIW7zv+lzB3VbIPtnytMw8UiHqZ8moqgFkO9
+	jp8oplVH5hjvJ/nV+hCX9e61tCH2ygDnbS7/FkZupUlapbQFchDqilNIaCUkNE4fKscghpatnA066
+	ZdW48+UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfl-0000000Flsm-3fvh;
-	Wed, 23 Oct 2024 20:09:37 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1t3hfn-0000000FltU-1nLw;
+	Wed, 23 Oct 2024 20:09:39 +0000
+Received: from mail-dm6nam12on20604.outbound.protection.outlook.com ([2a01:111:f403:2417::604] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gJD-0000000FZXX-2MJ7;
-	Wed, 23 Oct 2024 18:42:17 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d5689eea8so18030f8f.1;
-        Wed, 23 Oct 2024 11:42:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729708934; x=1730313734; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1Ay/OqGD2GTrz3V0tm8K+95EMKdw2lJQesOojfLv6f0=;
-        b=ABvicYfiRJppK34YtRIFGqpR72h+qBH9mEfhy0Au8UNt0KiIml7DWNanVxq9EWbxTT
-         M0QXzDcRbHSIUWrNCQBredWUn110P0TXeFOL/YODznDjVYhP2aoXfVu07V37d0mtXDoQ
-         JaN/21CeON/MPSChoZptnwZfjL1k5UJwLQ2f+2e8ybFGt925gO7ex2+7fdIDoxEcavHO
-         kfhicucnY3ENL58EYifa1OS2IevCQo78fCWuKRR6lWNq3TUDpxvTP+s0vAH2EKp+b/r0
-         XcURoNRt04RYq7WUJfWvWFT8cO4HcWKVNaj/pxtmasFhR+shNTiY+rUceaLB225v8CqQ
-         KGPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729708934; x=1730313734;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1Ay/OqGD2GTrz3V0tm8K+95EMKdw2lJQesOojfLv6f0=;
-        b=QQj7S+iZoHZudlehIivQdrTRPCCEKMk6P85fT0DHEoBnAwRSKfXB288nJwJBNqCirp
-         RyANJ8KM1ieeVIWoSEQrZJkLd+8E5/Eww8gvkazpB3gj6SeaKOHrN5HCoHZb1WRHAohQ
-         vKOkHi0gnKBhcuiHpmsLm6R3AAxIqbqPBNM6rXFZzR7ErJp9vtrY5BSzOmkoiFJKCp9h
-         sDkxipMkh4yggnsmhu/51zjoaewfnMyPjFIZ5Vz0kxy4MqT2OchcfC6eR9hbO+ACc9cW
-         IQe1MGF0bCeD5wh78Fgm9CxOQNITrRldBEZvdbyytiKvksUTDTLVvo2z2yFEQjfm2mjg
-         ANTw==
-X-Forwarded-Encrypted: i=1; AJvYcCUlKd0jZI/zvQmYdeW+PI3V0YSdtVZKMtEZ2AFKSBXS9HDhBpFsmmmSbr8u+Ur4mFS3SQaBshPLXH+qI+TAVT+h@lists.infradead.org, AJvYcCUs9dpQ9/yPSwps3wJSmcgkzTAoTNLysqNg5VmDtThRDQmUHkZES0DcT7carsbYKcgeT4e61ZAGNPbguVo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZgYZQGRlOkRaXTiLaaw/7ZVdZyiLeIvDMy4Ydwz+T0aMKgvmM
-	0LHKf2RgWVbl3ln63WxOQ6QO+l+/2A2074h2pJmvkk4Pv0SNGUIFx//7irOagpR0NfilY3fTmEz
-	xgKrCOgEqAhTO6c6GuYuQae7bDW4=
-X-Google-Smtp-Source: AGHT+IFB3tSRsLc8IJ+ZLmbBRgiQxMJcijIbkhHI+LcLoWS2ExMHeUZd0pXljEEFRrdcgGNxkIUIlWkiXJ0JtmbA57I=
-X-Received: by 2002:adf:f5c4:0:b0:37d:5338:8733 with SMTP id
- ffacd0b85a97d-37efcf7ba95mr2248780f8f.37.1729708933928; Wed, 23 Oct 2024
- 11:42:13 -0700 (PDT)
+	id 1t3gVp-0000000FbMK-3G9z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 18:55:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xO1bNrCVzTzV29z888HcaCAx4r0Ix9o78pI7ofpBKbGcwIX2iF3fqi2V+/Vhy7pvvDQrcXVE/M0+xmAq8ZQB5iekgsmUBn+U/mKHY5APVJIKNAS7RZyPV6f4KT2OgMIlNpayd+lwfMzGq7QkNjX9zRQO+ai6kBkvxAEA+0oOlbj+HI8Mxz1bCEiSUOI4cMc+JWG6yp8b9KGZuoJdHhG3gHicBmD8FPUi3KGybHY+jjFfQwrK0CXUcVFDTQHcrAdy6gf4CoHyxQnjY3bSxdqUOJ6ss+2YBuYbSpoPhAREAEz5vmBEytrTjya+WHWoQ0u62yxySrHxZMzk2HmAhwcYVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=;
+ b=UJm9KXTdLrPjY1+WVF/BY7rsTnnirIy5M6k9C2T2Yn3jadg8DbwXfO7d8vUCxPm0nWEo1CGhHl1eAZGdRUmGFeWVcq8AYKivKttwTleIa+Tvy14XOTPHeLSD97IAsvspdrVNri2ddJliKIKVjK1CBN/PMEAIumi77LOMvYNGfiKOCUi39MuD+JeSKavc5JvXvH0hn/XLKOQdR2ISc7an5q5d6F+rtNTgZ+9TGNQMvpG/5QclEQsOMpSEYD37U2nvICyRAX8tkIlnHFsnDFSSbdLfyuVcV2DS8zZPYVSK7cxhFN6z6HM48NlT/6bQU7zLRsOZ/EcfYVhqsUB+sGDzvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RPamb8NoaSYTPyoUyrz+w19zaZyFL5jlFdMWnPBxUso=;
+ b=QoFnBqqtDrHzQ7GXPZ6jJW3XfgpGp/Jw54xH2hLOZi1TQ2QYclP0XGEsTcks5xLZVgYK9hJTJistp1CqPpkIDSzfSeh1g7Kux/UqQsnrPrQQaLxt7pQCT/47u/WuD7yWMoptg87QMW2wXu2j+I+nzFTvk7ZSig5suHF7OMaNJHpJpY7GTuNVJrvnBJO2gtr8iCiYPQ6SRG2+GftU3yn7BQhYbzi1Pd52P24IUu5O2c0KYLWjbxJXvJCXwBXgmUSX9oA9otaJAoPQTyK+rYzlFfE5wu9sfUu+UdAhc5hLErUNmO7xLCCVrodk8jNoKnM2nj7bOyXyqUkpS+/pS4MUVg==
+Received: from BN9PR03CA0147.namprd03.prod.outlook.com (2603:10b6:408:fe::32)
+ by SA1PR12MB6701.namprd12.prod.outlook.com (2603:10b6:806:251::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Wed, 23 Oct
+ 2024 18:55:11 +0000
+Received: from MN1PEPF0000F0E0.namprd04.prod.outlook.com
+ (2603:10b6:408:fe:cafe::13) by BN9PR03CA0147.outlook.office365.com
+ (2603:10b6:408:fe::32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16 via Frontend
+ Transport; Wed, 23 Oct 2024 18:55:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MN1PEPF0000F0E0.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8093.14 via Frontend Transport; Wed, 23 Oct 2024 18:55:11 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Oct
+ 2024 11:54:57 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Oct
+ 2024 11:54:57 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Wed, 23 Oct 2024 11:54:55 -0700
+Date: Wed, 23 Oct 2024 11:54:54 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <will@kernel.org>, <joro@8bytes.org>,
+	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>
+Subject: Re: [PATCH v1 04/10] iommufd/viommu: Allow drivers to control
+ vdev_id lifecycle
+Message-ID: <ZxlGfgfwrGZGIbeF@Asurada-Nvidia>
+References: <cover.1724777091.git.nicolinc@nvidia.com>
+ <3ab48d4978318938911d91833654b296947668ad.1724777091.git.nicolinc@nvidia.com>
+ <20240905180119.GY1358970@nvidia.com>
+ <ZxikJwzq8rLPgtmS@Asurada-Nvidia>
+ <20241023165905.GI864191@nvidia.com>
 MIME-Version: 1.0
-References: <20241022015913.3524425-1-samuel.holland@sifive.com> <20241022015913.3524425-4-samuel.holland@sifive.com>
-In-Reply-To: <20241022015913.3524425-4-samuel.holland@sifive.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Wed, 23 Oct 2024 20:42:03 +0200
-Message-ID: <CA+fCnZe49OGG_8J40_d9dTUBktY6qe-1dq1Y6Q+7hY9=xmUWQw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/9] kasan: sw_tags: Support outline stack tag generation
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	kasan-dev@googlegroups.com, llvm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241023165905.GI864191@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E0:EE_|SA1PR12MB6701:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e9c44f8-6b44-4480-5986-08dcf39438bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BTJEaWeGCIrbsr1Ue0YltfUHie92/h6wtttAxAtvRYkRdlYILzmoyXdrepgL?=
+ =?us-ascii?Q?N4iASwzRdWCGrdyLFXFXwWrvhtw5ZkC67Zx3R8W2eFHgbi61y8Tti5AEyRsE?=
+ =?us-ascii?Q?jxEos//xb4+Sj6zvUfAikI2GcESCLDyY4hADQKuQqiOuYvJa9FIu4Mh/DDT8?=
+ =?us-ascii?Q?yUhkepF7cuG7+wRhnPnbNRFokxj97ITM5TGoG9JjEy8vQul1HyCyetklkgSu?=
+ =?us-ascii?Q?3BmnaKOoE6IdMAWptM6oceu9yy3Vhj6bJJOdtPKng5zl4V8rTdijwAXi6/QH?=
+ =?us-ascii?Q?AjV/QDRpnBc9z3kQCkzMOSMeVzRPO8Fh352DdGFixoSvTYz317JANp8HDFUt?=
+ =?us-ascii?Q?vyRcReoWNkXq87vQotl5k48RIeeYQn1ETVKTJkV43xJPqYe2Tse4v4PsEx4P?=
+ =?us-ascii?Q?gWMUBdPAPehH8URGP3Tc0E8YNmwvC82qpvfrzOz/sQ8+7Ny4rqbsd51kcs3/?=
+ =?us-ascii?Q?5gi1DUV1F6j+sJZzSEFxkMXklhZlahbaDh8s48UJlkWeo1kqa2QGjUTUpfD+?=
+ =?us-ascii?Q?DF4GaU00PmNarM2WrA+u7pgePStCS0+PkIT9EJvUl64VAgZo6DJahXKeok2e?=
+ =?us-ascii?Q?c6Ps6G80JA359CwIZ2/S27IlUSNgdzqhHbiFOF5GLmgm7LSkwgiI3ncryrF2?=
+ =?us-ascii?Q?sJq2/GbvOJ3RrKTaM+pyWSHxm7V/RALvGXgvRMP4HYNypJGURnFEbqG7nTvu?=
+ =?us-ascii?Q?fdqK2I4Iqii88SJiu8rrRVrA553AVzrHX1uwN8CRSuO+CfN0m1K0bz+DbOjd?=
+ =?us-ascii?Q?hd1B7Ij0CmYyWvHKXK3flA1VGqg9wZevdXMzvYPUQ4jovZio6Snw5o2nzEIo?=
+ =?us-ascii?Q?hXjbxjIFiDG0/BFpstK2Py7OSPIx7ofACg2A06kQ748Zic3umUJ5ziqLZENB?=
+ =?us-ascii?Q?KwOVYnny5KCI5zUrLueADxCQrb3LOYQhXa6uEKtQGiOthokvoB8Ie2/+6ElS?=
+ =?us-ascii?Q?UP/PDDoXipmk98FicSA8tJqNBRa0lshrIYlM/AlHJpoesbg5XTZ+N81LRQOE?=
+ =?us-ascii?Q?QEDxwgkF3r8N8DOavJO0/lRRQOPm8WwNCEHnk3pWKJCrUUeni+o2cVhVwRgB?=
+ =?us-ascii?Q?3DMdLUYSoNpP2afeYdpP69vTzACjGPGR9UyAbH2x8bwdc0HwwpEuHjlucvMm?=
+ =?us-ascii?Q?vLM0+JkZVW5MLc1ARfD4RHV5xFrTvaU3nLA9+5lfUPyiaBDjmxKOyAtg9YGb?=
+ =?us-ascii?Q?GegSv6eQOIWFRGZ0mjlbkyJ/TtwpR/vBC6zYpvfP/pHNJxyBSuCMuCiCJ7oF?=
+ =?us-ascii?Q?PgUS/qCanGdDWV/eUPfzvKoRuVd/zLe0yNUAfWCDTnRE6QUeY9vxgbslzei8?=
+ =?us-ascii?Q?q3JhJxyRJx7jmM611zBmJZnJ6OgKwYqbKkY17W0SYhzt0gsN1c22ENBmHp6Q?=
+ =?us-ascii?Q?XSHyhvGObg9as46zW9h8+gHqztVNLU3FtdajBV5O+PQjtpsAtg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 18:55:11.0222
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e9c44f8-6b44-4480-5986-08dcf39438bd
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E0.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_114215_627053_A81BE296 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20241023_115517_858163_E4635500 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +158,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 3:59=E2=80=AFAM Samuel Holland
-<samuel.holland@sifive.com> wrote:
->
-> This allows stack tagging to be disabled at runtime by tagging all
-> stack objects with the match-all tag. This is necessary on RISC-V,
-> where a kernel with KASAN_SW_TAGS enabled is expected to boot on
-> hardware without pointer masking support.
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->
-> Changes in v2:
->  - Split the generic and RISC-V parts of stack tag generation control
->    to avoid breaking bisectability
->
->  mm/kasan/kasan.h   | 2 ++
->  mm/kasan/sw_tags.c | 9 +++++++++
->  2 files changed, 11 insertions(+)
->
-> diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
-> index f438a6cdc964..72da5ddcceaa 100644
-> --- a/mm/kasan/kasan.h
-> +++ b/mm/kasan/kasan.h
-> @@ -636,6 +636,8 @@ void *__asan_memset(void *addr, int c, ssize_t len);
->  void *__asan_memmove(void *dest, const void *src, ssize_t len);
->  void *__asan_memcpy(void *dest, const void *src, ssize_t len);
->
-> +u8 __hwasan_generate_tag(void);
-> +
->  void __hwasan_load1_noabort(void *);
->  void __hwasan_store1_noabort(void *);
->  void __hwasan_load2_noabort(void *);
-> diff --git a/mm/kasan/sw_tags.c b/mm/kasan/sw_tags.c
-> index 220b5d4c6876..32435d33583a 100644
-> --- a/mm/kasan/sw_tags.c
-> +++ b/mm/kasan/sw_tags.c
-> @@ -70,6 +70,15 @@ u8 kasan_random_tag(void)
->         return (u8)(state % (KASAN_TAG_MAX + 1));
->  }
->
-> +u8 __hwasan_generate_tag(void)
-> +{
-> +       if (!kasan_enabled())
-> +               return KASAN_TAG_KERNEL;
-> +
-> +       return kasan_random_tag();
-> +}
-> +EXPORT_SYMBOL(__hwasan_generate_tag);
-> +
->  bool kasan_check_range(const void *addr, size_t size, bool write,
->                         unsigned long ret_ip)
->  {
-> --
-> 2.45.1
->
+On Wed, Oct 23, 2024 at 01:59:05PM -0300, Jason Gunthorpe wrote:
+> > [Comparison]      | This v1                 | Draft
+> > 1. Adds to master | A lock and vdev ptr     | A lock and viommu ptr
+> > 2. Set/unset ptr  | In ->vdevice_alloc/free | In all ->attach_dev
+> > 3. Do dev_to_vdev | master->vdev->id        | attach_handle?
+> 
+> The set/unset ops have the major issue that they can get out of sync
+> with the domain. The only time things should be routed to the viommu
+> is when a viommu related domain is attached.
 
-Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
+Ah, I missed that point.
+
+> The lock on attach can be reduced:
+> 
+>   iommu_group_mutex_assert(dev)
+>   if (domain->type == IOMMU_DOMAIN_NESTED)
+>  		new_vsmmu = to_smmu_domain(domain)->vsmmu;
+>   else
+>  		new_vsmmu = NULL;
+>   if (new_vsmmu != master->vsmmu) {
+>  	down_write(&master->lock);
+> 	master->vsmmu = new_vsmmu;
+> 	up_write(&master->lock);
+>   }
+> 
+> And you'd stick this in prepare or commit..
+
+Ack.
+
+> > Both solutions needs a driver-level lock and an extra pointer in
+> > the master structure. And both ISR routines require that driver-
+> > level lock to avoid race against attach_dev v.s. vdev alloc/free.
+> > Overall, taking step.3 into consideration, it seems that letting
+> > master lock&hold the vdev pointer (i.e. this v1) is simpler?
+> 
+> I'm not sure the vdev pointer should even be visible to the drivers..
+
+With the iommufd_vdevice_alloc allocator, we already expose the
+vdevice structure to the drivers, along with the vdevice_alloc
+vdevice_free ops, which would be easier for the vCMDQ driver to
+allocate and hold its own pSID/vSID structure.
+
+And vsid_to_psid() requires to look up the viommu->vdevs xarray.
+If we hid the vDEVICE structure, we'd need something else than
+the vdev_to_dev(). Maybe iommufd_viommu_find_dev_by_virt_id()?
+
+> > As for the implementation of iommufd_viommu_dev_to_vdev(), I read
+> > the attach_handle part in the PRI code, yet I don't see the lock
+> > that protects the handle returned by iommu_attach_handle_get() in
+> > iommu_report_device_fault/find_fault_handler().
+> 
+> It is the xa_lock and some rules about flushing irqs and work queues
+> before allowing the dev to disappear:
+> 
+> >   "Callers are required to synchronize the call of
+> >    iommu_attach_handle_get() with domain attachment
+> >    and detachment. The attach handle can only be used
+> >    during its life cycle."
+> 
+> > But the caller iommu_report_device_fault() is an async event that
+> > cannot guarantee the lifecycle. Would you please shed some light?
+> 
+> The iopf detatch function will act as a barrirer to ensure that all
+> the async work has completed, sort of like how RCU works.
+
+The xa_lock(&group->pasid_array) is released once the handle is
+returned to the iommu_attach_handle_get callers, so it protects
+only for a very short window (T0 below). What if:
+   | detach()                       | isr=>iommu_report_device_fault()
+T0 | Get attach_handle [xa_lock]    | Get attach_handle [xa_lock]
+T1 | Clean deliver Q [fault->mutex] | Waiting for fault->mutex
+T2 | iommufd_eventq_iopf_disable()  | Add new fault to the deliver Q
+T3 | kfree(handle)                  | ?? 
+
+> But here, I think it is pretty simple, isn't it?
+> 
+> When you update the master->vsmmu you can query the vsmmu to get the
+> vdev id of that master, then store it in the master struct and forward
+> it to the iommufd_viommu_report_irq(). That could even search the
+> xarray since attach is not a performance path.
+> 
+> Then it is locked under the master->lock
+
+Yes! I didn't see that coming. vdev->id must be set before the
+attach to a nested domain, and can be cleaned after the device
+detaches. Maybe an attach to vIOMMU-based nested domain should
+just fail if idev->vdev isn't ready?
+
+Then perhaps we can have a struct arm_smmu_vstream to hold all
+the things, such as vsmmu pointer and vdev->id. If vCMDQ needs
+an extra structure, it can be stored there too.
+
+Thanks!
+Nicolin
 
