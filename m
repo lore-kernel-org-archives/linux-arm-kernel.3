@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6383ACFA464
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863FBCFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ga5iUl1w2BkdYZ5rnWwUX+rnruTQCDzgYbSTQOQPjWI=; b=OvxyhlUEG9HgiuOoGWQoa+xYqc
-	A3I9mECseiDzsNlLW9bVN1rYT7BFKBV10Rq3jl6oeu8JkNn2o+kzQeNObwxbxdzxRCblNc8R7raLg
-	RYzexB6btkjwjX1fG1XjNjMerrpwVfZ2AbQFFUrZntAM2XaLFJOHsb5XRiTGvfVKMKR2r5JfXe8mr
-	z2nt5p2E+UOTy7cS3wW8H7eYn88Vm1kT5kSQlcW6GSGVpP+lb3DW8TNrlpVgNdors0cLHyaLLZtrZ
-	R+W6LiUuOQR8VX7pIUPzIadrURsuN3KgswR79oP0Ncl5daI3ez0RplzuDlJOiI69TOxLKx//7YEzU
-	7ctY2czw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=; b=BPpWbwXKoaVh0zMDJnmqL4CK1Q
+	z0U+BCbDUUWPeba9a4aj+t36ssrqU3MeoAi3WNOg0HkwMH8szKhs8vZqg22629/6CFIrL4quVpnzL
+	GyL/7o8E30a+uE87KW0bFROm7PImiyARHe9D3PyMSsDiQL9qmrTR0M77FK9FOHWOnjvrwWGHUY+bF
+	1V4dVu7QfqCYPy9UJAtugTpsmyvB7am09XEqeUSOA1cext2zI23CEcvSK4e3NrlPVVwG5VZe7KZQu
+	hXom8qkDEiUAA90kVaDmbyOUHBakIHQHnIAwUI28/SeK0CwEVou8ZPoccVktH9DIEqz2Ogcsa4bo8
+	Bjym+P1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i2D-0000000FqEi-3wYI;
-	Wed, 23 Oct 2024 20:32:49 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1t3i5Y-0000000FqvL-29aj;
+	Wed, 23 Oct 2024 20:36:16 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i0a-0000000FpxN-1axj
+	id 1t3i3z-0000000Fqbv-0OcO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:31:10 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-539983beb19so215493e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:31:06 -0700 (PDT)
+	Wed, 23 Oct 2024 20:34:40 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5c97c7852e8so231323a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:34:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729715465; x=1730320265; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ga5iUl1w2BkdYZ5rnWwUX+rnruTQCDzgYbSTQOQPjWI=;
-        b=3fbm35jN8riUxemgVvOVbLqXEFxaPLYUZjvcgyw6rIHNX2BP7NGnjzfkG0398XG5+g
-         vaEm9GqbeymNhvrtJ4xuq73PeDf4ax2STF01NyPfvlq54sdGcNCj1PQyBp0UiS+g0A9R
-         vAkI3gHyXZBi2P5/YyRQJ+BJeDTtmg+MYKtrEh6tQyKh2BS6b56SAl2AZ6qkUwq+R4yN
-         u6pCLAZZbSKI1DdzqMQ4Hc4VqBmWr7Z/itCtjN9/CB+XuB5CAzJRC2blfUE82lyiZBEM
-         KQBX4vXK1z4Gr0DHmO4Fks7HVWZRnC1wVB7cFxi5gwy49xABALmA+Xnug0AzssiK/7OD
-         SF5g==
+        d=linux-foundation.org; s=google; t=1729715677; x=1730320477; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=;
+        b=cAsEQCTQgXOdCzuFf+CleXiLLwGN7OgelY94nAO3cmetLh2FPSSKafc9MS9GP2wpE7
+         uUw4gwWbOBfNAHGXmfMLcYnM66IzMx7EOh6B+DstS8sNPdTOVNxBun91bwF4hPHN9psV
+         9gLB4m2HBy7dM312pjMCpc4W9IaB+TpxXqhHI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729715465; x=1730320265;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ga5iUl1w2BkdYZ5rnWwUX+rnruTQCDzgYbSTQOQPjWI=;
-        b=hbJFTq4beGnZnAQhlcG5hMmLrMw84JW+Ocbe1ds4AfaR5VeEegqZnnqVgKYVd6a5RI
-         cyhUrDOyJjmxFKYdvU280jnBpv7z3j+UJJXRxP5kJaUfVZF8afvcO7Mlg6Cxz+M2XkvL
-         k8dQzjMO17pLKx8IbPw63vZDLmz5DvLAzGMvg0KwYpB8DtakupNR9DzMKMBzbH/UpJ2p
-         uKwUhD3SDjMzTfRAS8uAZzHkw42TkSZ2wm1f4Ljkcc5gM7FTFMsYD7EUjn3m6Q4Ds6Te
-         yP6LFhS5+6SXU54tapByXHBGiat1oob43c2R4OPWkHKoFbl1rW4Rn3N5ax99GQcxA2Ay
-         fvNA==
-X-Forwarded-Encrypted: i=1; AJvYcCUz3/I1VS904lhIyY0AFvoDx/AvnPADIYXHpT+uGcJnXHhNA86aqGS65xTxX6cJCqPskIMbg1tmm8nFZGTtb+ow@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOylNSprQWyGBaJ7uIxJ8hMIPJEn1YRBHXxngmrw2d2rQhhXgx
-	2Z6yb4eklNR89gsqiVkt27CEuMUFlYjgCL6OZ0k+Rep0S914FEKUgcX4mrLMsYK+C8xBtYXdKJR
-	ARXAuAOpXesFdq2nav8wyF2qCdYSWeh2YbPI2
-X-Google-Smtp-Source: AGHT+IFOB5hl9xCTQi6KADVj+Ygz/KDWtgtceEAnJGc5F5DcfIsupKdCkMoYXTkWNpc4In12Fan0dWm/m/6oFWaM4OA=
-X-Received: by 2002:a05:6512:308d:b0:539:f23b:59db with SMTP id
- 2adb3069b0e04-53b1a2fb0b9mr2186529e87.5.1729715465274; Wed, 23 Oct 2024
- 13:31:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729715677; x=1730320477;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LEsOPb+l1iotdIHwOTelo3swhljmhVTkrXLfVmt8ycc=;
+        b=KUQFFEgdRO4yzOqmTB1IZ7gRuhCaYQzRgcJfRhMVKscQv7Y/Nzn8ef+LdsE4LR06K+
+         OT9hkTDPvKW4x08xMgjSTOeK07TXMoAEny3sHPxpIYGe0uj038GBmZRgnJFh17rLa7xi
+         5Ful3VRuoQ2xiAsGJ03dtCaRSQrSRE9piFYLVQ6sh57PDveP15fx3GtTa/X4xVSMWbFC
+         CUTd+v6bf+dYUH+lcIM11cXPQXz4bUe63BnHFxGzQk9FCBgCVpJ5vr17SvjAVU1CaSDa
+         mM43YqoLtCXK++Lv8nkIORGjvN9reYDjHGH50hlAEkqm35FpDIz2xeIhm7DGIc0Us+Gn
+         2G2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUBf2800XH6QjlahuP8wWi++YpBbx0nVuY2YGCUyzwOCXftFatFMgo5HIYt/wToWrq1aPPllz+0MMsR4x215ke/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUqin09Dps12cvMS8cRTZZKp1Y2A0VhxyOI6SYfmpU5xc2gXpI
+	ydh3Jul8ONGtn0yMwFWPm6jXYu+l9U9AgHALCK+eKlcPRbulMKwCqgRiImepeIIlV1yX0DztFuY
+	ZdmWAFg==
+X-Google-Smtp-Source: AGHT+IE4e26M1Q7US3RfBwDzLsHNXt/ZbW4gi2UiQuD/JYu1x6bmkSojUAo/ebGHjqGFrPYR69XjLQ==
+X-Received: by 2002:a05:6402:2792:b0:5c9:39d8:58b3 with SMTP id 4fb4d7f45d1cf-5cb8b26317dmr2958031a12.23.1729715676733;
+        Wed, 23 Oct 2024 13:34:36 -0700 (PDT)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c7262bsm4813864a12.82.2024.10.23.13.34.33
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 13:34:35 -0700 (PDT)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-a9a26a5d6bfso16587666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 13:34:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVz2xAW5AxJQSU+zg6POuBgvxREpMaBvjuNtobs+z4ilUvVZF7YulMdsGkq6Zhuhkd39rIfzWWHl39EiYz1SEY+@lists.infradead.org
+X-Received: by 2002:a17:907:72cb:b0:a99:87ea:de57 with SMTP id
+ a640c23a62f3a-a9abf852bb7mr329557766b.2.1729715672886; Wed, 23 Oct 2024
+ 13:34:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240704142319.728-1-jiangkunkun@huawei.com> <20240704142319.728-3-jiangkunkun@huawei.com>
-In-Reply-To: <20240704142319.728-3-jiangkunkun@huawei.com>
-From: Jing Zhang <jingzhangos@google.com>
-Date: Wed, 23 Oct 2024 13:30:54 -0700
-Message-ID: <CAAdAUtgYzQe+G7nWuNLpOadGhC9XKQpoXt-He8cTyMHiUDLPVg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] KVM: arm64: vgic-its: Clear dte when mapd unmaps a device
-To: Kunkun Jiang <jiangkunkun@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Eric Auger <eauger@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	wanghaibin.wang@huawei.com, lishusen2@huawei.com, tangnianyao@huawei.com
+References: <20240912-seq_optimize-v3-1-8ee25e04dffa@gentwo.org>
+ <20240917071246.GA27290@willie-the-truck> <4b546151-d5e1-22a3-a6d5-167a82c5724d@gentwo.org>
+ <CAHk-=wgw3UErQuBuUOOfjzejGek6Cao1sSW4AosR9WPZ1dfyZg@mail.gmail.com>
+ <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com> <20241023194543.GD11151@noisy.programming.kicks-ass.net>
+In-Reply-To: <20241023194543.GD11151@noisy.programming.kicks-ass.net>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 23 Oct 2024 13:34:16 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wi=Ji6-xi32167i3M1JL_YyRj6tgUAJS=YQ94GKzMBvkg@mail.gmail.com>
+Message-ID: <CAHk-=wi=Ji6-xi32167i3M1JL_YyRj6tgUAJS=YQ94GKzMBvkg@mail.gmail.com>
+Subject: Re: [PATCH v3] Avoid memory barrier in read_seqcount() through load acquire
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>, Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arch@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_133108_506938_A25B2958 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20241023_133439_141826_FF5A8254 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kunkun,
+On Wed, 23 Oct 2024 at 12:45, Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> Do we want to do the complementing patch and make write_seqcount_end()
+> use smp_store_release() ?
+>
+> I think at least ARM (the 32bit thing) has wmb but uses mb for
+> store_release. But I also think I don't really care about that.
 
-On Thu, Jul 4, 2024 at 7:23=E2=80=AFAM Kunkun Jiang <jiangkunkun@huawei.com=
-> wrote:
->
-> vgic_its_save_device_tables will traverse its->device_list to
-> save dte for each device. vgic_its_restore_device_tables will
-> traverse each entry of device table and check if it is valid.
-> Restore if valid.
->
-> But when mapd unmaps a devices, we do not invalidate the
-type: devices -> device
-> corresponding dte. In the scenario of continuous save
-> and restore, there may be a situation where a device's dte
-> is not saved but is restored. This is unreasonable and may
-> cause restore to fail. This patch clears the corresponding
-> dte when mapd unmaps a device.
->
-> Co-developed-by: Shusen Li <lishusen2@huawei.com>
-> Singed-off-by: Shusen Li <lishusen2@huawei.com>
-typo: Signed
-> Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-its.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-it=
-s.c
-> index 344bd8c20f67..223a5f1d6a3d 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -1140,8 +1140,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm=
-, struct vgic_its *its,
->         u8 num_eventid_bits =3D its_cmd_get_size(its_cmd);
->         gpa_t itt_addr =3D its_cmd_get_ittaddr(its_cmd);
->         struct its_device *device;
-> +       gpa_t gpa;
->
-> -       if (!vgic_its_check_id(its, its->baser_device_table, device_id, N=
-ULL))
-> +       if (!vgic_its_check_id(its, its->baser_device_table, device_id, &=
-gpa))
->                 return E_ITS_MAPD_DEVICE_OOR;
->
->         if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-> @@ -1161,8 +1162,17 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kv=
-m, struct vgic_its *its,
->          * The spec does not say whether unmapping a not-mapped device
->          * is an error, so we are done in any case.
->          */
-> -       if (!valid)
-> +       if (!valid) {
-> +               struct kvm *kvm =3D its->dev->kvm;
-> +               int dte_esz =3D vgic_its_get_abi(its)->dte_esz;
-> +               u64 val =3D 0;
-> +
-> +               if (KVM_BUG_ON(dte_esz !=3D sizeof(val), kvm))
-> +                       return -EINVAL;
-> +
-> +               vgic_write_guest_lock(kvm, gpa, &val, dte_esz);
->                 return 0;
-> +       }
->
->         device =3D vgic_its_alloc_device(its, device_id, itt_addr,
->                                        num_eventid_bits);
-> --
-> 2.27.0
->
->
+So unlike the "acquire vs rmb", there are architectures where "wmb" is
+noticeably cheaper than a "store release".
 
-Jing
+Just as an example, on alpha, a "store release" is a full memory
+barrier followed by the store, because it needs to serialize previous
+loads too. But wmp_wmb() is lightweight.
+
+Typically in traditional (pre acquire/release) architectures "wmb"
+only ordered the CPU write queues, so "wmb" has always been cheap
+pretty much everywhere.
+
+And I *suspect* that alpha isn't the outlier in having a much cheaper
+wmb than store-release.
+
+But yeah, it's kind of ugly how we now have three completely different
+orderings for seqcounts:
+
+ - the initial load is done with the smp_read_acquire
+
+ - the final load (the "retry") is done with a smp_rmb (because an
+acquire orders _subsequent_ loads, not the ones inside the lock: we'd
+actually want a "smp_load_release()", but such a thing doesn't exist)
+
+ - the writer side uses smp_wmb
+
+(and arguably there's a fourth pattern: the latching cases uses double
+smp_wmb, because it orders the sequence count wrt both preceding and
+subsequent stores)
+
+Anyway, obviously on x86 (and s390) none of this matters.
+
+On arm64, I _suspect_ they are mostly the same, but it's going to be
+very microarchitecture-dependent. Neither should be expensive, but wmb
+really is a fundamentally lightweight operation.
+
+On 32-bit arm, wmb should be cheaper ("ishst" only waits for earlier stores).
+
+On powerpc, wmb is cheaper on older CPU's (eieio vs sync), but the
+same on newer CPUs (lwsync).
+
+On alpha, wmb is definitely cheaper, but I doubt anybody really cares.
+
+Others? I stopped looking, and am not familiar enough.
+
+          Linus
 
