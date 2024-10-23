@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B6DD2E029
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67087D2E029
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWMCtfx+f9goH/EvNBYNi1nk/RhHCZ5dymLbo1iBFTo=; b=JxIW/l2YF4PvINbJOfUjQD9UWr
-	oZcTUnbHjfUMlKX/1zFP6H227/MA3FN8PfVaG7RFoy21I7aQMebCoN4KPJt2IZP8iYSfdf/Bd00lB
-	k0wuGxFSa46MwoUcgTZiKWqhxUD9XxJbmgdGuV0RNoMe+/MAwsfCk1VPcf1ukV1Mkcfk5CouGTciX
-	LSeGtRL1RnQOJ73p7OS7NncbZIiTq0N5VSKbUrbcHzs/ZF4sRrdJzk7ibhQQK7QckRm6uB2RBrFgK
-	aV5WbGt1lCkRR6ORmnLbDMus0648yJJ7L/mGCLE2Zh9q97U+XFyZizgJt+fRIr+4OWkYUCDIPoCH2
-	NLyC97Zg==;
+	bh=f4fse5uVjkXSRlm9twrxt5BDX3ptBzbtir4fG7Pw4Tk=; b=odN245lS5yYopVoxMWco+isUDT
+	kSy/bsn4xX9NAD6m//y9F6T89ze9mjtJ/4oLy7THeVha+WX8flrbyMRAlNwykSEIIGHLw0rE5xkyC
+	4Ca3X+QjiUhZqaMvy0f6LmKqvkXULc8wssyJTKy4h2blSqXT7masoPybxDr0zMCTi0zk3KUV6J0qj
+	OjGg48q9L+6rpwdmD+AJsCrRocXauq7Vo7QOJsjAjPOX6Bug5Xlr7zRneXPpfkc+jvHVMnsejiA5S
+	PZTSZ4SyZ7+detuHd42zFoXCaOsTO2o3vzqfJjX12dsFzZS9slHZB1ff+pMuwl9oc0zEQTNvT5N3p
+	s85HPMGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XDq-0000000Dg3P-01CV;
-	Wed, 23 Oct 2024 09:00:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3XFN-0000000DgbK-1rxD;
+	Wed, 23 Oct 2024 09:01:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X3M-0000000DdI9-2zZ2
+	id 1t3X3u-0000000DdSP-00Ji
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:49:18 +0000
+	Wed, 23 Oct 2024 08:49:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6F462A444AE;
-	Wed, 23 Oct 2024 08:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC8DC4CEC6;
-	Wed, 23 Oct 2024 08:49:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D475B5C5EDE;
+	Wed, 23 Oct 2024 08:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82F54C4CEC6;
+	Wed, 23 Oct 2024 08:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729673355;
-	bh=7NhjULpJR19EvTFu6kukQjms/KFY1lUVI61YeGXteK0=;
+	s=k20201202; t=1729673389;
+	bh=lgGbkc6uaJYpUzsc1Gh3kVF2XFhM1rzwAZjnJSwPphI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mCa7dn6prblg2R6KnQjb+AXq101pO4zTQ6kdNO0cGMRoSxe4p8mcSY11kut/o4ARa
-	 VIb3+v0Ulxo4NjOxCI69dz3NnHfyMuLr5lUiqauOKBRGtmpjo85QQfoOkC/cvvbOq/
-	 nNafENibQaC0pa/HBqLQku9SGDNagfPnOFHMa28Dm+8nzXTSZQEwRZTdCnHMd7sfLx
-	 Vn04n7/iJ0IeP/lcMgNlGbsEUsvemJANyJVFPQrp5+D8yNtayXxm9X7ilTIqRotpLs
-	 bB1EuQxYmNO/KtQ9wtLYYD/uAmHQD5WePX+P/GW2Ogbm1QTbREYOVHB+XoPZWvhBWH
-	 oLU+MCJztxvCQ==
-Date: Wed, 23 Oct 2024 09:49:10 +0100
-From: Simon Horman <horms@kernel.org>
-To: Furong Xu <0x1207@gmail.com>
-Cc: 2694439648@qq.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	hailong.fan@siengine.com
-Subject: Re: [PATCH v1] net: stmmac: enable MAC after MTL configuring
-Message-ID: <20241023084910.GL402847@kernel.org>
-References: <tencent_CCC29C4F562F2DEFE48289DB52F4D91BDE05@qq.com>
- <20241021130554.00005cf5@gmail.com>
+	b=rN6WKyaA6gR0etHHoxMHugUoM5I4bhZAvWw0Ih5lCiYC9+06idpzCaGNDt9NvmdZi
+	 Q19ul2J0lVL4ndKksr0hM2KOnjWV8LhUyDO5LRUIlfmS2iDUhzrf7cjOqubyJ1eHA2
+	 8EsC5ZBfdj8hChTqynVuEK8Ee57NxEc5PgM/ZacW9RvRXX83tIOLW1SoOGCK1Ip7qU
+	 25QoQhymEmjdUcY8Nvwr5t7g5mWV2QpwMvpcO16SqPmBwDZ/3X8Oa/rH3DR23eTbQb
+	 n+RINzAmQv5SOWrdMC8yUxe2O1zKphVfJDfQaH2jDrLaEmmj2HUrjJSjJvnHkhjw5a
+	 Ho9lsRDUwqTvA==
+Date: Wed, 23 Oct 2024 10:49:46 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Stephane Danieau <stephane.danieau@foss.st.com>, 
+	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
+	Valentin Caron <valentin.caron@foss.st.com>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Cheick Traore <cheick.traore@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 07/14] dt-bindings: pinctrl: stm32: support IO
+ synchronization parameters
+Message-ID: <e6sz7p4lgkmuvgosafob5dvwtvp4ruzuzmwz4oyepcajfui2xm@fom7mj5fbik6>
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+ <20241022155658.1647350-8-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241021130554.00005cf5@gmail.com>
+In-Reply-To: <20241022155658.1647350-8-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_014916_904186_26968988 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20241023_014950_149458_D6F3A73A 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 01:05:54PM +0800, Furong Xu wrote:
-> On Mon, 21 Oct 2024 09:03:05 +0800, 2694439648@qq.com wrote:
+On Tue, Oct 22, 2024 at 05:56:51PM +0200, Antonio Borneo wrote:
+> From: Fabien Dessenne <fabien.dessenne@foss.st.com>
 > 
-> > From: "hailong.fan" <hailong.fan@siengine.com>
-> > 
-> > DMA maybe block while ETH is opening,
-> > Adjust the enable sequence, put the MAC enable last
-> > 
-> > For example, ETH is directly connected to the switch,
-> > which never power down and sends broadcast packets at regular intervals.
-> > During the process of opening ETH, data may flow into the MTL FIFO,
-> > once MAC RX is enabled. and then, MTL will be set, such as FIFO size.
-> > Once enable DMA, There is a certain probability that DMA will read
-> > incorrect data from MTL FIFO, causing DMA to hang up.
-> > By read DMA_Debug_Status, you can be observed that the RPS remains at
-> > a certain value forever. The correct process should be to configure
-> > MAC/MTL/DMA before enabling DMA/MAC
-> > 
-> > Signed-off-by: hailong.fan <hailong.fan@siengine.com>
-> > 
+> Support the following IO synchronization parameters:
+> - Delay (in ns)
+> - Delay path (input / output)
+> - Clock edge (single / double edge)
+> - Clock inversion
+> - Retiming
+
+Why? What is missing for existing hardware support?
+
 > 
-> A Fixes: tag should be added.
-
-Also, as this patch is a fix for net, that target should be noted in the
-subject.
-
-  Subject: [PATCH v2 net] ...
-
-Please address this and the issues raised by Furong Xu and post a v3.
-
-> >  static void dwxgmac2_dma_stop_rx(struct stmmac_priv *priv, void __iomem *ioaddr,
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index e21404822..c19ca62a4 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -3437,9 +3437,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
-> >  		priv->hw->rx_csum = 0;
-> >  	}
-> >  
-> > -	/* Enable the MAC Rx/Tx */
-> > -	stmmac_mac_set(priv, priv->ioaddr, true);
-> > -
-> >  	/* Set the HW DMA mode and the COE */
-> >  	stmmac_dma_operation_mode(priv);
-> >  
-> > @@ -3523,6 +3520,9 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
-> >  	/* Start the ball rolling... */
-> >  	stmmac_start_all_dma(priv);
-> >  
-> > +	/* Enable the MAC Rx/Tx */
-> > +	stmmac_mac_set(priv, priv->ioaddr, true);
-> > +
+> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+> ---
+>  .../bindings/pinctrl/st,stm32-pinctrl.yaml    | 48 +++++++++++++++++++
+>  1 file changed, 48 insertions(+)
 > 
-> This sequence fix should be applied to stmmac_xdp_open() too.
-> 
-> >  	stmmac_set_hw_vlan_mode(priv, priv->hw);
-> >  
-> >  	return 0;
-> 
-> It is better to split this patch into individual patches, since you are
-> trying to fix an issue related to several previous commits:
-> dwmac4, dwxgmac2, stmmac_hw_setup() and stmmac_xdp_open()
+> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> index 5d17d6487ae9c..9a7ecfea6eb5b 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> @@ -207,6 +207,54 @@ patternProperties:
+>                3: High speed
+>              $ref: /schemas/types.yaml#/definitions/uint32
+>              enum: [0, 1, 2, 3]
+> +          st,io-delay-path:
+> +            description: |
+> +              IO synchronization delay path location
+> +              0: Delay switched into the output path
+> +              1: Delay switched into the input path
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1]
 
-And each patch should have an appropriate Fixes tag.
+Why enum? Why not bool? What is the "synchronization delay"? Why this is
+needed per board?
 
--- 
-pw-bot: changes-requested
+> +          st,io-clk-edge:
+> +            description: |
+> +              IO synchronization clock edge
+> +              0: Data single-edge (changing on rising or falling clock edge)
+> +              1: Data double-edge (changing on both clock edges)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1]
+
+All the same questions.
+
+> +          st,io-clk-type:
+> +            description: |
+> +              IO synchronization clock inversion
+> +              0: IO clocks not inverted. Data retimed to rising clock edge
+> +              1: IO clocks inverted. Data retimed to falling clock edge
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1]
+
+OK, so if not bool why this cannot be a readable string?
+
+> +          st,io-retime:
+> +            description: |
+> +              IO synchronization data retime
+> +              0: Data not synchronized or retimed on clock edges
+> +              1: Data retimed to either rising or falling clock edge
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1]
+
+Missing blank lines everywhere between properties.
+
+> +          st,io-delay:
+
+Use proper unit suffix. Or is there no such?
+
+Best regards,
+Krzysztof
+
 
