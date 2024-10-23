@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC26CFA461
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF96CFA45F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lBEb4NtHom1Amm5GRaVl+XE8JAU+fJmnCcHkJE8TtL4=; b=qPxgV/BAZ1QaUIVX5go4+3dtFP
-	PcTvt9/djHp8SgoJ8sbL3cv556e10/FYwIHT5nNVMs3igzWrnjP56WB1Efk487f1LVfd/6NOcDlPG
-	BeOjKhkr0JjxsPr6+IyqeYZVnBqAEAah5g0sAt6aBbrsgZ33pZzok0PeWFIz++cs+gyNL/UPxSK4s
-	jldc0n3TSRDvxv+CoRJLPnlNg1jqj/E6/aDKrbJF9Qvwni49u8uVJslzsBiDnxM2bsyeH5khmAejo
-	VTZn6YNcN6uyO4LxlNSJIlOIigx/KpL+FP/AHIIURfeFK9fbgtHctivDdhLpWpqQ9c7sE2cuDxt36
-	Gq7DRLaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q2VscTNdIlS5vsji2abiXF+8aeUy0jlwcvqlNVowB/g=; b=OtpThsQ9cf6FLU5TUaUnslU3+W
+	hDluKeWoXFu2VwCInwctN5YamijMeo8hxnS24Czs9Q/Vw98WZcDEmrwd+jaAw82TIa9t5qAW6ykjI
+	l1dtiKLhmu8/05FPPz7EgcliriFnlkQD4tRdfp6g5HDOndlmVeIHvGFWvTUWuB9NTxZg1EfDqlhpx
+	us9rBUtG1ziUvTpR4R785YSZyqshUYvccLbe90yj/Qp2wxBB4ZXcE9uBO44DbWQR9z+KpznpnG0/y
+	bnoU352ygm+10v9Q1CuFvC2Jnr/QMGyZVrrn6vp6HwmD8ohKDKxU964AyWTzjZV+XHnjdXjsbsgLt
+	naemkn8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gw5-0000000Feqt-0PGd;
-	Wed, 23 Oct 2024 19:22:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t3gw8-0000000Fess-2bEe;
+	Wed, 23 Oct 2024 19:22:28 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fBd-0000000FNgF-3w0H;
-	Wed, 23 Oct 2024 17:30:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1729704617;
-	bh=jldwutBZphTyZk0A97ZTFnQDd2dt3KyWgWlWpUn/IUc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=WXXer3mxLwPsYMZxNw9mWDbOAg3QNt38De98+ntsBMfnBefHqWHfLAXK7zW/14la6
-	 MrHjtgwdSHVqBUo0NddBvx/r+ywiPZr7RYTK2Em55dHjJddihCgqBOiboJpkOev4Bh
-	 ayH+RFgwRxaCCvddEBgublFj9w2gvaNFdxHn61/w/jfnbBbpUNaMiTaMtNscUcsZf0
-	 RsStV0BFm48EZt4JYZz33YHtJJN4KyWh8/6iWEaquYVUmwdLVrKC1pkrcSyKPkwsjg
-	 52pztVODxNSYYudtf+EdKHn/zxQEhA+yKovARBGmZLYPteZrRNDkRhu6Fz877pyCxJ
-	 Sgx3LHmqYN/WA==
-Received: from localhost (unknown [188.24.146.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 98EB517E36A7;
-	Wed, 23 Oct 2024 19:30:17 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 23 Oct 2024 20:29:54 +0300
-Subject: [PATCH] phy: rockchip: samsung-hdptx: Set drvdata before enabling
- runtime PM
+	id 1t3fQX-0000000FPus-3pNQ;
+	Wed, 23 Oct 2024 17:45:47 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-37d4b0943c7so5078146f8f.1;
+        Wed, 23 Oct 2024 10:45:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729705544; x=1730310344; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q2VscTNdIlS5vsji2abiXF+8aeUy0jlwcvqlNVowB/g=;
+        b=R/nLES4zf3C8vRXw/TET/kR1WvgDxPlEBBQCk9Csded9U1lU9L/+VMYRzlyptfOA8I
+         hMNTvL7nB2ClE4yk8EwaIOwqJdAqhS1wDmRgcf2W1I6fOJSozQHbpnmKWLghXBd+vPrA
+         sY79yqizPQYKgCIfpPFjr8WOuICazV9Scnq4G5Jd83d5TfOi+1JVUgK6SleO0anqyvem
+         /68WTS0UCKx+FL5iIEVdQ5EpegoW7DNEWYYqQkGl35K1Khpk0d19N9nhegQZWyqOdETK
+         Ulx2xZNwJJlP8t3Z3/XuGp1dc0+xSLuciMTjGAlOsXOOmowDh15GHksK/gaBWdfvVU01
+         EIvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729705544; x=1730310344;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q2VscTNdIlS5vsji2abiXF+8aeUy0jlwcvqlNVowB/g=;
+        b=GbrQjRorscDfJtn4j+JPzO+n1bozfhJasYeDxNOELiFeTMp6R43Hn74Bkg+0QxkHQa
+         Uq8iqtZFpQL/m/Fqb0GK4+N/I988csx4ife9LWss+RYtDmmRcGXXcXrgrfR+r04NNjvW
+         w5aLJSOQ27WuDjb/A79De5LGIqmMY3UGpF0kiY7AfQ5j1kPrnO3pQjsjnVmJSYxwOUcV
+         7Gp6JuLThpA4mBCVPI2KMYQEzyWRdv8YLA9Cj4oyQHsN+lC21a0s3LGTIqp7zPZ3GAb2
+         JlEM4D1OSLyVF45GnSd9eJzOCoGOPQquMC0WYQfwkqca0/r+BUNqAro7ECwwVXo9q0js
+         iNpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVqG+7uee+I9Pskwr575aysqxkxbZtD/iwuhbgTzSgjEL8TGd64V4fyDKR4GYZZ4Li5mOmLzojHaoRk/vrQzQfb@lists.infradead.org, AJvYcCWxE+iN8SVrk1jfpkfbpTYLW6xu60p0z6aRiKByoUYNMFe7cAJZLUUROL1J3aW+0fIP8YSiINkhIQTd0fzhQcA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaFFY0w3UzQvcUY9wQvIdfNpMt7sDpjdAAEaUqpYQ5OrTG3JFf
+	HX0PQRC5d3jj3ac4SnSRGD0vmAjsc31B3LHfZybOgNnEtb5E7Oxf
+X-Google-Smtp-Source: AGHT+IEY8xxWoI65TbiESsWmXVoSDRzzgUk/ryShEl9kzMOLIChMg5LvevZzioCPurdVUr/AA453Kg==
+X-Received: by 2002:a5d:4704:0:b0:37d:5496:290c with SMTP id ffacd0b85a97d-37efcf051afmr2378914f8f.7.1729705543774;
+        Wed, 23 Oct 2024 10:45:43 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0a37aecsm9431133f8f.8.2024.10.23.10.45.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2024 10:45:43 -0700 (PDT)
+Message-ID: <67193647.5d0a0220.1b234f.2b09@mx.google.com>
+X-Google-Original-Message-ID: <Zxk2Q35zMPUsC1RZ@Ansuel-XPS.>
+Date: Wed, 23 Oct 2024 19:45:39 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next RFC PATCH v2 1/3] dt-bindings: net: dsa: Add Airoha
+ AN8855 Gigabit Switch documentation
+References: <20241023161958.12056-1-ansuelsmth@gmail.com>
+ <20241023161958.12056-2-ansuelsmth@gmail.com>
+ <5761bdc3-7224-4de6-b0f5-bedc066c09f6@lunn.ch>
+ <67192f00.7b0a0220.343b2b.9836@mx.google.com>
+ <77e99052-a14e-4495-9197-06d98257c590@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-phy-sam-hdptx-rpm-fix-v1-1-87f4c994e346@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAJEyGWcC/x2MSQqAMBDAviJzdqCLuH1FPLiMdg5qaUUqpX+3e
- EwgieDJMXnoiwiOHvZ8nRlkWcBipnMn5DUzKKEqKZRGa17004FmtXdAZw/cOOCsatFVWuhGtpB
- b6yjr/zuMKX3FircFZwAAAA==
-X-Change-ID: 20241023-phy-sam-hdptx-rpm-fix-b26094303718
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Dmitry Osipenko <dmitry.osipenko@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <77e99052-a14e-4495-9197-06d98257c590@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_103022_198554_6F4F4FEE 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_104545_985773_D8031A3F 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +109,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some cases, rk_hdptx_phy_runtime_resume() may be invoked before
-platform_set_drvdata() is executed in ->probe(), leading to a NULL
-pointer dereference when using the return of dev_get_drvdata().
+On Wed, Oct 23, 2024 at 07:39:01PM +0200, Andrew Lunn wrote:
+> > Well the first case that comes to mind is multiple switch and conflict.
+> > I have no idea if there are hw strap to configure this so I assume if a
+> > SoC have 2 switch (maybe of the same type), this permits to configure
+> > them (with reset pin and deasserting them once the base address is
+> > correctly configured)
+> 
+> Is this switch internal on an internal MDIO bus, or external?
 
-Ensure platform_set_drvdata() is called before devm_pm_runtime_enable().
+External so it can be mounted on any SoC given correct mdio/mdc.
 
-Reported-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY driver")
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> Most PHYs and switches i've seen have strapping pins to set the base
+> address. It would be unusual if there was not strapping.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index ceab9c71d3b53ae0b746a10c081fcfaa7d5c5ae7..0965b9d4f9cf1926ba2aaa54c3d1b105ecd1a5a2 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1101,6 +1101,8 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(hdptx->grf),
- 				     "Could not get GRF syscon\n");
- 
-+	platform_set_drvdata(pdev, hdptx);
-+
- 	ret = devm_pm_runtime_enable(dev);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-@@ -1110,7 +1112,6 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(hdptx->phy),
- 				     "Failed to create HDMI PHY\n");
- 
--	platform_set_drvdata(pdev, hdptx);
- 	phy_set_drvdata(hdptx->phy, hdptx);
- 	phy_set_bus_width(hdptx->phy, 8);
- 
+Same feeling, but I didn't found anything in the documentation.
+(actually no mention of hw strap or pin)
 
----
-base-commit: ceab669fdf7b7510b4e4997b33d6f66e433a96db
-change-id: 20241023-phy-sam-hdptx-rpm-fix-b26094303718
+> 
+> For the Marvell switches, the strapping moves all the MDIO
+> registers. This is why we have a reg at the top level in mv88e6xxx:
+> 
+>         ethernet-switch@0 {
+>             compatible = "marvell,mv88e6085";
+>             reg = <0>;
+> 
+> There is one family which use the values of 0 or 16, and each switch
+> uses 16 addresses. So you can put two on the bus.
+> 
 
+Yes this is what that property does. Everything is shifted.
+
+> > > > +  mdio:
+> > > > +    $ref: /schemas/net/mdio.yaml#
+> > > > +    unevaluatedProperties: false
+> > > > +    description:
+> > > > +      Define the relative address of the internal PHY for each port.
+> > > > +
+> > > > +      Each reg for the PHY is relative to the switch base PHY address.
+> > > 
+> > > Which is not the usual meaning of reg.
+> > > 
+> > > > +            mdio {
+> > > > +                #address-cells = <1>;
+> > > > +                #size-cells = <0>;
+> > > > +
+> > > > +                internal_phy0: phy@0 {
+> > > > +                    reg = <0>;
+> > > 
+> > > So given that airoha,base_smi_address defaults to 1, this is actually
+> > > address 1 on the MDIO bus?
+> > >
+> > 
+> > Yes correct. One problem I had was that moving this outside the swich
+> > cause panic as it does conflict with the switch PHY address...
+> 
+> I would make these addresses absolute, not relative. The example above
+> from the marvell switch, the device using addresses 16-31 has its PHYs
+> within that range, and we uses the absolute reg values.
+>
+
+They were relative with the base SMI implementation in mind (as we would
+then offset) If the path is to drop that option then yes, these address
+should be absolute.
+
+Or do you think even with that option, these address should be absolute?
+
+-- 
+	Ansuel
 
