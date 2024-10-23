@@ -4,50 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974ACCF5365
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E38CF5365
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 12:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JuYh3ftNkdah+sR4UXmAft0J2+x6y5Ho0mAutezdQv8=; b=1uCqbvbxtoc9aK
-	OmRZYt0hh7HdBHuGWuyU+yva9Adfd9IrZgTWXXp+Kjp+MzsTwxbqKqDAAmAP7mJEP2PDgEyc8q7oc
-	sIxWKIVriuZeqg8myeTQ/zfqJME5XJf6FWsi0gEtRbujkKn+eRd6qTOycgyeO0vsVzSeLPOjFByM6
-	iCecGTTOUTe/0ENx3KGteVzhPq/buZzYI5jf5NRBZ2KLB2qaqJJ3gsqfc8/Ev6zdkfj8nSM8e4MEn
-	jfFZgTMcEKgo+DOew7co/mHKnJr4j91juVOk9bdBomm4XWYPSuglnVCxgV40e/fGWz+Koga8JAiGc
-	rKtiYz/W+tnF3uAHGOUg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L2uyrq7GGOyTSRNVgKrrN/LGPTZadNMTKaRk8VB4VTQ=; b=IJ3QJEWKF5myMVDrNo7Z/Dt8zH
+	GWJljxyJ3dFGdWvPR1+pDbLOUA1xhGVoGhwBchaLQsS5goDy/M7qYlGO+Wpeh9IQNPtiOSC2g+1qC
+	nx+pdEYWCpnj4lKWLC22rz3hs1eLManH6C/ympsUrvfcipBFO3fZyafbMTHiKhWhHS3kQjiicZ7Mt
+	J2NWFqTIGE/OzWOCd2GC1im6wQ49QkebvW9TFHL+1tdfmJXRv6I/ldHP4NdE/+Nl0gCxF8PLz76he
+	7xI16fzfuDKomceG46tp3EUAUvTbinm9beaYFKNYiauD+14Ywwt8X6UpqkretC7noFAJenmRVqBII
+	KRVQeTLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3aLJ-0000000EIJS-0T2e;
-	Wed, 23 Oct 2024 12:20:01 +0000
+	id 1t3aLK-0000000EIJk-1d6n;
+	Wed, 23 Oct 2024 12:20:02 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZvF-0000000EEP9-4BSm
+	id 1t3ZvI-0000000EEPj-0quq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:53:07 +0000
+	Wed, 23 Oct 2024 11:53:09 +0000
 Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 93653A47;
-	Wed, 23 Oct 2024 13:51:15 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 90DF6E8A;
+	Wed, 23 Oct 2024 13:51:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1729684276;
-	bh=Q5I4r72oA/6A0mpxkrBboGMIhbKMjAbnlCQclz2hNqM=;
-	h=From:Subject:Date:To:Cc:From;
-	b=UgBdd0p0wrxwrHjwmBr8V54eRNOweONCoWruGBpa+lFM//MV3bNlAtKA0/X80Sjuk
-	 LzJdODRQfQ1nxCREphnIuZSCqHJWUEgGMkcs2wtdoue8+87GC+na3Pevy2mixlRMQd
-	 X+3XKPfccTmGzM1YT8Xa6zTbaynAbpGawO7m/06c=
+	s=mail; t=1729684279;
+	bh=YIFtUzEb+zNMNMf/+HsO4cidzcc/g56Tm4oHW05vqio=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZNEPKqvudDpiEYufefsHsKGr9FMGFJmYgisd3cw6xUZstfTQW+R9gxzDsvLOHu+jd
+	 DfqbqS3iXub//0qDBLAtkLFjchWZTDIUMKR0xbIuxIImUJNXJolpMn8UQzW9h5tVZK
+	 M1h+/hc2KxZ6JW3Ld0xBQ3GyoaFSGPeEB/KZnvME=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Subject: [PATCH v4 0/3] drm: xlnx: zynqmp: Add DP audio support
-Date: Wed, 23 Oct 2024 14:52:40 +0300
-Message-Id: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
+Date: Wed, 23 Oct 2024 14:52:42 +0300
+Subject: [PATCH v4 2/3] arm64: dts: zynqmp: Add DMA for DP audio
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAIjjGGcC/3XNTQ7CIBCG4asY1mL4E8SV9zAuKAN2Ei0NaFPT9
- O6iG020y/dL5pmJlJAxFLJfTSSHAQumroZar4hvXXcOFKE2EUwoJrmgI16wGyn01N0BE1V654C
- LaKNWpF71OUQc3+LxVLvFckv58X4w8Ne6bA2cMqqt9sZG55vGHhCCK6lrksuw8elKXuQgvhn7y
- 4jKWAEapDPembDAyA9jOftlZGXMdquZsTIqYH+YeZ6fShmsZkMBAAA=
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241023-xilinx-dp-audio-v4-2-5128881457be@ideasonboard.com>
+References: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
+In-Reply-To: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
 To: Lars-Peter Clausen <lars@metafoo.de>, Jaroslav Kysela <perex@perex.cz>, 
  Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
  Mark Brown <broonie@kernel.org>, 
@@ -65,29 +63,29 @@ Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
  Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
  =?utf-8?q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>, 
  Markus Elfring <Markus.Elfring@web.de>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3283;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1252;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=Q5I4r72oA/6A0mpxkrBboGMIhbKMjAbnlCQclz2hNqM=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnGOOYdB4a29tVAERuM4J3tvaK345HA1KyQtUjj
- TTsMJvwMHGJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZxjjmAAKCRD6PaqMvJYe
- 9fPjEACbXxnFCCLs8Mot4EVKD+efiSDJolwjJ9LFaYGBQfisgK3vFY392SIR+xdLwqKNSLbUmZP
- wVfzdCsMJVSSMZenAkFoi2g25R0FzNEsN5M/o9gF23GuJlzazq0w90vvdgMoG4wBzhR3yurw8Dt
- tPsyt9i+j0IEjUQPyv9dA+4DKtpJKXfDonGYCX8MOQUea4YPG6o83cg6qak0IPUwrE06Pc2KKlQ
- l9U2WluNZTjRMfPmJWq2M1tEj7xZC38Fctj1EWOQyr36W5mgz2sfzQcI1ppEfTMbRyb588lAD+g
- nnku4uInc7r+UwDkxC+q9y4j6SBzFLV0xYD01m1BC65QmvW11nlUMWat/H7BF+c5tyl6AnRx72k
- XPvKVQEOhejBFzZChS4i7OHTr320DGGNus9nkJS00ehD3f5omBBpEcbx3BYIm8IjcjbqJBmMYT+
- YKbghB2IY+Qjgwccbaefe9kfYIhV6Mmga8LLg5zDXqEX6xbkqvbCMXwk5Q1JKEbDPkCZWF+ej80
- /3JbNZSfpXgcjWMd0McrdtSnMoOY//W4chNnr8DAWpPpNwu9vEKbb53vsC6oQnm95azwS/6fBM3
- XWYhhqNFPLqD8Lg36EmegS0sBYGfb/n6KtImFVLXt9aszAFFpp1iLzeZJ+uUrIHZ8O1tJItXREI
- eIaWoFozhgJjNDw==
+ bh=YIFtUzEb+zNMNMf/+HsO4cidzcc/g56Tm4oHW05vqio=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnGOOdp5qjGToWY37pydXUvCk+Rk5jrhcolO7kw
+ ZoP9VD7HyKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZxjjnQAKCRD6PaqMvJYe
+ 9boPEACfd7c5aR41z8i2JKMiqweJA1/BsSsE4uhrIlFIOeyRvgSZIBivvGWplW+XAytbKMYsbxf
+ KgU53RC7bKXPP6xNoEqBoOy698+QZOJ/V328PD2itzEe+XbrpOmnLdfjZXoEMYrhavZC3KGzWkS
+ 0ayBKbsTAFAtYcGK1belyis+P9Z3/Q7oRXoc8HoCSwgKFVw9FE5erNCWvBbcZlpdfImMnYjOmQW
+ tIvh246appkQdiEgWMOZ6wXs2zuD0CBqYSYc/QSfuO1f8TqSssC6DXElunfK6MCgqOHIXDhy9LQ
+ L4xk3DBuR7U/X9fpOp75bpZb+DrHKZBqKkieQi5iITPXabcu7bEBC+1b4/Sel9PsPOP2K0BLc5I
+ PzpkRbh9DkrmWI2+TiVCTSCXMk8wil7bbKnGfGAvBi4W1d3Gh4WFH3NRNJNemNHbQkVs/+g7toA
+ AkKYcknf3PanJog0MqVcTCE02s8qvd0I0s6jCKKhKWGfYWq06aq2PrSNXtAOt7OnTVG12+zWreQ
+ hqMFWV67LT4TuU95vFapR5LnOHM9Ud0KGnBkj1MxMxFcg2gOmMhdFQs+XObrr1fwzT4XofvbU+t
+ R9/idQ+AAgHLzk0xTUynB8islnExHrVLh9ISs/RYm7mhNCaypRjE327lBkrQkcJpe/KnXbCwwOh
+ s5gnNDBLP/Un3zA==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_045306_208295_67D97F75 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20241023_045308_413419_2C7ECC8B 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DisplayPort audio support for Xilinx ZynqMP platforms.
+Add the two DMA channels used for the DisplayPort audio to the
+zynqmp_dpsub node.
 
-The current DT is, for some reason, missing the DMA channels for the
-audio. This series adds that to the bindings and the dts file, but to
-support older dtb files without the audio DMA, the driver will not fail
-if the audio DMA is missing, but will just mark the audio support as
-disabled.
-
-To: Lars-Peter Clausen <lars@metafoo.de>
-To: Jaroslav Kysela <perex@perex.cz>
-To: Takashi Iwai <tiwai@suse.com>
-To: Liam Girdwood <lgirdwood@gmail.com>
-To: Mark Brown <broonie@kernel.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Daniel Vetter <daniel@ffwll.ch>
-To: Rob Herring <robh+dt@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Michal Simek <michal.simek@amd.com>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-sound@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Vishal Sagar <vishal.sagar@amd.com>
-Cc: Anatoliy Klymenko <anatoliy.klymenko@amd.com>
-Cc: Péter Ujfalusi <peter.ujfalusi@gmail.com>
-Cc: Markus Elfring <Markus.Elfring@web.de>
+Acked-by: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-
-Changes in v4:
-- Update copyright year
-- Use guard(mutex) in the zynqmp_dp_audio.c
-- Add Rb and Ab tags
-- Link to v3: https://lore.kernel.org/r/20240910-xilinx-dp-audio-v3-0-75560793f4d0@ideasonboard.com
-
-Changes in v3:
-- Expand the description in "dt-bindings: display/xlnx/zynqmp-dpsub: Add
-  audio DMAs" to be more clear about the DT binding change.
-- Rebased on top of current upstream
-- Link to v2: https://lore.kernel.org/r/20240319-xilinx-dp-audio-v2-0-92d6d3a7ca7e@ideasonboard.com
-
-Changes in v2:
-- Fix a missing double-quote in the DT binding
-- Link to v1: https://lore.kernel.org/r/20240312-xilinx-dp-audio-v1-0-696c79facbb9@ideasonboard.com
-
 ---
-Tomi Valkeinen (3):
-      dt-bindings: display/xlnx/zynqmp-dpsub: Add audio DMAs
-      arm64: dts: zynqmp: Add DMA for DP audio
-      drm: xlnx: zynqmp_dpsub: Add DP audio support
+ arch/arm64/boot/dts/xilinx/zynqmp.dtsi | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
- .../bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml   |  10 +-
- arch/arm64/boot/dts/xilinx/zynqmp.dtsi             |   7 +-
- drivers/gpu/drm/xlnx/Kconfig                       |   9 +
- drivers/gpu/drm/xlnx/Makefile                      |   1 +
- drivers/gpu/drm/xlnx/zynqmp_disp.c                 |  48 ---
- drivers/gpu/drm/xlnx/zynqmp_disp_regs.h            |   7 +-
- drivers/gpu/drm/xlnx/zynqmp_dp.c                   |  54 ++-
- drivers/gpu/drm/xlnx/zynqmp_dp.h                   |   7 +
- drivers/gpu/drm/xlnx/zynqmp_dp_audio.c             | 447 +++++++++++++++++++++
- drivers/gpu/drm/xlnx/zynqmp_dpsub.c                |  39 +-
- drivers/gpu/drm/xlnx/zynqmp_dpsub.h                |  15 +-
- 11 files changed, 539 insertions(+), 105 deletions(-)
----
-base-commit: 42f7652d3eb527d03665b09edac47f85fb600924
-change-id: 20240312-xilinx-dp-audio-468ad12f9f64
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+index b1b31dcf6291..673ca8422e6b 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
++++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+@@ -1207,11 +1207,14 @@ zynqmp_dpsub: display@fd4a0000 {
+ 				      "dp_vtc_pixel_clk_in";
+ 			power-domains = <&zynqmp_firmware PD_DP>;
+ 			resets = <&zynqmp_reset ZYNQMP_RESET_DP>;
+-			dma-names = "vid0", "vid1", "vid2", "gfx0";
++			dma-names = "vid0", "vid1", "vid2", "gfx0",
++				    "aud0", "aud1";
+ 			dmas = <&zynqmp_dpdma ZYNQMP_DPDMA_VIDEO0>,
+ 			       <&zynqmp_dpdma ZYNQMP_DPDMA_VIDEO1>,
+ 			       <&zynqmp_dpdma ZYNQMP_DPDMA_VIDEO2>,
+-			       <&zynqmp_dpdma ZYNQMP_DPDMA_GRAPHICS>;
++			       <&zynqmp_dpdma ZYNQMP_DPDMA_GRAPHICS>,
++			       <&zynqmp_dpdma ZYNQMP_DPDMA_AUDIO0>,
++			       <&zynqmp_dpdma ZYNQMP_DPDMA_AUDIO1>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
 
-Best regards,
 -- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+2.43.0
 
 
