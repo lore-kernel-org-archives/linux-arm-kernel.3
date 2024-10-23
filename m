@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E869CFA44E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3774CFA44E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 16:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAT6kcbQRB/ZOWWrGAXO0TKYP/bnChnk4e/I5SIxR4k=; b=iYm8+3JXcL4s9gSkJob8T02wxp
-	dUxWylg2j42ETkGVaKkew7HnOuJA654pnskY8lw24Irfj4qbg13a53ImD2fwnv+8ACyhxN6HSV+Ng
-	uicQgOcxp0G4oQl2Toy34Q30UBraPg2ky3bQh/BMN3RulHOh6RzaPUAnOUBqA6+cD4Uipc7k8hj7x
-	z9ZEDgMgz1IhZz0+Zto+GBywoL5UajwyfXV1f1GAZ2lngAJ6y+Bmt/7KDrIBDelB1Rg7mxIjJ/WEZ
-	FcfOBddHn6o+L3NvbFndehzO+86uOae3+5+AmWJAu6YAYqNEpbQpgDglJ1UYg/fLiejCR/CD+y1vn
-	ke6Qg+0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LgyTGB3pqM8nd2tlaCQUWlInWbsb/ECPLI+TMKap3wE=; b=jtZtVHXfwaaVaWotn5p0qJkR0L
+	Q0AICCRxb2AfdcurElfKrepxxQjeuIJkMUugE5kVSrxpm12STCJdE0zJm6541Lg5CBzyW9JnS2rwG
+	9MxG9ZU9DVl7AYuCCkTFEEY+41A3nXKSUkoPLl71eYmutsOJqMREauYpDRnQfIM+lVDTCYGHwGlmy
+	HshUXK9Hk2qRR1I4mVh2iVV1yOWbyYME/LRvlbFe/yljtyn9TdMS2Jh8NFHCZij4UqBwerfzfYfoG
+	KAa0po7Nbg9ZBB9lnlLe3GCLwTIfAd3mq0ySeCy4blyQBoF3NT7yROZnOiSs7GIiBdD780NM6fHeX
+	ecdxepUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3e08-0000000F6DQ-39aM;
-	Wed, 23 Oct 2024 16:14:24 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1t3e1c-0000000F6Rn-3YNn;
+	Wed, 23 Oct 2024 16:15:56 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dEy-0000000Ex42-3ZDu
+	id 1t3dFz-0000000ExHZ-2VQd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 15:25:43 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49NFPasY040420;
-	Wed, 23 Oct 2024 10:25:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729697136;
-	bh=oAT6kcbQRB/ZOWWrGAXO0TKYP/bnChnk4e/I5SIxR4k=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=tLf2YT/nvbiZwuxM6OF8iFUIB86Vklfapfch8+Q8Lh3NdyrH0pvWCdidJeEcMAIsm
-	 GpxN/MLJE6RZVuvoUowZyLxAtMYr1Fu/4Tgofs6gYayld6oQp+nlg3AulKsepb+fGz
-	 JNiMUjLNhH16qph+1PoupAugB9V6tO3H4Dw8TfKg=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49NFPahc019136
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Oct 2024 10:25:36 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Oct 2024 10:25:35 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Oct 2024 10:25:35 -0500
-Received: from [172.24.227.91] (psdkl-workstation0.dhcp.ti.com [172.24.227.91])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49NFPVbN087980;
-	Wed, 23 Oct 2024 10:25:31 -0500
-Message-ID: <a0452ef6-6c79-4eb8-8b25-0857978bbf94@ti.com>
-Date: Wed, 23 Oct 2024 20:55:30 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/12] arm64: dts: ti: k3-j784s4-j742s2-evm-common:
- Remove parent nodes bootph-*
-To: Manorit Chawdhry <m-chawdhry@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Neha Malcom Francis <n-francis@ti.com>,
-        Udit
- Kumar <u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>, Andrew Davis <afd@ti.com>
-References: <20241023-b4-upstream-bootph-all-v5-0-a974d06370ab@ti.com>
- <20241023-b4-upstream-bootph-all-v5-7-a974d06370ab@ti.com>
-Content-Language: en-US
-From: Aniket Limaye <a-limaye@ti.com>
-In-Reply-To: <20241023-b4-upstream-bootph-all-v5-7-a974d06370ab@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Wed, 23 Oct 2024 15:26:45 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e355f1ff4bso122981997b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 08:26:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1729697201; x=1730302001; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=LgyTGB3pqM8nd2tlaCQUWlInWbsb/ECPLI+TMKap3wE=;
+        b=gmAJnPPpJJK4s/Ke+hjSgEkgYJcrNJJEUMveHc3n8oSo1UlT+4VyUfbDzMCpPJxQWy
+         0vGUpSetw/jK0B69TW3YrjqMD9WEsXkvl2RqCmoN06PHHD/VtPjjKkw52/ohGOcL9nkq
+         kPGgEwGQdac54E1W0E2n/dGkHB4mknii1c5w6z0aNesN5ds18ucJnOwFtuiohyn5w3K2
+         DCm1lGp96LTRGEQFh9Iwk7sg8ENygIiwyf30D2EFY2PWMlUvAqUx5JIaM/wgFmGvpAr5
+         +yPFlSVra3ZmLxReGGS/cfXfRk5tee30teGQkENp6+VTfY0jrLq/mPsYWFOhAJpjp+Sq
+         wZNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729697201; x=1730302001;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LgyTGB3pqM8nd2tlaCQUWlInWbsb/ECPLI+TMKap3wE=;
+        b=E8yqYOs+G1jnVTHpQMradV3SWcjfcXcxtCDhYAa9IQnhPKdgalOV7pr+p0BO0+z2BD
+         HkJ6vZvDkCQ4oqxxrkvNvNTkDn2Be/LN+3wQGXDTUIMHBCZzRd2ADmE082DtV/eg2qeU
+         BDtc5euOtlsEfmDbw6bLfEJFG1+LdAGTireGbwWQYnhFpblnDFFeZSwmB6bPDCuywkZa
+         H8NxMRcIPx1Zw6z2/tsGmegQbTP4jWUrg064HnHOSjz+73BRXe01Qbu9mqZA9uW0QUCz
+         w/5NL1sKIbT5ywaCddNVWUyyd4rbL+WIIsZ9DgSTiQNRZ4Pd2DVkiXtLR4YDqmAUKYJd
+         Er7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUNHF0b6x0iTo6ff9wwq39z/gXarsuMoxV4beFBvzFS+BDT4zOcUXG8MMFjj92fLpVMgdbXk1ptjU5Cf0SXzyPT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/iOTOUXJncgHi70jVLTsyFm+n4yI18AD0+npC0QEqR26gRzcK
+	CnvNyDJflVzCQda8CKqOQjMKgZEHTweFmrbjC7eydeQ0wLynqJSuEvNfhPLH6VO3XEwxKErS1/y
+	vagxuOQ==
+X-Google-Smtp-Source: AGHT+IGZLylUFfRaeoUChkh5zta51HqScos57+PeLEawa/Zj6Vb0Z2er1q5qfJlHjZXBZG3OR/irola46j3M
+X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fac1])
+ (user=rananta job=sendgmr) by 2002:a25:b21f:0:b0:e2b:d28f:bf28 with SMTP id
+ 3f1490d57ef6-e2e3a5fa7a4mr5506276.2.1729697201237; Wed, 23 Oct 2024 08:26:41
+ -0700 (PDT)
+Date: Wed, 23 Oct 2024 15:26:34 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
+Message-ID: <20241023152638.3317648-1-rananta@google.com>
+Subject: [kvm-unit-tests PATCH v2 0/4] Fix arm64 clang errors on fpu tests
+From: Raghavendra Rao Ananta <rananta@google.com>
+To: Subhasish Ghosh <subhasish.ghosh@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Andrew Jones <andrew.jones@linux.dev>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Raghavendra Rao Anata <rananta@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_082541_048945_EEB60E4D 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20241023_082643_663638_C1310F4B 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,91 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When compiled with clang for arm64, some build errors were observed
+along the fpu code. Moreover, data aborts were seen while running
+the arm/fpu test due to misconfigured input/output args in the inline
+assembly.
+
+The series tries to address these issues.
+
+v2:
+ - Fix build errors for newer clang versions that push 'q' registers out
+   of scope under '-mgeneral-regs-only'. (Andrew)
+
+v1:
+https://lore.kernel.org/all/20241022004710.1888067-1-rananta@google.com/
+
+- Raghavendra
+
+Raghavendra Rao Ananta (4):
+  arm: Fix clang error in sve_vl()
+  arm: fpu: Convert 'q' registers to 'v' to satisfy clang
+  arm: fpu: Add '.arch_extension fp' to fpu macros
+  arm: fpu: Fix the input/output args for inline asm in fpu.c
+
+ arm/fpu.c                 | 52 ++++++++++++++++++++-------------------
+ lib/arm64/asm/processor.h |  2 +-
+ 2 files changed, 28 insertions(+), 26 deletions(-)
 
 
-On 23/10/24 12:27, Manorit Chawdhry wrote:
-> Adding bootph properties on leaf nodes imply that they are applicable to
-> the parent nodes as well. Bootloaders can derive the parent nodes when
-> bootph is available in the leaf nodes.
-> 
-> Remove the bootph-* properties from parent nodes as they are redundant.
-> 
-> Signed-off-by: Manorit Chawdhry <m-chawdhry@ti.com>
+base-commit: f246b16099478a916eab37b9bd1eb07c743a67d5
+-- 
+2.47.0.105.g07ac214952-goog
 
-Reviewed-by: Aniket Limaye <a-limaye@ti.com>
-
-> ---
->   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 9 ---------
->   1 file changed, 9 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> index 98453171a179..b2e2b9f507a9 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> @@ -305,7 +305,6 @@ &wkup_gpio0 {
->   };
->   
->   &main_pmx0 {
-> -	bootph-all;
->   	main_cpsw2g_default_pins: main-cpsw2g-default-pins {
->   		pinctrl-single,pins = <
->   			J784S4_IOPAD(0x0b8, PIN_INPUT, 6) /* (AC34) MCASP1_ACLKX.RGMII1_RD0 */
-> @@ -432,7 +431,6 @@ J784S4_IOPAD(0x078, PIN_OUTPUT, 1) /* (AH37) MCAN2_RX.AUDIO_EXT_REFCLK1 */
->   };
->   
->   &wkup_pmx2 {
-> -	bootph-all;
->   	wkup_uart0_pins_default: wkup-uart0-default-pins {
->   		bootph-all;
->   		pinctrl-single,pins = <
-> @@ -548,7 +546,6 @@ J784S4_WKUP_IOPAD(0x028, PIN_INPUT, 7)
->   };
->   
->   &wkup_pmx0 {
-> -	bootph-all;
->   	mcu_fss0_ospi0_pins_default: mcu-fss0-ospi0-default-pins {
->   		bootph-all;
->   		pinctrl-single,pins = <
-> @@ -568,7 +565,6 @@ J784S4_WKUP_IOPAD(0x008, PIN_INPUT, 0) /* (C34) MCU_OSPI0_DQS */
->   };
->   
->   &wkup_pmx1 {
-> -	bootph-all;
->   	mcu_fss0_ospi0_1_pins_default: mcu-fss0-ospi0-1-default-pins {
->   		bootph-all;
->   		pinctrl-single,pins = <
-> @@ -740,18 +736,15 @@ &ufs_wrapper {
->   };
->   
->   &fss {
-> -	bootph-all;
->   	status = "okay";
->   };
->   
->   &ospi0 {
-> -	bootph-all;
->   	status = "okay";
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&mcu_fss0_ospi0_pins_default>, <&mcu_fss0_ospi0_1_pins_default>;
->   
->   	flash@0 {
-> -		bootph-all;
->   		compatible = "jedec,spi-nor";
->   		reg = <0x0>;
->   		spi-tx-bus-width = <8>;
-> @@ -808,13 +801,11 @@ partition@3fc0000 {
->   };
->   
->   &ospi1 {
-> -	bootph-all;
->   	status = "okay";
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
->   
->   	flash@0 {
-> -		bootph-all;
->   		compatible = "jedec,spi-nor";
->   		reg = <0x0>;
->   		spi-tx-bus-width = <1>;
-> 
 
