@@ -4,108 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FA7D2E01E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA78BD2E021
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1DC0MZ+8RliOZSB75DH8kd3TwbqOFjqN7QSkI/xXet0=; b=Gz6bwFBTXy5V0m5NGjg2bTgRyM
-	sHjV3CCxAo6RqPhN2W1M7tlOYejtTaWJ4yrLdXtor1fI2U4QZ0OiC01iPylvsC6O/TzJ5Vnnt8U0L
-	/bRCvFL6IE0OKht3f5niQSKWE56PH9Gc3WDL/Th01GWBsTwk6VbxIsUVG+QQJQxX4blofQuBf6Tah
-	oFWiFB8qij9Hxnhp2uVbR5+uCYQp1Cyd40oio/6H5qTGBCSZphyM60zIok0thaYKdRw0i0yctOWMu
-	onjiIfOP3w0fuV93RYl0JLCP4kgAWXi9oXzm9V2N72/BTzpAPiJ757wjsWiRVoXN0A08YV84Iwap4
-	icZtx9dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ddsd4nkwmvJlP18rfeZfB+TI9iEwulcHBtggUXkZFyE=; b=4zrSaVChBppQsS6H5iIdNHGXjf
+	VihjI+D7koYalWMTqlWhgbaWePcLdPflORFiOZa2kvehkuJZ1fIIzHTSQ3iN7mUXfHVxIOPibhj0B
+	eai009ha+lg9EDmfvSWgQswQ+Ch0bd4/O6oQ8lSwK6Aop5I+DQAw+iWTmdHhpSAsKdsTCvwAWf7t1
+	joAFVml8m/7YDP7kDv4lBICBwTCANW7Yww30YVg/ZzDFeKN7uRb6VPEex5JPBwPQM0G57G2Vllz8i
+	cl7fUPCox/Z5fpvqjVL9YUCVzhqL7LvjlAkaeeWm8UDyle85t5YLERjwgaUhMMd7Ya5d0R+Aa0oge
+	NVvBaw9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Wan-0000000DXTv-3r6s;
-	Wed, 23 Oct 2024 08:19:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3WcJ-0000000DXps-3MzW;
+	Wed, 23 Oct 2024 08:21:19 +0000
+Received: from relay2.mymailcheap.com ([217.182.66.162])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WRw-0000000DVYG-1hp2;
-	Wed, 23 Oct 2024 08:10:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=1DC0MZ+8RliOZSB75DH8kd3TwbqOFjqN7QSkI/xXet0=; b=Ros4nw/b6VuZVJNcyRe54USVex
-	tiUxeT+DiREoUot5IOd3lDOO6lN2HIO6LupdwNcnFYhURpzKlV87q/tN4VbJMbykXny3q+HJ4QJPf
-	crH69a13rp+Xl7ZACfCLKxmsBRJmjCQg+jAwYhWHmOW9phT/OWHeXcWXdKRzbcyHGydGdC1WTFMGV
-	cgOMRlI8hQXENVjDxFwRxLcr9snmB88Tb/xs+Hl5gyIZveM0kc32v4YxmuFnsfLal64akAZwqhllv
-	K8934fftyDBYT0Ye85M7W+NvmZT+uLAqphw6Yn+SaYA6l3N3aUVE+7RRWqJhg7UfE8vo32QOwjiBd
-	uqj37FYA==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WRt-00000008Li0-0Vbh;
-	Wed, 23 Oct 2024 08:10:35 +0000
-X-UUID: 1a9bc870911611ef82ff63e91e7eb18c-20241023
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=1DC0MZ+8RliOZSB75DH8kd3TwbqOFjqN7QSkI/xXet0=;
-	b=uosTkOjUXhPoqgTtjWERjY2QR2OyU/MiBpFbPwKaLpVMLbnTpTCZP9CP3zXlVTSAhxxBETdo1VbApwRqTOehxrZWmz5RhqK/seci/NPTUtymRZp/rch1fQM8Yo28NPm+yx62oAPWy3UYAfsaDA2rVOCaXLzoNg3/JuosUZe+IIc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:a7558aa4-41cb-4f00-82fb-878b1c99fb51,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:3890bbcc-110e-4f79-849e-58237df93e70,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1a9bc870911611ef82ff63e91e7eb18c-20241023
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <macpaul.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1316511782; Wed, 23 Oct 2024 01:09:19 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 23 Oct 2024 16:09:15 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 23 Oct 2024 16:09:15 +0800
-From: Macpaul Lin <macpaul.lin@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Alexandre Mergnat
-	<amergnat@baylibre.com>
-CC: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-usb@vger.kernel.org>, Chris-qj chen <chris-qj.chen@mediatek.com>,
-	Fabien Parent <fparent@baylibre.com>, Yow-Shin Liou
-	<yow-shin.liou@mediatek.com>, Simon Sun <simon.sun@yunjingtech.com>
-Subject: [PATCH v3 1/2] arm64: dts: mediatek: mt8395-genio-1200-evk: add support for TCPC port
-Date: Wed, 23 Oct 2024 16:09:11 +0800
-Message-ID: <20241023080912.15349-1-macpaul.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+	id 1t3WSy-0000000DVlf-1u9D
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 08:11:42 +0000
+Received: from nf2.mymailcheap.com (nf2.mymailcheap.com [54.39.180.165])
+	by relay2.mymailcheap.com (Postfix) with ESMTPS id 051733E8B0;
+	Wed, 23 Oct 2024 10:11:36 +0200 (CEST)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf2.mymailcheap.com (Postfix) with ESMTPSA id EBEF340071;
+	Wed, 23 Oct 2024 08:11:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1729671093; bh=nRYsdh20ulVhIqky7GSqNnbitg9IwiHaw0XADbawyqw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=wH2Ef/rVmT74V531v+ulCIDHN9SB0nSEpVtEc7tw344HjnvVcj54jftVa5KYE6Spe
+	 sjhKF3HnuJsziCtdgFpFAJQGLYyA7kOgUDyBRycpWuUmmwdkUOrYbP+2glUEbWJLE5
+	 dwMfijq+AXUUzSAvRtIZkutFacWYMZjIorkQP+NA=
+Received: from localhost.localdomain (unknown [58.32.43.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id C566B407D9;
+	Wed, 23 Oct 2024 08:11:25 +0000 (UTC)
+From: Kexy Biscuit <kexybiscuit@aosc.io>
+To: jeffbai@aosc.io,
+	gregkh@linuxfoundation.org,
+	wangyuli@uniontech.com,
+	torvalds@linux-foundation.org
+Cc: aospan@netup.ru,
+	conor.dooley@microchip.com,
+	ddrokosov@sberdevices.ru,
+	dmaengine@vger.kernel.org,
+	dushistov@mail.ru,
+	fancer.lancer@gmail.com,
+	geert@linux-m68k.org,
+	hoan@os.amperecomputing.com,
+	ink@jurassic.park.msu.ru,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mattst88@gmail.com,
+	netdev@vger.kernel.org,
+	nikita@trvn.ru,
+	ntb@lists.linux.dev,
+	patches@lists.linux.dev,
+	richard.henderson@linaro.org,
+	s.shtylyov@omp.ru,
+	serjk@netup.ru,
+	shc_work@mail.ru,
+	tsbogend@alpha.franken.de,
+	v.georgiev@metrotek.ru,
+	wsa+renesas@sang-engineering.com,
+	xeb@mail.ru,
+	Kexy Biscuit <kexybiscuit@aosc.io>
+Subject: [PATCH] Revert "MAINTAINERS: Remove some entries due to various compliance requirements."
+Date: Wed, 23 Oct 2024 16:09:34 +0800
+Message-ID: <20241023080935.2945-2-kexybiscuit@aosc.io>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--4.063000-8.000000
-X-TMASE-MatchedRID: jrpkWNovQHLL05PW1HuK4hcqpH7D1rtQE21NSmBqEKdeARTvhomDCuHM
-	eGIgxik9FU2rnI3D77gOHPadhy5U4iUyFVKm+WpVMZ8cIdf+aBRhBfGxmdHCgvHFoBcOsKezmQJ
-	6sUxppuIriEKQi78d2EIIZCwYBulFL0W1btd8e55H4a2iJdV4MdiK7AdEh6lNi093rJhkH8DeSC
-	fd3mLQsdz6+jdXWZjHIUmX+V9fKhLSuXLpNqOJSQ2HDswcCnIjFk73i4rVVIEL7naABknk8qPFj
-	JEFr+olwXCBO/GKkVqOhzOa6g8KrUejv7saCNrxDkDf5XgSMVjSgRuPc0nbfBQdxtQMtuV3bTJk
-	Ocw4jjZoosmzpgSGI9wd5pmRNJ9i6cN15/z/mmzyzY8c1oKYwOLDq7G+Ik/yv22xKJRyIGVDnOx
-	ozmpp1r+WvXJiKHRLMw/B2eF7ydmUTGVAhB5EbQ==
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--4.063000-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 29A60159753BBF7D539EB962A6F99A9AA4213D7938370545EF29296C4B93CDEB2000:8
-X-MTK: N
+X-Rspamd-Server: nf2.mymailcheap.com
+X-Rspamd-Queue-Id: EBEF340071
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-1.60 / 10.00];
+	REPLY(-4.00)[];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[renesas];
+	FREEMAIL_CC(0.00)[netup.ru,microchip.com,sberdevices.ru,vger.kernel.org,mail.ru,gmail.com,linux-m68k.org,os.amperecomputing.com,jurassic.park.msu.ru,lists.infradead.org,linaro.org,trvn.ru,lists.linux.dev,omp.ru,alpha.franken.de,metrotek.ru,sang-engineering.com,aosc.io];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[39];
+	FROM_EQ_ENVFROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,mail.ru];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_091033_752689_34D8E6B1 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20241023_011140_821446_CE3EE4FB 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,115 +133,379 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabien Parent <fparent@baylibre.com>
+This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
 
-Enable USB Type-C support on MediaTek MT8395 Genio 1200 EVK by adding
-configuration for TCPC Port, USB-C connector, and related settings.
+An absolutely no-one-ever-reviewed patch, not even by the maintainers who
+got removed themselves - at least not on the mailing list. Then the patch
+just got slipped into an unrelated subsystem pull request, and got pulled
+by Torvalds with not even a comment.
 
-Configure dual role switch capability, set up PD (Power Delivery) profiles,
-and establish endpoints for SSUSB (SuperSpeed USB).
+What about the next time? Who next would be removed from the MAINTAINERS
+file, the kernel.org infrastructure? What if the compliance requires
+another XZ backdoor to be developed without further explanation? Is the
+kernel development process still done in public?
 
-Update pinctrl configurations for U3 P0 VBus default pins and set dr_mode
-to "otg" for OTG (On-The-Go) mode operation.
+Are the "compliance requirements" documented on docs.kernel.org? Who are
+responsible for them? Are all that are responsible employees of
+The Linux Foundation, which is regulated by the U.S. legislature?
 
-Signed-off-by: Fabien Parent <fparent@baylibre.com>
-Signed-off-by: Yow-Shin Liou <yow-shin.liou@mediatek.com>
-Signed-off-by: Simon Sun <simon.sun@yunjingtech.com>
-Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
+Fixes: 6e90b675cf94 ("MAINTAINERS: Remove some entries due to various compliance requirements.")
+Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
 ---
- .../dts/mediatek/mt8395-genio-1200-evk.dts    | 54 +++++++++++++++++++
- 1 file changed, 54 insertions(+)
+Please keep all discussions on at least one of the mailing lists.
 
-Changes for v2:
- - Drop the no need '1/2' DT Schema update patch in the 1st version.  
- - Fix intent for 'ports' node, it should under the 'connector' node.
- - Correct the index for 'port@0' and 'port@1' node.
+ MAINTAINERS | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 178 insertions(+)
 
-Changes for v3:
- - Correct the order between new added nodes.
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-index 5f16fb820580..83d520226302 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-@@ -335,6 +335,43 @@ mt6360_ldo7: ldo7 {
- 				regulator-always-on;
- 			};
- 		};
-+
-+		tcpc {
-+			compatible = "mediatek,mt6360-tcpc";
-+			interrupts-extended = <&pio 17 IRQ_TYPE_LEVEL_LOW>;
-+			interrupt-names = "PD_IRQB";
-+
-+			connector {
-+				compatible = "usb-c-connector";
-+				label = "USB-C";
-+				data-role = "dual";
-+				power-role = "dual";
-+				try-power-role = "sink";
-+				source-pdos = <PDO_FIXED(5000, 1000, \
-+					       PDO_FIXED_DUAL_ROLE | \
-+					       PDO_FIXED_DATA_SWAP)>;
-+				sink-pdos = <PDO_FIXED(5000, 2000, \
-+					     PDO_FIXED_DUAL_ROLE | \
-+					     PDO_FIXED_DATA_SWAP)>;
-+				op-sink-microwatt = <10000000>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mt6360_ssusb_ep: endpoint {
-+							remote-endpoint = <&ssusb_ep>;
-+						};
-+					};
-+				};
-+			};
-+		};
- 	};
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e9659a5a7fb3..501aa5c0887e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -258,6 +258,12 @@ L:	linux-acenic@sunsite.dk
+ S:	Maintained
+ F:	drivers/net/ethernet/alteon/acenic*
  
-@@ -770,6 +807,13 @@ pins-reset {
- 		};
- 	};
- 
-+	u3_p0_vbus: u3-p0-vbus-default-pins {
-+		pins-cmd-dat {
-+			pinmux = <PINMUX_GPIO63__FUNC_VBUSVALID>;
-+			input-enable;
-+		};
-+	};
++ACER ASPIRE 1 EMBEDDED CONTROLLER DRIVER
++M:	Nikita Travkin <nikita@trvn.ru>
++S:	Maintained
++F:	Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
++F:	drivers/platform/arm64/acer-aspire1-ec.c
 +
- 	uart0_pins: uart0-pins {
- 		pins {
- 			pinmux = <PINMUX_GPIO98__FUNC_UTXD0>,
-@@ -900,8 +944,18 @@ &ufsphy {
- };
+ ACER ASPIRE ONE TEMPERATURE AND FAN DRIVER
+ M:	Peter Kaestle <peter@piie.net>
+ L:	platform-driver-x86@vger.kernel.org
+@@ -882,6 +888,7 @@ F:	drivers/staging/media/sunxi/cedrus/
  
- &ssusb0 {
-+	dr_mode = "otg";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&u3_p0_vbus>;
-+	usb-role-switch;
- 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
- 	status = "okay";
+ ALPHA PORT
+ M:	Richard Henderson <richard.henderson@linaro.org>
++M:	Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+ M:	Matt Turner <mattst88@gmail.com>
+ L:	linux-alpha@vger.kernel.org
+ S:	Odd Fixes
+@@ -2256,6 +2263,12 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	arch/arm/mach-ep93xx/ts72xx.c
+ 
++ARM/CIRRUS LOGIC CLPS711X ARM ARCHITECTURE
++M:	Alexander Shiyan <shc_work@mail.ru>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++S:	Odd Fixes
++N:	clps711x
 +
-+	port {
-+		ssusb_ep: endpoint {
-+			remote-endpoint = <&mt6360_ssusb_ep>;
-+		};
-+	};
- };
+ ARM/CIRRUS LOGIC EP93XX ARM ARCHITECTURE
+ M:	Hartley Sweeten <hsweeten@visionengravers.com>
+ M:	Alexander Sverdlin <alexander.sverdlin@gmail.com>
+@@ -3802,6 +3815,14 @@ F:	drivers/video/backlight/
+ F:	include/linux/backlight.h
+ F:	include/linux/pwm_backlight.h
  
- &ssusb2 {
++BAIKAL-T1 PVT HARDWARE MONITOR DRIVER
++M:	Serge Semin <fancer.lancer@gmail.com>
++L:	linux-hwmon@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
++F:	Documentation/hwmon/bt1-pvt.rst
++F:	drivers/hwmon/bt1-pvt.[ch]
++
+ BARCO P50 GPIO DRIVER
+ M:	Santosh Kumar Yadav <santoshkumar.yadav@barco.com>
+ M:	Peter Korsgaard <peter.korsgaard@barco.com>
+@@ -6455,6 +6476,7 @@ F:	drivers/mtd/nand/raw/denali*
+ 
+ DESIGNWARE EDMA CORE IP DRIVER
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
++R:	Serge Semin <fancer.lancer@gmail.com>
+ L:	dmaengine@vger.kernel.org
+ S:	Maintained
+ F:	drivers/dma/dw-edma/
+@@ -9737,6 +9759,14 @@ F:	drivers/gpio/gpiolib-cdev.c
+ F:	include/uapi/linux/gpio.h
+ F:	tools/gpio/
+ 
++GRE DEMULTIPLEXER DRIVER
++M:	Dmitry Kozlov <xeb@mail.ru>
++L:	netdev@vger.kernel.org
++S:	Maintained
++F:	include/net/gre.h
++F:	net/ipv4/gre_demux.c
++F:	net/ipv4/gre_offload.c
++
+ GRETH 10/100/1G Ethernet MAC device driver
+ M:	Andreas Larsson <andreas@gaisler.com>
+ L:	netdev@vger.kernel.org
+@@ -12929,6 +12959,12 @@ S:	Maintained
+ F:	drivers/ata/pata_arasan_cf.c
+ F:	include/linux/pata_arasan_cf_data.h
+ 
++LIBATA PATA DRIVERS
++R:	Sergey Shtylyov <s.shtylyov@omp.ru>
++L:	linux-ide@vger.kernel.org
++F:	drivers/ata/ata_*.c
++F:	drivers/ata/pata_*.c
++
+ LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
+ M:	Linus Walleij <linus.walleij@linaro.org>
+ L:	linux-ide@vger.kernel.org
+@@ -12945,6 +12981,15 @@ F:	drivers/ata/ahci_platform.c
+ F:	drivers/ata/libahci_platform.c
+ F:	include/linux/ahci_platform.h
+ 
++LIBATA SATA AHCI SYNOPSYS DWC CONTROLLER DRIVER
++M:	Serge Semin <fancer.lancer@gmail.com>
++L:	linux-ide@vger.kernel.org
++S:	Maintained
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/dlemoal/libata.git
++F:	Documentation/devicetree/bindings/ata/baikal,bt1-ahci.yaml
++F:	Documentation/devicetree/bindings/ata/snps,dwc-ahci.yaml
++F:	drivers/ata/ahci_dwc.c
++
+ LIBATA SATA PROMISE TX2/TX4 CONTROLLER DRIVER
+ M:	Mikael Pettersson <mikpelinux@gmail.com>
+ L:	linux-ide@vger.kernel.org
+@@ -14140,6 +14185,16 @@ S:	Maintained
+ T:	git git://linuxtv.org/media_tree.git
+ F:	drivers/media/platform/nxp/imx-pxp.[ch]
+ 
++MEDIA DRIVERS FOR ASCOT2E
++M:	Sergey Kozlov <serjk@netup.ru>
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/dvb-frontends/ascot2e*
++
+ MEDIA DRIVERS FOR CXD2099AR CI CONTROLLERS
+ M:	Jasmin Jessich <jasmin@anw.at>
+ L:	linux-media@vger.kernel.org
+@@ -14148,6 +14203,16 @@ W:	https://linuxtv.org
+ T:	git git://linuxtv.org/media_tree.git
+ F:	drivers/media/dvb-frontends/cxd2099*
+ 
++MEDIA DRIVERS FOR CXD2841ER
++M:	Sergey Kozlov <serjk@netup.ru>
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/dvb-frontends/cxd2841er*
++
+ MEDIA DRIVERS FOR CXD2880
+ M:	Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
+ L:	linux-media@vger.kernel.org
+@@ -14192,6 +14257,35 @@ F:	drivers/media/platform/nxp/imx-mipi-csis.c
+ F:	drivers/media/platform/nxp/imx7-media-csi.c
+ F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+ 
++MEDIA DRIVERS FOR HELENE
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/dvb-frontends/helene*
++
++MEDIA DRIVERS FOR HORUS3A
++M:	Sergey Kozlov <serjk@netup.ru>
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/dvb-frontends/horus3a*
++
++MEDIA DRIVERS FOR LNBH25
++M:	Sergey Kozlov <serjk@netup.ru>
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/dvb-frontends/lnbh25*
++
+ MEDIA DRIVERS FOR MXL5XX TUNER DEMODULATORS
+ L:	linux-media@vger.kernel.org
+ S:	Orphan
+@@ -14199,6 +14293,16 @@ W:	https://linuxtv.org
+ T:	git git://linuxtv.org/media_tree.git
+ F:	drivers/media/dvb-frontends/mxl5xx*
+ 
++MEDIA DRIVERS FOR NETUP PCI UNIVERSAL DVB devices
++M:	Sergey Kozlov <serjk@netup.ru>
++M:	Abylay Ospan <aospan@netup.ru>
++L:	linux-media@vger.kernel.org
++S:	Supported
++W:	https://linuxtv.org
++W:	http://netup.tv/
++T:	git git://linuxtv.org/media_tree.git
++F:	drivers/media/pci/netup_unidvb/*
++
+ MEDIA DRIVERS FOR NVIDIA TEGRA - VDE
+ M:	Dmitry Osipenko <digetx@gmail.com>
+ L:	linux-media@vger.kernel.org
+@@ -14842,6 +14946,13 @@ F:	drivers/mtd/
+ F:	include/linux/mtd/
+ F:	include/uapi/mtd/
+ 
++MEMSENSING MICROSYSTEMS MSA311 DRIVER
++M:	Dmitry Rokosov <ddrokosov@sberdevices.ru>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iio/accel/memsensing,msa311.yaml
++F:	drivers/iio/accel/msa311.c
++
+ MEN A21 WATCHDOG DRIVER
+ M:	Johannes Thumshirn <morbidrsa@gmail.com>
+ L:	linux-watchdog@vger.kernel.org
+@@ -15175,6 +15286,7 @@ F:	drivers/tty/serial/8250/8250_pci1xxxx.c
+ 
+ MICROCHIP POLARFIRE FPGA DRIVERS
+ M:	Conor Dooley <conor.dooley@microchip.com>
++R:	Vladimir Georgiev <v.georgiev@metrotek.ru>
+ L:	linux-fpga@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/fpga/microchip,mpf-spi-fpga-mgr.yaml
+@@ -15429,6 +15541,17 @@ F:	arch/mips/
+ F:	drivers/platform/mips/
+ F:	include/dt-bindings/mips/
+ 
++MIPS BAIKAL-T1 PLATFORM
++M:	Serge Semin <fancer.lancer@gmail.com>
++L:	linux-mips@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/bus/baikal,bt1-*.yaml
++F:	Documentation/devicetree/bindings/clock/baikal,bt1-*.yaml
++F:	drivers/bus/bt1-*.c
++F:	drivers/clk/baikal-t1/
++F:	drivers/memory/bt1-l2-ctl.c
++F:	drivers/mtd/maps/physmap-bt1-rom.[ch]
++
+ MIPS BOSTON DEVELOPMENT BOARD
+ M:	Paul Burton <paulburton@kernel.org>
+ L:	linux-mips@vger.kernel.org
+@@ -15441,6 +15564,7 @@ F:	include/dt-bindings/clock/boston-clock.h
+ 
+ MIPS CORE DRIVERS
+ M:	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
++M:	Serge Semin <fancer.lancer@gmail.com>
+ L:	linux-mips@vger.kernel.org
+ S:	Supported
+ F:	drivers/bus/mips_cdmm.c
+@@ -16408,6 +16532,12 @@ F:	include/linux/ntb.h
+ F:	include/linux/ntb_transport.h
+ F:	tools/testing/selftests/ntb/
+ 
++NTB IDT DRIVER
++M:	Serge Semin <fancer.lancer@gmail.com>
++L:	ntb@lists.linux.dev
++S:	Supported
++F:	drivers/ntb/hw/idt/
++
+ NTB INTEL DRIVER
+ M:	Dave Jiang <dave.jiang@intel.com>
+ L:	ntb@lists.linux.dev
+@@ -18428,6 +18558,13 @@ F:	drivers/pps/
+ F:	include/linux/pps*.h
+ F:	include/uapi/linux/pps.h
+ 
++PPTP DRIVER
++M:	Dmitry Kozlov <xeb@mail.ru>
++L:	netdev@vger.kernel.org
++S:	Maintained
++W:	http://sourceforge.net/projects/accel-pptp
++F:	drivers/net/ppp/pptp.c
++
+ PRESSURE STALL INFORMATION (PSI)
+ M:	Johannes Weiner <hannes@cmpxchg.org>
+ M:	Suren Baghdasaryan <surenb@google.com>
+@@ -19518,6 +19655,15 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/i2c/renesas,iic-emev2.yaml
+ F:	drivers/i2c/busses/i2c-emev2.c
+ 
++RENESAS ETHERNET AVB DRIVER
++R:	Sergey Shtylyov <s.shtylyov@omp.ru>
++L:	netdev@vger.kernel.org
++L:	linux-renesas-soc@vger.kernel.org
++F:	Documentation/devicetree/bindings/net/renesas,etheravb.yaml
++F:	drivers/net/ethernet/renesas/Kconfig
++F:	drivers/net/ethernet/renesas/Makefile
++F:	drivers/net/ethernet/renesas/ravb*
++
+ RENESAS ETHERNET SWITCH DRIVER
+ R:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+ L:	netdev@vger.kernel.org
+@@ -19567,6 +19713,14 @@ F:	Documentation/devicetree/bindings/i2c/renesas,rmobile-iic.yaml
+ F:	drivers/i2c/busses/i2c-rcar.c
+ F:	drivers/i2c/busses/i2c-sh_mobile.c
+ 
++RENESAS R-CAR SATA DRIVER
++R:	Sergey Shtylyov <s.shtylyov@omp.ru>
++L:	linux-ide@vger.kernel.org
++L:	linux-renesas-soc@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/ata/renesas,rcar-sata.yaml
++F:	drivers/ata/sata_rcar.c
++
+ RENESAS R-CAR THERMAL DRIVERS
+ M:	Niklas Söderlund <niklas.soderlund@ragnatech.se>
+ L:	linux-renesas-soc@vger.kernel.org
+@@ -19642,6 +19796,16 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/i2c/renesas,rzv2m.yaml
+ F:	drivers/i2c/busses/i2c-rzv2m.c
+ 
++RENESAS SUPERH ETHERNET DRIVER
++R:	Sergey Shtylyov <s.shtylyov@omp.ru>
++L:	netdev@vger.kernel.org
++L:	linux-renesas-soc@vger.kernel.org
++F:	Documentation/devicetree/bindings/net/renesas,ether.yaml
++F:	drivers/net/ethernet/renesas/Kconfig
++F:	drivers/net/ethernet/renesas/Makefile
++F:	drivers/net/ethernet/renesas/sh_eth*
++F:	include/linux/sh_eth.h
++
+ RENESAS USB PHY DRIVER
+ M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+ L:	linux-renesas-soc@vger.kernel.org
+@@ -22295,11 +22459,19 @@ F:	drivers/tty/serial/8250/8250_lpss.c
+ 
+ SYNOPSYS DESIGNWARE APB GPIO DRIVER
+ M:	Hoan Tran <hoan@os.amperecomputing.com>
++M:	Serge Semin <fancer.lancer@gmail.com>
+ L:	linux-gpio@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+ F:	drivers/gpio/gpio-dwapb.c
+ 
++SYNOPSYS DESIGNWARE APB SSI DRIVER
++M:	Serge Semin <fancer.lancer@gmail.com>
++L:	linux-spi@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
++F:	drivers/spi/spi-dw*
++
+ SYNOPSYS DESIGNWARE AXI DMAC DRIVER
+ M:	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+ S:	Maintained
+@@ -23609,6 +23781,12 @@ L:	linux-input@vger.kernel.org
+ S:	Maintained
+ F:	drivers/hid/hid-udraw-ps3.c
+ 
++UFS FILESYSTEM
++M:	Evgeniy Dushistov <dushistov@mail.ru>
++S:	Maintained
++F:	Documentation/admin-guide/ufs.rst
++F:	fs/ufs/
++
+ UHID USERSPACE HID IO DRIVER
+ M:	David Rheinsberg <david@readahead.eu>
+ L:	linux-input@vger.kernel.org
 -- 
-2.45.2
+2.47.0
 
 
