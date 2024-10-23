@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDB0CF5396
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0107ACF5396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YfCfY0e08fQets56CZIoi6Rt+juLarU3s4v7RWevgfI=; b=28PwQm1cL2OOD78WrMMIgtFMpv
-	Nz74iCNRaAlhifQUR5IjEFqAU/VpF7OrT7XP85Exfj9truDvsPvswJZuIcUlWxSH1Jwu8hatAiOPF
-	rh01gVzWao1Owq+QrvBI1BRLvNOk7o4oXHnlWeh1bTUfgIGxqy5hFhbDeohi2yWGBde65iVVG/cME
-	p5F2WeKuNjAypyLcYF4MUTYTKjs3hKoSmtakvPVNf8lv3SvuBsvNv5lLBq05X151juSN43CWbo5Gi
-	UXMEbPoxkP9pL6FqxKXdfIaqnwwbpDKGcBjzeKftOUFJeUxahuloyvpT/y8Z2atCPbH3Rd9oEbwKN
-	MdG7rViA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pAZtW9NjaJRCd02uPiUXqi3LhoLZg99JQlzHPisrjt4=; b=lX4icr5BM/5GwsAqCeOYY/8tBb
+	DS6KMqbASwG6nnjppIQtu8FxpX3/5S6oKnjnf3Au3hq7eqxSoyo3ise+N/lSCqF58vlKu06FG93G1
+	/B25ahr3zNXsWt3mobQhILtemLY7XdkIvaanxia4sjRCHRXr6G1+eVI5koG/t1AdPeN8bTizsHQS+
+	hP35p84d8Agr5TlT9AX4U+zvKYjbJ2+Yg5gzsw8HwIGRFcqzDPwTbnqFyxIOhqKOSuY/STKF7K+m1
+	jpqGwCVXU88mUSr4B0wrEyq1E9OSBKmOot1CUcFG64bDlRhLcsDd3X1Rcd9drARq+X7hrnXgyyL3C
+	cJx3vcBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cbl-0000000Emv0-1vaU;
-	Wed, 23 Oct 2024 14:45:09 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1t3cdG-0000000EnI6-1ptL;
+	Wed, 23 Oct 2024 14:46:42 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cZ2-0000000Em1B-0alr
+	id 1t3cZ6-0000000Em2R-0a5O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:42:21 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20ca1b6a80aso66898275ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:42:19 -0700 (PDT)
+	Wed, 23 Oct 2024 14:42:25 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20e576dbc42so51765795ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:42:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729694539; x=1730299339; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YfCfY0e08fQets56CZIoi6Rt+juLarU3s4v7RWevgfI=;
-        b=hB/VaRbFPw+1Ovbz1e1qf4CzWU4aqQHuP/MeEjqsyfg3KdC/SpmfbaNTer0ZaxIMa9
-         DzvEga2fIv7+hZ8pCXbt2p+KhwalzDmdZ6shmtjwS93ETGcue+P30i1FYlDVwcxWBJIB
-         vIeYdqbgSf1B8fkbwG+YB1FsQg1601MIiKfH7U+deU98aBTFo37uKRzuXICJp10N7hhB
-         2q5iR0/WMJbBcTpTC8ziNxC/8qa75DoUXY4utxlD9QEGRlJq9B57va5EPT1G9CgMoi4N
-         WZYd3gdqTy6RUzi9e0J9W1GMF7T/vsTZlCK9/SK9RHvkE+Q2rmeOkAPo7BYqvvsJpp5F
-         3ivQ==
+        d=gmail.com; s=20230601; t=1729694542; x=1730299342; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pAZtW9NjaJRCd02uPiUXqi3LhoLZg99JQlzHPisrjt4=;
+        b=HmUxHLwTZrJMbc1eT6EFqjGKz3g8IG79z8Ao30Y7vgXnMW74zuedOpyJgGAb43eedh
+         kFfT0fKOszzZSZGmPLbAFw6pjC1+qAf/ej72kHwKZyrtqNf8WriZzrtWOh9PsdmVbOXI
+         r52ez3ioNOufbAqXT4G4T94XxZM6QUof2vuMFfvs2p9ihYvUrbnCHWXK+7VcLsQ0+r69
+         zvDhQVBsaH4UxVhmHPBapECxWg9xohzSkmYfHpvC8wQYVWBRm/sAGmdKCdpmuolEVHIZ
+         CXui/hMWth7gpdoSxf07zTo/tFq5U2REC/ggPiSYtu4xMlkr3JTbgNdfS0qy9x5Jw2BC
+         ucbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729694539; x=1730299339;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YfCfY0e08fQets56CZIoi6Rt+juLarU3s4v7RWevgfI=;
-        b=hNFkLOQ+wCsGeK69LRT4alRIAINn9xTD3DpTMzmP/JVwdnB5RiU9k2rY2N0wh+qLfZ
-         bfenHlh94U6jMLsLHdZMDym/psR7I/MVKL3vFYCnmh4QulwJURC7GdJhXXzzX/SsAreJ
-         EX9yEliFqH4gXD158pVib9oUnJE7+3jeBD7SA7CgPNsUqio/++enWIFRXx0AfYtq/IOD
-         V7+SRUwk3MbdXN1YFcG7lyTF83zIQ3ZdZ5bNNDKNHJuUeGJH0BaiNZIoV21NMvHOzPrC
-         7sJ/SXR/v3o3Ch9y4PwYYrl9ExphPJh3dC0pr9AMmFf/VUVQIkVAavBCga1qzXYA8NlX
-         +Cvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjXQjJflvtXdRPtFdimkBD0fDFvPIE8dFwD1pov5OkQFSI3+TPPMete/wIgbTed9zVtFvK33gz5xFgqOe2xoEx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX3tudiubRnjgt7n21mECBBP1whXGOT4PKIIkVqYlpAduEW2bh
-	0DecJLCBXqYc0Xtdt6MlPR0TVig2yxy2kWA4SruOnKwMeEP5u4W6
-X-Google-Smtp-Source: AGHT+IFB17hqHfuiufxeK4p878goN3oqjHEpwzkM7x70GkUyk90bBzpvra7dZniR9vA6LGkZjhYwug==
-X-Received: by 2002:a17:902:d507:b0:20b:5ea2:e06 with SMTP id d9443c01a7336-20fab31f644mr43620755ad.56.1729694538576;
-        Wed, 23 Oct 2024 07:42:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729694542; x=1730299342;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pAZtW9NjaJRCd02uPiUXqi3LhoLZg99JQlzHPisrjt4=;
+        b=ab3G58Hl9htgM3b/sGdNbUpSsb08SQ+BqgojBXsAPwGW4bEKHOVE7ZHuhibTSLdOIr
+         yiECOZS/8EoyiveMUywOrFHFSTlnQE5vSkGtxlDMeunFlBy/taQAeFlOK1J8x+yDM2LS
+         sTJybwJWpRGZKfViwDhw3B8lGOZrqiVASUdyHZ6dUFve/wGDeqksiyuc7t6+jdRduZ/X
+         CbPFNnhxokRTAmEwBCNk+0i/+4SM9Tl3xMn4kh7lGAuZYwm7rc9w5EYP6kxkmigR0vTy
+         S6NYKynuFIJYlqg/aRnJvAYUgt9H8npDhBQIDJvy6d6mPHk2erxjIWHXh4PHZu+sS20l
+         9vXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXtToxlx8TjnOXB3px06rFf14QDsuJyVsch64ukFlgK9te3Aytej6rh6n1D5lE2o8ntROEk9zK479Zx6a/0NCxt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLErJI8UcmmJu2NvYHZBblDSGz3GP3ZbASBKX0LP6gtv7cq5Ii
+	degObikR/TWtUsaupq3mWgZ4+g8II8OI002ITLUZZb+2lEZBQ1Q9
+X-Google-Smtp-Source: AGHT+IHtFI+W2uEX9Bpbgk8Y/oO1hucjnLHdsZzQdADv9NyLsS84aIUvZDstLfDUxYK/QEtVQbGdYA==
+X-Received: by 2002:a17:903:1c2:b0:20c:7898:a8f5 with SMTP id d9443c01a7336-20fa9e5c43cmr29315235ad.28.1729694542344;
+        Wed, 23 Oct 2024 07:42:22 -0700 (PDT)
 Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:3468:366c:e529:6d8e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7f109c5asm58573725ad.305.2024.10.23.07.42.15
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7f109c5asm58573725ad.305.2024.10.23.07.42.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 07:42:17 -0700 (PDT)
+        Wed, 23 Oct 2024 07:42:21 -0700 (PDT)
 From: Fabio Estevam <festevam@gmail.com>
 To: hverkuil-cisco@xs4all.nl
 Cc: lars@metafoo.de,
@@ -75,15 +76,17 @@ Cc: lars@metafoo.de,
 	francesco.dolcini@toradex.com,
 	linux-arm-kernel@lists.infradead.org,
 	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH 1/3] media: dt-bindings: adv7180: Document 'adi,force-bt656-4'
-Date: Wed, 23 Oct 2024 11:42:04 -0300
-Message-Id: <20241023144206.1099622-1-festevam@gmail.com>
+Subject: [PATCH 2/3] media: adv7180: Also check for "adi,force-bt656-4"
+Date: Wed, 23 Oct 2024 11:42:05 -0300
+Message-Id: <20241023144206.1099622-2-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241023144206.1099622-1-festevam@gmail.com>
+References: <20241023144206.1099622-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_074220_212873_68840F54 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20241023_074224_203523_ACBD2585 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +103,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fabio Estevam <festevam@denx.de>
 
-The "adv,force-bt656-4" compatible string causes several dt-schema
-warnings because 'adv' is not a valid vendor prefix defined in
-vendor-prefixes.yaml:
+According to adv7180.yaml, the correct property name is
+"adi,force-bt656-4".
 
-adv7280@21: 'adv,force-bt656-4' does not match any of the regexes: '^#.*'...
-
-The correct vendor prefix for Analog Devices is 'adi', so change
-the property name to 'adi,force-bt656-4'.
-
-Keep the old property for old DTB compatibility and mark it as deprecated.
+Expand the check to also test against the "adi,force-bt656-4" compatible
+string.
 
 Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
- Documentation/devicetree/bindings/media/i2c/adv7180.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/media/i2c/adv7180.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/media/i2c/adv7180.yaml b/Documentation/devicetree/bindings/media/i2c/adv7180.yaml
-index c8d887eee3bb..4371a0ef2761 100644
---- a/Documentation/devicetree/bindings/media/i2c/adv7180.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/adv7180.yaml
-@@ -39,6 +39,12 @@ properties:
-     maxItems: 1
+diff --git a/drivers/media/i2c/adv7180.c b/drivers/media/i2c/adv7180.c
+index 819ff9f7c90f..ff7dfa0278a7 100644
+--- a/drivers/media/i2c/adv7180.c
++++ b/drivers/media/i2c/adv7180.c
+@@ -1440,7 +1440,8 @@ static int adv7180_probe(struct i2c_client *client)
+ 		return ret;
+ 	}
  
-   adv,force-bt656-4:
-+    deprecated: true
-+    description:
-+      Indicates that the output is a BT.656-4 compatible stream.
-+    type: boolean
-+
-+  adi,force-bt656-4:
-     description:
-       Indicates that the output is a BT.656-4 compatible stream.
-     type: boolean
+-	if (of_property_read_bool(np, "adv,force-bt656-4"))
++	if (of_property_read_bool(np, "adv,force-bt656-4") ||
++	    of_property_read_bool(np, "adi,force-bt656-4"))
+ 		state->force_bt656_4 = true;
+ 
+ 	if (state->chip_info->flags & ADV7180_FLAG_MIPI_CSI2) {
 -- 
 2.34.1
 
