@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC63D0BB43
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEECCD0BB44
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 22:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uFMp539+IUc6MD0TfmISW90zldpfjVhevqU/3KYfi4s=; b=G/d+Lx/zVaYmJ37wvNCSpN8WNx
-	AEShgd5UlBf2ld+dxI2dJbCh6/LGHm3Q4DVvIpKVvgohW5P/oBiU+6aXsQH2AdS/ICFrWrzuFI6Zc
-	DOgaFHd0WrOb1hrOtxGeExnREANP9oejLDJnHXZBfchzVpF4uvBSQa96XdD/cwuGxSVBAaBrqJCjk
-	IQRWFRGX1WfDP16gZ3lsjL8KSBFACYzlQGzArnyfxYzNc0B1LPsikk5wEEJIbL1WRjp1bt+NXZgpY
-	J9wr0DNwAPwSetDJ5DMR/AKCkJ7o0iagh7ApxjoIyg67If3fTO+MENtnYHo9wQNCovnYKWhnYeVYZ
-	KOKDvL5g==;
+	bh=x/i3CPWC7f91GujstCmOeUx2/r8dxaHLtoGQzcDqIGQ=; b=cDt/VBA6nFq4ETEUM3Kknor/WS
+	/bVJKEh3NB/Tb9aOP3TIZqV70mlBfWWZzNQfe9hSpGNGj9H04B5Itib8JJYEYq2t+bWTIVJWUmeqo
+	HplgwIgi+ZNh4nUXfTqAL88Z7op0BCrmKMARChGy2lTa98kZitEtJQBKBVkgWCvk9NuycRnxZp+5i
+	gncedC1wX2sPcpIjLYmmUB4u1kwyJQvho4Ki3Xe3Jk8s9rB2NwSeek6Xh8kog+/LmLTF76O/7AHDF
+	Hvh0qvMC7eh2DOMDHRRjwKyqyoyuqFKaVfYC9Vkiwb8AyicFbFnvScti8ZZowbEjepTgK1uxN+iQE
+	cB0Lf+Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jlT-0000000G5NM-0AvK;
-	Wed, 23 Oct 2024 22:23:39 +0000
+	id 1t3jmx-0000000G5be-3cZm;
+	Wed, 23 Oct 2024 22:25:11 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3jRS-0000000G2NR-1mf4
+	id 1t3jRS-0000000G2Mu-3Siw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 22:03:00 +0000
+	Wed, 23 Oct 2024 22:03:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1729720978; x=1761256978;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=/G4iL7GD2FU5sXjacp+RgfYPneZqqpBcs/+YCXekj9Y=;
-  b=t9VWY4tqNwwDyQlPZOmW5sXdXa6HFg4xyoe5o9kA0UHyuuH0H+Vaxqge
-   4j004HF2N5F884gJFA9uinCNLKqVZ3n8CfR474TtS1nrrsgcN56YjnIrk
-   BpIS4MNeaNXcL1GdO+z4Y5+Kfsd6q31sekwTkWak9rMTBLD167iORIpVG
-   DKG27F4z9G5/iuuufKJDvC5aB5TBGByLPJQS187mQQgFHHwDPc4nYyKsM
-   c1LeqipRh0s2qLUXmsK3oSaXlNCpIajaTuP0u/0GvsnwK6R0g3tGN+8py
-   J3nZTMBBX6Jooi0bC8u9gpfsPxCBApbknFt+uTN9DtQYOyF9BC+n/EFQJ
-   w==;
+  bh=0bLSVHi3wmgkjuXooygdVcmkriLaq4Scp7XshwDEe9M=;
+  b=klwaEB8ClUlQGcdE/qvR/n8VP0lh9XaBKglPbnYBqYSl4B3+VFFE8kkB
+   pG8gqtGuYUygKA9Lr78Bi3Fw79JFm4sIW0KAGN6L09JmZ/WmtjxY0t7Ga
+   qaZkKLvG+Z7zU7ZEP+WhnZvBbb4ahNaEfHomavFA6CgCA5d/JLX1uclbl
+   gWLRf7Ueu2a0UrXhlFGEqSV7aXXSihH1RagmrCxwpwpF/si+KWfEvet0B
+   lrj3Hsk+Sa0ZthdYfNGoQl7IGJf3dVqRryp4iVPV5jmF10NDMV7i0js2f
+   abg4SEd8x9n8f9rKzFEkp5j2+qhvWAB5DVjyckbhq3e1ddt6Xd6N3CZOC
+   A==;
 X-CSE-ConnectionGUID: oMPErp9qRFmiMc0P9W4Bgw==
-X-CSE-MsgGUID: nRk5MY7RTc+EYXbl9Nc51w==
+X-CSE-MsgGUID: YgZYLg6ZTMm8JQNyIr1uWA==
 X-IronPort-AV: E=Sophos;i="6.11,227,1725346800"; 
-   d="scan'208";a="264507059"
+   d="scan'208";a="264507061"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Oct 2024 15:02:57 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 23 Oct 2024 15:02:33 -0700
+ 15.1.2507.35; Wed, 23 Oct 2024 15:02:38 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:29 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 23 Oct 2024 15:02:34 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 24 Oct 2024 00:01:32 +0200
-Subject: [PATCH net-next v2 13/15] dt-bindings: net: add compatible strings
- for lan969x targets
+Date: Thu, 24 Oct 2024 00:01:33 +0200
+Subject: [PATCH net-next v2 14/15] net: sparx5: add compatible string for
+ lan969x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-13-a0b5fae88a0f@microchip.com>
+Message-ID: <20241024-sparx5-lan969x-switch-driver-2-v2-14-a0b5fae88a0f@microchip.com>
 References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 In-Reply-To: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
@@ -79,9 +79,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<steen.hegelund@microchip.com>, <devicetree@vger.kernel.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_150258_518724_FDB3CDE9 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_150258_988855_7C5F5A6E 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible strings for the twelve different lan969x targets that we
-support. Either a sparx5-switch or lan9691-switch compatible string
-provided on their own, or any lan969x-switch compatible string with a
-fallback to lan9691-switch.
-
-Also, add myself as a maintainer.
+Add lan9691-switch compatible string to mchp_sparx5_match. Guard it with
+IS_ENABLED(CONFIG_LAN969X_SWITCH) to make sure Sparx5 can be compiled on
+its own.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../bindings/net/microchip,sparx5-switch.yaml        | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-index fcafef8d5a33..dedfad526666 100644
---- a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-+++ b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-@@ -9,6 +9,7 @@ title: Microchip Sparx5 Ethernet switch controller
- maintainers:
-   - Steen Hegelund <steen.hegelund@microchip.com>
-   - Lars Povlsen <lars.povlsen@microchip.com>
-+  - Daniel Machon <daniel.machon@microchip.com>
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index 741404ccd8f5..fde9e06b3458 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -24,6 +24,8 @@
+ #include <linux/types.h>
+ #include <linux/reset.h>
  
- description: |
-   The SparX-5 Enterprise Ethernet switch family provides a rich set of
-@@ -34,7 +35,24 @@ properties:
-     pattern: "^switch@[0-9a-f]+$"
++#include "../lan969x/lan969x.h" /* for lan969x match data */
++
+ #include "sparx5_main_regs.h"
+ #include "sparx5_main.h"
+ #include "sparx5_port.h"
+@@ -1050,6 +1052,9 @@ static const struct sparx5_match_data sparx5_desc = {
  
-   compatible:
--    const: microchip,sparx5-switch
-+    oneOf:
-+      - enum:
-+          - microchip,lan9691-switch
-+          - microchip,sparx5-switch
-+      - items:
-+          - enum:
-+              - microchip,lan969c-switch
-+              - microchip,lan969b-switch
-+              - microchip,lan969a-switch
-+              - microchip,lan9699-switch
-+              - microchip,lan9698-switch
-+              - microchip,lan9697-switch
-+              - microchip,lan9696-switch
-+              - microchip,lan9695-switch
-+              - microchip,lan9694-switch
-+              - microchip,lan9693-switch
-+              - microchip,lan9692-switch
-+          - const: microchip,lan9691-switch
- 
-   reg:
-     items:
+ static const struct of_device_id mchp_sparx5_match[] = {
+ 	{ .compatible = "microchip,sparx5-switch", .data = &sparx5_desc },
++#if IS_ENABLED(CONFIG_LAN969X_SWITCH)
++	{ .compatible = "microchip,lan9691-switch", .data = &lan969x_desc },
++#endif
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, mchp_sparx5_match);
 
 -- 
 2.34.1
