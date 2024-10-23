@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15895D2E021
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EA7D2E022
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xucvEVD22+1c/Drr/tmNaS+bNLqZ2werLeIeT4aaq9E=; b=YIchoSSZpYrgz3U774AcLm9Dh7
-	lC7F93IuHQ8sF86jT+xFf/JO2O4AT5AhSJKiGtpWelbf16znvoXILDYPBJm0jj5kQGWu1CQoGKoAU
-	Z+jjugSKvnENJ+3vMa5asUKK8kHR9og5Ne9Tt5OUubqNO9rWEBlHZVrh/lwmkB9haKs8Ty7xa3gKC
-	Ar5x+QfPdIDVjBQzReejyBcqZuW4oKzCQcNE7sNti0HIF4MO0iqNeJ4tchz3swaruJIfBVFVKrw8J
-	S3Lx+e/czcPIq2Mi3OEHuJwvwXP0JwfQ1hw+/oVSTVhYrwfO3819XDLhYGfkpoB46M02E2tSe49NP
-	HB2AlMcw==;
+	bh=w+QeIILK7+sXfrLD9FRKT9V9VJhexKPV5C9ZSlyiv6A=; b=pzgDYde8e32mK1Gq1S5VS+MJz7
+	vo9Bv6TJkQhygAEUGb6wMgXZT20hYJFTL+lDGAfy7BUnYuzNyrFr3ggG6J0S3yyNJhow0pxTNkNJf
+	FzNvluGAsJ5Gr3gATwdxQ3n5yT4N7EA0U/tV4ao5lpm3bCaIzuBNPMK7QOnqK46e7T1Cv8gFp2WYC
+	PIDDKYPlrNXnwjrLwcMyn4L+C53iwnUCnKW3vXZ9C8sQJBLO7YXXdyZZboN+99rBNOwYEkgfZIVdt
+	beRsGOMZ2dhm5y/2T1aXd0FcCrjbDDvz1O9rp6GFjRn0SNLtmbNgh2HiaPqbrdQUJJEr85rlKKxs0
+	bcHw3kHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Wpq-0000000DaZQ-3MSO;
-	Wed, 23 Oct 2024 08:35:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3WrN-0000000Db2l-0jTL;
+	Wed, 23 Oct 2024 08:36:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WkR-0000000DZIq-29zG
+	id 1t3Wl6-0000000DZRb-1QQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:29:44 +0000
+	Wed, 23 Oct 2024 08:30:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F877A43891;
-	Wed, 23 Oct 2024 08:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BF55C4CEC6;
-	Wed, 23 Oct 2024 08:29:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 20541A44BB9;
+	Wed, 23 Oct 2024 08:30:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52ECCC4CEC7;
+	Wed, 23 Oct 2024 08:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729672182;
-	bh=qP2O+eiJB8iJQfwbz4B5eYxZINBTQj25Ci5NIhjnAO4=;
+	s=k20201202; t=1729672222;
+	bh=7mytYLN2WfdWcKkA/4BcRfwkzwaK4SyKL36rOzjrNlM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qf4xxSiFOIOZzKtqrTLMLMIV3mwwAexv3DBcbYD3oxncB+ex6psESW/4fQq1+WvlM
-	 iNbeUddsoqLJegxZd8lDElmi+NQ6ykFIinHYpYnEpGY1wZ9jT3TQO8Jzx62zU6yd7W
-	 Ec9TucGeCLsuOyzfpVbJwi9jbrbyI6NYawVsU8msP8+RixANZUWZjjEd6hqnkJ2RBH
-	 FqapQZB76CnfzBF/k8sCqWQG19qyZItvy7Ixf4ow2VZu3NzvLi1ahXnyMxHnZPL3M+
-	 7LtW3dTPimBsO1R6J1vTOGP5lP5repUELMHrhQfyG/dy8RkT5SgCkZ6ueWEB4MTISz
-	 WiCVheoVCWvVw==
-Date: Wed, 23 Oct 2024 10:29:38 +0200
+	b=DyR0e0jR2hqQpRjANY8apMmNsmPZ/ycB6uRKon6dGd3XMV5OReKFu7crmnCHm+BLK
+	 bW9rmncgNZYclgpNFlbE1RAeyt8CP1hPLaALY5brtc+DeR+fzrMTchCoqhG4A+Kfn/
+	 XieFgZIdnFH/YBjb0yWVdASNHoUez24NcoWZZYKNYQ0zDMJVA0cEE96X2qat0FVYKx
+	 aKvwA0wPec7bB6y/ja0rxgq6zarVY/0r4FLUiafIakL/qxzTqyCRO+sd+1HFuStl/Z
+	 ua3fkej6bIAwFhmzh7JVD+eEz/ij5Y9ES8zmLDQNFD7qrGgXVpIVGtHP1Coqjdi0ni
+	 rkYIbnMoxxgGQ==
+Date: Wed, 23 Oct 2024 10:30:19 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Melody Olvera <quic_molvera@quicinc.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -55,19 +55,20 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	=?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Trilok Soni <quic_tsoni@quicinc.com>, Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, 
 	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/5] dt-bindings: arm: qcom: Document sm8750 SoC and
- boards
-Message-ID: <q4tdx4tf5vlzky45bmrllxuwivtah43grl4sgcw4op5udoy3ve@baqlgxq7eyn7>
+	linux-arm-kernel@lists.infradead.org, Jishnu Prakash <quic_jprakash@quicinc.com>
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: qcom,spmi-pmic: Document PMICs
+ added in SM8750
+Message-ID: <jcrtuqrj7loexcburucrneptvmzyqm6sbu6o27lwtftt3kc43c@ggd4sgfzmtvl>
 References: <20241021232114.2636083-1-quic_molvera@quicinc.com>
- <20241021232114.2636083-2-quic_molvera@quicinc.com>
+ <20241021232114.2636083-3-quic_molvera@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241021232114.2636083-2-quic_molvera@quicinc.com>
+In-Reply-To: <20241021232114.2636083-3-quic_molvera@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_012943_638366_83F73336 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20241023_013024_459353_5EAAB03E 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +83,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 04:21:10PM -0700, Melody Olvera wrote:
-> Document the SM8750 SoC binding and the boards which use it.
+On Mon, Oct 21, 2024 at 04:21:11PM -0700, Melody Olvera wrote:
+> From: Jishnu Prakash <quic_jprakash@quicinc.com>
 > 
+> Document compatibles for the added pmd8028 and pmih0108 SPMI PMICs.
+> 
+> Signed-off-by: Jishnu Prakash <quic_jprakash@quicinc.com>
 > Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
 > ---
->  Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  Documentation/devicetree/bindings/mfd/qcom,spmi-pmic.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
