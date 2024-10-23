@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64340CFA460
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3624CFA462
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZSl/F4a59d6cGzaQ8UBGb7tAkWNLG3z9Ozwy3jDhoY=; b=O9T2dOZJRWoMi0w+6yrhQH86mD
-	QladyT3iTewRWQDGxy+cCF9m/lLsXzCJ5x4WLXCJW3XMGGhdFW+gX1fSIrUushSLCqfH/NNPucLwR
-	8AiScHYt/daDUZL8gTxnW4H72wgqeTkA186zuZoai0aI6GkN2xG3LyZL/qp/YJhs8+0D9Mu4DE3gW
-	uWPWo/3fDMy9J1WRNhkzsXqZBoObdixRSYa8rkRR2amN949x16RbvvhQ35/uixHMRyE8Sk8Mw0aqD
-	eY2QnZV0QvezMrRjv0s576Aik876xg1txCB5JhCd4huwX+E2GMYIeWk589hfa2OTuo64BxvLU7852
-	zY8kK0PQ==;
+	bh=eMBkh/eftMTOn1DNe16yd6Y0TGrb136mnMNPmU1BY5A=; b=kspPMkSi/7YXsin3plzFNF0qXk
+	CGmmjqGqNWKhSlo9cfWSOHs2xx+12zXpggFE4r1W87ePL5FxsP0YBD213OGVT/ayDyTYVsHh25j4u
+	9ChwkzHYr0QGO/Yo6EpfdYiblG0R0+ghk0wgITwFD95iDjHnpitVJ30uaKKUFWqemXAIT8gRltzT8
+	0Mw+Z2Hu9l+JCPVqmGunNRMbahpxkiTNZIEWADYuZmeBCYfKZ6lDrTzckEbpUqOS9lOncXVYAoVxV
+	+5mhWYTCajyxojsRQWQXjtJuzlS5vMT6q9X/YwwehP4Hsz3Pq/1SR/pGbovUF/ikTCyvQERHwneDC
+	hdykNxXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3grt-0000000FdEb-28Vb;
-	Wed, 23 Oct 2024 19:18:05 +0000
-Received: from mail-wm1-f47.google.com ([209.85.128.47])
+	id 1t3grv-0000000FdFs-45De;
+	Wed, 23 Oct 2024 19:18:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eYx-0000000FDMa-43S4
+	id 1t3eZ9-0000000FDTj-082P
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 16:50:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=eMBkh/eftMTOn1DNe16yd6Y0TGrb136mnMNPmU1BY5A=; b=V3nyf+S1uwHnV0MjNygZ1XG2Zk
+	Sj2rML4ZVlVJuPju6ZR45GD2af1097WdR6pV93bGrk9U1/tShATAue9boYLepjQ+1YrP1IDpeF8wO
+	INHuRbhrRyFvanWtgxRHBw9IvIUltUuG91vJsdRRCICuXHvZQbYXxI8wk2i5BKwc02OY78vuyd/lc
+	4JqiwHr9vRHbVLc6rV+rifN2yRmcJnx3lKTmihvBufsXLpDAml8L2BoU3cc5bwJuC+HtN0Zft/R6B
+	JCs291L4fBFOXqBqU5mpDzPs1ug/Hh1iQP9zATWjCFbX4KTU4SodCasCRL+ZC86z0fFXVvM5Ihu3S
+	5I2OwSNA==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3eZ5-00000008TIe-2ru0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:26 +0000
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso71507115e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:23 -0700 (PDT)
+	Wed, 23 Oct 2024 16:50:33 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4315baec69eso66522385e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702222; x=1730307022; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729702230; x=1730307030; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xZSl/F4a59d6cGzaQ8UBGb7tAkWNLG3z9Ozwy3jDhoY=;
-        b=byE0tJZd7iNqKyBjciVYoe5hVHoJhWDpWKS0hgkv4qVMfVWIPRrjjmoM2WzX5C/VuV
-         QCljHRwGTa/y6UnYo9q+D9ByEJiz25/ChcFwTtI44iIkc0cBl41FUnMF6cml/ug/KKas
-         6fOAyF3fqJlhxH9NDz8hJx4ZLkWV5SmOZxvcebHZ986PexZVMGfP3+bbjub8OUdctnwZ
-         0VB82RpGQU67Rw7fOiYgsuZ+M6mnSYzTsc68YP6U3mlyRsTihPzl+oTRexFyUUl6Y02M
-         QWNgTOQ+NHSvwuZxT+g7LuIcl4yOl7eGVAgIDVWIXY8EKtdZkO52IETp4IeMH/FrMdoD
-         rf6w==
+        bh=eMBkh/eftMTOn1DNe16yd6Y0TGrb136mnMNPmU1BY5A=;
+        b=hTptr3ZsE24PkW/B6oblsobcSsc2YxtNN2QLH7OF2X2KsopAml95RuQ1YvpS7p3voJ
+         sWf5iIi4ExEnsk8uFqRv9ESj2VZSjrmdb2p+SGp6Y2nieMmLX4quaMjD5/iEOkLfbYSx
+         B96tz5ohxJ6Vm9xho33vvHt3tjew5xtxvp9O6fetWjIbQRCmFDRwesFlvq+w+rz80h0J
+         lm+wsqvHrM7aLM/2VtP+dIPZCj8VcsalOhayrFiAOcXVJx6b0JB1xuFSytQmKtcqBUcA
+         aIwZPce03Cj8Rli4gOxNXtcZYm5KnLbhELnCJzljQJ75bx4/n1YK1dfQI5j/w9b9SGJt
+         Db2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702222; x=1730307022;
+        d=1e100.net; s=20230601; t=1729702230; x=1730307030;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xZSl/F4a59d6cGzaQ8UBGb7tAkWNLG3z9Ozwy3jDhoY=;
-        b=lwK88aqv5d2cX8mYQoM94KLW6l+/kGEA6wCDov2yvESxicVfofb1aWTrlxrsN/j27x
-         TkNUyl7Zr9cfhPu7kWhL6vN5r2odhFB9fqE8a6wkXF4982JkGLVb5DIWaA9+4rBEt3Xn
-         Q8G4AlOAmhDJ6RT2zp32JC4PQyH56UkWq2ztiL7NgQUrxx9CsFUJloyUYcQOkGCZMzfc
-         d2TXRQ9FhTD000qCghTbmpQfGPxm99II8DE1Xi3t+DcflMn8QR3OyOXQwcxTdHL/2DUu
-         +F3/IPqp/uixwJiZt81Li+PcKsZYbaHpmFQln/WMn+SF+YpFBxlWp2SQJdTKiMl0gfII
-         l23w==
-X-Forwarded-Encrypted: i=1; AJvYcCVGp4HCrGbtSPvgSF9eGXMnq1ei8Y20OC0ufuZpanKf2Q5EceqBhpfUQevhsbaewkZ6wSzSf7NDDdAIVUBjotWC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCs06NFwJVpMlyIIA7j7nllZKwQLNgk/VRDcc5pslF9kkuyFj6
-	vq+hNXVgNcDxr81sxvy7YJjwgctPREBEtunquGAWadUaPKW4SLw/F6A59HEb/7E=
-X-Google-Smtp-Source: AGHT+IGVp4GJMwBRKlS9Q12L5xPs/An67Q2sllEQsQWhIVdFiJ7lcu6JT07uXS8WxSxC/y5+CBUMhw==
-X-Received: by 2002:a05:600c:1c29:b0:431:5df7:b310 with SMTP id 5b1f17b1804b1-43184142c50mr24298445e9.8.1729702221727;
-        Wed, 23 Oct 2024 09:50:21 -0700 (PDT)
+        bh=eMBkh/eftMTOn1DNe16yd6Y0TGrb136mnMNPmU1BY5A=;
+        b=DiKR82PI+IkGkAyTIfewrI6obZNkSVYh+GS95pOA9Kv2rtpMxhRN66RwHdRP2D/hl4
+         /5F049LnrIE4vDYl/RgL9KWqW1iMecyDmMSKsmDHb1FbJBKlVicek0j2GsCfLMThPeY3
+         z52AWRiJkOGLbrjOzoiCrTbT08iVLBt1/4IYOhIM0TV5v3jKZrVy9SxcR1QWZVmGV5wm
+         AzULT9K50EJPeDABO17+Iikryk6XevMmLpZQxBsbkxNKKeei6vpkxqNjHNy7fgwRIjsu
+         rXknCS5xKaIc7sD3kqibTPeiJO5qsI0fKXcz+/9srazyPxW6IA021/kekVtOkWa5QthI
+         j+Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCURk9pGJt+zNvjOmZpNkNCJbuLAsIXrpPzHhq38MULSgANHPQufOq0xvj2WQgC/cSOTfQKcdLKxb45ODz7Amh5U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5QX3Kwo/JJBnhU1gOb7LSRJr8tUpeHoN8Ao11Hty8lnIOhWD9
+	O0RU+w7EHAtvwdSiOC8dgO1TeM232jyQ1+txs9PElQ/YYkahn5D/nCXKx4br99E=
+X-Google-Smtp-Source: AGHT+IFCvi+5ahxplV53y8LUMCNwv9cz+F40idXE3AmypoYPX6CS2lFPTrKeznboS3XkfQRNLTCaGg==
+X-Received: by 2002:a05:600c:46c4:b0:42a:a6d2:3270 with SMTP id 5b1f17b1804b1-43184224094mr28879375e9.21.1729702230506;
+        Wed, 23 Oct 2024 09:50:30 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.21
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:21 -0700 (PDT)
+        Wed, 23 Oct 2024 09:50:29 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:11 +0100
-Subject: [PATCH 14/37] drm/vc4: txp: Introduce structure to deal with
- revision differences
+Date: Wed, 23 Oct 2024 17:50:19 +0100
+Subject: [PATCH 22/37] drm/vc4: txp: Add BCM2712 MOPLET support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-14-1cc2d5594907@raspberrypi.com>
+Message-Id: <20241023-drm-vc4-2712-support-v1-22-1cc2d5594907@raspberrypi.com>
 References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -94,8 +108,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095024_204541_E397BA25 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20241023_175031_907000_4C600BE2 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,124 +126,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-The BCM2712 will have several TXP with small differences. Let's add a
-structure tied to the compatible to deal with those differences.
+The BCM2712 features a simpler TXP called MOPLET. Let's add support for
+it.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/tests/vc4_mock.c |  4 ++--
- drivers/gpu/drm/vc4/vc4_drv.h        |  6 +++++-
- drivers/gpu/drm/vc4/vc4_txp.c        | 23 ++++++++++++++++-------
- 3 files changed, 23 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/vc4/vc4_txp.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/tests/vc4_mock.c b/drivers/gpu/drm/vc4/tests/vc4_mock.c
-index 6527fb1db71e..c7b91c87f1bc 100644
---- a/drivers/gpu/drm/vc4/tests/vc4_mock.c
-+++ b/drivers/gpu/drm/vc4/tests/vc4_mock.c
-@@ -51,7 +51,7 @@ struct vc4_mock_desc {
- 
- static const struct vc4_mock_desc vc4_mock =
- 	VC4_MOCK_DESC(
--		VC4_MOCK_CRTC_DESC(&vc4_txp_crtc_data,
-+		VC4_MOCK_CRTC_DESC(&vc4_txp_data.base,
- 				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP,
- 							DRM_MODE_ENCODER_VIRTUAL,
- 							DRM_MODE_CONNECTOR_WRITEBACK)),
-@@ -77,7 +77,7 @@ static const struct vc4_mock_desc vc4_mock =
- 
- static const struct vc4_mock_desc vc5_mock =
- 	VC4_MOCK_DESC(
--		VC4_MOCK_CRTC_DESC(&vc4_txp_crtc_data,
-+		VC4_MOCK_CRTC_DESC(&vc4_txp_data.base,
- 				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP,
- 							DRM_MODE_ENCODER_VIRTUAL,
- 							DRM_MODE_CONNECTOR_WRITEBACK)),
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
-index a68cea921c11..1ed1fb5aa7e8 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.h
-+++ b/drivers/gpu/drm/vc4/vc4_drv.h
-@@ -536,7 +536,11 @@ struct vc4_crtc_data {
- 	int hvs_output;
- };
- 
--extern const struct vc4_crtc_data vc4_txp_crtc_data;
-+struct vc4_txp_data {
-+	struct vc4_crtc_data	base;
-+};
-+
-+extern const struct vc4_txp_data vc4_txp_data;
- 
- struct vc4_pv_data {
- 	struct vc4_crtc_data	base;
 diff --git a/drivers/gpu/drm/vc4/vc4_txp.c b/drivers/gpu/drm/vc4/vc4_txp.c
-index ffe1f7d1b911..dcb1b3fd37de 100644
+index befb99c9b5bb..aab6fa7a8838 100644
 --- a/drivers/gpu/drm/vc4/vc4_txp.c
 +++ b/drivers/gpu/drm/vc4/vc4_txp.c
-@@ -159,6 +159,7 @@
- 
- struct vc4_txp {
- 	struct vc4_crtc	base;
-+	const struct vc4_txp_data *data;
- 
- 	struct platform_device *pdev;
- 
-@@ -484,17 +485,20 @@ static irqreturn_t vc4_txp_interrupt(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
--const struct vc4_crtc_data vc4_txp_crtc_data = {
--	.name = "txp",
--	.debugfs_name = "txp_regs",
--	.hvs_available_channels = BIT(2),
--	.hvs_output = 2,
-+const struct vc4_txp_data vc4_txp_data = {
-+	.base = {
-+		.name = "txp",
-+		.debugfs_name = "txp_regs",
-+		.hvs_available_channels = BIT(2),
-+		.hvs_output = 2,
-+	},
+@@ -524,6 +524,19 @@ const struct vc4_txp_data bcm2712_mop_data = {
+ 	.supports_40bit_addresses = true,
  };
  
- static int vc4_txp_bind(struct device *dev, struct device *master, void *data)
- {
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct drm_device *drm = dev_get_drvdata(master);
-+	const struct vc4_txp_data *txp_data;
- 	struct vc4_encoder *vc4_encoder;
- 	struct drm_encoder *encoder;
- 	struct vc4_crtc *vc4_crtc;
-@@ -509,6 +513,11 @@ static int vc4_txp_bind(struct device *dev, struct device *master, void *data)
- 	if (!txp)
- 		return -ENOMEM;
- 
-+	txp_data = of_device_get_match_data(dev);
-+	if (!txp_data)
-+		return -ENODEV;
++const struct vc4_txp_data bcm2712_moplet_data = {
++	.base = {
++		.name = "moplet",
++		.debugfs_name = "moplet_regs",
++		.hvs_available_channels = BIT(1),
++		.hvs_output = 4,
++	},
++	.encoder_type = VC4_ENCODER_TYPE_TXP1,
++	.high_addr_ptr_reg = TXP_DST_PTR_HIGH_MOPLET,
++	.size_minus_one = true,
++	.supports_40bit_addresses = true,
++};
 +
-+	txp->data = txp_data;
- 	txp->pdev = pdev;
- 	txp->regs = vc4_ioremap_regs(pdev, 0);
- 	if (IS_ERR(txp->regs))
-@@ -519,7 +528,7 @@ static int vc4_txp_bind(struct device *dev, struct device *master, void *data)
- 	vc4_crtc->regset.regs = txp_regs;
- 	vc4_crtc->regset.nregs = ARRAY_SIZE(txp_regs);
- 
--	ret = vc4_crtc_init(drm, pdev, vc4_crtc, &vc4_txp_crtc_data,
-+	ret = vc4_crtc_init(drm, pdev, vc4_crtc, &txp_data->base,
- 			    &vc4_txp_crtc_funcs, &vc4_txp_crtc_helper_funcs, true);
- 	if (ret)
- 		return ret;
-@@ -579,7 +588,7 @@ static void vc4_txp_remove(struct platform_device *pdev)
- }
+ const struct vc4_txp_data bcm2835_txp_data = {
+ 	.base = {
+ 		.name = "txp",
+@@ -630,6 +643,7 @@ static void vc4_txp_remove(struct platform_device *pdev)
  
  static const struct of_device_id vc4_txp_dt_match[] = {
--	{ .compatible = "brcm,bcm2835-txp" },
-+	{ .compatible = "brcm,bcm2835-txp", .data = &vc4_txp_data },
+ 	{ .compatible = "brcm,bcm2712-mop", .data = &bcm2712_mop_data },
++	{ .compatible = "brcm,bcm2712-moplet", .data = &bcm2712_moplet_data },
+ 	{ .compatible = "brcm,bcm2835-txp", .data = &bcm2835_txp_data },
  	{ /* sentinel */ },
  };
- 
 
 -- 
 2.34.1
