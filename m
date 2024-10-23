@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BC3D2E033
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7F4D2E031
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujJ4oLac9g0afJ+xDbcOvTG1+w2apfAzFkZUFjxOHx8=; b=uPJsjDevaNNt5LO/z9ws3p0WUo
-	LDYLp238NtYCA/1ksJtjbyfNxLPUcdPv+2dp/CIMhqYAvAHdOodi8nN9iKLUGiFiEjVYKlHzYaLRh
-	95/blkY/kO4hDtTwLHAvvUgcLDOz3b/1SGZkpCdHRJZXf0svoSfRTmQ+/zG1+Ie5t833xLJ2dG2LA
-	q7tasu2D//CEHjOPlhWIca733Ioi6LQFBXmPTLiB9sIa3ao4mENcvKoVIptoRAD3XwadN9HBozlQm
-	23OUxGHQRBMVQMPypw/1iLCGnb7qc+GbGGEQETbOc8oO+Lwi9ZLWaYrFXkgDyaD+iXDKqhhvH9kn+
-	QEqyv9gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LKQibn8A/Kbr7PK5vWjRMEeinVr3jKgKgEFBSe99U/8=; b=nRqnjSMeau/T2jkYCk78Xmpt2i
+	VjdIXTdp2TlXXO22Knh2458nk81P0TkFrQeFjbXsqaKMyNzJ289bxhNK4hgljfY2M81ND9p5xuJt3
+	hBrhEnttWN6gk6nvPX33aUGVieXvwEz6nto+4/KHvl95dO2zVODMQ003efpKJACOVG6yzrhcFXA/e
+	VD7xEXbqt2+HICg+O24YhRBHD1MJXP9MmV66zG/0Zn4d0LUidaFBAoRImO37JFoc/YCmLBUO68K+n
+	T0pf++UAhiSL/i2zAvkFOxcqAY05hN1cNEYdb2MGxbQzsZz1b7e9T7G9p8PrEEMslU3kSPCy5O/9D
+	exfDXtNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Xla-0000000Dowj-4484;
-	Wed, 23 Oct 2024 09:34:58 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1t3Xn5-0000000DpEL-2sTb;
+	Wed, 23 Oct 2024 09:36:31 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XMg-0000000Diou-2TBT
+	id 1t3XPp-0000000DjYW-0kbm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 09:09:15 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fc968b3545so16168191fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 02:09:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729674553; x=1730279353; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ujJ4oLac9g0afJ+xDbcOvTG1+w2apfAzFkZUFjxOHx8=;
-        b=R7lqSp86q7vFapTqb4Jyv4Smd9eu/1QlZgtgRDwVW4tfEKZttJal7PK2VfzH6N8ogm
-         QY/ZcqUVbbz1n0gqEP1jjW1NTiyYRn9Al3rO6HkZ0o1LPzLXWAJ57LA4f18pC8b7t2fQ
-         E3B+1n61ZSW/GSZAQa0TezT6N8Zv0UDd6qNqxk8TrASBGKHOTMQEv1r9Qct1twq6TtVq
-         qyJgqbalSdF2iveDB9+zwfXKO1CVmL0tOkB04Vr8UMta8ksF8WHdJQj6ZQX7aRjNeLoT
-         0sp/iEVirFVTV+UcCXlpLtxVYyuhZmKn74AWq+MCowNXxEsVbVpXoGpQhaIvwear2BQn
-         5f4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729674553; x=1730279353;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ujJ4oLac9g0afJ+xDbcOvTG1+w2apfAzFkZUFjxOHx8=;
-        b=CrmotAXQAiN/4SrHCfR207dYyk7fwIEtlROybDuAiF6SSX/srA25W7LD2iXc6Q3JHK
-         bVaL2qcACJ/6lSIdKGy25T0VUF0LsO7c1CBmE+BreZ+1TffG5yqWEejAMKeywCk0jDiv
-         i/MK8FRbOrwKfuRg8H81SG1FvpjZRDbvQfkIvqVuRF1dN7iNmgQCbahnB6YxM9/k8yLb
-         L/m/QncrGKQx1CtcZFdWz4mo+zITFh9M4m1kkAxke50/y7+QnDsRF7mEX76rS2S9RkQj
-         VGxf55L6qQT5U8E9uAYmcr0ruYYXuJc0QjnJIRltSjCFPKG1TWdhPrHLx5d8rhy4Fcp8
-         /gdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVaauMgGNxcISEd9PENgGGo1D/XCvRGLrC39QFlN3tQCjcfvRtGjpxmKAbSVS8z1Mc3s4ysyW7XeUXizM/7rRMD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrNxalj3+4If7Z54tqj4uHRcy5qO56R4Ivco7BstdH3enDxzr3
-	1ljYvEHvvytS3dUR7y2YuNd7TfLpIR9wQPCkODC2d6oczhX3ADVz
-X-Google-Smtp-Source: AGHT+IGo5t/YGqOG95+HxnpFXmcZcZV08248fLElKYVYfbislpYCQJusFoz71CRdRKvzJm3CtGqcAw==
-X-Received: by 2002:a2e:4619:0:b0:2fb:5b23:edba with SMTP id 38308e7fff4ca-2fc9d32fd88mr7586791fa.23.1729674552286;
-        Wed, 23 Oct 2024 02:09:12 -0700 (PDT)
-Received: from ivaylo-T580.. ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66a6a8efsm4133058a12.52.2024.10.23.02.09.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 02:09:11 -0700 (PDT)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] tty: serial: samsung: Add Exynos8895 compatible
-Date: Wed, 23 Oct 2024 12:09:02 +0300
-Message-ID: <20241023090902.538040-3-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241023090902.538040-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20241023090902.538040-1-ivo.ivanov.ivanov1@gmail.com>
+	Wed, 23 Oct 2024 09:12:30 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CL0M097005;
+	Wed, 23 Oct 2024 04:12:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1729674741;
+	bh=LKQibn8A/Kbr7PK5vWjRMEeinVr3jKgKgEFBSe99U/8=;
+	h=From:To:CC:Subject:Date;
+	b=P/rkZNKtba6Kr6JVbLHB8vubv9MD8ilKaV5PGgeeDo+/hE5qbrXvHFaDobg2d1LaT
+	 ege7xG3O3ILieCIoW90lpvuKTbgBCMlkHfoe16lEN44SCaTFDUJxPJsETe9NDj3+ys
+	 8ENAJjapQ0nil3bvYecPv/zA84q/wrPCuDEBZs2I=
+Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CLD8114316;
+	Wed, 23 Oct 2024 04:12:21 -0500
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
+ Oct 2024 04:12:20 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 23 Oct 2024 04:12:20 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CKJq045456;
+	Wed, 23 Oct 2024 04:12:20 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 49N9CJ0d004526;
+	Wed, 23 Oct 2024 04:12:20 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <vigneshr@ti.com>, <horms@kernel.org>, <m-malladi@ti.com>,
+        <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net] net: ti: iccsg-prueth: Fix 1 PPS sync
+Date: Wed, 23 Oct 2024 14:42:13 +0530
+Message-ID: <20241023091213.593351-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_020914_652845_145651C8 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20241023_021229_341856_E0D632F2 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,68 +88,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add serial driver data for Exynos8895 SoC. The main difference from
-other platforms is that fifosize is only specified via the
-samsung,uart-fifosize DT property.
+The first PPS latch time needs to be calculated by the driver
+(in rounded off seconds) and configured as the start time
+offset for the cycle. After synchronizing two PTP clocks
+running as master/slave, missing this would cause master
+and slave to start immediately with some milliseconds
+drift which causes the PPS signal to never synchronize with
+the PTP master.
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
 ---
- drivers/tty/serial/samsung_tty.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 ++++++++++--
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h | 11 +++++++++++
+ 2 files changed, 21 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-index 0d184ee2f..ce3c3ec34 100644
---- a/drivers/tty/serial/samsung_tty.c
-+++ b/drivers/tty/serial/samsung_tty.c
-@@ -2498,6 +2498,12 @@ static const struct s3c24xx_serial_drv_data exynos850_serial_drv_data = {
- 	.fifosize = { 256, 64, 64, 64 },
- };
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 0556910938fa..6b2cd7c898d0 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -411,6 +411,8 @@ static int prueth_perout_enable(void *clockops_data,
+ 	struct prueth_emac *emac = clockops_data;
+ 	u32 reduction_factor = 0, offset = 0;
+ 	struct timespec64 ts;
++	u64 current_cycle;
++	u64 start_offset;
+ 	u64 ns_period;
  
-+static const struct s3c24xx_serial_drv_data exynos8895_serial_drv_data = {
-+	EXYNOS_COMMON_SERIAL_DRV_DATA,
-+	/* samsung,uart-fifosize must be specified in the device tree. */
-+	.fifosize = { 0 },
-+};
+ 	if (!on)
+@@ -449,8 +451,14 @@ static int prueth_perout_enable(void *clockops_data,
+ 	writel(reduction_factor, emac->prueth->shram.va +
+ 		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
+ 
+-	writel(0, emac->prueth->shram.va +
+-		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
++	current_cycle = icssg_readq(emac->prueth->shram.va +
++				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
 +
- static const struct s3c24xx_serial_drv_data gs101_serial_drv_data = {
- 	.info = {
- 		.name		= "Google GS101 UART",
-@@ -2528,12 +2534,14 @@ static const struct s3c24xx_serial_drv_data gs101_serial_drv_data = {
- #define EXYNOS4210_SERIAL_DRV_DATA (&exynos4210_serial_drv_data)
- #define EXYNOS5433_SERIAL_DRV_DATA (&exynos5433_serial_drv_data)
- #define EXYNOS850_SERIAL_DRV_DATA (&exynos850_serial_drv_data)
-+#define EXYNOS8895_SERIAL_DRV_DATA (&exynos8895_serial_drv_data)
- #define GS101_SERIAL_DRV_DATA (&gs101_serial_drv_data)
++	/* Rounding of current_cycle count to next second */
++	start_offset = ((current_cycle / MSEC_PER_SEC) + 1) * MSEC_PER_SEC;
++
++	icssg_writeq(start_offset, emac->prueth->shram.va +
++		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
  
- #else
- #define EXYNOS4210_SERIAL_DRV_DATA NULL
- #define EXYNOS5433_SERIAL_DRV_DATA NULL
- #define EXYNOS850_SERIAL_DRV_DATA NULL
-+#define EXYNOS8895_SERIAL_DRV_DATA NULL
- #define GS101_SERIAL_DRV_DATA NULL
- #endif
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 8722bb4a268a..a4af2dbcca31 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -330,6 +330,17 @@ static inline int prueth_emac_slice(struct prueth_emac *emac)
+ extern const struct ethtool_ops icssg_ethtool_ops;
+ extern const struct dev_pm_ops prueth_dev_pm_ops;
  
-@@ -2623,6 +2631,9 @@ static const struct platform_device_id s3c24xx_serial_driver_ids[] = {
- 	}, {
- 		.name		= "gs101-uart",
- 		.driver_data	= (kernel_ulong_t)GS101_SERIAL_DRV_DATA,
-+	}, {
-+		.name		= "exynos8895-uart",
-+		.driver_data	= (kernel_ulong_t)EXYNOS8895_SERIAL_DRV_DATA,
- 	},
- 	{ },
- };
-@@ -2646,6 +2657,8 @@ static const struct of_device_id s3c24xx_uart_dt_match[] = {
- 		.data = ARTPEC8_SERIAL_DRV_DATA },
- 	{ .compatible = "google,gs101-uart",
- 		.data = GS101_SERIAL_DRV_DATA },
-+	{ .compatible = "samsung,exynos8895-uart",
-+		.data = EXYNOS8895_SERIAL_DRV_DATA },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, s3c24xx_uart_dt_match);
++static inline u64 icssg_readq(const void __iomem *addr)
++{
++	return readl(addr) + ((u64)readl(addr + 4) << 32);
++}
++
++static inline void icssg_writeq(u64 val, void __iomem *addr)
++{
++	writel(lower_32_bits(val), addr);
++	writel(upper_32_bits(val), addr + 4);
++}
++
+ /* Classifier helpers */
+ void icssg_class_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac);
+ void icssg_class_set_host_mac_addr(struct regmap *miig_rt, const u8 *mac);
+
+base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
 -- 
-2.43.0
+2.25.1
 
 
