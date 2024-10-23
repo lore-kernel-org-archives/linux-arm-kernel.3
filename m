@@ -4,113 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D522CD2E01E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB1DD2E021
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=nDzRRq0kvVjIG2uv49tZ1uPcXs
-	e5sc1NHYASi6mipQt002ZPMOGGoYGCrZgZS7/c4eh1fv3/TccOEsZHQkI8KM1TXQFC1HN2bG0fYGB
-	G81Q+hCiJadWszCHW1lbp70AL/gFOVLgyfCceif7nG9n1cTK3e1fzeBOFNSmBK8LzLeP28jg7r2Ih
-	st+enodySqauUjodeeJNPVS7Ewm8uVvsNnmpOYxHftcgZqsekvbqFn+fQwRdbHQWAxHnjlqNpi3PS
-	69ti7qDzglN4AQImtBO8z1izRVCxLxAakkCGXwMgu0uCk2yv9pyJpaOHlm+aK5wtql5ol4FzO2Cz2
-	eZ9Equhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=teYggURLbUjXgFRHPCAKbw5hoATyYK9evePO5wWpqTA=; b=US0kaBY/rn+kl3cQJKbJ+dVSXg
+	roAhyUb1DbijhAAmj0zgc8mCfh7eNQU7BXG+bqBHCvfD9KsTC5lZDoSVzWhq6i6RqmznYNKk8jvQX
+	A3wwz3N4xEK5OTgCY1KMBAJ0f6pdC0KNzUM4pNnMk0f0989drfuC6Sfz1TroMioZC4lP13hB5V0M4
+	ZY4tIQDIoN03Lyrng6ublov6luiQvO9K4Znqf2exB8iVbSAfjhT//V2TXms2i/u018sw3GY0Ns5Hh
+	YD7k36dzGhbyEtQl/hkfrYTJzBjn0YKu/sjye4UQpNqmHP/iFza82phBj164FzVfquTbyAzc6OpNv
+	X7orhMVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WTK-0000000DVo9-0xSp;
-	Wed, 23 Oct 2024 08:12:02 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1t3WUp-0000000DWDC-3f8w;
+	Wed, 23 Oct 2024 08:13:35 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WHl-0000000DToY-3Wl4
+	id 1t3WL9-0000000DUQP-1y5G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:00:08 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3A24C13804F2;
-	Wed, 23 Oct 2024 04:00:05 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Wed, 23 Oct 2024 04:00:05 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1729670405; x=
-	1729756805; bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=b
-	BJFZsjh+vk09gud9e3aFsT72wAPq9FpTnEjtwI/gHwus1fq+hm/y5yT+MAgWntJ5
-	xbBN1chTvbRfgGQHdDJBQK10FDeE4rza/r4ZZuPrfX0FMaZupTY/4zcMlA75KTBp
-	iuZE+9aJ3gBFwlGUEfOO8tvJeXZj1AXKSmpcnNBdb1+CcZZRqdw4OdZrm/ma89+r
-	ns8r+FfeuIkS1M5OGIwMAueGHoYkr9i7EBtZOUJFGyd1HRhaQTATO4lypwREbSDR
-	iGwe8gJ7PGUgpnsmd5RRHFegRAAJW1/MJYRApJZ1d9coqyVPqjQC74qhm/UrD9aj
-	zyUvDVW/zigqqWjGIyjhA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729670405; x=
-	1729756805; bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=j
-	dTaobCinfIGIxBi7kKCqA8792T8+nuHNoD0y7HNYD8eFZen1ekrRB20fuTbC+IZk
-	pfGrgLZQKmzhyP9nUVgJdPEyb3WPCnkTVCufedEpeCqy+S006l1BnuYXQneIhZTx
-	ZW6Ac+a5aMO7qVs9alo207hWQf4biJd8BLl36FzycXDzRACN2+tCguC63Nj0LPpx
-	qzynUxwn7kAUCLIUy9U0pbHySptsndKjdQPXJpHik1zL9cAGCuhYbFq0GrBUvHF0
-	srs+9USlEFLhDsrFP3F7g7TUs2VkpsWZU8R1ONf2bdOAX+aX7M4my9YJxQ+Cx355
-	q57EFv9P/7t7tvaklMcpg==
-X-ME-Sender: <xms:Ba0YZ0zMTA66g5lpi36OMADZ5xpa7qaSstx2UpQyX763uPSCv_x9wg>
-    <xme:Ba0YZ4RgRZxcu3IzAPWVO5cBUVsFs2MSHSX8qmqhLjOlkKXx-rKudU9bsRwAS8yHU
-    y0K-E8gBgfQPHha7w>
-X-ME-Received: <xmr:Ba0YZ2UIUUfs7k3l2X-JqBZGbwPUmkWtfAPp-b6UtGGc5Dq6sHNLCuJqUI9eq6_Vao8DpuSZEzTn6yh9MeJXlk_2sW7m3EXJQXW3J0RRnwo-W8ch>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddviecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
-    necuhfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsth
-    drtghomheqnecuggftrfgrthhtvghrnhepffehieffgedtgfffjeetveegfeekleeileek
-    veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgt
-    phhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhgihhrugifoh
-    hougesghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehpvghrvgigsehpvghrvgigrdgtiidprhgtphhtthhopehtih
-    ifrghisehsuhhsvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhr
-    tghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpth
-    htohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehmrggtrhho
-    rghlphhhrgekvdesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnshdrphhhih
-    hlihhpphgvsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:Ba0YZyi9CsOO6Z4ZuqJSt9624-jcarpBPc4PnswN4dzszI42U_2thw>
-    <xmx:Ba0YZ2A-qP67GNn2ZcqFW8EAtfsPmXt9vWpZfTEHdfehIFoiIxrDXA>
-    <xmx:Ba0YZzJrE9f8rny9Mlp8p5ZCUl_qdwIsg948raJ1r1tgnCzJzdQXQA>
-    <xmx:Ba0YZ9AhSaaFK2uz8430TyL2yA52s6E-N5z8UHBf7OSqcY2MCsogWQ>
-    <xmx:Ba0YZ8TXfNCjRjjeU-iBCNtsXSj86jPBbf1KAmpcpR_quc1Mp7mxiwpE>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Oct 2024 04:00:00 -0400 (EDT)
-From: Ryan Walklin <ryan@testtoast.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>
-Cc: linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v3 7/7] arm64: dts: allwinner: h313/h616/h618/h700: Enable audio codec for all supported boards
-Date: Wed, 23 Oct 2024 20:57:03 +1300
-Message-ID: <20241023075917.186835-8-ryan@testtoast.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
-References: <20241023075917.186835-1-ryan@testtoast.com>
+	Wed, 23 Oct 2024 08:03:51 +0000
+Date: Wed, 23 Oct 2024 10:03:26 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729670611;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=teYggURLbUjXgFRHPCAKbw5hoATyYK9evePO5wWpqTA=;
+	b=sPDdRRVOK/BRFeylVX6pQb8u2pmD+W6zOscYPoChOie42lXP49yfifD6utdrdabfMJD6V4
+	ILpmwG0MzVwevOAjpFVtv/e+tzyt1E4LJ1NH3eQyWpnVns3vSiXEVvScZIGEgqQL0u7J7b
+	ihAFQOXn/oScaioOeSTcMl60DNPP1QY=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Subhasish Ghosh <subhasish.ghosh@arm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Subject: Re: [kvm-unit-tests PATCH 0/3] Fix arm64 clang errors on fpu tests
+Message-ID: <20241023-f6a2a8d9fdea565838175648@orel>
+References: <20241022004710.1888067-1-rananta@google.com>
+ <20241022-2c60a0bcbb908435aa91d1ff@orel>
+ <CAJHc60wraJEBTAj-MCTA4QC6cEikvxfMcFRX8Ook9EVYKQu_Tw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJHc60wraJEBTAj-MCTA4QC6cEikvxfMcFRX8Ook9EVYKQu_Tw@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_010006_063743_22ABFCDE 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20241023_010336_096330_5DCD51D2 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,158 +71,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the H616 (and variants) audio codec is supported, enable it for
-boards with a mainline DTS. The Tanix TX1, Transpeed 8K618-T and X-96
-Mate have all been tested with the onboard 3.5mm audio jack and the
-Orange Pi Zero 3 with a 3.5mm jack connected to the audio header.
+On Tue, Oct 22, 2024 at 01:31:24PM -0700, Raghavendra Rao Ananta wrote:
+> Hi Andrew,
+> 
+> >
+> > With clang 18.1.8 (Fedora 18.1.8-1.fc40) I get a bunch of errors like
+> > these
+> >
+> >     arm/fpu.c:281:3: error: instruction requires: fp-armv8
+> >
+> > I used my cross-clang series[1] and configured with
+> >
+> >     ./configure --arch=arm64 --cc=clang --cflags='--target=aarch64'
+> --cross-prefix=aarch64-linux-gnu-
+> >
+> > [1]
+> https://lore.kernel.org/all/20240911091406.134240-7-andrew.jones@linux.dev/
+> >
+> > Thanks,
+> > drew
+> 
+> I was able to reproduce the errors by pointing to a newer clang (20) and
+> applying your series.
+> I think we see the errors because llvm decided to disable loads and stores
+> on FP registers with "-mgeneral-regs-only" [1]. Explicitly adding
+> ".arch_extension fp" for the fp_reg_{read,write}() helped with the build:
+> 
+> diff --git a/arm/fpu.c b/arm/fpu.c
+> index 6b0411d3..f44ed82a 100644
+> --- a/arm/fpu.c
+> +++ b/arm/fpu.c
+> @@ -38,7 +38,8 @@ static inline bool arch_collect_entropy(uint64_t *random)
+>  #define fpu_reg_read(val)                              \
+>  ({                                                     \
+>         uint64_t *__val = (val);                        \
+> -       asm volatile("stp q0, q1, [%0], #32\n\t"        \
+> +       asm volatile(".arch_extension fp\n"             \
+> +                    "stp q0, q1, [%0], #32\n\t"        \
+>                      "stp q2, q3, [%0], #32\n\t"        \
+>                      "stp q4, q5, [%0], #32\n\t"        \
+>                      "stp q6, q7, [%0], #32\n\t"        \
+> @@ -71,7 +72,8 @@ static inline bool arch_collect_entropy(uint64_t *random)
+>  #define fpu_reg_write(val)                             \
+>  do {                                                   \
+>         uint64_t *__val = (val);                        \
+> -       asm volatile("ldp q0, q1, [%0], #32\n\t"        \
+> +       asm volatile(".arch_extension fp\n"             \
+> +                    "ldp q0, q1, [%0], #32\n\t"        \
+>                      "ldp q2, q3, [%0], #32\n\t"        \
+>                      "ldp q4, q5, [%0], #32\n\t"        \
+>                      "ldp q6, q7, [%0], #32\n\t"        \
+> 
+> If you are fine with this, I can push it as a separate patch in v2.
 
-The RG35XX (2024, -H, -Plus and -SP variants) are also tested working
-but have a separate mux and GPIO-controlled (PI5) power amplifier to
-support both a headphone jack and onboard speakers.
+The fix works for me too. Please post v2.
 
-The headphone jack has a GPIO for jack detection, but this is not
-currently supported by the driver, so audio is heard both via the
-headphone jack and speakers when the speaker amp is powered (by the
-CLDO1 regulator, defined as always-on until proper jack detection is
-implemented).
-
-Define the audio codec and routing for all supported H616 and variant
-boards, and power and speaker amp enablement where present on boards and
-known.
-
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-Tested-by: Philippe Simons <simons.philippe@gmail.com>
----
-Changelog v1..v2:
-- Add codec enablement all supported boards.
----
- .../boot/dts/allwinner/sun50i-h313-tanix-tx1.dts    |  5 +++++
- .../dts/allwinner/sun50i-h616-orangepi-zero.dtsi    |  5 +++++
- .../boot/dts/allwinner/sun50i-h616-x96-mate.dts     |  5 +++++
- .../dts/allwinner/sun50i-h618-orangepi-zero2w.dts   |  5 +++++
- .../dts/allwinner/sun50i-h618-transpeed-8k618-t.dts |  5 +++++
- .../allwinner/sun50i-h700-anbernic-rg35xx-2024.dts  | 13 +++++++++++--
- 6 files changed, 36 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-index bb2cde59bd033..bafd3e803106b 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
-@@ -65,6 +65,11 @@ reg_vcc5v: vcc5v {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-index fc7315b944065..19c5cf75f3f7d 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-@@ -59,6 +59,11 @@ reg_usb1_vbus: regulator-usb1-vbus {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
- &ehci1 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-index 26d25b5b59e0f..6dfe4eab91f6a 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
-@@ -33,6 +33,11 @@ reg_vcc5v: vcc5v {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_dcdca>;
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-index 6a4f0da972330..a0fe7a9afb77c 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-@@ -54,6 +54,11 @@ reg_vcc3v3: vcc3v3 {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-index d6631bfe629fa..59ee2b253ea4b 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
-@@ -52,6 +52,11 @@ wifi_pwrseq: pwrseq {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_dcdc2>;
- };
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-index 899ae3be5683c..89de86b442155 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-@@ -237,6 +237,12 @@ panel_in_rgb: endpoint {
- 	};
- };
- 
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	allwinner,pa-gpios = <&pio 8 5 GPIO_ACTIVE_HIGH>; // PI5
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_dcdc1>;
- };
-@@ -352,7 +358,7 @@ reg_aldo3: aldo3 {
- 			reg_aldo4: aldo4 {
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <1800000>;
--				regulator-name = "vcc-pg";
-+				regulator-name = "avcc";
- 			};
- 
- 			reg_bldo1: bldo1 {
-@@ -375,7 +381,10 @@ reg_bldo4: bldo4 {
- 			};
- 
- 			reg_cldo1: cldo1 {
--				/* 3.3v - audio codec - not yet implemented */
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-spkr-amp";
- 			};
- 
- 			reg_cldo2: cldo2 {
--- 
-2.47.0
-
+Thanks,
+drew
 
