@@ -4,168 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4699FD2E028
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC184D2E028
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jx6kBDaQZE/EiHL3xS3TkZt8wrRjHShV3fRez9GxyHw=; b=N5Tq9hfcWyI3jFPK+YEWGOxj7u
-	OqCQsDejdw2ChfiUppd39RWO3UZdo8eZM0bvpmuoebZx8sYqi5YjcTSoP77N2vxF9k1H6+YuhpUqq
-	ATAGaPx39YnLooW8QwcHOMfi9kDur6KLhxjl7fnhoiCrxtyaH50K4+vnViJIa/WrNsy1bCtJu64vg
-	ZuYXWxp0v+B7DweunfLTLBSXlo98BCv1mepLCJFfcHhPZI2nxvyTGGC0gGfzsM1qhqPgB2geXl1YL
-	a8BeRTToGtyHjfJ4q0Mv/eaS+qo3S/5o2OKhcrSw2H6anY/txHvZ9OIGGdMZWiXyCgiq01fXjSu9O
-	VNpDddnQ==;
+	bh=WnwE2oaif5S24SDp1HuZ7r6D6gkNnEumKOd01l+Vop0=; b=GGVuxeLefaxjK9JprFxoU6/rN7
+	MI38wNNBWxJFUa0I+o/KdkMYo5bCWzTBvx/Ti58bP+Z1r5oX0ilhunWOYgJ8hRCim4a1bqIItd3DJ
+	ZRmEBw8Ndi2lvOgIAtn13uVJn8u6b+IG+xXGyGIfwQw0c4pK1JLWk30CQ0gR/ufgoVNSgVZPrVkAN
+	v6e+ftcuTY/lFc/EEWu37DWT3IkyoKmw9VuAp3U+T0bx1lTdVQd9pWIjYxLwyczf91baODhcwjqmz
+	GCR+ghFpGIQ3AJNCgC4BJpV2CDyoN+rUpZ2DqD48CY9f+72uPHiJaQiEj1mgxc9m013ukinV0vogr
+	uowd7WKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X65-0000000DduC-3PJj;
-	Wed, 23 Oct 2024 08:52:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3X7h-0000000DeV9-1ac3;
+	Wed, 23 Oct 2024 08:53:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Wvs-0000000Dc1Z-3QWa
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 08:41:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jx6kBDaQZE/EiHL3xS3TkZt8wrRjHShV3fRez9GxyHw=; b=dtwDhowHG8r1b+HnPtYv/qkbkU
-	PyIU7G9n/Fd9fuZMH9cE4DSZDhCAasth4AZ1ZFBI3aYLBZ9FtUZrnnigDW6BqWeA0ijrVwEu5+gxv
-	u6BP0umUNE9Iv67rjPGtliLTdLrWC6nbZrcAh1reM8fz7JXWYxhjd+owCEekWG3Y6jTgPryHJj6jx
-	DuqqSCmQbrMa1KLg//dHpT8NxduT+j6Mgw9cEJo+tDxWMa5NnFdtIv6iMtZoaduykRkgiPWZlThmK
-	SDAGDunZwX6k73ZKXwbkJW8jxImAwSOiBASBFoTG0SbfsvBiWvcoV0LeOZhoxlhsRoOK5wJ03axcG
-	U9YSm+Dw==;
-Received: from mail-db8eur05on2060b.outbound.protection.outlook.com ([2a01:111:f403:2614::60b] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Wvp-00000008M0L-0TPI
+	id 1t3WzL-0000000DcgY-1Yvl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:41:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xulo8HCeTJXyuQBi+Dif8uPgZAewXUny1kQZ9c92XEdl1W3ZVWDBPsJJaxoSaNU0dARtlw97ywtXYrm2e3DZ1v+aCNYNiOaQ28bGwn0d7zomp//vm49fyzjZDTs1lk60iAu4DMQJaqyNk4oh6ojHMWiw1sFHLIluxm3QTzWyvFIdlw0qhTWwwSsTXm4t3rNt0mG/VgZjy+skt7ZRwy6qEvb5k0ma8NVB3/qRzCUC2/fi5Qk2rFLntdRTwONl/cyvVZC2JoHwjRuZcywz09zsqkcTI6XLluQjOF80u4LZB/pTqCuBQkdpFdF5JGe+cxCQVaWvGk5BtXSIcTdo5UOZRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jx6kBDaQZE/EiHL3xS3TkZt8wrRjHShV3fRez9GxyHw=;
- b=tU7ilyQJ+DRDF1/fxFutHSfq6obKO0KFOfxJEZaTnjfcTbPOTBwi5eR+F0XvFUPKxw5ewROBbw+A1Pbodb3+XK6v/0CuEquT2nblrZ+KB0O8KqWdiGKiQ9palrF8hdEN6te02qOR5x4qm4ShzOwUNy4Fj9P3bq50dAHaOvjlwcpcDxfDbSoaxO9VgXwloibMQfEE3HIs1sKz62AFv5rEeVElxoV3un8pG11vUSxB8bd2aO4DWcudDsbnJPzRcImwAI1t9WvAaXMYTrllD3TVsEdWLDXJWF7Wf+DpmqnZocCdsYshyo6C4WJpP9b3DuIDybChym9M8uJX+T/lWrzbsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jx6kBDaQZE/EiHL3xS3TkZt8wrRjHShV3fRez9GxyHw=;
- b=aXzbZHgklRDgTVQHSqWJg1yGrzYsydyij+MYVWqxM92Vu+ujTDr42iOIFUIarU8Brg3lLdEbglJsmvAaToKSKukpqLPHgr7OVGSPneo8S9Xwo5T1844ic0B/QEpqEa+im12H1IdkXrjEZPKU8oME7JFxyThmZbTDGrFW+Ow8QwtIvKwYWlNFl0yCBvBDBRfP+j4lVK8hzSfpDkhxQikGvYDddIgmqOUPiDcbSPrYCzTgZgTRM2EPmyc0G74Jc+rBVW79h+hnOJ2kFeMZFp8AsriTcMmzCC+xLR/J38+WMg6fQcY6Z6MtROEwKkCIL2odOvGHTqOe0aTF+Fx57KLDwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS4PR04MB9576.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::12)
- by GV1PR04MB9071.eurprd04.prod.outlook.com (2603:10a6:150:22::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.20; Wed, 23 Oct
- 2024 08:41:21 +0000
-Received: from AS4PR04MB9576.eurprd04.prod.outlook.com
- ([fe80::9cf2:8eae:c3d1:2f30]) by AS4PR04MB9576.eurprd04.prod.outlook.com
- ([fe80::9cf2:8eae:c3d1:2f30%7]) with mapi id 15.20.8069.027; Wed, 23 Oct 2024
- 08:41:20 +0000
-Date: Wed, 23 Oct 2024 11:41:16 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Stefan Riedmueller <s.riedmueller@phytec.de>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Christian Hemp <c.hemp@phytec.de>, linux-media@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] media: nxp: imx8-isi: better handle the m2m
- usage_count
-Message-ID: <3bgx37htukergd4zph4ahwp6bbz4n6efevnjgaivokhwjpx6e3@fl5bq35gbiin>
-References: <20240927080420.3867806-1-laurentiu.palcu@oss.nxp.com>
- <20241021230519.GB8113@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021230519.GB8113@pendragon.ideasonboard.com>
-X-ClientProxiedBy: AM0PR10CA0128.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:e6::45) To AS4PR04MB9576.eurprd04.prod.outlook.com
- (2603:10a6:20b:4fe::12)
+	Wed, 23 Oct 2024 08:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AD55D5C5EBF;
+	Wed, 23 Oct 2024 08:45:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F55C4CEC6;
+	Wed, 23 Oct 2024 08:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729673105;
+	bh=Q9+IdA9z1jSogaUNnaqvsX9oNHR9qfz1Kp31tdfvIe4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L74W8wR7dEGjhg7mqQsrCfoItRsWtistWNuC715+d2hurgcotx+yTHo/QC/rpMeDb
+	 IHbOCSWlwND2rmdED/ORaqTWgslPmiVEUpVuqDUntO24Vf5P+0x1tQHHzFy4xm4dEQ
+	 oShCdmNK1DV9/+vBO/jCegTqEnYjW+ZTlNmJMv8I49Abqtnd36t+L1RCqtiXz6D55F
+	 aL46N13Jn/gKDLTBkkS5vNaRdVyvPHXrJDtdUEvoa8OVIoJB8WX9/HPJoG8AB2qrdH
+	 BcASLfc6aNS7+F5R/zMRuczD9MNMi/GCSbhgpDdVXMHVra0bqyPqL1tpjeVYGJ7FG+
+	 14KNkDI89SYuA==
+Date: Wed, 23 Oct 2024 10:45:03 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: mjchen <mjchen0829@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, mjchen@nuvoton.com, 
+	peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de, conor+dt@kernel.org, 
+	krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
+Subject: Re: [PATCH 2/2] input: keypad: add new keypad driver for MA35D1
+Message-ID: <xveh2z7at7ion3fljdcvbhuvfij7m54bb66rlhclmxot3l5ea5@nzgzed6jwhlt>
+References: <20241022063158.5910-1-mjchen0829@gmail.com>
+ <20241022063158.5910-3-mjchen0829@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9576:EE_|GV1PR04MB9071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75f41426-2e5c-41d8-7cb9-08dcf33e77db
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9CvN8EPxUFcjK1tDGDMKS31kv+dWk0Vp5iSFcbRL/VMmYoZbpIj8RIEyg5Zo?=
- =?us-ascii?Q?QXjK1jaTXLhXeH9I6JfQnmSVNWwJm0xikiP0Yy8/LQixvCtqhU7blvu9QYW4?=
- =?us-ascii?Q?c/VddzcAF2RMiihyqS8X6absBb9DJLiuDCoKmUhi6HMohgJO2aK+5J0kK/MB?=
- =?us-ascii?Q?zxQ7Kve0eR1/D4y3279YXiuykDAm7YBQYNNz5IMjsMiHjz/Fg8+YbClhXmlO?=
- =?us-ascii?Q?H/4ngua9cYX7FNp5M/p2sxlUSD7Doak4fe6MfFwdpLgwQTyx1BcyVKwctTAe?=
- =?us-ascii?Q?+L3fm0U9GJzVFU+pwqC3mPQHWxsduLmtfAvbNFEnHOiBFSY+2Q42xdYEN4Cw?=
- =?us-ascii?Q?ZDu3gngkSjxMUzTlBtp4ZanafK8QbEDMk61eoQIwIFzgY5Sa4ZI72GW7oDTe?=
- =?us-ascii?Q?HfHnPOgGy2lZdWuwRbbqyKYmAJHfWJ9t90yKik2AZ/v3tlgsjNr3RLBImpUB?=
- =?us-ascii?Q?6YHVZrC6l142tj0gAX2pVhTIWgh4Msd5ev0pYcbye+hC0l5s+qMb7dPzV12H?=
- =?us-ascii?Q?zqxzfDRwvTxAvw1B9swcb8y1v1OhJh/j5P+rCchG4mKtKOH0r3tJfyQyLdMq?=
- =?us-ascii?Q?9eVn7d5hB5BOK2m+fMgJ0eLoqjViZwJqwJhCxICt64955ObylXCbPcK66bgm?=
- =?us-ascii?Q?Q+aplf4CKCu/r3jepZkjrpk6LX4lwZFhpkYIzREhigRXt5cPIuTJg1kEHFZB?=
- =?us-ascii?Q?82DC/9H+gmQDTrfT7wgGpaubPbs1QpK0ZkfNN7c/jEjzod0epoFYTlkZvmq8?=
- =?us-ascii?Q?q9EU5gDgabMoBvWjkWZoIZ6Tb5OdHfYAgGQet6seESjf47kFlouE+7JknUoQ?=
- =?us-ascii?Q?cuYDdpDKwV+gjMu8DVnSXuDELicRC4VybgFaiJNrn31YWDKENA3HH3S0yJrT?=
- =?us-ascii?Q?Ci4FFDh/pkVEoIQZTjHgQz2FLeumtR2L2PCcwBHBU5IPEvbqQOKnDscsZdnD?=
- =?us-ascii?Q?cuIHQQwMCWTCrq1Wt3uMBATbGl260GErQaqrMKrVSzWV7FkWkl5v2uetS8Sz?=
- =?us-ascii?Q?tt0pvUmp2NZhMh+3uSJjtN47HkWnHRVULjQ0tIq+bjXi1hGzSwo5Nd58v3vm?=
- =?us-ascii?Q?lP4vr3M4+C0KCjwJmQfWKv6LG2RBALbGi1fNyuLUlI2WUAa5BahEUrAPJdDb?=
- =?us-ascii?Q?vJBtc+ng9rRN49k5oCm68fV02XQQY5oCdJac8PlAP9bYIlD8CQdAmhxQTspm?=
- =?us-ascii?Q?tgV48mCkUvZ0xmsGlgquAgyNf3PHlsCo/Nq3XDFq5JUfxe6XP2D04p/Q2Y5w?=
- =?us-ascii?Q?qAchoRdFGZz3cw9XZ6lf/irxHH8UT70ciDGLjH+ms4NRqhfdvydd6Bhj5BVA?=
- =?us-ascii?Q?mqtCAS1O2R3GxjQqn4eNRNAs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9576.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?raAk5yaPIlho6UlW2HI4uvrjq021TiWe0996sAoqm28Fgdh4N65FlTMzKvnc?=
- =?us-ascii?Q?71yYD9xz2gKsIOxZhJMzBlDNT3s7PJIaLgegvL5QBRwmy3N0YuGlpPqjhbyT?=
- =?us-ascii?Q?KHdAD1CS9FqXPYjAMa8cn0xePjOHDES934Ang4JSH9yiAjjTzl5jZeEU62s2?=
- =?us-ascii?Q?jZNuppnCJGHagczSXaLDT0NNbvLgEBf/qjRgegAJh0zTu+hn2wZvXt03inXx?=
- =?us-ascii?Q?yHCLukTLWkQWQgj4jhrcZQagIWW6dDh5x45R6Wk6CkwwpaqfU/3tiWFhTLCA?=
- =?us-ascii?Q?JHdOuHEEMdHXxYKRc1+uTAmOmKaS1+0LGw1AYY2BlCs5tIAAlCACADjWlbat?=
- =?us-ascii?Q?FsSmM1g29ak3RIDTCgSsoeA/aJX5oq+m5rzSvpLACuThzJkPTkfUAKWOX7GX?=
- =?us-ascii?Q?mkmDYCttGFUySU7p7NNI8VIsQIqkHQ0U+kzzhaW7jVHjwbXN1G1CLo07ibBJ?=
- =?us-ascii?Q?NID00aiE1QBkH6V2x2qM8KBhAJgYEKmlSHAujv4P24fZ/Q2rM+iwl5CMBEIz?=
- =?us-ascii?Q?OSHxfC/W1XF2jYgWp6xTJcLVUSxyTqUSkFqB7PEr8Vd80+dVRBVxcGpDu8kZ?=
- =?us-ascii?Q?ecr01URizxPMwB0LTVamqFeEF+Bx3UlKbT8t+tox5AxscJfOk01VCE1u1/bN?=
- =?us-ascii?Q?kC8SiBIXRP4feSvECosX5X43eeOVbvGovWedzqDEVFQnbzu8QYaBwZ0Nqyh+?=
- =?us-ascii?Q?HBKEwc0ZM5ADBnzapQTMqmfI6RtHIc3Shbs3U72WidlD8cANGHU/Ch4T4FiU?=
- =?us-ascii?Q?v733pM6aao6eexV0jF0TziFZC2OAxm1dMsgFeRJAEW/TwltPNExiioP+iipc?=
- =?us-ascii?Q?zjty8kkGvUcJV/+72e5dEd5+l6pLiKp05vAZ8PwRuXjkaaPmWNVnQFPnbRrl?=
- =?us-ascii?Q?KOzY3IYylVLZzCfRrCjEWr5KeN9FaLY2adCpcp0+gleTgbmM8yZXu36fAkLC?=
- =?us-ascii?Q?i0tImfsCYyQqRnxI5FwHJR1VFl2g04eqp16Bzm7NJT/k8yGq32iQ6grWIbTV?=
- =?us-ascii?Q?MM0Rjusjjxrq1LpPNqEfnRW9S5GbWw0z5+DOjz3UrIoXSodkivbJZUc8suvH?=
- =?us-ascii?Q?xP66bFyOzbelLpecl4LyNOXcN4HqOye2y7FeO1tUkMd4K6Fm0/U5xvVEZ6xN?=
- =?us-ascii?Q?YO6SQW5bc/5viZXV3VFMR0dUbdOs1wnu0LJsuYd/NZFYOS/807b2Z+x9DqJK?=
- =?us-ascii?Q?TSsc71P68CNR/i6OCncb7+9jvB0dOLeBBtMsbAZMnZGcUzjkuz2l1zEsIX+F?=
- =?us-ascii?Q?UQrdDPi37h4yaS8TfN8iMaOvyKBLIabzIcCXldS11mcf7/hoCjVS1/XrXOgD?=
- =?us-ascii?Q?TlLRyg69/yAGx1imom2UBOzOx0CPR3+Zz9kM7MBCFNnK1G85PUkf95OrUAuY?=
- =?us-ascii?Q?hyHvQLkK84J/OuANbh5qHr2xhQehnXOqJd/zrywIuen4kYhtgQwYsNsZLfep?=
- =?us-ascii?Q?osqpkQOjLQ/R5apHw5kao0wvMoyGKNwhhMb96NsVC/z91o9xB8sEtEugn90o?=
- =?us-ascii?Q?c701MnM+7Xlff6cw0Tbs429N7nG+PiFwVAznDYYf0J91AE6Yq+XqvdRR851Y?=
- =?us-ascii?Q?zb1i/644qBSir4qqirgb4ZBp+Ld4ntv5KS3cFUppTiDwc3633xkdzPmLuOad?=
- =?us-ascii?Q?jA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75f41426-2e5c-41d8-7cb9-08dcf33e77db
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9576.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 08:41:20.7704
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U68p4RAnkskprLpd/eGyj69ALwRbfPO934ffWoHIdeaXXfRVaczi0UTkWPzUBcN+kGrakswCPTPBTBN/ExoqXg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9071
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241022063158.5910-3-mjchen0829@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_094129_556537_F7CC664A 
-X-CRM114-Status: GOOD (  40.87  )
+X-CRM114-CacheID: sfid-20241023_014507_527455_4A9E0FBE 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,210 +74,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On Tue, Oct 22, 2024 at 06:31:58AM +0000, mjchen wrote:
+> From: mjchen <mjchen@nuvoton.com>
+> 
+> Adds a new keypad driver for the MA35D1 platform.
+> The driver supports key scanning and interrupt handling.
+> 
+> Signed-off-by: mjchen <mjchen@nuvoton.com>
+> ---
+>  drivers/input/keyboard/Kconfig         |  10 +
+>  drivers/input/keyboard/Makefile        |   1 +
+>  drivers/input/keyboard/ma35d1_keypad.c | 312 +++++++++++++++++++++++++
+>  3 files changed, 323 insertions(+)
+>  create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
+> 
+> diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
+> index 721ab69e84ac..ce9bd5cc13a1 100644
+> --- a/drivers/input/keyboard/Kconfig
+> +++ b/drivers/input/keyboard/Kconfig
+> @@ -797,4 +797,14 @@ config KEYBOARD_CYPRESS_SF
+>  	  To compile this driver as a module, choose M here: the
+>  	  module will be called cypress-sf.
+>  
+> +config KEYBOARD_MA35D1
+> +	tristate "Nuvoton MA35D1 keypad driver"
+> +	depends on ARCH_MA35
 
-On Tue, Oct 22, 2024 at 02:05:19AM +0300, Laurent Pinchart wrote:
-> On Fri, Sep 27, 2024 at 11:04:20AM +0300, Laurentiu Palcu wrote:
-> > Currently, if streamon/streamoff calls are imbalanced we can either end up
-> > with a negative ISI m2m usage_count (if streamoff() is called more times
-> > than streamon()) in which case we'll not be able to restart the ISI pipe
-> > next time, or the usage_count never gets to 0 and the pipe is never
-> > switched off.
-> > 
-> > So, to avoid that, add an 'in_use' flag in the ctx structure that will
-> > keep track whether the output/capture queues have been started or not,
-> > and use it to avoid decrementing/incrementing the usage_count
-> > unnecessarily.
-> > 
-> > Fixes: cf21f328fcafac ("media: nxp: Add i.MX8 ISI driver")
-> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > ---
-> > v2:
-> >  * Changed the way 'usage_count' is incremented/decremented by taking
-> >    into account the context the streamon/streamoff functions are called
-> >    from;
-> >  * Changed the commit message and subject to reflect the changes;
-> > 
-> >  .../platform/nxp/imx8-isi/imx8-isi-m2m.c      | 24 +++++++++++++++----
-> >  1 file changed, 20 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > index 9745d6219a166..3f06ae1349e53 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > @@ -65,6 +65,7 @@ struct mxc_isi_m2m_ctx {
-> >  	} ctrls;
-> >  
-> >  	bool chained;
-> > +	bool in_use[2];
-> 
-> I think you can store this in mxc_isi_m2m_ctx_queue_data instead as a
-> 
-> 	bool streaming;
-> 
-> >  };
-> >  
-> >  static inline struct mxc_isi_m2m_buffer *
-> > @@ -491,6 +492,7 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  	const struct mxc_isi_format_info *cap_info = ctx->queues.cap.info;
-> >  	const struct mxc_isi_format_info *out_info = ctx->queues.out.info;
-> >  	struct mxc_isi_m2m *m2m = ctx->m2m;
-> > +	bool already_in_use;
-> >  	bool bypass;
-> >  
-> >  	int ret;
-> > @@ -502,6 +504,8 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  		goto unlock;
-> >  	}
-> >  
-> > +	already_in_use = ctx->in_use[type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE];
-> > +
-> 
-> As the streamon and streamoff operation are covered by the same queue
-> lock for all contexts, you can do all this outside of the m2m->lock
-> sections. I think the following patch (untested) should do and would be
-> simpler:
-> 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> index 9745d6219a16..cd6c52e9d158 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> @@ -43,6 +43,7 @@ struct mxc_isi_m2m_ctx_queue_data {
->  	struct v4l2_pix_format_mplane format;
->  	const struct mxc_isi_format_info *info;
->  	u32 sequence;
-> +	bool streaming;
->  };
-> 
->  struct mxc_isi_m2m_ctx {
-> @@ -486,15 +487,18 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
->  				enum v4l2_buf_type type)
->  {
->  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
-> +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
->  	const struct v4l2_pix_format_mplane *out_pix = &ctx->queues.out.format;
->  	const struct v4l2_pix_format_mplane *cap_pix = &ctx->queues.cap.format;
->  	const struct mxc_isi_format_info *cap_info = ctx->queues.cap.info;
->  	const struct mxc_isi_format_info *out_info = ctx->queues.out.info;
->  	struct mxc_isi_m2m *m2m = ctx->m2m;
->  	bool bypass;
-> -
->  	int ret;
-> 
-> +	if (q->streaming)
-> +		return 0;
+|| COMPILE_TEST
+
+> +	select INPUT_MATRIXKMAP
+> +	help
+> +	  Say Y here if you want to use Nuvoton MA35D1 keypad.
 > +
->  	mutex_lock(&m2m->lock);
-> 
->  	if (m2m->usage_count == INT_MAX) {
-> @@ -547,6 +551,8 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
->  		goto unchain;
->  	}
-> 
-> +	q->streaming = true;
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called ma35d1-keypad.
 > +
->  	return 0;
-> 
->  unchain:
-> @@ -569,10 +575,14 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
->  				 enum v4l2_buf_type type)
->  {
->  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
-> +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
->  	struct mxc_isi_m2m *m2m = ctx->m2m;
-> 
->  	v4l2_m2m_ioctl_streamoff(file, fh, type);
-> 
-> +	if (!q->streaming)
-> +		return 0;
+>  endif
+> diff --git a/drivers/input/keyboard/Makefile b/drivers/input/keyboard/Makefile
+> index 1e0721c30709..9b858cdd1b6b 100644
+> --- a/drivers/input/keyboard/Makefile
+> +++ b/drivers/input/keyboard/Makefile
+> @@ -70,3 +70,4 @@ obj-$(CONFIG_KEYBOARD_TEGRA)		+= tegra-kbc.o
+>  obj-$(CONFIG_KEYBOARD_TM2_TOUCHKEY)	+= tm2-touchkey.o
+>  obj-$(CONFIG_KEYBOARD_TWL4030)		+= twl4030_keypad.o
+>  obj-$(CONFIG_KEYBOARD_XTKBD)		+= xtkbd.o
+> +obj-$(CONFIG_KEYBOARD_MA35D1)		+= ma35d1_keypad.o
+> diff --git a/drivers/input/keyboard/ma35d1_keypad.c b/drivers/input/keyboard/ma35d1_keypad.c
+> new file mode 100644
+> index 000000000000..20b5b1b91127
+> --- /dev/null
+> +++ b/drivers/input/keyboard/ma35d1_keypad.c
+> @@ -0,0 +1,312 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + *  MA35D1 keypad driver
+> + *  Copyright (C) 2024 Nuvoton Technology Corp.
+> + */
 > +
->  	mutex_lock(&m2m->lock);
-> 
->  	/*
-> @@ -598,6 +608,8 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> 
->  	mutex_unlock(&m2m->lock);
-> 
-> +	q->streaming = false;
+> +#include <linux/interrupt.h>
+> +#include <linux/input.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/input/matrix_keypad.h>
+> +#include <linux/clk.h>
+> +#include <linux/of.h>
 > +
->  	return 0;
->  }
-> 
-> If this works for you, could you turn it into a v3 ?
->
+> +/* Keypad Interface Registers */
+> +#define KPI_CONF		0x00
+> +#define KPI_3KCONF		0x04
+> +#define KPI_STATUS		0x08
+> +#define KPI_RSTC		0x0C
+> +#define KPI_KEST		0x10
+> +#define KPI_KPE0		0x18
+> +#define KPI_KPE1		0x1C
+> +#define KPI_KRE0		0x20
+> +#define KPI_KRE1		0x24
+> +#define KPI_PRESCALDIV	0x28
+> +
+> +/* KPI_CONF - Keypad Configuration Register */
+> +#define KROW		GENMASK(30, 28) /* Keypad Matrix ROW number */
+> +#define KCOL		GENMASK(26, 24) /* Keypad Matrix COL Number */
+> +#define DB_CLKSEL	GENMASK(19, 16) /* De-bounce sampling cycle selection */
+> +#define PRESCALE	GENMASK(15, 8)  /* Row Scan Cycle Pre-scale Value */
+> +#define WAKEUP		BIT(5) /* Lower Power Wakeup Enable */
+> +#define INTEN		BIT(3) /* Key Interrupt Enable Control */
+> +#define RKINTEN		BIT(2) /* Release Key Interrupt Enable */
+> +#define PKINTEN		BIT(1) /* Press Key Interrupt Enable Control */
+> +#define ENKP		BIT(0) /* Keypad Scan Enable */
+> +
+> +/* KPI_STATUS - Keypad Status Register */
+> +#define PKEY_INT	BIT(4) /* Press key interrupt */
+> +#define RKEY_INT	BIT(3) /* Release key interrupt */
+> +#define KEY_INT		BIT(2) /* Key Interrupt */
+> +#define RST_3KEY	BIT(1) /* 3-Keys Reset Flag */
+> +#define PDWAKE		BIT(0) /* Power Down Wakeup Flag */
+> +
+> +#define DEFAULT_DEBOUNCE		1
+> +#define DEFAULT_PRE_SCALE		1
+> +#define DEFAULT_PRE_SCALEDIV	32
+> +
+> +struct ma35d1_keypad {
+> +	struct clk *clk;
+> +	struct input_dev *input_dev;
+> +	void __iomem *mmio_base;
+> +	int irq;
+> +	unsigned int kpi_row;
+> +	unsigned int kpi_col;
+> +	unsigned int debounce_val;
+> +	unsigned int pre_scale;
+> +	unsigned int pre_scale_divider;
+> +};
+> +
+> +static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad,	unsigned int status)
+> +{
+> +	struct input_dev *input_dev = keypad->input_dev;
+> +	unsigned int i, j;
+> +	unsigned int row_add = 0;
+> +	unsigned int code;
+> +	unsigned int key;
+> +	unsigned int press_key;
+> +	unsigned long KeyEvent[4];
 
-It's funny that in my first tries to fix this I added a 'streaming' flag
-to mxc_isi_m2m_ctx_queue_data too. But I must've messed up something
-else as I dropped it and chose the other, more complicated, solution. :/
+No Windows or C++ code, please.
 
-Anyway, I gave your patch a test and it seems to work fine so far.
+> +	unsigned int row_shift = get_count_order(keypad->kpi_col);
+> +	unsigned short *keymap = input_dev->keycode;
+> +
 
-I'll send a v3 with your suggestion.
+...
 
-Thanks,
-Laurentiu
+> +static int ma35d1_keypad_probe(struct platform_device *pdev)
+> +{
+> +	struct ma35d1_keypad *keypad;
+> +	struct input_dev *input_dev;
+> +	struct resource *res;
+> +	int error = 0;
+> +
+> +	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
+> +	if (!keypad)
+> +		return -ENOMEM;
+> +
+> +
+> +	input_dev = input_allocate_device();
+> +	if (!input_dev) {
+> +		dev_err(&pdev->dev, "failed to allocate input device\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	if (!res) {
+> +		dev_err(&pdev->dev, "failed to get I/O memory\n");
+> +		error = -ENXIO;
+> +		goto failed_free_input;
+> +	}
+> +
+> +	keypad->mmio_base = devm_ioremap_resource(&pdev->dev, res);
+> +	if (IS_ERR(keypad->mmio_base)) {
+> +		dev_err(&pdev->dev, "failed to remap I/O memory\n");
+> +		return PTR_ERR(keypad->mmio_base);
+> +	}
+> +
+> +	keypad->irq = platform_get_irq(pdev, 0);
+> +	if (keypad->irq < 0) {
+> +		dev_err(&pdev->dev, "failed to get IRQ\n");
+> +		return keypad->irq;
+> +	}
+> +
+> +	keypad->clk = devm_clk_get(&pdev->dev, NULL);
+> +	if (IS_ERR(keypad->clk)) {
+> +		dev_err(&pdev->dev, "failed to get core clk: %ld\n", PTR_ERR(keypad->clk));
 
-> >  	bypass = cap_pix->width == out_pix->width &&
-> >  		 cap_pix->height == out_pix->height &&
-> >  		 cap_info->encoding == out_info->encoding;
-> > @@ -520,7 +524,10 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  		mxc_isi_channel_get(m2m->pipe);
-> >  	}
-> >  
-> > -	m2m->usage_count++;
-> > +	if (!already_in_use) {
-> > +		m2m->usage_count++;
-> > +		ctx->in_use[type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE] = true;
-> > +	}
-> >  
-> >  	/*
-> >  	 * Allocate resources for the channel, counting how many users require
-> > @@ -555,7 +562,12 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  	ctx->chained = false;
-> >  
-> >  deinit:
-> > -	if (--m2m->usage_count == 0) {
-> > +	if (!already_in_use) {
-> > +		m2m->usage_count--;
-> > +		ctx->in_use[type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE] = false;
-> > +	}
-> > +
-> > +	if (m2m->usage_count == 0) {
-> >  		mxc_isi_channel_put(m2m->pipe);
-> >  		mxc_isi_channel_release(m2m->pipe);
-> >  	}
-> > @@ -575,6 +587,9 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> >  
-> >  	mutex_lock(&m2m->lock);
-> >  
-> > +	if (!ctx->in_use[type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE])
-> > +		goto unlock;
-> > +
-> >  	/*
-> >  	 * If the last context is this one, reset it to make sure the device
-> >  	 * will be reconfigured when streaming is restarted.
-> > @@ -587,6 +602,8 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> >  		mxc_isi_channel_unchain(m2m->pipe);
-> >  	ctx->chained = false;
-> >  
-> > +	ctx->in_use[type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE] = false;
-> > +
-> >  	/* Turn off the light with the last user. */
-> >  	if (--m2m->usage_count == 0) {
-> >  		mxc_isi_channel_disable(m2m->pipe);
-> > @@ -594,8 +611,7 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> >  		mxc_isi_channel_release(m2m->pipe);
-> >  	}
-> >  
-> > -	WARN_ON(m2m->usage_count < 0);
-> > -
-> > +unlock:
-> >  	mutex_unlock(&m2m->lock);
-> >  
-> >  	return 0;
-> 
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
+Syntax is: return dev_err_probe, except that your error handling code is a mess.
+Earlier you have gotos, now return. Organize it nicely, so this will
+follow some logical concept.
+
+> +		return PTR_ERR(keypad->clk);
+> +	}
+> +
+> +	error = matrix_keypad_parse_properties(&pdev->dev,
+> +										   &(keypad->kpi_row),
+> +										   &(keypad->kpi_col));
+
+How did you aligned it?
+
+> +	if (error) {
+> +		dev_err(&pdev->dev, "failed to parse kp params\n");
+> +		return error;
+> +	}
+> +
+> +	error = matrix_keypad_build_keymap(NULL, NULL,
+> +									   keypad->kpi_row,
+> +									   keypad->kpi_col,
+> +									   NULL, input_dev);
+> +	if (error) {
+> +		dev_err(&pdev->dev, "failed to build keymap\n");
+> +		return error;
+> +	}
+> +
+> +	keypad->input_dev = input_dev;
+> +	input_dev->name = pdev->name;
+> +	input_dev->id.bustype = BUS_HOST;
+> +	input_dev->open = ma35d1_keypad_open;
+> +	input_dev->close = ma35d1_keypad_close;
+> +	input_dev->dev.parent = &pdev->dev;
+> +
+> +	if (of_property_read_u32(pdev->dev.of_node, "debounce-period", &(keypad->debounce_val)))
+> +		keypad->debounce_val = DEFAULT_DEBOUNCE;
+
+This is not used anywhere. Drop dead code.
+
+> +
+> +	if (of_property_read_u32(pdev->dev.of_node, "per-scale", &(keypad->pre_scale)))
+> +		keypad->pre_scale = DEFAULT_PRE_SCALE;
+
+Not better...
+
+> +
+> +	if (of_property_read_u32(pdev->dev.of_node, "per-scalediv", &(keypad->pre_scale_divider)))
+> +		keypad->pre_scale_divider = DEFAULT_PRE_SCALEDIV;
+
+Still not better...
+
+So there are defaults? Why these are required by bindings? Why bindings do not say
+defaults?
+
+> +
+> +	__set_bit(EV_REP, input_dev->evbit);
+> +	input_set_drvdata(input_dev, keypad);
+> +	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
+> +
+> +	error = input_register_device(input_dev);
+> +	if (error) {
+> +		dev_err(&pdev->dev, "failed to register input device\n");
+> +		goto failed_free_input;
+> +	}
+> +
+> +	error = devm_request_irq(&pdev->dev, keypad->irq,
+> +							 ma35d1_keypad_interrupt,
+> +							 IRQF_NO_SUSPEND, pdev->name, keypad);
+
+Totally mesed alignment.
+
+> +	if (error) {
+> +		dev_err(&pdev->dev, "failed to request IRQ\n");
+> +		goto failed_unregister_input;
+> +	}
+> +
+> +	platform_set_drvdata(pdev, keypad);
+> +	device_init_wakeup(&pdev->dev, 1);
+> +	clk_prepare_enable(keypad->clk);
+> +
+> +	return 0;
+> +
+> +failed_unregister_input:
+> +	input_unregister_device(input_dev);
+> +failed_free_input:
+> +	input_free_device(input_dev);
+> +	return error;
+> +}
+> +
+> +static void ma35d1_keypad_remove(struct platform_device *pdev)
+> +{
+> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
+> +
+> +	input_unregister_device(keypad->input_dev);
+> +	clk_disable_unprepare(keypad->clk);
+
+Why aren't you using devm_clk_get_enabled()?
+
+> +}
+> +
+> +static int ma35d1_keypad_suspend(struct platform_device *pdev,
+> +									pm_message_t state)
+> +{
+> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
+> +
+> +	if (device_may_wakeup(&pdev->dev)) {
+> +		writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
+> +		enable_irq_wake(keypad->irq);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int ma35d1_keypad_resume(struct platform_device *pdev)
+> +{
+> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
+> +
+> +	if (device_may_wakeup(&pdev->dev)) {
+> +		writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
+> +						keypad->mmio_base + KPI_CONF);
+> +		disable_irq_wake(keypad->irq);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id ma35d1_kpi_of_match[] = {
+> +	{ .compatible = "nuvoton,ma35d1-kpi"},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, ma35d1_kpi_of_match);
+> +
+> +static struct platform_driver ma35d1_keypad_driver = {
+> +	.probe		= ma35d1_keypad_probe,
+> +	.remove		= ma35d1_keypad_remove,
+> +	.suspend	= ma35d1_keypad_suspend,
+> +	.resume		= ma35d1_keypad_resume,
+> +	.driver		= {
+> +		.name	= "ma35d1-kpi",
+> +		.of_match_table = of_match_ptr(ma35d1_kpi_of_match),
+
+Drop of_match_ptr(), you have warnings here.
+
+Best regards,
+Krzysztof
+
 
