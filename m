@@ -4,143 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5E7CFA463
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC9ECFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJIGQUcepuYiINMQxiEXnCpZPvyrJxDKc4luqEkf6Q0=; b=kWyUw86CxAt8d4G7f3hkmmbFcK
-	nG6kU+nt2aCPIz3kRclDY/HWkfj8TyLkTXpEyBanI9P1oAwBcZWvLmxvi9Wa3ekGfrgNQdvIZYoTh
-	jqXvg0wpkH98bYkGxDptEuuIuNYQCDhrIcl0bGEnL3YK8UClFywWm6t0fixa6+wYBcFpnjn5MINZ5
-	LLPMhRG+tGvxv2LOlToqClRXKfGqEItl/FdSZfXC3DaTFEvRKX/bxRW376zQI0yQUAXqQDuOG4MeX
-	htVMvRaeH5Tik8vpp42QUl4fFVPoVYZ102iPfHTgGEx6Tousr6nltGnGhrrYdX8uFFGmPGAcKUhiF
-	0UURAV+g==;
+	bh=hmLs1fnyFuhch9ym0D8390T3Il2G3hywHxmDwOxNics=; b=4Pe5ZaFKDZOFzb/onjYqdYza35
+	RdPDgWoW89ADgiPjuObgCOpO6/9XMh31bE72YUiPn8g1qXTbkeQKxaz5BHOthDi8NIzDHxqDzgUpL
+	u5dyk99NnUsqKPi3bB4SQb1i/vBmOHi3FG3JE5RC8gXEAUYCCnbhy9aijo52IXdwRY2e3vVz95mld
+	Q8DyyoDRX2bII2SVw6spEkaTVf9Zx+v6GZThjK/9G8K9pQo1PjyGYqwL/wwnIxstJKAPmhy5qtPmt
+	LdXxqiEoUr1xelB8ua4pRJZDtIjfe/n1YFLAnL+qzjpOS4cZlFr1fpxCI2XgNEnGxLn17146lzIdj
+	+gjhB1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3hfi-0000000FlrO-3IOf;
-	Wed, 23 Oct 2024 20:09:34 +0000
-Received: from mail-southcentralusazolkn190120000.outbound.protection.outlook.com ([2a01:111:f403:d114::] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1t3hh4-0000000FmhY-3XUs;
+	Wed, 23 Oct 2024 20:10:58 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gAM-0000000FYOF-18Wt
+	id 1t3h04-0000000FgT7-3amN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 18:33:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o52zE4TwkHqKhbdtYSOJ/bh6XHJkfD4t3MfY04K2LLwKDgHOv9A93OFlimRr9Ezus5Q3mlDvrSxcpbqPMQ/X1sT1sEi5nqlb3V6nGuHr5bGBSsoM1ZVG8t6v5HIY/qE3FgLfiQ0M5Sbm2P+/o0yRadPPg8S5iSMQuvknS4S1PvKFtjp7v2zNDjmfwa3OaM0bQpGnD9Lyj8b5bvqXSTkyMASTeDdon5fcmpPMAc33yvD9SqnnlQBIkLWJ/BrAV8/Y+CkhY9gHAo8XbaTYhNImMJDhHNhBAHQpbKYkotUpFMWqNoBXgE5ZrAx98LaZmsDcsKStOiX6c6zhT+J3WqbwBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zJIGQUcepuYiINMQxiEXnCpZPvyrJxDKc4luqEkf6Q0=;
- b=oJTburLRFp4HwGQbvNzyOjztYMW9kv1VnsuLtrt4ZgLsSOLyRWIEx5vtcJ7JmOkYzKib4/Fvy3PIhdgehF4i54zl3yFZYneRu5pYmIMp8YL/iS5gaiDVhbnNfcNFkD/QqFR/h7RiYGe4JkIDUbXMA736zVt7GAlstLSSzEIEtL+me28Le1Uz8b5h+N/qnnWFZDSW4Dg0M1s1Vz8NKjGIrHCZ4yDj7FYG3XbXeCOBA9+tAnzy8/CUbhmsfX4SO/Ga7CDVRK10a9E+/GpWXQDK/CfVT696lzWjs5bDU8Heu+mCdZmYm373b3Sy3CxH/1cI3RPQC2zxnMLnn5DY5Ca2iw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zJIGQUcepuYiINMQxiEXnCpZPvyrJxDKc4luqEkf6Q0=;
- b=X52IXmucWAtdWBNhrzoCbzpZeJWYPCQdTNHxjboZQqYcCMpm7haW+D3Qye351Spbsd1sRzLfP++fxHanoMCEALaYKSmwWBqanuOetcypHy7XfJxZU+5EAjlnJ8y26uopG23Zv/7i3GPCveohbDlmyw4xp6JHAkDRUZYbOPE6e0wLddXDonsb3onC6INcqbV7yhnqUqYTgIdQgqtqDdiGDCJfNs981zglw2CM9mnghyILc4KCEMv3Ffx4mXT+sN9l4WxlzYWedLOa8PkdujGq8Rq3imZ1KATG5I2N3K9OuKMxF0BEwweNfSz5ObQ2IrVscWys3hw0y7vXQKe7gSSNHw==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by SA2PR02MB7818.namprd02.prod.outlook.com (2603:10b6:806:135::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.17; Wed, 23 Oct
- 2024 18:32:55 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8069.016; Wed, 23 Oct 2024
- 18:32:55 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de"
-	<tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
-	"seanjc@google.com" <seanjc@google.com>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "joro@8bytes.org"
-	<joro@8bytes.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, "robh@kernel.org"
-	<robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"arnd@arndb.de" <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
-	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
-	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
-	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
-	"mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
-Subject: RE: [PATCH 0/5] Add new headers for Hyper-V Dom0
-Thread-Topic: [PATCH 0/5] Add new headers for Hyper-V Dom0
-Thread-Index: AQHbFc3gheIHrTrmm0yVUene//yVY7J/bLBwgBQy+4CAASapQA==
-Date: Wed, 23 Oct 2024 18:32:55 +0000
-Message-ID: <SN6PR02MB4157A9D52A882A2109590708D44D2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB4157F6EA7B2454D2F6CBF2ECD4782@SN6PR02MB4157.namprd02.prod.outlook.com>
- <725bac7d-5758-44fd-82cc-29fb85d8c53f@linux.microsoft.com>
-In-Reply-To: <725bac7d-5758-44fd-82cc-29fb85d8c53f@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SA2PR02MB7818:EE_
-x-ms-office365-filtering-correlation-id: d106ae6f-fe77-45b0-80a1-08dcf3911cad
-x-microsoft-antispam: BCL:0;ARA:14566002|461199028|19110799003|8062599003|8060799006|15080799006|440099028|3412199025|102099032|56899033;
-x-microsoft-antispam-message-info: VKljilNyhGh7Xncxzl/8iHWUY6fEqaKXLxD4wZfPoMKmG5ya9/Jm9w7Lspvjvd/OA+Zr349iNZ/bSy9xlR65RsfY7gvfdb4KaPWknZ7+96EUyMCJeFHvCK8khlPWzBx5jNluQ2/BWZtjhQHaT/FBMSE4SUXCNhuwEmBks3FBDbfuDoW0PhVydV3W3nySZOqI3CrQC3GaiiMIaDWoAPysHihcDPvkJx8kgyTNVqB5koAmkNrGkisa2HzdJD6h2rJUklCT7DsDtVR/DQVOuMFNlnC4M2mnfX1+msUVU9VmnNq7ih4jMOUdYMmJnadlbK426jwv2xY9Ov03i1cFEWQQjSAX5X4Bc4/pKkyFl9spoQBlGCTA+/N3677rw21LJXhuV7x1h1mxf2X9IYOSJ2Vcn/qgLJdKl6VPebruooYFWCtbWu+YqzBNgtaac6RFLI+XPe15Xxn9PZEGO0kd+F9fvmoe3Q+x0+mqtUSupR0k46W9UPqBo7kl8zWcBejYVVL3ZIQqK0ZQZOKoAgDAe42w87KEf31iURz19yOCPS/xUz8OqcOQbETQ1Wn5HKBGz2isQlmAcPx8OOG4TrP+5wiLX3hYyz6IRLMTgN+lEZkAtWGhQ+0YV2ZIOVef8oUkV8gxx23H+fcldkWkkzJtGNVhTl7py42f9ihN3FjsBRqzWdLzRdOO430iBQLR97xt/W1CX3teV9zUfNgdodwobnFOPQ==
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AHQFqsehxhiVeP76Z+uAOVsL2Hilkjih1uCzMZ0NbkXN5or8SJ1PedLEyYPN?=
- =?us-ascii?Q?W/ch4t6JHdqabBk/+awlnSdkPeYx+sE2dPlI/jY/NBwovs01IoJy+idxAjS0?=
- =?us-ascii?Q?Msly8r/tfIh8zkFSvOIhQcvfzpm+LJABdHK4+pq2gIBV/DTMkiBFpViowM1L?=
- =?us-ascii?Q?RCPu/m3gLMN9WKjY1NoYwtVSu17IV5Kek/ef4HLn9CRMsOdc/rONLUIETqw2?=
- =?us-ascii?Q?Cv60Uo72l6YDXUVBXXX4z7Qt57b/m0PpCU9rmULVi1IHdz1dRLXJr5Vj/P24?=
- =?us-ascii?Q?gW/m15bruXuEK6C7J9c/KTAv6eEjlajWytmgT4g4jyD53fhVpF4RYaIjqG/p?=
- =?us-ascii?Q?EOF5xM3C5LEfp1m95bjJsGay75C9Zl6+OSOjrHJYcflEWlTO6nTR+6eJs9l8?=
- =?us-ascii?Q?Y5fmNwlgPTirZNTwOt7fY/+WI8UOGZcLnBxStz/t+lmOQlcMB21lmQ0JteIZ?=
- =?us-ascii?Q?c51omprzRl1DRLvWS3vsZu0WRBR3Wc9jfnTiXYtTIuMI/FCcMcrjVT18vnqn?=
- =?us-ascii?Q?nBYsmBlh85c11Rgo6r45acyPpW6EQnSCN3HWaz1kVvXK4fDEbA7Rs0pF7NN2?=
- =?us-ascii?Q?9jaNWXf9AY1gnLl6vvJSvL2BCQN9aW/OBTg4gpoCqdK+hDj6En4bIXH3I9uU?=
- =?us-ascii?Q?jkrStxuDINCOfa1Cr6DYDg64tu4pW6saWAphO5LUMioaoa2d3NXX/m9CQZRN?=
- =?us-ascii?Q?T6qRM1Kd260u6/XMokcnuyV9rPb5w9y0pSJyhFOzluc7InheXiRcTw6GIQy2?=
- =?us-ascii?Q?xpNA176qa7+7gjM7xpz4wdISxJ+izL0arosO7FC58WNWZJD0rrLKu98SqYnk?=
- =?us-ascii?Q?Zrzr6lGMU12ic5fIfCWnH01pRq13gyJETFJCDrL9QjcY4raG1AAcGJecCW/l?=
- =?us-ascii?Q?p5ScZygeajenK+j8J2FFcNO75060qdh2EQKqPFg98IWTCs1c6O7uz+tbEXyj?=
- =?us-ascii?Q?aD7UIgnA5UR2iUkIKxCCmG7Y+SmrxSww2k3mdwaXfW/VRiAg3y4y1usqQ9lc?=
- =?us-ascii?Q?saFosb2Spk6OJiU/1sGC5Uj5X5Yb2PR9DlRBxHAkZFYIZiihXbGrbKU7S0cN?=
- =?us-ascii?Q?1b97FZ8X2i5AKzliTjpyfha/RaHpc2pzCZT+rpRu4kH/l5NSkVqEpFibBaSc?=
- =?us-ascii?Q?oADidR7G1obKD0hc3gEocLAJneRHdrGflVQDDwvIW6/4p74sHL9Yyhg6m7m6?=
- =?us-ascii?Q?znekee52zubbjRGfs5p8lPJNiDz0mWR+838XrQnbG6UKBJ6C95dJcmr9P1c?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 23 Oct 2024 19:26:34 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a9aa8895facso11129566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:26:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1729711591; x=1730316391; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hmLs1fnyFuhch9ym0D8390T3Il2G3hywHxmDwOxNics=;
+        b=AuouFuqzupJsugKkO7q0hk7cEiLnkdbOmBmLlqVVufDH67I/2PXdHS4Ok7GJg3jZac
+         cKEX3FlNX37EeGGlkj3Ppv6Bze4Rnkf/M7TK/ye7TMpJQZpA+bSd+ISHkQh22lKUp2U/
+         klywWVtAwhNAk5sjyj0CyigG4khkL3TLN5bIA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729711591; x=1730316391;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hmLs1fnyFuhch9ym0D8390T3Il2G3hywHxmDwOxNics=;
+        b=KgQypGoQ1bQ3ssUVXWCS6LEQm/iTvpW0c6dp3xVO13LyBZH5Od0WGEwq9DivIvrrds
+         NdLIlsfeVED31zZLJ5SPF5tx9H2CRvqGEjhX26WFG9pwqMdxeO62hn44GKm1L76yXJdI
+         m2CnKTTl0b5udaDLZ8oJGLH1yR3rEYUBLt9pBDXDhEKe8hv/cbhViau+m9d73R6PoySq
+         jqFtQtWSZg6cBTmIXgkprstjxX6X3swJ35ULtGsGR/vaJmfHCNw50RA1d3Y/xVXNoRlF
+         +eE+zEO1gRC2LHBjk8LxjUt9Ipjx9yEbfnMgP6d5Ddkdzs7ZZL/mBfB1igAxMDS+qfsX
+         flbw==
+X-Forwarded-Encrypted: i=1; AJvYcCW95k4sBnt8YCtmvjiJkhYlLfmNgrY1VIZBhiyL1dwTXC8o5+fydhjk6+KS+s8Jt1RRoiX6OoeKoi/O6Q6PSVNZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa+oIQSvQUiBWiPUQP1Gh+YSmQcaGaYm+N9kWYRecy+AMK2dcr
+	NLjHMz5S3YJ8gzz8zpxJEc76HUMRXByVbdjZZIScq4GH4sp966HRem0CH51g1/3v9P06Qtu4zl5
+	ZozwyIg==
+X-Google-Smtp-Source: AGHT+IEDBgEKinRa7a0TS2IjumCmTq55pbnquReqe+TJEgZ9P5Ls+8pZ+kS5Mt9QvuFqrEj4HCuj3Q==
+X-Received: by 2002:a17:907:9720:b0:a99:43e5:ac37 with SMTP id a640c23a62f3a-a9abf86652bmr384218366b.15.1729711591128;
+        Wed, 23 Oct 2024 12:26:31 -0700 (PDT)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a91559b33sm512621266b.116.2024.10.23.12.26.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 12:26:30 -0700 (PDT)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-a9a6acac4c3so12596466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:26:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXza8W9NGVyi/7ezDQZjuvbZHpOBZ9B91OL8uuzcmSpET0y0vMpeOfQLMtiOpYGy7/NugXjL8ssDA1rS0pmXn8R@lists.infradead.org
+X-Received: by 2002:a17:907:72d5:b0:a99:f4be:7a6a with SMTP id
+ a640c23a62f3a-a9abf91ed4fmr407338266b.47.1729711194415; Wed, 23 Oct 2024
+ 12:19:54 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: d106ae6f-fe77-45b0-80a1-08dcf3911cad
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2024 18:32:55.6164
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR02MB7818
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io> <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org> <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+ <e25fb178-39fa-4b75-bdc8-a2ec5a7a1bf6@typeblog.net>
+In-Reply-To: <e25fb178-39fa-4b75-bdc8-a2ec5a7a1bf6@typeblog.net>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 23 Oct 2024 12:19:37 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wjw0i-95S_3Wgk+rGu0TUs8r1jVyBv0L8qfsz+TJR8XTQ@mail.gmail.com>
+Message-ID: <CAHk-=wjw0i-95S_3Wgk+rGu0TUs8r1jVyBv0L8qfsz+TJR8XTQ@mail.gmail.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Peter Cai <peter@typeblog.net>
+Cc: Tor Vic <torvic9@mailbox.org>, Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io, 
+	gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru, 
+	conor.dooley@microchip.com, ddrokosov@sberdevices.ru, 
+	dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com, 
+	geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-iio@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org, 
+	mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru, 
+	ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org, 
+	s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru, 
+	tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, 
+	wsa+renesas@sang-engineering.com, xeb@mail.ru
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_113306_318742_4D1CFB5E 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20241023_122632_939034_8FA4D4ED 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,60 +113,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, Octo=
-ber 22, 2024 5:51 PM
->=20
-> On 10/10/2024 11:21 AM, Michael Kelley wrote:
-> >
+On Wed, 23 Oct 2024 at 12:15, Peter Cai <peter@typeblog.net> wrote:
+>
+> Again -- are you under any sort of NDA not to even refer to a list of
+> these countries?
 
-[snip]
+No, but I'm not a lawyer, so I'm not going to go into the details that
+I - and other maintainers - were told by lawyers.
 
-> > Have you considered user space code that uses
-> > include/linux/hyperv.h? Which of the two schemes will it use? That code
-> > needs to compile correctly on x86 and ARM64 after your changes.
-> > User space code includes the separate DPDK project, and some of the
-> > tools in the kernel tree under tools/hv. Anything that uses the
-> > uio_hv_generic.c driver falls into this category.
-> >
-> Unless I misunderstand something, the uapi code isn't affected at all
-> by this patch set. e.g. the code in tools/hv uses include/uapi/linux/hype=
-rv.h,
-> which doesn't include any other Hyper-V headers.
->=20
-> I'm not aware of how the DPDK project uses the Hyper-V definitions, but i=
-f it
-> is getting headers from uapi it should also be unaffected.
+I'm also not going to start discussing legal issues with random
+internet people who I seriously suspect are paid actors and/or have
+been riled up by them.
 
-You are right.  My mistake. User space code based on uio_hv_generic.c
-maps the VMBus ring buffers into user space, and I thought that code
-was pulling "struct hv_ring_buffer" from include/linux/hyperv.h file. But
-DPDK and the tools/hv code each have their own completely separate
-header file with the equivalent of "struct hv_ring_buffer". Duplicating
-the ring buffer structure in multiple places probably isn't ideal, but the
-decoupling helps in this case. ;-)
-
->=20
-> > I think there's also user space code that is built for vDSO that might =
-pull
-> > in the .h files you are modifying. There are in-progress patches dealin=
-g
-> > with vDSO include files, such as [1]. My general comment on vDSO
-> > is to be careful in making #include file changes that it uses, but I'm
-> > not knowledgeable enough on how vDSO is built to give specific
-> > guidance. :-(
-> >
-> Hmm, interesting, looks like it does get used by userspace. The tsc page
-> is mapped into userspace in vdso.vma.c, and read in vdso/gettimeofday.h.
->=20
-> That is unexpected for me, since these things aren't in uapi. However I d=
-on't
-> anticipate a problem. The definitions used haven't changed, just the head=
-ers
-> they are included from.
->=20
-
-Fair enough. I don't know enough about vDSO user space to add anything
-helpful.
-
-Michael
+              Linus
 
