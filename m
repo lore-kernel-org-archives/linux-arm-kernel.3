@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 680C2CDDE6E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06FBCDDE71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IB3mGWP/MB/mhIwDnna/Ib8F4OMAAgNQRJozpZxR3gU=; b=KryA8EeRLn40Z/zuzQwFNQRMTN
-	xP+S95umJ0Olk6G4xmzNcFcyORjMEm6Da6Kzbug/PkMo8UokJ8w1K9VzzD82jfr3JGHLOnQdKmNEm
-	sG5T13X3y8Zlt77gAuGV4e0803l6zYiNQKiKuBotFKdEpgVR6rt4OSrSNYOJz2Yslln85sTE2RPYP
-	pdar1FVSjT98jNsuERrWXxAjhOx064mOUllYstF1kJPHSt+Pw0UE4eHiqLk3rN9TdIxTdv5rVFFZm
-	/CXFGfgUXAFzeKkaxU/fWlnyXKqVcSDONSTxMqzkLbBgOTYh7T+oxer2sKR6bqSlMSFscOdy1p20f
-	yb1dFPVw==;
+	bh=1FiYguMGThHNLA9kFA0q7R/MPGzxBFfJ6/L73aEij8c=; b=IPjoGNlMxYhOUaOSX6MtTlwzR4
+	TeRsGePNT3HM8gKlXF9syDZO0uc8b5E5yGa2rQ4DDGzrdtz+dmTQI75MsR1i+tGiBAkaRONpe2BDk
+	esBW4X34GvmTscSJwTljSi+LAZodZE98NwE0bRSHaGm1lqxFhhW3APutVqAfaUZ1jR/8e4lNGyOlh
+	5hi52Xg7ND3dgkA8QC709ZyqD9qkLL1KDvAHU/y1Uah0w2hrFe+h+lVwnuWxxMx0llkQ+DS1UnIhj
+	K55LUsdxau1RKBffZcoRQcGiRV04c2FnTKlRepadoJ8Y3K05EsOQRrakWY0TTxY5z0ugFy0CyDrUM
+	TgduvFMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zqp-0000000EDRh-3a3T;
-	Wed, 23 Oct 2024 11:48:31 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t3Zqm-0000000EDO3-2jxt;
+	Wed, 23 Oct 2024 11:48:28 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Zh6-0000000EA7d-2MiG
+	id 1t3Zdi-0000000E9HR-2tqC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 11:38:30 +0000
+	Wed, 23 Oct 2024 11:35:00 +0000
 Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49NBcDAx013929;
-	Wed, 23 Oct 2024 06:38:13 -0500
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49NBYtIb110748;
+	Wed, 23 Oct 2024 06:34:55 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729683493;
-	bh=IB3mGWP/MB/mhIwDnna/Ib8F4OMAAgNQRJozpZxR3gU=;
+	s=ti-com-17Q1; t=1729683295;
+	bh=1FiYguMGThHNLA9kFA0q7R/MPGzxBFfJ6/L73aEij8c=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=L5XJ12654bbqzmEM0U+Yabb+VykPEYVA+YOOi9rbTRsw/kKMNMHa0q0eX+A7EDO4Y
-	 vLkibs1wMmzaYeajgLpnI3IQnmiWjty0hKtBU5nnNqUmwQzk9jvmVvHoRQ/yZsc5Di
-	 9JckUmFE2WCUqtlswjTLGZEOGhkXU5PmEmstoovI=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49NBcDfQ028124
+	b=C1MCYWstdBABU7XcD3rpLdWw36KQE7tpoCrmR1WF7FGNYxexKY40g8XdFwJTLqp2P
+	 9qscd7CnUXPbJx5WB9Eacv/xm3CEC4dBjiOkVeQhdLDwPPfiV3zcTO4smgxo2ivqPV
+	 h3zNK7rkEUrpe74KKHKJ8Iqx1VXMNoq/02nb2p74=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49NBYtLQ026165
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Oct 2024 06:38:13 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 23 Oct 2024 06:34:55 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Oct 2024 06:38:12 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ Oct 2024 06:34:54 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Oct 2024 06:38:12 -0500
-Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49NBc8B6071380;
-	Wed, 23 Oct 2024 06:38:08 -0500
-Message-ID: <4c529e08-084c-43b3-ba70-982ba2555b5b@ti.com>
-Date: Wed, 23 Oct 2024 17:08:07 +0530
+ Frontend Transport; Wed, 23 Oct 2024 06:34:54 -0500
+Received: from [172.24.227.36] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [172.24.227.36] (may be forged))
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49NBYocq076796;
+	Wed, 23 Oct 2024 06:34:50 -0500
+Message-ID: <674deca5-9697-40e2-abce-0d3a2193771c@ti.com>
+Date: Wed, 23 Oct 2024 17:04:49 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: ti: iccsg-prueth: Fix 1 PPS sync
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>, <vigneshr@ti.com>,
-        <horms@kernel.org>, <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20241023091213.593351-1-m-malladi@ti.com>
- <3fe8183a-08d3-47d3-b1a1-0d84f7bf58b7@linux.dev>
+Subject: Re: [PATCH v5 11/12] arm64: dts: ti: k3-j721e-sk*: Add bootph-*
+ properties
+To: Manorit Chawdhry <m-chawdhry@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Aniket Limaye <a-limaye@ti.com>,
+        Udit Kumar
+	<u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>, Andrew Davis <afd@ti.com>
+References: <20241023-b4-upstream-bootph-all-v5-0-a974d06370ab@ti.com>
+ <20241023-b4-upstream-bootph-all-v5-11-a974d06370ab@ti.com>
+From: Neha Malcom Francis <n-francis@ti.com>
 Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <3fe8183a-08d3-47d3-b1a1-0d84f7bf58b7@linux.dev>
+In-Reply-To: <20241023-b4-upstream-bootph-all-v5-11-a974d06370ab@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_043828_732117_D68932C9 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20241023_043458_872734_F2D00259 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +97,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23/10/24 15:52, Vadim Fedorenko wrote:
-
-
-> On 23/10/2024 10:12, Meghana Malladi wrote:
->> The first PPS latch time needs to be calculated by the driver
->> (in rounded off seconds) and configured as the start time
->> offset for the cycle. After synchronizing two PTP clocks
->> running as master/slave, missing this would cause master
->> and slave to start immediately with some milliseconds
->> drift which causes the PPS signal to never synchronize with
->> the PTP master.
->> 
->> Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->> ---
->>   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 ++++++++++--
->>   drivers/net/ethernet/ti/icssg/icssg_prueth.h | 11 +++++++++++
->>   2 files changed, 21 insertions(+), 2 deletions(-)
->> 
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index 0556910938fa..6b2cd7c898d0 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -411,6 +411,8 @@ static int prueth_perout_enable(void *clockops_data,
->>   	struct prueth_emac *emac = clockops_data;
->>   	u32 reduction_factor = 0, offset = 0;
->>   	struct timespec64 ts;
->> +	u64 current_cycle;
->> +	u64 start_offset;
->>   	u64 ns_period;
->>   
->>   	if (!on)
->> @@ -449,8 +451,14 @@ static int prueth_perout_enable(void *clockops_data,
->>   	writel(reduction_factor, emac->prueth->shram.va +
->>   		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
->>   
->> -	writel(0, emac->prueth->shram.va +
->> -		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
->> +	current_cycle = icssg_readq(emac->prueth->shram.va +
->> +				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
->> +
->> +	/* Rounding of current_cycle count to next second */
->> +	start_offset = ((current_cycle / MSEC_PER_SEC) + 1) * MSEC_PER_SEC;
+On 23/10/24 12:27, Manorit Chawdhry wrote:
+> Adds bootph-* properties to the leaf nodes to enable bootloaders to
+> utilise them.
 > 
-> This looks more like roundup(current_cycle, MSEC_PER_SEC), let's use it
-> instead of open coding.
+> Following adds bootph-* to:
+> - main_uart0, mcu_uart0(DM), wkup_uart0(TIFS) for Traces
+> - mmc1, usb0, usb1, ospi0 for enabling various bootmodes.
+> 
+> Signed-off-by: Manorit Chawdhry <m-chawdhry@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> index 6285e8d94dde..69b3d1ed8a21 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> @@ -346,6 +346,7 @@ J721E_IOPAD(0x244, PIN_INPUT, 0) /* (R25) MMC1_DAT2 */
+>   			J721E_IOPAD(0x240, PIN_INPUT, 0) /* (R26) MMC1_DAT3 */
+>   			J721E_IOPAD(0x258, PIN_INPUT, 0) /* (P23) MMC1_SDCD */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_uart0_pins_default: main-uart0-default-pins {
+> @@ -355,6 +356,7 @@ J721E_IOPAD(0x1f4, PIN_OUTPUT, 0) /* (AB1) UART0_RTSn */
+>   			J721E_IOPAD(0x1e8, PIN_INPUT, 0) /* (AB2) UART0_RXD */
+>   			J721E_IOPAD(0x1ec, PIN_OUTPUT, 0) /* (AB3) UART0_TXD */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_uart1_pins_default: main-uart1-default-pins {
+> @@ -390,12 +392,14 @@ main_usbss0_pins_default: main-usbss0-default-pins {
+>   			J721E_IOPAD(0x290, PIN_OUTPUT, 0) /* (U6) USB0_DRVVBUS */
+>   			J721E_IOPAD(0x210, PIN_INPUT, 7) /* (W3) MCAN1_RX.GPIO1_3 */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_usbss1_pins_default: main-usbss1-default-pins {
+>   		pinctrl-single,pins = <
+>   			J721E_IOPAD(0x214, PIN_OUTPUT, 4) /* (V4) MCAN1_TX.USB1_DRVVBUS */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_csi_mux_sel_pins_default: main-csi-mux-sel-default-pins {
+> @@ -594,6 +598,7 @@ J721E_WKUP_IOPAD(0x24, PIN_INPUT, 0) /* (B22) MCU_OSPI0_D6 */
+>   			J721E_WKUP_IOPAD(0x28, PIN_INPUT, 0) /* (G21) MCU_OSPI0_D7 */
+>   			J721E_WKUP_IOPAD(0x8, PIN_INPUT, 0) /* (D21) MCU_OSPI0_DQS */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	vdd_mmc1_en_pins_default: vdd-mmc1-en-default-pins {
+> @@ -622,6 +627,7 @@ J721E_WKUP_IOPAD(0xf4, PIN_OUTPUT, 2)/* (D25) MCU_I3C0_SDA.MCU_UART0_RTSn */
+>   			J721E_WKUP_IOPAD(0xe4, PIN_INPUT, 0) /* (H28) WKUP_GPIO0_13.MCU_UART0_RXD */
+>   			J721E_WKUP_IOPAD(0xe0, PIN_OUTPUT, 0)/* (G29) WKUP_GPIO0_12.MCU_UART0_TXD */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+> @@ -629,6 +635,7 @@ wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+>   			J721E_WKUP_IOPAD(0xf8, PIN_INPUT_PULLUP, 0) /* (J25) WKUP_I2C0_SCL */
+>   			J721E_WKUP_IOPAD(0xfc, PIN_INPUT_PULLUP, 0) /* (H24) WKUP_I2C0_SDA */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	mcu_mcan0_pins_default: mcu-mcan0-default-pins {
+> @@ -657,6 +664,7 @@ &wkup_uart0 {
+>   	status = "reserved";
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&wkup_uart0_pins_default>;
+> +	bootph-all;
+>   };
+>   
+>   &wkup_i2c0 {
+> @@ -821,6 +829,7 @@ &mcu_uart0 {
+>   	status = "okay";
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&mcu_uart0_pins_default>;
+> +	bootph-all;
+>   };
+>   
+>   &main_uart0 {
+> @@ -829,6 +838,7 @@ &main_uart0 {
+>   	pinctrl-0 = <&main_uart0_pins_default>;
+>   	/* Shared with ATF on this platform */
+>   	power-domains = <&k3_pds 146 TI_SCI_PD_SHARED>;
+> +	bootph-all;
+>   };
+>   
+>   &main_uart1 {
+> @@ -844,6 +854,7 @@ &main_sdhci1 {
+>   	vqmmc-supply = <&vdd_sd_dv_alt>;
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc1_pins_default>;
+> +	bootph-all;
+>   	ti,driver-strength-ohm = <50>;
+>   	disable-wp;
+>   };
+> @@ -908,6 +919,7 @@ partition@800000 {
+>   			partition@3fc0000 {
+>   				label = "ospi.phypattern";
+>   				reg = <0x3fc0000 0x40000>;
+> +				bootph-all;
+>   			};
+>   		};
+>   	};
+> @@ -1003,6 +1015,7 @@ &wkup_gpio0 {
+>   
+>   &usb_serdes_mux {
+>   	idle-states = <1>, <1>; /* USB0 to SERDES3, USB1 to SERDES2 */
+> +	bootph-all;
+>   };
+>   
+>   &serdes_ln_ctrl {
+> @@ -1012,6 +1025,7 @@ &serdes_ln_ctrl {
+>   		      <J721E_SERDES3_LANE0_USB3_0_SWAP>, <J721E_SERDES3_LANE1_USB3_0>,
+>   		      <J721E_SERDES4_LANE0_EDP_LANE0>, <J721E_SERDES4_LANE1_EDP_LANE1>,
+>   		      <J721E_SERDES4_LANE2_EDP_LANE2>, <J721E_SERDES4_LANE3_EDP_LANE3>;
+> +	bootph-all;
+>   };
+>   
+>   &serdes_wiz3 {
+> @@ -1050,6 +1064,7 @@ &mhdp {
+>   &usbss0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_usbss0_pins_default>;
+> +	bootph-all;
+>   	ti,vbus-divider;
+>   };
+>   
+> @@ -1058,6 +1073,7 @@ &usb0 {
+>   	maximum-speed = "super-speed";
+>   	phys = <&serdes3_usb_link>;
+>   	phy-names = "cdns3,usb3-phy";
+> +	bootph-all;
+>   };
+>   
+>   &serdes2 {
+> @@ -1073,6 +1089,7 @@ serdes2_usb_link: phy@1 {
+>   &usbss1 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_usbss1_pins_default>;
+> +	bootph-all;
+>   	ti,vbus-divider;
+>   };
+>   
+> @@ -1081,6 +1098,7 @@ &usb1 {
+>   	maximum-speed = "super-speed";
+>   	phys = <&serdes2_usb_link>;
+>   	phy-names = "cdns3,usb3-phy";
+> +	bootph-all;
+>   };
+>   
+>   &mcu_cpsw {
 > 
 
-Ok sure, I will update it.
+Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
 
->> +
->> +	icssg_writeq(start_offset, emac->prueth->shram.va +
->> +		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
->>   
->>   	return 0;
->>   }
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> index 8722bb4a268a..a4af2dbcca31 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -330,6 +330,17 @@ static inline int prueth_emac_slice(struct prueth_emac *emac)
->>   extern const struct ethtool_ops icssg_ethtool_ops;
->>   extern const struct dev_pm_ops prueth_dev_pm_ops;
->>   
->> +static inline u64 icssg_readq(const void __iomem *addr)
->> +{
->> +	return readl(addr) + ((u64)readl(addr + 4) << 32);
->> +}
->> +
->> +static inline void icssg_writeq(u64 val, void __iomem *addr)
->> +{
->> +	writel(lower_32_bits(val), addr);
->> +	writel(upper_32_bits(val), addr + 4);
->> +}
->> +
->>   /* Classifier helpers */
->>   void icssg_class_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac);
->>   void icssg_class_set_host_mac_addr(struct regmap *miig_rt, const u8 *mac);
->> 
->> base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
-> 
+-- 
+Thanking You
+Neha Malcom Francis
 
