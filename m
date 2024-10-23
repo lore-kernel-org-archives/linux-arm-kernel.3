@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32ED4D2E027
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4333D2E027
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EuW6SPRIybSpJvdFDUcE9wf3jZW9FAQ17OxBkhPDepc=; b=1Ba0wAI7ASQ5JYIV7pfnDKyy79
-	tWSx5/5a+47KofiyoQ8fR5R5r/Bj+qk9aKxCnsPhC/Q40J/I20cuzRHRBSu7q4IN7ZvOmAtwBtKHp
-	D0iz+g4fJ3m1XPXHC0Z7n1EkjyXKHE2t3ZpbGLQbJd++uKVlKQ6VHsj1xaPyfHjVF6fXBxp+dTDsB
-	bKgM2IhorZ/uh777lgB7Z0jKRMl1KW70fYbRofSNRUIPW8PlO57KEtG4ROgI0sAtfIPNi4q0KHllc
-	YyVEwKWhaLO1bnrkAIRDemwPF/nMzbI3uCcUI60bq6rykXbc3PGRXE0GzyZyeW8Z1lQUL4EgPaH0T
-	fQKVKAxA==;
+	bh=wVMyp9m7uiqhk1pHWmqihIDtTHvYIv0I12fEMcnulzQ=; b=bNtpOT/UzSe+AMz9AmfVDQygU8
+	ATtLo5BC3uMLM5lD9Z+7rFZRxL9jYbg6zqCwPSoNwQVM09O+U0FUdCSN0Uujrk0bZ0cO/q84k/Yp0
+	+2I93rq70LBXpObkmhGs0bjycMHPKmdRYzeFknKMXFqX3DywcvjvCt2IHYzxOiEF7m0ieLkfwE2wE
+	9gvt2RWhW9lWjVmrmK4jABaGuXATWxjz3vI3CksZtT//PBQI39ICAWOT5f9exToTqMc80E1iNN5/o
+	eSmZ826KsKD9jX4IOUMOv5fLKDs6cK1JUMvVnYr14BaMMAKmC8Jy0rXrJGh47kHpEvWjuXY0N4IHO
+	LeOhXu/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XAo-0000000DfDJ-06Oz;
-	Wed, 23 Oct 2024 08:56:58 +0000
+	id 1t3XCK-0000000Dfc5-1tnV;
+	Wed, 23 Oct 2024 08:58:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X0h-0000000Dcs7-1RP1
+	id 1t3X3M-0000000DdI7-1RkG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:47:23 +0000
+	Wed, 23 Oct 2024 08:49:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 456285C5D03;
-	Wed, 23 Oct 2024 08:46:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4126C4CEC6;
-	Wed, 23 Oct 2024 08:46:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EAF6C5C5EA0;
+	Wed, 23 Oct 2024 08:49:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30902C4CEC7;
+	Wed, 23 Oct 2024 08:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729673190;
-	bh=EyZ4QiVXvPEbdDEY9GYHE0FBEpWxqBjav2KP4V+fZmo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FrGTwzflVTlJdLIYjkTXefJWDQspCdNwO9KK8hrcJ8ViG8MqtrEAXscjMMkwEYP+A
-	 T+wzl7dpb9x4hhedL38JuarGMqJjqWsjoRxeEFLJl4DDo5fm311snn7nopIYzbaqfp
-	 dVPRLzJsNyAN6twwq2zRatp/Y/rrZzqK/8ZFMkojCjJ9n379WOiFBUwyWpGBr1Fa3k
-	 dc+bgfJCa2ZVFEZyQZGkQhA2Rdo+ThVHyFj721UoR9Gh4kZJDHwhSLHYPU8CIGmQj4
-	 NdtMkoyp8RHC5ID7k06/gbWk+wybN0bw40moyYK7E52Nt4drdkwyY3IERFdGyQA1k/
-	 R07zGMfUYWV+w==
-Date: Wed, 23 Oct 2024 10:46:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Stephane Danieau <stephane.danieau@foss.st.com>, 
-	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
-	Valentin Caron <valentin.caron@foss.st.com>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
-	Cheick Traore <cheick.traore@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 04/14] dt-bindings: pinctrl: stm32: add RSVD mux function
-Message-ID: <vvmrfkpzs4ns2bhvcx2k2fdvacxqjdx5p2oyygzgr7zjrbdl6h@cvfo6623oxl6>
-References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
- <20241022155658.1647350-5-antonio.borneo@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241022155658.1647350-5-antonio.borneo@foss.st.com>
+	s=k20201202; t=1729673355;
+	bh=aR0cBNJNvx0pC7rUSs2+VJJ+53XLheSlUDQRnOTIgzk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ObHgILwXNR82AnJ4xg1/nF6/fZ6ryTPGPghZMb3V3D3ksSOm8f1OAgnTWy4MJP8oF
+	 nFKKhaRKXCDTsQMGYkkC0ee0tHoKHj+Xnsa43lxJaAD2Hv4eAatfZ3Oe49qKFhySAU
+	 ENMcHIxQRvP+KEBY41KUAMlMWyyIxEBU49yX52E5sfxb+C3vy/w3+/Ak8i7b85UWFU
+	 1wT1FX5TovDn+aBfBQnAkacfyMgKvkG0uP60t8TDqKnW2FVbYcb74iWj20AcYtimfM
+	 4z9WYNjyzjxZaOf3svI5iNdxyKru//+ZxQwDvAGGSTpmbvRhYgEF4pgVqAUv+oaqtc
+	 2V5sqbYD7mmZw==
+Received: from [104.132.45.109] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3X3I-0062U1-Rh;
+	Wed, 23 Oct 2024 09:49:12 +0100
+Date: Wed, 23 Oct 2024 09:49:12 +0100
+Message-ID: <87wmhztd9z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Kunkun Jiang <jiangkunkun@huawei.com>
+Subject: Re: [PATCH] irqchip/gic-v4: Don't allow a VMOVP on a dying VPE
+In-Reply-To: <aab45cd3-e5ca-58cf-e081-e32a17f5b4e7@huawei.com>
+References: <20241002204959.2051709-1-maz@kernel.org>
+	<aab45cd3-e5ca-58cf-e081-e32a17f5b4e7@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 104.132.45.109
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, jiangkunkun@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_014631_445072_9C63B98A 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20241023_014916_499629_9C952224 
+X-CRM114-Status: GOOD (  34.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +86,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 05:56:48PM +0200, Antonio Borneo wrote:
-> From: Fabien Dessenne <fabien.dessenne@foss.st.com>
+Hi Zenghui,
+
+On Tue, 22 Oct 2024 08:45:17 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
 > 
-> Document the RSVD (Reserved) mux function, used to reserve pins
-> for a coprocessor not running Linux.
+> Hi Marc,
 > 
-> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
-> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-> ---
->  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
->  include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
->  2 files changed, 9 insertions(+)
+> On 2024/10/3 4:49, Marc Zyngier wrote:
+> > Kunkun Jiang reports that there is a small window of opportunity for
+> > userspace to force a change of affinity for a VPE while the VPE has
+> > already been unmapped, but the corresponding doorbell interrupt still
+> > visible in /proc/irq/.
+> > 
+> > Plug the race by checking the value of vmapp_count, which tracks whether
+> > the VPE is mapped ot not, and returning an error in this case.
+> > 
+> > This involves making vmapp_count common to both GICv4.1 and its v4.0
+> > ancestor.
+> > 
+> > Reported-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Link: https://lore.kernel.org/r/c182ece6-2ba0-ce4f-3404-dba7a3ab6c52@huawei.com
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its.c   | 18 ++++++++++++------
+> >  include/linux/irqchip/arm-gic-v4.h |  4 +++-
+> >  2 files changed, 15 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> > index fdec478ba5e7..ab597e74ba08 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -797,8 +797,8 @@ static struct its_vpe *its_build_vmapp_cmd(struct its_node *its,
+> >  	its_encode_valid(cmd, desc->its_vmapp_cmd.valid);
+> >  
+> >  	if (!desc->its_vmapp_cmd.valid) {
+> > +		alloc = !atomic_dec_return(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> >  		if (is_v4_1(its)) {
+> > -			alloc = !atomic_dec_return(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> >  			its_encode_alloc(cmd, alloc);
+> >  			/*
+> >  			 * Unmapping a VPE is self-synchronizing on GICv4.1,
+> > @@ -817,13 +817,13 @@ static struct its_vpe *its_build_vmapp_cmd(struct its_node *its,
+> >  	its_encode_vpt_addr(cmd, vpt_addr);
+> >  	its_encode_vpt_size(cmd, LPI_NRBITS - 1);
+> >  
+> > +	alloc = !atomic_fetch_inc(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > +
+> >  	if (!is_v4_1(its))
+> >  		goto out;
+> >  
+> >  	vconf_addr = virt_to_phys(page_address(desc->its_vmapp_cmd.vpe->its_vm->vprop_page));
+> >  
+> > -	alloc = !atomic_fetch_inc(&desc->its_vmapp_cmd.vpe->vmapp_count);
+> > -
+> >  	its_encode_alloc(cmd, alloc);
+> >  
+> >  	/*
+> > @@ -3806,6 +3806,13 @@ static int its_vpe_set_affinity(struct irq_data *d,
+> >  	struct cpumask *table_mask;
+> >  	unsigned long flags;
+> >  
+> > +	/*
+> > +	 * Check if we're racing against a VPE being destroyed, for
+> > +	 * which we don't want to allow a VMOVP.
+> > +	 */
+> > +	if (!atomic_read(&vpe->vmapp_count))
+> > +		return -EINVAL;
+> 
+> We lazily map the vPE so that vmapp_count is likely to be 0 on GICv4.0
+> implementations with the ITSList feature. Seems that that implementation
+> is not affected by the reported race and we don't need to check
+> vmapp_count for that.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Indeed, the ITSList guards the sending of VMOVP in that case, and we
+avoid the original issue in that case. However, this still translates
+in the doorbell being moved for no reason (see its_vpe_db_proxy_move).
 
-Best regards,
-Krzysztof
+How about something like this?
 
+Thanks,
+
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index ab597e74ba08..ac8ed56f1e48 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3810,8 +3810,17 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	 * Check if we're racing against a VPE being destroyed, for
+ 	 * which we don't want to allow a VMOVP.
+ 	 */
+-	if (!atomic_read(&vpe->vmapp_count))
+-		return -EINVAL;
++	if (!atomic_read(&vpe->vmapp_count)) {
++		if (gic_requires_eager_mapping())
++			return -EINVAL;
++
++		/*
++		 * If we lazily map the VPEs, this isn't an error, and
++		 * we exit cleanly.
++		 */
++		irq_data_update_effective_affinity(d, cpumask_of(cpu));
++		return IRQ_SET_MASK_OK_DONE;
++	}
+ 
+ 	/*
+ 	 * Changing affinity is mega expensive, so let's be as lazy as
+
+-- 
+Without deviation from the norm, progress is not possible.
 
