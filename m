@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FAFCDDE7D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB03ACF539E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJfLoc45A98djwsjuLE0rm4z6rK/WUSZVJHEYU2rAFs=; b=W6/IELdxyHCCBXCvILdxU1TUSZ
-	76COInbGT2wdXh+jW2hWgpdD6qInKunqIirZvg81hzaZR4BvANgcekDp1VeLQLBvmcP3RKGo/KVt4
-	6xuQkElVPLmo00lxf3J4jGyGSgxF33LddWdrjXymNXKV1MmRGD98erqqR3TeB0dgGLLP2Eg7tf4LH
-	r/YuTUAleeAfkLHg+fRIku3hOnaXXcjpVveRw1znt9VvUfHfjVZ0bBbxa8hyCLB8fDuEoGRYQ/c8n
-	qMjtVdnvlPGTWP0DBJefAC4cmN+AJ+eYA7Io/urXy2c6b0ohQfU+/rFGCtfqRpqK+CDC2lSU/9+Al
-	Vni/x/BQ==;
+	bh=x64x9TADTxxpnU0Rla8YzyCTu404PTbNycMAvcn4kwQ=; b=QohNFrqkDPb7O3U3gDWvx9dH3J
+	ZQ08eOYNRVSu+yjTm7s2fnzSPGS6GbDdQdXeLM/0AamACSgmRUCZH/h5/D99UGzlJOKoKh1OibSWx
+	bXytbfPzeFkBFVlcnhw7VosfOCy3fUoA989Cota4iq3Oqnqajp/u2TDE2kYwn1zWViwkGF8uwbYFD
+	VuhNDaKMstTBOkloxcX7+dq4UVruNkp29LVRzl9PC7RU/AkWS61mZuzRWXO3tPK5lclAveZSx2ISX
+	PxCcqBBEudOAOSMc87IxFcFtdd4vM9VRT3WBTMfWULn00NGdEHaVk5ns8mJvIWnllVwB+G2AkKW/L
+	E9IhDBUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dBO-0000000Ew34-2hcq;
-	Wed, 23 Oct 2024 15:21:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckN-0000000EpPa-1JnL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 14:54:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=iJfLoc45A98djwsjuLE0rm4z6rK/WUSZVJHEYU2rAFs=; b=FHHGBOff2e0iLcoDFjnabM0E71
-	FNzHnW7kmL/Syqivq4Gt/bWBl4n2MDzQKfUnF5gP525oEqcy6tK6AxmVPUsJLJEIME/bNlmOmNhH3
-	E5U96HxEx3n5EhCI5EIYm7gU/2s4IBgScuBZvBCCzXPy0A+2RRb0e4Vs2zO3ivk4d00gDMwtktFzf
-	6tes6IaWHRlSRle0Y3xqtpnpHmF1pow26fw8/8q4LPAl5VWprYpLoNacOGcCpy0sbJQyKdCz4z6kP
-	cqvH2FUlSG+mttj4sTNzCHDUd5JppytH97LP1Yw/Wpq1Hzw+5DsoYWx6+3EZzW0xMhr6K6aBCC+/J
-	iRFQg+tQ==;
+	id 1t3dCv-0000000EwTp-1gk8;
+	Wed, 23 Oct 2024 15:23:33 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckI-00000008Qbi-3IO9
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3ckI-0000000EpME-3TXx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:54:01 +0000
+	Wed, 23 Oct 2024 14:54:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9EF6BA4501C;
-	Wed, 23 Oct 2024 14:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833E6C4CEE6;
-	Wed, 23 Oct 2024 14:53:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B518DA4502B;
+	Wed, 23 Oct 2024 14:53:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78D0C4CEE4;
+	Wed, 23 Oct 2024 14:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729695233;
-	bh=6QiF6EDTZ0Po266q9azwPZ96ZF0ANBT4BNVnzQoHvog=;
+	s=k20201202; t=1729695234;
+	bh=FgQexBaZfsfQzAHeUxw7obYY6WYgogLcfZPAE0mj4tA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aduuJdqrucK4wWD5Wc0hCDY/vfUMkrtuCRLzRll5VPjfYdt+cCm4xBw+V8CIqpEv2
-	 afcaKvsOUw5EMTJnyQh+RN+OSpvcG5XKad/IsNkbmppHWvBOWM+veRaQQdhTAX08sH
-	 j4Kw5VJzWVLxAhk6c49SxcYreyQtPmaswr2YRPgL+rearOPqBKkrZrErrzA0vvMNOk
-	 gHyFyyUpID0oq1x9flhG06/dtrDyP02sAMdIY8y3z9JINFiZdNXJZe9Y7u6gvaRdSf
-	 DrLMdw0Da9ddYirGFVZ3hcSB5YRxrKrdB9ET1prHnAIjzfvmyUODfD0iSIeaQDABs/
-	 XYjqCv3H8fgng==
+	b=g/4QZ5AojyBtIzSbM+qEhDnkkrndAWGJrZmkJ6fbzM+gaJ4BB39nZqky7sF4ZqqIk
+	 UVenPPvhvOXtk6BXtBZ1UlS0vnPHN28OiYuUpS6HJ/BjUZ2KjkP0d25DfRdSa32PVt
+	 S+TgVYCDmxKwMRcUCf5CSlFVPT6q+v8DX5jL+bcny3SgYD3pHTvlASWf7TY3X8HBvM
+	 KiR+WdL3m02pVH7HRZP1gQSEGX07SipnYT2i0JOtM7pkxjs5u0n8m+NRUSU5N9e+2Z
+	 Kv28BF2GEppN3cb+XzCRUf0eB5z2W1wqLM92rjN15uXK35p/4xX4KpFjGEPlO0nyyl
+	 xCPBF+z0UzzPw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1t3ckB-0068vz-PB;
-	Wed, 23 Oct 2024 15:53:51 +0100
+	id 1t3ckD-0068vz-0d;
+	Wed, 23 Oct 2024 15:53:53 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -73,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 11/37] KVM: arm64: Add TCR2_EL2 to the sysreg arrays
-Date: Wed, 23 Oct 2024 15:53:19 +0100
-Message-Id: <20241023145345.1613824-12-maz@kernel.org>
+Subject: [PATCH v5 17/37] KVM: arm64: Sanitise ID_AA64MMFR3_EL1
+Date: Wed, 23 Oct 2024 15:53:25 +0100
+Message-Id: <20241023145345.1613824-18-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
 References: <20241023145345.1613824-1-maz@kernel.org>
@@ -86,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_155359_118093_830138C4 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241023_075359_039149_6EFEAD96 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the TCR2_EL2 register to the per-vcpu sysreg register array,
-the sysreg descriptor array, and advertise it as mapped to TCR2_EL1
-for NV purposes.
+Add the missing sanitisation of ID_AA64MMFR3_EL1, making sure we
+solely expose S1PIE and TCRX (we currently don't support anything
+else).
 
-Access to this register is conditional based on ID_AA64MMFR3_EL1.TCRX
-being advertised.
-
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  1 +
- arch/arm64/kvm/sys_regs.c         | 14 ++++++++++++++
- 2 files changed, 15 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7f409dfc5cd4a..ca064af6cac21 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -492,6 +492,7 @@ enum vcpu_sysreg {
- 
- 	/* Anything from this can be RES0/RES1 sanitised */
- 	MARKER(__SANITISED_REG_START__),
-+	TCR2_EL2,	/* Extended Translation Control Register (EL2) */
- 
- 	/* Any VNCR-capable reg goes after this point */
- 	MARKER(__VNCR_START__),
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index d9c20563cae93..514b016d09764 100644
+index c42f09a67a7c9..c9638541c0994 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -134,6 +134,7 @@ static bool get_el2_to_el1_mapping(unsigned int reg,
- 		MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
- 		MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
- 		MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
-+		MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
- 		MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
- 		MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
- 		MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
-@@ -452,6 +453,18 @@ static bool access_vm_reg(struct kvm_vcpu *vcpu,
- 	return true;
- }
- 
-+static bool access_tcr2_el2(struct kvm_vcpu *vcpu,
-+			    struct sys_reg_params *p,
-+			    const struct sys_reg_desc *r)
-+{
-+	if (!kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, TCRX, IMP)) {
-+		kvm_inject_undefined(vcpu);
-+		return false;
-+	}
+@@ -1617,7 +1617,9 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+ 		break;
+ 	case SYS_ID_AA64MMFR3_EL1:
+-		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE;
 +
-+	return access_rw(vcpu, p, r);
-+}
-+
- static bool access_actlr(struct kvm_vcpu *vcpu,
- 			 struct sys_reg_params *p,
- 			 const struct sys_reg_desc *r)
-@@ -2830,6 +2843,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	EL2_REG(TTBR0_EL2, access_rw, reset_val, 0),
- 	EL2_REG(TTBR1_EL2, access_rw, reset_val, 0),
- 	EL2_REG(TCR_EL2, access_rw, reset_val, TCR_EL2_RES1),
-+	EL2_REG(TCR2_EL2, access_tcr2_el2, reset_val, TCR2_EL2_RES1),
- 	EL2_REG_VNCR(VTTBR_EL2, reset_val, 0),
- 	EL2_REG_VNCR(VTCR_EL2, reset_val, 0),
- 
++		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE |
++		       ID_AA64MMFR3_EL1_S1PIE;
+ 		break;
+ 	case SYS_ID_MMFR4_EL1:
+ 		val &= ~ARM64_FEATURE_MASK(ID_MMFR4_EL1_CCIDX);
+@@ -2500,7 +2502,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 					ID_AA64MMFR2_EL1_NV |
+ 					ID_AA64MMFR2_EL1_CCIDX)),
+ 	ID_WRITABLE(ID_AA64MMFR3_EL1, (ID_AA64MMFR3_EL1_TCRX	|
+-				       ID_AA64MMFR3_EL1_S1POE)),
++				       ID_AA64MMFR3_EL1_S1POE	|
++				       ID_AA64MMFR3_EL1_S1PIE)),
+ 	ID_SANITISED(ID_AA64MMFR4_EL1),
+ 	ID_UNALLOCATED(7,5),
+ 	ID_UNALLOCATED(7,6),
 -- 
 2.39.2
 
