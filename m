@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2CDCFA474
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD92CFA474
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=; b=YtSFnMuLFh7v0VgbBqeHMvl4U2
-	FdKMuzAL9ck2v6UYGkEZ0uhm4Bt63IVEU55GbE5CQQvfcI3f7R5UqhuylE5PRNV7oPtCo53ywhq4n
-	GQXaq+E/dtwXOKVpk3IBLVTFKxZKgLFDTfWtpPSVSSlEvW7VG4dziQ54lbJPhniEaRrPjxB603hR+
-	mlwuk5ebOrBZnYoC1TE0btWiLlvygeYm63L/j6MLp09oWqCEn2uOAWpsRuVBjSIcvGJ8d6q3stXvE
-	wuXvco0Q7FVCzHiIx07MDBBgSahtkSsd2FtR/0dHUZLGqCy+Ng5ZkFcmwiboQObBXlfIZVhcdipdt
-	Lv3Zllpg==;
+	bh=RFgD/PA6YCmmlcKT63VAf3BqQtGq/9YYTOqYLD13kKs=; b=h9/ML4CUEHRgs47i2Hug9K20se
+	UmxPQ/6wS65bQfQCBQkddBh1EBmgvcQzGQQxzaAOxvzdT6DU+L77COLv3rXt4jdo6GuXPz/RC9qE2
+	bs9iVffBRNnxl7Q4a0V9jxlXSrYxAIWAGtia8rTcTULQTn4fRYLO56VWzBVnGLtjhYOuvvTpQCeNd
+	8HOzCQ23bWixRukA3QBXEkYzX6oT8RSvuwJ13qJNy8sQxlaVCIWz4c7zaoVn5KV4qaSMeQJvh7X6F
+	47+WKZ2oLbKEC+F3R8+r2+7lHqiIjNp1H6C0tb/KLFHdV8DxzojZOpTHpviWaXaaWCi1lpe1Ut6qE
+	8zxi+Ojw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ihy-0000000Fx4Y-03LB;
+	id 1t3ihy-0000000Fx4g-2Re7;
 	Wed, 23 Oct 2024 21:15:58 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+Received: from mail.typeblog.net ([88.151.33.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3h0X-0000000FgXo-2eLC
+	id 1t3h2H-0000000FgrN-1qtm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 19:27:02 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2e2fb304e7dso176431a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 12:27:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729711620; x=1730316420; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=;
-        b=W8Wa2VnFkWDnvUl9GxWPRAQ/jc3wU/f+GW98pAeOEZU3c0bBg88TnOohagGKv9gbK6
-         QzsAdq5W1zwaB58+JW+Hdwp1itY1yiMwPMiJ9i7QzQWubJkf4TG9dFQTnV0AItBMekrA
-         rK3mNOLYohmKuhtflp61sppKdcz94fjgUpnTY0HwG9mvhU4ZqT3r5imjXtR1Gi2TfgAy
-         aMFcES37JOSPbqpM/brdzgz475pyUdR/kJcJWLgxokDtgkd1ytP23h++7frxmZEIPqpw
-         mceMadf/w0W039LZ2r+aHWnoQNOerEK0JEyvHcUjjSae1JKddimLDetnP+MYCpxxbwKv
-         POew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729711620; x=1730316420;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1O55tH4mg+dDTUW5UrQWZ+uhv6UBmUWklyeFXKvl0nU=;
-        b=GmwQiEmN033ACetwWH/atFcCN6JV1U6MC9D0TJRBtqY7tpBWf+RGOc78/vmWcundmA
-         nuOyZmZUWT/OF8uwU4sDBxJmv5cqfhRHjdCf2NdIpTp+8TQA/DHqYC59+QNKo9fsSTtp
-         FfzENutbat9EdcFwNTq912YpYa3h9RnzFyoGv5RqTC9eMIDyMIfDCBNbL36IJq0LwFe/
-         2Ocr7EUY0IRE7JB7E9aC+2Q9SbQaUEm4OlGaWS/+/9JOMDRW0/AwftSTFuudV/KKzF4f
-         3ucP22vrJArv+rh3wb6gNWG9jK/MU6RmoASsVSJW9LdT8lPRDxXgwkb8LAcP59uF/QgD
-         c+Yg==
-X-Gm-Message-State: AOJu0Yy7bzw+pf7zieljyXrz8wjsG0MEfWXyCTJ/MyNrQwoIaaV0eLYt
-	fZgaV/GV8dMGbeMqmxjgHbIwT51LDjWJM06RzeB1JpDbUr28qpj2
-X-Google-Smtp-Source: AGHT+IEQiy/xrKWaVqAIUMeAVSlB84ZE8bBKTViAbSYn9QvjbVrK0iE88B1fokuihlvyMJ2UBAPz3w==
-X-Received: by 2002:a17:90a:7e91:b0:2e2:daab:cc69 with SMTP id 98e67ed59e1d1-2e76b5dbaf9mr3946085a91.12.1729711620181;
-        Wed, 23 Oct 2024 12:27:00 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:248:317f:2ba9:e66c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e76e0877a6sm1837839a91.54.2024.10.23.12.26.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 12:26:59 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH 3/3] ARM: dts: imx7ulp: Remove incorrect mmc fallback compatible
-Date: Wed, 23 Oct 2024 16:26:38 -0300
-Message-Id: <20241023192638.1214045-3-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241023192638.1214045-1-festevam@gmail.com>
-References: <20241023192638.1214045-1-festevam@gmail.com>
+	Wed, 23 Oct 2024 19:28:50 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51D29CFB625;
+	Wed, 23 Oct 2024 21:28:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=typeblog.net;
+	s=mailcow; t=1729711726;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=RFgD/PA6YCmmlcKT63VAf3BqQtGq/9YYTOqYLD13kKs=;
+	b=WTSpmHeHFoorJSU5dDnO4UKeYbz9QIFRiTGe32I7QJxlaTMH3dqAWSWCcGS7yMNUS/aesy
+	V7fXYhJ2unN0UILIgstBlJaPvXFbF/2SsQX3zpb27NV1d545LXdAEvfWYG5N2ZV6CQ15zh
+	t6C6DP8MAhA31hcH/BzXj4JNc2Q3JkYm/J/dzCSo3BQcbMAypfzp5C+P1OkUx6r5cjPeT2
+	gtyIWW3G2nW6411D0X7f7wT9ehdOKHaUcVCqcSoJvU1Pwd6n9ZFj1G7iPdg3kfg0KcIVO+
+	w6ihoFf+W+phMSBpbpVmlNrz0OJAiwermEEJEWdN3tCHYvoymOAyVTVkJ4it/A==
+Message-ID: <80c25e27-0d90-428d-b206-6252d411daaa@typeblog.net>
+Date: Wed, 23 Oct 2024 15:28:35 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Tor Vic <torvic9@mailbox.org>, Kexy Biscuit <kexybiscuit@aosc.io>,
+ jeffbai@aosc.io, gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+ aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+ <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+ <e25fb178-39fa-4b75-bdc8-a2ec5a7a1bf6@typeblog.net>
+ <CAHk-=wjw0i-95S_3Wgk+rGu0TUs8r1jVyBv0L8qfsz+TJR8XTQ@mail.gmail.com>
+Content-Language: en-US
+From: Peter Cai <peter@typeblog.net>
+In-Reply-To: <CAHk-=wjw0i-95S_3Wgk+rGu0TUs8r1jVyBv0L8qfsz+TJR8XTQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_122701_696366_9120595E 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20241023_122849_664030_E386D424 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +92,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+> I'm also not going to start discussing legal issues with random
+> internet people who I seriously suspect are paid actors and/or have
+> been riled up by them.
+> 
+>                Linus
 
-Per fsl-imx-esdhc.yaml, the correct compatible string for i.MX7ULP is:
+This has never been a legal discussion, but a procedural transparency 
+discussion. You could simply say "our lawyer didn't ok this", and that's 
+perfectly fine. No one is going to argue against that.
 
-compatible = "fsl,imx7ulp-usdhc"
+Your action up until now is also exactly what a hypothetical paid actor 
+would have wanted to see happening -- it's not helping **understanding** 
+but rather only extending argument on what would have been a quick response.
 
-Remove the undocumented "fsl,imx6sx-usdhc" fallback compatible.
+Calling everyone "paid actors" don't help. If you have more than 1 
+minute to waste, I am under my most regularly-used internet handle to 
+respond to you. So has the person who sent the original "revert" patch.
 
-This fixes the following dt-schema warnings:
+Running a quick grep on the other mailing lists and their commits may 
+also have helped answer that.
 
-mmc@2198000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too long
-	['fsl,imx6sl-usdhc', 'fsl,imx6q-usdhc'] is too short
-	'fsl,imx50-esdhc' was expected
-	...
-
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-index b093f2a447ae..3c6ef7bfba60 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-@@ -218,7 +218,7 @@ usbphy1: usb-phy@40350000 {
- 		};
- 
- 		usdhc0: mmc@40370000 {
--			compatible = "fsl,imx7ulp-usdhc", "fsl,imx6sx-usdhc";
-+			compatible = "fsl,imx7ulp-usdhc";
- 			reg = <0x40370000 0x10000>;
- 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&scg1 IMX7ULP_CLK_NIC1_BUS_DIV>,
-@@ -232,7 +232,7 @@ usdhc0: mmc@40370000 {
- 		};
- 
- 		usdhc1: mmc@40380000 {
--			compatible = "fsl,imx7ulp-usdhc", "fsl,imx6sx-usdhc";
-+			compatible = "fsl,imx7ulp-usdhc";
- 			reg = <0x40380000 0x10000>;
- 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&scg1 IMX7ULP_CLK_NIC1_BUS_DIV>,
--- 
-2.34.1
+Thanks,
+Peter.
 
 
