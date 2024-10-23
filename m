@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B4CD2E021
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D522CD2E01E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqOYTjr4HjHtIjCwLKqxDQ8NxDpN6O4ML9VmLPSdjZ4=; b=uhGeCcJx1b5+befBQ/xmWp+8fC
-	QQuAbv5FhDp/bmS2lRlt3oCkw4so8YnbxsCvsUxhs+yOhiDmqFzjcA68EovyFfo/VXNhCV5gCvR6w
-	l672X+K+udXWYI4CEwJ86OarWekSnYcVYCrNv8T+ZWpc8iYuHbpT7awlAHYpYVExZQYc/vtPUq1i5
-	DbDfNA/jiwQtLI9ObCBvV+TNyHPb1Y0ZY7IzbN4QvIA2uZJ3g+bfVgPj49W76aMa8H1lQuZnglWHh
-	eIck+kiS2p8glX1zJnkRNceT2L6IZE2s3X59XUsopniVqcW9akjRBeYDpP1CHIUJ7sVNY+RVCPyM2
-	LXa/WWfQ==;
+	bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=nDzRRq0kvVjIG2uv49tZ1uPcXs
+	e5sc1NHYASi6mipQt002ZPMOGGoYGCrZgZS7/c4eh1fv3/TccOEsZHQkI8KM1TXQFC1HN2bG0fYGB
+	G81Q+hCiJadWszCHW1lbp70AL/gFOVLgyfCceif7nG9n1cTK3e1fzeBOFNSmBK8LzLeP28jg7r2Ih
+	st+enodySqauUjodeeJNPVS7Ewm8uVvsNnmpOYxHftcgZqsekvbqFn+fQwRdbHQWAxHnjlqNpi3PS
+	69ti7qDzglN4AQImtBO8z1izRVCxLxAakkCGXwMgu0uCk2yv9pyJpaOHlm+aK5wtql5ol4FzO2Cz2
+	eZ9Equhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WRo-0000000DVVn-0EH2;
-	Wed, 23 Oct 2024 08:10:28 +0000
+	id 1t3WTK-0000000DVo9-0xSp;
+	Wed, 23 Oct 2024 08:12:02 +0000
 Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WHh-0000000DTmu-0aua
+	id 1t3WHl-0000000DToY-3Wl4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:00:02 +0000
-Received: from phl-compute-08.internal (phl-compute-08.phl.internal [10.202.2.48])
-	by mailfout.phl.internal (Postfix) with ESMTP id 86398138049A;
-	Wed, 23 Oct 2024 04:00:00 -0400 (EDT)
+	Wed, 23 Oct 2024 08:00:08 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 3A24C13804F2;
+	Wed, 23 Oct 2024 04:00:05 -0400 (EDT)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-08.internal (MEProxy); Wed, 23 Oct 2024 04:00:00 -0400
+  by phl-compute-10.internal (MEProxy); Wed, 23 Oct 2024 04:00:05 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1729670400; x=
-	1729756800; bh=UqOYTjr4HjHtIjCwLKqxDQ8NxDpN6O4ML9VmLPSdjZ4=; b=h
-	o4ni9E7abGvPTFVEvkWNzhua1EK9tXZiluxNrJ30F/H+jUvWqvx1DYGb9+hyrcOX
-	yTIhYc0KJSxd6bsJYrKYvB12bPcBa0pWVt2RStnsPOgC2gaMBAnOO81gtGu4LPFp
-	aC9ISuUDPyVJ9Q9T1RFkbS5uSG4Yc5U8zLTvOea7uHgqaUAGDTRqkTMw/PWbdepg
-	XA6EwJ1O1E18RN/pla3t3teo3TQRrRov4Z3R5j6WQZHpyEW2QrN9nwEQxMOcLIDd
-	1lpO0DcQaxyQYdB0p0xV6SUk7onXQ1NMaoyOhJpoH765l3qpg6LMf4LJz+DcsjCk
-	2GXwKGhGMWI11qY07dbtg==
+	:reply-to:subject:subject:to:to; s=fm3; t=1729670405; x=
+	1729756805; bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=b
+	BJFZsjh+vk09gud9e3aFsT72wAPq9FpTnEjtwI/gHwus1fq+hm/y5yT+MAgWntJ5
+	xbBN1chTvbRfgGQHdDJBQK10FDeE4rza/r4ZZuPrfX0FMaZupTY/4zcMlA75KTBp
+	iuZE+9aJ3gBFwlGUEfOO8tvJeXZj1AXKSmpcnNBdb1+CcZZRqdw4OdZrm/ma89+r
+	ns8r+FfeuIkS1M5OGIwMAueGHoYkr9i7EBtZOUJFGyd1HRhaQTATO4lypwREbSDR
+	iGwe8gJ7PGUgpnsmd5RRHFegRAAJW1/MJYRApJZ1d9coqyVPqjQC74qhm/UrD9aj
+	zyUvDVW/zigqqWjGIyjhA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729670400; x=
-	1729756800; bh=UqOYTjr4HjHtIjCwLKqxDQ8NxDpN6O4ML9VmLPSdjZ4=; b=F
-	gkGYGPwtoePoNQyWEH8UH3ZMD73zDePRsw1RBbIjScomxrB+yU3vB7Q2Mp8eUw8z
-	FeHL1ImvzUclBscmOy7VNqHnWwnxgeCKvuEeLNTImelYzFovbPKYl+JRINXujls8
-	f3ivAVL/hcU1o9Nww9uji8hvhPwkwhUfkmIaKhEwEKw23z3iXgUH0yAssVkGblKm
-	4IwL37HdYculcDc0KREEA5NF1JGBzaG9Xea/SLj+ukaMsljD5mlxKDiS/ocfiFSF
-	ZOoo/apOq1AMVAIHQpMGX5onLni5fkcun6MwHpNn5a8an5CorPPXQm/MXyvKawyh
-	VfJFYdHCJQjf5Cmajp17g==
-X-ME-Sender: <xms:AK0YZwXyz1xOb_uDX8iidVYxdCoXoku4-8ujfATVDe-YfZ4nyjKupw>
-    <xme:AK0YZ0mmjBKbBGu4o0feDR7fjzF5Rdh34fFnUxJ1swDktKrUwRP6tkD584dd9thiE
-    CBUOXWKpECxym_D2w>
-X-ME-Received: <xmr:AK0YZ0a79NM-8XD4rkmwN1sHJxANBWrX5UIOqN-bveJxtD9jFr8TqXWCsEuYVzB-gKoUjzJREc-hCJ6QiPsKBsssRYx6U-vb1cQrHqDOqGNvF5yR>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddvhecutefuodetggdotefrod
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729670405; x=
+	1729756805; bh=8QXVw6Z7+G67UnBf1aFM75MSoCxRUB1S0GY88oZNAaM=; b=j
+	dTaobCinfIGIxBi7kKCqA8792T8+nuHNoD0y7HNYD8eFZen1ekrRB20fuTbC+IZk
+	pfGrgLZQKmzhyP9nUVgJdPEyb3WPCnkTVCufedEpeCqy+S006l1BnuYXQneIhZTx
+	ZW6Ac+a5aMO7qVs9alo207hWQf4biJd8BLl36FzycXDzRACN2+tCguC63Nj0LPpx
+	qzynUxwn7kAUCLIUy9U0pbHySptsndKjdQPXJpHik1zL9cAGCuhYbFq0GrBUvHF0
+	srs+9USlEFLhDsrFP3F7g7TUs2VkpsWZU8R1ONf2bdOAX+aX7M4my9YJxQ+Cx355
+	q57EFv9P/7t7tvaklMcpg==
+X-ME-Sender: <xms:Ba0YZ0zMTA66g5lpi36OMADZ5xpa7qaSstx2UpQyX763uPSCv_x9wg>
+    <xme:Ba0YZ4RgRZxcu3IzAPWVO5cBUVsFs2MSHSX8qmqhLjOlkKXx-rKudU9bsRwAS8yHU
+    y0K-E8gBgfQPHha7w>
+X-ME-Received: <xmr:Ba0YZ2UIUUfs7k3l2X-JqBZGbwPUmkWtfAPp-b6UtGGc5Dq6sHNLCuJqUI9eq6_Vao8DpuSZEzTn6yh9MeJXlk_2sW7m3EXJQXW3J0RRnwo-W8ch>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddviecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
     hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
@@ -68,7 +68,7 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddvhecutefuodetgg
     drtghomheqnecuggftrfgrthhtvghrnhepffehieffgedtgfffjeetveegfeekleeileek
     veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
     hmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgt
-    phhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhgihhrugifoh
+    phhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhgihhrugifoh
     hougesghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdr
     ohhrghdprhgtphhtthhopehpvghrvgigsehpvghrvgigrdgtiidprhgtphhtthhopehtih
     ifrghisehsuhhsvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhr
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeiiedguddvhecutefuodetgg
     htohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehmrggtrhho
     rghlphhhrgekvdesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnshdrphhhih
     hlihhpphgvsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:AK0YZ_UM4LzqW7_9kA71RfbBgucX31GsdvTFxaWP1r1W-krby2UoYg>
-    <xmx:AK0YZ6lmKVvgwSBQ7VmxusQOxxYrgRueccWCX7TdnGgyG4SwA1x5yw>
-    <xmx:AK0YZ0coj7WyjVvUXmJ-TczL-Bd7ypBmZOAadofqRbUtVIc5943KoA>
-    <xmx:AK0YZ8GBNRIslX7m3q1ooYo9VoE8oq1yJQuLIq2RCHuPV9pUCihHTg>
-    <xmx:AK0YZ00H3XHVQhUEEppmsp9JUq_0SzgEn2Amj3rPfDLkirvAp2ZdEIes>
+X-ME-Proxy: <xmx:Ba0YZyi9CsOO6Z4ZuqJSt9624-jcarpBPc4PnswN4dzszI42U_2thw>
+    <xmx:Ba0YZ2A-qP67GNn2ZcqFW8EAtfsPmXt9vWpZfTEHdfehIFoiIxrDXA>
+    <xmx:Ba0YZzJrE9f8rny9Mlp8p5ZCUl_qdwIsg948raJ1r1tgnCzJzdQXQA>
+    <xmx:Ba0YZ9AhSaaFK2uz8430TyL2yA52s6E-N5z8UHBf7OSqcY2MCsogWQ>
+    <xmx:Ba0YZ8TXfNCjRjjeU-iBCNtsXSj86jPBbf1KAmpcpR_quc1Mp7mxiwpE>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Oct 2024 03:59:55 -0400 (EDT)
+ 23 Oct 2024 04:00:00 -0400 (EDT)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -99,19 +99,18 @@ Cc: linux-sound@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v3 6/7] arm64: dts: allwinner: h616: Add audio codec node
-Date: Wed, 23 Oct 2024 20:57:02 +1300
-Message-ID: <20241023075917.186835-7-ryan@testtoast.com>
+	Ryan Walklin <ryan@testtoast.com>
+Subject: [PATCH v3 7/7] arm64: dts: allwinner: h313/h616/h618/h700: Enable audio codec for all supported boards
+Date: Wed, 23 Oct 2024 20:57:03 +1300
+Message-ID: <20241023075917.186835-8-ryan@testtoast.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
 References: <20241023075917.186835-1-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_010001_342525_85D62D70 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20241023_010006_063743_22ABFCDE 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,86 +125,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the sun4i codec driver supports the H616, add a node in the
-device tree for it (correcting the spdif block location at the same
-time).
+Now that the H616 (and variants) audio codec is supported, enable it for
+boards with a mainline DTS. The Tanix TX1, Transpeed 8K618-T and X-96
+Mate have all been tested with the onboard 3.5mm audio jack and the
+Orange Pi Zero 3 with a 3.5mm jack connected to the audio header.
+
+The RG35XX (2024, -H, -Plus and -SP variants) are also tested working
+but have a separate mux and GPIO-controlled (PI5) power amplifier to
+support both a headphone jack and onboard speakers.
+
+The headphone jack has a GPIO for jack detection, but this is not
+currently supported by the driver, so audio is heard both via the
+headphone jack and speakers when the speaker amp is powered (by the
+CLDO1 regulator, defined as always-on until proper jack detection is
+implemented).
+
+Define the audio codec and routing for all supported H616 and variant
+boards, and power and speaker amp enablement where present on boards and
+known.
 
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
+Tested-by: Philippe Simons <simons.philippe@gmail.com>
 ---
 Changelog v1..v2:
-- Remove 4x clock from the codec block, this is not used in the driver and does not require a reference.
-- Move the codec (and spdif) blocks below the lradc block so that they are in address-order.
-
-Changelog v2..v3:
-- Remove leading zero from codec address to match other node addressses.
+- Add codec enablement all supported boards.
 ---
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 44 ++++++++++++-------
- 1 file changed, 29 insertions(+), 15 deletions(-)
+ .../boot/dts/allwinner/sun50i-h313-tanix-tx1.dts    |  5 +++++
+ .../dts/allwinner/sun50i-h616-orangepi-zero.dtsi    |  5 +++++
+ .../boot/dts/allwinner/sun50i-h616-x96-mate.dts     |  5 +++++
+ .../dts/allwinner/sun50i-h618-orangepi-zero2w.dts   |  5 +++++
+ .../dts/allwinner/sun50i-h618-transpeed-8k618-t.dts |  5 +++++
+ .../allwinner/sun50i-h700-anbernic-rg35xx-2024.dts  | 13 +++++++++++--
+ 6 files changed, 36 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index 0131f9b3132b8..87cde36445cbf 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -762,21 +762,6 @@ mdio0: mdio {
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
+index bb2cde59bd033..bafd3e803106b 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
+@@ -65,6 +65,11 @@ reg_vcc5v: vcc5v {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_dcdc2>;
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+index fc7315b944065..19c5cf75f3f7d 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+@@ -59,6 +59,11 @@ reg_usb1_vbus: regulator-usb1-vbus {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
+ &ehci1 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
+index 26d25b5b59e0f..6dfe4eab91f6a 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
+@@ -33,6 +33,11 @@ reg_vcc5v: vcc5v {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_dcdca>;
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+index 6a4f0da972330..a0fe7a9afb77c 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+@@ -54,6 +54,11 @@ reg_vcc3v3: vcc3v3 {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_dcdc2>;
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
+index d6631bfe629fa..59ee2b253ea4b 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
+@@ -52,6 +52,11 @@ wifi_pwrseq: pwrseq {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_dcdc2>;
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+index 899ae3be5683c..89de86b442155 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+@@ -237,6 +237,12 @@ panel_in_rgb: endpoint {
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	allwinner,pa-gpios = <&pio 8 5 GPIO_ACTIVE_HIGH>; // PI5
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_dcdc1>;
+ };
+@@ -352,7 +358,7 @@ reg_aldo3: aldo3 {
+ 			reg_aldo4: aldo4 {
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+-				regulator-name = "vcc-pg";
++				regulator-name = "avcc";
  			};
- 		};
  
--		spdif: spdif@5093000 {
--			compatible = "allwinner,sun50i-h616-spdif";
--			reg = <0x05093000 0x400>;
--			interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&ccu CLK_BUS_SPDIF>, <&ccu CLK_SPDIF>;
--			clock-names = "apb", "spdif";
--			resets = <&ccu RST_BUS_SPDIF>;
--			dmas = <&dma 2>;
--			dma-names = "tx";
--			pinctrl-names = "default";
--			pinctrl-0 = <&spdif_tx_pin>;
--			#sound-dai-cells = <0>;
--			status = "disabled";
--		};
--
- 		gpadc: adc@5070000 {
- 			compatible = "allwinner,sun50i-h616-gpadc",
- 				     "allwinner,sun20i-d1-gpadc";
-@@ -811,6 +796,35 @@ lradc: lradc@5070800 {
- 			status = "disabled";
- 		};
+ 			reg_bldo1: bldo1 {
+@@ -375,7 +381,10 @@ reg_bldo4: bldo4 {
+ 			};
  
-+		spdif: spdif@5093000 {
-+			compatible = "allwinner,sun50i-h616-spdif";
-+			reg = <0x05093000 0x400>;
-+			interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPDIF>, <&ccu CLK_SPDIF>;
-+			clock-names = "apb", "spdif";
-+			resets = <&ccu RST_BUS_SPDIF>;
-+			dmas = <&dma 2>;
-+			dma-names = "tx";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&spdif_tx_pin>;
-+			#sound-dai-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		codec: codec@5096000 {
-+			#sound-dai-cells = <0>;
-+			compatible = "allwinner,sun50i-h616-codec";
-+			reg = <0x05096000 0x31c>;
-+			interrupts = <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_AUDIO_CODEC>,
-+				 <&ccu CLK_AUDIO_CODEC_1X>;
-+			clock-names = "apb", "codec";
-+			resets = <&ccu RST_BUS_AUDIO_CODEC>;
-+			dmas = <&dma 6>;
-+			dma-names = "tx";
-+			status = "disabled";
-+		};
-+
- 		usbotg: usb@5100000 {
- 			compatible = "allwinner,sun50i-h616-musb",
- 				     "allwinner,sun8i-h3-musb";
+ 			reg_cldo1: cldo1 {
+-				/* 3.3v - audio codec - not yet implemented */
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-spkr-amp";
+ 			};
+ 
+ 			reg_cldo2: cldo2 {
 -- 
 2.47.0
 
