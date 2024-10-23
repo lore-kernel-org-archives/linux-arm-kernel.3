@@ -4,76 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7F4D2E031
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71E5D2E033
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 09:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LKQibn8A/Kbr7PK5vWjRMEeinVr3jKgKgEFBSe99U/8=; b=nRqnjSMeau/T2jkYCk78Xmpt2i
-	VjdIXTdp2TlXXO22Knh2458nk81P0TkFrQeFjbXsqaKMyNzJ289bxhNK4hgljfY2M81ND9p5xuJt3
-	hBrhEnttWN6gk6nvPX33aUGVieXvwEz6nto+4/KHvl95dO2zVODMQ003efpKJACOVG6yzrhcFXA/e
-	VD7xEXbqt2+HICg+O24YhRBHD1MJXP9MmV66zG/0Zn4d0LUidaFBAoRImO37JFoc/YCmLBUO68K+n
-	T0pf++UAhiSL/i2zAvkFOxcqAY05hN1cNEYdb2MGxbQzsZz1b7e9T7G9p8PrEEMslU3kSPCy5O/9D
-	exfDXtNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gZH+rif0kKRsM34iFZf3VnAhz4oLAlC2r6iRuaqw6Ns=; b=1rRzg8RO9n0paYyAjsZUcTQqhf
+	TG6fgEXYqrDnIeKlnaQGkdO1Apw+lNmCHwIj7AAjGw5XcZeim4CX+ghRh2FtlZQa6BNgMORMKYM+x
+	nbbptY4a9C1HizPJBKYch8vCOjzilV3awM5EIJ5vMrl6N8nVpk8gN/EVoqy3Cdm4hWJCkXZWOUKTs
+	G7wOizwsSaqrUu4LbtH+smbRBL1km7Tb3EhXwRRy698RRXP/axZJjsnJyl3qZbOwhFr2z12gYAFfL
+	TjdLhizYcPkrNCcgscFw0h+1cH3+MgVCER0HnfXbpMOxaC99SmiwNJpw1N+7BC2KLNcHSeG9srytJ
+	YmWLmyqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3Xn5-0000000DpEL-2sTb;
-	Wed, 23 Oct 2024 09:36:31 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1t3XoZ-0000000DpSA-39km;
+	Wed, 23 Oct 2024 09:38:04 +0000
+Received: from mail-bmxind01on20720.outbound.protection.outlook.com ([2a01:111:f403:2021::720] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3XPp-0000000DjYW-0kbm
+	id 1t3XQj-0000000DjoI-43qj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 09:12:30 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CL0M097005;
-	Wed, 23 Oct 2024 04:12:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729674741;
-	bh=LKQibn8A/Kbr7PK5vWjRMEeinVr3jKgKgEFBSe99U/8=;
-	h=From:To:CC:Subject:Date;
-	b=P/rkZNKtba6Kr6JVbLHB8vubv9MD8ilKaV5PGgeeDo+/hE5qbrXvHFaDobg2d1LaT
-	 ege7xG3O3ILieCIoW90lpvuKTbgBCMlkHfoe16lEN44SCaTFDUJxPJsETe9NDj3+ys
-	 8ENAJjapQ0nil3bvYecPv/zA84q/wrPCuDEBZs2I=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CLD8114316;
-	Wed, 23 Oct 2024 04:12:21 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Oct 2024 04:12:20 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Oct 2024 04:12:20 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49N9CKJq045456;
-	Wed, 23 Oct 2024 04:12:20 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 49N9CJ0d004526;
-	Wed, 23 Oct 2024 04:12:20 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <vigneshr@ti.com>, <horms@kernel.org>, <m-malladi@ti.com>,
-        <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net] net: ti: iccsg-prueth: Fix 1 PPS sync
-Date: Wed, 23 Oct 2024 14:42:13 +0530
-Message-ID: <20241023091213.593351-1-m-malladi@ti.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	Wed, 23 Oct 2024 09:13:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MZ64wUCj3MmQxlcMMmhM9pXI7+X1k5ZrZahG9HD+Gynne0KCVxf0CnEwBlRxvUy5ewuJ18Md8KZ4SmYSGSHOsfibjpMYOCk6kei7pYHRfBBtxaq5Nf5VrrtUA+TSGH/eE0We1CR7Emn3NWUQ5nCT3M78TiqJ18v88mocHh07QY0QhEsKV1DH0JHQvhjq49xD2/1hXisEDA1g+TmCMTc+L1EdDsWIWFdNSqUcmizChE9ZAyt6jOFG4Z8veBbE1+FvNG4XRqMDIZopphQ0RwE3zzI61Jbk2GoiRVj80rJBphaiahTF9fhOUkuaQLI2g1ZPGXO/VmIc1lTp3ZI/QEU8sA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gZH+rif0kKRsM34iFZf3VnAhz4oLAlC2r6iRuaqw6Ns=;
+ b=DTzUuMVVDikd98Pf6TfuxM+sZ9qn/ZtV9suTLUm+ii059qaeHF6J9q/kFDTqm54ITEXbwJvUmQ+aAJSZaJY2YK2oRzaKZb9KL1Y6fn3pjTWth5/QSfhQYgI6Sbq/qzKvSocgUMDZY9TZfNtEyEorrglEdjmfFw81PpymvnJ0/K9RJv+U70NGeRpU40cEAyymB27vhn5Vuri/Ln7Z/bHvjkM7D+xO1wtlgPG1qHCyS4yT+QPabZ1QIgBW/+6TH8VVDZBJSpbPTg6KMkIG4gMxabU0zv8gUbAlNSm+IKEGL/rNoE0WN84L89p+JeKvVCt4O6IBJlDIbQjGz7pgiM5iRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+Received: from PN3P287MB1171.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1a1::5)
+ by PN2PPFDCD372071.INDP287.PROD.OUTLOOK.COM (2603:1096:c04:1::153) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Wed, 23 Oct
+ 2024 09:13:03 +0000
+Received: from PN3P287MB1171.INDP287.PROD.OUTLOOK.COM
+ ([fe80::12a8:c951:3e4b:5a8a]) by PN3P287MB1171.INDP287.PROD.OUTLOOK.COM
+ ([fe80::12a8:c951:3e4b:5a8a%4]) with mapi id 15.20.8069.027; Wed, 23 Oct 2024
+ 09:13:03 +0000
+From: Bhavin Sharma <bhavin.sharma@siliconsignals.io>
+To: shawnguo@kernel.org
+Cc: Bhavin Sharma <bhavin.sharma@siliconsignals.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Joao Paulo Goncalves <joao.goncalves@toradex.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Mathieu Othacehe <m.othacehe@gmail.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Gregor Herburger <gregor.herburger@ew.tq-group.com>,
+	Parthiban Nallathambi <parthiban@linumiz.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/2] Add support Boundary Device Nitrogen8MP Universal SMARC Carrier Board 
+Date: Wed, 23 Oct 2024 14:41:13 +0530
+Message-ID: <20241023091231.10050-1-bhavin.sharma@siliconsignals.io>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ClientProxiedBy: PN2PEPF000001B4.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c04::6) To PN3P287MB1171.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:1a1::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN3P287MB1171:EE_|PN2PPFDCD372071:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2fd8d60-faab-4024-118f-08dcf342e608
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jm7KRZFYtyBFw9n1JQGjDUiggz8cQVdLUc8PxrjR4wFOx4Cft1EXTDNt0nUz?=
+ =?us-ascii?Q?o/G1t7NmwwJFNPo8FbWF+qmAPkIG7T0l3w9gHUkc/coYlyJ/fXcUThWn0uYX?=
+ =?us-ascii?Q?iJBT4duXTb3N1Fx2gXznaCcJ1vU5VOhF+TvixiS0aveVHjlzMdwYS6ouaKPo?=
+ =?us-ascii?Q?Bczi1VkT53z4R+490jpviFNFBZqRrN1dI/MIOnbfqYYjhGd2ixfXa/egBsKn?=
+ =?us-ascii?Q?FlFLDIG31BOxlJ2oxVrbPybblhilbH7S14qJUoKMZdQ7ph/bCdj7MHOWCVUF?=
+ =?us-ascii?Q?WID8JPomctNyIFVninEp2n9lSnlWCohha5hcbLAfov6x1fY3Y9s8AJZdMkza?=
+ =?us-ascii?Q?g2mT53VFMMDFzaZbOnugjZJ3oNGGmhHqAGjFe9XjMfp4rJDdiYCOGHhVW+Yi?=
+ =?us-ascii?Q?xNpsU+vWfOcniHQAIR0hFSz9b9rRY4j0arDbhd9Taa+KFcZK+sEmr7dKVTAb?=
+ =?us-ascii?Q?si4O6wE1hB9iZBRcBGih7hcpQBy3gPiM17YAIbAXxEdQXAYcgFOQzl4Z2Cop?=
+ =?us-ascii?Q?eIGh1XiyVYiORBRrSjsL70AFF/DSg3fQX/HUMwSRXJmrxhHl+lXJ8bGSjCvr?=
+ =?us-ascii?Q?7XOpgTmMcORomDXDJ6/7daxnl/0DruuLboIBPc7g1YKXH6iQAUVF+3uXnpEo?=
+ =?us-ascii?Q?NSWkw1DYrsffQMK7OgUcnu9otUTy8574HPNHBQmyYCHxMwZPtVAzgDO8i24c?=
+ =?us-ascii?Q?QbPoVqlAYsuf1Otp61iKyf9By4s0AawSr+89VvHzVAWSZupy6quIozfW8Y8y?=
+ =?us-ascii?Q?6mPsyfixVdwfxzfXASC/aTcRCGe+s44UP9v4XwmkEcy6Qk3ko9oHS33gp6EX?=
+ =?us-ascii?Q?W5Xh6P5SLFVpQOkFmZf/co7+/Ahvl75rahN8d/0ndOGPBEQnAZ/nya85SeXN?=
+ =?us-ascii?Q?wTSamTAQGbmTQmspCYEAsqGS34JXziFLedE/ofUhJHfHFy0VpMuzLInZlJUj?=
+ =?us-ascii?Q?XbIyA7uPL5OmxEmZlC51r6eGvskMVyNc6hB+Nk/Zes4SUoP+lqZ1qUV4IpsY?=
+ =?us-ascii?Q?lIeewBOVXz0pjhwhpzurDC7BUHLgAQUtQu0Xgbm+9xjHswLx36Cqb12mrOKt?=
+ =?us-ascii?Q?O6BcjWQxiCbyP4SwfOi5t5iUxdSTNdcLi/c/cf8dltw9aMD2yJTGL3lev0GD?=
+ =?us-ascii?Q?wN4CByd51Uc5zRMGySZnaH1hdti2pQZgUQzUT+QE0wlMoHrNrXjLDXkzVQbl?=
+ =?us-ascii?Q?tk70YtS1B8ICbb59YqpRypTav8dZQfn7IJ3NRRrdZyiY6+j7x/f2PdGvMAwI?=
+ =?us-ascii?Q?Y3nedv0lxnT3WCbSaaSW6V3WvizKL1dHUULOpS0J8oQ3s7+WTHUA/55hLm/Q?=
+ =?us-ascii?Q?TojjRtjhjxknZi6EaREPzUC/ptRLgTNIuuiYNPgGT8srHmbS1HD9j9hoPeFf?=
+ =?us-ascii?Q?uq9dT2g=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1171.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ca05jao7i0NPfT1xQU5sOtHtWx8yO4hJd01IG7GeT1P1uLOpo2kCEGOm9Fts?=
+ =?us-ascii?Q?fIT19NvyPa4ZNeQGXgoF5PJ9Kmn7d2Nerk7RJXzmrbkgqoAO8zb0S3k+lExU?=
+ =?us-ascii?Q?76AvYDjDOPktNxw94wtSVsORiIAyAT9l8lJ8bEaQMOx0u8/Frtll5q4DZ/F+?=
+ =?us-ascii?Q?Q8Ne1zeH5NaeGrA8+eRgaZnUudWxMffhklmkmjCIht6Jw8FOVx+48dqjat5+?=
+ =?us-ascii?Q?OtEBnE5d8ljZPHUfbVMo7Ae81VzwbR7hysSQ9PxXNrAOTox4zpG+7BWpafE/?=
+ =?us-ascii?Q?wJ4PgHHvdA6W5mPgbe7OEmlhNRDt4Hof/PI3A043QNXeKYCVep3r7a1Wj9Cv?=
+ =?us-ascii?Q?0MnjaGDYsy6smEQDOno5Ye6phfkxZGz0AQAAkJYrxHq1MBiaZ+Xstxr9OHYR?=
+ =?us-ascii?Q?WbGNJXwbv9NfwOwm4y5KRrCuH1ViWzMz770draCEQiKVj6jiDYGauVCoskuH?=
+ =?us-ascii?Q?098lm9/P+lyZulQ2afcjkMX2c4mV3nUxco2S/ceS2jwF59yKV5L6SRcYNtbw?=
+ =?us-ascii?Q?AN9VtUsMBQfbDgT1WVe2USYGUg4zbvcOpNEuUDyXcjPN895BTtmqVBTIG+X4?=
+ =?us-ascii?Q?N4L+NUrM2n4BrPh4vPJGuT38OYs2GjklBsRPBprmzyZqic2UnLo0puT5HWwZ?=
+ =?us-ascii?Q?EMvSPTTXSUubAsNmMjVYPEeuw2hNKtTrc2U3zDhrSJ92xfSVrQsJPRcfSLvS?=
+ =?us-ascii?Q?0RpMszW0oUx60gGv4utZWsd3+6kORVIeCQhPVesQzHHVT8Ebs53TS7OUEwJF?=
+ =?us-ascii?Q?P7jROsQaM1fjtD4gGfbi3F89FNU3bbhcedj0S0B2QG2Pv48UFefsyQFTCFR4?=
+ =?us-ascii?Q?3AwbVeBGa+A8qaaZ0Duv2pFXoFVaWVKNG1OCklwUavGE0sdk289A/dtHFfy/?=
+ =?us-ascii?Q?rpkPmxFRzZymnEbJSZlSqsf7oYCXlfHeSnpHxR3AUXAGXhPuXsWSFT3CAVZp?=
+ =?us-ascii?Q?/fcDNOvF6P5Z8FBTYU5piU1mL9PfD5b0WTj4m5TnLmisDUyVP4t3K6DiH/j8?=
+ =?us-ascii?Q?Fhpm8mqs9YYgPLTXusTt86446q3hHP2gezwPvSDMKgcW3+wnzCp4miWLWHY+?=
+ =?us-ascii?Q?JMZX+EPcYtylwQdBlCvQCBLQG6ScLp5c3IdEtpN0Kw81oFvnr5+M2rcmsrz6?=
+ =?us-ascii?Q?W8XDLvsFF4VWioOAIzZiOQrxpf/c6ICIUmrbCPADng1Awzg8YsZ/dmBsNOuy?=
+ =?us-ascii?Q?V1M/ByCvSimutonPM1B1eBkHo6OfvrmosxH3TLaTSD/EHQox3QgNFwaqGKI1?=
+ =?us-ascii?Q?BRqfZEBnTS71qy0pWzSrOXCfDEh2XpcHt/vwvEv7Vrgot2BfDXJTVvLmEGe4?=
+ =?us-ascii?Q?A5hy4cIDvlUDlD0Si6HRqyPDYPmfmtn7uykYpUVi9QQ6VFg6c0VpjEl6Hz9k?=
+ =?us-ascii?Q?2Fnnnd/li7ZpB0p55zXkgVAisdqqZN5UHlkZtRv1PIfrQEpGQZu+QnHgEPt7?=
+ =?us-ascii?Q?4p8a2XEQJej9g85rMFN+JTJ1+RT6RFlI/fhdrVzEmeshhgFdT6iR7DkTYSO7?=
+ =?us-ascii?Q?TY0vgKiTpqSKF/simhuZNe7L+GIc296yEPTW6EdKSM+qDANiYS9mjVMRS+0R?=
+ =?us-ascii?Q?ys2z7aFYzMPtexkq03XozUmcwQM1/KgKcymCB9wobpgWFxxCv75whAgDA/z1?=
+ =?us-ascii?Q?en/jyNogffkctOam+B7JHLM=3D?=
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2fd8d60-faab-4024-118f-08dcf342e608
+X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1171.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2024 09:13:03.3362
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CwfwB2icZgOXA3AzrM5zJf4KIUVHJGeAOUdEf1vBRMc994jvSkt+mL4lwNOUHEumQRg6YGs3ZofAIuwK8XokIjVqMm5nR4KlirHmU/tqWSg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2PPFDCD372071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_021229_341856_E0D632F2 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20241023_021326_015442_10DB4243 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +170,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first PPS latch time needs to be calculated by the driver
-(in rounded off seconds) and configured as the start time
-offset for the cycle. After synchronizing two PTP clocks
-running as master/slave, missing this would cause master
-and slave to start immediately with some milliseconds
-drift which causes the PPS signal to never synchronize with
-the PTP master.
+Add initial support for Nitrogen8MP Universal SMARC Carrier Board with
+Nitrogen8MP SMARC System on Module.
 
-Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 ++++++++++--
- drivers/net/ethernet/ti/icssg/icssg_prueth.h | 11 +++++++++++
- 2 files changed, 21 insertions(+), 2 deletions(-)
+Change in V2:
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 0556910938fa..6b2cd7c898d0 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -411,6 +411,8 @@ static int prueth_perout_enable(void *clockops_data,
- 	struct prueth_emac *emac = clockops_data;
- 	u32 reduction_factor = 0, offset = 0;
- 	struct timespec64 ts;
-+	u64 current_cycle;
-+	u64 start_offset;
- 	u64 ns_period;
- 
- 	if (!on)
-@@ -449,8 +451,14 @@ static int prueth_perout_enable(void *clockops_data,
- 	writel(reduction_factor, emac->prueth->shram.va +
- 		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
- 
--	writel(0, emac->prueth->shram.va +
--		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
-+	current_cycle = icssg_readq(emac->prueth->shram.va +
-+				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
-+
-+	/* Rounding of current_cycle count to next second */
-+	start_offset = ((current_cycle / MSEC_PER_SEC) + 1) * MSEC_PER_SEC;
-+
-+	icssg_writeq(start_offset, emac->prueth->shram.va +
-+		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
- 
- 	return 0;
- }
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 8722bb4a268a..a4af2dbcca31 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -330,6 +330,17 @@ static inline int prueth_emac_slice(struct prueth_emac *emac)
- extern const struct ethtool_ops icssg_ethtool_ops;
- extern const struct dev_pm_ops prueth_dev_pm_ops;
- 
-+static inline u64 icssg_readq(const void __iomem *addr)
-+{
-+	return readl(addr) + ((u64)readl(addr + 4) << 32);
-+}
-+
-+static inline void icssg_writeq(u64 val, void __iomem *addr)
-+{
-+	writel(lower_32_bits(val), addr);
-+	writel(upper_32_bits(val), addr + 4);
-+}
-+
- /* Classifier helpers */
- void icssg_class_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac);
- void icssg_class_set_host_mac_addr(struct regmap *miig_rt, const u8 *mac);
+in patch 1/2:
+        - Drop Unneeded line
+        - Correct the indentation
 
-base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
+in patch 2/2:
+        - Add Acked-by tag
+
+CHange in V3:
+
+in patch 1/2:
+	- In version 2, I forgot to add the Makefile. Adding it now.
+
+Bhavin Sharma (2):
+  arm64: dts: imx8mp: Add Boundary Device Nitrogen8MP Universal SMARC
+    Carrier Board
+  dt-bindings: arm: fsl: Add Boundary Device Nitrogen8MP Universal SMARC
+    Carrier Board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../freescale/imx8mp-nitrogen-smarc-som.dtsi  | 348 ++++++++++++++++++
+ .../imx8mp-nitrogen-smarc-universal-board.dts |  17 +
+ 4 files changed, 372 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-smarc-som.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-smarc-universal-board.dts
+
 -- 
-2.25.1
+2.43.0
 
 
