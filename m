@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CC8D2E01E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8555FD2E021
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcarJLQqgulfI8EpeTe+6HzOEIWfAKqhKRpGF+6S1vc=; b=IoB0m2JvwuTPVyXGqfTOPYtnR6
-	N3hrnyRjamzoODo2MUuCXVdf0dqym6O1JM7+yp8IQefJlQRaQHZDjgAu7hnyYlGTY0KUB3iACCI4o
-	SK4RCpXZxjAStN3htpFHyhxDxZ5Coqt+vb79DG5iM/lcW18AqvO1e4EF82bSTt2ni/ze8Zh9s+8pR
-	x67eIi5j47XzR/BvU8LSdgwFGOVI25ulZ4iXHgWLTIKIwzO5WiJhwoNoBY07DflVUfYPWZUswMM8e
-	V36rjaBQtbS0wVhEh+laGJft1fKSs7Xkln+aKFUgCMDKCQH96zIgoWX1OJWLTJU5gVaRvM6jYx42n
-	TzUMbpRw==;
+	bh=yduD7Yur7A49ZoLtK/EhMGC3yO42q7dr2dI+lhwPQOE=; b=FZ+ZucLkkRQCHogzEOoPfd6t6W
+	R5c+SrlGnluyhTPRA/cQL9ORjhYiIlJt41HAzHUs4O5RRrN52vnLUaI8LiL2jM/xnJvdUzLicIMPK
+	av16KfiMlxmydEtC9VYnkTclWwWnqn5OPPW/n2EHJqixssGIrHncAsxj5q1YrU7Xjgj4uby0KAlZJ
+	dMfYAmqIcuPFSpjryNjaEoInYHlJDEZ8kPLcOUTknAHzrd//8cjzRxHRzEj2hs7Cryk0XXFIljQJ5
+	qqnxZ2GOgA8ZnHljKRBDiuxeRQLNQDEB+ItT39Yxjtyoo1oykM2ribSgFPfhpEfGxoWVyWlqDalAC
+	mw91dS9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WfJ-0000000DYH8-3KNZ;
-	Wed, 23 Oct 2024 08:24:25 +0000
+	id 1t3Wgo-0000000DYZY-3WIL;
+	Wed, 23 Oct 2024 08:25:58 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WU4-0000000DVxq-2iPe
+	id 1t3WU4-0000000DVxh-2i1Z
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 23 Oct 2024 08:12:51 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1t3WTv-0004YT-3L; Wed, 23 Oct 2024 10:12:39 +0200
+	id 1t3WTv-0004YU-3E; Wed, 23 Oct 2024 10:12:39 +0200
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1t3WTu-0010Hl-1Z;
+	id 1t3WTu-0010Hk-1f;
 	Wed, 23 Oct 2024 10:12:38 +0200
 Received: from localhost ([::1] helo=dude02.red.stw.pengutronix.de)
 	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1t3WTu-00FrPY-1N;
+	id 1t3WTu-00FrPY-1M;
 	Wed, 23 Oct 2024 10:12:38 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 23 Oct 2024 10:12:31 +0200
-Subject: [PATCH 4/4] nvmem: imx-ocotp-ele: set word length to 1
+Date: Wed, 23 Oct 2024 10:12:30 +0200
+Subject: [PATCH 3/4] nvmem: imx-ocotp-ele: fix MAC address byte order
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-imx-ele-ocotp-fixes-v1-4-4adc00ce288f@pengutronix.de>
+Message-Id: <20241023-imx-ele-ocotp-fixes-v1-3-4adc00ce288f@pengutronix.de>
 References: <20241023-imx-ele-ocotp-fixes-v1-0-4adc00ce288f@pengutronix.de>
 In-Reply-To: <20241023-imx-ele-ocotp-fixes-v1-0-4adc00ce288f@pengutronix.de>
 To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
@@ -59,11 +59,11 @@ To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
 Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1729671158; l=1450;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1729671158; l=2098;
  i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=TDF4ZD9quQMr6fYXShZTAO/88aFocRLfhFV/zvO8TZE=;
- b=Z1RtZosGsmcHRf6t7dv8eE+gTAbA1O8/9iPJob1gBFvD0FwYioU/ZCMoj9ElB2t5Uk/++R21z
- dKSjq/YuRZ4AlXMOziffB6IgtqSDaG29ZmIDYHWRWBvSkIK5D36uKz4
+ bh=Ss44dTfozznrGkGw5ypZa27kr0ux3PCowUrrQmM38eM=;
+ b=gvNFy2NDPhoLC81Bwz3lLc0+TPlOsd2dBi01QS7ETe3QHj/VSMS+9Ug99BfKgd+O5V7tlWgzO
+ ZyIROFX9HUPBYm1kMFshH032+PEDiJcxTnowwxSUwkt23rTBUsrHCId
 X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
  pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -71,8 +71,8 @@ X-SA-Exim-Mail-From: s.hauer@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_011248_885081_23336D51 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20241023_011248_856019_AC3AB7D1 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ELE hardware internally has a word length of 4. However, among other
-things we store MAC addresses in the ELE OCOTP. With a length of 6 bytes
-these are naturally unaligned to the word length. Therefore we must
-support unaligned reads in reg_read() and indeed it works properly when
-reg_read() is called via nvmem_reg_read(). Setting the word size to 4
-has the only visible effect that doing unaligned reads from userspace
-via bin_attr_nvmem_read() do not work because they are rejected by that
-function.
+According to the i.MX93 Fusemap the two MAC addresses are stored in
+words 315 to 317 like this:
 
-Given that we have to abstract from word accesses to byte accesses in
-the driver, set the word size to 1. This allows bytewise accesses from
-userspace to be able to test what the driver has to support anyway.
+315	MAC1_ADDR_31_0[31:0]
+316	MAC1_ADDR_47_32[47:32]
+	MAC2_ADDR_15_0[15:0]
+317	MAC2_ADDR_47_16[31:0]
+
+This means the MAC addresses are stored in reverse byte order. We have
+to swap the bytes before passing them to the upper layers. The storage
+format is consistent to the one used on i.MX6 using imx-ocotp driver
+which does the same byte swapping as introduced here.
+
+With this patch the MAC address on my i.MX93 TQ board correctly reads as
+00:d0:93:6b:27:b8 instead of b8:27:6b:93:d0:00.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 ---
- drivers/nvmem/imx-ocotp-ele.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/nvmem/imx-ocotp-ele.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
 diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index 422a6d53b10ef..ca6dd71d8a2e2 100644
+index b2d21a5f77bc1..422a6d53b10ef 100644
 --- a/drivers/nvmem/imx-ocotp-ele.c
 +++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -153,7 +153,7 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
- 	priv->config.owner = THIS_MODULE;
- 	priv->config.size = priv->data->size;
- 	priv->config.reg_read = priv->data->reg_read;
--	priv->config.word_size = 4;
-+	priv->config.word_size = 1;
+@@ -111,6 +111,26 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
+ 	return 0;
+ };
+ 
++static int imx_ocotp_cell_pp(void *context, const char *id, int index,
++			     unsigned int offset, void *data, size_t bytes)
++{
++	u8 *buf = data;
++	int i;
++
++	/* Deal with some post processing of nvmem cell data */
++	if (id && !strcmp(id, "mac-address"))
++		for (i = 0; i < bytes / 2; i++)
++			swap(buf[i], buf[bytes - i - 1]);
++
++	return 0;
++}
++
++static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
++					 struct nvmem_cell_info *cell)
++{
++	cell->read_post_process = imx_ocotp_cell_pp;
++}
++
+ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -137,6 +157,8 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
  	priv->config.stride = 1;
  	priv->config.priv = priv;
  	priv->config.read_only = true;
++	priv->config.add_legacy_fixed_of_cells = true;
++	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
+ 	mutex_init(&priv->lock);
+ 
+ 	nvmem = devm_nvmem_register(dev, &priv->config);
 
 -- 
 2.39.5
