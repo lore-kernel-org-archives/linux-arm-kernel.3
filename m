@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E6BCFA472
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4726CFA46A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 20:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU4FPru2ydTSPv8IP91kbGwnel2cLg7nTaLFgrHS0os=; b=izakq3aU8kbNtdT0P4ubSFaI86
-	yZnW0bNd8/I67wPxi7rFdQIEVS5ioW2OjtgCCr3i3Y4nKRZXaN7Bu+E7+a/f34d0ePfiJOVeCdaKQ
-	fVz1EOZ2tvaNOEkHV40VC1UFo98xmVjm6xiEzQUEOMNDZWEZ+r4lFnKp2yPRJI8UB98QTbrYnz30W
-	z548lWlxcnLmkTJSv8VDUYo74kw/EQYnKvs3pxi9n7yQ0cPw8tPMeeZfE10TomMQqGv60v1M8DCro
-	IItn4nIkdb0A8iNnPHWX/WmChB1yxH8Ldh+0VAlvoFT1VqDGBVm2np9qJIKKic5TWpT3iHB0A9gTS
-	i6ChuK/g==;
+	bh=XOGDo4vGiv3O5RiGrxGxTNcGTfWFAmUJSUQ3OPPNIOI=; b=fE3YH3rl1wltu+nTAYjsym1C/W
+	De+rCd60jInySj1Em//pCSpG7CmkKAr711y4lj92xUog6xh4gxp7e2CzXGX0oqlIabJg2dZpivvqm
+	Zw6NzELWTqiQkeFw/tL4r3HqTV02exBA4U1WoIJJvDh+DahE9FSecrRNYrfc4gAzq+udEm0I9gHpi
+	sxb0T9dnC06Y66WZRggEMAycat0+sOxlUvsUBemvgnzLRh1PQha3Sd7qoD5OCr2OeQkQXv2B+UZ56
+	AiCBMCnJTRDe242mTK2Iv1MweuluJryMY1GTB9UxyhUnbtfL/hseL/sd76UWhbd91P5YXCs/BGCK/
+	ghgRz3ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iC0-0000000FsMd-3TWK;
-	Wed, 23 Oct 2024 20:42:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3iDX-0000000Fsjg-2h6s;
+	Wed, 23 Oct 2024 20:44:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3i8t-0000000FrUd-3Z9L
+	id 1t3i8w-0000000FrVt-0ihU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 20:39:45 +0000
+	Wed, 23 Oct 2024 20:39:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 80C715C5ECE;
-	Wed, 23 Oct 2024 20:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 451BEC4CECD;
-	Wed, 23 Oct 2024 20:39:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0AA12A406ED;
+	Wed, 23 Oct 2024 20:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5059FC4CEC6;
+	Wed, 23 Oct 2024 20:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729715982;
-	bh=/bHrhesLCeIwKS6Tm5OOpULv9OOeXujD+y0vb5AVloM=;
+	s=k20201202; t=1729715984;
+	bh=A0xCV0/PSvevUax4GW3txbWNtrgIm8u+5XUscwTPb/o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HEBz9J2SYayNbbRkBwd2iwxoESLTRpgf1SxBFOntvWwBVNUv28S3mZIaSuhRmvayR
-	 jQ2lwTFB5OV24DDouzZMEsU9VYK8Mpf+ft/Vcva8GApuEThPqQwXFmrF8APwzG3czW
-	 2Chi4MNYNRA3IpODaKSuCt8oW3b4sxHbCVA7M3MdxuwYIozafqU2TxQpRe5NLo2otu
-	 xmqM9O2HWAj7ptDz3y6DAPQV+ts2l/oD/fx5RJ37NdPFDBBNMNhgIu9OBumBnYq0P+
-	 rH3RqA/nOa4AR0HraXZ5lqUo7qilZEhp8SaHhoa4NmvdEIW6zIky2/CEkuN44alSQR
-	 mS33JnbX5cPdQ==
+	b=GAwtJDupEyWOB3uuEGnaulVAgHAukMaigDlXwBOK/DK5UrHfJ04dEZpVvJHQru2Qy
+	 JrS5jofMrUiccO3pL9n/A1HbMCNpFQZu7kJB7vTz9jFTDJeKrSMixnsZjGMv5K8F5j
+	 8o0Cm+wWK3/vWiXr3Lk517Pj0ZnMxFKr8mqOqkBshm8KKT7FQ2R886EIxX2CUBNGWy
+	 Af5kJM+fDzNbajd4GJBWYbPOH3FlHqUACAKwyzCzwopBR7RuwHlKwqfGMPnBnZ1awS
+	 21nOuSbDKCG658SpD7ksW1KQgN6qI/rCUZ9/fOJvIrXZNNoMWebYdglt+RJDLFqYui
+	 zZnGVTJPu+Tew==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 23 Oct 2024 21:38:29 +0100
-Subject: [PATCH 1/6] kselftest/arm64: Correct misleading comments on
- fp-stress irritators
+Date: Wed, 23 Oct 2024 21:38:30 +0100
+Subject: [PATCH 2/6] kselftest/arm64: Remove unused ADRs from irritator
+ handlers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-arm64-fp-stress-irritator-v1-1-a51af298d449@kernel.org>
+Message-Id: <20241023-arm64-fp-stress-irritator-v1-2-a51af298d449@kernel.org>
 References: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
 In-Reply-To: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -58,20 +58,21 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2112; i=broonie@kernel.org;
- h=from:subject:message-id; bh=/bHrhesLCeIwKS6Tm5OOpULv9OOeXujD+y0vb5AVloM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8Gc55M2w82ehj/LpjjHUBt4adVvVgcz0prD+dS
- XvsOxI2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfBgAKCRAk1otyXVSH0CA5B/
- 0c7+WD7+iS6lYyf0bnJuH8r+L60B8ehcqJrpsjYxePuktHethpL14YIdnlm0MeLaomjRQqDl26a7h0
- 7QEyHO8j9AwYw6KYE0gIZfQLbawPVnu5cl4Hwo9nODuwfvRo8286EF8lBzbpPPvFRaHO1VYuYhCNeA
- lNfN16OdFKjhP6YpxNxYKuJHChn2L4BZeqy7kMcBiqISG6+MbUlD6YgzxsvpbwRzxKAHodXlNfaMHp
- sJpVOv3LW4gibvdMHqDEEghYc5SkuWcvfjRWYhsObwwrNev33WFLOeIKNlzU3bSLZmbLXYGb2Bgtsr
- 3lUfYaJb55y0v/wJGedDx53K8xYUam
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2606; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=A0xCV0/PSvevUax4GW3txbWNtrgIm8u+5XUscwTPb/o=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGV8HpM2/QKONGuDoJRvv7T//ECB/Hh6Fht25u/wh
+ bXTfT0eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlfBwAKCRAk1otyXVSH0KM5B/
+ 0WNMHqxiKcGxbpdzPHNYqwJzUbmWOTTHmbNlhyehRneGnNCvkwuaW7HSPHCncZK3WuJu5ZxGujaDbw
+ hSX3xomF3kvFN++b6sLJvowe3lgwXeadwd8NRAuKuFwZNRaJlrwqSRfpGeNZRvPd9zAnJBQE52CL5J
+ 1DKNnlI1y7uAhieuL2aGoWQBzrxvBLn7c5myKCEeQYuE9V9Ub3XhU04rUkoFjK05ZcQTDtf1lBtTLd
+ qyFgwUAUizrgXECgz93ffnB7ED86olrhWBFQxWwR7YJAxQe6UnLhbfCZ0CEeQNDudd0Nba+KzNwiBu
+ Oz6gHCXYVR5zI+JUGijriZuillOYAZ
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_133944_017143_893B748B 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241023_133946_384724_EC263226 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,48 +87,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The comments in the handlers for the irritator signal in the test threads
-for fp-stress suggest that the irritator will corrupt the register state
-observed by the main thread but this is not the case, instead the FPSIMD
-and SVE irritators (which are the only ones that are implemented) modify
-the current register state which is expected to be overwritten on return
-from the handler by the saved register state. Update the comment to reflect
-what the handler is actually doing.
+The irritator handlers for the fp-stress test programs all use ADR to load
+an address into x0 which is then not referenced. Remove these ADRs as they
+just cause confusion.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/fpsimd-test.S | 3 +--
- tools/testing/selftests/arm64/fp/sve-test.S    | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ tools/testing/selftests/arm64/fp/fpsimd-test.S | 1 -
+ tools/testing/selftests/arm64/fp/sve-test.S    | 1 -
+ tools/testing/selftests/arm64/fp/za-test.S     | 1 -
+ tools/testing/selftests/arm64/fp/zt-test.S     | 1 -
+ 4 files changed, 4 deletions(-)
 
 diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-index 8b960d01ed2e0ef516893b68794078ddf8c01e1f..bdfb7cf2e4ec175fda62c1c2f38c6ebb1a1c48bf 100644
+index bdfb7cf2e4ec175fda62c1c2f38c6ebb1a1c48bf..9977ffdd758a51a7af67cd607d019a6c54d3a6c6 100644
 --- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
 +++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-@@ -134,8 +134,7 @@ function check_vreg
- 	b	memcmp
- endfunction
+@@ -142,7 +142,6 @@ function irritator_handler
+ 	str	x0, [x2, #ucontext_regs + 8 * 23]
  
--// Any SVE register modified here can cause corruption in the main
--// thread -- but *only* the registers modified here.
-+// Modify live register state, the signal return will undo our changes
- function irritator_handler
- 	// Increment the irritation signal count (x23):
- 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+ 	// Corrupt some random V-regs
+-	adr	x0, .text + (irritator_handler - .text) / 16 * 16
+ 	movi	v0.8b, #7
+ 	movi	v9.16b, #9
+ 	movi	v31.8b, #31
 diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
-index fff60e2a25addfd4850ef71aa3cf6535ac880ffd..e3c0d585684df29723a49265f3df6d23817498c7 100644
+index e3c0d585684df29723a49265f3df6d23817498c7..f1fb9745c681786f686f1fafcb7e1154f3c8e1a3 100644
 --- a/tools/testing/selftests/arm64/fp/sve-test.S
 +++ b/tools/testing/selftests/arm64/fp/sve-test.S
-@@ -291,8 +291,7 @@ function check_ffr
- #endif
- endfunction
+@@ -299,7 +299,6 @@ function irritator_handler
+ 	str	x0, [x2, #ucontext_regs + 8 * 23]
  
--// Any SVE register modified here can cause corruption in the main
--// thread -- but *only* the registers modified here.
-+// Modify live register state, the signal return will undo our changes
- function irritator_handler
- 	// Increment the irritation signal count (x23):
- 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+ 	// Corrupt some random Z-regs
+-	adr	x0, .text + (irritator_handler - .text) / 16 * 16
+ 	movi	v0.8b, #1
+ 	movi	v9.16b, #2
+ 	movi	v31.8b, #3
+diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
+index 095b45531640966e685408057c08ada67e68998b..1ee0ec36766d2bef92aff50a002813e76e22963c 100644
+--- a/tools/testing/selftests/arm64/fp/za-test.S
++++ b/tools/testing/selftests/arm64/fp/za-test.S
+@@ -158,7 +158,6 @@ function irritator_handler
+ 
+ 	// Corrupt some random ZA data
+ #if 0
+-	adr	x0, .text + (irritator_handler - .text) / 16 * 16
+ 	movi	v0.8b, #1
+ 	movi	v9.16b, #2
+ 	movi	v31.8b, #3
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index b5c81e81a37946c1bffe810568855939e9ceb08e..ade9c98abcdafc2755ef4796670566d99e919e5c 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -127,7 +127,6 @@ function irritator_handler
+ 
+ 	// Corrupt some random ZT data
+ #if 0
+-	adr	x0, .text + (irritator_handler - .text) / 16 * 16
+ 	movi	v0.8b, #1
+ 	movi	v9.16b, #2
+ 	movi	v31.8b, #3
 
 -- 
 2.39.2
