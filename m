@@ -4,74 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A76BCF538A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 13:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA493CF538B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 13:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAwd48omU14UhJi85ziG9ck13JNx93zmUVUlcB4wXIA=; b=hCJ8ks+oPgapledEo9oM4ulXnA
-	v7N2wjNKhCq2JCncNyVv6so8PAi+5IMHORKtqIWrYQ/Biekk9WF47IpetivBnSrJvD6LBaWBfM5qC
-	gP9JsQME0dqRkP0Qmff+sU8/98gdwqoBTbNH4YXS7VKEUpWmXgG0Mwpz4SkoZi8oNhQBf3bB7DxQW
-	O8tVBOUTB7Bk5Sqe0AH0FAcOl6/iEKRxEn+FWRku/KJ2mydM/QzG9sdkDXCb/HHxc6WJ5yyGyubge
-	6e2TnecFfKNE0n3f27/MuldxyvsSy0+wc9lzGueyUqalVKt3VXTvUs9za9M5kbi42jxb8qibH7vuD
-	3Sr9ZPaA==;
+	bh=v1ErG2T9UQjEKEnbXbgxig/MiNVygt+6QYl0dpxRA+w=; b=zqGABayc0vL+yW9fbps/JcFhcO
+	MaeArPJ9PzAXszO2MYjHmfBSrI+bj2iG4SGK6LkATeHYmVK4D1raXh2IXVfclUuc/K0DLFAICu2HO
+	2gtN4bVou5nwGVWAOBBJ+1/KUW+hJaxrPjDJYcannHTYZmSyKoqcV827VhhMUPWhIrEkR6kfd3lvr
+	c/1jgihouzJKhuQSehMyectGRDLg2Jg9PMvWkugMbz2fmeQ5fZfqlgnVo2jb4f1JNssKlplu6cSYp
+	sRQgLBCcCrEUpHvrwQxczcLLAQf3T6oo6B6Q10evxrQgdxmy2HWfzTMRfcQC+pVc23RSO9CKY/1uk
+	w/U3jVKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3bcZ-0000000EaAG-1Mow;
-	Wed, 23 Oct 2024 13:41:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3bkD-0000000EbJE-12Zx;
+	Wed, 23 Oct 2024 13:49:49 +0000
+Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3bb2-0000000EZzW-27Hl;
-	Wed, 23 Oct 2024 13:40:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 448FF5C5F0D;
-	Wed, 23 Oct 2024 13:40:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B251C4CEE5;
-	Wed, 23 Oct 2024 13:40:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729690819;
-	bh=Lu9YSclbTdVAZko8HL1EN4aP4k9nSSYXLWoin86L7dk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Pf3xZiQBCxAPHaN7y/LNoguShipMOR7i6eDCrlw5URNtM7BjG8DaUNBEFtiN+bvFu
-	 ggqCHHcXRju5mymBaSBM9HKTeyijIGw7hOj/SCQ8/oOt+zyxoY9krENgYjWJ/m10MS
-	 EPWuWXPx5wS+yo1jbo3ONNc1C/ldL6g/tyvYh0cRjWmZ7Z1lyoHKrMvIXBDfGXjuIC
-	 5tuL1xnJVp7GcMoKf7FI7iwoXafhfycx079vaaYAbYVTzRa26JYI2bK+hqTymP7H95
-	 l0hidiaSWkBqvxQZSdHdu9oNcGCPMjBk6Xo1PTS99Sty73uYUQ1jHi8ce2ZmPG1oEz
-	 ncBbnyetDsy6g==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-539e59dadebso8483902e87.0;
-        Wed, 23 Oct 2024 06:40:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUKBYRDHukwgGFTzBvLdI8VVsR8ClZMzr11b5cVPLA/ziKSAY6UCPArmIZsrzbWPbCRvANhaA==@lists.infradead.org, AJvYcCXonFR0IqxJDSq1S4W+R7jixzfMMRL9uO1KGuMMTq7oTH1SuJ8zkEwgur3BmiiiKzwUmnK6hhZ5v/SQ2YfL4HM6iw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWrb0L6ZjaxNZPKHvkt9K1nEjqCPU0wMry/KY6LuIp4G6o/tKn
-	khVES+yxNFmEeS5tCyJvN9N6aHZHsYZr6/FzjYEl6KD5ddsZJ7b/tfOeLQtp2EkkaTI+LnB3Up6
-	P2gLx42RqHKmGMCQZzawZ+zw7mg==
-X-Google-Smtp-Source: AGHT+IFp1rlvBvAgovwWIHdkc8JKbjpOUlWvNyNMMr+FomXIFzVaHzZoAryx8MZFai0b1ZgDur6QOvdz+dUkJLEiYps=
-X-Received: by 2002:a05:6512:1110:b0:539:da76:c77e with SMTP id
- 2adb3069b0e04-53b1a31d8a9mr1461200e87.5.1729690817815; Wed, 23 Oct 2024
- 06:40:17 -0700 (PDT)
+	id 1t3bif-0000000Eb0y-2QYI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 13:48:15 +0000
+Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-84fc0212a60so1791903241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 06:48:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1729691291; x=1730296091; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v1ErG2T9UQjEKEnbXbgxig/MiNVygt+6QYl0dpxRA+w=;
+        b=B9gZ0yvy//Kqx623XAtiYbYEkAr0d8LLJPbWmqnXYe4ZydXj2UQV1XkW/w55oRIf1i
+         a/Ep9or27qJduek1FIIlsg/a1NdZ9aapI8UchSstqFqxHhJPdI9gOG8YeLux/7IviXGO
+         lJiGZ43I2OU+JwqtFyBYkvWe/Jhx5aqPqyDgE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729691291; x=1730296091;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=v1ErG2T9UQjEKEnbXbgxig/MiNVygt+6QYl0dpxRA+w=;
+        b=JG9SVoXqpaSkotdb58HriidIB/hdwlvop0fhP8mH/tab+k4xcK0fP5caxW9KTxKf88
+         lbY6WRD38pZcifjsX6o5pAo83NQFddy9/xW17tdX0VZ7VUyecSi2/U5/hLrQLbMY2nyd
+         M2VfLNjGTNRVivpDLhMPI4sYCq6IV23JC46nRUnM17dVrFCZgjwVBlq/N4smfHARwrvW
+         UCiV4Pz0oWH7cBD6RTteXa+Oi4A0krrIO5yKIiap6dyeUvOSMVmVu5EaW1VSwH2X7zrg
+         tYr7XLA9WVYXDV4qRtO69tDBY7sV84tAcELyJlExUiHogXi87drFV1lUjCSaPdGfc+EB
+         20Vg==
+X-Forwarded-Encrypted: i=1; AJvYcCVLl6gQMXIuIGNQ8aqjeE6JOW+69iJxDu8HcxOyfqwbK9maiWjnbUwc9jnqccbTl1LgyerRgm4hhfnejoaGtAY2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF7baciQxoDOKqfv5GYPYoxlIZKCTC3DEOA8+WzREZbuzx8sfT
+	e0ne31xqKtq1yBCZd8v8kqMWyWJo2pXmmuow63KrfGoKwKBkaANRv8+VS5j/ji2Cq1VwoAZDrql
+	Apw==
+X-Google-Smtp-Source: AGHT+IEIr09SXicXd3ggn+6UZwHKcUlnDsf30cufHAMhwEdk4BVI4wZ3FOGM7WCoVwy6w7Rw73K2PA==
+X-Received: by 2002:a05:6122:65a2:b0:50d:85c8:af3e with SMTP id 71dfb90a1353d-50fd00c1f87mr2987107e0c.3.1729691291492;
+        Wed, 23 Oct 2024 06:48:11 -0700 (PDT)
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-50e19e4eb07sm1043949e0c.13.2024.10.23.06.48.10
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Oct 2024 06:48:10 -0700 (PDT)
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-84fe454176bso2201939241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 06:48:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWfU/rPpujYWmtLODtfAn0AEGHpTz63305Q+ss9Dg24SiCcJehypv1lX4NhVD0soqJYflmrDHdY6W+BucnGce8P@lists.infradead.org
+X-Received: by 2002:a05:6122:513:b0:50a:d1e3:82f7 with SMTP id
+ 71dfb90a1353d-50fd031e55fmr3184053e0c.8.1729691290235; Wed, 23 Oct 2024
+ 06:48:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241003113840.2972416-1-usamaarif642@gmail.com>
- <20241004000316.GA1910499-robh@kernel.org> <d3d90f10-1ccd-4557-843c-5b546d3b913c@gmail.com>
- <CAL_JsqJVEjPt9tHNr0uAGHQwGnUbZDZoe7kURp3Qx0ce1jv+vw@mail.gmail.com> <4b9456a3-47ea-4a00-92fe-131ccd80e550@gmail.com>
-In-Reply-To: <4b9456a3-47ea-4a00-92fe-131ccd80e550@gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 23 Oct 2024 08:40:05 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
-Message-ID: <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
-Subject: Re: [PATCH] of/kexec: save pa of initial_boot_params for arm64 and
- use it at kexec
-To: Usama Arif <usamaarif642@gmail.com>
-Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org, 
-	catalin.marinas@arm.com, saravanak@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kexec@lists.infradead.org
+References: <20241023102059.512352-1-fshao@chromium.org> <9b12aaec-504c-4e3a-a606-240341d8e0d3@collabora.com>
+ <CAC=S1niSXkCTLXeCv-0sQh4AQmv6eKm8OH_3yH=TeDoMVz72OA@mail.gmail.com>
+In-Reply-To: <CAC=S1niSXkCTLXeCv-0sQh4AQmv6eKm8OH_3yH=TeDoMVz72OA@mail.gmail.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Wed, 23 Oct 2024 21:47:39 +0800
+X-Gmail-Original-Message-ID: <CAC=S1ng=ZLB+vB=kNywLGMdeN1RRted0j6d-fC9ANoyu=ni3Mg@mail.gmail.com>
+Message-ID: <CAC=S1ng=ZLB+vB=kNywLGMdeN1RRted0j6d-fC9ANoyu=ni3Mg@mail.gmail.com>
+Subject: Re: [PATCH] soc: mediatek: mediatek-regulator-coupler: Fix comment
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_064020_659897_246EA0D0 
-X-CRM114-Status: GOOD (  36.32  )
+X-CRM114-CacheID: sfid-20241023_064813_629187_3C14F369 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,118 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 7, 2024 at 10:30=E2=80=AFAM Usama Arif <usamaarif642@gmail.com>=
- wrote:
+On Wed, Oct 23, 2024 at 8:03=E2=80=AFPM Fei Shao <fshao@chromium.org> wrote=
+:
 >
->
->
-> On 07/10/2024 15:39, Rob Herring wrote:
-> > On Mon, Oct 7, 2024 at 9:06=E2=80=AFAM Usama Arif <usamaarif642@gmail.c=
-om> wrote:
-> >>
-> >>
-> >>
-> >> On 04/10/2024 01:03, Rob Herring wrote:
-> >>> On Thu, Oct 03, 2024 at 12:38:40PM +0100, Usama Arif wrote:
-> >>>>  __pa() is only intended to be used for linear map addresses and usi=
-ng
-> >>>> it for initial_boot_params which is in fixmap for arm64 will give an
-> >>>> incorrect value. Hence stash the physical address when it is known a=
-t
-> >>>> boot time and use it at kexec time instead of converting the virtual
-> >>>> address using __pa().
-> >>>>
-> >>>> Reported-by: Breno Leitao <leitao@debian.org>
-> >>>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> >>>> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-> >>>> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt=
-()")
-> >>>> ---
-> >>>>  arch/arm64/kernel/setup.c | 8 ++++++++
-> >>>>  drivers/of/fdt.c          | 6 ++++++
-> >>>>  drivers/of/kexec.c        | 8 ++++++--
-> >>>>  include/linux/of_fdt.h    | 2 ++
-> >>>>  4 files changed, 22 insertions(+), 2 deletions(-)
-> >>>>
-> >>>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> >>>> index b22d28ec8028..a4d96f5e2e05 100644
-> >>>> --- a/arch/arm64/kernel/setup.c
-> >>>> +++ b/arch/arm64/kernel/setup.c
-> >>>> @@ -194,6 +194,14 @@ static void __init setup_machine_fdt(phys_addr_=
-t dt_phys)
-> >>>>      /* Early fixups are done, map the FDT as read-only now */
-> >>>>      fixmap_remap_fdt(dt_phys, &size, PAGE_KERNEL_RO);
-> >>>>
-> >>>> +    /*
-> >>>> +     * Save dt_phys address so that it can be used later for kexec.=
- This
-> >>>> +     * is done as __pa() is only intended to be used for linear map=
- addresses
-> >>>> +     * and using it for initial_boot_params which is in fixmap will=
- give an
-> >>>> +     * incorrect value.
-> >>>> +     */
-> >>>> +    set_initial_boot_params_pa(dt_phys);
-> >>>
-> >>> No new arch->dt functions please. If we need to save off the PA, then=
- do
-> >>> that when we set initial_boot_params.
-> >>>
-> >>> Rob
-> >>
-> >>
-> >> initial_boot_params is set in early_init_dt_verify, called by early_in=
-it_dt_scan.
-> >> This is done in setup_machine_fdt in arm64 where the PA is available,
-> >> but in other functions in other architectures, where the PA is not ava=
-ilable.
+> On Wed, Oct 23, 2024 at 6:40=E2=80=AFPM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
 > >
-> > Doesn't __pa() work for all the other architectures? That's what your
-> > patch indicates.
+> > Il 23/10/24 12:19, Fei Shao ha scritto:
+> > > Fix two minor issues in the comments.
+> > >
+> > > 1. We balance VSRAM voltage based on the target VGPU voltage, so the
+> > >     comment likely refers to VGPU.
 > >
->
-> Yes, __pa() works for all other architectures.
->
-> But we would need to add initial_boot_params_pa of type phys_addr_t
-> as an argument for early_init_dt_scan, which is called by all other archs=
-,
-> and we technically cant use 0 as an invalid value.
->
-> We could convert initial_boot_params_pa to void *, and pass NULL for all
-> other archs. But again, I don't really think we should be changing the
-> early_init_dt_scan(dt_virt) call in all other archs to
-> early_init_dt_scan(dt_virt, NULL) just to save initial_boot_params_pa
-> in arm64?
->
-> >> So it makes it quite messy to set it in the same place as initial_boot=
-_params.
-> >> Its only needed for arm64 and making a change in all archs probably is=
-nt a good idea?
-> >>
-> >> Any reason to not add a new function to make arch -> of/fdt call?
+> > Function `mediatek_regulator_balance_voltage()` refers, as stated in th=
+e comment
+> > located at the top of its signature, to "GPU<->SRAM" voltages relations=
+hips.
 > >
-> > Yes. It is the opposite direction I have reworked the interfaces to.
-> > We don't want each arch calling various early DT functions at random
-> > times and order. That's fragile when the DT functions make assumptions
-> > about when they are called or what's been initialized already.
+> > So, we're taking into consideration only two regulators:
+> >                    VGPU and VSRAM
 > >
-> > Another option is to make arm64 copy the DT as some arches do.
+> > The first comment says:
+> > "If we're asked to set a voltage (implicit: to VGPU) less than VSRAM mi=
+n_uV[...]"
 > >
-> > Rob
+> > ...so, I think that you've misunderstood what the comment says :-)
 >
-> Ah maybe I didn't understand this properly, but isnt early_init_dt_scan a=
-n
-> arch -> of/fdt interfaces. set_initial_boot_params_pa is a similar interf=
-ace
-> to early_init_dt_scan?
+> Let me make sure we're on the same page - VGPU never goes higher than
+> VSRAM (VGPU <=3D VSRAM), is that correct?
+>
+> [ min VGPU, max VGPU ] ... spread ... [    min VSRAM  ,  max VSRAM    ]
+>  (min_uV)  (max_uV)                         (vsram_min_uV) (vsram_max_uV)
+>
+> The longer comment is
+> "If we're asked to set a voltage less than VSRAM min_uV, set the
+> minimum allowed voltage on VSRAM, ..."
+> So VSRAM is the subject here I think? Because we "set voltage *on*
+> VSRAM" based on its own minimum allowed voltage? We never set either
+> VGPU min/max voltage to vsram_min_uV?
+> And it's attached to the line that decides vsram_target_min_uV, with
+> the maximum of (1) vsram_min_uV (i.e. minimum allowed VSRAM voltage)
+> or (2) min_uV + max_spread (min VGPU + spread)
 
-Yes, and I don't want more APIs if they can be avoided. When is
-set_initial_boot_params_pa() supposed to be called? Is it before or
-after early_init_dt_scan()? Can subsequent OF functions assume the PA
-is valid? If an arch doesn't call set_initial_boot_params_pa() is
-__pa() valid or did they just forget to call it? Requiring the PA to
-be set at the same time as initial_boot_params avoids all those issues
-with any period of time having the PA incorrect.
+Ah, I just got your point. Both interpretations can explain..
+I linked the "min_uV" in the comment to the one used in code, which
+stands for VGPU min_uV, so I had the impression that it was a typo.
 
-Rob
+Regards,
+Fei
 
