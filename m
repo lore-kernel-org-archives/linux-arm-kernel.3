@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3BBCFA47E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E601D0BB41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 21:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UPk0QZ1Pfxq9dylQN+pk5GptQVRhIm2mC7Lan7D5YBg=; b=4iEl/rQIDHkUjwr3JXxio/KwoJ
-	U0l6EWtz5HUlvgmBrT+ChCfhRYi1Ne1uuF5c9qoepo+bPgOepXN636Tbait3g79ujHtQ3vENp/A+Z
-	zrVemMnHfB2PBP6KB1bkQvpw4rdMF6PKo/L2jgJDgrUSAeFClR2F8U6I4mLhJzYnLG2n7fzBbv3YQ
-	vfcL7CwORGUqEhpCElo2ABlQhVmEhmEmoeXqNpB8qLMCO6rbWUx/Pwt5FCBsH306BpnFFAhtlc0Ux
-	Py9lwXxwgZl5FmSxYInNR0ymYDLbMHgZx33RnUEwci7Ck+OC29qrCWoiOsYaZxVRrqo4kga9tAQD7
-	7Nk6mbsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dno8TC0yh1cz7YIUKwJZxY6QWPOVIrhxwQW1EWydzhk=; b=WlYbhpf5rSMGgi+0hf9Vq5npUT
+	6wh+BNc1Ulhb/tjsut71Gs8VE8VKKHK5hzqryYNdjn7sdYJcrrtEL71A8s4eZrfCrYVEgTTy+VSAN
+	vPbtrp/JXkYoET0Nb80GWtS3boM4cyMQvkhjMo/58QTdHckmx47oyt1SMeCrbw/KpK1zU9Wyh9Up4
+	yWz0RVNzVQkPaxST+wyPT5AnlzjiWr7r6U0l4q2zBbw7ixxC4PJl/HfDN5ZcFcJ7Vy2IWWi6FuZO0
+	m2qbBeOEnEz45Na1/G/zhGCGBMnUA1vMBUcjmswNX7a6YC8zR7OMwjfp2ffVGLzGFRr1/QZZHmubD
+	/bzi8FYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3j0P-0000000FzZT-1P6u;
-	Wed, 23 Oct 2024 21:35:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3jJ6-0000000G1Qn-0sLu;
+	Wed, 23 Oct 2024 21:54:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3iyq-0000000FzPr-0Tnu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 21:33:26 +0000
+	id 1t3jHY-0000000G1Ej-0Sa1;
+	Wed, 23 Oct 2024 21:52:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 201CBA445A7;
-	Wed, 23 Oct 2024 21:33:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A979FC4CEC6;
-	Wed, 23 Oct 2024 21:33:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5F8E2A44495;
+	Wed, 23 Oct 2024 21:52:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D7BC4CEC6;
+	Wed, 23 Oct 2024 21:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729719202;
-	bh=4Cdl78KMSg8ESoVkXR1vtPGDTu30ACB34Uff1obLF+s=;
-	h=From:Date:Subject:To:Cc:From;
-	b=YhC8LeuvFdI1wN0m3isfCcxto6XSU4YmTdslMeXDevbzGVnkdmBSeici2HTIPTIvR
-	 nbH0ka//EPTeVEgqphT31zwCaWwl39ePfhHf+1a0pikShfDasJOP/g2y/nRsYwT3yM
-	 8eYG5iiGq4lPlmff0xKHpbAV1HsTgzCsROy7Qafkn/at88zV68q6+W0wsFHTxiDlak
-	 fxmzrf1sZaUluYm3GCclT/CrGkzbNHYApThrOuSRzwJL46f8Ujo/8Qyc9D/b8CPYPJ
-	 CMqrfp36VW3TMcySp+GqS+hgvB8Ae1m3EhT5HapavU5F464rWjqpDY3Xpre16dqZSi
-	 P14DT6sAuK70g==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 23 Oct 2024 22:31:24 +0100
-Subject: [PATCH] arm64/signal: Avoid corruption of SME state when entering
- signal handler
-MIME-Version: 1.0
+	s=k20201202; t=1729720361;
+	bh=9bVyAQpQFt/Z58ZQ5nW+bBDA1LTmojglQ5M0fRlRTUw=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=GzU0hZh6NYm598rTpJ5Dh1ikSZ+Utkx8zujjS8pRtxDERtuIXop5M206OgofFX2Rt
+	 HwHahYElDKTG1ymAyvDvBKztLnH3Zf3i3HXfEYcj04JmZwWJz0J4eRMJs0Q2DHseEQ
+	 xWAy1vUFOLcHRTjeMMkfeC/S9HvTAjJBShtHq1ijLxHQewlUSTIFAhfq2BA3W4U9BX
+	 DXdhujrsCmjlL2w6gzbEakj6H1ILJJLPsqXTXTVJHOHdBSFhE5n3zXlDUnmS5kFkEB
+	 vj56Vv1Ki92EetFKmG2t5b6YH3k84L8OnfCHHhL28752UOAL+cRBA894BtIm6O2d5P
+	 Y6vtqsY2ccBfQ==
+Message-ID: <21fe104262989f04fadf9ec57dcac6df.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-arm64-fp-sme-sigentry-v1-1-249ff7ec3ad0@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACtrGWcC/x3MQQ5AMBBA0avIrE2iJSquIhYtg1komREh4u4ay
- 7f4/wElYVJosweETlbeYoLJMxgWH2dCHpPBFrYyhS3Ry1pXOO2oK6HyTPGQG70NozONI2cCpHY
- Xmvj6v13/vh9LzOURZwAAAA==
-X-Change-ID: 20241023-arm64-fp-sme-sigentry-a2bd7187e71b
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4970; i=broonie@kernel.org;
- h=from:subject:message-id; bh=4Cdl78KMSg8ESoVkXR1vtPGDTu30ACB34Uff1obLF+s=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGWufCXMY+wKGUe0veSFLrn03Q+QJr52eqIWW1PoS
- 80ym3+OJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxlrnwAKCRAk1otyXVSH0PLDB/
- sFjdjvP1i9t977GK9dzQ+jJrqtRpqRQre7WINBFglAtjiF2DbrBjDrCtaL3BfnUfChlbwiPMWu/+U8
- d6hWrvxgzvLYCFAz40zNMO/QGRLoz6urB6/B0G4kmI2oMmGTsbOvHn6UhPlRc3G5mHl/n+e5tmXqg5
- VgVax1Qc0j7AlAh9HuIMBU0GTKZgUYZmtwUswoado7ALyJWt6vF17/Jv/xV2p6jnfBqMVsQzIijZNF
- zY49gCyPO2Aa/DZ6bdmpTFClPQS10VYLUfAz+OGwecwo4iqT9hVC+Iny31N0nI8CwykPegh0yV/uVD
- /pD9rVzUnMB590PAKb64tEu45J0Ega
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ZxkX5gnDkWrTynRv@apocalypse>
+References: <cover.1728300189.git.andrea.porta@suse.com> <022cf4920f8147cc720eaf02fd52c0fa56f565c5.1728300189.git.andrea.porta@suse.com> <611de50b5f083ea4c260f920ccc0e300.sboyd@kernel.org> <ZxkX5gnDkWrTynRv@apocalypse>
+Subject: Re: [PATCH v2 08/14] clk: rp1: Add support for clocks provided by RP1
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>, Andrew Lunn <andrew@lunn.ch>, Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Helgaas <bhelgaas@google.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Herve Codina <herve.codina@bootlin.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof =?utf-8?q?Wilczy=C5=84ski?= <kw@linux.com>, Linus Walleij <linus.walleij@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Masahiro Yamada <masahiroy@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, St
+  efan Wahren <wahrenst@gmx.net>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, phil@raspberrypi.com, jonathan@raspberrypi.com
+To: Andrea della Porta <andrea.porta@suse.com>
+Date: Wed, 23 Oct 2024 14:52:38 -0700
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_143324_335935_4487DECD 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20241023_145244_302628_02AF748C 
+X-CRM114-Status: GOOD (  46.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,134 +71,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we enter a signal handler we exit streaming mode in order to ensure
-that signal handlers can run normal FPSIMD code, and while we're at it we
-also clear PSTATE.ZA. Currently the code in setup_return() updates both the
-in memory copy of the state and the register state. Not only is this
-redundant it can also lead to corruption if we are preempted.
+Quoting Andrea della Porta (2024-10-23 08:36:06)
+> Hi Stephen,
+>=20
+> On 15:08 Wed 09 Oct     , Stephen Boyd wrote:
+> > Quoting Andrea della Porta (2024-10-07 05:39:51)
+> > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > > index 299bc678ed1b..537019987f0c 100644
+> > > --- a/drivers/clk/Kconfig
+> > > +++ b/drivers/clk/Kconfig
+> > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
+> > >           These multi-function devices have two fixed-rate oscillator=
+s, clocked at 32KHz each.
+> > >           Clkout1 is always on, Clkout2 can off by control register.
+> > > =20
+> > > +config COMMON_CLK_RP1
+> > > +       tristate "Raspberry Pi RP1-based clock support"
+> > > +       depends on PCI || COMPILE_TEST
+> >=20
+> > A better limit would be some ARCH_* config.
+>=20
+> I've avoided ARCH_BCM2835 since the original intention is for this driver
+> to work (in the future) also for custom PCI cards with RP1 on-board, and =
+not
+> only for Rpi5.
 
-Consider two tasks on one CPU:
+How will that custom PCI card work? It will need this driver to probe?
+Is the iomem going to be exposed through some PCI config space?
 
- A: Begins signal entry in kernel mode, is preempted prior to SMSTOP.
- B: Using SM and/or ZA in userspace with register state current on the
-    CPU, is preempted.
- A: Scheduled in, no register state changes made as in kernel mode.
- A: Executes SMSTOP, modifying live register state.
- A: Scheduled out.
- B: Scheduled in, fpsimd_thread_switch() sees the register state on the
-    CPU is tracked as being that for task B so the state is not reloaded
-    prior to returning to userspace.
+It's not great to depend on CONFIG_PCI because then the driver is forced
+to be =3Dm if PCI ever becomes tristate (unlikely, but still makes for bad
+copy/pasta). I understand this line is trying to limit the availability
+of the config symbol. Maybe it should simply depend on ARM or ARM64? Or
+on nothing at all.
 
-Task B is now running with SM and ZA incorrectly cleared.
+>=20
+> > > diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> > > new file mode 100644
+> > > index 000000000000..9016666fb27d
+> > > --- /dev/null
+> > > +++ b/drivers/clk/clk-rp1.c
+> >=20
+> > > +#include <linux/clk.h>
+> >=20
+> > Preferably this include isn't included.
+>=20
+> This include is currently needed by devm_clk_get_enabled() to retrieve
+> the xosc. Since that clock is based on a crystal (so it's fixed and
+> always enabled), I'm planning to hardcode it in the driver. This will
+> not only get rid of the devm_clk_get_enabled() call (and hence of the
+> clk.h include), but it'll also simplify the top devicetree. No promise
+> though, I need to check a couple of things first.
 
-Fix this by check TIF_FOREIGN_FPSTATE and only updating one of the live
-register context or the in memory copy when entering a signal handler.
-Since this needs to happen atomically and all code that atomically
-accesses FP state is in fpsimd.c also move the code there to ensure
-consistency.
+A clk provider (clk-provider.h) should ideally not be a clk consumer
+(clk.h).
 
-This race has been observed intermittently with fp-stress, especially
-with preempt disabled.
+>=20
+>=20
+> > > +
+> > > +static int rp1_pll_ph_set_rate(struct clk_hw *hw,
+> > > +                              unsigned long rate, unsigned long pare=
+nt_rate)
+> > > +{
+> > > +       struct rp1_pll_ph *pll_ph =3D container_of(hw, struct rp1_pll=
+_ph, hw);
+> > > +       const struct rp1_pll_ph_data *data =3D pll_ph->data;
+> > > +
+> > > +       /* Nothing really to do here! */
+> >=20
+> > Is it read-only? Don't define a set_rate function then and make the rate
+> > determination function return the same value all the time.
+>=20
+> Not 100% sure about it, maybe Raspberry Pi colleagues can explain.
+> By 'rate determination function' you're referring (in this case) to
+> rp1_pll_ph_recalc_rate(), right?
 
-Fixes: 40a8e87bb3285 ("arm64/sme: Disable ZA and streaming mode when handling signals")
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: stable@vger.kernel.org
----
- arch/arm64/include/asm/fpsimd.h |  1 +
- arch/arm64/kernel/fpsimd.c      | 30 ++++++++++++++++++++++++++++++
- arch/arm64/kernel/signal.c      | 19 +------------------
- 3 files changed, 32 insertions(+), 18 deletions(-)
+Yes.
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index f2a84efc361858d4deda99faf1967cc7cac386c1..09af7cfd9f6c2cec26332caa4c254976e117b1bf 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -76,6 +76,7 @@ extern void fpsimd_load_state(struct user_fpsimd_state *state);
- extern void fpsimd_thread_switch(struct task_struct *next);
- extern void fpsimd_flush_thread(void);
- 
-+extern void fpsimd_enter_sighandler(void);
- extern void fpsimd_signal_preserve_current_state(void);
- extern void fpsimd_preserve_current_state(void);
- extern void fpsimd_restore_current_state(void);
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 77006df20a75aee7c991cf116b6d06bfe953d1a4..e6b086dc09f21e7f30df32ab4f6875b53c4228fd 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1693,6 +1693,36 @@ void fpsimd_signal_preserve_current_state(void)
- 		sve_to_fpsimd(current);
- }
- 
-+/*
-+ * Called by the signal handling code when preparing current to enter
-+ * a signal handler. Currently this only needs to take care of exiting
-+ * streaming mode and clearing ZA on SME systems.
-+ */
-+void fpsimd_enter_sighandler(void)
-+{
-+	if (!system_supports_sme())
-+		return;
-+
-+	get_cpu_fpsimd_context();
-+
-+	if (test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-+		/* Exiting streaming mode zeros the FPSIMD state */
-+		if (current->thread.svcr & SVCR_SM_MASK) {
-+			memset(&current->thread.uw.fpsimd_state, 0,
-+			       sizeof(current->thread.uw.fpsimd_state));
-+			current->thread.fp_type = FP_STATE_FPSIMD;
-+		}
-+
-+		current->thread.svcr &= ~(SVCR_ZA_MASK |
-+					  SVCR_SM_MASK);
-+	} else {
-+		/* The register state is current, just update it. */
-+		sme_smstop();
-+	}
-+
-+	put_cpu_fpsimd_context();
-+}
-+
- /*
-  * Called by KVM when entering the guest.
-  */
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 5619869475304776fc005fe24a385bf86bfdd253..fe07d0bd9f7978d73973f07ce38b7bdd7914abb2 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -1218,24 +1218,7 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
- 	/* TCO (Tag Check Override) always cleared for signal handlers */
- 	regs->pstate &= ~PSR_TCO_BIT;
- 
--	/* Signal handlers are invoked with ZA and streaming mode disabled */
--	if (system_supports_sme()) {
--		/*
--		 * If we were in streaming mode the saved register
--		 * state was SVE but we will exit SM and use the
--		 * FPSIMD register state - flush the saved FPSIMD
--		 * register state in case it gets loaded.
--		 */
--		if (current->thread.svcr & SVCR_SM_MASK) {
--			memset(&current->thread.uw.fpsimd_state, 0,
--			       sizeof(current->thread.uw.fpsimd_state));
--			current->thread.fp_type = FP_STATE_FPSIMD;
--		}
--
--		current->thread.svcr &= ~(SVCR_ZA_MASK |
--					  SVCR_SM_MASK);
--		sme_smstop();
--	}
-+	fpsimd_enter_sighandler();
- 
- 	if (system_supports_poe())
- 		write_sysreg_s(POR_EL0_INIT, SYS_POR_EL0);
+> If so, that clock type seems to have
+> a fixed divider but teh resulting clock depends on the parent rate, so
+> it has to be calculated.
 
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241023-arm64-fp-sme-sigentry-a2bd7187e71b
+Sure, it has to be calculated, but it will return the rate that causes
+no change to the hardware. When that happens, the set_rate() op should
+be skipped, and you can see that with clk_divider_ro_ops not having a
+set_rate() function pointer.
 
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
+>=20
+> > > +static int rp1_clock_determine_rate(struct clk_hw *hw,
+> > > +                                   struct clk_rate_request *req)
+> > > +{
+> > > +       struct clk_hw *parent, *best_parent =3D NULL;
+> > > +       unsigned long best_rate =3D 0;
+> > > +       unsigned long best_prate =3D 0;
+> > > +       unsigned long best_rate_diff =3D ULONG_MAX;
+> > > +       unsigned long prate, calc_rate;
+> > > +       size_t i;
+> > > +
+> > > +       /*
+> > > +        * If the NO_REPARENT flag is set, try to use existing parent.
+> > > +        */
+> > > +       if ((clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT)) {
+> >=20
+> > Is this flag ever set?
+>=20
+> Not right now, but it will be used as soon as I'll add the video clocks,
+> so I thought to leave it be to avoid adding it back in the future.
+> For this minimal support is not needed though, so let me know if you
+> want it removed.
+>=20
 
+Ok sure.
+
+>=20
+> > > +
+> > > +       [RP1_CLK_ETH_TSU] =3D REGISTER_CLK(.name =3D "clk_eth_tsu",
+> > > +                               .parents =3D {"rp1-xosc"},
+> > > +                               .num_std_parents =3D 0,
+> > > +                               .num_aux_parents =3D 1,
+> > > +                               .ctrl_reg =3D CLK_ETH_TSU_CTRL,
+> > > +                               .div_int_reg =3D CLK_ETH_TSU_DIV_INT,
+> > > +                               .sel_reg =3D CLK_ETH_TSU_SEL,
+> > > +                               .div_int_max =3D DIV_INT_8BIT_MAX,
+> > > +                               .max_freq =3D 50 * MHz,
+> > > +                               .fc0_src =3D FC_NUM(5, 7),
+> > > +                               ),
+> > > +
+> > > +       [RP1_CLK_SYS] =3D REGISTER_CLK(.name =3D "clk_sys",
+> > > +                               .parents =3D {"rp1-xosc", "-", "pll_s=
+ys"},
+> >=20
+> > Please use struct clk_parent_data or clk_hw directly. Don't use strings
+> > to describe parents.
+>=20
+> Describing parents as as strings allows to directly assign it to struct
+> clk_init_data, as in rp1_register_clock():
+>=20
+> const struct rp1_clock_data *clock_data =3D data;
+> struct clk_init_data init =3D { };
+> ...
+> init.parent_names =3D clock_data->parents;
+>=20
+> otherwise we should create an array and populate from clk_parent_data::na=
+me,
+> which is of course feasible but a bit less compact. Are you sure you want
+> to change it?
+>=20
+
+Do not use strings to describe parents. That's the guiding principle
+here. I agree using strings certainly makes it easy to describe things
+but that doesn't mean it is acceptable.
+
+> > > +       struct clk *clk_xosc;
+> > > +       struct clk_hw **hws;
+> > > +       unsigned int i;
+> > > +
+> > > +       clockman =3D devm_kzalloc(dev, struct_size(clockman, onecell.=
+hws, asize),
+> > > +                               GFP_KERNEL);
+> > > +       if (!clockman)
+> > > +               return -ENOMEM;
+> > > +
+> > > +       spin_lock_init(&clockman->regs_lock);
+> > > +       clockman->dev =3D dev;
+> > > +
+> > > +       clockman->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> > > +       if (IS_ERR(clockman->regs))
+> > > +               return PTR_ERR(clockman->regs);
+> > > +
+> > > +       clk_xosc =3D devm_clk_get_enabled(dev, NULL);
+> > > +       if (IS_ERR(clk_xosc))
+> > > +               return PTR_ERR(clk_xosc);
+> > > +
+> > > +       clockman->hw_xosc =3D __clk_get_hw(clk_xosc);
+> >=20
+> > Please use struct clk_parent_data::index instead.
+>=20
+> Sorry, I didn't catch what you mean here. Can you please elaborate?
+>=20
+
+Don't use __clk_get_hw() at all. Also, don't use clk_get() and friends
+in clk provider drivers. Use struct clk_parent_data so that the
+framework can do the work for you at the right time.
 
