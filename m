@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35042CFA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA2CCFA45C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 18:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JaWidJfU3IgjixW6d/XGsWauF1pbmfj8wOb/yZzKIoY=; b=FVI/Urq67N6GX1to0VDe6j357g
-	K2PZLfPcFZPLWt3e/tLMcfFbl8qJkMWdjsf4bszkDBkNOYWRCbGFT/9QfemkT/Oe8ehdtEnJta+XP
-	mEnI2BKWIKo41bkhvVOwQpcD1yaNLZsj6H+UxfaI2EtTjnCQHmvodGqzIfTo1myarNAfkgv0nWM9+
-	/uOrJJKUJaeCuylrspXcFSQ9oQ9HB2U5p5Sp84JTKRx/9cUwc9lZhvHCAn3vph9Oi0LbndABC/srJ
-	p+efQ5JBPbtvQ3FUSGO0jsAhDG67jzfWus8eGvfM5LgwUHV3aF+InAICTRa8Y96zxEIzs8UKfRVFt
-	rvX964Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=; b=kI8Gsdvc1BiCtpfV3dpGaNV+XN
+	QJzGhcJlVx3F1WDejSwBLV73/w9Ga1gk45GfwGoSY/MDDVppFvQqsNjxs1quFu1Vm26nMuM1lxlIj
+	aAdLDXlwbDByVOzIIU0HmymGQp/Jsf1MawoQyxFxzC3Ql4d1UbiWpwElYGjSPXAoqGmYxXFFgLUeV
+	5KK0uJfZomWR3ZCOyIl/Y1CsKteI+O+3h4PB9wWv/IpA1vi1WsiETNVPhuMp+krsf/L8u7XdCsD0r
+	LHYvnLokUGToRc8qypPFvCc6/cwT0tWd22Mr2UC+0msf097Xsi2xfhJeqz3f/VBnncOa9UOGFCqmc
+	GQaHaXLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3fwu-0000000FV4d-0RSo;
-	Wed, 23 Oct 2024 18:19:12 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1t3fyQ-0000000FVWj-44c3;
+	Wed, 23 Oct 2024 18:20:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3epG-0000000FIDz-2Edf;
-	Wed, 23 Oct 2024 17:07:15 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d4b0943c7so5048748f8f.1;
-        Wed, 23 Oct 2024 10:07:14 -0700 (PDT)
+	id 1t3evB-0000000FKaj-1qv4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 17:13:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=; b=Tfk7KD36cL7aQjDSpw/0mXpxsZ
+	X3NkyZc63DLMiQUFyzhDXgbqhVSFjSxPtkOT7NJIsUjYzreESyVD3BIL5+3d9bu6Yd6+MsDB/j6zk
+	xszcDgJUCnbZAh5oyeWnx3A5wrNRMl9KJs+PQi3dBetSkuq9fOnqiFzLjF9vjxKejkcemBRZA//nV
+	BXOJVWNkMAbhs66hp407/fxydxfctWsT2DpgPf998uIPjAYyVouTAJoJF4UB3oHwDySAYT+HV9LPj
+	pgDljESoR9f0oNII9VJRA+2qJs5uBmtJZn3mEnA4FLmoYGxlTw+eOvd4Fmiu1srdpl5vSQXqP4Z0b
+	gegrcDfw==;
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3ev5-00000008UBe-0Tcd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 17:13:16 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e28ef71f0d8so68032276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 10:13:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729703233; x=1730308033; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=JaWidJfU3IgjixW6d/XGsWauF1pbmfj8wOb/yZzKIoY=;
-        b=ksanGxxu7idGx7yKKNYLKjj4hXXiin8C3pKTg5Up4UkmIy3LYq+cUw2bNzHXQFWWkj
-         LOD+30xgNv6h5ue4s7R2vOD1lcgaV+yjZfESSDjVrzYohPz4pivBqMS3Xy+fsQBhEtgZ
-         bnqYMN56ouUYZRu6CuIv8IL5l+yfvd6Abtcy2FAkkGg/AkEQxTjsCSw0jK4ZeTT2I7Nr
-         8FR/Qm+0u9Ebgln2REWjhUbVVQg06vtrgnPhWQT64DtApiUxwMzHiWKwozNDdNm17mb8
-         jBKwm+WFaRPqSBDaJEI1AzAMOrWf+Qxu7esg3XLR9GxXwgsfLvG1RpFSU2jzbAyTJx4y
-         5Dhg==
+        d=google.com; s=20230601; t=1729703592; x=1730308392; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=;
+        b=lEF0ryORaXaDmwfTIjAEOqQKauUg6I2lWZApQ12OJqXbF+ffOztUYz6xZ5r7jGc01e
+         MAk6l0MXRePLuMj+78vxyWCdLNzdLRPpq13zzQO116aeLF/wcpLL9nB/zqq6BGJyPkdN
+         HIbSCxVx6FULY4IFBbZydbddsflOxLe8MH/Y6RMh3xT+UfxawaecVnB8L1qxi8JcGIoh
+         wbPylmLQ+yfKsxyiezc9rLtXT71HKOfVGENDUszuQ5JvDvyHxkkEZT7WNWxvaT5OZl+e
+         ybTLJCssjBmcjAKrb9VjdoOnvJgxws4KgB/YjDjtQeNQ1BCQM5lyiXBmyidZS6cBJeN1
+         JFDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729703233; x=1730308033;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JaWidJfU3IgjixW6d/XGsWauF1pbmfj8wOb/yZzKIoY=;
-        b=dB4OAGKOiVRxYqG6hR2jMAjKAQuNF7aZR/MuHcqZNSkyR/fTWGPvt8ogQgKiV+wVa7
-         Klrl+311gFLrP5A6eZ0mMFPa3wqfk84dehXB00oXPk7EpDorbpsZN/FP4o3oDrpXmLFP
-         0Zu9DGHAo3Lgsg8aI3ThX13K6He56onI1gJGb7u8T5l2G9MkGg/FVzT3Y7g8YhDz+D/q
-         l4pY4Oj1iTWkDe74BJgX5VsM8uFhGcNkGjHmHWhpd7NSZK5AQye6QRJtE9ZExCIgRVZr
-         O83nT2oUPbgM6Hm5m0LOzv1vV45IErJeog6c9A1LeDeNhy/MyzvWO7BNI+5mjzNs5Yi3
-         J/lw==
-X-Forwarded-Encrypted: i=1; AJvYcCUOM16ajG3rcOBgNFf8v7yogWYPE0Bdild/REzJ+AtEIvdrSdLkJuWFC+04dEjk4yvEbTlBM5gIRzn/lvH9mOs=@lists.infradead.org, AJvYcCVTsQ1T1SohBhwETHMphSHOxM+3UoLZokgzquwhBbThVaTdSTTrXdVbp3O9gGUZrU3PDFxJsfbxd8KlqZqJR6Z2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGuU6CJGqVj7TjNJSyaihrQCZPQduWTkLRCUL60O/XJzcJJvav
-	7jhv6dy7PPMHdrd3TZ7n14M2ZY2tG30OvIlMtBDVyncnD2ySI9Bc
-X-Google-Smtp-Source: AGHT+IEZmQMRACMlxf5P/dPNhbQTZyftTXwVXCqJKPwGo13eY5omo7juc5h7J60TFFFp/09QSCJXuQ==
-X-Received: by 2002:a5d:4704:0:b0:37d:5496:290c with SMTP id ffacd0b85a97d-37efcf051afmr2301500f8f.7.1729703232740;
-        Wed, 23 Oct 2024 10:07:12 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0a4aadcsm9357173f8f.40.2024.10.23.10.07.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 10:07:12 -0700 (PDT)
-Message-ID: <67192d40.5d0a0220.33f6c1.23bc@mx.google.com>
-X-Google-Original-Message-ID: <ZxktPEtzI2ItzdXA@Ansuel-XPS.>
-Date: Wed, 23 Oct 2024 19:07:08 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next RFC PATCH v2 3/3] net: phy: Add Airoha AN8855 Internal
- Switch Gigabit PHY
-References: <20241023161958.12056-1-ansuelsmth@gmail.com>
- <20241023161958.12056-4-ansuelsmth@gmail.com>
- <4ad7b2e9-ddf1-4a82-9d60-7afd1856c770@lunn.ch>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4ad7b2e9-ddf1-4a82-9d60-7afd1856c770@lunn.ch>
+        d=1e100.net; s=20230601; t=1729703592; x=1730308392;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sjJwOqBa6AK8/TR77kHwHcznf7IiYMoRphf6RMACy5Q=;
+        b=N1HPYmYWGHBqH7bsFfc7bVZa7FNPKqgIlQ6A03RHdT4dn7wXlSZmlpu/RC2WUb0QjG
+         oXLLGdbDqJ5hHOdLjyMmJHnzkO//z8lgN9WfJTvD/98Hh8Lz44dnR6l7mAY0B4smmI9x
+         bUbOl/qogZ5GZe00u6Wt4uGUyIvJjuSt3Ugi0L0+eaRTNL4/iXYMyC42gWZjQs/Vvryd
+         /EJ9djSi9ZgjrylqeIjz6ZT/8kKcLmKudnKZpIHsKn0W+JzmidLtlTSBPlWaji59LVIY
+         e3jHhpfxeCZ+Ldwu9+Nt4ckt/mYF7wvShmlskL3LYPiX5YvGoNMhTfh8I+cYs9rZmOXN
+         Es4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWrZ+lo1ytjdt6g/FAmgq9ePaJy+x8s6EdDGz/3zCKuhIqb1/EmFLdPG1DnmKkbw6P39Tev+GsKDN2Tkd86PII1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzOceKbaZZzvRbb60wbMnRuNklIeS0Zxt4x/3+PoNSdLMnTt44
+	6CLs6s7lrs1TK+NC6vozvLavTb1qwxhYDWA6U01VIKeOk5n6NPG08xSTbj7VzlQnUJbPAfZS2w3
+	WVCpBg9Nadw==
+X-Google-Smtp-Source: AGHT+IFzj+UPbqIngfYZg8jfoSUOtJUbhZmymzy/LpsBgzX9feIS82Pp9ab/ElSPVxx+P987jYpoPGCk3MktKg==
+X-Received: from mostafa.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:333c])
+ (user=smostafa job=sendgmr) by 2002:a5b:b90:0:b0:e27:3e6a:345 with SMTP id
+ 3f1490d57ef6-e2e3a6dd19amr1836276.10.1729703592399; Wed, 23 Oct 2024 10:13:12
+ -0700 (PDT)
+Date: Wed, 23 Oct 2024 17:12:43 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
+Message-ID: <20241023171244.4031151-1-smostafa@google.com>
+Subject: [PATCH] Documentation: Update the behaviour of "kvm-arm.mode"
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: corbet@lwn.net, Mostafa Saleh <smostafa@google.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_100714_592841_8ADF3828 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20241023_181315_319734_30772148 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 07:00:22PM +0200, Andrew Lunn wrote:
-> > +static int an8855_config_init(struct phy_device *phydev)
-> > +{
-> > +	struct air_an8855_priv *priv = phydev->priv;
-> > +	int ret;
-> > +
-> > +	/* Enable HW auto downshift */
-> > +	ret = phy_write(phydev, AN8855_PHY_PAGE_CTRL, AN8855_PHY_EXT_PAGE);
-> > +	if (ret)
-> > +		return ret;
-> > +	ret = phy_set_bits(phydev, AN8855_PHY_EXT_REG_14,
-> > +			   AN8855_PHY_EN_DOWN_SHFIT);
-> > +	if (ret)
-> > +		return ret;
-> > +	ret = phy_write(phydev, AN8855_PHY_PAGE_CTRL, AN8855_PHY_NORMAL_PAGE);
-> > +	if (ret)
-> > +		return ret;
-> 
-> There are locking issues here, which is why we have the helpers
-> phy_select_page() and phy_restore_page(). The air_en8811h.c gets this
-> right.
+Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
+VHE support") modified the behaviour of "kvm-arm.mode=protected" without
+the updating the kernel parameters doc.
 
-Ugh didn't think about it... The switch address is shared with the PHY
-so yes this is a problem.
+Update it to match the current implementation.
 
-Consider that this page thing comes from my speculation... Not really
-use if 1f select page... 
-From what I observed
-0x0 PHY page
-0x1 this strange EXT
-0x4 acess switch register (every PHY can access the switch)
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
 
-> 
-> Is there anything in common with the en8811h? Does it also support
-> downshift? Can its LED code be used here?
-> 
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-For some reason part of the LED are controlled by the switch and some
-are by the PHY. I still have to investigate that (not giving priority to
-it... just on my todo)
-
-For downshift as you notice it's a single bit with no count...
-From their comments in the original driver it's said "Enable HW
-autodownshift"
-
-Trying to reach them but currently it's all very obscure.
-
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index bb48ae24ae69..59a0dd7e2de6 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2723,8 +2723,12 @@
+ 			nvhe: Standard nVHE-based mode, without support for
+ 			      protected guests.
+ 
+-			protected: nVHE-based mode with support for guests whose
++			protected: hVHE-based mode with support for guests whose
+ 				   state is kept private from the host.
++				   In case hVHE is not supported in hardware, it will
++				   boot with protected nVHE.
++				   nVHE protected mode can still be forced on VHE systems
++				   using "kvm_arm.mode=protected arm64_sw.hvhe=0 id_aa64mmfr1.vh=0"
+ 
+ 			nested: VHE-based mode with support for nested
+ 				virtualization. Requires at least ARMv8.3
 -- 
-	Ansuel
+2.47.0.105.g07ac214952-goog
+
 
