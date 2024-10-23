@@ -4,105 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1824CCDDE72
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B30CDDE75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 11:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xWC94fPWs84vqhZrZ1Lvw+n7vCGXRZsDoRsBHpJ7XAw=; b=wYaGNnNOTE8PLdnwwb/GGZsLZQ
-	phZPOW/oQ12E74xAFx1la7jofu4K8vyNHLcp8Am3/XM4t2vFa6tRglT4pijjd2O0FM5Ne6FNaYSqu
-	0zsdBdKLS515IoT4aZL9uybBnNq70IxsNkSm5lSB8tSBNNRFC3vMcdYgspaq4JFrnfjxzzSTHcRDv
-	aP3eeQcYcPjx6i9eXic+K1gGxJdBQ95Ij1hZWWJ+fHLnYGwojmAXaAWqrtU06oi+nQmi0CvN36FFx
-	eOeYhjnoOnc1d8kzdUuT7Y587WfHKxgy7R1NIymmdwp1/RPcxSOykkEiYOl3xAs8CcKL+IgjpxQpY
-	YlPOdmqw==;
+	bh=6e7liKCwThuDZVEsub5H6RinZjvLHiVXV2bMMw2uL2Q=; b=N3rk8CLJ4ps5+dfiI20Gqk5ST0
+	aqwmV6/tqNSXNGEVIXAhRpvjw78fF8/QhkXrH0PUHSbTpECi0WfKrTjnpV4kOqa7xwmmh8shSCmGh
+	ZPvbizf6UQHLDjRhbgS/cczZioHNgZa+oiayhg8PHPBflEmbAOWvqW2a7VkZ9hnqj71aTKZ+XCBiS
+	Q+BLNYUEVyxM4LFexq/C++pcDWXSwQmHltWAqn3Au2NtZiEBW3wzj1++gGUQuzGK8ov2oNEj5J7vU
+	e+Kqh48oX+YSmd09+DbyDcUpnCxk2GEZXpYAwEcQG2hYXPMh2Dp9bPh5D8QzsdMsVtiTf6XaSKtJb
+	blyrNr6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ZpB-0000000EBtZ-2vJk;
-	Wed, 23 Oct 2024 11:46:49 +0000
+	id 1t3ZpE-0000000EBvV-1pvY;
+	Wed, 23 Oct 2024 11:46:52 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3YtS-0000000E2T6-25hj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 10:47:11 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 47CB7169;
-	Wed, 23 Oct 2024 12:45:17 +0200 (CEST)
+	id 1t3ZAV-0000000E4v0-1LtI;
+	Wed, 23 Oct 2024 11:04:48 +0000
+Received: from umang.jain (unknown [IPv6:2405:201:2015:f873:55d7:c02e:b2eb:ee3f])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2533B8A9;
+	Wed, 23 Oct 2024 13:02:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1729680317;
-	bh=1aUwh7M2CVh9uYUCo+mpzgabGTGHha0z3nBcBVPdCVE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u8gcHKiEZOTbl/vjaUuxKC4po20kbJ5UenYe3R8fefyZ1AAuU7KRkWIjvEsebXKBx
-	 E2B0r36OeLz5cDrd4XnepV6VaQXBu1QbZAsO50ippNXBALwd6dweIdgE5hYAaY3AWL
-	 SURtfEKBU+hKyewWwzkhgdnITdPNLU4l+6POuJlg=
-Message-ID: <f7fbd696-d739-457b-bebb-571b32ecc1d6@ideasonboard.com>
-Date: Wed, 23 Oct 2024 13:47:01 +0300
+	s=mail; t=1729681379;
+	bh=2LKSIF262z/emv06K71fxiLrd5T72VZ1UM2x5FZ8PVM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OuRe4WnmVkamiuzriOZgOd7R6iiohfea88k3o3pLCUXILfP9oZyLvYM4H3RFMtzD8
+	 NB691linWt1Nk7YtH7hMTkwLj0kK3BaEKbamSytFcDBbT302RKsr4RZXOzd5eHNfKh
+	 m1OWc4dXO5v1ruJ1zmjLJqCzGz6ELUFomU2vM3vk=
+From: Umang Jain <umang.jain@ideasonboard.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	kernel-list@raspberrypi.com,
+	Umang Jain <umang.jain@ideasonboard.com>
+Subject: [PATCH 1/6] staging: vchiq_arm: Rename a struct vchiq_bulk member
+Date: Wed, 23 Oct 2024 16:34:01 +0530
+Message-ID: <20241023110406.885199-2-umang.jain@ideasonboard.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241023110406.885199-1-umang.jain@ideasonboard.com>
+References: <20241023110406.885199-1-umang.jain@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dpsub: fix hotplug detection
-To: Steffen Dirkwinkel <lists@steffen.cc>, dri-devel@lists.freedesktop.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241021134115.216568-1-lists@steffen.cc>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20241021134115.216568-1-lists@steffen.cc>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_034710_694008_AE05A3D4 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20241023_040447_589326_CBB32766 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,42 +74,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/10/2024 16:41, Steffen Dirkwinkel wrote:
-> From: Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>
-> 
-> drm_kms_helper_poll_init needs to be called after zynqmp_dpsub_kms_init.
-> zynqmp_dpsub_kms_init creates the connector and without it we don't
-> enable hotplug detection.
-> 
-> Signed-off-by: Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>
-> ---
->   drivers/gpu/drm/xlnx/zynqmp_kms.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> index bd1368df7870..311397cee5ca 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> @@ -509,12 +509,12 @@ int zynqmp_dpsub_drm_init(struct zynqmp_dpsub *dpsub)
->   	if (ret)
->   		return ret;
->   
-> -	drm_kms_helper_poll_init(drm);
-> -
->   	ret = zynqmp_dpsub_kms_init(dpsub);
->   	if (ret < 0)
->   		goto err_poll_fini;
->   
-> +	drm_kms_helper_poll_init(drm);
-> +
->   	/* Reset all components and register the DRM device. */
->   	drm_mode_config_reset(drm);
->   
+Rename the struct vchiq_bulk's 'data' member to 'dma_addr' for
+better readability. No functional changes intended in this patch.
 
-Thanks, this indeed fixes the HPD issue.
+Signed-off-by: Umang Jain <umang.jain@ideasonboard.com>
+---
+ .../vc04_services/interface/vchiq_arm/vchiq_arm.c    |  2 +-
+ .../vc04_services/interface/vchiq_arm/vchiq_core.c   | 12 ++++++------
+ .../vc04_services/interface/vchiq_arm/vchiq_core.h   |  2 +-
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
-But shouldn't this have a Fixes tag, and cc stable?
-
-  Tomi
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index c2e7c2bd5071..f23d98a1b960 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -587,7 +587,7 @@ vchiq_blocking_bulk_transfer(struct vchiq_instance *instance, unsigned int handl
+ 		if (bulk) {
+ 			/* This thread has an outstanding bulk transfer. */
+ 			/* FIXME: why compare a dma address to a pointer? */
+-			if ((bulk->data != (dma_addr_t)(uintptr_t)bulk_params->data) ||
++			if ((bulk->dma_addr != (dma_addr_t)(uintptr_t)bulk_params->dma_addr) ||
+ 			    (bulk->size != bulk_params->size)) {
+ 				/*
+ 				 * This is not a retry of the previous one.
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index 9e56e34ca4d9..90ab780b7e94 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -1369,7 +1369,7 @@ notify_bulks(struct vchiq_service *service, struct vchiq_bulk_queue *queue,
+ 		 * Only generate callbacks for non-dummy bulk
+ 		 * requests, and non-terminated services
+ 		 */
+-		if (bulk->data && service->instance) {
++		if (bulk->dma_addr && service->instance) {
+ 			status = service_notify_bulk(service, bulk);
+ 			if (status == -EAGAIN)
+ 				break;
+@@ -1751,7 +1751,7 @@ vchiq_prepare_bulk_data(struct vchiq_instance *instance, struct vchiq_bulk *bulk
+ 	if (!pagelistinfo)
+ 		return -ENOMEM;
+ 
+-	bulk->data = pagelistinfo->dma_addr;
++	bulk->dma_addr = pagelistinfo->dma_addr;
+ 
+ 	/*
+ 	 * Store the pagelistinfo address in remote_data,
+@@ -1807,7 +1807,7 @@ abort_outstanding_bulks(struct vchiq_service *service,
+ 				service->remoteport, bulk->size, bulk->remote_size);
+ 		} else {
+ 			/* fabricate a matching dummy bulk */
+-			bulk->data = 0;
++			bulk->dma_addr = 0;
+ 			bulk->size = 0;
+ 			bulk->actual = VCHIQ_BULK_ACTUAL_ABORTED;
+ 			bulk->dir = is_tx ? VCHIQ_BULK_TRANSMIT :
+@@ -2112,7 +2112,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 
+ 			dev_dbg(state->dev, "core: %d: prs %s@%pK (%d->%d) %x@%pad\n",
+ 				state->id, msg_type_str(type), header, remoteport,
+-				localport, bulk->actual, &bulk->data);
++				localport, bulk->actual, &bulk->dma_addr);
+ 
+ 			dev_dbg(state->dev, "core: %d: prs:%d %cx li=%x ri=%x p=%x\n",
+ 				state->id, localport,
+@@ -3081,7 +3081,7 @@ vchiq_bulk_xfer_queue_msg_killable(struct vchiq_service *service,
+ 
+ 	dev_dbg(state->dev, "core: %d: bt (%d->%d) %cx %x@%pad %pK\n",
+ 		state->id, service->localport, service->remoteport,
+-		dir_char, bulk->size, &bulk->data, bulk->userdata);
++		dir_char, bulk->size, &bulk->dma_addr, bulk->userdata);
+ 
+ 	/*
+ 	 * The slot mutex must be held when the service is being closed, so
+@@ -3095,7 +3095,7 @@ vchiq_bulk_xfer_queue_msg_killable(struct vchiq_service *service,
+ 	if (service->srvstate != VCHIQ_SRVSTATE_OPEN)
+ 		goto unlock_both_error_exit;
+ 
+-	payload[0] = lower_32_bits(bulk->data);
++	payload[0] = lower_32_bits(bulk->dma_addr);
+ 	payload[1] = bulk->size;
+ 	status = queue_message(state,
+ 			       NULL,
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+index 186b1395d3a2..9ba4a2295dc3 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+@@ -115,7 +115,7 @@ struct vchiq_bulk {
+ 	short mode;
+ 	short dir;
+ 	void *userdata;
+-	dma_addr_t data;
++	dma_addr_t dma_addr;
+ 	int size;
+ 	void *remote_data;
+ 	int remote_size;
+-- 
+2.45.2
 
 
