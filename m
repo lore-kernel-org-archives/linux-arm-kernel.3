@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA2DCFA445
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C188CFA445
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JUBbRPfDl6CiHVlIIfw0UGwvoLtrzFQnulm7vGv6oLI=; b=iHz3YKAjS3SrAytWC5ElLha6xI
-	h5dxbcATpTboyuUHeyPSXWLpH+Sn6Xhq6rUyGMxXz6zMJJrp1myrsHkA5v1ywnscxjrF5ds02IaN5
-	n+D01hr61wtrETBuarDS0aQAI9xi53TqylCCQSU6M78Q0JI3CvLxSG7+IG0uysoKjd9P5nqOyUF7i
-	csX+5P+jEQrXH0p6HWXbMqubst8SxpR/lR+0IfxdDuGTD0jtkRTivjEEMrVvEdffZQBG8aBYo9Md3
-	wDx4WK0z5M0AjYH1qtjZNNPyu2d/8qjDXIIoAeDRYjlkZzElSKDKHtM0nu0vfuqJaBc2in1VcN6yC
-	6vswe6cg==;
+	bh=08wzDr73SmncP7hOpusXSf0JUEnKVaq7T6cx/CuFfXg=; b=BdUpEm93gxrpEeQhS3RmfB/Lzv
+	kNVYeT/aHtqAp7c+lJfJVjwN1F6vVi08liirb0npvrYQjQcoDtTchGgud6NXA/dlzyyKHfyO7gWWE
+	9x93Fbcn2wrWONkNjnuiPW+HFoMTkVd33k+5zET3nmM1rfOelp0jRWRbXdX/gLgxs2CmlEuchAn7I
+	R8L5QuZrXaOn4sg61eNQEk5CDjsw/+sxxLQJ6q0XzV95vgRz2wLqmGWmfGBhR9sBy1cbE68Yh3z8o
+	btqUEi2qn689uJeYwOaTLlJtiP9+uhAvY6LQY9v27jzQU66RcOxLJm6kCDKCO0K+dfWR5qfmBaMgN
+	I+Q9YIgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dh1-0000000F35u-1wXK;
-	Wed, 23 Oct 2024 15:54:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3diV-0000000F3IL-2HNu;
+	Wed, 23 Oct 2024 15:56:11 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckM-0000000EpL2-3I8l
+	id 1t3cos-0000000EqaC-05Ly
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:54:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 559D1A4501D;
-	Wed, 23 Oct 2024 14:53:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36C3AC4CEC6;
-	Wed, 23 Oct 2024 14:53:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729695238;
-	bh=n7QHz2ieFv34eW5Zkyhf4MKFxk9bAobNuldVjF/QHxM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CY7jxMtEKVV1lb5zPSYur8W3AKV8nGKk30puGDAo/W6hY9/exsQwg3dQlvWTvfY9r
-	 jHwdkf9xv3XQcfJTDYLFgc+rTxFKrlAPv1fus4Y58ng3yUWAHi2aZbTFO28k4jkHiY
-	 X+bAaJwuyQlVsohUu5o/TAOFi7XD1BelSr3yrWKnoXf4axv5aqoGat4FwCUfIt8CwO
-	 qqrXw0tbZ/3wyYAQZiBd3oxrFM1XXzPLHZ/6gBpR9HbuWppqwh7aPVrld5H0CKitIA
-	 F1J/cdyUfSPnYMKaY6qh9HnfZKnyJ33Kn3P9Fy0kU+XsW/zJVmWsFgviogJWyd5Pvd
-	 L7AoBQ+nanK6Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t3ckG-0068vz-Ax;
-	Wed, 23 Oct 2024 15:53:56 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 33/37] KVM: arm64: Add POE save/restore for AT emulation fast-path
-Date: Wed, 23 Oct 2024 15:53:41 +0100
-Message-Id: <20241023145345.1613824-34-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
-References: <20241023145345.1613824-1-maz@kernel.org>
+	Wed, 23 Oct 2024 14:58:45 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e290d5f83bcso6394783276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:58:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1729695520; x=1730300320; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=08wzDr73SmncP7hOpusXSf0JUEnKVaq7T6cx/CuFfXg=;
+        b=fYRHp8ygY2hjURZufFd7lQh+MvSA8u4Byc/4tJxNh8B5FXSGptUDMo+pBoYgxhU6X3
+         UWsm9/Y1S/lwLe8Q5bWz7ggrY66sX2f+QK2G047nLNOGoQ3zM0pXkSBOBAaGzG56wv8M
+         hB95fAVHTR4Zmx79n1RRAxSnysdWpRXPyaBcg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729695520; x=1730300320;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=08wzDr73SmncP7hOpusXSf0JUEnKVaq7T6cx/CuFfXg=;
+        b=oaob8e7Nbd4XmuSIypesVez/3gtbW7iKvLnur2fFjeriVEBswpwb9WeAOaOamVdplJ
+         G2pT2j8C4fyysI9r9osM5E6cfaPdu4H7wlFPrhlSSpH1sfsBsUwgENcayocK/HhIF4Iy
+         4et58bJ95fDDK76IRxthwt9c8ZcMwIu9/u9hgkVtoyhkKyjp977VAZUfsTrSHbH7lppk
+         PgPliLZnaPBwdxk/4fS/fBCulS5wZR78cdVA1HvHF2VNu5uVqGlncmBlYwHqvAoDU76R
+         Yp0XX4KU1/vkaN6Ltd+SRopCx9FYe3NKSRQUu/HXrYBNjAzUvEGQvDGFhq+404YtHiCS
+         gSeg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRnDZr7o1wzW4dm0QizxNVtv1HMrcO1eK4gMwM7xjltMvzzayScvy3Ik23TWLNQLkxZ5Vwm4xDBkpI/KUH9ijj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo8dSGMM1n1rFW8SHmW1pI6ro7FbfD4CE94oqzngxTI3TKSL93
+	NzpkToKKbDk+fD+79elVsHSiUsyARnrQ9T30BNvdW67XbZDbkGgCvw5JpzMitItaP9hCF8aFF4h
+	ojzBBpZy4a8isGLa+qKoSNptFbsnEjKoE181GFw==
+X-Google-Smtp-Source: AGHT+IGAkJXmTLbjp4p/kmr/kI6fPHFgvzbKjk4VittFrzzA3ftmZhOciZg168F1BuNwZNJVQtt2aHwv41AM/edj+1w=
+X-Received: by 2002:a05:6902:260a:b0:e28:e9bf:797c with SMTP id
+ 3f1490d57ef6-e2e3a609744mr2609445276.3.1729695520116; Wed, 23 Oct 2024
+ 07:58:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, alexandru.elisei@arm.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20240928083804.1073942-1-dario.binacchi@amarulasolutions.com>
+ <20240928083804.1073942-2-dario.binacchi@amarulasolutions.com>
+ <566859c1-a397-4465-987e-0682b07a703e@kernel.org> <CABGWkvqqg-PGAZTCz=MMLRx5F93jaN_=z8zJt1sDd3PHXd80PQ@mail.gmail.com>
+ <6c3e6071-822f-4230-b76b-276330de07ef@kernel.org> <CABGWkvrU507BHoP94Y7fEyFr=chuuy3o=oBHtuWRvwTw3GnxXw@mail.gmail.com>
+ <82db5037-bbd3-4005-bde9-02df1bf4c475@kernel.org> <CABGWkvqXZ+YAvo-AtUy+Ftdu0xxXKuhOwcSTwO5Fv6D3yzttNg@mail.gmail.com>
+ <b847ccb1-1eb8-4119-8612-212804cb50d8@kernel.org> <CABGWkvqkmo9O-O1taR651W4xo=yqar=p71e0LKqRte2CGZ2Z8w@mail.gmail.com>
+ <7bce31c0-8c74-4d65-812f-01951a0d75d1@kernel.org> <CABGWkvqFi_y8OzKbi=K7ucW4RuY_zh6Z4a=uO2oqQRoVE8LaCQ@mail.gmail.com>
+In-Reply-To: <CABGWkvqFi_y8OzKbi=K7ucW4RuY_zh6Z4a=uO2oqQRoVE8LaCQ@mail.gmail.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Wed, 23 Oct 2024 16:58:28 +0200
+Message-ID: <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com>
+Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m-anatop: support spread
+ spectrum clocking
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_075403_121083_05E062C8 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20241023_075842_198053_540E5692 
+X-CRM114-Status: GOOD (  51.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,62 +99,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like the other extensions affecting address translation,
-we must save/restore POE so that an out-of-context translation
-context can be restored and used with the AT instructions.
+On Tue, Oct 8, 2024 at 11:16=E2=80=AFAM Dario Binacchi
+<dario.binacchi@amarulasolutions.com> wrote:
+>
+> On Tue, Oct 8, 2024 at 10:20=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.=
+org> wrote:
+> >
+> > On 07/10/2024 17:02, Dario Binacchi wrote:
+> > > On Sun, Oct 6, 2024 at 3:13=E2=80=AFPM Krzysztof Kozlowski <krzk@kern=
+el.org> wrote:
+> > >>
+> > >> On 05/10/2024 10:57, Dario Binacchi wrote:
+> > >>> On Thu, Oct 3, 2024 at 12:46=E2=80=AFPM Krzysztof Kozlowski <krzk@k=
+ernel.org> wrote:
+> > >>>>
+> > >>>> On 01/10/2024 08:29, Dario Binacchi wrote:
+> > >>>>> On Mon, Sep 30, 2024 at 8:45=E2=80=AFAM Krzysztof Kozlowski <krzk=
+@kernel.org> wrote:
+> > >>>>>>
+> > >>>>>> On 29/09/2024 22:00, Dario Binacchi wrote:
+> > >>>>>>>>
+> > >>>>>>>>
+> > >>>>>>>>> +  properties:
+> > >>>>>>>>> +    compatible:
+> > >>>>>>>>> +      contains:
+> > >>>>>>>>> +        enum:
+> > >>>>>>>>> +          - fsl,imx8mm-anatop
+> > >>>>>>>>> +
+> > >>>>>>>>> +then:
+> > >>>>>>>>> +  properties:
+> > >>>>>>>>> +    fsl,ssc-clocks:
+> > >>>>>>>>
+> > >>>>>>>> Nope. Properties must be defined in top-level.
+> > >>>>>>>>
+> > >>>>>>>>> +      $ref: /schemas/types.yaml#/definitions/phandle-array
+> > >>>>>>>>> +      description:
+> > >>>>>>>>> +        The phandles to the PLLs with spread spectrum clock =
+generation
+> > >>>>>>>>> +        hardware capability.
+> > >>>>>>>>
+> > >>>>>>>> These should be clocks.
+> > >>>>>>>
+> > >>>>>>> Sorry, but I can't understand what you're asking me.
+> > >>>>>>> Could you kindly explain it to me in more detail?
+> > >>>>>>
+> > >>>>>> You added new property instead of using existing one for this pu=
+rpose:
+> > >>>>>> 'clocks'.
+> > >>>>>
+> > >>>>>>
+> > >>>>>>
+> > >>>>>>
+> > >>>>>> Best regards,
+> > >>>>>> Krzysztof
+> > >>>>>>
+> > >>>>>
+> > >>>>> I added this new property specifically for managing spread-spectr=
+um.
+> > >>>>> Indeed, not all clocks/PLLs
+> > >>>>> managed by the node/peripheral support spread-spectrum, and the a=
+dded
+> > >>>>> properties specify
+> > >>>>> parameters for enabling and tuning SSC for each individual PLL ba=
+sed
+> > >>>>> on the index of each list.
+> > >>>>> If I were to use the 'clocks' property and add a clock to this li=
+st
+> > >>>>> that does not support SSC, IMHO
+> > >>>>> the pairings would be less clear.
+> > >>>>
+> > >>>> You duplicate property with argument "pairings shall match". Well,=
+ I am
+> > >>>> not happy with the duplication. Clocks have specific order, thus i=
+t is
+> > >>>> explicit which one needs tuning. Your other properties can match t=
+hem as
+> > >>>> well, just index from clocks is offset...
+> > >>>
+> > >>> Just to check if I understood correctly what you are suggesting bef=
+ore
+> > >>> submitting version 3 of the patch.
+> > >>> Something, for example, like:
+> > >>>
+> > >>> clocks =3D <&clk, IMX8MP_AUDIO_PLL1>,  <&clk, IMX8MP_AUDIO_PLL2>, <=
+&clk
+> > >>> IMX8MP_VIDEO_PLL1>;
+> > >>> fsl,ssc-modfreq-hz =3D <0, 3517>, <2, 6818>;
+> > >>
+> > >> Hm, what is 0? If clock index, then no, it's redundant. The first it=
+em
+> > >> in cannot point to other clock.
+> > >>
+> > >> Also, what exactly are you setting here
+> > >
+> > > I am enabling and configuring the spread spectrum.
+> > >
+> > > Normal clock: Without spread spectrum, the clock signal has a fixed a=
+nd
+> > > repetitive frequency (e.g., 100 MHz). This frequency generates an
+> > > electromagnetic
+> > > signal concentrated on a single frequency, and if strong enough, it c=
+an disturb
+> > > other devices.
+> > >
+> > > Spread spectrum:  With spread spectrum, the clock frequency is
+> > > slightly "modulated,"
+> > > meaning it oscillates around a central value. For example, if the bas=
+e
+> > > frequency is 100 MHz,
+> > > the clock might vary between 99.5 MHz and 100.5 MHz in a cyclic manne=
+r. This
+> > > small variation spreads the energy over a wider range of frequencies
+> > > (from 99.5 to 100.5 MHz),
+> > > reducing the intensity of the signal at any one frequency.
+> >
+> > Sure, so each board will come with its own, different values and you
+> > will not put into the SoC DTSI?
+>
+> Yes, exactly.
+>
+> >
+> > Where is the DTS? I received only this patch.
+>
+> I haven't had time to push the board I'm working on upstream yet.
+> Locally, I apply this patch:
+>
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2-of10.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2-of10.dts
+> @@ -113,6 +113,13 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+>         };
+>  };
+>
+> +&anatop {
+> +       fsl,ssc-clocks =3D <&clk IMX8MP_VIDEO_PLL1>;
+> +       fsl,ssc-modfreq-hz =3D <6818>;
+> +       fsl,ssc-modrate-percent =3D <3>;
+> +       fsl,ssc-modmethod =3D "down-spread";
+> +};
+> +
+>  /* Ethernet */
+>  &eqos {
+>         pinctrl-names =3D "default";
+>
+> >
+> > >
+> > >> and why assigned-clock-rates are
+> > >> not working?
+> > >
+> > > The traditional clock properties, such as clocks,
+> > > assigned-clocks-rates, etc retain their usual
+> > > meaning even when spread spectrum is applied. However, to implement
+> > > the spread spectrum
+> > > mechanism in a circuit with a PLL (Phase-Locked Loop), additional
+> > > specific parameters are
+> > > introduced to properly configure the frequency modulation:
+> > >
+> > >  - Modulation frequency: i. e. fsl,ssc-modfreq-hz
+> > >  - Modulation rate: i.e.  fsl,ssc-modrate-percent
+> > >  - Modulation type:  i. e. fsl,ssc-modmethod (center-spread, down-spr=
+ead)
+> > >
+> > > Additionally, it should be noted that not all anatop PLLs are equippe=
+d
+> > > with circuitry for spread
+> > > spectrum, but only a small subset of them. This is the reason why I
+> > > introduced the property
+> > > "fsl, ssc-clocks".
+> > >
+> > > This is another commit [1] on enabling spread spectrum that I
+> > > implemented some time ago for
+> > > the am335x. The most evident difference is that in that case the node
+> > > was a clock node and not
+> > > a clock controller, as in the case of anatop. The parameters are also
+> > > not exactly the same, but
+> > > that depends on the platform.
+> > >
+> > > [1] 4a8bc2644ef0cbf8e ("dt-bindings: ti: dpll: add spread spectrum su=
+pport")
+> >
+> >
+> > OK, I still do not know what "0" was, but the items are fixed, so you
+> > know exactly which clock you are configuring here.
+>
+> So, after delving deeper into the topic, is it now acceptable to use
+> the property
+> "fsl,ssc-clocks" instead of "clocks"?  As in the patch I applied locally?
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/at.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+A gentle ping.
+Sorry, but I haven't yet received your response to the previous email,
+and I'm not sure how to proceed.
 
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index de7109111e404..ef1643faedeb4 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -440,6 +440,8 @@ struct mmu_config {
- 	u64	tcr2;
- 	u64	pir;
- 	u64	pire0;
-+	u64	por_el0;
-+	u64	por_el1;
- 	u64	sctlr;
- 	u64	vttbr;
- 	u64	vtcr;
-@@ -458,6 +460,10 @@ static void __mmu_config_save(struct mmu_config *config)
- 			config->pir	= read_sysreg_el1(SYS_PIR);
- 			config->pire0	= read_sysreg_el1(SYS_PIRE0);
- 		}
-+		if (system_supports_poe()) {
-+			config->por_el1	= read_sysreg_el1(SYS_POR);
-+			config->por_el0	= read_sysreg_s(SYS_POR_EL0);
-+		}
- 	}
- 	config->sctlr	= read_sysreg_el1(SYS_SCTLR);
- 	config->vttbr	= read_sysreg(vttbr_el2);
-@@ -485,6 +491,10 @@ static void __mmu_config_restore(struct mmu_config *config)
- 			write_sysreg_el1(config->pir, SYS_PIR);
- 			write_sysreg_el1(config->pire0, SYS_PIRE0);
- 		}
-+		if (system_supports_poe()) {
-+			write_sysreg_el1(config->por_el1, SYS_POR);
-+			write_sysreg_s(config->por_el0, SYS_POR_EL0);
-+		}
- 	}
- 	write_sysreg_el1(config->sctlr,	SYS_SCTLR);
- 	write_sysreg(config->vttbr,	vttbr_el2);
-@@ -1105,6 +1115,10 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 			write_sysreg_el1(vcpu_read_sys_reg(vcpu, PIR_EL1), SYS_PIR);
- 			write_sysreg_el1(vcpu_read_sys_reg(vcpu, PIRE0_EL1), SYS_PIRE0);
- 		}
-+		if (kvm_has_s1poe(vcpu->kvm)) {
-+			write_sysreg_el1(vcpu_read_sys_reg(vcpu, POR_EL1), SYS_POR);
-+			write_sysreg_s(vcpu_read_sys_reg(vcpu, POR_EL0), SYS_POR_EL0);
-+		}
- 	}
- 	write_sysreg_el1(vcpu_read_sys_reg(vcpu, SCTLR_EL1),	SYS_SCTLR);
- 	__load_stage2(mmu, mmu->arch);
--- 
-2.39.2
+Thanks and regards,
+Dario
 
+>
+> Thanks and regards,
+> Dario
+>
+> >
+> > Best regards,
+> > Krzysztof
+> >
+>
+>
+> --
+>
+> Dario Binacchi
+>
+> Senior Embedded Linux Developer
+>
+> dario.binacchi@amarulasolutions.com
+>
+> __________________________________
+>
+>
+> Amarula Solutions SRL
+>
+> Via Le Canevare 30, 31100 Treviso, Veneto, IT
+>
+> T. +39 042 243 5310
+> info@amarulasolutions.com
+>
+> www.amarulasolutions.com
+
+
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
