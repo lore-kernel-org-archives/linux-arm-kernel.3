@@ -4,64 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57091CFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757FBCFA442
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 15:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IXYT/q9RNLymB2esqo0NvRZeHISaCOKoU/Zw8hUJYs=; b=1GzFKfmpgvjTVvuoNxrZTzThwy
-	7sb0dXWpH5PFOZ/b+ISF/8XmY7GxXr3B90v/6elqyJ3BIFlKVtQiOHxtKPbAvAdXf+Y7fMXtLt0GW
-	/7m3G+0agyu0ja/7qmWm/kPmLD+l87bHg8i5nw66HV3LWSYJ1I2DSwN7zQyZ+7ltlCyJt8aMvcRpE
-	keUHcuNQaH2RnPqCkPCTf2iO5I9l8i9JuRQVLph2BM9fa5r6WL5ttCs9NbsXFgSsn04Ykf4KC75TC
-	0o1hM2yXYOV6msIYgF/OF3WdgciqIHSFke7PsiUtbZSOvCjcD+fF1gFcta59BQDJCBMGWniCn96AJ
-	2vAAH2xg==;
+	bh=8AM4TR13pIDb93ZPEkzVdZ6hBpzbCVcRO8niiDBHrT4=; b=AoosK2ST6UmHFMZ/Y4qPOWwEFs
+	qF4+MZt/PudGztaedYLquyIYQZRpK2LiXoWS9sySQW5r/X98rzfWKqLNUioaXDnu1XSESOj5ZGn1m
+	Iq3vyUthgc4TXUqJ86biAOWwDaWL3NyO95a4G1bBIu5A3zHXyz7WB8JoakMESdpTk2RS32Yf4bMp5
+	dUreAtlc4o7YGBqZtH/uIug5NzL4Q5aC2JRpnzkhJHBPm+LIMFpbk1ZXS7QKkKmvRtH4RxU8FpgmE
+	h1QAqc5+xxX4G3d8b1dRBbQkcnoP5t10AAXmZx0JuwMdIvlkDtZMyR9O5vS2bPDTN7hA4WwGImxIY
+	lpxp5quA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3dNR-0000000Eyht-1mlE;
-	Wed, 23 Oct 2024 15:34:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3dOw-0000000Eyyf-3EQI;
+	Wed, 23 Oct 2024 15:35:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckP-0000000EpR4-2F0f
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Oct 2024 14:54:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6IXYT/q9RNLymB2esqo0NvRZeHISaCOKoU/Zw8hUJYs=; b=EhXfgkLcRrp2Dbk/78TLe0rp0z
-	5CJxzg4AIC1emBI/Hl2ZCU3W6bsERJi/ewtyDOtGNaMxxQy+TZMi26w7FK7dtl6FEsLQLw134VIOC
-	Ylk4YmPAAdGXTx4Y3Embhypzbb9LJ3zCqEJJ0QLUFXfe0X3XZ/UI3CRACtFiPh7432EIB0WziKCh7
-	pjr4LV1HsPUND4+xOyPx0Z7wJB+mkA28TztnFGWJPw7k5Wr+LkJheApiCucafWVczYFy+D6j0ylbc
-	Fp9PQzUQ4SQpx/C8zkdaCet7mlpdeiRjXRD2qr0OHWl2uEVZ4V0OWD92xanh78KVV7DDxgm0OunaH
-	2x4S11rw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ckL-00000008QdJ-3tKa
+	id 1t3ckL-0000000EpJ9-07Wd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 14:54:04 +0000
+	Wed, 23 Oct 2024 14:54:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8199A45042;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D98B5A45045;
 	Wed, 23 Oct 2024 14:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0DB0C4CEC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CACC4CEE7;
 	Wed, 23 Oct 2024 14:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1729695235;
-	bh=dHJ3KFc8Fd9R8bqsS2a+yer53TbR/Cd03c/AD97edWg=;
+	bh=rAYE/pTG5IPhfJrFpLrgXvimEya8Y322Dd8HVgtMsAY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o11ddARJDnLBeEjJG+CyPpObqIDDpR0vqcQ4FGr/pdC+izcd9Dpas5K0cL6KayFx3
-	 LyifpRU+qUeju5SN612Akgc5qw4LmSAYw5gE0MNdZuiwB9vZz8hqsEhO1YTPIO2YAY
-	 jLQxcm5lSfsIumrkD3yOnl3Ha5oXaMJotq1LuXhX8wR9bZ8jlCwQgTFk0ZZInFCYNK
-	 uxvp00wI3aY4s8/3XsjLTii0FD7ak7xLPVh9edJq0/vVuXv/8PIfSSR2Spl2yI5nDa
-	 wq3S5QcpFbtgFJ1gX8FDpCQsU4CyqTpjA+KLbMRgjZGgU0nGHKHed13EOGggd+BPJE
-	 Syr7eOkHWnYUg==
+	b=BNqTecftSXpsZ/shgLZyHd7S9tS8oGDDQkr6il5bW0YJy/NHcYTYgJpBBHVw3kHPJ
+	 hwgcG0COiIrS9we8/HiFMBkqQBz9NUkxL2chR3DRG1K3eJLBpb5Wr/1ifWKcIH59xb
+	 sF/9hiC9MBsJIQX3sxMvEq/XgeAcVe5JmhstjVbAvnNlueIi7dM9Zr2fr8n0Xin/Yu
+	 al3j2dvlq4mJ3A/AKMTBbiaUaZDljTWyf9StqKNUdBM4KhBmGfwyNhqs440RXa2xPu
+	 DxFjqlkJkRGZ7ooXvoCmrySViXptd03pH07hfEAap2uj8DZ0jSSqFVrvCE3wco6tGH
+	 BKsADg1q8wqng==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1t3ckE-0068vz-1v;
+	id 1t3ckE-0068vz-7n;
 	Wed, 23 Oct 2024 15:53:54 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -73,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 22/37] KVM: arm64: Add a composite EL2 visibility helper
-Date: Wed, 23 Oct 2024 15:53:30 +0100
-Message-Id: <20241023145345.1613824-23-maz@kernel.org>
+Subject: [PATCH v5 23/37] KVM: arm64: Define helper for EL2 registers with custom visibility
+Date: Wed, 23 Oct 2024 15:53:31 +0100
+Message-Id: <20241023145345.1613824-24-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
 References: <20241023145345.1613824-1-maz@kernel.org>
@@ -86,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_155402_276118_96CADA85 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20241023_075401_308320_94032A4E 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We are starting to have a bunch of visibility helpers checking
-for EL2 + something else, and we are going to add more.
+From: Mark Brown <broonie@kernel.org>
 
-Simplify things somehow by introducing a helper that implement
-extractly that by taking a visibility helper as a parameter,
-and convert the existing ones to that.
+In preparation for adding more visibility filtering for EL2 registers add
+a helper macro like EL2_REG() which allows specification of a custom
+visibility operation.
 
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20240822-kvm-arm64-hide-pie-regs-v2-1-376624fa829c@kernel.org
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index c9638541c0994..dfbfae40c53c5 100644
+index dfbfae40c53c5..cfb1e58a31c06 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -2296,16 +2296,18 @@ static u64 reset_hcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
- 	return __vcpu_sys_reg(vcpu, r->reg) = val;
+@@ -2164,6 +2164,15 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+ 	.val = v,				\
  }
  
-+static unsigned int __el2_visibility(const struct kvm_vcpu *vcpu,
-+				     const struct sys_reg_desc *rd,
-+				     unsigned int (*fn)(const struct kvm_vcpu *,
-+							const struct sys_reg_desc *))
-+{
-+	return el2_visibility(vcpu, rd) ?: fn(vcpu, rd);
++#define EL2_REG_FILTERED(name, acc, rst, v, filter) {	\
++	SYS_DESC(SYS_##name),			\
++	.access = acc,				\
++	.reset = rst,				\
++	.reg = name,				\
++	.visibility = filter,			\
++	.val = v,				\
 +}
 +
- static unsigned int sve_el2_visibility(const struct kvm_vcpu *vcpu,
- 				       const struct sys_reg_desc *rd)
- {
--	unsigned int r;
--
--	r = el2_visibility(vcpu, rd);
--	if (r)
--		return r;
--
--	return sve_visibility(vcpu, rd);
-+	return __el2_visibility(vcpu, rd, sve_visibility);
- }
+ #define EL2_REG_VNCR(name, rst, v)	EL2_REG(name, bad_vncr_trap, rst, v)
+ #define EL2_REG_REDIR(name, rst, v)	EL2_REG(name, bad_redir_trap, rst, v)
  
- static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+@@ -2854,8 +2863,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	EL2_REG_VNCR(HFGITR_EL2, reset_val, 0),
+ 	EL2_REG_VNCR(HACR_EL2, reset_val, 0),
+ 
+-	{ SYS_DESC(SYS_ZCR_EL2), .access = access_zcr_el2, .reset = reset_val,
+-	  .visibility = sve_el2_visibility, .reg = ZCR_EL2 },
++	EL2_REG_FILTERED(ZCR_EL2, access_zcr_el2, reset_val, 0,
++			 sve_el2_visibility),
+ 
+ 	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
+ 
 -- 
 2.39.2
 
