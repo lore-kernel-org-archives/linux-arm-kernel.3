@@ -4,89 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A0BCF5396
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E45FCF5396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 14:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q5rYTkHY31+cXuKv/fhTi/vwecjYJXbckDY0ZiVGZng=; b=5C+d4Ti9l3lfoYnCTK1LpsQOm5
-	l5eWPQVOqDpN+2XPFyHYa5r7POzTbO6jrY/jJz3iDCNJiUtTB1h7ftp4PBebR6ShTFJEG3dZMiUNY
-	fJ8LwzzyFjc7lTvvizCqjJCSbx4ZRyzxvFQV6RngiOhJwxhOENxATVBD7fY9gINRfEonUBwFXeub6
-	64pphbWFdWQH3Pc6bsVZVHBVhEV6m12qZiNyQcRMCMc9LiR3U+NEguoNzsBb/84ZX7U7RAfAA2M6B
-	eSOiLtHnnmKIP0G7BSdHCJhngyhz9sjTtUbaPEBQDlVlY1hGXCm6W2fo3VD/IAd4S9XfWBjaccwE4
-	KK1eNx2A==;
+	bh=oUqhFqL+Zg6XvavgGcWGzdRxe6SAMlyCd/batBn/A/8=; b=E3plZIqP2+5UuMGh0dtPIZeh7e
+	qeKVbGdIKBTIbNOCPWfi1d1eIoKR0ovpSV0uTcVZVetPD2mS53mDaF1KJnLlCVk7DOmer8nC4YSQQ
+	TxWugu4WKI+Nky0W5gvL6jOoZpdlHvWVSBeUJ1KRCZQTriqaDJBDCdFG6l8QZCdCV0hMfwDu6Atuz
+	JvHNmXHXFmVI8m9SDNkEVqGhNMbbr7bizgUv0AbYXryHMKiY506ArjKr9DDzgH86wHqdYDwQEli4+
+	KFsMgVSZLuvxtGPJjNZqNdFBGYf1IanJbup723GJ50xtVHwb4wV8/RXqKSr5YG1IbRX6qSjajOOUd
+	fRRKRQgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3cgI-0000000Eo7H-10Jp;
-	Wed, 23 Oct 2024 14:49:50 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1t3chv-0000000EodY-1Gje;
+	Wed, 23 Oct 2024 14:51:31 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3caU-0000000EmZb-0OK4;
-	Wed, 23 Oct 2024 14:43:51 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5c94b0b466cso7773283a12.0;
-        Wed, 23 Oct 2024 07:43:49 -0700 (PDT)
+	id 1t3ceI-0000000EnZk-3Oxv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Oct 2024 14:47:48 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-20caea61132so54058135ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 07:47:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729694628; x=1730299428; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q5rYTkHY31+cXuKv/fhTi/vwecjYJXbckDY0ZiVGZng=;
-        b=CEmH2eDcxQar7hhSot2+jLXRHl8a5G5afp1o0+ii55kE/Ilf31nxAtTf0tBRU43egu
-         Q7k7Izz0SflwXDyjlWuNHKBGQM4wYEVWtSaEtRQXY0pxjHvy/Cy8Qy8PdIt5QlIQP3o7
-         +bwgs4T6Kh10pKGrS4imznsCXXo7MTP0hjXABSEmVWt5sY4PAHLuAFqRx4baNQsQH8S+
-         rlVFWW3WB8U1ucPOyNRZnzWDvlpr5cOIF//scXu+aL3/K1CfHv3b1KaBkwio4ts7KtxP
-         cT5sh0HaUaPKLfBR2JbcBIr+9bbifhexkpnSDb+WEWwY4bsJLZpwpgAr2rQ1ZnZvxO4P
-         y/pA==
+        d=gmail.com; s=20230601; t=1729694865; x=1730299665; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oUqhFqL+Zg6XvavgGcWGzdRxe6SAMlyCd/batBn/A/8=;
+        b=KKa6yWRJCoxKyuoSM0VAzk3/OZ+074kVtrWsdnSn+EhfMbQwu0UHQljGY3JcQ6kwuG
+         DSqYKcAGLzoG2lgONQoPfxhOoBREQRq4w1zWBoAjWpV6Uzkd3oxjtguCUyd/QQd2Z5sL
+         uDD6VZ7zj5D7/2C/IlHGx7qITvzSt6YulvdjAwIsRzFJ5DmkTeMyThqLmwNoXFUu1uKZ
+         fh4TJreRD6hpCq8/xxpYcqluYM+BtWIDVPE931nw11gbie6wkV8z69f+HVP0EgAb+yLs
+         d1Nw5IpwXLPX1cfxEJswukG/wcnOMVaY1A/2tsbJ5iaDIZ3rwl/4PrrCBnyvzEPaWSWC
+         PAIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729694628; x=1730299428;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q5rYTkHY31+cXuKv/fhTi/vwecjYJXbckDY0ZiVGZng=;
-        b=AMapNdVidHOnaO+gDm5clg4c5YxS2PZo/Pe/vfgmJghOEiXDYQm3oR1OlBSZ510f+l
-         Ynis3XERI2eXCCm49uvGf3zydoxtGpRlQfF5lJ/K+XjFIpKzZJZ1XQtmyrB2T99/21Vg
-         J9KMh3F39t87IaadEhQjmHK5jpr0n63hMtoZTh3AnEZIiXIaJlKAV8Sp1fIzGYUpx7L0
-         Ihn3l6Ihf954JoQiVgCdR9/ErD/RUQtZie0PfVrvk/HxGX/1mX2wV/u1zz416siqBmBm
-         EfQka/ESSYXknyZFItiZhe8Cx0UJg3vfdb6KMOI3iL5npvodHwrXLhP95g1Safv1Q5sa
-         lJ6A==
-X-Forwarded-Encrypted: i=1; AJvYcCU7j9pP5vq/VNr7D2jRKwkSgtNooRl/kmJjoYz//t/A2gehqyDZVf9aYmwZ3vUxLoWCVzSk23fkd3VlZJcTeAgiWw==@lists.infradead.org, AJvYcCVqCNvJE1dt9E9nlDqkI3farA8KvPZ/pMQiRQXVfQV9PnOFTDmJkiVLdZERNI9UsuhwM9BuQQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9BArgsGITyToio3hzokdS8/g5mxwO2Godw3wCr51tnbj6e1nU
-	GxKibSNgDP/ez+CaRtOJ3R8+n0xG9/joyqbaAJLjHdcsKjO4ISF+
-X-Google-Smtp-Source: AGHT+IHDJbvo8KOhjbBnEUwYt4z0DNUgMPzm4YxcQUEljWBb7Z20ciaU2eAHyabV6G4Hjpki7LKWTA==
-X-Received: by 2002:a05:6402:2106:b0:5ca:d9f:9146 with SMTP id 4fb4d7f45d1cf-5cb8acfa78amr2972462a12.17.1729694625893;
-        Wed, 23 Oct 2024 07:43:45 -0700 (PDT)
-Received: from ?IPV6:2a03:83e0:1126:4:eb:d0d0:c7fd:c82c? ([2620:10d:c092:500::7:ca73])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb6696b68fsm4503334a12.1.2024.10.23.07.43.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Oct 2024 07:43:45 -0700 (PDT)
-Message-ID: <1e117d65-b454-4d5c-b03a-c3ab3b078093@gmail.com>
-Date: Wed, 23 Oct 2024 15:43:44 +0100
+        d=1e100.net; s=20230601; t=1729694865; x=1730299665;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oUqhFqL+Zg6XvavgGcWGzdRxe6SAMlyCd/batBn/A/8=;
+        b=LtLNYv3a/4BJaetlzbna8NdTqyf2VX9VAqbS70avYhfOEvxZuLsXPbzLdiNnb5uje/
+         +ukFj2czBmQm9Wf4YK77dYjMxp7hsajznzMZJfPZt+7pFKLUG2u7mYrvSt05232Q59wc
+         cQstO9q4YjnHqKi3n9jiWQrCjYsz3wRGrp90YMrLxbOMiFBLstUeTyJYcMJRhFzE+84l
+         LQ+m8b5LicAb0uhfXUKmK/dEzKIqsGocz37Dzxu3G76fePUCNOjtAlo0ezqkwpRVxivb
+         xV8I0gWcPU50RoayA8umW6brNOzU5Msi7Lj6KITilCoHoV7oASN1u8WRFCqsu1YcW1GF
+         GiuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsagl/hBQJbr2NPn9zLeMOHt8UI7tnYSVbtjQM31NuBzdV1SU9F4YIb23XCm8mTS6gq8/KCyv8/fzZO0lOTU0i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNEzijf+NYewdex8s1OSm2mMdCC4ruA13wBxh9khYRmJWMuh8U
+	iTiZK/1nM5XbgSZtduJ2AsFXHIAnTSaAPTiZ/E/vUc5yCIsWVy1w
+X-Google-Smtp-Source: AGHT+IFrOeQe/TaOIUf37oS9/kPD1q9KCCPzPv9f2hTZnTNLqUg1SZo5nQm+mzGCGEJmuC13zVMRVA==
+X-Received: by 2002:a17:902:ea0f:b0:206:c486:4c4c with SMTP id d9443c01a7336-20fab2da20cmr33057325ad.57.1729694864996;
+        Wed, 23 Oct 2024 07:47:44 -0700 (PDT)
+Received: from localhost.localdomain ([43.129.202.66])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7f0c0e09sm58444105ad.139.2024.10.23.07.47.34
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 23 Oct 2024 07:47:44 -0700 (PDT)
+From: Lance Yang <ioworker0@gmail.com>
+To: kexybiscuit@aosc.io
+Cc: aospan@netup.ru,
+	conor.dooley@microchip.com,
+	ddrokosov@sberdevices.ru,
+	dmaengine@vger.kernel.org,
+	dushistov@mail.ru,
+	fancer.lancer@gmail.com,
+	geert@linux-m68k.org,
+	gregkh@linuxfoundation.org,
+	hoan@os.amperecomputing.com,
+	ink@jurassic.park.msu.ru,
+	jeffbai@aosc.io,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mattst88@gmail.com,
+	netdev@vger.kernel.org,
+	nikita@trvn.ru,
+	ntb@lists.linux.dev,
+	patches@lists.linux.dev,
+	richard.henderson@linaro.org,
+	s.shtylyov@omp.ru,
+	serjk@netup.ru,
+	shc_work@mail.ru,
+	torvalds@linux-foundation.org,
+	tsbogend@alpha.franken.de,
+	v.georgiev@metrotek.ru,
+	wangyuli@uniontech.com,
+	wsa+renesas@sang-engineering.com,
+	xeb@mail.ru,
+	Lance Yang <ioworker0@gmail.com>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various compliance requirements."
+Date: Wed, 23 Oct 2024 22:47:14 +0800
+Message-ID: <20241023144716.69132-1-ioworker0@gmail.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241023080935.2945-2-kexybiscuit@aosc.io>
+References: <20241023080935.2945-2-kexybiscuit@aosc.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] of/kexec: save pa of initial_boot_params for arm64 and
- use it at kexec
-To: Rob Herring <robh@kernel.org>
-Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org,
- catalin.marinas@arm.com, saravanak@google.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org
-References: <20241003113840.2972416-1-usamaarif642@gmail.com>
- <20241004000316.GA1910499-robh@kernel.org>
- <d3d90f10-1ccd-4557-843c-5b546d3b913c@gmail.com>
- <CAL_JsqJVEjPt9tHNr0uAGHQwGnUbZDZoe7kURp3Qx0ce1jv+vw@mail.gmail.com>
- <4b9456a3-47ea-4a00-92fe-131ccd80e550@gmail.com>
- <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
-Content-Language: en-US
-From: Usama Arif <usamaarif642@gmail.com>
-In-Reply-To: <CAL_JsqLLxyhjrc-Aqg12mjUZHGGgw59=AJxPpOfh5uSST8hY0Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_074350_170489_82810D89 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20241023_074746_886871_C0040EB9 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,133 +130,395 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 23, 2024 at 4:19 PM Kexy Biscuit <kexybiscuit@aosc.io> wrote:
+>
+> This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
+>
+> An absolutely no-one-ever-reviewed patch, not even by the maintainers who
+> got removed themselves - at least not on the mailing list. Then the patch
+> just got slipped into an unrelated subsystem pull request, and got pulled
+> by Torvalds with not even a comment.
+>
+> What about the next time? Who next would be removed from the MAINTAINERS
+> file, the kernel.org infrastructure? What if the compliance requires
+> another XZ backdoor to be developed without further explanation? Is the
+> kernel development process still done in public?
+>
+> Are the "compliance requirements" documented on docs.kernel.org? Who are
+> responsible for them? Are all that are responsible employees of
+> The Linux Foundation, which is regulated by the U.S. legislature?
+>
+> Fixes: 6e90b675cf94 ("MAINTAINERS: Remove some entries due to various compliance requirements.")
+> Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
 
+OMG, I cannot believe this is true :(
+Please keep all discussions on at least one of the mailling lists.
 
-On 23/10/2024 14:40, Rob Herring wrote:
-> On Mon, Oct 7, 2024 at 10:30 AM Usama Arif <usamaarif642@gmail.com> wrote:
->>
->>
->>
->> On 07/10/2024 15:39, Rob Herring wrote:
->>> On Mon, Oct 7, 2024 at 9:06 AM Usama Arif <usamaarif642@gmail.com> wrote:
->>>>
->>>>
->>>>
->>>> On 04/10/2024 01:03, Rob Herring wrote:
->>>>> On Thu, Oct 03, 2024 at 12:38:40PM +0100, Usama Arif wrote:
->>>>>>  __pa() is only intended to be used for linear map addresses and using
->>>>>> it for initial_boot_params which is in fixmap for arm64 will give an
->>>>>> incorrect value. Hence stash the physical address when it is known at
->>>>>> boot time and use it at kexec time instead of converting the virtual
->>>>>> address using __pa().
->>>>>>
->>>>>> Reported-by: Breno Leitao <leitao@debian.org>
->>>>>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
->>>>>> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
->>>>>> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
->>>>>> ---
->>>>>>  arch/arm64/kernel/setup.c | 8 ++++++++
->>>>>>  drivers/of/fdt.c          | 6 ++++++
->>>>>>  drivers/of/kexec.c        | 8 ++++++--
->>>>>>  include/linux/of_fdt.h    | 2 ++
->>>>>>  4 files changed, 22 insertions(+), 2 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
->>>>>> index b22d28ec8028..a4d96f5e2e05 100644
->>>>>> --- a/arch/arm64/kernel/setup.c
->>>>>> +++ b/arch/arm64/kernel/setup.c
->>>>>> @@ -194,6 +194,14 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
->>>>>>      /* Early fixups are done, map the FDT as read-only now */
->>>>>>      fixmap_remap_fdt(dt_phys, &size, PAGE_KERNEL_RO);
->>>>>>
->>>>>> +    /*
->>>>>> +     * Save dt_phys address so that it can be used later for kexec. This
->>>>>> +     * is done as __pa() is only intended to be used for linear map addresses
->>>>>> +     * and using it for initial_boot_params which is in fixmap will give an
->>>>>> +     * incorrect value.
->>>>>> +     */
->>>>>> +    set_initial_boot_params_pa(dt_phys);
->>>>>
->>>>> No new arch->dt functions please. If we need to save off the PA, then do
->>>>> that when we set initial_boot_params.
->>>>>
->>>>> Rob
->>>>
->>>>
->>>> initial_boot_params is set in early_init_dt_verify, called by early_init_dt_scan.
->>>> This is done in setup_machine_fdt in arm64 where the PA is available,
->>>> but in other functions in other architectures, where the PA is not available.
->>>
->>> Doesn't __pa() work for all the other architectures? That's what your
->>> patch indicates.
->>>
->>
->> Yes, __pa() works for all other architectures.
->>
->> But we would need to add initial_boot_params_pa of type phys_addr_t
->> as an argument for early_init_dt_scan, which is called by all other archs,
->> and we technically cant use 0 as an invalid value.
->>
->> We could convert initial_boot_params_pa to void *, and pass NULL for all
->> other archs. But again, I don't really think we should be changing the
->> early_init_dt_scan(dt_virt) call in all other archs to
->> early_init_dt_scan(dt_virt, NULL) just to save initial_boot_params_pa
->> in arm64?
->>
->>>> So it makes it quite messy to set it in the same place as initial_boot_params.
->>>> Its only needed for arm64 and making a change in all archs probably isnt a good idea?
->>>>
->>>> Any reason to not add a new function to make arch -> of/fdt call?
->>>
->>> Yes. It is the opposite direction I have reworked the interfaces to.
->>> We don't want each arch calling various early DT functions at random
->>> times and order. That's fragile when the DT functions make assumptions
->>> about when they are called or what's been initialized already.
->>>
->>> Another option is to make arm64 copy the DT as some arches do.
->>>
->>> Rob
->>
->> Ah maybe I didn't understand this properly, but isnt early_init_dt_scan an
->> arch -> of/fdt interfaces. set_initial_boot_params_pa is a similar interface
->> to early_init_dt_scan?
-> 
-> Yes, and I don't want more APIs if they can be avoided. When is
-> set_initial_boot_params_pa() supposed to be called? Is it before or
-> after early_init_dt_scan()? 
+Acked-by: Lance Yang <ioworker0@gmail.com>
 
-Its only needed in arm64, and can be either before or after, as long as its
-somewhere in setup_machine_fdt, where dt_phys is available.
+Thanks,
+Lance
 
-> Can subsequent OF functions assume the PA
-> is valid?
+> ---
+> Please keep all discussions on at least one of the mailing lists.
+>
+>  MAINTAINERS | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 178 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e9659a5a7fb3..501aa5c0887e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -258,6 +258,12 @@ L: linux-acenic@sunsite.dk
+>  S:     Maintained
+>  F:     drivers/net/ethernet/alteon/acenic*
+>
+> +ACER ASPIRE 1 EMBEDDED CONTROLLER DRIVER
+> +M:     Nikita Travkin <nikita@trvn.ru>
+> +S:     Maintained
+> +F:     Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
+> +F:     drivers/platform/arm64/acer-aspire1-ec.c
+> +
+>  ACER ASPIRE ONE TEMPERATURE AND FAN DRIVER
+>  M:     Peter Kaestle <peter@piie.net>
+>  L:     platform-driver-x86@vger.kernel.org
+> @@ -882,6 +888,7 @@ F:  drivers/staging/media/sunxi/cedrus/
+>
+>  ALPHA PORT
+>  M:     Richard Henderson <richard.henderson@linaro.org>
+> +M:     Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+>  M:     Matt Turner <mattst88@gmail.com>
+>  L:     linux-alpha@vger.kernel.org
+>  S:     Odd Fixes
+> @@ -2256,6 +2263,12 @@ L:       linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:     Maintained
+>  F:     arch/arm/mach-ep93xx/ts72xx.c
+>
+> +ARM/CIRRUS LOGIC CLPS711X ARM ARCHITECTURE
+> +M:     Alexander Shiyan <shc_work@mail.ru>
+> +L:     linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> +S:     Odd Fixes
+> +N:     clps711x
+> +
+>  ARM/CIRRUS LOGIC EP93XX ARM ARCHITECTURE
+>  M:     Hartley Sweeten <hsweeten@visionengravers.com>
+>  M:     Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> @@ -3802,6 +3815,14 @@ F:       drivers/video/backlight/
+>  F:     include/linux/backlight.h
+>  F:     include/linux/pwm_backlight.h
+>
+> +BAIKAL-T1 PVT HARDWARE MONITOR DRIVER
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+> +L:     linux-hwmon@vger.kernel.org
+> +S:     Supported
+> +F:     Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
+> +F:     Documentation/hwmon/bt1-pvt.rst
+> +F:     drivers/hwmon/bt1-pvt.[ch]
+> +
+>  BARCO P50 GPIO DRIVER
+>  M:     Santosh Kumar Yadav <santoshkumar.yadav@barco.com>
+>  M:     Peter Korsgaard <peter.korsgaard@barco.com>
+> @@ -6455,6 +6476,7 @@ F:        drivers/mtd/nand/raw/denali*
+>
+>  DESIGNWARE EDMA CORE IP DRIVER
+>  M:     Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> +R:     Serge Semin <fancer.lancer@gmail.com>
+>  L:     dmaengine@vger.kernel.org
+>  S:     Maintained
+>  F:     drivers/dma/dw-edma/
+> @@ -9737,6 +9759,14 @@ F:       drivers/gpio/gpiolib-cdev.c
+>  F:     include/uapi/linux/gpio.h
+>  F:     tools/gpio/
+>
+> +GRE DEMULTIPLEXER DRIVER
+> +M:     Dmitry Kozlov <xeb@mail.ru>
+> +L:     netdev@vger.kernel.org
+> +S:     Maintained
+> +F:     include/net/gre.h
+> +F:     net/ipv4/gre_demux.c
+> +F:     net/ipv4/gre_offload.c
+> +
+>  GRETH 10/100/1G Ethernet MAC device driver
+>  M:     Andreas Larsson <andreas@gaisler.com>
+>  L:     netdev@vger.kernel.org
+> @@ -12929,6 +12959,12 @@ S:     Maintained
+>  F:     drivers/ata/pata_arasan_cf.c
+>  F:     include/linux/pata_arasan_cf_data.h
+>
+> +LIBATA PATA DRIVERS
+> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:     linux-ide@vger.kernel.org
+> +F:     drivers/ata/ata_*.c
+> +F:     drivers/ata/pata_*.c
+> +
+>  LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
+>  M:     Linus Walleij <linus.walleij@linaro.org>
+>  L:     linux-ide@vger.kernel.org
+> @@ -12945,6 +12981,15 @@ F:     drivers/ata/ahci_platform.c
+>  F:     drivers/ata/libahci_platform.c
+>  F:     include/linux/ahci_platform.h
+>
+> +LIBATA SATA AHCI SYNOPSYS DWC CONTROLLER DRIVER
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+> +L:     linux-ide@vger.kernel.org
+> +S:     Maintained
+> +T:     git git://git.kernel.org/pub/scm/linux/kernel/git/dlemoal/libata.git
+> +F:     Documentation/devicetree/bindings/ata/baikal,bt1-ahci.yaml
+> +F:     Documentation/devicetree/bindings/ata/snps,dwc-ahci.yaml
+> +F:     drivers/ata/ahci_dwc.c
+> +
+>  LIBATA SATA PROMISE TX2/TX4 CONTROLLER DRIVER
+>  M:     Mikael Pettersson <mikpelinux@gmail.com>
+>  L:     linux-ide@vger.kernel.org
+> @@ -14140,6 +14185,16 @@ S:     Maintained
+>  T:     git git://linuxtv.org/media_tree.git
+>  F:     drivers/media/platform/nxp/imx-pxp.[ch]
+>
+> +MEDIA DRIVERS FOR ASCOT2E
+> +M:     Sergey Kozlov <serjk@netup.ru>
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/dvb-frontends/ascot2e*
+> +
+>  MEDIA DRIVERS FOR CXD2099AR CI CONTROLLERS
+>  M:     Jasmin Jessich <jasmin@anw.at>
+>  L:     linux-media@vger.kernel.org
+> @@ -14148,6 +14203,16 @@ W:     https://linuxtv.org
+>  T:     git git://linuxtv.org/media_tree.git
+>  F:     drivers/media/dvb-frontends/cxd2099*
+>
+> +MEDIA DRIVERS FOR CXD2841ER
+> +M:     Sergey Kozlov <serjk@netup.ru>
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/dvb-frontends/cxd2841er*
+> +
+>  MEDIA DRIVERS FOR CXD2880
+>  M:     Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
+>  L:     linux-media@vger.kernel.org
+> @@ -14192,6 +14257,35 @@ F:     drivers/media/platform/nxp/imx-mipi-csis.c
+>  F:     drivers/media/platform/nxp/imx7-media-csi.c
+>  F:     drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+>
+> +MEDIA DRIVERS FOR HELENE
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/dvb-frontends/helene*
+> +
+> +MEDIA DRIVERS FOR HORUS3A
+> +M:     Sergey Kozlov <serjk@netup.ru>
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/dvb-frontends/horus3a*
+> +
+> +MEDIA DRIVERS FOR LNBH25
+> +M:     Sergey Kozlov <serjk@netup.ru>
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/dvb-frontends/lnbh25*
+> +
+>  MEDIA DRIVERS FOR MXL5XX TUNER DEMODULATORS
+>  L:     linux-media@vger.kernel.org
+>  S:     Orphan
+> @@ -14199,6 +14293,16 @@ W:     https://linuxtv.org
+>  T:     git git://linuxtv.org/media_tree.git
+>  F:     drivers/media/dvb-frontends/mxl5xx*
+>
+> +MEDIA DRIVERS FOR NETUP PCI UNIVERSAL DVB devices
+> +M:     Sergey Kozlov <serjk@netup.ru>
+> +M:     Abylay Ospan <aospan@netup.ru>
+> +L:     linux-media@vger.kernel.org
+> +S:     Supported
+> +W:     https://linuxtv.org
+> +W:     http://netup.tv/
+> +T:     git git://linuxtv.org/media_tree.git
+> +F:     drivers/media/pci/netup_unidvb/*
+> +
+>  MEDIA DRIVERS FOR NVIDIA TEGRA - VDE
+>  M:     Dmitry Osipenko <digetx@gmail.com>
+>  L:     linux-media@vger.kernel.org
+> @@ -14842,6 +14946,13 @@ F:     drivers/mtd/
+>  F:     include/linux/mtd/
+>  F:     include/uapi/mtd/
+>
+> +MEMSENSING MICROSYSTEMS MSA311 DRIVER
+> +M:     Dmitry Rokosov <ddrokosov@sberdevices.ru>
+> +L:     linux-iio@vger.kernel.org
+> +S:     Maintained
+> +F:     Documentation/devicetree/bindings/iio/accel/memsensing,msa311.yaml
+> +F:     drivers/iio/accel/msa311.c
+> +
+>  MEN A21 WATCHDOG DRIVER
+>  M:     Johannes Thumshirn <morbidrsa@gmail.com>
+>  L:     linux-watchdog@vger.kernel.org
+> @@ -15175,6 +15286,7 @@ F:      drivers/tty/serial/8250/8250_pci1xxxx.c
+>
+>  MICROCHIP POLARFIRE FPGA DRIVERS
+>  M:     Conor Dooley <conor.dooley@microchip.com>
+> +R:     Vladimir Georgiev <v.georgiev@metrotek.ru>
+>  L:     linux-fpga@vger.kernel.org
+>  S:     Supported
+>  F:     Documentation/devicetree/bindings/fpga/microchip,mpf-spi-fpga-mgr.yaml
+> @@ -15429,6 +15541,17 @@ F:     arch/mips/
+>  F:     drivers/platform/mips/
+>  F:     include/dt-bindings/mips/
+>
+> +MIPS BAIKAL-T1 PLATFORM
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+> +L:     linux-mips@vger.kernel.org
+> +S:     Supported
+> +F:     Documentation/devicetree/bindings/bus/baikal,bt1-*.yaml
+> +F:     Documentation/devicetree/bindings/clock/baikal,bt1-*.yaml
+> +F:     drivers/bus/bt1-*.c
+> +F:     drivers/clk/baikal-t1/
+> +F:     drivers/memory/bt1-l2-ctl.c
+> +F:     drivers/mtd/maps/physmap-bt1-rom.[ch]
+> +
+>  MIPS BOSTON DEVELOPMENT BOARD
+>  M:     Paul Burton <paulburton@kernel.org>
+>  L:     linux-mips@vger.kernel.org
+> @@ -15441,6 +15564,7 @@ F:      include/dt-bindings/clock/boston-clock.h
+>
+>  MIPS CORE DRIVERS
+>  M:     Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+>  L:     linux-mips@vger.kernel.org
+>  S:     Supported
+>  F:     drivers/bus/mips_cdmm.c
+> @@ -16408,6 +16532,12 @@ F:     include/linux/ntb.h
+>  F:     include/linux/ntb_transport.h
+>  F:     tools/testing/selftests/ntb/
+>
+> +NTB IDT DRIVER
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+> +L:     ntb@lists.linux.dev
+> +S:     Supported
+> +F:     drivers/ntb/hw/idt/
+> +
+>  NTB INTEL DRIVER
+>  M:     Dave Jiang <dave.jiang@intel.com>
+>  L:     ntb@lists.linux.dev
+> @@ -18428,6 +18558,13 @@ F:     drivers/pps/
+>  F:     include/linux/pps*.h
+>  F:     include/uapi/linux/pps.h
+>
+> +PPTP DRIVER
+> +M:     Dmitry Kozlov <xeb@mail.ru>
+> +L:     netdev@vger.kernel.org
+> +S:     Maintained
+> +W:     http://sourceforge.net/projects/accel-pptp
+> +F:     drivers/net/ppp/pptp.c
+> +
+>  PRESSURE STALL INFORMATION (PSI)
+>  M:     Johannes Weiner <hannes@cmpxchg.org>
+>  M:     Suren Baghdasaryan <surenb@google.com>
+> @@ -19518,6 +19655,15 @@ S:     Supported
+>  F:     Documentation/devicetree/bindings/i2c/renesas,iic-emev2.yaml
+>  F:     drivers/i2c/busses/i2c-emev2.c
+>
+> +RENESAS ETHERNET AVB DRIVER
+> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:     netdev@vger.kernel.org
+> +L:     linux-renesas-soc@vger.kernel.org
+> +F:     Documentation/devicetree/bindings/net/renesas,etheravb.yaml
+> +F:     drivers/net/ethernet/renesas/Kconfig
+> +F:     drivers/net/ethernet/renesas/Makefile
+> +F:     drivers/net/ethernet/renesas/ravb*
+> +
+>  RENESAS ETHERNET SWITCH DRIVER
+>  R:     Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>  L:     netdev@vger.kernel.org
+> @@ -19567,6 +19713,14 @@ F:     Documentation/devicetree/bindings/i2c/renesas,rmobile-iic.yaml
+>  F:     drivers/i2c/busses/i2c-rcar.c
+>  F:     drivers/i2c/busses/i2c-sh_mobile.c
+>
+> +RENESAS R-CAR SATA DRIVER
+> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:     linux-ide@vger.kernel.org
+> +L:     linux-renesas-soc@vger.kernel.org
+> +S:     Supported
+> +F:     Documentation/devicetree/bindings/ata/renesas,rcar-sata.yaml
+> +F:     drivers/ata/sata_rcar.c
+> +
+>  RENESAS R-CAR THERMAL DRIVERS
+>  M:     Niklas Söderlund <niklas.soderlund@ragnatech.se>
+>  L:     linux-renesas-soc@vger.kernel.org
+> @@ -19642,6 +19796,16 @@ S:     Supported
+>  F:     Documentation/devicetree/bindings/i2c/renesas,rzv2m.yaml
+>  F:     drivers/i2c/busses/i2c-rzv2m.c
+>
+> +RENESAS SUPERH ETHERNET DRIVER
+> +R:     Sergey Shtylyov <s.shtylyov@omp.ru>
+> +L:     netdev@vger.kernel.org
+> +L:     linux-renesas-soc@vger.kernel.org
+> +F:     Documentation/devicetree/bindings/net/renesas,ether.yaml
+> +F:     drivers/net/ethernet/renesas/Kconfig
+> +F:     drivers/net/ethernet/renesas/Makefile
+> +F:     drivers/net/ethernet/renesas/sh_eth*
+> +F:     include/linux/sh_eth.h
+> +
+>  RENESAS USB PHY DRIVER
+>  M:     Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>  L:     linux-renesas-soc@vger.kernel.org
+> @@ -22295,11 +22459,19 @@ F:    drivers/tty/serial/8250/8250_lpss.c
+>
+>  SYNOPSYS DESIGNWARE APB GPIO DRIVER
+>  M:     Hoan Tran <hoan@os.amperecomputing.com>
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+>  L:     linux-gpio@vger.kernel.org
+>  S:     Maintained
+>  F:     Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+>  F:     drivers/gpio/gpio-dwapb.c
+>
+> +SYNOPSYS DESIGNWARE APB SSI DRIVER
+> +M:     Serge Semin <fancer.lancer@gmail.com>
+> +L:     linux-spi@vger.kernel.org
+> +S:     Supported
+> +F:     Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+> +F:     drivers/spi/spi-dw*
+> +
+>  SYNOPSYS DESIGNWARE AXI DMAC DRIVER
+>  M:     Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+>  S:     Maintained
+> @@ -23609,6 +23781,12 @@ L:     linux-input@vger.kernel.org
+>  S:     Maintained
+>  F:     drivers/hid/hid-udraw-ps3.c
+>
+> +UFS FILESYSTEM
+> +M:     Evgeniy Dushistov <dushistov@mail.ru>
+> +S:     Maintained
+> +F:     Documentation/admin-guide/ufs.rst
+> +F:     fs/ufs/
+> +
+>  UHID USERSPACE HID IO DRIVER
+>  M:     David Rheinsberg <david@readahead.eu>
+>  L:     linux-input@vger.kernel.org
+> --
+> 2.47.0
+>
+>
 
-After set_initial_boot_params_pa has been called, yes.
-
-> If an arch doesn't call set_initial_boot_params_pa() is
-> __pa() valid or did they just forget to call it? 
-
-Only arm64 seems to do the fixmap as discussed in
-https://lore.kernel.org/all/1ea5538f-7e96-4034-9af9-e2d5fd72e069@gmail.com/,
-so __pa should work in others.
-
-Requiring the PA to
-> be set at the same time as initial_boot_params avoids all those issues
-> with any period of time having the PA incorrect.
-> 
-
-Are you recommending I send a patch which changes all archs to call
-early_init_dt_scan(dt_virt, NULL)?
-or maybe early_init_dt_scan(dt_virt, __pa(dt_virt))?
-and arm to call early_init_dt_scan(dt_virt, dt_phys).
-
-Happy to do send a v2 with that if its the way forward, although I feel
-set_initial_boot_params_pa() in just one arch might be better than
-changing this for all archs.
-
-Thanks
-Usama
-
-> Rob
+-- 
+2.45.2
 
 
