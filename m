@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFAECFA461
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35297CFA45F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 19:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXVu+XPK1twrhAqeJinZn0FZ1mNK/jEIbakCvmjUtPs=; b=qvGLH5+SXZuBYe4p76PMf/eaq0
-	m4ZuMnSmbMzHz3MMmODJlxzQzEPF7gpuqN6sFLrtdKW67OreIKZlY28spdU5PxqPEddQSWNbIF/a/
-	HYn4rqT0LLRqCdvXiIMXWEX7XUDWt60IuEM0qkoqz27yxDGmD4QzaSxKVHySXT7UkjJInvRHciQ0j
-	npnNB1qa3gPKLV3ELnymdNYYW9gmJLsrQkel44rjm78w7qh7+WPxT/XTgsE6DiOsF1MaMyuHNogTh
-	gYiHXGCUluguG9j6zgHNoC+T2iO4AwitUTsOi/jZGIBHASvOZ4OeVkUNGT2ukmWdKOZVhp4jeTy0g
-	NSa8RkEg==;
+	bh=5HllG+0A2vmKjdDSzHIHJZeNfO9C2BUneILRyscFdw0=; b=2VaT+IZdQsnwKgtWDb468uSif/
+	lBQOz3o7nmJAlXUEFujwyw4z2FvxULEwnDuRY2gXzriFapABITafRTC/ak4YqGRi8bRz1YsiQheac
+	eglPnOF98NVueYT/XFon53Xny9qyhtU2hmEn4HQz6zX7nGllL0JApCIaj2rh99wpNCLkxKWbV5LMw
+	1NAhpLM28fan9GUZzoKzeD/569FZTS7FU3duEPfUZ5DOR2f22cmMkv1HSjCKyK0VFG6eIZSH5cDkZ
+	nLqODTbR60VuKGS3FAHNR+lTVsxYlP4zQhnM0D2anrO8s9QpaAKUG3EPcBVPdgHBAPEYJ9YpX5j7N
+	4qSulAVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3gs2-0000000FdKO-0l7u;
-	Wed, 23 Oct 2024 19:18:14 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1t3gs8-0000000FdQE-3kEF;
+	Wed, 23 Oct 2024 19:18:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3eZN-0000000FDdY-3UxE
+	id 1t3eZP-0000000FDeS-10wm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 16:50:51 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-431548bd1b4so69621855e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:49 -0700 (PDT)
+	Wed, 23 Oct 2024 16:50:52 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d41894a32so7718f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 09:50:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729702248; x=1730307048; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729702250; x=1730307050; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=LXVu+XPK1twrhAqeJinZn0FZ1mNK/jEIbakCvmjUtPs=;
-        b=SVmIKWX6JHUFb22bjPLDPZcY6GIaegEArV1rPG6JzeTGiCtGNHmjhuX1rxn6cZtsVH
-         3r1uEmVAWfsBvbTE9yln5XeoSgr17ijLUVfNkGfDjtdw/OCe9PvIDBUfcZX4DQMVCpx8
-         FGG94SQtZGKE5Lp6d2+nmH+0Or0oKrcmwQkw0zISGpwD4FrCmdnLcogNWiSwFPbJ9Diq
-         CQp/ll05asH2kmA9PDgwP8DtsCWKYoD1KkFHyTaXeqKfRxEFgrC/ohc103rCbXp2Hm+k
-         FACNvd0lcdAu/KMGyNSf6wKTta0MpIiNNQ1Pwpl+VdhoTZTXJrp0n/cV+t67VyFiSBCP
-         jMfQ==
+        bh=5HllG+0A2vmKjdDSzHIHJZeNfO9C2BUneILRyscFdw0=;
+        b=YOlFOVvP9RiuYlGoEcjPUOYeaPYfYtUH1CRQP6N8Sy3mF5afRU1NftHGLMbjXydBq1
+         dF1ottP4V1z1k5ph76178ui29lk9g8y4c0iohLx6odaDsrfsfehkE8nIDYWsF94LYQQN
+         eG5goVlin0qZkUOKKCNfayIyjVjOtIuaRKyDcYXQLVCcYlql+x0bO3VcjfEecg+2ADzZ
+         VONwqsg4LX/FmqI5VIvdUoz+l3jiJL1L8aavHqv1h4ROJe/ZZcT1WzlaN+hvtX2Kwlag
+         +UWdUunTUScQHyY5Bvb4qJnr5Tedrz36dvImWUP8lN7RYsAjWC2teAF7nMnCqLcTW6h8
+         B/Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729702248; x=1730307048;
+        d=1e100.net; s=20230601; t=1729702250; x=1730307050;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LXVu+XPK1twrhAqeJinZn0FZ1mNK/jEIbakCvmjUtPs=;
-        b=tIM8FxPKYE+7Dk8TDid4LwDg6eNcr0WdOg+4ABirw+Tq+zXEiz+TJfCJ+WE9sfIvil
-         d8D8HdIyoPimWm8cJ67Dlgwst2wwh5ynYpUxJV2pv7JGVGS0KINX0NSW+5omc/cNBbcA
-         UQy1gygwldPyUXMeE2m7W2JXfSdX4bmMmGjRG4rnbUMXoQUcAfEh9L1sKPrb2KvMDPC2
-         ctQOZjLy9EJrS1XdWuTT+zprWsclWN2E7adaom7H2SPoiI6PT66j8G+etpiUivSNiRGN
-         jua9LQ13Yp5BZ11tdV5SyhS5jDJ3/bw10jaVlEttT8pGuFuzusE5JOnBqk7GV4/xFpcc
-         bz9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVB857HMnF62H36P7XkcwAVsQ6QuRhEz81RZiMPCJajS7yjpV3jEhuLgn1uryflb/8cBkrfeGZaWD46QRh+w11P@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg3s+Lb489cfcSnJn9ghvOv816dpwB9RLk0Tp/hgx4TQ6+XfKK
-	lw1NYySfKNxqHPxlxNoduZ45ooigRqV3/2aaFlNAWFvbBeVLPJuaajHJaH4tlF0=
-X-Google-Smtp-Source: AGHT+IE4mgCaYm2elKT76LlNq3zUCFQBwxYPgla+kkQUxdQtty9ocFGx1hYzfLUy3hw38CapCGa/1g==
-X-Received: by 2002:a05:600c:4ecd:b0:431:612f:189b with SMTP id 5b1f17b1804b1-431841fdademr30938035e9.12.1729702247813;
-        Wed, 23 Oct 2024 09:50:47 -0700 (PDT)
+        bh=5HllG+0A2vmKjdDSzHIHJZeNfO9C2BUneILRyscFdw0=;
+        b=ux7/jfWwKczqCWghXBmS2LUf1wVqQNhXis5GYHpgAnvO5YgOqpy9bwGSmoHPXUDVkw
+         x96YMtMLBHrd0TrC37TnqR5gLvfznoOt4xI8AMv8AjRo4hyiwWcgW9xz/RKxW+H7Wnc7
+         I8T11XfsNPy8msllCcpTiSTz1ABFWnIjh3BIeOAreuNI9m+rE2zq1+OkfDTryYU8lB3q
+         76lLcr/wK+7wcK3q/ev/ZvfJw+6E6lpX8z2gxLV0M1TN2uxekrtaMsm7t+KAxNW+nC+P
+         0Q15XGuAofcKz7Oxf8BWM3RhnQZGjzpcNiYzy2JFO1c2hPGtL9/oKqcMM49B4y3dGhy2
+         2KuA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUw3iFoaKMNTa3zDsWyoij+ds18wv55q0awHbo8QRMmFGVC1hwnVwK4gxhv7QoWpseMaGeSKVJZnj9qlVtxXvm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAPUShlAfxPotsXxdM6lOU0fn5bYQmuHKrGWxks1YippB+EmG7
+	yTsfMTTkTK/8f42z/bwuSJNbLsKhqUrG1NQvRnuL15XmA8V9rpYVPHeTtOu2u1Q=
+X-Google-Smtp-Source: AGHT+IHiThpqNk1aykeI/HCv+JYxamwU4EBdrmtK4EAyvKSVy0PZGtmgt/LXmRWsriS/yuXmN6RtIA==
+X-Received: by 2002:adf:e88d:0:b0:37d:47eb:b586 with SMTP id ffacd0b85a97d-37ef12592e5mr5273994f8f.4.1729702249886;
+        Wed, 23 Oct 2024 09:50:49 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.42
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43186c50445sm21642035e9.39.2024.10.23.09.50.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Oct 2024 09:50:47 -0700 (PDT)
+        Wed, 23 Oct 2024 09:50:49 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 23 Oct 2024 17:50:25 +0100
-Subject: [PATCH 28/37] drm/vc4: Enable bg_fill if there are no planes
- enabled
+Date: Wed, 23 Oct 2024 17:50:27 +0100
+Subject: [PATCH 30/37] clk: bcm: rpi: Add ISP to exported clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241023-drm-vc4-2712-support-v1-28-1cc2d5594907@raspberrypi.com>
+Message-Id: <20241023-drm-vc4-2712-support-v1-30-1cc2d5594907@raspberrypi.com>
 References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -91,11 +90,12 @@ To: Maxime Ripard <mripard@kernel.org>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Dom Cobley <popcornmix@gmail.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_095049_882841_13949846 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20241023_095051_353617_16B02D81 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +110,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default was to have enable_bg_fill disabled and the first
-plane set it if it wasn't opaque and covering the whole screen.
-However that meant that if no planes were enabled, then the
-background fill wasn't enabled, and would give a striped
-output from the uninitialised output buffer.
+From: Dom Cobley <popcornmix@gmail.com>
 
-Initialise it to enabled to avoid this.
+The ISP clock can be controlled by the driver, so register it
+with the clock subsystem.
 
+Signed-off-by: Dom Cobley <popcornmix@gmail.com>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_hvs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clk/bcm/clk-raspberrypi.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
-index f15aba4b81d7..5d40bbcb3b54 100644
---- a/drivers/gpu/drm/vc4/vc4_hvs.c
-+++ b/drivers/gpu/drm/vc4/vc4_hvs.c
-@@ -936,7 +936,7 @@ void vc4_hvs_atomic_flush(struct drm_crtc *crtc,
- 	struct drm_plane *plane;
- 	struct vc4_plane_state *vc4_plane_state;
- 	bool debug_dump_regs = false;
--	bool enable_bg_fill = false;
-+	bool enable_bg_fill = true;
- 	u32 __iomem *dlist_start = vc4->hvs->dlist + vc4_state->mm.start;
- 	u32 __iomem *dlist_next = dlist_start;
- 	unsigned int zpos = 0;
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index a18a8768feb4..6d5ee1cddded 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -118,6 +118,9 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_HEVC_CLK_ID] = {
+ 		.export = true,
+ 	},
++	[RPI_FIRMWARE_ISP_CLK_ID] = {
++		.export = true,
++	},
+ 	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
+ 		.export = true,
+ 	},
 
 -- 
 2.34.1
