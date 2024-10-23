@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC184D2E028
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F334BD2E027
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 08:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnwE2oaif5S24SDp1HuZ7r6D6gkNnEumKOd01l+Vop0=; b=GGVuxeLefaxjK9JprFxoU6/rN7
-	MI38wNNBWxJFUa0I+o/KdkMYo5bCWzTBvx/Ti58bP+Z1r5oX0ilhunWOYgJ8hRCim4a1bqIItd3DJ
-	ZRmEBw8Ndi2lvOgIAtn13uVJn8u6b+IG+xXGyGIfwQw0c4pK1JLWk30CQ0gR/ufgoVNSgVZPrVkAN
-	v6e+ftcuTY/lFc/EEWu37DWT3IkyoKmw9VuAp3U+T0bx1lTdVQd9pWIjYxLwyczf91baODhcwjqmz
-	GCR+ghFpGIQ3AJNCgC4BJpV2CDyoN+rUpZ2DqD48CY9f+72uPHiJaQiEj1mgxc9m013ukinV0vogr
-	uowd7WKA==;
+	bh=A5or8R1SrbB6mXD8S1TMwtjpI4h277xLo/2s6buUgPA=; b=vVGzprudyU691jPMYS5dppaQfN
+	XpPqrdk5Rtmmb4Khn9hDCEjYAdFD6pQwqIryuZMd2uR4yImWdyrRlAtT0dpmucpURcy8EC+vjsPuh
+	qDxU+NFdRnpP4FlJam4J8zbpPMxWGps8TA+FGa9GANdN9pPArOEEM+bGjy4JuTW5CQtIZ1SFAW+xA
+	PDZvApQWUVDxkZlIADWIzE2hGqU1Eo1YUM2BuAtiReMeuJXbEE7WuLig7WRRYDQsaulXuFdJQTmyd
+	iS2lkr0qJOwFyC9Ug/0oVXH2sD3BFwLkf4j9BEwaDrsPy8yQWBvq42IajJNsfusZiKUs4M6l8pL2r
+	qcA71hKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3X7h-0000000DeV9-1ac3;
-	Wed, 23 Oct 2024 08:53:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3X9J-0000000DetW-3D3y;
+	Wed, 23 Oct 2024 08:55:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3WzL-0000000DcgY-1Yvl
+	id 1t3X1X-0000000Dcz8-17Bm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Oct 2024 08:47:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=A5or8R1SrbB6mXD8S1TMwtjpI4h277xLo/2s6buUgPA=; b=bBsqstYQVo4wSV0cJnwAdsxmBq
+	RjHKHIi/K28gMOtb5eHu4/1avcQEO+f4SpQ57RMDICkzzdjavvrVBzFrq0R422c7+qLTcB3O71Wyi
+	agIKE1qqX7DgnmFkvsda99YpI/3AlrSD0ugLLUczz/rixiQbpObYa5MHm7JZvVDVrF366bsF6zPE2
+	uB1u88iY0mlVWYH5Qpj1wa6JTh8N1Cu3+26+s/Vg6daTNp+LOG2z0UWN1Lb8A1+4Qw/OL72cHD/2i
+	4XUs/HnMjT0FZ8J8dICvSyHdAvpGcDGxcLzpw/+5LlCcOPqW1INlVxvrhkdSsfSh5omcX2tqFhEEA
+	zBn8KK5w==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3X1U-00000008MML-0bNs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Oct 2024 08:46:18 +0000
+	Wed, 23 Oct 2024 08:47:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AD55D5C5EBF;
-	Wed, 23 Oct 2024 08:45:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F55C4CEC6;
-	Wed, 23 Oct 2024 08:45:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A0C545C5ED7;
+	Wed, 23 Oct 2024 08:47:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 508BAC4CEC6;
+	Wed, 23 Oct 2024 08:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729673105;
-	bh=Q9+IdA9z1jSogaUNnaqvsX9oNHR9qfz1Kp31tdfvIe4=;
+	s=k20201202; t=1729673229;
+	bh=sQCaL8wIVaWesMEl2IuBh8yvFnEYERMyZxkVskwu+gY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L74W8wR7dEGjhg7mqQsrCfoItRsWtistWNuC715+d2hurgcotx+yTHo/QC/rpMeDb
-	 IHbOCSWlwND2rmdED/ORaqTWgslPmiVEUpVuqDUntO24Vf5P+0x1tQHHzFy4xm4dEQ
-	 oShCdmNK1DV9/+vBO/jCegTqEnYjW+ZTlNmJMv8I49Abqtnd36t+L1RCqtiXz6D55F
-	 aL46N13Jn/gKDLTBkkS5vNaRdVyvPHXrJDtdUEvoa8OVIoJB8WX9/HPJoG8AB2qrdH
-	 BcASLfc6aNS7+F5R/zMRuczD9MNMi/GCSbhgpDdVXMHVra0bqyPqL1tpjeVYGJ7FG+
-	 14KNkDI89SYuA==
-Date: Wed, 23 Oct 2024 10:45:03 +0200
+	b=X1VlbBu3skf4BjgI8ETke0TDHkMsFdd/J0wO4Ydwx65B+gLJOzbDiuhUELm3g32uA
+	 wN7IdytXIswgmShGb3dH4bMatayOTP4FigLInhS4PTYUrZ8RbQcy7av5m66uxEGhPf
+	 fn0nBeGeYRO6WHBBHx5llN6eO7kIz3U1auSKhO9GHS771LdLMqNQHg6JBOiP7nLjkQ
+	 3itSdsZh2YwHK/wbafbyzupDM5uEfiuAxMPqabh+I0LD5Qrcs6NKOHUFeiCtcj4ViO
+	 RP9Vd6gZuVSMcRICAL1Y8cwF/APmDkq7c88DMkw8xy3GTs+LIv3Odi6IfowmWGgM/e
+	 MRzRzv6Sb19WA==
+Date: Wed, 23 Oct 2024 10:47:07 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: mjchen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, mjchen@nuvoton.com, 
-	peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de, conor+dt@kernel.org, 
-	krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
-Subject: Re: [PATCH 2/2] input: keypad: add new keypad driver for MA35D1
-Message-ID: <xveh2z7at7ion3fljdcvbhuvfij7m54bb66rlhclmxot3l5ea5@nzgzed6jwhlt>
-References: <20241022063158.5910-1-mjchen0829@gmail.com>
- <20241022063158.5910-3-mjchen0829@gmail.com>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Stephane Danieau <stephane.danieau@foss.st.com>, 
+	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
+	Valentin Caron <valentin.caron@foss.st.com>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Cheick Traore <cheick.traore@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 04/14] dt-bindings: pinctrl: stm32: add RSVD mux function
+Message-ID: <swbppwzpavktjpyb6piayzzht6ta75w3g36oyndmim54oztar5@svb4452yob7g>
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+ <20241022155658.1647350-5-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241022063158.5910-3-mjchen0829@gmail.com>
+In-Reply-To: <20241022155658.1647350-5-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_014507_527455_4A9E0FBE 
-X-CRM114-Status: GOOD (  34.97  )
+X-CRM114-CacheID: sfid-20241023_094720_447482_32864D65 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,317 +95,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 06:31:58AM +0000, mjchen wrote:
-> From: mjchen <mjchen@nuvoton.com>
+On Tue, Oct 22, 2024 at 05:56:48PM +0200, Antonio Borneo wrote:
+> From: Fabien Dessenne <fabien.dessenne@foss.st.com>
 > 
-> Adds a new keypad driver for the MA35D1 platform.
-> The driver supports key scanning and interrupt handling.
+> Document the RSVD (Reserved) mux function, used to reserve pins
+> for a coprocessor not running Linux.
 > 
-> Signed-off-by: mjchen <mjchen@nuvoton.com>
+> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 > ---
->  drivers/input/keyboard/Kconfig         |  10 +
->  drivers/input/keyboard/Makefile        |   1 +
->  drivers/input/keyboard/ma35d1_keypad.c | 312 +++++++++++++++++++++++++
->  3 files changed, 323 insertions(+)
->  create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
+>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
+>  include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
+>  2 files changed, 9 insertions(+)
 > 
-> diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
-> index 721ab69e84ac..ce9bd5cc13a1 100644
-> --- a/drivers/input/keyboard/Kconfig
-> +++ b/drivers/input/keyboard/Kconfig
-> @@ -797,4 +797,14 @@ config KEYBOARD_CYPRESS_SF
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called cypress-sf.
->  
-> +config KEYBOARD_MA35D1
-> +	tristate "Nuvoton MA35D1 keypad driver"
-> +	depends on ARCH_MA35
 
-|| COMPILE_TEST
-
-> +	select INPUT_MATRIXKMAP
-> +	help
-> +	  Say Y here if you want to use Nuvoton MA35D1 keypad.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called ma35d1-keypad.
-> +
->  endif
-> diff --git a/drivers/input/keyboard/Makefile b/drivers/input/keyboard/Makefile
-> index 1e0721c30709..9b858cdd1b6b 100644
-> --- a/drivers/input/keyboard/Makefile
-> +++ b/drivers/input/keyboard/Makefile
-> @@ -70,3 +70,4 @@ obj-$(CONFIG_KEYBOARD_TEGRA)		+= tegra-kbc.o
->  obj-$(CONFIG_KEYBOARD_TM2_TOUCHKEY)	+= tm2-touchkey.o
->  obj-$(CONFIG_KEYBOARD_TWL4030)		+= twl4030_keypad.o
->  obj-$(CONFIG_KEYBOARD_XTKBD)		+= xtkbd.o
-> +obj-$(CONFIG_KEYBOARD_MA35D1)		+= ma35d1_keypad.o
-> diff --git a/drivers/input/keyboard/ma35d1_keypad.c b/drivers/input/keyboard/ma35d1_keypad.c
-> new file mode 100644
-> index 000000000000..20b5b1b91127
-> --- /dev/null
-> +++ b/drivers/input/keyboard/ma35d1_keypad.c
-> @@ -0,0 +1,312 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + *  MA35D1 keypad driver
-> + *  Copyright (C) 2024 Nuvoton Technology Corp.
-> + */
-> +
-> +#include <linux/interrupt.h>
-> +#include <linux/input.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/input/matrix_keypad.h>
-> +#include <linux/clk.h>
-> +#include <linux/of.h>
-> +
-> +/* Keypad Interface Registers */
-> +#define KPI_CONF		0x00
-> +#define KPI_3KCONF		0x04
-> +#define KPI_STATUS		0x08
-> +#define KPI_RSTC		0x0C
-> +#define KPI_KEST		0x10
-> +#define KPI_KPE0		0x18
-> +#define KPI_KPE1		0x1C
-> +#define KPI_KRE0		0x20
-> +#define KPI_KRE1		0x24
-> +#define KPI_PRESCALDIV	0x28
-> +
-> +/* KPI_CONF - Keypad Configuration Register */
-> +#define KROW		GENMASK(30, 28) /* Keypad Matrix ROW number */
-> +#define KCOL		GENMASK(26, 24) /* Keypad Matrix COL Number */
-> +#define DB_CLKSEL	GENMASK(19, 16) /* De-bounce sampling cycle selection */
-> +#define PRESCALE	GENMASK(15, 8)  /* Row Scan Cycle Pre-scale Value */
-> +#define WAKEUP		BIT(5) /* Lower Power Wakeup Enable */
-> +#define INTEN		BIT(3) /* Key Interrupt Enable Control */
-> +#define RKINTEN		BIT(2) /* Release Key Interrupt Enable */
-> +#define PKINTEN		BIT(1) /* Press Key Interrupt Enable Control */
-> +#define ENKP		BIT(0) /* Keypad Scan Enable */
-> +
-> +/* KPI_STATUS - Keypad Status Register */
-> +#define PKEY_INT	BIT(4) /* Press key interrupt */
-> +#define RKEY_INT	BIT(3) /* Release key interrupt */
-> +#define KEY_INT		BIT(2) /* Key Interrupt */
-> +#define RST_3KEY	BIT(1) /* 3-Keys Reset Flag */
-> +#define PDWAKE		BIT(0) /* Power Down Wakeup Flag */
-> +
-> +#define DEFAULT_DEBOUNCE		1
-> +#define DEFAULT_PRE_SCALE		1
-> +#define DEFAULT_PRE_SCALEDIV	32
-> +
-> +struct ma35d1_keypad {
-> +	struct clk *clk;
-> +	struct input_dev *input_dev;
-> +	void __iomem *mmio_base;
-> +	int irq;
-> +	unsigned int kpi_row;
-> +	unsigned int kpi_col;
-> +	unsigned int debounce_val;
-> +	unsigned int pre_scale;
-> +	unsigned int pre_scale_divider;
-> +};
-> +
-> +static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad,	unsigned int status)
-> +{
-> +	struct input_dev *input_dev = keypad->input_dev;
-> +	unsigned int i, j;
-> +	unsigned int row_add = 0;
-> +	unsigned int code;
-> +	unsigned int key;
-> +	unsigned int press_key;
-> +	unsigned long KeyEvent[4];
-
-No Windows or C++ code, please.
-
-> +	unsigned int row_shift = get_count_order(keypad->kpi_col);
-> +	unsigned short *keymap = input_dev->keycode;
-> +
-
-...
-
-> +static int ma35d1_keypad_probe(struct platform_device *pdev)
-> +{
-> +	struct ma35d1_keypad *keypad;
-> +	struct input_dev *input_dev;
-> +	struct resource *res;
-> +	int error = 0;
-> +
-> +	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
-> +	if (!keypad)
-> +		return -ENOMEM;
-> +
-> +
-> +	input_dev = input_allocate_device();
-> +	if (!input_dev) {
-> +		dev_err(&pdev->dev, "failed to allocate input device\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!res) {
-> +		dev_err(&pdev->dev, "failed to get I/O memory\n");
-> +		error = -ENXIO;
-> +		goto failed_free_input;
-> +	}
-> +
-> +	keypad->mmio_base = devm_ioremap_resource(&pdev->dev, res);
-> +	if (IS_ERR(keypad->mmio_base)) {
-> +		dev_err(&pdev->dev, "failed to remap I/O memory\n");
-> +		return PTR_ERR(keypad->mmio_base);
-> +	}
-> +
-> +	keypad->irq = platform_get_irq(pdev, 0);
-> +	if (keypad->irq < 0) {
-> +		dev_err(&pdev->dev, "failed to get IRQ\n");
-> +		return keypad->irq;
-> +	}
-> +
-> +	keypad->clk = devm_clk_get(&pdev->dev, NULL);
-> +	if (IS_ERR(keypad->clk)) {
-> +		dev_err(&pdev->dev, "failed to get core clk: %ld\n", PTR_ERR(keypad->clk));
-
-Syntax is: return dev_err_probe, except that your error handling code is a mess.
-Earlier you have gotos, now return. Organize it nicely, so this will
-follow some logical concept.
-
-> +		return PTR_ERR(keypad->clk);
-> +	}
-> +
-> +	error = matrix_keypad_parse_properties(&pdev->dev,
-> +										   &(keypad->kpi_row),
-> +										   &(keypad->kpi_col));
-
-How did you aligned it?
-
-> +	if (error) {
-> +		dev_err(&pdev->dev, "failed to parse kp params\n");
-> +		return error;
-> +	}
-> +
-> +	error = matrix_keypad_build_keymap(NULL, NULL,
-> +									   keypad->kpi_row,
-> +									   keypad->kpi_col,
-> +									   NULL, input_dev);
-> +	if (error) {
-> +		dev_err(&pdev->dev, "failed to build keymap\n");
-> +		return error;
-> +	}
-> +
-> +	keypad->input_dev = input_dev;
-> +	input_dev->name = pdev->name;
-> +	input_dev->id.bustype = BUS_HOST;
-> +	input_dev->open = ma35d1_keypad_open;
-> +	input_dev->close = ma35d1_keypad_close;
-> +	input_dev->dev.parent = &pdev->dev;
-> +
-> +	if (of_property_read_u32(pdev->dev.of_node, "debounce-period", &(keypad->debounce_val)))
-> +		keypad->debounce_val = DEFAULT_DEBOUNCE;
-
-This is not used anywhere. Drop dead code.
-
-> +
-> +	if (of_property_read_u32(pdev->dev.of_node, "per-scale", &(keypad->pre_scale)))
-> +		keypad->pre_scale = DEFAULT_PRE_SCALE;
-
-Not better...
-
-> +
-> +	if (of_property_read_u32(pdev->dev.of_node, "per-scalediv", &(keypad->pre_scale_divider)))
-> +		keypad->pre_scale_divider = DEFAULT_PRE_SCALEDIV;
-
-Still not better...
-
-So there are defaults? Why these are required by bindings? Why bindings do not say
-defaults?
-
-> +
-> +	__set_bit(EV_REP, input_dev->evbit);
-> +	input_set_drvdata(input_dev, keypad);
-> +	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
-> +
-> +	error = input_register_device(input_dev);
-> +	if (error) {
-> +		dev_err(&pdev->dev, "failed to register input device\n");
-> +		goto failed_free_input;
-> +	}
-> +
-> +	error = devm_request_irq(&pdev->dev, keypad->irq,
-> +							 ma35d1_keypad_interrupt,
-> +							 IRQF_NO_SUSPEND, pdev->name, keypad);
-
-Totally mesed alignment.
-
-> +	if (error) {
-> +		dev_err(&pdev->dev, "failed to request IRQ\n");
-> +		goto failed_unregister_input;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, keypad);
-> +	device_init_wakeup(&pdev->dev, 1);
-> +	clk_prepare_enable(keypad->clk);
-> +
-> +	return 0;
-> +
-> +failed_unregister_input:
-> +	input_unregister_device(input_dev);
-> +failed_free_input:
-> +	input_free_device(input_dev);
-> +	return error;
-> +}
-> +
-> +static void ma35d1_keypad_remove(struct platform_device *pdev)
-> +{
-> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
-> +
-> +	input_unregister_device(keypad->input_dev);
-> +	clk_disable_unprepare(keypad->clk);
-
-Why aren't you using devm_clk_get_enabled()?
-
-> +}
-> +
-> +static int ma35d1_keypad_suspend(struct platform_device *pdev,
-> +									pm_message_t state)
-> +{
-> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
-> +
-> +	if (device_may_wakeup(&pdev->dev)) {
-> +		writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
-> +		enable_irq_wake(keypad->irq);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int ma35d1_keypad_resume(struct platform_device *pdev)
-> +{
-> +	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
-> +
-> +	if (device_may_wakeup(&pdev->dev)) {
-> +		writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
-> +						keypad->mmio_base + KPI_CONF);
-> +		disable_irq_wake(keypad->irq);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id ma35d1_kpi_of_match[] = {
-> +	{ .compatible = "nuvoton,ma35d1-kpi"},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, ma35d1_kpi_of_match);
-> +
-> +static struct platform_driver ma35d1_keypad_driver = {
-> +	.probe		= ma35d1_keypad_probe,
-> +	.remove		= ma35d1_keypad_remove,
-> +	.suspend	= ma35d1_keypad_suspend,
-> +	.resume		= ma35d1_keypad_resume,
-> +	.driver		= {
-> +		.name	= "ma35d1-kpi",
-> +		.of_match_table = of_match_ptr(ma35d1_kpi_of_match),
-
-Drop of_match_ptr(), you have warnings here.
+BTW, which *existing* SoCs use it? Aren't you adding it for the new
+platform?
 
 Best regards,
 Krzysztof
