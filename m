@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB454D0BB7B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 09:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F5DD0BB7B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 09:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=; b=eJvTTlOlrIb2m4
-	hpuEd7j6JTgUZYu2gBMbjPwTgSpKrEUMKkdIdW72BVI/oppENGehqCmR0jbAmzrplzJ6OpnPkQIJv
-	Z2E+xXk+xvAB5REGh+fjWw4CVcAjxRa27CPVZIlSbKvGnwWdLhMc+evcfsellRZS4CqP23XOsXRwt
-	OipheGe6CI9Wd7cblga5/eJ2KJ3OreebPkv7xKaQbbur+55n+URPaZ1FGnREYeuLrc92cGUuf/reo
-	CooJqru2uiOaXKFvFfPRyyTLbYBonENPgxvsH75w5/W4tQO0GlsloWw00rbGv1CV0EMD4ddG8uikU
-	plnyaG6vDG6RlFw+eeVg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WIQ2MP5pDvvYrbfNGj0xV8zPitW4RS++GGpHycvY1/k=; b=JP6n7qInlQHc0Jz9ZkI7lCeUp2
+	t0OwjoYYJc9A0uBbcs0oOcQS+ieiKYW0fuvUfgEU89QmEFicQuBa3tMpWuBXUrWZ/FkmzRwRtpXlM
+	79SORZEV16vsuVBokPN0VYHXkxfkC7XUCoYk+gO4sjQqHHeytGNAC5hlIArRuCukvtD4Sef+a+jqd
+	eR118Xyf6wkY7MiEB08eWiS1uwNISPlQcImkm7QQQsslgNW6Eg08SuCd5AX483zRBzlcIUNlPS7LI
+	o1MMr4xpd6fwgHY2t8ce2w5tKNUvffPbnUMysAQwS1P/kALoA7DZ8PN93vNS/IWoG2ZIgVLlnxfQO
+	8KWm+4mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tvJ-0000000HPm5-1s9i;
-	Thu, 24 Oct 2024 09:14:29 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1t3twu-0000000HQFw-0xmV;
+	Thu, 24 Oct 2024 09:16:08 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tti-0000000HPMl-133Y
+	id 1t3tti-0000000HPMo-1AXj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 09:12:52 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d4d1b48f3so470541f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 02:12:49 -0700 (PDT)
+	Thu, 24 Oct 2024 09:12:53 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d3ecad390so1278967f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 02:12:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729761168; x=1730365968; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=;
-        b=D5x10FzW7uY3QFgEa7VPhlV+FT9Q3vhM7ipduOoKBlaKwRB/Gtd73CcPQgIbTBcTqd
-         0Q8XcuY7JfXw3tjUWM8MWvsT74bnvn8dyO0PfIIWpWTFTGLIGPCkyw4uuBfl3HIFPbZV
-         so5KvF7J78a9/nmsCQs/cIVrpK1tZH530IFfU7BpmOyJA+9MnyzBhcmQSH4kYgEyYMrR
-         34/Kv7ITBaHv16xGy1kOeHtPP3JPtOQVC0x8L0urWJZGPJzbsg6DDcdanPvCfkVINDCO
-         UsGYBjQ7SvhBTNuK7sHfAjSTaaMwiw0IvSBE6dp6llPPca4mrkLQyNIxeM6hPSN7bwCH
-         vXug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729761168; x=1730365968;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729761169; x=1730365969; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=;
-        b=KkmhHkpUGYOBCLcHh/hw3yRf8uoAH8mweIKPuvJJf5QJomqf2m0pnWknkFk/IJI9sA
-         kISobPRGKtg5wFg+ytN4LLmmdl+aOqgaVXwGuTkhtduOXhE2z7M0eOxbwktTNnNAiynC
-         3pbCKDAfb5wFNTuelz6hzQkfyJRPNPKCuSq+6fzOPs40q9Zfk4xsy9elghO3M7DSwUv7
-         9axjkbjQluGQEoPAXlEazpB7vuDnJUm1WJUOzWP5ibWvfNo7yr1xJtRYndWPdiAPBqNE
-         /esbeM8O2cjdmRBPOCNyP5Aioyy7RlaE2rrLRhoPyi/0cutmLtN51pbCeDCXIWtVKhdX
-         /SWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9lGeXbK/d7jhtInzXDBs2rmSIpiHLCEGj/wroh622dA0ZVtudjUTHU8O4NflEXB/fi+QzjXr4gcQ4rMW2yDfH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwieXuCxuPENqS+UnqcJpMBxFwoo/8yF2tLvGcQuaLrXNgW6HvV
-	5eXBzz3K3ucV92BxltZIkaTBoumtrJ2RuTUlulRW2mV/JPEHq9AiH+Rl9jfByD0=
-X-Google-Smtp-Source: AGHT+IHA45txqMv6fiCd6E+I5xqCrbrjkPK/VXPgue7ugGcgW6QHaUAS7lo3qSSFpDfYjE1RQxWTIA==
-X-Received: by 2002:a5d:49c8:0:b0:371:8319:4dcc with SMTP id ffacd0b85a97d-37efcef0d0dmr3531695f8f.2.1729761167762;
-        Thu, 24 Oct 2024 02:12:47 -0700 (PDT)
+        bh=WIQ2MP5pDvvYrbfNGj0xV8zPitW4RS++GGpHycvY1/k=;
+        b=08FxjyNqfZX6VpfnJrtEPlYX+KtwQrM1as2sIRIS9DEwArPsk2uq/yuMXFtb4iaNfR
+         CxmYoKjDFrcM/FdKv53tlVQ1ka74pbsHSDSujC4rOBcI46XcnpztKJ2Jv+wLC5X7jbDo
+         DoU2dsUR5r+0mApqutORAQRHGCWgmP0/FKnVR1jexhV69W2VL65IC65cuvDdjA/izyto
+         UptCS7DXFmqZPseBEKnXiaLO2Iib8Ls6M48bQGhCpZ/n3TAg9PJa9pFIhUOQ15/X5h7T
+         EKInbmDCyR10sWA5EON6Nxv0hqjCxfiGKFDig+4maeLyuREt7yQySB2j/R/R4ULrsblr
+         56zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729761169; x=1730365969;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WIQ2MP5pDvvYrbfNGj0xV8zPitW4RS++GGpHycvY1/k=;
+        b=nNIylzN1gMTkFqkY7q6XocWwF/XOt2WVr3HeBMPIK/ja5k5PmB+tb6000JuO0qmAkO
+         Ji1tmeKQJdnCj5LmpW9w7T+2Xig6BbAlPmEIlBJ64iS/NUijC83bFHiLfZ6W+ByIUnTm
+         vedHaT2O3KMj8+rd6Idvl1TO7ROSMdkC8YFxRlAoHj7Q/BCav/Hz6Svwm3rAttAriSg5
+         yKuL068JUsjRCEGWHM+gpQE8IB8pJY1c2rREMC7LvBNtD4s0I7dI8d2h1SbTOVLiS++J
+         REqd0E1aDD2/BMQvksLyKMDRiSYGdStj8aHYMeC9ZGdtdb01sXH6IxMWj5v0nYFqfZgU
+         bf+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVfTlTzVvVECvJKEHbE5qH/RFGb9Ihlc0/vFhrq/fvwgJ2cvJFKXelYPyt0y3Is0We+cX7jj9Jn48QdiRj4zQ8i@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7+saBJhlSdC4jD5dClSX2w5t1zOAopCKQTtNSQFFEOGN+WI/P
+	eEmeI6/sAXcZL3N4goJhciH2GP+CFumJrday/bTQ7i6wc5DMf3wpALb5Y9yuXAw=
+X-Google-Smtp-Source: AGHT+IEntWBLa/5dqURskXL/ARSqsAtqEzMl2o5Iyp6sjz8yTHvxrX3rp+R1PtjRMJFP/N8oYDaypw==
+X-Received: by 2002:a05:6000:c8b:b0:37c:c4c0:4545 with SMTP id ffacd0b85a97d-3803abb4947mr832029f8f.10.1729761168701;
+        Thu, 24 Oct 2024 02:12:48 -0700 (PDT)
 Received: from [192.168.1.64] (2a02-842a-d52e-6101-6fd0-06c4-5d68-f0a5.rev.sfr.net. [2a02:842a:d52e:6101:6fd0:6c4:5d68:f0a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b94071sm10843701f8f.89.2024.10.24.02.12.46
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b94071sm10843701f8f.89.2024.10.24.02.12.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 02:12:47 -0700 (PDT)
+        Thu, 24 Oct 2024 02:12:48 -0700 (PDT)
 From: Julien Stephan <jstephan@baylibre.com>
-Subject: [PATCH 0/7] iio: fix write_event_config signature
-Date: Thu, 24 Oct 2024 11:11:22 +0200
-Message-Id: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
+Date: Thu, 24 Oct 2024 11:11:23 +0200
+Subject: [PATCH 1/7] iio: light: bh1745: simplify code in
+ write_event_config callback
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADoPGmcC/x2NsQ7CMAwFf6XyjKUmwMKvIIaS2OEtDnJCqVT13
- 4kYb7i7nZo4pNFt2sllRUO1AeE0UXotVoSRB1Oc4yXM8cxAZcXGX0cXllWsc6qmKNxQbOkfFw7
- PFPQaNUtWGqm3y3D+m/vjOH4as7IidgAAAA==
-X-Change-ID: 20241023-iio-fix-write-event-config-signature-1bc1f52fdedf
+Message-Id: <20241024-iio-fix-write-event-config-signature-v1-1-7d29e5a31b00@baylibre.com>
+References: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
+In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
 To: Mudit Sharma <muditsharma.info@gmail.com>, 
  Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
  Anshul Dalal <anshulusr@gmail.com>, 
@@ -96,12 +96,11 @@ To: Mudit Sharma <muditsharma.info@gmail.com>,
  Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
 Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
- Julien Stephan <jstephan@baylibre.com>, 
- Julia Lawall <julia.lawall@inria.fr>
+ Julien Stephan <jstephan@baylibre.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_021250_603239_9D7976B4 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20241024_021250_606818_8C03D29B 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,146 +115,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+iio_ev_state_store is actually using kstrtobool to check user
+input, then gives the converted boolean value to the write_event_config
+callback.
 
-This series update the write_event_config callback signature to use
-a boolean instead of an int for state variable. iio_ev_state_store
-is actually using kstrtobool to check user input, then gives the
-converted boolean value to write_event_config.
-
-First, fix the write_event_config callbacks from iio drivers that are
-checking state input, or that are converting state to bool. This is
-useless code, then update signature.
-
-This patch has been partially written using coccinelle with the
-following script:
-
-$ cat iio-bool.cocci
-// Options: --all-includes
-
-virtual patch
-
-@c1@
-identifier iioinfo;
-identifier wecfunc;
-@@
- static const struct iio_info iioinfo = {
-        ...,
-        .write_event_config =
-(
- wecfunc
-|
- &wecfunc
-),
-        ...,
- };
-
-@@
-identifier c1.wecfunc;
-identifier indio_dev, chan, type, dir, state;
-@@
- int wecfunc(struct iio_dev *indio_dev, const struct iio_chan_spec *chan, enum iio_event_type type, enum iio_event_direction dir,
--int
-+bool
- state) {
-  ...
- }
-
-make coccicheck MODE=patch COCCI=iio-bool.cocci M=drivers/iio
-
-Unfortunately, this script didn't match all files:
-* all write_event_config callbacks using iio_device_claim_direct_scoped
-  were not detected and not patched.
-* all files that do not assign and declare the write_event_config
-  callback in the same file.
-
-iio.h was also manually updated.
-
-The patch was build tested using allmodconfig config.
+Remove useless code in write_event_config callback.
 
 Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 ---
-Julien Stephan (7):
-      iio: light: bh1745: simplify code in write_event_config callback
-      iio: light: ltr390: simplify code in write_event_config callback
-      iio: light: ltr501: simplify code in write_event_config callback
-      iio: light: veml6030: simplify code in write_event_config callback
-      iio: imu: inv_mpu6050: simplify code in write_event_config callback
-      iio: light: stk3310: simplify code in write_event_config callback
-      iio: fix write_event_config signature
+ drivers/iio/light/bh1745.c | 48 +++++++++++++++++++++-------------------------
+ 1 file changed, 22 insertions(+), 26 deletions(-)
 
- drivers/iio/accel/adxl367.c                    |  2 +-
- drivers/iio/accel/adxl372.c                    |  2 +-
- drivers/iio/accel/adxl380.c                    |  2 +-
- drivers/iio/accel/bma400_core.c                |  2 +-
- drivers/iio/accel/bmc150-accel-core.c          |  2 +-
- drivers/iio/accel/fxls8962af-core.c            |  2 +-
- drivers/iio/accel/kxcjk-1013.c                 |  2 +-
- drivers/iio/accel/mma8452.c                    |  2 +-
- drivers/iio/accel/mma9551.c                    |  2 +-
- drivers/iio/accel/mma9553.c                    |  3 +-
- drivers/iio/accel/sca3000.c                    |  2 +-
- drivers/iio/adc/ad7091r-base.c                 |  3 +-
- drivers/iio/adc/ad7291.c                       |  2 +-
- drivers/iio/adc/ad799x.c                       |  2 +-
- drivers/iio/adc/hi8435.c                       |  2 +-
- drivers/iio/adc/max1363.c                      |  2 +-
- drivers/iio/adc/pac1921.c                      |  3 +-
- drivers/iio/adc/palmas_gpadc.c                 |  2 +-
- drivers/iio/adc/ti-ads1015.c                   |  2 +-
- drivers/iio/adc/xilinx-ams.c                   |  2 +-
- drivers/iio/adc/xilinx-xadc-events.c           |  2 +-
- drivers/iio/adc/xilinx-xadc.h                  |  2 +-
- drivers/iio/cdc/ad7150.c                       |  2 +-
- drivers/iio/dac/ad5421.c                       |  2 +-
- drivers/iio/dac/ad8460.c                       |  2 +-
- drivers/iio/dummy/iio_simple_dummy.h           |  2 +-
- drivers/iio/dummy/iio_simple_dummy_events.c    |  2 +-
- drivers/iio/gyro/bmg160_core.c                 |  2 +-
- drivers/iio/imu/bmi323/bmi323_core.c           |  2 +-
- drivers/iio/imu/inv_mpu6050/inv_mpu_core.c     |  9 ++---
- drivers/iio/imu/kmx61.c                        |  2 +-
- drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c   |  2 +-
- drivers/iio/light/adux1020.c                   |  3 +-
- drivers/iio/light/apds9300.c                   |  2 +-
- drivers/iio/light/apds9306.c                   |  2 +-
- drivers/iio/light/apds9960.c                   |  4 +--
- drivers/iio/light/bh1745.c                     | 50 ++++++++++++--------------
- drivers/iio/light/cm36651.c                    |  2 +-
- drivers/iio/light/gp2ap002.c                   |  2 +-
- drivers/iio/light/gp2ap020a00f.c               |  2 +-
- drivers/iio/light/iqs621-als.c                 |  2 +-
- drivers/iio/light/ltr390.c                     |  5 +--
- drivers/iio/light/ltr501.c                     |  6 +---
- drivers/iio/light/max44009.c                   |  2 +-
- drivers/iio/light/opt3001.c                    |  2 +-
- drivers/iio/light/stk3310.c                    |  5 +--
- drivers/iio/light/tcs3472.c                    |  2 +-
- drivers/iio/light/tsl2563.c                    |  2 +-
- drivers/iio/light/tsl2591.c                    |  2 +-
- drivers/iio/light/tsl2772.c                    |  2 +-
- drivers/iio/light/us5182d.c                    |  2 +-
- drivers/iio/light/vcnl4000.c                   |  5 +--
- drivers/iio/light/veml6030.c                   |  5 +--
- drivers/iio/position/iqs624-pos.c              |  2 +-
- drivers/iio/proximity/aw96103.c                |  2 +-
- drivers/iio/proximity/cros_ec_mkbp_proximity.c |  2 +-
- drivers/iio/proximity/hx9023s.c                |  2 +-
- drivers/iio/proximity/irsd200.c                |  3 +-
- drivers/iio/proximity/sx9500.c                 |  2 +-
- drivers/iio/proximity/sx_common.c              |  2 +-
- drivers/iio/proximity/sx_common.h              |  2 +-
- drivers/iio/proximity/vcnl3020.c               |  2 +-
- drivers/iio/temperature/mcp9600.c              |  2 +-
- drivers/iio/temperature/tmp007.c               |  2 +-
- include/linux/iio/iio.h                        |  2 +-
- 65 files changed, 96 insertions(+), 112 deletions(-)
----
-base-commit: 9090ececac9ff1e22fb7e042f3c886990a8fb090
-change-id: 20241023-iio-fix-write-event-config-signature-1bc1f52fdedf
+diff --git a/drivers/iio/light/bh1745.c b/drivers/iio/light/bh1745.c
+index 2e458e9d5d85308fb6a13d9dbd845fa03b56a40e..fc6bf062d4f510886f909509d8115f0cf892f3c4 100644
+--- a/drivers/iio/light/bh1745.c
++++ b/drivers/iio/light/bh1745.c
+@@ -643,41 +643,37 @@ static int bh1745_write_event_config(struct iio_dev *indio_dev,
+ 	struct bh1745_data *data = iio_priv(indio_dev);
+ 	int value;
+ 
+-	if (state == 0)
++	if (!state)
+ 		return regmap_clear_bits(data->regmap,
+ 					 BH1745_INTR, BH1745_INTR_ENABLE);
+ 
+-	if (state == 1) {
+-		/* Latch is always enabled when enabling interrupt */
+-		value = BH1745_INTR_ENABLE;
++	/* Latch is always enabled when enabling interrupt */
++	value = BH1745_INTR_ENABLE;
+ 
+-		switch (chan->channel2) {
+-		case IIO_MOD_LIGHT_RED:
+-			return regmap_write(data->regmap, BH1745_INTR,
+-					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+-							       BH1745_INTR_SOURCE_RED));
++	switch (chan->channel2) {
++	case IIO_MOD_LIGHT_RED:
++		return regmap_write(data->regmap, BH1745_INTR,
++				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
++						       BH1745_INTR_SOURCE_RED));
+ 
+-		case IIO_MOD_LIGHT_GREEN:
+-			return regmap_write(data->regmap, BH1745_INTR,
+-					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+-							       BH1745_INTR_SOURCE_GREEN));
++	case IIO_MOD_LIGHT_GREEN:
++		return regmap_write(data->regmap, BH1745_INTR,
++				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
++						       BH1745_INTR_SOURCE_GREEN));
+ 
+-		case IIO_MOD_LIGHT_BLUE:
+-			return regmap_write(data->regmap, BH1745_INTR,
+-					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+-							       BH1745_INTR_SOURCE_BLUE));
++	case IIO_MOD_LIGHT_BLUE:
++		return regmap_write(data->regmap, BH1745_INTR,
++				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
++						       BH1745_INTR_SOURCE_BLUE));
+ 
+-		case IIO_MOD_LIGHT_CLEAR:
+-			return regmap_write(data->regmap, BH1745_INTR,
+-					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+-							       BH1745_INTR_SOURCE_CLEAR));
++	case IIO_MOD_LIGHT_CLEAR:
++		return regmap_write(data->regmap, BH1745_INTR,
++				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
++						       BH1745_INTR_SOURCE_CLEAR));
+ 
+-		default:
+-			return -EINVAL;
+-		}
++	default:
++		return -EINVAL;
+ 	}
+-
+-	return -EINVAL;
+ }
+ 
+ static int bh1745_read_avail(struct iio_dev *indio_dev,
 
-Best regards,
 -- 
-Julien Stephan <jstephan@baylibre.com>
+2.47.0
 
 
