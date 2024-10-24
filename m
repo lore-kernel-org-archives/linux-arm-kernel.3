@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A637BD0BB62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A812CD0E415
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6Z8IFqRcVOyldvseLJ3WnSThq+1dXU3Oh0KOrrhlC0=; b=UGP82tRggQz7vZJQDOmQl9LyOR
-	601iqCBd5fBUtSc7aqg2HiMSCBk8Ss53a7sc6lCQp+ywEtKFBpVfFTJu2tu6oJ/fKYDqshIn/Z26a
-	x+A7Uv4K6C+6iD3uUavrYi8Izr199oPi39fuexXekUzoEzn+QZ3CxAbewp1XNafGTsvOEuufejL+Q
-	Lr0iftu4cPCTzQaUlaet77/LrTg4QluB26uI/zEBS/jACKFcccnab7MrZLEsYXOY7kau/gvuFlVnT
-	u2e6fXMPmD9nizYDfU0MxzCUttQ+YQx2F3SRYocBttU+2GpfLH3UTTP6dVoh1vsBZZZJHuiNaNXbE
-	wBsD2NkA==;
+	bh=KTdkJ5P6J2KL4Qt0vXA0RPNETkbTyLxenzCZPLKwNyw=; b=PlFWc0oClel1WMClTMp+73Ndys
+	njP4S9QpkYA30xm6wwUdPwZtXFBXKFdnPy2BGDMSfgP4/QAl6IL9XzBRkYNxxHzpH2yE7pG0O6FIJ
+	7rv0vFUOXcc7yA0H8R6dUb2xJy5YD2/Ly9WC+uDrHyqBvHZ0CXkjGNq3FqkSeyfU+7s0LSZq9dmpB
+	/rJjMTgUjW+ZEcMHwpkbL2I5Of9f670MeU94ayFve7PhSB4nwKU8trgpBkgskFKpO/YqNQcUqOQXM
+	WKI8oWkH91Wrt71+GQHoFnrl+2nvM+M6Iqs+Ge0JfBbtYiby8SZIgt9+5827d9daUo40JdTmMamig
+	0YWOUO9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44Po-00000001j9t-2WRl;
-	Thu, 24 Oct 2024 20:26:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t44RK-00000001jKb-3iRh;
+	Thu, 24 Oct 2024 20:28:14 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44GK-00000001hvq-203Z
+	id 1t44IJ-00000001iBW-3sDT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 20:16:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A2C75C5904;
-	Thu, 24 Oct 2024 20:16:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 010B0C4CEC7;
-	Thu, 24 Oct 2024 20:16:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729801011;
-	bh=M8Hou7W+/slEq6beBx1BMbstELY0N17vo5D8dtjCwaw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=uVlghJjtlBAM8RBB0TFYRfF2upDQF6o0IDI3jnzZNQn3qsSu62i4WiMSA0gSD/s0l
-	 2/up8sX6KJ6JidEdblO8bvf8drryM0sB78IeFAJz+BPvwXHTGYVav67Pzh6O53PSek
-	 l/6dbyNegQAks2AHKlKqRjZuOFZ1gVawYJCHGkwtOvbRfnzVAfdCioXOZxExqIpWp3
-	 L7bTdeOYqKrSOcZvW0nEDjRrA6l55aSdbJHzP8syxRBhLHd8ArbcAwaRniUA5iNr2s
-	 pVtS5q/mruJa6l6x4Fdsl1xWn5nlmCb0Dz+IXh7JIVoy9YUwvavlL68+N96RQsW0Ou
-	 CjOayo9B8dv5g==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Chris Morgan <macroalpha82@gmail.com>, 
- Philippe Simons <simons.philippe@gmail.com>, 
- Ryan Walklin <ryan@testtoast.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-clk@vger.kernel.org
-In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
-References: <20241023075917.186835-1-ryan@testtoast.com>
-Subject: Re: (subset) [PATCH v3 0/7] ASoC: add Allwinner H616 audio codec
- support
-Message-Id: <172980100873.554299.14641282051254983661.b4-ty@kernel.org>
-Date: Thu, 24 Oct 2024 21:16:48 +0100
+	Thu, 24 Oct 2024 20:18:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1729801125; x=1730405925; i=wahrenst@gmx.net;
+	bh=KTdkJ5P6J2KL4Qt0vXA0RPNETkbTyLxenzCZPLKwNyw=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=FWZYMB4i6pII+5Cu3Z5TKjNhZw3OeczRSY9NS1oKV+6nCpO5qBxWkFSMzQy3ryjy
+	 sTBPl6mymi8N8pfcjQTGHeixmz1FlytcthQTMKfUKj6lj84V+VBjLmBq3UgalJkva
+	 JEaQFMRjgNbNbdMEaPmK+wAshzpYPXvTCn17cGjSsKzmWYik3rbrkKHlLo1ybXYgw
+	 nmpXqDpNELx0KrelSEq2Bs+U+6YillRq8IJ0viD5X7COpWmtluzO7vibsakKMu5Bg
+	 Ozx3pTFWgU0KSPGK/Rcz7+ZbUURtla0EhwLwSQm4nJlNpYgFvArJgR7y1qypvMbPj
+	 CC9yErUmZ94S0rAR6w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.248.43]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MacSe-1taMqF1UCo-00fMm2; Thu, 24
+ Oct 2024 22:18:45 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Minas Harutyunyan <hminas@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Lukas Wunner <lukas@wunner.de>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kernel-list@raspberrypi.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	dmaengine@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH 2/9] dmaengine: bcm2835-dma: add suspend/resume pm support
+Date: Thu, 24 Oct 2024 22:18:30 +0200
+Message-Id: <20241024201837.79927-3-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241024201837.79927-1-wahrenst@gmx.net>
+References: <20241024201837.79927-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:uurm7aNTi5uMv/4ThSbmO9f2OZgP0MZnWhjwfJlbBd5reY0RN+4
+ IAVrERajL/SXD91WlaaM5YamNsh/dSKucmU55D5SaAEEQkoqZBY/JHgqNxRpe0I5XTRShXL
+ 3u/VkDO3dMzYYk6cWKJTvkzd/3tQ0Ng04QCY6SWoGEJClobXZpUdzZj1vDLuxu1P9YxyRx2
+ DKKtsV1iGb8R5B/hQ1oVQ==
+UI-OutboundReport: notjunk:1;M01:P0:+I6/p0Kc/ug=;MnMyC57laSsmSHRtvqZJ29mp/Nb
+ ePBEqIpKuQ7RKFK7KACh+NKHeayIpTFmIwoSOdWHe1XRErBmYkSoLGDQhOKUpPUTsWVcFue/i
+ rUMTicPtvX9cqyD1KQ4eJvQvH+nWcurtOmNmBXo+bi0dofmvddlAj5McAgWtBvMG6GYIFIrN9
+ oE16Y/uJh2Hd/R/euG0xJDULNTZbEw6tgfXATdhS3kFFfnSNUfV4EWSyfW73EmSIF6hrN2Hk5
+ B6gS5N/IdG7wtL26mujzFnpR0JNUP+xJ/bCsn3e7pHmNOgrGvsZ5FHx/uxVu6hoJ8/LLOsp5j
+ X+dXXB6VOjJHgV8mQD2mmBETQaZkP/A3mECb8xigYDHAL85umvvilsWxnTpQs2NnS/8PKYT73
+ 0S8ZqdPMEymxnWMvafKsHgo4IIj9k9pCTXc7kg0U8jtrowurSIYRfvqmvwEKjXAVFqD04rQbr
+ gfwFAg3nzhPJqQEmiypB8qeicZn4Fn1nGB6b3OByUjjwQJahLl+n4qPrB+H0dTnj1lw5pvP0f
+ g+HpQXexssH1UuWRKnCBu2LY8DUUjarhkvk34n9DmeqFB3hLOm0VwBw6b0rSLCnkgcbEgh3my
+ l8rtV8v9UH6OZMRY3/p2p/6fD4jBiWfNovx09+EJx5dbyFPaDmTlL0e2VnLWbWhJVmLq4yGwo
+ abyowlcPDncsKoUBF/ywor+7bT9STzwNIpIAC8BLXDpYwUCNWiSG5k6O1K5XdwOpwMRWObVyi
+ j3obmgQUA3H0m1j5dleEczNfwxENYHJo8t1h3CMl/C6Zq2F8/ZEAicuhUFBP8n3BEBQWB/B8P
+ qcoHpZmtzh6PglEjii4PGTrQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_131652_643163_0D877052 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20241024_131856_413350_2021BB46 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 20:56:56 +1300, Ryan Walklin wrote:
-> V3 of this patch adding support for the Allwinner H616 (and variant)'s audio codec. Some clarification of comments, particularly regarding the clock driver changes, and a small fix for the device tree binding (apologies I forgot to re-run dt_binding_check on V2). Review comments otherwise addressed and reviews noted.
-> 
-> Changelog v1..v2:
-> - Reordered patches to group ASoC changes
-> - Corrected PLL_AUDIO clock dividers to match values from manual and vendor SDK.
-> - Remove PLL_AUDIO_4X clock from the device tree binding (not used in the driver).
-> - Restrict TX-only DMA changes to the H616.
-> - Change the codec name to fit into the 16 char limit.
-> - Move the codec (and spdif) blocks in the H616 DTSI to restore address-order.
-> - Add board enablement (and power/GPIO changes for RG35XX to support speaker amp).
-> 
-> [...]
+bcm2835-dma provides the service to others, so it should
+suspend late and resume early.
 
-Applied to
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/dma/bcm2835-dma.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+index e1b92b4d7b05..647dda9f3376 100644
+=2D-- a/drivers/dma/bcm2835-dma.c
++++ b/drivers/dma/bcm2835-dma.c
+@@ -875,6 +875,35 @@ static struct dma_chan *bcm2835_dma_xlate(struct of_p=
+handle_args *spec,
+ 	return chan;
+ }
 
-Thanks!
++static int bcm2835_dma_suspend_late(struct device *dev)
++{
++	struct bcm2835_dmadev *od =3D dev_get_drvdata(dev);
++	struct bcm2835_chan *c, *next;
++
++	list_for_each_entry_safe(c, next, &od->ddev.channels,
++				 vc.chan.device_node) {
++		void __iomem *chan_base =3D c->chan_base;
++
++		if (readl(chan_base + BCM2835_DMA_ADDR)) {
++			dev_warn(dev, "Suspend is prevented by chan %d\n",
++				 c->ch);
++			return -EBUSY;
++		}
++	}
++
++	return 0;
++}
++
++static int bcm2835_dma_resume_early(struct device *dev)
++{
++	return 0;
++}
++
++static const struct dev_pm_ops bcm2835_dma_pm_ops =3D {
++	SET_LATE_SYSTEM_SLEEP_PM_OPS(bcm2835_dma_suspend_late,
++				     bcm2835_dma_resume_early)
++};
++
+ static int bcm2835_dma_probe(struct platform_device *pdev)
+ {
+ 	struct bcm2835_dmadev *od;
+@@ -1033,6 +1062,7 @@ static struct platform_driver bcm2835_dma_driver =3D=
+ {
+ 	.driver =3D {
+ 		.name =3D "bcm2835-dma",
+ 		.of_match_table =3D of_match_ptr(bcm2835_dma_of_match),
++		.pm =3D pm_ptr(&bcm2835_dma_pm_ops),
+ 	},
+ };
 
-[2/7] dt-bindings: allwinner: add H616 sun4i audio codec binding
-      commit: 542e19c20506953c03eec57b1cb65355164dfb64
-[3/7] ASoC: sun4i-codec: Add support for different DAC FIFOC addresses to quirks
-      commit: 5836a9d2ca48bb7473bb10d061c03525d8f4f163
-[4/7] ASoC: sun4i-codec: Add playback only flag to quirks
-      commit: 9fde21d6c5d1f75c2651442e5aae463545136aad
-[5/7] ASoC: sun4i-codec: support allwinner H616 codec
-      commit: 9155c321a1d0220a60878f2c99bc79b5a7e34d95
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+=2D-
+2.34.1
 
 
