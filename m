@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05900CE8E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90702CE8E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwvrfTv5gy55jcjI6bin8pxUAiAuiFQWvOFHXr8Y7Q4=; b=oHnFbyYfeiSY9MgllqHdcab9QY
-	lzz3fCrRjLlwAK+MG9GWhhD73QCebzqXkpQJ/YFjfS89j9tJvUYzNATVont/4YscZD7cHB1Id7swl
-	VG9LzGkyLXR6sG6x1iTrsJr9EiFUm/vK4cpnWMkRn7IkTEtqCWKnJLa9ERFRKTGggbeiFgXibuOXx
-	lZVTxg1/u2tKn7B6vHepP62hGJ7WK9sqGynNg2PbQXyOqlq/bOE/14ATQDdho5NQzQ3kF1qZlBeGP
-	0cm6WFQi9EpntGgs4vBdfWF0X2Azhn2kHr/3WmfJo58a6bPhtYgUR/URByMPZ2AvDWS/NUwkggY7W
-	5z0lsO9Q==;
+	bh=ER/K+ouoL03fZs2JGJmCg00En2SpIQKq37ZYN77bpp8=; b=WfvEa3HqSgM8Vs1yrm9TDz+y61
+	2FzzN12hG2gpA63IgQSgogmTX/arH27Q4BjOJ1y83Bjoo0IhTnqH024UMNz6Pg4BFBk2ZmVSZtbSl
+	wdz0ZqhG7WKzjkbJykm0YJtE67ulETUzaSzlJinXCYUXGqiOLZ2PozK685N5+XCByuqtqL8dK2Ao8
+	cnbgEcRySMN7wv/eHs+5+R/4xcKqgwePoN918pfUArHneou5DZBgrFTaCrG4UXzRVOBjEm46Z/Aal
+	93MPRlUVXuP8+fcQmdBB0qf4C3ZFEOZbtxuYDp8PA9hYgfOAuGGklcywp9VmnAIB4OX8Ku9aAlok+
+	AXPeEe2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wlX-00000000Jfh-0pZ2;
-	Thu, 24 Oct 2024 12:16:35 +0000
+	id 1t3wn3-00000000Js6-1HZa;
+	Thu, 24 Oct 2024 12:18:09 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wjn-00000000JWS-0R9l
+	id 1t3wkm-00000000Jcx-3RfR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 12:14:48 +0000
+	Thu, 24 Oct 2024 12:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE0E45C5682;
-	Thu, 24 Oct 2024 12:14:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554E8C4CEC7;
-	Thu, 24 Oct 2024 12:14:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 818FF5C5AAC;
+	Thu, 24 Oct 2024 12:15:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07DF1C4CEC7;
+	Thu, 24 Oct 2024 12:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729772086;
-	bh=RwvrfTv5gy55jcjI6bin8pxUAiAuiFQWvOFHXr8Y7Q4=;
+	s=k20201202; t=1729772147;
+	bh=RfdjdiQYotlIUhZ8rHFChi1FV177D7ZDIqtYjtsWyw4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lj2WbXBJG8ht/k1YpD0VwMgNrwJ2KCjua6xaK8o6D5JOtrD7zh1mKBCcH2SgolDXX
-	 +4eOPGye1SYhax6qrs2QStyUecKNqKV+mtE3MKeBcclXhvNWMav+gm3vsUogOaveUT
-	 2pjvoh+80OOKNH0qbprOJ4byFsZ6WwWc5YwlZ5VFhFwL2oCcX2yAYk88xebmFj7Usk
-	 1QfZBxZDfQBF6szmuQadR1IQv+z8cDgJD9rmDHksZYvARwE+ANyOIJdvFWZpJiSWHC
-	 RhW/b8WNbRc9zkAOimh9eYE5y5Ze8P/1zW4GV1cnqQAvSMXcaiiXFFhayq98Z6OeX8
-	 qOM9d5RIpflKQ==
-Date: Thu, 24 Oct 2024 13:14:40 +0100
+	b=jGI5GtDdhYHB3Ie0tMKjkC4qM1M44gkbtu2iUam3ftfeLWXQIsYAlAyEbfhezwBGF
+	 oSwEqq/kgAJjMioRW7ExqT0BwR7Gy3adP82hdl/AnXDyq9yY1sg2DEVJeLdx//O1Ja
+	 KNYFxsJsP2KYEOloEXiDXvludUaXRLMoPwSDn4gA20cNJNL8e6QIlwDvT0yEfouvIQ
+	 v0LDvwQdT0GXkus6JbiJAj/VOpu2LgK/06iPsl9gcEDiQpDOVep8omBKNmqfVHWc5O
+	 w8xrkfr1wg0VTJQOLomnFfQCEpCRmrKQF78OoBErm19ekPUrADWpGOHon/AP0YBQjm
+	 kO9RK3898aY3w==
+Date: Thu, 24 Oct 2024 13:15:42 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Ryan Walklin <ryan@testtoast.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
@@ -54,20 +54,18 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
 	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 2/7] dt-bindings: allwinner: add H616 sun4i audio
- codec binding
-Message-ID: <313c922f-9967-4958-a438-11528b811baa@sirena.org.uk>
+Subject: Re: [PATCH v3 0/7] ASoC: add Allwinner H616 audio codec support
+Message-ID: <8b902b84-6199-4149-ae40-725fdbc33a5b@sirena.org.uk>
 References: <20241023075917.186835-1-ryan@testtoast.com>
- <20241023075917.186835-3-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wE+qwdJsGOAxZKMP"
+	protocol="application/pgp-signature"; boundary="/yr4JFcgoKNigDoS"
 Content-Disposition: inline
-In-Reply-To: <20241023075917.186835-3-ryan@testtoast.com>
+In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
 X-Cookie: Real programs don't eat cache.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_051447_206959_B7302931 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20241024_051548_927879_9335FF6E 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +81,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---wE+qwdJsGOAxZKMP
+--/yr4JFcgoKNigDoS
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Wed, Oct 23, 2024 at 08:56:58PM +1300, Ryan Walklin wrote:
-> The H616 has an audio codec compatible with the sun4i-a10 driver.
+On Wed, Oct 23, 2024 at 08:56:56PM +1300, Ryan Walklin wrote:
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+> V3 of this patch adding support for the Allwinner H616 (and variant)'s audio codec. Some clarification of comments, particularly regarding the clock driver changes, and a small fix for the device tree binding (apologies I forgot to re-run dt_binding_check on V2). Review comments otherwise addressed and reviews noted.
 
---wE+qwdJsGOAxZKMP
+Please fix your mail client to word wrap within paragraphs at something
+substantially less than 80 columns.  Doing this makes your messages much
+easier to read and reply to.
+
+--/yr4JFcgoKNigDoS
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcaOi8ACgkQJNaLcl1U
-h9ACCQf/Vm/4V34RBhEzAfgM1hSjkQLktpGxHbr9DlKWSpqCJMx+c+s46N3znXmQ
-gVT1WSZB4W3AbU4Qa0wKDG1JKOuaa0bAKxoDAvqFbOBfrlC8R74mDrqPt2Fp3oxn
-8hBkr1i+z23WsViKXF4D74+UBctx2NqwSfyj0+OOuouSW33YBCdcyVof8QyzEqWn
-kDDJG6GEQFDt+TSCdAOMr+NzeGiuxUVFgpPN9Eg1NxMr5Z4XpongwEo46u/SoA/Y
-2+y6+3G+0dOI7oW6ehXC5Tx4RImmtmJUBYFfLnxzC081W/cMkKEgSbcRr8ffzfXJ
-OIRUuO+CKBuwnkBKIYOsaa6+7G4Zeg==
-=YLIf
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcaOm0ACgkQJNaLcl1U
+h9CjYAf+NQxORVWrFlO5dvxx0/C3SPj6ZxsrXWYL8XAnrgib9VRazo1qHMG58PP4
+rqogcBGonb3iWkcRL1Nlnlme2Acw6sSYJDW3bnHtMbDT46qs+AjZlem5hOrts1RU
+lLx3mRCwgYDYOaBKCKB/Rmis8Uxc3jNyC9jlz+dd9wgDSDEkdBPafRi/29hlnAYN
+MnqOYuSIovdCbLSFtaTlY/O+aLeU0rA1vWkIrXiTU++hN2Z1SMtMCXSfXR20Ihem
+noJVhgWBwai4QZ3tEjd+0cFHrO+OHfsvq7yw/etcOGog/1CRFQUvWeVGJ47JKTOe
+DrBkGHNVC0VSG5p5PHxuzl6T565c6Q==
+=ZTjS
 -----END PGP SIGNATURE-----
 
---wE+qwdJsGOAxZKMP--
+--/yr4JFcgoKNigDoS--
 
