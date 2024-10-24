@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2273CFA457
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B83AED0BB7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbzqbqlxPmclpEn6OMrx0dx+v7lOsHLnpEPii/osaHQ=; b=mkGSP5QRzSJQi3k4pQjj8mPsAK
-	Mv1F99ZkNAQjqqflzs9DhhoIcpjy3OxvDFxaVsW5OtLaFlkxYzQDjTeh+jNvWMaCMJ22fT7bZOvMB
-	UVvpl+9vFVFMOiV8+YG2B1/uB5KLXhrkd7xF6+kh49P2jme6tIlfKLysuo5eCjE7rZiveYzXFPqtL
-	Ov3pWweS2x99uf3hDRq1z6gxhvgBauW0hn36rxebJcX2N9y8v1vn9qUv4SralnwN7vPg5HzofJkWq
-	9g22pjTzZDmXZc4S5Z21igv8sOSGO4GvGhco5r0yDOkjNb6uvnfBFkevk4XeQQrmE+pEEmYD/HqVT
-	ZdG+N/GA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=; b=ZMcp/w5UkC41xCCvh/SWD+vRsg
+	rIpzNXmbUo0fvX12750YMeF9PoG/BJ3t5wph2AVRAzgXO/A2vYViXmCzhvvvAft2Ll1tThR+s2JE3
+	UxUkAQGb+MapdxevTtVRU4k3MvW8kYlxvi0/IHD4uYhtmG7kfydDC3VgclAEbBYLKv5yemlmmA41p
+	OOKfZ0RhXNnIVtK632dep5ujaRADzs3HJkqYU8HQBkXvUQ+2jtoKU1YvqglvwkNIyhMBI3v/HCVvG
+	FNVDKhq1vBDG+2wEGVqmMU0HT5q5QkA8B3YIdliIB21ezpNuff9/06XSHw3vkyBEd+/D4M9qCZK+L
+	AWY2VVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v5G-0000000045N-1mKf;
-	Thu, 24 Oct 2024 10:28:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t3v6m-000000004KN-39ET;
+	Thu, 24 Oct 2024 10:30:24 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v3h-000000003sG-3fVP;
-	Thu, 24 Oct 2024 10:27:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1729765631;
-	bh=GVoa/lCJ2pdfllPCWKL+/MbqTQi4UeFVGaIAtJ31GHE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OmlyPAns36iyW1gjyZhueCp9W5XLw1NFgqZN/Mm4UWIQsSD0/ey7wbiwJsTRvI7LT
-	 7X7iRpQriAOBptIhj83HQ4oFqurBheUb8BnpXMxdx9suEED0JToGar6kgWbzgxeiGK
-	 nIgszf+09sdrO/FMduIK8sZGoDZubAJXYmoWmywzPv330aoab2sj0N1bMEhI9LXNjC
-	 C6PLm3acDEBUzlv/Z0aiZVt/ShkYj8mjwD6iXRkZxe+HIYpG+ZS9f0VVeBPgf2qW7h
-	 1X3xBtaGtkSsALRBmhefHZ8bTeUe4c76dr244/yR/hIRvT1Nu0I04wxzROFhlWRJ2x
-	 8tfgaLeVPO32A==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3A51F17E1245;
-	Thu, 24 Oct 2024 12:27:11 +0200 (CEST)
-Message-ID: <9ace7c33-7e45-4d87-869c-8d45afb47750@collabora.com>
-Date: Thu, 24 Oct 2024 12:27:10 +0200
+	id 1t3v4b-000000003z3-0eE0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 10:28:10 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c94c4ad9d8so887799a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:28:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1729765687; x=1730370487; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=;
+        b=CbW3i86s5fmHfrlpwQPGWYH6725tRbEdlWknA0KL1WNqED+t9thx5zd8nkuCxxiznI
+         Cq5tItC7tggRm3+K8f/5dOvZx7rg3BB5Hq2JIDmRMlYVcdK0HhAEJROOEumqEn94kFW7
+         rFA8T79KLOk4tO9lmmEulUeVedBvwm6kvogjI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729765687; x=1730370487;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=;
+        b=SJwkmibodgBM2F951HAK2EjW975v8Bq9ofn9er2+uJ5nh8M8Zi7f6XFMKe7YR0jw0e
+         7RSqixvLNEG+4pqqjjKtwf7Hej6KvX76ICUOFKc9RQK05Usr8uvhfYrLDoiELoy2kqkd
+         CuV8JBkEtMTc4//ZsgVRh0pPtVzMaPG3jwv+IASKi/wHiss9quFMJOWYrj3JoT64VxON
+         NWT8wHkVOZLIkwxTDTgg5X1A3tgyN2MHM2Ka5DRgcCfki/pj4TLL3kZRkw5cUYZmP3py
+         25dmmujIPMIDmwrUm/zHDmx7mmEG3nomgWQqM/XXbDp5Q4uEwHDbpzfLzJs2kMmzDliF
+         OBSw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhkh8Qy7vzbg7gRzRdykMdBsGtTch1uYW6WYJHkc7/po//HgSJSU41iFFz0KEw/6XdycDa+nJ2nuwZh4cF/aor@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkpY88U1gTaASlOBi2Y8KFmXge27nKqMoV4tsKuhO8agFsfyec
+	pUAWoaHvZrqgA7kHUwGTuHBodDaVbn2+844lRLQJ5lJCr8F7JiphFVnmYoSrukw=
+X-Google-Smtp-Source: AGHT+IFIqyj+bFhDT0bT0Yue3u7gj7a0OTnPThmVI8x1ivIOOR0hXbcRig1qWOZuLaJ3Cyrf5Wbirg==
+X-Received: by 2002:a05:6402:3591:b0:5cb:6ca4:f552 with SMTP id 4fb4d7f45d1cf-5cb8b1a982emr4924713a12.35.1729765687354;
+        Thu, 24 Oct 2024 03:28:07 -0700 (PDT)
+Received: from localhost.localdomain ([2001:b07:6474:ebbf:f79d:49dd:b804:3f48])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c726besm5538534a12.93.2024.10.24.03.28.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 03:28:07 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64: dts: imx8mn-bsh-smm-s2/pro: add simple-framebuffer
+Date: Thu, 24 Oct 2024 12:27:56 +0200
+Message-ID: <20241024102800.3481574-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] soc: mediatek: Add command for APU SMC call
-To: "Karl.Li" <karl.li@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Chungying Lu
- <chungying.lu@mediatek.com>,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20241024092712.431605-1-karl.li@mediatek.com>
- <20241024092712.431605-2-karl.li@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241024092712.431605-2-karl.li@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_032714_130310_28D6EE2F 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20241024_032809_238542_FA41862F 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +97,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/10/24 11:27, Karl.Li ha scritto:
-> From: Karl Li <karl.li@mediatek.com>
-> 
-> Add command for APU SMC call.
-> The APU microprocess's start and stop sequence will process in ATF.
-> 
-> Signed-off-by: Karl Li <karl.li@mediatek.com>
-> ---
->   include/linux/soc/mediatek/mtk_apu_secure.h | 32 +++++++++++++++++++++
+Add a simple-framebuffer node for U-Boot to further fill and activate.
 
-This is firmware stuff!
+Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Please move this file to
-include/linux/firmware/mediatek/apu.h or apusys.h
+---
 
-If you expect that the APU will *never* have any non-secure commands, then you
-can add the "-secure" suffix (apu-secure.h) - but if there will ever be any
-commands that aren't secured, you should not call it xxxx-secure.h
+ .../freescale/imx8mn-bsh-smm-s2-display.dtsi  | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
->   1 file changed, 32 insertions(+)
->   create mode 100644 include/linux/soc/mediatek/mtk_apu_secure.h
-> 
-> diff --git a/include/linux/soc/mediatek/mtk_apu_secure.h b/include/linux/soc/mediatek/mtk_apu_secure.h
-> new file mode 100644
-> index 000000000000..ea491bc24adb
-> --- /dev/null
-> +++ b/include/linux/soc/mediatek/mtk_apu_secure.h
-> @@ -0,0 +1,32 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) 2024 MediaTek Inc.
-> + */
-> +
-> +#ifndef __MTK_APU_SECURE_H__
-> +#define __MTK_APU_SECURE_H__
-
-Please, __MTK --> __MEDIATEK (also because the folder is called "mediatek", anyway)
-
-> +
-> +enum mtk_apusys_kernel_op {
-
-here you can keep the prefix as mtk_
-
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_PWR_TOP_ON,			/*  0 */
-
-and MTK_ is ok for those definitions too.
-
-Cheers,
-Angelo
-
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_PWR_TOP_OFF,		/*  1 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_REVISER,		/*  2 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_RESET_MP,		/*  3 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_BOOT,		/*  4 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_START_MP,		/*  5 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_STOP_MP,			/*  6 */
-> +	MTK_APUSYS_KERNEL_OP_DEVAPC_INIT_RCX,			/*  7 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_SEC_MEM,		/*  8 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_DISABLE_WDT_ISR,		/*  9 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CLEAR_WDT_ISR,		/* 10 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CG_GATING,		/* 11 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CG_UNGATING,		/* 12 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_APUMMU,		/* 13 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_DUMP,		/* 14 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_WRITE,		/* 15 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_W1C,		/* 16 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_COLD_BOOT_CLR_MBOX_DUMMY,	/* 17 */
-> +	MTK_APUSYS_KERNEL_OP_APUSYS_SETUP_CE_BIN,		/* 18 */
-> +	MTK_APUSYS_KERNEL_OP_NUM,
-> +};
-> +
-> +#endif
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
+index 7675583a6b67..3d670534a714 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
+@@ -4,6 +4,34 @@
+  */
+ 
+ / {
++	chosen {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		framebuffer-panel0 {
++			compatible = "simple-framebuffer";
++			clocks = <&clk IMX8MN_CLK_DISP_PIXEL_ROOT>, /* lcdif */
++				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
++				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>,
++				 <&clk IMX8MN_VIDEO_PLL1>,
++				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>, /* pgc_dispmix */
++				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
++				 <&clk IMX8MN_CLK_DISP_AXI>,
++				 <&clk IMX8MN_CLK_DISP_APB>,
++				 <&clk IMX8MN_SYS_PLL2_1000M>,
++				 <&clk IMX8MN_SYS_PLL1_800M>,
++				 <&clk IMX8MN_CLK_DSI_CORE>, /* mipi_disi */
++				 <&clk IMX8MN_CLK_DSI_PHY_REF>;
++
++			power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_LCDIF>,
++					<&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_DSI>;
++			dvdd-supply = <&reg_3v3_dvdd>;
++			avdd-supply = <&reg_v3v3_avdd>;
++			status = "disabled";
++		};
++	};
++
+ 	backlight: backlight {
+ 		compatible = "pwm-backlight";
+ 		pwms = <&pwm1 0 700000 0>;	/* 700000 ns = 1337Hz */
+-- 
+2.43.0
 
 
