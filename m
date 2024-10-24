@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B83AED0BB7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C7DCFA457
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=; b=ZMcp/w5UkC41xCCvh/SWD+vRsg
-	rIpzNXmbUo0fvX12750YMeF9PoG/BJ3t5wph2AVRAzgXO/A2vYViXmCzhvvvAft2Ll1tThR+s2JE3
-	UxUkAQGb+MapdxevTtVRU4k3MvW8kYlxvi0/IHD4uYhtmG7kfydDC3VgclAEbBYLKv5yemlmmA41p
-	OOKfZ0RhXNnIVtK632dep5ujaRADzs3HJkqYU8HQBkXvUQ+2jtoKU1YvqglvwkNIyhMBI3v/HCVvG
-	FNVDKhq1vBDG+2wEGVqmMU0HT5q5QkA8B3YIdliIB21ezpNuff9/06XSHw3vkyBEd+/D4M9qCZK+L
-	AWY2VVVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pYI8kQhzLjk8qhIVY25r6ky5/FBxidxa1N2CUq2AxI=; b=TGAlTiALuSJhuw45PFwYhnLvPv
+	8JCTht9c0rWPQpp+M+AKca452mkQMP8ETpw5ZDFGUQWRqtYiiGUTproS3tG6ULfkjOyfStqnKwCfC
+	POK1zKNZHydjjh9d9YEIz42SJOPUw4IzBGT9UHjZBUjVTY2NCh9wMXNvTR98QJBSVvg9U+tMsnarR
+	HOFPXh6QXWgBd3NXOrnx8QIw12Y4Pk3w8h4z+zvAhSjdgS/F2Pp8annS0rkVxDrvtQheJbfSxjqpi
+	vDsqQDSCPXP/y5ae9q9c7NK8dc/8OYuJYBoU/FI3W+9gHeSg42M6F09yeqWblg3cP7k90wbdLAFdC
+	lnnzWdig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v6m-000000004KN-39ET;
-	Thu, 24 Oct 2024 10:30:24 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1t3v98-000000004pD-15vR;
+	Thu, 24 Oct 2024 10:32:50 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v4b-000000003z3-0eE0
+	id 1t3v7Y-000000004Qx-178s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:28:10 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c94c4ad9d8so887799a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:28:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1729765687; x=1730370487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=;
-        b=CbW3i86s5fmHfrlpwQPGWYH6725tRbEdlWknA0KL1WNqED+t9thx5zd8nkuCxxiznI
-         Cq5tItC7tggRm3+K8f/5dOvZx7rg3BB5Hq2JIDmRMlYVcdK0HhAEJROOEumqEn94kFW7
-         rFA8T79KLOk4tO9lmmEulUeVedBvwm6kvogjI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729765687; x=1730370487;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MVJNmqv90FijvAIp/3GkvDIQz+9MpbG95NCFvDT1TVU=;
-        b=SJwkmibodgBM2F951HAK2EjW975v8Bq9ofn9er2+uJ5nh8M8Zi7f6XFMKe7YR0jw0e
-         7RSqixvLNEG+4pqqjjKtwf7Hej6KvX76ICUOFKc9RQK05Usr8uvhfYrLDoiELoy2kqkd
-         CuV8JBkEtMTc4//ZsgVRh0pPtVzMaPG3jwv+IASKi/wHiss9quFMJOWYrj3JoT64VxON
-         NWT8wHkVOZLIkwxTDTgg5X1A3tgyN2MHM2Ka5DRgcCfki/pj4TLL3kZRkw5cUYZmP3py
-         25dmmujIPMIDmwrUm/zHDmx7mmEG3nomgWQqM/XXbDp5Q4uEwHDbpzfLzJs2kMmzDliF
-         OBSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVhkh8Qy7vzbg7gRzRdykMdBsGtTch1uYW6WYJHkc7/po//HgSJSU41iFFz0KEw/6XdycDa+nJ2nuwZh4cF/aor@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkpY88U1gTaASlOBi2Y8KFmXge27nKqMoV4tsKuhO8agFsfyec
-	pUAWoaHvZrqgA7kHUwGTuHBodDaVbn2+844lRLQJ5lJCr8F7JiphFVnmYoSrukw=
-X-Google-Smtp-Source: AGHT+IFIqyj+bFhDT0bT0Yue3u7gj7a0OTnPThmVI8x1ivIOOR0hXbcRig1qWOZuLaJ3Cyrf5Wbirg==
-X-Received: by 2002:a05:6402:3591:b0:5cb:6ca4:f552 with SMTP id 4fb4d7f45d1cf-5cb8b1a982emr4924713a12.35.1729765687354;
-        Thu, 24 Oct 2024 03:28:07 -0700 (PDT)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:f79d:49dd:b804:3f48])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c726besm5538534a12.93.2024.10.24.03.28.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 03:28:07 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: dts: imx8mn-bsh-smm-s2/pro: add simple-framebuffer
-Date: Thu, 24 Oct 2024 12:27:56 +0200
-Message-ID: <20241024102800.3481574-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 24 Oct 2024 10:31:13 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49OAV0AH105566;
+	Thu, 24 Oct 2024 05:31:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1729765860;
+	bh=7pYI8kQhzLjk8qhIVY25r6ky5/FBxidxa1N2CUq2AxI=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=meUcuEIUCGevKlh1I5NWc5PRPQTLTOTK4YmrI1wNzb5KaJTIzU78AYCe50port1j+
+	 xcAgZNKpRdhHstjQDVV5IILKC1rpVO9GO9G/r1zbhK83kRP9U9nRIbpyJle6pgwfRX
+	 mVFCgFgjEgocNz10kfLTDynGWlVtipqxVz4tu6fQ=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49OAV0DB022888
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 24 Oct 2024 05:31:00 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 24
+ Oct 2024 05:30:59 -0500
+Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 24 Oct 2024 05:30:59 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49OAUxwd082187;
+	Thu, 24 Oct 2024 05:30:59 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 49OAUxfs024592;
+	Thu, 24 Oct 2024 05:30:59 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: <geliang@kernel.org>, <liuhangbin@gmail.com>, <dan.carpenter@linaro.org>,
+        <jiri@resnulli.us>, <n.zhandarovich@fintech.ru>,
+        <aleksander.lobakin@intel.com>, <lukma@denx.de>, <horms@kernel.org>,
+        <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>, <shuah@kernel.org>,
+        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>,
+        <m-malladi@ti.com>
+Subject: [PATCH net-next v2 1/4] net: hsr: Add VLAN support
+Date: Thu, 24 Oct 2024 16:00:53 +0530
+Message-ID: <20241024103056.3201071-2-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241024103056.3201071-1-danishanwar@ti.com>
+References: <20241024103056.3201071-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_032809_238542_FA41862F 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20241024_033112_430104_002D5A1C 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,57 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a simple-framebuffer node for U-Boot to further fill and activate.
+From: WingMan Kwok <w-kwok2@ti.com>
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Add support for creating VLAN interfaces over HSR/PRP interface.
 
+Signed-off-by: WingMan Kwok <w-kwok2@ti.com>
+Signed-off-by: Murali Karicheri <m-karicheri2@ti.com>
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
+ net/hsr/hsr_device.c  |  5 -----
+ net/hsr/hsr_forward.c | 19 ++++++++++++++-----
+ 2 files changed, 14 insertions(+), 10 deletions(-)
 
- .../freescale/imx8mn-bsh-smm-s2-display.dtsi  | 28 +++++++++++++++++++
- 1 file changed, 28 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-index 7675583a6b67..3d670534a714 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-@@ -4,6 +4,34 @@
-  */
+diff --git a/net/hsr/hsr_device.c b/net/hsr/hsr_device.c
+index ebdfd5b64e17..0ca47ebb01d3 100644
+--- a/net/hsr/hsr_device.c
++++ b/net/hsr/hsr_device.c
+@@ -572,11 +572,6 @@ void hsr_dev_setup(struct net_device *dev)
+ 			   NETIF_F_HW_VLAN_CTAG_TX;
  
- / {
-+	chosen {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		framebuffer-panel0 {
-+			compatible = "simple-framebuffer";
-+			clocks = <&clk IMX8MN_CLK_DISP_PIXEL_ROOT>, /* lcdif */
-+				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
-+				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>,
-+				 <&clk IMX8MN_VIDEO_PLL1>,
-+				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>, /* pgc_dispmix */
-+				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
-+				 <&clk IMX8MN_CLK_DISP_AXI>,
-+				 <&clk IMX8MN_CLK_DISP_APB>,
-+				 <&clk IMX8MN_SYS_PLL2_1000M>,
-+				 <&clk IMX8MN_SYS_PLL1_800M>,
-+				 <&clk IMX8MN_CLK_DSI_CORE>, /* mipi_disi */
-+				 <&clk IMX8MN_CLK_DSI_PHY_REF>;
-+
-+			power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_LCDIF>,
-+					<&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_DSI>;
-+			dvdd-supply = <&reg_3v3_dvdd>;
-+			avdd-supply = <&reg_v3v3_avdd>;
-+			status = "disabled";
-+		};
-+	};
-+
- 	backlight: backlight {
- 		compatible = "pwm-backlight";
- 		pwms = <&pwm1 0 700000 0>;	/* 700000 ns = 1337Hz */
+ 	dev->features = dev->hw_features;
+-
+-	/* VLAN on top of HSR needs testing and probably some work on
+-	 * hsr_header_create() etc.
+-	 */
+-	dev->features |= NETIF_F_VLAN_CHALLENGED;
+ }
+ 
+ /* Return true if dev is a HSR master; return false otherwise.
+diff --git a/net/hsr/hsr_forward.c b/net/hsr/hsr_forward.c
+index b38060246e62..aa6acebc7c1e 100644
+--- a/net/hsr/hsr_forward.c
++++ b/net/hsr/hsr_forward.c
+@@ -280,6 +280,7 @@ static struct sk_buff *hsr_fill_tag(struct sk_buff *skb,
+ 				    struct hsr_port *port, u8 proto_version)
+ {
+ 	struct hsr_ethhdr *hsr_ethhdr;
++	unsigned char *pc;
+ 	int lsdu_size;
+ 
+ 	/* pad to minimum packet size which is 60 + 6 (HSR tag) */
+@@ -290,7 +291,18 @@ static struct sk_buff *hsr_fill_tag(struct sk_buff *skb,
+ 	if (frame->is_vlan)
+ 		lsdu_size -= 4;
+ 
+-	hsr_ethhdr = (struct hsr_ethhdr *)skb_mac_header(skb);
++	pc = skb_mac_header(skb);
++	if (frame->is_vlan)
++		/* This 4-byte shift (size of a vlan tag) does not
++		 * mean that the ethhdr starts there. But rather it
++		 * provides the proper environment for accessing
++		 * the fields, such as hsr_tag etc., just like
++		 * when the vlan tag is not there. This is because
++		 * the hsr tag is after the vlan tag.
++		 */
++		hsr_ethhdr = (struct hsr_ethhdr *)(pc + VLAN_HLEN);
++	else
++		hsr_ethhdr = (struct hsr_ethhdr *)pc;
+ 
+ 	hsr_set_path_id(hsr_ethhdr, port);
+ 	set_hsr_tag_LSDU_size(&hsr_ethhdr->hsr_tag, lsdu_size);
+@@ -368,7 +380,7 @@ struct sk_buff *prp_create_tagged_frame(struct hsr_frame_info *frame,
+ 		return skb_clone(frame->skb_std, GFP_ATOMIC);
+ 	}
+ 
+-	skb = skb_copy_expand(frame->skb_std, 0,
++	skb = skb_copy_expand(frame->skb_std, skb_headroom(frame->skb_std),
+ 			      skb_tailroom(frame->skb_std) + HSR_HLEN,
+ 			      GFP_ATOMIC);
+ 	return prp_fill_rct(skb, frame, port);
+@@ -690,9 +702,6 @@ static int fill_frame_info(struct hsr_frame_info *frame,
+ 	if (frame->is_vlan) {
+ 		vlan_hdr = (struct hsr_vlan_ethhdr *)ethhdr;
+ 		proto = vlan_hdr->vlanhdr.h_vlan_encapsulated_proto;
+-		/* FIXME: */
+-		netdev_warn_once(skb->dev, "VLAN not yet supported");
+-		return -EINVAL;
+ 	}
+ 
+ 	frame->is_from_san = false;
 -- 
-2.43.0
+2.34.1
 
 
