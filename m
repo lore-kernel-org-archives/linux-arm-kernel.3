@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7632D2C56C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30AAD2C56C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h7HjZCPn22R/d/6vCRTZ9B7oHF5tk/EK1K6/sj2ocw8=; b=jFFnrmbDsIWdh+ArA1EJbpWBqM
-	8wzSG3WaJVzmqBZWdipL+4pELUe1QbViNK6zR8yIn0uzlPbeUaWIQMQBjK94rOAv0dkcAFI3P1Qos
-	xamnj0LpkodUBn+Kvjc2yFrra8gcqe9tCC8NdjuhQwkBkZMuwRHCh/pMX9ZGF9kFsfdQZ9T32L1tE
-	eckKjaoCRPQ1rKDsVOWCFC2Er61zzFcjSUuobIV+9xvhJyxSZI+L9S0XyI2yq0iI6e6Beh5tysTT3
-	Siw6Eycl3RzaMEV56zXUKv9MYroq49X7ZsaibRM6WyqBCxAvrVPA37pKzaGrk/kRrm838O1skDef0
-	0Rdu75gw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pg5NSQICuLjHCR9yIb5y3edaodg5RWPG8HA8VIwE0g=; b=hVvyQAPBkn95d/jpWEMF2W/cni
+	/kV8ZDZR0xHrCmaq8Fe7vK6MCDSSLWYqWQp499sSJsfH7dyFTCHcXnegdItzuOmREYEYOCQgxF8vS
+	wsFfo1D+PM/VzGKnzIpDpX0RvDyHZT1W5CqJ7AMpA+gUwTNQ2NRwyAouTwINwYLzNtdsoqHwq0SWx
+	WItl5i89Z2n+vypy02JQZ+Zus9t4oVfdy8Nm7iYzTpj29DDAwLiSIt1jM7pHTKagVN9fSq52se14f
+	BUTQdViFRREyeaq/bjKr0f7pqe8PPS2jcDf1nhb07Rw70e+DsOhw+q/q1fOkW0FrusdI0PDcEp/jY
+	947xM1eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vSz-000000008JZ-0nN9;
-	Thu, 24 Oct 2024 10:53:21 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t3vUX-000000008XY-3Tzp;
+	Thu, 24 Oct 2024 10:54:57 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vJF-000000006WA-19hE
+	id 1t3vJY-000000006dO-38JW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:43:18 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c70abba48so5854465ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:43:16 -0700 (PDT)
+	Thu, 24 Oct 2024 10:43:38 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e2a999b287so630022a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:43:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729766596; x=1730371396; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h7HjZCPn22R/d/6vCRTZ9B7oHF5tk/EK1K6/sj2ocw8=;
-        b=DWGiIewvMPLS2EyePcXksYqdZzuxErfKtMhj52TjlY2HVDVTSZGyPVvbEx9loPCGgK
-         aoKTZl8VMisviGnIH7iv+Mo6FBaiUCP2tmbFs3+tyHTvRCDnUFO3DKtKdi91W6fy06Qb
-         8be/LEnB3fma+lPNFyw5etXXutJWM/7hmIe8c9spKmKkKN1w1VRG3vuQMJyego6PWO4c
-         sm/lhLCevUOwASvHVi7QnHJUsZqUQPWsLcMA4FEKjpsEUBv/2locC0b2BeB+7kUvVvQN
-         WESDy2NWtF23tpDyRYIqK3SF6GP1ADSHWLiC0+8bCawpZZQqaoU8QveJ9C69PFFxLU7a
-         rLlg==
+        d=gmail.com; s=20230601; t=1729766616; x=1730371416; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+pg5NSQICuLjHCR9yIb5y3edaodg5RWPG8HA8VIwE0g=;
+        b=Zc/r2oS581PIcUOioi4xiVAi0NgEd+ii27GG79Lb8dsi6tftlGq+WpP2Hf39oFziVL
+         PDeI5r0hwZzuXpNj+RHOOHi9tjsB5iVKmRg3N0BaYd2Fw/1b9g1q8OMx2kgY+KrgoL1d
+         xGU/1QPziRfax8jOv+iibHe8/2/T+/SKJS4AxN8m0TzRdWakintfnEaUCjskXLF7h6MD
+         Pwpd+Cg8JI0CChUaFiCZAikkTaGTUj6mJ55wjThHKszXhwDJiz04RGKg0TJn4tzyodv3
+         MQUxRTmxTn5GgSL1PVaNhNFoRTXrUGe5n6hspV3blH6z9ElBRSQfYgwhnG81OtdnmuRN
+         EvZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729766596; x=1730371396;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h7HjZCPn22R/d/6vCRTZ9B7oHF5tk/EK1K6/sj2ocw8=;
-        b=TrV6CI5PjjVZwthLoc0A0IjnL2oK1NftQzfWVuKPidZ909wpj4zk75Kmi3Z5vWVXCs
-         PdCQt7AxnJaBcOaeNKfzvUMF+vPO8ahJ4WDPpv5P9Re/dHYkr4bJXSV9fCC+55sYEw+X
-         QhyuNcF1bVONZUnfg/I8/DbmxC960TRJLkSF/Maz2xiLPajyIgiiiBK8HSzXiar+9aFX
-         CfoW0PpOCFjHemhoXjGaMuKmYTzH7u9SlGuI61syT5nPZivcZc3iMwgOCj2UGehU0C8j
-         1THR+1o1GLLXh2yexOpaGi+TU+J721rqPxC0uiRnNppycpt19bvKbfPmNmMQeBdpU7dl
-         nzKQ==
-X-Gm-Message-State: AOJu0YzweuIzTVQdp+u88X8Q104Ch5H5u/k/2QVNzyRCDUyw9+xZ7fyg
-	njkAWRRvkDrCeZGTJnXVZyXvtGPclOkCzRxvxVZ3T0kUIAoTjdt7U3QEkr9u
-X-Google-Smtp-Source: AGHT+IERBF7N68rMaekUR1OZVbMc0yUseUnfhYs1PSJUJ7bL/4xEUyW/oQnjzLjfkeUypihI4zwOZQ==
-X-Received: by 2002:a17:902:e845:b0:20c:853a:52a7 with SMTP id d9443c01a7336-20fa9e9bb64mr68534735ad.36.1729766596164;
-        Thu, 24 Oct 2024 03:43:16 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729766616; x=1730371416;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+pg5NSQICuLjHCR9yIb5y3edaodg5RWPG8HA8VIwE0g=;
+        b=K6QXh3nchT2ZMLsyUdRmVZ5bcLIPIZFmJIxNBskgu2NLd0muKAfWuRRm1c6PwWKNNJ
+         iCgliqdAWf+pso+9MTOyFbbGS4UeSWVU3V81vSpJrEnjJJsXhZSEGLB6Nn2/1wvC5bKm
+         Rg3/l1DErklATkqMshxP36yskUI8vBUJtMMkDyBdmfRXTQhHr2B7jfPIn0Jh52KYP/rr
+         AJjOO2r8fZmR3OciWQ6nyhAoyQaat+cf0m7X5PgrXJftnvWbgGn1xiI+ddTFP8MfzBvI
+         dlc2/z+pd/+LhtfiwX6SQARqtl3jxHUrZaBRCeSpmRUdVHXLt7abRwD3SbjALugwbYwF
+         tE2A==
+X-Gm-Message-State: AOJu0YzoLkl7/skSPPaE2gqu/oEurY++rX1R/gjPRjNxJ7ys2wGfwpMm
+	9EDAovNhk8/r8EevC2Y0G6Ff7ZVvKI0Nnug0t2dIBb95VDuX2B1k
+X-Google-Smtp-Source: AGHT+IE8Gk3nyttwsDNzbFU+YscAkTIYYy1GnBhvG0f3QZlmzMJX3CkmbBkWS6hSdlauRmdzT2zaOQ==
+X-Received: by 2002:a17:90a:ca08:b0:2e2:8995:dd1b with SMTP id 98e67ed59e1d1-2e76b5b67aamr6153379a91.3.1729766615373;
+        Thu, 24 Oct 2024 03:43:35 -0700 (PDT)
 Received: from localhost.localdomain (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e48ed34sm1252785a91.9.2024.10.24.03.43.14
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e48ed34sm1252785a91.9.2024.10.24.03.43.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 03:43:15 -0700 (PDT)
+        Thu, 24 Oct 2024 03:43:35 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: ukleinek@kernel.org,
 	robh@kernel.org,
@@ -73,15 +74,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	schung@nuvoton.com,
 	cwweng@nuvoton.com,
 	Chi-Wen Weng <cwweng.linux@gmail.com>
-Subject: [PATCH RESEND v2 0/2] Add support for nuvoton ma35d1 pwm controller
-Date: Thu, 24 Oct 2024 18:43:07 +0800
-Message-Id: <20241024104309.169510-1-cwweng.linux@gmail.com>
+Subject: [PATCH RESEND v2 1/2] dt-bindings: pwm: nuvoton: Add MA35D1 pwm
+Date: Thu, 24 Oct 2024 18:43:08 +0800
+Message-Id: <20241024104309.169510-2-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241024104309.169510-1-cwweng.linux@gmail.com>
+References: <20241024104309.169510-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_034317_344902_FE6199A5 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20241024_034336_807008_B4CEC347 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +99,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds pwm driver for the nuvoton ma35d1 ARMv8 SoC.
-It includes DT binding documentation and the ma35d1 pwm driver.
+Add dt-bindings for Nuvoton MA35D1 SoC PWM controller.
 
-v2 resend:
-  - Remove wrong 'Reviewed-by' tags.
-
-v2:
-  - Update nuvoton,ma35d1-pwm.yaml
-    - Fix 'maxItems' of 'reg' to 1.
-    - Remove unused label
-  - Update ma35d1 pwm driver
-    - Remove MODULE_ALIAS()
-    - Add chip->atomic = true
-
-
-
-Chi-Wen Weng (2):
-  dt-bindings: pwm: nuvoton: Add MA35D1 pwm
-  pwm: Add Nuvoton MA35D1 PWM controller support
-
- .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++++
- drivers/pwm/Kconfig                           |   9 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ma35d1.c                      | 169 ++++++++++++++++++
- 4 files changed, 224 insertions(+)
+Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
+---
+ .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
- create mode 100644 drivers/pwm/pwm-ma35d1.c
 
+diff --git a/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+new file mode 100644
+index 000000000000..ed32fc573a24
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/nuvoton,ma35d1-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 PWM controller
++
++maintainers:
++  - Chi-Wen Weng <cwweng@nuvoton.com>
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    enum:
++      - nuvoton,ma35d1-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++
++    pwm@40580000 {
++      compatible = "nuvoton,ma35d1-pwm";
++      reg = <0x40580000 0x400>;
++      clocks = <&clk EPWM0_GATE>;
++      #pwm-cells = <2>;
++    };
 -- 
 2.25.1
 
