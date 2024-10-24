@@ -4,92 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7002DD0BB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30868D0BB5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eg0Qoo+9T4bkNwhbFJqsnN7oQTW8RaVNg80QPE49Fyo=; b=BUfi1j2mbUa/yjGRnqDqm0wcle
-	+0y31JAJl23yh1odHYqT225H9+nUXhqExmLg9HFClryJIGJdayV5cNMacyNvaEYM4cP9yRk4Jwe/c
-	8l+tZpaFKCCAkrEFYXpS1bK4Rf1nzhtsJEBhnkCAPUitNGKWOsHmtGytTOVOS57zHyUEAF9R7VFG9
-	+hbaO1YDFBzHJexM0Nl8pC9gSYtHXT22P8DiiGAh8pnPvSercATlif1+laxejh+nPK9UbLioU0Wqz
-	iViYwKtSqoG5VreLhSz9yDzO/U4TbhqvR9RSXfIm/g7xB5Z2tEj+wIrJvxQPozFWDtVYCF34BcGl1
-	HZ9GIgnQ==;
+	bh=440A2yoIVFyAY0wGrc7IBUKMQHOh71P0ipJMtU7Lnn8=; b=MWRF9mr9eBSN0gpk/7400DaW5c
+	WP3Ki7zGWu4Msn8MJSGoua2Y1STI00LJJE2GqDdu7YdG9dQOBOaS8CCB00PaKkf4aFSzFlp7DiGTo
+	xuclzJcsrOCKEJN5qtCQhghky/HQDqCYvjpph38hZnTSUiuuwD0OnKCX7BZV9TtGcwvLmXI46mKkJ
+	szDYVxE5uelEA/btd2+9kaD0jA9JjbrhCRizwRRPkzqH/yZAkWPOhR0h+dhYIC9vf/KI41oIi1Og3
+	ekP2vpoJ0mXsY0LpKxW4vXS5j1VWBszc8P/jGD0IWOM6mux4y5lRFKeO4vGM+0eKBaNzpeA245B7m
+	M5dGdtyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3rP0-0000000GvpI-2LXo;
-	Thu, 24 Oct 2024 06:32:58 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1t3rWU-0000000GwdG-0pDy;
+	Thu, 24 Oct 2024 06:40:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3rNT-0000000GvhN-0Y6v
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 06:31:24 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so835174e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:31:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729751481; x=1730356281; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eg0Qoo+9T4bkNwhbFJqsnN7oQTW8RaVNg80QPE49Fyo=;
-        b=IHgrpmt3gwYGPLiLVOa7YyyZ2mBqJW5oid8bT4ojwd6k0od0bCLMLqdvyMYtOwIJRv
-         Udx2VC8kn1aakjM1FGZ0l0aH0J5Fc2znF0dKVzvU95S7gHNSfIXwDiWoH0syW+G7nT/W
-         CSOhiqAFG+r5fRr1bhuQoKEIAru6HcF8zRH6L+HPMvaEIhsTmLthkv5ut3gSpYNqcE5S
-         nLqquJXrz+2OTOm0UO2g5uqig0dg66NFRZ2X3/08FM7ICIt7mKj449J1kTeJHGsRwNLL
-         Hs9Eb2PxZ+zixYUnDfISKvctps58puw5OehxTJam2IGKRaJxdgnw4Pjwvyocm3FBQP8q
-         8qdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729751481; x=1730356281;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eg0Qoo+9T4bkNwhbFJqsnN7oQTW8RaVNg80QPE49Fyo=;
-        b=asaFOq0hVfXjj6Le4GIYGlsE2Muh0ezr+gRTjChRDOAOpqyhy/389taDWFqwpUjQLu
-         pfIjQHvb1bOcl78UjJQ1pPqLGp4NewAkKVOh88n7YW9WrAjJd0adlyl/vdC4+3G6cOjz
-         hKAPnitOEc/hoN0QfWCDX3AYdyQ/729kOEmMAEmKWG7ovu58iKhXlTh0ZVKuTqdAAgw1
-         G1HTl1w0DPaSVIy/t9QZegc9Cw2HQlppHe0n1Agktt9rw4uKXzkkrzPUlur/VyU88p/C
-         8w1Yi8xLRUH+OAXGIvNH8d91ipMvLVJU3sgpbcX9Jl3HSpiU1WZZZnwMg0/ULEYtXym+
-         j6Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVpdD7yzZZb9Is3jCuXPD9FPsfSzFJ/AwR7BZcuigGGFyClvX8uvW2o5prndNk8TODlVZwIhQYsYf7/vGlUA/K@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzlom/flGZRxlYn6za9XE7OVLhEjt9KD8MemLL6IU0XA3nuq+No
-	gKxRrQnN/j2pYUj/WBmS1nRIeIsT4AMoo2+Q2xgUumpRGf5Skhci
-X-Google-Smtp-Source: AGHT+IGTgCMu/aYTxbn5o/iwDHWcRkcznRmu5yktlW+DSiLgJIFiLKd8i11LIYEetT8aCjJiqsVtGg==
-X-Received: by 2002:a05:6512:3b90:b0:539:8a50:6ee8 with SMTP id 2adb3069b0e04-53b1a3b014fmr4477340e87.57.1729751480750;
-        Wed, 23 Oct 2024 23:31:20 -0700 (PDT)
-Received: from [192.168.35.18] ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a912f62cbsm568507166b.76.2024.10.23.23.31.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Oct 2024 23:31:19 -0700 (PDT)
-Message-ID: <beeb2475-dc82-485d-a984-5d6554a4c379@gmail.com>
-Date: Thu, 24 Oct 2024 09:31:17 +0300
+	id 1t3rUv-0000000GwQk-0N2d;
+	Thu, 24 Oct 2024 06:39:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 317F3A450D4;
+	Thu, 24 Oct 2024 06:38:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7028FC4CEC7;
+	Thu, 24 Oct 2024 06:38:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729751943;
+	bh=/NBI298ZuiNdCrcq2u+a+Yvvoham7AgXGEutYSpJHQs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GcMfOT3PBKu/b2mqMz//+HZ6TF5BQsPjwOWpOeb+tBqlhR/LJ5oIJQzrHe+/190lN
+	 XlrBTlAWpE5lUk3XTh/Q34TW06maHE+s54ngkmlxekGa8cixsP+n4nn6M3oreQqZcQ
+	 B2UuNsl/0JOJpY/SrAVn0Hq4PktTL24UTRejpsXlG0reh/waZCyWs9U+xsGdB04Ugt
+	 KXjY4gdguqNVAnhOr/yn/q8xnBVjJgHkU1E8n9tfeGmf+xD7J5XoIsVA/lJyLOP7uS
+	 72ZI939CACtwVm653gIqid+n7KXQ9y//IpfJoIEEggnyFj2ZlyHwxl7Nx/F78Hjohc
+	 y2SpWJ04euJYQ==
+Message-ID: <b4055440-d5a5-4d42-9cb7-9fc2f39a2148@kernel.org>
+Date: Thu, 24 Oct 2024 08:38:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/12] arm64: dts: exynos: Add Exynos9810 SoC support
-To: Markuss Broks <markuss.broks@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
- <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
- Maksym Holovach <nergzd@nergzd723.xyz>
-References: <20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com>
- <20241024-exynos9810-v1-11-ed14d0d60d08@gmail.com>
+Subject: Re: [PATCH 2/4] dt-bindings: memory: mediatek: Add smi-sub-common
+ property for reset
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20240821082845.11792-1-friday.yang@mediatek.com>
+ <20240821082845.11792-3-friday.yang@mediatek.com>
+ <3b31bf46-c5c0-41c9-bb4d-3ba9f64a5d1c@kernel.org>
+ <7ca196cf1c1f57426fc6b733d01d38f073da7d94.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20241024-exynos9810-v1-11-ed14d0d60d08@gmail.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <7ca196cf1c1f57426fc6b733d01d38f073da7d94.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_233123_210854_897ED537 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20241023_233905_409553_B3077DB5 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,88 +129,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 24/10/2024 03:28, Friday Yang (杨阳) wrote:
+> On Wed, 2024-08-21 at 10:55 +0200, Krzysztof Kozlowski wrote:
+>>  	 
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>  On 21/08/2024 10:26, friday.yang wrote:
+>>> On the MediaTek platform, some SMI LARBs are directly linked to SMI
+>>> common. While some SMI LARBs are linked to SMI sub common, then SMI
+>>> sub common is linked to SMI common. Add 'mediatek,smi-sub-comm' and
+>>> 'mediatek,smi-sub-comm-in-portid' properties here. The SMI reset
+>>> driver could query which port of the SMI sub common the current
+>> LARB
+>>> is linked to through the two properties. The hardware block diagram
+>>> could be described as below.
+>>>
+>>>              SMI Common(Smart Multimedia Interface Common)
+>>>                  |
+>>>          +----------------+-------
+>>>          |                |
+>>>          |                |
+>>>          |                |
+>>>          |                |
+>>>          |                |
+>>>        larb0       SMI Sub Common
+>>>                    |      |     |
+>>>                   larb1  larb2 larb3
+>>>
+>>> Signed-off-by: friday.yang <friday.yang@mediatek.com>
+>>> ---
+>>>  .../mediatek,smi-common.yaml                  |  2 ++
+>>>  .../memory-controllers/mediatek,smi-larb.yaml | 22
+>> +++++++++++++++++++
+>>>  2 files changed, 24 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-common.yaml
+>> b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-
+>> common.yaml
+>>> index 2f36ac23604c..4392d349878c 100644
+>>> --- a/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-common.yaml
+>>> +++ b/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-common.yaml
+>>> @@ -39,6 +39,7 @@ properties:
+>>>            - mediatek,mt8186-smi-common
+>>>            - mediatek,mt8188-smi-common-vdo
+>>>            - mediatek,mt8188-smi-common-vpp
+>>> +          - mediatek,mt8188-smi-sub-common
+>>>            - mediatek,mt8192-smi-common
+>>>            - mediatek,mt8195-smi-common-vdo
+>>>            - mediatek,mt8195-smi-common-vpp
+>>> @@ -107,6 +108,7 @@ allOf:
+>>>          compatible:
+>>>            contains:
+>>>              enum:
+>>> +              - mediatek,mt8188-smi-sub-common
+>>>                - mediatek,mt8195-smi-sub-common
+>>>      then:
+>>>        required:
+>>> diff --git a/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-larb.yaml
+>> b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-
+>> larb.yaml
+>>> index 2381660b324c..5f162bb360db 100644
+>>> --- a/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-larb.yaml
+>>> +++ b/Documentation/devicetree/bindings/memory-
+>> controllers/mediatek,smi-larb.yaml
+>>> @@ -69,6 +69,16 @@ properties:
+>>>      description: the hardware id of this larb. It's only required
+>> when this
+>>>        hardware id is not consecutive from its M4U point of view.
+>>>  
+>>> +  mediatek,smi-sub-comm:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description: a phandle of smi_sub_common that the larb is
+>> linked to.
+>>
+>> Why do you have to smi phandle properties per each node?
+>>
+> 
+> As shown in the picture from the commit message, we have multipule smi-
+> sub-common, each SMI larb may link to one of the smi-sub-common. So we
+> need the 'mediatek,smi-sub-comm' to describe which smi-sub-common the
+> larb is linked to.
+> In next version, I will add two smi-sub-common to the diagram in the
+> commit message.
 
-On 10/24/24 01:36, Markuss Broks wrote:
-> Exynos 9810 is an ARMv8 mobile SoC found in various Samsung devices,
-> such as Samsung Galaxy S9 (starlte), S9 Plus (star2lte),
-> Note 9 (crownlte) and perhaps others.
->
-> Add minimal support for this SoC, including basic stuff like:
-> - PSCI for bringing up secondary cores
-> - ARMv8 generic timer
-> - GPIO and pinctrl.
->
-> The firmware coming with the devices based on this SoC is buggy
-> and doesn't configure CNTFRQ_EL0, as required by spec, so it's
-> needed to hardcode the frequency in the timer node.
->
-> Co-authored-by: Maksym Holovach <nergzd@nergzd723.xyz>
-> Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
-> ---
->  arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi | 525 +++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/exynos9810.dtsi         | 256 ++++++++++
->  2 files changed, 781 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..4b2ee59dc7241b0ec31c99fd909d1c5e25aa77e0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi
-> @@ -0,0 +1,525 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-> +/*
-> + * Samsung's Exynos 9810 SoC pin-mux and pin-config device tree source
-> + *
-> + * Copyright (c) 2024 Markuss Broks <markuss.broks@gmail.com>
-> + * Copyright (c) 2024 Maksym Holovach <nergzd@nergzd723.xyz>
-> + */
-> +
-> +#include "exynos-pinctrl.h"
-> +
-> +&pinctrl_alive {
-> +	wakeup-interrupt-controller {
-> +		compatible = "samsung,exynos9810-wakeup-eint",
-> +			     "samsung,exynos850-wakeup-eint",
-> +			     "samsung,exynos7-wakeup-eint";
-> +	};
-> +
-> +	etc1: etc1-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
+You respond two months after... That email conversation is not even in
+my mailbox anymore.
 
-[snip]
+Anyway, sub-common are subnodes, no?
 
-> +
-> +	gpp3: gpp3-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	gpg0: gpg0-gpio-bank {
+> 
+>>> +
+>>> +  mediatek,smi-sub-comm-in-portid:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>> +    minimum: 0
+>>> +    maximum: 7
+>>> +    description: which port of smi_sub_common that the larb is
+>> linked to.
+>>
+>> Merge it into phandle.
+>>
+> 
+> Just confirm,
+> Do you mean merge these two into one property, like:
+> mediatek,smi-sub-comm = <&phandle port-id>;
 
-gpgX comes before gppX, sort all the nodes :D
+Yes
 
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
 
-[snip]
+Best regards,
+Krzysztof
 
-> +	};
-> +};
-> +
-> +#include "exynos9810-pinctrl.dtsi"
-> +#include "arm/samsung/exynos-syscon-restart.dtsi"
->
 
