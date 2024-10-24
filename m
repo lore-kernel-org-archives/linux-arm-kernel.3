@@ -4,61 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED5AD0BB73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 08:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB454D0BB7B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 09:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llIrCpy9kZA8ascscozR0aeMQ3DANNAwnhLPnoJOAug=; b=ilZhHGy1+SqxNd21Dt832kqh4t
-	nk2SM4XaGYWn4iAfQehJxIqbvsAa9PB5OCbOIA9cueVOhXnQUcoX0ls/IDniDUGbLYSsNWuorTupD
-	h9gqW082olTJDvHWWxmqp+yxKYvgQqEQ41x+a3iPI2zb63v0tIdX8J4yu1ZKlEWre+5AsLH+6lR5D
-	Mr1h98cBiNroxj9vNWnTU3Hd75tGmXLoBLgE7s6AzFqBtJNaPkjn+LwlymysjNFvDRrOjMmHG3gOe
-	+sogpgCtOOTAicL+0PvdzLARfm+JBXUH0oQrOmjNQmr7Mt5SFXopC40pZjMmOYLGkkcQpLJ2kw8c2
-	fNbYR7wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=; b=eJvTTlOlrIb2m4
+	hpuEd7j6JTgUZYu2gBMbjPwTgSpKrEUMKkdIdW72BVI/oppENGehqCmR0jbAmzrplzJ6OpnPkQIJv
+	Z2E+xXk+xvAB5REGh+fjWw4CVcAjxRa27CPVZIlSbKvGnwWdLhMc+evcfsellRZS4CqP23XOsXRwt
+	OipheGe6CI9Wd7cblga5/eJ2KJ3OreebPkv7xKaQbbur+55n+URPaZ1FGnREYeuLrc92cGUuf/reo
+	CooJqru2uiOaXKFvFfPRyyTLbYBonENPgxvsH75w5/W4tQO0GlsloWw00rbGv1CV0EMD4ddG8uikU
+	plnyaG6vDG6RlFw+eeVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tZ2-0000000HM7j-3hg4;
-	Thu, 24 Oct 2024 08:51:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tSV-0000000HLEa-2ofj
+	id 1t3tvJ-0000000HPm5-1s9i;
+	Thu, 24 Oct 2024 09:14:29 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3tti-0000000HPMl-133Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 08:44:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83312339;
-	Thu, 24 Oct 2024 01:45:11 -0700 (PDT)
-Received: from [10.57.79.135] (unknown [10.57.79.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0B9D3F73B;
-	Thu, 24 Oct 2024 01:44:36 -0700 (PDT)
-Message-ID: <896f9bb7-7053-4835-8db4-1ff063c268c1@arm.com>
-Date: Thu, 24 Oct 2024 10:44:31 +0200
+	Thu, 24 Oct 2024 09:12:52 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d4d1b48f3so470541f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 02:12:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729761168; x=1730365968; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=;
+        b=D5x10FzW7uY3QFgEa7VPhlV+FT9Q3vhM7ipduOoKBlaKwRB/Gtd73CcPQgIbTBcTqd
+         0Q8XcuY7JfXw3tjUWM8MWvsT74bnvn8dyO0PfIIWpWTFTGLIGPCkyw4uuBfl3HIFPbZV
+         so5KvF7J78a9/nmsCQs/cIVrpK1tZH530IFfU7BpmOyJA+9MnyzBhcmQSH4kYgEyYMrR
+         34/Kv7ITBaHv16xGy1kOeHtPP3JPtOQVC0x8L0urWJZGPJzbsg6DDcdanPvCfkVINDCO
+         UsGYBjQ7SvhBTNuK7sHfAjSTaaMwiw0IvSBE6dp6llPPca4mrkLQyNIxeM6hPSN7bwCH
+         vXug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729761168; x=1730365968;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vx0eUgvgDMYu97caj8Fvwuv1gvofiM1BDQhVIQnSVpg=;
+        b=KkmhHkpUGYOBCLcHh/hw3yRf8uoAH8mweIKPuvJJf5QJomqf2m0pnWknkFk/IJI9sA
+         kISobPRGKtg5wFg+ytN4LLmmdl+aOqgaVXwGuTkhtduOXhE2z7M0eOxbwktTNnNAiynC
+         3pbCKDAfb5wFNTuelz6hzQkfyJRPNPKCuSq+6fzOPs40q9Zfk4xsy9elghO3M7DSwUv7
+         9axjkbjQluGQEoPAXlEazpB7vuDnJUm1WJUOzWP5ibWvfNo7yr1xJtRYndWPdiAPBqNE
+         /esbeM8O2cjdmRBPOCNyP5Aioyy7RlaE2rrLRhoPyi/0cutmLtN51pbCeDCXIWtVKhdX
+         /SWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV9lGeXbK/d7jhtInzXDBs2rmSIpiHLCEGj/wroh622dA0ZVtudjUTHU8O4NflEXB/fi+QzjXr4gcQ4rMW2yDfH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwieXuCxuPENqS+UnqcJpMBxFwoo/8yF2tLvGcQuaLrXNgW6HvV
+	5eXBzz3K3ucV92BxltZIkaTBoumtrJ2RuTUlulRW2mV/JPEHq9AiH+Rl9jfByD0=
+X-Google-Smtp-Source: AGHT+IHA45txqMv6fiCd6E+I5xqCrbrjkPK/VXPgue7ugGcgW6QHaUAS7lo3qSSFpDfYjE1RQxWTIA==
+X-Received: by 2002:a5d:49c8:0:b0:371:8319:4dcc with SMTP id ffacd0b85a97d-37efcef0d0dmr3531695f8f.2.1729761167762;
+        Thu, 24 Oct 2024 02:12:47 -0700 (PDT)
+Received: from [192.168.1.64] (2a02-842a-d52e-6101-6fd0-06c4-5d68-f0a5.rev.sfr.net. [2a02:842a:d52e:6101:6fd0:6c4:5d68:f0a5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b94071sm10843701f8f.89.2024.10.24.02.12.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 02:12:47 -0700 (PDT)
+From: Julien Stephan <jstephan@baylibre.com>
+Subject: [PATCH 0/7] iio: fix write_event_config signature
+Date: Thu, 24 Oct 2024 11:11:22 +0200
+Message-Id: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] arm64: topology: Support SMT control on ACPI based
- system
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, sudeep.holla@arm.com, tglx@linutronix.de,
- peterz@infradead.org, mpe@ellerman.id.au,
- linux-arm-kernel@lists.infradead.org, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, dietmar.eggemann@arm.com
-Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
- gregkh@linuxfoundation.org, rafael@kernel.org, jonathan.cameron@huawei.com,
- prime.zeng@hisilicon.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
- xuwei5@huawei.com, guohanjun@huawei.com
-References: <20241015021841.35713-1-yangyicong@huawei.com>
- <20241015021841.35713-4-yangyicong@huawei.com>
-Content-Language: en-US
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <20241015021841.35713-4-yangyicong@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADoPGmcC/x2NsQ7CMAwFf6XyjKUmwMKvIIaS2OEtDnJCqVT13
+ 4kYb7i7nZo4pNFt2sllRUO1AeE0UXotVoSRB1Oc4yXM8cxAZcXGX0cXllWsc6qmKNxQbOkfFw7
+ PFPQaNUtWGqm3y3D+m/vjOH4as7IidgAAAA==
+X-Change-ID: 20241023-iio-fix-write-event-config-signature-1bc1f52fdedf
+To: Mudit Sharma <muditsharma.info@gmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Anshul Dalal <anshulusr@gmail.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Ramona Gradinariu <ramona.gradinariu@analog.com>, 
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+ Dan Robertson <dan@dlrobertson.com>, 
+ Marcelo Schmitt <marcelo.schmitt@analog.com>, 
+ Matteo Martelli <matteomartelli3@gmail.com>, 
+ Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, 
+ Jagath Jog J <jagathjog1996@gmail.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
+ Kevin Tsai <ktsai@capellamicro.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
+ Julien Stephan <jstephan@baylibre.com>, 
+ Julia Lawall <julia.lawall@inria.fr>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_014443_871568_07954D96 
-X-CRM114-Status: GOOD (  35.63  )
+X-CRM114-CacheID: sfid-20241024_021250_603239_9D7976B4 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,166 +116,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Yicong,
+Hello,
 
-On 10/15/24 04:18, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> For ACPI we'll build the topology from PPTT and we cannot directly
-> get the SMT number of each core. Instead using a temporary xarray
-> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
-> and SMT information of the first core in its heterogeneous CPU cluster
-> when building the topology. Then we can know the largest SMT number
-> in the system.
+This series update the write_event_config callback signature to use
+a boolean instead of an int for state variable. iio_ev_state_store
+is actually using kstrtobool to check user input, then gives the
+converted boolean value to write_event_config.
 
-Is it possible to also state that the logic only work for PPTT versions
-prior to 6.2. Otherwise find_acpi_cpu_topology_hetero_id() will return
-the id of the root node of the PPTT, and all the CPUs of the platform
-will be assumed to be identical.
+First, fix the write_event_config callbacks from iio drivers that are
+checking state input, or that are converting state to bool. This is
+useless code, then update signature.
 
-> 
-> The core's SMT control provides two interface to the users [1]:
-> 1) enable/disable SMT by writing on/off
-> 2) enable/disable SMT by writing thread number 1/max_thread_number
-> 
-> If a system have more than one SMT thread number the 2) may
-> not handle it well, since there're multiple thread numbers in the
-> system and 2) only accept 1/max_thread_number. So issue a warning
-> to notify the users if such system detected.
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
->   arch/arm64/kernel/topology.c | 61 ++++++++++++++++++++++++++++++++++++
->   1 file changed, 61 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 1a2c72f3e7f8..2fa584b932ee 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -15,8 +15,10 @@
->   #include <linux/arch_topology.h>
->   #include <linux/cacheinfo.h>
->   #include <linux/cpufreq.h>
-> +#include <linux/cpu_smt.h>
->   #include <linux/init.h>
->   #include <linux/percpu.h>
-> +#include <linux/xarray.h>
->   
->   #include <asm/cpu.h>
->   #include <asm/cputype.h>
-> @@ -37,17 +39,29 @@ static bool __init acpi_cpu_is_threaded(int cpu)
->   	return !!is_threaded;
->   }
->   
-> +struct cpu_smt_info {
-> +	int thread_num;
-> +	int core_id;
-> +	int cpu;
+This patch has been partially written using coccinelle with the
+following script:
 
-It doesn't seem that the 'cpu' is used. Maybe this should be removed,
-or used in the error message (I think this could be removed).
+$ cat iio-bool.cocci
+// Options: --all-includes
 
-> +};
-> +
->   /*
->    * Propagate the topology information of the processor_topology_node tree to the
->    * cpu_topology array.
->    */
->   int __init parse_acpi_topology(void)
->   {
-> +	int max_smt_thread_num = 0;
-> +	struct cpu_smt_info *entry;
-> +	struct xarray hetero_cpu;
-> +	unsigned long hetero_id;
->   	int cpu, topology_id;
->   
->   	if (acpi_disabled)
->   		return 0;
->   
-> +	xa_init(&hetero_cpu);
-> +
->   	for_each_possible_cpu(cpu) {
->   		topology_id = find_acpi_cpu_topology(cpu, 0);
->   		if (topology_id < 0)
-> @@ -57,6 +71,30 @@ int __init parse_acpi_topology(void)
->   			cpu_topology[cpu].thread_id = topology_id;
->   			topology_id = find_acpi_cpu_topology(cpu, 1);
->   			cpu_topology[cpu].core_id   = topology_id;
-> +
-> +			/*
-> +			 * Build up the XArray using the heterogeneous ID of
-> +			 * the CPU cluster. Store the CPU and SMT information
-> +			 * of the first appeared CPU in the CPU cluster of this
-> +			 * heterogeneous ID since the SMT information should be
-> +			 * the same in this CPU cluster. Then we can know the
-> +			 * SMT information of each heterogeneous CPUs in the
-> +			 * system.
-> +			 */
+virtual patch
 
-A suggestion just in case:
-/*
-  * In the PPTT, CPUs below a node with the 'identical
-  * implementation' flag have the same number of threads.
-  * Count the number of threads for only one CPU (i.e.
-  * one core_id) among those with the same hetero_id.
-  *
-  * One entry is created for each node having:
-  * - the 'identical implementation' flag
-  * - its parent not having the flag
-  */
+@c1@
+identifier iioinfo;
+identifier wecfunc;
+@@
+ static const struct iio_info iioinfo = {
+        ...,
+        .write_event_config =
+(
+ wecfunc
+|
+ &wecfunc
+),
+        ...,
+ };
 
+@@
+identifier c1.wecfunc;
+identifier indio_dev, chan, type, dir, state;
+@@
+ int wecfunc(struct iio_dev *indio_dev, const struct iio_chan_spec *chan, enum iio_event_type type, enum iio_event_direction dir,
+-int
++bool
+ state) {
+  ...
+ }
 
-> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-> +			entry = (struct cpu_smt_info *)xa_load(&hetero_cpu, hetero_id);
-> +			if (!entry) {
-> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> +				WARN_ON(!entry);
-> +
-> +				entry->cpu = cpu;
-> +				entry->core_id = topology_id;
-> +				entry->thread_num = 1;
-> +				xa_store(&hetero_cpu, hetero_id,
-> +					 entry, GFP_KERNEL);
-> +			} else if (entry->core_id == topology_id) {
-> +				entry->thread_num++;
-> +			}
->   		} else {
->   			cpu_topology[cpu].thread_id  = -1;
->   			cpu_topology[cpu].core_id    = topology_id;
-> @@ -67,6 +105,29 @@ int __init parse_acpi_topology(void)
->   		cpu_topology[cpu].package_id = topology_id;
->   	}
->   
-> +	/*
-> +	 * This should be a short loop depending on the number of heterogeneous
-> +	 * CPU clusters. Typically on a homogeneous system there's only one
-> +	 * entry in the XArray.
-> +	 */
+make coccicheck MODE=patch COCCI=iio-bool.cocci M=drivers/iio
 
-I think it should be ok to remove the above/below comments
+Unfortunately, this script didn't match all files:
+* all write_event_config callbacks using iio_device_claim_direct_scoped
+  were not detected and not patched.
+* all files that do not assign and declare the write_event_config
+  callback in the same file.
 
-> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
-> +		/*
-> +		 * If max_smt_thread_num has been initialized and doesn't match
-> +		 * the thread number of this entry, then the system has
-> +		 * heterogeneous SMT topology.
-> +		 */
-> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
-> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
-> +
-> +		if (entry->thread_num > max_smt_thread_num)
-> +			max_smt_thread_num = entry->thread_num;
-> +
-> +		xa_erase(&hetero_cpu, hetero_id);
-> +		kfree(entry);
-> +	}
-> +
-> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> +	xa_destroy(&hetero_cpu);
->   	return 0;
->   }
->   #endif
+iio.h was also manually updated.
 
-Otherwise I tested the SMT detection and it worked well
+The patch was build tested using allmodconfig config.
+
+Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+---
+Julien Stephan (7):
+      iio: light: bh1745: simplify code in write_event_config callback
+      iio: light: ltr390: simplify code in write_event_config callback
+      iio: light: ltr501: simplify code in write_event_config callback
+      iio: light: veml6030: simplify code in write_event_config callback
+      iio: imu: inv_mpu6050: simplify code in write_event_config callback
+      iio: light: stk3310: simplify code in write_event_config callback
+      iio: fix write_event_config signature
+
+ drivers/iio/accel/adxl367.c                    |  2 +-
+ drivers/iio/accel/adxl372.c                    |  2 +-
+ drivers/iio/accel/adxl380.c                    |  2 +-
+ drivers/iio/accel/bma400_core.c                |  2 +-
+ drivers/iio/accel/bmc150-accel-core.c          |  2 +-
+ drivers/iio/accel/fxls8962af-core.c            |  2 +-
+ drivers/iio/accel/kxcjk-1013.c                 |  2 +-
+ drivers/iio/accel/mma8452.c                    |  2 +-
+ drivers/iio/accel/mma9551.c                    |  2 +-
+ drivers/iio/accel/mma9553.c                    |  3 +-
+ drivers/iio/accel/sca3000.c                    |  2 +-
+ drivers/iio/adc/ad7091r-base.c                 |  3 +-
+ drivers/iio/adc/ad7291.c                       |  2 +-
+ drivers/iio/adc/ad799x.c                       |  2 +-
+ drivers/iio/adc/hi8435.c                       |  2 +-
+ drivers/iio/adc/max1363.c                      |  2 +-
+ drivers/iio/adc/pac1921.c                      |  3 +-
+ drivers/iio/adc/palmas_gpadc.c                 |  2 +-
+ drivers/iio/adc/ti-ads1015.c                   |  2 +-
+ drivers/iio/adc/xilinx-ams.c                   |  2 +-
+ drivers/iio/adc/xilinx-xadc-events.c           |  2 +-
+ drivers/iio/adc/xilinx-xadc.h                  |  2 +-
+ drivers/iio/cdc/ad7150.c                       |  2 +-
+ drivers/iio/dac/ad5421.c                       |  2 +-
+ drivers/iio/dac/ad8460.c                       |  2 +-
+ drivers/iio/dummy/iio_simple_dummy.h           |  2 +-
+ drivers/iio/dummy/iio_simple_dummy_events.c    |  2 +-
+ drivers/iio/gyro/bmg160_core.c                 |  2 +-
+ drivers/iio/imu/bmi323/bmi323_core.c           |  2 +-
+ drivers/iio/imu/inv_mpu6050/inv_mpu_core.c     |  9 ++---
+ drivers/iio/imu/kmx61.c                        |  2 +-
+ drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c   |  2 +-
+ drivers/iio/light/adux1020.c                   |  3 +-
+ drivers/iio/light/apds9300.c                   |  2 +-
+ drivers/iio/light/apds9306.c                   |  2 +-
+ drivers/iio/light/apds9960.c                   |  4 +--
+ drivers/iio/light/bh1745.c                     | 50 ++++++++++++--------------
+ drivers/iio/light/cm36651.c                    |  2 +-
+ drivers/iio/light/gp2ap002.c                   |  2 +-
+ drivers/iio/light/gp2ap020a00f.c               |  2 +-
+ drivers/iio/light/iqs621-als.c                 |  2 +-
+ drivers/iio/light/ltr390.c                     |  5 +--
+ drivers/iio/light/ltr501.c                     |  6 +---
+ drivers/iio/light/max44009.c                   |  2 +-
+ drivers/iio/light/opt3001.c                    |  2 +-
+ drivers/iio/light/stk3310.c                    |  5 +--
+ drivers/iio/light/tcs3472.c                    |  2 +-
+ drivers/iio/light/tsl2563.c                    |  2 +-
+ drivers/iio/light/tsl2591.c                    |  2 +-
+ drivers/iio/light/tsl2772.c                    |  2 +-
+ drivers/iio/light/us5182d.c                    |  2 +-
+ drivers/iio/light/vcnl4000.c                   |  5 +--
+ drivers/iio/light/veml6030.c                   |  5 +--
+ drivers/iio/position/iqs624-pos.c              |  2 +-
+ drivers/iio/proximity/aw96103.c                |  2 +-
+ drivers/iio/proximity/cros_ec_mkbp_proximity.c |  2 +-
+ drivers/iio/proximity/hx9023s.c                |  2 +-
+ drivers/iio/proximity/irsd200.c                |  3 +-
+ drivers/iio/proximity/sx9500.c                 |  2 +-
+ drivers/iio/proximity/sx_common.c              |  2 +-
+ drivers/iio/proximity/sx_common.h              |  2 +-
+ drivers/iio/proximity/vcnl3020.c               |  2 +-
+ drivers/iio/temperature/mcp9600.c              |  2 +-
+ drivers/iio/temperature/tmp007.c               |  2 +-
+ include/linux/iio/iio.h                        |  2 +-
+ 65 files changed, 96 insertions(+), 112 deletions(-)
+---
+base-commit: 9090ececac9ff1e22fb7e042f3c886990a8fb090
+change-id: 20241023-iio-fix-write-event-config-signature-1bc1f52fdedf
+
+Best regards,
+-- 
+Julien Stephan <jstephan@baylibre.com>
+
 
