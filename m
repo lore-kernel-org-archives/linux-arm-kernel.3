@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F74CE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC3ACE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7R8xBq4EN4NFFt2/UpW1XnLqdDNrCw7fK00BzVwqlSs=; b=foNCpipwQz2/V7u3o7OOWKVRpa
-	VkpllRDKf9kDa8r3z12XKrRn5HgMz+TnWhtb/nX+m4kPbjFlE/QQMYHefaRU/u+Yp2gzLjlWl224K
-	rNm5OIml0hd7YRGPSzFuzbH1Smwz+IR0Dwswt0FeMdw42WUceg+OKluHf1eHk+hIa9SDsMgl4kqcT
-	kFPUSF2SR05I1Fm+/Ja8J73Vcc1v+Mfpxa1ZCEI0JirzK9VqN1zEF65VD8pbSY06XcnQFQ9D9lFyb
-	1dfdd4793+3oaYth19l0TcziLZgvDP1EBXmKU4+On3AzuhzkZGgM1Qj/zn02ZJOkS9H9qkYwniJIJ
-	WyppqD4w==;
+	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=yK1xLMVY4lFS5qxXrQix1kJwFF
+	JlXLrdSODeHw9B5LEVKohweJmk6DyfGru428oAgOHndo3CJ9xaVzrYebaJ8qykHjzgjLs/H+bf+rH
+	4og11TCsM3qwWUY72uU//d4wLR6iUvTeCEYsfp1BSzXY3QtnxbeNUaEOPWp1tEW8dITucwzRE0ygM
+	YsFG6lxr6anTL0jBASURrq2YQUs62iLQNdXDoSozIdZlXHDIAtgYCFEUUsIjkLpr5PGUYgnO98onk
+	8EIsKgTSecEq08Yz9eihCqxnY+zbm5msEE8tt81WKDteaN5eILjDf3XCUUY5tXtjTdCW9i/EmZmOp
+	dND9RxTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42wn-00000001UkK-0dj4;
-	Thu, 24 Oct 2024 18:52:37 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1t42yg-00000001VAK-0tc4;
+	Thu, 24 Oct 2024 18:54:34 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42ug-00000001UWe-0unl
+	id 1t42wi-00000001Ujp-48Ak
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 18:50:28 +0000
-Received: by mail-lj1-x243.google.com with SMTP id 38308e7fff4ca-2fb56cb61baso10398831fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 11:50:25 -0700 (PDT)
+	Thu, 24 Oct 2024 18:52:35 +0000
+Received: by mail-lj1-x242.google.com with SMTP id 38308e7fff4ca-2fb470a8b27so21445071fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 11:52:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729795824; x=1730400624; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1729795951; x=1730400751; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7R8xBq4EN4NFFt2/UpW1XnLqdDNrCw7fK00BzVwqlSs=;
-        b=llyb/on+5AiJ+NuEbZZ7Pz7HaLPCTW6SgXoUG6kqIazRmgr1kJ0KghttijT1DEfS6s
-         6KtJlBwCAwXMBJyVmMczT4SVsZDHwXLZx6Tkb9gcL5pWyELnKQ9Z/dpSMsCMtFvhohNT
-         Fcg8MEbn6qwuTk7yDRuMtjWtwVMUfXNCwbrJOku3oXZpF7Crttqn5bNwuSr6qfosWhZ8
-         HV4SefaCaAc5GanZsmpZDOmBKcco43iRfnJwrhtGPK8wWqctQP8ymCnzJgYZ2T6ebNrB
-         H9BlApq+z0ZUbIU5VJTA6AngbfR28IWVeJE13AqI2CWpv9seg8nR4xLXHl4fbWvU/H45
-         UKKA==
+        bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
+        b=ngt9Kvb12KWJveQ+oLsmr5tS22dr7ig/fek0fza/moHo+gAOd3wSLwT8Rl5hwYZneb
+         iLkmv4MdFjOlTBM0vd00OtKQBF8S/5NUOpM/tfWLlgeWUuQH3aTxkkLfxCH1HS7+GG/0
+         T02by8uqst89nH66lYQXdaLKpGu8pOa5NcLfu2MA7oCSWPra524e6jfVap0m36DMjiTP
+         4ul9NSB6iLRCEPtPEyQpg/d+Ll9OQIm+g5vq0tk5Et24vRWCb1the4Be806rsAKLDS+y
+         G4VpX7E63fQCuSgCRqA0hShDVPkEt8bPbNLG3iKAOOh5KNTK/+lkmzj8AxHZ9BTRlh22
+         rlFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729795824; x=1730400624;
+        d=1e100.net; s=20230601; t=1729795951; x=1730400751;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7R8xBq4EN4NFFt2/UpW1XnLqdDNrCw7fK00BzVwqlSs=;
-        b=YHFtUpodQoVwadHISK5/qEmeEdu8MZUrY54wdtKaZp4KtyNehREw8sKyQnOEPC6pDK
-         zFbPov91MQuinkCl9SATdJZYBzUPBQSiSqjNMFLVAooIcFQaBmohn36oSqZhTJYz2iga
-         saSMNFZ3AWSIjC0eDWGLxkek33kT4iKp/SVs7XWz92uF5rDbbtMXeGzLQve8uT+mGAHX
-         G2TlfskGqS/0MMIm++VsJa6Hkbdaa1dE4PQdtLeQrXzXrFQhOo+I5Q3/LH4vWutxdWJe
-         UyVil5dMjMr+NAGPPI0GLu8yV60+lMZteR0xUhs1G46LdA2BOU6Ltsf2KGPO+aMbbh2v
-         ytqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUCimRVcqKIWB0R5Hr4G+NRFwowGkirTmLjsG5DR46nDx+cbmxDkNqNP220NQy6B6HX2jCp97RD9X4oFPRZAYHU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU7CZt26qtYitluxtnRkymM20HlYwbJdJFmfzNU1VwlLqXVIOp
-	GnxD4MfNbQAo/2aj00wcIsn2cxlOEhBJ0Je6JHddoHdk0ZVxUKyz
-X-Google-Smtp-Source: AGHT+IFe/0kX6VwsYnyAUXNrWjMytnDvDKHWu8mq9wwybvce7b7Tl51Q6opt6MBdvqCGxhK0KkBRSg==
-X-Received: by 2002:a2e:602:0:b0:2fb:4982:daea with SMTP id 38308e7fff4ca-2fc9d5a992emr33171771fa.32.1729795824111;
-        Thu, 24 Oct 2024 11:50:24 -0700 (PDT)
+        bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
+        b=LxP2uZoCeS9/LKvBXVlwdvdYnKZCvwxS6t7/ZCLFVaj1NwLRaH35jD/HcBKfJxpsIm
+         Yq/4AEieDMci1wkQiHZ1HWMVxZqZ2PamQQ7c0irDo7rORym0tII4R5TN/C/kfUKxqH99
+         TfQbnAp/OvLR9CQAnDDbI/cxTu0YjzrJT9mJOqnq0i2Yb+ErHGbcW2yiJKsdggZcw0E/
+         7rJ9Z/VzNLFusMNZ7rrUwIU0IPUy6m0MgXX17YrHkusZLLIwC6OlhpsLBZzdKd50WXkf
+         8lxTM9vn5+nRNnWkYbjvVKYfNLsd7+zp1+A15BDFXTPbGrOhDK8HKPJciEPOA5Qyswr1
+         wndA==
+X-Forwarded-Encrypted: i=1; AJvYcCWRJ7AF5ba+fllbB1XaOvVmmjlDR+gpLE2p8sG2PS9v2fxzvNy7N0GKx+l0sxQkC4DzzzkA9s+4dSWvgNGoUsz/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfOmLYm4uj/xug0NWkstJqz2iaz8rLzKyWmwh0iHldVqMNU5Lc
+	/ptG59Rz2pYCJYd3HW5+laDz/IZWyt5wysEtV/AgSUyTC2HqsdFi
+X-Google-Smtp-Source: AGHT+IFkWRBrzeLKeEO+Np33CeOqrUjEkpcda9TFwdG6TPhN9sol3OtNiKha11YrHOpKi5PO23IACw==
+X-Received: by 2002:a05:6512:138c:b0:539:fe02:c1fe with SMTP id 2adb3069b0e04-53b2371eb7amr1010071e87.16.1729795950886;
+        Thu, 24 Oct 2024 11:52:30 -0700 (PDT)
 Received: from localhost.localdomain ([176.106.245.80])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fb9adf84c9sm14640471fa.73.2024.10.24.11.50.22
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b13cb326fsm889624e87.54.2024.10.24.11.52.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 11:50:23 -0700 (PDT)
+        Thu, 24 Oct 2024 11:52:30 -0700 (PDT)
 From: =?UTF-8?Q?Russian_Troll_Factory_No2333113724691862412370505314550?=
 	=?UTF-8?Q?301522361658681972819097215937998212703204793632409614950580?=
 	=?UTF-8?Q?711014116901113627315250812066331608136907483394686821870024?=
@@ -124,16 +124,16 @@ Cc: aospan@netup.ru,
 	wsa+renesas@sang-engineering.com,
 	xeb@mail.ru
 Subject: LINUS TORVALDS IS A DICK
-Date: Thu, 24 Oct 2024 21:50:20 +0300
-Message-ID: <20241024185020.14261-1-vladimirputin693389@gmail.com>
+Date: Thu, 24 Oct 2024 21:52:22 +0300
+Message-ID: <20241024185222.14273-1-vladimirputin693389@gmail.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_115026_273789_EC2EA7F8 
-X-CRM114-Status: UNSURE (   4.69  )
+X-CRM114-CacheID: sfid-20241024_115233_045179_30040451 
+X-CRM114-Status: UNSURE (   5.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -149,105 +149,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
+
+Hi, the linux mailing list.
+You have asked me for your opinion. I present my opinion to you:
 LINUS TORVALDS IS A DICK
 LINUS TORVALDS IS A DICK
 LINUS TORVALDS IS A DICK
