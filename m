@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D93CE8E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99DDCE8E8D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6EAsGmqJZp9Jtu5OJswFR19+GlBdu1maiVLtf3Rqjs=; b=MIzQuEB1vmyu+b5WAEwL6Pv8xJ
-	qGTk6+HAfVxxs9QYEienUi+zrlJPuVE/dFIjsUJhKsBcsE+pkbISYVYpwfN+yLTS167sKDawHGslq
-	wdSOm3Zh3B9zLyetBDRcDnYq54TNdbM8N5SQJytnakPUb2zDRUUYelJ4X0HLBY8lXXsGLBDTMSSX3
-	nhG8CFq36SHbsYnnpvGDxDzpOi3MITxRGInqdH/u3VgSIqNpy1ho4QTX7o87YMvuowvqb8idFBWZD
-	RZGKxbh+RZmZCNL6NBEtph6g7UJyulNxdGNv+chFZC4Fv6h+JUy4/wBQf2b0rLfWpKaEOvBVIlbC4
-	8YU1sg4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SCnstNue4jg85kEIiyesGcA8Rnj9rjVX17h62wnrdHU=; b=dnOukURXuxc+z3yO4+cVRejebW
+	VzpWlqrsiAmOoLhQv+uWnpzDmEQm9MZbsD6O9aFeaA/MUwQz389kK8ebYCRVFB5FtBtwIm7ZDV2aT
+	edNY6MBJN4tEoSkMGup5eZfJkngXYmCNPuVhWwsgGD5hli+zYbQAiXnrKcJP8nVyHBjB/UdUG+nPR
+	cxtb77/jfGcig7bHnDoHij4MRylkZLZ48+Y4pT6jfsGH8nhLfoRSpzL7VoKqCwxicexGsd5fWThMg
+	ANWA479fkdnyCm0/m0QncflfDntTlUtb7+1VYyJguhJ3icNAZ0HDeUCMiBGKDHgO+bmU7qwMf+FnT
+	9EGFMj5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zzR-00000000xms-3OpK;
-	Thu, 24 Oct 2024 15:43:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t402L-00000000yty-2njn;
+	Thu, 24 Oct 2024 15:46:09 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zgV-00000000tr1-0jk8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Oct 2024 15:23:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:CC:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=E6EAsGmqJZp9Jtu5OJswFR19+GlBdu1maiVLtf3Rqjs=; b=JerxgNyJdIP2TlYNhs+7t9YpDV
-	PO77CPq49lRyA5zeEfUy0RBjbj2K5ubR7UcRoYRpidBxKhZMwglcrZ5jZR4jQ/C7kdi//0Rmgy/7I
-	zvWrnldVkQOePuAneqxJpPplGX2g9gPWEGS5sMR6wgMXkblJsudYVhXP4+IZDgMBI6jZxYDNppjsb
-	11PePy+v/qty838vlAq4ngpI9bmk0pVPnSm9QWlnwBF60/wcY6POASOXl7GjxdVRKVX4i9Y1ZQoKQ
-	jrmwW4+8PYSj8JxuTuImyX+dyviMM3x9KiJT1Ao9wKiV6t+ks2eW4//GCvfj3oGyALNLb5IVWRVQV
-	lSH90pAw==;
-Received: from szxga04-in.huawei.com ([45.249.212.190])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zgR-00000008hby-1Dxy
+	id 1t3ztd-00000000wBb-12HG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 15:23:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XZ8m759Jqz20qXX;
-	Thu, 24 Oct 2024 23:22:15 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id BC6B81A0188;
-	Thu, 24 Oct 2024 23:23:08 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 24 Oct 2024 23:23:08 +0800
-CC: <yangyicong@hisilicon.com>, <will@kernel.org>, <maz@kernel.org>,
-	<mark.rutland@arm.com>, <broonie@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <oliver.upton@linux.dev>,
-	<ryan.roberts@arm.com>, <linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>, <wangkefeng.wang@huawei.com>
-Subject: Re: [PATCH v3 3/5] arm64: Add support for FEAT_HAFT
-To: Catalin Marinas <catalin.marinas@arm.com>
-References: <20241022092734.59984-1-yangyicong@huawei.com>
- <20241022092734.59984-4-yangyicong@huawei.com> <ZxfvVO75Mob_FWF7@arm.com>
- <3ad59e2d-957d-e704-4a4c-ee0af2bd8dd4@huawei.com> <Zxjt62hKsNu06OrD@arm.com>
- <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <14f1802a-6a45-576b-8ded-fcb6015c5928@huawei.com>
-Date: Thu, 24 Oct 2024 23:23:07 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Thu, 24 Oct 2024 15:37:10 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4314fa33a35so10720645e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 08:37:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729784227; x=1730389027; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SCnstNue4jg85kEIiyesGcA8Rnj9rjVX17h62wnrdHU=;
+        b=OEx27Reqq7iTiVQYXc4708T7RuNDp+TNXE51ZF1z2lCOb/v1j+DLs08QgQpe1DF37e
+         51mYKbqSi+i2gETb73NEeR0Ql1vXCzrBd4s2wXJT2f4TLMw25Cv7HSqnWqcltIrZRzIS
+         ZYopsWnw3rTHMky8gGPgfhSU2OiK9o3y+fCNSgTGOG0t3NLC4LefKcTkBR5ZXEDm7elc
+         0PMQCoF+Uy7BB1bC1ddSb/hwd9B+LjPTYscasLGqNKcwwn2rpQam8HgP0+pij175ydvo
+         l53ylKCG64EUrzzxZB5pm65RIv2MzyypaN7WSYukDIIQzvyA9zfo3vhP9vvmW5+87/tM
+         jH9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729784227; x=1730389027;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SCnstNue4jg85kEIiyesGcA8Rnj9rjVX17h62wnrdHU=;
+        b=RyhfU36P172Wy45iqWwDevzhtD5WTSgtYXf2PA2nUZA+2vy7zltW+aVv4DJjD2WwpB
+         EWcetOuNfgei+jetfDVm/Ai41pV5BIj7tMBQ0SXsH4oWNGNC83P1duHgyecvli4xsa8b
+         E8RXElwlpHUiAAzJR7aFzIsdgLxmViKzqouFSctNv8Z59bFtcDkbILOsEzDNa1o0m2lf
+         FRN9Wzgkm2l5bMZ7pPKo7k2E4LQY+EAbSIEIaQc4hcgyrxWsc83+nYyLRlQVu0vtIhAq
+         QlqNYkp+T15MOgklN90iPvvWY/8OVn1YufqWgSm6h3/sDba1dB8wZWhT/ogqeRYCwH8k
+         kpxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVI9+DuOhmDb2j7NEPoon+VxTcwiQuX7WQc+T6+ah77LKRC4uUs6HJtoCaKzN41nXbks8WC7kBLFQln0pbKbhyN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqnldGxVBBPtYbnZR/W7TVCwt63CFIX22x5+MPP+zlPlqaU2US
+	lFPwelDVlWQjdzp9pewG2xhExlpXQcKQQvPfYGHE2yLZH2EOnvepXSQJ52G60lE=
+X-Google-Smtp-Source: AGHT+IFgeY+AzYZbHlaVERgkGi+hHj+CdTnAXQEQObCERD5nPgI8ASENpM18NFTIk7TmUwfS+F2JOA==
+X-Received: by 2002:a5d:60cd:0:b0:37d:45ab:422b with SMTP id ffacd0b85a97d-37efcf32d1dmr4378492f8f.31.1729784227087;
+        Thu, 24 Oct 2024 08:37:07 -0700 (PDT)
+Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b9bd6esm11615236f8f.104.2024.10.24.08.37.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 08:37:06 -0700 (PDT)
+Date: Thu, 24 Oct 2024 17:37:03 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Message-ID: <7lcmhspo5xq3numdbrfc44uqppbzigwq56vmqne5ldvg2uac6z@ivu4fmwbzajm>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-5-inochiama@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aoyw5qfx5gwdpipb"
+Content-Disposition: inline
+In-Reply-To: <20241021103617.653386-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_162332_343075_7BB26C0C 
-X-CRM114-Status: GOOD (  30.42  )
+X-CRM114-CacheID: sfid-20241024_083709_326413_C72F6F26 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,138 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/10/24 22:45, Yicong Yang wrote:
-> On 2024/10/23 20:36, Catalin Marinas wrote:
->> On Wed, Oct 23, 2024 at 06:30:18PM +0800, Yicong Yang wrote:
->>> On 2024/10/23 2:30, Catalin Marinas wrote:
->>>> On Tue, Oct 22, 2024 at 05:27:32PM +0800, Yicong Yang wrote:
->>>>> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
->>>>> index 8ff5f2a2579e..bc1051d65125 100644
->>>>> --- a/arch/arm64/include/asm/pgalloc.h
->>>>> +++ b/arch/arm64/include/asm/pgalloc.h
->>>>> @@ -30,7 +30,7 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pudp, pmd_t *pmdp)
->>>>>  {
->>>>>  	pudval_t pudval = PUD_TYPE_TABLE;
->>>>>  
->>>>> -	pudval |= (mm == &init_mm) ? PUD_TABLE_UXN : PUD_TABLE_PXN;
->>>>> +	pudval |= (mm == &init_mm) ? PUD_TABLE_AF | PUD_TABLE_UXN : PUD_TABLE_PXN;
->>>>>  	__pud_populate(pudp, __pa(pmdp), pudval);
->>>>>  }
->>>>
->>>> Why not set the table AF for the task entries? I haven't checked the
->>>> core code but normally when we map a pte it's mapped as young. While for
->>>> table AF we wouldn't get a fault, I would have thought the core code
->>>> follows the same logic.
->>>
->>> I may need to check. If I understand it correctly, for most case (e.g.
->>> a read fault) we should make pte young if the hardware AF update is
->>> not supported. Otherwsie hardware will help to update.
->>
->> On arm64 at least, _PROT_DEFAULT has PTE_AF set. So all accessible
->> entries in protection_map[] will have it set. I'm not sure how the core
->> code clears PTE_AF in the table entries. I'd have thought it goes
->> together with some pte_mkold().
->>
-> 
-> you're right. Checked that x86 will set the AF bit for the table entry [1][2].
-> Will set AF for task entries.
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/include/asm/pgalloc.h#n84
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/include/asm/pgtable_types.h#n221
-> 
->>>>> +#ifdef CONFIG_ARM64_HAFT
->>>>> +	{
->>>>> +		.desc = "Hardware managed Access Flag for Table Descriptor",
->>>>> +		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
->>>>
->>>> I'd actually use ARM64_CPUCAP_SYSTEM_FEATURE here. We use something
->>>> similar for HW DBM but there we get a fault and set the pte dirty. You
->>>> combined it with a system_support_haft() that checks the sanitised regs
->>>> but I'd rather have a static branch check via cpus_have_cap(). Even with
->>>> your approach we can have a race with a late CPU hot-plugged that
->>>> doesn't have the feature in the middle of some core code walking the
->>>> page tables.
->>>>
->>>> With a system feature type, late CPUs not having the feature won't be
->>>> brought online (if feature enabled) but in general I don't have much
->>>> sympathy for SoC vendors combining CPUs with incompatible features ;).
->>>
->>> ok. If we make it a system feature, we can using cpus_have_cap() then and
->>> drop the system_support_haft() which is checking with the sanitised registers.
->>> It's fine for me.
->>>
->>> Will ask to not refuse online a CPU due to mismatch of this feature in [1],
->>> hope we have an agreement :)
->>>
->>> [1] https://lore.kernel.org/linux-arm-kernel/20240820161822.GC28750@willie-the-truck/
->>
->> I initially thought this would work but I don't feel easy about having
->> should_clear_pmd_young() change its polarity at runtime while user space
->> is running. If that's not a problem, we can go with your current
->> approach.
-> 
-> this should be ok as I image. after online a CPU without HAFT the system won't
-> advertise HAFT support but we don't disable the HAFT update on the supported
-> CPUs, the ongoing page aging process can still use the updated table AF information
-> and later process will fallback to use the PTE's AF bit. efficiency maybe reduced
-> but the function should be correct.
-> 
 
-But we may have a chance to hit the VM_WARN_ON() in pmdp_test_and_clear_young() introduced in Patch 5/5:
+--aoyw5qfx5gwdpipb
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+MIME-Version: 1.0
 
-CPUx                                         CPUy (without HAFT)
-if (should_clear_pmd_yound())
-                                             online and make system_support_haft() == false;
-  pmdp_test_and_clear_young()
-    VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_support_haft());
+Hello,
 
-we may need to drop the VM_WARN_ON() with current approach or make this feature
-ARM64_CPUCAP_SYSTEM_FEATURE.
+On Mon, Oct 21, 2024 at 06:36:17PM +0800, Inochi Amaoto wrote:
+> +static struct platform_driver sophgo_dwmac_driver = {
+> +	.probe  = sophgo_dwmac_probe,
+> +	.remove_new = stmmac_pltfr_remove,
+> +	.driver = {
+> +		.name = "sophgo-dwmac",
+> +		.pm = &stmmac_pltfr_pm_ops,
+> +		.of_match_table = sophgo_dwmac_match,
+> +	},
+> +};
 
-> the user setting will be changed after online a CPU without HAFT. the user will
-> know this unless read /sys/kernel/mm/lru_gen/enabled again (LRU_GEN_NONLEAF_YOUNG
-> bit 0x4 will be cleared after online a CPU without HAFT since system would
-> not declare non-leaf PMD young support).
-> 
->>>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>>>> index ccbae4525891..4a58b9b36eb6 100644
->>>>> --- a/arch/arm64/mm/proc.S
->>>>> +++ b/arch/arm64/mm/proc.S
->>>>> @@ -495,9 +495,15 @@ alternative_else_nop_endif
->>>>>  	 * via capabilities.
->>>>>  	 */
->>>>>  	mrs	x9, ID_AA64MMFR1_EL1
->>>>> -	and	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_MASK
->>>>> +	ubfx	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_SHIFT, #4
->>>>>  	cbz	x9, 1f
->>>>>  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
->>>>> +
->>>>> +#ifdef CONFIG_ARM64_HAFT
->>>>> +	cmp	x9, ID_AA64MMFR1_EL1_HAFDBS_HAFT
->>>>> +	b.lt	1f
->>>>> +	orr	tcr2, tcr2, TCR2_EL1x_HAFT
->>>>> +#endif /* CONFIG_ARM64_HAFT */
->>>>
->>>> I think we can skip the ID check here and always set the HAFT bit. We do
->>>> something similar with MTE (not for TCR_HA though, don't remember why).
->>>
->>> Thanks for the reference to MTE. Will see and have a test. But a check
->>> here may seem more reasonable as we usually detect a feature first
->>> then enable it?
->>
->> The behaviour of these RES0 bits is that we can write them and if the
->> feature is present, it will be enabled, otherwise it won't have any
->> effect, so it's not necessary to check the ID bits, the result would be
->> the same. We do this in other places as well.
->>
->> Of course, we need to check the presence of TCR2_EL1, otherwise it would
->> undef. Just a bit less code since we want the feature on anyway.
-> 
-> sure. will drop the check and set the HAFT bit unconditionally.
-> 
-> Thanks.
-> 
-> 
-> .
-> 
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers. Please just drop "_new".
+
+Best regards
+Uwe
+
+--aoyw5qfx5gwdpipb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcaaYgACgkQj4D7WH0S
+/k4cDgf+KFa71VVkDyJF4Hl2zPHZr8uawn9uZBqgpPkeGPL2gMIgZeFsbW+Ta6tM
+l9QqKp1U1+CNvJx+TsnkHz0XIwAAu4+jjjLogyLd9qAvydydl7UNfs2qqtiVklt3
+QKX4PUt2WLIsjSSnXZ/xvPpcHmofvemuYZcQDgiEBlHaBn+GZjD9woBQgX79OZ3W
+ly+IQUOVBFIqnkBG7MrskeBodS69Snv9OGEkKCxn4me2uqdlscBZVrjIQ2H4u1Q5
+K+jcXjkffyRka8EVF/QuOu90nBixXNZGAa5d/H+Gt1siRRXt6Sgw/k7KSUZ8Kb7f
+UZNlLZkw0L1To+cxy3Y5F23dBVqbMA==
+=+aJM
+-----END PGP SIGNATURE-----
+
+--aoyw5qfx5gwdpipb--
 
