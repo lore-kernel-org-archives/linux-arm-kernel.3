@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C9DCE8E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC07CE8E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hU2VA2I2mEajXeQdX77ukbXt0HaYqXDo3s6YnAwD17w=; b=z5UV2/Oywh3dTcUsL0SrP86rgR
-	9zBEMyP5m+RCHN4azk3S3LbTFS04hzljDHGLIfhYX756NMYB+AJIgOcARoIbinrs+H3jgLZw4SWI4
-	D8Fc8OOrqzzhs0p5g6wBhlASevk0uPRi3aRMBQWJ0LlMZf8ts7wg09pxiceVGxIxYWX51gYhvd6BO
-	tne5Yuhpr0P4B0ThnqTaRM3B+HIc1UPAMAoFboiliOicVIxySu8FPObv+ui+GCt0L2BdiSWb1BdSC
-	XxnBpDfra5dRcvYSxHXyp1tBZlGgbco3zKUUiAdBfxq4A1UUql1l6gJrILYiqrOO/UEt0+pKgQEB1
-	6WIcgpDg==;
+	bh=deK4DomWPJydxnpax2btzYZb2iY+zRxceQoLFulpLGg=; b=eNwflsyiWGOpZHY5X3wKBAbKVV
+	mTzGMVVUgB0Hadn22L3B7wjC2UvyOBw6e9XA3BfvNghtbzX0Mf3cENzQOkrAKTa3ja0RvMc8EAXBv
+	3CgMUf22ckUvDOyzoaJq4z9pzKv3Ee1qHks3H0Dm0/dVm1zi0iutgw+nUAwQCjzJerHA36ZZxFmj+
+	3O0okhs5RB9JzP1l8z/HEt5GVoXFHMKj/0+6zZEoqA2+F2Eyu6O23gBdqpgTHQWUriDcMFDdGsdAq
+	GPjZCZk3GZCeCRk8HnW/eS2OekPGQjGhy+ef7THo7uYmrKktuzx3zS4mlH6gxGwvrv5ig03pbFzpR
+	wudJyoyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3z2h-00000000mnV-2Egt;
-	Thu, 24 Oct 2024 14:42:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3z4D-00000000nKA-2vVf;
+	Thu, 24 Oct 2024 14:44:01 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yqq-00000000k10-30Ye
+	id 1t3yu6-00000000l0l-1wmE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 14:30:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 69AAFA4517D;
-	Thu, 24 Oct 2024 14:30:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE545C4CEC7;
-	Thu, 24 Oct 2024 14:30:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729780211;
-	bh=T05ZMOyThtGE5f2OTn9E4J0GkLKprBESCNSczcrAbsY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=BHYSR9pBBsMpJ48PvzQ5vi3PlbCKBU45gWbS74GOT0vpYG2MTTRaDF6Tia3IqGmp0
-	 +2fPS3k8r83CNicL2JOnWfdVm9RfuA1hzv5ktQ32EHShPoM0xuJ5cM7fEDdy+mxncX
-	 Z1fkRLweZlFH4yr/1vMYxXM4lsL+cLq9/okHPEwg9zvNNNjfZo4Buax3vub5FPyGWP
-	 jNBHc3E3AWzmkhmhs2VPpomE1+8qKIvZfzNIsCCNADBHZ+tDcsyA77u45Ps/ihMrKA
-	 eWNRFa5e2ppY6WNwT+bz7A/Dqdad4bYmHVSWTzzwx3FDjQ85K9jGPo453XYh1cmNoa
-	 Asu+ux01o/3ZQ==
-X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>
-Subject: Re: [PATCH v5 21/43] arm64: RME: Runtime faulting of memory
-In-Reply-To: <20241004152804.72508-22-steven.price@arm.com>
-References: <20241004152804.72508-1-steven.price@arm.com>
- <20241004152804.72508-22-steven.price@arm.com>
-Date: Thu, 24 Oct 2024 20:00:00 +0530
-Message-ID: <yq5a5xphmv4n.fsf@kernel.org>
+	Thu, 24 Oct 2024 14:33:35 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-20cdb889222so8313415ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:33:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729780413; x=1730385213; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=deK4DomWPJydxnpax2btzYZb2iY+zRxceQoLFulpLGg=;
+        b=osT6haKVdhBWEoE0Ot65HLJGgg7UHRinQXtKvtd75rF0Pi3vu5RwAC3QLOE8iIwgJV
+         v2mLDuSfcZbKeoFMg7fin7Z6zRqmegqUJdeOzsdWNohe9nD8FtrG2gRAVm6rqiEHBd+m
+         L/s46W1WBM26ZRVYd7eHUQkfJ5INB6L98WWJzhh7aRCzgFtq6J+RYe3VeEvKlEepJ1TN
+         1osne/TYdbiNuQ0p90UHEanrvgFcwFIcnOFV8Bpeq5/Fusdm/Ql6azcSyenJlOfWY3VQ
+         5GzT5j4lZ2QWYGeqExA0yKL6fHIOzaC2tEPkX30E8Mq4SaBPddCgMvoK8+OeCwMG8W7R
+         vRsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729780413; x=1730385213;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=deK4DomWPJydxnpax2btzYZb2iY+zRxceQoLFulpLGg=;
+        b=G2IbLg0Y169pTtFot4+kn4nct6ZXrB+t6MiejtyCZ+DvM5NLNEQH0H+m9IMOjym0lW
+         ZMig3v8mzrPwxFp4wph8DuAwqn6sSY6PXUCmJBOus30zavrJAqSrfj9+q1Ifk0a8iDXG
+         ZGyYCf75MV2CB5R6Crb1CEqAy2Pho7f/OKiocRbNpxmPGWGUTU7niDUkqFZhcaM6T4m5
+         qPImjyo4IcCxPdemEbzTcPsU6yij0HW6o3mC8WcuoB8gMyyGCGSizV3NuNcTVOfvfAsp
+         ys/sWHGWYx+O3ltood2dPPvrtfAVk/a8NBIFQ/qAZVtZQaj/UcP4Tje7H/QppfemqK+H
+         0nJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXdi0xgjQZG+BxYk/A6YjJGY+oD/IVZkG1QDeSOW+4sJFzQxqb2s9EFAuxKfNxINBH9Dg2PxwhP1G5yJEk6xwNn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyApb1y/8aSCGmS0ZJAFNPhJTm2lvMO7wYY8phk66XQYJLvkGX7
+	U+zH3St0NCB3ycmLCVCMrafAMwoc7gi+dH2sw/FlR19terwCS18iZz9TbDKE5bE=
+X-Google-Smtp-Source: AGHT+IF2QHwGQNfnbzeB+vGVeNFxEkbVpRfo0zDrRN0S9cesanZ47dqvPBfNb4vh5OOx0sxq3LEACg==
+X-Received: by 2002:a17:903:234c:b0:20c:d2d9:765c with SMTP id d9443c01a7336-20fa9e09acbmr77487705ad.15.1729780413199;
+        Thu, 24 Oct 2024 07:33:33 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:7c96:e131:bee8:c8a4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-20e7f0bd5ddsm73207425ad.141.2024.10.24.07.33.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 07:33:32 -0700 (PDT)
+Date: Thu, 24 Oct 2024 08:33:28 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: fsl,imx-rproc: add new
+ compatible
+Message-ID: <ZxpauMKLcSz73y3B@p14s>
+References: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
+ <20241023162114.3354-2-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023162114.3354-2-laurentiumihalcea111@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_073012_912457_190B13F3 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20241024_073334_551931_889EDFBE 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,179 +106,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Steven Price <steven.price@arm.com> writes:
+Good day,
 
-> +static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-> +			 kvm_pfn_t pfn, unsigned long map_size,
-> +			 enum kvm_pgtable_prot prot,
-> +			 struct kvm_mmu_memory_cache *memcache)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct page *page = pfn_to_page(pfn);
+On Wed, Oct 23, 2024 at 12:21:11PM -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> Add new compatible for imx95's CM7 with SOF.
+> 
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 58 +++++++++++++++++--
+>  1 file changed, 53 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index 57d75acb0b5e..ab0d8e017965 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -28,6 +28,15 @@ properties:
+>        - fsl,imx8qxp-cm4
+>        - fsl,imx8ulp-cm33
+>        - fsl,imx93-cm33
+> +      - fsl,imx95-cm7-sof
+
+Why is this added in the remoteproc bindings when the driver is
+sound/soc/sof/imx/imx95.c?
+
 > +
-> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
-> +		return -EFAULT;
+> +  reg:
+> +    maxItems: 2
 > +
-> +	if (!realm_is_addr_protected(realm, ipa))
-> +		return realm_map_non_secure(realm, ipa, page, map_size,
-> +					    memcache);
+> +  reg-names:
+> +    items:
+> +      - const: dram
+> +      - const: mailbox
+>  
+>    clocks:
+>      maxItems: 1
+> @@ -38,10 +47,8 @@ properties:
+>        Phandle to syscon block which provide access to System Reset Controller
+>  
+>    mbox-names:
+> -    items:
+> -      - const: tx
+> -      - const: rx
+> -      - const: rxdb
+> +    minItems: 1
+> +    maxItems: 4
+>  
+>    mboxes:
+>      description:
+> @@ -49,7 +56,7 @@ properties:
+>        List of <&phandle type channel> - 1 channel for TX, 1 channel for RX, 1 channel for RXDB.
+>        (see mailbox/fsl,mu.yaml)
+>      minItems: 1
+> -    maxItems: 3
+> +    maxItems: 4
+>  
+>    memory-region:
+>      description:
+> @@ -84,6 +91,10 @@ properties:
+>        This property is to specify the resource id of the remote processor in SoC
+>        which supports SCFW
+>  
+> +  port:
+> +    $ref: /schemas/sound/audio-graph-port.yaml#
+> +    unevaluatedProperties: false
 > +
-> +	return realm_map_protected(realm, ipa, page, map_size, memcache);
-> +}
+>  required:
+>    - compatible
+>  
+> @@ -114,6 +125,43 @@ allOf:
+>        properties:
+>          power-domains: false
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-cm7-sof
+> +    then:
+> +      properties:
+> +        mboxes:
+> +          minItems: 4
+> +        mbox-names:
+> +          items:
+> +            - const: txdb0
+> +            - const: txdb1
+> +            - const: rxdb0
+> +            - const: rxdb1
+> +        memory-region:
+> +          maxItems: 1
+> +      required:
+> +        - reg
+> +        - reg-names
+> +        - mboxes
+> +        - mbox-names
+> +        - memory-region
+> +        - port
+> +    else:
+> +      properties:
+> +        reg: false
+> +        reg-names: false
+> +        mboxes:
+> +          maxItems: 3
+> +        mbox-names:
+> +          items:
+> +            - const: tx
+> +            - const: rx
+> +            - const: rxdb
+> +        port: false
 > +
-
-
-Some of these pfn_to_page(pfn) conversions can be avoided because the
-callers are essentially expecting a pfn value (converting page_to_phys())
-It also helps to clarify whether we are operating on a compound page or
-not.
-
-Something like below?
-
-diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-index cd42c19ca21d..bf5702c8dbee 100644
---- a/arch/arm64/include/asm/kvm_rme.h
-+++ b/arch/arm64/include/asm/kvm_rme.h
-@@ -110,13 +110,13 @@ void kvm_realm_unmap_range(struct kvm *kvm,
- 			   bool unmap_private);
- int realm_map_protected(struct realm *realm,
- 			unsigned long base_ipa,
--			struct page *dst_page,
--			unsigned long map_size,
-+			kvm_pfn_t pfn,
-+			unsigned long size,
- 			struct kvm_mmu_memory_cache *memcache);
- int realm_map_non_secure(struct realm *realm,
- 			 unsigned long ipa,
--			 struct page *page,
--			 unsigned long map_size,
-+			 kvm_pfn_t pfn,
-+			 unsigned long size,
- 			 struct kvm_mmu_memory_cache *memcache);
- int realm_set_ipa_state(struct kvm_vcpu *vcpu,
- 			unsigned long addr, unsigned long end,
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 569f63695bef..254e90c014cf 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1452,16 +1452,15 @@ static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
- 			 struct kvm_mmu_memory_cache *memcache)
- {
- 	struct realm *realm = &kvm->arch.realm;
--	struct page *page = pfn_to_page(pfn);
- 
- 	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
- 		return -EFAULT;
- 
- 	if (!realm_is_addr_protected(realm, ipa))
--		return realm_map_non_secure(realm, ipa, page, map_size,
-+		return realm_map_non_secure(realm, ipa, pfn, map_size,
- 					    memcache);
- 
--	return realm_map_protected(realm, ipa, page, map_size, memcache);
-+	return realm_map_protected(realm, ipa, pfn, map_size, memcache);
- }
- 
- static int private_memslot_fault(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 4064a2ce5c64..953d5cdf7ead 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -676,15 +676,15 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long ipa, u64 size,
- 
- static int realm_create_protected_data_page(struct realm *realm,
- 					    unsigned long ipa,
--					    struct page *dst_page,
--					    struct page *src_page,
-+					    kvm_pfn_t dst_pfn,
-+					    kvm_pfn_t src_pfn,
- 					    unsigned long flags)
- {
- 	phys_addr_t dst_phys, src_phys;
- 	int ret;
- 
--	dst_phys = page_to_phys(dst_page);
--	src_phys = page_to_phys(src_page);
-+	dst_phys = __pfn_to_phys(dst_pfn);
-+	src_phys = __pfn_to_phys(src_pfn);
- 
- 	if (rmi_granule_delegate(dst_phys))
- 		return -ENXIO;
-@@ -711,7 +711,7 @@ static int realm_create_protected_data_page(struct realm *realm,
- err:
- 	if (WARN_ON(rmi_granule_undelegate(dst_phys))) {
- 		/* Page can't be returned to NS world so is lost */
--		get_page(dst_page);
-+		get_page(pfn_to_page(dst_pfn));
- 	}
- 	return -ENXIO;
- }
-@@ -741,15 +741,14 @@ static phys_addr_t rtt_get_phys(struct realm *realm, struct rtt_entry *rtt)
- }
- 
- int realm_map_protected(struct realm *realm,
--			unsigned long base_ipa,
--			struct page *dst_page,
-+			unsigned long ipa,
-+			kvm_pfn_t pfn,
- 			unsigned long map_size,
- 			struct kvm_mmu_memory_cache *memcache)
- {
--	phys_addr_t dst_phys = page_to_phys(dst_page);
-+	phys_addr_t phys = __pfn_to_phys(pfn);
- 	phys_addr_t rd = virt_to_phys(realm->rd);
--	unsigned long phys = dst_phys;
--	unsigned long ipa = base_ipa;
-+	unsigned long base_ipa = ipa;
- 	unsigned long size;
- 	int map_level;
- 	int ret = 0;
-@@ -860,14 +859,14 @@ int realm_map_protected(struct realm *realm,
- 
- int realm_map_non_secure(struct realm *realm,
- 			 unsigned long ipa,
--			 struct page *page,
-+			 kvm_pfn_t pfn,
- 			 unsigned long map_size,
- 			 struct kvm_mmu_memory_cache *memcache)
- {
- 	phys_addr_t rd = virt_to_phys(realm->rd);
- 	int map_level;
- 	int ret = 0;
--	unsigned long desc = page_to_phys(page) |
-+	unsigned long desc = __pfn_to_phys(pfn) |
- 			     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
- 			     /* FIXME: Read+Write permissions for now */
- 			     (3 << 6);
-@@ -951,7 +950,6 @@ static int populate_par_region(struct kvm *kvm,
- 		unsigned int vma_shift;
- 		unsigned long offset;
- 		unsigned long hva;
--		struct page *page;
- 		kvm_pfn_t pfn;
- 		int level;
- 
-@@ -1000,10 +998,8 @@ static int populate_par_region(struct kvm *kvm,
- 						RME_RTT_MAX_LEVEL, NULL);
- 		}
- 
--		page = pfn_to_page(pfn);
--
- 		for (offset = 0; offset < map_size && !ret;
--		     offset += PAGE_SIZE, page++) {
-+		     offset += PAGE_SIZE, pfn++) {
- 			phys_addr_t page_ipa = ipa + offset;
- 			kvm_pfn_t priv_pfn;
- 			int order;
-@@ -1015,8 +1011,8 @@ static int populate_par_region(struct kvm *kvm,
- 				break;
- 
- 			ret = realm_create_protected_data_page(realm, page_ipa,
--							       pfn_to_page(priv_pfn),
--							       page, data_flags);
-+							       priv_pfn,
-+							       pfn, data_flags);
- 		}
- 
- 		kvm_release_pfn_clean(pfn);
+>  additionalProperties: false
+>  
+>  examples:
+> -- 
+> 2.34.1
+> 
 
