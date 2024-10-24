@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1504CDDE69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 09:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA1CD0BB7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 09:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYLMF+xuWoTGHcH9ioamHRWs7pVJoNmieRacljrkDBI=; b=mSF/UYu3Uxtpsy31GLGs7R3Xik
-	sX5RaeCarW/XDvQRLYrd4C0kxTu+zm/BwsA1XqTJRs1NfReiG1z+vOb7CHnUJAw6tw7wBwbwjtfga
-	Pi5PUxWM7an6UUH4x4vuXKKZLHGKRu9zO2pxpbaAEx1u+tOyEapp4m0QUZwIiXOBldXWbNzYRbVrP
-	/CghE2C3I+m8evriUbV4hBbP+So+qJbkaZpoR3AFEHvZxEIhzEoncag/4JMS7bpluL6U+Fz9mPUtE
-	+SH9RGaXBUuB/WcZQxj8eN10kDIEo6/EfszQc/CJzYjNimmMbqXtc0mriCAnKO1/VZWNYEl9aooVm
-	4mohb7zA==;
+	bh=0qE5EMY0b9VvuP2GyyiL1MxtVqnnoZzYu8ao8xgikjo=; b=bS1GPGw7jMYyl8xWeZuwwOqG/P
+	Rx6B04/rRDY2JnmFMGqgAO/PA3fA1ei+Lm7YZESalUgmkffpZqMbDrzluloTokxGuoRwxvL0cTIn7
+	YexEDsySTjJ0RfIrzDthdqXyeNZxoM7N2WqSjKupFB8Y2mGxiF5sTV/PUGknTyZkxa9jjkVVxKBYZ
+	9IyocOfDbnXRs84Qyu47Asfeyya+6VYycWZJH4BwGBNlkryIapm540bMuy7NFSv/VoKrmAVrc6ZE/
+	9vTOrCl2cwjBNKST/22puTghGHuCrQPeYRUBCqxEopwQOg1GLIGowf+ZzghabdA/5ggbuSe8hqpMP
+	eqjgMcvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uJL-0000000HVQj-2gRw;
-	Thu, 24 Oct 2024 09:39:19 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t3uKz-0000000HVzP-0gE8;
+	Thu, 24 Oct 2024 09:41:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3u7L-0000000HS9G-0eHJ;
-	Thu, 24 Oct 2024 09:26:56 +0000
-X-UUID: 1a28b91e91ea11ef82ff63e91e7eb18c-20241024
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=jYLMF+xuWoTGHcH9ioamHRWs7pVJoNmieRacljrkDBI=;
-	b=S1kKsfzPV4SMDDCjHtAKPvaGnPatn91PyW101KSkPMqg7/1cYS6zYsXYcFw/6tThIfygzCEW16FpZVwsuL37gCgSirZvU6qGs0oDR5Pkqis30rlxfc2yB5zpbMJZMl5KvG9P8N1rOgom6wg/TwjL7xrY+6ehwsLMNVwRUGqCjPY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:e8f51126-9a82-4a88-b7e8-b7c4798bf40a,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:25a1c441-8751-41b2-98dd-475503d45150,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 1a28b91e91ea11ef82ff63e91e7eb18c-20241024
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <karl.li@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1188694862; Thu, 24 Oct 2024 02:26:51 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 24 Oct 2024 17:26:49 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 24 Oct 2024 17:26:49 +0800
-From: Karl.Li <karl.li@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Karl Li <Karl.Li@mediatek.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Chungying Lu <chungying.lu@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Karl Li
-	<karl.li@mediatek.com>
-Subject: [PATCH 2/3] mailbox: add support for bottom half received data
-Date: Thu, 24 Oct 2024 17:25:44 +0800
-Message-ID: <20241024092608.431581-3-karl.li@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241024092608.431581-1-karl.li@mediatek.com>
-References: <20241024092608.431581-1-karl.li@mediatek.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+	id 1t3u9z-0000000HT6p-3dcm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 09:29:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 87115A45167;
+	Thu, 24 Oct 2024 09:29:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6144AC4CEC7;
+	Thu, 24 Oct 2024 09:29:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729762178;
+	bh=geudcH7yX/W/ZOpP6E9dcE7viAct/chywpGntfYcIkE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CGgbSkeUrmHIO5OJczLufZwvq7GiFh6rzSjgVFYP3UEcyK3K1uFdJuXE4iVQNu2pT
+	 lYy1QX4XH8QYIfjb74mXh7z8VIjoNNr1k8/dx1cBOnGeueOsenoBTu8UxvJpzzWwmB
+	 fbpks0bjuxUy9zaZD60+t208Gdqusm8P/HjG9A34Bi8/Eiroc0cktp3rnl9I18HqqC
+	 /fmcC71cySbl3DHhze731zTF37KLWmUyrlVevTssaVcoTLApauJAxdGF7R7MLgBrtL
+	 2ZS6x646umBXNdkbH4g7QWI4+e/5hlbnqXbCpqbuGwk9dwzR6VyP29wbQIcuyTWuX1
+	 9OTLgF+qx9VTg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3u9w-006ODj-74;
+	Thu, 24 Oct 2024 10:29:36 +0100
+Date: Thu, 24 Oct 2024 10:29:35 +0100
+Message-ID: <86wmhx3l34.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Gaosheng Cui <cuigaosheng1@huawei.com>
+Cc: <oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<sebott@redhat.com>,
+	<wangweiyang2@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>
+Subject: Re: [PATCH -next] KVM: arm64: Fix possible null-ptr-deref in idregs_debug_show
+In-Reply-To: <20241024083350.2828920-1-cuigaosheng1@huawei.com>
+References: <20241024083350.2828920-1-cuigaosheng1@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: cuigaosheng1@huawei.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sebott@redhat.com, wangweiyang2@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_022655_223979_9BCCE467 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20241024_022940_137291_9CE14FD3 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +91,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Karl Li <karl.li@mediatek.com>
+On Thu, 24 Oct 2024 09:33:50 +0100,
+Gaosheng Cui <cuigaosheng1@huawei.com> wrote:
+> 
+> The idregs_debug_show() maybe return nullptr, we need to check desc
+> before dereference it to avoid possible null pointer dereferences.
+> 
+> Fixes: 410db103f6eb ("KVM: arm64: Make idregs debugfs iterator search sysreg table directly")
+> Signed-off-by: Gaosheng Cui <cuigaosheng1@huawei.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index ff8c4e1b847e..b1c59773b9c0 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -4135,7 +4135,7 @@ static int idregs_debug_show(struct seq_file *s, void *v)
+>  
+>  	desc = idregs_debug_find(kvm, kvm->arch.idreg_debugfs_iter);
+>  
+> -	if (!desc->name)
+> +	if (!desc || !desc->name)
+>  		return 0;
+>  
+>  	seq_printf(s, "%20s:\t%016llx\n",
 
-Within the MediaTek APU subsystem, a message passing mechanism
-is constructed on top of the mailbox system.
+Can you show a case where this happens in practice?
 
-The mailbox only has limited space for each message. The MTK APU firmware
-expects the message header from the mailbox, while the message body
-is passed through some fixed shared memory.
+The check for NULL is already in idregs_debug_next(), and I don't see
+how this can actually be triggered.
 
-The mailbox interrupt also serves as a mutex for the shared memory.
-Thus the interrupt may only be cleared after the message is handled.
-Add a new sleepable rx callback for mailbox clients for cases
-where handling the incoming data needs to sleep.
+Thanks,
 
-Signed-off-by: Karl Li <karl.li@mediatek.com>
----
- drivers/mailbox/mailbox.c          | 16 ++++++++++++++++
- include/linux/mailbox_client.h     |  2 ++
- include/linux/mailbox_controller.h |  1 +
- 3 files changed, 19 insertions(+)
+	M.
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index d3d26a2c9895..d58a77fcf804 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -164,6 +164,22 @@ void mbox_chan_received_data(struct mbox_chan *chan, void *mssg)
- }
- EXPORT_SYMBOL_GPL(mbox_chan_received_data);
- 
-+/**
-+ * mbox_chan_received_data_bh - A way for controller driver to push data
-+ *				received from remote to the upper layer.
-+ * @chan: Pointer to the mailbox channel on which RX happened.
-+ * @mssg: Client specific message typecasted as void *
-+ *
-+ * For the operations which is not atomic can be called from
-+ * mbox_chan_received_data_bh().
-+ */
-+void mbox_chan_received_data_bh(struct mbox_chan *chan, void *mssg)
-+{
-+	if (chan->cl->rx_callback_bh)
-+		chan->cl->rx_callback_bh(chan->cl, mssg);
-+}
-+EXPORT_SYMBOL_GPL(mbox_chan_received_data_bh);
-+
- /**
-  * mbox_chan_txdone - A way for controller driver to notify the
-  *			framework that the last TX has completed.
-diff --git a/include/linux/mailbox_client.h b/include/linux/mailbox_client.h
-index 734694912ef7..2cc6fa4e1bf9 100644
---- a/include/linux/mailbox_client.h
-+++ b/include/linux/mailbox_client.h
-@@ -22,6 +22,7 @@ struct mbox_chan;
-  *			if the client receives some ACK packet for transmission.
-  *			Unused if the controller already has TX_Done/RTR IRQ.
-  * @rx_callback:	Atomic callback to provide client the data received
-+ * @rx_callback_bh:	Non-atomic callback to provide client the data received
-  * @tx_prepare: 	Atomic callback to ask client to prepare the payload
-  *			before initiating the transmission if required.
-  * @tx_done:		Atomic callback to tell client of data transmission
-@@ -33,6 +34,7 @@ struct mbox_client {
- 	bool knows_txdone;
- 
- 	void (*rx_callback)(struct mbox_client *cl, void *mssg);
-+	void (*rx_callback_bh)(struct mbox_client *cl, void *mssg);
- 	void (*tx_prepare)(struct mbox_client *cl, void *mssg);
- 	void (*tx_done)(struct mbox_client *cl, void *mssg, int r);
- };
-diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_controller.h
-index 6fee33cb52f5..74c6a31cd313 100644
---- a/include/linux/mailbox_controller.h
-+++ b/include/linux/mailbox_controller.h
-@@ -130,6 +130,7 @@ struct mbox_chan {
- int mbox_controller_register(struct mbox_controller *mbox); /* can sleep */
- void mbox_controller_unregister(struct mbox_controller *mbox); /* can sleep */
- void mbox_chan_received_data(struct mbox_chan *chan, void *data); /* atomic */
-+void mbox_chan_received_data_bh(struct mbox_chan *chan, void *data); /* can sleep */
- void mbox_chan_txdone(struct mbox_chan *chan, int r); /* atomic */
- 
- int devm_mbox_controller_register(struct device *dev,
 -- 
-2.18.0
-
+Without deviation from the norm, progress is not possible.
 
