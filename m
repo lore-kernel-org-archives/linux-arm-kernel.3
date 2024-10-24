@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D90CE8E8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C03ECE8E8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/2412CaR/LufvJ8Kwi5yL2Zktoc6TzhEG36635Zq30=; b=aXz6PU/qtbTxPaNiMvvhhTRTBl
-	X577UhdIFmKga3mhfdgSTkc4HyaCGckoWI4UKWQuTAQ4vYXUnvV8QgL1+GeR4szYqyx5Tdg/2JWv2
-	N7XXqgj3k/UYAqoNkPGSsDj37snEhK5o9Bu/yntO299KB0L/rlSLrpuEsI5vma/jbmHY4Z8tqB5bY
-	ZMAdDaxpZu2OUrgRGEt9JvuYSquB8W8L9MpY0UhzhtmE9PkMqsTKgjBE/c/Lw8acm4n2sviN2tWvk
-	RCQ1S/MLuhLZYJO6HgCSMT3s+K30SeB9Ca3bmVtYQZP4q2hQ4X4YzwIBSljnOM9c1oh1ojYG69Rl0
-	YrhxDZqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CBiG9tFbLqIx7KKBRCWnQHbT9NWhqeOvBRJqbKiGd9Q=; b=oHp4yasXhS3+mwsS4r/tfJla/7
+	Ju7P10MfSJIGDusBxsn776zxADX5oQ53LvGllJaO4wHnWahduDrgLNrsJPTNe7jOfPIrNC/pFpLab
+	i6kOTiyLGV2DFQgNEkRqg1erDkAzeos7/dxzURJS32JTWZP68Wdiee0ULzsTg+KAW+dDRnskTgTj/
+	iP0nE7MXHHMU7qQVzMWYbbRecHpBzv36UlthNiSvkRjCBGSt65ZlzwqElej2i5r5D7DfaUr7QjBej
+	0v4dJ7RmHp95vYmWpmnqe7ds+C/5VcnhngIhI0BQvUJxfd2sFdp6otEdiUrGUZuHT5bNfHJowMzGE
+	6G+eX+jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zrQ-00000000vr5-43Bs;
-	Thu, 24 Oct 2024 15:34:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3ztD-00000000w8A-1va6;
+	Thu, 24 Oct 2024 15:36:43 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zXJ-00000000sXK-0liW
-	for linux-arm-kernel@lists.infradead.org;
+	id 1t3zXM-00000000sXi-0QgE;
 	Thu, 24 Oct 2024 15:15:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F26F5A4560C;
-	Thu, 24 Oct 2024 15:13:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD76C4CEE3;
-	Thu, 24 Oct 2024 15:14:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729782843;
-	bh=SvIjThtAz+3hs0BLjpnwpREjkQ1yKHezPlmKnO8bpQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q6/MspT8ZJ0LLZj+iNLOjKgo8wheWidUEy+VwJuRFZtDHLkZ0PFaaex/lolqsEWFf
-	 /lEh5hGXtTNDLspunWrHzz9+0sYOXkJpG/1DEYIbGHz4M/ydkxvxB7zFgTEYZx3r8O
-	 pbVxZnA2N8pP2zAHFT6XEUSpHhGmWGYZBAbjC+riZHbuj+x9LKXBNtx86OStRQoIPF
-	 gPePp87I+9lQX4uGVCP5AKGZxu0z5LEXXibG0KCswUQgRvqn7ihP1umkvIk7js1CzM
-	 5/0WjF23w5Kcv415AhGbg2VciNdlPiM4M3fwuIpyYjxx7yIicw3JYGtpsCT5W1Dq/W
-	 XK0qkC9RySdpQ==
-Date: Thu, 24 Oct 2024 10:14:02 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Fabio Estevam <festevam@gmail.com>, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org, broonie@kernel.org,
-	linux-spi@vger.kernel.org, shawnguo@kernel.org,
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CBiG9tFbLqIx7KKBRCWnQHbT9NWhqeOvBRJqbKiGd9Q=; b=M6OPtpzQvZbVZiuWkrc3p230yO
+	HPi4NVdrU8/xETZanFmH1TXojf2TVftlbJ0yeckBFO2H5M9ewFODfiIlLKKUQ2TZ4B+VaLOJlYo3V
+	gMlBfqXNvnAUIqP4eSMh1ozb4FuGzAwLmSbRRIFS7Z0SEZVtX0zL2n6RD88nuX1zfwTxz5cH/LCpr
+	lxKZncYmIzYeesPhCulT5IsBXKxeOb/iKZAGbcntkmVL6ZSwCIjRMmQXfwFIqAMaPOz0rPnD5aALX
+	FmIBOq5kt+8/ABsCJ07pe97Qd1SsUFUXSnRweIccoyDDTjjvSyl6GcezzRsZVOhbP7tPnBPJtNxAC
+	igChQNHQ==;
+Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t3zXK-0004at-Cr; Thu, 24 Oct 2024 17:14:06 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH 1/3] dt-bindings: misc: lwn,bk4-spi: Add binding
-Message-ID: <20241024151402.GA499355-robh@kernel.org>
-References: <20241023120015.1049008-1-festevam@gmail.com>
- <20241023171739.475a2bb7@wsk>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] HDMI Support for Theobroma/Cherry rk3588 boards
+Date: Thu, 24 Oct 2024 17:14:00 +0200
+Message-ID: <20241024151403.1748554-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023171739.475a2bb7@wsk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_081405_316113_B2C9D042 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20241024_081408_186440_A389257F 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 05:17:39PM +0200, Lukasz Majewski wrote:
-> Hi Fabio,
-> 
-> > From: Fabio Estevam <festevam@denx.de>
-> > 
-> > Add a lwn,bk4-spi.yaml binding for Liebherr's BK4 external SPI
-> > controller.
-> > 
-> > Currently, the compatible string used for this device is "lwn,bk4",
-> > which is the same as the board compatible string documented at
-> > fsl.yaml.
-> > 
-> > This causes several dt-schema warnings:
-> > 
-> > make dtbs_check DT_SCHEMA_FILES=fsl.yaml
-> > ...
-> > 
-> > ['lwn,bk4'] is too short
-> > 'lwn,bk4' is not one of ['tq,imx8dxp-tqma8xdp-mba8xx']
-> > 'lwn,bk4' is not one of ['tq,imx8qxp-tqma8xqp-mba8xx']
-> > 'lwn,bk4' is not one of ['armadeus,imx1-apf9328', 'fsl,imx1ads']
-> > ...
-> > 
-> > Use a more specific "lwn,bk4-spi" compatible string for this
-> > device.
-> > 
-> 
-> Thanks for updating this.
-> 
-> BK4 is another example of to be long-time supported device... :-)
+This adds HDMI support for the Tiger and Jaguar boards.
 
-Does that mean we shouldn't be changing this compatible?
+Heiko Stuebner (3):
+  arm64: dts: rockchip: add HDMI pinctrl to rk3588-tiger SoM
+  arm64: dts: rockchip: add HDMI support to rk3588-tiger-haikou
+  arm64: dts: rockchip: add HDMI support to rk3588-jaguar
 
-Rob
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 50 +++++++++++++++++
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts | 53 +++++++++++++++++++
+ .../arm64/boot/dts/rockchip/rk3588-tiger.dtsi |  6 +++
+ 3 files changed, 109 insertions(+)
+
+-- 
+2.45.2
+
 
