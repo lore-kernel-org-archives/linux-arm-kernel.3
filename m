@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F59CE8E92
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C0FCE8E92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ll4GC/Z+nsHOSL1Eq+RD0EPZsJaL6027ckST22ktgk=; b=ihjrv+QEdKaG6HHBSd0ccNM0hB
-	JyACZ9loCWxi0q6SP79GPev7m6II9h1Jcme+PtpiopXXLL5mV6pPXyLTV++jeJRCSJxM047Kbf7DE
-	bdAvRp3FG++zKtrr65ChwD5r/TC6l2YxmXXvIyOQgpLd9ZQp8zAWlt2moURfmN4nKFX3VSQwK7waq
-	BNTWOrtS1XWKaDrQ/7B7wuowq+uWicT3pYHcSDVFEPozWXlV4N5K4QDxZblYFH1Ld8yEEyQzYlrxp
-	IL3XsE2UjxpzcIk8qmZn0tUsqZJl7rycJcIBsl1NUYYhr1w4InLSFvmOtqK/OjWJPe2tIXMFwWL0I
-	qfpRhS7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIFlZ6/nJlWO2nrUvncmn0GK3k/jz6nd/gNeCMrrTtM=; b=QwwyL6F0P9klzH7CaAEKC+8jnk
+	NdgusQBS+UDn9h6vA+x4ACXbIIuYdxassp6Ocy1UuLQf0OVB2IlUkvPGl/yOzV47ZlF4MfO65fLME
+	yYOQ7sfkqc8XKRF4vFuvystoHt8ZMq39NDRPPV3EOqHyO64z+ZgPJfyrQ7QhEe75XHjE3tOjNLYB9
+	50Ql8KeSrR2MV86ROXdYKsw72JBNt1ZmYqxEYRzgpMFj15CzWE2pLOUBu8jjp6Ioat6odGw2zvrqo
+	lcab4adYRPDu8zHQVswp3PR/yEcuH+g/JhwxzexrR4BfFIUd8wjtorgiQJoeHdtKbudztYmiA1SKn
+	vHXbnegQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40fK-000000015Rd-3L6b;
-	Thu, 24 Oct 2024 16:26:26 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1t40gq-000000015iT-2KvN;
+	Thu, 24 Oct 2024 16:28:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40di-000000014uO-3Ejt
+	id 1t40e8-0000000152Y-1POt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 16:24:47 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4314c452180so15357135e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 09:24:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729787084; x=1730391884; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Ll4GC/Z+nsHOSL1Eq+RD0EPZsJaL6027ckST22ktgk=;
-        b=la1gJtdU2PGH50ToQEqU591zTjwDlzoGhHZ1BlmhdMgmtr++tnzJryGr2XD1ZyyxHa
-         +GFVfdNVX5DnEZI6+6iWi0s8UMDTKcf0LWIMMqd+j41avrB7zawKyd6l/ei3jbFponjj
-         NtEsbbUzzgJivSwqGr4EBOh5/HJr3m6s2fzGGYX6/NfDUT1slMGFdQOZC7rJ2Ff9xNRl
-         S/G1Pomo7k0ddwG5+c87U9Bfs/CA9fym0CIVlBCKIHSr1nnXSFunOuCX1ywqLzCk/7mH
-         acjag8Nj0iYPJG4PSBt3uOiJvnadZyXDIOLtPYCL3ynf1DKtEfY5o1K2637yTCB0Lp/2
-         6yMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729787084; x=1730391884;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Ll4GC/Z+nsHOSL1Eq+RD0EPZsJaL6027ckST22ktgk=;
-        b=fTt0c45d3469qSQ0Wp6tzBlcbWY7U8i5ePl2BaDhJDFLEqi+5EkpMWkRIrweqFoAJ6
-         ajru/dLWsKDsJdf/u5MLO5gNdiV9byoPAjlSjyKAdstB22I2ubnzq9puOn783Fh8eSku
-         lw5Yd2bj45qb3Sde/T2GieicydAtQTJ1zf3xHhwS4lO+eFZ60LuYzfwF3JYmJ1S4CLfR
-         /mQsItM6bkrgA1411wITzdz8LxhKYd1BcmhsGL1d9dGBs4JtaB6IXUEIszCzri0G+FLA
-         fDmWiwe39RITDBoW45jlgVfgqjFDnbJVeVoOVDhMaYVayh/DCwDpzqc1xauTZhoTCecc
-         WlKw==
-X-Forwarded-Encrypted: i=1; AJvYcCW6nj+xG3mwv8T89Vvgy7ANzqFdSUhTG/1YVkHQ42smIGk2UM+o8XBMaNty3uyfg/GPM4J2afLFiZ2TkG+pmRZL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL/hN6kNNUSiAwIxehrqp5qJWyY4qBjUxhcpp1AyEQ1fI7QW/6
-	CnTluprZEb3PrwFIRKL7wSV3WRlZtRyffG6g8epMpCCB3tF2opZ0FoBsk9tCnzB5Vhiu87AgRua
-	isdWDgKUm9xrufuY5lwlvjixqeXQ=
-X-Google-Smtp-Source: AGHT+IE6yaGrr6D8biWQ/8kA/SbDNpPPefW5qxNaY83edHlmZV3ZNgLnpvIIARvcssk1h4h2GEo6irsBCBElsx8qu14=
-X-Received: by 2002:adf:f7d1:0:b0:37d:3baa:9f34 with SMTP id
- ffacd0b85a97d-3803ab67450mr2253587f8f.1.1729787084103; Thu, 24 Oct 2024
- 09:24:44 -0700 (PDT)
+	Thu, 24 Oct 2024 16:25:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F5525C5FFD;
+	Thu, 24 Oct 2024 16:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F03CC4CEC7;
+	Thu, 24 Oct 2024 16:25:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729787110;
+	bh=GzICAYh6bjGfgV9C6PPyoTkjloSrnHwuu9P94evgThI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O3dhrMLl8apWp+gJODKUv8cMryScIDXECj9ASGjjBH2ZfMETMd/mv6jmuh6vKxS3b
+	 Gc6yKU/UUOR7jibYD6wKhwMZWRVO1P6vQGeLO3vNbtGsKe2kYAgGWY6PJoNQQqhZMQ
+	 VmP0kQ8CkO39A6usjVqBN2y6Ik0NGeTYYq73Q45PbbjH5fSs2lDC6bHxYZqwJtc34+
+	 apG5RE5qqaTGo4I90mhEeFd3BwCnesKOZxuGtb5RKUs+ihomfX8a3BUsz7hZUQlpuB
+	 CwfBAeQMTvkXxMsGuIhYVtxu9pwCtBfgH3KvJZJJ6b13eKG+Oz3TpcnorbUudXf3SA
+	 RhoUvZ4NPRszQ==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1t40eL-000000002ap-1a7L;
+	Thu, 24 Oct 2024 18:25:25 +0200
+Date: Thu, 24 Oct 2024 18:25:25 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, Sibi Sankar <quic_sibis@quicinc.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Johan Hovold <johan+linaro@kernel.org>
+Subject: Re: [PATCH] arm64: dts: qcom: x1e80100: Route pcie5 MSIs to the GIC
+ ITS
+Message-ID: <Zxp09Q1DPYf9BK0z@hovoldconsulting.com>
+References: <20241024161814.1827514-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20241019092709.128359-1-xukuohai@huaweicloud.com>
- <CAADnVQLOY-eHby6CMNXr3FvwPm85W-tWDxiWnRaR_U_=71ADuA@mail.gmail.com>
- <CANk7y0jiuiHSMTEZ_JCb4QpEPzhkK4ikicDGFa1F30DinZta8A@mail.gmail.com>
- <7226e7b8-ed73-4adb-9016-30031f1121ca@huaweicloud.com> <47082e78-e234-4487-95f2-0066e19f21dd@huaweicloud.com>
-In-Reply-To: <47082e78-e234-4487-95f2-0066e19f21dd@huaweicloud.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 24 Oct 2024 09:24:32 -0700
-Message-ID: <CAADnVQKcwTstR5y3e1wNj-Agq7DuPNYOdQWkf33cLOBYiYGiug@mail.gmail.com>
-Subject: Re: [PATCH bpf] bpf, arm64: Fix stack frame construction for
- struct_ops trampoline
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: Puranjay Mohan <puranjay12@gmail.com>, bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Puranjay Mohan <puranjay@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241024161814.1827514-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_092446_834463_C2FC43CD 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20241024_092512_741733_E874DE14 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,111 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 6:48=E2=80=AFAM Xu Kuohai <xukuohai@huaweicloud.com=
-> wrote:
->
-> On 10/23/2024 11:16 AM, Xu Kuohai wrote:
-> > On 10/23/2024 7:37 AM, Puranjay Mohan wrote:
-> >> On Wed, Oct 23, 2024 at 12:50=E2=80=AFAM Alexei Starovoitov
-> >> <alexei.starovoitov@gmail.com> wrote:
-> >>>
-> >>> On Sat, Oct 19, 2024 at 2:15=E2=80=AFAM Xu Kuohai <xukuohai@huaweiclo=
-ud.com> wrote:
-> >>>>
-> >>>> From: Xu Kuohai <xukuohai@huawei.com>
-> >>>>
-> >>>> The callsite layout for arm64 fentry is:
-> >>>>
-> >>>> mov x9, lr
-> >>>> nop
-> >>>>
-> >>>> When a bpf prog is attached, the nop instruction is patched to a cal=
-l
-> >>>> to bpf trampoline:
-> >>>>
-> >>>> mov x9, lr
-> >>>> bl <bpf trampoline>
-> >>>>
-> >>>> This passes two return addresses to bpf trampoline: the return addre=
-ss
-> >>>> for the traced function/prog, stored in x9, and the return address f=
-or
-> >>>> the bpf trampoline, stored in lr. To ensure stacktrace works properl=
-y,
-> >>>> the bpf trampoline constructs two fake function stack frames using x=
-9
-> >>>> and lr.
-> >>>>
-> >>>> However, struct_ops progs are used as function callbacks and are inv=
-oked
-> >>>> directly, without x9 being set as the fentry callsite does. Therefor=
-e,
-> >>>> only one stack frame should be constructed using lr for struct_ops.
-> >>>
-> >>> Are you saying that currently stack unwinder on arm64 is
-> >>> completely broken for struct_ops progs ?
-> >>> or it shows an extra frame that doesn't have to be shown ?
-> >>>
-> >>> If former then it's certainly a bpf tree material.
-> >>> If latter then bpf-next will do.
-> >>> Pls clarify.
-> >>
-> >> It is not completely broken, only an extra garbage frame is shown
-> >> between the caller of the trampoline and its caller.
-> >>
-> >
-> > Yep, exactly. Here is a perf script sample, where tcp_ack+0x404
-> > is the garbage frame.
-> >
-> > ffffffc0801a04b4 bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid+0x98 (b=
-pf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid)
-> > ffffffc0801a228c [unknown] ([kernel.kallsyms]) // bpf trampoline
-> > ffffffd08d362590 tcp_ack+0x798 ([kernel.kallsyms]) // caller for bpf tr=
-ampoline
-> > ffffffd08d3621fc tcp_ack+0x404 ([kernel.kallsyms]) // garbage frame
-> > ffffffd08d36452c tcp_rcv_established+0x4ac ([kernel.kallsyms])
-> > ffffffd08d375c58 tcp_v4_do_rcv+0x1f0 ([kernel.kallsyms])
-> > ffffffd08d378630 tcp_v4_rcv+0xeb8 ([kernel.kallsyms])
-> > ...
-> >
-> > And this sample also shows that there is no symbol for the
-> > struct_ops bpf trampoline. Maybe we should add symbol for it?
-> >
->
-> Emm, stack unwinder on x86 is completely broken for struct_ops
-> progs.
->
-> It's because the following function returns 0 for a struct_ops
-> bpf trampoline address as there is no corresponding kernel symbol,
-> which causes the address not to be recognized as kerneltext. As
-> a result, the winder stops on ip =3D=3D 0.
->
-> unsigned long unwind_get_return_address(struct unwind_state *state)
-> {
->          if (unwind_done(state))
->                  return 0;
->
->          return __kernel_text_address(state->ip) ? state->ip : 0;
-> }
->
-> Here is an example of broken stack trace from perf sampling, where
-> only one stack frame is captured:
->
-> ffffffffc000cfb4 bpf_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid+0x78 (bpf=
-_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid)
-> (no more frames)
+On Thu, Oct 24, 2024 at 05:18:14PM +0100, Marc Zyngier wrote:
+> There is no reason to use the PCIe root port widget for MSIs for
+> pcie5 while both pcie4 and pcie6a are enjoying the ITS.
+> 
+> This is specially useful when booting the kernel at EL2, as KVM
+> can then configure the ITS to have MSIs directly injected in guests
+> (since this machine has a GICv4.1 implementation).
+> 
+> Tested on a x1e001de devkit.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: Sibi Sankar <quic_sibis@quicinc.com>
+> Cc: Konrad Dybcio <konradybcio@kernel.org>
+> Cc: Abel Vesa <abel.vesa@linaro.org>
+> Cc: Johan Hovold <johan+linaro@kernel.org>
+> ---
+>  arch/arm64/boot/dts/qcom/x1e80100.dtsi | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> index 3441d167a5cc..48f0ebd66863 100644
+> --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> @@ -3281,6 +3281,8 @@ pcie5: pci@1c00000 {
+>  			linux,pci-domain = <5>;
+>  			num-lanes = <2>;
+>  
+> +			msi-map = <0x0 &gic_its 0xd0000 0x10000>;
 
-you mean arch_stack_walk() won't see anything after ip=3D0,
-but dump_stack() will still print the rest with "?" (as unreliable).
+As I just mentioned in another thread, and in the commit message of
+9c4cd0aef259 ("arm64: dts: qcom: x1e80100: enable GICv3 ITS for PCIe")
+this was done on purpose as
 
-That's bad indeed.
+	PCIe5 (and PCIe3) can currently only be used with the internal
+	MSI controller due to a platform (firmware) limitation
 
-> To fix it, I think kernel symbol should be added for struct_ops
-> trampoline.
+Did you try this when booting in EL1? If so we may need to enable this
+per board.
 
-Makes sense. Pls send a patch.
-
-
-As far as this patch please add an earlier example of double tcp_ack trace
-to commit log and resubmit targeting bpf-next.
+Johan
 
