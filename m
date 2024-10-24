@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2099FD2E00F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D111CD0BB5C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GPWavBPBtkbxSCcUdtFw4ouL78GHZ3w/+hpqcDQzX1s=; b=dS7freDXXSwjl7I1p4upmbNrGv
-	jpdBDbqb9hiZ6my/PJaT5/00fWVF6z4j6r7ph5qrxAzn0XVBBrQIoWxcrzFdCubmDQZhExKZZ4fYv
-	qdKu6nqi4ooBEZPkzVIoSUjDHEKABnQswub8+v8nlU0dSNBhA6KeaFYkSTZoRhDGSggE5gjosJbS9
-	lm9O3gLB6lcBCwRPQLCDILXWmN1cUGxwA1SXsC0eTlLzQujxHjajAuv379TAy25jIucCT7U1E7J+a
-	ysmn6WaH0qAhro+T/fviTnTwSAJTBfWEYBKhteOArJkueRN3a8HoPug/ED+vIHxxv3DhGC+wUnnGh
-	O/Ck3RWA==;
+	bh=+cnpXrEnratZ/0ANHJRoM/FBQGxJxacaNYhwyCnWLO4=; b=LBKJ68nAWtHs8yEbZ+iwIakwsm
+	uxftRRAWDHdi3WKfFXE2ZP4DZpPEveHUt/HIODxw96zVSr5FRuWLvnUlzpUNT30Toh0KkK6OMDWlK
+	btgG+xKyy5i/Xcr2Zn2qppRCkT8SyMVRMCdb0YPWnBDI/VKKkW+yW9K0adnCJ+NimaQV+HgANDdYQ
+	FkWuv9adr08Uhhch/WGk8lEzvQkELz4LUC5QQ5TbRrJ13WjCR0M9T9z9d3yppECTahHFy4oyejNP6
+	TVQTAAzsuNQugkBXQ8b4R5e5oQlRkbKCDqseCsbnbmiBzKrkvQtUHroKHMfb3AAuN6KR6q6Rtd5S7
+	+qy1wYIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vge-00000000APZ-0nfD;
-	Thu, 24 Oct 2024 11:07:28 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vYk-0000000091g-0L9c
+	id 1t3viA-00000000AgD-08BJ;
+	Thu, 24 Oct 2024 11:09:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3vZN-0000000097g-1MqV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:59:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729767558; x=1761303558;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=GPWavBPBtkbxSCcUdtFw4ouL78GHZ3w/+hpqcDQzX1s=;
-  b=dmLJYopVElj9mfqlzgw0Fxhsy85jW3HMJUHaoPxmTS/7vpJgKfOYkmm5
-   PQRHZsSDLeywiY2H4rBwVcHLNsVhQOPAeEknBg1ZKIyLaHI54UQCHzHGb
-   qe61V6MykB6hx1kiVQid03YLO7wtd4opXMpKRMpvfLYTUbwVCO2DGd+TW
-   kVKpSyDRbdeYu3tekME84MAcKOu+6+EbAkUA8bzELqiWlU58dg7DvaIWS
-   13Q7xc5c+BCbw0XnAzkbCtLwwFeH8BpL2wg181JojQMvbRzjzVaYwoXjs
-   6k5tmOtRUPpnvZrY+DmapVgmLWqi+4e2TCAD8cYoe6GwoULUNqvsKPsjw
-   Q==;
-X-CSE-ConnectionGUID: KgcSmlghTACUqhgGklwUHA==
-X-CSE-MsgGUID: HwhoYfWDR5elbImVf2vamg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11234"; a="33296921"
-X-IronPort-AV: E=Sophos;i="6.11,229,1725346800"; 
-   d="scan'208";a="33296921"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2024 03:59:14 -0700
-X-CSE-ConnectionGUID: HpBa6mkBQ/6ZbUkosee+oA==
-X-CSE-MsgGUID: cIPq/R23SpeaTmSzk360wA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,229,1725346800"; 
-   d="scan'208";a="85116587"
-Received: from ubik.fi.intel.com (HELO localhost) ([10.237.72.184])
-  by fmviesa005.fm.intel.com with ESMTP; 24 Oct 2024 03:59:11 -0700
-From: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, alexander.shishkin@linux.intel.com
-Subject: Re: [PATCH 15/51] stm class: Switch to __pm_runtime_put_autosuspend()
-In-Reply-To: <20241004094122.113606-1-sakari.ailus@linux.intel.com>
-References: <20241004094101.113349-1-sakari.ailus@linux.intel.com>
- <20241004094122.113606-1-sakari.ailus@linux.intel.com>
-Date: Thu, 24 Oct 2024 13:59:11 +0300
-Message-ID: <87ed45vkao.fsf@ubik.fi.intel.com>
+	Thu, 24 Oct 2024 10:59:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6713B339;
+	Thu, 24 Oct 2024 04:00:24 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25F983F71E;
+	Thu, 24 Oct 2024 03:59:49 -0700 (PDT)
+Date: Thu, 24 Oct 2024 11:59:46 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
+	anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com,
+	broonie@kernel.org, dave.hansen@linux.intel.com,
+	dave.martin@arm.com, jeffxu@chromium.org, joey.gouly@arm.com,
+	pierre.langlois@arm.com, shuah@kernel.org, sroettger@google.com,
+	will@kernel.org, linux-kselftest@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
+ uaccess failures
+Message-ID: <ZxoooqtuqTK5CAMR@arm.com>
+References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
+ <20241023150511.3923558-4-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023150511.3923558-4-kevin.brodsky@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_035918_156280_095618DD 
-X-CRM114-Status: UNSURE (   5.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_035957_460241_D1D8C9D6 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +68,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sakari Ailus <sakari.ailus@linux.intel.com> writes:
+On Wed, Oct 23, 2024 at 04:05:09PM +0100, Kevin Brodsky wrote:
+> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+> index f5fb48dabebe..d2e4e50977ae 100644
+> --- a/arch/arm64/kernel/signal.c
+> +++ b/arch/arm64/kernel/signal.c
+> @@ -66,9 +66,63 @@ struct rt_sigframe_user_layout {
+>  	unsigned long end_offset;
+>  };
+>  
+> +/*
+> + * Holds any EL0-controlled state that influences unprivileged memory accesses.
+> + * This includes both accesses done in userspace and uaccess done in the kernel.
+> + *
+> + * This state needs to be carefully managed to ensure that it doesn't cause
+> + * uaccess to fail when setting up the signal frame, and the signal handler
+> + * itself also expects a well-defined state when entered.
+> + */
+> +struct user_access_state {
+> +	u64 por_el0;
+> +};
+> +
+>  #define TERMINATOR_SIZE round_up(sizeof(struct _aarch64_ctx), 16)
+>  #define EXTRA_CONTEXT_SIZE round_up(sizeof(struct extra_context), 16)
+>  
+> +/*
+> + * Save the unpriv access state into ua_state and reset it to disable any
+> + * restrictions.
+> + */
+> +static void save_reset_user_access_state(struct user_access_state *ua_state)
+> +{
+> +	if (system_supports_poe()) {
+> +		/*
+> +		 * Enable all permissions in all 8 keys
+> +		 * (inspired by REPEAT_BYTE())
+> +		 */
+> +		u64 por_enable_all = (~0u / POE_MASK) * POE_RXW;
 
-> pm_runtime_put_autosuspend() will soon be changed to include a call to
-> pm_runtime_mark_last_busy(). This patch switches the current users to
-> __pm_runtime_put_autosuspend() which will continue to have the
-> functionality of old pm_runtime_put_autosuspend().
+I think this should be ~0ul.
 
-Hi Sakari,
+> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+>  {
+>  	struct pt_regs *regs = current_pt_regs();
+>  	struct rt_sigframe __user *frame;
+> +	struct user_access_state ua_state;
+>  
+>  	/* Always make any pending restarted system calls return -EINTR */
+>  	current->restart_block.fn = do_no_restart_syscall;
+> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
+>  	if (!access_ok(frame, sizeof (*frame)))
+>  		goto badframe;
+>  
+> -	if (restore_sigframe(regs, frame))
+> +	if (restore_sigframe(regs, frame, &ua_state))
+>  		goto badframe;
+>  
+>  	if (restore_altstack(&frame->uc.uc_stack))
+>  		goto badframe;
+>  
+> +	restore_user_access_state(&ua_state);
+> +
+>  	return regs->regs[0];
+>  
+>  badframe:
 
-Acked-by: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+The saving part I'm fine with. For restoring, I was wondering whether we
+can get a more privileged POR_EL0 if reading the frame somehow failed.
+This is largely theoretical, there are other ways to attack like
+writing POR_EL0 directly than unmapping/remapping the signal stack.
 
-Or do you want me to pick it up into my queue instead?
+What I'd change here is always restore_user_access_state() to
+POR_EL0_INIT. Maybe just initialise ua_state above and add the function
+call after the badframe label.
 
-Regards,
---
-Alex
+Either way:
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
