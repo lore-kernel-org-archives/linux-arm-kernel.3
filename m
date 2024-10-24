@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28AFD2E00F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FE7D2E00F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFc9tj0AdbcvCZ9hGMOALSeE2VN0Id5w0yWCtY8sEP0=; b=S02ZZlHdm/LkSnbQXF+ZpsOzQd
-	36okhfQKovqaRcwj7nCZulUzkww33czno3TcpVL1igQHRThWeoZF5Ogu3M0ZqM1K9K1pzRAmjOF56
-	Qc1SSdKLqjAdToOKtH2SLrxHxyGCnieOqu1mjnpXrzmZY4eo7mmQBIbYy+aiYnFRWDyplJ4zNOxlb
-	JYxY44ug+9GnhJ8/FqHQq+yh0pOgH6IDinzlcJNMNFklXgfPMw88ck3PiQELhFGFH3eBX1i40tZwD
-	kP0HHUbMOg+rgEwN+ggfiNhQpAb5o5gSvJAigZq6pjbCGpgdmhkD2LDzFRT+ODhQ7pDLoQg44erhn
-	Qg/Coyog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zFw2SKt3AKU65RCxsklheAfSiZxOhrpzrYODbhZcNBk=; b=36f/MZGXgyeIKk3X775lRahubx
+	BKZKpv4zT/tZQ5Rg44GldUL9bU9fUL07HfAa9eSD9z/rR7I+4puzpn6F7QTlmRS305JYMmaVptRa6
+	HNUZ69uHDRLcF0euOj41S4qZKRitxHFQVw3R6auCki4iFbSVqbJna7z6WXCaILiMxsavelKxqHhM9
+	VwdIy09erSTQV+vkpFxpLcQo5+0N2l4JyRjyI+45pFtA3I1XqvimChOBM6g1egIHWyVgJfuJXd9kJ
+	ZMVY7jNi8LM67R66mGJGji5q3b+mpUfHUnEmiH/ye28V9Le3TtmS1VI7vkHbJxnsG65+jRh0Mi6Fm
+	Aralf4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vjg-00000000AwK-1h0R;
-	Thu, 24 Oct 2024 11:10:36 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1t3vlB-00000000B3j-0DaV;
+	Thu, 24 Oct 2024 11:12:09 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vZl-000000009Cf-43IX
+	id 1t3vay-000000009KU-1TiD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:00:23 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539fe02c386so1889905e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 04:00:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729767620; x=1730372420; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mFc9tj0AdbcvCZ9hGMOALSeE2VN0Id5w0yWCtY8sEP0=;
-        b=GUPucRsQ2YhEjPYfQ9Zl13IcNNQSeFU5AzwHMFF9MuqsNGRTu0f+PZ0Jx0v2z3GmYy
-         wk/WZDlyegOLqzeW1PtzgDHzn8qIPJWicQW671ZsUd44lo0XNEGstk7CPrRvGHLaYImV
-         enkEEXCRZwiSAdIgBFnlD5saS3+/ezIFLTsYnl224TPB6UFthd82SxdJnVaHAKGmHJvU
-         QPyOkGl6zhvlT0I9NbLzP14b8LnGeGMxN/2IMgY3N1Sot5hTc/hNV+UrB5q2GTf+6cR8
-         1DHuNZSauDNYJtJjDSS2kuk98+LTRUGQrEbYRNr7aAtr35EmT+HT8mR30ynoMZ43L3gk
-         jCnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729767620; x=1730372420;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mFc9tj0AdbcvCZ9hGMOALSeE2VN0Id5w0yWCtY8sEP0=;
-        b=GpqJDRvufs1uNXezRZK46GjQJJ8T0OBO27leGAyRU09g31VapFeuaiDLbr/rTLjXIi
-         WTSgGImTHTUNggwnTcb0A0wwvo7OP5M1qhfrWTIX2O05wnFAmpsq8Ps1s4yzyZUsl1p8
-         jDsJeCVmKISIiRHlJTPXaDdYPe7Xe3qpyrRzy9y4h5YVZY9qdtf8FRKdg5IEM85oeJVs
-         0dfYNOr8KWjTPQb2OtQ/Hwh0aXVZs/Qen2aWB2rCNizbtQYiBUNAWW6780ZqYM8M+0JD
-         iUxVc6IdU7PS9vVXRkpKMQ+gx5JhEGpel+YH9FQS/pKy0OJw5UC0iog5LPYLO0nOCLNn
-         /mpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpie+yGbtSu36QGRvxJKNbQpqYUnWFdbl0sf9ivJNTglQh7cphLHhH2B8GZe7UuNutmWP3q6bSQKuKWgzQCHcp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz46ESUWXCuxf9MUY3Q0JiMe8KRmniAqIWm18org09zQP+8rO6j
-	NGTDTf7k1snqAisv1FK3urI0HKYyW55aB77y0G07unPAyVY/ttNmGIEsnZ7bxm+BHDoLmNMf3GJ
-	FWHEgqyfGHbCePEpaSGgUCgVIeUivsA==
-X-Google-Smtp-Source: AGHT+IGWkE1pe0oLSYDJWS2zXqP8+hBUfDUf8ZYKKOYozF4a2KG2zriqtwVIIi7sY3pGg5fedlHT20ZHJPOCGO/2+RM=
-X-Received: by 2002:a05:6512:3d0e:b0:536:7a79:b4df with SMTP id
- 2adb3069b0e04-53b2371753fmr598477e87.14.1729767619349; Thu, 24 Oct 2024
- 04:00:19 -0700 (PDT)
+	Thu, 24 Oct 2024 11:01:37 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t3val-0007iV-Rm; Thu, 24 Oct 2024 13:01:23 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t3val-000BRi-1m;
+	Thu, 24 Oct 2024 13:01:23 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t3val-00B9fo-1P;
+	Thu, 24 Oct 2024 13:01:23 +0200
+Date: Thu, 24 Oct 2024 13:01:23 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	linux-pm@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pmdomain: imx: gpcv2: replace dev_err() with
+ dev_err_probe()
+Message-ID: <20241024110123.wix35njjbh3nx7kn@pengutronix.de>
+References: <20241024103540.3482216-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-References: <20241023144206.1099622-1-festevam@gmail.com> <20241023144206.1099622-3-festevam@gmail.com>
- <5qukgvhiszyyqoetl7go47qen27uwnq5mhgwz4lejdgyhyupkb@i2dre4tovzqh>
-In-Reply-To: <5qukgvhiszyyqoetl7go47qen27uwnq5mhgwz4lejdgyhyupkb@i2dre4tovzqh>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Thu, 24 Oct 2024 08:00:07 -0300
-Message-ID: <CAOMZO5CqOwZ=h61x+iUnvPtrcwvvdJeU9aCOuW1_vZs1w40+ag@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ARM: dts: imx6qdl-apalis: Change to "adi,force-bt656-4"
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: hverkuil-cisco@xs4all.nl, lars@metafoo.de, mchehab@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, shawnguo@kernel.org, 
-	francesco.dolcini@toradex.com, linux-arm-kernel@lists.infradead.org, 
-	Fabio Estevam <festevam@denx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241024103540.3482216-1-dario.binacchi@amarulasolutions.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_040022_027745_651434D4 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_040136_668861_60A983A9 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,15 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Dario,
 
-On Thu, Oct 24, 2024 at 4:43=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
+thanks for the patch.
 
-> This will affect other users of this DTS, which we try to avoid. Some
-> sort of analysis if this is used in BSD would be useful.
+On 24-10-24, Dario Binacchi wrote:
+> The patch standardizes the probe() code by replacing the two occurrences
+> of dev_err() with dev_err_probe(). Indeed, dev_err_probe() was used in all
+> other error paths of the probe() function.
 
-Thanks for the suggestion.
+I assume that this paths aren't using dev_err_probe because these paths
+can't return EPROBE_DEFER and therefore dev_err_probe() would use
+dev_err() anyway.
 
-I checked the BSD source code and there is no adv7180 driver available.
+Regards,
+  Marco
+
+> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+>  drivers/pmdomain/imx/gpcv2.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
+> index 963d61c5af6d..6e6ecbf2e152 100644
+> --- a/drivers/pmdomain/imx/gpcv2.c
+> +++ b/drivers/pmdomain/imx/gpcv2.c
+> @@ -1356,7 +1356,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
+>  
+>  	ret = pm_genpd_init(&domain->genpd, NULL, true);
+>  	if (ret) {
+> -		dev_err(domain->dev, "Failed to init power domain\n");
+> +		dev_err_probe(domain->dev, ret, "Failed to init power domain\n");
+>  		goto out_domain_unmap;
+>  	}
+>  
+> @@ -1367,7 +1367,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
+>  	ret = of_genpd_add_provider_simple(domain->dev->of_node,
+>  					   &domain->genpd);
+>  	if (ret) {
+> -		dev_err(domain->dev, "Failed to add genpd provider\n");
+> +		dev_err_probe(domain->dev, ret, "Failed to add genpd provider\n");
+>  		goto out_genpd_remove;
+>  	}
+>  
+> -- 
+> 2.43.0
+> 
+> 
+> 
 
