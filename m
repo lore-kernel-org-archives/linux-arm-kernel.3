@@ -4,162 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876E3CE8E79
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F973CE8E78
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+wFXcm3qpcQHTke9VmyF7JoSX7nlt6J4smq1LGh+qU=; b=WzpGFgI/HFboeEj6+kV45kYYZy
-	LTPJ8Yzcu4b7O0FM2XDej4+hkBTVhJc+nllCl+ywXWPu9WwPjF9GM/3EKfnMQM5r6vcUoqo47xVVL
-	3Xw6ALuFtX9w1zefMCviji9IOaPtQhV8ErzVfdn7vqZXbvF/ksB/l+AMUSkwAzKoKPNvOS3GPwzOA
-	JoMW+2GSS7Wkurpkq700dP15NcpfnLpIf03Mo/Zq7XHaQ0UnTd1pKRo3mgUsO2I95islGJBeFqhXM
-	EbM7gvEJD4jE8zx98qD/ubnSYOZ7EbQUgrljI3TH/iS4y/wojnYl+gITIEeyHvaAEs244MiJz5qMH
-	nCpDp34A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w4ksbU7y0uXF2Te/LmZWMtLQCzBvlyG2DMORrJHFmkU=; b=MyDjLVX/cV08ohsM1RL7pXi41p
+	+lpR9115n/zRmq16OMibAymfY0Beqq/umpa3l+cIrmGS5vwJvSCHpu6ixEAmOMEOCpb+5J6uq81ud
+	YZRd9Dnb8cj3b72RhY106CcPAeW0Q5r/Zta5cO7t9QIcqpBFnG626oMtGH10XTN4rAax+tHoDMEIE
+	6OwM9PlaxHSHwhR1ndnzUm/9oRo3pe7pJhtkaNKbXS9fl7gi1UmpaDyQ6dUjGHeSNIQrY0t3eyxHi
+	h8eS6AojPOAnzHPJrMpOJJs2Qq0BTP9wldjUXtsBIpFj03f9h8D0bYJz42PP5q1YZAjYf7V6apt03
+	M0R6MWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yEc-00000000aJ5-2GIf;
-	Thu, 24 Oct 2024 13:50:42 +0000
-Received: from mail-vi1eur05on20607.outbound.protection.outlook.com ([2a01:111:f403:2613::607] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t3yG8-00000000aU8-0Df1;
+	Thu, 24 Oct 2024 13:52:16 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yB4-00000000Zgt-3eYw;
-	Thu, 24 Oct 2024 13:47:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=baz9Mn1gko8fSOhueD83OU1QS22xoe+fodjBawdw2yc71UbfdvMuLdQ7tNp8ipvyUIr09nQiV7BN5bptpmxxda9xEUIcA45q5scxsOYBFtL5zQcs2zjVbQ8z656+y55tpNAc+5Hf1IMjd9rRxLefdTi66VnjTHOu6Q4P3u9j4Cn/jSAkmw5H3XAy1ZOm7R+2O+hVU94Q3Jw9jP4sL6ReUfPpXr6Uw6kyKK6e6uIGKQDETq18s0iffsAGOpPajrxm3Z5cgY8JKf9V6bNxVbV2Ss6zsPWQc8HlTMn8x+Pv2/f/is7DbzKdWN92wVMB4W4z8wOsCsuY5R+4usXnyZu9gA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2+wFXcm3qpcQHTke9VmyF7JoSX7nlt6J4smq1LGh+qU=;
- b=oeS7oP8Vn2kJCqPuXj45WGeX1E68FuJYCmI2UhZlMK3dlNIOVy4wGDqx78W1zjrzN8CCihzeEH+wqCWAlgjd2W7ZuMDDSyOKR7TbJEZiVg/uxXytIasgzjsPzdKjk1dFm6tyHrOR+PDaivclKtP5zBVr0o0J9euT9oNYGZT3s0Y6hH2qh4aODt7F7EhG1UxKa6xaY9av+RFmlraHBwtXWLsG5p5u0hcnPBNeV6O4woBOHRrFHxC5jB5hhlS2cjCEUC89rDQ0SVYbYqstq4ADYVe973QTL3KMWmjyhYvO/EMzsr9cwVlIqmQ2zjSsMjp7oOt2SosSCdFUvBDzf8mnHA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2+wFXcm3qpcQHTke9VmyF7JoSX7nlt6J4smq1LGh+qU=;
- b=jj5pbuRNrVXW3yXAoY8q12lz4klgKSfO3w84MVN51pL7TWamHb8JjrpmOlzUE0StmxA/N+engMOaL2LpinIAyRorZdhSHwh1fU6m19FHMWUOjiG2ZshgeP9gWk1AUPwG+IjPL0jew40zncuzhTEddj1tuAQKeVc7ZOMHZlBZIUA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI1PR04MB6848.eurprd04.prod.outlook.com (2603:10a6:803:13c::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Thu, 24 Oct
- 2024 13:46:55 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8093.014; Thu, 24 Oct 2024
- 13:46:55 +0000
-Message-ID: <1f98c2e8-79e6-4b11-9007-ef2ae1499b5a@cherry.de>
-Date: Thu, 24 Oct 2024 15:46:54 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add HDMI support to
- rk3588-tiger-haikou
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20241024133240.1737647-1-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20241024133240.1737647-1-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0035.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:1c::8) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1t3yCY-00000000Zva-3bkI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 13:48:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4XZ6gV5vbsz4f3m89
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 21:48:06 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 344021A0568
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 21:48:19 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgD3bSohUBpnHkdvEw--.45951S2;
+	Thu, 24 Oct 2024 21:48:19 +0800 (CST)
+Message-ID: <47082e78-e234-4487-95f2-0066e19f21dd@huaweicloud.com>
+Date: Thu, 24 Oct 2024 21:48:17 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI1PR04MB6848:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca2ffc9b-8ecb-4ee8-cea3-08dcf43252b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2RMS3ZuRkcvc1ZTdmRvUTNKY0kzR0ZGbU1HMnRENUN4L0ZYRDR2UmlPKzBv?=
- =?utf-8?B?eE9EZVpHOXZyS0h4RWtlWm40T252SVM0bGp5Wlo5UE1nQ29jQTI0TGdaMnJZ?=
- =?utf-8?B?OWV5eCt6dHEwZjZ1WkVXc1piVEVFKzVLUFowU2F5NFNYbmE3N3ZBdlc5ejV0?=
- =?utf-8?B?OExkcjhOYldVdGVUVTVRYmJDUW1RSGRzQk9vb1doL2JJUzFGY1psL0NsVDE0?=
- =?utf-8?B?OE53a09JSGtGdGsrdUZOUG43M2NManBCUk5aeG1ubE5FbDNPTUluaFVMaVNr?=
- =?utf-8?B?M0FGZFYva3dGL1BpUDVBVjRDTFpJeUZ2a3ZIK21PTmI2Qkk3cG5JSU5SQXR1?=
- =?utf-8?B?dU90RkpnV2JqcytTclBCakhZM2orQzFPWmRTMGVSRzF3dGZvWVJHYlRNM3RQ?=
- =?utf-8?B?SHh2R1NNVUxXaWs3RktYc3R4dXVFcUpmMVpsYUZidDZYOUZLa1lDQ1hCeWk5?=
- =?utf-8?B?ZUNFTmhQRk1rdXpHUEptUlZZV0lRdytNenYyNU9iRkdYbUtUWFBQOTU0VHB2?=
- =?utf-8?B?RFRWTTBVd05DM2NKMTRTajEvR0FKYmhVdmxhaml2Wm5wMXlzc3c2WTVNaEhl?=
- =?utf-8?B?VVpIdlY4T1RkamFrYnloV1BMT2ZpYTdCaVBMNVdHY3U2UWUydHJNUllsNEtQ?=
- =?utf-8?B?SzBFWWxyREc4MFloMmY4dW1DemhuRGkxbk5oUFpwbkx3cEp1WGJDRW9qWmhI?=
- =?utf-8?B?aE9Zbk9LL2tNcWlJMzNFMFc1c1kyTlRXck9ZK3NKblRrK2pLVkhxSW5JN2Zo?=
- =?utf-8?B?WFBSazJmdEticWl6L0ZLQTFsUUdhbWhaK3VTbnpHSjUycmIwTVduci9iV0t6?=
- =?utf-8?B?ZDlHaTlWcUIxbTBjclI4b2NOek9peHI0RDNHYy95SWtGd0NEaDdDT25uRjZN?=
- =?utf-8?B?Z0M0MUVIV3VCVVVWTU5WRVAzWWozVStKeWFmd1U0aFE2dlFrMXNZN1BBdlVp?=
- =?utf-8?B?MTMvRkh2RGtzSGhUbnFBRGpYbzFSRmwwNG1TenFZUzhOM2pxMlRLZ2RJSlBa?=
- =?utf-8?B?bDl3SThXU3NrcHFwVzlWT2xSZ3hkMFcyenpwaTNJZ0VITVV0WlZ1aDhLaWor?=
- =?utf-8?B?WFVRZXBtS05wVjY1R0lobnBFSTBqZXFkdEZxV29VSVZNNm01S3RDWkJTZ2tE?=
- =?utf-8?B?VUtvN2JyYTZ1R3JYaURqVVFjdXhydGFXUnFrakZSbUQrNEhvdFFCZnBjYTlZ?=
- =?utf-8?B?bTU3bWQ0bE9wK3pJK09HUzNaVWhBL0JnTy9yTWJmR0lCSHR1OXpoaW9NWm4z?=
- =?utf-8?B?VVJ6eHcwNGRGeGVQLytDUnlKNnB5YjZmWDVVQTVoSU9XS1lzWFNPWDlUYko0?=
- =?utf-8?B?QVdHWG82ZU80Vm50clZZNmZreFRuUzBnUGFveFA4bVdydlppWERYdDNDejAr?=
- =?utf-8?B?NnVuN1p0MWRxak1EbDZrNkFjTnVxbDVDeWE1QnZPR0doRTdXVzlYc3lFQVli?=
- =?utf-8?B?NFFUZjRQM0FFWW16KzQvK2h3WXlmdVJzVVBxYXlHZ3grTUpNTUYrWlJPdThj?=
- =?utf-8?B?Y2NTamQ5ajNrbERENVRRUzhRd1BrbkQzVFN2ckpTQncra1hOTkxHaEdoVkpl?=
- =?utf-8?B?eHMrRy9qcFVMb09QeDBMUWUxbGhaU1VTOHVKUmpXYzB6L1A5UENvMm5Id3VD?=
- =?utf-8?B?R0NzNlVLNW1hbjI4RkdGYjF4dFpiQlpsN0FTbjh1M0JUamFxZ3Z3R0J5Y0lB?=
- =?utf-8?B?dWlhaWJud2t2dkZNUHBlaGFxOHovbloyR0pvOVhWcCthTk03MU5GNFJsVjdz?=
- =?utf-8?Q?TmmpDgo5T87DbAvlQrmnKy4B4UpZapU40qyHAmR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VkhhZ2E3RU5MclIzRnU3ZjJxeEJoVnl1ZkFDOUZ2ZzNSSFRlNlpCdE84UVp3?=
- =?utf-8?B?SGdVUENLd2tlR2JIV2IxaDZXd05vMnU2NFVXb28wVFhTNnk0ckNoR3FIMEFB?=
- =?utf-8?B?VXpPZ210M2xGWkZMc2dNNUpZZkh6aW9KclBlOEhXQzllMXNRRUUwelZ5d3d1?=
- =?utf-8?B?S1pKVGdzS0JlRi80UDhhKzhBYk11UlZ1Z28zZHVIVmdxamF3N3ZuYjRNN2w3?=
- =?utf-8?B?NXlzZWVoYm1NZlorNndjeHE5L2s5dEl3UFJQQURhaFFCVTgrMi91SEJ6Ly9a?=
- =?utf-8?B?RE1rL3Y4MXQ4MGczVmFiMzZnMHYrZUxBQi95dVdzemVpVDAxcWhHNHUyVXhT?=
- =?utf-8?B?MEZhamQ5ZUtTbGZEUlNEQ25vWEV5R2tYaGc4SlVoamc2Zk9qRDc0d21RLzhN?=
- =?utf-8?B?djZFMzRjclNwSVcyOXJXbGx0VHBVbi9OcUZ6UDlXWldDZlBhNWJxZUFhWXd0?=
- =?utf-8?B?SVdqdEQ5Y0tjT2dTK3ZVbU9FNEFoYnNIM3J1U3g2YTdjZ0lTNlFXU0FXVlV2?=
- =?utf-8?B?cTZFY0tocnFtVFlkK29TMnFHVHpoK3VROFZoTnRkekRGRFBaaGJ2bk5UOTlV?=
- =?utf-8?B?a0Y5K0JLbGRneHNEekgyYUtvSm8wMy9XOHV6aENXTTkrTUtkZUxUQkQ2SDFq?=
- =?utf-8?B?cHNaSjlqUWpzTmtERFk1NXI0bE14amhvaWxWV015OFZ4WVJZTHJNMlUydWVr?=
- =?utf-8?B?Wk51YUE5QTE3Uk1JSDVkc1hNMWsvS05Zb2lKbHJia25ML0VPTmFwTXNQMFBI?=
- =?utf-8?B?QXNlalBGUDdwK1JRWVQ5aW1mN3RReUNyVXFFNXIrc3Z5K2k0Ulp3Mi92a2tF?=
- =?utf-8?B?ZnU0VzhveGFMSWxRMlgveDJpTUR3WnEwMWlLb3VNZUxiK0QybmlENTB2ak1B?=
- =?utf-8?B?RHdLL2RIUnU0SGd6OU9jNWZON3B6VkJITitvQlRZS3pydTU1U2dOUkFYOEpQ?=
- =?utf-8?B?UU5JN21iQ2xzN0tJQ1JGV3M0Qy80WFVYY3NnZmowQ2FyS3llaWI3aENZcHhn?=
- =?utf-8?B?MWlXcytvVmV5QlVhdjB6YjJTbi83OFNLYm9yaCtPVWJMUUVXVDFsMVBLeDcv?=
- =?utf-8?B?aW5xR3ZMVm14ZnMrVXU4RWwySlZBOWJUaDZob3JKNEVESmVtSkpSNms4ZGdk?=
- =?utf-8?B?RDdaWWdNKzdzN1NENU8zV1QySUNxSDg5TFJSODgzeFA3TVJBOU1oREFEOGRy?=
- =?utf-8?B?QnJBZnJoMG5iYWYxeEh2Y0N3ZnhHRzFsU3BTY1B6TWhJbTBUSFcvblM2MlBF?=
- =?utf-8?B?QmcxOEJ2UDY1Nk1VeGhVcGcyUytHbktLbUFtKzlZM2NiUXZPMUhjZU1XbW1E?=
- =?utf-8?B?SnBXbUhPMGhxZnpZK0tuOVQzSjF3MFM2QmlQNFdNZWtYSlhncjE0MVJNbW1y?=
- =?utf-8?B?QXgyQXEzK1czVlZGOGxOZnA0aG5kbTdJRGFHbk1NNGt4Y3VEREZxNE9lRFlF?=
- =?utf-8?B?R3VLdVBaVk93cE5OQUdHcVZHZm9Ja0J0R1Q0ZkUrV3MrVS9sWGVHSXVLWVN6?=
- =?utf-8?B?NDhHWHFOdW9kcHI4Z3N5bVVGaXl1OUF6Zjg0RWE4bkZZeHNsL0dyTW9jeWt4?=
- =?utf-8?B?OGJoU2RkS3ZreEczeTdmY1lPdjN1aStQK0hualV0MlVhWlRnaWQyTTZQTUVD?=
- =?utf-8?B?Vm1TeGRkamVNSzUwMFdtUFg4anVpOGtVYUlOK05HYWNHbDk2ZnErWDIzOWpT?=
- =?utf-8?B?VGtTZHFmL1huRVl5QnZNSFExVkkxdkJacmFWZENRMXZKdTkwbmF6dGNSTjdh?=
- =?utf-8?B?QS9wZitkWFFJcVFtVW5HL1A4K0I5K3ZZRldZQ09uWEtOeElNL0NlZXlVQzM2?=
- =?utf-8?B?LzRzenQ1NDlicHo5ZzRqcWRRQlR3bkZUVkQ4MUs3bEllcGxpYmZzenJBVnAw?=
- =?utf-8?B?UFVrVHdUcjNTTnNhckszZGNjTStCeC8raFNVWitnbXhvRE9hTTFwb3JqbXJV?=
- =?utf-8?B?ZjUxV202WG9lVTYwam5qVjNlOHVMWGdzRjFaT2tGZWlTc2owR2VUWHRZeDB2?=
- =?utf-8?B?WXNTMXVNRWJCdTFHMG9NQkEvdFZtY1dzRW52dVFrT1ZZZEQ1OXNPWXlWTitY?=
- =?utf-8?B?Qi9lbEtSRTFzWjNsaFlwdHEwSUhkNmNqYk5yeHNCU0hCODhjUjVnR0JTNWJH?=
- =?utf-8?B?a3haT1dYcGZOVHBKYStDRkpRNHBjZGliSitvaStHK2xoWFlMOThnVHBhaDNr?=
- =?utf-8?B?akE9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca2ffc9b-8ecb-4ee8-cea3-08dcf43252b1
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 13:46:55.4332
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fzImAdONR8fGTByuuiK91pODZJP7aykn3+JJlA6RPOqajJdHkdl9mRbCVyEVgehZLRTy12duXaip3bxl7WxQPQDdVucKhw/Q5+hacO8Db1s=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6848
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf] bpf, arm64: Fix stack frame construction for
+ struct_ops trampoline
+Content-Language: en-US
+To: Puranjay Mohan <puranjay12@gmail.com>,
+ Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+References: <20241019092709.128359-1-xukuohai@huaweicloud.com>
+ <CAADnVQLOY-eHby6CMNXr3FvwPm85W-tWDxiWnRaR_U_=71ADuA@mail.gmail.com>
+ <CANk7y0jiuiHSMTEZ_JCb4QpEPzhkK4ikicDGFa1F30DinZta8A@mail.gmail.com>
+ <7226e7b8-ed73-4adb-9016-30031f1121ca@huaweicloud.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <7226e7b8-ed73-4adb-9016-30031f1121ca@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgD3bSohUBpnHkdvEw--.45951S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw4kXF1DCw47Xw1UJFykGrg_yoW5Zw4Dpr
+	y5ZFZIkF40vryIkw1qg3y5ZFySyr4DZ345XrZ8tw4rC3Z0gr1fAr17tay7urn3Gr1vkr1I
+	qrWqqrsrJF4DAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUymb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vI
+	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
+	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0
+	cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8V
+	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
+	14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07UAwIDUUUUU=
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_064703_104434_A262E9C9 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20241024_064835_251988_BDF83E84 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,91 +92,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On 10/24/24 3:32 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On 10/23/2024 11:16 AM, Xu Kuohai wrote:
+> On 10/23/2024 7:37 AM, Puranjay Mohan wrote:
+>> On Wed, Oct 23, 2024 at 12:50 AM Alexei Starovoitov
+>> <alexei.starovoitov@gmail.com> wrote:
+>>>
+>>> On Sat, Oct 19, 2024 at 2:15 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>>>
+>>>> From: Xu Kuohai <xukuohai@huawei.com>
+>>>>
+>>>> The callsite layout for arm64 fentry is:
+>>>>
+>>>> mov x9, lr
+>>>> nop
+>>>>
+>>>> When a bpf prog is attached, the nop instruction is patched to a call
+>>>> to bpf trampoline:
+>>>>
+>>>> mov x9, lr
+>>>> bl <bpf trampoline>
+>>>>
+>>>> This passes two return addresses to bpf trampoline: the return address
+>>>> for the traced function/prog, stored in x9, and the return address for
+>>>> the bpf trampoline, stored in lr. To ensure stacktrace works properly,
+>>>> the bpf trampoline constructs two fake function stack frames using x9
+>>>> and lr.
+>>>>
+>>>> However, struct_ops progs are used as function callbacks and are invoked
+>>>> directly, without x9 being set as the fentry callsite does. Therefore,
+>>>> only one stack frame should be constructed using lr for struct_ops.
+>>>
+>>> Are you saying that currently stack unwinder on arm64 is
+>>> completely broken for struct_ops progs ?
+>>> or it shows an extra frame that doesn't have to be shown ?
+>>>
+>>> If former then it's certainly a bpf tree material.
+>>> If latter then bpf-next will do.
+>>> Pls clarify.
+>>
+>> It is not completely broken, only an extra garbage frame is shown
+>> between the caller of the trampoline and its caller.
+>>
 > 
-> The Haikou baseboard has an hdmi output port, which is connected
-> via the Q7 connector to the hdmi0 controller of the rk3588.
+> Yep, exactly. Here is a perf script sample, where tcp_ack+0x404
+> is the garbage frame.
 > 
-> Add the necessary plumbing to enable it using the recently merged
-> hdmi-qp controller.
+> ffffffc0801a04b4 bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid+0x98 (bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid)
+> ffffffc0801a228c [unknown] ([kernel.kallsyms]) // bpf trampoline
+> ffffffd08d362590 tcp_ack+0x798 ([kernel.kallsyms]) // caller for bpf trampoline
+> ffffffd08d3621fc tcp_ack+0x404 ([kernel.kallsyms]) // garbage frame
+> ffffffd08d36452c tcp_rcv_established+0x4ac ([kernel.kallsyms])
+> ffffffd08d375c58 tcp_v4_do_rcv+0x1f0 ([kernel.kallsyms])
+> ffffffd08d378630 tcp_v4_rcv+0xeb8 ([kernel.kallsyms])
+> ...
 > 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> ---
->   .../boot/dts/rockchip/rk3588-tiger-haikou.dts | 50 +++++++++++++++++++
->   1 file changed, 50 insertions(+)
+> And this sample also shows that there is no symbol for the
+> struct_ops bpf trampoline. Maybe we should add symbol for it?
+>
+
+Emm, stack unwinder on x86 is completely broken for struct_ops
+progs.
+
+It's because the following function returns 0 for a struct_ops
+bpf trampoline address as there is no corresponding kernel symbol,
+which causes the address not to be recognized as kerneltext. As
+a result, the winder stops on ip == 0.
+
+unsigned long unwind_get_return_address(struct unwind_state *state)
+{
+         if (unwind_done(state))
+                 return 0;
+
+         return __kernel_text_address(state->ip) ? state->ip : 0;
+}
+
+Here is an example of broken stack trace from perf sampling, where
+only one stack frame is captured:
+
+ffffffffc000cfb4 bpf_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid+0x78 (bpf_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid)
+(no more frames)
+
+To fix it, I think kernel symbol should be added for struct_ops
+trampoline.
+
+>> So, this can go from the bpf-next tree. But let's wait for Xu to
+>> provide more information.
+>>
+>> Thanks,
+>> Puranjay
+>>
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> index e4b7a0a4444b..e3596341b816 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> @@ -5,6 +5,7 @@
->   
->   /dts-v1/;
->   #include <dt-bindings/input/input.h>
-> +#include <dt-bindings/soc/rockchip,vop2.h>
->   #include "rk3588-tiger.dtsi"
->   
->   / {
-> @@ -61,6 +62,17 @@ switch-lid-btn-n {
->   		};
->   	};
->   
-> +	hdmi-con {
-> +		compatible = "hdmi-connector";
-> +		type = "a";
-> +
-> +		port {
-> +			hdmi_con_in: endpoint {
-> +				remote-endpoint = <&hdmi0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
->   	i2s3-sound {
->   		compatible = "simple-audio-card";
->   		simple-audio-card,format = "i2s";
-> @@ -155,6 +167,29 @@ &gmac0 {
->   	status = "okay";
->   };
->   
-> +&hdmi0 {
-> +	/* No CEC on Haikou */
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&hdmim0_tx0_hpd &hdmim1_tx0_scl &hdmim1_tx0_sda>;
 
-The pinctrl for HDMI is fixed on Tiger so we should rather have this in 
-Tiger DTSI.
-
-Why we have those defined in Haikou as well downstream is because we do 
-not have CEC routed on Haikou, but it is exposed by Tiger on Q7 
-connector, so basically, the point is the pinctrl-0 in Haikou is a 
-subset of the one in Tiger.
-
-So please have the following in rk3588-tiger.dtsi as well:
-
-pinctrl-0 = <&hdmim1_tx0_cec &hdmim0_tx0_hpd &hdmim1_tx0_scl 
-&hdmim1_tx0_sda>;
-
-It'd be nice to have HDMI audio as well, but one thing after the other I 
-guess :)
-
-> +	status = "okay";
-> +};
-> +
-> +&hdmi0_in {
-
-BTW, I'm not very happy with this naming.
-
-There is an HDMI-RX controller on RK3588 as well, which is routed on 
-Tiger, so this will be unnecessarily confusing: "which one REALLY is the 
-HDMI input".
-
-Maybe hdmitx0_in would have made more sense. Anyway, I'm too late to the 
-party :)
-
-Cheers,
-Quentin
 
