@@ -4,89 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDDFD0BB5C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA4BD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f9ybzaQqZA8Pvjk1KH4zw/EHpgyxOggbtBG60Qj3t28=; b=Dou70NJ9Bip++L5ykUWWrY4gBM
-	YvjjwKXfVvXdEWFHMYVHMdJ3usk651kSAeyp2/0bOB7bmvswwHzkFR9DHSqtNjIQ0OZqRi8DqSKLS
-	fTH7WB7s7TC5X3+bKZc0TYD4b81t4vDuYPsejoXHSWseAp4UEiTrdu7azzrLpoACWaAKNoUNBR1JH
-	TWWWDhW7niB/prT2nO8FsJdPjLfrfWEMolj+89bE32uHKfpCl6uwJC2zphMnPWTl98/zdlPDjpDM+
-	oampyTNiDDw7Kis1w62WXKqiaF9oxo/v1EZU4Dak/fAigSxQGIJw7HNQOh/INxLCcz1mDkYB8Z0rw
-	OoTgtSNw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V3DKzoGRNNveCs6SOsESX4/t1nglUdmun8SVRIZGpys=; b=j1wV04QwOHkwOUThnvOPb6lPJa
+	A/tfjFKpZiAzr9XhrWR9BOfdhXbVZ8KJqTXjhnCTcM3c/q7isEUhsdiCDuVdGQAa/EIqJd6peUwvJ
+	u8Lj6cwVfyBE81WonD1RweoQLstqt6M4imacHbHdfiCLlIyTurHY+KU/JknEwjoBE+61vmYMAIMB+
+	l+Hn+vU1ldd+g6o1l4I0KiVOKJVFL35Azz7U69f635yYQBLPWyFQc8SA1C9FG7s3QD9MlieAM1xYB
+	cULMXe/cjg2zxKFnMEHxG0k4UkPeBxyaIaUvH3KCprpzm9fKQkCKeYvrV9lEz1glQsaOmyqRz5GdT
+	ZnY7B29Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vZ4-0000000094w-0F0M;
-	Thu, 24 Oct 2024 10:59:38 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1t3vaZ-000000009HY-3RuY;
+	Thu, 24 Oct 2024 11:01:11 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vMx-000000007Ad-10WF
+	id 1t3vNm-000000007MM-3Zn3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:47:08 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5c9709c9b0cso980521a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:47:06 -0700 (PDT)
+	Thu, 24 Oct 2024 10:48:00 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb51e00c05so10803261fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 03:47:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1729766825; x=1730371625; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=f9ybzaQqZA8Pvjk1KH4zw/EHpgyxOggbtBG60Qj3t28=;
-        b=CZ2Y0ODBRNZB53DkcwpdAX+GXw2/rmBnSgc001OCxKcDzal+9lieJK7Q6fSmnRRJTZ
-         Jud44EhqOIgyBUhlx9Fq+CLpFjwor8+YTaQX8IviwySduCqemhIh+DUgITw4lQu6IiNH
-         R+gSWvOQ2Ahhn3xzLX1mNy8SW9Da8cTwGnvD4=
+        d=gmail.com; s=20230601; t=1729766877; x=1730371677; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V3DKzoGRNNveCs6SOsESX4/t1nglUdmun8SVRIZGpys=;
+        b=k/cwE/nWk8wAz4msfx1qQhZ3S3b55RaWiR1/pZdife5iujCu2LWgpIQmflldQuLFb3
+         OTb8C204EtXHU1XlFbC9WUo3pptyF1j9A2fdAHWFMlIBuOnach/TgsBdeyfgkNe77ppV
+         3kmLtHt+Mlwl0cHqF+vJ9JmNRIb72NllfcGCkSiTgamOC1R6JSX0BL0f0sOzZRktV7M+
+         BnFQR8V8zxxNCXifkOOzEiYBgC2v5RftHHTgZ/nZkLAtM8iC117QVZjc/Ju/tSVGnad6
+         rvMvtOYb6GwjM7t3Z8p8jK6jkqR2NFqpp9tUB3FFlOb1Oy3Ol2/Ji/+20ORBC7CHsvIp
+         1MRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729766825; x=1730371625;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f9ybzaQqZA8Pvjk1KH4zw/EHpgyxOggbtBG60Qj3t28=;
-        b=NiZ9PMpXthXFtG80fGn64F6NERSLbsn/ZIViYpVfdvnr5YSzRK2eNAS04iUqqE6l7H
-         wzGykYcdi1fEd0JnUBivxBzaYvncJHAs1+TUG9F5Vizj4uCtnL5CIAuI+aoft4cs5lAS
-         zcAaaxFYEBaMJWyh6DBjyeRi90iRpEhr+VsuTTSUP/hIzk0AQhPVIUsOjytFvKVmdDnV
-         WXTy7qdKQINBUn0ZQaLb2qT0M+IPSdh3/rKwL/YPNmXeJsv1FAqGh/GclLp7PRC5UYy8
-         Yg3oYns1/i2rrzyB15vt93cyR/YMTAsN4hVxwGJC5o3s/dgRtJMWOXChpqIG3qZYW3nn
-         xhlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWnUeJN6IT7+f2jTuRKWNpQI5gTwLAMLqPukQZF+igoMOt1u3AmX/TmZ/tXKVvtncOUAQI2Do7Szoz/aG6XNAvh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi2q5qoxn3ePz2mfhlkYwSnDgFlPSmhKJSzf3ldiZSG/58xt4L
-	E/Z3PIBgCfRZMFCmmFBjb/RWbY1d7MJ4CwRQxRZado6o8ipxDa/DnUPCChbQRUs=
-X-Google-Smtp-Source: AGHT+IGhRRSH+oniiEMk6gBxA1VDr8hXYtyBVOVbECHZq5NiyEASc4rpB50zkmMNgG6T0wMWjBuJiA==
-X-Received: by 2002:a05:6402:278c:b0:5c9:709c:247f with SMTP id 4fb4d7f45d1cf-5cb8ac380damr4405184a12.2.1729766825261;
-        Thu, 24 Oct 2024 03:47:05 -0700 (PDT)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:f79d:49dd:b804:3f48])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cb66c72866sm5525261a12.95.2024.10.24.03.47.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 03:47:04 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] drm/mxsfb: Remove generic DRM drivers in probe function
-Date: Thu, 24 Oct 2024 12:46:49 +0200
-Message-ID: <20241024104654.3483125-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1729766877; x=1730371677;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V3DKzoGRNNveCs6SOsESX4/t1nglUdmun8SVRIZGpys=;
+        b=RVvrnlZsHDNXi4M1/1RNTWLhhIBfEXi12hGan3n8X36j6U2F469oN5dsbPVvHuORYd
+         MI0A55Y9xyEvGdi76a5Dq5b14crvgm9lvOaGholWSZB3JJWSsh539OpjqOP/rG4oF2PW
+         r6WwMJ/AnJU9LJPBGXsHToiraBdliAGPDzxg5ye7cZBWTNF4ACGwElZ9S0V1ogBOzPz1
+         TC/CboCr6R0sbz2VefmnAnHPYV3xleElFECdcUvIPiFW2W8I4z+TpEhHtMjn/b7xueV9
+         XqtPoeJY0iHQx+xbsgnfV2fW8oMPgDcHLZLSI4GrQ4ViVXu0LYiaWc+HGpwU3pPaxrI4
+         aDOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBI+YMe2IWOenikuGRwuhfghgJOzGmHwzSKO2fOBrOcbObpPDhqdzFq/FeiHazyYe5qBGHC8O0Lm4ISJm9xXeO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUGzjLMsOXoEfEt6TvN6ycdksjpXNYf+fi6xIyDN5rwervtVhc
+	FC1yFM1JQWT6gwIVTWlPk1FjHwKrupZG1aUe5mOuNs27yBzZgQ7C
+X-Google-Smtp-Source: AGHT+IHHCGUunbU1WBMJq+sAZx9YzaIXr41UGHDPNjS2vbTVWpJJQid4DmPQCcWS5iyhHtNJjwXglg==
+X-Received: by 2002:a05:6512:4489:b0:53b:1f59:dc59 with SMTP id 2adb3069b0e04-53b1f59de4cmr4200149e87.6.1729766876589;
+        Thu, 24 Oct 2024 03:47:56 -0700 (PDT)
+Received: from [192.168.4.167] ([92.120.5.12])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a91306fc0sm600659666b.91.2024.10.24.03.47.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Oct 2024 03:47:56 -0700 (PDT)
+Message-ID: <8a017e66-6d84-4bdf-8188-9ae3428b6d17@gmail.com>
+Date: Thu, 24 Oct 2024 13:47:53 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: fsl,imx-rproc: add new
+ compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>,
+ Peng Fan <peng.fan@nxp.com>, Mark Brown <broonie@kernel.org>,
+ Takashi Iwai <tiwai@suse.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Iuliana Prodan <iuliana.prodan@nxp.com>, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+ sound-open-firmware@alsa-project.org, linux-kernel@vger.kernel.org
+References: <20241023162114.3354-1-laurentiumihalcea111@gmail.com>
+ <20241023162114.3354-2-laurentiumihalcea111@gmail.com>
+ <ub7yylef6qyztjtg3pciamg6jjznxh3ydlqsdcg2xcoxqngpi4@j5jlex4qukyz>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <ub7yylef6qyztjtg3pciamg6jjznxh3ydlqsdcg2xcoxqngpi4@j5jlex4qukyz>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_034707_305976_ABAA36B4 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20241024_034758_931163_5C21D1C4 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +110,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use aperture helpers to remove all generic graphics drivers before
-loading mxsfb. Makes mxsfb compatible with simpledrm.
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
----
+On 10/24/2024 10:45 AM, Krzysztof Kozlowski wrote:
+> On Wed, Oct 23, 2024 at 12:21:11PM -0400, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> Add new compatible for imx95's CM7 with SOF.
+>>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+>>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 58 +++++++++++++++++--
+>>  1 file changed, 53 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+>> index 57d75acb0b5e..ab0d8e017965 100644
+>> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+>> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+>> @@ -28,6 +28,15 @@ properties:
+>>        - fsl,imx8qxp-cm4
+>>        - fsl,imx8ulp-cm33
+>>        - fsl,imx93-cm33
+>> +      - fsl,imx95-cm7-sof
+>> +
+>> +  reg:
+>> +    maxItems: 2
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: dram
+>> +      - const: mailbox
+> That's quite different programming model. Are you sure these are devices
+> from similar class/type?
+Yep, these are all Cortex-M cores. It's just that their usage differs quite a lot.
+>
+> Your big if:then: block suggests this could be separate binding.
+Ideally I would have wanted to place the compatible inside dsp/fsl,dsp.yaml as the
+programming model would have been more similar.
 
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Unfortunately, these are different physical devices (HiFi DSP core vs CM core) even
+though they're all used for DSP purposes so I'm not sure this is entirely appropriate.
 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index cb5ce4e81fc7..a8d6dffcd02c 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -17,6 +17,7 @@
- #include <linux/property.h>
- #include <linux/pm_runtime.h>
- 
-+#include <drm/drm_aperture.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_connector.h>
-@@ -360,6 +361,15 @@ static int mxsfb_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_free;
- 
-+	/*
-+	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
-+	 * located anywhere in RAM
-+	 */
-+	ret = drm_aperture_remove_framebuffers(&mxsfb_driver);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't kick out existing framebuffers\n");
-+
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
- 		goto err_unload;
--- 
-2.43.0
+Alternatively, if you think grouping these devices (i.e: those represented by the -dsp compatibles
+from fsl,dsp and the one represented by the compatible introduced here) under the same binding
+is alright we can just branch off from fsl,dsp and fsl,imx-rproc and create a new binding for
+these devices. I'm expecting this to be relatively clean as they have the same programming
+model.
+
+Let me know your thoughts on this.
+>
+> Best regards,
+> Krzysztof
+>
 
 
