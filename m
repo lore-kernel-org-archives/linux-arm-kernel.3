@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79C2D0BB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A289D0BB63
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:References:Mime-Version:Message-Id:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXMUNc/LORv2j86/u57jzQlk6FOM7Zoz5+8UmtPcmgU=; b=z6wo+OJpr4pRwmMe/HsBgC5tc9
-	sQXdQzB962mGxeZGieoO2Qaila5vkYVQyvnBoniSE+CaHa6QD1X6k+mxz4uygOoGX1oUyf9N/Rr9h
-	F4dTE5dQzmrXcKO5X3IcTQcbxJ8FGonraEzKiEQoziRk/zIceyhfZwyAwGaPhDyHpi73RX8yeh/IT
-	D1euKbGptiJNY2BYEVxTgxIrfIPbngzsaHF5gd+KwGpZGffxRVDCBapXYJQmjLVxjfbReFZHuQVef
-	DXyHjJOgPlV2/YGq9gcG7Zz0dZF9T5rJfx2wKm7EeAjAiB56VXdvm5UhsEr+tXLxxmGkC1/BrPNgx
-	+dkCx8SA==;
+	bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=; b=irQl4h255OnLo1GnNqtlgW3gkD
+	D8oK2TgfEdntGhIj0x+QwN4PQ4Oka+Tm2cqh7eAn5ueVf2wzPtqnhjREJzw8ZlneOXWJ+xlNN8g1P
+	ah2Jg2MqZqJRRYZD2FoLpQfLJkCiL/HTr/KtJsx4HcNw8H3VU6ANi9a8QjeADi2AUJJCdqFrHueXr
+	xt/96F882AVyraurTvdN0nfezF0aRUGggy3R8Nic3qzylmT7LxBR3rwOxgSIGamqALIiU0WgA5KTD
+	+EyV1XSawVhelvKBT2kZBMR1baPyLyCRItefKETEuykA3kBlrAGi94lVHGf9yivaCAsyBR+K3hj/i
+	6TZfH9gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3rBB-0000000GtSB-1s7f;
-	Thu, 24 Oct 2024 06:18:41 +0000
+	id 1t3rCi-0000000GtlV-3QVB;
+	Thu, 24 Oct 2024 06:20:16 +0000
 Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3r6g-0000000GsUF-3CTm
+	id 1t3r6l-0000000GsY2-2UMS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 06:14:05 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e3497c8eb0so7635837b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:14:01 -0700 (PDT)
+	Thu, 24 Oct 2024 06:14:09 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e0082c1dd0so11563987b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:14:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729750441; x=1730355241; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:references
-         :mime-version:message-id:in-reply-to:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pXMUNc/LORv2j86/u57jzQlk6FOM7Zoz5+8UmtPcmgU=;
-        b=IXgfvbYsY1d1Uw/bAd3dB6/xLCclHbu32zXuO3GvjhL7npcJRsFYVrb+fGvlKoBRN0
-         FfDjNvnVGTCvrlf7gAWFUQGCSA3HMLGBI4+JoNBSWE2RSeWsBr8eIpg3OYpWH6xUjR19
-         qvBX8h9RuXV04oBKHr4cpzp/5f0ycG20QYlgBmZEUlgDw1P2Q/K1uDKQZ6iwHJ0AzGxP
-         KFGnto3GNLU0Lb642lPh/S9Mgf0mNrjQNwphZWJdD/OsA/C7WSuKPD51+W9GlViGwvps
-         W/Jvo9ZlyG8EdIHYjrRJ8rYQyolFK2MZ2wSKCsV2KAG0GMcKwu8prR31KPEKJyqTrH4v
-         Vk7Q==
+        d=google.com; s=20230601; t=1729750446; x=1730355246; darn=lists.infradead.org;
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=;
+        b=xLakp9LDgPw6u/JgaXLpCgqQgG97e1imMYD3tlOJh3yzwVzXsDBUFJazeDdsnYaa18
+         I3TEhbYtt8mibexjODfu5FZYPGwjG/a/g/y46yKd6XuDJQ0SCblBTrH+paKoTVMrbkcd
+         optt0D0JEVQbHUNo5LneZE+7ABdZ/BwbCnd7ZlQR+RaiFuvyTo8FycOdmV29InVyGEQB
+         5/Da8JnZFPm1OJunqZqHesEt9cP6uRodTFVFNOlR2RLY1OsZhD2D99tO2hXIYQR9lWOo
+         9FdCDuzp4xzqABDPeoOfO075gM76IicVhnBAJnSRQsSJAwSioytaw1GSoUffJJXFvLDP
+         swGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729750441; x=1730355241;
-        h=content-transfer-encoding:cc:to:from:subject:references
-         :mime-version:message-id:in-reply-to:date:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pXMUNc/LORv2j86/u57jzQlk6FOM7Zoz5+8UmtPcmgU=;
-        b=CQlf2M0vwBsZqjEKU+Y99k6768NbkYZ8Dox9lY9KPFlLa1/2KaUHXE78G/SlMkr7at
-         PwyWaR3apRzHdxesLPc6WT14Yf8vXGYf4BzfUI3r31EZE9S0HgUxAyJFjBNiprl69+Gs
-         tjZcTyZXCY499zkQIfE7Q2GInphdk5FaU9nJ0Dhfeloset+EcuIm+1+L9EVUKZIaf/DM
-         MEvc5zdBePgEM3Tv9fWgdOlCeBmH1dPHeeM0FIDa/tmWKtPt3jMGqAhSRzgEx+Oyhabt
-         BGdraCGvRlWSAP5uigHj/GDkvobvq/eGkI7/53Um8GVJ1QJv8P5rK7tadCl6x2rtvcyA
-         XHwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWTtZChYpvniqyWe11JedYTsaAAGRWcFF2Glv1YW/S8MDOKiEOWhTBWsI2/d+yosiJ5RvLIwh8e29aVil70O2R7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdnAtBn1K179oM1QJou0/9gcKZKGGJRO6THBz7zPlFdX/VVTkQ
-	To+M5MyVnHUdrAXFtH6MSqw7hpt27PbUowD+NgmafLTFdYZ0USVjhvFhGogygfUvbp4Q1lS9P0f
-	+O0VFvhbK/0EEoA==
-X-Google-Smtp-Source: AGHT+IEvWKI797qzaVIyJQytUKUTuDrxqDTilc69F1bH77+J3k5wYMBvLRY6cYuzVgsPwwCo2eftygSjpmQuXoI=
+        d=1e100.net; s=20230601; t=1729750446; x=1730355246;
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=;
+        b=UWhlRXj7ZIHGuIoP7h1ABI50RusAvcFSon4z5pSrcdQgkqV0oU4y5g08pdiqBveR3Z
+         xaQ9vd4+tKzSSh7953dByuvxtuvXRAmiGAfGhOiX/Y+MGH6+ywW9uBNFDHfEF03Hxthh
+         MXQ89kjWobX1+btEyUUWqHv0+bkRHWGUTRF3ghcP4T7+m/TC3fob0knGtcalIilwtY61
+         c0j4mw6+8i4gozd0JlLXC8PG8uaFVoyhcsGwZf/5PxRTPvSPhpTGMen92s3mGNIlaW0l
+         /tuOAaI4esTHHbTS5+0Zr7wUVOpzexbW7pDCo+6yFtrLepAVmdNsy+RhOMjTTq384rVc
+         4oRA==
+X-Forwarded-Encrypted: i=1; AJvYcCX9pGIa2oaXQtGKrYBGH4UJgm0hcHHQ07QC3YgirspXFurTjtxAb9v4ap9GkoNTNT2cgzV+EyJVIBpOT//z1Z/k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMfByjODnap7CyM6ShcF2zllsQM2xlq7thKNtGn4zRCifzGL2/
+	XT1dZT00s/D6nlVZhntOR5pmp4nanz0zl0o8PVTVzAXqDfGE0rY3e61xzYjJ2XcajTyNQqucIzH
+	DFFGduDKTO+1gBw==
+X-Google-Smtp-Source: AGHT+IEJXaAAeZpuDAkTsefFXLL2kex4B2AlfwjdclQcvPn636A6m5nX8BurNhgR4ykV7U+QaaWd5sb2nHuey3k=
 X-Received: from saravanak.san.corp.google.com ([2620:15c:2d:3:965e:f81d:c9fb:b352])
- (user=saravanak job=sendgmr) by 2002:a05:690c:9c06:b0:6e3:c4cb:689b with SMTP
- id 00721157ae682-6e866350bbfmr483267b3.4.1729750440665; Wed, 23 Oct 2024
- 23:14:00 -0700 (PDT)
-Date: Wed, 23 Oct 2024 23:13:43 -0700
+ (user=saravanak job=sendgmr) by 2002:a05:690c:3749:b0:6e2:4b3:ee22 with SMTP
+ id 00721157ae682-6e866359b6fmr171667b3.6.1729750445961; Wed, 23 Oct 2024
+ 23:14:05 -0700 (PDT)
+Date: Wed, 23 Oct 2024 23:13:44 -0700
 In-Reply-To: <20241024061347.1771063-1-saravanak@google.com>
-Message-Id: <20241024061347.1771063-3-saravanak@google.com>
+Message-Id: <20241024061347.1771063-4-saravanak@google.com>
 Mime-Version: 1.0
 References: <20241024061347.1771063-1-saravanak@google.com>
 X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH 2/3] phy: tegra: xusb: Set fwnode for xusb port devices
+Subject: [PATCH 3/3] drivers: core: fw_devlink: Make the error message a bit
+ more useful
 From: Saravana Kannan <saravanak@google.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -83,10 +82,9 @@ Cc: Saravana Kannan <saravanak@google.com>,
 	linux-phy@lists.infradead.org, linux-tegra@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_231402_814434_C99ECFE9 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20241023_231407_643335_EFE2E916 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fwnode needs to be set for a device for fw_devlink to be able to
-track/enforce its dependencies correctly. Without this, you'll see error
-messages like this when the supplier has probed and tries to make sure
-all its fwnode consumers are linked to it using device links:
+It would make it easier to debugs issues similar to the ones
+reported[1][2] recently where some devices didn't have the fwnode set.
 
-tegra-xusb-padctl 3520000.padctl: Failed to create device link (0x180) with=
- 1-0008
+[1] - https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
+[2] - https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia.com/
 
-Reported-by: Jon Hunter <jonathanh@nvidia.com>
-Closes: https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia=
-.com/
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-Suggested-by: "N=C3=ADcolas F. R. A. Prado" <nfraprado@collabora.com>
 Signed-off-by: Saravana Kannan <saravanak@google.com>
 ---
- drivers/phy/tegra/xusb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/base/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/phy/tegra/xusb.c b/drivers/phy/tegra/xusb.c
-index cfdb54b6070a..0a2096085971 100644
---- a/drivers/phy/tegra/xusb.c
-+++ b/drivers/phy/tegra/xusb.c
-@@ -543,7 +543,7 @@ static int tegra_xusb_port_init(struct tegra_xusb_port =
-*port,
-=20
- 	device_initialize(&port->dev);
- 	port->dev.type =3D &tegra_xusb_port_type;
--	port->dev.of_node =3D of_node_get(np);
-+	device_set_node(&port->dev, of_fwnode_handle(of_node_get(np)));
- 	port->dev.parent =3D padctl->dev;
-=20
- 	err =3D dev_set_name(&port->dev, "%s-%u", name, index);
---=20
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index a4c853411a6b..3b13fed1c3e3 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -2181,8 +2181,8 @@ static int fw_devlink_create_devlink(struct device *con,
+ 		}
+ 
+ 		if (con != sup_dev && !device_link_add(con, sup_dev, flags)) {
+-			dev_err(con, "Failed to create device link (0x%x) with %s\n",
+-				flags, dev_name(sup_dev));
++			dev_err(con, "Failed to create device link (0x%x) with supplier %s for %pfwf\n",
++				flags, dev_name(sup_dev), link->consumer);
+ 			ret = -EINVAL;
+ 		}
+ 
+-- 
 2.47.0.105.g07ac214952-goog
 
 
