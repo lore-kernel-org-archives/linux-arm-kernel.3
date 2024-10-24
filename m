@@ -4,88 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF13CE8E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB8ECE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UaHpkghq9cuCMb2HJRZAym0CXgOFGdaTduY6J1n9ZMw=; b=vh8BNonmDvYyj/M809gh1xceyV
-	pyZCG4qplc/yp/iobwbRZeIISVB6tOF8cYE9jYw6YqDnaKy+WqP7ao+ukOqsSaYitwBgh8rOc8MYi
-	TOSSRo+v40GYBKJUy3tbTIxHUnNHb4Pn8IpCG9wCmYyH1ON1s2W0L0a2kGw+vcw9tkkLc1ti4VjUL
-	IQvtOy5AKR95F44MsFJfs/hw5R53VgnoUiBeDFf6hy0duMwCKZMZck64OszEsrGZnmTK8R4BHhC/8
-	Zutx1Ywy/LTcjKThPYlCKNFw5/CmR6XRh/GSqUpAbr2ukBgF1AS0vDYHo60TBdMM593r+0fZkrb6+
-	5tiBrHOA==;
+	bh=UV2qbjmwJ7sbK2f59q12HaBPJaQ1XN5dFnSbf9YGAag=; b=wU3GDr7CSQQnKEd4fZJSqDXERK
+	tqUM9AvxAtReCQjnrC1KyouXFtdNTNk8nI01ClS4iISrELWSo9Ok5T/XBo3veBRDpYStvq+yGrWnV
+	+q4uGfVRe70Z81pra7VsTd64/ourmyD6G4Rq4eCn6qy4n3fxxm0WQ5trEYRkxP2AiHsjtFYazTR7f
+	5YxJ/QJ5FqJ/eP7EWwp7OaJOkpewNDcoovzV3LstayogE/VSSnWvtIJpcvYOjc9dv7Uj+AW5ZEwa5
+	o/oqaur6RpWvY7lLmO2rYfv0HGX6q/hRy5PkGZNKAI7R0YhXHvv9UX41ci8emu5BAK+Qq6Tfh2ie4
+	hfRMkL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t420V-00000001MP5-0vj6;
-	Thu, 24 Oct 2024 17:52:23 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1t4221-00000001Mgu-3YST;
+	Thu, 24 Oct 2024 17:53:57 +0000
+Received: from mail-uksouthazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d204::2] helo=LO0P265CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41cO-00000001Hiu-0W6g;
-	Thu, 24 Oct 2024 17:27:29 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso12652135e9.0;
-        Thu, 24 Oct 2024 10:27:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729790846; x=1730395646; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UaHpkghq9cuCMb2HJRZAym0CXgOFGdaTduY6J1n9ZMw=;
-        b=no0kT5/oUlzOqrUQBfYUsTq4IfCzYRzFWCjHP91hVom7XX6pwX0xaS2BBW6N8BxSFE
-         gSybF+c1UPCFdlwySx5a7CfUhLTwW8tlq3cp4fFsGFeiUl+II5UEm14mp7/h6RU24Upg
-         A0eIqPVlFgH+hXmgNf9Y0r7tVs/v9MYjBCNy4NlkPUOkol/OH4LTPHRGGbjHHQlsxpeB
-         mPBigw3hNg6v9ArbO0+p4C9r3wzOIM0+BOtb3vcG/4o7lrFSttspy1L6DtxoaZuPMNrL
-         vxx4/nbwPcj4kumvDkrfaIgNy/y5Fsq7O/NFxI5qQKQBSuNHETOQVKC6FtNgjqZuga+i
-         ttmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729790846; x=1730395646;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UaHpkghq9cuCMb2HJRZAym0CXgOFGdaTduY6J1n9ZMw=;
-        b=wY8Xoh8Q8JYYD65YxrAlm7mhztaD8elVvEWqzcI6kXUSSHAWEO3/8Znvgo4XJZyh6G
-         yqL2SXYpCq/OeUvsyVEGQJWMEwtPqJKbvDrCpkwDusnVHqaEWSe8KteSpxj0Bv+mFOxv
-         ktYOZ8KFh8RTy71ot3a5yA2i52wJaFgSSQAUoxFLYR3cTowfyrqy3xTYfSsS+XSr7gLm
-         4iEzKSVqc0lwjq83HEr1lBc1nwLLiMWuI7H7NRQxWQQlBlT6xi78CIEmqBperZBWEkPY
-         F4wnGooW7epgk5xZXsCxUi0SaSZ2721dzu1rHZoY072tz8Q9tUfN27BvN/p4s/a8fBX5
-         no0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWeTDs1wwi+DJ+rMR7ydjcwLgqAureEeiUd6vhi5K7c1ZKyi6hJGp4pdjCPsT6X/j3BffDMxxSm16a43YMORYfX@lists.infradead.org, AJvYcCXOAFJvGxm8wrfxwDhtTPvvEfFK1ZmHn4HJ5JgCYxhsB173sEzKZQuOsSq3hAFgb83Q3egG1fGnvJ66xFn78ts=@lists.infradead.org, AJvYcCXaqMzRxHMKFcIW2k0aSRc1vRFjnu/s8ohT3dJ8NuprDsyjvKtPjTB7IwP751mXWTgwW2ZLdxAdfuh6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOQY/UXV7/MizY/5lHrF3d1TGEIhCX876hkSbfopn33YXri7W2
-	rudclw0LAqOPU2KAXUuWI/XGUefdE1UDpTsjWjr4SUUT3w/8AS1j
-X-Google-Smtp-Source: AGHT+IH9aeFR7EI/JBQU2YhJkoiZcmX9vYZf/rP1GuS53R5NLbNpUfaTaV9YEHJNgi6VOgAWwW1HsQ==
-X-Received: by 2002:a05:6000:1faa:b0:37d:53dd:4dec with SMTP id ffacd0b85a97d-3803ac9725fmr2225519f8f.15.1729790844879;
-        Thu, 24 Oct 2024 10:27:24 -0700 (PDT)
-Received: from orome (p200300e41f26ec00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f26:ec00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0b9413fsm11839544f8f.74.2024.10.24.10.27.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 10:27:24 -0700 (PDT)
-Date: Thu, 24 Oct 2024 19:27:22 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Saravana Kannan <saravanak@google.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, JC Kuo <jckuo@nvidia.com>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-phy@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] phy: tegra: xusb: Set fwnode for xusb port devices
-Message-ID: <h7lfhtsb4qmrtmcgkeykfwdqzwmby6jfspd6hguxyx3huilu3o@sfl5dqcsc45d>
-References: <20241024061347.1771063-1-saravanak@google.com>
- <20241024061347.1771063-3-saravanak@google.com>
+	id 1t41d9-00000001HsW-3j4B
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 17:28:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bUVGT5SsIKZrYwIZJNJStlkss+rc17M72JdZ+UFdHzxOpn3gfyA53FueQZytgQvj5QXQ8erieNgikTKelYZa87GiYp6kWsDIS+EpzykhZCt1pNqnLx5QWtR4ookH28KCiaxHWy8LKxAyOFQRyVZmMqxI6/szmDOYJmR4ebVOewniR0juregFzUYUMhKe6w4B4ryCIcB+BVEu9G8TDjZpAVH9EAalLTE6LzVUt7F50PV12b346PClNXcLRrx6CLkAu297GsmnSNOSK5MjvefHCAJYu3dlk4UFC+S4vCwJ7J50BBgur1xDI8R+s0KsIte0Y6X5gcmBA3rjUZtHq6e7rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UV2qbjmwJ7sbK2f59q12HaBPJaQ1XN5dFnSbf9YGAag=;
+ b=WzuSa1cUicUqArMOfC3z5yyQF/V8o39J5iIu+7IuMoAEQnm5waQEqvZgYLLVcNHHC5+kREmyqzMk5lwOSIYog3WqrTLhK1md2F7KeSph2BsyRGwlo+CrOkau5YdyX+TgSOA6UZNfJnGsy+sB25tcHbVrLZZjwsz/51D0mNh8rukHFFF7BuKEZZJazB/T7X1rT4T29HcqALx3w+znROI7XtZs1nqUdp6aY6MkV/XfRDVAzLjeJD8Ok0Yq4I8C1m0An4bJERQzgzyM9w0ZdVZF2JILKYhUQ0LmRZzDiWeix2elHgvNbJ91ib6gST9pqbhfHPOQltVjUEETLVsbcwvfCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UV2qbjmwJ7sbK2f59q12HaBPJaQ1XN5dFnSbf9YGAag=;
+ b=o922Q69ylkqbDXxxfWrtY7FXTiNRGjBbkWjdb3KxS4iD0XxrQjbmmU7Gz4ff//tMgctvBNkw8O/2qjsHDab7i8fyFKFb6hjHhiwyQMs4n03ODMDDjE6IWA3ZHyfbLTp0okSeHRb8YeJFUpuWeYglS7F7BWjV7Jjx/SsN/L/w5Pc4G17Jjws8NCDLzWtqlS2AGr/CY+He2jxj3rFMDg1GWXAW/RnXFMgygzuRdCq8kkW4fEZbCk4JQ70mPJ9MjmSVLoLLUeoyuJPkKw9Z5o92MiYNT6nW+kHVX65u5fu0AkCq58pi2t+vzf8k30g55dEpk+FI1SvarVt1utYVvVhPog==
+Received: from LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:158::14)
+ by LO2P265MB7186.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:32d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Thu, 24 Oct
+ 2024 17:28:05 +0000
+Received: from LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::b500:c582:9cd5:f0c6]) by LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::b500:c582:9cd5:f0c6%6]) with mapi id 15.20.8093.018; Thu, 24 Oct 2024
+ 17:28:05 +0000
+Message-ID: <LO0P265MB3211CEE441161D66701B6DD9AA4E2@LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM>
+Date: Thu, 24 Oct 2024 18:28:05 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Guenter Roeck <linux@roeck-us.net>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Ivan Epifanov <isage.dna@gmail.com>
+Cc: torvalds@linux-foundation.org, aospan@netup.ru,
+ conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, gregkh@linuxfoundation.org,
+ hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru, jeffbai@aosc.io,
+ kexybiscuit@aosc.io, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-spi@vger.kernel.org,
+ manivannan.sadhasivam@linaro.org, mattst88@gmail.com,
+ netdev@vger.kernel.org, nikita@trvn.ru, ntb@lists.linux.dev,
+ patches@lists.linux.dev, richard.henderson@linaro.org, s.shtylyov@omp.ru,
+ serjk@netup.ru, shc_work@mail.ru, torvic9@mailbox.org,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, wangyuli@uniontech.com,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+ <20241024095708.189649-1-isage.dna@gmail.com>
+ <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
+ <61a622bd-7597-45e2-96d9-9cba02fba407@roeck-us.net>
+Content-Language: en-US
+From: Nopempele N <nopempele@hotmail.com>
+In-Reply-To: <61a622bd-7597-45e2-96d9-9cba02fba407@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0182.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a::26) To LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:158::14)
+X-Microsoft-Original-Message-ID: <abf18714-fb03-41e5-8e52-7f70c967b323@hotmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="twcjumikk4cgqnzo"
-Content-Disposition: inline
-In-Reply-To: <20241024061347.1771063-3-saravanak@google.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LO0P265MB3211:EE_|LO2P265MB7186:EE_
+X-MS-Office365-Filtering-Correlation-Id: 079c24d6-12ec-4214-32f5-08dcf45137f2
+X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|5072599009|8060799006|19110799003|461199028|15080799006|7092599003|3412199025|4302099013|440099028|10035399004|3430499032|1602099012;
+X-Microsoft-Antispam-Message-Info: 013K+YcmGazcTfx2N1BbHUFLJzjcyR0lKZFMuVouCNgFxIN/0jznLUrY4iEDFJwPpWgJe6001777DfrqzGmnXm61Upf6uPRk4/v0NS2jFbs3bsCYIhrZRq+l2wyXF73oayKs2g0nfVkH5HZys2ZpOoMDwSZb0/rOmgA8C5eo9PZ/wUiixixy6tAQYcSm88ddzNh3B4kP1YAROkXCfKK4tRNkEbD2TasA+0bclbOlY3D1DJt11/yqpkDnzX0mVfAhbhG4X4YZmdC7bC8eAsTHk6doJcm+/73zp4SAtDoxeOLVJdGgwmx20GxnzfX3WAx9T5GHvieP0iuaj+KJZgui/xRo24ofhKN0Heh/RstbmWT3iSmDZqvCtJrUIyytGzv6lGWiXh7i6A5UoKVl+xWMUczE4KHlQFQcfcEUr7aioi5h8vkrn0hAT3E9Q8PsBNwOgB7Gnn3yRJkG40IBlSffvzdGhUdDOUpxCMJI382H3tyOQd6w7EsSphHYzJue1UJriO3CRKx1P5jO95ElpFcR0Y+h3sGeCIr8pIzsrwlz1C5fVN+06U8Mg8ImgGhXyGyxp7Fun7icI4e4sxoyvvwHPi/ddxJZqlC2bz23e/aUBl5+n5q7et2/BvbDTOkaqmqr+xqGVnXVOfjkGwYmb3lnWqBNP+rTiAbyGVJdkWaBTHAeKTKFPphKWADV40oncYFyCIqzUEy2VK7H3JftmuL7kZ0V4BNYNHP/INsT66E9rpjFPXxDa5xd4a6Jj/gNswh2sGnpzmgvlVys6X1i6YBPAZH5Llgw2erFv2BC4xMuK+OYGX6iJCHucB67Uy9fgdagLYay/eY7cSU0FFeZxIeDPdmz6Tnb7KeWQ9pxbHDZRTMWGD+V0M4MRSQvUKM+iEFHMiZsC5eOkmKK4yLqJOG28eAXO3mRimkw6D3dxcaqqUg=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NHdETWJ2Mi94K001bjZoWmIvbDVBR1RkTTZSVDhvejY0bXJwV0Q5dCtITVk2?=
+ =?utf-8?B?eEkvaUV6U29FUkpOSm1hNUFFeG1YZUJnQWtkaDBnWlpwaFZCbE9XdUpvMmcy?=
+ =?utf-8?B?MTB6R0cybGNiY1lxUTZuUVMybTg0ZDRQQ3J0UURxelF4TExLR0xob2RTc3Iv?=
+ =?utf-8?B?NVRsRFlwdkI5QnlrREswN3ZacW1Qb21EeFBKa3NTNDRJWk5CNER5TUpiWURx?=
+ =?utf-8?B?aTJ3enZpR2FRUUFUNWNOQnVBRXA5SXo0WHU0cHA2M0swUDZsbFh3VkV0YTRJ?=
+ =?utf-8?B?QUc5bzZISE5IbFFkVUtKOWEyNmpkamRQbHpOSXY0bEx4cDJ2TkozTUVXekU2?=
+ =?utf-8?B?QWJYNEREY1NvNmF5ZWFwZDN2c25QUmpoQVRYNEhGcytyRlRsWnBSWk4xNUpt?=
+ =?utf-8?B?SGFoVUd3b0lkdW9WOW1Sd1JQVlhvREd4TmRaSUN6eW1yUmVITlhFc2dSYjg0?=
+ =?utf-8?B?UWJDMEt3bHZQV05xRldDRFB5RG9ncU0yK2dVMEtKMitmWlBRTXFGTW54eG5D?=
+ =?utf-8?B?K2pSRDBzaDVQSTdCcUhDQVhrNTZFNW92cjh6dkdPbGVFYTVLcmNTMmJMMlVC?=
+ =?utf-8?B?T1FUbytYd1pkc1lWL2l0UTVsWnorMU9MY0E2WDBDWnIwdHpRVmNaUHhKZU9t?=
+ =?utf-8?B?NVAyOXNPKzZ2OEhnM0w4eFJUVnZrVkx0eVdVRWRYR01ySkN1RnM3UmxlTEJI?=
+ =?utf-8?B?M0dZVWorVnIxMU5vcG9iTXlaTVhHa0N0Z21xai9Pa3A3Q3ZQQzB2U0ZiS1lw?=
+ =?utf-8?B?UEUrUjJlOUJCZmlPRk9UV3ViUVNhZmJYTkQvNmc2UEdQbG1uNFRtQ1ZjRklT?=
+ =?utf-8?B?RFNnOVNoN0pkZ01ZcUxNRVNMTmRVNkNLOGMza09QTVcya0gzU3RTY3ZOSGc2?=
+ =?utf-8?B?djFmZkloRjY3Q0xiczlSQUdyMm9DeEZIYnVKTEU0OE9FVlJaOUk2TWtMYjVZ?=
+ =?utf-8?B?bGFiZHp6OVZCUGgzZWRodFYvNUEvd3lkQThYUE93a1A4NkdBTzY4REIxNjhH?=
+ =?utf-8?B?d2E1aE5SWmpCL2UxdjVJNVNXc2FrcUVqZ2ZTVzBNazhJS3lzbk8wQ1AzaVg5?=
+ =?utf-8?B?TTIybVVNc3ZYbXcvakg2bzhUd3M5QW5QU3ArUkx5bkIyZk9MYkxpQXdMTi9D?=
+ =?utf-8?B?MThJZklqNHhnZWRqbmpGRmRRZCtlNTJia1A2c2dyVUh2blVpOGkvOUxOL21W?=
+ =?utf-8?B?T0dQODJaVWhaRHBra2Fqa2lLeUNGaGl5TzJyTVNwYk1hbkp1czFHelNybTNB?=
+ =?utf-8?B?SlFYR0hOYzdhbFR1Vzh4WlVKZXcrd2xYclBoMjRiTUlZc0RGSWFMNUdJc2Vp?=
+ =?utf-8?B?L1JVVHQxd2FZYUUwcXNHNm9EU2JFMzBIV0dWL3RnM1VVNWVaQlNGaFF3T0dD?=
+ =?utf-8?B?RjJwRFp5bjNsekc0K0hKVG5BVVp0dDQ2Q0pzZzllL1dxTGE0K0p5VnpXVFo1?=
+ =?utf-8?B?V0EwK0pMRWQ0S29jMGNURTZ5bUlzWVhzYnBoU0ZWZkV1bmdCVlBpVFlSUkZi?=
+ =?utf-8?B?NjhmQ3Z5V1hVL0dGdHRLYWFqK0pxQmdZU2JYWkp0T2VqcmtiTytPcnhSWnFq?=
+ =?utf-8?B?RG5zL0FGSERlYXlzVElsZ1VQS25CaG5nV2d4cXRvanptMUZZTFBNV01WUWF2?=
+ =?utf-8?Q?MUzpqSLGNrNngw/3CXc+MB7beRsWER3l09TLg7oNaKqY=3D?=
+X-OriginatorOrg: sct-15-20-7719-20-msonline-outlook-93a97.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 079c24d6-12ec-4214-32f5-08dcf45137f2
+X-MS-Exchange-CrossTenant-AuthSource: LO0P265MB3211.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 17:28:04.9479
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB7186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_102728_193831_869951FC 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20241024_102816_002284_0E86BB37 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,54 +151,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+I really did not want to get involved as well, but Finland (together 
+with Germany) also participated in the horrific Siege of Leningrad which 
+lead to immeasurable suffering of its population:
 
---twcjumikk4cgqnzo
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] phy: tegra: xusb: Set fwnode for xusb port devices
-MIME-Version: 1.0
+https://en.wikipedia.org/wiki/Siege_of_Leningrad
 
-On Wed, Oct 23, 2024 at 11:13:43PM -0700, Saravana Kannan wrote:
-> fwnode needs to be set for a device for fw_devlink to be able to
-> track/enforce its dependencies correctly. Without this, you'll see error
-> messages like this when the supplier has probed and tries to make sure
-> all its fwnode consumers are linked to it using device links:
->=20
-> tegra-xusb-padctl 3520000.padctl: Failed to create device link (0x180) wi=
-th 1-0008
->=20
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvid=
-ia.com/
-> Tested-by: Jon Hunter <jonathanh@nvidia.com>
-> Suggested-by: "N=C3=ADcolas F. R. A. Prado" <nfraprado@collabora.com>
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
-> ---
->  drivers/phy/tegra/xusb.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+This is something that many modern Russians living in Saint-Petersburg 
+(ex-Leningrad) can relate to. Am I going to blame Linus or the Finnish 
+nation for that? Of course not! Because I am not an idiot or a racist. 
+And I can use something that Linus has mentioned previously - brains. 
+Can you please do the same, Linus?
 
-Acked-by: Thierry Reding <treding@nvidia.com>
+This really turned ugly, please stop trying to use history as your moral 
+compass. Also, if you'd like to place a collective guilt on the whole 
+group of people for past or present wrongdoings I would like to quote 
+the words of famous Holocaust survivor and psychiatrist Viktor Frankl: 
+"Collective guilt does not exist":
 
---twcjumikk4cgqnzo
-Content-Type: application/pgp-signature; name="signature.asc"
+https://www.youtube.com/watch?v=leGKtWlwHt4
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmcag3oACgkQ3SOs138+
-s6E0jA/9Hrx9YAv2LNCLCxeOKL/DQUk66osQ3tcAQYkyXH1Lf8zsvymHrcUdbWBM
-95AoBk6VHHrDM/3mW1riHBZy7wiSLA7ZH+nXiFscRZcisWchkrcSFd1Oy1LgRj2Y
-N268oEbko8jjmyKx0yTojbbilbsZtXZkKsaVhxkBgAchQ8lYuAQg4nPRABMJB6F3
-eZKMHGXBm6YQFOvV+Ahasj88hN+0WceHJNvzIQPXyWY2U6ixPpsup5J/uikzHqpI
-rmlb5zqPUHtHtG/U/ku39cIgiiOBE73/OW1r0qM5ez+UiTYWukXAQyBSCjtoWBrm
-JguDu8m/fS1Iqn+NmxlOBto5gRRABLwBb3PHWfW7XEuVk8ZdGpycBxQ0+ZOglfSC
-PUn/XxgW99w/KbP6401Bomy+Qj9MXJap2cytyVNrMGda1xlwnAPFVPDZ6qNCxZRc
-Bw1dD6hZeWOsKlFZcY9mBhn4D7nAalV/t+zKe9YdEe7zdkTv6CL4o79JjjIACdsh
-GJjfZOlG7FsLE2D5KscHSf7vxRKG2xOcpQyc892MLa2tm4MngYKUGsIEPZJOsnHF
-vkw+QmOdblNPJSILIH9uyAwwb3YDkivpKILxPTgMB2eywmWnxQaMh96hc97eipNh
-H0hKPDvcuendN6+xsu5VM4VQSp5VdAbX+YumtsJ06Dhdqt4kdoY=
-=GeOf
------END PGP SIGNATURE-----
-
---twcjumikk4cgqnzo--
+On 24/10/2024 17:15, Guenter Roeck wrote:
+> On 10/24/24 08:41, Andy Shevchenko wrote:
+>> On Thu, Oct 24, 2024 at 12:57:08PM +0300, Ivan Epifanov wrote:
+>>>
+>>>> I'm Finnish. Did you think I'd be *supporting* Russian
+>>>> aggression? Apparently it's not just lack of real news, it's lack of
+>>>> history knowledge too.
+>>>
+>>> As an avid history lover, you've seem to forgot, that Finland fought 
+>>> on Nazi side.
+>>> So yeah, we're well aware you don't like Russians, unless they're in 
+>>> concentration camps.
+>>> Which is exactly what you do now: segragate, based on nationality. 
+>>> Strip of credits and names.
+>>> Once a nazi - always a nazi. So, fuck you.
+>>
+>> $ git log --author="isage.dna@gmail.com"
+>> (no results given)
+>>
+>
+> I really don't want to get involved, but this misinformation really 
+> goes too far.
+>
+> https://en.wikipedia.org/wiki/Finland_in_World_War_II
+>
+> provides context. And it does sound familiar. Turns out the Finnish 
+> defended
+> themselves against invasion from the Soviet Union. Sounds familiar ? 
+> Guess it's
+> the same as those alleged Nazis in Ukraine nowadays.
+>
+> Guenter
+>
 
