@@ -4,61 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014A7CE8E70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAC7CE8E70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYx7LAyRV3Ucr0XiBCFOAYtv8t2YgLt+/TvO8hjpNtU=; b=UFY2E/K+8mdgTM2s84Ihwa1gIz
-	CyrRghwxLENTZ7NAOkyTOc7LEFhNBxxc+wD+Cwe7//RyeG876IU6f7CvsU7+oHIkRV+hej4b0OvJF
-	+I1lZgKOZdcpzHbTmodmdkS1UE7h0h2RxHLvFlMbQIXqtbnaszoimsjipjrItkHARpL3qVigj6r5c
-	szTUlwCwEMQRZw55459FniJyIB748JiVEcQxbZurjmHuqSvc987gD45qUFiTw/7BdGU3cHT3BxmUy
-	crArjVJ6yDrXE93xrRpd0FCIfYWgPEjC5S31uuy27d29Tpixa1CzdLV9/dpO44nQwzgBb0A1C2nk6
-	k1/IzS5Q==;
+	bh=jtYljdeGFdWqH3FeLgiaiG9kZtUc7xOqcgW/o6445uw=; b=bVFjhC7Uk7XKJqQ7Sq+e/xN90J
+	gjM5BzrmkHxMtdij6lJvGHoGjVCqGo5YxgLYhBP2m1VLJyobaQw9+FbrKoxFN9tqL/ruhT1js2SJ+
+	szvSwGxzIsFM77oczGoEz3NCagClDTG0qk7kncpfWsZkWSlc8RCLsBnTFYgzs9p98/Q+frRnjJezP
+	vGtCYIjk39jv5jSOygJgUa5PbWcerSJATlMEG7Cyoafq0pH46N/JD4Ox6v39m4brLM3kuYXNwZTK/
+	O1L/zOjtiv1NS4jq54RGwilr1AbPzpMKE5BbbY+/Y18zXtxPTl0POG9GEWAuQEtay0VC4mXKZgif9
+	5pzvm4RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xjD-00000000TCT-0nPE;
-	Thu, 24 Oct 2024 13:18:15 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1t3xpK-00000000UKQ-1zGv;
+	Thu, 24 Oct 2024 13:24:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xhe-00000000SoS-156y
+	id 1t3xnh-00000000Tov-0y5k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:16:39 +0000
-Message-ID: <ff454a9b-5e60-49cb-8590-a2535f851057@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729775795;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nYx7LAyRV3Ucr0XiBCFOAYtv8t2YgLt+/TvO8hjpNtU=;
-	b=IJI5zCBmkMWuSlAC6vNeUKZ/x0HqRyeKkaCRuPkB1OLmXKmyDkre5tUfruHXq1gNMlp7sa
-	wAdbkUxXhNgkeBwbbk+ggdjpGjJOe2qPZyFLhIyXnkhY27YXJQ7do5bCWB6f2s/fnsAEEL
-	1qpWsIUKTCgqoyPDfwoaovUS3LL604M=
-Date: Thu, 24 Oct 2024 14:16:30 +0100
+	Thu, 24 Oct 2024 13:22:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6077FA453B3;
+	Thu, 24 Oct 2024 13:22:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FF83C4CEE3;
+	Thu, 24 Oct 2024 13:22:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729776171;
+	bh=kc1ZQ4MosC46ZBz5uzN1Bxee3AY7JHIMK7ZbiVyBQw8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cVJ1uujs3gqDg34e0qGqig8v+exShDKLedXA4/XRuFTRPqTraBc8zB3cKN6wyZtVU
+	 7qvSckk7X16ERyKJ25ail3z6Or7DNI0Q5BEwzBCtqEACjZ9qqzTkI63/xBYVvL/OzV
+	 eznrFwBW2v/AQ0R/7JNS7FxzJQP8wsmLP7rXfst2FfLo50q7+RXrrjllF8yfB5i0Y6
+	 KYHT6BNId9USHmBQd1lK0nw5vrO+BO9CzRHgn1xjqvUwAhunyXs0fGi87H8KqCX4U5
+	 iKALZjAlFzuM1UC0iIQjiWlVm9Lw+HwfS1C9YAmXGbOyRNEovyF5WLpqs54PyA5FD0
+	 3AOk6jVnrwsjA==
+Message-ID: <53f2e315-1a80-4d03-96a6-30604a96d3ad@kernel.org>
+Date: Thu, 24 Oct 2024 15:22:42 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix 1 PPS sync
-To: Meghana Malladi <m-malladi@ti.com>, vigneshr@ti.com, horms@kernel.org,
- jan.kiszka@siemens.com, diogo.ivo@siemens.com, pabeni@redhat.com,
- kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
- andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-References: <20241024113140.973928-1-m-malladi@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/14] dt-bindings: pinctrl: stm32: add RSVD mux function
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+ Stephane Danieau <stephane.danieau@foss.st.com>,
+ Amelie Delaunay <amelie.delaunay@foss.st.com>,
+ Fabien Dessenne <fabien.dessenne@foss.st.com>,
+ Valentin Caron <valentin.caron@foss.st.com>,
+ Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Cheick Traore <cheick.traore@foss.st.com>,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+ <20241022155658.1647350-5-antonio.borneo@foss.st.com>
+ <swbppwzpavktjpyb6piayzzht6ta75w3g36oyndmim54oztar5@svb4452yob7g>
+ <680f3e0b7458015d5b909200342a623eb55f907d.camel@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20241024113140.973928-1-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <680f3e0b7458015d5b909200342a623eb55f907d.camel@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_061638_485916_EC2B12F1 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20241024_062253_418541_AB28BD5C 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,89 +132,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2024 12:31, Meghana Malladi wrote:
-> The first PPS latch time needs to be calculated by the driver
-> (in rounded off seconds) and configured as the start time
-> offset for the cycle. After synchronizing two PTP clocks
-> running as master/slave, missing this would cause master
-> and slave to start immediately with some milliseconds
-> drift which causes the PPS signal to never synchronize with
-> the PTP master.
+On 23/10/2024 10:56, Antonio Borneo wrote:
+> On Wed, 2024-10-23 at 10:47 +0200, Krzysztof Kozlowski wrote:
+>> On Tue, Oct 22, 2024 at 05:56:48PM +0200, Antonio Borneo wrote:
+>>> From: Fabien Dessenne <fabien.dessenne@foss.st.com>
+>>>
+>>> Document the RSVD (Reserved) mux function, used to reserve pins
+>>> for a coprocessor not running Linux.
+>>>
+>>> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+>>> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+>>> ---
+>>>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
+>>>  include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
+>>>  2 files changed, 9 insertions(+)
+>>>
+>>
+>> BTW, which *existing* SoCs use it? Aren't you adding it for the new
+>> platform?
+>>
 > 
-> Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
+> This is already used in ST downstream kernel for STM32MP15x
+> In this example
+> https://github.com/STMicroelectronics/linux/blob/v6.1-stm32mp/arch/arm/boot/dts/stm32mp157f-dk2-m4-examples.dts#L112
 > 
-> Hello,
-> 
-> This patch is based on net-next tagged next-20241023.
-> v1:https://lore.kernel.org/all/20241023091213.593351-1-m-malladi@ti.com/
-> Changes since v1 (v2-v1):
-> - Use roundup() instead of open coding as suggested by Vadim Fedorenko
-> 
-> Regards,
-> Meghana.
-> 
->   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 ++++++++++--
->   drivers/net/ethernet/ti/icssg/icssg_prueth.h | 11 +++++++++++
->   2 files changed, 21 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 0556910938fa..6876e8181066 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -411,6 +411,8 @@ static int prueth_perout_enable(void *clockops_data,
->   	struct prueth_emac *emac = clockops_data;
->   	u32 reduction_factor = 0, offset = 0;
->   	struct timespec64 ts;
-> +	u64 current_cycle;
-> +	u64 start_offset;
->   	u64 ns_period;
->   
->   	if (!on)
-> @@ -449,8 +451,14 @@ static int prueth_perout_enable(void *clockops_data,
->   	writel(reduction_factor, emac->prueth->shram.va +
->   		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
->   
-> -	writel(0, emac->prueth->shram.va +
-> -		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
-> +	current_cycle = icssg_readq(emac->prueth->shram.va +
-> +				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
-> +
-> +	/* Rounding of current_cycle count to next second */
-> +	start_offset = roundup(current_cycle, MSEC_PER_SEC);
-> +
-> +	icssg_writeq(start_offset, emac->prueth->shram.va +
-> +		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
->   
->   	return 0;
->   }
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 8722bb4a268a..a4af2dbcca31 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -330,6 +330,17 @@ static inline int prueth_emac_slice(struct prueth_emac *emac)
->   extern const struct ethtool_ops icssg_ethtool_ops;
->   extern const struct dev_pm_ops prueth_dev_pm_ops;
->   
-> +static inline u64 icssg_readq(const void __iomem *addr)
-> +{
-> +	return readl(addr) + ((u64)readl(addr + 4) << 32);
-> +}
-> +
-> +static inline void icssg_writeq(u64 val, void __iomem *addr)
-> +{
-> +	writel(lower_32_bits(val), addr);
-> +	writel(upper_32_bits(val), addr + 4);
-> +}
-> +
->   /* Classifier helpers */
->   void icssg_class_set_mac_addr(struct regmap *miig_rt, int slice, u8 *mac);
->   void icssg_class_set_host_mac_addr(struct regmap *miig_rt, const u8 *mac);
-> 
-> base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
+> the GPIOs for LED and for PWM are assigned to the Cortex-M4 and Linux (on Cortex-A7) is not supposed to touch them.
 
-Thanks,
+I wasn't clear. Which upstream uses it? We really could not care less
+about downstream vendor code.
 
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Best regards,
+Krzysztof
+
 
