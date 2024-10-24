@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961ACCE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBCDCE8E9B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVypqKKxEgbuS39ueitWPKZvjYvwgLuQPT1qIa+TBr0=; b=rUu3vk0l1yx7efWsFrX7uW4q3B
-	hVB08YK5W9eopdUHFYSweFqfEhKn8w2XJqgQnvOhZoDsO+zBQiAFep6y4WemoYcqVe4IrKNsODFrV
-	lIZICIzxkz293AawKPhP9cjtNnVe9eTxp5llbo+MXLMZICkQJqBHTbCxoK1K8SmKxayKz2wztMx84
-	ruEYvAgl+ZfCAdsFzw1gyA3Et5pH5b6HpRJ0JhABdKnf0KmwAU5uVPD1OF7o2tU1djOsC12FSUfJK
-	OkwTNg7pVO4MsH6MQLe4Z26tH/uOy2ae/eSQPb/VOxrRKvYg7vgN7mcmn5alk8tJasRu6ybBY9AeZ
-	dTlcU9dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTKrnBluD4JxPICdqME0ajZ+Fx27J0/+WYJKBnAywrU=; b=gLY9H2pQB/O+m+o/3qz9/Jo/rd
+	eAAbUuEgcDu6LFwiaLcwX80s+PK38ctTmG/Y+pQtdCAtUMAtKt6NI37B0CgWzZOMiYFce6iFQS7AM
+	upCuF4K97CI8+5cPHhclu+Pc/sEMlzSdQ/xN6dcD+VqMF7jo6x77PzrhKwUAEQBK/UrT61k1RbOnr
+	0g2v7XJVS6l+Ml817NmCVWlTyfq5g0CUgIsmbXDfC0axm2pUb/y3I7S2VJGzO3Y2cPRVtjuN2bQZN
+	sQVZCtOSgVkYKAnq/qZEBTTfEmed9bHBnTc6+iJ+fs+xIDqJlv2OIRmSvKNT17mmUb0SCyXO+HkyV
+	mZ7d8WnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41aQ-00000001HES-0SuM;
-	Thu, 24 Oct 2024 17:25:26 +0000
-Received: from thales.epochal.quest ([2607:5300:205:200::3a30])
+	id 1t41bx-00000001Haa-1qHR;
+	Thu, 24 Oct 2024 17:27:01 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41LL-00000001DqY-2khf;
-	Thu, 24 Oct 2024 17:09:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
-	s=default; t=1729789790;
-	bh=1G2LVJhU97J4DTWThVt0tTikaaKuPtmpeH+bT9okCBU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MAASwq7ORI7ZT3sVWFfuTOlPZQOdoxDtK/m5YeTHXPC/3qT8SBCISpuG392WlbZoe
-	 F5BdY2BHriUtHtZfpGaH0lW2EeqaPMOU+V/unY2YO4L7A/QGArA+RhGp4peKXLBkkC
-	 duPIlLmesyLFF25IrZwusYwUK75n4g7fXtaa6Jz2vVsIuRol2SuG39QfjmMvm+dDBs
-	 yaph0UKC2QkO84jpwnczlZ/SObzqZP0IldY+gQTIMeAl01ZZO9oN66hl399HecH2t+
-	 0Jd0JKmOLvQ6BPlyXtl7YgCRB5FL3UHdXenB3a9C7XCBsPV6xyfa0Q72XeBZvkKKat
-	 ox8t9Zqe2guBA==
-X-Virus-Scanned: by epochal.quest
-From: Cody Eksal <masterr3c0rd@epochal.quest>
-To: linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Cody Eksal <masterr3c0rd@epochal.quest>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Parthiban <parthiban@linumiz.com>,
-	Yangtao Li <frank@allwinnertech.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Thierry Reding <treding@nvidia.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Shuosheng Huang <huangshuosheng@allwinnertech.com>
-Subject: [PATCH 13/13] arm64: dts: allwinner: a100: Add CPU Operating Performance Points table
-Date: Thu, 24 Oct 2024 14:05:31 -0300
-Message-ID: <20241024170540.2721307-14-masterr3c0rd@epochal.quest>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
-References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
+	id 1t41Lw-00000001E0P-1nzu;
+	Thu, 24 Oct 2024 17:10:29 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2fb51e00c05so17975991fa.0;
+        Thu, 24 Oct 2024 10:10:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729789826; x=1730394626; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FTKrnBluD4JxPICdqME0ajZ+Fx27J0/+WYJKBnAywrU=;
+        b=lC6ROgjl5Tlb3e7Uaks14jFSYg0MNlgrm8aXNKp3lQ49QwzUbd8ZpM25HqmCmSINUv
+         HzccDnbPDiqjsKkL/SAnLpv/DvLsV5uf3O+tl2gzKo05Pe6JKiUX/8YRv2dfOp2A72Hm
+         ESlCOrJy2jCk/SQ7T+vd8SwwHjgyxxrt0OFUgCEkgHJvwzI9nR40zWC3FcNPpKkOQNMk
+         ARNfOxh7gRLqovUGwcqQ33YO3Ni2lMOtSk8s1rbgSYWQy139xazXRpEFybds8sY23GAR
+         l3+AHBoEtYZu58TZvco4ESu6QMZaNKZj8hMgC6pRgXday+8qdWjFaTa91JAWwrew0t01
+         MBeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729789826; x=1730394626;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FTKrnBluD4JxPICdqME0ajZ+Fx27J0/+WYJKBnAywrU=;
+        b=MqRPFXzU2RjE7Mzmu5AaPnCq0qxuaKueKk6/qJDBLQC+SG2+G04p/PouSJAw17beaB
+         WtKa1Lbrw1B2EQIFmV4XfXSWtSCKLwJUs0SrXCI50agd+DprtxwGyB6tYbOXrvS/6P6H
+         zP3Oi1+JDAZDrurBpmIcVBvY0Jun9nfDToGun48Ev8IY0eCZBa26tOY4JId/cIggspPU
+         mN6m1yWOfqhOHJzsZw86iYfNsriND9YpZqR8EVzHf/mtGLCKNTYQgml1WFwJPS+/cBTS
+         xOH9hh0sIlsvJycMY6emCKh+G7fc9R4atCgUePlJ5k0d8NKu5K7UXodu7xW3d4RRAyuX
+         hhaA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7JJnkKhKs1HR3xlr6LqsopJVnCvwwhREgKEIicyIm43XoUF9f+Zk4m5ZGjD0+SmBv/WOWPMU0FPycZCMh4x+R@lists.infradead.org, AJvYcCXkxGfrxiuep6gbx08l2yvz2J/l+QVHB9G8t2axf1rSRzGphBqDjeg9GCazia7I9T2EfqpjqyT/gylCJsxwpqEk0A==@lists.infradead.org, AJvYcCXtR0QBrFM2HhjB1iEta0kA4Ai7JtmuYSUAtGasjLnZIvUpb2RPrmKHw9GrpEJILRMrk5ZHLjTmjW+RLzM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxyEbAzss+WWyqJ4/FqesR7sTay64QjFLZrlp9jaeyxeqhid1o
+	pTTJIVlTLB2D7Vt5v9dKKuRmBsHPNgrYIOmxai3qMCglX9JSHVoT
+X-Google-Smtp-Source: AGHT+IE6fiv+vs26SxlA2LCU8dr7H03wlCXlCxw07cHtczrt07/pTtUnxZ56Zdpp4aB7P5gDnnkT3Q==
+X-Received: by 2002:a05:651c:1545:b0:2fb:3960:9667 with SMTP id 38308e7fff4ca-2fc9d31b55bmr61721431fa.14.1729789825771;
+        Thu, 24 Oct 2024 10:10:25 -0700 (PDT)
+Received: from orome (p200300e41f26ec00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f26:ec00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9a91370e75sm641392466b.130.2024.10.24.10.10.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 10:10:25 -0700 (PDT)
+Date: Thu, 24 Oct 2024 19:10:23 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Celeste Liu <coelacanthushex@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Russell King <linux@armlinux.org.uk>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	Stefan Wahren <wahrenst@gmx.net>, Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH v3 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
+ bcm2835/tegra/omap2plus
+Message-ID: <6m77wg6b76abyk2ebfniayxvrabvzur7onwar4isajb6tvfxbv@7a24p2xkmevj>
+References: <20240910-fix-riscv-rt_group_sched-v3-0-486e75e5ae6d@gmail.com>
+ <20240910-fix-riscv-rt_group_sched-v3-4-486e75e5ae6d@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mgvujidfj33lw4eo"
+Content-Disposition: inline
+In-Reply-To: <20240910-fix-riscv-rt_group_sched-v3-4-486e75e5ae6d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_100951_830830_D7043B85 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20241024_101028_494179_853327E6 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,188 +105,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
 
-Add an Operating Performance Points table for the CPU cores to
-enable Dynamic Voltage & Frequency Scaling on the A100.
+--mgvujidfj33lw4eo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
+ bcm2835/tegra/omap2plus
+MIME-Version: 1.0
 
-Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-[masterr3c0rd@epochal.quest: fix typos in -cpu-opp, use compatible]
-Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
----
- .../allwinner/sun50i-a100-allwinner-perf1.dts |  5 ++
- .../dts/allwinner/sun50i-a100-cpu-opp.dtsi    | 90 +++++++++++++++++++
- .../arm64/boot/dts/allwinner/sun50i-a100.dtsi |  8 ++
- 3 files changed, 103 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
+On Tue, Sep 10, 2024 at 08:51:10PM +0800, Celeste Liu wrote:
+> Commit 673ce00c5d6c ("ARM: omap2plus_defconfig: Add support for distros
+> with systemd") said it's because of recommendation from systemd. But
+> systemd changed their recommendation later.[1]
+>=20
+> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarch=
+y it
+> needs an RT budget assigned, otherwise the processes in it will not be ab=
+le to
+> get RT at all. The problem with RT group scheduling is that it requires t=
+he
+> budget assigned but there's no way we could assign a default budget, sinc=
+e the
+> values to assign are both upper and lower time limits, are absolute, and =
+need to
+> be sum up to < 1 for each individal cgroup. That means we cannot really c=
+ome up
+> with values that would work by default in the general case.[2]
+>=20
+> For cgroup v2, it's almost unusable as well. If it turned on, the cpu con=
+troller
+> can only be enabled when all RT processes are in the root cgroup. But it =
+will
+> lose the benefits of cgroup v2 if all RT process were placed in the same =
+cgroup.
+>=20
+> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn=
+'t
+> support it.
+>=20
+> [1]: https://github.com/systemd/systemd/commit/f4e74be1856b3ac058acbf1be3=
+21c31d5299f69f
+> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=3D1229700
+>=20
+> Tested-by: Stefan Wahren <wahrenst@gmx.net>
+> Acked-by: Kevin Hilman <khilman@baylibre.com>
+> Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
+> ---
+>  arch/arm/configs/bcm2835_defconfig   | 1 -
+>  arch/arm/configs/omap2plus_defconfig | 1 -
+>  arch/arm/configs/tegra_defconfig     | 1 -
+>  3 files changed, 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts b/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-index 29e9d24da8b6..99b1b2f7b92a 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-@@ -6,6 +6,7 @@
- /dts-v1/;
- 
- #include "sun50i-a100.dtsi"
-+#include "sun50i-a100-cpu-opp.dtsi"
- 
- #include <dt-bindings/gpio/gpio.h>
- 
-@@ -67,6 +68,10 @@ &usb_otg {
- 	status = "okay";
- };
- 
-+&cpu0 {
-+	cpu-supply = <&reg_dcdc2>;
-+};
-+
- &pio {
- 	vcc-pb-supply = <&reg_dcdc1>;
- 	vcc-pc-supply = <&reg_eldo1>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
-new file mode 100644
-index 000000000000..eeb8d20f3fb4
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
-@@ -0,0 +1,90 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+// Copyright (c) 2020 Yangtao Li <frank@allwinnertech.com>
-+// Copyright (c) 2020 ShuoSheng Huang <huangshuosheng@allwinnertech.com>
-+
-+/ {
-+	cpu_opp_table: cpu-opp-table {
-+		compatible = "allwinner,sun50i-a100-operating-points";
-+		nvmem-cells = <&cpu_speed_grade>;
-+		opp-shared;
-+
-+		opp@408000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <408000000>;
-+
-+			opp-microvolt-speed0 = <900000 900000 1200000>;
-+			opp-microvolt-speed1 = <900000 900000 1200000>;
-+			opp-microvolt-speed2 = <900000 900000 1200000>;
-+		};
-+
-+		opp@600000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <600000000>;
-+
-+			opp-microvolt-speed0 = <900000 900000 1200000>;
-+			opp-microvolt-speed1 = <900000 900000 1200000>;
-+			opp-microvolt-speed2 = <900000 900000 1200000>;
-+		};
-+
-+		opp@816000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <816000000>;
-+
-+			opp-microvolt-speed0 = <940000 940000 1200000>;
-+			opp-microvolt-speed1 = <900000 900000 1200000>;
-+			opp-microvolt-speed2 = <900000 900000 1200000>;
-+		};
-+
-+		opp@1080000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <1080000000>;
-+
-+			opp-microvolt-speed0 = <1020000 1020000 1200000>;
-+			opp-microvolt-speed1 = <980000 980000 1200000>;
-+			opp-microvolt-speed2 = <950000 950000 1200000>;
-+		};
-+
-+		opp@1200000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <1200000000>;
-+
-+			opp-microvolt-speed0 = <1100000 1100000 1200000>;
-+			opp-microvolt-speed1 = <1020000 1020000 1200000>;
-+			opp-microvolt-speed2 = <1000000 1000000 1200000>;
-+		};
-+
-+		opp@1320000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <1320000000>;
-+
-+			opp-microvolt-speed0 = <1160000 1160000 1200000>;
-+			opp-microvolt-speed1 = <1060000 1060000 1200000>;
-+			opp-microvolt-speed2 = <1030000 1030000 1200000>;
-+		};
-+
-+		opp@1464000000 {
-+			clock-latency-ns = <244144>; /* 8 32k periods */
-+			opp-hz = /bits/ 64 <1464000000>;
-+
-+			opp-microvolt-speed0 = <1180000 1180000 1200000>;
-+			opp-microvolt-speed1 = <1180000 1180000 1200000>;
-+			opp-microvolt-speed2 = <1130000 1130000 1200000>;
-+		};
-+	};
-+};
-+
-+&cpu0 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu1 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu2 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu3 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-index 6dca766ea222..747a0292ef98 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-@@ -23,6 +23,7 @@ cpu0: cpu@0 {
- 			device_type = "cpu";
- 			reg = <0x0>;
- 			enable-method = "psci";
-+			clocks = <&ccu CLK_CPUX>;
- 		};
- 
- 		cpu1: cpu@1 {
-@@ -30,6 +31,7 @@ cpu1: cpu@1 {
- 			device_type = "cpu";
- 			reg = <0x1>;
- 			enable-method = "psci";
-+			clocks = <&ccu CLK_CPUX>;
- 		};
- 
- 		cpu2: cpu@2 {
-@@ -37,6 +39,7 @@ cpu2: cpu@2 {
- 			device_type = "cpu";
- 			reg = <0x2>;
- 			enable-method = "psci";
-+			clocks = <&ccu CLK_CPUX>;
- 		};
- 
- 		cpu3: cpu@3 {
-@@ -44,6 +47,7 @@ cpu3: cpu@3 {
- 			device_type = "cpu";
- 			reg = <0x3>;
- 			enable-method = "psci";
-+			clocks = <&ccu CLK_CPUX>;
- 		};
- 	};
- 
-@@ -142,6 +146,10 @@ efuse@3006000 {
- 			ths_calibration: calib@14 {
- 				reg = <0x14 8>;
- 			};
-+
-+			cpu_speed_grade: cpu-speed-grade@1c {
-+				reg = <0x1c 0x2>;
-+			};
- 		};
- 
- 		watchdog@30090a0 {
--- 
-2.47.0
+Any idea who will want to pick this up? Probably something the ARM SoC
+maintainers can do directly, in which case:
 
+Acked-by: Thierry Reding <treding@nvidia.com>
+
+--mgvujidfj33lw4eo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmcaf38ACgkQ3SOs138+
+s6Eb2RAAph/IveI76N2c7lk/cbmWs1cQoFHZmyzXgY26ZBU9nc81ILsjchLmkF85
+h1M3kPkxMquC56MplXj0gSQGCIQIuLlbJf/cR4bL+PPOw7ecV5Dwg3cvg17do6+w
+7+zAVkx+pXA8HbBAqVpHuQcP+YyPN4GEFDy8L8bdOa3GrAdpFKehSTCvr0cmvZCD
+LtNd8P4xocqpMrxdGbH3YcOT/eJtbwlmRCYbeWavOtFfdiiIuNH73drj1L67sOjv
+A0rgJOdsEtMCQG/sCtMkGd7KY62fZCE4nTu9RUM4/ett8nlROC674VgvJrpCW6Ym
+hSZmJaRPXSInSFk9olAC3wWChah4WncpBj7qEfZ8g8dwMchFeGwgYTxxmCUIV7o8
+A1Q1pbb1BMAS64SRaLv2bRkuWJ0FdI0bll+pihc7MSYtiWAuP5muOxK6QWdbr/ig
+tTpYEh0PSsBkBAJ4zswAfXggM0HOUzqUOVsGDW0ky95K9pVDuDF9LVIY1FuEMgDw
+72WHhE1zsbgVlfzTIOC0s8cD9ghl6e49g/TIl+BHxLh3xEWz2DOY8yLyj5M2OCgk
+2Y+9jS20AREVOhtvxmeW5MDJavSj+4LXvqQE/7G63JDamadu/N1GYPfCqmQxQSiW
+WaSdrnjknZjngwZWPQ+1p4LgKnlEr78OUc/jCnsSMyYXnBb3EzA=
+=YCp7
+-----END PGP SIGNATURE-----
+
+--mgvujidfj33lw4eo--
 
