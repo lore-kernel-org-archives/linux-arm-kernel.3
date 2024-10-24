@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC11DCE8E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FF7CE8E7E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ECOF/H9PFUFioRUiy+IGZiwk0mnHr5Ag/WOy+Iwjhg=; b=vtAFmvnKaBBv1w78zHhWcpUgV1
-	G+PoDpYhtlZmfCwHcdKNQqduL6FJjmGcd7rg2LPXly1J+4O/QhGFbtuXB8rtzYV582J8EV7flc71p
-	K2KMuL/gyUnDO1tgLL21PvgIbP6AsZCx/LBA3fWJTybncbz8QyNU34V66n+D54Z6EFfUV4kVSsl8r
-	i6ueFtUAu6LQhP3Dzt7RNoSAIjbt2og0E6qrARTsJ5ZI9v5szvqIK2aSl7DLywiToeW1lL5Nt5de+
-	5VBRMs7pSj/WTmxj7d9/Q4VVrSJUPm7A5/RfcM4JZlzwGQ07Nckre+vo7ErllMiBHHq8jbHd0IYkF
-	nMgRV2Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKLj8//VUnrabnh2cIQXrW1bu5JfQoabUH3nLJxqtI8=; b=q1HlJcLisoa7Gevmg3T8enxyqo
+	zIA1yxkiWqKqejS0IqbSg8HnbnSjWnNYEYFTL1uco+iJp+ROTBRmIPNdoDAPS4ulYAMAsxO9GiRfv
+	aBiR+lNa2mJlxDYfKr5VjhpbT1BI1J3COawvHFErwu1gWjTx/SNtwdWu6HV+bfpMScinlfL/a1R3R
+	Jhll+yxR5lrSljYcV4rsrAkcc/3gxHMeUkbxI1G+Sq5ZnWrGyYvlOW3wwG39UBgDkUtvuqQ/lt+Ms
+	yqvAGBCAmixGVedya2PLfCSv3exxDd5RV7U6w8TylZa783khLKB9wDMnj+fhG8kCxhBDxEZhD+7Q4
+	lCxfA4zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yk0-00000000hjd-1zRw;
-	Thu, 24 Oct 2024 14:23:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3yla-00000000iET-3P7Q;
+	Thu, 24 Oct 2024 14:24:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ygp-00000000gvN-3bEP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Oct 2024 14:19:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6ECOF/H9PFUFioRUiy+IGZiwk0mnHr5Ag/WOy+Iwjhg=; b=eUrzEfishmkCdsWjBvLhbw7Zgj
-	YyIzSr0ZBXa9trQvZk1jCEcKwcrmXUIeUR6GYJx4rBzF5mYYkYNStLqD5Kmpsn8BQRgmDUiOFbrg4
-	BGr/wUH81DETJhn8LA9Ej9RthEstfpNYbHdbbhIVzGBaIofJyB+pGiLV57YLjUyEBSEKFw5sW0WUe
-	bC0tymBc0JGfufWUTqn75KkKkgc/FQF5U/wrTZ8W8RZI0mAyXFvYgXi5yK2pnrMTONMS5QBFJuK4h
-	TaOJQXILBQcHrcopjyXzg9znqYo76AkpigcF7sdk4C77xcKuhg8X8ErCS2cDLCIlBYhtSnFriRrke
-	/m7PFq2A==;
-Received: from mail-yw1-f169.google.com ([209.85.128.169])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ygm-00000008gAW-3sN6
+	id 1t3yin-00000000hKi-3GUr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 14:19:50 +0000
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-6e3d97b8274so9490877b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:19:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729779584; x=1730384384;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6ECOF/H9PFUFioRUiy+IGZiwk0mnHr5Ag/WOy+Iwjhg=;
-        b=YcNdDm2OKxhpB9Bu1KyTJyHKF9kvZOUeOJ054797JVz4JTYrKxoz0sdXYhtEQHqNqE
-         4ofsOeV31x/DnsHqGbWtxhok/vCO6OAy8PUK349OsO6lFgMqZQOhDzRnTJAwpesmwKF3
-         82Ef/oQ49LiwmJMyjs6Hc/fIFEeD3hQvXYXzPPrynvAXFnrhlb7uhYz1vIJa1R/skT/d
-         vqmf1L4m4q3J3vbrA9x5EC+KwFzcMGXlm+kmNkM/o4ACyncRsQu8BycG72or9qNI2geD
-         cVBX7EbubIcew+/SJmBe9oVpRuduFpjAGnzNWLUhbcvsUkkpX+iVSfg1QfNeQRjj6qBd
-         y/Fw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUoQz+FhChc56VXrNxgItQ9wiwFjF6RL0FW6k4sLC+jtW2qxYi7VCfzSlfuIdjcc1DT+nAKXes/k3bHscTVYg4@lists.infradead.org
-X-Gm-Message-State: AOJu0YytPfpx34UDcgbJXIY6Otnuyi4VsppB/a+zhZnI4xfgHkxWmlbu
-	r+1MU7PIPz1Xkqqe3rZJGvLpG+ioJhyM+MNZFb1hbQioGBbfBOxTDyMCEvyg
-X-Google-Smtp-Source: AGHT+IFu42XQ6zTBbETPrEOxE79diVMNazmZzkypo/RWTR+Cy6a5tSLQSFy/+3J4OqpffObQ12YR/Q==
-X-Received: by 2002:a05:690c:9b08:b0:6e5:625c:5ad8 with SMTP id 00721157ae682-6e7f0fd8187mr75571787b3.37.1729779584547;
-        Thu, 24 Oct 2024 07:19:44 -0700 (PDT)
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com. [209.85.128.179])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e7f7edf574sm6945917b3.106.2024.10.24.07.19.43
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Oct 2024 07:19:43 -0700 (PDT)
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-6e5ef7527deso11332787b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:19:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXeTRhJGK4LxHLrYYU6YB/oz25qnMZgBFxJZVEPz7rG4rZ7STsx/Jjik05XJaa1/eKQmjB2d6LQGyy6jv6yFZgz@lists.infradead.org
-X-Received: by 2002:a05:690c:93:b0:6e5:a431:af41 with SMTP id
- 00721157ae682-6e7f0fdab91mr62498077b3.38.1729779583362; Thu, 24 Oct 2024
- 07:19:43 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241019084738.3370489-1-claudiu.beznea.uj@bp.renesas.com> <20241019084738.3370489-3-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20241019084738.3370489-3-claudiu.beznea.uj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 24 Oct 2024 16:19:31 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWgZ1_wJN-rcjy1V=DRcUgEXQp3Qh1ZUTiv1cF8ywi2VA@mail.gmail.com>
-Message-ID: <CAMuHMdWgZ1_wJN-rcjy1V=DRcUgEXQp3Qh1ZUTiv1cF8ywi2VA@mail.gmail.com>
-Subject: Re: [PATCH v4 02/12] clk: renesas: r9a08g045: Add power domain for RTC
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alexandre.belloni@bootlin.com, 
-	magnus.damm@gmail.com, p.zabel@pengutronix.de, 
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 24 Oct 2024 14:21:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AED32A45359;
+	Thu, 24 Oct 2024 14:21:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8902BC4CEC7;
+	Thu, 24 Oct 2024 14:21:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729779712;
+	bh=BXMt59WXyWTeW0L3olIzXz3JJnmP4KXvS4zdZJDZ19M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lhDsXAZou3Y/ZnIIooFku7kKBbZD7gYehjeQhRKRKNCx52j1HF37v6RO4SsKfYPzs
+	 TkfoFGmO9VRoBK//Z+bGhkkBI84tIpMhnjkg9hT7CGOmQqhFTPA+OOiwiUlsMG59Yz
+	 3cgDm07JBTJ4ALGemvDLzsQ8HqZ4rOKjdkN2bFTQxl5wXlx74npebfjtfr9a03IDxb
+	 RbUFrY0EKxCeRLVO24Hu1i5vyLXH5B6zT9KC31PNvL0Vy5wTaEZ40ir2r95tYLnRea
+	 RTroGP/E5N+oeY+654GPnl/0oAtM15FCABm6jLXuAotPuEGLN4bpUsTulbMuy99j9R
+	 0Op0Zswwayt+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t3yik-006TeL-2W;
+	Thu, 24 Oct 2024 15:21:50 +0100
+Date: Thu, 24 Oct 2024 15:21:49 +0100
+Message-ID: <86sesl37k2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v5 21/37] KVM: arm64: Implement AT S1PIE support
+In-Reply-To: <20241024135925.GB1403933@e124191.cambridge.arm.com>
+References: <20241023145345.1613824-1-maz@kernel.org>
+	<20241023145345.1613824-22-maz@kernel.org>
+	<20241024135925.GB1403933@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, alexandru.elisei@arm.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_151949_088440_04E40B52 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20241024_072153_981193_87D70982 
+X-CRM114-Status: GOOD (  33.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +91,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
+On Thu, 24 Oct 2024 14:59:25 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> On Wed, Oct 23, 2024 at 03:53:29PM +0100, Marc Zyngier wrote:
+> > It doesn't take much effort to implement S1PIE support in AT.
+> > 
+> > It is only a matter of using the AArch64.S1IndirectBasePermissions()
+> > encodings for the permission, ignoring GCS which has no impact on AT,
+> > and enforce FEAT_PAN3 being enabled as this is a requirement of
+> > FEAT_S1PIE.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/at.c | 117 +++++++++++++++++++++++++++++++++++++++++++-
+> >  1 file changed, 116 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> > index f5bd750288ff5..3d93ed1795603 100644
+> > --- a/arch/arm64/kvm/at.c
+> > +++ b/arch/arm64/kvm/at.c
+> > @@ -781,6 +781,9 @@ static bool pan3_enabled(struct kvm_vcpu *vcpu, enum trans_regime regime)
+> >  	if (!kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, PAN, PAN3))
+> >  		return false;
+> >  
+> > +	if (s1pie_enabled(vcpu, regime))
+> > +		return true;
+> > +
+> >  	if (regime == TR_EL10)
+> >  		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+> >  	else
+> > @@ -862,11 +865,123 @@ static void compute_s1_hierarchical_permissions(struct kvm_vcpu *vcpu,
+> >  	}
+> >  }
+> >  
+> > +#define perm_idx(v, r, i)	((vcpu_read_sys_reg((v), (r)) >> ((i) * 4)) & 0xf)
+> > +
+> > +#define set_priv_perms(wr, r, w, x)	\
+> > +	do {				\
+> > +		(wr)->pr = (r);		\
+> > +		(wr)->pw = (w);		\
+> > +		(wr)->px = (x);		\
+> > +	} while (0)
+> > +
+> > +#define set_unpriv_perms(wr, r, w, x)	\
+> > +	do {				\
+> > +		(wr)->ur = (r);		\
+> > +		(wr)->uw = (w);		\
+> > +		(wr)->ux = (x);		\
+> > +	} while (0)
+> > +
+> > +/* Similar to AArch64.S1IndirectBasePermissions(), without GCS  */
+> > +#define set_perms(w, wr, ip)						\
+> > +	do {								\
+> > +		/* R_LLZDZ */						\
+> > +		switch ((ip)) {						\
+> > +		case 0b0000:						\
+> > +			set_ ## w ## _perms((wr), false, false, false);	\
+> > +			break;						\
+> > +		case 0b0001:						\
+> > +			set_ ## w ## _perms((wr), true , false, false);	\
+> > +			break;						\
+> > +		case 0b0010:						\
+> > +			set_ ## w ## _perms((wr), false, false, true );	\
+> > +			break;						\
+> > +		case 0b0011:						\
+> > +			set_ ## w ## _perms((wr), true , false, true );	\
+> > +			break;						\
+> > +		case 0b0100:						\
+> > +			set_ ## w ## _perms((wr), false, false, false);	\
+> > +			break;						\
+> > +		case 0b0101:						\
+> > +			set_ ## w ## _perms((wr), true , true , false);	\
+> > +			break;						\
+> > +		case 0b0110:						\
+> > +			set_ ## w ## _perms((wr), true , true , true );	\
+> > +			break;						\
+> > +		case 0b0111:						\
+> > +			set_ ## w ## _perms((wr), true , true , true );	\
+> > +			break;						\
+> > +		case 0b1000:						\
+> > +			set_ ## w ## _perms((wr), true , false, false);	\
+> > +			break;						\
+> > +		case 0b1001:						\
+> > +			set_ ## w ## _perms((wr), true , false, false);	\
+> > +			break;						\
+> > +		case 0b1010:						\
+> > +			set_ ## w ## _perms((wr), true , false, true );	\
+> > +			break;						\
+> > +		case 0b1011:						\
+> > +			set_ ## w ## _perms((wr), false, false, false);	\
+> > +			break;						\
+> > +		case 0b1100:						\
+> > +			set_ ## w ## _perms((wr), true , true , false);	\
+> > +			break;						\
+> > +		case 0b1101:						\
+> > +			set_ ## w ## _perms((wr), false, false, false);	\
+> > +			break;						\
+> > +		case 0b1110:						\
+> > +			set_ ## w ## _perms((wr), true , true , true );	\
+> > +			break;						\
+> > +		case 0b1111:						\
+> > +			set_ ## w ## _perms((wr), false, false, false);	\
+> > +			break;						\
+> > +		}							\
+> > +	} while (0)
+> > +
+> > +static void compute_s1_indirect_permissions(struct kvm_vcpu *vcpu,
+> > +					    struct s1_walk_info *wi,
+> > +					    struct s1_walk_result *wr)
+> > +{
+> > +	u8 up, pp, idx;
+> > +
+> > +	idx = pte_pi_index(wr->desc);
+> > +
+> > +	switch (wi->regime) {
+> > +	case TR_EL10:
+> > +		pp = perm_idx(vcpu, PIR_EL1, idx);
+> > +		up = perm_idx(vcpu, PIRE0_EL1, idx);
+> > +		break;
+> > +	case TR_EL20:
+> > +		pp = perm_idx(vcpu, PIR_EL2, idx);
+> > +		up = perm_idx(vcpu, PIRE0_EL2, idx);
+> > +		break;
+> > +	case TR_EL2:
+> > +		pp = perm_idx(vcpu, PIR_EL2, idx);
+> > +		up = 0;
+> > +		break;
+> > +	}
+> 
+> There seems to be inconsistent use of
+> 
+> default:
+> 	BUG();
+> 
+> when switching on wi->regime.
 
-On Sat, Oct 19, 2024 at 10:47=E2=80=AFAM Claudiu <claudiu.beznea@tuxon.dev>=
- wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->
-> The RTC and VBATTB don't share the MSTOP control bit (but only the bus
-> clock and the reset signal). As the MSTOP control is modeled though power
-> domains add power domain support for the RTC device available on the
-> Renesas RZ/G3S SoC.
->
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
->
-> Changes in v4:
-> - none; this patch is new
+True. Maybe I should drop them all apart from the one in
+setup_s1_walk().
 
-Thanks for your patch!
+> 
+> > +
+> > +	set_perms(priv, wr, pp);
+> > +
+> > +	if (wi->regime != TR_EL2)
+> > +		set_perms(unpriv, wr, up);
+> > +	else
+> > +		set_unpriv_perms(wr, false, false, false);
+> 
+> When regime == TR_EL2, up == 0, so the if/else should do the same thing? Maybe
+> you've done that intentionally to be more explicit.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-clk for v6.13...
+The reason for doing so was not to give the impression that we were
+actively using the unprivileged indirect permissions for TR_EL2.
 
-> --- a/drivers/clk/renesas/r9a08g045-cpg.c
-> +++ b/drivers/clk/renesas/r9a08g045-cpg.c
-> @@ -304,6 +304,9 @@ static const struct rzg2l_cpg_pm_domain_init_data r9a=
-08g045_pm_domains[] =3D {
->         DEF_PD("vbat",          R9A08G045_PD_VBAT,
->                                 DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(8))=
-,
->                                 RZG2L_PD_F_ALWAYS_ON),
-> +       DEF_PD("rtc",           R9A08G045_PD_RTC,
-> +                               DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(7))=
-,
-> +                               RZG2L_PD_F_NONE),
+But maybe that's be just as clear with a comment.
 
-... with s/RZG2L_PD_F_NONE/0/ due to "[PATCH v4 2/4] clk: renesas:
-rzg2l-cpg: Use GENPD_FLAG_* flags instead of local ones".
+> 
+> Either way:
+> 
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
->  };
+Thanks!
 
-Gr{oetje,eeting}s,
+	M.
 
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+-- 
+Without deviation from the norm, progress is not possible.
 
