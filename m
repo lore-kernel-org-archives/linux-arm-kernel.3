@@ -4,119 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 374E8CE8E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD6BCE8E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqKO+VQufYnnSQGNsjJoV9pHpcM4NLycUTcWyfMcgg8=; b=N+l7ZZy0QHAJAhySVdXBWSh9rr
-	5QLTHGcYF5XBFbJQ1q4XRmS0+mQORWJw6I/nQuvVMFQpNw11QK2ewi21S1t4mjMLiIw183Rp0HiJd
-	qS3qzOtynXvhTQcEDIsft3yMTaax9xLLr214bdzj15D3+chMj8IFRPhc6w6L2lqL300KciVjqmVFh
-	6eLXjo+D3eTy8BMgPkcNtcWJxE4IskIsbOnQoJinWMXyuUnnLWns8WhnRZpl9y7YFQJlELq57fx8s
-	M7A1Ga4oC7FBjZUydnxPaf+6cfq8SQey7UKsvgxCWnXTNsVS4ZPly4y3vOfcSixpc7szsu0VP2PmL
-	O9FnCPng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=49BR+Vn1lZ2yPsVgGV8fM4Apw3a0jqYsx9R52cWC0gk=; b=NwXXxyehOJajpl/ZBv28+LixYR
+	lUFSk4Xo4zA/6+SwHOwX6R1ZLtsitukVBII7b4Y6toNPYWdoDbdAuyltXi/h58HbdfBtxLl0I69lp
+	Jwx1GAxcRR3JSTVWR0NAAbecVbeXMdONdodzqNGVON1U+0U014ZOgBYTxvyROejnz+AsiHgrO/DT/
+	jvF9gg7Ai8EPIk+BxOFAs7p747wT8XOZSr5Khfi2AxOCJpXBU7YNece+eONE0cP8pGSr7R70ifcr/
+	2vr2Ma4IyhGR7oBlbnt3Nv0oPE/JuZQZVDglnKWnyCb6IhUFBSA7cyEpFnek/ROvTXKMQLSTVL4zh
+	UBJ2OjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3x7i-00000000Mwh-3Sjs;
-	Thu, 24 Oct 2024 12:39:30 +0000
-Received: from mail-oa1-x43.google.com ([2001:4860:4864:20::43])
+	id 1t3xFF-00000000Oa0-3oCv;
+	Thu, 24 Oct 2024 12:47:17 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3x2z-00000000LyN-0Ulq
+	id 1t3xDh-00000000OHC-0SNe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 12:34:38 +0000
-Received: by mail-oa1-x43.google.com with SMTP id 586e51a60fabf-288d4da7221so473931fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 05:34:36 -0700 (PDT)
+	Thu, 24 Oct 2024 12:45:42 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-20cdb889222so6883075ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 05:45:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729773275; x=1730378075; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WqKO+VQufYnnSQGNsjJoV9pHpcM4NLycUTcWyfMcgg8=;
-        b=ln4qKqE6D9QoaoLdDOYO420RcfJOGhAWGHf0nluc48ws7oAA3hYqqsgxHETlLpLK/H
-         vH68bafmYfm5RGQs2lEVRV0s3HNzbDr8eU0BuLls6cwWNiTYuGCdEx99tEYltv2hbn4Q
-         o27ldBIxDERMx4pqtoqeXsdEWJvFnFl0oVBPUDSpnIs+uUIawOcqwpQlJ1b4GWOKCqcX
-         IvvztW2cb7NEoJo57T7Pj9qgoe+6517YTBC95XChySUZGo6FR8dmOZ/7VZYHGu/OW/xq
-         Iak45rXlrdumaN0KfzA9AA4btvcq/VNmV/LmM0L5ced0UgqbFY1d2bMzYnLxj1Z+hGa/
-         h5hg==
+        d=linaro.org; s=google; t=1729773939; x=1730378739; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=49BR+Vn1lZ2yPsVgGV8fM4Apw3a0jqYsx9R52cWC0gk=;
+        b=sluOVdE2n1UTkW8OWGtPKdJ2KD99NlBv4XTI+UDH2di02o837I32nt9fiTEqYDTxUK
+         3c/oMynY0DE6BF2H6eQuoMzG6MNpK0CRGj/9qGXmgxx7aRH+b7dn7L7ZVtOhEwtBFZFQ
+         aFVZoFvsiX5P/oHc7WPIkcORk2DWVXU66tW2Mtzzi3Fzt/NLzYmWYuMak1Bq4bFvgh0D
+         nM+7j79chVrZoYWJOHK7gWi/pUjDdbO932RV1fglo0h3JpZiGc77blPK+QQs5GK5Ka4z
+         Coz2oR9Znin1d8DybXpMtnli0bpXNPTHttjmh8TfKg8IkZhdllo54GEm2SgLRxb0kVrW
+         D46g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729773275; x=1730378075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WqKO+VQufYnnSQGNsjJoV9pHpcM4NLycUTcWyfMcgg8=;
-        b=qtc4r9sfRgHkZz7Ufi5C4LGGWf6GEiTEHgnLH3pQVdyinpPOXpzAk1D77y7gx00Ob7
-         dfyT3sRe7dL5Pc//Q2Pnsd0oVzRXBReVWnxvzvFhxoUrZjOj6nUsY9AHcCdYkDnB7YaU
-         3uEmP5j8aqMlSNvyx4e6/O/23MHTBgDXCdX+nZJ87MIwnyYrJnoChOc8tVHGR4CSXZbu
-         bkoPslmk6o1TAx7tfgcixaHcrni/mQzqqZlcKla2hyjkcASwu3nU1NyJgCJ+zhVFm1JF
-         WKIQXGEe6TyqZN5szCep4Rhp5hG+WOmX07T1JvYnKyv+T/jz1qWaPTrPGJcqDZDdOebF
-         2xPA==
-X-Forwarded-Encrypted: i=1; AJvYcCXu+1E5UDEOYBw4Gwuua4M+o2tJtgzhoWEXO3l89YnszIxZC2SOqAkdnqOhy2BOY0hu0n+yS5e9WGbK33oUii0b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBVvZGwk1eM/4/nmFEcXvCTQf/t3IUHO3DUZnf5TTXdnsdIeyZ
-	Qjo3rxsbLJvbT+413zWZQ33qFv/jLsLmsigiSlxGZamlFOPEcRbY
-X-Google-Smtp-Source: AGHT+IGNbdDr4bWOuekBU0ohovYD+u0SLmOKefBPtfh2fzqlR42/5wZYBu+ZqeJfv789Y4nUSEsYRQ==
-X-Received: by 2002:a05:6870:218a:b0:277:fb59:b74c with SMTP id 586e51a60fabf-28ced48efd0mr1364818fac.40.1729773275318;
-        Thu, 24 Oct 2024 05:34:35 -0700 (PDT)
-Received: from localhost.localdomain ([114.246.193.69])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eaeab48f62sm8534093a12.42.2024.10.24.05.34.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 05:34:34 -0700 (PDT)
-From: =?UTF-8?q?=E9=99=88=E5=AF=92=E5=BD=A4?= <cxwdyx620@gmail.com>
-To: jensenhuangnvdia@gmail.com
-Cc: aospan@netup.ru,
-	conor.dooley@microchip.com,
-	ddrokosov@sberdevices.ru,
-	dmaengine@vger.kernel.org,
-	dushistov@mail.ru,
-	fancer.lancer@gmail.com,
-	geert@linux-m68k.org,
-	gregkh@linuxfoundation.org,
-	hoan@os.amperecomputing.com,
-	ink@jurassic.park.msu.ru,
-	jeffbai@aosc.io,
-	kexybiscuit@aosc.io,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mattst88@gmail.com,
-	netdev@vger.kernel.org,
-	nikita@trvn.ru,
-	ntb@lists.linux.dev,
-	patches@lists.linux.dev,
-	richard.henderson@linaro.org,
-	s.shtylyov@omp.ru,
-	serjk@netup.ru,
-	shc_work@mail.ru,
-	torvalds@linux-foundation.org,
-	torvic9@mailbox.org,
-	tsbogend@alpha.franken.de,
-	v.georgiev@metrotek.ru,
-	wangyuli@uniontech.com,
-	wsa+renesas@sang-engineering.com,
-	xeb@mail.ru
-Subject: Re: [PATCH] MAINTAINERS: Remove some entries due to various compliance requirements.
-Date: Thu, 24 Oct 2024 20:34:03 +0800
-Message-ID: <20241024123403.154-1-cxwdyx620@gmail.com>
-X-Mailer: git-send-email 2.47.0.windows.1
-In-Reply-To: <20241024113246.22901-1-JensenHuangNVDIA@gmail.com>
-References: <20241024113246.22901-1-JensenHuangNVDIA@gmail.com>
+        d=1e100.net; s=20230601; t=1729773939; x=1730378739;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=49BR+Vn1lZ2yPsVgGV8fM4Apw3a0jqYsx9R52cWC0gk=;
+        b=lj+DgXAYEHk64LIOCF+i84m03fnO+7T4xyyFrCboqWfIKu5XjvqWlYs2mq93N/DLQ9
+         h+eS4DCPci36jdhRbgG7LajfgQmdr4mKIRoxjEKxphv/sJi3P9SM9sSnWBA/YxJI2r6o
+         K9+bJT1PLpn4hs2mqvEc5ve1KAKHN3eoH2UBytOVMFadMDPr3QkASWY8FrUL2QLR3UZ2
+         1DyyLB16gfpbqD3t/7+Lm56lTsIPoC4w+2rGF6GsF1aUj/97pgUfnZseO32TYhfTo+yy
+         BsJq0D3LK8hY7ebabBHN3vtN/n45qetsQNsK/KMM8wJ0JtlywcbqavHSDG8FPp6XRHtx
+         abtg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSzZK5xrBpDGnwS+Phy2n7RdIQmRP5O4PbvyT1Dza9qJLGlDV7Euel3XjEdPhcCmPY+fHwiEupFKoY2TrbCpIq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM26DvQV/h09o0As2sHk/GG4OWooUMT2zFvA/7wGcEQIIOEw4C
+	TQ4LjCS4/GwOR50DJCoUwaEuOgmh8VN2PLZKRE2kZraPBrRKGgCa8eTSL+II+9XriuEf9EmO83z
+	7hhFRbDAyVMdbpkHOdd83LiPtlJY2tKhXMHicYw==
+X-Google-Smtp-Source: AGHT+IFe+ta9STpkqwpAT33j7DGORkD4TFwOCBP77UQdvEM+lYJD0OgUJfn7cMV48jXyjJnegQj3vqocsAlLcFZQyuE=
+X-Received: by 2002:a05:6a20:d805:b0:1d9:2018:9e24 with SMTP id
+ adf61e73a8af0-1d978aead30mr7286554637.10.1729773939355; Thu, 24 Oct 2024
+ 05:45:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+References: <20240703122340.26864-1-quic_jinlmao@quicinc.com>
+ <CAJ9a7VhwD6kFHPTgrfs+7fNx4nXZPqXTLK0ObmJM3A6mQfmuyQ@mail.gmail.com> <5dcce78a-d7e5-4a61-a165-05b9efe11052@quicinc.com>
+In-Reply-To: <5dcce78a-d7e5-4a61-a165-05b9efe11052@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 24 Oct 2024 13:45:27 +0100
+Message-ID: <CAJ9a7Vi5q-ren_PSCHLLvD3qd=WMONi2RNuZ6xc9=4Uv+UdQ-g@mail.gmail.com>
+Subject: Re: [PATCH v4 0/2] coresight: core: Add device name support
+To: Jinlong Mao <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Tingwei Zhang <quic_tingweiz@quicinc.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
+	Tao Zhang <quic_taozha@quicinc.com>, songchai <quic_songchai@quicinc.com>, 
+	Jie Gan <quic_jiegan@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_053437_191410_8C0815C4 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_054541_177184_27AE1A28 
+X-CRM114-Status: GOOD (  29.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,6 +95,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Well, the fact is that Linus Torvalds, our leader of Linux, is not **Palest=
-inian** but **Finnish**.=0D
+Hi Jinlong
+
+I was suggesting using the label property - see p44, table 4.3 of the
+devicetree specification.
+
+e.g.
+
+node_name@node_address {
+        label = "text description of this device instance";
+}
+
+Then use the normal of_xxxx functions to extract the string value from "label".
+
+Regards
+
+Mike
+
+On Fri, 18 Oct 2024 at 09:42, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
+>
+>
+>
+> On 2024/7/31 23:15, Mike Leach wrote:
+> > Hi,
+> >
+> > 1) As per Krzysztof comment - use the standard "label" property
+> >
+> > 2) Do not use the label string as the node name - there is no
+> > guarantee of uniqueness which will cause issues. Please add the label
+> > as a sysfs file to the standard node.
+> > This uses the existing standard names, allowing any scripting based on
+> > this to continue to work, and will not cause issues with uniqueness
+> >
+> > e.g.
+> > This will allow :
+> >
+> > cat cti_cpu0/label
+> >
+> > to extract the additional hardware context information that you need.
+> >
+> > Thanks
+> >
+> > Mike
+>
+> Hi Mike,
+>
+> I tried to get the label in the driver code. But I don't find any
+> function for it. Do you know the function to get the label of the device
+> tree node ?
+>
+> label: node_name@node_address
+>
+> Thanks
+> Jinlong Mao
+>
+> >
+> >
+> > On Wed, 3 Jul 2024 at 13:24, Mao Jinlong <quic_jinlmao@quicinc.com> wrote:
+> >>
+> >> With current design, the name of the non-cpu bounded coresight
+> >> component is the device type with the number. And with 'ls' command
+> >> we can get the register address of the component. But from these
+> >> information, we can't know what the HW or system the component belongs
+> >> to. Add device-name in DT to support it.
+> >>
+> >> cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
+> >> cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
+> >> tpdm0 -> ../../../devices/platform/soc@0/10b0d000.tpdm/tpdm0
+> >> tpdm1 -> ../../../devices/platform/soc@0/10c28000.tpdm/tpdm1
+> >> tpdm2 -> ../../../devices/platform/soc@0/10c29000.tpdm/tpdm2
+> >>
+> >> Change since V3:
+> >> 1. Change device-name to arm,cs-dev-name.
+> >> 2. Add arm,cs-dev-name to only CTI and sources' dt-binding.
+> >>
+> >> Change since V2:
+> >> 1. Fix the error in coresight core.
+> >> drivers/hwtracing/coresight/coresight-core.c:1775:7: error: assigning to 'char *' from 'const char *' discards qualifiers
+> >>
+> >> 2. Fix the warning when run dtbinding check.
+> >> Documentation/devicetree/bindings/arm/arm,coresight-cpu-debug.yaml: device-name: missing type definition
+> >>
+> >> Change since V1:
+> >> 1. Change coresight-name to device name.
+> >> 2. Add the device-name in coresight dt bindings.
+> >>
+> >>
+> >> Mao Jinlong (2):
+> >>    coresight: core: Add device name support
+> >>    dt-bindings: arm: Add device-name in the coresight components
+> >>
+> >>   .../bindings/arm/arm,coresight-catu.yaml      |  6 +++
+> >>   .../bindings/arm/arm,coresight-cpu-debug.yaml |  6 +++
+> >>   .../bindings/arm/arm,coresight-cti.yaml       |  6 +++
+> >>   .../arm/arm,coresight-dummy-sink.yaml         |  6 +++
+> >>   .../arm/arm,coresight-dummy-source.yaml       |  6 +++
+> >>   .../arm/arm,coresight-dynamic-funnel.yaml     |  6 +++
+> >>   .../arm/arm,coresight-dynamic-replicator.yaml |  6 +++
+> >>   .../bindings/arm/arm,coresight-etb10.yaml     |  6 +++
+> >>   .../bindings/arm/arm,coresight-etm.yaml       |  6 +++
+> >>   .../arm/arm,coresight-static-funnel.yaml      |  6 +++
+> >>   .../arm/arm,coresight-static-replicator.yaml  |  6 +++
+> >>   .../bindings/arm/arm,coresight-stm.yaml       |  6 +++
+> >>   .../bindings/arm/arm,coresight-tmc.yaml       |  6 +++
+> >>   .../bindings/arm/arm,coresight-tpiu.yaml      |  6 +++
+> >>   .../bindings/arm/qcom,coresight-tpda.yaml     |  6 +++
+> >>   .../bindings/arm/qcom,coresight-tpdm.yaml     |  6 +++
+> >>   drivers/hwtracing/coresight/coresight-core.c  | 37 ++++++++++---------
+> >>   .../hwtracing/coresight/coresight-platform.c  | 31 ++++++++++++++++
+> >>   include/linux/coresight.h                     |  3 +-
+> >>   19 files changed, 149 insertions(+), 18 deletions(-)
+> >>
+> >> Mao Jinlong (2):
+> >>    dt-bindings: arm: Add device-name in the coresight components
+> >>    coresight: core: Add device name support
+> >>
+> >>   .../bindings/arm/arm,coresight-cti.yaml       |  6 +++
+> >>   .../arm/arm,coresight-dummy-source.yaml       |  6 +++
+> >>   .../bindings/arm/arm,coresight-stm.yaml       |  6 +++
+> >>   .../bindings/arm/qcom,coresight-tpdm.yaml     |  6 +++
+> >>   drivers/hwtracing/coresight/coresight-core.c  | 37 ++++++++++---------
+> >>   .../hwtracing/coresight/coresight-platform.c  | 30 +++++++++++++++
+> >>   include/linux/coresight.h                     |  3 +-
+> >>   7 files changed, 76 insertions(+), 18 deletions(-)
+> >>
+> >> --
+> >> 2.41.0
+> >>
+> >
+> >
+> > --
+> > Mike Leach
+> > Principal Engineer, ARM Ltd.
+> > Manchester Design Centre. UK
+>
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
