@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D03CE8E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16D4CE8E8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSDWWZB/I22N4vbBcpJVNkG0BBl3g1tsch61/CZHfyM=; b=MCO/kHrTTyWuszeXkRewe+kfuv
-	RYJuafz25670HnI+TKMdq7kPaLkMXQhtYEK43jny5gCvmBYR3QVvBrAHvbj5rl0Ptu+hVtEW5xGgO
-	kjJ/xx0jOZed7cadhgLEVqFSwmabRlMKVk8WoOrETYL/7Pg7so8EBBQmr0mnj0TJEw3AuwDvVoZqn
-	QHYMuOXYZIuRdV++XGbiV8Q5ZCFEUY/4OM2ugUc0pTeNStkCqbX5doU67ua/Hrcl0pw4Bj7j0OPsp
-	IYxaXfUkDCKKjNfngsvutqoEitW/LqB6cToBuEwgm/uM+5LXcEjUpHRubAM6rzkPbH4KFctZCNJk7
-	nX1QiFIg==;
+	bh=bi6mCQhIPYOdEThiFh59znz+QIxYAc3VWDTwjZN3srI=; b=Tm38O48SfH7NHpPunOte1eJnYl
+	ffCPoxY18vWsNd5hNWkoqGUNZyIEAkD1FNnRjnU8VLUqyXMlXFrdXOqETnjR2eVM0qPCKHtbSOoDc
+	QpRNkpKESdbtTkjBKU7rEoZGe9wTkHxPqnmZ9DDpZbRm/1ExtnpQTmp43jxBHBjmRhZUszXySK83G
+	JF/7/yRQpQ61KCeqnb4f0oesmlQnNF3gmyVNJ0CgwyHbT5FQGXSNLNA5SQTvw+MkAAD+gajctGfTh
+	tqoVVs3u/eIH+fQdwPU/kOcvpw9k3qVCdjgjVZVmyDa1xtZvxFWoZkCLru1+8jezAgmHLigwZZgMN
+	qoIId4hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zfj-00000000tji-1phT;
-	Thu, 24 Oct 2024 15:22:47 +0000
+	id 1t3zhE-00000000tv6-1Ba1;
+	Thu, 24 Oct 2024 15:24:20 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zTR-00000000s99-0dC7;
-	Thu, 24 Oct 2024 15:12:05 +0000
+	id 1t3zUe-00000000sHP-13aT;
+	Thu, 24 Oct 2024 15:13:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E5F125C6023;
-	Thu, 24 Oct 2024 15:09:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1FE0C4CEC7;
-	Thu, 24 Oct 2024 15:10:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E27665C4B3B;
+	Thu, 24 Oct 2024 15:11:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2673C4CEC7;
+	Thu, 24 Oct 2024 15:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729782604;
-	bh=VMFs9dmln36rULHELZnrUMSHBuywGkITllI3k0F8SzM=;
+	s=k20201202; t=1729782679;
+	bh=I76Gec9xgruH7NQkJwJSzMFNiwa11T/xDsEdrENqZqc=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=Z9EC93UxAcJyaTtDojfNt/Fu3i3015IzTXL6vRFRwso6gj8phUyldJ7Ekf5kjNDVT
-	 4N/K+qPmyTw5fFrBwxp3kO/DPWYf3HwhLRsY4Npr7VA/UacwXiNt3QDnAxHE+vk18x
-	 6KT5LkITQb5Qdgy9o8vQfU0iWMsPJ99kHFbAP5lKaAZwW7Af4GRdW6hShEjy/k0J8Q
-	 yJybhfMppI7PMbJiYREK5ZOQsy0qCVzxRSLnExvemUjkVWmv0Q/Hrq3buRE7NdpGxx
-	 BMIAlMUmtHwn/xfV+Ci85xYy07nFTmncxUt6RTL1Q1OxR+by2JNsJDcdp2WqzPOim1
-	 jevI+VjrTD1UQ==
-Message-ID: <76a344eb23149909d13ea46c25b97684@kernel.org>
-Date: Thu, 24 Oct 2024 15:10:01 +0000
+	b=eecpF2i6nIOyz1a7oqzObncQ22J0O0Li2FE+nn49+jrs8lQ31Zm3M6QoqBuLBpPZT
+	 yJXvJVHaKsqyAIcnf9GESQF/M3UErCbD5Cw1qwi7TZM96TsRyivmRuHNq4twPmtdri
+	 l9gYBKyoO9Zlv6R1wcscx91VUsQWDLFtVTLe2GVky3TZ2FWhxhG2uA8N8Sot+fdUk3
+	 OnJ03gBx4abnmCD4+Fd7eENwa/aEuGVrY7tg0phennnE1coK1bIs5FD8JBhJhhASR2
+	 iC/bqhMPNaTvkLDuDIeYMA0DaUlPM/IiTisRcDr4JuHFfdKFio+oDT9n2JUV3HOr8q
+	 6xfQ6wjA2u3HQ==
+Message-ID: <9202d665c15915cb087d8be5f02fee4c@kernel.org>
+Date: Thu, 24 Oct 2024 15:11:16 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Dave Stevenson" <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 28/37] drm/vc4: Enable bg_fill if there are no planes
- enabled
-In-Reply-To: <20241023-drm-vc4-2712-support-v1-28-1cc2d5594907@raspberrypi.com>
-References: <20241023-drm-vc4-2712-support-v1-28-1cc2d5594907@raspberrypi.com>
+Subject: Re: [PATCH 29/37] drm/vc4: Drop planes that are completely
+ off-screen or 0 crtc size
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-29-1cc2d5594907@raspberrypi.com>
+References: <20241023-drm-vc4-2712-support-v1-29-1cc2d5594907@raspberrypi.com>
 Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, "Broadcom
  internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, "Catalin
  Marinas" <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "David
@@ -62,8 +62,8 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-arm-kerne
  Zimmermann" <tzimmermann@suse.de>, "Will Deacon" <will@kernel.org>
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_081005_269637_F7514374 
-X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-CacheID: sfid-20241024_081120_370714_62285E9A 
+X-CRM114-Status: UNSURE (   6.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,12 +79,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 17:50:25 +0100, Dave Stevenson wrote:
-> The default was to have enable_bg_fill disabled and the first
-> plane set it if it wasn't opaque and covering the whole screen.
-> However that meant that if no planes were enabled, then the
-> background fill wasn't enabled, and would give a striped
-> output from the uninitialised output buffer.
+On Wed, 23 Oct 2024 17:50:26 +0100, Dave Stevenson wrote:
+> It is permitted for a plane to be configured such that none
+> of it is on-screen via either negative dest rectangle X,Y
+> offset, or an offset that is greater than the crtc dimensions.
+> 
+> These planes were resized via drm_atomic_helper_check_plane_state
 > 
 > [ ... ]
 
