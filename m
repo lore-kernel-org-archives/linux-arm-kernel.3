@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990A7CE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299C6CE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmLkhnUtlIFWR7yGqTqutMCpz/ZCKPyDidaM4P7NJJQ=; b=I+miJ/VGInfgny0Gvp+4EKOEEN
-	NcRuhbuqEdITXhayPk2UuyrHbx49balD0BLttUbEMk8/u9QW0Fl/+G6Wxae058RK+yQ3KDXLqD2re
-	ehmNUz/X47rGfty8xynus2Y92NWA3n7ucOtO0+jDk1SBM22FI6kiVbl8WlNvZAhx92phEz8Zm9Od1
-	3MRMcKmqhn8Ej8qPq2In9YnMqh/um2UwDjhyZ5oLkSvJpPa1cfWnDm+LLmQGTPRI+1JQ50plWqs1u
-	lUsiRjGjCixTTQRCcu4QqiKWQZfe+d4cyq23SBBEynHruCTTw+1UwMvfe1U5qcPQg6jqF+FXB6x2P
-	9VumQTuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1i2ZXNwjEcPtLkLQKb7CxSRAKZ/hfhZMiMaFS6mOGpQ=; b=zTfM7zDiPLtJx6gR0ltTNcVGbw
+	QSuOwNbBO6EeWNgmnvxTgyXLQfaocDepjnfORKCU/IQ4ZHWtSiXWGpdHo+66gORkXGIfdtzhWwDLt
+	pXBTvFeJN1Nub+9Yns2LjMnBORFoVkPhCHdeinO+5HaBchmcZMnfwwZP8gzydGYq0B8BDvZw/Y9Zh
+	Iryq7fFRmT6TU3mp4PCAVSJzr6d3Xhcq58ufTfTMaHkQhK2z+S26TrCl0ix1dNAJcENebw2aFMxFt
+	bSgNdQeiCAzJBFkIs0fSzcNauIEuQ/c/8hKOQk1/ZvbQgPPa9ddPCH0H3BcFgfUmQliwU8OnZ/x0T
+	GfhMIa2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42BO-00000001OpE-1nnf;
-	Thu, 24 Oct 2024 18:03:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t42Cz-00000001PLr-01qc;
+	Thu, 24 Oct 2024 18:05:17 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41v3-00000001Kpo-0P9d;
-	Thu, 24 Oct 2024 17:46:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1729792002;
-	bh=W3VllNwtqRwVtIeBKaJd3C2VVqpPgbov///WpOSkPlQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pGdBVc4ASaPLaghvUgQ0DFhiGKTEDqIoVFn1+HyNer1j93XXc5Cz5BjgV87wgH0CQ
-	 B6nsj1eITJ7aMAWhWuAC9FR3zsdafizu1HIG9qFgRpaqxZbx9bzt4byAUFw5Z2MyGQ
-	 BbQxFkD3lxxVK9S1FqDJkKWKfCkVuL2nfVUjbNeCIS/bI5w3FVpYYMmV5+XbERHprI
-	 DeTa7IdFS/rJb7Kz76JJ/ZL0wYH2NE/1/QvvYzshXNOe0vtqNyDyo2X3dFX1p8mH9D
-	 de8N5I/jXKxhNl8NwmS3DALC8CeQif3oOJygSYXrzZs4IJ2uKPB9aRmPcdKHpF/3T8
-	 u2h8mOoubrz6g==
-Received: from notapiano (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00C2F17E36B5;
-	Thu, 24 Oct 2024 19:46:40 +0200 (CEST)
-Date: Thu, 24 Oct 2024 13:46:38 -0400
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Bamvor Jian Zhang <bamv2005@gmail.com>,
-	Shuah Khan <shuah@kernel.org>, kernel@collabora.com,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, kernelci@lists.linux.dev
-Subject: Re: [PATCH RFC 1/3] pinctrl: mediatek: paris: Expose more
- configurations to GPIO set_config
-Message-ID: <a3d6b2b9-1379-4bab-a584-651ca66677ee@notapiano>
-References: <20240909-kselftest-gpio-set-get-config-v1-0-16a065afc3c1@collabora.com>
- <20240909-kselftest-gpio-set-get-config-v1-1-16a065afc3c1@collabora.com>
- <01020191e0901d10-d427a5dd-af4e-4ecf-99e1-4bb051ad1475-000000@eu-west-1.amazonses.com>
- <8fdeec5c-5de7-44ae-9086-7930d02d610e@collabora.com>
+	id 1t421h-00000001MdV-3xgk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 17:53:39 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49O9X2xb018730;
+	Thu, 24 Oct 2024 17:53:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	1i2ZXNwjEcPtLkLQKb7CxSRAKZ/hfhZMiMaFS6mOGpQ=; b=OZ2gebQauWdyEHHP
+	8xZYh/BWLIgle3S8v6vNi/edwqwbPjJ/M+WEDYkmgVPJWf8FbXsY/u0SYedgbh2+
+	FWQlm48hoVr/kr7uQEqxfoMlKzmrMqtB1NXEja6Kt0c5oR91dKCrdOp2V+nldarq
+	Us82f27ERqEWKRXH1VpEHe7a5PYQiLccdEaTZrMig0AzQjwyHRDh5U3Rz4IUvwVS
+	XdTdg7m8G3hC5xbf+NZHIjwPOGniOotQ8lDxz3lECb4jGlTrEGJZMBoFJrOmtplQ
+	b2cA9xkG4HhvYOWLhhvV/mOD+jKJCO9CF0ywNC0GuYO2Uv+7VXU3Dum4GAN3Ih/Y
+	ZJeOIg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em66ej1u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Oct 2024 17:53:27 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49OHrRdf029277
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Oct 2024 17:53:27 GMT
+Received: from [10.216.42.109] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Oct
+ 2024 10:53:23 -0700
+Message-ID: <1b6b8585-4e7a-4ac3-85c6-bb6dafc147ac@quicinc.com>
+Date: Thu, 24 Oct 2024 23:23:20 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8fdeec5c-5de7-44ae-9086-7930d02d610e@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable sa8775p clock controllers
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        Ajit Pandey <quic_ajipan@quicinc.com>,
+        "Imran Shaik" <quic_imrashai@quicinc.com>,
+        Jagadeesh Kona
+	<quic_jkona@quicinc.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20241022-defconfig_sa8775p_clock_controllers-v1-1-cb399b0342c8@quicinc.com>
+ <glhmky5r3rd44hmnxgtgeelqp426fdsh7w2fqpuusz2ek6eauw@sfptftzsilix>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <glhmky5r3rd44hmnxgtgeelqp426fdsh7w2fqpuusz2ek6eauw@sfptftzsilix>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: VSzStdRTRqwzeI_PgqhInfsFWFqLStKP
+X-Proofpoint-GUID: VSzStdRTRqwzeI_PgqhInfsFWFqLStKP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ adultscore=0 phishscore=0 impostorscore=0 malwarescore=0 mlxlogscore=527
+ suspectscore=0 clxscore=1015 mlxscore=0 bulkscore=0 priorityscore=1501
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410240147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_104645_339630_1683E99B 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20241024_105338_217368_B042F640 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +107,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 05:17:05PM +0200, AngeloGioacchino Del Regno wrote:
-> Il 11/09/24 12:10, AngeloGioacchino Del Regno ha scritto:
-> > Il 09/09/24 20:37, Nícolas F. R. A. Prado ha scritto:
-> > > Currently the set_config callback in the gpio_chip registered by the
-> > > pinctrl_paris driver only supports PIN_CONFIG_INPUT_DEBOUNCE, despite
-> > 
-> > [...] only supports operations configuring the input debounce parameter
-> > of the EINT controller and denies configuring params on the other AP GPIOs [...]
-> > 
-> > (reword as needed)
-> > 
-> > > many other configurations already being implemented and available
-> > > through the pinctrl API for configuration of pins by the Devicetree and
-> > > other drivers.
-> > > 
-> > > Expose all configurations currently implemented through the GPIO API so
-> > > they can also be set from userspace, which is particularly useful to
-> > > allow testing them from userspace.
-> > > 
-> > > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > > ---
-> > >   drivers/pinctrl/mediatek/pinctrl-paris.c | 20 ++++++++++----------
-> > 
-> > You can do the same for pinctrl-moore too, it's trivial.
-> > 
-> > Other than that, I agree about performing this change, as this may be useful
-> > for more than just testing.
-> > 
+
+
+On 10/22/2024 3:33 PM, Dmitry Baryshkov wrote:
+> On Tue, Oct 22, 2024 at 01:36:38PM +0530, Taniya Das wrote:
+>> Enable the SA8775P video, camera and display clock controllers to enable
+>> the video, camera and display functionalities on Qualcomm QCS9100.
 > 
-> Nicolas, please don't forget to respin this patch.
+> Please mention the board / device rather than a platform.
+> 
 
-I was hoping to get some feedback on the test itself as well, particularly from
-Linus as the pinctrl maintainer, but it's also been a while so I'll send a v2
-with the feedback here addressed.
+Will update in the next patch.
 
-Thanks,
-Nícolas
+>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+>> ---
+>>   arch/arm64/configs/defconfig | 3 +++
+>>   1 file changed, 3 insertions(+)
+> 
+
+-- 
+Thanks & Regards,
+Taniya Das.
 
