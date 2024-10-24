@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC07FCE8E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8F4CE8E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45dC4Y/NMItOdW7MY/aeImihxqN0L27julOGHN2Ti9Q=; b=SxmlGFElU+kJiUln6C9/5yEZLW
-	8aRmVnHwqZz3j+tC0PBtItcb08TCalyCzTBUqmsT9SyqEM1qgzX/gNCW02r0Wk00nul8IgCAvsups
-	rbyeMQ6j4hkcgIX2nDP3/SLHBdQuVvNXdSgzdRRmm2FCbczWCO033tik7aKZTLPYGCk5A0QMF3MBC
-	hwWe70U6iIxuCWKlQRXUmUf+M67iDTQjHxS4hBXlwGUothSieyrOxJn+EvU2+QTawtUNKscIp8waZ
-	8oHZu6TlgaDYJNGRuGh6gI1qyeXyr86Xfy8q8hmtQYEx8xQnoDiHydLz0rUXo7FqHaTaybyE4cbOz
-	tXMN1jaA==;
+	bh=R6iZHTTxYuxVuAvxuq+9W9yTCzJA3Gr4sz2Eqx61Sgw=; b=qpooR5Cgoen5or7NKP+LsqPp+d
+	Ei/iejBYspe+dFl1Ao+SX1Pj+JYd0lfmAYELpAimtjAMfc+IUbVAajmSr6m+SO9o9RFwoBskLEtMQ
+	qD6r3VBYIpGF9o31o1OTy/j5RUzKaWY585Adsj03P0CBFuRxQ547tWjRfYQNPksr5KSEhVuE+3SEt
+	910zeR+e/OMZxHsRXt/jfzpdzTAMvKjuALM8WpfR/+XFDaza7S5pxmtHHD+aIOm7zQ97L8JRSqcxp
+	y/SqwBkMu5F/F6gOnVQYAC+mtBgZJMs3tztZGrFQzGFcMjm0DEHa68wcduGglGY7W6emBRGJ27+ox
+	UGjI2zBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3w4H-00000000DSR-0OqE;
-	Thu, 24 Oct 2024 11:31:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3w5m-00000000DmP-484S;
+	Thu, 24 Oct 2024 11:33:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vrh-00000000BxR-3pJZ
+	id 1t3vtX-00000000C91-3Puj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:18:55 +0000
+	Thu, 24 Oct 2024 11:20:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F0517A4531B;
-	Thu, 24 Oct 2024 11:18:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C912AC4CECC;
-	Thu, 24 Oct 2024 11:18:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8D14B5C5FCD;
+	Thu, 24 Oct 2024 11:20:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48FB7C4CEC7;
+	Thu, 24 Oct 2024 11:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729768732;
-	bh=ievhkostwsjD1LEmqka4wEYAni11kjJWnYzdensCh+g=;
+	s=k20201202; t=1729768846;
+	bh=Q0/OpzMZjVXX0LAR0kGTqam+qlzVaPSsqSlB1ASscy4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dXjeNYL1vZUaPqszVjS9swBPijTik/DCsrczpNKKjdJBZQuB/kV9K0A0xP/A1ff52
-	 dOeZROWue3WTSaZXoVr3l8qH4FpJWbtId73OlF/z5+om0AuA7eX2nTfVLT9Dgiwbp4
-	 Z++iMXAzt2MNcSKaTbrJAaA7P/d4NF3+cWFnYSL1ktzB7QPznR/La+cGIFKtopJg4k
-	 t8jT+41OjIp0N+IQKH0g/MQMB1iDZe01W0Nj77Do9PPZ9tPg0KoyJK/QByzoHjqEfN
-	 FhOh3g3zwHGMsaYJuF+0nmvNXHx0wLWeYV5Xm3ICefdY54JqyoJQCrNqSYWqA8yaCL
-	 PtJsXM0Qv2PyA==
-Message-ID: <204ad774-a41a-4c3a-bb6c-57e180608341@kernel.org>
-Date: Thu, 24 Oct 2024 13:18:46 +0200
+	b=VoH83ofshTyn0jLDY97m5zxpxffpyTWtx9bwYp283M3+YLNNV/S7CO0S96lfxGNR5
+	 S9N0DSr7yEjeK/K1BV/DEkpsRoFtLUOM0Ept6khPB4J2Cj4UqNGaE5JBNcORDZSftZ
+	 jR7IX5BSV61imGDFS+kUic05S3XpnYkF+BwpN4s3uWA9eojpM4CO5Z8WJNBTlWITdZ
+	 v25ZXbZ1g/qWlwMrFNaSHn45R9eBTRgLZ6CecEKGcEP9PjhaoaBrZ8a/m9J6G33MeI
+	 AoLLE3rDr3gELLZLZ62IJbLZOWQuxcxsofjSnO6C11iHcgh8PlxOWRHiYWsvFXejGW
+	 M7T8bHupUovQw==
+Message-ID: <ea9e910a-a0e0-4059-b784-b6959786cb1d@kernel.org>
+Date: Thu, 24 Oct 2024 13:20:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 1/2] dt-bindings: pwm: nuvoton: Add MA35D1 pwm
-To: Chi-Wen Weng <cwweng.linux@gmail.com>, ukleinek@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
- cwweng@nuvoton.com
-References: <20241024104309.169510-1-cwweng.linux@gmail.com>
- <20241024104309.169510-2-cwweng.linux@gmail.com>
-Content-Language: en-US
+Subject: Re: [PATCH 3/3] ARM: dts: imx6qdl-apalis: Change to
+ "adi,force-bt656-4"
+To: Fabio Estevam <festevam@gmail.com>
+Cc: hverkuil-cisco@xs4all.nl, lars@metafoo.de, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ shawnguo@kernel.org, francesco.dolcini@toradex.com,
+ linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>
+References: <20241023144206.1099622-1-festevam@gmail.com>
+ <20241023144206.1099622-3-festevam@gmail.com>
+ <5qukgvhiszyyqoetl7go47qen27uwnq5mhgwz4lejdgyhyupkb@i2dre4tovzqh>
+ <CAOMZO5CqOwZ=h61x+iUnvPtrcwvvdJeU9aCOuW1_vZs1w40+ag@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -99,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241024104309.169510-2-cwweng.linux@gmail.com>
+In-Reply-To: <CAOMZO5CqOwZ=h61x+iUnvPtrcwvvdJeU9aCOuW1_vZs1w40+ag@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_041854_114654_B44E5DA1 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_042048_008545_8257ED6D 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,28 +123,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2024 12:43, Chi-Wen Weng wrote:
-> Add dt-bindings for Nuvoton MA35D1 SoC PWM controller.
+On 24/10/2024 13:00, Fabio Estevam wrote:
+> Hi Krzysztof,
 > 
-> Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
-> ---
+> On Thu, Oct 24, 2024 at 4:43 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+>> This will affect other users of this DTS, which we try to avoid. Some
+>> sort of analysis if this is used in BSD would be useful.
+> 
+> Thanks for the suggestion.
+> 
+> I checked the BSD source code and there is no adv7180 driver available.
 
+OK, thanks. I think it would be useful to add above to commit msg.
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
----
-
-<form letter>
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions, under or above your Signed-off-by tag. Tag is "received", when
-provided in a message replied to you on the mailing list. Tools like b4
-can help here. However, there's no need to repost patches *only* to add
-the tags. The upstream maintainer will do that for tags received on the
-version they apply.
-
-https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
 
 Best regards,
 Krzysztof
