@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC3ACE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F49FCE8E9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=yK1xLMVY4lFS5qxXrQix1kJwFF
-	JlXLrdSODeHw9B5LEVKohweJmk6DyfGru428oAgOHndo3CJ9xaVzrYebaJ8qykHjzgjLs/H+bf+rH
-	4og11TCsM3qwWUY72uU//d4wLR6iUvTeCEYsfp1BSzXY3QtnxbeNUaEOPWp1tEW8dITucwzRE0ygM
-	YsFG6lxr6anTL0jBASURrq2YQUs62iLQNdXDoSozIdZlXHDIAtgYCFEUUsIjkLpr5PGUYgnO98onk
-	8EIsKgTSecEq08Yz9eihCqxnY+zbm5msEE8tt81WKDteaN5eILjDf3XCUUY5tXtjTdCW9i/EmZmOp
-	dND9RxTQ==;
+	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=sHK/gEOP4NMl5JyOgjqMBFSGge
+	qig0A8GauHvyz3apPMggpSCAZBILscNTD4TnGu6Y5Ixzb0TGFUVA2Ammhls5S5nxV4EWHYQXYQPPL
+	tx1YheqgcibYFnOkpKWPVYxPM3ckkpL4ipqBxsZpO4WAeyAhXTNgggj9UNSQwNtubRdyeQfo5bDtU
+	ei4pu9Hw83iUwY5p+lZR6ajnSNAB4eNnWHc8f+0BIHPBQCJJbnF4Fj8KZkzER221wTz1D9lZATcpe
+	0hvGl0/sLyKPXw77K/nI5ccmpmYj6cuza778CuLqKBVPBOdaqrJ/1N/4gQAn/4QWZgm0EXHgLntfv
+	3vE5uuBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42yg-00000001VAK-0tc4;
-	Thu, 24 Oct 2024 18:54:34 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1t430C-00000001VRj-1y2u;
+	Thu, 24 Oct 2024 18:56:08 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42wi-00000001Ujp-48Ak
+	id 1t42xX-00000001UwK-1mcP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 18:52:35 +0000
-Received: by mail-lj1-x242.google.com with SMTP id 38308e7fff4ca-2fb470a8b27so21445071fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 11:52:32 -0700 (PDT)
+	Thu, 24 Oct 2024 18:53:25 +0000
+Received: by mail-lf1-x142.google.com with SMTP id 2adb3069b0e04-539e3f35268so1601643e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 11:53:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729795951; x=1730400751; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1729796001; x=1730400801; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
         bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=ngt9Kvb12KWJveQ+oLsmr5tS22dr7ig/fek0fza/moHo+gAOd3wSLwT8Rl5hwYZneb
-         iLkmv4MdFjOlTBM0vd00OtKQBF8S/5NUOpM/tfWLlgeWUuQH3aTxkkLfxCH1HS7+GG/0
-         T02by8uqst89nH66lYQXdaLKpGu8pOa5NcLfu2MA7oCSWPra524e6jfVap0m36DMjiTP
-         4ul9NSB6iLRCEPtPEyQpg/d+Ll9OQIm+g5vq0tk5Et24vRWCb1the4Be806rsAKLDS+y
-         G4VpX7E63fQCuSgCRqA0hShDVPkEt8bPbNLG3iKAOOh5KNTK/+lkmzj8AxHZ9BTRlh22
-         rlFQ==
+        b=GTmuwebUv2hfYICF1yhOQnCM4NyWaYq/PApRuAK5V9djNf2nzFSasu8wOstFWQKogK
+         LcGCBppmujAIz8udZEIYVTl+8TQ/i/gSk+r/lS9rb3zPo6aKQ+VmKi12ASOB6Bb86dgi
+         19J/vM3FDDLd3bUNPHE+lj57m1fFzmZX2v/qBeclEz8WRsXk6fUAkVy024kweCAZfyM/
+         hUq5U/cNcH+0RyHu44ctc3FVS5HEKhKMWaQcLkNDhM6mG30O9/sO0k9PXpdg5EGGA160
+         jSRzOwIpwYqKPAhIADb0JvtcM85/eiPws6IoL98v5Cku3qackUzFtrkqJh04Ip0ViOYl
+         +hMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729795951; x=1730400751;
+        d=1e100.net; s=20230601; t=1729796001; x=1730400801;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
         bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=LxP2uZoCeS9/LKvBXVlwdvdYnKZCvwxS6t7/ZCLFVaj1NwLRaH35jD/HcBKfJxpsIm
-         Yq/4AEieDMci1wkQiHZ1HWMVxZqZ2PamQQ7c0irDo7rORym0tII4R5TN/C/kfUKxqH99
-         TfQbnAp/OvLR9CQAnDDbI/cxTu0YjzrJT9mJOqnq0i2Yb+ErHGbcW2yiJKsdggZcw0E/
-         7rJ9Z/VzNLFusMNZ7rrUwIU0IPUy6m0MgXX17YrHkusZLLIwC6OlhpsLBZzdKd50WXkf
-         8lxTM9vn5+nRNnWkYbjvVKYfNLsd7+zp1+A15BDFXTPbGrOhDK8HKPJciEPOA5Qyswr1
-         wndA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRJ7AF5ba+fllbB1XaOvVmmjlDR+gpLE2p8sG2PS9v2fxzvNy7N0GKx+l0sxQkC4DzzzkA9s+4dSWvgNGoUsz/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfOmLYm4uj/xug0NWkstJqz2iaz8rLzKyWmwh0iHldVqMNU5Lc
-	/ptG59Rz2pYCJYd3HW5+laDz/IZWyt5wysEtV/AgSUyTC2HqsdFi
-X-Google-Smtp-Source: AGHT+IFkWRBrzeLKeEO+Np33CeOqrUjEkpcda9TFwdG6TPhN9sol3OtNiKha11YrHOpKi5PO23IACw==
-X-Received: by 2002:a05:6512:138c:b0:539:fe02:c1fe with SMTP id 2adb3069b0e04-53b2371eb7amr1010071e87.16.1729795950886;
-        Thu, 24 Oct 2024 11:52:30 -0700 (PDT)
+        b=IjXdG6Yjh3wtFEYJsasdMDnoO24MOJWe3GOryNcTKQpPm5nFpv5c851KF3VAUwx5LO
+         vjQ/MFFdl4y0qDq5MKE7JYGg8XM41fH+UDgc0n6irnBVjT5F2DozIC2hLJbG7d0qGtt+
+         j98+1Vp4C+1psEqRAWzlodKOz61CuLQrhvbEusdlHpkM0MM+tFSKj9MbHWEU9nKpfhd9
+         3OM3YgqHyQwiMy+H62Y+yE3ZbAgoTSowEgW7truJeM2pPSac8cDdHYGnv1UpA5kOobYz
+         J1onzvp3vExfitY3E2vrinvE7eYuwHcD7TH+cM96aM3U27i/47U002Kb05CB/e/kpKwh
+         WGzA==
+X-Forwarded-Encrypted: i=1; AJvYcCUS8nwQGwvEcuwgwU3FIwpsgX8zyLeTYE74FzYI7Znf2PVVaen8EoN2ZfbwHoF67lnZjrX7Y6BVcaVCvLr3u5wz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0uYqIfv5m1TXp7HcvnbGW1WCthSdJBeDC4IQKFXEyNSPRH9VM
+	YtSJRiocDhgxJSn2iWDuSBGEbzyrQmDUfld/bz+5ZUc/BOqAZQvb
+X-Google-Smtp-Source: AGHT+IHoA0lLNqAVbOhrQzxOyN68V+Pk8Ec2kh/CqBX2VVexphjxSMyPdtipAfeR1DDAZDSYlWhfiQ==
+X-Received: by 2002:a05:6512:2813:b0:530:aeea:27e1 with SMTP id 2adb3069b0e04-53b1a3717c8mr4143881e87.50.1729796001115;
+        Thu, 24 Oct 2024 11:53:21 -0700 (PDT)
 Received: from localhost.localdomain ([176.106.245.80])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b13cb326fsm889624e87.54.2024.10.24.11.52.29
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53a223f0089sm1430838e87.112.2024.10.24.11.53.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 11:52:30 -0700 (PDT)
+        Thu, 24 Oct 2024 11:53:20 -0700 (PDT)
 From: =?UTF-8?Q?Russian_Troll_Factory_No2333113724691862412370505314550?=
 	=?UTF-8?Q?301522361658681972819097215937998212703204793632409614950580?=
 	=?UTF-8?Q?711014116901113627315250812066331608136907483394686821870024?=
@@ -123,17 +123,17 @@ Cc: aospan@netup.ru,
 	wangyuli@uniontech.com,
 	wsa+renesas@sang-engineering.com,
 	xeb@mail.ru
-Subject: LINUS TORVALDS IS A DICK
-Date: Thu, 24 Oct 2024 21:52:22 +0300
-Message-ID: <20241024185222.14273-1-vladimirputin693389@gmail.com>
+Subject: [NOTIFICATION] Linux Mailing List - New Messages
+Date: Thu, 24 Oct 2024 21:53:17 +0300
+Message-ID: <20241024185317.14285-1-vladimirputin693389@gmail.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_115233_045179_30040451 
-X-CRM114-Status: UNSURE (   5.00  )
+X-CRM114-CacheID: sfid-20241024_115323_477555_059B3E2C 
+X-CRM114-Status: UNSURE (   5.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
