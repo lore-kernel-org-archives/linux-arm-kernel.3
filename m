@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CCFD0E3F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 19:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB136D0E3F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 19:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=ABcegaMy0VBMUUNfNU9fPB9ZPo
-	jGBnoO9E0S4+ljEdWPfKo3NLou/4+JHMSBtkV+Ug2Gu1k6XT5pkdbuUvLiRsF+aiMw+pDiM0oQ2Wj
-	E7eAQXobuNXzeqScGnenR16dLLzm6ipIW4KqVh11qWP39LTdV5/TgcFdyYOfGJW5rsOLQcbL8wNsj
-	eTMCdnkbA6zo5AoHYTX8o/WVP3gkatwJ/r6FmtKmoDlA+5nws3S16aO3SLmpyfI9CeG2zesrDav/P
-	VV6ti8LMBSLzzKTvMLgkrMWgRcWYY0DKSLkTL56xKRz5i3rOtixASxvcBvGoCXF9diCx/e+GWW3jy
-	Y5JM9QWQ==;
+	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=AA1r/OERmOaaBXh6Ay+L2+4PGW
+	Giq+Ak+hetNlMzq3bAXwbioweTEdJJGcY/jf8OG68Pp4zDCjfNkzF+qrRuTg/soyTm6iwLXpWWiOo
+	iME61l4k9SNj6Z/6iK0HxLxLVSKoSxFHxXzkXHVeuRWQeFWJ91jHxGm850k82UJaO6cBJwvdH2JBG
+	c1ipzRN+N7j/T4Rm4qOGRn+3MqLvOQrbC2kUv8vEdZ1jofz7IugZTwbwMbV5xZz2C+JHEZPbbr6/1
+	1FYDtNSTmLy2G4BMToutKSp2SLNYnxxdE9UusmL8dIhZU/X8SBl22gpiRSS/ZtFAsAfDvlQrFQMfn
+	xNCZQLeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t43tg-00000001eR2-1LEG;
-	Thu, 24 Oct 2024 19:53:28 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1t43vD-00000001el2-0ufp;
+	Thu, 24 Oct 2024 19:55:03 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t43Cw-00000001XOc-3jEg
+	id 1t43D3-00000001XR5-1D0G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 19:09:20 +0000
-Received: by mail-lj1-x243.google.com with SMTP id 38308e7fff4ca-2fb3ce15172so22213921fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 12:09:18 -0700 (PDT)
+	Thu, 24 Oct 2024 19:09:26 +0000
+Received: by mail-lj1-x242.google.com with SMTP id 38308e7fff4ca-2f7657f9f62so12798511fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 12:09:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729796957; x=1730401757; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1729796964; x=1730401764; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
         bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=X4lEru7QduGLoJkaJCohrJqBdIodvyZq4orha31W61oqP2MUjR9pcjyHDHMnzOXjVa
-         nFTLWLBS98oiRYdlvqKcPzoW+Kdpd7ymwOQ5CGmzP+OvH95fTkIlA7xTYabBWlWBpEzh
-         6aq/1vvS9yjIF5l5QNvkm13HF8xnWcjWt/gdBCIXf7gB+mG+b9znGqGKVAijmeKnjToj
-         s0CWyOW5ZGIP8/49frlZMdxoFgd+eMbeG0QC9c6GdfLX4UdfoXGGr9LvEPEKo4HeIzYL
-         aAXu3lgvePA17f7MzwEzmt4J2L9RS8DwDwaA7zVL08KzppIiyy8eYZkLefRS936PfCxz
-         dQ2A==
+        b=HtUlTSnlLfaxqLn0T5Vgj47gFSu2vzRlJMzPLEVN/p98Yn2zOs9O2+ThB8aDghEKsn
+         uv2mKxj2yJckEW2ym3Sj3XQ5X97sTOYA4hM4tBSlBjfzjAP89Bm5jagMZYVVCyeqL5OS
+         aSbUFuRE7IQ5HoLw0w/Ba0INDSklHrS2pTSjnzcyzAwGg2XMCrTMbj5V0GhQx6ptJPxX
+         WK6rRL/+YFcvviAwhxbGt50R38BxFo/LJLyIDOwLaRG8bxv/IBUdh6yFsKv5QnD96c1g
+         jxW6eNNdQV8kO/HTE6ymKdWe6LjLqaGAq8lIUwerdEDkr3lNWcaHlREP7XC0eEOHG7jz
+         gc7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729796957; x=1730401757;
+        d=1e100.net; s=20230601; t=1729796964; x=1730401764;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
         bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=gCMjonn+hdrflN5fW8uDT1EDS/40qztjpNDMU18grmWgIRP6jmwMEc/a8Sv6lTdBdu
-         VUrAhy2V2BXbc8Ce8bx12yH8KeU83doQEON0/l3HKE46CqiMV8M6Oc1yZOpIcOWQkbYb
-         hQL/6to84MbtHxsSWFgKoPn0cvtbnG2G67UpN5CDrN51l+nquX/1ZMDiX0eHrbZwrCuj
-         0A9TmXQ3Q3LgJF9PPSBtxn46FJCoco96N3/sCl6biRFIQQsKTDdqAYcteCVUhjZdpD0B
-         FbYB8FkkvHRvK5M2T1c9LOedWG8urXfU7nDc1evcysC7iWjK/AcVwxbMbDdXpam9Ar7s
-         ruVg==
-X-Forwarded-Encrypted: i=1; AJvYcCV7ZdBH6kJeOi1aoHLUDraw+SI/YvmViGpuWevoxSoWipgqhbbQwXedr5LnUBdrCJyj+emK5A+GPlUREhJp4psc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKYn43ug1H//szVUB4r5vZg2Cf/UU+lylvkbSyuZ+w65jUHwrt
-	84bfrBEyLdFCs2REUZvwsv4jriY2B5Jssw7a5wo9Fpanp2F4Rhmf
-X-Google-Smtp-Source: AGHT+IHIvORyoN6XU1l7elSbrDnjhwRR6z/Ojd3j4qtJQTUT7JoEUEPyy4VNvNp8R204wmdDHX2+Lw==
-X-Received: by 2002:a05:651c:19a3:b0:2fb:5bd1:c293 with SMTP id 38308e7fff4ca-2fca8365ee0mr13762991fa.21.1729796957173;
-        Thu, 24 Oct 2024 12:09:17 -0700 (PDT)
+        b=o43wexAfUpLkt7o+QSD1FkX73guDZGjOwDZxf7+Ykqlveo4kI8QDjBf6QFSw28mxIe
+         9phGagYa0Bc3dhp6DbWPbwbCOuiWbntG6sDl1rWD/7j8Q024TJ5OCEoT+zoEQVYLUL3f
+         LTDsz39qplAkXFa6nVHmbEdTEzQd3nMNARhXwgYUfOxM91H31gjOdlIj+cz4eYe44Xp5
+         EbsPHxfSCwb8dlElhy+LvQkewGLwqWILIGI/b3N/WWwhPA9trpxIhbhSZaIljskbh+r5
+         Cl7XfsJvTWPga9T7PsDvpbR9iLZDgWyKhm4XKwvvSQK9GTkvuSIIX3oTk4w8Yl7vhOrZ
+         XBbA==
+X-Forwarded-Encrypted: i=1; AJvYcCU7U9xifjmWmzScWfJ28CeRuIbzDpwdtAjSTToM50DTs2q2Nwpcyb4PzK6TbZeBY3fEPUjigY+f3/pTsEkeRjU5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFv8DL/T96ZjMt841RDxuwb/4NK9DFaNrslGWO4pXc7W5WfRaj
+	kqojlTzG4A9idrsoH2D7+12GiZdZyqDnOacZbP9u5PNrxUlCv3iX
+X-Google-Smtp-Source: AGHT+IHZT+qt/QT29Ym0Z4uA41LC1KVPEhTJldHSsZiZ029LsQkU8Bv7JOCtIrGtgDkkjSc8rXJvaQ==
+X-Received: by 2002:a05:651c:19a3:b0:2fb:7e65:cb27 with SMTP id 38308e7fff4ca-2fca81c2159mr21637821fa.6.1729796963407;
+        Thu, 24 Oct 2024 12:09:23 -0700 (PDT)
 Received: from localhost.localdomain ([176.106.245.80])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fb9adf7bb6sm14733071fa.90.2024.10.24.12.09.13
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fb9ad4b804sm14785331fa.1.2024.10.24.12.09.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 12:09:15 -0700 (PDT)
-From: Russian Troll Factory No1536239842895262931225811575185472591149412074612914204882687495714634103492751930559223641220723968220682072022693143133166911303 <vladimirputin693389@gmail.com>
+        Thu, 24 Oct 2024 12:09:21 -0700 (PDT)
+From: Russian Troll Factory No124102107614936132237169106192194306572797123221588731441134731292530075318731846332329166771387842821482716761931624377595610961 <vladimirputin693389@gmail.com>
 To: torvalds@linux-foundation.org
 Cc: aospan@netup.ru,
 	conor.dooley@microchip.com,
@@ -105,16 +105,16 @@ Cc: aospan@netup.ru,
 	wsa+renesas@sang-engineering.com,
 	xeb@mail.ru
 Subject: Magisk patch for android nox devices
-Date: Thu, 24 Oct 2024 22:09:11 +0300
-Message-ID: <20241024190911.14739-1-vladimirputin693389@gmail.com>
+Date: Thu, 24 Oct 2024 22:09:17 +0300
+Message-ID: <20241024190917.14761-1-vladimirputin693389@gmail.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_120919_041700_2C384645 
-X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-CacheID: sfid-20241024_120925_349390_57E7C71D 
+X-CRM114-Status: UNSURE (   5.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
