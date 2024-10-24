@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9748FD0BB46
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 00:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E229D0BB4B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 00:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WtnDx7HtpgMGToc67LvWVCZkY6l3tklYm20D0ZsZQYU=; b=uJfA9qvvZbOqycXAdRud46+CG9
-	gra40MmI2pQ2ozBPqfbE+cEtSTjkDaHgDieOlO+lWwj7r/LS07guSmm6ENYzlTPgWSNqu+JM6JRSt
-	XeRkv8p3jIuXC1VmZk/4kuBiIX41X/Sv0MXS/ctmkT616fiqYypCzT+aifP0ZcPewSD/+AX+w3Uqg
-	FV3m8i3RPsx8td8yDr2azaXoUhdqYR7GLC4FQREC0Ee/nVMCSpfl257N+5bGuXHlssEtRvpRRH1/J
-	aoJa2IwKCLOHMAmXVUPSvGFgRg9u3Xw1/ZYVOU+wdKwzMsXKphVqgQ+nyWkHpNPzmJ8LYwQu+Ofe1
-	cRZzL0Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JVgoIaDu3a4uA7dKxjkeP2UOxgCvLj7AFtqJcyyqZug=; b=n88RupeJebec8Gz/XdsUE2Am3i
+	tSVHN3b87TXzr38XnICIYEfy24exDpJeG7EZOl2l3SpmupirF7RLUpD3devVBoSrLIs90y+/CpoYB
+	ahO10drcJITx5AFEGjssBI/o2zTki49SnZsSV6VKEAyXpWEZMMahG4ossx6Nfo/EgnWuTk9+QUyzG
+	4bBGU8wSPWSnZGt/OL/W3+UdFMpEGUY9IBtFUFUMGBwtCciL1chBmKpnmu0ImSOSNjivf9EVfOj0b
+	KlVkT5SJmTnJGDuM6H3tiIXPEoEiMJmrzg+pu6V+wI/6ryD7QQ1AQ26qBGbbxU/JKo+I8DoSlQ4eW
+	sTZujx4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3la6-0000000GJC7-3nSe;
-	Thu, 24 Oct 2024 00:20:02 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1t3m8p-0000000GMD7-0fIB;
+	Thu, 24 Oct 2024 00:55:57 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3lYY-0000000GJ31-2HjT
+	id 1t3m7F-0000000GLwC-2Uv7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 00:18:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1729729104;
-	bh=WtnDx7HtpgMGToc67LvWVCZkY6l3tklYm20D0ZsZQYU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YDAmSUvBbl4YtLfaeZNLAXebR7kAnuQTy9tN79E1k/JZOhQi6XQiS2LcvGdpxqdxc
-	 qCjFi/DwBiL1/H8TCjOtcAPJLLeirRckkhJn6NL/g1sC2qxbYSv3Q5jmq+Iis+V8a2
-	 Qcv7FYFwhXXiVJhX5dZq1Wk5I0mGUzRoRjsefxJHALCE2TJbpjHx7CPEblHa6Qzfxi
-	 xgXWPT/hXrUKzIiBOSkosHGsLBX8O/kYmiWHokoIiH1zTPiPNC3lywBchKq0ihIQiS
-	 IMJgA31Yv6T/oYVrMUYKWiQOo1CLfMxo1h50yEqyP2TIf0imLC1DiBJtdOvBUe6mIf
-	 TNBOQ3pxVoYbQ==
-Received: from [192.168.68.112] (ppp118-210-190-208.adl-adc-lon-bras34.tpg.internode.on.net [118.210.190.208])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 815BB6494E;
-	Thu, 24 Oct 2024 08:18:23 +0800 (AWST)
-Message-ID: <32cb6d9388fb136f7cd7ad1ab0d60d83ae387982.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: =?UTF-8?Q?=E5=BE=90=E5=82=91=E7=94=9F?= <jasonhell19@gmail.com>
-Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com, robh@kernel.org, 
- krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, patrick@stwcx.xyz,
-  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Thu, 24 Oct 2024 10:48:22 +1030
-In-Reply-To: <CAFGtgY3BJcpC=Q0cYZQa01D5BFAQTt6GEr=0_mrPGUntHYVioA@mail.gmail.com>
-References: <20241022021230.2322132-1-jasonhell19@gmail.com>
-	 <de478e5f56bb67a9babe59afa6ad53c8dd4542ee.camel@codeconstruct.com.au>
-	 <CAFGtgY3BJcpC=Q0cYZQa01D5BFAQTt6GEr=0_mrPGUntHYVioA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 24 Oct 2024 00:54:19 +0000
+Message-ID: <24147551-b639-4f9f-be5e-def2570a863d@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729731254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JVgoIaDu3a4uA7dKxjkeP2UOxgCvLj7AFtqJcyyqZug=;
+	b=o4K/xXRxT7AUFPwBCSjwf44lTQOHULpN9EbY4czS5zwWDveZVONFNXcb/9na/RgypdxIph
+	M9TrJanBk1TnRVtHOnyIFZn475xpRdqBWaSEMV1XTB4oZ4DnH77RdDhs8KCfUTVXORbfeA
+	3oEgq4Z96J+6r5TMClGOLTyFSz5LWp8=
+Date: Thu, 24 Oct 2024 01:54:09 +0100
 MIME-Version: 1.0
+Subject: Re: [PATCH net-next v2 10/15] net: lan969x: add PTP handler function
+To: Daniel Machon <daniel.machon@microchip.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Lars Povlsen <lars.povlsen@microchip.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>, horatiu.vultur@microchip.com,
+ jensemil.schulzostergaard@microchip.com,
+ Parthiban.Veerasooran@microchip.com, Raju.Lakkaraju@microchip.com,
+ UNGLinuxDriver@microchip.com, Richard Cochran <richardcochran@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, jacob.e.keller@intel.com,
+ ast@fiberby.net, maxime.chevallier@bootlin.com, horms@kernel.org
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
+ <20241024-sparx5-lan969x-switch-driver-2-v2-10-a0b5fae88a0f@microchip.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20241024-sparx5-lan969x-switch-driver-2-v2-10-a0b5fae88a0f@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_171826_814309_67AE52E6 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20241023_175417_977512_1B9501AC 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,85 +81,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2024-10-23 at 16:32 +0800, =E5=BE=90=E5=82=91=E7=94=9F wrote:
-> Andrew Jeffery <andrew@codeconstruct.com.au> =E6=96=BC 2024=E5=B9=B410=E6=
-=9C=8823=E6=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=882:15=E5=AF=AB=E9=81=
-=93=EF=BC=9A
-> >=20
-> > On Tue, 2024-10-22 at 10:12 +0800, Jason-Hsu wrote:
-> > > Add Linux device tree entry related to Meta(Facebook) Ventura specifi=
-c
-> > > devices connected to BMC(AST2600) SoC.
-> > >=20
-> > > Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
-> >=20
-> > What commands are you running to generate and send your patch series?
-> >=20
-> > The patches must be threaded properly.
-> >=20
-> > `git send-email` or `b4` both do what is expected without any effort
-> > required. Please consider using them, particularly b4, if you're not
-> > already.
-> >=20
-> > Andrew
->=20
-> We use `git format-patch` and `git send-email` command to generate and
-> send patch series as below, could you help to check?  Thank you.
->=20
-> git format-patch -2 --cover-letter
->=20
-> git send-email --smtp-debug --to=3Drobh@kernel.org
-> --to=3Dkrzk+dt@kernel.org --to=3Dconor+dt@kernel.org --to=3Djoel@jms.id.a=
-u
-> --to=3Dandrew@codeconstruct.com.au --to=3Dpatrick@stwcx.xyz
-> --to=3Ddevicetree@vger.kernel.org
-> --to=3Dlinux-arm-kernel@lists.infradead.org
-> --to=3Dlinux-aspeed@lists.ozlabs.org --to=3Dlinux-kernel@vger.kernel.org
-> --cc=3Dyang.chen@quantatw.com --cc=3Djerry.lin@quantatw.com *.patch
->=20
+On 23/10/2024 23:01, Daniel Machon wrote:
+> Add PTP IRQ handler for lan969x. This is required, as the PTP registers
+> are placed in two different targets on Sparx5 and lan969x. The
+> implementation is otherwise the same as on Sparx5.
+> 
+> Also, expose sparx5_get_hwtimestamp() for use by lan969x.
+> 
+> Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> ---
+>   drivers/net/ethernet/microchip/lan969x/lan969x.c   | 90 ++++++++++++++++++++++
+>   .../net/ethernet/microchip/sparx5/sparx5_main.h    |  5 ++
+>   drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c |  9 +--
+>   3 files changed, 99 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> index 2c2b86f9144e..a3b40e09b947 100644
+> --- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> +++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> @@ -201,6 +201,95 @@ static int lan969x_port_mux_set(struct sparx5 *sparx5, struct sparx5_port *port,
+>   	return 0;
+>   }
+>   
+> +static irqreturn_t lan969x_ptp_irq_handler(int irq, void *args)
+> +{
+> +	int budget = SPARX5_MAX_PTP_ID;
+> +	struct sparx5 *sparx5 = args;
+> +
+> +	while (budget--) {
+> +		struct sk_buff *skb, *skb_tmp, *skb_match = NULL;
+> +		struct skb_shared_hwtstamps shhwtstamps;
+> +		struct sparx5_port *port;
+> +		struct timespec64 ts;
+> +		unsigned long flags;
+> +		u32 val, id, txport;
+> +		u32 delay;
+> +
+> +		val = spx5_rd(sparx5, PTP_TWOSTEP_CTRL);
+> +
+> +		/* Check if a timestamp can be retrieved */
+> +		if (!(val & PTP_TWOSTEP_CTRL_PTP_VLD))
+> +			break;
+> +
+> +		WARN_ON(val & PTP_TWOSTEP_CTRL_PTP_OVFL);
+> +
+> +		if (!(val & PTP_TWOSTEP_CTRL_STAMP_TX))
+> +			continue;
+> +
+> +		/* Retrieve the ts Tx port */
+> +		txport = PTP_TWOSTEP_CTRL_STAMP_PORT_GET(val);
+> +
+> +		/* Retrieve its associated skb */
+> +		port = sparx5->ports[txport];
+> +
+> +		/* Retrieve the delay */
+> +		delay = spx5_rd(sparx5, PTP_TWOSTEP_STAMP_NSEC);
+> +		delay = PTP_TWOSTEP_STAMP_NSEC_NS_GET(delay);
+> +
+> +		/* Get next timestamp from fifo, which needs to be the
+> +		 * rx timestamp which represents the id of the frame
+> +		 */
+> +		spx5_rmw(PTP_TWOSTEP_CTRL_PTP_NXT_SET(1),
+> +			 PTP_TWOSTEP_CTRL_PTP_NXT,
+> +			 sparx5, PTP_TWOSTEP_CTRL);
+> +
+> +		val = spx5_rd(sparx5, PTP_TWOSTEP_CTRL);
+> +
+> +		/* Check if a timestamp can be retrieved */
+> +		if (!(val & PTP_TWOSTEP_CTRL_PTP_VLD))
+> +			break;
+> +
+> +		/* Read RX timestamping to get the ID */
+> +		id = spx5_rd(sparx5, PTP_TWOSTEP_STAMP_NSEC);
+> +		id <<= 8;
+> +		id |= spx5_rd(sparx5, PTP_TWOSTEP_STAMP_SUBNS);
+> +
+> +		spin_lock_irqsave(&port->tx_skbs.lock, flags);
+> +		skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
+> +			if (SPARX5_SKB_CB(skb)->ts_id != id)
+> +				continue;
+> +
+> +			__skb_unlink(skb, &port->tx_skbs);
+> +			skb_match = skb;
+> +			break;
+> +		}
+> +		spin_unlock_irqrestore(&port->tx_skbs.lock, flags);
+> +
+> +		/* Next ts */
+> +		spx5_rmw(PTP_TWOSTEP_CTRL_PTP_NXT_SET(1),
+> +			 PTP_TWOSTEP_CTRL_PTP_NXT,
+> +			 sparx5, PTP_TWOSTEP_CTRL);
+> +
+> +		if (WARN_ON(!skb_match))
+> +			continue;
+> +
+> +		spin_lock(&sparx5->ptp_ts_id_lock);
+> +		sparx5->ptp_skbs--;
+> +		spin_unlock(&sparx5->ptp_ts_id_lock);
+> +
+> +		/* Get the h/w timestamp */
+> +		sparx5_get_hwtimestamp(sparx5, &ts, delay);
+> +
+> +		/* Set the timestamp in the skb */
+> +		shhwtstamps.hwtstamp = ktime_set(ts.tv_sec, ts.tv_nsec);
+> +		skb_tstamp_tx(skb_match, &shhwtstamps);
+> +
+> +		dev_kfree_skb_any(skb_match);
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
 
-So from the details in the cover letter I'm guessing that you're using
-Ubuntu 22.04 LTS (Jammy). At least, Jammy ships git-2.34.1, which is
-what is mentioned in the cover letter.
+This handler looks like an absolute copy of sparx5_ptp_irq_handler()
+with the difference in registers only. Did you consider keep one
+function but substitute ptp register sets?
 
-The --thread option in the man-page for git-format-patch[1] says:
-
-   The default is --no-thread, unless the format.thread configuration is
-   set. If --thread is specified without a style, it defaults to the style
-   specified by format.thread if any, or else shallow.
-  =20
-   Beware that the default for git send-email is to thread emails itself.
-   If you want git format-patch to take care of threading, you will want
-   to ensure that threading is disabled for git send-email.
-
-[1]: https://manpages.ubuntu.com/manpages/jammy/en/man1/git-format-patch.1.=
-html
-
-The --thread option in the man-page for git-send-email[2] says:
-
-   If disabled with "--no-thread", those headers will not be added (unless
-   specified with --in-reply-to). Default is the value of the
-   sendemail.thread configuration value; if that is unspecified, default
-   to --thread.
-
-[2]: https://manpages.ubuntu.com/manpages/jammy/en/man1/git-send-email.1.ht=
-ml
-
-Since you're not supplying any thread-related arguments in either case,
-I wonder if you have thread values set in your git config. What's the
-output of the following two commands for you?
-
-   $ git config --show-scope --get format.thread
-   $ git config --show-scope --get sendemail.thread
-
-Regardless, you may want to try passing `--thread` in your `git send-
-email` invocation.
-
-Finally, please pass `-v $X` to `git format-patch` to version your
-series (the value for X is how many times you've sent revisions of the
-series). Currently I count 3 distinct attempts, so next time you send
-out the patches you should pass `-v 4`. However, the b4 tool is helpful
-here, as it largely automates the process for you.
-
-Andrew
+>   static const struct sparx5_regs lan969x_regs = {
+>   	.tsize = lan969x_tsize,
+>   	.gaddr = lan969x_gaddr,
+> @@ -242,6 +331,7 @@ static const struct sparx5_ops lan969x_ops = {
+>   	.get_hsch_max_group_rate = &lan969x_get_hsch_max_group_rate,
+>   	.get_sdlb_group          = &lan969x_get_sdlb_group,
+>   	.set_port_mux            = &lan969x_port_mux_set,
+> +	.ptp_irq_handler         = &lan969x_ptp_irq_handler,
+>   };
+>   
 
