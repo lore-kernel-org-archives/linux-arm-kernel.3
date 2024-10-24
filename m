@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A289D0BB63
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCCED0BB5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=; b=irQl4h255OnLo1GnNqtlgW3gkD
-	D8oK2TgfEdntGhIj0x+QwN4PQ4Oka+Tm2cqh7eAn5ueVf2wzPtqnhjREJzw8ZlneOXWJ+xlNN8g1P
-	ah2Jg2MqZqJRRYZD2FoLpQfLJkCiL/HTr/KtJsx4HcNw8H3VU6ANi9a8QjeADi2AUJJCdqFrHueXr
-	xt/96F882AVyraurTvdN0nfezF0aRUGggy3R8Nic3qzylmT7LxBR3rwOxgSIGamqALIiU0WgA5KTD
-	+EyV1XSawVhelvKBT2kZBMR1baPyLyCRItefKETEuykA3kBlrAGi94lVHGf9yivaCAsyBR+K3hj/i
-	6TZfH9gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=; b=A6In8Sx54tb5hnTSJ2NE7/dEKy
+	dj5rNbSPRQBv+xk71Wd/APA4GbuoJkF6pl0iOXBzE/4SpJ/pY7Cwlk+7W4F4jiiyD/BABWFDcbQwK
+	+nKzHUPM986vh1AvtBriOO8FryTNl2sGSJQLxDKIGMDb7OgC8Bn+LnYg00VA2EafTMLXnlwHsD54e
+	X/5kG1pV39M1pnzX5wobGGW3H3hhVUG3c0YPR69S4tzt3yplPnhxRBAso1QS6clBpsn6cMqaVPHFQ
+	9ROVPY0ZyW3gUL9PPrQHua9v3dRYczxCpgaQEEqGa68U3Bma083VJT0O2paJyKEsYXMFrpzk1cce/
+	w56+KC5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3rCi-0000000GtlV-3QVB;
-	Thu, 24 Oct 2024 06:20:16 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t3rEF-0000000Gu7L-07Wi;
+	Thu, 24 Oct 2024 06:21:51 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3r6l-0000000GsY2-2UMS
+	id 1t3r9h-0000000Gt9Q-1hiy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 06:14:09 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e0082c1dd0so11563987b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:14:06 -0700 (PDT)
+	Thu, 24 Oct 2024 06:17:11 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7ea6a4f287bso313178a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:17:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729750446; x=1730355246; darn=lists.infradead.org;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=;
-        b=xLakp9LDgPw6u/JgaXLpCgqQgG97e1imMYD3tlOJh3yzwVzXsDBUFJazeDdsnYaa18
-         I3TEhbYtt8mibexjODfu5FZYPGwjG/a/g/y46yKd6XuDJQ0SCblBTrH+paKoTVMrbkcd
-         optt0D0JEVQbHUNo5LneZE+7ABdZ/BwbCnd7ZlQR+RaiFuvyTo8FycOdmV29InVyGEQB
-         5/Da8JnZFPm1OJunqZqHesEt9cP6uRodTFVFNOlR2RLY1OsZhD2D99tO2hXIYQR9lWOo
-         9FdCDuzp4xzqABDPeoOfO075gM76IicVhnBAJnSRQsSJAwSioytaw1GSoUffJJXFvLDP
-         swGQ==
+        d=google.com; s=20230601; t=1729750625; x=1730355425; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=;
+        b=LFz3il/FYnrvLS0T48Bxh3/IqJjJhlEBBnxpFAVLDjlniMIcEqfl4SuvIigoWpDo6A
+         YKm0uX82xojVWbwEDjT4SSEudwFXKD3CoTJCiX19CfeGHiG7bNpsI9MD6p6FZGXyhCvr
+         fquTXOkvf0ieq98Fp7q69psfAT5tA+oJMbgWAzfPkaJeC7J0OoD1opmAauOGzVFZ8lWE
+         TH5zoy/kBtNgoISnzA5E39oxpwZQlZIcBQrSt1w3hsWHclAZ+7oaS1KEJPgZDyJ8G50t
+         yhSsApAqMa2pAf8vwMXhggJQb+7OkQBQMDnMj+SDf9JAIJt7u9VjmGiSil3jCElqAJdW
+         XTtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729750446; x=1730355246;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RirtA7EgN4fQOOKugcSYCvUnz6k6FXA4tnIv667SP2U=;
-        b=UWhlRXj7ZIHGuIoP7h1ABI50RusAvcFSon4z5pSrcdQgkqV0oU4y5g08pdiqBveR3Z
-         xaQ9vd4+tKzSSh7953dByuvxtuvXRAmiGAfGhOiX/Y+MGH6+ywW9uBNFDHfEF03Hxthh
-         MXQ89kjWobX1+btEyUUWqHv0+bkRHWGUTRF3ghcP4T7+m/TC3fob0knGtcalIilwtY61
-         c0j4mw6+8i4gozd0JlLXC8PG8uaFVoyhcsGwZf/5PxRTPvSPhpTGMen92s3mGNIlaW0l
-         /tuOAaI4esTHHbTS5+0Zr7wUVOpzexbW7pDCo+6yFtrLepAVmdNsy+RhOMjTTq384rVc
-         4oRA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9pGIa2oaXQtGKrYBGH4UJgm0hcHHQ07QC3YgirspXFurTjtxAb9v4ap9GkoNTNT2cgzV+EyJVIBpOT//z1Z/k@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMfByjODnap7CyM6ShcF2zllsQM2xlq7thKNtGn4zRCifzGL2/
-	XT1dZT00s/D6nlVZhntOR5pmp4nanz0zl0o8PVTVzAXqDfGE0rY3e61xzYjJ2XcajTyNQqucIzH
-	DFFGduDKTO+1gBw==
-X-Google-Smtp-Source: AGHT+IEJXaAAeZpuDAkTsefFXLL2kex4B2AlfwjdclQcvPn636A6m5nX8BurNhgR4ykV7U+QaaWd5sb2nHuey3k=
-X-Received: from saravanak.san.corp.google.com ([2620:15c:2d:3:965e:f81d:c9fb:b352])
- (user=saravanak job=sendgmr) by 2002:a05:690c:3749:b0:6e2:4b3:ee22 with SMTP
- id 00721157ae682-6e866359b6fmr171667b3.6.1729750445961; Wed, 23 Oct 2024
- 23:14:05 -0700 (PDT)
-Date: Wed, 23 Oct 2024 23:13:44 -0700
-In-Reply-To: <20241024061347.1771063-1-saravanak@google.com>
-Message-Id: <20241024061347.1771063-4-saravanak@google.com>
-Mime-Version: 1.0
-References: <20241024061347.1771063-1-saravanak@google.com>
-X-Mailer: git-send-email 2.47.0.105.g07ac214952-goog
-Subject: [PATCH 3/3] drivers: core: fw_devlink: Make the error message a bit
- more useful
+        d=1e100.net; s=20230601; t=1729750625; x=1730355425;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=;
+        b=PXRP7mSr2pVJVyU2SpE0pPHEDiPs5zafmhHpZ/ZmE6Q4kzij/bNzXg92fKFpBKFAFU
+         EOEaab6EtA0Iz6wu7UyYIqlU0zmqGZwGtKeo57tw9h3GcFk0rm8nIrMiByqRcbYAPgHk
+         Fq2AgCgj43eAXTmaisHNQq0yr9I3bhe5CcO4h/jAxdMB0plRKCTt5Alkn2d9mcKheB5R
+         VEdRChKI9BM/vMr4ty0zNH7ZP7nNDQ1RJeOtBMZGcH4o01SBYdd3uu6vNHsE7/bthtxx
+         dAbutsFwEpaI3waUyjrtr85V8LuIiCgnzcFtV5teaJj8ouHJymgMZ6RIQOrcVJtta90k
+         VvJw==
+X-Forwarded-Encrypted: i=1; AJvYcCWSmgbTgZv7bfrl3TtcCjt+BBlXNOfEjbaWLshb2lgyUVP3gOcz8LRZ4p1W5nQmr9kJlJf/fdH6+Edklek2feYB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr3JM8WtKB6IhAkWI8gmCr3GuxL5keSLJL3jFq+Oa77wmBUTon
+	olsM8gMVXDEUOrv7/zRjcPV41GqvK2J7IZTIwOBJ1tKGSvAsKCoeakqaEkeAgjisqAHeQuM5MSD
+	U42P5ZUyMGvfAgrOQ6KDyIg5glClXxKocvFDe
+X-Google-Smtp-Source: AGHT+IFcCYtp7nVgkoJ5rzaztD8OtipNso126UyODrDbPTgNIyDaB+s9edBYS51aMEHDl37/TiPH24OOcDTayFV74a4=
+X-Received: by 2002:a05:6a20:5da3:b0:1d9:83cc:ef90 with SMTP id
+ adf61e73a8af0-1d983ccefdamr1940597637.8.1729750624651; Wed, 23 Oct 2024
+ 23:17:04 -0700 (PDT)
+MIME-Version: 1.0
+References: <20241024061347.1771063-1-saravanak@google.com> <20241024061347.1771063-4-saravanak@google.com>
+In-Reply-To: <20241024061347.1771063-4-saravanak@google.com>
 From: Saravana Kannan <saravanak@google.com>
+Date: Wed, 23 Oct 2024 23:16:26 -0700
+Message-ID: <CAGETcx_0gqbo5Xf9mZGrBZszZsmKBdqRreb-=O_PvOR_2Yc5Cw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] drivers: core: fw_devlink: Make the error message a
+ bit more useful
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
 	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -76,15 +76,16 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael
 	Kishon Vijay Abraham I <kishon@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
 	Jonathan Hunter <jonathanh@nvidia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Saravana Kannan <saravanak@google.com>, 
-	"=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?=" <nfraprado@collabora.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-phy@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-phy@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_231407_643335_EFE2E916 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20241023_231709_591451_60B62E29 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It would make it easier to debugs issues similar to the ones
-reported[1][2] recently where some devices didn't have the fwnode set.
+Greg,
 
-[1] - https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
-[2] - https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia.com/
+Can you fix up the commit subject prefix to "driver core: fw_devlink:"
+please? Don't want to send v2 just for that.
 
-Signed-off-by: Saravana Kannan <saravanak@google.com>
----
- drivers/base/core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+-Saravana
 
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index a4c853411a6b..3b13fed1c3e3 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -2181,8 +2181,8 @@ static int fw_devlink_create_devlink(struct device *con,
- 		}
- 
- 		if (con != sup_dev && !device_link_add(con, sup_dev, flags)) {
--			dev_err(con, "Failed to create device link (0x%x) with %s\n",
--				flags, dev_name(sup_dev));
-+			dev_err(con, "Failed to create device link (0x%x) with supplier %s for %pfwf\n",
-+				flags, dev_name(sup_dev), link->consumer);
- 			ret = -EINVAL;
- 		}
- 
--- 
-2.47.0.105.g07ac214952-goog
-
+On Wed, Oct 23, 2024 at 11:14=E2=80=AFPM Saravana Kannan <saravanak@google.=
+com> wrote:
+>
+> It would make it easier to debugs issues similar to the ones
+> reported[1][2] recently where some devices didn't have the fwnode set.
+>
+> [1] - https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@no=
+tapiano/
+> [2] - https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia=
+.com/
+>
+> Signed-off-by: Saravana Kannan <saravanak@google.com>
+> ---
+>  drivers/base/core.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/base/core.c b/drivers/base/core.c
+> index a4c853411a6b..3b13fed1c3e3 100644
+> --- a/drivers/base/core.c
+> +++ b/drivers/base/core.c
+> @@ -2181,8 +2181,8 @@ static int fw_devlink_create_devlink(struct device =
+*con,
+>                 }
+>
+>                 if (con !=3D sup_dev && !device_link_add(con, sup_dev, fl=
+ags)) {
+> -                       dev_err(con, "Failed to create device link (0x%x)=
+ with %s\n",
+> -                               flags, dev_name(sup_dev));
+> +                       dev_err(con, "Failed to create device link (0x%x)=
+ with supplier %s for %pfwf\n",
+> +                               flags, dev_name(sup_dev), link->consumer)=
+;
+>                         ret =3D -EINVAL;
+>                 }
+>
+> --
+> 2.47.0.105.g07ac214952-goog
+>
 
