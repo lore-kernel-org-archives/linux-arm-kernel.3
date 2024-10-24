@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFE7CE8E6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FE0CE8E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaB8aFj2Ht3u6kDuLsZN5ogpt87zOQuM5ZYebSBe+hU=; b=rUKymjVQwqZtcdDqxdT/soWLh4
-	dExfCtt+LWFJiEJej9Io0WFHhI6kt0/F6uw7crCVGahEZ9qiCynveaF091n32bAG8ufQ4hTKq46m+
-	kq2d4E1j3iESH4LcmZrn8kvFxo9d0Bpl6aEbAFEB2D05gYy04Yraw7xdlp8C9pEEedOqs8CynZnIW
-	hzpTSY8JtTJMESIZjZoxB/bdOOPBV8Qs8bOChIhCR16gCZtCgm7BL5p6C4ntpjgNMS36jjoZ9Ynaq
-	srIePfJzkmxB9s/8u21Tx/xM36jGlOYKXsL9MafnMiwOcpSr495nSPe14MiBH17CEGaUkcztx0KO+
-	IFdA6eVw==;
+	bh=3bHfXmVZsYx2YC0JptjQKYyuHEPX1WBZ1HcXVdTwOEY=; b=FEGpers15DIuEOZdl/gkKiae1u
+	uZU24Sm2aWqlnGryzEpCZPdyx8+1sF2EqD0TGTIWmv69ZFzaL1PbGDMnGd9iWibYwxThcoa+uIrr1
+	hI64mmyFrJflfW4okgAyX8o1v8wPxPLEuL93LUd+pjv7BJrtkP2A+xvDe3WevvStJAaTApvYpNPsm
+	Ljti4jsGUlFr0Hq/51zuIttJ+Ja+zAiEsToiUrM9Aawj3J2q8bf6M4zQVUcsKhltIx/DgSQgpkVTm
+	ox6dGoVGYQn9D4DUPpTdEUk6wxEK0dXRvTA2is7Yzjlzs+6VUL+gnFRIsen/K3nhCaS9bRiyMYGN6
+	Xs0RzDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wxK-00000000L1b-109f;
-	Thu, 24 Oct 2024 12:28:46 +0000
+	id 1t3wyq-00000000LES-0zj0;
+	Thu, 24 Oct 2024 12:30:20 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wuI-00000000Ki3-1eKk
+	id 1t3wuQ-00000000Kjn-4AKy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 12:25:39 +0000
+	Thu, 24 Oct 2024 12:25:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53C955C5915;
-	Thu, 24 Oct 2024 12:25:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A3CC4CEE4;
-	Thu, 24 Oct 2024 12:25:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E65BC5C5EC5;
+	Thu, 24 Oct 2024 12:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 238C3C4CEC7;
+	Thu, 24 Oct 2024 12:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729772737;
-	bh=Fr7inD2Iqs0A99RN+MrWbC0MZ5NUxnu0ZpJwaCBLb2o=;
+	s=k20201202; t=1729772743;
+	bh=IjwkqMzdt6nNRdPNA6WvCMuffGMXH/yBD4kBHf+UQKg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IcaLTi4jI2EvY9DwSFCV+9f2bRi3JeLk9qnDH+Fx570+yygvdfFa4EtKABWL66yC+
-	 hs2QD3Dj9kDT+mgFeVffsTKUn7YLbRpIwsvwogeH41ZrpSUI4FZCeFb2txqIUmOQIC
-	 R/1Mkr6JVK2i+HZCo1emQ+sA5s7mmrJm6qQ+TasAQjdLTDE4BO6h7Xr9cBoBbogv9l
-	 1reoNCw7dfj3XXJHgv3dgD4nuCRU2XBpHZLXAeIcSEMqyupKfwx+5ljgEFRFmqK68k
-	 Kd2dyOi1jFOALnQjxcMeWVUhxZq+Bei+o0GBb1VHvLW0dGoaqAb0hjAj+W99vtIG+S
-	 t1snir3OIhdKg==
+	b=Nn8YD/0eu/WrApoW7uoZH05/vt26Rb2afHr7m40kUPmlp4p262X7y96yUvo67KeUp
+	 UDHqrq1dWBmR3E4qJyAOzC/j+ko0Iz98s67Jwn4abEeg2gYS+q88i4gH5iiHWVA+yN
+	 wHvGanO1owD0jWlqxQhHJZVZhcx56ZiaegIrv8G6Zxkbut9ulibJAYV3RAumYvn6Ss
+	 WEG9/p56Yb/2/hT0O5C26mcJ5MeaahBMBujwpeR8wlJEVgw1xJV319UM4H0zy9ysQX
+	 KDmheu7UFseYy+LPfO3+yljIQTCPBkEXpM5Ur4X4qgXBmkQDKIIKDbsXJktraIfl6J
+	 cNX0712ZLKi9g==
 From: Will Deacon <will@kernel.org>
-To: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Frank.li@nxp.com,
+	mark.rutland@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	john.g.garry@oracle.com,
+	james.clark@linaro.org,
+	mike.leach@linaro.org,
+	leo.yan@linux.dev,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
+	Xu Yang <xu.yang_2@nxp.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf/dwc_pcie: Convert the events with mixed case to lowercase
-Date: Thu, 24 Oct 2024 13:25:28 +0100
-Message-Id: <172976985183.3761088.10462811188399686482.b4-ty@kernel.org>
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: perf: fsl-imx-ddr: Add i.MX91 compatible
+Date: Thu, 24 Oct 2024 13:25:29 +0100
+Message-Id: <172976962763.3759096.9371300350428892441.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241016210136.65452-1-ilkka@os.amperecomputing.com>
-References: <20241016210136.65452-1-ilkka@os.amperecomputing.com>
+In-Reply-To: <20240924061251.3387850-1-xu.yang_2@nxp.com>
+References: <20240924061251.3387850-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_052538_495478_5BCDE108 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20241024_052547_113384_903CD444 
+X-CRM114-Status: UNSURE (   8.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,20 +100,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Oct 2024 14:01:36 -0700, Ilkka Koskinen wrote:
-> Group #1 events had both upper and lower case characters in their names.
-> Trying to count such events with perf tool results in an error:
+On Tue, 24 Sep 2024 14:12:49 +0800, Xu Yang wrote:
+> i.MX91 has a DDR Performance Monitor Unit which is compatible with i.MX93.
+> This will add a compatible for i.MX91.
 > 
-> $ perf stat -e dwc_rootport_10008/Tx_PCIe_TLP_Data_Payload/ sleep 1
-> event syntax error: 'dwc_rootport_10008/Tx_PCIe_TLP_Data_Payload/'
->                      \___ Bad event or PMU
 > 
-> [...]
 
-Applied to will (for-next/perf), thanks!
+Applied first two patches to will (for-next/perf), thanks!
 
-[1/1] perf/dwc_pcie: Convert the events with mixed case to lowercase
-      https://git.kernel.org/will/c/759b5fc6cc3e
+[1/3] dt-bindings: perf: fsl-imx-ddr: Add i.MX91 compatible
+      https://git.kernel.org/will/c/0263a1e4f5dd
+[2/3] perf: imx_perf: add support for i.MX91 platform
+      https://git.kernel.org/will/c/44798fe136dc
 
 Cheers,
 -- 
