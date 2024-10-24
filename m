@@ -4,116 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CE7D0BB6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 08:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF41D0BB6E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 08:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQaF+79cQZijj/qtQUTCeQHllpXrfS9t+GtV65dW5Oc=; b=ItE/JJtU1aeLKZSflaWo91GWky
-	pWuQEmLW/myil/EKkgYFtdEeEMhZVK70irFtY7tVE27sYdTzk+ih/kP8OphJSoef6p1phKAKz5Hx2
-	ZvJIsSAbvUeQqsiPMGEOO4lUcu90njuWAUW1UT8M7JzdLrjNXIMp4wXSIEMVLMNy+QHbzzONIFsWN
-	uadtwzjP2IyMDwBJvMTSi8IvvYpASpy5A3XdXmfNf+EwHRMY9afg4cfGfQSYlzFgrxCFbuk8HiAId
-	ZRWj/XIWpnV1KsJi6P4E5KRnyB0x6CAStTX8K/ohn2It5yWCgjhYmAC001eu3UdWYYt1NWh97L7nd
-	6hrilHfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/yPFqKSzpajpi+JRVcSzA2vMB9V6OUl8g3SjnirUP8E=; b=gitBpEyGq/TxGD1B0Axoj7Vvpw
+	7cDSa72UdiJt9urmRUmhrtizkZtImnR+itH5hljna8uW3amRAmG7kRcLxL/01cbdFUBAw4GfBz60U
+	/PrSHQOYLy5Ed+qnQAKxDpmWei25hUAUpCKP0PCz9V1R0mbYaiOs5TxXPBv4uiAUe9QYynq6TGZiq
+	eX69ymQPXXOMrPztawRc4tnRoR7sKRs7Mnj0yN/ssPgkAUxgxh7yr5Af/4HiJCOsr4pIM2oGtcjQI
+	sX69rZPshm0mV+MSFj8uZaZD9yYKhBbZBec65rNzoJuE57rYR8VqkDqXr+3uxTBrMv5Pcj2Ud8XVn
+	/NYJNApQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3svp-0000000HDls-0qI0;
-	Thu, 24 Oct 2024 08:10:57 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1t3sy9-0000000HEOs-0er0;
+	Thu, 24 Oct 2024 08:13:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3suH-0000000HDcb-00X2
+	id 1t3swW-0000000HDwT-1IXe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 08:09:23 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 9641313806C7;
-	Thu, 24 Oct 2024 04:09:17 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Thu, 24 Oct 2024 04:09:17 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1729757357;
-	 x=1729843757; bh=gQaF+79cQZijj/qtQUTCeQHllpXrfS9t+GtV65dW5Oc=; b=
-	Y6zDDair2auGgJ9yJm7Xao/KZ5t61AUvksK8EAMlltt3bkedIhgVWL+c954aObHN
-	FmcnLvlXPzy1lJZeO0ACOpk0TwpOXv3XB3v9bLwbP8OGY85vk5bnKqASCLqW/Lbq
-	oYxLtq5XvquwNfcdHc4AyZSrUIDvGcLRruy9rwkpR3Gsab1YhHu1VewkwA+isKzO
-	dgq7TcsZn2E5b2Rp8quz2IVmqK4H+dV88Dn9ONLgBmbwrQJoxRWcMRvWofL7N5fd
-	QLF6W7ZB+MJVRjnIs32MEvi5iEP82jhtknw2pWJKPIP1tjxelafRoB4UiFsBTcfX
-	yviDVOIc+G/XFZutPeBmiA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729757357; x=
-	1729843757; bh=gQaF+79cQZijj/qtQUTCeQHllpXrfS9t+GtV65dW5Oc=; b=c
-	xKxF3cNKAaNnqqX6Rc3YFMnYG4hFQo9LHPNz5xRKI83FuWoMtOxYYrOcPFcWKfZu
-	tBnA6PJ2qDM7Jzz1Yrhct2XZqZ2hywxRB3hh9aqG3ODefpAc6OvGc/lvjVleq1zz
-	GLNxUgmJ6hWIlqCqVV1u2hNVlZxysfJL9e2CsPtK4tcRpuyXIr80T1c1mEUGCdl2
-	8sLT+k/kACPvbM9vVOFZ4VLC0SYOoe7/zFEJQ4gOnpym1bTDDh05XnT0/8waOKjD
-	GQDtI4/5WRXwvDFxhhTkdaUp+IzF6edAd1ek8ROW4BmaWKlf4Ao46Jdg7ZbbbH6F
-	jT65P+QdebciGlZt54TyQ==
-X-ME-Sender: <xms:rAAaZ0Bhc7XczeK7eJeFtem9jzEH9pHq_cPfYCwlqXKnBxNyVOcZgA>
-    <xme:rAAaZ2gEdlovl0LfbO7md2A-DpV9UeMaaCFB2TdxgGzGRnwWxNimid-hoezmtqEBl
-    XwMC7dENMj9YANpv7Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeikedguddvkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddv
-    geejvdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedu
-    hedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghishhhfigrrhihrgdrthgtvh
-    esrghrmhdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhm
-    rdgtohhmpdhrtghpthhtohepvhhinhgtvghniihordhfrhgrshgtihhnohesrghrmhdrtg
-    homhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthho
-    pegrlhgvgidrsggvnhhnvggvsehlihhnrghrohdrohhrghdprhgtphhtthhopegrnhguvg
-    hrshdrrhhogigvlhhlsehlihhnrghrohdrohhrghdprhgtphhtthhopehnrghrvghshhdr
-    khgrmhgsohhjuheslhhinhgrrhhordhorhhgpdhrtghpthhtohepphgvthgvrhdrmhgrhi
-    guvghllheslhhinhgrrhhordhorhhgpdhrtghpthhtohepthhglhigsehlihhnuhhtrhho
-    nhhigidruggv
-X-ME-Proxy: <xmx:rAAaZ3modcPYmbhmjeiCKDtq1LQcqMDT6wTUWXA8ugMbAeSZpb2lQA>
-    <xmx:rAAaZ6zd5HCKTVOV2laCRu2xpkuq87wrPKzjkDwENLJlDjPpax8Xww>
-    <xmx:rAAaZ5Subm_pW2L-7btFlIz6r-p7ZlGl2Z15yV-KvOzhsZkWLCtOmg>
-    <xmx:rAAaZ1bpT6zSiigOeFaPihqe_9PBzNZSqHFZUqkJ6s7ILjQ1XQgQEg>
-    <xmx:rQAaZ1ptADW4yRrMP2pxR7aC5TT7GSVjggQF4VNbW3S-BOAgiM4BeCha>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 988442220071; Thu, 24 Oct 2024 04:09:16 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Thu, 24 Oct 2024 08:08:53 +0000
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
-Cc: "Naresh Kamboju" <naresh.kamboju@linaro.org>,
- "open list" <linux-kernel@vger.kernel.org>,
- "Linux ARM" <linux-arm-kernel@lists.infradead.org>,
- lkft-triage@lists.linaro.org,
- "Linux Regressions" <regressions@lists.linux.dev>, qemu-devel@nongnu.org,
- "Mark Brown" <broonie@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Aishwarya TCV" <Aishwarya.TCV@arm.com>,
- "Peter Maydell" <peter.maydell@linaro.org>,
- "Anders Roxell" <anders.roxell@linaro.org>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>
-Message-Id: <16c7546e-ab87-4da7-bc36-14723675dba3@app.fastmail.com>
-In-Reply-To: <87bjzalhzc.fsf@draig.linaro.org>
-References: <CA+G9fYt86bUAu_v5dXPWnDUwQNVipj+Wq3Djir1KUSKdr9QLNg@mail.gmail.com>
- <CA+G9fYsMg0fA-jraEvC==0a-22J97o-uBmbLJt16_ZKBpOT8EQ@mail.gmail.com>
- <4730e562-7d14-4f12-897a-e23783d094af@app.fastmail.com>
- <87bjzalhzc.fsf@draig.linaro.org>
-Subject: Re: Qemu v9.0.2: Boot failed qemu-arm with Linux next-20241017 tag.
-Content-Type: text/plain; charset=utf-8
+	Thu, 24 Oct 2024 08:11:42 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t3swS-00065c-Ug; Thu, 24 Oct 2024 10:11:36 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t3swR-000AFt-14;
+	Thu, 24 Oct 2024 10:11:35 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t3swR-0002GS-0q;
+	Thu, 24 Oct 2024 10:11:35 +0200
+Message-ID: <83b9d2855f9513b2431fe31c43a992eb952f9b05.camel@pengutronix.de>
+Subject: Re: [PATCH 02/10] dma-engine: sun4i: Add has_reset option to quirk
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: =?ISO-8859-1?Q?Cs=F3k=E1s=2C?= Bence <csokas.bence@prolan.hu>, 
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Mesih Kilinc <mesihkilinc@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
+	Chen-Yu Tsai
+	 <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	 <samuel@sholland.org>
+Date: Thu, 24 Oct 2024 10:11:35 +0200
+In-Reply-To: <20241024064931.1144605-3-csokas.bence@prolan.hu>
+References: <20241024064931.1144605-3-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_010921_854870_27C21EFB 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20241024_011140_372299_5E98AFC9 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,44 +80,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024, at 19:47, Alex Benn=C3=A9e wrote:
->> On Sun, Oct 20, 2024, at 17:39, Naresh Kamboju wrote:
->> On non-LPAE arm32, this broke the existing behavior for
->> large 32-bit memory sizes. The obvious fix is to change
->> back the PAGE_MASK definition for 32-bit arm to a signed
->> number.
->
-> Agreed. However I think we were masking a calling issue that:
->
->     /* Actual RAM size depends on initial RAM and device memory settin=
-gs */
->     [VIRT_MEM] =3D                { GiB, LEGACY_RAMLIMIT_BYTES },
->
-> And:
->
->   -m 4G
->
-> make no sense with no ARM_LPAE (which the kernel didn't have) but if y=
-ou
-> pass -machine virt,gic-version=3D3,highmem=3Doff (the default changed =
-awhile
-> back) you will get a warning:
->
->   qemu-system-arm: Addressing limited to 32 bits, but memory exceeds i=
-t=20
-> by 1073741824 bytes
->
-> but I guess that didn't trigger for some reason before this patch?
+On Do, 2024-10-24 at 08:49 +0200, Cs=C3=B3k=C3=A1s, Bence wrote:
+> From: Mesih Kilinc <mesihkilinc@gmail.com>
+>=20
+> Allwinner suniv F1C100s has a reset bit for DMA in CCU. Sun4i do not
+> has this bit but in order to support suniv we need to add it. So add
+> support for reset bit.
+>=20
+> Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+> ---
+>  drivers/dma/sun4i-dma.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+>=20
+> diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+> index 5efbed7c546f..0b99b3884971 100644
+> --- a/drivers/dma/sun4i-dma.c
+> +++ b/drivers/dma/sun4i-dma.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/of_dma.h>
+>  #include <linux/of_device.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  #include <linux/spinlock.h>
+> =20
+> @@ -159,6 +160,7 @@ struct sun4i_dma_config {
+>  	u8 ddma_drq_sdram;
+> =20
+>  	u8 max_burst;
+> +	bool has_reset;
+>  };
+> =20
+>  struct sun4i_dma_pchan {
+> @@ -208,6 +210,7 @@ struct sun4i_dma_dev {
+>  	int				irq;
+>  	spinlock_t			lock;
+>  	const struct sun4i_dma_config *cfg;
+> +	struct reset_control *rst;
+>  };
+> =20
+>  static struct sun4i_dma_dev *to_sun4i_dma_dev(struct dma_device *dev)
+> @@ -1215,6 +1218,15 @@ static int sun4i_dma_probe(struct platform_device =
+*pdev)
+>  		return PTR_ERR(priv->clk);
+>  	}
+> =20
+> +	if (priv->cfg->has_reset) {
+> +		priv->rst =3D devm_reset_control_get_exclusive(&pdev->dev,
+> +							       NULL);
 
-I did not look at the full log, but I don't think there is a
-problem between kernel and qemu, this is just a kernel regression
-that can happen on any real or virtual platform with a lot of
-memory.
+Aligning to open parenthesis will make checkpatch --strict happy.
 
-I would guess that "highmem=3Doff" was not even set here, so
-there was probably no warning, and you would still see the
-same kernel bug with qemu-system-aarch64 and its larger
-limit for highmem=3Doff.
+> +		if (IS_ERR(priv->rst)) {
+> +			dev_err(&pdev->dev, "Failed to get reset control\n");
 
-      Arnd
+Consider using dev_err_probe() here.
+
+> +			return PTR_ERR(priv->rst);
+> +		}
+> +	}
+> +
+>  	platform_set_drvdata(pdev, priv);
+>  	spin_lock_init(&priv->lock);
+> =20
+> @@ -1287,6 +1299,16 @@ static int sun4i_dma_probe(struct platform_device =
+*pdev)
+>  		return ret;
+>  	}
+> =20
+> +	/* Deassert the reset control */
+> +	if (priv->rst) {
+> +		ret =3D reset_control_deassert(priv->rst);
+> +		if (ret) {
+> +			dev_err(&pdev->dev,
+> +				"Failed to deassert the reset control\n");
+> +			goto err_clk_disable;
+> +		}
+> +	}
+
+You can just call reset_control_deassert() unconditionally, it accepts
+a NULL parameter:
+
+  https://docs.kernel.org/driver-api/reset.html#c.reset_control_deassert
+
+
+regards
+Philipp
 
