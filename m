@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE32CE8E69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5680BCE8E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYE7/qWKeV6tlYqyWW3YZjVke9heRIv2YJVI5XdvD1M=; b=iKTIsMl0n+qSdhgMYCjP016dVv
-	95AmzaTiNeg53kJYvKbIL4p2Ldx/gjUKLZgllh/MvxLa4Thfdhasf1RCBh2QuUbGpj9MilneZzWlW
-	eR1pjILWlxdyaLSWH9r4dADvdoDaNleWCcsvoy2I4JhH9Sfmm0p1kZ7//vcl1Vlhl5TIb4QE4N67r
-	XzSArHImfhkmNKj86+N8VODpRcHkeSPPOmmnRu9GtSZ6ucZHjMpQxtXO4ceL6ZLh48JfyUMX2xYu7
-	dhOrHG8XTZVmHf7BLZ1OItnzVEq+Vu2jB4z4j9QzwqjNBk7s4D18EqrIZA55d0idNy5MwSrOY09xp
-	F2su9chg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r2lOAHTJMbAfpdG52b5cMMGwQ3NG1lFZCVB6JxA/ROE=; b=QT5qWXtQD8L3bdGNkT1V66At59
+	Rog8/Jq4wlI6Qqj/ppxFW8xBA6GxqbqZxC20H8tRbIQon4dcM9gjwl7KWSVR7OpmRJvbd5UfX3m/U
+	KBDdLHhoyLYtei5fFOPa/5kQ/2P1YSH/lnRJN36obqG/f3/dxUuhScudOUNLOJhNtHTompKCVzuYb
+	hgfYLvUyXSZNaoxiDZy11Q3WgWl4cuBaL/dAmrZhpmSwBQqH8CqJkuYGwu+BXxXP/G2vZTuFjiPm3
+	2DDRVywtGCv67zN72kotTXdCBXzmFGo8BSu42IeXimiPOka1NDGFIenWKsdMCmfFaZFJTfF7n/X6t
+	B+1HH2FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wNs-00000000FuZ-3Bul;
-	Thu, 24 Oct 2024 11:52:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3wNw-00000000FwS-0Aeo;
+	Thu, 24 Oct 2024 11:52:12 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3w4V-00000000DV6-3l56
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:32:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B0A24A45313;
-	Thu, 24 Oct 2024 11:31:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD4FC4CEC7;
-	Thu, 24 Oct 2024 11:32:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729769526;
-	bh=ivnxlBIjC5nMC+d51jAvAbt6k0K2kSFd6G5M3K32Jqo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rfi75Jq7W2Zl/mTc50A88zDCnOHygVfLeFyaGoqPHEfU5ZwMHi3pfrrl7LXmauTmP
-	 XXFp66XtyzW83xoyGGXLMiREPgI/FUR20H1Q/tBVa/9uH0EcscJghkp/ik5f/Jwroc
-	 v46ff96cAW0ToJoqfh+sx9DaIT8eGYCECt+3nf3WaF2s9F+e/K5743Vq2qSs03//RO
-	 nqnUWcqOTPyAdZ5Y+OpBU2ggWhnTG55qWtiL1056NsuATh0sgAmUNuRLQPmP0mhjdD
-	 i9wNZR+azLAP9+XOGI9AntcoHBF0YAT8HNcLohcfyjQe59PsyUEcORD1eOpkHAixG+
-	 DIpdtu4hnN6LA==
-Date: Thu, 24 Oct 2024 12:32:02 +0100
-From: Will Deacon <will@kernel.org>
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] perf/dwc_pcie: Load DesignWare PCIe PMU driver
- automatically on Ampere SoCs
-Message-ID: <20241024113201.GA30270@willie-the-truck>
-References: <20241008231824.5102-1-ilkka@os.amperecomputing.com>
- <20241008231824.5102-3-ilkka@os.amperecomputing.com>
+	id 1t3w85-00000000EGO-3Rsa;
+	Thu, 24 Oct 2024 11:35:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729769748;
+	bh=BLP2qSk59XHygRuGtwvvviZHLismYalYrgP+lhwiV8k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Jhv2OSwnszDSFGVPFqjILsZE1X2ReJHgp8WHeWdMv6Zsp6Ll1unmY9mgeJSKjxB9B
+	 mEjNgsWWD0PT2cbTzMv0c3SSxNIpI8cXU9S6Oq/L8gALXkPeL+OU4O7rn4KmxyNJbr
+	 dplZUqsXXvoPIdGhu/pBalDD5WIV5npfwPUGKyr15sjE+sg83nmft8tpN0i+7/39Vh
+	 JEtm5uanLs3k5TyC1Habi76PiqfhLiP45fDsFlSBLCJoXV6dwWl1K31uuKqoYy30KK
+	 qKKntmQnWevYFnGX9FJqETrcIs1gHtyOXUjSJPFs6o1Zc7mFlhlS1XFDx/nxPIbqxY
+	 QVmqxnMDNBkuQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8697417E35D1;
+	Thu, 24 Oct 2024 13:35:47 +0200 (CEST)
+Message-ID: <f21fd6bd-b3d5-48f3-8693-48668ee5036a@collabora.com>
+Date: Thu, 24 Oct 2024 13:35:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241008231824.5102-3-ilkka@os.amperecomputing.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm: display: Set fwnode for aux bus devices
+To: Saravana Kannan <saravanak@google.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Jon Hunter <jonathanh@nvidia.com>, kernel-team@android.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241023191339.1491282-1-saravanak@google.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241023191339.1491282-1-saravanak@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_043208_021970_0FA5B28D 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20241024_043550_055512_80F8AE07 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 08, 2024 at 11:18:23PM +0000, Ilkka Koskinen wrote:
-> Load DesignWare PCIe PMU driver automatically if the system has a PCI
-> bridge by Ampere.
+Il 23/10/24 21:13, Saravana Kannan ha scritto:
+> fwnode needs to be set for a device for fw_devlink to be able to
+> track/enforce its dependencies correctly. Without this, you'll see error
+> messages like this when the supplier has probed and tries to make sure
+> all its fwnode consumers are linked to it using device links:
 > 
-> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with backlight-lcd0
+> tegra-xusb-padctl 3520000.padctl: Failed to create device link (0x180) with 1-0008
+> 
+> Reported-by: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
+> Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
+> Tested-by: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
+> Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> Closes: https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia.com/
+> Signed-off-by: Saravana Kannan <saravanak@google.com>
 > ---
->  drivers/perf/dwc_pcie_pmu.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> index 3581d916d851..d752168733cf 100644
-> --- a/drivers/perf/dwc_pcie_pmu.c
-> +++ b/drivers/perf/dwc_pcie_pmu.c
-> @@ -782,6 +782,16 @@ static void __exit dwc_pcie_pmu_exit(void)
->  module_init(dwc_pcie_pmu_init);
->  module_exit(dwc_pcie_pmu_exit);
->  
-> +static const struct pci_device_id dwc_pcie_pmu_table[] = {
-> +	{
-> +		PCI_DEVICE(PCI_VENDOR_ID_AMPERE, PCI_ANY_ID),
-> +		.class		= PCI_CLASS_BRIDGE_PCI_NORMAL,
-> +		.class_mask	= ~0,
-> +	},
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(pci, dwc_pcie_pmu_table);
 
-Hmm, won't this only work if the driver is modular? Should we be calling
-pci_register_driver() for the builtin case?
+On MT8186, MT8192, MT8195 Chromebooks:
 
-Will
+Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
 
