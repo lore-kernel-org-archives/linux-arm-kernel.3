@@ -4,64 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E865CE8E97
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2149CE8E97
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2YQH877b/ifTDOT6MCrQ8nDN7giywdFUJByMrg8sJE=; b=qKNFI75ZcIyW1ECAlCMXnGh1Mm
-	22s7ucMUnElNwfMNlNDXkqiHDGU6HzyylIvJkG4R/GzGALPp2pBQK982mwlupKQErHpf4cBvoUTYb
-	Y6Ogz4ct7Nj4a0/Y6Tv9V9QbFqxw7QrqXzNaWd9ZE4roV99nDKmG44AdFnNtm3MB+JwEBqPRHk+rl
-	mo5MXCw0wsq23n3Vsbyb3HmDIHkOtKUhKHf1SVbJmcuxRx4WyCtiwNKBagwPV8eAsc4GJUczH78SP
-	tdz5817TafJL8joI8bb92FSLcCjcGhMUjaLMH0e/Gyj7U2T4C3cxTPxITCZ/z+Snby5+i/u8cDYxG
-	M5uON7Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=; b=rZ+GNmfHTdvXFu14c5u7yiczLY
+	lwIlV3bgegtAbKwV/HUTNt14T8zdCMfoPu6Jjx9D111eNkyWhheV4ciBVmVcEnlG+6oPn9npgH+wc
+	I+bDG3IN4aEtkn7GzAx7vqrh5sqZKbn4etCFC3KwxvvCboCkEDCw/4niaCUxZo6yfrDNjYtViJNLU
+	6lBy8RN3HMEKteb1IrcE58fo1NJwJLlLLUJ0ZHtuUDPj9UAtXXqMib0WvW7Nt6Ycc6QqO4963peZg
+	Xo7OyL5F4efXM66lj5XembRefczOD1CpQ2c+h0jzTG4r/lVHhdzoTvaVMGc6e6TjdqNbMGPbBKAn5
+	rKJrerGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41JP-00000001DVc-1mOu;
-	Thu, 24 Oct 2024 17:07:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t41LH-00000001DnA-15vr;
+	Thu, 24 Oct 2024 17:09:47 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41Gi-00000001D7h-3dxg
+	id 1t41JO-00000001DVL-3NWC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 17:05:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B6EA35C554E;
-	Thu, 24 Oct 2024 17:04:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3A6FC4CEC7;
-	Thu, 24 Oct 2024 17:05:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729789504;
-	bh=N7N6QXRB+ovyAVDEtuqEAO0cC0MzxLTBg6Wql3hIpG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RWfTNV4Qt3xOgEwh1JC8eIYgPqEVEYIZScAxT/4ojLpkBTpf5tgwQkfqSF1e+N+jr
-	 jQTHHLpXZ4ONSx3gC+gmenNBsboACV5PcWOLWubUdM3tUC8pHScXDrV9d4BC8EQeoC
-	 ErYzpm6i60JrvlgkgsGPr5IgaRMjYdO2KwQkqNgBBAa7WjJllkDiQGZh2Yhq0sjy4I
-	 MKI7eGLv2r9y0qZCqb1T4McCi0rKJMcBAWDvdfpYwbqhsxaakjg1iup7MpFdDgEq/a
-	 u/z2N9iELJgGHoiWj2NTiGlxG4S9tW7l83g1E3RR9XSb/Smdz9yANyto5axjYDhTQO
-	 OVlE+USiB+vwQ==
-Date: Thu, 24 Oct 2024 18:04:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: tglx@linutronix.de, daniel.lezcano@linaro.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH 1/2] dt-bindings: timer: fsl,imxgpt: Fix the
- fsl,imx7d-gpt fallback
-Message-ID: <20241024-pep-proud-d714705c9ddf@spud>
-References: <20241023185841.1183706-1-festevam@gmail.com>
+	Thu, 24 Oct 2024 17:07:51 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539f6e1f756so1409914e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 10:07:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729789668; x=1730394468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=;
+        b=Ar5n4zHLIgmeBKHx8fiKtzMdJHmcat6BCJXLBQTs7pqSl1BbpsHmZ6kpewyCNKGX6d
+         4KX48t0aT8yzdpgcsEkw8JeQUUPvob+itanWlN53/H1T14Oe0lMqx2xzrVHkKBNjC4dl
+         32+REXlCYLBOdteNrfNmPFR+q/Hft1G+H8yuR9o1amrkTfT3aLQYQMIBd8rRPtI5dmTn
+         4R8h32RR4x7ERqV/FRGcVHN3mLIOw7I+0sSVgxR/WRNHO1b7wMbm7B/aJq4URU6Tqf8b
+         77egP0yhJP4PLcTSuNgqNJyivQRgAl23akmjCLkn2GK8zXi50CJl6EAMjSsSxLeRZ51F
+         8ASA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729789668; x=1730394468;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=;
+        b=ibcQrrB+USB1Qie6agTn5Bp5b33NeShNOPPVw9QyRMnRRdcFgTzQQ/qnWV0chjPyFU
+         ExVtOJklNOyCn9xQNZDjstm68kRF/aJtlkGbKcBAZRpETm+xvIsqvqEGQ16ksBgTC+lv
+         i4w0hGnfTRYtHMLtZdHdKzd8JY3LWCCk1JAgvYk1LbyqBXx1OCSmsgmMEqIC8JLBXHFm
+         fTUlzNNEksWcBHAJs8wxRz16GMwWVx8jtpU6GYuIS38YYYTEHLo6TaAVTHhvPFBJQYNn
+         4pHglDguXrwiQ9lCy2c3zFxCVx8IyPuZbyC93B3/AEbHxWRn0Cx9dfQHfe5mCCAutOQb
+         B0ng==
+X-Forwarded-Encrypted: i=1; AJvYcCVWCqktCA78Dna3Xxozdy+yyX/+E1AaU36/B/3IXet0qUAGeSRoVArBdZyThc8OeCXDxWLUR/vC/SMKX7K8jPOr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXgr6zGksGOuOHYzZgdfQK5bRoozW0diQJwcvHfBnQYJhrCtcs
+	iLfgHT9SboxI5IHrCUwi0F7Jf8iyNY0pKPkpBXp7yvXoSK28hhvd
+X-Google-Smtp-Source: AGHT+IFz4e5V/ZhUT+FzKXu68/7/HX9Chj/TG/YiHuqSFphTBJiVCK9htk4MUJh3OJ5HcvAjn4kgpw==
+X-Received: by 2002:a05:6512:1054:b0:539:efdb:4324 with SMTP id 2adb3069b0e04-53b23debc01mr2073012e87.21.1729789668288;
+        Thu, 24 Oct 2024 10:07:48 -0700 (PDT)
+Received: from seven-swords.. ([2a03:d000:2:9006:4eed:fbff:fe72:e806])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b1f30c189sm447396e87.51.2024.10.24.10.07.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 10:07:47 -0700 (PDT)
+From: Ivan Epifanov <isage.dna@gmail.com>
+To: andriy.shevchenko@intel.com
+Cc: aospan@netup.ru,
+	conor.dooley@microchip.com,
+	ddrokosov@sberdevices.ru,
+	dmaengine@vger.kernel.org,
+	dushistov@mail.ru,
+	fancer.lancer@gmail.com,
+	geert@linux-m68k.org,
+	gregkh@linuxfoundation.org,
+	hoan@os.amperecomputing.com,
+	ink@jurassic.park.msu.ru,
+	isage.dna@gmail.com,
+	jeffbai@aosc.io,
+	kexybiscuit@aosc.io,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mattst88@gmail.com,
+	netdev@vger.kernel.org,
+	nikita@trvn.ru,
+	ntb@lists.linux.dev,
+	patches@lists.linux.dev,
+	richard.henderson@linaro.org,
+	s.shtylyov@omp.ru,
+	serjk@netup.ru,
+	shc_work@mail.ru,
+	torvalds@linux-foundation.org,
+	torvic9@mailbox.org,
+	tsbogend@alpha.franken.de,
+	v.georgiev@metrotek.ru,
+	wangyuli@uniontech.com,
+	wsa+renesas@sang-engineering.com,
+	xeb@mail.ru
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various compliance requirements."
+Date: Thu, 24 Oct 2024 20:07:42 +0300
+Message-ID: <20241024170743.241144-1-isage.dna@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
+References: <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5GUth0XOvb8nVxp6"
-Content-Disposition: inline
-In-Reply-To: <20241023185841.1183706-1-festevam@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_100504_979178_A0DFF206 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20241024_100750_898601_9CFA901E 
+X-CRM114-Status: UNSURE (   4.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +132,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Proved that you don't care about users of your product either? Sure
 
---5GUth0XOvb8nVxp6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> $ git log --author="andriy.shevchenko@intel.com"
+> $ 
 
-On Wed, Oct 23, 2024 at 03:58:40PM -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
->=20
-> imx7s.dtsi correctly describes the GPT node as:
->=20
-> compatible =3D "fsl,imx7d-gpt", "fsl,imx6dl-gpt";
->=20
-> Document the fallback compatible to be "fsl,imx6dl-gpt" in the bindings.
->=20
-> This fixes the following dt-schema warnings:
->=20
-> timer@302f0000: compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['fsl,imx7d-gpt', 'fsl,imx6dl-gpt'] is too long
-> 	'fsl,imx1-gpt' was expected
-> 	'fsl,imx21-gpt' was expected
-> 	'fsl,imx27-gpt' was expected
-> 	'fsl,imx31-gpt' was expected
-> 	'fsl,imx7d-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,im=
-x51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
-> 	'fsl,imx6dl-gpt' was expected
-> 	'fsl,imx7d-gpt' is not one of ['fsl,imx6sl-gpt', 'fsl,imx6sx-gpt', 'fsl,=
-imx8mp-gpt', 'fsl,imxrt1050-gpt', 'fsl,imxrt1170-gpt']
-> 	'fsl,imx6sx-gpt' was expected
->=20
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---5GUth0XOvb8nVxp6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZxp+OwAKCRB4tDGHoIJi
-0v/CAP4n36jVWrgh3x+vdOBqKn+NTHSuLsxXHINgpQ2AoNnjlQEAok8fcpbaLkAJ
-xnoDV7a+AvYpqTLpapBNDg4WbMyhIgI=
-=6cJq
------END PGP SIGNATURE-----
-
---5GUth0XOvb8nVxp6--
+Look who's talking
 
