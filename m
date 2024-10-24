@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060EECE8E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEDBCE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHgDKeqNVrBn9md44XPQvQ0FnJfd+8TS+EEdFg8hSss=; b=X4sXVhjnGcDrdtsgEa5d2/6izk
-	A8JNG3Kv62iQcP1/TsOJYGAXvgjb5PrXEZrwAq7NpWHW/4jFL4xZo3G0lDyw3LGBLmT7LCamRjUWh
-	VNoUYA1nTv1G2kMgmrp5DN4WJGjleE+snQnEYY+BvMzrlfDlJK8IFainqb87vad9nPOXJh/xW14mR
-	ENkgg4shapNj3PrZp7aVoifk/iUQh2klOUSa7oSLbqou4yiB+X0bdL7ZLzT4LrW9twpDQQAhRNSOW
-	KwOG4FL6MIUXr+pAC+dmZwwsrxH5zg+fhmX9RAsbyALOVHEvBW9fVofUmX+NXVUU8HCAcG/tTtOXB
-	9Cinj2Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GZWgYriO/bKlaSeXj/h91P65rdEKQGdCkMLEI6Jqqbs=; b=rAplIwXikmjQ9bjYtMa3cTpWZC
+	aeb48vvn1elJgTWpmYilLIXh1qncOBZJiK1GekKQyR9cxg+t7md+Muxlxt6eRBuYLOqzUyWUstNJi
+	N1S/wYUoyUe1QKZLyPyG9QJGkTsHVlNS61gEki6kifJfaD0S/TBX0awvxcXe5NmyeJNft1UW/2Z2N
+	WAJDJgh/cJ+gsZpDBkGca+9A23QQwib1YdXn1c028oLnr9HHmgyayoFi8j459h2VSKyIFPGaA01RA
+	flZ/LZ733j6PlNSn4jQYIM+hg9LKvQksB64mA+44emnoNmI939HXTb57LwBXtZI49dQsmyueexBPA
+	lvOHDaIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42Ha-00000001Q9e-0FN7;
-	Thu, 24 Oct 2024 18:10:02 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1t42J6-00000001QVU-2KcT;
+	Thu, 24 Oct 2024 18:11:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t428q-00000001ON7-2I6n;
-	Thu, 24 Oct 2024 18:01:06 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1729792856;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GHgDKeqNVrBn9md44XPQvQ0FnJfd+8TS+EEdFg8hSss=;
-	b=Wmgj/tGeb9etrXamiid7kJygIUFAPiuOTEw2Bl7jRkdMO3AeVubAJOrxP7xjX+u/JtGO7W
-	QukaMZNhloBrZ3M3gVEwSLM8XhcZqdqMrlsNrG46CEXZ28OsCcUUYtcHriPn7hlW3eEE1t
-	rMGti/cpYeTQk+SZU1S5qhZQPHC4kf62+hkLuSIvcOeGARcraCu8MmhzGhlPlum9dZc3iL
-	DSH3sO/Ved//K0YDX9OqghfLchk9n4pd0sSR1vtco0220Rl61wqtbWJ65/GuGu55Ez66KH
-	XrvtUqZANP95XOSVsn/yWDLu37EZMq1GZjc3IyxkmOODfjMoTzul/2RbxD5eLA==
-Date: Thu, 24 Oct 2024 20:00:56 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: Shimrra Shai <shimrrashai@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: Thinking about firmware and hardware description for latest
- Rockchip platforms
-In-Reply-To: <20241023173514.4538-1-shimrrashai@gmail.com>
-References: <b12103b968cd5817f25deb7277d6054a@manjaro.org>
- <20241023173514.4538-1-shimrrashai@gmail.com>
-Message-ID: <560b5a4f419aa4bbe2df198fd528e5a8@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	id 1t42Cv-00000001PLD-2jep
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 18:05:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 862DF5C5645;
+	Thu, 24 Oct 2024 18:05:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52ABC4CEE3;
+	Thu, 24 Oct 2024 18:05:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729793112;
+	bh=xH/uQd3S3Hw++2BLkxPeBWim+glMB4nzTKks3oUBOqU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CeBEkrM9KwQzs8Sr4H9qvrS+Q+9Yn6jLzch4n283mZAU506Igo5qMKU+VZkFZMKNb
+	 eqxrqg/B5rU0QJZXQFLhmOsDBOuWnLPDFr/VjmRoTJaWahtG8uH8KrR85hZ+u0BZnm
+	 pf8/BnfDVoGb5/qN7GY3juHqm7RTDFdvRCmzfLR1zyBAKRTDBV/TFmZnTwjQE1F3o2
+	 //De9w4roD/DZKGTAtalldRPeTP5XpC/3A/Eth1RDwxMleCYh99S06uE130taSRWVK
+	 eGNmCOUxBcQ3Hs6vaAjKCEJdwY8a/sa7P+Yd3ezC/Tgi2D+Q2Tu3GhJk23Zre+Wmk1
+	 xNpvGBRN/m/9A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t42Cs-006XzS-Pu;
+	Thu, 24 Oct 2024 19:05:10 +0100
+Date: Thu, 24 Oct 2024 19:05:10 +0100
+Message-ID: <86ldyd2x7t.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	stable@vger.kernel.org,
+	Alexander Potapenko <glider@google.com>
+Subject: Re: [PATCH] KVM: arm64: Don't eagerly teardown the vgic on init error
+In-Reply-To: <3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
+References: <20241009183603.3221824-1-maz@kernel.org>
+	<3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, stable@vger.kernel.org, glider@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_110100_940571_37FB72B0 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20241024_110513_809098_64F89E00 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +89,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Shimrra,
-
-On 2024-10-23 19:35, Shimrra Shai wrote:
-> On 2024-10-23  2:46, Dragan Simic wrote:
->> As you noted already, the DT definitions are fixed and improved
->> all the time, which is actually great.  However, the backward
->> compatibility is ensured, because newer kernels are guaranteed
->> to work with older DTs, which doesn't mean that the board DTs
->> provided through firmware should become frozen in any way, as
->> explained further below.
+On Thu, 24 Oct 2024 17:12:22 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> Thanks - my concern was about backward compatibility so that if some
-> user did not upgrade their FW but then tried to install a *newer*
-> Linux found things mysteriously breaking due to that some DT revision
-> in code had broken the backwards compatibility. Of course that could
-> also be considered a bug, even while new FWs could/would still be
-> rolled out.
-
-That's a valid concern, but such scenarios shouldn't happen by
-design, unless there's some bug, of course.
-
->> Freezing anything would be simply wrong.  It might look good from
->> the perspective of having something "stable", which is similar to
->> how x86_64 firmware works on PC motheboards, but the continual
->> bugfixes and improvements are actually extremely good, because
->> they prevent various ARM boards from effectively becoming abandoned,
->> which is unfortunately rather usual with x86_64 motherboards that
->> become so "stable" that some nasty firmware bugs are never fixed
->> and their users are left high and dry.
+> [1  <text/plain; us-ascii (7bit)>]
+> On Wed, Oct 09, 2024 at 07:36:03PM +0100, Marc Zyngier wrote:
+> > As there is very little ordering in the KVM API, userspace can
+> > instanciate a half-baked GIC (missing its memory map, for example)
+> > at almost any time.
 > 
-> Yes, I'm not against new FW upgrades, just the idea of users *having*
-> to upgrade their FW simply because a new kernel came out when nothing
-> like that is typical on x86 or at least in my experience using it over
-> many years).
+> The vgic_init selftest has started failing in mainline on multiple
+> platforms, with a bisect pointing at this patch which is present there
+> as commit df5fd75ee305cb5.  The test reports:
+> 
+> # selftests: kvm: vgic_init
+> # Random seed: 0x6b8b4567
+> # Running GIC_v3 tests.
+> # ==== Test Assertion Failure ====
+> #   lib/kvm_util.c:724: false
+> #   pid=1947 tid=1947 errno=5 - Input/output error
+> #      1	0x0000000000404edb: __vm_mem_region_delete at kvm_util.c:724 (discriminator 5)
+> #      2	0x0000000000405d0b: kvm_vm_free at kvm_util.c:762 (discriminator 12)
+> #      3	0x0000000000402d5f: vm_gic_destroy at vgic_init.c:101
+> #      4	 (inlined by) test_vcpus_then_vgic at vgic_init.c:368
+> #      5	 (inlined by) run_tests at vgic_init.c:720
+> #      6	0x0000000000401a6f: main at vgic_init.c:748
+> #      7	0x0000ffffa7b37543: ?? ??:0
+> #      8	0x0000ffffa7b37617: ?? ??:0
+> #      9	0x0000000000401b6f: _start at ??:?
+> #   KVM killed/bugged the VM, check the kernel log for clues
+> not ok 10 selftests: kvm: vgic_init # exit=254
+> 
+> which does rather look like a test bug rather than a problem in the
+> change itself.
 
-Yes, users don't _have_ to upgrade their firmware, as described
-above in more detail, but they actually _should_ upgrade.  In fact,
-they should be happy and eager to upgrade. :)
+Well, the test tries to do braindead things, and then the test
+infrastructure seems surprised that KVM tells it to bugger off...
 
-> Note that the situation of a DT upgrade that is obtained by FW
-> upgrade breaking older kernels, i.e. broken *forward* compatibility of
-> the older kernel with later DT, isn't so much a problem because we can
-> simply keep the older DT in the FW when issuing the FW upgrade, as I
-> believe there is a facility for supporting multiple, versioned DTs in
-> that UEFI package [and if not, it could easily be added]. It's the
-> backward compatibility that is my issue because reflashing FW, even
-> though not too hard on these boards, is perhaps more heady for your
-> average PC or smartphone user.
+I can paper over it with this (see below), but frankly, someone who
+actually cares about this crap should take a look (and ownership).
 
-Hmm, I don't think that keeping older DTs around is a good idea.
-Instead, we should simply document the required kernel version,
-or even better, make some kind of a dependency between the firmware
-version and the version of the kernel packages.  The latter is,
-of course, a much more complex option, but also better.
+	M.
 
-For the record, please note that I have zero interest whatsoever
-in any kind of "full-fat" UEFI firmware implementation.
+diff --git a/tools/testing/selftests/kvm/aarch64/vgic_init.c b/tools/testing/selftests/kvm/aarch64/vgic_init.c
+index b3b5fb0ff0a9..60b076ae85ea 100644
+--- a/tools/testing/selftests/kvm/aarch64/vgic_init.c
++++ b/tools/testing/selftests/kvm/aarch64/vgic_init.c
+@@ -742,6 +742,8 @@ int main(int ac, char **av)
+ 	pa_bits = vm_guest_mode_params[VM_MODE_DEFAULT].pa_bits;
+ 	max_phys_size = 1ULL << pa_bits;
+ 
++	allow_ioctl_returning_eio = true;
++
+ 	ret = test_kvm_device(KVM_DEV_TYPE_ARM_VGIC_V3);
+ 	if (!ret) {
+ 		pr_info("Running GIC_v3 tests.\n");
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index bc7c242480d6..988c68a77ce3 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -298,6 +298,8 @@ static __always_inline void static_assert_is_vm(struct kvm_vm *vm) { }
+ 	kvm_do_ioctl((vm)->fd, cmd, arg);			\
+ })
+ 
++extern bool allow_ioctl_returning_eio;
++
+ /*
+  * Assert that a VM or vCPU ioctl() succeeded, with extra magic to detect if
+  * the ioctl() failed because KVM killed/bugged the VM.  To detect a dead VM,
+@@ -313,6 +315,8 @@ do {											\
+ 	static_assert_is_vm(vm);							\
+ 											\
+ 	if (cond)									\
++		break;									\
++	if (errno == EIO && allow_ioctl_returning_eio)					\
+ 		break;									\
+ 											\
+ 	if (errno == EIO &&								\
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index a2b7df5f1d39..d9834421ab12 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -25,6 +25,8 @@ static uint32_t last_guest_seed;
+ 
+ static int vcpu_mmap_sz(void);
+ 
++bool allow_ioctl_returning_eio = false;
++
+ int open_path_or_exit(const char *path, int flags)
+ {
+ 	int fd;
 
-> That is to say, I'm imagining the case of bundled computers
-> pre-shipped with the loaded FW and OS installed as usual and someone
-> says "hey they got a new Ubuntu [or whatever], let's install it!" BAM,
-> devices stop working because they did not upgrade FW, forcing an FW
-> upgrade in a way an x86 user would not be similarly forced. Though of
-> course, that could then be reasonably called a regression bug (as it
-> would appear from the user's perspective, not knowing about the FW
-> change), if backwards compatibility is indeed already a long-standing
-> policy (and is really what I was after with that "freeze" suggestion
-> even if it itself would not be the way to get it).
-
-Well, it's perfectly reasonable to expect the users to install
-different Linux distributions, etc.  However, as already described
-above, running a newer kernel version without updating the firmware
-should never lead to such issues.
-
-I think we should raise the awareness of the actual benefits coming
-from the openness of firmware on various ARM boards, and the available
-choice of _not_ having to use "full-fat" UEFI firmware, instead of
-trying to make the whole thing be more like x86_64 UEFI firmware.
+-- 
+Without deviation from the norm, progress is not possible.
 
