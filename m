@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27107CFA451
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2273CFA457
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6ZymKRSWALD3tr8yraYTxqfQ/UdViNz9LJ1HFkC+Vw=; b=o40u/7fGwOU3DX8x0EH09bjXwf
-	J5+00lieVvXcPLa23tKBZPnmcw9JLMd4br1y+tOQkExtzzXav+s8s2cVXkaeQA0b7FahbsWEaw/VE
-	nGD9DkWfuotJJkc42zPHoFTVGLMiKq8ZJ40I3sqZi8VqeKH88UN3b33WxoI9YVvSH6ZeH+Sy24X6s
-	pgWh0slPpD3RBmcyqX89c9PpHLBwSdcIYd1CZywwFA4e5E0JkQ9R/UFnS4eYxcq7DsHu4wO9flMpv
-	VZ4SzDnXxzHqIJy/vxB2cy62/P66nr939bOlDqB+0AELAv7rto1XVD4e0UwPt4nuou3viiJVy/MKg
-	AtVVq4Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbzqbqlxPmclpEn6OMrx0dx+v7lOsHLnpEPii/osaHQ=; b=mkGSP5QRzSJQi3k4pQjj8mPsAK
+	Mv1F99ZkNAQjqqflzs9DhhoIcpjy3OxvDFxaVsW5OtLaFlkxYzQDjTeh+jNvWMaCMJ22fT7bZOvMB
+	UVvpl+9vFVFMOiV8+YG2B1/uB5KLXhrkd7xF6+kh49P2jme6tIlfKLysuo5eCjE7rZiveYzXFPqtL
+	Ov3pWweS2x99uf3hDRq1z6gxhvgBauW0hn36rxebJcX2N9y8v1vn9qUv4SralnwN7vPg5HzofJkWq
+	9g22pjTzZDmXZc4S5Z21igv8sOSGO4GvGhco5r0yDOkjNb6uvnfBFkevk4XeQQrmE+pEEmYD/HqVT
+	ZdG+N/GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v2F-000000003iv-10jw;
-	Thu, 24 Oct 2024 10:25:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uyU-000000003Bi-3YHr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:21:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83B1F339;
-	Thu, 24 Oct 2024 03:22:19 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A91F53F71E;
-	Thu, 24 Oct 2024 03:21:48 -0700 (PDT)
-Date: Thu, 24 Oct 2024 11:21:46 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v5 12/37] KVM: arm64: Sanitise TCR2_EL2
-Message-ID: <20241024102146.GB1382116@e124191.cambridge.arm.com>
-References: <20241023145345.1613824-1-maz@kernel.org>
- <20241023145345.1613824-13-maz@kernel.org>
+	id 1t3v5G-0000000045N-1mKf;
+	Thu, 24 Oct 2024 10:28:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3v3h-000000003sG-3fVP;
+	Thu, 24 Oct 2024 10:27:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729765631;
+	bh=GVoa/lCJ2pdfllPCWKL+/MbqTQi4UeFVGaIAtJ31GHE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OmlyPAns36iyW1gjyZhueCp9W5XLw1NFgqZN/Mm4UWIQsSD0/ey7wbiwJsTRvI7LT
+	 7X7iRpQriAOBptIhj83HQ4oFqurBheUb8BnpXMxdx9suEED0JToGar6kgWbzgxeiGK
+	 nIgszf+09sdrO/FMduIK8sZGoDZubAJXYmoWmywzPv330aoab2sj0N1bMEhI9LXNjC
+	 C6PLm3acDEBUzlv/Z0aiZVt/ShkYj8mjwD6iXRkZxe+HIYpG+ZS9f0VVeBPgf2qW7h
+	 1X3xBtaGtkSsALRBmhefHZ8bTeUe4c76dr244/yR/hIRvT1Nu0I04wxzROFhlWRJ2x
+	 8tfgaLeVPO32A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3A51F17E1245;
+	Thu, 24 Oct 2024 12:27:11 +0200 (CEST)
+Message-ID: <9ace7c33-7e45-4d87-869c-8d45afb47750@collabora.com>
+Date: Thu, 24 Oct 2024 12:27:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023145345.1613824-13-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] soc: mediatek: Add command for APU SMC call
+To: "Karl.Li" <karl.li@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Chungying Lu
+ <chungying.lu@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20241024092712.431605-1-karl.li@mediatek.com>
+ <20241024092712.431605-2-karl.li@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241024092712.431605-2-karl.li@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_032150_958141_048BB917 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20241024_032714_130310_28D6EE2F 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,51 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 03:53:20PM +0100, Marc Zyngier wrote:
-> TCR2_EL2 is a bag of control bits, all of which are only valid if
-> certain features are present, and RES0 otherwise.
+Il 24/10/24 11:27, Karl.Li ha scritto:
+> From: Karl Li <karl.li@mediatek.com>
 > 
-> Describe these constraints and register them with the masking
-> infrastructure.
+> Add command for APU SMC call.
+> The APU microprocess's start and stop sequence will process in ATF.
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Karl Li <karl.li@mediatek.com>
 > ---
->  arch/arm64/kvm/nested.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index b20b3bfb9caec..b4b3ec88399b3 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1179,6 +1179,28 @@ int kvm_init_nv_sysregs(struct kvm *kvm)
->  		res0 |= ~(res0 | res1);
->  	set_sysreg_masks(kvm, HAFGRTR_EL2, res0, res1);
->  
-> +	/* TCR2_EL2 */
-> +	res0 = TCR2_EL2_RES0;
-> +	res1 = TCR2_EL2_RES1;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, D128, IMP))
-> +		res0 |= (TCR2_EL2_DisCH0 | TCR2_EL2_DisCH1 | TCR2_EL2_D128);
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, MEC, IMP))
-> +		res0 |= TCR2_EL2_AMEC1 | TCR2_EL2_AMEC0;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, HAFDBS, HAFT))
-> +		res0 |= TCR2_EL2_HAFT;
-> +	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, THE, IMP))
-> +		res0 |= TCR2_EL2_PTTWI | TCR2_EL2_PnCH;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, AIE, IMP))
-> +		res0 |= TCR2_EL2_AIE;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, S1POE, IMP))
-> +		res0 |= TCR2_EL2_POE | TCR2_EL2_E0POE;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, S1PIE, IMP))
-> +		res0 |= TCR2_EL2_PIE;
-> +	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
-> +		res0 |= (TCR2_EL2_E0POE | TCR2_EL2_D128 |
-> +			 TCR2_EL2_AMEC1 | TCR2_EL2_DisCH0 | TCR2_EL2_DisCH1);
-> +	set_sysreg_masks(kvm, TCR2_EL2, res0, res1);
-> +
->  	/* SCTLR_EL1 */
->  	res0 = SCTLR_EL1_RES0;
->  	res1 = SCTLR_EL1_RES1;
+>   include/linux/soc/mediatek/mtk_apu_secure.h | 32 +++++++++++++++++++++
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+This is firmware stuff!
+
+Please move this file to
+include/linux/firmware/mediatek/apu.h or apusys.h
+
+If you expect that the APU will *never* have any non-secure commands, then you
+can add the "-secure" suffix (apu-secure.h) - but if there will ever be any
+commands that aren't secured, you should not call it xxxx-secure.h
+
+>   1 file changed, 32 insertions(+)
+>   create mode 100644 include/linux/soc/mediatek/mtk_apu_secure.h
+> 
+> diff --git a/include/linux/soc/mediatek/mtk_apu_secure.h b/include/linux/soc/mediatek/mtk_apu_secure.h
+> new file mode 100644
+> index 000000000000..ea491bc24adb
+> --- /dev/null
+> +++ b/include/linux/soc/mediatek/mtk_apu_secure.h
+> @@ -0,0 +1,32 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2024 MediaTek Inc.
+> + */
+> +
+> +#ifndef __MTK_APU_SECURE_H__
+> +#define __MTK_APU_SECURE_H__
+
+Please, __MTK --> __MEDIATEK (also because the folder is called "mediatek", anyway)
+
+> +
+> +enum mtk_apusys_kernel_op {
+
+here you can keep the prefix as mtk_
+
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_PWR_TOP_ON,			/*  0 */
+
+and MTK_ is ok for those definitions too.
+
+Cheers,
+Angelo
+
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_PWR_TOP_OFF,		/*  1 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_REVISER,		/*  2 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_RESET_MP,		/*  3 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_BOOT,		/*  4 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_START_MP,		/*  5 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_STOP_MP,			/*  6 */
+> +	MTK_APUSYS_KERNEL_OP_DEVAPC_INIT_RCX,			/*  7 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_SEC_MEM,		/*  8 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_DISABLE_WDT_ISR,		/*  9 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CLEAR_WDT_ISR,		/* 10 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CG_GATING,		/* 11 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_CG_UNGATING,		/* 12 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_RV_SETUP_APUMMU,		/* 13 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_DUMP,		/* 14 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_WRITE,		/* 15 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_LOGTOP_REG_W1C,		/* 16 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_COLD_BOOT_CLR_MBOX_DUMMY,	/* 17 */
+> +	MTK_APUSYS_KERNEL_OP_APUSYS_SETUP_CE_BIN,		/* 18 */
+> +	MTK_APUSYS_KERNEL_OP_NUM,
+> +};
+> +
+> +#endif
+
+
 
