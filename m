@@ -4,109 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D31CE8E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990A7CE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQWomF6yqwD8oGpdiJWckVYqwS2FEf4lq5dqhSRHyIc=; b=hxUQQyNFkHlOm00e7IQKKWavC5
-	PE3LxxBnBK6DTMDjVYH6DAeNDRfdBxXQofvITx31k8gaEC47Syk+x5qQOM241a5qfctR3X/4KhJMs
-	pCV71QhdHiLinQWlLMoPBw1eHkeEnqH+gi4svoU+DtKaYXmqjp0G+qnJmcWajokWysyv0qIUMqSVQ
-	QY6PTFqn6mxGoow8x443mIxuP4+wI1JZJK85AgrQrmUL/y2ZhYIDihoDVH0ddRdxEpOkSfz4Ev89l
-	vYrxQFM0LZGYdv0Q4RhUOJ79CkYCHzHYg69KuJRFEaVN+1aTNPPtTamJWoPdOYJSZCYJcKpQMuM7M
-	7X6NaeIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WmLkhnUtlIFWR7yGqTqutMCpz/ZCKPyDidaM4P7NJJQ=; b=I+miJ/VGInfgny0Gvp+4EKOEEN
+	NcRuhbuqEdITXhayPk2UuyrHbx49balD0BLttUbEMk8/u9QW0Fl/+G6Wxae058RK+yQ3KDXLqD2re
+	ehmNUz/X47rGfty8xynus2Y92NWA3n7ucOtO0+jDk1SBM22FI6kiVbl8WlNvZAhx92phEz8Zm9Od1
+	3MRMcKmqhn8Ej8qPq2In9YnMqh/um2UwDjhyZ5oLkSvJpPa1cfWnDm+LLmQGTPRI+1JQ50plWqs1u
+	lUsiRjGjCixTTQRCcu4QqiKWQZfe+d4cyq23SBBEynHruCTTw+1UwMvfe1U5qcPQg6jqF+FXB6x2P
+	9VumQTuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t429t-00000001OfM-0Yyp;
-	Thu, 24 Oct 2024 18:02:05 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1t42BO-00000001OpE-1nnf;
+	Thu, 24 Oct 2024 18:03:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41uL-00000001Kbt-2SVc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 17:46:06 +0000
-Received: from [192.168.2.102] (213.87.90.120) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Thu, 24 Oct
- 2024 20:45:45 +0300
-Message-ID: <884de5fe-9f3b-4720-8be6-88972d8fc897@omp.ru>
-Date: Thu, 24 Oct 2024 20:45:44 +0300
+	id 1t41v3-00000001Kpo-0P9d;
+	Thu, 24 Oct 2024 17:46:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729792002;
+	bh=W3VllNwtqRwVtIeBKaJd3C2VVqpPgbov///WpOSkPlQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pGdBVc4ASaPLaghvUgQ0DFhiGKTEDqIoVFn1+HyNer1j93XXc5Cz5BjgV87wgH0CQ
+	 B6nsj1eITJ7aMAWhWuAC9FR3zsdafizu1HIG9qFgRpaqxZbx9bzt4byAUFw5Z2MyGQ
+	 BbQxFkD3lxxVK9S1FqDJkKWKfCkVuL2nfVUjbNeCIS/bI5w3FVpYYMmV5+XbERHprI
+	 DeTa7IdFS/rJb7Kz76JJ/ZL0wYH2NE/1/QvvYzshXNOe0vtqNyDyo2X3dFX1p8mH9D
+	 de8N5I/jXKxhNl8NwmS3DALC8CeQif3oOJygSYXrzZs4IJ2uKPB9aRmPcdKHpF/3T8
+	 u2h8mOoubrz6g==
+Received: from notapiano (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00C2F17E36B5;
+	Thu, 24 Oct 2024 19:46:40 +0200 (CEST)
+Date: Thu, 24 Oct 2024 13:46:38 -0400
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Bamvor Jian Zhang <bamv2005@gmail.com>,
+	Shuah Khan <shuah@kernel.org>, kernel@collabora.com,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, kernelci@lists.linux.dev
+Subject: Re: [PATCH RFC 1/3] pinctrl: mediatek: paris: Expose more
+ configurations to GPIO set_config
+Message-ID: <a3d6b2b9-1379-4bab-a584-651ca66677ee@notapiano>
+References: <20240909-kselftest-gpio-set-get-config-v1-0-16a065afc3c1@collabora.com>
+ <20240909-kselftest-gpio-set-get-config-v1-1-16a065afc3c1@collabora.com>
+ <01020191e0901d10-d427a5dd-af4e-4ecf-99e1-4bb051ad1475-000000@eu-west-1.amazonses.com>
+ <8fdeec5c-5de7-44ae-9086-7930d02d610e@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
- compliance requirements."
-To: Ivan Epifanov <isage.dna@gmail.com>, <andriy.shevchenko@intel.com>
-CC: <aospan@netup.ru>, <conor.dooley@microchip.com>,
-	<ddrokosov@sberdevices.ru>, <dmaengine@vger.kernel.org>, <dushistov@mail.ru>,
-	<fancer.lancer@gmail.com>, <geert@linux-m68k.org>,
-	<gregkh@linuxfoundation.org>, <hoan@os.amperecomputing.com>,
-	<ink@jurassic.park.msu.ru>, <jeffbai@aosc.io>, <kexybiscuit@aosc.io>,
-	<linux-alpha@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-fpga@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-	<linux-hwmon@vger.kernel.org>, <linux-ide@vger.kernel.org>,
-	<linux-iio@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-mips@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-spi@vger.kernel.org>, <manivannan.sadhasivam@linaro.org>,
-	<mattst88@gmail.com>, <netdev@vger.kernel.org>, <nikita@trvn.ru>,
-	<ntb@lists.linux.dev>, <patches@lists.linux.dev>,
-	<richard.henderson@linaro.org>, <serjk@netup.ru>, <shc_work@mail.ru>,
-	<torvalds@linux-foundation.org>, <torvic9@mailbox.org>,
-	<tsbogend@alpha.franken.de>, <v.georgiev@metrotek.ru>,
-	<wangyuli@uniontech.com>, <wsa+renesas@sang-engineering.com>, <xeb@mail.ru>
-References: <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
- <20241024170743.241144-1-isage.dna@gmail.com>
-Content-Language: en-US
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-In-Reply-To: <20241024170743.241144-1-isage.dna@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.90.120]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.0, Database issued on: 10/24/2024 17:32:48
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 19
-X-KSE-AntiSpam-Info: Lua profiles 188703 [Oct 24 2024]
-X-KSE-AntiSpam-Info: Version: 6.1.0.4
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 40 0.3.40
- cefee68357d12c80cb9cf2bdcf92256b1d238d22
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_arrow_text}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: {SMTP from is not routable}
-X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.90.120 in (user)
- b.barracudacentral.org}
-X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.90.120 in (user)
- dbl.spamhaus.org}
-X-KSE-AntiSpam-Info: omp.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.90.120
-X-KSE-AntiSpam-Info: {DNS response errors}
-X-KSE-AntiSpam-Info: Rate: 19
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 10/24/2024 17:35:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 10/24/2024 2:57:00 PM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8fdeec5c-5de7-44ae-9086-7930d02d610e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_104601_664491_5C9750EB 
-X-CRM114-Status: UNSURE (   2.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_104645_339630_1683E99B 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +83,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/24/24 8:07 PM, Ivan Epifanov wrote:
-[...]
-
->> $ git log --author="andriy.shevchenko@intel.com"
->> $ 
+On Thu, Oct 24, 2024 at 05:17:05PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 11/09/24 12:10, AngeloGioacchino Del Regno ha scritto:
+> > Il 09/09/24 20:37, Nícolas F. R. A. Prado ha scritto:
+> > > Currently the set_config callback in the gpio_chip registered by the
+> > > pinctrl_paris driver only supports PIN_CONFIG_INPUT_DEBOUNCE, despite
+> > 
+> > [...] only supports operations configuring the input debounce parameter
+> > of the EINT controller and denies configuring params on the other AP GPIOs [...]
+> > 
+> > (reword as needed)
+> > 
+> > > many other configurations already being implemented and available
+> > > through the pinctrl API for configuration of pins by the Devicetree and
+> > > other drivers.
+> > > 
+> > > Expose all configurations currently implemented through the GPIO API so
+> > > they can also be set from userspace, which is particularly useful to
+> > > allow testing them from userspace.
+> > > 
+> > > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> > > ---
+> > >   drivers/pinctrl/mediatek/pinctrl-paris.c | 20 ++++++++++----------
+> > 
+> > You can do the same for pinctrl-moore too, it's trivial.
+> > 
+> > Other than that, I agree about performing this change, as this may be useful
+> > for more than just testing.
+> > 
 > 
-> Look who's talking
+> Nicolas, please don't forget to respin this patch.
 
-$ git shortlog | grep "Andy Shevchenko"
-Andy Shevchenko (5564):
-[...]
+I was hoping to get some feedback on the test itself as well, particularly from
+Linus as the pinctrl maintainer, but it's also been a while so I'll send a v2
+with the feedback here addressed.
 
-   Even I was surprised!
-
-MBR, Sergey
-
+Thanks,
+Nícolas
 
