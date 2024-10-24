@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C03ECE8E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408F6CE8E8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CBiG9tFbLqIx7KKBRCWnQHbT9NWhqeOvBRJqbKiGd9Q=; b=oHp4yasXhS3+mwsS4r/tfJla/7
-	Ju7P10MfSJIGDusBxsn776zxADX5oQ53LvGllJaO4wHnWahduDrgLNrsJPTNe7jOfPIrNC/pFpLab
-	i6kOTiyLGV2DFQgNEkRqg1erDkAzeos7/dxzURJS32JTWZP68Wdiee0ULzsTg+KAW+dDRnskTgTj/
-	iP0nE7MXHHMU7qQVzMWYbbRecHpBzv36UlthNiSvkRjCBGSt65ZlzwqElej2i5r5D7DfaUr7QjBej
-	0v4dJ7RmHp95vYmWpmnqe7ds+C/5VcnhngIhI0BQvUJxfd2sFdp6otEdiUrGUZuHT5bNfHJowMzGE
-	6G+eX+jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SOly56QZgoMINy/y9cRSiyi9JRJIV3NRNtcNxFgOt10=; b=1zcstuqddjrqV5lcMBFtF7tYwU
+	1K+gPkssOz+IHketcLJj6oMgv72XDdjZwD1mCBr+WHNMTf2XYn4iY/JK/5+fDBUNKK/bTPU2CSptv
+	ZBsFobxDr4Z11VO4H3NgQgexTZdD1eZaYfrD28WEKRTv6uQUXnCS4jinwxaiJMukeOFSvOzPFhnT0
+	SFhOwIoVJlcT6Y7l6NTXM9HC/jFFcXV4enOZVsc9/3QPBDcyxdBkzm6a/0j5wtE0xnQaVqooiRkHh
+	PejMcoqPqo+YRnrN00n1bgjaVpEHIgTZ5oiFoXEfMiRcF7NeZJoLMm7WRtkYhUe8XIi3Nv5Fui7Ev
+	DSlkgvXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ztD-00000000w8A-1va6;
-	Thu, 24 Oct 2024 15:36:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t3zuj-00000000wKi-2MFS;
+	Thu, 24 Oct 2024 15:38:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zXM-00000000sXi-0QgE;
-	Thu, 24 Oct 2024 15:15:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CBiG9tFbLqIx7KKBRCWnQHbT9NWhqeOvBRJqbKiGd9Q=; b=M6OPtpzQvZbVZiuWkrc3p230yO
-	HPi4NVdrU8/xETZanFmH1TXojf2TVftlbJ0yeckBFO2H5M9ewFODfiIlLKKUQ2TZ4B+VaLOJlYo3V
-	gMlBfqXNvnAUIqP4eSMh1ozb4FuGzAwLmSbRRIFS7Z0SEZVtX0zL2n6RD88nuX1zfwTxz5cH/LCpr
-	lxKZncYmIzYeesPhCulT5IsBXKxeOb/iKZAGbcntkmVL6ZSwCIjRMmQXfwFIqAMaPOz0rPnD5aALX
-	FmIBOq5kt+8/ABsCJ07pe97Qd1SsUFUXSnRweIccoyDDTjjvSyl6GcezzRsZVOhbP7tPnBPJtNxAC
-	igChQNHQ==;
-Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t3zXK-0004at-Cr; Thu, 24 Oct 2024 17:14:06 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] HDMI Support for Theobroma/Cherry rk3588 boards
-Date: Thu, 24 Oct 2024 17:14:00 +0200
-Message-ID: <20241024151403.1748554-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1t3zY0-00000000scK-0wcc;
+	Thu, 24 Oct 2024 15:15:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2720EA45434;
+	Thu, 24 Oct 2024 15:14:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B0DC4CEE4;
+	Thu, 24 Oct 2024 15:14:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729782886;
+	bh=Fhhtx0SKw8R7fwmiWBICVYOc8q6+cAez3j0Ek1hM190=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=UV0Y7R/6YQiFBOZvJUQydU4Yxt+U9SxMjlRxZMea1owRTDM7Fti6imYGZVsIfWN41
+	 oDctMYnTbJkbl3KGUJT+O1oXccwmPXnsC/EhPzxPzT/Lle/JOhuEXOXAKocPRREOom
+	 pTNzMTAIv3X/bQqAFV5AaPLK7Zc5DyqeJeVz0+nyoasRrT5zawOKBSgfqyI+m3RHVg
+	 3mYcbqSAiNv+U5FoLoYpHzXS3BCnWzINmPdSbeXL41n/j6FBSHLIdYaHnatCaxhwMR
+	 igF5ds7OCBby6INyeeOz0c9DLocUYF1KlKyHVDOlzuu+hvA8E5RVkxbLwbENIzdlIE
+	 YbwEs/93bZDJw==
+Message-ID: <baa171fd4e0cd7ddf2d4ce593b690ed3@kernel.org>
+Date: Thu, 24 Oct 2024 15:14:44 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dave Stevenson" <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 02/37] drm/vc4: Use of_device_get_match_data to set
+ generation
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-2-1cc2d5594907@raspberrypi.com>
+References: <20241023-drm-vc4-2712-support-v1-2-1cc2d5594907@raspberrypi.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, "Broadcom
+ internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "David
+ Airlie" <airlied@gmail.com>, "Florian Fainelli" <florian.fainelli@broadcom.com>, "Javier
+ Martinez Canillas" <javierm@redhat.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Michael Turquette" <mturquette@baylibre.com>, "Raspberry
+ Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Ray Jui" <rjui@broadcom.com>, "Rob
+ Herring" <robh@kernel.org>, "Scott Branden" <sbranden@broadcom.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Stephen Boyd" <sboyd@kernel.org>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "Will Deacon" <will@kernel.org>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_081408_186440_A389257F 
-X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-CacheID: sfid-20241024_081448_366784_850A06F6 
+X-CRM114-Status: UNSURE (   5.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,19 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds HDMI support for the Tiger and Jaguar boards.
+On Wed, 23 Oct 2024 17:49:59 +0100, Dave Stevenson wrote:
+> Use of_device_get_match_data to retrieve the generation value
+> as set in the struct of_device_id, rather than manually comparing
+> compatible strings.
+> 
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> 
+> [ ... ]
 
-Heiko Stuebner (3):
-  arm64: dts: rockchip: add HDMI pinctrl to rk3588-tiger SoM
-  arm64: dts: rockchip: add HDMI support to rk3588-tiger-haikou
-  arm64: dts: rockchip: add HDMI support to rk3588-jaguar
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
- .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 50 +++++++++++++++++
- .../boot/dts/rockchip/rk3588-tiger-haikou.dts | 53 +++++++++++++++++++
- .../arm64/boot/dts/rockchip/rk3588-tiger.dtsi |  6 +++
- 3 files changed, 109 insertions(+)
-
--- 
-2.45.2
-
+Thanks!
+Maxime
 
