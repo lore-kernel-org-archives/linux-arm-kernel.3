@@ -4,118 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4AAD0E3F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C92D0E3F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=; b=cGVi+7/dwKcG7AXN6glNiolLYp
-	AGn9BdXr9N906qthjbYUsk6L1ecItCxeTziBA5QyNRSoODzzGX55Cwn/iW61926AfE+TGHKw404NC
-	ZjD1t0hwrfoOZC/xv6d8HPpm96E0ECZU01kCUSiqpSNxxQSJnxqDUzEALU/bca9AZ5zMsLaXV4tPI
-	yQdjULDyL/h0LoQkHosebxbm5+DoypwwHQzBUUCSrojej9eChIVdO9XYR2pKA/9oHoxvZjrBS9pUs
-	LuI500qFfze+sf4njS2T5Zyt/S+BYeskM3t++LbvKz6HaegJZ1olP0m10j/bEMyQezotOQbwUJSTz
-	a3936lvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VGBoqND71236knReCQexeHrHy1YPglXydeKm7AcaSgw=; b=kn8810/ZNsI4/tL/vrkFIgzuyl
+	L+QrR8b4gEVNMLATL49jE9sNHWUfnY9/lnevO3fQ+mgiKUFpWlNBDz9dme1eQkIcwp6fRHABXWkUV
+	hftHbnDnUr9dpSjUjNSfJ4YV1ETJW12ZSBDmKpIy2bgBvkFQvfK8JyS4JKk6tQRlrNfFLMmLLGk3P
+	W0Yd4lEkzeV9tsuI1YHjNN8dchHSvHY1l8Vy4a9oXF4rVn1JfGWMCmCU6AFZO46OACag9ii8acbFS
+	ciRQwDEiCPc7sXIRHerhr+SXbaQCZL8gRBqowpqe53TLgV3S+25YDp6+3VV7r7bFk2NDznTdYd4Yn
+	JmiCvENw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44F8-00000001hpA-0O5V;
-	Thu, 24 Oct 2024 20:15:38 +0000
-Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
+	id 1t44Gd-00000001hzP-3ms7;
+	Thu, 24 Oct 2024 20:17:12 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t43Ck-00000001XK2-2pfK
+	id 1t43ot-00000001dw6-2NQm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 19:09:08 +0000
-Received: by mail-lj1-x241.google.com with SMTP id 38308e7fff4ca-2fb587d0436so13998281fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 12:09:06 -0700 (PDT)
+	Thu, 24 Oct 2024 19:48:32 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539e5c15fd3so1323978e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 12:48:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729796945; x=1730401745; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=mdni9TzsJlHJamW2DLoMHVZdyUrbaWVAgvgjDFCHJm3LANXpykYx+WKFGKfnwUocTU
-         SkRY0X00xSE9ePJDwyT7ZpIHXf9xfM4SZSp1QVhHmTdLkptOpYM+e7fVtUy6xPJ2g/Rl
-         Y6Db2VysjeC446AtSXpIrIzT+j054q9i/QoiHdFY+84eGbXb5q0wmBTBt9ncQa+74hKE
-         7f/x245ygAh8Caysbs7+qHhhIvm8FzNpew09zKCIiBT5UUGVr5DRH/peqbdYMlNyIxIE
-         6TMnXt5rXmvJCJFwWcdGfw+XCURTnvBjh8c1Wq/4ktkO1FNhklhumVJw2dftZt/uVhuY
-         KneA==
+        d=linaro.org; s=google; t=1729799310; x=1730404110; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VGBoqND71236knReCQexeHrHy1YPglXydeKm7AcaSgw=;
+        b=WNICYRmsW7sBnKlH4q5yZW9dXnikH3lcVxA8UUtrTItz1QILXEk9wpW1Q+teOrnuuL
+         Ur7hqqWvdQ12CH+g8Np3Z4YTrcgDUExqkEB+11s8lyaKjjIgzVt8RdBeXMmc26Xq/eEb
+         DTP6naNEsS2Tc8Qz8CB6ioe5JPDsO5XU1dxv2HSQgpy7n2ibd4GjwR4MGhNov0AONAnz
+         Te6kCcx/UMoXOMYyie2WYJ+liwTusC21uGKBKt9eDDUq+JYk5onwRxwulysE1z5pX1qQ
+         A3voUxoSjPSA46cqcAYAMTta2KZWWIrySKekXWJOdoA3wbfYl99b8XmN1rWWEVuC5M4d
+         M+FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729796945; x=1730401745;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6rLVkYT85aPE762YWX/Qza6i4TLO/D+UE9Oy6vAHa5Y=;
-        b=afqjlVjf9H4AslR/FfDM/dwghoECeMcoaHgnUcnFWnI9SSat/mhhheMged1JJXwck7
-         TSBdHF5VeRXngUgOFfcztOyHJMYT4VVuXDDCc7B2iBQAMQpzpRZ8vdhwL23FlVORj0uk
-         qp3I5Erp3wD/umYFrXc+vyBTfrSYaTk01htztkAA4k6+/2wI+Z8T7ftk470CWhXkS34L
-         Z6xc73aPrS+mSWDROvxlQoPxLtCZafgUqtqJ6B6XlckRwpJmvfmZicQpAexp9lx+hIQ/
-         WDF9pJqEONT+EjCV9o90g07g1nByWsH0T+g3b0k+iNGJhocYT12pcfZhO0g3O4af8iYG
-         6GiA==
-X-Forwarded-Encrypted: i=1; AJvYcCX57rsqhx0Mtz5D7uyXCgNNxUAjOsKyaWdHbd1F3F9iosDqdktrpjDEACWkfZp9iUkjxHbbi9586FHvvAYwd6JS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVbIr0/dbOgommKVMsV/kIdB5K6wOscxo0h5bnUORu3qntFTUK
-	PLfqvDNXscvH06W2Lr9i8mimuwlIXc10LuppLli9Ugk6deXkcpPI
-X-Google-Smtp-Source: AGHT+IHStpr+I95wvQZmKqv83SykDQHqai4NJPljAQ9vPJefRDvmxbA7RdaPoFRmqliCgKhTIE1Whw==
-X-Received: by 2002:a05:651c:1256:b0:2fb:5da7:47a7 with SMTP id 38308e7fff4ca-2fc9d375d15mr33958241fa.25.1729796944738;
-        Thu, 24 Oct 2024 12:09:04 -0700 (PDT)
-Received: from localhost.localdomain ([176.106.245.80])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fb9adfa19csm14878081fa.89.2024.10.24.12.09.01
+        d=1e100.net; s=20230601; t=1729799310; x=1730404110;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VGBoqND71236knReCQexeHrHy1YPglXydeKm7AcaSgw=;
+        b=w8DVTXqItmnsIQkL6bSNI8XWtokbTIDS9JbsAuS3dx4uY41OW2ALLV6O2XXnWCqvPi
+         yOOirdFud+N4jcTiHinEXYPcLWzWywGQG8qMkGQQY63ZSpWzHHhcQkwlMSWptyVr987/
+         MlSi8kBCU965mmiVekHTkZiU1Mqss9O5nwkP3r+2x8tw9FOoVM+kkgJvhQD9ObwQJw9K
+         3fNE5rzdO7RBkmzhe0lnl06EBzQVHuTF/vOKnCrEHQwhy96sSX37PS6ZEzJzg6Pip5hJ
+         S0yzsxk9/Si+t5rLv68LEa38aIOK4pAtJUh21xSpu7LxxflKMtul2Z3TREJnnoKRNPUo
+         CBvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWCAYe/KaPW1LBpvPw0yBNurqLs3J3NMGAfrBS+2oYP8g0jeAjHxe5KXmssf6D1tbk9SpmuEF30Nl5rmtk7SUmr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvyuZrxQSpnM3ytYxUHctJXQ8Wnt6ajzvnDLu5y49KthU5+aof
+	ncnTHY67E7gC1ByUmT/0QH0G0L/VY7TspybZ4t/5glaeQVobKrN5dcPN85tWt3g=
+X-Google-Smtp-Source: AGHT+IFxNfXsb6FF2TOOX13EEGKrWhQ/IAyagU629O/aokFyrD4j96vGZ/8XXEmR0CIVaotIUpg1zg==
+X-Received: by 2002:a05:6512:230b:b0:52e:7542:f469 with SMTP id 2adb3069b0e04-53b23bc0b0fmr2106888e87.0.1729799309863;
+        Thu, 24 Oct 2024 12:48:29 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53a2241ffc6sm1451111e87.179.2024.10.24.12.48.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 12:09:03 -0700 (PDT)
-From: Russian Troll Factory No891622132171136182871822154215668629584198453101825252952799015417288673125817024261462302707229403263072352343831698227498 <vladimirputin693389@gmail.com>
-To: torvalds@linux-foundation.org
-Cc: aospan@netup.ru,
-	conor.dooley@microchip.com,
-	ddrokosov@sberdevices.ru,
-	dmaengine@vger.kernel.org,
-	dushistov@mail.ru,
-	fancer.lancer@gmail.com,
-	geert@linux-m68k.org,
-	gregkh@linuxfoundation.org,
-	hoan@os.amperecomputing.com,
-	ink@jurassic.park.msu.ru,
-	jeffbai@aosc.io,
-	kexybiscuit@aosc.io,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mattst88@gmail.com,
-	netdev@vger.kernel.org,
-	nikita@trvn.ru,
-	ntb@lists.linux.dev,
-	patches@lists.linux.dev,
-	richard.henderson@linaro.org,
-	s.shtylyov@omp.ru,
-	serjk@netup.ru,
-	shc_work@mail.ru,
-	torvic9@mailbox.org,
-	tsbogend@alpha.franken.de,
-	v.georgiev@metrotek.ru,
-	wangyuli@uniontech.com,
-	wsa+renesas@sang-engineering.com,
-	xeb@mail.ru
-Subject: Magisk patch for android nox devices
-Date: Thu, 24 Oct 2024 22:08:58 +0300
-Message-ID: <20241024190858.14706-1-vladimirputin693389@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+        Thu, 24 Oct 2024 12:48:28 -0700 (PDT)
+Date: Thu, 24 Oct 2024 22:48:26 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, sudeep.holla@arm.com, 
+	cristian.marussi@arm.com, andersson@kernel.org, konrad.dybcio@linaro.org, 
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	quic_rgottimu@quicinc.com, quic_kshivnan@quicinc.com, conor+dt@kernel.org, 
+	arm-scmi@vger.kernel.org
+Subject: Re: [PATCH V4 1/5] dt-bindings: firmware: Document bindings for QCOM
+ SCMI Generic Extension
+Message-ID: <lewbl6nglqzvhe4ho7ayzqwj7xrgszqfrapqo46cwbfhsftptd@ap7l6zqpo275>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <20241007061023.1978380-2-quic_sibis@quicinc.com>
+ <q2vuiru7sqetwqyitg7azgqg7kge622i2zgq52b55zivwtbev4@4qgzb54xjioq>
+ <hxfg6ztpqy7qdsgzhvvapeyh2f55mj7hhuqqkz7si6g5i7nsng@xoyfwztk66aj>
+ <3765cf3d-8477-45a7-af0e-b0c78f41eaad@kernel.org>
+ <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_120906_881194_E005BB0A 
-X-CRM114-Status: UNSURE (   5.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_124831_633637_EA10B885 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,202 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 22, 2024 at 12:55:19PM +0530, Sibi Sankar wrote:
+> 
+> 
+> On 10/8/24 17:41, Krzysztof Kozlowski wrote:
+> > On 08/10/2024 14:10, Dmitry Baryshkov wrote:
+> > > On Tue, Oct 08, 2024 at 08:49:27AM GMT, Krzysztof Kozlowski wrote:
+> > > > On Mon, Oct 07, 2024 at 11:40:19AM +0530, Sibi Sankar wrote:
+> > > > > +/*
+> > > > > + * QCOM_MEM_TYPE_DDR_QOS supports the following states.
+> > > > > + *
+> > > > > + * %QCOM_DDR_LEVEL_AUTO:	DDR operates with LPM enabled
+> > > > > + * %QCOM_DDR_LEVEL_PERF:	DDR operates with LPM disabled
+> > > > > + */
+> > > > > +#define QCOM_DDR_LEVEL_AUTO	0x0
+> > > > > +#define QCOM_DDR_LEVEL_PERF	0x1
+> > > > 
+> > > > I could not find any driver using these. Can you point me to usage in
+> > > > the drivers?
+> > > 
+> > > It's well hidden. These are the raw values used for DDR_QOS memory.
+> > 
+> > So not a binding? Then these should be dropped.
+> 
+> I am not sure why the term "well hidden" was even considered :(
+> The driver just reads them from dt and passes them along. If you
+> want the dt to list magic numbers 0/1 instead I can do that as well.
 
-Hi, the linux mailing list.
-You have asked me for your opinion. I present my opinion to you:
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
-LINUS TORVALDS IS A DICK
+Well, it is well hidden, because e.g. Krzysztof could not find them
+being used.
 
+No, nobody asks for the magic numbers. Please drop them from DT and move
+to the driver instead. And this is one additional bonus point for the
+non-generic node names. ddr-qos is _different_ from all other "memory"
+types. It doesn't have min/max values.
 
-
+-- 
+With best wishes
+Dmitry
 
