@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 601B8CE8E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8BDCE8E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIClXhU0TI8fTpRc6FjEoGvpVZnc0ncz4HYCuUXs2hs=; b=hDIS7uiA7eNX4RZTCLcYuzHtwL
-	9tMeUjxthWw2DiehtTV6S2IXA33d6BG6K1VCS0kUgc/uJVJd8GCOtxeVi9dDxOr1ZWhA/eRqxmmbl
-	+fOQgG1ftkfPNH6qBLJc/sDE4IKJ4HWjS1ksM2g2OVwCNkXYttVFnddm8kU8gCTlbjMkca3cK+XnX
-	pu4dfpDVPtxtaj3Ds/RCvvNLdKxynJa9AKwK7m6sd/uiBiC5t2TWwv3zU88/B3yO59tk45FjXISdJ
-	i7Ke/Bw8ADJDYFPno6lOeeUd906LLzoV25EpFum+o0blPmDgvYhyO+Tev7dFkBE42P1c4vMxFnv7s
-	9mD5J9jw==;
+	bh=yQHpv7ID4TH1EE8mb/9nePf96Sk+WNhyNVzL1VBmj6s=; b=YoN1btw6/Lc1SIKEIEOIH/jKXm
+	hcbO/CPxn68Ayphs9zBWUbGn/fBOgMBMg+qDFmOQ79OML8j1/fdIMcbHq1rl6LAZDN6WQSuZGumPK
+	mRXIHaXEN8jpQkjgFWOZP9LXxFlABYOVoUI9DYVYoGQjmYjleGDqotO14hcXJ710PIBJLvxXeFU5U
+	05zkZoacGhnNx60EdRPsbZy/2WIed4KBk1HCa8SDLEiFGUlzKbtaFYboXNa2VZpBd44c+lsCwp04w
+	02bx9Kwlv2hkIHHYuHyxXl8BBvzVlTjbKquZKirprEI344/izkzWbSl7MZZS7piBu2gHLLUduPXR+
+	B9ldnXgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ynA-00000000im5-167P;
-	Thu, 24 Oct 2024 14:26:24 +0000
-Received: from mail-yw1-f170.google.com ([209.85.128.170])
+	id 1t3yoi-00000000jHo-2UP5;
+	Thu, 24 Oct 2024 14:28:00 +0000
+Received: from mail-yw1-f178.google.com ([209.85.128.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yiu-00000000hNq-0us1
+	id 1t3yj1-00000000hQP-3wWm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 14:22:01 +0000
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-6e3cdbc25a0so12410187b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:21:59 -0700 (PDT)
+	Thu, 24 Oct 2024 14:22:09 +0000
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6e3a97a6010so11650457b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:22:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729779719; x=1730384519;
+        d=1e100.net; s=20230601; t=1729779726; x=1730384526;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FIClXhU0TI8fTpRc6FjEoGvpVZnc0ncz4HYCuUXs2hs=;
-        b=RZT2brKMVwkUmihIF893OSILQHeKKYR17uS/bqa8cBq4lIN2Z573ROlxboRcBiIG/k
-         idF7xPr4p+WFO10UxsJnv73MdXKG2KXl+ydWStxeiW4Q8Icd5T/aPYVl/fLs8YAicjz9
-         fGBxNLOy8XIqvs+5bmgy96C0nenE0La6aD8U1T3lDxenMmn57c0JYvNIleNnLNQwf3Bm
-         N7bCf1W1n5xbQNG+D13cezs6BRVyeT9k27BA/bvb52/zsuHLRyQxoVU+35ojk3jLuJ29
-         cxfb38mLzRpYpyl8Nfl98eVh5E+8UxOetaBVEIjmYbUUTpAMnHpsjhWmahxFS8DiFtOZ
-         uNpg==
-X-Forwarded-Encrypted: i=1; AJvYcCUOqHN/qIVbElDjaXTMOBvfUeVjG0n1ujejLsfebdjEsadVJQlHg7vM5iQrcziNZetPYvwaiXYyzXuhrE9dyywQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrxpFc8k4gPK+ENPjSE8P1dKfEeyAKqMlrURGVHlg/iGcU3KQg
-	aTaVNI7uF7bdA4suV2wJPw4bVFkCuPxqhcoXL+JDM0nOZbR5lQS11/3Fp8oH
-X-Google-Smtp-Source: AGHT+IF7bq/48fJKHpNF3PALFSkQGBSnmk77IeLOOwV4Ut8dVWzcHP+iprjTg2Y8yzErvtM2k8Dr1A==
-X-Received: by 2002:a05:690c:6281:b0:6dd:c6e1:7570 with SMTP id 00721157ae682-6e7f0fa6d89mr75423777b3.34.1729779718725;
-        Thu, 24 Oct 2024 07:21:58 -0700 (PDT)
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e5f5a6199esm19910817b3.46.2024.10.24.07.21.56
+        bh=yQHpv7ID4TH1EE8mb/9nePf96Sk+WNhyNVzL1VBmj6s=;
+        b=HJePBAHwctzu/fLZX3OM/EXNLxz2hKuyckYGpFXPGByNTpe1oC7AufBrw+HSOb/7s2
+         byM0GreF4RVBimebRTNlZWCI9jHX5VWYh4EYkvDu6VSYYq+PBJDdHQr1L9wjQHm9R1mH
+         /n7WDiGZtTTHyG8utTrEGYyb1vEeVuVmOMXXCaqZw43M6w3Bcz6aiQwjXrSCQQ0j55kg
+         KWllBcTXdeQE0k2B6LXkks146P297LA3iWXiMYLc8ZaG4L3YEcdacfK/3RBaEAQyr+ep
+         IPQCQPQvHtmR3Oin+0x3/Uu7JZ+daHF3BpZ6+7eYeGE+jTKkfDGkiS2r5NUk4/bD7U/V
+         Mqsw==
+X-Forwarded-Encrypted: i=1; AJvYcCXa5ArGaq7FaRcDwffvWUKzSlC6AydEDToSOiYoZLslCBsVFYNcL439HEh77iouTa28OQSwPd6l21XxQIJveu4L@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPCb65CGcuSTrtymSlsKYALU6Y9GTS8jy6TlM8pVuGu5E0HfS6
+	InByssXTPdPwIjt4JznAViF/sPtHgyYplLfXGX4aMkHjis5BLdpsHlSln/JE
+X-Google-Smtp-Source: AGHT+IEEPkaebPcqoHy/Mbodmefo0obz/IK5hDNomfVd0kq+FDE8Wz6G2cj/oYKwQ+0YLokDaB4Xpw==
+X-Received: by 2002:a05:690c:ecb:b0:6de:c0e:20ef with SMTP id 00721157ae682-6e85814c186mr27075757b3.7.1729779725810;
+        Thu, 24 Oct 2024 07:22:05 -0700 (PDT)
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com. [209.85.128.180])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e5f5a502d9sm19856907b3.47.2024.10.24.07.22.05
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Oct 2024 07:21:57 -0700 (PDT)
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-6e3cdbc25a0so12409677b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:21:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX3yRYUFjfMLUBD4CKd4tQIRo811Mtr3b3nrrNpR/y8ucmD64w7sMK98JMezo4HyU0nGKX746tQcmXvZszuReCu@lists.infradead.org
-X-Received: by 2002:a05:690c:8a46:b0:6e3:2608:d5af with SMTP id
- 00721157ae682-6e7f0e8bc99mr47613857b3.26.1729779716691; Thu, 24 Oct 2024
- 07:21:56 -0700 (PDT)
+        Thu, 24 Oct 2024 07:22:05 -0700 (PDT)
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-6e34339d41bso10105907b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 07:22:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXaeQyaWRt3vZPuYvrcShOYzR8Yb8bpW/sS2+V/VvNMfUfFtDY7s8QKbXDWRJkzhtkLMK97i0f5KbW9rOLV75On@lists.infradead.org
+X-Received: by 2002:a05:690c:ecb:b0:6de:c0e:20ef with SMTP id
+ 00721157ae682-6e85814c186mr27075017b3.7.1729779725019; Thu, 24 Oct 2024
+ 07:22:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241019084738.3370489-1-claudiu.beznea.uj@bp.renesas.com> <20241019084738.3370489-4-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20241019084738.3370489-4-claudiu.beznea.uj@bp.renesas.com>
+References: <20241019084738.3370489-1-claudiu.beznea.uj@bp.renesas.com> <20241019084738.3370489-6-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20241019084738.3370489-6-claudiu.beznea.uj@bp.renesas.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 24 Oct 2024 16:21:45 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXZeZQN4T1=wT=K4BCR_Wk02ZBaKVSC7WukC0UGseM12A@mail.gmail.com>
-Message-ID: <CAMuHMdXZeZQN4T1=wT=K4BCR_Wk02ZBaKVSC7WukC0UGseM12A@mail.gmail.com>
-Subject: Re: [PATCH v4 03/12] dt-bindings: clock: renesas,r9a08g045-vbattb:
- Document VBATTB
+Date: Thu, 24 Oct 2024 16:21:52 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXQ2DM7Qzcne5KEN2sx1z4PZn=SFkmWwMENkKQfWGGE_A@mail.gmail.com>
+Message-ID: <CAMuHMdXQ2DM7Qzcne5KEN2sx1z4PZn=SFkmWwMENkKQfWGGE_A@mail.gmail.com>
+Subject: Re: [PATCH v4 05/12] clk: renesas: clk-vbattb: Add VBATTB clock driver
 To: Claudiu <claudiu.beznea@tuxon.dev>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
 	krzk+dt@kernel.org, conor+dt@kernel.org, alexandre.belloni@bootlin.com, 
@@ -78,8 +77,8 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_072200_279103_D2765CCD 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20241024_072208_025740_A22F8177 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +97,27 @@ On Sat, Oct 19, 2024 at 10:47=E2=80=AFAM Claudiu <claudiu.beznea@tuxon.dev>=
  wrote:
 > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 >
-> The VBATTB IP of the Renesas RZ/G3S SoC controls the clock for RTC,
-> the tamper detector and a small general usage memory of 128B.
+> The VBATTB IP of the Renesas RZ/G3S SoC controls the clock that is used
+> by the RTC. The input to the VBATTB could be a 32KHz crystal
+> or an external clock device.
 >
-> The VBATTB controller controls the clock for the RTC on the Renesas
-> RZ/G3S. The HW block diagram for the clock logic is as follows:
+> The HW block diagram for the clock generator is as follows:
 >
 >            +----------+ XC   `\
 > RTXIN  --->|          |----->| \       +----+  VBATTCLK
 >            | 32K clock|      |  |----->|gate|----------->
 >            | osc      | XBYP |  |      +----+
 > RTXOUT --->|          |----->| /
->            +----------+      ,/
->
-> One could connect as input to this HW block either a crystal or
-> an external clock device.
+>            +----------+      ,
 >
 > After discussions w/ Stephen Boyd the clock tree associated with this
 > hardware block was exported in Linux as:
 >
-> input-xtal
->   xbyp
->   xc
->      mux
->         vbattclk
+> vbattb-xtal
+>    xbyp
+>    xc
+>       mux
+>          vbattbclk
 >
 > where:
 > - input-xtal is the input clock (connected to RTXIN, RTXOUT pins)
@@ -131,31 +127,27 @@ On Sat, Oct 19, 2024 at 10:47=E2=80=AFAM Claudiu <claudiu.beznea@tuxon.dev>=
 >
 > to allow selecting the input of the MUX though assigned-clock DT
 > properties, using the already existing clock drivers and avoid adding
-> other DT properties.
+> other DT properties. If the crystal is connected on RTXIN,
+> RTXOUT pins the XC will be selected as mux input. If an external clock
+> device is connected on RTXIN, RTXOUT pins the XBYP will be selected as
+> mux input.
 >
-> This allows select the input of the mux based on the type of the
-> connected input clock:
-> - if the 32768 crystal is connected as input for the VBATTB,
->   the input of the mux should be xc
-> - if an external clock device is connected as input for the VBATTB the
->   input of the mux should be xbyp
->
-> Add bindings for the VBATTB controller.
+> The load capacitance of the internal crystal can be configured
+> with renesas,vbattb-load-nanofarads DT property.
 >
 > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > ---
 >
 > Changes in v4:
-> - squashed with patch "Add clock IDs for the VBATTB controller" from v3
-> - removed "oscillator" word from commit description
-> - added assigned-clocks, assigned-clock-parents to the documentation exam=
-ple
-> - used clock-controller for the node name
-> - used "quartz-load-femtofarads" property for the load capacitance
-> - renamed include/dt-bindings/clock/r9a08g045-vbattb.h to
->   include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
-
-Thanks for the update!
+> - dropped oscillator from patch description
+> - s/on-board/internal in patch description
+> - updated dt-binding included file name in the driver as it has been
+>   renamed to include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
+> - dropped the "_BIT" from driver macros
+> - used "quartz-load-femtofarads" dt property instead of adding a new one
+> - register the "vbattclk" as critical clock as this feeds the RTC counter
+>   logic and it needs to stay on from the moment the RTC is configured;
+>   along with it, added a comment to express this.
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
