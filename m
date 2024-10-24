@@ -4,70 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94490CFA456
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA7CCFA456
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jC9nW4+TeoUKMdwW7mwvVLcB7GS8bnW0QjfI/mZVf+s=; b=BICmPQiuQB/ntCf4RhnsMp7tke
-	U0Ict32zfDxtWM7er5/D5NDJnicBbwAldY4Yc6aPp+GR1BhDxHvDmF+0c4gB+n8MoPrM+kvPZZBx7
-	3VMDMx+GN1CLc++kE2AvC6pk6wyfJk8ZQRr1KFb6ACwAc+tmUpeulqaLExezbiS7Md3Xf0H0RSh9d
-	cZL7F5szfebkER8tHm32xf5K31miJaEka0eCxERzerVtVKvHcGl53PtWj722ntckSA8QxVUdMI+DE
-	Zf5jvy76xBkGrQ9OBM9LzeO7ZVf7kRn5Vi/WrxaOoCtoEQX9xS64PzioJennx/Yd+FVzSTAk3IR0T
-	nzdBroyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dWFrbyngtx/okFnAnXziGIwpshdD52HD2rAoJDGqVCM=; b=l9dxabOTWuGtWxLbw3ov7Qt3Ji
+	1WmDk+CYr3DsenapxMv95IZeot9zjSKIfrLYqhmGK3P8oEPiOedZhppcuYo2wVC19i5XCPKZwqlAh
+	G7slM/bMCaFZ9INt/qVUF0R/Ohv3aRGTEzyarngt5n73YqUok8+UPoumWO0IMUafQeNJz8IeTRi+Z
+	N8pzhsYvVadVz+Stfec2tnltByFTBSxSEGbAvew9ft9D3joHoidI8izggCbI7NLbAtOQ+cWH5IDtc
+	EQenlp27BQhEbu67dWZj8CGzSTpxElRQ6P6ZgTrdyUX5cVaKnWhy6kOKlCxaOmemcuh2NxUT1LZof
+	hHpaiuFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uiH-000000000LQ-3nj3;
-	Thu, 24 Oct 2024 10:05:05 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uXH-0000000HYsu-3e9J
+	id 1t3ujm-000000000Xs-2YfX;
+	Thu, 24 Oct 2024 10:06:38 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3uXq-0000000HYwF-0Tmq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 09:53:46 +0000
-Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
-	by vmicros1.altlinux.org (Postfix) with ESMTP id 3854C72C8F5;
-	Thu, 24 Oct 2024 12:53:39 +0300 (MSK)
-Received: by imap.altlinux.org (Postfix, from userid 705)
-	id 336F236D070D; Thu, 24 Oct 2024 12:53:39 +0300 (MSK)
-Date: Thu, 24 Oct 2024 12:53:39 +0300
-From: Michael Shigorin <mike@altlinux.ru>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Tor Vic <torvic9@mailbox.org>, Kexy Biscuit <kexybiscuit@aosc.io>,
-	jeffbai@aosc.io, gregkh@linuxfoundation.org, wangyuli@uniontech.com,
-	aospan@netup.ru, conor.dooley@microchip.com,
-	ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org,
-	dushistov@mail.ru, fancer.lancer@gmail.com, geert@linux-m68k.org,
-	hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
-	mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
-	ntb@lists.linux.dev, patches@lists.linux.dev,
-	richard.henderson@linaro.org, s.shtylyov@omp.ru, serjk@netup.ru,
-	shc_work@mail.ru, tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
-	wsa+renesas@sang-engineering.com, xeb@mail.ru
-Subject: what about CoC? (was: [PATCH] Revert "MAINTAINERS: Remove some
- entries due to various compliance requirements.")
-Message-ID: <20241024095339.GA32487@imap.altlinux.org>
+	Thu, 24 Oct 2024 09:54:19 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539e63c8678so750893e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 02:54:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729763655; x=1730368455; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dWFrbyngtx/okFnAnXziGIwpshdD52HD2rAoJDGqVCM=;
+        b=f9WX+MfgLE2/VoKkC6RP/5gYxgjcRQPwNTLMcPPq2eznRpcYyDv/VXk6GMzHwAMGYP
+         12gjsO1WFUHBqFDJmA9w390YFmZr1g5SbxZ9znXZE2GGZx/Vc1eXvEvzuYK+mjmFtRbB
+         aWpdIf+R5WjRkAfSRHuUnTYXaDE4fctiMoN8uO+qqNgpHFTuKfYRpHER7g9QLNWrYqAi
+         ikdC0hvlJEkCwTEvnKv3/0Pn/SW/1dUaYWQu6LoEcn5KA+ToHn6o7C9Ns+dpzj3ttf3g
+         35loAgmdqquU3EG17LXPgZOGgSHsyfbNiTTt3kVuggqg/TcoTa4mWTg1ZW0xRhMeCFGZ
+         YvIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729763655; x=1730368455;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dWFrbyngtx/okFnAnXziGIwpshdD52HD2rAoJDGqVCM=;
+        b=PxnzlqTAFLY7mNNDsZ+o+r0dCLmbi1EvLgbsakFK6vqFDVFEHT1eqOd0rSMqcTqGBB
+         TgLtFbQzWPMg5PCcgPh3nE1vlyQ0nPiAnU1bfcSLIcY+1h3tzkyiqmhQYzcaz5BEkDoh
+         YcJiPNBUOEMZmmDWOnDSQMesqUPlt+tkbJphm3dyVWvPslubhJ9xD0/Cx/FySIfZL4//
+         yZNmnFM/S4R0CpmGUx4YhtLLPyGXP7jUmFi93m5np3SpZTOOB3o29Fc7KX+CpjYD4JwJ
+         tOAkLhYWvQ54pffsY4b5KdawvwKJn2nUJqxe5IaVk8367pjuyc25fGtXZu1TZ+0UfpT7
+         dpmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVcg7ZYIDbYKTgr2Zo5xl//Qo5ciC2jrvxTla7F0ORDBRG5AeHEwgQIccrbZ1G37tQFmVSHbVYTvZF14VRTOViE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqaaMf9KR7WWeBGAlsde5Okgp2ygRSIEhigKJLcRbKaQKy87oW
+	Xh3W7D/MjU4VV/b3UWNEHUuUtjsZEOBhZI9WXr6gr3p5Uoai57xQ
+X-Google-Smtp-Source: AGHT+IESS/b985DjGqxcVR4TpFmyKByLbgcGL5xpKJP8FcedH7Cq7mq7giZwGEwbp0hOURP0H6AUbw==
+X-Received: by 2002:a05:6512:1583:b0:52e:9762:2ba4 with SMTP id 2adb3069b0e04-53b1a315eeemr2629947e87.25.1729763655208;
+        Thu, 24 Oct 2024 02:54:15 -0700 (PDT)
+Received: from [10.110.248.100] ([79.110.251.190])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b1ade1875sm455020e87.18.2024.10.24.02.54.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Oct 2024 02:54:11 -0700 (PDT)
+Message-ID: <3448a096-849a-4f61-8017-c03a83e22c38@gmail.com>
+Date: Thu, 24 Oct 2024 14:54:04 +0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Tor Vic <torvic9@mailbox.org>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
+ gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru,
+ conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
 References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
  <20241023080935.2945-2-kexybiscuit@aosc.io>
  <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
  <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=koi8-r
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Language: ru
+From: B4D_US3R <producerkgb@gmail.com>
 In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_025344_263683_E378BD58 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20241024_025418_214769_F74C6D53 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,120 +113,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-как хорошо, что по-русски можно писать то, что думаешь
+Grandpa, take the pills or you'll get your ass kicked.
 
 
-On Wed, Oct 23, 2024 at 10:45:47AM -0700, Linus Torvalds wrote:
-> It's entirely clear why the change was done
 
-Might seem so to you, but apparently not to those wondering.
+п■п╣п╢, п©п╣п╧ я┌п╟п╠п╩п╣я┌п╨п╦, п╟ п╫п╣ я┌п╬ п©п╬п╩я┐я┤п╦я┬я▄ п©п╬ п╤п╬п©п╣
 
-> And FYI for the actual innocent bystanders who aren't troll
-> farm accounts - the "various compliance requirements" are not
-> just a US thing.
-
-US is just another victim of those trotzkist slugs --
-you can ask your father, he must know better *why*
-those have been expelled even by their own ilk
-a century ago here in Russia.
-
-> If you haven't heard of Russian sanctions yet, you should try
-> to read the news some day.  And by "news", I don't mean Russian
+23.10.2024 22:45, Linus Torvalds п©п╦я┬п╣я┌:
+> Ok, lots of Russian trolls out and about.
+>
+> It's entirely clear why the change was done, it's not getting
+> reverted, and using multiple random anonymous accounts to try to
+> "grass root" it by Russian troll factories isn't going to change
+> anything.
+>
+> And FYI for the actual innocent bystanders who aren't troll farm
+> accounts - the "various compliance requirements" are not just a US
+> thing.
+>
+> If you haven't heard of Russian sanctions yet, you should try to read
+> the news some day.  And by "news", I don't mean Russian
 > state-sponsored spam.
-
-Linus, those "news" have cost your family a child already,
-and Elon has paid a similar tax.  You have been limited in
-your right to tell what you think right here in linux-kernel@
-(unless you speak hate against *all* of the Russians, yeah).
-
-You've agreed that black is white and vice versa.  It is not.
-
-> As to sending me a revert patch - please use whatever mush
-> you call brains.
-
-It's not about the patch but rather about the attitude;
-Documentation/process/code-of-conduct-interpretation.rst:
-
-"regardless of ... ethnicity, ... nationality, ... race"
-"Focusing on what is best for the community"
-
-"Examples of unacceptable behavior ... insulting/derogatory
-comments ... Public or private harassment"
-
-Get back to single-standard integrity for yor own's sake.
-
-> I'm Finnish. Did you think I'd be *supporting* Russian
-> aggression?
-
-Have you heard of casus belli?  Do you think these were one?
-
-http://nypost.com/2022/02/21/russia-kills-5-ukrainian-saboteurs-allegedly-trying-to-breach-border/
-http://reuters.com/world/europe/russias-fsb-says-shell-ukrainian-territory-destroys-russian-border-guard-post-2022-02-21/
-
-That's February 21, 2022.  If I yelled all over the place
-about "Finnish invasion" after Russian IFVs have rovered
-Finland *first* for no good reason, would I be right?
-
-Feel free to ask, I actually grew up in Kiev and e.g.
-this bug fix was done there as well:
-
-http://bugzilla.kernel.org/show_bug.cgi?id=15658
-http://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?id=c9e2fbd909c20b165b2b9ffb59f8b674cf0a55b0
-
-Please do revert it too then.
-
-Drop Linux network stack while at that, that "roomful
-of Russian mathematicians" is now declared untermensch.
-
-> Apparently it's not just lack of real news,
-> it's lack of history knowledge too.
-
-On your side, Linus.
-On your side.
-
-Hope you're still Finnish, not a Finnish nazi
-(swap "Russians" with "Jews" in your email and
-re-read it; it's my homegrown "nazi test" --
-if this change suddenly makes a text "nazist",
-it was).
-
-It is the US that has pushed Finland towards NATO,
-basically to follow the grim destiny that the former
-Ukraine currently harvests, and that was prepared
-for Georgia (that evades it), Moldavia (that rishes
-full speed towards destruction), Poland, the three
-Baltic states, and now your homeland.
-
-There is no regulation that can force your own heart.
-Listen to it.  Not to emotions, but to the deep truth
-that never cries aloud.
-
-You bow to the jerks who are *afraid* of opposition,
-because there is no truth in their father.
-
-Remember those who yelled "Assad must go"?
-How many of them are still around?
-Those siding with them perish with them.
-
-
-PS: last time I've seen RMS in Moscow, he declared
-his support "to the Moscow protesters"; I've asked him
-whether he knows that the initial issue was that the
-dead people were identified en masse as those "voting"
-for "democratic" candidates in 2019 elections, and he
-stared at me and answered, "nonsense".  I've emailed
-him after BLM affairs to ask if what he sees makes
-sense but never seen a reply this time -- and dead
-voters turned out to be not a purely export-only
-"technology" a bit later (pretty cosmopolitan).
-
-
-Господи, спаси и сохрани раба Твоего заблуждшего
-Линуса и ближних его во веки веков; аминь!
-
--- 
-Michael Shigorin
-(whose first book on programming was
-Hyvonen and Seppanen's one on LISP)
-http://t.me/anna_news
+>
+> As to sending me a revert patch - please use whatever mush you call
+> brains. I'm Finnish. Did you think I'd be *supporting* Russian
+> aggression? Apparently it's not just lack of real news, it's lack of
+> history knowledge too.
+>
+>                        Linus
+>
 
