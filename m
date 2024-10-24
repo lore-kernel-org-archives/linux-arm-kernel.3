@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7EECE8E94
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F562CE8E96
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZPq1KrR7SYos79el8KISO0pmuuIleWoBM2uoj5GNDk=; b=Cufi6MsaJ28NxrEZ4y5ks7968O
-	qXPifZnOlPbcxMPqkpIGsSCEVIAuu22sz5RXQK2ShKZAzDFcBKXgxSyHxtXIUcN+wxN/hz2jpQ8Dn
-	Op+SLy0S8rPT9D/kC0cQLaEsPFWWoUL3oEMy+iT591VV3thzpsqtt2h2RPHslNJk86NCcVqjE6DaQ
-	ldPgje4O+ynksgR7f9WEe0eEfK9a8UI7/qqcFXJC2HW3ZZ4ASTfqn9VwzH9HzvA7NgMvqrb3B/ePF
-	weuvblt0ZGd3XHtz8A6zjWvFfxpJSuWKS3LEz/31N2xEBi23PijKsCrkIuRuJe3zDyZ1b+zuEyG6i
-	MqWCA/eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S2UH7lLkcaR0NIUgcvJNpnbInglx4dpr+MpuC3ByMBw=; b=2heUAh/fRQ2ROtB0YbTzx4cda8
+	H3FLm6RT9Ea4eFJPAw5mOXz/659kYfACpb8nm0lbP+LPROwXTJWY0OB87VN+116U7wXxFXWHVnR4Q
+	KrVnMyvxokH3rWSIGkzJGXOJKlfOcB5K5zftniwyMW2UJKDEn8r3kPzGxVIXu/8//lcdPRTteVS1A
+	2MG6iZui7nxGka8TAGyii0IYOykhr/ojmyNjxDpgexTOm22ZhxF1de5XwnyTzJzHbRLTDt6K1vHN4
+	HJ+Q1vpj8j7ZFp4OOQRSpsKrXXSydrfMBMYh5+uOxFusqbxUzTBrkCq4ifRG5HojDgupXN03x1R0l
+	KuBOVYaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40yK-000000018z9-0oXV;
-	Thu, 24 Oct 2024 16:46:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t40zu-000000019WX-0W4M;
+	Thu, 24 Oct 2024 16:47:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40tq-0000000186v-38ev
+	id 1t40wD-000000018aj-0eLu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 16:41:28 +0000
+	Thu, 24 Oct 2024 16:43:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 495E95C1027
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 16:41:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924B5C4CEC7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 16:41:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F08C5A4571D;
+	Thu, 24 Oct 2024 16:43:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0652C4CEC7;
+	Thu, 24 Oct 2024 16:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729788085;
-	bh=fB3Bqhulio4oeEbXLI7xhxRhEbXIEi7cRasK1RGg5QE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=e88Esj0jfEICU7Sl1VG9pIb1+zNMaVgTNwBovHPweskMwJ/uUodosRgv/zceeFD2l
-	 MFVBR7Y4mcTCEXd5kNqw6HztHrzVXxj2oYHDBd3f1AmNS0mkVOV/E3d+LypH4NRhAE
-	 OefZtY6OFgtzAJ7YJNcMRKomCNzjEbj4mD9HBF/p4g9rY2CP3P/notewAI6irSWrlT
-	 5PAaj1EkWwmXT2jlrgrXEgCRPZ1otvTLCxmqqnOIss8WqPeN8aJgEskisfs3EZYBv3
-	 /sBfeghniGpasmOMESsRB0KQNWxFwBASOaskEqQc/p9beDLDKQ2Rz1mfN+Y54S9RPz
-	 mQFSAu8wsZs7g==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-539fe02c386so2259255e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 09:41:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWTbpcZxhzwhHjcheiKOh8UNoQPfYET1rdMIKi5LNMAxLYXeM8+gtOZ2ab7LMFoL0KnrB7JlLN57saaf/2cR54e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDVG3hgNOK83MwsUKL6iZ9d3brcJ044czWSTwFyphlBNqauL9k
-	7BZS8c5uqLcmhaPUb7aCvpEoED/MN4dW43A2R+IbqJNfAR30a+SuPx97EI3jrP9Hg8FIiIoWXek
-	id0+Y/q0vD9MaqniV0UrJ2/D8jQ==
-X-Google-Smtp-Source: AGHT+IFhEH5Iuzz3zLnfcaOM/T80rmHaBHiY3VgQzfeBVc8qO/dfDdRth63D7okUEyWQoMBVcW2HfX19qeWCECDv//E=
-X-Received: by 2002:a05:6512:1153:b0:539:fde9:4bca with SMTP id
- 2adb3069b0e04-53b2375d2d5mr988229e87.29.1729788083832; Thu, 24 Oct 2024
- 09:41:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241002184326.1105499-1-robh@kernel.org> <20241024103953.GA30206@willie-the-truck>
-In-Reply-To: <20241024103953.GA30206@willie-the-truck>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 24 Oct 2024 11:41:11 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKT3gXJQLNr+H8D8nmEeGuDxS8iOje6yaCs+ne-4FcCvg@mail.gmail.com>
-Message-ID: <CAL_JsqKT3gXJQLNr+H8D8nmEeGuDxS8iOje6yaCs+ne-4FcCvg@mail.gmail.com>
-Subject: Re: [PATCH] perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1729788231;
+	bh=377I+7D8IjfExa36QBMKaFHOg3N+KTIoHiUVOFHMH5g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DJBjYl30R3t7fBTQSOitfIFiLJJvl6ueAJbL00FIACZ/xTf8eSlRm9qimkg8dBEVE
+	 ZAPuVZZCNmuEsiPYfH0UzDbpb6Tc/csouPYD1aApS7kNvHjYIfn+JtesaK7LBgsbGH
+	 qKgdQGk/LKlXYfsxMOfYSCX9AlB6GPQAu9u2KEbqjEbJbkEmnfbgpxBjxxmcxsNPSi
+	 nEMQfvm/zkbjWDLNfc/6YY1jKhNZVsa1yEaF9EmsHmzj5B0Ifbg80q6zqL5bXhNTSl
+	 19OLQeeWpBiu4SILm0/pFmdUgcO+1ri4ypkB9HY2Wt9Lu+8RcwAwYPiYGwezg1gbZZ
+	 N9tC4vpsD8Z1A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t40w9-006WaQ-QL;
+	Thu, 24 Oct 2024 17:43:49 +0100
+Date: Thu, 24 Oct 2024 17:43:49 +0100
+Message-ID: <86o73930ze.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	corbet@lwn.net,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2] Documentation: Update the behaviour of "kvm-arm.mode"
+In-Reply-To: <20241024160614.1894599-1-smostafa@google.com>
+References: <20241024160614.1894599-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, corbet@lwn.net, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_094126_904992_7BE7C723 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20241024_094353_359930_8AE0E8D0 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,147 +86,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 5:40=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
+Hi Mostafa,
+
+On Thu, 24 Oct 2024 17:06:14 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+> 
+> Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
+> VHE support") modified the behaviour of "kvm-arm.mode=protected" without
+> the updating the kernel parameters doc.
+> 
+> Update it to match the current implementation.
+> 
+> Also, update required architecture version for nested virtualization as
+> suggested by Marc.
+> 
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> 
+> ---
+> v2: Update nested value also
+
+Thanks for that. However...
+
+> ---
+>  Documentation/admin-guide/kernel-parameters.txt | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 1518343bbe22..d5b771e5cb5b 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2740,12 +2740,16 @@
+>  			nvhe: Standard nVHE-based mode, without support for
+>  			      protected guests.
+>  
+> -			protected: nVHE-based mode with support for guests whose
+> +			protected: hVHE-based mode with support for guests whose
+>  				   state is kept private from the host.
+> +				   In case hVHE is not supported in hardware, it will
+> +				   boot with protected nVHE.
+> +				   nVHE protected mode can still be forced on VHE systems
+> +				   using "kvm_arm.mode=protected arm64_sw.hvhe=0 id_aa64mmfr1.vh=0"
+
+
+I probably didn't explain myself very well. I would like to avoid
+mentioning hVHE at all, because this is pretty confusing (and really
+an implementation detail). Instead, we can talk about VHE/nVHE, which
+are real architectural features.
+
+Also, I just realised that we can use your command-line magic for
+downgrading from VHE to nVHE in all cases, so I'd be suggesting
+something like this:
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 1518343bbe223..2bb19f1331fed 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2740,8 +2740,9 @@
+ 			nvhe: Standard nVHE-based mode, without support for
+ 			      protected guests.
+ 
+-			protected: nVHE-based mode with support for guests whose
+-				   state is kept private from the host.
++			protected: Mode with support for guests whose state is
++				   kept private from the host, using VHE or
++				   nVHE depending on HW support.
+ 
+ 			nested: VHE-based mode with support for nested
+ 				virtualization. Requires at least ARMv8.3
+@@ -2749,8 +2750,11 @@
+ 
+ 			Defaults to VHE/nVHE based on hardware support. Setting
+ 			mode to "protected" will disable kexec and hibernation
+-			for the host. "nested" is experimental and should be
+-			used with extreme caution.
++			for the host. To force nVHE on VHE hardware, add
++			"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" to the
++			command-line.
++			"nested" is experimental and should be used with
++			extreme caution.
+ 
+ 	kvm-arm.vgic_v3_group0_trap=
+ 			[KVM,ARM,EARLY] Trap guest accesses to GICv3 group-0
+
+
 >
-> On Wed, Oct 02, 2024 at 01:43:24PM -0500, Rob Herring (Arm) wrote:
-> > Armv8.9/9.4 PMUv3.9 adds per counter EL0 access controls. Per counter
-> > access is enabled with the UEN bit in PMUSERENR_EL1 register. Individua=
-l
-> > counters are enabled/disabled in the PMUACR_EL1 register. When UEN is
-> > set, the CR/ER bits control EL0 write access and must be set to disable
-> > write access.
-> >
-> > With the access controls, the clearing of unused counters can be
-> > skipped.
-> >
-> > KVM also configures PMUSERENR_EL1 in order to trap to EL2. UEN does not
-> > need to be set for it since only PMUv3.5 is exposed to guests.
-> >
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> >  arch/arm/include/asm/arm_pmuv3.h   |  6 ++++++
-> >  arch/arm64/include/asm/arm_pmuv3.h | 10 ++++++++++
-> >  arch/arm64/tools/sysreg            |  8 ++++++++
-> >  drivers/perf/arm_pmuv3.c           | 29 +++++++++++++++++++----------
-> >  include/linux/perf/arm_pmuv3.h     |  1 +
-> >  5 files changed, 44 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/ar=
-m_pmuv3.h
-> > index f63ba8986b24..d242b5e1ca0d 100644
-> > --- a/arch/arm/include/asm/arm_pmuv3.h
-> > +++ b/arch/arm/include/asm/arm_pmuv3.h
-> > @@ -231,6 +231,7 @@ static inline void kvm_vcpu_pmu_resync_el0(void) {}
-> >  #define ARMV8_PMU_DFR_VER_V3P1      0x4
-> >  #define ARMV8_PMU_DFR_VER_V3P4      0x5
-> >  #define ARMV8_PMU_DFR_VER_V3P5      0x6
-> > +#define ARMV8_PMU_DFR_VER_V3P9      0x9
-> >  #define ARMV8_PMU_DFR_VER_IMP_DEF   0xF
-> >
-> >  static inline bool pmuv3_implemented(int pmuver)
-> > @@ -249,6 +250,11 @@ static inline bool is_pmuv3p5(int pmuver)
-> >       return pmuver >=3D ARMV8_PMU_DFR_VER_V3P5;
-> >  }
-> >
-> > +static inline bool is_pmuv3p9(int pmuver)
-> > +{
-> > +     return pmuver >=3D ARMV8_PMU_DFR_VER_V3P9;
-> > +}
-> > +
-> >  static inline u64 read_pmceid0(void)
-> >  {
-> >       u64 val =3D read_sysreg(PMCEID0);
-> > diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/as=
-m/arm_pmuv3.h
-> > index 468a049bc63b..8a777dec8d88 100644
-> > --- a/arch/arm64/include/asm/arm_pmuv3.h
-> > +++ b/arch/arm64/include/asm/arm_pmuv3.h
-> > @@ -152,6 +152,11 @@ static inline void write_pmuserenr(u32 val)
-> >       write_sysreg(val, pmuserenr_el0);
-> >  }
-> >
-> > +static inline void write_pmuacr(u64 val)
-> > +{
-> > +     write_sysreg_s(val, SYS_PMUACR_EL1);
-> > +}
-> > +
-> >  static inline u64 read_pmceid0(void)
-> >  {
-> >       return read_sysreg(pmceid0_el0);
-> > @@ -178,4 +183,9 @@ static inline bool is_pmuv3p5(int pmuver)
-> >       return pmuver >=3D ID_AA64DFR0_EL1_PMUVer_V3P5;
-> >  }
-> >
-> > +static inline bool is_pmuv3p9(int pmuver)
-> > +{
-> > +     return pmuver >=3D ID_AA64DFR0_EL1_PMUVer_V3P9;
-> > +}
-> > +
-> >  #endif
-> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > index 8d637ac4b7c6..74fb5af91d4f 100644
-> > --- a/arch/arm64/tools/sysreg
-> > +++ b/arch/arm64/tools/sysreg
-> > @@ -1238,6 +1238,7 @@ UnsignedEnum    11:8    PMUVer
-> >       0b0110  V3P5
-> >       0b0111  V3P7
-> >       0b1000  V3P8
-> > +     0b1001  V3P9
-> >       0b1111  IMP_DEF
-> >  EndEnum
-> >  UnsignedEnum 7:4     TraceVer
-> > @@ -2178,6 +2179,13 @@ Field  4       P
-> >  Field        3:0     ALIGN
-> >  EndSysreg
-> >
-> > +Sysreg       PMUACR_EL1      3       0       9       14      4
-> > +Res0 63:33
-> > +Field        32      F0
-> > +Field        31      C
-> > +Field        30:0    P
-> > +EndSysreg
-> > +
-> >  Sysreg       PMSELR_EL0      3       3       9       12      5
-> >  Res0 63:5
-> >  Field        4:0     SEL
-> > diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-> > index 0afe02f879b4..bb93d32b86ea 100644
-> > --- a/drivers/perf/arm_pmuv3.c
-> > +++ b/drivers/perf/arm_pmuv3.c
-> > @@ -770,18 +770,27 @@ static void armv8pmu_enable_user_access(struct ar=
-m_pmu *cpu_pmu)
-> >       int i;
-> >       struct pmu_hw_events *cpuc =3D this_cpu_ptr(cpu_pmu->hw_events);
-> >
-> > -     /* Clear any unused counters to avoid leaking their contents */
-> > -     for_each_andnot_bit(i, cpu_pmu->cntr_mask, cpuc->used_mask,
-> > -                         ARMPMU_MAX_HWEVENTS) {
-> > -             if (i =3D=3D ARMV8_PMU_CYCLE_IDX)
-> > -                     write_pmccntr(0);
-> > -             else if (i =3D=3D ARMV8_PMU_INSTR_IDX)
-> > -                     write_pmicntr(0);
-> > -             else
-> > -                     armv8pmu_write_evcntr(i, 0);
-> > +     if (is_pmuv3p9(cpu_pmu->pmuver)) {
-> > +             u64 mask =3D 0;
-> > +             for_each_set_bit(i, cpuc->used_mask, ARMPMU_MAX_HWEVENTS)=
- {
-> > +                     if (armv8pmu_event_has_user_read(cpuc->events[i])=
-)
-> > +                             mask |=3D BIT(i);
-> > +             }
-> > +             write_pmuacr(mask);
->
-> Since this is a new register, should we be zeroing it as part of our
-> reset callback?
+>  			nested: VHE-based mode with support for nested
+> -				virtualization. Requires at least ARMv8.3
+> -				hardware.
+> +				virtualization. Requires at least ARMv8.4
+> +				hardware (with FEAT_NV2).
 
-That should not be necessary since EL0 access is gated off in PMUSEREN
-in general and enabling this register additionally requires setting
-the UEN bit. That's only done right after this.
+That part looks good!
 
-But if the policy is to initialize all registers with unknown reset
-state, then yes, I can add that.
+Thanks,
 
-Rob
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
