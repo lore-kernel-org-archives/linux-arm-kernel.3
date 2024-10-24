@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D2DD0BB45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 05:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9ECD0BB5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oqHQQLIWxl1kkVlHdoZdrdo4pztiw/iiLGggIBUJ0x0=; b=x7AhAlS9Eiab7MSvkgPCxt5f/E
-	cQsLRKryI/0/S4PTHxETHuNZ1A9Fb/pCZ0d1/a93EneHWOY482PwAPdJPnl1f5hbDu1Id2K0lS5C6
-	ICVBJbjnPPiFv2XdMtP+0XrgPwHCPN56qXw729MjdDl3L8p1iAe+aU2Rjgyd7FMSH9sTfAr+45e9U
-	AL60lvAg2LAsc1N7nwQFMRzWlxrYwjbOXIpKWmKu77OjtDkmP3szNr6K7NOi+6uzs7oR3YX6LcwZI
-	NyrC+CmfMX0PiDtJRuhowksxkOT6vdQrNYkw1f23RbAat7gjmyqrgXwogDSxP84GxPJDOzDSKdrjZ
-	K1BK9KKw==;
+	bh=0rnvSDQvFYBuremYV+sztuOYGnGGggpW02C9AfNzqzI=; b=gJM3QNPieuBQZhX0kLRec6zI7r
+	j6DxjHY/OJSD+xbNemwbsAEtzSzrkecb8rgi++e/S0j4BzPIyPU9IFTFJ169IuMCTV24ptQJ2L0as
+	FRGpy5l68+9gvdi/Hqh3C7E5OGeZc33y6K0Hq1AJaF4YS4XNe8VrINC0Xw1rWzmysDBS4BfBmhChJ
+	K3raswm4CMCGZ8VmCb8qk6ReOyiVBQC6BlARzSDwrfcyPZbmmzn/VVcULgfKlIgMKGmLCzNzIhP41
+	6vyfE8WuIuOX+Rm/dHHlPIQKAHcNoXs1S0I7QpJPAyPIcUUPhP83QpRS636ZkmWil7YlEW3cXtqKq
+	GwqU1cZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3qcj-0000000GpYR-2YKh;
-	Thu, 24 Oct 2024 05:43:05 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t3r2o-0000000GroF-0Je9;
+	Thu, 24 Oct 2024 06:10:02 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3qIO-0000000GnCS-1mIQ
+	id 1t3r1E-0000000GreC-2dyB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 05:22:05 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49O5M1Z0113426;
-	Thu, 24 Oct 2024 00:22:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729747321;
-	bh=oqHQQLIWxl1kkVlHdoZdrdo4pztiw/iiLGggIBUJ0x0=;
-	h=From:Date:Subject:References:In-Reply-To:To:CC;
-	b=haH+AIaMefzM/iAwi4nDOOFzpb/38IzdaM9Q34NYv165Gzr5IA7tXAb142SsyXWig
-	 RSZGC4z9Tbird23D1AhFPVTuyUBK7bPFkcxDMEGB6GB+0RLJx6CL3Fe36vEtyeX0la
-	 J1k/8i5ZE/vcVvItxJ2D77kUvnuM0Meq94dwlLsE=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49O5M13m025188;
-	Thu, 24 Oct 2024 00:22:01 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 24
- Oct 2024 00:22:01 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 24 Oct 2024 00:22:01 -0500
-Received: from [127.0.1.1] (uda0497581.dhcp.ti.com [10.24.68.185])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49O5L4lK090467;
-	Thu, 24 Oct 2024 00:21:57 -0500
-From: Manorit Chawdhry <m-chawdhry@ti.com>
-Date: Thu, 24 Oct 2024 10:51:09 +0530
-Subject: [PATCH v6 12/12] arm64: dts: ti: k3-j7200-evm*: Add bootph-*
- properties
+	Thu, 24 Oct 2024 06:08:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XYwRt1RBZz20qQW;
+	Thu, 24 Oct 2024 14:07:22 +0800 (CST)
+Received: from kwepemf500015.china.huawei.com (unknown [7.202.181.2])
+	by mail.maildlp.com (Postfix) with ESMTPS id CA4ED180019;
+	Thu, 24 Oct 2024 14:08:14 +0800 (CST)
+Received: from [10.174.178.37] (10.174.178.37) by
+ kwepemf500015.china.huawei.com (7.202.181.2) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 24 Oct 2024 14:08:13 +0800
+Message-ID: <49fe918b-06f8-4466-8e1a-d2b92dfcc523@huawei.com>
+Date: Thu, 24 Oct 2024 14:08:13 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241024-b4-upstream-bootph-all-v6-12-2af90e3a4fe7@ti.com>
-References: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
-In-Reply-To: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Neha Malcom Francis <n-francis@ti.com>,
-        Aniket Limaye <a-limaye@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-        Beleswar Padhi
-	<b-padhi@ti.com>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>, Andrew Davis
-	<afd@ti.com>,
-        Manorit Chawdhry <m-chawdhry@ti.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1729747264; l=5351;
- i=m-chawdhry@ti.com; s=20231127; h=from:subject:message-id;
- bh=46PvWcO1Y+g4FOBZ8tCATYLmz+1G6stPwizRvVFOk0w=;
- b=CVBTPby0nz1ySFr7EBcoQzKOm1TgU/bQUmapYyjxDelG5ShEod8v/kLaV078b45+r4EB0eZVM
- v3is5falx6xDCgPhzfvWwNinxKF5PzcC1IQ/sOZaR0b5/S/V4tpryni
-X-Developer-Key: i=m-chawdhry@ti.com; a=ed25519;
- pk=fsr6Tm39TvsTgfyfFQLk+nnqIz2sBA1PthfqqfiiYSs=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [bug report] KVM: arm64: vgic-its: Performance degradation on
+ GICv3 LPI injection
+From: Zhiqiang Ni <nizhiqiang1@huawei.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<wanghaibin.wang@huawei.com>, <tangnianyao@huawei.com>,
+	<wangzhou1@hisilicon.com>, <yuzenghui@huawei.com>, <wangyanan55@huawei.com>,
+	<jiangkunkun@huawei.com>, <jiaqingtong@huawei.com>
+References: <bb4aeb68-c77b-4071-bca5-d129a1c5f6f3@huawei.com>
+Content-Language: en-US
+In-Reply-To: <bb4aeb68-c77b-4071-bca5-d129a1c5f6f3@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.37]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemf500015.china.huawei.com (7.202.181.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_222204_596467_E7997405 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241023_230824_991743_E76B9AB4 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,184 +74,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds bootph-* properties to the leaf nodes to enable bootloaders to
-utilise them.
 
-Following adds bootph-* to:
-- pmic regulator for enabling AVS Support
-- main_uart0, mcu_uart0(DM), wkup_uart0(TIFS) for Traces
-- mmc0, mmc1, usb0, ospi0, hbmc for enabling various bootmodes.
 
-Reviewed-by: Aniket Limaye <a-limaye@ti.com>
-Signed-off-by: Manorit Chawdhry <m-chawdhry@ti.com>
----
+在 2024/10/24 13:06, Zhiqiang Ni 写道:
+> Hi all,
+> 
+> I found a performance degradation on GICv3 LPI injection after this
+> commit ad362fe07fecf0aba839ff2cc59a3617bd42c33f(KVM: arm64: vgic-its:
+> Avoid potential UAF in LPI translation cache).
+> 
+> In my testcase, the vm's configuration is 60 VCPU 120G RAM with a
+> 32-queue NIC and the kernel version is 5.10. The number of new TCP
+> connections per second changed from 150,000 to 50,000 after this
+> patch, with the %sys of cpu changed from 15% to 85%.
+> 
+> From the ftrace, I found that the duration of vgic_put_irq() is
+> 13.320 us, which may be the reason for the performance degradation.
+> 
+> The call stack looks like below:
+>     kvm_arch_set_irq_inatomic()
+>       vgic_has_its();
+>       vgic_its_inject_cached_translation()
+>         vgic_its_check_cache()
+>         vgic_queue_irq_unlock()
+>         vgic_put_irq()
+> 
+> So, I tried to modify the code like below and I found the performance
+> degradation is gone. Is this a good idea?
+> 
 
-Notes:
-    R-by picked up in v5 ( Aniket )
+I am sorry. This is not the correct patch.
 
- arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 13 +++++++++++++
- arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi           |  6 ++++++
- 2 files changed, 19 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-index 6593c5da82c06463c2d7cbbe01d6fa481be1aa1a..d03690b8d65230d22b3630770a6bc819409837c1 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-@@ -129,6 +129,7 @@ J721E_WKUP_IOPAD(0x94, PIN_OUTPUT, 0) /* (E21) MCU_UART0_RTSn */
- 			J721E_WKUP_IOPAD(0x8c, PIN_INPUT, 0) /* (D20) MCU_UART0_RXD */
- 			J721E_WKUP_IOPAD(0x88, PIN_OUTPUT, 0) /* (D19) MCU_UART0_TXD */
- 		>;
-+		bootph-all;
- 	};
- 
- 	wkup_uart0_pins_default: wkup-uart0-default-pins {
-@@ -136,6 +137,7 @@ wkup_uart0_pins_default: wkup-uart0-default-pins {
- 			J721E_WKUP_IOPAD(0x48, PIN_INPUT, 0) /* (B14) WKUP_UART0_RXD */
- 			J721E_WKUP_IOPAD(0x4c, PIN_OUTPUT, 0) /* (A14) WKUP_UART0_TXD */
- 		>;
-+		bootph-all;
- 	};
- 
- 	mcu_cpsw_pins_default: mcu-cpsw-default-pins {
-@@ -204,6 +206,7 @@ J721E_IOPAD(0xb4, PIN_OUTPUT, 0) /* (T17) UART0_TXD */
- 			J721E_IOPAD(0xc0, PIN_INPUT, 2) /* (W3) SPI0_CS0.UART0_CTSn */
- 			J721E_IOPAD(0xc4, PIN_OUTPUT, 2) /* (U5) SPI0_CS1.UART0_RTSn */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_uart1_pins_default: main-uart1-default-pins {
-@@ -238,6 +241,7 @@ J721E_IOPAD(0xf0, PIN_INPUT, 0) /* (N20) MMC1_DAT2 */
- 			J721E_IOPAD(0xec, PIN_INPUT, 0) /* (N19) MMC1_DAT3 */
- 			J721E_IOPAD(0xe4, PIN_INPUT, 8) /* (V1) TIMER_IO0.MMC1_SDCD */
- 		>;
-+		bootph-all;
- 	};
- 
- 	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
-@@ -259,6 +263,7 @@ main_usbss0_pins_default: main-usbss0-default-pins {
- 		pinctrl-single,pins = <
- 			J721E_IOPAD(0x04, PIN_OUTPUT, 0) /* (T4) USB0_DRVVBUS */
- 		>;
-+		bootph-all;
- 	};
- };
- 
-@@ -267,12 +272,14 @@ &wkup_uart0 {
- 	status = "reserved";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&wkup_uart0_pins_default>;
-+	bootph-all;
- };
- 
- &mcu_uart0 {
- 	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mcu_uart0_pins_default>;
-+	bootph-all;
- };
- 
- &main_uart0 {
-@@ -281,6 +288,7 @@ &main_uart0 {
- 	power-domains = <&k3_pds 146 TI_SCI_PD_SHARED>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
- };
- 
- &main_uart1 {
-@@ -379,6 +387,7 @@ &main_sdhci0 {
- 	/* eMMC */
- 	status = "okay";
- 	non-removable;
-+	bootph-all;
- 	ti,driver-strength-ohm = <50>;
- 	disable-wp;
- };
-@@ -390,6 +399,7 @@ &main_sdhci1 {
- 	pinctrl-names = "default";
- 	vmmc-supply = <&vdd_mmc1>;
- 	vqmmc-supply = <&vdd_sd_dv>;
-+	bootph-all;
- 	ti,driver-strength-ohm = <50>;
- 	disable-wp;
- };
-@@ -401,11 +411,13 @@ &serdes_ln_ctrl {
- 
- &usb_serdes_mux {
- 	idle-states = <1>; /* USB0 to SERDES lane 3 */
-+	bootph-all;
- };
- 
- &usbss0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_usbss0_pins_default>;
-+	bootph-all;
- 	ti,vbus-divider;
- 	ti,usb2-only;
- };
-@@ -413,6 +425,7 @@ &usbss0 {
- &usb0 {
- 	dr_mode = "otg";
- 	maximum-speed = "high-speed";
-+	bootph-all;
- };
- 
- &tscadc0 {
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-index e78b4622a7d1ff320259b17850e8f1735508f7dd..291ab9bb414d7883f102101035b19fd324767306 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-@@ -121,6 +121,7 @@ J721E_WKUP_IOPAD(0x20, PIN_INPUT, 1) /* (B8) MCU_OSPI0_D5.MCU_HYPERBUS0_DQ5 */
- 			J721E_WKUP_IOPAD(0x24, PIN_INPUT, 1) /* (A8) MCU_OSPI0_D6.MCU_HYPERBUS0_DQ6 */
- 			J721E_WKUP_IOPAD(0x28, PIN_INPUT, 1) /* (A7) MCU_OSPI0_D7.MCU_HYPERBUS0_DQ7 */
- 		>;
-+		bootph-all;
- 	};
- 
- 	mcu_fss0_ospi0_pins_default: mcu-fss0-ospi0-default-pins {
-@@ -137,6 +138,7 @@ J721E_WKUP_IOPAD(0x0024, PIN_INPUT, 0)  /* MCU_OSPI0_D6 */
- 			J721E_WKUP_IOPAD(0x0028, PIN_INPUT, 0)  /* MCU_OSPI0_D7 */
- 			J721E_WKUP_IOPAD(0x0008, PIN_INPUT, 0)  /* MCU_OSPI0_DQS */
- 		>;
-+		bootph-all;
- 	};
- };
- 
-@@ -146,6 +148,7 @@ wkup_i2c0_pins_default: wkup-i2c0-default-pins {
- 			J721E_WKUP_IOPAD(0x98, PIN_INPUT_PULLUP, 0) /* (F20) WKUP_I2C0_SCL */
- 			J721E_WKUP_IOPAD(0x9c, PIN_INPUT_PULLUP, 0) /* (H21) WKUP_I2C0_SDA */
- 		>;
-+		bootph-all;
- 	};
- };
- 
-@@ -186,6 +189,7 @@ &hbmc {
- 	flash@0,0 {
- 		compatible = "cypress,hyperflash", "cfi-flash";
- 		reg = <0x00 0x00 0x4000000>;
-+		bootph-all;
- 
- 		partitions {
- 			compatible = "fixed-partitions";
-@@ -347,6 +351,7 @@ bucka1: buck1 {
- 				regulator-max-microvolt = <1800000>;
- 				regulator-boot-on;
- 				regulator-always-on;
-+				bootph-all;
- 			};
- 
- 			bucka2: buck2 {
-@@ -520,6 +525,7 @@ partition@800000 {
- 			partition@3fc0000 {
- 				label = "ospi.phypattern";
- 				reg = <0x3fc0000 0x40000>;
-+				bootph-all;
- 			};
- 		};
- 	};
-
--- 
-2.46.0
+> From 2bd98f8a2cc02a17423ced36e07f7bb3c7e044af Mon Sep 17 00:00:00 2001
+> From: Zhiqiang Ni <nizhiqiang1@huawei.com>
+> Date: Thu, 24 Oct 2024 12:29:28 +0800
+> Subject: [PATCH] KVM: arm64: vgic-its: Avoid vgic_put_irq in LPI translation
+>  cache
+> 
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 32 ++++++++++----------------------
+>  1 file changed, 10 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 93c0365cd..0efabe555 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -579,24 +579,6 @@ static struct vgic_irq *__vgic_its_check_cache(struct vgic_dist *dist,
+>  	return NULL;
+>  }
+> 
+> -static struct vgic_irq *vgic_its_check_cache(struct kvm *kvm, phys_addr_t db,
+> -					     u32 devid, u32 eventid)
+> -{
+> -	struct vgic_dist *dist = &kvm->arch.vgic;
+> -	struct vgic_irq *irq;
+> -	unsigned long flags;
+> -
+> -	raw_spin_lock_irqsave(&dist->lpi_list_lock, flags);
+> -
+> -	irq = __vgic_its_check_cache(dist, db, devid, eventid);
+> -	if (irq)
+> -		vgic_get_irq_kref(irq);
+> -
+> -	raw_spin_unlock_irqrestore(&dist->lpi_list_lock, flags);
+> -
+> -	return irq;
+> -}
+> -
+>  static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+>  				       u32 devid, u32 eventid,
+>  				       struct vgic_irq *irq)
+> @@ -759,18 +741,24 @@ static int vgic_its_trigger_msi(struct kvm *kvm, struct vgic_its *its,
+>  int vgic_its_inject_cached_translation(struct kvm *kvm, struct kvm_msi *msi)
+>  {
+>  	struct vgic_irq *irq;
+> -	unsigned long flags;
+> +	unsigned long flags, flags2;
+>  	phys_addr_t db;
+> +	struct vgic_dist *dist = &kvm->arch.vgic;
+> 
+>  	db = (u64)msi->address_hi << 32 | msi->address_lo;
+> -	irq = vgic_its_check_cache(kvm, db, msi->devid, msi->data);
+> -	if (!irq)
+> +	raw_spin_lock_irqsave(&dist->lpi_list_lock, flags2);
+> +	irq = __vgic_its_check_cache(dist, db, msi->devid, msi->data);
+> +
+> +	if (!irq) {
+> +		raw_spin_unlock_irqrestore(&dist->lpi_list_lock, flags2);
+>  		return -EWOULDBLOCK;
+> +	}
+> 
+>  	raw_spin_lock_irqsave(&irq->irq_lock, flags);
+>  	irq->pending_latch = true;
+>  	vgic_queue_irq_unlock(kvm, irq, flags);
+> -	vgic_put_irq(kvm, irq);
+> +
+> +	raw_spin_unlock_irqrestore(&dist->lpi_list_lock, flags2);
+> 
+>  	return 0;
+>  }
 
 
