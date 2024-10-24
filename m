@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A442CCE8E91
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578C2CE8E90
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMJ+6uQYbJOpAGakrCR8nunSPz7QrQJmxVPNxLflxqM=; b=3R+EKaS3aVsflh7ZEqyIkxFdZ7
-	a2b9JPUAh98fa/zXKj3rGNU2Nt2KXpewAmW+AIfZEvUiguS5UEppCves79Q3F3igtmurja5lQcQlg
-	WFWzACVP28aDqoRQ7Dk+tJ1euezHMy0brO+1+wmMQexi7AFEYYUAp2WQfN1L0jiqvSQ6Kh+kYIFXw
-	hizeVVF3yODkXp+LrGqBJLzjmotPw042Ak7U1LnmzqShkBz54Rp0vWBW3uMt24795z/opXr/DIzra
-	kM6YS14XUxJG97GMhQHSmSi4dVi2oMZB2FYP009QHLf0U84/jiEcAjykA/Ac2aB2VnCw4of1LJXhN
-	UgpyfDhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VYpydxo3gJedi9tlLdJTrACOHNcgjIhUI0gDt5ZX5fA=; b=rNLrL5ZW+7UdxHjFIQgZ8OrmSp
+	6mIOAfScPQ9m2y6wm4B7BwmHkXqMzQ0repsYsdiR0pPme/TRbHlOjEH7OTa8VJ0GUO4py05RTc4sK
+	U+WrK5IGIX0oO+/rYHmfL7q9JmTKRkCTrM9aUrKwHUYwOtg7xGWH0cujSQUHN4yUyDF+lV4V590lj
+	ZQEX7VIdV/ex/X9eKwSAVmlJn3l8D1LjronHjjRQ/y39Hu7PeeMXux7kCNN51VNHvKiMWPpjwHo3k
+	4xkbkmm3HdIeNmNwXHHH2m/Wboh6WK391ELxnR6GGCyg9VipremCfIfB3QbhTDultZ2pvacEuKVn5
+	Vuy6N1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40VL-000000013ZG-15iR;
-	Thu, 24 Oct 2024 16:16:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t40VK-000000013ZB-2sjj;
+	Thu, 24 Oct 2024 16:16:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zRP-00000000rek-0dxl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 15:08:09 +0000
+	id 1t3zRJ-00000000rd2-1j8S;
+	Thu, 24 Oct 2024 15:08:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 21679A455C0;
-	Thu, 24 Oct 2024 15:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42EDC4CEE5;
-	Thu, 24 Oct 2024 15:07:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 27776A455C5;
+	Thu, 24 Oct 2024 15:07:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E471C4CEC7;
+	Thu, 24 Oct 2024 15:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729782478;
-	bh=G/5iQPqYa/lDZoknc7Hbx360J3DWwXAFD/scyK1iRjI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d2dc+NEY8TbmlJwRn3drLG99OfJ33RUQh3pzdyCQVzheHiEaetaZCbfd+x+9ELG+Y
-	 5IhCl2SoGDNzYEP5epNZzUPSb5R+p7e7SXL5TfXdU3NIBiwj+tXZ6ndalSg+LIAk5s
-	 Byh1w86QBM03wNm8nfrV/bHQ/3ZGzSihsviTGHHcG/lewo5oY2wyoo/NonqHISWF2e
-	 vaM9pSaYN3v3nP+vOEvMVelqev+smXf1NgSjvu1/50BOt26R1NI7/RC7/bFwJSjhqO
-	 umvSpcyy1y7Juwjce96U6JKuJcxCHXhXoZcipEfroz5r28ILSJ/UuVX+LUcAuZFy+P
-	 xnsLsdTZt46cw==
-Date: Thu, 24 Oct 2024 10:07:57 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: quic_sibis@quicinc.com, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	peng.fan@oss.nxp.com, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	vincent.guittot@linaro.org, arm-scmi@vger.kernel.org,
-	etienne.carriere@st.com, dan.carpenter@linaro.org,
-	michal.simek@amd.com, sudeep.holla@arm.com, f.fainelli@gmail.com,
-	james.quinlan@broadcom.com, quic_nkela@quicinc.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/5] dt-bindings: firmware: arm,scmi: Introduce more
- transport properties
-Message-ID: <172978247557.479027.5212897770192282629.robh@kernel.org>
-References: <20241021170726.2564329-1-cristian.marussi@arm.com>
- <20241021170726.2564329-4-cristian.marussi@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021170726.2564329-4-cristian.marussi@arm.com>
+	s=k20201202; t=1729782471;
+	bh=gsSRaxF5qMUcw8w2aFZFzRk8Uw2PuZFPXxc0eD5vXhw=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=HyklSNg+3Iov4TU9gqtKiQUm2hzQu0aZHkrNMPUa6dIsZbb4gGoBaapCT1JtLqTbb
+	 CzvBJyu86RqlIErqmui2/Tieibxb12WjJkPOKUeAjKQ5/Bandf78Es5DC/QbL7vaJR
+	 W/6CTpsmJD1A39S/EeI62TsB3jj+kMyiPkmWDiWwQ3mUswQc+JuRVzvKu3gBQh3QWF
+	 wSWrRJMd/DXp5TIVdyGIqCJYSHRz66TYuazHO9YQaFytFGkAaMECjMYa7ykMH1gxbo
+	 kBNeIiFnHilQSeU9bJSuledTFYxrC5piIIjt7t7uF4gQE+iLPGFVkx0ECw1MPavgp0
+	 sW3E7vG58mAew==
+Message-ID: <a308178ba289f0df76fbf031b3cb103b@kernel.org>
+Date: Thu, 24 Oct 2024 15:07:49 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dave Stevenson" <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 24/37] drm/vc4: hvs: Add in support for 2712 D-step.
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-24-1cc2d5594907@raspberrypi.com>
+References: <20241023-drm-vc4-2712-support-v1-24-1cc2d5594907@raspberrypi.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, "Broadcom
+ internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "David
+ Airlie" <airlied@gmail.com>, "Florian Fainelli" <florian.fainelli@broadcom.com>, "Javier
+ Martinez Canillas" <javierm@redhat.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Michael Turquette" <mturquette@baylibre.com>, "Raspberry
+ Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Ray Jui" <rjui@broadcom.com>, "Rob
+ Herring" <robh@kernel.org>, "Scott Branden" <sbranden@broadcom.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Stephen Boyd" <sboyd@kernel.org>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "Will Deacon" <will@kernel.org>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_080759_278850_8BAED801 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241024_080753_557607_4FC4444B 
+X-CRM114-Status: UNSURE (   5.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 21 Oct 2024 18:07:24 +0100, Cristian Marussi wrote:
-> Depending on specific hardware and firmware design choices, it may be
-> possible for different platforms to end up having different requirements
-> regarding the same transport characteristics.
+On Wed, 23 Oct 2024 17:50:21 +0100, Dave Stevenson wrote:
+> THe registers have been moved around, and a couple of minor changes
+> made, so adapt for this.
 > 
-> Introduce max-msg-size and max-msg properties to describe such platform
-> specific transport constraints, since they cannot be discovered otherwise.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> ---
-> v1 --> v2
-> - added vendor prefix
-> - dropped warnings about resonable minimum max-msg-size
-> - clarified the intended usage of max-msg
-> - fixed Cc to include all maintainers and using correct e-mails
-> ---
->  .../devicetree/bindings/firmware/arm,scmi.yaml    | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
+Thanks!
+Maxime
 
