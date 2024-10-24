@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4674CE8E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6381CE8E8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtYtlnfTmvr3zN41Ip+EWEfN6UogitdaSsSvvG5Igbo=; b=wQSI+OtdxYUAkF88Qz+F0OYC/R
-	RKmWCRVeXJc8iIGSR+8ys5t1Q1XBYV+4+n1vwACGtzwzHyGtQJri5ONTuTFZi3dHs5La1D/UlmXO5
-	BHuynBcZqbuGndb7gJrOtTq4XJz1CYQjSmiAxfB0QwywnDMxyaauJcUpLJNKQ7XjZaf0RK+9vO9kR
-	Cf+KtnMFh2vHy+2r1NX9lPobB1znvnJAljOrT0edxbFAut8ryb+9576yN0gOCEsfUkHj/hJCVMzmA
-	ITCBIu7pTVz5/CeoVe1VDwoEF0Q8SMRJERiIWZ2Mx9/ua3gz/JlVJZe2PKo1/snVd9N0g8bAQyeb8
-	hh8hs1hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZlFQc2UTR3ED1ZPNl8phV8Bpe1SexIgz/UK5O1E8dk=; b=s6RJ521XXSnL32cVQN5SJO0NZ4
+	yieG0eZpNLLByg/MRxgtWrP1u6Ir0gqSNuASLSN/XMUgZ3FriQHyCj7ipEQzc1Kc/JZfK364je97A
+	FEsWwO4BHNn4x34kG7GnBFZT4XaVdTRw0REMek6murIMtTmg0sDTxYIB7KP4NpRM++XZggl6ZFHir
+	ZCVLW1GABtnI1ck/g3F249r18gSuGRENHOmZmkxgtvR2xeqztm8Y87LYwXIeC/ar1xtgjC3cEqExp
+	Jpwfps50X0OGFxiChYKEfMZbMAbFNhPHBk7ts5YzuGHxwKks6cme5SSpcVz5yX7v4UibiQOT3LGqa
+	E1n/iUOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zkI-00000000uMw-2YXw;
-	Thu, 24 Oct 2024 15:27:30 +0000
+	id 1t3zlp-00000000unT-2xJV;
+	Thu, 24 Oct 2024 15:29:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zXR-00000000sYw-1otA;
-	Thu, 24 Oct 2024 15:14:13 +0000
+	id 1t3zXy-00000000sc9-1T2X;
+	Thu, 24 Oct 2024 15:14:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xtYtlnfTmvr3zN41Ip+EWEfN6UogitdaSsSvvG5Igbo=; b=qfkVxkDq7o8fKtA2SCMe+1OLlq
-	PB/iuqutR0eNOkCNGH7ZMI2dXbjBwsIE1Dc6ga6ubhXxqJ8jZ1BtxBzdLhHfPSbmgYfxw8mdppGK8
-	2yYXzw1V4Y5G/h7C8DTDkNtS6jGa4tfePwBx3BxGKYiTYfbmshns2rtQfEgbrqNpeuGP9M0OCiNRC
-	1uOwbhwmriEG4hs2cLQlr8wJ2Chc0dEC33jQbPO0ln7MRGQAs74JC6wcHE800CahWHE/sLHtknqRO
-	hxVQlanDUdcUtiS/Tt1upPLUCRRrKC14IjwOkbjpyHcm/WnStVpThJVpzIu9Ejz/WPmSqgrokt5IV
-	ex+4Ue7A==;
-Received: from gloria.sntech.de ([185.11.138.130])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9ZlFQc2UTR3ED1ZPNl8phV8Bpe1SexIgz/UK5O1E8dk=; b=d8VnFAs8OI2g3Ngd4Q3Zqhn7RV
+	UBYcLPNf+Yrjov74WnpfYWnButQ30xJqicdfivGeU/GkVv4pFxQtOix1IUZBVxP9x3tvSeiZjJCvv
+	9IcZKzSfQvOyycSP39YLDhEf54otMpGwdUqEaX2QKXHSYL/xVuHOk2VVVPGOrE7gnNsNgF+P9OR6B
+	DE8mbl6qn88LfxR5LHloVSuH/VR2Yk2Ktsp/VwWcp2KTFn4I5JXrrD86HW0//9F+oWIG8T4CJ1w4I
+	BiSTMCuWiml8oeoaAgEhkP2facCEaD+yv9e2+c7ZQ9oIWmN1Rr5BfHQwDQSzB5tc1fwqqknHQWwGn
+	qniSpjTg==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zXO-00000008h64-2tH7;
-	Thu, 24 Oct 2024 15:14:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=xtYtlnfTmvr3zN41Ip+EWEfN6UogitdaSsSvvG5Igbo=; b=C2aW70CRgRMOdVKehjfz70W+Cr
-	svEASVpImDuk6Se2C1x4e6t8o2meA3u80bJhW7T6KN1pG2eWmZuz9w1mMvnJjnjLVg9GerofysCvT
-	bb/9Tn/mVwRQxDiJlSJxTN0FWoMCnvIr11Qdpy24Ei0FL8YK3lrHc7xNLErFfY5Sl20KpWGUQ+u5D
-	CD+UngHkHp3CA2CYmGfIKu1/4G8ZVKTSuS6U0enP9MjmuBzGxfd27PZVnsXNyjhsbfGEJNlRxqo/T
-	gcmdHfRR7JT9xpTgiBpF8l70DyoGfAWRzTG9IwVe1qV/dsGS1AmTzVKz2jZpZYEVdhhi2xfm8GmEF
-	R4euxe8A==;
-Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t3zXL-0004at-3T; Thu, 24 Oct 2024 17:14:07 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v2 2/3] arm64: dts: rockchip: add HDMI support to rk3588-tiger-haikou
-Date: Thu, 24 Oct 2024 17:14:02 +0200
-Message-ID: <20241024151403.1748554-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241024151403.1748554-1-heiko@sntech.de>
-References: <20241024151403.1748554-1-heiko@sntech.de>
+	id 1t3zXu-00000008hAb-2g7U;
+	Thu, 24 Oct 2024 15:14:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4373E5C3F5B;
+	Thu, 24 Oct 2024 15:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10AEFC4CEC7;
+	Thu, 24 Oct 2024 15:14:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729782877;
+	bh=N0wI9OFBged5/7iffZvOk9Mo2r1WR2+eTGn77TckzCQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UBBqpvgnq0/Gyxky+R05Qzs+OeZB6Z7fCii1KfwDU/Qbe8k7nIxnmR4nLOlK+oreC
+	 zeDepQiNOWnNz+uegudFwedT27+SprAE9xf4OexxUgYv8Il8Ls+0qsgm5W7aPlazvq
+	 XhTvCSFH2C9Dr8PVZkdu0K8LoZp6sJat6LKcDhxebk6JlQXK/78FcrvZSHRd6kVpdC
+	 1wo7po8j75ovC+hPE0BxcNth2mcSAoRhAFEK4UU6kX6N85YE74GVAojAvEAyC65QPe
+	 Cn5NRU78vVPdjfygVc6/MlyWdo4BkFciWJWEsNJFZpGzzIrw5Pm6j9sUtwMR2LO5gl
+	 OFTNdxDiP23vQ==
+Date: Thu, 24 Oct 2024 17:14:35 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Javier Martinez Canillas <javierm@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH 01/37] drm/vc4: Limit max_bpc to 8 on Pi0-3
+Message-ID: <20241024-elastic-courageous-wolf-9b9692@houat>
+References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+ <20241023-drm-vc4-2712-support-v1-1-1cc2d5594907@raspberrypi.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ilqx6g56qdz6ge6u"
+Content-Disposition: inline
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-1-1cc2d5594907@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_161410_880991_5E399CE6 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20241024_161443_013248_FB61E6C1 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,102 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-The Haikou baseboard has an hdmi output port, which is connected
-via the Q7 connector to the hdmi0 controller of the rk3588.
+--ilqx6g56qdz6ge6u
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 01/37] drm/vc4: Limit max_bpc to 8 on Pi0-3
+MIME-Version: 1.0
 
-Add the necessary plumbing to enable it using the recently merged
-hdmi-qp controller.
+On Wed, Oct 23, 2024 at 05:49:58PM +0100, Dave Stevenson wrote:
+> Pi 0-3 have no deep colour support and only 24bpp output,
+> so max_bpc should remain as 8, and no HDR metadata property
+> should be registered.
+>=20
+> Fixes: ba8c0faebbb0 ("drm/vc4: hdmi: Enable 10/12 bpc output")
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>  drivers/gpu/drm/vc4/vc4_hdmi.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
+i.c
+> index 62b82b1eeb36..6ebcc38be291 100644
+> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> @@ -640,6 +640,11 @@ static int vc4_hdmi_connector_init(struct drm_device=
+ *dev,
+>  	if (ret)
+>  		return ret;
+> =20
+> +	if (vc4_hdmi->variant->supports_hdr)
+> +		drm_connector_attach_max_bpc_property(connector, 8, 12);
+> +	else
+> +		drm_connector_attach_max_bpc_property(connector, 8, 8);
+> +
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- .../boot/dts/rockchip/rk3588-tiger-haikou.dts | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
+Are you sure that one is needed?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-index e4b7a0a4444b..270d59a56037 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-@@ -5,6 +5,7 @@
- 
- /dts-v1/;
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3588-tiger.dtsi"
- 
- / {
-@@ -61,6 +62,17 @@ switch-lid-btn-n {
- 		};
- 	};
- 
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
- 	i2s3-sound {
- 		compatible = "simple-audio-card";
- 		simple-audio-card,format = "i2s";
-@@ -155,6 +167,32 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&hdmi0 {
-+	/*
-+	 * While HDMI-CEC is present on the Q7 connector, it is not
-+	 * connected on Haikou itself.
-+	 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&hdmim0_tx0_hpd &hdmim1_tx0_scl &hdmim1_tx0_sda>;
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdptxphy_hdmi0 {
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	status = "okay";
- 
-@@ -321,3 +359,18 @@ &usb_host1_xhci {
- &usb_host2_xhci {
- 	status = "okay";
- };
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
--- 
-2.45.2
+https://elixir.bootlin.com/linux/v6.11.5/source/drivers/gpu/drm/vc4/vc4_hdm=
+i.c#L594
+should take care about all that already.
 
+Maxime
+
+--ilqx6g56qdz6ge6u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZxpkVgAKCRAnX84Zoj2+
+dpYuAX4gdROrmsHWAAzitdr3V3i9R9MKM1Yf94Dzb9HOdZshoaT6nkdTbK04N2GS
+BRjpxg8Bf2T4PNnDmxK/oGIdaqzLKcFGfcrvNfmHtgm1+2GHasLnWOExN5va/678
+E03+pOebBQ==
+=KqRv
+-----END PGP SIGNATURE-----
+
+--ilqx6g56qdz6ge6u--
 
