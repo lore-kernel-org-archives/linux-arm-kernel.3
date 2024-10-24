@@ -4,182 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BBDD10376
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 21:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E83D10374
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 21:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Aii/uNy6ZXcLmek1tL8aJJUKXUMsseRVTsqG7jcHas=; b=Kd6znJYN4EtBorBiHBBcR6W8wC
-	mOibt8ls4i7aNUmzP7+IhGZir4hL5aYoLscW+HUk6Jt8FGCu65GjF6PaZFU4XkgGYU23AmxFUqmoK
-	jPkvIn78QPW+Z3uujMWlda6CGVPhA5Gyu3J3XLWT9ndDm8MvNV+kjZi1JGwJ9E203l8/P+uv7BliK
-	dkNK0FmC9oF8v2HhRylvZDh8YFk1DsS3PAdp1d4MnSpox/4XZ4KPx8j/eEeRQsjANIBfjboEExWtp
-	Myrve6E+DSMEwKnWdJhsh4J1qQqfmYYTdmCHwZoMuN4xPe7kiQsq8FtWDTxPATkQ50EU3oW30aG2d
-	XHsRjQcA==;
+	bh=HxR7ci2O8SZhHGkoeveSwpvg0QkXlkXcbp5bVRSVU7w=; b=Y7Cdvt1JuMtnhjV1b0RiqOVnks
+	inPmDyHS7XvnsPf5EkRo3L8oe6XjBtvIjwfgRjT6CRUkBr3lemJKkOL1ZKetDnN1NDhsNcE/zsdG4
+	ROZOjT3mmotCN4eYwkDS0hf6C/JVDfVSnqiqEwnLo5tix0PQQjSwAE7IRwvwAEnzpywFBhCFbqLRt
+	jyqFy5DYeEl4TCFWX46tT8BAUOmi+STNVW0tx50XxBcTXsUwd4uS/pJw9EHygXzHu6q3E++OVkFjN
+	HpF4srqw5ug61umRyJNmXWuELPu/f3edYRlPJC18Wt61kwFpWrLS5hD6bmwn835wrFM2U5iXJ8LxP
+	H7d+22kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44xD-00000001o5C-24Mg;
-	Thu, 24 Oct 2024 21:01:11 +0000
-Received: from mail-db5eur02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2608::62f] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1t44yj-00000001oE8-2ISl;
+	Thu, 24 Oct 2024 21:02:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44fI-00000001lNq-1zis
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 20:42:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gifn+qoJuVMTh8ayl2p8U9HO9/sgBTlQbOHDco33+GrLkSSXZ2DkkE0fUVuZxqjiav+I9/MEpBiJ8rui2CgebUyX++VR1fo13AJcnOyJdjMBQilN2JfqC6cRdr8XA55d4MBtSpEHm8ArWHNbP6QEEGcIxc2HuZsNdxCLb8BHUTjqOPeBAbN4RXeqY9h4+AEDiUzflTQdovtknAz2JiH9mus0QsMOvMKBgaMBm77lLzCOMbiVy2Ng7TjMEBD+a2cpteDD/dpwr8dGmDzuGSzgeoUEZ/l/oNTwOvHte8wlw51BXBZQF9QXXS6h4T+OnyxNBD5yv/D2Y5jpdubyceTfDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6Aii/uNy6ZXcLmek1tL8aJJUKXUMsseRVTsqG7jcHas=;
- b=ZOeoSSMPQ5Sot6qOL8kJ6EJCJ+koRkhXI/gwjy3KAGsEwJGg7BPDxAq2U3IsE6o5d+TNztsFGRMSW65DUHKERTENRJm6mI5Pk4DrC9WDufe0OHNbCuwv9BFbkSVqVJgNyTKRNCMoqdhOIAc3d4h3MyXEV+g7JrqGgI8Vm+MotLvCBmtoL8Gr9RmPrawipsJkd3u6LoJgyCuE5TXCsA1YOWUPvP0WKw3qYHrs74mAl7ORYqtrbdRw9Z0rekO9pgZ5VNyZ8RWf+T8xnSKoNds+lDyunU4QvLIt6U5ySoIdB7MGazEp/N/cqiNV0+haf2eCYYaY18jPF4jA/5dvuMv5NQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6Aii/uNy6ZXcLmek1tL8aJJUKXUMsseRVTsqG7jcHas=;
- b=OTmoVbSSQH09c/0KQycUIjriY/RkD2LpQlhKUElrI80UenfQkamrMbtuFD3DyAD4TyiojImkmgCLOVMYYr3ulA5Yn2Fs00vZwex8o0K4786GuRtdi+l7tfT3kJbRi5rKApnf/MgfQM9qrLwosET3aYkXbZfkgVbl79QF+6kzq8LanAl4Olk6G5uFro4xB8kWXMITGh0w/2oVwWouMP2T4Yg9DyXK27lIuDcw5VuUKm7aoGgj2PUJjzFVTwmIBLWZb6b1vEGrBruF2HF/iNbStHYjVFBhZtUjQTqHzLx+wswArOFm2u5A+rxs0NT3IdNFur1/NT4NXDcdxsoWKkWCQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8223.eurprd04.prod.outlook.com (2603:10a6:102:1c9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Thu, 24 Oct
- 2024 20:42:36 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Thu, 24 Oct 2024
- 20:42:35 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Thu, 24 Oct 2024 16:41:46 -0400
-Subject: [PATCH v4 4/4] PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241024-pcie_ep_range-v4-4-08f8dcd4e481@nxp.com>
-References: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
-In-Reply-To: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>, 
- Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
- Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
- Jesper Nilsson <jesper.nilsson@axis.com>, 
- Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@axis.com, 
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1729802524; l=2809;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=i4d7sd3yQU/0Cg6+DkY2bKY+7qcWwb5wLX8OMJ1co/w=;
- b=n/QBCb8gXv8fK+/RmW+tOA/Iv/5x6pK3TBnUbHuZgoyU3+BeQJf9sj7HTQfn8cvvfG4OSPbKX
- zPGv/lkpaGqCBe1sMS9bPhdGGVVCWnubxf1Z1Fmui94v4KieIR/ZlRL
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0112.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::27) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1t44fr-00000001lZW-01xU;
+	Thu, 24 Oct 2024 20:43:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F0BDEA45820;
+	Thu, 24 Oct 2024 20:43:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD185C4CEC7;
+	Thu, 24 Oct 2024 20:43:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729802593;
+	bh=orvEes6Fv2Qup0AW3+pyjYH5D4wzwY5+810rtsKY0lQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=srTVQ5aBOX2/rqg6m0A1ll5HXJrBk3zGKvOExnScO3mg/lp8MD3Uu/7GNare+rNI0
+	 YFnATtetlZYcpBy9MUZVvBl9IJ6nDNsJo6QIEsDQeYA6CGJSNZHTWVNIVrnYOVQsSQ
+	 s7vzczcpA6yXFsDYEMniUspOToVG5awASk+VHhr7JnqfwvuNqNITnC0TjdMZnRz3Bf
+	 Bvu/lxuJ4etfUbCGAXsNSRI0f8dXKCSgVw52q4H3Ld9vglwLJ64RUalRfyTreeWugp
+	 FiV16pcUS86F5I17ZVZZKIMGIt/WyykY89ouwtncDZ63QO/WqoQptPsAiXJLHAMv4+
+	 EEUFKp110vS/A==
+Date: Thu, 24 Oct 2024 15:43:13 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Javier Martinez Canillas <javierm@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	dri-devel@lists.freedesktop.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Will Deacon <will@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-clk@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	linux-rpi-kernel@lists.infradead.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Subject: Re: [PATCH 09/37] dt-bindings: display: Add BCM2712 KMS driver
+ bindings
+Message-ID: <172980259231.1015965.14524192141045927759.robh@kernel.org>
+References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+ <20241023-drm-vc4-2712-support-v1-9-1cc2d5594907@raspberrypi.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a75c20d-9326-4e58-30d1-08dcf46c645d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MkF3bWpmL2Q1SlIzakRDZ0gwd3BuSk1hWTBSeHIyZnJkT2o5ZlpDZ1lBRzRo?=
- =?utf-8?B?NU96a3dVSUwvazlrc1FqTGdZWTZIVXIyd1hOcG15YUpwWWo4MDFGRzViZEJQ?=
- =?utf-8?B?OTBLRTVxT3VOcGt6SGNYSXpuRjVRMElyMSt5Y3JVT0tXcU95R1FxaTFzc2ls?=
- =?utf-8?B?RTlvancyaFlOMlhXT0ZPMXVnMWpoTDlZcVQvWDZaZWs0S0VtSkF1SDFlSmxP?=
- =?utf-8?B?VEhKWlJaNUNYZjVjK0FXQ2hHQWhlbHZ4VWdEZkFqN3BpcWhPVldJeHBCM3VG?=
- =?utf-8?B?NCtKQ1h2Z3FsOUkxU3lweDVwcGNsbG1SWWV2V0xuL1JTS09oeEhFVHVXNzYx?=
- =?utf-8?B?eXN6OFZsM3NKeTl4NVlZcVhFclhxVnJXZEprUk9DalFKQ3lKanFDQXBqdTJz?=
- =?utf-8?B?bXE1cGgzVllVTk5xQjQvYk1KTWdhcXFnb0tzQy9kVkpvamFhMHVGNjV1ZlBC?=
- =?utf-8?B?YlRCVjlLVGZlQXVZNG5YaWRNN0xuMDV3V0NYSmFzRFcrOTFwZUk2bmxxcVBD?=
- =?utf-8?B?K1pYaUIzdmluVkRvcjM5QmhnK0R5ZVFpYk5xSkEwK0VUbC9UVEg0R1Bhczhv?=
- =?utf-8?B?c2ppaHYybFg4b25FeU1qOFRvbUs1akFLekpNaTFsTjIrMUljVnNhbnE1cjZR?=
- =?utf-8?B?TWR5bUxIZTF3dmtiL2Jta2pyM1FoMGdXWHNXeUlPQ1REM2NMTjlOWGx0NUNh?=
- =?utf-8?B?bVliTzdVQ0FpN1QzQ0JWMVlEWlhFZGhhWExMQ09kWnFVSFVTdnNna0swdGZE?=
- =?utf-8?B?ZHVYbUxOODZ1em1qbS9JSUlnckZmMGc0VkYvMFVMTkV5bGpsKzN2UkFhSXNR?=
- =?utf-8?B?cThKaDh6QmdLZzFQbVQ1ZzJySFRqMTRQb09XZXBjMUpMUG1pYkRaM3c3RFJZ?=
- =?utf-8?B?Zi9SUGpuQkc5U0U1OFNDRk40dEtHVmVKczRCN1lIcjUxbGhNZmFSNGRFWjUv?=
- =?utf-8?B?dldxaFlPTXJkajZmLzB2Z21SRFFwRmxkL2N5YzFDQnlRSjFGUTdUVWg2aGJ1?=
- =?utf-8?B?SGE0Ty9OQWU4eGRxYTNKYmNKVjlINEY5TUZ4SUxFS0JXN2hrZisvUmlSWUdS?=
- =?utf-8?B?U3U2SjZmZkpqbUlORVUySW5QbXY1RE0raXEyZTh0UkM5U29CN2o4Rlp2bDli?=
- =?utf-8?B?THY5elFiUnFTM2k1V0hFM2g1RG1pQWRabE82cjV4NFlKcEFOWGRRS2hZRFhC?=
- =?utf-8?B?NlVhSUF2QlBhOUpJV01HOGloVkJnQlh4K0dhd2dlcUZGcGc2M3MySU93dW5O?=
- =?utf-8?B?cThOQ0xISktpeWNzNUNZSkd0QmdWMWtpUVJneVB5d2J6OHZXRldNQzhtVFhJ?=
- =?utf-8?B?N3cyOGh0MG00WGllOUdlOEVMeTNUbG9xSFhYeCt1ZjQ0Sk5TWGJrQ0kwbGQ3?=
- =?utf-8?B?Z2loTWJreisvaWhHVHhLZGlGYXl4a05ZQk1jZ1JzdDE1VEFGUFZCYlB0OXY1?=
- =?utf-8?B?OUErWEhvbUdwd2pTZmpzbXk1QkNYaHFaZ09rMGtuc0tjZFNSNkxJMDJQek1G?=
- =?utf-8?B?MEFDMmdYaWdlTkdvNjE1VTFjM09jbHB6Y0h2NkhYZzFmbzJXV1R6eXh1OVJa?=
- =?utf-8?B?V1E1eFZENjh0cXhCL1ZhZGdXUW1XQkRkSDBsanNlY21Rb2ZWeGRhTFQvKzFB?=
- =?utf-8?B?VWRNQ00yS0EvTWdwNlVvRHltcDdrMWlBZFBSeXBOTGRocVgzMExSOXluVUNB?=
- =?utf-8?B?ZjZBaVpZcVp2WnJmSmUrUWMveitPQkdpdG5RR0JsQTcyZzB0bW1WdUVBZU8v?=
- =?utf-8?B?cHM4NmlvSHNPZjFOa3ZsMHYvVTNBTkxaODV5WVNyT3YvbThnb3lxQkl4QmtB?=
- =?utf-8?B?aW92WWtKMjJwSWhxZzZQUEZYU0tkV0pPZXRCL2dkUGZDK0xWd1FKeWpjcytx?=
- =?utf-8?Q?Tj1sDirOs6YVt?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U3ZYWXFGR3hoWlVyTXJ1Slc3K3NVYlJuRDM5OHZqTC9ZTjVQY2hrLzhVb2R5?=
- =?utf-8?B?S2FBZXpEd1AwdGducFZjTzM5YzZJQTQ5WHNHMWhnOFFEMzVqT3FsY055cWhC?=
- =?utf-8?B?NTF3cFNMeWEzMUIyYkFqRDRtN053bzNRbEJyZzY2NjRxNjI2RGVGSnVkRVAy?=
- =?utf-8?B?WjFFeUhVOHdvRlA4Wklzc3RwS3dMZmpVRVZoUElPR2RwV1Z4WGZxck8vdVcy?=
- =?utf-8?B?Q21iVWh5emJNd1NENlBpc1Q4U01kczBpSDltRHJjc0UzRmlqTTdSMnl2bXJL?=
- =?utf-8?B?RTV1a3FQNWRGV05aZXJLclNlSFpORnh2bmkxdXQ2ZklQdU5kc1J6WHlEbDhi?=
- =?utf-8?B?WkxMOGo4Y21ndmEvZUJMdWw2NkpmUDZoSVlTZElmYm9FSFozejNvTndLWTZ4?=
- =?utf-8?B?MkJPZEVjdVdJRGhvR2xzd1BHMEhpMkZRbzdBZ042MlRwTUZ6b1l1NjNyYTFm?=
- =?utf-8?B?ak9laytndGI5TnRvS1NJaHdiUUxDNk04UEFTQnluYnFPemYvZXplRDhwWVVl?=
- =?utf-8?B?a1BDZlRTWWtJSW9KTm9QenBOZHp2N2pad0hUTm9IcmtWSGIyU3N4S09hbFNn?=
- =?utf-8?B?RzhIRjgyUDFHNmZEbDB1YUt5L3I1V1U1dFExMjBjeFpNNVpQYWREOUt2bGZa?=
- =?utf-8?B?SWNSbTlGbXVZQVB5L3lBa1VDZjRRSzgvS2s5YU52RnQwUloyRVg1d3A2N2dD?=
- =?utf-8?B?ZFNzUS8vU056NHNuTlJJUUFKWkphQjBYZ2hFU0w1cFNJYTFnZjlYZ3Z1Z3d4?=
- =?utf-8?B?QnVwQlpPQ0tJYW1wMWhjejNpMGhBNnlzYmZXNHNKSkxyblRsMUdraUxPVjBo?=
- =?utf-8?B?c2NsVEs0cHBCcDNubkUydHh1c1oyZVpKV1ZOU1ZsYlpRRnY0MWlsdU9QSzVN?=
- =?utf-8?B?SitsWkFhNmQwYkt4eW4ycXZBY0pQeGVSSmN6cDhLamNwcnRFY2Rsb2FGUkx0?=
- =?utf-8?B?MndhR1FUUVBSNGp2eU5ZNFhNMnVCc20xYzB2eTl0YWtvUTc1czlVcFcycG9K?=
- =?utf-8?B?bmhtZWQ2aldCS2ExRm1RV2NPd0Y3dmdTN1hKV0ROaC8rUS9sQ2grUE5sZC8w?=
- =?utf-8?B?RkYxM25qSjNHYkwxNHlFUmxQcFVOK0dnRHljZjJ2b2ZaTEVGVWVzMVlrdE14?=
- =?utf-8?B?OENFbkx4MDU5YjhldDZVdGtiRndvYk93LzZmbkwvay9MQS9CQ0lNZXVhZVJx?=
- =?utf-8?B?ZU40M1d6cHVNNnlRS2MvQWdtOUxrMUQrV1RZaTM3M3NoQjR3ZDdZQjg2MXg5?=
- =?utf-8?B?Y3BzWUc1VnA4eDlNam1Ic1psRVh0UEc2cFNnMjF0UVdoTUJmc2tvM0VUV0l1?=
- =?utf-8?B?VmtVWks0OGIxNjFzMEd6dG4yZk5jbTRjSWZKcHF2Qi82Tks4Z0Qxb1kyQUVh?=
- =?utf-8?B?NXd1dWVVUE9iaUw0b0hyZ3Y3djY4Zmlydk5UWUhWcFpRLzE1UU1LOVM5UU00?=
- =?utf-8?B?RWREbEY2ZUMyeHNVVEJaMkhPNk1qaG5LdlV0c01nNkQ3SjVxVGg1c0lFaGh2?=
- =?utf-8?B?a3FsajF1Mmk1OWdQUHRRZ3NMZEQrQ0h6dUEvT2RLajBqWlBZUGViUTNpS1NJ?=
- =?utf-8?B?eWN1K3A4TlAya1RTK1NlT1ErZ1d1eGZBOXZkaDJDU0IxcVhabTBqK0F3Z2gr?=
- =?utf-8?B?cjY4bkdOeVd1b3FQUmVkQ3hQSHBIS21xQ0dwVE92a2pNTjZlSzVZbGVGa3Jy?=
- =?utf-8?B?N2RqaW1JUWh2Qm55cWZIaGVnazY4cU9Ycm5NWEk0TEQ2SnpBaWdRWXJSRTdq?=
- =?utf-8?B?ejVKMjJpZllNc3lOV0hIdWgwS2dSWXFuTWJoMENDTmJmZWU0V1R3ZTZBeU93?=
- =?utf-8?B?dTFTMUZFTk84d0s1dnJFM0NtNUNhbXdhSnRwUGVrYmo2aWxFc1FEMW11SmRn?=
- =?utf-8?B?M2ZFcUdlQkpnWERlU1dBcWczSEJLL040OVlCK1gyNTJYdjNlUzRucEwzSU9D?=
- =?utf-8?B?OFhNL1Jlc0VPY0tPL200cjNjNHBLdU5mWnlhVlVvKzUxSlREaGZ3d0lXSEpY?=
- =?utf-8?B?QWo4YVE2bVR0UU9La09hdUlyVnJGajNQVENhVWM0WDBrRnZ0SU5PZ3EwWUF1?=
- =?utf-8?B?MkRBaTdxK3g2U042RkQ2bmRlVmJqYWxiWE9LWG5YWE1SQWRQemYyQUJWdU43?=
- =?utf-8?Q?9RCGnZl3oLKF2ebp4EyB27va1?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a75c20d-9326-4e58-30d1-08dcf46c645d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 20:42:35.8805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: suGZ4zzq1NFUkGXoBoOx8sBQM8VckFKgsFmhawgacTE0GXfatWzmDmkLXQuHAjBlwXU3MGqCTdoj4GKbe/cqPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8223
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-9-1cc2d5594907@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_134240_572870_83F804BB 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20241024_134315_191705_BAB775D1 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,87 +93,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for i.MX8Q series (i.MX8QM, i.MX8QXP, and i.MX8DXL) PCIe
-Endpoint (EP). On i.MX8Q platforms, the PCI bus addresses differ from the
-CPU addresses. The DesignWare (DWC) driver already handles this in the
-common code.
 
-Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Chagne from v3 to v4
-- none
-change from v2 to v3
-- add Mani's review tag
-- Add pci->using_dtbus_info = true;
----
- drivers/pci/controller/dwc/pci-imx6.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+On Wed, 23 Oct 2024 17:50:06 +0100, Dave Stevenson wrote:
+> From: Maxime Ripard <mripard@kernel.org>
+> 
+> The BCM2712 SoC comes with a new variation of the videocore display
+> pipeline. Let's create a new compatible for it.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>  Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index bdc2b372e6c13..5be9bac6206a7 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -70,6 +70,7 @@ enum imx_pcie_variants {
- 	IMX8MQ_EP,
- 	IMX8MM_EP,
- 	IMX8MP_EP,
-+	IMX8Q_EP,
- 	IMX95_EP,
- };
- 
-@@ -1079,6 +1080,16 @@ static const struct pci_epc_features imx8m_pcie_epc_features = {
- 	.align = SZ_64K,
- };
- 
-+static const struct pci_epc_features imx8q_pcie_epc_features = {
-+	.linkup_notifier = false,
-+	.msi_capable = true,
-+	.msix_capable = false,
-+	.bar[BAR_1] = { .type = BAR_RESERVED, },
-+	.bar[BAR_3] = { .type = BAR_RESERVED, },
-+	.bar[BAR_5] = { .type = BAR_RESERVED, },
-+	.align = SZ_64K,
-+};
-+
- /*
-  * BAR#	| Default BAR enable	| Default BAR Type	| Default BAR Size	| BAR Sizing Scheme
-  * ================================================================================================
-@@ -1448,6 +1459,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	pci->using_dtbus_info = true;
-+
- 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
- 		ret = imx_add_pcie_ep(imx_pcie, pdev);
- 		if (ret < 0)
-@@ -1645,6 +1658,14 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.epc_features = &imx8m_pcie_epc_features,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
- 	},
-+	[IMX8Q_EP] = {
-+		.variant = IMX8Q_EP,
-+		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
-+		.mode = DW_PCIE_EP_TYPE,
-+		.epc_features = &imx8q_pcie_epc_features,
-+		.clk_names = imx8q_clks,
-+		.clks_cnt = ARRAY_SIZE(imx8q_clks),
-+	},
- 	[IMX95_EP] = {
- 		.variant = IMX95_EP,
- 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-@@ -1674,6 +1695,7 @@ static const struct of_device_id imx_pcie_of_match[] = {
- 	{ .compatible = "fsl,imx8mq-pcie-ep", .data = &drvdata[IMX8MQ_EP], },
- 	{ .compatible = "fsl,imx8mm-pcie-ep", .data = &drvdata[IMX8MM_EP], },
- 	{ .compatible = "fsl,imx8mp-pcie-ep", .data = &drvdata[IMX8MP_EP], },
-+	{ .compatible = "fsl,imx8q-pcie-ep", .data = &drvdata[IMX8Q_EP], },
- 	{ .compatible = "fsl,imx95-pcie-ep", .data = &drvdata[IMX95_EP], },
- 	{},
- };
-
--- 
-2.34.1
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
