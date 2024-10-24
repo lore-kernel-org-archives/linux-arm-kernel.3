@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD24CE8E67
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631B4CE8E68
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Erp1+OVg6Zvh2QGB7pP0w1YYkfDo5lKRK3PPeKeDOv4=; b=Dbz1karY1Y2ucr4RwfXoFumacL
-	6tlpd0X9Yarhu66D8B8jIDtnPD/cd+rxPyrKCS5ZoKqdw6d4NZttUzYS5/FkIjQrEU/I+cPDUmkHi
-	xvL5+dH2JTo3+H8y9PbUXfTEvKTn9QYwW74hyKXf7zsqipBghv5OFOZ78ufnJHe/EAzdsOCngj5Ng
-	iI7nk9ke/R0761HDu0xFrahnuLxE7y8MPyG0eKSr9iG+T/8W87CpAYZfX+5TjW25iOOh/78WFZ8hX
-	0AaJAoOBLX7jXimnOQ8M28zBkBcifFL9OenlO181/DV3myV+zpBXn7XYxmn46V7ySUwLcuYOj4b+t
-	O3OwSaRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CL2wCU2HH+fd4vHOU7eIexO99AmYoDs4dDo7720ek4=; b=v/unOgBDrKshGZj54KqX9Qldec
+	wYKDMXS8B6I/Ftd2HmzI9DKuulLn+kYLC18d4glo/WE+yuC/y5JYIdTzU85rYIYWICDvaAUYTyA0h
+	Eazl4oDe+mKeGPGCTkw9w0F8NwWhmKyOVR/hyoF1X0CeTEn3Sm7dYsVYzDWR8foXPZXojMadklEGx
+	fk64lT3EuXtgmG2vW2O+R+W3g4w7V52R9bxbWV8h3ezGD8EcSPqVlBlNj/CWG/2wC+DYMuTj08tnn
+	4GPgI/kwghYy5gDQ6BGt4fnZO7OVOf2xk4D9O04O+lQyzDnZQtlRlLd2sXfzFYkhWbX6het34ymV0
+	xmOce8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wNt-00000000Fv6-46jq;
-	Thu, 24 Oct 2024 11:52:09 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1t3wO1-00000000G0F-2SjH;
+	Thu, 24 Oct 2024 11:52:17 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3w4u-00000000DZq-3sva
+	id 1t3wHM-00000000FCc-3jgr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:32:34 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4315ee633dcso112665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 04:32:31 -0700 (PDT)
+	Thu, 24 Oct 2024 11:45:27 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4314e64eba4so891375e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 04:45:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729769550; x=1730374350; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Erp1+OVg6Zvh2QGB7pP0w1YYkfDo5lKRK3PPeKeDOv4=;
-        b=Ca5LU/6fI6urOvTU0PsQQOaKaa9DcRqCQcY6YLngHZsuZ2vAKLVuItf9f8jSIdMaEf
-         MnINVk+px/X6a3paBeYZr/1+ufQ+1mq3kgBgQ3lYPg8yb7ORlZELZOA+kNCwf6NuUPNn
-         ELxoNhGYkbK6xgAx3SBXFtYN14jNsy+VOYkEJc80UeQw/PyxbdtOtbFfXhjRsvjUET4t
-         b8dMesGHdWyVuMY9d7fIxb00iVO9X6uJtvjWOLZfpIcww4jpdZ86zlFA2CFkhnjqLkR0
-         9nu5EhPszyNCdiOIo/kUptMZLeALgqkzdYm71LESxXZCuiCzPIOt/5QWFAvpIw7ATfVh
-         bYMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729769550; x=1730374350;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=suse.com; s=google; t=1729770322; x=1730375122; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Erp1+OVg6Zvh2QGB7pP0w1YYkfDo5lKRK3PPeKeDOv4=;
-        b=IjPD+UHj7gKc7cE6avr9SdPqVo7KwXtr5XmPgCCnGOSVCx/wr4lml8ABQufBqMrWsy
-         nozGwOgaKGI4bBHNAvnXcP3KiERJgxrVjlh0R827qA/RpfY/rQNSAfLV7qedsu0799W/
-         MC8TmTR8OVy0WwGDYdR4dj++PY9WFazMAgvSfjrDzUiXeJfpeYYk1S7wEdbQjJuDLXfb
-         Ib0xYNL71TXbRFfvvlg04rFuAi7cet9U4FrmisXtNTZFgmdy2UXZW2f7jqNLyEE6XXF2
-         DVt9aSXt+MsrGDBBJ3vd8AT3Q6HQzPJXZz/WpMOIwawerWbr0HVxCJKAtguWbdKAzKKe
-         ZRzA==
-X-Forwarded-Encrypted: i=1; AJvYcCURiO504M5PljVpDFJxxEv2eIFnY6r+8OaN8zBWgWRVx+0WVjyB2UQZp28qFY/lvHbTkoPTzKcE59oHPuvzNPmX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+z24KlP9Uyt5kIt6gVZ26RjwrIJ8vPGwi4igOJkLp/ZwoKKzf
-	9SbBK2PtNcUHXKDi0hor1zefc2MSG7xxCApxcnhTLqduF6byZiLIk5LX+fttsg==
-X-Google-Smtp-Source: AGHT+IE07p1wY1vvq/4/9vbPY3LEzz4J2xejwqtPU6uKF3gb39IMRgXzep0l9PGpoNZbYvF5Fehu7g==
-X-Received: by 2002:a05:600c:1f14:b0:426:6edd:61a7 with SMTP id 5b1f17b1804b1-4318aff2d08mr3020455e9.7.1729769550185;
-        Thu, 24 Oct 2024 04:32:30 -0700 (PDT)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b5706c3sm14524155e9.34.2024.10.24.04.32.28
+        bh=2CL2wCU2HH+fd4vHOU7eIexO99AmYoDs4dDo7720ek4=;
+        b=Nw5XSdYZAOLkrl4olvSfjYk1XJ48cn4107HTGoaMroGBhj5o6/OvNAgDaMICiqGyG/
+         BhC37jhN6fA/Z4ymKlPF0tknJhXMg5JA39beGZv4meuyOq4Z/lyodLps6hY5vWj2m5i6
+         8xvbT4qwrl4Lzb5uwdQFFFC2FL0ENN5qtBDuGqpBDsSrIlSs2NUrjC/Z5wGLV60bVqzX
+         nl70zbApgP9oYTVwgF4MGzrtHcPc50rVghHoMa6wqMqvuWNRA/QTuQkqWBjxjsetIjCs
+         1l94Y16lhmpiSQM0Us7Qb42Wyx+TY9NbfXJSQmsDZrRg8UFhCUeu9F4vFbCSgBYctPXr
+         oo8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729770322; x=1730375122;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2CL2wCU2HH+fd4vHOU7eIexO99AmYoDs4dDo7720ek4=;
+        b=BxzpyODgpprxMsYyU7aP1KDKwzwCDTnDe9mLNdrAv1jUJjM7+tlvhVPzWTwem/j/Il
+         TolyrIrtCAH2sAxDL7JB+br/jmM0TUj3N1oohrNXPp2DTLmvxZ2brfYZneTAmPPjvRJ1
+         nZXOa3o7tY9JJ2Jc+nCU4jKq98fjHG1m3qMfjWhXQcmmc8Kf6ztwwc82lNDsQSOfpYPV
+         nKWyffdUg+rrdtel6xfv0GP+C8DqjL+mggmrsYU9Vw4p6UuaqqENyGoLBi5aVWgIDJN2
+         OZv7S1yvns0XjsH7i1dlE+C3TF+UDhcjJi98KzRGsRV+Egt0vtDK83QZHVKiNVOtEQgg
+         8miA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/igzx1WSMCBib1mDJxC7WzMUfLXRsIKDubZt+9mLT8m6QlttYwN27BygKEiDIiVLeroB0wkwM3i67WBegWZrG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg3UeNWbxlr9bd0yiGFvNjfRCvslGKhp/Q9OsuPCaPUjjPhAZp
+	C1AmRXYdxDaZtoRHaj1e+nlLkAgcLoQjnhLS4YBvCRs6Z2IZmcN22BMjcm3lkMw=
+X-Google-Smtp-Source: AGHT+IFA4GABsskGJAvhBVgwpM0Becu10rrF1/mPcNcESTyA5925ZJdl1RcPGWOTLM6OI2YjfLoBKg==
+X-Received: by 2002:a05:600c:4f91:b0:42c:c0d8:bf49 with SMTP id 5b1f17b1804b1-4318408b98bmr20665275e9.0.1729770322153;
+        Thu, 24 Oct 2024 04:45:22 -0700 (PDT)
+Received: from mordecai.tesarici.cz (dynamic-2a00-1028-83b8-1e7a-3010-3bd6-8521-caf1.ipv6.o2.cz. [2a00:1028:83b8:1e7a:3010:3bd6:8521:caf1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43186be531esm42591215e9.18.2024.10.24.04.45.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 04:32:29 -0700 (PDT)
-Date: Thu, 24 Oct 2024 11:32:25 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, corbet@lwn.net,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] Documentation: Update the behaviour of "kvm-arm.mode"
-Message-ID: <ZxowSYHQeOq7W_JT@google.com>
-References: <20241023171244.4031151-1-smostafa@google.com>
- <86v7xh3km6.wl-maz@kernel.org>
+        Thu, 24 Oct 2024 04:45:21 -0700 (PDT)
+Date: Thu, 24 Oct 2024 13:45:19 +0200
+From: Petr Tesarik <ptesarik@suse.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Thomas Tai <thomas.tai@oracle.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, David Hildenbrand <david@redhat.com>, Greg
+ Marsden <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
+ Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
+ Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
+Message-ID: <20241024134519.18ed4657@mordecai.tesarici.cz>
+In-Reply-To: <df753b4a-0cf1-4544-b073-0ebf2bb71ef2@arm.com>
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+	<20241017142752.17f2c816@mordecai.tesarici.cz>
+	<aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
+	<fed3b427-a600-4ce5-afef-4ccbfff64931@oracle.com>
+	<df753b4a-0cf1-4544-b073-0ebf2bb71ef2@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86v7xh3km6.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_043233_018546_C9CB4473 
-X-CRM114-Status: GOOD (  30.42  )
+X-CRM114-CacheID: sfid-20241024_044524_956604_6000BD3B 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,77 +105,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Thu, 24 Oct 2024 11:48:55 +0100
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-On Thu, Oct 24, 2024 at 10:39:45AM +0100, Marc Zyngier wrote:
-> Hi Mostafa,
-> 
-> On Wed, 23 Oct 2024 18:12:43 +0100,
-> Mostafa Saleh <smostafa@google.com> wrote:
-> > 
-> > Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
-> > VHE support") modified the behaviour of "kvm-arm.mode=protected" without
-> > the updating the kernel parameters doc.
-> > 
-> > Update it to match the current implementation.
-> > 
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  Documentation/admin-guide/kernel-parameters.txt | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > index bb48ae24ae69..59a0dd7e2de6 100644
-> > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > @@ -2723,8 +2723,12 @@
-> >  			nvhe: Standard nVHE-based mode, without support for
-> >  			      protected guests.
-> >  
-> > -			protected: nVHE-based mode with support for guests whose
-> > +			protected: hVHE-based mode with support for guests whose
-> >  				   state is kept private from the host.
-> > +				   In case hVHE is not supported in hardware, it will
-> 
-> nit: it is VHE that is supported or not, hVHE is only a SW concept.
-> 
-> > +				   boot with protected nVHE.
-> > +				   nVHE protected mode can still be forced on VHE systems
-> > +				   using "kvm_arm.mode=protected arm64_sw.hvhe=0 id_aa64mmfr1.vh=0"
-> 
-> This opens another question: none of the arm_sw.*, nor any of the
-> id_aa64* parameters are described (basically, anything that's in
-> arch/arm64/kernel/pi/id_override.c). What should we do about these?
+> On 23/10/2024 22:00, Thomas Tai wrote:
+> >=20
+> > On 10/17/2024 8:32 AM, Ryan Roberts wrote: =20
+> >> On 17/10/2024 13:27, Petr Tesarik wrote: =20
+> >>> On Mon, 14 Oct 2024 11:55:11 +0100
+> >>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >>> =20
+> >>>> [...]
+> >>>> The series is arranged as follows:
+> >>>>
+> >>>> =C2=A0=C2=A0 - patch 1:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Add macr=
+os required for converting non-arch code to support
+> >>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 boot-time page size selection
+> >>>> =C2=A0=C2=A0 - patches 2-36:=C2=A0 Remove PAGE_SIZE compile-time con=
+stant assumption from all
+> >>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 non-arch code =20
+> >>> I have just tried to recompile the openSUSE kernel with these patches
+> >>> applied, and I'm running into this:
+> >>>
+> >>> =C2=A0=C2=A0 CC=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arch/arm64/hyperv/hv_co=
+re.o
+> >>> In file included from ../arch/arm64/hyperv/hv_core.c:14:0:
+> >>> ../include/linux/hyperv.h:158:5: error: variably modified =E2=80=98re=
+served2=E2=80=99 at file
+> >>> scope
+> >>> =C2=A0=C2=A0 u8 reserved2[PAGE_SIZE - 68];
+> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^~~~~~~~~
+> >>>
+> >>> It looks like one more place which needs a patch, right? =20
+> >> As mentioned in the cover letter, so far I've only converted enough to=
+ get the
+> >> defconfig *image* building (i.e. no modules). If you are compiling a d=
+ifferent
+> >> config or compiling the modules for defconfig, you will likely run int=
+o these
+> >> types of issues. =20
+> >=20
+> > It would be nice if you could provide the defconfig you are using; I al=
+so ran
+> > into build issues when using the arch/arm64/configs/defconfig. =20
+>=20
+> git clean -xdfq
+> make defconfig
+>=20
+> # Set CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
+> ./scripts/config --disable CONFIG_ARM64_4K_PAGES
+> ./scripts/config --disable CONFIG_ARM64_16K_PAGES
+> ./scripts/config --disable CONFIG_ARM64_64K_PAGES
+> ./scripts/config --disable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
+> ./scripts/config --enable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
+>=20
+> # Set ARM64_VA_BITS_48
+> ./scripts/config --disable ARM64_VA_BITS_36
+> ./scripts/config --disable ARM64_VA_BITS_39
+> ./scripts/config --disable ARM64_VA_BITS_42
+> ./scripts/config --disable ARM64_VA_BITS_47
+> ./scripts/config --disable ARM64_VA_BITS_48
+> ./scripts/config --disable ARM64_VA_BITS_52
+> ./scripts/config --enable ARM64_VA_BITS_48
+>=20
+> # Optional: filesystems known to compile with boot-time page size
+> ./scripts/config --enable CONFIG_SQUASHFS_LZ4
+> ./scripts/config --enable CONFIG_SQUASHFS_LZO
+> ./scripts/config --enable CONFIG_SQUASHFS_XZ
+> ./scripts/config --enable CONFIG_SQUASHFS_ZSTD
+> ./scripts/config --enable CONFIG_XFS_FS
+>=20
+> # Optional: trace stuff known to compile with boot-time page size
+> ./scripts/config --enable CONFIG_FTRACE
+> ./scripts/config --enable CONFIG_FUNCTION_TRACER
+> ./scripts/config --enable CONFIG_KPROBES
+> ./scripts/config --enable CONFIG_HIST_TRIGGERS
+> ./scripts/config --enable CONFIG_FTRACE_SYSCALLS
+>=20
+> # Optional: misc mm stuff known to compile with boot-time page size
+> ./scripts/config --enable CONFIG_PTDUMP_DEBUGFS
+> ./scripts/config --enable CONFIG_READ_ONLY_THP_FOR_FS
+> ./scripts/config --enable CONFIG_USERFAULTFD
+>=20
+> # Optional: mm debug stuff known compile with boot-time page size
+> ./scripts/config --enable CONFIG_DEBUG_VM
+> ./scripts/config --enable CONFIG_DEBUG_VM_MAPLE_TREE
+> ./scripts/config --enable CONFIG_DEBUG_VM_RB
+> ./scripts/config --enable CONFIG_DEBUG_VM_PGFLAGS
+> ./scripts/config --enable CONFIG_DEBUG_VM_PGTABLE
+> ./scripts/config --enable CONFIG_PAGE_TABLE_CHECK
+> ./scripts/config --enable CONFIG_PAGE_TABLE_CHECK_ENFORCED
+>=20
+> make olddefconfig
+> make -s -j`nproc` Image
+>=20
+> So I'm explicitly only building and booting the kernel image, not the mod=
+ules.
+> The kernel image contains all the drivers needed to get a VM up and runni=
+ng
+> under QEMU/KVM.
 
-Yes, I mainly added this, to make it easier if someone wants to boot to
-protected nVHE so they don't have to go through the code, but I can
-remove it if it's confusing.
+FWIW with the attached patch I was also able to boot the kernel on
+Ampere Altra bare metal and using modules.
 
-> 
-> 
-> 
-> >
-> >  			nested: VHE-based mode with support for nested
-> >  				virtualization. Requires at least ARMv8.3
-> 
-> Huh, another nit to fix. We only support nested with ARMv8.4 (with
-> FEAT_NV2), as the ARMv8.3 version (the original FEAT_NV) is too ugly
-> for words.
-> 
-> Mind addressing this?
+Petr T
 
-Sure, I will update it in v2.
-
-Thanks,
-Mostafa
-> 
-> Thanks!
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+diff --git a/arch/arm64/mm/pgtable-geometry.c b/arch/arm64/mm/pgtable-geome=
+try.c
+index ba50637f1e9d..4eb074b99654 100644
+--- a/arch/arm64/mm/pgtable-geometry.c
++++ b/arch/arm64/mm/pgtable-geometry.c
+@@ -15,8 +15,14 @@
+  */
+=20
+ int ptg_page_shift __read_mostly;
++EXPORT_SYMBOL_GPL(ptg_page_shift);
++
+ int ptg_pmd_shift __read_mostly;
++EXPORT_SYMBOL_GPL(ptg_pmd_shift);
++
+ int ptg_pud_shift __read_mostly;
++EXPORT_SYMBOL_GPL(ptg_pud_shift);
++
+ int ptg_p4d_shift __read_mostly;
+ int ptg_pgdir_shift __read_mostly;
+ int ptg_cont_pte_shift __read_mostly;
 
