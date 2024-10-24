@@ -4,115 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57116CE8E74
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D75CE8E70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIEpjU+3IgtnLd7LrZmVZXJG1YSY/AnT8I+va3htZAg=; b=C0WQA/WyMoXkmxVK6bU7VVN1YF
-	BUL9MBGM6LbQzRB5CHRQOJkeaGQ3ZLTMQBaMq+f50SCePW2c2Ps3/p0X0fs+wgeSPGeGyQtwMFeiS
-	dVOGBPZgdCI2CsehVquoJC5Khk4f2Z11Jy7Ay1fZtcjKaAbfrXwlerjBis1yahW74l5gScH0WcqKo
-	fDBgwKwF3R7gjudHDf4QqquhUSih1dDMo6GtikQJV8yTmPUg5QRfIWLVtcVB82V2nv6GISQtOIPsP
-	iieT2rlhsuC03zYnqpqyyqGJK7fTdKZALX89K76FXsjfpyYwCbLIoO+UeqTwVvyVtGuW5yD2mhZgB
-	XHB8YwAA==;
+	bh=tT0U40vv7udlyyxS/UUhxQXBmlfc4h3QNcCT/CwDSHw=; b=IRuFMTVgBdbY6XlPH8oxL/6e1I
+	ngy1rdxU8OUwuniopzyUQF7IBJ/tm1FXjNUH/2lh8G0cLs23+X2BWRHxXDaVAK8Nsx1T0YnsH1uvV
+	/D/K8AZxhjh+hr7slgSm1Yr/Ydasd1Lvp5n0QlOFvCsJQ5HAJuXXS0+FobB8esyYkTiKna1xE786M
+	IPylUkGgBccpp3uiDpNDkM/TE1GVp+FO6zaK/Kchl7H/pW/7Za0ffZ63VZhX5YDsn/tKAC9JspMEP
+	bvkJ/SCZ9m1hkBN0qu4EpgOW4BvN6pV99skNttyWk31tilBm5DTkXHpzILNFxEYHfpn189TqCsE+h
+	ILeDnfTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xvR-00000000WfF-2KXe;
-	Thu, 24 Oct 2024 13:30:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3xyp-00000000XXU-3FBY;
+	Thu, 24 Oct 2024 13:34:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xtq-00000000WBj-0Lpj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:29:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CA603A4550B;
-	Thu, 24 Oct 2024 13:29:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5BECC4CECC;
-	Thu, 24 Oct 2024 13:29:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729776552;
-	bh=hjwnZO/GQ8Kpe+e4WVdWEn7tIWB48Xt11zIZDjxDOCk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A15qv7CpW0XdUy0tHwrOFTyiASDHaeNZCy9bWSeoGwmt2LMrJYjMMZB/mrdWHdUZl
-	 5r6daXX/q6r5R/0jAp5b/ipXIlM4WjWF56byNK64TEn/WprgW5wyj+GBTi6S9erJPS
-	 RMD7QTlR12Bc8kFd2J7/8BiS4EM18lX4MeXR5J53+ySu/10NgbOVIhXTh3qP/Ss7t7
-	 eFbDXmuKsb50GLRH5SyyJkmKMbsh0KMzebP37YeUgmM/hD4q/HoSyHS5i+SqyGltQF
-	 QG8oNEo0YhBitkyLrNMhKrd39yZ00CUQfOrWB6HKsiTjO9CG8FN8vricwVKh7eApQm
-	 rkmU4tCAFv/kA==
-Message-ID: <170597c7-b8aa-4744-a44d-db5585545704@kernel.org>
-Date: Thu, 24 Oct 2024 15:29:05 +0200
+	id 1t3xxF-00000000X9y-2LGA;
+	Thu, 24 Oct 2024 13:32:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tT0U40vv7udlyyxS/UUhxQXBmlfc4h3QNcCT/CwDSHw=; b=ZoVkvGoeh5dnJY8bocUvlnB0Ji
+	mHsR/RwnpRK+fX/EPaaxu5OdLtDT6MLLR6/XGxCvnfeoNnjfYR4hFWZloe5hXYr/Ddv/CinvCUl+n
+	tjfd6ohqHXQTeAw8CwusR0vpbM1tyYaTbtXY4GBHskivVRQ3krbVs3WgMwtkCgKXV2DZjbsCuUGrB
+	EI0T/elkEdZPxbJebwQFQGx/uYTVvXhDnmi+HryKRLMytWpZCiwLI5D0uB0xqgZ67AuI9OhVbcnpa
+	470zDLDsKjGvG1Q1NDyXhEjGwlCVLBgt+eUFM9F62ycskM/tkhO7cu50YDymgdRI4k4fpbw5ATRYz
+	MziFEWJw==;
+Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t3xxD-0007hQ-M6; Thu, 24 Oct 2024 15:32:43 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH 2/2] arm64: dts: rockchip: add HDMI support to rk3588-jaguar
+Date: Thu, 24 Oct 2024 15:32:40 +0200
+Message-ID: <20241024133240.1737647-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241024133240.1737647-1-heiko@sntech.de>
+References: <20241024133240.1737647-1-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4 1/5] dt-bindings: firmware: Document bindings for QCOM
- SCMI Generic Extension
-To: Sibi Sankar <quic_sibis@quicinc.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, andersson@kernel.org,
- konrad.dybcio@linaro.org, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
- quic_kshivnan@quicinc.com, conor+dt@kernel.org, arm-scmi@vger.kernel.org
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <20241007061023.1978380-2-quic_sibis@quicinc.com>
- <q2vuiru7sqetwqyitg7azgqg7kge622i2zgq52b55zivwtbev4@4qgzb54xjioq>
- <hxfg6ztpqy7qdsgzhvvapeyh2f55mj7hhuqqkz7si6g5i7nsng@xoyfwztk66aj>
- <3765cf3d-8477-45a7-af0e-b0c78f41eaad@kernel.org>
- <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_062914_286230_9FA1CE18 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20241024_063245_649276_627E9432 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,38 +76,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2024 09:25, Sibi Sankar wrote:
-> 
-> 
-> On 10/8/24 17:41, Krzysztof Kozlowski wrote:
->> On 08/10/2024 14:10, Dmitry Baryshkov wrote:
->>> On Tue, Oct 08, 2024 at 08:49:27AM GMT, Krzysztof Kozlowski wrote:
->>>> On Mon, Oct 07, 2024 at 11:40:19AM +0530, Sibi Sankar wrote:
->>>>> +/*
->>>>> + * QCOM_MEM_TYPE_DDR_QOS supports the following states.
->>>>> + *
->>>>> + * %QCOM_DDR_LEVEL_AUTO:	DDR operates with LPM enabled
->>>>> + * %QCOM_DDR_LEVEL_PERF:	DDR operates with LPM disabled
->>>>> + */
->>>>> +#define QCOM_DDR_LEVEL_AUTO	0x0
->>>>> +#define QCOM_DDR_LEVEL_PERF	0x1
->>>>
->>>> I could not find any driver using these. Can you point me to usage in
->>>> the drivers?
->>>
->>> It's well hidden. These are the raw values used for DDR_QOS memory.
->>
->> So not a binding? Then these should be dropped.
-> 
-> I am not sure why the term "well hidden" was even considered :(
-> The driver just reads them from dt and passes them along. If you
-> want the dt to list magic numbers 0/1 instead I can do that as well.
-> 
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-If these are used by FW, then it's fine, although please document it
-clearly in comment.
+The jaguar has an hdmi output port, which is connected
+to the hdmi0 controller of the rk3588.
 
-Best regards,
-Krzysztof
+Add the necessary plumbing to enable it using the recently merged
+hdmi-qp controller.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+index e24da1a4331d..6a59887979ce 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+@@ -8,6 +8,7 @@
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588.dtsi"
+ 
+@@ -58,6 +59,17 @@ emmc_pwrseq: emmc-pwrseq {
+ 		reset-gpios = <&gpio2 RK_PA3 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
++	hdmi-con {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi0_out_con>;
++			};
++		};
++	};
++
+ 	leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -271,6 +283,29 @@ &gpu {
+ 	status = "okay";
+ };
+ 
++&hdmi0 {
++	/* No CEC on Jaguar */
++	pinctrl-names = "default";
++	pinctrl-0 = <&hdmim0_tx0_hpd &hdmim0_tx0_scl &hdmim0_tx0_sda>;
++	status = "okay";
++};
++
++&hdmi0_in {
++	hdmi0_in_vp0: endpoint {
++		remote-endpoint = <&vp0_out_hdmi0>;
++	};
++};
++
++&hdmi0_out {
++	hdmi0_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
++&hdptxphy_hdmi0 {
++	status = "okay";
++};
++
+ &i2c0 {
+ 	pinctrl-0 = <&i2c0m2_xfer>;
+ 	status = "okay";
+@@ -1052,3 +1087,18 @@ &usb_host1_ehci {
+ &usb_host1_ohci {
+ 	status = "okay";
+ };
++
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vp0 {
++	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
++		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
++		remote-endpoint = <&hdmi0_in_vp0>;
++	};
++};
+-- 
+2.45.2
 
 
