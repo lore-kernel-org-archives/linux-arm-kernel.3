@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E46D4CE8E67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFE7CE8E6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9SIV40LSXuSjqeVp67TdEw14GS8j5AqkwvhbCW3oUA=; b=O3GVm2UDVM1vSb4R4pl9mMf+ux
-	+22FHSB2C0ffhkIsntVun6iEhIZdPBzdJ+xNXDoG9e3xL5fv7Dx439tIRqqdoxN9SlzaGJLUHNUq6
-	N0AH+Zkn499s+vfwuRBp8J/HfcpvXIj1jOVy7FIqZ0UdLmVYzrO6GDmlzCJvFhBpTxB26RSfiEF6R
-	3zofooVVBuZQHEnMEwHYfNVrHERpMWeKr/FYWnY6UJv2WlTY99GB3zP5sR+PohaNsUzGdw6FnBocT
-	PpV8T+NLu19m8NCrU/BqhNuQ86fIheidTBhfUsqEH4Bc8q6ipf4D2O/690tQab6G3v6/kJ+yu71aL
-	Ua8Q5BVA==;
+	bh=uaB8aFj2Ht3u6kDuLsZN5ogpt87zOQuM5ZYebSBe+hU=; b=rUKymjVQwqZtcdDqxdT/soWLh4
+	dExfCtt+LWFJiEJej9Io0WFHhI6kt0/F6uw7crCVGahEZ9qiCynveaF091n32bAG8ufQ4hTKq46m+
+	kq2d4E1j3iESH4LcmZrn8kvFxo9d0Bpl6aEbAFEB2D05gYy04Yraw7xdlp8C9pEEedOqs8CynZnIW
+	hzpTSY8JtTJMESIZjZoxB/bdOOPBV8Qs8bOChIhCR16gCZtCgm7BL5p6C4ntpjgNMS36jjoZ9Ynaq
+	srIePfJzkmxB9s/8u21Tx/xM36jGlOYKXsL9MafnMiwOcpSr495nSPe14MiBH17CEGaUkcztx0KO+
+	IFdA6eVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wvp-00000000Ksr-0DQk;
-	Thu, 24 Oct 2024 12:27:13 +0000
+	id 1t3wxK-00000000L1b-109f;
+	Thu, 24 Oct 2024 12:28:46 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3wuG-00000000Kha-18uE
+	id 1t3wuI-00000000Ki3-1eKk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 12:25:37 +0000
+	Thu, 24 Oct 2024 12:25:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 246C55C5CEF;
-	Thu, 24 Oct 2024 12:25:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D4DC4CEC7;
-	Thu, 24 Oct 2024 12:25:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 53C955C5915;
+	Thu, 24 Oct 2024 12:25:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A3CC4CEE4;
+	Thu, 24 Oct 2024 12:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729772735;
-	bh=DWXGV4gKNnefe7Z37+0J9UM+EPFPvAVYED14D8cKqUw=;
+	s=k20201202; t=1729772737;
+	bh=Fr7inD2Iqs0A99RN+MrWbC0MZ5NUxnu0ZpJwaCBLb2o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OrWAytgEI7HJjWnnYxWwrt3m4TrVNMkNxyGUX4BIGTWZw8r5TI5CiN2r2HM0CKSJy
-	 a7mgEDhfVqo5FJHOybCtIaQ9Hvv2gUQIIkMpF6P6yFxO8vQsiUHga6rL7qLjoQkD1L
-	 PkIEAvcXixFyys6lhS33GVgbZwO6JvaVBncavPZYFXrA5tTgVDZRHyCSWVgTLRfKVY
-	 4DRo/Jm+l6biB7b/nW347vQC+PsEfIygYIXrysPLK5+BOvfpn00axr1+R+zRqygnD6
-	 5Yv9tfdPpHLpxGybOz8u9yk5gQHXoJnBQ0zvMIcyVSEMa6ssO0tFTYkeyxfWKvizlh
-	 cXOAScRrFWcuQ==
+	b=IcaLTi4jI2EvY9DwSFCV+9f2bRi3JeLk9qnDH+Fx570+yygvdfFa4EtKABWL66yC+
+	 hs2QD3Dj9kDT+mgFeVffsTKUn7YLbRpIwsvwogeH41ZrpSUI4FZCeFb2txqIUmOQIC
+	 R/1Mkr6JVK2i+HZCo1emQ+sA5s7mmrJm6qQ+TasAQjdLTDE4BO6h7Xr9cBoBbogv9l
+	 1reoNCw7dfj3XXJHgv3dgD4nuCRU2XBpHZLXAeIcSEMqyupKfwx+5ljgEFRFmqK68k
+	 Kd2dyOi1jFOALnQjxcMeWVUhxZq+Bei+o0GBb1VHvLW0dGoaqAb0hjAj+W99vtIG+S
+	 t1snir3OIhdKg==
 From: Will Deacon <will@kernel.org>
-To: jonathan.cameron@huawei.com,
-	mark.rutland@arm.com,
-	Davidlohr Bueso <dave@stgolabs.net>
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	dave.jiang@intel.com,
-	alison.schofield@intel.com,
-	dan.j.williams@intel.com,
-	ira.weiny@intel.com,
-	fan.ni@samsung.com,
-	a.manzanares@samsung.com,
-	linux-cxl@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v3] perf/cxlpmu: Support missing events in 3.1 spec
-Date: Thu, 24 Oct 2024 13:25:27 +0100
-Message-Id: <172976975631.3760779.1396610844480750567.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf/dwc_pcie: Convert the events with mixed case to lowercase
+Date: Thu, 24 Oct 2024 13:25:28 +0100
+Message-Id: <172976985183.3761088.10462811188399686482.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241010025208.180458-1-dave@stgolabs.net>
-References: <20241010025208.180458-1-dave@stgolabs.net>
+In-Reply-To: <20241016210136.65452-1-ilkka@os.amperecomputing.com>
+References: <20241016210136.65452-1-ilkka@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_052536_374006_F44EEE60 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20241024_052538_495478_5BCDE108 
+X-CRM114-Status: UNSURE (   7.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,20 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Oct 2024 19:52:08 -0700, Davidlohr Bueso wrote:
-> Update the CXL PMU driver to support the new events introduced
-> in the latest revision. These are:
+On Wed, 16 Oct 2024 14:01:36 -0700, Ilkka Koskinen wrote:
+> Group #1 events had both upper and lower case characters in their names.
+> Trying to count such events with perf tool results in an error:
 > 
-> - read/write accesses with TEE constraints.
-> - S2M indicating Modified state.
-> 
+> $ perf stat -e dwc_rootport_10008/Tx_PCIe_TLP_Data_Payload/ sleep 1
+> event syntax error: 'dwc_rootport_10008/Tx_PCIe_TLP_Data_Payload/'
+>                      \___ Bad event or PMU
 > 
 > [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf/cxlpmu: Support missing events in 3.1 spec
-      https://git.kernel.org/will/c/48545b3eff6b
+[1/1] perf/dwc_pcie: Convert the events with mixed case to lowercase
+      https://git.kernel.org/will/c/759b5fc6cc3e
 
 Cheers,
 -- 
