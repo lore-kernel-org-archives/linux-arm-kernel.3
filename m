@@ -4,58 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8048DCE8E8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 14:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3FECE8E89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4QktkhEtLSsXQwHnjJEKvlHWTA4VesoldoBjAPwBag=; b=eZ7dv/nrPR8rFmmVXhosRRCPw9
-	8zft6cvmlJRWw4ywqUln1w4K9V6bpd2rU5DgkFshsh98+QemA18ktofkbDaB/AEvwEuixaDm2Hr8B
-	gcemCrhAAJBG5+ic10rpX4DwxFihuVhfAtzOGErns/bHyQrS5nB6xZY7TqEpXY97ipfq601wJCEN1
-	xWMQH9YV0uF2tCVoVm/uvJpn3viJFxovlSpLLgmuR6QO4uQRGTlGDkbuwZOC5yV15TS3AFinOvVbS
-	tuOOn36C5p7bgeqgnbNCJULdB2RS+kDGjSiEKye2w8eAVoyB6QhN6MMrr4NNR+hs+mFaGTSMbvkSW
-	eBedy4CA==;
+	bh=YK6I5PLe5vnn3daezNykv5OW7YZIVVGDimjgxMpsj78=; b=I0RYNsbWPwBQuDD297oiP/ypPo
+	CLTDN32wuHXLllRg6dYUuB86je21ySr2ve21QB4JPLWSomwPkLQaaXkCZQJPbSUavgIWPnAeffCSq
+	8UQSCrpgQAO8auiquC8wx+x29HJG9LK8G51VK8SZe+Yz2ovW7hu0ZRW1WGGQkNnoQQgB+ZgGqNCE0
+	SHPJl1qlJcXqOdRQsdALnCZYsE42m5xT8124Gyzyp2Yg3adFvLFB4zYvnnI22hhUHQMrDzrmHUWLY
+	yjmFFzAL2BWh6vrSpv7F46FD74fuPhuKeUKe1+CgbQL2/xbzYF3LCwWr7OwiZ4NOMFUcxKLddE0AJ
+	Pj3rXmsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zIb-00000000pjJ-47pm;
-	Thu, 24 Oct 2024 14:58:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zFk-00000000pPK-35AW
+	id 1t3zQh-00000000rWx-2a8V;
+	Thu, 24 Oct 2024 15:07:15 +0000
+Received: from mout.kundenserver.de ([217.72.192.73])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3zOz-00000000rCh-0m91
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 14:55:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF329339;
-	Thu, 24 Oct 2024 07:56:24 -0700 (PDT)
-Received: from [10.44.160.105] (e126510-lin.lund.arm.com [10.44.160.105])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 052A53F528;
-	Thu, 24 Oct 2024 07:55:50 -0700 (PDT)
-Message-ID: <80688edf-83dd-43c6-a1a8-b69acd30f5c3@arm.com>
-Date: Thu, 24 Oct 2024 16:55:48 +0200
+	Thu, 24 Oct 2024 15:05:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=metux.net;
+	s=s1-ionos; t=1729782280; x=1730387080; i=lkml@metux.net;
+	bh=YK6I5PLe5vnn3daezNykv5OW7YZIVVGDimjgxMpsj78=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=NJuHu6XAru1iv8Y2QavuuXn7eIcashfzNhaLQpYlwISVEN7jyZRsWeq5aYWmXE04
+	 BJoZ6lfZ1Xee9I5AGzleU6RaqJNyxg/yfai23dBLUb+jF9eRIxlWJsgBB4XKVceKg
+	 Y4yB2vDQgrlw8UG8FRWtJZlmi2HaqHXvfFTCaQWYNyzfH2FXrExYPL0VAadeosJq3
+	 ne2bQT0Bev9lBYGlhmoc1AVxSpAcEvUJcaArRqRcrXWwxvFL7xUubpKYzNFmQtnx5
+	 685zFveblyfzE2/nKwKHh+0EQ2WioKmYMsZrS13Lb3kVEF68mX5Fg4KyS9fKZB14s
+	 rwnqLyVQ5FEV5oLNGg==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from [192.168.1.178] ([77.2.18.78]) by mrelayeu.kundenserver.de
+ (mreue106 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1M1INQ-1t1FIj2u0w-007JkE; Thu, 24 Oct 2024 17:04:40 +0200
+Message-ID: <64ef261c-82d0-4fad-ba8a-562f247340fb@metux.net>
+Date: Thu, 24 Oct 2024 17:05:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
- uaccess failures
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
- anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org,
- dave.hansen@linux.intel.com, dave.martin@arm.com, jeffxu@chromium.org,
- joey.gouly@arm.com, pierre.langlois@arm.com, shuah@kernel.org,
- sroettger@google.com, will@kernel.org, linux-kselftest@vger.kernel.org,
- x86@kernel.org
-References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
- <20241023150511.3923558-4-kevin.brodsky@arm.com> <ZxoooqtuqTK5CAMR@arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <ZxoooqtuqTK5CAMR@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+To: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
+ gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+ torvalds@linux-foundation.org
+Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
+ geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+ mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+ ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+ wsa+renesas@sang-engineering.com, xeb@mail.ru
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+Content-Language: tl
+From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+In-Reply-To: <20241023080935.2945-2-kexybiscuit@aosc.io>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:nD7udJPR/Y8fqTUurgGJoB/qYxi46eSgFx+TQh+iitYe5aVDi6Z
+ VFnsGd1zdrspq7oX9tBwrzMW8zv+A64eJNH2qESGURPhq9NVflnVf5fIPAiviRapCpSjcYE
+ tPx7vHUgVYZp8lhpA++4M7lJXlKFn99XQHeQDaFxsvc4m/jEEKsEYmwb4KDphNzFM9+KFOm
+ +67Ve2SErcLMO8Fh7EABQ==
+UI-OutboundReport: notjunk:1;M01:P0:KOnECGOcI0w=;7vm4sRGztPXGRYpossyB+BgG3a8
+ nPGt+JeXxf7lrBsug8Tw2LIZwITMC514AugNJnyKXRe9dOjXQBhkLUvfv7re3r4Bkopg1FpMG
+ tCd+jOB0zgmPj63gvQkIEMUhNMh/CpLF2G6+tm8kaNMt8G+Hb6RmDG95Qx76BbYzgbCr2USqD
+ o217CPoDUUqfhkc5E9e/ZtfZWtWHFv8SdHq2oWTE4ibYe86UBrQrOKcCOvTlLZGCKlS8XOrs1
+ x1WOwxb6NLTnPbSx8tWmtx6oGTJOx0uDb9BX42VQpHq8AKlKwCewARcAXE5bilS9oP+Gp1bHm
+ 4c+7iCouDV//xfjEsYd1EvlA5daTgIp3cNwHPTVUVXNxZKBrPcQsTaFgmVJu3LHapzj51Zt7q
+ 7stdIKxS15ptkh/lobQgAmyB7qc3vQ4vu7/iob0IzghtQ39YgBFqRnNQLZ6SrL/xTA8u1Z0Qo
+ snP5lpbp5D7+cthEsOaXdXFESGCQ2SVCyuygxDsHuZGvua5CrMzBj4+GCwsm0pbSIR32wM2za
+ TVd0zEHs9OtOXszUWdToWn//JF6YjRFsEh0PyhrYdPGWZoDxQ4kEQZVv8msLSUG538ZtGIOMt
+ tkYarkyAMB1veVyWg8Nr8QrKB2K6qvQUyKdLp6v7eIUppJiRYsGZ/ByTnv0hIUtiSba1bszi0
+ nwQgoC3XaxFa+WerAadhaBf4JKbz9HtLof0Hnj9U8UlfZLyTBpVtt3U3NjZM0/4RlFgDGiQ8e
+ 5424QtNJ0GUJ0Oes4+qNwjrIvwRuYSaqw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_075556_915946_64A30F8B 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20241024_080529_696192_7F47825A 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +108,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2024 12:59, Catalin Marinas wrote:
-> On Wed, Oct 23, 2024 at 04:05:09PM +0100, Kevin Brodsky wrote:
->> +/*
->> + * Save the unpriv access state into ua_state and reset it to disable any
->> + * restrictions.
->> + */
->> +static void save_reset_user_access_state(struct user_access_state *ua_state)
->> +{
->> +	if (system_supports_poe()) {
->> +		/*
->> +		 * Enable all permissions in all 8 keys
->> +		 * (inspired by REPEAT_BYTE())
->> +		 */
->> +		u64 por_enable_all = (~0u / POE_MASK) * POE_RXW;
-> I think this should be ~0ul.
-
-It is ~0u on purpose, because unlike in REPEAT_BYTE(), I only wanted the
-lower 32 bits to be filled with POE_RXW (we only have 8 keys, the top 32
-bits are RES0). That said, given that D128 has 4-bit pkeys, we could
-anticipate and fill the top 32 bits too (should make no difference on D64).
-
->> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
->>  {
->>  	struct pt_regs *regs = current_pt_regs();
->>  	struct rt_sigframe __user *frame;
->> +	struct user_access_state ua_state;
->>  
->>  	/* Always make any pending restarted system calls return -EINTR */
->>  	current->restart_block.fn = do_no_restart_syscall;
->> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
->>  	if (!access_ok(frame, sizeof (*frame)))
->>  		goto badframe;
->>  
->> -	if (restore_sigframe(regs, frame))
->> +	if (restore_sigframe(regs, frame, &ua_state))
->>  		goto badframe;
->>  
->>  	if (restore_altstack(&frame->uc.uc_stack))
->>  		goto badframe;
->>  
->> +	restore_user_access_state(&ua_state);
->> +
->>  	return regs->regs[0];
->>  
->>  badframe:
-> The saving part I'm fine with. For restoring, I was wondering whether we
-> can get a more privileged POR_EL0 if reading the frame somehow failed.
-> This is largely theoretical, there are other ways to attack like
-> writing POR_EL0 directly than unmapping/remapping the signal stack.
+On 23.10.24 10:09, Kexy Biscuit wrote:
+> This reverts commit 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
 >
-> What I'd change here is always restore_user_access_state() to
-> POR_EL0_INIT. Maybe just initialise ua_state above and add the function
-> call after the badframe label.
+> An absolutely no-one-ever-reviewed patch, not even by the maintainers wh=
+o
+> got removed themselves - at least not on the mailing list. Then the patc=
+h
+> just got slipped into an unrelated subsystem pull request, and got pulle=
+d
+> by Torvalds with not even a comment.
+>
+> What about the next time? Who next would be removed from the MAINTAINERS
+> file, the kernel.org infrastructure? What if the compliance requires
+> another XZ backdoor to be developed without further explanation? Is the
+> kernel development process still done in public?
+>
+> Are the "compliance requirements" documented on docs.kernel.org? Who are
+> responsible for them? Are all that are responsible employees of
+> The Linux Foundation, which is regulated by the U.S. legislature?
 
-I'm not sure I understand. When we enter this function, POR_EL0 is set
-to whatever the signal handler set it to (POR_EL0_INIT by default).
-There are then two cases:
-1) Everything succeeds, including reading the saved POR_EL0 from the
-frame. We then call restore_user_access_state(), setting POR_EL0 to the
-value we've read, and return to userspace.
-2) Any uaccess fails (for instance reading POR_EL0). In that case we
-leave POR_EL0 unchanged and deliver SIGSEGV.
+<snip>
 
-In case 2 POR_EL0 is most likely already set to POR_EL0_INIT, or
-whatever the signal handler set it to. It's not clear to me that forcing
-it to POR_EL0_INIT helps much. Either way it's doubtful that the SIGSEGV
-handler will be able to recover, since the new signal frame we will
-create for it may be a mix of interrupted state and signal handler state
-(depending on exactly where we fail).
+Reviewed-By: Enrico Weigelt <info@metux.net>
 
-Kevin
+
+And, no, don't anybody dare calling me a "Russian troll" !
+
+I grew up in the GDR, which was factually Russian/Soviet-occupied for 40
+years. I grew up behind the iron curtain. And part of my family coming
+from near Mariuopol. They also suffered from that horrible war (and many
+of the wider family fled to Germany).
+
+The only way for stopping that suffering is arranging peace. The longer
+the war goes on, the more suffering, the more people just DIE.
+
+Expelling people just because they happen to live in Russia (or maybe
+just having an .ru mail address) isn't doing anything for peace - it's
+the opposite: it's widening the war. It's rebuiling the iron curtain,
+this time into one of the most international projects of mankind.
+And it's just rascist.
+
+If we really want to expell people for living in countries that are
+starting wars or committing war crimes, then have a closer look at
+who's leading the bodycount "highscore" since WW2. Spoiler: it's not
+Russia - it's the anglo-american block. And guess who's leading the
+hall of shame of using weapons of mass destruction: the US (and their
+vassals).
+
+Who's the only nation who used nuclear bombs against civilians ?
+The US. And who's still using DU munition (also a WoMD - contanimates
+the soil for at least centuries) ? The NATO (yes, including Germany)
+
+Does anybody see where this all is going ?
+
+
+Wars cannot be ended by more war. Only by peace.
+
+
+=2D-mtx
+
+=2D-
+=2D--
+Hinweis: unverschl=C3=BCsselte E-Mails k=C3=B6nnen leicht abgeh=C3=B6rt un=
+d manipuliert
+werden ! F=C3=BCr eine vertrauliche Kommunikation senden Sie bitte ihren
+GPG/PGP-Schl=C3=BCssel zu.
+=2D--
+Enrico Weigelt, metux IT consult
+Free software and Linux embedded engineering
+info@metux.net -- +49-151-27565287
 
