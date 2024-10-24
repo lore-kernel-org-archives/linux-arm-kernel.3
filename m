@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285EDCFA451
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89353CFA457
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oS4wbnXYQQFAptuC+Q+uaYtaPVd4FNlxKc59ShnAuXo=; b=vLV5VvHdXQc3m27Ia/ebTceWFM
-	um7Kcg9kWzLzo9AFwTg/kSA2wWZa6YszFQKkofPN29FMaqcCQOyvA+OMnkklPK+lq5QnJnm+V/wGH
-	fBEtue5FhYSPDniKBjbM7rniszZ5T0lo3+0bgvTDgFE0GlBLyKIRQauJwLoKDqh1Er8VderuWI34J
-	FGNYmbdcaDoulsvaQBeC5ejfmKz1c8L8doPpJYFXkOaNt2TpLXYcxk9ZOwuk3eJYd13UzJ/2er9c6
-	exdxGzARNfkPIeUL8j5sJdgA/q0ZvMIiItUoYp5pRH7CQKHxNt2lfii4qDAythZAg6ibKKcAOHaWD
-	gjYe12uw==;
+	bh=dA2WfLmhQLiqoDQoC2DJMoy1FastSCswdFy5YTo8qZQ=; b=YYvtqw2MxLwVig3Dhg6H5GoDzD
+	uHdByLkt4c+s5JghXY4ofUnfvohbQFwdYzGP3oh888o7xlxA62GztVP74oiPSyj1k1ajwo1onc8yD
+	OGd93MCmTO5sibFMduVY4sedAsU7oq1x3JIEcQXgPV1FbQQOjSzrk9h/LWcI4TdYiBq8JvXyg58Ns
+	gDpQ7IzXFJvy+2e7q3C+HFCVmI4vfsapq72nkCJrozQCJLHelkmE4dksEXS1XLDOrY10MD+nNS/c0
+	duEnUxB5KhJ0Fo3SxDMbpQkPCfOO9G8/mjaoXjj5aK/pdqeVe5d/S2TwjL7lNfFHsxLmVJaAuCK1m
+	0rkgQXDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uuP-000000002Gv-1ZUY;
-	Thu, 24 Oct 2024 10:17:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t3uvv-000000002Ub-1f4R;
+	Thu, 24 Oct 2024 10:19:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3un4-000000000zZ-1mQy
+	id 1t3usL-000000001oo-3UEi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:10:04 +0000
+	Thu, 24 Oct 2024 10:15:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2D1E6A45309;
-	Thu, 24 Oct 2024 10:09:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66CE0C4CEC7;
-	Thu, 24 Oct 2024 10:09:56 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EB296A452BE;
+	Thu, 24 Oct 2024 10:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDBBC4CEC7;
+	Thu, 24 Oct 2024 10:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729764601;
-	bh=engmJwWWarFhbbbGk2yuL/t2q2JrqeyZFQ90uq8h+4Q=;
+	s=k20201202; t=1729764927;
+	bh=pM1PKZp1R+TXlQ8+p/PynYznWUaRhv+bSuOtAgtk/VY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YEqrXrDBrtGgH0/gCx20QY05rgXJq9N2GRIFF6U7sVVmeONYDJioTR80LWhssYJkb
-	 wDZn8oxxamMFa2ZiYzDLBIP70hfSsxhLUf2OHhiJaMj9Aw8+XQF6Xhd15h9lmGnX8y
-	 XjF/X8COxXVWuBmMc3C/xkw4gSOQ6IL6u8ONWo5RINVfbgm1kVxqYgLK18HBka3sXX
-	 ppVZcHK/18CHYlZ2YcIw5h2byTcWCDFzVrD7l+6tM+KclekSqab6pfbb4KCUJ88i2a
-	 Qm3Q8aT085Q0VaOuyc74F2oB4JTWfFvWyKjGIF/MHcgSZbvTHdXfUdWaSGOfnmKGHE
-	 VDnq7Y8jwdWbA==
-Message-ID: <4c071100-f49c-4dcb-add8-99427fda268a@kernel.org>
-Date: Thu, 24 Oct 2024 12:09:53 +0200
+	b=Chvd5AzujH23BqSpFBvAXQ86/I+tuZKyoPw+paf+IR/Pa5xpWtcej2n9DV6/FB24L
+	 tmYXsmV1UKPqeZX94yiR6xazvIwJXpTf1VpPQUubsfoQJwQMbZqClDBjjFj/iXRIFv
+	 h34dO1TVF60x/IC+LJOBWn3Xbofk2BJSHInO58TARYCwQu/EZYhhJf57wDJo+spZ8s
+	 /Tl5/zMzPmm/GFLGf40XuP2QXvC0kIQ2BjH/OOP84xTlDPYGC+hmzVsXhUS2fl5hBC
+	 vTlL3o7swFQenAqQgNR9OFPDBIRkNCyYpa9hCG6K+09+5eOg8fPKgkwIbIJrlzRNb6
+	 JPQfjFZwaW6YA==
+Message-ID: <94757582-92db-4b5a-86e0-75d5f74c52e6@kernel.org>
+Date: Thu, 24 Oct 2024 12:15:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] dt-bindings: arm: cpus: Add Samsung Mongoose M3
+Subject: Re: [PATCH 11/12] arm64: dts: exynos: Add Exynos9810 SoC support
 To: Markuss Broks <markuss.broks@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -60,7 +60,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
  Maksym Holovach <nergzd@nergzd723.xyz>
 References: <20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com>
- <20241024-exynos9810-v1-1-ed14d0d60d08@gmail.com>
+ <20241024-exynos9810-v1-11-ed14d0d60d08@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241024-exynos9810-v1-1-ed14d0d60d08@gmail.com>
+In-Reply-To: <20241024-exynos9810-v1-11-ed14d0d60d08@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_031003_226881_48D41794 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_031530_051767_66A62AD7 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,15 +127,176 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/10/2024 00:36, Markuss Broks wrote:
-> Add the compatible for Samsung Mongoose M3 CPU core to the schema.
+> Exynos 9810 is an ARMv8 mobile SoC found in various Samsung devices,
+> such as Samsung Galaxy S9 (starlte), S9 Plus (star2lte),
+> Note 9 (crownlte) and perhaps others.
+> 
+> Add minimal support for this SoC, including basic stuff like:
+> - PSCI for bringing up secondary cores
+> - ARMv8 generic timer
+> - GPIO and pinctrl.
+> 
+> The firmware coming with the devices based on this SoC is buggy
+> and doesn't configure CNTFRQ_EL0, as required by spec, so it's
+> needed to hardcode the frequency in the timer node.
 > 
 > Co-authored-by: Maksym Holovach <nergzd@nergzd723.xyz>
-
-There is no such tag. Maybe you wanted Co-developed-by? But then missing
-SoB - see submitting patches.
-
 > Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 > ---
+>  arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi | 525 +++++++++++++++++++++
+>  arch/arm64/boot/dts/exynos/exynos9810.dtsi         | 256 ++++++++++
+>  2 files changed, 781 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4b2ee59dc7241b0ec31c99fd909d1c5e25aa77e0
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi
+> @@ -0,0 +1,525 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+> +/*
+> + * Samsung's Exynos 9810 SoC pin-mux and pin-config device tree source
+> + *
+> + * Copyright (c) 2024 Markuss Broks <markuss.broks@gmail.com>
+> + * Copyright (c) 2024 Maksym Holovach <nergzd@nergzd723.xyz>
+> + */
+> +
+> +#include "exynos-pinctrl.h"
+> +
+> +&pinctrl_alive {
+> +	wakeup-interrupt-controller {
+
+This is part of SoC DTSI.
+
+> +		compatible = "samsung,exynos9810-wakeup-eint",
+> +			     "samsung,exynos850-wakeup-eint",
+> +			     "samsung,exynos7-wakeup-eint";
+> +	};
+> +
+> +	etc1: etc1-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpa0: gpa0-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpa1: gpa1-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 51 IRQ_TYPE_LEVEL_HIGH>;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpa2: gpa2-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpa3: gpa3-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpa4: gpa4-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpq0: gpq0-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +};
+> +
+> +&pinctrl_aud {
+> +	gpb0: gpb0-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpb1: gpb1-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +
+> +	gpb2: gpb2-gpio-bank {
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +	};
+> +};
+> +
+> +&pinctrl_chub {
+> +	interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
+
+Please do not introduce different style than all other files.
+
 
 Best regards,
 Krzysztof
