@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15823CFA47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFEECFA457
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djMhszpvrTsvq2dqViLTWU4GfWaP/pFMSOoac/1/iM4=; b=U1gPAqRkeQTtkloDSfvOQxD6lr
-	4QYhDuFXAo9W31ak+PhVkxztRu2MzueCVuSqpJKcoFUOoQWeRIj5C1ISWcXQpMGJ9lMjTvFoeCULQ
-	G5RLSD3IurY0Uolfdh/5lgUURl9hwG8NGo6y2oVXokSrJs7nwI0P6AXzSrdi5fyb11pdGY4cN6WnH
-	3NyvOf+Jia3xoSfPxdNtxf5Becf1IXxPY4etSLLE184O6yzmiTard1fxV4S0F5axXFJ076CKQVY29
-	LHM5emGJ+EsLtvOpf4BU1Zo60Eo0zDdfZiv3V3DV5RwNvsROHDxAY+6I3Dbv+tVurpd6QnknNCM1r
-	UUANjxKw==;
+	bh=2OAX3jc19+bpKbCon7+OaXnYH7HKKrBrPJCIcgHFU2I=; b=0w4ZV3s14eqysTpbVT+dJvt2R+
+	ewj+aePc+nEPCq5V8nVw5UvlUrs80+W1plQtnmggfodM0eDRKS2zOkkIhAvEYSjdIjGiy560p0P4K
+	8YcGZAEcjC9gX/5kcR7JYO011dzYLcl0n8m7oHcv7Oe1ti+BoMV3v2MGdYJlc5k18HMd1tJW7NRmX
+	Tuqjc9A6gdP3mXbI7j4jW6Z8yezpa4m/Yuubj9A0lk/KwnFoBB5jIbh03661jcEPRU+nxoMj+isHm
+	TTKXeSgdn5wHe0gwtFd8DeYQn9hyB5iZI4o/vQcvsi4DAx/2s+HcwkNZqga/bJAPCs57fGUHzoWu/
+	bo7HSrBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vGn-0000000069o-15p6;
-	Thu, 24 Oct 2024 10:40:45 +0000
+	id 1t3vII-000000006Hl-1mHR;
+	Thu, 24 Oct 2024 10:42:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3v8a-000000004gV-2d3B
+	id 1t3vAd-000000005AG-2rdR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:32:18 +0000
+	Thu, 24 Oct 2024 10:34:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DCCC339;
-	Thu, 24 Oct 2024 03:32:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3905497;
+	Thu, 24 Oct 2024 03:34:52 -0700 (PDT)
 Received: from [10.57.88.37] (unknown [10.57.88.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B2C33F71E;
-	Thu, 24 Oct 2024 03:32:11 -0700 (PDT)
-Message-ID: <3027c366-2cb0-4984-8ee7-aae92fb51512@arm.com>
-Date: Thu, 24 Oct 2024 11:32:09 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C7373F7C5;
+	Thu, 24 Oct 2024 03:34:20 -0700 (PDT)
+Message-ID: <aef00d9d-0b1d-43f9-90d5-ee1b524ff8c8@arm.com>
+Date: Thu, 24 Oct 2024 11:34:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 36/57] xen: Remove PAGE_SIZE compile-time constant
- assumption
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
 Content-Language: en-GB
-To: Stefano Stabellini <sstabellini@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
+To: Neal Gompa <neal@gompa.dev>
+Cc: Nick Chan <towinchenmi@gmail.com>, Eric Curtin <ecurtin@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
  Anshuman Khandual <anshuman.khandual@arm.com>,
  Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
  David Hildenbrand <david@redhat.com>, Greg Marsden
@@ -49,21 +49,26 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
  Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
- Juergen Gross <jgross@suse.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- xen-devel@lists.xenproject.org, julien@xen.org
+ Hector Martin <marcan@marcan.st>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, asahi@lists.linux.dev
 References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-36-ryan.roberts@arm.com>
- <829b5662-13c0-4728-894c-b2d578681b11@arm.com>
- <alpine.DEB.2.22.394.2410221808160.3833@ubuntu-linux-20-04-desktop>
+ <4623805.lGaqSPkdTl@skuld-framework>
+ <09e480d7-3ef6-4352-a484-91733ad7d231@arm.com>
+ <CAOgh=FwEv3LjA7bfcOvWK7kZEcKRyLpQmTqWn5WDsSsYwGqu+A@mail.gmail.com>
+ <649d7aa6-4163-4969-ba14-777f0e9cddb1@arm.com>
+ <CAEg-Je9phqMqXCVAEjtXKadKGUmZcuSnFLDn=7C4+MaUu9KpYw@mail.gmail.com>
+ <872f1c9c-9fb2-4372-810d-abe5419c4bd8@arm.com>
+ <CAEg-Je9RpGGmw_pto7seYj_JGNUjSTKtcjLToQ8Mbp2_zrLGoQ@mail.gmail.com>
+ <2174ff43-3ab6-409b-a8a8-bd319a134d86@gmail.com>
+ <997f1826-ec45-4d47-ad94-33c0d194b5a4@arm.com>
+ <CAEg-Je85pnstdRCxocZ3D0sLtZiCPAB+jHKyW+K-H2rFeVwP7Q@mail.gmail.com>
 From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <alpine.DEB.2.22.394.2410221808160.3833@ubuntu-linux-20-04-desktop>
+In-Reply-To: <CAEg-Je85pnstdRCxocZ3D0sLtZiCPAB+jHKyW+K-H2rFeVwP7Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_033216_806069_F46D2420 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20241024_033423_860414_0F0B62EF 
+X-CRM114-Status: GOOD (  34.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,212 +83,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 02:23, Stefano Stabellini wrote:
-> +Julien
-> 
-> On Wed, 16 Oct 2024, Ryan Roberts wrote:
->> + Juergen Gross, Stefano Stabellini
+On 22/10/2024 18:30, Neal Gompa wrote:
+
+[...]
+
+>>>>>>>>>>
+>>>>>>>>>> This is a generally very exciting patch set! I'm looking forward to seeing it
+>>>>>>>>>> land so I can take advantage of it for Fedora ARM and Fedora Asahi Remix.
+>>>>>>>>>>
+>>>>>>>>>> That said, I have a couple of questions:
+>>>>>>>>>>
+>>>>>>>>>> * Going forward, how would we handle drivers/modules that require a particular
+>>>>>>>>>> page size? For example, the Apple Silicon IOMMU driver code requires the
+>>>>>>>>>> kernel to operate in 16k page size mode, and it would need to be disabled in
+>>>>>>>>>> other page sizes.
+>>>>>>>>>
+>>>>>>>>> I think these drivers would want to check PAGE_SIZE at probe time and fail if an
+>>>>>>>>> unsupported page size is in use. Do you see any issue with that?
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> * How would we handle an invalid selection at boot?
+>>>>>>>>>
+>>>>>>>>> What do you mean by invalid here? The current policy validates that the
+>>>>>>>>> requested page size is supported by the HW by checking mmfr0. If no page size is
+>>>>>>>>> passed on the command line, or the passed value is not supported by the HW, then
+>>>>>>>>> the we default to the largest page size supported by the HW (so for Apple
+>>>>>>>>> Silicon that would be 16k since the HW doesn't support 64k). Although I think it
+>>>>>>>>> may be better to change that policy to use the smallest page size in this case;
+>>>>>>>>> 4k is the safer bet for compat and will waste much less memory than 64k.
+>>>>>>>>>
+>>>>>>>>>> Can we program in a
+>>>>>>>>>> fallback when the "wrong" mode is selected for a chip or something similar?
+>>>>>>>>>
+>>>>>>>>> Do you mean effectively add a machanism to force 16k if the detected HW is Apple
+>>>>>>>>> Silicon? The trouble is that we need to select the page size, very early in
+>>>>>>>>> boot, before start_kernel() is called, so we really only have generic arch code
+>>>>>>>>> and the command line with which to make the decision.
+>>>>>>>>
+>>>>>>>> Yes... I think a build-time CONFIG for default page size, which can be
+>>>>>>>> overridden by a karg makes sense... Even on platforms like Apple
+>>>>>>>> Silicon you may want to test very specific things in 4k by overriding
+>>>>>>>> with a karg.
+>>>>>>>
+>>>>>>> Ahh, yes, that would certainly work. I'll work it into the next version.
+>>>>>>>
+>>>>>>
+>>>>>> Could we maybe extend to have some kind of way to include a table of
+>>>>>> SoC IDs that certain modes are disabled (e.g. 64k on Apple Silicon)
+>>>>>
+>>>>> 64k is already disabled on Apple Silicon because mmfr0 reports that 64k is not
+>>>>> supported.
+>>>>>
+>>>>>> and preferred modes when no arg is set (16k for Apple Silicon)? That
+>>>>>
+>>>>> And it's not obvious that we should hard-code a page size preference to a SoC
+>>>>> ID. If the CPU can support multiple page sizes, it should be up to the SW stack
+>>>>> to decide, not the SoC.
+>>>>>
+>>>>> I'm guessing your desire is to have a single kernel build that will boot 16k by
+>>>>> default on Apple Silicon and 4k by default on other systems, all without needing
+>>>>> to modify the command line? Personally I think it's cleaner to just require
+>>>>> setting the page size on the command line in these cases.
+>>>>>
+>>>>>> way it'd work something like this:
+>>>>>>
+>>>>>> 1. Table identification of 4/16/64 depending on identified SoC
+>>>>> So I'd prefer not to have this
+>>>>>
+>>>>>> 2. Unidentified ones follow build-time default
+>>>>>> 3. karg forces a mode regardless
+>>>>> But keep these 2.
+>>>>>
+>>>>
+>>> Since we are talking about Apple Silicon and page size, I would like to
+>>> add that on the Apple Silicon SoCs I am working on, the situation is like
+>>> this:
+>>>
+>>> Apple A7 (s5l8960x), A8 (T7000), A8X (T7001): CPU MMU support 4K and 64K
+>>> page sizes.
+>>>
+>>> Apple A9 (s8000/s8003), A9X (s8001), A10 (t8010), A10X (t8011), A11 (t8015):
+>>> CPU MMU Support 16K and 64K page sizes.
+>>>
+>>> However, all of them have 4K page DART IOMMUs.
+>>>
+>>>> I think it makes sense to have it, because it's not just Apple Silicon
+>>>> where such a preference/requirement may be necessary. Apple Silicon
+>>>> technically works at 4k, but is completely broken at 4k because Linux
+>>>> cannot do 16k IOMMU with 4k everything else, so being able to at least
+>>>> prefer 16k out of the box is important. And SoCs like the NVIDIA Grace
+>>>> Hopper platform prefer 64k over other options (though I am unaware of
+>>>> a gross incompatibility that effectively requires it like Apple
+>>>> Silicon has).
+>>>>
+>>>> When we're trying to get to "single generic image that works
+>>>> everywhere", stuff like this matters and I would really like you to
+>>>> consider it from the lens of "we want things to work as automagic as
+>>>> they do on x86".
+>>> For me, in order to get to this level of automagic, there do need to be
+>>> a table of which SoC should use which page size table.
 >>
->> This was a rather tricky series to get the recipients correct for and my script
->> did not realize that "supporter" was a pseudonym for "maintainer" so you were
->> missed off the original post. Appologies!
+>> OK, but it's not clear to me that this table needs to be in the kernel. Could it
+>> not be something in user space (e.g. during installation) that configures the
+>> kernel command line?
 >>
->> More context in cover letter:
->> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
+> 
+> This is not compatible with using things like ISOs with UEFI+ACPI
+> enabled desktop/server systems. We need to be able to safely,
+> automatically, and correctly boot up and support hardware. The only
+> place to do that early enough is in the kernel. But this can wait
+> until the core stuff is in.
+
+OK got it.
+
+> 
+>> Regardless, the hard work here is getting the boot-time page size selection
+>> mechanism in place. Once that's there, follow up patches can add the desired
+>> policy. I'd rather leave it out for now to avoid anything slowing down the core
+>> work.
 >>
->>
->> On 14/10/2024 11:58, Ryan Roberts wrote:
->>> To prepare for supporting boot-time page size selection, refactor code
->>> to remove assumptions about PAGE_SIZE being compile-time constant. Code
->>> intended to be equivalent when compile-time page size is active.
->>>
->>> Allocate enough "frame_list" static storage in the balloon driver for
->>> the maximum supported page size. Although continue to use only the first
->>> PAGE_SIZE of the buffer at run-time to maintain existing behaviour.
->>>
->>> Refactor xen_biovec_phys_mergeable() to convert ifdeffery to c if/else.
->>> For compile-time page size, the compiler will choose one branch and
->>> strip the dead one. For boot-time, it can be evaluated at run time.
->>>
->>> Refactor a BUILD_BUG_ON to evaluate the limit (when the minimum
->>> supported page size is selected at boot-time).
->>>
->>> Reserve enough storage for max page size in "struct remap_data" and
->>> "struct xenbus_map_node".
->>>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>> ---
->>>
->>> ***NOTE***
->>> Any confused maintainers may want to read the cover note here for context:
->>> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
->>>
->>>  drivers/xen/balloon.c              | 11 ++++++-----
->>>  drivers/xen/biomerge.c             | 12 ++++++------
->>>  drivers/xen/privcmd.c              |  2 +-
->>>  drivers/xen/xenbus/xenbus_client.c |  5 +++--
->>>  drivers/xen/xlate_mmu.c            |  6 +++---
->>>  include/xen/page.h                 |  2 ++
->>>  6 files changed, 21 insertions(+), 17 deletions(-)
->>>
->>> diff --git a/drivers/xen/balloon.c b/drivers/xen/balloon.c
->>> index 528395133b4f8..0ed5f6453af0e 100644
->>> --- a/drivers/xen/balloon.c
->>> +++ b/drivers/xen/balloon.c
->>> @@ -131,7 +131,8 @@ struct balloon_stats balloon_stats;
->>>  EXPORT_SYMBOL_GPL(balloon_stats);
->>>  
->>>  /* We increase/decrease in batches which fit in a page */
->>> -static xen_pfn_t frame_list[PAGE_SIZE / sizeof(xen_pfn_t)];
->>> +static xen_pfn_t frame_list[PAGE_SIZE_MAX / sizeof(xen_pfn_t)];
->>> +#define FRAME_LIST_NR_ENTRIES (PAGE_SIZE / sizeof(xen_pfn_t))
->>>  
->>>  
->>>  /* List of ballooned pages, threaded through the mem_map array. */
->>> @@ -389,8 +390,8 @@ static enum bp_state increase_reservation(unsigned long nr_pages)
->>>  	unsigned long i;
->>>  	struct page   *page;
->>>  
->>> -	if (nr_pages > ARRAY_SIZE(frame_list))
->>> -		nr_pages = ARRAY_SIZE(frame_list);
->>> +	if (nr_pages > FRAME_LIST_NR_ENTRIES)
->>> +		nr_pages = FRAME_LIST_NR_ENTRIES;
->>>  
->>>  	page = list_first_entry_or_null(&ballooned_pages, struct page, lru);
->>>  	for (i = 0; i < nr_pages; i++) {
->>> @@ -434,8 +435,8 @@ static enum bp_state decrease_reservation(unsigned long nr_pages, gfp_t gfp)
->>>  	int ret;
->>>  	LIST_HEAD(pages);
->>>  
->>> -	if (nr_pages > ARRAY_SIZE(frame_list))
->>> -		nr_pages = ARRAY_SIZE(frame_list);
->>> +	if (nr_pages > FRAME_LIST_NR_ENTRIES)
->>> +		nr_pages = FRAME_LIST_NR_ENTRIES;
->>>  
->>>  	for (i = 0; i < nr_pages; i++) {
->>>  		page = alloc_page(gfp);
->>> diff --git a/drivers/xen/biomerge.c b/drivers/xen/biomerge.c
->>> index 05a286d24f148..28f0887e40026 100644
->>> --- a/drivers/xen/biomerge.c
->>> +++ b/drivers/xen/biomerge.c
->>> @@ -8,16 +8,16 @@
->>>  bool xen_biovec_phys_mergeable(const struct bio_vec *vec1,
->>>  			       const struct page *page)
->>>  {
->>> -#if XEN_PAGE_SIZE == PAGE_SIZE
->>> -	unsigned long bfn1 = pfn_to_bfn(page_to_pfn(vec1->bv_page));
->>> -	unsigned long bfn2 = pfn_to_bfn(page_to_pfn(page));
->>> +	if (XEN_PAGE_SIZE == PAGE_SIZE) {
->>> +		unsigned long bfn1 = pfn_to_bfn(page_to_pfn(vec1->bv_page));
->>> +		unsigned long bfn2 = pfn_to_bfn(page_to_pfn(page));
->>> +
->>> +		return bfn1 + PFN_DOWN(vec1->bv_offset + vec1->bv_len) == bfn2;
->>> +	}
->>>  
->>> -	return bfn1 + PFN_DOWN(vec1->bv_offset + vec1->bv_len) == bfn2;
->>> -#else
->>>  	/*
->>>  	 * XXX: Add support for merging bio_vec when using different page
->>>  	 * size in Xen and Linux.
->>>  	 */
->>>  	return false;
->>> -#endif
->>>  }
->>> diff --git a/drivers/xen/privcmd.c b/drivers/xen/privcmd.c
->>> index 9563650dfbafc..847f7b806caf7 100644
->>> --- a/drivers/xen/privcmd.c
->>> +++ b/drivers/xen/privcmd.c
->>> @@ -557,7 +557,7 @@ static long privcmd_ioctl_mmap_batch(
->>>  	state.global_error  = 0;
->>>  	state.version       = version;
->>>  
->>> -	BUILD_BUG_ON(((PAGE_SIZE / sizeof(xen_pfn_t)) % XEN_PFN_PER_PAGE) != 0);
->>> +	BUILD_BUG_ON(((PAGE_SIZE_MIN / sizeof(xen_pfn_t)) % XEN_PFN_PER_PAGE_MAX) != 0);
 > 
-> Is there any value in keep this test? And if so, what should it look
-> like? I think we should turn it into a WARN_ON:
-> 
-> WARN_ON(((PAGE_SIZE / sizeof(xen_pfn_t)) % XEN_PFN_PER_PAGE) != 0);
-> 
-> It doesn't make much sense having a BUILD_BUG_ON on a variable that can
-> change?
+> Sure, this can be done afterward.
 
-I believe that as long as we assume sizeof(xen_pfn_t), PAGE_SIZE and
-XEN_PAGE_SIZE are all power-of-two sizes, then this single build-time test
-should cover all possible boot-time PAGE_SIZEs.
-
-Logic:
-
-If PAGE_SIZE and XEN_PAGE_SIZE are power-of-two, then XEN_PFN_PER_PAGE must also
-be power-of-two. XEN_PFN_PER_PAGE_MAX is just the worst case limit.
-
-(PAGE_SIZE_MIN / sizeof(xen_pfn_t)) is the number of xen_pfn_t that fit on
-smallest page.
-
-If you can get an integer multiple number of XEN_PFN_PER_PAGE_MAX on the
-smallest page, then it remains an integer multiple as PAGE_SIZE gets bigger,
-assuming it is restricted to power-of-two sizes.
-
-Perhaps there is a floor in my logic?
-
-I'd prefer to keep BUILD_BUG_ON where possible to avoid the additional image
-size bloat and runtime costs.
+Thanks! I understand the problem a bit better now. I'm sure we can find a
+solution once we have landed the core mechanism.
 
 Thanks,
 Ryan
 
-> 
-> 
->>>  	/* mmap_batch_fn guarantees ret == 0 */
->>>  	BUG_ON(traverse_pages_block(m.num, sizeof(xen_pfn_t),
->>>  				    &pagelist, mmap_batch_fn, &state));
->>> diff --git a/drivers/xen/xenbus/xenbus_client.c b/drivers/xen/xenbus/xenbus_client.c
->>> index 51b3124b0d56c..99bde836c10c4 100644
->>> --- a/drivers/xen/xenbus/xenbus_client.c
->>> +++ b/drivers/xen/xenbus/xenbus_client.c
->>> @@ -49,9 +49,10 @@
->>>  
->>>  #include "xenbus.h"
->>>  
->>> -#define XENBUS_PAGES(_grants)	(DIV_ROUND_UP(_grants, XEN_PFN_PER_PAGE))
->>> +#define XENBUS_PAGES(_grants)		(DIV_ROUND_UP(_grants, XEN_PFN_PER_PAGE))
->>> +#define XENBUS_PAGES_MAX(_grants)	(DIV_ROUND_UP(_grants, XEN_PFN_PER_PAGE_MIN))
->>>  
->>> -#define XENBUS_MAX_RING_PAGES	(XENBUS_PAGES(XENBUS_MAX_RING_GRANTS))
->>> +#define XENBUS_MAX_RING_PAGES		(XENBUS_PAGES_MAX(XENBUS_MAX_RING_GRANTS))
->>>  
->>>  struct xenbus_map_node {
->>>  	struct list_head next;
->>> diff --git a/drivers/xen/xlate_mmu.c b/drivers/xen/xlate_mmu.c
->>> index f17c4c03db30c..a757c801a7542 100644
->>> --- a/drivers/xen/xlate_mmu.c
->>> +++ b/drivers/xen/xlate_mmu.c
->>> @@ -74,9 +74,9 @@ struct remap_data {
->>>  	int mapped;
->>>  
->>>  	/* Hypercall parameters */
->>> -	int h_errs[XEN_PFN_PER_PAGE];
->>> -	xen_ulong_t h_idxs[XEN_PFN_PER_PAGE];
->>> -	xen_pfn_t h_gpfns[XEN_PFN_PER_PAGE];
->>> +	int h_errs[XEN_PFN_PER_PAGE_MAX];
->>> +	xen_ulong_t h_idxs[XEN_PFN_PER_PAGE_MAX];
->>> +	xen_pfn_t h_gpfns[XEN_PFN_PER_PAGE_MAX];
->>>  
->>>  	int h_iter;	/* Iterator */
->>>  };
->>> diff --git a/include/xen/page.h b/include/xen/page.h
->>> index 285677b42943a..86683a30038a3 100644
->>> --- a/include/xen/page.h
->>> +++ b/include/xen/page.h
->>> @@ -21,6 +21,8 @@
->>>  	((page_to_pfn(page)) << (PAGE_SHIFT - XEN_PAGE_SHIFT))
->>>  
->>>  #define XEN_PFN_PER_PAGE	(PAGE_SIZE / XEN_PAGE_SIZE)
->>> +#define XEN_PFN_PER_PAGE_MIN	(PAGE_SIZE_MIN / XEN_PAGE_SIZE)
->>> +#define XEN_PFN_PER_PAGE_MAX	(PAGE_SIZE_MAX / XEN_PAGE_SIZE)
->>>  
->>>  #define XEN_PFN_DOWN(x)	((x) >> XEN_PAGE_SHIFT)
->>>  #define XEN_PFN_UP(x)	(((x) + XEN_PAGE_SIZE-1) >> XEN_PAGE_SHIFT)
->>
 
 
