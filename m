@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCCED0BB5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A19BD0BB63
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 06:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=; b=A6In8Sx54tb5hnTSJ2NE7/dEKy
-	dj5rNbSPRQBv+xk71Wd/APA4GbuoJkF6pl0iOXBzE/4SpJ/pY7Cwlk+7W4F4jiiyD/BABWFDcbQwK
-	+nKzHUPM986vh1AvtBriOO8FryTNl2sGSJQLxDKIGMDb7OgC8Bn+LnYg00VA2EafTMLXnlwHsD54e
-	X/5kG1pV39M1pnzX5wobGGW3H3hhVUG3c0YPR69S4tzt3yplPnhxRBAso1QS6clBpsn6cMqaVPHFQ
-	9ROVPY0ZyW3gUL9PPrQHua9v3dRYczxCpgaQEEqGa68U3Bma083VJT0O2paJyKEsYXMFrpzk1cce/
-	w56+KC5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SAKgQcAAwB99nkfmznaguckD9Z4cWK5+suxAwPb4ifM=; b=kFKmdwa6n3faTJ06G+6KGLXWTd
+	HTAMIhRv/Kn1vhbZ0Gt/47Wx+wTnTNxM5vbZYr87hmckSMiep4uqAfBDA17bfGBSp1BZOuQ1WI0mL
+	37njC7htO7AWTt3GJb4SfQ68pK2JbzDRQFEVWheslEc9FlTviPh88LCK6XMk2Kd5mwz2U+oXzNF7O
+	alOO03ZGE1MJCtd4gvuQ6uiP0dRU+khxQuZ24Pg33R1QucEKi+YwZvXAiyqmEPeezXQcJq5ClqdYz
+	OyyTZUhn3qhmUWxnhBh89RD0uLjhB5VkJgX6OeqA9G24IKRBc+1bblzj/Lavj+nSM47ZiqylIXnRY
+	AtDcavrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3rEF-0000000Gu7L-07Wi;
-	Thu, 24 Oct 2024 06:21:51 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1t3rFn-0000000GuX0-0XZC;
+	Thu, 24 Oct 2024 06:23:27 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3r9h-0000000Gt9Q-1hiy
+	id 1t3rCR-0000000Gtho-3lOb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 06:17:11 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7ea6a4f287bso313178a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Oct 2024 23:17:05 -0700 (PDT)
+	Thu, 24 Oct 2024 06:20:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729750625; x=1730355425; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=;
-        b=LFz3il/FYnrvLS0T48Bxh3/IqJjJhlEBBnxpFAVLDjlniMIcEqfl4SuvIigoWpDo6A
-         YKm0uX82xojVWbwEDjT4SSEudwFXKD3CoTJCiX19CfeGHiG7bNpsI9MD6p6FZGXyhCvr
-         fquTXOkvf0ieq98Fp7q69psfAT5tA+oJMbgWAzfPkaJeC7J0OoD1opmAauOGzVFZ8lWE
-         TH5zoy/kBtNgoISnzA5E39oxpwZQlZIcBQrSt1w3hsWHclAZ+7oaS1KEJPgZDyJ8G50t
-         yhSsApAqMa2pAf8vwMXhggJQb+7OkQBQMDnMj+SDf9JAIJt7u9VjmGiSil3jCElqAJdW
-         XTtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729750625; x=1730355425;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7kDqeaAprBXUkM4Fq1Ym36ZhnawEXTDWt16M3cGZQYI=;
-        b=PXRP7mSr2pVJVyU2SpE0pPHEDiPs5zafmhHpZ/ZmE6Q4kzij/bNzXg92fKFpBKFAFU
-         EOEaab6EtA0Iz6wu7UyYIqlU0zmqGZwGtKeo57tw9h3GcFk0rm8nIrMiByqRcbYAPgHk
-         Fq2AgCgj43eAXTmaisHNQq0yr9I3bhe5CcO4h/jAxdMB0plRKCTt5Alkn2d9mcKheB5R
-         VEdRChKI9BM/vMr4ty0zNH7ZP7nNDQ1RJeOtBMZGcH4o01SBYdd3uu6vNHsE7/bthtxx
-         dAbutsFwEpaI3waUyjrtr85V8LuIiCgnzcFtV5teaJj8ouHJymgMZ6RIQOrcVJtta90k
-         VvJw==
-X-Forwarded-Encrypted: i=1; AJvYcCWSmgbTgZv7bfrl3TtcCjt+BBlXNOfEjbaWLshb2lgyUVP3gOcz8LRZ4p1W5nQmr9kJlJf/fdH6+Edklek2feYB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr3JM8WtKB6IhAkWI8gmCr3GuxL5keSLJL3jFq+Oa77wmBUTon
-	olsM8gMVXDEUOrv7/zRjcPV41GqvK2J7IZTIwOBJ1tKGSvAsKCoeakqaEkeAgjisqAHeQuM5MSD
-	U42P5ZUyMGvfAgrOQ6KDyIg5glClXxKocvFDe
-X-Google-Smtp-Source: AGHT+IFcCYtp7nVgkoJ5rzaztD8OtipNso126UyODrDbPTgNIyDaB+s9edBYS51aMEHDl37/TiPH24OOcDTayFV74a4=
-X-Received: by 2002:a05:6a20:5da3:b0:1d9:83cc:ef90 with SMTP id
- adf61e73a8af0-1d983ccefdamr1940597637.8.1729750624651; Wed, 23 Oct 2024
- 23:17:04 -0700 (PDT)
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1729750799; x=1761286799;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=SAKgQcAAwB99nkfmznaguckD9Z4cWK5+suxAwPb4ifM=;
+  b=HYF0Z+B3VGHItHNed7AWXONqnbE/wIlI59kdvBz+gIVXagd6xhPe1Uo1
+   O+QTkfAyxa3SMWaCaAA92T+UNZr63boKcMFoPF3UYOQh7l6ci7ChI6hCe
+   2XZFLOUFZrODfzqx83ogswSOuYJbShZpASTbKiznysV26YFbP315G9zA1
+   etFmJM9UnqPqsgmBEHRYhT/BMcIuGKvGPGlbqcpn3kt9XaFm18Cg+Yt4h
+   JkUUY+ZBNLUN3BepRt3f0K+YxwswFhS5Ed1M7N8snqiMHvAp/GDCGI1pE
+   4564YdVXsevaoBjPwup5WhMXpbkhPieqab02yhe4jsDscvp6RD6P7L3J0
+   Q==;
+X-CSE-ConnectionGUID: 98gikefUReGFnSKpxd2Vaw==
+X-CSE-MsgGUID: GeVhVO4AT5CzQqRIDipUog==
+X-IronPort-AV: E=Sophos;i="6.11,228,1725314400"; 
+   d="scan'208";a="39638990"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 24 Oct 2024 08:19:56 +0200
+X-CheckPoint: {6719E70C-C-21611FC3-DAD22B0C}
+X-MAIL-CPID: 3BEFDD606C015A394925D4346B86F31F_4
+X-Control-Analysis: str=0001.0A682F21.6719E71A.009E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A633A164169;
+	Thu, 24 Oct 2024 08:19:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1729750791;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=SAKgQcAAwB99nkfmznaguckD9Z4cWK5+suxAwPb4ifM=;
+	b=rfGPZviWWgAPCkTUYlomzPpCkvBnP+HFGT0Fvjd3DHINEtGyrFDs0eRL1FWtvkIupW7aJV
+	4uFOY+JtAW+CmiIKLbQ0P7/kjZhkdEXHVvUvy7DyyQ+1bd3wFKEBFFp+rS9xfsCk0yzeOv
+	z0+s8//ow2vzJg1WEYI9VkHTOvCeuoAC7A3WvDycesGOQEodpKq9XYlfxUVggLH7RM95jx
+	7EJ1T2QxDFCU0THaOn68hHIBa8WdIepD3ObdvYm/U9RhSooDZe6eboZD/j38suqhmz7C+r
+	rNkmm6/dGGf32ikxtfO8e0lnjYc41imBzvF6r7LunXfEGopQqwMwII/RMNwieg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: tglx@linutronix.de, linux-arm-kernel@lists.infradead.org
+Cc: daniel.lezcano@linaro.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>, Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: timer: fsl, imxgpt: Fix the fsl, imx7d-gpt fallback
+Date: Thu, 24 Oct 2024 08:19:49 +0200
+Message-ID: <4933956.GXAFRqVoOG@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20241023185841.1183706-1-festevam@gmail.com>
+References: <20241023185841.1183706-1-festevam@gmail.com>
 MIME-Version: 1.0
-References: <20241024061347.1771063-1-saravanak@google.com> <20241024061347.1771063-4-saravanak@google.com>
-In-Reply-To: <20241024061347.1771063-4-saravanak@google.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 23 Oct 2024 23:16:26 -0700
-Message-ID: <CAGETcx_0gqbo5Xf9mZGrBZszZsmKBdqRreb-=O_PvOR_2Yc5Cw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] drivers: core: fw_devlink: Make the error message a
- bit more useful
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	JC Kuo <jckuo@nvidia.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-phy@lists.infradead.org, 
-	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_231709_591451_60B62E29 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20241023_232000_706836_3778525F 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +91,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Greg,
+Hi Fabio,
 
-Can you fix up the commit subject prefix to "driver core: fw_devlink:"
-please? Don't want to send v2 just for that.
+thanks for the patch.
 
--Saravana
+Am Mittwoch, 23. Oktober 2024, 20:58:40 CEST schrieb Fabio Estevam:
+> From: Fabio Estevam <festevam@denx.de>
+>=20
+> imx7s.dtsi correctly describes the GPT node as:
+>=20
+> compatible =3D "fsl,imx7d-gpt", "fsl,imx6dl-gpt";
+>=20
+> Document the fallback compatible to be "fsl,imx6dl-gpt" in the bindings.
+>=20
+> This fixes the following dt-schema warnings:
+>=20
+> timer@302f0000: compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['fsl,imx7d-gpt', 'fsl,imx6dl-gpt'] is too long
+> 	'fsl,imx1-gpt' was expected
+> 	'fsl,imx21-gpt' was expected
+> 	'fsl,imx27-gpt' was expected
+> 	'fsl,imx31-gpt' was expected
+> 	'fsl,imx7d-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,im=
+x51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
+> 	'fsl,imx6dl-gpt' was expected
+> 	'fsl,imx7d-gpt' is not one of ['fsl,imx6sl-gpt', 'fsl,imx6sx-gpt', 'fsl,=
+imx8mp-gpt', 'fsl,imxrt1050-gpt', 'fsl,imxrt1170-gpt']
+> 	'fsl,imx6sx-gpt' was expected
+>=20
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-On Wed, Oct 23, 2024 at 11:14=E2=80=AFPM Saravana Kannan <saravanak@google.=
-com> wrote:
->
-> It would make it easier to debugs issues similar to the ones
-> reported[1][2] recently where some devices didn't have the fwnode set.
->
-> [1] - https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@no=
-tapiano/
-> [2] - https://lore.kernel.org/all/20240910130019.35081-1-jonathanh@nvidia=
-.com/
->
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+
 > ---
->  drivers/base/core.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/base/core.c b/drivers/base/core.c
-> index a4c853411a6b..3b13fed1c3e3 100644
-> --- a/drivers/base/core.c
-> +++ b/drivers/base/core.c
-> @@ -2181,8 +2181,8 @@ static int fw_devlink_create_devlink(struct device =
-*con,
->                 }
->
->                 if (con !=3D sup_dev && !device_link_add(con, sup_dev, fl=
-ags)) {
-> -                       dev_err(con, "Failed to create device link (0x%x)=
- with %s\n",
-> -                               flags, dev_name(sup_dev));
-> +                       dev_err(con, "Failed to create device link (0x%x)=
- with supplier %s for %pfwf\n",
-> +                               flags, dev_name(sup_dev), link->consumer)=
-;
->                         ret =3D -EINVAL;
->                 }
->
-> --
-> 2.47.0.105.g07ac214952-goog
->
+>  Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml b/Do=
+cumentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> index e2607377cbae..a2fcb1e8e74e 100644
+> --- a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> +++ b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> @@ -31,6 +31,7 @@ properties:
+>            - enum:
+>                - fsl,imx6sl-gpt
+>                - fsl,imx6sx-gpt
+> +              - fsl,imx7d-gpt
+>                - fsl,imx8mp-gpt
+>                - fsl,imxrt1050-gpt
+>                - fsl,imxrt1170-gpt
+> @@ -38,7 +39,6 @@ properties:
+>        - items:
+>            - enum:
+>                - fsl,imx6ul-gpt
+> -              - fsl,imx7d-gpt
+>            - const: fsl,imx6sx-gpt
+> =20
+>    reg:
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
