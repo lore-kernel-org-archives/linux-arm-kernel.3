@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A11CE8E8C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D90CE8E8A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKTwxUMy4dC0SefPcl6pteogfwUbKpmnuD/CCVEZxC0=; b=tX55OYblXXDsvcpkyXeW+/i60v
-	zHgiRjmYGYVpbzmiomAtoBfa2JuAOV5mxV6Haigja+ta8sMPkJqJIqvME78tgQQ8kOTpS9SQyrAhy
-	s/kW6DloHw+Y7xwfNSHE8oRheoUd5BkRefSIJ+D5lco41l/Mt4Fqjj8tceCOXW7DJGrF6Vt7hjW2h
-	2WJ6+YM8f+A6reNjVy75nE+ZFAR8jMq0xMkOiGLXBbtn+Qpd+k1tjdAUyQ0iXPRv9ARu0LZ1HxNYz
-	ulpFgnnTJi9G+9cojVDos65OB3z3cEOt4Iego7jHbzN9F3wYes1Dm/m50EkILjrqK1/Xt7cl3f5Hx
-	2daQNATQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B/2412CaR/LufvJ8Kwi5yL2Zktoc6TzhEG36635Zq30=; b=aXz6PU/qtbTxPaNiMvvhhTRTBl
+	X577UhdIFmKga3mhfdgSTkc4HyaCGckoWI4UKWQuTAQ4vYXUnvV8QgL1+GeR4szYqyx5Tdg/2JWv2
+	N7XXqgj3k/UYAqoNkPGSsDj37snEhK5o9Bu/yntO299KB0L/rlSLrpuEsI5vma/jbmHY4Z8tqB5bY
+	ZMAdDaxpZu2OUrgRGEt9JvuYSquB8W8L9MpY0UhzhtmE9PkMqsTKgjBE/c/Lw8acm4n2sviN2tWvk
+	RCQ1S/MLuhLZYJO6HgCSMT3s+K30SeB9Ca3bmVtYQZP4q2hQ4X4YzwIBSljnOM9c1oh1ojYG69Rl0
+	YrhxDZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zps-00000000vPI-0fWn;
-	Thu, 24 Oct 2024 15:33:16 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t3zrQ-00000000vr5-43Bs;
+	Thu, 24 Oct 2024 15:34:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zaI-00000000suB-0vpC;
-	Thu, 24 Oct 2024 15:17:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1729783027;
-	bh=2Kve0loElZNKii6MgyGBUDusGqHjRRmkEVjHcH8MDHI=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=jHIPwf0da3VkiA6MyWCQRxgWZMsLgxaXSmYoBtUKQPclhbCIjta2dEo48riMRAvS/
-	 IR60w0PmCG98ZQeCVU0WSbwYlOgmdZfTPQj3Ulwg6H5UDySFiXjF7RV/D5CskfYdoH
-	 5JjB74wb4Bd2kfaOTPYr4q2hUw1HX4TTho8rMLR40duK+qL98i98jnkZL1kCnMDNqx
-	 k27UlrSnqGk5PeTfaM/pEAip5Oa/4gRZTPjmc0Is219kemSiP6pkNXsqqNRYupcdJn
-	 u2rT9NPZjRqisz8L6AlvkoxqERXHP8TyyDLCwmgi5BHdltbvl9UpNpA0Pl1XDxsOB5
-	 z2hd18mJStVjA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A23C217E1543;
-	Thu, 24 Oct 2024 17:17:06 +0200 (CEST)
-Message-ID: <8fdeec5c-5de7-44ae-9086-7930d02d610e@collabora.com>
-Date: Thu, 24 Oct 2024 17:17:05 +0200
+	id 1t3zXJ-00000000sXK-0liW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 15:15:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F26F5A4560C;
+	Thu, 24 Oct 2024 15:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD76C4CEE3;
+	Thu, 24 Oct 2024 15:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729782843;
+	bh=SvIjThtAz+3hs0BLjpnwpREjkQ1yKHezPlmKnO8bpQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q6/MspT8ZJ0LLZj+iNLOjKgo8wheWidUEy+VwJuRFZtDHLkZ0PFaaex/lolqsEWFf
+	 /lEh5hGXtTNDLspunWrHzz9+0sYOXkJpG/1DEYIbGHz4M/ydkxvxB7zFgTEYZx3r8O
+	 pbVxZnA2N8pP2zAHFT6XEUSpHhGmWGYZBAbjC+riZHbuj+x9LKXBNtx86OStRQoIPF
+	 gPePp87I+9lQX4uGVCP5AKGZxu0z5LEXXibG0KCswUQgRvqn7ihP1umkvIk7js1CzM
+	 5/0WjF23w5Kcv415AhGbg2VciNdlPiM4M3fwuIpyYjxx7yIicw3JYGtpsCT5W1Dq/W
+	 XK0qkC9RySdpQ==
+Date: Thu, 24 Oct 2024 10:14:02 -0500
+From: Rob Herring <robh@kernel.org>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Fabio Estevam <festevam@gmail.com>, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org, broonie@kernel.org,
+	linux-spi@vger.kernel.org, shawnguo@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: Re: [PATCH 1/3] dt-bindings: misc: lwn,bk4-spi: Add binding
+Message-ID: <20241024151402.GA499355-robh@kernel.org>
+References: <20241023120015.1049008-1-festevam@gmail.com>
+ <20241023171739.475a2bb7@wsk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/3] pinctrl: mediatek: paris: Expose more
- configurations to GPIO set_config
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Bamvor Jian Zhang <bamv2005@gmail.com>, Shuah Khan <shuah@kernel.org>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- kernelci@lists.linux.dev
-References: <20240909-kselftest-gpio-set-get-config-v1-0-16a065afc3c1@collabora.com>
- <20240909-kselftest-gpio-set-get-config-v1-1-16a065afc3c1@collabora.com>
- <01020191e0901d10-d427a5dd-af4e-4ecf-99e1-4bb051ad1475-000000@eu-west-1.amazonses.com>
-Content-Language: en-US
-In-Reply-To: <01020191e0901d10-d427a5dd-af4e-4ecf-99e1-4bb051ad1475-000000@eu-west-1.amazonses.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023171739.475a2bb7@wsk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_081710_462818_27464515 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20241024_081405_316113_B2C9D042 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,93 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/09/24 12:10, AngeloGioacchino Del Regno ha scritto:
-> Il 09/09/24 20:37, Nícolas F. R. A. Prado ha scritto:
->> Currently the set_config callback in the gpio_chip registered by the
->> pinctrl_paris driver only supports PIN_CONFIG_INPUT_DEBOUNCE, despite
+On Wed, Oct 23, 2024 at 05:17:39PM +0200, Lukasz Majewski wrote:
+> Hi Fabio,
 > 
-> [...] only supports operations configuring the input debounce parameter
-> of the EINT controller and denies configuring params on the other AP GPIOs [...]
+> > From: Fabio Estevam <festevam@denx.de>
+> > 
+> > Add a lwn,bk4-spi.yaml binding for Liebherr's BK4 external SPI
+> > controller.
+> > 
+> > Currently, the compatible string used for this device is "lwn,bk4",
+> > which is the same as the board compatible string documented at
+> > fsl.yaml.
+> > 
+> > This causes several dt-schema warnings:
+> > 
+> > make dtbs_check DT_SCHEMA_FILES=fsl.yaml
+> > ...
+> > 
+> > ['lwn,bk4'] is too short
+> > 'lwn,bk4' is not one of ['tq,imx8dxp-tqma8xdp-mba8xx']
+> > 'lwn,bk4' is not one of ['tq,imx8qxp-tqma8xqp-mba8xx']
+> > 'lwn,bk4' is not one of ['armadeus,imx1-apf9328', 'fsl,imx1ads']
+> > ...
+> > 
+> > Use a more specific "lwn,bk4-spi" compatible string for this
+> > device.
+> > 
 > 
-> (reword as needed)
+> Thanks for updating this.
 > 
->> many other configurations already being implemented and available
->> through the pinctrl API for configuration of pins by the Devicetree and
->> other drivers.
->>
->> Expose all configurations currently implemented through the GPIO API so
->> they can also be set from userspace, which is particularly useful to
->> allow testing them from userspace.
->>
->> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> ---
->>   drivers/pinctrl/mediatek/pinctrl-paris.c | 20 ++++++++++----------
-> 
-> You can do the same for pinctrl-moore too, it's trivial.
-> 
-> Other than that, I agree about performing this change, as this may be useful
-> for more than just testing.
-> 
+> BK4 is another example of to be long-time supported device... :-)
 
-Nicolas, please don't forget to respin this patch.
+Does that mean we shouldn't be changing this compatible?
 
-Thanks,
-Angelo
-
-
->>   1 file changed, 10 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/ 
->> pinctrl-paris.c
->> index e12316c42698..668f8055a544 100644
->> --- a/drivers/pinctrl/mediatek/pinctrl-paris.c
->> +++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
->> @@ -255,10 +255,9 @@ static int mtk_pinconf_get(struct pinctrl_dev *pctldev,
->>       return err;
->>   }
->> -static int mtk_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
->> +static int mtk_pinconf_set(struct mtk_pinctrl *hw, unsigned int pin,
->>                  enum pin_config_param param, u32 arg)
->>   {
->> -    struct mtk_pinctrl *hw = pinctrl_dev_get_drvdata(pctldev);
->>       const struct mtk_pin_desc *desc;
->>       int err = -ENOTSUPP;
->>       u32 reg;
->> @@ -795,7 +794,7 @@ static int mtk_pconf_group_set(struct pinctrl_dev *pctldev, 
->> unsigned group,
->>       int i, ret;
->>       for (i = 0; i < num_configs; i++) {
->> -        ret = mtk_pinconf_set(pctldev, grp->pin,
->> +        ret = mtk_pinconf_set(hw, grp->pin,
->>                         pinconf_to_config_param(configs[i]),
->>                         pinconf_to_config_argument(configs[i]));
->>           if (ret < 0)
->> @@ -937,18 +936,19 @@ static int mtk_gpio_set_config(struct gpio_chip *chip, 
->> unsigned int offset,
->>   {
->>       struct mtk_pinctrl *hw = gpiochip_get_data(chip);
->>       const struct mtk_pin_desc *desc;
->> -    u32 debounce;
->> +    enum pin_config_param param = pinconf_to_config_param(config);
->> +    u32 arg = pinconf_to_config_argument(config);
->>       desc = (const struct mtk_pin_desc *)&hw->soc->pins[offset];
->> -    if (!hw->eint ||
->> -        pinconf_to_config_param(config) != PIN_CONFIG_INPUT_DEBOUNCE ||
->> -        desc->eint.eint_n == EINT_NA)
->> -        return -ENOTSUPP;
->> +    if (param == PIN_CONFIG_INPUT_DEBOUNCE) {
->> +        if (!hw->eint || desc->eint.eint_n == EINT_NA)
->> +            return -ENOTSUPP;
->> -    debounce = pinconf_to_config_argument(config);
->> +        return mtk_eint_set_debounce(hw->eint, desc->eint.eint_n, arg);
->> +    }
->> -    return mtk_eint_set_debounce(hw->eint, desc->eint.eint_n, debounce);
->> +    return mtk_pinconf_set(hw, offset, param, arg);
->>   }
->>   static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
->>
-> 
-> 
-
-
+Rob
 
