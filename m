@@ -4,174 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4FAD0BB6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA30D0BB6A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQdDatGwSxCAS5nECa50SayCQyVSOEraL7ZjnItjOTM=; b=gIdPpHUgVj0IbtpR7of0D5U3Dg
-	CTG3QG57DSLyL4n4phPwFqN1YWVaRaYenLBjgrWZUfPhm4K3l0s8MDkWYSgCfT7e1TU+1QPbw9WWz
-	zjIu5HZm3P/IUUVuQq8A3y3P80MJrw0w/5pkNhtHn+onLGgIN7yv6UjAu/H9PtZnhsUIkJN2acxu3
-	SjP5NJe7DDxD5kE6Iiux9b4vkPK+I3lzDg4UJ4Qk1WOcC8KG5VLAF9dNtVpwnJl5kbO4rzQXJiOb4
-	Bs8D5rtiefm4uCIENewK5YiZh9tYaVdjRKo5VlmQbPaI3Q9QMi9cNZjhbNHSDrJ9+RdOaUJV+TLT2
-	N7Dhxz6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TvKw24EE97lM/kTvcvxcr9KfOF+59mbqxyxMxCjR1Go=; b=27H62cl1H9V7EsxljDN8NfnmRn
+	BthHKqCyGsj04HQijpQzSvZaVfbgcJXkJAH/ZEvd+JpgfJXV4fCJ3LoNN2dSinJCTlgHDA8KD5spL
+	LChzfpfi4IbQ5F4pDEZkiKxvNqoCcRj3VHuKRByFi46/xqHUFwJyPnpGmCDRE7feoBOj3jhGKHYh4
+	NzlZ2byKKzmns50woJ0dBFeo4ZhK+0wTwbChHAyMs039+Hy6YliUludtPDOaZZ4OPER9r809PwxMl
+	lGNfq1LFa/jU8jqMlyb+DNHUOxq+7O/h/HqJJSKsAd42NR4JYJQOtlVX7jHLp9LALSjfpvsJViAkn
+	40x4cpQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3sdm-0000000HAnZ-2ncE;
-	Thu, 24 Oct 2024 07:52:18 +0000
-Received: from mail-db8eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2614::62f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t3sfK-0000000HBJn-02qe;
+	Thu, 24 Oct 2024 07:53:54 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3sVc-0000000H8fy-0bos
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 07:43:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b/KGKSRF//ghJtmN3DKqeQz8I57FJPJ7PmPaSW3+QGCOh4RH+ZsmhQNEp47Fz1AuiJv0VnMaR6+k6L9oYaHW5Oli1sODr0Z46bRbQjn7UCaYKAwNjjycKO1qTELt4VtV0okUzOR02DImjepVeL7yD/GDDefeocO/xwVjQt2YGHjLuREdD95UeWJus9x4TRtUA4W73jajlXUNDUDNj4XaOgpdBnFiN+OoIWaXFO8b6LOAUVRjKX1rUZRJIBocqUAt+dIBmMgbZ9M04UIMTZnNWp/2vnKxBLWlksb44DikqBlWLic713+9bpZiH4ZOuxITzwqynArrRbrsmIu0vl0ZNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DQdDatGwSxCAS5nECa50SayCQyVSOEraL7ZjnItjOTM=;
- b=wDQoqZCyH/YUYfI8PSTl6Rt1NPtv4oXSptZTPCRXKC87QvvI0SYUeMy8d7IX7hUH8638E8Co/FZPYNIZ/2vut8pwtDFscl8mavsF1W9+vIxllK66rl5CdvLbcVnW2T4syoZuYd4bb696FScywPOTSQWR/CDTytPe/UJB0yoOtoveO42TgSbFH6/UAHOvOgA8udnEeb2aPpu7qdESut6YiZQQyUXqlgE/sSSN2OR3LViU4KhlSQJA0rUjtnRBrSBuBZdC6B+FPg9YmO+L6OXwh+QZo2UPQEMj8AzFrAG0N+TR0+wJWlcXep35KVQZsM3Qrv+sRL28x+rnX4EoF/8mTA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DQdDatGwSxCAS5nECa50SayCQyVSOEraL7ZjnItjOTM=;
- b=Lax+nc0sDLnc58MDPkTsOm0eGCIe/W7VP3f+g7MLarxJp1NulpVbTpILU2ekYIV1fS2perDaEyTakq4r8Or9mSGUmltMkeU+NAPHQBJWzqA310UGuTQ9/QrgNHGTk5M1Snn+DfEGYZXC4UeGxSZnZqb2aDgf17PemLH/K40KtD1EbJCm5oofdvpgVA1jVEtNL/w2iPskBcK+8hXfCyvm/iX9llMtWCyUX3BiGT+oyZUMFCvW1/SOazzZd+uK7PLgLn1MGiUs3xYozkcPQTuguViUWKsDv0bqHNHHXv/BO2ZtWZT90cH+oasTVHsIVB2a9oGb1BClKavXrVOUFbayJA==
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by VE1PR04MB7342.eurprd04.prod.outlook.com (2603:10a6:800:1a0::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Thu, 24 Oct
- 2024 07:43:47 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%7]) with mapi id 15.20.8093.014; Thu, 24 Oct 2024
- 07:43:46 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: "kw@linux.com" <kw@linux.com>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, Frank
- Li <frank.li@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"festevam@gmail.com" <festevam@gmail.com>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH v4 7/9] PCI: imx6: Use dwc common suspend resume method
-Thread-Topic: [PATCH v4 7/9] PCI: imx6: Use dwc common suspend resume method
-Thread-Index: AQHbHuBJ9VWjXYTOqE+HT4N9zDyvZrKTDu8AgAJ7EzA=
-Date: Thu, 24 Oct 2024 07:43:46 +0000
-Message-ID: <AS8PR04MB867628BB4B51AAB2ABE889218C4E2@AS8PR04MB8676.eurprd04.prod.outlook.com>
-References: <1728981213-8771-1-git-send-email-hongxing.zhu@nxp.com>
- <1728981213-8771-8-git-send-email-hongxing.zhu@nxp.com>
- <20241022171800.fwkdvzozw2rnzv34@thinkpad>
-In-Reply-To: <20241022171800.fwkdvzozw2rnzv34@thinkpad>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|VE1PR04MB7342:EE_
-x-ms-office365-filtering-correlation-id: 678a4375-908e-4d1b-a115-08dcf3ff97a9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?WE9FdFZ3alJvVUNEQ0dHNzFMQVJ2dy9DTmh4c2xkWDVFdHByc1B0dVZSbUd3?=
- =?utf-8?B?WGg5ejI3aUpVWXhMSnY5OHNrNXdEczVoQ1lLY3dITEM2N0l5WkdwQjcrMXh2?=
- =?utf-8?B?NXV3Rm5FVDV1N1VudUt3Z2lCN1psTXA3aGxKQ3RkOG9mVEVBN1h1WG1qcmxu?=
- =?utf-8?B?Q3ZzaDFSbHlJREY3VkhTR1ZYdy9STDlhR1dMVGIrd1dkc3F3SnAxVG5DdHZT?=
- =?utf-8?B?TG0xU0h6Ynh4Y2FuTktYcVg0SlZ6OXc2ajdkNDhpRi9XSENrL0hFWXVKVVFj?=
- =?utf-8?B?cE9RZG5NMzZCMXNtVWlYS3FiRVBsenR1UysxYU54dk9LTmN0UFlBTCtxWFZD?=
- =?utf-8?B?UUlFUzJyZlVIQTVVQWtWQXlKWDZmejNIQWN1bmlBWHovQzJUa3BtMnZIMms4?=
- =?utf-8?B?TlVQaXVjUkJ3UmhRZ2kvamlMRFNpL2xETW1GR2hjbDZaclF4OHZkKzhJazU3?=
- =?utf-8?B?QzREdXlsZmlkZ1drMnlENWRHd3NyaEpHaVlYTWZ0dTdmUHNwMytVbGFyVXF5?=
- =?utf-8?B?UUFGTFE2c3JBVGJOTGRzcGVHdExRdWJwSmdGay9TWTlOVnd4QVVWQVlqbCtW?=
- =?utf-8?B?Y29rWS8wU2g5bnVvMkVsYWFBeXBoYlhHeXRmSkgwamw2SEdMZVZ1b3cxWWN0?=
- =?utf-8?B?OTlFR0c3Q0pkc2QyeUlFOTY2VTZnRXRDNmhBbXU3Z1NmLzE2bllRSVVKVmZw?=
- =?utf-8?B?bDMyc0daN3JuMHQwYXVqREo3eXZXaG1Ia0NLSGNOTXNPNGVHQzB3MFJ1bW5E?=
- =?utf-8?B?YjQ0cUxIZS83TnBxd0lWSUp2SUtObitqc1FhVHo1Z2Q2bm15eTBQZ3B0NWpF?=
- =?utf-8?B?akRvYTBCOHh3dEdaV0dFTkVWY3RBRkU4L1FmdVBxL1Y3STB3VUxpU1lDVFFY?=
- =?utf-8?B?Z1REMGtHVncyejVOMFdkT2xJWDNtTVMzc0FRNWJwQXlvNlY5bFpHT1pGbmF2?=
- =?utf-8?B?ckF3NXhxRVdOSHd3VG1SMXhoL2NkMDErNFJ2YU1RRTNlNFdCVVJGQk9GcHBi?=
- =?utf-8?B?eXV1Z2FoWEpQV0xrcHdSZi81T3JEcFBwMElWRE1QdTdONjNQaFBuUHhMaWZI?=
- =?utf-8?B?VHFrWmtoYXdlTjdmZWxsaHdoekRIbWNweWh2WDhnd1FhalJTc1hpOXhqMjJu?=
- =?utf-8?B?UWl2SU5Cd1E3WnB0YlBuY1ZGcTFsWDZIWm1vOHhZQXcxZXp1TzRZV1BpVzBE?=
- =?utf-8?B?QnllVUZvM0M0S3VndXZwVUtIUUN0NVFHNjZBZktLK1dpNTFoT0RFZDNaRzJq?=
- =?utf-8?B?RjFjWEZ2dWJlV0g3bVJ3d3krRDBXd0Y4RnBnYno1aFpFMWwzQVhtM2sxUnow?=
- =?utf-8?B?d3AzS21LVWMxY3NPa1VTMEpaY3o1ejB0WWxmVHhMQW1uR09pbGRoZm92QW9v?=
- =?utf-8?B?cWExMVEvdHJ0VzhrNnVpQlJSWHc4czVqZWRocXRQR3ZWUmY1NVM0WkVFTUNF?=
- =?utf-8?B?dTFPL2d1SGtWSTBLUW5rcFdmdHRaNE5Gdk9YTUY3QXZ6L1dTL1lqNmV3RTgx?=
- =?utf-8?B?c0M5ZTVxSmgwTktOaXFib2dpOXRzdUtJeEtHRVQxcU1mZEI0RG9USVdmQVMx?=
- =?utf-8?B?UVdpSW9odnZtN051UHdXWDdrSTVYZ090MDkyRW0vSURkWU9palhFMXNOSmkx?=
- =?utf-8?B?ajgvcjRkdHlnVjF6SzJzWEtxU2ZFbDlqbXhRcGNSVzNtYjNRTWRaNkJHeDBR?=
- =?utf-8?B?T3Q0T2NOdm5YOVNOcXFqRjVMVFp2TU5jOGZ1OURLbUtQN0FVUEdJaGFRTDMw?=
- =?utf-8?B?VndUaTVVWTZ4ZlF0NUJzMVpTeWRFeHlKdGUvZmd0VW5vQy8wZ2xuZEVjNERV?=
- =?utf-8?Q?nBKWmSWWJC4yHz3mvXSTlNApCcw84acWng7ZE=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RW5NOXdaTUpmYzlBRHJYT0tiWVJQTERyK3BQRkJwcXBhTWg2VjVmTVR2a1NO?=
- =?utf-8?B?Zjd2NXU2bkMvK3dFYUVhZ2lENnk1bTRYbHg3eU1hWWlWUXN5RXZ3VWM3RjlH?=
- =?utf-8?B?bXNjWHZpLzhaWDRwZDZEckFOK1VLdmRFU1l2Um1QeTQyREVhY2lJaFJJVDNk?=
- =?utf-8?B?Q2lISUluT3VlTFNOY1lONVpwN2ZLWXl3YWpnUHpJZE5KS0hZZlQ2NWtIdnkr?=
- =?utf-8?B?SEZQY29uZzMweDd3OE1EQ1o1TEdOdGVCTCszTTlKZW5BZDlVbEJZTENQZDhW?=
- =?utf-8?B?T3dCVnJJaUNPUlp1L2lTM284SmhQRkFKSjNNV0RhdXhIVlRSczhvNW5IdUNx?=
- =?utf-8?B?akQ0RE1QNlRLYUw0WUFQczRNR3NJRzZFQ2ttcWdnd0x4SDZqNkFjVGZoR01C?=
- =?utf-8?B?RmVrd0syOXg5ZEhlSE5zaWFpM3MrWGR3QUxudG9wa0lBa2ZkemZlempHU09l?=
- =?utf-8?B?Uk53cjc4YnZkN2xiVGZDSkhHWWlnT0xwMGlGd2tETy9jQXVrc0M0UnN4blFJ?=
- =?utf-8?B?bmVrNk93L3kzVWlwT09JOFhaaEFpbTgwZFQxbFppR3ZVMFR3Y042UzVRcEdD?=
- =?utf-8?B?b3VFYkxNaThQa3VMNkQ3c00vUVJDOGlTMVp2MDNzMVg2L1ZWNTRIZWdJeXVi?=
- =?utf-8?B?M3VCVlMwbExZMHpvT0M2cDh1TEhQNUROcC9UdTlNTUtFdzcyeUFZZzFoM3BK?=
- =?utf-8?B?U3NOUnpkK3BTT1UvRERZbzFsYVc0eGo0WFFHeTl1UGV5Mkw0c0FuQklwdVlw?=
- =?utf-8?B?aEZFN0FlLzJ3Y2dReVBrRXpTVldMZFI2WlFuNEhzeWFXRXBNdldvQUZyNEo4?=
- =?utf-8?B?VE5taExQb25tYXI4bmphMTJBbmVmdUhtZUJlVXcrWXc0U3A2RW9xcGhJL2du?=
- =?utf-8?B?LzJpZi9VemNHSU0vU25LZmNFL1VvRiswcmFLdDdZdTlLNkdPQUxVbndGQWVX?=
- =?utf-8?B?Wmc1NE16dUU3dURuREFCZ1JVcVdTM2F4V2FsUmNMeHEvSENWcDRhb283V3F4?=
- =?utf-8?B?NGpidVBIVUJLZWhGd0o5NkMvUUk5YXlPL29ORUJOOFQ2QTlKUUxyMjl5UXF5?=
- =?utf-8?B?ZkgvbVRkU1N4UXhaZWEyU05UTUl3cDZlRFA0dmp6T3FLNWFjNldnM2MrUXhU?=
- =?utf-8?B?eHhBaWdKNkxzblJXck1peUJIZnU5SXpjdzRSSzM2Y0s4WG1yaDErSk9IdGN0?=
- =?utf-8?B?TnB2djZtUzk0TjR0K0dMTjJublBET2R6bWxJMm1VMHpFZmxKT0NyV1VCc3ZR?=
- =?utf-8?B?bTYxSlE0Q2xDbzArNGxRekhhVU1TenRZS3BkZ1JlbWw0MFdZWXZiZWhTQkoz?=
- =?utf-8?B?T3ZJZXV0UUtxSXZTNzJUSmRjdTlwS3d3NlNKOGdhNTFjb0FxSXZmQ2U3MUZX?=
- =?utf-8?B?bEp1NStsdEN0ckVVWnVoQVNwS2pMRXVJOTRUN0lReFR5Q2REbmdnWGlMTlJC?=
- =?utf-8?B?L0ZpckthUDAreDJUbjR2bVRibnpMSHBHbkh3U1dDZmVOeWVUV2hQZTVIR3VL?=
- =?utf-8?B?cE5GT0ZXVlp5L0xvVEFlNGJ3Z3grNzM4N0E5QWNyem1EZ2tDVm9NSnNWVHV2?=
- =?utf-8?B?NWpxS29obmx2enpJVlpIM2djUGMxL3U3MjVhSmpDM0ExKzN1SVhKUVhCR3pO?=
- =?utf-8?B?a1JrQ1g5T0oxaVhEUDFSaEJxRENKVDUvT0tlOWJ3cStuek1MOFlmaWd3Y0lY?=
- =?utf-8?B?TFdzWWJCcGRNUzJBczltYkhuR29EUXg1NytRWGxHNnQ0SmJzYSs3VkhHQ1d1?=
- =?utf-8?B?MWwwTmJPdFFhS05BaEJmRm5EZkhhTTZRVWovRDRpMGFmMldZemJMd05rTzZM?=
- =?utf-8?B?RDVtVEtSU0owcEZGTEU3Nk8yTVFITXdSMjM2TUlNRTc3NG9pb3FmTHl0a21G?=
- =?utf-8?B?RzRWWmk5UnB4OVRucW5GVXFRMGthV1NlNHA5Mlo2dDlydzRJOXNING14TFdY?=
- =?utf-8?B?NllxaSt2MlhjVUZKYTJmZS9XT3lyMU1mOVFGWURPREh1R2hzRjdTOS81aE9x?=
- =?utf-8?B?MVBCQWEzWUZ4U1doQlVhaC9QMnpmSm1sdDBoT1BZMmlPWnFvamZ3anBoTFZm?=
- =?utf-8?B?UStCWXNMRmM4LzZOaUdXN0FoR093WjhvT1JqNExyejFCWWd5U2Y1K3MreDRt?=
- =?utf-8?Q?wWljqEwWmwpwiPZRwJdM1KowP?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1t3sWF-0000000H8rH-0KJn;
+	Thu, 24 Oct 2024 07:44:32 +0000
+X-UUID: c99b2af891db11ef9048ed6ed365623b-20241024
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID; bh=TvKw24EE97lM/kTvcvxcr9KfOF+59mbqxyxMxCjR1Go=;
+	b=hWSXuUVSwmXfDsFJEZId7lP5ahbHJ+EWfbJ12K7EwxSxup8oTCM+EcQB1rlNcKn8igg+7Awjzj4WgqBYj8QdpB5MaRqkoUdtdKijy4SQyZ5fO4/3aOMHdhY/AhkvL3XQfyVY3oyQEwG6nDfUUJ+vwXkGQB8D1V3oXFwqU/h1VJs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:c931ce77-4f4f-4d07-a810-762ec6370ff3,IP:0,U
+	RL:0,TC:0,Content:1,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:1
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:cbe9c241-8751-41b2-98dd-475503d45150,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:4|-5,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: c99b2af891db11ef9048ed6ed365623b-20241024
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <macpaul.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1717161211; Thu, 24 Oct 2024 00:44:23 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 24 Oct 2024 15:44:20 +0800
+Received: from [172.21.84.99] (172.21.84.99) by mtkmbs13n1.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.1118.26 via Frontend
+ Transport; Thu, 24 Oct 2024 15:44:18 +0800
+Message-ID: <60b490d2-30a1-dbff-36c4-992466991d49@mediatek.com>
+Date: Thu, 24 Oct 2024 15:44:16 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 678a4375-908e-4d1b-a115-08dcf3ff97a9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Oct 2024 07:43:46.6331
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: P2oI/qXR/xaLxnMaCOwtThp3TqD6smT8RVH4MFXP/mHHXRjknYZ3CcxWfBDtBIOIXKQZCJx9aiyYuNjorBL/mA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7342
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v3 1/2] arm64: dts: mediatek: mt8395-genio-1200-evk: add
+ support for TCPC port
+Content-Language: en-US
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Alexandre Mergnat <amergnat@baylibre.com>
+CC: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
+	Macpaul Lin <macpaul@gmail.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-usb@vger.kernel.org>, Chris-qj chen <chris-qj.chen@mediatek.com>,
+	Fabien Parent <fparent@baylibre.com>, Yow-Shin Liou
+	<yow-shin.liou@mediatek.com>, Simon Sun <simon.sun@yunjingtech.com>
+References: <20241023080912.15349-1-macpaul.lin@mediatek.com>
+ <c4b5e78e-5337-464c-9dca-9d4e5353cc46@collabora.com>
+ <ba44b369-bcd7-4226-b75a-f3c5000e97ec@collabora.com>
+From: Macpaul Lin <macpaul.lin@mediatek.com>
+In-Reply-To: <ba44b369-bcd7-4226-b75a-f3c5000e97ec@collabora.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--22.159300-8.000000
+X-TMASE-MatchedRID: oll/cJ/dUC4NtKv7cnNXnSa1MaKuob8PofZV/2Xa0cLBs8kDsMW7w0Cp
+	tC5f+eK3PiZe9Opl14NpkFK+Hcv8l4IUMFCMs+CvElgo9H5DnJy2McZY43zJ43TcYDPnhOj7Vr2
+	x2Dan2cBuP3qLppM0WGROSk6C4bqV9QpB8/MBSuPuykw7cfAoIEyQ5fRSh265cPDElbD+F/INir
+	voD95MYvgnZCOkc4Rc+SFdp+Cd0PefT/zxNL8LPgs9VkfCh3uAyeUl7aCTy8gNmPMcsvd5FkX+w
+	eP9mWX+BSECuGLGA17u5ezEA2FHU1d9anLxZbwb04Rmz/agfdxzd7C7BtJobg2G3vz8l/IEem0L
+	3kwJxTdX3sD7vCUiwQDzRES7L9pfm3dhKZgH9Y5IcJTn2HkqsZWr6iSXWtgPYz65TQfoDKtTIBW
+	jwoscFLHuwtg/JZZi5LrNEBlqCSgTJYL1KomVHwz4VsCc1YW+B4Ntzrj5dXQVTtVbQNElqhWMB5
+	o7Iv3SuyWVW34zvS68nGYNSACIpta/jIZoZyKFMN+B8zdlz9HKG6mjA3qUTFHpIy6wt5Uw2PdmZ
+	euCYyDHwxZ5smB8PNO0PJ8nvnJZrxpSystEXJLMrZu+Xb3+2UZAbph9cvetYe1mzp7dkwf3a1M/
+	dirxUFTPGzyxkQRkFebgClkGNp4piQbfusdLxYa7OiQBC9buCt59Uh3p/NUGW3hFnC9N1feYA0u
+	vygK3ISf7n2qaXhJftuJwrFEhTbew1twePJJB3QfwsVk0UbslCGssfkpInQ==
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--22.159300-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: CEEF0D44068983702D6529708423EBC94BA24C18764B8C54F24D729610596DC82000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_004352_371617_34D7123C 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20241024_004431_314519_35F53CE6 
+X-CRM114-Status: GOOD (  36.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,164 +115,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYW5pdmFubmFuIFNhZGhhc2l2
-YW0gPG1hbml2YW5uYW4uc2FkaGFzaXZhbUBsaW5hcm8ub3JnPg0KPiBTZW50OiAyMDI05bm0MTDm
-nIgyM+aXpSAxOjE4DQo+IFRvOiBIb25neGluZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0K
-PiBDYzoga3dAbGludXguY29tOyBiaGVsZ2Fhc0Bnb29nbGUuY29tOyBscGllcmFsaXNpQGtlcm5l
-bC5vcmc7IEZyYW5rIExpDQo+IDxmcmFuay5saUBueHAuY29tPjsgbC5zdGFjaEBwZW5ndXRyb25p
-eC5kZTsgcm9iaCtkdEBrZXJuZWwub3JnOw0KPiBjb25vcitkdEBrZXJuZWwub3JnOyBzaGF3bmd1
-b0BrZXJuZWwub3JnOw0KPiBrcnp5c3p0b2Yua296bG93c2tpK2R0QGxpbmFyby5vcmc7IGZlc3Rl
-dmFtQGdtYWlsLmNvbTsNCj4gcy5oYXVlckBwZW5ndXRyb25peC5kZTsgbGludXgtcGNpQHZnZXIu
-a2VybmVsLm9yZzsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBsaW51
-eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOw0KPiBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsg
-a2VybmVsQHBlbmd1dHJvbml4LmRlOyBpbXhAbGlzdHMubGludXguZGV2DQo+IFN1YmplY3Q6IFJl
-OiBbUEFUQ0ggdjQgNy85XSBQQ0k6IGlteDY6IFVzZSBkd2MgY29tbW9uIHN1c3BlbmQgcmVzdW1l
-DQo+IG1ldGhvZA0KPiANCj4gT24gVHVlLCBPY3QgMTUsIDIwMjQgYXQgMDQ6MzM6MzFQTSArMDgw
-MCwgUmljaGFyZCBaaHUgd3JvdGU6DQo+ID4gRnJvbTogRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5j
-b20+DQo+ID4NCj4gPiBDYWxsIGNvbW1vbiBkd2Mgc3VzcGVuZC9yZXN1bWUgZnVuY3Rpb24uIFVz
-ZSBkd2MgY29tbW9uIGlBVFUNCj4gbWV0aG9kIHRvDQo+ID4gc2VuZCBvdXQgUE1FX1RVUk5fT0ZG
-IG1lc3NhZ2UuIE9sZCBwbGF0Zm9ybSBzdWNoIGFzIGlNWDZTWCBhbmQNCj4gaU1YNlFQLA0KPiA+
-IGlBVFUNCj4gPiBDVFJMMiBiaXQgMjIgKFBDSUVfQVRVX0lOSElCSVRfUEFZTE9BRCkgYXJlIHJl
-c2VydmVkLiBTbyBjYW4ndCBzZW5kDQo+ID4gb3V0IE1TRyB3aXRob3V0IGRhdGEgYnkgZHVtbXkg
-TU1JTyB3cml0ZS4gV2l0aG91dA0KPiA+IFBDSUVfQVRVX0lOSElCSVRfUEFZTE9BRCwgTVNHRCB3
-aWxsIGJlIHNlbnQgb3V0IGluc3RlYWQgb2YgTVNHLiBTbw0KPiA+IGtlZXAgb2xkIG1ldGhvZCB0
-byBzZW5kIFBNRV9UVVJOX09GRiBNU0cuDQo+ID4NCj4gDQo+IFRoaXMgUE1FX1R1cm5fT2ZmIGlt
-cGxlbWVudGF0aW9uIGlzIHRoZSBvbmx5IGRpZmZlcmVuY2UgYmV0d2VlbiB0aGUgRFdDDQo+IGNv
-bW1vbiBvcHMgYW5kIHRoZSBjdXN0b20gb25lIGhlcmU/IEkgZG9uJ3QgdGhpbmsgc28uIFBsZWFz
-ZSBkZXNjcmliZSBhbGwNCj4gdGhlIGRpZmZlcmVuY2VzLg0KPiANCkhpIE1hbml2YW5uYW46DQpU
-aGFua3MgZm9yIHlvdXIgY29tbWVudHMuDQpPbiBpLk1YNlNYIGFuZCBpLk1YNlFQIHBsYXRmb3Jt
-cywgdGhlIFBNRV9UVVJOX09GRiB3b3VsZCBiZSBpc3N1ZWQgYnkgdGhlDQogaG9va2VkIGNhbGxi
-YWNrIHBwLm9wcy0+cG1lX3R1cm5fb2ZmKCkuIFRoZXkgYXJlIHNhbWUgdG8gdGhlIHByZXZpb3Vz
-DQogb3BlcmF0aW9ucy4NCg0KSW4gdGhlIG90aGVyIHdvcmRzLCB0aGVzZSB0d28gcGxhdGZvcm1z
-IGRvbid0IHVzZSB0aGUgZHdjIGdlbmVyaWMNCiBQTUVfVFVSTl9PRkYgaW1wbGVtZW50YXRpb24u
-DQoNCkRvIHlvdSBtZWFucyB0byBkZXNjcmliZSBhbGwgdGhlIGRpZmZlcmVuY2VzIGJldHdlZW4g
-ZHdjIGNvbW1vbiBzdXNwZW5kL3Jlc3VtZQ0KYW5kIGN1c3RvbSBzdXNwZW5kL3Jlc3VtZSBpbiBj
-b21taXQgbWVzc2FnZT8NCg0KSW4gZHdjIHN1c3BlbmQsIHRoZSBsMXNzIGFuZCBsaW5rIHN0YXRz
-IGFyZSBjaGVja2VkIGJlZm9yZSBzdXNwZW5kIGVudHJ5Lg0KQW5kIGFmdGVyIFBNRV9UVVJOX09G
-RiBpcyBpc3N1ZWQsIHRoZSBMMiBzdGF0IGlzIHBvbGxpbmcuDQoNClRoZXNlIHR3byBkaWZmZXJl
-bmNlcyBhcmUgbm90IGNvbnRhaW5lZCBpbiB0aGUgY3VzdG9tIFBNIG9wZXJhdGlvbnMuDQoNCj4g
-PiBTaWduZWQtb2ZmLWJ5OiBGcmFuayBMaSA8RnJhbmsuTGlAbnhwLmNvbT4NCj4gPiBTaWduZWQt
-b2ZmLWJ5OiBSaWNoYXJkIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+ID4gLS0tDQo+ID4g
-IGRyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMgfCA5Nw0KPiA+ICsrKysrKysr
-KystLS0tLS0tLS0tLS0tLS0tLQ0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMzYgaW5zZXJ0aW9ucygr
-KSwgNjEgZGVsZXRpb25zKC0pDQo+ID4NCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wY2kvY29u
-dHJvbGxlci9kd2MvcGNpLWlteDYuYw0KPiA+IGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2Mv
-cGNpLWlteDYuYw0KPiA+IGluZGV4IDE2MWRhYWQzNGE5NC4uYmFhODUzZDg0YjRkIDEwMDY0NA0K
-PiA+IC0tLSBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiArKysg
-Yi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jDQo+ID4gQEAgLTMzLDYgKzMz
-LDcgQEANCj4gPiAgI2luY2x1ZGUgPGxpbnV4L3BtX2RvbWFpbi5oPg0KPiA+ICAjaW5jbHVkZSA8
-bGludXgvcG1fcnVudGltZS5oPg0KPiA+DQo+ID4gKyNpbmNsdWRlICIuLi8uLi9wY2kuaCINCj4g
-PiAgI2luY2x1ZGUgInBjaWUtZGVzaWdud2FyZS5oIg0KPiA+DQo+ID4gICNkZWZpbmUgSU1YOE1R
-X0dQUl9QQ0lFX1JFRl9VU0VfUEFECQlCSVQoOSkNCj4gPiBAQCAtODIsNiArODMsNyBAQCBlbnVt
-IGlteF9wY2llX3ZhcmlhbnRzIHsNCj4gPiAgI2RlZmluZSBJTVhfUENJRV9GTEFHX0hBU19TRVJE
-RVMJCUJJVCg2KQ0KPiA+ICAjZGVmaW5lIElNWF9QQ0lFX0ZMQUdfU1VQUE9SVF82NEJJVAkJQklU
-KDcpDQo+ID4gICNkZWZpbmUgSU1YX1BDSUVfRkxBR19DUFVfQUREUl9GSVhVUAkJQklUKDgpDQo+
-ID4gKyNkZWZpbmUgSU1YX1BDSUVfRkxBR19DVVNUT01fUE1FX1RVUk5PRkYJQklUKDkpDQo+ID4N
-Cj4gPiAgI2RlZmluZSBpbXhfY2hlY2tfZmxhZyhwY2ksIHZhbCkJKHBjaS0+ZHJ2ZGF0YS0+Zmxh
-Z3MgJiB2YWwpDQo+ID4NCj4gPiBAQCAtMTA2LDE5ICsxMDgsMTggQEAgc3RydWN0IGlteF9wY2ll
-X2RydmRhdGEgew0KPiA+ICAJaW50ICgqaW5pdF9waHkpKHN0cnVjdCBpbXhfcGNpZSAqcGNpZSk7
-DQo+ID4gIAlpbnQgKCplbmFibGVfcmVmX2Nsaykoc3RydWN0IGlteF9wY2llICpwY2llLCBib29s
-IGVuYWJsZSk7DQo+ID4gIAlpbnQgKCpjb3JlX3Jlc2V0KShzdHJ1Y3QgaW14X3BjaWUgKnBjaWUs
-IGJvb2wgYXNzZXJ0KTsNCj4gPiArCWNvbnN0IHN0cnVjdCBkd19wY2llX2hvc3Rfb3BzICpvcHM7
-DQo+ID4gIH07DQo+ID4NCj4gPiAgc3RydWN0IGlteF9wY2llIHsNCj4gPiAgCXN0cnVjdCBkd19w
-Y2llCQkqcGNpOw0KPiA+ICAJc3RydWN0IGdwaW9fZGVzYwkqcmVzZXRfZ3Bpb2Q7DQo+ID4gLQli
-b29sCQkJbGlua19pc191cDsNCj4gPiAgCXN0cnVjdCBjbGtfYnVsa19kYXRhCWNsa3NbSU1YX1BD
-SUVfTUFYX0NMS1NdOw0KPiA+ICAJc3RydWN0IHJlZ21hcAkJKmlvbXV4Y19ncHI7DQo+ID4gIAl1
-MTYJCQltc2lfY3RybDsNCj4gPiAgCXUzMgkJCWNvbnRyb2xsZXJfaWQ7DQo+ID4gIAlzdHJ1Y3Qg
-cmVzZXRfY29udHJvbAkqcGNpZXBoeV9yZXNldDsNCj4gPiAgCXN0cnVjdCByZXNldF9jb250cm9s
-CSphcHBzX3Jlc2V0Ow0KPiA+IC0Jc3RydWN0IHJlc2V0X2NvbnRyb2wJKnR1cm5vZmZfcmVzZXQ7
-DQo+ID4gIAl1MzIJCQl0eF9kZWVtcGhfZ2VuMTsNCj4gPiAgCXUzMgkJCXR4X2RlZW1waF9nZW4y
-XzNwNWRiOw0KPiA+ICAJdTMyCQkJdHhfZGVlbXBoX2dlbjJfNmRiOw0KPiA+IEBAIC04OTgsMTMg
-Kzg5OSwxMSBAQCBzdGF0aWMgaW50IGlteF9wY2llX3N0YXJ0X2xpbmsoc3RydWN0IGR3X3BjaWUN
-Cj4gKnBjaSkNCj4gPiAgCQlkZXZfaW5mbyhkZXYsICJMaW5rOiBPbmx5IEdlbjEgaXMgZW5hYmxl
-ZFxuIik7DQo+ID4gIAl9DQo+ID4NCj4gPiAtCWlteF9wY2llLT5saW5rX2lzX3VwID0gdHJ1ZTsN
-Cj4gPiAgCXRtcCA9IGR3X3BjaWVfcmVhZHdfZGJpKHBjaSwgb2Zmc2V0ICsgUENJX0VYUF9MTktT
-VEEpOw0KPiA+ICAJZGV2X2luZm8oZGV2LCAiTGluayB1cCwgR2VuJWlcbiIsIHRtcCAmIFBDSV9F
-WFBfTE5LU1RBX0NMUyk7DQo+ID4gIAlyZXR1cm4gMDsNCj4gPg0KPiA+ICBlcnJfcmVzZXRfcGh5
-Og0KPiA+IC0JaW14X3BjaWUtPmxpbmtfaXNfdXAgPSBmYWxzZTsNCj4gPiAgCWRldl9kYmcoZGV2
-LCAiUEhZIERFQlVHX1IwPTB4JTA4eCBERUJVR19SMT0weCUwOHhcbiIsDQo+ID4gIAkJZHdfcGNp
-ZV9yZWFkbF9kYmkocGNpLCBQQ0lFX1BPUlRfREVCVUcwKSwNCj4gPiAgCQlkd19wY2llX3JlYWRs
-X2RiaShwY2ksIFBDSUVfUE9SVF9ERUJVRzEpKTsgQEAgLTEwMjMsOQ0KPiArMTAyMiwzMyBAQA0K
-PiA+IHN0YXRpYyB1NjQgaW14X3BjaWVfY3B1X2FkZHJfZml4dXAoc3RydWN0IGR3X3BjaWUgKnBj
-aWUsIHU2NCBjcHVfYWRkcikNCj4gPiAgCXJldHVybiBjcHVfYWRkciAtIGVudHJ5LT5vZmZzZXQ7
-DQo+ID4gIH0NCj4gPg0KPiA+ICsvKg0KPiA+ICsgKiBPbGQgZHdjIGlBVFUgY3RybDIgYml0IDIy
-IChQQ0lFX0FUVV9JTkhJQklUX1BBWUxPQUQpIGFyZSByZXNlcnZlZC4NCj4gPiArU28gY2FuJ3QN
-Cj4gPiArICogc2VuZCBvdXQgTVNHIHdpdGhvdXQgZGF0YSBieSBkdW1teSBNTUlPIHdyaXRlLiBX
-aXRob3V0DQo+ID4gKyAqIFBDSUVfQVRVX0lOSElCSVRfUEFZTE9BRCwgTVNHRCB3aWxsIGJlIHNl
-bnQgb3V0LiBTbyBoYXZlIHRvIGtlZXANCj4gPiArb2xkIG1ldGhvZA0KPiA+ICsgKiB0byBzZW5k
-IFBNRV9UVVJOX09GRiBNU0cuDQo+IA0KPiBQbGVhc2UgcmV3b3JkIHRoZSBjb21tZW50czoNCj4g
-DQo+ICJJbiBPbGQgRFdDIGltcGxlbWVudGF0aW9ucywgUENJRV9BVFVfSU5ISUJJVF9QQVlMT0FE
-IGJpdCBpbiBpQVRVIEN0cmwyDQo+IHJlZ2lzdGVyIGlzIHJlc2VydmVkLiBTbyB0aGUgZ2VuZXJp
-YyBEV0MgaW1wbGVtZW50YXRpb24gb2Ygc2VuZGluZyB0aGUNCj4gUE1FX1R1cm5fT2ZmIG1lc3Nh
-Z2UgdXNpbmcgYSBkdW1teSBNTUlPIHdyaXRlIGNhbm5vdCBiZSB1c2VkLiINCj4gDQo+ID4gKyAq
-Lw0KPiA+ICtzdGF0aWMgdm9pZCBpbXhfcGNpZV9wbV90dXJuX29mZihzdHJ1Y3QgZHdfcGNpZV9y
-cCAqcHApDQo+IA0KPiBzL3BtL3BtZQ0KPiANCj4gPiArew0KPiA+ICsJc3RydWN0IGR3X3BjaWUg
-KnBjaSA9IHRvX2R3X3BjaWVfZnJvbV9wcChwcCk7DQo+ID4gKwlzdHJ1Y3QgaW14X3BjaWUgKmlt
-eF9wY2llID0gdG9faW14X3BjaWUocGNpKTsNCj4gPiArDQo+ID4gKwlyZWdtYXBfc2V0X2JpdHMo
-aW14X3BjaWUtPmlvbXV4Y19ncHIsIElPTVVYQ19HUFIxMiwNCj4gSU1YNlNYX0dQUjEyX1BDSUVf
-UE1fVFVSTl9PRkYpOw0KPiA+ICsJcmVnbWFwX2NsZWFyX2JpdHMoaW14X3BjaWUtPmlvbXV4Y19n
-cHIsIElPTVVYQ19HUFIxMiwNCj4gPiArSU1YNlNYX0dQUjEyX1BDSUVfUE1fVFVSTl9PRkYpOw0K
-PiA+ICsNCj4gPiArCXVzbGVlcF9yYW5nZShQQ0lFX1BNRV9UT19MMl9USU1FT1VUX1VTLzEwLA0K
-PiA+ICtQQ0lFX1BNRV9UT19MMl9USU1FT1VUX1VTKTsgfQ0KPiA+ICsNCj4gPiArDQo+ID4gIHN0
-YXRpYyBjb25zdCBzdHJ1Y3QgZHdfcGNpZV9ob3N0X29wcyBpbXhfcGNpZV9ob3N0X29wcyA9IHsN
-Cj4gPiAgCS5pbml0ID0gaW14X3BjaWVfaG9zdF9pbml0LA0KPiA+ICAJLmRlaW5pdCA9IGlteF9w
-Y2llX2hvc3RfZXhpdCwNCj4gPiArCS5wbWVfdHVybl9vZmYgPSBpbXhfcGNpZV9wbV90dXJuX29m
-ZiwgfTsNCj4gPiArDQo+ID4gK3N0YXRpYyBjb25zdCBzdHJ1Y3QgZHdfcGNpZV9ob3N0X29wcyBp
-bXhfcGNpZV9ob3N0X2R3X3BtZV9vcHMgPSB7DQo+ID4gKwkuaW5pdCA9IGlteF9wY2llX2hvc3Rf
-aW5pdCwNCj4gPiArCS5kZWluaXQgPSBpbXhfcGNpZV9ob3N0X2V4aXQsDQo+ID4gIH07DQo+ID4N
-Cj4gPiAgc3RhdGljIGNvbnN0IHN0cnVjdCBkd19wY2llX29wcyBkd19wY2llX29wcyA9IHsgQEAg
-LTExNDYsNDMgKzExNjksNg0KPiA+IEBAIHN0YXRpYyBpbnQgaW14X2FkZF9wY2llX2VwKHN0cnVj
-dCBpbXhfcGNpZSAqaW14X3BjaWUsDQo+ID4gIAlyZXR1cm4gMDsNCj4gPiAgfQ0KPiA+DQo+ID4g
-LXN0YXRpYyB2b2lkIGlteF9wY2llX3BtX3R1cm5vZmYoc3RydWN0IGlteF9wY2llICppbXhfcGNp
-ZSkgLXsNCj4gPiAtCXN0cnVjdCBkZXZpY2UgKmRldiA9IGlteF9wY2llLT5wY2ktPmRldjsNCj4g
-PiAtDQo+ID4gLQkvKiBTb21lIHZhcmlhbnRzIGhhdmUgYSB0dXJub2ZmIHJlc2V0IGluIERUICov
-DQo+ID4gLQlpZiAoaW14X3BjaWUtPnR1cm5vZmZfcmVzZXQpIHsNCj4gPiAtCQlyZXNldF9jb250
-cm9sX2Fzc2VydChpbXhfcGNpZS0+dHVybm9mZl9yZXNldCk7DQo+ID4gLQkJcmVzZXRfY29udHJv
-bF9kZWFzc2VydChpbXhfcGNpZS0+dHVybm9mZl9yZXNldCk7DQo+ID4gLQkJZ290byBwbV90dXJu
-b2ZmX3NsZWVwOw0KPiA+IC0JfQ0KPiANCj4gV2hhdCBhYm91dCB0aGlzIHBhcnQgb2YgdGhlIGNv
-ZGU/IERvbid0IHlvdSBuZWVkIGl0IG5vdz8NCj4gDQo+ID4gLQ0KPiA+IC0JLyogT3RoZXJzIHBv
-a2UgZGlyZWN0bHkgYXQgSU9NVVhDIHJlZ2lzdGVycyAqLw0KPiA+IC0Jc3dpdGNoIChpbXhfcGNp
-ZS0+ZHJ2ZGF0YS0+dmFyaWFudCkgew0KPiA+IC0JY2FzZSBJTVg2U1g6DQo+ID4gLQljYXNlIElN
-WDZRUDoNCj4gPiAtCQlyZWdtYXBfdXBkYXRlX2JpdHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElP
-TVVYQ19HUFIxMiwNCj4gPiAtCQkJCUlNWDZTWF9HUFIxMl9QQ0lFX1BNX1RVUk5fT0ZGLA0KPiA+
-IC0JCQkJSU1YNlNYX0dQUjEyX1BDSUVfUE1fVFVSTl9PRkYpOw0KPiA+IC0JCXJlZ21hcF91cGRh
-dGVfYml0cyhpbXhfcGNpZS0+aW9tdXhjX2dwciwgSU9NVVhDX0dQUjEyLA0KPiA+IC0JCQkJSU1Y
-NlNYX0dQUjEyX1BDSUVfUE1fVFVSTl9PRkYsIDApOw0KPiA+IC0JCWJyZWFrOw0KPiA+IC0JZGVm
-YXVsdDoNCj4gPiAtCQlkZXZfZXJyKGRldiwgIlBNRV9UdXJuX09mZiBub3QgaW1wbGVtZW50ZWRc
-biIpOw0KPiA+IC0JCXJldHVybjsNCj4gPiAtCX0NCj4gPiAtDQo+ID4gLQkvKg0KPiA+IC0JICog
-Q29tcG9uZW50cyB3aXRoIGFuIHVwc3RyZWFtIHBvcnQgbXVzdCByZXNwb25kIHRvDQo+ID4gLQkg
-KiBQTUVfVHVybl9PZmYgd2l0aCBQTUVfVE9fQWNrIGJ1dCB3ZSBjYW4ndCBjaGVjay4NCj4gPiAt
-CSAqDQo+ID4gLQkgKiBUaGUgc3RhbmRhcmQgcmVjb21tZW5kcyBhIDEtMTBtcyB0aW1lb3V0IGFm
-dGVyIHdoaWNoIHRvDQo+ID4gLQkgKiBwcm9jZWVkIGFueXdheSBhcyBpZiBhY2tzIHdlcmUgcmVj
-ZWl2ZWQuDQo+ID4gLQkgKi8NCj4gPiAtcG1fdHVybm9mZl9zbGVlcDoNCj4gPiAtCXVzbGVlcF9y
-YW5nZSgxMDAwLCAxMDAwMCk7DQo+ID4gLX0NCj4gPiAtDQo+ID4gIHN0YXRpYyB2b2lkIGlteF9w
-Y2llX21zaV9zYXZlX3Jlc3RvcmUoc3RydWN0IGlteF9wY2llICppbXhfcGNpZSwgYm9vbA0KPiA+
-IHNhdmUpICB7DQo+ID4gIAl1OCBvZmZzZXQ7DQo+ID4gQEAgLTEyMDYsMzYgKzExOTIsMjYgQEAg
-c3RhdGljIHZvaWQgaW14X3BjaWVfbXNpX3NhdmVfcmVzdG9yZShzdHJ1Y3QNCj4gPiBpbXhfcGNp
-ZSAqaW14X3BjaWUsIGJvb2wgc2F2ZSkgIHN0YXRpYyBpbnQNCj4gPiBpbXhfcGNpZV9zdXNwZW5k
-X25vaXJxKHN0cnVjdCBkZXZpY2UgKmRldikgIHsNCj4gPiAgCXN0cnVjdCBpbXhfcGNpZSAqaW14
-X3BjaWUgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsNCj4gPiAtCXN0cnVjdCBkd19wY2llX3JwICpw
-cCA9ICZpbXhfcGNpZS0+cGNpLT5wcDsNCj4gPg0KPiA+ICAJaWYgKCEoaW14X3BjaWUtPmRydmRh
-dGEtPmZsYWdzICYgSU1YX1BDSUVfRkxBR19TVVBQT1JUU19TVVNQRU5EKSkNCj4gPiAgCQlyZXR1
-cm4gMDsNCj4gPg0KPiA+ICAJaW14X3BjaWVfbXNpX3NhdmVfcmVzdG9yZShpbXhfcGNpZSwgdHJ1
-ZSk7DQo+ID4gLQlpbXhfcGNpZV9wbV90dXJub2ZmKGlteF9wY2llKTsNCj4gPiAtCWlteF9wY2ll
-X3N0b3BfbGluayhpbXhfcGNpZS0+cGNpKTsNCj4gPiAtCWlteF9wY2llX2hvc3RfZXhpdChwcCk7
-DQo+ID4gLQ0KPiA+IC0JcmV0dXJuIDA7DQo+ID4gKwlyZXR1cm4gZHdfcGNpZV9zdXNwZW5kX25v
-aXJxKGlteF9wY2llLT5wY2kpOw0KPiA+ICB9DQo+ID4NCj4gPiAgc3RhdGljIGludCBpbXhfcGNp
-ZV9yZXN1bWVfbm9pcnEoc3RydWN0IGRldmljZSAqZGV2KSAgew0KPiA+ICAJaW50IHJldDsNCj4g
-PiAgCXN0cnVjdCBpbXhfcGNpZSAqaW14X3BjaWUgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsNCj4g
-PiAtCXN0cnVjdCBkd19wY2llX3JwICpwcCA9ICZpbXhfcGNpZS0+cGNpLT5wcDsNCj4gPg0KPiA+
-ICAJaWYgKCEoaW14X3BjaWUtPmRydmRhdGEtPmZsYWdzICYgSU1YX1BDSUVfRkxBR19TVVBQT1JU
-U19TVVNQRU5EKSkNCj4gPiAgCQlyZXR1cm4gMDsNCj4gPg0KPiA+IC0JcmV0ID0gaW14X3BjaWVf
-aG9zdF9pbml0KHBwKTsNCj4gPiArCXJldCA9IGR3X3BjaWVfcmVzdW1lX25vaXJxKGlteF9wY2ll
-LT5wY2kpOw0KPiA+ICAJaWYgKHJldCkNCj4gPiAgCQlyZXR1cm4gcmV0Ow0KPiA+ICAJaW14X3Bj
-aWVfbXNpX3NhdmVfcmVzdG9yZShpbXhfcGNpZSwgZmFsc2UpOw0KPiA+IC0JZHdfcGNpZV9zZXR1
-cF9yYyhwcCk7DQo+ID4gLQ0KPiA+IC0JaWYgKGlteF9wY2llLT5saW5rX2lzX3VwKQ0KPiA+IC0J
-CWlteF9wY2llX3N0YXJ0X2xpbmsoaW14X3BjaWUtPnBjaSk7DQo+IA0KPiBTbyB0aGlzIGlzIGFs
-c28gbm90IG5lZWRlZD8gV2h5PyBQbGVhc2UgZXhwbGFpbiBpbiB0aGUgY29tbWl0IG1lc3NhZ2Uu
-DQpUaGVzZSBjb2RlcyB3b3VsZCBiZSBpbnZva2VkIGZyb20gZHdfcGNpZV9yZXN1bWVfbm9pcnEo
-KSB0b28uDQoNCkZyYW5rIGhhZCBwb2ludGVkIHRoZSBpbnZva2UgcHJvY2VkdXJlLg0KV291bGQg
-YWRkIHRoZW0gaW50byBjb21taXQgbWVzc2FnZSBsYXRlci4NCg0KQmVzdCBSZWdhcmRzDQpSaWNo
-YXJkDQo+IA0KPiAtIE1hbmkNCj4gDQo+IC0tDQo+IOCuruCuo+Cuv+CuteCuo+CvjeCuo+CuqeCv
-jSDgrprgrqTgrr7grprgrr/grrXgrq7gr40NCg==
+
+
+On 10/23/24 20:00, AngeloGioacchino Del Regno wrote:
+> Il 23/10/24 13:07, AngeloGioacchino Del Regno ha scritto:
+>> Il 23/10/24 10:09, Macpaul Lin ha scritto:
+>>> From: Fabien Parent <fparent@baylibre.com>
+>>>
+>>> Enable USB Type-C support on MediaTek MT8395 Genio 1200 EVK by adding
+>>> configuration for TCPC Port, USB-C connector, and related settings.
+>>>
+>>> Configure dual role switch capability, set up PD (Power Delivery) 
+>>> profiles,
+>>> and establish endpoints for SSUSB (SuperSpeed USB).
+>>>
+>>> Update pinctrl configurations for U3 P0 VBus default pins and set 
+>>> dr_mode
+>>> to "otg" for OTG (On-The-Go) mode operation.
+>>>
+>>> Signed-off-by: Fabien Parent <fparent@baylibre.com>
+>>> Signed-off-by: Yow-Shin Liou <yow-shin.liou@mediatek.com>
+>>> Signed-off-by: Simon Sun <simon.sun@yunjingtech.com>
+>>> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
+>>> ---
+>>>   .../dts/mediatek/mt8395-genio-1200-evk.dts    | 54 +++++++++++++++++++
+>>>   1 file changed, 54 insertions(+)
+>>>
+>>> Changes for v2:
+>>>   - Drop the no need '1/2' DT Schema update patch in the 1st version.
+>>>   - Fix intent for 'ports' node, it should under the 'connector' node.
+>>>   - Correct the index for 'port@0' and 'port@1' node.
+>>>
+>>> Changes for v3:
+>>>   - Correct the order between new added nodes.
+>>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts 
+>>> b/arch/arm64/ boot/dts/mediatek/mt8395-genio-1200-evk.dts
+>>> index 5f16fb820580..83d520226302 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
+>>> @@ -335,6 +335,43 @@ mt6360_ldo7: ldo7 {
+>>>                   regulator-always-on;
+>>>               };
+>>>           };
+>>> +
+>>> +        tcpc {
+>>> +            compatible = "mediatek,mt6360-tcpc";
+>>> +            interrupts-extended = <&pio 17 IRQ_TYPE_LEVEL_LOW>;
+>>> +            interrupt-names = "PD_IRQB";
+>>> +
+>>> +            connector {
+>>> +                compatible = "usb-c-connector";
+>>> +                label = "USB-C";
+>>> +                data-role = "dual";
+>>
+>> op-sink-microwatt goes here
+
+Okay, will fix it.
+
+>>> +                power-role = "dual";
+>>> +                try-power-role = "sink";
+>>> +                source-pdos = <PDO_FIXED(5000, 1000, \
+>>> +                           PDO_FIXED_DUAL_ROLE | \
+>>> +                           PDO_FIXED_DATA_SWAP)>;
+>>
+>> Please fix the indentation (and also you don't need the escaping)
+
+Okay, it has been complained by checkpatch about this line is too long.
+Will fix it in next version.
+
+>>                  source-pdos = <PDO_FIXED(5000, 1000,
+>>                               PDO_FIXED_DUAL_ROLE |
+>>                               PDO_FIXED_DATA_SWAP)>;
+>>
+>>> +                sink-pdos = <PDO_FIXED(5000, 2000, \
+>>> +                         PDO_FIXED_DUAL_ROLE | \
+>>> +                         PDO_FIXED_DATA_SWAP)>;
+>>> +                op-sink-microwatt = <10000000>;
+>>> +
+>>> +                ports {
+>>> +                    #address-cells = <1>;
+>>> +                    #size-cells = <0>;
+>>> +
+>>> +                    port@0 {
+>>> +                        reg = <0>;
+>>
+>> Just to make sure that this is ok: are you sure that this port supports
+>> SuperSpeed (physical connector too) and that it's not limited to 
+>> HighSpeed?
+
+This port should be able to do both HighSpeed and SuperSpeed.
+However our internal reference code set SuperSpeed at port@0 and seems
+just work for both high and supoer speeds.
+See more detail discussion below.
+
+>>
+>> I have seen Rob's comment stating that ssusb_ep goes to port@1, but I 
+>> think
+>> that his comment came after reading "ss" in "ssusb": while the controller
+>> does surely support SS, if the port does not, this should still go to 
+>> port@0.
+>>
+>> P.S.: I didn't check the schematics - just please make sure it's 
+>> correct, and
+>>        that this actually works.
+>>
+> Sorry for the double email, but I've done some fast research on this as 
+> something
+> came to mind right after sending this review.
+> 
+> usb-connector.yaml says that the `ports` property models a data bus to 
+> the USB
+> connector, and that a single connector can have multiple data buses, of 
+> course.
+> 
+> The last statement doesn't come as a surprise, and actually makes me 
+> think about
+> what MTU3 actually provides: a High Speed data bus, and a SuperSpeed 
+> data bus.
+
+Ya. That's the question I was wondering, too.
+Current DT bindings of MTU3 support only 1 port which is also a required
+property. For the SSUSB0 port on MT8195, it indeed provides a High Speed
+data bus, and a SuperSpeed data bus.
+
+> Now, I see in MTU3 that only `port` is allowed and that only the HS part is
+> is exposed... so to resolve this, you want to add a binding to connect the
+> data bus of the MTU3 controller to the usb-c-connector, and obviously 
+> only then
+> you should use it here.
+> 
+> That should look like this:
+> 
+> mediatek,mtu3.yaml:
+>    ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+> 
+>      properties:
+>        port@0:
+>          $ref: /schemas/graph.yaml#/properties/port
+>          description: High Speed (HS) data bus.
+> 
+>        port@1:
+>          $ref: /schemas/graph.yaml#/properties/port
+>          description: Super Speed (SS) data bus.
+> 
+> some_devicetree.dts
+> &ssusb0 {
+>      ports {
+>          port@0 {
+>              reg = <0>;
+> 
+>              /* High Speed data bus */
+>              mtu3_hs0_ep: endpoint {
+>                  /* connects to port@0 (HS) of usb-c-connector */
+>                  remote-endpoint = <&typec_con_hs>;
+>              }
+>          };
+> 
+>          port@1 {
+>              reg = <1>;
+> 
+>              /* SuperSpeed data bus */
+>              mtu3_ss0_ep: endpoint {
+>                  /* connects to port@1 (SS) of usb-c-connector */
+>                  remote-endpoint = <&typec_con_sss>;
+>              }
+>          };
+>      };
+> };
+
+Sure, but after adding that DT schema before the v3 patch has been send.
+The dt_binding_check seems show 'port' is a required property for MTU3.
+However I didn't found where it has been defined.
+I think to add the 'ports' property in MTU3's DT Schema should be better.
+
+> I don't have time to do any testing in this precise moment, so, if you want
+> to go on and test - cool; otherwise, I can check that at a later time, but
+> on Genio 700 EVK instead (which is the same thing for this specific 
+> topic anyway).
+> 
+> Cheers,
+> Angelo
+> 
+>>> +                    };
+>>> +
+>>> +                    port@1 {
+>>> +                        reg = <1>;
+>>> +                        mt6360_ssusb_ep: endpoint {
+>>> +                            remote-endpoint = <&ssusb_ep>;
+>>> +                        };
+>>> +                    };
+>>> +                };
+>>> +            };
+>>> +        };
+>>>       };
+>>>   };
+>>> @@ -770,6 +807,13 @@ pins-reset {
+>>>           };
+>>>       };
+>>> +    u3_p0_vbus: u3-p0-vbus-default-pins {
+>>> +        pins-cmd-dat {
+>>
+>> That's not a command nor data pin.
+
+Oh! Will fix it.
+
+>> pins-vbus {
+>>
+>>> +            pinmux = <PINMUX_GPIO63__FUNC_VBUSVALID>;
+>>> +            input-enable;
+>>> +        };
+>>> +    };
+>>> +
+>>>       uart0_pins: uart0-pins {
+>>>           pins {
+>>>               pinmux = <PINMUX_GPIO98__FUNC_UTXD0>,
+>>> @@ -900,8 +944,18 @@ &ufsphy {
+>>>   };
+>>>   &ssusb0 {
+>>> +    dr_mode = "otg";
+>>> +    pinctrl-names = "default";
+>>> +    pinctrl-0 = <&u3_p0_vbus>;
+>>
+>> Is this port usb host by default? If it is:
+>>
+>>      role-switch-default-mode = "host";
+
+This port0 is exactly a dual-role port for genio-1200-evk.
+It is usually used as gadget device port (like ADB) and
+sometimes can do OTG function with xhci0.
+
+>> Cheers,
+>> Angelo
+>>
+>>> +    usb-role-switch;
+>>>       vusb33-supply = <&mt6359_vusb_ldo_reg>;
+>>>       status = "okay";
+>>> +
+>>> +    port {
+>>> +        ssusb_ep: endpoint {
+>>> +            remote-endpoint = <&mt6360_ssusb_ep>;
+>>> +        };
+>>> +    };
+>>>   };
+>>>   &ssusb2 {
+>>
+
+Thanks
+Macpaul Lin
 
