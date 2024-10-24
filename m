@@ -4,94 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C87BD10388
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 22:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958EED10388
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 22:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAws6WoVCcXlDb3l1Dbs0bWb8fCDzqkXjz1pdjFmygY=; b=Keut4O9q5X/CY9qJRXLwlKKlfu
-	p3/lfQBrUEPFtJzTEcLf9fIY1qwWr6fmsx1n5xr4/Gm7BpQxN4e3s/vjwr8UbkkFFKk0og75N9Ec7
-	HkBdDQTHa87Nw13hSRaiMYviHpmclbksMy5lVtZSa1BEFxs6U/YZHqhzR9cJHclL2JTrnCHDhnPph
-	4ViBWkkUNzws6qFqwb+S7Yug14alPklrBVv1IURrtV7G3Pe5xbDE8YnWSh4dWnQ1kDaOa0sDJxcDU
-	Y2sUstuj9UErJ3VrACYQyxa2dhpg7c6A9OxZca8YBVBUZdOPD25wW9QV8sy/b1N5vFuM2N6wPcF2/
-	qzT3DpPw==;
+	bh=v7Qd1LNUgVTgSHaMTtGXGoj8eJJOJsPH8NKg/0kvIJ4=; b=hNKIM7DnjMdPfu0q3qC6ok5fet
+	CdudIkLwlUMhjkPR2ZqstgtMBQE7m7EGwZmymEKZ4G89ZSGae+3xUGdQgC9Odtw0QknmdD9uSIQs+
+	Ecju89vjfmXUhjk+KxwON7F9oHo0/M2WxEDW2d++WFn/BroIgeHrWx1tgOFhFKED2HDWi8iU/TzNd
+	uYqLmNLTiWF3ultWRdm5ZfK8u5zXvIH9UcFNE4hoI6t5pf5Q4VYjuBJP5NXBaD8ba7p/M9S8JHZIp
+	LvPmMyd33hRd4fQYAoEsliVd/c21H9vU5enRM22Axi1fdq+WZ6D00lDWYZt/pKUsTEUaP1KCxmDK6
+	jS9jt9DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4622-00000001vOO-1s6O;
-	Thu, 24 Oct 2024 22:10:14 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1t46Ch-00000001whb-0PqI;
+	Thu, 24 Oct 2024 22:21:15 +0000
+Received: from mail-westusazlp170130003.outbound.protection.outlook.com ([2a01:111:f403:c000::3] helo=SJ2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t460S-00000001vFD-0Ph1;
-	Thu, 24 Oct 2024 22:08:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729807716; x=1761343716;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dq8V3lZPoMG7c4QB3Q+AJI+f2SVoA1/4ndLmjpYjO5U=;
-  b=gQaWt5TMSCzcEbhit6nJFsIYk8RAVRpxra62BtjoJyUVmAj4wQYs4HJt
-   ZrEdvUqJygN9vGOuhVJLo1bsErVU2OGxJmnziYz7xwi7+QGtKxeKqCGWJ
-   avyMO/aSNOH/agZg3zKZgh2wWHdcOZZeq6xGqY1ZlJdMALIOxtdTwoxCN
-   d1emjCZWTT/37/vFUBz5MDCcd3usoJQnukYI37l7irjFR9ERs9XqnEFrw
-   cf+G0wBma6XvraR2Fm9qx/Tv4SDBPC5OOYA4HyHQKuOb1BTj468VVQTDK
-   +RgM/6n79HyBI5UEGI9WhzV5gCRmrfjGhTXwRpyOMjJQOtgY1lqRrsB1/
-   A==;
-X-CSE-ConnectionGUID: S5abzu8oS3uTnrBmM9hSIg==
-X-CSE-MsgGUID: PhKHXV5dR8qm9JBylrY3/w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="33269197"
-X-IronPort-AV: E=Sophos;i="6.11,230,1725346800"; 
-   d="scan'208";a="33269197"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2024 15:08:31 -0700
-X-CSE-ConnectionGUID: k11lQ5etShi/Wk82RPJmyw==
-X-CSE-MsgGUID: VBHRFo5uTyqR6GmWKiS2jg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,230,1725346800"; 
-   d="scan'208";a="85272830"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 24 Oct 2024 15:08:24 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t460E-000XCC-12;
-	Thu, 24 Oct 2024 22:08:22 +0000
-Date: Fri, 25 Oct 2024 06:07:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 11/37] drm/vc4: hvs: Add support for BCM2712 HVS
-Message-ID: <202410250541.6AcfkD5k-lkp@intel.com>
-References: <20241023-drm-vc4-2712-support-v1-11-1cc2d5594907@raspberrypi.com>
+	id 1t46B5-00000001wJg-3qam
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 22:19:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DNqZ8ZCViDnB0WibaHVYuYzEvtG/Kv91oFi/WOkmC2FvqrXi9zW/VH9mGMecmxTuMhbady3cFNHX2IL6JowIp0sCkhBth3KF1NjNYXayHHyEb3W/LuNRpweTvAU88L6uS+ARrHZtvwUM2BE7p2pzleup8yNqlZR5vjSylROqoz2ANOqNmbe8T1nCLqz9+mm8DHmvfa62LegCB+OiyDeWZZ5BPpOaEFc9U4Mx5T45cQRt8eyNMOkMwdUa2SBZts3vaAVRHdrJOgyhujj8RFpL0rLhH55K4NfrW3+a2wquEW7YUGwrSxMxaGJMwZYVLakj/9R9FuQxCtUc6xFX6lzY8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v7Qd1LNUgVTgSHaMTtGXGoj8eJJOJsPH8NKg/0kvIJ4=;
+ b=bX3/PWmfmjMfSd/47CTwH8IbeUTdC5jjKXLllWvxWmDKd1gNQSWSThPgG9YwtK+/DTXORASh/qAa9fU3rL2J6ut8a06NK4jUwN/xVXdRA9uHiOEKusw8o0o8owk5TPX1O97C2zhWqbFpkHcCjhAC4p4XmBvbnxReUOTnDGDcgiLMDIpLfqkVNARgLrZgLZzQkdL5D+Vshql/ul05OvKHUMfgBiDJQNqRtJe39uVENaIguQAjaZ3w3D8bBNe5/fNWwBO2v5yFeIthZ7rGYQwYnwq3TPTAbNn0Tz0N0wydTqPTcpYQs5RCxLIaNw/wxkQMWLxoO1Z+PEIRNo6l2X9VRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v7Qd1LNUgVTgSHaMTtGXGoj8eJJOJsPH8NKg/0kvIJ4=;
+ b=l2AvqOVRpZ/tgQB0Fe/NPDiHjnmMCZchAD94aZ+5MJSbVACfYvQgRXi2RUXoxCQM3ePRF1T4AXyDdOR83oQD6VmOFqAzIhwbpgrX1wdZQnyufasQnXDiIiyNMhqcMxYzZNFk2uDnC2Uf3KdCgs0g6NColgJw5Bikh8smGi+LMr4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ MW4PR01MB6402.prod.exchangelabs.com (2603:10b6:303:77::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8093.15; Thu, 24 Oct 2024 22:19:23 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8093.018; Thu, 24 Oct 2024
+ 22:19:23 +0000
+Date: Thu, 24 Oct 2024 15:19:17 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Will Deacon <will@kernel.org>
+cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
+    Shuai Xue <xueshuai@linux.alibaba.com>, 
+    Jing Zhang <renyu.zj@linux.alibaba.com>, 
+    Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] perf/dwc_pcie: Load DesignWare PCIe PMU driver
+ automatically on Ampere SoCs
+In-Reply-To: <20241024113201.GA30270@willie-the-truck>
+Message-ID: <617bffb7-9dee-6139-53d5-524ba03197f6@os.amperecomputing.com>
+References: <20241008231824.5102-1-ilkka@os.amperecomputing.com> <20241008231824.5102-3-ilkka@os.amperecomputing.com> <20241024113201.GA30270@willie-the-truck>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+X-ClientProxiedBy: CY5PR13CA0011.namprd13.prod.outlook.com (2603:10b6:930::16)
+ To MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023-drm-vc4-2712-support-v1-11-1cc2d5594907@raspberrypi.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|MW4PR01MB6402:EE_
+X-MS-Office365-Filtering-Correlation-Id: dbaf6160-87e5-45ae-b44a-08dcf479e991
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SdXaSQzu3dcZGLUy6ZudpSvHyutYabKaE4Sj09mTS2OanOLJOd7idjbFXoGI?=
+ =?us-ascii?Q?ijAMsN8oJ7Oyknj5qTZ/r060kSdHXaX4szWYnZEcEwDxQzrHVvypKCttKl4S?=
+ =?us-ascii?Q?3ZSOzlegmgzmO7C7XAblfnK1XBh1ea+Kco/ytczHqItWM87h+5ANNXHd8Phw?=
+ =?us-ascii?Q?gAOeUYtRRICWElYKuxPOaYEfGYlJ0sCvW8bB2WkEH6nimxPTw6GZpsBgtdr1?=
+ =?us-ascii?Q?OLuCSkTWj2tSb+PFmuZu0hmT0WQF7l+584CiFSen8Mvjdk7Cd3JbvjMCXlQd?=
+ =?us-ascii?Q?xGSOeyJcbMAdyFGcbXZRoPIVs2rGQOj49nfqNijFvH6iNKP8fUdi6nuSvoAt?=
+ =?us-ascii?Q?qP/pE4B17Uzrig7ZmGuB0GCDWn83iKejPlRpqt64Jl2UvF9DXKcZwZv0NUSa?=
+ =?us-ascii?Q?ZA/9jd3nDXcUBHUQQ5BNK2Z0BVeEeE27Ij1Q113ru500keIAYG6V0bVk+0mW?=
+ =?us-ascii?Q?JSDdMcrYBLgehOudmWec+bpiG5NYbBC0aVL/c21ngYeMgoIoSJzLCeHszJzP?=
+ =?us-ascii?Q?m7PWRqXjptQjGaW1LF5XIo+0YkCchpCGTjiRqlLpwon95PN8/AHM+uv9qmMh?=
+ =?us-ascii?Q?XMU4tP5ZJomFHaEs17ANoRSYag7eJnLHTlgA1wTSb/dFS1ajZMrHbkh4S4jh?=
+ =?us-ascii?Q?/pqIdR6lb+IN6ER5rWiSwHk2+ZY6jpVgLVhwCq4NsQ4GupnCL+gR5dLtecEX?=
+ =?us-ascii?Q?LKNe5Otfg3T1i8wuw15jrI458IUhSpqSYP8H5mS5QOwe/XL4czb0YRIqip9E?=
+ =?us-ascii?Q?kTJDobU3EeSDBwPLEWTfDOq7TyrT8sh6WLs7WyiJ9N0nASdsqH7QTQp6eFyh?=
+ =?us-ascii?Q?qfCXFmhZEntRHwfKkjG/4J2oKGmEon/DnUE8lnZ2D2PfWDnsxojbS0ZB3czz?=
+ =?us-ascii?Q?J6BlT4VqXl3Kortfr56y/Lx5UKtRX1d9NjXVWXb1csBK5IlPzLZ5jwy+NpbL?=
+ =?us-ascii?Q?hGdIZIt5UYMNUN3BYBbg5an2is5vLhJem8MAzxKA9GjtizCRqZPPmskAR3Xy?=
+ =?us-ascii?Q?F3J3vM8S/1T+QhV8T59Yr0bpeAQDl9i6jzQD9sHHYlwwigLlJKSDlfYnSHrD?=
+ =?us-ascii?Q?8TjupcT49CP0zXEKMBD7hEB0MFHlQjx8+LLJc9pnHqshYnnJ+goLG+w2NQ5w?=
+ =?us-ascii?Q?NDr9t5aVTBX0HUVS+Gypyt1iYijgwrRSRpyPm3B+D7aNQNO5omE9rnXlbmrZ?=
+ =?us-ascii?Q?xUbx9bGOW/97P2lofic2jBqWi0MrE+ql++OnBm3lHBhJO5T7Hdq/rZxBn+0w?=
+ =?us-ascii?Q?Z2V3eRyVnuGfRdbJG2+PzqPCnqR4TJXXN1pqfH8KbT/URt+JZhCmmaAuGd1e?=
+ =?us-ascii?Q?htLECEIMMF+FhxBvJobwm6CJ5CscoBVtUC5wErKOqHWgWDzGqOCTW1gkcnla?=
+ =?us-ascii?Q?bgedhTA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?copoHvF6eEBnop+u8QWQ/oq06i/vOn5cLel4Hqn9JltcRSsPLeZ4cyJrTbYz?=
+ =?us-ascii?Q?Ct0MiDi2lEx6B7OP3T+D/BA8KxPPnCHCRhgbarqHAdwYdhwjCsHRjrE89443?=
+ =?us-ascii?Q?waw0rx/r6fwGMeuKo8TEYBy30fKwXGqLpo4/7J9hsPVegfb9jb9e2CGG3GcS?=
+ =?us-ascii?Q?AbUfMofPCTNbNmdLsTOczlURwOI7ByuxilkO7q+1RIEQUjgWJ//aB7PEXztH?=
+ =?us-ascii?Q?TBNsXJzQS4hTxU+dsdQTiJzLcMA5qHFrdHPrfmLUKL4X8EQhUFQn8tKvkZlx?=
+ =?us-ascii?Q?62b2XuqjipUSrviEWG2GB1m37PPh0YvXFm8e1VS+bydSgcGqd7VmxeGwix8e?=
+ =?us-ascii?Q?aB9UA5/0SrkllTpa8DEfjwGENodwiBmu8v6B14oy3pkNWAoPU/OP8ZPHdNBx?=
+ =?us-ascii?Q?O5XPBpSHfy74u/swhy3t7gwiEPkUQVEbBsIr2DGPEWc4idBHlXEO/MVl6lGS?=
+ =?us-ascii?Q?1jyDpqbWex86EU4qLq0zJvIqDzq41++jBS2NjIO9ttpYKwSPI/NwuFvIWO9r?=
+ =?us-ascii?Q?TtiNU9TmjI4W/Xxejjuc7F/6cK1fXZ7c2IibhhP2Kr9jqV8E2CaXw2nDq4j7?=
+ =?us-ascii?Q?GWrA9vWLraW5Mje7ltXjoMcH0TwsL0uhv95X+xdR2X6YrRIigG8DDRE4MiHr?=
+ =?us-ascii?Q?VZYVQbU7Vzb0Nym/J8//ScfMPkrf8lUlwRHFm6o07+6JMMcBSQLRhTXsXs9p?=
+ =?us-ascii?Q?Dk1zQII7MPJldzvAljYFjZBF2GLYZnY5ptXu3VJNHZswFI9CilEpsaUBH3o0?=
+ =?us-ascii?Q?8Rd9HlS6Zr4pNUMq8oim4Jgrp7/0NQdi9JMU0WRSVJ8W8mHJTpFbGCz5r2nw?=
+ =?us-ascii?Q?ia8BCtXuuFzu2gPkDYMfuf8AopF0Je5Ls4Fs+s+dfYq+poCZWbsF3mGOMAk3?=
+ =?us-ascii?Q?K6qcrHFOtI4k9oMg47GOhuXkS65MOYRIWPq4rwEa7ZwsZdg7Yj+SHhubZj7a?=
+ =?us-ascii?Q?G7JPYrds2lR2a29aoY3w3yYcH+3g9Yr9tvG9ZF6ybCByjhFN4QiUylqE7hQ6?=
+ =?us-ascii?Q?8HFBZLrWZU5mXXM0Q6hiA5RYLOBF49mo0C3dWbEAnUof++eByvtY1h82DAZi?=
+ =?us-ascii?Q?HOHasPuyZfkKM9rxzFWremI8tqpBLWaSpaE/ub+LUtQdBrmLkwvM7/ftTPm4?=
+ =?us-ascii?Q?Qein85I9ekb00+onqTYb610+O55aIVDUCtULqHn97CgzOKqf9Bm1Rd8fk8pX?=
+ =?us-ascii?Q?2qG/8GUpURi0T5DU61/bmN/OgJIrXSArMqBkHFFFHRFYof3yVLOfOteauCCJ?=
+ =?us-ascii?Q?b+lf1Qfcy1ld85RQWy2CqvczRBteXpfmRYAS8b0TvyBYJQdwhKQIzy11OVJm?=
+ =?us-ascii?Q?pwMns2TxFOvAW/N3aR7bF4A8AWqYFoAbr+4JiV+kEDWE95Pzt1Zai3tQFafB?=
+ =?us-ascii?Q?5gIbOqOOE8EMxVIonVpI8B9xArD9SlF0l9DTiYcAqkz0/lY/m64snLsvmjqS?=
+ =?us-ascii?Q?pmylgENshsNSXl3SKeXXeMdtvx9uF/lf12uJyJUMBZlVEmV3SdenofipRypJ?=
+ =?us-ascii?Q?KyKsDv550TaooQVYzgkVRjq9ZwkTZy8t8WV7cq+mSrUiLr4sxfxbZzQfNnzF?=
+ =?us-ascii?Q?RkY6SqKH9jtYcoRN0ddvnBNckH62RFk10RHFBLw3pPPjhgfScGwS5dC6biSZ?=
+ =?us-ascii?Q?a4NXHwzs3Fvj2GolU4hJKDg=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dbaf6160-87e5-45ae-b44a-08dcf479e991
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 22:19:23.1100
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O/MbmQVmP2U0Cg7FyQYsXHOzOUn39sCTQcxWTEjzrAaAawcp89ZASmnIdyfGDMcnO9vP7sWqTYegddQr8tmSDhwTZwomRy5e7CozGGvG+PW70kAbeBDwVXc4ZowK2Iko
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6402
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_150836_236825_0AEFC099 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20241024_151935_992694_43EB6B12 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,392 +158,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
 
-kernel test robot noticed the following build errors:
+Hi Will,
 
-[auto build test ERROR on 91e21479c81dd4e9e22a78d7446f92f6b96a7284]
+On Thu, 24 Oct 2024, Will Deacon wrote:
+> On Tue, Oct 08, 2024 at 11:18:23PM +0000, Ilkka Koskinen wrote:
+>> Load DesignWare PCIe PMU driver automatically if the system has a PCI
+>> bridge by Ampere.
+>>
+>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+>> ---
+>>  drivers/perf/dwc_pcie_pmu.c | 10 ++++++++++
+>>  1 file changed, 10 insertions(+)
+>>
+>> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+>> index 3581d916d851..d752168733cf 100644
+>> --- a/drivers/perf/dwc_pcie_pmu.c
+>> +++ b/drivers/perf/dwc_pcie_pmu.c
+>> @@ -782,6 +782,16 @@ static void __exit dwc_pcie_pmu_exit(void)
+>>  module_init(dwc_pcie_pmu_init);
+>>  module_exit(dwc_pcie_pmu_exit);
+>>
+>> +static const struct pci_device_id dwc_pcie_pmu_table[] = {
+>> +	{
+>> +		PCI_DEVICE(PCI_VENDOR_ID_AMPERE, PCI_ANY_ID),
+>> +		.class		= PCI_CLASS_BRIDGE_PCI_NORMAL,
+>> +		.class_mask	= ~0,
+>> +	},
+>> +	{ }
+>> +};
+>> +MODULE_DEVICE_TABLE(pci, dwc_pcie_pmu_table);
+>
+> Hmm, won't this only work if the driver is modular? Should we be calling
+> pci_register_driver() for the builtin case?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dave-Stevenson/drm-vc4-Limit-max_bpc-to-8-on-Pi0-3/20241024-005239
-base:   91e21479c81dd4e9e22a78d7446f92f6b96a7284
-patch link:    https://lore.kernel.org/r/20241023-drm-vc4-2712-support-v1-11-1cc2d5594907%40raspberrypi.com
-patch subject: [PATCH 11/37] drm/vc4: hvs: Add support for BCM2712 HVS
-config: um-allmodconfig (https://download.01.org/0day-ci/archive/20241025/202410250541.6AcfkD5k-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 5886454669c3c9026f7f27eab13509dd0241f2d6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410250541.6AcfkD5k-lkp@intel.com/reproduce)
+That would be the normal case indeed. However, this driver is quite 
+different: dwc_pcie_pmu_init() goes through all the pci devices looking 
+for root ports with the pmu capabilities. Moreover, the probe function 
+isn't bound to any specific vendor/class/device IDs. This patch simply 
+makes sure the driver is loaded and the init function gets called, if the 
+driver was built as module and ran on Ampere system.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410250541.6AcfkD5k-lkp@intel.com/
+Cheers, Ilkka
 
-All error/warnings (new ones prefixed by >>):
-
-   In file included from drivers/gpu/drm/vc4/vc4_kms.c:17:
-   In file included from include/drm/drm_atomic.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     548 |         val = __raw_readb(PCI_IOBASE + addr);
-         |                           ~~~~~~~~~~ ^
-   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     561 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:37:51: note: expanded from macro '__le16_to_cpu'
-      37 | #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
-         |                                                   ^
-   In file included from drivers/gpu/drm/vc4/vc4_kms.c:17:
-   In file included from include/drm/drm_atomic.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     574 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
-      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
-         |                                                   ^
-   In file included from drivers/gpu/drm/vc4/vc4_kms.c:17:
-   In file included from include/drm/drm_atomic.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     585 |         __raw_writeb(value, PCI_IOBASE + addr);
-         |                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     595 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     605 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:693:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     693 |         readsb(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:701:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     701 |         readsw(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:709:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     709 |         readsl(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:718:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     718 |         writesb(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:727:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     727 |         writesw(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:736:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     736 |         writesl(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   In file included from drivers/gpu/drm/vc4/vc4_kms.c:17:
-   In file included from include/drm/drm_atomic.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:36:
-   In file included from include/linux/kgdb.h:19:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:13:
-   In file included from include/linux/kallsyms.h:13:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/gpu/drm/vc4/vc4_kms.c:357:3: warning: variable 'mux' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
-     357 |                 default:
-         |                 ^~~~~~~
-   drivers/gpu/drm/vc4/vc4_kms.c:364:20: note: uninitialized use occurs here
-     364 |                           VC4_SET_FIELD(mux, SCALER6_CONTROL_DSP1_TARGET));
-         |                                         ^~~
-   drivers/gpu/drm/vc4/vc4_regs.h:16:36: note: expanded from macro 'VC4_SET_FIELD'
-      16 |                 WARN_ON(!FIELD_FIT(field##_MASK, value));               \
-         |                                                  ^~~~~
-   include/linux/bitfield.h:102:22: note: expanded from macro 'FIELD_FIT'
-     102 |                 !((((typeof(_mask))_val) << __bf_shf(_mask)) & ~(_mask)); \
-         |                                    ^~~~
-   include/asm-generic/bug.h:123:25: note: expanded from macro 'WARN_ON'
-     123 |         int __ret_warn_on = !!(condition);                              \
-         |                                ^~~~~~~~~
-   drivers/gpu/drm/vc4/vc4_drv.h:668:10: note: expanded from macro 'HVS_WRITE'
-     668 |                 writel(val, hvs->regs + (offset));                                      \
-         |                        ^~~
-   drivers/gpu/drm/vc4/vc4_kms.c:337:20: note: initialize the variable 'mux' to silence this warning
-     337 |                 unsigned char mux;
-         |                                  ^
-         |                                   = '\0'
-   14 warnings generated.
---
-   In file included from drivers/gpu/drm/vc4/vc4_hvs.c:27:
-   In file included from include/drm/drm_atomic_helper.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     548 |         val = __raw_readb(PCI_IOBASE + addr);
-         |                           ~~~~~~~~~~ ^
-   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     561 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:37:51: note: expanded from macro '__le16_to_cpu'
-      37 | #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
-         |                                                   ^
-   In file included from drivers/gpu/drm/vc4/vc4_hvs.c:27:
-   In file included from include/drm/drm_atomic_helper.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     574 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
-      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
-         |                                                   ^
-   In file included from drivers/gpu/drm/vc4/vc4_hvs.c:27:
-   In file included from include/drm/drm_atomic_helper.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:35:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from arch/um/include/asm/hardirq.h:5:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     585 |         __raw_writeb(value, PCI_IOBASE + addr);
-         |                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     595 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     605 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:693:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     693 |         readsb(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:701:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     701 |         readsw(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:709:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     709 |         readsl(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:718:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     718 |         writesb(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:727:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     727 |         writesw(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:736:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     736 |         writesl(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   In file included from drivers/gpu/drm/vc4/vc4_hvs.c:27:
-   In file included from include/drm/drm_atomic_helper.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:36:
-   In file included from include/linux/kgdb.h:19:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:13:
-   In file included from include/linux/kallsyms.h:13:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/gpu/drm/vc4/vc4_hvs.c:1489:20: warning: variable 'base' is uninitialized when used here [-Wuninitialized]
-    1489 |                           VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
-         |                                         ^~~~
-   drivers/gpu/drm/vc4/vc4_regs.h:16:36: note: expanded from macro 'VC4_SET_FIELD'
-      16 |                 WARN_ON(!FIELD_FIT(field##_MASK, value));               \
-         |                                                  ^~~~~
-   include/linux/bitfield.h:102:22: note: expanded from macro 'FIELD_FIT'
-     102 |                 !((((typeof(_mask))_val) << __bf_shf(_mask)) & ~(_mask)); \
-         |                                    ^~~~
-   include/asm-generic/bug.h:123:25: note: expanded from macro 'WARN_ON'
-     123 |         int __ret_warn_on = !!(condition);                              \
-         |                                ^~~~~~~~~
-   drivers/gpu/drm/vc4/vc4_drv.h:668:10: note: expanded from macro 'HVS_WRITE'
-     668 |                 writel(val, hvs->regs + (offset));                                      \
-         |                        ^~~
-   drivers/gpu/drm/vc4/vc4_hvs.c:1420:20: note: initialize the variable 'base' to silence this warning
-    1420 |         u32 reg, top, base;
-         |                           ^
-         |                            = 0
->> drivers/gpu/drm/vc4/vc4_hvs.c:1489:6: error: call to '__compiletime_assert_756' declared with 'error' attribute: FIELD_PREP: value too large for the field
-    1489 |                           VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
-         |                           ^
-   drivers/gpu/drm/vc4/vc4_regs.h:17:3: note: expanded from macro 'VC4_SET_FIELD'
-      17 |                 FIELD_PREP(field##_MASK, value);                        \
-         |                 ^
-   include/linux/bitfield.h:115:3: note: expanded from macro 'FIELD_PREP'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^
-   include/linux/bitfield.h:68:3: note: expanded from macro '__BF_FIELD_CHECK'
-      68 |                 BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?           \
-         |                 ^
-   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:505:2: note: expanded from macro '_compiletime_assert'
-     505 |         __compiletime_assert(condition, msg, prefix, suffix)
-         |         ^
-   include/linux/compiler_types.h:498:4: note: expanded from macro '__compiletime_assert'
-     498 |                         prefix ## suffix();                             \
-         |                         ^
-   <scratch space>:40:1: note: expanded from here
-      40 | __compiletime_assert_756
-         | ^
-   14 warnings and 1 error generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for GET_FREE_REGION
-   Depends on [n]: SPARSEMEM [=n]
-   Selected by [m]:
-   - RESOURCE_KUNIT_TEST [=m] && RUNTIME_TESTING_MENU [=y] && KUNIT [=m]
-
-
-vim +1489 drivers/gpu/drm/vc4/vc4_hvs.c
-
-  1416	
-  1417	static int vc4_hvs_cob_init(struct vc4_hvs *hvs)
-  1418	{
-  1419		struct vc4_dev *vc4 = hvs->vc4;
-  1420		u32 reg, top, base;
-  1421	
-  1422		/*
-  1423		 * Recompute Composite Output Buffer (COB) allocations for the
-  1424		 * displays
-  1425		 */
-  1426		switch (vc4->gen) {
-  1427		case VC4_GEN_4:
-  1428			/* The COB is 20736 pixels, or just over 10 lines at 2048 wide.
-  1429			 * The bottom 2048 pixels are full 32bpp RGBA (intended for the
-  1430			 * TXP composing RGBA to memory), whilst the remainder are only
-  1431			 * 24bpp RGB.
-  1432			 *
-  1433			 * Assign 3 lines to channels 1 & 2, and just over 4 lines to
-  1434			 * channel 0.
-  1435			 */
-  1436			#define VC4_COB_SIZE		20736
-  1437			#define VC4_COB_LINE_WIDTH	2048
-  1438			#define VC4_COB_NUM_LINES	3
-  1439			reg = 0;
-  1440			top = VC4_COB_LINE_WIDTH * VC4_COB_NUM_LINES;
-  1441			reg |= (top - 1) << 16;
-  1442			HVS_WRITE(SCALER_DISPBASE2, reg);
-  1443			reg = top;
-  1444			top += VC4_COB_LINE_WIDTH * VC4_COB_NUM_LINES;
-  1445			reg |= (top - 1) << 16;
-  1446			HVS_WRITE(SCALER_DISPBASE1, reg);
-  1447			reg = top;
-  1448			top = VC4_COB_SIZE;
-  1449			reg |= (top - 1) << 16;
-  1450			HVS_WRITE(SCALER_DISPBASE0, reg);
-  1451			break;
-  1452	
-  1453		case VC4_GEN_5:
-  1454			/* The COB is 44416 pixels, or 10.8 lines at 4096 wide.
-  1455			 * The bottom 4096 pixels are full RGBA (intended for the TXP
-  1456			 * composing RGBA to memory), whilst the remainder are only
-  1457			 * RGB. Addressing is always pixel wide.
-  1458			 *
-  1459			 * Assign 3 lines of 4096 to channels 1 & 2, and just over 4
-  1460			 * lines. to channel 0.
-  1461			 */
-  1462			#define VC5_COB_SIZE		44416
-  1463			#define VC5_COB_LINE_WIDTH	4096
-  1464			#define VC5_COB_NUM_LINES	3
-  1465			reg = 0;
-  1466			top = VC5_COB_LINE_WIDTH * VC5_COB_NUM_LINES;
-  1467			reg |= top << 16;
-  1468			HVS_WRITE(SCALER_DISPBASE2, reg);
-  1469			top += 16;
-  1470			reg = top;
-  1471			top += VC5_COB_LINE_WIDTH * VC5_COB_NUM_LINES;
-  1472			reg |= top << 16;
-  1473			HVS_WRITE(SCALER_DISPBASE1, reg);
-  1474			top += 16;
-  1475			reg = top;
-  1476			top = VC5_COB_SIZE;
-  1477			reg |= top << 16;
-  1478			HVS_WRITE(SCALER_DISPBASE0, reg);
-  1479			break;
-  1480	
-  1481		case VC4_GEN_6_C:
-  1482			#define VC6_COB_LINE_WIDTH	3840
-  1483			#define VC6_COB_NUM_LINES	4
-  1484			reg = 0;
-  1485			top = 3840;
-  1486	
-  1487			HVS_WRITE(SCALER6_DISP2_COB,
-  1488				  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
-> 1489				  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
-  1490	
-  1491			base = top + 16;
-  1492			top += VC6_COB_LINE_WIDTH * VC6_COB_NUM_LINES;
-  1493	
-  1494			HVS_WRITE(SCALER6_DISP1_COB,
-  1495				  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
-  1496				  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
-  1497	
-  1498			base = top + 16;
-  1499			top += VC6_COB_LINE_WIDTH * VC6_COB_NUM_LINES;
-  1500	
-  1501			HVS_WRITE(SCALER6_DISP0_COB,
-  1502				  VC4_SET_FIELD(top, SCALER6_DISPX_COB_TOP) |
-  1503				  VC4_SET_FIELD(base, SCALER6_DISPX_COB_BASE));
-  1504			break;
-  1505	
-  1506		default:
-  1507			return -EINVAL;
-  1508		}
-  1509	
-  1510		return 0;
-  1511	}
-  1512	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> Will
+>
 
