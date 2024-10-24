@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724BFCE8E70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F11CE8E70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 12:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuoWczUSRxhSFFtvg4xgN7fh42HyXqtTGDOJfAdgT0o=; b=BHW3Wutg8foZVwjth8UWuMdpRI
-	9whHuV9HW9z+E9Ed6mqXqsngpTaBNnB90yu0HFaxctmK97NOTvSEqSQ7Gta7vZl8wsvj6Cb/iXVRI
-	kwhsg3yM43xpuSyZtYSCsKKLC0Fa/ny2Nk0P0zblVcQwwgtdXPdDpl0gEyyUed/Pp0KAQKmv9jYbE
-	1OpVCkcq1KEolFAMuUMhjv2Y/4Xaxjdutwe+ufQZy3ePvWQ0+Vdpa6/FeVZmX6JS+4UUiGenV5KYb
-	EZWsTRKr/Cn4vAlqe17c7SqFcFLoFdl5k6Qneg4LLNdM2WuxctVc6IFDrjBe1vzdcPPtxe2WprudK
-	Hao5flkA==;
+	bh=Pneo2IlHEZl+Jb4AUXxUsegMJ0vZx7/MXDQgtIlz7z8=; b=IPjeJvlDd8Ys8Ev7OeqY02pyAJ
+	5zIFPthT454lzZP3bNIphTB+Fkx6V9ERbXyM5YLq1kz3tkKRLK/O2eWTzZYdE+enpEdOjn5V6Asr0
+	a7NyXpmm44DBxcuURew+U68AfoY61FBBiNvrV1RN+XNF+jVeVqk86deEAqSR5Zk3AH5Tud5dYdPJP
+	0X2x2bkB6hGy5z5IlY87wn7q6YPX21p3FaUlHicxIUWEkUCfF0BzM+a7aHypfvkPi75eCkuzLkgOL
+	oc2/dyin/5HixV8GX4s1juv78cMb48vEuH/rui87jhCZuCbPdiUDdHbkh6bGrFBvogxWxGZ7AdEw/
+	Jxv1W23w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xGl-00000000Or9-3zwD;
-	Thu, 24 Oct 2024 12:48:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xEt-00000000OTm-1Yj3
+	id 1t3xMI-00000000PQ4-2idq;
+	Thu, 24 Oct 2024 12:54:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3xKb-00000000PFJ-0yKD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 12:46:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D092339;
-	Thu, 24 Oct 2024 05:47:24 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 610E83F71E;
-	Thu, 24 Oct 2024 05:46:53 -0700 (PDT)
-Date: Thu, 24 Oct 2024 13:45:28 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v5 17/37] KVM: arm64: Sanitise ID_AA64MMFR3_EL1
-Message-ID: <20241024124528.GA1403933@e124191.cambridge.arm.com>
-References: <20241023145345.1613824-1-maz@kernel.org>
- <20241023145345.1613824-18-maz@kernel.org>
- <33681a4d-2ea4-416e-9e2c-81a89a78c4ed@sirena.org.uk>
+	Thu, 24 Oct 2024 12:52:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 091795C588A;
+	Thu, 24 Oct 2024 12:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8C1EC4CEC7;
+	Thu, 24 Oct 2024 12:52:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729774368;
+	bh=VZMvfqMs9VK+URQwyF5bu0BC9mH3LnMJpZHC1P4Hkk4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i/sBA5UM6VCbznl1IEyxcuO2JCcxxUb1q6F0qYnGNkVtuzS2Oe/Km11XaTqOjICd+
+	 iwK8Y5D3FK4o50bS1M1dgBvKIYl+KCLAjGMeV+b/XF6/8mDjNHqQBqw3lnMWnMsvIg
+	 T1R+p39COp9lVxtuBFVF5aLWTqx9h/dJ7Sj8h7pyR9AFB4codMCwLLAt1l077WuvD2
+	 l9rb/kEeIVZ26qJ9cQillhMyFE/4EAnQnyYieMFw3Olr/ZfyVsAjAwm3V8YYqVcZYf
+	 6mygk27j4xfsssiS2LKjEAuaudfzbW/dOeqpSZXY/hLkMlDsmhRKJ/mbStmTh4hoOC
+	 bIW3aXkXH+wnQ==
+Date: Thu, 24 Oct 2024 13:52:42 +0100
+From: Will Deacon <will@kernel.org>
+To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+Cc: robdclark@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
+	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+	dmitry.baryshkov@linaro.org, iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@linaro.org>
+Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in
+ smmu reset operation
+Message-ID: <20241024125241.GD30704@willie-the-truck>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <33681a4d-2ea4-416e-9e2c-81a89a78c4ed@sirena.org.uk>
+In-Reply-To: <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_054655_496214_141BA495 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20241024_055249_381088_1BBC0CC1 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,24 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 01:32:09PM +0100, Mark Brown wrote:
-> On Wed, Oct 23, 2024 at 03:53:25PM +0100, Marc Zyngier wrote:
+On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
+> Default MMU-500 reset operation disables context caching in
+> prefetch buffer. It is however expected for context banks using
+> the ACTLR register to retain their prefetch value during reset
+> and runtime suspend.
 > 
-> > Add the missing sanitisation of ID_AA64MMFR3_EL1, making sure we
-> > solely expose S1PIE and TCRX (we currently don't support anything
-> > else).
+> Replace default MMU-500 reset operation with Qualcomm specific reset
+> operation which envelope the default reset operation and re-enables
+> context caching in prefetch buffer for Qualcomm SoCs.
 > 
-> >  	case SYS_ID_AA64MMFR3_EL1:
-> > -		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE;
-> > +
-> > +		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE |
-> > +		       ID_AA64MMFR3_EL1_S1PIE;
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
+>  1 file changed, 42 insertions(+), 3 deletions(-)
 > 
-> The changelog is now out of date, POE has been added.
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 087fb4f6f4d3..0cb10b354802 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -16,6 +16,16 @@
+> 
+>  #define QCOM_DUMMY_VAL	-1
+> 
+> +/*
+> + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
+> + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
+> + * buffer). The remaining bits are implementation defined and vary across
+> + * SoCs.
+> + */
+> +
+> +#define CPRE			(1 << 1)
+> +#define CMTLB			(1 << 0)
+> +
+>  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>  {
+>  	return container_of(smmu, struct qcom_smmu, smmu);
+> @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
+>  	return match ? IOMMU_DOMAIN_IDENTITY : 0;
+>  }
+> 
+> +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
+> +{
+> +	int ret;
+> +	u32 val;
+> +	int i;
+> +
+> +	ret = arm_mmu500_reset(smmu);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
+> +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
+> +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
+> +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
+> +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
+> +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
+> +	 * during reset and runtime suspend operations.
+> +	 */
+> +
+> +	for (i = 0; i < smmu->num_context_banks; ++i) {
+> +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
+> +		val |= CPRE;
+> +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
+> +	}
 
-This will disappear with a rebase won't it? Since you made the same change in 
-d4a89e5aee23 ("KVM: arm64: Expose S1PIE to guests"), in Linus' tree.
+If CPRE only needs to be disabled prior to r2p2, then please teach the
+MMU-500 code about that instead of adding qualcomm-specific logic here.
 
-Thanks,
-Joey
+Will
 
