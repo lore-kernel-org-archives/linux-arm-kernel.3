@@ -4,88 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21333D1038D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 22:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64E1D10388
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 22:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gGEbKYgOX5rc8HvwKP+HLvbmqzBX4NlMnm5BCSkGUCA=; b=Mig58dLICPH5BCGFz2K5N57RJB
-	591iPgPYFvXSgphu0IDwkAzTqamBC1Pu8L4H5XflX/o3Z/BPEKzHSG0301RQTEwPM4j5DHjDauwpH
-	pNbeP6xiYLRTf80mDxX7OIopWcuxSqJjTjCetT1vPkqnF7oVwGj/ycwXDNqeFXgc1/12LUdQ944kT
-	zmWldnK2Wln59o4J6t93DD08jHq23fJrSQLvJIGBmGCkxJi8K7PirrgwAKwPcclCp02WJLcLr3fLT
-	qTDtgaU2nkWJWGVJ/uvYOL5qCsnWcs3tIvrFmTqs4pe9wSyHD/pvOhAHeGKQPgYOeCw988RKu3ich
-	uty/xf2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=; b=w/uzjiZ6oIqimYEHu11xUO1Trn
+	JqUU9ovEgC5Gy8wi6dvQQib+uNILFa+Ix19jtyY1rmgeGveJOIONJgzpjO27I9LryzaUgfNbnWofs
+	SNGfED7jfWlmQLSZK/tW+y3ywA2b0+SUGuD5aPIGe1WJui9N7tKPfaSY4AScU1FzW+ddSedwR6s2U
+	Xk+micoU3zBIsr7c4hTE0vQwxNr/wb1utZ9Xdti7HUotFIuZUbc1kQVl3AxZ/VvniTx/9wR1OdvAR
+	obuzD1n4UYOBfy218WdKlUXKTpn9/KBXtybJVGGA9XNfF+PQTD626htLyL1hqRnh9m2B7mUtS9YtV
+	RdCeYypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46ED-00000001wta-2NBd;
-	Thu, 24 Oct 2024 22:22:49 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1t46Kl-00000001xUI-1upU;
+	Thu, 24 Oct 2024 22:29:35 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46Bs-00000001wXH-0Pkd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 22:20:25 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53b1fbb8be5so1661508e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 15:20:23 -0700 (PDT)
+	id 1t46JC-00000001xM1-06uy;
+	Thu, 24 Oct 2024 22:27:59 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2e2e8c8915eso1052026a91.3;
+        Thu, 24 Oct 2024 15:27:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729808422; x=1730413222; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gGEbKYgOX5rc8HvwKP+HLvbmqzBX4NlMnm5BCSkGUCA=;
-        b=Qpsc22KVp70tMFK0MmbXxJsXflbySzpS35OQASYYROCuf77rhPfS0CG+hCFkMFjMMa
-         +LsrWaavU6f4o05qSvUoFEK+Oe5onepPJbHZVhQ2cyzp5QJPxGEsQp+NV8wyH2DWYtEG
-         UZg0hP3x1HC+WZLTHn8TKmqSFcEBZ38q5sqmjiGsIE4nFNlcNeoxplQ2M98cFjU9Wg/F
-         b87n82viFsAjKTFLavTf/QkUXiFisw5qxZJ7Nlty2hQwpy13G6azKkM55bDWOnojUZsM
-         Gc3PfgTTxEeX5dn/6WYDXwAWP6u8ii516LerkGsIhdApUKbCqT7Hm6Vw7bh2GG0Szfqg
-         oviA==
+        d=gmail.com; s=20230601; t=1729808877; x=1730413677; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
+        b=Z+bP6AhAl+uVq8/O6PSaQ0yER6WB6RLFmhVxLk7VN/RHTYozxfTWcrI0H34GvTekp/
+         +0F04eyCSKRE+VcJZX9RKKgtyytbUutcsxxFcB2Ufb/8N3x+kmfjU5lYP34UQ71qps8n
+         E9Lgryjjdcc5QoBx2PHoUGGB70/XJoycuGMJpKnI/S/MXBuWm8VO9oPp4K/8a7JYLlk5
+         tH82Gl9UbirMkY2cNoakmXnTLXennPmSgN/iOHQZqvIbdYa6+rWZfZlE9yJFSdYTChHm
+         9WfFtWfG0GPG9mXHUzHmrTvuK9KCXqL8ANyGduC11p/smMrP3SMf3Stb3uwGb0tKOT8h
+         hASw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729808422; x=1730413222;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gGEbKYgOX5rc8HvwKP+HLvbmqzBX4NlMnm5BCSkGUCA=;
-        b=XGcJt0mJ60O/YjAdQWV98wYxoFuAfChv+uxUXm1KXkx1Qt0V10/OrWjWT4T2gHkQ6l
-         UCjS/WSwMCgIvaZDlHSS96QwPDoE3EwFtcngkrP8FZqYrOQzpTI7QhVKSVrZprmaRmul
-         Rv39iMFJWTsRrCedHbMyErqLeNU+wFlu0TuvZzcxrodbdNP6Ts7HIvnTlZ8qa2qdwbZZ
-         M8uGtyzbnKHUGB0w0BFngX7jO48MBWlrjsjRSh5OAI4XrwH2X16Ean2UpUexOcRVXKFZ
-         Rag+90LfcUVzidoRH/gSmfCZx4zO9PqrsQ8GrHpagmd02Ze5fb/AmMpOIJ1IqpZEhNiD
-         OtBg==
-X-Forwarded-Encrypted: i=1; AJvYcCXm/kPv7GUGfeIxpmem8taK6bFye2sqcqYGm37gggrwiVmiPFUnWFQGT24/Cm5fj5KtAGG2keWGJVCxhjGoDRnK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjOudLLzwxGyhsOc2j/fCppikJsMvHOA7g4WtTAMzTsvHI+vOH
-	dMTG2AFbX4a+BYK6rlB2FUGD5gOwYel4onMZL2TlyKIKuQMROYbcSyMZLSOlEeaFi3nxm5nASlK
-	Q1ZmRBq9HVdvIynKwqABIJ9EVE1edxK9EHFKuUg==
-X-Google-Smtp-Source: AGHT+IHGIsrqaQ/7HUksQWKQu+JFY6k3cD9zvm7NsmQfaV2x40ET3jcwxFaCHaKIFyRB5Uq3hXr7QboUps1FaB+xBco=
-X-Received: by 2002:a05:6512:110e:b0:539:fbba:db71 with SMTP id
- 2adb3069b0e04-53b23752862mr1167501e87.26.1729808421764; Thu, 24 Oct 2024
- 15:20:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729808877; x=1730413677;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fD7JZCX3WSpRYBUjkGKdk6/F/9roVP52zuSU1cyvQeQ=;
+        b=So6jp3AW5ox1jq8CX4GRZWjK4DWlU6Ng9O8NEDOuj8plIdh/6YQEFHwWovhnSO6FH+
+         6XpnBrGgOa+kRGBPW3jfnm0yQatPOyHurO2A0jCLYXXF5sLZjUHgpWePfHUM6jQUmzJ+
+         3WwxctY5l9CDPGu3raDKiFjE8/LCuZVjnq7oqbpRnhyOhh0YW9w2R6W9gIjBifzY7tib
+         9fjwX+NWdMpCxJaeLx8n0QXtdd/etFjfr3YGB7g3MMitFfdE8BxD1k+83l4EuE4wrUV+
+         Mu2zhULYz8fQFsZhSBbBHXIvLEzd0En/VNVcomQrFm7aUBLCcfnx8ts1xMeY8f3t9NbH
+         GP0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVQm+uYpe4uJ1g2iilhXq2u4LblhqIPGbOr780g3lRJYh/Z3w9KXu7wDwA9ooLrsRley7E32RxTOb5YOXlExXzI@lists.infradead.org, AJvYcCXzwqP+/6k5tQMor8DXVpLqLQ+ETHm7kTz9+SUtMPnKudGogC+EXy0xubR+LJP4e/RPz7hW+3XnaQDJMfw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJHCEQQVCCy8ODlbx+hV3YWWYjLWsaaOgF3rqKDxmKfa1f+NfW
+	OyKdaXa/HWtf4VT9MLCC1T+uS8lrCJIo2GAWkdjwqy5cz/QZauq0
+X-Google-Smtp-Source: AGHT+IGQmCYk2RoxkOpXP4PJ+QT2gDC7178GzCSx0ES9YMS9JzYskSa3vPomTHV9tDwOnPLPR2pM0w==
+X-Received: by 2002:a17:90b:17c1:b0:2e0:9d3e:bc2a with SMTP id 98e67ed59e1d1-2e76b6cda50mr8866774a91.32.1729808876652;
+        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e57f74asm2019615a91.46.2024.10.24.15.27.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 15:27:56 -0700 (PDT)
+Date: Fri, 25 Oct 2024 06:27:02 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+Message-ID: <s2rbj66rarjs33fvmyrwtmeq562pbx7mif5fld56tnk3fm73m5@hlsufkbunu3t>
+References: <20241021103617.653386-1-inochiama@gmail.com>
+ <20241021103617.653386-3-inochiama@gmail.com>
+ <20241022-crisply-brute-45f98632ef78@spud>
+ <yt2idyivivcxctosec3lwkjbmr4tmctbs4viefxsuqlsvihdeh@alya6g27625l>
+ <20241023-paper-crease-befa8239f7f0@spud>
+ <5cv7wcdddxa4ruggrk36cwaquo5srcrjqqwefqzcju2s3yhl73@ekpyw6zrpfug>
+ <20241024-wad-dusk-3d49f9ac4dff@spud>
 MIME-Version: 1.0
-References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
-In-Reply-To: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 25 Oct 2024 00:20:10 +0200
-Message-ID: <CACRpkdb=-gw0ryP1H+K9BQS_kUrQG9STLQMSrVWs8BZ=QejV5g@mail.gmail.com>
-Subject: Re: [PATCH 00/14] pinctrl: stm32: Add new features and support for
- more SoC
-To: Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Stephane Danieau <stephane.danieau@foss.st.com>, 
-	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
-	Valentin Caron <valentin.caron@foss.st.com>, 
-	Gatien Chevallier <gatien.chevallier@foss.st.com>, Cheick Traore <cheick.traore@foss.st.com>, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241024-wad-dusk-3d49f9ac4dff@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_152024_162089_B1F0BBFF 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20241024_152758_095225_F88CA02A 
+X-CRM114-Status: GOOD (  28.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +107,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 5:59=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+On Thu, Oct 24, 2024 at 06:04:31PM +0100, Conor Dooley wrote:
+> On Thu, Oct 24, 2024 at 06:38:29AM +0800, Inochi Amaoto wrote:
+> > On Wed, Oct 23, 2024 at 09:49:34PM +0100, Conor Dooley wrote:
+> > > On Wed, Oct 23, 2024 at 08:31:24AM +0800, Inochi Amaoto wrote:
+> > > > On Tue, Oct 22, 2024 at 06:28:06PM +0100, Conor Dooley wrote:
+> > > > > On Mon, Oct 21, 2024 at 06:36:15PM +0800, Inochi Amaoto wrote:
+> > > > > > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> > > > > > with some extra clock.
+> > > > > > 
+> > > > > > Add necessary compatible string for this device.
+> > > > > > 
+> > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > > > ---
+> > > > > >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+> > > > > >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 145 ++++++++++++++++++
+> > > > > >  2 files changed, 146 insertions(+)
+> > > > > >  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > 
+> > > > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > index 3c4007cb65f8..69f6bb36970b 100644
+> > > > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > > > @@ -99,6 +99,7 @@ properties:
+> > > > > >          - snps,dwmac-5.30a
+> > > > > >          - snps,dwxgmac
+> > > > > >          - snps,dwxgmac-2.10
+> > > > > > +        - sophgo,sg2044-dwmac
+> > > > > >          - starfive,jh7100-dwmac
+> > > > > >          - starfive,jh7110-dwmac
+> > > > > >  
+> > > > > > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > new file mode 100644
+> > > > > > index 000000000000..93c41550b0b6
+> > > > > > --- /dev/null
+> > > > > > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > > > > > @@ -0,0 +1,145 @@
+> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > > > +%YAML 1.2
+> > > > > > +---
+> > > > > > +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
+> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > > +
+> > > > > > +title: StarFive JH7110 DWMAC glue layer
+> > > > > > +
+> > > > > > +maintainers:
+> > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > > > > +
+> > > > > > +select:
+> > > > > > +  properties:
+> > > > > > +    compatible:
+> > > > > > +      contains:
+> > > > > > +        enum:
+> > > > > > +          - sophgo,sg2044-dwmac
+> > > > > > +  required:
+> > > > > > +    - compatible
+> > > > > > +
+> > > > > > +properties:
+> > > > > > +  compatible:
+> > > > > > +    items:
+> > > > > > +      - const: sophgo,sg2044-dwmac
+> > > > > > +      - const: snps,dwmac-5.30a
+> > > > > > +
+> > > > > > +  reg:
+> > > > > > +    maxItems: 1
+> > > > > > +
+> > > > > > +  clocks:
+> > > > > > +    items:
+> > > > > > +      - description: GMAC main clock
+> > > > > > +      - description: PTP clock
+> > > > > > +      - description: TX clock
+> > > > > > +
+> > > > > > +  clock-names:
+> > > > > > +    items:
+> > > > > > +      - const: stmmaceth
+> > > > > > +      - const: ptp_ref
+> > > > > > +      - const: tx
+> > > > > > +
+> > > > > > +  sophgo,syscon:
+> > > > > 
+> > > > > How many dwmac instances does the sg2044 have?
+> > > > > 
+> > > > 
+> > > > Only one, there is another 100G dwxgmac instance, but it does not
+> > > > use this syscon.
+> > > 
+> > > That dwxgmac is a different device, with a different compatible etc?
+> > 
+> > Yes, it needs a different compatiable, and maybe a new binding is needed
+> > since the 100G and 1G IP are different.
+> 
+> In that case, you don't /need/ a syscon property at all, much less one
+> with offsets. You can just look up the syscon by compatible and hard
+> code the offset in the driver.
 
-> This series introduces the support for the new SoC
-> - STM32MP215,
-> - STM32MP235,
->
-> by adding the support for the new functionalities
-> - irq affinity,
-> - Resource Isolation Framework (RIF),
-> - Reserved (RSVD) pinmux function,
-> - IO synchronization parameters,
-> - compile the driver as module.
->
-> Some minor code reorganization is also introduced.
+Good, look up the syscon is a good idea. Thanks for this suggestion.
 
-Overallt the code looks good to me (I see bindings are being discussed
-and I might have some comment on that as well.)
-
-I wonder if Maxime can look over the code as well? He's the only
-STM32 maintainer who hasn't written any of the patches and I think
-he knows the driver pretty well.
-
-Yours,
-Linus Walleij
+Regards,
+Inochi
 
