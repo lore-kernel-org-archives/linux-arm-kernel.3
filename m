@@ -4,88 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E711CFA457
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189EECFA451
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f2WjcLcdL8RxAYChxq7AGqhitvjD8aR0+LWo3ujNpsg=; b=mxmOMyuhoKHM+ye0H7n7acXMYD
-	luVsUp+74qgJMvrlTX4SjOmx5F8gz2JSzj4+hDltKBHT1ddRtkbBvkUrTFCWCRlcQZMAER86556B9
-	l2c894NqhS8RAoQ8YA/5OtDczPOmdtzU5IZ9xbYNYgbKmSuh3z2g3zowFnW6lH9Qg3AdF4iO+4nFP
-	jBOW2ONrYpSIk3w7q1wijxICIxdtP8ianARG7LQQZBddKuWDyUwLhC8EFUMrOgciOt3XxWfcDQSRw
-	Fy/sn3sc+h6cT00YPvZPKYesZQwGBHvPAuhdyEII/8wDrUAXRf9M6yx8J7vuw0YJCgxER+5f62UVm
-	SRi+PpEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jjYDzjZEYLgCTWa0oP3QmzRVlQqrbWbHzi5nVls3nns=; b=1ZHpWLcFP6AYL+CNPb3qZB25pq
+	6wWKfupR/jId7OwuLIiSiAzxgxSDQ3nLC4Cc2BG8K+MDqJpbPTMFJ1kCrNiQnXmv+fiFKAWQufdH5
+	S8ThdFl87RemSpywZV2ww8olovlAs9FQL8/rYagfOm+19ljNF0hdzFBRsgXsNbZAd0nEbN8FztXnQ
+	KztG7InhMzwIHYtzQ0ZplKgtloacc1ZvJBP16/cb2uQFnkw7HHm9VR9oNT6Hmy/Q+Q6BKlz2QIZkF
+	iPA5CiGaCl1ytG16LhDyvf6iWHYdSlRqnfRg0voZTOTix1xckClvuJmxjHCH6jlFGRscJL08Ih+lx
+	+TV57Qow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3urL-000000001ZJ-1v8b;
-	Thu, 24 Oct 2024 10:14:27 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1t3uss-000000001uG-46pW;
+	Thu, 24 Oct 2024 10:16:02 +0000
+Received: from mail-tyzapc01on2072b.outbound.protection.outlook.com ([2a01:111:f403:2011::72b] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uh8-0000000006I-301L
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 10:05:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1729764175;
-	bh=f2WjcLcdL8RxAYChxq7AGqhitvjD8aR0+LWo3ujNpsg=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=RwlezK01at79gVAgkgdHZcpoFU99O0+4jfwcI3ydEmTzOd5YrFsHUbWip45v49h67
-	 tUScNSuQiTmx+CkuLsMtkzrYTVd+TN22fysNQJRstR8EsC6/CC8/WCghuo+qvDsiCh
-	 9eqRQBBPpJV7E2GEdZnCppF/7v7kWvHaPMUr6sxI=
-X-QQ-mid: bizesmtpsz4t1729764148tm3grhm
-X-QQ-Originating-IP: rByjvMv8Lwr8uaD9lyHKqg7Z8BHgt+KwZ6fTawVtrHw=
-Received: from localhost.localdomain ( [123.124.208.226])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 24 Oct 2024 18:02:26 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16089252503859937836
-From: goutongchen <goutongchen@uniontech.com>
-To: linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
+	id 1t3uky-000000000ft-1RiQ;
+	Thu, 24 Oct 2024 10:08:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f+fdJTN2TjWH7o9HF6e95VoyHo5BWx5IEw35mtmo/CwpczNOfGA2+uQDmIkivvxeG2PTfJLyFp7Xk828MI/+sjLCX5VDs5EttGXmIsl1UInupJjCoJv37wr4zVnFnaptO1dWdHzYKcDSAbobAgU1OSYxDf3Zyqy95Ud5aa9PO+JCB62Q8CQSy5IeJd1hoPICH/cMZwUQPSiXjvB7V8qnJSUZg9dxEM0icBh6AGgZzWxDExvibCzWrupr/csTZvrM+1AROFGz9+zO0aEcXBpy6X77HH85GG9WScW3jDs72SskCWlWZ4DyOwYQDdFbaIZizhKoZLSsTFaZFWObrN+Q2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jjYDzjZEYLgCTWa0oP3QmzRVlQqrbWbHzi5nVls3nns=;
+ b=u9jmBCUupM8drc+NghIEO1ZVj+cOpJKkg+yeA9dm/3SfKwP75VzvgAHolOBZxG97SmPgNrfLs54LnDiC/7rRT9x2B2maWZjp0fa65/BqJbVAomK6uocTg0GnbIzEqkO8063wsmuhalhPV+8ufFZcvznvjrtwOaQG9b5RZIwasVE7Lm3zZEj7EBL10KqyhiGebQ0SHQDRMPi7zRk5NE6rBpg3ScJ/k5PESaUncCT84geOl4VXU3qt+EdhU6Xjw1qss84F8xXY6YKKrocEAt39zEYOeIetFD/25dlOxoeVJF6T6jHvV5iHYgVTSsPjTsIOF+iRiHbnQuyVW6eddcKnqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jjYDzjZEYLgCTWa0oP3QmzRVlQqrbWbHzi5nVls3nns=;
+ b=HlFL6GpGA9ANrLwv4lfx8dbS2ey3swrK2cmjQA37VUDbz5o1PYbtMC0FLlLJJu7vSamObnxxtvbvAEVPBcgqtrXDG06H/Odplaa8MhAQE0zW9M3WhzSneMTy9xJBFrmVIUsPZSsrVwIoEhrnJKncwnGWaW8DrcHh1of/wU3jJbQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
+ by SG2PR02MB5652.apcprd02.prod.outlook.com (2603:1096:4:1cc::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.17; Thu, 24 Oct
+ 2024 10:07:44 +0000
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b%4]) with mapi id 15.20.8069.027; Thu, 24 Oct 2024
+ 10:07:43 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: helgaas@kernel.org
+Cc: angelogioacchino.delregno@collabora.com,
+	chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	corbet@lwn.net,
+	danielwinkler@google.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	haijun.liu@mediatek.com,
+	jinjian.song@fibocom.com,
+	johannes@sipsolutions.net,
+	korneld@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Rob Clark <robdclark@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: goutongchen <goutongchen@uniontech.com>,
-	=?UTF-8?q?=E8=8B=9F=E6=B5=A9?= <gouhao@uniontech.com>
-Subject: [PATCH] iommu/arm-smmu: Add judgment on the size and granule parameters passed in
-Date: Thu, 24 Oct 2024 18:02:24 +0800
-Message-Id: <20241024100224.62942-1-goutongchen@uniontech.com>
-X-Mailer: git-send-email 2.20.1
-MIME-Version: 1.0
+	linux-mediatek@lists.infradead.org,
+	loic.poulain@linaro.org,
+	m.chetan.kumar@linux.intel.com,
+	matthias.bgg@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	ricardo.martinez@linux.intel.com,
+	ryazanov.s.a@gmail.com,
+	songjinjian@hotmail.com
+Subject: Re: [net-next,RESEND v6 2/2] net: wwan: t7xx: Add debug port
+Date: Thu, 24 Oct 2024 18:07:25 +0800
+Message-ID: <20241023151514.GA888712@bhelgaas>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241023151514.GA888712@bhelgaas>
+References: <20241023151514.GA888712@bhelgaas>
+Precedence: bulk
+X-Mailing-List: linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-0
-X-QQ-XMAILINFO: NR+Rloh0s0m6azLDCk6gU+FNOoNthJ/898WIcGUiDC26QAA0Omrbk2Mq
-	/kIJh3QwkpF7VccpUo6rJHykyVyFW6w5thvEhJSdGXGv2GXUVB97xKsvDH5BzX97V2eGWW4
-	MxyscaBXKtelCVeE88Fom5zUEPV824lNaLsBMXae/mnByx9uoW+QZkb+wOrsXJUgL6IvH4M
-	1WkMIRf0N6F/EY6qCwTYRiZ4KGR1a82nv8PvqD2ZH2e2XgVhG/czFp7Ar5eQRTG8Q7+hzqM
-	toMOnqrYRo0KBNyVx0Mb7ZIJVnKK05YsNhfnr4zq3oRcBKT3Y1VWRN7WKMQUHRQ/qBMs1mJ
-	1MDjPjO3V0B/5X34EB9thUsTwGWVpc3N8A3OpQwq936V60X73gSbvnIIoTCg9DggsA3MrWb
-	UAtva2+ZyWcWnlm0tQLVVi0tTaE4HDtoH22rKHSWZtPCR98NFOpbYzFmCn6DE3sRkn403s5
-	6E/FIyxolas/ysG/TW51UeesgIBA3XLHsbyZDvApNqNE/nh6lU5XUIqQ7oK+g82fa3Vu3W6
-	yjRtXb6by94fJxcSsE+YxAIn1NN3c97DnA3gbQPYsBTIlQu2k1qnpb6rbtlhSu84Cb/JBjl
-	UjcEt7GSJATT2LIUZ9dsZYcE+dBUPfPPTIHw/A+Wk8xVE3jKSQawTw5wJ86zZ15CT5oj3+r
-	247hx5ywFRNPf0ZuBCve9IpjRblddkjBtO8aHM/uHTUyefbEqVTjo3ULJokPfUhWfmAibPv
-	13YsZR1pnLdaxhrc23NvIMpQHBpTNdsuxdFRbd9lp0sVp6P/eXcuc9R1PKwr9a991ye+I8v
-	BJQ/VVSvkv6MPkcEV0d1RjuBjJbBPTIqzh+la7aQGdFztxuPMpYsncZZ+41a3GvRq8N3iml
-	r2F83XV4tzV2V9H/U6nduFlQejhDKAy5MuKLbPFoEusHVnzeJEFdMA+vw7V496pLfcerqA5
-	glFMbmt358vj2daPmX+2YqeuOHB56CTV4qTOwnZPFRx26rCXwoEzXyJw7GltW2G1q0JKS8t
-	k3+AaKqvqESc2tBU+C
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-X-QQ-RECHKSPAM: 0
+X-ClientProxiedBy: SG2PR01CA0166.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::22) To TY0PR02MB5766.apcprd02.prod.outlook.com
+ (2603:1096:400:1b5::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|SG2PR02MB5652:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12f0e56d-1daa-4c35-48a5-08dcf413b3ae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|4022899009|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uk4GGuMV17uTeWvHeTjiFIw+YrfLiF5is8aATwbAN3W2Blt6BSSAYN442kbR?=
+ =?us-ascii?Q?/yg96t3bPqrPByhC0N0KDYjMybaeFeGckW1JjceLmmQg6MGcCp77V4HVYRM6?=
+ =?us-ascii?Q?/ODLmH8UAbIiXpCEJ+SlxRiqc95L2Iz3YF9RBRYkWfzg3V6VS8QbZdXwrbIA?=
+ =?us-ascii?Q?5eg7DRQFRU6YXXmLiad5u/LyJ0fUG+O9yt6s03b8LYx2DrNaXOVukZNH4Lzd?=
+ =?us-ascii?Q?QayR3E/n480TNnGfDOxUK+SM88kiiJ+Z1nnBtusPocIDjDm7fFsnZInBjKL8?=
+ =?us-ascii?Q?IyK0gOvhZAlWYb1BSynGtGo+fT3YfCzr3L9XbK/OZQhY5j5g28aOb79P/t0y?=
+ =?us-ascii?Q?mWCNldeYlV1vg5zq+4p265vH0YeZvfsy4nLsS9e0SUUUrGOvvNZI0KJ9FRlt?=
+ =?us-ascii?Q?a4ysgWwTxW8K4jSFKl6JwoW06SWzrWVzpy89kxPwh512m42onqkhg05WNgIV?=
+ =?us-ascii?Q?MxGKUe1D0cW+aTw+VMja3+UrkzsG7tTpBOMjzI5sNyyrruMr1stpFZkU0rsW?=
+ =?us-ascii?Q?LVYr/Uh+Lp5V+zOEki08tS7KmvH+NqAiXPXn39/mFahikWBEe3DYpwUz7+Bi?=
+ =?us-ascii?Q?8uvRYGWAOxd5Pl7eisRIzyHNf0fNiLtwlpEfqnC8xO+ToFAvH9fJGq6UqU5F?=
+ =?us-ascii?Q?cBj1UTvOiF8sHzyT8WHGsz1PMxfNtZkHZp0ugYbeXkKCVxQZ7C0kYNwbcxsW?=
+ =?us-ascii?Q?6MjF9VnMnRSdYEHV4V+fK4sLbwurZjXr6SA0ZuiidqvUwSjFJgZ1f/s6biqK?=
+ =?us-ascii?Q?cIWaKkM8w7kENGw0TNt/I4vUsWRVMsxiIuv8Zfbc+JacYokvPIZnAfKbGYEJ?=
+ =?us-ascii?Q?2LetOMeZElPHe+Ok3iWkaYbt84KykALeMbFDzGm2b75+ocpDLENZYNUCbRMR?=
+ =?us-ascii?Q?OjDLlrICVcVLX4NlffDzE/5WvB1Y1iZvXICrDTa3EO9ppj0AksJtPJf+vpLR?=
+ =?us-ascii?Q?UyVkLVbz6MvqfKPQsewCy/S5NOcWmS0mtdNYl4bYcVS54ub5WpbG74tm4NjA?=
+ =?us-ascii?Q?MczS/tZNjBPxOzuVxF+lrb3HReMqwESqmDQR6QyWgcQc1MccL18IUzF26BSf?=
+ =?us-ascii?Q?63+MKoW9IrtekDGeQR+DzUYfyvTOWXWANZAGAmFhE/ynwKWkVSO0ZwCAabp7?=
+ =?us-ascii?Q?jXA7GoH9XnpNqRMxNZDFbQ8GkT8IRcUeBYjCd092JQhavTlRIILiNREpXpCT?=
+ =?us-ascii?Q?lNCMc3JFDte7MNa2eYGtVVIX52BNW+x0yy9t2o6GTPLcX9IOnW2HxftxUd1D?=
+ =?us-ascii?Q?C2hpbTVtzGMWzW4JDkmFMC4kVvYtppVMM9+U82rmxwR8G1lzaegO6ukO0xwQ?=
+ =?us-ascii?Q?tZAHCzP4qaFsKpoWwIiB7bBI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(4022899009)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2ubHdN1PP1RIo68eNzd+7gHhZ4UzHr+TFzR9OiPIabnRaaF/JcH8195VSZl/?=
+ =?us-ascii?Q?w7qWlF4dP81qDb2EILN3UvwKEMMfDvCBdiha8qTLkAGLG3irB8K9NhL78W2F?=
+ =?us-ascii?Q?FpQzVJ+v8KoBzF8ObsF6ATadhsYUIMkm7lbWPSaYHXjgLP4JMkpAICnNiNmG?=
+ =?us-ascii?Q?7B9/W3n3xHUJOt/eOAXhqxW1hg1k09Q6cv9LlP1L5HpfB38ZE83QvAgN7KdJ?=
+ =?us-ascii?Q?NLuil4Xzkq2AUhFn4ijacyEN7DF4VhCOGjklzhguE3WpKpSvnaVZHP52rkk9?=
+ =?us-ascii?Q?6jFUPSQJfBajMBtxyyKxKHb8DfmLrXLcAnvp8YVr+rxuGjWdEWYFsz15vC9Q?=
+ =?us-ascii?Q?cazQcTvK4H1h2A6yerhi0OBqX55nM4doIOFXp8zkn4Ws+7Ai/Ii9xd7uQRDZ?=
+ =?us-ascii?Q?4vn47XqSPzd398OupfGYaBK+iAKqWmIcgvx7WcmhJz5VKDvGT8L1yDj2sNLl?=
+ =?us-ascii?Q?NFJC9if1MAM2KsB38C8iCCvA2mILd3LRvk/AUJFaeOYr04pojFknwXifVbD8?=
+ =?us-ascii?Q?PrhIQFd4YpGS3LZtTjXKHUyCeoPBe5USLW8JutvuTB840d6K+OxzzFkyT+OC?=
+ =?us-ascii?Q?rMGRWghZBPkns7GUw9av746NikA6Wzfz55UATbRB7NLnPeRK2wlyD7de4IvO?=
+ =?us-ascii?Q?jfqV+acLfADGf1gaJ/sEmKiQ1cmYk0mUm3fzTUwEIoBSNi4AilgQDeIAKYc2?=
+ =?us-ascii?Q?YWqaVZuXNCd2IW8HVPsg6AWWJMax4N9MUEmtwWkhDx6MAsRjYMBgFg+TweWI?=
+ =?us-ascii?Q?MO7V6f+ASeCGS5YfxYY41dB1l4r2BZraj8DC1Fx3TX8ceTI7IrIJOixeY2s3?=
+ =?us-ascii?Q?gJ0+RsMSWjWJp/87uyEbsCkm9Dr5C4rpfxI9Mrk1bcRcD0BG7oY9obWqV0M+?=
+ =?us-ascii?Q?E2DptPjievxuWtVKs/tZhaef7MxN2fm4BH5pIx2Sq2jMNQ8jNDBkznjOgnMk?=
+ =?us-ascii?Q?chaCYPhSu3Gd62TmCFKEFvR9OLJbyEVE7WmKVQsGnqfYmUVZyf2V6NWy/d+7?=
+ =?us-ascii?Q?pqKfnp1WC94Mo4pd4ep4R/dqc75OpnZ+TjzQvLgPu88sjIZAmGKxe8NQSS62?=
+ =?us-ascii?Q?0uXVExSZg9LW8mQeHWi5I4L6N92muA2b6XeurBvdYk8bPw2YEw+ESuX6K2+4?=
+ =?us-ascii?Q?8wn5OUWI4f19TS/hznclHnqPFMH/OBOxAvcSh49r91eQ4hlxvC5IOCeW36lB?=
+ =?us-ascii?Q?/ChtRAJTjJDC8sKrK2j0omFa5LxwEDGSv3U/Q8ntQqhsJOBD0dSbZIJkCsey?=
+ =?us-ascii?Q?AF2QL43RmWnFNMCm9X8lD68lGEQlOyxq4QoS+9aYAiGYYAne3BlYfFtxLipR?=
+ =?us-ascii?Q?YT6gbnSsjZ9cAIAFAiySaMK6gwl63h3x0/TBfp1PtNOPrtsHrkp2NYhE7lwc?=
+ =?us-ascii?Q?VwgHNDQMW1IUvAxnDH8eW4I5LM5MrUtmr+VI8FolxhJrJksRv7ecV4bYg/gK?=
+ =?us-ascii?Q?poeRrXF0DcP+U86N9MlawERyR8GP3x0LLThV5x0JTI/ptRfj1PoRfOEDueXK?=
+ =?us-ascii?Q?PSmu7009PKUryHVSsXESSZm0Q0NkT7xiujdUZuBngCvf5f7kgx/i78SCnpF2?=
+ =?us-ascii?Q?IDUTUlIG8HAHp/yDMxvRASgLsHlf/Aa02G803a/UlBSDE7CitpYXTAhSh/za?=
+ =?us-ascii?Q?4g=3D=3D?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12f0e56d-1daa-4c35-48a5-08dcf413b3ae
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 10:07:43.9326
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vKE8hfWHGuPPscSvDgdFL0n8Ttj7v8sOM00/Xykh/ekHN5pi6vZ6ecZfsY9FWUz4/QGh8pO4Ew9Rv8y39Thd5/zEvhCm+QqTcWUShjfKntw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR02MB5652
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_030355_680223_71EBE297 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20241024_030752_430314_76BB94F3 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
-Precedence: list
 List-Id: <linux-arm-kernel.lists.infradead.org>
 List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=unsubscribe>
@@ -96,100 +178,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20241024100725.k-4QQKNWwotRw-2s_e5LOtbiBrkAAG3agWB8c7mzWoU@z>
 
-In the arm_smmu_tlb_inv_range_s1 and arm_smmu_tlb_inv_range_s2
-functions, the size and granule passed in must be judged.
-It must be ensured that the passed in parameter is not 0 and
-the size is an integer multiple of the granule, otherwise it
-will cause an infinite while loop.
+>On Mon, Oct 21, 2024 at 08:19:34PM +0800, Jinjian Song wrote:
+>> From: Jinjian Song <songjinjian@hotmail.com>
+>> 
+>> Add support for userspace to switch on the debug port(ADB,MIPC).
+>>  - ADB port: /dev/wwan0adb0
+>>  - MIPC port: /dev/wwan0mipc0
+>> 
+>> Application can use ADB (Android Debg Bridge) port to implement
+>> functions (shell, pull, push ...) by ADB protocol commands.
+>> E.g., ADB commands:
+>>  - A_OPEN: OPEN(local-id, 0, "destination")
+>>  - A_WRTE: WRITE(local-id, remote-id, "data")
+>>  - A_OKEY: READY(local-id, remote-id, "")
+>>  - A_CLSE: CLOSE(local-id, remote-id, "")
+>
+>s/Debg/Debug/
 
-This was encountered during testing, and was initially triggered
-by passing in a size value of 0, causing the kernel to crash.
+Got it, thanks.
 
-[    8.214378][  T675] xhci_hcd 0000:0b:00.0: new USB bus registered, assigned bus number 1
-[   68.246185][    C0] rcu: INFO: rcu_sched self-detected stall on CPU
-[   68.246866][    C0] rcu:     0-....: (5999 ticks this GP) idle=796c/1/0x4000000000000000 softirq=161/161 fqs=2999
-[   68.247924][    C0] rcu:     (t=6000 jiffies g=-699 q=1 ncpus=128)
-[   68.248452][    C0] CPU: 0 PID: 675 Comm: kworker/0:2 Not tainted 6.6.0-25.02.2500.002.uos25.aarch64 #1
-[   68.249237][    C0] Hardware name: Inspur     CS5260F     /CS5260F          , BIOS 4.0.16 05/31/22 16:53:51
-[   68.250029][    C0] Workqueue: events work_for_cpu_fn
-[   68.250497][    C0] pstate: a0000005 (NzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   68.251188][    C0] pc : arm_smmu_tlb_inv_range_s1+0xf0/0x158
-[   68.251704][    C0] lr : arm_smmu_tlb_inv_walk_s1+0x44/0x68
-[   68.252189][    C0] sp : ffff80008044b780
-[   68.252530][    C0] x29: ffff80008044b780 x28: 0000000000000000 x27: 0000000000001000
-[   68.253212][    C0] x26: 0000000000000600 x25: 0000000000000001 x24: 0000000000000600
-[   68.253857][    C0] x23: 0000000000000000 x22: 0000000000001000 x21: fffffc64e2e59000
-[   68.254544][    C0] x20: 0000000039c1d1a6 x19: ffff3fe944c40280 x18: 0000000000000000
-[   68.255240][    C0] x17: 626d756e20737562 x16: ffffb0e7e08c1008 x15: 0000000000000000
-[   68.255930][    C0] x14: ffff3ef8c1ea15cd x13: ffff3ef8c1ea15cb x12: fffffcfba30e3880
-[   68.256538][    C0] x11: 00000000ffff7fff x10: ffff80008044b6b0 x9 : ffffb0e7decd1b5c
-[   68.257126][    C0] x8 : 0000000000000dc0 x7 : ffff3ee8c4148000 x6 : ffff3ee8c4148000
-[   68.257822][    C0] x5 : 0000000000000008 x4 : 0000000000000000 x3 : ffff3fe944c40800
-[   68.258497][    C0] x2 : 0000000000000010 x1 : 0000000000000020 x0 : ffffb0e7dfd6c3d0
-[   68.259185][    C0] Call trace:
-[   68.259451][    C0]  arm_smmu_tlb_inv_range_s1+0xf0/0x158
-[   68.259933][    C0]  arm_smmu_tlb_inv_walk_s1+0x44/0x68
-[   68.260384][    C0]  __arm_lpae_map+0x1f0/0x2c0
-[   68.260796][    C0]  arm_lpae_map_pages+0xec/0x150
-[   68.261215][    C0]  arm_smmu_map_pages+0x48/0x130
-[   68.261654][    C0]  __iommu_map+0x134/0x2a8
-[   68.262098][    C0]  iommu_map_sg+0xb8/0x1c8
-[   68.262500][    C0]  __iommu_dma_alloc_noncontiguous.constprop.0+0x180/0x270
-[   68.263145][    C0]  iommu_dma_alloc+0x178/0x238
-[   68.263557][    C0]  dma_alloc_attrs+0xf8/0x108
-[   68.263962][    C0]  xhci_mem_init+0x1e8/0x6d0
-[   68.264372][    C0]  xhci_init+0x88/0x1d0
-[   68.264736][    C0]  xhci_gen_setup+0x284/0x468
-[   68.265121][    C0]  xhci_pci_setup+0x60/0x1f8
-[   68.265506][    C0]  usb_add_hcd+0x278/0x650
-[   68.265860][    C0]  usb_hcd_pci_probe+0x218/0x458
-[   68.266256][    C0]  xhci_pci_probe+0x7c/0x270
-[   68.266660][    C0]  local_pci_probe+0x48/0xb8
-[   68.267074][    C0]  work_for_cpu_fn+0x24/0x40
-[   68.267548][    C0]  process_one_work+0x170/0x3c0
-[   68.267999][    C0]  worker_thread+0x234/0x3b8
-[   68.268383][    C0]  kthread+0xf0/0x108
-[   68.268704][    C0]  ret_from_fork+0x10/0x20
+>> Link: https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/README.md
+>> 
+>> Application can use MIPC (Modem Information Process Center) port
+>> to debug antenna tunner or noise profiling through this MTK modem
+>> diagnostic interface.
+>
+>s/tunner/tuner/
 
-Signed-off-by: goutongchen <goutongchen@uniontech.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Got it, thanks.
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 8321962b3714..16b2e9ec0e60 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -282,6 +282,13 @@ static void arm_smmu_tlb_inv_range_s1(unsigned long iova, size_t size,
- 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
- 	int idx = cfg->cbndx;
- 
-+	if (size == 0 || granule == 0 || (size % granule) != 0) {
-+		dev_err(smmu->dev,
-+				 "The size or granule passed in is err. size=%lu, granule=%lu\n",
-+				 size, granule);
-+		return;
-+	}
-+
- 	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
- 		wmb();
- 
-@@ -309,6 +316,13 @@ static void arm_smmu_tlb_inv_range_s2(unsigned long iova, size_t size,
- 	struct arm_smmu_device *smmu = smmu_domain->smmu;
- 	int idx = smmu_domain->cfg.cbndx;
- 
-+	if (size == 0 || granule == 0 || (size % granule) != 0) {
-+		dev_err(smmu->dev,
-+				 "The size or granule passed in is err. size=%lu, granule=%lu\n",
-+				 size, granule);
-+		return;
-+	}
-+
- 	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
- 		wmb();
- 
--- 
-2.20.1
+>> +++ b/Documentation/networking/device_drivers/wwan/t7xx.rst
+>> @@ -67,6 +67,28 @@ Write from userspace to set the device mode.
+>>  ::
+>>    $ echo fastboot_switching > /sys/bus/pci/devices/${bdf}/t7xx_mode
+>>  
+>> +t7xx_port_mode
+>> +--------------
+>> +The sysfs interface provides userspace with access to the port mode, this interface
+>> +supports read and write operations.
+>
+>This file is not completely consistent, but 90% of it fits in 80
+>columns, so I would make your additions fit also.
+>
 
+Please let me change this file.
+
+Best Regards,
+Jinjian
 
