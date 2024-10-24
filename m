@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26531D0BB4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Oct 2024 23:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9748FD0BB46
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 00:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoRcRsT4dhnXehgIrOkavzDeXndrmIy2Jhqon6Rlw04=; b=D4DzIojRWVceR08NnO95BMllfP
-	b48H8TSdKP5HbtXk9oxJTli8FvCc3jDvEWRVZGZ8sWSLjexMU7fjHk6J8IKwVIT04fq8FhlowhoP7
-	yagTJP0j3QBJ/QzjgtwmYnY2/GUTGui5p67nF7KbZlu1CvF3CFzW0ht1o0JSi2jVCdbcRilrSj9+Q
-	OhzR0nxgKMafDZjrqYKdb4rUdXB4ca8CRYToCgtID//wDYxd95CGU+zPC6ydb6eoQNjVP91N24FxM
-	+lxMZtFzyzHUGg1H8L1KzVvf+7Qrc6UK0iYzUK/ZIPrNv7Y1fejKIDbbp2jZH1U0Zd58/z+rcR2XG
-	6OWZ+RmA==;
+	bh=WtnDx7HtpgMGToc67LvWVCZkY6l3tklYm20D0ZsZQYU=; b=uJfA9qvvZbOqycXAdRud46+CG9
+	gra40MmI2pQ2ozBPqfbE+cEtSTjkDaHgDieOlO+lWwj7r/LS07guSmm6ENYzlTPgWSNqu+JM6JRSt
+	XeRkv8p3jIuXC1VmZk/4kuBiIX41X/Sv0MXS/ctmkT616fiqYypCzT+aifP0ZcPewSD/+AX+w3Uqg
+	FV3m8i3RPsx8td8yDr2azaXoUhdqYR7GLC4FQREC0Ee/nVMCSpfl257N+5bGuXHlssEtRvpRRH1/J
+	aoJa2IwKCLOHMAmXVUPSvGFgRg9u3Xw1/ZYVOU+wdKwzMsXKphVqgQ+nyWkHpNPzmJ8LYwQu+Ofe1
+	cRZzL0Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3lFK-0000000GHUc-1Gtf;
-	Wed, 23 Oct 2024 23:58:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t3la6-0000000GJC7-3nSe;
+	Thu, 24 Oct 2024 00:20:02 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3lDn-0000000GHFS-15h5;
-	Wed, 23 Oct 2024 23:57:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=RoRcRsT4dhnXehgIrOkavzDeXndrmIy2Jhqon6Rlw04=; b=xXaPPxsWzvAbAQuddJCjS9yg5d
-	2/VF7BtvdVpWAbUQBX7qUUcBsszBfqG67ZBz0MoKXGrjtUWuGGs6saIWYGdTn8TV4PvEJkmh0Y136
-	u6FUSMwVJaXCsPav2KWXtqSUkpKEBVRtn/vlgfd4QeXco3meEX/lWhBFZXMyMqHmxtOI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t3lDL-00B1qp-9U; Thu, 24 Oct 2024 01:56:31 +0200
-Date: Thu, 24 Oct 2024 01:56:31 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <6f0e1c34-d5d3-4ee5-9374-768e67a0c067@lunn.ch>
-References: <227daa87-1924-4b0b-80db-77507fc20f19@lunn.ch>
- <gwtiuotmwj2x3d5rhfrploj7o763yjye4jj7vniomv77s7crqx@5jwrpwrlwn4s>
- <65720a16-d165-4379-a01f-54340fb907df@lunn.ch>
- <424erlm55tuorjvs2xgmanzpximvey22ufhzf3fli7trpimxih@st4yz53hpzzr>
- <66f35d1b-fd26-429b-bbf9-d03ed0c1edaf@lunn.ch>
- <zum7n3656qonk4sdfu76owfs4jk2mkjrzayd57uuoqeb6iiris@635pw3mqymqd>
- <d691a687-c0e2-48a9-bf76-d0a086aa7870@lunn.ch>
- <amg64lxjjetkzo5bpi7icmsfgmt5e7jmu2z2h3duqy2jcloj7s@nma2hjk4so5b>
- <79f9b971-8b3f-4f31-ab42-42a31d505607@lunn.ch>
- <uzlmckuziavq5qeybvfm7htycprzogvkfdqj2pxrjmdkuovfut@5euc5nou7aly>
+	id 1t3lYY-0000000GJ31-2HjT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 00:18:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1729729104;
+	bh=WtnDx7HtpgMGToc67LvWVCZkY6l3tklYm20D0ZsZQYU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YDAmSUvBbl4YtLfaeZNLAXebR7kAnuQTy9tN79E1k/JZOhQi6XQiS2LcvGdpxqdxc
+	 qCjFi/DwBiL1/H8TCjOtcAPJLLeirRckkhJn6NL/g1sC2qxbYSv3Q5jmq+Iis+V8a2
+	 Qcv7FYFwhXXiVJhX5dZq1Wk5I0mGUzRoRjsefxJHALCE2TJbpjHx7CPEblHa6Qzfxi
+	 xgXWPT/hXrUKzIiBOSkosHGsLBX8O/kYmiWHokoIiH1zTPiPNC3lywBchKq0ihIQiS
+	 IMJgA31Yv6T/oYVrMUYKWiQOo1CLfMxo1h50yEqyP2TIf0imLC1DiBJtdOvBUe6mIf
+	 TNBOQ3pxVoYbQ==
+Received: from [192.168.68.112] (ppp118-210-190-208.adl-adc-lon-bras34.tpg.internode.on.net [118.210.190.208])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 815BB6494E;
+	Thu, 24 Oct 2024 08:18:23 +0800 (AWST)
+Message-ID: <32cb6d9388fb136f7cd7ad1ab0d60d83ae387982.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: =?UTF-8?Q?=E5=BE=90=E5=82=91=E7=94=9F?= <jasonhell19@gmail.com>
+Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com, robh@kernel.org, 
+ krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, patrick@stwcx.xyz,
+  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Thu, 24 Oct 2024 10:48:22 +1030
+In-Reply-To: <CAFGtgY3BJcpC=Q0cYZQa01D5BFAQTt6GEr=0_mrPGUntHYVioA@mail.gmail.com>
+References: <20241022021230.2322132-1-jasonhell19@gmail.com>
+	 <de478e5f56bb67a9babe59afa6ad53c8dd4542ee.camel@codeconstruct.com.au>
+	 <CAFGtgY3BJcpC=Q0cYZQa01D5BFAQTt6GEr=0_mrPGUntHYVioA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <uzlmckuziavq5qeybvfm7htycprzogvkfdqj2pxrjmdkuovfut@5euc5nou7aly>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241023_165659_316519_12BFFBEA 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20241023_171826_814309_67AE52E6 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +74,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 06:36:06AM +0800, Inochi Amaoto wrote:
-> On Wed, Oct 23, 2024 at 02:42:16PM +0200, Andrew Lunn wrote:
-> > > Yes, this is what I have done at the beginning. At first I only
-> > > set up the phy setting and not set the config in the syscon. 
-> > > But I got a weird thing: the phy lookback test is timeout. 
-> > > Although the datasheet told it just adds a internal delay for 
-> > > the phy, I suspect sophgo does something more to set this delay.
-> > 
-> > You need to understand what is going on here. Just because it works
-> > does not mean it is correct.
-> > 
-> 
-> It seems like there is a missing info in the SG2044 doc: setting the
-> syscon internal delay bit is not enabling the internal mac delay, but
-> disable it. Now everything seems like normal: the mac adds no delay,
-> and the phy adds its delay. 
+On Wed, 2024-10-23 at 16:32 +0800, =E5=BE=90=E5=82=91=E7=94=9F wrote:
+> Andrew Jeffery <andrew@codeconstruct.com.au> =E6=96=BC 2024=E5=B9=B410=E6=
+=9C=8823=E6=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=882:15=E5=AF=AB=E9=81=
+=93=EF=BC=9A
+> >=20
+> > On Tue, 2024-10-22 at 10:12 +0800, Jason-Hsu wrote:
+> > > Add Linux device tree entry related to Meta(Facebook) Ventura specifi=
+c
+> > > devices connected to BMC(AST2600) SoC.
+> > >=20
+> > > Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
+> >=20
+> > What commands are you running to generate and send your patch series?
+> >=20
+> > The patches must be threaded properly.
+> >=20
+> > `git send-email` or `b4` both do what is expected without any effort
+> > required. Please consider using them, particularly b4, if you're not
+> > already.
+> >=20
+> > Andrew
+>=20
+> We use `git format-patch` and `git send-email` command to generate and
+> send patch series as below, could you help to check?  Thank you.
+>=20
+> git format-patch -2 --cover-letter
+>=20
+> git send-email --smtp-debug --to=3Drobh@kernel.org
+> --to=3Dkrzk+dt@kernel.org --to=3Dconor+dt@kernel.org --to=3Djoel@jms.id.a=
+u
+> --to=3Dandrew@codeconstruct.com.au --to=3Dpatrick@stwcx.xyz
+> --to=3Ddevicetree@vger.kernel.org
+> --to=3Dlinux-arm-kernel@lists.infradead.org
+> --to=3Dlinux-aspeed@lists.ozlabs.org --to=3Dlinux-kernel@vger.kernel.org
+> --cc=3Dyang.chen@quantatw.com --cc=3Djerry.lin@quantatw.com *.patch
+>=20
 
-That makes a lot more sense.
+So from the details in the cover letter I'm guessing that you're using
+Ubuntu 22.04 LTS (Jammy). At least, Jammy ships git-2.34.1, which is
+what is mentioned in the cover letter.
 
-Thanks for digging into the details.
+The --thread option in the man-page for git-format-patch[1] says:
 
-	Andrew
+   The default is --no-thread, unless the format.thread configuration is
+   set. If --thread is specified without a style, it defaults to the style
+   specified by format.thread if any, or else shallow.
+  =20
+   Beware that the default for git send-email is to thread emails itself.
+   If you want git format-patch to take care of threading, you will want
+   to ensure that threading is disabled for git send-email.
+
+[1]: https://manpages.ubuntu.com/manpages/jammy/en/man1/git-format-patch.1.=
+html
+
+The --thread option in the man-page for git-send-email[2] says:
+
+   If disabled with "--no-thread", those headers will not be added (unless
+   specified with --in-reply-to). Default is the value of the
+   sendemail.thread configuration value; if that is unspecified, default
+   to --thread.
+
+[2]: https://manpages.ubuntu.com/manpages/jammy/en/man1/git-send-email.1.ht=
+ml
+
+Since you're not supplying any thread-related arguments in either case,
+I wonder if you have thread values set in your git config. What's the
+output of the following two commands for you?
+
+   $ git config --show-scope --get format.thread
+   $ git config --show-scope --get sendemail.thread
+
+Regardless, you may want to try passing `--thread` in your `git send-
+email` invocation.
+
+Finally, please pass `-v $X` to `git format-patch` to version your
+series (the value for X is how many times you've sent revisions of the
+series). Currently I count 3 distinct attempts, so next time you send
+out the patches you should pass `-v 4`. However, the b4 tool is helpful
+here, as it largely automates the process for you.
+
+Andrew
 
