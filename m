@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355E3D0E415
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A637BD0BB62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 20:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtFndtJcIL3zsSxbBk4RRQ6rdE2RirToZ3JUO30TCHs=; b=trRd9ewqpf332sYty0Dkv1FY9z
-	qfhgc5jIoJ5qqrqrLh+WQGCvLEKc58ZVIqh1zs5LoUH+o80lcdHxKbOCJTEvszPncmPKQ2vdwbtwV
-	IVJitdsx5obB7S/gMD2x27fTsJrBAGKppDtMtYs91xuExj1sovQ/WzaniQ5CPPfuE6fPUadOhz/v9
-	9dDQ+qc5HKu/VQJst1OZ0u4qOyKJAP9gijG3ISCfUDW/HZF0K6KYFu7Tlycb8U9y/8PIuZGRxk94k
-	JpOjsr+nGQA1y8m4ApjIwH3h24nqwTHh/w529d+KjNN2WRXugvPKUT81DwYRuhAbPAae6gbTtvVKB
-	OuqLzuVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T6Z8IFqRcVOyldvseLJ3WnSThq+1dXU3Oh0KOrrhlC0=; b=UGP82tRggQz7vZJQDOmQl9LyOR
+	601iqCBd5fBUtSc7aqg2HiMSCBk8Ss53a7sc6lCQp+ywEtKFBpVfFTJu2tu6oJ/fKYDqshIn/Z26a
+	x+A7Uv4K6C+6iD3uUavrYi8Izr199oPi39fuexXekUzoEzn+QZ3CxAbewp1XNafGTsvOEuufejL+Q
+	Lr0iftu4cPCTzQaUlaet77/LrTg4QluB26uI/zEBS/jACKFcccnab7MrZLEsYXOY7kau/gvuFlVnT
+	u2e6fXMPmD9nizYDfU0MxzCUttQ+YQx2F3SRYocBttU+2GpfLH3UTTP6dVoh1vsBZZZJHuiNaNXbE
+	wBsD2NkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44OI-00000001ivs-14mD;
-	Thu, 24 Oct 2024 20:25:06 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1t44Po-00000001j9t-2WRl;
+	Thu, 24 Oct 2024 20:26:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t44EZ-00000001hlz-0Mtq
+	id 1t44GK-00000001hvq-203Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 20:15:05 +0000
-Date: Thu, 24 Oct 2024 13:14:53 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729800899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UtFndtJcIL3zsSxbBk4RRQ6rdE2RirToZ3JUO30TCHs=;
-	b=YfMBqlEuY3d4sssErtWX/tyOE6MwT9DGBdAkTCuk3A3qClaZ1jgVMh94ystYpCwzOS3XQ0
-	kA6nAgW6nZsGBkOEUHBGkUp3x8C8S2QFSMgI7b/odoVduDw6c6fJO90OQ6BOTifEgTsS7k
-	fKQmtIPOjE09rsN97IuRq5Y3IxznMxw=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Zhiqiang Ni <nizhiqiang1@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	wanghaibin.wang@huawei.com, tangnianyao@huawei.com,
-	wangzhou1@hisilicon.com, yuzenghui@huawei.com,
-	wangyanan55@huawei.com, jiangkunkun@huawei.com,
-	jiaqingtong@huawei.com
-Subject: Re: [bug report] KVM: arm64: vgic-its: Performance degradation on
- GICv3 LPI injection
-Message-ID: <ZxqqvcaGFkK4_QHW@linux.dev>
-References: <bb4aeb68-c77b-4071-bca5-d129a1c5f6f3@huawei.com>
- <86y12e2amf.wl-maz@kernel.org>
+	Thu, 24 Oct 2024 20:16:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4A2C75C5904;
+	Thu, 24 Oct 2024 20:16:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 010B0C4CEC7;
+	Thu, 24 Oct 2024 20:16:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729801011;
+	bh=M8Hou7W+/slEq6beBx1BMbstELY0N17vo5D8dtjCwaw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=uVlghJjtlBAM8RBB0TFYRfF2upDQF6o0IDI3jnzZNQn3qsSu62i4WiMSA0gSD/s0l
+	 2/up8sX6KJ6JidEdblO8bvf8drryM0sB78IeFAJz+BPvwXHTGYVav67Pzh6O53PSek
+	 l/6dbyNegQAks2AHKlKqRjZuOFZ1gVawYJCHGkwtOvbRfnzVAfdCioXOZxExqIpWp3
+	 L7bTdeOYqKrSOcZvW0nEDjRrA6l55aSdbJHzP8syxRBhLHd8ArbcAwaRniUA5iNr2s
+	 pVtS5q/mruJa6l6x4Fdsl1xWn5nlmCb0Dz+IXh7JIVoy9YUwvavlL68+N96RQsW0Ou
+	 CjOayo9B8dv5g==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Chris Morgan <macroalpha82@gmail.com>, 
+ Philippe Simons <simons.philippe@gmail.com>, 
+ Ryan Walklin <ryan@testtoast.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
+ linux-clk@vger.kernel.org
+In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
+References: <20241023075917.186835-1-ryan@testtoast.com>
+Subject: Re: (subset) [PATCH v3 0/7] ASoC: add Allwinner H616 audio codec
+ support
+Message-Id: <172980100873.554299.14641282051254983661.b4-ty@kernel.org>
+Date: Thu, 24 Oct 2024 21:16:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86y12e2amf.wl-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_131503_575769_DA823BBB 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241024_131652_643163_0D877052 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 09:00:56AM +0100, Marc Zyngier wrote:
-> On Thu, 24 Oct 2024 06:06:58 +0100,
-> Zhiqiang Ni <nizhiqiang1@huawei.com> wrote:
-> > 
-> > Hi all,
-> > 
-> > I found a performance degradation on GICv3 LPI injection after this
-> > commit ad362fe07fecf0aba839ff2cc59a3617bd42c33f(KVM: arm64: vgic-its:
-> > Avoid potential UAF in LPI translation cache).
-> >
-> > In my testcase, the vm's configuration is 60 VCPU 120G RAM with a
-> > 32-queue NIC and the kernel version is 5.10. The number of new TCP
-> > connections per second changed from 150,000 to 50,000 after this
-> > patch, with the %sys of cpu changed from 15% to 85%.
+On Wed, 23 Oct 2024 20:56:56 +1300, Ryan Walklin wrote:
+> V3 of this patch adding support for the Allwinner H616 (and variant)'s audio codec. Some clarification of comments, particularly regarding the clock driver changes, and a small fix for the device tree binding (apologies I forgot to re-run dt_binding_check on V2). Review comments otherwise addressed and reviews noted.
 > 
-> What is the VM running? How is the traffic generated? Without a
-> reproducer, I struggle to see how we are going to analyse this issue.
+> Changelog v1..v2:
+> - Reordered patches to group ASoC changes
+> - Corrected PLL_AUDIO clock dividers to match values from manual and vendor SDK.
+> - Remove PLL_AUDIO_4X clock from the device tree binding (not used in the driver).
+> - Restrict TX-only DMA changes to the H616.
+> - Change the codec name to fit into the 16 char limit.
+> - Move the codec (and spdif) blocks in the H616 DTSI to restore address-order.
+> - Add board enablement (and power/GPIO changes for RG35XX to support speaker amp).
 > 
-> We can't go back to the previous situation anyway, as it has been
-> shown that what we had before was simply unsafe (the commit message
-> explains why).
-> 
-> > From the ftrace, I found that the duration of vgic_put_irq() is
-> > 13.320 us, which may be the reason for the performance degradation.
-> >
-> > The call stack looks like below:
-> >     kvm_arch_set_irq_inatomic()
-> >       vgic_has_its();
-> >       vgic_its_inject_cached_translation()
-> >         vgic_its_check_cache()
-> >         vgic_queue_irq_unlock()
-> >         vgic_put_irq()
-> 
-> Are you suggesting that it is the combination of vgic_get_irq_kref() +
-> vgic_irq_put() that leads to excessive latency? Both are essentially
-> atomic operations, which should be pretty cheap on a modern CPU
-> (anything with FEAT_LSE).
+> [...]
 
-Looks like the bug report is for a 5.10 kernel, and at that point in
-ancient history KVM takes the lpi_list_lock for every vgic_irq_get() / vgic_irq_put()
+Applied to
 
-The series below that we took upstream has the necessary improvements to
-alleviate lock contention, Zhiqiang you may want to consider backporting
-this into your kernel.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-https://lore.kernel.org/all/20240221054253.3848076-1-oliver.upton@linux.dev/
+Thanks!
 
--- 
+[2/7] dt-bindings: allwinner: add H616 sun4i audio codec binding
+      commit: 542e19c20506953c03eec57b1cb65355164dfb64
+[3/7] ASoC: sun4i-codec: Add support for different DAC FIFOC addresses to quirks
+      commit: 5836a9d2ca48bb7473bb10d061c03525d8f4f163
+[4/7] ASoC: sun4i-codec: Add playback only flag to quirks
+      commit: 9fde21d6c5d1f75c2651442e5aae463545136aad
+[5/7] ASoC: sun4i-codec: support allwinner H616 codec
+      commit: 9155c321a1d0220a60878f2c99bc79b5a7e34d95
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
 Thanks,
-Oliver
+Mark
+
 
