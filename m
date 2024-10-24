@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77172CE8E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458FCCE8E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2b9Czd73JLCMwNCovJfbkCGlTdVoBOOUqvpNcnOijE=; b=Snn7+GSB8rGBcL2uyfm4+OOw7W
-	uIGJq8G2JBw+kqPYLjElOqIIaBdivL0Gzi6b3OI+3MNeUQtAXu+aHoT7vAIurAxfcsJKaaybONI1J
-	fcqAgbZfAm1fhe8vMpBNS5/gsjQVuvDdbNdCtBKWisaZBgWMNDR7KXY+uTzwdsVKdV7P62DUKXFOf
-	sPKuf4z6uEPi24xC/1pMPjE99TKxWDE/sUuLX38v8nfEFaoCye8HaJrjXYY012lngtP9guqdmp4a4
-	0ndf9cV0HgpECRT1kbF0DM2UB24hCu/wrGet4R40yOT0UGp9Ds/uGxnPmTTDyyTEI1lIQ0t90mTWc
-	iGzwvA4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qEBHYqB0bDnNx07fLFxGZX++G8eujkw+4riyqHCCzLs=; b=d3UOPqyNZDCGydKPo0fFOqd2+g
+	aYpWyrFXofIJZjrlAtlyeM7cvn4LPkXX7t5iUk89sQmSyD6RKUyI33ZSazEJy3mRYxodeySHpGToX
+	QRKVPVgGmG6FuZfby+OgazQwrRkY+/j6oWbyhwDt0Iq9uScekX4NDp94LlnDJz63o5+NFbivBi49D
+	zfOhis9kBB/SogtXvL6fdgCvJddMChekuyvra0GvpDf7CqYLiNESMDxthLmeARxyRtpwQOqKIeTf+
+	gjrbVUCjnSbZ4NFkqZNuJLxEJWw4dYqZXgqou5qOP9hl4Rvxd8NOKK7XQSj8hzzl2h+YbEIPInhgu
+	XdO9oOdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40IM-000000011LV-1cqI;
-	Thu, 24 Oct 2024 16:02:42 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1t40Js-000000011b5-3zMk;
+	Thu, 24 Oct 2024 16:04:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4096-00000000ziu-35xv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 15:53:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729785189; x=1761321189;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2qnd2i2UONcjZVkzIcTSxS7pJORJ7ofkM+P7wpTWR88=;
-  b=O1ArimrtiOFyiXWMdPnF1aKrQFQAKz+pcQOZSurxcqfzKJbF0ZdE4pjw
-   h17CmqXNjI1hy95eDiEE6f6NUZB5dmWdSQ7ZrPvd0IcY2HfroHH4x2rTc
-   KaNAywl6ssiWjWzTqKQaVKBgTs4qy4iqSgxK95E1ntUyuJRgfJ0LEYwv7
-   nhR9r4mLRALgMNX9Tt9OBwqKBepZzUqiox0njWtQdu71xvJrjH7RsJS44
-   fjcTB3Taaj4IYf5EnGd0tnDho8kYvUJvxcKBX8DCRLFDO2qwkSxQgY3kR
-   wNd0vN2+DFXkrp+pbJN3jq8XIbT3ph1hr0eyZCGunwIHhioBJ7UHgMeoW
-   w==;
-X-CSE-ConnectionGUID: +uW48WWIR92BxcaT6OaGSg==
-X-CSE-MsgGUID: pLKwpQozRS22xDWK70SGzQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="33329784"
-X-IronPort-AV: E=Sophos;i="6.11,229,1725346800"; 
-   d="scan'208";a="33329784"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2024 08:53:08 -0700
-X-CSE-ConnectionGUID: tcjiEK13RmWtiqkxiu2aew==
-X-CSE-MsgGUID: VGYhRvXaRAeqcW9zowBLGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,229,1725346800"; 
-   d="scan'208";a="85243352"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 24 Oct 2024 08:53:02 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t408y-000Wck-10;
-	Thu, 24 Oct 2024 15:53:00 +0000
-Date: Thu, 24 Oct 2024 23:52:38 +0800
-From: kernel test robot <lkp@intel.com>
-To: Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	andrew@lunn.ch, Lars Povlsen <lars.povlsen@microchip.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	horatiu.vultur@microchip.com,
-	jensemil.schulzostergaard@microchip.com,
-	Parthiban.Veerasooran@microchip.com, Raju.Lakkaraju@microchip.com,
-	UNGLinuxDriver@microchip.com,
-	Richard Cochran <richardcochran@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, jacob.e.keller@intel.com,
-	ast@fiberby.net, maxime.chevallier@bootlin.com
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next 06/15] net: lan969x: add match data for lan969x
-Message-ID: <202410242319.ShJiPqSp-lkp@intel.com>
-References: <20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f@microchip.com>
+	id 1t40Ay-0000000102R-1jIz;
+	Thu, 24 Oct 2024 15:55:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729785302;
+	bh=4T2a4+mRhV9NvQBidUmk4rDen6/Uz+l5BXbpJTPNH2Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TH2U124whINBH6S9OU8xY1sdbLbiqpBIQ2run8jUDi4yuikZmiwErQwh2rxeCk6Aa
+	 gxTaGdP+Kj5ouHFLXWwZ0A7pf1qcilLze+aH9IksWitLcmThTEG+lKZlEYzFApK6yF
+	 cOZfEtzQ15Mx+0Rrx9C3OW1kb5skWgVakJ2QGs4fURkKZItmfYvNmBvZpNIRLo/obQ
+	 tSBJ8/K2zXVBqDfAZTM9LQTuCcMYF9QEbc0Ju3RSisS4x8lrJ94e2LljpNJ8fwkW+B
+	 G4zbwdhiXR8qRKgA1PHTdyuv1hgquiS1olUT5FSfQggCNV4Gak7wRQtzzIQBhFUuiS
+	 kmfgKjeBXQ2/A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5413817E3676;
+	Thu, 24 Oct 2024 17:55:02 +0200 (CEST)
+Message-ID: <127675b8-51c5-4c32-8bd1-ecbed96cdaa0@collabora.com>
+Date: Thu, 24 Oct 2024 17:55:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f@microchip.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: mediatek: add eint new design for mt8196
+To: chang hao <ot_chhao.chang@mediatek.com>, matthias.bgg@gmail.com,
+ sean.wang@kernel.org, linus.walleij@linaro.org
+Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241024141517.10312-1-ot_chhao.chang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241024141517.10312-1-ot_chhao.chang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_085308_872711_49C466FA 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20241024_085505_712132_EF5645D1 
+X-CRM114-Status: GOOD (  41.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,189 +75,499 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Il 24/10/24 16:15, chang hao ha scritto:
+> From: Chhao Chang <ot_chhao.chang@mediatek.com>
+> 
+> eint is divided from the original base address into base addresses
+> in five directions: east, south, west, north, and center.
+> Stores a limited number of eint numbers in each direction.
+> 
+> Signed-off-by: Chhao Chang <ot_chhao.chang@mediatek.com>
+> ---
+>   drivers/pinctrl/mediatek/mtk-eint.c           | 830 +++++++++++++-----
+>   drivers/pinctrl/mediatek/mtk-eint.h           |  75 +-
+>   .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |  50 +-
+>   3 files changed, 722 insertions(+), 233 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
+> index 27f0a54e12bf..0bb017eb1893 100644
+> --- a/drivers/pinctrl/mediatek/mtk-eint.c
+> +++ b/drivers/pinctrl/mediatek/mtk-eint.c
+> @@ -17,16 +17,13 @@
+>   #include <linux/irqdomain.h>
+>   #include <linux/module.h>
+>   #include <linux/of_irq.h>
+> +#include <linux/of_address.h>
+>   #include <linux/platform_device.h>
+>   
+>   #include "mtk-eint.h"
+>   
+> -#define MTK_EINT_EDGE_SENSITIVE           0
+> -#define MTK_EINT_LEVEL_SENSITIVE          1
+> -#define MTK_EINT_DBNC_SET_DBNC_BITS	  4
+> -#define MTK_EINT_DBNC_MAX		  16
+> -#define MTK_EINT_DBNC_RST_BIT		  (0x1 << 1)
+> -#define MTK_EINT_DBNC_SET_EN		  (0x1 << 0)
+> +static struct mtk_eint *global_eintc;
+> +struct mtk_eint_pin pin;
 
-kernel test robot noticed the following build errors:
+Noupe, don't introduce these globals.
 
-[auto build test ERROR on 30d9d8f6a2d7e44a9f91737dd409dbc87ac6f6b7]
+>   
+>   static const struct mtk_eint_regs mtk_generic_eint_regs = {
+>   	.stat      = 0x000,
+> @@ -47,6 +44,10 @@ static const struct mtk_eint_regs mtk_generic_eint_regs = {
+>   	.dbnc_ctrl = 0x500,
+>   	.dbnc_set  = 0x600,
+>   	.dbnc_clr  = 0x700,
+> +	.event     = 0x800,
+> +	.event_set = 0x840,
+> +	.event_clr = 0x880,
+> +	.raw_stat  = 0xa00,
+>   };
+>   
+>   const unsigned int debounce_time_mt2701[] = {
+> @@ -64,60 +65,145 @@ const unsigned int debounce_time_mt6795[] = {
+>   };
+>   EXPORT_SYMBOL_GPL(debounce_time_mt6795);
+>   
+> -static void __iomem *mtk_eint_get_offset(struct mtk_eint *eint,
+> +/*
+> + * Return the iomem of specific register ofset and decode the coordinate
+> + * (instance, index) from global eint number.
+> + * If return NULL, then it must be either out-of-range or do-not-support.
+> + */
+> +static void __iomem *mtk_eint_get_ofset(struct mtk_eint *eint,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Machon/net-sparx5-add-support-for-lan969x-SKU-s-and-core-clock/20241021-220557
-base:   30d9d8f6a2d7e44a9f91737dd409dbc87ac6f6b7
-patch link:    https://lore.kernel.org/r/20241021-sparx5-lan969x-switch-driver-2-v1-6-c8c49ef21e0f%40microchip.com
-patch subject: [PATCH net-next 06/15] net: lan969x: add match data for lan969x
-config: m68k-randconfig-r121-20241024 (https://download.01.org/0day-ci/archive/20241024/202410242319.ShJiPqSp-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 14.1.0
-reproduce: (https://download.01.org/0day-ci/archive/20241024/202410242319.ShJiPqSp-lkp@intel.com/reproduce)
+You're replacing this with a typo....
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410242319.ShJiPqSp-lkp@intel.com/
+>   					 unsigned int eint_num,
+> -					 unsigned int offset)
+> +					 unsigned int ofset,
 
-All errors (new ones prefixed by >>):
+and you're typoing offset on purpose again?! :-\
 
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_init':
->> sparx5_vcap_impl.c:(.text+0x4632): undefined reference to `vcap_port_debugfs'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_destroy':
->> sparx5_vcap_impl.c:(.text+0x4d24): undefined reference to `vcap_del_rules'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_es2_get_port_ipv4_keysets':
->> sparx5_vcap_impl.c:(.text+0x38): undefined reference to `vcap_keyset_list_add'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x50): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x68): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x80): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x98): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_ingress_add_default_fields':
->> sparx5_vcap_impl.c:(.text+0x114): undefined reference to `vcap_lookup_keyfield'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x142): undefined reference to `vcap_rule_add_key_u32'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x1a6): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x1d2): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x21e): undefined reference to `vcap_rule_add_key_bit'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x268): undefined reference to `vcap_rule_add_key_u72'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x288): undefined reference to `vcap_keyset_name'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_add_default_fields':
->> sparx5_vcap_impl.c:(.text+0x31e): undefined reference to `vcap_rule_add_key_u32'
->> m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x358): undefined reference to `vcap_lookup_keyfield'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x368): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x3b6): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0x3d4): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_es0_get_port_keysets.isra.0':
-   sparx5_vcap_impl.c:(.text+0x704): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_es2_get_port_keysets.isra.0':
-   sparx5_vcap_impl.c:(.text+0xadc): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0xb3c): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0xb98): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: sparx5_vcap_impl.c:(.text+0xbc2): undefined reference to `vcap_keyset_list_add'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o:sparx5_vcap_impl.c:(.text+0xc42): more undefined references to `vcap_keyset_list_add' follow
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_validate_keyset':
->> sparx5_vcap_impl.c:(.text+0x214e): undefined reference to `vcap_keyset_name'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.o: in function `sparx5_vcap_init':
->> sparx5_vcap_impl.c:(.text+0x464a): undefined reference to `vcap_debugfs'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_select_protocol_keyset':
->> sparx5_tc_flower.c:(.text+0x2b8): undefined reference to `vcap_keyfieldset'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_replace':
->> sparx5_tc_flower.c:(.text+0x1c58): undefined reference to `vcap_rule_add_action_u32'
->> m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1ffc): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_handler_basic_usage':
->> sparx5_tc_flower.c:(.text+0x5a): undefined reference to `vcap_rule_add_key_u32'
->> m68k-linux-ld: sparx5_tc_flower.c:(.text+0xd2): undefined reference to `vcap_rule_add_key_u32'
->> m68k-linux-ld: sparx5_tc_flower.c:(.text+0x11e): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x168): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x190): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1b4): undefined reference to `vcap_rule_add_key_bit'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_select_protocol_keyset':
->> sparx5_tc_flower.c:(.text+0x264): undefined reference to `vcap_rule_find_keysets'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x3ca): undefined reference to `vcap_set_rule_set_keyset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x402): undefined reference to `vcap_rule_mod_key_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_handler_vlan_usage':
-   sparx5_tc_flower.c:(.text+0x476): undefined reference to `vcap_tc_flower_handler_vlan_usage'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x4ec): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x50e): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_handler_control_usage':
-   sparx5_tc_flower.c:(.text+0x5a2): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_handler_cvlan_usage':
-   sparx5_tc_flower.c:(.text+0x842): undefined reference to `vcap_tc_flower_handler_cvlan_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_destroy.isra.0':
-   sparx5_tc_flower.c:(.text+0x8a6): undefined reference to `vcap_lookup_rule_by_cookie'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x8c0): undefined reference to `vcap_get_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x8da): undefined reference to `vcap_find_actionfield'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x94c): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x95a): undefined reference to `vcap_del_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xa4a): undefined reference to `vcap_del_rule'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_simplify_rule.isra.0':
-   sparx5_tc_flower.c:(.text+0xace): undefined reference to `vcap_rule_rem_key'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xb0e): undefined reference to `vcap_rule_rem_key'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xb2a): undefined reference to `vcap_rule_rem_key'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xb68): undefined reference to `vcap_rule_rem_key'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_action_vlan_modify.isra.0':
-   sparx5_tc_flower.c:(.text+0xbb8): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_add_rule_link.isra.0':
-   sparx5_tc_flower.c:(.text+0xce2): undefined reference to `vcap_find_admin'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xcfa): undefined reference to `vcap_chain_offset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xd5a): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xd74): undefined reference to `vcap_rule_add_action_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xd92): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xdc8): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_set_actionset.isra.0':
-   sparx5_tc_flower.c:(.text+0xe4e): undefined reference to `vcap_set_rule_set_actionset'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_add_rule_counter.isra.0':
-   sparx5_tc_flower.c:(.text+0xeba): undefined reference to `vcap_rule_mod_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xed2): undefined reference to `vcap_rule_set_counter_id'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xef6): undefined reference to `vcap_rule_mod_action_u32'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_add_rule_copy':
-   sparx5_tc_flower.c:(.text+0xf64): undefined reference to `vcap_copy_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xf96): undefined reference to `vcap_filter_rule_keys'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xfa2): undefined reference to `vcap_set_rule_set_keyset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xfc8): undefined reference to `vcap_rule_mod_key_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xfd4): undefined reference to `vcap_set_rule_set_actionset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0xfe6): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1016): undefined reference to `vcap_val_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1026): undefined reference to `vcap_add_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1054): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x106a): undefined reference to `vcap_keyset_name'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1090): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x10bc): undefined reference to `vcap_set_tc_exterr'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x10c8): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_action_check.isra.0':
-   sparx5_tc_flower.c:(.text+0x122c): undefined reference to `vcap_is_last_chain'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x12fc): undefined reference to `vcap_is_next_lookup'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_template_create':
-   sparx5_tc_flower.c:(.text+0x14f0): undefined reference to `vcap_admin_rule_count'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1570): undefined reference to `vcap_alloc_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x15cc): undefined reference to `vcap_rule_find_keysets'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x15e4): undefined reference to `vcap_select_min_rule_keyset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1648): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x169c): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1736): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1766): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower_replace':
-   sparx5_tc_flower.c:(.text+0x183c): undefined reference to `vcap_alloc_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1890): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x18da): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x18ec): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1990): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x19a8): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1ad8): undefined reference to `vcap_rule_add_action_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1af4): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1b56): undefined reference to `vcap_val_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1b68): undefined reference to `vcap_add_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1bb8): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1bf2): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1cbc): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1cf6): undefined reference to `vcap_rule_add_action_u72'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1ee4): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1f32): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1f94): undefined reference to `vcap_rule_add_key_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1fcc): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x1fea): undefined reference to `vcap_rule_add_action_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x203c): undefined reference to `vcap_rule_add_action_bit'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x2054): undefined reference to `vcap_rule_add_action_u32'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x2092): undefined reference to `vcap_set_rule_set_keyset'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x2110): undefined reference to `vcap_set_tc_exterr'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x211a): undefined reference to `vcap_free_rule'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o: in function `sparx5_tc_flower':
-   sparx5_tc_flower.c:(.text+0x224e): undefined reference to `vcap_find_admin'
-   m68k-linux-ld: sparx5_tc_flower.c:(.text+0x2378): undefined reference to `vcap_get_rule_count_by_cookie'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x986): undefined reference to `vcap_tc_flower_handler_ipv4_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x98a): undefined reference to `vcap_tc_flower_handler_ipv6_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x98e): undefined reference to `vcap_tc_flower_handler_portnum_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x99a): undefined reference to `vcap_tc_flower_handler_ethaddr_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x9a2): undefined reference to `vcap_tc_flower_handler_arp_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x9ce): undefined reference to `vcap_tc_flower_handler_tcp_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.o:(.rodata+0x9d2): undefined reference to `vcap_tc_flower_handler_ip_usage'
-   m68k-linux-ld: drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.o: in function `sparx5_tc_matchall_replace':
-   sparx5_tc_matchall.c:(.text+0x13e): undefined reference to `vcap_enable_lookups'
+> +					 unsigned int *instance,
+> +					 unsigned int *index)
+>   {
+> -	unsigned int eint_base = 0;
+>   	void __iomem *reg;
+>   
+> -	if (eint_num >= eint->hw->ap_num)
+> -		eint_base = eint->hw->ap_num;
+> +	if (eint_num >= eint->total_pin_number ||
+> +	    !eint->pins[eint_num].enabled) {
+> +		WARN_ON(1);
+> +		return NULL;
+> +	}
+>   
+> -	reg = eint->base + offset + ((eint_num - eint_base) / 32) * 4;
+> +	*instance = eint->pins[eint_num].instance;
+> +	*index = eint->pins[eint_num].index;
+> +	reg = eint->instances[*instance].base + ofset + (*index / MAX_BIT * REG_OFSET);
+>   
+>   	return reg;
+>   }
+>   
+> +/*
+> + * Generate helper function to access property register of a dedicate pin.
+> + */
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for SPARX5_SWITCH
-   Depends on [n]: NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_MICROCHIP [=y] && NET_SWITCHDEV [=y] && HAS_IOMEM [=y] && OF [=n] && (ARCH_SPARX5 || COMPILE_TEST [=y]) && PTP_1588_CLOCK_OPTIONAL [=y] && (BRIDGE [=y] || BRIDGE [=y]=n [=n])
-   Selected by [y]:
-   - LAN969X_SWITCH [=y] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_MICROCHIP [=y]
-   WARNING: unmet direct dependencies detected for GET_FREE_REGION
-   Depends on [n]: SPARSEMEM [=n]
-   Selected by [y]:
-   - RESOURCE_KUNIT_TEST [=y] && RUNTIME_TESTING_MENU [=y] && KUNIT [=y]
+...and you don't need this (sorry, ugly!) macro either, as this is only
+helping you to create a mass-duplication situation here.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+If you need a helper, write *one* function that retrieves the data for you
+from a chosen register.
+
+> +#define DEFINE_EINT_GET_FUNCTION(_NAME, _OFSET) \
+> +static unsigned int mtk_eint_get_##_NAME(struct mtk_eint *eint, \
+> +				   unsigned int eint_num) \
+> +{ \
+> +	unsigned int instance, index; \
+> +	void __iomem *reg = mtk_eint_get_ofset(eint, eint_num, \
+> +						_OFSET, \
+> +						&instance, &index); \
+> +	unsigned int bit = BIT(index & 0x1f);\
+> +\
+> +	if (!reg) { \
+> +		dev_err(eint->dev, "%s invalid eint_num %d\n", \
+> +			__func__, eint_num); \
+> +		return 0;\
+> +	} \
+> +\
+> +	return !!(readl(reg) & bit); \
+> +}
+> +
+> +DEFINE_EINT_GET_FUNCTION(stat, eint->comp->regs->stat);
+> +DEFINE_EINT_GET_FUNCTION(mask, eint->comp->regs->mask);
+> +DEFINE_EINT_GET_FUNCTION(sens, eint->comp->regs->sens);
+> +DEFINE_EINT_GET_FUNCTION(pol, eint->comp->regs->pol);
+> +DEFINE_EINT_GET_FUNCTION(dom_en, eint->comp->regs->dom_en);
+> +DEFINE_EINT_GET_FUNCTION(event, eint->comp->regs->event);
+> +DEFINE_EINT_GET_FUNCTION(raw_stat, eint->comp->regs->raw_stat);
+> +
+> +int dump_eint_pin_status(unsigned int eint_num)
+
+I don't think that this is necessary... also because, there's already irq/debugfs.c
+for debugging. If you really need debug, hook it to the right APIs.
+
+> +{
+> +       unsigned int stat, raw_stat, mask, sens, pol, dom_en, event;
+> +
+> +       if (eint_num < 0 || eint_num > global_eintc->total_pin_number)
+> +               return ENODEV;
+> +
+> +       stat = mtk_eint_get_stat(global_eintc, eint_num);
+> +       raw_stat = mtk_eint_get_raw_stat(global_eintc, eint_num);
+> +       mask = mtk_eint_get_mask(global_eintc, eint_num);
+> +       sens = mtk_eint_get_sens(global_eintc, eint_num);
+> +       pol = mtk_eint_get_pol(global_eintc, eint_num);
+> +       dom_en = mtk_eint_get_dom_en(global_eintc, eint_num);
+> +       event = mtk_eint_get_event(global_eintc, eint_num);
+> +       dev_info(global_eintc->dev, "%s eint_num:%u=stat:%u,raw:%u, \
+> +		       mask:%u, sens:%u,pol:%u,dom_en:%u,event:%u\n",
+> +		       __func__, eint_num, stat, raw_stat, mask, sens,
+> +		       pol, dom_en, event);
+> +       return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(dump_eint_pin_status);
+> +
+>   static unsigned int mtk_eint_can_en_debounce(struct mtk_eint *eint,
+>   					     unsigned int eint_num)
+>   {
+>   	unsigned int sens;
+> -	unsigned int bit = BIT(eint_num % 32);
+> -	void __iomem *reg = mtk_eint_get_offset(eint, eint_num,
+> -						eint->regs->sens);
+> +	unsigned int instance, index;
+> +	void __iomem *reg = mtk_eint_get_ofset(eint, eint_num,
+> +						eint->comp->regs->sens,
+> +						&instance, &index);
+> +	unsigned int bit = BIT(index & 0x1f);
+
+I'm not sure why you can't use BIT(eint_num % 32) anymore.
+
+Even though your EINT is split in 5, that should be still aligned the same as
+the "old" EINT.
+
+> +
+> +	if (!reg) {
+
+That won't ever happen, because you're already checking that in callers of
+this function, hence this check is redundant, or looks like it is anyway.
+
+> +		dev_err(eint->dev, "%s invalid eint_num %d\n",
+> +			__func__, eint_num);
+> +		return 0;
+> +	}
+>   
+>   	if (readl(reg) & bit)
+>   		sens = MTK_EINT_LEVEL_SENSITIVE;
+>   	else
+>   		sens = MTK_EINT_EDGE_SENSITIVE;
+>   
+> -	if (eint_num < eint->hw->db_cnt && sens != MTK_EINT_EDGE_SENSITIVE)
+> +	if (eint->pins[eint_num].debounce &&
+> +	    sens != MTK_EINT_EDGE_SENSITIVE)
+>   		return 1;
+>   	else
+>   		return 0;
+>   }
+>   
+> -static int mtk_eint_flip_edge(struct mtk_eint *eint, int hwirq)
+> +static int mtk_eint_flip_edge(struct mtk_eint *eint, int eint_num)
+
+Why are you changing the parameter name from hwirq to eint_num?!
+
+>   {
+>   	int start_level, curr_level;
+> -	unsigned int reg_offset;
+> -	u32 mask = BIT(hwirq & 0x1f);
+> -	u32 port = (hwirq >> 5) & eint->hw->port_mask;
+> -	void __iomem *reg = eint->base + (port << 2);
+> +	unsigned int reg_ofset;
+> +	unsigned int instance, index, mask, port;
+> +	void __iomem *reg;
+>   
+> -	curr_level = eint->gpio_xlate->get_gpio_state(eint->pctl, hwirq);
+> +	reg = mtk_eint_get_ofset(eint, eint_num, MTK_EINT_NO_OFSET,
+> +				  &instance, &index);
+> +
+> +	if (!reg) {
+> +		dev_err(eint->dev, "%s invalid eint_num %d\n",
+> +			__func__, eint_num);
+> +		return 0;
+> +	}
+> +
+> +	mask = BIT(index & 0x1f);
+> +	port = index >> REG_GROUP;
+> +	reg = eint->instances[instance].base + port * REG_OFSET;
+> +
+
+
+..snip..
+
+> @@ -403,7 +572,20 @@ static void mtk_eint_irq_handler(struct irq_desc *desc)
+>   
+>   int mtk_eint_do_suspend(struct mtk_eint *eint)
+>   {
+> -	mtk_eint_chip_write_mask(eint, eint->base, eint->wake_mask);
+> +	unsigned int i, j, port;
+> +
+> +	for (i = 0; i < eint->instance_number; i++) {
+> +		struct mtk_eint_instance inst = eint->instances[i];
+
+Just register five different instances if they really have to be separated,
+which I don't believe they do, anyway.
+
+You should really read what mtk_eint_hw is for.
+
+> +
+> +		for (j = 0; j < inst.number; j += MAX_BIT) {
+> +			port = j >> REG_GROUP;
+> +			writel_relaxed(~inst.wake_mask[port],
+> +				       inst.base + port*REG_OFSET + eint->comp->regs->mask_set);
+> +			writel_relaxed(inst.wake_mask[port],
+> +				       inst.base + port*REG_OFSET + eint->comp->regs->mask_clr);
+> +		}
+> +	}
+> +	dsb(sy);
+>   
+>   	return 0;
+>   }
+
+..snip..
+
+> @@ -420,27 +615,45 @@ EXPORT_SYMBOL_GPL(mtk_eint_do_resume);
+>   int mtk_eint_set_debounce(struct mtk_eint *eint, unsigned long eint_num,
+>   			  unsigned int debounce)
+>   {
+> -	int virq, eint_offset;
+> -	unsigned int set_offset, bit, clr_bit, clr_offset, rst, i, unmask,
+> +	int virq, eint_ofset;
+> +	unsigned int set_ofset, bit, clr_bit, clr_ofset, rst, i, unmask,
+>   		     dbnc;
+> +	static const unsigned int debounce_time[] = { 156, 313, 625, 1250,
+> +		20000, 40000, 80000, 160000, 320000, 640000 };
+
+This is another mtk_eint_hw array that you're carelessly hardcoding inside of the
+eint driver.
+
+>   	struct irq_data *d;
+> +	unsigned int instance, index;
+> +	void __iomem *reg;
+>   
+> -	if (!eint->hw->db_time)
+> -		return -EOPNOTSUPP;
+> +	/*
+> +	 * Due to different number of bit field, we only decode
+> +	 * the coordinate here, instead of get the VA.
+> +	 */
+> +	reg = mtk_eint_get_ofset(eint, eint_num, MTK_EINT_NO_OFSET,
+> +				  &instance, &index);
+> +
+> +	if (!reg) {
+> +		dev_err(eint->dev, "%s invalid eint_num %lu\n",
+> +			__func__, eint_num);
+> +		return 0;
+> +	}
+>   
+>   	virq = irq_find_mapping(eint->domain, eint_num);
+> -	eint_offset = (eint_num % 4) * 8;
+> +	eint_ofset = (index % REG_OFSET) * DB_GROUP;
+>   	d = irq_get_irq_data(virq);
+>   
+> -	set_offset = (eint_num / 4) * 4 + eint->regs->dbnc_set;
+> -	clr_offset = (eint_num / 4) * 4 + eint->regs->dbnc_clr;
+> +	reg = eint->instances[instance].base;
+> +	set_ofset = (index / REG_OFSET) * REG_OFSET + eint->comp->regs->dbnc_set;
+> +	clr_ofset = (index / REG_OFSET) * REG_OFSET + eint->comp->regs->dbnc_clr;
+>   
+>   	if (!mtk_eint_can_en_debounce(eint, eint_num))
+>   		return -EINVAL;
+>   
+> -	dbnc = eint->num_db_time;
+> -	for (i = 0; i < eint->num_db_time; i++) {
+> -		if (debounce <= eint->hw->db_time[i]) {
+> +	/*
+> +	 * Check eint number to avoid access out-of-range
+> +	 */
+> +	dbnc = ARRAY_SIZE(debounce_time) - 1;
+
+And here, you carelessly break every other supported MediaTek SoC.
+
+> +	for (i = 0; i < ARRAY_SIZE(debounce_time); i++) {
+> +		if (debounce <= debounce_time[i]) {
+>   			dbnc = i;
+>   			break;
+>   		}
+
+..snip..
+
+> +
+> +int mtk_eint_do_init_v2(struct mtk_eint *eint)
+> +{
+> +	int i, virq, matrix_number = 0;
+> +	struct device_node *node;
+> +	unsigned int ret, size, ofset;
+> +	unsigned int id, inst, idx, support_deb;
+> +
+> +	const phandle *ph;
+> +
+> +	ph = of_get_property(eint->dev->of_node, "mediatek,eint", NULL);
+
+No, a SoC always has the same eint controller(s), always mapped to the same pins.
+
+This is not something for devicetree - but rather something that was already
+resolved in the past, when `struct mtk_eint_hw` was introduced.
+
+You should just look at how this driver works upstream and implement support for
+the new EINT in there.... not by copy-pasting something from downstream to upstream
+and expecting it to be accepted.
+
+> +	if (!ph) {
+> +		dev_err(eint->dev, "Cannot find EINT phandle in PIO node.\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	node = of_find_node_by_phandle(be32_to_cpup(ph));
+> +	if (!node) {
+> +		dev_err(eint->dev, "Cannot find EINT node by phandle.\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	ret = of_property_read_u32(node, "mediatek,total-pin-number",
+> +				   &eint->total_pin_number);
+
+eint_hw->ap_num is the same thing as this.
+
+> +	if (ret) {
+> +		dev_err(eint->dev,
+> +		       "%s cannot read total-pin-number from device node.\n",
+> +		       __func__);
+> +		return -EINVAL;
+> +	}
+> +
+> +	dev_info(eint->dev, "%s eint total %u pins.\n", __func__,
+> +		eint->total_pin_number);
+> +
+> +	ret = of_property_read_u32(node, "mediatek,instance-num",
+> +				   &eint->instance_number);
+> +	if (ret)
+> +		eint->instance_number = 1; // only 1 instance in legacy chip
+> +
+> +	size = eint->instance_number * sizeof(struct mtk_eint_instance);
+> +	eint->instances = devm_kzalloc(eint->dev, size, GFP_KERNEL);
+> +	if (!eint->instances)
+>   		return -ENOMEM;
+>   
+> -	eint->dual_edge = devm_kcalloc(eint->dev, eint->hw->ap_num,
+> -				       sizeof(int), GFP_KERNEL);
+> -	if (!eint->dual_edge)
+> +	size = eint->total_pin_number * sizeof(struct mtk_eint_pin);
+> +	eint->pins = devm_kzalloc(eint->dev, size, GFP_KERNEL);
+> +	if (!eint->pins)
+>   		return -ENOMEM;
+>   
+> +	for (i = 0; i < eint->instance_number; i++) {
+> +		ret = of_property_read_string_index(node, "reg-name", i,
+> +						    &(eint->instances[i].name));
+> +		if (ret) {
+> +			dev_info(eint->dev,
+> +				 "%s cannot read the name of instance %d.\n",
+> +				 __func__, i);
+> +		}
+> +
+> +		eint->instances[i].base = of_iomap(node, i);
+> +		if (!eint->instances[i].base)
+> +			return -ENOMEM;
+> +	}
+> +
+> +	matrix_number = of_property_count_u32_elems(node, "mediatek,pins") / ARRAY_0;
+> +	if (matrix_number < 0) {
+> +		matrix_number = eint->total_pin_number;
+> +		dev_info(eint->dev, "%s eint in legacy mode, assign the matrix number to %u.\n",
+> +			 __func__, matrix_number);
+> +	} else
+> +		dev_info(eint->dev, "%s eint in new mode, assign the matrix number to %u.\n",
+> +			 __func__, matrix_number);
+> +
+> +	for (i = 0; i < matrix_number; i++) {
+> +		ofset = i * REG_OFSET;
+> +
+> +		ret = of_property_read_u32_index(node, "mediatek,pins",
+> +					   ofset, &id);
+
+So basically this means that if a SoC has 200 EINT pins, you'll have 200 values
+in devicetree?!
+
+> +		ret |= of_property_read_u32_index(node, "mediatek,pins",
+> +					   ofset+FIRST, &inst);
+> +		ret |= of_property_read_u32_index(node, "mediatek,pins",
+> +					   ofset+SECOND, &idx);
+> +		ret |= of_property_read_u32_index(node, "mediatek,pins",
+> +					   ofset+THIRD, &support_deb);
+> +
+> +		/* Legacy chip which no need to give coordinate list */
+> +		if (ret) {
+> +			id = i;
+> +			inst = 0;
+> +			idx = i;
+> +			support_deb = (i < MAX_BIT) ? 1 : 0;
+> +		}
+> +
+> +		eint->pins[id].enabled = true;
+> +		eint->pins[id].instance = inst;
+> +		eint->pins[id].index = idx;
+> +		eint->pins[id].debounce = support_deb;
+> +
+> +		eint->instances[inst].pin_list[idx] = id;
+> +		eint->instances[inst].number++;
+> +
+
+..snip..
+
+> diff --git a/drivers/pinctrl/mediatek/mtk-eint.h b/drivers/pinctrl/mediatek/mtk-eint.h
+> index 6139b16cd225..aa17a6073029 100644
+> --- a/drivers/pinctrl/mediatek/mtk-eint.h
+> +++ b/drivers/pinctrl/mediatek/mtk-eint.h
+> @@ -11,6 +11,25 @@
+>   
+>   #include <linux/irqdomain.h>
+>   
+> +#define MAX_PIN 999
+> +#define MTK_EINT_EDGE_SENSITIVE           0
+> +#define MTK_EINT_LEVEL_SENSITIVE          1
+> +#define MTK_EINT_DBNC_SET_DBNC_BITS       4
+> +#define MTK_EINT_DBNC_RST_BIT             (0x1 << 1)
+> +#define MTK_EINT_DBNC_SET_EN              (0x1 << 0)
+> +#define MTK_EINT_NO_OFSET                 0
+
+> +#define MAX_BIT                           32
+
+MAX_BIT==32? Ok, so I was right in saying that the new eint is just the old one
+but with more than one instance.
+
+> +#define REG_OFSET                         4
+> +#define REG_GROUP                         5
+> +#define REG_VAL                           0xFFFFFFFF
+
+
+> +#define DB_GROUP                          8
+> +#define FIRST                             1
+> +#define SECOND                            2
+> +#define THIRD                             3
+> +#define ARRAY_0                           4
+> +
+> +//#define MTK_EINT_DEBUG
+
+Those definitions are either cryptic or unneeded.
+And I'll stop my review here.
+
+To be clear, the response is a huge "NACK"; you really have to redo everything
+from scratch, but this time, just implement support for the new design on the base
+of this upstream driver.
+
+Regards,
+Angelo
 
