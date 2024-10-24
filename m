@@ -4,86 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00C1CE8E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D321CE8E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wi4glAx+wEgGST5LdDDBKp+Mkl9kiSGTU6STDe7K1/o=; b=KT4gFzeuxDL2a8uahY4hWMD125
-	6aUzWj9AcqgGMNIdyYwWHdAOHvL9MEkAPOkdjS+PAzHN9hWRXim5zn+HNBJn4vsdEuzJi2BuTIzhL
-	L6jOI4vu3TbyTVbrB6FtBbtEyj22s+T5Gl0e4NEkQS/2H4xJ1n8tnlZEuKDArrghXBSPZPShqUJbS
-	tnArMhsXC5srv4ruWl8yvWWkPpMW9PE/JjCzGRZDq3W3UDCJJykbqzO+izMu+ZcZjufy7ffjuerps
-	LiKvOGgLhM2w7ZuuYe//l8vJ34ykbqqCUlyprYZnu4qM0LZQ0uBaoF09I6x+vPL2EsEAsbphCA2YK
-	nhcwuDhg==;
+	bh=mnC0P4SwmqAdLecCWO204q8D9yI859IIZ9OfDdgWMWc=; b=ZKL+2OXjzLfmQWRNfmsYFH5Mc6
+	Po1Ie9V9LNfYoFhgTA+P5HGPmsRcwwzeH+3ntpZ1a/unITXtQDfGrNUOcGz9+Es+JX+6a0ryxvQW/
+	GuHGdW7M5O/zLEfnXi3nRWeHQpsv2/4RXsgn3TVvO/zPKdmBsILgQZmDJIj3dAFIfVIyZIPYicuSO
+	s6STyCYyzTl1tEAXIt3l69JkKIcHfmyLt47IPyMha/Em5AJBro1QImoCBaebn5m38+0u2oAjWCnsZ
+	k/FbKFW9EYeMO/Q4xVRfGbV/e5p6bTGcvUhQMtD3Ka6xLPgKOdeVquW9rSOwD42VsT7xa+WTYlft8
+	HyGT39GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40FF-000000010qB-3ywQ;
-	Thu, 24 Oct 2024 15:59:29 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zjC-00000000uCq-3w7S
+	id 1t40Go-0000000112K-3L0b;
+	Thu, 24 Oct 2024 16:01:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3zjD-00000000uCz-0iMV
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 24 Oct 2024 15:26:24 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20ca4877690so124695ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 08:26:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1729783581; x=1730388381; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wi4glAx+wEgGST5LdDDBKp+Mkl9kiSGTU6STDe7K1/o=;
-        b=Xvlxl8hTDMYX4sAOE3xWv/6lzPJ/wlXC4Ah4fn+4PN1RSCX1QVzynOl/mZYhqob/no
-         3+DXs8h1zvMCqivnm1heFKD+b3ZpPjGGSzUuY6yheiXAWdf4lruIw8ZAbGLAND/QEVbV
-         DmJbTZG4QvoecCYfJ5sHC+nIG16ZkBjxDWgRdouXW+MAZ1ir8K0TZe6lmYYQkoJsYyc7
-         Yqra+pDGBXtT7dshoDWdb1WXKL30ZYKpTpD860DgaUB5yF0lJW7GavuxdQGtxW9w2gID
-         K2rgqQ5sPzgwsBiq65oV8NesaZ6T7YxVt+u/BzpxHy8PC2gIIFOc7ZZeAsPJMZHZ+wsK
-         8GNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729783581; x=1730388381;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wi4glAx+wEgGST5LdDDBKp+Mkl9kiSGTU6STDe7K1/o=;
-        b=bS42Dk/WD8ftQBATDoj31U2kka/rMilw4IcoKnT3FAEnGdtqspg3KReLJD5WkAlM15
-         MfC9TeOiK8GKnNMlNXKU870QcZNCFIp6TVitxizvc2kDnJiNS6aRtVSd3eKJW7CU32xJ
-         +qEpZw7rduTjh/ReLE2rknNqctHSTTezvPrmlWfKgaHSrwHkhggvBxkvsKzpPn89HCYV
-         j+ChApBGoQO3Y691N0++gb1ohlsUvmTI9yeEB9IMGeyHi8M8KxZLZjuPZmFmLaQfdoR7
-         iK+4MQQlrMvBfu9/HzSaYjCM57AWURQq82X6Q+gpWwpkb47zC+AuknyxBOvE5Pd5nsGm
-         Nm6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWZmgBdLr+po2sAJLlKp4ZfDzDGp81a2NIF9wOt56DZsNSCvBuM4t+XWt9CH8oEEhYfXkH9k1AtqhakOpHUtFPI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRA6Rm1G71pd5xHKW7uSfYcCwNz1F+1zkOrObLSK4z2e6MLAul
-	p4hP7pM7FBfZoI5rlzS8e7e4UhqAgxGr8c5IUcB4c3y5Uyxw1Chknoh6Rgazkw==
-X-Google-Smtp-Source: AGHT+IG9fIxEp3nE+7sh8sAPl79Ygp1jwOjhJKusBS4VmwGbdjSog8+lupqcuyio5msUO7yn6X4epA==
-X-Received: by 2002:a17:903:2304:b0:20c:e169:eb8c with SMTP id d9443c01a7336-20fb76b7b3emr2448315ad.1.1729783580393;
-        Thu, 24 Oct 2024 08:26:20 -0700 (PDT)
-Received: from google.com (62.166.143.34.bc.googleusercontent.com. [34.143.166.62])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7eaeabb83easm8788835a12.72.2024.10.24.08.26.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 08:26:19 -0700 (PDT)
-Date: Thu, 24 Oct 2024 15:26:12 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Rob Clark <robdclark@chromium.org>,
-	Georgi Djakov <quic_c_gdjako@quicinc.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-Subject: Re: [PATCH 22/51] iommu/arm-smmu: Switch to
- __pm_runtime_put_autosuspend()
-Message-ID: <ZxpnFPsk2OBC8vqd@google.com>
-References: <20241004094101.113349-1-sakari.ailus@linux.intel.com>
- <20241004094123.113725-1-sakari.ailus@linux.intel.com>
- <ZwfztwoGAcvyvlWL@google.com>
- <20241023164835.GF29251@willie-the-truck>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22EB1339;
+	Thu, 24 Oct 2024 08:26:51 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4866B3F528;
+	Thu, 24 Oct 2024 08:26:20 -0700 (PDT)
+Date: Thu, 24 Oct 2024 16:26:18 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v5 33/37] KVM: arm64: Add POE save/restore for AT
+ emulation fast-path
+Message-ID: <20241024152618.GE1403933@e124191.cambridge.arm.com>
+References: <20241023145345.1613824-1-maz@kernel.org>
+ <20241023145345.1613824-34-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023164835.GF29251@willie-the-truck>
+In-Reply-To: <20241023145345.1613824-34-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_082623_018104_480FDC07 
-X-CRM114-Status: GOOD (  35.61  )
+X-CRM114-CacheID: sfid-20241024_082623_285980_B72A86FD 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,78 +68,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 05:48:36PM +0100, Will Deacon wrote:
-> On Thu, Oct 10, 2024 at 03:33:11PM +0000, Pranjal Shrivastava wrote:
-> > On Fri, Oct 04, 2024 at 12:41:23PM +0300, Sakari Ailus wrote:
-> > > pm_runtime_put_autosuspend() will soon be changed to include a call to
-> > > pm_runtime_mark_last_busy(). This patch switches the current users to
-> > > __pm_runtime_put_autosuspend() which will continue to have the
-> > > functionality of old pm_runtime_put_autosuspend().
-> > > 
-> > > Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> > > ---
-> > >  drivers/iommu/arm/arm-smmu/arm-smmu.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > > index 8321962b3714..cad02d5dc6d2 100644
-> > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > > @@ -79,7 +79,7 @@ static inline int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
-> > >  static inline void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
-> > >  {
-> > >  	if (pm_runtime_enabled(smmu->dev))
-> > > -		pm_runtime_put_autosuspend(smmu->dev);
-> > > +		__pm_runtime_put_autosuspend(smmu->dev);
-> > >  }
-> > 
-> > Seems like a straightforward change as a result of [1].
-> > Although, I had a few things to discuss:
-> > 
-> > 1. The `rpm_resume` in drivers/base/power/runtime.c seems to call
-> > `pm_runtime_mark_last_busy` in case the ->runtime_resume callback
-> > returned successfully. In such a case, why would we want to move
-> > `pm_runtime_mark_last_busy` within `pm_runtime_put_autosuspend` ?
-> > 
-> > 2. In the arm-smmu driver, we seem to rely on the rpm_resume to call
-> > `pm_runtime_mark_last_busy` as a part of the ->runtime_resume callback.
-> > The only other case, where we might wanna `*mark_last_busy` is if we
-> > want the autosuspend timer to be re-started in case of a failed suspend.
-> > However, the `arm_smmu_runtime_suspend` doesn't return errno in any case
-> > hence, I don't see any other case where we'd benefit from using
-> > `mark_last_busy` in the arm-smmu driver. 
-> > 
-> > On the other hand, I don't see a problem with using it either :)
-> > Any thoughts Will/Rob/Robin?
+On Wed, Oct 23, 2024 at 03:53:41PM +0100, Marc Zyngier wrote:
+> Just like the other extensions affecting address translation,
+> we must save/restore POE so that an out-of-context translation
+> context can be restored and used with the AT instructions.
 > 
-> To be honest, I think the current driver code is pretty weird. We're
-> calling arm_smmu_rpm_use_autosuspend() during device attach and that
-> does:
-> 
-> 	pm_runtime_set_autosuspend_delay(smmu->dev, 20);
-> 	pm_runtime_use_autosuspend(smmu->dev);
-> 
-> whereas I would've expected these autosuspend parameters to be configured
-> once during SMMU probe and then for attach to do something like:
-> 
-> 	pm_runtime_mark_last_busy();
-> 	__pm_runtime_put_autosuspend();
-> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Ack. I had missed the `*set_autosuspend` call during attach, there's no
-need for that to happen with each attach. I agree that we should setup
-autosuspend delay once during the smmu probe and mark_last_busy on
-attach to retain the current behaviour.
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-> So I think we should probably rework the code we have slightly, which
-> will hopefully make this giant refactoring series a little more
-> straightforward.
-
-+1.
-
+> ---
+>  arch/arm64/kvm/at.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
 > 
-> Will
-
-Thanks,
-Pranjal
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index de7109111e404..ef1643faedeb4 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -440,6 +440,8 @@ struct mmu_config {
+>  	u64	tcr2;
+>  	u64	pir;
+>  	u64	pire0;
+> +	u64	por_el0;
+> +	u64	por_el1;
+>  	u64	sctlr;
+>  	u64	vttbr;
+>  	u64	vtcr;
+> @@ -458,6 +460,10 @@ static void __mmu_config_save(struct mmu_config *config)
+>  			config->pir	= read_sysreg_el1(SYS_PIR);
+>  			config->pire0	= read_sysreg_el1(SYS_PIRE0);
+>  		}
+> +		if (system_supports_poe()) {
+> +			config->por_el1	= read_sysreg_el1(SYS_POR);
+> +			config->por_el0	= read_sysreg_s(SYS_POR_EL0);
+> +		}
+>  	}
+>  	config->sctlr	= read_sysreg_el1(SYS_SCTLR);
+>  	config->vttbr	= read_sysreg(vttbr_el2);
+> @@ -485,6 +491,10 @@ static void __mmu_config_restore(struct mmu_config *config)
+>  			write_sysreg_el1(config->pir, SYS_PIR);
+>  			write_sysreg_el1(config->pire0, SYS_PIRE0);
+>  		}
+> +		if (system_supports_poe()) {
+> +			write_sysreg_el1(config->por_el1, SYS_POR);
+> +			write_sysreg_s(config->por_el0, SYS_POR_EL0);
+> +		}
+>  	}
+>  	write_sysreg_el1(config->sctlr,	SYS_SCTLR);
+>  	write_sysreg(config->vttbr,	vttbr_el2);
+> @@ -1105,6 +1115,10 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+>  			write_sysreg_el1(vcpu_read_sys_reg(vcpu, PIR_EL1), SYS_PIR);
+>  			write_sysreg_el1(vcpu_read_sys_reg(vcpu, PIRE0_EL1), SYS_PIRE0);
+>  		}
+> +		if (kvm_has_s1poe(vcpu->kvm)) {
+> +			write_sysreg_el1(vcpu_read_sys_reg(vcpu, POR_EL1), SYS_POR);
+> +			write_sysreg_s(vcpu_read_sys_reg(vcpu, POR_EL0), SYS_POR_EL0);
+> +		}
+>  	}
+>  	write_sysreg_el1(vcpu_read_sys_reg(vcpu, SCTLR_EL1),	SYS_SCTLR);
+>  	__load_stage2(mmu, mmu->arch);
+> -- 
+> 2.39.2
+> 
 
