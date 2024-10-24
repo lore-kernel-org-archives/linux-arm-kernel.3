@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD8ECE8E61
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658C9CE8E60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExS2YFrD3MkVQ1daF9oDB0ymAMdP+Sw651k+1t5+V7k=; b=3t30VXPMHEThMAK6A1kGOrr+BE
-	VBShUwfNWMfqimrO3LeN2az7BYj4DMTgkk2MyvMQk+6esPMZrRatld4DIPJQlvlUXh3R37Ohl2JN2
-	AG9sVnilYMqxwQzef+q+WFp42QwUWx6dY55QllFbRqjHEgzgJN50e/+PUWGpNrCKW6yEoUPEXO4ch
-	ZU7+LyNL4wcx/cGjOJQl48axFL86NZ4Ax7rnqzbgKufFLqYQAvrszzM8zFSAfeLlqwBEYl+dZp11T
-	3+J2kzw0NHSB+hEIGunfmGXVT0RmF+cfPEqR4wQHcUAKM2r6yQMRwFNrv783GR1S+X/YHtkga44iA
-	OBwKhQGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CbvErAglLNwq0XXtCF2MODZK1/Oqp0dLxoHy2paTXK0=; b=oiX07lgvW6nj1AydtqLxQrqxcm
+	uQNCYNX1X0EYFc/S3EkET8I07d6qoxgldKcDERQCr0Hxu6zD+vs82LvAqdohaVSEDxs+7r/5AFTWb
+	p7yJfVN9qzuvfcIt514th+F2qDp7dr//WpQeb7wBv9e8feKeSjvBNAgCvwQ4stn/ZCETdExTdHf4N
+	uCMCukY7VaoKEK5+8UIMHpJQQ0Hd4dEnSn731NIuS/ULsXElqvbjMUBpx3DB3aCHJ4H3JeOZXut2G
+	9l+fW/WE5qUvMkH9NzVQVtqAn6hQ2/wNIIIwKSHmVwJvjUciESwYhq187t0M+NY4WHTTG3zhNCtrY
+	Ng97aIfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vpi-00000000Bew-16Pl;
-	Thu, 24 Oct 2024 11:16:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3veZ-000000009xd-2X1k
+	id 1t3vrD-00000000BsA-3Eq0;
+	Thu, 24 Oct 2024 11:18:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3vh2-00000000ASN-48cL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:05:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13C46339;
-	Thu, 24 Oct 2024 04:05:46 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 912863F71E;
-	Thu, 24 Oct 2024 04:05:14 -0700 (PDT)
-Date: Thu, 24 Oct 2024 12:05:12 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:SYSTEM CONTROL & POWER/MANAGEMENT INTERFACE" <arm-scmi@vger.kernel.org>,
-	justin.chen@broadcom.com, opendmb@gmail.com,
-	Florian Fainelli <f.fainelli@gmail.com>, kapil.hali@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Support 'reg-io-width'
- property for shared memory
-Message-ID: <Zxop6E83YId0et5o@bogus>
-References: <20240827182450.3608307-1-florian.fainelli@broadcom.com>
- <20240827182450.3608307-3-florian.fainelli@broadcom.com>
- <20240903154000.GA2080277@bogus>
- <ZxJbJa8Q3V02yf_z@bogus>
+	Thu, 24 Oct 2024 11:07:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C4E925C5FAD;
+	Thu, 24 Oct 2024 11:07:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98707C4CEC7;
+	Thu, 24 Oct 2024 11:07:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729768072;
+	bh=3u4MB5fzt4B4URpnmS1cFnecFjFi0U4J8+oHzjRXNFc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=cqNmRswks3sQEtF9sXALrcrZ8xOPReinoA9Jl/lcbNSxGECx5gJ5hmCNQ7HYCHawW
+	 gXz0oJ7rmrKm+sP0HGor9TOMT5iigGaVbMsIk5lN5lbdTBCBt/2ORk3vxZFAcg88Se
+	 +v4/3oOUdpjT05Hn0vJWxAwEA4yeuQGN1BCAfPXAJDGXvyjM04aRe10/RywsccbDEV
+	 qkxCZVlIrnoQQGaL1z8HiBVLrdOKwhQmGFSCYdOzWTUZN8LwNgA7y4lcOvkKaNfu5Q
+	 NTXpod3T9SC4A8jT0LygRmI0CbT3IP/a2dhT1Hlhl2IgZ+kbx1IFMGbZ/2Y53l+RA/
+	 G3Eh2/KnZM08g==
+From: Mark Brown <broonie@kernel.org>
+Date: Thu, 24 Oct 2024 12:06:42 +0100
+Subject: [PATCH] arm64/signal: Consistently invalidate the in register FP
+ state in restore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZxJbJa8Q3V02yf_z@bogus>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241024-arm64-fp-sig-flush-v1-1-05148eb92a84@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEIqGmcC/x3MTQqAIBBA4avErBtIs6CuEi1MRxvoD4ciiO6et
+ PwW7z0glJgE+uKBRBcL71uGKgtws90iIfts0JU2qtI12rS2BsOBwhHDcsqMZJR3nWvsRB3k8Eg
+ U+P6nw/i+H+pSWTBkAAAA
+X-Change-ID: 20241023-arm64-fp-sig-flush-e41dc9c5abe9
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6416; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3u4MB5fzt4B4URpnmS1cFnecFjFi0U4J8+oHzjRXNFc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGiqFEOxzTMkfhPBnTWTIFQZyU/t2zA4Qi1/mdz4D
+ kSuonjGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxoqhQAKCRAk1otyXVSH0JL3B/
+ 0Z9vAnd4lxDbFQQWjIPda2uhIWErXyDn5gl+tMeU8RnUgU1AqsmGYG8DHcTO/TUNhgkD3d0yYWpm0v
+ j95tQP4R3MtezAEW7LreC2XSh9svhyTBjNHByXAcJ6tmqY9RJckOsXlobvvDpGtmbcPzkCBPRQzdk3
+ SmLG/Gj7W9k9BanzEg0q71PN/jToajUy4I7hvfxN0o4rbh9nBF6ddOQmIH/5XFrm5EJjMzfpL2BfCI
+ ame4rVqvNvBclRnC2NU8hJcSMhT6q1hoGYGIOxSqI+nzsjsCFkhBKfPJoMepge9xpttwlifNCeFsr3
+ Qpio13QGlRSSLN1I0pehGGL9OsVB/v
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_040519_711187_F1A95814 
-X-CRM114-Status: GOOD (  29.43  )
+X-CRM114-CacheID: sfid-20241024_040753_153883_53DA578B 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +88,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping! Not sure if my earlier email got into spam or didn't land
-in lore/ML. Just thought of checking again.
+When restoring the SVE and SME specific floating point register states we
+flush the task floating point state, marking the hardware state as stale so
+that preemption does not result in us saving register state from the signal
+handler on top of the restored context and forcing a reload from memory.
+For the plain FPSIMD state we don't do this, we just copy the state from
+userspace and then force an immediate reload of the register state.
+This isn't racy against context switch since we copy the incoming data
+onto the stack rather than directly into the task struct but it's still
+messy and inconsistent.
 
-On Fri, Oct 18, 2024 at 01:57:09PM +0100, Sudeep Holla wrote:
-> On Tue, Sep 03, 2024 at 04:40:00PM +0100, Sudeep Holla wrote:
-> > On Tue, Aug 27, 2024 at 11:24:50AM -0700, Florian Fainelli wrote:
-> > > Some shared memory areas might only support a certain access width,
-> > > such as 32-bit, which memcpy_{from,to}_io() does not adhere to at least
-> > > on ARM64 by making both 8-bit and 64-bit accesses to such memory.
-> > >
-> > > Update the shmem layer to support reading from and writing to such
-> > > shared memory area using the specified I/O width in the Device Tree. The
-> > > various transport layers making use of the shmem.c code are updated
-> > > accordingly to pass the I/O accessors that they store.
-> > >
-> > 
-> > This looks good to me now, much simpler. I will push this to -next soon,
-> > but it won't be for v6.12. I have already sent PR for that. I want this
-> > to be in -next for longer just to see if anyone has any comments and
-> > doesn't break any platform(which it shouldn't anyways).
-> > 
-> > Just hoping if anyone looks at it and have feedback once it is in -next.
-> > I will apply formally at v6.12-rc1 and report back if no one complains
-> > until then.
-> > 
-> 
-> Hi Florian,
-> 
-> Just thought I will check with you if the content is -next are fine as I now
-> recall I did the rebase as this patch was original posted before the rework
-> of transport as modules were merged. Please confirm if you are happy with the
-> rebase as you see in -next. I also had to rebase it on recent fixes that
-> Justin added as there were trivial conflicts.
-> 
-> Another thing I wanted to check is if [1] series has any impact on this.
-> IIUC no, but it would be good to give a go in terms of testing just in case
-> that as well lands in -next.
-> 
-> --
-> Regards,
-> Sudeep
-> 
-> [1] https://lore.kernel.org/all/20241010123627.695191-1-jvetter@kalrayinc.com
+Simplify things and avoid a potential source of error by moving the
+invalidation of the CPU state to the main restore_sigframe() and
+reworking the restore of the FPSIMD state to update the task struct and
+rely on loading as part of the general do_notify_resume() handling for
+return to user like we do for the SVE and SME state.
 
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kernel/signal.c | 70 +++++++++++++++-------------------------------
+ 1 file changed, 22 insertions(+), 48 deletions(-)
+
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 5619869475304776fc005fe24a385bf86bfdd253..a536d65b1f11957fa0f84094df542175d050e00a 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -210,7 +210,7 @@ static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
+ 
+ static int restore_fpsimd_context(struct user_ctxs *user)
+ {
+-	struct user_fpsimd_state fpsimd;
++	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
+ 	int err = 0;
+ 
+ 	/* check the size information */
+@@ -218,18 +218,14 @@ static int restore_fpsimd_context(struct user_ctxs *user)
+ 		return -EINVAL;
+ 
+ 	/* copy the FP and status/control registers */
+-	err = __copy_from_user(fpsimd.vregs, &(user->fpsimd->vregs),
+-			       sizeof(fpsimd.vregs));
+-	__get_user_error(fpsimd.fpsr, &(user->fpsimd->fpsr), err);
+-	__get_user_error(fpsimd.fpcr, &(user->fpsimd->fpcr), err);
++	err = __copy_from_user(fpsimd->vregs, &(user->fpsimd->vregs),
++			       sizeof(fpsimd->vregs));
++	__get_user_error(fpsimd->fpsr, &(user->fpsimd->fpsr), err);
++	__get_user_error(fpsimd->fpcr, &(user->fpsimd->fpcr), err);
+ 
+ 	clear_thread_flag(TIF_SVE);
+ 	current->thread.fp_type = FP_STATE_FPSIMD;
+ 
+-	/* load the hardware registers from the fpsimd_state structure */
+-	if (!err)
+-		fpsimd_update_current_state(&fpsimd);
+-
+ 	return err ? -EFAULT : 0;
+ }
+ 
+@@ -333,7 +329,7 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ {
+ 	int err = 0;
+ 	unsigned int vl, vq;
+-	struct user_fpsimd_state fpsimd;
++	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
+ 	u16 user_vl, flags;
+ 
+ 	if (user->sve_size < sizeof(*user->sve))
+@@ -376,16 +372,6 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ 	if (user->sve_size < SVE_SIG_CONTEXT_SIZE(vq))
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.sve_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
+-
+ 	sve_alloc(current, true);
+ 	if (!current->thread.sve_state) {
+ 		clear_thread_flag(TIF_SVE);
+@@ -408,14 +394,10 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ fpsimd_only:
+ 	/* copy the FP and status/control registers */
+ 	/* restore_sigframe() already checked that user->fpsimd != NULL. */
+-	err = __copy_from_user(fpsimd.vregs, user->fpsimd->vregs,
+-			       sizeof(fpsimd.vregs));
+-	__get_user_error(fpsimd.fpsr, &user->fpsimd->fpsr, err);
+-	__get_user_error(fpsimd.fpcr, &user->fpsimd->fpcr, err);
+-
+-	/* load the hardware registers from the fpsimd_state structure */
+-	if (!err)
+-		fpsimd_update_current_state(&fpsimd);
++	err = __copy_from_user(fpsimd->vregs, user->fpsimd->vregs,
++			       sizeof(fpsimd->vregs));
++	__get_user_error(fpsimd->fpsr, &user->fpsimd->fpsr, err);
++	__get_user_error(fpsimd->fpcr, &user->fpsimd->fpcr, err);
+ 
+ 	return err ? -EFAULT : 0;
+ }
+@@ -524,16 +506,6 @@ static int restore_za_context(struct user_ctxs *user)
+ 	if (user->za_size < ZA_SIG_CONTEXT_SIZE(vq))
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.sme_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
+-
+ 	sme_alloc(current, true);
+ 	if (!current->thread.sme_state) {
+ 		current->thread.svcr &= ~SVCR_ZA_MASK;
+@@ -601,16 +573,6 @@ static int restore_zt_context(struct user_ctxs *user)
+ 	if (nregs != 1)
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.zt_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch ZT in thread state */
+-
+ 	err = __copy_from_user(thread_zt_state(&current->thread),
+ 			       (char __user const *)user->zt +
+ 					ZT_SIG_REGS_OFFSET,
+@@ -876,6 +838,18 @@ static int restore_sigframe(struct pt_regs *regs,
+ 	if (err == 0)
+ 		err = parse_user_sigframe(&user, sf);
+ 
++	/*
++	 * Careful: we are about __copy_from_user() directly into
++	 * thread floating point state with preemption enabled, so
++	 * protection is needed to prevent a racing context switch
++	 * from writing stale registers back over the new data. Mark
++	 * the register floating point state as invalid and unbind the
++	 * task from the CPU to force a reload before we return to
++	 * userspace. fpsimd_flush_task_state() has a check for FP
++	 * support.
++	 */
++	fpsimd_flush_task_state(current);
++
+ 	if (err == 0 && system_supports_fpsimd()) {
+ 		if (!user.fpsimd)
+ 			return -EINVAL;
+
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241023-arm64-fp-sig-flush-e41dc9c5abe9
+
+Best regards,
 -- 
-Regards,
-Sudeep
+Mark Brown <broonie@kernel.org>
+
 
