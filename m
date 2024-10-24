@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FF5CE8E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D93CE8E8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 15:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3uQQB7e6vA64fR4D2xbg8mQGZa/M0qxBwIFoh7VKto=; b=QuBDgQdOJxjCS1I3CocwK/0Ocp
-	xf82EAsaLLJGUMI9UK44No3qTCf/pENhlIlolP1ixkin47R5teybOdu8GssQUicsFLa9utlHbyzq2
-	m8aPEQ7ZCCKZjUlWqSqVs5Dda+O3EyG7mPZw2lSuKiPdNfueEsu4zlX1OJ3hjfqYz9/6zF/sfFQwl
-	9Ch1g5GpIVOKcmgFXwSP19apazqilkN3NsbGGIhXe5l7QbhZqzm0mwnKjFFN2FKAJ6hRnaL+mfRpB
-	5qC2JWwMSRe3BXoD4L+sZGbgHxtM+Yd61VKK5Ha0uijSNhLm+ovt5gU7GslJRF3x7qeMnZ8FZY3+H
-	7W9lqr2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E6EAsGmqJZp9Jtu5OJswFR19+GlBdu1maiVLtf3Rqjs=; b=MIzQuEB1vmyu+b5WAEwL6Pv8xJ
+	qGTk6+HAfVxxs9QYEienUi+zrlJPuVE/dFIjsUJhKsBcsE+pkbISYVYpwfN+yLTS167sKDawHGslq
+	wdSOm3Zh3B9zLyetBDRcDnYq54TNdbM8N5SQJytnakPUb2zDRUUYelJ4X0HLBY8lXXsGLBDTMSSX3
+	nhG8CFq36SHbsYnnpvGDxDzpOi3MITxRGInqdH/u3VgSIqNpy1ho4QTX7o87YMvuowvqb8idFBWZD
+	RZGKxbh+RZmZCNL6NBEtph6g7UJyulNxdGNv+chFZC4Fv6h+JUy4/wBQf2b0rLfWpKaEOvBVIlbC4
+	8YU1sg4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zxp-00000000x4s-2wdX;
-	Thu, 24 Oct 2024 15:41:29 +0000
+	id 1t3zzR-00000000xms-3OpK;
+	Thu, 24 Oct 2024 15:43:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zgC-00000000toQ-3v7I;
-	Thu, 24 Oct 2024 15:23:17 +0000
+	id 1t3zgV-00000000tr1-0jk8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Oct 2024 15:23:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=W3uQQB7e6vA64fR4D2xbg8mQGZa/M0qxBwIFoh7VKto=; b=OKkGKIaxXHMDQ1maY3CDc3I0/x
-	SY3EjCIsZ2cQZpAWogyhCltY4Wiu81XZ9kQSo8cQRKKx6NulxuWd6keNq27CeBoQEoaos5C9w73FZ
-	BDH218OaXSvBEwLzusG25cQkTD5aYb3PoIlgZscdL57p4C3wKiovZf75E045Vql8a3nzrtr28DFMR
-	R/3S33UHrEQgJ/d22ff1pSwiZL/3D80TyaAEB1npYqNhuFWVai/0NFZS29Ypisge/R2b/Pc5TTAQ2
-	CoTZ84z8/o+ZALMC82tohPYjkymuHFURw7omONjcK635PXxra4/ML+Ymc1NMnZ5B1ARDdUSDB6U+G
-	dzkWI/lA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:CC:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=E6EAsGmqJZp9Jtu5OJswFR19+GlBdu1maiVLtf3Rqjs=; b=JerxgNyJdIP2TlYNhs+7t9YpDV
+	PO77CPq49lRyA5zeEfUy0RBjbj2K5ubR7UcRoYRpidBxKhZMwglcrZ5jZR4jQ/C7kdi//0Rmgy/7I
+	zvWrnldVkQOePuAneqxJpPplGX2g9gPWEGS5sMR6wgMXkblJsudYVhXP4+IZDgMBI6jZxYDNppjsb
+	11PePy+v/qty838vlAq4ngpI9bmk0pVPnSm9QWlnwBF60/wcY6POASOXl7GjxdVRKVX4i9Y1ZQoKQ
+	jrmwW4+8PYSj8JxuTuImyX+dyviMM3x9KiJT1Ao9wKiV6t+ks2eW4//GCvfj3oGyALNLb5IVWRVQV
+	lSH90pAw==;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3zg8-00000008hb1-3oSY;
-	Thu, 24 Oct 2024 15:23:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D119B5C598E;
-	Thu, 24 Oct 2024 15:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0930FC4CEC7;
-	Thu, 24 Oct 2024 15:23:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729783386;
-	bh=xEjMAQfA1uXRN9RJu6qq9b5+SQpN/LVbFyfZ/9OTh98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rmOqeuJFEcIDXrWqUn2exb+M6Et8L2ku5O276TBDc7BgtWVRzk1YXHnehvu5y21jb
-	 66s9AE6hCn4fzrn+98UZAocCil89+KMtPjMckI2QZ21Vw0faU4kCd8ncZ2f8XA+jt4
-	 mfX4UIj3S4frOSw0s6bj/qab7dQvQE2X/CFGZuvG6wNvCgiqk3Md+zwfxnUVZKysEh
-	 WhB5AKERRRbJdU/ttIGElyNmaiHQBYxzUpjOqn81BR/xUUM/qic7mRiMepk9jstQc5
-	 ytcXhjRjp90+mVtBVH/MlqMiVNoTgCQt5T3hiVWnB52tB/KzLofDB8dK066C5W6x4T
-	 VCyNiWmzyrXgg==
-Date: Thu, 24 Oct 2024 10:23:05 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next RFC PATCH v2 1/3] dt-bindings: net: dsa: Add Airoha
- AN8855 Gigabit Switch documentation
-Message-ID: <20241024152305.GA550738-robh@kernel.org>
-References: <20241023161958.12056-1-ansuelsmth@gmail.com>
- <20241023161958.12056-2-ansuelsmth@gmail.com>
+	id 1t3zgR-00000008hby-1Dxy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 15:23:34 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XZ8m759Jqz20qXX;
+	Thu, 24 Oct 2024 23:22:15 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id BC6B81A0188;
+	Thu, 24 Oct 2024 23:23:08 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Thu, 24 Oct 2024 23:23:08 +0800
+CC: <yangyicong@hisilicon.com>, <will@kernel.org>, <maz@kernel.org>,
+	<mark.rutland@arm.com>, <broonie@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <oliver.upton@linux.dev>,
+	<ryan.roberts@arm.com>, <linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>, <wangkefeng.wang@huawei.com>
+Subject: Re: [PATCH v3 3/5] arm64: Add support for FEAT_HAFT
+To: Catalin Marinas <catalin.marinas@arm.com>
+References: <20241022092734.59984-1-yangyicong@huawei.com>
+ <20241022092734.59984-4-yangyicong@huawei.com> <ZxfvVO75Mob_FWF7@arm.com>
+ <3ad59e2d-957d-e704-4a4c-ee0af2bd8dd4@huawei.com> <Zxjt62hKsNu06OrD@arm.com>
+ <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <14f1802a-6a45-576b-8ded-fcb6015c5928@huawei.com>
+Date: Thu, 24 Oct 2024 23:23:07 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023161958.12056-2-ansuelsmth@gmail.com>
+In-Reply-To: <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_162313_949136_D8209A61 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20241024_162332_343075_7BB26C0C 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,304 +93,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 06:19:50PM +0200, Christian Marangi wrote:
-> Add Airoha AN8855 5 port Gigabit Switch documentation.
+On 2024/10/24 22:45, Yicong Yang wrote:
+> On 2024/10/23 20:36, Catalin Marinas wrote:
+>> On Wed, Oct 23, 2024 at 06:30:18PM +0800, Yicong Yang wrote:
+>>> On 2024/10/23 2:30, Catalin Marinas wrote:
+>>>> On Tue, Oct 22, 2024 at 05:27:32PM +0800, Yicong Yang wrote:
+>>>>> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
+>>>>> index 8ff5f2a2579e..bc1051d65125 100644
+>>>>> --- a/arch/arm64/include/asm/pgalloc.h
+>>>>> +++ b/arch/arm64/include/asm/pgalloc.h
+>>>>> @@ -30,7 +30,7 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pudp, pmd_t *pmdp)
+>>>>>  {
+>>>>>  	pudval_t pudval = PUD_TYPE_TABLE;
+>>>>>  
+>>>>> -	pudval |= (mm == &init_mm) ? PUD_TABLE_UXN : PUD_TABLE_PXN;
+>>>>> +	pudval |= (mm == &init_mm) ? PUD_TABLE_AF | PUD_TABLE_UXN : PUD_TABLE_PXN;
+>>>>>  	__pud_populate(pudp, __pa(pmdp), pudval);
+>>>>>  }
+>>>>
+>>>> Why not set the table AF for the task entries? I haven't checked the
+>>>> core code but normally when we map a pte it's mapped as young. While for
+>>>> table AF we wouldn't get a fault, I would have thought the core code
+>>>> follows the same logic.
+>>>
+>>> I may need to check. If I understand it correctly, for most case (e.g.
+>>> a read fault) we should make pte young if the hardware AF update is
+>>> not supported. Otherwsie hardware will help to update.
+>>
+>> On arm64 at least, _PROT_DEFAULT has PTE_AF set. So all accessible
+>> entries in protection_map[] will have it set. I'm not sure how the core
+>> code clears PTE_AF in the table entries. I'd have thought it goes
+>> together with some pte_mkold().
+>>
 > 
-> The switch node requires an additional mdio node to describe each internal
-> PHY relative offset as the PHY address for the switch match the one for
-> the PHY ports. On top of internal PHY address, the switch base PHY address
-> is added.
+> you're right. Checked that x86 will set the AF bit for the table entry [1][2].
+> Will set AF for task entries.
 > 
-> Also the switch base PHY address can be configured and changed after the
-> first initialization. On reset, the switch PHY address is ALWAYS 1.
-> This can be configured with the use of "airoha,base_smi_address".
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/include/asm/pgalloc.h#n84
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/include/asm/pgtable_types.h#n221
 > 
-> Calibration values might be stored in switch EFUSE and internal PHY
-> might need to be calibrated, in such case, airoha,ext_surge needs to be
-> enabled and relative NVMEM cells needs to be defined in nvmem-layout
-> node.
+>>>>> +#ifdef CONFIG_ARM64_HAFT
+>>>>> +	{
+>>>>> +		.desc = "Hardware managed Access Flag for Table Descriptor",
+>>>>> +		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
+>>>>
+>>>> I'd actually use ARM64_CPUCAP_SYSTEM_FEATURE here. We use something
+>>>> similar for HW DBM but there we get a fault and set the pte dirty. You
+>>>> combined it with a system_support_haft() that checks the sanitised regs
+>>>> but I'd rather have a static branch check via cpus_have_cap(). Even with
+>>>> your approach we can have a race with a late CPU hot-plugged that
+>>>> doesn't have the feature in the middle of some core code walking the
+>>>> page tables.
+>>>>
+>>>> With a system feature type, late CPUs not having the feature won't be
+>>>> brought online (if feature enabled) but in general I don't have much
+>>>> sympathy for SoC vendors combining CPUs with incompatible features ;).
+>>>
+>>> ok. If we make it a system feature, we can using cpus_have_cap() then and
+>>> drop the system_support_haft() which is checking with the sanitised registers.
+>>> It's fine for me.
+>>>
+>>> Will ask to not refuse online a CPU due to mismatch of this feature in [1],
+>>> hope we have an agreement :)
+>>>
+>>> [1] https://lore.kernel.org/linux-arm-kernel/20240820161822.GC28750@willie-the-truck/
+>>
+>> I initially thought this would work but I don't feel easy about having
+>> should_clear_pmd_young() change its polarity at runtime while user space
+>> is running. If that's not a problem, we can go with your current
+>> approach.
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/net/dsa/airoha,an8855.yaml       | 253 ++++++++++++++++++
->  1 file changed, 253 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
+> this should be ok as I image. after online a CPU without HAFT the system won't
+> advertise HAFT support but we don't disable the HAFT update on the supported
+> CPUs, the ongoing page aging process can still use the updated table AF information
+> and later process will fallback to use the PTE's AF bit. efficiency maybe reduced
+> but the function should be correct.
 > 
-> diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
-> new file mode 100644
-> index 000000000000..5982b4c39536
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
-> @@ -0,0 +1,253 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/dsa/airoha,an8855.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Airoha AN8855 Gigabit switch
-> +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
-> +
-> +description:
 
-You need '>' to preserve paragraphs.
+But we may have a chance to hit the VM_WARN_ON() in pmdp_test_and_clear_young() introduced in Patch 5/5:
 
-> +  Airoha AN8855 is a 5-port Gigabit Switch.
-> +
-> +  The switch node requires an additional mdio node to describe each internal
-> +  PHY relative offset as the PHY address for the switch match the one for
-> +  the PHY ports. On top of internal PHY address, the switch base PHY address
-> +  is added.
-> +
-> +  Also the switch base PHY address can be configured and changed after the
-> +  first initialization. On reset, the switch PHY address is ALWAYS 1.
-> +
-> +properties:
-> +  compatible:
-> +    const: airoha,an8855
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  reset-gpios:
-> +    description:
-> +      GPIO to be used to reset the whole device
-> +    maxItems: 1
-> +
-> +  airoha,base_smi_address:
+CPUx                                         CPUy (without HAFT)
+if (should_clear_pmd_yound())
+                                             online and make system_support_haft() == false;
+  pmdp_test_and_clear_young()
+    VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_support_haft());
 
-s/_/-/
+we may need to drop the VM_WARN_ON() with current approach or make this feature
+ARM64_CPUCAP_SYSTEM_FEATURE.
 
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Configure and change the base switch PHY address to a new address on
-> +      the bus.
-> +      On reset, the switch PHY address is ALWAYS 1.
-
-The paragraphs here won't be maintained without '>' and a blank line in 
-between.
-
-Or just move the 2nd sentence up to follow the first one.
-
-> +    default: 1
-> +    maximum: 31
-> +
-> +  airoha,ext_surge:
-
-ditto.
-
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +    description:
-> +      Calibrate the internal PHY with the calibration values stored in EFUSE
-> +      for the r50Ohm values.
-> +
-> +  '#nvmem-cell-cells':
-> +    const: 0
-> +
-> +  nvmem-layout:
-> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml
-> +    description:
-> +      NVMEM Layout for exposed EFUSE. (for example to propagate calibration
-> +      value for r50Ohm for internal PHYs)
-> +
-> +  mdio:
-> +    $ref: /schemas/net/mdio.yaml#
-> +    unevaluatedProperties: false
-> +    description:
-> +      Define the relative address of the internal PHY for each port.
-> +
-> +      Each reg for the PHY is relative to the switch base PHY address.
-> +
-> +$ref: dsa.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +    mdio {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        switch@1 {
-> +            compatible = "airoha,an8855";
-> +            reg = <1>;
-> +            reset-gpios = <&pio 39 0>;
-> +
-> +            airoha,ext_surge;
-> +
-> +            #nvmem-cell-cells = <0>;
-> +
-> +            nvmem-layout {
-> +                compatible = "fixed-layout";
-> +                #address-cells = <1>;
-> +                #size-cells = <1>;
-> +
-> +                shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
-> +                    reg = <0xc 0x4>;
-> +                };
-> +
-> +                shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
-> +                    reg = <0x10 0x4>;
-> +                };
-> +
-> +                shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
-> +                    reg = <0x14 0x4>;
-> +                };
-> +
-> +                shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
-> +                    reg = <0x18 0x4>;
-> +                };
-> +
-> +                shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
-> +                    reg = <0x1c 0x4>;
-> +                };
-> +
-> +                shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
-> +                    reg = <0x20 0x4>;
-> +                };
-> +
-> +                shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
-> +                    reg = <0x24 0x4>;
-> +                };
-> +
-> +                shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
-> +                    reg = <0x28 0x4>;
-> +                };
-> +
-> +                shift_sel_port2_tx_a: shift-sel-port2-tx-a@2c {
-> +                    reg = <0x2c 0x4>;
-> +                };
-> +
-> +                shift_sel_port2_tx_b: shift-sel-port2-tx-b@30 {
-> +                    reg = <0x30 0x4>;
-> +                };
-> +
-> +                shift_sel_port2_tx_c: shift-sel-port2-tx-c@34 {
-> +                    reg = <0x34 0x4>;
-> +                };
-> +
-> +                shift_sel_port2_tx_d: shift-sel-port2-tx-d@38 {
-> +                    reg = <0x38 0x4>;
-> +                };
-> +
-> +                shift_sel_port3_tx_a: shift-sel-port3-tx-a@4c {
-> +                    reg = <0x4c 0x4>;
-> +                };
-> +
-> +                shift_sel_port3_tx_b: shift-sel-port3-tx-b@50 {
-> +                    reg = <0x50 0x4>;
-> +                };
-> +
-> +                shift_sel_port3_tx_c: shift-sel-port3-tx-c@54 {
-> +                    reg = <0x54 0x4>;
-> +                };
-> +
-> +                shift_sel_port3_tx_d: shift-sel-port3-tx-d@58 {
-> +                    reg = <0x58 0x4>;
-> +                };
-> +            };
-> +
-> +            ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                port@0 {
-> +                    reg = <0>;
-> +                    label = "lan1";
-> +                    phy-mode = "internal";
-> +                    phy-handle = <&internal_phy0>;
-> +                };
-> +
-> +                port@1 {
-> +                    reg = <1>;
-> +                    label = "lan2";
-> +                    phy-mode = "internal";
-> +                    phy-handle = <&internal_phy1>;
-> +                };
-> +
-> +                port@2 {
-> +                    reg = <2>;
-> +                    label = "lan3";
-> +                    phy-mode = "internal";
-> +                    phy-handle = <&internal_phy2>;
-> +                };
-> +
-> +                port@3 {
-> +                    reg = <3>;
-> +                    label = "lan4";
-> +                    phy-mode = "internal";
-> +                    phy-handle = <&internal_phy3>;
-> +                };
-> +
-> +                port@5 {
-> +                    reg = <5>;
-> +                    label = "cpu";
-> +                    ethernet = <&gmac0>;
-> +                    phy-mode = "2500base-x";
-> +
-> +                    fixed-link {
-> +                        speed = <2500>;
-> +                        full-duplex;
-> +                        pause;
-> +                    };
-> +                };
-> +            };
-> +
-> +            mdio {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                internal_phy0: phy@0 {
-> +                    reg = <0>;
-> +
-> +                    nvmem-cells = <&shift_sel_port0_tx_a>,
-> +                                  <&shift_sel_port0_tx_b>,
-> +                                  <&shift_sel_port0_tx_c>,
-> +                                  <&shift_sel_port0_tx_d>;
-> +                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-> +                };
-> +
-> +                internal_phy1: phy@1 {
-> +                    reg = <1>;
-> +
-> +                    nvmem-cells = <&shift_sel_port1_tx_a>,
-> +                                  <&shift_sel_port1_tx_b>,
-> +                                  <&shift_sel_port1_tx_c>,
-> +                                  <&shift_sel_port1_tx_d>;
-> +                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-> +                };
-> +
-> +                internal_phy2: phy@2 {
-> +                    reg = <2>;
-> +
-> +                    nvmem-cells = <&shift_sel_port2_tx_a>,
-> +                                  <&shift_sel_port2_tx_b>,
-> +                                  <&shift_sel_port2_tx_c>,
-> +                                  <&shift_sel_port2_tx_d>;
-> +                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-> +                };
-> +
-> +                internal_phy3: phy@3 {
-> +                    reg = <3>;
-> +
-> +                    nvmem-cells = <&shift_sel_port3_tx_a>,
-> +                                  <&shift_sel_port3_tx_b>,
-> +                                  <&shift_sel_port3_tx_c>,
-> +                                  <&shift_sel_port3_tx_d>;
-> +                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-> +                };
-> +            };
-> +        };
-> +    };
-> -- 
-> 2.45.2
+> the user setting will be changed after online a CPU without HAFT. the user will
+> know this unless read /sys/kernel/mm/lru_gen/enabled again (LRU_GEN_NONLEAF_YOUNG
+> bit 0x4 will be cleared after online a CPU without HAFT since system would
+> not declare non-leaf PMD young support).
+> 
+>>>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>>>>> index ccbae4525891..4a58b9b36eb6 100644
+>>>>> --- a/arch/arm64/mm/proc.S
+>>>>> +++ b/arch/arm64/mm/proc.S
+>>>>> @@ -495,9 +495,15 @@ alternative_else_nop_endif
+>>>>>  	 * via capabilities.
+>>>>>  	 */
+>>>>>  	mrs	x9, ID_AA64MMFR1_EL1
+>>>>> -	and	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_MASK
+>>>>> +	ubfx	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_SHIFT, #4
+>>>>>  	cbz	x9, 1f
+>>>>>  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
+>>>>> +
+>>>>> +#ifdef CONFIG_ARM64_HAFT
+>>>>> +	cmp	x9, ID_AA64MMFR1_EL1_HAFDBS_HAFT
+>>>>> +	b.lt	1f
+>>>>> +	orr	tcr2, tcr2, TCR2_EL1x_HAFT
+>>>>> +#endif /* CONFIG_ARM64_HAFT */
+>>>>
+>>>> I think we can skip the ID check here and always set the HAFT bit. We do
+>>>> something similar with MTE (not for TCR_HA though, don't remember why).
+>>>
+>>> Thanks for the reference to MTE. Will see and have a test. But a check
+>>> here may seem more reasonable as we usually detect a feature first
+>>> then enable it?
+>>
+>> The behaviour of these RES0 bits is that we can write them and if the
+>> feature is present, it will be enabled, otherwise it won't have any
+>> effect, so it's not necessary to check the ID bits, the result would be
+>> the same. We do this in other places as well.
+>>
+>> Of course, we need to check the presence of TCR2_EL1, otherwise it would
+>> undef. Just a bit less code since we want the feature on anyway.
+> 
+> sure. will drop the check and set the HAFT bit unconditionally.
+> 
+> Thanks.
+> 
+> 
+> .
 > 
 
