@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4B3D0BB71
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 08:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C848FD0BB6F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 08:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qQWxtU6GqzgrbCaUsvRleEvRl4Zs3up4/mkoq8kfWc=; b=P6rGs7JKYhaa8yTJ82OdK/mGlJ
-	LqNAd8DjVDqSUKWS5WKvwG434DrhQq7Fxk+c7PSanaWDAzJbOATZAJoYAYccdP1fnPRIYb19rtXO9
-	1EnOurVZsDHjOHVXSniBamDgQpSVmDuJMGK66OJMmEK69AalVRK9JRhb7rtQwg2UHYtdN9+FKOPb+
-	OWpaO+yPlVnNeT5azODEg4ZX1hIWflhXqpGnTpcrrCd6T9Ys+XCEUGy69AwjWY9/nfGOW815KzXCg
-	BEUOmnXS5zw0RQPYrGqeUD+hNaqprP1isPvmJXSc3lbuk+9ITjmNSq7XcOoPtPKl3oPtUHbmcZ0tj
-	vcHf1Urg==;
+	bh=pN3rG0YbC7h5EHabK5W8IM1Nvv/GoxCMWjU2r6UAVgQ=; b=L6ag0CBwSwKNmwu9Nx3DW1uN2T
+	bgujA2z7aTwuAgAeIhzzqQsS0UxjX7/xVeQ172tDfkcMq3X6Uu0immWCccXyICcvrRi5fJUTO2D30
+	gd9Cltr7QZDCBn1QxXTazOcNTYcZjSe3amdoP8uTov3IHmjuun6GxApYsivgxBiAUfEpooFRR3q6l
+	Zc0cOY4u+0TsdxTFedlDVPQVGaqFVZ8UTOgQqtB6JGHrbAuEIc7ex2lpxl0sKZ7xYsYpEt+tyHj0s
+	v+SN2GqAOH9kLZOC6cXAZ2DSM0aVphymyM9CxIOkmQVyiYyL1riq9xT+zlE/Unw8QPO39Cu8BkNmR
+	SBE+BWPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tIJ-0000000HJ1m-0xvI;
-	Thu, 24 Oct 2024 08:34:11 +0000
+	id 1t3tJr-0000000HJPr-2os6;
+	Thu, 24 Oct 2024 08:35:47 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3tFA-0000000HI5Y-0YOu;
-	Thu, 24 Oct 2024 08:30:57 +0000
+	id 1t3tFF-0000000HI8z-1ZGP;
+	Thu, 24 Oct 2024 08:31:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5qQWxtU6GqzgrbCaUsvRleEvRl4Zs3up4/mkoq8kfWc=; b=EzLIN82D8z0dZajYuP09a2o727
-	P926hnzmqmrfZ1W4hKprfKNELKb74TYB+HS8BcmiMFahoht3ZghH1EWi7YnaItkugb7Ucsok3s9/y
-	uBZ56WubQdJ7orTam5pyMaF/O5JS23axhM/80SfKQvpSEk4F5nyQkIHzrEAHVBNA+932t9Pdi0MoV
-	xhwx3MvZtWI7s+1QPRLfTMZYOyNI0KQRzNqsc5zDX6c1FxhYAn/h54QD3c3lRZ3cvX8yvI795tC7v
-	0nUAB00CxtvTVEYDps2eDi7tzKdRi7fum0WPyei6p4hc5HvhiPmmnDA4GNXPohB8XdJcwyjYv0kvL
-	fZ9LBlcQ==;
+	bh=pN3rG0YbC7h5EHabK5W8IM1Nvv/GoxCMWjU2r6UAVgQ=; b=bcBOvzQtDWVKk6sxrdZW51ClBX
+	0bDhIDiDBidFW7F8pPDQkhLfOMsQNC9/Lu7SrI8web1ruJHMrFU3XKNC5QKC7/snRoFnEV2Rcbgh6
+	oWQgIb2G1vsjUFIgb5WnbaQZiyZKpOmiDmkOLN3mUgfF+xbKqrqLfAqQwDVrRl/7fscA2oY92Hwg2
+	m4wIrz2lAD9a98SJujHN8YH2xtNcRTgkBZMS6+56QKRhIJs3BGBSdUQSbHMmkFitI2sPUJNZZEOqi
+	DjGlv6f979Nsq2l5zIuqUfsgeSBct7JKs4d+/UrT8CU+DY1NQ11gZtGaBPB9NEqIQ8UGsa+Wo6Xcs
+	zqsC5b/g==;
 Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1t3tF6-0002iS-Tp; Thu, 24 Oct 2024 10:30:53 +0200
+	id 1t3tF5-0002iS-5G; Thu, 24 Oct 2024 10:30:51 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Conor Dooley <conor+dt@kernel.org>,
-	Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>,
+To: Tianling Shen <cnsztl@gmail.com>,
+	Andy Yan <andyshrk@163.com>,
+	Rob Herring <robh@kernel.org>,
+	Jagan Teki <jagan@edgeble.ai>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
+	Jonas Karlman <jonas@kwiboo.se>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chris Morgan <macromorgan@hotmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable HDMI0 on rk3588-nanopc-t6
-Date: Thu, 24 Oct 2024 10:30:48 +0200
-Message-ID: <172975863600.1671562.9741515053746960937.b4-ty@sntech.de>
+Subject: Re: [PATCH 0/5] arm64: dts: rockchip: several fixes for the nanopi r3s
+Date: Thu, 24 Oct 2024 10:30:44 +0200
+Message-ID: <172975863602.1671562.17971165767179395195.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241023080605.623125-1-marcin.juszkiewicz@linaro.org>
-References: <20241023080605.623125-1-marcin.juszkiewicz@linaro.org>
+In-Reply-To: <20241022193537.1117919-1-cnsztl@gmail.com>
+References: <20241022193537.1117919-1-cnsztl@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_013056_187905_A1A5E341 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_013101_446132_F55F5DBB 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 10:06:04 +0200, Marcin Juszkiewicz wrote:
-> Add the necessary DT changes to enable HDMI0 on FriendlyELEC NanoPC-T6.
-> Tested on LTS variant of the board but this part is the same on both.
+On Wed, 23 Oct 2024 03:35:25 +0800, Tianling Shen wrote:
+> * Enable eMMC HS200 mode to allow it boot from eMMC
+> * Sort properties in pmu_io_domains node
+> * Reorder mmc aliases
+> * Replace deprecated snps,reset properties
+> * Use the marketing name for the model name
+> * Update the website url in copyright
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Enable HDMI0 on rk3588-nanopc-t6
-      commit: c3c9cd8f65f7f833de95dd70aa17393afa58f50b
+[1/5] arm64: dts: rockchip: fix model name for FriendlyElec NanoPi R3S
+      commit: b5bf84206a5c77528f9dd4cbca4e72caa063c102
+[2/5] arm64: dts: rockchip: replace deprecated snps,reset props for NanoPi R3S
+      commit: 82b2868937883b65732da498b26366d34db61510
+[3/5] arm64: dts: rockchip: sort props in pmu_io_domains node for NanoPi R3S
+      commit: 17e150fdd983c7e59b9240e34a166285f3c3fb39
+[4/5] arm64: dts: rockchip: enable eMMC HS200 mode for NanoPi R3S
+      commit: 1b5365034410f1ca21adadadd492b99bdf4f2c55
+[5/5] arm64: dts: rockchip: reorder mmc aliases for NanoPi R3S
+      commit: b7cd1115456d312f8c5e60c80fdc35fd35ea6eab
 
 Best regards,
 -- 
