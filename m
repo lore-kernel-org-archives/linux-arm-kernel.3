@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CD3CE8E91
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA3BCE8E94
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X22/YMWWwkLvIokExWUcsmRpgOn4mXl5EzM11xig+T0=; b=Jg7/bSCXB78BkMe6PiIgnGtqFL
-	ljmndHWQ2S/QZpcmA7gjYp+ugPA+5jovhXn2prDprOVNVJMzCj/O8Mmkksdu7n0mPAUkJWqNekQAQ
-	w7k6SfwoQO8zMoXOcJVJrY+f/1mF/QlX8qDaFsNOWlP4ruw1kxF++lakZH1Rpw/KFaSl5M0PHp+aW
-	WDdTFFa28UmTy9AVa/b84Yfuf7EDRE5Tz2uRSd9JoGp3sgxu98dPc88SjmK654KXztkdbN4/Nnu45
-	DyAmOzkqp7LuxsYpHlCkDlaSqaAq/+2p9IRiNIKIdJucESe1Ils1qHguL3w+OjGE0r6cDG3h3aM8N
-	gnfhpZ9A==;
+	bh=oFV3vu4k4Vnr6fnUULAuFfZZroVUQ5JW8e4KyAni4BE=; b=kMP/NVsFGVUHPo0gxQJBcwkUUo
+	hChkVLxQf77dhSicGi3Nmc7An+knAsROJoeM3rwgCJV8ESznlD3sw2Gjy1Nmewkef6VEEfcK94Aip
+	sBdekaOJ4zwPkku9RbVlpXQqyBGFj+RIsDmojfRE1CGX9rj2Vpj74rv3vPByKMEu48txTRr0YsAmJ
+	Lg7Wg4xYRotQEKTzPnOPmEPkzLVYh2prCCPvcOAXHSF3pS/xf/09DkgIBGne6+tJiV3/iTmc2g4RS
+	O3TdkE/BqxHxJBTMU6FOsl+vc0IMn7OunAePmCSLEsZBWxXoSsCorqQJdIvey1Si3GkbZOybpri7x
+	4i+2dCNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40tj-0000000186B-3wsX;
-	Thu, 24 Oct 2024 16:41:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t40vG-000000018Pp-1OXt;
+	Thu, 24 Oct 2024 16:42:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40lv-000000016e9-1EU2
+	id 1t40lv-000000016eA-2UzY
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 24 Oct 2024 16:33:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0B7EEA456CD;
-	Thu, 24 Oct 2024 16:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116F6C4CEFB;
-	Thu, 24 Oct 2024 16:33:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8017F5C5CC2;
+	Thu, 24 Oct 2024 16:33:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACBFC4CEE9;
+	Thu, 24 Oct 2024 16:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729787593;
-	bh=9jzRPF77bz2MLYxxMdwMsDBOLL0BHbwkrvZFG67aHaw=;
+	s=k20201202; t=1729787594;
+	bh=HDBJ+uOpS26fWgvQvOCW/T7/SZyOlHewKBKNueUbUBA=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=FPP7fg18I5dszACf8fENaQYIrtsqzkrr/THudUCVJnnHdu5OgH0ZHs1rGFCmrecEp
-	 2Ew8bg+lbC/5pOtqgZIZqpDAWUAgROpvxT8gcoM9huM3wNSIwmek46neqT0ZSbPDBP
-	 qY11nXMO0oh0D8jkoFWzW4VSAPDiCTMoHSKmf+GbKLghnRjhT8GNwaDKqW9oObVjr3
-	 +k51uVXZKOIolrX277ZYuiSrLIhW9g/K1VoNl7rde3XdqgdThGoDkd5tiB66WIzB+1
-	 0zhvEwiF+32V3zQnhrfKw7K2jllNUmNkJz4fnBu2dR2+BkacO5EOcuTQoqYrPG77Cl
-	 ev9nn4sw2i1aw==
-Date: Thu, 24 Oct 2024 11:33:12 -0500
+	b=FbcEnchIiiXwnEqVE3SJypkwhULJkXS9aQIN4TyqLQPYzf+AhpzDI/ahWSinMpxrR
+	 fQerS0KDTC+5pIVvmKFHEwafrkyDcP3htb+7zhIIdBt2H35OOnU2RIvEQCnBnfhjjg
+	 n6wzFpWdfUKLMvra5diaPSuGxsF4m+dRLKKoqnGpXvwQQP9S3zKn7fiZgZRW+XWpo7
+	 MoNxfN3dmACRZpG/RT6KqvAstyltE82iJ2vi62Jk8ASedz+4qCwuaIcvEZHLYtJTjO
+	 hlQx11gNQL1z2yMhBmjVgLHjlkbP84E6Ebn39FW3ghKbZUbuWTyYmVi3/6vLgEz2jG
+	 lohWHZ5VADzVA==
+Date: Thu, 24 Oct 2024 11:33:14 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jason-Hsu <jasonhell19@gmail.com>
-Cc: patrick@stwcx.xyz, yang.chen@quantatw.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- jerry.lin@quantatw.com, joel@jms.id.au, conor+dt@kernel.org, 
- krzk+dt@kernel.org, linux-aspeed@lists.ozlabs.org, 
- andrew@codeconstruct.com.au, devicetree@vger.kernel.org
-In-Reply-To: <20241022021724.2322506-1-jasonhell19@gmail.com>
-References: <20241022021724.2322506-1-jasonhell19@gmail.com>
-Message-Id: <172978739533.623426.6741150637312458347.robh@kernel.org>
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: ventura: add Meta Ventura BMC
+To: Lijuan Gao <quic_lijuang@quicinc.com>
+Cc: Taniya Das <quic_tdas@quicinc.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Tingguo Cheng <quic_tingguoc@quicinc.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Will Deacon <will@kernel.org>, kernel@quicinc.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Bjorn Andersson <andersson@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Swetha Chintavatla <quic_chintava@quicinc.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+In-Reply-To: <20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com>
+References: <20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com>
+Message-Id: <172978739698.623494.13901719999982782781.robh@kernel.org>
+Subject: Re: [PATCH v4 0/7] Add initial support for QCS615 SoC and QCS615
+ RIDE board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_093315_493214_7B862D74 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20241024_093315_763524_CBF0AEF6 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +83,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 22 Oct 2024 10:17:24 +0800, Jason-Hsu wrote:
-> Add Linux device tree related to Meta(Facebook) Ventura specific devices connected to BMC(AST2600) SoC.
-> Add subject prefix for the patch.
+On Tue, 22 Oct 2024 16:54:28 +0800, Lijuan Gao wrote:
+> Introduces the Device Tree for the QCS615 platform.
 > 
-> Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
+> Features added and enabled:
+> - CPUs with PSCI idle states
+> - Interrupt-controller with PDC wakeup support
+> - Timers, TCSR Clock Controllers
+> - Reserved Shared memory
+> - QFPROM
+> - TLMM
+> - Watchdog
+> - RPMH controller
+> - Sleep stats driver
+> - Rpmhpd power controller
+> - Interconnect
+> - GCC and Rpmhcc
+> - QUP with Uart serial support
+> 
+> Bindings and base Device Tree for the QCS615 SoC are splited
+> in four parts:
+> - 1-3: Binding files for QCS615 SoC and PDC (Reviewed)
+> - 4  : Soc table entry (Reviewed)
+> - 5-6: Initial DTSI and RIDE board device tree
+> - 7  : Enable uart related configs
+> 
+> Bindings Dependencies:
+> - watchdog: https://lore.kernel.org/all/20240920-add_watchdog_compatible_for_qcs615-v2-1-427944f1151e@quicinc.com/ - Reviewed
+> - qfprom: https://lore.kernel.org/all/20240912-add_qfprom_compatible_for_qcs615-v1-1-9ef2e26c14ee@quicinc.com/ - Reviewed
+> - tcsr: https://lore.kernel.org/all/20240920-add_tcsr_compatible_for_qcs615-v2-1-8ce2dbc7f72c@quicinc.com/ - Applied
+> - tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-1-e03c42a9d055@quicinc.com/ - Applied
+> - interconnect: https://lore.kernel.org/all/20240924143958.25-2-quic_rlaggysh@quicinc.com/ - Reviewed
+> - rpmhcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-1-bb5d4135db45@quicinc.com/ - Reviewed
+> - gcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-3-bb5d4135db45@quicinc.com/ - Reviewed
+> - rpmhpd: https://lore.kernel.org/all/20240927-add_qcs615_qcs8300_powerdomains_driver_support-v2-3-18c030ad7b68@quicinc.com/ - Applied
+> 
+> Build Dependencies:
+> - tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-2-e03c42a9d055@quicinc.com/ - Applied
+> - rpmhcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-2-bb5d4135db45@quicinc.com/ - Reviewed
+> - gcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-4-bb5d4135db45@quicinc.com/
+> 
+> Patch made the following verifications:
+> - Successfully passed dt_binding_check with DT_CHECKER_FLAGS=-m for earch binding file
+> - Successfully passed dtbs_check with W=1 for dts
+> - Verified CPU Hotplug, idle and online CPUs on QCS615 ride board
+> - Checked pinctrl-maps path
+> - Verified watchdog functionality with "echo 1 > /dev/watchdog", can trigger
+>   a watchdog bark and later bite
+> - Verified functionality with UART console on QCS615 ride board
+> - RPMH controller driver probed successfully
+> - Sleep stats driver probed successfully and checked qcom_stats
+>   node on QCS615 ride board
+> 
+> Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
 > ---
->  arch/arm/boot/dts/aspeed/Makefile             |   1 +
->  .../aspeed/aspeed-bmc-facebook-ventura.dts    | 884 ++++++++++++++++++
->  2 files changed, 885 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
+> Changes in v4:
+> - Configure vreg_l17a to High Power Mode (HPM) as it supplies power to UFS
+>   and eMMC, which can be utilized as boot devices.
+> - Link to v3: https://lore.kernel.org/r/20240926-add_initial_support_for_qcs615-v3-0-e37617e91c62@quicinc.com
+> 
+> Changes in v3:
+> - Added interconnect, GCC, RPMHCC, QPU, and RPMHPD related nodes for UART console
+> - Enabled UART condole on ride board device
+> - Link to v2: https://lore.kernel.org/r/20240913-add_initial_support_for_qcs615-v2-0-9236223e7dab@quicinc.com
+> 
+> Changes in v2:
+> - Collected reviewed-bys
+> - Removed extra blank line
+> - Removed redundant function
+> - Renamed xo-board to xo-board-clk and move it and sleep-clk to board dts
+> - Renamed system-sleep to cluster_sleep_2
+> - Removed cluster1
+> - Added entry-method for idle-states
+> - Added DTS chassis type
+> - Added TCSR Clock Controllers
+> - Added Reserved Shared memory
+> - Added QFPROM
+> - Added TLMM
+> - Added Watchdog
+> - Added RPMH controller
+> - Added Sleep stats driver
+> - Link to v1: https://lore.kernel.org/r/20240828-add_initial_support_for_qcs615-v1-0-5599869ea10f@quicinc.com
+> ---
+> 
+> ---
+> Lijuan Gao (7):
+>       dt-bindings: arm: qcom: document QCS615 and the reference board
+>       dt-bindings: arm: qcom,ids: add SoC ID for QCS615
+>       dt-bindings: qcom,pdc: document QCS615 Power Domain Controller
+>       soc: qcom: socinfo: Add QCS615 SoC ID table entry
+>       arm64: dts: qcom: add initial support for QCS615 DTSI
+>       arm64: dts: qcom: add base QCS615 RIDE dts
+>       arm64: defconfig: enable clock controller, interconnect and pinctrl for QCS615
+> 
+>  Documentation/devicetree/bindings/arm/qcom.yaml    |   6 +
+>  .../bindings/interrupt-controller/qcom,pdc.yaml    |   1 +
+>  arch/arm64/boot/dts/qcom/Makefile                  |   1 +
+>  arch/arm64/boot/dts/qcom/qcs615-ride.dts           | 219 +++++++
+>  arch/arm64/boot/dts/qcom/qcs615.dtsi               | 688 +++++++++++++++++++++
+>  arch/arm64/configs/defconfig                       |   3 +
+>  drivers/soc/qcom/socinfo.c                         |   1 +
+>  include/dt-bindings/arm/qcom,ids.h                 |   1 +
+>  8 files changed, 920 insertions(+)
+> ---
+> base-commit: de938618db2bafbe1a70c8fc43f06ccdd60364b2
+> change-id: 20241022-add_initial_support_for_qcs615-2256f64a9c24
+> prerequisite-change-id: 20240919-qcs615-clock-driver-d74abed69854:v3
+> prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+> prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+> prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+> prerequisite-patch-id: d0c5edf9c06568ae2b3ffacba47e57ebb43acb15
+> prerequisite-change-id: 20240920-add_watchdog_compatible_for_qcs615-eec8a8c2c924:v2
+> prerequisite-patch-id: 3a76212d3a3e930d771312ff9349f87aee5c55d5
+> prerequisite-change-id: 20240911-add_qfprom_compatible_for_qcs615-e3b02f6fa71e:v1
+> prerequisite-patch-id: 8a2454d5e07e56a6dd03f762f498051065635d85
+> 
+> Best regards,
+> --
+> Lijuan Gao <quic_lijuang@quicinc.com>
+> 
+> 
 > 
 
 
@@ -102,64 +220,10 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-facebook-ventura.dtb' for 20241022021724.2322506-1-jasonhell19@gmail.com:
+New warnings running 'make CHECK_DTBS=y qcom/qcs615-ride.dtb' for 20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com:
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /: compatible: 'oneOf' conditional failed, one must be fixed:
-	'facebook,ventura-rmc' is not one of ['delta,ahe50dc-bmc', 'facebook,galaxy100-bmc', 'facebook,wedge100-bmc', 'facebook,wedge40-bmc', 'microsoft,olympus-bmc', 'quanta,q71l-bmc', 'tyan,palmetto-bmc', 'yadro,vesnin-bmc']
-	'facebook,ventura-rmc' is not one of ['amd,daytonax-bmc', 'amd,ethanolx-bmc', 'ampere,mtjade-bmc', 'aspeed,ast2500-evb', 'asrock,e3c246d4i-bmc', 'asrock,e3c256d4i-bmc', 'asrock,romed8hm3-bmc', 'asrock,spc621d8hm3-bmc', 'asrock,x570d4u-bmc', 'bytedance,g220a-bmc', 'facebook,cmm-bmc', 'facebook,minipack-bmc', 'facebook,tiogapass-bmc', 'facebook,yamp-bmc', 'facebook,yosemitev2-bmc', 'facebook,wedge400-bmc', 'hxt,stardragon4800-rep2-bmc', 'ibm,mihawk-bmc', 'ibm,mowgli-bmc', 'ibm,romulus-bmc', 'ibm,swift-bmc', 'ibm,witherspoon-bmc', 'ingrasys,zaius-bmc', 'inspur,fp5280g2-bmc', 'inspur,nf5280m6-bmc', 'inspur,on5263m5-bmc', 'intel,s2600wf-bmc', 'inventec,lanyang-bmc', 'lenovo,hr630-bmc', 'lenovo,hr855xg2-bmc', 'portwell,neptune-bmc', 'qcom,centriq2400-rep-bmc', 'supermicro,x11spi-bmc', 'tyan,s7106-bmc', 'tyan,s8036-bmc', 'yadro,nicole-bmc', 'yadro,vegman-n110-bmc', 'yadro,vegman-rx20-bmc', 'yadro,vegman-sx20-bmc']
-	'facebook,ventura-rmc' is not one of ['ampere,mtmitchell-bmc', 'aspeed,ast2600-evb', 'aspeed,ast2600-evb-a1', 'asus,x4tf-bmc', 'facebook,bletchley-bmc', 'facebook,catalina-bmc', 'facebook,cloudripper-bmc', 'facebook,elbert-bmc', 'facebook,fuji-bmc', 'facebook,greatlakes-bmc', 'facebook,harma-bmc', 'facebook,minerva-cmc', 'facebook,yosemite4-bmc', 'ibm,blueridge-bmc', 'ibm,everest-bmc', 'ibm,fuji-bmc', 'ibm,rainier-bmc', 'ibm,system1-bmc', 'ibm,tacoma-bmc', 'inventec,starscream-bmc', 'inventec,transformer-bmc', 'jabil,rbp-bmc', 'qcom,dc-scm-v1-bmc', 'quanta,s6q-bmc', 'ufispace,ncplite-bmc']
-	'aspeed,ast2400' was expected
-	'aspeed,ast2500' was expected
-	from schema $id: http://devicetree.org/schemas/arm/aspeed/aspeed.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /: failed to match any schema with compatible: ['facebook,ventura-rmc', 'aspeed,ast2600']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@200/i2c-mux@77/i2c@5/pwm@20: failed to match any schema with compatible: ['max31790']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@580/power-monitor@69: failed to match any schema with compatible: ['pmbus']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+arch/arm64/boot/dts/qcom/qcs615-ride.dtb: clock-controller@100000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/qcom,qcs615-gcc.yaml#
 
 
 
