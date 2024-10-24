@@ -4,120 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2149CE8E97
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EBCCE8E96
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=; b=rZ+GNmfHTdvXFu14c5u7yiczLY
-	lwIlV3bgegtAbKwV/HUTNt14T8zdCMfoPu6Jjx9D111eNkyWhheV4ciBVmVcEnlG+6oPn9npgH+wc
-	I+bDG3IN4aEtkn7GzAx7vqrh5sqZKbn4etCFC3KwxvvCboCkEDCw/4niaCUxZo6yfrDNjYtViJNLU
-	6lBy8RN3HMEKteb1IrcE58fo1NJwJLlLLUJ0ZHtuUDPj9UAtXXqMib0WvW7Nt6Ycc6QqO4963peZg
-	Xo7OyL5F4efXM66lj5XembRefczOD1CpQ2c+h0jzTG4r/lVHhdzoTvaVMGc6e6TjdqNbMGPbBKAn5
-	rKJrerGA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dBVUZ+tOL8pDm6F24c4swN6cqB/PKxPAdkirXZhMAwo=; b=0xMCp0KrZLYNXUxqK6vwTkSLYi
+	enGDZ/sZ/IssIMp7WvTJp4yfAdrfStkuROXbKmPGxWvGIQkPyP+ZALFQPgTXMuQNL+3glWLOU/mlU
+	5KMC7TRr8R9A0lmEYP0/qmc4ZsQ4yHha5O66rpxM03K+G8QltGIQTlLsNmIG/L9/CNNfPGIpHeeOz
+	6i+HbGDJI5uUKHR6gFYcEZ+xbl0uoHnVssnBYxcOmh9TjZkvRCnAhhssEmEELtcXXc82cWRDlsq4/
+	ytvVaJsFMdP7BXoimJX7uJjROlMVbkt/DYEe8B7zNSlrslGu7DapPl0wBUAaT5IxEV67pgKnDRFuA
+	exBFHEIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41LH-00000001DnA-15vr;
-	Thu, 24 Oct 2024 17:09:47 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1t41N0-00000001EGG-30eh;
+	Thu, 24 Oct 2024 17:11:34 +0000
+Received: from thales.epochal.quest ([2607:5300:205:200::3a30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41JO-00000001DVL-3NWC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 17:07:51 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539f6e1f756so1409914e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 10:07:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729789668; x=1730394468; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=;
-        b=Ar5n4zHLIgmeBKHx8fiKtzMdJHmcat6BCJXLBQTs7pqSl1BbpsHmZ6kpewyCNKGX6d
-         4KX48t0aT8yzdpgcsEkw8JeQUUPvob+itanWlN53/H1T14Oe0lMqx2xzrVHkKBNjC4dl
-         32+REXlCYLBOdteNrfNmPFR+q/Hft1G+H8yuR9o1amrkTfT3aLQYQMIBd8rRPtI5dmTn
-         4R8h32RR4x7ERqV/FRGcVHN3mLIOw7I+0sSVgxR/WRNHO1b7wMbm7B/aJq4URU6Tqf8b
-         77egP0yhJP4PLcTSuNgqNJyivQRgAl23akmjCLkn2GK8zXi50CJl6EAMjSsSxLeRZ51F
-         8ASA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729789668; x=1730394468;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N4zqWpgJymZz2GSVXCHfh3D8JgL8gK/HJOJAl8/d83M=;
-        b=ibcQrrB+USB1Qie6agTn5Bp5b33NeShNOPPVw9QyRMnRRdcFgTzQQ/qnWV0chjPyFU
-         ExVtOJklNOyCn9xQNZDjstm68kRF/aJtlkGbKcBAZRpETm+xvIsqvqEGQ16ksBgTC+lv
-         i4w0hGnfTRYtHMLtZdHdKzd8JY3LWCCk1JAgvYk1LbyqBXx1OCSmsgmMEqIC8JLBXHFm
-         fTUlzNNEksWcBHAJs8wxRz16GMwWVx8jtpU6GYuIS38YYYTEHLo6TaAVTHhvPFBJQYNn
-         4pHglDguXrwiQ9lCy2c3zFxCVx8IyPuZbyC93B3/AEbHxWRn0Cx9dfQHfe5mCCAutOQb
-         B0ng==
-X-Forwarded-Encrypted: i=1; AJvYcCVWCqktCA78Dna3Xxozdy+yyX/+E1AaU36/B/3IXet0qUAGeSRoVArBdZyThc8OeCXDxWLUR/vC/SMKX7K8jPOr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXgr6zGksGOuOHYzZgdfQK5bRoozW0diQJwcvHfBnQYJhrCtcs
-	iLfgHT9SboxI5IHrCUwi0F7Jf8iyNY0pKPkpBXp7yvXoSK28hhvd
-X-Google-Smtp-Source: AGHT+IFz4e5V/ZhUT+FzKXu68/7/HX9Chj/TG/YiHuqSFphTBJiVCK9htk4MUJh3OJ5HcvAjn4kgpw==
-X-Received: by 2002:a05:6512:1054:b0:539:efdb:4324 with SMTP id 2adb3069b0e04-53b23debc01mr2073012e87.21.1729789668288;
-        Thu, 24 Oct 2024 10:07:48 -0700 (PDT)
-Received: from seven-swords.. ([2a03:d000:2:9006:4eed:fbff:fe72:e806])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b1f30c189sm447396e87.51.2024.10.24.10.07.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 10:07:47 -0700 (PDT)
-From: Ivan Epifanov <isage.dna@gmail.com>
-To: andriy.shevchenko@intel.com
-Cc: aospan@netup.ru,
-	conor.dooley@microchip.com,
-	ddrokosov@sberdevices.ru,
-	dmaengine@vger.kernel.org,
-	dushistov@mail.ru,
-	fancer.lancer@gmail.com,
-	geert@linux-m68k.org,
-	gregkh@linuxfoundation.org,
-	hoan@os.amperecomputing.com,
-	ink@jurassic.park.msu.ru,
-	isage.dna@gmail.com,
-	jeffbai@aosc.io,
-	kexybiscuit@aosc.io,
-	linux-alpha@vger.kernel.org,
+	id 1t41LF-00000001Dlm-13CI;
+	Thu, 24 Oct 2024 17:09:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
+	s=default; t=1729789781;
+	bh=s7xzMFvJ4Cag5AvnrOIpgkj1EGCgsWQbCxPj4HldfhU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XV3L7CAWsqfMo1+ztn5WJZFeVtrIN2TalAaxLuOyWtU0K6CierjqNvMA7qIxXIygT
+	 /3edWKT7iFdUrQQeitM9eKoXXPz/1+YTBxLPnE6AGmGSbguryxK+m0ao7t0RhgVlwh
+	 djaT0WBOlfhLbDGAah2KRenKKJG7MWaW+MpcVAnNOYI2XKCGNV6CbxajODgBEAG4Xs
+	 g4fxBfMffN8VuFIi84Bj0lRJswbnM1rjyhSluGgSpPmzeflhMOTqDQ7CYKEAj0KpYz
+	 QInLLVqWJP39DHxkarJgZmFkAZRuO0LAtXUr5gOQyGBVstgjUdtd27JnkYOmSXCRSM
+	 vbs5ewMt05EeQ==
+X-Virus-Scanned: by epochal.quest
+From: Cody Eksal <masterr3c0rd@epochal.quest>
+To: linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mattst88@gmail.com,
-	netdev@vger.kernel.org,
-	nikita@trvn.ru,
-	ntb@lists.linux.dev,
-	patches@lists.linux.dev,
-	richard.henderson@linaro.org,
-	s.shtylyov@omp.ru,
-	serjk@netup.ru,
-	shc_work@mail.ru,
-	torvalds@linux-foundation.org,
-	torvic9@mailbox.org,
-	tsbogend@alpha.franken.de,
-	v.georgiev@metrotek.ru,
-	wangyuli@uniontech.com,
-	wsa+renesas@sang-engineering.com,
-	xeb@mail.ru
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various compliance requirements."
-Date: Thu, 24 Oct 2024 20:07:42 +0300
-Message-ID: <20241024170743.241144-1-isage.dna@gmail.com>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org
+Cc: Cody Eksal <masterr3c0rd@epochal.quest>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Parthiban <parthiban@linumiz.com>,
+	Yangtao Li <frank@allwinnertech.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Thierry Reding <treding@nvidia.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: [PATCH 00/13] sunxi: A100/A133 second stage support
+Date: Thu, 24 Oct 2024 14:05:18 -0300
+Message-ID: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
-References: <Zxpqnf1M8rPTB4DN@black.fi.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_100750_898601_9CFA901E 
-X-CRM114-Status: UNSURE (   4.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_100945_388618_EF0CED3E 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,10 +91,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Proved that you don't care about users of your product either? Sure
+Hello! This is my first submission, so please be gentle :)
 
-> $ git log --author="andriy.shevchenko@intel.com"
-> $ 
+Back in 2020, two Allwinner employees, Yangtao Li and Shuosheng Huang, each
+submitted a patch series for the A100 series of SoCs; [1] intended to add
+support for the watchdog, ARM PMU, DMA, USB, and (e)MMC controller, and [2]
+implemented DVFS support. Some patches from the first series landed, but
+the rest were seemingly abandoned.
 
-Look who's talking
+Although references to the A100 have been removed by Allwinner, it is
+believed that the A133 and A133 Plus, which are still available, are simply
+better binned variants of the A100; no other differences have been noted
+thus far, and the drivers for the A100 work on the A133 without any
+additional modifications. There has been a resurgence of interest in the
+A133; patches to allow mainline U-Boot to run on these devices are
+currently in progress.
+
+I have rebased the patches that failed to land, applying the feedback
+provided by maintainers at the time. Some DT binding patches were added, as
+there were a few cases where compatibles were used without being
+documented. Minor reworks were necessary to apply certain patches, as the
+drivers they modified have matured over time.
+
+Patches 1 and 2 add PMU and watchdog nodes to the device tree. This is
+followed by patches 3-8, which implement support for the USB host and OTG
+peripherals. Patches 9 and 10 add MMC nodes, rounding out what originally
+made up the first patch series; support for these already exists from
+earlier patches. Patches 11-13 finish the job of the second original
+series and this series, implementing OPP and enabling DVFS on these SoCs.
+
+This series is also available on GitHub [3].
+
+A sincere thanks to Andre for encouraging me to submit these patches,
+Parthiban for testing this tree on his board, and to the linux-sunxi
+community and its resources for pointing me to these abandoned series in
+the first place [4].
+
+[1] https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=380887&archive=both&state=*
+[2] https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=396055&archive=both&state=*
+[3] https://github.com/BrokenR3C0RD/linux-a100/compare/c2ee9f59..allwinner-a100
+[4] https://linux-sunxi.org/Linux_mainlining_effort#Work_In_Progress
+
+Cody Eksal (4):
+  dt-bindings: phy: sun50i-a64: add a100 compatible
+  dt-bindings: usb: Add A100 compatible string
+  dt-bindings: usb: sunxi-musb: Add A100 compatible string
+  dt-bindings: opp: h6: Add A100 operating points
+
+Shuosheng Huang (2):
+  cpufreq: sun50i: add a100 cpufreq support
+  arm64: dts: allwinner: a100: Add CPU Operating Performance Points
+    table
+
+Yangtao Li (7):
+  arm64: dts: allwinner: A100: Add PMU mode
+  arm64: dts: allwinner: a100: add watchdog node
+  phy: sun4i-usb: add support for A100 USB PHY
+  arm64: dts: allwinner: a100: add usb related nodes
+  arm64: allwinner: A100: enable EHCI, OHCI and USB PHY nodes in Perf1
+  arm64: allwinner: a100: Add MMC related nodes
+  arm64: dts: allwinner: a100: perf1: Add eMMC and MMC node
+
+ .../allwinner,sun50i-h6-operating-points.yaml |   1 +
+ .../phy/allwinner,sun50i-a64-usb-phy.yaml     |   1 +
+ .../usb/allwinner,sun4i-a10-musb.yaml         |   1 +
+ .../devicetree/bindings/usb/generic-ehci.yaml |   1 +
+ .../devicetree/bindings/usb/generic-ohci.yaml |   1 +
+ .../allwinner/sun50i-a100-allwinner-perf1.dts |  59 ++++++
+ .../dts/allwinner/sun50i-a100-cpu-opp.dtsi    |  90 ++++++++
+ .../arm64/boot/dts/allwinner/sun50i-a100.dtsi | 193 +++++++++++++++++-
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c        |  28 +++
+ drivers/phy/allwinner/phy-sun4i-usb.c         |  11 +
+ 10 files changed, 383 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
+
+
+base-commit: c2ee9f594da826bea183ed14f2cc029c719bf4da
+-- 
+2.47.0
+
 
