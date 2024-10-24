@@ -4,104 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898E1D10395
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 22:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AADD10395
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 23:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NCSjsSy1TaH+MT3HKNIAXCN5C9DoIWK8z+7vrfrX1c=; b=cOlkr0H9v6nq3rNeIfeDKVPfgW
-	p/vI5A/BxuE1R/rXAaVmS51MhHzmDnMqB8H7TlLYgJ5trOyeWdNa+JRmIq8qltgNYViGcuy+n8HH0
-	q8ftmCo+ocBG9gW+6MDtRlVPzHpPMQ3xIuIEONzI5IfThfXg7g0Cd8ZlZ5dIKAFO2d80RICrtbpLa
-	7uYo+3BDghpEmZcoaOSHshJ59VnR4XO2/0pxYuLEtdghGLSrSqkR92fjeIJW5IDY3FzKW2oPGZDak
-	jZqrkJColYjvo1EpQNFhnOBgrtr9InQXwFWm0fQldpJI1cP4lgql98KNCrN+yUhtjunnzjHnTHLUK
-	T2M/e1Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+hN8QfXyhuY0m0xRWFEfnuXb9HpzW22lnsxd10IUIcw=; b=E9L8j0MNpiqJ5IsM5YS+IROkDY
+	y/nLljHxbJSeSDxtlgI77WM5VKtOwQf6oGTd3Km2Q4G9TYkRn7OhQI4sNSDknCJZZUv6dVyRQd1fh
+	IhWOP+xJIz5jLrjVUXKC/ltw7kV1n8OiTYltpnL9b5ZLkrTGy21VwwY1WqMeaX3MAY7mVWVB+Cf9d
+	ynxPw9FlhrnwyFNz0YayeRBGYhBsuxgMPRJ36vNZQY0zmGsVJYZxcuXhnC4qSUZggKBASkvg4nlLM
+	RuCBxUcgNgLFfxYh3duKU0Sd/y55MQlvXQ8oqQsIMFwCuPGQEZF/uZMb07MRfXG1+ytcQl2EPG0FF
+	X+JJYEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46hl-00000001znX-3v4l;
-	Thu, 24 Oct 2024 22:53:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t47JN-000000022Ah-2H5s;
+	Thu, 24 Oct 2024 23:32:13 +0000
+Received: from mail-westcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c112::3] helo=CY4PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t46gD-00000001zfF-15XO
+	id 1t47Ho-000000021zY-2IfD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 22:51:46 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49OLnDGJ018730;
-	Thu, 24 Oct 2024 22:51:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5NCSjsSy1TaH+MT3HKNIAXCN5C9DoIWK8z+7vrfrX1c=; b=nFJirtoHBznmHVRY
-	DP3K3mU5NG5rGH5TwS2PPPMzfRk9vVMYgWmItfYGNPL2tojYQkUK9aQSPb7eaB8M
-	3PeO9xvDZHRah/wn+r2by6KZ5/jXIjRH02hEfjUL0E3yr9B1+87CCQsjisbssR1Y
-	Un4zgaG82d7R9KP5Ht2OiwmFzl7x53q0F5R78QU5izu1diIzexqzQxOSsEoIkQHs
-	UyZtXXvQWAYxH/AIAG2nDNE6zyhMl95DNfGO5KPROwIBFbEaQqwwQrcKw88FlhBA
-	MxDcW+BywF8l0QbqgXWf2s5P5iV4neV52N+0NTRNbgIuTXsf+guNGfJEJ2peHjbD
-	6KL6bg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em66f5y8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Oct 2024 22:51:30 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49OMpTc8022353
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Oct 2024 22:51:29 GMT
-Received: from [10.46.19.239] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Oct
- 2024 15:51:25 -0700
-Message-ID: <5e5783f0-6949-4d04-a887-e6b873ae42ff@quicinc.com>
-Date: Thu, 24 Oct 2024 15:51:24 -0700
+	Thu, 24 Oct 2024 23:30:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EjDIkGdm+gzYPR2CnTI9xIqvx+VbY6k8ZscapcmvxWGilwr8xfin8StxjTgGgJ37dtMahL+H0dfIyZa833xzRCg1FhaZ4/8izL83RWqv4TniATkTdWG0bttwVKwgmpBqQZZjhvCEsjR19OEcAXZveQhgAKtVyox0lT5hqwmz3dQSoRTPySpgkGCadMkKg8fHIafsXbyqOUavoPw58wiu8EcbRrm3218zjbHzqIjvx0ovK9UlMan4zuZK9wef2oCHx6uS29aFbwtIH7UoWsp0HYwC//kdVjgjiEy66ChJ4CVzY8jweyvXZ1Pt7f2TW1lXfXgDl8+nLvZ+JexTmnV9Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+hN8QfXyhuY0m0xRWFEfnuXb9HpzW22lnsxd10IUIcw=;
+ b=WCPMM/eGtiWGJn9sjdRInnMhmceLMIZXSH+04wa5jilCz7DyOoZ/Y3+2/Rj0xFxZWHwr8fMMTTKnrBpIWL6PXr0M6yynDgW2AmUn/DWi/Kaw0/rO3kOG0GQMX/kvpd7xmmGyIBHsahKJW5oeCAQWmSmYzHnuveoXzJzFhKLReo3m/O2GJUafC5eDSz+8rZnqw3n828yoDhtcfFhNhfYueDtHyMyvhqtINesTPKYlvnOXMGc88UlWxYPWWzVRviuotv/niC28fDs6LT2qxA/JasdLBfeG0rFV7sljLjuNM8idMSZ0iCkeILPw3X9+1tqUg+oznTql3kndrVOrx8Iy2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+hN8QfXyhuY0m0xRWFEfnuXb9HpzW22lnsxd10IUIcw=;
+ b=k3gapNdyNNkQL585by3dIS6Q4Ir+Sp8qvm+yYFnEmsW5BFyH0FRXGkyScVBKdEgDV99sHbop3diM1hJXgXukqbWa4LSjVibt1axyOdm/8YIgxXHXFMDaGLcECs6YX0/xjSZ9zDSlZgZDALfsH4aeDtQy2EZOROwRzJHwzceC0HM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ CH3PR01MB8315.prod.exchangelabs.com (2603:10b6:610:173::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.7; Thu, 24 Oct 2024 23:30:21 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8093.018; Thu, 24 Oct 2024
+ 23:30:19 +0000
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] perf arm-spe: Add support for SPE Data Source packet on AmpereOne
+Date: Thu, 24 Oct 2024 23:30:35 +0000
+Message-ID: <20241024233035.7979-1-ilkka@os.amperecomputing.com>
+X-Mailer: git-send-email 2.47.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CH0PR03CA0341.namprd03.prod.outlook.com
+ (2603:10b6:610:11a::18) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1] net: stmmac: Disable PCS Link and AN interrupt
- when PCS AN is disabled
-From: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-        Andrew Lunn
-	<andrew@lunn.ch>, Serge Semin <fancer.lancer@gmail.com>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu
-	<joabreu@synopsys.com>,
-        "David S . Miller" <davem@davemloft.net>,
-        "Eric
- Dumazet" <edumazet@google.com>,
-        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Andrew Halaney <ahalaney@redhat.com>, Simon Horman <horms@kernel.org>,
-        Jon Hunter <jonathanh@nvidia.com>, <kernel@quicinc.com>
-References: <20241018222407.1139697-1-quic_abchauha@quicinc.com>
- <60119fa1-e7b1-4074-94ee-7e6100390444@lunn.ch>
- <ZxYc2I9vgVL8i4Dz@shell.armlinux.org.uk>
- <ZxYfmtPYd0yL51C5@shell.armlinux.org.uk>
- <89f188d2-2d4e-43bf-98f3-aae7e9d68cab@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <89f188d2-2d4e-43bf-98f3-aae7e9d68cab@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: boiC3QICZ-oCiTXlNddqXcolGFMiD_b3
-X-Proofpoint-GUID: boiC3QICZ-oCiTXlNddqXcolGFMiD_b3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- adultscore=0 phishscore=0 impostorscore=0 malwarescore=0 mlxlogscore=553
- suspectscore=0 clxscore=1015 mlxscore=0 bulkscore=0 priorityscore=1501
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410240186
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CH3PR01MB8315:EE_
+X-MS-Office365-Filtering-Correlation-Id: a94bb584-9c03-4051-6e60-08dcf483d29f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JKQ7vwsRbM+wh/Alf0jhzM+qQTOpn11vz4Fo+HAK5z9zuO+V4bTGvILv9VQ3?=
+ =?us-ascii?Q?29100tFvKs37WIVUplyY4Uu5g3VVTbU8TyEWmn9QjZfGnQ3cGOuTdyUC58zW?=
+ =?us-ascii?Q?FGSTJ2HbX2XHefBAQJjDDXWxzLM5FZUS4mp1P6ouMKvrL3N/XFVCnmr75gbj?=
+ =?us-ascii?Q?lGyRgF9NnnalX5G6Z3WN/GkLPi4EDEnUUJaWyKFNXMpNHyeSKO3G1XT82Dh2?=
+ =?us-ascii?Q?vnbGh0PA7KgnYPMNWMxl0gkcy2RMKZ/HkKQ4cQXhU9XL1eETmrBGSccywyT+?=
+ =?us-ascii?Q?MwTeVq202yzZc/EAfas5z14E2+NrysIF7x+PixawtRIKrK/QBZOD2iSKKJJ+?=
+ =?us-ascii?Q?0RkL3P3JtlZ37AevuQeVobgw9Piqo9PkuIGz2Nl/Mb1tBxbRrQjKlx8odZAr?=
+ =?us-ascii?Q?BupAoGRnWu1xE6IzR21ewVbbNPaxjsRN/cXkK1XV1otykoqFWPBNmjfGE5Cf?=
+ =?us-ascii?Q?urcb7HxUnb3pKUtKPuAunwQuBCS1bUOEUgGXZcfRg31wlajR7GPdIdzYn0uR?=
+ =?us-ascii?Q?x1/IB9xTtWjXTPsXIfw14ix5b2Qj7gF1ignxZL4FjxPjCNlKFDjNst8VxUJF?=
+ =?us-ascii?Q?+A1jteRVrsyVTmYfGL9rVWLx3MNzC8E2V1pip1vWtsVluREzmqIjEA6U9k7R?=
+ =?us-ascii?Q?li2D+2dE0ZX8p0RtbslrU7cm5ovV24YildsXXSEESnl+md8n2tm+95FuqmCc?=
+ =?us-ascii?Q?CKgdx8seYkASvl6GfZqKDumiyb2BCtTSLuvvOjB+LxnyCPBmVNZsVZp7IvdK?=
+ =?us-ascii?Q?IpSwIDW+3i+/C2VmMXKPq/aYiAmpaACKT212os6+DI8U+aiumf8XE2aiSLiF?=
+ =?us-ascii?Q?L6qVX71jaglBfcjZjMLnjPD0PD1KZzQSUOaLMx2e2VgRKsvrGFyh8zlttnlX?=
+ =?us-ascii?Q?eu96yQ0zwFbD1di6JKu3TCopFDoCeRYLWd5wLYSjAE3dKj89RpaWVuFnbapY?=
+ =?us-ascii?Q?UDsFmQlRpCS+PV7hjJ+a+PMAGLwFmaV3U+ryzD39k4uxOAxBi7AtDO6h7hmn?=
+ =?us-ascii?Q?6F5gBC6vF4YgBUpDZjOTN2byYZQfYvJWKyKHZ31tOkEVOD95k/1uAf5Q4c58?=
+ =?us-ascii?Q?Ts0D8jQIks+0v0rf2YseGPKbwLo5OrBGz4h3pkrhf7bMRsRQi/FVAJBXzCJK?=
+ =?us-ascii?Q?kISTCk57U4E9QL9qpSk80xacTAhZvCLuwPGETO/Xw2RHNWIwkNoEpQ70KLr4?=
+ =?us-ascii?Q?fZkI5racbjcHNAsqXRP3JQ+AAJtLctUAgtc9cUlpJH5Q7tyxWOMODszp6dqa?=
+ =?us-ascii?Q?4homSIxnlhrv9XljV1mIp3X7LnrODLzx1YZjzPkc8TpPppZudV3UuW/rFeCf?=
+ =?us-ascii?Q?VzW+owvfpV3ycFm9zfAnUTXJvb5zaVw/sUi7stV0lXhXN1NzNyiMh8a7G3gr?=
+ =?us-ascii?Q?cFg165d+WCcnilGFXwtkzN0onN7q?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QQVEKOEnhk5QdX+b1X6dq2h20Hvcwhp2h9+Z+C73+V0NpHdkM2ZY+n3byoIw?=
+ =?us-ascii?Q?KltfPVM/uTlPmhy3QizsaEchX1tXhUxiI9ZCERlAfDhW/idEIrv7aPyWHn3W?=
+ =?us-ascii?Q?5KsEd19bou1ZLYMwsL5LqZt2ec/LFk1olW+Yg9NBDWlz29gqyDpm1E7RGAV9?=
+ =?us-ascii?Q?kCPuKlxJyZ26XGfREuHzg7LSk8gh8SR+eEyHUPXsYN5SvnknY6iQ7Iv4vP7z?=
+ =?us-ascii?Q?qYsyVHh7HcK9pQYpaIqRo1sBwC9IX694b9DR1AgtHoDySPQPERzuXZVGlicj?=
+ =?us-ascii?Q?k6wsyuPS/r1j8YGPn4EHrday2a+EFF1A48JjUQvAyxjJtwt2wcxAuIRIg8yU?=
+ =?us-ascii?Q?fHhmBy0kf3J65CtkxPxfCpAAo1LTBg5nK0QAE6Yz3CsA6rMm5Z/t8wQov7eU?=
+ =?us-ascii?Q?YI1hFE+Wd3K0O1np5ljkWv4tgJ6dmyv7sqM1NaJLeFuhF0i2e9/US97j5w0i?=
+ =?us-ascii?Q?GJNKYIKugYUlCIfzjqZdXLUT5hV14LQFk/YhSafk8SyVpJHMIueSsg43nXcH?=
+ =?us-ascii?Q?pexrXsYu4DmQfSwL8tJgAwVW9mD6839oeyALywkekFDSTI6jFGMmvCvDe0O3?=
+ =?us-ascii?Q?U5akf+m3b54WapwLHtZSjLzI//8qkIyzFc3nshDG+QrVmBCKDpJZ/yfpnZs1?=
+ =?us-ascii?Q?1iCUqlVHNNRSOQ/eNW1dz31vbhdch0MoeFAdWd+bskX+8Nrea4xXpf4+kKQK?=
+ =?us-ascii?Q?FKHQzm/qAW7FsviCkPf2k+b7CjXomOs9p7Gi6WyhT0C5R/1+LeUArMuWxDBU?=
+ =?us-ascii?Q?/1zFKrJ5KEpcK7xc5Yjw8xHP/rOP/5//fw6QX9HI7o69uPFP5AgP8UA9hVHJ?=
+ =?us-ascii?Q?SBU1EpzOBUM4hstM5R+p07ZhYpXaTS9SCY1uoTEQ2T1CS6MRpkbQ9sLKEgrZ?=
+ =?us-ascii?Q?0MF6L4VSJ7+yh2WDImJn+3ME+uBo6ck8qQuxGgfcKIjAsubz9YX281pDVcPp?=
+ =?us-ascii?Q?fE9FEizvexXZdcZTT/Vx2Jxc/nLsCHohFqUzCwGWBmk0kDmcdOIpwo4qHTC7?=
+ =?us-ascii?Q?E04cKHKmI28alHGvTk7eM5hNtVhuOxwsyJK0NcWM4m3bIvWJBFBZdzQ8vcdr?=
+ =?us-ascii?Q?+w8t0XcM/2yG8ERKgwaTz1hoGhuIGQumaD5z8AA1LbTCEPlSNsMo5ASxyFb3?=
+ =?us-ascii?Q?m9XylZuWzHKAa5McMOr+Lvlu2r552Ou+u+rLQtvZaESSzPAlH9Ernm7o6LNF?=
+ =?us-ascii?Q?LK/sybaoBapNRxoLBYT31CHgA/wDFQdIuWFqyxOnhOCcA2FRBApRbf9tsEOe?=
+ =?us-ascii?Q?55VUi3/sHpEoDEi4Qo+c8E+fRK736HmAOVWjAxl0PcPMcOwhbNSS4jzto1+s?=
+ =?us-ascii?Q?hSAgoFfrG4UYIzGA0fxHAkxdjc1GeL5+XUPOjJM+jkWvA+nF2p6cKFYI46Ds?=
+ =?us-ascii?Q?f48KINRpeyz8j5gnzikYVCTSFhx3S9j+i8DzbW1gnwSWw2GxHQBaGZkwgl3D?=
+ =?us-ascii?Q?vnnSdVep3k4Ajhi1bZ1Ln5/UPniRKnclYQ1rn4yy3irngiF9MEp+sJd+IOZy?=
+ =?us-ascii?Q?3VuNR8JPsCslhue8HSyIZww7TiT7oFUhW/qKhpiDKTiPSVgF+0rB3WrF6DLj?=
+ =?us-ascii?Q?O8d6Mq/FCxcFnYQ5nsPN2No7n3GQpWReVQUs2iau1lEmRHFQX0Vvw+BiKp80?=
+ =?us-ascii?Q?n7OE336On+7g/fXBe0/5JWM=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a94bb584-9c03-4051-6e60-08dcf483d29f
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 23:30:19.3439
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tSN1dRD4JlIxSBthso5tALsNrcsfOtr4iGBmoRMiS7P0ATpB9r6NahSklOcj2w1FC5CvfC0t6igHAD3Y9Fccd19tYdJS63jI3Y68jfS0rdqxGH88kbgnU2O+emHLo0Fy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR01MB8315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_155145_343186_FFF3FC2A 
-X-CRM114-Status: GOOD (  27.16  )
+X-CRM114-CacheID: sfid-20241024_163036_607831_6A4D6313 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,102 +171,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
 
+Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+---
+ .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
+ tools/perf/util/arm-spe.c                     | 61 +++++++++++++++++++
+ 2 files changed, 70 insertions(+)
 
-On 10/21/2024 8:09 AM, Abhishek Chauhan (ABC) wrote:
-> 
-> 
-> On 10/21/2024 2:32 AM, Russell King (Oracle) wrote:
->> On Mon, Oct 21, 2024 at 10:20:24AM +0100, Russell King (Oracle) wrote:
->>> On Sat, Oct 19, 2024 at 04:45:16AM +0200, Andrew Lunn wrote:
->>>> On Fri, Oct 18, 2024 at 03:24:07PM -0700, Abhishek Chauhan wrote:
->>>>> Currently we disable PCS ANE when the link speed is 2.5Gbps.
->>>>> mac_link_up callback internally calls the fix_mac_speed which internally
->>>>> calls stmmac_pcs_ctrl_ane to disable the ANE for 2.5Gbps.
->>>>>
->>>>> We observed that the CPU utilization is pretty high. That is because
->>>>> we saw that the PCS interrupt status line for Link and AN always remain
->>>>> asserted. Since we are disabling the PCS ANE for 2.5Gbps it makes sense
->>>>> to also disable the PCS link status and AN complete in the interrupt
->>>>> enable register.
->>>>>
->>>>> Interrupt storm Issue:-
->>>>> [   25.465754][    C2] stmmac_pcs: Link Down
->>>>> [   25.469888][    C2] stmmac_pcs: Link Down
->>>>> [   25.474030][    C2] stmmac_pcs: Link Down
->>>>> [   25.478164][    C2] stmmac_pcs: Link Down
->>>>> [   25.482305][    C2] stmmac_pcs: Link Down
->>>>
->>>> I don't know this code, so i cannot really comment if not enabling the
->>>> interrupt is the correct fix or not. But generally an interrupt storm
->>>> like this is cause because you are not acknowledging the interrupt
->>>> correctly to clear its status. So rather than not enabling it, maybe
->>>> you should check what is the correct way to clear the interrupt once
->>>> it happens?
->>>
->>> stmmac PCS support is total crap and shouldn't be used, or stmmac
->>> should not be using phylink. It's one or the other. Blame Serge for
->>> this mess.
->>
->> Seriously, we could've had this fixed had the patch set I was working
->> on that fixed stmmac's _bad_ _conversion_ to phylink progressed to the
->> point of being merged.
->>
->> The whole stmmac PCS support is broken, bypassing phylink.
->>
->> This series also contained bug fixes for stuff like this interrupt
->> storm after Serge tested it. However, Serge wanted to turn my series
->> into his maze of indirect function pointers approach that I disagreed
->> with, and he wouldn't change his mind on that, so I deleted the series.
->>
->> As I keep saying - either stmmac uses phylink *properly* and gets its
->> PCS hacks sorted out, or it does not use phylink *at* *all*. It's one
->> or the other.
->>
->> I am not going to patch stmmac for any future phylink changes, and if
->> it breaks, then I'll just say "oh that's a shame, not my problem."
->> Blame Serge for that. I've had it with the pile of crap that is
->> stmmac.
->>
-> Thanks Andrew and Russell for you review comments. 
-> 
-> Adding Serge here. 
-> 
-> Lets take a step back and see how i can help here to make sure 
-> we can get things merged and the discussion proceeds. 
-> 
-> Serge please help if can here. Thanks! 
-> 
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+index 1443c28545a9..e4115b1e92b2 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+@@ -67,6 +67,15 @@ enum arm_spe_neoverse_data_source {
+ 	ARM_SPE_NV_DRAM		 = 0xe,
+ };
+ 
++enum arm_spe_ampereone_data_source {
++	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE	= 0x0,
++	ARM_SPE_AMPEREONE_SLC				= 0x3,
++	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE		= 0x5,
++	ARM_SPE_AMPEREONE_DDR				= 0x7,
++	ARM_SPE_AMPEREONE_L1D				= 0x8,
++	ARM_SPE_AMPEREONE_L2D				= 0x9,
++};
++
+ struct arm_spe_record {
+ 	enum arm_spe_sample_type type;
+ 	int err;
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index 138ffc71b32d..04bd21ad7ea8 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -515,10 +515,69 @@ static void arm_spe__synth_data_source_generic(const struct arm_spe_record *reco
+ 		data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
+ }
+ 
++static const struct midr_range ampereone_source_spe[] = {
++	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
++	{},
++};
++
++static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *record,
++						 union perf_mem_data_src *data_src,
++						 u64 midr)
++{
++	if (!is_midr_in_range_list(midr, ampereone_source_spe)) {
++		arm_spe__synth_data_source_generic(record, data_src);
++		return;
++	}
++
++	if (record->op & ARM_SPE_OP_ST) {
++		data_src->mem_lvl = PERF_MEM_LVL_NA;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
++		data_src->mem_snoop = PERF_MEM_SNOOP_NA;
++		return;
++	}
++
++	switch (record->source) {
++	case ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE:
++		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
++		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
++		break;
++	case ARM_SPE_AMPEREONE_SLC:
++		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
++		data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
++		break;
++	case ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE:
++		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
++		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
++		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
++		break;
++	case ARM_SPE_AMPEREONE_DDR:
++		data_src->mem_lvl = PERF_MEM_LVL_LOC_RAM | PERF_MEM_LVL_HIT;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
++		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++		break;
++	case ARM_SPE_AMPEREONE_L1D:
++		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
++		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++		break;
++	case ARM_SPE_AMPEREONE_L2D:
++		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
++		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
++		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++		break;
++	default:
++		break;
++	}
++}
++
+ static u64 arm_spe__synth_data_source(const struct arm_spe_record *record, u64 midr)
+ {
+ 	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
+ 	bool is_neoverse = is_midr_in_range_list(midr, neoverse_spe);
++	bool is_ampereone = (read_cpuid_implementor() == ARM_CPU_IMP_AMPERE);
+ 
+ 	if (record->op & ARM_SPE_OP_LD)
+ 		data_src.mem_op = PERF_MEM_OP_LOAD;
+@@ -529,6 +588,8 @@ static u64 arm_spe__synth_data_source(const struct arm_spe_record *record, u64 m
+ 
+ 	if (is_neoverse)
+ 		arm_spe__synth_data_source_neoverse(record, &data_src);
++	else if (is_ampereone)
++		arm_spe__synth_data_source_ampereone(record, &data_src, midr);
+ 	else
+ 		arm_spe__synth_data_source_generic(record, &data_src);
+ 
+-- 
+2.47.0
 
-Andrew, I had a detailed discussion with hardware team internally. 
-
-Section 1:-
-----------------------------------------------------------------------
-Here are the updates from my side on the same. 
-1. ANE feature is disabled for 2.5 Gbps integrated PCS in the stmmac 
-for the PCS link to be up.
-Experiment was done to turn on ANE bit in the MAC register and i clearly 
-saw pcs link went down when 2.5Gbps link speed was selected 
-
-2. if ANE feature is not supported the corresponding PCS interrupts such
-as ANE and Link status has to be disabled in the MAC block according to 
-hardware team. 
-
-Note:- today stmmac driver is reading the PCS interrupt status to clear the 
-interrupt. so interrupt handling is done correctly. 
-
-Section 2:-
----------------------------------------------------------------------
-Serge can you please respond on the PCS support in stmmac ?
-
-We can work together with Russell and see how can we join hands and take 
-things forward. 
-
-I feel PCS has to communicate to Phylink and phylink has to post the final 
-notification to MAC stating the link is up or not. 
-
-
-> 
-> 
-> 
 
