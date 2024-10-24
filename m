@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B05CE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE019CE8E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 18:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zD/MvoTUjjchDlHO31PqaPi5FVCTTnWec43Dr2sc5uE=; b=mABrOTsF0gKwPYZsRc9/M7jveq
-	/qRbpVEpLMH4LGNm8ARRwmybN1uNoC5fUHeREVGWpzsvY2woL+lMyVN215+veZAHp2hNqBebxMUho
-	gdM9TjgOaxpB/hoOkBfCEqISQqTeEwmPyWqq0Xyhw4zU7z8fk8kgqkbdVZo//cLsBzC/1A4F5sKKv
-	YBBDDcNXFjHIKL74PauM/BzfLKBvyTBELS6L9YgKNyv8VMAvV6t9ObMsT/d+4xjNKFBhvTqJp28CM
-	uQn/cAC668MD4cf377klhzgUQ/sXm92Q9qzSbxeEpz0qYpJkecqo3Omri/+9DJu05Q9k0Ig81aHqY
-	Wa9Ld8bw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E2mRYwktrmZtlfT2nFMLWD2hPCZTt5hXE/NuFZYD1KE=; b=HV+RUJANPJBWyLPXiszKTJgMm9
+	gMY5qhTFNESqQDsHEIzgZJn2psdbNu88Hc8yaJGaX/pt4kbWXJY1SCSm2cXHctM4hEneTXp8RJLMG
+	0nbyw/uIN9gMnRh8/oAhXQ195xcBiNGBavYaA9Tqpk45g+rR1tbhlUPxF7I/1MrFrz/wJq+mu/Z6l
+	rAaTT9c7MQPtqQsbqxHe8cQ/wd0qIUuBaZGY2imChSEO9tO6m1VLLApVSEluwplv9vKUmIleI55rT
+	sVFVdUSyB7FmPQuUtvkeyyX77HMBA8oBG//xokzfR+FBIoPurrhbcE2cN4SdgOh0w8JUjQ9nar+L/
+	JlAmvPxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42Mu-00000001REn-2ywn;
-	Thu, 24 Oct 2024 18:15:32 +0000
-Received: from mail.notyourfox.coffee ([92.63.193.195])
+	id 1t42Pw-00000001RZ8-0iYW;
+	Thu, 24 Oct 2024 18:18:40 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t42IO-00000001QCz-3Uui
+	id 1t42Lk-00000001RAR-1oYv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 18:10:54 +0000
-DKIM-Signature: a=rsa-sha256; bh=zD/MvoTUjjchDlHO31PqaPi5FVCTTnWec43Dr2sc5uE=;
- c=relaxed/relaxed; d=notyourfox.coffee;
- h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@notyourfox.coffee; s=mail; t=1729793394; v=1; x=1730225394;
- b=JHSUzjKls5Wm839qvhA6nxJdgjfFHYyuIMcFJC4py2Th5/lRpBJL87itZiTg0D7g72byla2/
- RGt9j0YQZcrrSnTMUigTkonLFjKQ1wty2LN+88I2MCPC3PFacLmQ6qZhW6CFbZFxlrquYkL2uWA
- 8n/E59Ut+LmSKvFcVYkl9wkkdRh8MLTO73De9KCAPILQIWuDQToZmui76W//DdF1v3lfmvIwrLC
- 00BhABRp1gebdHeZoI70ehEYTqlEw8KiEoYc1vSAp1tKTck0QShQZ9gBb/1Ia55r4kKsUVkpN30
- gJICGzIIOhLel8x+rFvTjeBr9jYMQEnr6fmrnHA+6Rz6Q==
-Received: by mail.notyourfox.coffee (envelope-sender
- <contact@notyourfox.coffee>) with ESMTPS id 1345da47; Thu, 24 Oct 2024
- 18:09:54 +0000
-Message-ID: <c58172db-e3cc-488d-baa6-f095588a8771@notyourfox.coffee>
-Date: Thu, 24 Oct 2024 21:09:52 +0300
+	Thu, 24 Oct 2024 18:14:22 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7ed9f1bcb6bso771312a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 11:14:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729793659; x=1730398459; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E2mRYwktrmZtlfT2nFMLWD2hPCZTt5hXE/NuFZYD1KE=;
+        b=CErRG+q9YDCFv6sw6t7CWnQSkYWG0zgldqjvnvUWV/Oc5/suTmrNWiIptjR0Vw5gzn
+         4E3f2LFXNxZVm9QdaEp/aM3dCoFfeQTxu6ZyVXXgDif+w60aLfhFqFsX/AdKHv6tpF36
+         3EP5GzsjaWHaVw3Mb60iPkbRhDTgy4p5gT2slK9ccuBS7bRYNO1EUeP8H+KnyNS/MzXY
+         vWx436wofuSKZ+p4OttEYDdaQV9OUU5noPmK4sNgfERTRcM0KxvwdwbDH98Wn9aGYBIE
+         UdeKC7LKpeJXtVij0h9cH1WqG3TeTMu504HDf7ECffs76KcheLwxsf37iZERjTOq9HY5
+         xQxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729793659; x=1730398459;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E2mRYwktrmZtlfT2nFMLWD2hPCZTt5hXE/NuFZYD1KE=;
+        b=L6MZmb9NnVKcEfPJtf9C3WFEXYa9cXZwBKi2zxD8u11JLRQ9MUW49qMwMzvS1g9smi
+         Ne4tPM2QNCgYGRZykLpFwxnaFa+EM/iYhsS3UZz1rt8dfG9vsxRp6Lc7QXZn7JB8f8Wf
+         r6MKrfDC4qB157OOTJJ4mhGvLsLA2N0p2fqm0//Jml1CwjuOJP1Z9ZBGFKvOvVvbOujn
+         wSekUESqfnlmM8IcUcCS3wgBxg2lC2au5G2mJg9bkfQNHxS92GWyjUZmmkU645cfNN0p
+         b4SSlK3/CLcMEmEiqTq1YMkQg6ERitQhNDgp2XQlH3FCkVci4FIql2IJodmEJrNi1tr+
+         qIvg==
+X-Forwarded-Encrypted: i=1; AJvYcCVgFTpAUWQgBjXSx9bDjZ3+6qiQb70diQKJCybEs4C6o4iB3hKmEXK6wXzPb5FtLG6aOhFhaxggCHk9OI1/5KXA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqNYneP9wS9ZYcLaTOUdt2t756X+yFWYfQTIzHm+TLxBw6XFEE
+	xmWg3uHccuKUQJEj+0YjFs2Y4qQEmL1l8z3pPGLoqDTIymHwcpIt
+X-Google-Smtp-Source: AGHT+IF15FANv02/HX5OJM9MTivD/8lQBJRNT9ZUddV/kotfU3iNdSgaePzvpQs3OCWOW5wJ1NIpAQ==
+X-Received: by 2002:a05:6a20:43a7:b0:1d8:a3ab:7220 with SMTP id adf61e73a8af0-1d98976e70fmr3697478637.0.1729793658893;
+        Thu, 24 Oct 2024 11:14:18 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:b160:3edf:6e5d:8d4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-71ec13d74d9sm8208171b3a.133.2024.10.24.11.14.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 11:14:18 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	shengjiu.wang@nxp.com,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] ARM: dts: imx6sll: Fix the last SPDIF clock name
+Date: Thu, 24 Oct 2024 15:14:09 -0300
+Message-Id: <20241024181409.1461997-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: vladimir_putin_rus@kremlin.ru
-Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
- dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
- geert@linux-m68k.org, gregkh@linuxfoundation.org,
- hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru, jeffbai@aosc.io,
- kexybiscuit@aosc.io, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
- mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
- ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
- s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
- torvalds@linux-foundation.org, torvic9@mailbox.org,
- tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, wangyuli@uniontech.com,
- wsa+renesas@sang-engineering.com, xeb@mail.ru
-References: <20241024140353.384881-1-vladimir_putin_rus@kremlin.ru>
-Subject: Re: [PATCH 0/2] MAINTAINERS: Remove few Chinese Entries
-Content-Language: en-US
-From: NotYourFox <contact@notyourfox.coffee>
-In-Reply-To: <20241024140353.384881-1-vladimir_putin_rus@kremlin.ru>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_111053_066611_D2EBEFDA 
-X-CRM114-Status: UNSURE (   3.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_111420_496094_0CACEF27 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-And what were you trying to accomplish?
+From: Fabio Estevam <festevam@denx.de>
 
-On 10/23/24 1:45 PM, Linus Torvalds wrote:
- > Ok, lots of Russian trolls out and about.
+The last SPDIF clock is IMX6SLL_CLK_SPBA, so change the last
+clock-name entry to 'spba' as expected by fsl,spdif.yaml.
 
-You just made his statement valid by showing yourself off. Thanks for no 
-help at all.
+This fixes the following dt-schema warning:
 
+spdif@2004000: clock-names:9: 'spba' was expected
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
+ arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-И что вы пытались этим сделать?
-
-On 10/23/24 1:45 PM, Linus Torvalds wrote:
- > Ok, lots of Russian trolls out and about.
-
-Вы только сделали его высказывание верным, решив выставить это напоказ. 
-Спасибо за абсолютный ноль помощи.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+index 85fe2a4ab97a..207b193db3ba 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+@@ -173,7 +173,7 @@ spdif: spdif@2004000 {
+ 						      "rxtx1", "rxtx2",
+ 						      "rxtx3", "rxtx4",
+ 						      "rxtx5", "rxtx6",
+-						      "rxtx7", "dma";
++						      "rxtx7", "spba";
+ 					status = "disabled";
+ 				};
+ 
+-- 
+2.34.1
 
 
