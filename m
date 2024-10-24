@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CFED0BB66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A9CD0BB66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPUJkDB045xCy7BlZHgL9Y0u7dh6EAwuPEvF6Ze2qOM=; b=rHu1jJ/IaLDqhFEce3IizQ7zvo
-	Gl/Z9rdw+EdCMCpC+A8QsaXspNoE4l69FM6XSum14OTcRPq6LE3lZhp820JP+H4AKJczF4RgmC44V
-	qyROO4ygETr6ylvwKvRYzPO7DwzZiVyA6DxcA3FBlDLf2rp0vJMfsW+smUbwLyu9C0+/+2nBvuW/v
-	wCT1GG/2j3JV21ePApt2NmwxNr7LhKVN4bUXSfkT6tt8CaCPaEeNgCkFLIIqWoBR+yhscoGIugbxD
-	NvBpd6It7uK09L0qcZXlFPZVElyE7Euc3XLH0Dtall40ume+qH2HV/CbR/4gClxZbjBCCwYdQ9m7v
-	edF4V33w==;
+	bh=J2sOZk//md8Jf9ZEknBPOk3bIW0TicV0anhGgt8+cWU=; b=zcH/RQPmtbIkorE9iknDMHQudr
+	Irt0EnUKmi5velTyU387OEigV08N1GwpNnhjzM27AFa/EpPqy9Z8YvC8XBPggSGzYERp3iJhgpGkG
+	I7/UnMLSPp22E1POaSNNXJYYtcipKm8h0ci3+UVx02VHDKTR05+aIDU57QbiWI6jq5kS+vxMbwcVg
+	/63IAtg8fnnphRustt+jc0gAJtqek0GXudMg+gl/sbrcapKcWABBSmVSARPdZOZbHqw7tfdNECZLR
+	6TR/aR8Yif7IQ+WcR15vJllVhOEoEhnYumak0LM74OqWWigMUCsQC0z9DA1+ia3Li9WkbG92h6JjW
+	IHHWa8Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3sWb-0000000H8zL-0eXh;
-	Thu, 24 Oct 2024 07:44:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t3sY8-0000000H9RR-0amf;
+	Thu, 24 Oct 2024 07:46:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3sTg-0000000H8BI-2byR
+	id 1t3sTw-0000000H8Df-0YLV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 07:41:54 +0000
+	Thu, 24 Oct 2024 07:42:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6C6975C02A5;
-	Thu, 24 Oct 2024 07:41:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BA5AC4CEC7;
-	Thu, 24 Oct 2024 07:41:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D2A63A4519A;
+	Thu, 24 Oct 2024 07:41:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85180C4CEC7;
+	Thu, 24 Oct 2024 07:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729755711;
-	bh=Ua9tBHTrpORpuWVXGVnMTsm/OluQSGISJqqykkfb7zU=;
+	s=k20201202; t=1729755726;
+	bh=akMjWLE8qYGttquQCblw2DikoT+w3bJja6jPMKFBvB0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CaAjK7m79S1env10bWY8Ob3KJYJeGnSOmCJfe7b8bUM9UQgleW70PIykcibFdP1Y7
-	 IkRuMAGBk4jwHzCF/9bUZoAHb0cYEzQo6GiJi0sl/ZeB6b8J7Atc7ZXzZjK0VfuBae
-	 hX14U0mN3C/XOWO4kAGZlzhYA8Zhf5RlM9VnWm5EHQHOU+eq+by5dUH4WEQ4022stN
-	 NsqYttzS4jNpinIcvCwxSYaO72sW0odQtvAuaG+NBmYrSPXh2aOTBwRpCf0chZuY56
-	 +vR91OnvnYmho5Q5gMcNqpz1VuRZwMj+BFMkbceQ1j1PCfbFn3LJkx7TJmCEY3TVQJ
-	 fzQdkkdQdYmXQ==
-Date: Thu, 24 Oct 2024 09:41:47 +0200
+	b=YGahbl+leH5V6GGOLqdl4wpjv9iNL1RxGUQsrdj6ydm3EERGe8QNKiE20M6flvRoY
+	 +G/Emgrpj6rhR7buOAfOPoWCVwma1KzoM8jUKwAPGpGuv0QDrWUXpjvzys/oZ9t/IM
+	 CC23IKZ1vpFZ+YLwXfiRY2s35yo9mcMqNNap42ghTdphQHs0Ju5+tN3uBwtPkknNXj
+	 j4Lfr/VsXjGygl/BKv/FK3e3Nwa4GCcdsqqCe/borDu7S97a7DDQAPbndgE1v7Mr/D
+	 uaFhSRI0iT4EdwzWZbb9SORorNy2L7Ic2Gm8C4LNZeqCBDerw9z48NOb8kBejkmlAm
+	 6/1hPqX6QJ2GA==
+Date: Thu, 24 Oct 2024 09:42:02 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Fabio Estevam <festevam@gmail.com>
 Cc: hverkuil-cisco@xs4all.nl, lars@metafoo.de, mchehab@kernel.org, 
@@ -50,17 +50,17 @@ Cc: hverkuil-cisco@xs4all.nl, lars@metafoo.de, mchehab@kernel.org,
 	linux-media@vger.kernel.org, devicetree@vger.kernel.org, shawnguo@kernel.org, 
 	francesco.dolcini@toradex.com, linux-arm-kernel@lists.infradead.org, 
 	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH 1/3] media: dt-bindings: adv7180: Document
- 'adi,force-bt656-4'
-Message-ID: <qekjhuzgyyhyugf7c6qcqckuxtnz64au2eaotbdoly5ucksg2l@5y2va7uaf6ei>
+Subject: Re: [PATCH 2/3] media: adv7180: Also check for "adi,force-bt656-4"
+Message-ID: <fqrusqlrvdl3hcvm6ogxf3baksq5s6ng6xhct7v2slxjtfteuo@ipllmg3444dg>
 References: <20241023144206.1099622-1-festevam@gmail.com>
+ <20241023144206.1099622-2-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241023144206.1099622-1-festevam@gmail.com>
+In-Reply-To: <20241023144206.1099622-2-festevam@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_004152_722709_1E53430F 
-X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-CacheID: sfid-20241024_004208_254286_577A16FA 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,14 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 11:42:04AM -0300, Fabio Estevam wrote:
+On Wed, Oct 23, 2024 at 11:42:05AM -0300, Fabio Estevam wrote:
 > From: Fabio Estevam <festevam@denx.de>
 > 
-> The "adv,force-bt656-4" compatible string causes several dt-schema
-
-compatible? Or property?
-
-With above sorted:
+> According to adv7180.yaml, the correct property name is
+> "adi,force-bt656-4".
+> 
+> Expand the check to also test against the "adi,force-bt656-4" compatible
+> string.
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
