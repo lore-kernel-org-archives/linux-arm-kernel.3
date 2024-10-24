@@ -4,119 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FEECE8E91
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C364DCE8E93
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 16:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZXCwg6hYJwlV3dQoijUPbMEIAM4RESJSpWVfasu2GA=; b=rEYp5c/shob6mETH9wqzvHi32y
-	6KngzY5RuWtIwDQAy54GbDdEkqeEBIzKgAg2sJQ76+TOq1mXpeVsFPd8YAoci/5PjFlciRF4jWP4V
-	8ZYP5tvlhhTfGmCM6aQXLjaEwbcAseK/OPIY7rtQC1jkKumL4sqhrkk3JOx5BsEa/Iqj3pfLyj+ZZ
-	13VpV/GHxEG0yI+152yL1NkeGEYA+vhZFNR0L3yuh9ZWMRoQsW51l+OAi7iDaxtKeGvCtJpSB1+a4
-	nyxWLL0mUDxzUxkbIVVj5lYbaY/4GCDfcN7sDh1yQqnbXQQkpb1rUl2dtdggnUlTlDVqicnPS2ZwB
-	LgN59Xpw==;
+	bh=3nS8ggJ/ih2AL5fM3I3UbO4GAd6LxRBu+iWaSZ820XQ=; b=ai2hyXxlPN4eI5cJabHpNUX1iX
+	RnbLBcMfYQCPPIO4Bdlc9GRNjZtAjkThh+gq6wS9gnUAUH/5rXL57nuky6EphZdQPf9WS7jtA6Wcm
+	HdNy8U/GKX1bEt5LnXXXhei7idwP3kQIyOzriZRJVODsG4Tzo9w3FznDGdoKfbS/eOKfqD1e3y+yZ
+	qbRoGTcWgti8I+f00hQrEZjlQK7crGul5TXhRwFAWaiy7sypyjGASwusW/AwKleWpipyLdT/YUU+r
+	c3PfKCK6UrtnM9ygxsf1Hd+xJXyM2ZMWzXIZ4+eYTD/yd93nbs2ZFBKgLLBxivDbHd9i5dHjX4I0w
+	Xw4XzlnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40na-0000000174L-3mMK;
-	Thu, 24 Oct 2024 16:34:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t40pB-000000017PN-1EIq;
+	Thu, 24 Oct 2024 16:36:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40iv-0000000165Y-0BcV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Oct 2024 16:30:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JZXCwg6hYJwlV3dQoijUPbMEIAM4RESJSpWVfasu2GA=; b=nOJbd7HJuowm3MgGjBIjI8+cHF
-	W0kB1pHf1enNG7rXVNrrFAAxX9Wh+M8SHipkEvXN2a34GKGc8RdVAsG19jD3AAenpQTgCZrGcDwJP
-	njvCNfdmgA1bjALUfBOXubrCLa9Y+6l4eBM/kPefapf79e3YlD2XPmqiuRJJTk2hq/eRo2IJUUOC/
-	OfdUUBzEdgFW5Y+KRwmjCoEatV/CMSauX6SnfLafM4clvJlM0G4LYxe/sGVjGR61wkRtBHfna0mB5
-	988lavQi1NoAkt4DrSHEGqSJxM5k63MzsYuBeAWthcWZDEWdE7ZrruuSvH8JVIP5JqyuZIPDOZsUm
-	czDBq7Uw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t40ir-00000008iKS-21Ox
+	id 1t40lr-000000016dF-2uWX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 16:30:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729787391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JZXCwg6hYJwlV3dQoijUPbMEIAM4RESJSpWVfasu2GA=;
-	b=fdGRwmWsqj+lueErmglc1O03FFyhlr7+9pEdARz3JBGWrD4TSCEIh3blrr6F2eMu+UWGQT
-	uBNPQmfBsE2nkHNLJJD2W+1nhZsw1pNIaVohT2YFi7dYo7Fr78sTVT7Rx+3SxiYF2Z/kJK
-	E2EIcadfe7Ubo1M0WucEfEqaeG3vcDA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729787401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JZXCwg6hYJwlV3dQoijUPbMEIAM4RESJSpWVfasu2GA=;
-	b=YtPkMuXdecD/aDaFhW97PtHIMQ+tvJunFA1dWfSpR+VnVP8mkPRucnwEQni6A2BkclgOsJ
-	kdvUmMdFuBWmo7TTTgLfDge7eCaw/YnyFR7cnwGDqCCuX82VHlCnuKbIek0p0U26ArM14q
-	yjvYTaxvX+rSNpVks8XgG+Cn/TmOsd8=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-263-dfSO1eGjNc2GLBOVCuIBgA-1; Thu, 24 Oct 2024 12:29:50 -0400
-X-MC-Unique: dfSO1eGjNc2GLBOVCuIBgA-1
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-431604a3b47so8192345e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 09:29:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729787389; x=1730392189;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JZXCwg6hYJwlV3dQoijUPbMEIAM4RESJSpWVfasu2GA=;
-        b=T9EJH9WJTcuEzo3gI6F0hPGFar8oqnpoZ+Y9ZPQzE/GFK+jUK8E//VxJ6qaVigS+cN
-         F2Adl7Kj4JJW8dmM3ylwQhIHJ/QfWUvee5LQNaWuk0z/9ugd2RQ3uQSKADYGhhUMx8+r
-         75CZPRkFmjjG0vKnvWXFNdqst4hksMNm6qcxy14dmKLbD4Eh698EfN/LAErBDyWjjJ3w
-         0iBquL1x+kXbrETdt9WOFwr+jK5wVFq9bcGcNPNFlsRxYLF54ZUWzmxg0nxxw7OwLrrp
-         WNMDARx/H13rlkr/Wjg+XsiNaXFJZYoWcsD9Sxrdfh77fmrZUHOyBB/OmGZaXDLSZpJz
-         pzqw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpRShK7RR0xl075pAHZFOqJ9K8MbiWo8ToWZNlfZyqXmzOSHUyBbOGccQMqe8tQeKL+nXUivVKdTlhZi/AVXkW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM9T+LCzzTsR+jXQ0sMI6kMmITtHevEuixAEGt3BewM9/tQW4I
-	bOiGJ1n2bYEr0+07BiRetInU8Ezx0hm0+VdDSSh0P023zLurEfCpARmPXMEpFQc0Ml45KYF5kzc
-	mA5YlhnbczTMkasOGoUBTcyLsSjqEoWbXVFnVbMBR9D2T0J3ZNHm1RSKKNnRw5KyzjsMBs5TRIF
-	Eyn/Bq
-X-Received: by 2002:a05:600c:1e16:b0:431:561b:b32a with SMTP id 5b1f17b1804b1-4318c6f505cmr23112385e9.19.1729787389131;
-        Thu, 24 Oct 2024 09:29:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IET7dTcaOAuam5O1YOxfn6XKm0SifRdkj3JgT8AA6xwQNV6mNJK26LyEtPp9s4XkYUWZXGjDQ==
-X-Received: by 2002:a05:600c:1e16:b0:431:561b:b32a with SMTP id 5b1f17b1804b1-4318c6f505cmr23112135e9.19.1729787388661;
-        Thu, 24 Oct 2024 09:29:48 -0700 (PDT)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43186c1e911sm50457715e9.45.2024.10.24.09.29.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 09:29:48 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org
-Cc: jani.nikula@intel.com, David Airlie <airlied@gmail.com>, Hamza Mahfooz
- <hamza.mahfooz@amd.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>, Simon Ser
- <contact@emersion.fr>, Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann
- <tzimmermann@suse.de>, Ville =?utf-8?B?U3lyasOkbMOk?=
- <ville.syrjala@linux.intel.com>,
- amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- nouveau@lists.freedesktop.org, xen-devel@lists.xenproject.org
-Subject: Re: [PATCH 2/2] drm: remove driver date from struct drm_driver and
- all drivers
-In-Reply-To: <20241024162240.2398664-2-jani.nikula@intel.com>
-References: <20241024162240.2398664-1-jani.nikula@intel.com>
- <20241024162240.2398664-2-jani.nikula@intel.com>
-Date: Thu, 24 Oct 2024 18:29:47 +0200
-Message-ID: <875xph1n2c.fsf@minerva.mail-host-address-is-not-set>
+	Thu, 24 Oct 2024 16:33:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7F133A456AF;
+	Thu, 24 Oct 2024 16:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 327CDC4CEC7;
+	Thu, 24 Oct 2024 16:33:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729787590;
+	bh=5kxJTQW4XLnjK4PI9EbjL4QCTIY5IkCswPV0X0kgjXA=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=MvdA7kTJDan+helwSfB+pBk7ZfNqZXOtLsXsfW6yzTl3vRPFL/XxcwerzuTOZ1puK
+	 2Mg7bNCdbyAkDIN2peeWX546T1I5XGBdfJO6zug+2IC42QeTEkyaofRS+CS89X35Hg
+	 irnmfq5fVkK9Rq9qxnApgL8+X2iKcRgaz92/h0xKoQav5+U4ReeaB7G7vQGY4wksdb
+	 Z3IiQh6lMOZ/+HVeB5J8cXda3FLHWloMj2JXV9z4bh0p+vCKqJgL704IdjVhQwvbpV
+	 pX0kRNuSeP23oIkjfTLhvteyu/BUstgRXsNFYe3o1nwSuQ3B/+VeZ4VMG+Ri51Go/s
+	 kdFEMbWUrw1kQ==
+Date: Thu, 24 Oct 2024 11:33:09 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: shawnguo2@yeah.net, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, festevam@gmail.com, 
+ imx@lists.linux.dev, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+ kernel@pengutronix.de
+In-Reply-To: <20241021163437.1007507-1-Frank.Li@nxp.com>
+References: <20241021163437.1007507-1-Frank.Li@nxp.com>
+Message-Id: <172978739353.623341.4645836929476354717.robh@kernel.org>
+Subject: Re: [PATCH v2 1/6] arm64: dts: imx8qxp-mek: add bluetooth audio
+ codec
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_173005_797515_D7F6AB1B 
-X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-CacheID: sfid-20241024_093311_823450_BD76A9ED 
+X-CRM114-Status: UNSURE (   9.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,28 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jani Nikula <jani.nikula@intel.com> writes:
 
-Hello Jani,
+On Mon, 21 Oct 2024 12:34:32 -0400, Frank Li wrote:
+> Add bluetooth audio codec.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v1 to v2
+> -none
+> ---
+>  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 24 +++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+> 
 
-> We stopped using the driver initialized date in commit 7fb8af6798e8
-> ("drm: deprecate driver date") and (eventually) started returning "0"
-> for drm_version ioctl instead.
->
-> Finish the job, and remove the unused date member from struct
-> drm_driver, its initialization from drivers, along with the common
-> DRIVER_DATE macros.
->
-> Signed-off-by: Jani Nikula <jani.nikula@intel.com>
->
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
--- 
-Best regards,
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y freescale/imx8qxp-mek.dtb' for 20241021163437.1007507-1-Frank.Li@nxp.com:
+
+arch/arm64/boot/dts/freescale/imx8qxp-mek.dtb: esai@59010000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/fsl,esai.yaml#
+arch/arm64/boot/dts/freescale/imx8qxp-mek.dtb: usbphy@5b100000: 'nxp,sim' is a required property
+	from schema $id: http://devicetree.org/schemas/phy/fsl,mxs-usbphy.yaml#
+
+
+
+
 
 
