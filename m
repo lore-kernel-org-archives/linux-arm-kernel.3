@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9ECCFA456
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94490CFA456
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 10:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnCDGJfcN3PLmfYBMIFGhUBG768VdNHJJP6i96p6xYA=; b=35Pv6JlKbvJUSdcB0CUHqT7qjk
-	RZY7aslZE0Qzgln+mS/ompcjLddPiguhgyzpP3Lb/4pc9V4UD+BNYSVMTlIEV8kSqtfbzf1Cwmfuj
-	ph26FtXbUMLrYZakKAhcidmgbj7aMEkhoRXJOIjG562R9cGoa/VDO2oE/YVIY3jzeFnSTmw1FCwOd
-	YjlAVQLJLHK7jAaL9zIurVPGioiCqYLzYMytImIByBiUWNZ2Lml3mIMp60SEX1AelllB4iTzo1II1
-	9Za/y2vGifq7OBCXEqwpPXGx9bpL2I7OMCjjNrBqWUUeLPmXQk1w+AymNDP479xDUZfYh6gSPsOEB
-	QREiRTzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jC9nW4+TeoUKMdwW7mwvVLcB7GS8bnW0QjfI/mZVf+s=; b=BICmPQiuQB/ntCf4RhnsMp7tke
+	U0Ict32zfDxtWM7er5/D5NDJnicBbwAldY4Yc6aPp+GR1BhDxHvDmF+0c4gB+n8MoPrM+kvPZZBx7
+	3VMDMx+GN1CLc++kE2AvC6pk6wyfJk8ZQRr1KFb6ACwAc+tmUpeulqaLExezbiS7Md3Xf0H0RSh9d
+	cZL7F5szfebkER8tHm32xf5K31miJaEka0eCxERzerVtVKvHcGl53PtWj722ntckSA8QxVUdMI+DE
+	Zf5jvy76xBkGrQ9OBM9LzeO7ZVf7kRn5Vi/WrxaOoCtoEQX9xS64PzioJennx/Yd+FVzSTAk3IR0T
+	nzdBroyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3ugm-0000000Hb6Q-0psV;
-	Thu, 24 Oct 2024 10:03:32 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3uWE-0000000HYcx-3EyF;
-	Thu, 24 Oct 2024 09:52:40 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d4c1b1455so457206f8f.3;
-        Thu, 24 Oct 2024 02:52:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1729763557; x=1730368357; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RnCDGJfcN3PLmfYBMIFGhUBG768VdNHJJP6i96p6xYA=;
-        b=Czxv3cXcIQR561Iqh0W8VqU3DUexIq8jL36ZE/MMF43AFjnDSG0uVOkK26KFTiytUv
-         8NF+ifLDPSBDVKxTlzqZv5LSUujW7P5md/2jyIGOcdo0NTK9a7Aix6F0tTU3aucLLgmq
-         t4Eo/usZ54b0X6gyqUytsji5FiectMpPFbuOfX+WWxz31tkx8fEiaF0wCax07iwala/f
-         LYYlqZvylZ9lQKz/XVQjK42DTMl9GNZhe765BNS1vLnRdnXNCGTQQcj9a/Waow8AYLSP
-         hmKuT0qKpIFUcbGTxB7PM7jUR8YZmOxUMbKVqTXFTFLc0PCRxJY/xIO8LdFJC+p2ujhm
-         03Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729763557; x=1730368357;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RnCDGJfcN3PLmfYBMIFGhUBG768VdNHJJP6i96p6xYA=;
-        b=W3DjgmD6HCGzcLp/10lybfU/WvZhZIMcQjqEzLxvYjw/x7ILw5+arZwTUOFW6ERNTY
-         ckMis+Nk6/6ioLWPLl6ZiRuUnCkLMb30FkkujDTFyTNDZpozrPviF2d3YKD22JqXTBon
-         OfEFeVVYpQ/F2q0pSFQmh0hNcOATZJYYr7nn59VODl0E0JG+LbqO0aU2kKJII1U0BPZF
-         C+35v409AQj4Dto0SEn0r3G8EBclPkGJ7iltuROFQOmd1SEsUT6/dymZGbnrkB2ZRrfp
-         LUzrF4s2eAp03HpRM76JG74s02UQuDV87qKIAkXPYmS/wXH9dknL4CpWVmLbRdhyuGmj
-         acmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9h6Rat9QedvO80mCY0Jvx4NHvNw8niKSE0dzZuia4g0ZqBH5mZ/HN6B9xQ8N3Rm6QCb58v11wd8apv5og7Pa8@lists.infradead.org, AJvYcCXzdEfs5+0G1dnMdkOrYtR8i2WY5QXOtCUq0A3gSyGV9sxgpsLtw4E1BPVz3pSXd/8xOdEfgKDOxpBeNVzL97w=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGyXi8JXYg0nRUATvGISvqU6VCMeMEdivrarqvZYLDe5BdI0mM
-	LEOmsSnaGa3TdYYew1tzMKytM9IF7dreoY3j9Lr76S77qi+xr2Q2
-X-Google-Smtp-Source: AGHT+IHOGIh30cZeVBaManyxCwsLnI9f8EReanEFaNeNhbdtE6TT2V9YrSK8ERkjOnhQ6SSbt3KcFg==
-X-Received: by 2002:adf:fbca:0:b0:37d:377d:c7b0 with SMTP id ffacd0b85a97d-37efcf0699bmr3536455f8f.18.1729763556938;
-        Thu, 24 Oct 2024 02:52:36 -0700 (PDT)
-Received: from localhost.localdomain ([2a02:908:1587:1e60:e265:6c8b:f62b:1474])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-37ee0a37ac4sm10996286f8f.6.2024.10.24.02.52.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 02:52:36 -0700 (PDT)
-From: Cenk Uluisik <cenk.uluisik@googlemail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Cenk Uluisik <cenk.uluisik@googlemail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 3/3] arm64: dts: rockchip: Add rk3588-orangepi-5b device tree
-Date: Thu, 24 Oct 2024 09:50:22 +0000
-Message-ID: <20241024095038.42079-3-cenk.uluisik@googlemail.com>
-X-Mailer: git-send-email 2.46.1
-In-Reply-To: <20241024095038.42079-1-cenk.uluisik@googlemail.com>
-References: <20241024095038.42079-1-cenk.uluisik@googlemail.com>
+	id 1t3uiH-000000000LQ-3nj3;
+	Thu, 24 Oct 2024 10:05:05 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3uXH-0000000HYsu-3e9J
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Oct 2024 09:53:46 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 3854C72C8F5;
+	Thu, 24 Oct 2024 12:53:39 +0300 (MSK)
+Received: by imap.altlinux.org (Postfix, from userid 705)
+	id 336F236D070D; Thu, 24 Oct 2024 12:53:39 +0300 (MSK)
+Date: Thu, 24 Oct 2024 12:53:39 +0300
+From: Michael Shigorin <mike@altlinux.ru>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Tor Vic <torvic9@mailbox.org>, Kexy Biscuit <kexybiscuit@aosc.io>,
+	jeffbai@aosc.io, gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+	aospan@netup.ru, conor.dooley@microchip.com,
+	ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org,
+	dushistov@mail.ru, fancer.lancer@gmail.com, geert@linux-m68k.org,
+	hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+	ntb@lists.linux.dev, patches@lists.linux.dev,
+	richard.henderson@linaro.org, s.shtylyov@omp.ru, serjk@netup.ru,
+	shc_work@mail.ru, tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+	wsa+renesas@sang-engineering.com, xeb@mail.ru
+Subject: what about CoC? (was: [PATCH] Revert "MAINTAINERS: Remove some
+ entries due to various compliance requirements.")
+Message-ID: <20241024095339.GA32487@imap.altlinux.org>
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+ <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_025238_838414_5E3B37E3 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20241024_025344_263683_E378BD58 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,88 +82,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implements a slightly modified rk3588s-orangepi-5b.dts from the vendor.
-Unfortunately the &wireless_bluetooth and &wireless_wlan are not
-implemented yet.
+как хорошо, что по-русски можно писать то, что думаешь
 
-Therefore add the sdhci alias to be mmc0 on the rk3588s-orangepi-5b.dts.
 
-How is the Orange Pi 5B unique?
-  - the Orange Pi 5b uses combphy0_ps for the WiFi.
-  - the Orange Pi 5B has GPIO0_C5 hooked to BT_WAKE_HOST.
-  - builtin eMMC storage
-  - ap6275p Wifi module (like the Orange Pi 5 Plus)
-  - builtin BlueTooth module
+On Wed, Oct 23, 2024 at 10:45:47AM -0700, Linus Torvalds wrote:
+> It's entirely clear why the change was done
 
-Signed-off-by: Cenk Uluisik <cenk.uluisik@googlemail.com>
----
-Changes in v7:
-- Set sdmmc to mmc1 (because this is now reverted in common .dtsi to be
-	mmc0, to avoid breaking changes)
+Might seem so to you, but apparently not to those wondering.
 
- arch/arm64/boot/dts/rockchip/Makefile         |  1 +
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 11 +++++++++++
- .../boot/dts/rockchip/rk3588s-orangepi-5b.dts | 19 +++++++++++++++++++
- 3 files changed, 31 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dts
+> And FYI for the actual innocent bystanders who aren't troll
+> farm accounts - the "various compliance requirements" are not
+> just a US thing.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index e641033d2..2e485553c 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -160,3 +160,4 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index 5ef0ccfcf..0573b8f2d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -400,6 +400,17 @@ &saradc {
- 	status = "okay";
- };
- 
-+&sdhci {
-+	bus-width = <8>;
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+	max-frequency = <200000000>;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	status = "disabled";
-+};
-+
- &sdmmc {
- 	bus-width = <4>;
- 	cap-sd-highspeed;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dts
-new file mode 100644
-index 000000000..d21ec320d
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dts
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-orangepi-5.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5B";
-+	compatible = "xunlong,orangepi-5b", "rockchip,rk3588s";
-+
-+	aliases {
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+	};
-+};
-+
-+&sdhci {
-+	status = "okay";
-+};
+US is just another victim of those trotzkist slugs --
+you can ask your father, he must know better *why*
+those have been expelled even by their own ilk
+a century ago here in Russia.
+
+> If you haven't heard of Russian sanctions yet, you should try
+> to read the news some day.  And by "news", I don't mean Russian
+> state-sponsored spam.
+
+Linus, those "news" have cost your family a child already,
+and Elon has paid a similar tax.  You have been limited in
+your right to tell what you think right here in linux-kernel@
+(unless you speak hate against *all* of the Russians, yeah).
+
+You've agreed that black is white and vice versa.  It is not.
+
+> As to sending me a revert patch - please use whatever mush
+> you call brains.
+
+It's not about the patch but rather about the attitude;
+Documentation/process/code-of-conduct-interpretation.rst:
+
+"regardless of ... ethnicity, ... nationality, ... race"
+"Focusing on what is best for the community"
+
+"Examples of unacceptable behavior ... insulting/derogatory
+comments ... Public or private harassment"
+
+Get back to single-standard integrity for yor own's sake.
+
+> I'm Finnish. Did you think I'd be *supporting* Russian
+> aggression?
+
+Have you heard of casus belli?  Do you think these were one?
+
+http://nypost.com/2022/02/21/russia-kills-5-ukrainian-saboteurs-allegedly-trying-to-breach-border/
+http://reuters.com/world/europe/russias-fsb-says-shell-ukrainian-territory-destroys-russian-border-guard-post-2022-02-21/
+
+That's February 21, 2022.  If I yelled all over the place
+about "Finnish invasion" after Russian IFVs have rovered
+Finland *first* for no good reason, would I be right?
+
+Feel free to ask, I actually grew up in Kiev and e.g.
+this bug fix was done there as well:
+
+http://bugzilla.kernel.org/show_bug.cgi?id=15658
+http://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?id=c9e2fbd909c20b165b2b9ffb59f8b674cf0a55b0
+
+Please do revert it too then.
+
+Drop Linux network stack while at that, that "roomful
+of Russian mathematicians" is now declared untermensch.
+
+> Apparently it's not just lack of real news,
+> it's lack of history knowledge too.
+
+On your side, Linus.
+On your side.
+
+Hope you're still Finnish, not a Finnish nazi
+(swap "Russians" with "Jews" in your email and
+re-read it; it's my homegrown "nazi test" --
+if this change suddenly makes a text "nazist",
+it was).
+
+It is the US that has pushed Finland towards NATO,
+basically to follow the grim destiny that the former
+Ukraine currently harvests, and that was prepared
+for Georgia (that evades it), Moldavia (that rishes
+full speed towards destruction), Poland, the three
+Baltic states, and now your homeland.
+
+There is no regulation that can force your own heart.
+Listen to it.  Not to emotions, but to the deep truth
+that never cries aloud.
+
+You bow to the jerks who are *afraid* of opposition,
+because there is no truth in their father.
+
+Remember those who yelled "Assad must go"?
+How many of them are still around?
+Those siding with them perish with them.
+
+
+PS: last time I've seen RMS in Moscow, he declared
+his support "to the Moscow protesters"; I've asked him
+whether he knows that the initial issue was that the
+dead people were identified en masse as those "voting"
+for "democratic" candidates in 2019 elections, and he
+stared at me and answered, "nonsense".  I've emailed
+him after BLM affairs to ask if what he sees makes
+sense but never seen a reply this time -- and dead
+voters turned out to be not a purely export-only
+"technology" a bit later (pretty cosmopolitan).
+
+
+Господи, спаси и сохрани раба Твоего заблуждшего
+Линуса и ближних его во веки веков; аминь!
+
 -- 
-2.46.1
-
+Michael Shigorin
+(whose first book on programming was
+Hyvonen and Seppanen's one on LISP)
+http://t.me/anna_news
 
