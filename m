@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE540CE8E76
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57116CE8E74
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBEEIgzJAYBS0L/0GdSToYpNtM+CbQltwK1m8Nu5ZEo=; b=uPtSlK0Q1y/7nmlXWZjNVgcKat
-	k6mwOY+sBz+UMyyvf7fca7OEWF7gQ+h+v6oExiq4svQSkBA1b9otAmZXZz1gB0m+gqGa87rF7hDPA
-	DnF9wseSIgXls5jqGybkrEUGYTPNBjWviGJkkFsg5BFLG/4qDWcze7SGklQjTT4XNAwP/Vp6u6OZm
-	L0VO2jGZp1wBvAWE5oSij0/OCOx7tAx4rxxsDO5UWjgI/RrUWWhN6NwerqTLSNMHuLEwBwlkljoYT
-	YN7RVndJzXSBmjBoG+nkGAF7yoOCH4OiqiImToTcZZ0FR/zYr7YBry95pZzUyAKuxaWESXIcmFlWi
-	rizGNHow==;
+	bh=mIEpjU+3IgtnLd7LrZmVZXJG1YSY/AnT8I+va3htZAg=; b=C0WQA/WyMoXkmxVK6bU7VVN1YF
+	BUL9MBGM6LbQzRB5CHRQOJkeaGQ3ZLTMQBaMq+f50SCePW2c2Ps3/p0X0fs+wgeSPGeGyQtwMFeiS
+	dVOGBPZgdCI2CsehVquoJC5Khk4f2Z11Jy7Ay1fZtcjKaAbfrXwlerjBis1yahW74l5gScH0WcqKo
+	fDBgwKwF3R7gjudHDf4QqquhUSih1dDMo6GtikQJV8yTmPUg5QRfIWLVtcVB82V2nv6GISQtOIPsP
+	iieT2rlhsuC03zYnqpqyyqGJK7fTdKZALX89K76FXsjfpyYwCbLIoO+UeqTwVvyVtGuW5yD2mhZgB
+	XHB8YwAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xt6-00000000Vsw-2JMx;
-	Thu, 24 Oct 2024 13:28:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3xvR-00000000WfF-2KXe;
+	Thu, 24 Oct 2024 13:30:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xqY-00000000UuW-2XtS
+	id 1t3xtq-00000000WBj-0Lpj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:25:51 +0000
+	Thu, 24 Oct 2024 13:29:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A44E5C5F7B;
-	Thu, 24 Oct 2024 13:25:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5AF6C4CEC7;
-	Thu, 24 Oct 2024 13:25:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CA603A4550B;
+	Thu, 24 Oct 2024 13:29:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5BECC4CECC;
+	Thu, 24 Oct 2024 13:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729776349;
-	bh=/bCUgKsOIY9L86GlFHL9HXtDC1qqaWN9FN+5Tsyd+x4=;
+	s=k20201202; t=1729776552;
+	bh=hjwnZO/GQ8Kpe+e4WVdWEn7tIWB48Xt11zIZDjxDOCk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PKCWqs/a86q4KST0J+KvzF0T62MLxDhhkDHhA8wtIml5AyBV7Aglnii9Cb2Uw9Z4M
-	 nL8tfDh7APEr5uUvY2vunEBYxwnI7d9mUiQ5RffzJIMDHUAT4/WyFK0oh9VXyVvGAb
-	 d5P9VFwJJKpsjpdhfx7OVlK9jXETA6TFj++Hxh8vnQN3lgrArM38vhwQqARtSv+RtK
-	 ch7pTQENHJAl/Fum+JrPlmbnZvBzCpNyZ48BzoOvFLSe0hNsb1yj0YpoPHJ0FDmKCu
-	 ruNY26ePL2BSZ/dxNlxi97//r2avf7xd69nHlPjzSWru2O7aKKprnFS6fHsMnCsTXo
-	 aCwd9Kboj7QPw==
-Message-ID: <6d8015dd-f656-4c33-b906-09104cc366b5@kernel.org>
-Date: Thu, 24 Oct 2024 15:25:40 +0200
+	b=A15qv7CpW0XdUy0tHwrOFTyiASDHaeNZCy9bWSeoGwmt2LMrJYjMMZB/mrdWHdUZl
+	 5r6daXX/q6r5R/0jAp5b/ipXIlM4WjWF56byNK64TEn/WprgW5wyj+GBTi6S9erJPS
+	 RMD7QTlR12Bc8kFd2J7/8BiS4EM18lX4MeXR5J53+ySu/10NgbOVIhXTh3qP/Ss7t7
+	 eFbDXmuKsb50GLRH5SyyJkmKMbsh0KMzebP37YeUgmM/hD4q/HoSyHS5i+SqyGltQF
+	 QG8oNEo0YhBitkyLrNMhKrd39yZ00CUQfOrWB6HKsiTjO9CG8FN8vricwVKh7eApQm
+	 rkmU4tCAFv/kA==
+Message-ID: <170597c7-b8aa-4744-a44d-db5585545704@kernel.org>
+Date: Thu, 24 Oct 2024 15:29:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/14] dt-bindings: pinctrl: stm32: support for stm32mp215
- and additional packages
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Stephane Danieau <stephane.danieau@foss.st.com>,
- Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Fabien Dessenne <fabien.dessenne@foss.st.com>,
- Valentin Caron <valentin.caron@foss.st.com>,
- Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Cheick Traore <cheick.traore@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
- <20241022155658.1647350-12-antonio.borneo@foss.st.com>
- <2g65375shtjq4udjfarfspqtpg5q27oeerqskt2uzwj44pvnbb@rderpevnrzxs>
- <334845caee45ed72ef08867f23f69b5333be57c5.camel@foss.st.com>
+Subject: Re: [PATCH V4 1/5] dt-bindings: firmware: Document bindings for QCOM
+ SCMI Generic Extension
+To: Sibi Sankar <quic_sibis@quicinc.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, andersson@kernel.org,
+ konrad.dybcio@linaro.org, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
+ quic_kshivnan@quicinc.com, conor+dt@kernel.org, arm-scmi@vger.kernel.org
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <20241007061023.1978380-2-quic_sibis@quicinc.com>
+ <q2vuiru7sqetwqyitg7azgqg7kge622i2zgq52b55zivwtbev4@4qgzb54xjioq>
+ <hxfg6ztpqy7qdsgzhvvapeyh2f55mj7hhuqqkz7si6g5i7nsng@xoyfwztk66aj>
+ <3765cf3d-8477-45a7-af0e-b0c78f41eaad@kernel.org>
+ <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <334845caee45ed72ef08867f23f69b5333be57c5.camel@foss.st.com>
+In-Reply-To: <0b297305-0141-208a-e414-fb7dc98317b9@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_062550_757917_E070CA7D 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20241024_062914_286230_9FA1CE18 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,80 +127,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 12:08, Antonio Borneo wrote:
-> On Wed, 2024-10-23 at 10:51 +0200, Krzysztof Kozlowski wrote:
->> On Tue, Oct 22, 2024 at 05:56:55PM +0200, Antonio Borneo wrote:
->>> From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+On 22/10/2024 09:25, Sibi Sankar wrote:
+> 
+> 
+> On 10/8/24 17:41, Krzysztof Kozlowski wrote:
+>> On 08/10/2024 14:10, Dmitry Baryshkov wrote:
+>>> On Tue, Oct 08, 2024 at 08:49:27AM GMT, Krzysztof Kozlowski wrote:
+>>>> On Mon, Oct 07, 2024 at 11:40:19AM +0530, Sibi Sankar wrote:
+>>>>> +/*
+>>>>> + * QCOM_MEM_TYPE_DDR_QOS supports the following states.
+>>>>> + *
+>>>>> + * %QCOM_DDR_LEVEL_AUTO:	DDR operates with LPM enabled
+>>>>> + * %QCOM_DDR_LEVEL_PERF:	DDR operates with LPM disabled
+>>>>> + */
+>>>>> +#define QCOM_DDR_LEVEL_AUTO	0x0
+>>>>> +#define QCOM_DDR_LEVEL_PERF	0x1
+>>>>
+>>>> I could not find any driver using these. Can you point me to usage in
+>>>> the drivers?
 >>>
->>> Add support for st,stm32mp215-pinctrl and st,stm32mp215-z-pinctrl.
+>>> It's well hidden. These are the raw values used for DDR_QOS memory.
 >>
->> So all previous patches are for this? Then they are supposed to be here.
+>> So not a binding? Then these should be dropped.
 > 
-> Hi Krzysztof,
+> I am not sure why the term "well hidden" was even considered :(
+> The driver just reads them from dt and passes them along. If you
+> want the dt to list magic numbers 0/1 instead I can do that as well.
 > 
-> I'm not sure I fully get your point here.
-> The previous patches in this series add the new features to the already upstreamed STM32MP257.
-> The same features are also needed here by STM32MP215 and in next patches 12/14 and 13/14 by STM32MP235.
 
-commit msgs could be improved here, sorry, I have no clue for what
-devices are you bringing this for. Putting here new SoC clearly suggests
-that it is for new Soc, so entire split is incorrect.
-
-> 
->>
->>> Add packages AM, AN and AO (values : 0x1000, 0x2000 and 0x8000)
->>>
->>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
->>> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
->>> ---
->>>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml         | 4 +++-
->>>  include/dt-bindings/pinctrl/stm32-pinfunc.h                   | 3 +++
->>>  2 files changed, 6 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
->>> index 9a7ecfea6eb5b..0a2d644dbece3 100644
->>> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
->>> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
->>> @@ -27,6 +27,8 @@ properties:
->>>        - st,stm32mp135-pinctrl
->>>        - st,stm32mp157-pinctrl
->>>        - st,stm32mp157-z-pinctrl
->>> +      - st,stm32mp215-pinctrl
->>> +      - st,stm32mp215-z-pinctrl
->>>        - st,stm32mp257-pinctrl
->>>        - st,stm32mp257-z-pinctrl
->>>  
->>> @@ -59,7 +61,7 @@ properties:
->>>        Indicates the SOC package used.
->>>        More details in include/dt-bindings/pinctrl/stm32-pinfunc.h
->>>      $ref: /schemas/types.yaml#/definitions/uint32
->>> -    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800]
->>> +    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800, 0x1000, 0x2000, 0x4000]
->>>  
->>>  patternProperties:
->>>    '^gpio@[0-9a-f]*$':
->>> diff --git a/include/dt-bindings/pinctrl/stm32-pinfunc.h b/include/dt-bindings/pinctrl/stm32-pinfunc.h
->>> index af3fd388329a0..01bc8be78ef72 100644
->>> --- a/include/dt-bindings/pinctrl/stm32-pinfunc.h
->>> +++ b/include/dt-bindings/pinctrl/stm32-pinfunc.h
->>> @@ -41,6 +41,9 @@
->>>  #define STM32MP_PKG_AI 0x100
->>>  #define STM32MP_PKG_AK 0x400
->>>  #define STM32MP_PKG_AL 0x800
->>> +#define STM32MP_PKG_AM 0x1000
->>> +#define STM32MP_PKG_AN 0x2000
->>> +#define STM32MP_PKG_AO 0x4000
->>
->> Why these are some random hex values but not for example 0x801, 0x802
->> and 0x803? That's an enum, so bitmask does not make sense here.
-> 
-> The are bitmask. You can check in patch 14/14 that adds a new package to the existing code of STM32MP257.
-> Do you prefer I rewrite them all as, e.g.
-> #define STM32MP_PKG_AO (1 << 14)
-> ?
-
-OK, so where is this bitmask used in DTS? These are bindings, not some
-random defines for driver.
+If these are used by FW, then it's fine, although please document it
+clearly in comment.
 
 Best regards,
 Krzysztof
