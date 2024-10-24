@@ -4,81 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26363CE8E70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE540CE8E76
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08lXJgKcAe8N3lleod88TNBbTcd1+2/PW8hqN4eL/LU=; b=xLlEg/2s+w7I2GMr5dgRCMBOOY
-	nhnmOQNModO1WM8gyUMWfIxczLjXoPe83yNDUjiMbe39FPJfnkPdQrDDMIUhjDiIDfb6vMuQRmfa/
-	8kWLW2CS9Qv8/gJWu1uEYY544wolcjwAMkfX+EJ+5qHuubj8xZtbi6k/wz5MBbo43Jq77GIEqRRTi
-	+Wfmdf/kmHC+qURgitW31+9ticaZBuEQproSkQ31aU8U8RBWJx7fG7wSBGkryskWy11vLMx77Y1T/
-	af3vgyGqm3MaDbT1B1S5wCyTM/kgZ30TlQiV/O+37fJEZ/P0eHnbMhafbGBtNdUGTCO2FdwiInM1m
-	tMtEnDCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NBEEIgzJAYBS0L/0GdSToYpNtM+CbQltwK1m8Nu5ZEo=; b=uPtSlK0Q1y/7nmlXWZjNVgcKat
+	k6mwOY+sBz+UMyyvf7fca7OEWF7gQ+h+v6oExiq4svQSkBA1b9otAmZXZz1gB0m+gqGa87rF7hDPA
+	DnF9wseSIgXls5jqGybkrEUGYTPNBjWviGJkkFsg5BFLG/4qDWcze7SGklQjTT4XNAwP/Vp6u6OZm
+	L0VO2jGZp1wBvAWE5oSij0/OCOx7tAx4rxxsDO5UWjgI/RrUWWhN6NwerqTLSNMHuLEwBwlkljoYT
+	YN7RVndJzXSBmjBoG+nkGAF7yoOCH4OiqiImToTcZZ0FR/zYr7YBry95pZzUyAKuxaWESXIcmFlWi
+	rizGNHow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xqy-00000000V2t-24HN;
-	Thu, 24 Oct 2024 13:26:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t3xt6-00000000Vsw-2JMx;
+	Thu, 24 Oct 2024 13:28:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xnu-00000000Tru-2L63
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Oct 2024 13:23:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=08lXJgKcAe8N3lleod88TNBbTcd1+2/PW8hqN4eL/LU=; b=Y+a8rBsVhVtNSyK0WXxleuhqnf
-	oESmQrXtaEzGFzKiAiLjtXU0N/qJBqAHiWmB1vLGC2Jl0Ajxu1m3oquQjk8UPxGRVzKig1oyJbAna
-	ltDB33ZL50oWVUaUQatTu0jcvRDbqT1MJIizUABjdF8HoiBiW4YNM+ZMtIl+UPgDY8x8slOGKnUqn
-	XWBZwrEiF8j/RFujPCaFX3XBNJfD7DFXFQb4jg6fEadgrWLlmL7mrnN/e1SlQFBRFAWBTATB96qWV
-	uFqwLXwNEVOODPuYvFHkUh+Z/+OgqL1M5h/NI7dNOHWHIZK2TnMTRkt9oYLFDmRO3yYemCKQHs/Fq
-	mNlC5gSw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xnr-00000008faD-3Tlw
+	id 1t3xqY-00000000UuW-2XtS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:23:05 +0000
+	Thu, 24 Oct 2024 13:25:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 76001A45419;
-	Thu, 24 Oct 2024 13:22:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B136AC4CEC7;
-	Thu, 24 Oct 2024 13:22:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A44E5C5F7B;
+	Thu, 24 Oct 2024 13:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5AF6C4CEC7;
+	Thu, 24 Oct 2024 13:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729776180;
-	bh=xYOd1PGCn+k3tNRpgbdP98I0aYi1W9inhgTkL3ocTDw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UE3qlqocUQQwG7+oevrCYRcqdU5t6igksP5NXhM/w/Avp9vTWc9do/b/XFIaLNfV5
-	 nF5Mu09+yamxjgYhYGBEQmyp0jczN/DdGoDW33UtiPMUXVeEbuIhBF22CiQpgWVwV0
-	 qUkHRqiDvnAE6+n+Gx1vJ81KFaa+9tUo6F6L3DmpRpnwHnc377u3qWPsgOaTM457VE
-	 v9l5/b2mhN5jG+3lRx8YjH+eLwlL5IZ6wRAjXlWNtm0ptENvdOtcjvulFw+AvWDq6L
-	 LQWX29+MFnAHc+tALWO1lyKg/mbG/pBQ6CBRa5K0LSHIpv+WZigHO6oDUKFVVqZmqs
-	 gAPURf4qcQhJA==
-Date: Thu, 24 Oct 2024 15:22:56 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Tommy Huang <tommy_huang@aspeedtech.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	"brendanhiggins@google.com" <brendanhiggins@google.com>, "benh@kernel.crashing.org" <benh@kernel.crashing.org>, 
-	"joel@jms.id.au" <joel@jms.id.au>, BMC-SW <BMC-SW@aspeedtech.com>, 
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>, 
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] i2c: aspeed: Consider i2c reset for muti-master case
-Message-ID: <c3ss6ralf4tpyknsda5p745a65xjprlzecdq3s4zy4dpckuxi4@izf7emrzykay>
-References: <20241018034919.974025-1-tommy_huang@aspeedtech.com>
- <e06a0db538bf62d4aeb7352ecc81a3a679fb9eec.camel@codeconstruct.com.au>
- <TYZPR06MB6191EBA63B87FE5152AF029DE14C2@TYZPR06MB6191.apcprd06.prod.outlook.com>
+	s=k20201202; t=1729776349;
+	bh=/bCUgKsOIY9L86GlFHL9HXtDC1qqaWN9FN+5Tsyd+x4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PKCWqs/a86q4KST0J+KvzF0T62MLxDhhkDHhA8wtIml5AyBV7Aglnii9Cb2Uw9Z4M
+	 nL8tfDh7APEr5uUvY2vunEBYxwnI7d9mUiQ5RffzJIMDHUAT4/WyFK0oh9VXyVvGAb
+	 d5P9VFwJJKpsjpdhfx7OVlK9jXETA6TFj++Hxh8vnQN3lgrArM38vhwQqARtSv+RtK
+	 ch7pTQENHJAl/Fum+JrPlmbnZvBzCpNyZ48BzoOvFLSe0hNsb1yj0YpoPHJ0FDmKCu
+	 ruNY26ePL2BSZ/dxNlxi97//r2avf7xd69nHlPjzSWru2O7aKKprnFS6fHsMnCsTXo
+	 aCwd9Kboj7QPw==
+Message-ID: <6d8015dd-f656-4c33-b906-09104cc366b5@kernel.org>
+Date: Thu, 24 Oct 2024 15:25:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TYZPR06MB6191EBA63B87FE5152AF029DE14C2@TYZPR06MB6191.apcprd06.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/14] dt-bindings: pinctrl: stm32: support for stm32mp215
+ and additional packages
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+ Stephane Danieau <stephane.danieau@foss.st.com>,
+ Amelie Delaunay <amelie.delaunay@foss.st.com>,
+ Fabien Dessenne <fabien.dessenne@foss.st.com>,
+ Valentin Caron <valentin.caron@foss.st.com>,
+ Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Cheick Traore <cheick.traore@foss.st.com>,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+ <20241022155658.1647350-12-antonio.borneo@foss.st.com>
+ <2g65375shtjq4udjfarfspqtpg5q27oeerqskt2uzwj44pvnbb@rderpevnrzxs>
+ <334845caee45ed72ef08867f23f69b5333be57c5.camel@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <334845caee45ed72ef08867f23f69b5333be57c5.camel@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_142304_026008_C84AC460 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20241024_062550_757917_E070CA7D 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +133,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tommy,
-
-On Tue, Oct 22, 2024 at 02:42:08AM +0000, Tommy Huang wrote:
-> Hi Andrew,
+On 23/10/2024 12:08, Antonio Borneo wrote:
+> On Wed, 2024-10-23 at 10:51 +0200, Krzysztof Kozlowski wrote:
+>> On Tue, Oct 22, 2024 at 05:56:55PM +0200, Antonio Borneo wrote:
+>>> From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+>>>
+>>> Add support for st,stm32mp215-pinctrl and st,stm32mp215-z-pinctrl.
+>>
+>> So all previous patches are for this? Then they are supposed to be here.
 > 
-> 	Thanks for your comments.
-> 	I want to fix the situation when our controller is set as target mode and reading / writing by other i2c host.
-> 	However, this host is stopped by any other reason (DC on/off..etc).
-> 	It will cause the controller is stuck in this situation.
-> 	But I find it might not have clear hints to identify this situation is normal or abnormal.
-> 	So, this patch should not be applied into mainstream.
+> Hi Krzysztof,
+> 
+> I'm not sure I fully get your point here.
+> The previous patches in this series add the new features to the already upstreamed STM32MP257.
+> The same features are also needed here by STM32MP215 and in next patches 12/14 and 13/14 by STM32MP235.
 
-Please, avoid top posting, I don't understand which part of the
-original message you are trying to comment on.
+commit msgs could be improved here, sorry, I have no clue for what
+devices are you bringing this for. Putting here new SoC clearly suggests
+that it is for new Soc, so entire split is incorrect.
 
-Second thing, please, before sending a patch, always always
-always make sure that checkpatch.pl reports '0' errors and '0'
-warnings, except for few sporadic cases.
+> 
+>>
+>>> Add packages AM, AN and AO (values : 0x1000, 0x2000 and 0x8000)
+>>>
+>>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+>>> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+>>> ---
+>>>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml         | 4 +++-
+>>>  include/dt-bindings/pinctrl/stm32-pinfunc.h                   | 3 +++
+>>>  2 files changed, 6 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+>>> index 9a7ecfea6eb5b..0a2d644dbece3 100644
+>>> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+>>> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+>>> @@ -27,6 +27,8 @@ properties:
+>>>        - st,stm32mp135-pinctrl
+>>>        - st,stm32mp157-pinctrl
+>>>        - st,stm32mp157-z-pinctrl
+>>> +      - st,stm32mp215-pinctrl
+>>> +      - st,stm32mp215-z-pinctrl
+>>>        - st,stm32mp257-pinctrl
+>>>        - st,stm32mp257-z-pinctrl
+>>>  
+>>> @@ -59,7 +61,7 @@ properties:
+>>>        Indicates the SOC package used.
+>>>        More details in include/dt-bindings/pinctrl/stm32-pinfunc.h
+>>>      $ref: /schemas/types.yaml#/definitions/uint32
+>>> -    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800]
+>>> +    enum: [0x1, 0x2, 0x4, 0x8, 0x100, 0x400, 0x800, 0x1000, 0x2000, 0x4000]
+>>>  
+>>>  patternProperties:
+>>>    '^gpio@[0-9a-f]*$':
+>>> diff --git a/include/dt-bindings/pinctrl/stm32-pinfunc.h b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+>>> index af3fd388329a0..01bc8be78ef72 100644
+>>> --- a/include/dt-bindings/pinctrl/stm32-pinfunc.h
+>>> +++ b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+>>> @@ -41,6 +41,9 @@
+>>>  #define STM32MP_PKG_AI 0x100
+>>>  #define STM32MP_PKG_AK 0x400
+>>>  #define STM32MP_PKG_AL 0x800
+>>> +#define STM32MP_PKG_AM 0x1000
+>>> +#define STM32MP_PKG_AN 0x2000
+>>> +#define STM32MP_PKG_AO 0x4000
+>>
+>> Why these are some random hex values but not for example 0x801, 0x802
+>> and 0x803? That's an enum, so bitmask does not make sense here.
+> 
+> The are bitmask. You can check in patch 14/14 that adds a new package to the existing code of STM32MP257.
+> Do you prefer I rewrite them all as, e.g.
+> #define STM32MP_PKG_AO (1 << 14)
+> ?
 
-Andi
+OK, so where is this bitmask used in DTS? These are bindings, not some
+random defines for driver.
+
+Best regards,
+Krzysztof
+
 
