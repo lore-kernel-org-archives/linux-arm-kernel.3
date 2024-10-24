@@ -4,120 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAC7CE8E70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26363CE8E70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtYljdeGFdWqH3FeLgiaiG9kZtUc7xOqcgW/o6445uw=; b=bVFjhC7Uk7XKJqQ7Sq+e/xN90J
-	gjM5BzrmkHxMtdij6lJvGHoGjVCqGo5YxgLYhBP2m1VLJyobaQw9+FbrKoxFN9tqL/ruhT1js2SJ+
-	szvSwGxzIsFM77oczGoEz3NCagClDTG0qk7kncpfWsZkWSlc8RCLsBnTFYgzs9p98/Q+frRnjJezP
-	vGtCYIjk39jv5jSOygJgUa5PbWcerSJATlMEG7Cyoafq0pH46N/JD4Ox6v39m4brLM3kuYXNwZTK/
-	O1L/zOjtiv1NS4jq54RGwilr1AbPzpMKE5BbbY+/Y18zXtxPTl0POG9GEWAuQEtay0VC4mXKZgif9
-	5pzvm4RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=08lXJgKcAe8N3lleod88TNBbTcd1+2/PW8hqN4eL/LU=; b=xLlEg/2s+w7I2GMr5dgRCMBOOY
+	nhnmOQNModO1WM8gyUMWfIxczLjXoPe83yNDUjiMbe39FPJfnkPdQrDDMIUhjDiIDfb6vMuQRmfa/
+	8kWLW2CS9Qv8/gJWu1uEYY544wolcjwAMkfX+EJ+5qHuubj8xZtbi6k/wz5MBbo43Jq77GIEqRRTi
+	+Wfmdf/kmHC+qURgitW31+9ticaZBuEQproSkQ31aU8U8RBWJx7fG7wSBGkryskWy11vLMx77Y1T/
+	af3vgyGqm3MaDbT1B1S5wCyTM/kgZ30TlQiV/O+37fJEZ/P0eHnbMhafbGBtNdUGTCO2FdwiInM1m
+	tMtEnDCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xpK-00000000UKQ-1zGv;
-	Thu, 24 Oct 2024 13:24:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3xqy-00000000V2t-24HN;
+	Thu, 24 Oct 2024 13:26:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xnh-00000000Tov-0y5k
+	id 1t3xnu-00000000Tru-2L63
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Oct 2024 13:23:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=08lXJgKcAe8N3lleod88TNBbTcd1+2/PW8hqN4eL/LU=; b=Y+a8rBsVhVtNSyK0WXxleuhqnf
+	oESmQrXtaEzGFzKiAiLjtXU0N/qJBqAHiWmB1vLGC2Jl0Ajxu1m3oquQjk8UPxGRVzKig1oyJbAna
+	ltDB33ZL50oWVUaUQatTu0jcvRDbqT1MJIizUABjdF8HoiBiW4YNM+ZMtIl+UPgDY8x8slOGKnUqn
+	XWBZwrEiF8j/RFujPCaFX3XBNJfD7DFXFQb4jg6fEadgrWLlmL7mrnN/e1SlQFBRFAWBTATB96qWV
+	uFqwLXwNEVOODPuYvFHkUh+Z/+OgqL1M5h/NI7dNOHWHIZK2TnMTRkt9oYLFDmRO3yYemCKQHs/Fq
+	mNlC5gSw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t3xnr-00000008faD-3Tlw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:22:54 +0000
+	Thu, 24 Oct 2024 13:23:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6077FA453B3;
-	Thu, 24 Oct 2024 13:22:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FF83C4CEE3;
-	Thu, 24 Oct 2024 13:22:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 76001A45419;
+	Thu, 24 Oct 2024 13:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B136AC4CEC7;
+	Thu, 24 Oct 2024 13:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729776171;
-	bh=kc1ZQ4MosC46ZBz5uzN1Bxee3AY7JHIMK7ZbiVyBQw8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cVJ1uujs3gqDg34e0qGqig8v+exShDKLedXA4/XRuFTRPqTraBc8zB3cKN6wyZtVU
-	 7qvSckk7X16ERyKJ25ail3z6Or7DNI0Q5BEwzBCtqEACjZ9qqzTkI63/xBYVvL/OzV
-	 eznrFwBW2v/AQ0R/7JNS7FxzJQP8wsmLP7rXfst2FfLo50q7+RXrrjllF8yfB5i0Y6
-	 KYHT6BNId9USHmBQd1lK0nw5vrO+BO9CzRHgn1xjqvUwAhunyXs0fGi87H8KqCX4U5
-	 iKALZjAlFzuM1UC0iIQjiWlVm9Lw+HwfS1C9YAmXGbOyRNEovyF5WLpqs54PyA5FD0
-	 3AOk6jVnrwsjA==
-Message-ID: <53f2e315-1a80-4d03-96a6-30604a96d3ad@kernel.org>
-Date: Thu, 24 Oct 2024 15:22:42 +0200
+	s=k20201202; t=1729776180;
+	bh=xYOd1PGCn+k3tNRpgbdP98I0aYi1W9inhgTkL3ocTDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UE3qlqocUQQwG7+oevrCYRcqdU5t6igksP5NXhM/w/Avp9vTWc9do/b/XFIaLNfV5
+	 nF5Mu09+yamxjgYhYGBEQmyp0jczN/DdGoDW33UtiPMUXVeEbuIhBF22CiQpgWVwV0
+	 qUkHRqiDvnAE6+n+Gx1vJ81KFaa+9tUo6F6L3DmpRpnwHnc377u3qWPsgOaTM457VE
+	 v9l5/b2mhN5jG+3lRx8YjH+eLwlL5IZ6wRAjXlWNtm0ptENvdOtcjvulFw+AvWDq6L
+	 LQWX29+MFnAHc+tALWO1lyKg/mbG/pBQ6CBRa5K0LSHIpv+WZigHO6oDUKFVVqZmqs
+	 gAPURf4qcQhJA==
+Date: Thu, 24 Oct 2024 15:22:56 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Tommy Huang <tommy_huang@aspeedtech.com>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	"brendanhiggins@google.com" <brendanhiggins@google.com>, "benh@kernel.crashing.org" <benh@kernel.crashing.org>, 
+	"joel@jms.id.au" <joel@jms.id.au>, BMC-SW <BMC-SW@aspeedtech.com>, 
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] i2c: aspeed: Consider i2c reset for muti-master case
+Message-ID: <c3ss6ralf4tpyknsda5p745a65xjprlzecdq3s4zy4dpckuxi4@izf7emrzykay>
+References: <20241018034919.974025-1-tommy_huang@aspeedtech.com>
+ <e06a0db538bf62d4aeb7352ecc81a3a679fb9eec.camel@codeconstruct.com.au>
+ <TYZPR06MB6191EBA63B87FE5152AF029DE14C2@TYZPR06MB6191.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/14] dt-bindings: pinctrl: stm32: add RSVD mux function
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Stephane Danieau <stephane.danieau@foss.st.com>,
- Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Fabien Dessenne <fabien.dessenne@foss.st.com>,
- Valentin Caron <valentin.caron@foss.st.com>,
- Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Cheick Traore <cheick.traore@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
- <20241022155658.1647350-5-antonio.borneo@foss.st.com>
- <swbppwzpavktjpyb6piayzzht6ta75w3g36oyndmim54oztar5@svb4452yob7g>
- <680f3e0b7458015d5b909200342a623eb55f907d.camel@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <680f3e0b7458015d5b909200342a623eb55f907d.camel@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TYZPR06MB6191EBA63B87FE5152AF029DE14C2@TYZPR06MB6191.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_062253_418541_AB28BD5C 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241024_142304_026008_C84AC460 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +93,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 10:56, Antonio Borneo wrote:
-> On Wed, 2024-10-23 at 10:47 +0200, Krzysztof Kozlowski wrote:
->> On Tue, Oct 22, 2024 at 05:56:48PM +0200, Antonio Borneo wrote:
->>> From: Fabien Dessenne <fabien.dessenne@foss.st.com>
->>>
->>> Document the RSVD (Reserved) mux function, used to reserve pins
->>> for a coprocessor not running Linux.
->>>
->>> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
->>> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
->>> ---
->>>  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
->>>  include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
->>>  2 files changed, 9 insertions(+)
->>>
->>
->> BTW, which *existing* SoCs use it? Aren't you adding it for the new
->> platform?
->>
+Hi Tommy,
+
+On Tue, Oct 22, 2024 at 02:42:08AM +0000, Tommy Huang wrote:
+> Hi Andrew,
 > 
-> This is already used in ST downstream kernel for STM32MP15x
-> In this example
-> https://github.com/STMicroelectronics/linux/blob/v6.1-stm32mp/arch/arm/boot/dts/stm32mp157f-dk2-m4-examples.dts#L112
-> 
-> the GPIOs for LED and for PWM are assigned to the Cortex-M4 and Linux (on Cortex-A7) is not supposed to touch them.
+> 	Thanks for your comments.
+> 	I want to fix the situation when our controller is set as target mode and reading / writing by other i2c host.
+> 	However, this host is stopped by any other reason (DC on/off..etc).
+> 	It will cause the controller is stuck in this situation.
+> 	But I find it might not have clear hints to identify this situation is normal or abnormal.
+> 	So, this patch should not be applied into mainstream.
 
-I wasn't clear. Which upstream uses it? We really could not care less
-about downstream vendor code.
+Please, avoid top posting, I don't understand which part of the
+original message you are trying to comment on.
 
-Best regards,
-Krzysztof
+Second thing, please, before sending a patch, always always
+always make sure that checkpatch.pl reports '0' errors and '0'
+warnings, except for few sporadic cases.
 
+Andi
 
