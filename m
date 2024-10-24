@@ -4,121 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6A5CE8E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D3ACE8E6A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 17:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6hdAvb8NLWL704iTziqYqjEOhmMGQ3+UNyvCY/oBTLo=; b=pGZJuyDSK1dLQsKTQ0xOHPg/g8
-	42FOwrQqHpohipjQUj4bcZpR9B3RpNRGMzsSdW0HWi/TvuSpfGWtWxtA4ATYtz4KiD3sPDmw+2GFV
-	jVE2dmM0BgxTLstAl9ThIKg5hkMci498tkmLbtTxyFiCUkhmjQ+0AhrgdvRL3nSHRst+g+/YoqdrL
-	T24UqII5CwZxchPVWHidO93cuyxQyRFgU0G5s7Fzs6qpcCD8IsoblaVuc9RxabW7/nG+MfQKoUbL6
-	03lJym47phalsKC1C3auzzCd7tKUtA2e41r9Anpd7d6ydumbiWwUu/PwfX2Bmo4kwwSzRWgIGPsNw
-	9DdwUCpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=psnlZOaJ47vx5nu3ohbujGpbdy3SwZ6aBUbcSi16HXc=; b=yBE5Qd/m9Cqu+1JlBYNn2mlVXs
+	bNkYtrlJhxG8Kn1/X0Lvdx60pVxfsQSPygrc3UM+XZmdy2krA6uO0F5Fl/i5zqKbF/JddO+AmQhvr
+	N3RLqFtrtuw5oGhpcxQi9GSYLan7K8JROyurq0Ss3WEjQ+Kr3G22jEEDzHURKFn0gpbVE61dYJxdO
+	zaJ/EzKIwB237kABtK7v6Nm/ir9ieQWDpg6wgR+ODIiU3cqjkW7i+iN7/vO4OweJ3nesmxCwfWadu
+	pExyZfgwhOprBJvUcUY8o/1ZNCsSPF1SfcINeUMAghzICop+5kGV8uLinUZnQDdCbwTAXk1F8FrN2
+	4Oi5Bk2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41mi-00000001JVt-2ARu;
-	Thu, 24 Oct 2024 17:38:08 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1t41oE-00000001Jnu-2gSO;
+	Thu, 24 Oct 2024 17:39:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t41OW-00000001EdY-2if4
+	id 1t41QO-00000001F50-1yxt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 17:13:10 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539e59dadebso1511776e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 10:13:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729789987; x=1730394787; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6hdAvb8NLWL704iTziqYqjEOhmMGQ3+UNyvCY/oBTLo=;
-        b=Rv8VPcur5uHqeJ6HJYLRj31VLjG1V+LeXKJS4lNUtZrt2JYFTNSlO5Pr7dy2pNTugF
-         WPafiZXiEiHmbA2PoVRGf/3ri+UqMfPXTDSYD1F3TJYzEyR8NdPACQBgbpm6F9ls0Z48
-         th3N1osFx7DgcWMnYw1DCoJ6ejYZH3q7CPSJ4R/43KIIIxR2tsQnTp+oPAWfrqfDK0lT
-         QCvy0ey+HRzADFQKCgMRgPzsLlHPen+m5J4LIz3bvXefgB2sh6jXQbIx7WpByc0j4VuR
-         FxJsaMUev3r3aHiEfajjBjQFEfVK+G+YwOFkHacHAqlS95MUTCdGlXGX2e2MheUXuNAF
-         79Gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729789987; x=1730394787;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6hdAvb8NLWL704iTziqYqjEOhmMGQ3+UNyvCY/oBTLo=;
-        b=R9XR4XAq6cOnRmht7PFaaODJSIlOZyO/yJtJqfdJ+gVS2C037bXs3hZ75ECjJLI9Kz
-         F8whYYG0nV5IAp91abS+Dh1zqAifofTbnUOSSlVZNGebm4bSZQzHNJwvT3aqhlok5Cuv
-         /0PqMrMODEkiPFftNhmtsGCRwV2tVHvwqCWu1sgwXt1ugjnAWrfn26AidOYYuJ7iPRf+
-         UfQe4HFpqGVGLwfZ8McUs//p7k00/pwZ6UtT5ETdwW2n/G5EaPEiw5CooAu5egX0Pmmb
-         VE6yWbfFXESZDDvsD/Wh4eW5COtf9cnDbv4ltWZqGiSe0Mn9Mf20cGyd94JCFdeOlO8r
-         UXuw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhl/SQJjb2BBQH/KbP9d5+ViXhNyD1klcKSk36e9FkkKNOFk0rQm90SfZWecekfEnIkBf3CjAgdh8jWAyW4TRQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws9j3HXOFI3IcyuK36+rUxf1mQe54W2KdZj+nQKzZC/kjl0iHH
-	xEkd8iPKrc06F48TqSMwa9D5hyNkXbp1IAAL2TAd0hj0ppKBmTGG
-X-Google-Smtp-Source: AGHT+IEJrnhn/5/VxTjI1TEQfMbkTLNVVw+upqvyz70ssz9oIGnbiAEnPfVYa3vxl29Vh+zfeQfo5A==
-X-Received: by 2002:ac2:4c42:0:b0:539:8ad5:5093 with SMTP id 2adb3069b0e04-53b23e33be4mr1818516e87.35.1729789986594;
-        Thu, 24 Oct 2024 10:13:06 -0700 (PDT)
-Received: from seven-swords.. ([2a03:d000:2:9006:4eed:fbff:fe72:e806])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53a224202a6sm1431843e87.125.2024.10.24.10.13.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 10:13:05 -0700 (PDT)
-From: Ivan Epifanov <isage.dna@gmail.com>
-To: linux@roeck-us.net
-Cc: andriy.shevchenko@intel.com,
-	aospan@netup.ru,
-	conor.dooley@microchip.com,
-	ddrokosov@sberdevices.ru,
-	dmaengine@vger.kernel.org,
-	dushistov@mail.ru,
-	fancer.lancer@gmail.com,
-	geert@linux-m68k.org,
-	gregkh@linuxfoundation.org,
-	hoan@os.amperecomputing.com,
-	ink@jurassic.park.msu.ru,
-	isage.dna@gmail.com,
-	jeffbai@aosc.io,
-	kexybiscuit@aosc.io,
-	linux-alpha@vger.kernel.org,
+	Thu, 24 Oct 2024 17:15:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6485BA455C1;
+	Thu, 24 Oct 2024 17:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 459A7C4CEC7;
+	Thu, 24 Oct 2024 17:15:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729790103;
+	bh=qKUU2cq8v+5SaeVu6RRbmqKGY6u205flt7+P+PAhKt8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XLXXrzHUAaUf/MCzx4vivPosRtuWGRFNg2bv7Lc6HMcc9UvSy3QscmxKbNY5GuJlE
+	 XX/qG+NPu/18qDb8rzdBeQrZr4WySMdwRdjcHplzCvcmA0CnRsVCKCENzgvR2x86sI
+	 yUnPDdsMjKr1iR5LnCTAs4ZrZ2+BH1O5jOX7zbFkoBV56fXCyXEFDcEv/zYOxPc+4x
+	 Hc2kPzHV9iJkUgu90yGuzHCsH43E0Z1pGEiKQRXkRNJ2O/ajK4U8OznO1g5nYCTasW
+	 qw3XBAe+p7izv6WqvgO258kcfLLjp3Kb23hqkqz0UdncqEeJm+i1Xiw3ogpDzSfB2j
+	 8d14lsWaswaBQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t41QL-006X9S-0p;
+	Thu, 24 Oct 2024 18:15:01 +0100
+Date: Thu, 24 Oct 2024 18:15:00 +0100
+Message-ID: <86msit2zjf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Johan Hovold <johan@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mattst88@gmail.com,
-	netdev@vger.kernel.org,
-	nikita@trvn.ru,
-	ntb@lists.linux.dev,
-	patches@lists.linux.dev,
-	richard.henderson@linaro.org,
-	s.shtylyov@omp.ru,
-	serjk@netup.ru,
-	shc_work@mail.ru,
-	torvalds@linux-foundation.org,
-	torvic9@mailbox.org,
-	tsbogend@alpha.franken.de,
-	v.georgiev@metrotek.ru,
-	wangyuli@uniontech.com,
-	wsa+renesas@sang-engineering.com,
-	xeb@mail.ru
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various compliance requirements."
-Date: Thu, 24 Oct 2024 20:13:01 +0300
-Message-ID: <20241024171301.241949-1-isage.dna@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <61a622bd-7597-45e2-96d9-9cba02fba407@roeck-us.net>
-References: <61a622bd-7597-45e2-96d9-9cba02fba407@roeck-us.net>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	devicetree@vger.kernel.org,
+	Sibi Sankar <quic_sibis@quicinc.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Johan Hovold <johan+linaro@kernel.org>
+Subject: Re: [PATCH] arm64: dts: qcom: x1e80100: Route pcie5 MSIs to the GIC ITS
+In-Reply-To: <Zxp09Q1DPYf9BK0z@hovoldconsulting.com>
+References: <20241024161814.1827514-1-maz@kernel.org>
+	<Zxp09Q1DPYf9BK0z@hovoldconsulting.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: johan@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, quic_sibis@quicinc.com, konradybcio@kernel.org, abel.vesa@linaro.org, johan+linaro@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_101308_706724_DE75B0E1 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_101504_668435_79F523CB 
+X-CRM114-Status: GOOD (  33.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,15 +89,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I really don't want to get involved, but this misinformation really goes too far.
+On Thu, 24 Oct 2024 17:25:25 +0100,
+Johan Hovold <johan@kernel.org> wrote:
+> 
+> On Thu, Oct 24, 2024 at 05:18:14PM +0100, Marc Zyngier wrote:
+> > There is no reason to use the PCIe root port widget for MSIs for
+> > pcie5 while both pcie4 and pcie6a are enjoying the ITS.
+> > 
+> > This is specially useful when booting the kernel at EL2, as KVM
+> > can then configure the ITS to have MSIs directly injected in guests
+> > (since this machine has a GICv4.1 implementation).
+> > 
+> > Tested on a x1e001de devkit.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: Sibi Sankar <quic_sibis@quicinc.com>
+> > Cc: Konrad Dybcio <konradybcio@kernel.org>
+> > Cc: Abel Vesa <abel.vesa@linaro.org>
+> > Cc: Johan Hovold <johan+linaro@kernel.org>
+> > ---
+> >  arch/arm64/boot/dts/qcom/x1e80100.dtsi | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> > index 3441d167a5cc..48f0ebd66863 100644
+> > --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> > +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+> > @@ -3281,6 +3281,8 @@ pcie5: pci@1c00000 {
+> >  			linux,pci-domain = <5>;
+> >  			num-lanes = <2>;
+> >  
+> > +			msi-map = <0x0 &gic_its 0xd0000 0x10000>;
+> 
+> As I just mentioned in another thread, and in the commit message of
+> 9c4cd0aef259 ("arm64: dts: qcom: x1e80100: enable GICv3 ITS for PCIe")
+> this was done on purpose as
+> 
+> 	PCIe5 (and PCIe3) can currently only be used with the internal
+> 	MSI controller due to a platform (firmware) limitation
+> 
+> Did you try this when booting in EL1? If so we may need to enable this
+> per board.
 
-Then don't.
+Nah, you are absolutely correct: when booted at EL1, the ITS driver
+reports that the ITS queue is no longer making forward progress as
+soon as we are trying to map something in that range:
 
-> https://en.wikipedia.org/wiki/Finland_in_World_War_II
+[    5.068749] ITS queue timeout (9984 9921)
+[    5.072871] ITS cmd its_build_mapd_cmd failed
 
-> provides context. And it does sound familiar. Turns out the Finnish defended
-> themselves against invasion from the Soviet Union. Sounds familiar ? Guess it's
-> the same as those alleged Nazis in Ukraine nowadays.
+I suspect it trips over itself trying to interpret the command, and
+that the other PCIe ports work by pure luck (maybe thanks to having
+a even number?).
 
-Especially if you can't read beyond few pararaphs.
+Comparing the logs, it is obvious that the hypervisor is not showing
+us the actual HW topology: the ITS supports 64kB pages, which we use
+when booted at EL2, while we only see 4kB support at EL1.
+
+And the boot really is hilarious:
+
+[    0.000000] ITS@0x0000000017040000: Devices Table too large, reduce ids 32->19
+
+19 bits is the maximum the kernel can allocate with a 4kB page size.
+I would like to see the face of a HW person if they had to design a
+system with 32bit worth of DeviceID...
+
+[    0.000000] ITS@0x0000000017040000: Devices too large, reduce ITS pages 1024->256
+
+and 256 pages is the maximum we can describe to the ITS...
+
+Obviously, this emulation was never really tested, since Windows
+replaces it at boot time. Oh well.
+
+I'll stash this patch as part of my "make EL2 great again" branch! ;-)
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
