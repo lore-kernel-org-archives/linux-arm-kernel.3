@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2CBCE8E76
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089DDCE8E78
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H22z+1DKblhixrrQFnavIFVOTl1pYEAvrFqvlkNkAyM=; b=ddUw/F5OVDdUtRZjzESCVjqIUi
-	axS9xUNUnnihloDckW03VQkhNiartuQPP8up0NwOAoA2A+HpZ7W2Uw8Ix1lmL1VRJGi+Ve1pA4yUf
-	wFpxa+XDKcsjTQcFsf1MHPPAMZJXdxGmbt8a8N6BK8liXqinf0oEtsIADqKvn5m321eki89btRHcE
-	5PNOfg7voPNm47Pfbso0tPrP2xfA4FJ/wGh+ClXZVPufz5UdkM9kt7tiyOmxVea2p1nvCaIQFnl+E
-	s6giPZApTkM07nbfqkAcWDdVT9UCfiQu0Ic9CuLDBIoqopMIWx1A9Nacr6yW8xXuTOfeDqM2dgQod
-	xeeo+RNw==;
+	bh=XOTsGCvjF5y8NwPgxb6XQ2iIp8aB6jMs36WT0XHRDXA=; b=yHO23/dfnWdE9/1YbRb6dQRON2
+	fblTFSYWkU6h4Se3IsNY4g08Izyo4KgwoHB5f3tlBhSQXJazcwJauACPP5TED7z6FcdafssBIdgQs
+	9LE8F9MTN/BjZivN170xWXzZbL3Jy5tt0S5TYVtDCS2VKYuEHSD2tgl8d86WxaBdlkvJvlXjnVGw/
+	JxJyLrJ842ypPkoEWnzYJCrIj5IOrkYik6Z7qTcvsDrXUCzekrvd64x0hRqefvCoHUE6PZ8cRWz8w
+	lLvFUNOKrVxHbJhGvy8OuhaPoY26y1Q8W1/yiUpZfdQHSdz3rE4IPodA6HtcK6rKqA8UX4seoYjCv
+	kk6prqwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3yBZ-00000000Znx-3qfi;
-	Thu, 24 Oct 2024 13:47:33 +0000
+	id 1t3yD6-00000000a36-05k0;
+	Thu, 24 Oct 2024 13:49:08 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3y9v-00000000ZVM-3Y6y
-	for linux-arm-kernel@lists.infradead.org;
+	id 1t3y9x-00000000ZVe-0ghl;
 	Thu, 24 Oct 2024 13:45:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5140F5C5FBE;
-	Thu, 24 Oct 2024 13:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AA6C4CEC7;
-	Thu, 24 Oct 2024 13:45:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D8FB5C5FDA;
+	Thu, 24 Oct 2024 13:45:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE3EC4CEE3;
+	Thu, 24 Oct 2024 13:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729777550;
-	bh=wwPWvSBGUvSYbh2tv8Xhy1j32pV3xMYlKdte6yQ/l2Q=;
+	s=k20201202; t=1729777551;
+	bh=ysaebKzqz4XXZimRWbG9UPVLLN1JN2MVZiCwi9rRVUM=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=tvZhZ/WmfNUnyiKb5Ug+aYDARYpCaIaVruHf8RzheKEtrmA119942UEAyYXBDTIu4
-	 Ij802krosYUO8QjsIiY7S0l0fkv7KWTLyVjKzJiRB/8+PTeYVyR2729dlbrS4xic9S
-	 i3PNz0/nt5WYqKx5CZyeN+2RNC119c467bPSf2U7pLq/cBxS2XnRgjaLRKVD4e8Y83
-	 +UUneGva/+KcjKgregL0zfY6OLdFOU1kuzilwUBX0YPJwC8zmbGVzpBYBfKWUQv4a8
-	 t4htVWQwwVJ/KnXYfHbiTrWlisRfL6nwN8GK8ZwIgJSw3v0WKo6f8UMq9Y++my8OXd
-	 vXDn+M6UHDTqA==
-Date: Thu, 24 Oct 2024 08:45:48 -0500
+	b=hJZbzmraRElTGj4KBom6GeCanhFOrtyiiz4Av4mm37YQgm08e7xJeXdowMAeUrKwN
+	 OIr3+hJ/ughyyiPztWDSFEIus2G5qEpLvKQae7NId4tYMZgh9XbF9X6vN0q7QnDrFk
+	 zrMtEwNLzdObM3qsTNT8ZNV2RCulL0/cZADvpKtbRZenAQD2bYRFPmne9tXKypxrbO
+	 GxvsSJwreM0+TK5b9MG82mQaq0bp+jmUDDMCQHudtEMPrisod10+kLx0tK47MmJeS/
+	 0h9sBep6NTNBshN34uWpdQlQ+7bRN9/PKUm7i7zjE/xPEFdqjHRMsQlclm3kwRmp+7
+	 nSdabjxBxSC2w==
+Date: Thu, 24 Oct 2024 08:45:50 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: BMC-SW@aspeedtech.com, conor+dt@kernel.org, devicetree@vger.kernel.org, 
- linux@roeck-us.net, jdelvare@suse.com, krzk+dt@kernel.org, joel@jms.id.au, 
- linux-hwmon@vger.kernel.org, linux-pwm@vger.kernel.org, ukleinek@kernel.org, 
- linux-aspeed@lists.ozlabs.org, andrew@codeconstruct.com.au, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241024071548.3370363-2-billy_tsai@aspeedtech.com>
-References: <20241024071548.3370363-1-billy_tsai@aspeedtech.com>
- <20241024071548.3370363-2-billy_tsai@aspeedtech.com>
-Message-Id: <172977754729.100390.12938687199677719303.robh@kernel.org>
-Subject: Re: [PATCH v1 1/2] hwmon: (aspeed-g6-pwm-tacho): Extend the
- #pwm-cells to 4
+To: "Karl.Li" <karl.li@mediatek.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Chungying Lu <chungying.lu@mediatek.com>, Karl Li <Karl.Li@mediatek.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>
+In-Reply-To: <20241024092608.431581-2-karl.li@mediatek.com>
+References: <20241024092608.431581-1-karl.li@mediatek.com>
+ <20241024092608.431581-2-karl.li@mediatek.com>
+Message-Id: <172977754868.100447.11555196771647688261.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: mailbox: mediatek: Add apu-mailbox
+ document
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_064551_952244_23991608 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20241024_064553_266861_500CCA23 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +80,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 24 Oct 2024 15:15:47 +0800, Billy Tsai wrote:
-> Add an option to support #pwm-cells up to 4. The additional cell is used
-> to enable the WDT reset feature, which is specific to the ASPEED PWM
-> controller.
+On Thu, 24 Oct 2024 17:25:43 +0800, Karl.Li wrote:
+> From: Karl Li <karl.li@mediatek.com>
 > 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> Change-Id: Iefcc9622ac3dc684441d3e77aeb53c00f2ce4097
+> Add apu-mailbox dt-binding document.
+> 
+> Signed-off-by: Karl Li <karl.li@mediatek.com>
 > ---
->  .../bindings/hwmon/aspeed,g6-pwm-tach.yaml    | 25 ++++++++++++++++++-
->  1 file changed, 24 insertions(+), 1 deletion(-)
+>  .../mailbox/mediatek,apu-mailbox.yaml         | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,apu-mailbox.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -94,16 +97,12 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.example.dts:54.48-70.11: ERROR (duplicate_label): /example-1/pwm-tach-controller@1e610000: Duplicate label 'pwm_tach' on /example-1/pwm-tach-controller@1e610000 and /example-0/pwm-tach-controller@1e610000
-ERROR: Input tree has errors, aborting (use -f to force output)
-make[2]: *** [scripts/Makefile.dtbs:129: Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.example.dtb] Error 2
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1442: dt_binding_check] Error 2
-make: *** [Makefile:224: __sub-make] Error 2
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mailbox/mediatek,apu-mailbox.example.dtb: mailbox@4c200000: reg: [[0, 1277165568], [0, 1048575]] is too long
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,apu-mailbox.yaml#
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241024071548.3370363-2-billy_tsai@aspeedtech.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241024092608.431581-2-karl.li@mediatek.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
