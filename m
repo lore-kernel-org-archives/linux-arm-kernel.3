@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B15ED0BB6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79335D0BB66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 07:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NmQatCFF0Cmmv+loMBW6k36p02qu5kMzjwwsFbjx5+o=; b=s8QNMYbLtq4w/F3ZOq0+yOL1j9
-	y7dI5xy7ybnQSFg9Se/EmWCOb/epvq0y7WqDVjLRehoSKJGoQ9lHsFfP0P2sQYoCtNLcoV9D2UTwy
-	sMv952ps3Nww7fwwYb/xw4zonmhChr2FxvWx3GaZCStCqKulew13cvzpNJ6i1SQbq1SxCsLh8b8Hr
-	kUgSEF3cF89cub0NCKw8tT0EN9II2F2n5sN2CDM6gK7GqKPE4TwHwe3mVefAZ9MkIgV/0lu3HG/UP
-	U7zinD4h71zoX4wYggc2dUngZ9g3Bs//Uw89dD0FHg5hefW/Po80fW94axbSFLlcF1543s690SPEj
-	7krGBqqw==;
+	bh=L4aJMYOV4mQD7ik/qBlN1zo6hGHoaOy1n10tn397mrY=; b=YX/+tipAhWrLiRHqDNh+255J3G
+	6pUEHH9vbT6vIsXVrh+wmXZUbgJFdcHb29hPnTr5YYQOBegvL3j5kJF1fTtKy+ywePhDTHaq/tEWi
+	SX7mE1IOOt9Z0XkBn2KHJEbesh3IO6aWjvNjSxC1BWVhQwRotq8whQCpcvqlJMcQlh1+xs3iJx/G1
+	SCBtNHATye6HP9ZMgGPUVef63iw0YgG7DO6FOatfFOinWhkhV/ojhoohlZN31T1TSGO7f4aiKY9Eg
+	gMcz3ZvxKW4FA7WyJFr3b/c+XbHuk3rPQNXf8Em7sUt2FY6QzF3JWlRw2keuM5pEAxUdLPTTy355o
+	xA8RW4Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3s7i-0000000H4FA-1FM2;
-	Thu, 24 Oct 2024 07:19:10 +0000
+	id 1t3s9E-0000000H4Ot-3qrS;
+	Thu, 24 Oct 2024 07:20:44 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3s4e-0000000H3mS-32O3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 07:16:02 +0000
+	id 1t3rw1-0000000H1c4-3F49;
+	Thu, 24 Oct 2024 07:07:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 84F9DA45185;
-	Thu, 24 Oct 2024 07:15:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D103CC4CECC;
-	Thu, 24 Oct 2024 07:15:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729754159;
-	bh=LtkRyFa+ptwpI3BjcDqChmf25+0CofX0xNDvVdF3tjE=;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6C978A450D4;
+	Thu, 24 Oct 2024 07:06:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6AE1C4CEC7;
+	Thu, 24 Oct 2024 07:07:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1729753624;
+	bh=C569kiRrg8EBzvrVBxsDovVURiA3bvbD+xQMy8MTaO4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e21QQXKbd//X8OwJs3bVISaxQiWtu3fneFc3BZayNh/BwxO89zUaGZauxCeoJ5kao
-	 UbI4PvEouuSFfPGfZISFvMCLF0ryd0boaYZp0yfXDsWsg3KSaV8Qr3phweel8nE9En
-	 GYpqdARDfy3VXLRQRACLv4Rbc1f8Luk6TiG1DlgOQrpLQ4OZUZ9GMnQR/vYXWzD0fz
-	 gyRNFNfwLyHayyBlY6I5XAeFFhhXl7k3GvPmGQiyj93xhLEPKdETZL1WQvsHl8URJg
-	 9LY4wIQ3Ibz2IzUkJlf2vEsT+rJiAOukekGxobroD7ehkBs1KrothEAKQGQ3rLXKHD
-	 X02d11SX0X52w==
-Date: Thu, 24 Oct 2024 09:15:57 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Chris Morgan <macroalpha82@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 2/7] dt-bindings: allwinner: add H616 sun4i audio
- codec binding
-Message-ID: <6sj56amrx3dtnznafzsycgq6r6do65uq3z3v3pwbcgwdktqqgo@qbrfpmx22b4s>
-References: <20241023075917.186835-1-ryan@testtoast.com>
- <20241023075917.186835-3-ryan@testtoast.com>
+	b=vcR+ON1zIdm5O0maAVHBiW/e9Z+mDFWtdnlURA7545m/v7ld0MzrrHrbftr60A8UM
+	 cjD/QBovrRyxNdG8dH117G4LKWY5cxmnP2FbDJKxlXLsajOk3QcxaeixwRbG3SlP5N
+	 Cj8fmrhLFnefYYpBpd1lf0IK3VV6qe4wobNUPqdU=
+Date: Thu, 24 Oct 2024 09:06:53 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Saravana Kannan <saravanak@google.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	JC Kuo <jckuo@nvidia.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	kernel-team@android.com, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-phy@lists.infradead.org,
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 3/3] drivers: core: fw_devlink: Make the error message a
+ bit more useful
+Message-ID: <2024102446-robin-outcast-841b@gregkh>
+References: <20241024061347.1771063-1-saravanak@google.com>
+ <20241024061347.1771063-4-saravanak@google.com>
+ <CAGETcx_0gqbo5Xf9mZGrBZszZsmKBdqRreb-=O_PvOR_2Yc5Cw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023075917.186835-3-ryan@testtoast.com>
+In-Reply-To: <CAGETcx_0gqbo5Xf9mZGrBZszZsmKBdqRreb-=O_PvOR_2Yc5Cw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_001600_859074_5F01BA80 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20241024_000705_924830_72883926 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,56 +85,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 08:56:58PM +1300, Ryan Walklin wrote:
-> The H616 has an audio codec compatible with the sun4i-a10 driver.
+On Wed, Oct 23, 2024 at 11:16:26PM -0700, Saravana Kannan wrote:
+> Greg,
 > 
-> The codec is relatively cut down compared to some of the other Allwinner
-> SoCs and only has a single line-out route (relying on a separate digital
-> microphone IP block for input). HDMI and SPDIF audio are handled
-> separately by an audio hub IP block, which is not currently implemented
-> in mainline kernels. This requires some additional flexibility in the
-> DMA bindings.
-> 
-> Add compatible string and routing for the H616 audio codec, and update
-> the required DMA descriptions.
-> 
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> 
-> ---
-> Changelog v1..v2:
-> - Remove PLL_AUDIO_4X clock from definition (defined internally but
->   not used by driver and so not required in DTSI)
-> - Restrict TX-only DMA definition to H616
-> 
-> Changelog v2..v3:
-> 
-> - Fix missing - in H616 conditional binding reported by dt_binding_check.
-> ---
->  .../sound/allwinner,sun4i-a10-codec.yaml      | 53 ++++++++++++++++---
->  1 file changed, 47 insertions(+), 6 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-> index 78273647f7665..ebc9097f936ad 100644
-> --- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-> +++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-> @@ -22,6 +22,7 @@ properties:
->        - allwinner,sun8i-a23-codec
->        - allwinner,sun8i-h3-codec
->        - allwinner,sun8i-v3s-codec
-> +      - allwinner,sun50i-h616-codec
+> Can you fix up the commit subject prefix to "driver core: fw_devlink:"
+> please? Don't want to send v2 just for that.
 
-Are you keeping preferred ordering of entries? Usually it is
-alphanumerical, but you introduce now by model number.
-
->  
->    reg:
->      maxItems: 1
-> @@ -40,14 +41,20 @@ properties:
->        - const: codec
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
-
+Will do, thanks!
 
