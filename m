@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B25CE8E73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943AFCE8E70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 13:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNDCnEMK94RxIjgd1jRoMTCZvgeWFfMq1mwlKhWgZUo=; b=OuuKLDkAlcMx/eUR1cK2u9Zgsu
-	7nUsmnZfPTtqGZ2txDhszbMp/vuEVxschBhuz0GFkehhryBEFxcWYM8n6LPxmbi9qGUdiV5qjJ3H8
-	otTCRCPjnYq+vxxg/8LNNY7jj++Dg4/XtCh2KPetg9gFV6OjIBYAyOnNRzgEWLibHwrxponUx+JUI
-	57kw6r2jodh15w6ggvnGe+dqcXuRzIWUpun4Iyg8ua2YuKfOjH6UJKhHfbRIte7N5MnAW/4AncX5E
-	K0pWB5B3yWIvggaFMdMbi27U6JeK9SZEVcs55w/Lq8agIMm9Q3aGui0dbjhpYb6qhbj7lbk3vv0ny
-	SBBlmprA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+EvwIl0i2dXYv6BLBgJPCfDIwpV2bZuK0eg1elGHAZ8=; b=41ctMQBQNbnelTmv8faTL3+UWt
+	Awmf/fYYi+WFU+PgAzGZuskl+rwt1LweQSdGZ06PGMJHgWvpil1I4DvSjSQlFs3NquaSb+SShX03z
+	SBvknrDWoQbZ8upn413oKiAnF72A6eJ4AsCTP4RJykpBSqn8yCh/84zu4+IsAU9DDuGMaK6XdjkM+
+	UFGW3smqeHHh8kuDsR1btNs6V/0Vl2AmsTVA3fWGutDddqopoeqQtJ4zhA19D++zQcjIeNM3nc55i
+	ef6BJg4Ubab+jwR84uDFsYkWB24c3wbk2l8PEQQL4z7yS1NEMe2j3jxg4OpzqkxAHU+RWdvJiljY7
+	P/8ZhX7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xYt-00000000RKm-3cV2;
-	Thu, 24 Oct 2024 13:07:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t3xaR-00000000Rf3-49qR;
+	Thu, 24 Oct 2024 13:09:11 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3xXL-00000000QwY-1tEW
+	id 1t3xY3-00000000R5g-042x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 13:06:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C76DA4540C;
-	Thu, 24 Oct 2024 13:05:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79411C4CEC7;
-	Thu, 24 Oct 2024 13:05:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729775158;
-	bh=QXk1V7bH3HsTPiuM9A5Py2vZdwbkg6MWH803SOVsaJ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vy1Wn4fLlykC16tJY9EfRKt3126lvfGKufGOM2l0XlojP1032MOTW502xrrPTywyV
-	 7Y69l4ulKnMB3iVxDKBaWdiHt+3LGuqNttl8YRItkAI3MzFSIvjfDjADzGcwCu4QPo
-	 oVMqArtpEcrXEoIT+Noe46x2BFsVNjtLtp+5vmkOIr1A4jwvVZnTmW3Nqqo9rnI4mA
-	 N0P0leVPPbKzcS+U68XbM42bL1qeS0CFMha/ha1PQk+vXDdznGF5M0aEQmPY51S8iy
-	 EI5eUEGub5heUuD/638YAHa/pS8V/4jbNgLRfJBpGxVjOwrQweu0clK9gwGog1w3XI
-	 Wziem035r2IIA==
-Date: Thu, 24 Oct 2024 14:05:53 +0100
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	Thu, 24 Oct 2024 13:06:45 +0000
+Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 8B61E1F8C9;
+	Thu, 24 Oct 2024 15:06:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1729775196;
+	bh=+EvwIl0i2dXYv6BLBgJPCfDIwpV2bZuK0eg1elGHAZ8=; h=From:To:Subject;
+	b=uVfTJ5M5yT9Yv80i2dKk8hEu6wlnSTFJ0PYJDkquaGC6izPRnR77NPBch7AUr2vbG
+	 ELEzHhA20Qo/li95Ca7hp3gBxrH/TQgZJrKP1W5TuKRygGfUpm6MMOL2+Rds2RQspL
+	 sCEdrOY/uu/KsCeH91cUVoxR0bKxunh5kEWDd3EF1vjNlZD4cW2xhtyhYe8q3gBs8Y
+	 wjV9zucSpYcFSe7+nnoAZ1+wJOwOh6g1qMAtxKYv0wfJfUZSbZz1A7VvHM9d9y3OCU
+	 U8Nu4v+mVJtda56jtA1z/uVeKIz+NfYhobyjnw48Va8B0MquvDavO6dGnVtJbej7WK
+	 Gt0y/Cu6I2pCQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
-	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Remove split on unmap behavior
-Message-ID: <20241024130550.GE30704@willie-the-truck>
-References: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Fix SD regulator startup delay
+Date: Thu, 24 Oct 2024 15:06:28 +0200
+Message-Id: <20241024130628.49650-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_060559_577564_80F6D372 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20241024_060644_170797_C57C97F2 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-On Fri, Oct 18, 2024 at 02:19:26PM -0300, Jason Gunthorpe wrote:
-> Of the page table implementations (AMD v1/2, VT-D SS, ARM32, DART)
-> arm_lpae is unique in how it handles partial unmap of large IOPTEs.
-> 
-> All other drivers will unmap the large IOPTE and return it's length.  For
-> example if a 2M IOPTE is present and the first 4K is requested to be
-> unmapped then unmap will remove the whole 2M and report 2M as the result.
-> 
-> arm_lpae instead replaces the IOPTE with a table of smaller IOPTEs, unmaps
-> the 4K and returns 4k. This is actually an illegal/non-hitless operation
-> on at least SMMUv3 because of the BBM level 0 rules.
-> 
-> Long ago VFIO could trigger a path like this, today I know of no user of
-> this functionality.
-> 
-> Given it doesn't work fully correctly on SMMUv3 and would create
-> portability problems if any user depends on it, remove the unique support
-> in arm_lpae and align with the expected iommu interface.
-> 
-> Outside the iommu users, this will potentially effect io_pgtable users of
-> ARM_32_LPAE_S1, ARM_32_LPAE_S2, ARM_64_LPAE_S1, ARM_64_LPAE_S2, and
-> ARM_MALI_LPAE formats.
-> 
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: dri-devel@lists.freedesktop.org
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c | 72 +++-------------------------------
->  1 file changed, 6 insertions(+), 66 deletions(-)
+The power switch used to power the SD card interface might have
+more than 2ms turn-on time, increase the startup delay to 20ms to
+prevent failures.
 
-I'd love to drop this, but I'm sure it was needed when I added it :/
+Fixes: 316b80246b16 ("arm64: dts: ti: add verdin am62")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-My recollection is hazy, but I seem to remember VFIO using the largest
-page sizes in the IOMMU 'pgsize_bitmap' for map() requests but then
-using the smallest page size for unmap() requests, so you'd end up
-cracking block mappings when tearing down a VM with assigne devices.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+index 5bef31b8577b..f0eac05f7483 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+@@ -160,7 +160,7 @@ reg_sdhc1_vmmc: regulator-sdhci1 {
+ 		regulator-max-microvolt = <3300000>;
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-name = "+V3.3_SD";
+-		startup-delay-us = <2000>;
++		startup-delay-us = <20000>;
+ 	};
+ 
+ 	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
+-- 
+2.39.5
 
-Is this what you're referring to when you say?
-
-  > Long ago VFIO could trigger a path like this, today I know of no user of
-  > this functionality.
-
-If so, please can you provide a reference to the patch that moved VFIO
-off that problematic behaviour?
-
-Thanks!
-
-Will
 
