@@ -4,76 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658C9CE8E60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D16DCE8E60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Oct 2024 11:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CbvErAglLNwq0XXtCF2MODZK1/Oqp0dLxoHy2paTXK0=; b=oiX07lgvW6nj1AydtqLxQrqxcm
-	uQNCYNX1X0EYFc/S3EkET8I07d6qoxgldKcDERQCr0Hxu6zD+vs82LvAqdohaVSEDxs+7r/5AFTWb
-	p7yJfVN9qzuvfcIt514th+F2qDp7dr//WpQeb7wBv9e8feKeSjvBNAgCvwQ4stn/ZCETdExTdHf4N
-	uCMCukY7VaoKEK5+8UIMHpJQQ0Hd4dEnSn731NIuS/ULsXElqvbjMUBpx3DB3aCHJ4H3JeOZXut2G
-	9l+fW/WE5qUvMkH9NzVQVtqAn6hQ2/wNIIIwKSHmVwJvjUciESwYhq187t0M+NY4WHTTG3zhNCtrY
-	Ng97aIfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hhbc8h+Dl5/egAHxfpjtuRs4kOHtXGXEd7N7uuB363s=; b=sokRgE8px7lBIAl90cSywUvrQk
+	RVx3N5UlJBeIlYH88TqHMSbMpzuZshYDh94NMOiRglIFJJKrDRI87QfXdr9ZzKpRFjVU8Xu5eH202
+	vqpB2CSSXj+1/plSnIzBEDIJYhS+61Tj/mhutb9RhQvlFMKOML1IzBZiQSgJpII6NyTlk43u8UEY7
+	zWDWf4Ml/fedxSAdXxLOMXN7DRq9jMy5+rZ/JqQpPxrgXTiVdiJ1d3wKEeogedddOO5VrXa8lnzSa
+	BYk0vA2trTfQSBjocFc4AGickmgK7EpeQn2EM/3SpMSC4orYEFyYcKZ47xsPMZH83T3fihWJsoKbt
+	AnPR+uoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vrD-00000000BsA-3Eq0;
-	Thu, 24 Oct 2024 11:18:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t3vsh-00000000C2Y-2geB;
+	Thu, 24 Oct 2024 11:19:55 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t3vh2-00000000ASN-48cL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Oct 2024 11:07:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C4E925C5FAD;
-	Thu, 24 Oct 2024 11:07:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98707C4CEC7;
-	Thu, 24 Oct 2024 11:07:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729768072;
-	bh=3u4MB5fzt4B4URpnmS1cFnecFjFi0U4J8+oHzjRXNFc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=cqNmRswks3sQEtF9sXALrcrZ8xOPReinoA9Jl/lcbNSxGECx5gJ5hmCNQ7HYCHawW
-	 gXz0oJ7rmrKm+sP0HGor9TOMT5iigGaVbMsIk5lN5lbdTBCBt/2ORk3vxZFAcg88Se
-	 +v4/3oOUdpjT05Hn0vJWxAwEA4yeuQGN1BCAfPXAJDGXvyjM04aRe10/RywsccbDEV
-	 qkxCZVlIrnoQQGaL1z8HiBVLrdOKwhQmGFSCYdOzWTUZN8LwNgA7y4lcOvkKaNfu5Q
-	 NTXpod3T9SC4A8jT0LygRmI0CbT3IP/a2dhT1Hlhl2IgZ+kbx1IFMGbZ/2Y53l+RA/
-	 G3Eh2/KnZM08g==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 24 Oct 2024 12:06:42 +0100
-Subject: [PATCH] arm64/signal: Consistently invalidate the in register FP
- state in restore
+	id 1t3vhy-00000000Acd-02gf;
+	Thu, 24 Oct 2024 11:08:51 +0000
+Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 43FA93D5;
+	Thu, 24 Oct 2024 13:06:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1729768018;
+	bh=eXJrCgkDKcZTI6gMXzDZwu5wzmDIPGiDJmpLeVOLhmQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XA5sTyX7XyLi5Gc4fBL/ZmgzC+0Ef0pK49CEE1KacdR3q6sSSot6smcJ7jIVE7b29
+	 0Nq/nS/ZZxIQIegpng8jF71eUF8Nbq5F+I1lB1GJZOpHLbS6f1dLUev+fqk9n4LEw6
+	 b+Xb6keo64nC9W7NkZerTKWyfzieo8u15pQpmsCs=
+Message-ID: <b185e497-ad40-4fe3-9409-224993ed4924@ideasonboard.com>
+Date: Thu, 24 Oct 2024 14:08:42 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
+To: Hans Verkuil <hverkuil@xs4all.nl>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Naushir Patuck <naush@raspberrypi.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>
+References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
+ <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
+ <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241024-arm64-fp-sig-flush-v1-1-05148eb92a84@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAEIqGmcC/x3MTQqAIBBA4avErBtIs6CuEi1MRxvoD4ciiO6et
- PwW7z0glJgE+uKBRBcL71uGKgtws90iIfts0JU2qtI12rS2BsOBwhHDcsqMZJR3nWvsRB3k8Eg
- U+P6nw/i+H+pSWTBkAAAA
-X-Change-ID: 20241023-arm64-fp-sig-flush-e41dc9c5abe9
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6416; i=broonie@kernel.org;
- h=from:subject:message-id; bh=3u4MB5fzt4B4URpnmS1cFnecFjFi0U4J8+oHzjRXNFc=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnGiqFEOxzTMkfhPBnTWTIFQZyU/t2zA4Qi1/mdz4D
- kSuonjGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZxoqhQAKCRAk1otyXVSH0JL3B/
- 0Z9vAnd4lxDbFQQWjIPda2uhIWErXyDn5gl+tMeU8RnUgU1AqsmGYG8DHcTO/TUNhgkD3d0yYWpm0v
- j95tQP4R3MtezAEW7LreC2XSh9svhyTBjNHByXAcJ6tmqY9RJckOsXlobvvDpGtmbcPzkCBPRQzdk3
- SmLG/Gj7W9k9BanzEg0q71PN/jToajUy4I7hvfxN0o4rbh9nBF6ddOQmIH/5XFrm5EJjMzfpL2BfCI
- ame4rVqvNvBclRnC2NU8hJcSMhT6q1hoGYGIOxSqI+nzsjsCFkhBKfPJoMepge9xpttwlifNCeFsr3
- Qpio13QGlRSSLN1I0pehGGL9OsVB/v
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_040753_153883_53DA578B 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20241024_040850_236238_B8451311 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,168 +126,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When restoring the SVE and SME specific floating point register states we
-flush the task floating point state, marking the hardware state as stale so
-that preemption does not result in us saving register state from the signal
-handler on top of the restored context and forcing a reload from memory.
-For the plain FPSIMD state we don't do this, we just copy the state from
-userspace and then force an immediate reload of the register state.
-This isn't racy against context switch since we copy the incoming data
-onto the stack rather than directly into the task struct but it's still
-messy and inconsistent.
+Hi Hans,
 
-Simplify things and avoid a potential source of error by moving the
-invalidation of the CPU state to the main restore_sigframe() and
-reworking the restore of the FPSIMD state to update the task struct and
-rely on loading as part of the general do_notify_resume() handling for
-return to user like we do for the SVE and SME state.
+On 24/10/2024 11:20, Hans Verkuil wrote:
+> Hi Tomi,
+> 
+> I know this driver is already merged, but while checking for drivers that use
+> q->max_num_buffers I stumbled on this cfe code:
+> 
+> <snip>
+> 
+>> +/*
+>> + * vb2 ops
+>> + */
+>> +
+>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
+>> +			   unsigned int *nplanes, unsigned int sizes[],
+>> +			   struct device *alloc_devs[])
+>> +{
+>> +	struct cfe_node *node = vb2_get_drv_priv(vq);
+>> +	struct cfe_device *cfe = node->cfe;
+>> +	unsigned int size = is_image_node(node) ?
+>> +				    node->vid_fmt.fmt.pix.sizeimage :
+>> +				    node->meta_fmt.fmt.meta.buffersize;
+>> +
+>> +	cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
+>> +		node->buffer_queue.type);
+>> +
+>> +	if (vq->max_num_buffers + *nbuffers < 3)
+>> +		*nbuffers = 3 - vq->max_num_buffers;
+> 
+> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
+> is called. So 32 + *nbuffers is never < 3.
+> 
+> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
+> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
+> for you.
+> 
+> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
+> since the code is almost always wrong.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/kernel/signal.c | 70 +++++++++++++++-------------------------------
- 1 file changed, 22 insertions(+), 48 deletions(-)
+Indeed, the code doesn't make sense. I have to say I don't know what was 
+the intent here, but I think "at least 3 buffers should be allocated by 
+REQBUFS" is the likely explanation.
 
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 5619869475304776fc005fe24a385bf86bfdd253..a536d65b1f11957fa0f84094df542175d050e00a 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -210,7 +210,7 @@ static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
- 
- static int restore_fpsimd_context(struct user_ctxs *user)
- {
--	struct user_fpsimd_state fpsimd;
-+	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
- 	int err = 0;
- 
- 	/* check the size information */
-@@ -218,18 +218,14 @@ static int restore_fpsimd_context(struct user_ctxs *user)
- 		return -EINVAL;
- 
- 	/* copy the FP and status/control registers */
--	err = __copy_from_user(fpsimd.vregs, &(user->fpsimd->vregs),
--			       sizeof(fpsimd.vregs));
--	__get_user_error(fpsimd.fpsr, &(user->fpsimd->fpsr), err);
--	__get_user_error(fpsimd.fpcr, &(user->fpsimd->fpcr), err);
-+	err = __copy_from_user(fpsimd->vregs, &(user->fpsimd->vregs),
-+			       sizeof(fpsimd->vregs));
-+	__get_user_error(fpsimd->fpsr, &(user->fpsimd->fpsr), err);
-+	__get_user_error(fpsimd->fpcr, &(user->fpsimd->fpcr), err);
- 
- 	clear_thread_flag(TIF_SVE);
- 	current->thread.fp_type = FP_STATE_FPSIMD;
- 
--	/* load the hardware registers from the fpsimd_state structure */
--	if (!err)
--		fpsimd_update_current_state(&fpsimd);
--
- 	return err ? -EFAULT : 0;
- }
- 
-@@ -333,7 +329,7 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
- {
- 	int err = 0;
- 	unsigned int vl, vq;
--	struct user_fpsimd_state fpsimd;
-+	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
- 	u16 user_vl, flags;
- 
- 	if (user->sve_size < sizeof(*user->sve))
-@@ -376,16 +372,6 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
- 	if (user->sve_size < SVE_SIG_CONTEXT_SIZE(vq))
- 		return -EINVAL;
- 
--	/*
--	 * Careful: we are about __copy_from_user() directly into
--	 * thread.sve_state with preemption enabled, so protection is
--	 * needed to prevent a racing context switch from writing stale
--	 * registers back over the new data.
--	 */
--
--	fpsimd_flush_task_state(current);
--	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
--
- 	sve_alloc(current, true);
- 	if (!current->thread.sve_state) {
- 		clear_thread_flag(TIF_SVE);
-@@ -408,14 +394,10 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
- fpsimd_only:
- 	/* copy the FP and status/control registers */
- 	/* restore_sigframe() already checked that user->fpsimd != NULL. */
--	err = __copy_from_user(fpsimd.vregs, user->fpsimd->vregs,
--			       sizeof(fpsimd.vregs));
--	__get_user_error(fpsimd.fpsr, &user->fpsimd->fpsr, err);
--	__get_user_error(fpsimd.fpcr, &user->fpsimd->fpcr, err);
--
--	/* load the hardware registers from the fpsimd_state structure */
--	if (!err)
--		fpsimd_update_current_state(&fpsimd);
-+	err = __copy_from_user(fpsimd->vregs, user->fpsimd->vregs,
-+			       sizeof(fpsimd->vregs));
-+	__get_user_error(fpsimd->fpsr, &user->fpsimd->fpsr, err);
-+	__get_user_error(fpsimd->fpcr, &user->fpsimd->fpcr, err);
- 
- 	return err ? -EFAULT : 0;
- }
-@@ -524,16 +506,6 @@ static int restore_za_context(struct user_ctxs *user)
- 	if (user->za_size < ZA_SIG_CONTEXT_SIZE(vq))
- 		return -EINVAL;
- 
--	/*
--	 * Careful: we are about __copy_from_user() directly into
--	 * thread.sme_state with preemption enabled, so protection is
--	 * needed to prevent a racing context switch from writing stale
--	 * registers back over the new data.
--	 */
--
--	fpsimd_flush_task_state(current);
--	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
--
- 	sme_alloc(current, true);
- 	if (!current->thread.sme_state) {
- 		current->thread.svcr &= ~SVCR_ZA_MASK;
-@@ -601,16 +573,6 @@ static int restore_zt_context(struct user_ctxs *user)
- 	if (nregs != 1)
- 		return -EINVAL;
- 
--	/*
--	 * Careful: we are about __copy_from_user() directly into
--	 * thread.zt_state with preemption enabled, so protection is
--	 * needed to prevent a racing context switch from writing stale
--	 * registers back over the new data.
--	 */
--
--	fpsimd_flush_task_state(current);
--	/* From now, fpsimd_thread_switch() won't touch ZT in thread state */
--
- 	err = __copy_from_user(thread_zt_state(&current->thread),
- 			       (char __user const *)user->zt +
- 					ZT_SIG_REGS_OFFSET,
-@@ -876,6 +838,18 @@ static int restore_sigframe(struct pt_regs *regs,
- 	if (err == 0)
- 		err = parse_user_sigframe(&user, sf);
- 
-+	/*
-+	 * Careful: we are about __copy_from_user() directly into
-+	 * thread floating point state with preemption enabled, so
-+	 * protection is needed to prevent a racing context switch
-+	 * from writing stale registers back over the new data. Mark
-+	 * the register floating point state as invalid and unbind the
-+	 * task from the CPU to force a reload before we return to
-+	 * userspace. fpsimd_flush_task_state() has a check for FP
-+	 * support.
-+	 */
-+	fpsimd_flush_task_state(current);
-+
- 	if (err == 0 && system_supports_fpsimd()) {
- 		if (!user.fpsimd)
- 			return -EINVAL;
+I think the hardware should work with even just a single buffer, so is 
+it then fine to not set either q->min_queued_buffers nor 
+q->min_reqbufs_allocation before calling vb2_queue_init()? This seems to 
+result in REQBUFS giving at least two buffers.
 
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241023-arm64-fp-sig-flush-e41dc9c5abe9
+  Tomi
 
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
+> 
+> Regards,
+> 
+> 	Hans
+> 
+>> +
+>> +	if (*nplanes) {
+>> +		if (sizes[0] < size) {
+>> +			cfe_err(cfe, "sizes[0] %i < size %u\n", sizes[0], size);
+>> +			return -EINVAL;
+>> +		}
+>> +		size = sizes[0];
+>> +	}
+>> +
+>> +	*nplanes = 1;
+>> +	sizes[0] = size;
+>> +
+>> +	return 0;
+>> +}
+> 
 
 
