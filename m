@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7615AD149DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78671D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAmGnbsXlsT4wTydGcek4ZEoMBRAPW62Dt7gooaokpo=; b=FLOFO6ebBzTh+GeWFYX5wfGDwp
-	BSNEVXN6zCZV4MdssTXEv1NvAvwDBfWoSQL9m8rA3TSOX4+8serCnuTVZfpxe4OGRfAlKIDGuTZUN
-	PUU1Bk9aBiQnB4+gxArbEVW7pCxRptrSsFE+iP+1t4nf/J5iA791EKiu2a03zOeHO1ySSdzOHK6XV
-	anvYIXaV2nVZMgO0bCVGkG44EukdzyZZI8CJiPuWHHTpqCLc7nNNAd8QmdGMgQ0wRnaabif/iXXaM
-	avxt/5P4IoOP9L7aW6lxOGstVhc4Itjvv2N0GdzrJp7TZvE/kOXFcPzu/jr3tEgFzFfCo2Jhymo69
-	koFdpn3Q==;
+	bh=ND5qe7OBv3VTVRpCDuAboIPK8dxpxdN+CM3FHGRXNAw=; b=Lph7puOY+7fkdsvxDIoaQdzb84
+	jmQRYyTXlZtzPEr9PGc0y7yjic8yp+s/KIxzK0j/p2CXES5aUHxFysuLRF4gXGsEsR1biTbuchE7X
+	zmAoE9loKtU4/XaYEEdYyMqT/FVuC6IsBSWlwhqCkb8EyGcZHVT/jVn5scn/OCSmCjkAF3eGqv1fV
+	5FOnOoc27FGdszgEsPsOHYnlQIrrDI+PbCuAMiQIqrt9UBcOUQxygReu1it2kWCeMx0nzik6e+4+X
+	IqOxCvRcOhCJzSiHhvZ+hDSicqmX36738pmUWXQd/MCQud5MQ/4FuZAdunJTwDkU3mdH7WYt2qCZn
+	RU54+QOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Omv-00000004krf-2FRT;
-	Fri, 25 Oct 2024 18:11:53 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t4OoT-00000004l9T-33Oy;
+	Fri, 25 Oct 2024 18:13:29 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nv9-00000004Xuc-3BsP
+	id 1t4NvC-00000004Xvo-0CWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:22 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-53a007743e7so2843809e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:19 -0700 (PDT)
+	Fri, 25 Oct 2024 17:16:25 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4315abed18aso21954485e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876578; x=1730481378; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876580; x=1730481380; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HAmGnbsXlsT4wTydGcek4ZEoMBRAPW62Dt7gooaokpo=;
-        b=VO7ZZxnuspt/of8sJInlsawDRJfP/4RnqV4YffO8oLdw51qOyYg2TK40kxzcmNJsSd
-         hDFuNH5j6x0HySSIlN42CoNi93qappQlowzTVocTD5IpbwOEuHVEjbSNg1rbuaUJ01f1
-         rKcPKGRZDTc7wydn82RblGh5JuQeThp6W3kS7iztldOewhP6WkEjtm5Md9/GtQEMmvn4
-         w+X15OeeA3yY1/ALY6QtEca9VA5uIvJnk5KoQDVqHprEvDx+xNPstYTKI8Nztx7u+8/f
-         TlSvTj8zpDmIw4q0avWAeJ/GhxnojEZ05Qgxt17Sopd4r2XrRuyGPa8mAB0iUFDP32s9
-         YKYA==
+        bh=ND5qe7OBv3VTVRpCDuAboIPK8dxpxdN+CM3FHGRXNAw=;
+        b=Y/eUs0ZrmY2uVvnCuxlL1/TcZ1cs4hj1w99bd8FGqwfQTxA3xbABv5R81kAdEpqNu5
+         eA3rBPvcB4m5iAuqPdD6n65ygBAoYw+zT51w55hIM3WLM4OYV7zcMSt6A2Muf0c4Hoqo
+         FCXT6ZwnBaFjoiveT94Qigsyj0rnJuOfgZD1XllVO3zPFUO1xpsnmSgzKwaEKxy3vlzD
+         xAo4YXphwgMB5N6J34EcCJEFB+ZZc5/ntzTjNzAI40KsJB1QJWA4FhANkioozqdN1BEb
+         KShPIbQkVrs8PMumas5nC+4D+ITMMaoKGtOr1KAc83ytbe6Rz/vACXaeUK+x+CTn+gzd
+         8tJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876578; x=1730481378;
+        d=1e100.net; s=20230601; t=1729876580; x=1730481380;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HAmGnbsXlsT4wTydGcek4ZEoMBRAPW62Dt7gooaokpo=;
-        b=p32g1hyvmgk5LQQ0K8OC97OW5lgyqZqukv5mxTG9jEB5uHMW917tKYJkpSVFSDRRRq
-         VeyvPBnE0wVIvlayRpQFSm4M1cJEfi/f/YX8GfsnmVJlWzuqXW/W91K+MBl9Vvks2fQ7
-         3OzZJN9aj96gARr4pH3YL3qkgBNFu72XVwJU76Qct/HGURJ8cfFsDjgZNVVUM0Rr/F5W
-         2D2+SIzKDr9U67hDVAY0pfX7FhoehtY9wYHQ5w1mZd9RDm7Ml+B9o+OiJV5e5FnCLULV
-         ryj4Bzb+0QTAUadU4Ewj2BwRRCnDY1DYOYgdS1iOAMv0VZ8Q9i9umDyqBpwpc5ysEoBp
-         lsjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVRqzo+uUeHGWzNd8H5jdsE+mwFKpGvx+/pzc7J+bjHFO+7J+Qbd3yhunMoXVjBsumiqOewAUARZkS1h1CyfFc0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLYp13JrCdbo4IXU/6rFOtEi19RAR8xI7gpoRWoWPtGFP106+B
-	kk1jWsqKvvYDq+qAQN/aCcU4oLOi/IW5SwgLKTcpe6dEPmcqgGbKrLvErtUsa3c=
-X-Google-Smtp-Source: AGHT+IFFnG99FDg0tbPUCrnuJ+5q39hROU6G1I7WeeX7XFXM8eg9WZcnUlhOo1IjHc3SXaTvZYJUzg==
-X-Received: by 2002:a05:6512:138b:b0:539:f1e3:ca5e with SMTP id 2adb3069b0e04-53b1a391ed0mr5911852e87.44.1729876577643;
-        Fri, 25 Oct 2024 10:16:17 -0700 (PDT)
+        bh=ND5qe7OBv3VTVRpCDuAboIPK8dxpxdN+CM3FHGRXNAw=;
+        b=gd/1H6BaQaCq3/HUFuIMHK2enNf6pECv7XXb4EKhIa+AncvA936FzDEj4LLZxXrPEz
+         mnVpvG5zPdeQal7S7QoCS8hLR7qd4MUhbB2WEsIxzMyBblDi1MCH3rROXz8XDLo2ElAj
+         VrRvFIbwM0LQ2uTejOwzH/mzvIkZBEwLeY4IIOSEayz/2tRRQ35Taql/ZpX3IJFb2yht
+         RayEcX6VM4KYNK2aklli+mgJiaD49/+S3MVjQCFZe7Wo6sAs9rBZmc5xY0kJSivrUrvR
+         Xdcit51kGjEV2G4MlPTmKfLNWuhGADJ1IgCI74C5ZZcJExeeOsgJaj5zMU7r+Y+NJ162
+         2pqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZzULZtyHKqaNbjqZr/x3HTKEq0KHfwZi7Lfzw9C5emztJOiM8tS9Y/G/H8EoAiavy6Q/bGurLECRDQAHk3wCo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAcT1N5DYCJ37n8EqIbfVw08KEv1gEBqAaV/5MFkNcWqSidRqC
+	2KTuT0xIHXfH8Pkm9GL56T0vG+7Qxf3koZTf7PXFGg7UpUiZ2DTjuGB481GTVFk=
+X-Google-Smtp-Source: AGHT+IH6OtEiwFMpJgenp0RKgtUcQ2xa79UJzkJTMiVDfTU9tdYzxLD3qQqnLPLck4wyddL0IEmq3A==
+X-Received: by 2002:a05:600c:46c8:b0:431:44fe:fd9a with SMTP id 5b1f17b1804b1-43184209b20mr90133795e9.19.1729876579764;
+        Fri, 25 Oct 2024 10:16:19 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.16
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:17 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:19 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:48 +0100
-Subject: [PATCH v2 17/36] drm/vc4: txp: Handle 40-bits DMA Addresses
+Date: Fri, 25 Oct 2024 18:15:50 +0100
+Subject: [PATCH v2 19/36] drm/vc4: txp: Add a new TXP encoder type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-17-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-19-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -93,8 +93,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_101619_899576_2B626D6F 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20241025_101622_175508_308BD516 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,70 +111,487 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-The BCM2712 MOP and MOPLET can handle addresses larger than 32bits
-through an extra register. We can easily support it and make it
-conditional based on the compatible through a boolean in our variant
-structure.
+Starting with BCM2712, we'll have a two TXP. Let's follow the HDMI
+example and add two encoder types for TXP: TXP0 and TXP1.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_drv.h |  2 ++
- drivers/gpu/drm/vc4/vc4_txp.c | 12 +++++++++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/vc4/tests/vc4_mock.c           |   4 +-
+ drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c | 106 ++++++++++++-------------
+ drivers/gpu/drm/vc4/vc4_drv.h                  |   3 +-
+ drivers/gpu/drm/vc4/vc4_kms.c                  |   2 +-
+ drivers/gpu/drm/vc4/vc4_txp.c                  |   2 +-
+ 5 files changed, 59 insertions(+), 58 deletions(-)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
-index 984fddae0048..34e72e711a17 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.h
-+++ b/drivers/gpu/drm/vc4/vc4_drv.h
-@@ -538,8 +538,10 @@ struct vc4_crtc_data {
- 
- struct vc4_txp_data {
- 	struct vc4_crtc_data	base;
-+	unsigned int high_addr_ptr_reg;
- 	unsigned int has_byte_enable:1;
- 	unsigned int size_minus_one:1;
-+	unsigned int supports_40bit_addresses:1;
+diff --git a/drivers/gpu/drm/vc4/tests/vc4_mock.c b/drivers/gpu/drm/vc4/tests/vc4_mock.c
+index 372482fcd6c7..e276a957b01c 100644
+--- a/drivers/gpu/drm/vc4/tests/vc4_mock.c
++++ b/drivers/gpu/drm/vc4/tests/vc4_mock.c
+@@ -52,7 +52,7 @@ struct vc4_mock_desc {
+ static const struct vc4_mock_desc vc4_mock =
+ 	VC4_MOCK_DESC(
+ 		VC4_MOCK_CRTC_DESC(&bcm2835_txp_data.base,
+-				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP,
++				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP0,
+ 							DRM_MODE_ENCODER_VIRTUAL,
+ 							DRM_MODE_CONNECTOR_WRITEBACK)),
+ 		VC4_MOCK_PIXELVALVE_DESC(&bcm2835_pv0_data,
+@@ -78,7 +78,7 @@ static const struct vc4_mock_desc vc4_mock =
+ static const struct vc4_mock_desc vc5_mock =
+ 	VC4_MOCK_DESC(
+ 		VC4_MOCK_CRTC_DESC(&bcm2835_txp_data.base,
+-				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP,
++				   VC4_MOCK_OUTPUT_DESC(VC4_ENCODER_TYPE_TXP0,
+ 							DRM_MODE_ENCODER_VIRTUAL,
+ 							DRM_MODE_CONNECTOR_WRITEBACK)),
+ 		VC4_MOCK_PIXELVALVE_DESC(&bcm2711_pv0_data,
+diff --git a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
+index 61622e951031..40a05869a50e 100644
+--- a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
++++ b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
+@@ -90,7 +90,7 @@ static const struct encoder_constraint vc4_encoder_constraints[] = {
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_DSI0, 0),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_HDMI0, 1),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_VEC, 1),
+-	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_TXP, 2),
++	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_TXP0, 2),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_DSI1, 2),
  };
  
- extern const struct vc4_txp_data bcm2835_txp_data;
+@@ -98,7 +98,7 @@ static const struct encoder_constraint vc5_encoder_constraints[] = {
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_DPI, 0),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_DSI0, 0),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_VEC, 1),
+-	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_TXP, 0, 2),
++	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_TXP0, 0, 2),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_DSI1, 0, 1, 2),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_HDMI0, 0, 1, 2),
+ 	ENCODER_CONSTRAINT(VC4_ENCODER_TYPE_HDMI1, 0, 1, 2),
+@@ -207,7 +207,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 	VC4_PV_MUXING_TEST("1 output: DSI1",
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("1 output: TXP",
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("2 outputs: DSI0, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+@@ -219,7 +219,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("2 outputs: DSI0, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("2 outputs: DPI, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+@@ -231,19 +231,19 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("2 outputs: DPI, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("2 outputs: HDMI0, DSI1",
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("2 outputs: HDMI0, TXP",
+ 			   VC4_ENCODER_TYPE_HDMI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("2 outputs: VEC, DSI1",
+ 			   VC4_ENCODER_TYPE_VEC,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("2 outputs: VEC, TXP",
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("3 outputs: DSI0, HDMI0, DSI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+@@ -251,7 +251,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 	VC4_PV_MUXING_TEST("3 outputs: DSI0, HDMI0, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("3 outputs: DSI0, VEC, DSI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+@@ -259,7 +259,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 	VC4_PV_MUXING_TEST("3 outputs: DSI0, VEC, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("3 outputs: DPI, HDMI0, DSI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+@@ -267,7 +267,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 	VC4_PV_MUXING_TEST("3 outputs: DPI, HDMI0, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("3 outputs: DPI, VEC, DSI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+@@ -275,7 +275,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_params[] = {
+ 	VC4_PV_MUXING_TEST("3 outputs: DPI, VEC, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ };
+ 
+ KUNIT_ARRAY_PARAM(vc4_test_pv_muxing,
+@@ -287,7 +287,7 @@ static const struct pv_muxing_param vc4_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_DSI0),
+ 	VC4_PV_MUXING_TEST("TXP/DSI1 Conflict",
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC4_PV_MUXING_TEST("HDMI0/VEC Conflict",
+ 			   VC4_ENCODER_TYPE_HDMI0,
+@@ -296,22 +296,22 @@ static const struct pv_muxing_param vc4_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, DSI1, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+ 			   VC4_ENCODER_TYPE_DSI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("More than 3 outputs: DPI, HDMI0, DSI1, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC4_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, DSI1, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+ 			   VC4_ENCODER_TYPE_DSI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ };
+ 
+ KUNIT_ARRAY_PARAM(vc4_test_pv_muxing_invalid,
+@@ -342,7 +342,7 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("2 outputs: DPI, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("2 outputs: DPI, VEC",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC),
+@@ -360,7 +360,7 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("2 outputs: DSI0, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("2 outputs: DSI0, VEC",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC),
+@@ -372,7 +372,7 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_VEC),
+ 	VC5_PV_MUXING_TEST("2 outputs: DSI1, TXP",
+ 			   VC4_ENCODER_TYPE_DSI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("2 outputs: DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+@@ -384,7 +384,7 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_VEC),
+ 	VC5_PV_MUXING_TEST("2 outputs: HDMI0, TXP",
+ 			   VC4_ENCODER_TYPE_HDMI0,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("2 outputs: HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+@@ -393,14 +393,14 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_VEC),
+ 	VC5_PV_MUXING_TEST("2 outputs: HDMI1, TXP",
+ 			   VC4_ENCODER_TYPE_HDMI1,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("2 outputs: TXP, VEC",
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_VEC),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, VEC, TXP",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, VEC, DSI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+@@ -415,15 +415,15 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, TXP, DSI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, TXP, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, TXP, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DPI, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+@@ -440,7 +440,7 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, VEC, TXP",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP),
++			   VC4_ENCODER_TYPE_TXP0),
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, VEC, DSI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+@@ -455,15 +455,15 @@ static const struct pv_muxing_param vc5_test_pv_muxing_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, TXP, DSI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, TXP, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, TXP, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("3 outputs: DSI0, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+@@ -490,17 +490,17 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, DSI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+@@ -519,17 +519,17 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, TXP, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, TXP, DSI1, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, TXP, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, DSI1, HDMI0, HDMI1",
+@@ -540,19 +540,19 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, DSI1, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, DSI1, HDMI0, HDMI1",
+@@ -563,24 +563,24 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, TXP, DSI1, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, DSI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+@@ -599,17 +599,17 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, TXP, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, TXP, DSI1, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, TXP, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, DSI1, HDMI0, HDMI1",
+@@ -620,19 +620,19 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, DSI1, HDMI0",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, DSI1, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, DSI1, HDMI0, HDMI1",
+@@ -643,27 +643,27 @@ static const struct pv_muxing_param vc5_test_pv_muxing_invalid_params[] = {
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, TXP, DSI1, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: VEC, TXP, DSI1, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DPI, VEC, TXP, DSI1, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DPI,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+ 	VC5_PV_MUXING_TEST("More than 3 outputs: DSI0, VEC, TXP, DSI1, HDMI0, HDMI1",
+ 			   VC4_ENCODER_TYPE_DSI0,
+ 			   VC4_ENCODER_TYPE_VEC,
+-			   VC4_ENCODER_TYPE_TXP,
++			   VC4_ENCODER_TYPE_TXP0,
+ 			   VC4_ENCODER_TYPE_DSI1,
+ 			   VC4_ENCODER_TYPE_HDMI0,
+ 			   VC4_ENCODER_TYPE_HDMI1),
+diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
+index 70b7a771ff47..de2107e593c2 100644
+--- a/drivers/gpu/drm/vc4/vc4_drv.h
++++ b/drivers/gpu/drm/vc4/vc4_drv.h
+@@ -489,7 +489,8 @@ enum vc4_encoder_type {
+ 	VC4_ENCODER_TYPE_DSI1,
+ 	VC4_ENCODER_TYPE_SMI,
+ 	VC4_ENCODER_TYPE_DPI,
+-	VC4_ENCODER_TYPE_TXP,
++	VC4_ENCODER_TYPE_TXP0,
++	VC4_ENCODER_TYPE_TXP1,
+ };
+ 
+ struct vc4_encoder {
+diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
+index aa0b50d6c9fd..3fcfc265e1e2 100644
+--- a/drivers/gpu/drm/vc4/vc4_kms.c
++++ b/drivers/gpu/drm/vc4/vc4_kms.c
+@@ -350,7 +350,7 @@ static void vc6_hvs_pv_muxing_commit(struct vc4_dev *vc4,
+ 			mux = 0;
+ 			break;
+ 
+-		case VC4_ENCODER_TYPE_TXP:
++		case VC4_ENCODER_TYPE_TXP1:
+ 			mux = 2;
+ 			break;
+ 
 diff --git a/drivers/gpu/drm/vc4/vc4_txp.c b/drivers/gpu/drm/vc4/vc4_txp.c
-index d2ee872e9c0b..c2726ccde1cf 100644
+index ecd2fc5edf45..2979d141f3bb 100644
 --- a/drivers/gpu/drm/vc4/vc4_txp.c
 +++ b/drivers/gpu/drm/vc4/vc4_txp.c
-@@ -145,6 +145,9 @@
- /* Number of lines received and committed to memory. */
- #define TXP_PROGRESS		0x10
+@@ -515,7 +515,7 @@ const struct vc4_txp_data bcm2835_txp_data = {
+ 		.hvs_available_channels = BIT(2),
+ 		.hvs_output = 2,
+ 	},
+-	.encoder_type = VC4_ENCODER_TYPE_TXP,
++	.encoder_type = VC4_ENCODER_TYPE_TXP0,
+ 	.has_byte_enable = true,
+ };
  
-+#define TXP_DST_PTR_HIGH_MOPLET	0x1c
-+#define TXP_DST_PTR_HIGH_MOP	0x24
-+
- #define TXP_READ(offset)								\
- 	({										\
- 		kunit_fail_current_test("Accessing a register in a unit test!\n");	\
-@@ -293,6 +296,7 @@ static void vc4_txp_connector_atomic_commit(struct drm_connector *conn,
- 	struct drm_framebuffer *fb;
- 	unsigned int hdisplay;
- 	unsigned int vdisplay;
-+	dma_addr_t addr;
- 	u32 ctrl;
- 	int idx;
- 	int i;
-@@ -330,7 +334,13 @@ static void vc4_txp_connector_atomic_commit(struct drm_connector *conn,
- 		return;
- 
- 	gem = drm_fb_dma_get_gem_obj(fb, 0);
--	TXP_WRITE(TXP_DST_PTR, gem->dma_addr + fb->offsets[0]);
-+	addr = gem->dma_addr + fb->offsets[0];
-+
-+	TXP_WRITE(TXP_DST_PTR, lower_32_bits(addr));
-+
-+	if (txp_data->supports_40bit_addresses)
-+		TXP_WRITE(txp_data->high_addr_ptr_reg, upper_32_bits(addr) & 0xff);
-+
- 	TXP_WRITE(TXP_DST_PITCH, fb->pitches[0]);
- 
- 	hdisplay = mode->hdisplay ?: 1;
 
 -- 
 2.34.1
