@@ -4,108 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED23D149E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE9DD149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFXog9CzN1JbPT5MLjqR2YdEriiY44hNAsTYnjYNF1A=; b=0dh5BlY0bHNlWf0fRTyHam7q7p
-	uAjT490w5dtufR+3Ax0ez7OG402UvYlyXf226N/8fF8h9vIs1/05WGD5b2Ibm2ny+cZMqlx2oqq66
-	KPDA0Soj6cs3i53xXTlkAnhvkY5Zrz+mtJVGnypQx03NYsmeGvMu3Wn0za8vSbJOl/dH53weEVv4D
-	F7aFHS3jaJbmesBTW1Q20U+4jkj3JK358LlGhWsVvnd6kNbA0YEJ/WdgDEiRrZ8PwUtyuE2dcvJav
-	rCxjqErO/0tzkJ9TyloEYpjEBTzz0YOt1QPLLPe/Md13mhQpZsbffhw1sb3PFBu6pYhT0oLvTzY7g
-	M3fawnkw==;
+	bh=VEpWY4sXA/S1bLoLnoNT9MT92zIxt9Oz+i41XLKt/cM=; b=lnLTOA4ctC/SE8mWOafVW4nrtk
+	m4PRqPC6NzJ3xq3GxGem1tWgkuIWxsJvfZVd/uS316mL9Zdosh2rHkU/AmkR6AFtiEomR7D8eu0my
+	ex6btKoQmBitZbSLZFqElgTVLBTNEfbXF5YBqJsqdxp1wZEnsg1sXDnOOL8B667suMarOLLF6ut39
+	xCPhZAb9uF0IQ9JZbkGZMWnM8RQsPmkBFpqniXKuRNIG3H7GfUtlu2HIf1YTM/1Qb/j6GNxrNmDxP
+	sQ4cPkXl+2rvkyMJ2rc4PICDgPKgpmlyknUurGNjNxMeSxU4cp2e4mTkemnI2c5ie7Fs2NdAf+r4O
+	kWdQGDpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4PqB-00000004weo-33cA;
-	Fri, 25 Oct 2024 19:19:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t4Prq-00000004xEk-3hqY;
+	Fri, 25 Oct 2024 19:21:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4PM3-00000004rD0-28m2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:48:13 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PBjvGS015240
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 18:48:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MFXog9CzN1JbPT5MLjqR2YdEriiY44hNAsTYnjYNF1A=; b=NcqtlBZx9dkCDGQl
-	TfIVDtv5TzuNICmaIwYhQgZBLm/pQTEh3fESCfGPuGafOYkOWA1+wJsMRcbKc3TF
-	mNOG0kbQ1BmRxYfQjLvF6IgQuvLA6G6Pkp5dVvc52QJiS8+yXXD7AfCATzZnfklN
-	GXlKfhpli0nbnAYfLRlajt+eIriz3mC73mtpPQthBUu4ZYxqTQdV3iyw6JGMBCnT
-	JpYuGzaUq5kEg8rpdJhAFVFJOyjEyj0j24+HzC6JUBfOuoanJfYruftYs7dJRgFu
-	NVMZ8q+Yq3fXexAbBHHklWp6uzkIiR8b8s4LxXjU32+K2iNhmhB1jyEgpFF/GJ7S
-	G4HAhg==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em43j40f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 18:48:09 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6cbe6e6bcf2so6767146d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 11:48:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729882073; x=1730486873;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MFXog9CzN1JbPT5MLjqR2YdEriiY44hNAsTYnjYNF1A=;
-        b=tUZijwl/AUdS07ycrPFkLO7uLLg7nzVI/NI95U+zvl0dsghqGxhxbqJPb0MfsKnatg
-         c9FItU+2oX3xyFOxpvix+BnZ7Z0Q49DP10P/KcQA7qQvCERK3HM098ComNZtXq+SY3ga
-         sQ4d/P7QRf12y8c+B5s9ggKOLrqJKXtFa/nybgfe7/Gm3CMkkWav0TTTZq37VxiaUiyT
-         U9TNh+todaxjNvsQIxxz+V69nLVfAobDpUYMOAiK9ZteEHrDwLEMIQYAmVsSyf+YhcH7
-         kYb5GD7YgR6QIyAQ5ywHoA6G8JdrHz9lztpNIJ00dd9IYyIYT353syH66NwBSb+N3L/J
-         HQ7A==
-X-Forwarded-Encrypted: i=1; AJvYcCXue2t2YZV7hGIORkAfkQLsDt27fWnGof4R8q0spVZtA38lRMSWq8AUn1oUww6WAF8UtuJDtFpwVK0qbzic2Kvj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9LO58hSCLbj8ky9VgQlFIrkNJeoLiix5IvInyqBHyd0fpk2Fa
-	WZhVoNN/hxO0i2ms5miBfp9tu+fln1rMxbETWx4eI4Xqw4D94nTRJC1M2PrdYQGqoS9IVEiW696
-	ezbktofxwzVejcqZGvGmzWiNOTeYh+q0hFQHzjVeOUXORk/l6ytKHszMPJaE56ZgSKbjyhR8aCQ
-	==
-X-Received: by 2002:a05:6214:194b:b0:6cb:f0f2:f56d with SMTP id 6a1803df08f44-6d185680265mr3059976d6.4.1729882073453;
-        Fri, 25 Oct 2024 11:47:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGhdXcaShoo57RMGPsZA2dXvZ8ufIsmj4l3pV7Tjjs+OrGQgre4DCGpRASRUtkmM1ZVAtzCzA==
-X-Received: by 2002:a05:6214:194b:b0:6cb:f0f2:f56d with SMTP id 6a1803df08f44-6d185680265mr3059836d6.4.1729882073055;
-        Fri, 25 Oct 2024 11:47:53 -0700 (PDT)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f029a68sm97186366b.83.2024.10.25.11.47.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 11:47:51 -0700 (PDT)
-Message-ID: <69be09ec-e9a5-4fb6-890e-74a65f3ce404@oss.qualcomm.com>
-Date: Fri, 25 Oct 2024 20:47:49 +0200
+	id 1t4Pmj-00000004vGS-23Qi;
+	Fri, 25 Oct 2024 19:15:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 698025C061C;
+	Fri, 25 Oct 2024 19:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4FEAC4CEE3;
+	Fri, 25 Oct 2024 19:15:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729883744;
+	bh=ABiaGm+ovhik7YFigewZFubogtN32tz5BD1p0OQq720=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Vz1H2ANIZERjEpj+I85MKJfdlEpz1SofCIjzgMXNRgrjt8vSPi8NWgf8Q6R4pjn5r
+	 X2cGZ6mXRM4KH4EJHSmPpw/sQpx1SXtGmPuNI0f4GTkha+23sVsdFNFd7oNgiKNIcK
+	 Jeiz7i0/NpA9zcRhJUWRAgAppnb1vyaxtwlHI2wVbMQvS5SJL0WhiR5D+Epx1sd9PD
+	 t6xEbw2ztBl7vtK2VjB5bf9Hc9lkERBR+cTObiA8hRyoMeNv+0AKkbhZIhy9ZUJYqD
+	 nAQgRkoDXClPz1x5qFL7LMaY1913EqBa3xDEAbpa7lNBBD6ftJGS6Y6RMRGWhPAf/s
+	 UKLLrPEYq5UmQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 01/18] lib/crc32: drop leading underscores from __crc32c_le_base
+Date: Fri, 25 Oct 2024 12:14:37 -0700
+Message-ID: <20241025191454.72616-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: qcom: Add coresight nodes for QCS615
-To: Jie Gan <quic_jiegan@quicinc.com>, Bjorn Andersson
- <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>,
-        Tao Zhang <quic_taozha@quicinc.com>
-References: <20241017030005.893203-1-quic_jiegan@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241017030005.893203-1-quic_jiegan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: zKuOxJKSNVAxoPqfLw9NYKj9YHvapUqd
-X-Proofpoint-ORIG-GUID: zKuOxJKSNVAxoPqfLw9NYKj9YHvapUqd
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
- adultscore=0 mlxlogscore=999 spamscore=0 malwarescore=0 impostorscore=0
- phishscore=0 bulkscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2410250144
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_114811_721636_178D521E 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20241025_121545_650402_0B8FF5D7 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +82,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.10.2024 5:00 AM, Jie Gan wrote:
-> Add following coresight components on QCS615, EUD, TMC/ETF, TPDM, dynamic
-> Funnel, TPDA, Replicator and ETM.
-> 
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> ---
-> Already checked by command:dtbs_check W=1.
-> 
-> Dependencies:
-> 1. Depends on qcs615 base dtsi change:
-> https://lore.kernel.org/all/20240926-add_initial_support_for_qcs615-v3-5-e37617e91c62@quicinc.com/
-> 2. Depends on qcs615 AOSS_QMP change:
-> https://lore.kernel.org/linux-arm-msm/20241017025313.2028120-4-quic_chunkaid@quicinc.com/
-> ---
->  arch/arm64/boot/dts/qcom/qcs615.dtsi | 1632 ++++++++++++++++++++++++++
->  1 file changed, 1632 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/qcs615.dtsi b/arch/arm64/boot/dts/qcom/qcs615.dtsi
-> index 856b40e20cf3..87cca5de018e 100644
-> --- a/arch/arm64/boot/dts/qcom/qcs615.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/qcs615.dtsi
-> @@ -202,6 +202,18 @@ l3_0: l3-cache {
->  		};
->  	};
->  
-> +	dummy_eud: dummy_sink {
+From: Eric Biggers <ebiggers@google.com>
 
-Node names (after the ':' and before the '{' signs) can't contain
-underscores, use '-' instead.
+Remove the leading underscores from __crc32c_le_base().
 
-[...]
+This is in preparation for adding crc32c_le_arch() and eventually
+renaming __crc32c_le() to crc32c_le().
 
-> +		stm@6002000 {
-> +			compatible = "arm,coresight-stm", "arm,primecell";
-> +			reg = <0x0 0x6002000 0x0 0x1000>,
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm64/lib/crc32-glue.c | 2 +-
+ arch/riscv/lib/crc32.c      | 2 +-
+ crypto/crc32c_generic.c     | 8 ++++----
+ include/linux/crc32.h       | 2 +-
+ lib/crc32.c                 | 4 ++--
+ lib/crc32test.c             | 2 +-
+ 6 files changed, 10 insertions(+), 10 deletions(-)
 
-Please pad the non-zero address part to 8 hex digits with leading
-zeroes, across the board
+diff --git a/arch/arm64/lib/crc32-glue.c b/arch/arm64/lib/crc32-glue.c
+index 295ae3e6b997..ad015223d15d 100644
+--- a/arch/arm64/lib/crc32-glue.c
++++ b/arch/arm64/lib/crc32-glue.c
+@@ -42,11 +42,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ {
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+-		return __crc32c_le_base(crc, p, len);
++		return crc32c_le_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+ 		kernel_neon_begin();
+ 		crc = crc32c_le_arm64_4way(crc, p, len);
+ 		kernel_neon_end();
+diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
+index d7dc599af3ef..333fb7af1192 100644
+--- a/arch/riscv/lib/crc32.c
++++ b/arch/riscv/lib/crc32.c
+@@ -224,11 +224,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+-				CRC32C_POLY_QT_LE, __crc32c_le_base);
++				CRC32C_POLY_QT_LE, crc32c_le_base);
+ }
+ 
+ static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+ 				     size_t len)
+ {
+diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
+index 7c2357c30fdf..635599b255ec 100644
+--- a/crypto/crc32c_generic.c
++++ b/crypto/crc32c_generic.c
+@@ -83,11 +83,11 @@ static int chksum_setkey(struct crypto_shash *tfm, const u8 *key,
+ static int chksum_update(struct shash_desc *desc, const u8 *data,
+ 			 unsigned int length)
+ {
+ 	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+ 
+-	ctx->crc = __crc32c_le_base(ctx->crc, data, length);
++	ctx->crc = crc32c_le_base(ctx->crc, data, length);
+ 	return 0;
+ }
+ 
+ static int chksum_update_arch(struct shash_desc *desc, const u8 *data,
+ 			      unsigned int length)
+@@ -106,11 +106,11 @@ static int chksum_final(struct shash_desc *desc, u8 *out)
+ 	return 0;
+ }
+ 
+ static int __chksum_finup(u32 *crcp, const u8 *data, unsigned int len, u8 *out)
+ {
+-	put_unaligned_le32(~__crc32c_le_base(*crcp, data, len), out);
++	put_unaligned_le32(~crc32c_le_base(*crcp, data, len), out);
+ 	return 0;
+ }
+ 
+ static int __chksum_finup_arch(u32 *crcp, const u8 *data, unsigned int len,
+ 			       u8 *out)
+@@ -198,16 +198,16 @@ static struct shash_alg algs[] = {{
+ }};
+ 
+ static int __init crc32c_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ static void __exit crc32c_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ subsys_initcall(crc32c_mod_init);
+ module_exit(crc32c_mod_fini);
+ 
+diff --git a/include/linux/crc32.h b/include/linux/crc32.h
+index 87f788c0d607..5b07fc9081c4 100644
+--- a/include/linux/crc32.h
++++ b/include/linux/crc32.h
+@@ -37,11 +37,11 @@ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
+ {
+ 	return crc32_le_shift(crc1, len2) ^ crc2;
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure __crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
++u32 __pure crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
+ 
+ /**
+  * __crc32c_le_combine - Combine two crc32c check values into one. For two
+  * 			 sequences of bytes, seq1 and seq2 with lengths len1
+  * 			 and len2, __crc32c_le() check values were calculated
+diff --git a/lib/crc32.c b/lib/crc32.c
+index ff587fee3893..c67059b0082b 100644
+--- a/lib/crc32.c
++++ b/lib/crc32.c
+@@ -205,12 +205,12 @@ EXPORT_SYMBOL(crc32_le);
+ EXPORT_SYMBOL(__crc32c_le);
+ 
+ u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
+ EXPORT_SYMBOL(crc32_le_base);
+ 
+-u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
+-EXPORT_SYMBOL(__crc32c_le_base);
++u32 __pure crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
++EXPORT_SYMBOL(crc32c_le_base);
+ 
+ u32 __pure crc32_be_base(u32, unsigned char const *, size_t) __alias(crc32_be);
+ 
+ /*
+  * This multiplies the polynomials x and y modulo the given modulus.
+diff --git a/lib/crc32test.c b/lib/crc32test.c
+index 03cf5c1f2f5d..30b8da4d8be4 100644
+--- a/lib/crc32test.c
++++ b/lib/crc32test.c
+@@ -824,11 +824,11 @@ static void crc32test_regenerate(void)
+ 	for (i = 0; i < ARRAY_SIZE(test); i++) {
+ 		pr_info("{0x%08x, 0x%08x, 0x%08x, 0x%08x, 0x%08x, 0x%08x},\n",
+ 			test[i].crc, test[i].start, test[i].length,
+ 			crc32_le_base(test[i].crc, test_buf + test[i].start, test[i].length),
+ 			crc32_be_base(test[i].crc, test_buf + test[i].start, test[i].length),
+-			__crc32c_le_base(test[i].crc, test_buf + test[i].start, test[i].length));
++			crc32c_le_base(test[i].crc, test_buf + test[i].start, test[i].length));
+ 	}
+ }
+ 
+ static int __init crc32test_init(void)
+ {
+-- 
+2.47.0
 
-This looks like a lot of nodes, all enabled by default. Will this run
-on a production-fused device?
-
-Konrad
 
