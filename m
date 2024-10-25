@@ -4,102 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF3ED11708
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232BDD11708
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9p12DVJrh2/KaL703mBvE4NfeJ/21HDpgwP+rDFnf/I=; b=VyOunjlu+NfugadYasgNa8Uy/i
-	reVn25y9C50YTRQXh2Yrfkz+siliXmJSTGF1WC/86J9T4UMmLK0X1PYb4VpPOQeMDmYBC7Vg78IUv
-	D4EXtK+rQhTtg04Fl3yubc3i6EECcRuQkY61aY02MWRQUmixObeoAQzJuGYVLYoT6bjsuQ5WTS00r
-	eWX68g5KKUK785vvpdx5YFNUeemQToTeYYLi+5jbiSLQrVydsbZ650ENCiKCTuo/zAnYR7o0OuKGr
-	9DIZTM217XgD2uOVhM+hboK9u0fPzxQ7DDHYx/Yc8npRzxI6AMlFJvbpb7Fs0f/T3snajpDFwNDCL
-	X8J1BBbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Yot5CVMrhD1GTtMp0Szbyl+xfW+qQ/vMp2WrwCQU80=; b=wMCdL2c73m4JFZFF0cY1k3XFmz
+	O/DhADKyYY9uJWeOR3Y2hDFccrKv2dETioLhmZ4fOVAwC3hSZZMi9uxAnyFMtR51r4ryrRa3YEZEC
+	NZOgRn59PuoHMmE7KSA91SuiQzDwlbyzfmfj8OOHML+lmBStdRSyHe4GSf55wYh9pXbLNvGgJVbY/
+	op4GUfqk+Lc087/04ZvljUJwCW1Wj6eTPCms8WLXBdAWCTCmAOhvDMApCRwNUCgVcYxS6uvd0/1sP
+	3PNlwPw+mZkb9MxJrlRRDJx67kKTyqzoEYUIop78WJc1O4yyic35fkp4bkYEsAv0KUFe2gk5MKM+n
+	GZ+1mLRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4EOF-00000002l7G-0VJ8;
-	Fri, 25 Oct 2024 07:05:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t4EVe-00000002mOr-0EKR;
+	Fri, 25 Oct 2024 07:13:22 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4EMd-00000002kuW-3PuI
+	id 1t4EU2-00000002mBQ-0OTs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 07:04:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729839842;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9p12DVJrh2/KaL703mBvE4NfeJ/21HDpgwP+rDFnf/I=;
-	b=i3mG4BVx/BVf4YdwdnRIiFAomiNyHNLg4TKYk4FMUYVWn7A8dWTqPB2alde/qPGWB6aB1X
-	c4vrbUsmhm8ga9N0yd3WnfsQEBypGF20seaQnrWqXljLew2EhbQlQ/LLMUQ5nKEassW23S
-	PgUzWy1PpsA0+GbGBvyo5zMoFF2htoY=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-635-XSImk8FgP3ehjr6dzf4y2Q-1; Fri, 25 Oct 2024 03:04:00 -0400
-X-MC-Unique: XSImk8FgP3ehjr6dzf4y2Q-1
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-20ca0a58524so20377875ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:04:00 -0700 (PDT)
+	Fri, 25 Oct 2024 07:11:43 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a9a68480164so222127866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:11:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oldum-net.20230601.gappssmtp.com; s=20230601; t=1729840292; x=1730445092; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2Yot5CVMrhD1GTtMp0Szbyl+xfW+qQ/vMp2WrwCQU80=;
+        b=uanZlhj/Wph9IhT5hOYRkU4wLEXZDtytZTjz5LfMpU4SNwyBmY5Z06j3tKNR0TuguZ
+         gMUW6bgF62961VZRjTjQ14sQoC0Zp7LJKFy22kj/+STr0rRgo5Xo2IFPVHtSJEbQl5Za
+         q3TvYzfAyCnvMBS4zOrLQvdxdWnv4wVk3rbnylkHB3WiwrRt/GtWcdVaflDGApzz8NmU
+         Gu/Z9Oy7wTgywPniY06nIndlDLxuNIQAmUo3Iq2SkwuNGfmMCPORb18YKT8OeJjv2cXU
+         eJ9zjZtSSMy/NGXj7O5WttYWpaf7XW20l+IYPgPIR2gXm15MLTbH8bOHHh6uk5UcJrfH
+         Gm8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729839840; x=1730444640;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9p12DVJrh2/KaL703mBvE4NfeJ/21HDpgwP+rDFnf/I=;
-        b=Nlk+5GgmUaaux0EHpFjSoZA3316ydBMmulhvuFPSeHBHHVRn5EU/Bv3GOEsPi7AVmK
-         U+sHCaSnZaqeSQSYORagE6oDEz8tHRix4pdIIiH2/xqxg9taH129n9bb3EA9CEvlnuFR
-         79iZrFJht5bja7iporvbfz9OZTyFeUSeTD3uvOg6JApfWbCDDAwu55pNLAbeDsGBbayY
-         d24X1YAU6MFFQH8ody6ITPT7aNYbSVfeWo4g8o45wxuEeeLoWtdEhPzdpKziMYZCSuAt
-         k1bHTOv7WbFXu6jE8hTg4j60y263kdeXTUKB1j3jdkcCwv98n2coGmSD//D/J27jT14p
-         kwWA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Xtj2n4sB9oKZkA/f7of3s+vSpfu+oFgNFsKW8t3nWm1DvG3khFhUCW6ZJdf89K+mgp3tuBt2+CeoxkP5i2b1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaWaDk6KxVREGTrgtfgbZMSHqQ6iwziY1iOh5iMsZ+UBkOSjnK
-	dxfCMTvI3bkMV/XepcLcskfl6my+pztQrBmzsh8sFGHfy3w0yw0iyBjafAGF/ftFmkx3nfgXiIJ
-	AnhgQdV2NNpLFIeJYguRLjmjcevnFT8lXt6xuxeJFH84V47+eoMwGrD/14N5cuMe32wm/wz5u
-X-Received: by 2002:a17:903:1cb:b0:20f:c094:b80f with SMTP id d9443c01a7336-20fc094bce6mr29520275ad.49.1729839839667;
-        Fri, 25 Oct 2024 00:03:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHqNkHcZK+wAbGtTfwcXjrQGB/oivx/BdHMIgJdpiz9apxigQic1a/Lr06F1uzOyU4AhBxK1g==
-X-Received: by 2002:a17:903:1cb:b0:20f:c094:b80f with SMTP id d9443c01a7336-20fc094bce6mr29519855ad.49.1729839839211;
-        Fri, 25 Oct 2024 00:03:59 -0700 (PDT)
-Received: from [192.168.68.55] ([180.233.125.129])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc02f6f1sm4190065ad.226.2024.10.25.00.03.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 00:03:58 -0700 (PDT)
-Message-ID: <d3e0b74a-7c01-487e-ac77-5c8afbd720d4@redhat.com>
-Date: Fri, 25 Oct 2024 17:03:49 +1000
+        d=1e100.net; s=20230601; t=1729840292; x=1730445092;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2Yot5CVMrhD1GTtMp0Szbyl+xfW+qQ/vMp2WrwCQU80=;
+        b=ckUZHZGkATO6BDjV9uK3k9dDyzFOPCfi5DYB+u3CsJPaZP0hVFkrUd1l72q7TLcpqZ
+         pJuEswy/nrOAEi9CjjdYWLMIUekEwFKoXfdJ/KGD/W0ScpAfj3qjpHAznizKjH++g46M
+         kucbPTXWHhKIruPFwx8EI+N+wUb+M9O1h43SgqN1U6V/smvAWAbi4yZpLDKBha4oRgEt
+         KDfibd5VXIi99+ju9L0PUjbqITAMOQsriXg5vkIo0AGduCVsk9IzX/jHobrPALD6pMie
+         EFTpaKpzsBjHFMU2uIiXxS3qBMlbg+ERksTX1UNGmbpS/GzUEU6Xk6Ul4D7tkTpPCu2W
+         nxiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/qgr5+4XxgwkclUEYnjej+GQBRUhPWYMU8vvGu2xFLUxI4qJRwdXBZ7PVn8tbHE6e2JNy6s8U8d16EIZOczEp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlRC5gDL436BxWhfywsJYqepBsXtu04nQuinPMFAqcNfHWblDl
+	UR0rPXuj6xgJdkd0PQanQta4GbSZlbxV33CgGPmhxO538y3KZmMl6CpiOkbfcXw=
+X-Google-Smtp-Source: AGHT+IGBdf9M+MhMVkkAf67M7SvMWvUIw/h/7r8rJ3Hdx2EtRLd3htedYCpRhV8dD7bWUo1PL92GzA==
+X-Received: by 2002:a17:907:3e9f:b0:a9a:bbcc:508c with SMTP id a640c23a62f3a-a9ad2710a64mr438727766b.2.1729840291504;
+        Fri, 25 Oct 2024 00:11:31 -0700 (PDT)
+Received: from [10.1.0.200] (178-169-191-169.parvomai.ddns.bulsat.com. [178.169.191.169])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-a9b1f0298e7sm35760066b.75.2024.10.25.00.11.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 00:11:31 -0700 (PDT)
+Message-ID: <3ace1329d4ef99b87780d0ef07db179d27d04d44.camel@oldum.net>
+Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
+ compliance requirements."
+From: Nikolay Kichukov <nikolay@oldum.net>
+To: Mikhail Novosyolov <m.novosyolov@rosalinux.ru>, 
+	torvalds@linux-foundation.org
+Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru, 
+ dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com, 
+ geert@linux-m68k.org, gregkh@linuxfoundation.org,
+ hoan@os.amperecomputing.com,  ink@jurassic.park.msu.ru, jeffbai@aosc.io,
+ kexybiscuit@aosc.io,  linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-fpga@vger.kernel.org,
+ linux-gpio@vger.kernel.org,  linux-hwmon@vger.kernel.org,
+ linux-ide@vger.kernel.org,  linux-iio@vger.kernel.org,
+ linux-media@vger.kernel.org,  linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org,  linux-spi@vger.kernel.org,
+ manivannan.sadhasivam@linaro.org, mattst88@gmail.com, 
+ netdev@vger.kernel.org, nikita@trvn.ru, ntb@lists.linux.dev, 
+ patches@lists.linux.dev, peter@typeblog.net, richard.henderson@linaro.org, 
+ s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru, torvic9@mailbox.org, 
+ tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, wangyuli@uniontech.com, 
+ wsa+renesas@sang-engineering.com, xeb@mail.ru, rms@gnu.org,
+ campaigns@fsf.org
+Date: Fri, 25 Oct 2024 10:11:27 +0300
+In-Reply-To: <20241024210120.4126-1-m.novosyolov@rosalinux.ru>
+References: <CAHk-=wjw0i-95S_3Wgk+rGu0TUs8r1jVyBv0L8qfsz+TJR8XTQ@mail.gmail.com>
+	 <20241024210120.4126-1-m.novosyolov@rosalinux.ru>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.50.2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/43] arm64: RME: Add wrappers for RMI calls
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241004152804.72508-1-steven.price@arm.com>
- <20241004152804.72508-7-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241004152804.72508-7-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_000404_048575_E9FF298F 
-X-CRM114-Status: GOOD (  34.09  )
+X-CRM114-CacheID: sfid-20241025_001142_517282_D29C40DD 
+X-CRM114-Status: GOOD (  33.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,559 +111,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/24 1:27 AM, Steven Price wrote:
-> The wrappers make the call sites easier to read and deal with the
-> boiler plate of handling the error codes from the RMM.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes from v4:
->   * Improve comments
-> Changes from v2:
->   * Make output arguments optional.
->   * Mask RIPAS value rmi_rtt_read_entry()
->   * Drop unused rmi_rtt_get_phys()
-> ---
->   arch/arm64/include/asm/rmi_cmds.h | 510 ++++++++++++++++++++++++++++++
->   1 file changed, 510 insertions(+)
->   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
-> 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> new file mode 100644
-> index 000000000000..3ed32809a608
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -0,0 +1,510 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_RMI_CMDS_H
-> +#define __ASM_RMI_CMDS_H
-> +
-> +#include <linux/arm-smccc.h>
-> +
+On Fri, 2024-10-25 at 00:01 +0300, Mikhail Novosyolov wrote:
+> Linus, Greg,
+>=20
+> First of all thanks to you for taking by far not the most harmful
+> actions to achieve what your lawyers very kindly asked you to do.
+>=20
+> Unfortunately, already a lot of highly qualified people have started
+> thinking that you acted very badly. Of course, there are questions
+> like why removed maintainers were not properly notified and did not
+> receive any additional explanations, but, to my mind, it is useless to
+> try to find 100% justice -- it is not possible. Overton windows has
+> been opened a bit more.
+>=20
+> Usually the first contribution is much harder to make then the
+> following ones. A big problem here is that now many people even will
+> not try to contribute to the Linux kernel and other open source
+> projects: their pride for themselves, their homeland, their colleagues
+> has been severely hurt (we are ready to fight for all that).
+>=20
+> It is not clear what to do with this problem. Any ideas?
+>=20
+> I am sure that people from any country and of any nationality will
+> have similar feelings if you act with them or their colleagues in a
+> similar way.
+>=20
+> Thanks to people who were not afraid to say something against this
+> action. Chinese, Latin American, African and other people probably
+> understand that they may be the next ones to be dropped from
+> maintainers. Hope that we will not have to form another Linux kernel
+> upstream one day...
+>=20
+> I am sorry that you have to read a lot of text from people who you
+> call trolls -- it is hard to keep calm.
+>=20
+> You know, you have really made it much harder to motivate people to
+> contribute into the kernel. There is such problem among developers of
+> hardware that they do not feel comfortable enough to show their code,
+> for example because they think that it is not perfect. Let=E2=80=99s take
+> Baikal Electronics. They do publish their kernel code, but in a form
+> of tarballs without git. They slowly, but constantly worked on
+> contributing support of their hardware into the upstream kernel,
+> fixing not Baikal-related bugs by the way. One day someone told them
+> that =E2=80=9Cwe are not comfortable with accepting your patches=E2=80=9D=
+. And they
+> stopped their work on upstream. Now that man has been removed from
+> maintainers of previously contributed code (code for not Russian
+> hardware, by the way).
+>=20
+> What do I suggest to do? Well, I don=E2=80=99t know, but I do not see dir=
+ect
+> legal reasons why doing this was required and why patches from Baikal
+> could not be accepted (the fact that I do not see does not mean that
+> they do not exist, but please show them). Politicians and activists
+> can be shown a finger in some places, by both developers and lawyers,
+> at least to prevent them from being too ambitious, when they decide to
+> break something working next time... But maybe I do not know something
+> about truly democratic regimes :-)
+>=20
+> Thanks for reading.
+>=20
+Hi folks,
 
-It can be dropped since the header file has been included by <asm/rmi_smc.h>
+I also do not consider what's happened here as normal. The maintainers
+removal stands against the key principles and values of our GNU/Linux
+communities and the FOSS ideology. Values and ideas most of us have been
+protecting and advocating for since we can remember!
 
-> +#include <asm/rmi_smc.h>
-> +
-> +struct rtt_entry {
-> +	unsigned long walk_level;
-> +	unsigned long desc;
-> +	int state;
-> +	int ripas;
-> +};
-> +
-> +/**
-> + * rmi_data_create() - Create a Data Granule
-> + * @rd: PA of the RD
-> + * @data: PA of the target granule
-> + * @ipa: IPA at which the granule will be mapped in the guest
-> + * @src: PA of the source granule
-> + * @flags: RMI_MEASURE_CONTENT if the contents should be measured
-> + *
-> + * Create a new Data Granule, copying contents from a Non-secure Granule.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_data_create(unsigned long rd, unsigned long data,
-> +				  unsigned long ipa, unsigned long src,
-> +				  unsigned long flags)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_DATA_CREATE, rd, data, ipa, src,
-> +			     flags, &res);
-> +
-> +	return res.a0;
-> +}
-> +
+This hurt so badly! Really. This is betrial.
 
-Is there a particular reason why the first letter for 'Data Granule' and
-'Granule' has to be upper-case?
+Even if this is now reverted, or the upstream kernel is forked and a new
+upstream kernel repository is elected, the history of it will remain and
+haunt us all.
 
-> +/**
-> + * rmi_data_create_unknown() - Create a Data Granule with unknown contents
-> + * @rd: PA of the RD
-> + * @data: PA of the target granule
-> + * @ipa: IPA at which the granule will be mapped in the guest
-> + *
-> + * Create a new Data Granule with unknown contents
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Turned out our beloved and "free" as in freedom kernel has been
+compromised by compliance to a government.
 
-This line can be dropped since the same content has been given at the
-beginning.
+But this is the Linux kernel, how could this have happened?! It is used,
+improved and copied all over the world, not just one country! Why did we
+let this happen?
 
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_data_create_unknown(unsigned long rd,
-> +					  unsigned long data,
-> +					  unsigned long ipa)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_DATA_CREATE_UNKNOWN, rd, data, ipa, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_data_destroy() - Destroy a Data Granule
-> + * @rd: PA of the RD
-> + * @ipa: IPA at which the granule is mapped in the guest
-> + * @data_out: PA of the granule which was destroyed
-> + * @top_out: Top IPA of non-live RTT entries
-> + *
-> + * Unmap a protected IPA from stage 2, transitioning it to DESTROYED.
-> + * The IPA cannot be used by the guest unless it is transitioned to RAM again
-> + * by the Realm guest.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_data_destroy(unsigned long rd, unsigned long ipa,
-> +				   unsigned long *data_out,
-> +				   unsigned long *top_out)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_DATA_DESTROY, rd, ipa, &res);
-> +
-> +	if (data_out)
-> +		*data_out = res.a1;
-> +	if (top_out)
-> +		*top_out = res.a2;
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_features() - Read feature register
-> + * @index: Feature register index
-> + * @out: Feature register value is written to this pointer
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_features(unsigned long index, unsigned long *out)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_FEATURES, index, &res);
-> +
-> +	if (out)
-> +		*out = res.a1;
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_granule_delegate() - Delegate a Granule
-> + * @phys: PA of the Granule
-> + *
-> + * Delegate a Granule for use by the Realm World.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_granule_delegate(unsigned long phys)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_DELEGATE, phys, &res);
-> +
-> +	return res.a0;
-> +}
-> +
+This is a precedent that tells everybody what can come next, due to
+"compliance" reasons the kernel could receive code produced by a
+government institution that serves not the Linux community, but the
+governement.
 
-Same as above, why the first letters for 'Realm World' have to be
-in upper-case? :-)
+Surely it is not just me thinking towards what can change so we never
+again have to comply to a government of a country when fighting for
+freedom!
 
-> +/**
-> + * rmi_granule_undelegate() - Undelegate a Granule
-> + * @phys: PA of the Granule
-> + *
-> + * Undelegate a Granule to allow use by the Normal World. Will fail if the
-> + * Granule is in use.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_granule_undelegate(unsigned long phys)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_UNDELEGATE, phys, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_psci_complete() - Complete pending PSCI command
-> + * @calling_rec: PA of the calling REC
-> + * @target_rec: PA of the target REC
-> + * @status: Status of the PSCI request
-> + *
-> + * Completes a pending PSCI command which was called with an MPIDR argument, by
-> + * providing the corresponding REC.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_psci_complete(unsigned long calling_rec,
-> +				    unsigned long target_rec,
-> +				    unsigned long status)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_PSCI_COMPLETE, calling_rec, target_rec,
-> +			     status, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_realm_activate() - Active a Realm
-> + * @rd: PA of the RD
-> + *
-> + * Mark a Realm as Active signalling that creation is complete and allowing
-> + * execution of the Realm.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_realm_activate(unsigned long rd)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REALM_ACTIVATE, rd, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_realm_create() - Create a Realm
-> + * @rd: PA of the RD
-> + * @params_ptr: PA of Realm parameters
-> + *
-> + * Create a new Realm using the given parameters.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_realm_create(unsigned long rd, unsigned long params_ptr)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REALM_CREATE, rd, params_ptr, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_realm_destroy() - Destroy a Realm
-> + * @rd: PA of the RD
-> + *
-> + * Destroys a Realm, all objects belonging to the Realm must be destroyed first.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_realm_destroy(unsigned long rd)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REALM_DESTROY, rd, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rec_aux_count() - Get number of auxiliary Granules required
-> + * @rd: PA of the RD
-> + * @aux_count: Number of pages written to this pointer
-> + *
-> + * A REC may require extra auxiliary pages to be delegated for the RMM to
-> + * store metadata (not visible to the normal world) in. This function provides
-> + * the number of pages that are required.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
-> +
-> +	if (aux_count)
-> +		*aux_count = res.a1;
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rec_create() - Create a REC
-> + * @rd: PA of the RD
-> + * @rec: PA of the target REC
-> + * @params_ptr: PA of REC parameters
-> + *
-> + * Create a REC using the parameters specified in the struct rec_params pointed
-> + * to by @params_ptr.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
-> +				 unsigned long params_ptr)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params_ptr, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rec_destroy() - Destroy a REC
-> + * @rec: PA of the target REC
-> + *
-> + * Destroys a REC. The REC must not be running.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_destroy(unsigned long rec)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_DESTROY, rec, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rec_enter() - Enter a REC
-> + * @rec: PA of the target REC
-> + * @run_ptr: PA of RecRun structure
-> + *
-> + * Starts (or continues) execution within a REC.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_enter(unsigned long rec, unsigned long run_ptr)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_ENTER, rec, run_ptr, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_create() - Creates an RTT
-> + * @rd: PA of the RD
-> + * @rtt: PA of the target RTT
-> + * @ipa: Base of the IPA range described by the RTT
-> + * @level: Depth of the RTT within the tree
-> + *
-> + * Creates an RTT (Realm Translation Table) at the specified level for the
-> + * translation of the specified address within the Realm.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_create(unsigned long rd, unsigned long rtt,
-> +				 unsigned long ipa, long level)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_CREATE, rd, rtt, ipa, level, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_destroy() - Destroy an RTT
-> + * @rd: PA of the RD
-> + * @ipa: Base of the IPA range described by the RTT
-> + * @level: Depth of the RTT within the tree
-> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
-> + * @out_top: Pointer to write the top IPA of non-live RTT entries
-> + *
-> + * Destroys an RTT. The RTT must be non-live, i.e. none of the entries in the
-> + * table are in ASSIGNED or TABLE state.
-> + *
-> + * Return: RMI return code.
-> + */
-> +static inline int rmi_rtt_destroy(unsigned long rd,
-> +				  unsigned long ipa,
-> +				  long level,
-> +				  unsigned long *out_rtt,
-> +				  unsigned long *out_top)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_DESTROY, rd, ipa, level, &res);
-> +
-> +	if (out_rtt)
-> +		*out_rtt = res.a1;
-> +	if (out_top)
-> +		*out_top = res.a2;
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_fold() - Fold an RTT
-> + * @rd: PA of the RD
-> + * @ipa: Base of the IPA range described by the RTT
-> + * @level: Depth of the RTT within the tree
-> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
-> + *
-> + * Folds an RTT. If all entries with the RTT are 'homogeneous' the RTT can be
-> + * folded into the parent and the RTT destroyed.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_fold(unsigned long rd, unsigned long ipa,
-> +			       long level, unsigned long *out_rtt)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_FOLD, rd, ipa, level, &res);
-> +
-> +	if (out_rtt)
-> +		*out_rtt = res.a1;
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_init_ripas() - Set RIPAS for new Realm
-> + * @rd: PA of the RD
-> + * @base: Base of target IPA region
-> + * @top: Top of target IPA region
-> + * @out_top: Top IPA of range whose RIPAS was modified
-> + *
-> + * Sets the RIPAS of a target IPA range to RAM, for a Realm in the NEW state.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_init_ripas(unsigned long rd, unsigned long base,
-> +				     unsigned long top, unsigned long *out_top)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_INIT_RIPAS, rd, base, top, &res);
-> +
-> +	if (out_top)
-> +		*out_top = res.a1;
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_map_unprotected() - Map NS pages into a Realm
-> + * @rd: PA of the RD
-> + * @ipa: Base IPA of the mapping
-> + * @level: Depth within the RTT tree
-> + * @desc: RTTE descriptor
-> + *
-> + * Create a mapping from an Unprotected IPA to a Non-secure PA.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_map_unprotected(unsigned long rd,
-> +					  unsigned long ipa,
-> +					  long level,
-> +					  unsigned long desc)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_MAP_UNPROTECTED, rd, ipa, level,
-> +			     desc, &res);
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_read_entry() - Read an RTTE
-> + * @rd: PA of the RD
-> + * @ipa: IPA for which to read the RTTE
-> + * @level: RTT level at which to read the RTTE
-> + * @rtt: Output structure describing the RTTE
-> + *
-> + * Reads a RTTE (Realm Translation Table Entry).
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_read_entry(unsigned long rd, unsigned long ipa,
-> +				     long level, struct rtt_entry *rtt)
-> +{
-> +	struct arm_smccc_1_2_regs regs = {
-> +		SMC_RMI_RTT_READ_ENTRY,
-> +		rd, ipa, level
-> +	};
-> +
-> +	arm_smccc_1_2_smc(&regs, &regs);
-> +
-> +	rtt->walk_level = regs.a1;
-> +	rtt->state = regs.a2 & 0xFF;
-> +	rtt->desc = regs.a3;
-> +	rtt->ripas = regs.a4 & 0xFF;
-> +
-> +	return regs.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_set_ripas() - Set RIPAS for an running Realm
-> + * @rd: PA of the RD
-> + * @rec: PA of the REC making the request
-> + * @base: Base of target IPA region
-> + * @top: Top of target IPA region
-> + * @out_top: Pointer to write top IPA of range whose RIPAS was modified
-> + *
-> + * Completes a request made by the Realm to change the RIPAS of a target IPA
-> + * range.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_set_ripas(unsigned long rd, unsigned long rec,
-> +				    unsigned long base, unsigned long top,
-> +				    unsigned long *out_top)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_SET_RIPAS, rd, rec, base, top, &res);
-> +
-> +	if (out_top)
-> +		*out_top = res.a1;
-> +
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rtt_unmap_unprotected() - Remove a NS mapping
-> + * @rd: PA of the RD
-> + * @ipa: Base IPA of the mapping
-> + * @level: Depth within the RTT tree
-> + * @out_top: Pointer to write top IPA of non-live RTT entries
-> + *
-> + * Removes a mapping at an Unprotected IPA.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rtt_unmap_unprotected(unsigned long rd,
-> +					    unsigned long ipa,
-> +					    long level,
-> +					    unsigned long *out_top)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_UNMAP_UNPROTECTED, rd, ipa,
-> +			     level, &res);
-> +
-> +	if (out_top)
-> +		*out_top = res.a1;
-> +
-> +	return res.a0;
-> +}
-> +
-> +#endif
+FSF, any comments on this?
 
-#endif /* __ASM_RMI_CMDS_H */
+Resist!
+
++rms and fsf
 
 Thanks,
-Gavin
-
+Nikolay
 
