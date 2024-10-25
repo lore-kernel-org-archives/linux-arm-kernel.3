@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF4DD0C5E6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AD9D0C5E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BT/Ng943C81aesy7n0Su3FETLClPbDgwCaBp/DvtzrA=; b=1EVMFgWjp+mQkW4lZtl4oFrcFg
-	jQdLEhEIhST0TDsKBvrBkxWBIMlv+KkuMqJFlmMcQcquubnn5vOF4Tx7f7uk2OkC5Vj2o9Rux506K
-	992LKaxZyWk082RkypJ3RCpITMWJ8fA1dHSkrf8Vng8DTONKcqhULMmxgvMfFhyitSZaM8MC4haea
-	IXg2ZaxV3Knklp+NLQT74Lj7U3Aw6CNqV+7NskHPQnLg04ckZ+Kvdh5eLvjI4lB8417xOgyffgLxR
-	rnWxaXMtvXuIio4FZCcf+OJOhd0EcTdBME/+HCdq3nSp1NON4W+tF1n6LVay5CwY+Yq5rLTuxD/Nf
-	MTeA3IhA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ulm1GdYn5AwzGJrnapuHvHX2NA5N+yc7mcixuW0PsW0=; b=H0fH4ImlQ2XyxgtWEpu7g3KFTp
+	Ig/2OEGehwgbmyI7KkEaA1rgZNemvZgRcQUCcMDeGIFKfHIk3ub28mzTLFfLFSmN+vBP6JKE14Tes
+	W/HYrU9mbrh1IUmcQiBotNz9+mKrwArSUAl98XStHnMBqA2iiOPED9DLAgPmbzUziC838F2jaQuxp
+	tMa2YHo9ovhjUI9LxksrDn8HB2FyNJvMi2/DY/750vJZ3HrgEuqFiqIJI7pDIVaKFEhL5P03UDz5l
+	+NzIE2J9SkyUiAy7o2n6a6Y3JC1R4prRIhEAa7YjnlQ7vL2Y55w9GxQUnd9mgQP7QTxYicE+IHaT8
+	fZgahjVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FpG-000000030Gq-1M54;
-	Fri, 25 Oct 2024 08:37:42 +0000
+	id 1t4Fqp-000000030aQ-3iJu;
+	Fri, 25 Oct 2024 08:39:19 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fjd-00000002zEg-12bG;
-	Fri, 25 Oct 2024 08:31:54 +0000
-X-UUID: 9366e94292ab11ef9048ed6ed365623b-20241025
+	id 1t4Fje-00000002zEy-2HGZ;
+	Fri, 25 Oct 2024 08:31:55 +0000
+X-UUID: 93f128c892ab11ef9048ed6ed365623b-20241025
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=BT/Ng943C81aesy7n0Su3FETLClPbDgwCaBp/DvtzrA=;
-	b=d7+KrT+YQLkZHKtWDIIjKRc/Wl3dZ6/Q8HhhYnmaDvKuKuAoFvopb0i6UPLdjVJDIIcQ7cFXiCfoAJvqfh2Kk/E3eADWzCTS6FeZdRL3+cnVRLR0kN3EumINBstlFGXBvtEkHIOw/ASrvakkRpiTDzvaV3RRHMQZAgtiwYUKsHQ=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Ulm1GdYn5AwzGJrnapuHvHX2NA5N+yc7mcixuW0PsW0=;
+	b=pBUzlrKoUT13Vi8gE/TvGemhGlY2CmDFP9Of3OO3eaASNxI2ADP0b6MsDd+8mhLWUkW3nXNHDA1IWstFu393/Rjb+3R3B7obVrDJCTYoGF+3PmzC30Wwc1sdn28TZALZUr50c3QnzLuQ1qFwjsgq/ihvAMbazPu+NwQeOGflDW0=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:f20ef7d4-3bbf-4f2a-87aa-4df81022319f,IP:0,U
+X-CID-O-INFO: VERSION:1.1.42,REQID:5170d544-acca-4622-bd97-e4531837fd4b,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:5260dacc-110e-4f79-849e-58237df93e70,B
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:019e192e-a7a0-4b06-8464-80be82133975,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
 	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
 	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 9366e94292ab11ef9048ed6ed365623b-20241025
+X-UUID: 93f128c892ab11ef9048ed6ed365623b-20241025
 Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
 	(envelope-from <liankun.yang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1031934843; Fri, 25 Oct 2024 01:31:48 -0700
+	with ESMTP id 1340106102; Fri, 25 Oct 2024 01:31:49 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
  MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 25 Oct 2024 16:31:44 +0800
+ 15.2.1118.26; Fri, 25 Oct 2024 16:31:45 +0800
 Received: from mszsdclx1211.gcn.mediatek.inc (10.16.7.31) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 16:31:43 +0800
+ 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 16:31:45 +0800
 From: Liankun Yang <liankun.yang@mediatek.com>
 To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
 	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
@@ -64,29 +64,33 @@ To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
 CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 0/3] Adjust YCbCr422/bandwidth/training for DP
-Date: Fri, 25 Oct 2024 16:28:26 +0800
-Message-ID: <20241025083036.8829-1-liankun.yang@mediatek.com>
+Subject: [PATCH v2 3/3] drm/mediatek: Adjust bandwidth limit for DP
+Date: Fri, 25 Oct 2024 16:28:29 +0800
+Message-ID: <20241025083036.8829-4-liankun.yang@mediatek.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241025083036.8829-1-liankun.yang@mediatek.com>
+References: <20241025083036.8829-1-liankun.yang@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--5.394300-8.000000
-X-TMASE-MatchedRID: gUuz9Ogq75WqO+wHLkIcO7E3FpMbg63SWDdWpJMntKiPaLJ/Ca3STzku
-	TGiiLo1Yx91bb4/YjfE5bsAcOzEG6DK42JVSvu3ARAvohSJUpI++1Vx7rDn4r7v408/GP5HqqcN
-	xd5hReGHi8zVgXoAltoAy6p60ZV62JW+71yEen6Zq8/xv2Um1avoLR4+zsDTtgUicvJ4MChkqZu
-	nyleO9cPKITgppfSr0LQnK66f9ldiohItm7Yy7y/cqHKzCJIUv
+X-TM-AS-Result: No-10--4.892200-8.000000
+X-TMASE-MatchedRID: eEvvxGbtKJXqDJGloYB7/lu4M/xm4KZeB3WB/vm5tBhvOxpHnc6c8tAO
+	OSAF0cTNjhjs4bjZeL6wUbC8TG29xsME2BsoiKJMQ4srjeRbxTZMkOX0UoduuQqiCYa6w8tvg7c
+	fJQw9FseiXymrvf+Yd78x/CIirHX9UBXVAm5W8RB7k1ZHmKLF7dn+voDzU8zxVz8J52OVy+RtgT
+	FkLUu6pv7wSJO97U5mdL6uYg+Eh8xlZ48frA+isodlc1JaOB1TfS0Ip2eEHnz3IzXlXlpamPoLR
+	4+zsDTttrrTuahHzlFM7SgCXiCKPg0pokrqu76d3ChfGQlxUCGwlr1AK4SIq6umutRJso5Pd7HY
+	8VpdQiO3FkU3l1TlG6F3Knlxd+sAvV1+6k7Vw+XyNp7g4PXe0BXsxz6ujBxUq1f8XSkHBUmNJXm
+	EMVvLtpRMZUCEHkRt
 X-TM-AS-User-Approved-Sender: No
 X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--5.394300-8.000000
+X-TMASE-Result: 10--4.892200-8.000000
 X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: F32734434536A121CD0B2F2009F6141F52AC7822B31BBEF4922DAF5077C969E42000:8
+X-TM-SNTS-SMTP: FC8D13FAC6F2D1F2D2B6E2E03F161BD2D3BD61356F27743ED310C6690EE78ECF2000:8
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_013153_325377_C56E764D 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_013154_624934_26014548 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,27 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The change in mode filtering bandwidth calculation method must rely on
-DP training at the beginning, and get the current train info to calculate
-the bandwidth.
+By adjusting the order of link training and relocating it to HPD,
+link training can identify the usability of each lane in the current link.
 
-Color format support capability must also rely on DP training time to
-get the most reliable link capability and choose which color format to use.
+It also supports handling signal instability and weakness due to
+environmental issues, enabling the acquisition of a stable bandwidth
+for the current link. Subsequently, DP work can proceed based on
+the actual maximum bandwidth.
 
-Fixed YCbCr422 problem and bandwidth calculation from color format are
-both in the color format category, so they are bound.
+It should training in the hpd event thread.
+Check the mode with lane count and link rate of training.
 
-In summary, YCbCr 422 and mode valid must rely on DP training timing,
-so they are strongly bound.
+Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
+---
+- Adjust DP training timing.
+- Adjust parse capabilities timing.
+- Add power on/off for connect/disconnect
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c | 37 +++++++++++++++++--------------
+ 1 file changed, 20 insertions(+), 17 deletions(-)
 
-Liankun Yang (3):
-  drm/mediatek: Fix YCbCr422 color format issue for DP
-  drm/mediatek: Fix mode valid issue for dp
-  drm/mediatek: Adjust bandwidth limit for DP
-
- drivers/gpu/drm/mediatek/mtk_dp.c | 78 ++++++++++++++++++-------------
- 1 file changed, 45 insertions(+), 33 deletions(-)
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index ae4807823a5c..e87f6f52bcce 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -1873,6 +1873,7 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
+ 	struct mtk_dp *mtk_dp = dev;
+ 	unsigned long flags;
+ 	u32 status;
++	int ret;
+ 
+ 	if (mtk_dp->need_debounce && mtk_dp->train_info.cable_plugged_in)
+ 		msleep(100);
+@@ -1891,9 +1892,28 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
+ 			memset(&mtk_dp->info.audio_cur_cfg, 0,
+ 			       sizeof(mtk_dp->info.audio_cur_cfg));
+ 
++			mtk_dp->enabled = false;
++			/* power off aux */
++			mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
++			       DP_PWR_STATE_BANDGAP_TPLL,
++			       DP_PWR_STATE_MASK);
++
+ 			mtk_dp->need_debounce = false;
+ 			mod_timer(&mtk_dp->debounce_timer,
+ 				  jiffies + msecs_to_jiffies(100) - 1);
++		} else {
++			mtk_dp_aux_panel_poweron(mtk_dp, true);
++
++			ret = mtk_dp_parse_capabilities(mtk_dp);
++			if (ret)
++				drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
++
++			/* Training */
++			ret = mtk_dp_training(mtk_dp);
++			if (ret)
++				drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
++
++			mtk_dp->enabled = true;
+ 		}
+ 	}
+ 
+@@ -2060,16 +2080,6 @@ static const struct drm_edid *mtk_dp_edid_read(struct drm_bridge *bridge,
+ 
+ 	drm_edid = drm_edid_read_ddc(connector, &mtk_dp->aux.ddc);
+ 
+-	/*
+-	 * Parse capability here to let atomic_get_input_bus_fmts and
+-	 * mode_valid use the capability to calculate sink bitrates.
+-	 */
+-	if (mtk_dp_parse_capabilities(mtk_dp)) {
+-		drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
+-		drm_edid_free(drm_edid);
+-		drm_edid = NULL;
+-	}
+-
+ 	if (drm_edid) {
+ 		/*
+ 		 * FIXME: get rid of drm_edid_raw()
+@@ -2263,13 +2273,6 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 
+ 	mtk_dp_aux_panel_poweron(mtk_dp, true);
+ 
+-	/* Training */
+-	ret = mtk_dp_training(mtk_dp);
+-	if (ret) {
+-		drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
+-		goto power_off_aux;
+-	}
+-
+ 	ret = mtk_dp_video_config(mtk_dp);
+ 	if (ret)
+ 		goto power_off_aux;
 -- 
 2.45.2
 
