@@ -4,100 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2651BD0C601
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109E9D0C601
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Z/1jStYsESXfoKOROnnVDWKuRtcvdh+cMjpbU/QPPU=; b=Xf1JF+Fp/JugnD+n8qcjoyv0rw
-	4JXQzTul8InvlEJvsHnEdkir/Kr0x/+KLxz53YDhNe8ZmjYOX6pR4LHuMKvvaSq/uZ7+kXw4sPzp8
-	B434y69trMH4UJQrPW2vWczgymUc4eBslean6ZvddBPKR9LHQ07fWIc/wEDO+tus85cmuq1RcujXu
-	Ehpsupz8BT6FCMtwA2OxjBRT+JbdzgIGpa9B0dNVkbJC1JS0itBTXL7LS6wlQACDnUw5hM1nQ3TDf
-	7kYgi4XM6ZB9etBxiyNFVOh0fh064OKnHhzBZTQdvcttijp8hdPMvPDz3NNxQTc+ABdPOU7gB4A2m
-	zj3sbV0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dPv+t9AiuAK75GazjSsS51fH7KiYX5pDGCRj9njXtzc=; b=CF62GCNDl5dcqnThMjv1P9/eUC
+	hI/mIIVD61Y80RFiMBpuyRJfVy8ZWyCRhk7J+onuMuE6jYNAklfavsnrPuRzG/w/n0wyJIWH4RfxM
+	kdwS+rA1V865TaKRJSvNHUZCk0aZBmTfm8ssPSz0GusXsa6y7lN+h0fKXPqrYql1iJg6up8E9W8AC
+	gI2St9ciq4sYhea20rLAulfeIeRdan5yqksqCcMcAkaUYHt9ulrdvdGZHN+Edl0frimeudV1N2scs
+	EgMCTXjFAAUBoJmp7AKuJYQoUmgZKEPXfJTvZCJv9jYqnbxantCvaeQ7hWxzzLCYaBRM1UXNl2kjE
+	xyj18Dww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4IwV-00000003aCt-3P6s;
-	Fri, 25 Oct 2024 11:57:23 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4IRa-00000003V2t-0sR0
+	id 1t4Iy7-00000003ade-0Wr7;
+	Fri, 25 Oct 2024 11:59:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4IZG-00000003WSY-1iyd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 11:25:28 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-539e5c15fd3so1845012e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:25:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729855524; x=1730460324; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5Z/1jStYsESXfoKOROnnVDWKuRtcvdh+cMjpbU/QPPU=;
-        b=DRZJyRSv4kX+Vx55DysdO0mPyYXJtFcUiUAKRxC1P1nL8lVcFRFV61aOs/okLetdEr
-         RJIWBWoUtX1J9feI+sjNOZDIK5O0Zsjy/Fy4Y5b17P0xUTLhPfe90wQmkKi3BXxqWLtu
-         p7et3J06U0ZFA9P6P1g/xZezpFRw1j3YmKZeQFm1UPZg0CGcU+8Kfwx6ltDppPF/F6yq
-         cqSoRRLFRI4S2OugkyQpbGA48+KQLHcGTDV3OL1T3u9/9ycdfJVlSHhnyf9EanhJw88G
-         ZWTizuXDErsL5P+mdAuUWy931S1ma56b8l+2znzus4NvS5Yt0BIzwd/ecoYb/A30/jdm
-         BQYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729855524; x=1730460324;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5Z/1jStYsESXfoKOROnnVDWKuRtcvdh+cMjpbU/QPPU=;
-        b=VLngnyhoWi6QWXQamXAMzG888i8rBe0UD0qkTNdBg4pS4fHRZ2GlQ6Yh5PaaV0axB5
-         frbvTPIpoxQXc3bKH9qQvtuQmJYZtUyY9stbjaHPoBwxK2ho6sTkJgkqQCQZU2mweiKz
-         TAQMeP/PJ1hUQEaxfeZDQqe5TG0XbUKrWIn661Uwz+6Z4eR70ltqWCZHdUHnrUN8Ms7D
-         erj2zhAP1CL2xXPeLyu05Ip9+fQ45nou3PrRRT2iM7B6WyTRjXQkwDRV+hp3RWQ5q5SF
-         l3+ZjtGSDLd6rjxlYdyWz8l7z5QynTnbRFpLhoEANRoWZmTzMs6Qx4bBHdlN4VZEh7d7
-         +n5A==
-X-Forwarded-Encrypted: i=1; AJvYcCUyQyqXldVcKaRPD4JGQanje5Uzz7736POR0NXm3G31fv58W7ZPRBhC7R7hBDJ3tFJvB85L0XAD2JGhlxVxp+jp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVmAE6VqAwmPxZoQV+jECMowPf21wLDf3xEa7hHiT6GZoMB+3a
-	17JqjOpd7qdMgWyP4ZkskQMqXExR5tkJWT0DsALjaCct6Mvq02Jr
-X-Google-Smtp-Source: AGHT+IGLLmhFLkmXqCxF4aZP79OvNKrHgO7juBPhJzcOH1blmA3ViEU9duBqxp8WhVwXombe76gXuw==
-X-Received: by 2002:a05:6512:b8e:b0:530:c212:4a5a with SMTP id 2adb3069b0e04-53b23debc6bmr3355463e87.22.1729855524346;
-        Fri, 25 Oct 2024 04:25:24 -0700 (PDT)
-Received: from [192.168.1.105] ([178.136.36.129])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c90c0sm144028e87.189.2024.10.25.04.25.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 04:25:24 -0700 (PDT)
-From: Markuss Broks <markuss.broks@gmail.com>
-Date: Fri, 25 Oct 2024 14:24:59 +0300
-Subject: [PATCH v2 12/12] arm64: dts: exynos: Add initial support for
- Samsung Galaxy S9 (SM-G960F)
+	Fri, 25 Oct 2024 11:33:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C5C8339;
+	Fri, 25 Oct 2024 04:33:51 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF32F3F73B;
+	Fri, 25 Oct 2024 04:33:18 -0700 (PDT)
+Date: Fri, 25 Oct 2024 12:33:16 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
+	anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com,
+	broonie@kernel.org, dave.hansen@linux.intel.com,
+	jeffxu@chromium.org, joey.gouly@arm.com, pierre.langlois@arm.com,
+	shuah@kernel.org, sroettger@google.com, will@kernel.org,
+	linux-kselftest@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
+ uaccess failures
+Message-ID: <ZxuB/M7qMDPtLRuk@e133380.arm.com>
+References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
+ <20241023150511.3923558-4-kevin.brodsky@arm.com>
+ <ZxoooqtuqTK5CAMR@arm.com>
+ <80688edf-83dd-43c6-a1a8-b69acd30f5c3@arm.com>
+ <Zxpq0k3b9q8nWrYa@arm.com>
+ <ZxpzexqNIfys3MnJ@e133380.arm.com>
+ <d7d00ffc-2e92-46cb-95c2-c877723bcb5d@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-exynos9810-v2-12-99ca3f316e21@gmail.com>
-References: <20241025-exynos9810-v2-0-99ca3f316e21@gmail.com>
-In-Reply-To: <20241025-exynos9810-v2-0-99ca3f316e21@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Markuss Broks <markuss.broks@gmail.com>, 
- Maksym Holovach <nergzd@nergzd723.xyz>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1729855507; l=4454;
- i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=s5ze8wIRUmpoQbq7xRWQ3Ftw43Pf29yleNflcPuixmI=;
- b=zquLveixYcDZM65pnmqteghKUpfXW7iKb56bo7wzynWSET/vQ7cgnlbQAKU5YeCDAjAoxWaW4
- VONlaLYWwBvD4OC0JTOVHO2yutFnIaAcArpqiW1t/Q65zwXQuylnf1j
-X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
- pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7d00ffc-2e92-46cb-95c2-c877723bcb5d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_042526_388896_D6F5CC99 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20241025_043322_558292_967BDE98 
+X-CRM114-Status: GOOD (  51.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,163 +74,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Samsung Galaxy S9 (SM-G960F), codenamed starlte, is a mobile phone
-released in 2017. It has 4GB of RAM, 64GB of UFS storage, Exynos9810
-SoC and 1440x2960 Super AMOLED display.
+On Fri, Oct 25, 2024 at 10:24:41AM +0200, Kevin Brodsky wrote:
+> On 24/10/2024 18:19, Dave Martin wrote:
+> > On Thu, Oct 24, 2024 at 04:42:10PM +0100, Catalin Marinas wrote:
+> >> On Thu, Oct 24, 2024 at 04:55:48PM +0200, Kevin Brodsky wrote:
+> >>> On 24/10/2024 12:59, Catalin Marinas wrote:
+> >>>> On Wed, Oct 23, 2024 at 04:05:09PM +0100, Kevin Brodsky wrote:
+> >>>>> +/*
+> >>>>> + * Save the unpriv access state into ua_state and reset it to disable any
+> >>>>> + * restrictions.
+> >>>>> + */
+> >>>>> +static void save_reset_user_access_state(struct user_access_state *ua_state)
+> >>>>> +{
+> >>>>> +	if (system_supports_poe()) {
+> >>>>> +		/*
+> >>>>> +		 * Enable all permissions in all 8 keys
+> >>>>> +		 * (inspired by REPEAT_BYTE())
+> >>>>> +		 */
+> >>>>> +		u64 por_enable_all = (~0u / POE_MASK) * POE_RXW;
+> >>>> I think this should be ~0ul.
+> >>> It is ~0u on purpose, because unlike in REPEAT_BYTE(), I only wanted the
+> >>> lower 32 bits to be filled with POE_RXW (we only have 8 keys, the top 32
+> >>> bits are RES0). That said, given that D128 has 4-bit pkeys, we could
+> >>> anticipate and fill the top 32 bits too (should make no difference on D64).
+> >> I guess we could leave it as 32-bit for now and remember to update it
+> >> when we enable more keys with D128. Setting the top RES0 bits doesn't
+> >> hurt either since they are already documented in the Arm ARM. Up to you,
+> >> it's fine like above as well.
+> > Can we maybe just have a brute-force loop that constructs the value
+> > using the appropriate #define macros?
+> >
+> > The compiler will const-fold it; I'd be prepared to bet that the
+> > generated code would be identical...
+> 
+> Fine by me, I suppose I was too eager to use the one-liner I had found
+> :) Building that value based on arch_max_pkey() is probably a better
+> idea in the long run. (And indeed the codegen is the same, it boils down
+> to a mov w0, #0x77777777 in both case.)
+> 
+> >>>>> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+> >>>>>  {
+> >>>>>  	struct pt_regs *regs = current_pt_regs();
+> >>>>>  	struct rt_sigframe __user *frame;
+> >>>>> +	struct user_access_state ua_state;
+> >>>>>  
+> >>>>>  	/* Always make any pending restarted system calls return -EINTR */
+> >>>>>  	current->restart_block.fn = do_no_restart_syscall;
+> >>>>> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
+> >>>>>  	if (!access_ok(frame, sizeof (*frame)))
+> >>>>>  		goto badframe;
+> >>>>>  
+> >>>>> -	if (restore_sigframe(regs, frame))
+> >>>>> +	if (restore_sigframe(regs, frame, &ua_state))
+> >>>>>  		goto badframe;
+> >>>>>  
+> >>>>>  	if (restore_altstack(&frame->uc.uc_stack))
+> >>>>>  		goto badframe;
+> >>>>>  
+> >>>>> +	restore_user_access_state(&ua_state);
+> >>>>> +
+> >>>>>  	return regs->regs[0];
+> >>>>>  
+> >>>>>  badframe:
+> >>>> The saving part I'm fine with. For restoring, I was wondering whether we
+> >>>> can get a more privileged POR_EL0 if reading the frame somehow failed.
+> >>>> This is largely theoretical, there are other ways to attack like
+> >>>> writing POR_EL0 directly than unmapping/remapping the signal stack.
+> >>>>
+> >>>> What I'd change here is always restore_user_access_state() to
+> >>>> POR_EL0_INIT. Maybe just initialise ua_state above and add the function
+> >>>> call after the badframe label.
+> >>> I'm not sure I understand. When we enter this function, POR_EL0 is set
+> >>> to whatever the signal handler set it to (POR_EL0_INIT by default).
+> >>> There are then two cases:
+> >>> 1) Everything succeeds, including reading the saved POR_EL0 from the
+> >>> frame. We then call restore_user_access_state(), setting POR_EL0 to the
+> >>> value we've read, and return to userspace.
+> >>> 2) Any uaccess fails (for instance reading POR_EL0). In that case we
+> >>> leave POR_EL0 unchanged and deliver SIGSEGV.
+> >>>
+> >>> In case 2 POR_EL0 is most likely already set to POR_EL0_INIT, or
+> >>> whatever the signal handler set it to. It's not clear to me that forcing
+> >>> it to POR_EL0_INIT helps much. Either way it's doubtful that the SIGSEGV
+> >>> handler will be able to recover, since the new signal frame we will
+> >>> create for it may be a mix of interrupted state and signal handler state
+> >>> (depending on exactly where we fail).
+> >> If the SIGSEGV delivery succeeds, returning would restore the POR_EL0
+> >> set up by the previous signal handler, potentially more privileged. Does
+> >> it matter? Can it return all the way to the original context?
+> 
+> What we store into the signal frame when delivering that SIGSEGV is a
+> mixture of the original state (up to the point of failure) and the
+> signal handler's state (what we couldn't restore). It's hard to reason
+> about how that SIGSEGV handler could possibly handle this, but in any
+> case it would have to massage its signal frame so that the next
+> sigreturn does the right thing. Restoring only part of the frame records
+> is bound to cause trouble and that's true for POR_EL0 as well - I doubt
+> there's much value in special-casing it.
 
-This initial device tree enables the framebuffer pre-initialised
-by bootloader and physical buttons of the device, with more support
-to come in the future.
+This feels like a simplification?
 
-Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
-Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
+We can leave a mix of restored and unrestored state when generating the
+SIGSEGV signal frame, providing that those changes will make no
+difference when the rt_sigreturn is replayed.
 
-Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
----
- arch/arm64/boot/dts/exynos/Makefile               |   1 +
- arch/arm64/boot/dts/exynos/exynos9810-starlte.dts | 120 ++++++++++++++++++++++
- 2 files changed, 121 insertions(+)
+POR_EL0 will make a difference, though.
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index 7a934499b235892eef38cd926905e02f0ce08278..6760b3d59e819fb52bc8cf4dc6877a0b9db9ce47 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -8,6 +8,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos7885-jackpotlte.dtb	\
- 	exynos850-e850-96.dtb		\
- 	exynos8895-dreamlte.dtb		\
-+	exynos9810-starlte.dtb		\
- 	exynos990-c1s.dtb		\
- 	exynosautov9-sadk.dtb		\
- 	exynosautov920-sadk.dtb
-diff --git a/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts b/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..7e01118e591284267f155883c236ed811d5c629a
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts
-@@ -0,0 +1,120 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/*
-+ * Samsung Galaxy S9 (starlte/SM-G960F) device tree source
-+ *
-+ * Copyright (c) 2024 Markuss Broks <markuss.broks@gmail.com>
-+ * Copyright (c) 2024 Maksym Holovach <nergzd@nergzd723.xyz>
-+ */
-+
-+/dts-v1/;
-+#include "exynos9810.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Samsung Galaxy S9 (SM-G960F)";
-+	compatible = "samsung,starlte", "samsung,exynos9810";
-+	chassis-type = "handset";
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		framebuffer@cc000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0xcc000000 (1440 * 2960 * 4)>;
-+			width = <1440>;
-+			height = <2960>;
-+			stride = <(1440 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&key_power &key_voldown &key_volup &key_wink>;
-+		pinctrl-names = "default";
-+
-+		power-key {
-+			label = "Power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpa2 4 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			gpios = <&gpa0 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			gpios = <&gpa0 3 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		/* In stock firmware used for assistant. Map it as a camera button for now */
-+		wink-key {
-+			label = "Camera";
-+			linux,code = <KEY_CAMERA>;
-+			gpios = <&gpa0 6 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3c800000>,
-+		      <0x8 0x80000000 0x80000000>,
-+		      <0x0 0xc0000000 0x20000000>,
-+		      <0x0 0xe1900000 0x1e700000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		framebuffer@cc000000 {
-+			reg = <0x0 0xcc000000 (1440 * 2960 * 4)>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa2-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa0-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+
-+	key_wink: key-wink-pins {
-+		samsung,pins = "gpa0-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+};
+The POR_EL0 image in the SIGSEGV signal frame needs be the same value
+that caused the original rt_sigreturn to barf (if this is what caused
+the barf).  It should be up to the SIGSEGV handler to decide what (if
+anything) to do about that.  The kernel can't know what userspace
+intended.
 
--- 
-2.46.2
+Note that for this to work, the SIGSEGV stack (whether main or
+alternate) must be accessible with POR_EL0_INIT permissions, or the
+SIGSEGV handler must start with a (gross) asm shim to establish a
+usable POR_EL0.  But that's not really our problem here.
 
+(I'm not saying that the kernel necessarily fails to do this -- I
+haven't checked -- but just trying to understand the problem here.)
+
+
+The actual problem here is that if the SIGSEGV handler wants to bail
+out with a siglongjmp(), there is no way to determine the correct value
+of POR_EL0 to restore.
+
+I wonder whether POR_EL0 should be saved in sigjmp_buf (depending on
+whether sigjmp_buf is horribly inextensible and also full up, or merely
+horribly inextensible).
+
+Does anyone know whether PKRU in sigjmp_buf on x86?
+
+> 
+> >
+> > That seems a valid concern.
+> >
+> > It looks a bit like we don't back out the temporary change to POR_EL0
+> > if writing the sigframe fails, so the temporary "allow all" perms might
+> > get saved out into the SIGSEGV sigframe on the alternate signal
+> > stack, and will then be restored as the user thread's POR_EL0 when the
+> > SIGSEGV returns.
+> 
+> It sounds like you're referring to the delivery case, not the return
+> case. In the delivery case (setup_rt_frame()), the "allow all" value
+> will never be saved into the sigframe because we call
+> restore_user_access_state() if anything failed (this is new in v2,
+> exactly to prevent that scenario).
+
+Ah, right -- I missed that detail.
+
+Cheers
+---Dave
 
