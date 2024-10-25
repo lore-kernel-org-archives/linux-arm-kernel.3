@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE25ED149D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7C0D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YvdhnqZWhjJaVRixzXDF8i8NipPmGHymdrTVaS8WSIY=; b=lf1DqKuESvWRgrBxrOIhXUcc0h
-	WdgCZQDqE2W/H1v7N2WRNEe+HJSyskj1I4FCo5U5YdLP36JzNQa1fZlpFGLSZT7uN0C+93L1JO67J
-	8/aqHRXprwhy1wqvSBebjnqaqJm9arKucq5GbrVniMztQhtpCDjTmue3OGdVYrl8EHkT26GZk/451
-	eCzuT9ilKkPjVqGltfmOHyaK8Ha5zTles0i+gO486EWdmoMilUkZVinKc4IzZFxRn5Uttug68a5wf
-	QelUxxYzzz1EMFp+5c5KOT7HPVhvXcp+MZAj1+ZmMkR2z1bNBINn5ef9OpQp+zfwh0b6mvO3tXNh9
-	96jPOJew==;
+	bh=uvy6mw3HkfOGNiDeKKmifz1sEp4TpAMlLMBCwtNZJJ8=; b=1+SRMxZbyktQuvMYdVaFk6U281
+	cW6mmQIlGcf7yfo4ACV4CvII0LS5Bdd7aimyf8VNelXX+5DyrYCYkc2ch0zIecvlVEBX/8uW2nI2p
+	vjsMSPAVDxnkVqulbWY8vq4pIBnhPRMA2j0miIPwiKq6fJnbmqicwrjV1icmmb3fN+kj6Il/VK+cQ
+	778SOYcY92YDP76XI1M3YeISPIsTds/ZsurAz2xJmWi7ul9FPvmOz4uTzxiStg1N1imDu3tF09lpR
+	IIAc6DR+Fk8bT1vYQa85FtJ/GJhVrDesioxcUQ78HuGT1k2NElSXIo4DeCxTMWiEiMNwZr9QzcRLC
+	hb/90+7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4O07-00000004ZQ9-0IsL;
-	Fri, 25 Oct 2024 17:21:27 +0000
+	id 1t4O1x-00000004ZoO-2PAM;
+	Fri, 25 Oct 2024 17:23:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nuz-00000004Xne-1r3g
+	id 1t4Nv1-00000004Xp6-2RDg
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 17:16:09 +0000
+	Fri, 25 Oct 2024 17:16:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=YvdhnqZWhjJaVRixzXDF8i8NipPmGHymdrTVaS8WSIY=; b=Zwa6R42jAyxr5bizO9KE7W7Fmf
-	Nkb+t75pkxz5ERkhOHvaInw8FbNMqnXa1F5K7L90C/v6qhlDQnOmKo5TPCE0waFH2dv6gzrKiXWEx
-	ot5tmG0WMhLNkivDGGYRBPtEgebpVRNoQms+jwBG5h2yaFRYvuD4lHMWJRwmGkBj2BcetXHBwVPOH
-	iN/iGqGtVciT52Dwnnbq/5+gv0JiijRlKEIUjj4pV9ZS/jvAKpQsdm9ea3KmO6fm4CsceXkofb9XC
-	GvQfBAETJ18ay373rbBBzvv+cxG4UqJ6PlhGKvMWPxqGcfII563iCpm2Wn9yx2IG4XN1sTpQctMoI
-	PnmcvzOA==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	bh=uvy6mw3HkfOGNiDeKKmifz1sEp4TpAMlLMBCwtNZJJ8=; b=h2cpTD2krSFmMdrAoc0ywshhQ1
+	zLGE9dIXwWdp7cRo8vsgoBcW1UFO7DqX15F2cfa70AAWT3nMi+al/yISDXVzf8bKLVhGOROOE2BUC
+	8ZpIiEt4XRUEs0jWU97jkzgVzGjYmvTZIIdF2NslOqV7nsCCWzJAy5q26yqOavhnsZ38jYCTRM3TY
+	gYOqzQCjKzWMZb6/L3oGyhCjmABZJEBDEayU3BYoTbLsiC6pX8aTcyuP1lQXpn03d35bMQEi++pFx
+	zzgmz545QYFNmiafUGwADgMWK+xMgQflu8EVIOYUiyVMiLgN30+leVlnMpTdm9hqPMsKJfo8T4hnM
+	mQ7MQBYg==;
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nuw-00000008zcr-0bG4
+	id 1t4Nux-00000008zdf-17lc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:08 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d58377339so1728559f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:04 -0700 (PDT)
+	Fri, 25 Oct 2024 17:16:09 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d4c1b1455so1467690f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876564; x=1730481364; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876566; x=1730481366; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YvdhnqZWhjJaVRixzXDF8i8NipPmGHymdrTVaS8WSIY=;
-        b=QkpCddvkYkPvgjB+tkkNpmc/Tlmv00FUsom96zn+qmY5PB797h1lnlWRBUq3U8ACcR
-         VjjBnfQy9/zUPmqwReS+/5Ux93GV4jPlozEnFYP+1B2fidkXO2ZeZeHnPxqN5NitkA2w
-         LlEzS9vXwm0bi0LNKKNpw9EaOXr96euIpp9JFZjP5GbMctdC7YU61ZvQvjh7OKiTV+z/
-         xTxmh3qhTTaOdowuwFe0CfkkPFn030pLQd1EjowmgJp6jeBkTdAtFnYycdKQ9/KjV7ly
-         ZbUrM1VRXRydw00sk8yfQnGxJbJseoVYSdzousSwmF+rf7WC0sqL3ZStwkCZiHboy7s0
-         cmaA==
+        bh=uvy6mw3HkfOGNiDeKKmifz1sEp4TpAMlLMBCwtNZJJ8=;
+        b=FHVFYkDk2HFlkPKG/ZbMjW/+0cMTgMBWKaTlFBWDSjwCNb6D88RNzzQfuokT5GWg8e
+         /cTB2KtnMescbIO79wkFMSktSIHE9X7Ts4h9M808kepIBQCQuh9GN0HQLx0X6sz+Bfwa
+         sgef6NECimB9+lMvZLb8Ax2dAwxnekyXI979CBTYG5aOI31z5FtaJH1h98TI85B299Oo
+         L1i3DHsOaSnVCSSD++cPJESxGT/uPdG7zRZy+K/5zA2ZaAOYwWPgUwPPlHYUXTCN/ahU
+         WgEcv5+396h+PWeSP+E1l1dcQzSB5jmeS1TNLDkGa6Xv2gYl4IUVEXIxXsHeh9Zz/6Qr
+         zzdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876564; x=1730481364;
+        d=1e100.net; s=20230601; t=1729876566; x=1730481366;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YvdhnqZWhjJaVRixzXDF8i8NipPmGHymdrTVaS8WSIY=;
-        b=b20+ewHCRPXMtX+GxoR2LocSvmz5JrkE0f8tPJn1I3vrLwUkEu9RjEgW3ZzNZUmNCI
-         Go1UBMHzth01CcGahZQH9mlbNj7WD+JFq4vj0U1YTWegk2ouA2b9WpKiU3NZ/GJdEBMk
-         fGv0UrAWssAfB9FD6+L6Q3blZ71+2Zts7KfaVStk+4YLTlTLtrmL94G075KBej/DbAlm
-         LDiTbUnM9APAGny7ud9u8tOOBCtLQVQtBa2EZ0QQhV4wnAiCDoljAqoMH47GUwmd+63S
-         B/Apz5+fEdyYtktkxPlOUJPr7/EvAu/viS+yS1W5uecIhjLjYWC0EMC9RNoMOj3iPzPQ
-         Mqmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUFLGeL38CiWuisfH8peRTpOJhp1UOJiluy5cwS5HvJKXxsrAZYDbZ0I2y7t9YBmMpAwgYRabLZ+xiLZlFQy8wS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwV7zpE0INcJJm9VRMLayPq8621FsgegNLGPfOq5SbITcn1L9DP
-	i8KoWXKxEV3ilNCqAnBQq5y3LFHnl5FPl3HKmD06nnidWIzvhz/rJubG23QukS4=
-X-Google-Smtp-Source: AGHT+IGJw1+OsEH13czUNrPVKJZqUz4zqCjXXtEZzfN0U7VM1+Tkm4ryrjbOYe8QkQQMzLnZPTtsFg==
-X-Received: by 2002:a5d:6a07:0:b0:37d:4619:f975 with SMTP id ffacd0b85a97d-380611727b1mr120000f8f.19.1729876563675;
-        Fri, 25 Oct 2024 10:16:03 -0700 (PDT)
+        bh=uvy6mw3HkfOGNiDeKKmifz1sEp4TpAMlLMBCwtNZJJ8=;
+        b=uB2tc8hxCJcXWPK/nGIPzVqQhpp6vtTvMjAzg1corJZvjXwiQM1h/CGpjpMTqGkGh3
+         ckpUbywvlxTamlTk0kPVaPPmOzsy3yK6m2E7sAgJltdeZxNeE7g/ZurP9qeqJtvJKU1j
+         JZKCNF65nvqFeFS4jNsqvo317lOFRlBQdTHKqVGPjxdT2lcyS8w/3sciczt1IXPakcXl
+         THCt6vJ2CloprAckEGLftRg6xNMwD8ASJ3XSsk3Zu7Pykxc/BuHTWpIFnoOZ8bNYrxkE
+         fIDoZSTBpZPMZP1ZgrfrvJ+beCQlyNRNN9g+SNbc5rOkfiZMrDuJgwsdNM+L3exQLDYr
+         8pUg==
+X-Forwarded-Encrypted: i=1; AJvYcCXLMGIPPjYoOGNJ4VcSKZGCvjqF52cIhAa1I3cBhN0pndDYIsgCagI+x6cjyEWIsuWcrKRBVqOmdrwreF8kAKvI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpFyZnB3XScpvVexrUKn4WWloAU70s20vq06OP8yFIH9W552AI
+	NMFBLCH0L7qfp4o5tQcn9PUXdWnt12W33/fk7kJ+YVf730ns3n180GyZEZG4b4w=
+X-Google-Smtp-Source: AGHT+IHirezA1gYr0G/DUtQrSt/DP/1VMOY/GWyL0+CDPDCZHRfOmDWirKI9sgtwCb0jA2Kn8vQ++g==
+X-Received: by 2002:adf:ea8d:0:b0:37c:ddab:a626 with SMTP id ffacd0b85a97d-380610e69f9mr139123f8f.7.1729876565769;
+        Fri, 25 Oct 2024 10:16:05 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.02
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:03 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:05 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:34 +0100
-Subject: [PATCH v2 03/36] dt-bindings: display: Add BCM2712 HDMI bindings
+Date: Fri, 25 Oct 2024 18:15:36 +0100
+Subject: [PATCH v2 05/36] dt-bindings: display: Add BCM2712 PixelValve
+ bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-3-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-5-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -108,8 +109,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_181606_455202_88AF0BDA 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20241025_181607_637339_179C6981 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +127,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-The BCM2712 HDMI controller uses a slightly different HDMI controller
-than the BCM2711, and a completely different PHY.
+The BCM2712 has 3 different pixelvalves that are similar to the ones
+found in the previous generations but with slightly different
+capabilities.
 
-Let's introduce a new compatible for it.
+Express that using a new set of compatibles.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml          | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-index 5b35adf34c7b..6d11f5955b51 100644
---- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-+++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-@@ -14,6 +14,8 @@ properties:
-     enum:
-       - brcm,bcm2711-hdmi0
-       - brcm,bcm2711-hdmi1
-+      - brcm,bcm2712-hdmi0
-+      - brcm,bcm2712-hdmi1
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
+index 4e1ba03f6477..6b5b1d3fbc0b 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-pixelvalve0.yaml
+@@ -20,6 +20,9 @@ properties:
+       - brcm,bcm2711-pixelvalve2
+       - brcm,bcm2711-pixelvalve3
+       - brcm,bcm2711-pixelvalve4
++      - brcm,bcm2712-pixelvalve0
++      - brcm,bcm2712-pixelvalve1
++      - brcm,bcm2712-pixelvalve2
  
    reg:
-     items:
+     maxItems: 1
 
 -- 
 2.34.1
