@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEACBD149F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48240D149F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zd5Anit6yA3HTeMzXbpU7mXaEYKhVeL/IUZRK50Rwjk=; b=KAfpgFoNzt9t6Y0C8yw07CyhVZ
-	5R83oTsF/+d887SylgwIBn748NZjyWO89FAWCo6FSr8J1u8+R5ZADa87IujxYrvycLCvBqPoAde/r
-	Re99ToEyfnP4+prhi6C/GSuqM9yBjJvI/WnqIOWRECB4WvbrqpCyZawkbG2HiOWgTv4ySwGHdQhfJ
-	0av4ewoQIBE2GOjjB21Hlrd7+KmcXpq+emfulA9VwYvqkC03IfjGOC/nk8oCIbfxsNXPJph4z4zkV
-	9BGopavS57ZrN6h2w82ns5ViYiw67dV5A+R9fXMo75TGgieQUglzfkLgSAUPpVh7QM36hFlmXFCWi
-	d6Knrgrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=4kMK+WOZrkOl7ZxRO0QRYVsE0xd+BFqoTk/YOmM72AU=; b=RnzTI/F75XzFDrFCfRq/XjwIuN
+	WY5lORYnJ5g1UHhSTUJbLKKGP6pAwBDPWuk6nJbP6tulfTHGrXiZYknkaXgCF2qNsRyz0cOFQ64/h
+	q3jdZUM/c0gtEK6RgYzet5Ea3jpikpMIYqycwyAdL3jEbIXzAWAprXYVk57TwB8oLt6Hm5wPKadV5
+	WLZJpYa+8hUUVrctYvoSmudPHg5+x+CRmg38K2qFvakRkNv9Af1HPNrqT77kkNR0Qw088oWQJp5A5
+	UN51zewP/PJKrOLe5wuct9SAi+x2m1A5ISxll2O25T084swPpeCDiC+JIGGA6cAJ+82OThJQ63Cme
+	kKI65n8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RFD-00000005BVs-0dEy;
-	Fri, 25 Oct 2024 20:49:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4RGn-00000005Bzx-2sEP;
+	Fri, 25 Oct 2024 20:50:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RDV-00000005As8-3uOx;
-	Fri, 25 Oct 2024 20:47:31 +0000
+	id 1t4REM-00000005BGM-3NE9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 20:48:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96399A430A8;
-	Fri, 25 Oct 2024 20:45:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94708C4CEC3;
-	Fri, 25 Oct 2024 20:47:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEA0FA430C4;
+	Fri, 25 Oct 2024 20:46:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 899B8C4CEC3;
+	Fri, 25 Oct 2024 20:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729889248;
-	bh=Tfo5X6uc3w/hrU+iP8PZcK2t41JlU/D+FAY3HHNYJHM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=gekfskCvWOfIqlAZ/aSuuXFxlPUBLAq/1J8u7BRk+K9IG78a6VWhRP79Fdow15YPf
-	 44uCMphVFXEm62CFfo0bnfd3n1CW10JYtALJafsVUKuPU3z4maXZ5sT1Bb2UV9pycN
-	 TGG3d8+d3WVZMhgB/k7H5BucarzeptU7ro6s0+7jd2rjHTv2j/nmLH6oV/WpNORUDA
-	 xnh/zY6v5NxPpq11QA6EDyZllc/Y/OnW+6atxbqNYXt6wo/B0emCq9krojm4qbnglg
-	 hOSv/XbGNEBeJM/x1STwgIFbH8+hKzyAcfr+T2d5ym7TYHf4gr/dfs1497Uiengm5Q
-	 UWHjgLfRLSMlw==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-2fb57f97d75so22259861fa.2;
-        Fri, 25 Oct 2024 13:47:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUYmiFXLYsCC2IkzSYOEJdSpuqmSFxbMRPH57RhiC4zmb4keTLmXOTvEGsNV8cJTkceE6pM/HRruIZCEYA=@lists.infradead.org, AJvYcCVO3avjvaN9MvG10DzOb0Y1M+l6FV7RfObZzwnHykmWCbHaDqoYheLWcjrAJgl5NXjmuMPE5QE5pzuWEtgGGIpV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzawVGyISWM1l2NtYvkjCqcuJsQZiSQYQvdeehmQeJEokxvHwkf
-	KnKhV590zr9OtC247PSysWL5GbiawLHRRybezZCuWWt8r3gls1v6ZJh9pdNXxE/q2dcm2qshGGb
-	ndczebe/dg/P5UzdoYwcg9B9uxG4=
-X-Google-Smtp-Source: AGHT+IEp6Dx2HlT+U0iGzL8ulgjfv3Yq0fFTV7/qQsnbI5MKZCd6PlYP7CAgGzk4GX/wuTuxR8r9WXnoQ2sPlcjTw1A=
-X-Received: by 2002:a05:651c:2123:b0:2fb:45cf:5eef with SMTP id
- 38308e7fff4ca-2fcbe04dc90mr3314601fa.30.1729889246941; Fri, 25 Oct 2024
- 13:47:26 -0700 (PDT)
+	s=k20201202; t=1729889300;
+	bh=Qa6XR9RW2tuGLCT9wz9qCCFF4BPpg05WsUdkaKPe9fc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=O0JoU/czSmbl+S8+9DjdgPrBH4OmStTDDTzQIXwjc/OMHpIXfOrQFB4U6ZVqzv0xf
+	 F1MBOFsMXtjYe4DoZdxBedNzkL7+2ieGaLLZK+yuVaTzyVti3Exkg4lm0TkWNnnr1f
+	 huLA4gDA4gUde3lNmzInCEadt86mhXxFsWeoUuL5kuu+N9hoYpz9Awaedcotpo98ol
+	 eRikEEuML8bhWNUsDjWgoM+NGO04UqXJwse0KOc43uQAa88h5Nqm+UlXR4wI4IE5b0
+	 s7TfTXzVRq2ntiZbmQOHmiBI0TxH1+Tuf+umrAbPcjDQTfMzZ6vhiFMBVibpuuY/H6
+	 J/ZkDfqrihYTQ==
+Date: Fri, 25 Oct 2024 15:48:18 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 0/4] PCI: ep: dwc/imx6: Add bus address support for
+ PCI endpoint devices
+Message-ID: <20241025204818.GA1028925@bhelgaas>
 MIME-Version: 1.0
-References: <20241025191454.72616-1-ebiggers@kernel.org> <20241025191454.72616-5-ebiggers@kernel.org>
-In-Reply-To: <20241025191454.72616-5-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Oct 2024 22:47:15 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEsq7iJThqZ7WA00ei4m59vpC23wPM+Mrj9W+HXfk-aSg@mail.gmail.com>
-Message-ID: <CAMj1kXEsq7iJThqZ7WA00ei4m59vpC23wPM+Mrj9W+HXfk-aSg@mail.gmail.com>
-Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
- arch algorithms
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_134730_109622_6B8BB59D 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20241025_134823_010248_B6DB698D 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,112 +91,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> From: Eric Biggers <ebiggers@google.com>
->
-> Instead of registering the crc32-$arch and crc32c-$arch algorithms if
-> the arch-specific code was built, only register them when that code was
-> built *and* is not falling back to the base implementation at runtime.
->
-> This avoids confusing users like btrfs which checks the shash driver
-> name to determine whether it is crc32c-generic.
->
+On Thu, Oct 24, 2024 at 04:41:42PM -0400, Frank Li wrote:
+> Endpoint          Root complex
+>                              ┌───────┐        ┌─────────┐
+>                ┌─────┐       │ EP    │        │         │      ┌─────┐
+>                │     │       │ Ctrl  │        │         │      │ CPU │
+>                │ DDR │       │       │        │ ┌────┐  │      └──┬──┘
+>                │     │◄──────┼─ATU ◄─┼────────┼─┤BarN│◄─┼─────────┘
+>                │     │       │       │        │ └────┘  │ Outbound Transfer
+>                └─────┘       │       │        │         │
+>                              │       │        │         │
+>                              │       │        │         │
+>                              │       │        │         │ Inbound Transfer
+>                              │       │        │         │      ┌──▼──┐
+>               ┌───────┐      │       │        │ ┌───────┼─────►│DDR  │
+>               │       │ outbound Transfer*    │ │       │      └─────┘
+>    ┌─────┐    │ Bus   ┼─────►│ ATU  ─┬────────┼─┘       │
+>    │     │    │ Fabric│Bus   │       │ PCI Addr         │
+>    │ CPU ├───►│       │Addr  │       │ 0xA000_0000      │
+>    │     │CPU │       │0x8000_0000   │        │         │
+>    └─────┘Addr└───────┘      │       │        │         │
+>           0x7000_0000        └───────┘        └─────────┘
+> 
+> Add `bus_addr_base` to configure the outbound window address for CPU write.
+> The BUS fabric generally passes the same address to the PCIe EP controller,
+> but some BUS fabrics convert the address before sending it to the PCIe EP
+> controller.
+> 
+> Above diagram, CPU write data to outbound windows address 0x7000_0000,
+> Bus fabric convert it to 0x8000_0000. ATU should use BUS address
+> 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
 
-I think we agree that 'generic' specifically means a C implementation
-that is identical across all architectures, which is why I updated my
-patch to export -arch instead of wrapping the C code in yet another
-driver just for the fuzzing tests.
+The above doesn't match what's in patch 1/4, and I think the version
+in 1/4 is better, so I'll comment there.
 
-So why is this a problem? If no optimizations are available at
-runtime, crc32-arch and crc32-generic are interchangeable, and so it
-shouldn't matter whether you use one or the other.
+To avoid confusion, it might be better not to duplicate it in 0/4 and
+1/4.
 
-You can infer from the driver name whether the C code is being used,
-not whether or not the implementation is 'fast', and the btrfs hack is
-already broken on arm64.
-
-> (It would also make sense to change btrfs to test the crc32_optimization
-> flags itself, so that it doesn't have to use the weird hack of parsing
-> the driver name.  This change still makes sense either way though.)
->
-
-Indeed. That hack is very dubious and I'd be inclined just to ignore
-this. On x86 and arm64, it shouldn't make a difference, given that
-crc32-arch will be 'fast' in the vast majority of cases. On other
-architectures, btrfs may use the C implementation while assuming it is
-something faster, and if anyone actually notices the difference, we
-can work with the btrfs devs to do something more sensible here.
-
-
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
+> Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
+> the device tree provides this information, preferring a common method.
+> 
+> bus@5f000000 {
+> 	compatible = "simple-bus";
+> 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+> 
+> 	pcie-ep@5f010000 {
+> 		reg = <0x5f010000 0x00010000>,
+> 		      <0x80000000 0x10000000>;
+> 		reg-names = "dbi", "addr_space";
+> 		...
+> 	};
+> 	...
+> };
+> 
+> 'ranges' in bus@5f000000 descript how address convert from CPU address
+> to BUS address.
+> 
+> Use `of_property_read_reg()` to obtain the BUS address and set it to the
+> ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
+> 
+> The 1st patch implement above method in dwc common driver.
+> The 2nd patch update imx6's binding doc to add fsl,imx8q-pcie-ep.
+> The 3rd patch fix a pci-mx6's a bug
+> The 4th patch enable pci ep function.
+> 
+> The imx8q's dts is usptreaming, the pcie-ep part is below.
+> 
+> hsio_subsys: bus@5f000000 {
+>         compatible = "simple-bus";
+>         #address-cells = <1>;
+>         #size-cells = <1>;
+>         /* Only supports up to 32bits DMA, map all possible DDR as inbound ranges */
+>         dma-ranges = <0x80000000 0 0x80000000 0x80000000>;
+>         ranges = <0x5f000000 0x0 0x5f000000 0x01000000>,
+>                  <0x80000000 0x0 0x70000000 0x10000000>;
+> 
+> 	pcieb_ep: pcie-ep@5f010000 {
+>                 compatible = "fsl,imx8q-pcie-ep";
+>                 reg = <0x5f010000 0x00010000>,
+>                       <0x80000000 0x10000000>;
+>                 reg-names = "dbi", "addr_space";
+>                 num-lanes = <1>;
+>                 interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
+>                 interrupt-names = "dma";
+>                 clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
+>                          <&pcieb_lpcg IMX_LPCG_CLK_4>,
+>                          <&pcieb_lpcg IMX_LPCG_CLK_5>;
+>                 clock-names = "dbi", "mstr", "slv";
+>                 power-domains = <&pd IMX_SC_R_PCIE_B>;
+>                 fsl,max-link-speed = <3>;
+>                 num-ib-windows = <6>;
+>                 num-ob-windows = <6>;
+>         };
+> };
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  crypto/crc32_generic.c  | 8 ++++++--
->  crypto/crc32c_generic.c | 8 ++++++--
->  2 files changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/crypto/crc32_generic.c b/crypto/crc32_generic.c
-> index cc064ea8240e..cecd01e4d6e6 100644
-> --- a/crypto/crc32_generic.c
-> +++ b/crypto/crc32_generic.c
-> @@ -155,19 +155,23 @@ static struct shash_alg algs[] = {{
->         .base.cra_ctxsize       = sizeof(u32),
->         .base.cra_module        = THIS_MODULE,
->         .base.cra_init          = crc32_cra_init,
->  }};
->
-> +static int num_algs;
-> +
->  static int __init crc32_mod_init(void)
->  {
->         /* register the arch flavor only if it differs from the generic one */
-> -       return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       num_algs = 1 + ((crc32_optimizations & CRC32_LE_OPTIMIZATION) != 0);
-> +
-> +       return crypto_register_shashes(algs, num_algs);
->  }
->
->  static void __exit crc32_mod_fini(void)
->  {
-> -       crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       crypto_unregister_shashes(algs, num_algs);
->  }
->
->  subsys_initcall(crc32_mod_init);
->  module_exit(crc32_mod_fini);
->
-> diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
-> index 04b03d825cf4..47d694da9d4a 100644
-> --- a/crypto/crc32c_generic.c
-> +++ b/crypto/crc32c_generic.c
-> @@ -195,19 +195,23 @@ static struct shash_alg algs[] = {{
->         .base.cra_ctxsize       = sizeof(struct chksum_ctx),
->         .base.cra_module        = THIS_MODULE,
->         .base.cra_init          = crc32c_cra_init,
->  }};
->
-> +static int num_algs;
-> +
->  static int __init crc32c_mod_init(void)
->  {
->         /* register the arch flavor only if it differs from the generic one */
-> -       return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       num_algs = 1 + ((crc32_optimizations & CRC32C_OPTIMIZATION) != 0);
-> +
-> +       return crypto_register_shashes(algs, num_algs);
->  }
->
->  static void __exit crc32c_mod_fini(void)
->  {
-> -       crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
-> +       crypto_unregister_shashes(algs, num_algs);
->  }
->
->  subsys_initcall(crc32c_mod_init);
->  module_exit(crc32c_mod_fini);
->
-> --
-> 2.47.0
->
->
+> Changes in v4:
+> - Fix 32bit build error
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
+> - Link to v3: https://lore.kernel.org/r/20241021-pcie_ep_range-v3-0-b13526eb0089@nxp.com
+> 
+> Changes in v3:
+> - Add mani' review tag for patch 3,4
+> - Add varible using_dtbus_info to control use bus range information instead
+> cpu_address_fixup().
+> - Link to v2: https://lore.kernel.org/r/20240923-pcie_ep_range-v2-0-78d2ea434d9f@nxp.com
+> 
+> Changes in v2:
+> - Totally rewrite with difference method. 'range' should in bus node
+> instead pcie-ep node because address convert happen at bus fabric. Needn't
+> add 'range' property at pci-ep node.
+> - Link to v1: https://lore.kernel.org/r/20240919-pcie_ep_range-v1-0-b3e9d62780b7@nxp.com
+> 
+> ---
+> Frank Li (4):
+>       PCI: dwc: ep: Add bus_addr_base for outbound window
+>       dt-bindings: PCI: fsl,imx6q-pcie-ep: Add compatible string fsl,imx8q-pcie-ep
+>       PCI: imx6: Pass correct sub mode when calling phy_set_mode_ext()
+>       PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
+> 
+>  .../devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml | 38 +++++++++++++++++++++-
+>  drivers/pci/controller/dwc/pci-imx6.c              | 26 ++++++++++++++-
+>  drivers/pci/controller/dwc/pcie-designware-ep.c    | 14 +++++++-
+>  drivers/pci/controller/dwc/pcie-designware.h       |  9 +++++
+>  4 files changed, 84 insertions(+), 3 deletions(-)
+> ---
+> base-commit: afb15ca28055352101286046c1f9f01fdaa1ace1
+> change-id: 20240918-pcie_ep_range-4c5c5e300e19
+> 
+> Best regards,
+> ---
+> Frank Li <Frank.Li@nxp.com>
+> 
 
