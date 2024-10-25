@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC001D0C602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC7AD0C600
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4tycoxXMZP2qAEgVyWrz9W3wqW1U06QeuS7WtgHLseQ=; b=fyGpiXAVg1nu6coYQLNxJJm5W0
-	9/pwMEwU+zrBOaAJb0S9UT6MtKRBwEanyYSh3+NnyGq8y5q70Cx7X6tgwUyOSb9TOg3yM8imMYnbU
-	SV4VzSUIrZEoOIEMCfv1PHmcXB8qV4DnlLGM6DwmDMcOQD+jBPWeXYxe1uZvav9LhuoCah49pzmsn
-	g3pt0yiS0qOO/lRBXm1GiLA+GHf2so/lZH7LX6cu0s/HqHl3tluUb24CJ5US+uCo/KaUKg/+8C+Q3
-	xIvXfthXwnJKAT/dVDj6lK1M3IE1jpErZkhwuo+dJ6pWsx5WE4g49ACL7ww6+9UTP1faRyA9/Esg+
-	6nckTsCw==;
+	bh=WI7XrMwtXL077tWZKycguwQfQ38m20vMCPsqD+m+N3M=; b=tpQLpOV2IRcI+sMUzLHzHUwn+A
+	7o/tFT4porDBqOccL5qlTGohUnKx+GZDc9DgoUFSAm0NRXsIpMdJjQIZlfgOMfoA3ncQuQjYBuBYT
+	/tG0ZlQj+Srn9aOUQsrH2mhoi6x4re4Clj90Kjg/JXsXq5LjOPHx3B/Y1N/Pia5xI5h9Kw6xG7KIy
+	HEPKr8DsPVwOyKhd0BxGCI12/sM7MuR01tl1t8Yh5MdFUGF+aDGtzs9dSNO9taRLtQ5wBXhLAm3pj
+	Re5s/cH9plUu15o0EU/4FQaF3MCpf/PFoN/8V54h1vdOh6DAx5L8NGqx2InZ+n/sSAJs8fULh2clv
+	tvYLs9AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4IZL-00000003WTI-3eib;
-	Fri, 25 Oct 2024 11:33:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1t4Iaw-00000003Wjc-12S6;
+	Fri, 25 Oct 2024 11:35:06 +0000
+Received: from mail-vs1-xe29.google.com ([2607:f8b0:4864:20::e29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4I0c-00000003Qzc-0N54;
-	Fri, 25 Oct 2024 10:57:37 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1729853852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4tycoxXMZP2qAEgVyWrz9W3wqW1U06QeuS7WtgHLseQ=;
-	b=slrwLbOGv/F1VYgap0ous/jqd4LPXjiFrtb3BPBmMYFkSuDjBh2mFPfkGJq8sK8x4nmjx0
-	xFB9z/WVqzVLbBRThpuzYmmOBp608Huy6bcjs7jh81z2Sl3VXw73z12YkTfTQWR6dL4z8n
-	OQv9j8/0lhf9zs3KKpUwRpaYQJ4L0GUpPkDlpClY7+Q8CF4hYfLQuR4hRjfesw/EU5Toau
-	C3NM22ABiGRgs7ijV/HSzw8SUAn7RJ/2Y9vcFsEnpboXYztmNXVccx6aNISD/9bGUpvNy3
-	sdt6SL5ml+TsDGGlv8HVFHQUeoI8VUf0jQA6Ki5j1mAIAzbgFTsRAKoLGzaF+g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1729853852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4tycoxXMZP2qAEgVyWrz9W3wqW1U06QeuS7WtgHLseQ=;
-	b=6Ai98LwU1yRYVVR8VovVPP2dQVZbVhhWcHFPpUNgmaYbyJCHM0FfZyU778L/xjXWeBhio3
-	y13LfZg0w+N6aLAA==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Esben Haabendal <esben@geanix.com>,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	Ronald Wahl <ronald.wahl@raritan.com>,
-	Udit Kumar <u-kumar1@ti.com>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	Rengarajan S <rengarajan.s@microchip.com>,
-	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH tty-next v3 4/6] serial: 8250: Specify console context for rs485_start/stop_tx
-Date: Fri, 25 Oct 2024 13:03:26 +0206
-Message-Id: <20241025105728.602310-5-john.ogness@linutronix.de>
-In-Reply-To: <20241025105728.602310-1-john.ogness@linutronix.de>
-References: <20241025105728.602310-1-john.ogness@linutronix.de>
+	id 1t4IMh-00000003UUM-08Xk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 11:20:24 +0000
+Received: by mail-vs1-xe29.google.com with SMTP id ada2fe7eead31-4a470d330a5so739969137.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:20:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1729855220; x=1730460020; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WI7XrMwtXL077tWZKycguwQfQ38m20vMCPsqD+m+N3M=;
+        b=QI7ufuiYXYn6l9L1qslSUxaN5m9Cunm5umz1pzInRZBlwBbW20HGMhENKmVY6yldfk
+         jOLKEcLwkCWN9uV6iIqiLm/UQQvj4UzQN/t9lo2r/g+/AvD/qkp/64BmsKihTMFr6lKh
+         vfTIFlyTnRAJCuSqjZbnjVynrHwHERVvm87dg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729855220; x=1730460020;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WI7XrMwtXL077tWZKycguwQfQ38m20vMCPsqD+m+N3M=;
+        b=HQXQlmOQ0ywdsxBqan51Tt4pDjA9Gi3xgpm9xdME9vXExEcezj+IFNsv5qlBUvA0gc
+         V1JTjXKTLJjZox8s1JTsqBMJeNDkvevyYn3pCvMYlsEjKjhSu+WF86F5Il4TEQVXZHNl
+         lXJ0j38GY+Em2CbEZZ62YWU3uNRaApmV/Kg0VjVzbY9IiDiqIPkaMWp7BUX7WAbeOWxk
+         c6kY6KtD/5BD8XUIAvBuHteNx3DtX0i+nYPj0sGe74ICbewCmgRbVrxiYuCr8NvDf0/e
+         T6i/xxRK+/31h0o6mAGFSW9uBd6IkTfTlTit55CfGTsJCccEBGNaAwgV1YyCkBjF66dZ
+         XTJA==
+X-Forwarded-Encrypted: i=1; AJvYcCULm1JtVGJ9WG8KmUvx+0908n4w5ZpbSu/ZypUI72wbKL4gNuLrYmWwP3JrvFnOh73fWjm6JG++2804IPexGTw4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9+zUmD4BTcP8CZ9KZTEvYqx11bSoTDSrncLL48NBzwCAYw0LE
+	AW4ZLspbAzaT07mkSpdcrKUiukc8E/qL5OztEZFkrlHMpvgwoobbRnO2A/GnrL+wZvj3nrtjnjT
+	oMA==
+X-Google-Smtp-Source: AGHT+IFXsVO6AqWp/jfqbUFQ6kaUV7Amf65ZEGQx9c3M06bisxOOAaBMxhLwRet5MzHxBw1whyKYOw==
+X-Received: by 2002:a05:6102:a47:b0:4a4:8346:186d with SMTP id ada2fe7eead31-4a751cbd6ffmr12039453137.26.1729855220568;
+        Fri, 25 Oct 2024 04:20:20 -0700 (PDT)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4a8c5398c95sm159562137.29.2024.10.25.04.20.19
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 04:20:19 -0700 (PDT)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-4a47f8a9168so668999137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:20:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXpb/6XSui7Ko6Q2AWGffW4/jfvG8O5+rDFAo3a7xfP/IIuBHeXn4MyZlQALmE6aQoc7m/OgSZVV+Ch4caqB2qy@lists.infradead.org
+X-Received: by 2002:a05:6102:954:b0:4a5:b712:2c94 with SMTP id
+ ada2fe7eead31-4a751bff426mr11555515137.14.1729855218618; Fri, 25 Oct 2024
+ 04:20:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241025075630.3917458-1-wenst@chromium.org>
+In-Reply-To: <20241025075630.3917458-1-wenst@chromium.org>
+From: Fei Shao <fshao@chromium.org>
+Date: Fri, 25 Oct 2024 19:19:40 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nhPsPRYk_w0n9or7KrEhF_UzLjN8MFCL6xw_FLR1b1++A@mail.gmail.com>
+Message-ID: <CAC=S1nhPsPRYk_w0n9or7KrEhF_UzLjN8MFCL6xw_FLR1b1++A@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: dts: mediatek: mt8183: Disable DPI display
+ output by default
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_035734_460488_2BD0119C 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20241025_042023_143530_910FE1CD 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,209 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For RS485 mode, if SER_RS485_RX_DURING_TX is not available, the
-console write callback needs to enable/disable TX. It does this
-by calling the rs485_start/stop_tx() callbacks. However, these
-callbacks will disable/enable interrupts, which is a problem
-for console write, as it must be responsible for
-disabling/enabling interrupts.
+On Fri, Oct 25, 2024 at 3:56=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> This reverts commit 377548f05bd0905db52a1d50e5b328b9b4eb049d.
+>
+> Most SoC dtsi files have the display output interfaces disabled by
+> default, and only enabled on boards that utilize them. The MT8183
+> has it backwards: the display outputs are left enabled by default,
+> and only disabled at the board level.
+>
+> Reverse the situation for the DPI output so that it follows the
+> normal scheme. For ease of backporting the DSI output is handled
+> in a separate patch.
+>
+> Fixes: 009d855a26fd ("arm64: dts: mt8183: add dpi node to mt8183")
+> Fixes: 377548f05bd0 ("arm64: dts: mediatek: mt8183-kukui: Disable DPI dis=
+play interface")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Add an argument @in_con to the rs485_start/stop_tx() callbacks
-to specify if they are being called from console write. If so,
-the callbacks will not handle interrupt disabling/enabling.
-
-For all call sites other than console write, there is no
-functional change.
-
-Signed-off-by: John Ogness <john.ogness@linutronix.de>
----
- drivers/tty/serial/8250/8250.h            |  4 +--
- drivers/tty/serial/8250/8250_bcm2835aux.c |  4 +--
- drivers/tty/serial/8250/8250_omap.c       |  2 +-
- drivers/tty/serial/8250/8250_port.c       | 34 +++++++++++++++--------
- include/linux/serial_8250.h               |  4 +--
- 5 files changed, 30 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
-index e5310c65cf52..0d8717be0df7 100644
---- a/drivers/tty/serial/8250/8250.h
-+++ b/drivers/tty/serial/8250/8250.h
-@@ -231,8 +231,8 @@ void serial8250_rpm_put_tx(struct uart_8250_port *p);
- 
- int serial8250_em485_config(struct uart_port *port, struct ktermios *termios,
- 			    struct serial_rs485 *rs485);
--void serial8250_em485_start_tx(struct uart_8250_port *p);
--void serial8250_em485_stop_tx(struct uart_8250_port *p);
-+void serial8250_em485_start_tx(struct uart_8250_port *p, bool in_con);
-+void serial8250_em485_stop_tx(struct uart_8250_port *p, bool in_con);
- void serial8250_em485_destroy(struct uart_8250_port *p);
- extern struct serial_rs485 serial8250_em485_supported;
- 
-diff --git a/drivers/tty/serial/8250/8250_bcm2835aux.c b/drivers/tty/serial/8250/8250_bcm2835aux.c
-index fdb53b54e99e..c9a106a86b56 100644
---- a/drivers/tty/serial/8250/8250_bcm2835aux.c
-+++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
-@@ -46,7 +46,7 @@ struct bcm2835aux_data {
- 	u32 cntl;
- };
- 
--static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up)
-+static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up, bool in_con)
- {
- 	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
- 		struct bcm2835aux_data *data = dev_get_drvdata(up->port.dev);
-@@ -65,7 +65,7 @@ static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up)
- 		serial8250_out_MCR(up, UART_MCR_RTS);
- }
- 
--static void bcm2835aux_rs485_stop_tx(struct uart_8250_port *up)
-+static void bcm2835aux_rs485_stop_tx(struct uart_8250_port *up, bool in_con)
- {
- 	if (up->port.rs485.flags & SER_RS485_RTS_AFTER_SEND)
- 		serial8250_out_MCR(up, 0);
-diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
-index b3be0fb184a3..fcbed7e98231 100644
---- a/drivers/tty/serial/8250/8250_omap.c
-+++ b/drivers/tty/serial/8250/8250_omap.c
-@@ -365,7 +365,7 @@ static void omap8250_restore_regs(struct uart_8250_port *up)
- 
- 	if (up->port.rs485.flags & SER_RS485_ENABLED &&
- 	    up->port.rs485_config == serial8250_em485_config)
--		serial8250_em485_stop_tx(up);
-+		serial8250_em485_stop_tx(up, false);
- }
- 
- /*
-diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index 09ac521d232a..7c50387194ad 100644
---- a/drivers/tty/serial/8250/8250_port.c
-+++ b/drivers/tty/serial/8250/8250_port.c
-@@ -558,7 +558,7 @@ static int serial8250_em485_init(struct uart_8250_port *p)
- 
- deassert_rts:
- 	if (p->em485->tx_stopped)
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, false);
- 
- 	return 0;
- }
-@@ -1398,10 +1398,11 @@ static void serial8250_stop_rx(struct uart_port *port)
- /**
-  * serial8250_em485_stop_tx() - generic ->rs485_stop_tx() callback
-  * @p: uart 8250 port
-+ * @in_con: true if called from console write, otherwise false
-  *
-  * Generic callback usable by 8250 uart drivers to stop rs485 transmission.
-  */
--void serial8250_em485_stop_tx(struct uart_8250_port *p)
-+void serial8250_em485_stop_tx(struct uart_8250_port *p, bool in_con)
- {
- 	unsigned char mcr = serial8250_in_MCR(p);
- 
-@@ -1419,7 +1420,9 @@ void serial8250_em485_stop_tx(struct uart_8250_port *p)
- 	if (!(p->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
- 		serial8250_clear_and_reinit_fifos(p);
- 
--		__serial8250_start_rx_int(p);
-+		/* In console context, caller handles interrupt enabling. */
-+		if (!in_con)
-+			__serial8250_start_rx_int(p);
- 	}
- }
- EXPORT_SYMBOL_GPL(serial8250_em485_stop_tx);
-@@ -1434,7 +1437,7 @@ static enum hrtimer_restart serial8250_em485_handle_stop_tx(struct hrtimer *t)
- 	serial8250_rpm_get(p);
- 	uart_port_lock_irqsave(&p->port, &flags);
- 	if (em485->active_timer == &em485->stop_tx_timer) {
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, false);
- 		em485->active_timer = NULL;
- 		em485->tx_stopped = true;
- 	}
-@@ -1466,7 +1469,7 @@ static void __stop_tx_rs485(struct uart_8250_port *p, u64 stop_delay)
- 		em485->active_timer = &em485->stop_tx_timer;
- 		hrtimer_start(&em485->stop_tx_timer, ns_to_ktime(stop_delay), HRTIMER_MODE_REL);
- 	} else {
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, false);
- 		em485->active_timer = NULL;
- 		em485->tx_stopped = true;
- 	}
-@@ -1555,6 +1558,7 @@ static inline void __start_tx(struct uart_port *port)
- /**
-  * serial8250_em485_start_tx() - generic ->rs485_start_tx() callback
-  * @up: uart 8250 port
-+ * @in_con: true if called from console write, otherwise false
-  *
-  * Generic callback usable by 8250 uart drivers to start rs485 transmission.
-  * Assumes that setting the RTS bit in the MCR register means RTS is high.
-@@ -1562,12 +1566,20 @@ static inline void __start_tx(struct uart_port *port)
-  * stoppable by disabling the UART_IER_RDI interrupt.  (Some chips set the
-  * UART_LSR_DR bit even when UART_IER_RDI is disabled, foiling this approach.)
-  */
--void serial8250_em485_start_tx(struct uart_8250_port *up)
-+void serial8250_em485_start_tx(struct uart_8250_port *up, bool in_con)
- {
- 	unsigned char mcr = serial8250_in_MCR(up);
- 
--	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX))
--		serial8250_stop_rx(&up->port);
-+	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
-+		/*
-+		 * In console context, caller handles interrupt disabling. So
-+		 * only LSR_DR masking is needed.
-+		 */
-+		if (in_con)
-+			__serial8250_stop_rx_mask_dr(&up->port);
-+		else
-+			serial8250_stop_rx(&up->port);
-+	}
- 
- 	if (up->port.rs485.flags & SER_RS485_RTS_ON_SEND)
- 		mcr |= UART_MCR_RTS;
-@@ -1600,7 +1612,7 @@ static bool start_tx_rs485(struct uart_port *port)
- 	if (em485->tx_stopped) {
- 		em485->tx_stopped = false;
- 
--		up->rs485_start_tx(up);
-+		up->rs485_start_tx(up, false);
- 
- 		if (up->port.rs485.delay_rts_before_send > 0) {
- 			em485->active_timer = &em485->start_tx_timer;
-@@ -3402,7 +3414,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
- 
- 	if (em485) {
- 		if (em485->tx_stopped)
--			up->rs485_start_tx(up);
-+			up->rs485_start_tx(up, true);
- 		mdelay(port->rs485.delay_rts_before_send);
- 	}
- 
-@@ -3440,7 +3452,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
- 	if (em485) {
- 		mdelay(port->rs485.delay_rts_after_send);
- 		if (em485->tx_stopped)
--			up->rs485_stop_tx(up);
-+			up->rs485_stop_tx(up, true);
- 	}
- 
- 	serial_port_out(port, UART_IER, ier);
-diff --git a/include/linux/serial_8250.h b/include/linux/serial_8250.h
-index e0717c8393d7..c25c026d173d 100644
---- a/include/linux/serial_8250.h
-+++ b/include/linux/serial_8250.h
-@@ -161,8 +161,8 @@ struct uart_8250_port {
- 	void			(*dl_write)(struct uart_8250_port *up, u32 value);
- 
- 	struct uart_8250_em485 *em485;
--	void			(*rs485_start_tx)(struct uart_8250_port *);
--	void			(*rs485_stop_tx)(struct uart_8250_port *);
-+	void			(*rs485_start_tx)(struct uart_8250_port *up, bool in_con);
-+	void			(*rs485_stop_tx)(struct uart_8250_port *up, bool in_con);
- 
- 	/* Serial port overrun backoff */
- 	struct delayed_work overrun_backoff;
--- 
-2.39.5
-
+Reviewed-by: Fei Shao <fshao@chromium.org>
 
