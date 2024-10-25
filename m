@@ -4,97 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E834D149EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48358D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/fGkob/qM6CvDhjUCvaxc5YxcLKZPkcuXEBR25ZTU0=; b=2biHUrfrrDYrKN9Nw2x9YAkJ4v
-	wrkYwmXnfPpvvWDXtVdduyq+Ph40V+5YJYsTM5G4Kaq1ytJHdFCqKCo197VWgrBXAaqnuWamZOT8b
-	9Zn9YwOpYiDvvqy/M32k5eRbvgqUsS7+HHr33gvqFD63cPdVk8arErkwvDuq0LdZ0g9aVKh3aX4NA
-	PimvD07BnetAoyBZX2oU0XbrQWHwAjJ1YvGQl1IFX2DQSyUepS/bkLQ29LALP18c0PcB5+4uQWfSM
-	AOsdsI3JEAcXk01AKchH5j/DVPQvXGJxUR7RlmAai1tR+g24FBJb4ayoXGON9lmQND9eFwi3WncOL
-	Il9xig3w==;
+	bh=rMnm9AwgmDXEuc2yh8LmdqCJvJnHE1qDq44Z13ehTrw=; b=NhGKxufGi6qclVfS2wOkEPIzQc
+	nvKvC+nrzaznYv6GrhiDHexSFtI0X65faiROGMFqlgx8zHFHOYpkhRlMcR86U7YITiqiqEHr5ChgL
+	KjUhhi+wlZqjzYC3xRzdI0mVKSjRL/1tX2MdBHkCi9yqsFfAZM3Mj/GVbn046IMeP6zRJg3BhJR8w
+	aUMmZ4p3nlbYaXhAs43Uig3UtmXMmsI+jhu3CqzgUujWdYRH+yRc1uuQtTnlS+JuW3KSlgn40B4Dd
+	qRWeqpb8AmA893yBkWD1r/kpP9zolZbgc0+6uybIZ68quO0NN4PdIwri81ao4Vs1VeEorzNUqRH/s
+	l1SDZHcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Q1s-00000004zQv-0lpP;
-	Fri, 25 Oct 2024 19:31:24 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1t4Q4J-000000050Hv-2ozu;
+	Fri, 25 Oct 2024 19:33:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OHp-00000004dyG-2IR4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:39:47 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2e2dcf4b153so1690388a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:39:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1729877984; x=1730482784; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p/fGkob/qM6CvDhjUCvaxc5YxcLKZPkcuXEBR25ZTU0=;
-        b=CO6XtWH8x5UpQz3Xkj4NC680UbDPUYHKmF8/KTgTQTw8CXimA6yXORxXr7xaqOz+Fz
-         pO3DAGtXQDtQJp/Z9RKy+2o6BQyZZg1Z29PC6nba0QPLvRI9Tsw9meicLZFA8SyDxuYD
-         7Xfni2K8JXW4f5bZPU3fnlkuZ3q9/wcd8oq/ZMLJTRigcMxe3piY5xk/9K+12/wdBTPV
-         YrpKdjkdCrSW5KRhifx2sxV+askac3jm7wsw5NxAQvAcQYp9jwxYWaxf5r0kxStjeHpN
-         icn7QUlhHK82EI35DyLzDt3qroCOj31/Ve/CfbwGgRledzyGnfe2JpZc+G4aS9h82rTo
-         GrLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729877984; x=1730482784;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p/fGkob/qM6CvDhjUCvaxc5YxcLKZPkcuXEBR25ZTU0=;
-        b=KWT5aIoH7JIOzQQuOng+yogktFXcKduH8Msd/RBxcu6MhVqzPiMg/h5bQ0bzFjJoZq
-         /Chth5YXNU7Bjh+kdDwbOpmQeauhwH0g05iVDs8B5eceJRYYY2G0HCyv180yGD0HYCVX
-         IOwShWArsgUQm1VJVbdjhxMKxZf11lNMrQX+zhHurz8NONlaNEnxB+r06tzImL4hSxSn
-         OgZ8p6DLBIwVGH6+Lx7quTr+lrZEJgSPa+WCBRk/MslERsFOdJ9z9VqJwdwYPWaoQzkx
-         gLxsRhfDc051h1Xc+fHye2MOL9AmyCWUBco6IZNNzvX5XpSG1d/Owr0wT0tt2uyQ/NT9
-         25Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCW0nrh7L64aoj+uvb5MhqBXSRjDBwrsYpvx1kQXLdHpzoqppG6W9RnDu5ZCFusxDf9BRzBtctnF5G65oraC6R1A@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQyLEp4iYjSY2VppTQ7a1zIN6yyp14ENxkL2LsB5mBYS33iPn1
-	A7zRY1jjGYD3KnK9AZ9vc5gLzWsgnzq6RysgTSvgZzqiwsPEStWfysp4b3OsfKI=
-X-Google-Smtp-Source: AGHT+IFXbGE0StNIk1d7sb205enRGwNk7Q7KTUzb5Cves37ya+k1rzelSRnKQHk+kXmSm6/1fdPMpQ==
-X-Received: by 2002:a17:90a:4b47:b0:2e1:d5c9:1bc4 with SMTP id 98e67ed59e1d1-2e8f10508a5mr181318a91.7.1729877984230;
-        Fri, 25 Oct 2024 10:39:44 -0700 (PDT)
-Received: from [127.0.1.1] ([4.28.11.157])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4ca3fcsm3813961a91.13.2024.10.25.10.39.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:39:43 -0700 (PDT)
-From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Fri, 25 Oct 2024 10:39:09 -0700
-Subject: [PATCH net-next v5 2/2] net: stmmac: Add glue layer for T-HEAD
- TH1520 SoC
+	id 1t4Pn2-00000004vS3-1BQX;
+	Fri, 25 Oct 2024 19:16:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=rMnm9AwgmDXEuc2yh8LmdqCJvJnHE1qDq44Z13ehTrw=; b=KEYTed34x4FVPnan2xt3fzsaDy
+	bcghCCx9CCXsZy2by7Feso3h/AllE5YWtWtILibsxQXh5Vk+2L5ZsGqgZy6Pp5bIvJqyxJDwO/PNl
+	WFxhFa9lm9Cotd6RHk2QXHNUnlZZHBPm7aWooxCljxkpSPaX5njuE72qm2n/ftBqXgMYuns6p74lb
+	65fMGlpRqUlBNbu4stbBHOlzVlNt3YfKvaahN5F/5X5W06/lwC07BrIuT9WNfG02nzndmT3JSRDSA
+	I6rTHzarJbx0L7NgEXfPdn0MHGRnzgWM23/ayFzjeEmcuW/fy9La/f+eBQlq9s+r2YC9TnFPWpV6b
+	J1JxR6AA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Pmv-000000092Fy-1f3x;
+	Fri, 25 Oct 2024 19:16:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF5535C59B9;
+	Fri, 25 Oct 2024 19:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B18C4CEE5;
+	Fri, 25 Oct 2024 19:15:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729883753;
+	bh=WfN2SwQ1SfAPzqKDOcxOjX9pk3UC1SwykLtsIrx3B8I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uCCwJHNYYf343z6r1gEo9PunPQGR1ODph4209rcKOCpQYQ+Z9cKoDHqLtaqlEYjIN
+	 2z+sKje/XEHhSVs1cW9BMdxxPDBwY/8FQEVauYvT4cXN2A4iOYNINsY5i0l8MCF3Ai
+	 8q8X0FhxnigxeUIMEBJmTPwhzbSWVaA9MFxkKUhwN8wIFBFZxp4tuHQutYqCnUlmWV
+	 cqk5IIIqvbKBQzhnndsielpobBKgJOaBd54yeDLDV1uZhFlv57rqiHuzwNWxJcKnNA
+	 +UiwI5ZIfG85E83/zepiJUyaJTVqaFMCjzmt83JkiUljxXtaIcF4uNjlFC9cXsmWEg
+	 OwXqjgm4rW7jQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 17/18] f2fs: switch to using the crc32 library
+Date: Fri, 25 Oct 2024 12:14:53 -0700
+Message-ID: <20241025191454.72616-18-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-th1520-gmac-v5-2-38d0a48406ff@tenstorrent.com>
-References: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
-In-Reply-To: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
-To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
- linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.14.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_103945_653301_125B58CB 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20241025_201558_003543_A7C01590 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,346 +96,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+From: Eric Biggers <ebiggers@google.com>
 
-Add dwmac glue driver to support the DesignWare-based GMAC controllers
-on the T-HEAD TH1520 SoC.
+Now that the crc32() library function takes advantage of
+architecture-specific optimizations, it is unnecessary to go through the
+crypto API.  Just use crc32().  This is much simpler, and it improves
+performance due to eliminating the crypto API overhead.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-[esmil: rename plat->interface -> plat->mac_interface,
-        use devm_stmmac_probe_config_dt()]
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-[drew: convert from stmmac_dvr_probe() to devm_stmmac_pltfr_probe(),
-       convert register access from regmap to regular mmio]
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- MAINTAINERS                                       |   1 +
- drivers/net/ethernet/stmicro/stmmac/Kconfig       |  10 +
- drivers/net/ethernet/stmicro/stmmac/Makefile      |   1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 268 ++++++++++++++++++++++
- 4 files changed, 280 insertions(+)
+ fs/f2fs/Kconfig |  3 +--
+ fs/f2fs/f2fs.h  | 19 +------------------
+ fs/f2fs/super.c | 15 ---------------
+ 3 files changed, 2 insertions(+), 35 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 72dee6d07ced..b53f9f6b3e04 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19830,6 +19830,7 @@ F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
- F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
- F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+diff --git a/fs/f2fs/Kconfig b/fs/f2fs/Kconfig
+index 68a1e23e1557..5916a02fb46d 100644
+--- a/fs/f2fs/Kconfig
++++ b/fs/f2fs/Kconfig
+@@ -2,12 +2,11 @@
+ config F2FS_FS
+ 	tristate "F2FS filesystem support"
+ 	depends on BLOCK
+ 	select BUFFER_HEAD
+ 	select NLS
+-	select CRYPTO
+-	select CRYPTO_CRC32
++	select CRC32
+ 	select F2FS_FS_XATTR if FS_ENCRYPTION
+ 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
+ 	select FS_IOMAP
+ 	select LZ4_COMPRESS if F2FS_FS_LZ4
+ 	select LZ4_DECOMPRESS if F2FS_FS_LZ4
+diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
+index 33f5449dc22d..1fc5c2743c8d 100644
+--- a/fs/f2fs/f2fs.h
++++ b/fs/f2fs/f2fs.h
+@@ -1761,13 +1761,10 @@ struct f2fs_sb_info {
  
- RNBD BLOCK DRIVERS
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 05cc07b8f48c..6658536a4e17 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -228,6 +228,16 @@ config DWMAC_SUN8I
- 	  stmmac device driver. This driver is used for H3/A83T/A64
- 	  EMAC ethernet controller.
+ 	/* For write statistics */
+ 	u64 sectors_written_start;
+ 	u64 kbytes_written;
  
-+config DWMAC_THEAD
-+	tristate "T-HEAD dwmac support"
-+	depends on OF && (ARCH_THEAD || COMPILE_TEST)
-+	help
-+	  Support for ethernet controllers on T-HEAD RISC-V SoCs
-+
-+	  This selects the T-HEAD platform specific glue layer support for
-+	  the stmmac device driver. This driver is used for T-HEAD TH1520
-+	  ethernet controller.
-+
- config DWMAC_IMX8
- 	tristate "NXP IMX8 DWMAC support"
- 	default ARCH_MXC
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c2f0e91f6bf8..d065634c6223 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -28,6 +28,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
- obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
- obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
-+obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
- obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
- obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
- obj-$(CONFIG_DWMAC_LOONGSON1)	+= dwmac-loongson1.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-new file mode 100644
-index 000000000000..273efcc66890
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-@@ -0,0 +1,268 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * T-HEAD DWMAC platform driver
-+ *
-+ * Copyright (C) 2021 Alibaba Group Holding Limited.
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ *
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/of_net.h>
-+#include <linux/platform_device.h>
-+
-+#include "stmmac_platform.h"
-+
-+#define GMAC_CLK_EN			0x00
-+#define  GMAC_TX_CLK_EN			BIT(1)
-+#define  GMAC_TX_CLK_N_EN		BIT(2)
-+#define  GMAC_TX_CLK_OUT_EN		BIT(3)
-+#define  GMAC_RX_CLK_EN			BIT(4)
-+#define  GMAC_RX_CLK_N_EN		BIT(5)
-+#define  GMAC_EPHY_REF_CLK_EN		BIT(6)
-+#define GMAC_RXCLK_DELAY_CTRL		0x04
-+#define  GMAC_RXCLK_BYPASS		BIT(15)
-+#define  GMAC_RXCLK_INVERT		BIT(14)
-+#define  GMAC_RXCLK_DELAY_MASK		GENMASK(4, 0)
-+#define  GMAC_RXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-+#define GMAC_TXCLK_DELAY_CTRL		0x08
-+#define  GMAC_TXCLK_BYPASS		BIT(15)
-+#define  GMAC_TXCLK_INVERT		BIT(14)
-+#define  GMAC_TXCLK_DELAY_MASK		GENMASK(4, 0)
-+#define  GMAC_TXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-+#define GMAC_PLLCLK_DIV			0x0c
-+#define  GMAC_PLLCLK_DIV_EN		BIT(31)
-+#define  GMAC_PLLCLK_DIV_MASK		GENMASK(7, 0)
-+#define  GMAC_PLLCLK_DIV_NUM(x)		FIELD_PREP(GMAC_PLLCLK_DIV_MASK, (x))
-+#define GMAC_GTXCLK_SEL			0x18
-+#define  GMAC_GTXCLK_SEL_PLL		BIT(0)
-+#define GMAC_INTF_CTRL			0x1c
-+#define  PHY_INTF_MASK			BIT(0)
-+#define  PHY_INTF_RGMII			FIELD_PREP(PHY_INTF_MASK, 1)
-+#define  PHY_INTF_MII_GMII		FIELD_PREP(PHY_INTF_MASK, 0)
-+#define GMAC_TXCLK_OEN			0x20
-+#define  TXCLK_DIR_MASK			BIT(0)
-+#define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
-+#define  TXCLK_DIR_INPUT		FIELD_PREP(TXCLK_DIR_MASK, 1)
-+
-+#define GMAC_GMII_RGMII_RATE	125000000
-+#define GMAC_MII_RATE		25000000
-+
-+struct thead_dwmac {
-+	struct plat_stmmacenet_data *plat;
-+	void __iomem *apb_base;
-+	struct device *dev;
-+};
-+
-+static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
-+{
-+	struct thead_dwmac *dwmac = plat->bsp_priv;
-+	u32 phyif;
-+
-+	switch (plat->mac_interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		phyif = PHY_INTF_MII_GMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+		phyif = PHY_INTF_RGMII;
-+		break;
-+	default:
-+		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-+			plat->mac_interface);
-+		return -EINVAL;
-+	};
-+
-+	writel(phyif, dwmac->apb_base + GMAC_INTF_CTRL);
-+	return 0;
-+}
-+
-+static int thead_dwmac_set_txclk_dir(struct plat_stmmacenet_data *plat)
-+{
-+	struct thead_dwmac *dwmac = plat->bsp_priv;
-+	u32 txclk_dir;
-+
-+	switch (plat->mac_interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		txclk_dir = TXCLK_DIR_INPUT;
-+		break;
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+		txclk_dir = TXCLK_DIR_OUTPUT;
-+		break;
-+	default:
-+		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-+			plat->mac_interface);
-+		return -EINVAL;
-+	};
-+
-+	writel(txclk_dir, dwmac->apb_base + GMAC_TXCLK_OEN);
-+	return 0;
-+}
-+
-+static void thead_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mode)
-+{
-+	struct plat_stmmacenet_data *plat;
-+	struct thead_dwmac *dwmac = priv;
-+	unsigned long rate;
-+	u32 div, reg;
-+
-+	plat = dwmac->plat;
-+
-+	switch (plat->mac_interface) {
-+	/* For MII, rxc/txc is provided by phy */
-+	case PHY_INTERFACE_MODE_MII:
-+		return;
-+
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		rate = clk_get_rate(plat->stmmac_clk);
-+		if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
-+		    rate % GMAC_MII_RATE != 0) {
-+			dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
-+			return;
-+		}
-+
-+		writel(FIELD_PREP(GMAC_PLLCLK_DIV_EN, 0), dwmac->apb_base + GMAC_PLLCLK_DIV);
-+
-+		switch (speed) {
-+		case SPEED_1000:
-+			div = rate / GMAC_GMII_RGMII_RATE;
-+			break;
-+		case SPEED_100:
-+			div = rate / GMAC_MII_RATE;
-+			break;
-+		case SPEED_10:
-+			div = rate * 10 / GMAC_MII_RATE;
-+			break;
-+		default:
-+			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-+			return;
-+		}
-+
-+		reg = FIELD_PREP(GMAC_PLLCLK_DIV_EN, 1) |
-+		      FIELD_PREP(GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
-+		writel(reg, dwmac->apb_base + GMAC_PLLCLK_DIV);
-+		break;
-+	default:
-+		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-+			plat->mac_interface);
-+		return;
-+	}
-+}
-+
-+static int thead_dwmac_enable_clk(struct plat_stmmacenet_data *plat)
-+{
-+	struct thead_dwmac *dwmac = plat->bsp_priv;
-+	u32 reg;
-+
-+	switch (plat->mac_interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		reg = GMAC_RX_CLK_EN | GMAC_TX_CLK_EN;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		/* use pll */
-+		writel(GMAC_GTXCLK_SEL_PLL, dwmac->apb_base + GMAC_GTXCLK_SEL);
-+		reg = GMAC_TX_CLK_EN | GMAC_TX_CLK_N_EN | GMAC_TX_CLK_OUT_EN |
-+		      GMAC_RX_CLK_EN | GMAC_RX_CLK_N_EN;
-+		break;
-+
-+	default:
-+		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-+			plat->mac_interface);
-+		return -EINVAL;
-+	}
-+
-+	writel(reg, dwmac->apb_base + GMAC_CLK_EN);
-+	return 0;
-+}
-+
-+static int thead_dwmac_init(struct platform_device *pdev, void *priv)
-+{
-+	struct thead_dwmac *dwmac = priv;
-+	int ret;
-+
-+	ret = thead_dwmac_set_phy_if(dwmac->plat);
-+	if (ret)
-+		return ret;
-+
-+	ret = thead_dwmac_set_txclk_dir(dwmac->plat);
-+	if (ret)
-+		return ret;
-+
-+	writel(GMAC_RXCLK_DELAY_VAL(0), dwmac->apb_base + GMAC_RXCLK_DELAY_CTRL);
-+	writel(GMAC_TXCLK_DELAY_VAL(0), dwmac->apb_base + GMAC_TXCLK_DELAY_CTRL);
-+
-+	return thead_dwmac_enable_clk(dwmac->plat);
-+}
-+
-+static int thead_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct stmmac_resources stmmac_res;
-+	struct plat_stmmacenet_data *plat;
-+	struct thead_dwmac *dwmac;
-+	void __iomem *apb;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to get resources\n");
-+
-+	plat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
-+				     "dt configuration failed\n");
-+
-+	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-+	if (!dwmac)
-+		return -ENOMEM;
-+
-+	apb = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(apb))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(apb),
-+				     "Failed to remap gmac apb registers\n");
-+
-+	dwmac->dev = &pdev->dev;
-+	dwmac->plat = plat;
-+	dwmac->apb_base = apb;
-+	plat->bsp_priv = dwmac;
-+	plat->fix_mac_speed = thead_dwmac_fix_speed;
-+	plat->init = thead_dwmac_init;
-+
-+	return devm_stmmac_pltfr_probe(pdev, plat, &stmmac_res);
-+}
-+
-+static const struct of_device_id thead_dwmac_match[] = {
-+	{ .compatible = "thead,th1520-gmac" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, thead_dwmac_match);
-+
-+static struct platform_driver thead_dwmac_driver = {
-+	.probe = thead_dwmac_probe,
-+	.driver = {
-+		.name = "thead-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = thead_dwmac_match,
-+	},
-+};
-+module_platform_driver(thead_dwmac_driver);
-+
-+MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-+MODULE_AUTHOR("Drew Fustini <drew@pdp7.com>");
-+MODULE_DESCRIPTION("T-HEAD DWMAC platform driver");
-+MODULE_LICENSE("GPL");
-
+-	/* Reference to checksum algorithm driver via cryptoapi */
+-	struct crypto_shash *s_chksum_driver;
+-
+ 	/* Precomputed FS UUID checksum for seeding other checksums */
+ 	__u32 s_chksum_seed;
+ 
+ 	struct workqueue_struct *post_read_wq;	/* post read workqueue */
+ 
+@@ -1941,25 +1938,11 @@ static inline unsigned int f2fs_time_to_wait(struct f2fs_sb_info *sbi,
+  * Inline functions
+  */
+ static inline u32 __f2fs_crc32(struct f2fs_sb_info *sbi, u32 crc,
+ 			      const void *address, unsigned int length)
+ {
+-	struct {
+-		struct shash_desc shash;
+-		char ctx[4];
+-	} desc;
+-	int err;
+-
+-	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver) != sizeof(desc.ctx));
+-
+-	desc.shash.tfm = sbi->s_chksum_driver;
+-	*(u32 *)desc.ctx = crc;
+-
+-	err = crypto_shash_update(&desc.shash, address, length);
+-	BUG_ON(err);
+-
+-	return *(u32 *)desc.ctx;
++	return crc32(crc, address, length);
+ }
+ 
+ static inline u32 f2fs_crc32(struct f2fs_sb_info *sbi, const void *address,
+ 			   unsigned int length)
+ {
+diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
+index 87ab5696bd48..003d3bcb0caa 100644
+--- a/fs/f2fs/super.c
++++ b/fs/f2fs/super.c
+@@ -1670,12 +1670,10 @@ static void f2fs_put_super(struct super_block *sb)
+ 
+ 	f2fs_destroy_post_read_wq(sbi);
+ 
+ 	kvfree(sbi->ckpt);
+ 
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi->raw_super);
+ 
+ 	f2fs_destroy_page_array_cache(sbi);
+ 	f2fs_destroy_xattr_caches(sbi);
+ #ifdef CONFIG_QUOTA
+@@ -4419,19 +4417,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 		INIT_LIST_HEAD(&sbi->inode_list[i]);
+ 		spin_lock_init(&sbi->inode_lock[i]);
+ 	}
+ 	mutex_init(&sbi->flush_lock);
+ 
+-	/* Load the checksum driver */
+-	sbi->s_chksum_driver = crypto_alloc_shash("crc32", 0, 0);
+-	if (IS_ERR(sbi->s_chksum_driver)) {
+-		f2fs_err(sbi, "Cannot load crc32 driver.");
+-		err = PTR_ERR(sbi->s_chksum_driver);
+-		sbi->s_chksum_driver = NULL;
+-		goto free_sbi;
+-	}
+-
+ 	/* set a block size */
+ 	if (unlikely(!sb_set_blocksize(sb, F2FS_BLKSIZE))) {
+ 		f2fs_err(sbi, "unable to set blocksize");
+ 		goto free_sbi;
+ 	}
+@@ -4872,12 +4861,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 	fscrypt_free_dummy_policy(&F2FS_OPTION(sbi).dummy_enc_policy);
+ 	kvfree(options);
+ free_sb_buf:
+ 	kfree(raw_super);
+ free_sbi:
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi);
+ 	sb->s_fs_info = NULL;
+ 
+ 	/* give only one another chance */
+ 	if (retry_cnt > 0 && skip_recovery) {
+@@ -5080,7 +5067,5 @@ module_init(init_f2fs_fs)
+ module_exit(exit_f2fs_fs)
+ 
+ MODULE_AUTHOR("Samsung Electronics's Praesto Team");
+ MODULE_DESCRIPTION("Flash Friendly File System");
+ MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32");
+-
 -- 
-2.34.1
+2.47.0
 
 
