@@ -4,76 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F88BD0C612
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26463D0C613
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dyGjiBtuIDp3TxYQDGvFq79fbFInI1W4/sh3zHJzTjU=; b=4WDEz/D9rzTdGX1fR/0WiwQHmM
-	h1M/9EmPV9/YRhXBOrwe1/Sfw24ijikyTSLwdUdt3oJecIJKmvXI2N+W5VOm7PJ1jDGX687ChnQ9K
-	9ob4XGgV0yflcDknBWWIa6Z6nVUnsNxE0fUfugorRpytgH8KEIdjd2b1gl31usRErUgaca/yMRitK
-	RtQp6CCNXVEe3X9e3gQ3yS1q5sgXqIfqWhq7tHiBkGpORNxmzhbpBLp2YPH3zvdAxAyE91AqfaMaw
-	C2Za5aLF7P0sNUKHF20Na8EAsbNFcux1VofnuQ/hJu7vDpzrLuC3lMnBXT6rjntPreknKifc12ZNC
-	5le+bVwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mTD/E8mUSNoNp+vtjeW8NYfb5u7ndnKHIytXzDhahwE=; b=EELCZaLO5CDt9+wFaJ/QCt8Luu
+	H2cGB42ST10bPdl6yHF4KqnR71GMmMuJiRvm6VeULJGDIVNgzhH8mbV71K0affQGuR4pcoIkaAdK9
+	ELdg4miberYub3L6D4NFZIvg5dRNaLdv+ul+TI1G02Nfal84c5G5XsVsvjwWYJAiL+yYfxtWMk/OX
+	UebUciXWKB6hItFR2MkqoLow5dgtYtzb/GiEDzYCI2BZVFx6CXxpkm5hx3BXOQOLHqiabieh+U5RF
+	H40JUsRWgTgyIj+kHbrim3WEEChtkrejoQ2FheBJecBapCs2kU2230De/jiox9MhjVcDrLm80tnPE
+	zuipNJxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Klo-00000003tN1-3jT9;
-	Fri, 25 Oct 2024 13:54:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4KnP-00000003tiF-2agS;
+	Fri, 25 Oct 2024 13:56:07 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KQf-00000003pSV-0xez
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:32:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DE51FA42EDF;
-	Fri, 25 Oct 2024 13:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79C7C4CEC3;
-	Fri, 25 Oct 2024 13:32:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729863156;
-	bh=v+TIq5Hs+T34ql7qTS7QA5QIGOI10d3BPzw3MOJHPjA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cqy6OX6/+cX8BA9XID33+3sylxcFaV2QoZm5JbvALDgiV4XUTZPYfMG1T91X0RQ5J
-	 oiOzw9IqVK5+cBnKGQeaYPk3y1e3UwC/NvHWB1QE9RVyudiAx7cKOagK9vCHSmyKTb
-	 bVbPx9bk1GAIdkBxRslXYId2Kj1IkJa+0bCQA3Qfg7Qjp0IXCOcjXbcg92AoIU1aWx
-	 36Z1ooxrMn3JOdKXi/yAmr6TtYBqEzSiFUguzMb7nRDC4ziIB+ND0VAoHwQmKMjXBN
-	 +h6VNQK5QGP/3c937xAvKywC9Ezpo4QN05XTPOMTwJvn4mj0mioQ02RRb6TJYLctQF
-	 Qz3reD95Wv4wQ==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1t4KQv-000000003F4-2HzN;
-	Fri, 25 Oct 2024 15:32:54 +0200
-Date: Fri, 25 Oct 2024 15:32:53 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
-	ulf.hansson@linaro.org, jassisinghbrar@gmail.com,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	konradybcio@kernel.org, linux-pm@vger.kernel.org,
-	tstrudel@google.com, rafael@kernel.org
-Subject: Re: [PATCH V3 0/4] firmware: arm_scmi: Misc Fixes
-Message-ID: <ZxueBWB9nJ9Mt7bW@hovoldconsulting.com>
-References: <20241007060642.1978049-1-quic_sibis@quicinc.com>
- <ZwfsmqInJlqkQD_3@hovoldconsulting.com>
- <ae5eaef9-301f-7d3f-c973-faa22ae780ee@quicinc.com>
- <ZxkjqEmkBAsC6UkL@hovoldconsulting.com>
- <c8e7420b-a7b4-89cd-1b6e-c1f6693c062d@quicinc.com>
- <ik4dyfbphm7lkeipm2dbr7cmdfxewxd4jtuz2jfnscfwcyo2r4@lrin5hnsqvyd>
- <83b635a7-fc69-7522-d985-810262500cb3@quicinc.com>
- <CAA8EJppx1OmYnfSsMDebRRTbNb3dfAE_MM55T1SpLccP=s_K1A@mail.gmail.com>
- <Zxty8VaMPrU3fJAN@pluto>
+	id 1t4KVZ-00000003qFH-1iOq;
+	Fri, 25 Oct 2024 13:37:43 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 54D1325400C4;
+	Fri, 25 Oct 2024 09:37:37 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 25 Oct 2024 09:37:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1729863457;
+	 x=1729949857; bh=mTD/E8mUSNoNp+vtjeW8NYfb5u7ndnKHIytXzDhahwE=; b=
+	nTq77u+YbjEK1oOGqWOEMss4pavBeea5xmfNB5v8n1RQ22NxJIlmfp2TzT4IKpOx
+	caApVTp1/TP1+2AFsH+6DaC7B1jXPpi59lVd0QmK1g4cyigLCbwCjjCU5UZejO28
+	8c3d8AGT1CdV1FpUSe8Ohc2JPaB0EAv7X1aw4eGMMqsDN9QNF4MBCkY7XT7NWXhL
+	O/OEAgSYzhCEctYt3/dxus3LsMgxjvtStf4TUCEi3KDe+iRqYuAwvWG/ws/9TCTb
+	91Febe33d87M4u4RsAc2PSDoS2l7TEXW3ZHH0N9mqk4H/wIO2sYqmM++nNVpXfOu
+	l8mVjbE2Y3ckzB0U2VTGjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729863457; x=
+	1729949857; bh=mTD/E8mUSNoNp+vtjeW8NYfb5u7ndnKHIytXzDhahwE=; b=Y
+	Yd+CaNQUnHw9YsFM/xsr4EEUnyKUrgtD2vti8QGZood/Hu9648OKjYo4bH7A6Neg
+	jnJDKNvwBYkFvlybTuqF2bH/KaZKDCsMPx9nvXzHCWTKjsCUnllyUHCbFyKAeDhX
+	YNkya00Lwsz0+acBTk9P7pZOFNJx3BvJUubdQClXQQcfFmAJOHzcSMDEsFGYeUz+
+	Jg9HE+6A7ymczxjo7UpkNZEyk9ue5mso6y8MDn4M5ldn8ZNSI/lsZrOwKW2qGN95
+	SK1C5a5uk//QbB1mqxfMZZhPvCEMy7uIU9Opdu0mHCbXfdkyJRO6uRsr50PfJcTO
+	dO3S1hvvUj92Ys457iJAw==
+X-ME-Sender: <xms:IJ8bZxsuj29dJ1vr5lHn5cEFvY6c8AEcCMtZGM1az7Jp64ZRgbF05Q>
+    <xme:IJ8bZ6f_PFYR1VPWQ6NunpU9GXYmb8uTFHK2WzhvwLuyhGpOciB1CBT9pvUeu8GH4
+    UYBuOr6HJ-I4-vOr1Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdejvddgieeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudel
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplh
+    hinhhugidqshhnphhsqdgrrhgtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhr
+    tghpthhtoheplhhinhhugidquhhmsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
+    hrtghpthhtoheplhhinhhugidqmheikehksehlihhsthhsrdhlihhnuhigqdhmieekkhdr
+    ohhrghdprhgtphhtthhopehlohhonhhgrghrtghhsehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdr
+    ohhrghdprhgtphhtthhopehhtghhsehlshhtrdguvgdprhgtphhtthhopehlihhnuhigqd
+    grlhhphhgrsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:IJ8bZ0w8_fyzDu0Dhxg43egcOQd9fPmeL9IF1HbPQzAPODUmdkywqg>
+    <xmx:IJ8bZ4Ng8v61LIOz9Z6hcNW7TrkYDvZ9-QsNLZ7fNM7Okgrh7sPTiA>
+    <xmx:IJ8bZx-O8B7MlF4JofybzIynmnGJvvLwnq8RLzH_1fknLv9ZsqMu1w>
+    <xmx:IJ8bZ4X5lrN7iDkKbGm85k7BOBq5kmsTovQZ6V9cVszatdT146tmOA>
+    <xmx:IZ8bZ02QO2wzbQXTtXh5NJPoq2r5QyMwBKYu4QPUoTFRk_k35DiZGUWq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3B9352220071; Fri, 25 Oct 2024 09:37:36 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Zxty8VaMPrU3fJAN@pluto>
+Date: Fri, 25 Oct 2024 13:37:15 +0000
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christoph Hellwig" <hch@lst.de>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, Linux-Arch <linux-arch@vger.kernel.org>
+Message-Id: <c9f10ee9-697f-4f45-8c82-a6dc61e5a74e@app.fastmail.com>
+In-Reply-To: <20241023053644.311692-1-hch@lst.de>
+References: <20241023053644.311692-1-hch@lst.de>
+Subject: Re: provide generic page_to_phys and phys_to_page implementations v3
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_063237_351133_150558D2 
-X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-CacheID: sfid-20241025_063742_278560_741678AA 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,31 +123,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 11:29:05AM +0100, Cristian Marussi wrote:
+On Wed, Oct 23, 2024, at 05:36, Christoph Hellwig wrote:
+> page_to_phys is duplicated by all architectures, and from some strange
+> reason placed in <asm/io.h> where it doesn't fit at all.  
+>
+> phys_to_page is only provided by a few architectures despite having a lot 
+> of open coded users.
+>
+> Provide generic versions in <asm-generic/memory_model.h> to make these
+> helpers more easily usable.
+>
 
-> > > >>> [    8.098452] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > >>> [    8.109647] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > >>> [    8.128970] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > >>> [    8.142455] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+I've applied this to the asm-generic tree now.
 
-> I think dev_info could be an option from the SCMI perspective (as per my
-> other mail), the important thing in these regards is to NOT go
-> completely silent against fw anomalies...to avoid the the risk of being
-> silently ignored .... I'll see what Sudeep thinks about...
+Thanks for the cleanup!
 
-I agree.
-
-But could the error handling be improved to look less scary for an end
-user by saying something about duplicate entries being ignored instead
-perhaps?
-
-Printing something at info level and with a FW_BUG ("[Firmware Bug]: ")
-prefix as was done here:
-
-	https://lore.kernel.org/all/20230414084619.31524-1-johan+linaro@kernel.org/
-
-should make it clear that this is not something for end users to worry
-(too much) about.
-
-Johan
+     Arnd
 
