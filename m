@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D443D0C61B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45810D0C61B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbRBhp0nksiEsDwTJjRTX0/cwvwxa/39KRzDImBUbOA=; b=shwx/uhcSQ9RVIq46lmFAuoMRW
-	qMSCUMsJBs8JIu+5JeTnDVC9zobQPg5rGLgebOzH43nO7lJ9/4nMMBSpveeAfFI5pdMnIkfCgDtTE
-	h1WVWYs6B5HzH6DYYVeyMdhkaB6TlBArv5kriEbZVhjiXSSYsccz+h3hFEMFXTJKEDKvY9yYttIUG
-	ng3ve6c+AVhfA7mjICXIR71RCh27xpdLTzbyeVlZHSaDKNWWwU+y8OgpvdvQvtnkRy6qf1a5sQD9/
-	bpHuSz15OU7ySORDCSiP/EtP1xSGUvjvAClpYzJFzYybX8O5f8LwqP93pdmkDJSFU5Eabs2Zs7cy2
-	ck2lw7qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=itdUdyilJOpXHuFtqnevEly013GrPHaehmC4+D0Il8Y=; b=iNgbyn2tOlByxDdMSmHjQWQ/im
+	vnXJSZ4kh27lJPZFwqbiZlDR7j0ICeRb8oBnO514ovrOdMFq+1Ho+2Qi1/5krfeyuXsfJn7lgY2X1
+	0RXRqY51kJxVlxR27uuvzywDsZBASKC2aWNeN6J1DOVAHW6GVjvgOxO7KKC5BPhO9YgoHWfqgzj9v
+	8Cucoc7xfYmuyMME1LLiVG046h38A7l4LNDDO2e2x+TwffXLq0P5x5XXaG0hw1zr/j7pCBpDN/CTW
+	PlFzBwJwmJSPBjOb+MOmQVHvy/sbmvmW9l1OrHz5NxzXcYWlazVkuEKYtNKRwQa1oLHiMEP73YGeh
+	EKFffi0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LXC-000000043fp-2Jjk;
-	Fri, 25 Oct 2024 14:43:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t4LYl-000000043yz-23Uq;
+	Fri, 25 Oct 2024 14:45:03 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LDI-0000000400w-2pPn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:22:54 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PBC3IQ017697;
-	Fri, 25 Oct 2024 14:22:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fbRBhp0nksiEsDwTJjRTX0/cwvwxa/39KRzDImBUbOA=; b=ZE0KHZ+GY85xP6fS
-	p7gBZWklnjbqKAPIXNenvdNFftGJ6h4uwgMMDLtFg4VlMwkA5boaHBm4M20ozYs2
-	P/cnbHlHKlMkMTCRs6Idtr2jKugWVRXwORyG/SrPRSYj6V6Xq6kI0TyzvKSRs1CJ
-	anr9wF8dLoA210/Xp9tSPSk2keyELZZAaxKg1W6F/dP5EAQtahIowENrSmcvn4up
-	ZmNMglWxPUQvKAPObc0sFEkX5FIA8oVJorQoV3dbyKmJo341a+iSvKs/2OgKWQQJ
-	tfofNBH5KtdGpumjm3hugsuicXTSBXjhB8gxYgHmjl9/vqD/HG4MTJXbQQasJ34T
-	KkkriQ==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3whe9m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 14:22:41 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49PEMeov023378
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 14:22:40 GMT
-Received: from [10.214.227.50] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 25 Oct
- 2024 07:21:54 -0700
-Message-ID: <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
-Date: Fri, 25 Oct 2024 19:51:22 +0530
+	id 1t4LFV-000000040PS-2djK;
+	Fri, 25 Oct 2024 14:25:12 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1729866306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=itdUdyilJOpXHuFtqnevEly013GrPHaehmC4+D0Il8Y=;
+	b=qzz+CQfKtotbVau0Y6+NhdZ4HmIqfEaYFXsRFsANieSq5A38Su3Cm8Ubh+rVbLujDPJqQd
+	e1n8qT13oxrEXf/EPUvnU3LS0/RH8C/L3PGNFrgDjlugYl6moOLlCthh6WwxN+Kt0NBtGp
+	Q7ShTaUSdSDEGDQBxkWsxgfp3CtEHjuar6LKajK8sjK79cTElZEwBE/KWTywTYXa6qCjBS
+	92R/i3vb4DcB6ZOWFC28aONYkhqHA7JctnvWGvkgbpZDmvU8Bhp7Iintt62Uq1GnBWS0mJ
+	cH2I0Svhn99JoLJy2UekKxlmfCjWXRf6s06gciEpBrGdFVnl7KHWahgv2hEd/g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1729866306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=itdUdyilJOpXHuFtqnevEly013GrPHaehmC4+D0Il8Y=;
+	b=6Ztb4PK+2rZAZQ8Ud576zxXjCPq6h5nE37Q1xOVKczBp4u6HGX49CaKypX8Q8DVJCfq0Z+
+	+jrRMGRjDn78/HCw==
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+ <jirislaby@kernel.org>, Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Esben Haabendal <esben@geanix.com>,
+ linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, "Paul E. McKenney"
+ <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Stefan Wahren
+ <wahrenst@gmx.net>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, Kevin
+ Hilman <khilman@baylibre.com>, Markus Schneider-Pargmann
+ <msp@baylibre.com>, Ronald Wahl <ronald.wahl@raritan.com>, Udit Kumar
+ <u-kumar1@ti.com>, Griffin Kroah-Hartman <griffin@kroah.com>, Rengarajan S
+ <rengarajan.s@microchip.com>, Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+In-Reply-To: <ZxulYcgH1kTyx9Kr@smile.fi.intel.com>
+References: <20241025105728.602310-1-john.ogness@linutronix.de>
+ <20241025105728.602310-5-john.ogness@linutronix.de>
+ <ZxulYcgH1kTyx9Kr@smile.fi.intel.com>
+Date: Fri, 25 Oct 2024 16:31:05 +0206
+Message-ID: <84v7xg2rb2.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in smmu
- reset operation
-To: Will Deacon <will@kernel.org>
-CC: <robdclark@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-        <jgg@ziepe.ca>, <jsnitsel@redhat.com>, <robh@kernel.org>,
-        <krzysztof.kozlowski@linaro.org>, <quic_c_gdjako@quicinc.com>,
-        <dmitry.baryshkov@linaro.org>, <iommu@lists.linux.dev>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Konrad Dybcio <konrad.dybcio@linaro.org>
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
- <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
- <20241024125241.GD30704@willie-the-truck>
-Content-Language: en-US
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-In-Reply-To: <20241024125241.GD30704@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: y1Vf84Z4S45OAOubf3kdrxvTuc6LPKz7
-X-Proofpoint-ORIG-GUID: y1Vf84Z4S45OAOubf3kdrxvTuc6LPKz7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
- mlxscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 clxscore=1011
- priorityscore=1501 mlxlogscore=999 suspectscore=0 bulkscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2410250111
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_072252_872827_787916CB 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20241025_072509_832747_8D12ABAF 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,104 +92,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2024-10-25, Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+>> Add an argument @in_con to the rs485_start/stop_tx() callbacks
+>> to specify if they are being called from console write. If so,
+>> the callbacks will not handle interrupt disabling/enabling.
+>
+> toggling ?
+>
+>> For all call sites other than console write, there is no
+>> functional change.
+>
+> So, why not call the parameter better to emphasize that it's about IRQ
+> toggling? bool toggle_irq ?
 
+Currently there are only 2 users:
 
-On 10/24/2024 6:22 PM, Will Deacon wrote:
-> On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
->> Default MMU-500 reset operation disables context caching in
->> prefetch buffer. It is however expected for context banks using
->> the ACTLR register to retain their prefetch value during reset
->> and runtime suspend.
->>
->> Replace default MMU-500 reset operation with Qualcomm specific reset
->> operation which envelope the default reset operation and re-enables
->> context caching in prefetch buffer for Qualcomm SoCs.
->>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
->> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
->> ---
->>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
->>   1 file changed, 42 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> index 087fb4f6f4d3..0cb10b354802 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> @@ -16,6 +16,16 @@
->>
->>   #define QCOM_DUMMY_VAL	-1
->>
->> +/*
->> + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
->> + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
->> + * buffer). The remaining bits are implementation defined and vary across
->> + * SoCs.
->> + */
->> +
->> +#define CPRE			(1 << 1)
->> +#define CMTLB			(1 << 0)
->> +
->>   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
->>   {
->>   	return container_of(smmu, struct qcom_smmu, smmu);
->> @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
->>   	return match ? IOMMU_DOMAIN_IDENTITY : 0;
->>   }
->>
->> +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
->> +{
->> +	int ret;
->> +	u32 val;
->> +	int i;
->> +
->> +	ret = arm_mmu500_reset(smmu);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/*
->> +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
->> +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
->> +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
->> +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
->> +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
->> +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
->> +	 * during reset and runtime suspend operations.
->> +	 */
->> +
->> +	for (i = 0; i < smmu->num_context_banks; ++i) {
->> +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
->> +		val |= CPRE;
->> +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
->> +	}
-> 
-> If CPRE only needs to be disabled prior to r2p2, then please teach the
-> MMU-500 code about that instead of adding qualcomm-specific logic here.
-> 
+serial8250_em485_stop_tx()
+bcm2835aux_rs485_stop_tx()
 
-Doing this on MMU-500 code would make it generic and reflect for SoC of 
-all the vendors on this platform.
-We can make sure that it won't cause any problems in Qualcomm SoCs as we 
-have been enabling this since for some years now and could not 
-observe/reproduce any issues around these errata.
+The first one toggles the IER bits, the second one does not. I figured
+it would make more sense to specify the context rather than what needs
+to be done and let the 8250-variant decide what it should do.
 
-But we won't be able to guarantee the same behavior in SoC for other 
-vendors where these errata might still be applicable as per [1] and [2].
-So as per my understanding it's safe to include in Qualcomm specific 
-implementation and not changing the default behavior in all other 
-vendors' SoC even if they are not prior to r2p2 revision [3].
+But I have no problems renaming it to toggle_irq. It is an 8250-specific
+callback with few users. And really the IER bits is the only reason that
+the argument even needs to exist.
 
-[1]: 
-https://lore.kernel.org/all/4db1b4d2-0aa9-4640-b7d7-7d18ab64569a@arm.com/
-[2]: 
-https://lore.kernel.org/all/467590c40029ef0712b1fd38f2928fd4f08d09af.1726232138.git.robin.murphy@arm.com/
-[3]: 
-https://lore.kernel.org/all/CAA8EJprHppoN6rg8-rS1F+4kynQqmV1L3OiHFnJ0HyrshywFig@mail.gmail.com/ 
-
-
-Thanks & regards,
-Bibek
-
-
-
-> Will
+John
 
