@@ -4,143 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03C7D116E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 03:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551C7D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 03:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/c147P0IZLSkfgkga72naJX72VTGe00ZOJAM0Gn/fsQ=; b=Bf44w/rvGe7MBUFCCXKig2m4Rl
-	euRhqxu2AyK+Gix83tMMIDMn9z/28rWzQyZJmOmsUDNQhqlxJhmJRzzR+kfFEYCdrZVVXSeNA0MV2
-	UAvnsq4FGij8939KjR0lgZPqb5ZYQ5ngWQLuIYANTlH15YP6lbkBX9Xfkt9mw/j7HNyCdKvg+u9g/
-	egqj15J0iD4n9uhsFL2yRr9ko4jQjfiKOyPfFzCY9IQoMcg3mUGvEK96QAFwmuCTfsggSq/ird+mv
-	f+TwHNkp1Q6sqQQP7imnteN0tTQzxrrqvWx9kLm25K9QNtR648a3KE2LgizYJRh0UB6M5gQYYQ7B7
-	EnRB0sBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/6qecbCnIScJm5hggRYAgfotRPEIP7HT2guiX2Y+zUs=; b=de6iEWP2CY/VKMzVoPD9GSnd6/
+	NlSoARWwFA0JYbhoCNiZ+Tsx202cUkpGGDQM/ba2O2ec7S4sk5a3jDRAHUjT9+TFqa8vmxLQY7374
+	6SrHmJ9HfZEE9W0fnsW6epPu6BV/41YqGKMA6ezB3gdOokI4IjlnILyEI4N5BAUSEuUB4KZALDonf
+	x6u53BkM+pHqDRvogW2NOhK7W5f7H7Wqo2xRaBR0s8TzDZ5Z+/8UfGznmIrHAeb9K8DoXyvyF8jVd
+	CaNGtxNYqDkF19DQXTzVeMshkLsvuhtdiTLQPs0qoEovFzinpXz9UeuHSUHU6Yph0RcJ7zqSJK6ME
+	NO2Poynw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4BCj-00000002PHI-1nCB;
-	Fri, 25 Oct 2024 03:41:37 +0000
-Received: from mail-mw2nam10on20628.outbound.protection.outlook.com ([2a01:111:f403:2412::628] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1t4BSF-00000002Rda-2oI9;
+	Fri, 25 Oct 2024 03:57:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4BB9-00000002P8j-2rmf
+	id 1t4BQd-00000002REk-3MOo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 03:40:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I3avpoMbImPQNtYnR8G/L2xJcyVMu/qo9npAWzeyB/sBI8ZXQZ3CvIK6nBr1MCsLdK1UXUNHH5SXaKSffKeSPJh70dPFiXjJU+c6WZPl1sHOOIXpF0Q8xlhHKYLt/3djeEAxZqOOEOt4IApgmiJRH3hSIV7H9j5GEZ0py5Gfdiyfik7T+qE+Lr1bFQjbJa2h4sagTKCWRDFfWTi6rsRAonIPr6DP7xZ+arTTQJwRLTQ9IABcnn67kHB2YkgogbR5VeRJwPvgw2pm77QN33g4Ig3s9uxso9LbF2BG7ExLsXX2owjM4KNjlu2tFG1Etvc60vehffNqiY9DE/9Na1SyAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/c147P0IZLSkfgkga72naJX72VTGe00ZOJAM0Gn/fsQ=;
- b=FOrdTQeoIv7RIxCRaHSAPxJNrILp/Ugwsyk1vQMhV3Oldnc76ZDErouPQ9R/mVYEjEWsOHXSbZ0LG0RqVZhvzqVGsf1egoRdZwV2JZkvNP0ujUVTwHRrCJx2mGRiGwovkrWkvPh74IrwIDEUBQ7e/1JhsEDcRbThQ3nMgRzhwrMlpESY7emDDgpgwTxWvae7qEpbGVk9kNx+x5dGKw6FuURUYeSk7z1s2zbgXbIhHKo0PzP6CyKMElQhkvuSlJ7yky9NIXQ4swliCFeXfePZeJhAxMHu3Cz9qZcLPgxMAivbiuR0BttjKKi7fP20TU3U0eyljW5tbnXafFwwsLWUiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/c147P0IZLSkfgkga72naJX72VTGe00ZOJAM0Gn/fsQ=;
- b=c48m7iJkhIOUqB6a0KQUuEBVR6m8isQce4i29Tp3KY8VaJcrzV5c0adViDMI59eLfy20gSSuOm71cdowkoXj3Bo9QwcxZnaukXyX2JdPEx8Aym7cgm+KtXqv24LLT9WLgJ3A0RyV1LtBzBoBNkuNvz9Tj+4qFxk6iY7raAw7g7n5uzO9EkRoKMxexmkLWPQHHxjb/Xaw89hDSX6cMmKxSk5D+K8FccDLZlj7ZWVKj0XbjdzUOPk5t/8SO9DFFpgdWlILDwYLpqbnxv3F+bi3veF2hRYIljJdA/DKQdPfwyQM+lGxS8fvBTJQRaKipS6+fci/nZKLw6U2adz63pS15A==
-Received: from BL1PR13CA0145.namprd13.prod.outlook.com (2603:10b6:208:2bb::30)
- by SA1PR12MB7223.namprd12.prod.outlook.com (2603:10b6:806:2bc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.18; Fri, 25 Oct
- 2024 03:39:52 +0000
-Received: from BN2PEPF00004FBD.namprd04.prod.outlook.com
- (2603:10b6:208:2bb:cafe::74) by BL1PR13CA0145.outlook.office365.com
- (2603:10b6:208:2bb::30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.8 via Frontend
- Transport; Fri, 25 Oct 2024 03:39:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF00004FBD.mail.protection.outlook.com (10.167.243.183) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.14 via Frontend Transport; Fri, 25 Oct 2024 03:39:52 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Oct
- 2024 20:39:47 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+	Fri, 25 Oct 2024 03:56:01 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49P1Z3M9026346;
+	Fri, 25 Oct 2024 03:55:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=/6qecbCnIScJm5hggRYAgf
+	otRPEIP7HT2guiX2Y+zUs=; b=mdVmIkohA8ypyY6CUXR7JSm9T7kACPyuKH+XsL
+	MCtcRRhIjXuBOpjf4mt0NtOr7H70LeOPXMFi3aQRjZNrjaRd+bko7WA/+sT33SGM
+	X0RGkhpap7Pijq7d/R4yqFYOWDF4BBQu5pf1pb9zNx8ycF+DozYsfXAvbTKqzgtS
+	J6aGglJKGK9di/pY8xD6xGyfqbqN+Wb/NBvotVY4NnlyD2wXeofFuMJ/kMITtAH0
+	FrEk+j8ohTX76PcOe1m4P/H+khHUJDsu2l7gLmnYzNJHSGOtJWQ+dwEyaD9mlOOa
+	VsOlt3B2TIdzkpJXKz3GLoqRRcTD63EeoQ8bOeb1wH2XguHg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3wqmd7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 03:55:44 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49P3tgbU000348
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 03:55:42 GMT
+Received: from hu-mmanikan-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 24 Oct 2024 20:39:46 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Thu, 24 Oct 2024 20:39:45 -0700
-Date: Thu, 24 Oct 2024 20:39:44 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>
-CC: <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
-	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v4 08/14] iommufd/viommu: Add vdev_to_dev helper
-Message-ID: <ZxsTAANTTuQzQ9HR@Asurada-Nvidia>
-References: <cover.1729555967.git.nicolinc@nvidia.com>
- <3eae567a6d674cae144c5fd36cc8eafe84d6a24d.1729555967.git.nicolinc@nvidia.com>
+ 15.2.1544.9; Thu, 24 Oct 2024 20:55:35 -0700
+From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
+        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
+        <angelogioacchino.delregno@collabora.com>, <neil.armstrong@linaro.org>,
+        <arnd@arndb.de>, <nfraprado@collabora.com>, <quic_anusha@quicinc.com>,
+        <quic_mmanikan@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <netdev@vger.kernel.org>
+CC: <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
+Subject: [PATCH v8 0/7] Add NSS clock controller support for IPQ9574
+Date: Fri, 25 Oct 2024 09:25:13 +0530
+Message-ID: <20241025035520.1841792-1-quic_mmanikan@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <3eae567a6d674cae144c5fd36cc8eafe84d6a24d.1729555967.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBD:EE_|SA1PR12MB7223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81b966a1-f103-448a-2f29-08dcf4a6af73
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dX+1x6Q/DcQCD1HkR/OdRBDEgIiY5s8mflE5smHzXiwfE0GjAtqYFXBvb6B9?=
- =?us-ascii?Q?p26S9OXi22vBcgfdIBWv+TKzOauioqV/kZZRd7hoBEw+BWQHyLrHhRhUwG1s?=
- =?us-ascii?Q?K8t6dYnczXE0F8/5WZPkzP4+M2Q43qUiynXvpusg88k0p2fwVZPzbKHucVGG?=
- =?us-ascii?Q?tOniNnWF9zKXYJQQwojy61W5btc7sL/6ySV3q0FfPgbhsqGLJokb8PQEhzHy?=
- =?us-ascii?Q?S7gVpH/wiFCLcBL7ES0AtwyRL9ZsRbBLo8oRla95xTf9AmgHOPA0qOnj7YZc?=
- =?us-ascii?Q?TujNGnl4hWlWsyJiNx86pvYQXAZnI5xN5+BZ7Pp0OdvmZJ6OeCtDVhh1eP0N?=
- =?us-ascii?Q?Ku9LukBbpStEDZPsABH0mcN1fvqYtZIxe5i+KtH8FRg0I7ChNTDH9j4TVKvE?=
- =?us-ascii?Q?KK7F8dAhkN8si1t2+okYiI+C/3jjmS8wx3KnTM0YcVX7LTxyhGMSr2c/u2xA?=
- =?us-ascii?Q?NV6DMaTR54BrLzMt3qgCH70sN5k4hnleEb/6fU6wGf/04hPT10oIB5PK+cVb?=
- =?us-ascii?Q?Jy6id1GhRUg6bRGdOJK/gyB2eAeHnuGC/NKE1JFGKhBDbn3oSgmrGeKW0uAL?=
- =?us-ascii?Q?3UI9TEw7qZimEEukDd2Cl0RXOcrPArTQWcBpcOMer9kXxEg7ilGHq+LAKWF1?=
- =?us-ascii?Q?ztXTqLlpV/o1wDQCjP9bIWg9v624SCAek85V3qHuOADBt8m3B/NBSRiew/j7?=
- =?us-ascii?Q?m/JRwQpvK+4/pRUMWa/DUYDn6F/z3PWDsFK33tqEH2Bh7SSyK/rypR+gC8ag?=
- =?us-ascii?Q?bb1pp75+q/Gc0Ts7gQr/wi18MMxY23q6PdRj9WQzCe/jVxPqzAf0S1NdR6+X?=
- =?us-ascii?Q?0cT5hY1jmz/7611PKovyGKzLeYQqJmzrglO+VoHqGC4WdJwDoa4AJ39kEgjk?=
- =?us-ascii?Q?pYbprmkByz5oHfHl8adC1D0tHDaB3jHcoypgvoIOZRJ1oJzvREBNUZcaZyaE?=
- =?us-ascii?Q?2GHCJWyvzBezxiO74Fu8OIHvPIdKVuFi1poSx4oyYmG+y39SyzPd5BDkUREG?=
- =?us-ascii?Q?RAsJduDB/7BAZBvqq1c9NvG5RjcXE8VZgeMpyomf270Nvj0tnzft7VOBCm3u?=
- =?us-ascii?Q?yTpx1eT9aq/A0WsGN8sexcLoamEBJMu6LG65mTiRV2JXO6EZxUz23tlQ+WZ1?=
- =?us-ascii?Q?8bjX8CToq95djiehgENi0vWXqebZp8VcuJQb1z/Cs0NoE94Rjzgp0tLaPb6t?=
- =?us-ascii?Q?y+etPeDOyz8z2e8wj1gh50Ewq9ev4L3ea7iUJ+d+8/JKa8kd6C0Abq9uIOp2?=
- =?us-ascii?Q?ldmr3xiQyRb0LIJIO/EZCj8s1Mq8PbyqRvyP9bEhJ7oLOA2RRh5A1yB2qQA9?=
- =?us-ascii?Q?+vMAHYX9w4FvmWOWGwn+TPhk+3rtHEOf4BfQRP9mPDTbE9dWcelhoWsZxF/M?=
- =?us-ascii?Q?Su4ywdXN9M1A+lR75hAAN1kq5r9XdEXsuErpku5+6CY7jHmAyw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 03:39:52.3202
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81b966a1-f103-448a-2f29-08dcf4a6af73
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBD.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7223
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 0Ok25_2AZmw5vwc5OiluW9AMDddlNee9
+X-Proofpoint-ORIG-GUID: 0Ok25_2AZmw5vwc5OiluW9AMDddlNee9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 phishscore=0
+ mlxlogscore=877 lowpriorityscore=0 malwarescore=0 suspectscore=0
+ spamscore=0 mlxscore=0 impostorscore=0 clxscore=1011 priorityscore=1501
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410250026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_203959_755710_58A8B303 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_205559_984374_FCE03BAB 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,29 +103,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024 at 05:20:17PM -0700, Nicolin Chen wrote:
-> +/* Caller should xa_lock(&viommu->vdevs) to protect the return value */
-> +struct device *vdev_to_dev(struct iommufd_vdevice *vdev)
-> +{
-> +       return vdev ? vdev->idev->dev : NULL;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(vdev_to_dev, IOMMUFD);
+Add bindings, driver and devicetree node for networking sub system clock
+controller on IPQ9574. Also add support for gpll0_out_aux clock
+which serves as the parent for some nss clocks.
 
-Changing to not exposing the iommufd_vdevice structure, I reworked
-this helper to a vIOMMU-based one:
+Depends upon [1]
 
-+/* Caller should xa_lock(&viommu->vdevs) to protect the return value */
-+struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
-+                                      unsigned long vdev_id)
-+{
-+       struct iommufd_vdevice *vdev;
-+
-+       lockdep_is_held(&viommu->vdevs.xa_lock);
-+
-+       vdev = xa_load(&viommu->vdevs, vdev_id);
-+       return vdev ? vdev->idev->dev : NULL;
-+}
-+EXPORT_SYMBOL_NS_GPL(iommufd_viommu_find_dev, IOMMUFD);
+[1] https://lore.kernel.org/linux-arm-msm/20241015-qcom_ipq_cmnpll-v4-0-27817fbe3505@quicinc.com/
 
-Nicolin
+Changes in V8:
+	- Include NSS Huayra alpha pll patch to resolve the error's reported here
+	https://lore.kernel.org/oe-kbuild-all/202410101431.tjpSRNTY-lkp@intel.com/
+	- Detailed change logs are added to the respective patches
+
+V7 can be found at:
+https://lore.kernel.org/linux-arm-msm/20241009074125.794997-1-quic_mmanikan@quicinc.com/	
+
+V6 can be found at:
+https://lore.kernel.org/linux-arm-msm/20241004080332.853503-1-quic_mmanikan@quicinc.com/
+
+V5 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240626143302.810632-1-quic_devipriy@quicinc.com/
+
+V4 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240625070536.3043630-1-quic_devipriy@quicinc.com/
+
+V3 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240129051104.1855487-1-quic_devipriy@quicinc.com/
+
+V2 can be found at:
+https://lore.kernel.org/linux-arm-msm/20230825091234.32713-1-quic_devipriy@quicinc.com/
+
+Devi Priya (7):
+  clk: qcom: clk-alpha-pll: Add NSS HUAYRA ALPHA PLL support for ipq9574
+  dt-bindings: clock: gcc-ipq9574: Add definition for GPLL0_OUT_AUX
+  clk: qcom: gcc-ipq9574: Add support for gpll0_out_aux clock
+  dt-bindings: clock: Add ipq9574 NSSCC clock and reset definitions
+  clk: qcom: Add NSS clock Controller driver for IPQ9574
+  arm64: dts: qcom: ipq9574: Add nsscc node
+  arm64: defconfig: Build NSS Clock Controller driver for IPQ9574
+
+ .../bindings/clock/qcom,ipq9574-nsscc.yaml    |   73 +
+ arch/arm64/boot/dts/qcom/ipq9574.dtsi         |   22 +
+ arch/arm64/configs/defconfig                  |    1 +
+ drivers/clk/qcom/Kconfig                      |    7 +
+ drivers/clk/qcom/Makefile                     |    1 +
+ drivers/clk/qcom/clk-alpha-pll.c              |   11 +
+ drivers/clk/qcom/clk-alpha-pll.h              |    1 +
+ drivers/clk/qcom/gcc-ipq9574.c                |   15 +
+ drivers/clk/qcom/nsscc-ipq9574.c              | 3080 +++++++++++++++++
+ include/dt-bindings/clock/qcom,ipq9574-gcc.h  |    1 +
+ .../dt-bindings/clock/qcom,ipq9574-nsscc.h    |  152 +
+ .../dt-bindings/reset/qcom,ipq9574-nsscc.h    |  134 +
+ 12 files changed, 3498 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
+ create mode 100644 drivers/clk/qcom/nsscc-ipq9574.c
+ create mode 100644 include/dt-bindings/clock/qcom,ipq9574-nsscc.h
+ create mode 100644 include/dt-bindings/reset/qcom,ipq9574-nsscc.h
+
+-- 
+2.34.1
+
 
