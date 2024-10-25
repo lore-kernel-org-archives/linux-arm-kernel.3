@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE0BD149F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8FAD149F0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMAXXsBpu7Ehcn655+wzQ1uMVEuNQVBFhx8QRZMZ0rg=; b=Od9qlJads23DkGU/yjH+GqV4m9
-	F0+ODJZrYIwgpnNoZnZBvg8qPs3gyONf7JI7BJRc/obRjKmLNMf4mTNeBUjSvKNK0cI7r5SqweuQw
-	ATEz7d/qaQPPSCYEVvmqz8P1GoEoGyli+T+ESPFdTOqq5BS2/X7q+pVV9j9j/PnsMhEUg1Jb81m5I
-	O5U6Z4Pn+OkKc9GzdHEY8RyQtD+1yvcNcF2JhseryijV5QbV8l0CK/8fOVlsYX3z/w9qvZlg/OsZA
-	8vvZTzADHAUoamFSOUceFC5LvsbOe+PZ1RWrT0RzDx03aPZEWD49DFK4E+gQY0vu13dT9dMKDojsA
-	07gdf96w==;
+	bh=ePBCrXDkYFx/2MDEBoHUpjfoxbGRLqNpKAELJMFiw1s=; b=ZT/efOV+CGeqfF+9vfGQIJ5NOg
+	Q1M+VjhKvntmMoJ4Jz2IfB10dT/gN6HIj3Ual12QAFg9wukW5QL2FLKd/hBvJpabYFagS3S9w1RcZ
+	NDU+lgaNwyatnVjLoMUKYyE4xeowdC/ltRnfHznx4+EYPdRbH2F5fQtIqX0Y7GDhbOacyM4uAivmv
+	o4Dz5te7FrpV7tiNpjMi3bYJINV5/uqMYhtzblZaGqvvIMSxr4KC6KOFzUuME0awMuU7svCKqOOzW
+	8rRBSt/WRLUndXTLeoX+j7BrZKK11AmuWG8FjuXPedLHaSk+gIvSUBMTT8SpqsJdBH+ew8DwUtjv6
+	z16E87tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4R8Z-000000058nJ-46VV;
-	Fri, 25 Oct 2024 20:42:24 +0000
-Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
+	id 1t4RAI-000000059fr-3Wmb;
+	Fri, 25 Oct 2024 20:44:10 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4R6r-0000000586h-2GAY
+	id 1t4R7T-000000058L6-44BF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 20:40:39 +0000
-Date: Fri, 25 Oct 2024 13:40:24 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729888833;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YMAXXsBpu7Ehcn655+wzQ1uMVEuNQVBFhx8QRZMZ0rg=;
-	b=wiBV5pfAS60vsXVuI1GT02TDemB6eoQa7vMvOYPdvau9og9kfHNCrIwzOsxNAEvNzLpZH5
-	nEbImKrpEPXD3n9ZjlOveq+RV/QdwpoLnPdZkIzeOVTkeyM+wnWeOnrb2/cM7PjeccRfV0
-	hCmdOXTju1vks2ugKnuwkE14UmBoEuk=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Miguel Luis <miguel.luis@oracle.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@ucw.cz>, Len Brown <len.brown@intel.com>,
-	Shuah Khan <shuah@kernel.org>, David Woodhouse <dwmw@amazon.co.uk>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	Francesco Lavra <francescolavra.fl@gmail.com>
-Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for
- hibernate
-Message-ID: <ZxwCOHd-DbUT8dsT@linux.dev>
-References: <20241019172459.2241939-1-dwmw2@infradead.org>
- <20241019172459.2241939-7-dwmw2@infradead.org>
- <23C91005-7304-4312-A5E0-F5E6C05B3209@oracle.com>
- <ECD0CA58-2C3B-48F3-AF12-95E37CB0FC48@infradead.org>
- <ZxprcWDe2AXuLhD_@linux.dev>
- <691447A1-8F3F-4890-B00F-8068A14CA126@infradead.org>
- <ZxqmsiXV6ZYTANKY@linux.dev>
- <627769A8-AF84-47A1-B4F9-5F44C75A8058@infradead.org>
+	Fri, 25 Oct 2024 20:41:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1729884632;
+	bh=ePBCrXDkYFx/2MDEBoHUpjfoxbGRLqNpKAELJMFiw1s=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=tKnIU9yLNT99wXsnGjwNZKVelKMhdVUWjq8L2OltJ89liNws7uTd5XHNZ/dh7Rdtg
+	 +Zr9Z+y8LnEli7a/gbrQJZYA2kf7gb6EO0kEY37+chasBXZ/XiOFFk3TAxP8V6lETj
+	 dTN0G6HxplP2egvSeFaopp1BBhME+m3fnTR0OwS4=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 38560409C6; Fri, 25 Oct 2024 12:30:32 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 3716240681;
+	Fri, 25 Oct 2024 12:30:32 -0700 (PDT)
+Date: Fri, 25 Oct 2024 12:30:32 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Peter Zijlstra <peterz@infradead.org>
+cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+    Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+    Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, 
+    linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v3] Avoid memory barrier in read_seqcount() through load
+ acquire
+In-Reply-To: <20241025074244.GB14555@noisy.programming.kicks-ass.net>
+Message-ID: <797cf697-83b2-7f45-4865-2ee394887dc8@gentwo.org>
+References: <20240912-seq_optimize-v3-1-8ee25e04dffa@gentwo.org> <20240917071246.GA27290@willie-the-truck> <4b546151-d5e1-22a3-a6d5-167a82c5724d@gentwo.org> <CAHk-=wgw3UErQuBuUOOfjzejGek6Cao1sSW4AosR9WPZ1dfyZg@mail.gmail.com>
+ <CAHk-=wjdOX0t45a7aHerVPv_WBM3AmMi3sEp8xb19jpLFnk0dA@mail.gmail.com> <20241023194543.GD11151@noisy.programming.kicks-ass.net> <e9fd5ba0-bd84-76a8-a96e-1378c66d0774@gentwo.org> <20241025074244.GB14555@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <627769A8-AF84-47A1-B4F9-5F44C75A8058@infradead.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_134037_807553_78C3E561 
-X-CRM114-Status: GOOD (  32.12  )
+X-CRM114-CacheID: sfid-20241025_134116_104402_EF11242B 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,66 +74,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 08:13:03AM +0200, David Woodhouse wrote:
-> On 24 October 2024 21:57:38 CEST, Oliver Upton <oliver.upton@linux.dev> wrote:
-> >On Thu, Oct 24, 2024 at 05:56:09PM +0200, David Woodhouse wrote:
-> >> On 24 October 2024 17:44:49 CEST, Oliver Upton <oliver.upton@linux.dev> wrote:
-> >> >IIUC, you're really wanting to 0x0 because there are hypervisors out
-> >> >there that violate the final spec and *only* accept this value.
-> >> >
-> >> >That's perfectly fine, but it'd help avoid confusion if the supporting
-> >> >comment was a bit more direct:
-> >> >
-> >> >	/*
-> >> >	 * If no hibernate type is specified SYSTEM_OFF2 defaults to
-> >> >	 * selecting HIBERNATE_OFF.
-> >> >	 *
-> >> >	 * There are hypervisors in the wild that violate the spec and
-> >> >	 * reject calls that explicitly provide a hibernate type. For
-> >> >	 * compatibility with these nonstandard implementations, pass 0
-> >> >	 * as the type.
-> >> >	 */
-> >> >	 if (system_entering_hibernation())
-> >> >		invoke_psci_fn(PSCI_FN_NATIVE(1_3, SYSTEM_OFF2), 0 , 0, 0);
-> >> 
-> >> By the time this makes it into released versions of the guest Linux kernel, that comment won't be true any more.
-> >
-> >Then does it even matter? What is the problem you're trying to solve
-> >with using a particular value for the hibernate type?
-> >
-> >Either the goal of this is to make the PSCI client code compatible with
-> >your hypervisor today (and any other implementation based on 'F ALP1') or
-> >we don't care and go with whatever value we want.
-> >
-> >Even if the comment eventually becomes stale, there is a ton of value in
-> >documenting the exact implementation decision being made.
-> >
-> 
-> Eventually it won't matter and we can go with whatever value we want. But yes, the goal is to be compatible with the hypervisor *today* until it catches up the changes to the final versions of the spec. I didn't spend much time overthinking the comment. What was it....
-> 
-> 	/*
-> 	 * Zero is an acceptable alternative to PSCI_1_3_OFF_TYPE_HIBERNATE_OFF
-> 	 * and is supported by hypervisors implementing an earlier version
-> 	 * of the pSCI v1.3 spec.
-> 	 */
-> 
-> That seems to cover it just fine, I think.
+On Fri, 25 Oct 2024, Peter Zijlstra wrote:
 
-No. You're leaving the work for the reader to:
+> > atomic_inc_release(&seqcount)
+>
+> It would not be, making the increment itself atomic would make the whole
+> thing far more expensive.
 
- (1) Figure out what you're talking about
- (2) Go dig up an "earlier version" of the spec
- (3) Realise that it means certain hypervisors only take 0x0 as an
-     argument
+True. I was too much taken by a cool hw feature on ARM.
 
-If you speak *directly* about the problem you're trying to address then
-reviewers are less likely to get hung up on what you're trying to do.
-
-I'm genuinely at a loss for why you would want to present this as an
-"acceptable alterantive" rather than a functional requirement for this
-driver to run on your hypervisor.
-
--- 
-Thanks,
-Oliver
 
