@@ -4,147 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C218D116F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEBAD116F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2izqTeRkGchbWAvkGR3OgORJcg/yfK1vhMFj/4YXqg=; b=V9BZPARhTDrHNZv9nS29MmDtSk
-	Yf8vmtD6cddhlK4o0pzJ824PcM8Q6UuIdXTm3ExYBE50WUMOfFxrpPhsumLT+CE9wIFWXosZj9eYz
-	O3ds4XwuPbolWAOfQOugN/s6bvwNGtq39tz7mn8KUv/WxB6g6+muGfvNTqhdpRecvMMRcWSeDYXNj
-	vjiqA9dzAfkYD+hp7CqYPzcZwu2+LyCKItONVBUXZ4vGlaRnozkT5uONt919PVnGQ27xoyP2Dco4M
-	iW5dT5BaoZJDMei0WmLeFWQF7NQFN+1jkV531dxmN3PQCCCIw/rCAuSFa6f4v9cBLgQubNxIMM5Qe
-	+/nOpGcg==;
+	bh=DutIQhP6tH2UyvNUhjgxvVEPtO/6ztGkQ82xxssdisM=; b=qBpuu88bz5oKz2Na79Pm7ExTnO
+	6rS65shyHVlQrTZLY92MrFnlStm0AJxoatVXkXmA+2blPfRQfoD/sqqpK+MvLgBo09rECEfR91rcK
+	yEHTQ74QSTv8EJDcvyqNJXVfXOBI2PlafeHAseZzG+UZxUnkZZ1dB48gWJPP5Na8BLtWZaBuL3TBg
+	3jwrvp6iZym9zgq7A8GlGX2kcApmb3JeMYGze0iTT29YCXYZ2+wN9b4JHDMkBx6ALACnM5GYxq0uG
+	WgWOWZWLMNzb2Fhqd3aMSdjq1iB8fpmfdFvUCjTVL4KwuRR0jP+0//oW+Z9GT3Q3rqUMdT6BMHtXm
+	5h/R9uuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4D76-00000002asY-3b5I;
-	Fri, 25 Oct 2024 05:43:56 +0000
-Received: from mail-bn8nam12on20623.outbound.protection.outlook.com ([2a01:111:f403:2418::623] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1t4DAZ-00000002bEa-3X3V;
+	Fri, 25 Oct 2024 05:47:31 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4D5Y-00000002aaC-08qM
+	id 1t4D8z-00000002b5N-3rki
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 05:42:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AuDert5QSWXZYbgh6UP1xrX2wVBIPi8U1Vxw6uu10gDLW1mySVPawwLGZn39u9ozOwgfWJla7m/G8nxr5VDzRXUL+Da1aEcdpffJVXFwWYufNKXFQUlBCwSO9JZTWKmmNLtb8vibmn0WR8T5QXtmSCsQr4SmibL8N5yQsz3M2tC8IvpTcLiRyHjVSC3ZjuR9v4vdy6XjNQnHEZEYL5jPnnLnAp+CH3sIxfSf9esg9tOhI9oJUxKTowloSD8IUBPL1BZPnFWJ0JgTV9xvY3yM8PmOMXk+zZ1jlVXTeu2UXgC5x8uOIkc5t2fvN03rINR98yjlzxHQxdV2fweSAmGLDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O2izqTeRkGchbWAvkGR3OgORJcg/yfK1vhMFj/4YXqg=;
- b=qesq+Ejw475agoDeBObHllRHwCJF94b8wtdIzRGmpZolYCiJdHqfKanl6FBHsTY7uNiKgW/DXCQ9WM+qlk6U04zILPwjrzEZ30GHsJ6VtudZuE5g/Tq1aUBYYr1gxyJasi2uw4cE9Byj9KaG3J9HumSaIM2J7hFqGP31RE6Vuqc1aArxEQrzMlB0fLfdePHG5luUt2Wlkotbo2AEeQzsJu//ORp+Mmw3hYKQpinT6ibsJuB88uNd+pJt5M1KwkkdafE0163x4QmjUAzXH6x4iVCsJDq4wSqWBrUw4KYhzRqhrVoe+YLDtkDqIJcdpUPhW5hjNyZfuNtNruK3Nh5AQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O2izqTeRkGchbWAvkGR3OgORJcg/yfK1vhMFj/4YXqg=;
- b=fCV9uyDhe5nHVtGMGDoohq9G/pPewioLGM/KOhO67GUvYr5i2gskpmmYZwvdqq/OfT47QSyrHu6GD7tIMq1oYAjzGfDEJFYg0yEdMTA5geXvEMUO6U5PsoScKSUcFH7EpMRwV+DvpmqzPn3+iswh3NS1WP96SxeLf1bpQlpdOutIcVzoAdp0EV09VqvkqkQUeefdCdHt96gTZu9swnglwvgeDx3EV4P+dQ+N8jk7KsbiLxep2M2gPpkpjo9eN/CvrrP1v38Jmz1Zmp0u0uxbMK9/RKKiYvcp+IKcyg7VaLrQ9aci02kE+RlWl0R56xd1uft2h9jJPUPGIzkZSk1XJQ==
-Received: from SJ0PR13CA0107.namprd13.prod.outlook.com (2603:10b6:a03:2c5::22)
- by SJ0PR12MB6831.namprd12.prod.outlook.com (2603:10b6:a03:47d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Fri, 25 Oct
- 2024 05:42:11 +0000
-Received: from SJ1PEPF000023D9.namprd21.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::87) by SJ0PR13CA0107.outlook.office365.com
- (2603:10b6:a03:2c5::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.7 via Frontend
- Transport; Fri, 25 Oct 2024 05:42:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF000023D9.mail.protection.outlook.com (10.167.244.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.2 via Frontend Transport; Fri, 25 Oct 2024 05:42:11 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Oct
- 2024 22:41:57 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Oct
- 2024 22:41:55 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Thu, 24 Oct 2024 22:41:54 -0700
-Date: Thu, 24 Oct 2024 22:41:53 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <zhangfei.gao@linaro.org>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v4 00/14] iommufd: Add vIOMMU infrastructure (Part-2:
- vDEVICE)
-Message-ID: <ZxsvofcC9xSSEMHi@Asurada-Nvidia>
-References: <cover.1729555967.git.nicolinc@nvidia.com>
- <98a0e135-4f9b-4a2e-94b5-f1a830a49f19@amd.com>
- <ZxslrakslZbphayO@Asurada-Nvidia>
- <487ebe2c-718f-405c-8f20-213eab59ca0f@amd.com>
+	Fri, 25 Oct 2024 05:45:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729835154; x=1761371154;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+8YdKGr5Fv9UWaGPtsTURl32RwtbX08N+XEK40AZcHw=;
+  b=T1ZKPPm+3ytn+hcN7AMLOK0bg7aDoivLuGQI9i6zRlmHbEClgj8y+95h
+   JzRKAJ1vBPgN50EqkDxiccR1M19Stf/k9RaaFCDFGyiflIQwWPckevoFw
+   OvgBp9bL7kEelKS5Ukxzk++hCvROTSTWWnJXeiKeGLNGVCTuhFePpRx/9
+   Nrq3JEoNUjy4yFKgN0tYivK2TUpphYJNFSSlPISs7DM7SY5oNu58ru6An
+   lsqyey8H+aGu2sojfkzvl1HaQCVxrqOuq+TdFTSM/hVfnBLWabjaEP4eD
+   AfQ5IEwZAJEP2NKLdFNwL8Gfzp9j82JAz65eGQaLELBgV4mSBIBwsY3VM
+   w==;
+X-CSE-ConnectionGUID: 7NYPNxpZRqyNbfLEnUo6pw==
+X-CSE-MsgGUID: B/u7kugqRvGaB0TWE8uczA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="40868337"
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="40868337"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2024 22:45:47 -0700
+X-CSE-ConnectionGUID: U+IhO4ZdSmukpojzOgMEog==
+X-CSE-MsgGUID: 57T+eSsTSUawMXHuyqKwcg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="104136410"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 24 Oct 2024 22:45:43 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4D8m-000Xds-1o;
+	Fri, 25 Oct 2024 05:45:40 +0000
+Date: Fri, 25 Oct 2024 13:44:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org
+Cc: oe-kbuild-all@lists.linux.dev, jani.nikula@intel.com,
+	David Airlie <airlied@gmail.com>,
+	Hamza Mahfooz <hamza.mahfooz@amd.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>,
+	Simon Ser <contact@emersion.fr>, Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+	nouveau@lists.freedesktop.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH 2/2] drm: remove driver date from struct drm_driver and
+ all drivers
+Message-ID: <202410251306.cOs7w98U-lkp@intel.com>
+References: <20241024162240.2398664-2-jani.nikula@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <487ebe2c-718f-405c-8f20-213eab59ca0f@amd.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D9:EE_|SJ0PR12MB6831:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa29d323-c2b1-4787-5198-08dcf4b7c5e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xzjsoxGDWNTQffdqxJ2TIjt5WRryG14ptOUTYAmzUjiC4lYdGR0GGLuQhTkc?=
- =?us-ascii?Q?TulPW5ktmRgw9h6TqiK0WVbRSPGlMuOAarh/DFWTP7vqDXw6Q2mMDMZb2Yu9?=
- =?us-ascii?Q?x9c+KdI2+OeedysSqrxRkcD+eEkmA+BiAOXaNB+w6uro38yeewkhmziHeB7U?=
- =?us-ascii?Q?ANkpt78jPupQg2zL90qUD+dO9fV0Ja3enKVeBKgfuKf3mhXNy9DrLbDnq5ig?=
- =?us-ascii?Q?7rv1RehVCLeEPOUGMfmu1KBlypzPl4FAbf1kaC7z9Bda/ZGW97/ONk6wk3Hk?=
- =?us-ascii?Q?XnqkSN7J+E2tLTel4k+0vywRQQQZ2cU9FLNFSTQ52F3PdoUZHIqx2fuuReUp?=
- =?us-ascii?Q?A8rh+qINWFlfxREMQE3AkSWHvPZAc1EAD3mQS4brl/IsdwDnB6RILoz7K4ci?=
- =?us-ascii?Q?TK75peP3bH6dQ58aPRaBXPiuuHFKwUna3bOX3vH6VdxWTyojbZUmppSSkJsL?=
- =?us-ascii?Q?TL31pKgeoqv7zSuwLNwq0ce2VVdJV5bgUbf2dk0iC6aYNIAxOJMxAXyfytsl?=
- =?us-ascii?Q?+HhOnM7XETLg9bJtxKZwTL09gRwNcfax3ntEdo+MWcQUSHQwP5TDzaCbrdRB?=
- =?us-ascii?Q?xg/unD3pVfTk2oJMf18g/FdDAhTHUXj04Wpw4/YJGX82dbmLAGSKzxmQqDTG?=
- =?us-ascii?Q?nWP8WRXpTfGZg5O7NELTdHr4A1c2NI3CUFZiMwvfIV2czcVKXU5I2UFw47WR?=
- =?us-ascii?Q?GopoCiWf1Avn1DOffdWvs91Bg0bdjN4Te1E4RSYOP5MYr7uvhO+8zqUDyISr?=
- =?us-ascii?Q?PDzaKCVZdCcBt4lMbqW0ILJePBHFhaNMkRnEgGI77D36ee3aUlrA1ZjYI9Kt?=
- =?us-ascii?Q?pFNot0S6MSOMQmodaUPo4yaP0xZjF5YoiqGuiV6BjaIL2n8QCgl3YPZd4vFI?=
- =?us-ascii?Q?eMPIrsAPHRA3JZ31GWQRjrLfTn1TuCO2t/GzyaXGMsN6syYmYJTAntCw+ki4?=
- =?us-ascii?Q?5u3rGfN4XPFXV6Hv6iJw9OXrNxUFNi7z4leelrKVxYNPP1+F3qH/mVPXcHH3?=
- =?us-ascii?Q?kiOpSOZNRWSLvv3+HOZYgPNM7dd78j9t/aplxc2XWPTVHiEy3taOXgglOCV6?=
- =?us-ascii?Q?NzTTT+v+TupSSISaH2ua/ieKxA5aTPAjYjDH2L56+YE5mJkid0jOHzZKb02V?=
- =?us-ascii?Q?TyCNwhiGrcTjw1qEAv4yuAlX9vVdFw+o1W0/Kw0KQb8E8znQXBnbw02U8eyS?=
- =?us-ascii?Q?34pKZpoIQix0EI8MwHPQ36jt1CKMLyv/CRBHrqzkONujnd9yFDuGy4f0c/Qd?=
- =?us-ascii?Q?v2U/ATwvHsp36ZrIBeeRS9dy19VMu7yShzC0AXMPu50xSK5szyt+GYu94Laz?=
- =?us-ascii?Q?zFZKD97gxjokJSl+4oLFVVgKDaDz39QH3iQV5E2LS3XkTiv0EyEevqrCm2t4?=
- =?us-ascii?Q?Fe85opq4Qgp6q0BbhqsA5B3XtPUhLQwZ33bvxtLvTIfHN1XqxDRNtxrfWIZJ?=
- =?us-ascii?Q?06RBPKi8lSA=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 05:42:11.4784
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa29d323-c2b1-4787-5198-08dcf4b7c5e4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D9.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6831
+In-Reply-To: <20241024162240.2398664-2-jani.nikula@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_224220_102992_19E2BB80 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20241024_224553_999440_CE11374C 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,70 +98,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 04:32:10PM +1100, Alexey Kardashevskiy wrote:
-> External email: Use caution opening links or attachments
-> 
-> 
-> On 25/10/24 15:59, Nicolin Chen wrote:
-> > On Fri, Oct 25, 2024 at 03:54:44PM +1100, Alexey Kardashevskiy wrote:
-> > > On 22/10/24 11:20, Nicolin Chen wrote:
-> > > > Following the previous vIOMMU series, this adds another vDEVICE structure,
-> > > > representing the association from an iommufd_device to an iommufd_viommu.
-> > > > This gives the whole architecture a new "v" layer:
-> > > >     _______________________________________________________________________
-> > > >    |                      iommufd (with vIOMMU/vDEVICE)                    |
-> > > >    |                        _____________      _____________               |
-> > > >    |                       |             |    |             |              |
-> > > >    |      |----------------|    vIOMMU   |<---|   vDEVICE   |<------|      |
-> > > >    |      |                |             |    |_____________|       |      |
-> > > >    |      |     ______     |             |     _____________     ___|____  |
-> > > >    |      |    |      |    |             |    |             |   |        | |
-> > > >    |      |    | IOAS |<---|(HWPT_PAGING)|<---| HWPT_NESTED |<--| DEVICE | |
-> > > >    |      |    |______|    |_____________|    |_____________|   |________| |
-> > > >    |______|________|______________|__________________|_______________|_____|
-> > > >           |        |              |                  |               |
-> > > >     ______v_____   |        ______v_____       ______v_____       ___v__
-> > > >    |   struct   |  |  PFN  |  (paging)  |     |  (nested)  |     |struct|
-> > > >    |iommu_device|  |------>|iommu_domain|<----|iommu_domain|<----|device|
-> > > >    |____________|   storage|____________|     |____________|     |______|
-> > > > 
-> > > > This vDEVICE object is used to collect and store all vIOMMU-related device
-> > > > information/attributes in a VM. As an initial series for vDEVICE, add only
-> > > > the virt_id to the vDEVICE, which is a vIOMMU specific device ID in a VM:
-> > > > e.g. vSID of ARM SMMUv3, vDeviceID of AMD IOMMU, and vID of Intel VT-d to
-> > > > a Context Table. This virt_id helps IOMMU drivers to link the vID to a pID
-> > > > of the device against the physical IOMMU instance. This is essential for a
-> > > > vIOMMU-based invalidation, where the request contains a device's vID for a
-> > > > device cache flush, e.g. ATC invalidation.
-> > > > 
-> > > > Therefore, with this vDEVICE object, support a vIOMMU-based invalidation,
-> > > > by reusing IOMMUFD_CMD_HWPT_INVALIDATE for a vIOMMU object to flush cache
-> > > > with a given driver data.
-> > > > 
-> > > > As for the implementation of the series, add driver support in ARM SMMUv3
-> > > > for a real world use case.
-> > > > 
-> > > > This series is on Github:
-> > > > https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4
-> > > > 
-> > > > For testing, try this "with-rmr" branch:
-> > > > https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4-with-rmr
-> > > 
-> > > Is there any real example of a .vdevice_alloc hook, besides the
-> > > selftests? It is not in iommufd_viommu_p2-v4-with-rmr, hence the
-> > > question. I am trying to sketch something with this new machinery and
-> > > less guessing would be nice. Thanks,
-> > 
-> > No, I am actually dropping that one, and moving the vdevice struct
-> > to the private header, as there seems to be no use case:
-> 
-> Why keep it then?
+Hi Jani,
 
-We need that structure to store per-vIOMMU virtual ID. Hiding it
-in the core only means we need to provide another vIOMMU APIs for
-drivers to look up the ID, v.s. exposing it for drivers to access
-directly.
+kernel test robot noticed the following build errors:
 
-Thanks
-Nicolin
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on next-20241024]
+[cannot apply to drm-exynos/exynos-drm-next shawnguo/for-next drm-xe/drm-xe-next linus/master v6.12-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jani-Nikula/drm-remove-driver-date-from-struct-drm_driver-and-all-drivers/20241025-002344
+base:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
+patch link:    https://lore.kernel.org/r/20241024162240.2398664-2-jani.nikula%40intel.com
+patch subject: [PATCH 2/2] drm: remove driver date from struct drm_driver and all drivers
+config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20241025/202410251306.cOs7w98U-lkp@intel.com/config)
+compiler: loongarch64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410251306.cOs7w98U-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410251306.cOs7w98U-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/accel/qaic/qaic_drv.c:211:10: error: 'const struct drm_driver' has no member named 'date'
+     211 |         .date                   = "20190618",
+         |          ^~~~
+>> drivers/accel/qaic/qaic_drv.c:211:35: error: initialization of 'unsigned int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+     211 |         .date                   = "20190618",
+         |                                   ^~~~~~~~~~
+   drivers/accel/qaic/qaic_drv.c:211:35: note: (near initialization for 'qaic_accel_driver.driver_features')
+>> drivers/accel/qaic/qaic_drv.c:211:35: error: initializer element is not computable at load time
+   drivers/accel/qaic/qaic_drv.c:211:35: note: (near initialization for 'qaic_accel_driver.driver_features')
+
+
+vim +211 drivers/accel/qaic/qaic_drv.c
+
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  205  
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  206  static const struct drm_driver qaic_accel_driver = {
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  207  	.driver_features	= DRIVER_GEM | DRIVER_COMPUTE_ACCEL,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  208  
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  209  	.name			= QAIC_NAME,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  210  	.desc			= QAIC_DESC,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27 @211  	.date			= "20190618",
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  212  
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  213  	.fops			= &qaic_accel_fops,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  214  	.open			= qaic_open,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  215  	.postclose		= qaic_postclose,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  216  
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  217  	.ioctls			= qaic_drm_ioctls,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  218  	.num_ioctls		= ARRAY_SIZE(qaic_drm_ioctls),
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  219  	.gem_prime_import	= qaic_gem_prime_import,
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  220  };
+c501ca23a6a306 Jeffrey Hugo 2023-03-27  221  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
