@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD127D0C5FB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DD2D0C5FD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=amPxo4S/Ct/6DZ6qNnunsTkfju7K6NksorlhbkGz9ag=; b=x3nlJWc78+tPvfnRYgvdGh2NxE
-	kabA/TtqeBLs3IekY68yAZC+eXUrgj42hv2NVONeIEYncljIZvXWJ2fSsF0+001U4BGCPIo8kbBul
-	+syXWtZGUadpnflufFllauRn5BPmdHvQizk1+sKDv6RPOc7GqLiyIQxYeFIpKzA8YC9m1Tf5eR+LK
-	8apBI44FSbLIHspef83Btkxbpr0w8oJjiQEsT0/9Mmj54bZ9EHmkq9X8cTnTL00WU2RIaBSxqt+9W
-	YnQWn4vKvnD90OAiwSpJmSPltNgQ922cMRs+f9XVN+A2xSa+829rKrqha/IV5juygmix8KaV5CKao
-	5mCwW/jg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JRrp6JLKk7ZewfhLxhmIMUVWuQ9FaYJ7taL+ewhOlow=; b=AdAsg9yFYDnzYUZHWU1J+2f8yS
+	j3eyPpUHLA7vWSBJ5w4WsZKbAbBToNSUyunfl3JhLaUU1hUyqvvJF8c/dpeB3RInOJQgIQdWKC5Rd
+	IX2BVYzfdwOmEmT+kQIIakWjFA4xkrVGEENy/k8KqMNBJ+RW7BswEQMUCOxeNZjbbzzNtMj2TOSaZ
+	UOaKGYFJusCADFB9MfRuDSDFbWEuq+FieEeoNhvWG61soEyHigU12H5AF507S40ViWABgrefO6Axa
+	Nxu+Ko4BaSx6GbhB6Rm9SdhZVJ7chjKTKSKlhqw1zeXFvpHwFRHRqvczVP8oVnDWFNIitMHcgtUFQ
+	Y820atJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Hmy-00000003O8f-1BZn;
-	Fri, 25 Oct 2024 10:43:28 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1t4Hoc-00000003OZC-30Ay;
+	Fri, 25 Oct 2024 10:45:10 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4HgR-00000003NPc-0oyc
+	id 1t4HgR-00000003NPd-0oa5
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Oct 2024 10:36:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1729852590; x=1730457390; i=wahrenst@gmx.net;
-	bh=amPxo4S/Ct/6DZ6qNnunsTkfju7K6NksorlhbkGz9ag=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	s=s31663417; t=1729852594; x=1730457394; i=wahrenst@gmx.net;
+	bh=JRrp6JLKk7ZewfhLxhmIMUVWuQ9FaYJ7taL+ewhOlow=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=f/UQqyZ4mjQbV2oTHIfFNGbpx6DpsGNwE5Se8hUr1xjClFuijI+vjrcPgxgifKM3
-	 tL37avOynFlBr/67wsNzxHq8G4o8lnTko8fGZOK6iY1e9CYg9+jDVVel5pdqER1o1
-	 yfCxR8Y3VOCAMWw1xIBxbsk5H8jjcmyEG9ugP/tQS56eOseZBmcRyGTAP+h6lkH5j
-	 eaokLVaPqfPf/WAYgtRxrnSZyZr5HK4HRU2Lh7CzXMrM4VVhnvofRrJIzpJZzflY5
-	 ZlJ4IL9AxAwl/MERS/ZWLsCBlP1vX0ex1jRWN9PcYfQsw4WHt4j7YjslSDlOmxWKo
-	 RtQnRwFTHkgmYq9gKg==
+	b=PRWTmLP/VQd2nMDt66hlDPjNqXP89Hcf5M/7j9H7cztnwzZ2J9RAouh9MIeiWOgl
+	 0I0/usUQynrFmaiS4Np/yqIUCbPS+n2evAAL6LigwHsnG6WBMekVC3KksmHi3ksn0
+	 iZ4HEIyM9SGFugULHMfPdTAVBSlWETVtlsMuil9xLB2XEeu2izkQe9eHzqcTBHANb
+	 RNjLdaQlvrS8jJSMKWGCKjQupE377g29r/iVvZ5snzY8pfdLfXy6aM1ljNd6t241p
+	 I7rGYDNeRl38AihGCTDoZmHAwKQVLvb0cYeGkP15oVhclq89ejDZM5rIT8IpDr1k8
+	 esuG4Zbk6qqYKdfyiw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MLR1f-1tKzcL0mdH-00QVjT; Fri, 25
- Oct 2024 12:36:30 +0200
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MtOGU-1ttVQS2KAY-013Pmc; Fri, 25
+ Oct 2024 12:36:34 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Russell King <linux@armlinux.org.uk>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -63,33 +63,34 @@ Cc: Lukas Wunner <lukas@wunner.de>,
 	linux-mmc@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH V5 0/9] ARM: bcm2835: Implement initial S2Idle for Raspberry Pi
-Date: Fri, 25 Oct 2024 12:36:12 +0200
-Message-Id: <20241025103621.4780-1-wahrenst@gmx.net>
+Subject: [PATCH V5 6/9] usb: dwc2: gadget: Introduce register restore flags
+Date: Fri, 25 Oct 2024 12:36:18 +0200
+Message-Id: <20241025103621.4780-7-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241025103621.4780-1-wahrenst@gmx.net>
+References: <20241025103621.4780-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:zXzoaq0PE3RrmfyCowWNAEhGtFClTAK4tiZAejmiOdXy3277ZNd
- Piu95Otg3VHC+6HYkERem6L66YN8oOa9djCGQPMnF66Be/6Bms3HBLHdl0Ykje/EaLekqDX
- cmGLfZHU2uZLY8x6XODCKyai9avTy/D38u3/fdcQmXsHnjyB/UtoIp554rtr4px7hhDBnOE
- H7QdjCbcBAJW92TWec69w==
-UI-OutboundReport: notjunk:1;M01:P0:k6GJJeBJmOY=;pItoyKMWfDCZsYsxiT9g//rs8PL
- QSE3/8vwwx/CfEZPQ+xzai6MvUSx/zMYOOa9jcbblqRPTs5jBophaDCtgz3SRIAIzfT3V+JmW
- lKm42XYsvFdQkYJOPNYz+ARaIsgCo27L/DogxC8k9Ynux7hakEfkiyZbqcAYACO4e2SqwdESm
- HFQF6ZtBUENCBVEzNYn3mDJlahTN97/xdr8DJo4dNWcs/p7nwdRDsjlpbUdXbpcqtN37Us35s
- ZyF7f76hUU3AmTk6aPRuG4OOOXd5kGcAQSo169Z5j1MsggTODNgYUpDDiQS49MeNO/oCmthx9
- +z/gQTlx/SRcwiCd0v0qArkgLAfFUplX8Ub51n/JStGPIWblZa5XMPs5XjJnhEQBAV7AzkXbJ
- icuOjuE8QMmfE+06WVvCcCyW9vigdiS/4ckzFCj386ByKcJvmbW8/OBV+GiT/7sZITJBA5nuU
- 5eUWvqPgu/r9ZYMO86c3qqgmOTN14hjAyeBzm5IPCQ0DVOq3RiJtjLpk8Kl7o1oyV3jy0fJHb
- M4erRwfuAegSKafvGL7puyRzh+wwemwxIk+dDIKHtrDdUZFpS2CFvHHOvXdN4ST9JV8rRO6sB
- 0mQ4SAjmIbL9C5cWTu9lBKOUkz3Zzz5CItoaJdT/dCN4+f3j5y3anB+KWGr1bnNdMZP0Ipzbj
- 8Tg3/bBi7tSfcDC0TA87hrIIo90FXkGEsJn7OyNlPCg7Z2wDztqw2A6LuLL6uiM+/VU2rg5og
- YeXFwKrD11yNS/9w/uvqXHLCOPqKPSLF727cdUfZf64uroQ1PWhx8oPyw1QzZtGk4pPbCfl4l
- 8WjkZusJggqEnptFsVrS7ZXniMgTN1oo0Dh49nHw1+4U8=
+X-Provags-ID: V03:K1:3avDBliNzEcs6oIpGJspN+k6fohsov4qbRg5nvIJUrLCIkRywmC
+ tEjSG84jBaok3RUL3gQ52nwfQ1M9XkDRdHYWies0VYpsfgFJY+ug0VpCBTgV5zi7pbY2ZsI
+ 5rQBl4liK/dzR37yNLq4h/sRTBcdK8BNODu9DAAD51YZN2p0DcV+Js26dwUvUdLUe+6l2Xu
+ 8xlkKrPRy1vzXhURYLtmQ==
+UI-OutboundReport: notjunk:1;M01:P0:UbcCWlK87hM=;HWroYRHXLl0YxR8ty4UfDJedLR7
+ 3OcFP764Y9yum+aPsS9Mbm1IBAkw1LGCM3n94FSWmPs8CySQKaqCZi+4H34zGTMTFCmrAEZVZ
+ hv2bRhSnpzsZBwvk9Z1+I28tntAMQirczyW7WORergEaQkiOuBWr8iH6tUY+yX4aWLK+ER6H4
+ Tq5K3NV9mREfUbqX+haC+QvOnmcD8j2ZHqQ6oOpeHoyTfpKkf6Ps58aDw10SkZ5OJY33xym3b
+ KHA+8ItCnme0tnXwLxBUJf8+gDJt+RuRqKzaPkQ072a/8+ze4bdcm4U+nkJd6IoP9XydcDwB6
+ 4GaV/9eRLAvsUTbph3F9h/aRZlyzuqlU7IeLC1seSg3YG0CkDqQ/0IVORCG30GoesnJ19WJsu
+ XPInytJSHa0wJt//O1aEkYRBKmOuI9TDI13l8rggQgA6wZYIFWLX/qCsxpmG33SOjaIbRkScM
+ r6dsOvcFwYJRFWjxFSHkO/E5opJiMW38M/1P3LJdmusGP7g/QW9+5cAKajjEVws/PvZw9t/xk
+ nYfvOXEzNExZWG7vF1471SLW5gL9rGc9lwdZsAqSbWLOf4uLjpSkMdbqPQzhkIXHeQORzpKBm
+ pnWKEqCSBbkGeslUWBt8XaCFPBpWs0YtEWN+I5yQPmcbjMo+XT1NkwaanbwwAeB37Ce2ApYIv
+ DtzaFimg9Ou0XH3jtV1XxeWwLgF4N4M/esDVkRjdJVIq/HqYV4PSSKn8IvdCA2GD4BM8bJOBZ
+ m2mHTrDRZS7B0oW+nJ2RTWQYDCmhObiwkFaECY18pX0q/6rRI9egfz/r7Dk5K2V/88AEzDjZj
+ iz0g9+/FZyakyKcIMLAZNKAQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_033643_615293_E22D5242 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20241025_033643_604872_EAE598AE 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,118 +105,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series implement the initial S2Idle support for
-the Raspberry Pi, which was a long time on my TODO list [1]. The
-changes allow to suspend and resume the Raspberry Pi via debug UART.
-The focus is on the BCM2835 SoC, because it's less complex than its
-successors and have enough documentation.
+dwc2_restore_device_registers() use a single boolean
+to decide about the register restoring behavior.
+So replace this with a flags parameter, which can
+be extended later.
 
-Now the VC4 part has been split from the series [4], because of some issue=
-s
-in that part.
+No functional change intended.
 
-Cherry-picking of patches should be fine.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/usb/dwc2/core.h   |  6 ++++--
+ drivers/usb/dwc2/gadget.c | 12 +++++++-----
+ 2 files changed, 11 insertions(+), 7 deletions(-)
 
-Test steps:
-- configure debug console (pl011 or mini UART) as wakeup source
-- send system to idle state
+diff --git a/drivers/usb/dwc2/core.h b/drivers/usb/dwc2/core.h
+index 2bd74f3033ed..48f4b639ca2f 100644
+=2D-- a/drivers/usb/dwc2/core.h
++++ b/drivers/usb/dwc2/core.h
+@@ -1127,6 +1127,8 @@ struct dwc2_hsotg {
+ #define DWC2_FS_IOT_ID		0x55310000
+ #define DWC2_HS_IOT_ID		0x55320000
 
-  echo freeze > /sys/power/state
++#define DWC2_RESTORE_DCTL BIT(0)
++
+ #if IS_ENABLED(CONFIG_USB_DWC2_HOST) || IS_ENABLED(CONFIG_USB_DWC2_DUAL_R=
+OLE)
+ 	union dwc2_hcd_internal_flags {
+ 		u32 d32;
+@@ -1420,7 +1422,7 @@ int dwc2_hsotg_set_test_mode(struct dwc2_hsotg *hsot=
+g, int testmode);
+ #define dwc2_is_device_connected(hsotg) (hsotg->connected)
+ #define dwc2_is_device_enabled(hsotg) (hsotg->enabled)
+ int dwc2_backup_device_registers(struct dwc2_hsotg *hsotg);
+-int dwc2_restore_device_registers(struct dwc2_hsotg *hsotg, int remote_wa=
+keup);
++int dwc2_restore_device_registers(struct dwc2_hsotg *hsotg, unsigned int =
+flags);
+ int dwc2_gadget_enter_hibernation(struct dwc2_hsotg *hsotg);
+ int dwc2_gadget_exit_hibernation(struct dwc2_hsotg *hsotg,
+ 				 int rem_wakeup, int reset);
+@@ -1459,7 +1461,7 @@ static inline int dwc2_hsotg_set_test_mode(struct dw=
+c2_hsotg *hsotg,
+ static inline int dwc2_backup_device_registers(struct dwc2_hsotg *hsotg)
+ { return 0; }
+ static inline int dwc2_restore_device_registers(struct dwc2_hsotg *hsotg,
+-						int remote_wakeup)
++						unsigned int flags)
+ { return 0; }
+ static inline int dwc2_gadget_enter_hibernation(struct dwc2_hsotg *hsotg)
+ { return 0; }
+diff --git a/drivers/usb/dwc2/gadget.c b/drivers/usb/dwc2/gadget.c
+index e7bf9cc635be..96d703f4c509 100644
+=2D-- a/drivers/usb/dwc2/gadget.c
++++ b/drivers/usb/dwc2/gadget.c
+@@ -5203,11 +5203,11 @@ int dwc2_backup_device_registers(struct dwc2_hsotg=
+ *hsotg)
+  * if controller power were disabled.
+  *
+  * @hsotg: Programming view of the DWC_otg controller
+- * @remote_wakeup: Indicates whether resume is initiated by Device or Hos=
+t.
++ * @flags: Defines which registers should be restored.
+  *
+  * Return: 0 if successful, negative error code otherwise
+  */
+-int dwc2_restore_device_registers(struct dwc2_hsotg *hsotg, int remote_wa=
+keup)
++int dwc2_restore_device_registers(struct dwc2_hsotg *hsotg, unsigned int =
+flags)
+ {
+ 	struct dwc2_dregs_backup *dr;
+ 	int i;
+@@ -5223,7 +5223,7 @@ int dwc2_restore_device_registers(struct dwc2_hsotg =
+*hsotg, int remote_wakeup)
+ 	}
+ 	dr->valid =3D false;
 
-- wakeup system by console traffic
+-	if (!remote_wakeup)
++	if (flags & DWC2_RESTORE_DCTL)
+ 		dwc2_writel(hsotg, dr->dctl, DCTL);
 
-The clock gating must be restored, because otherwise we have a
-regression on Raspberry Pi 3 B+ . Luckily the disabling of clock gating
-isn't necessary anymore. Thanks to the rest of the DWC2 patches which
-based on an idea of Doug Anderson. The USB domain is now powered down
-and the USB devices are still usable after resume. There might be room
-for improvements, but at least the system won't freeze forever as before.
+ 	dwc2_writel(hsotg, dr->daintmsk, DAINTMSK);
+@@ -5414,6 +5414,7 @@ int dwc2_gadget_exit_hibernation(struct dwc2_hsotg *=
+hsotg,
+ 	u32 gpwrdn;
+ 	u32 dctl;
+ 	int ret =3D 0;
++	unsigned int flags =3D 0;
+ 	struct dwc2_gregs_backup *gr;
+ 	struct dwc2_dregs_backup *dr;
 
-Here are some figures for the Raspberry Pi 1 (without any
-devices connected except of a debug UART):
+@@ -5476,6 +5477,7 @@ int dwc2_gadget_exit_hibernation(struct dwc2_hsotg *=
+hsotg,
+ 		dctl =3D dwc2_readl(hsotg, DCTL);
+ 		dctl |=3D DCTL_PWRONPRGDONE;
+ 		dwc2_writel(hsotg, dctl, DCTL);
++		flags |=3D DWC2_RESTORE_DCTL;
+ 	}
+ 	/* Wait for interrupts which must be cleared */
+ 	mdelay(2);
+@@ -5491,7 +5493,7 @@ int dwc2_gadget_exit_hibernation(struct dwc2_hsotg *=
+hsotg,
+ 	}
 
-running but CPU idle =3D 1.67 W
-S2Idle               =3D 1.33 W
+ 	/* Restore device registers */
+-	ret =3D dwc2_restore_device_registers(hsotg, rem_wakeup);
++	ret =3D dwc2_restore_device_registers(hsotg, flags);
+ 	if (ret) {
+ 		dev_err(hsotg->dev, "%s: failed to restore device registers\n",
+ 			__func__);
+@@ -5619,7 +5621,7 @@ int dwc2_gadget_exit_partial_power_down(struct dwc2_=
+hsotg *hsotg,
+ 		/* Restore DCFG */
+ 		dwc2_writel(hsotg, dr->dcfg, DCFG);
 
-In comparison with HDMI & USB keyboard connected (but neither active
-nor wakeup source):
-
-running but CPU idle =3D 1.82 W
-S2Idle               =3D 1.33 W
-
-The series has been successfully tested on the following platforms:
-Raspberry Pi 1 B
-Raspberry Pi 3 B+
-
-Changes in V5:
-- add missing version
-
-Changes in V4:
-- added Reviewed-by from Doug
-- dropped applied VC4 improvement patches
-- fix DWC2 register backup
-- add revert because of Raspberry Pi 3B+ regression
-- add suspend/resume support for DMA & eMMC to be on the safe side
-
-Changes in V3:
-- added Reviewed-by & Acked-by from Florian & Ma=C3=ADra
-- dropped applied pmdomain & bcm2835aux patches
-- address comments by Ma=C3=ADra (patch 3 & 5)
-- replace old USB recovery patch with canary approach [3], which should
-  work with other platforms
-
-Changes in V2:
-- rebased against todays mainline
-- added Reviewed-by from Florian
-- added Acked-by from Minas
-- dropped "irqchip/bcm2835: Enable SKIP_SET_WAKE and MASK_ON_SUSPEND"
-  because it has been applied by Thomas Gleixner
-- dropped "pmdomain: raspberrypi-power: Avoid powering down USB"
-  because this workaround has been replaced by patch 14
-- use drm_err_once instead of DRM_ERROR and return connector_status_unknow=
-n
-  in patch 6
-- add new patch in order to clean-up all DRM_ERROR
-- add new patch to improve raspberrypi-power logging
-- add new patch to simplify V3D clock retrieval
-- add new patch 5 to avoid power down of wakeup devices
-- add new patch 12 to avoid confusion about ACPI ID of BCM283x USB
-- add new patch 8 & 10 which address the problem that HDMI
-  is not functional after s2idle
-- add more links and fix typo in patch 13
-- add new WIP patch 14 which recover DWC2 register after power down
-- take care of UART clock in patch 15 as commented by Florian
-- use SYSTEM_SLEEP_PM_OPS in patch 15
-
-[1] - https://github.com/lategoodbye/rpi-zero/issues/9
-[2] - https://bugzilla.redhat.com/show_bug.cgi?id=3D2283978
-[3] - https://lore.kernel.org/linux-usb/CAD=3DFV=3DW7sdi1+SHfhY6RrjK32r8iA=
-Ge4w+O_u5Sp982vgBU6EQ@mail.gmail.com/
-[4] - https://lore.kernel.org/dri-devel/20241003124107.39153-1-wahrenst@gm=
-x.net/
-
-Stefan Wahren (9):
-  Revert "usb: dwc2: Skip clock gating on Broadcom SoCs"
-  dmaengine: bcm2835-dma: add suspend/resume pm support
-  mmc: bcm2835: Fix type of current clock speed
-  mmc: bcm2835: Introduce proper clock handling
-  mmc: bcm2835: add suspend/resume pm support
-  usb: dwc2: gadget: Introduce register restore flags
-  usb: dwc2: Refactor backup/restore of registers
-  usb: dwc2: Implement recovery after PM domain off
-  ARM: bcm2835_defconfig: Enable SUSPEND
-
- arch/arm/configs/bcm2835_defconfig |   2 -
- drivers/dma/bcm2835-dma.c          |  30 ++++++++
- drivers/mmc/host/bcm2835.c         |  56 +++++++++++---
- drivers/usb/dwc2/core.c            |   1 +
- drivers/usb/dwc2/core.h            |  23 +++++-
- drivers/usb/dwc2/gadget.c          | 116 +++++++++++++++--------------
- drivers/usb/dwc2/hcd.c             |  99 ++++++++++++------------
- drivers/usb/dwc2/params.c          |   1 -
- drivers/usb/dwc2/platform.c        |  38 ++++++++++
- 9 files changed, 245 insertions(+), 121 deletions(-)
-
+-		ret =3D dwc2_restore_device_registers(hsotg, 0);
++		ret =3D dwc2_restore_device_registers(hsotg, DWC2_RESTORE_DCTL);
+ 		if (ret) {
+ 			dev_err(hsotg->dev, "%s: failed to restore device registers\n",
+ 				__func__);
 =2D-
 2.34.1
 
