@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6CDD149C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD5ED149C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GN13PFFztO+RVXylp070AHdpchWjZze0aJo+onIOSo0=; b=n/uj0tyRVk5mlXFzU9t+KRaDD4
-	lFCOYfmEtIzLQnZIG7Ox+Qc7tPYRAnA/UWLnrKyYh5G7Sef43Djjz9FQSo8KmsRaSuwjFJIRoFliL
-	kwatv+AzoqQKC7vPyTlJTFzkbuEqBphNo9WE7UbM+xZY9Euad7dwQF4ZqyF18w40kJHXxI0dr81sb
-	rxGY83rUDHOtsqZp3cx7yRzNR+O8BwL0N4Ak0Wl1gLd9G1A99jZQDjb0DWki7xd86EBglo04M6tdf
-	IPJ178Ko4Ss3CWQx2PYnH0rI+VEJ7gUxqXbPbSOemarJFx4qzRhmMi1iFWrS5f64HMDRDa/lxLSi/
-	wnb3XVKQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZPD02BSGkv8ElGifQ8Bj9gaTeEhmbG3yYd68KWp/xDo=; b=AmkzvfG5sdaZS1X9kseJcGu5AF
+	N804ueJOOq/iYVZ8QkpdpXSBbNSuXFBLzMiaNBxw18LZyB4A4vvDWWRG0vLVnvjYkOdwpYkRZ0AO3
+	pM8lVFiS/WE4pJxa2cK2qnwZzMfaUGLx5Wl4+TbQa3SaZdLuTEqfDSENI5s03zGnHwuWZqtXJ7A66
+	Fwvt3UuINRgc2wrblEVxd5j6zQ5CgLIyadGa9Z9REGIsBJfdU+Xd05hGjA44uxtnLElWo8Z8nK4Bl
+	W5OMtlekdFAwP1OEvVK+6RiuUjmdIdn4iLTwnXtEh52r0J5emtN58NaDX+RDEI2Msa8cbmkn/1+s3
+	t2UKmUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MzU-00000004O1R-1Tqb;
-	Fri, 25 Oct 2024 16:16:44 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1t4N11-00000004OLF-2krn;
+	Fri, 25 Oct 2024 16:18:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Mxi-00000004NRI-1L0Z
+	id 1t4Mxq-00000004NUo-1tnH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 16:14:55 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539f8490856so2184030e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 09:14:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1729872892; x=1730477692; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GN13PFFztO+RVXylp070AHdpchWjZze0aJo+onIOSo0=;
-        b=jb4BU3DoPooaQJGAgyjcBBORDCyqv98ewun5jj+SYBSnkxguKhxIVlqJHIaq5Yjm0t
-         qsfAC+uHYz+m9Yhr7CVg0A+vIijryAlJOKQSZshn7bl9qrP//sFOss95/Lv2q3tm6Mkf
-         Ka0mhNDzfO3aBlI5WhVJWSVOot6lVU2Y9Ge+c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729872892; x=1730477692;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GN13PFFztO+RVXylp070AHdpchWjZze0aJo+onIOSo0=;
-        b=uC+mLj/14VW/W1PIul4ooqJ0bCjAKn0z3v72l/uCJ3L54HasMleaHR/1S8LZWJhqK6
-         S6nc4hqsbVTw4HHbnLVTeBr88GUExVAyx/GbzrUE/4wmffuBtESAeWpDjvXDAymo5lvr
-         0sCy6f9BUpKy5oYzivUyVWlxt10qJ3NRRCYMH8A+uN/MDQwVhVSwXaCc8ZdUYm8bl6Di
-         4BD1GH5Itr5TDXw3fSPiTVjTZKtA17MXFXqpjSwkCyNGhLmw78nz5+0lbTWhYWtWnDxN
-         ty1qTcrpnrTwGuxdRoO8msTEEu3/oJ5Thl9E5Zd6Wl887iZfVOkGokA4Puj6xpZ8vZ3s
-         wf5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWVwpEn0vbpkjuz3UD6KjWopCBtr5DKTxE5N501tz14dDLv2sqml6+U0MbTqRUTgNHlZKgMGCPwTivEBkwnAKFN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM2onEIj+65U6m4NnpeigAjlEtCSHsMhn/SFth1kA7546VJ/Gn
-	eHzRP/6cR0et3CJU6csutxsc+aR0CRPKJzCjtRIW9rfUtKpvK5PhLtw0FKmPQM0=
-X-Google-Smtp-Source: AGHT+IG7Ko0ZaVVixb42kGSXnwInD9+MTWs4okp1RbVG6KUd/qf/uSPa2qcn+su4qqA0sbbCFTHNBw==
-X-Received: by 2002:a05:6512:3054:b0:535:6992:f2cb with SMTP id 2adb3069b0e04-53b1a36c6f3mr6404231e87.42.1729872892194;
-        Fri, 25 Oct 2024 09:14:52 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.251])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b579613sm51759005e9.38.2024.10.25.09.14.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 09:14:51 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] drm/mxsfb: Remove generic DRM drivers in probe function
-Date: Fri, 25 Oct 2024 18:14:25 +0200
-Message-ID: <20241025161435.4114877-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Fri, 25 Oct 2024 16:15:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 54BC7A42F99;
+	Fri, 25 Oct 2024 16:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1C5C4CEC3;
+	Fri, 25 Oct 2024 16:15:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729872901;
+	bh=xauMgPi9VccclOak+q41k9wam+BeYz0R/HH/+WYNJ20=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ere1JOuJ0Cp0k43C9N+4F8AYElMcYXchbYav/fwlMx9L7Y+J1U0x7ypS3IRS9iOhw
+	 /B5XgAhfBHrbG+JY5zrrgWasaga0EU+isSHt0Lk0cPbGeN/bnGGmEDbTPNdB4SFfXw
+	 e05ZLxWX2I5HTH9yBLkF94dnnuOaHAlJdqrTt/hlR60AgxwGID6/1AWm1amwT0ubT/
+	 4x70261adP4tZntRLMYiGe6qScpk+qUl2+M+RUgFzxbw9jI/7zaStmTu+Qx3WfqCvg
+	 sq9FwIXdsksXZpQ0dgvSNlcHUtkMzWiR9ICqP687M1/VwwTMPAecqFVyDMTP7aDk8p
+	 vbpAPCxkOvF4w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t4Mxm-006qyI-Uv;
+	Fri, 25 Oct 2024 17:14:59 +0100
+Date: Fri, 25 Oct 2024 17:14:57 +0100
+Message-ID: <86h6902m7y.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yu Zhao <yuzhao@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v1 3/6] irqchip/gic-v3: support SGI broadcast
+In-Reply-To: <CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
+References: <20241021042218.746659-1-yuzhao@google.com>
+	<20241021042218.746659-4-yuzhao@google.com>
+	<86a5ew41tp.wl-maz@kernel.org>
+	<CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yuzhao@google.com, akpm@linux-foundation.org, catalin.marinas@arm.com, muchun.song@linux.dev, tglx@linutronix.de, will@kernel.org, dianders@chromium.org, mark.rutland@arm.com, sunnanyong@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_091454_388466_B5AF0F15 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20241025_091502_674253_F2873578 
+X-CRM114-Status: GOOD (  30.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +96,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use aperture helpers to remove all generic graphics drivers before
-loading mxsfb. Makes mxsfb compatible with simpledrm.
+On Fri, 25 Oct 2024 06:07:45 +0100,
+Yu Zhao <yuzhao@google.com> wrote:
+>=20
+> Hi Marc,
+>=20
+> On Tue, Oct 22, 2024 at 9:03=E2=80=AFAM Marc Zyngier <maz@kernel.org> wro=
+te:
+> >
+> > On Mon, 21 Oct 2024 05:22:15 +0100,
+> > Yu Zhao <yuzhao@google.com> wrote:
+> > >
+> > > @@ -1407,6 +1418,13 @@ static void gic_ipi_send_mask(struct irq_data =
+*d, const struct cpumask *mask)
+> > >        */
+> > >       dsb(ishst);
+> > >
+> > > +     cpumask_copy(&broadcast, cpu_present_mask);
+> >
+> > Why cpu_present_mask? I'd expect that cpu_online_mask should be the
+> > correct mask to use -- we don't IPI offline CPUs, in general.
+>=20
+> This is exactly because "we don't IPI offline CPUs, in general",
+> assuming "we" means the kernel, not GIC.
+>=20
+> My interpretation of what the GIC spec says ("0b1: Interrupts routed
+> to all PEs in the system, excluding self") is that it broadcasts IPIs to
+> "cpu_present_mask" (minus the local one). So if the kernel uses
+> "cpu_online_mask" here, GIC would send IPIs to offline CPUs
+> (cpu_present_mask ^ cpu_online_mask), which I don't know whether it's
+> a defined behavior.
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Offline CPUs are not known to the kernel. Most likely, they are either
+powered off, or spending quality time in Secure or Realm mode. Either
+way, this is none of our business.
 
----
+Your approach would make also the kernel perform pretty inconsistently
+depending on whether CPUs are offline and not.
 
-Changes in v2:
-- Use aperture_remove_all_conflicting_devices() instead of
-  drm_aperture_remove_framebuffers().
+>=20
+> But if you actually meant GIC doesn't IPI offline CPUs, then yes, here
+> the kernel should use "cpu_online_mask".
+>=20
+> > > +     cpumask_clear_cpu(smp_processor_id(), &broadcast);
+> > > +     if (cpumask_equal(&broadcast, mask)) {
+> > > +             gic_broadcast_sgi(d->hwirq);
+> > > +             goto done;
+> > > +     }
+> >
+> > So the (valid) case where you would IPI *everyone* is not handled as a
+> > fast path? That seems a missed opportunity.
+>=20
+> You are right: it should handle that case.
+>=20
+> > This also seem an like expensive way to do it. How about something
+> > like:
+> >
+> >         int mcnt =3D cpumask_weight(mask);
+> >         int ocnt =3D cpumask_weight(cpu_online_mask);
+> >         if (mcnt =3D=3D ocnt)  {
+> >                 /* Broadcast to all CPUs including self */
+>=20
+> Does the comment mean the following two steps?
+> 1. Broadcasting to everyone else.
+> 2. Sending to self.
 
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Correct.
 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index cb5ce4e81fc7..d140984923fd 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -8,6 +8,7 @@
-  * Copyright (C) 2008 Embedded Alley Solutions, Inc All Rights Reserved.
-  */
- 
-+#include <linux/aperture.h>
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-@@ -360,6 +361,15 @@ static int mxsfb_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_free;
- 
-+	/*
-+	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
-+	 * located anywhere in RAM
-+	 */
-+	ret = aperture_remove_all_conflicting_devices(mxsfb_driver.name);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't kick out existing framebuffers\n");
-+
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
- 		goto err_unload;
--- 
-2.43.0
+> My understanding of the "Interrupt Routing Mode" is that it can't
+> broadcast to all CPUs including self, and therefore we need the above
+> two steps, which still can be a lot faster. Is my understanding
+> correct?
 
+Yes.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
