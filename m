@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D18FD0C619
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FE8D0C619
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d05EtVRQxx1j1QGus7MhBn24p5WvvqR84+dI/Hp8RnU=; b=vt2Jpehv1I5kSwc2fMXKXDyBWA
-	PHbH+wrnLWskmANZrLCvFXPOF9GeiL71TlqTVfFEkVl6debaYz2ANrXnFq+sxbdaAGDlq2XZ7dvMW
-	fpaqATa1unP7M7z+Wi2Hj9vZKyAe4B4d93CDsSi7Qha1igWHyf68/ZQit1o4exy/XGeldVJaPqGQy
-	TNZOvG2RjscH1Emq3eiGTgs2Tu+HskD3VFYyt45NJ46mKSE66BiN+YsOH4PpcCjdP39Gqan6bzRnB
-	4ljzb3g/qeKuCOzakA5X76mYTnVcoKzF5d6Q1zrx7YmL+Ozdz8xm74g4OUywGe5yx/Cd0+Q5c4uAa
-	FTd8fQNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Db/7vYWfVTvRELCJjsaav3g2wtQjNY/cZ7wO3qNfos=; b=b2rIskx6MUsq9IYkdlcXTd2JIb
+	6B1hq9n9RFdlkkqnAvZuiaSvzDEWszWf3yIvsUzz6EtDZdgL826FwA4mb7unNrCdFxCQbRakKkAMb
+	aBHmmiRzUw9f074vmvSta2iM5tYJdHMvUsXcz7jEU5tiYROdZ6IjtkcIHePqj0AD8us091v97kBjx
+	XaDRiOG4Y6/kEHn5vOnxgD/pxg2IBsc6v+41I5aimXFLpJcHZElfX4+pqW97OFbpR9WEt5HqOKPR9
+	nWtqCDl035oUkC8TL0c/gQw7nQ3/60kT8cWC7VqXaIWd17kJTYpA0t9I5upwWnW0dHx8qc+PxXELe
+	0Ij9l5bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LLS-000000041UV-2ehL;
-	Fri, 25 Oct 2024 14:31:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t4LLV-000000041Vc-2ERP;
+	Fri, 25 Oct 2024 14:31:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JuR-00000003k9j-2u4y
+	id 1t4K9i-00000003mnk-2Zxf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Oct 2024 13:15:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=/Db/7vYWfVTvRELCJjsaav3g2wtQjNY/cZ7wO3qNfos=; b=awngOrHlQ6WYYgoDNL3A1DAEXO
+	bOrB4cvtiee+lMFKu0H+rHZ7QPrKtPL/oL9JJNS2XM1k3ZSeYu3RQc/X1f84BQdQYWv3Ra81rIQ1a
+	M/3cTpi47S78Y9izKFfsxm09q2LjgG9Zrieq1zjUp4NSTZIKta8KnCrsJ4y7y6EP0CsufQVaAT/5a
+	7F7RTVBjp7kwO2HJ3YIT9HPk1IHPRKRierKsJ8ZdIPJEkxKGBVQQsdDh7QiYdA4DKhmFQXQBrJh9H
+	FkchUZozxyRAkyuch0e/AziPZlDICX556mkKFnvDHa5C5I/A+RT2JYxJ+vVLcUU1vEUatT9fdlrSe
+	wR2doVaQ==;
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4K9f-00000008v45-0JrB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 12:59:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 715E3A42EDF;
-	Fri, 25 Oct 2024 12:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99498C4CEC3;
-	Fri, 25 Oct 2024 12:59:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729861158;
-	bh=aAqbBGyjPWgCK55GdUA5PUTQzhfpub6cqpcDphWFA+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=baqk3DIE5L8wdmTLARGGkTSnE1Eof9cFR5gHTOuFk2m4SHOyOjPwQK8jFmA5jvcdC
-	 +zDj3uwxB82JTkDFuzGBxxtbcfZgn/HFnHLjdNjYBKWbLemTXh5TDmt8lnFiR2aA3X
-	 9Hj+rPFuJZzCLQX13d7uMzu6iJYp1L0J/DGxK0rZIaHKvLS5w42U8BFp0+EeSZVGR3
-	 M3UfJn4QWiVQtqu/JC8jd7tIdnd51d8veXgc1VARXstESVXz3LroiTnSrmGvwMXjE7
-	 18+tl8zDV/4IUlVRfx29azRk/FAUxGUrkjLljRt71dgCCxduypj7Vnsn7nI2DgH3aT
-	 MVKtmldtiGuew==
-Date: Fri, 25 Oct 2024 13:59:13 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	Fri, 25 Oct 2024 13:15:05 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4316cce103dso26309045e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:15:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729862100; x=1730466900; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Db/7vYWfVTvRELCJjsaav3g2wtQjNY/cZ7wO3qNfos=;
+        b=EWkyK0aE8OgQPxKHWjIPlZmqrlo8yaoYo2tweDUzJLqy3+RU4nEajJs0xBjuAslZj8
+         dQB4UjWVLjy53pazgwI7J6EmOPqXQmaEl6Fu96h5QUETgE6104s01ZyQuZdDQezjHtyQ
+         KIWyroLy3geEVWIoPXK4Sl1OOep9GkDHX17P//2DO2oT9H+ILOduAQdb/7fR1IYQGcFA
+         pKuttxrf1BMT9V1oelm4NzjK+hCJB6Bft+qOk67knQtP35lDTaHeB7XBfFp5efFgy0Ay
+         zBEiZom65q4sx6Z3Al6RoXxHfhFSZL2i+sYzKtxADAqPwK/KM6CTIYjn4+QZg4R1RH2A
+         /k2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729862100; x=1730466900;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Db/7vYWfVTvRELCJjsaav3g2wtQjNY/cZ7wO3qNfos=;
+        b=VoLrVpdu1m6LK6ZKdsYjmvGigz9s0Hy3eieC7B71/g8TZMhf4llzJotYYbQTPGMzaq
+         TTmZVEz+cFMZlsmbxL5TNLkFnrMCzp7Pa6dhWz01ybgadbUdaTLjkh/5Fb9hy2UFoQuE
+         PKIK9jpr27DWcFHRC0Fw9VfvyTdPIWnzXH9/3dAj0pyzJvT+PgW0vFOUg56htxjpRR/v
+         d2znJRhQtGEBNyVUsYttoX+o59AUNDC9rneDllva064rkjRjy59pgNNOAVNuJlhqtSb/
+         mZKsGf7329x9jPkkuO1FrIZYBSyRwUOhyOH4lBnyMyZ4v8rT59JvBJZAXoZaaMJqcdxY
+         iZOA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRaduMDwv6N27+grE2AD+GfvU5NYSfDTgB7nGWGUIzP9qkx7tl8nekv+w5DwbGQw71z+6ZjcXPLYUyhuINbrCL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0DgVIDI4rSRNBx5wxp5OO0+cSnb/QxZzQLoT1K4VycN6YxHvu
+	KtwAKgcCG98KgMT1ee3RgP7IfwmBCG2G9R1viTsQup1MsrTOlF3DEH078BaJkBY=
+X-Google-Smtp-Source: AGHT+IGy7gCwHmZzWRjYuJdLjKUklIvRll7qzxjTVKsdjpMsJu9lcX39EllePZe+fyuRleAhBbilyQ==
+X-Received: by 2002:a5d:4441:0:b0:37c:d1ea:f1ce with SMTP id ffacd0b85a97d-37efcf15f1fmr7504792f8f.25.1729862099741;
+        Fri, 25 Oct 2024 06:14:59 -0700 (PDT)
+Received: from gpeter-l.lan ([145.224.67.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 06:14:59 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+To: alim.akhtar@samsung.com,
+	James.Bottomley@HansenPartnership.com,
+	martin.petersen@oracle.com,
+	avri.altman@wdc.com,
+	bvanassche@acm.org,
+	krzk@kernel.org
+Cc: tudor.ambarus@linaro.org,
+	andre.draszik@linaro.org,
+	kernel-team@android.com,
+	willmcvicker@google.com,
+	linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>, stable@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>
-Subject: Re: [PATCH] KVM: arm64: Don't eagerly teardown the vgic on init error
-Message-ID: <ZxuWIXFJignbcX1m@finisterre.sirena.org.uk>
-References: <20241009183603.3221824-1-maz@kernel.org>
- <3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
- <86ldyd2x7t.wl-maz@kernel.org>
- <eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
- <92d755af-e19b-49a5-b4df-a8ed0fb7aece@redhat.com>
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	ebiggers@kernel.org,
+	Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH v2 08/11] scsi: ufs: exynos: enable write line unique transactions on gs101
+Date: Fri, 25 Oct 2024 14:14:39 +0100
+Message-ID: <20241025131442.112862-9-peter.griffin@linaro.org>
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+In-Reply-To: <20241025131442.112862-1-peter.griffin@linaro.org>
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="StHetKYo+xBy+vjm"
-Content-Disposition: inline
-In-Reply-To: <92d755af-e19b-49a5-b4df-a8ed0fb7aece@redhat.com>
-X-Cookie: Editing is a rewording activity.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_055919_820613_B92005E3 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20241025_141503_251588_1D290DF9 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +121,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Previously just AXIDMA_RWDATA_BURST_LEN[3:0] field was set to 8.
 
---StHetKYo+xBy+vjm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+To enable WLU transaction additionally we need to set Write Line
+Unique enable [31], Write Line Unique Burst Length [30:27] and
+AXIDMA_RWDATA_BURST_LEN[3:0].
 
-On Fri, Oct 25, 2024 at 02:18:02PM +0200, Eric Auger wrote:
-> On 10/25/24 12:54, Mark Brown wrote:
+To support WLU transaction, both burth length fields need to be 0x3.
 
-> > I'm not even sure that's a terrible fix, looking at the changelog I get
-> > the impression the test is deliberately looking to do problematic things
-> > with the goal of making sure that the kernel handles them appropriately.
-> > That's not interacting well with the KVM selftest framework's general
-> > assert early assert often approach but it's a reasonable thing to want
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+ drivers/ufs/host/ufs-exynos.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> Can you elaborate on the "assert early assert often approach". What
-> shall this test rather do according to you?
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index 40b2563fe011..b0cbb147c7a1 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -48,6 +48,8 @@
+ #define HCI_UNIPRO_APB_CLK_CTRL	0x68
+ #define UNIPRO_APB_CLK(v, x)	(((v) & ~0xF) | ((x) & 0xF))
+ #define HCI_AXIDMA_RWDATA_BURST_LEN	0x6C
++#define WLU_EN			BIT(31)
++#define WLU_BURST_LEN(x)	((x) << 27 | ((x) & 0xF))
+ #define HCI_GPIO_OUT		0x70
+ #define HCI_ERR_EN_PA_LAYER	0x78
+ #define HCI_ERR_EN_DL_LAYER	0x7C
+@@ -1925,6 +1927,12 @@ static int gs101_ufs_post_link(struct exynos_ufs *ufs)
+ {
+ 	struct ufs_hba *hba = ufs->hba;
+ 
++	/*
++	 * Enable Write Line Unique. This field has to be 0x3
++	 * to support Write Line Unique transaction on gs101.
++	 */
++	hci_writel(ufs, WLU_EN | WLU_BURST_LEN(3), HCI_AXIDMA_RWDATA_BURST_LEN);
++
+ 	exynos_ufs_enable_dbg_mode(hba);
+ 	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_SAVECONFIGTIME), 0x3e8);
+ 	exynos_ufs_disable_dbg_mode(hba);
+-- 
+2.47.0.163.g1226f6d8fa-goog
 
-In general the KVM selftests are filled with asserts which just
-immediately cause the test to exit with a backtrace.  That's certainly
-an approach that can be taken with testsuites, but it does make things
-very fagile.  This means that if the test is deliberately doing
-something which is liable to cause errors and put the VM in a bad state
-then it seems relatively likely that some part of a partial cleanup will
-run into a spurious error caused by the earlier testing putting the VM
-in an error state.
-
-> I am OoO next week but I can have a look afterwards. On which machine is
-> it failing?
-
-It was failing on a wide range of arm64 machines, I think every one I
-test (which would track with the change being very generic).
-
---StHetKYo+xBy+vjm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcbliAACgkQJNaLcl1U
-h9AvQwf+PLqULPjWApldlDAjSS6Ydf3qKRr2wnzfn3GoYm2LQKpherEM6Br54G4F
-6LGp6HkvVOA4i7vxRmzviXidU30Pg0DkJSUXkFlVcfbT5eW+YbvnZmDKvNC50p50
-MExLjhmzwlA8M9jCqICqUim0nD23AtQZZLeTIVrqCtM2OiwQyg7+LY2KM+T/7aMT
-AltD1XVQkPMVtsQ0wHrUMWJR7mCW0N8RY9RKuoswNJadle0n2yU8OK3SwyMO4kIw
-ucyzQGoP27ckeeNQ2y072gZPDq6xg3O7yNFOzWwl9E+uDQs6GICu4LzIWFVsGFwe
-pzdYascg4iXeDbwmnQGaxdvHXk0NEg==
-=1fHJ
------END PGP SIGNATURE-----
-
---StHetKYo+xBy+vjm--
 
