@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F831D149F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6CCD149F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=brjCYgcFGdH/pd/f/d70iIVu+Wxfm2XE3Qa70/tryVw=; b=y/D4vamIGtt+2W58gwP38Di++G
-	vIWFmM9mbSE5B/D4svmBk+ojrCuNap86+WvDneD3URFrzGzgA1wb5cxXm9p3plg05PPIYIwVh4KGk
-	f1PAoYRL6Tnn84o+DckJFDDgDu/YiDxjZcp9dhNteS16+Iva7fJMWm/v8/QtmNioC/QGb6TLLdh7v
-	NNGDnIIkDazRkYzK7hF06tVZYURZDLSll18WaiMJafvLtMpLtsqKuttb1ZjHz6h5DORFJtQbBQaLL
-	8KcGwzjvCI4g+igIoTd6rs0nOBnAQcZ4Pbj9shp+9EEBZ+pwRK901okYk0ZydZ6BPLVwUYIJVNNc6
-	/66bsAzA==;
+	bh=zCuBo4Dj/92SXalGjYMDv+u+UIN0S7qgyRUpRJUeybY=; b=lyTydaIVLO1sMkK+tonueIhwVW
+	kQvpe5TDrk43CtXOZ+xFlxJLaUdheaj51YF0kpCMXc61au7s1IFCSQvpMtlJETLZyzX3Yuj/wn82Q
+	Itjmv0yjf8XufCA4PLgTtVrvY2cN0wFBnV86H9ipHfZGUyFqcLiYiYAD0viSWRdX4rvCrZo895IRs
+	6TJBG+a3TZ+UNMp0LS03eDhvKPYgMvekxIimZOjk+IEI3ItsUexhs5uq1xz7zvq5ENGARe6mHNetF
+	qvi0bUbCdXhoQUBtwgypDUASRGx+fyRcE4DIwsyT/BgUJnHJCbDZJNhUudr5olb5EvJxodP/xcwzY
+	mzyb7TAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4S2G-00000005KoY-0oWR;
-	Fri, 25 Oct 2024 21:39:56 +0000
+	id 1t4SIX-00000005NYW-1ZL1;
+	Fri, 25 Oct 2024 21:56:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4S0N-00000005KG4-2nPg;
-	Fri, 25 Oct 2024 21:38:00 +0000
+	id 1t4SGx-00000005NPO-12jM;
+	Fri, 25 Oct 2024 21:55:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E01ED5C4DC7;
-	Fri, 25 Oct 2024 21:37:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD3DEC4CEC3;
-	Fri, 25 Oct 2024 21:37:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5D3D85C5C91;
+	Fri, 25 Oct 2024 21:54:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10538C4CECD;
+	Fri, 25 Oct 2024 21:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729892278;
-	bh=Q8vC22irZ2uA8WYYvmBwW1+2Pm2qVwYkLgdZ6/sItmw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=X9TEdB8NtoLsaY6w4tD051jPTNAuoCaCbQQHkiIzKo7oiJT9AWcwt+FyzmJhovWAp
-	 2pb0msYmVONirDKwQIfh5V3wPV0dcbDz2pSpVcpHIdMk9tXuPDZ5e6Az8xORI991cm
-	 xqLA6sL3m9DoZGlSNnVohRg6luGL7923xAU3nr5tH7OjWBmXsAW7KgEF+MDVfsK2ne
-	 duqlO61GagzVxkZD2Axh5Nb172IRQrUPy3AWEhn1+6vZ+0EOpP8QflDhFwNd3ZyyP/
-	 h1jEpYwivxBADQX2gGh2Yha+akgPxJ0n7Q8ruu2ds379qCqEjs553wHkorArIKfS4N
-	 Vw2SZPUxwQngA==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2fb5fa911aaso35393011fa.2;
-        Fri, 25 Oct 2024 14:37:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVymp3mIgfcIn9UPfq4Ww90R+aW9x/e/1nlshabEPBNgYHr+UFxhjO8JlArcXDrSl5fJnaLCoW6eNAA48SUOJK+@lists.infradead.org, AJvYcCWeOZW1ueVr3cbHZIxyi+johehkzwivudRZp/HvxgSwddv+OIA4OfoQO7mWx5aTY4ZABerW+hbMwgQOjsI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJW348go9iO4nBWaunQhu+kJorAjwvPRhrA6L8hasshkzpY5pu
-	Qz3HnB8QA/yKXnbkgZpHiZP16Zhj1dBGTqo3wKAaHxq5exP0p9rNclD5gzCi3hsbg+xR8WgHUOu
-	5kX6o39ANPuzeMZBVYex4VdzA3fQ=
-X-Google-Smtp-Source: AGHT+IEQWINSviRss911g3zsmM49RILDHJN+Ssrcrwx15J0k6BAeeRwcNFxqZbNLbvjIoCqISV0e2QKpM5PEk7ZnG3k=
-X-Received: by 2002:a05:651c:b0d:b0:2fa:d604:e519 with SMTP id
- 38308e7fff4ca-2fcbdf7db48mr5607491fa.11.1729892277115; Fri, 25 Oct 2024
- 14:37:57 -0700 (PDT)
+	s=k20201202; t=1729893306;
+	bh=Qj3RrgeMczvK9hKxZ+77DcpwktRtCnGKCeQKnq3m7ls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JujiVBGkzsjq7A8DOvqTbu4LsmbDl04bXl0ne7aE2WCYbgrUdkXGCi2401YpTRA2v
+	 SjEIutJmoB2hczNOYz+z9l5iQdx9nWYZC5zjeMdl3EC6hkFvfJi1CVDmtYJXZrrZsC
+	 jDv1Q1nJklEy/+oWqSw8lVFNO+FlLT/M+cnDp9ZrONDYODG62y5uUUDF2Ebjx7I48B
+	 7WxSJu4pJHkzUCrLNH5IsmdJjQ4QreYGRZLUm/7mHUMZdjcM0ma6+9wzZbrDMHAhc6
+	 cur2qWWxE0qLQtvef1foLGaYi3xK9z3uWsRn8Krgl+953SGJSCSQ0lp0vZxY4Bl0E8
+	 6dgETIQFaiZAQ==
+Date: Fri, 25 Oct 2024 16:55:04 -0500
+From: Rob Herring <robh@kernel.org>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>
+Subject: Re: [PATCH v4 02/10] dt-bindings: PCI: brcmstb: Update bindings for
+ PCIe on bcm2712
+Message-ID: <20241025215504.GA945212-robh@kernel.org>
+References: <20241025124515.14066-1-svarbanov@suse.de>
+ <20241025124515.14066-3-svarbanov@suse.de>
 MIME-Version: 1.0
-References: <20241025191454.72616-1-ebiggers@kernel.org> <20241025191454.72616-4-ebiggers@kernel.org>
- <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com> <20241025213243.GA2637569@google.com>
-In-Reply-To: <20241025213243.GA2637569@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Oct 2024 23:37:45 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
-Message-ID: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
-Subject: Re: [PATCH v2 03/18] lib/crc32: expose whether the lib is really
- optimized at runtime
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241025124515.14066-3-svarbanov@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_143759_824605_883BC122 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20241025_145507_360368_4A012E53 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 at 23:32, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Fri, Oct 25, 2024 at 10:32:14PM +0200, Ard Biesheuvel wrote:
-> > On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > From: Eric Biggers <ebiggers@google.com>
-> > >
-> > > Make the CRC32 library export some flags that indicate which CRC32
-> > > functions are actually executing optimized code at runtime.  Set these
-> > > correctly from the architectures that implement the CRC32 functions.
-> > >
-> > > This will be used to determine whether the crc32[c]-$arch shash
-> > > algorithms should be registered in the crypto API.  btrfs could also
-> > > start using these flags instead of the hack that it currently uses where
-> > > it parses the crypto_shash_driver_name.
-> > >
-> > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > ---
-> > >  arch/arm64/lib/crc32-glue.c  | 15 +++++++++++++++
-> > >  arch/riscv/lib/crc32-riscv.c | 15 +++++++++++++++
-> > >  include/linux/crc32.h        | 15 +++++++++++++++
-> > >  lib/crc32.c                  |  5 +++++
-> > >  4 files changed, 50 insertions(+)
-> > >
-> > ...
-> > > diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> > > index 58c632533b08..bf26d454b60d 100644
-> > > --- a/include/linux/crc32.h
-> > > +++ b/include/linux/crc32.h
-> > > @@ -35,10 +35,25 @@ static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
-> > >         if (IS_ENABLED(CONFIG_CRC32_ARCH))
-> > >                 return crc32c_le_arch(crc, p, len);
-> > >         return crc32c_le_base(crc, p, len);
-> > >  }
-> > >
-> > > +/*
-> > > + * crc32_optimizations contains flags that indicate which CRC32 library
-> > > + * functions are using architecture-specific optimizations.  Unlike
-> > > + * IS_ENABLED(CONFIG_CRC32_ARCH) it takes into account the different CRC32
-> > > + * variants and also whether any needed CPU features are available at runtime.
-> > > + */
-> > > +#define CRC32_LE_OPTIMIZATION  BIT(0) /* crc32_le() is optimized */
-> > > +#define CRC32_BE_OPTIMIZATION  BIT(1) /* crc32_be() is optimized */
-> > > +#define CRC32C_OPTIMIZATION    BIT(2) /* __crc32c_le() is optimized */
-> > > +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> > > +extern u32 crc32_optimizations;
-> > > +#else
-> > > +#define crc32_optimizations 0
-> > > +#endif
-> > > +
-> >
-> > Wouldn't it be cleaner to add a new library function for this, instead
-> > of using a global variable?
->
-> The architecture crc32 modules need to be able to write to this.  There could be
-> a setter function and a getter function, but just using a variable is simpler.
->
+On Fri, Oct 25, 2024 at 03:45:07PM +0300, Stanimir Varbanov wrote:
+> Update brcmstb PCIe controller bindings with bcm2712 compatible
+> and add new resets.
+> 
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> ---
+> v3 -> v4:
+>  - Dropped Reviewed-by and Acked-by tags because I have to re-work the patch
+>    in order to fix newly produced  DTB warnings on the .dts files.
+>  - Account the number of resets for bcm2712 which are differs from bcm7712.
+> 
+>  .../bindings/pci/brcm,stb-pcie.yaml           | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> index 0925c520195a..df9eeaef93cd 100644
+> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> @@ -14,6 +14,7 @@ properties:
+>      items:
+>        - enum:
+>            - brcm,bcm2711-pcie # The Raspberry Pi 4
+> +          - brcm,bcm2712-pcie # Raspberry Pi 5
+>            - brcm,bcm4908-pcie
+>            - brcm,bcm7211-pcie # Broadcom STB version of RPi4
+>            - brcm,bcm7216-pcie # Broadcom 7216 Arm
+> @@ -175,6 +176,26 @@ allOf:
+>          - resets
+>          - reset-names
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2712-pcie
+> +    then:
+> +      properties:
+> +        resets:
+> +          minItems: 2
+> +          maxItems: 2
+> +
+> +        reset-names:
+> +          items:
+> +            - const: bridge
+> +            - const: rescal
 
-If we just add 'u32 crc32_optimizations()', there is no need for those
-modules to have init/exit hooks, the only thing they need to export is
-this routine.
+Sigh. Why the opposite order of the existing bindings?
 
-Or perhaps it could even be a static inline, with the right plumbing
-of header files. At least on arm64,
+I would make the top level:
 
-static inline u32 crc32_optimizations() {
-  if (!alternative_have_const_cap_likely(ARM64_HAS_CRC32))
-    return 0;
-  return CRC32_LE_OPTIMIZATION | CRC32_BE_OPTIMIZATION | CRC32C_OPTIMIZATION;
-}
+minItems: 1
+items:
+  - enum: [perst, rescal]
+  - const: bridge
+  - const: swinit
 
-should be all we need.
+Rob
 
