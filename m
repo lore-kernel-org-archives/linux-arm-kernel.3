@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC52D0C5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A84D0C5F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=; b=sOL5CGloWBMvbUTjcF3xkIDnQE
-	UeTraj2Me8+O1EnNo4rR5it2Azm6XP9754qNSPKD5pGJHvj7KL0ZQu1GiaVKHGq/KmioZboTnUbUL
-	UNiKNu09SHK9r7LpPgAXRTaTi1iwyU8+QCZrx7SyXEkyUwLGlhV6L67Fc/Wa05zFrr7dlAUArhA1x
-	kusueVqmZWDLGTUjjxNSnj1maWA2+pXPRwzr9SimtKxWMPb5yGD1yAzsktfp7vUKd+CNM/Z+DOOYQ
-	4RUM1SJ//QNF6bxj+ziqppJfB72dTB/pjAAQoWawbx3F7SH9tCasdrL/13c1U+qsdCvg85HbOt4ND
-	cebFQing==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KQSE5SxVNGf2DbaZXHVRJ0zQ6As+c1Qhb4dBaJiSrMk=; b=3Ep2ga3Hd37JlrIwY93TrtJtke
+	09NLHJbhRuAVGhqWCIMExxROk7KOTmRc2cX2J+pIIbdxTstW9hOg3WwlHrIbYZGHnk6pgPpatMOsG
+	Qay8H+/nO7vrtVQGN1kX1nwK2ESyzpl34onpPEUxY0n7rtpXZSMBaeIzZLcIKBGZaozGBAkM1dHtE
+	9g8mlozV4DamCgSAwCi+/Uax9D4AQaBNeYDoH/2rKh99S2XVexUnrBZ8LoWFq0CgoK1eV7Exno9qN
+	36H2upE094ReYYRX5UFhqrMO+YriAZkqRbsRuod8n/Yfbsni3tQWtL3Smioeau2AARB3kvfcgLwY4
+	ruutsvFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Gu5-00000003EoU-23pn;
-	Fri, 25 Oct 2024 09:46:45 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t4Gvt-00000003FCJ-3dzI;
+	Fri, 25 Oct 2024 09:48:37 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GsH-00000003ECO-3mmT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 09:44:59 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a99cc265e0aso263158466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 02:44:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729849492; x=1730454292; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=;
-        b=mxgjeEPAlwUTRstCeLAjJGLyyzV/rPPDHbRrYSUKPVutLj/UmEoqyvI3B/Ek55GCmA
-         v9/8pfcJBdbwT+ltdCwGw77G7W6zGJAZRCmApCNxCbytaYSCvgJfoN24rraIABvaH/0b
-         fOxxxlNci48U99RXU/AJ2jOxLpnxNkdKdkVtk1z8k2/VQEF6LOKIBp3JY3DFnl1nAHI2
-         p3m9xTJciz1oP2qm6Ox14zR2IIjxgcNcMh+ufMM7PeYsGxRBwbiMFB0Xklbh61EF88Gd
-         Oksb4J9pVIk7MB40ZvLd+q5Xj1feEG4NL2q25O29Xkxwpo/ejBQ8IqUXBtygcysybss2
-         rvYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729849492; x=1730454292;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=;
-        b=hTM+Fej/rbw+hP0TILzaxpoa96gdZ5e5GtJccrnzFuP5CrZM9fClKk6IfM4lyao5pa
-         XJ4nMB2Vyp+8Np9VWDUkyc/VBDxPo6F/xijSDjIENy5QvYkyh2MUy4wFQtQeshCt0cCV
-         jb0eClClKDjGqZ+ZV84I3TDiX0kmoYG5k2hEUPR5U3OeVmlrPN/idkEJhwIqlQDNFwjB
-         ygQ/VCEQIdgA6YUxsl/FXJfIplCzrei1uQdwTrZNctOOBZ1KLbx9+5a+ZYllLOkqxku3
-         aYX6Xz+1mnmYL4jdkilrCbzN7JsK41hzD/DqTsIs0WfHbV+btJyDUK+jqAoo7FrAMjFo
-         ouWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXBxf9X8+HbedGSRETbwXvF4EkoWliJEGmCknc23W4D2k3E7muEb205FnMs1wbLpNLZS/A7WfgK9W+l2aSgPK0X@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz46vnCBlczoKpCtRN6/p5vl9OYklEXriS8LpJSghF7Ez9MxjnE
-	JX6fTm5yO925A5GhaRw1PunthySLrH1mXlPOFYf4F7RusbK7pV1SxOyQYRPkxCg=
-X-Google-Smtp-Source: AGHT+IGvMaHhp0yBItJqMrGnh8WZFy1BosQ2JJpGEG7L5fd6mP/jhMEMMgdVrFkbCial7NwjOHcdTw==
-X-Received: by 2002:a17:906:730f:b0:a99:f8db:68b2 with SMTP id a640c23a62f3a-a9ad2730a9amr471160666b.18.1729849491793;
-        Fri, 25 Oct 2024 02:44:51 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f029511sm50430366b.62.2024.10.25.02.44.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 02:44:51 -0700 (PDT)
-Message-ID: <c889ceae-f605-49e8-8aa6-e6d7fc78a641@linaro.org>
-Date: Fri, 25 Oct 2024 10:44:49 +0100
+	id 1t4GtM-00000003Eat-3bKB;
+	Fri, 25 Oct 2024 09:46:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729849561; x=1761385561;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZARvpj+4y2gmcRwYkJIUqXAw6D/BozzudJM0om84MZw=;
+  b=SXvFZZ1sroJ6Jrx3eNYhf96jwj2GSDiJiAZJSQNpY+fyIvH3A379nHx4
+   IXdNQs7AHT3KmVc2mD0MkBzF4W5Pnhqzk2oKcZT1MpiW9ebb6q5ATRvqe
+   FZXZoMEmUxU1dO9Twx4wGPcZOe3k7AekMwnsOJRfFc3qI/LeK+B+lyL8/
+   5K7tzCIxBjKobvJ3zah4LOCsN0Aqc3WQ55u7EmN/A4JxfH+ySzIAWdFfB
+   IKEeSnS1U9bjUus4ct2DbyRGIvmw+q1XzzHJZVSnZp9yMzzDV+vBloPLE
+   o+LaOOao4kJ8fNNyuVCWdVQvGT6eVBiXvChcco328e+w5VZ7mZhTyXqOZ
+   g==;
+X-CSE-ConnectionGUID: b5CvaWUuRyGnIqlQFMIbJQ==
+X-CSE-MsgGUID: O9/R6Yn6SM+avjva7qUUnA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="40129332"
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="40129332"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 02:46:00 -0700
+X-CSE-ConnectionGUID: 5UHDvqAZSEqUUNxuUDqGnQ==
+X-CSE-MsgGUID: kC3HEjRVT0SmaAYZ8zBJ+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="81188264"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 25 Oct 2024 02:45:54 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4GtE-000Y0T-1q;
+	Fri, 25 Oct 2024 09:45:52 +0000
+Date: Fri, 25 Oct 2024 17:45:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 21/37] drm/vc4: txp: Add support for BCM2712 MOP
+Message-ID: <202410251725.ZQplKjRl-lkp@intel.com>
+References: <20241023-drm-vc4-2712-support-v1-21-1cc2d5594907@raspberrypi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] firmware: add exynos acpm driver
-To: Alim Akhtar <alim.akhtar@samsung.com>, krzk@kernel.org
-Cc: mst@redhat.com, javierm@redhat.com, tzimmermann@suse.de,
- bartosz.golaszewski@linaro.org, luzmaximilian@gmail.com,
- sudeep.holla@arm.com, conor.dooley@microchip.com, bjorn@rivosinc.com,
- ulf.hansson@linaro.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- marcan@marcan.st, neal@gompa.dev, alyssa@rosenzweig.io, broonie@kernel.org,
- andre.draszik@linaro.org, willmcvicker@google.com, peter.griffin@linaro.org,
- kernel-team@android.com, vincent.guittot@linaro.org,
- daniel.lezcano@linaro.org, Jassi Brar <jassisinghbrar@gmail.com>
-References: <20241017163649.3007062-1-tudor.ambarus@linaro.org>
- <CGME20241017163705epcas5p1ead3359adb4da5eda00310f93a882971@epcas5p1.samsung.com>
- <20241017163649.3007062-3-tudor.ambarus@linaro.org>
- <0da701db23d8$ed5684e0$c8038ea0$@samsung.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <0da701db23d8$ed5684e0$c8038ea0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-21-1cc2d5594907@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_024454_037390_844F9164 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20241025_024600_928642_C1DC6EFC 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dave,
 
+kernel test robot noticed the following build warnings:
 
-On 10/21/24 5:47 PM, Alim Akhtar wrote:
-> Hi Tudor
+[auto build test WARNING on 91e21479c81dd4e9e22a78d7446f92f6b96a7284]
 
-Hi, Alim!
+url:    https://github.com/intel-lab-lkp/linux/commits/Dave-Stevenson/drm-vc4-Limit-max_bpc-to-8-on-Pi0-3/20241024-005239
+base:   91e21479c81dd4e9e22a78d7446f92f6b96a7284
+patch link:    https://lore.kernel.org/r/20241023-drm-vc4-2712-support-v1-21-1cc2d5594907%40raspberrypi.com
+patch subject: [PATCH 21/37] drm/vc4: txp: Add support for BCM2712 MOP
+config: arc-randconfig-r111-20241025 (https://download.01.org/0day-ci/archive/20241025/202410251725.ZQplKjRl-lkp@intel.com/config)
+compiler: arc-elf-gcc (GCC) 13.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20241025/202410251725.ZQplKjRl-lkp@intel.com/reproduce)
 
-Thanks for the review!
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410251725.ZQplKjRl-lkp@intel.com/
 
->> diff --git a/drivers/firmware/samsung/Kconfig
->> b/drivers/firmware/samsung/Kconfig
->> new file mode 100644
->> index 000000000000..f908773c1441
->> --- /dev/null
->> +++ b/drivers/firmware/samsung/Kconfig
->> @@ -0,0 +1,11 @@
->> +# SPDX-License-Identifier: GPL-2.0-only
->> +
->> +config EXYNOS_ACPM
-> 
-> This looks misleading to me, as you mentioned below, ACPM is a FW which runs
-> on APM module, and 
-> The proposed driver is a communication method between Application processor
-> and APM module,
-> Which is via MAILBOX.
-> So preferably EXYNOS_MAILBOX_APM is more meaningful here.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/gpu/drm/vc4/vc4_txp.c:513:27: sparse: sparse: symbol 'bcm2712_mop_data' was not declared. Should it be static?
 
-This seems more accurate indeed. The design document that I have refers
-to the protocol as "ACPM IPC", so maybe I shall stick with EXYNOS_ACPM_IPC.
+vim +/bcm2712_mop_data +513 drivers/gpu/drm/vc4/vc4_txp.c
 
-I'll also need to prefix all the definitions in the driver with
-exynos_acpm_ipc_* which will result in long names. But I guess there's
-nothing we can do about it.
+   512	
+ > 513	const struct vc4_txp_data bcm2712_mop_data = {
+   514		.base = {
+   515			.name = "mop",
+   516			.debugfs_name = "mop_regs",
+   517			.hvs_available_channels = BIT(2),
+   518			.hvs_output = 2,
+   519		},
+   520		.encoder_type = VC4_ENCODER_TYPE_TXP0,
+   521		.high_addr_ptr_reg = TXP_DST_PTR_HIGH_MOP,
+   522		.has_byte_enable = true,
+   523		.size_minus_one = true,
+   524		.supports_40bit_addresses = true,
+   525	};
+   526	
 
-Cheers,
-ta
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
