@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDBCD0C607
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00163D0C606
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/3I6f6d+BcOVYTvDTOGpbfmJS+59wU96TbmY48YB4s=; b=omgq0d+SYMajFjvAqznTYY3MAC
-	oiYWReNSa33Q3vtfv2JMUvDddXUZkM8Fwr3LJKjseV198jOG25tbPYAHLzedKU+dEIOTyTK7idHpp
-	IEBtIWK8VW4X5muam5X6RhrXFJ0ivlcj5BGSYuiV0FsFB2+QzdzRDsXM7DMTw9WZ9cxomvmUQnApl
-	IS63330WHoE5ovJ2XoAXM9W5WyDM7of4Hjp3L35YpElFMar3TBXeY2fTj8N7AFQ2COrCJisRSxxKj
-	tHRHkfvPOGt8JHyaObITs14gDZNriHzFYP8P085oZjQU7LwH2+ky016QqM29eeo23iEO2TnUy8I5e
-	qB/5U27A==;
+	bh=hgQTlnijq5jaUtg5DKbI88jHDZ7ahNWU89FCg0/HbmA=; b=VhY09NmrVrrV6/Ltdavu3tyNkm
+	r+AbXuAAQfc432Qp1wee1qX5xmtfjhFOLjZEIIh60ArQnli1nPfnJYF+GYhcQjBo7bBYbdDmWD5hI
+	X526f+kJWXHcw6z4rz6MozEgNooYb2cJ8MLmRNLzXMVrK+44p9qkqx5Ir2LbrIOZcQpI0zqaxZQ4a
+	8vr49tGh0jhI8Umy1zmNwfAH5tLa1puAE384ZSz0E1G4XhQynf6YLxygNHgc6XXq8FF8VPG+ILuas
+	QZHOOxfCzaSXHgIUxW3iucglmH+yYjQs4vG4osI3FrcejI8diG919Ooo8JGdMGMXEroz0DyOIjHcP
+	guFDyk3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Jad-00000003gpg-3sVS;
-	Fri, 25 Oct 2024 12:38:52 +0000
+	id 1t4Jc9-00000003gzv-3h1c;
+	Fri, 25 Oct 2024 12:40:25 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JYm-00000003g9T-1dQ5
+	id 1t4JZa-00000003gZP-25vx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 12:36:57 +0000
+	Fri, 25 Oct 2024 12:37:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8D7DA5C05A8;
-	Fri, 25 Oct 2024 12:36:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45CA8C4CEE4;
-	Fri, 25 Oct 2024 12:36:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B40AA5C47EE;
+	Fri, 25 Oct 2024 12:37:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEB2DC4CEC3;
+	Fri, 25 Oct 2024 12:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729859815;
-	bh=AviaUlBZZ7+hKNoYNAUPRHtZzUriK4vdXQg7T26UsIk=;
+	s=k20201202; t=1729859865;
+	bh=hgQTlnijq5jaUtg5DKbI88jHDZ7ahNWU89FCg0/HbmA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DabUAD8CBTJ/fcvc3I1PcvD64SdtCoiNU47bU5xiPJeACTlIzbRn5vNKsHOiDI/EM
-	 tNcOkxxaPIky8mtODB/szRydZXQ7VZtdhfglH3jKQGDb1NvuFTcO/8hjLQbxq2Cuc4
-	 R/VnmOKyEfIb7ciRw+eOUYgIM//mzezvT+6nxzz4BbPdn8ZofI2OaUZdWT+DHgOlp7
-	 MM5B6gEdo/3CVg2/E6qa5SRczQBNKSLIfxWcRWNYvIk5DxRp2d/EBIButbVpyvx5Jg
-	 ZWwhSouYaKL9kYf7p9osSKg8BSwSc0useKgER3gVWX2Cavsm8zqMC1ssopUx8jD6lZ
-	 Gggw8yUW7X+pQ==
-Message-ID: <2dae341e-2784-40ec-9a06-620c467e62bd@kernel.org>
-Date: Fri, 25 Oct 2024 14:36:46 +0200
+	b=QWobKpLmWeJ108gJVkqc7zaPe+SwEXsbhnXy4eD0rg7nax8AgLPlhWv+Iy5dsF3/e
+	 oh20P5nksHC5rKylB5Kux/lbIPafUaTJNWgEUPlZZR79DGKj6PwvNJfKe9FIiLv38B
+	 tSMycHSqrzKKD/fsaOqTPZHKbMNBpJFgBk+onJyRSNtultPAZ2Ut/ZNbBuXM0oiy88
+	 LMmw9ZYxdAeCOu5MNxJ8zSUATDuXFQgoaE03Eu+0yLY3F69WXErhkQVuphLhdg+eVM
+	 S4u/v6+0xZr0JXsOdnm2PEoX/vHo+Uqa0W+Th9KPDPHd20AoLgFYJmo4UoigapVlO8
+	 McCo+wBpYkYFg==
+Message-ID: <1b69a2bb-90cc-482f-8107-37be61ea94d6@kernel.org>
+Date: Fri, 25 Oct 2024 14:37:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] dt-bindings: arm: cpus: Add Samsung Mongoose M3
+Subject: Re: [PATCH v2 04/12] dt-bindings: pinctrl: samsung: Add compatible
+ for exynos9810-wakeup-eint
 To: Markuss Broks <markuss.broks@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -60,7 +61,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
  Maksym Holovach <nergzd@nergzd723.xyz>
 References: <20241025-exynos9810-v2-0-99ca3f316e21@gmail.com>
- <20241025-exynos9810-v2-1-99ca3f316e21@gmail.com>
+ <20241025-exynos9810-v2-4-99ca3f316e21@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241025-exynos9810-v2-1-99ca3f316e21@gmail.com>
+In-Reply-To: <20241025-exynos9810-v2-4-99ca3f316e21@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_053656_583029_9CF27F92 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20241025_053746_663124_1FDC09CA 
+X-CRM114-Status: UNSURE (   6.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,15 +129,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 25/10/2024 13:24, Markuss Broks wrote:
-> Add the compatible for Samsung Mongoose M3 CPU core to the schema.
-> 
-> Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
-> Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
-> 
-> Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
+> Add the compatible for Samsung Exynos9810 pinctrl eint block to the schema.
 
-There is never a blank line between tags. Use git log to see how people
-were doing it, if you ever have questions.
+All your commit msgs state obvious: duplicate subject and contents of
+the patch. We see this, it's not helpful. Instead rather explain the
+hardware and differences, e.g. no interrupts here?
 
 Best regards,
 Krzysztof
