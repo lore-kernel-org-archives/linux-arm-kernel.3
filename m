@@ -4,79 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83FAD0C619
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A6CD0C61A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D34ZQYAA4Xy1RlM6CHhSVEaUwrAOhpkBAO+draaH9ns=; b=PnnawrG+T6kUXz+VB+Kh1lV99G
-	heR6H/voD3oDu68GP5N+VP/0XYSF4hELFiA4E3d8mqh0AxJ+YTUUQktIo1vkwDzpMSaw2MTh9M0PQ
-	QYILM+oRqYktXmEP+aJ8yc7pcmgTsGS7eDJDEmweUfYF4OP72It1gFT6WSJELxbG5fFvpGKgO2okr
-	EZh8+UE5p7cNwCPdSSZCjE7EW7n7rWscKT5isiNeWKRcg3Fb4ygnicP+pITInF/Y44Ji036Xwx8IM
-	9Coxp05vNu3p28FPYbPVXjpxWZULSL0J2Xsqc+REQDrphPNHjB6roABARB2z6CbEacNjmEKnMISPA
-	H7KaZYFg==;
+	bh=HF7E9GxunQXOglzBZSufPGugXvqVoqtvZTiLe5T9cOM=; b=Es6FfX+mzgC605vkpQjciPPn2b
+	Sh6K4+1HRCOukL/6WH08pCP4XqEIiD6dJkwJMYsmnE0rez7oWBRW2FRx/hN7zfrH+B2XLjTdmmoZa
+	Sb/byZCw+5sb6a77lCrL6xAAdj0HQDeWZX3CEGWRspiRkK1umSP83leW8pnxMIc0y969Nn6wZoDEY
+	LGWVIyDWbTgeKg7j3NixXf9T4CsnzBncOOKd5BIR+j+VrixQdVPSpHs7DCUnCAUcVC/hOfOGCQqWY
+	+ru7vD2tlHrYqpl4RlwfgrWOqZPlWyJ+li9H0qR0p90L1NgnRaAeUCby7uy6EN8MszXozJBvWddgN
+	IbPCuZTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LJ8-0000000412m-12PJ;
-	Fri, 25 Oct 2024 14:28:54 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1t4LKh-000000041I6-30sl;
+	Fri, 25 Oct 2024 14:30:31 +0000
+Received: from mail-bn8nam04on20630.outbound.protection.outlook.com ([2a01:111:f403:2408::630] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Krr-00000003umV-06Gt
+	id 1t4Ks3-00000003uom-3n50
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:00:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1729864843; x=1761400843;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=D34ZQYAA4Xy1RlM6CHhSVEaUwrAOhpkBAO+draaH9ns=;
-  b=bKSoGy630WlIx2G9NHPxomiuKjH+SoFPHJx96COGxpuypn6JMnVThu4M
-   /iSGZl5+XAndjfgf4h7HsBzsbVeHwP76XcXG69ztWtr6VgN354AlDpxuY
-   nd/WT//IAk4H1lWnRx14Xh04/+5wleuzHWdKeEiIaufYslRetnMbyZzhN
-   APt4TU9oYaCpVMpQx4YWQ6Ivy211FPzlOEj7TlaL+9ax0js+EHfHF4LFY
-   SgdsGtxS62Ik3PpzK7cwyoXkswEUAv8r1VzbL+czOGR1Uuh8opc/tJexS
-   qTLpvPbc39RMHbUJVDXDOuyw2I2ZPUGUs61peUPPJR7etYW4nqqq5TyL0
-   w==;
-X-CSE-ConnectionGUID: RJyKPL4TQG2I7atbNc+ajg==
-X-CSE-MsgGUID: TkxXlj06TlWhC036/duQ9Q==
-X-IronPort-AV: E=Sophos;i="6.11,231,1725314400"; 
-   d="scan'208";a="39677654"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 25 Oct 2024 16:00:40 +0200
-X-CheckPoint: {671BA488-1-21611FC3-DAD22B0C}
-X-MAIL-CPID: 4622FD0EE2930BE343E156A47A186DF3_4
-X-Control-Analysis: str=0001.0A682F1A.671BA487.0021,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6297B1644A4;
-	Fri, 25 Oct 2024 16:00:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1729864835;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=D34ZQYAA4Xy1RlM6CHhSVEaUwrAOhpkBAO+draaH9ns=;
-	b=Uui/qTukAHJ7VFZhUcAlQ+OVdccdApCQQcklWBFNMNz1WGm7oXncKjOxbu7Baidju+3IqA
-	53U8ocywj33gbEYU3/JQsNkduuC5UBPIM0ZrkXDFsb7r/rKT32rpt+iBkk0HEBwJG3fXMv
-	MK6xfnWgo6wUGHhRTKkG21FIvzsH76vQfdp0ckeQyxQSU9EPGAlWtChUw7tsp738Mxm6pX
-	+98C+aJJ67rL6U2G7Nsf1nEPL8CFYWx1XRf5YmZ+JiA4DuM6ld3uhoWcv51PN/fh8D+nAM
-	fNdDhwwJBFAwZzhvGiIYYof375B5oisxCpL4y/fQ8oK3drHPa7cV+de9//SVlQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>, Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "open list:TQ SYSTEMS BOARD & DRIVER SUPPORT" <linux@ew.tq-group.com>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: imx8mn-tqma8mqnl-mba8mx-usbot: fix coexistence of output-low and output-high in GPIO
-Date: Fri, 25 Oct 2024 16:00:33 +0200
-Message-ID: <2005735.usQuhbGJ8B@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <CAMuHMdW-tXFYSfTerb-eYmmbJHYN9xNyiGMPoeGArmDnAajUmg@mail.gmail.com>
-References: <20241023210313.1390767-1-Frank.Li@nxp.com> <CAMuHMdW-tXFYSfTerb-eYmmbJHYN9xNyiGMPoeGArmDnAajUmg@mail.gmail.com>
+	Fri, 25 Oct 2024 14:00:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q6VR+hJ5ZrtbcifNxAYfT3MqKs7VvRxAVfEUFEkjsMWEMPjTlXpLN1TzJF2LMkWYdeb83N7E3gMQsYe5pXPdqHnyrxKtIf6Vh5GnRNViDRT2fWzRFMctc2iKjv9oMjWPyJt56weaNAXg4HhDj69eKVn5dVp+QVAAbjVVwieAxQfRCzhznNZyTs9OmhuhNaGkW7sd7+y4HaYnd7FLRLodyHXnsHRQ2U6hn8Lht0Qo03ttWRYelbgvDMUw1h+AuyR8MF2CsEz935eRU03gvrCHdE4IDPYG2OSp2m3Kf/dcgCgjsyDAXTfRLCV4LKNGffuSpUuHUzk4mVYFmnSQYuru2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HF7E9GxunQXOglzBZSufPGugXvqVoqtvZTiLe5T9cOM=;
+ b=BBIga4FKxD7XCQd4Iz8Rlnzz4XJIcFKe+IhYALF6dRHtsPZSsHasvGBnzdb6fIiM3uTjWeMu/tvDj9F5d0iugcin35frzTR5EdY7SO9etKcsbe0LfjEXb4v7YHcJGp11TiAVMxdDdv2NNBNOddvAfYrcfARSHWqifGQR9RjXEC8uFutKrn9oZKR4EJDex9uArNniuS6Qs4AI9YfCKIKsxmWETOY9p7JvyNMSYcqIG40+l6L9rq8ijtVWMVi9zQ356LTviBnAFM5HoB55pQR0ZSIPCyWH4x+tiZewoNj9z33iHa6vkap6Wdvb85+uytJMGnsL5BmaKTyfm3iyTfk5Ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HF7E9GxunQXOglzBZSufPGugXvqVoqtvZTiLe5T9cOM=;
+ b=CrpY7Tkx+yNmDo2FQeXYKAreZdPyS4Wdg8oDIqPZt+g1UCWHJBAkx7IN7jswnMno4qUTYdkuhZMWud+ispHnNQafrWeLoShGuyk7Pp2gX/RIrEyqJZBwV3gEaS7XiikVIEQatpZh065cTf+lcnZziZ4VXpyy4wDZa3DH/lRrqhJz1soUgo32Rc5XGQqKYansvJ1783iQrXKVQL0pWO0OEkB72oYsYgsNLsbm7XwPCDjXNZeUW5g0omHTZtu9GO67bMB9RjpYDBQlFHUluOXqxeiDB6e2VRv/2n9C44/F786Glx6vUXJF7a+L7ZEptHb5LkA0euemxRoJtDp2Lbedyg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA1PR12MB6679.namprd12.prod.outlook.com (2603:10b6:806:252::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.19; Fri, 25 Oct
+ 2024 14:00:49 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
+ 14:00:49 +0000
+Date: Fri, 25 Oct 2024 11:00:48 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: "acpica-devel@lists.linux.dev" <acpica-devel@lists.linux.dev>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	Joerg Roedel <joro@8bytes.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	"Moore, Robert" <robert.moore@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Moritz Fischer <mdf@kernel.org>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>,
+	"Wysocki, Rafael J" <rafael.j.wysocki@intel.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v3 9/9] iommu/arm-smmu-v3: Use S2FWB for NESTED domains
+Message-ID: <20241025140048.GG6956@nvidia.com>
+References: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+ <9-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+ <BN9PR11MB5276A5BCD028849E1658416D8C4E2@BN9PR11MB5276.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB5276A5BCD028849E1658416D8C4E2@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-ClientProxiedBy: BN9PR03CA0041.namprd03.prod.outlook.com
+ (2603:10b6:408:fb::16) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB6679:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0d09501-5672-421a-baeb-08dcf4fd6e13
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f30H2238AQ3zvKQA5Q6O2TEq7lVa+ts+eDYaKJmitLimCHAcG+Bf8/ktKrqJ?=
+ =?us-ascii?Q?y+bCb0uQpNAnVjB5ZzEEx8nXG5a/FIWs/VOPSromXN1U5yDGtbId+QHpza96?=
+ =?us-ascii?Q?bRtUd62dYQCX42MJZB9m57GUXTa+NVaE/VKjN2+gJ8+d0MFPnYuOy7kboN8M?=
+ =?us-ascii?Q?IE2JOo29ERkKnQQNngp9PXx2Q5jdEy4SEqKxWnHrWTYkhkT7sQq1jjGesV+r?=
+ =?us-ascii?Q?E+HeRyBBZqPxjI5c6oHWIsi1CtMZjoAStzu+xwkjKBh5/DXxwTi2vXYU1jVw?=
+ =?us-ascii?Q?d9GY8osExfT9PKbWwjvl7RVeyp/Cq4J4ArAllQOYBOWw3PS3CN/xFxvNyvhy?=
+ =?us-ascii?Q?+a8h2qXgwi1DH5KZiAdJR2tKHHF7VsuYyiCW0Z0K/R1otjECPZtBt3lPxFp6?=
+ =?us-ascii?Q?OpcLcTcpjib6sOersJhJH91DiTBd6wQ0Cx7+42fPfkfGBaP+i7SnsDmCyjcu?=
+ =?us-ascii?Q?EK7xyJ9wXyY82zw0zmLbIlXYY7oBYFa8FYPau7l4fWDiYgJ8EkGQi10GSyFn?=
+ =?us-ascii?Q?Ij9wdnedr0fBIKgeaMNTTZBptTLU/i906JC2Ou/pdJ2F84z/iJNhRf4CVTrm?=
+ =?us-ascii?Q?WpIQAW3fPILzFUtbE6LsNOY1fjG3dkNyJjSD3Ac9DP3shkpp6neUVb0p4zJN?=
+ =?us-ascii?Q?iTQJoCJhxVCsR33A10E/HEtd63PAU3LTSYbkZA1q1oKheNo4rJSGbc9utbrN?=
+ =?us-ascii?Q?I2+nmyqdnlxDNf3DDnbbqvYKHHtR1ZrAjuyGqsL+v2WORSmbPvzAuQy20cy6?=
+ =?us-ascii?Q?Pgf99dSOos1aIJwSLto9ks8WpsJ3n+C8JQ5tAqC02Y/a7/dInDcrIeyVISyn?=
+ =?us-ascii?Q?Zf5T8wrts/KxoYuyxZ9Dcp4Sv/qy+jvWSEyMSzgQIi+UW0qGJbpFASIpHgJe?=
+ =?us-ascii?Q?oMfwb/+hdFWRASx7wsyO/NUeMxtImaubNDDDSRlA7JDYiZTeFoByitmlyd0u?=
+ =?us-ascii?Q?aHwqOxBpis76v2+OstTxrEkcErNzkW/mznbkjVA3xlMk4o6VCkhASIXCcffe?=
+ =?us-ascii?Q?jwHrdijpLHkYPQp05tvRfXZRjC6TeZAonG3ED5flsI8yMRoFAwXwNrJRgJYL?=
+ =?us-ascii?Q?S6krMgULPlqM9a4GhI//fH4EIjH6Oz927bKR7pZ25Xe8fuUqFjqjSBjEMpEC?=
+ =?us-ascii?Q?BJRskHa5adUC02Tj7fo5ZpWOoT2KTYl/sCPgpxmlSLDHAH4SbgDqyPLs2kOq?=
+ =?us-ascii?Q?1/yvfOHVNpmJy5KeKP8N87V9k2f4CVMKxDD5mBxUfF5tcFpQ9K5aWxBfhqCL?=
+ =?us-ascii?Q?n4b98BYRpAjd9fgBjwmGLKi4hi7Y5BitBVLL/moCUhA/HUJDEpxVr7OdL6Il?=
+ =?us-ascii?Q?PskGYOB6k9KxJAjYbZRVWLvG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6rytUPg5snRmQMKTA9zzCnLTknBvHNYLRDv6WY8qRG7GIy9xMENR2gk24BWp?=
+ =?us-ascii?Q?fGYFMSJuVD/1MYJi4unwQKHAqNeZ79JRytKfwDtPtVelLZBGMsmRC0vh8FAC?=
+ =?us-ascii?Q?uOsE5OYnFlQbPSAifg9ht/M1ShTCUkgFZRoSQoBctyQgLepEzhUBQ6d01dQ/?=
+ =?us-ascii?Q?jD+90M7N4w9aJ6yGR3TEJi3hmrxxtZOsyv9R1C+cldiUkwiyn3wbEYTnHtEQ?=
+ =?us-ascii?Q?OItSfn2tJlrE5GKF1IxyvvY4U6WMP3F+xXNOyE5aUd0iKFlet5yIfqGaR2qR?=
+ =?us-ascii?Q?74smatIlfpNoBm7QQ6lI7ftMA7CERVpX7rOPDGIWYuAeBzDKaKVYAUGKCjtA?=
+ =?us-ascii?Q?HcwCyv2ZGIMoQbrITVyjgtgGMAT50+5t281oVGBeWaCDv5smU2Mi45S2bIJS?=
+ =?us-ascii?Q?uVXslGJpf20wVGkUckGiMg+JD30cZs88DC/jkyNcxXxLsoKMZFcAdmBPdjqP?=
+ =?us-ascii?Q?uIEGgFJpp938aeReR5lnW6fp+xp8TP0g62tWx9/v47s+aRM6R1tcrBBkXb7Z?=
+ =?us-ascii?Q?HtLU6egr3UkP91/pYr+FyjYpVFQDr8yMdkRFq16LA2qZpIQUEJ8s7eDgBeSz?=
+ =?us-ascii?Q?qATpAFzv7d1DNKGD9alnogehcl9odjI8r7LFYzvCDEKbB2XnSagk+eh3n1RH?=
+ =?us-ascii?Q?mgladKpW5umJIc7wYVBJluzeVGonZoSABbOoDKKs0R+cNtrgXaz2gtrM+KiX?=
+ =?us-ascii?Q?lBbpJIAlBE5K4fIUpgVO9nQfKnY/VwTSFrd8va6E1NHY7Rpo3sNmmVQDCpWU?=
+ =?us-ascii?Q?i8elVBzo6Sic4zSvc6HJio9WEPTfFky6jmyGrKWkHYzaB1WYHGKiOmz5Jex9?=
+ =?us-ascii?Q?tXihO0lwG74ynK4zMBlU4FTMcWOw8ZUJWiDybyHf05WUUpxlxXRFIxdvKKa6?=
+ =?us-ascii?Q?9dGIBDDCXyTRup2yJvBlSLFKV2Dlz1fcKM0uqj2El1Yyn2yAkwC/svQv39Iv?=
+ =?us-ascii?Q?QXzqnH286xpuEzAFLTCZOqQQFZ8jZ8vz5fgpTzdsI5aUu+1QO5Aj81vOr+Cc?=
+ =?us-ascii?Q?F9vBR2T34D4q22vaeTrYFi0GJWyUdltn6czzi2bUjUEbekDyIRKzUvg7ODUm?=
+ =?us-ascii?Q?89Rf6M6AMwXDX0t8wsCqBKijJpv4rEq+qByoxNoShsG6HvNw1Ms35PQ5wLM+?=
+ =?us-ascii?Q?u6Vh7cUvCkUkdFSRM6Q0FA8oB9LtSFZgn3I0prXhzehShvVViPSZm17OZH3a?=
+ =?us-ascii?Q?DmEaWSXBqNfHF5G1csUauU95eHiVzsz/Pvqbnu7gI5Oq4j7/y4kXk4zo2RvM?=
+ =?us-ascii?Q?XDvO8OYaVFxAzSOt+0Gl8IJsXBWIZqZZe8qbIRWOiVCo10w7AJdNRsFrFMOk?=
+ =?us-ascii?Q?epT2ExoVUQe74mjYhOJPrdwH3FGxcng3G89wKPzouCGXCwyHirXNJXoYxJ9L?=
+ =?us-ascii?Q?rxbeeYpei2O1uvjeRgCJDqB8Xi3vnUxdHhY/UHEV1EGsl2JJ1aVmWItcJMA/?=
+ =?us-ascii?Q?g4L97WR6DnxW2fWCw5piAh4MdRmnG74/4kBOe7H6L8BAe/8dBCt0JXVnpgQz?=
+ =?us-ascii?Q?J0TgMYSqTI2xnWQ/+BkK70QN9lJtJyKuSu/MVwgX9lI4IX2/p9GR73etnnpa?=
+ =?us-ascii?Q?1elt6QOqIEOKzNEC77xsXc/cpbmPSHk9OExDcprl?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0d09501-5672-421a-baeb-08dcf4fd6e13
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 14:00:49.2778
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4xeKJmuR5HHRC9KB/K2QFbdn8b3gIcVyAzJ65da8mh9yyKZGz2pK2ku+mGUgv4Va
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6679
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_070043_898364_D18BE70C 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20241025_070055_972843_9B383C4A 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,107 +177,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+On Thu, Oct 24, 2024 at 07:54:10AM +0000, Tian, Kevin wrote:
+> > From: Jason Gunthorpe <jgg@nvidia.com>
+> > Sent: Thursday, October 10, 2024 12:23 AM
+> > 
+> > Force Write Back (FWB) changes how the S2 IOPTE's MemAttr field
+> > works. When S2FWB is supported and enabled the IOPTE will force cachable
+> > access to IOMMU_CACHE memory when nesting with a S1 and deny cachable
+> > access otherwise.
+> 
+> didn't get the last part "deny cacheable access otherwise"
 
-Am Freitag, 25. Oktober 2024, 15:52:58 CEST schrieb Geert Uytterhoeven:
-> Hi Frank,
->=20
-> On Wed, Oct 23, 2024 at 11:07=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrot=
-e:
-> > Fix the issue where both 'output-low' and 'output-high' exist under GPIO
-> > hog nodes  (rst_usb_hub_hog and sel_usb_hub_hog) when applying device
-> > tree overlays. Since /delete-property/ is not supported in the overlays,
-> > setting 'output-low' results in both properties being present. The
-> > workaround is to disable these hogs and create new ones with 'output-lo=
-w'
-> > as needed.
-> >
-> > Fix below CHECK_DTBS warning:
-> > arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtb: sel-u=
-sb-hub-hog:
-> >    {'output-low': True, 'gpio-hog': True, 'gpios': [[1, 0]], 'output-hi=
-gh': True, 'phandle': 108, '$nodename': ['sel-usb-hub-hog']}
-> >        is valid under each of {'required': ['output-low']}, {'required'=
-: ['output-high']
-> >
-> > Fixes: 3f6fc30abebc ("arm64: dts: imx8mn: tqma8mqnl-mba8mx: Add USB DR =
-overlay")
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > Alex:
-> >         I have not hardware to run it. I check dtb output is correct.
-> > ---
-> >  .../imx8mn-tqma8mqnl-mba8mx-usbotg.dtso       | 29 +++++++++++++++++--
-> >  1 file changed, 27 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbo=
-tg.dtso b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-> > index 96db07fc9bece..1f2a0fe70a0a2 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
-> > @@ -29,12 +29,37 @@ usb_dr_connector: endpoint {
-> >         };
-> >  };
-> >
-> > +/*
-> > + * rst_usb_hub_hog and sel_usb_hub_hog have property 'output-high',
-> > + * dt overlay don't support /delete-property/. Both 'output-low' and
-> > + * 'output-high' will be exist under hog nodes if overlay file set
-> > + * 'output-low'. Workaround is disable these hog and create new hog wi=
-th
-> > + * 'output-low'.
-> > + */
-> > +
-> >  &rst_usb_hub_hog {
-> > -       output-low;
-> > +       status =3D "disabled";
-> > +};
-> > +
-> > +&expander0 {
-> > +       rst-usb-low-hub-hog {
-> > +               gpio-hog;
-> > +               gpios =3D <13 0>;
-> > +               output-low;
-> > +               line-name =3D "RST_USB_HUB#";
-> > +       };
-> >  };
-> >
-> >  &sel_usb_hub_hog {
-> > -       output-low;
-> > +       status =3D "disabled";
-> > +};
-> > +
-> > +&gpio2 {
-> > +       sel-usb-low-hub-hog {
-> > +               gpio-hog;
-> > +               gpios =3D <1 GPIO_ACTIVE_HIGH>;
-> > +               output-low;
-> > +       };
-> >  };
-> >
-> >  &usbotg1 {
->=20
-> Note that after this, there is still
->=20
->     /delete-property/ disable-over-current;
->=20
-> left, which does not actually remove the property.
+ Force Write Back (FWB) changes how the S2 IOPTE's MemAttr field
+ works. When S2FWB is supported and enabled the IOPTE will force cachable
+ access to IOMMU_CACHE memory when nesting with a S1 and deny cachable
+ access when !IOMMU_CACHE.
 
-This is true, I noticed myself. As this patch does not concern about
-disable-over-current, it still is an improvement.
+?
 
-Unfortunately there is currently no way to fix this right now. This is a
-boolean property, which is impossible to remove in overlays.
+> > @@ -169,7 +169,8 @@ arm_smmu_domain_alloc_nesting(struct device *dev,
+> > u32 flags,
+> >  	 * Must support some way to prevent the VM from bypassing the
+> > cache
+> >  	 * because VFIO currently does not do any cache maintenance.
+> >  	 */
+> > -	if (!arm_smmu_master_canwbs(master))
+> > +	if (!arm_smmu_master_canwbs(master) &&
+> > +	    !(master->smmu->features & ARM_SMMU_FEAT_S2FWB))
+> >  		return ERR_PTR(-EOPNOTSUPP);
+> 
+> Probably can clarify the difference between CANWBS and S2FWB here
+> by copying some words from the previous commit message. especially
+> about the part of PCI nosnoop.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-http://www.tq-group.com/
+	/*
+	 * Must support some way to prevent the VM from bypassing the cache
+	 * because VFIO currently does not do any cache maintenance. canwbs
+	 * indicates the device is fully coherent and no cache maintenance is
+	 * ever required, even for PCI No-Snoop. S2FWB means the S1 can't make
+	 * things non-coherent using the memattr, but No-Snoop behavior is not
+	 * effected.
+	 */
+	if (!arm_smmu_master_canwbs(master) &&
+	    !(master->smmu->features & ARM_SMMU_FEAT_S2FWB))
+		return ERR_PTR(-EOPNOTSUPP);
 
+?
 
+Thanks,
+Jason
 
