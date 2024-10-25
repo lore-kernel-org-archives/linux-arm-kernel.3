@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9AAD10399
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68DBD10399
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+1oLZauET+j+jh09kk+YkWrDtNFJkeHnfbIQSJpwvo=; b=bWV9qtMSRRy2WrvKx+0e1vSY16
-	B1HmF8EuByHNHhyTVLhkNgPUvx9K7JFv4f1jAtDz+NsvCzQkE8zFCZahSRmOq9qtGX4Uen07jH8IM
-	WlILWog7oKUDRL7vgQkleNeCrzRmUrau2LbzuQGV2HcCLtkL5RoFc7mqr2qKJZwenVx35Dk2xuHzK
-	Je42SRWw8+KgsAW+leORkzWXVkHyaBNYihlqgEom5QaMgBq9BeWF/hHIHnajzVUEvt1ny3JxqYR5V
-	dZeVJ0p9Lv1aN5IRb2HZIblt+85Nc76NgGEEWgB94f97XAXe3OItxc1HL/7aNvznlm6BWvo3Sgo9V
-	Xk9gbKCw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BZZZwz0qurP9at0y9Iwkn9okEEYxxIWrTa7jOw0qqL8=; b=3h00Pe9reRvYdIILIWFt1e7F4f
+	/1KyJdwNs5bc38O4ZCS3ouxhQmcj6rYlXZdbvlBWrBuXW1T+EPh2qb8N3GbJtpmWLm55ulzzTV19Q
+	r17Tff5TvGceuaXsH2/g55mQYxDMepsSSmPv5CpJXOTmTkZ3xlosPyVnZr9HPjtXy/Wdc79glbL1T
+	ZV5RtKlJcUqntzPK4WBlLQs1SLuccN2ly3KEtsyY4TPyg4qNUMKP5044AIqp06POZKNDCmqdgc7EL
+	8VApzi8+8KOQXl3/o3upCXqHaXaxKy1QrUmPAZugGrzR2953SykcihYyNMx3x65n/ajBkDHImrlgd
+	SXbCVahA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48ql-000000028WD-0wZ8;
-	Fri, 25 Oct 2024 01:10:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t48sI-000000028tt-2nir;
+	Fri, 25 Oct 2024 01:12:22 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48p9-000000028Hd-3Iwk;
-	Fri, 25 Oct 2024 01:09:09 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49OM4uA4016005;
-	Fri, 25 Oct 2024 01:08:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0+1oLZauET+j+jh09kk+YkWrDtNFJkeHnfbIQSJpwvo=; b=W4vvwOLPzOGaas9B
-	jLSprNxIjvObGraTCmiF/1exlX2OadCSEfpI+huU9MpUlcDGnsG+k+sBCoIy9Y/0
-	BekzNapLtjx2wj9geo0YUmMxEyiXQ+JwQBWu6pv8GVqt6GO5j1GGCRsocVyGTGj3
-	6SkTFSMyvNnfens8uKFS5ZKXaCU8q7iLGXIUier6OV3HjpYFkJcokirgmRPHusoT
-	8Q04Sh+QOVdUNKZkZyrWDS+UzsH5DWpVBRv0mYa4iuAeAaTRJlBZuzBYLndYqobV
-	zBEVp45X82ccGByKYuPk1Ge43Ne0ORh9PevtaOeU4cZsSgdTe209UHBucV4H5XnG
-	q5FajA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3xqb1e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 01:08:47 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49P18kTV030019
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 01:08:46 GMT
-Received: from [10.216.22.131] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Oct
- 2024 18:08:40 -0700
-Message-ID: <77d3a1a9-c22d-0fd3-5942-91b9a3d74a43@quicinc.com>
-Date: Fri, 25 Oct 2024 06:38:37 +0530
+	id 1t48pR-000000028KE-2OG5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 01:09:26 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71e7086c231so1102474b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 18:09:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729818564; x=1730423364; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BZZZwz0qurP9at0y9Iwkn9okEEYxxIWrTa7jOw0qqL8=;
+        b=MWgIAnvw9gRPbXVR7qBEV0adAmqoqwZI+A+eD3f4smOgOMf5EE3dB+SvzpCzuOef6y
+         r9SHzugwWjN/MmgPrLsqyAVWNOHtkoWF+Gu/6XL6wPw3dEe6yerZ2E1Mlgqu3gnM1fLP
+         FdFXQVLzNZTsUybAqc0x5Y7q5rwI69xMcov8h8BEsUPQ5O4BZWbL/nTBRgOxMm9k6DxZ
+         +hWlQeCvEp+j5GMXNv/F71GaBjlkTQ1Ax4kVRfbTrsq98ssxFcE7FWGTlWVgPKm7r1Ik
+         X02PbvGo0IO1aAahO+rlsDziyyo2/IJ9omOjWyzw1Q3JyZPB0i9bL9cFdw+xVQ69ID6I
+         +UAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729818564; x=1730423364;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BZZZwz0qurP9at0y9Iwkn9okEEYxxIWrTa7jOw0qqL8=;
+        b=msrj1WgalSGvLOzktteI5M/ju3GvcahGfgcuyu2lrPxYfVCQ5BXawLI9078ErRpxcu
+         PwBcvTGnM/mWS23QeFa19pixEPe9XKGzcHj8BiZzWUkWTwzgtkPJBeewKLh1m4nCLFcT
+         LDY4Z5xX/vNe1W8m2L0P+qAgqGcTNw9L5LyrqVAUsejYk+YLTNABRX30caJr+R5qlAOy
+         HKjYWiMmAsSX0mrjOnBu5VOn1PooQ19EsmN9IaOWXZlRzY2HqIQMex5ouzXl81CtamXA
+         cypKrwe/UX4r4+EqzlKEs2OyJ0LEEE1dHOLqztDu1iah3/Z0YT+am6sMxQ/n0/i6iWxv
+         y8Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwcawv4M9VLcvIvtQvygKf0fwXXmTWrQIhR/M/st3qIOYvcqN2LsK/bpvxiFOk+P1f6mtgV6bG5sMwV1zJI5sS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9UXVhlDHy+HyGHs/wWv3oNkS0640+4PqFi65kbGuGOH0AlgwI
+	ZaLOF6yFWa5dq1uZ6u/SZjAVV8YIUxEQYa+oEoUjRSThM2kGC30e
+X-Google-Smtp-Source: AGHT+IGSKlwpc9RSgZd1gLwMZJwlxrL+8JK1LO1Y3wo3SThclhiafbQHvDrAqcRAj0ItBTgz5ukhLQ==
+X-Received: by 2002:a05:6a00:8d4:b0:71e:617:63c1 with SMTP id d2e1a72fcca58-72045fe2578mr4463593b3a.27.1729818564114;
+        Thu, 24 Oct 2024 18:09:24 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:b160:3edf:6e5d:8d4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0b93csm52875b3a.137.2024.10.24.18.09.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2024 18:09:22 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH 1/3] ARM: dts: imx6sll: Remove regulator-3p0 unit address
+Date: Thu, 24 Oct 2024 22:08:53 -0300
+Message-Id: <20241025010855.1593365-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>, Jim Quinlan <james.quinlan@broadcom.com>
-CC: <linux-pci@vger.kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        Lorenzo Pieralisi
-	<lorenzo.pieralisi@arm.com>,
-        <bcm-kernel-feedback-list@broadcom.com>, <jim2101024@gmail.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
-        Manivannan Sadhasivam
-	<manivannan.sadhasivam@linaro.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "moderated list:BROADCOM BCM7XXX ARM
- ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-        "moderated
- list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
-	<linux-rpi-kernel@lists.infradead.org>,
-        "open list:OPEN FIRMWARE AND
- FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-        open list
-	<linux-kernel@vger.kernel.org>
-References: <20241018182247.41130-1-james.quinlan@broadcom.com>
- <20241018182247.41130-2-james.quinlan@broadcom.com>
- <20241021190334.GA953710-robh@kernel.org>
-From: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
-In-Reply-To: <20241021190334.GA953710-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: bByYqpBSH2WD1znRWTx9ptXkLbDecWdR
-X-Proofpoint-ORIG-GUID: bByYqpBSH2WD1znRWTx9ptXkLbDecWdR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
- impostorscore=0 mlxscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0
- mlxlogscore=999 malwarescore=0 priorityscore=1501 adultscore=0
- clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410250008
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_180907_892001_01C79877 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20241024_180925_631135_DF7955B5 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,68 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fabio Estevam <festevam@denx.de>
 
+According to imx-thermal.yaml, the anatop regulators should not
+contain unit-address/reg entries.
 
-On 10/22/2024 12:33 AM, Rob Herring wrote:
-> On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
->> Support configuration of the GEN3 preset equalization settings, aka the
->> Lane Equalization Control Register(s) of the Secondary PCI Express
->> Extended Capability.  These registers are of type HwInit/RsvdP and
->> typically set by FW.  In our case they are set by our RC host bridge
->> driver using internal registers.
->>
->> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
->> ---
->>   .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12 ++++++++++++
->>   1 file changed, 12 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
->> index 0925c520195a..f965ad57f32f 100644
->> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
->> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
->> @@ -104,6 +104,18 @@ properties:
->>       minItems: 1
->>       maxItems: 3
->>   
->> +  brcm,gen3-eq-presets:
->> +    description: |
->> +      A u16 array giving the GEN3 equilization presets, one for each lane.
->> +      These values are destined for the 16bit registers known as the
->> +      Lane Equalization Control Register(s) of the Secondary PCI Express
->> +      Extended Capability.  In the array, lane 0 is first term, lane 1 next,
->> +      etc. The contents of the entries reflect what is necessary for
->> +      the current board and SoC, and the details of each preset are
->> +      described in Section 7.27.4 of the PCI base spec, Revision 3.0.
-> 
-> If these are defined by the PCIe spec, then why is it Broadcom specific
-> property?
-> 
-Hi Rob,
+Change it accordingly.
 
-qcom pcie driver also needs to program these presets as you suggested
-this can go to common pci bridge binding.
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
-of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
-through P10) and where as data rates of 64.0 GT/s use different class of
-presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
-have optional preset hints (Table 4-24).
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+index 85fe2a4ab97a..0fc22c03ccea 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+@@ -507,12 +507,9 @@ anatop: anatop@20c8000 {
+ 				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+ 					     <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>,
+ 					     <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+ 
+-				reg_3p0: regulator-3p0@20c8120 {
++				reg_3p0: regulator-3p0 {
+ 					compatible = "fsl,anatop-regulator";
+-					reg = <0x20c8120>;
+ 					regulator-name = "vdd3p0";
+ 					regulator-min-microvolt = <2625000>;
+ 					regulator-max-microvolt = <3400000>;
+-- 
+2.34.1
 
-And there is possibility that for each data rate we may require
-different preset configuration.
-
-Can we have a dt binding for each data rate of 16 byte array.
-like gen3-eq-preset array, gen4-eq-preset array etc.
-
-- Krishna Chaitanya
->> +
->> +    $ref: /schemas/types.yaml#/definitions/uint16-array
-> 
-> minItems: 1
-> maxItems: 16
-> 
-> Last I saw, you can only have up to 16 lanes.
-> 
-> Rob
-> 
 
