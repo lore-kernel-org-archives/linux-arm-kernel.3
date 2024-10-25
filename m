@@ -4,79 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48240D149F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C111CD149F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=4kMK+WOZrkOl7ZxRO0QRYVsE0xd+BFqoTk/YOmM72AU=; b=RnzTI/F75XzFDrFCfRq/XjwIuN
-	WY5lORYnJ5g1UHhSTUJbLKKGP6pAwBDPWuk6nJbP6tulfTHGrXiZYknkaXgCF2qNsRyz0cOFQ64/h
-	q3jdZUM/c0gtEK6RgYzet5Ea3jpikpMIYqycwyAdL3jEbIXzAWAprXYVk57TwB8oLt6Hm5wPKadV5
-	WLZJpYa+8hUUVrctYvoSmudPHg5+x+CRmg38K2qFvakRkNv9Af1HPNrqT77kkNR0Qw088oWQJp5A5
-	UN51zewP/PJKrOLe5wuct9SAi+x2m1A5ISxll2O25T084swPpeCDiC+JIGGA6cAJ+82OThJQ63Cme
-	kKI65n8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=; b=E1d78Ch8WJcv3JTfrFkePKuUGB
+	4nhyEJ72Pqs8WjLkU7Xth57avTtKeHRYbdGmr4h+GL8yjiefoZKLgDARiPuLKHSJ+Vl+yL+2ouFBU
+	HX7cjmuTsiXkOFAGFvVb5+ANkJG10IC2TCc8E+r5LoPv0XJlOzuyszADA3wGnZPC4BKDZbDx9I6/L
+	nm3oZyJkE5caqfPCtnXaGBnNuSj6zRLsT7g66Xww7CtpCyqLuTS+YX6YJstuX0Xa+16JXU/AIZn3s
+	HcxT6pxzIt+ql7afvcH1Fhoku7zpV6HYSfDKAyxEFul3uZ5TaT8aW318RybSxOunvfCPDDgDMGavl
+	1oVEs1xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RGn-00000005Bzx-2sEP;
-	Fri, 25 Oct 2024 20:50:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t4ROn-00000005Don-3avr;
+	Fri, 25 Oct 2024 20:59:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4REM-00000005BGM-3NE9
+	id 1t4RND-00000005DX7-1mQT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Oct 2024 20:57:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=; b=UdyAXVau+8oWw/eIXVGpYb/hGT
+	TlJIDre9vodsRr8/zqcmSiF8A0fA/AWuVVU92ExtgO43mmQA7HJ4AI6s4UYGP9xIj/iwVa3ysahAH
+	DXaPleNvhLgVmapukYbxLZWB7cugJXdTU65P8+NgU0Kkeqh7dgqa1hTo96WWQGeSeUdIjoVaDtbws
+	yjJZ0jCO2mmPyp5ZVFxJ+zMCbx5iSmmjs0rRVMekxcpRM7rfZodHIaLB52f3FmZYi/WYJvgXKZRVV
+	3YAUhDbl6+lv/x4r/i4dZuPFrp803/CRwt2ZxmfdBobK0SNVsO8QqdBoJ3W/CRC6kamV4g/hq1svC
+	65qcvwhw==;
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4RNA-000000095j9-0fZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 20:48:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BEA0FA430C4;
-	Fri, 25 Oct 2024 20:46:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 899B8C4CEC3;
-	Fri, 25 Oct 2024 20:48:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729889300;
-	bh=Qa6XR9RW2tuGLCT9wz9qCCFF4BPpg05WsUdkaKPe9fc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=O0JoU/czSmbl+S8+9DjdgPrBH4OmStTDDTzQIXwjc/OMHpIXfOrQFB4U6ZVqzv0xf
-	 F1MBOFsMXtjYe4DoZdxBedNzkL7+2ieGaLLZK+yuVaTzyVti3Exkg4lm0TkWNnnr1f
-	 huLA4gDA4gUde3lNmzInCEadt86mhXxFsWeoUuL5kuu+N9hoYpz9Awaedcotpo98ol
-	 eRikEEuML8bhWNUsDjWgoM+NGO04UqXJwse0KOc43uQAa88h5Nqm+UlXR4wI4IE5b0
-	 s7TfTXzVRq2ntiZbmQOHmiBI0TxH1+Tuf+umrAbPcjDQTfMzZ6vhiFMBVibpuuY/H6
-	 J/ZkDfqrihYTQ==
-Date: Fri, 25 Oct 2024 15:48:18 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 0/4] PCI: ep: dwc/imx6: Add bus address support for
- PCI endpoint devices
-Message-ID: <20241025204818.GA1028925@bhelgaas>
+	Fri, 25 Oct 2024 20:57:30 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so4110651e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 13:57:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729889845; x=1730494645; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=;
+        b=eG5NmktX/fA0dMmQlhlC0Q4uKf+tgYLqYWtnmDT0k8xBfhq/rOwZ4bKIElCgm5USk2
+         wv+doreocPKM9xVPsKvaGDzQDbuPimqsZ/GNnX/3nifyxS+SCS2RsivZqr22cpg5DOcA
+         3dvxMBftXw6mcHfTNn8CdG5px9z+Oza+vPSkXIuN3A/78vhDslZruZhqCpPl85TnSGLZ
+         JpVDdS65LSO9+6scfyqf2j0V1eMgNGyRt2FQA0YpklMCz6c2N9A/rmWP1tdhUGdgDlSB
+         q0g50fpD1l2q1paXoWYOz1wRWy0utwSAsxjC9hXz3cTVNxYX0UN6vVyVntxR1E14dHNT
+         yLSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729889845; x=1730494645;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=;
+        b=UKjMEyxA+ETlzGyNegJ9WK6Kz1MLtUzv0T6MrcANnmDEIiq/lS0l1BAwj2KpmlWWoH
+         hUI92cHU1RwEzvV4pinyFbN/VIBYcWfwDIZXnZRFLxjQdCT/dlKKpVkMM4eE5SObblXI
+         bv6gry9n0hiXeHXo5bu5Wt/772lDayarT1+npxzk8kDoDovf4Sd+tEnYPQ8ic0+snMeP
+         kmCd/6UxL1XtbUE7D4o+OqRP59MWEg8vlZPY7NVxuscg2AesroeOE4us9HMZOpU9wjwJ
+         fmj8kgmufCznZ3LkChlhS2td/CnhtLfII/+iWgUjYLmphufNzI7GdPnEB2hU0oXqrWPi
+         4qYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9tmF3RU1RGgd3796kGZTTcc/hfdu20SD0bdAjAHTYz1AW15wPFgOgbB8RGP1IHClDHDy+z9C38SCx5M0FMcFN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG/bxVLaVTUqwI1oYNkPCn5LTuAllM7XY1yEgv8aTpAYk+b0vr
+	+yadZou7Qt/K1jjJCtDm8/aCBZmrr0ESQjAqgoUgDL2wYRbLwBOYpnr9iGxAUCFyI7WlvQ7CApR
+	Ikaj5yYgXhai8KGwheZ4mLUZqvwZonGdUC2X5lw==
+X-Google-Smtp-Source: AGHT+IGNM4TYAOHuoUTcKkN3riSvNQrGUI2BitGMjHxjJ9ZNHlb/Bci2C7h3R3BXPLmrz9pSyztWUOGUMtDmtzwbabk=
+X-Received: by 2002:a05:6512:3da8:b0:535:6baa:8c5d with SMTP id
+ 2adb3069b0e04-53b348cbb72mr418498e87.20.1729889844751; Fri, 25 Oct 2024
+ 13:57:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
+References: <20241017-arm-kasan-vmalloc-crash-v3-0-d2a34cd5b663@linaro.org>
+ <20241017-arm-kasan-vmalloc-crash-v3-1-d2a34cd5b663@linaro.org>
+ <69f71ac8-4ba6-46ed-b2ab-e575dcada47b@foss.st.com> <CACRpkdYvgZj1R4gAmzFhf4GmFOxZXhpHVTOio+hVP52OBAJP0A@mail.gmail.com>
+ <46336aba-e7dd-49dd-aa1c-c5f765006e3c@foss.st.com> <CACRpkdY2=qdY_0GA1gB03yHODPEvxum+4YBjzsXRVnhLaf++6Q@mail.gmail.com>
+ <f3856158-10e6-4ee8-b4d5-b7f2fe6d1097@foss.st.com> <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
+In-Reply-To: <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 25 Oct 2024 22:57:12 +0200
+Message-ID: <CACRpkdYtG3ObRCghte2D0UgeZxkOC6oEUg39uRs+Z0nXiPhUTA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] ARM: ioremap: Sync PGDs for VMALLOC shadow
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	kasan-dev <kasan-dev@googlegroups.com>, Russell King <linux@armlinux.org.uk>, 
+	Kees Cook <kees@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mark Brown <broonie@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_134823_010248_B6DB698D 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20241025_215728_425871_F3DBA5CB 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,138 +115,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 04:41:42PM -0400, Frank Li wrote:
-> Endpoint          Root complex
->                              ┌───────┐        ┌─────────┐
->                ┌─────┐       │ EP    │        │         │      ┌─────┐
->                │     │       │ Ctrl  │        │         │      │ CPU │
->                │ DDR │       │       │        │ ┌────┐  │      └──┬──┘
->                │     │◄──────┼─ATU ◄─┼────────┼─┤BarN│◄─┼─────────┘
->                │     │       │       │        │ └────┘  │ Outbound Transfer
->                └─────┘       │       │        │         │
->                              │       │        │         │
->                              │       │        │         │
->                              │       │        │         │ Inbound Transfer
->                              │       │        │         │      ┌──▼──┐
->               ┌───────┐      │       │        │ ┌───────┼─────►│DDR  │
->               │       │ outbound Transfer*    │ │       │      └─────┘
->    ┌─────┐    │ Bus   ┼─────►│ ATU  ─┬────────┼─┘       │
->    │     │    │ Fabric│Bus   │       │ PCI Addr         │
->    │ CPU ├───►│       │Addr  │       │ 0xA000_0000      │
->    │     │CPU │       │0x8000_0000   │        │         │
->    └─────┘Addr└───────┘      │       │        │         │
->           0x7000_0000        └───────┘        └─────────┘
-> 
-> Add `bus_addr_base` to configure the outbound window address for CPU write.
-> The BUS fabric generally passes the same address to the PCIe EP controller,
-> but some BUS fabrics convert the address before sending it to the PCIe EP
-> controller.
-> 
-> Above diagram, CPU write data to outbound windows address 0x7000_0000,
-> Bus fabric convert it to 0x8000_0000. ATU should use BUS address
-> 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
+[Me]
+> What happens if you just
+>
+> git checkout b6506981f880^
+>
+> And build and boot that? It's just running the commit right before the
+> unwinding patch.
 
-The above doesn't match what's in patch 1/4, and I think the version
-in 1/4 is better, so I'll comment there.
+Another thing you can test is to disable vmap:ed stacks and see
+what happens. (General architecture-dependent options uncheck
+"Use a virtually-mapped stack".)
 
-To avoid confusion, it might be better not to duplicate it in 0/4 and
-1/4.
-
-> Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
-> the device tree provides this information, preferring a common method.
-> 
-> bus@5f000000 {
-> 	compatible = "simple-bus";
-> 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> 
-> 	pcie-ep@5f010000 {
-> 		reg = <0x5f010000 0x00010000>,
-> 		      <0x80000000 0x10000000>;
-> 		reg-names = "dbi", "addr_space";
-> 		...
-> 	};
-> 	...
-> };
-> 
-> 'ranges' in bus@5f000000 descript how address convert from CPU address
-> to BUS address.
-> 
-> Use `of_property_read_reg()` to obtain the BUS address and set it to the
-> ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
-> 
-> The 1st patch implement above method in dwc common driver.
-> The 2nd patch update imx6's binding doc to add fsl,imx8q-pcie-ep.
-> The 3rd patch fix a pci-mx6's a bug
-> The 4th patch enable pci ep function.
-> 
-> The imx8q's dts is usptreaming, the pcie-ep part is below.
-> 
-> hsio_subsys: bus@5f000000 {
->         compatible = "simple-bus";
->         #address-cells = <1>;
->         #size-cells = <1>;
->         /* Only supports up to 32bits DMA, map all possible DDR as inbound ranges */
->         dma-ranges = <0x80000000 0 0x80000000 0x80000000>;
->         ranges = <0x5f000000 0x0 0x5f000000 0x01000000>,
->                  <0x80000000 0x0 0x70000000 0x10000000>;
-> 
-> 	pcieb_ep: pcie-ep@5f010000 {
->                 compatible = "fsl,imx8q-pcie-ep";
->                 reg = <0x5f010000 0x00010000>,
->                       <0x80000000 0x10000000>;
->                 reg-names = "dbi", "addr_space";
->                 num-lanes = <1>;
->                 interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
->                 interrupt-names = "dma";
->                 clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
->                          <&pcieb_lpcg IMX_LPCG_CLK_4>,
->                          <&pcieb_lpcg IMX_LPCG_CLK_5>;
->                 clock-names = "dbi", "mstr", "slv";
->                 power-domains = <&pd IMX_SC_R_PCIE_B>;
->                 fsl,max-link-speed = <3>;
->                 num-ib-windows = <6>;
->                 num-ob-windows = <6>;
->         };
-> };
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v4:
-> - Fix 32bit build error
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
-> - Link to v3: https://lore.kernel.org/r/20241021-pcie_ep_range-v3-0-b13526eb0089@nxp.com
-> 
-> Changes in v3:
-> - Add mani' review tag for patch 3,4
-> - Add varible using_dtbus_info to control use bus range information instead
-> cpu_address_fixup().
-> - Link to v2: https://lore.kernel.org/r/20240923-pcie_ep_range-v2-0-78d2ea434d9f@nxp.com
-> 
-> Changes in v2:
-> - Totally rewrite with difference method. 'range' should in bus node
-> instead pcie-ep node because address convert happen at bus fabric. Needn't
-> add 'range' property at pci-ep node.
-> - Link to v1: https://lore.kernel.org/r/20240919-pcie_ep_range-v1-0-b3e9d62780b7@nxp.com
-> 
-> ---
-> Frank Li (4):
->       PCI: dwc: ep: Add bus_addr_base for outbound window
->       dt-bindings: PCI: fsl,imx6q-pcie-ep: Add compatible string fsl,imx8q-pcie-ep
->       PCI: imx6: Pass correct sub mode when calling phy_set_mode_ext()
->       PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
-> 
->  .../devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml | 38 +++++++++++++++++++++-
->  drivers/pci/controller/dwc/pci-imx6.c              | 26 ++++++++++++++-
->  drivers/pci/controller/dwc/pcie-designware-ep.c    | 14 +++++++-
->  drivers/pci/controller/dwc/pcie-designware.h       |  9 +++++
->  4 files changed, 84 insertions(+), 3 deletions(-)
-> ---
-> base-commit: afb15ca28055352101286046c1f9f01fdaa1ace1
-> change-id: 20240918-pcie_ep_range-4c5c5e300e19
-> 
-> Best regards,
-> ---
-> Frank Li <Frank.Li@nxp.com>
-> 
+Yours,
+Linus Walleij
 
