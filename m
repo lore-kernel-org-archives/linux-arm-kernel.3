@@ -4,145 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA07D116EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7D3D116EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eweWppgL+Xt5gS+zV/BBlLpv7VvCaCG0CFpZXQ3MXNs=; b=jC6lQCXywwIYQxM+1UpOIEuFJA
-	ncGek1u7geEwPJVHDVRoNYQTrFuwAQ6s1Fa1T1WznDXTL1hBnOhXhVnvQxVOoN5I6ajbbOutKOuTz
-	T+yZgooO4xCiiqPEQtUzCUk1s/KuyGJcWQq32qItdTp6gJCHxgivJvTS5aGUHlB8mL+u0wpMU9WKd
-	lYIWgMONy6pocCs8+5z1NipcNtTQnJtb2DwedGNVj8P2b4j94OqhO7nCz5pt+vytTqkqtpq9YmQAi
-	j8xlQfeccrqqsl56WyY5vlHRSG7k6/wEbB15a2DBJ+gmqt1bVHIdaS+4fWuS34HDZDSVtqNrdKIf2
-	VPtc7xNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zfGHBHIoxV5kA8YjaOaHcL5pnxUwdfqiiPu15uVoLw0=; b=HkoClquTENunNK+tZHTUW3HOnD
+	3ENTzN22Zl5Jn+v0ADhRoOW66DS+aiXil4rTUEBludA6HlC+MCSqZygfcleeERkaj1IMdIY8ojUUI
+	Un5qCxdpHH+NYlA6RzxYKMyW21CwOv7CbRSaQtUaQu2yasAj8lbcZ1TSPsX26pFIF5faywkvrEnCu
+	p6I7PqVYEmadkMbIIvbNhhvs8BcXV92ltX2CUd6xJsM0vqJS/+DJgZXeipiF8vhxiLUN/ocqzfFgw
+	ZO1Y5RZ2RD1X4mGJiNDG3iKuaqHYY1AkM9sc0C4AP3QF5XUdMjE0EXq9V8tTq2LQDKAZnxMv7TZki
+	XOQuxGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4CRo-00000002XSh-0uo0;
-	Fri, 25 Oct 2024 05:01:16 +0000
-Received: from mail-dm6nam11on20626.outbound.protection.outlook.com ([2a01:111:f403:2415::626] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1t4CaL-00000002YVy-0dZD;
+	Fri, 25 Oct 2024 05:10:05 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4CQE-00000002XEC-1hEv
+	id 1t4CYm-00000002YKx-1Vyt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 04:59:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YIq0QaNgr9EROzPqdtTDPCxlfYx2RDjB74zi9Ao/QbVXtWZkdTuxoK+sdklv1AeaBJADg7XgdVa/RPKRN/ymUSgXBw4Xp48Zw8hdmraPkD5TBPVI3zXX9RKy/3JaA+QJ7g9rCyKuBaPb6x0S+R8YF08VWwRNe38Y9BSYCFG71Ng/j6pN/gnTM7GMiAL3OTelsH3xIpgYON2PW9hrXg7PSavEJp6rGHe8Yn58kTuM48UVFCtQybzLeoUWfJDtV6Vn5R86Voov/+DjHjET/ropJBRFxNSYkfSKvGAHMoY2Cs0R2Dde4a1zOczAY+V6KNQYeREMNnGC66FEdoYN0fkAJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eweWppgL+Xt5gS+zV/BBlLpv7VvCaCG0CFpZXQ3MXNs=;
- b=iGnUQeutcs2hcnXT6MxPkKGjW6k0iQg3RJEdLMk5n69l7rOdVwZ6jNbGXXSVeqEB+Zz6xMe+lLJpbxW61fYHu2LpTxUWbk1Zw5Kw203nkX8TWFkDr8VLlLJHEo0ZfpdplrOyi8QPrp52CbtI4Jq25sRkBOtFo3VeKNg88ne1v9G69gswQW8bvAkBSKr59LbcyJeNENr5F2LN7u7xUcf9FMEunHX/mnUGCQ0payEqEfcvt3H75VyvPjVFGM1BAaigZv71CVlmW9FkCSlBjuD2wrVgcd6pyrHY2xbPdGZcwsm8TlmQz+LIjt4YOfa4ADLup3ogsL30MTZyp81ioT2+tQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eweWppgL+Xt5gS+zV/BBlLpv7VvCaCG0CFpZXQ3MXNs=;
- b=MuUL09Txc0sKX0CJssjeBFJHSqafVc/QKz0oHhp62OChVAyaSrehrgWq2PYe8iliqIYYkfFB1aljiU6EsavNpB4I3SaNh3rG5iV9ri99cwpI6mqTlVc/wYYo8Y1NcFPe0Umjnws8JCHqmPphXgIEYUiqDkLnROVmAGiPQlJLjJ3LjzMcTFLyCm4JRM1+gQNVJXcX6cWjJvyy4MFhV2yqbI8A6cYpcQ7+pIbdDB7alHqJxEO8UnloqESrxd4TK3DZ6JGD9uuhG7eH95dQwnZN5NDAVwT+VBAb68SvIxkEWWZBAQcGg5qNbW33wsThRGh8WfnKpBzpSqNFrzKlLIp4hQ==
-Received: from BYAPR07CA0067.namprd07.prod.outlook.com (2603:10b6:a03:60::44)
- by BY5PR12MB4211.namprd12.prod.outlook.com (2603:10b6:a03:20f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Fri, 25 Oct
- 2024 04:59:31 +0000
-Received: from SJ1PEPF000023D7.namprd21.prod.outlook.com
- (2603:10b6:a03:60:cafe::4d) by BYAPR07CA0067.outlook.office365.com
- (2603:10b6:a03:60::44) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.18 via Frontend
- Transport; Fri, 25 Oct 2024 04:59:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF000023D7.mail.protection.outlook.com (10.167.244.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.2 via Frontend Transport; Fri, 25 Oct 2024 04:59:31 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Oct
- 2024 21:59:28 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 24 Oct 2024 21:59:27 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Thu, 24 Oct 2024 21:59:26 -0700
-Date: Thu, 24 Oct 2024 21:59:25 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <zhangfei.gao@linaro.org>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v4 00/14] iommufd: Add vIOMMU infrastructure (Part-2:
- vDEVICE)
-Message-ID: <ZxslrakslZbphayO@Asurada-Nvidia>
-References: <cover.1729555967.git.nicolinc@nvidia.com>
- <98a0e135-4f9b-4a2e-94b5-f1a830a49f19@amd.com>
+	Fri, 25 Oct 2024 05:08:29 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4a74cfa7671so1444194137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 22:08:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1729832903; x=1730437703; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zfGHBHIoxV5kA8YjaOaHcL5pnxUwdfqiiPu15uVoLw0=;
+        b=0s32XnM+URX8C7pve6BQi88Or7YF8dVV/ALhViTRk4RW6AmJqHFWV/lr5iV/S2pODW
+         i5TIueqIcyIpHVvHRA5bVFWkgSj/HmG/rlYgnLgiHZqMAcR9SLpc22hv32uADRo1+1tI
+         8mD8fhbDCkeESrQ/YWtX90dFIG8qs+0ZLNr2ep+pDFnpl5TFQCQ56pr67QenWW2MPhZ3
+         AG9g1KjH4zo9nUg2fe7IYjNTSWun3XTUqLd9rz5u7DDmUCEG2nRYpISSe/1jXiKdTbFL
+         7hQofOBXf5JpAvYnIZ3GiTx93IfhdSG+KERbx+wZ3GVXtVfu4G4vRVjvLtKeppu82p23
+         b7dA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729832903; x=1730437703;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zfGHBHIoxV5kA8YjaOaHcL5pnxUwdfqiiPu15uVoLw0=;
+        b=OvOZBrUrGRPHm4VtHcDFHngNeqkarmKHermUIRw7kPiMXY1+hfCE8YVABchPswmAT0
+         UswV9TuNzdL3hdaOuNOr1qG+SfuoZ1pTJ4gOOGWdMEGDde5Pv6YpU2MsUfAguQ5sRb5h
+         EMSVHC7PjZ7Bejv1PdjhTt95TkOjdVMgEmtnychY0lygUh5797hKdCfMzsRXM6j0G+tJ
+         Qv6/7jmOpb7OObnZYTEYuYtLtiFhKJi3/eEa991mLKt/B01+SfMJh7BLxmjrkLsH/ljy
+         RatEUM6qFVvX+3219xrj3xRw4vuWQFgBwwKXZiplfm97KsPYIlUG/L/ngsRWf8MJtAxB
+         M2Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCWZ0OqNG3/bG88EfOyMHuaAmhQ11ew9uVONnRI3KkcP3sUfaIK8l6lnV6LNazqgf94UuOY9oqXRp4ViU7yPgq1Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiSdpb1gMys7FjbZ7zqqIFR6HTNttCB83VaTd/kqrsVy2nLiK1
+	yB/fUHDdA3gmThMUrsZMjndUwHCc3PhTbWg1UJpaWRPrBnpVx6/aXmEAlnzWvCqY/kayuWw9RkO
+	UYLcV+Bt6ieueazYWpPRaHYlIz4uxC7AS0NGy
+X-Google-Smtp-Source: AGHT+IHUDYUoU8LFUbZ4k2PKGpA+ThkXB1QD3CSnJUZbltuRAF2DUtPp005MRVWQoU3kazWygDbzQCvItjMIBV7xf3M=
+X-Received: by 2002:a05:6102:418a:b0:4a4:72f0:7937 with SMTP id
+ ada2fe7eead31-4a870d306d7mr3512838137.8.1729832902928; Thu, 24 Oct 2024
+ 22:08:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <98a0e135-4f9b-4a2e-94b5-f1a830a49f19@amd.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D7:EE_|BY5PR12MB4211:EE_
-X-MS-Office365-Filtering-Correlation-Id: e4c111c4-b63c-4c93-aec2-08dcf4b1cfe8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ayP5XhxnywFvdscUpDoB6PGAXmeGdFMaiIqBDHLO9J1lChDZ6nhyjuWlRpep?=
- =?us-ascii?Q?0ZC5xY3jjrRDX8CiHlESYec2ntgpu+FDTs3dBHtxnCQtuz/GJIEnLse3jNKl?=
- =?us-ascii?Q?juMuiWJbbMSCv9JItAF0FCoHixd9uhQktYvGk3/P1SEg5bgMVrr8IY1NWays?=
- =?us-ascii?Q?qZqbwIwjikHjWzCffZtBrkFEgkp5pB84CmtCRYw56lLHAaBD5DV7O4Fftzpu?=
- =?us-ascii?Q?6K5ruZBrY6dewpn8yRHkb04QJzguSnAZv0GBv3enES6YQi7e0auzhMsOXYBd?=
- =?us-ascii?Q?BziY9kXWicK2+5BDzbYl5yBfzRDZCcJCj7OEZ+tBGpwyzVuuvV1nyH570sjC?=
- =?us-ascii?Q?CnWtBc+9igqCgU/Ad4UrrbbnfwebgYUloSCvj7BUphTHVx+PjtEvG5qlRJTa?=
- =?us-ascii?Q?iLPgaOyRdT7U2ImVq2wTspG3MSd3j8QV6gt3Gohq7ssqLEWOFh+JAITJx69g?=
- =?us-ascii?Q?E3oaTHKznJPIbf933haSaop3l2pBysXPfwa18Flgkb3l+yA6HcfeuSU/9qH8?=
- =?us-ascii?Q?9mYo1uV2KA8gSZ1Qn8WkLOjCbPiAcTTNhqz/zl2F+3lzl8Tq93P5QuVOT7kG?=
- =?us-ascii?Q?jwyvF4SUxVHdm6aFpqYJMg/OHaRFTwJidVb2P+vcvklQUHenSxOQotDmLG5A?=
- =?us-ascii?Q?QJQrUnpzuPTO23QUeon6oiv/k6/FtH42ZBeEReBamCNq6KzDRfOZ2XyxgFNy?=
- =?us-ascii?Q?JgaPWP2GAgFlTl8cOrB2sV9enR3thiFly4x2frfOAc/MCCEMIqkCzinwuMgO?=
- =?us-ascii?Q?jpDlewA1+UviRdPjmPoikY4IiKAJqg3XjGyIZQZNJxysjMzc6Fe6aYsPs4B4?=
- =?us-ascii?Q?WmrBRQ/m0lQrKwAseZex/tXrNk8W5+UJg3KZK3FMJhi7LBtDRQ4VP5o6xPJD?=
- =?us-ascii?Q?w4MMRnHs2Afh9fRLRCnxxVeZr+rvRAQaOfv6iAH0z3tXOOcwfdZk1mKi0K9q?=
- =?us-ascii?Q?Ese6cNH+ZllEn/m1QEWZ1q8hyF+qjRuQ9xP9vzhIx9GTt92edsJQvzuHT51+?=
- =?us-ascii?Q?LL9ItGQ3vIz2XnE32pFY9cEwtIr633Fozl6BQHwI+Cs/XqtMnV69zgP9Xr77?=
- =?us-ascii?Q?1tXdQQ/mcEtainVDxOuJtgOWJkmZDAONFnlddsqjLsJ6CI7qxpCmMjZpdxGI?=
- =?us-ascii?Q?sXEl0Rm9owczhULignOUYqAt4cNJkoItEddAm6iyc5KWVrFLoM6XDMSGA7sj?=
- =?us-ascii?Q?Gmr9T1JWtKMTUxMOZKHgvE0bxbvuxAH9yY2bpzXyX48nkTg6/gZkfaMYaDOX?=
- =?us-ascii?Q?ZDzAWonm9MdySFd4i6CmPvrgiuK2gmVjs5U9snKJai+m9m5fhEsk12yHfX51?=
- =?us-ascii?Q?Vx1kEUs27jjHW6t3WP8qQ1yTDjxWY92BpqNrKvSSOkV1eEuL9dUpffUAs80/?=
- =?us-ascii?Q?CbGORrqbCOTPnvHIo6V0DK1W0JolZv+zwZJni0wlr+GIeW0NuLuD9kqKvkhd?=
- =?us-ascii?Q?Sbf6TWwQgKw=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 04:59:31.4133
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4c111c4-b63c-4c93-aec2-08dcf4b1cfe8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D7.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4211
+References: <20241021042218.746659-1-yuzhao@google.com> <20241021042218.746659-4-yuzhao@google.com>
+ <86a5ew41tp.wl-maz@kernel.org>
+In-Reply-To: <86a5ew41tp.wl-maz@kernel.org>
+From: Yu Zhao <yuzhao@google.com>
+Date: Thu, 24 Oct 2024 23:07:45 -0600
+Message-ID: <CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
+Subject: Re: [PATCH v1 3/6] irqchip/gic-v3: support SGI broadcast
+To: Marc Zyngier <maz@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Muchun Song <muchun.song@linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
+	Will Deacon <will@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_215938_491583_0B897653 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20241024_220828_424201_2AC4FCE1 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,62 +95,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 03:54:44PM +1100, Alexey Kardashevskiy wrote:
-> On 22/10/24 11:20, Nicolin Chen wrote:
-> > Following the previous vIOMMU series, this adds another vDEVICE structure,
-> > representing the association from an iommufd_device to an iommufd_viommu.
-> > This gives the whole architecture a new "v" layer:
-> >    _______________________________________________________________________
-> >   |                      iommufd (with vIOMMU/vDEVICE)                    |
-> >   |                        _____________      _____________               |
-> >   |                       |             |    |             |              |
-> >   |      |----------------|    vIOMMU   |<---|   vDEVICE   |<------|      |
-> >   |      |                |             |    |_____________|       |      |
-> >   |      |     ______     |             |     _____________     ___|____  |
-> >   |      |    |      |    |             |    |             |   |        | |
-> >   |      |    | IOAS |<---|(HWPT_PAGING)|<---| HWPT_NESTED |<--| DEVICE | |
-> >   |      |    |______|    |_____________|    |_____________|   |________| |
-> >   |______|________|______________|__________________|_______________|_____|
-> >          |        |              |                  |               |
-> >    ______v_____   |        ______v_____       ______v_____       ___v__
-> >   |   struct   |  |  PFN  |  (paging)  |     |  (nested)  |     |struct|
-> >   |iommu_device|  |------>|iommu_domain|<----|iommu_domain|<----|device|
-> >   |____________|   storage|____________|     |____________|     |______|
-> > 
-> > This vDEVICE object is used to collect and store all vIOMMU-related device
-> > information/attributes in a VM. As an initial series for vDEVICE, add only
-> > the virt_id to the vDEVICE, which is a vIOMMU specific device ID in a VM:
-> > e.g. vSID of ARM SMMUv3, vDeviceID of AMD IOMMU, and vID of Intel VT-d to
-> > a Context Table. This virt_id helps IOMMU drivers to link the vID to a pID
-> > of the device against the physical IOMMU instance. This is essential for a
-> > vIOMMU-based invalidation, where the request contains a device's vID for a
-> > device cache flush, e.g. ATC invalidation.
-> > 
-> > Therefore, with this vDEVICE object, support a vIOMMU-based invalidation,
-> > by reusing IOMMUFD_CMD_HWPT_INVALIDATE for a vIOMMU object to flush cache
-> > with a given driver data.
-> > 
-> > As for the implementation of the series, add driver support in ARM SMMUv3
-> > for a real world use case.
-> > 
-> > This series is on Github:
-> > https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4
-> > 
-> > For testing, try this "with-rmr" branch:
-> > https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4-with-rmr
-> 
-> Is there any real example of a .vdevice_alloc hook, besides the
-> selftests? It is not in iommufd_viommu_p2-v4-with-rmr, hence the
-> question. I am trying to sketch something with this new machinery and
-> less guessing would be nice. Thanks,
+Hi Marc,
 
-No, I am actually dropping that one, and moving the vdevice struct
-to the private header, as there seems to be no use case:
-https://lore.kernel.org/linux-iommu/ZxsSYbK3gqyC84U7@Asurada-Nvidia/
-https://lore.kernel.org/linux-iommu/ZxsTAANTTuQzQ9HR@Asurada-Nvidia/
+On Tue, Oct 22, 2024 at 9:03=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
+:
+>
+> On Mon, 21 Oct 2024 05:22:15 +0100,
+> Yu Zhao <yuzhao@google.com> wrote:
+> >
+> > GIC v3 and later support SGI broadcast, i.e., the mode that routes
+> > interrupts to all PEs in the system excluding the local CPU.
+> >
+> > Supporting this mode can avoid looping through all the remote CPUs
+> > when broadcasting SGIs, especially for systems with 200+ CPUs. The
+> > performance improvement can be measured with the rest of this series
+> > booted with "hugetlb_free_vmemmap=3Don irqchip.gicv3_pseudo_nmi=3D1":
+> >
+> >   cd /sys/kernel/mm/hugepages/
+> >   echo 600 >hugepages-1048576kB/nr_hugepages
+> >   echo 2048kB >hugepages-1048576kB/demote_size
+> >   perf record -g -- bash -c "echo 600 >hugepages-1048576kB/demote"
+> >
+> >          gic_ipi_send_mask()  bash sys time
+> > Before:  38.14%               0m10.513s
+> > After:    0.20%               0m5.132s
+> >
+> > Signed-off-by: Yu Zhao <yuzhao@google.com>
+> > ---
+> >  drivers/irqchip/irq-gic-v3.c | 20 +++++++++++++++++++-
+> >  1 file changed, 19 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.=
+c
+> > index ce87205e3e82..42c39385e1b9 100644
+> > --- a/drivers/irqchip/irq-gic-v3.c
+> > +++ b/drivers/irqchip/irq-gic-v3.c
+> > @@ -1394,9 +1394,20 @@ static void gic_send_sgi(u64 cluster_id, u16 tli=
+st, unsigned int irq)
+> >       gic_write_sgi1r(val);
+> >  }
+> >
+> > +static void gic_broadcast_sgi(unsigned int irq)
+> > +{
+> > +     u64 val;
+> > +
+> > +     val =3D BIT(ICC_SGI1R_IRQ_ROUTING_MODE_BIT) | (irq << ICC_SGI1R_S=
+GI_ID_SHIFT);
+>
+> As picked up by the test bot, please fix the 32bit build.
 
-Do you need vdevice_alloc in the driver for your sketch?
+Will do.
 
-Thanks
-Nicolin
+> > +
+> > +     pr_devel("CPU %d: broadcasting SGI %u\n", smp_processor_id(), irq=
+);
+> > +     gic_write_sgi1r(val);
+> > +}
+> > +
+> >  static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask=
+ *mask)
+> >  {
+> >       int cpu;
+> > +     cpumask_t broadcast;
+> >
+> >       if (WARN_ON(d->hwirq >=3D 16))
+> >               return;
+> > @@ -1407,6 +1418,13 @@ static void gic_ipi_send_mask(struct irq_data *d=
+, const struct cpumask *mask)
+> >        */
+> >       dsb(ishst);
+> >
+> > +     cpumask_copy(&broadcast, cpu_present_mask);
+>
+> Why cpu_present_mask? I'd expect that cpu_online_mask should be the
+> correct mask to use -- we don't IPI offline CPUs, in general.
+
+This is exactly because "we don't IPI offline CPUs, in general",
+assuming "we" means the kernel, not GIC.
+
+My interpretation of what the GIC spec says ("0b1: Interrupts routed
+to all PEs in the system, excluding self") is that it broadcasts IPIs to
+"cpu_present_mask" (minus the local one). So if the kernel uses
+"cpu_online_mask" here, GIC would send IPIs to offline CPUs
+(cpu_present_mask ^ cpu_online_mask), which I don't know whether it's
+a defined behavior.
+
+But if you actually meant GIC doesn't IPI offline CPUs, then yes, here
+the kernel should use "cpu_online_mask".
+
+> > +     cpumask_clear_cpu(smp_processor_id(), &broadcast);
+> > +     if (cpumask_equal(&broadcast, mask)) {
+> > +             gic_broadcast_sgi(d->hwirq);
+> > +             goto done;
+> > +     }
+>
+> So the (valid) case where you would IPI *everyone* is not handled as a
+> fast path? That seems a missed opportunity.
+
+You are right: it should handle that case.
+
+> This also seem an like expensive way to do it. How about something
+> like:
+>
+>         int mcnt =3D cpumask_weight(mask);
+>         int ocnt =3D cpumask_weight(cpu_online_mask);
+>         if (mcnt =3D=3D ocnt)  {
+>                 /* Broadcast to all CPUs including self */
+
+Does the comment mean the following two steps?
+1. Broadcasting to everyone else.
+2. Sending to self.
+
+My understanding of the "Interrupt Routing Mode" is that it can't
+broadcast to all CPUs including self, and therefore we need the above
+two steps, which still can be a lot faster. Is my understanding
+correct?
+
+>         } else if (mcnt =3D=3D (ocnt - 1) &&
+>                    !cpumask_test_cpu(smp_processor_id(), mask)) {
+>                 /* Broadcast to all but self */
+>         }
+>
+> which avoids the copy+update_full compare.
+
+Thank you.
 
