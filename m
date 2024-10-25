@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19250D11718
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23167D11718
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6laKqa55/o0629X+75d0Pfs5pGBVZ/MLyO3PoLeX31M=; b=lnr9lXxtdrGhxkXrtMDdw/Vzqa
-	X1yvav9m5Lth1B+4GtbZtxkMk8KjVg0RvtDXbTtSVDphkh2kEhW2T2eMZSciq2iut5/RNa9e/RyYM
-	dUQbzgPbf8KSwizBJsFuxlFDpje9O8tBpXTa5YECMWlOG9PPQKyFCkUn/Y1cTSlYF2GiDKwdS1epF
-	adOg6GmN2sAmosZHaaWbAn3mjUMlR5fJ6Bq4DyA3m4WJS2QadS8GlZUDS3GpJKpExkr3ffyLXKOkd
-	STqsByLM3/1ldj0yqeV92FIwBnhRhB/oOh2gHA1Xi8QWVc1n+W4jVtBK4kCxdE1FgucFBMt7MUfgV
-	yFUi40Rg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ocz8O19Ri16sCIqDKqqWyBeGwEbvKhFKD3K8dqT+N6c=; b=u50ZLRKcIocMqnv7J/EGObllVs
+	U7iSU9oRkWlf92uuOxmJRNObwTuqettkk5yXFrxQo+aZYB3sSZp1m6RY9hB+hQylQVGK1RU4u6fus
+	nJ7SeQQcexicMMtbAk0ju3QYHdyDwMPHgfvawWYdrKdtNsU4Yd3IeFP+9im9DZjrUsxiABZpGYCHa
+	yf9Im6uEp2jTXRr78Nn9wCAt9MLIXNVsb1VnLTwIuMTySP1IhmUfKmxl0U6VABk/SJy7iy675ze88
+	lVasGV4bxQBqC1bJrL3ab1G7fLc8vR5ZPhkNA03TMkDXLjDQPzFne7iikO6qxxunt5ttc1gf3mIdI
+	ZD34dNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FD9-00000002spg-13e4;
-	Fri, 25 Oct 2024 07:58:19 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1t4FEh-00000002t81-2slG;
+	Fri, 25 Oct 2024 07:59:55 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FBY-00000002sXR-1Xrd
+	id 1t4FBZ-00000002sYT-44eq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 07:56:42 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2e2cc469c62so1254289a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:56:39 -0700 (PDT)
+	Fri, 25 Oct 2024 07:56:43 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2e5a0177531so1329478a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:56:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729842999; x=1730447799; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6laKqa55/o0629X+75d0Pfs5pGBVZ/MLyO3PoLeX31M=;
-        b=eUJjqlSXLuKMibEA/2cZP23Lg88Cyy4zdIA4j3zaxmLNmQl2Wy/ejzEJt7Uv4no5Wa
-         fv17NEGoPGf9sTx2NEnMdw+kMO1dO1W7x/nF/DJsKz8e0cAg/QrSvTV4RwHfY2D+wt2o
-         ljyv9Q3D4YqTK/nOxUrN80KcytL+5rM33X5XQ=
+        d=chromium.org; s=google; t=1729843001; x=1730447801; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ocz8O19Ri16sCIqDKqqWyBeGwEbvKhFKD3K8dqT+N6c=;
+        b=X0yFuEieUeXYQ7rd2MQ43x0rRA68NWy6F1FbGC9nGr2BvKfkB9hTRgzsr4cmsEUj2I
+         MWIeAqIRN+RkF8fFsgzfOSnJpsFugz0SchlUYFiVOOcrCRaAjykAkSy5crWC6N2ppkZW
+         X2HiFkYt/vEPf8jmjhpleb24bWrWCBwoP+PWw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729842999; x=1730447799;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6laKqa55/o0629X+75d0Pfs5pGBVZ/MLyO3PoLeX31M=;
-        b=Xanz1AHDMYn61o8M6jK0Y4qm6UOnMMA1RyS+ANG9M4BYge3Tecc1XG0popoD6q7VdK
-         0+C0Ukhn9OH8BkkBEv8BpYvoQ97TmPUTqIYffA7dtoJkOJkv4TjBxRsVCIXvzCfu3NLc
-         SLq+k+mdE3yvxoRJT/E/y3EANH3syj5wBJVo6WJFqN+lNnrDU98RMkqNRaOD7i5CGzFk
-         ND8mHqsjWb0oGVCCzHD/laM+YAXajsCLstYGf0capwRDbLS0v9d1ncHyeHP9DibsxB2Y
-         aCQMyGzt9qudpw/PI7wqHKZW+zgQ8eFA7pN5VbaL2JkPHfU0OId/G6OpuQ0jdGjAbgla
-         UgAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBvtRel59Tj86uurT02EvgirZMU2REdXiEGis6AKkljDbDEaAA+9f+q1kJR4IGB2bi8XPdVMtd4MlxRuNNG/5/@lists.infradead.org
-X-Gm-Message-State: AOJu0YywaGCrHN14oWzIYHHmFTybrQNeZyKJPgc/FeDeSRCdvg2kqAIh
-	zKoLoSnTw1l92DslIuAXCOx8hB6pmJNzD23IW0diZRK+enELHLvjsjc/8RLAzfChcm+Upoo3FPw
-	=
-X-Google-Smtp-Source: AGHT+IFmmKGI2cs990SRzNz65POmVSt+7jqG6ghbGRlWIcpYgMGvGVtY/qLmA8mHzd2tQ8d9uEfU1g==
-X-Received: by 2002:a17:90b:3850:b0:2e2:d1a3:faf9 with SMTP id 98e67ed59e1d1-2e76b716566mr7196222a91.40.1729842998905;
-        Fri, 25 Oct 2024 00:56:38 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729843001; x=1730447801;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ocz8O19Ri16sCIqDKqqWyBeGwEbvKhFKD3K8dqT+N6c=;
+        b=kVZ6E6u+D+aWDmcoKlvnJ8CtM+sDUR5IeDKiw2Q4MPN2hneUr1Zph+pR5xbfE812V5
+         +yOuL0xrxJYIDUA7LELwNGBCdzYQX8vqAHNT1PByR3VP5OiClEEWyc1ZnMhy90hrGmIM
+         XNYRjw1g90twO6zFjk26b0tQ3NKFHrsLBHClh8v4KoLvKGJGLuHeb3jrG7NZuFg/xVwO
+         xL/mU4xLAnC3+SthhMykw8a1/2sJLqRiNVvkwzrix28e9foT1v5w6mDNRYX/SfO39Sod
+         70heBZv2KBg39zdsQ3epjudSEN2xKS2P/dT/Yw0FbYdKZS/cgqkZwIOTwp3Lvamap6VS
+         69rg==
+X-Forwarded-Encrypted: i=1; AJvYcCW/BsQ2RBSmv+zQWkqa75gAKTlacbtzf5uW3cHxmNw1GZ2tGh9y1opbJ7RsYOlxbZuWjvrcM0RCT3tx3qXZTOcF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkJAR7ajmEVOB2eJbDM5VV96LHfiQLZyEUnPa6jA9fhbIBRAZm
+	awfi2sYCXXy7UbRS60BAE61aOD4UCvrcZGjtpP8QJsZqZK1CjcpCA+ZxjQ5qUQ==
+X-Google-Smtp-Source: AGHT+IEhpzhZePgnGrlXh89W3IHK0viadpu28ous3jPT9MS8vhveF6ukqC0oYeARpOE5I3mtsl0sYA==
+X-Received: by 2002:a17:90b:30f:b0:2e2:e82d:48cf with SMTP id 98e67ed59e1d1-2e77f4a274amr4863299a91.16.1729843000877;
+        Fri, 25 Oct 2024 00:56:40 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:d8f:752c:c7f1:3169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4c9c1bsm2797553a91.19.2024.10.25.00.56.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4c9c1bsm2797553a91.19.2024.10.25.00.56.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 00:56:38 -0700 (PDT)
+        Fri, 25 Oct 2024 00:56:40 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -69,15 +69,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH 1/2] arm64: dts: mediatek: mt8183: Disable DPI display output by default
-Date: Fri, 25 Oct 2024 15:56:27 +0800
-Message-ID: <20241025075630.3917458-1-wenst@chromium.org>
+Subject: [PATCH 2/2] arm64: dts: mediatek: mt8183: Disable DSI display output by default
+Date: Fri, 25 Oct 2024 15:56:28 +0800
+Message-ID: <20241025075630.3917458-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+In-Reply-To: <20241025075630.3917458-1-wenst@chromium.org>
+References: <20241025075630.3917458-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_005640_451407_9A693B31 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20241025_005642_026319_8B1CA670 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 377548f05bd0905db52a1d50e5b328b9b4eb049d.
-
 Most SoC dtsi files have the display output interfaces disabled by
 default, and only enabled on boards that utilize them. The MT8183
 has it backwards: the display outputs are left enabled by default,
 and only disabled at the board level.
 
-Reverse the situation for the DPI output so that it follows the
-normal scheme. For ease of backporting the DSI output is handled
+Reverse the situation for the DSI output so that it follows the
+normal scheme. For ease of backporting the DPI output is handled
 in a separate patch.
 
-Fixes: 009d855a26fd ("arm64: dts: mt8183: add dpi node to mt8183")
-Fixes: 377548f05bd0 ("arm64: dts: mediatek: mt8183-kukui: Disable DPI display interface")
+Fixes: 88ec840270e6 ("arm64: dts: mt8183: Add dsi node")
+Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
 Cc: <stable@vger.kernel.org>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi | 5 -----
- arch/arm64/boot/dts/mediatek/mt8183.dtsi       | 1 +
- 2 files changed, 1 insertion(+), 5 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts | 4 ----
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi        | 1 +
+ 2 files changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-index 07ae3c8e897b..22924f61ec9e 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-@@ -290,11 +290,6 @@ dsi_out: endpoint {
- 	};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
+index 61a6f66914b8..dbdee604edab 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
+@@ -522,10 +522,6 @@ &scp {
+ 	status = "okay";
  };
  
--&dpi0 {
--	/* TODO Re-enable after DP to Type-C port muxing can be described */
+-&dsi0 {
 -	status = "disabled";
 -};
 -
- &gic {
- 	mediatek,broken-save-restore-fw;
- };
+ &dpi0 {
+ 	pinctrl-names = "default", "sleep";
+ 	pinctrl-0 = <&dpi_func_pins>;
 diff --git a/arch/arm64/boot/dts/mediatek/mt8183.dtsi b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-index 1afeeb1155f5..8f31fc9050ec 100644
+index 8f31fc9050ec..c7008bb8a81d 100644
 --- a/arch/arm64/boot/dts/mediatek/mt8183.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-@@ -1845,6 +1845,7 @@ dpi0: dpi@14015000 {
- 				 <&mmsys CLK_MM_DPI_MM>,
- 				 <&apmixedsys CLK_APMIXED_TVDPLL>;
- 			clock-names = "pixel", "engine", "pll";
+@@ -1834,6 +1834,7 @@ dsi0: dsi@14014000 {
+ 			resets = <&mmsys MT8183_MMSYS_SW0_RST_B_DISP_DSI0>;
+ 			phys = <&mipi_tx0>;
+ 			phy-names = "dphy";
 +			status = "disabled";
+ 		};
  
- 			port {
- 				dpi_out: endpoint { };
+ 		dpi0: dpi@14015000 {
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
