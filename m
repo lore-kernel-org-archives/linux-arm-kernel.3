@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1140D0C608
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FFED0C608
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQgS5nIosT9WP+28fCSlQ/AHJVYYLIctL5rlsevVeIM=; b=ejsznp6muWBxN7UyE6KWkkat7z
-	pUO8uYpB0l/EIqf94VnLDQ65wUoPW1rVEofA+uZljw7qerU4bRdzOhg7JoHYGuet3XkcXcSdhn79A
-	xkPmPiHejPZ+VbCVXb0CJAjjWGUIiHrBR+gFjSmBniNk/4/AFFkpEVh3JZk1GwwtsKJtRyPQvcSPN
-	2LUndoJaNstqAFkrzFdcd47EAPYXBZ9myoq03J4C6Q39TjTihwDMh+eDxm0S0CU+btBQTDZsaKC/q
-	hwFkjGK6rZ20DNHUNnj4m5Hz88r9GGZko393T6BaPA4wZ2Dj1/rai3lZGAek/4RH+ASXx/R32IPAD
-	F8mYEDzg==;
+	bh=cdoImO6OFfTM2Lw/aicaT3K93cFHqPSr98CjhrJS+DM=; b=SjmTh9kkyaZrVlpeWJcbjCOTe/
+	9EOVdNFtmgaLwcpIvXDMj8XwoQ331HPKIRX7EcQ22XGQlR/rxoU6IzQqdXqkJ4CdoTft6tTtxRz23
+	1kwEa9teA9Rj4D9sYCQsEjJMr7ZJv1xdHhuSGgknxrzoEn53XkzoNEh6CGs1OEOTpBb8Hqz2pioOs
+	vkGxDZ6LNOl2HvuyREn4h7/x9AyYH3Omu/Zj9V6/eSzmvPNKw115lNMdwuzA7APtebHK3L1pW0btX
+	baXxsa+Nm64wguBrF+JMkN4VfYVKieMZ0T2wBImAaBjC5ohGmpxqqpSCsLvQR6cwYKNSbLowI05pf
+	GCvimbqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KQ5-00000003pNg-3TFQ;
-	Fri, 25 Oct 2024 13:32:01 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1t4KRg-00000003pmM-39I0;
+	Fri, 25 Oct 2024 13:33:40 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K9W-00000003mix-3PSt
+	id 1t4K9X-00000003mjJ-3QdF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:15:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4314c4cb752so20214565e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:54 -0700 (PDT)
+	Fri, 25 Oct 2024 13:15:21 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539fbe22ac0so2390755e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729862093; x=1730466893; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1729862094; x=1730466894; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yQgS5nIosT9WP+28fCSlQ/AHJVYYLIctL5rlsevVeIM=;
-        b=ulrL9JaLLmiCAHJmIS2waVvqfgUcy6ivEYHIbGpP/LJlCxYazAQGQ1COeGinhAEPi9
-         lj/lC8fBbmpgYpUdNXXZRCRUcgcM7MqntXsGN1b3lNHUzynytMB/9XpQKHz/qIYADOM1
-         TqAgR8WKWnWg1K7FYzoeL99lZ2tUsAjvmqBCHl7wdvKGa2WVvJnCmhIWbnPIy9GqmKl4
-         ZRw3D72TVa1ciJVgSNXOd8JrZLyjjew+Z+vanpJQImCtajCn6t7bVUOOloyvIqwyrMGi
-         F00E8iaPbTFTehL952jr7pXt2n/nKY6wZv0zH3IrxzBH8UC0k1mb9mGenSp6NvxZkHBA
-         UlNw==
+        bh=cdoImO6OFfTM2Lw/aicaT3K93cFHqPSr98CjhrJS+DM=;
+        b=XRf80yYDmGADNjB9Eou7LVUKIXNzyU/UTCUR1CvswE5l5q03GoItbWx1nBaTiRnH9u
+         YJlQZfbKbyg9Et7B3C+W/bKouTHErvr2P1GAu1f1iI3Dlt6KaOmSRWT2v4ZQqCdbLFxq
+         huArdtIqnx1slT+xY0sJ8mTsC71iAMkfYjdRw/9yMEOKrWcoAETvvqJR56tyQMgi8VVX
+         suvbMVMRmR1ZKJq+sj1EIrAUDKOMm51NeqseIAGVPQB3QJ9wKLrFU666dvqGYBiIKWq3
+         xKLC085EPzWU5y69wFG93jJw2hLNRfDv+p6FQ/cdKVB0oSFAu92frNqg8pZpnPY4SDDZ
+         K8LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729862093; x=1730466893;
+        d=1e100.net; s=20230601; t=1729862094; x=1730466894;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yQgS5nIosT9WP+28fCSlQ/AHJVYYLIctL5rlsevVeIM=;
-        b=DipY5Bh76n8lGnLV2ugvoCcLtQkS2Pt1F6N0VF2VZaMVSUs4i0fup2ia/qBrTt92hT
-         9m0s/CmMJL7u/Cea5ycqxFfi2cQfghTG0RxmZgjSh3NiPDXKhTBvoNwG7t0I+DnyDXs4
-         tWiU2puj8nkcAAfRUXXLgy7P9opnbgyS6EpU6g6sPBUMklfSJbhX34aFWbWXCFX+naTu
-         9jKVZqSyHRcEBDfdZUyDW7epg8dgKmTQpDJqd4/dIhtc9XrFar/mucef+wmv0hOy4WO2
-         VgivKzJRnpN04LE/65tIHgsRIWSD5r8cj/rprvhMYxhMJLfpxfVt+OfftGKXMvRH2xWz
-         beTw==
-X-Forwarded-Encrypted: i=1; AJvYcCUldVS4PyqPxbEzWEDWNo/hsjxFX5Yx/BGEtUu6yi9DbMZb+UQXLiMHvA/E8zMltsN8Wm5s9XAQo+w3W2Oac2oO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7BUwTLpnhv1xYJeznMD6Wi81ObsoOznhVK6XOqQ7VNUeby6Lt
-	G13z7hOGpYDerhVr46KHZt/UE5kgHI12xoz2KKhyNC68dEjSsSDF/t4EwI2cNUA=
-X-Google-Smtp-Source: AGHT+IFu6kZDvdli2L18ry096b5sZipxK9OsOWeDSxbyTNiVEAO1GAWmUbs/6CZi5Y3noCEY1ICL6w==
-X-Received: by 2002:a05:600c:3543:b0:431:6153:a246 with SMTP id 5b1f17b1804b1-4318414a3d9mr88410625e9.13.1729862092697;
-        Fri, 25 Oct 2024 06:14:52 -0700 (PDT)
+        bh=cdoImO6OFfTM2Lw/aicaT3K93cFHqPSr98CjhrJS+DM=;
+        b=JOKQ7kTJBhv+Q5o9Z79vHfFDG7nfYg3Gkg0l7ATSPDcIll+nf4/VDac9LkOvkw080y
+         MOlXSnda0CawR0b8Xlb6WYSsv+q4NDzJ/YjT7LEfUsIgWpOLKq2uSWxZYYIrx4X3+kIQ
+         CFocyxhyOOhlBF6l3PrnVzaAjSSSH7qpDuYOK21S/Jwc/QwAM2DqddhMv/rrBUeJfmKe
+         mDWl6CPtTs0lNP1W7ixVvqQ5yQp+QFBYkvF9o4poGDi2NJetkAMFcRdIxtTqu1d2SFJr
+         DGdmyTRS8pPDyxFMGIXiEM36LbQD65RH+WyUVLPr++JS8Q3TkxvhvxD2+ZwBP1IyHDvc
+         s0lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXPPj2tmQRruhPifhVt/tOLXlAcLD/Cw+mhkp1BwyF/AahHLKykcvVOioWRO1r4puZku8A20Yat7fYdeam4zCj5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0fbV/1QlOVMBs1X4e8ecVfs0pnOTmPBROrlean+g0BHSYyecY
+	UrMnd5lYYJar6/v6Zx3F6/3FxzC+7chY8mmIhTzWWxQrhH8/UbhJLG/TyDG2J4o=
+X-Google-Smtp-Source: AGHT+IHBrQGT9pmxc4oL2n1+HSGkoaeL5c5Y5zzjK0zgLQAj/a//GEezqB7iJbnehPJAIoa5TXY2sg==
+X-Received: by 2002:a05:6512:1585:b0:52f:d69e:bb38 with SMTP id 2adb3069b0e04-53b23dcd34fmr3409903e87.2.1729862094046;
+        Fri, 25 Oct 2024 06:14:54 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.67.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 06:14:52 -0700 (PDT)
+        Fri, 25 Oct 2024 06:14:53 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -81,17 +81,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-kernel@vger.kernel.org,
 	ebiggers@kernel.org,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v2 03/11] scsi: ufs: exynos: gs101: remove EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL
-Date: Fri, 25 Oct 2024 14:14:34 +0100
-Message-ID: <20241025131442.112862-4-peter.griffin@linaro.org>
+Subject: [PATCH v2 04/11] scsi: ufs: exynos: Add EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
+Date: Fri, 25 Oct 2024 14:14:35 +0100
+Message-ID: <20241025131442.112862-5-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241025131442.112862-1-peter.griffin@linaro.org>
 References: <20241025131442.112862-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_061454_871025_8EAE5BE1 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20241025_061455_875748_775CAC8C 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This flag is not required for gs101 SoC.
+The values calculated in exynos_ufs_specify_phy_time_attr() are only used
+in exynos_ufs_config_phy_time_attr() and exynos_ufs_config_phy_cap_attr()
+if EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag is not set.
+
+Add a check for this flag to exynos_ufs_specify_phy_time_attr() and
+return for platforms that don't set it.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- drivers/ufs/host/ufs-exynos.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 939d08bce545..d685d3e93ea1 100644
+index d685d3e93ea1..a1a2fdcb8a40 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -2142,8 +2142,7 @@ static const struct exynos_ufs_drv_data gs101_ufs_drvs = {
- 				  UFSHCD_QUIRK_BROKEN_OCS_FATAL_ERROR |
- 				  UFSHCI_QUIRK_SKIP_MANUAL_WB_FLUSH_CTRL |
- 				  UFSHCD_QUIRK_SKIP_DEF_UNIPRO_TIMEOUT_SETTING,
--	.opts			= EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL |
--				  EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR |
-+	.opts			= EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR |
- 				  EXYNOS_UFS_OPT_UFSPR_SECURE |
- 				  EXYNOS_UFS_OPT_TIMER_TICK_SELECT,
- 	.drv_init		= exynosauto_ufs_drv_init,
+@@ -546,6 +546,9 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
+ 	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
+ 	struct ufs_phy_time_cfg *t_cfg = &ufs->t_cfg;
+ 
++	if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)
++		return;
++
+ 	t_cfg->tx_linereset_p =
+ 		exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
+ 	t_cfg->tx_linereset_n =
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
