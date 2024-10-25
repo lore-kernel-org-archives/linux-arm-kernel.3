@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649ADD149F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9CED149F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mIGA/VKnuka7n9OIMQrgaNhc9IQtQWXIf1b7a7uZQ8=; b=OhV4L2C+u/NTkH2tLiAaYnV74/
-	CRMNymlvLNl0gkzjRETIAYkeVQO4tFWrRnih57uTivH0oyrvqu7c3xTahL1wQ+6mcHNf/ahE9HeyL
-	0LrAS0EeN6WBLNyM0rGUGCTyjHlGPiUt+87grN3YVxJzckIwiSkwuILtGiV8+/OO6ZOIJiLtww7Hh
-	BYwBU3o3CQlgnZDRLYIyvsqIiS3Ag4uJDjjv7EcYsW3bsIoJHWI0vj2WGfS4tluPvjqUx77URNLOJ
-	/7RHjlMykCG9YOwoZ+j1P6BVYQHsIe03rl+hGEw43PyWxI0pUGGvKQfPM7t7xDJ4ATs0B3vxmgBhL
-	qzcUijng==;
+	bh=H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=XH9Z/O0V4bMTOev1PasFk20ISc
+	0Pmz+s4ypojO/TfbB4CBoZ40y9gKdwl0hzspZdQ/WwmNnxwg6/mIu+8WU+P3LX2H4qOiqg/7UXBir
+	bZNjkPN81BtvDLodcNvNakGbbzxpnyVUiHk8SfKG577/Pw/PiobXTB1U5tU3bSs5eUbkuNrdMvIrR
+	nxIq+LcbxeoYv4L4ehX6DM2/jz9ICFac4QPM+G/PQLebBDcx8MtOQb8Gpg0FdEOn75NP1vD+GoIu/
+	87DskEEHPIOm/qLtPA+VBmaoVM/2suw0UhN1+SfkE9YPVoh2QNzg0FV8bef5Gh71sh21GD9KAS6+X
+	oB+duV+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Rc3-00000005H0c-3pu8;
-	Fri, 25 Oct 2024 21:12:51 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1t4Rdb-00000005HED-3DYT;
+	Fri, 25 Oct 2024 21:14:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RSj-00000005EkQ-0bP5
+	id 1t4RSm-00000005Em7-20u4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Oct 2024 21:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=YFfntaxGyu8A2h2T10fqAp/Rb8
+	gf5u/jAiITsoO1jjboBVeknpseol+cxeWyj/jbx00my0NNqaWkxe9gc9ZXAMcaY4LJRW5uDNcqadY
+	PNQTH2aFWf1raoYDA2jh8w8RP3Hpn2i4alUt+v/EKDiuKi4GiwWaNwNKJwrHrL/gmQwNxcNDpIXMC
+	3kavsbWJp0Mq8uKnDbVnYzUOZsduRss08pjbu+dkOjL91osEQ24DM+eneilY4sj0QtZwybsudnnub
+	9bd3EAR0JWPXwAayWVHFO+P7YwXMu49GLTTljLMjk/PSTUcQgLow0lOBS7sUKxbzvLV8vrFtzAu6l
+	+Xczcuag==;
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4RSj-0000000964o-0iKH
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Oct 2024 21:03:15 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PKNFM8032472;
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PKYfjW006899;
 	Fri, 25 Oct 2024 23:03:05 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3mIGA/VKnuka7n9OIMQrgaNhc9IQtQWXIf1b7a7uZQ8=; b=gf0Wf6E/02+Wk+Jl
-	St6hB4jcAr38XkUtUINZp1s83h07/DgeUueGQpNfNg9hOCP/FhsRpcE+Olli4ZWp
-	S5BxcuTxeGKOJ1kvmDcDSdVeNimi5+E/77saoGeocnOGEECWpYKWzfU23abK/7D2
-	i5eSXtYQ6Xus9WGRo9YlAAUO9gHyKArafOQ2092oqwewCX9GQzquPKY87l7dQ+qV
-	Dj9Y2DjTpUfRUTN0sgSbetQJmeTq2YUFE3upXQistW/KZ99Wvg7Fy6Il5NR7hS4E
-	qGGOd5QPqk/cMaQOA0vPHYefpyjrkxmNfhvO8hSDcvLVoYr8IZJPnz80HpR9nJvu
-	F7kFqg==
+	H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=zC+4inlrM5HfkC2r
+	TlC64uKipIUWWch7Y+xZePJrE7LCdcwrldjZ15x6A2w/EcfiVNdSFgg6Dz+tKlMU
+	wdIAf6YQyNhOBcwLLKlm8XlSneeUB1s3zRyaKDJ1czumrqvWRwQggnW5K7ukCikV
+	vTPH3y5bdXZzyQ5Q3aItAEJcIjI3uDVSE64XiKWWmvKmEH9xxWPaAKkmrLAvgxX+
+	yssqblNojOgFDTeQXZvracsxJpsoQfxhP+n/IFci24N2fGdkL8zmh73MiKHrbNYK
+	AqvfGuKfSSQIw0crv0blMcTUMOfgX/Sl/oxH9MEQieaJOxbQqaeVLZOidQJ5asrU
+	uttpDw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42gaur9vft-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42em4cquku-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 25 Oct 2024 23:03:05 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 80CC14002D;
-	Fri, 25 Oct 2024 23:01:38 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DFE5D231949;
-	Fri, 25 Oct 2024 22:59:41 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 17DA040044;
+	Fri, 25 Oct 2024 23:01:40 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 37EAA231948;
+	Fri, 25 Oct 2024 22:59:40 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:41 +0200
+ 2024 22:59:40 +0200
 Received: from localhost (10.252.3.121) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:41 +0200
+ 2024 22:59:39 +0200
 From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Mathieu Poirier
@@ -72,9 +87,9 @@ CC: <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
         Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-Date: Fri, 25 Oct 2024 22:59:24 +0200
-Message-ID: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v12 6/7] remoteproc: stm32: Create sub-functions to request shutdown and release
+Date: Fri, 25 Oct 2024 22:59:23 +0200
+Message-ID: <20241025205924.2087768-7-arnaud.pouliquen@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
 References: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
@@ -88,8 +103,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_140313_550917_3BF30D65 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20241025_220313_804791_D575F23E 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,135 +119,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new TEE remoteproc driver is used to manage remote firmware in a
-secure, trusted context. The 'st,stm32mp1-m4-tee' compatibility is
-introduced to delegate the loading of the firmware to the trusted
-execution context. In such cases, the firmware should be signed and
-adhere to the image format defined by the TEE.
+To prepare for the support of TEE remoteproc, create sub-functions
+that can be used in both cases, with and without remoteproc TEE support.
 
 Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 ---
-updates vs previous version
-- rename structures, variables and function from tee_rproc_xxx to
-  rproc_tee_xxx,
-- rework code to take into account rproc_tee_register and
-  rproc_tee_unregister APIs update,
-- optimize code around dev_err_probe() when rproc_tee_register() fails.
----
- drivers/remoteproc/stm32_rproc.c | 57 ++++++++++++++++++++++++++++++--
- 1 file changed, 54 insertions(+), 3 deletions(-)
+ drivers/remoteproc/stm32_rproc.c | 82 +++++++++++++++++++-------------
+ 1 file changed, 49 insertions(+), 33 deletions(-)
 
 diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 288bd70c7861..7875b26a38a5 100644
+index 8c7f7950b80e..288bd70c7861 100644
 --- a/drivers/remoteproc/stm32_rproc.c
 +++ b/drivers/remoteproc/stm32_rproc.c
-@@ -18,6 +18,7 @@
- #include <linux/pm_wakeirq.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/remoteproc_tee.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- #include <linux/workqueue.h>
-@@ -255,6 +256,19 @@ static int stm32_rproc_release(struct rproc *rproc)
- 	return 0;
+@@ -209,6 +209,52 @@ static int stm32_rproc_mbox_idx(struct rproc *rproc, const unsigned char *name)
+ 	return -EINVAL;
  }
  
-+static int stm32_rproc_tee_stop(struct rproc *rproc)
++static void stm32_rproc_request_shutdown(struct rproc *rproc)
 +{
-+	int err;
++	struct stm32_rproc *ddata = rproc->priv;
++	int err, idx;
 +
-+	stm32_rproc_request_shutdown(rproc);
++	/* Request shutdown of the remote processor */
++	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
++		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
++		if (idx >= 0 && ddata->mb[idx].chan) {
++			err = mbox_send_message(ddata->mb[idx].chan, "detach");
++			if (err < 0)
++				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
++		}
++	}
++}
 +
-+	err = rproc_tee_stop(rproc);
-+	if (err)
-+		return err;
++static int stm32_rproc_release(struct rproc *rproc)
++{
++	struct stm32_rproc *ddata = rproc->priv;
++	unsigned int err = 0;
 +
-+	return stm32_rproc_release(rproc);
++	/* To allow platform Standby power mode, set remote proc Deep Sleep */
++	if (ddata->pdds.map) {
++		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
++					 ddata->pdds.mask, 1);
++		if (err) {
++			dev_err(&rproc->dev, "failed to set pdds\n");
++			return err;
++		}
++	}
++
++	/* Update coprocessor state to OFF if available */
++	if (ddata->m4_state.map) {
++		err = regmap_update_bits(ddata->m4_state.map,
++					 ddata->m4_state.reg,
++					 ddata->m4_state.mask,
++					 M4_STATE_OFF);
++		if (err) {
++			dev_err(&rproc->dev, "failed to set copro state\n");
++			return err;
++		}
++	}
++
++	return 0;
 +}
 +
  static int stm32_rproc_prepare(struct rproc *rproc)
  {
  	struct device *dev = rproc->dev.parent;
-@@ -691,8 +705,20 @@ static const struct rproc_ops st_rproc_ops = {
- 	.get_boot_addr	= rproc_elf_get_boot_addr,
- };
+@@ -519,17 +565,9 @@ static int stm32_rproc_detach(struct rproc *rproc)
+ static int stm32_rproc_stop(struct rproc *rproc)
+ {
+ 	struct stm32_rproc *ddata = rproc->priv;
+-	int err, idx;
++	int err;
  
-+static const struct rproc_ops st_rproc_tee_ops = {
-+	.prepare	= stm32_rproc_prepare,
-+	.start		= rproc_tee_start,
-+	.stop		= stm32_rproc_tee_stop,
-+	.kick		= stm32_rproc_kick,
-+	.load		= rproc_tee_load_fw,
-+	.parse_fw	= rproc_tee_parse_fw,
-+	.find_loaded_rsc_table = rproc_tee_find_loaded_rsc_table,
-+	.release_fw	= rproc_tee_release_fw,
-+};
-+
- static const struct of_device_id stm32_rproc_match[] = {
- 	{ .compatible = "st,stm32mp1-m4" },
-+	{ .compatible = "st,stm32mp1-m4-tee" },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, stm32_rproc_match);
-@@ -853,15 +879,36 @@ static int stm32_rproc_probe(struct platform_device *pdev)
- 	struct device_node *np = dev->of_node;
- 	struct rproc *rproc;
- 	unsigned int state;
-+	u32 proc_id;
- 	int ret;
+-	/* request shutdown of the remote processor */
+-	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
+-		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
+-		if (idx >= 0 && ddata->mb[idx].chan) {
+-			err = mbox_send_message(ddata->mb[idx].chan, "detach");
+-			if (err < 0)
+-				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
+-		}
+-	}
++	stm32_rproc_request_shutdown(rproc);
  
- 	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
- 	if (ret)
- 		return ret;
- 
--	rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, NULL, sizeof(*ddata));
--	if (!rproc)
--		return -ENOMEM;
-+	if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
-+		/*
-+		 * Delegate the firmware management to the secure context.
-+		 * The firmware loaded has to be signed.
-+		 */
-+		ret = of_property_read_u32(np, "st,proc-id", &proc_id);
-+		if (ret) {
-+			dev_err(dev, "failed to read st,rproc-id property\n");
-+			return ret;
-+		}
-+
-+		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, NULL, sizeof(*ddata));
-+		if (!rproc)
-+			return -ENOMEM;
-+
-+		ret = rproc_tee_register(dev, rproc, proc_id);
-+		if (ret)
-+			return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
-+	} else {
-+		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, NULL, sizeof(*ddata));
-+		if (!rproc)
-+			return -ENOMEM;
-+	}
- 
- 	ddata = rproc->priv;
- 
-@@ -913,6 +960,8 @@ static int stm32_rproc_probe(struct platform_device *pdev)
- 		dev_pm_clear_wake_irq(dev);
- 		device_init_wakeup(dev, false);
+ 	err = stm32_rproc_set_hold_boot(rproc, true);
+ 	if (err)
+@@ -541,29 +579,7 @@ static int stm32_rproc_stop(struct rproc *rproc)
+ 		return err;
  	}
-+	rproc_tee_unregister(rproc);
-+
- 	return ret;
+ 
+-	/* to allow platform Standby power mode, set remote proc Deep Sleep */
+-	if (ddata->pdds.map) {
+-		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
+-					 ddata->pdds.mask, 1);
+-		if (err) {
+-			dev_err(&rproc->dev, "failed to set pdds\n");
+-			return err;
+-		}
+-	}
+-
+-	/* update coprocessor state to OFF if available */
+-	if (ddata->m4_state.map) {
+-		err = regmap_update_bits(ddata->m4_state.map,
+-					 ddata->m4_state.reg,
+-					 ddata->m4_state.mask,
+-					 M4_STATE_OFF);
+-		if (err) {
+-			dev_err(&rproc->dev, "failed to set copro state\n");
+-			return err;
+-		}
+-	}
+-
+-	return 0;
++	return stm32_rproc_release(rproc);
  }
  
-@@ -933,6 +982,8 @@ static void stm32_rproc_remove(struct platform_device *pdev)
- 		dev_pm_clear_wake_irq(dev);
- 		device_init_wakeup(dev, false);
- 	}
-+
-+	rproc_tee_unregister(rproc);
- }
- 
- static int stm32_rproc_suspend(struct device *dev)
+ static void stm32_rproc_kick(struct rproc *rproc, int vqid)
 -- 
 2.25.1
 
