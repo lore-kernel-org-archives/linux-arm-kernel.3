@@ -4,59 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E825D0C61F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A257CD0C61D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTp0kNH81ZJnMqT+aGOjzfQePrvh3802k7Gassmeshk=; b=FbqSAmytX+IpGahiB9TvtXwfEJ
-	bHbBtnh1VsfLemtnKF35xUcy1tLoz3Tjo7bnoICiM0MX2gXH9hDf32U4Y/A9c9KnM1wl0hqf4Xmde
-	hjfcEqmYXG1b9Y38FAMe1s+l09NjYg4CIqgOuhYZp0K3AtSytUNMGrCf1FLdD9gVnYEQnrJ6HwDff
-	OVSyvE7HpNPrgYlZCqy3J4PHov90161WoKq0vNGg9QFUM8MnDxgdm+XPaHDXTgUz+Hn77void2VnR
-	F1uYwdPXQXS6SoYEoSOchHaJV1zXQZy12r90fGV3Bpb6CdMywh7+d45UfLrE03zlfj5EvBIotn/HQ
-	704xm7cQ==;
+	bh=LsiMzfxRZfyTi6Y0SIIrYfzAD2Tk6w8IPazQnWYpXDU=; b=gOOdkoJFWxfS70GbJlhCcw7aYB
+	yQcqLxgk6YN91IKMUs+h+bML4p9wavaWqoTlOuObDXoYwjGpvjrqE0zydZmF1o8ZV7hp3qGzaNOIR
+	+4q19DoI1xdpC2Zo1on4+dbWp4VI3CAAYGnY/RCmcRDIz/ANxhHymeTtVKfSpb31koarpydxSRyRd
+	3eQVcRXKIOjBvIbgfhwWTfTEEK4PcWfxq6dJTreTIg62yBXoRV1kGei6AxOAHqdnOeFAReWoS/AuJ
+	tbP7Sz7hX4kKFi7gQRFCUjeezuEMfmI4ryUYUO5H6vjfdBtSe40qrVIJJrTJl9Q46QNznxmKzBs1I
+	ONi6v0UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LsO-000000048qE-0LxR;
-	Fri, 25 Oct 2024 15:05:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LQ3-000000042Xc-0TPJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:36:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E628F339;
-	Fri, 25 Oct 2024 07:36:31 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6288E3F73B;
-	Fri, 25 Oct 2024 07:36:00 -0700 (PDT)
-Date: Fri, 25 Oct 2024 15:35:57 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	quic_nkela@quicinc.com
-Subject: Re: [PATCH 5/5] firmware: arm_scmi: Relocate atomic_threshold to
- scmi_desc
-Message-ID: <ZxuszZFKdJoHwiSe@pluto>
-References: <20241018080602.3952869-1-cristian.marussi@arm.com>
- <20241018080602.3952869-6-cristian.marussi@arm.com>
- <842a9844-ac89-4972-9024-72ed0e08c2d3@stanley.mountain>
+	id 1t4Ltx-000000049He-0QHY;
+	Fri, 25 Oct 2024 15:06:57 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4LRD-000000042ga-2mWg;
+	Fri, 25 Oct 2024 14:37:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729867036; x=1761403036;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wBK4Q5W4WJLNTzG1NF53EifkW/90VdiVn34zzoNQPnk=;
+  b=Dg343Y6euu8mjixSyTgQTSyUsqCSeTHPn/7jlX63pc/O3qlqfI70HGPq
+   czfZkBlrkApL1mc5mrXmFiJWtHBjPhgl9cQ3wgym8Icf+6pubNvvK4SKC
+   EMoZg4hD44bWnrYDMB4k1zxtZbJXSSJgFSe/nBTHKkfAw+Noq34NeroRd
+   FYVay/CC2ZgZURxSY93GfemsQla2ravVhE1WNFZ8ad/ZG3ecNSPzKD4il
+   afWm4ia89sgl1X+yro7of0mfWgU/4b+fm+rqwWUE3IbsArhS5KJCTcDnn
+   lhYFVIyZGhrvSlucRcJExUh8WHrIgLiNPGV8sPQosTUPdTPH15GPq2zYi
+   w==;
+X-CSE-ConnectionGUID: GUhbVEfERxyyye6lV2izow==
+X-CSE-MsgGUID: HkPMXGwvQMOF/V+P+2bR4A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="47021769"
+X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
+   d="scan'208";a="47021769"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:37:15 -0700
+X-CSE-ConnectionGUID: bCV38PoTTeCmNINXGqmYRA==
+X-CSE-MsgGUID: j5RovBWzSgW+deRdUluG6g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="85699443"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 25 Oct 2024 07:37:08 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4LR4-000YMs-0J;
+	Fri, 25 Oct 2024 14:37:06 +0000
+Date: Fri, 25 Oct 2024 22:36:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Message-ID: <202410252215.79396yyg-lkp@intel.com>
+References: <20241025011000.244350-5-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <842a9844-ac89-4972-9024-72ed0e08c2d3@stanley.mountain>
+In-Reply-To: <20241025011000.244350-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_073603_230722_53E8E9EC 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20241025_073715_748513_B39BF16E 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,53 +107,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 04:20:53PM +0300, Dan Carpenter wrote:
-> On Fri, Oct 18, 2024 at 09:06:02AM +0100, Cristian Marussi wrote:
+Hi Inochi,
 
-Hi Dan,
+kernel test robot noticed the following build warnings:
 
-thanks for having a look.
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on sophgo/for-next sophgo/fixes net-next/main net/main linus/master v6.12-rc4 next-20241025]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> > @@ -2959,7 +2952,7 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
-> >  			   (char **)&dbg->name);
-> >  
-> >  	debugfs_create_u32("atomic_threshold_us", 0400, top_dentry,
-> > -			   &info->atomic_threshold);
-> > +			   (u32 *)&info->desc->atomic_threshold);
-> 
-> This cast is unnecessary.
+url:    https://github.com/intel-lab-lkp/linux/commits/Inochi-Amaoto/dt-bindings-net-snps-dwmac-Add-dwmac-5-30a-version/20241025-091315
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241025011000.244350-5-inochiama%40gmail.com
+patch subject: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+config: um-allyesconfig (https://download.01.org/0day-ci/archive/20241025/202410252215.79396yyg-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410252215.79396yyg-lkp@intel.com/reproduce)
 
-I was indeed wondering why I added that....then I remember something
-about debugfs_create....without that (u32 *):
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410252215.79396yyg-lkp@intel.com/
 
-drivers/firmware/arm_scmi/driver.c: In function ‘scmi_debugfs_common_setup’:
-drivers/firmware/arm_scmi/driver.c:2988:28: warning: passing argument 4 of ‘debugfs_create_u32’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
-                             &info->desc->atomic_threshold);
-                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+All warnings (new ones prefixed by >>):
 
-since the enclosing struct ->desc is const AND debugfs_create_u32 is NOT
-smart enough to expect a const when the property is R_ONLY...unless I am
-missing something.
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_dwmac_fix_mac_speed':
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:30:16: error: implicit declaration of function 'rgmii_clock' [-Werror=implicit-function-declaration]
+      30 |         rate = rgmii_clock(speed);
+         |                ^~~~~~~~~~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_sg2044_dwmac_init':
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:46:13: warning: unused variable 'ret' [-Wunused-variable]
+      46 |         int ret;
+         |             ^~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c: In function 'sophgo_dwmac_fix_mac_speed':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:31:12: warning: 'ret' is used uninitialized [-Wuninitialized]
+      31 |         if (ret < 0) {
+         |            ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:28:13: note: 'ret' was declared here
+      28 |         int ret;
+         |             ^~~
+   cc1: some warnings being treated as errors
 
-> 
-> >  
-> >  	debugfs_create_str("type", 0400, trans, (char **)&dbg->type);
-> >  
-> > @@ -3071,6 +3064,13 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
-> >  		 trans->desc->max_rx_timeout_ms, trans->desc->max_msg_size,
-> >  		 trans->desc->max_msg);
-> >  
-> > +	/* System wide atomic threshold for atomic ops .. if any */
-> > +	if (!of_property_read_u32(dev->of_node, "atomic-threshold-us",
-> > +				  &trans->desc->atomic_threshold))
-> > +		dev_info(dev,
-> > +			 "SCMI System wide atomic threshold set to %d us\n",
->                                                                    ^^
-> %u for unsigned int.
->
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for MODVERSIONS
+   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
+   Selected by [y]:
+   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=n] || GCC_PLUGINS [=y]) && MODULES [=y]
+   WARNING: unmet direct dependencies detected for GET_FREE_REGION
+   Depends on [n]: SPARSEMEM [=n]
+   Selected by [y]:
+   - RESOURCE_KUNIT_TEST [=y] && RUNTIME_TESTING_MENU [=y] && KUNIT [=y]
 
-I will fix.
 
-Thanks,
-Cristian
+vim +/ret +31 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+
+    23	
+    24	static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+    25	{
+    26		struct sophgo_dwmac *dwmac = priv;
+    27		long rate;
+    28		int ret;
+    29	
+    30		rate = rgmii_clock(speed);
+  > 31		if (ret < 0) {
+    32			dev_err(dwmac->dev, "invalid speed %u\n", speed);
+    33			return;
+    34		}
+    35	
+    36		ret = clk_set_rate(dwmac->clk_tx, rate);
+    37		if (ret)
+    38			dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+    39	}
+    40	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
