@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C3AD149E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50510D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwKM75sCFnfctTtbj/opwnkqiPuhZWuGKbKWcmwTyIY=; b=1GTxDJ21qTBxIuQRCckgFZvaFw
-	IccLRxttJF5D4ByDouvSwqyD6JNkRnolqqWR/+JP0fCr0t8tO/6EK0lXigxX4g4r/70LURI7uHcKC
-	EQfnYme1vivrKJ+n+OvoTfHSsyTQGK8kCOJZmhr+acj3bqlCvOJ0gH5ChEJCKoFYCnB5NOy9QHIvB
-	5Jh+0KSmq3N/8qEWe4ntNkRYMDvYkJ+Qvp7d447+6beUKJRgHGvYMTeU2VTvQqbP4sm9XhYsCA2bn
-	XsRgsenn/45QHmHrTd8bjUwRVQMW75Y/SHt4DkHQV0DHpcCoLiwXGKVA7PO8nYU2f3j0mFwvZO3S3
-	EU/DM+8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=; b=kMeSYLMW8nmQ3Y91rP/6NKUX6U
+	eRcVeJ1LJvWREgG09TYS+42JNiV9Sire6OH9maS+0mPcU4P9liehHAyVQ8Gd8PhNw2XOmC2559nKl
+	PiPS93eRhe6nFAe8fhir4JUeoJPDP8WKe67ohNqm5PvkbOyr1N0XCdT7TWuu5u+ZtoL4lcyHWTnx+
+	3IAZEpz8/5BbDnGlyIRv5G2rG1DY6/Gve2H0Jx6LGO1c1gISTUk300wfCBBEh7eNS6ObVAIjVzt7G
+	wRDYDXH8g9W29wP/ryncRI/vkdHxoTO/EZemBw8ilXaFMpVS8Lt7mUfhcQHi3RL1rMXUt8lc5IlpJ
+	wf/46o0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4P6B-00000004ona-2uPq;
-	Fri, 25 Oct 2024 18:31:47 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1t4P7i-00000004p11-30vP;
+	Fri, 25 Oct 2024 18:33:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OKC-00000004egA-1Mt3
+	id 1t4OLN-00000004f99-1bUo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:42:13 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49PHg5wc021530;
-	Fri, 25 Oct 2024 12:42:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729878125;
-	bh=pwKM75sCFnfctTtbj/opwnkqiPuhZWuGKbKWcmwTyIY=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=VE6wSRv7zxAis0MClAfx62Vw8upuraUz6En61GTY3JhXbfzImFcpblBr1W0a+nASO
-	 NaGFszhOPgI7MhmNVnGjjPHRtsUqfYjyKZpfr3mxRzE0NYwYstYXKDrbNjfJh8youM
-	 QbMHDDQhPNlGCe36910F7UUSlTKEBAWwgP/RrnZI=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49PHg5UT068344
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Oct 2024 12:42:05 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Oct 2024 12:42:05 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Oct 2024 12:42:04 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49PHg4lt109361;
-	Fri, 25 Oct 2024 12:42:04 -0500
-Date: Fri, 25 Oct 2024 12:42:04 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Anand Gadiyar <gadiyar@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Vishal Mahaveer
-	<vishalm@ti.com>,
-        Kevin Hilman <khilman@baylibre.com>, Dhruva Gole
-	<d-gole@ti.com>
-Subject: Re: [PATCH v3 2/6] firmware: ti_sci: Partial-IO support
-Message-ID: <20241025174204.xwmsn2arcy4q63xu@reaction>
-References: <20241012-topic-am62-partialio-v6-12-b4-v3-0-f7c6c2739681@baylibre.com>
- <20241012-topic-am62-partialio-v6-12-b4-v3-2-f7c6c2739681@baylibre.com>
+	Fri, 25 Oct 2024 17:43:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1729878204;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=;
+	b=KiH7nXtKtfZJFEUgfOdy0oKwF4oVM+/l3/RHxNVOJUkW90G4Ue2ayzNA4Ry1BuS9OFPgju
+	HT/6qBqMkcV2IlUoUBPNlu1yFkvcpTe7LaR1pkV99mpXjP1fcyPzRxxctFAMpyXgeXoScE
+	XvyCImE/A/bHHXgJ/ehX0Ji+tHEwtoo=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-393-u7L6Z0k9NcmHAhWagmMd0Q-1; Fri, 25 Oct 2024 13:41:59 -0400
+X-MC-Unique: u7L6Z0k9NcmHAhWagmMd0Q-1
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-37d59ad50f3so1173443f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:41:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729878118; x=1730482918;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=;
+        b=L3pS/ie/Bk8J/IlLXOkfhXwrFxF/6z/U95pkrLDQ3yRsSEznNcthI9pgWj6Gh8qDC6
+         OX/xGXZLj8wK0uIWNTMHVqteR0iK5DMx0Kmr2i4D2BhFjilJ3Ji0YOx27cyO/4LtjKhM
+         3Azk+l/gECZdjArzYY6gpDsMcpAm/QTXtQGOmqiNsn2szcj2tagKA3CtEeTt1Fp4rYk4
+         +OMCV3rX0iG8sBnY3CfPbuG4seezz22o+L7TBmgiuRZL2E6h8oVdn5ia9aHKHZLSTG7d
+         7PQrSez44JUX+jNtU3mj79xXCh/Tt8tu3SnMlwYj0N0amHWMpPohDPPUWu/vN9NntlLj
+         K+lw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4P2hPNEw5GerL0Bhs2fFsbha/wfyebzZXb0wP9GH3/hh5KVd8o67//vibLjCqlCypiO1oIwI/x55uIvj2PQpa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiNefF5MyAzUZAizSQNyK5dzOvBrNtfgG337g8IypbFrsnQ03f
+	oEz4nzGv9qUqTHL1YHDuqxRu4kJAVCxSesPJhwR43Kv2sJB06MGgPb1y6510+1PSGdl1Ld2zm+l
+	JXgO3lhNbW2ZOH6gw9sUMekqmSfv0coANGiL+JyO6d9OnDPPeY5iOhwH618atsw/DfmktpRsuce
+	5Oucdcp9DFjfML0JfoRUFI5uTpSUSq+/BCXiZdnKBRitn0O1Q=
+X-Received: by 2002:a5d:410d:0:b0:37d:5436:49b with SMTP id ffacd0b85a97d-3806113a07emr163676f8f.13.1729878118154;
+        Fri, 25 Oct 2024 10:41:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJirsSaLOjUEz6kn7HmxOjIyhE9ZfBrB9GAGHgNcgNSBUFOeNbcRoyDDrANp8n6mxM4gCIddwEWDqpYot15qQ=
+X-Received: by 2002:a5d:410d:0:b0:37d:5436:49b with SMTP id
+ ffacd0b85a97d-3806113a07emr163639f8f.13.1729878117761; Fri, 25 Oct 2024
+ 10:41:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241012-topic-am62-partialio-v6-12-b4-v3-2-f7c6c2739681@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20241010182427.1434605-1-seanjc@google.com> <CABgObfbQW-3vp=mNcR4giUGZ_gxhuRykvKj8gzBDY7pOg6xdBQ@mail.gmail.com>
+ <Zxbw9XcFCHYR1Ald@google.com>
+In-Reply-To: <Zxbw9XcFCHYR1Ald@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Fri, 25 Oct 2024 19:41:45 +0200
+Message-ID: <CABgObfayH1x3qFjOiM=rQjxiui5tXJXObgR_qOGV5Hn_2QLEJQ@mail.gmail.com>
+Subject: Re: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	=?UTF-8?B?QWxleCBCZW5uw6ll?= <alex.bennee@linaro.org>, 
+	Yan Zhao <yan.y.zhao@intel.com>, David Matlack <dmatlack@google.com>, 
+	David Stevens <stevensd@chromium.org>, Andrew Jones <ajones@ventanamicro.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_104212_522732_53F06145 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20241025_104325_634910_B58B33FB 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +112,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:39-20241012, Markus Schneider-Pargmann wrote:
-[...]
-> 
-> The possible wakeup devices are found by checking which devices are
-> powered by the regulator supplying the "vddshv_canuart" line. These are
-> considered possible wakeup sources. Only wakeup sources that are
-> actually enabled by the user will be considered as a an active wakeup
-> source. If none of the wakeup sources are enabled the system will do a
-> normal poweroff. If at least one wakeup source is enabled it will
-> instead send a TI_SCI_MSG_PREPARE_SLEEP message from the sys_off
-> handler. Sending this message will result in an immediate shutdown of
-> the system. No execution is expected after this point. The code will
-> wait for 5s and do an emergency_restart afterwards if Partial-IO wasn't
-> entered at that point.
-> 
-[...]
+On Tue, Oct 22, 2024 at 2:25=E2=80=AFAM Sean Christopherson <seanjc@google.=
+com> wrote:
+> > Looks good to me, thanks and congratulations!! Should we merge it in
+> > kvm/next asap?
+>
+> That has my vote, though I'm obvious extremely biased :-)
 
-> +static bool tisci_canuart_wakeup_enabled(struct ti_sci_info *info)
-> +{
-> +	static const char canuart_name[] = "vddshv_canuart";
-> +	struct device_node *wakeup_node = NULL;
-> +
-> +	for (wakeup_node = of_find_node_with_property(NULL, "vio-supply");
-> +	     wakeup_node;
-> +	     wakeup_node = of_find_node_with_property(wakeup_node, "vio-supply")) {
-> +		struct device_node *supply_node;
-> +		const char *supply_name;
-> +		struct platform_device *pdev;
-> +		int ret;
-> +
-> +		supply_node = of_parse_phandle(wakeup_node, "vio-supply", 0);
-> +		if (!supply_node)
-> +			continue;
-> +
-> +		ret = of_property_read_string(supply_node, "regulator-name", &supply_name);
-> +		of_node_put(supply_node);
-> +		if (ret) {
-> +			dev_warn(info->dev, "Failed to parse vio-supply phandle at %pOF %d\n",
-> +				 wakeup_node, ret);
-> +			continue;
-> +		}
-> +
-> +		if (strncmp(canuart_name, supply_name, strlen(canuart_name)))
-> +			continue;
-> +
-> +		pdev = of_find_device_by_node(wakeup_node);
-> +		if (!pdev)
-> +			continue;
-> +
-> +		if (device_may_wakeup(&pdev->dev)) {
-> +			dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
-> +				wakeup_node);
-> +			put_device(&pdev->dev);
-> +			of_node_put(wakeup_node);
-> +			return true;
-> +		}
-> +		put_device(&pdev->dev);
-> +	}
-> +
-> +	return false;
-> +}
-> +
+Your wish is my command... Merged.
 
-What is the binding that supports this? I just do not think that
-scanning the entire tree for vio-supply implies you will get thr right
-property here.
+Paolo
 
-Just giving an example to illustrate this point:
-Documentation/devicetree/bindings/net/wireless/ti,wl1251.txt says it
-needs vio-supply -> so i have a node with the wireless supply as
-vio-supply -> Since we are scanning from NULL for vio-supply, we hit
-that, that is a bad choice for enabling io-retention.
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
