@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F9D11717
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DCABD11718
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=; b=GcH5hNJkycc3PkoaMhNtzT0xdt
-	tPnbphL8kKlPT3EcAFi2rtoYYRNFfPrt241iZBsbWV2wSnuy/9urg5u/ccNs4ljxaO1PXBuZWy36c
-	4cLLiVe2w2jS6abBRJ4oS1V8O4l2y64fPXQXZBVbmMeqOTuSSqTsQVsPlclQCFrghVNTg5MRylbj2
-	8qd/G0xxncckDLuiC8JjpjsVNoOTo9rbtFyDfVJ4KLiOASGtA1dDXjUKW+GVFnLXatnn0c2XBbQb5
-	CMZXmXIcfdn0Xl9CGK5V3kgREepW98gGN+fGAnopV3fTsqkzAe6ax2Cs3sAfqYYHbfIeh4FRPmLYw
-	kIxaXu5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lD2L8zW/eC/d4RFsXB5i3DHI7hNbaSPWdmW63PMbZn8=; b=AE1Kx8MlFTFoCi9lBco5pOHf2m
+	lptoOS9hLjSKfTAgtgKA0eMGWfiEr701wXmlVQeHdXod5J3xgupFT6M9ma/N6RKG+o0rBbEc4RNVI
+	rBAakDLMY1RS/7h59YfZ1CYjIKMmmSsN/MYHzrHw0D3FP2x5s6hCfoaKfTSwPjn0a0rxKHT2xvC7I
+	MJwlblhJUnKeUu5VAIzvJ1XnAZ5NsEVvCoFxeGT0kucmZXAwT+vJj+xWkGhIzMWxdo2CsQuA83s1N
+	ru45n08IRBNhx0FKuBJbtrkNWFkzDHXe49NI7/4QzRiw8sUyuMv6GCgVeylwZZT5WzngH2WhGkCQY
+	3kC1P4IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4F5d-00000002rBE-0Z52;
-	Fri, 25 Oct 2024 07:50:33 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1t4F8B-00000002rhV-0piA;
+	Fri, 25 Oct 2024 07:53:11 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4F3z-00000002qrc-3aYr
+	id 1t4F6W-00000002rLW-0Zve
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 07:48:53 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7180dc76075so959843a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:48:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729842530; x=1730447330; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
-        b=BbTFXmWEOowYiQJnFqWHlpVxWcSjM3fN/G8tpIZ/DOi/ZBZKLf/0/LBW9W7rlI4aG9
-         BRg2Yw0f+JIYMJT4aiTk+nLsaFgO4zuImbKpJdiHUlCC6n6X3l3tmB22y5Fl0OOPS9D2
-         P7J0n9Yzp0os4fOKkhr/cYvuM+sw0ueoEbtLs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729842530; x=1730447330;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
-        b=IIpwb+t0O+qgq619WfpD8Bqbhhm8zsMc/C5sFDcISexk+NqS8YDNIc0DQseEYSlmQy
-         7PebMHLPQDlUYKEJrGiX9VL3wy+L2vkFP+BXFFm/kV8XWiPO0XiesxHPceARKNDFR4CM
-         sYT6BojRtSYX5UbZx+HWOrsKuDRgJe09+QRtNUeKMfsSvtUf8Aifgc4vEzY/5aeBJrxb
-         RQM41HO2pi4uW0IeqmvjQn6M+1RI8+thCrplOgs/7EZ20D3CmxZdgbtobFgv4M68zU07
-         mxlBgLA2lUKweta+k30KuJn1YuwE/my+MYOcPafXBSDnvdw53hoiESYDSXAQZ90Dtk47
-         23Og==
-X-Forwarded-Encrypted: i=1; AJvYcCV+0KNA6Ee1+VzrQ/gIyX6LVG8HucHBSHw2fy7AFNHHNtvuQtoMwJgOuhvcH1BP0c/W6M9q8rge3Ni4pzEFkIfU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY0ej8HJs5c4M7sguOX4qbDbEO70SVFiBUiUOQXDIG2+4EAr2o
-	VIWuE1rLTuF4qjoTLhiB0b+DHqrK7787Z9DFQZ5S11jK/xXfC1wvJvZLV7uXMg==
-X-Google-Smtp-Source: AGHT+IGSIU/bFTwcE96kf/0wGJ0BJfJiuO8y8CrN5NyTUQ2vHijmdL2HboIEe85P5cA+/Hj/rUfY3A==
-X-Received: by 2002:a05:6830:25c2:b0:718:1606:c2df with SMTP id 46e09a7af769-7185940f8e5mr3286435a34.3.1729842530333;
-        Fri, 25 Oct 2024 00:48:50 -0700 (PDT)
-Received: from yuanhsinte-p620-1.tpe.corp.google.com ([2401:fa00:1:10:5a9f:16cc:8d5a:55e5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205793189esm535527b3a.58.2024.10.25.00.48.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 00:48:49 -0700 (PDT)
-From: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Date: Fri, 25 Oct 2024 15:48:44 +0800
-Subject: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on
- Damu
+	Fri, 25 Oct 2024 07:51:30 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4XZZhx47Bfz4f3m6f
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 15:50:57 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id DE62C1A0568
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 15:51:15 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP4 (Coremail) with SMTP id gCh0CgB398PyTRtnzlhEFA--.3489S2;
+	Fri, 25 Oct 2024 15:51:15 +0800 (CST)
+Message-ID: <32bf0704-d178-4728-8b70-5f6603723250@huaweicloud.com>
+Date: Fri, 25 Oct 2024 15:51:14 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-damu-v4-1-241bd9366c20@chromium.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Hsin-Yi Wang <hsinyi@chromium.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Hsin-Te Yuan <yuanhsinte@chromium.org>
-X-Mailer: b4 0.15-dev-2a633
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf] bpf, arm64: Fix stack frame construction for
+ struct_ops trampoline
+Content-Language: en-US
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Puranjay Mohan <puranjay12@gmail.com>, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+References: <20241019092709.128359-1-xukuohai@huaweicloud.com>
+ <CAADnVQLOY-eHby6CMNXr3FvwPm85W-tWDxiWnRaR_U_=71ADuA@mail.gmail.com>
+ <CANk7y0jiuiHSMTEZ_JCb4QpEPzhkK4ikicDGFa1F30DinZta8A@mail.gmail.com>
+ <7226e7b8-ed73-4adb-9016-30031f1121ca@huaweicloud.com>
+ <47082e78-e234-4487-95f2-0066e19f21dd@huaweicloud.com>
+ <CAADnVQKcwTstR5y3e1wNj-Agq7DuPNYOdQWkf33cLOBYiYGiug@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CAADnVQKcwTstR5y3e1wNj-Agq7DuPNYOdQWkf33cLOBYiYGiug@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgB398PyTRtnzlhEFA--.3489S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr1xKF4kXF15Ar43KrW7Arb_yoWrGw1kpr
+	yrXFWYkr4jvryqkw1qgr15ZFySyr4DX345WrZ8tw4fC3Z0qr1fJr17ta13urn3Gr1vkr12
+	qr4DtFZrJF4DAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUylb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAK
+	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xII
+	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw2
+	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
+	67AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_004851_968377_33F5DBAE 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20241025_005128_517542_DE64225D 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +93,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hsin-Yi Wang <hsinyi@chromium.org>
+On 10/25/2024 12:24 AM, Alexei Starovoitov wrote:
+> On Thu, Oct 24, 2024 at 6:48 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>
+>> On 10/23/2024 11:16 AM, Xu Kuohai wrote:
+>>> On 10/23/2024 7:37 AM, Puranjay Mohan wrote:
+>>>> On Wed, Oct 23, 2024 at 12:50 AM Alexei Starovoitov
+>>>> <alexei.starovoitov@gmail.com> wrote:
+>>>>>
+>>>>> On Sat, Oct 19, 2024 at 2:15 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>>>>>
+>>>>>> From: Xu Kuohai <xukuohai@huawei.com>
+>>>>>>
+>>>>>> The callsite layout for arm64 fentry is:
+>>>>>>
+>>>>>> mov x9, lr
+>>>>>> nop
+>>>>>>
+>>>>>> When a bpf prog is attached, the nop instruction is patched to a call
+>>>>>> to bpf trampoline:
+>>>>>>
+>>>>>> mov x9, lr
+>>>>>> bl <bpf trampoline>
+>>>>>>
+>>>>>> This passes two return addresses to bpf trampoline: the return address
+>>>>>> for the traced function/prog, stored in x9, and the return address for
+>>>>>> the bpf trampoline, stored in lr. To ensure stacktrace works properly,
+>>>>>> the bpf trampoline constructs two fake function stack frames using x9
+>>>>>> and lr.
+>>>>>>
+>>>>>> However, struct_ops progs are used as function callbacks and are invoked
+>>>>>> directly, without x9 being set as the fentry callsite does. Therefore,
+>>>>>> only one stack frame should be constructed using lr for struct_ops.
+>>>>>
+>>>>> Are you saying that currently stack unwinder on arm64 is
+>>>>> completely broken for struct_ops progs ?
+>>>>> or it shows an extra frame that doesn't have to be shown ?
+>>>>>
+>>>>> If former then it's certainly a bpf tree material.
+>>>>> If latter then bpf-next will do.
+>>>>> Pls clarify.
+>>>>
+>>>> It is not completely broken, only an extra garbage frame is shown
+>>>> between the caller of the trampoline and its caller.
+>>>>
+>>>
+>>> Yep, exactly. Here is a perf script sample, where tcp_ack+0x404
+>>> is the garbage frame.
+>>>
+>>> ffffffc0801a04b4 bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid+0x98 (bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid)
+>>> ffffffc0801a228c [unknown] ([kernel.kallsyms]) // bpf trampoline
+>>> ffffffd08d362590 tcp_ack+0x798 ([kernel.kallsyms]) // caller for bpf trampoline
+>>> ffffffd08d3621fc tcp_ack+0x404 ([kernel.kallsyms]) // garbage frame
+>>> ffffffd08d36452c tcp_rcv_established+0x4ac ([kernel.kallsyms])
+>>> ffffffd08d375c58 tcp_v4_do_rcv+0x1f0 ([kernel.kallsyms])
+>>> ffffffd08d378630 tcp_v4_rcv+0xeb8 ([kernel.kallsyms])
+>>> ...
+>>>
+>>> And this sample also shows that there is no symbol for the
+>>> struct_ops bpf trampoline. Maybe we should add symbol for it?
+>>>
+>>
+>> Emm, stack unwinder on x86 is completely broken for struct_ops
+>> progs.
+>>
+>> It's because the following function returns 0 for a struct_ops
+>> bpf trampoline address as there is no corresponding kernel symbol,
+>> which causes the address not to be recognized as kerneltext. As
+>> a result, the winder stops on ip == 0.
+>>
+>> unsigned long unwind_get_return_address(struct unwind_state *state)
+>> {
+>>           if (unwind_done(state))
+>>                   return 0;
+>>
+>>           return __kernel_text_address(state->ip) ? state->ip : 0;
+>> }
+>>
+>> Here is an example of broken stack trace from perf sampling, where
+>> only one stack frame is captured:
+>>
+>> ffffffffc000cfb4 bpf_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid+0x78 (bpf_prog_e60d93d3ec88d5ef_bpf_cubic_cong_avoid)
+>> (no more frames)
+> 
+> you mean arch_stack_walk() won't see anything after ip=0,
+> but dump_stack() will still print the rest with "?" (as unreliable).
+>
 
-Sets DMIC one-wire mode on Damu.
+Yes, dump_stack() does not stop on !__kernel_text_address
 
-Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
-Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
----
-Changes in v4:
-- Add Reviewed-by tag back, which is dropped in v3
-- Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
+> That's bad indeed.
+> 
+>> To fix it, I think kernel symbol should be added for struct_ops
+>> trampoline.
+> 
+> Makes sense. Pls send a patch.
+> 
+> 
+> As far as this patch please add an earlier example of double tcp_ack trace
+> to commit log and resubmit targeting bpf-next.
+>
 
-Changes in v3:
-- Add missing Sign-off-by tag
-- Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
-
-Changes in v2:
-- Add fixes tag
-- Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
----
- arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-index 0b45aee2e29953b6117b462034a00dff2596b9ff..06a689feff52945d141d196d439cba034f25fdf6 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-@@ -26,6 +26,10 @@ &touchscreen {
- 	hid-descr-addr = <0x0001>;
- };
- 
-+&mt6358codec {
-+	mediatek,dmic-mode = <1>; /* one-wire */
-+};
-+
- &qca_wifi {
- 	qcom,ath10k-calibration-variant = "GO_DAMU";
- };
-
----
-base-commit: 75b607fab38d149f232f01eae5e6392b394dd659
-change-id: 20241009-damu-a3f2f3478409
-
-Best regards,
--- 
-Hsin-Te Yuan <yuanhsinte@chromium.org>
+Sure
 
 
