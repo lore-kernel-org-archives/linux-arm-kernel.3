@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9866D149CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF748D149D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=; b=vD7cuH1VTyRgSQjktUgu08i2gU
-	qga8ZQJ+8VpWCZal+KT2PZyOkJeO/JJSAGdeH2dDyuECQ2d6pw45R4tf2lR/GhzBC55I/peKufINr
-	nra2t4EAD+sbeA/9nvs/m+dncGtfup0OgG3UvYTuV+6YhXTro1xHNEAOd7fb1plPep9fyNTRivpYH
-	BQUO7PGzF1JgVV3w9FfJfUk7ZnqQ42X31nvJU2lg31TW7yB4UaYJ4TUH3llIGNiKbxZF/QU2u77Lw
-	osYvqkHP5ciGAsuWNo9lCLB5CtorK6STi2mUUF/XIJaXxIp0v8UgmUbEQ5CkfMZSVYxqxh8DG+R1t
-	8XcCkhNw==;
+	bh=GHIbxCZv7ndlL/NngNJdWVaw8pnmec8lE+r1y4sRvZg=; b=ZSxzR/YXq8qDEXeuDpU0JrJHFc
+	hzW6sFRPACqCwKLLjK/9FsCRgGnckhgCzWjN1ScC787RlcnS8XgIhbFP6RXrkQ8E/wt+D/6JJQMqq
+	GK6shE/xQYb3GO1gG5ePwE+IELynfrrdbt/D3tPk7chvvQjyJy4pA8lE6gOeVYUI40m4t/l05wLRA
+	RfeoM0F+G9nDGdk2OdJQ3I3ADI/YWvRXAqNTW540xBnbF2ahsfViZoLTkoWljwslGVHzxHhxfAyO8
+	IVqmxH7hAg7FaVXHZzIkHSrRbyomzhY5KySj+aTwTUfaF81hqdbHqoZnJQWQ1pBRklXD2DrIySMeI
+	x3suTrcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4O56-00000004aYt-1jgZ;
-	Fri, 25 Oct 2024 17:26:36 +0000
+	id 1t4O77-00000004b4b-3Qw5;
+	Fri, 25 Oct 2024 17:28:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nv1-00000004Xp5-2KZs
+	id 1t4Nv5-00000004Xrh-0hFQ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 17:16:11 +0000
+	Fri, 25 Oct 2024 17:16:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=; b=Q94qUTmBdDN/z2iR+JSN75KNZ/
-	6cXj928r6+Q5iheCUWnVwlvS29RKEsjl2iYOFUzxYlk3o1e232kRviK9nQe9MOGsrWoO5dRiKpLEy
-	+JlY0BCz/xAYghy0x6k9VYKpe8SZKJf3utHonQkiH7v+pvqB0Kb+CDjfmHIbnXexpxuMesN5LNxFd
-	pCcbRS0PQUte+lk1zARgOdCtn+GkEZ0uI/ITUgYbbU84fQehrnrjBoqM24Q4cG8FjEOmRaKr4QZU6
-	chjYA33ukli1M1+SU7Aj0Zv++oxS/ewdRzZhIhISEKjt0FtHSyeH/78xe5/F0KyiXxfZnYzIhMR23
-	/5TGHgJA==;
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	bh=GHIbxCZv7ndlL/NngNJdWVaw8pnmec8lE+r1y4sRvZg=; b=eCXMWRU/Pf0gR7ncWIFa8nJe1x
+	vKFKnqZHotmXL4nrnQoEJ/wx1G3pUPmm7ExVjkNDDc6kWHtjUnOGa4fA6mqxRKT6vWOsDs9x3CV4k
+	FAuIivF+arFbxOFjCy1FGVfCsF8kdHEQ+3fqC4Q1Z4gcSjl+1/62kLaT5b25Wjgt+g1IifvMXF9QV
+	dpQ8fpYk2zVtey3EtT2SA+4WWtBqir6k5HEPVNPuJcJt5cGydoMBLPq5z2BQuQ7wmF2zeK94Has16
+	vMV2aQlOspGwTVroz+HRwkAqR1nPmIfGYYr69Ldix4SXwLe9e+JpYNVK2oP2iZxL6YyeldFiTHpcH
+	6hWgwHIg==;
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nuw-00000008zcp-0azq
+	id 1t4Nv1-00000008zf3-0NLN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:09 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4315eeb2601so29131775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:04 -0700 (PDT)
+	Fri, 25 Oct 2024 17:16:13 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-37d4c1b1455so1467742f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876563; x=1730481363; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876569; x=1730481369; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=;
-        b=m9cRmYK8HOsG4Qe8lIwsmXRtULIeyD1C5mF4U+wohuyAPa92GV8bA5I8xiHn+/IZf6
-         fkcZyxONEC06wEkjnzo9zgtdf4fNiOAXV2EY4Adpz7LcQoy34NvV0ZHq0J2Re541/ycg
-         ecyK3l2Wv3Dn00V6NsQRX8qIhNNFqLoPiKnax4nepLHv1pL7CU2yRihIRPEWu67eXJPA
-         FKa1Tx6YMAvzuaUnY7jvj7zGwZSFPjDNXx2PDliJM7BsqPP/R6+ZRVORLJ81yhezWSZD
-         H8tdpdyO2T3Ervhqo5p+wyiXZIAKrnMl3ff2OTFW+1BlPIYeTJ0Aehw02MO7Hj/1rfwO
-         vMpw==
+        bh=GHIbxCZv7ndlL/NngNJdWVaw8pnmec8lE+r1y4sRvZg=;
+        b=ioaPGANi54i5XQp86DLfBRmpGE8dl9s+jLxclz3U1u5WE877C1EeNdNR0kxkfKc8t7
+         gDwxizE/T1ijAzYZVg2g8oL3/EITKXE6zm7QDVMH2IccxAjfZ/rwrhqvM1iVYSRy9qs6
+         mQYW9OfJ8uKinHcGftOzBhrEhv2O3n575bCeb8bKUlKUbNmSVXu0uwza6ZdNNhoAY/Is
+         HXZT+94Z6i3yXphgULshyryM9Vo4wgHja67svCdAS2D6aDobUV3cP3VXyUvc499JkLPB
+         VkvQXUffHaid2T3zWy/rr2xh6MRHrc3TQPy5M3hDjv5arDbYoVKG7CL5ns29jW4IXZlM
+         KY2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876563; x=1730481363;
+        d=1e100.net; s=20230601; t=1729876569; x=1730481369;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=;
-        b=tXJW7Mh2HX6/GuDx2vA3g9PZz45yzo5NemDidtZxFV5iHWrK873Cke3VYunqxI+FMD
-         PlUUjxJy/Ry2KAm0hJOrOMSVEqM/FO5IANmhM7ns9pWE35pycQ4uKFMjZqnGMj+HYcdS
-         hWVtDXXpWUx8CUe/Dmh/3CzbmAHzm4pPSQKg71/xSoSYB3+gXVYuF7AXq/wRh54kicKl
-         vZBWdWuU3TpEyMrSC3zDWLuC1oks7loYep6s++saaN7MBSPw/NZGD0n8XNqyZpT0Rnsi
-         VxtYswDRVjR4OBKfOm7AlCM/qrqSEuCjZYR3qSXZptMSV6sxUMA2/Fo9Q6GM/7sXLdlh
-         F+ow==
-X-Forwarded-Encrypted: i=1; AJvYcCWSIsGJNXkiwE7hmeDrxG+TVQ5b/8vcUXIVkVM8Vmn4147x0JGj6ekj3c/b1UiqQD5gwoB5t5ILK5XHg8UqVKpw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2lnBARMgXgNgl0Vv3i+vwhaeP7JuLz0l+0QkhwYuEJpgthwLl
-	XaIBiPM1pXMwAkamUpcy/HG6uStmlNua0hrhI61bUh3rUEipv47zg123yM+Wpo0=
-X-Google-Smtp-Source: AGHT+IHS33FJ99QvsSnwlHEO0RVmS3g3mQFRGvOhUZla0C49szl9I45Vo/iib3shrh2XvYSiEjJZJQ==
-X-Received: by 2002:a05:600c:314a:b0:431:4847:47c0 with SMTP id 5b1f17b1804b1-431841eb704mr109059015e9.7.1729876562817;
-        Fri, 25 Oct 2024 10:16:02 -0700 (PDT)
+        bh=GHIbxCZv7ndlL/NngNJdWVaw8pnmec8lE+r1y4sRvZg=;
+        b=exl70fJ3gWoZN+XGDFV9QptJcJqZV0WghJIdRpEeH2UpAqvk3BDCYDXB3cSyKGGzzt
+         N/Q8cvxNQtp00p5S6ylL5ym/8w6RnTLBg39vpNfqS2pTAyXJQ6KnfdisMOByABhScepf
+         B6EGH11L1jbBvUdCG/q+EI6Nur+cECiBl/bomjSWWSAP8VegLTtFFGqdvwXPObCzOtfw
+         vweVxL99oeeTOM9h3txBh2dnDDtik4A1rm/EL/Hz/B+ct76JzKe942Cjs4RhrJ/H5RNY
+         7As8tvAt8mRJkL23DYqwwZykobJ3vL8pSdQo1arNdlIJXam771Y/TWeXrpfhBLUTB7/7
+         p9/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWwjnSx2WG091sYzORC03mWg+/ZXD6Jq/Z5JQZQEVEHYawLK8dAjzZPLCudzjzNsca0HIUkCiAhXvINZfnYujAc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDvi8IdeaAkCaPnhCJYoa3cJreWijlXYPuOd5qITk/dGdohaLE
+	SsedXsSCH8/E4Kh3ySHT7nlCkFuqB8bAo1LiTOs3/t6XxK+iV0h+L0n1xTdA9M8=
+X-Google-Smtp-Source: AGHT+IEtkqmEo1cHWR2W1weuYPM4uWgJxftiucw4MZPmb7qQfL+iD3mzdPD9IiAb9rW3E2dTgpbMnA==
+X-Received: by 2002:a5d:6082:0:b0:374:baeb:2ec with SMTP id ffacd0b85a97d-38061122a87mr106867f8f.19.1729876568721;
+        Fri, 25 Oct 2024 10:16:08 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.01
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:02 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:08 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:33 +0100
-Subject: [PATCH v2 02/36] drm/vc4: Fix reading of frame count on GEN5 / Pi4
+Date: Fri, 25 Oct 2024 18:15:39 +0100
+Subject: [PATCH v2 08/36] dt-bindings: display: Add BCM2712 KMS driver
+ bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-2-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-8-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -108,8 +109,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_181606_504718_DD7D0612 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20241025_181611_994441_8B38505D 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,100 +125,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The frame count values moved within registers DISPSTAT1 and
-DISPSTAT2 with GEN5, so update the accessor function to
-accommodate that.
+From: Maxime Ripard <mripard@kernel.org>
 
-Fixes: b51cd7ad143d ("drm/vc4: hvs: Fix frame count register readout")
+The BCM2712 SoC comes with a new variation of the videocore display
+pipeline. Let's create a new compatible for it.
+
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/gpu/drm/vc4/vc4_hvs.c  | 45 +++++++++++++++++++++++++++++++-----------
- drivers/gpu/drm/vc4/vc4_regs.h |  6 ++++++
- 2 files changed, 40 insertions(+), 11 deletions(-)
+ Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
-index 1edf6e3fa7e6..f8edb0791091 100644
---- a/drivers/gpu/drm/vc4/vc4_hvs.c
-+++ b/drivers/gpu/drm/vc4/vc4_hvs.c
-@@ -272,19 +272,42 @@ u8 vc4_hvs_get_fifo_frame_count(struct vc4_hvs *hvs, unsigned int fifo)
- 	if (!drm_dev_enter(drm, &idx))
- 		return 0;
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml
+index 49a5e041aa49..2aa9d5d2afff 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-vc4.yaml
+@@ -18,6 +18,7 @@ properties:
+   compatible:
+     enum:
+       - brcm,bcm2711-vc5
++      - brcm,bcm2712-vc6
+       - brcm,bcm2835-vc4
+       - brcm,cygnus-vc4
  
--	switch (fifo) {
--	case 0:
--		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
--				      SCALER_DISPSTAT1_FRCNT0);
--		break;
--	case 1:
--		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
--				      SCALER_DISPSTAT1_FRCNT1);
-+	switch (vc4->gen) {
-+	case VC4_GEN_5:
-+		switch (fifo) {
-+		case 0:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
-+					      SCALER5_DISPSTAT1_FRCNT0);
-+			break;
-+		case 1:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
-+					      SCALER5_DISPSTAT1_FRCNT1);
-+			break;
-+		case 2:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
-+					      SCALER5_DISPSTAT2_FRCNT2);
-+			break;
-+		}
- 		break;
--	case 2:
--		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
--				      SCALER_DISPSTAT2_FRCNT2);
-+	case VC4_GEN_4:
-+		switch (fifo) {
-+		case 0:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
-+					      SCALER_DISPSTAT1_FRCNT0);
-+			break;
-+		case 1:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
-+					      SCALER_DISPSTAT1_FRCNT1);
-+			break;
-+		case 2:
-+			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
-+					      SCALER_DISPSTAT2_FRCNT2);
-+			break;
-+		}
- 		break;
-+	default:
-+		drm_err(drm, "Unknown VC4 generation: %d", vc4->gen);
-+		return 0;
- 	}
- 
- 	drm_dev_exit(idx);
-diff --git a/drivers/gpu/drm/vc4/vc4_regs.h b/drivers/gpu/drm/vc4/vc4_regs.h
-index c55dec383929..341a75cf92e5 100644
---- a/drivers/gpu/drm/vc4/vc4_regs.h
-+++ b/drivers/gpu/drm/vc4/vc4_regs.h
-@@ -418,6 +418,10 @@
- # define SCALER_DISPSTAT1_FRCNT0_SHIFT		18
- # define SCALER_DISPSTAT1_FRCNT1_MASK		VC4_MASK(17, 12)
- # define SCALER_DISPSTAT1_FRCNT1_SHIFT		12
-+# define SCALER5_DISPSTAT1_FRCNT0_MASK		VC4_MASK(25, 20)
-+# define SCALER5_DISPSTAT1_FRCNT0_SHIFT		20
-+# define SCALER5_DISPSTAT1_FRCNT1_MASK		VC4_MASK(19, 14)
-+# define SCALER5_DISPSTAT1_FRCNT1_SHIFT		14
- 
- #define SCALER_DISPSTATX(x)			(SCALER_DISPSTAT0 +        \
- 						 (x) * (SCALER_DISPSTAT1 - \
-@@ -436,6 +440,8 @@
- #define SCALER_DISPSTAT2                        0x00000068
- # define SCALER_DISPSTAT2_FRCNT2_MASK		VC4_MASK(17, 12)
- # define SCALER_DISPSTAT2_FRCNT2_SHIFT		12
-+# define SCALER5_DISPSTAT2_FRCNT2_MASK		VC4_MASK(19, 14)
-+# define SCALER5_DISPSTAT2_FRCNT2_SHIFT		14
- 
- #define SCALER_DISPBASE2                        0x0000006c
- #define SCALER_DISPALPHA2                       0x00000070
 
 -- 
 2.34.1
