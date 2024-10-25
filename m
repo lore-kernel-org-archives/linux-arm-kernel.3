@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9E0D0C5FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E10D0C5FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Byp+PjWRYn6GO1JC0ss9FiWTFeXk+otd8z4kS2/JCSI=; b=j1YN3OEvYCxMw6kZaJ8ripAOnC
-	hbTR/bgr0Tet4Qzn4JOXiZeI6+hkzFgWeNc+7/B7s39DNwvM9CGkqdavuzHdCXQa8hKXj4BJWtZDO
-	vwweZMD2vVSYmbfGRSnT82o2vYCBAzOGsUpooj+cVSn/5x9Bpnx0CvyqQwEu65HOIeF2JVPkf2HeD
-	L2rCds/WpVvJKD3fOO2T2cNMu/BWlRdY0fE7jhBEFa/SUgA5MUPozYi5BFgQp/CxLbRA4WMv4ACz1
-	Pcp+TDBvlNqgjKL4EdUcK7fa9GF5dfvn1xbCSb2t5g7/t4FRk5CUD0yQ9Ss2N/gzKsub14TyaTn8+
-	YxGxRICw==;
+	bh=0bZ3nJ421g5FdnES/Q9wfQdcZFTwG6r1p4WlQRzEAIY=; b=Tjsfj1d23Id3LZRsRsKIV5B2Nn
+	FpSJNuKYdVm+qYeFmddo6flBMojQqTWnyJk2j8sO73as8/G/jejwFHuTbyQ9JJ/2/3EUnHmaRcGAm
+	ytU8toHErC2I4iHiOUDmdbM6+1CoqBO6s7SHqUdeoXtHdvSNPNJI9AnPwhPsBWa91vvc4VeE4MLT4
+	+tBMFdyMI9OVlrJTbadFKHhxG6ABpvWBXe96pfhKsUiul5FJZ3L244vjtqWzOe617Wuq4XLHo6lm4
+	0nU04FSrWSa+f2MKrqXDG6C6/HIXrCh3w+g5P1L+m1FZ3Y0Hqw4QrEWu7RVTFrwKWR3cXh1kwnGTP
+	aIpR1jGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4I5n-00000003Rzc-1zH5;
-	Fri, 25 Oct 2024 11:02:55 +0000
+	id 1t4I7K-00000003SCC-3CZq;
+	Fri, 25 Oct 2024 11:04:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Hvh-00000003PrY-12Vb
+	id 1t4Hvh-00000003Pt0-1yL3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 10:52:30 +0000
+	Fri, 25 Oct 2024 10:52:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12B6E497;
-	Fri, 25 Oct 2024 03:52:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E7FE12FC;
+	Fri, 25 Oct 2024 03:52:58 -0700 (PDT)
 Received: from VDW30FN91H.arm.com (unknown [10.57.79.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 144843F73B;
-	Fri, 25 Oct 2024 03:52:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A71913F73B;
+	Fri, 25 Oct 2024 03:52:26 -0700 (PDT)
 From: Graham Woodward <graham.woodward@arm.com>
 To: acme@kernel.org,
 	namhyung@kernel.org,
@@ -47,18 +47,17 @@ To: acme@kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: nd@arm.com,
 	Graham Woodward <graham.woodward@arm.com>
-Subject: [PATCH v10 1/4] perf arm-spe: Set sample.addr to target address for instruction sample
-Date: Fri, 25 Oct 2024 11:52:09 +0100
-Message-Id: <20241025105212.51779-2-graham.woodward@arm.com>
+Subject: [PATCH v10 2/4] perf arm-spe: Use ARM_SPE_OP_BRANCH_ERET when synthesizing branches
+Date: Fri, 25 Oct 2024 11:52:10 +0100
+Message-Id: <20241025105212.51779-3-graham.woodward@arm.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20241025105212.51779-1-graham.woodward@arm.com>
 References: <20241025105212.51779-1-graham.woodward@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_035229_358897_AF24848E 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_035229_603902_89F48F87 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +72,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For an instruction sample, assign the target address to the field
-'to_ip'.
-If it is a non-branch record, to_ip will be 0, presenting a non-valid
-target address.
+Instead of checking the type for just branch misses, we can instead
+check for the OP_BRANCH_ERET and synthesise branches as well as
+branch misses.
 
 Signed-off-by: Graham Woodward <graham.woodward@arm.com>
 ---
- tools/perf/util/arm-spe.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/perf/util/arm-spe.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 138ffc71b..76d41c91f 100644
+index 76d41c91f..d27500c53 100644
 --- a/tools/perf/util/arm-spe.c
 +++ b/tools/perf/util/arm-spe.c
-@@ -400,7 +400,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
+@@ -69,7 +69,7 @@ struct arm_spe {
+ 	u64				llc_access_id;
+ 	u64				tlb_miss_id;
+ 	u64				tlb_access_id;
+-	u64				branch_miss_id;
++	u64				branch_id;
+ 	u64				remote_access_id;
+ 	u64				memory_id;
+ 	u64				instructions_id;
+@@ -601,8 +601,8 @@ static int arm_spe_sample(struct arm_spe_queue *speq)
+ 		}
+ 	}
  
- 	sample.id = spe_events_id;
- 	sample.stream_id = spe_events_id;
--	sample.addr = record->virt_addr;
-+	sample.addr = record->to_ip;
- 	sample.phys_addr = record->phys_addr;
- 	sample.data_src = data_src;
- 	sample.period = spe->instructions_sample_period;
+-	if (spe->sample_branch && (record->type & ARM_SPE_BRANCH_MISS)) {
+-		err = arm_spe__synth_branch_sample(speq, spe->branch_miss_id);
++	if (spe->sample_branch && (record->op & ARM_SPE_OP_BRANCH_ERET)) {
++		err = arm_spe__synth_branch_sample(speq, spe->branch_id);
+ 		if (err)
+ 			return err;
+ 	}
+@@ -1202,12 +1202,12 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
+ 	if (spe->synth_opts.branches) {
+ 		spe->sample_branch = true;
+ 
+-		/* Branch miss */
++		/* Branch */
+ 		err = perf_session__deliver_synth_attr_event(session, &attr, id);
+ 		if (err)
+ 			return err;
+-		spe->branch_miss_id = id;
+-		arm_spe_set_event_name(evlist, id, "branch-miss");
++		spe->branch_id = id;
++		arm_spe_set_event_name(evlist, id, "branch");
+ 		id += 1;
+ 	}
+ 
 -- 
 2.40.1
 
