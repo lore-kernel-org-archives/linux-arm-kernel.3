@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E5AD0C60D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134DFD0C60D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=; b=q88dKqA2FcKgdve5zvKSL5YU9f
-	H9rfK0ny3lB1M/cNlzVfxooMoW5SaHL4VOhz1tQpzEhdzBqhFp45hgLEYAiAVkWK2RwI2+kqye1Ys
-	YQ/lf2aGON2xrcuSoPB37irGss+GdoQ6gtKfG23rDIPrZptcQF+tvd/2pcpOdNDHoZ9R+mW6Ui0yq
-	nH0Hc9wMj9X3g14zhCSPMOK4m0XKZeGShtY08HhwOF/6+O4H6tp3doDb/aJi8VjuQ1/i92TQkXMq5
-	MHkwrcxa5QPKyiUAzQHKiXLpnk2teCw9QQo+15aZKN7L/he2nNkDYCAnnSL4i6NHJK5F0es2XQbfS
-	T454Z+Xg==;
+	bh=hwJALAAeKO6DZ5STVB6W3oZmi4qjYoxF/2Uc+rthKgs=; b=SZEa9ZuiYfcr0coXF3S1x/znqb
+	aGrw9cfiXiKvOWEVfRnR+HWhqhF4ImXKbhRhCJ8ZzQ4IXtTz/eGNmVVuV27bqzgwkQQEOgmf5Ij9X
+	TnjUPVwezUm5A3Wz/RnxUy7v5FOsMNo5sGRkXlyofwYkNAvIDDv8Ba7UR4H/9hjLs1UpVIeFrJa+y
+	TjCzeJzHvuWQNS3Y6KQoNb6LjQfPjMuEHPsUskaNTBEOGfdtkMtTJpYoA26S92O1uTuBY3ohjQBXV
+	nGp292dwoYrajf2a7vjttiTdWTngiIatojug7LCtUoK5PlYwjFiUp9W8CqD65h73ofY2/0WYLDe/q
+	cjzfcJZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KWJ-00000003qLC-3DzV;
-	Fri, 25 Oct 2024 13:38:27 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1t4KXr-00000003qcH-44A5;
+	Fri, 25 Oct 2024 13:40:03 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K9c-00000003mkx-2udP
+	id 1t4K9e-00000003mm8-3uma
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:15:33 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539e8607c2aso2359271e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:59 -0700 (PDT)
+	Fri, 25 Oct 2024 13:15:34 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4315e62afe0so20833945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:15:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729862098; x=1730466898; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1729862101; x=1730466901; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=;
-        b=kt/vKlRcU3IlPabyscKRmThZ/kxWJhjPBndymP2HXoqcXrkooK+Gzy/iZtPHW8aBA2
-         MpcXeV46e2E+92KpxnEAq+yOmYSjJBDCu+J6NeIpkB/oExIS5GKjT+ZLJ3/fEw+hkp56
-         pXIhkTqLRWhM2WeY/B3QEJpUm1bbz0wsxV7pI1c/ffF12MXzWW7FlTZY9wUNt/2GDL1S
-         UqI0l+QwOldVMyiofJdPvagETnpJSAE+lCjOd2m35/Oqqq6aAU5hdqc6l971rHJ2fHdp
-         NObSJuFnIkJceUDGmW/Vcx0xq6bBQx6oxjqyrtgTCuleCMIxnD92fQV0PTLBTHMQsaTv
-         nDvA==
+        bh=hwJALAAeKO6DZ5STVB6W3oZmi4qjYoxF/2Uc+rthKgs=;
+        b=Ey6MVCxPvJp54nl/0X7IonjJTicTKTncSuMWvsIGVoO6fQvoap627q1lUY3eTAPBG4
+         wP1UuuhSCff7++q86TghZEj0jaUghTH6SNugndrdPOp5yIWxVBXUOA/OwGihgHRT7yd/
+         XQDR0mJPGlBw5kdyIvhmcbki4O1G3xXWeT+xqFaJanHFuFBmoGyceJljJuL93HgBFxx5
+         RG1LL7ECU1UmYJLBa+e3srqv+aammOJyKdD85+AZBKAKZRDBnuBZKo6tXJU8QBHhC8SI
+         QZjinm5DEf0I7BIyDHouxSQNVczTkDk+2C0wZMi6Z/HkRBa3OlDDoB+4DBQ3/89sartI
+         6Wkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729862098; x=1730466898;
+        d=1e100.net; s=20230601; t=1729862101; x=1730466901;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=;
-        b=YKBThB0eISdlt2wacUxwTzqhCzkcpL4Mhh4+UvTDvmmt3LqS7dRZpOZHHOPfs8HbH/
-         35leNifpV8YLn0pmCi82LyPM8JvOUgaHbwOGNsi6K4ml7OPtkGBXiUU6IK/S08wpRHDb
-         ky9NA7Ti6546y6hgMgdlszHl6wfRgEJdxpMj+MEmYGwoegla6O8A3MojIPEee1+YU3e1
-         O6MmtOHdqFwxhOOQloGJ94h/i5ADqr8dFkFbARwoTjXWj5kBaqUR4sCgXFtDOTUv83JR
-         iZMCZFl1iQvRdA0Bj6cex27la0icWaKBEHNUJbChSeDifOWBs8bUJd6t/7JDQa+HsJKd
-         5Qmw==
-X-Forwarded-Encrypted: i=1; AJvYcCURuyB3rU4wV8x+6rlQDib2H/3Nw5MIBwV2uYxOg62rLhT/IIQFZaIflQ2tjleu9JpTWSs+aYynMrzNgy5KsJyV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxowQZ6pDYiOq323J3c3eygpS7ZCewDBJRWwjOrrg5Ahzf//3XK
-	qnym6mpphFDebao5uFWJq7R2KuUdoUgx528jCM6XWOo2P/HEgAV3d6d/oJPUqDE=
-X-Google-Smtp-Source: AGHT+IFIjxCtFqGk3E1YIZeIbZDApteEen8rQ8qLd9MWNW7M5VeqNXGVeyRg3HBljC/8CXJKDn+GyA==
-X-Received: by 2002:ac2:4c55:0:b0:539:fc75:99ae with SMTP id 2adb3069b0e04-53b23e1df9emr3392181e87.31.1729862098342;
-        Fri, 25 Oct 2024 06:14:58 -0700 (PDT)
+        bh=hwJALAAeKO6DZ5STVB6W3oZmi4qjYoxF/2Uc+rthKgs=;
+        b=IZeyZjO75K/1/FQ3lczqqhF00/XdWvFx3HdU8IeTC720fIgMp83SOMqb8mRabagzoa
+         zFLOeaofq0TtPCGLRp9+vNfmBPhBf497duv2vRlSzbs0VHvT+8Tg/4QJfCdqxc01u3wc
+         1AICo0WAiHZskElf/9FfHUNwQsMMD6ky2LDDmtOl4ypHBKu1OYtM29QlsOMMHrM9mYQk
+         Ul26wXfzJVxxu2pRNvNSj0joDeFwNF1cOus2RK9RprAdP4xIcD8x1DjurUphAC1PuHFZ
+         bhLop3IzHQ2dAulUQBWcBnNjgdOYLKEd1lzeN3VTDB1zOr+Qz4LBXeVIyivGcRYchg9R
+         JhRg==
+X-Forwarded-Encrypted: i=1; AJvYcCWvrVlMB6//ACEhDPwfYblnIXfpZY0d0X8wofkwJf5fTjDjJI3S/sQtUVB7siyqFNMEsGWz3xu0nF99Ah2pB2OG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfhYbCyxDE83Z11TyP9sLg64oDMMRCaK+Cm/E2EPZdongrs8bw
+	by0RFBhX97lhLmVEOPXnhlxilYYqGyHXHn9ReQi5lW3hPMTMJDE8y0INYgyBDKY=
+X-Google-Smtp-Source: AGHT+IG93PjcVz+7+9Ks5a4tZOcJmfpGpRSJSrp4oHNgenqx8uAoLySbtv12lhSPEbntHZWJ76vNhQ==
+X-Received: by 2002:a05:600c:1d8f:b0:431:5bae:c600 with SMTP id 5b1f17b1804b1-4318c780d48mr50376755e9.34.1729862101341;
+        Fri, 25 Oct 2024 06:15:01 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.67.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 06:14:58 -0700 (PDT)
+        Fri, 25 Oct 2024 06:15:00 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -81,17 +81,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-kernel@vger.kernel.org,
 	ebiggers@kernel.org,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v2 07/11] scsi: ufs: exynos: add gs101_ufs_drv_init() hook and enable WriteBooster
-Date: Fri, 25 Oct 2024 14:14:38 +0100
-Message-ID: <20241025131442.112862-8-peter.griffin@linaro.org>
+Subject: [PATCH v2 09/11] scsi: ufs: exynos: set ACG to be controlled by UFS_ACG_DISABLE
+Date: Fri, 25 Oct 2024 14:14:40 +0100
+Message-ID: <20241025131442.112862-10-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241025131442.112862-1-peter.griffin@linaro.org>
 References: <20241025131442.112862-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_061500_758758_DB5E9851 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20241025_061502_999240_5B417ED1 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +106,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Factor out the common code into a new exynos_ufs_shareability() function
-and provide a dedicated gs101_drv_init() hook.
+HCI_IOP_ACG_DISABLE is an undocumented register in the TRM but the
+downstream driver sets this register so we follow suit here.
 
-This allows us to enable WriteBooster capability (UFSHCD_CAP_WB_EN) in a
-way that doesn't effect other SoCs supported in this driver.
-
-WriteBooster improves write speeds by enabling a pseudo SLC cache. Using
-the `fio seqwrite` test we can achieve speeds of 945MB/s with this feature
-enabled (until the cache is exhausted) before dropping back to ~260MB/s
-(which are the speeds we see without the WriteBooster feature enabled).
-
-Assuming the UFSHCD_CAP_WB_EN capability is set by the host then
-WriteBooster can also be enabled and disabled via sysfs so it is possible
-for the system to only enable it when extra write performance is required.
+The register is already 0 presumed to be set by the bootloader as
+the comment downstream implies the reset state is 1. So whilst this
+is a nop currently, it should help with suspend/resume.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- drivers/ufs/host/ufs-exynos.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index d4e786afbbbc..40b2563fe011 100644
+index b0cbb147c7a1..fa4e61f152c4 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -203,7 +203,7 @@ static int exynos7_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- 	return 0;
- }
- 
--static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
-+static int exynos_ufs_shareability(struct exynos_ufs *ufs)
- {
- 	/* IO Coherency setting */
- 	if (ufs->sysreg) {
-@@ -215,6 +215,21 @@ static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- 	return 0;
- }
- 
-+static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
-+{
-+	struct ufs_hba *hba = ufs->hba;
+@@ -76,6 +76,10 @@
+ #define CLK_CTRL_EN_MASK	(REFCLK_CTRL_EN |\
+ 				 UNIPRO_PCLK_CTRL_EN |\
+ 				 UNIPRO_MCLK_CTRL_EN)
 +
-+	/* Enable WriteBooster */
-+	hba->caps |= UFSHCD_CAP_WB_EN;
++#define HCI_IOP_ACG_DISABLE	0x100
++#define HCI_IOP_ACG_DISABLE_EN	BIT(0)
 +
-+	return exynos_ufs_shareability(ufs);
-+}
-+
-+static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
-+{
-+	return exynos_ufs_shareability(ufs);
-+}
-+
- static int exynosauto_ufs_post_hce_enable(struct exynos_ufs *ufs)
+ /* Device fatal error */
+ #define DFES_ERR_EN		BIT(31)
+ #define DFES_DEF_L2_ERRS	(UIC_DATA_LINK_LAYER_ERROR_RX_BUF_OF |\
+@@ -220,10 +224,15 @@ static int exynos_ufs_shareability(struct exynos_ufs *ufs)
+ static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
  {
  	struct ufs_hba *hba = ufs->hba;
-@@ -2124,7 +2139,7 @@ static const struct exynos_ufs_drv_data gs101_ufs_drvs = {
- 	.opts			= EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR |
- 				  EXYNOS_UFS_OPT_UFSPR_SECURE |
- 				  EXYNOS_UFS_OPT_TIMER_TICK_SELECT,
--	.drv_init		= exynosauto_ufs_drv_init,
-+	.drv_init		= gs101_ufs_drv_init,
- 	.pre_link		= gs101_ufs_pre_link,
- 	.post_link		= gs101_ufs_post_link,
- 	.pre_pwr_change		= gs101_ufs_pre_pwr_change,
++	u32 reg;
+ 
+ 	/* Enable WriteBooster */
+ 	hba->caps |= UFSHCD_CAP_WB_EN;
+ 
++	/* set ACG to be controlled by UFS_ACG_DISABLE */
++	reg = hci_readl(ufs, HCI_IOP_ACG_DISABLE);
++	hci_writel(ufs, reg & (~HCI_IOP_ACG_DISABLE_EN), HCI_IOP_ACG_DISABLE);
++
+ 	return exynos_ufs_shareability(ufs);
+ }
+ 
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
