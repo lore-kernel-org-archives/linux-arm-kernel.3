@@ -4,98 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA45D149CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A19D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=; b=R+49eUCAWPm6BFy1epOkgNvW9h
-	nDTLSavNlDqEVYtnPta+9NCXaq2XY4EbhepvVTGvy50HlFeOhAyn11oFrGN4QcsWZIdOSyS6Xgjq3
-	vfniQrZUfYHnIXeZywAQ8L9XBNlHI/yYMO2Fec6i+aXbcFN/PWIXs8hSLvyBISjeGquyb2e5Q/65c
-	HZTwAy/ksjK44vezfpx8jLUq7NxTtPMseUjygg8I4D1GYjUKo5nYylqsDgH/zFf08rStciItnIbmS
-	eogLjOmuu0+9Dpb5KYR4RimIidSZogdn4I7YvGkuiOjYcv3PYZq5asJDIzoTbFsMBikh0Kc4TFK+w
-	fav7UPVA==;
+	bh=8nFesq6fPuvktjrVX6D6kJiVuG2UTKxs3GcGzAOL5j0=; b=HZQoRGHrByND6OJOXCv5PdP2hk
+	EjU18MdJbIcp/e/jtlNUi8OIhSbc9sGxlWUi9GIIgBsof7Xtx01LZn07sqWXMNvjPhingEtLg9yHL
+	p0Xz5+byeI3fejx2QZ+UfDnXpxEvQmaE+lnGK3Ix87mbn7lEwpzxJVMx07C0x23kyt//SOGxmRehu
+	OBve+eSrkQi7T+zQ1DlYsi80i+c3jxInP86YQo/2RSGQFjHm9QvlF/kxf7iKmRKyz6WjLfud9jHdP
+	YUx4VLfhpFVJ7LHm8RVeLskR8dX0SjaY/sq2qPa/yldlH7tQNncgkYJ3+tQLARMKteGIrc4niyynT
+	6Pzmb27w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OwC-00000004mCB-0C5J;
-	Fri, 25 Oct 2024 18:21:28 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1t4Oxn-00000004mde-0Nhc;
+	Fri, 25 Oct 2024 18:23:07 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NvR-00000004Y7e-2Hw4
+	id 1t4OA0-00000004bog-34mg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:39 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d518f9abcso1664558f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:37 -0700 (PDT)
+	Fri, 25 Oct 2024 17:31:45 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7180a5ba498so1193883a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:31:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876596; x=1730481396; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=;
-        b=qi+b9iyle/w1O78ejPbW5KW8Q8vjN5PS1h/rsZ9vtorbq2qqcVXnPofe/v5E4bKSVy
-         hlgWhCy6lrzEKlfRYFn6By1htv11TYf99E4RU9I9nvFvC0hEs/9pe1INOnPpw5M98TcN
-         hRUu0xbQQcH7LzPH9lTxHHCjfur0+VD0QWqiBTxH8Ey/YDhz5VN0sjvnWoeI+EYeM5Ly
-         cjTDIyJz7MblZ9xmmJ/Y8DHO/uFZ6p6JjY/pWDkQNzPs5XoHLR+RLNTDNjgcKsfwfvXf
-         mMsjSHYeEFVRtmjTzAxUAaqo5jtPonS6SD42b4kFw7ZN43VCQTeBMXbuqg9PocLZW9C6
-         6bLA==
+        d=google.com; s=20230601; t=1729877499; x=1730482299; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8nFesq6fPuvktjrVX6D6kJiVuG2UTKxs3GcGzAOL5j0=;
+        b=HcLX1W/Qe98zxfpqZtnG4rKeF/rectkVLxoZhaySWh+TjrWsTnOEx/MagQOPYw0rSc
+         M5dTT5A0tk0NZiwLmLuuflNv2OAWiP6TpCkeUKGM+L+ySrWOa4rVC3OmwXlEiaT9EWkd
+         PNZU1g8znHumKpFTVqRWaHeSUgNG+7DWLCL3WgHxS0bjOrsdUEdUOf+NZR4kEBmVJ6jf
+         oqvEcQL+6SjuW1ixOM+vjnR4XPbSaR1iYh+Ir0IPiQ8tv3sXE3eCwaPRn1hjN3i5YmsP
+         WWJA4F6Qz0lGdzpmwsy2g7NMpiwNGMnYZ/GDiTPinIj7AybNHtSSg9rpB54nwBGEgla+
+         jsgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876596; x=1730481396;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1729877499; x=1730482299;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SOV7jAWhbFwwjw/OJ7O7LtE/DWvJ9qhDH2QMAsU+FWw=;
-        b=llTEvjULAPpsLZWiWa2PJvpq/NB8dAgS+a8V6lxXOD3KBaCKKmgmJB5h0HkM0pt0oj
-         NCjKFY9H4gWGzx24SrkmJ+mz0iOxlPhrVQpX53NCmROswwG+lDIHVFtJS0o4KTrAUvGJ
-         cxjtVaVjQ8zi+oCLpliKaNMc1a9LoFb63tLv9tTErwufVJTsuEdT7WbGWfY58THaxwul
-         04zaPXc1hOiWYm+Ca6V52AZglIjReYdRsFW5wPWoS9Jfs+qS47/PEArV5T9FvdsdjwIX
-         Aqr6oFV3GAPT1h2qqiW0e46q/Fqu2t3aNMUjZAgy/BLSUzqYUAWTpPUzcpZPLm4svpD2
-         /VVg==
-X-Forwarded-Encrypted: i=1; AJvYcCVD0r+RbCYC7jvYLo8G4yK9EeysHxabLX4WXdr/8kLvH+DAlOSrZRhFQjsJsicMrFaZT3sbzhg9+krIViRND7fW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/pFu9BXUv2cOzDpk5NCXM7C0z39HYbgO5oJidupHhjd66L2GJ
-	Ggt9kmQBk5ngMcwcalojyuG+DYCC0cZpk2x5yAALV5ByvmP1MHiLFMOVkPVcuiE=
-X-Google-Smtp-Source: AGHT+IHM4SY0KfVAQSpJ1+ccDJ+C4lsK7yh/l9hYanouQQltriHwErlFPV65caR05fmBTRpW7n50vQ==
-X-Received: by 2002:a05:6000:e42:b0:37c:cec2:23c6 with SMTP id ffacd0b85a97d-38061208e5dmr101866f8f.57.1729876596081;
-        Fri, 25 Oct 2024 10:16:36 -0700 (PDT)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:35 -0700 (PDT)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:16:07 +0100
-Subject: [PATCH v2 36/36] arm64: dts: broadcom: Add DT for D-step version
- of BCM2712
+        bh=8nFesq6fPuvktjrVX6D6kJiVuG2UTKxs3GcGzAOL5j0=;
+        b=hGkeiZbYqFyzsTEENd7C+hlzWqYJg9licYZdFPy8o6MSANVngpXWkRP/IdheBumdtG
+         dfOJ1oFGl66URSxcJ/Z0czQe42w5Ry+RUOhZJcCxxrLZoGSQ8TA/hwfUfFILMQxM37vG
+         e7/j4zpP81NJkS1uegH0jG00vR+2L/kFTuoTpuIomJ6j3PYb33/wUlVFssUOEO7VPjX5
+         4feDVWUxFMYndgZGQAEeuP5yfMj5iyfnN+yeGdsbSeXq0HSJ9jjbfzXpZ/clM60CFY5X
+         Lwk8il/N6uAe3ixwF1CPWEGhywHNqOSlj9dslw/DBfSHYjYDGY8VQiEVF2ThiSH217vk
+         /InA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXfXtA1wihi2ciRqPpDUPIxOguJSf74kW7VRRE7IU5iNrtljjJ2hFsTJO2HDqo+wa11FtxDGh4VbsoQdtJyc0p@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOVTVQESox/ESyu54Vi6f4/0c5Zc8c950sG4+2uwHPXZqdfnjH
+	EqvP5KoEnnQQNH8hRMVV5mFfCIuKjAW+8toNd6/GyvgSZcHiV0nZKtGAbU6Jsgb1wF7h4yZ3K0B
+	mujFrgNADgHBBNomVzP4055Aw1BvcbFQYB7GZ
+X-Google-Smtp-Source: AGHT+IF4WiLhU1Gd/JNblfLAXfS7pNVnnQCGhJ6THzrAm3Qyvdxiau/k0EXOnmxa65gTsETP/x7JeKI91bH/3f56v+M=
+X-Received: by 2002:a05:6830:2814:b0:718:18d6:a464 with SMTP id
+ 46e09a7af769-71867f11dfemr438530a34.5.1729877498557; Fri, 25 Oct 2024
+ 10:31:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-36-35efa83c8fc0@raspberrypi.com>
-References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
-In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
-To: Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Javier Martinez Canillas <javierm@redhat.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.14.1
+References: <20241021042218.746659-1-yuzhao@google.com> <20241021042218.746659-4-yuzhao@google.com>
+ <86a5ew41tp.wl-maz@kernel.org> <CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
+ <86h6902m7y.wl-maz@kernel.org>
+In-Reply-To: <86h6902m7y.wl-maz@kernel.org>
+From: Yu Zhao <yuzhao@google.com>
+Date: Fri, 25 Oct 2024 11:31:01 -0600
+Message-ID: <CAOUHufbEadyAn0WVdJqYKkUjvMfGXXiLjaApjhaHKg93P8Rymg@mail.gmail.com>
+Subject: Re: [PATCH v1 3/6] irqchip/gic-v3: support SGI broadcast
+To: Marc Zyngier <maz@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Muchun Song <muchun.song@linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
+	Will Deacon <will@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_101637_645616_E3C7C138 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20241025_103141_071994_08B12652 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,74 +96,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The D-Step has some minor variations in the hardware, so needs
-matching changes to DT.
+On Fri, Oct 25, 2024 at 10:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
+e:
+>
+> On Fri, 25 Oct 2024 06:07:45 +0100,
+> Yu Zhao <yuzhao@google.com> wrote:
+> >
+> > Hi Marc,
+> >
+> > On Tue, Oct 22, 2024 at 9:03=E2=80=AFAM Marc Zyngier <maz@kernel.org> w=
+rote:
+> > >
+> > > On Mon, 21 Oct 2024 05:22:15 +0100,
+> > > Yu Zhao <yuzhao@google.com> wrote:
+> > > >
+> > > > @@ -1407,6 +1418,13 @@ static void gic_ipi_send_mask(struct irq_dat=
+a *d, const struct cpumask *mask)
+> > > >        */
+> > > >       dsb(ishst);
+> > > >
+> > > > +     cpumask_copy(&broadcast, cpu_present_mask);
+> > >
+> > > Why cpu_present_mask? I'd expect that cpu_online_mask should be the
+> > > correct mask to use -- we don't IPI offline CPUs, in general.
+> >
+> > This is exactly because "we don't IPI offline CPUs, in general",
+> > assuming "we" means the kernel, not GIC.
+> >
+> > My interpretation of what the GIC spec says ("0b1: Interrupts routed
+> > to all PEs in the system, excluding self") is that it broadcasts IPIs t=
+o
+> > "cpu_present_mask" (minus the local one). So if the kernel uses
+> > "cpu_online_mask" here, GIC would send IPIs to offline CPUs
+> > (cpu_present_mask ^ cpu_online_mask), which I don't know whether it's
+> > a defined behavior.
 
-Add a new DTS file that modifies the existing (C-step) devicetree.
+Thanks for clarifying.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
- arch/arm64/boot/dts/broadcom/Makefile              |  1 +
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 37 ++++++++++++++++++++++
- 2 files changed, 38 insertions(+)
+> Offline CPUs are not known to the kernel.
 
-diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
-index 92565e9781ad..3d0efb93b06d 100644
---- a/arch/arm64/boot/dts/broadcom/Makefile
-+++ b/arch/arm64/boot/dts/broadcom/Makefile
-@@ -7,6 +7,7 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
- 			      bcm2711-rpi-4-b.dtb \
- 			      bcm2711-rpi-cm4-io.dtb \
- 			      bcm2712-rpi-5-b.dtb \
-+			      bcm2712-d-rpi-5-b.dtb \
- 			      bcm2837-rpi-3-a-plus.dtb \
- 			      bcm2837-rpi-3-b.dtb \
- 			      bcm2837-rpi-3-b-plus.dtb \
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-new file mode 100644
-index 000000000000..7de24d60bcd1
---- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-@@ -0,0 +1,37 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/dts-v1/;
-+
-+#include "bcm2712-rpi-5-b.dts"
-+
-+&gio_aon {
-+	brcm,gpio-bank-widths = <15 6>;
-+
-+	gpio-line-names =
-+		"RP1_SDA", // AON_GPIO_00
-+		"RP1_SCL", // AON_GPIO_01
-+		"RP1_RUN", // AON_GPIO_02
-+		"SD_IOVDD_SEL", // AON_GPIO_03
-+		"SD_PWR_ON", // AON_GPIO_04
-+		"SD_CDET_N", // AON_GPIO_05
-+		"SD_FLG_N", // AON_GPIO_06
-+		"", // AON_GPIO_07
-+		"2712_WAKE", // AON_GPIO_08
-+		"2712_STAT_LED", // AON_GPIO_09
-+		"", // AON_GPIO_10
-+		"", // AON_GPIO_11
-+		"PMIC_INT", // AON_GPIO_12
-+		"UART_TX_FS", // AON_GPIO_13
-+		"UART_RX_FS", // AON_GPIO_14
-+		"", // AON_GPIO_15
-+		"", // AON_GPIO_16
-+
-+		// Pad bank0 out to 32 entries
-+		"", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+
-+		"HDMI0_SCL", // AON_SGPIO_00
-+		"HDMI0_SDA", // AON_SGPIO_01
-+		"HDMI1_SCL", // AON_SGPIO_02
-+		"HDMI1_SDA", // AON_SGPIO_03
-+		"PMIC_SCL", // AON_SGPIO_04
-+		"PMIC_SDA"; // AON_SGPIO_05
-+};
+I assume it wouldn't matter to firmware either, correct? IOW, we
+wouldn't cause firmware any trouble by letting GIC send IPIs to
+(cpu_present_mask ^ cpu_online_mask), assuming those two masks can be
+different on arm64 when hotplug is enabled?
 
--- 
-2.34.1
-
+> Most likely, they are either
+> powered off, or spending quality time in Secure or Realm mode. Either
+> way, this is none of our business.
+>
+> Your approach would make also the kernel perform pretty inconsistently
+> depending on whether CPUs are offline and not.
+>
+> >
+> > But if you actually meant GIC doesn't IPI offline CPUs, then yes, here
+> > the kernel should use "cpu_online_mask".
+> >
+> > > > +     cpumask_clear_cpu(smp_processor_id(), &broadcast);
+> > > > +     if (cpumask_equal(&broadcast, mask)) {
+> > > > +             gic_broadcast_sgi(d->hwirq);
+> > > > +             goto done;
+> > > > +     }
+> > >
+> > > So the (valid) case where you would IPI *everyone* is not handled as =
+a
+> > > fast path? That seems a missed opportunity.
+> >
+> > You are right: it should handle that case.
+> >
+> > > This also seem an like expensive way to do it. How about something
+> > > like:
+> > >
+> > >         int mcnt =3D cpumask_weight(mask);
+> > >         int ocnt =3D cpumask_weight(cpu_online_mask);
+> > >         if (mcnt =3D=3D ocnt)  {
+> > >                 /* Broadcast to all CPUs including self */
+> >
+> > Does the comment mean the following two steps?
+> > 1. Broadcasting to everyone else.
+> > 2. Sending to self.
+>
+> Correct.
+>
+> > My understanding of the "Interrupt Routing Mode" is that it can't
+> > broadcast to all CPUs including self, and therefore we need the above
+> > two steps, which still can be a lot faster. Is my understanding
+> > correct?
+>
+> Yes.
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
