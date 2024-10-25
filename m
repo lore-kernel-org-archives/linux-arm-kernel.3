@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63D6D11708
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021C8D11708
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enn3t52h/bw7Y5aOBI8X1K/59nvOCKaVHmDjz6Fts18=; b=VpzSNqYW3szTWLvhkjnadiMW+j
-	WquxXPR7GMsFpQS8qaY14+XRCMRFmnr/FRScMM3lWVcJ8YgbuiKxVM24vdrzpsW29k8V7W4OXadCG
-	xx6EbqUN7zqIn8ySa7ojcVF/N3PBSzd1L9yauZJzO57vNcsf1NY7aKGhpAsizihSDou0WrVsU3VI3
-	MGTSwvQE7CqwKwZnKHstOP/5LAN9VoFOif/1RDUmHd94MHWjAjMD7PIDo9D8nWcH+L1cwXOBbVRGg
-	1h6FvR1zECCku+gEFgiMqQ8y9i66ADTicNlORqDVeAApS7EaB/h7ogshTcrnIEHQCWM8nPq1ocunN
-	VvRIpa4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rB8FD9JyrpYB5cn9AVC4+9jA0Gm63rK6+uJ8td0Unt4=; b=cr+Irrf/OveEEI+kCkx0zQwgzS
+	K4EOfaXaQ4GaHD3hkGewrlIk99SaexFpExiUHTasCgsAnNS+XERAlAej7sWMb12/V+nx3Rt3Zm/ZJ
+	BmhAVigGiuk0u/7K0KkAS2AnOTYTTLawiWl2IxSoWKm5YSi0yyNrXORNfnkB0iVFa/sGliIL6JYY4
+	Nvpy7AD2ueOsmZPkwXUER4Gj1Gbyuk0eb/DeT532crSwRlkTrq1PFfgxNY+P5qEhy1Ki/GVcQnFxx
+	mbny4UcVUKOfAi7HjhUiIpyRfnfA80LExmYtargxVoCkdnkvELBbLBwSSllCBJaNlnEJBG7klfKyP
+	p/25l8Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4EZ2-00000002mwF-1C7f;
-	Fri, 25 Oct 2024 07:16:52 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t4EaZ-00000002nBv-3Y5I;
+	Fri, 25 Oct 2024 07:18:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4EVu-00000002mSu-0TJC;
-	Fri, 25 Oct 2024 07:13:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=enn3t52h/bw7Y5aOBI8X1K/59nvOCKaVHmDjz6Fts18=; b=TprDS9JZ2J1eX7KJTzixaefwPb
-	3M//lguL2KfoaPPrfaTrYpY0lcX8faNJRjxv0X7W+S7IoMObLUW098msv9XXVv3EBLe9ZKjxC1mxG
-	D+YOTu4urAjRxG0adiMYvBHa69ciArwIOS1PFWl8jCZP083ieHiOfGXUTTUFBquCD46YibrKCihTC
-	6o22vekJO8qWu/EpnGAaLFm0lMJfiHMH8Xm0W+q1J0zrdxa9VpkmM+olIBGfhjE9aTqw59mLQB3pm
-	nQVh3ApwtjbdlfLCZAsSRfFBMKCsGR0sZdUQclplpTwKd/hgC41wXMaZryWMqU8cpbynul6SwwqN1
-	6BufvjWA==;
-Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t4EVr-0002dv-KD; Fri, 25 Oct 2024 09:13:35 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Cenk Uluisik <cenk.uluisik@googlemail.com>,
-	linux-rockchip@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-kernel@vger.kernel.org
-Cc: Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v7 1/3] arm64: dts: rockchip: refactor common Orange Pi 5 board
-Date: Fri, 25 Oct 2024 09:13:32 +0200
-Message-ID: <172984040935.1798677.17350099060125150020.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241024095038.42079-1-cenk.uluisik@googlemail.com>
-References: <20241024095038.42079-1-cenk.uluisik@googlemail.com>
+	id 1t4EX9-00000002meG-2XDX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 07:14:56 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t4EWv-0005YF-D5; Fri, 25 Oct 2024 09:14:41 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t4EWu-000KEa-35;
+	Fri, 25 Oct 2024 09:14:40 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t4EWu-00Ctrc-2k;
+	Fri, 25 Oct 2024 09:14:40 +0200
+Date: Fri, 25 Oct 2024 09:14:40 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: imx@lists.linux.dev, Ulf Hansson <ulf.hansson@linaro.org>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	linux-pm@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	linux-amarula@amarulasolutions.com,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pmdomain: imx: gpcv2: replace dev_err() with
+ dev_err_probe()
+Message-ID: <20241025071440.6tivzdzkkqacm27v@pengutronix.de>
+References: <20241024103540.3482216-1-dario.binacchi@amarulasolutions.com>
+ <20241024110123.wix35njjbh3nx7kn@pengutronix.de>
+ <4vws5lnu4efupunha74pdlgtd754w6n2loymgywrxhwm2rqic2@gz4efozdrpqm>
+ <20241024180838.xxhrgmmop75pc7ov@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241024180838.xxhrgmmop75pc7ov@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_001338_337524_AF493748 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_001455_687059_F815F9DD 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +89,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Oct 2024 09:50:20 +0000, Cenk Uluisik wrote:
-> Unique to the Orange Pi 5 board:
-> - M.2 NVMe M-Key PCIe 2.0x1 on combphy0_ps
-> - SPI NOR flash
+Hi Dario,
+
+On 24-10-24, Marco Felsch wrote:
+> Hi Uwe,
+> 
+> On 24-10-24, Uwe Kleine-König wrote:
+> > Hallo Marco,
+> > 
+> > On Thu, Oct 24, 2024 at 01:01:23PM +0200, Marco Felsch wrote:
+> > > On 24-10-24, Dario Binacchi wrote:
+> > > > The patch standardizes the probe() code by replacing the two occurrences
+> > > > of dev_err() with dev_err_probe(). Indeed, dev_err_probe() was used in all
+> > > > other error paths of the probe() function.
+> > > 
+> > > I assume that this paths aren't using dev_err_probe because these paths
+> > > can't return EPROBE_DEFER and therefore dev_err_probe() would use
+> > > dev_err() anyway.
+> > 
+> > Note that dev_err_probe() has advantages even if the error code isn't
+> > EPROBE_DEFER. In this case it's mentioning the error code.
+> > 
+> > See also commits
+> > 	7065f92255bb ("driver core: Clarify that dev_err_probe() is OK even w/out -EPROBE_DEFER")
+> > 	532888a59505 ("driver core: Better advertise dev_err_probe()")
+> 
+> thanks for the pointers. With that in mind it make sense to me to
+> convert it. Feel free to add my:
+
+that being said, I would like to ask you if you could addapt the commit
+message, to point out the advantage of using dev_err_probe().
+
+> Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> 
+> Regards,
+>   Marco
 > 
 > 
-
-Applied, thanks!
-
-[1/3] arm64: dts: rockchip: refactor common Orange Pi 5 board
-      commit: c37393b36c1d2a0f4fafe82d7e32bfb726f660db
-[2/3] dt-bindings: arm: rockchip: Add Orange Pi 5b enum to Orange Pi 5 entry
-      commit: 3d346d38367bf01e9a3aab7370973844e3808f65
-[3/3] arm64: dts: rockchip: Add rk3588-orangepi-5b device tree
-      commit: 46fa3fee0b1c027862b04717b51630195c253a30
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
 
