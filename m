@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF188D0C5FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD54D0C5FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ceLR0IvL9qdGH71mlJjn14Kdj5vXT4ULmmpb71qNMEk=; b=LzsDKwUMSX3/+e6fiRnzTNr2Rn
-	5+Kvz+wx7h44BJuFXtG+A0vC9ZEKF65yag+3hyJQsLyMyTgVBJL9ftZ+v8Bjgbt5D+DGnJoGXLfSt
-	6wLoSazNR9+nfr6UQK82atFHsQ/miwnn5WMQAUZxAVZiKLQWzTkGTw3NAxAdfq+ao1bc8R+vN6TJt
-	pol9WPpCmZUruETgRIYavuHxopc4N2LCjsPUbfC87B5qj3IIjljW+sGu4lhkIGgSUZsrT2armYCTC
-	cmIMYbl3iuSLoagmMsKMwt20AYBL4KHFriOzIb7hd9EETQYDH4y9FeFBsB77+EPl1GStTfWh9Dl6W
-	paUt+FVQ==;
+	bh=KHjnlTjdt8BtFp7CiIXNRB6RKGW6gDEeynV8EXeDZt0=; b=kiaZ2KOdWnT7uPS6Ujx2n7xIky
+	nAR8DhoyBSuy3JnAFFqNM/zMca20Ei2gpxdAibUlqjCypNtMA/vypOlODOBS1jN7aKlvvUrQiDvQ6
+	WVE3T5BOCtR4X2uI2hb4ODeXIgvaMVIs8qnB7nAMjxPPqrYQyGrgBZ0bqUjkFsW6N+OfizJZu6EbU
+	O+z5qJ38VyQN6liXWlhqbCgLOX7vVUNFM0G+BoRxJ+/apmT/pa+lKQVj0PWvNsConoyo4AuskXx4M
+	Mi2vzZqtD7jwaiNQ/W4Ucj7CjTboS02+k4ge+BErfFPSx+f/TaJMvsndGmm6TjZ07UVIiaiRDrotF
+	IS6SQ5Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4I18-00000003R8N-1RmV;
-	Fri, 25 Oct 2024 10:58:06 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1t4I2j-00000003RTo-1B8f;
+	Fri, 25 Oct 2024 10:59:45 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4HpS-00000003OkP-3VWi
+	id 1t4HpV-00000003Ol7-3RDe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 10:46:04 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7d4fa972cbeso1487323a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 03:46:02 -0700 (PDT)
+	Fri, 25 Oct 2024 10:46:09 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-656d8b346d2so1211882a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 03:46:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729853162; x=1730457962; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1729853165; x=1730457965; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ceLR0IvL9qdGH71mlJjn14Kdj5vXT4ULmmpb71qNMEk=;
-        b=SWPOqIyrxPjFkBQZatM/b7TDfNTVVIRsfgGPqeDQoL32/1F8Gc61fy4zDazZ0F50Ho
-         SiestOWZXDpjgy5j2ynVjOBQyAFWRyOTdSnf6kF3lwQA4PdLQixmziNF7XKiHHMN65Hj
-         u1AehjW2K9dJa5Arh8ln87oY0DS/26F/9LK/k=
+        bh=KHjnlTjdt8BtFp7CiIXNRB6RKGW6gDEeynV8EXeDZt0=;
+        b=amSRre08sgDKPMQlXE55J8yWiqxcWjPovXUCB2UrC2h04oF4yPbDOqtqQ/TjXhBeAp
+         GT55HTtlec2hL808os/3K+5M/RtT2C80DBWqiFt7fVHb2ige4zSW4gdW8MHxrwMSEqFJ
+         7K1YSHNThHH2DaWRl62BGO459FenfVdETnDss=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729853162; x=1730457962;
+        d=1e100.net; s=20230601; t=1729853165; x=1730457965;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ceLR0IvL9qdGH71mlJjn14Kdj5vXT4ULmmpb71qNMEk=;
-        b=tKfQJnaBdfXNS7CIYVRzyAIKFuN7mmOf6eIRRmzi9JHD4lUH8yNYxS9SaqkZ6FRJuv
-         JTpHoJU5BGRRJasfV98jal9tGINnSO4Wb36zPpvoxwQupC3tvR939uIxJy6oXT6jmvac
-         euysnd7lX8HqiN0uRS6QToohr29D4iEU7WCY1WUTCe53m59MK5ykgENSxO9qcBH/gV4q
-         GlDQpT8iSPS/f9tjc1vmOuh5qmqqjHyc3OCBieRu3X0QZDbtPZvhL1YsUQs1df9998HE
-         ZkesAXZjEq5Mqpihq5sr1MoJzKWtQdd16hjO29NrerKxyix2Koc7LrmGB6O+ZxJBNTg9
-         JK8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUsWCACeOlw1FlD7+rUL6Ur60e3+cd2b6m5JN+w/qFV0RhyokwqwpQ9vKWriECV9nvT1uZcjoCwd/eka0Q0pJNx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg0ed2EdWjv2qfEqpXCiR6+q8ecvRSHf8P7MGv8YnuJ0kLd7C4
-	y7T7LncHDheT1fNhVPGWdHlce0hA2SxaioRz6GN/lAhskOl98ZVmUpOne+JncA==
-X-Google-Smtp-Source: AGHT+IGz6wzyyQ3d+NeaKQh7ukjIPx/hDX/N2T3R4gD20OXmJ38D2JhCFST+k71O7anmr55JG00JVA==
-X-Received: by 2002:a05:6a20:2d1f:b0:1d8:d880:2069 with SMTP id adf61e73a8af0-1d9898ff764mr4972242637.3.1729853161966;
-        Fri, 25 Oct 2024 03:46:01 -0700 (PDT)
+        bh=KHjnlTjdt8BtFp7CiIXNRB6RKGW6gDEeynV8EXeDZt0=;
+        b=qV3ktZtfXwmoVod7TXEkmJegu3PAuJpxMbSzOyJcmTJ413ZRMf7x656o+nVnIwvp3v
+         ShPWBcpLsnTtuK4yd2uta003ohRtg44oixSwAvRAqAeyLZhe448ZPESJxuAG35widoiy
+         IYIw7wOuhMkDbbQWor3tcGV5thBvnlcJSPWC/oXAyOqgvzJpSNnk99lZsvmsHAzsjSbw
+         323IW4CEUNLPbnv/ZE/TRPBkzzobVADnsCuMN/lgJRDWnu8pvz4OobJZ0q+uF3MNqKTb
+         sx3STCYowqytXhMViDWkfYCzivXx0I3SJZ8X4adalsKAwVRNzlRvsuGaL+JXeRRN+i7b
+         QUUg==
+X-Forwarded-Encrypted: i=1; AJvYcCVj7qCyZKLIKdcymLSn5WEVzYrEJgcXb27e7xxcg4J27ry+VEKKovrxuE3VWY+I+czViri8nn9ViVS0UkczFV67@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmR849AUCVuAM7Lgu1DSTBN26eoW32ftjcfsPuKwJFxQ+GKh2R
+	UZobFQaWUc3bawbAReBWYTOm9CdTHHJRZzJivOQEy9RZkt0x0mxBNxbpCoIxSg==
+X-Google-Smtp-Source: AGHT+IFS0h0JqPw1ebmNNkhQOl9Ys/JQ1lPG9I77D6EUM2T3OpCnZPEttx0nxdHn7SemMJj6wUzG/w==
+X-Received: by 2002:a05:6a21:3a82:b0:1d2:f124:a1cb with SMTP id adf61e73a8af0-1d978aeacccmr9904743637.9.1729853165012;
+        Fri, 25 Oct 2024 03:46:05 -0700 (PDT)
 Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:ebe1:dd63:343d:8a4c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0d089sm829548b3a.99.2024.10.25.03.45.59
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0d089sm829548b3a.99.2024.10.25.03.46.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 03:46:01 -0700 (PDT)
+        Fri, 25 Oct 2024 03:46:04 -0700 (PDT)
 From: Fei Shao <fshao@chromium.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Fei Shao <fshao@chromium.org>,
@@ -75,17 +75,17 @@ Cc: Fei Shao <fshao@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-sound@vger.kernel.org
-Subject: [PATCH 1/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add adsp and dai-link properties
-Date: Fri, 25 Oct 2024 18:44:41 +0800
-Message-ID: <20241025104548.1220076-2-fshao@chromium.org>
+Subject: [PATCH 2/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Update DAI link node pattern
+Date: Fri, 25 Oct 2024 18:44:42 +0800
+Message-ID: <20241025104548.1220076-3-fshao@chromium.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241025104548.1220076-1-fshao@chromium.org>
 References: <20241025104548.1220076-1-fshao@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_034603_074354_93801FEF 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20241025_034606_351305_C67379E4 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "mediatek,adsp" property for the ADSP handle if ADSP is enabled on
-the platform.
-Add "mediatek,dai-link" property for the required DAI links to configure
-sound card.
+The associated machine driver is not dependent on the format of DAI link
+node names. This means we are allowed to use more descriptive names
+instead of indices without impacting functionality.
 
-Both properties are commonly used in the MediaTek sound card driver.
+Update the binding to accept arbitrary DAI link names with a "-dai-link"
+suffix. This is the common pattern used by the target (MT8188) and other
+(MT8195, MT8186 etc.) MediaTek-based Chromebooks.
 
 Signed-off-by: Fei Shao <fshao@chromium.org>
 ---
 
- .../bindings/sound/mediatek,mt8188-mt6359.yaml         | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml     | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
-index f94ad0715e32..701cedfa38d2 100644
+index 701cedfa38d2..2da34b66818f 100644
 --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
 +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
-@@ -29,6 +29,16 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description: The phandle of MT8188 ASoC platform.
+@@ -40,7 +40,7 @@ properties:
+       name defined in the machine driver.
  
-+  mediatek,adsp:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of MT8188 ADSP platform.
-+
-+  mediatek,dai-link:
-+    $ref: /schemas/types.yaml#/definitions/string-array
-+    description:
-+      A list of the desired dai-links in the sound card. Each entry is a
-+      name defined in the machine driver.
-+
  patternProperties:
-   "^dai-link-[0-9]+$":
+-  "^dai-link-[0-9]+$":
++  ".*-dai-link$":
      type: object
+     description:
+       Container for dai-link level properties and CODEC sub-nodes.
+@@ -112,7 +112,7 @@ examples:
+             "Headphone", "Headphone L",
+             "Headphone", "Headphone R",
+             "AIN1", "Headset Mic";
+-        dai-link-0 {
++        hdmi-dai-link {
+             link-name = "ETDM3_OUT_BE";
+             dai-format = "i2s";
+             mediatek,clk-provider = "cpu";
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
