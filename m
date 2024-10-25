@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D28D149E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED05D149E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vebRbUCr12jVyzq2oEeC69IFocyqvq50SRc3OqRWWJI=; b=ypUrCBrOgSU7yWwyRESBvsMphz
-	kL0uarQ2d1WwhE0fVm5WMHnxGcu6gNLpr1OmXnTRheV/b8hNiAqMWFCvVO+1plyxC6pTPM354d/g8
-	LIRRvaQ+XwgOY6U88i1eZsvZWJvU90lxY9SwbQU6wSAKVICPjoJdOureIidiUbfCL5NoUBUaGHSTP
-	oaeGi3eCUhw4BDm1fra6/i+H5UJrn1o4/Qzw57q1TAekQwLJNeuPw09N/Co4CbtoKmPmZS5LJX6HN
-	LHlBFVb8Hg0O8hO15V1ivCNqTi3n+59bDL+95rT7CVAy2yibBFr8SZ0rAMhb6OmT8g3HaFEp9t9Yj
-	6InaUSiQ==;
+	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=GjNfeMdcAvyrbNr3ruvBL26S/C
+	7CT6rKzZ5LAlO78iJ3uvvoqYdQgAkGsQ/Idl7nd8YEpqE4ekvuiWQcQYvZnaLAfjTOlognNmYpso3
+	qgD/JErAWoNooNjRxGJwlHyOK3a8CM2gBPqmyBRFNH4NUZO50ZP8Xd/AOMlI/vmLRF3SEB0Ht2CSX
+	laTZ+pBlEwvWrPrtWs+dAJmIJ/2uD8RNjN26zlsHH2f5tvWqD3xlcOH5oOIrqD4IUvY7/jhBngoJ6
+	BivPTnLKF6fGAs4z1H1vArGcoTh55AkauMxS1GMWkmxAf+e9wdRw/fkheRHvdbIm7mMnpV3bnRU88
+	svRXRO2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Q7P-000000050jD-3uRf;
-	Fri, 25 Oct 2024 19:37:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t4QAT-0000000514r-3ncw;
+	Fri, 25 Oct 2024 19:40:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pmw-00000004vJa-3cj5;
+	id 1t4Pn4-00000004vSz-1pD8;
 	Fri, 25 Oct 2024 19:16:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=cIkkKKKu8LahzTo7EKiq1L0XJF
+	ekAOik/YA0kAEGB/wIk5+3bLGjal1iQ6thjeUQIXibsHh2pMIJgFO5K5G/elosk1PHUJ8smM8nGl9
+	6sTTaPrt9/bzaqPeZpJu9y/FlPWYrrXCBz5uHYHCmETIfP3Q8w75ZK4poRK3fMpLHrxUiQGnv3TxE
+	lZlNwMVDsW2N2z8Ja+UB1xL42zSpVWCTvXgAHaW9+JwlF6wdbcpxWYxaVAP7zc/DaeFt87uDnp5p8
+	UDVZSOSh9Sk3fmC+ShlVj81FJ+DUjunmVYTNjjykXEAUwXdCgpIqIfpX3ER+KcDrkRGMIMpLaHyZ2
+	rJ3NzxkQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Pmv-000000092Fp-0MMQ;
+	Fri, 25 Oct 2024 19:16:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65DD75C5D43;
-	Fri, 25 Oct 2024 19:15:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4C9EC4CEE6;
-	Fri, 25 Oct 2024 19:15:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 19FFC5C5FCB;
+	Fri, 25 Oct 2024 19:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C0FC4CEE6;
+	Fri, 25 Oct 2024 19:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729883754;
-	bh=1LlSnHcK+fKXrUv5i8pUWGZK8O/eLyDpKEQBxDtJZcA=;
+	s=k20201202; t=1729883752;
+	bh=hmjPSLT23tUvD2mhqpKoKr7fMC5StQtNq+9niGNg1xs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PW1GfO6vzemRwg0AqRontxQV5hQ8VOLxGTZMrmvOy3nMMo7oEG5TpwygXS5X2HHA1
-	 eLmlJXn2D5RCQPdW7iVVpwnLLVjXS/yG3FUpKGl/FbZjZ/uEzB0ILNX12dCJpg9dYV
-	 XlNZozLZbvdR32F/JDccVuGtUZa48USW/j0CxRsmZn9udAVqQn0eQrta8ByxJeVYGj
-	 ZY3g76IG6/fZlmE6ogEDreI2X8QZ7rTt0fpmTd2u/aRR9Ppmk4+FSEzjX2ja9WMjZY
-	 HupYAfcSaa0xlhlyDWJ0lBpNmlq+ks2PSLttmuglEm4OrIgng2/W9Sdk6bqPcmb7no
-	 ML3x22Vj8LQIg==
+	b=MzLmD7ttenyc+h9adVW5j/4jD+Z5Z8P0K29t1D9dfAOxvrlJPCCHoSOV4RyYU7mc4
+	 WbPsgIhtjxpkV+XG3nPg3insOC4hRyvrAtB+xHeMx/2sv8+LDxRpRsk16Im+FD7OHK
+	 nUnqYMuKmUS5CAgLS0hmC8rxRCvAFFRQE3a9LQ6mraoZfPE6Wrh/e4XBMcuOck8H93
+	 z3X/p9oxCzXfkf5TfKY2NnJPejTnokSSKn6ncqoMBQtIfZhYm21QYTDKYkDSTcMGhO
+	 Gis9vIIku/f91IqjUzCIoNWZERD7YQMDSWiIIopXXMdNYw+rvaAmqN5dCLvacPtihK
+	 pwFvIaZg4X8kg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -55,18 +69,19 @@ Cc: linux-arch@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	loongarch@lists.linux.dev,
 	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 18/18] scsi: target: iscsi: switch to using the crc32c library
-Date: Fri, 25 Oct 2024 12:14:54 -0700
-Message-ID: <20241025191454.72616-19-ebiggers@kernel.org>
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 14/18] lib/crc32: make crc32c() go directly to lib
+Date: Fri, 25 Oct 2024 12:14:50 -0700
+Message-ID: <20241025191454.72616-15-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
 References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_121559_100209_D284FBB1 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20241025_201557_650665_35799A7C 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,533 +98,171 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that the crc32c() library function directly takes advantage of
-architecture-specific optimizations, it is unnecessary to go through the
-crypto API.  Just use crc32c().  This is much simpler, and it improves
-performance due to eliminating the crypto API overhead.
+Now that the lower level __crc32c_le() library function is optimized for
+each architecture, make crc32c() just call that instead of taking an
+inefficient and error-prone detour through the shash API.
 
+Note: a future cleanup should make crc32c_le() be the actual library
+function instead of __crc32c_le().  That will require updating callers
+of __crc32c_le() to use crc32c_le() instead, and updating callers of
+crc32c_le() that expect a 'const void *' arg to expect 'const u8 *'
+instead.  Similarly, a future cleanup should remove LIBCRC32C by making
+everyone who is selecting it just select CRC32 directly instead.
+
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- drivers/target/iscsi/Kconfig              |   2 +-
- drivers/target/iscsi/iscsi_target.c       | 153 +++++++---------------
- drivers/target/iscsi/iscsi_target_login.c |  50 -------
- drivers/target/iscsi/iscsi_target_login.h |   1 -
- drivers/target/iscsi/iscsi_target_nego.c  |  21 +--
- include/target/iscsi/iscsi_target_core.h  |   3 -
- 6 files changed, 48 insertions(+), 182 deletions(-)
+ include/linux/crc32c.h |  7 ++--
+ lib/Kconfig            | 10 ++----
+ lib/Makefile           |  1 -
+ lib/libcrc32c.c        | 74 ------------------------------------------
+ 4 files changed, 8 insertions(+), 84 deletions(-)
+ delete mode 100644 lib/libcrc32c.c
 
-diff --git a/drivers/target/iscsi/Kconfig b/drivers/target/iscsi/Kconfig
-index 1c0517a12571..2f2f3dc831b8 100644
---- a/drivers/target/iscsi/Kconfig
-+++ b/drivers/target/iscsi/Kconfig
-@@ -1,11 +1,11 @@
- # SPDX-License-Identifier: GPL-2.0-only
- config ISCSI_TARGET
- 	tristate "SCSI Target Mode Stack"
- 	depends on INET
-+	select CRC32
- 	select CRYPTO
+diff --git a/include/linux/crc32c.h b/include/linux/crc32c.h
+index 357ae4611a45..47eb78003c26 100644
+--- a/include/linux/crc32c.h
++++ b/include/linux/crc32c.h
+@@ -1,12 +1,15 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #ifndef _LINUX_CRC32C_H
+ #define _LINUX_CRC32C_H
+ 
+-#include <linux/types.h>
++#include <linux/crc32.h>
+ 
+-extern u32 crc32c(u32 crc, const void *address, unsigned int length);
++static inline u32 crc32c(u32 crc, const void *address, unsigned int length)
++{
++	return __crc32c_le(crc, address, length);
++}
+ 
+ /* This macro exists for backwards-compatibility. */
+ #define crc32c_le crc32c
+ 
+ #endif	/* _LINUX_CRC32C_H */
+diff --git a/lib/Kconfig b/lib/Kconfig
+index 07afcf214f35..b894ee64ff95 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -296,18 +296,14 @@ config CRC7
+ 	  the kernel tree does. Such modules that use library CRC7
+ 	  functions require M here.
+ 
+ config LIBCRC32C
+ 	tristate "CRC32c (Castagnoli, et al) Cyclic Redundancy-Check"
+-	select CRYPTO
 -	select CRYPTO_CRC32C
++	select CRC32
  	help
- 	Say M to enable the SCSI target mode stack. A SCSI target mode stack
- 	is software that makes local storage available over a storage network
- 	to a SCSI initiator system. The supported storage network technologies
- 	include iSCSI, Fibre Channel and the SCSI RDMA Protocol (SRP).
-diff --git a/drivers/target/iscsi/iscsi_target.c b/drivers/target/iscsi/iscsi_target.c
-index 6002283cbeba..091c1efccfb7 100644
---- a/drivers/target/iscsi/iscsi_target.c
-+++ b/drivers/target/iscsi/iscsi_target.c
-@@ -6,11 +6,11 @@
-  *
-  * Author: Nicholas A. Bellinger <nab@linux-iscsi.org>
-  *
-  ******************************************************************************/
+-	  This option is provided for the case where no in-kernel-tree
+-	  modules require CRC32c functions, but a module built outside the
+-	  kernel tree does. Such modules that use library CRC32c functions
+-	  require M here.  See Castagnoli93.
+-	  Module will be libcrc32c.
++	  This option just selects CRC32 and is provided for compatibility
++	  purposes until the users are updated to select CRC32 directly.
  
--#include <crypto/hash.h>
-+#include <linux/crc32c.h>
- #include <linux/string.h>
- #include <linux/kthread.h>
- #include <linux/completion.h>
- #include <linux/module.h>
- #include <linux/vmalloc.h>
-@@ -488,12 +488,12 @@ void iscsit_aborted_task(struct iscsit_conn *conn, struct iscsit_cmd *cmd)
+ config CRC8
+ 	tristate "CRC8 function"
+ 	help
+ 	  This option provides CRC8 function. Drivers may select this
+diff --git a/lib/Makefile b/lib/Makefile
+index 773adf88af41..15646679aee2 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -161,11 +161,10 @@ obj-$(CONFIG_CRC_ITU_T)	+= crc-itu-t.o
+ obj-$(CONFIG_CRC32)	+= crc32.o
+ obj-$(CONFIG_CRC64)     += crc64.o
+ obj-$(CONFIG_CRC32_SELFTEST)	+= crc32test.o
+ obj-$(CONFIG_CRC4)	+= crc4.o
+ obj-$(CONFIG_CRC7)	+= crc7.o
+-obj-$(CONFIG_LIBCRC32C)	+= libcrc32c.o
+ obj-$(CONFIG_CRC8)	+= crc8.o
+ obj-$(CONFIG_CRC64_ROCKSOFT) += crc64-rocksoft.o
+ obj-$(CONFIG_XXHASH)	+= xxhash.o
+ obj-$(CONFIG_GENERIC_ALLOCATOR) += genalloc.o
  
- 	__iscsit_free_cmd(cmd, true);
- }
- EXPORT_SYMBOL(iscsit_aborted_task);
- 
--static void iscsit_do_crypto_hash_buf(struct ahash_request *, const void *,
--				      u32, u32, const void *, void *);
-+static u32 iscsit_crc_buf(const void *buf, u32 payload_length,
-+			  u32 padding, const void *pad_bytes);
- static void iscsit_tx_thread_wait_for_tcp(struct iscsit_conn *);
- 
- static int
- iscsit_xmit_nondatain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 			  const void *data_buf, u32 data_buf_len)
-@@ -508,13 +508,11 @@ iscsit_xmit_nondatain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 	iov[niov++].iov_len	= ISCSI_HDR_LEN;
- 
- 	if (conn->conn_ops->HeaderDigest) {
- 		u32 *header_digest = (u32 *)&cmd->pdu[ISCSI_HDR_LEN];
- 
--		iscsit_do_crypto_hash_buf(conn->conn_tx_hash, hdr,
--					  ISCSI_HDR_LEN, 0, NULL,
--					  header_digest);
-+		*header_digest = iscsit_crc_buf(hdr, ISCSI_HDR_LEN, 0, NULL);
- 
- 		iov[0].iov_len += ISCSI_CRC_LEN;
- 		tx_size += ISCSI_CRC_LEN;
- 		pr_debug("Attaching CRC32C HeaderDigest"
- 			 " to opcode 0x%x 0x%08x\n",
-@@ -535,15 +533,13 @@ iscsit_xmit_nondatain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 			pr_debug("Attaching %u additional"
- 				 " padding bytes.\n", padding);
- 		}
- 
- 		if (conn->conn_ops->DataDigest) {
--			iscsit_do_crypto_hash_buf(conn->conn_tx_hash,
--						  data_buf, data_buf_len,
--						  padding, &cmd->pad_bytes,
--						  &cmd->data_crc);
--
-+			cmd->data_crc = iscsit_crc_buf(data_buf, data_buf_len,
-+						       padding,
-+						       &cmd->pad_bytes);
- 			iov[niov].iov_base = &cmd->data_crc;
- 			iov[niov++].iov_len = ISCSI_CRC_LEN;
- 			tx_size += ISCSI_CRC_LEN;
- 			pr_debug("Attached DataDigest for %u"
- 				 " bytes opcode 0x%x, CRC 0x%08x\n",
-@@ -564,12 +560,12 @@ iscsit_xmit_nondatain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- }
- 
- static int iscsit_map_iovec(struct iscsit_cmd *cmd, struct kvec *iov, int nvec,
- 			    u32 data_offset, u32 data_length);
- static void iscsit_unmap_iovec(struct iscsit_cmd *);
--static u32 iscsit_do_crypto_hash_sg(struct ahash_request *, struct iscsit_cmd *,
--				    u32, u32, u32, u8 *);
-+static u32 iscsit_crc_sglist(const struct iscsit_cmd *cmd, u32 data_length,
-+			     u32 padding, const u8 *pad_bytes);
- static int
- iscsit_xmit_datain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 		       const struct iscsi_datain *datain)
- {
- 	struct kvec *iov;
-@@ -582,14 +578,12 @@ iscsit_xmit_datain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 	tx_size += ISCSI_HDR_LEN;
- 
- 	if (conn->conn_ops->HeaderDigest) {
- 		u32 *header_digest = (u32 *)&cmd->pdu[ISCSI_HDR_LEN];
- 
--		iscsit_do_crypto_hash_buf(conn->conn_tx_hash, cmd->pdu,
--					  ISCSI_HDR_LEN, 0, NULL,
--					  header_digest);
--
-+		*header_digest = iscsit_crc_buf(cmd->pdu, ISCSI_HDR_LEN, 0,
-+						NULL);
- 		iov[0].iov_len += ISCSI_CRC_LEN;
- 		tx_size += ISCSI_CRC_LEN;
- 
- 		pr_debug("Attaching CRC32 HeaderDigest for DataIN PDU 0x%08x\n",
- 			 *header_digest);
-@@ -612,16 +606,12 @@ iscsit_xmit_datain_pdu(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 
- 		pr_debug("Attaching %u padding bytes\n", cmd->padding);
- 	}
- 
- 	if (conn->conn_ops->DataDigest) {
--		cmd->data_crc = iscsit_do_crypto_hash_sg(conn->conn_tx_hash,
--							 cmd, datain->offset,
--							 datain->length,
--							 cmd->padding,
--							 cmd->pad_bytes);
--
-+		cmd->data_crc = iscsit_crc_sglist(cmd, datain->length,
-+						  cmd->padding, cmd->pad_bytes);
- 		iov[iov_count].iov_base	= &cmd->data_crc;
- 		iov[iov_count++].iov_len = ISCSI_CRC_LEN;
- 		tx_size += ISCSI_CRC_LEN;
- 
- 		pr_debug("Attached CRC32C DataDigest %d bytes, crc 0x%08x\n",
-@@ -1402,81 +1392,49 @@ iscsit_handle_scsi_cmd(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 		return 0;
- 
- 	return iscsit_get_immediate_data(cmd, hdr, dump_payload);
- }
- 
--static u32 iscsit_do_crypto_hash_sg(
--	struct ahash_request *hash,
--	struct iscsit_cmd *cmd,
--	u32 data_offset,
--	u32 data_length,
--	u32 padding,
--	u8 *pad_bytes)
-+static u32 iscsit_crc_sglist(const struct iscsit_cmd *cmd, u32 data_length,
-+			     u32 padding, const u8 *pad_bytes)
- {
--	u32 data_crc;
--	struct scatterlist *sg;
--	unsigned int page_off;
--
--	crypto_ahash_init(hash);
--
--	sg = cmd->first_data_sg;
--	page_off = cmd->first_data_sg_off;
--
--	if (data_length && page_off) {
--		struct scatterlist first_sg;
--		u32 len = min_t(u32, data_length, sg->length - page_off);
--
--		sg_init_table(&first_sg, 1);
--		sg_set_page(&first_sg, sg_page(sg), len, sg->offset + page_off);
--
--		ahash_request_set_crypt(hash, &first_sg, NULL, len);
--		crypto_ahash_update(hash);
--
--		data_length -= len;
--		sg = sg_next(sg);
--	}
-+	struct scatterlist *sg = cmd->first_data_sg;
-+	unsigned int page_off = cmd->first_data_sg_off;
-+	u32 crc = ~0;
- 
- 	while (data_length) {
--		u32 cur_len = min_t(u32, data_length, sg->length);
-+		u32 cur_len = min_t(u32, data_length, sg->length - page_off);
-+		const void *virt;
- 
--		ahash_request_set_crypt(hash, sg, NULL, cur_len);
--		crypto_ahash_update(hash);
-+		virt = kmap_local_page(sg_page(sg)) + sg->offset + page_off;
-+		crc = crc32c(crc, virt, cur_len);
-+		kunmap_local(virt);
- 
--		data_length -= cur_len;
- 		/* iscsit_map_iovec has already checked for invalid sg pointers */
- 		sg = sg_next(sg);
--	}
- 
--	if (padding) {
--		struct scatterlist pad_sg;
--
--		sg_init_one(&pad_sg, pad_bytes, padding);
--		ahash_request_set_crypt(hash, &pad_sg, (u8 *)&data_crc,
--					padding);
--		crypto_ahash_finup(hash);
--	} else {
--		ahash_request_set_crypt(hash, NULL, (u8 *)&data_crc, 0);
--		crypto_ahash_final(hash);
-+		page_off = 0;
-+		data_length -= cur_len;
- 	}
- 
--	return data_crc;
-+	if (padding)
-+		crc = crc32c(crc, pad_bytes, padding);
-+
-+	return ~crc;
- }
- 
--static void iscsit_do_crypto_hash_buf(struct ahash_request *hash,
--	const void *buf, u32 payload_length, u32 padding,
--	const void *pad_bytes, void *data_crc)
-+static u32 iscsit_crc_buf(const void *buf, u32 payload_length,
-+			  u32 padding, const void *pad_bytes)
- {
--	struct scatterlist sg[2];
-+	u32 crc = ~0;
- 
--	sg_init_table(sg, ARRAY_SIZE(sg));
--	sg_set_buf(sg, buf, payload_length);
--	if (padding)
--		sg_set_buf(sg + 1, pad_bytes, padding);
-+	crc = crc32c(crc, buf, payload_length);
- 
--	ahash_request_set_crypt(hash, sg, data_crc, payload_length + padding);
-+	if (padding)
-+		crc = crc32c(crc, pad_bytes, padding);
- 
--	crypto_ahash_digest(hash);
-+	return ~crc;
- }
- 
- int
- __iscsit_check_dataout_hdr(struct iscsit_conn *conn, void *buf,
- 			   struct iscsit_cmd *cmd, u32 payload_length,
-@@ -1660,15 +1618,12 @@ iscsit_get_dataout(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 		return -1;
- 
- 	if (conn->conn_ops->DataDigest) {
- 		u32 data_crc;
- 
--		data_crc = iscsit_do_crypto_hash_sg(conn->conn_rx_hash, cmd,
--						    be32_to_cpu(hdr->offset),
--						    payload_length, padding,
--						    cmd->pad_bytes);
--
-+		data_crc = iscsit_crc_sglist(cmd, payload_length, padding,
-+					     cmd->pad_bytes);
- 		if (checksum != data_crc) {
- 			pr_err("ITT: 0x%08x, Offset: %u, Length: %u,"
- 				" DataSN: 0x%08x, CRC32C DataDigest 0x%08x"
- 				" does not match computed 0x%08x\n",
- 				hdr->itt, hdr->offset, payload_length,
-@@ -1923,14 +1878,12 @@ static int iscsit_handle_nop_out(struct iscsit_conn *conn, struct iscsit_cmd *cm
- 			ret = -1;
- 			goto out;
- 		}
- 
- 		if (conn->conn_ops->DataDigest) {
--			iscsit_do_crypto_hash_buf(conn->conn_rx_hash, ping_data,
--						  payload_length, padding,
--						  cmd->pad_bytes, &data_crc);
--
-+			data_crc = iscsit_crc_buf(ping_data, payload_length,
-+						  padding, cmd->pad_bytes);
- 			if (checksum != data_crc) {
- 				pr_err("Ping data CRC32C DataDigest"
- 				" 0x%08x does not match computed 0x%08x\n",
- 					checksum, data_crc);
- 				if (!conn->sess->sess_ops->ErrorRecoveryLevel) {
-@@ -2326,14 +2279,11 @@ iscsit_handle_text_cmd(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
- 		rx_got = rx_data(conn, &iov[0], niov, rx_size);
- 		if (rx_got != rx_size)
- 			goto reject;
- 
- 		if (conn->conn_ops->DataDigest) {
--			iscsit_do_crypto_hash_buf(conn->conn_rx_hash,
--						  text_in, rx_size, 0, NULL,
--						  &data_crc);
--
-+			data_crc = iscsit_crc_buf(text_in, rx_size, 0, NULL);
- 			if (checksum != data_crc) {
- 				pr_err("Text data CRC32C DataDigest"
- 					" 0x%08x does not match computed"
- 					" 0x%08x\n", checksum, data_crc);
- 				if (!conn->sess->sess_ops->ErrorRecoveryLevel) {
-@@ -2686,14 +2636,12 @@ static int iscsit_handle_immediate_data(
- 	}
- 
- 	if (conn->conn_ops->DataDigest) {
- 		u32 data_crc;
- 
--		data_crc = iscsit_do_crypto_hash_sg(conn->conn_rx_hash, cmd,
--						    cmd->write_data_done, length, padding,
--						    cmd->pad_bytes);
--
-+		data_crc = iscsit_crc_sglist(cmd, length, padding,
-+					     cmd->pad_bytes);
- 		if (checksum != data_crc) {
- 			pr_err("ImmediateData CRC32C DataDigest 0x%08x"
- 				" does not match computed 0x%08x\n", checksum,
- 				data_crc);
- 
-@@ -4114,14 +4062,12 @@ static void iscsit_get_rx_pdu(struct iscsit_conn *conn)
- 			if (ret != ISCSI_CRC_LEN) {
- 				iscsit_rx_thread_wait_for_tcp(conn);
- 				break;
- 			}
- 
--			iscsit_do_crypto_hash_buf(conn->conn_rx_hash, buffer,
--						  ISCSI_HDR_LEN, 0, NULL,
--						  &checksum);
--
-+			checksum = iscsit_crc_buf(buffer, ISCSI_HDR_LEN, 0,
-+						  NULL);
- 			if (digest != checksum) {
- 				pr_err("HeaderDigest CRC32C failed,"
- 					" received 0x%08x, computed 0x%08x\n",
- 					digest, checksum);
- 				/*
-@@ -4404,19 +4350,10 @@ int iscsit_close_connection(
- 	 * If any other processes are accessing this connection pointer we
- 	 * must wait until they have completed.
- 	 */
- 	iscsit_check_conn_usage_count(conn);
- 
--	ahash_request_free(conn->conn_tx_hash);
--	if (conn->conn_rx_hash) {
--		struct crypto_ahash *tfm;
--
--		tfm = crypto_ahash_reqtfm(conn->conn_rx_hash);
--		ahash_request_free(conn->conn_rx_hash);
--		crypto_free_ahash(tfm);
--	}
--
- 	if (conn->sock)
- 		sock_release(conn->sock);
- 
- 	if (conn->conn_transport->iscsit_free_conn)
- 		conn->conn_transport->iscsit_free_conn(conn);
-diff --git a/drivers/target/iscsi/iscsi_target_login.c b/drivers/target/iscsi/iscsi_target_login.c
-index 90b870f234f0..c2ac9a99ebbb 100644
---- a/drivers/target/iscsi/iscsi_target_login.c
-+++ b/drivers/target/iscsi/iscsi_target_login.c
-@@ -6,11 +6,10 @@
-  *
-  * Author: Nicholas A. Bellinger <nab@linux-iscsi.org>
-  *
-  ******************************************************************************/
- 
--#include <crypto/hash.h>
- #include <linux/module.h>
- #include <linux/string.h>
- #include <linux/kthread.h>
- #include <linux/sched/signal.h>
- #include <linux/idr.h>
-@@ -69,50 +68,10 @@ static struct iscsi_login *iscsi_login_init_conn(struct iscsit_conn *conn)
- out_login:
- 	kfree(login);
- 	return NULL;
- }
- 
--/*
-- * Used by iscsi_target_nego.c:iscsi_target_locate_portal() to setup
-- * per struct iscsit_conn libcrypto contexts for crc32c and crc32-intel
+diff --git a/lib/libcrc32c.c b/lib/libcrc32c.c
+deleted file mode 100644
+index 649e687413a0..000000000000
+--- a/lib/libcrc32c.c
++++ /dev/null
+@@ -1,74 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/* 
+- * CRC32C
+- *@Article{castagnoli-crc,
+- * author =       { Guy Castagnoli and Stefan Braeuer and Martin Herrman},
+- * title =        {{Optimization of Cyclic Redundancy-Check Codes with 24
+- *                 and 32 Parity Bits}},
+- * journal =      IEEE Transactions on Communication,
+- * year =         {1993},
+- * volume =       {41},
+- * number =       {6},
+- * pages =        {},
+- * month =        {June},
+- *}
+- * Used by the iSCSI driver, possibly others, and derived from
+- * the iscsi-crc.c module of the linux-iscsi driver at
+- * http://linux-iscsi.sourceforge.net.
+- *
+- * Following the example of lib/crc32, this function is intended to be
+- * flexible and useful for all users.  Modules that currently have their
+- * own crc32c, but hopefully may be able to use this one are:
+- *  net/sctp (please add all your doco to here if you change to
+- *            use this one!)
+- *  <endoflist>
+- *
+- * Copyright (c) 2004 Cisco Systems, Inc.
 - */
--int iscsi_login_setup_crypto(struct iscsit_conn *conn)
+-
+-#include <crypto/hash.h>
+-#include <linux/err.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/crc32c.h>
+-
+-static struct crypto_shash *tfm;
+-
+-u32 crc32c(u32 crc, const void *address, unsigned int length)
 -{
--	struct crypto_ahash *tfm;
+-	SHASH_DESC_ON_STACK(shash, tfm);
+-	u32 ret, *ctx = (u32 *)shash_desc_ctx(shash);
+-	int err;
 -
--	/*
--	 * Setup slicing by CRC32C algorithm for RX and TX libcrypto contexts
--	 * which will default to crc32c_intel.ko for cpu_has_xmm4_2, or fallback
--	 * to software 1x8 byte slicing from crc32c.ko
--	 */
--	tfm = crypto_alloc_ahash("crc32c", 0, CRYPTO_ALG_ASYNC);
--	if (IS_ERR(tfm)) {
--		pr_err("crypto_alloc_ahash() failed\n");
--		return -ENOMEM;
--	}
+-	shash->tfm = tfm;
+-	*ctx = crc;
 -
--	conn->conn_rx_hash = ahash_request_alloc(tfm, GFP_KERNEL);
--	if (!conn->conn_rx_hash) {
--		pr_err("ahash_request_alloc() failed for conn_rx_hash\n");
--		crypto_free_ahash(tfm);
--		return -ENOMEM;
--	}
--	ahash_request_set_callback(conn->conn_rx_hash, 0, NULL, NULL);
+-	err = crypto_shash_update(shash, address, length);
+-	BUG_ON(err);
 -
--	conn->conn_tx_hash = ahash_request_alloc(tfm, GFP_KERNEL);
--	if (!conn->conn_tx_hash) {
--		pr_err("ahash_request_alloc() failed for conn_tx_hash\n");
--		ahash_request_free(conn->conn_rx_hash);
--		conn->conn_rx_hash = NULL;
--		crypto_free_ahash(tfm);
--		return -ENOMEM;
--	}
--	ahash_request_set_callback(conn->conn_tx_hash, 0, NULL, NULL);
--
--	return 0;
+-	ret = *ctx;
+-	barrier_data(ctx);
+-	return ret;
 -}
 -
- static int iscsi_login_check_initiator_version(
- 	struct iscsit_conn *conn,
- 	u8 version_max,
- 	u8 version_min)
- {
-@@ -1163,19 +1122,10 @@ void iscsi_target_login_sess_out(struct iscsit_conn *conn,
- 		} else
- 			spin_unlock_bh(&conn->sess->conn_lock);
- 		iscsit_dec_session_usage_count(conn->sess);
- 	}
- 
--	ahash_request_free(conn->conn_tx_hash);
--	if (conn->conn_rx_hash) {
--		struct crypto_ahash *tfm;
+-EXPORT_SYMBOL(crc32c);
 -
--		tfm = crypto_ahash_reqtfm(conn->conn_rx_hash);
--		ahash_request_free(conn->conn_rx_hash);
--		crypto_free_ahash(tfm);
--	}
+-static int __init libcrc32c_mod_init(void)
+-{
+-	tfm = crypto_alloc_shash("crc32c", 0, 0);
+-	return PTR_ERR_OR_ZERO(tfm);
+-}
 -
- 	if (conn->param_list) {
- 		iscsi_release_param_list(conn->param_list);
- 		conn->param_list = NULL;
- 	}
- 	iscsi_target_nego_release(conn);
-diff --git a/drivers/target/iscsi/iscsi_target_login.h b/drivers/target/iscsi/iscsi_target_login.h
-index e8760735486b..03c7d695d58f 100644
---- a/drivers/target/iscsi/iscsi_target_login.h
-+++ b/drivers/target/iscsi/iscsi_target_login.h
-@@ -7,11 +7,10 @@
- struct iscsit_conn;
- struct iscsi_login;
- struct iscsi_np;
- struct sockaddr_storage;
- 
--extern int iscsi_login_setup_crypto(struct iscsit_conn *);
- extern int iscsi_check_for_session_reinstatement(struct iscsit_conn *);
- extern int iscsi_login_post_auth_non_zero_tsih(struct iscsit_conn *, u16, u32);
- extern int iscsit_setup_np(struct iscsi_np *,
- 				struct sockaddr_storage *);
- extern int iscsi_target_setup_login_socket(struct iscsi_np *,
-diff --git a/drivers/target/iscsi/iscsi_target_nego.c b/drivers/target/iscsi/iscsi_target_nego.c
-index fa3fb5f4e6bc..16e3ded98c32 100644
---- a/drivers/target/iscsi/iscsi_target_nego.c
-+++ b/drivers/target/iscsi/iscsi_target_nego.c
-@@ -1192,18 +1192,11 @@ int iscsi_target_locate_portal(
- 	if (!sessiontype) {
- 		if (!login->leading_connection)
- 			goto get_target;
- 
- 		sess->sess_ops->SessionType = 1;
--		/*
--		 * Setup crc32c modules from libcrypto
--		 */
--		if (iscsi_login_setup_crypto(conn) < 0) {
--			pr_err("iscsi_login_setup_crypto() failed\n");
--			ret = -1;
--			goto out;
--		}
-+
- 		/*
- 		 * Serialize access across the discovery struct iscsi_portal_group to
- 		 * process login attempt.
- 		 */
- 		conn->tpg = iscsit_global->discovery_tpg;
-@@ -1256,21 +1249,11 @@ int iscsi_target_locate_portal(
- 		ret = -1;
- 		goto out;
- 	}
- 	conn->tpg_np = tpg_np;
- 	pr_debug("Located Portal Group Object: %hu\n", conn->tpg->tpgt);
--	/*
--	 * Setup crc32c modules from libcrypto
--	 */
--	if (iscsi_login_setup_crypto(conn) < 0) {
--		pr_err("iscsi_login_setup_crypto() failed\n");
--		kref_put(&tpg_np->tpg_np_kref, iscsit_login_kref_put);
--		iscsit_put_tiqn_for_login(tiqn);
--		conn->tpg = NULL;
--		ret = -1;
--		goto out;
--	}
-+
- 	/*
- 	 * Serialize access across the struct iscsi_portal_group to
- 	 * process login attempt.
- 	 */
- 	if (iscsit_access_np(np, conn->tpg) < 0) {
-diff --git a/include/target/iscsi/iscsi_target_core.h b/include/target/iscsi/iscsi_target_core.h
-index 60af7c63b34e..51ca80abacf7 100644
---- a/include/target/iscsi/iscsi_target_core.h
-+++ b/include/target/iscsi/iscsi_target_core.h
-@@ -574,13 +574,10 @@ struct iscsit_conn {
- 	spinlock_t		nopin_timer_lock;
- 	spinlock_t		response_queue_lock;
- 	spinlock_t		state_lock;
- 	spinlock_t		login_timer_lock;
- 	spinlock_t		login_worker_lock;
--	/* libcrypto RX and TX contexts for crc32c */
--	struct ahash_request	*conn_rx_hash;
--	struct ahash_request	*conn_tx_hash;
- 	/* Used for scheduling TX and RX connection kthreads */
- 	cpumask_var_t		conn_cpumask;
- 	cpumask_var_t		allowed_cpumask;
- 	unsigned int		conn_rx_reset_cpumask:1;
- 	unsigned int		conn_tx_reset_cpumask:1;
+-static void __exit libcrc32c_mod_fini(void)
+-{
+-	crypto_free_shash(tfm);
+-}
+-
+-module_init(libcrc32c_mod_init);
+-module_exit(libcrc32c_mod_fini);
+-
+-MODULE_AUTHOR("Clay Haapala <chaapala@cisco.com>");
+-MODULE_DESCRIPTION("CRC32c (Castagnoli) calculations");
+-MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32c");
 -- 
 2.47.0
 
