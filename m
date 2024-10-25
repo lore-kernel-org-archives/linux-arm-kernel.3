@@ -4,98 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DBCD0BB56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C668D10399
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XpTWE9VFta5DLt/rrH5kkLgWbylzFjGFRg1FtfRFRr0=; b=0zvjNZz0w1Ukn9
-	Lj//dntXtZeXWUyM7rHYR2EQOwFWUo97CbKfKp0ICmgdrlugPtS4SjYnxc522kmM4Uy5WYNzb0cqh
-	ktCsNE5EU7ciJEq5COcdP/iqW5s9zOp6e0oFwnzNyUH1iC6FF6pfPu52n/z7oCctCwv++KlChL8fD
-	N5sevYtUCxviGWDAD9C+DTS3m3Oi3Wno14m94Bur1WHJAzu6E+3e3QbML81efaN3CYerCqfodSlNa
-	NCFCiFS7FLy0dvNa6i6RqI63arwoE96+0ozI+rkPddeb1G/cJ6Hk3x54tNWoRMoIiF8/keRZEjRTV
-	5mG3oFPP0VJ5UUZ9fVhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1C2xT/nfLr8AU/PZsiRWgOb7G9id+Mn04mVbxAYJeUE=; b=zYOQDE7+ko7Q0RnpqbnaS1aZ1R
+	6sOAAqvQAz8rNXmNFpsGVomgcE1ss+M1K6Kn3mLgNcXFI3p/q368Ao0SXOU4ytanVYX8Sw7vWSzB2
+	4wUeKm3lKcnrMvCvvuqWRtdClQIUTejoEwebXDEYYW4J0AITuLPt+v8fk/JKPZe4iZ8shLiZuF7u5
+	xQnQDiJVIj5GebuIQ8L1bahva4A/UzFZvkKHfTqb5+vQHapWVShtFCGoeYsU/JbMznF3YZaZzmMZT
+	F6RQJ1KBXMIavgTZBBooAuDYAMTcekzKRH8xBEq/LEhcafq0/9mVCm23YDHrCxPJRE3j1iTBOzssW
+	pmb+vp6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MAU-00000004EMI-3PZ8;
-	Fri, 25 Oct 2024 15:24:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LnF-000000047ee-0LQ8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 15:00:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=XpTWE9VFta5DLt/rrH5kkLgWbylzFjGFRg1FtfRFRr0=; b=I4U6tndr/aPDTatbMdpc1CdXmW
-	x2RLkKGIGndobqTQvmU4rv80aasSCVTTYnGwRPBD0SMfkX5+Fcw2r+utj2O0KfgqUaCp7vu6mnL8o
-	ub0dHHjUXn87KSERmFP5InqhpPjncGvTenpOcsiowtkidoLNmadCeCIljKnOOSDj1DzrOf1iw46Va
-	67zmd9bm7aTtZBzwhroOoLFvrOvhdmccMx5uXZNBgHiOeNveWsp9SDoxJj3bMiA6iLRmqZhDzFflw
-	nI0s2JGx/GQQ/fRrSWPjhyubTaR+rO3P72uUbLKbyYiQ816If1OqvPrv6KwkPFyyy0DyQiJDe5BC9
-	ylI6AbAw==;
-Received: from mail-lf1-f50.google.com ([209.85.167.50])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LnB-00000008xPX-1S0H
+	id 1t4MDg-00000004F73-067t;
+	Fri, 25 Oct 2024 15:27:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Lsm-000000048yl-3Swt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:59:59 +0000
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-539fb49c64aso3832288e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 07:59:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729868393; x=1730473193;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XpTWE9VFta5DLt/rrH5kkLgWbylzFjGFRg1FtfRFRr0=;
-        b=aYKjxE8BpaLICVLgc5+WjNHdFCKWNHuKdjnOAnt5hWKPDKY+64fDrCf8AXyMU3aSKB
-         hLkIJs0bp5mPZxRC+euBwGxrv0wjkzkigSMdunAuHMEIXlX3yLkNFsCSrxHITy0GwTxM
-         njZCHjK+slnwzbpu8WJef0kgTsyZYlfVvvZ9BGI4uEtQAvrKIazAJj/MyydQtldfHgTu
-         5fkAi0+e4RZgJyDKKtqfpZBeKlyMrauihvksGa4B9o+sfnP3VBBil3UZtMPR1uq7j3Nh
-         EpubUAwVdlhNEjLdeaS/9g7VWqeyZfcbMvPgQo4VrTHfTM9pFJkO4JI0TXhdDiJek+Nj
-         VEhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBaYvr5XO7oZDu5VhxUyQ3IvJ8mnBM5hTTyt4PwEh/ysxWTEaZC+yf2feBSTBZDXujHqkAvMfhTyaNCjndu+RT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt5204XXyBPl9oAbKdDWrl7RcBFdvsMScUhCXuryYgDezyjsRE
-	DLDwgJeRAf6GHMY04C1H5JbXnZPmZNr1LtYe+lBcrKhiyPzKIUZVqYhgW7lHogU=
-X-Google-Smtp-Source: AGHT+IGGE512Irn7sGf/ILgoU36jiH3EA426RkeYyW4W1AfQIQACAZx7j1hopAu6Gmhanju0IIqbhQ==
-X-Received: by 2002:a05:6512:4013:b0:533:c9d:a01f with SMTP id 2adb3069b0e04-53b1a315bb0mr9642660e87.4.1729868393058;
-        Fri, 25 Oct 2024 07:59:53 -0700 (PDT)
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c9199sm210882e87.220.2024.10.25.07.59.52
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 07:59:52 -0700 (PDT)
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso33897431fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 07:59:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUpvdsmzBVHupD7B3PxmkJ0cz38djsaxyk4I3Ph02tBEuLqmNBJ/hBp69Cz9RNte4nak6yN9ilhYpJFl7sCYJyw@lists.infradead.org
-X-Received: by 2002:a2e:b2c7:0:b0:2fb:36df:3b4 with SMTP id
- 38308e7fff4ca-2fc9d37ff0emr66846331fa.34.1729868392584; Fri, 25 Oct 2024
- 07:59:52 -0700 (PDT)
+	Fri, 25 Oct 2024 15:05:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD6F4339;
+	Fri, 25 Oct 2024 08:06:13 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A6F73F73B;
+	Fri, 25 Oct 2024 08:05:42 -0700 (PDT)
+Date: Fri, 25 Oct 2024 16:05:39 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Philippe
+ Simons <simons.philippe@gmail.com>
+Subject: Re: [RFC PATCH] clk: sunxi-ng: h616: Reparent CPU clock during
+ frequency changes
+Message-ID: <20241025160539.5503fa92@donnerap.manchester.arm.com>
+In-Reply-To: <CAGb2v676pzN6TX8xDHuESkGDLinCB9_3FLgKSmEBtxK2GSWxHQ@mail.gmail.com>
+References: <20241025105620.1891596-1-andre.przywara@arm.com>
+	<CAGb2v676pzN6TX8xDHuESkGDLinCB9_3FLgKSmEBtxK2GSWxHQ@mail.gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20241023075917.186835-1-ryan@testtoast.com> <20241023075917.186835-2-ryan@testtoast.com>
- <CAEKpxB=BQ1GvzdVCYKyr_Q1eCfcYYEz1L_RqzEVBBgNu8jDfwA@mail.gmail.com>
-In-Reply-To: <CAEKpxB=BQ1GvzdVCYKyr_Q1eCfcYYEz1L_RqzEVBBgNu8jDfwA@mail.gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Fri, 25 Oct 2024 22:59:39 +0800
-X-Gmail-Original-Message-ID: <CAGb2v658LYR_4v0G6dKz7OwD_F=hRCJkiGfqwLzAnkFzCe2Hdw@mail.gmail.com>
-Message-ID: <CAGb2v658LYR_4v0G6dKz7OwD_F=hRCJkiGfqwLzAnkFzCe2Hdw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/7] clk: sunxi-ng: h616: Add sigma-delta modulation
- settings for audio PLL
-To: Code Kipper <codekipper@gmail.com>
-Cc: Ryan Walklin <ryan@testtoast.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Chris Morgan <macroalpha82@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_155957_544384_92FDF0CA 
-X-CRM114-Status: GOOD (  39.50  )
+X-CRM114-CacheID: sfid-20241025_080544_979355_3C64F24F 
+X-CRM114-Status: GOOD (  36.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,212 +66,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 9:20=E2=80=AFPM Code Kipper <codekipper@gmail.com> =
-wrote:
->
-> On Wed, 23 Oct 2024 at 09:59, Ryan Walklin <ryan@testtoast.com> wrote:
+On Fri, 25 Oct 2024 22:49:27 +0800
+Chen-Yu Tsai <wens@csie.org> wrote:
+
+Hi,
+
+> On Fri, Oct 25, 2024 at 6:56=E2=80=AFPM Andre Przywara <andre.przywara@ar=
+m.com> wrote:
 > >
-> > Allwinner has previously released a H616 audio driver which also
-> > provides sigma-delta modulation for the audio PLL clocks. This approach
-> > is used in other Allwinner SoCs, including the H3 and A64.
+> > The H616 user manual recommends to re-parent the CPU clock during
+> > frequency changes of the PLL, and recommends PLL_PERI0(1X), which runs
+> > at 600 MHz. Also it asks to disable and then re-enable the PLL lock bit,
+> > after the factor changes have been applied.
 > >
-> > The manual-provided clock values are:
-> > PLL_AUDIO(hs) =3D 24 MHz*N/M1
-> > PLL_AUDIO(4X) =3D 24 MHz*N/M0/M1/P
-> > PLL_AUDIO(2X) =3D 24 MHz*N/M0/M1/P/2
-> > PLL_AUDIO(1X) =3D 24 MHz*N/M0/M1/P/4
+> > Add clock notifiers for the PLL and the CPU mux clock, using the existi=
+ng
+> > notifier callbacks, and tell them to use mux 4 (the PLL_PERI0(1X) sourc=
+e),
+> > and bit 29 (the LOCK_ENABLE) bit. The existing code already follows the
+> > correct algorithms.
 > >
-> > A fixed post-divider of 2 is used to account for a M0 divider of
-> > 2, which cannot be modelled by the existing macros and ccu_nm struct.
-> >
-> > Add SDM to the H616 clock control unit driver.
-> >
-> > Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> >
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 > > ---
-> > Changelog v1..v2:
-> > - Add fixed_post_div to high-speed audio clock to correct M0 value to 1=
- (ie divide by 2) based on manual
-> > - Correct PLL_AUDIO_(4/2/1)X clocks to manual-provided values
-> > - Add/correct inline comments for the above.
-> > - add CCU_FEATURE_FIXED_POSTDIV to pll_audio_hs_clk.common.features
+> > Hi,
 > >
-> > Changelog v2..v3:
-> > - Update comments and commit message to more accurately reflect SDM cha=
-nges and rationale
-> > ---
-> >  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 46 +++++++++++++++++---------
-> >  1 file changed, 30 insertions(+), 16 deletions(-)
+> > the manual states that those changes would be needed to safely change
+> > the CPU_PLL frequency during DVFS operation. On my H618 boards it works
+> > fine without them, but Philippe reported problems on his H700 board.
+> > Posting this for reference at this point, to see if it helps people.
+> > I am not sure we should change this without it fixing any real issues. =
+=20
+>=20
+> IIRC we do this for all the other SoCs. But if you want to be cautious,
+> we can wait for Philippe to give a Tested-by?
+
+Yes, I copied this code from the A64 CCU, but IIRC this was desperately
+needed there. But so far I didn't hear many complaints on the H616, and I
+ran through like 100,000 transistions in a matter on minutes without any
+issues yesterday.
+And apparently this patch doesn't fix Philippe's immediate problem, so I
+would like to hold it back for now, until we have either more testing,
+with or without this patch.
+
+Thanks,
+Andre
+
+> ChenYu
+>=20
+> > The same algorithm would apply to the A100/A133 (and the upcoming A523)
+> > as well.
+> >
+> > Cheers,
+> > Andre
+> >
+> >  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 28 ++++++++++++++++++++++++--
+> >  1 file changed, 26 insertions(+), 2 deletions(-)
 > >
 > > diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi=
 -ng/ccu-sun50i-h616.c
-> > index 6c7623d4c59ea..05727fa1ee46e 100644
+> > index 84e406ddf9d12..85eea196f25e3 100644
 > > --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
 > > +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> > @@ -215,20 +215,30 @@ static struct ccu_nkmp pll_de_clk =3D {
-> >         },
+> > @@ -1095,11 +1095,24 @@ static const u32 usb2_clk_regs[] =3D {
+> >         SUN50I_H616_USB3_CLK_REG,
 > >  };
 > >
-> > -/*
-> > - * TODO: Determine SDM settings for the audio PLL. The manual suggests
-> > - * PLL_FACTOR_N=3D16, PLL_POST_DIV_P=3D2, OUTPUT_DIV=3D2, pattern=3D0x=
-e000c49b
-> > - * for 24.576 MHz, and PLL_FACTOR_N=3D22, PLL_POST_DIV_P=3D3, OUTPUT_D=
-IV=3D2,
-> > - * pattern=3D0xe001288c for 22.5792 MHz.
-> > - * This clashes with our fixed PLL_POST_DIV_P.
-> > +/*
-> > + * Sigma-delta modulation settings table obtained from the vendor SDK =
-driver.
-> > + * There are additional M0 and M1 divider bits not modelled here, so f=
-orced to
-> > + * fixed values in the probe routine. Sigma-delta modulation allows pr=
-oviding a
-> > + * fractional-N divider in the PLL, to help reaching those specific
-> > + * frequencies with less error.
-> >   */
-> > +static struct ccu_sdm_setting pll_audio_sdm_table[] =3D {
-> > +       { .rate =3D 90316800, .pattern =3D 0xc001288d, .m =3D 3, .n =3D=
- 22 },
-> > +       { .rate =3D 98304000, .pattern =3D 0xc001eb85, .m =3D 5, .n =3D=
- 40 },
+> > +static struct ccu_mux_nb sun50i_h616_cpu_nb =3D {
+> > +       .common         =3D &cpux_clk.common,
+> > +       .cm             =3D &cpux_clk.mux,
+> > +       .delay_us       =3D 1, /* manual doesn't really say */
+> > +       .bypass_index   =3D 4, /* PLL_PERI0@600MHz, as recommended by m=
+anual */
 > > +};
 > > +
-> >  #define SUN50I_H616_PLL_AUDIO_REG      0x078
-> >  static struct ccu_nm pll_audio_hs_clk =3D {
-> >         .enable         =3D BIT(31),
-> >         .lock           =3D BIT(28),
-> >         .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 12),
-> > -       .m              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> > +       .m              =3D _SUNXI_CCU_DIV(16, 6),
-> > +       .sdm            =3D _SUNXI_CCU_SDM(pll_audio_sdm_table,
-> > +                                        BIT(24), 0x178, BIT(31)),
-> > +       .fixed_post_div =3D 2,
-> >         .common         =3D {
-> > +               .features       =3D CCU_FEATURE_FIXED_POSTDIV |
-> > +                                 CCU_FEATURE_SIGMA_DELTA_MOD,
-> >                 .reg            =3D 0x078,
-> >                 .hw.init        =3D CLK_HW_INIT("pll-audio-hs", "osc24M=
-",
-> >                                               &ccu_nm_ops,
-> > @@ -701,18 +711,20 @@ static const struct clk_hw *clk_parent_pll_audio[=
-] =3D {
-> >  };
+> > +static struct ccu_pll_nb sun50i_h616_pll_cpu_nb =3D {
+> > +       .common         =3D &pll_cpux_clk.common,
+> > +       .enable         =3D BIT(29),      /* LOCK_ENABLE */
+> > +       .lock           =3D BIT(28),
+> > +};
+> > +
+> >  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+> >  {
+> >         void __iomem *reg;
+> >         u32 val;
+> > -       int i;
+> > +       int ret, i;
 > >
-> >  /*
-> > - * The divider of pll-audio is fixed to 24 for now, so 24576000 and 22=
-579200
-> > - * rates can be set exactly in conjunction with sigma-delta modulation=
-.
-> > + * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the man=
-ual, with
-> > + * a final divider of 1. The 2X and 1X clocks use 2 and 4 respectively=
-. The 1x
-> > + * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (=
-and
-> > + * multiples).
-> >   */
-> >  static CLK_FIXED_FACTOR_HWS(pll_audio_1x_clk, "pll-audio-1x",
-> >                             clk_parent_pll_audio,
-> > -                           96, 1, CLK_SET_RATE_PARENT);
-> > +                           4, 1, CLK_SET_RATE_PARENT);
-> >  static CLK_FIXED_FACTOR_HWS(pll_audio_2x_clk, "pll-audio-2x",
-> >                             clk_parent_pll_audio,
-> > -                           48, 1, CLK_SET_RATE_PARENT);
-> > +                           2, 1, CLK_SET_RATE_PARENT);
-> >  static CLK_FIXED_FACTOR_HWS(pll_audio_4x_clk, "pll-audio-4x",
-> >                             clk_parent_pll_audio,
-> > -                           24, 1, CLK_SET_RATE_PARENT);
-> > +                           1, 1, CLK_SET_RATE_PARENT);
+> >         reg =3D devm_platform_ioremap_resource(pdev, 0);
+> >         if (IS_ERR(reg))
+> > @@ -1152,7 +1165,18 @@ static int sun50i_h616_ccu_probe(struct platform=
+_device *pdev)
+> >         val |=3D BIT(24);
+> >         writel(val, reg + SUN50I_H616_HDMI_CEC_CLK_REG);
 > >
-> >  static const struct clk_hw *pll_periph0_parents[] =3D {
-> >         &pll_periph0_clk.common.hw
-> > @@ -1162,12 +1174,14 @@ static int sun50i_h616_ccu_probe(struct platfor=
-m_device *pdev)
-> >         }
+> > -       return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_h616_ccu_d=
+esc);
+> > +       ret =3D devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_h616_ccu_=
+desc);
+> > +       if (ret)
+> > +               return ret;
+> > +
+> > +       /* Reparent CPU during CPU PLL rate changes */
+> > +       ccu_mux_notifier_register(pll_cpux_clk.common.hw.clk,
+> > +                                 &sun50i_h616_cpu_nb);
+> > +
+> > +       /* Re-lock the CPU PLL after any rate changes */
+> > +       ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
+> > +
+> > +       return 0;
+> >  }
 > >
-> >         /*
-> > -        * Force the post-divider of pll-audio to 12 and the output div=
-ider
-> > -        * of it to 2, so 24576000 and 22579200 rates can be set exactl=
-y.
-> > +        * Set the output-divider for the pll-audio clocks (M0) to 2 an=
-d the
-> > +        * input divider (M1) to 1 as recommended by the manual when us=
-ing
-> > +        * SDM.
-> >          */
-> >         val =3D readl(reg + SUN50I_H616_PLL_AUDIO_REG);
-> > -       val &=3D ~(GENMASK(21, 16) | BIT(0));
-> > -       writel(val | (11 << 16) | BIT(0), reg + SUN50I_H616_PLL_AUDIO_R=
-EG);
-> > +       val &=3D ~BIT(1);
-> > +       val |=3D BIT(0);
-> > +       writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
-> >
-> >         /*
-> >          * First clock parent (osc32K) is unusable for CEC. But since t=
-here
-> Hi Ryan,
-> I noticed some white-space issues when cherry-picking this change from
-> your repo.
-> scripts/checkpatch.pl
-> 0001-clk-sunxi-ng-h616-Add-sigma-delta-modulation-setting.patch
-> ERROR: trailing whitespace
-> #51: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:218:
-> +/* $
->
-> ERROR: trailing whitespace
-> #74: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:240:
-> +^I^I.features^I=3D CCU_FEATURE_FIXED_POSTDIV | $
->
-> ERROR: trailing whitespace
-> #85: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:698:
-> + * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the
-> manual, with $
->
-> ERROR: trailing whitespace
-> #86: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:699:
-> + * a final divider of 1. The 2X and 1X clocks use 2 and 4
-> respectively. The 1x $
->
-> ERROR: trailing whitespace
-> #87: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:700:
-> + * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (an=
-d $
->
-> ERROR: trailing whitespace
-> #112: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:1152:
-> +^I * input divider (M1) to 1 as recommended by the manual when using $
->
-> ERROR: trailing whitespace
-> #113: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:1153:
-> +^I * SDM. $
->
-> total: 7 errors, 0 warnings, 80 lines checked
->
-> NOTE: For some of the reported defects, checkpatch may be able to
->       mechanically convert to the typical style using --fix or --fix-inpl=
-ace.
->
-> NOTE: Whitespace errors detected.
->       You may wish to use scripts/cleanpatch or scripts/cleanfile
-
-I fixed up all the whitespace errors when applying.
-
-ChenYu
-
-> but that didn't stop it from singing beautifully!,
->
-> Tested-by: Marcus Cooper <codekipper@gmail.com>
-> BR,
-> CK
+> >  static const struct of_device_id sun50i_h616_ccu_ids[] =3D {
 > > --
-> > 2.47.0
-> >
-> >
+> > 2.25.1
+> > =20
+
 
