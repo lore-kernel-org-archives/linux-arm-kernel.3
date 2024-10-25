@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9C3D0C5FB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCACD0C5FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JuomQA4el8BSAut2vwLq507qc8/7nzyKhdkv644V4tk=; b=rvzsCZYnMVSxW9Kpo47uuu28OY
-	3so6QbwY12ykirdMUfB91yb4FawpJ4+R0EHjt4CKLfXImqw89fFQonl1zUCuaGAgmkc7iBBR4pURs
-	Xw8OptHvAVCMsRajetLxCtukJd4rGzudaN6v0/t3++5MjExenS72SfIf38PZNSzX82aWCnxnT7YBy
-	VyNBrryi0ToylyJjrKo2m6Ud3EQvC+14j2CvuSlGpzD3Ipte/16VeVK5Qq82cgL/DeTB5dQSn4uSK
-	Ofp9eZqKczG+ZacPFrLjWNPTc3JfEiPlEoA3Lc/nKeP7LmUWqURJzYUfG0B2bzR+SjhbCefnno4HM
-	jbDRQGhw==;
+	bh=ZOoxip5x7wI2+vc/NUDO1hx8anDEC5la6Zs6GJsKfJY=; b=EU5l9jS4tMbiFQ2obz4nP3iL12
+	kRPy7P6qCv9sMJVvCfl3MDxK45DREWUKHciEzpgbJ/OkcwmZwPRKS51aNSvWffj29TwISEEt/++1m
+	bKois4DYTilvSa71Oiy2FvpeUMGXsvKlMIXwHPTX01KELs3KN2TIxbDrZV1mhSX5Sna1eYktB8eiA
+	wNP53wDhmRAowinOV/rb/63MUlb9GYxKSTG/TPM/kOO3IChjByWGjndpRP+uk8/bBhUurzsakkKRK
+	zjliVqpP/Sy5oCUT8KLlAeDa+T6RlVqPm0nGoupX91mMtybqBUWP6ivK6xVGX7xLXZRjMVNHIHQth
+	pA88pPvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4IUk-00000003VsB-1vXB;
-	Fri, 25 Oct 2024 11:28:42 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1t4IWI-00000003WBl-3v8t;
+	Fri, 25 Oct 2024 11:30:19 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4I7z-00000003SL5-3HSa
+	id 1t4IIA-00000003TaE-0Kb3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 11:05:13 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-539fbbadf83so2601170e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:05:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729854310; x=1730459110; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JuomQA4el8BSAut2vwLq507qc8/7nzyKhdkv644V4tk=;
-        b=HvEoIu/Pbzx8gCpCKdjEvNfBeFIPqJ97a1fVYYygbuWYIKhf7HAs25mu/wWKOLggQ9
-         2WfA9xmOqzZDJStx7Q2LOi4FX4l7cXUfkP9Sqrs5gq8fT0mGNwA+vCosYqgjzv6HN9nu
-         WkWiW/pYihrEuPwbjG0M2Q+p+DuQ5HxKEtufkCwzBKIidadyI64mbZqVYQOr2fE1wiVv
-         28X2bgNpa6Uvsi0AmhPa1j1o8lzbNqWgqrRx2oRWjSkG01FLPeWFznpd9+zPP/AigNW2
-         tkJ1WMXB5AZQBAAk1sno1gIvthz2UQnOVqrzJQNhjcpi0Bnp24FAQdUWsWcjOgCANu9x
-         q+nA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729854310; x=1730459110;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JuomQA4el8BSAut2vwLq507qc8/7nzyKhdkv644V4tk=;
-        b=ZBAspWeDlb9ni4NAmWvaYDhvnnUBd30S5TyxPLJe5X6Rq2PkmA5Gl0CLdYwqhhDdmv
-         SLAIbHTYhx66/dIMsVUqkRlbk4pT4e620XRp9VQJceI2BjLYWgRwQUdEycXu49ucGhCJ
-         3EzzP2RF7zMvG336F2Dex/9qLcOIRpmOLMjS0SUYUZFO2bqxWPzo5CTTQ+c6mTeF6b4H
-         mCTmcdkZ+4+4fDj7CE6wPMpSGYNxV4OwK3rwzUfdTS5zfQbPj2xIHqqUjUpq809Ykyxd
-         w7e8NgYMoe4nmU6W1rSR43UNCtCIZHHV9hoIoyCFN1pTXwZ92ggK8tEqy5v/YR8QZjJo
-         0qyw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8IESqLfDkPXMefWJYHCLLbJ5xLvlU2gDO1wb/Nl/RpaT82tr2V+M+W2GHb36W+8SoZ4aQzKaDk63mVFzAO0Vs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXHsaAR+ykSAQM1LGuZYbqI9Pz84gAzHqqVu85pyNWi0btnyMt
-	D9itkOuya4NZhK0j2+zkKn00ecuSuNdC8l7xP3uWOL1osVMBnrvvQZmg7g5Ic8xqieMGim9Wj32
-	7hiKouS9XW/g0y+Afdj+gbIQqdXBEbzrCXUanqQ==
-X-Google-Smtp-Source: AGHT+IE3hHhqGmpopThdU7fUZ90CNqImMKu3l7SDYMnc1DU7abvZQL9XTwbVyoLLrq2iIOMeoYVGfYC3GvxR504MoZA=
-X-Received: by 2002:a05:6512:3996:b0:539:f593:c19e with SMTP id
- 2adb3069b0e04-53b1a3b018amr5062359e87.60.1729854309787; Fri, 25 Oct 2024
- 04:05:09 -0700 (PDT)
+	Fri, 25 Oct 2024 11:15:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1729854879;
+	bh=ZOoxip5x7wI2+vc/NUDO1hx8anDEC5la6Zs6GJsKfJY=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=qGbrcPEMXhS5tfWfmv5+xPPRf7bE1hjqlW2iksHOq1E8o8jLEUaWWtyLBbR52nc/Q
+	 ybQOqKTJwd3EIR2t8Up++13OZCzNms0vcOznVA7RejqEt1XWA24tbSj2jom1WEqvkb
+	 eloK2iAt57y2wG8WxLUBf6cVgZxwf8q11FfCfSjg=
+X-QQ-mid: bizesmtp90t1729854860t1aawzm2
+X-QQ-Originating-IP: vHczkqArfOOD17s222IqCdP+vlE37E3GSXdwUH2fgSc=
+Received: from [10.12.18.83] ( [123.124.208.226])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 25 Oct 2024 19:14:18 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 5802649936481617229
+Message-ID: <5111574CD4361AE7+ecedd63e-e04a-4ada-be16-0e290498c7c4@uniontech.com>
+Date: Fri, 25 Oct 2024 19:14:18 +0800
 MIME-Version: 1.0
-References: <20241017-arm-kasan-vmalloc-crash-v3-0-d2a34cd5b663@linaro.org>
- <20241017-arm-kasan-vmalloc-crash-v3-1-d2a34cd5b663@linaro.org>
- <69f71ac8-4ba6-46ed-b2ab-e575dcada47b@foss.st.com> <CACRpkdYvgZj1R4gAmzFhf4GmFOxZXhpHVTOio+hVP52OBAJP0A@mail.gmail.com>
- <46336aba-e7dd-49dd-aa1c-c5f765006e3c@foss.st.com> <CACRpkdY2=qdY_0GA1gB03yHODPEvxum+4YBjzsXRVnhLaf++6Q@mail.gmail.com>
- <f3856158-10e6-4ee8-b4d5-b7f2fe6d1097@foss.st.com>
-In-Reply-To: <f3856158-10e6-4ee8-b4d5-b7f2fe6d1097@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 25 Oct 2024 13:04:57 +0200
-Message-ID: <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] ARM: ioremap: Sync PGDs for VMALLOC shadow
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	kasan-dev <kasan-dev@googlegroups.com>, Russell King <linux@armlinux.org.uk>, 
-	Kees Cook <kees@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mark Brown <broonie@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu: Add judgment on the size and granule
+ parameters passed in
+To: Robin Murphy <robin.murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+ Joerg Roedel <joro@8bytes.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Rob Clark <robdclark@chromium.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: =?UTF-8?B?6Iuf5rWp?= <gouhao@uniontech.com>
+References: <20241024100224.62942-1-goutongchen@uniontech.com>
+ <aa763283-97fc-4b50-828d-8b64aa749bdd@arm.com>
+From: =?UTF-8?B?57yR5ZCM55Cb?= <goutongchen@uniontech.com>
+In-Reply-To: <aa763283-97fc-4b50-828d-8b64aa749bdd@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-0
+X-QQ-XMAILINFO: NTznjAszAYlzhx8qKWfZkH/wDM0WMa9p/VpwrTdvSkZFdWNYDq4SnZCk
+	ECVDXOxr/6C55fw4NEFLea1TqFBkpCzPUUWsyz4x+u8N06LgGjt92XJCswgiU4cL5N8vXSu
+	m9cYll/fRN1SiC6LznvpqOKxToum+z0Qe5jLv3Sijf6ZbgtDWWKaEQcr25Qtuge9gICh7FI
+	8LHnNWTxGfq/FmW7iwA4iWJWdy/obZw81U+JXfduIp8JuvSrGW1f5EUwtOod7YldRYuof4e
+	t5PtP9bMSsWzFVus3g0+2fi0MSGknlfE8KMc9ZOwOadh47ko7i7Lxuuaesu3vn81a5/tlU9
+	kj9stxTlSapQ4Bd6NIDwTMgO2t9k5lNwVqVNWQb3YEeOER+k856rX0hulXLhMSxFk2c3U85
+	1V+TPF6rHJEmeRYoKFzciumK+R015j9gVLhkU2iahwp1mPmhGQVxlZfI3SU5se2MrV7uCpF
+	04XjOA5IX1JhpE8e7PFKiU66spn+fsL5R4bg8IZqsXayRFvtLpTxOZdsthvNKaHcji9aQG2
+	R96JOZSmhQJAA3ghh9k5i4ktQtPB5UvfvW75HmqW8u6Y7UwQCGkqeYupKUigLRFQAIeBLzY
+	6BAY4e7HS9cZqc13+LCVg84bMw372nG+VHYb1pUR6is7IlscA3jCpW7Uskee/f8NA6brkqE
+	XQRT3kdloCJU9ycr5l6ncaYluIczG+bTJcPkBtmUjgWXH3YDs1eCspuzBsD6IGwegRI3Dcg
+	RdCAVrYERC2NHJ5Jg0p0jMJNJV79uZhZhOGEOoLuzygTsp1nIGceE3gtgJDfig67rl1xRxX
+	LTkbf9H2+G7KsLPI7UCwdvmDhkP/AqTCnpwIm6pNokiiRKlT1Qq1wKAhV5QnJd3vma6amug
+	+iWbYQDIPBZvthRqJKkoPthPQCHq56zpmfRMvSoFCbFwjJZjSeJQjnCBHmme3pt1ZIZgmWw
+	8gil9HWG1nEH/5Idm/NDtZA3pI4npMDa7lbQ=
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_040511_845320_754C2224 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20241025_041543_044800_47541B81 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,83 +97,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 11:27=E2=80=AFAM Clement LE GOFFIC
-<clement.legoffic@foss.st.com> wrote:
-> On 10/24/24 23:58, Linus Walleij wrote:
-> > Hi Clement,
-> >
-> > I saw I missed to look closer at the new bug found in ext4
-> > on the STM32:
-> >
-> > On Mon, Oct 21, 2024 at 2:12=E2=80=AFPM Clement LE GOFFIC
-> > <clement.legoffic@foss.st.com> wrote:
-> >
-> >> Perhaps not related with this topic but as in the backtrace I am getti=
-ng
-> >> some keyword from our start exchange, I dump the crash below.
-> >> If this backtrace is somehow related with our issue, please have a loo=
-k.
-> > (...)
-> >> [ 1439.351945] PC is at __read_once_word_nocheck+0x0/0x8
-> >> [ 1439.356965] LR is at unwind_exec_insn+0x364/0x658
-> > (...)
-> >> [ 1440.333183]  __read_once_word_nocheck from unwind_exec_insn+0x364/0=
-x658
-> >> [ 1440.339726]  unwind_exec_insn from unwind_frame+0x270/0x618
-> >> [ 1440.345352]  unwind_frame from arch_stack_walk+0x6c/0xe0
-> >> [ 1440.350674]  arch_stack_walk from stack_trace_save+0x90/0xc0
-> >> [ 1440.356308]  stack_trace_save from kasan_save_stack+0x30/0x4c
-> >> [ 1440.362042]  kasan_save_stack from __kasan_record_aux_stack+0x84/0x=
-8c
-> >> [ 1440.368473]  __kasan_record_aux_stack from task_work_add+0x90/0x210
-> >> [ 1440.374706]  task_work_add from scheduler_tick+0x18c/0x250
-> >> [ 1440.380245]  scheduler_tick from update_process_times+0x124/0x148
-> >> [ 1440.386287]  update_process_times from tick_sched_handle+0x64/0x88
-> >> [ 1440.392521]  tick_sched_handle from tick_sched_timer+0x60/0xcc
-> >> [ 1440.398341]  tick_sched_timer from __hrtimer_run_queues+0x2c4/0x59c
-> >> [ 1440.404572]  __hrtimer_run_queues from hrtimer_interrupt+0x1bc/0x3a=
-0
-> >> [ 1440.411009]  hrtimer_interrupt from arch_timer_handler_virt+0x34/0x=
-3c
-> >> [ 1440.417447]  arch_timer_handler_virt from
-> >> handle_percpu_devid_irq+0xf4/0x368
-> >> [ 1440.424480]  handle_percpu_devid_irq from
-> >> generic_handle_domain_irq+0x38/0x48
-> >> [ 1440.431618]  generic_handle_domain_irq from gic_handle_irq+0x90/0xa=
-8
-> >> [ 1440.437953]  gic_handle_irq from generic_handle_arch_irq+0x30/0x40
-> >> [ 1440.444094]  generic_handle_arch_irq from __irq_svc+0x88/0xc8
-> >> [ 1440.449920] Exception stack(0xde803a30 to 0xde803a78)
-> >> [ 1440.454914] 3a20:                                     de803b00
-> >> 00000000 00000001 000000c0
-> >> [ 1440.463141] 3a40: e5333f40 de803ba0 de803bd0 00000001 e5333f40
-> >> de803b00 c1241d90 bad0075c
-> >> [ 1440.471262] 3a60: c20584b8 de803a7c c0114114 c0113850 200f0013 ffff=
-ffff
-> >> [ 1440.477959]  __irq_svc from unwind_exec_insn+0x4/0x658
-> >> [ 1440.483078]  unwind_exec_insn from call_with_stack+0x18/0x20
-> >
-> > This is hard to analyze without being able to reproduce it, but it talk=
-s
-> > about the stack and Kasan and unwinding, so could it (also) be related =
-to the
-> > VMAP:ed stack?
-> >
-> > Did you try to revert (or check out the commit before and after)
-> > b6506981f880 ARM: unwind: support unwinding across multiple stacks
-> > to see if this is again fixing the issue?
-> I Linus,
+
+在 2024/10/24 19:59, Robin Murphy 写道:
+> On 24/10/2024 11:02 am, goutongchen wrote:
+>> In the arm_smmu_tlb_inv_range_s1 and arm_smmu_tlb_inv_range_s2
+>> functions, the size and granule passed in must be judged.
+>> It must be ensured that the passed in parameter is not 0 and
+>> the size is an integer multiple of the granule, otherwise it
+>> will cause an infinite while loop.
+>>
+>> This was encountered during testing, and was initially triggered
+>> by passing in a size value of 0, causing the kernel to crash.
+>>
+>> [    8.214378][  T675] xhci_hcd 0000:0b:00.0: new USB bus registered, 
+>> assigned bus number 1
+>> [   68.246185][    C0] rcu: INFO: rcu_sched self-detected stall on CPU
+>> [   68.246866][    C0] rcu:     0-....: (5999 ticks this GP) 
+>> idle=796c/1/0x4000000000000000 softirq=161/161 fqs=2999
+>> [   68.247924][    C0] rcu:     (t=6000 jiffies g=-699 q=1 ncpus=128)
+>> [   68.248452][    C0] CPU: 0 PID: 675 Comm: kworker/0:2 Not tainted 
+>> 6.6.0-25.02.2500.002.uos25.aarch64 #1
+>> [   68.249237][    C0] Hardware name: Inspur     CS5260F 
+>> /CS5260F          , BIOS 4.0.16 05/31/22 16:53:51
+>> [   68.250029][    C0] Workqueue: events work_for_cpu_fn
+>> [   68.250497][    C0] pstate: a0000005 (NzCv daif -PAN -UAO -TCO 
+>> -DIT -SSBS BTYPE=--)
+>> [   68.251188][    C0] pc : arm_smmu_tlb_inv_range_s1+0xf0/0x158
+>> [   68.251704][    C0] lr : arm_smmu_tlb_inv_walk_s1+0x44/0x68
+>> [   68.252189][    C0] sp : ffff80008044b780
+>> [   68.252530][    C0] x29: ffff80008044b780 x28: 0000000000000000 
+>> x27: 0000000000001000
+>> [   68.253212][    C0] x26: 0000000000000600 x25: 0000000000000001 
+>> x24: 0000000000000600
+>> [   68.253857][    C0] x23: 0000000000000000 x22: 0000000000001000 
+>> x21: fffffc64e2e59000
+>> [   68.254544][    C0] x20: 0000000039c1d1a6 x19: ffff3fe944c40280 
+>> x18: 0000000000000000
+>> [   68.255240][    C0] x17: 626d756e20737562 x16: ffffb0e7e08c1008 
+>> x15: 0000000000000000
+>> [   68.255930][    C0] x14: ffff3ef8c1ea15cd x13: ffff3ef8c1ea15cb 
+>> x12: fffffcfba30e3880
+>> [   68.256538][    C0] x11: 00000000ffff7fff x10: ffff80008044b6b0 x9 
+>> : ffffb0e7decd1b5c
+>> [   68.257126][    C0] x8 : 0000000000000dc0 x7 : ffff3ee8c4148000 x6 
+>> : ffff3ee8c4148000
+>> [   68.257822][    C0] x5 : 0000000000000008 x4 : 0000000000000000 x3 
+>> : ffff3fe944c40800
+>> [   68.258497][    C0] x2 : 0000000000000010 x1 : 0000000000000020 x0 
+>> : ffffb0e7dfd6c3d0
+>> [   68.259185][    C0] Call trace:
+>> [   68.259451][    C0]  arm_smmu_tlb_inv_range_s1+0xf0/0x158
+>> [   68.259933][    C0]  arm_smmu_tlb_inv_walk_s1+0x44/0x68
+>> [   68.260384][    C0]  __arm_lpae_map+0x1f0/0x2c0
 >
-> Yes, I've tried to revert this particular commit on top of your last
-> patches but I have some conflicts inside arch/arm/kernel/unwind.c
+> Huh? This invalidation path is for mapping a block entry, and the size 
+> is the size of that block per ARM_LPAE_BLOCK_SIZE(lvl, data) - how can 
+> it possibly be 0?
+>
+> Thanks,
+> Robin.
+>
 
-What happens if you just
+Thank you for your reply. First of all, as you said, under normal 
+circumstances, the size will not be 0, but I think it is better to limit 
+it here.
 
-git checkout b6506981f880^
+Because there is no guarantee that the parameter value passed in meets 
+the requirements, if a value that does not meet the requirements is set 
+manually during the call, it will fall into an infinite loop and cause 
+the kernel to fail to start, which is very fatal.
 
-And build and boot that? It's just running the commit right before the
-unwinding patch.
+It is precisely because we actually encountered such an error and this 
+problem that we submitted this patch to the upstream.
 
-Yours,
-Linus Walleij
+
+Thanks,
+
+goutongchen.
+
+
+>> [   68.260796][    C0] arm_lpae_map_pages+0xec/0x150
+>> [   68.261215][    C0]  arm_smmu_map_pages+0x48/0x130
+>> [   68.261654][    C0]  __iommu_map+0x134/0x2a8
+>> [   68.262098][    C0]  iommu_map_sg+0xb8/0x1c8
+>> [   68.262500][    C0] 
+>> __iommu_dma_alloc_noncontiguous.constprop.0+0x180/0x270
+>> [   68.263145][    C0]  iommu_dma_alloc+0x178/0x238
+>> [   68.263557][    C0]  dma_alloc_attrs+0xf8/0x108
+>> [   68.263962][    C0]  xhci_mem_init+0x1e8/0x6d0
+>> [   68.264372][    C0]  xhci_init+0x88/0x1d0
+>> [   68.264736][    C0]  xhci_gen_setup+0x284/0x468
+>> [   68.265121][    C0]  xhci_pci_setup+0x60/0x1f8
+>> [   68.265506][    C0]  usb_add_hcd+0x278/0x650
+>> [   68.265860][    C0]  usb_hcd_pci_probe+0x218/0x458
+>> [   68.266256][    C0]  xhci_pci_probe+0x7c/0x270
+>> [   68.266660][    C0]  local_pci_probe+0x48/0xb8
+>> [   68.267074][    C0]  work_for_cpu_fn+0x24/0x40
+>> [   68.267548][    C0]  process_one_work+0x170/0x3c0
+>> [   68.267999][    C0]  worker_thread+0x234/0x3b8
+>> [   68.268383][    C0]  kthread+0xf0/0x108
+>> [   68.268704][    C0]  ret_from_fork+0x10/0x20
+>>
+>> Signed-off-by: goutongchen <goutongchen@uniontech.com>
+>> ---
+>>   drivers/iommu/arm/arm-smmu/arm-smmu.c | 14 ++++++++++++++
+>>   1 file changed, 14 insertions(+)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c 
+>> b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>> index 8321962b3714..16b2e9ec0e60 100644
+>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>> @@ -282,6 +282,13 @@ static void arm_smmu_tlb_inv_range_s1(unsigned 
+>> long iova, size_t size,
+>>       struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>>       int idx = cfg->cbndx;
+>>   +    if (size == 0 || granule == 0 || (size % granule) != 0) {
+>> +        dev_err(smmu->dev,
+>> +                 "The size or granule passed in is err. size=%lu, 
+>> granule=%lu\n",
+>> +                 size, granule);
+>> +        return;
+>> +    }
+>> +
+>>       if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
+>>           wmb();
+>>   @@ -309,6 +316,13 @@ static void arm_smmu_tlb_inv_range_s2(unsigned 
+>> long iova, size_t size,
+>>       struct arm_smmu_device *smmu = smmu_domain->smmu;
+>>       int idx = smmu_domain->cfg.cbndx;
+>>   +    if (size == 0 || granule == 0 || (size % granule) != 0) {
+>> +        dev_err(smmu->dev,
+>> +                 "The size or granule passed in is err. size=%lu, 
+>> granule=%lu\n",
+>> +                 size, granule);
+>> +        return;
+>> +    }
+>> +
+>>       if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
+>>           wmb();
+>
 
