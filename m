@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADEB0D149DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C3AD149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RE/6bdE82IU4QyzbV1hsrlTmhXugWRMXOJiUEpwCLi8=; b=JUmDNfqlaKBHHNoaTQN5nbJIpz
-	Eyak15rxgmTcRiOSDt5ehQrngma0SP+ZJEl68ioqp2iTPW/vrjoeDcxPVLNkU+fhXVhzFaV9lZFUZ
-	wadA19kbPmbBQJN+5Fp6x3yPf+bQ/gFSmyy+1y0xK1tRnqstj2BxmoR9ZOrtlZQBZa1UtwXit6qhG
-	oAJ9tU65mMPVWMM3LTwFmyJ0Tq3iqXJd93ZIWesc3N08koCavoKEo89ozl/qU9Kam7f2reZq8/kGF
-	LFxkldS5eADZ8cJxMy3wQNFOPVgQIasA5RV0mj16DjLdIxNcW3lVFZmpGZ/jat1V3lpzGWTEDpknI
-	kuMq3txg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwKM75sCFnfctTtbj/opwnkqiPuhZWuGKbKWcmwTyIY=; b=1GTxDJ21qTBxIuQRCckgFZvaFw
+	IccLRxttJF5D4ByDouvSwqyD6JNkRnolqqWR/+JP0fCr0t8tO/6EK0lXigxX4g4r/70LURI7uHcKC
+	EQfnYme1vivrKJ+n+OvoTfHSsyTQGK8kCOJZmhr+acj3bqlCvOJ0gH5ChEJCKoFYCnB5NOy9QHIvB
+	5Jh+0KSmq3N/8qEWe4ntNkRYMDvYkJ+Qvp7d447+6beUKJRgHGvYMTeU2VTvQqbP4sm9XhYsCA2bn
+	XsRgsenn/45QHmHrTd8bjUwRVQMW75Y/SHt4DkHQV0DHpcCoLiwXGKVA7PO8nYU2f3j0mFwvZO3S3
+	EU/DM+8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4P36-00000004oBs-1UN1;
-	Fri, 25 Oct 2024 18:28:36 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1t4P6B-00000004ona-2uPq;
+	Fri, 25 Oct 2024 18:31:47 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OHn-00000004dxZ-2Xig
+	id 1t4OKC-00000004egA-1Mt3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:39:45 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2e3010478e6so1725898a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:39:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1729877982; x=1730482782; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RE/6bdE82IU4QyzbV1hsrlTmhXugWRMXOJiUEpwCLi8=;
-        b=dq/Agh33Dwxt2VyM4Gv4njKpFAq7L8Jp+s9al2yGgTMOTE7A01hyJ84trnD+mONwgi
-         vxIzc+cuQLHQDkzhFh4kg3SZUZ5mz4LLrY8c8DddTE+ahUMmvIuSA0jRJd7+KsstT9cs
-         dhRpIlDKSQRnTPUvySqy0+Pfb9FD4a7OpDLRI/hD4pIOw0y+tFk/npKGdNqDhn3hCYyb
-         oAL6MLalVsZ2/ukQZE237z3qAHotQ6TRyqvFCrYA+58Suzq3WbKvmelRpZ6hoOdZnAeb
-         2+VqWUIiBfwap5y3ivDKnPHoQVK48F7rn0Go+UTyosxrjzzggZfsqieHyea4SiHQu8KK
-         Rmlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729877982; x=1730482782;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RE/6bdE82IU4QyzbV1hsrlTmhXugWRMXOJiUEpwCLi8=;
-        b=FvfZyuxm7yxtTzw7vtYPzdjJh+uZ6p+uo2Rr8hHX+RfNc3pqWGwWBBpjVhLfZTCBsL
-         MFMLKP0sg54cg2rosaDmdQcVIOzeWt3rHRqgIRXAHnrb+Bv7QZBe2dd71EdeZqmEZtmC
-         pogLzDVFZlDdQsObH8wlAyeKkaK37za8mutyjtIM1T/erHlGxiTqbws21S6AF0o8rPen
-         Sc3gTtN+Qk9XwP+WEDkjNPYfE0rnH4VdORdCVYNc6Krxg7Yyl6iyvRG3+hjXZ5aQJahg
-         yjvQC/efcxEUZtxhRN9sGthTH773J/rsJwYTiEicS0uSCFratKqH5L0JC2YZmVNOOaRW
-         j12A==
-X-Forwarded-Encrypted: i=1; AJvYcCWv5ghIU6sz0S1VLVCfM1O+uedCXxzduOLFLUNwWmJrIRueRCmXe0I1sWgMXeOWgBh/3dTtijzCVWB3iMIyxCo0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYeNcdOi/MUC33kvUa5+vnbLb5IL7OvLLVC+Zr/ATR/dp3fSZi
-	LuxiCbn34NAoIJRfH5+dvRDB1yWd6jjcxvSEr3Nlt/M5GeaQ2S0tmIp963Z2FN8=
-X-Google-Smtp-Source: AGHT+IEVi/JnSEoEmb/oANDw83QHAV0rm+Tjpr64rcE0SEGxppo+dS3Gh8supNN8sTs49Y30HpEovQ==
-X-Received: by 2002:a17:90a:fb8a:b0:2d3:cd27:c480 with SMTP id 98e67ed59e1d1-2e8f11bee8bmr150527a91.33.1729877982182;
-        Fri, 25 Oct 2024 10:39:42 -0700 (PDT)
-Received: from [127.0.1.1] ([4.28.11.157])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4ca3fcsm3813961a91.13.2024.10.25.10.39.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:39:41 -0700 (PDT)
-From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Fri, 25 Oct 2024 10:39:08 -0700
-Subject: [PATCH net-next v5 1/2] dt-bindings: net: Add T-HEAD dwmac support
+	Fri, 25 Oct 2024 17:42:13 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49PHg5wc021530;
+	Fri, 25 Oct 2024 12:42:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1729878125;
+	bh=pwKM75sCFnfctTtbj/opwnkqiPuhZWuGKbKWcmwTyIY=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=VE6wSRv7zxAis0MClAfx62Vw8upuraUz6En61GTY3JhXbfzImFcpblBr1W0a+nASO
+	 NaGFszhOPgI7MhmNVnGjjPHRtsUqfYjyKZpfr3mxRzE0NYwYstYXKDrbNjfJh8youM
+	 QbMHDDQhPNlGCe36910F7UUSlTKEBAWwgP/RrnZI=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49PHg5UT068344
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 25 Oct 2024 12:42:05 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
+ Oct 2024 12:42:05 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 25 Oct 2024 12:42:04 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49PHg4lt109361;
+	Fri, 25 Oct 2024 12:42:04 -0500
+Date: Fri, 25 Oct 2024 12:42:04 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Markus Schneider-Pargmann <msp@baylibre.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Anand Gadiyar <gadiyar@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Vishal Mahaveer
+	<vishalm@ti.com>,
+        Kevin Hilman <khilman@baylibre.com>, Dhruva Gole
+	<d-gole@ti.com>
+Subject: Re: [PATCH v3 2/6] firmware: ti_sci: Partial-IO support
+Message-ID: <20241025174204.xwmsn2arcy4q63xu@reaction>
+References: <20241012-topic-am62-partialio-v6-12-b4-v3-0-f7c6c2739681@baylibre.com>
+ <20241012-topic-am62-partialio-v6-12-b4-v3-2-f7c6c2739681@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-th1520-gmac-v5-1-38d0a48406ff@tenstorrent.com>
-References: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
-In-Reply-To: <20241025-th1520-gmac-v5-0-38d0a48406ff@tenstorrent.com>
-To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241012-topic-am62-partialio-v6-12-b4-v3-2-f7c6c2739681@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_103943_834473_F988EF22 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20241025_104212_522732_53F06145 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,165 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+On 16:39-20241012, Markus Schneider-Pargmann wrote:
+[...]
+> 
+> The possible wakeup devices are found by checking which devices are
+> powered by the regulator supplying the "vddshv_canuart" line. These are
+> considered possible wakeup sources. Only wakeup sources that are
+> actually enabled by the user will be considered as a an active wakeup
+> source. If none of the wakeup sources are enabled the system will do a
+> normal poweroff. If at least one wakeup source is enabled it will
+> instead send a TI_SCI_MSG_PREPARE_SLEEP message from the sys_off
+> handler. Sending this message will result in an immediate shutdown of
+> the system. No execution is expected after this point. The code will
+> wait for 5s and do an emergency_restart afterwards if Partial-IO wasn't
+> entered at that point.
+> 
+[...]
 
-Add documentation to describe the DesginWare-based GMAC controllers in
-the T-HEAD TH1520 SoC.
+> +static bool tisci_canuart_wakeup_enabled(struct ti_sci_info *info)
+> +{
+> +	static const char canuart_name[] = "vddshv_canuart";
+> +	struct device_node *wakeup_node = NULL;
+> +
+> +	for (wakeup_node = of_find_node_with_property(NULL, "vio-supply");
+> +	     wakeup_node;
+> +	     wakeup_node = of_find_node_with_property(wakeup_node, "vio-supply")) {
+> +		struct device_node *supply_node;
+> +		const char *supply_name;
+> +		struct platform_device *pdev;
+> +		int ret;
+> +
+> +		supply_node = of_parse_phandle(wakeup_node, "vio-supply", 0);
+> +		if (!supply_node)
+> +			continue;
+> +
+> +		ret = of_property_read_string(supply_node, "regulator-name", &supply_name);
+> +		of_node_put(supply_node);
+> +		if (ret) {
+> +			dev_warn(info->dev, "Failed to parse vio-supply phandle at %pOF %d\n",
+> +				 wakeup_node, ret);
+> +			continue;
+> +		}
+> +
+> +		if (strncmp(canuart_name, supply_name, strlen(canuart_name)))
+> +			continue;
+> +
+> +		pdev = of_find_device_by_node(wakeup_node);
+> +		if (!pdev)
+> +			continue;
+> +
+> +		if (device_may_wakeup(&pdev->dev)) {
+> +			dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
+> +				wakeup_node);
+> +			put_device(&pdev->dev);
+> +			of_node_put(wakeup_node);
+> +			return true;
+> +		}
+> +		put_device(&pdev->dev);
+> +	}
+> +
+> +	return false;
+> +}
+> +
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-[drew: rename compatible, add apb registers as second reg of gmac node,
-       add clocks and interrupts poroperties]
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
- .../devicetree/bindings/net/thead,th1520-gmac.yaml | 110 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 3 files changed, 112 insertions(+)
+What is the binding that supports this? I just do not think that
+scanning the entire tree for vio-supply implies you will get thr right
+property here.
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 4e2ba1bf788c..474ade185033 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -99,6 +99,7 @@ properties:
-         - snps,dwxgmac-2.10
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-+        - thead,th1520-gmac
- 
-   reg:
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-new file mode 100644
-index 000000000000..6d9de3303762
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-@@ -0,0 +1,110 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD TH1520 GMAC Ethernet controller
-+
-+maintainers:
-+  - Drew Fustini <dfustini@tenstorrent.com>
-+
-+description: |
-+  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
-+  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
-+
-+  Features include
-+    - Compliant with IEEE802.3 Specification
-+    - IEEE 1588-2008 standard for precision networked clock synchronization
-+    - Supports 10/100/1000Mbps data transfer rate
-+    - Supports RGMII/MII interface
-+    - Preamble and start of frame data (SFD) insertion in Transmit path
-+    - Preamble and SFD deletion in the Receive path
-+    - Automatic CRC and pad generation options for receive frames
-+    - MDIO master interface for PHY device configuration and management
-+
-+  The GMAC Registers consists of two parts
-+    - APB registers are used to configure clock frequency/clock enable/clock
-+      direction/PHY interface type.
-+    - AHB registers are use to configure GMAC core (DesignWare Core part).
-+      GMAC core register consists of DMA registers and GMAC registers.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - thead,th1520-gmac
-+  required:
-+    - compatible
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - thead,th1520-gmac
-+      - const: snps,dwmac-3.70a
-+
-+  reg:
-+    items:
-+      - description: DesignWare GMAC IP core registers
-+      - description: GMAC APB registers
-+
-+  reg-names:
-+    items:
-+      - const: dwmac
-+      - const: apb
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: Peripheral registers interface clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: pclk
-+
-+  interrupts:
-+    items:
-+      - description: Combined signal for various interrupt events
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+
-+required:
-+  - clocks
-+  - clock-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    gmac0: ethernet@e7070000 {
-+        compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-+        reg = <0xe7070000 0x2000>, <0xec003000 0x1000>;
-+        reg-names = "dwmac", "apb";
-+        clocks = <&clk 1>, <&clk 2>;
-+        clock-names = "stmmaceth", "pclk";
-+        interrupts = <66>;
-+        interrupt-names = "macirq";
-+        phy-mode = "rgmii-id";
-+        snps,fixed-burst;
-+        snps,axi-config = <&stmmac_axi_setup>;
-+        snps,pbl = <32>;
-+        phy-handle = <&phy0>;
-+
-+        mdio {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            compatible = "snps,dwmac-mdio";
-+
-+            phy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f39ab140710f..72dee6d07ced 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19827,6 +19827,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://github.com/pdp7/linux.git
- F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
- F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+Just giving an example to illustrate this point:
+Documentation/devicetree/bindings/net/wireless/ti,wl1251.txt says it
+needs vio-supply -> so i have a node with the wireless supply as
+vio-supply -> Since we are scanning from NULL for vio-supply, we hit
+that, that is a bad choice for enabling io-retention.
 
 -- 
-2.34.1
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
