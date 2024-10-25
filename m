@@ -4,217 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0D0D0C5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544D8D0C5F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzLyxc7erUBoZEarIMZxYS7ECoRAkV3G0f54old15Qk=; b=YJOqi0G7/wlNYc9ukjSklb7PRf
-	274WGaYVjSdXSK8OZqN3ieNCgM4Dpv7f0MasiFJ3zUYScd/iCcW1rEdEzafQxep/u0Ebn7bg8pEau
-	2rwwulYSs6fM9mrcew83y6cnFyQEGJoqJ37E+G3MKOYz6al0zpidmHDUJzJ8ShiVY9hjOFHbtJdES
-	I87tVWvyKzJGepLwBxzwq2JogPnwV0sAXXYzoJtNfFNctI1Laa3UXYer171BY9fVFp0lj1EfNiTRj
-	xJWCycg6vFINbrUFODaNlfZrz/f14Y9VhGDxnabtllkdA3fLUOCiTYZ2kOmBaeqS/ba90CnUewHDC
-	YmCdJs2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=unWwaK5yyAGO05uDE4wFMw1H9hLwHos+KJJ2WW16+3w=; b=KQogq92Uq69eWM7anRA3PZBtPc
+	bo++bpKnFrx0en3pBYTgzi1XfVDS5BrYGXiM8tD+8/FJlYb+I7dg5XWFoYSdqz3wtTpmqaLFDMIWL
+	XrVUEIsbwPKA8htA0c/fZ4pYGKCIBadun3siUtsSm5m2e1Z87h6Hm1x1bLRPzbjbyBkCxoNfs/jfD
+	Ct1WN3ILHOoyq1vce0XGQ8aGdUm42gB1s4aJPTXOVjtakwXDBm5xtnuTnmjX3uFm2v1A3a8aOX2Xy
+	8keFPwNeUVqJZZ9AdOX1Xg/5nr7N0uxumA9RAL9i5ZHcmDnshUQ/qrIP3A11/TjdD72Usd5z5DpXE
+	bNFpCnDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GnD-00000003Cd5-1Xyf;
-	Fri, 25 Oct 2024 09:39:41 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GhS-00000003BXZ-04D0;
-	Fri, 25 Oct 2024 09:33:43 +0000
-X-UUID: 37c1e8cc92b411ef9048ed6ed365623b-20241025
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=nzLyxc7erUBoZEarIMZxYS7ECoRAkV3G0f54old15Qk=;
-	b=p0Gsw85mAcTOeuSfZqVXZoMXlKpb7JwGZOAbOHhnlPpCO2fQuFXPVXNjx1sUDDeWy69pZr3MUbCyE9MFaeVpYtGA79LpxbkgIgVBdpU5K7r4rN5yTXU++sPbN/ryhKkF+C13QCOyfMnm/zek8q3A+y4jrmgzFr2Uqr0kbOuhISs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:0655db76-9fc6-4861-8f53-ff1076c5123a,IP:0,U
-	RL:0,TC:0,Content:1,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:1
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:a0cbd341-8751-41b2-98dd-475503d45150,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:4|-5,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 37c1e8cc92b411ef9048ed6ed365623b-20241025
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <friday.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1671092229; Fri, 25 Oct 2024 02:33:39 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 25 Oct 2024 17:33:36 +0800
-Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 17:33:36 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AIIfjnYsIDFClKbHUZ5doFEmFt7j7Rt1Akwp780yn58ru3bc4upICxRy4LKENSnUFCeUf4CttOlxlaYBMaV/mFh+53LlLocd6jHxl/Q7NIxHtBjxCJn1C7xEbLx372vvVmPc/1e42PO0tFd7IHsvVGi6vl2XXy1G7wkTfLDSk3bM+gAGHNfD541dHg28+MpG7iyvQBgmMOb6sBMVaAE5x0r/XD1YVLYyol+aI3VwViemYVBxAiJAS5GH8jKfoQa5WgNcPaLM4WkwIMrbaxOEpvSqJe8nAPLalQOm2nUwiVUQrH/1o8JshziXo0Smc0BpLk5z5Q5zaix2WS1kH+fUDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nzLyxc7erUBoZEarIMZxYS7ECoRAkV3G0f54old15Qk=;
- b=aURbVZPMlQ6665ICG6tGsDi0gjyLXa9BkZfYJhAVQzqbEQcPdMeD/ex7FFmKDE9vxWSRc2/FH88uf/2F3v+urgXJZhuUQJIieN4bmMGjkzDQxLmUgu0EowBNX8OIvrJRwFrcSaaNE1HF4ZrHwMp6kcjG7PTD+FLr+BEDVCFIwUt6FReqKIU9xakFtF9HnM6QlXgafVqerRyqoerKayua+B2g7sGXVrxcZZQ84pLs16KQLiB3rgxfZ8PB8OvVlHtY8r4wIpVPLFKWABz+VWJA/5fwSeisxvtQWb0jpnOHJBQqKveuhWstS99SHRJdjYOJ3PWNlQXoMgwt28ODf2lDhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nzLyxc7erUBoZEarIMZxYS7ECoRAkV3G0f54old15Qk=;
- b=PamW3+J2V0MsZkVCrKuj3401BCnqhhRif7ke4Ox6oTuIekvqsuXM3Sq9H48nnpPF4SIAgfrpQGYiNTaNAcTSGZYdcbBAh6VKgkxBued0VixC+Tw8izLMusyubKA9KVhePZo2QkcRbnCC2VwefNGF5S5PA2u5I0HtsbJL2RFJoF0=
-Received: from JH0PR03MB7983.apcprd03.prod.outlook.com (2603:1096:990:3d::5)
- by KL1PR03MB8217.apcprd03.prod.outlook.com (2603:1096:820:10b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Fri, 25 Oct
- 2024 09:33:32 +0000
-Received: from JH0PR03MB7983.apcprd03.prod.outlook.com
- ([fe80::68cc:b424:7a97:b11f]) by JH0PR03MB7983.apcprd03.prod.outlook.com
- ([fe80::68cc:b424:7a97:b11f%3]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 09:33:32 +0000
-From: =?utf-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "krzk@kernel.org" <krzk@kernel.org>
-CC: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	=?utf-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 3/4] memory: mtk-smi: mt8188: Add SMI clamp function
-Thread-Topic: [PATCH 3/4] memory: mtk-smi: mt8188: Add SMI clamp function
-Thread-Index: AQHa86RVJj9SPFvyWUOGEGKoNBEA6rIxafsAgGQXEQCAAK8OAIABapuA
-Date: Fri, 25 Oct 2024 09:33:32 +0000
-Message-ID: <72c8d4b0bfdce89328ee1c99363441f1a3bbf5b2.camel@mediatek.com>
-References: <20240821082845.11792-1-friday.yang@mediatek.com>
-	 <20240821082845.11792-4-friday.yang@mediatek.com>
-	 <25b487b7-63e0-402d-a0a2-ed9d03e82630@kernel.org>
-	 <cdbac20d7a49ff2fbd3e6d4f24ae441ffbe87f05.camel@mediatek.com>
-	 <566e4de8-b8bb-466c-83c4-217dad8ace63@collabora.com>
-In-Reply-To: <566e4de8-b8bb-466c-83c4-217dad8ace63@collabora.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: JH0PR03MB7983:EE_|KL1PR03MB8217:EE_
-x-ms-office365-filtering-correlation-id: 8434b2a9-1099-4377-5751-08dcf4d817a3
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?MWpxdTFxWTNSajNUMFkvL2ZQc21XMll0dWFlNVFXMjErMXpJZ2lJcVJEK0dS?=
- =?utf-8?B?azRTeUNuMFVnd1VzUi9oUXlOdmF6cGVoVGJremJPSjBoaDRLMWpuMGJFLzVz?=
- =?utf-8?B?ZVZHcGN2OGNmMDNkbkcyWkpTVTU3Q0s1bHI4NStJOEFMc0JlVDA1YkJTWmFD?=
- =?utf-8?B?SUJsUGprMEYwVlNmeUIwYXBYNjdEVE5sOEg2SnNGK1VpdEtGbE0zNm54cmFZ?=
- =?utf-8?B?TFFaREx4eEJweVI0N2x6WW1aRWFjay9nUHNYM2huMmNLWjdPK0hrQ3ZDenZu?=
- =?utf-8?B?VExkUVJXbW5aSTFFcUFka1dZYXdsbkN4TXY1b1g4YUIvWU9zU1U4aitFUjBq?=
- =?utf-8?B?NVpSSEhIR3pGbjZxR3VDVFppM1cvdUdpb2d6QWMwSnBNdXlsa3JUTnErcFNG?=
- =?utf-8?B?cXN6UloyYzE3R3dBNUdzWDRtb29MMlBwZFdLUVV3TWhXL0VISk9maHdBdUdW?=
- =?utf-8?B?MDlHVTdkc2RSREs5UFJlTUE4a1RNVEY1L2JSWVN3MXVYQWJmUWFoTng3Z2NU?=
- =?utf-8?B?TlprS0RZeXdmb1NnUkRDSVNFRGxTR3FTU2Y3QlBuWEt5WG1GVE9odHlxV0Zn?=
- =?utf-8?B?UGJobWV1dC9WUUdjSWpaZXZVYXRQLzlpdXlCNDhKZmEzTWswOUUxZ2JnbUNX?=
- =?utf-8?B?QURaMkQxbXZxeWRIelhmamJFK1R2MmNJS095cGNtUXFXL0NDdGc1SWtkOHpB?=
- =?utf-8?B?NEc4c3lZS250QW5Hb3NNdWVXUDg3eTA5dGg0bUMxdmgra080bGU2TjlReFBR?=
- =?utf-8?B?NlVUSEdWR3ltVzQ1alNzWmN1NW9ZQldjNjlKTnBhcFhjM2Y3QnRMYjdES0dF?=
- =?utf-8?B?VGFuZ1NvZGJiMFFXbzU2MWRYaDZTSGNwNHBwWXJsT0k1UE5QTmlpZDdKbldB?=
- =?utf-8?B?ZmhvVkpNVzFaWEJ2djF0QWhpZkJUaDFJODcvdW53SFhWK0hWdUlmUXk4RW0v?=
- =?utf-8?B?M3hSV2dRNjNzQThhS2NUVWM4RDBVWG92L25mT2VMZHNWYkNiSG5vSk9EQkZh?=
- =?utf-8?B?NENucjR6MWFRczVaRWVrK2FGWDRXR01ROWdZclpkSmV3eUw3alZFSDhLTjF3?=
- =?utf-8?B?TGV2TnlacFV0Vm1EeWhYUHhxTU1XcGRUdnprWnEvYnRjaSt1emtScVpqWGVY?=
- =?utf-8?B?V0FPWERJdzVEdkJwQWlqVFZNZW1VTkptY0FoU2lKT3prTi90R05nM2JydG4z?=
- =?utf-8?B?akVyRTc3NDcwQ1RUVW1qQUhrdUdhS3Y5RnlWOWR1MGFkS0xnTnVLV3NJRURM?=
- =?utf-8?B?Z3Q5UDBNR1AzNjE1SUU3UTc2c3VxLzhWMTFxeXZGNVFBMHN3M1pteERGeTNX?=
- =?utf-8?B?Rm1uVVJ2MnMvZWxFZWNaR1l5MFdTeTlzblBDZ3p5ZjNoeWVjbUMvZlNjeFJn?=
- =?utf-8?B?REt5U2xRTXYvUy9WVFNZcFJCWCtJNVA1OUVNUDJUQlJNK1hRNzMrNjRpbmRa?=
- =?utf-8?B?QnVpcFk0S0ZZMDJmMjBreXVCSGxOaU1taC9LZkNBVVZCTXVTZ3pScmJJTVU5?=
- =?utf-8?B?LzhLdVp6NWwxNW4zR2lSWnh4QUF6a0pSNkc3b1RETForZGJ3UlFMN0JsU0gz?=
- =?utf-8?B?b0p1MmVmaitXSjdGLzAySXF4UEZ4VFdGZ2RyQzBDZFJnNjJXNm5RdWJBdEpp?=
- =?utf-8?B?SjZEYkp6V2pucmU4Z1hXYUxlYTVhM2dDTlBwUzN1cG83NmkwWXRRb25VRXBn?=
- =?utf-8?B?dm8xbk5hSDExZHBVTXlqVWY3UDZMQ2lhV05xYSswWk1tTkRXQlNzUTlVN2lR?=
- =?utf-8?B?TXFBMVovSDNYdkQyRGFaeFY2YlN4LzZBbG1wUXhkRzU3YUZHd3ZjL0VuSFpQ?=
- =?utf-8?Q?RbG5AxtEksq5bNaATQC0TlJ6eDpgKerIbObGs=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB7983.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RHNMazZRUG5Jc2JDTmlDRHRiOW1tSnVQc3l2K0ZSczN1WWgyblZ5WWV4RkdI?=
- =?utf-8?B?TnRocE9pUmlLNXlIZk9ycUJ3RDYrekdkbnk0YkUybUNVeS85cFVvNEF5cTdI?=
- =?utf-8?B?bEo0M1hxL1JsWVZ3akxueDFCMkpQNThBQ3JpaDhEcWpudmFXZmtZWi93ZGpJ?=
- =?utf-8?B?WmRGdDMxQU5qUFg1dy8xY0tGYlp2UE5yWWdTQ3o4VENsTFIrYmt4NDM4NE9M?=
- =?utf-8?B?TUJUK3VUeDI0MS9uRkxVTnBYRTlxMFh6RjFkRHVBbjlqaWE5Z01LMXNxdFps?=
- =?utf-8?B?SEtqTUhRbHJZT29ZQ1J0dDZENFRQbzYvcUFSOTZyVEE5RnVhSEVHcFBhcXVE?=
- =?utf-8?B?dEhMT294QytzeldITW9wV0pUdkE1UUNDTVVEWTZkNUxuVXZlQXVRRTFVaGYv?=
- =?utf-8?B?Uk5PUEtKa0kwL1FOUDl5anpTNGhvTm8xYzhUNjNBTm1TbXZGL09uNXkzVEMz?=
- =?utf-8?B?Y1ZaS3U3N1RTSDZQVnkxUWVnUmIrd1NhMnVUSzJabzVCbVR0c1Z5MzF6dGNo?=
- =?utf-8?B?SU5XR0lhb1hkZldic1BjUXUvQ1c5UUhrT2o0N1VnQTZ0elZzVEloTW5HM1NQ?=
- =?utf-8?B?MjRUaWJFbXJYRzdxYjRTOWhOWlRWOTJUSHF6MjZmQ1NnOXc5d3U2Z3hQYWow?=
- =?utf-8?B?VEdzNktNZU1keWQzTkQzSFBYSzdlWGY0YVdyOE1WOUpTSWpGblI2eXh5UEl6?=
- =?utf-8?B?dnFtWlhBNUxFNXNvMnNWS1UyRDR6ZmhBaTk4M2tPa2xPdEFqZ2sxa1NPMjBK?=
- =?utf-8?B?Y2N5dEdibkloWTh6WWMrSmFVZFJMUFZFckVkcDc3QVlaaXNFamdGQVZjMktU?=
- =?utf-8?B?REhZRmdKYTRhSUNsaUw2bmxKbC9DT21iTUwyT3pzOFpiVm81dWNrVEVtbnZs?=
- =?utf-8?B?WmY3MDE3alhhL2Q4cDlxWnQzVEVVclpXZE9weGZha3laazZ5aCtVVDNMODNs?=
- =?utf-8?B?R3dobUxxWk9wWlhDL2M0Q0NpQi9tOFg2TXFyY1BtWE5KYjZJUWV2MkdsYzI0?=
- =?utf-8?B?S3hjTHVkWHljUFdBRDFtNVVQeDdzRkF1S1NPNG53eWxMTEs1OGdPQXdrdHRN?=
- =?utf-8?B?cHpueHhNVjdhVTFIeFdLRXBsOXQ0bkpCRDhBNXRxZ01TaHJySHBJZVorTi93?=
- =?utf-8?B?dUNnOURPdUREbHkrdXJuNmRWRHF1NWRjS1dVOVJMZnc4Y0Zvbzgrc1J0Nzhj?=
- =?utf-8?B?TnBiZ0MwTUR4TjFvNGk0Y2VFVWV0cFJkdmlicHdBQkZrRXB5a1A0bmlwa2xy?=
- =?utf-8?B?S244a3hXZkxHa2NUVDJ1c2FnR09RVzc1ejhYcDIyS2grZ0h5a0czUFJHeXNv?=
- =?utf-8?B?UldLZ1EwaGpWL2xiN05oUWpwTGZuU2tlR3NMVDBiaHBJRlBVSUt1VEFTWGhB?=
- =?utf-8?B?dUxwSXZXb1cyNUhnMUlvWkgwZ0dwVXc0dUZJMVorS1MvZUxBTmtuL3VvenN3?=
- =?utf-8?B?eDhmRWZVaEpMcE1uYVRFQUU5dElBOHJVMDlnTXVqTlh3dThPalpLN2pDNDNH?=
- =?utf-8?B?OWF4NmpiQkN5dzJIdUNsMm12QmMzWjlvZUZnbU84MGUzUThQOTlWMWlxK0k2?=
- =?utf-8?B?VHVCN1hpM1pvc1FSa2UwWEpzVFpCU0dnd29YMk9IbEhaR3V5YjhmWE5CL1E1?=
- =?utf-8?B?ZWZWUDFDRW5WUXV0bG1OZVVpeW9aa1RyQTFRWWE2T0xjVEtNR1VmVzR2anJi?=
- =?utf-8?B?dlI3YzlQUG5La3hqdGxPbDdQZ2tGanNjdDcrYm1OVE5QTjRtTFBtKzZkQVhp?=
- =?utf-8?B?bjg2VmxraklXMUlzZ0hYN2FIeFRvWHVCK3p3Y09JVVdkSnZRazdDcS9yMncr?=
- =?utf-8?B?WUJGdFo4K3JmN3RHQXFyTE5JSm40aEx6TE1XSGUyNzFrWEY1VU81U2Z4cExS?=
- =?utf-8?B?Y29nWllsVmJxTUU4cVdpMnBWWGRFQjhQVVVadUdIVG01REYvMk9UVjg1Wlll?=
- =?utf-8?B?MkVEVDVOa3N1TEdUaER2bXZLUUJGSFFXekpwVmt4UTl1S0tsb09nNGk4bmRG?=
- =?utf-8?B?SzVjbXBFS3V5Z2JNUWtoSHhEeURWaFR6Qm1wSTVmZ2F6NGhvVHg2VDRyOTdG?=
- =?utf-8?B?ZVVycWFlWjdFWjMxWXM3TFFwUEJ3V0MyT0VGWHRFZjNjOHFrUThPcXVUNU1G?=
- =?utf-8?B?cE1BY2RSdk1uN1ptUm54WG9RejFYUzBpNWdLZDNzaTFmenIvdU8xeFpyd3hz?=
- =?utf-8?B?bVE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <A23449543BECAB419DBF9EF2C1A9E333@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1t4Gok-00000003CoL-01c1;
+	Fri, 25 Oct 2024 09:41:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4GmS-00000003CVb-1Dma
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 09:38:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A1BF339;
+	Fri, 25 Oct 2024 02:39:20 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4FA13F528;
+	Fri, 25 Oct 2024 02:38:47 -0700 (PDT)
+Date: Fri, 25 Oct 2024 10:38:41 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Ryan Walklin <ryan@testtoast.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu
+ Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Chris Morgan <macroalpha82@gmail.com>,
+ Philippe Simons <simons.philippe@gmail.com>, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] clk: sunxi-ng: h616: Add sigma-delta modulation
+ settings for audio PLL
+Message-ID: <20241025103828.41f459b5@donnerap.manchester.arm.com>
+In-Reply-To: <20241023075917.186835-2-ryan@testtoast.com>
+References: <20241023075917.186835-1-ryan@testtoast.com>
+	<20241023075917.186835-2-ryan@testtoast.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB7983.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8434b2a9-1099-4377-5751-08dcf4d817a3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2024 09:33:32.6101
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VOWiAitodeHehrDJJhgDYqjj/69dO5jyXhzs+Oi07uSLJk0Mr7ua1+0bsHdAb38SevdCXIfVt6y+BFbGNCZX0k6Gb1OIv1Myw5IzmfuJ6mU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8217
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--14.282600-8.000000
-X-TMASE-MatchedRID: vEvJ7Rh1lGgNtKv7cnNXnSa1MaKuob8PofZV/2Xa0cJauByPtDznde+1
-	giXGd3Eefdd9BtGlLLzx1uczIHKx54/qvvWxLCnegOqr/r0d+CxaeGF3HGG+AIKwF4K/wIz9dE7
-	ABQfxM9cXIsYpyY5FcAG2ORx9EyapIaVPgU+koVEVglQa/gMvfFAI6wCVrE3vRi9INZ1ZpGFvej
-	7JBlVmXWH0zriTV1i7vDnGPWiblRRVwN06hip8qlVN8laWo90MNACnndLvXweNTnqOMBIJ4cvDQ
-	qEdbf1NldfHsj3+ZpRG77nj4gxZpCWvhQBtQUwTbBu6+EIezdxwG8b5skjkoMUmcSma304T+xjx
-	s2OXeAZEjuFxhpbJiyvCnIHAg2cw2rvYheZgBXueAiCmPx4NwMFrpUbb72MU1kTfEkyaZdz6C0e
-	Ps7A07YFInLyeDAoZB827tBOYc3J07cI4GIXjvqJMNtQWMTca/rYmEuzdQdrJNpPjNk/eQw==
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--14.282600-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: DCA1EC0BDC816948CB642E414276C3A130597103F6616931EAB3A3313D1D7F542000:8
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_023342_094742_44FE457E 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20241025_023852_455564_63A9F302 
+X-CRM114-Status: GOOD (  34.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,103 +71,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI0LTEwLTI0IGF0IDEzOjU2ICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gSWwgMjQvMTAvMjQgMDM6MjksIEZyaWRheSBZYW5nICjmnajpmLMpIGhh
-IHNjcml0dG86DQo+ID4gT24gV2VkLCAyMDI0LTA4LTIxIGF0IDExOjAwICswMjAwLCBLcnp5c3p0
-b2YgS296bG93c2tpIHdyb3RlOg0KPiA+ID4gICAJDQo+ID4gPiBFeHRlcm5hbCBlbWFpbCA6IFBs
-ZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cw0KPiA+ID4gdW50aWwN
-Cj4gPiA+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+ID4g
-PiAgIE9uIDIxLzA4LzIwMjQgMTA6MjYsIGZyaWRheS55YW5nIHdyb3RlOg0KPiA+ID4gPiBJbiBv
-cmRlciB0byBhdm9pZCBoYW5kbGluZyBnbGl0Y2ggc2lnbmFsIHdoZW4gTVRDTU9TIG9uL29mZiwN
-Cj4gPiA+ID4gU01JDQo+ID4gPiANCj4gPiA+IG5lZWQNCj4gPiA+ID4gY2xhbXAgYW5kIHJlc2V0
-IG9wZXJhdGlvbi4gUGFyc2UgcG93ZXIgcmVzZXQgc2V0dGluZ3MgZm9yIExBUkJzDQo+ID4gPiAN
-Cj4gPiA+IHdoaWNoDQo+ID4gPiA+IG5lZWQgdG8gcmVzZXQuIFJlZ2lzdGVyIGdlbnBkIGNhbGxi
-YWNrIGZvciBTTUkgTEFSQnMgYW5kIGFwcGx5DQo+ID4gPiANCj4gPiA+IHJlc2V0DQo+ID4gPiA+
-IG9wZXJhdGlvbnMgaW4gdGhlIGNhbGxiYWNrLg0KPiA+ID4gPiANCj4gPiA+ID4gU2lnbmVkLW9m
-Zi1ieTogZnJpZGF5LnlhbmcgPGZyaWRheS55YW5nQG1lZGlhdGVrLmNvbT4NCj4gPiA+ID4gLS0t
-DQo+ID4gPiA+ICAgZHJpdmVycy9tZW1vcnkvbXRrLXNtaS5jIHwgMTQ4DQo+ID4gPiANCj4gPiA+
-ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrLQ0KPiA+ID4gPiAgIDEgZmls
-ZSBjaGFuZ2VkLCAxNDYgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4gPiA+ID4gDQo+
-ID4gPiANCj4gPiA+IC4uLg0KPiA+ID4gDQo+ID4gPiA+ICsNCj4gPiA+ID4gK3N0YXRpYyBpbnQg
-bXRrX3NtaV9sYXJiX3BhcnNlX3Jlc2V0X2luZm8oc3RydWN0IG10a19zbWlfbGFyYg0KPiA+ID4g
-DQo+ID4gPiAqbGFyYikNCj4gPiA+ID4gK3sNCj4gPiA+ID4gK3N0cnVjdCBkZXZpY2Vfbm9kZSAq
-cmVzZXRfbm9kZTsNCj4gPiA+ID4gK3N0cnVjdCBkZXZpY2UgKmRldiA9IGxhcmItPmRldjsNCj4g
-PiA+ID4gK2ludCByZXQ7DQo+ID4gPiA+ICsNCj4gPiA+ID4gKy8qIG9ubHkgbGFyYiB3aXRoICJy
-ZXNldHMiIG5lZWQgdG8gZ2V0IHJlc2V0IHNldHRpbmcgKi8NCj4gPiA+ID4gK3Jlc2V0X25vZGUg
-PSBvZl9wYXJzZV9waGFuZGxlKGRldi0+b2Zfbm9kZSwgInJlc2V0cyIsIDApOw0KPiA+ID4gDQo+
-ID4gPiBOb3BlLCB5b3UgZG8gbm90IHBhcnNlIHJhc2V0cy4NCj4gPiANCj4gPiAxLklmIEkgbmVl
-ZCB0byB1c2UgdGhlIExpbnV4IHJlc2V0IGNvbnRyb2wgZnJhbWV3b3JrLCAncmVzZXRzJyBpcw0K
-PiA+IHRoZQ0KPiA+IHJlcXVpcmVkIHByb3BlcnR5Lg0KPiANCj4gTGVhdmUgdGhhdCB0byB0aGUg
-cmVzZXQgQVBJLCBkb24ndCBtYW51YWxseSBwYXJzZSB0aGUgcmVzZXRzIHBoYW5kbGUNCj4gaGVy
-ZSwNCj4gdGhhdCdzIHdoYXQgS3J6eXN6dG9mIHdhcyBtZWFuaW5nLg0KDQpPSywgSSB3aWxsIGp1
-c3QgdXNlICdsYXJiLT5yc3RfY29uJyB0byBqdWRnZSB3aGV0aGVyIHRoaXMgbGFyYiBuZWVkDQpy
-ZXNldCBvciBub3QsIG5vdCBwYXJzZSAncmVzZXRzJyBoZXJlLg0KDQo+IA0KPiA+IDIuJ3Jlc2V0
-LW5hbWVzJyBnaXZlIHRoZSBsaXN0IG9mIHJlc2V0IHNpZ25hbCBuYW1lIHN0cmluZ3Mgc29ydGVk
-DQo+ID4gaW4NCj4gPiB0aGUgc2FtZSBvcmRlciBhcyB0aGUgJ3Jlc2V0cycgcHJvcGVydHkuIFNN
-SSBkcml2ZXIgd2lsbCB1c2UNCj4gPiAncmVzZXQtDQo+ID4gbmFtZXMnIHRvIG1hdGNoIHJlc2V0
-IHNpZ25hbCBuYW1lcyB3aXRoIHJlc2V0IHNwZWNpZmllcnMuDQo+ID4gMy5Ob3QgYWxsIFNNSSBs
-YXJicyBuZWVkIHRvIGFwcGx5IHJlc2V0IG9wZXJhdGlvbnMsIG9ubHkgU01JIGxhcmJzDQo+ID4g
-d2hpY2ggbWF5IGhhdmUgYnVzIGdsaXRjaCBpc3N1ZXMgbmVlZCB0aGlzLiBKdXN0IHRvIGNvbmZp
-cm0gaWYgdGhpcw0KPiA+IGxhcmIgc3VwcG9ydCByZXNldCBmdW5jdGlvbi4NCj4gPiANCj4gPiA+
-IA0KPiA+ID4gPiAraWYgKCFyZXNldF9ub2RlKQ0KPiA+ID4gPiArcmV0dXJuIDA7DQo+ID4gPiA+
-ICtvZl9ub2RlX3B1dChyZXNldF9ub2RlKTsNCj4gPiA+ID4gKw0KPiA+ID4gPiArbGFyYi0+cnN0
-X2NvbiA9IGRldm1fcmVzZXRfY29udHJvbF9nZXQoZGV2LCAibGFyYl9yc3QiKTsNCj4gDQo+ICJs
-YXJiIiBpcyBqdXN0IGZpbmUgYXMgYSBuYW1lOiBpdCdzIGNsZWFyIHRoYXQgdGhpcyBpcyBhIHJl
-c2V0LCBhcw0KPiBpdCdzIHNwZWNpZmllZCBhcyBgcmVzZXQtbmFtZXMgPSAibmFtZSJgLg0KDQpU
-aGFua3MsIEkgd2lsbCBmaXggaXQgdG8gJ2xhcmInLg0KDQo+IA0KPiA+ID4gDQo+ID4gPiBXaGVy
-ZSBhcmUgdGhlIGJpbmRpbmdzPyBXaHkgZG8geW91IGFkZCB1bmRvY3VtZW50ZWQgcHJvcGVydGll
-cz8NCj4gPiA+IEhvdw0KPiA+ID4gcG9zc2libGUgdGhpcyBwYXNzZXMgZHRic19jaGVjaz8/Pw0K
-PiA+ID4gDQo+ID4gDQo+ID4gVGhpcyBpcyBub3QgdGhlIG5ldyBhZGRlZCBwcm9wZXJ0eSBpbiBT
-TUkgbGFyYiBEVCBub2RlLg0KPiA+IEl0IGlzIHRoZSByZXNldCBzaWduYWwgbmFtZSB3aGljaCBp
-cyBpbmNsdWVkIGluICdyZXNldC1uYW1lcycuDQo+ID4gSnVzdCBsaWtlIHRoaXM6DQo+ID4gDQo+
-ID4gcmVzZXRzID0gPCZpbWdzeXMxX2RpcF9ucl9yc3QgTVQ4MTg4X1NJTV9SU1RfTEFSQjE1PjsN
-Cj4gPiByZXNldC1uYW1lID0gJ2xhcmJfcnN0JzsNCj4gPiANCj4gPiBNYXliZSBJIGNhbiBhZGQg
-dGhpcyBuYW1lIHRvIHRoZSAncmVzZXQtbmFtZScgcHJvcGVydHkgYmluZGluZw0KPiA+IGRlc2Ny
-aXB0aW9uLCBsaWtlIHRoaXMsIGlzIHRoaXMgY2xlYXIgZm9yIHlvdT8NCj4gPiANCj4gPiByZXNl
-dC1uYW1lOg0KPiANCj4gSXQncyAicmVzZXQtbmFtZXMiIGJ0dy4NCg0KWWVzLCB5b3UgYXJlIHJp
-Z2h0Lg0KDQo+IA0KPiA+ICAgICAgY29uc3Q6IGxhcmJfcnN0DQo+ID4gICAgICBkZXNjcmlwdGlv
-bjogdGhlIG5hbWUgb2YgcmVzZXQgc2lnbmFsLiBTTUkgZHJpdmVyIG5lZWQgdG8NCj4gPiBvYnRh
-aW4gCQkNCj4gPiAgIHRoZSByZXNldCBjb250cm9sbGVyIGJhc2VkIG9uIHRoaXMuDQo+ID4gDQo+
-ID4gPiANCj4gPiA+ID4gK2lmIChJU19FUlIobGFyYi0+cnN0X2NvbikpDQo+ID4gPiA+ICtyZXR1
-cm4gZGV2X2Vycl9wcm9iZShkZXYsIFBUUl9FUlIobGFyYi0+cnN0X2NvbiksDQo+ID4gPiA+ICsg
-ICAgICJjYW5ub3QgZ2V0IGxhcmIgcmVzZXQgY29udHJvbGxlclxuIik7DQo+ID4gPiA+ICsNCj4g
-PiA+ID4gK2xhcmItPm5iLm5vdGlmaWVyX2NhbGwgPSBtdGtfc21pX2dlbnBkX2NhbGxiYWNrOw0K
-PiA+ID4gPiArcmV0ID0gZGV2X3BtX2dlbnBkX2FkZF9ub3RpZmllcihkZXYsICZsYXJiLT5uYik7
-DQo+ID4gPiA+ICtpZiAocmV0KSB7DQo+ID4gPiA+ICtkZXZfZXJyKGRldiwgIkZhaWxlZCB0byBh
-ZGQgZ2VucGQgY2FsbGJhY2sgJWRcbiIsIHJldCk7DQo+ID4gPiA+ICtyZXR1cm4gLUVJTlZBTDsN
-Cj4gPiA+ID4gK30NCj4gPiA+ID4gKw0KPiA+ID4gPiArcmV0dXJuIDA7DQo+ID4gPiA+ICt9DQo+
-ID4gPiA+ICsNCj4gPiA+ID4gICBzdGF0aWMgaW50IG10a19zbWlfbGFyYl9wcm9iZShzdHJ1Y3Qg
-cGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+ID4gPiAgIHsNCj4gPiA+ID4gICBzdHJ1Y3QgbXRr
-X3NtaV9sYXJiICpsYXJiOw0KPiA+ID4gPiBAQCAtNTM4LDYgKzY2Miw3IEBAIHN0YXRpYyBpbnQg
-bXRrX3NtaV9sYXJiX3Byb2JlKHN0cnVjdA0KPiA+ID4gDQo+ID4gPiBwbGF0Zm9ybV9kZXZpY2Ug
-KnBkZXYpDQo+ID4gPiA+ICAgaWYgKCFsYXJiKQ0KPiA+ID4gPiAgIHJldHVybiAtRU5PTUVNOw0K
-PiA+ID4gPiAgIA0KPiA+ID4gPiArbGFyYi0+ZGV2ID0gZGV2Ow0KPiA+ID4gPiAgIGxhcmItPmxh
-cmJfZ2VuID0gb2ZfZGV2aWNlX2dldF9tYXRjaF9kYXRhKGRldik7DQo+ID4gPiA+ICAgbGFyYi0+
-YmFzZSA9IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZShwZGV2LCAwKTsNCj4gPiA+ID4g
-ICBpZiAoSVNfRVJSKGxhcmItPmJhc2UpKQ0KPiA+ID4gPiBAQCAtNTU0LDE1ICs2NzksMjkgQEAg
-c3RhdGljIGludCBtdGtfc21pX2xhcmJfcHJvYmUoc3RydWN0DQo+ID4gPiANCj4gPiA+IHBsYXRm
-b3JtX2RldmljZSAqcGRldikNCj4gPiA+ID4gICBpZiAocmV0IDwgMCkNCj4gPiA+ID4gICByZXR1
-cm4gcmV0Ow0KPiA+ID4gPiAgIA0KPiA+ID4gPiAtcG1fcnVudGltZV9lbmFibGUoZGV2KTsNCj4g
-PiA+ID4gKy8qIGZpbmQgc3ViIGNvbW1vbiB0byBjbGFtcCBsYXJiIGZvciBJU1Agc29mdHdhcmUg
-cmVzZXQgKi8NCj4gPiA+ID4gK3JldCA9IG10a19zbWlfbGFyYl9wYXJzZV9jbGFtcF9pbmZvKGxh
-cmIpOw0KPiA+ID4gPiAraWYgKHJldCkgew0KPiA+ID4gPiArZGV2X2VycihkZXYsICJGYWlsZWQg
-dG8gZ2V0IGNsYW1wIHNldHRpbmcgZm9yIGxhcmJcbiIpOw0KPiA+ID4gPiArZ290byBlcnJfcG1f
-ZGlzYWJsZTsNCj4gPiA+ID4gK30NCj4gPiA+ID4gKw0KPiA+ID4gPiArcmV0ID0gbXRrX3NtaV9s
-YXJiX3BhcnNlX3Jlc2V0X2luZm8obGFyYik7DQo+ID4gPiA+ICtpZiAocmV0KSB7DQo+ID4gPiA+
-ICtkZXZfZXJyKGRldiwgIkZhaWxlZCB0byBnZXQgcG93ZXIgc2V0dGluZyBmb3IgbGFyYlxuIik7
-DQo+ID4gPiA+ICtnb3RvIGVycl9wbV9kaXNhYmxlOw0KPiA+ID4gPiArfQ0KPiA+ID4gPiArDQo+
-ID4gPiA+ICAgcGxhdGZvcm1fc2V0X2RydmRhdGEocGRldiwgbGFyYik7DQo+ID4gPiA+ICAgcmV0
-ID0gY29tcG9uZW50X2FkZChkZXYsICZtdGtfc21pX2xhcmJfY29tcG9uZW50X29wcyk7DQo+ID4g
-PiA+ICAgaWYgKHJldCkNCj4gPiA+ID4gICBnb3RvIGVycl9wbV9kaXNhYmxlOw0KPiA+ID4gPiAr
-DQo+ID4gPiA+ICtwbV9ydW50aW1lX2VuYWJsZShkZXYpOw0KPiA+ID4gPiArDQo+ID4gPiA+ICAg
-cmV0dXJuIDA7DQo+ID4gPiA+ICAgDQo+ID4gPiA+ICAgZXJyX3BtX2Rpc2FibGU6DQo+ID4gPiA+
-IC1wbV9ydW50aW1lX2Rpc2FibGUoZGV2KTsNCj4gPiA+ID4gICBkZXZpY2VfbGlua19yZW1vdmUo
-ZGV2LCBsYXJiLT5zbWlfY29tbW9uX2Rldik7DQo+ID4gPiANCj4gPiA+IExhYmVsIGFzbHMgcG0g
-ZGlzYWJsZS4gV2hlcmUgaXMgdGhlIHBtIGRpc2FibGU/DQo+ID4gPiANCj4gPiANCj4gPiBUaGFu
-a3MsIEkgd2lsbCBmaXggaXQgdG8gJ2Vycl9saW5rX3JlbW92ZScuDQo+ID4gDQo+IA0KPiAuLi5v
-ciB5b3UgY2FuIGp1c3QgdXNlIGRldm1fcG1fcnVudGltZV9lbmFibGUoKSBpbnN0ZWFkLCBhbmQg
-bm90DQo+IHdvcnJ5DQo+IGFib3V0IGRpc2FibGluZyBpdCBvbiB5b3VyIG93bi4NCj4gDQoNClRo
-aXMgaXMgYSBnb29kIGNob2ljZSwgYnV0IGluIHRoaXMgc21pIGNsYW1wIHBhdGNoc2V0LCBJIHdp
-bGwganVzdA0KbW9kaWZ5IHRoZSBsYWJlbCBhcyAnZXJyX2xpbmtfcmVtb3ZlJy4NCg0KPiBSZWdh
-cmRzLA0KPiBBbmdlbG8NCg==
+On Wed, 23 Oct 2024 20:56:57 +1300
+Ryan Walklin <ryan@testtoast.com> wrote:
+
+Hi Ryan,
+
+> Allwinner has previously released a H616 audio driver which also
+> provides sigma-delta modulation for the audio PLL clocks. This approach
+> is used in other Allwinner SoCs, including the H3 and A64.
+> 
+> The manual-provided clock values are:
+> PLL_AUDIO(hs) = 24 MHz*N/M1
+> PLL_AUDIO(4X) = 24 MHz*N/M0/M1/P
+> PLL_AUDIO(2X) = 24 MHz*N/M0/M1/P/2
+> PLL_AUDIO(1X) = 24 MHz*N/M0/M1/P/4
+> 
+> A fixed post-divider of 2 is used to account for a M0 divider of
+> 2, which cannot be modelled by the existing macros and ccu_nm struct.
+> 
+> Add SDM to the H616 clock control unit driver.
+
+Thanks for the changes in the comments, that looks all good to me. I am
+still scratching my head on why Allwinner promotes odd dividers, when
+they somewhat warn about them in the manual, but I trust the wisdom of the
+BSP here, and it certainly works. If any issues arise, we can always fix
+that later.
+
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+
+Confirmed that the registers and bits match the manual, and the SDM values
+also add up to reach those frequencies:
+
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> 
+> ---
+> Changelog v1..v2:
+> - Add fixed_post_div to high-speed audio clock to correct M0 value to 1 (ie divide by 2) based on manual
+> - Correct PLL_AUDIO_(4/2/1)X clocks to manual-provided values
+> - Add/correct inline comments for the above.
+> - add CCU_FEATURE_FIXED_POSTDIV to pll_audio_hs_clk.common.features
+> 
+> Changelog v2..v3:
+> - Update comments and commit message to more accurately reflect SDM changes and rationale
+> ---
+>  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 46 +++++++++++++++++---------
+>  1 file changed, 30 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> index 6c7623d4c59ea..05727fa1ee46e 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> @@ -215,20 +215,30 @@ static struct ccu_nkmp pll_de_clk = {
+>  	},
+>  };
+>  
+> -/*
+> - * TODO: Determine SDM settings for the audio PLL. The manual suggests
+> - * PLL_FACTOR_N=16, PLL_POST_DIV_P=2, OUTPUT_DIV=2, pattern=0xe000c49b
+> - * for 24.576 MHz, and PLL_FACTOR_N=22, PLL_POST_DIV_P=3, OUTPUT_DIV=2,
+> - * pattern=0xe001288c for 22.5792 MHz.
+> - * This clashes with our fixed PLL_POST_DIV_P.
+> +/* 
+> + * Sigma-delta modulation settings table obtained from the vendor SDK driver.
+> + * There are additional M0 and M1 divider bits not modelled here, so forced to
+> + * fixed values in the probe routine. Sigma-delta modulation allows providing a
+> + * fractional-N divider in the PLL, to help reaching those specific
+> + * frequencies with less error.
+>   */
+> +static struct ccu_sdm_setting pll_audio_sdm_table[] = {
+> +	{ .rate = 90316800, .pattern = 0xc001288d, .m = 3, .n = 22 },
+> +	{ .rate = 98304000, .pattern = 0xc001eb85, .m = 5, .n = 40 },
+> +};
+> +
+>  #define SUN50I_H616_PLL_AUDIO_REG	0x078
+>  static struct ccu_nm pll_audio_hs_clk = {
+>  	.enable		= BIT(31),
+>  	.lock		= BIT(28),
+>  	.n		= _SUNXI_CCU_MULT_MIN(8, 8, 12),
+> -	.m		= _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +	.m		= _SUNXI_CCU_DIV(16, 6),
+> +	.sdm		= _SUNXI_CCU_SDM(pll_audio_sdm_table,
+> +					 BIT(24), 0x178, BIT(31)),
+> +	.fixed_post_div = 2,
+>  	.common		= {
+> +		.features	= CCU_FEATURE_FIXED_POSTDIV | 
+> +				  CCU_FEATURE_SIGMA_DELTA_MOD,
+>  		.reg		= 0x078,
+>  		.hw.init	= CLK_HW_INIT("pll-audio-hs", "osc24M",
+>  					      &ccu_nm_ops,
+> @@ -701,18 +711,20 @@ static const struct clk_hw *clk_parent_pll_audio[] = {
+>  };
+>  
+>  /*
+> - * The divider of pll-audio is fixed to 24 for now, so 24576000 and 22579200
+> - * rates can be set exactly in conjunction with sigma-delta modulation.
+> + * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the manual, with 
+> + * a final divider of 1. The 2X and 1X clocks use 2 and 4 respectively. The 1x 
+> + * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (and 
+> + * multiples).
+>   */
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_1x_clk, "pll-audio-1x",
+>  			    clk_parent_pll_audio,
+> -			    96, 1, CLK_SET_RATE_PARENT);
+> +			    4, 1, CLK_SET_RATE_PARENT);
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_2x_clk, "pll-audio-2x",
+>  			    clk_parent_pll_audio,
+> -			    48, 1, CLK_SET_RATE_PARENT);
+> +			    2, 1, CLK_SET_RATE_PARENT);
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_4x_clk, "pll-audio-4x",
+>  			    clk_parent_pll_audio,
+> -			    24, 1, CLK_SET_RATE_PARENT);
+> +			    1, 1, CLK_SET_RATE_PARENT);
+>  
+>  static const struct clk_hw *pll_periph0_parents[] = {
+>  	&pll_periph0_clk.common.hw
+> @@ -1162,12 +1174,14 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	/*
+> -	 * Force the post-divider of pll-audio to 12 and the output divider
+> -	 * of it to 2, so 24576000 and 22579200 rates can be set exactly.
+> +	 * Set the output-divider for the pll-audio clocks (M0) to 2 and the
+> +	 * input divider (M1) to 1 as recommended by the manual when using 
+> +	 * SDM. 
+>  	 */
+>  	val = readl(reg + SUN50I_H616_PLL_AUDIO_REG);
+> -	val &= ~(GENMASK(21, 16) | BIT(0));
+> -	writel(val | (11 << 16) | BIT(0), reg + SUN50I_H616_PLL_AUDIO_REG);
+> +	val &= ~BIT(1);
+> +	val |= BIT(0);
+> +	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
+>  
+>  	/*
+>  	 * First clock parent (osc32K) is unusable for CEC. But since there
+
 
