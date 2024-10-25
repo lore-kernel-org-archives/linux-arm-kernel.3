@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A87D0C603
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E35DD0C603
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiEbeXrF1xLa07UyUPfrEoMrHTfNNUY8ubPAgOBPaBM=; b=SbrVPko9R08tbh/OoMm4luOYmz
-	4yINko8lr42bwxerUQMeuBL4xLHLPLQX6v3mbJ5bURdsa7Uwx98lHxvlMGpaOqQI9hjcqNHvAXQnZ
-	Pe0QulZcKUcGgNJMCpXfIchsFmQlYxERxYaRGBV9VkQL30a7pqdGwSpPHAIBlJYx2JWE+fT9qUMdN
-	KjuW43qmEAPbvv8kHiRLOWw8syQWasHCXEykodQHKTQohr9McVCGCqfG/fSVqLgbMxSX9FH4DZUHZ
-	wvdOYr9n8YI7jt3vHSOTuJjaw4sVPz5BG+pcxEy6gSNgrJHmTUK3W2xUminOEeCyQbH8JqMLhhtYc
-	SxCoti7g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JA1BaJSXIbyRxZAZxbUrwFqIYodfb+rWTCae1lhe5eI=; b=FOJURTdeupBwFK9M6wKI69T9aw
+	2cAFXyRSybzuk3W2gnskJt+/8ePFEzcAnuTgrT+8ligmIcPgVXubu3aGoP5e07U6I5G8pmOk7ZX8O
+	IaW6LSmyp4WuVCM8k9tV6MXxa9QcjdVpCnNe28wkU6d/LzYrbpQiNP+tKhOstZfj4593tXQd5N3Ti
+	5HhuyIUAUZYyi+cpFMbTEFpQQBueKYs8MPK6aN9dRm/Z0nxODWnSBhdYdGMmBgVHgl5R9jCUjPA0B
+	g5LB6G2Pco0bMv7zwKTX9PN1gULlsI2p5PNO1Z/XzFQTBfbgxThOKgyCEWXkihk6chJ1+oVkgePzp
+	hawjGE3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JRX-00000003eUM-2xN5;
-	Fri, 25 Oct 2024 12:29:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JPw-00000003eGN-1Sb9;
-	Fri, 25 Oct 2024 12:27:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AF6C339;
-	Fri, 25 Oct 2024 05:28:17 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADC9A3F71E;
-	Fri, 25 Oct 2024 05:27:42 -0700 (PDT)
-Date: Fri, 25 Oct 2024 13:27:39 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Cody Eksal <masterr3c0rd@epochal.quest>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-usb@vger.kernel.org, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Parthiban <parthiban@linumiz.com>, Yangtao
- Li <frank@allwinnertech.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Vinod Koul <vkoul@kernel.org>, Linus
- Walleij <linus.walleij@linaro.org>, Thierry Reding <treding@nvidia.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Maxime Ripard
- <mripard@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, Kishon Vijay
- Abraham I <kishon@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Shuosheng Huang <huangshuosheng@allwinnertech.com>
-Subject: Re: [PATCH 13/13] arm64: dts: allwinner: a100: Add CPU Operating
- Performance Points table
-Message-ID: <20241025132739.3d0f116d@donnerap.manchester.arm.com>
-In-Reply-To: <20241024170540.2721307-14-masterr3c0rd@epochal.quest>
-References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
-	<20241024170540.2721307-14-masterr3c0rd@epochal.quest>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1t4JTJ-00000003eqq-1Olq;
+	Fri, 25 Oct 2024 12:31:17 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4I4u-00000003Rmt-3TdH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 11:02:02 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20ce65c8e13so14724445ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:02:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1729854120; x=1730458920; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JA1BaJSXIbyRxZAZxbUrwFqIYodfb+rWTCae1lhe5eI=;
+        b=B3wPlPcs45VNjnpmkAL2G1Apw1Y+nm+m6rXDNxBSKHx2P3xhHGOD1UU2ITsMA4fUH2
+         sJMINTCmuLk0mHtgScCe5v2Oo7nYpQmVmSRuV218P0aDN9djq1FKnah7T+s9K4vEPTfu
+         FaS1Vr7WHS+d+lnoea5P6T6SUEZ7VVffe4Hfs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729854120; x=1730458920;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JA1BaJSXIbyRxZAZxbUrwFqIYodfb+rWTCae1lhe5eI=;
+        b=IEmttYZqVh8hS9X1BsAUBKaOSabrHabHqBTPvlx3Nz+M9d298i/mcEUDZ679x8jlW6
+         Czvh65n3j7fTWKZD8LBFaXyd1dF0BeEHyT06dYvqhz2vo/OmioxsTrCudjSXWMcUlUbu
+         6xiKd6Y0TD/7HAjEXb+R6yNpu8PTOVIkuYtqf/JsAV7aKfU/CBPQ62z3/xI/3rqdS212
+         hDaJD7HBsdQZLEoxOc2UIslmVdVNW1h3B4f7MypJsL70LmyCcDvvZOk0B2lEGxjXhdIp
+         s5rVaifFLjRNSLJMLIQGGd5iiPfD4tLmo4tjn78B9Ixrx0TkfJY9H374UjIscCEri2oO
+         iTWA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzF9E7uMWZXLQVWQvSj0YxG5g3V9Z2DlaFeFD/JBvhqRin1ionfehMXo/gpogTGaXKACxBJfdK8NP9zRkNTNWn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9e28CjF9wcGCVlAmfZ78C2y9oXS+BitWrTx4Pue36DeJTva8J
+	td1OWqqHeTaWFO3fqhMwvhGBOYEa4bzwVkVAJszD7An1wAlS8tKlHo8GOAoTUA==
+X-Google-Smtp-Source: AGHT+IFDbxd3tKIOspjDBLvAwaHXKqYcW5r6RFjmnpA/8c1Tgdp9G1tMOfUfj7tEG8JXbcnHkoILhQ==
+X-Received: by 2002:a17:902:e74d:b0:20c:e005:2c27 with SMTP id d9443c01a7336-20fa9e9fd45mr131792775ad.42.1729854120044;
+        Fri, 25 Oct 2024 04:02:00 -0700 (PDT)
+Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:ebe1:dd63:343d:8a4c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf4472dsm7588595ad.13.2024.10.25.04.01.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 04:01:59 -0700 (PDT)
+From: Fei Shao <fshao@chromium.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Fei Shao <fshao@chromium.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hsin-Yi Wang <hsinyi@chromium.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Rob Herring <robh@kernel.org>,
+	Sean Wang <sean.wang@mediatek.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/2] Add device tree for MT8188-based Chromebook "Ciri"
+Date: Fri, 25 Oct 2024 18:59:34 +0800
+Message-ID: <20241025110111.1321704-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_052748_535059_0DBCF661 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20241025_040200_922746_1FB99A99 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,199 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Oct 2024 14:05:31 -0300
-Cody Eksal <masterr3c0rd@epochal.quest> wrote:
+Hi maintainers,
 
-> From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-> 
-> Add an Operating Performance Points table for the CPU cores to
-> enable Dynamic Voltage & Frequency Scaling on the A100.
-> 
-> Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-> [masterr3c0rd@epochal.quest: fix typos in -cpu-opp, use compatible]
-> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
-> ---
->  .../allwinner/sun50i-a100-allwinner-perf1.dts |  5 ++
->  .../dts/allwinner/sun50i-a100-cpu-opp.dtsi    | 90 +++++++++++++++++++
->  .../arm64/boot/dts/allwinner/sun50i-a100.dtsi |  8 ++
->  3 files changed, 103 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts b/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-> index 29e9d24da8b6..99b1b2f7b92a 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100-allwinner-perf1.dts
-> @@ -6,6 +6,7 @@
->  /dts-v1/;
->  
->  #include "sun50i-a100.dtsi"
-> +#include "sun50i-a100-cpu-opp.dtsi"
->  
->  #include <dt-bindings/gpio/gpio.h>
->  
-> @@ -67,6 +68,10 @@ &usb_otg {
->  	status = "okay";
->  };
->  
-> +&cpu0 {
-> +	cpu-supply = <&reg_dcdc2>;
-> +};
-> +
->  &pio {
->  	vcc-pb-supply = <&reg_dcdc1>;
->  	vcc-pc-supply = <&reg_eldo1>;
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
-> new file mode 100644
-> index 000000000000..eeb8d20f3fb4
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100-cpu-opp.dtsi
-> @@ -0,0 +1,90 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +// Copyright (c) 2020 Yangtao Li <frank@allwinnertech.com>
-> +// Copyright (c) 2020 ShuoSheng Huang <huangshuosheng@allwinnertech.com>
-> +
-> +/ {
-> +	cpu_opp_table: cpu-opp-table {
-> +		compatible = "allwinner,sun50i-a100-operating-points";
-> +		nvmem-cells = <&cpu_speed_grade>;
-> +		opp-shared;
-> +
-> +		opp@408000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <408000000>;
-> +
-> +			opp-microvolt-speed0 = <900000 900000 1200000>;
-> +			opp-microvolt-speed1 = <900000 900000 1200000>;
-> +			opp-microvolt-speed2 = <900000 900000 1200000>;
+This series introduces the device trees for Ciri, a MT8188-based
+Chromebook, commercially known as the Lenovo Chromebook Duet (11", 9).
 
-Is there actually an advantage when using the three cells version?
-I wonder if we should go with just the target voltage (the first cell
-here), as done for the H616.
+Ciri is a detachable device based on the ChromeOS Geralt reference
+design, where Geralt is the codename for the MT8188 platform. Ciri has 8
+SKUs to accommodate the combinations of second-source components,
+including audio codecs, speaker amplifiers, and MIPI-DSI panels.
 
-Apart from that it looks fine to me.
+The Geralt design is not used in any actual products, so its device tree
+is not included.
 
-Cheers,
-Andre.
+The device trees are taken from the ChromeOS downstream v6.1 kernel,
+ported to the mainline kernel and with cleanups. This series aims to
+provide a basic device tree with the enabled components and features.
+Additional support will be added in the future after validation with
+the mainline kernel.
 
-> +		};
-> +
-> +		opp@600000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <600000000>;
-> +
-> +			opp-microvolt-speed0 = <900000 900000 1200000>;
-> +			opp-microvolt-speed1 = <900000 900000 1200000>;
-> +			opp-microvolt-speed2 = <900000 900000 1200000>;
-> +		};
-> +
-> +		opp@816000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <816000000>;
-> +
-> +			opp-microvolt-speed0 = <940000 940000 1200000>;
-> +			opp-microvolt-speed1 = <900000 900000 1200000>;
-> +			opp-microvolt-speed2 = <900000 900000 1200000>;
-> +		};
-> +
-> +		opp@1080000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <1080000000>;
-> +
-> +			opp-microvolt-speed0 = <1020000 1020000 1200000>;
-> +			opp-microvolt-speed1 = <980000 980000 1200000>;
-> +			opp-microvolt-speed2 = <950000 950000 1200000>;
-> +		};
-> +
-> +		opp@1200000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <1200000000>;
-> +
-> +			opp-microvolt-speed0 = <1100000 1100000 1200000>;
-> +			opp-microvolt-speed1 = <1020000 1020000 1200000>;
-> +			opp-microvolt-speed2 = <1000000 1000000 1200000>;
-> +		};
-> +
-> +		opp@1320000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <1320000000>;
-> +
-> +			opp-microvolt-speed0 = <1160000 1160000 1200000>;
-> +			opp-microvolt-speed1 = <1060000 1060000 1200000>;
-> +			opp-microvolt-speed2 = <1030000 1030000 1200000>;
-> +		};
-> +
-> +		opp@1464000000 {
-> +			clock-latency-ns = <244144>; /* 8 32k periods */
-> +			opp-hz = /bits/ 64 <1464000000>;
-> +
-> +			opp-microvolt-speed0 = <1180000 1180000 1200000>;
-> +			opp-microvolt-speed1 = <1180000 1180000 1200000>;
-> +			opp-microvolt-speed2 = <1130000 1130000 1200000>;
-> +		};
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	operating-points-v2 = <&cpu_opp_table>;
-> +};
-> +
-> +&cpu1 {
-> +	operating-points-v2 = <&cpu_opp_table>;
-> +};
-> +
-> +&cpu2 {
-> +	operating-points-v2 = <&cpu_opp_table>;
-> +};
-> +
-> +&cpu3 {
-> +	operating-points-v2 = <&cpu_opp_table>;
-> +};
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> index 6dca766ea222..747a0292ef98 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> @@ -23,6 +23,7 @@ cpu0: cpu@0 {
->  			device_type = "cpu";
->  			reg = <0x0>;
->  			enable-method = "psci";
-> +			clocks = <&ccu CLK_CPUX>;
->  		};
->  
->  		cpu1: cpu@1 {
-> @@ -30,6 +31,7 @@ cpu1: cpu@1 {
->  			device_type = "cpu";
->  			reg = <0x1>;
->  			enable-method = "psci";
-> +			clocks = <&ccu CLK_CPUX>;
->  		};
->  
->  		cpu2: cpu@2 {
-> @@ -37,6 +39,7 @@ cpu2: cpu@2 {
->  			device_type = "cpu";
->  			reg = <0x2>;
->  			enable-method = "psci";
-> +			clocks = <&ccu CLK_CPUX>;
->  		};
->  
->  		cpu3: cpu@3 {
-> @@ -44,6 +47,7 @@ cpu3: cpu@3 {
->  			device_type = "cpu";
->  			reg = <0x3>;
->  			enable-method = "psci";
-> +			clocks = <&ccu CLK_CPUX>;
->  		};
->  	};
->  
-> @@ -142,6 +146,10 @@ efuse@3006000 {
->  			ths_calibration: calib@14 {
->  				reg = <0x14 8>;
->  			};
-> +
-> +			cpu_speed_grade: cpu-speed-grade@1c {
-> +				reg = <0x1c 0x2>;
-> +			};
->  		};
->  
->  		watchdog@30090a0 {
+This series has been tested on top of the next-20241018 branch.
+
+Patch 1 adds entries for Ciri in the MediaTek DT binding.
+Patch 2 adds the dtsi files for Geralt and Ciri, followed by 8 dts files
+for all the available Ciri SKUs at this moment.
+
+Note that there are some known dtbs_check warnings, depending on binding
+fix or driver support:
+- sound: Unevaluated 'xxx-dai-link' properties: sent patch[1]
+- amplifier '#sound-dai-cells' and other errors: sent patch[1]
+- dp-tx '#sound-dai-cells' error: sent patch[2]
+- failed to match 'himax,hx83102j': depend on HX83102J support[3]
+
+[1]:
+https://lore.kernel.org/all/20241025104548.1220076-1-fshao@chromium.org/
+[2]:
+https://lore.kernel.org/all/20241025104310.1210946-1-fshao@chromium.org/
+[3]:
+https://lore.kernel.org/all/TY0PR06MB561105A3386E9D76F429110D9E0F2@TY0PR06MB5611.apcprd06.prod.outlook.com/
+
+Regards,
+Fei
+
+
+Fei Shao (2):
+  dt-bindings: arm: mediatek: Add MT8188 Lenovo Chromebook Duet (11", 9)
+  arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri
+
+ .../devicetree/bindings/arm/mediatek.yaml     |   13 +
+ arch/arm64/boot/dts/mediatek/Makefile         |    8 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   11 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   63 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   54 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   20 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   43 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   76 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   67 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   52 +
+ .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |  413 +++++
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      | 1497 +++++++++++++++++
+ 12 files changed, 2317 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+
+-- 
+2.47.0.163.g1226f6d8fa-goog
 
 
