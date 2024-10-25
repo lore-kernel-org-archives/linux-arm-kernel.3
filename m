@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B955DD0C609
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51564D0C609
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aTUxFFuuS7q4apCNsR9KGVB+f/W8Symh/UfMC9/XY8=; b=v0uukkCVYWcpgiwoNxOhhFNP/x
-	p7/hy/QUtayYpwTRGo2GdFiPPRsLqUIR3n6DOUkEru7p0jlBwxreHumk4bd9Bzm5+l91cGviKjMqM
-	yMc5Rhh2reVAFnNL8YWhksF/KHJ7nign6/u5sOJbSfhbUm7GU75NTIzKoL/nlzw0MGNnQeRfYt0+x
-	xNGvFJerUBPj/dv/xMqqVK7GL9fWyIoy4lkRtNMXC8UorJK/ZCLmokpqF75XPLmjwfjQ4cfctb+8G
-	XpHHpt2Xn9f6Qyv204dFCop4fwOZJC7jwyfPclN7mepX+kwq2ObiaRhEFkH/oXriyZ6WQ1EFGIEMy
-	eoTdHcVg==;
+	bh=mphjevL2wKBjhbt7qb95YXVF8X2HJNmvgdrJOySayeQ=; b=Qg8dql4K/XdPwAnUVl5BjGZMVV
+	qJZhDnVOQZomn32MUDASc8R6O6n0PCbKojT3+YtxC6HgP9czetkUBADtj+scJbQWNZ/JeHIZAsI+a
+	CTwnQOIVDe4BJBUcDpItc+dVOcTG4wBu356d5z/7V4Qmb4wy0jiH5Zg2VEDN4WLpjsIIMg+Odwa2+
+	dAmypJ3OeBF1W8Gu7kSveKBRb5NPGvRUE9ftzE/QjjIzg+MMozt4eRdFK5NQL8Gtp/zizPB3Pmg7g
+	rskbBSpPJQmHpxVvsREm60ozPJuujIfvE4T/q1K7Xq3ZYiJnBTLy7jU+eSnp1tt93skFaVZCel1o3
+	3Xx0iaTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KJu-00000003oYt-3CeZ;
-	Fri, 25 Oct 2024 13:25:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4KLT-00000003okf-1Rw4;
+	Fri, 25 Oct 2024 13:27:15 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K9m-00000003moF-3e7S
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 13:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=0aTUxFFuuS7q4apCNsR9KGVB+f/W8Symh/UfMC9/XY8=; b=gskBDtFztJnSOiLYyhzZUzkzo4
-	n4BHFHANTZaTz5St4kU6rmybn2/4qxQNpP/d2yX8pmKGpafq/WgwSBIfLcRzARNWuBzpPxPUj12mJ
-	PftgsvbIEsBS8x1mIrtw1TI2DCpnr+97WC9a5Izd1eUj0dEAjJ66xPflS/b3/dLmTsEZPCF+2ZmBi
-	SC+KCU3yR0WllbRGH8ryc9X/ddcg+gEpJfIQXNCndkq+/E1fWEdw/4OHPuDwQ3Uw/LQS3pDu6rKJk
-	YpeVM+dzFVHYkDNI/4NQ6JxI28k7zNqhhWlSsixEM9v+6exw7KumF1JNHgyuPA5QF54ofm13wODg3
-	YdtEuDTw==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K9i-00000008v59-3PVj
+	id 1t4K9T-00000003mhk-1L1K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:15:09 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-42f6bec84b5so20842885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:15:05 -0700 (PDT)
+	Fri, 25 Oct 2024 13:15:12 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-431695fa98bso19834145e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729862104; x=1730466904; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1729862089; x=1730466889; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0aTUxFFuuS7q4apCNsR9KGVB+f/W8Symh/UfMC9/XY8=;
-        b=RHBMQ+q6u0YNDpwUotiVaFOEKA1apj+yQWzmEwUwJkD5jWntu5EvzoNOJbgKsYDktQ
-         K7tF4ANqSWcJpC99K/znhwodTUEHDBf6/L+FQbvcivJDHITNELACtkMCTPP2MTksmkz7
-         WeivnYpXeTfjN76e1gEZ7jag+Zp5kff6SRrQe5yxiLFU43s6g2kS1ZIs2y0RFMOXUWQe
-         XVrG9rstq0IWfmy+36vk2PyvrVNyfdo0zrw3XHED5mJGF3Ucrlfu1uB3N66ZxYmjtn87
-         itBgp5eyvII0X2YVMphbGw9F78fOnlaWp30+htTDlR9Kx4s5tgkxwqdEnAZMViEC/+aX
-         rBwg==
+        bh=mphjevL2wKBjhbt7qb95YXVF8X2HJNmvgdrJOySayeQ=;
+        b=JsJBJPQTRfQiPXB7BvEGOHkYsIBb87HZpeoq7Jm4Ow0VoPBuLun8YpfzF1OY23QEVh
+         PzBAOXwGeZ6Ha18sacmwyxQWQ0xZdsFfQjZf7KvlVbN7pT3ZEOSpNddSPDzPflvSE2h5
+         2RiTVNTZ/uBmdEN4WArNOLn2CZvfAGbr0pTMBboSDFcHOwUTI/YLk3Dx3s0hhAR8HRVU
+         MLxASldwmlfYI5OAAaUg1sw4gC7vj4Yv/yFwH4FAyzRgbuxFf8SwHEdTtz0eBz9pnBbx
+         k789KQW/6cx6TEMPxFnMuTbTQsXGLtapXhaxD/4Mt7NMy4aDs/CU8/oLJV5yhf2RfdWG
+         gSGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729862104; x=1730466904;
+        d=1e100.net; s=20230601; t=1729862089; x=1730466889;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0aTUxFFuuS7q4apCNsR9KGVB+f/W8Symh/UfMC9/XY8=;
-        b=nVv0vjtOMwXuWelDO/JLntNEAUiZK8iW9efHnMYVvHDESXZhH6bNWZM6VUeoMq5kuL
-         yMTVE4pwUMI8dsDZkV4Ye2J/laKVvTMY5iWfzuHSu7RVWUuhpovZJ+ZkHAIL0ZdzxmFQ
-         HLlS+LyN6xWocBjUPDF+hEha9pWq3hm4086WlNblTEbQZ+5kkSe5T0C8tdac52KjqYsq
-         mO97aPD6Ct6yr5GjirRYlpPC2hNISzwZdRUSHPNhTFi9khtq+cuwhC9nntfkthELd5J2
-         NLcfuvt0Z1KRjppmW/K3M2/yL26G31lDvwaiq4Vw4uCxERSJzeJxTPbyf/V8boXiTLgW
-         Gdwg==
-X-Forwarded-Encrypted: i=1; AJvYcCWCDOVjObUxgWpHhL/gBOEHaOJJhY6m8EYHT/5T8BvnsKLHdtbz6Fv/IfsuuPyamN0f1zAHIz1VF1QBG/dU96lS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFB/jmhx0n05H7CpkkAPQ2QDYKWZr37Z2ccdv7jVn027v+CLwW
-	fRxfiF4bt01mQGXAjpA1cZ1/+/j3GyWRuTSc4+RGomtzb4AcNw1bvbQxC5zM8ZY=
-X-Google-Smtp-Source: AGHT+IFn4umTFqPxopB2GAJY2aOrR7RfiFspVJ8SdEfcnoO13PLJi0jzfHRWD2Ee5O6gR0xA2R/rxA==
-X-Received: by 2002:a05:600c:3b2a:b0:42c:af2a:dcf4 with SMTP id 5b1f17b1804b1-4318c754f00mr39202585e9.27.1729862104292;
-        Fri, 25 Oct 2024 06:15:04 -0700 (PDT)
+        bh=mphjevL2wKBjhbt7qb95YXVF8X2HJNmvgdrJOySayeQ=;
+        b=Qu+urR8bupublMgKDEoDhe7pO+8bZsibVZSDHiAmMI+nV13BmM89WnSTWKfhM/cDtQ
+         RX8qwfcUO8odEIovi0NZ+S/DTotq3QjNTfSaG0XBJ+KjHNt5ok5r8wJuSA3lGVQ8lr15
+         tc6lGtBvSQZFQmGpxE+krCgTSDXYDqDa16JqYQC/BwaDPhgMcqAfrh0hKLzs4rWBYJRb
+         la4lFcfCswMgqBmU8s3P3yRTPnvWUjZpNE1SblzCdO9S9akeFOAzOlBa2D6nSHuK+REn
+         eVuNN3ZEp2WErKwvz5+tNPhpjsVgnbwCYIBJ8gaIKAuwwVBtdKainSmAYzHF/Zxk4ITI
+         QtGw==
+X-Forwarded-Encrypted: i=1; AJvYcCU9c4MMCR+pUCsrIhHWlMRew1U+h8CVLKvmo14YMh7uwAMXD766FUjqSDGIPKYFPhEXDG0aATSsOs/ATwOlB40B@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKjnyLrFlOrNh54Ob/Glp5pZKRvoqh0lBGzapEAdrWLefLPmWd
+	ilxBmijhveZOePXtscvflCVm5N9AcsyFWefKh5u6Vh6y3Ph2ipUPGx/e5U42EjQ=
+X-Google-Smtp-Source: AGHT+IEoUmmF2a29+b6OYTb4dbCjEKsfEZfPzHCBO3Ytnq8YsVvh+s+5uHtHvSiBw8IREAZ9aiGHMw==
+X-Received: by 2002:a05:600c:468f:b0:42c:a6da:a149 with SMTP id 5b1f17b1804b1-4318c73a46amr48990985e9.25.1729862089150;
+        Fri, 25 Oct 2024 06:14:49 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.67.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.15.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 06:15:03 -0700 (PDT)
+        Fri, 25 Oct 2024 06:14:48 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -96,17 +81,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-kernel@vger.kernel.org,
 	ebiggers@kernel.org,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v2 11/11] scsi: ufs: exynos: gs101: enable clock gating with hibern8
-Date: Fri, 25 Oct 2024 14:14:42 +0100
-Message-ID: <20241025131442.112862-12-peter.griffin@linaro.org>
+Subject: [PATCH v2 01/11] scsi: ufs: exynos: Allow UFS Gear 4
+Date: Fri, 25 Oct 2024 14:14:32 +0100
+Message-ID: <20241025131442.112862-2-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241025131442.112862-1-peter.griffin@linaro.org>
 References: <20241025131442.112862-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_141508_159508_B585C40D 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20241025_061451_556633_0C60C2A3 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,65 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable clock gating and hibern8 capabilities for gs101. This
-leads to a significantly cooler phone when running the upstream
-kernel.
+UFS Gear 4 offers faster speeds, and better power usage so lets
+enable it.
 
-The exynos_ufs_post_hibern8() hook is also updated to remove the
-UIC_CMD_DME_HIBER_EXIT code path as this causes a hang on gs101.
+Currently ufshcd_init_host_params() sets UFS_HS_G3 as a default,
+so even if the device supports G4 we end up negotiating down to
+G3.
 
-The code path is removed rather than re-factored as no other SoC
-in ufs-exynos driver sets UFSHCD_CAP_HIBERN8_WITH_CLK_GATING
-capability. Additionally until the previous commit the hibern8
-callbacks were broken anyway as they expected a bool.
+For SoCs like gs101 which have a UFS major controller version
+of 3 or above advertise Gear 4. This then allows a Gear 4 link
+on Pixel 6.
+
+For earlier controller versions keep the current default behaviour
+of reporting G3.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- drivers/ufs/host/ufs-exynos.c | 24 ++++--------------------
- 1 file changed, 4 insertions(+), 20 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 3bbb71f7bae7..7c8195f27bb6 100644
+index 9ec318ef52bf..e25de4b86ac0 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -229,6 +229,9 @@ static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- 	/* Enable WriteBooster */
- 	hba->caps |= UFSHCD_CAP_WB_EN;
+@@ -771,6 +771,21 @@ static void exynos_ufs_config_sync_pattern_mask(struct exynos_ufs *ufs,
+ 	exynos_ufs_disable_ov_tm(hba);
+ }
  
-+	/* Enable clock gating and hibern8 */
-+	hba->caps |= UFSHCD_CAP_CLK_GATING | UFSHCD_CAP_HIBERN8_WITH_CLK_GATING;
++#define UFS_HW_VER_MAJOR_MASK   GENMASK(15, 8)
 +
- 	/* set ACG to be controlled by UFS_ACG_DISABLE */
- 	reg = hci_readl(ufs, HCI_IOP_ACG_DISABLE);
- 	hci_writel(ufs, reg & (~HCI_IOP_ACG_DISABLE_EN), HCI_IOP_ACG_DISABLE);
-@@ -1566,26 +1569,7 @@ static void exynos_ufs_post_hibern8(struct ufs_hba *hba, enum uic_cmd_dme cmd)
- {
- 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
++static u32 exynos_ufs_get_hs_gear(struct ufs_hba *hba)
++{
++	u8 major;
++
++	major = FIELD_GET(UFS_HW_VER_MAJOR_MASK, hba->ufs_version);
++
++	if (major >= 3)
++		return UFS_HS_G4;
++
++	/* Default is HS-G3 */
++	return UFS_HS_G3;
++}
++
+ static int exynos_ufs_pre_pwr_mode(struct ufs_hba *hba,
+ 				struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+@@ -787,6 +802,8 @@ static int exynos_ufs_pre_pwr_mode(struct ufs_hba *hba,
+ 	}
  
--	if (cmd == UIC_CMD_DME_HIBER_EXIT) {
--		u32 cur_mode = 0;
--		u32 pwrmode;
--
--		if (ufshcd_is_hs_mode(&ufs->dev_req_params))
--			pwrmode = FAST_MODE;
--		else
--			pwrmode = SLOW_MODE;
--
--		ufshcd_dme_get(hba, UIC_ARG_MIB(PA_PWRMODE), &cur_mode);
--		if (cur_mode != (pwrmode << 4 | pwrmode)) {
--			dev_warn(hba->dev, "%s: power mode change\n", __func__);
--			hba->pwr_info.pwr_rx = (cur_mode >> 4) & 0xf;
--			hba->pwr_info.pwr_tx = cur_mode & 0xf;
--			ufshcd_config_pwr_mode(hba, &hba->max_pwr_info.info);
--		}
--
--		if (!(ufs->opts & EXYNOS_UFS_OPT_SKIP_CONNECTION_ESTAB))
--			exynos_ufs_establish_connt(ufs);
--	} else if (cmd == UIC_CMD_DME_HIBER_ENTER) {
-+	if (cmd == UIC_CMD_DME_HIBER_ENTER) {
- 		ufs->entry_hibern8_t = ktime_get();
- 		exynos_ufs_gate_clks(ufs);
- 		if (ufs->opts & EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL)
+ 	ufshcd_init_host_params(&host_params);
++	/* This driver only support symmetric gear setting e.g. hs_tx_gear == hs_rx_gear */
++	host_params.hs_tx_gear = host_params.hs_rx_gear = exynos_ufs_get_hs_gear(hba);
+ 
+ 	ret = ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
+ 	if (ret) {
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
