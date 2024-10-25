@@ -4,212 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B2CD11702
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 06:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35FBD11701
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 06:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sqBEiEi5XB4MmD5g07+s1AhqYxjYqn9kX8u0E9WO+B8=; b=oRg5benZY9SqyG9AjrvKY2luGK
-	yLwAFcfGyMOjnVfTr3Im+PKpcU7o7xyhvFUKBHrVlloo7qfrN76Uy1bMN3cWkPwlk3sQ8sBn/w0MB
-	8oXmgVZItlB8ccvBIDo3KeySRwOFtmgeDlsZo9ASwc2ufhBQnupSioikE65QNnchHWgg7cpMRXmN/
-	flxiBK7aJw96sRGKXrH+ufWl4HhZGA7AY3M3crlTc2Q3/fopNBpn1yHpow40TvI6wWGCLkjVQe8HZ
-	UEbUARtxuNgN9QL4kFvF5D65s1kpmZoYofsQauZvltiiZTHphjG4o1loLSTW8HCP/LyysPBWoVVzE
-	WsdJYknw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+bDF2PtA8nEwp1BLJ5T0XsLmvVmBVPXORykZ4wJpoak=; b=Dz8ZujgXVr89UJgK5dApthYb7J
+	UiEkuY2JiAt4bHMwwO27V/s/Pz0SieD/Z4U+LmEzjgQF0OUMUovOUBGlMATdpAJRhy7mZIitDe6AI
+	lyVbVAtaSURUdI2BGoDB2Z0Uz35XY9IWHCrj5uHwTmvWe/S/uik9HyAqi/Y/MaxDP4xVqDT6YjFM5
+	ovvjfuYQgfMMxKG4kn0kdeKIJ/U06KOZYck7pP3T0gOwKz4iLDJsNNo5Oc5HTdL1FF5hjWK7Y2QGN
+	C+C1DAbl9zCu9du76nGA3GJXJ32jesrz/vSqU4ge0CQ+RADVVMtC9+rrFZ6/0/mXYzW1cuKbQS3O+
+	NjpIBbyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Drt-00000002ghN-3lCv;
-	Fri, 25 Oct 2024 06:32:17 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t4DyZ-00000002heN-33Tn;
+	Fri, 25 Oct 2024 06:39:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4DqK-00000002gUC-2Mnd;
-	Fri, 25 Oct 2024 06:30:41 +0000
-X-UUID: a458cd12929a11ef82ff63e91e7eb18c-20241024
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=sqBEiEi5XB4MmD5g07+s1AhqYxjYqn9kX8u0E9WO+B8=;
-	b=LyabZexi/TSzWxiCoT0ZsuPCuejaymqMk/w1DSp9VRy7DpyCA+thYz5MAUsnkdddkYCb2IcjjoAYexxb1INtvlpamubHNyBzZunPKF1u6OrgAHaTATtjzEPHGr3Jjvd9zQvco2UqtAKdrpaVzwU0GicFdwMPWvBLxu5mjm7yB/E=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:1099f206-d069-432d-82d6-4adf5bf45640,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:cc73d8cc-110e-4f79-849e-58237df93e70,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|-5,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: a458cd12929a11ef82ff63e91e7eb18c-20241024
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1565937698; Thu, 24 Oct 2024 23:30:35 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 25 Oct 2024 14:30:32 +0800
-Received: from SEYPR02CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 14:30:32 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q6nEpq8vdiy9ikpBMQIEH8t9mI7Y0eKWdAWGGiu+U/2TPPrAuwFZOlFISlvdO7gMrXPrcndSUMkXih7DFZL5mFlA390vmDSqRQTCIKh8t9IGGJA7csdkrYqRtZFR5/dW2Ji+8O/xW3ikBiYHqWLogqOFiOheTjAQFen3zHruJTxljI2MW2batnxMwa5O6ziDSY8chuodpMSSSvs9w/HrJK/HH4UInNwLTckdzh05pUw3GCKNqvDxOXORcOBtuxQuKIcd43pKxUNEHA/6rXTqxdq/zYL4TSIwPToviW3ZlGzB4qw87VMmmUw56/9/BHwQ30KsYeH6y9CFWm1vnT4kGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sqBEiEi5XB4MmD5g07+s1AhqYxjYqn9kX8u0E9WO+B8=;
- b=u2mw5FtBGQcX9w13WWoS6JO5sqoQLwzOfQIaZftwlIYOlTcAySCucSb9oS941GIjG6vdi14wfcdHFY0h8hsDagvEjtJYmHiFEk0SqP1GZ04v9k7i3qU1zY9LllemybP5Yl4TVy0Erl27vdeMrMK+qKEqzlx2wNXYbO8BrP2GRY7AQz094hp7fRYhJVrfplHg+N8frTar2iQxu1jCRROe0GAbpP1AJIPPgD76fwa3Zmy4jzJYSZd1e0JAVrFN+1uaNg2mNYDEAPC5q2xktMQ/hs27jheqT5mjSlE/fhTTkW+uH0iLlDb1IDmSGOghwyJLeK2WHhuBF77oc6dkrHQSSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sqBEiEi5XB4MmD5g07+s1AhqYxjYqn9kX8u0E9WO+B8=;
- b=awLo0A0voiijN2/Rw+HH4piePHOPOqauKWeZha5uRB8wxnos6E9e0COZb0UlUNTHNJcPGcV7L+bQJD3HV644i5b6ZwoEIu5SKQ0Hoc04A+tk5PasFqgnYCB8CV08UIqEY33oCe+L7CrkEHO3sU4OIMjIxdbDyv029CBGH9kxqms=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SEZPR03MB7831.apcprd03.prod.outlook.com (2603:1096:101:18a::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
- 2024 06:30:29 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%7]) with mapi id 15.20.8093.014; Fri, 25 Oct 2024
- 06:30:29 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
-	"christian.koenig@amd.com" <christian.koenig@amd.com>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?U2h1LWhzaWFuZyBZYW5nICjmpYroiJLnv5Qp?=
-	<Shu-hsiang.Yang@mediatek.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"yunkec@chromium.org" <yunkec@chromium.org>, "linaro-mm-sig@lists.linaro.org"
-	<linaro-mm-sig@lists.linaro.org>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, =?utf-8?B?WWF5YSBDaGFuZyAo5by16ZuF5riFKQ==?=
-	<Yaya.Chang@mediatek.com>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	=?utf-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?= <Teddy.Chen@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "hidenorik@chromium.org"
-	<hidenorik@chromium.org>, =?utf-8?B?U2h1bi1ZaSBXYW5nICjnjovpoIblhIQp?=
-	<Shun-Yi.Wang@mediatek.com>
-Subject: Re: [PATCH v1 04/10] media: platform: mediatek: add isp_7x cam-raw
- unit
-Thread-Topic: [PATCH v1 04/10] media: platform: mediatek: add isp_7x cam-raw
- unit
-Thread-Index: AQHbGj2G8utVn4Ab5UaBggOzyqwWS7KXGkgA
-Date: Fri, 25 Oct 2024 06:30:29 +0000
-Message-ID: <823e7063aae1ab4fb741369b8a27772714909493.camel@mediatek.com>
-References: <20241009111551.27052-1-Shu-hsiang.Yang@mediatek.com>
-	 <20241009111551.27052-5-Shu-hsiang.Yang@mediatek.com>
-In-Reply-To: <20241009111551.27052-5-Shu-hsiang.Yang@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SEZPR03MB7831:EE_
-x-ms-office365-filtering-correlation-id: 9651519f-3d3f-41f4-ab1f-08dcf4be8534
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?VUZMNmV4ZzdINFZwQ1NBb3BBNlJkeE95ZjJvTjZYcGVxL2xxeTRXM0ZCTlJN?=
- =?utf-8?B?WTVFQWJuZ2FoSEdFOTVRWUsrL3puY05kaTR0QStBZ3EvZXo1OSt2b0ltaThZ?=
- =?utf-8?B?K2lnQlBlVzdkUmNQY3VHaEY3UlMvcWdOTGViR1kzOFVFYm5JSjNZclBWY2NF?=
- =?utf-8?B?OTZtMnpnREZJOHVaYlRhZUxIYTAzbzFEb3lxUkowQVpTa1FTdUZsQll6cVdJ?=
- =?utf-8?B?M2lSQVdJSU9HNy9ncHpWNG15TlJSWjVjeXhMTW1lR0hiSUhXT2o4bHg5eGtH?=
- =?utf-8?B?bnJUeUN0aU02aWd6anBZcWlFRzFTbGZqaTdqbE1US3lncDY3SGlVYUQ1Zmdo?=
- =?utf-8?B?elppV2ZiWXZtLzJKUytrdWdvb2JLNkhyUEQyL2I2YjFVenZlSVpkRWlramJH?=
- =?utf-8?B?NFJ3WGZYcjJSN1gzakJTLzhCell5MGpPRE51cDRtQi82OURNMFEyTGFkTFNk?=
- =?utf-8?B?OS83REg4OWhkdVJYWVNNQW83dDJqcm5nVDB3QVFiZVJDRnMwOVhvbjVINWpn?=
- =?utf-8?B?SWs4MTg1SlphcEpPZkcxLzJkbFRMUFlRYjY2ek4yUFd0WjVKdHVDd2RuT2ZH?=
- =?utf-8?B?KzN0cVpqYUZQR2JQT3prdllTaGFtQ21rUkJseFllWHFiUVdhTnUyblZBcnhT?=
- =?utf-8?B?bng2L2lKenU1U3lha2h1R21wUFF5Vmp5em5oZVdSeERpOE9oMDFiNW43MzNB?=
- =?utf-8?B?Z2xDTkZXVW1QU3Z4ci82UzRReHIrN1d1Uy9qU2UyakN0V0VzUFR6VFozNDhk?=
- =?utf-8?B?bFJIQnNjWnhqVmpVYndIVUE2dStEY09JZHhid2RURlF5eTVZYytMZHNjS0RJ?=
- =?utf-8?B?K3M0anhodEZ5QjVaK1ExcmR6Vzl5VzE2TkNaV1RMTU1ZTlo5Qk5GK0srVlVH?=
- =?utf-8?B?RmpsVnZyRzE4N2hrbE5lSHZPNFB6cWRjSUJsdEpxNTZsY2pKQmdJM1V3dEhu?=
- =?utf-8?B?RnQ4ZVVjUkZmbGJ0OXVYRitMTFM1alVnU0Y2YXVxRDU0RUVHYVNCVzY5Wndx?=
- =?utf-8?B?RHV1VjVPQURZV1JaR3Vxc1BMNGlPeXg4VDhwM01xbnEwczdiM1FsbmtxeWs2?=
- =?utf-8?B?aUdFMzRHcEtCNFVNQTQ4enRvZjRxNjBHa3BRVEppaXZaOC8rYjN1ZnE4NDd6?=
- =?utf-8?B?S0srTnh4UFJXdEQ0OVdBY3d3ZHNqNHgrVUxzYWgrUGY3VUFFL1dHN2tEK0tV?=
- =?utf-8?B?RENzaGxzdUk1RmRvUXpPSnFJcEV4ODhkWWRaeTBjVDMzZzc5VDBJbXU1T3Vp?=
- =?utf-8?B?OWcwd2ZPYWRkUFdhTFlwMlpCL3E3UzQ3RVNBZjJ2RFloQ3lTVTBCdmxwME1u?=
- =?utf-8?B?QjhzblBseE9LT3dYN2t6WmJjVUxoME1uUkgvUjNTdmdFdWdKdzVIN0o4ZXlo?=
- =?utf-8?B?NERJR2lkOFUxT1oyZ3Y1SG1TVC9lTW5IRTZPY0hSNTdyaHB4ajQyQ0gvZVBo?=
- =?utf-8?B?bDJ2QjNJRTQ2ek9oOWlvWGpwMjAwVGlyMGxSbVp1VlQvOHB3djlyWEVGcWNj?=
- =?utf-8?B?a2NSQTlvYmhZNkowNmNXOFRhT21heE5jeitFbEw5elUxNHpmTWE2QmlseXBs?=
- =?utf-8?B?M2hHTzNwMllUWWVNUUVza2hHZ1FtbGFWbmhqRFY3T3ZidTNDUlY3eUgwRjlO?=
- =?utf-8?B?SlQyclhEdTdlT3Z6Yko4QjYwdFdIKzZBK0t5ZUcvYzhCT2RGOHlsMXlHR0xx?=
- =?utf-8?B?bXlMWXJQb3RHUjlHOTZiNDNQSVUvdVpyc3JtZktqbGM1NkIyN0NJV1RGMTNQ?=
- =?utf-8?B?OVNxZUkxajE2QXdLT202S2krWlBmblZKckVVRE1NMkJWS2M5WUpLQVVEYm8x?=
- =?utf-8?Q?2YmAewnV2BdkzXR3NkmPF+wJoD1V73uD/gzxQ=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Z0V3eGdYTTJOTGRKaFZTNlZlaVlBalZoS0FjM1RobVROS0lNRGJnVDlXVEx5?=
- =?utf-8?B?R1E4S3RSTHhBelZjcytDTDArVHE3MWRiK3ZwMFhTc3cwUlBNZ1ZPeDBKZjZy?=
- =?utf-8?B?VXNrbmZ0ei83VE41WEs3bitZZXgvb3BKcUl0YTJ4N014bTJHM25SY0NITk1O?=
- =?utf-8?B?TTJYaytwbW5CRDBnV1hrbXlxY3pxdlM1TWplUXF4R0FxL2NmNk9Ibk51aFBN?=
- =?utf-8?B?SUFSSWRxRHJaMzRhdDJ0M3Y4bHY3bFphbkx4Y2k3c0pKTEVydUw2THlPamdW?=
- =?utf-8?B?c09HUUlrdG5leS9vZzVjc2ZoR2dYcmVjSFpHaTZYekx5NWdJaSt0ME5MeFFV?=
- =?utf-8?B?amY3OGs5Q1RydGRxb3NST2o1T0JSdjJtRVgzeUJLS21RUzhOWXBZYmIzNHlq?=
- =?utf-8?B?bEJENjlOdEhMUUZmUHVFVW5yUHRSaU5uWjhBYjZHUDA1b3d3eHA0b2N3Uk1I?=
- =?utf-8?B?MlMvWENWbDkzV0oxSE9kdGRmTHpFNm9mVitFNmlJckxFRzNEaUlNcXdHNkNP?=
- =?utf-8?B?K2hCZUtCdjhNYyttT2llZURtUm1ORHVWclU3bEJYQ2dQUWxxbXo1Z0NVMjdH?=
- =?utf-8?B?d1RMdFZVc2tQWE1QSVE2ZVBvOUt3Q2RNb08xODR2RDE5QUdMTTdBV09XamlP?=
- =?utf-8?B?dnRaSXNhNDNVQ3lRTERxQ2pjOG9DRDkvODVoaDVVb2lEMlJKRlVwRkV3QVpH?=
- =?utf-8?B?MmdQY21BSDgwWUYvR0IzeERvd2R2MmVRcmtqUXNmVFNFSGIzRjBPbVlKN0dG?=
- =?utf-8?B?ZE1jc3QzQldhVTFFZU5DK0ZrMU10TnM5MWx2dENZUWVuaDJFazJ5aGRCaFdF?=
- =?utf-8?B?OFJ6Y2duTWhlTHdIUUZ1bTljbkt2S2oxNUdrbDM2b3ZIbWxTZ2tMbk5LeEVl?=
- =?utf-8?B?WmI5T0xDV3YrZjlpakJBdTJDMDkwdCtFN280YmFpdkVyclJLU2c2aDh6Sjhp?=
- =?utf-8?B?eUErNk9oWnJjQ05uTmVKcEZ4c3lYcWxYWFF2RXQ1NnhuUlIrWmpSbHhNdEoy?=
- =?utf-8?B?YTlkclJYbHpFMzRNQU9mbVFEL3R3QVFuR0tWY244SVc2VUoyVlNFTzJPa1Aw?=
- =?utf-8?B?YmVWbnVmbnVhU3o5REd1Z0duTlNJakFaZHMvOEJsc3R5L0QxOVdEb1hGcHdo?=
- =?utf-8?B?YWg3MG1USGtQenN3ODV6SEFWNVdaUTcxaXBrRDMvcmZnMm52b0VDRUVPL1Vp?=
- =?utf-8?B?bDgxZ3dmNjYzUEYrSkFnaFovU1JyYk5ocXRwb29VbEtzSFZzSXNRckpQVEFp?=
- =?utf-8?B?dWVEYUc1VTdEU1IxdmhSL3N2MmZvdEJ2N08yaTZmcncrUUpWWURPMVlkQTFo?=
- =?utf-8?B?eUVJRy9XSFpnMGc0amZtUi9xWWVLbTNuTThJSExpeDYrWnM2bFA5NWcrc0I5?=
- =?utf-8?B?NnVSbGJnVGtEOGxJekJvMlluN2k4ak1Hdlc3UkFKczFaZlNWbkJBT3dyMmda?=
- =?utf-8?B?TitvVjF1bldoRCtUVnF6OHNrd3h0aU9WL3lVZzFsSDdTcHUyTjQ3MVRTNGl4?=
- =?utf-8?B?aUp2ckljcmh5N2J4L05vTXNoTWhtMVIyY3V5eFZMUGNucWE0OFZWRkVFaXQ3?=
- =?utf-8?B?aWFSVTQzc3hMWkN0ZlJXRi85RjIwS2FZcDZ3aS9udU5yeFFKNXp3ZGtiNlh5?=
- =?utf-8?B?TW83TjZuSUR0dU9FMTlja0MyekV1OTVzdS9JS0pNOXVNK1V2b3U5QmFuWDlS?=
- =?utf-8?B?UzduZ1JXM2w3V2g3WDhIcTJOQWVtdlVNK0VTQVN1RC90SE93Yk1hVXcxdUJ6?=
- =?utf-8?B?UnkybjAzUjJqWk1kUzZKMnhyd3p0R0xSUGlkMUM4d0tFMHR6aDJrQ3doTlVH?=
- =?utf-8?B?K2w0RDRDN3lKcVRJcWtKNTM1Z0hJSFhQM0pZUjJKK3RCK2hSTnRneC81bm9O?=
- =?utf-8?B?Q2wyZnZDTDhkZGNVZ0NZS1NDM0VTWGJWdzR4WUVNVzFDT3g0V0dJaGlwRTBn?=
- =?utf-8?B?QTQyUm5jQ3BONXlxOGU2WmFzV2VYQnhnMVFvRzM1ZVZ6ZG5lWXpLdU1xclVk?=
- =?utf-8?B?emdETkFGcGNJQ2FYSW50Q3dPR04wVDI2T3N3cGJaL1Q3a0NyZ0FUVWhUL0pI?=
- =?utf-8?B?RDErTU8vSUZEVEFBV0w0M0RRN3I5WUpkL2cwNWZSZTlVVU9ScXZTbnpUT2kw?=
- =?utf-8?Q?AZIOhbTlgnqzW0psqHINFGKJp?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <E33299128CBBA940A467BA5A91D3DF37@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1t4Dwz-00000002hRY-0AQH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 06:37:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1729838250;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+bDF2PtA8nEwp1BLJ5T0XsLmvVmBVPXORykZ4wJpoak=;
+	b=GfDe+k8ArYf1JsU9QkUEk5DdiHq62mHKeVC1WVJpS9RAOs23PTAfkmI9kLVG0/5IwS+HiT
+	nHlfsRXu0WDi7VswxifVz56aqfAH1U7eNbzKx4KL42FINkeoxGL6WbXrprQz37MhXyxAEH
+	zx0lYpjraNkgS3lB9D7YjY9joS6CTZ0=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-283-BOziGeE5PC6n21n4uzwLAA-1; Fri, 25 Oct 2024 02:37:27 -0400
+X-MC-Unique: BOziGeE5PC6n21n4uzwLAA-1
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2e583c7601fso1779190a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 23:37:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729838246; x=1730443046;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+bDF2PtA8nEwp1BLJ5T0XsLmvVmBVPXORykZ4wJpoak=;
+        b=HpTMlyGcMWbZUC5PRUhlPtm1PegJa98JlZrEcaADDRlHcXsEEgGmbkDldnRsgjbmaO
+         UBbzsmrfkULJYKHunBlJm/40L5pEGEWZwxbFpR6aqXDQJSzT9CZAzZll3jAlYbR6awgU
+         KI71YW0YKLB9+wlY6J7NmkCRjeupK2X9jqD1THmMXNnVjvyBhDNvgiXGJ3LPHeAg6xsL
+         Ag04tlHhS/+zCu02p0AkFDyfKiQLaBieC+ooKjFjm8hWquDXhsdPsk//3ZohMKqmczRe
+         sIqenLlJmasSYoQiXTOE1RUOUVEQrV31zlNXajQsJ+/usoX0ghnmFCuYjvZGr0RjFMOS
+         iCcw==
+X-Forwarded-Encrypted: i=1; AJvYcCWlYK4ftacgdIG/QXa8xk2xHOc2fwxhYVbq8XAFwS8XnYaslphwbydUu8Pa0nphcyagkaqRe/9/mLl5vaUasA0L@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJP6A+MSamt3EJn0p6LPQR+/L97PY6keFvXz0wKxzVJY5Cleqd
+	QHepu880bJbyDmtF9DvzB/xdygMLIK943PzTPJYtFAQXkBjuyk/WfQSoPQkHY2dMW50uYFgHKFw
+	4mdsdIbgPEwXCa3NcAnKJteLraChwfSiXSlEXP8tcxgCS8SR8l1E+z/faw3t6jV//UWrMUqvo
+X-Received: by 2002:a17:90b:274c:b0:2e2:b922:48a with SMTP id 98e67ed59e1d1-2e76b5fd63dmr9190803a91.18.1729838245861;
+        Thu, 24 Oct 2024 23:37:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG+u2nP5jEKVj215KpGw6rOcs0Eagy/ksL64B+QesnMTfSL8FQ2Ri3aw4o0HE9/qEPVorhCqw==
+X-Received: by 2002:a17:90b:274c:b0:2e2:b922:48a with SMTP id 98e67ed59e1d1-2e76b5fd63dmr9190789a91.18.1729838245450;
+        Thu, 24 Oct 2024 23:37:25 -0700 (PDT)
+Received: from [192.168.68.55] ([180.233.125.129])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e7867fd63csm2102774a91.1.2024.10.24.23.37.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Oct 2024 23:37:24 -0700 (PDT)
+Message-ID: <c5f65e60-efc1-49c5-b421-55f2be5e9449@redhat.com>
+Date: Fri, 25 Oct 2024 16:37:15 +1000
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9651519f-3d3f-41f4-ab1f-08dcf4be8534
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2024 06:30:29.5037
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: n+eJ20DlR/wTIWdRnDvF+0eNEXw3/ktGvyAfBWNQxsoY1d8qevoHt32hnEfByUc7PugugEKuJ45wOO0D828tog==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7831
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 05/43] arm64: RME: Add SMC definitions for calling the
+ RMM
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241004152804.72508-1-steven.price@arm.com>
+ <20241004152804.72508-6-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241004152804.72508-6-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_233040_648332_C87F8722 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241024_233733_251553_9D95C4EC 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -224,44 +115,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksIFNodS1oc2lhbmc6DQoNCk9uIFdlZCwgMjAyNC0xMC0wOSBhdCAxOToxNSArMDgwMCwgU2h1
-LWhzaWFuZyBZYW5nIHdyb3RlOg0KPiBJbnRyb2R1Y2VzIHRoZSBJU1AgcGlwZWxpbmUgZHJpdmVy
-IGZvciB0aGUgTWVkaWFUZWsgSVNQIHJhdyBhbmQgeXV2DQo+IG1vZHVsZXMuIEtleSBmdW5jdGlv
-bmFsaXRpZXMgaW5jbHVkZSBkYXRhIHByb2Nlc3NpbmcsIFY0TDIgaW50ZWdyYXRpb24sDQo+IHJl
-c291cmNlIG1hbmFnZW1lbnQsIGRlYnVnIHN1cHBvcnQsIGFuZCB2YXJpb3VzIGNvbnRyb2wgb3Bl
-cmF0aW9ucy4NCj4gQWRkaXRpb25hbGx5LCBJUlEgaGFuZGxpbmcsIHBsYXRmb3JtIGRldmljZSBt
-YW5hZ2VtZW50LCBhbmQgTWVkaWFUZWsNCj4gSVNQIERNQSBmb3JtYXQgc3VwcG9ydCBhcmUgYWxz
-byBpbmNsdWRlZC4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IFNodS1oc2lhbmcgWWFuZyA8U2h1LWhz
-aWFuZy5ZYW5nQG1lZGlhdGVrLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+ICtzdGF0aWMgY29u
-c3QNCj4gK2NoYXIgKmNhcHR1cmVfcXVldWVfbmFtZXNbUkFXX1BJUEVMSU5FX05VTV1bTVRLX1JB
-V19UT1RBTF9DQVBUVVJFX1FVRVVFU10gPSB7DQo+ICsJeyJtdGstY2FtIHJhdy0wIG1haW4tc3Ry
-ZWFtIiwNCg0KTGV0IHRoZSBiYXNpYyBmdW5jdGlvbiBzdXBwb3J0IG9ubHkgb25lIGNhcHR1cmUg
-cXVldWUgYW5kIGFkZCBhZGRpdGlvbmFsIGNhcHR1cmUgcXVldWUgYnkgb3RoZXIgcGF0Y2guDQpN
-YXliZSBvbmUgcGF0Y2ggZm9yIG9uZSBxdWV1ZS4NClRoZSBiYXNpYyBmdW5jdGlvbiBzdXBwb3J0
-IG9ubHkgIm10ay1jYW0gcmF3LTAgbWFpbi1zdHJlYW0iIHF1ZXVlLg0KDQpSZWdhcmRzLA0KQ0sN
-Cg0KPiArCSAibXRrLWNhbSByYXctMCB5dXZvLTEiLCAibXRrLWNhbSByYXctMCB5dXZvLTIiLA0K
-PiArCSAibXRrLWNhbSByYXctMCB5dXZvLTMiLCAibXRrLWNhbSByYXctMCB5dXZvLTQiLA0KPiAr
-CSAibXRrLWNhbSByYXctMCB5dXZvLTUiLA0KPiArCSAibXRrLWNhbSByYXctMCBkcnpzNG5vLTEi
-LCAibXRrLWNhbSByYXctMCBkcnpzNG5vLTIiLCAibXRrLWNhbSByYXctMCBkcnpzNG5vLTMiLA0K
-PiArCSAibXRrLWNhbSByYXctMCByemgxbjJ0by0xIiwgIm10ay1jYW0gcmF3LTAgcnpoMW4ydG8t
-MiIsICJtdGstY2FtIHJhdy0wIHJ6aDFuMnRvLTMiLA0KPiArCSAibXRrLWNhbSByYXctMCBwYXJ0
-aWFsLW1ldGEtMCIsICJtdGstY2FtIHJhdy0wIHBhcnRpYWwtbWV0YS0xIiwNCj4gKwkgIm10ay1j
-YW0gcmF3LTAgcGFydGlhbC1tZXRhLTIiLA0KPiArCSB9LA0KPiArCXsibXRrLWNhbSByYXctMSBt
-YWluLXN0cmVhbSIsDQo+ICsJICJtdGstY2FtIHJhdy0xIHl1dm8tMSIsICJtdGstY2FtIHJhdy0x
-IHl1dm8tMiIsDQo+ICsJICJtdGstY2FtIHJhdy0xIHl1dm8tMyIsICJtdGstY2FtIHJhdy0xIHl1
-dm8tNCIsDQo+ICsJICJtdGstY2FtIHJhdy0xIHl1dm8tNSIsDQo+ICsJICJtdGstY2FtIHJhdy0x
-IGRyenM0bm8tMSIsICJtdGstY2FtIHJhdy0xIGRyenM0bm8tMiIsICJtdGstY2FtIHJhdy0xIGRy
-enM0bm8tMyIsDQo+ICsJICJtdGstY2FtIHJhdy0xIHJ6aDFuMnRvLTEiLCAibXRrLWNhbSByYXct
-MSByemgxbjJ0by0yIiwgIm10ay1jYW0gcmF3LTEgcnpoMW4ydG8tMyIsDQo+ICsJICJtdGstY2Ft
-IHJhdy0xIHBhcnRpYWwtbWV0YS0wIiwgIm10ay1jYW0gcmF3LTEgcGFydGlhbC1tZXRhLTEiLA0K
-PiArCSAibXRrLWNhbSByYXctMSBwYXJ0aWFsLW1ldGEtMiIsDQo+ICsJIH0sDQo+ICsNCj4gKwl7
-Im10ay1jYW0gcmF3LTIgbWFpbi1zdHJlYW0iLA0KPiArCSAibXRrLWNhbSByYXctMiB5dXZvLTEi
-LCAibXRrLWNhbSByYXctMiB5dXZvLTIiLA0KPiArCSAibXRrLWNhbSByYXctMiB5dXZvLTMiLCAi
-bXRrLWNhbSByYXctMiB5dXZvLTQiLA0KPiArCSAibXRrLWNhbSByYXctMiB5dXZvLTUiLA0KPiAr
-CSAibXRrLWNhbSByYXctMiBkcnpzNG5vLTEiLCAibXRrLWNhbSByYXctMiBkcnpzNG5vLTIiLCAi
-bXRrLWNhbSByYXctMiBkcnpzNG5vLTMiLA0KPiArCSAibXRrLWNhbSByYXctMiByemgxbjJ0by0x
-IiwgIm10ay1jYW0gcmF3LTIgcnpoMW4ydG8tMiIsICJtdGstY2FtIHJhdy0yIHJ6aDFuMnRvLTMi
-LA0KPiArCSAibXRrLWNhbSByYXctMiBwYXJ0aWFsLW1ldGEtMCIsICJtdGstY2FtIHJhdy0yIHBh
-cnRpYWwtbWV0YS0xIiwNCj4gKwkgIm10ay1jYW0gcmF3LTIgcGFydGlhbC1tZXRhLTIiLA0KPiAr
-CSB9LA0KPiArfTsNCj4gKw0K
+On 10/5/24 1:27 AM, Steven Price wrote:
+> The RMM (Realm Management Monitor) provides functionality that can be
+> accessed by SMC calls from the host.
+> 
+> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+> 
+> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v4:
+>   * Update to point to final released RMM spec.
+>   * Minor rearrangements.
+> Changes since v3:
+>   * Update to match RMM spec v1.0-rel0-rc1.
+> Changes since v2:
+>   * Fix specification link.
+>   * Rename rec_entry->rec_enter to match spec.
+>   * Fix size of pmu_ovf_status to match spec.
+> ---
+>   arch/arm64/include/asm/rmi_smc.h | 255 +++++++++++++++++++++++++++++++
+>   1 file changed, 255 insertions(+)
+>   create mode 100644 arch/arm64/include/asm/rmi_smc.h
+> 
+> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> new file mode 100644
+> index 000000000000..0fde2e06d275
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rmi_smc.h
+> @@ -0,0 +1,255 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023-2024 ARM Ltd.
+> + *
+> + * The values and structures in this file are from the Realm Management Monitor
+> + * specification (DEN0137) version 1.0-rel0:
+> + * https://developer.arm.com/documentation/den0137/1-0rel0/
+> + */
+> +
+> +#ifndef __ASM_RME_SMC_H
+> +#define __ASM_RME_SMC_H
+> +
+> +#include <linux/arm-smccc.h>
+> +
+> +#define SMC_RxI_CALL(func)				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+> +			   ARM_SMCCC_SMC_64,		\
+> +			   ARM_SMCCC_OWNER_STANDARD,	\
+> +			   (func))
+> +
+
+I guess the 'x' of 'RxI' here can be 'M' or 'S'. We already had similar macro
+(SMC_RSI_FID) in rsi_smc.h, so 'RMI' sounds more appropriate to me since this
+macro is only used to define those RMI function calls. SMC_RMI_FID is the name
+consistent to SMC_RSI_FID in rsi_smc.h.
+
+> +#define SMC_RMI_DATA_CREATE		SMC_RxI_CALL(0x0153)
+> +#define SMC_RMI_DATA_CREATE_UNKNOWN	SMC_RxI_CALL(0x0154)
+> +#define SMC_RMI_DATA_DESTROY		SMC_RxI_CALL(0x0155)
+> +#define SMC_RMI_FEATURES		SMC_RxI_CALL(0x0165)
+> +#define SMC_RMI_GRANULE_DELEGATE	SMC_RxI_CALL(0x0151)
+> +#define SMC_RMI_GRANULE_UNDELEGATE	SMC_RxI_CALL(0x0152)
+> +#define SMC_RMI_PSCI_COMPLETE		SMC_RxI_CALL(0x0164)
+> +#define SMC_RMI_REALM_ACTIVATE		SMC_RxI_CALL(0x0157)
+> +#define SMC_RMI_REALM_CREATE		SMC_RxI_CALL(0x0158)
+> +#define SMC_RMI_REALM_DESTROY		SMC_RxI_CALL(0x0159)
+> +#define SMC_RMI_REC_AUX_COUNT		SMC_RxI_CALL(0x0167)
+> +#define SMC_RMI_REC_CREATE		SMC_RxI_CALL(0x015a)
+> +#define SMC_RMI_REC_DESTROY		SMC_RxI_CALL(0x015b)
+> +#define SMC_RMI_REC_ENTER		SMC_RxI_CALL(0x015c)
+> +#define SMC_RMI_RTT_CREATE		SMC_RxI_CALL(0x015d)
+> +#define SMC_RMI_RTT_DESTROY		SMC_RxI_CALL(0x015e)
+> +#define SMC_RMI_RTT_FOLD		SMC_RxI_CALL(0x0166)
+> +#define SMC_RMI_RTT_INIT_RIPAS		SMC_RxI_CALL(0x0168)
+> +#define SMC_RMI_RTT_MAP_UNPROTECTED	SMC_RxI_CALL(0x015f)
+> +#define SMC_RMI_RTT_READ_ENTRY		SMC_RxI_CALL(0x0161)
+> +#define SMC_RMI_RTT_SET_RIPAS		SMC_RxI_CALL(0x0169)
+> +#define SMC_RMI_RTT_UNMAP_UNPROTECTED	SMC_RxI_CALL(0x0162)
+> +#define SMC_RMI_VERSION			SMC_RxI_CALL(0x0150)
+> +
+
+Similar to what we had in rsi_smc.h, it may be good idea to have those definitions
+in the ascending order of the function ID (number). It will help readers to search
+based on the function ID (number) if you agree.
+
+> +#define RMI_ABI_MAJOR_VERSION	1
+> +#define RMI_ABI_MINOR_VERSION	0
+> +
+> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
+> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+> +
+> +#define RMI_UNASSIGNED			0
+> +#define RMI_ASSIGNED			1
+> +#define RMI_TABLE			2
+> +
+
+Those RTT entry states are associated with struct rtt_entry::state only. So the best
+place to have those definiation would be rmi_cmds.h where 'struct rtt_entry' is
+declared. Besides, there is a enumeration RmiRttEntryState for them as stated in
+the specifiction (B4.4.24).
+
+> +#define RMI_RETURN_STATUS(ret)		((ret) & 0xFF)
+> +#define RMI_RETURN_INDEX(ret)		(((ret) >> 8) & 0xFF)
+> +
+> +#define RMI_SUCCESS		0
+> +#define RMI_ERROR_INPUT		1
+> +#define RMI_ERROR_REALM		2
+> +#define RMI_ERROR_REC		3
+> +#define RMI_ERROR_RTT		4
+> +
+> +enum rmi_ripas {
+> +	RMI_EMPTY = 0,
+> +	RMI_RAM = 1,
+> +	RMI_DESTROYED = 2,
+> +};
+> +
+> +#define RMI_NO_MEASURE_CONTENT	0
+> +#define RMI_MEASURE_CONTENT	1
+> +
+> +#define RMI_FEATURE_REGISTER_0_S2SZ		GENMASK(7, 0)
+> +#define RMI_FEATURE_REGISTER_0_LPA2		BIT(8)
+> +#define RMI_FEATURE_REGISTER_0_SVE_EN		BIT(9)
+> +#define RMI_FEATURE_REGISTER_0_SVE_VL		GENMASK(13, 10)
+> +#define RMI_FEATURE_REGISTER_0_NUM_BPS		GENMASK(19, 14)
+> +#define RMI_FEATURE_REGISTER_0_NUM_WPS		GENMASK(25, 20)
+> +#define RMI_FEATURE_REGISTER_0_PMU_EN		BIT(26)
+> +#define RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS	GENMASK(31, 27)
+> +#define RMI_FEATURE_REGISTER_0_HASH_SHA_256	BIT(32)
+> +#define RMI_FEATURE_REGISTER_0_HASH_SHA_512	BIT(33)
+> +#define RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS	GENMASK(37, 34)
+> +#define RMI_FEATURE_REGISTER_0_MAX_RECS_ORDER	GENMASK(41, 38)
+> +
+
+The 'Reserved' field can be defined as well so that the definitions are complete
+if you agree.
+
+    #define RMI_FEATGURE_REGISTER_0_Reserved	GENMASK(63, 42)
+
+> +#define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
+> +#define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+> +#define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
+> +
+> +/*
+> + * Note many of these fields are smaller than u64 but all fields have u64
+> + * alignment, so use u64 to ensure correct alignment.
+> + */
+> +struct realm_params {
+> +	union { /* 0x0 */
+> +		struct {
+> +			u64 flags;
+> +			u64 s2sz;
+> +			u64 sve_vl;
+> +			u64 num_bps;
+> +			u64 num_wps;
+> +			u64 pmu_num_ctrs;
+> +			u64 hash_algo;
+> +		};
+> +		u8 padding1[0x400];
+> +	};
+> +	union { /* 0x400 */
+> +		u8 rpv[64];
+> +		u8 padding2[0x400];
+> +	};
+> +	union { /* 0x800 */
+> +		struct {
+> +			u64 vmid;
+> +			u64 rtt_base;
+> +			s64 rtt_level_start;
+> +			u64 rtt_num_start;
+> +		};
+> +		u8 padding3[0x800];
+> +	};
+> +};
+> +
+> +/*
+> + * The number of GPRs (starting from X0) that are
+> + * configured by the host when a REC is created.
+> + */
+> +#define REC_CREATE_NR_GPRS		8
+> +
+> +#define REC_PARAMS_FLAG_RUNNABLE	BIT_ULL(0)
+> +
+> +#define REC_PARAMS_AUX_GRANULES		16
+> +
+> +struct rec_params {
+> +	union { /* 0x0 */
+> +		u64 flags;
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x100 */
+> +		u64 mpidr;
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 pc;
+> +		u8 padding3[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		u64 gprs[REC_CREATE_NR_GPRS];
+> +		u8 padding4[0x500];
+> +	};
+> +	union { /* 0x800 */
+> +		struct {
+> +			u64 num_rec_aux;
+> +			u64 aux[REC_PARAMS_AUX_GRANULES];
+> +		};
+> +		u8 padding5[0x800];
+> +	};
+> +};
+> +
+> +#define REC_ENTER_EMULATED_MMIO		BIT(0)
+> +#define REC_ENTER_INJECT_SEA		BIT(1)
+> +#define REC_ENTER_TRAP_WFI		BIT(2)
+> +#define REC_ENTER_TRAP_WFE		BIT(3)
+> +#define REC_ENTER_RIPAS_RESPONSE	BIT(4)
+> +
+> +#define REC_RUN_GPRS			31
+> +#define REC_GIC_NUM_LRS			16
+> +
+> +struct rec_enter {
+> +	union { /* 0x000 */
+> +		u64 flags;
+> +		u8 padding0[0x200];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		struct {
+> +			u64 gicv3_hcr;
+> +			u64 gicv3_lrs[REC_GIC_NUM_LRS];
+> +		};
+> +		u8 padding3[0x100];
+> +	};
+> +	u8 padding4[0x400];
+> +};
+> +
+> +#define RMI_EXIT_SYNC			0x00
+> +#define RMI_EXIT_IRQ			0x01
+> +#define RMI_EXIT_FIQ			0x02
+> +#define RMI_EXIT_PSCI			0x03
+> +#define RMI_EXIT_RIPAS_CHANGE		0x04
+> +#define RMI_EXIT_HOST_CALL		0x05
+> +#define RMI_EXIT_SERROR			0x06
+> +
+> +struct rec_exit {
+> +	union { /* 0x000 */
+> +		u8 exit_reason;
+> +		u8 padding0[0x100];
+> +	};
+> +	union { /* 0x100 */
+> +		struct {
+> +			u64 esr;
+> +			u64 far;
+> +			u64 hpfar;
+> +		};
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		struct {
+> +			u64 gicv3_hcr;
+> +			u64 gicv3_lrs[REC_GIC_NUM_LRS];
+> +			u64 gicv3_misr;
+> +			u64 gicv3_vmcr;
+> +		};
+> +		u8 padding3[0x100];
+> +	};
+> +	union { /* 0x400 */
+> +		struct {
+> +			u64 cntp_ctl;
+> +			u64 cntp_cval;
+> +			u64 cntv_ctl;
+> +			u64 cntv_cval;
+> +		};
+> +		u8 padding4[0x100];
+> +	};
+> +	union { /* 0x500 */
+> +		struct {
+> +			u64 ripas_base;
+> +			u64 ripas_top;
+> +			u64 ripas_value;
+> +		};
+> +		u8 padding5[0x100];
+> +	};
+> +	union { /* 0x600 */
+> +		u16 imm;
+> +		u8 padding6[0x100];
+> +	};
+> +	union { /* 0x700 */
+> +		struct {
+> +			u8 pmu_ovf_status;
+> +		};
+> +		u8 padding7[0x100];
+> +	};
+> +};
+> +
+
+The names for the 'padding' field starts from 'padding1' instead of 'padding0'
+as we did for other structures.
+
+> +struct rec_run {
+> +	struct rec_enter enter;
+> +	struct rec_exit exit;
+> +};
+> +
+> +#endif
+
+#endif /* __ASM_RME_SMC_H */
+
+Thanks,
+Gavin
+
 
