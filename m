@@ -4,167 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BD3D116F0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFF7D116F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 05:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=epVb+a66Bp/vfi1Z/ssbD1nhMl8dhFw62NHV/H9olB4=; b=eRg0tWl+fsejhXDddmh7rt4vy5
-	EKi4e1SW/097fNXHXDvCIBC8YkJ7X03DuG2epcxw4xEJqvvFvw0188Kl5dK7w5WaXcJG5mYfvx3Eq
-	AbL5dYyVGQu3GrBllafDNTu9MIbNd3KGxk9P5IKJ0T4o0xzqrGgubHwpCtMqoopAVspRvbjw98FYX
-	0swNdK6L9Nc3UFYVSx/ctVquirEXwFlpoafaI9EPUIrk6nZNjpBLFFEp/P64fb1E//oFf0NGKfYcH
-	29pRdHdyqKEi+y+npwABWbW3bo9BzixBJj4NUvbaf4DVsqeB+uqG6S1wzzd55MKdw+eHaYaBTw0g+
-	0zPj4Vaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HvCggmtLdEUI172Y83XNX/Onv4GEKVaPGfEZwS/XjT8=; b=Z2eZ1x6XnVp/No9kiwzez+7h3h
+	I7WKdzvKmoqywnkaP/OBvhhjt8/wO1+z1bA69+KL9TLlvnH+ckZ7v9yT72G3vZlGL2Nsymuxr+dmz
+	kE4LD0UHhmKvBwtcJMpRK4i7W+vcQerIM++hjYnvTcO6k8MgkmxfS3735k/xKGxawPIAvzRoDCvI5
+	dAlvSqkyJMHMGotroh+BwfdO1fxfNkGBi10AiwYy+3xjOuxuh/cHmDvNsFcJ+tzWIWxeUb2QZhyTS
+	7bfQqpvhC65m27W1QlGso+ET4oo378FSbO/R8zNZ4NofqSWKIaDkKFrtKKXMl9X0BJeLYxIUSCRBG
+	+H/m1crg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Cxd-00000002Zwc-0Drf;
-	Fri, 25 Oct 2024 05:34:09 +0000
-Received: from mail-sn1nam02on2062d.outbound.protection.outlook.com ([2a01:111:f403:2406::62d] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1t4D1r-00000002aFZ-3bnC;
+	Fri, 25 Oct 2024 05:38:31 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Cw3-00000002ZpU-2HjB
+	id 1t4D0J-00000002a8p-0AWh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 05:32:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wFX8hFiUA9YHIjUlAg3ZPzi8CyJ9xVW6hbiCI3EhUZxH/LF9VDd0UiT0QRHAQTSd/jvJ9DYePEHzxON1znTPdoqYT14kGBPc5VHKF88vuluz32holOq/k4exjzwJbtlsym039hT0k4xDS8YE9ofBPZzbfKEHlLw1ENAeZht523HO9BUvgNlvaoCFL0Xf3jfgNXZqfNBfATmkQEK6HKdkCB8bT/zWvTDkYQjTTk3j3uBb/bPgKaTmu2pr8swVLDjioV0KYEsu+w+qEqKvqCZFJoJC3NZJZ5LbC69AAuk9tPGCJRMfc3fr5rOVK/AyezOcU0aFmrMYwjN6t3U9nvhlmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=epVb+a66Bp/vfi1Z/ssbD1nhMl8dhFw62NHV/H9olB4=;
- b=YAxAcojEdGBgpvUNOYg6tfhLJgdNzVGBC72MxF7tt4SuLWQjQbsO/bRhdT0sxDymOIqbaK5INXKPdwvYvEVdNEtMOH/P7CgGmb9vMPCPm+6IhaT86uaE9yf1Sj5i/vauJKdKf77JY+7MVpKpOunHIS8rsWN61+uYXKfxYZUFfbdo8b7C8oVQ9/5itQh825VRctM/Jy5qGsc2DVEv3Tg+fhn6lV1WNC+z7p5rwWFvyBw3jtdReyAzsiJdnAkf6f7FvC9NEr2Od+OLx0PqIRIOXsMbp0peNLuHEe60L//XvTq53Xrs+oN7MLtvQBQKWXj8uM+1MbbiehG5SzYVkNKMtw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=epVb+a66Bp/vfi1Z/ssbD1nhMl8dhFw62NHV/H9olB4=;
- b=d50doqycZrhu1Zt56z5EcQytA9zH8p8SgUafWuuOcGVLEZ7oBvh80kDbeIEUdEk/qZcq5lhUiEW4gSIokv2Fb7u29t1+avAH3aur+r1AbkT84P6NHTxWoUdd9oq0yOv1HAKaf/+nKOWAVUNk6I/zxWggTDf74ULg/mmRl6q5wDY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
- by SA1PR12MB6969.namprd12.prod.outlook.com (2603:10b6:806:24c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16; Fri, 25 Oct
- 2024 05:32:22 +0000
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f]) by CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f%4]) with mapi id 15.20.8069.020; Fri, 25 Oct 2024
- 05:32:20 +0000
-Message-ID: <487ebe2c-718f-405c-8f20-213eab59ca0f@amd.com>
-Date: Fri, 25 Oct 2024 16:32:10 +1100
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v4 00/14] iommufd: Add vIOMMU infrastructure (Part-2:
- vDEVICE)
-Content-Language: en-US
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
- suravee.suthikulpanit@amd.com, robin.murphy@arm.com, dwmw2@infradead.org,
- baolu.lu@linux.intel.com, shuah@kernel.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
- jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
- shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
- yi.l.liu@intel.com, zhangfei.gao@linaro.org, patches@lists.linux.dev
-References: <cover.1729555967.git.nicolinc@nvidia.com>
- <98a0e135-4f9b-4a2e-94b5-f1a830a49f19@amd.com>
- <ZxslrakslZbphayO@Asurada-Nvidia>
-From: Alexey Kardashevskiy <aik@amd.com>
-In-Reply-To: <ZxslrakslZbphayO@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SY5P282CA0066.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:203::11) To CH3PR12MB9194.namprd12.prod.outlook.com
- (2603:10b6:610:19f::7)
+	Fri, 25 Oct 2024 05:36:57 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7203c431f93so1292648b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 22:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729834613; x=1730439413; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HvCggmtLdEUI172Y83XNX/Onv4GEKVaPGfEZwS/XjT8=;
+        b=eO3YWnXYsh8w2L3sr3QVLdfKqGXnvi2GI9AqOQ44uhnzWn2Xtzp+BDfhX9yqIGO0m8
+         +W4UI58jS+FzCPFTRoiNRt6pPr/lxEd+zaZBXnD30CHAGzCv3x0Z1dI3bCnBi+A6imb8
+         CSdp+GWEUs/lUhD444a88F2SQ3dZuLBfyU8jIml9yGsbN+cYlpEFJNo/f/LTO9aajp/7
+         FHDiSGcRAliiO+eVrrINIelRcZRg+vyyk241J6pRQ20c/5LzB8fTy3UjyYDXYyb/aaQO
+         iSHoUJavrLZhebO6tYhPl28v3465DekyVs/erP8kwTeP1o5iWXgBM7T2bTN7+1HUtMGS
+         SwYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729834613; x=1730439413;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HvCggmtLdEUI172Y83XNX/Onv4GEKVaPGfEZwS/XjT8=;
+        b=WPIuSbWULs09Ies5Ymicr/7Zk6OLRMC9H4BOFrvwqNEXGCPOBoRXK37C5wJZnm9lnB
+         x/e3BVD12juhhE/R92he4x/djdhg2dsnG40f7+vSDrzpvf6ieJDsHGf/KM0dvsB7dUoJ
+         emo+MVbctugsp59/swHm26WZRjlFvE54gWtzhHwkWnWrULtTArbGlqEEnKuJgv5xYrIC
+         n5MIUxCfk5/IWKv8WJER19sgKkzbhcUL/2akkk5UtJkp7NSwNlt6g42t9t9gcWo+ZH+I
+         3bhZvffXmMw3puNBzf18tnbKjHO6q5gGaDZtTkbRIsxKXCCN4hbIR3p0DKqj9VHmiUJ9
+         8Reg==
+X-Forwarded-Encrypted: i=1; AJvYcCVNAKyYHtxcM7jazziZfHACekOj4sPlrrnMiMk6pL/qBMpv0RZnddIj9b1agXhQmqYBjW19I4YTU+6qbz8RlmIw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi6auOHaSht8xkZEBmEEOet+vNQiRzboVZNoOtrEFRNxpdepUN
+	hLxX43nRo2N2HazQ3Bzap+7BAq2d6FBwY1ZV6ndLPmEAD3YHN8Xr
+X-Google-Smtp-Source: AGHT+IGzbzwpbOrc+GHYvSHu/3iAhi85esxI7itU+Q8udNFbHIvIFqzfKJoIJUw9BF55+RUzypHRzw==
+X-Received: by 2002:a05:6a00:3c94:b0:71e:7a56:3eaf with SMTP id d2e1a72fcca58-72030bba11fmr11795617b3a.24.1729834613433;
+        Thu, 24 Oct 2024 22:36:53 -0700 (PDT)
+Received: from [172.19.1.43] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8660dd1sm333486a12.14.2024.10.24.22.36.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Oct 2024 22:36:53 -0700 (PDT)
+Message-ID: <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
+Date: Fri, 25 Oct 2024 13:36:48 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|SA1PR12MB6969:EE_
-X-MS-Office365-Filtering-Correlation-Id: 067c26c5-74da-4217-a684-08dcf4b66515
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NVR3dmNYeWVBNU15SHpZQm5sZFZ2YTR4TlZhdnR3eVlnN1hTOFFVSDhGOUc0?=
- =?utf-8?B?MTVXSnFvYTRVaVUvVXVHMzY3Ump1OUo1c1VGQ09INFFqbklNKy9JMGFBa2JT?=
- =?utf-8?B?K2wxU2p3YmloOWNCejYyb2J5WWRaRmtEdVpDdHVXVTFhZlpvbEVhOTNTMUZV?=
- =?utf-8?B?TUQybVVHdDMwK3Jia1JxeXh2ZC91Mi9MbmN6K210aUE3ZFpNdHBjYlpPczVm?=
- =?utf-8?B?UiszaGtXRUJIYURIMkkycG5PUGxNeWI0MUxRVmZRT1VkYTRuWWRvdkhwTHRm?=
- =?utf-8?B?VTFVRzB5TmVGQWFRWklXWHI2V3ZVY0JvZTJLUFhGalJyMmNDVUFnMzN3QUVj?=
- =?utf-8?B?ZWhIRkp3aXB3WW9Wdjk5MXVVTXk4aEJHV0UvK2M4cFFGRHh2SEdxenozRzZk?=
- =?utf-8?B?MWtpQ2FBVXU0YXc0aG1BOGhkeCs1dTRFQXRWSjlHUElwQ3BRTnJLNkxUMjlj?=
- =?utf-8?B?RUVwUFRQN1RobytIdHZqZEt6VnhmWFpVRkdCWFlwazNVTmlLS3I0Z1cyY1B5?=
- =?utf-8?B?NTIvQy9EWHpkZjRDd2oxb1JYbTBRK3dXWEtKZDRVMjlzeG9lVFUwekhzbEtx?=
- =?utf-8?B?dlFYT2x3VU1ZcndMc1NCaDF4UkFmaXlWbmtJY050V3djbXMrVTdWNHdwak1W?=
- =?utf-8?B?ZElUbFdJUFIvVWdtYW5pdmZFWDZVbEJXbi9zOUV1dG5EbTM4dkxacmx1U0Na?=
- =?utf-8?B?WUh3NzBpRTlTN2J6ZnZSMDJSWUU5UGFLQVMyb0Y3bStHNHBQUEM2N2lSUVc0?=
- =?utf-8?B?TXVmQjFNWGhjNHphbitPL0FmdksrbUFoYjVCcldQdnRNVnNtVWlUaUNVak5w?=
- =?utf-8?B?V1VFR0lxOUtTSUtaS0ovSWhOUVhSa1Z4ZWRndGJ3TmNjeEMvM0dQbUZyQXB1?=
- =?utf-8?B?Q1BDOTJTVDNCYmJ4OGFoOTRKN0xsc053M3p0a1o3b2padUgxUU8vYUlqTzRq?=
- =?utf-8?B?d0ZYVXBSRXJkSUVSZTlQRkZVWW5QSVFsRWpTSlZOY1VEbnhrTW5nY0t0Ym54?=
- =?utf-8?B?VjN2MGNXK2F0T2hyYnlIV2FwNDNDaFJqd2duNlJIRkxpWjZLNzVrSnl1TFZm?=
- =?utf-8?B?cTh4ejZVUU9aejc0MllVb0xrR0xjREUyTnA1QTZzOVBXcWwyMlgvME5LQ1dr?=
- =?utf-8?B?bnZnZUh2OTkxamQ2cUxhKzBRSklXdklaUzJzNUtoVVdKSkFpODNHTE05STk0?=
- =?utf-8?B?eHdkeUlpVkVZL3JqNTZiaXQyWm5qdHdGaFlDMmJCenVmbEduWEVwb2EvelI5?=
- =?utf-8?B?cHJ5SnN1ckZyM25zTlNrZTR5dUtXQXFCSmlFMnFsQ095UWhiSjNwdmpYazRL?=
- =?utf-8?B?cEpyRloraHN4YTVoRXV6cEVVR1BnNDlwa3h2R2JqNEY0QjFHQkV3Qm9aaFg3?=
- =?utf-8?B?NjRTNkFWNlJhWE0waUhNVCsvMFQ3dmNtMDM5a3dYeVNFb0VvbkFpd3I4Wk5P?=
- =?utf-8?B?cXdhaDhidXhYd3d4VE5SNFZBdHYyMms1eFovZHZYaGh2c05WSUFxRUo4SzlH?=
- =?utf-8?B?ak43UzZlaFVOZGx6YWtsaThRM0V0c2YxYTA5eVc4OXpad3FWT1cvTjFuY3dr?=
- =?utf-8?B?c0dsK2F6SWd2Ri9nUmJDVXFzVU1FMW44U2tNZlFiV2MyQWE2Mm9MN2dXcHhr?=
- =?utf-8?B?emRJSkJMcjdPNmZFMXVvbmNDRitvRzZJcDVtNmlSazNBd2Z1RWhZZ1BnK1Ry?=
- =?utf-8?B?QTNQRDR1Tjk2M2gyMkRZMEM1TFA0dVdGYm4wdmxRK1NCUGE5MTE2T2x3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S215M08vYmtRQmd6WUI5QUlabFY2ZHZpWmRxYVVFZjlDY3JGT2JPZmlmYnZP?=
- =?utf-8?B?VHAzMDFwbmR2MlZiZ3pZaVB0ZDY3K2VUWU5EV1JsZm8zdjVRMDRIWFN0bWF1?=
- =?utf-8?B?c1RZV3krVkpHV3ZvTHV3SUhEOUZpSnZETElKOHFYbzdJb2pEdjNMVUdBUlgr?=
- =?utf-8?B?cjhkdE1JdXcwYXRCSzVDYmJIb0pnRVIzR3lvM2s4ckE5eGZVanpNR0ZkTmQ4?=
- =?utf-8?B?N1pzQ0tTRWNjeW1mVW1uSWdNa0RjUXRhRTM3VXFiS2lUNzJJeVltTHlaSVhu?=
- =?utf-8?B?ZE9HUzNzVWhDR0VxcUZ2bVNJeDVXTTIwZjliS1lOazZmMjNhL0JNd0VSUGxZ?=
- =?utf-8?B?Y0xWWXhtNnM0YVB0dlFTa0ZHaHhXamp3MFhwckNDSnNyTE1uRXFOVFR1MzJv?=
- =?utf-8?B?dVh5cVFPNEthNG1vbXBCOGNlWUNWTzlTbktEbzJlWG5NcDBwcU1hSEMxNnhv?=
- =?utf-8?B?SmF1WHo2R1A4c09vcmVnbUVtOTV1eDBXT1o0cHVobUdDWmVYYS8vTTFEZkVY?=
- =?utf-8?B?SStGM2pZTDdYSTFVQTlkTU0rR0h1NkJJN3R0RTZyVDZSeFdLNTJicjg1OFBr?=
- =?utf-8?B?NktiNVRYb2UySzJ4TTRJWUN6aWdyL2dwTWdWOC95RkRJWUJJdEQyUGhVQjFY?=
- =?utf-8?B?TG5OL2I3a05BY3ZzR3BrQjV3MXpZcUpyK09jd0Rpc0ZuNkFsTVpqZ25yVm5N?=
- =?utf-8?B?OEtxYmNtQ2tDYlJkN1JSQlZmY2NoU3lJYUgwZ0RxMFNYSENYSVVMUElZelo2?=
- =?utf-8?B?SHB4azkrQVYvS0ZqWmlkak9sUTNyZWlvczVINDcwZktHejNUSS9YOWk4T1Aw?=
- =?utf-8?B?bTYvcEdvNldSVlAwUnN0ZkN0Rzd4V25UYWwyU1JPMDZlK2dMdy9vNENRRHJq?=
- =?utf-8?B?TncvUFNqZTQzRmQ4K0FtN1FyVXBtRjdWaDEyRVdWQ1A1dXlON241bkd1SmM1?=
- =?utf-8?B?ZkdibnVja2JKUXRVUWFoU1JSSGVUMGNsTmsrRTNVbDFCK2NHUHVLa1owVUo3?=
- =?utf-8?B?ZDdxczZVQStlVDhuNHJRUjFzWHUraUpUdklndGs0UFNZUkxwVGh0UWpZZlRt?=
- =?utf-8?B?L0RSNnc3Rm45TjhvTVZhZVozbXJNb0dGdWx2Ny9zUE5Sd0FKM0lnMjZ1a2JU?=
- =?utf-8?B?eUtqOGgycGdNTjFscFhEQ1UxaG5sK2V6SmhYWFlGT2NOZ3dQbHFWVXRaN3A4?=
- =?utf-8?B?ZTBPclFKUUs3Ly93VWdPQjdlREVSc1lDZmxpdUpNbUlrM2hxMVN2S3FGSTVG?=
- =?utf-8?B?ZzZTMytvY2sxMkJzTjJ4L2Y3VTIrQ3hYY04wQ3RGUHFIalFTbElaRXlDa2xC?=
- =?utf-8?B?UnBGU2lnTDByM1dNbWFEYnhhK01WUHhvUVZMYXUwcWZMcC8vSlliV2p3MTM0?=
- =?utf-8?B?OHBBa285UFhhbTBlc2xuakZZTDJ0T2pKM1RTZjNJZTBKNGpkQUVyQm9sZ2dX?=
- =?utf-8?B?UDRMc01HbUQ2dzBkNmphcUtjL2hjclB5K0tRNW5IZmhIbE4yK1dzWGFHY05l?=
- =?utf-8?B?bElTYTBzMUJOWm5NKy9GS3VrZUVRUkxITWZRbHRpS0FISzFPbGFuYVhuU0Jm?=
- =?utf-8?B?bmdDb2FrbFlkYllwQS8zYllxWmtoTW9DZkJ6bHNNeXZ5djJzRTBkOEdLdkJF?=
- =?utf-8?B?K3VlQU5BQmhueVBFQ1JqSFd1aXN5RHl0S0lNV01DdUFQMWZSck1PMnVXRHJP?=
- =?utf-8?B?WTF4UzJaSFJtUXRXT0I4Q3pqcmZMTSt4WWQ0ejBDektFMHJqTEtaQVdNd2Fv?=
- =?utf-8?B?eHZ5SnhRZkNoRjZNUGlnODM1UWJXSHFucmU3c3pkNmRCOTZISmtXSXB5aitY?=
- =?utf-8?B?eW53cy9VOTFsRnYyTGllTkpieThYc2s2bkpObVgrQ0JsLzIxd04yeVRVV1dY?=
- =?utf-8?B?ejRjUmlQVTN2ejdoQm54SHhZTTlWc25rMHBnNTgycVdpdHJ0NXJlUnVoOExx?=
- =?utf-8?B?ekdOdklXcDNpNmtMTzJ0aHBuYUR6ZXQ5N1BQKytZV0FNbEZyaCtGaHVrN1lO?=
- =?utf-8?B?N2I4ZEt1VGJxeGY3U0VmbmpvVDc4RXlzSDExdU90TnBRY3NJTDZtSU1YNXdm?=
- =?utf-8?B?ZmpSY1lKUzNzYU9oanU1Wm9DUW10amRlVnpOd1pHek9KK3N3RnAybUdobTVD?=
- =?utf-8?Q?sRhKKfliev29Ke/6wKWxhJDEv?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 067c26c5-74da-4217-a684-08dcf4b66515
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 05:32:19.9883
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Qaam3NrUmd9zh9xktrKaAREdIrkXlMhaRm8hYz+MDOONoybpjGMmLkSQ25B7qqx11ncI3GQ127CBf22Q1xbhTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6969
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+ dmitry.torokhov@gmail.com
+References: <20241022063158.5910-1-mjchen0829@gmail.com>
+ <20241022063158.5910-2-mjchen0829@gmail.com>
+ <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
+Content-Language: en-US
+From: Ming-Jen Chen <mjchen0829@gmail.com>
+In-Reply-To: <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_223231_604504_F5CC8E5E 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20241024_223655_108955_E77B22C7 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,75 +100,193 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 25/10/24 15:59, Nicolin Chen wrote:
-> On Fri, Oct 25, 2024 at 03:54:44PM +1100, Alexey Kardashevskiy wrote:
->> On 22/10/24 11:20, Nicolin Chen wrote:
->>> Following the previous vIOMMU series, this adds another vDEVICE structure,
->>> representing the association from an iommufd_device to an iommufd_viommu.
->>> This gives the whole architecture a new "v" layer:
->>>     _______________________________________________________________________
->>>    |                      iommufd (with vIOMMU/vDEVICE)                    |
->>>    |                        _____________      _____________               |
->>>    |                       |             |    |             |              |
->>>    |      |----------------|    vIOMMU   |<---|   vDEVICE   |<------|      |
->>>    |      |                |             |    |_____________|       |      |
->>>    |      |     ______     |             |     _____________     ___|____  |
->>>    |      |    |      |    |             |    |             |   |        | |
->>>    |      |    | IOAS |<---|(HWPT_PAGING)|<---| HWPT_NESTED |<--| DEVICE | |
->>>    |      |    |______|    |_____________|    |_____________|   |________| |
->>>    |______|________|______________|__________________|_______________|_____|
->>>           |        |              |                  |               |
->>>     ______v_____   |        ______v_____       ______v_____       ___v__
->>>    |   struct   |  |  PFN  |  (paging)  |     |  (nested)  |     |struct|
->>>    |iommu_device|  |------>|iommu_domain|<----|iommu_domain|<----|device|
->>>    |____________|   storage|____________|     |____________|     |______|
->>>
->>> This vDEVICE object is used to collect and store all vIOMMU-related device
->>> information/attributes in a VM. As an initial series for vDEVICE, add only
->>> the virt_id to the vDEVICE, which is a vIOMMU specific device ID in a VM:
->>> e.g. vSID of ARM SMMUv3, vDeviceID of AMD IOMMU, and vID of Intel VT-d to
->>> a Context Table. This virt_id helps IOMMU drivers to link the vID to a pID
->>> of the device against the physical IOMMU instance. This is essential for a
->>> vIOMMU-based invalidation, where the request contains a device's vID for a
->>> device cache flush, e.g. ATC invalidation.
->>>
->>> Therefore, with this vDEVICE object, support a vIOMMU-based invalidation,
->>> by reusing IOMMUFD_CMD_HWPT_INVALIDATE for a vIOMMU object to flush cache
->>> with a given driver data.
->>>
->>> As for the implementation of the series, add driver support in ARM SMMUv3
->>> for a real world use case.
->>>
->>> This series is on Github:
->>> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4
->>>
->>> For testing, try this "with-rmr" branch:
->>> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4-with-rmr
+On 2024/10/23 下午 04:40, Krzysztof Kozlowski wrote:
+> On Tue, Oct 22, 2024 at 06:31:57AM +0000, mjchen wrote:
+>> From: mjchen <mjchen@nuvoton.com>
 >>
->> Is there any real example of a .vdevice_alloc hook, besides the
->> selftests? It is not in iommufd_viommu_p2-v4-with-rmr, hence the
->> question. I am trying to sketch something with this new machinery and
->> less guessing would be nice. Thanks,
-> 
-> No, I am actually dropping that one, and moving the vdevice struct
-> to the private header, as there seems to be no use case:
+>> Add YAML bindings for MA35D1 SoC keypad.
+>>
+>> Signed-off-by: mjchen <mjchen@nuvoton.com>
+>> ---
+>>   .../bindings/input/nvt,ma35d1-keypad.yaml     | 88 +++++++++++++++++++
+>>   1 file changed, 88 insertions(+)
+>>   create mode 100755 Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
+>>
+> Please run scripts/checkpatch.pl and fix reported warnings. Then please
+> run 'scripts/checkpatch.pl --strict' and (probably) fix more warnings.
+> Some warnings can be ignored, especially from --strict run, but the code
+> here looks like it needs a fix. Feel free to get in touch if the warning
+> is not clear.
+Sorry, I will remember to run checkpatch.pl before uploading the
+subsequent patches and fix all errors and warnings
+>> diff --git a/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
+>> new file mode 100755
+>> index 000000000000..3d9fc26cc132
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/input/nvt,ma35d1-keypad.yaml
+> Filename based on compatible. There is no nvt prefix. Entire filename is
+> somehowdifferent than compatible.
+I will modify it to: nuvoton,ma35d1-keypad.yaml
+>> @@ -0,0 +1,88 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/input/nvt,ma35d1-keypad.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: NVT MA35D1 Keypad
+> NVT? Nuvoton?
+I will change NVT to Nuvoton
+>
+>> +
+>> +maintainers:
+>> +  - Ming-jen Chen <mjchen0829@gmail.com>
+>> +
+>> +allOf:
+>> +  - $ref: /schemas/input/matrix-keymap.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: nuvoton,ma35d1-kpi
+>> +
+>> +  debounce-period:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> Missing vendor prefix... or why are you not using existing properties?
+>
+>> +    description: |
+>> +      key debounce period select
+> select? or clock cycles? I don't understand this. Say something useful
+> here.
+>
+>
+>> +      0  = 0 clock
+>> +      1  = 0 clock
+>> +      2  = 0 clock
+> Heh? So this is just 0
+>
+>> +      3  = 8 clocks
+> This is 8
+>
+>> +      4  = 16 clocks
+> 16, not 4
+>
+>> +      5  = 32 clocks
+>> +      6  = 64 clocks
+>> +      7  = 128 clocks
+>> +      8  = 256 clocks
+>> +      9  = 512 clocks
+>> +      10 = 1024 clocks
+>> +      11 = 2048 clocks
+>> +      12 = 4096 clocks
+>> +      13 = 8192 clocks
+> Use proper enum
+I will update the definition to specify the debounce period in terms of 
+keypad IP clock cycles, as follow:
 
-Why keep it then?
+nuvoton,debounce-period:
+     type: integer
+     enum: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+     description: |
+         Key debounce period select, specified in terms of keypad IP 
+clock cycles.
+         This value corresponds to the register setting for the keypad 
+interface.
+         The following values indicate the debounce time:
+         - 0 = 0 clock cycles (no debounce)
+         - 3 = 8 clock cycles
+         - 4 = 16 clock cycles
+         - 5 = 32 clock cycles
+         - 6 = 64 clock cycles
+         - 7 = 128 clock cycles
+         - 8 = 256 clock cycles
+         - 9 = 512 clock cycles
+         - 10 = 1024 clock cycles
+         - 11 = 2048 clock cycles
+         - 12 = 4096 clock cycles
+         - 13 = 8192 clock cycles
+>
+>
+>> +
+>> +  per-scale:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
+> Missing constraints
+>
+>> +
+>> +  per-scalediv:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    description: Per-scale divider (1 to 256).
+> Missing constraints
+>
+> Both properties are unexpected... aren't you duplicating existing
+> properties?
+pre-scale:
+This value configures the IC register for the row scan cycle 
+pre-scaling, with valid values ranging from 1 to 256
+per-scalediv:(I will change pre-scalediv to pre-scale-div)
+This will describe its role in setting the divisor for the row scan 
+cycle pre-scaling, allowing for finer control over the keypad scanning 
+frequency
 
-> https://lore.kernel.org/linux-iommu/ZxsSYbK3gqyC84U7@Asurada-Nvidia/
-> https://lore.kernel.org/linux-iommu/ZxsTAANTTuQzQ9HR@Asurada-Nvidia/
-> 
-> Do you need vdevice_alloc in the driver for your sketch?
+I will change it to the following content:
+nuvoton,pre-scale:
+     type: uint32
+     description: |
+         Row Scan Cycle Pre-scale Value, used to pre-scale the row scan 
+cycle. The valid range is from 1 to 256.
+     minimum: 1
+     maximum: 256
 
-At the moment one of the things I am looking for is a place to add 
-tsm_bind(host_bdfn, guest_bdfn, kvm_vmid). I assumed that this vdevice 
-represents the guest's IOMMU attributes for a passed through device and 
-naturally stores the guest_bdfn as an id (for AMD). I am still trying to 
-wrap my head around these new things. Thanks,
+nuvoton,pre-scale-div:
+     type: uint32
+     description: |
+         Divider for the pre-scale value, further adjusting the scan 
+frequency for the keypad.
+     minimum: 1
+     maximum: 256
+>
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - clocks
+>> +  - linux,keymap
+>> +  - debounce-period
+>> +  - per-scale
+>> +  - per-scalediv
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/input/input.h>
+>> +    keypad: keypad@404A0000 {
+> Lowercase hex and drop the unused label
+I will modify it to: keypad@404a0000 {
+>
+>> +      compatible = "nuvoton,ma35d1-kpi";
+>> +      reg = <0x404A0000 0x10000>;
+> Lowercase hex
+I will modify it to: reg = <0x404a0000 0x10000>
+>
+> Best regards,
+> Krzysztof
+Thank you for your guidance!
+I look forward to your further comments.
 
+Best regards,
 
--- 
-Alexey
+Ming-Jen Chen
+
 
 
