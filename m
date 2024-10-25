@@ -4,107 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9CED149F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF84D149F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=XH9Z/O0V4bMTOev1PasFk20ISc
-	0Pmz+s4ypojO/TfbB4CBoZ40y9gKdwl0hzspZdQ/WwmNnxwg6/mIu+8WU+P3LX2H4qOiqg/7UXBir
-	bZNjkPN81BtvDLodcNvNakGbbzxpnyVUiHk8SfKG577/Pw/PiobXTB1U5tU3bSs5eUbkuNrdMvIrR
-	nxIq+LcbxeoYv4L4ehX6DM2/jz9ICFac4QPM+G/PQLebBDcx8MtOQb8Gpg0FdEOn75NP1vD+GoIu/
-	87DskEEHPIOm/qLtPA+VBmaoVM/2suw0UhN1+SfkE9YPVoh2QNzg0FV8bef5Gh71sh21GD9KAS6+X
-	oB+duV+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=; b=LSum67I2DUTIuR+1J8M5R3uQ/w
+	ATkeBKaEKc//oO64uzHVkpGhSoh0B1L9+3ggFiBXwoa1FA4hwvQBB06x1dvVzNG28D/Knz8ONfJpT
+	rxtqrmgHxf2XmFAMEUz3ZWePF+kry5YzSkUG8pXxR/m+wGmEtsJUC9Pgie1YNvWjj+SupNwd6JOUY
+	1xG1w4NYalfFrhZnr3vz25NdZSihiyKw0PfsQA8OoL5LsQ9LCeOqZYSciPNLJt3UwuBM0q6PYNzbE
+	XY3Ibpc43BjYUqxEAupR+ZT8BbQWDMsrlPVB80dgabF9NdrPouraFXW0Y6Y/KoTdac2UXUMoMFMWl
+	pXdPWYNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Rdb-00000005HED-3DYT;
-	Fri, 25 Oct 2024 21:14:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4RfB-00000005HSR-0dNh;
+	Fri, 25 Oct 2024 21:16:05 +0000
+Received: from mail-vi1eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2613::60d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RSm-00000005Em7-20u4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 21:03:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=YFfntaxGyu8A2h2T10fqAp/Rb8
-	gf5u/jAiITsoO1jjboBVeknpseol+cxeWyj/jbx00my0NNqaWkxe9gc9ZXAMcaY4LJRW5uDNcqadY
-	PNQTH2aFWf1raoYDA2jh8w8RP3Hpn2i4alUt+v/EKDiuKi4GiwWaNwNKJwrHrL/gmQwNxcNDpIXMC
-	3kavsbWJp0Mq8uKnDbVnYzUOZsduRss08pjbu+dkOjL91osEQ24DM+eneilY4sj0QtZwybsudnnub
-	9bd3EAR0JWPXwAayWVHFO+P7YwXMu49GLTTljLMjk/PSTUcQgLow0lOBS7sUKxbzvLV8vrFtzAu6l
-	+Xczcuag==;
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RSj-0000000964o-0iKH
+	id 1t4RUu-00000005FK4-3lKn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 21:03:15 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PKYfjW006899;
-	Fri, 25 Oct 2024 23:03:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	H/QGMmQQvSdjTzGfb0ViGoe+R9DpAr0GnLMuS6bq550=; b=zC+4inlrM5HfkC2r
-	TlC64uKipIUWWch7Y+xZePJrE7LCdcwrldjZ15x6A2w/EcfiVNdSFgg6Dz+tKlMU
-	wdIAf6YQyNhOBcwLLKlm8XlSneeUB1s3zRyaKDJ1czumrqvWRwQggnW5K7ukCikV
-	vTPH3y5bdXZzyQ5Q3aItAEJcIjI3uDVSE64XiKWWmvKmEH9xxWPaAKkmrLAvgxX+
-	yssqblNojOgFDTeQXZvracsxJpsoQfxhP+n/IFci24N2fGdkL8zmh73MiKHrbNYK
-	AqvfGuKfSSQIw0crv0blMcTUMOfgX/Sl/oxH9MEQieaJOxbQqaeVLZOidQJ5asrU
-	uttpDw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42em4cquku-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 23:03:05 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 17DA040044;
-	Fri, 25 Oct 2024 23:01:40 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 37EAA231948;
-	Fri, 25 Oct 2024 22:59:40 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:40 +0200
-Received: from localhost (10.252.3.121) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:39 +0200
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>,
-        "Rob Herring" <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
-        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v12 6/7] remoteproc: stm32: Create sub-functions to request shutdown and release
-Date: Fri, 25 Oct 2024 22:59:23 +0200
-Message-ID: <20241025205924.2087768-7-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
-References: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
-MIME-Version: 1.0
+	Fri, 25 Oct 2024 21:05:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P7oqwrYyltgDOK36r1jO7YXX8ZTGKMuJZjjdrOHsSgurkYpU87mmETtHyutg4TKc3tgCuAJXjvuYlFiSSTEqeePnSBB2u3BlO3ndoJdNfd9BXSmEBgk2HbRjQbX9WjkY7+oODp1IvvxJ+6vQNh8MxKQl2NPnn4342PUloG+TXq71Cuc196oGn9Q/4toa0Lwx7TTIzcqwY55AzXCpEfleGxhBfJtiLF8IKJ6cp5xktxAl87YT/HnCAu5crokR6vJLZYKFKs7+S8BKiWkj7vHyffFVI+cZta6UdQ7RKEkdZx0P1GRxcNKoIHcrvl5Qvii6jG0H+idYJF92+6oGG9bq/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=;
+ b=gwmBh5XDaqPj9RJp8clkpcFfA5L8816Jh/zBmZ3NcYtP2g2Lasu7s3DqWFCql2YlgrMNbTzxXLGf/z9o9uHiY20UvZvrvg7YXX1w6A2U9I1p2Wg2O98ktk0+QjVfP6eJ8bTF4XYA3vm381UfzpKI7WuW8lK3/90zZ9LZr0XJ8iSZjW7fuKR0S3/MVIphMNa5lgvFNX32hTNCcIgTOtbbIi0pGVMxs4DNq5RcgFjLVjuv36gQmqNYvI6JTciiwSVw7Tpupb5HSQVwBG7NKzoAfoYuEHte21ACLwhe0wUCVb33UNC2tCL4zeqoaeSe149ruWtgbwIm7DGLB7YXtEMaQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=;
+ b=ebTBwSEgiHwRzwazBGBBmKwVDBo3T3gh+BbOqZHVJZsh9mjDd+4LyZMtj1OwJSNlaCAu9/DzuICcujUH+Ps6YvDPnqCB2sKDIIGhTze9k7ucrYBgIQCQaeRyXnTXGKTalEWjVqXeld3ncASL1neKkXcrldf4HqmtTKfP4dnMRdOpYBlGSiMr0RXcnpUaS+B6cbtyrAjtF7Fs1KI3A5hb3vTs9okOPNocuVuMgS84RwG8MSjM9UpG/yhfcdxn987o6bbBH992RmAzVaK9Qfk8pDecSDX3+JvI/SjAFqrRtCnrRRIMyhtDw6Trmun3U6sCmqYgOVOi5jV+zvoSYlIMUA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS1PR04MB9698.eurprd04.prod.outlook.com (2603:10a6:20b:481::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
+ 2024 21:05:15 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Fri, 25 Oct 2024
+ 21:05:15 +0000
+Date: Fri, 25 Oct 2024 17:05:03 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 0/4] PCI: ep: dwc/imx6: Add bus address support for
+ PCI endpoint devices
+Message-ID: <ZxwH//clayRL2emF@lizhi-Precision-Tower-5810>
+References: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
+ <20241025204818.GA1028925@bhelgaas>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.3.121]
-X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+In-Reply-To: <20241025204818.GA1028925@bhelgaas>
+X-ClientProxiedBy: BY1P220CA0022.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9698:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89d4e307-0529-4ae5-b02c-08dcf538b935
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NXRyTWZYNGZ4TUZwajZ6c21UMjhGbHpPby83Z2p1SXNOeXZBQUZQTHIwdzVU?=
+ =?utf-8?B?dWlwcndnb0t5UU0yQnVzN3NPaEdaOXJTVGdaWmk4bEtlcm5EaTNWditBekp5?=
+ =?utf-8?B?S1FORTBtb1ptVnVibjhTWVVIR2QwM3Mxd2tDOHFKR05lV3ZVcEU5M1N1VG9o?=
+ =?utf-8?B?Zi81YWRUS1g4SFdCMFJ2a1o1UnozY2kyUGMydkdrOE5hSVdjSHpyQXZyV0hD?=
+ =?utf-8?B?eG1rVU40dWhoMU53Q3cvYVhEQ3RYRjVrN21BSE9TcmdBWEI5UkxiUXExbWdq?=
+ =?utf-8?B?NUk5YW1iMkJzSmVPcVBERXdqZHBpQXVtRUx2ck9mVFRIbHVjZE9mL2k4WjlM?=
+ =?utf-8?B?djZ2aDZLb2VYVXpSUGltVEJBTzM0RDZTWjM5RWVJQ00zOXR2OEJnMUFqQ2Jl?=
+ =?utf-8?B?RXBKc3pHanB4ZmFlZm4zRWVwL3VtSCtVSmZabXNWRGcvMDlQMDBNcXg5MnAv?=
+ =?utf-8?B?Y0IwTzdyZUp2MS9HaGxMZXYvajNCRDIxUHVHaVRXR0hmL2xQVVBGYVY3KzFY?=
+ =?utf-8?B?M3ZsNkZVRDY5TTAyT0pRaGFLd2g1NVBwcks5YU9vR2J1Z1dIdDd4ZE1CYml5?=
+ =?utf-8?B?V2o3elVIMVpXVEczMkIzRnk2cDNDNmVZSlU0dzNyUWdNS2JPeFQreFJOa1Vk?=
+ =?utf-8?B?c3gva2lwSEJuZTdiYUhKMHkwT0s4Z2lqT3NNTitKbDRQRkFoUU1kQUdtTGJ0?=
+ =?utf-8?B?Njk3UHF4OHhPWUpCQStTVldlbEliWkdGYzFWV3FuQmJwZmtOSy91Z2s3Q21j?=
+ =?utf-8?B?NHVlMVpSdS85aDFUVWxXcXMvdVhTRVVmTENTMit0QjZpV3pvTmVpbXBrU0oy?=
+ =?utf-8?B?aDJsZHYyNzBwUy9NeTVHT3dOQVJ5YktMMWtOcjFhc1hXM29SaGpTMUlxOHpl?=
+ =?utf-8?B?S2FsOWxjQ2RjcFRBZ3h6N3RCSGJQWS9hOE1xUDh0blRLUnhUclA3Vm1CM3Y3?=
+ =?utf-8?B?YzZqUGp4dFU4eU0wSkpjMnlPZm5ZV20vVWwxZzl1L29OaDl4d2VJbHJCSU9D?=
+ =?utf-8?B?MHk4ZEFxaEdJZCtGZFlKN3B0d1pUTVN4TGdDWUtBSGtKNEhZb0cwTEczazJk?=
+ =?utf-8?B?SkNVNG5CSTJGc1RTQUpiUFQ3R0l0OVkxNWNPVXo4ZlI1Yi9sYnBhWlVTT2FS?=
+ =?utf-8?B?V3hPczBBNVYvY2VPeUdrNGZCQ0FUZVRnYjg5N3Z4dWthMFVoVG5sWG9wZnJp?=
+ =?utf-8?B?TGt4OTlHWHFCVVo4bXdkS1NsU3VYN0RscDU2UmgzdEEvRzNqTmM4VjlMRGRw?=
+ =?utf-8?B?ZVdzRXVnbnVrVTZsSS9qV1dtSXpwSWF5ckNpRDdNaEEzeDNERSs2SVoybElW?=
+ =?utf-8?B?a09Xc0M3OEV2MkVQamVFemwvRGV1UzZHZERXNkxybCtUNEEwZGJVS1p0ckRU?=
+ =?utf-8?B?MlExRk94djdUQTVuM1VpSUdzaytXTS9LVTV5MCsvaE1mTGtkVmMxeFhwcHlG?=
+ =?utf-8?B?eHlQSlVnQlJVbHBRVzRHS3A1RjI1aUd3SUhhTWdLV1l1K3dtQkI2b2ZVeGFO?=
+ =?utf-8?B?RkJ4VGtIY3o5WXRNWFZlNHIzdUdmVzE5RnJUZm1EQjMyYTVNQ3dQc2lGS3A0?=
+ =?utf-8?B?SnA2VnlMVlZ5MlJBNFFsU01udGRaRk9aR28xV1RqSkRXQkdVQ2I5YXl2SVRh?=
+ =?utf-8?B?bTYyblAxNmtmNjRVbm0zRG1XYnhUTXBWc1BSSmhMOTRmd29qSTMrd1Zwb01X?=
+ =?utf-8?B?WExMU1JnRlYvdFU0U0hzWFk4WlQ4bmM1L2YzZDdSTS9uRjNpZUtKM1Budm1B?=
+ =?utf-8?B?SmRPSk5JaE9Kd2c2cnAyTHdmYUR5RWJDbVBKaXcxaFRQTFJsNjV4Z09tdUUy?=
+ =?utf-8?B?RUVTNit3dHRxZU9JQlkxbHhMN3hTeWF0NTRFRFp6Y01FWEJtYnkzUmkwMkVR?=
+ =?utf-8?Q?ug34pFY9DuQ8A?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZUN5czlRRVg5UUg5ckh6byszazFFakUwUnlHdGEyS0oxbUM4cWRiYlJXQi9G?=
+ =?utf-8?B?VTBMVDZwdjZQNmlLVUxBVzVLOEpmK00vZlZLblJhY2VxeUJjdnF1MWVIT2RB?=
+ =?utf-8?B?SGxPeWx2VldhNlcyQW1naTJuVkI2Z0hZSlNtWEFwYzNpdUFJMm1TUUtnL1lI?=
+ =?utf-8?B?cHpLZ1BUWnMzSkVKRG94VzJJVGxMTzNCTlRFK1c0QjU5OVpCL3p3ajhhZU9G?=
+ =?utf-8?B?WnFhbVdPTGZTbEdNWHJPK3EyVklRUmZuaUloemdTRGltK1U4SjNPUzZ2NUlE?=
+ =?utf-8?B?amF1YzZ6ZkFjRDArdUt2OVpXNmptdzcrMGpHRlp3elV4M2FkREQ4eFM1SUJX?=
+ =?utf-8?B?WCtrdmVSV2xRUjZFbzhZMHpGMjdXRVkzNzE1d2JHR2pGQ01ZMUJ4aldpS0pB?=
+ =?utf-8?B?VW9Wek56SnZkOVE2Y2VyZU5PY3Y4OGI0cTJTTGo1TDdnNmtyY3VNOGhuSlFj?=
+ =?utf-8?B?SmNsMHplOFNDOFludkR4OG02em56cHdRa1poTFVubGl5UmxJZS9QRkNlU2ZE?=
+ =?utf-8?B?Wkd5M044YUs3L3BjUDAxS1ZvVE0rd0NLMktMRTdBL25WdjlOUm0xRThmVjdq?=
+ =?utf-8?B?b2dlZjZsd1FkMnhJcnJ5TjVnRlQvUHdZN28xRkJPOThCanNmdm9UOE9QbkF4?=
+ =?utf-8?B?R0ZSenB0ckM1RTk2a1RFNzA0VDIxeEp2cVNTQ2Y5M2VKdUN0WEIwOGxqWkRV?=
+ =?utf-8?B?Z20zdHBoNjV3ZDZLWEEwSjNCWDhBWTFzbDZ4OE9ESzlyZWozbnBCLzR5b2M4?=
+ =?utf-8?B?NEkvdGEzNld5ZTVFa0d4QkdPRkJzemVZZm1zbHpYRWxnR1ZTN2duQTBqS3F2?=
+ =?utf-8?B?UVRLbHpReVlVajlIU2dlOEx4TnFwcnA2RXdKRFlDcjNOSnZKMlVHdmlaZW9p?=
+ =?utf-8?B?Q0ZBYXZ1THd5Rnc5cms3ZThtUDJoM1YvcU1McE55VlRsVUpuY1FTRkN0WTE4?=
+ =?utf-8?B?YlhQVTNDTU9nOGNGZW1CK2ZQazNMaUZQdW5yVDVKVDRUWFJFREtsRzJTTUlv?=
+ =?utf-8?B?MEF2YlY3L2FaeTBzcTlpM1ViWkxvT283b1I0cXB1aVZ2RVhDZC81elJqMGNB?=
+ =?utf-8?B?bmR3dFgzSmdlRjJac2RRRXRRM0MyeE9Mb002eDZyV01VN0tRdHl5b1NEdktQ?=
+ =?utf-8?B?ZHZlQVpnT1R5dzlUVXlFcmpqZnFyNVZyYTlGVUtiakk3YTRYdEhhdWQ5cW5Y?=
+ =?utf-8?B?NGxOaUFhUUp3Ym54dG5rTWZzWnFjcGtPYkhyVlIyTStzZGFxK0VtQmtSQ1U1?=
+ =?utf-8?B?V0lxbWxjR3JseDZrOE11eUFkMkNEYkY1KzhHTDFSVzN2bm5SSFRMaWVFUnBr?=
+ =?utf-8?B?V3JTNHp3c3pjVEM5SXhPVlZiNi9kOGhyWXpwbnNWbjE0RXRDeVY2NkZ0MGdu?=
+ =?utf-8?B?ZC9mRHVYbDEzWCtrWW5BenlVNGtHcW5Cc3FQemFmQzNza2I0T0NoNUFsdDR0?=
+ =?utf-8?B?V1RFVkp4TSs4a2tNb3NjR1I0WWNLV012VDJUVng3U284a2MxcmQ0Q29MQVBE?=
+ =?utf-8?B?SGg1RlI0L2UxK2tyUU56blRqRjZ0d2xSNmhMMFpBR3BzQU5rc3IvOFRMWGJa?=
+ =?utf-8?B?b0t0UWNuSFdOYnYzb3Rpc1Bhd0N6dHVzcElzRURNMmZjeUdqL1hvMjE0aWRJ?=
+ =?utf-8?B?SXluWjVvY251OEFUNlF1QjBmS1I4ZU4xUWFWUUNBQnhCRHNRbU45ak5nN3lj?=
+ =?utf-8?B?NFBka3NVRkRxNVlIeDViTWZrcUJEMFA4N2VOYncxT1cyOG5zYllJb3YyV21v?=
+ =?utf-8?B?am9GTjc1VytlNTZnMlJwWFlMd1BZVTVVWmRzNEtPNUtsVVlLNVluMVJ4Wi9K?=
+ =?utf-8?B?YmpVT2FSSXN1VGx4emsvQmN2RnB6eHhRQ3NMclBaczdHS3V0YnZpWlIrU1Mr?=
+ =?utf-8?B?NS9EeVlJaTZMZzMvV2x4NXNZVG9OQ1l4OWxJU3JLNUJtWHl0RGROOVdibnZN?=
+ =?utf-8?B?bklhWjcvT2Q1bjl2cm9QNFFLWkhZd1ErcGFWN05GbUFlV2hMemJUQVN5ZXNw?=
+ =?utf-8?B?RVlPSWxScm1qL1l5aWFkdDlHZXBZUzNqbTQyd0FOU3E0K0VnampCN3F4ZDBZ?=
+ =?utf-8?B?Q2Vid2YxRkpWUU9IMVduWkFUZFdWd3JuYllJRXZtcEdDNUwwZkRqWGhGTExK?=
+ =?utf-8?Q?DySuds3mxq8Xx2+o93CNYO6y3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89d4e307-0529-4ae5-b02c-08dcf538b935
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 21:05:15.5513
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +5yV6eDEyN1qPBwtkOkifU4o355qD6sOsj1X6PSf4uUVBSRtPhWTF0zRBZZ82JKklAj3B/UV87m3Sv5VQ8SYVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9698
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_220313_804791_D575F23E 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20241025_140529_172628_2C3361AB 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,123 +193,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To prepare for the support of TEE remoteproc, create sub-functions
-that can be used in both cases, with and without remoteproc TEE support.
+On Fri, Oct 25, 2024 at 03:48:18PM -0500, Bjorn Helgaas wrote:
+> On Thu, Oct 24, 2024 at 04:41:42PM -0400, Frank Li wrote:
+> > Endpoint          Root complex
+> >                              ┌───────┐        ┌─────────┐
+> >                ┌─────┐       │ EP    │        │         │      ┌─────┐
+> >                │     │       │ Ctrl  │        │         │      │ CPU │
+> >                │ DDR │       │       │        │ ┌────┐  │      └──┬──┘
+> >                │     │◄──────┼─ATU ◄─┼────────┼─┤BarN│◄─┼─────────┘
+> >                │     │       │       │        │ └────┘  │ Outbound Transfer
+> >                └─────┘       │       │        │         │
+> >                              │       │        │         │
+> >                              │       │        │         │
+> >                              │       │        │         │ Inbound Transfer
+> >                              │       │        │         │      ┌──▼──┐
+> >               ┌───────┐      │       │        │ ┌───────┼─────►│DDR  │
+> >               │       │ outbound Transfer*    │ │       │      └─────┘
+> >    ┌─────┐    │ Bus   ┼─────►│ ATU  ─┬────────┼─┘       │
+> >    │     │    │ Fabric│Bus   │       │ PCI Addr         │
+> >    │ CPU ├───►│       │Addr  │       │ 0xA000_0000      │
+> >    │     │CPU │       │0x8000_0000   │        │         │
+> >    └─────┘Addr└───────┘      │       │        │         │
+> >           0x7000_0000        └───────┘        └─────────┘
+> >
+> > Add `bus_addr_base` to configure the outbound window address for CPU write.
+> > The BUS fabric generally passes the same address to the PCIe EP controller,
+> > but some BUS fabrics convert the address before sending it to the PCIe EP
+> > controller.
+> >
+> > Above diagram, CPU write data to outbound windows address 0x7000_0000,
+> > Bus fabric convert it to 0x8000_0000. ATU should use BUS address
+> > 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
+>
+> The above doesn't match what's in patch 1/4, and I think the version
+> in 1/4 is better, so I'll comment there.
+>
+> To avoid confusion, it might be better not to duplicate it in 0/4 and
+> 1/4.
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
----
- drivers/remoteproc/stm32_rproc.c | 82 +++++++++++++++++++-------------
- 1 file changed, 49 insertions(+), 33 deletions(-)
+Yes, cover letter don't come into git tree. This part is common and
+important, It is not good just said ref to patch1 commit message.
 
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 8c7f7950b80e..288bd70c7861 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -209,6 +209,52 @@ static int stm32_rproc_mbox_idx(struct rproc *rproc, const unsigned char *name)
- 	return -EINVAL;
- }
- 
-+static void stm32_rproc_request_shutdown(struct rproc *rproc)
-+{
-+	struct stm32_rproc *ddata = rproc->priv;
-+	int err, idx;
-+
-+	/* Request shutdown of the remote processor */
-+	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
-+		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
-+		if (idx >= 0 && ddata->mb[idx].chan) {
-+			err = mbox_send_message(ddata->mb[idx].chan, "detach");
-+			if (err < 0)
-+				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
-+		}
-+	}
-+}
-+
-+static int stm32_rproc_release(struct rproc *rproc)
-+{
-+	struct stm32_rproc *ddata = rproc->priv;
-+	unsigned int err = 0;
-+
-+	/* To allow platform Standby power mode, set remote proc Deep Sleep */
-+	if (ddata->pdds.map) {
-+		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
-+					 ddata->pdds.mask, 1);
-+		if (err) {
-+			dev_err(&rproc->dev, "failed to set pdds\n");
-+			return err;
-+		}
-+	}
-+
-+	/* Update coprocessor state to OFF if available */
-+	if (ddata->m4_state.map) {
-+		err = regmap_update_bits(ddata->m4_state.map,
-+					 ddata->m4_state.reg,
-+					 ddata->m4_state.mask,
-+					 M4_STATE_OFF);
-+		if (err) {
-+			dev_err(&rproc->dev, "failed to set copro state\n");
-+			return err;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int stm32_rproc_prepare(struct rproc *rproc)
- {
- 	struct device *dev = rproc->dev.parent;
-@@ -519,17 +565,9 @@ static int stm32_rproc_detach(struct rproc *rproc)
- static int stm32_rproc_stop(struct rproc *rproc)
- {
- 	struct stm32_rproc *ddata = rproc->priv;
--	int err, idx;
-+	int err;
- 
--	/* request shutdown of the remote processor */
--	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
--		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
--		if (idx >= 0 && ddata->mb[idx].chan) {
--			err = mbox_send_message(ddata->mb[idx].chan, "detach");
--			if (err < 0)
--				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
--		}
--	}
-+	stm32_rproc_request_shutdown(rproc);
- 
- 	err = stm32_rproc_set_hold_boot(rproc, true);
- 	if (err)
-@@ -541,29 +579,7 @@ static int stm32_rproc_stop(struct rproc *rproc)
- 		return err;
- 	}
- 
--	/* to allow platform Standby power mode, set remote proc Deep Sleep */
--	if (ddata->pdds.map) {
--		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
--					 ddata->pdds.mask, 1);
--		if (err) {
--			dev_err(&rproc->dev, "failed to set pdds\n");
--			return err;
--		}
--	}
--
--	/* update coprocessor state to OFF if available */
--	if (ddata->m4_state.map) {
--		err = regmap_update_bits(ddata->m4_state.map,
--					 ddata->m4_state.reg,
--					 ddata->m4_state.mask,
--					 M4_STATE_OFF);
--		if (err) {
--			dev_err(&rproc->dev, "failed to set copro state\n");
--			return err;
--		}
--	}
--
--	return 0;
-+	return stm32_rproc_release(rproc);
- }
- 
- static void stm32_rproc_kick(struct rproc *rproc, int vqid)
--- 
-2.25.1
+Add do you have addition comment about this and
+https://lore.kernel.org/imx/20241015-pci_fixup_addr-v5-0-ced556c85270@nxp.com/T/#t
 
+The both are the pave the road to clean up pci_fixup_addr().
+
+Frank
+
+>
+> > Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
+> > the device tree provides this information, preferring a common method.
+> >
+> > bus@5f000000 {
+> > 	compatible = "simple-bus";
+> > 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+> >
+> > 	pcie-ep@5f010000 {
+> > 		reg = <0x5f010000 0x00010000>,
+> > 		      <0x80000000 0x10000000>;
+> > 		reg-names = "dbi", "addr_space";
+> > 		...
+> > 	};
+> > 	...
+> > };
+> >
+> > 'ranges' in bus@5f000000 descript how address convert from CPU address
+> > to BUS address.
+> >
+> > Use `of_property_read_reg()` to obtain the BUS address and set it to the
+> > ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
+> >
+> > The 1st patch implement above method in dwc common driver.
+> > The 2nd patch update imx6's binding doc to add fsl,imx8q-pcie-ep.
+> > The 3rd patch fix a pci-mx6's a bug
+> > The 4th patch enable pci ep function.
+> >
+> > The imx8q's dts is usptreaming, the pcie-ep part is below.
+> >
+> > hsio_subsys: bus@5f000000 {
+> >         compatible = "simple-bus";
+> >         #address-cells = <1>;
+> >         #size-cells = <1>;
+> >         /* Only supports up to 32bits DMA, map all possible DDR as inbound ranges */
+> >         dma-ranges = <0x80000000 0 0x80000000 0x80000000>;
+> >         ranges = <0x5f000000 0x0 0x5f000000 0x01000000>,
+> >                  <0x80000000 0x0 0x70000000 0x10000000>;
+> >
+> > 	pcieb_ep: pcie-ep@5f010000 {
+> >                 compatible = "fsl,imx8q-pcie-ep";
+> >                 reg = <0x5f010000 0x00010000>,
+> >                       <0x80000000 0x10000000>;
+> >                 reg-names = "dbi", "addr_space";
+> >                 num-lanes = <1>;
+> >                 interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
+> >                 interrupt-names = "dma";
+> >                 clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
+> >                          <&pcieb_lpcg IMX_LPCG_CLK_4>,
+> >                          <&pcieb_lpcg IMX_LPCG_CLK_5>;
+> >                 clock-names = "dbi", "mstr", "slv";
+> >                 power-domains = <&pd IMX_SC_R_PCIE_B>;
+> >                 fsl,max-link-speed = <3>;
+> >                 num-ib-windows = <6>;
+> >                 num-ob-windows = <6>;
+> >         };
+> > };
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > Changes in v4:
+> > - Fix 32bit build error
+> > | Reported-by: kernel test robot <lkp@intel.com>
+> > | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
+> > - Link to v3: https://lore.kernel.org/r/20241021-pcie_ep_range-v3-0-b13526eb0089@nxp.com
+> >
+> > Changes in v3:
+> > - Add mani' review tag for patch 3,4
+> > - Add varible using_dtbus_info to control use bus range information instead
+> > cpu_address_fixup().
+> > - Link to v2: https://lore.kernel.org/r/20240923-pcie_ep_range-v2-0-78d2ea434d9f@nxp.com
+> >
+> > Changes in v2:
+> > - Totally rewrite with difference method. 'range' should in bus node
+> > instead pcie-ep node because address convert happen at bus fabric. Needn't
+> > add 'range' property at pci-ep node.
+> > - Link to v1: https://lore.kernel.org/r/20240919-pcie_ep_range-v1-0-b3e9d62780b7@nxp.com
+> >
+> > ---
+> > Frank Li (4):
+> >       PCI: dwc: ep: Add bus_addr_base for outbound window
+> >       dt-bindings: PCI: fsl,imx6q-pcie-ep: Add compatible string fsl,imx8q-pcie-ep
+> >       PCI: imx6: Pass correct sub mode when calling phy_set_mode_ext()
+> >       PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
+> >
+> >  .../devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml | 38 +++++++++++++++++++++-
+> >  drivers/pci/controller/dwc/pci-imx6.c              | 26 ++++++++++++++-
+> >  drivers/pci/controller/dwc/pcie-designware-ep.c    | 14 +++++++-
+> >  drivers/pci/controller/dwc/pcie-designware.h       |  9 +++++
+> >  4 files changed, 84 insertions(+), 3 deletions(-)
+> > ---
+> > base-commit: afb15ca28055352101286046c1f9f01fdaa1ace1
+> > change-id: 20240918-pcie_ep_range-4c5c5e300e19
+> >
+> > Best regards,
+> > ---
+> > Frank Li <Frank.Li@nxp.com>
+> >
 
