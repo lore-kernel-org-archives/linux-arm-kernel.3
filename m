@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46694D149EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BA2D149E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKTm4m4xkSSDot5gqGTZZQZNLb6OMOWuE8JyjW0IZZY=; b=yPnHIll3dkib2g7vPDzUIXyNzV
-	uu6v6+HVvGhaikXPNTMN4s+Q/iVzvTVltme0xWHEXeYiiOa9/INH7hwuUABzpaEs6KBafL7hkVDlr
-	QL9K+NuVWWFgizVCGf20o3Gj3iF0bnRAt8U+bRVxtdPhZMWUipA7q416n2bfncl+Km929MbxjNBnY
-	E0SrV2GZ9WJRxEUeq9c4LOH14jNGFGboocI08GYsphHr5ehZx/lmZM+m2RqhCOwaNUtWQiG7OgNRE
-	2WUsnIQDP4Yi3mZQdisMcHnVc8SA5qMJRJl2+1vtXhmHMQxlp4l12GoxJYnw/jcBQnje3M5H0Au6I
-	LeIO07Ig==;
+	bh=03U+X0r3TsTKJK2hDl3YaYsZRpw044pn5Clu5ZhImjs=; b=UdHFx1nWtY+ExtIedCiiRFZi9f
+	0eRQid9AqbJJxJiwFMwH//FX/JC3V9VSFN+AL62P9C1ylJ/lwg52tgIW7m0qbhxEgqHq125SRqFwA
+	6+A2lp7biXefyOhnkQ4ntMuWQYLNdw9gqkMH67L3J4Q1dIQWdURJpq3RhCwSx6K8mNECNbOkxRKc0
+	WLsPxctsX4ppKD7i9yiVCFWMLXXumfsqWe8+rnMD2bbKsIw5NFy7Opxod+29qbdyq+CJtKqPnJanf
+	ZHdEG98Hx9iUU+hGLAS1Yqr8XPBqxrbUn03ygYdOnhsNeJIjdfDTCQhJP9eyJwEDWxKwdeXeBrTLz
+	xi4nRC9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QSC-000000053Uo-1iUH;
-	Fri, 25 Oct 2024 19:58:36 +0000
-Received: from out-175.mta1.migadu.com ([95.215.58.175])
+	id 1t4QVH-000000053nF-1qe3;
+	Fri, 25 Oct 2024 20:01:47 +0000
+Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Oz4-00000004mrw-2eWE
+	id 1t4Oz9-00000004mt3-3Dot
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:24:28 +0000
+	Fri, 25 Oct 2024 18:24:33 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729880664;
+	t=1729880669;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jKTm4m4xkSSDot5gqGTZZQZNLb6OMOWuE8JyjW0IZZY=;
-	b=BHWNcQWPDW1S1mG8FF6FNSbbPA6gMsGUnfLq7qoAakfp3QrKtVLHp1hE4I1Q8Yxn9KyTcM
-	2JrFBBuq3MAwMvrO0NzOxMrDU8WxpP1NrplBleeyITXFegwZruuBZoBhqr003jNmwGgqvl
-	7oHkKhlvePI2uDD92XrZH6d+ZqmjmzI=
+	bh=03U+X0r3TsTKJK2hDl3YaYsZRpw044pn5Clu5ZhImjs=;
+	b=xTAYKlCEg66jYYufMomKCrzMyj9DQx9Do6a7sgFexgRLn5UmntQdu9B+2JAyu980NkxTTF
+	JT/yeQlixu926B6luxvxCjKWN9BRkYg1BNVVMCX1M9rjyjBjnQpj5BuvHCqUpCqlaZ4n5k
+	UspkUBXMQd3g1CUSXuymWm9DzO3CuJ0=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -50,17 +50,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH v4 08/18] KVM: arm64: nv: Reinject traps that take effect in Host EL0
-Date: Fri, 25 Oct 2024 18:23:43 +0000
-Message-ID: <20241025182354.3364124-9-oliver.upton@linux.dev>
+Subject: [PATCH v4 10/18] KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
+Date: Fri, 25 Oct 2024 18:23:45 +0000
+Message-ID: <20241025182354.3364124-11-oliver.upton@linux.dev>
 In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
 References: <20241025182354.3364124-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_112426_844308_158CD130 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20241025_112431_974933_8CF832DA 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,104 +75,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wire up the other end of traps that affect host EL0 by actually
-injecting them into the guest hypervisor. Skip over FGT entirely, as a
-cursory glance suggests no FGT is effective in host EL0.
+MDCR_EL2.HPMN splits the PMU event counters into two ranges: the first
+range is accessible from all ELs, and the second range is accessible
+only to EL2/3. Supposing the guest hypervisor allows direct access to
+the PMU counters from the L2, KVM needs to locally handle those
+accesses.
 
-Note that kvm_inject_nested() is already equipped for handling
-exceptions while the VM is already in a host context.
+Add a new complex trap configuration for HPMN that checks if the counter
+index is accessible to the current context. As written, the architecture
+suggests HPMN only causes PMEVCNTR<n>_EL0 to trap, though intuition (and
+the pseudocode) suggest that the trap applies to PMEVTYPER<n>_EL0 as
+well.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  5 +++++
- arch/arm64/kvm/emulate-nested.c      | 29 ++++++++++++++++++++++++----
- 2 files changed, 30 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/emulate-nested.c | 160 +++++++++++++++++++-------------
+ arch/arm64/kvm/pmu-emul.c       |  18 ++++
+ include/kvm/arm_pmu.h           |   6 ++
+ 3 files changed, 120 insertions(+), 64 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index a601a9305b10..bf0c48403f59 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -225,6 +225,11 @@ static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
- 	return vcpu_has_nv(vcpu) && __is_hyp_ctxt(&vcpu->arch.ctxt);
- }
- 
-+static inline bool vcpu_is_host_el0(const struct kvm_vcpu *vcpu)
-+{
-+	return is_hyp_ctxt(vcpu) && !vcpu_is_el2(vcpu);
-+}
-+
- /*
-  * The layout of SPSR for an AArch32 state is different when observed from an
-  * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
 diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index e1a30d1bcd06..db3149379a4d 100644
+index f9594296d69c..162bddbfbe79 100644
 --- a/arch/arm64/kvm/emulate-nested.c
 +++ b/arch/arm64/kvm/emulate-nested.c
-@@ -20,6 +20,9 @@ enum trap_behaviour {
- 	BEHAVE_FORWARD_READ	= BIT(0),
- 	BEHAVE_FORWARD_WRITE	= BIT(1),
- 	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
-+
-+	/* Traps that take effect in Host EL0, this is rare! */
-+	BEHAVE_IN_HOST_EL0	= BIT(2),
- };
+@@ -110,6 +110,7 @@ enum cgt_group_id {
+ 	CGT_HCR_TPU_TOCU,
+ 	CGT_HCR_NV1_nNV2_ENSCXT,
+ 	CGT_MDCR_TPM_TPMCR,
++	CGT_MDCR_TPM_HPMN,
+ 	CGT_MDCR_TDE_TDA,
+ 	CGT_MDCR_TDE_TDOSA,
+ 	CGT_MDCR_TDE_TDRA,
+@@ -126,6 +127,7 @@ enum cgt_group_id {
+ 	CGT_CNTHCTL_EL1PTEN,
  
- struct trap_bits {
-@@ -2128,11 +2131,19 @@ static u64 kvm_get_sysreg_res0(struct kvm *kvm, enum vcpu_sysreg sr)
- 	return masks->mask[sr - __VNCR_START__].res0;
+ 	CGT_CPTR_TTA,
++	CGT_MDCR_HPMN,
+ 
+ 	/* Must be last */
+ 	__NR_CGT_GROUP_IDS__
+@@ -441,6 +443,7 @@ static const enum cgt_group_id *coarse_control_combo[] = {
+ 	MCB(CGT_HCR_TPU_TOCU,		CGT_HCR_TPU, CGT_HCR_TOCU),
+ 	MCB(CGT_HCR_NV1_nNV2_ENSCXT,	CGT_HCR_NV1_nNV2, CGT_HCR_ENSCXT),
+ 	MCB(CGT_MDCR_TPM_TPMCR,		CGT_MDCR_TPM, CGT_MDCR_TPMCR),
++	MCB(CGT_MDCR_TPM_HPMN,		CGT_MDCR_TPM, CGT_MDCR_HPMN),
+ 	MCB(CGT_MDCR_TDE_TDA,		CGT_MDCR_TDE, CGT_MDCR_TDA),
+ 	MCB(CGT_MDCR_TDE_TDOSA,		CGT_MDCR_TDE, CGT_MDCR_TDOSA),
+ 	MCB(CGT_MDCR_TDE_TDRA,		CGT_MDCR_TDE, CGT_MDCR_TDRA),
+@@ -504,6 +507,34 @@ static enum trap_behaviour check_cptr_tta(struct kvm_vcpu *vcpu)
+ 	return BEHAVE_HANDLE_LOCALLY;
  }
  
--static bool check_fgt_bit(struct kvm *kvm, bool is_read,
-+static bool check_fgt_bit(struct kvm_vcpu *vcpu, bool is_read,
- 			  u64 val, const union trap_config tc)
- {
-+	struct kvm *kvm = vcpu->kvm;
- 	enum vcpu_sysreg sr;
++static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
++{
++	u32 sysreg = esr_sys64_to_sysreg(kvm_vcpu_get_esr(vcpu));
++	unsigned int idx;
++
++
++	switch (sysreg) {
++	case SYS_PMEVTYPERn_EL0(0) ... SYS_PMEVTYPERn_EL0(30):
++	case SYS_PMEVCNTRn_EL0(0) ... SYS_PMEVCNTRn_EL0(30):
++		idx = (sys_reg_CRm(sysreg) & 0x3) << 3 | sys_reg_Op2(sysreg);
++		break;
++	case SYS_PMXEVTYPER_EL0:
++	case SYS_PMXEVCNTR_EL0:
++		idx = SYS_FIELD_GET(PMSELR_EL0, SEL,
++				    __vcpu_sys_reg(vcpu, PMSELR_EL0));
++		break;
++	default:
++		/* Someone used this trap helper for something else... */
++		KVM_BUG_ON(1, vcpu->kvm);
++		return BEHAVE_HANDLE_LOCALLY;
++	}
++
++	if (kvm_pmu_counter_is_hyp(vcpu, idx))
++		return BEHAVE_FORWARD_RW | BEHAVE_IN_HOST_EL0;
++
++	return BEHAVE_HANDLE_LOCALLY;
++}
++
+ #define CCC(id, fn)				\
+ 	[id - __COMPLEX_CONDITIONS__] = fn
  
-+	/*
-+	 * KVM doesn't know about any FGTs that apply to the host, and hopefully
-+	 * that'll remain the case.
-+	 */
-+	if (is_hyp_ctxt(vcpu))
+@@ -511,6 +542,7 @@ static const complex_condition_check ccc[] = {
+ 	CCC(CGT_CNTHCTL_EL1PCTEN, check_cnthctl_el1pcten),
+ 	CCC(CGT_CNTHCTL_EL1PTEN, check_cnthctl_el1pten),
+ 	CCC(CGT_CPTR_TTA, check_cptr_tta),
++	CCC(CGT_MDCR_HPMN, check_mdcr_hpmn),
+ };
+ 
+ /*
+@@ -925,77 +957,77 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_PMOVSCLR_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMCEID0_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMCEID1_EL0,	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMXEVTYPER_EL0,	CGT_MDCR_TPM),
++	SR_TRAP(SYS_PMXEVTYPER_EL0,	CGT_MDCR_TPM_HPMN),
+ 	SR_TRAP(SYS_PMSWINC_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMSELR_EL0,		CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMXEVCNTR_EL0,	CGT_MDCR_TPM),
++	SR_TRAP(SYS_PMXEVCNTR_EL0,	CGT_MDCR_TPM_HPMN),
+ 	SR_TRAP(SYS_PMCCNTR_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMUSERENR_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMINTENSET_EL1,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMINTENCLR_EL1,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_PMMIR_EL1,		CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(0),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(1),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(2),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(3),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(4),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(5),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(6),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(7),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(8),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(9),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(10),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(11),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(12),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(13),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(14),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(15),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(16),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(17),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(18),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(19),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(20),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(21),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(22),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(23),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(24),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(25),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(26),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(27),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(28),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(29),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVCNTRn_EL0(30),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(0),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(1),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(2),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(3),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(4),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(5),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(6),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(7),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(8),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(9),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(10),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(11),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(12),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(13),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(14),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(15),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(16),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(17),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(18),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(19),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(20),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(21),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(22),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(23),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(24),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(25),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(26),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(27),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(28),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(29),	CGT_MDCR_TPM),
+-	SR_TRAP(SYS_PMEVTYPERn_EL0(30),	CGT_MDCR_TPM),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(0),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(1),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(2),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(3),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(4),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(5),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(6),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(7),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(8),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(9),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(10),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(11),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(12),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(13),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(14),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(15),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(16),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(17),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(18),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(19),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(20),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(21),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(22),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(23),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(24),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(25),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(26),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(27),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(28),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(29),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVCNTRn_EL0(30),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(0),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(1),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(2),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(3),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(4),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(5),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(6),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(7),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(8),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(9),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(10),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(11),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(12),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(13),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(14),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(15),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(16),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(17),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(18),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(19),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(20),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(21),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(22),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(23),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(24),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(25),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(26),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(27),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(28),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(29),	CGT_MDCR_TPM_HPMN),
++	SR_TRAP(SYS_PMEVTYPERn_EL0(30),	CGT_MDCR_TPM_HPMN),
+ 	SR_TRAP(SYS_PMCCFILTR_EL0,	CGT_MDCR_TPM),
+ 	SR_TRAP(SYS_MDCCSR_EL0,		CGT_MDCR_TDCC_TDE_TDA),
+ 	SR_TRAP(SYS_MDCCINT_EL1,	CGT_MDCR_TDCC_TDE_TDA),
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index ac36c438b8c1..28f938f145ac 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -265,6 +265,24 @@ void kvm_pmu_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	irq_work_sync(&vcpu->arch.pmu.overflow_work);
+ }
+ 
++bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu, unsigned int idx)
++{
++	unsigned int hpmn;
++
++	if (!vcpu_has_nv(vcpu) || idx == ARMV8_PMU_CYCLE_IDX)
 +		return false;
 +
- 	if (tc.pol)
- 		return (val & BIT(tc.bit));
- 
-@@ -2209,7 +2220,15 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
- 	 * If we're not nesting, immediately return to the caller, with the
- 	 * sysreg index, should we have it.
- 	 */
--	if (!vcpu_has_nv(vcpu) || is_hyp_ctxt(vcpu))
-+	if (!vcpu_has_nv(vcpu))
-+		goto local;
-+
 +	/*
-+	 * There are a few traps that take effect InHost, but are constrained
-+	 * to EL0. Don't bother with computing the trap behaviour if the vCPU
-+	 * isn't in EL0.
++	 * Programming HPMN=0 is CONSTRAINED UNPREDICTABLE if FEAT_HPMN0 isn't
++	 * implemented. Since KVM's ability to emulate HPMN=0 does not directly
++	 * depend on hardware (all PMU registers are trapped), make the
++	 * implementation choice that all counters are included in the second
++	 * range reserved for EL2/EL3.
 +	 */
-+	if (is_hyp_ctxt(vcpu) && !vcpu_is_host_el0(vcpu))
- 		goto local;
- 
- 	switch ((enum fgt_group_id)tc.fgt) {
-@@ -2255,12 +2274,14 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
- 		goto local;
- 	}
- 
--	if (tc.fgt != __NO_FGT_GROUP__ && check_fgt_bit(vcpu->kvm, is_read,
--							val, tc))
-+	if (tc.fgt != __NO_FGT_GROUP__ && check_fgt_bit(vcpu, is_read, val, tc))
- 		goto inject;
- 
- 	b = compute_trap_behaviour(vcpu, tc);
- 
-+	if (!(b & BEHAVE_IN_HOST_EL0) && vcpu_is_host_el0(vcpu))
-+		goto local;
++	hpmn = SYS_FIELD_GET(MDCR_EL2, HPMN, __vcpu_sys_reg(vcpu, MDCR_EL2));
++	return idx >= hpmn;
++}
 +
- 	if (((b & BEHAVE_FORWARD_READ) && is_read) ||
- 	    ((b & BEHAVE_FORWARD_WRITE) && !is_read))
- 		goto inject;
+ u64 kvm_pmu_valid_counter_mask(struct kvm_vcpu *vcpu)
+ {
+ 	u64 val = FIELD_GET(ARMV8_PMU_PMCR_N, kvm_vcpu_read_pmcr(vcpu));
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index e08aeec5d936..e6103df9ef5d 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -96,6 +96,7 @@ int kvm_arm_set_default_pmu(struct kvm *kvm);
+ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm);
+ 
+ u64 kvm_vcpu_read_pmcr(struct kvm_vcpu *vcpu);
++bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu, unsigned int idx);
+ #else
+ struct kvm_pmu {
+ };
+@@ -187,6 +188,11 @@ static inline u64 kvm_vcpu_read_pmcr(struct kvm_vcpu *vcpu)
+ 	return 0;
+ }
+ 
++static inline bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
+ #endif
+ 
+ #endif
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
