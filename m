@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9B1D0C5F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97979D0C5F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/fMOoodbMzbwIVhNycuTPYQFdigoQOM3R/xwLCJOkg=; b=STmuYkWgbUDGcg2JYt91fMsn7u
-	7N5c8oR8v1mH1OSTS4v4yLGkj+87CNn3ZCacgXNDqb4DWd/VkwNzUtQnlGostEUiZu0vEUPRRwXTr
-	hwET76DPN8OYjc8gVB8FuvPKoBQ7SEZ0SxF+2cgg/dSwIU0+kHbj/56khMkDBcZ4Bf5LoI/+pt1Jo
-	4it4hl4eLjgJOGdXC4Ox67ZafukOEB3r6bTAFn+g371Aznrgg8rAYJwuolg+rDcNJzMtgu0nkO/sh
-	EjYRS/wY+F0RZVEjOa3dKiJaEJHBL821TPqa8Gc81PE5ToGTyiXl7LC6goc/0xP7sKQ4PAZx7ykTW
-	TxvjpLfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tuqhWRYGgjjam9B7W2GUDM6P6BKsivvZeF6kAk9BsZY=; b=3NuA2UKNua87bZ/bKP0ItG407R
+	Ti2BsAVFsGD0Cpl5dVBAUXb+SQzYJkpn+CooUBqMZYg/REqzEoX+DMbCLK+2+WSHsGZabvIEZ+glD
+	qDuc2Rb+kUi2XaaGndP+Xt33ouSMb03NZVmCce8BlL9V/ebKAbJXvs0jHEnzfg2D6BgDXeBQ7Ek3F
+	Wx2Jl27cASV8oBRzs1APWuhFnL6VJKTWXMFpWqMBx00PF0hXx5LWkG9aRyY4Y7Vq2RYHHR2Doiyv3
+	oGfEkwW3M4JRZbfAuM6TmoRNtXsjAIto2SPxbJhn0f8C4EWV4+UQ6cVDRRc50gWSxWwTYDdbUw58d
+	gw6sBOxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Gf4-00000003B9l-3z4R;
-	Fri, 25 Oct 2024 09:31:14 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1t4GiW-00000003Bgk-05pV;
+	Fri, 25 Oct 2024 09:34:48 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FOu-00000002w53-3Lck
+	id 1t4Ggu-00000003BO1-3DgB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:10:31 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2fb5111747cso17304231fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 01:10:28 -0700 (PDT)
+	Fri, 25 Oct 2024 09:33:10 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e389169f92so36562927b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 02:33:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1729843826; x=1730448626; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J/fMOoodbMzbwIVhNycuTPYQFdigoQOM3R/xwLCJOkg=;
-        b=W44qtvErFb62lUoCro3pu0r/lvRvmYxMsmR24lD6Tq49gC35QpEXxxp89XJ9ql/xaj
-         a3iM2mWbEFk8KeDkPMulUpOs6qe6D4QgqY/kzXNXxcvF4sXR8gj8MOKEsRHkhPCMNW3g
-         VuCM9sQSIjG6meoG6u75lJO4/WiPc3CANARMczfFMQWkO5JRb0kB1z8QGsaPuqVvRAFm
-         m/UAvpRkqTZ1eJc3U97vSc4jaQwzpEOZyckTx69weqpqSKTSK651sbk8SWnwQ5YATg6o
-         nhEO+eXR8E0tmwoZPmWJBqKUs0W73qsRwUZbuCi8t7Ja93ZrzzyKWb0jP21663J+pEr3
-         DavA==
+        d=google.com; s=20230601; t=1729848786; x=1730453586; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=tuqhWRYGgjjam9B7W2GUDM6P6BKsivvZeF6kAk9BsZY=;
+        b=KsTga0VcD7rCdGLyY2ZhMmQg8CCZ1hpsp4wbk7Cy0MZiAXdlXMpQTxCJ6iohZ8pCPz
+         9Lq0RNnwFcliEfX8bcgI/24xfuKyHeokhLe1Nu+vx59OfNAeiniHYjRa/+FYGpxe6TRl
+         IwrbM+4xwZGznObuOXDW+W0A/Vl619VYM+bdrtxpRCBj/lAp23HP9GnKUHSSZnDHMGVx
+         OkS8MJrZbEw8xoCebHGE0dVAIjXiuHZpIJv9u94wZrG1rguincJ0YGN1kc+WK2YTRAvR
+         lQ/QvCk4GMSPMEY54IpLsvkqu3q1I1ocKqrz9s3xd8MtqtwD2iY5C8Lm6WwIDU6TSwVf
+         g9iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729843826; x=1730448626;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J/fMOoodbMzbwIVhNycuTPYQFdigoQOM3R/xwLCJOkg=;
-        b=GB/UmBj/Q+fbynon2Zsgr3iomj/L3UVnc9pvCxgZwXQamsP7bkE1PR9Y47Ugmh0uxP
-         0diIxWcCl984F2NQEu+NwlxFRn+/sxptpwkb4/YCSyhgQR4irjTN4z6oTQglcqPnN+za
-         DLY92WTkr2sBNMe3VEmtgoqqMNEYgAakIAsEf8yhYRuyCIvoJxktAe2a8peZJT5frRAP
-         2GeEoAUFNuyHUYWYH4xtYmrY03oVzGXuN1v0upIB/LMYBMtenaCXcE5Eeqy11uoZvrU9
-         k22V1CSfxvNbiemWwoqY3MDIWp5cot5f2xRCiBoVlYNKvl9GcOuW/c0ZqCIDn8S7U4Ci
-         Sokg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4JCknEgNEK6whtLec+rkEOXdS9Th586aZvlbBE1IskHAV/miOhX8IIufSdwNMCal96caTKvnPQaAx95LUId+E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzisPB88LxmacgbACZRkHfl954s4C8kBG6pdhImNDuYP+uWR0P/
-	hLzdzM7VX3lw1ZkrOJ0qGtEdQ0Mdd+/VgFMEMKWSy8BB/UMwLrayYzAxt61Zm5A=
-X-Google-Smtp-Source: AGHT+IFbMHt8LG7ynfMpwb1jF4aZ4NwAbHonDNawD4VDZMCWmBcTP0Lt3O+sjbBuFgQju/DrJheDFw==
-X-Received: by 2002:a05:651c:198c:b0:2fc:97a8:48f9 with SMTP id 38308e7fff4ca-2fc9d35a491mr51172391fa.19.1729843826415;
-        Fri, 25 Oct 2024 01:10:26 -0700 (PDT)
-Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431935f6e47sm10446295e9.38.2024.10.25.01.10.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 01:10:25 -0700 (PDT)
-Date: Fri, 25 Oct 2024 10:10:24 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Guenter Roeck <linux@roeck-us.net>, 
-	"jdelvare@suse.com" <jdelvare@suse.com>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>, 
-	"linux-hwmon@vger.kernel.org" <linux-hwmon@vger.kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>, 
-	BMC-SW <BMC-SW@aspeedtech.com>
-Subject: Re: [PATCH v1 0/2] Enable WDT reload feature
-Message-ID: <6hkiqbgqkpdlr5f27drs7vcee7pb2uahek4zz5pd5ndativk53@42otb625deil>
-References: <20241024071548.3370363-1-billy_tsai@aspeedtech.com>
- <nm4ckxv6swajr6hnqlkq5uoo6ncjzlg6yfxroftat6dubiefyi@xbhi4dvqacxm>
- <ea1be8af-0948-46b1-a1f4-fe572861cde4@roeck-us.net>
- <OSQPR06MB72529E67E67D0D07E59AF1C08B4F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="irgwyxo4ns45vjjz"
-Content-Disposition: inline
-In-Reply-To: <OSQPR06MB72529E67E67D0D07E59AF1C08B4F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
+        d=1e100.net; s=20230601; t=1729848786; x=1730453586;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tuqhWRYGgjjam9B7W2GUDM6P6BKsivvZeF6kAk9BsZY=;
+        b=CNRN+8fVByl2nbS/UlbZuL+ghkStn374NlmGK1kXPrjBEj0p80b+nCXZLzq22ahoJb
+         8shcPG7qxvwjwjZ6Iqy/7hYLrBaOORi7n9VUe0WaIFXam2KHaBHmtO0ug1ZFLhOHCmP+
+         gjx2bfyHsUMytgkyJZZtbQ0HElzIJ12RA4fdAKT875PKOPSsWoM05ueGo2PrDA1wxGu1
+         yHgJHyAZYR9vmICSU64O8vb3zFdFVIY2vxnCWbAt8JbPz1TgFtShO95YmuOptxqJ1KDW
+         dYOAMqK2RKywdoFw+6lXbQebPpW00iwqrrXPcyimGEe5DrphOg6BjfTDZinG0SaKXotj
+         x8FA==
+X-Forwarded-Encrypted: i=1; AJvYcCXasqDf7JoJL1UWSwo8FDEgvRqhTyuVSpn2urElbDhN5B5fBSe1uA0ImzTiT6NzWXm5selhLQFtlyVEoZRlr2jd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPr1LW3LfeCv0hiMwA6jFJ1UcRywDY+Dm+o1HPfEyb98JnO+mF
+	YO2Aeg2USnLQlP1nkZdbj838Sqy/ci/Q/F/ltDpu6Km/mIbuX3x0cPlRJxvtXtyzNQkwsptlUTc
+	qyOkAD68xxg==
+X-Google-Smtp-Source: AGHT+IECH9pM1rudCKXymTwKhtnM/AU69iz4LBnNjtGpR3vZzl1lATWUss0Na2UGHQecUxyzkYn2RvfW2Hppzw==
+X-Received: from mostafa.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:333c])
+ (user=smostafa job=sendgmr) by 2002:a05:690c:296:b0:68d:52a1:be9 with SMTP id
+ 00721157ae682-6e858147b16mr1078977b3.1.1729848786167; Fri, 25 Oct 2024
+ 02:33:06 -0700 (PDT)
+Date: Fri, 25 Oct 2024 09:32:59 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+Message-ID: <20241025093259.2216093-1-smostafa@google.com>
+Subject: [PATCH v3] Documentation: Update the behaviour of "kvm-arm.mode"
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: corbet@lwn.net, Mostafa Saleh <smostafa@google.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_011029_063275_7DBACAB7 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20241025_023308_847275_CA7117FA 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,90 +88,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
+VHE support") modified the behaviour of "kvm-arm.mode=protected" without
+the updating the kernel parameters doc.
 
---irgwyxo4ns45vjjz
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 0/2] Enable WDT reload feature
-MIME-Version: 1.0
+Update it to match the current implementation.
 
-Hello Billy,
+Also, update required architecture version for nested virtualization as
+suggested by Marc.
 
-On Fri, Oct 25, 2024 at 02:00:39AM +0000, Billy Tsai wrote:
-> > On 10/24/24 08:40, Uwe Kleine-K=C3=B6nig wrote:
-> > > On Thu, Oct 24, 2024 at 03:15:46PM +0800, Billy Tsai wrote:
-> > >> Aspeed PWM controller has the WDT reload feature, which changes the =
-duty
-> > >> cycle to a preprogrammed value after a WDT/EXTRST#.
-> > >>
-> > >> Billy Tsai (2):
-> > >>    hwmon: (aspeed-g6-pwm-tacho): Extend the #pwm-cells to 4
-> > >>    hwmon: (aspeed-g6-pwm-tacho): Support the WDT reload
-> > >
-> > > Huh, I'm not convinced that extending #pwm-cells for that feature is a
-> > > good idea. Unless I'm missing something none of the other supported P=
-WM
-> > > chips can do that, so I hesitate to change a standard for it. I sugge=
-st
-> > > to make this a separate property instead.
->
-> Using a separate property to enable this feature is a straightforward
-> method, but I don=E2=80=99t understand why extending #pwm-cells isn=E2=80=
-=99t a good
-> idea in my situation. The feature =E2=80=98WDT reload=E2=80=99 can be set=
- for
-> individual PWM channels, and the PWM subsystem has the of_xlate
-> callback hook, which allows each driver to define its arguments for
-> the PWM consumer. I=E2=80=99m unsure if I misunderstood this callback usa=
-ge,
-> as I couldn=E2=80=99t find examples. If my understanding is correct, this
-> method is better for adding our specific feature, rather than using
-> child nodes or separate properties to indicate which PWM channel
-> should enable this feature with the corresponding duty cycle values. I
-> think using separate properties to achieve this feature would be quite
-> cumbersome.
-> As I know the arguments for this usage are as follows:
-> First: PWM channel index
-> Second: PWM period in ns
-> Third: PWM polarity
-> Therefore, I extended our feature to a fourth argument to avoid any confu=
-sion regarding usage and added the description in our yaml file.
->=20
-> If my thinking is incorrect or doesn=E2=80=99t make sense, please let me =
-know.
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
 
-It might make sense if your bubble only contains that single PWM
-hardware. However if you extend the pwm cells semantic for your PWM to
-mean "period if the PWM watchdog triggers", i can hardly refuse the next
-developer who wants to extend for "period of the secondary output pin of
-the PWM" or a step counter or some property that defines how the duty
-cycle is modulated over time. And should the next one also use the 4th
-u32 for his purpose, or should we consider it reserved now for your
-purpose such that the duty_cycle modulation goes into the 7th cell?
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-Today the bindings are (well nearly) used in the same way for all
-hardwares and I want to keep it that way. If your PWM has a special
-feature, give it a speaking name that the occasional dts reader has a
-chance to understand without reading HW docs or dt bindings.
+---
+v3: Reword as Marc suggested.
 
-Best regards
-Uwe
+v2: Update nested value also
+---
+ Documentation/admin-guide/kernel-parameters.txt | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
---irgwyxo4ns45vjjz
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 1518343bbe22..ed92e207e9a0 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2740,17 +2740,21 @@
+ 			nvhe: Standard nVHE-based mode, without support for
+ 			      protected guests.
+ 
+-			protected: nVHE-based mode with support for guests whose
+-				   state is kept private from the host.
++			protected: Mode with support for guests whose state is
++				   kept private from the host, using VHE or
++				   nVHE depending on HW support.
+ 
+ 			nested: VHE-based mode with support for nested
+-				virtualization. Requires at least ARMv8.3
+-				hardware.
++				virtualization. Requires at least ARMv8.4
++				hardware (with FEAT_NV2).
+ 
+ 			Defaults to VHE/nVHE based on hardware support. Setting
+ 			mode to "protected" will disable kexec and hibernation
+-			for the host. "nested" is experimental and should be
+-			used with extreme caution.
++			for the host. To force nVHE on VHE hardware, add
++			"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" to the
++			command-line.
++			"nested" is experimental and should be used with
++			extreme caution.
+ 
+ 	kvm-arm.vgic_v3_group0_trap=
+ 			[KVM,ARM,EARLY] Trap guest accesses to GICv3 group-0
+-- 
+2.47.0.163.g1226f6d8fa-goog
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcbUm0ACgkQj4D7WH0S
-/k669AgAm/vnBOGdRCsvDuzdHkwBbJUkiJHDGNT3nBEs43lY8F0I4G3bDEdGMfgj
-Z1EBM6cL0h4BPVxR4vaUd/R8xTuRMkgU5EZy5ic0U+j3KozA6bnYqXuBfUy1VCjL
-emUvBEdX7dN2TS2lWnNh/yRpy2IDNYkOEU2ffBGjX1s9xQtVHhtY2yUt3/t7cJwG
-HBaMhXhaZD2eUNuhuT5zxW8GA8yiF048vzqIfbBnh7bCqfY7i9XcLQKKcYpOdZ8E
-BJ3DF5SRcAv56F0PfkA25qr15QRvzUOt64dNKSVL38Cn7LH4joP2/UtdvjqWlCQm
-ytZRxFf+CRo6WHEyCrs0X3asdsChAQ==
-=4H4I
------END PGP SIGNATURE-----
-
---irgwyxo4ns45vjjz--
 
