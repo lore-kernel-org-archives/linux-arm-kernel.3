@@ -4,75 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41AE3D0C5E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63DEFD0C5E5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2j1ysutg3cnHoTWvHlkrQi7vCOZRJv4lGXLirJf29A=; b=DOGyyIkoSnmGPEGtscb3Rz4iaY
-	wRk3NDAVSdl3GP7O8MX1tDfB4RKR1jC2rB3TySaSoylCcU8ZoCk4q2qAFWGeN613O+RoYBSQr1twO
-	w3zMYDCKWKsoM23+3fMyHIF8+3/uGVpLI6F0MYm2gkUYn1RbZa9RzV9tB5zQAiml+2ycQxfKHF7s+
-	1BSvP5XYAg3hstK8kJ7OJwdnR8NhQ8+vg+sJakvTVuZH0V8cNmF5ww8x2enHX1NKXIWfnJG+EqRRv
-	I79VzM/AmpHugj3VQlQmtO3nSFS/zi+B5lGbcISgDWgExyXM/pQFArO/wjqHVvObZSzmM9XW4+Q+I
-	IO0bAOXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKQtKEQ691WB5aL1CY9xzFRryNO/YNcfGDP3okJsWkk=; b=VjLCY0lJxnP8FoIf2s+GRn4CFx
+	QhonwHXqwSTVGdLfYBUEKkWGn+vw8MrgOjvvXrq+jxlhrtSM1j1LuRfdNed/+c/HiMwOAsHxRucoL
+	AU3tuJnAzCfMxLSo4ju98AQrqZyPn0evdZJmKIxlbCwX9RCXf3UsGGirQAUeQKTfUOmyMR0RzKATu
+	LPw5X1egcQZ6I3697GxYMHSJpunl6fJyZKux/t5uTYRbiP0SC0Ow18PFMs9ZFqH4xQT5iEChx2fXA
+	ND2hkPXwp8MtW7AWYQIm/e90xo2KIKdVRBcizUurshmZnNtNjQb3mVw86q625SDMZEP6KUT/TWwnw
+	YevX3LAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Ffk-00000002ydI-0gt1;
-	Fri, 25 Oct 2024 08:27:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4FiG-00000002z6b-1Rky;
+	Fri, 25 Oct 2024 08:30:28 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fcw-00000002yLp-32t2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 08:24:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Q2j1ysutg3cnHoTWvHlkrQi7vCOZRJv4lGXLirJf29A=; b=TG+ihTtsZXENyZA2bFnHGqZJKw
-	gosT2YQ8pOv0djbFRqaUhcquXeRck+tBsA162x5boTLpsl1ERi5p8Iic6GBZc2YwVtJhxQ3HBgqkY
-	xtLotwwPCTQOcddCupdMhfUL1qKYoB8hUoSp5X9ulDccgLOH/WnI2HoJJojrn6qpaMgkbxc4dA6Ok
-	T3YM2ipgHrALiAsFs3Fahlp+kg4NeNZEhAsj9WPUXXrvqdFcbhj3z2JHyXIfmhfCUR1tBdhYSx1bD
-	bEC1T0xvQAmzlWYU7C2YXJ5YfSH+o2EagKe1i3WjWIp5XME2US7wCE9FiFGV0AxQYR+SOUjwkGWJt
-	S0pJUPRg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fcq-00000008rne-24gw
+	id 1t4Fge-00000002ysu-2fUU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:24:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44C32339;
-	Fri, 25 Oct 2024 01:25:16 -0700 (PDT)
-Received: from [10.57.66.80] (unknown [10.57.66.80])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4033F3F73B;
-	Fri, 25 Oct 2024 01:24:43 -0700 (PDT)
-Message-ID: <d7d00ffc-2e92-46cb-95c2-c877723bcb5d@arm.com>
-Date: Fri, 25 Oct 2024 10:24:41 +0200
+	Fri, 25 Oct 2024 08:28:50 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a9a16b310f5so262451566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 01:28:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1729844926; x=1730449726; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GKQtKEQ691WB5aL1CY9xzFRryNO/YNcfGDP3okJsWkk=;
+        b=CyBflWNmr5ld+nRZ2DMa3seyHUUUCmXAfqZUMMuiLQ3gESlH0tGAbb2hph5n+5rpeG
+         G3AEAMwlkqkxN/nynySj+K4FBGobDZ5E84gdxwhfxnLLQ8BS3/gS+WFRqn8JlOSjT0+B
+         oj651hDbId020HDN6ZI9IR1NhUpJgoVIxtvVn8ViIXYLoeu1UdrDxCiTJxUxg7/VHupz
+         dW40V6IuAKl1gExq7wZ64OiJBQ3hQ/BW74vOPSc7UxWoQR4+il54i0GaVT2r+TCT5IOd
+         5QbJDJ/GdA2wYF0sxx6oxUk8Na3DQSRt2grNe6doHmpW5yuibUCaFx/lSGfMT+ceTbRo
+         LufA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729844926; x=1730449726;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GKQtKEQ691WB5aL1CY9xzFRryNO/YNcfGDP3okJsWkk=;
+        b=fRd1QdLNBmfYHkOGC43FCmALr/IfX/SX8FiVAnH9MQzSoA0hs1aYdqFvNlBq7llnhA
+         E9EP7Y/FcNAyLr3fwkDa9ot750dBLPbp3lJ12a1xy1IguD0Vp+TAlecHXAkd5xAiNcGa
+         mvbQOnB7hu8VUD7T2POEJwyr9NK017pmKiZ3B4UFf7WoUijGBGf1x/edhpjSBfeENgyf
+         xQePGwDKmVREV2qRtQZuJzYaKba8BGa3/5pAuUdnTPYsDH7zsLLzWEnsw5NrEUhpNKVs
+         +X3zVx1Po91pioM1MPCLUeoT4nnIb5RPaZHiiDqDQgdBOfjuoljGRtYCLiE0XwJNaTl1
+         yigQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZRG/oR/+eUn3rcKiUcasBLS+buDHej0KNZnp6g4fhMZWd6J6yAajdlJmbu1AFgxAF2zAv5lPqR5SKcIPglrup@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcMGZgNduqyM4vKR+rzplyztWJmS9cDJiqCGvv6uvc6Z7jU4ko
+	ckTl9cY3qvckwuYGeATiK+6nTvJast7djR1svOQy9mmQ7tiT+agXFYjprYyS7O8=
+X-Google-Smtp-Source: AGHT+IEKAsvpP2dybXSJ7Ofjl3bCLXFPuuy1eHgZQTXd9CLcGnC5HYUafi69GsS8vo706m6wGKRfWw==
+X-Received: by 2002:a17:907:9406:b0:a99:e850:deb3 with SMTP id a640c23a62f3a-a9abf890eaamr841444666b.18.1729844925999;
+        Fri, 25 Oct 2024 01:28:45 -0700 (PDT)
+Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb62c803asm391336a12.56.2024.10.25.01.28.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 01:28:45 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Fri, 25 Oct 2024 10:29:07 +0200
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v2 11/14] misc: rp1: RaspberryPi RP1 misc driver
+Message-ID: <ZxtW0z7-JaK3dWdQ@apocalypse>
+References: <cover.1728300189.git.andrea.porta@suse.com>
+ <c5b072393d2dc157d34f6dbeff6261d142d4de69.1728300190.git.andrea.porta@suse.com>
+ <CAPY8ntC0B0RdNmvGMaDcp-p9gZOcWBbeC6BjbcihrijRXjRVkA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
- uaccess failures
-To: Dave Martin <Dave.Martin@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
- anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org,
- dave.hansen@linux.intel.com, jeffxu@chromium.org, joey.gouly@arm.com,
- pierre.langlois@arm.com, shuah@kernel.org, sroettger@google.com,
- will@kernel.org, linux-kselftest@vger.kernel.org, x86@kernel.org
-References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
- <20241023150511.3923558-4-kevin.brodsky@arm.com> <ZxoooqtuqTK5CAMR@arm.com>
- <80688edf-83dd-43c6-a1a8-b69acd30f5c3@arm.com> <Zxpq0k3b9q8nWrYa@arm.com>
- <ZxpzexqNIfys3MnJ@e133380.arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <ZxpzexqNIfys3MnJ@e133380.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAPY8ntC0B0RdNmvGMaDcp-p9gZOcWBbeC6BjbcihrijRXjRVkA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_092454_931938_48AB1CDD 
-X-CRM114-Status: GOOD (  31.00  )
+X-CRM114-CacheID: sfid-20241025_012848_699854_2CD2885F 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,117 +120,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2024 18:19, Dave Martin wrote:
-> On Thu, Oct 24, 2024 at 04:42:10PM +0100, Catalin Marinas wrote:
->> On Thu, Oct 24, 2024 at 04:55:48PM +0200, Kevin Brodsky wrote:
->>> On 24/10/2024 12:59, Catalin Marinas wrote:
->>>> On Wed, Oct 23, 2024 at 04:05:09PM +0100, Kevin Brodsky wrote:
->>>>> +/*
->>>>> + * Save the unpriv access state into ua_state and reset it to disable any
->>>>> + * restrictions.
->>>>> + */
->>>>> +static void save_reset_user_access_state(struct user_access_state *ua_state)
->>>>> +{
->>>>> +	if (system_supports_poe()) {
->>>>> +		/*
->>>>> +		 * Enable all permissions in all 8 keys
->>>>> +		 * (inspired by REPEAT_BYTE())
->>>>> +		 */
->>>>> +		u64 por_enable_all = (~0u / POE_MASK) * POE_RXW;
->>>> I think this should be ~0ul.
->>> It is ~0u on purpose, because unlike in REPEAT_BYTE(), I only wanted the
->>> lower 32 bits to be filled with POE_RXW (we only have 8 keys, the top 32
->>> bits are RES0). That said, given that D128 has 4-bit pkeys, we could
->>> anticipate and fill the top 32 bits too (should make no difference on D64).
->> I guess we could leave it as 32-bit for now and remember to update it
->> when we enable more keys with D128. Setting the top RES0 bits doesn't
->> hurt either since they are already documented in the Arm ARM. Up to you,
->> it's fine like above as well.
-> Can we maybe just have a brute-force loop that constructs the value
-> using the appropriate #define macros?
->
-> The compiler will const-fold it; I'd be prepared to bet that the
-> generated code would be identical...
+Hi Dave,
 
-Fine by me, I suppose I was too eager to use the one-liner I had found
-:) Building that value based on arch_max_pkey() is probably a better
-idea in the long run. (And indeed the codegen is the same, it boils down
-to a mov w0, #0x77777777 in both case.)
+On 16:21 Thu 24 Oct     , Dave Stevenson wrote:
+> Hi Andrea
+> 
+> On Mon, 7 Oct 2024 at 14:07, Andrea della Porta <andrea.porta@suse.com> wrote:
+> >
 
->>>>> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
->>>>>  {
->>>>>  	struct pt_regs *regs = current_pt_regs();
->>>>>  	struct rt_sigframe __user *frame;
->>>>> +	struct user_access_state ua_state;
->>>>>  
->>>>>  	/* Always make any pending restarted system calls return -EINTR */
->>>>>  	current->restart_block.fn = do_no_restart_syscall;
->>>>> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
->>>>>  	if (!access_ok(frame, sizeof (*frame)))
->>>>>  		goto badframe;
->>>>>  
->>>>> -	if (restore_sigframe(regs, frame))
->>>>> +	if (restore_sigframe(regs, frame, &ua_state))
->>>>>  		goto badframe;
->>>>>  
->>>>>  	if (restore_altstack(&frame->uc.uc_stack))
->>>>>  		goto badframe;
->>>>>  
->>>>> +	restore_user_access_state(&ua_state);
->>>>> +
->>>>>  	return regs->regs[0];
->>>>>  
->>>>>  badframe:
->>>> The saving part I'm fine with. For restoring, I was wondering whether we
->>>> can get a more privileged POR_EL0 if reading the frame somehow failed.
->>>> This is largely theoretical, there are other ways to attack like
->>>> writing POR_EL0 directly than unmapping/remapping the signal stack.
->>>>
->>>> What I'd change here is always restore_user_access_state() to
->>>> POR_EL0_INIT. Maybe just initialise ua_state above and add the function
->>>> call after the badframe label.
->>> I'm not sure I understand. When we enter this function, POR_EL0 is set
->>> to whatever the signal handler set it to (POR_EL0_INIT by default).
->>> There are then two cases:
->>> 1) Everything succeeds, including reading the saved POR_EL0 from the
->>> frame. We then call restore_user_access_state(), setting POR_EL0 to the
->>> value we've read, and return to userspace.
->>> 2) Any uaccess fails (for instance reading POR_EL0). In that case we
->>> leave POR_EL0 unchanged and deliver SIGSEGV.
->>>
->>> In case 2 POR_EL0 is most likely already set to POR_EL0_INIT, or
->>> whatever the signal handler set it to. It's not clear to me that forcing
->>> it to POR_EL0_INIT helps much. Either way it's doubtful that the SIGSEGV
->>> handler will be able to recover, since the new signal frame we will
->>> create for it may be a mix of interrupted state and signal handler state
->>> (depending on exactly where we fail).
->> If the SIGSEGV delivery succeeds, returning would restore the POR_EL0
->> set up by the previous signal handler, potentially more privileged. Does
->> it matter? Can it return all the way to the original context?
+...
 
-What we store into the signal frame when delivering that SIGSEGV is a
-mixture of the original state (up to the point of failure) and the
-signal handler's state (what we couldn't restore). It's hard to reason
-about how that SIGSEGV handler could possibly handle this, but in any
-case it would have to massage its signal frame so that the next
-sigreturn does the right thing. Restoring only part of the frame records
-is bound to cause trouble and that's true for POR_EL0 as well - I doubt
-there's much value in special-casing it.
+> > +static const struct pci_device_id dev_id_table[] = {
+> > +       { PCI_DEVICE(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0), },
+> > +       { 0, }
+> > +};
+> 
+> You need a
+> 
+> MODULE_DEVICE_TABLE(pci, dev_id_table);
+> 
+> here in order to load the module for the cases where it isn't
+> built-in. Otherwise you have to manually modprobe the module.
 
->
-> That seems a valid concern.
->
-> It looks a bit like we don't back out the temporary change to POR_EL0
-> if writing the sigframe fails, so the temporary "allow all" perms might
-> get saved out into the SIGSEGV sigframe on the alternate signal
-> stack, and will then be restored as the user thread's POR_EL0 when the
-> SIGSEGV returns.
+Sure, thanks for the heads up!
 
-It sounds like you're referring to the delivery case, not the return
-case. In the delivery case (setup_rt_frame()), the "allow all" value
-will never be saved into the sigframe because we call
-restore_user_access_state() if anything failed (this is new in v2,
-exactly to prevent that scenario).
+Regards,
+Andrea
 
-Kevin
+> 
+> Cheers.
+>   Dave
+
+...
 
