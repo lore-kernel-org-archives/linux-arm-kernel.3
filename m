@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED190D149F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DECD149F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pmMrJRYzrtx0eulT7RJiLZMuZUhbX4LJa/Dc4U1fcrE=; b=OV4q7HH2+mKuoGo+M3BljOGaY4
-	Z0tgmVt83ppCyEveoOp5ujuFFVYeGBgI08vv4Lz6L72GHH4nVB3qCo8ZuasDSWX7DD7lXLcOMuKl9
-	Iz54rvnV/YNfEUNspN6OnLzXKWATkRcW/cvMigqtjT4lpLSrHxkRPFuIC7wzQ9UhZnTzy5CrdUOHk
-	/GRbuMnst0XB72zrNv27ZjozWCjRcEiXxBDhnku5nJjLCR0epkTJZ+X2tzKjg68aEQ5PO8pssam+d
-	FRwJoBfzqCMQoFRDUV4HdRGQEU58f2WbpsnxLhNObCe9yh3ckdrLziDlo9ABX3utevxbCsvzduXDn
-	+WXJJwKg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=SiRqgI7Zfaex7nI3vRv5r+pM9CxakGyUF9M8Ufw1xZE=; b=n699gt+oHLbyY1
+	I43v0SAE/nwFLC+DYwgFF2vdlTCjjIGygXoVv4r3GkamnjuNm+lKo4VWAPbCTiIrph5l4T2biWiQI
+	PBnrMrmtoIkAO7PfE9OUEJ5txig969Ht1aulIvxP9D5u7E0Ddk4/j9NfAMoc+Pjt5jq6v86S8HkSA
+	48jvh0uuvD63t+f52XNorwmWVE8zr3gAfaO5mi4H6jVvry4/VCxb7a/jmaLV8HPxzw8b/+3yYkJBe
+	Qyqgs1KOAJUWcexf+s9bj+F3zJ7cOP7lTmfwVxzDSqNE/0bdpFVvTd1nIigtkuxUmtij2PU5v9wXC
+	IumohMJ/cIx+b08Rgm6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4St0-00000005S6p-14Ns;
-	Fri, 25 Oct 2024 22:34:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t4SuY-00000005SLp-1Dzt;
+	Fri, 25 Oct 2024 22:36:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4SqY-00000005RXY-3YR2;
-	Fri, 25 Oct 2024 22:31:56 +0000
+	id 1t4SrH-00000005Rjk-1eyt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 22:32:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D6DF5C51BA;
-	Fri, 25 Oct 2024 22:31:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE278C4CEC3;
-	Fri, 25 Oct 2024 22:31:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3FEB7A44B88;
+	Fri, 25 Oct 2024 22:30:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B7A4C4CEC3;
+	Fri, 25 Oct 2024 22:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729895514;
-	bh=mVLVxjwpOT42Kb7f4O3vXqKoUSnuXxrku5/kKxjIyIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=de2ooFjpzQqfyvs6eWpep/LU6bZMauqxFRrPPIOcoo6RLnaqtZhiBAtYfGHHWnscC
-	 dF2y5c896ibxWAiYOAVTj7IgcnlKP5L75BhK0Tc8wjgHsq9xSq4k1kTDEtU1VCVpVV
-	 KnGgdBnEQWIoO/2j34UM4IMNdYaajjOueVlox5Cf9Q4R746AKJSlNaQMSFchAMua3K
-	 xtNbR4CRre/5BmANz4U4u0zWkBsw0zpk3Hxas9iQsUUMtnzMnCcn+DJ54uFulKs2BJ
-	 SwTm/+DeTIx0AxPhIDiLCAroqEegH6HVTKiWTZ/RBPNhDys5MIq020g5RWnq0r3QWN
-	 +fqhDOV967kMA==
-Date: Fri, 25 Oct 2024 22:31:52 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 03/18] lib/crc32: expose whether the lib is really
- optimized at runtime
-Message-ID: <20241025223152.GC2637569@google.com>
-References: <20241025191454.72616-1-ebiggers@kernel.org>
- <20241025191454.72616-4-ebiggers@kernel.org>
- <CAMj1kXFoer+_yZJWtqBVYfYnzqL9X9bbBRomCL3LDqRcYJ6njQ@mail.gmail.com>
- <20241025213243.GA2637569@google.com>
- <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
+	s=k20201202; t=1729895558;
+	bh=lvgqZKZL3hTSMXjWYkYB2dg3KyAAN40oIeI42dzGJls=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=bMqCwlt3rfSKnmYXP3CO1qHyjKGshQkpsafQF2TFtPpe8OJLF2eHJv0QZVeGh+vbR
+	 mbzYexzaFGMPKNILD/JuyECnaOF+BCjy7vXA8rpIu+ArdNAIBFHXogFUA7gI78NmNw
+	 wOCRX2/ZwmipiTNEyEGV/F1wK5DWL6poIRULNFbfZmKBLUvU5H3rTni7OtT7niq9ka
+	 6DyqbPXG8uK7S+Rc1Pr712yHYZUiycuKhtO6fWFTbc5fYdkealO2joTF2KcJlqVq1C
+	 k9JPcaw/czcYbe+l2XGV0RtVOMjgzc35OBiIKlLVTsemNgsTlJayFIt4grrcdQFn/i
+	 K0gq2aNy4BUKQ==
+Date: Fri, 25 Oct 2024 17:32:36 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+Subject: Re: [PATCH v4 4/4] PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
+Message-ID: <20241025223236.GA1030308@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXHZy3yPvonS5ZVof0qa0V_Lxhv5Q7i1UVf5P6D3d+=KRw@mail.gmail.com>
+In-Reply-To: <20241024-pcie_ep_range-v4-4-08f8dcd4e481@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_153154_997009_7DFCE30F 
-X-CRM114-Status: GOOD (  32.24  )
+X-CRM114-CacheID: sfid-20241025_153239_586233_85FC0C91 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +88,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 11:37:45PM +0200, Ard Biesheuvel wrote:
-> On Fri, 25 Oct 2024 at 23:32, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > On Fri, Oct 25, 2024 at 10:32:14PM +0200, Ard Biesheuvel wrote:
-> > > On Fri, 25 Oct 2024 at 21:15, Eric Biggers <ebiggers@kernel.org> wrote:
-> > > >
-> > > > From: Eric Biggers <ebiggers@google.com>
-> > > >
-> > > > Make the CRC32 library export some flags that indicate which CRC32
-> > > > functions are actually executing optimized code at runtime.  Set these
-> > > > correctly from the architectures that implement the CRC32 functions.
-> > > >
-> > > > This will be used to determine whether the crc32[c]-$arch shash
-> > > > algorithms should be registered in the crypto API.  btrfs could also
-> > > > start using these flags instead of the hack that it currently uses where
-> > > > it parses the crypto_shash_driver_name.
-> > > >
-> > > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > > ---
-> > > >  arch/arm64/lib/crc32-glue.c  | 15 +++++++++++++++
-> > > >  arch/riscv/lib/crc32-riscv.c | 15 +++++++++++++++
-> > > >  include/linux/crc32.h        | 15 +++++++++++++++
-> > > >  lib/crc32.c                  |  5 +++++
-> > > >  4 files changed, 50 insertions(+)
-> > > >
-> > > ...
-> > > > diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> > > > index 58c632533b08..bf26d454b60d 100644
-> > > > --- a/include/linux/crc32.h
-> > > > +++ b/include/linux/crc32.h
-> > > > @@ -35,10 +35,25 @@ static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
-> > > >         if (IS_ENABLED(CONFIG_CRC32_ARCH))
-> > > >                 return crc32c_le_arch(crc, p, len);
-> > > >         return crc32c_le_base(crc, p, len);
-> > > >  }
-> > > >
-> > > > +/*
-> > > > + * crc32_optimizations contains flags that indicate which CRC32 library
-> > > > + * functions are using architecture-specific optimizations.  Unlike
-> > > > + * IS_ENABLED(CONFIG_CRC32_ARCH) it takes into account the different CRC32
-> > > > + * variants and also whether any needed CPU features are available at runtime.
-> > > > + */
-> > > > +#define CRC32_LE_OPTIMIZATION  BIT(0) /* crc32_le() is optimized */
-> > > > +#define CRC32_BE_OPTIMIZATION  BIT(1) /* crc32_be() is optimized */
-> > > > +#define CRC32C_OPTIMIZATION    BIT(2) /* __crc32c_le() is optimized */
-> > > > +#if IS_ENABLED(CONFIG_CRC32_ARCH)
-> > > > +extern u32 crc32_optimizations;
-> > > > +#else
-> > > > +#define crc32_optimizations 0
-> > > > +#endif
-> > > > +
-> > >
-> > > Wouldn't it be cleaner to add a new library function for this, instead
-> > > of using a global variable?
-> >
-> > The architecture crc32 modules need to be able to write to this.  There could be
-> > a setter function and a getter function, but just using a variable is simpler.
-> >
+On Thu, Oct 24, 2024 at 04:41:46PM -0400, Frank Li wrote:
+> Add support for i.MX8Q series (i.MX8QM, i.MX8QXP, and i.MX8DXL) PCIe
+> Endpoint (EP). On i.MX8Q platforms, the PCI bus addresses differ from the
+> CPU addresses. The DesignWare (DWC) driver already handles this in the
+> common code.
 > 
-> If we just add 'u32 crc32_optimizations()', there is no need for those
-> modules to have init/exit hooks, the only thing they need to export is
-> this routine.
+> Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Chagne from v3 to v4
+> - none
+> change from v2 to v3
+> - add Mani's review tag
+> - Add pci->using_dtbus_info = true;
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 > 
-> Or perhaps it could even be a static inline, with the right plumbing
-> of header files. At least on arm64,
-> 
-> static inline u32 crc32_optimizations() {
->   if (!alternative_have_const_cap_likely(ARM64_HAS_CRC32))
->     return 0;
->   return CRC32_LE_OPTIMIZATION | CRC32_BE_OPTIMIZATION | CRC32C_OPTIMIZATION;
-> }
-> 
-> should be all we need.
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index bdc2b372e6c13..5be9bac6206a7 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -70,6 +70,7 @@ enum imx_pcie_variants {
+>  	IMX8MQ_EP,
+>  	IMX8MM_EP,
+>  	IMX8MP_EP,
+> +	IMX8Q_EP,
+>  	IMX95_EP,
+>  };
+>  
+> @@ -1079,6 +1080,16 @@ static const struct pci_epc_features imx8m_pcie_epc_features = {
+>  	.align = SZ_64K,
+>  };
+>  
+> +static const struct pci_epc_features imx8q_pcie_epc_features = {
+> +	.linkup_notifier = false,
+> +	.msi_capable = true,
+> +	.msix_capable = false,
+> +	.bar[BAR_1] = { .type = BAR_RESERVED, },
+> +	.bar[BAR_3] = { .type = BAR_RESERVED, },
+> +	.bar[BAR_5] = { .type = BAR_RESERVED, },
+> +	.align = SZ_64K,
+> +};
+> +
+>  /*
+>   * BAR#	| Default BAR enable	| Default BAR Type	| Default BAR Size	| BAR Sizing Scheme
+>   * ================================================================================================
+> @@ -1448,6 +1459,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	pci->using_dtbus_info = true;
 
-In 7 of the 9 affected arches, I already have a module_init function that checks
-the CPU features in order to set up static keys.  (arm64 and riscv already used
-alternatives patching, so I kept that.)  It's slightly convenient to set these
-flags at the same time, but yes the above solution would work too.
+I mentioned this elsewhere, but I think the using_dtbus_info part
+should be part of a series that only deals with the address
+translation, and adding IMX8Q_EP should be in a separate series.
 
-- Eric
+>  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
+>  		ret = imx_add_pcie_ep(imx_pcie, pdev);
+>  		if (ret < 0)
+> @@ -1645,6 +1658,14 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.epc_features = &imx8m_pcie_epc_features,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+>  	},
+> +	[IMX8Q_EP] = {
+> +		.variant = IMX8Q_EP,
+> +		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
+> +		.mode = DW_PCIE_EP_TYPE,
+> +		.epc_features = &imx8q_pcie_epc_features,
+> +		.clk_names = imx8q_clks,
+> +		.clks_cnt = ARRAY_SIZE(imx8q_clks),
+> +	},
+>  	[IMX95_EP] = {
+>  		.variant = IMX95_EP,
+>  		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+> @@ -1674,6 +1695,7 @@ static const struct of_device_id imx_pcie_of_match[] = {
+>  	{ .compatible = "fsl,imx8mq-pcie-ep", .data = &drvdata[IMX8MQ_EP], },
+>  	{ .compatible = "fsl,imx8mm-pcie-ep", .data = &drvdata[IMX8MM_EP], },
+>  	{ .compatible = "fsl,imx8mp-pcie-ep", .data = &drvdata[IMX8MP_EP], },
+> +	{ .compatible = "fsl,imx8q-pcie-ep", .data = &drvdata[IMX8Q_EP], },
+>  	{ .compatible = "fsl,imx95-pcie-ep", .data = &drvdata[IMX95_EP], },
+>  	{},
+>  };
+> 
+> -- 
+> 2.34.1
+> 
 
