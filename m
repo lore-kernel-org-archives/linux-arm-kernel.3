@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD42D149CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D26D149DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FpgFdk3JtzocDW3WFzPDdBLFBiWF0X+yqUm+UTtblgc=; b=XLAnX4iSVmNXyzNKapaytCelcv
-	ryVtDdJLj92+famrIklqFz2tP/9AJAyTxnBXlQpyFtlTFCd4TAz6l2E9qBMwx1VX9Bl4fGlNHf4/e
-	Kw1eVKt7bKvTNSvOn7XpztYDikHEITrxaKwujvrHq8IKImQ0hfr3fbI6tefXBKw4ZzyB3wVNaqG9J
-	wHmLppSZPsr5P629lBccT/UVlTYLY3df/KRGYY7oLrDcO023/xMkS7YWyAyohqC9dbT62uJgU0/NE
-	oVL73d+FPd7d/XeKZrTtThsDmuP/Cktj49/b9XfdOg0C67vjYpcyHyojT3aoY7Y2rF8czauvEa6Dg
-	VReWnOsA==;
+	bh=yUMbW8c4fnS4xc6t+S+xmsFii0Nh8WSEhqluNBn7tHo=; b=xhEdL9EEn3GE5RKCaRDGu1STNc
+	/sXNchD9N4/pn7H/DFEwiy6XnW6bqbJkjuu2Jvfq6M3rEA/dzzgAPW8pnYzFwCS4avAsUh+ViKCEc
+	p61MsGqN5mDDWDasgluuXiu6hzzM3wVOUKReB1xPmxS2EydN8EwzSqW/SISmyCsL/T9wil+6PZ5o1
+	X6KAuRfq1/GrKHeK4BR0pIG50T+oVAx8GrcZgXfifPc6fLpmlLyvh68Gs4lPZLElDHF101dn3WSqe
+	7h2gCImQ4rSObMKGW4A1J5LmYQNyIfX4+pQ5si5Yzlply3eXr6TztkJBL2Wkhl1t9JcE3VvHMQdUn
+	9sxizkSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OXW-00000004hBi-1lEA;
-	Fri, 25 Oct 2024 17:55:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4OZO-00000004hab-2Hcm;
+	Fri, 25 Oct 2024 17:57:54 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NvO-00000004Y4m-0Pq0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 17:16:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FpgFdk3JtzocDW3WFzPDdBLFBiWF0X+yqUm+UTtblgc=; b=ejvW7ZdMdiX6mD7fhcGhzs/EX+
-	L1Ufw4cIxoI5Yhj0l9Z5uTw6G8kkFChBW7o+xt9d+nfdlpVOpP0rTt2tiCBgrRQeC8Ck12CL9M1qZ
-	PRSdi683h1KjAAcaw3BBUBSvC3Pe4guzTdU00wVEPk2F46hRatahiieSeipSZqk5efOMLHrQXYhYY
-	yhSTRqB5D6MfxFsNp+B9bCbgVsbWB/KtflCfZIsXaZHmR0V0z/HbsxQnoBVCiadQ12iHQXlvE2QTY
-	qCEcIRYJODJ5Yi/LF3mtzX6uPKKi2D4o4jK/eZw8jX54gLNyV2TS7D+GpdizunEdJUg3TfTtjRIkW
-	RafVVVgQ==;
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NvH-00000008zqO-3BIu
+	id 1t4NvN-00000004Y4I-2NuU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:30 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d8901cb98so2244156f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:27 -0700 (PDT)
+	Fri, 25 Oct 2024 17:16:35 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-37d4b0943c7so1498935f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876586; x=1730481386; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876592; x=1730481392; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FpgFdk3JtzocDW3WFzPDdBLFBiWF0X+yqUm+UTtblgc=;
-        b=eGcyosXkfHVKSsVctraXDkPCK0TwTTy8argsKKsr5QlFW5+akfn4gK4BX/+96T+n//
-         UtuKtT8l7oDu7+4wK2OGzDpwTqa7V39YXlzIYDgJnNgXO2Tx2EaWgEUntyPhZxTcq66S
-         2PoafHcth2w7hh5mzlTxQDWTmzxt7XvNrSJi05QoLYqyJXMM/0eVgSIcpa4RtUv5MH14
-         gLmu4As7MyiNnkHXZau200lKAJCXjerO8ShAVcqsqq1MZk/yPm29dMRE+dKUpYFhpWHs
-         +Tox4JaUP1A6HpfG/I9BX2nhoQ+4iDfTkXb3FIz8SrjswqyTGxYcrS4yMCg3s7PD4Hhp
-         rk+Q==
+        bh=yUMbW8c4fnS4xc6t+S+xmsFii0Nh8WSEhqluNBn7tHo=;
+        b=gI9slTr6DaAkzAEzQlBKHCRNq6HaxFuUdpZhoIz0hTLfYXFAIHQCYeXnhvlS01AcMJ
+         eOJnHDu1Ho48pyR3nkUNDAUYr6TuJD43dglTmIi4laP4+e60k+Dd6akYhtC8xkEcoXeH
+         ssmqQWN2uBSLzlbCWln3/qVfYwU0sLi8nvzgO8ADIf0pCozcG8iwfNaLT0fpoCJv5BJ2
+         C2WTTIc155/vj+xK4G5DBcsLMHHiBbKjE3u26BjkSB3rdznDcY067lYy+UBFog7GJkLw
+         TkXQfqzWUlzk7H6or4CxYGteN3gBtRR1xsEkKSsyevy0aFysE3/zLrrvgmSDZWKCNRRs
+         5zCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876586; x=1730481386;
+        d=1e100.net; s=20230601; t=1729876592; x=1730481392;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FpgFdk3JtzocDW3WFzPDdBLFBiWF0X+yqUm+UTtblgc=;
-        b=MzK8EIeik3DU9uym7/RZ1MjM9L2Gx7Ptz0lfl0HWAz0hYcYDoGd7JAE3BeCSiaH9Yr
-         FjLwQ72NJn6ExPxSHtW5cuY1ZrFXyNmR0/fSm0A+7knkCPQYEPV2/fha3XPMEsGtC71f
-         v/Zsyx8f3RVdBtjfbxIzuyOU2bjVJ+B+SySzu80449kPeZ4LjcAiwFPojUL3kXpRmpDn
-         4gyXSZ47R12bkPSqXIlQRoa7QF3ycm3N6Cypmq9n6RTUmxPutc9xWnRTMQUzoQaKVfl+
-         JMxeRZRg1wDyjfk6Jetz4A3VZUWIymUNAP1ZrGhGHH0Ei71uJSVK9k+fHy5lk6t3hNIA
-         QKTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXJbfDgQOJiymy7rFte50F13wRoxNe0ZT2LglBdwE7hH4AH7j4zCblM9Lmm3ZK9XzqvRXfRZKm8j4HHc68Qpmdu@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq+dYfet+TQAvVLXENU0jZtRaZhSn0BDzs0CKo5RniDqyZW2fH
-	84MNQQdcRP1PAKGWaVoR3XhQXT63rk9Dnn8t79t9YTXlRvimNrKS238mmVOVefU=
-X-Google-Smtp-Source: AGHT+IEjGuncFTNT/SZ4zceoos60e4tV8diFXOXGxrnPO4HgWUpl+fjYGjtIIh1LWTqEDG68tqrqAQ==
-X-Received: by 2002:a5d:40c6:0:b0:37d:2d6f:3284 with SMTP id ffacd0b85a97d-38060eb2031mr225091f8f.9.1729876586551;
-        Fri, 25 Oct 2024 10:16:26 -0700 (PDT)
+        bh=yUMbW8c4fnS4xc6t+S+xmsFii0Nh8WSEhqluNBn7tHo=;
+        b=xBhlgfs1C4HLeHFvnInuy+sYsGbXfL6Cp9FJcxSh9DTBa3764hXiKD8G8QYHSpjKs+
+         Qu/kQC8CSfkfR/kFWh1T/hIvB+qsooou5KhcuBuN9D1PQp5FxtLqAZEgmdimg1yMqHUS
+         UIpcxoZy5wmpIGa45E+eRmlqRIvXztp5jbE70VJC7cHkxRy2wfOnguvY1ztc9P4ACQnq
+         wR9NKACiCpiFG/dOrGa1MWenzeguffAIDbD9bweEHQV0uc36gQ0E8vu9EKhSRBEBZ7Rd
+         GZSnOYi9vfIVYCq+Rvt9XZwWAg3obm5rSJkH8MpJ5oqtoe8jvnNq/cEAAatwLm9zKHmY
+         hDWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWc/ZIEBdoD2Zl/BhqzaxgeaVJ2hxn+Y8PefHGJQISFHYWLWJioePkSdDyNkAXW4jJSA+W5tDUi7z8ygPKv8aIX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7+3VF9CkPStRigvlBhdQD1PaVJnSu4Obhdjz2hhAXVStrkuab
+	u9azLwRYcyi/53/cWdP2Ws+IQIFk5/XebvmUkEObcVR4Uc5BZv2Lf55Cc9crSqs=
+X-Google-Smtp-Source: AGHT+IGlWiJn7Ozkgg+McXgEdyvgzuVLywKtK/tT5oVLgmb42gKrNvsGZclRa3uCRrKPuzJCn2aCmA==
+X-Received: by 2002:adf:9bd4:0:b0:37d:4e74:687 with SMTP id ffacd0b85a97d-380611e1392mr111275f8f.41.1729876592186;
+        Fri, 25 Oct 2024 10:16:32 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.25
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:26 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:31 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:57 +0100
-Subject: [PATCH v2 26/36] drm/vc4: Add additional warn_on for incorrect
- revisions
+Date: Fri, 25 Oct 2024 18:16:03 +0100
+Subject: [PATCH v2 32/36] clk: bcm: rpi: Create helper to retrieve private
+ data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-26-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-32-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -109,8 +94,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_181628_552653_D29ADD7D 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20241025_101633_719126_2D6C6DA6 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,237 +112,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-Some code path in vc4 are conditional to a generation and cannot be
-executed on others. Let's put a WARN_ON if that ever happens.
+The RaspberryPi firmware clocks driver uses in several instances a
+container_of to retrieve the struct raspberrypi_clk_data from a pointer
+to struct clk_hw. Let's create a small function to avoid duplicating it
+all over the place.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_hvs.c   | 30 ++++++++++++++++++++++++++++--
- drivers/gpu/drm/vc4/vc4_kms.c   |  6 ++++++
- drivers/gpu/drm/vc4/vc4_plane.c | 17 +++++++++++++++++
- 3 files changed, 51 insertions(+), 2 deletions(-)
+ drivers/clk/bcm/clk-raspberrypi.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
-index 11acc56ab92d..2493ac17d78f 100644
---- a/drivers/gpu/drm/vc4/vc4_hvs.c
-+++ b/drivers/gpu/drm/vc4/vc4_hvs.c
-@@ -419,12 +419,15 @@ static int vc4_hvs_upload_linear_kernel(struct vc4_hvs *hvs,
- static void vc4_hvs_lut_load(struct vc4_hvs *hvs,
- 			     struct vc4_crtc *vc4_crtc)
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index 9f716b2223ae..b12d86720207 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -56,6 +56,12 @@ struct raspberrypi_clk_data {
+ 	struct raspberrypi_clk *rpi;
+ };
+ 
++static inline
++const struct raspberrypi_clk_data *clk_hw_to_data(const struct clk_hw *hw)
++{
++	return container_of(hw, struct raspberrypi_clk_data, hw);
++}
++
+ struct raspberrypi_clk_variant {
+ 	bool		export;
+ 	char		*clkdev;
+@@ -176,8 +182,7 @@ static int raspberrypi_clock_property(struct rpi_firmware *firmware,
+ 
+ static int raspberrypi_fw_is_prepared(struct clk_hw *hw)
  {
--	struct drm_device *drm = &hvs->vc4->base;
-+	struct vc4_dev *vc4 = hvs->vc4;
-+	struct drm_device *drm = &vc4->base;
- 	struct drm_crtc *crtc = &vc4_crtc->base;
- 	struct vc4_crtc_state *vc4_state = to_vc4_crtc_state(crtc->state);
- 	int idx;
- 	u32 i;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_5);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return;
- 
-@@ -474,6 +477,8 @@ u8 vc4_hvs_get_fifo_frame_count(struct vc4_hvs *hvs, unsigned int fifo)
- 	u8 field = 0;
- 	int idx;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return 0;
- 
-@@ -530,6 +535,8 @@ int vc4_hvs_get_fifo_from_output(struct vc4_hvs *hvs, unsigned int output)
- 	u32 reg;
+-	struct raspberrypi_clk_data *data =
+-		container_of(hw, struct raspberrypi_clk_data, hw);
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+ 	struct raspberrypi_clk *rpi = data->rpi;
+ 	u32 val = 0;
  	int ret;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	switch (vc4->gen) {
- 	case VC4_GEN_4:
- 		return output;
-@@ -621,6 +628,8 @@ static int vc4_hvs_init_channel(struct vc4_hvs *hvs, struct drm_crtc *crtc,
- 	u32 dispctrl;
- 	int idx;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_5);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return -ENODEV;
- 
-@@ -682,6 +691,8 @@ static int vc6_hvs_init_channel(struct vc4_hvs *hvs, struct drm_crtc *crtc,
- 	u32 disp_ctrl1;
- 	int idx;
- 
-+	WARN_ON_ONCE(vc4->gen < VC4_GEN_6_C);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return -ENODEV;
- 
-@@ -707,9 +718,12 @@ static int vc6_hvs_init_channel(struct vc4_hvs *hvs, struct drm_crtc *crtc,
- 
- static void __vc4_hvs_stop_channel(struct vc4_hvs *hvs, unsigned int chan)
+@@ -194,8 +199,7 @@ static int raspberrypi_fw_is_prepared(struct clk_hw *hw)
+ static unsigned long raspberrypi_fw_get_rate(struct clk_hw *hw,
+ 					     unsigned long parent_rate)
  {
--	struct drm_device *drm = &hvs->vc4->base;
-+	struct vc4_dev *vc4 = hvs->vc4;
-+	struct drm_device *drm = &vc4->base;
- 	int idx;
+-	struct raspberrypi_clk_data *data =
+-		container_of(hw, struct raspberrypi_clk_data, hw);
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+ 	struct raspberrypi_clk *rpi = data->rpi;
+ 	u32 val = 0;
+ 	int ret;
+@@ -211,8 +215,7 @@ static unsigned long raspberrypi_fw_get_rate(struct clk_hw *hw,
+ static int raspberrypi_fw_set_rate(struct clk_hw *hw, unsigned long rate,
+ 				   unsigned long parent_rate)
+ {
+-	struct raspberrypi_clk_data *data =
+-		container_of(hw, struct raspberrypi_clk_data, hw);
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+ 	struct raspberrypi_clk *rpi = data->rpi;
+ 	u32 _rate = rate;
+ 	int ret;
+@@ -229,8 +232,7 @@ static int raspberrypi_fw_set_rate(struct clk_hw *hw, unsigned long rate,
+ static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
+ 					      struct clk_rate_request *req)
+ {
+-	struct raspberrypi_clk_data *data =
+-		container_of(hw, struct raspberrypi_clk_data, hw);
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+ 	struct raspberrypi_clk_variant *variant = data->variant;
  
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_5);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return;
- 
-@@ -740,6 +754,8 @@ static void __vc6_hvs_stop_channel(struct vc4_hvs *hvs, unsigned int chan)
- 	struct drm_device *drm = &vc4->base;
- 	int idx;
- 
-+	WARN_ON_ONCE(vc4->gen < VC4_GEN_6_C);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return;
- 
-@@ -927,6 +943,8 @@ void vc4_hvs_atomic_flush(struct drm_crtc *crtc,
- 	bool found = false;
- 	int idx;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	if (!drm_dev_enter(dev, &idx)) {
- 		vc4_crtc_send_vblank(crtc);
- 		return;
-@@ -1011,6 +1029,8 @@ void vc4_hvs_atomic_flush(struct drm_crtc *crtc,
- 	if (crtc->state->color_mgmt_changed) {
- 		u32 dispbkgndx = HVS_READ(SCALER_DISPBKGNDX(channel));
- 
-+		WARN_ON_ONCE(vc4->gen > VC4_GEN_5);
-+
- 		if (crtc->state->gamma_lut) {
- 			vc4_hvs_update_gamma_lut(hvs, vc4_crtc);
- 			dispbkgndx |= SCALER_DISPBKGND_GAMMA;
-@@ -1040,6 +1060,8 @@ void vc4_hvs_mask_underrun(struct vc4_hvs *hvs, int channel)
- 	u32 dispctrl;
- 	int idx;
- 
-+	WARN_ON(vc4->gen > VC4_GEN_5);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return;
- 
-@@ -1060,6 +1082,8 @@ void vc4_hvs_unmask_underrun(struct vc4_hvs *hvs, int channel)
- 	u32 dispctrl;
- 	int idx;
- 
-+	WARN_ON(vc4->gen > VC4_GEN_5);
-+
- 	if (!drm_dev_enter(drm, &idx))
- 		return;
- 
-@@ -1094,6 +1118,8 @@ static irqreturn_t vc4_hvs_irq_handler(int irq, void *data)
- 	u32 status;
- 	u32 dspeislur;
- 
-+	WARN_ON(vc4->gen > VC4_GEN_5);
-+
  	/*
- 	 * NOTE: We don't need to protect the register access using
- 	 * drm_dev_enter() there because the interrupt handler lifetime
-diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
-index ce65e152876e..f5b167417428 100644
---- a/drivers/gpu/drm/vc4/vc4_kms.c
-+++ b/drivers/gpu/drm/vc4/vc4_kms.c
-@@ -138,6 +138,8 @@ vc4_ctm_commit(struct vc4_dev *vc4, struct drm_atomic_state *state)
- 	struct vc4_ctm_state *ctm_state = to_vc4_ctm_state(vc4->ctm_manager.state);
- 	struct drm_color_ctm *ctm = ctm_state->ctm;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_5);
-+
- 	if (ctm_state->fifo) {
- 		HVS_WRITE(SCALER_OLEDCOEF2,
- 			  VC4_SET_FIELD(vc4_ctm_s31_32_to_s0_9(ctm->matrix[0]),
-@@ -213,6 +215,8 @@ static void vc4_hvs_pv_muxing_commit(struct vc4_dev *vc4,
- 	struct drm_crtc *crtc;
- 	unsigned int i;
- 
-+	WARN_ON_ONCE(vc4->gen != VC4_GEN_4);
-+
- 	for_each_new_crtc_in_state(state, crtc, crtc_state, i) {
- 		struct vc4_crtc *vc4_crtc = to_vc4_crtc(crtc);
- 		struct vc4_crtc_state *vc4_state = to_vc4_crtc_state(crtc_state);
-@@ -256,6 +260,8 @@ static void vc5_hvs_pv_muxing_commit(struct vc4_dev *vc4,
- 	unsigned int i;
- 	u32 reg;
- 
-+	WARN_ON_ONCE(vc4->gen != VC4_GEN_5);
-+
- 	for_each_new_crtc_in_state(state, crtc, crtc_state, i) {
- 		struct vc4_crtc_state *vc4_state = to_vc4_crtc_state(crtc_state);
- 		struct vc4_crtc *vc4_crtc = to_vc4_crtc(crtc);
-diff --git a/drivers/gpu/drm/vc4/vc4_plane.c b/drivers/gpu/drm/vc4/vc4_plane.c
-index 205aea3ed419..c084967d3527 100644
---- a/drivers/gpu/drm/vc4/vc4_plane.c
-+++ b/drivers/gpu/drm/vc4/vc4_plane.c
-@@ -566,8 +566,11 @@ static int vc4_plane_setup_clipping_and_scaling(struct drm_plane_state *state)
- 
- static void vc4_write_tpz(struct vc4_plane_state *vc4_state, u32 src, u32 dst)
- {
-+	struct vc4_dev *vc4 = to_vc4_dev(vc4_state->base.plane->dev);
- 	u32 scale, recip;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	scale = src / dst;
- 
- 	/* The specs note that while the reciprocal would be defined
-@@ -593,10 +596,13 @@ static void vc4_write_tpz(struct vc4_plane_state *vc4_state, u32 src, u32 dst)
- static void vc4_write_ppf(struct vc4_plane_state *vc4_state, u32 src, u32 dst,
- 			  u32 xy, int channel)
- {
-+	struct vc4_dev *vc4 = to_vc4_dev(vc4_state->base.plane->dev);
- 	u32 scale = src / dst;
- 	s32 offset, offset2;
- 	s32 phase;
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	/*
- 	 * Start the phase at 1/2 pixel from the 1st pixel at src_x.
- 	 * 1/4 pixel for YUV.
-@@ -825,8 +831,11 @@ static size_t vc6_upm_size(const struct drm_plane_state *state,
- static void vc4_write_scaling_parameters(struct drm_plane_state *state,
- 					 int channel)
- {
-+	struct vc4_dev *vc4 = to_vc4_dev(state->plane->dev);
- 	struct vc4_plane_state *vc4_state = to_vc4_plane_state(state);
- 
-+	WARN_ON_ONCE(vc4->gen > VC4_GEN_6_D);
-+
- 	/* Ch0 H-PPF Word 0: Scaling Parameters */
- 	if (vc4_state->x_scaling[channel] == VC4_SCALING_PPF) {
- 		vc4_write_ppf(vc4_state, vc4_state->src_w[channel],
-@@ -1113,6 +1122,11 @@ static const u32 colorspace_coeffs[2][DRM_COLOR_ENCODING_MAX][3] = {
- 
- static u32 vc4_hvs4_get_alpha_blend_mode(struct drm_plane_state *state)
- {
-+	struct drm_device *dev = state->state->dev;
-+	struct vc4_dev *vc4 = to_vc4_dev(dev);
-+
-+	WARN_ON_ONCE(vc4->gen != VC4_GEN_4);
-+
- 	if (!state->fb->format->has_alpha)
- 		return VC4_SET_FIELD(SCALER_POS2_ALPHA_MODE_FIXED,
- 				     SCALER_POS2_ALPHA_MODE);
-@@ -1137,6 +1151,9 @@ static u32 vc4_hvs5_get_alpha_blend_mode(struct drm_plane_state *state)
- 	struct drm_device *dev = state->state->dev;
- 	struct vc4_dev *vc4 = to_vc4_dev(dev);
- 
-+	WARN_ON_ONCE(vc4->gen != VC4_GEN_5 && vc4->gen != VC4_GEN_6_C &&
-+		     vc4->gen != VC4_GEN_6_D);
-+
- 	switch (vc4->gen) {
- 	default:
- 	case VC4_GEN_5:
 
 -- 
 2.34.1
