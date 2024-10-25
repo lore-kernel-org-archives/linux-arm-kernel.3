@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD60AD10399
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDB1D10399
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3592emAxXJAxQ1L3kohApUVqzzBwc3owH98KNbcnHA=; b=haGQ77OVSUQ8/1v3A0goYePLMC
-	qu4jWfnp1JGhD34zEhOcA47rzVRcFzNgRmKwduQ4PCeM2iZd8M/J3GNJLuXgt21eompfI4q4mnS2X
-	ZDStzG+dso/HuRctkPCRxddgraIOIfGaxi27x0ibplVhUbt1y4VnyAdSjIzKWArtORVRNsDms5iSX
-	+msZ8G6y+Lp+IAEa23nbk4lzhd2bOH8g8JKMSSlHPk52n1fw2aVg4TMNoGWe6763XDgU5EDH88PK5
-	dFm12vnT5MCU3mNmd4ymxSoTM0KjfudKnMwtmE4yz+K8I3GoHY2V6Dfs/dKI4qYZaZC5TlP5480Nm
-	U/RBqD9w==;
+	bh=ERjgxJ4DrFwJo/Np58ujiRLeDjjvc9H/Rm0raqGusbU=; b=jFBi5LklTwqTBb0TwIur90MEAI
+	0/FG8mjF3oTF9mM5TJpFTR1OkxCu0MLjmP8MrAGdnCL3MOZMUZYGhw8I3b/g/cHGUF/mihgYcJcgN
+	eXRwpV/xObkUxFRnDNB3sw0lGZwLE18Gn+bg0+qIsNJdVM+kV+XPA80+Sr6qxrIRo3Wdnb4TpmoN/
+	7ymSdRSGnW+qsdFWF2d2lFC+BhVip/U9n99elZAp6GvzKgXkZAJ2SepS+l6QL7vUH5GBkF7xsDSkH
+	8ecaCGuqSjpSst5xHl2jsjMcsTpMHPer/xZIaV/dEfmj8qxKhkpXmUcKpSw9kZ3jn/dU0wx8s+f5x
+	nk1jtwKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MNN-00000004H6t-024j;
-	Fri, 25 Oct 2024 15:37:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4MOu-00000004HKE-1g0L;
+	Fri, 25 Oct 2024 15:38:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4M7r-00000004Du9-2XrP
+	id 1t4MAN-00000004EJO-163S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 15:21:21 +0000
+	Fri, 25 Oct 2024 15:23:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0272BA430C1;
-	Fri, 25 Oct 2024 15:19:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5B83C4CEC3;
-	Fri, 25 Oct 2024 15:21:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F5D75C5541;
+	Fri, 25 Oct 2024 15:23:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECAE7C4CEC3;
+	Fri, 25 Oct 2024 15:23:53 +0000 (UTC)
 Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 466CB5F870;
-	Fri, 25 Oct 2024 23:21:15 +0800 (CST)
+	by wens.tw (Postfix) with ESMTP id C11375FC74;
+	Fri, 25 Oct 2024 23:23:51 +0800 (CST)
 From: Chen-Yu Tsai <wens@csie.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
@@ -49,15 +49,15 @@ In-Reply-To: <20241023075917.186835-1-ryan@testtoast.com>
 References: <20241023075917.186835-1-ryan@testtoast.com>
 Subject: Re: (subset) [PATCH v3 0/7] ASoC: add Allwinner H616 audio codec
  support
-Message-Id: <172986967525.723095.17341687251793477251.b4-ty@csie.org>
-Date: Fri, 25 Oct 2024 23:21:15 +0800
+Message-Id: <172986983176.724831.16448231120068380568.b4-ty@csie.org>
+Date: Fri, 25 Oct 2024 23:23:51 +0800
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_082119_739961_5781D88B 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20241025_082355_380113_BA514A5B 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,10 +86,12 @@ On Wed, 23 Oct 2024 20:56:56 +1300, Ryan Walklin wrote:
 > 
 > [...]
 
-Applied to clk-for-6.13 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
+Applied to dt-for-6.13 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
 
-[1/7] clk: sunxi-ng: h616: Add sigma-delta modulation settings for audio PLL
-      commit: d0c322b6e4bff8cc0e40ee4983bf2ab1f7f680f0
+[6/7] arm64: dts: allwinner: h616: Add audio codec node
+      commit: 3eef85034c96f61b54809e24d4b7f29a336701ae
+[7/7] arm64: dts: allwinner: h313/h616/h618/h700: Enable audio codec for all supported boards
+      commit: 86a8f1aef9702f730c824aa96ae24ffa1b401988
 
 Best regards,
 -- 
