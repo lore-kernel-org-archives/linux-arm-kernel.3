@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751DFD149E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24982D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6lKJwO1OwCWiKMCvEQrkVSO5mRT4IAMmeOD5XpgHak=; b=mAgJBnW8/SHRNX6mVSmWTVAPhF
-	nT74/dBP+5s/aVFJ3Qrm4bsvaJ1VixHZHDLKPltEYlAyV14QkY95JMg+nU2svT6YaJR+dt3S9nBZk
-	H28wywyd1ZuKbdO4FZN0/WAluHvFnQ36aXiH93t/1ItPyQgE6RUFSPJq3s53s6zMrAlN0AuQXtJm+
-	N3ESAbZ54G90yJMLwYADFrD4S1XBCeuOdeoQo+YxPNdLGk4nzkrkNcqTUht6iqjESN4HmSnFPtVnE
-	zA47NVNaoamLlEWQ9sxjJlxGXsuavtf2VZXjhDxewXmcwirPiF3OXZmBCfmNOQ6b5+ucyQWXT0Pdf
-	2DO0ckdQ==;
+	bh=LYhcSWnuETsKJCEEluaZaBpAtwyQ/oGuJY+fGvbLS3M=; b=hoD/EPLps1m6C5qI1LhAfv5zuN
+	ZJlwlskaiKukP7iv4tqwn6d3diBACCcnhiV0VMWxOHwZm5poIB4vfRngF2cKROPKKEctCaiM8uozV
+	DdN219QIFAQpOYC3FNZ2Jgfm1dmirOqag4hDmZEoXKZT922pRO1Xc558pGP7U4yNGbwFVppgEJTHA
+	X4qaoQrqZoOf/v0d1xX6+JHUUlt7uNer5whtF1quNAtR6P0N+Wvb0dKOQgAm6zOfrdSX21Bp+QLJQ
+	eHLFzgTG5cjfNVjQWLVdU5cLPn3HxCD0yyuiyON7cn+DxuznNJv+XPfIHQ+gj7zUQ8o6Tew9hANQh
+	bPUJcInA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4PSg-00000004sFx-1OS6;
-	Fri, 25 Oct 2024 18:55:02 +0000
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
+	id 1t4PUD-00000004sOE-1WR0;
+	Fri, 25 Oct 2024 18:56:37 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4P0U-00000004nZs-1kP1
+	id 1t4P0s-00000004nkh-44ng
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:25:55 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5c9850ae22eso3129453a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 11:25:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729880752; x=1730485552; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A6lKJwO1OwCWiKMCvEQrkVSO5mRT4IAMmeOD5XpgHak=;
-        b=eIDNR6mmcw41nhDk/jcBF5PrWetqPfz0H6mf7rH2wAgEKFg0PfVYVhYYe9LJF8jt9q
-         rUjJ0+tY3ZreZ1fUL0o8v7+MhST76WFmhiuBR8ymUl/5eZ9RNhFd0TFHqcJl5zZow8RV
-         +H48kl4BCP6wxeCTzqdqzSzaB/i4nr+uIFX0E87KIVfLyTeHzT8UUb+/4ucD640IK1VM
-         5Ky2eTQ1cIeRkedaGMGRZFk+1W9kQr7rJAMFX+1iOZNaN+Ud/SiuD3940vFqytTTB4TD
-         TMYK8ZRgpwPMg+GJqrh64SAWR0dOeNbk2CY+yBbVSHmQ8Gt8V4PqFfNbCpNZNSUKj/3A
-         A1QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729880752; x=1730485552;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A6lKJwO1OwCWiKMCvEQrkVSO5mRT4IAMmeOD5XpgHak=;
-        b=J1Yqh298fGEKVCRVi4cJwx/2YmU2kF8Vwj+i28g0JpTYRNftypIw4NfEmsbUXGGHhl
-         UE378p6CWo5n9qiZoL15/TXFk9fFydwDn1Yafci807MZ6QjNOGYPhBPDVwz5aY84/SDt
-         +vQBOWuyS9qvJg5PjdxR6B6YU4rvVWF026pDdNWMnVSNjpiVqG4DhfMwRBTID3r+qyDu
-         XbaZ8QsR1HPx1FxGApJos6YToSnWrbD6QQLN1VIAsDqk5topAu20vcxDPyHOFdcyhRMH
-         otnv+ZKOSAkDd+9UZbispSrL8sulkNQm1zSL7WhCTzKaGoEqHUE4kn5A3ydMzsIGiB3D
-         F8PA==
-X-Forwarded-Encrypted: i=1; AJvYcCWjwDmvS+WInatZKyTOM5mRUnVLS/MHSzHnUvjwRQK5DDzFAl64PvW6zrSNfKdEKjxKHXbjhjHwM7ZaewDf4IBe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/33zlidMc7UdDFRZVuz7g6/wp/bnsAI5UIzD4i1JtpqAEovwz
-	YKikodfCYpQrze81Te8r4MlhDPfiBZembgB9aPzY0YO6rwCzmMCZi2m5061UY14NSff9cMOLGGU
-	RDiqGT+jaY7PduUIckhGk/p5Q37g=
-X-Google-Smtp-Source: AGHT+IGS6Q+UJFF3gCoSAJxFp8LCziUW0RWyJg2FIbFabPq2N0Pdmq3GgMgPkHMbUNNZZr8dd7FQqkKskk471BwJSQ4=
-X-Received: by 2002:a05:6402:5cd:b0:5c9:6f8f:d7c6 with SMTP id
- 4fb4d7f45d1cf-5cbbf89a353mr142659a12.13.1729880751730; Fri, 25 Oct 2024
- 11:25:51 -0700 (PDT)
+	Fri, 25 Oct 2024 18:26:21 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729880775;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LYhcSWnuETsKJCEEluaZaBpAtwyQ/oGuJY+fGvbLS3M=;
+	b=sKKAL2kuSWB2ST+WvVrSAu8UQYyNF6eTlL7xxdGWEFYBcw3OV/VgQBOvr8uupq5kztJWX4
+	DY4cNvMnRVw2JGcNDqmW+4aSYGXCGvw/FzxnBF/P/TyfjCgazgfT2llXkDp3QG1Ws4T6Bc
+	fQVLKswN7mMxlyPPKA4vnfbXTZiJGmw=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: [PATCH v4 18/18] KVM: arm64: nv: Reprogram PMU events affected by nested transition
+Date: Fri, 25 Oct 2024 18:25:59 +0000
+Message-ID: <20241025182559.3364829-1-oliver.upton@linux.dev>
+In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-References: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
- <20241024185317.14285-1-vladimirputin693389@gmail.com>
-In-Reply-To: <20241024185317.14285-1-vladimirputin693389@gmail.com>
-From: Vladimir Putin <vladimirputin693389@gmail.com>
-Date: Fri, 25 Oct 2024 21:25:38 +0300
-Message-ID: <CABx-5aE61t=w4EvSmuhySW0i-Q+ShoWMHzZ3MA+mcxzS2OK5XA@mail.gmail.com>
-Subject: Re: [NOTIFICATION] Linux Mailing List - New Messages
-To: torvalds@linux-foundation.org
-Cc: aospan@netup.ru, conor.dooley@microchip.com, ddrokosov@sberdevices.ru, 
-	dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com, 
-	geert@linux-m68k.org, gregkh@linuxfoundation.org, hoan@os.amperecomputing.com, 
-	ink@jurassic.park.msu.ru, jeffbai@aosc.io, kexybiscuit@aosc.io, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-iio@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org, 
-	mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru, 
-	ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org, 
-	s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru, torvic9@mailbox.org, 
-	tsbogend@alpha.franken.de, v.georgiev@metrotek.ru, wangyuli@uniontech.com, 
-	wsa+renesas@sang-engineering.com, xeb@mail.ru
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_112554_506961_3F4251E8 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_112619_236422_AF67F797 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,224 +75,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-test
+Start reprogramming PMU events at nested boundaries now that everything
+is in place to handle the EL2 event filter. Only repaint events where
+the filter differs between EL1 and EL2 as a slight optimization.
 
+PMU now 'works' for nested VMs, albeit slow.
 
-On Thu, Oct 24, 2024 at 9:53=E2=80=AFPM Russian Troll Factory
-No2333113724691862412370505314550301522361658681972819097215937998212703204=
-793632409614950580711014116901113627315250812066331608136907483394686821870=
-024039451032206763651586662278212538418825116031124619343320237170775164372=
-533032517140881318832593184331007632587308251100725375162262601265591575233=
-753211727309251482024820297754324831208163205732118230753038815492120832717=
-323691311767837954629979246463915142194013216092488125686168471778268401924=
-711558164371821728133247981839714403142659456290632688662816331364145053184=
-928586147979635141001172910318313111044726365285259638996623464136342569322=
-623274581973520594112612955499289734280211482524728237242840982972292248641=
-831020222182192508457369794189381947216277137432118131508169930248288557653=
-761024157150545757210477177733251922494942668772781705231240118191118518404=
-175491631312956197201830832218173663057420174975818813129371895630846172783=
-924432453073641976014165108692261103831673263803726148781941489012102140853=
-073421746170732818224180231942412948531742526332364154774311289531296346219=
-831456281831640413414267253173039110422118671723925093233214224240826106107=
-27276851001532673
-<vladimirputin693389@gmail.com> wrote:
->
->
-> Hi, the linux mailing list.
-> You have asked me for your opinion. I present my opinion to you:
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
-> LINUS TORVALDS IS A DICK
->
->
->
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/kvm/emulate-nested.c |  4 ++++
+ arch/arm64/kvm/pmu-emul.c       | 29 +++++++++++++++++++++++++++++
+ include/kvm/arm_pmu.h           |  3 +++
+ 3 files changed, 36 insertions(+)
+
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 162bddbfbe79..13f0be0911e8 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2450,6 +2450,8 @@ void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu)
+ 
+ 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
+ 	preempt_enable();
++
++	kvm_pmu_nested_transition(vcpu);
+ }
+ 
+ static void kvm_inject_el2_exception(struct kvm_vcpu *vcpu, u64 esr_el2,
+@@ -2532,6 +2534,8 @@ static int kvm_inject_nested(struct kvm_vcpu *vcpu, u64 esr_el2,
+ 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
+ 	preempt_enable();
+ 
++	kvm_pmu_nested_transition(vcpu);
++
+ 	return 1;
+ }
+ 
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index e2eb2ba903b6..8ad62284fa23 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1215,3 +1215,32 @@ u64 kvm_vcpu_read_pmcr(struct kvm_vcpu *vcpu)
+ 
+ 	return u64_replace_bits(pmcr, vcpu->kvm->arch.pmcr_n, ARMV8_PMU_PMCR_N);
+ }
++
++void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu)
++{
++	bool reprogrammed = false;
++	unsigned long mask;
++	int i;
++
++	if (!kvm_vcpu_has_pmu(vcpu))
++		return;
++
++	mask = __vcpu_sys_reg(vcpu, PMCNTENSET_EL0);
++	for_each_set_bit(i, &mask, 32) {
++		struct kvm_pmc *pmc = kvm_vcpu_idx_to_pmc(vcpu, i);
++
++		/*
++		 * We only need to reconfigure events where the filter is
++		 * different at EL1 vs. EL2, as we're multiplexing the true EL1
++		 * event filter bit for nested.
++		 */
++		if (kvm_pmc_counts_at_el1(pmc) == kvm_pmc_counts_at_el2(pmc))
++			continue;
++
++		kvm_pmu_create_perf_event(pmc);
++		reprogrammed = true;
++	}
++
++	if (reprogrammed)
++		kvm_vcpu_pmu_restore_guest(vcpu);
++}
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index b738ffb39bb0..3493e9d9f58e 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -98,6 +98,7 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm);
+ 
+ u64 kvm_vcpu_read_pmcr(struct kvm_vcpu *vcpu);
+ bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu, unsigned int idx);
++void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu);
+ #else
+ struct kvm_pmu {
+ };
+@@ -198,6 +199,8 @@ static inline bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu)
+ 	return false;
+ }
+ 
++static inline void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu) {}
++
+ #endif
+ 
+ #endif
+-- 
+2.47.0.163.g1226f6d8fa-goog
+
 
