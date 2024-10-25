@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D02AD149F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 23:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF95AD149F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 23:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+LonYrIZEHor693r4mdE7TdXh7oFFBiZD+b7YxVtbo=; b=BR9UzdOw4A0MWbY3uf8r9Ew+4k
-	5C+uE/LESw+orvjF2yXApT1HkLnhqMfkaf+WUSPG/4jrEUPLIqSwLqdJixjdiuxlxQrkq2jrXjGXB
-	j1YxaHyUDB1ykTfyagqozBC/6KUmHiwqj2n2Vfoy4EHLOOQIEJjrBF49ri6eX9GWBV0kkkqaX7fic
-	rNUieQnAPHheGRFlP/N81Tubz/b/SguiBoTI0uG/fir2oujVbu1o4mx3cOuvTcXEpKlEskVBRIT3w
-	TZiRRtn1/naCcon4WSG6nxB2R2dJ0OP+ArUgmZBiEXo4M3wrmwW9FeE1rve323Mx3zSVW+fcoWspM
-	SDleyQEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E2SCIf2s+9i3pgv0GaKSKhwMU848aHzBLjPg6cJmpO4=; b=yYK2v6j11TRZcLOeaetPDFUU+n
+	8CofsObs5a2e7PCSjph7yj9GcqjDjza4O1ustXuu64dBoRRMGD4oeXvr8iEme9LH5icB8DOhnksa+
+	c74ldl00oaSj2FllEjc0td3/3P0QDhK9usUBJkIF9i58bbYmMubYBKGdg9OlLHFXE3x6rqK7mHocn
+	AMG2Q3PjKa1AuHe6jslmfJ4X1HspeJdAwexv7UPnIk1MI4RSjHzk9IRWgfHEMY8ObqajmuFmsifY+
+	qOpV+ltoc+9XOo9h6C2sVUy9cXooco9/LpCkuCDXPjb94RPBCqF+R0yaqtA9Ep8mB79E3jD2WPzPR
+	Z/+Ry++Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Tkh-00000005WiP-1RjW;
-	Fri, 25 Oct 2024 23:29:55 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1t4TmE-00000005Wu8-2Vpn;
+	Fri, 25 Oct 2024 23:31:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Tj7-00000005WXq-063n;
-	Fri, 25 Oct 2024 23:28:18 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20cbca51687so22318845ad.1;
-        Fri, 25 Oct 2024 16:28:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729898896; x=1730503696; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d+LonYrIZEHor693r4mdE7TdXh7oFFBiZD+b7YxVtbo=;
-        b=ekr7XxNg1TdPyJaV3qDGDsH6/M7TElGexRdCbmNQ4LyOaNQbeSG4G0EYtz25BoUFcD
-         Zliz516IxrTxLRGomNFmbcOO0Ajw5l+RUdPkXRWTwwpTjsn0fO1gD3pzBM/v+uuw7Yib
-         tLhnxcN0c9+GyLXqjE18zo0PT5/7sSei67nNqO6WSZRbPo9cUrQRhRRjaGnRAM1B/o4R
-         u6FPmT9Kx1cQUN7a13oEk3504s5mqaxUtylTEtt8KtUDvLjH1WPSvGTJcn5ggJqZv1wi
-         +qa6kCQ3YnCKrlLsSEFBuSf8bw8aVjzxgT10JmWZLtGwp9igzWs6RzPjKW3jfCq4FPgG
-         EaKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729898896; x=1730503696;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d+LonYrIZEHor693r4mdE7TdXh7oFFBiZD+b7YxVtbo=;
-        b=n5VJ9gRa/CWpcwm6C+AGgr/1+t4eb41CcwpZHZkolY45zfUw5XM6CCqICp6ABHS3CV
-         bCyLK27ty4vOD4dQzsgwVPoOIyyMUnLM2V1EkMAN7rP8lfUy6QhGq1mO/dbzPPv6Op9L
-         UYSH4jsZ1t6h1Y4CWvdrWj5Fjkmukshsvj0ul0nq6BqUi/IIXfYQrg8C6KBUPo+jRkoN
-         XRtgq07dxHz4cu3/lN7GBTNoYiIdR7e2Ds8rzbamduZYPtmkLj+yZiGB5K4bW8EquOll
-         +V5rtUi87NfQWpuk4L5MLR4DHhd93unD3AZu6q8RSKMin6+isavZQ/Cxm+1pxAUytEEF
-         pG6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXJXC+ykdtvCmcilMYSF5nsEbMVFFUZlQyQ09398Q6i8TJ5CNDW+iZHUcrNP6VlDF4I9dSyAVUNp2P3M9jqX5jn@lists.infradead.org, AJvYcCXgA2nZfFu3R6Xni0iESH4w17coVRmbq29mvUAryCKQZkomPMeQFGKzSUlVNXCMawzf/JczhnAabL02ntU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTUPfKSPNhnKLtvmzo0b5LWjqlhOV7iSLd9Dm45+hR3OSn6CK1
-	pXGzM/0bbFZXqzc+S/GmcFlFkZm149WUt6eHdPqjUdvEV7txS1p+
-X-Google-Smtp-Source: AGHT+IHamz0WczDVCsPc6CPqKdEhjI+8PIhVIRTWBbvo/nv2cWi0cJElpgaxLC3cRQCvUjNkV4uDYQ==
-X-Received: by 2002:a17:903:2450:b0:20c:a692:cf1e with SMTP id d9443c01a7336-210c6c6ce1bmr13188725ad.43.1729898895779;
-        Fri, 25 Oct 2024 16:28:15 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf6d6e7sm14383325ad.71.2024.10.25.16.28.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 16:28:15 -0700 (PDT)
-Date: Sat, 26 Oct 2024 07:27:54 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <22g3v2h52xjhhwxdgnte6mhhadjfds2vlxlwz7b7t2fa7jlty2@lwyumoromg3c>
-References: <20241025011000.244350-1-inochiama@gmail.com>
- <20241025011000.244350-5-inochiama@gmail.com>
- <e00a0277-c298-47ba-9fdd-8f740f7490cc@intel.com>
+	id 1t4Pmn-00000004vKE-1bTg;
+	Fri, 25 Oct 2024 19:15:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 849C95C5D37;
+	Fri, 25 Oct 2024 19:15:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04E98C4CEE4;
+	Fri, 25 Oct 2024 19:15:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729883748;
+	bh=BGZLghSvAb2m+jtn0c04NmLEPBfZhFCQo/tDCb7ZInA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=org7YM15SpNa/jS7oSk+5MHxNzixiKZqwKn8dWx0VY2xpe3qlG1HU80q2ZRu+vO/l
+	 n5FmJn6ehiVXBNsDDOuQa3pUDPqA4SOtqEhQvefvlsBxikTG20j/9oBC5PvV+mvWDS
+	 gPnLazVSwRcginJL8nzcRDtp3dw0pWDLMxmqrSdBf3r8g98aflUYQubsgu5AC4Kz1X
+	 F4Q7SSFbGLb2PbUTYr5rSvU5A5TxwTuOSXlCt/2B+RiRNFWnNLAI8H3GzK3TyRRDwf
+	 2J2xs7COAFUBV3YtOAutAY+nelo7FCVCNK3U+cOclWabee0F+QkOWCAKwYpzA5d2Bg
+	 4WiskxceC5WFA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 08/18] powerpc/crc32: expose CRC32 functions through lib
+Date: Fri, 25 Oct 2024 12:14:44 -0700
+Message-ID: <20241025191454.72616-9-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e00a0277-c298-47ba-9fdd-8f740f7490cc@intel.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_162817_087037_8CC13C24 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20241025_121549_730065_ADC36FC2 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,130 +82,460 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 04:53:07PM +0200, Alexander Lobakin wrote:
-> From: Inochi Amaoto <inochiama@gmail.com>
-> Date: Fri, 25 Oct 2024 09:10:00 +0800
-> 
-> > Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
-> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
-> >  .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 109 ++++++++++++++++++
-> >  3 files changed, 121 insertions(+)
-> >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> 
-> [...]
-> 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> > new file mode 100644
-> > index 000000000000..8f37bcf86a73
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> > @@ -0,0 +1,109 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * Sophgo DWMAC platform driver
-> > + *
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
-> > + *
-> 
-> This empty line is redundant I guess?
-> 
-> > + */
-> > +
-> > +#include <linux/bits.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/property.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/phy.h>
-> > +#include <linux/regmap.h>
-> 
-> Here should be alphabetical order.
-> 
+From: Eric Biggers <ebiggers@google.com>
 
-Thanks, I forgot to reorder it when adding new include.
+Move the powerpc CRC32C assembly code into the lib directory and wire it
+up to the library interface.  This allows it to be used without going
+through the crypto API.  It remains usable via the crypto API too via
+the shash algorithms that use the library interface.  Thus all the
+arch-specific "shash" code becomes unnecessary and is removed.
 
-> > +
-> > +#include "stmmac_platform.h"
-> > +
-> > +struct sophgo_dwmac {
-> > +	struct device *dev;
-> > +	struct clk *clk_tx;
-> > +};
-> > +
-> > +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-> > +{
-> > +	struct sophgo_dwmac *dwmac = priv;
-> > +	long rate;
-> > +	int ret;
-> > +
-> > +	rate = rgmii_clock(speed);
-> > +	if (ret < 0) {
-> 
-> Did you mean `if (rate < 0)`?
-> 
+Note: to see the diff from arch/powerpc/crypto/crc32c-vpmsum_glue.c to
+arch/powerpc/lib/crc32-glue.c, view this commit with 'git show -M10'.
 
-Yeah, it seems I forgot to modify it.
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/powerpc/Kconfig                          |   1 +
+ arch/powerpc/configs/powernv_defconfig        |   1 -
+ arch/powerpc/configs/ppc64_defconfig          |   1 -
+ arch/powerpc/crypto/Kconfig                   |  15 +-
+ arch/powerpc/crypto/Makefile                  |   2 -
+ arch/powerpc/crypto/crc32c-vpmsum_glue.c      | 173 ------------------
+ arch/powerpc/crypto/crct10dif-vpmsum_asm.S    |   2 +-
+ arch/powerpc/lib/Makefile                     |   3 +
+ arch/powerpc/lib/crc32-glue.c                 |  86 +++++++++
+ .../{crypto => lib}/crc32-vpmsum_core.S       |   0
+ .../{crypto => lib}/crc32c-vpmsum_asm.S       |   0
+ 11 files changed, 92 insertions(+), 192 deletions(-)
+ delete mode 100644 arch/powerpc/crypto/crc32c-vpmsum_glue.c
+ create mode 100644 arch/powerpc/lib/crc32-glue.c
+ rename arch/powerpc/{crypto => lib}/crc32-vpmsum_core.S (100%)
+ rename arch/powerpc/{crypto => lib}/crc32c-vpmsum_asm.S (100%)
 
-> > +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> > +		return;
-> > +	}
-> > +
-> > +	ret = clk_set_rate(dwmac->clk_tx, rate);
-> > +	if (ret)
-> > +		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
-> 
-> Don't you want to print the error code here?
-> 
-> 		"failed to set tx rate %lu: %pe\n", rate, ERR_PTR(ret));
-> 
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 8094a01974cc..b05889400b04 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -125,10 +125,11 @@ config PPC
+ 	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
+ 	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_HAS_COPY_MC			if PPC64
++	select ARCH_HAS_CRC32			if PPC64 && ALTIVEC
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_WX		if STRICT_KERNEL_RWX
+ 	select ARCH_HAS_DEVMEM_IS_ALLOWED
+diff --git a/arch/powerpc/configs/powernv_defconfig b/arch/powerpc/configs/powernv_defconfig
+index ee84ade7a033..4a7ddea05b4d 100644
+--- a/arch/powerpc/configs/powernv_defconfig
++++ b/arch/powerpc/configs/powernv_defconfig
+@@ -318,11 +318,10 @@ CONFIG_FTR_FIXUP_SELFTEST=y
+ CONFIG_MSI_BITMAP_SELFTEST=y
+ CONFIG_XMON=y
+ CONFIG_CRYPTO_TEST=m
+ CONFIG_CRYPTO_PCBC=m
+ CONFIG_CRYPTO_HMAC=y
+-CONFIG_CRYPTO_CRC32C_VPMSUM=m
+ CONFIG_CRYPTO_CRCT10DIF_VPMSUM=m
+ CONFIG_CRYPTO_MD5_PPC=m
+ CONFIG_CRYPTO_MICHAEL_MIC=m
+ CONFIG_CRYPTO_SHA1_PPC=m
+ CONFIG_CRYPTO_SHA256=y
+diff --git a/arch/powerpc/configs/ppc64_defconfig b/arch/powerpc/configs/ppc64_defconfig
+index a5e3e7f97f4d..ea01c0d6705f 100644
+--- a/arch/powerpc/configs/ppc64_defconfig
++++ b/arch/powerpc/configs/ppc64_defconfig
+@@ -388,11 +388,10 @@ CONFIG_CRYPTO_TWOFISH=m
+ CONFIG_CRYPTO_PCBC=m
+ CONFIG_CRYPTO_MICHAEL_MIC=m
+ CONFIG_CRYPTO_SHA256=y
+ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_LZO=m
+-CONFIG_CRYPTO_CRC32C_VPMSUM=m
+ CONFIG_CRYPTO_CRCT10DIF_VPMSUM=m
+ CONFIG_CRYPTO_VPMSUM_TESTER=m
+ CONFIG_CRYPTO_MD5_PPC=m
+ CONFIG_CRYPTO_SHA1_PPC=m
+ CONFIG_CRYPTO_AES_GCM_P10=m
+diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
+index 46a4c85e85e2..5c016ec39530 100644
+--- a/arch/powerpc/crypto/Kconfig
++++ b/arch/powerpc/crypto/Kconfig
+@@ -11,23 +11,10 @@ config CRYPTO_CURVE25519_PPC64
+ 	  Curve25519 algorithm
+ 
+ 	  Architecture: PowerPC64
+ 	  - Little-endian
+ 
+-config CRYPTO_CRC32C_VPMSUM
+-	tristate "CRC32c"
+-	depends on PPC64 && ALTIVEC
+-	select CRYPTO_HASH
+-	select CRC32
+-	help
+-	  CRC32c CRC algorithm with the iSCSI polynomial (RFC 3385 and RFC 3720)
+-
+-	  Architecture: powerpc64 using
+-	  - AltiVec extensions
+-
+-	  Enable on POWER8 and newer processors for improved performance.
+-
+ config CRYPTO_CRCT10DIF_VPMSUM
+ 	tristate "CRC32T10DIF"
+ 	depends on PPC64 && ALTIVEC && CRC_T10DIF
+ 	select CRYPTO_HASH
+ 	help
+@@ -38,11 +25,11 @@ config CRYPTO_CRCT10DIF_VPMSUM
+ 
+ 	  Enable on POWER8 and newer processors for improved performance.
+ 
+ config CRYPTO_VPMSUM_TESTER
+ 	tristate "CRC32c and CRC32T10DIF hardware acceleration tester"
+-	depends on CRYPTO_CRCT10DIF_VPMSUM && CRYPTO_CRC32C_VPMSUM
++	depends on CRYPTO_CRCT10DIF_VPMSUM && CRC32_ARCH
+ 	help
+ 	  Stress test for CRC32c and CRCT10DIF algorithms implemented with
+ 	  powerpc64 AltiVec extensions (POWER8 vpmsum instructions).
+ 	  Unless you are testing these algorithms, you don't need this.
+ 
+diff --git a/arch/powerpc/crypto/Makefile b/arch/powerpc/crypto/Makefile
+index 59808592f0a1..54486192273c 100644
+--- a/arch/powerpc/crypto/Makefile
++++ b/arch/powerpc/crypto/Makefile
+@@ -8,11 +8,10 @@
+ obj-$(CONFIG_CRYPTO_AES_PPC_SPE) += aes-ppc-spe.o
+ obj-$(CONFIG_CRYPTO_MD5_PPC) += md5-ppc.o
+ obj-$(CONFIG_CRYPTO_SHA1_PPC) += sha1-powerpc.o
+ obj-$(CONFIG_CRYPTO_SHA1_PPC_SPE) += sha1-ppc-spe.o
+ obj-$(CONFIG_CRYPTO_SHA256_PPC_SPE) += sha256-ppc-spe.o
+-obj-$(CONFIG_CRYPTO_CRC32C_VPMSUM) += crc32c-vpmsum.o
+ obj-$(CONFIG_CRYPTO_CRCT10DIF_VPMSUM) += crct10dif-vpmsum.o
+ obj-$(CONFIG_CRYPTO_VPMSUM_TESTER) += crc-vpmsum_test.o
+ obj-$(CONFIG_CRYPTO_AES_GCM_P10) += aes-gcm-p10-crypto.o
+ obj-$(CONFIG_CRYPTO_CHACHA20_P10) += chacha-p10-crypto.o
+ obj-$(CONFIG_CRYPTO_POLY1305_P10) += poly1305-p10-crypto.o
+@@ -22,11 +21,10 @@ obj-$(CONFIG_CRYPTO_CURVE25519_PPC64) += curve25519-ppc64le.o
+ aes-ppc-spe-y := aes-spe-core.o aes-spe-keys.o aes-tab-4k.o aes-spe-modes.o aes-spe-glue.o
+ md5-ppc-y := md5-asm.o md5-glue.o
+ sha1-powerpc-y := sha1-powerpc-asm.o sha1.o
+ sha1-ppc-spe-y := sha1-spe-asm.o sha1-spe-glue.o
+ sha256-ppc-spe-y := sha256-spe-asm.o sha256-spe-glue.o
+-crc32c-vpmsum-y := crc32c-vpmsum_asm.o crc32c-vpmsum_glue.o
+ crct10dif-vpmsum-y := crct10dif-vpmsum_asm.o crct10dif-vpmsum_glue.o
+ aes-gcm-p10-crypto-y := aes-gcm-p10-glue.o aes-gcm-p10.o ghashp10-ppc.o aesp10-ppc.o
+ chacha-p10-crypto-y := chacha-p10-glue.o chacha-p10le-8x.o
+ poly1305-p10-crypto-y := poly1305-p10-glue.o poly1305-p10le_64.o
+ vmx-crypto-objs := vmx.o aesp8-ppc.o ghashp8-ppc.o aes.o aes_cbc.o aes_ctr.o aes_xts.o ghash.o
+diff --git a/arch/powerpc/crypto/crc32c-vpmsum_glue.c b/arch/powerpc/crypto/crc32c-vpmsum_glue.c
+deleted file mode 100644
+index 63760b7dbb76..000000000000
+--- a/arch/powerpc/crypto/crc32c-vpmsum_glue.c
++++ /dev/null
+@@ -1,173 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-#include <linux/crc32.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-#include <linux/init.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-#include <linux/kernel.h>
+-#include <linux/cpufeature.h>
+-#include <asm/simd.h>
+-#include <asm/switch_to.h>
+-
+-#define CHKSUM_BLOCK_SIZE	1
+-#define CHKSUM_DIGEST_SIZE	4
+-
+-#define VMX_ALIGN		16
+-#define VMX_ALIGN_MASK		(VMX_ALIGN-1)
+-
+-#define VECTOR_BREAKPOINT	512
+-
+-u32 __crc32c_vpmsum(u32 crc, unsigned char const *p, size_t len);
+-
+-static u32 crc32c_vpmsum(u32 crc, unsigned char const *p, size_t len)
+-{
+-	unsigned int prealign;
+-	unsigned int tail;
+-
+-	if (len < (VECTOR_BREAKPOINT + VMX_ALIGN) || !crypto_simd_usable())
+-		return __crc32c_le(crc, p, len);
+-
+-	if ((unsigned long)p & VMX_ALIGN_MASK) {
+-		prealign = VMX_ALIGN - ((unsigned long)p & VMX_ALIGN_MASK);
+-		crc = __crc32c_le(crc, p, prealign);
+-		len -= prealign;
+-		p += prealign;
+-	}
+-
+-	if (len & ~VMX_ALIGN_MASK) {
+-		preempt_disable();
+-		pagefault_disable();
+-		enable_kernel_altivec();
+-		crc = __crc32c_vpmsum(crc, p, len & ~VMX_ALIGN_MASK);
+-		disable_kernel_altivec();
+-		pagefault_enable();
+-		preempt_enable();
+-	}
+-
+-	tail = len & VMX_ALIGN_MASK;
+-	if (tail) {
+-		p += len & ~VMX_ALIGN_MASK;
+-		crc = __crc32c_le(crc, p, tail);
+-	}
+-
+-	return crc;
+-}
+-
+-static int crc32c_vpmsum_cra_init(struct crypto_tfm *tfm)
+-{
+-	u32 *key = crypto_tfm_ctx(tfm);
+-
+-	*key = ~0;
+-
+-	return 0;
+-}
+-
+-/*
+- * Setting the seed allows arbitrary accumulators and flexible XOR policy
+- * If your algorithm starts with ~0, then XOR with ~0 before you set
+- * the seed.
+- */
+-static int crc32c_vpmsum_setkey(struct crypto_shash *hash, const u8 *key,
+-			       unsigned int keylen)
+-{
+-	u32 *mctx = crypto_shash_ctx(hash);
+-
+-	if (keylen != sizeof(u32))
+-		return -EINVAL;
+-	*mctx = le32_to_cpup((__le32 *)key);
+-	return 0;
+-}
+-
+-static int crc32c_vpmsum_init(struct shash_desc *desc)
+-{
+-	u32 *mctx = crypto_shash_ctx(desc->tfm);
+-	u32 *crcp = shash_desc_ctx(desc);
+-
+-	*crcp = *mctx;
+-
+-	return 0;
+-}
+-
+-static int crc32c_vpmsum_update(struct shash_desc *desc, const u8 *data,
+-			       unsigned int len)
+-{
+-	u32 *crcp = shash_desc_ctx(desc);
+-
+-	*crcp = crc32c_vpmsum(*crcp, data, len);
+-
+-	return 0;
+-}
+-
+-static int __crc32c_vpmsum_finup(u32 *crcp, const u8 *data, unsigned int len,
+-				u8 *out)
+-{
+-	*(__le32 *)out = ~cpu_to_le32(crc32c_vpmsum(*crcp, data, len));
+-
+-	return 0;
+-}
+-
+-static int crc32c_vpmsum_finup(struct shash_desc *desc, const u8 *data,
+-			      unsigned int len, u8 *out)
+-{
+-	return __crc32c_vpmsum_finup(shash_desc_ctx(desc), data, len, out);
+-}
+-
+-static int crc32c_vpmsum_final(struct shash_desc *desc, u8 *out)
+-{
+-	u32 *crcp = shash_desc_ctx(desc);
+-
+-	*(__le32 *)out = ~cpu_to_le32p(crcp);
+-
+-	return 0;
+-}
+-
+-static int crc32c_vpmsum_digest(struct shash_desc *desc, const u8 *data,
+-			       unsigned int len, u8 *out)
+-{
+-	return __crc32c_vpmsum_finup(crypto_shash_ctx(desc->tfm), data, len,
+-				     out);
+-}
+-
+-static struct shash_alg alg = {
+-	.setkey		= crc32c_vpmsum_setkey,
+-	.init		= crc32c_vpmsum_init,
+-	.update		= crc32c_vpmsum_update,
+-	.final		= crc32c_vpmsum_final,
+-	.finup		= crc32c_vpmsum_finup,
+-	.digest		= crc32c_vpmsum_digest,
+-	.descsize	= sizeof(u32),
+-	.digestsize	= CHKSUM_DIGEST_SIZE,
+-	.base		= {
+-		.cra_name		= "crc32c",
+-		.cra_driver_name	= "crc32c-vpmsum",
+-		.cra_priority		= 200,
+-		.cra_flags		= CRYPTO_ALG_OPTIONAL_KEY,
+-		.cra_blocksize		= CHKSUM_BLOCK_SIZE,
+-		.cra_ctxsize		= sizeof(u32),
+-		.cra_module		= THIS_MODULE,
+-		.cra_init		= crc32c_vpmsum_cra_init,
+-	}
+-};
+-
+-static int __init crc32c_vpmsum_mod_init(void)
+-{
+-	if (!cpu_has_feature(CPU_FTR_ARCH_207S))
+-		return -ENODEV;
+-
+-	return crypto_register_shash(&alg);
+-}
+-
+-static void __exit crc32c_vpmsum_mod_fini(void)
+-{
+-	crypto_unregister_shash(&alg);
+-}
+-
+-module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, crc32c_vpmsum_mod_init);
+-module_exit(crc32c_vpmsum_mod_fini);
+-
+-MODULE_AUTHOR("Anton Blanchard <anton@samba.org>");
+-MODULE_DESCRIPTION("CRC32C using vector polynomial multiply-sum instructions");
+-MODULE_LICENSE("GPL");
+-MODULE_ALIAS_CRYPTO("crc32c");
+-MODULE_ALIAS_CRYPTO("crc32c-vpmsum");
+diff --git a/arch/powerpc/crypto/crct10dif-vpmsum_asm.S b/arch/powerpc/crypto/crct10dif-vpmsum_asm.S
+index f0b93a0fe168..0a52261bf859 100644
+--- a/arch/powerpc/crypto/crct10dif-vpmsum_asm.S
++++ b/arch/powerpc/crypto/crct10dif-vpmsum_asm.S
+@@ -840,6 +840,6 @@
+ 	.octa 0x000000000000000000000001f65a57f8	/* x^64 div p(x) */
+ 	/* Barrett constant n */
+ 	.octa 0x0000000000000000000000018bb70000
+ 
+ #define CRC_FUNCTION_NAME __crct10dif_vpmsum
+-#include "crc32-vpmsum_core.S"
++#include "../lib/crc32-vpmsum_core.S"
+diff --git a/arch/powerpc/lib/Makefile b/arch/powerpc/lib/Makefile
+index f14ecab674a3..da9381a1c95b 100644
+--- a/arch/powerpc/lib/Makefile
++++ b/arch/powerpc/lib/Makefile
+@@ -76,6 +76,9 @@ obj-$(CONFIG_FTR_FIXUP_SELFTEST) += feature-fixups-test.o
+ obj-$(CONFIG_ALTIVEC)	+= xor_vmx.o xor_vmx_glue.o
+ CFLAGS_xor_vmx.o += -mhard-float -maltivec $(call cc-option,-mabi=altivec)
+ # Enable <altivec.h>
+ CFLAGS_xor_vmx.o += -isystem $(shell $(CC) -print-file-name=include)
+ 
++obj-$(CONFIG_CRC32_ARCH) += crc32-powerpc.o
++crc32-powerpc-y := crc32-glue.o crc32c-vpmsum_asm.o
++
+ obj-$(CONFIG_PPC64) += $(obj64-y)
+diff --git a/arch/powerpc/lib/crc32-glue.c b/arch/powerpc/lib/crc32-glue.c
+new file mode 100644
+index 000000000000..ee53c38f9fab
+--- /dev/null
++++ b/arch/powerpc/lib/crc32-glue.c
+@@ -0,0 +1,86 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <linux/crc32.h>
++#include <crypto/internal/simd.h>
++#include <linux/init.h>
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/cpufeature.h>
++#include <asm/simd.h>
++#include <asm/switch_to.h>
++
++#define VMX_ALIGN		16
++#define VMX_ALIGN_MASK		(VMX_ALIGN-1)
++
++#define VECTOR_BREAKPOINT	512
++
++static DEFINE_STATIC_KEY_FALSE(have_vec_crypto);
++
++u32 __crc32c_vpmsum(u32 crc, const u8 *p, size_t len);
++
++u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
++{
++	return crc32_le_base(crc, p, len);
++}
++EXPORT_SYMBOL(crc32_le_arch);
++
++u32 crc32c_le_arch(u32 crc, const u8 *p, size_t len)
++{
++	unsigned int prealign;
++	unsigned int tail;
++
++	if (len < (VECTOR_BREAKPOINT + VMX_ALIGN) || !crypto_simd_usable() ||
++	    !static_branch_likely(&have_vec_crypto))
++		return crc32c_le_base(crc, p, len);
++
++	if ((unsigned long)p & VMX_ALIGN_MASK) {
++		prealign = VMX_ALIGN - ((unsigned long)p & VMX_ALIGN_MASK);
++		crc = crc32c_le_base(crc, p, prealign);
++		len -= prealign;
++		p += prealign;
++	}
++
++	if (len & ~VMX_ALIGN_MASK) {
++		preempt_disable();
++		pagefault_disable();
++		enable_kernel_altivec();
++		crc = __crc32c_vpmsum(crc, p, len & ~VMX_ALIGN_MASK);
++		disable_kernel_altivec();
++		pagefault_enable();
++		preempt_enable();
++	}
++
++	tail = len & VMX_ALIGN_MASK;
++	if (tail) {
++		p += len & ~VMX_ALIGN_MASK;
++		crc = crc32c_le_base(crc, p, tail);
++	}
++
++	return crc;
++}
++EXPORT_SYMBOL(crc32c_le_arch);
++
++u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
++{
++	return crc32_be_base(crc, p, len);
++}
++EXPORT_SYMBOL(crc32_be_arch);
++
++static int __init crc32_powerpc_init(void)
++{
++	if (cpu_has_feature(CPU_FTR_ARCH_207S) &&
++	    (cur_cpu_spec->cpu_user_features2 & PPC_FEATURE2_VEC_CRYPTO)) {
++		static_branch_enable(&have_vec_crypto);
++		crc32_optimizations = CRC32C_OPTIMIZATION;
++	}
++	return 0;
++}
++arch_initcall(crc32_powerpc_init);
++
++static void __exit crc32_powerpc_exit(void)
++{
++}
++module_exit(crc32_powerpc_exit);
++
++MODULE_AUTHOR("Anton Blanchard <anton@samba.org>");
++MODULE_DESCRIPTION("CRC32C using vector polynomial multiply-sum instructions");
++MODULE_LICENSE("GPL");
+diff --git a/arch/powerpc/crypto/crc32-vpmsum_core.S b/arch/powerpc/lib/crc32-vpmsum_core.S
+similarity index 100%
+rename from arch/powerpc/crypto/crc32-vpmsum_core.S
+rename to arch/powerpc/lib/crc32-vpmsum_core.S
+diff --git a/arch/powerpc/crypto/crc32c-vpmsum_asm.S b/arch/powerpc/lib/crc32c-vpmsum_asm.S
+similarity index 100%
+rename from arch/powerpc/crypto/crc32c-vpmsum_asm.S
+rename to arch/powerpc/lib/crc32c-vpmsum_asm.S
+-- 
+2.47.0
 
-Thanks, it is more clear now.
-
-> > +}
-> > +
-> > +static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-> > +				    struct plat_stmmacenet_data *plat_dat,
-> > +				    struct stmmac_resources *stmmac_res)
-> > +{
-> > +	struct sophgo_dwmac *dwmac;
-> > +	int ret;
-> 
-> Unused var.
-> 
-> > +
-> > +	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-> > +	if (!dwmac)
-> > +		return -ENOMEM;
-> > +
-> > +	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-> > +	if (IS_ERR(dwmac->clk_tx))
-> > +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-> > +				     "failed to get tx clock\n");
-> > +
-> > +	dwmac->dev = &pdev->dev;
-> > +	plat_dat->bsp_priv = dwmac;
-> > +	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> > +	plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
-> > +	plat_dat->multicast_filter_bins = 0;
-> > +	plat_dat->unicast_filter_entries = 1;
-> > +
-> > +	return 0;
-> > +}
-> 
-> [...]
-> 
-> + see the build bot report.
-> 
-> Thanks,
-> Olek
-
-
-Thanks, I will fix it.
-
-Regards,
-Inochi
 
