@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC2ED149E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D51D149E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lSojNFdw8ftg3T7NakOd4AZhT9UMaiDwBHmwcORfhmk=; b=aWun3hx0AcDgjK8tO6WaFE2vVI
-	g7tbrfK/Qf5vEId6e9GTZHQLICZlXe2p/ghWzgxvhpLWNRWUzd+C5P1FRwj1BfO3FWJGyS+qRVcxP
-	d1eC6zZD3iPtY5fr5Pfdgj52enl6cTh/8tdfKH/lOZ2cy3SgjFIS0tlMi2HsO4O8FclW0E0ymbZSI
-	5ARuP8hErE8PYwRSD1itBkceX09bSmbEhdzpoO2fBoo+4e/cqsMNJOcAsXDpd4BIFjLt4/ahOwrqt
-	uC+8ZTr5zTSj+6niqkXtuB7y9bwzkXaxeqfM7djPvKM9KrvPl1GupkTDaj1TZ3jtwFvDbAGAUmVcr
-	BIv9Tg9w==;
+	bh=ryWfRNxxS8Efgv1ZSqOq8+11p2IB8MlRMDuchZ151I4=; b=Yzgb6x52BnzXyfLy9bTRtPs8M4
+	rnbSHEAjRJU07tNK/nOcTc/YXEbjdlP5Kcn/d3ry83lQUnu8fAd1HtCjBGMpqDAYueNGGcs3A0GFC
+	FBBxj7OtdfU/iK5JGJAsNhtWHA63YLRMdXTdZEUCqHI3VVV1jYewK93SnX03nfBBsz3b1+sC1iaYE
+	m47CxKRIKHZF1x3kdEl/ynqWL4H3/rnWumH8Mz5U4ZDk3y4ejLvIAf248K2cqa3mcGkIauyxHYe8J
+	qoL+I+mF21KfLZVQpkX8r2ZH7+DutrbkhUiNvvlabbNDog+WreEs5KCrqm25kt7mBqRxrAKIRUCDx
+	d4PLtETw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QEK-000000051sy-1tYt;
-	Fri, 25 Oct 2024 19:44:16 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1t4QFr-0000000523O-1T6s;
+	Fri, 25 Oct 2024 19:45:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4PDp-00000004pwV-41xV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:39:43 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4XZs5L3sP6z9snx;
-	Fri, 25 Oct 2024 20:39:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1729881574;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lSojNFdw8ftg3T7NakOd4AZhT9UMaiDwBHmwcORfhmk=;
-	b=gdBTGg9qaBnIiiH6XUTjeUDIpm/w19h2mJ2NxyWek4JBdbfHEfy1l85WLscQ4teM7X3Y8E
-	SzmAWuY6Tiv8TrbprFm973WyyZ+4RlCRZSgfEyQVNqd0vqp4fkqFnrWEBZthKLrpibPdn8
-	zOUeUEpcyhLgwtmKEbx1GfoJj+wV9qWVvuN6kVStn1ig/Bghe328CY4APIAqqMM1/M6DTp
-	Oi88jdSqZLP4fc+Ctf69KIG1PcmVc9Uqx7eoBdxCRl/yvszGacX3FksxcbsLOSr1RTVZ7U
-	RwAHePsvYqanhR6nADNx5z06lDr7cIO+uU+cHTctUfx45NWDJnFzydXg0RISPg==
-Message-ID: <872c8823-f62b-42f8-8bf3-86342374aa84@mailbox.org>
-Date: Fri, 25 Oct 2024 20:39:19 +0200
+	id 1t4Pmm-00000004vJa-2nK2;
+	Fri, 25 Oct 2024 19:15:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA50D5C5D3D;
+	Fri, 25 Oct 2024 19:15:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59461C4AF09;
+	Fri, 25 Oct 2024 19:15:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729883747;
+	bh=u7VrOvLjAB2b5W5fe4ARxel70QKz0CUsuzT6KMhS598=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AotiRQTukp4tT+NgVlB3Z2Oxjt6Sa2UeX38641gZRuL1Wsomo8/qUbm0KfeKkC7bV
+	 j1iyBZM5YyWLVJkkp64g/ufLz/581uRFhJJ9/RCDoZjQsL/nedW+d4ikKSkIB0NIn/
+	 21arJPXS8HiG3LS4aa8T+GqlODgVsslklUVli8NVpb7meeehQjFFNIZu6FBMfi+yw8
+	 qF6LA6H3Q4YuOSD54X2E/Lv4JiQ30EP+nk6svGbqApToVqgTcRXhvlT1HWVlgZWoFU
+	 JP59pUlvn4KLY1JLkfVYeW3W5KHMhZycm3SZq1bkB3aLts2w2GmmHr/qd6g03JXmSp
+	 sWt73WXUppMcw==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 07/18] mips/crc32: expose CRC32 functions through lib
+Date: Fri, 25 Oct 2024 12:14:43 -0700
+Message-ID: <20241025191454.72616-8-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
+References: <20241025191454.72616-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] Revert "MAINTAINERS: Remove some entries due to various
- compliance requirements."
-Content-Language: en-US
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Kexy Biscuit <kexybiscuit@aosc.io>, jeffbai@aosc.io,
- gregkh@linuxfoundation.org, wangyuli@uniontech.com, aospan@netup.ru,
- conor.dooley@microchip.com, ddrokosov@sberdevices.ru,
- dmaengine@vger.kernel.org, dushistov@mail.ru, fancer.lancer@gmail.com,
- geert@linux-m68k.org, hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
- mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
- ntb@lists.linux.dev, patches@lists.linux.dev, richard.henderson@linaro.org,
- s.shtylyov@omp.ru, serjk@netup.ru, shc_work@mail.ru,
- tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
- wsa+renesas@sang-engineering.com, xeb@mail.ru
-References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
- <20241023080935.2945-2-kexybiscuit@aosc.io>
- <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
- <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-From: Tor Vic <torvic9@mailbox.org>
-In-Reply-To: <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: fcapfso3xo4bfkqbzachb4s163eexrjr
-X-MBO-RS-ID: 80e4fa8c609ea0e1360
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_113942_188002_B8A91DA6 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20241025_121548_982527_EC34BBBE 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,129 +82,730 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Eric Biggers <ebiggers@google.com>
 
+Move the mips CRC32 assembly code into the lib directory and wire it up
+to the library interface.  This allows it to be used without going
+through the crypto API.  It remains usable via the crypto API too via
+the shash algorithms that use the library interface.  Thus all the
+arch-specific "shash" code becomes unnecessary and is removed.
 
-On 10/23/24 19:45, Linus Torvalds wrote:
-> Ok, lots of Russian trolls out and about.
+Note: to see the diff from arch/mips/crypto/crc32-mips.c to
+arch/mips/lib/crc32-mips.c, view this commit with 'git show -M10'.
 
-I was a little bit sick when I wrote my previous comment, but I wanted 
-to elaborate, so here we go:
-> 
-> It's entirely clear why the change was done, it's not getting
-> reverted, and using multiple random anonymous accounts to try to
-> "grass root" it by Russian troll factories isn't going to change
-> anything.
-> 
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/mips/Kconfig                     |   5 +-
+ arch/mips/configs/eyeq5_defconfig     |   1 -
+ arch/mips/configs/eyeq6_defconfig     |   1 -
+ arch/mips/configs/generic/32r6.config |   2 -
+ arch/mips/configs/generic/64r6.config |   1 -
+ arch/mips/crypto/Kconfig              |   9 -
+ arch/mips/crypto/Makefile             |   2 -
+ arch/mips/crypto/crc32-mips.c         | 354 --------------------------
+ arch/mips/lib/Makefile                |   2 +
+ arch/mips/lib/crc32-mips.c            | 187 ++++++++++++++
+ 10 files changed, 190 insertions(+), 374 deletions(-)
+ delete mode 100644 arch/mips/crypto/crc32-mips.c
+ create mode 100644 arch/mips/lib/crc32-mips.c
 
-Of course it's not going to be reverted, and I don't mind.
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 397edf05dd72..f80ea80d792f 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -1993,15 +1993,15 @@ config CPU_MIPSR5
+ 	select MIPS_SPRAM
+ 
+ config CPU_MIPSR6
+ 	bool
+ 	default y if CPU_MIPS32_R6 || CPU_MIPS64_R6
++	select ARCH_HAS_CRC32
+ 	select CPU_HAS_RIXI
+ 	select CPU_HAS_DIEI if !CPU_DIEI_BROKEN
+ 	select HAVE_ARCH_BITREVERSE
+ 	select MIPS_ASID_BITS_VARIABLE
+-	select MIPS_CRC_SUPPORT
+ 	select MIPS_SPRAM
+ 
+ config TARGET_ISA_REV
+ 	int
+ 	default 1 if CPU_MIPSR1
+@@ -2473,13 +2473,10 @@ config MIPS_ASID_BITS
+ 	default 8
+ 
+ config MIPS_ASID_BITS_VARIABLE
+ 	bool
+ 
+-config MIPS_CRC_SUPPORT
+-	bool
+-
+ # R4600 erratum.  Due to the lack of errata information the exact
+ # technical details aren't known.  I've experimentally found that disabling
+ # interrupts during indexed I-cache flushes seems to be sufficient to deal
+ # with the issue.
+ config WAR_R4600_V1_INDEX_ICACHEOP
+diff --git a/arch/mips/configs/eyeq5_defconfig b/arch/mips/configs/eyeq5_defconfig
+index ae9a09b16e40..ff7af5dc6d9d 100644
+--- a/arch/mips/configs/eyeq5_defconfig
++++ b/arch/mips/configs/eyeq5_defconfig
+@@ -97,11 +97,10 @@ CONFIG_NFS_FS=y
+ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_NFS_V4_1=y
+ CONFIG_NFS_V4_2=y
+ CONFIG_ROOT_NFS=y
+-CONFIG_CRYPTO_CRC32_MIPS=y
+ CONFIG_FRAME_WARN=1024
+ CONFIG_DEBUG_FS=y
+ # CONFIG_RCU_TRACE is not set
+ # CONFIG_FTRACE is not set
+ CONFIG_CMDLINE_BOOL=y
+diff --git a/arch/mips/configs/eyeq6_defconfig b/arch/mips/configs/eyeq6_defconfig
+index 6597d5e88b33..0afbb45a78e8 100644
+--- a/arch/mips/configs/eyeq6_defconfig
++++ b/arch/mips/configs/eyeq6_defconfig
+@@ -100,11 +100,10 @@ CONFIG_NFS_FS=y
+ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_NFS_V4_1=y
+ CONFIG_NFS_V4_2=y
+ CONFIG_ROOT_NFS=y
+-CONFIG_CRYPTO_CRC32_MIPS=y
+ CONFIG_FRAME_WARN=1024
+ CONFIG_DEBUG_FS=y
+ # CONFIG_RCU_TRACE is not set
+ # CONFIG_FTRACE is not set
+ CONFIG_CMDLINE_BOOL=y
+diff --git a/arch/mips/configs/generic/32r6.config b/arch/mips/configs/generic/32r6.config
+index 1a5d5ea4ab2b..ca606e71f4d0 100644
+--- a/arch/mips/configs/generic/32r6.config
++++ b/arch/mips/configs/generic/32r6.config
+@@ -1,4 +1,2 @@
+ CONFIG_CPU_MIPS32_R6=y
+ CONFIG_HIGHMEM=y
+-
+-CONFIG_CRYPTO_CRC32_MIPS=y
+diff --git a/arch/mips/configs/generic/64r6.config b/arch/mips/configs/generic/64r6.config
+index 63b4e95f303d..23a300914957 100644
+--- a/arch/mips/configs/generic/64r6.config
++++ b/arch/mips/configs/generic/64r6.config
+@@ -2,7 +2,6 @@ CONFIG_CPU_MIPS64_R6=y
+ CONFIG_64BIT=y
+ CONFIG_MIPS32_O32=y
+ CONFIG_MIPS32_N32=y
+ 
+ CONFIG_CPU_HAS_MSA=y
+-CONFIG_CRYPTO_CRC32_MIPS=y
+ CONFIG_VIRTUALIZATION=y
+diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
+index 9003a5c1e879..7decd40c4e20 100644
+--- a/arch/mips/crypto/Kconfig
++++ b/arch/mips/crypto/Kconfig
+@@ -1,18 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ menu "Accelerated Cryptographic Algorithms for CPU (mips)"
+ 
+-config CRYPTO_CRC32_MIPS
+-	tristate "CRC32c and CRC32"
+-	depends on MIPS_CRC_SUPPORT
+-	select CRYPTO_HASH
+-	help
+-	  CRC32c and CRC32 CRC algorithms
+-
+-	  Architecture: mips
+-
+ config CRYPTO_POLY1305_MIPS
+ 	tristate "Hash functions: Poly1305"
+ 	depends on MIPS
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	help
+diff --git a/arch/mips/crypto/Makefile b/arch/mips/crypto/Makefile
+index 5e4105cccf9f..fddc88281412 100644
+--- a/arch/mips/crypto/Makefile
++++ b/arch/mips/crypto/Makefile
+@@ -1,12 +1,10 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+ # Makefile for MIPS crypto files..
+ #
+ 
+-obj-$(CONFIG_CRYPTO_CRC32_MIPS) += crc32-mips.o
+-
+ obj-$(CONFIG_CRYPTO_CHACHA_MIPS) += chacha-mips.o
+ chacha-mips-y := chacha-core.o chacha-glue.o
+ AFLAGS_chacha-core.o += -O2 # needed to fill branch delay slots
+ 
+ obj-$(CONFIG_CRYPTO_POLY1305_MIPS) += poly1305-mips.o
+diff --git a/arch/mips/crypto/crc32-mips.c b/arch/mips/crypto/crc32-mips.c
+deleted file mode 100644
+index 90eacf00cfc3..000000000000
+--- a/arch/mips/crypto/crc32-mips.c
++++ /dev/null
+@@ -1,354 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/*
+- * crc32-mips.c - CRC32 and CRC32C using optional MIPSr6 instructions
+- *
+- * Module based on arm64/crypto/crc32-arm.c
+- *
+- * Copyright (C) 2014 Linaro Ltd <yazen.ghannam@linaro.org>
+- * Copyright (C) 2018 MIPS Tech, LLC
+- */
+-
+-#include <linux/cpufeature.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-#include <asm/mipsregs.h>
+-#include <linux/unaligned.h>
+-
+-#include <crypto/internal/hash.h>
+-
+-enum crc_op_size {
+-	b, h, w, d,
+-};
+-
+-enum crc_type {
+-	crc32,
+-	crc32c,
+-};
+-
+-#ifndef TOOLCHAIN_SUPPORTS_CRC
+-#define _ASM_SET_CRC(OP, SZ, TYPE)					  \
+-_ASM_MACRO_3R(OP, rt, rs, rt2,						  \
+-	".ifnc	\\rt, \\rt2\n\t"					  \
+-	".error	\"invalid operands \\\"" #OP " \\rt,\\rs,\\rt2\\\"\"\n\t" \
+-	".endif\n\t"							  \
+-	_ASM_INSN_IF_MIPS(0x7c00000f | (__rt << 16) | (__rs << 21) |	  \
+-			  ((SZ) <<  6) | ((TYPE) << 8))			  \
+-	_ASM_INSN32_IF_MM(0x00000030 | (__rs << 16) | (__rt << 21) |	  \
+-			  ((SZ) << 14) | ((TYPE) << 3)))
+-#define _ASM_UNSET_CRC(op, SZ, TYPE) ".purgem " #op "\n\t"
+-#else /* !TOOLCHAIN_SUPPORTS_CRC */
+-#define _ASM_SET_CRC(op, SZ, TYPE) ".set\tcrc\n\t"
+-#define _ASM_UNSET_CRC(op, SZ, TYPE)
+-#endif
+-
+-#define __CRC32(crc, value, op, SZ, TYPE)		\
+-do {							\
+-	__asm__ __volatile__(				\
+-		".set	push\n\t"			\
+-		_ASM_SET_CRC(op, SZ, TYPE)		\
+-		#op "	%0, %1, %0\n\t"			\
+-		_ASM_UNSET_CRC(op, SZ, TYPE)		\
+-		".set	pop"				\
+-		: "+r" (crc)				\
+-		: "r" (value));				\
+-} while (0)
+-
+-#define _CRC32_crc32b(crc, value)	__CRC32(crc, value, crc32b, 0, 0)
+-#define _CRC32_crc32h(crc, value)	__CRC32(crc, value, crc32h, 1, 0)
+-#define _CRC32_crc32w(crc, value)	__CRC32(crc, value, crc32w, 2, 0)
+-#define _CRC32_crc32d(crc, value)	__CRC32(crc, value, crc32d, 3, 0)
+-#define _CRC32_crc32cb(crc, value)	__CRC32(crc, value, crc32cb, 0, 1)
+-#define _CRC32_crc32ch(crc, value)	__CRC32(crc, value, crc32ch, 1, 1)
+-#define _CRC32_crc32cw(crc, value)	__CRC32(crc, value, crc32cw, 2, 1)
+-#define _CRC32_crc32cd(crc, value)	__CRC32(crc, value, crc32cd, 3, 1)
+-
+-#define _CRC32(crc, value, size, op) \
+-	_CRC32_##op##size(crc, value)
+-
+-#define CRC32(crc, value, size) \
+-	_CRC32(crc, value, size, crc32)
+-
+-#define CRC32C(crc, value, size) \
+-	_CRC32(crc, value, size, crc32c)
+-
+-static u32 crc32_mips_le_hw(u32 crc_, const u8 *p, unsigned int len)
+-{
+-	u32 crc = crc_;
+-
+-	if (IS_ENABLED(CONFIG_64BIT)) {
+-		for (; len >= sizeof(u64); p += sizeof(u64), len -= sizeof(u64)) {
+-			u64 value = get_unaligned_le64(p);
+-
+-			CRC32(crc, value, d);
+-		}
+-
+-		if (len & sizeof(u32)) {
+-			u32 value = get_unaligned_le32(p);
+-
+-			CRC32(crc, value, w);
+-			p += sizeof(u32);
+-		}
+-	} else {
+-		for (; len >= sizeof(u32); len -= sizeof(u32)) {
+-			u32 value = get_unaligned_le32(p);
+-
+-			CRC32(crc, value, w);
+-			p += sizeof(u32);
+-		}
+-	}
+-
+-	if (len & sizeof(u16)) {
+-		u16 value = get_unaligned_le16(p);
+-
+-		CRC32(crc, value, h);
+-		p += sizeof(u16);
+-	}
+-
+-	if (len & sizeof(u8)) {
+-		u8 value = *p++;
+-
+-		CRC32(crc, value, b);
+-	}
+-
+-	return crc;
+-}
+-
+-static u32 crc32c_mips_le_hw(u32 crc_, const u8 *p, unsigned int len)
+-{
+-	u32 crc = crc_;
+-
+-	if (IS_ENABLED(CONFIG_64BIT)) {
+-		for (; len >= sizeof(u64); p += sizeof(u64), len -= sizeof(u64)) {
+-			u64 value = get_unaligned_le64(p);
+-
+-			CRC32C(crc, value, d);
+-		}
+-
+-		if (len & sizeof(u32)) {
+-			u32 value = get_unaligned_le32(p);
+-
+-			CRC32C(crc, value, w);
+-			p += sizeof(u32);
+-		}
+-	} else {
+-		for (; len >= sizeof(u32); len -= sizeof(u32)) {
+-			u32 value = get_unaligned_le32(p);
+-
+-			CRC32C(crc, value, w);
+-			p += sizeof(u32);
+-		}
+-	}
+-
+-	if (len & sizeof(u16)) {
+-		u16 value = get_unaligned_le16(p);
+-
+-		CRC32C(crc, value, h);
+-		p += sizeof(u16);
+-	}
+-
+-	if (len & sizeof(u8)) {
+-		u8 value = *p++;
+-
+-		CRC32C(crc, value, b);
+-	}
+-	return crc;
+-}
+-
+-#define CHKSUM_BLOCK_SIZE	1
+-#define CHKSUM_DIGEST_SIZE	4
+-
+-struct chksum_ctx {
+-	u32 key;
+-};
+-
+-struct chksum_desc_ctx {
+-	u32 crc;
+-};
+-
+-static int chksum_init(struct shash_desc *desc)
+-{
+-	struct chksum_ctx *mctx = crypto_shash_ctx(desc->tfm);
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->crc = mctx->key;
+-
+-	return 0;
+-}
+-
+-/*
+- * Setting the seed allows arbitrary accumulators and flexible XOR policy
+- * If your algorithm starts with ~0, then XOR with ~0 before you set
+- * the seed.
+- */
+-static int chksum_setkey(struct crypto_shash *tfm, const u8 *key,
+-			 unsigned int keylen)
+-{
+-	struct chksum_ctx *mctx = crypto_shash_ctx(tfm);
+-
+-	if (keylen != sizeof(mctx->key))
+-		return -EINVAL;
+-	mctx->key = get_unaligned_le32(key);
+-	return 0;
+-}
+-
+-static int chksum_update(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->crc = crc32_mips_le_hw(ctx->crc, data, length);
+-	return 0;
+-}
+-
+-static int chksumc_update(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->crc = crc32c_mips_le_hw(ctx->crc, data, length);
+-	return 0;
+-}
+-
+-static int chksum_final(struct shash_desc *desc, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	put_unaligned_le32(ctx->crc, out);
+-	return 0;
+-}
+-
+-static int chksumc_final(struct shash_desc *desc, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	put_unaligned_le32(~ctx->crc, out);
+-	return 0;
+-}
+-
+-static int __chksum_finup(u32 crc, const u8 *data, unsigned int len, u8 *out)
+-{
+-	put_unaligned_le32(crc32_mips_le_hw(crc, data, len), out);
+-	return 0;
+-}
+-
+-static int __chksumc_finup(u32 crc, const u8 *data, unsigned int len, u8 *out)
+-{
+-	put_unaligned_le32(~crc32c_mips_le_hw(crc, data, len), out);
+-	return 0;
+-}
+-
+-static int chksum_finup(struct shash_desc *desc, const u8 *data,
+-			unsigned int len, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	return __chksum_finup(ctx->crc, data, len, out);
+-}
+-
+-static int chksumc_finup(struct shash_desc *desc, const u8 *data,
+-			unsigned int len, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	return __chksumc_finup(ctx->crc, data, len, out);
+-}
+-
+-static int chksum_digest(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length, u8 *out)
+-{
+-	struct chksum_ctx *mctx = crypto_shash_ctx(desc->tfm);
+-
+-	return __chksum_finup(mctx->key, data, length, out);
+-}
+-
+-static int chksumc_digest(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length, u8 *out)
+-{
+-	struct chksum_ctx *mctx = crypto_shash_ctx(desc->tfm);
+-
+-	return __chksumc_finup(mctx->key, data, length, out);
+-}
+-
+-static int chksum_cra_init(struct crypto_tfm *tfm)
+-{
+-	struct chksum_ctx *mctx = crypto_tfm_ctx(tfm);
+-
+-	mctx->key = ~0;
+-	return 0;
+-}
+-
+-static struct shash_alg crc32_alg = {
+-	.digestsize		=	CHKSUM_DIGEST_SIZE,
+-	.setkey			=	chksum_setkey,
+-	.init			=	chksum_init,
+-	.update			=	chksum_update,
+-	.final			=	chksum_final,
+-	.finup			=	chksum_finup,
+-	.digest			=	chksum_digest,
+-	.descsize		=	sizeof(struct chksum_desc_ctx),
+-	.base			=	{
+-		.cra_name		=	"crc32",
+-		.cra_driver_name	=	"crc32-mips-hw",
+-		.cra_priority		=	300,
+-		.cra_flags		=	CRYPTO_ALG_OPTIONAL_KEY,
+-		.cra_blocksize		=	CHKSUM_BLOCK_SIZE,
+-		.cra_ctxsize		=	sizeof(struct chksum_ctx),
+-		.cra_module		=	THIS_MODULE,
+-		.cra_init		=	chksum_cra_init,
+-	}
+-};
+-
+-static struct shash_alg crc32c_alg = {
+-	.digestsize		=	CHKSUM_DIGEST_SIZE,
+-	.setkey			=	chksum_setkey,
+-	.init			=	chksum_init,
+-	.update			=	chksumc_update,
+-	.final			=	chksumc_final,
+-	.finup			=	chksumc_finup,
+-	.digest			=	chksumc_digest,
+-	.descsize		=	sizeof(struct chksum_desc_ctx),
+-	.base			=	{
+-		.cra_name		=	"crc32c",
+-		.cra_driver_name	=	"crc32c-mips-hw",
+-		.cra_priority		=	300,
+-		.cra_flags		=	CRYPTO_ALG_OPTIONAL_KEY,
+-		.cra_blocksize		=	CHKSUM_BLOCK_SIZE,
+-		.cra_ctxsize		=	sizeof(struct chksum_ctx),
+-		.cra_module		=	THIS_MODULE,
+-		.cra_init		=	chksum_cra_init,
+-	}
+-};
+-
+-static int __init crc32_mod_init(void)
+-{
+-	int err;
+-
+-	err = crypto_register_shash(&crc32_alg);
+-
+-	if (err)
+-		return err;
+-
+-	err = crypto_register_shash(&crc32c_alg);
+-
+-	if (err) {
+-		crypto_unregister_shash(&crc32_alg);
+-		return err;
+-	}
+-
+-	return 0;
+-}
+-
+-static void __exit crc32_mod_exit(void)
+-{
+-	crypto_unregister_shash(&crc32_alg);
+-	crypto_unregister_shash(&crc32c_alg);
+-}
+-
+-MODULE_AUTHOR("Marcin Nowakowski <marcin.nowakowski@mips.com");
+-MODULE_DESCRIPTION("CRC32 and CRC32C using optional MIPS instructions");
+-MODULE_LICENSE("GPL v2");
+-
+-module_cpu_feature_match(MIPS_CRC32, crc32_mod_init);
+-module_exit(crc32_mod_exit);
+diff --git a/arch/mips/lib/Makefile b/arch/mips/lib/Makefile
+index 5d5b993cbc2b..9c024e6d5e54 100644
+--- a/arch/mips/lib/Makefile
++++ b/arch/mips/lib/Makefile
+@@ -12,7 +12,9 @@ obj-$(CONFIG_PCI)	+= iomap-pci.o
+ lib-$(CONFIG_GENERIC_CSUM)	:= $(filter-out csum_partial.o, $(lib-y))
+ 
+ obj-$(CONFIG_CPU_GENERIC_DUMP_TLB) += dump_tlb.o
+ obj-$(CONFIG_CPU_R3000)		+= r3k_dump_tlb.o
+ 
++obj-$(CONFIG_CRC32_ARCH)	+= crc32-mips.o
++
+ # libgcc-style stuff needed in the kernel
+ obj-y += bswapsi.o bswapdi.o multi3.o
+diff --git a/arch/mips/lib/crc32-mips.c b/arch/mips/lib/crc32-mips.c
+new file mode 100644
+index 000000000000..345bd5f5aa99
+--- /dev/null
++++ b/arch/mips/lib/crc32-mips.c
+@@ -0,0 +1,187 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * crc32-mips.c - CRC32 and CRC32C using optional MIPSr6 instructions
++ *
++ * Module based on arm64/crypto/crc32-arm.c
++ *
++ * Copyright (C) 2014 Linaro Ltd <yazen.ghannam@linaro.org>
++ * Copyright (C) 2018 MIPS Tech, LLC
++ */
++
++#include <linux/cpufeature.h>
++#include <linux/crc32.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <asm/mipsregs.h>
++#include <linux/unaligned.h>
++
++enum crc_op_size {
++	b, h, w, d,
++};
++
++enum crc_type {
++	crc32,
++	crc32c,
++};
++
++#ifndef TOOLCHAIN_SUPPORTS_CRC
++#define _ASM_SET_CRC(OP, SZ, TYPE)					  \
++_ASM_MACRO_3R(OP, rt, rs, rt2,						  \
++	".ifnc	\\rt, \\rt2\n\t"					  \
++	".error	\"invalid operands \\\"" #OP " \\rt,\\rs,\\rt2\\\"\"\n\t" \
++	".endif\n\t"							  \
++	_ASM_INSN_IF_MIPS(0x7c00000f | (__rt << 16) | (__rs << 21) |	  \
++			  ((SZ) <<  6) | ((TYPE) << 8))			  \
++	_ASM_INSN32_IF_MM(0x00000030 | (__rs << 16) | (__rt << 21) |	  \
++			  ((SZ) << 14) | ((TYPE) << 3)))
++#define _ASM_UNSET_CRC(op, SZ, TYPE) ".purgem " #op "\n\t"
++#else /* !TOOLCHAIN_SUPPORTS_CRC */
++#define _ASM_SET_CRC(op, SZ, TYPE) ".set\tcrc\n\t"
++#define _ASM_UNSET_CRC(op, SZ, TYPE)
++#endif
++
++#define __CRC32(crc, value, op, SZ, TYPE)		\
++do {							\
++	__asm__ __volatile__(				\
++		".set	push\n\t"			\
++		_ASM_SET_CRC(op, SZ, TYPE)		\
++		#op "	%0, %1, %0\n\t"			\
++		_ASM_UNSET_CRC(op, SZ, TYPE)		\
++		".set	pop"				\
++		: "+r" (crc)				\
++		: "r" (value));				\
++} while (0)
++
++#define _CRC32_crc32b(crc, value)	__CRC32(crc, value, crc32b, 0, 0)
++#define _CRC32_crc32h(crc, value)	__CRC32(crc, value, crc32h, 1, 0)
++#define _CRC32_crc32w(crc, value)	__CRC32(crc, value, crc32w, 2, 0)
++#define _CRC32_crc32d(crc, value)	__CRC32(crc, value, crc32d, 3, 0)
++#define _CRC32_crc32cb(crc, value)	__CRC32(crc, value, crc32cb, 0, 1)
++#define _CRC32_crc32ch(crc, value)	__CRC32(crc, value, crc32ch, 1, 1)
++#define _CRC32_crc32cw(crc, value)	__CRC32(crc, value, crc32cw, 2, 1)
++#define _CRC32_crc32cd(crc, value)	__CRC32(crc, value, crc32cd, 3, 1)
++
++#define _CRC32(crc, value, size, op) \
++	_CRC32_##op##size(crc, value)
++
++#define CRC32(crc, value, size) \
++	_CRC32(crc, value, size, crc32)
++
++#define CRC32C(crc, value, size) \
++	_CRC32(crc, value, size, crc32c)
++
++static DEFINE_STATIC_KEY_FALSE(have_crc32);
++
++u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
++{
++	if (!static_branch_likely(&have_crc32))
++		return crc32_le_base(crc, p, len);
++
++	if (IS_ENABLED(CONFIG_64BIT)) {
++		for (; len >= sizeof(u64); p += sizeof(u64), len -= sizeof(u64)) {
++			u64 value = get_unaligned_le64(p);
++
++			CRC32(crc, value, d);
++		}
++
++		if (len & sizeof(u32)) {
++			u32 value = get_unaligned_le32(p);
++
++			CRC32(crc, value, w);
++			p += sizeof(u32);
++		}
++	} else {
++		for (; len >= sizeof(u32); len -= sizeof(u32)) {
++			u32 value = get_unaligned_le32(p);
++
++			CRC32(crc, value, w);
++			p += sizeof(u32);
++		}
++	}
++
++	if (len & sizeof(u16)) {
++		u16 value = get_unaligned_le16(p);
++
++		CRC32(crc, value, h);
++		p += sizeof(u16);
++	}
++
++	if (len & sizeof(u8)) {
++		u8 value = *p++;
++
++		CRC32(crc, value, b);
++	}
++
++	return crc;
++}
++EXPORT_SYMBOL(crc32_le_arch);
++
++u32 crc32c_le_arch(u32 crc, const u8 *p, size_t len)
++{
++	if (!static_branch_likely(&have_crc32))
++		return crc32c_le_base(crc, p, len);
++
++	if (IS_ENABLED(CONFIG_64BIT)) {
++		for (; len >= sizeof(u64); p += sizeof(u64), len -= sizeof(u64)) {
++			u64 value = get_unaligned_le64(p);
++
++			CRC32C(crc, value, d);
++		}
++
++		if (len & sizeof(u32)) {
++			u32 value = get_unaligned_le32(p);
++
++			CRC32C(crc, value, w);
++			p += sizeof(u32);
++		}
++	} else {
++		for (; len >= sizeof(u32); len -= sizeof(u32)) {
++			u32 value = get_unaligned_le32(p);
++
++			CRC32C(crc, value, w);
++			p += sizeof(u32);
++		}
++	}
++
++	if (len & sizeof(u16)) {
++		u16 value = get_unaligned_le16(p);
++
++		CRC32C(crc, value, h);
++		p += sizeof(u16);
++	}
++
++	if (len & sizeof(u8)) {
++		u8 value = *p++;
++
++		CRC32C(crc, value, b);
++	}
++	return crc;
++}
++EXPORT_SYMBOL(crc32c_le_arch);
++
++u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
++{
++	return crc32_be_base(crc, p, len);
++}
++EXPORT_SYMBOL(crc32_be_arch);
++
++static int __init crc32_mips_init(void)
++{
++	if (cpu_have_feature(cpu_feature(MIPS_CRC32))) {
++		static_branch_enable(&have_crc32);
++		crc32_optimizations = CRC32_LE_OPTIMIZATION |
++				      CRC32C_OPTIMIZATION;
++	}
++	return 0;
++}
++arch_initcall(crc32_mips_init);
++
++static void __exit crc32_mips_exit(void)
++{
++}
++module_exit(crc32_mips_exit);
++
++MODULE_AUTHOR("Marcin Nowakowski <marcin.nowakowski@mips.com");
++MODULE_DESCRIPTION("CRC32 and CRC32C using optional MIPS instructions");
++MODULE_LICENSE("GPL v2");
+-- 
+2.47.0
 
-I do however mind about the fact that you accuse contributors (however 
-minimal their contributions were, like in my case) of being "Russian 
-trolls" using "multiple accounts".
-
-I would have thought that a man of your stature, knowledge and 
-publicity, wrote a more sensible, neutral comment than that childish 
-gibberish you produced.
-Such comments can be seen in the hundreds on every major news website's 
-comment section.
-Unfortunately, this is now common discussion standard at least in the 
-Western world:
-
-"You don't agree with X? You must be a Y!"
-
-There is no doubt that there are Russian troll factories - but there is 
-equally no doubt that there are Western troll factories. Without them, 
-this "game" wouldn't work.
-
-You could just have done a simple 'git log --grep="Name"' to find out 
-that most of those people who you accused of being trolls are actually 
-not trolls. Because trolls do not contribute.
-
-> And FYI for the actual innocent bystanders who aren't troll farm
-> accounts - the "various compliance requirements" are not just a US
-> thing.
-
-Of course not. It's a USUKEU thing. Or, dare I say, a thing of the 
-unipolar anglo-american empire. There is no way around a multipolar 
-world order if we as humans want to progress.
-
-Why didn't you (or Greg) elaborate on the "various compliance 
-requirements" in the first place?
-You could just have said:
-
-"Due to the sanctions against Russia, we as a US-based foundation are 
-required to abide and therefore we have to remove some maintainers that 
-are thought to be directly collaborating with the current regime" (I 
-specifically used a "Western" language).
-That, at least, would have been somewhat honest, though still hypocrite.
-
-And I did read through (most of) these EU compliance requirements 
-because of my job (not IT), so I'm not *that* clueless.
-
-The sanctions are absurd anyway - I don't remember that the US had been 
-sanctioned because of their illegal invasion of [insert country of your 
-choice]. US athletes excluded from the Olympics?? How dare you?
-
-I also don't remember that France or UK had been sanctioned because they 
-abused their UN mandate to get rid of Gaddafi.
-
-The "country" Kosovo, created by a war, isn't even recognized by all EU 
-member states!
-
-And don't even get me started on that Eastern Mediterranian country that 
-can commit the worst atrocities without ever getting seriously sanctioned.
-
-Meanwhile, we sanction Iran (hasn't started a war in ages), Cuba (hasn't 
-started a war in ages), North Korea (hasn't started a war in ages) etc.
-
-The Western arrogance and decadence is disgusting, and I say that as a 
-born and bred Western European.
-
-> 
-> If you haven't heard of Russian sanctions yet, you should try to read
-> the news some day.  And by "news", I don't mean Russian
-> state-sponsored spam.
-
-I'm already more than fed up with the state-sponsored spam on German TV 
-- and I even have to pay for that BS!
-Now, I don't know how it is in Finland because I don't follow Finnish 
-news due to a total lack of language knowledge.
-
-I wish my country would quit NATO, and then I see that Finland *joined*. 
-Sorry, but I don't understand. No NATO, no war in Ukraine.
-Even as late as 2013, Russia and Ukraine did naval manoevers in the 
-Black Sea - together!
-
-This war is sooo totally unnecessary. Maybe you should ask Vicky "F!ck 
-the EU" Newland why this all happened.
-
-> 
-> As to sending me a revert patch - please use whatever mush you call
-> brains. I'm Finnish. Did you think I'd be *supporting* Russian
-> aggression? Apparently it's not just lack of real news, it's lack of
-> history knowledge too.
-
-Why do you even mention your nationality?
-Just a few weeks ago, I read about the role of Finland in (and before) WW2.
-I don't think there is a big lack of history knowledge on my side.
-
-My country was occupied by Germany twice, in 1914 and in 1940.
-And yet, I have absolutely no bad feelings about either Germany as a 
-country nor Germans as a people. OK, their government is the worst since 
-1945, but that's a different matter.
-
-Wasn't Mannerheim married to a Russian? Eh?
-
-The former German Minister of Foreign Affairs, Guido Westerwelle, once 
-talked about "late Roman decadence", albeit in a different context.
-
-And yet, he was totally right even in other contexts. The Western world 
-is actually in the state of "late Roman decadence".
-And what follows after that decadence? Right, the downfall. And it might 
-be a huge chance to create a better, more equitable world.
-
-> 
->                        Linus
-
-Tor Vic
 
