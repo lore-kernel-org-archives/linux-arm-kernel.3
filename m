@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C7CDD149D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44492D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HIP++Qp2TfBreng6r9lHSlSqd+05ynFmHtOfFUyYoyw=; b=Ugs5QmzJdBkkE8n7mmrti7pNZZ
-	dCEMny+8nMvVkdiTYZu9wNdSbnvT7hP/gpvwnbZSLHnXVVuCYuQsObOmh6HUSaJt+tHyh5gEAgaTc
-	UPBOMcspxrIY3isYVAbNrd2ckBIA0iLf0E1Jkf3vdsWxhxojlWbP0Be2btj4pZHwztCE/ToycrYA7
-	lWC4V5TmIcyu3/YAzKZ9M2ho2goxHL44vurfHbOzztnFqiaCSfQU8c5WLdL+N699Sn3V5YXRPK0UN
-	dGXSDgm/CDdwbhTaP8c7ObOwkIiB7w6joVE1vt+Lx5U89N4Ik13lOnoRWFi3ZM5aasuV7MQrZ1T7y
-	W5VPKxDQ==;
+	bh=xU//JPSDEyUFE1ZFqfKvgV23VREouvKrVYoOcahlOXU=; b=ZofhZTbyH0zkv0lVlkUxDWGPqb
+	369N+ues4dqhRIlia67Ms2Ip9+DYuaFZN54dhVdOqIKE6eVgkvdrKZH3EDzwf4Er3gstkmj6a5GnR
+	Q+broBOxQTcX95Ael1WpAMrku7+4dVnjKPy3/t6MPj/Wa1hQyUssTCnPIfRnHmFiqhdwNtxYjy096
+	zDtapKTAGlPsBz/D/2oX5Rv2/bUKq+49oxZrrAldJSUj6KBSAvmCFeNPpB+hMLa7PyxGEXpObPlpH
+	KsOA8EsKh0CKpqow6oBbx2kmhBQ7460tc+ZvDhFl+7zTDxYjcMdNjUe08f/KwVvuyqtpbwdM7fAG4
+	5hfYG25Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OJw-00000004eYb-0VdE;
-	Fri, 25 Oct 2024 17:41:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4OLZ-00000004fHC-0g8a;
+	Fri, 25 Oct 2024 17:43:37 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NvD-00000004XxN-2K7a
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 17:16:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HIP++Qp2TfBreng6r9lHSlSqd+05ynFmHtOfFUyYoyw=; b=Qytcgw9EANVRVnt14sAnrT4+80
-	Ykk6X0/kw+dqQ4roBmgH9HmqcdAaJbyE2DOx/BtUc1EL7LBbJSTEACqPFbOB5I0FHSJODLU30zVqu
-	8FWAQGlUBMTD/qL44L1nxuv7Pmdi5fRhrWc1b3GO8ERWP07G5zpRRMwPxyM2wELei4tqLv+ynzqtN
-	FaqFWj0cJekhUmcQ+qxQeWhEzXYH1EL5Pv03ZJ64t9vbFrZkjDVULlnNgLxCyDXLT6aEckExoulbg
-	GqrVftSM6dFrHwy3IvjqDOh5Th8XgZWVD7LitWMtHt0+IRgZiNqikMd4OQdL604S9wQSjwTgDhbFG
-	MjjPD29w==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nv9-00000008zlT-3lIt
+	id 1t4NvD-00000004Xx4-0TSk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:16:22 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-431616c23b5so16376155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:19 -0700 (PDT)
+	Fri, 25 Oct 2024 17:16:24 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-431616c23b5so16376455e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876579; x=1730481379; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876582; x=1730481382; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HIP++Qp2TfBreng6r9lHSlSqd+05ynFmHtOfFUyYoyw=;
-        b=NyyxQAqNrs/l8jXvmG7MdNEJKYm7TZlk47M2yx/3S3tJaDKJhqD0G+IRFsdKlVRfiH
-         eZ213d310tYaHHMSgP2OQpYfHR0zE2I2JW0QDQCuwv5NQ2rfVC1GImLaekIhDsg2CwT6
-         XTdgq0OLtQXR09pE2Yj8ybFDYkW/oy6rNrjQh/cKImORqH0KLreQ+IgNsowCBlsCn85h
-         YGQ89e1kDE0WDaeq+Ov2FecHTvS6unwgAmzzYWiMtMJHhYVfa1hTxp5OD5ZV9oJet05D
-         1kIrUTOWZqZjcBATTJqiD1v2Bg1zdxvidoLFCDvekZHpk5PlK8XVYdGd+/pBSMVL24Is
-         GPJQ==
+        bh=xU//JPSDEyUFE1ZFqfKvgV23VREouvKrVYoOcahlOXU=;
+        b=Alzx9MSTl+xMRGbU4Gp2mbxnyFmAy7x7msr67NK2F23O5X+77TXH/Nb8aCegTO4WV0
+         QIe2WOpmXb1lIBfXS+dzUf8QIXQlZNQkjqtBiiuZAEZ0mD7aeZwzSQN9JZjYtfDEeL06
+         RS/l1xYl65rcrnx6NlCKVCeio+JidDxlMwTny279Jry8my63fx3b4nedc5VoOOECHQuR
+         6RIQ1dL7GbbdcAwE/9YcH0dAD5xWgt0xlH37LoXN4eNUTHzN9NU9Q9PW+4ezZPD3fBZl
+         Y5xWJLmZiJZNpl6nKIQVvMYdvNFWTpSvElVpmartyGPwMduAshAW+gWa2tHLHLA9vmbJ
+         uvRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876579; x=1730481379;
+        d=1e100.net; s=20230601; t=1729876582; x=1730481382;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HIP++Qp2TfBreng6r9lHSlSqd+05ynFmHtOfFUyYoyw=;
-        b=i7GTaBhaqWPzV6yxKQiaL81ZLaz91bItn0ZIKAwb44Ug0bnoReLnjhzibWUfdjUamJ
-         ZoqRcKTSjLOZwmA8HdG+neC/P88G6jioGKvPErGD+DNPMhAqNP+b30HxpUk8FQ960L6g
-         +5GgZQtfFVtQI8HUTNwyWK/84Q4wFDVfH6JJ057I7WvbsyZcu11tCtPaTFg7DEiNDUy6
-         bsh58XhBUkFGXnc8RiNQfaLeyMDsnNjS5PEAyA2WBep+If1c2FiZxZ6myIXoF8As5r3e
-         pcXDnkY3AHMwW7kOrIWyOHnGwI9hCWbnFPg12BaQ1x+3OGAkHqWIjU9R0pj4BexiNwI+
-         GA9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWVBibM7HwPPX2VKet0PJudWUbL2hCMX62sPX1UIU5ZkHu+RRhK01j2eLt2bgI0x4iy/+aPR6B3gHHW75v9AjYJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQUQi2hmBvJubWX4QrJysm3lSx0kjqm5rGfc+TRed7NCOxDrbp
-	IIc0WztLgxfXR4ht8x3HP09ZsscrcMjkfE2pBfW30dhRUMzcr8EeUy4fBLCPi+8=
-X-Google-Smtp-Source: AGHT+IE91xtUCxvlR1lRvpTqnlZWaqwRX+o7PpgAGm30e7rVreFkYxn6n2RZsnu9N6JSHjePT4SHEA==
-X-Received: by 2002:a05:600c:1c98:b0:426:5e32:4857 with SMTP id 5b1f17b1804b1-4319a44e698mr2888895e9.0.1729876578594;
-        Fri, 25 Oct 2024 10:16:18 -0700 (PDT)
+        bh=xU//JPSDEyUFE1ZFqfKvgV23VREouvKrVYoOcahlOXU=;
+        b=n8htHHpEUrcixW66VV9cp0KY6umTFGkB98FmZ64K07yeRrKbSnH1BDn29dB2/o1C/F
+         Rq6iHgeANadP1o94u7rundLsbYkz7T8HpJOZvBa6lVywwylPeYNREiPXWgiGz6qwNhSO
+         v6SbVLGND/8ju+eqM58/sXZf5e9Cc9lcOzSMSs9JOxRCJrGa8Jtt8uTA7vlh+O8Pq/Sj
+         4mstJG2R4IZlJwl02MCGLLCI35jFU2QCVIYDPscyrGsTL9HDVS1eTeMEFzx6px9UGaEG
+         8Tv3TGipM+LpKgnaXilBjhnEWvxMrCiTmchmDnV+oOGKyajPMWYT53zufRAu4+w/ioPk
+         DuJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVAbJsJeYA3CSROMH756xX5WG44vdWlFfOIQ1dC6lKmAKb/xpR1M7Ruvkzg9Ju4olgeYrvUri5gZxskbG6bx+uo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqWyEq5JeVnEirgT1hSc978za0I11hf08qeCNLKbqTmKsuGXAS
+	UOQd2rMXy9ZtDdkXiHbSJjwQKQY7M70fsllM3C/aH+o+GtbytnaSq0qRuK5M//o=
+X-Google-Smtp-Source: AGHT+IHAWpLHmHwxEQ7ZVCnrScJ+3akRtweGAEi8Ve0sUsAzGKfVQQMDJC1MG28sgbwB6TwBnzAs5Q==
+X-Received: by 2002:a05:600c:1e1e:b0:431:5226:1633 with SMTP id 5b1f17b1804b1-4319a576ba8mr2501215e9.6.1729876581722;
+        Fri, 25 Oct 2024 10:16:21 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.17
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:18 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:21 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:49 +0100
-Subject: [PATCH v2 18/36] drm/vc4: txp: Move the encoder type in the
- variant structure
+Date: Fri, 25 Oct 2024 18:15:52 +0100
+Subject: [PATCH v2 21/36] drm/vc4: txp: Add BCM2712 MOPLET support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-18-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-21-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -109,8 +93,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_181620_279251_04B7032F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20241025_101623_296743_27AC77DC 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,50 +111,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-We'll have multiple TXP instances in the BCM2712, so we can't use a
-single encoder type anymore. Let's tie the encoder type to the
-compatible.
+The BCM2712 features a simpler TXP called MOPLET. Let's add support for
+it.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/gpu/drm/vc4/vc4_drv.h | 1 +
- drivers/gpu/drm/vc4/vc4_txp.c | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/vc4/vc4_txp.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.h b/drivers/gpu/drm/vc4/vc4_drv.h
-index 34e72e711a17..70b7a771ff47 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.h
-+++ b/drivers/gpu/drm/vc4/vc4_drv.h
-@@ -538,6 +538,7 @@ struct vc4_crtc_data {
- 
- struct vc4_txp_data {
- 	struct vc4_crtc_data	base;
-+	enum vc4_encoder_type encoder_type;
- 	unsigned int high_addr_ptr_reg;
- 	unsigned int has_byte_enable:1;
- 	unsigned int size_minus_one:1;
 diff --git a/drivers/gpu/drm/vc4/vc4_txp.c b/drivers/gpu/drm/vc4/vc4_txp.c
-index c2726ccde1cf..ecd2fc5edf45 100644
+index 0fb8a57652b5..f6b6f8627f61 100644
 --- a/drivers/gpu/drm/vc4/vc4_txp.c
 +++ b/drivers/gpu/drm/vc4/vc4_txp.c
-@@ -515,6 +515,7 @@ const struct vc4_txp_data bcm2835_txp_data = {
- 		.hvs_available_channels = BIT(2),
- 		.hvs_output = 2,
- 	},
-+	.encoder_type = VC4_ENCODER_TYPE_TXP,
- 	.has_byte_enable = true,
+@@ -524,6 +524,19 @@ static const struct vc4_txp_data bcm2712_mop_data = {
+ 	.supports_40bit_addresses = true,
  };
  
-@@ -558,7 +559,7 @@ static int vc4_txp_bind(struct device *dev, struct device *master, void *data)
- 		return ret;
++static const struct vc4_txp_data bcm2712_moplet_data = {
++	.base = {
++		.name = "moplet",
++		.debugfs_name = "moplet_regs",
++		.hvs_available_channels = BIT(1),
++		.hvs_output = 4,
++	},
++	.encoder_type = VC4_ENCODER_TYPE_TXP1,
++	.high_addr_ptr_reg = TXP_DST_PTR_HIGH_MOPLET,
++	.size_minus_one = true,
++	.supports_40bit_addresses = true,
++};
++
+ const struct vc4_txp_data bcm2835_txp_data = {
+ 	.base = {
+ 		.name = "txp",
+@@ -630,6 +643,7 @@ static void vc4_txp_remove(struct platform_device *pdev)
  
- 	vc4_encoder = &txp->encoder;
--	txp->encoder.type = VC4_ENCODER_TYPE_TXP;
-+	txp->encoder.type = txp_data->encoder_type;
- 
- 	encoder = &vc4_encoder->base;
- 	encoder->possible_crtcs = drm_crtc_mask(&vc4_crtc->base);
+ static const struct of_device_id vc4_txp_dt_match[] = {
+ 	{ .compatible = "brcm,bcm2712-mop", .data = &bcm2712_mop_data },
++	{ .compatible = "brcm,bcm2712-moplet", .data = &bcm2712_moplet_data },
+ 	{ .compatible = "brcm,bcm2835-txp", .data = &bcm2835_txp_data },
+ 	{ /* sentinel */ },
+ };
 
 -- 
 2.34.1
