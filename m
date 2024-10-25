@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3867D0C5FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFF6D0C5FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 10:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KxrytHmxkB3KbKiG8V4DcHZ1mCc5pLP/FlD1m68qCP4=; b=yxOJEMH9Pn+NA7YPM+c3JHdgJe
-	ZD64JTWyiAzJVDnp0z85A0OHW7RGQUshL0t3y2BpMgF03O1TTlpRevThGjd1ar7N8r3huNoE2R32Q
-	xS/F+CtCMo9A84mA7ahlJaSvLUbBIPh++NU4LiSCRVwLIp5+9Cbx61+FYa7pF05ykg+unWKu7fiQ/
-	iLn2gu9h5VZRgkauncRKchFGH+aW0xso1bMcIzNYWxZu/sFczcGd65WbER4Yvcl2lSG1C2co1KSQS
-	1mlq/F4YKkVDK4kKVyzwtjwZrbyT3S1XLvDvP8xMEfJs5M2ouscEK8p4TE5RFeMu6ipfCGVPmPKUp
-	mq1ZldMg==;
+	bh=7qYdMoYNHEEjU8R4jRwxYNDvg+V+aPZxty5Pm7LhAwc=; b=HwOJ67aTUvwo9hFi0/b0Me+vwX
+	7W+GbkOTZvrje8pUrBR7ffe0gr6hQH0Sd/3OGBdyB7i9RvyqOIaARzTmrpjghD9TOhIMSAm+LxnYs
+	jEeiCIIgSG8YmG2CwetpOyrRk9KoEMd30lP/EXRae+bRnZgy3oji6chVHbf7EXGYfW139SkC4lF08
+	hu8p968Q4tJ0IgU+rxOUTFFoyYGWoaXfGqNDZA4GWifZLBM/kq9Y67lCCvoCdksFyAqvgArNIpQrI
+	P0xgBjCAlQ2mfoMIV/eBu8hg3b2n0XcoHO01mRy/0w4SV/3mYpOsYmty1ospJFspzfSVM/fKeR5f2
+	M7pz5cTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Hy0-00000003QYv-1jKg;
-	Fri, 25 Oct 2024 10:54:52 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1t4HzZ-00000003Qqz-1UB3;
+	Fri, 25 Oct 2024 10:56:29 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Hmy-00000003O8Q-4BYt
+	id 1t4HpP-00000003Ojc-3vJu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 10:43:31 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2e2bb1efe78so1243407a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 03:43:24 -0700 (PDT)
+	Fri, 25 Oct 2024 10:46:01 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-7163489149eso1309595a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 03:45:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729853004; x=1730457804; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1729853159; x=1730457959; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KxrytHmxkB3KbKiG8V4DcHZ1mCc5pLP/FlD1m68qCP4=;
-        b=dCem0tfQNdo7k7VS4bPvlYc/mcOzVqjcBTa98yz5BLhRCxD6KgteZ/jf0e7tC1IYRh
-         bkQOBFdN/OzOuSOxi+5h4SGziQNKGHdfTWySkP++RByuoGu2TNVkWUvonREu+lKjzipd
-         X+Sn6N8PmKOA61jyvZdpD/bJDf0G1flfXTIEY=
+        bh=7qYdMoYNHEEjU8R4jRwxYNDvg+V+aPZxty5Pm7LhAwc=;
+        b=hWP4fZABZPMnngcd4oC36gkXj4W8G5EwX7nqfwrsTVSYFAKj96HHUkpt5J/CB2egUh
+         T4YszFnGvzpvYMhIUGsT+o5nGGd6U+Ma+Xe5PTJEsIKQOmG+CUJ+qjJI4DSfTEINgrB3
+         9bgr4crOCbOWetndJXG5WJKpiDZaHG0ynjPt4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729853004; x=1730457804;
+        d=1e100.net; s=20230601; t=1729853159; x=1730457959;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KxrytHmxkB3KbKiG8V4DcHZ1mCc5pLP/FlD1m68qCP4=;
-        b=D1t1OiOsCrHaAGjtaBkXB9ydkIATnk+fXfwXBypfqv7/riQrc1cOYmImezrECNqZwQ
-         tf7eV+C2s3jH60j5sxN6Tss7YSYW8GAbG/2NhMJ83B1mO12F+ZSLwTeCvOLFlqpLrA9U
-         j1psP7zjWegoIPkMd0rmk775sZ7CqlHGa0ueaHuIMMp6O+E61nEhjz+HT6X2wjAkUwIB
-         Mn/xezdhDY8K7d06cKn/5ZqTzueMqzvIz3iVwa5zFfrC6UcduVcdeQBzA2+XnllJX8hF
-         R6KQO596AUHPY/+ZC3SOur1J9/eA+Ww2cfbG3ZE/T3ABF+JCCCRejl1vCAZ80/1q+ToE
-         7rfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgC/Q+nOguxNmUFiaW3TH6XcOUPGJg7UlW80KQ9zjfhDBz4LWKqlO6YoJuBRqryg27/CnHtpxYQeCsrGDQzrll@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDqafLv7mjDDi8PkXWlKgU3OBZCLou3pve+d7ZsCucvq05ZOXr
-	VveHwe4IDMQmdsHgjOSlVgLZjHdy0tpJ8nGyXebzul/+hDHoMcs/k1YNJ9TuCg==
-X-Google-Smtp-Source: AGHT+IEc8DWXdGFrPxI2fzHPjMeSAyvo7Jul73y4KLbJM19gxhJsddXsu1xMH6CPalfcWwhWNeu3pg==
-X-Received: by 2002:a17:90a:4bc6:b0:2e1:8a41:aaba with SMTP id 98e67ed59e1d1-2e77e88ddfemr7745822a91.19.1729853003888;
-        Fri, 25 Oct 2024 03:43:23 -0700 (PDT)
+        bh=7qYdMoYNHEEjU8R4jRwxYNDvg+V+aPZxty5Pm7LhAwc=;
+        b=TFoopmEtvLCZonmXhx4yvduMF1+ZnXA/WMwZi2ln9uSS6qotsQHON8Yb0reoznvaer
+         RoNA51AdwsrbHXau7InBoWUOPkiP6lHislvyrVMcdtmAS/RkwmPcJs26sQBqZv19JxjD
+         6A1gk0KZAr37Q1U+i/xQKveIKc8Q92y2chbthEPlL9qt1VstSAd2Cq0xlTL7FxNddWot
+         uHyd/J2dA8sD1L3OGtCalVJlds1Zou4g8dTd2ea7ie2E4urreSegjfpLt4J6a0A8MN7X
+         46yOzl9fPwKz9hY7o3+K6rsngVLV6egohaaKlb5ql203Xni2AUROpjNV9wEr7SAVp8xJ
+         dY8w==
+X-Forwarded-Encrypted: i=1; AJvYcCW5QDSPF64O87hVesWOg5BB4yHN0BvfUnnSF+uPwSiGgB9+e5dni2HMx0/8CXmn7pWnKxyUybCO76HwHTAVBBdA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIb96ehBPar2gL4HJjlk2oQWgOvTLK9oVQKdtNLWz0K0f0hRy/
+	XOmrdnT6x3b1fxXrmmwIr303IX88qFvurGJGuCH2iflmZ3/qqJAhsahJbvcqzgFQAh0XAAwdS1s
+	=
+X-Google-Smtp-Source: AGHT+IE/jF3qeEh2sSM6HPYBIUpFWAzndUsngpMsqXOHaVXBbGKPEsKfMjMtDshVaZr1AnM6b0wOrw==
+X-Received: by 2002:a05:6a21:31c8:b0:1d8:b962:6087 with SMTP id adf61e73a8af0-1d978ad70efmr11190210637.10.1729853158931;
+        Fri, 25 Oct 2024 03:45:58 -0700 (PDT)
 Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:ebe1:dd63:343d:8a4c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e8e36a26aasm1093307a91.27.2024.10.25.03.43.20
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0d089sm829548b3a.99.2024.10.25.03.45.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 03:43:23 -0700 (PDT)
+        Fri, 25 Oct 2024 03:45:58 -0700 (PDT)
 From: Fei Shao <fshao@chromium.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+To: Mark Brown <broonie@kernel.org>
 Cc: Fei Shao <fshao@chromium.org>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Jitao shi <jitao.shi@mediatek.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
+	Steve Lee <steves.lee@maximintegrated.com>,
+	Trevor Wu <trevor.wu@mediatek.com>,
 	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] dt-bindings: display: mediatek: dp: Add #sound-dai-cells property
-Date: Fri, 25 Oct 2024 18:42:45 +0800
-Message-ID: <20241025104310.1210946-1-fshao@chromium.org>
+	linux-mediatek@lists.infradead.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH 0/4] Update properties in two ASoC DT bindings
+Date: Fri, 25 Oct 2024 18:44:40 +0800
+Message-ID: <20241025104548.1220076-1-fshao@chromium.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_034329_261958_AB05462F 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_034600_001706_B9FF1A5D 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek DP hardware supports audio, and the "#sound-dai-cells"
-property is required to describe DAI links and audio routing.
+Hi maintainers,
 
-Add "#sound-dai-cells" property to the binding and filter out non-DP
-compatibles, as MediaTek eDP doesn't support audio.
+This series includes four patches to update two ASoC DT bindings. The
+goal is to fix dtbs_check warnings found with DAI links and audio
+routing configuration on some MediaTek SoCs (MT8195 and MT8188).
 
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
+This series doesn't introduce new properties - all are either commonly
+described in existing bindings or are available but undocumented.
 
- .../bindings/display/mediatek/mediatek,dp.yaml   | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+Patches 1 and 2 focus on mediatek,mt8188-mt6359.yaml, adding two
+vendor-specific properties and updating the DAI link pattern to be more
+generic.
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-index 2aef1eb32e11..c05c2b409780 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-@@ -42,6 +42,9 @@ properties:
-   interrupts:
-     maxItems: 1
- 
-+  "#sound-dai-cells":
-+    const: 0
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
-     properties:
-@@ -87,6 +90,19 @@ required:
- 
- additionalProperties: false
- 
-+allOf:
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - mediatek,mt8188-dp-tx
-+                - mediatek,mt8195-dp-tx
-+    then:
-+      properties:
-+        "#sound-dai-cells": false
-+
- examples:
-   - |
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
+Patches 3 and 4 focus on maxim,max98390.yaml, referencing
+dai-common.yaml and documenting a hidden vendor-specific property.
+
+Regards,
+Fei
+
+
+Fei Shao (4):
+  ASoC: dt-bindings: mediatek,mt8188-mt6359: Add adsp and dai-link
+    properties
+  ASoC: dt-bindings: mediatek,mt8188-mt6359: Update DAI link node
+    pattern
+  ASoC: dt-bindings: maxim,max98390: Refernce common DAI properties
+  ASoC: dt-bindings: maxim,max98390: Document maxim,dsm_param_name
+    property
+
+ .../devicetree/bindings/sound/maxim,max98390.yaml  |  9 ++++++++-
+ .../bindings/sound/mediatek,mt8188-mt6359.yaml     | 14 ++++++++++++--
+ 2 files changed, 20 insertions(+), 3 deletions(-)
+
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
