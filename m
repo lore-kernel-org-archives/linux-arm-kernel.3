@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23BFD149E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D450D149E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvBdGV/fEuM1t1ncHOm4+9FLFUwv2pJggZf0gOiw5tU=; b=tA66XIxm0GUSiJR7OpabDhwW/+
-	J35Wqby+Km8hnl3p7TUcLSr/ZOVav/gC4JyY8kZluyHPR7hJ3gLAC7mvMSqPIxzaass34BIb6RkXx
-	GQTUSgp38GxBFKpVpM9FM8AzEp5AC2cAIwyT++88jWWEllBLmgcBQzGoBTsUSaNqNGPcob24awZ0y
-	Nc947gYYcFacvANa6Rbc3zwtGk748lEgU3OZqS5KYJBJXASEBZBoS8ZwqKz+BRSqabKVpKJeJBR8X
-	mPSlp/vsdFrls17n1tN6KIwdkM1jBmyrsNQH/eApqFwMyDs6rL59by/qg4JW8zMuM57ZX1EUfS6K7
-	njW6QONA==;
+	bh=fmDWvCoZ7RJkt3LBlK0ytyCUy3NDKnSPU2karwJr82A=; b=SBLHoDk9ZImDQBAWxERi7ps3NN
+	AoPhF4sweGWbr1C9rW09juQzhengHtcR86UdH41MLVcXE35WjJWWbBZ+xLDUja5cJv8gS65Ju+yKX
+	K1wrvSt3vLyvQg2ErT1jC3EnhiT33xjMBZ6yEBiO4t/GrfZyPg6NVffSlXLtopZfo7jW5aRkph798
+	82XjoBUnWl+kU1xHQe4Akb3zgSP/P8OjJoUvdDy/IS50mcGjAatYpR10V7wZzvvWncw9kJ/uig0Y5
+	//rt1YFGRS97JzeAntykF+mPl4brBRlp0ItqhPdqOKqaQf07ZXOGBsbQbEPfme0dyMBeL10YwJSz3
+	eauLPnKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pf0-00000004tgD-3lX0;
-	Fri, 25 Oct 2024 19:07:46 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1t4Pga-00000004u6t-2akT;
+	Fri, 25 Oct 2024 19:09:24 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Oyv-00000004moI-1eiB
+	id 1t4Oyx-00000004mov-0FZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:24:18 +0000
+	Fri, 25 Oct 2024 18:24:20 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729880655;
+	t=1729880657;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WvBdGV/fEuM1t1ncHOm4+9FLFUwv2pJggZf0gOiw5tU=;
-	b=n7nmhSXYNWWwPRgwzEdAF6dz9klA0M5XAE3gthqTLWz1eb3m758VfO+i4G0qjXjatishgW
-	luSdCFMukzAqipU76CQu054hbuPD4HAzci8qf8xhT34g5HUXaxv9vU+/dzJTlYu9wvTpih
-	3bxhITS8dxoq/HJAGeW6WG8tbdaiV94=
+	bh=fmDWvCoZ7RJkt3LBlK0ytyCUy3NDKnSPU2karwJr82A=;
+	b=GtvuLaGniKuhPHatIPMHOKL3PAWVdOsfWYvQBeWxdgjB6QLj/cIPjRdEvDn0cIc9yDDf1A
+	rKRZRSmxTxvnn79TqAM6oF26UVi5MI/TijmZ9zO0fgOh6elsMGWOYxrLXD85SQVtaxiKky
+	oMbONfZ6u7KfXH+L7ZHZ0HiS0vdVlP4=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -50,18 +50,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH v4 04/18] arm64: sysreg: Add new definitions for ID_AA64DFR0_EL1
-Date: Fri, 25 Oct 2024 18:23:39 +0000
-Message-ID: <20241025182354.3364124-5-oliver.upton@linux.dev>
+Subject: [PATCH v4 05/18] KVM: arm64: Describe RES0/RES1 bits of MDCR_EL2
+Date: Fri, 25 Oct 2024 18:23:40 +0000
+Message-ID: <20241025182354.3364124-6-oliver.upton@linux.dev>
 In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
 References: <20241025182354.3364124-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_112417_599665_F3A998AC 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_112419_282419_4B4B5E50 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +75,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align the field definitions w/ DDI0601 2024-09 and opportunistically
-declare MTPMU as a signed field.
+Add support for sanitising MDCR_EL2 and describe the RES0/RES1 bits
+according to the feature set exposed to the VM.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/tools/sysreg | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/nested.c           | 37 +++++++++++++++++++++++++++++++
+ 2 files changed, 38 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 7061cf2d8444..e5d2c25fe463 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1200,7 +1200,7 @@ UnsignedEnum	55:52	BRBE
- 	0b0001	IMP
- 	0b0010	BRBE_V1P1
- EndEnum
--Enum	51:48	MTPMU
-+SignedEnum	51:48	MTPMU
- 	0b0000	NI_IMPDEF
- 	0b0001	IMP
- 	0b1111	NI
-@@ -1208,6 +1208,7 @@ EndEnum
- UnsignedEnum	47:44	TraceBuffer
- 	0b0000	NI
- 	0b0001	IMP
-+	0b0010	TRBE_V1P1
- EndEnum
- UnsignedEnum	43:40	TraceFilt
- 	0b0000	NI
-@@ -1224,11 +1225,18 @@ UnsignedEnum	35:32	PMSVer
- 	0b0011	V1P2
- 	0b0100	V1P3
- 	0b0101	V1P4
-+	0b0110	V1P5
- EndEnum
- Field	31:28	CTX_CMPs
--Res0	27:24
-+UnsignedEnum	27:24	SEBEP
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- Field	23:20	WRPs
--Res0	19:16
-+UnsignedEnum	19:16	PMSS
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- Field	15:12	BRPs
- UnsignedEnum	11:8	PMUVer
- 	0b0000	NI
-@@ -1238,6 +1246,7 @@ UnsignedEnum	11:8	PMUVer
- 	0b0110	V3P5
- 	0b0111	V3P7
- 	0b1000	V3P8
-+	0b1001	V3P9
- 	0b1111	IMP_DEF
- EndEnum
- UnsignedEnum	7:4	TraceVer
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 07c7d2b7b3a3..ca8fe74920d4 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -464,7 +464,6 @@ enum vcpu_sysreg {
+ 	/* EL2 registers */
+ 	SCTLR_EL2,	/* System Control Register (EL2) */
+ 	ACTLR_EL2,	/* Auxiliary Control Register (EL2) */
+-	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
+ 	CPTR_EL2,	/* Architectural Feature Trap Register (EL2) */
+ 	HACR_EL2,	/* Hypervisor Auxiliary Control Register */
+ 	ZCR_EL2,	/* SVE Control Register (EL2) */
+@@ -492,6 +491,7 @@ enum vcpu_sysreg {
+ 
+ 	/* Anything from this can be RES0/RES1 sanitised */
+ 	MARKER(__SANITISED_REG_START__),
++	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
+ 
+ 	/* Any VNCR-capable reg goes after this point */
+ 	MARKER(__VNCR_START__),
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index b20b3bfb9cae..d256a495a6ba 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1186,5 +1186,42 @@ int kvm_init_nv_sysregs(struct kvm *kvm)
+ 		res0 |= SCTLR_EL1_EPAN;
+ 	set_sysreg_masks(kvm, SCTLR_EL1, res0, res1);
+ 
++	/* MDCR_EL2 */
++	res0 = MDCR_EL2_RES0;
++	res1 = MDCR_EL2_RES1;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP))
++		res0 |= (MDCR_EL2_HPMN | MDCR_EL2_TPMCR |
++			 MDCR_EL2_TPM | MDCR_EL2_HPME);
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, IMP))
++		res0 |= MDCR_EL2_E2PB | MDCR_EL2_TPMS;
++	if (!kvm_has_feat(kvm, ID_AA64DFR1_EL1, SPMU, IMP))
++		res0 |= MDCR_EL2_EnSPM;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, V3P1))
++		res0 |= MDCR_EL2_HPMD;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceFilt, IMP))
++		res0 |= MDCR_EL2_TTRF;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, V3P5))
++		res0 |= MDCR_EL2_HCCD | MDCR_EL2_HLP;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
++		res0 |= MDCR_EL2_E2TB;
++	if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
++		res0 |= MDCR_EL2_TDCC;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, MTPMU, IMP) ||
++	    kvm_has_feat(kvm, ID_AA64PFR0_EL1, EL3, IMP))
++		res0 |= MDCR_EL2_MTPME;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, V3P7))
++		res0 |= MDCR_EL2_HPMFZO;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSS, IMP))
++		res0 |= MDCR_EL2_PMSSE;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P2))
++		res0 |= MDCR_EL2_HPMFZS;
++	if (!kvm_has_feat(kvm, ID_AA64DFR1_EL1, EBEP, IMP))
++		res0 |= MDCR_EL2_PMEE;
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DebugVer, V8P9))
++		res0 |= MDCR_EL2_EBWE;
++	if (!kvm_has_feat(kvm, ID_AA64DFR2_EL1, STEP, IMP))
++		res0 |= MDCR_EL2_EnSTEPOP;
++	set_sysreg_masks(kvm, MDCR_EL2, res0, res1);
++
+ 	return 0;
+ }
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
