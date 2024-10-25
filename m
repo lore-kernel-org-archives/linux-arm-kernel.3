@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8FD0C5FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC52D0C5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5tXriKq9Lk2p76AFYmIVaTBzO17l+W/6QIMEpt+hIA=; b=VCzJ1mAisKPZklJ98js2EtmajQ
-	k/Dgjgne1/+cJ2xjbg6WwzmCh0swPAuc8vGIXMBkaG/t7efz0Hp8p9qAVdPWQ0P3rttUTa1gkMHKS
-	wo9YlpPhwCHG1r0183SMBWcJ5DmSHIPEwYepY5lSHb5r9lg2ZJF4qWVYPMd+RW/yfkhv0P4OOk8aQ
-	sljM2ToTDqZYPtAlUpxVFprVIbjMWxsjw3euiuuMZYw/ziUzPyWo++5KjAdQ11pwBTO6INGmTbulC
-	qAKgbZDJ5YeNzohnZ2zUFyiYG6uZGmR1Mjhr/CAyHudTfrVi/atE4N9uFHh+Wlq4+PXuyTGP3cCDM
-	rIXqbdUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=; b=sOL5CGloWBMvbUTjcF3xkIDnQE
+	UeTraj2Me8+O1EnNo4rR5it2Azm6XP9754qNSPKD5pGJHvj7KL0ZQu1GiaVKHGq/KmioZboTnUbUL
+	UNiKNu09SHK9r7LpPgAXRTaTi1iwyU8+QCZrx7SyXEkyUwLGlhV6L67Fc/Wa05zFrr7dlAUArhA1x
+	kusueVqmZWDLGTUjjxNSnj1maWA2+pXPRwzr9SimtKxWMPb5yGD1yAzsktfp7vUKd+CNM/Z+DOOYQ
+	4RUM1SJ//QNF6bxj+ziqppJfB72dTB/pjAAQoWawbx3F7SH9tCasdrL/13c1U+qsdCvg85HbOt4ND
+	cebFQing==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Gtb-00000003Eg0-1Nf4;
-	Fri, 25 Oct 2024 09:46:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fgi-00000002yte-1qtZ
+	id 1t4Gu5-00000003EoU-23pn;
+	Fri, 25 Oct 2024 09:46:45 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4GsH-00000003ECO-3mmT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:28:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CD8A339;
-	Fri, 25 Oct 2024 01:29:19 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 549333F73B;
-	Fri, 25 Oct 2024 01:28:47 -0700 (PDT)
-Date: Fri, 25 Oct 2024 09:28:38 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Johan Hovold <johan@kernel.org>, sudeep.holla@arm.com,
-	cristian.marussi@arm.com, ulf.hansson@linaro.org,
-	jassisinghbrar@gmail.com, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org,
-	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org
-Subject: Re: [PATCH V3 0/4] firmware: arm_scmi: Misc Fixes
-Message-ID: <ZxtWtqsP5HdJYp5w@pluto>
-References: <20241007060642.1978049-1-quic_sibis@quicinc.com>
- <ZwfsmqInJlqkQD_3@hovoldconsulting.com>
- <ae5eaef9-301f-7d3f-c973-faa22ae780ee@quicinc.com>
- <ZxkjqEmkBAsC6UkL@hovoldconsulting.com>
- <c8e7420b-a7b4-89cd-1b6e-c1f6693c062d@quicinc.com>
- <ik4dyfbphm7lkeipm2dbr7cmdfxewxd4jtuz2jfnscfwcyo2r4@lrin5hnsqvyd>
- <83b635a7-fc69-7522-d985-810262500cb3@quicinc.com>
+	Fri, 25 Oct 2024 09:44:59 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a99cc265e0aso263158466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 02:44:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729849492; x=1730454292; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=;
+        b=mxgjeEPAlwUTRstCeLAjJGLyyzV/rPPDHbRrYSUKPVutLj/UmEoqyvI3B/Ek55GCmA
+         v9/8pfcJBdbwT+ltdCwGw77G7W6zGJAZRCmApCNxCbytaYSCvgJfoN24rraIABvaH/0b
+         fOxxxlNci48U99RXU/AJ2jOxLpnxNkdKdkVtk1z8k2/VQEF6LOKIBp3JY3DFnl1nAHI2
+         p3m9xTJciz1oP2qm6Ox14zR2IIjxgcNcMh+ufMM7PeYsGxRBwbiMFB0Xklbh61EF88Gd
+         Oksb4J9pVIk7MB40ZvLd+q5Xj1feEG4NL2q25O29Xkxwpo/ejBQ8IqUXBtygcysybss2
+         rvYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729849492; x=1730454292;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TV3rdZguaCClNEqVe787I0Vt/8PGTZ52ISSdbaUDUE8=;
+        b=hTM+Fej/rbw+hP0TILzaxpoa96gdZ5e5GtJccrnzFuP5CrZM9fClKk6IfM4lyao5pa
+         XJ4nMB2Vyp+8Np9VWDUkyc/VBDxPo6F/xijSDjIENy5QvYkyh2MUy4wFQtQeshCt0cCV
+         jb0eClClKDjGqZ+ZV84I3TDiX0kmoYG5k2hEUPR5U3OeVmlrPN/idkEJhwIqlQDNFwjB
+         ygQ/VCEQIdgA6YUxsl/FXJfIplCzrei1uQdwTrZNctOOBZ1KLbx9+5a+ZYllLOkqxku3
+         aYX6Xz+1mnmYL4jdkilrCbzN7JsK41hzD/DqTsIs0WfHbV+btJyDUK+jqAoo7FrAMjFo
+         ouWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBxf9X8+HbedGSRETbwXvF4EkoWliJEGmCknc23W4D2k3E7muEb205FnMs1wbLpNLZS/A7WfgK9W+l2aSgPK0X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz46vnCBlczoKpCtRN6/p5vl9OYklEXriS8LpJSghF7Ez9MxjnE
+	JX6fTm5yO925A5GhaRw1PunthySLrH1mXlPOFYf4F7RusbK7pV1SxOyQYRPkxCg=
+X-Google-Smtp-Source: AGHT+IGvMaHhp0yBItJqMrGnh8WZFy1BosQ2JJpGEG7L5fd6mP/jhMEMMgdVrFkbCial7NwjOHcdTw==
+X-Received: by 2002:a17:906:730f:b0:a99:f8db:68b2 with SMTP id a640c23a62f3a-a9ad2730a9amr471160666b.18.1729849491793;
+        Fri, 25 Oct 2024 02:44:51 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f029511sm50430366b.62.2024.10.25.02.44.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 02:44:51 -0700 (PDT)
+Message-ID: <c889ceae-f605-49e8-8aa6-e6d7fc78a641@linaro.org>
+Date: Fri, 25 Oct 2024 10:44:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <83b635a7-fc69-7522-d985-810262500cb3@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] firmware: add exynos acpm driver
+To: Alim Akhtar <alim.akhtar@samsung.com>, krzk@kernel.org
+Cc: mst@redhat.com, javierm@redhat.com, tzimmermann@suse.de,
+ bartosz.golaszewski@linaro.org, luzmaximilian@gmail.com,
+ sudeep.holla@arm.com, conor.dooley@microchip.com, bjorn@rivosinc.com,
+ ulf.hansson@linaro.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ marcan@marcan.st, neal@gompa.dev, alyssa@rosenzweig.io, broonie@kernel.org,
+ andre.draszik@linaro.org, willmcvicker@google.com, peter.griffin@linaro.org,
+ kernel-team@android.com, vincent.guittot@linaro.org,
+ daniel.lezcano@linaro.org, Jassi Brar <jassisinghbrar@gmail.com>
+References: <20241017163649.3007062-1-tudor.ambarus@linaro.org>
+ <CGME20241017163705epcas5p1ead3359adb4da5eda00310f93a882971@epcas5p1.samsung.com>
+ <20241017163649.3007062-3-tudor.ambarus@linaro.org>
+ <0da701db23d8$ed5684e0$c8038ea0$@samsung.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <0da701db23d8$ed5684e0$c8038ea0$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_012852_595019_E6D61BB7 
-X-CRM114-Status: GOOD (  45.13  )
+X-CRM114-CacheID: sfid-20241025_024454_037390_844F9164 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,113 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 12:15:59PM +0530, Sibi Sankar wrote:
+
+
+On 10/21/24 5:47 PM, Alim Akhtar wrote:
+> Hi Tudor
+
+Hi, Alim!
+
+Thanks for the review!
+
+>> diff --git a/drivers/firmware/samsung/Kconfig
+>> b/drivers/firmware/samsung/Kconfig
+>> new file mode 100644
+>> index 000000000000..f908773c1441
+>> --- /dev/null
+>> +++ b/drivers/firmware/samsung/Kconfig
+>> @@ -0,0 +1,11 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only
+>> +
+>> +config EXYNOS_ACPM
 > 
-> 
-> On 10/25/24 11:44, Dmitry Baryshkov wrote:
-> > On Fri, Oct 25, 2024 at 11:38:36AM +0530, Sibi Sankar wrote:
-> > > 
+> This looks misleading to me, as you mentioned below, ACPM is a FW which runs
+> on APM module, and 
+> The proposed driver is a communication method between Application processor
+> and APM module,
+> Which is via MAILBOX.
+> So preferably EXYNOS_MAILBOX_APM is more meaningful here.
 
-Hi,
+This seems more accurate indeed. The design document that I have refers
+to the protocol as "ACPM IPC", so maybe I shall stick with EXYNOS_ACPM_IPC.
 
-> > > 
-> > > On 10/23/24 21:56, Johan Hovold wrote:
-> > > > On Wed, Oct 23, 2024 at 01:16:47PM +0530, Sibi Sankar wrote:
-> > > > > On 10/10/24 20:32, Johan Hovold wrote:
-> > > > > > On Mon, Oct 07, 2024 at 11:36:38AM +0530, Sibi Sankar wrote:
-> > > > > > > The series addresses the kernel warnings reported by Johan at [1] and are
-> > > > > > > are required to X1E cpufreq device tree changes [2] to land.
-> > > > > > > 
-> > > > > > > [1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
-> > > > > > > [2] - https://lore.kernel.org/lkml/20240612124056.39230-1-quic_sibis@quicinc.com/
-> > > > > > > 
-> > > > > > > The following warnings remain unadressed:
-> > > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > > > 
-> > > > > > Are there any plans for how to address these?
-> > > > 
-> > > > > Sorry missed replying to this. The error implies that duplicate
-> > > > > opps are reported by the SCP firmware and appear once during probe.
-> > > > 
-> > > > I only see it at boot, but it shows up four times here with the CRD:
-> > > 
-> > > https://lore.kernel.org/lkml/d54f6851-d479-a136-f747-4c0180904a5e@quicinc.com/
-> > > 
-> > > As explained ^^, we see duplicates for max sustainable performance twice
-> > > for each domain.
-> > 
-> > If existing products were shipped with the firmware that lists single
-> > freq twice, please filter the frequencies like qcom-cpufreq-hw does.
-> 
-> That was a qualcomm specific driver and hence we could do such
-> kind of filtering. This however is the generic scmi perf protocol
-> and it's not something we should ever consider introducing :/
-> 
+I'll also need to prefix all the definitions in the driver with
+exynos_acpm_ipc_* which will result in long names. But I guess there's
+nothing we can do about it.
 
-+1
-
-In the case of the other warnings, those were similarly related to
-duplicates, but the warns themselves were genereated by the OPP
-subsystem when trying to register a duplicate...it was indeed a bug
-at the SCMI layer to try registering a well-known duplicate with
-the OPP subsytem, so it was fixed in the SCMI stack...avoiding to
-propagate it to the OPP layer...but the duplicate error condition
-indeed still exist (since dependent on what the fw spits out) and they
-are trapped at the SCMI level and those noisy warning are just meant
-to trap this kind of firmware anomalies...
-
-...IOW who would have ever spotted this thing and considered to fix the
-firmware in future releases without the warnings :P ?
-
-> > 
-> > > 
-> > > > 
-> > > > [    8.098452] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > [    8.109647] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > [    8.128970] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > [    8.142455] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > 
-> > > > > This particular error can be fixed only by a firmware update and you
-> > > > > should be able to test it out soon on the CRD first.
-> > > > 
-> > > > Can you explain why this can only be fixed by a firmware update? Why
-> > > > can't we suppress these warnings as well, like we did for the other
-> > > > warnings related to the duplicate entries?
-> > > > 
-> > > > IIUC the firmware is not really broken, but rather describes a feature
-> > > > that Linux does not (yet) support, right?
-> > > 
-> > > We keep saying it's a buggy firmware because the SCP firmware reports
-> > > identical perf and power levels for the additional two opps and the
-> > > kernel has no way of treating it otherwise and we shouldn't suppress
-> > > them. Out of the two duplicate opps reported one is a artifact from how
-> > > Qualcomm usually show a transition to boost frequencies. The second opp
-> > > which you say is a feature should be treated as a boost opp i.e. one
-> > > core can run at max at a lower power when other cores are at idle but
-> > > we can start marking them as such once they start advertising their
-> > > correct power requirements. So I maintain that this is the best we
-> > > can do and need a firmware update for us to address anything more.
-> > 
-> > Will existing shipping products get these firmware updates?
-> 
-> They are sure to trickle out but I guess it's upto the oem
-> to decide if they do want to pick these up like some of the
-> other firmware updates being tested only on CRD. Not sure why
-> warnings duplicates should block cpufreq from landing for x1e
-> but if that's what the community wants I can drop reposting
-> this series!
-
-Not sure indeed which is the problem with such warnings since they are
-just doing their job...in general we tend not to disrupt operation even
-when the firmware is buggy (if possible) BUT we definitely try to be
-noisy about that to have firmware fixed (...not that fw guys seems so
-scared usually about warnings though :P)
-
-Anyway, I'm totally with Sibi here unless there is an impact at the
-functional level...Sudeep may think otherwise of course ...
-
-Thanks
-Cristian
-
+Cheers,
+ta
 
