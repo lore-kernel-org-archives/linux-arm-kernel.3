@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED05D149E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1D0D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=GjNfeMdcAvyrbNr3ruvBL26S/C
-	7CT6rKzZ5LAlO78iJ3uvvoqYdQgAkGsQ/Idl7nd8YEpqE4ekvuiWQcQYvZnaLAfjTOlognNmYpso3
-	qgD/JErAWoNooNjRxGJwlHyOK3a8CM2gBPqmyBRFNH4NUZO50ZP8Xd/AOMlI/vmLRF3SEB0Ht2CSX
-	laTZ+pBlEwvWrPrtWs+dAJmIJ/2uD8RNjN26zlsHH2f5tvWqD3xlcOH5oOIrqD4IUvY7/jhBngoJ6
-	BivPTnLKF6fGAs4z1H1vArGcoTh55AkauMxS1GMWkmxAf+e9wdRw/fkheRHvdbIm7mMnpV3bnRU88
-	svRXRO2A==;
+	bh=xS0LNtsr13NpmIWzYUeUSq9N7nBweh4XNUS3GYHX4cw=; b=vhE+csU1KJGDerXDo5mWoGI7wY
+	dJwMOdo+/PvJfv+bcoHJ9kQ+iTA/m046xvfBL952aAVxshpS9KMJZgEkCrDFpfOvwEd1YrNFOCrOJ
+	7+o52VrYQ2Zti4V6wac3Louws/mdGIpv7Mqy8QlVp8QGgIsecxOO7dU3dtWozpltZTipulutBgSu3
+	R5uo4qyrJoW6vy1fLSerjsWHDn2AdTF8Bvy+EUDSMUTNdANVN+buneGmieCyuDZKOhDAOecx8bU+D
+	2NSnGT7LwUsgPDM6OP/iGg++oobPRwskiTnZ2VgRf4O1BTbN++YpbL9T0Jxk6TRDppZ51jdFh7wV/
+	EX5gbnVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QAT-0000000514r-3ncw;
-	Fri, 25 Oct 2024 19:40:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4QCn-000000051V5-21P1;
+	Fri, 25 Oct 2024 19:42:41 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pn4-00000004vSz-1pD8;
-	Fri, 25 Oct 2024 19:16:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=cIkkKKKu8LahzTo7EKiq1L0XJF
-	ekAOik/YA0kAEGB/wIk5+3bLGjal1iQ6thjeUQIXibsHh2pMIJgFO5K5G/elosk1PHUJ8smM8nGl9
-	6sTTaPrt9/bzaqPeZpJu9y/FlPWYrrXCBz5uHYHCmETIfP3Q8w75ZK4poRK3fMpLHrxUiQGnv3TxE
-	lZlNwMVDsW2N2z8Ja+UB1xL42zSpVWCTvXgAHaW9+JwlF6wdbcpxWYxaVAP7zc/DaeFt87uDnp5p8
-	UDVZSOSh9Sk3fmC+ShlVj81FJ+DUjunmVYTNjjykXEAUwXdCgpIqIfpX3ER+KcDrkRGMIMpLaHyZ2
-	rJ3NzxkQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Pmv-000000092Fp-0MMQ;
-	Fri, 25 Oct 2024 19:16:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 19FFC5C5FCB;
-	Fri, 25 Oct 2024 19:15:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C0FC4CEE6;
-	Fri, 25 Oct 2024 19:15:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729883752;
-	bh=hmjPSLT23tUvD2mhqpKoKr7fMC5StQtNq+9niGNg1xs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MzLmD7ttenyc+h9adVW5j/4jD+Z5Z8P0K29t1D9dfAOxvrlJPCCHoSOV4RyYU7mc4
-	 WbPsgIhtjxpkV+XG3nPg3insOC4hRyvrAtB+xHeMx/2sv8+LDxRpRsk16Im+FD7OHK
-	 nUnqYMuKmUS5CAgLS0hmC8rxRCvAFFRQE3a9LQ6mraoZfPE6Wrh/e4XBMcuOck8H93
-	 z3X/p9oxCzXfkf5TfKY2NnJPejTnokSSKn6ncqoMBQtIfZhYm21QYTDKYkDSTcMGhO
-	 Gis9vIIku/f91IqjUzCIoNWZERD7YQMDSWiIIopXXMdNYw+rvaAmqN5dCLvacPtihK
-	 pwFvIaZg4X8kg==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
+	id 1t4OzC-00000004mub-3z2t
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 18:24:36 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729880673;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xS0LNtsr13NpmIWzYUeUSq9N7nBweh4XNUS3GYHX4cw=;
+	b=VtQ3YKFgXHUajBZz+dZotBgh3+GWO+WNGMC630H6ZIeq4kUc7UrLdRJ4T3JbWDrpiZ9o8J
+	JJK8kKyIr8bj0P6U9nLHUBAiByt0JFXUzxRGSyvT3T4o/Wiy22J+63AJ5qItg4lA/HxNct
+	EXb9KW4wxBpApx32kZKY5tYLG7ePMP0=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 14/18] lib/crc32: make crc32c() go directly to lib
-Date: Fri, 25 Oct 2024 12:14:50 -0700
-Message-ID: <20241025191454.72616-15-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241025191454.72616-1-ebiggers@kernel.org>
-References: <20241025191454.72616-1-ebiggers@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: [PATCH v4 12/18] KVM: arm64: Rename kvm_pmu_valid_counter_mask()
+Date: Fri, 25 Oct 2024 18:23:47 +0000
+Message-ID: <20241025182354.3364124-13-oliver.upton@linux.dev>
+In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_201557_650665_35799A7C 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20241025_112435_308523_A7918E9A 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,174 +75,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Nested PMU support requires dynamically changing the visible range of
+PMU counters based on the exception level and value of MDCR_EL2.HPMN. At
+the same time, the PMU emulation code needs to know the absolute number
+of implemented counters, regardless of context.
 
-Now that the lower level __crc32c_le() library function is optimized for
-each architecture, make crc32c() just call that instead of taking an
-inefficient and error-prone detour through the shash API.
+Rename the existing helper to make it obvious that it returns the number
+of implemented counters and not anything else.
 
-Note: a future cleanup should make crc32c_le() be the actual library
-function instead of __crc32c_le().  That will require updating callers
-of __crc32c_le() to use crc32c_le() instead, and updating callers of
-crc32c_le() that expect a 'const void *' arg to expect 'const u8 *'
-instead.  Similarly, a future cleanup should remove LIBCRC32C by making
-everyone who is selecting it just select CRC32 directly instead.
-
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- include/linux/crc32c.h |  7 ++--
- lib/Kconfig            | 10 ++----
- lib/Makefile           |  1 -
- lib/libcrc32c.c        | 74 ------------------------------------------
- 4 files changed, 8 insertions(+), 84 deletions(-)
- delete mode 100644 lib/libcrc32c.c
+ arch/arm64/kvm/pmu-emul.c |  8 ++++----
+ arch/arm64/kvm/sys_regs.c | 12 ++++++------
+ include/kvm/arm_pmu.h     |  4 ++--
+ 3 files changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/include/linux/crc32c.h b/include/linux/crc32c.h
-index 357ae4611a45..47eb78003c26 100644
---- a/include/linux/crc32c.h
-+++ b/include/linux/crc32c.h
-@@ -1,12 +1,15 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef _LINUX_CRC32C_H
- #define _LINUX_CRC32C_H
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 28f938f145ac..fd08c4b53be3 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -244,7 +244,7 @@ void kvm_pmu_vcpu_init(struct kvm_vcpu *vcpu)
+  */
+ void kvm_pmu_vcpu_reset(struct kvm_vcpu *vcpu)
+ {
+-	unsigned long mask = kvm_pmu_valid_counter_mask(vcpu);
++	unsigned long mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 	int i;
  
--#include <linux/types.h>
-+#include <linux/crc32.h>
+ 	for_each_set_bit(i, &mask, 32)
+@@ -283,7 +283,7 @@ bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu, unsigned int idx)
+ 	return idx >= hpmn;
+ }
  
--extern u32 crc32c(u32 crc, const void *address, unsigned int length);
-+static inline u32 crc32c(u32 crc, const void *address, unsigned int length)
-+{
-+	return __crc32c_le(crc, address, length);
-+}
+-u64 kvm_pmu_valid_counter_mask(struct kvm_vcpu *vcpu)
++u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
+ {
+ 	u64 val = FIELD_GET(ARMV8_PMU_PMCR_N, kvm_vcpu_read_pmcr(vcpu));
  
- /* This macro exists for backwards-compatibility. */
- #define crc32c_le crc32c
+@@ -592,7 +592,7 @@ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val)
+ 		kvm_pmu_set_counter_value(vcpu, ARMV8_PMU_CYCLE_IDX, 0);
  
- #endif	/* _LINUX_CRC32C_H */
-diff --git a/lib/Kconfig b/lib/Kconfig
-index 07afcf214f35..b894ee64ff95 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -296,18 +296,14 @@ config CRC7
- 	  the kernel tree does. Such modules that use library CRC7
- 	  functions require M here.
+ 	if (val & ARMV8_PMU_PMCR_P) {
+-		unsigned long mask = kvm_pmu_valid_counter_mask(vcpu);
++		unsigned long mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 		mask &= ~BIT(ARMV8_PMU_CYCLE_IDX);
+ 		for_each_set_bit(i, &mask, 32)
+ 			kvm_pmu_set_pmc_value(kvm_vcpu_idx_to_pmc(vcpu, i), 0, true);
+@@ -822,7 +822,7 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
  
- config LIBCRC32C
- 	tristate "CRC32c (Castagnoli, et al) Cyclic Redundancy-Check"
--	select CRYPTO
--	select CRYPTO_CRC32C
-+	select CRC32
- 	help
--	  This option is provided for the case where no in-kernel-tree
--	  modules require CRC32c functions, but a module built outside the
--	  kernel tree does. Such modules that use library CRC32c functions
--	  require M here.  See Castagnoli93.
--	  Module will be libcrc32c.
-+	  This option just selects CRC32 and is provided for compatibility
-+	  purposes until the users are updated to select CRC32 directly.
+ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
+ {
+-	u64 mask = kvm_pmu_valid_counter_mask(vcpu);
++	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
  
- config CRC8
- 	tristate "CRC8 function"
- 	help
- 	  This option provides CRC8 function. Drivers may select this
-diff --git a/lib/Makefile b/lib/Makefile
-index 773adf88af41..15646679aee2 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -161,11 +161,10 @@ obj-$(CONFIG_CRC_ITU_T)	+= crc-itu-t.o
- obj-$(CONFIG_CRC32)	+= crc32.o
- obj-$(CONFIG_CRC64)     += crc64.o
- obj-$(CONFIG_CRC32_SELFTEST)	+= crc32test.o
- obj-$(CONFIG_CRC4)	+= crc4.o
- obj-$(CONFIG_CRC7)	+= crc7.o
--obj-$(CONFIG_LIBCRC32C)	+= libcrc32c.o
- obj-$(CONFIG_CRC8)	+= crc8.o
- obj-$(CONFIG_CRC64_ROCKSOFT) += crc64-rocksoft.o
- obj-$(CONFIG_XXHASH)	+= xxhash.o
- obj-$(CONFIG_GENERIC_ALLOCATOR) += genalloc.o
+ 	kvm_pmu_handle_pmcr(vcpu, kvm_vcpu_read_pmcr(vcpu));
  
-diff --git a/lib/libcrc32c.c b/lib/libcrc32c.c
-deleted file mode 100644
-index 649e687413a0..000000000000
---- a/lib/libcrc32c.c
-+++ /dev/null
-@@ -1,74 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/* 
-- * CRC32C
-- *@Article{castagnoli-crc,
-- * author =       { Guy Castagnoli and Stefan Braeuer and Martin Herrman},
-- * title =        {{Optimization of Cyclic Redundancy-Check Codes with 24
-- *                 and 32 Parity Bits}},
-- * journal =      IEEE Transactions on Communication,
-- * year =         {1993},
-- * volume =       {41},
-- * number =       {6},
-- * pages =        {},
-- * month =        {June},
-- *}
-- * Used by the iSCSI driver, possibly others, and derived from
-- * the iscsi-crc.c module of the linux-iscsi driver at
-- * http://linux-iscsi.sourceforge.net.
-- *
-- * Following the example of lib/crc32, this function is intended to be
-- * flexible and useful for all users.  Modules that currently have their
-- * own crc32c, but hopefully may be able to use this one are:
-- *  net/sctp (please add all your doco to here if you change to
-- *            use this one!)
-- *  <endoflist>
-- *
-- * Copyright (c) 2004 Cisco Systems, Inc.
-- */
--
--#include <crypto/hash.h>
--#include <linux/err.h>
--#include <linux/init.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/crc32c.h>
--
--static struct crypto_shash *tfm;
--
--u32 crc32c(u32 crc, const void *address, unsigned int length)
--{
--	SHASH_DESC_ON_STACK(shash, tfm);
--	u32 ret, *ctx = (u32 *)shash_desc_ctx(shash);
--	int err;
--
--	shash->tfm = tfm;
--	*ctx = crc;
--
--	err = crypto_shash_update(shash, address, length);
--	BUG_ON(err);
--
--	ret = *ctx;
--	barrier_data(ctx);
--	return ret;
--}
--
--EXPORT_SYMBOL(crc32c);
--
--static int __init libcrc32c_mod_init(void)
--{
--	tfm = crypto_alloc_shash("crc32c", 0, 0);
--	return PTR_ERR_OR_ZERO(tfm);
--}
--
--static void __exit libcrc32c_mod_fini(void)
--{
--	crypto_free_shash(tfm);
--}
--
--module_init(libcrc32c_mod_init);
--module_exit(libcrc32c_mod_fini);
--
--MODULE_AUTHOR("Clay Haapala <chaapala@cisco.com>");
--MODULE_DESCRIPTION("CRC32c (Castagnoli) calculations");
--MODULE_LICENSE("GPL");
--MODULE_SOFTDEP("pre: crc32c");
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 30fe940cd5bd..bd0c116f041b 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1131,7 +1131,7 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
+ {
+ 	bool set;
+ 
+-	val &= kvm_pmu_valid_counter_mask(vcpu);
++	val &= kvm_pmu_implemented_counter_mask(vcpu);
+ 
+ 	switch (r->reg) {
+ 	case PMOVSSET_EL0:
+@@ -1154,7 +1154,7 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
+ 
+ static int get_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 *val)
+ {
+-	u64 mask = kvm_pmu_valid_counter_mask(vcpu);
++	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 
+ 	*val = __vcpu_sys_reg(vcpu, r->reg) & mask;
+ 	return 0;
+@@ -1168,7 +1168,7 @@ static bool access_pmcnten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (pmu_access_el0_disabled(vcpu))
+ 		return false;
+ 
+-	mask = kvm_pmu_valid_counter_mask(vcpu);
++	mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 	if (p->is_write) {
+ 		val = p->regval & mask;
+ 		if (r->Op2 & 0x1) {
+@@ -1191,7 +1191,7 @@ static bool access_pmcnten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ static bool access_pminten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			   const struct sys_reg_desc *r)
+ {
+-	u64 mask = kvm_pmu_valid_counter_mask(vcpu);
++	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 
+ 	if (check_pmu_access_disabled(vcpu, 0))
+ 		return false;
+@@ -1215,7 +1215,7 @@ static bool access_pminten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			 const struct sys_reg_desc *r)
+ {
+-	u64 mask = kvm_pmu_valid_counter_mask(vcpu);
++	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 
+ 	if (pmu_access_el0_disabled(vcpu))
+ 		return false;
+@@ -1245,7 +1245,7 @@ static bool access_pmswinc(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (pmu_write_swinc_el0_disabled(vcpu))
+ 		return false;
+ 
+-	mask = kvm_pmu_valid_counter_mask(vcpu);
++	mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 	kvm_pmu_software_increment(vcpu, p->regval & mask);
+ 	return true;
+ }
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index e6103df9ef5d..b175b10491f0 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -47,7 +47,7 @@ static __always_inline bool kvm_arm_support_pmu_v3(void)
+ #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >= VGIC_NR_SGIS)
+ u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
+ void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
+-u64 kvm_pmu_valid_counter_mask(struct kvm_vcpu *vcpu);
++u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu);
+ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1);
+ void kvm_pmu_vcpu_init(struct kvm_vcpu *vcpu);
+ void kvm_pmu_vcpu_reset(struct kvm_vcpu *vcpu);
+@@ -114,7 +114,7 @@ static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
+ }
+ static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
+ 					     u64 select_idx, u64 val) {}
+-static inline u64 kvm_pmu_valid_counter_mask(struct kvm_vcpu *vcpu)
++static inline u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
+ {
+ 	return 0;
+ }
 -- 
-2.47.0
+2.47.0.163.g1226f6d8fa-goog
 
 
