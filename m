@@ -4,59 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB81CD0C5E5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF4DD0C5E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UvIr1TF/htZ+TQS+gL84cjH2WM0yCRW4DTCJg39uWY=; b=VhItVhZVr8TLZ/c8DWjsMtJHKu
-	nFeekelYXi3ywil9c1AfwrcmDBFd//uppp0SPU2zSNlXXtKBZj4QqBfAhi334jhGQoVEDpbtkdovM
-	wWjKrZ2Lu4tkyYSvI55KXmkv9/BpuZ3Nbny1+1SDnVTTqF7OAGG/Pk2eqCkcQPC8a5cMNW6Q0OZYp
-	e2CJNQsudN2u3irJQY57nxxGwGnuxLHjoWtRScObyDGCdqP8Q0dK0jw257G/ggJMrlji6ceW7rxhW
-	3W7LFaMRehyw9X5aC2wByagfQY0KLvxM52AfchJoQI68Ma3OFjFqVzIQSCRUoL1RFxIQ371VlQRhi
-	H/PF8DXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BT/Ng943C81aesy7n0Su3FETLClPbDgwCaBp/DvtzrA=; b=1EVMFgWjp+mQkW4lZtl4oFrcFg
+	jQdLEhEIhST0TDsKBvrBkxWBIMlv+KkuMqJFlmMcQcquubnn5vOF4Tx7f7uk2OkC5Vj2o9Rux506K
+	992LKaxZyWk082RkypJ3RCpITMWJ8fA1dHSkrf8Vng8DTONKcqhULMmxgvMfFhyitSZaM8MC4haea
+	IXg2ZaxV3Knklp+NLQT74Lj7U3Aw6CNqV+7NskHPQnLg04ckZ+Kvdh5eLvjI4lB8417xOgyffgLxR
+	rnWxaXMtvXuIio4FZCcf+OJOhd0EcTdBME/+HCdq3nSp1NON4W+tF1n6LVay5CwY+Yq5rLTuxD/Nf
+	MTeA3IhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fni-0000000300z-1Hgi;
-	Fri, 25 Oct 2024 08:36:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FjT-00000002zDZ-0Try
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:31:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 287DA339;
-	Fri, 25 Oct 2024 01:32:10 -0700 (PDT)
-Received: from [10.57.66.80] (unknown [10.57.66.80])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C29B3F73B;
-	Fri, 25 Oct 2024 01:31:36 -0700 (PDT)
-Message-ID: <c35d8783-c754-4864-b964-4a3bfaa4cd11@arm.com>
-Date: Fri, 25 Oct 2024 10:31:33 +0200
+	id 1t4FpG-000000030Gq-1M54;
+	Fri, 25 Oct 2024 08:37:42 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Fjd-00000002zEg-12bG;
+	Fri, 25 Oct 2024 08:31:54 +0000
+X-UUID: 9366e94292ab11ef9048ed6ed365623b-20241025
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=BT/Ng943C81aesy7n0Su3FETLClPbDgwCaBp/DvtzrA=;
+	b=d7+KrT+YQLkZHKtWDIIjKRc/Wl3dZ6/Q8HhhYnmaDvKuKuAoFvopb0i6UPLdjVJDIIcQ7cFXiCfoAJvqfh2Kk/E3eADWzCTS6FeZdRL3+cnVRLR0kN3EumINBstlFGXBvtEkHIOw/ASrvakkRpiTDzvaV3RRHMQZAgtiwYUKsHQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:f20ef7d4-3bbf-4f2a-87aa-4df81022319f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:5260dacc-110e-4f79-849e-58237df93e70,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 9366e94292ab11ef9048ed6ed365623b-20241025
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <liankun.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1031934843; Fri, 25 Oct 2024 01:31:48 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Fri, 25 Oct 2024 16:31:44 +0800
+Received: from mszsdclx1211.gcn.mediatek.inc (10.16.7.31) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 16:31:43 +0800
+From: Liankun Yang <liankun.yang@mediatek.com>
+To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <ck.hu@mediatek.com>,
+	<dmitry.osipenko@collabora.com>, <msp@baylibre.com>,
+	<rex-bc.chen@mediatek.com>, <granquet@baylibre.com>, <peng.liu@mediatek.com>,
+	<jitao.shi@mediatek.com>, <mac.shen@mediatek.com>,
+	<liankun.yang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 0/3] Adjust YCbCr422/bandwidth/training for DP
+Date: Fri, 25 Oct 2024 16:28:26 +0800
+Message-ID: <20241025083036.8829-1-liankun.yang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] selftests/mm: Use generic pkey register
- manipulation
-To: Dave Hansen <dave.hansen@intel.com>, linux-arm-kernel@lists.infradead.org
-Cc: akpm@linux-foundation.org, anshuman.khandual@arm.com,
- aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, dave.martin@arm.com, jeffxu@chromium.org,
- joey.gouly@arm.com, pierre.langlois@arm.com, shuah@kernel.org,
- sroettger@google.com, will@kernel.org, linux-kselftest@vger.kernel.org,
- x86@kernel.org, Yury Khrustalev <Yury.Khrustalev@arm.com>
-References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
- <20241023150511.3923558-5-kevin.brodsky@arm.com>
- <6b575236-7e4e-4128-9ab6-7ecec7b81428@intel.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <6b575236-7e4e-4128-9ab6-7ecec7b81428@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--5.394300-8.000000
+X-TMASE-MatchedRID: gUuz9Ogq75WqO+wHLkIcO7E3FpMbg63SWDdWpJMntKiPaLJ/Ca3STzku
+	TGiiLo1Yx91bb4/YjfE5bsAcOzEG6DK42JVSvu3ARAvohSJUpI++1Vx7rDn4r7v408/GP5HqqcN
+	xd5hReGHi8zVgXoAltoAy6p60ZV62JW+71yEen6Zq8/xv2Um1avoLR4+zsDTtgUicvJ4MChkqZu
+	nyleO9cPKITgppfSr0LQnK66f9ldiohItm7Yy7y/cqHKzCJIUv
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--5.394300-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: F32734434536A121CD0B2F2009F6141F52AC7822B31BBEF4922DAF5077C969E42000:8
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_013143_278884_4DA4D375 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20241025_013153_325377_C56E764D 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,138 +101,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2024 18:51, Dave Hansen wrote:
-> On 10/23/24 08:05, Kevin Brodsky wrote:
-> ...> diff --git a/tools/testing/selftests/mm/pkey-x86.h
-> b/tools/testing/selftests/mm/pkey-x86.h
->> index 5f28e26a2511..53ed9a336ffe 100644
->> --- a/tools/testing/selftests/mm/pkey-x86.h
->> +++ b/tools/testing/selftests/mm/pkey-x86.h
->> @@ -34,6 +34,8 @@
->>  #define PAGE_SIZE		4096
->>  #define MB			(1<<20)
->>  
->> +#define PKEY_ALLOW_NONE		0x55555555
-> Hi Kevin,
->
-> Looking at this in context, I think "PKEY_ALLOW_NONE" is not a great
-> name.  On one hand, we have:
->
-> 	PKEY_DISABLE_ACCESS
-> 	PKEY_DISABLE_WRITE
->
-> which are values for *A* pkey.
->
-> But PKEY_ALLOW_NONE is a whole register value and spans permissions for
-> many keys.  We don't want folks trying to do something like:
->
-> 	pkey_alloc(flags, PKEY_ALLOW_NONE);
->
-> If I were naming it in x86 code, I'd probably call it:
->
-> 	PKRU_ALLOW_NONE
->
-> or something.
+The change in mode filtering bandwidth calculation method must rely on
+DP training at the beginning, and get the current train info to calculate
+the bandwidth.
 
-I agree, the naming is not ideal, I lacked inspiration! Maybe
-PKEY_REG_ALLOW_NONE to remain generic?
+Color format support capability must also rely on DP training time to
+get the most reliable link capability and choose which color format to use.
 
->
->>  static inline void __page_o_noops(void)
->>  {
->>  	/* 8-bytes of instruction * 512 bytes = 1 page */
->> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
->> index a8088b645ad6..b5e1767ee5d9 100644
->> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
->> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
->> @@ -37,6 +37,8 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
->>  pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
->>  siginfo_t siginfo = {0};
->>  
->> +static u64 pkey_reg_no_access;
-> Ideally, this would be a real const or a #define because it really is
-> static.  Right?  Or is there something dynamic about the ARM
-> implementation's value?
+Fixed YCbCr422 problem and bandwidth calculation from color format are
+both in the color format category, so they are bound.
 
-It isn't dynamic no, the issue is that on architectures where pkeys
-restrict execution we need to allow X for pkey 0. Of course it would be
-possible to define PKEY_REG_ALLOW_ALL in such a way that X is allowed
-for pkey 0, but I was concerned this might be misleading. No strong
-opinion either way, happy to make it purely a macro, maybe with a better
-name?
+In summary, YCbCr 422 and mode valid must rely on DP training timing,
+so they are strongly bound.
 
-> ...
->>  	 * Setup alternate signal stack, which should be pkey_mprotect()ed by
->> @@ -142,7 +145,8 @@ static void *thread_segv_maperr_ptr(void *ptr)
->>  	syscall_raw(SYS_sigaltstack, (long)stack, 0, 0, 0, 0, 0);
->>  
->>  	/* Disable MPK 0.  Only MPK 1 is enabled. */
->> -	__write_pkey_reg(0x55555551);
->> +	pkey_reg = set_pkey_bits(pkey_reg_no_access, 1, 0);
->> +	__write_pkey_reg(pkey_reg);
-> The existing magic numbers are not great, but could we do:
->
-> #define PKEY_ALLOW_ALL 0x0
->
-> So that this can be written like this:
->
-> 	pkey_reg = PKRU_ALLOW_NONE;
-> 	pkey_reg = set_pkey_bits(pkey_reg, 1, PKEY_ALLOW_ALL);
->
-> That would get rid of the magic '0'.
+Liankun Yang (3):
+  drm/mediatek: Fix YCbCr422 color format issue for DP
+  drm/mediatek: Fix mode valid issue for dp
+  drm/mediatek: Adjust bandwidth limit for DP
 
-Definitely better yes. But how about using Yury's uapi addition,
-PKEY_UNRESTRICTED [1]?
+ drivers/gpu/drm/mediatek/mtk_dp.c | 78 ++++++++++++++++++-------------
+ 1 file changed, 45 insertions(+), 33 deletions(-)
 
-[1]
-https://lore.kernel.org/all/20241022120128.359652-1-yury.khrustalev@arm.com/
-
->
->>  	/* Segfault */
->>  	*bad = 1;
->> @@ -240,6 +244,7 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
->>  	int pkey;
->>  	int parent_pid = 0;
->>  	int child_pid = 0;
->> +	u64 pkey_reg;
->>  
->>  	sa.sa_flags = SA_SIGINFO | SA_ONSTACK;
->>  
->> @@ -257,7 +262,9 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
->>  	assert(stack != MAP_FAILED);
->>  
->>  	/* Allow access to MPK 0 and MPK 1 */
->> -	__write_pkey_reg(0x55555550);
->> +	pkey_reg = set_pkey_bits(pkey_reg_no_access, 0, 0);
->> +	pkey_reg = set_pkey_bits(pkey_reg, 1, 0);
->> +	__write_pkey_reg(pkey_reg);
-> ... and using the pattern from above, this is quite a bit more readable:
->
-> 	pkey_reg = PKRU_ALLOW_NONE;
-> 	pkey_reg = set_pkey_bits(pkey_reg, 0, PKEY_ALLOW_ALL);
-> 	pkey_reg = set_pkey_bits(pkey_reg, 1, PKEY_ALLOW_ALL);
->
-> ...
->> +	/* Only allow X for MPK 0 and nothing for other keys */
->> +	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0,
->> +					   PKEY_DISABLE_ACCESS);
-> If the comment says "only allow X", then I'd expect the code to say:
->
-> 	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0, PKEY_X);
->
-> ... or something similar.
-
-I could #define PKEY_X PKEY_DISABLE_ACCESS but is the mixture of
-negative and positive polarity really helping? We cannot define PKEY_R
-and PKEY_W so that (for instance) PKEY_R | PKEY_X does what it says.
-Having to use PKEY_DISABLE_ACCESS to mean "X only" is not ideal, but
-this is what userspace already has to do.
-
-Either way if we define PKEY_REG_ALLOW_NONE or similar to allow X for
-pkey 0 as suggested then this will go.
-
-Thanks for the review!
-
-Kevin
+-- 
+2.45.2
 
 
