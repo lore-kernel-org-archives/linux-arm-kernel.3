@@ -4,124 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659DED149E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2281D149EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lSsZDvEhOeZyn9VaJIiTtvyjKgumKCFxoFXoQeta2sM=; b=nfH4nvsdhUpzfuM927tV3I2H5R
-	PlSzjQ8WqDvkv4bm7pmX5nuvHP+NoQeow5lHxK3yjUqxgCslbwhkCj+B65ux9/InM8gNBIG8+evjr
-	Oytu/VtseUhDL/ODUI0uAeroPcvkrc692yMfaMe48yfAWumDuJ2wnFead+nzwaMc3fGnlCP3g69EK
-	04Y8TMQlOqsAKgqOH1Q/igwqd2ZuFFEv5G5YvMD6hk23SxPhcSS6cap5jVPf1UiSrTwLYDuMTGFQt
-	VY9hUcriSjrKmpOxDwzj0KoXPm4nUDTCmCbmo6wTINfu6O8qJ05hof5PwDe+C3+Zz5EbzEEcTNc2l
-	oeWi0XeA==;
+	bh=a/dp60hBeGDxqbrgc11djchryi537nAURD/0Na12alQ=; b=ZXHfyPOU7jzso3NLZGAILIvtDi
+	gWi9ehjr9tPPzqcmRAjbFrw3iGJSFn+RtNWpV0uQrMX6Lpzkm7ud+wv2uEW+9Nfyzwx5inMZawFOV
+	n8Bj2z2O+MGdZlmjGgUd4/JxyT2YFeJ4KhZJXoMWggjoHbAfZKphIaWUlZq7Ne9rVmGQ8s65RyzjG
+	5GfE0W5BWotxHYnMPd358Izn3c45HOrdsJAjYcOZ/x2+3pUB7f9VDWl2zASGoPUaRPVl8hINOx8ka
+	9NzRYhwQ4pUX/NjaTwUpFuGcN79dc94Uuo+0pNm6nrjnP7Tq30DH150zC1USk03pF8RRWlZNFC7wW
+	QDwmhAag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QYK-0000000545F-37rJ;
-	Fri, 25 Oct 2024 20:04:56 +0000
+	id 1t4QZs-000000054GZ-0Jcw;
+	Fri, 25 Oct 2024 20:06:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QE2-000000051rL-2Utp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 19:43:58 +0000
+	id 1t4QGs-000000052ET-1nF8;
+	Fri, 25 Oct 2024 19:46:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lSsZDvEhOeZyn9VaJIiTtvyjKgumKCFxoFXoQeta2sM=; b=oN8DzPjrhRozlhjsD5SxBTc1Q6
-	9ImaeygfqvG4uVzNft1kLbFAr6xPvbcfH0YMvpSdnnhabJeaiEoMG55u+i7VBAZ3AJM/ps7vR+nCZ
-	8BbhofjCAhefPk/ymfZ+x/BVl7xCpTmz0xw/iQ9I9K+Ba8609H0qv9UAGxUn3OzRYHjZqx0F+ETRW
-	CbmRgkSJqYgmb8igb2yup9GgUoTlO/2XPLgAMpi44yaaivTxLCoA6s5MFiVWMknuB/AjVCu1j4Kom
-	rdqCQn5JKIFi4pT99bfewQGSdPA4n7FmXYE48ekvi7UreJ+++KXELrrrw9UIJ5QeNxo9krQb1bcFh
-	yP9rFY+g==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=a/dp60hBeGDxqbrgc11djchryi537nAURD/0Na12alQ=; b=XBbu3kO2H6wcTh+NYUCEGnpGHc
+	K6LNqp8/iq5tcmordkg9e1i++TFPiwld6jvmh4dgvF+n82SGQU7uA4RhcyaHrE4hp71pT9QWsDdvR
+	Qts3laYXp0EiHYcPVcqTh9YFgNXJ71WzNEuzFHj5ERGyH7ogeAW+f+/VMI9oWNnnOaQDkA//TLbjj
+	TL3EHkRQa0FyGCiCgkCeV7MjHC4LvgqgGXo6934BayWxvj/vSwFwP+eudb05qFSGBRZHVkdHF5OL0
+	nE8cjnjkcPZDXSd27tioW6/ooh11irGF135HlHLa777dM9XkovugPmzO1s0NHHzjiuk/9cyH0ILZ1
+	KnLmHSJg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4QDm-000000093PH-337V
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 19:43:49 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43161e7bb25so22798775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 12:43:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729885420; x=1730490220; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lSsZDvEhOeZyn9VaJIiTtvyjKgumKCFxoFXoQeta2sM=;
-        b=erF6+RMwpGBg5K7/ePCAJ20a0G8KFg0kjUeqdBlo6Bf1Zn8faNPNae0lBUKJ6vyWgU
-         IHZQSggDaa1YMUbFjp9dz2iTYP8jxEk0UinkKiNBou+vgYWj1iHp6WrI68FLVzRtKkM3
-         0Vl8v8OHIrT7iQeJODh290m1OeXuFAWBB6/MSXYsto/zqZmsh2CeR+2fU+s3+exnQvw/
-         HH81L6crUXnjD2N6Ga97zyzTK89yjnT8HXmbPIwsHhiAoCZ44E31wFFteUxopbsFzhH+
-         8z6NpHdXJlgaxu1D7277iHNhwcLMV0OTQa1c23h1CdbGEwm9bgNs6JFk30Kc3+V45iLd
-         jd4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729885420; x=1730490220;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lSsZDvEhOeZyn9VaJIiTtvyjKgumKCFxoFXoQeta2sM=;
-        b=jpRaK9M/4IUOk+ysK8b0Se0W6wuafXx1MCTn+oO/XTB0fzrdSJj6NFmM3AB/nMugh9
-         rPZed5vCFrbvCTisr6e8U5ftoXf1R8Kn65mkr4scHXo7tnGBU4ObtY4xaAONcj/oFVoD
-         kXt+Mb+MzgVNFhxqn2BmdKHISLC9OBZ6uimLhbq/8LDhUpzIy5TSbdp/4Suudk1Sj8Ty
-         CBTZ/byAJiNy8sC8hSBN9HaGTBS6tdJh3lQ7cgnjCm38rGOoYV97nmfe1Jao8A6ytBvA
-         vkNgVAjARldBrOJpEUFElHS0juGJ1EE8Wp62wOeMXd8nUZNqVRDSvewGotui/Id2TD9y
-         vHeA==
-X-Forwarded-Encrypted: i=1; AJvYcCUpkLZIMNO3fQMKmWPCbSxMa+6tlYgP4g9jRCpqoo7QMkMvQfovIbBtco4iTlPJGL2RBHMeDQ8By6ylNoRhszdt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz7/w7lFjbAVzi4qXY6DXicBBFBtZ/Wj9f1i5Jq3aZDppnF5gK
-	2CYxILkuBTfQ9xdstSe3T0a29FvNP16s7Q6jVkwyFIQ7Opqgg9MqaqY0NiorNj0=
-X-Google-Smtp-Source: AGHT+IEzPuLj09sW3XJSXTYzYRkCzcdUHuV5hctMILxMB/GePRDvwaT9iOwJTJZ47PpX92GjYN8nCA==
-X-Received: by 2002:a05:600c:4f51:b0:431:59b2:f0d1 with SMTP id 5b1f17b1804b1-4319ac6fd9dmr2332175e9.4.1729885420036;
-        Fri, 25 Oct 2024 12:43:40 -0700 (PDT)
-Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b5430absm56939735e9.6.2024.10.25.12.43.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 12:43:39 -0700 (PDT)
-Message-ID: <94eca595-6ac2-40cf-9437-cb6695c45344@linaro.org>
-Date: Fri, 25 Oct 2024 20:43:38 +0100
+	id 1t4QGH-000000093VL-2Bao;
+	Fri, 25 Oct 2024 19:46:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729885570;
+	bh=xueF8NL4biPM6Tjkyld4sBVF/E87RcWAqU59Qy6ahiw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JfRE3Bf5Gfu+OpGxQvbs1PSFqG70Pn28Sq2qOU7LQ4hw4W+nB67hd9iDvxcsSREL8
+	 p1A7xZIQW0LnL0uAlmfFuyju47fyw5wCkybqvrQ0iysKmk0CNN/IeRPvsgskBfFpfb
+	 cRQGmn6gx9uvcSH/pBtOzK0eVcgHQZikWjxJHsRD4O9G6cSR18lERuuHtsvdKEB1UM
+	 uM+ELKf6iGPCJBfwkMCVILAsdRpXs271f0T1OL3D5U5/vJpffLXEoCfyUxbhT1VLTt
+	 Y38wrzXU4n1z55CNULfAO3TrDzcM8kEj5S+zjESHfZhrVuLDf2sx0Hg4KTI6Y9mBIK
+	 CtVOFr7/XZBLA==
+Received: from [192.168.1.54] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFB6817E3706;
+	Fri, 25 Oct 2024 21:46:08 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Fri, 25 Oct 2024 15:45:36 -0400
+Subject: [PATCH RFC v2 1/5] pinctrl: mediatek: paris: Expose more
+ configurations to GPIO set_config
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: dt-bindings: Remove assigned-clock-* from
- various schema
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Martin Kepplinger <martink@posteo.de>,
- Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
- "Paul J. Murphy" <paul.j.murphy@intel.com>,
- Daniele Alessandrelli <daniele.alessandrelli@intel.com>,
- Tommaso Merciai <tomm.merciai@gmail.com>,
- Martin Hecht <martin.hecht@avnet.eu>, Zhi Mao <zhi.mao@mediatek.com>,
- Alain Volmat <alain.volmat@foss.st.com>,
- Mikhail Rudenko <mike.rudenko@gmail.com>,
- Ricardo Ribalda <ribalda@kernel.org>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Umang Jain <umang.jain@ideasonboard.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Dongchun Zhu <dongchun.zhu@mediatek.com>,
- Quentin Schulz <quentin.schulz@theobroma-systems.com>,
- Todor Tomov <todor.too@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20241025-b4-linux-next-202041004-i2c-media-yaml-fixes-v2-1-1b4535174a5a@linaro.org>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20241025-b4-linux-next-202041004-i2c-media-yaml-fixes-v2-1-1b4535174a5a@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241025-kselftest-gpio-set-get-config-v2-1-040d748840bb@collabora.com>
+References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+To: Sean Wang <sean.wang@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bamvor Jian Zhang <bamv2005@gmail.com>, Shuah Khan <shuah@kernel.org>
+Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ kernelci@lists.linux.dev, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_204347_678563_3B325438 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_204626_486607_11A4E077 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,20 +95,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/10/2024 17:21, Bryan O'Donoghue wrote:
-> Remove extraneous assigned-clock* from media/i2c/* schemas, retain in the
-> relevant examples.
+Currently the set_config callback in the gpio_chip registered by the
+pinctrl_paris driver only supports configuring a single parameter on
+specific pins (the input debounce of the EINT controller, on pins that
+support it), even though many other configurations are already
+implemented and available through the pinctrl API for configuration of
+pins by the Devicetree and other drivers.
 
-Ah, pardon me.
+Expose all configurations currently implemented through the GPIO API so
+they can also be set from userspace, which is particularly useful to
+allow testing them from userspace.
 
-I've neglected to update the commit log.
-
-https://lore.kernel.org/all/20241012172430.GB5212@pendragon.ideasonboard.com/
-
-I will send a V3 to make it so.
-
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
-bod
+ drivers/pinctrl/mediatek/pinctrl-paris.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
+diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/pinctrl-paris.c
+index 87e958d827bf939aa6006794287698be4936f25e..c9455de266a447ab7f5446c1511bef0ef9c9128e 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-paris.c
++++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
+@@ -255,10 +255,9 @@ static int mtk_pinconf_get(struct pinctrl_dev *pctldev,
+ 	return err;
+ }
+ 
+-static int mtk_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+-			   enum pin_config_param param, u32 arg)
++static int mtk_paris_pin_config_set(struct mtk_pinctrl *hw, unsigned int pin,
++				    enum pin_config_param param, u32 arg)
+ {
+-	struct mtk_pinctrl *hw = pinctrl_dev_get_drvdata(pctldev);
+ 	const struct mtk_pin_desc *desc;
+ 	int err = -ENOTSUPP;
+ 	u32 reg;
+@@ -795,9 +794,9 @@ static int mtk_pconf_group_set(struct pinctrl_dev *pctldev, unsigned group,
+ 	int i, ret;
+ 
+ 	for (i = 0; i < num_configs; i++) {
+-		ret = mtk_pinconf_set(pctldev, grp->pin,
+-				      pinconf_to_config_param(configs[i]),
+-				      pinconf_to_config_argument(configs[i]));
++		ret = mtk_paris_pin_config_set(hw, grp->pin,
++					       pinconf_to_config_param(configs[i]),
++					       pinconf_to_config_argument(configs[i]));
+ 		if (ret < 0)
+ 			return ret;
+ 
+@@ -937,18 +936,19 @@ static int mtk_gpio_set_config(struct gpio_chip *chip, unsigned int offset,
+ {
+ 	struct mtk_pinctrl *hw = gpiochip_get_data(chip);
+ 	const struct mtk_pin_desc *desc;
+-	u32 debounce;
++	enum pin_config_param param = pinconf_to_config_param(config);
++	u32 arg = pinconf_to_config_argument(config);
+ 
+ 	desc = (const struct mtk_pin_desc *)&hw->soc->pins[offset];
+ 
+-	if (!hw->eint ||
+-	    pinconf_to_config_param(config) != PIN_CONFIG_INPUT_DEBOUNCE ||
+-	    desc->eint.eint_n == EINT_NA)
+-		return -ENOTSUPP;
++	if (param == PIN_CONFIG_INPUT_DEBOUNCE) {
++		if (!hw->eint || desc->eint.eint_n == EINT_NA)
++			return -ENOTSUPP;
+ 
+-	debounce = pinconf_to_config_argument(config);
++		return mtk_eint_set_debounce(hw->eint, desc->eint.eint_n, arg);
++	}
+ 
+-	return mtk_eint_set_debounce(hw->eint, desc->eint.eint_n, debounce);
++	return mtk_paris_pin_config_set(hw, offset, param, arg);
+ }
+ 
+ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
+
+-- 
+2.47.0
 
 
