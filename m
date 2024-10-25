@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88113D0C601
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D86D0C601
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jz4KhIOAyjfj6jjIzN0DBGlJwIdvm5FBAhHUlXxPgTU=; b=hkhRjsd9XE4eYl48c//Lk5k+89
-	fxQbSQwNaTmwWmbzip/PDb54dzYSTwaeBMHNcRyJHr8kS4b3fR5NFp4r4LpJGmn8dq5/igas3Z4xr
-	3dp5FVcdSJjTcyk5cCBOvPA6ZSfvPKood5cp1nORm7EXT0gyfgx9TKhT6fyVzpC15J+14F7eOJwcc
-	uQh79z4OER5Lkwo0zrAkJO2SRZjNpK/8aKW0tpkOlRvlI+HA9dT23fXSs+hYEk0B5AszlzYw9KaeV
-	RSmTnqud4CtRWd1F2CkaipH9v48rvgXynASLLcj16uqTva7V7v9JlmVAnSbJXNijcJsbuwcD3YB0h
-	tn2+Zbvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2umKUDZroJhKWGugCA3KI+nJ29nYBg6+yfjh//bdgw=; b=c/WTjPAUfWN77r0Q8tY+ORjfZr
+	AnsQ4syTSWIFXtuXJcBBJ1vEH3WItDGUjj0dzJRNTIMSEulC4vBrctV7LKvb4JVWPkFI/7gB0jBdm
+	gUHcwAGprPV95CbcAYL1HvdVL+3hPzvbRnD/JiQ5eWMBiyRerQ3iiMl5CAjkNpkWJFFgzTb3Kx9ZF
+	FXvkfAgdy02ZghgKYrKjXwTlo9tPDu+6YfF8DTZ2SNVb1UkYEsn+n5tAUnBG6QQGv+uTgaQEkI/tk
+	uqJTBVf7fSL2NRTieWeSWBv0dbLz14xGmyx3dofC9dXlSFQ+42cU+qDPNmGNBlvlPNa2Cr949Zy+T
+	fRfGG5vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JCW-00000003cHQ-1UBO;
-	Fri, 25 Oct 2024 12:13:56 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1t4JFe-00000003cbN-2FqD;
+	Fri, 25 Oct 2024 12:17:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4J8s-00000003bxA-2hHY;
-	Fri, 25 Oct 2024 12:10:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729858211; x=1761394211;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=a0NkGOWfPXvuC0pRrY2V1xNhHthWDgHcKYifaYQcMuI=;
-  b=grndIlirvwmJWQAfbj0CBCEvDKEt2cRMzFOmud3jEV+/q3q6JNn3tedq
-   YAUT+KvT4A80W6gqhuJ1+sPOj4u44TKBL8eMV1QrjUq7ipz4IKzEiJzFK
-   2Xbp9miwo1fprcOd8tllz0202o+r6DBoy5jcNERIs3yXOYo2W50y1eXGM
-   1hM5RwysnEzDj99nt/gw40PhO7JLp2zHuRy2jFowL5LQo6NamvtXr2C1G
-   JsZ/a32s4nERx/6npfu3lUBW9lEmSBHelAeit0YKvBnihrQphf0sYNVyl
-   wIH3xXHdMLQLnyQq3fHc/FluqnzI9CRj/zAuuRAMiI4yWtHrMAWL9Nprm
-   g==;
-X-CSE-ConnectionGUID: ubzR/FmMTcKhdEdgJi37NA==
-X-CSE-MsgGUID: 93fZiRAtRS28ih9ixdA6lg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29692404"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="29692404"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 05:10:10 -0700
-X-CSE-ConnectionGUID: UO8b6M5ER5iqox+HpdnRPg==
-X-CSE-MsgGUID: g74Ybz18R9a361uG3aHnZg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="111711060"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 25 Oct 2024 05:10:03 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4J8j-000YD2-0w;
-	Fri, 25 Oct 2024 12:10:01 +0000
-Date: Fri, 25 Oct 2024 20:09:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 22/37] drm/vc4: txp: Add BCM2712 MOPLET support
-Message-ID: <202410251938.rnvcIesU-lkp@intel.com>
-References: <20241023-drm-vc4-2712-support-v1-22-1cc2d5594907@raspberrypi.com>
+	id 1t4JD6-00000003cON-3PWU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 12:14:34 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PB2LML001170;
+	Fri, 25 Oct 2024 12:14:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	l2umKUDZroJhKWGugCA3KI+nJ29nYBg6+yfjh//bdgw=; b=ESf501mKksOL8WaZ
+	oHthjn1WorQOyADQLZeoCbY9tMA5wX+EEfTL4g2R3v7Gjd5tSVe1570esSqINzES
+	vU+DN4p7Su8wRLfNUZbWoPUhtK9o04nNXR0cL1if+WtiMYQwPooSaglCxxPqn/fj
+	bPeQTr4fWz/kOHcFITl8TTNXN+VmSJjTRqCfRZXTKbDxJyRlyZF27IUfGK+XvDW8
+	IzuXLOrKAk/HTLnKoEdDZYZmPEUl8X6EandEhhQNwFcplkY9E3C3JiFyOYs2KNkA
+	lntzj3bWmEHh7a5dhXwk97g7IvCR5LhjcqKdPL4uxQ1wAQ2aUsyQyGVGwx2+k685
+	rH/QXg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ga3s06b8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 12:14:24 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49PCENWY003953
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 12:14:23 GMT
+Received: from [10.239.132.205] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 25 Oct
+ 2024 05:14:17 -0700
+Message-ID: <6b70789a-a63b-42e6-beb0-9500cbe99ce7@quicinc.com>
+Date: Fri, 25 Oct 2024 20:14:15 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023-drm-vc4-2712-support-v1-22-1cc2d5594907@raspberrypi.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] arm64: dts: qcom: add base QCS615 RIDE dts
+To: Bjorn Andersson <andersson@kernel.org>
+CC: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <kernel@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Tingguo Cheng
+	<quic_tingguoc@quicinc.com>
+References: <20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com>
+ <20241022-add_initial_support_for_qcs615-v4-6-0a551c6dd342@quicinc.com>
+ <4bhsuysjm2uwkk52g4pkspiadsf5y4m2afotj7ggo2lnj24ip2@yqkijcdkiloj>
+From: Lijuan Gao <quic_lijuang@quicinc.com>
+In-Reply-To: <4bhsuysjm2uwkk52g4pkspiadsf5y4m2afotj7ggo2lnj24ip2@yqkijcdkiloj>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: qCoYAuai4UbGPRAqXxGarM2Wbazx9fa8
+X-Proofpoint-GUID: qCoYAuai4UbGPRAqXxGarM2Wbazx9fa8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 clxscore=1015
+ impostorscore=0 bulkscore=0 mlxlogscore=999 malwarescore=0 suspectscore=0
+ phishscore=0 lowpriorityscore=0 mlxscore=0 priorityscore=1501 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2410250092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_051010_759043_91D529DE 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20241025_051432_894874_FC17CA61 
+X-CRM114-Status: GOOD (  27.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +108,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
 
-kernel test robot noticed the following build warnings:
 
-[auto build test WARNING on 91e21479c81dd4e9e22a78d7446f92f6b96a7284]
+在 10/23/2024 10:09 AM, Bjorn Andersson 写道:
+> On Tue, Oct 22, 2024 at 04:54:34PM GMT, Lijuan Gao wrote:
+> 
+> "arm64: dts: qcom: add base QCS615 RIDE dts"
+>           ^ You already have dts here     ^ no need to put it here again
+> 
+> 
+> I'd suggest that we make the subject "arm64: dts: qcom: Add QCS615 RIDE board"
+> 
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dave-Stevenson/drm-vc4-Limit-max_bpc-to-8-on-Pi0-3/20241024-005239
-base:   91e21479c81dd4e9e22a78d7446f92f6b96a7284
-patch link:    https://lore.kernel.org/r/20241023-drm-vc4-2712-support-v1-22-1cc2d5594907%40raspberrypi.com
-patch subject: [PATCH 22/37] drm/vc4: txp: Add BCM2712 MOPLET support
-config: arc-randconfig-r111-20241025 (https://download.01.org/0day-ci/archive/20241025/202410251938.rnvcIesU-lkp@intel.com/config)
-compiler: arc-elf-gcc (GCC) 13.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20241025/202410251938.rnvcIesU-lkp@intel.com/reproduce)
+Got it, I will update the title in the next version.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410251938.rnvcIesU-lkp@intel.com/
+>> Add initial support for Qualcomm QCS615 RIDE board and enable
+>> the QCS615 RIDE board to shell with uart console.
+>>
+>> [Tingguo: added regulator nodes]
+> 
+> Are you saying:
+> - Lijuan wrote the patch
+> - Lijuan signed the certificate of origin (i.e. he's allowed to
+>    contribute its content)
+> - Tingguo added regulator nodes
+> - Tingguo signed the certificate of origin (i.e. patch was based on work
+>    that was certified)
+>    
+> Or are you saying:
+> "Tingguo and I developed this patch in pair programming fashion"
+> 
+> If so, I'd suggest dropping the "[Tingguo:...]" line.
+> 
+Yes, I wrote the base patch and Tingguo added the regulator nodes. I 
+will update the commit message with "Written with help from Tingguo 
+Cheng (added regulator nodes)" as suggested in the initial dtsi comments
 
-sparse warnings: (new ones prefixed by >>)
-   drivers/gpu/drm/vc4/vc4_txp.c:513:27: sparse: sparse: symbol 'bcm2712_mop_data' was not declared. Should it be static?
->> drivers/gpu/drm/vc4/vc4_txp.c:527:27: sparse: sparse: symbol 'bcm2712_moplet_data' was not declared. Should it be static?
+>> Co-developed-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
+>> Signed-off-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
+>> Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/Makefile        |   1 +
+>>   arch/arm64/boot/dts/qcom/qcs615-ride.dts | 219 +++++++++++++++++++++++++++++++
+>>   2 files changed, 220 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+>> index 065bb19481c1..f14643187cac 100644
+>> --- a/arch/arm64/boot/dts/qcom/Makefile
+>> +++ b/arch/arm64/boot/dts/qcom/Makefile
+>> @@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-idp.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
+>> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
+>>   dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
+>> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>> new file mode 100644
+>> index 000000000000..ee6cab3924a6
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>> @@ -0,0 +1,219 @@
+>> +// SPDX-License-Identifier: BSD-3-Clause
+>> +/*
+>> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+>> +#include "qcs615.dtsi"
+>> +/ {
+>> +	model = "Qualcomm Technologies, Inc. QCS615 Ride";
+>> +	compatible = "qcom,qcs615-ride", "qcom,qcs615";
+>> +	chassis-type = "embedded";
+>> +
+>> +	aliases {
+>> +		serial0 = &uart0;
+>> +	};
+>> +
+>> +	chosen {
+>> +		stdout-path = "serial0:115200n8";
+>> +	};
+>> +
+>> +	clocks {
+>> +		sleep_clk: sleep-clk {
+>> +			compatible = "fixed-clock";
+>> +			clock-frequency = <32000>;
+>> +			#clock-cells = <0>;
+>> +		};
+>> +
+>> +		xo_board_clk: xo-board-clk {
+>> +			compatible = "fixed-clock";
+>> +			clock-frequency = <38400000>;
+>> +			#clock-cells = <0>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&apps_rsc {
+>> +	regulators-0 {
+>> +		compatible = "qcom,pm8150-rpmh-regulators";
+>> +		qcom,pmic-id = "a";
+>> +
+>> +		vreg_s3a: smps3 {
+> 
+> You don't reference any of these regulators.
+> 
+> Can you please confirm that when you boot the qcs615 ride device with
+> this dtb it actually boots with a debug uart and does not crash when the
+> regulator framework disable all these "unused" regulators?
+> 
+> Regards,
+> Bjorn
+> 
+Yes, the device booted successfully. The regulator is part of Tingguo’s 
+PMIC-related modifications. The RPMhpd, which UART depends on, is also 
+part of this series of changes. The regulator will be used later, so 
+both of them were added.
 
-vim +/bcm2712_moplet_data +527 drivers/gpu/drm/vc4/vc4_txp.c
-
-   526	
- > 527	const struct vc4_txp_data bcm2712_moplet_data = {
-   528		.base = {
-   529			.name = "moplet",
-   530			.debugfs_name = "moplet_regs",
-   531			.hvs_available_channels = BIT(1),
-   532			.hvs_output = 4,
-   533		},
-   534		.encoder_type = VC4_ENCODER_TYPE_TXP1,
-   535		.high_addr_ptr_reg = TXP_DST_PTR_HIGH_MOPLET,
-   536		.size_minus_one = true,
-   537		.supports_40bit_addresses = true,
-   538	};
-   539	
+>> +			regulator-name = "vreg_s3a";
+>> +			regulator-min-microvolt = <600000>;
+>> +			regulator-max-microvolt = <650000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_s4a: smps4 {
+>> +			regulator-name = "vreg_s4a";
+>> +			regulator-min-microvolt = <1800000>;
+>> +			regulator-max-microvolt = <1829000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_s5a: smps5 {
+>> +			regulator-name = "vreg_s5a";
+>> +			regulator-min-microvolt = <1896000>;
+>> +			regulator-max-microvolt = <2040000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_s6a: smps6 {
+>> +			regulator-name = "vreg_s6a";
+>> +			regulator-min-microvolt = <1304000>;
+>> +			regulator-max-microvolt = <1404000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l1a: ldo1 {
+>> +			regulator-name = "vreg_l1a";
+>> +			regulator-min-microvolt = <488000>;
+>> +			regulator-max-microvolt = <852000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l2a: ldo2 {
+>> +			regulator-name = "vreg_l2a";
+>> +			regulator-min-microvolt = <1650000>;
+>> +			regulator-max-microvolt = <3100000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l3a: ldo3 {
+>> +			regulator-name = "vreg_l3a";
+>> +			regulator-min-microvolt = <1000000>;
+>> +			regulator-max-microvolt = <1248000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l5a: ldo5 {
+>> +			regulator-name = "vreg_l5a";
+>> +			regulator-min-microvolt = <875000>;
+>> +			regulator-max-microvolt = <975000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l7a: ldo7 {
+>> +			regulator-name = "vreg_l7a";
+>> +			regulator-min-microvolt = <1800000>;
+>> +			regulator-max-microvolt = <1900000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l8a: ldo8 {
+>> +			regulator-name = "vreg_l8a";
+>> +			regulator-min-microvolt = <1150000>;
+>> +			regulator-max-microvolt = <1350000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l10a: ldo10 {
+>> +			regulator-name = "vreg_l10a";
+>> +			regulator-min-microvolt = <2950000>;
+>> +			regulator-max-microvolt = <3312000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l11a: ldo11 {
+>> +			regulator-name = "vreg_l11a";
+>> +			regulator-min-microvolt = <1232000>;
+>> +			regulator-max-microvolt = <1260000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l12a: ldo12 {
+>> +			regulator-name = "vreg_l12a";
+>> +			regulator-min-microvolt = <1800000>;
+>> +			regulator-max-microvolt = <1890000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l13a: ldo13 {
+>> +			regulator-name = "vreg_l13a";
+>> +			regulator-min-microvolt = <3000000>;
+>> +			regulator-max-microvolt = <3230000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l15a: ldo15 {
+>> +			regulator-name = "vreg_l15a";
+>> +			regulator-min-microvolt = <1800000>;
+>> +			regulator-max-microvolt = <1904000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l16a: ldo16 {
+>> +			regulator-name = "vreg_l16a";
+>> +			regulator-min-microvolt = <3000000>;
+>> +			regulator-max-microvolt = <3312000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
+>> +			regulator-allow-set-load;
+>> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
+>> +						   RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +
+>> +		vreg_l17a: ldo17 {
+>> +			regulator-name = "vreg_l17a";
+>> +			regulator-min-microvolt = <2950000>;
+>> +			regulator-max-microvolt = <3312000>;
+>> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&gcc {
+>> +	clocks = <&rpmhcc RPMH_CXO_CLK>,
+>> +		 <&rpmhcc RPMH_CXO_CLK_A>,
+>> +		 <&sleep_clk>;
+>> +};
+>> +
+>> +&qupv3_id_0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&rpmhcc {
+>> +	clocks = <&xo_board_clk>;
+>> +};
+>> +
+>> +&uart0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&watchdog {
+>> +	clocks = <&sleep_clk>;
+>> +};
+>>
+>> -- 
+>> 2.46.0
+>>
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thx and BRs
+Lijuan Gao
+
 
