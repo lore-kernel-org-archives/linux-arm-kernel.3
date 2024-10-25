@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50510D149E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAE7D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=; b=kMeSYLMW8nmQ3Y91rP/6NKUX6U
-	eRcVeJ1LJvWREgG09TYS+42JNiV9Sire6OH9maS+0mPcU4P9liehHAyVQ8Gd8PhNw2XOmC2559nKl
-	PiPS93eRhe6nFAe8fhir4JUeoJPDP8WKe67ohNqm5PvkbOyr1N0XCdT7TWuu5u+ZtoL4lcyHWTnx+
-	3IAZEpz8/5BbDnGlyIRv5G2rG1DY6/Gve2H0Jx6LGO1c1gISTUk300wfCBBEh7eNS6ObVAIjVzt7G
-	wRDYDXH8g9W29wP/ryncRI/vkdHxoTO/EZemBw8ilXaFMpVS8Lt7mUfhcQHi3RL1rMXUt8lc5IlpJ
-	wf/46o0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdTRq30m0XwXH4pHXGAC/PrgAQuHHnjfhDVOuntiU4Q=; b=YGN3JLWXOB29LOZgn+Dfye3emF
+	WLExlHWH0RiEttuQvXkU+57VDAtm4cqD3Zhsjc8ni+G+x+jphGZ8tfIje0bJts6Xs8Hm2xG77sSx2
+	76JpdVKoqUVr62VfcaVGyCMqsRRUO9A5NDgYw0pSKGV4ooiAgC5kHrn1XJp5BrwDnRFn5wngKuW3w
+	2Jp5PR/TIu075i+H47VZjW6Jfze8h5fycqbI67cEWV4WYmGlLT6pZ0vfEy1YLicoPt54UZlvW8lfN
+	dCUpzKiy0gWLjAU82hu5owQ2UPc+2HDxquQ9I4ZP1UG6SKg4Aprzs18Pu+ke50HzeiNvaQvCu8ahO
+	l0zulsUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4P7i-00000004p11-30vP;
-	Fri, 25 Oct 2024 18:33:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t4P9G-00000004pKM-3s9Q;
+	Fri, 25 Oct 2024 18:34:59 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4OLN-00000004f99-1bUo
+	id 1t4OU5-00000004gVh-48Q6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:43:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729878204;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=;
-	b=KiH7nXtKtfZJFEUgfOdy0oKwF4oVM+/l3/RHxNVOJUkW90G4Ue2ayzNA4Ry1BuS9OFPgju
-	HT/6qBqMkcV2IlUoUBPNlu1yFkvcpTe7LaR1pkV99mpXjP1fcyPzRxxctFAMpyXgeXoScE
-	XvyCImE/A/bHHXgJ/ehX0Ji+tHEwtoo=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-393-u7L6Z0k9NcmHAhWagmMd0Q-1; Fri, 25 Oct 2024 13:41:59 -0400
-X-MC-Unique: u7L6Z0k9NcmHAhWagmMd0Q-1
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-37d59ad50f3so1173443f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:41:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729878118; x=1730482918;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=luHPkXcmkzXARAD1k+1siQ/blVliFRMh2F/pQQLu2Pw=;
-        b=L3pS/ie/Bk8J/IlLXOkfhXwrFxF/6z/U95pkrLDQ3yRsSEznNcthI9pgWj6Gh8qDC6
-         OX/xGXZLj8wK0uIWNTMHVqteR0iK5DMx0Kmr2i4D2BhFjilJ3Ji0YOx27cyO/4LtjKhM
-         3Azk+l/gECZdjArzYY6gpDsMcpAm/QTXtQGOmqiNsn2szcj2tagKA3CtEeTt1Fp4rYk4
-         +OMCV3rX0iG8sBnY3CfPbuG4seezz22o+L7TBmgiuRZL2E6h8oVdn5ia9aHKHZLSTG7d
-         7PQrSez44JUX+jNtU3mj79xXCh/Tt8tu3SnMlwYj0N0amHWMpPohDPPUWu/vN9NntlLj
-         K+lw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4P2hPNEw5GerL0Bhs2fFsbha/wfyebzZXb0wP9GH3/hh5KVd8o67//vibLjCqlCypiO1oIwI/x55uIvj2PQpa@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiNefF5MyAzUZAizSQNyK5dzOvBrNtfgG337g8IypbFrsnQ03f
-	oEz4nzGv9qUqTHL1YHDuqxRu4kJAVCxSesPJhwR43Kv2sJB06MGgPb1y6510+1PSGdl1Ld2zm+l
-	JXgO3lhNbW2ZOH6gw9sUMekqmSfv0coANGiL+JyO6d9OnDPPeY5iOhwH618atsw/DfmktpRsuce
-	5Oucdcp9DFjfML0JfoRUFI5uTpSUSq+/BCXiZdnKBRitn0O1Q=
-X-Received: by 2002:a5d:410d:0:b0:37d:5436:49b with SMTP id ffacd0b85a97d-3806113a07emr163676f8f.13.1729878118154;
-        Fri, 25 Oct 2024 10:41:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFJirsSaLOjUEz6kn7HmxOjIyhE9ZfBrB9GAGHgNcgNSBUFOeNbcRoyDDrANp8n6mxM4gCIddwEWDqpYot15qQ=
-X-Received: by 2002:a5d:410d:0:b0:37d:5436:49b with SMTP id
- ffacd0b85a97d-3806113a07emr163639f8f.13.1729878117761; Fri, 25 Oct 2024
- 10:41:57 -0700 (PDT)
+	Fri, 25 Oct 2024 17:52:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729878746; x=1761414746;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UtYL6tEz9hl+CXKoYPC2/xOLlz0ZwZXSI2NVSNsyDNo=;
+  b=C4Us46T0+okdVgCJjaASYUWfEJReSXcwSP/9cjtXbruYsbwWVOpJLyE9
+   kRKp+XPzRwAK0Ka6Ro4xe6z0ExasvgN1NOiC593C0ABM+2TThmFd5k+jL
+   Rxu5ewNXTIxOzaChWL9ti87SMSMVWabGsHeKG+16D+9/i0AWFo3ZkTvN3
+   qUYSaEXQJpTt9GVZbUUj8GkKrt4Yzpq1kV5+TBm2g0d34QT4tTOT73x2D
+   akCchY8PdpyX5UayRjsIzSxWrQcJtx0n4DcEpZl/31hnOm8U5cwXMztc8
+   BiJn7x7+jF4/SIHlXLll43HwCHrSM+kNK7BI2ZNRICPlj2TYA+mHp0CNo
+   w==;
+X-CSE-ConnectionGUID: Ri7B9s1qQ6uAohU5238pnA==
+X-CSE-MsgGUID: jx/P0wz/RuOlqIV7mbivXw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52110110"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52110110"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 10:52:25 -0700
+X-CSE-ConnectionGUID: Gs8fPh/5Qa2QeLM9/DlmTQ==
+X-CSE-MsgGUID: ec3pH9vCSLGfxnnHMxOYFQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
+   d="scan'208";a="81405415"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 25 Oct 2024 10:52:21 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4OTy-000YhM-1w;
+	Fri, 25 Oct 2024 17:52:18 +0000
+Date: Sat, 26 Oct 2024 01:51:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Vladimir Oltean <olteanv@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
+	andrew+netdev@lunn.ch,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+	Furong Xu <0x1207@gmail.com>
+Subject: Re: [PATCH net-next v4 3/6] net: stmmac: Refactor FPE functions to
+ generic version
+Message-ID: <202410260107.eXOai3Uw-lkp@intel.com>
+References: <cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207@gmail.com>
 MIME-Version: 1.0
-References: <20241010182427.1434605-1-seanjc@google.com> <CABgObfbQW-3vp=mNcR4giUGZ_gxhuRykvKj8gzBDY7pOg6xdBQ@mail.gmail.com>
- <Zxbw9XcFCHYR1Ald@google.com>
-In-Reply-To: <Zxbw9XcFCHYR1Ald@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Fri, 25 Oct 2024 19:41:45 +0200
-Message-ID: <CABgObfayH1x3qFjOiM=rQjxiui5tXJXObgR_qOGV5Hn_2QLEJQ@mail.gmail.com>
-Subject: Re: [PATCH v13 00/85] KVM: Stop grabbing references to PFNMAP'd pages
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?UTF-8?B?QWxleCBCZW5uw6ll?= <alex.bennee@linaro.org>, 
-	Yan Zhao <yan.y.zhao@intel.com>, David Matlack <dmatlack@google.com>, 
-	David Stevens <stevensd@chromium.org>, Andrew Jones <ajones@ventanamicro.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_104325_634910_B58B33FB 
-X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-CacheID: sfid-20241025_105226_095692_1E5685D7 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,15 +98,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 2:25=E2=80=AFAM Sean Christopherson <seanjc@google.=
-com> wrote:
-> > Looks good to me, thanks and congratulations!! Should we merge it in
-> > kvm/next asap?
->
-> That has my vote, though I'm obvious extremely biased :-)
+Hi Furong,
 
-Your wish is my command... Merged.
+kernel test robot noticed the following build errors:
 
-Paolo
+[auto build test ERROR on net-next/main]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Furong-Xu/net-stmmac-Introduce-separate-files-for-FPE-implementation/20241024-163526
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207%40gmail.com
+patch subject: [PATCH net-next v4 3/6] net: stmmac: Refactor FPE functions to generic version
+config: arm-sunxi_defconfig (https://download.01.org/0day-ci/archive/20241026/202410260107.eXOai3Uw-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410260107.eXOai3Uw-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410260107.eXOai3Uw-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arm-linux-gnueabi-ld: drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.o: in function `stmmac_fpe_configure':
+>> stmmac_fpe.c:(.text+0x140): undefined reference to `__ffsdi2'
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
