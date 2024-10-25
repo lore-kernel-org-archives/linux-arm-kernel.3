@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C668D10399
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E78D10399
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1C2xT/nfLr8AU/PZsiRWgOb7G9id+Mn04mVbxAYJeUE=; b=zYOQDE7+ko7Q0RnpqbnaS1aZ1R
-	6sOAAqvQAz8rNXmNFpsGVomgcE1ss+M1K6Kn3mLgNcXFI3p/q368Ao0SXOU4ytanVYX8Sw7vWSzB2
-	4wUeKm3lKcnrMvCvvuqWRtdClQIUTejoEwebXDEYYW4J0AITuLPt+v8fk/JKPZe4iZ8shLiZuF7u5
-	xQnQDiJVIj5GebuIQ8L1bahva4A/UzFZvkKHfTqb5+vQHapWVShtFCGoeYsU/JbMznF3YZaZzmMZT
-	F6RQJ1KBXMIavgTZBBooAuDYAMTcekzKRH8xBEq/LEhcafq0/9mVCm23YDHrCxPJRE3j1iTBOzssW
-	pmb+vp6w==;
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o4jm7E2HySnELyG9zm7DDwvDwm6AuAvYPS0Zt6hbJzQ=; b=O38AvnY5mnEviLFJWOfq+SS5ho
+	4sMcyU5Hc1QbcUAhVI4P3OKqWjLb08+XDkeBo98ArxL646XewBFIsZjeUXMfXA5qOFaCnB7n9mjLX
+	Wy66Ppm1tpuzHGLuj298hngmmgdKlVsW3/aZUfyKmY6mfWJC0Shfw8IPE0qR5GlB3NRw5UIEzcPBW
+	Lz5g4uH6uC5V4Dvk/DGco8YKHGJ+izv4YrztEdJrhzLQttTex2GlPbMIycH6YSbBqphyhEtyZ8/TE
+	oDDQ3pjoiZ456WS/XN6Hu4ij5pwXjxrK8StWLJwGI+1CLU9rnJmkTlJRklL1qSsmAIjuaCzpda/1z
+	yM2kNBtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MDg-00000004F73-067t;
-	Fri, 25 Oct 2024 15:27:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Lsm-000000048yl-3Swt
+	id 1t4MFE-00000004FPY-2Ofd;
+	Fri, 25 Oct 2024 15:28:56 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Lt0-0000000491U-3mRp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 15:05:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD6F4339;
-	Fri, 25 Oct 2024 08:06:13 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A6F73F73B;
-	Fri, 25 Oct 2024 08:05:42 -0700 (PDT)
-Date: Fri, 25 Oct 2024 16:05:39 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Philippe
- Simons <simons.philippe@gmail.com>
-Subject: Re: [RFC PATCH] clk: sunxi-ng: h616: Reparent CPU clock during
- frequency changes
-Message-ID: <20241025160539.5503fa92@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v676pzN6TX8xDHuESkGDLinCB9_3FLgKSmEBtxK2GSWxHQ@mail.gmail.com>
-References: <20241025105620.1891596-1-andre.przywara@arm.com>
-	<CAGb2v676pzN6TX8xDHuESkGDLinCB9_3FLgKSmEBtxK2GSWxHQ@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 25 Oct 2024 15:06:00 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539e13375d3so2609362e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 08:05:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729868757; x=1730473557; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=o4jm7E2HySnELyG9zm7DDwvDwm6AuAvYPS0Zt6hbJzQ=;
+        b=iThtzTWEKR7I+QfMzPntrFuaO4YS4NLow2GyVsaBDqsN0klrn/sVsh2XKD3KoN1kQZ
+         ak1CPiTp5ZZZuRQMYvHUDE0ocfKS4MXrIsJ8MbcFG6GIUcJ/C5NzGonox8j7SxmSD81+
+         wO9izCLSNHcrf8ArU8DzSF75kdlTo+p82nvt2hDTvf2slg44ZuVic6cgZ0hHiwc+9iVZ
+         HrUmy6PUxZevFNWcCeX9Dt/3dktaom7J9Nwr2xfYdo+QL4akxahd5bjvRsDPb7BtysTM
+         6RaRY4W+nPDxMgjRCjcNCzypkqJu5wFp6YQ+Zn+ERQuDBYsmKYjDFx0G04So2n0yjuQH
+         wZ+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729868757; x=1730473557;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o4jm7E2HySnELyG9zm7DDwvDwm6AuAvYPS0Zt6hbJzQ=;
+        b=Y7knly4H+7J8mQkVoaEWWkpHfv/D1UnOPPAwvouJhjh2UTR+Lna+frZdNLP5gT0a1L
+         4SJLj86uwNmhG7PfUFWjkPqe7eqXThgWHxJVF+K9njyW5L8b25wmU3TLH/XhixXJP+hs
+         FDUdG/Nw8bmEkUT38EvFBJhTmqI7racn0/qtxEqESE9JKlzmYB2Rxo+pLYVNrFZp67Kt
+         wqT7x30iQjkR2q1GghvhyHY3t0ZSAhg6wk2FVafHwZ5PFnl6SiLVrllNo2FrAKqsehqZ
+         wNv5l1r1F1vVGgrg8CcxtgbTg0n2kBqsGS2FDI/sUv7hjss5ykaOEOMFxP3reN7DUiTi
+         x8iA==
+X-Forwarded-Encrypted: i=1; AJvYcCUirfEsfEJC29SksxcKVd5H3zWtzf1xpLtB5gx3PYWvhMGRopV/YUM1AYf0Pifvb86m+U9AgzZLtt0kWtjU6oke@lists.infradead.org
+X-Gm-Message-State: AOJu0YycZc1B4qFolzsbUZ/JlDJ7hLYwYpgV197GX7W4FhxI8tewqW5p
+	I8+M8gfa7U26CouQ9OXdZ9zpvCvXDafOukn/EGvEIadENXz3SfkL
+X-Google-Smtp-Source: AGHT+IHTM23FL3bJlpdISIMVzlbuGYE9A6hd7jLPKz9nwIWo6tnhlsoUHKmmW3kzgkp6OuVhvzyoHQ==
+X-Received: by 2002:a05:6512:1594:b0:533:4689:973c with SMTP id 2adb3069b0e04-53b1a33312amr5892835e87.23.1729868756328;
+        Fri, 25 Oct 2024 08:05:56 -0700 (PDT)
+Received: from localhost (p200300e41f26ec00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f26:ec00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4317dde77a5sm73187855e9.1.2024.10.25.08.05.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 08:05:55 -0700 (PDT)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL 1/3] firmware: tegra: Changes for v6.13-rc1
+Date: Fri, 25 Oct 2024 17:05:51 +0200
+Message-ID: <20241025150555.2558582-1-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.47.0
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_080544_979355_3C64F24F 
-X-CRM114-Status: GOOD (  36.92  )
+X-CRM114-CacheID: sfid-20241025_080558_969096_7DE0A23D 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,119 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 22:49:27 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
+Hi ARM SoC maintainers,
 
-Hi,
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-> On Fri, Oct 25, 2024 at 6:56=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> >
-> > The H616 user manual recommends to re-parent the CPU clock during
-> > frequency changes of the PLL, and recommends PLL_PERI0(1X), which runs
-> > at 600 MHz. Also it asks to disable and then re-enable the PLL lock bit,
-> > after the factor changes have been applied.
-> >
-> > Add clock notifiers for the PLL and the CPU mux clock, using the existi=
-ng
-> > notifier callbacks, and tell them to use mux 4 (the PLL_PERI0(1X) sourc=
-e),
-> > and bit 29 (the LOCK_ENABLE) bit. The existing code already follows the
-> > correct algorithms.
-> >
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> > Hi,
-> >
-> > the manual states that those changes would be needed to safely change
-> > the CPU_PLL frequency during DVFS operation. On my H618 boards it works
-> > fine without them, but Philippe reported problems on his H700 board.
-> > Posting this for reference at this point, to see if it helps people.
-> > I am not sure we should change this without it fixing any real issues. =
-=20
->=20
-> IIRC we do this for all the other SoCs. But if you want to be cautious,
-> we can wait for Philippe to give a Tested-by?
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-Yes, I copied this code from the A64 CCU, but IIRC this was desperately
-needed there. But so far I didn't hear many complaints on the H616, and I
-ran through like 100,000 transistions in a matter on minutes without any
-issues yesterday.
-And apparently this patch doesn't fix Philippe's immediate problem, so I
-would like to hold it back for now, until we have either more testing,
-with or without this patch.
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.13-firmware
+
+for you to fetch changes up to 61c6fe3d6f0e1606a2219ff8afbac7e5068a5795:
+
+  Revert "firmware: tegra: bpmp: Use scoped device node handling to simplify error paths" (2024-10-24 18:38:07 +0200)
 
 Thanks,
-Andre
+Thierry
 
-> ChenYu
->=20
-> > The same algorithm would apply to the A100/A133 (and the upcoming A523)
-> > as well.
-> >
-> > Cheers,
-> > Andre
-> >
-> >  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 28 ++++++++++++++++++++++++--
-> >  1 file changed, 26 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi=
--ng/ccu-sun50i-h616.c
-> > index 84e406ddf9d12..85eea196f25e3 100644
-> > --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> > +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> > @@ -1095,11 +1095,24 @@ static const u32 usb2_clk_regs[] =3D {
-> >         SUN50I_H616_USB3_CLK_REG,
-> >  };
-> >
-> > +static struct ccu_mux_nb sun50i_h616_cpu_nb =3D {
-> > +       .common         =3D &cpux_clk.common,
-> > +       .cm             =3D &cpux_clk.mux,
-> > +       .delay_us       =3D 1, /* manual doesn't really say */
-> > +       .bypass_index   =3D 4, /* PLL_PERI0@600MHz, as recommended by m=
-anual */
-> > +};
-> > +
-> > +static struct ccu_pll_nb sun50i_h616_pll_cpu_nb =3D {
-> > +       .common         =3D &pll_cpux_clk.common,
-> > +       .enable         =3D BIT(29),      /* LOCK_ENABLE */
-> > +       .lock           =3D BIT(28),
-> > +};
-> > +
-> >  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
-> >  {
-> >         void __iomem *reg;
-> >         u32 val;
-> > -       int i;
-> > +       int ret, i;
-> >
-> >         reg =3D devm_platform_ioremap_resource(pdev, 0);
-> >         if (IS_ERR(reg))
-> > @@ -1152,7 +1165,18 @@ static int sun50i_h616_ccu_probe(struct platform=
-_device *pdev)
-> >         val |=3D BIT(24);
-> >         writel(val, reg + SUN50I_H616_HDMI_CEC_CLK_REG);
-> >
-> > -       return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_h616_ccu_d=
-esc);
-> > +       ret =3D devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_h616_ccu_=
-desc);
-> > +       if (ret)
-> > +               return ret;
-> > +
-> > +       /* Reparent CPU during CPU PLL rate changes */
-> > +       ccu_mux_notifier_register(pll_cpux_clk.common.hw.clk,
-> > +                                 &sun50i_h616_cpu_nb);
-> > +
-> > +       /* Re-lock the CPU PLL after any rate changes */
-> > +       ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
-> > +
-> > +       return 0;
-> >  }
-> >
-> >  static const struct of_device_id sun50i_h616_ccu_ids[] =3D {
-> > --
-> > 2.25.1
-> > =20
+----------------------------------------------------------------
+firmware: tegra: Changes for v6.13-rc1
 
+This contains a revert for a patch that I had modified before applying
+and the author didn't agree with the change.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      Revert "firmware: tegra: bpmp: Use scoped device node handling to simplify error paths"
+
+ drivers/firmware/tegra/bpmp.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
