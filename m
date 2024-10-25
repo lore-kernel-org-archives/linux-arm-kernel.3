@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 286EDD11717
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F9D11717
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 07:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Z5ww8tsz14z0EpRv1r8MjOBORCOnzfSXkYCYwpD6ZE=; b=n9H4D3X9ecBs8jRxsihq1gbsya
-	jjOZPdya8sjfyVmlKSmPu6TLUNvwo+op+D5jlXciQmXolaepNLxWD/3jymdMgKTT90t+ajIQo/4yT
-	5rJ6isTjf8ecc95wV5QOSWSIeHLv+vY9/4Au8VG3Php/e3IsgEq/1OBCKWn20HTi4ddZ8OM8jEOBK
-	HioaQNKKQP9Xekb+tVi6JCoD2RthlXUzif7+Ggi/YF8bJKwO2/ybhj6MLNoKLvHZIV5/PuCFCZ8o9
-	3yRtHux+GPWbD+Fme5TiXnwzGXFmO/z+ScRlX7N6Jq9TPImhBWY05P57zqT1pQMa0r3pdAnLSLtia
-	Q7Z5WrQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=; b=GcH5hNJkycc3PkoaMhNtzT0xdt
+	tPnbphL8kKlPT3EcAFi2rtoYYRNFfPrt241iZBsbWV2wSnuy/9urg5u/ccNs4ljxaO1PXBuZWy36c
+	4cLLiVe2w2jS6abBRJ4oS1V8O4l2y64fPXQXZBVbmMeqOTuSSqTsQVsPlclQCFrghVNTg5MRylbj2
+	8qd/G0xxncckDLuiC8JjpjsVNoOTo9rbtFyDfVJ4KLiOASGtA1dDXjUKW+GVFnLXatnn0c2XBbQb5
+	CMZXmXIcfdn0Xl9CGK5V3kgREepW98gGN+fGAnopV3fTsqkzAe6ax2Cs3sAfqYYHbfIeh4FRPmLYw
+	kIxaXu5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Ey0-00000002pta-2Ckg;
-	Fri, 25 Oct 2024 07:42:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t4F5d-00000002rBE-0Z52;
+	Fri, 25 Oct 2024 07:50:33 +0000
+Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Evu-00000002pZq-0AUP;
-	Fri, 25 Oct 2024 07:41:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3AECDA42C18;
-	Fri, 25 Oct 2024 07:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8D1C4CEE7;
-	Fri, 25 Oct 2024 07:40:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729842028;
-	bh=MU0jg6+43zlNLQVd5aws5IUywfNhZ0pf6SBTcrSFP0A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Bns4FpYEweNUDYPWIatTemxTcPXBriNtb6rjMCIGvpZQbQ7/qRGjK2NUk57EKd8ri
-	 Mk7HPhv+F7E7+ne72q/Ef8D3KErbLL714tyOI87uCXXzpqZPjXEj/i4/+9MWReDl8T
-	 31XCgHFlQsFjl2p95RIKGtfYYk1e4JVgIerVkCXXYdafVkZcg3QKpbq5FXjAqZ38fM
-	 DtIUhA6qC/BFjMOrnIVEq9dcd5psyxRFBFdvdxlZAU53TWdpVzWckgliF8es3kpb65
-	 T8IX9T0uVRiGneDDJjNiP5c9pbh4ac6m1We4OCbuxBE3WORWLtjtdEfr9QTbaV9H3L
-	 0RlKKzK9CtgkA==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-539f84907caso1919826e87.3;
-        Fri, 25 Oct 2024 00:40:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW8v7QTg3wnbWCBwTGmvsmKn+jebZ0GK7hqRJLEEjHB1+pDFth1okbRpueORDgf9i+fsjpXz7C+QXrLmZeWIYfo@lists.infradead.org, AJvYcCXuneE9bw7WG4RnyCZ+JTkxIHH2IfUKneXp9eANinxBbgfjTxWbmaP8T0NrqjBE8rN3bECSwPixJXZHcXc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwI0Sf2DOjSx0W/+QkZmlfznbAoH4MkyIFJcM3uBzAuq2R9ZPtD
-	9AplPMQsECbgV5w15/q6Fc5j8kD83CL25HW1R/H5tQndB3OTn/b/PY+CODUChqomsUE1j2Cji19
-	OND3RU/7at00kRv+jZMG5AiHIxZs=
-X-Google-Smtp-Source: AGHT+IEDAFlBfPHEymedMPiV9v2ocdpZeEcg/F0dpwJWqR1hIRTo+DXjnmCVJHCSWsx5j4Mh2CDnA31kbRPsOrauBps=
-X-Received: by 2002:a05:6512:3c8c:b0:539:8f3c:457c with SMTP id
- 2adb3069b0e04-53b23e9d130mr2447127e87.53.1729842026517; Fri, 25 Oct 2024
- 00:40:26 -0700 (PDT)
+	id 1t4F3z-00000002qrc-3aYr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 07:48:53 +0000
+Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7180dc76075so959843a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 00:48:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1729842530; x=1730447330; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
+        b=BbTFXmWEOowYiQJnFqWHlpVxWcSjM3fN/G8tpIZ/DOi/ZBZKLf/0/LBW9W7rlI4aG9
+         BRg2Yw0f+JIYMJT4aiTk+nLsaFgO4zuImbKpJdiHUlCC6n6X3l3tmB22y5Fl0OOPS9D2
+         P7J0n9Yzp0os4fOKkhr/cYvuM+sw0ueoEbtLs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729842530; x=1730447330;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
+        b=IIpwb+t0O+qgq619WfpD8Bqbhhm8zsMc/C5sFDcISexk+NqS8YDNIc0DQseEYSlmQy
+         7PebMHLPQDlUYKEJrGiX9VL3wy+L2vkFP+BXFFm/kV8XWiPO0XiesxHPceARKNDFR4CM
+         sYT6BojRtSYX5UbZx+HWOrsKuDRgJe09+QRtNUeKMfsSvtUf8Aifgc4vEzY/5aeBJrxb
+         RQM41HO2pi4uW0IeqmvjQn6M+1RI8+thCrplOgs/7EZ20D3CmxZdgbtobFgv4M68zU07
+         mxlBgLA2lUKweta+k30KuJn1YuwE/my+MYOcPafXBSDnvdw53hoiESYDSXAQZ90Dtk47
+         23Og==
+X-Forwarded-Encrypted: i=1; AJvYcCV+0KNA6Ee1+VzrQ/gIyX6LVG8HucHBSHw2fy7AFNHHNtvuQtoMwJgOuhvcH1BP0c/W6M9q8rge3Ni4pzEFkIfU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY0ej8HJs5c4M7sguOX4qbDbEO70SVFiBUiUOQXDIG2+4EAr2o
+	VIWuE1rLTuF4qjoTLhiB0b+DHqrK7787Z9DFQZ5S11jK/xXfC1wvJvZLV7uXMg==
+X-Google-Smtp-Source: AGHT+IGSIU/bFTwcE96kf/0wGJ0BJfJiuO8y8CrN5NyTUQ2vHijmdL2HboIEe85P5cA+/Hj/rUfY3A==
+X-Received: by 2002:a05:6830:25c2:b0:718:1606:c2df with SMTP id 46e09a7af769-7185940f8e5mr3286435a34.3.1729842530333;
+        Fri, 25 Oct 2024 00:48:50 -0700 (PDT)
+Received: from yuanhsinte-p620-1.tpe.corp.google.com ([2401:fa00:1:10:5a9f:16cc:8d5a:55e5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205793189esm535527b3a.58.2024.10.25.00.48.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 00:48:49 -0700 (PDT)
+From: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Date: Fri, 25 Oct 2024 15:48:44 +0800
+Subject: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on
+ Damu
 MIME-Version: 1.0
-References: <20241021002935.325878-1-ebiggers@kernel.org>
-In-Reply-To: <20241021002935.325878-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Oct 2024 09:40:15 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHDo8dijRbSVuHzTddMhp4A+nc1t8AgvoENmS=DZ-kAOQ@mail.gmail.com>
-Message-ID: <CAMj1kXHDo8dijRbSVuHzTddMhp4A+nc1t8AgvoENmS=DZ-kAOQ@mail.gmail.com>
-Subject: Re: [PATCH 00/15] Wire up CRC32 library functions to arch-optimized code
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241025-damu-v4-1-241bd9366c20@chromium.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hsin-Yi Wang <hsinyi@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Hsin-Te Yuan <yuanhsinte@chromium.org>
+X-Mailer: b4 0.15-dev-2a633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_004030_232777_462B78FA 
-X-CRM114-Status: GOOD (  34.71  )
+X-CRM114-CacheID: sfid-20241025_004851_968377_33F5DBAE 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,104 +93,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Oct 2024 at 02:29, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This patchset is also available in git via:
->
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc32-lib-v1
->
-> CRC32 is a family of common non-cryptographic integrity check algorithms
-> that are fairly fast with a portable C implementation and become far
-> faster still with the CRC32 or carryless multiplication instructions
-> that most CPUs have.  9 architectures already have optimized code for at
-> least some CRC32 variants; however, except for arm64 this optimized code
-> was only accessible through the crypto API, not the library functions.
->
-> This patchset fixes that so that the CRC32 library functions use the
-> optimized code.  This allows users to just use the library instead of
-> the crypto API.  This is much simpler and also improves performance due
-> to eliminating the crypto API overhead including an indirect call.  Some
-> examples of updating users are included at the end of the patchset.
->
-> Note: crc32c() was a weird case.  It was a library function layered on
-> top of the crypto API, which in turn is layered on top of the real
-> library functions.  So while it was easy to use, it was still subject to
-> the crypto API overhead.  This patchset provides CRC32C acceleration in
-> the real library functions directly.
->
-> The updated CRC32 library design is:
->
-> - Each arch's CRC32 code (all variants) is in arch/$ARCH/lib/crc32*.
->   This adopts what arm64 and riscv already did.  Note, the crypto
->   directory is not used because CRC32 is not a cryptographic algorithm.
->
-> - Weak symbols are no longer used.  Instead there are crc32*_base() and
->   crc32*_arch(), and the appropriate ones are called based on the
->   kconfig.  This is similar to how the ChaCha20 library code works.
->
-> - Each arch's CRC32 code is enabled by default when CRC32 is enabled,
->   but it can now be disabled, controlled by the choice that previously
->   controlled the base implementation only.  It can also now be built as
->   a module if CRC32 is a module too.
->
-> - Instead of lots of pointless glue code that wires up each CRC32
->   variant to the crypto API for each architecture, we now just rely on
->   the existing shash algorithms that use the library functions.
->
-> - As before, the library functions don't provide access to off-CPU
->   crypto accelerators.  But these appear to have very little, if any,
->   real-world relevance for CRC32 which is very fast on CPUs.
->
-> Future work should apply a similar cleanup to crct10dif which is a
-> variant of CRC16.
->
-> I tested all arches in QEMU using CONFIG_CRC32_SELFTEST and the crypto
-> self-tests, except for mips which I couldn't figure out how to do.
->
-> This patchset has the following dependencies on recent patches:
->
-> - "crypto - move crypto_simd_disabled_for_test to lib"
->   (https://lore.kernel.org/linux-crypto/20241018235343.425758-1-ebiggers@kernel.org/)
-> - "crypto: x86/crc32c - jump table elimination and other cleanups"
->   (https://lore.kernel.org/linux-crypto/20241014042447.50197-1-ebiggers@kernel.org/)
-> - "arm64: Speed up CRC-32 using PMULL instructions"
->   (https://lore.kernel.org/linux-crypto/20241018075347.2821102-5-ardb+git@google.com/)
-> - "crypto: Enable fuzz testing for arch code"
->   (https://lore.kernel.org/linux-crypto/20241016185722.400643-4-ardb+git@google.com/)
-> - "crypto: mips/crc32 - fix the CRC32C implementation"
->   (https://lore.kernel.org/linux-crypto/20241020180258.8060-1-ebiggers@kernel.org/)
->
-> Everything can be retrieved from git using the command given earlier.
->
-> Since this patchset touches many areas, getting it merged may be
-> difficult.  One option is a pull request with the whole patchset
-> directly to Linus.  Another is to have at least patches 1-2 and the
-> above dependencies taken through the crypto tree in v6.13; then the arch
-> patches can land separately afterwards, followed by the rest.
->
-> Eric Biggers (15):
->   lib/crc32: drop leading underscores from __crc32c_le_base
->   lib/crc32: improve support for arch-specific overrides
->   arm/crc32: expose CRC32 functions through lib
->   loongarch/crc32: expose CRC32 functions through lib
->   mips/crc32: expose CRC32 functions through lib
->   powerpc/crc32: expose CRC32 functions through lib
->   s390/crc32: expose CRC32 functions through lib
->   sparc/crc32: expose CRC32 functions through lib
->   x86/crc32: update prototype for crc_pcl()
->   x86/crc32: update prototype for crc32_pclmul_le_16()
->   x86/crc32: expose CRC32 functions through lib
->   lib/crc32: make crc32c() go directly to lib
->   ext4: switch to using the crc32c library
->   jbd2: switch to using the crc32c library
->   f2fs: switch to using the crc32 library
->
-...
->  89 files changed, 1002 insertions(+), 2455 deletions(-)
+From: Hsin-Yi Wang <hsinyi@chromium.org>
 
-Very nice cleanup!
+Sets DMIC one-wire mode on Damu.
 
-For the series:
+Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+---
+Changes in v4:
+- Add Reviewed-by tag back, which is dropped in v3
+- Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Changes in v3:
+- Add missing Sign-off-by tag
+- Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
+
+Changes in v2:
+- Add fixes tag
+- Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
+---
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+index 0b45aee2e29953b6117b462034a00dff2596b9ff..06a689feff52945d141d196d439cba034f25fdf6 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+@@ -26,6 +26,10 @@ &touchscreen {
+ 	hid-descr-addr = <0x0001>;
+ };
+ 
++&mt6358codec {
++	mediatek,dmic-mode = <1>; /* one-wire */
++};
++
+ &qca_wifi {
+ 	qcom,ath10k-calibration-variant = "GO_DAMU";
+ };
+
+---
+base-commit: 75b607fab38d149f232f01eae5e6392b394dd659
+change-id: 20241009-damu-a3f2f3478409
+
+Best regards,
+-- 
+Hsin-Te Yuan <yuanhsinte@chromium.org>
+
 
