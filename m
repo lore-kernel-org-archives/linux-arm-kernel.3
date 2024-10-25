@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BE3D149CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9866D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7a7/HziehwTjKT233D/IuQwrsCio9lv2e2bEhcrly0=; b=drFl7xnJEP7ikS9YiBEuBeNV9h
-	G1n02fJWZCtoFCBnX39kvWvoediUt5r2JAFBjYcmGn2+taXVIPFlKcd4L9Z8LloVBW/a60+DLxuWZ
-	MZKuiQduiyZPaj/Oqg95AzsLBVdy1GOstyxveHc1Xf6+x+SaY+SckEdRuWNG4BKTDDg+f+OzzABSb
-	7Tjg52qb6JbRAM7o0FXK8g4OBFp4EsaOuwLGgvPCAg97LkRC7qqDGm3OsgKIbBQ8Ye4AOQ/JWTx38
-	BZKY8wgWudUizJ1hJN2Iq+syON3XOBcPeQ09uS2bKUkrRX3WpQJRPtNWTIW2V2mvd4aWGlikUckxm
-	YndQjOaQ==;
+	bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=; b=vD7cuH1VTyRgSQjktUgu08i2gU
+	qga8ZQJ+8VpWCZal+KT2PZyOkJeO/JJSAGdeH2dDyuECQ2d6pw45R4tf2lR/GhzBC55I/peKufINr
+	nra2t4EAD+sbeA/9nvs/m+dncGtfup0OgG3UvYTuV+6YhXTro1xHNEAOd7fb1plPep9fyNTRivpYH
+	BQUO7PGzF1JgVV3w9FfJfUk7ZnqQ42X31nvJU2lg31TW7yB4UaYJ4TUH3llIGNiKbxZF/QU2u77Lw
+	osYvqkHP5ciGAsuWNo9lCLB5CtorK6STi2mUUF/XIJaXxIp0v8UgmUbEQ5CkfMZSVYxqxh8DG+R1t
+	8XcCkhNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4O3W-00000004aCX-2P1T;
-	Fri, 25 Oct 2024 17:24:58 +0000
+	id 1t4O56-00000004aYt-1jgZ;
+	Fri, 25 Oct 2024 17:26:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nv1-00000004Xp2-1pts
+	id 1t4Nv1-00000004Xp5-2KZs
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 25 Oct 2024 17:16:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=F7a7/HziehwTjKT233D/IuQwrsCio9lv2e2bEhcrly0=; b=OXOypOP1KknIrcX7tEwNEhj29O
-	MkcIZCxnG61MZh2pxKL9jWaUG/CpErXVZOhZcrzn5OQcQ4UpJ1MP1YwxQv7ufy5z4tf46omy5rvz5
-	BZKCZNPTM3FAgWaYtKP/Je4TjaSkbBE6jdB9iLSQLXkuGeZBkeH6vNmMHYmg759OAVIpUY68YXUKO
-	5cqfnno9w7KkGF1cXtWOGWegDw/VVhuiW0mudHQZtonrY4d7wIclZZy2sWogeRQ0jy1n2ETV1BYM5
-	1ljKbsMnzerjcNk6deSO+gNheO4E9QpvILMREyZVKrh4R5ya6LbNOFoKo4Y3K9dHdeTf8YBGxyrme
-	NSc7QoUQ==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=; b=Q94qUTmBdDN/z2iR+JSN75KNZ/
+	6cXj928r6+Q5iheCUWnVwlvS29RKEsjl2iYOFUzxYlk3o1e232kRviK9nQe9MOGsrWoO5dRiKpLEy
+	+JlY0BCz/xAYghy0x6k9VYKpe8SZKJf3utHonQkiH7v+pvqB0Kb+CDjfmHIbnXexpxuMesN5LNxFd
+	pCcbRS0PQUte+lk1zARgOdCtn+GkEZ0uI/ITUgYbbU84fQehrnrjBoqM24Q4cG8FjEOmRaKr4QZU6
+	chjYA33ukli1M1+SU7Aj0Zv++oxS/ewdRzZhIhISEKjt0FtHSyeH/78xe5/F0KyiXxfZnYzIhMR23
+	/5TGHgJA==;
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nux-00000008zct-17p7
+	id 1t4Nuw-00000008zcp-0azq
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Oct 2024 17:16:09 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d495d217bso1930614f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:06 -0700 (PDT)
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4315eeb2601so29131775e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876565; x=1730481365; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876563; x=1730481363; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=F7a7/HziehwTjKT233D/IuQwrsCio9lv2e2bEhcrly0=;
-        b=a91umWzkUfhPC/CDrqlwnR0OgihSl7DFwqTOU2F1W7wiMgmzLNCNp+qCds3HqbCzEM
-         MpkBX1GNYK6BqYIhPaTqrDDqg2yGyKx9skUAMS1aFJM/k8IKVHOu4phbONXtkZSvQq+H
-         BOr8CF5QmKSLjQPwiVHrxdrIX/uLGfMc7D2vCRz2X/lCLUCnwGMqRGbqlhj71//b4qsT
-         pxsWvk+kfJJRkDcfGO0ebWkLCRT3R62jo0Lrrf1P6MfhjaF6W3NEQC17mg1p+SLwd1iF
-         7k+i/wpJSISQJo5PNijeNkkvhex0HHZ0MOKOnS8B+7Dk9b+ey0X5eRQvXIyilZzGxz69
-         Ppag==
+        bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=;
+        b=m9cRmYK8HOsG4Qe8lIwsmXRtULIeyD1C5mF4U+wohuyAPa92GV8bA5I8xiHn+/IZf6
+         fkcZyxONEC06wEkjnzo9zgtdf4fNiOAXV2EY4Adpz7LcQoy34NvV0ZHq0J2Re541/ycg
+         ecyK3l2Wv3Dn00V6NsQRX8qIhNNFqLoPiKnax4nepLHv1pL7CU2yRihIRPEWu67eXJPA
+         FKa1Tx6YMAvzuaUnY7jvj7zGwZSFPjDNXx2PDliJM7BsqPP/R6+ZRVORLJ81yhezWSZD
+         H8tdpdyO2T3Ervhqo5p+wyiXZIAKrnMl3ff2OTFW+1BlPIYeTJ0Aehw02MO7Hj/1rfwO
+         vMpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876565; x=1730481365;
+        d=1e100.net; s=20230601; t=1729876563; x=1730481363;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F7a7/HziehwTjKT233D/IuQwrsCio9lv2e2bEhcrly0=;
-        b=PRp97mUZiYKYDJhk4OWb7//fK3m7kg0ieQXpIjUxsBRVQ6j0R33hoXI5Us2+WsTn7T
-         6QhZZhSMOyiI7Gmw0+CuQmGGI37RLgav6GhXi82ZJVJLU/+7TsCixY0b5xdXQJmc8QcH
-         bdto+jApkdJdIoswAP1f1+Tq6ANY/zm1Gpyq3YPCbY1NkvH2byhT4gI+u0TDKwC7sSwo
-         uPaWrZXnAKXwSyFTCkQ+JWrKNmlFlk835MN5yiAkbzSVTuwSMp/pHsDbmX14LxWvKbUs
-         veuO+0r2SVOpHhd1FXPNuqI+1bAJ+VmmyKCAlH8P5q99rOuQqcBY+Z7ybfvMMa+KPYP2
-         bjuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVPjAm8cHegXS3k79MBiHpzoMVhBrhmnEM5MgJD45lxq0tF0VShlubynLYGcYPQDvTqt6mrmcTg1MdQae2u645s@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT0eBceFX90mfLVCEAv6SJGqFXD/h6Irfkd0YenNMrnnOfcrfX
-	nghgktim/FHf/BbMyCMtSgVRmAvyP9xjUrErd/YC8A4+Ai5X1PlGCgFrikuFMOE=
-X-Google-Smtp-Source: AGHT+IEFF/mt9prwLkoO/wBDShJYk4RCDN1nX+/N8QkdDrkFHXlIdTeqdVrZSLG6RmWbSoiHWDwtlg==
-X-Received: by 2002:a5d:4106:0:b0:37d:612c:5e43 with SMTP id ffacd0b85a97d-3806101335amr193017f8f.0.1729876564669;
-        Fri, 25 Oct 2024 10:16:04 -0700 (PDT)
+        bh=x2GjkUl3p/O3LyFYgokUMRNrG9yDODmMulXK3H2wmqc=;
+        b=tXJW7Mh2HX6/GuDx2vA3g9PZz45yzo5NemDidtZxFV5iHWrK873Cke3VYunqxI+FMD
+         PlUUjxJy/Ry2KAm0hJOrOMSVEqM/FO5IANmhM7ns9pWE35pycQ4uKFMjZqnGMj+HYcdS
+         hWVtDXXpWUx8CUe/Dmh/3CzbmAHzm4pPSQKg71/xSoSYB3+gXVYuF7AXq/wRh54kicKl
+         vZBWdWuU3TpEyMrSC3zDWLuC1oks7loYep6s++saaN7MBSPw/NZGD0n8XNqyZpT0Rnsi
+         VxtYswDRVjR4OBKfOm7AlCM/qrqSEuCjZYR3qSXZptMSV6sxUMA2/Fo9Q6GM/7sXLdlh
+         F+ow==
+X-Forwarded-Encrypted: i=1; AJvYcCWSIsGJNXkiwE7hmeDrxG+TVQ5b/8vcUXIVkVM8Vmn4147x0JGj6ekj3c/b1UiqQD5gwoB5t5ILK5XHg8UqVKpw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2lnBARMgXgNgl0Vv3i+vwhaeP7JuLz0l+0QkhwYuEJpgthwLl
+	XaIBiPM1pXMwAkamUpcy/HG6uStmlNua0hrhI61bUh3rUEipv47zg123yM+Wpo0=
+X-Google-Smtp-Source: AGHT+IHS33FJ99QvsSnwlHEO0RVmS3g3mQFRGvOhUZla0C49szl9I45Vo/iib3shrh2XvYSiEjJZJQ==
+X-Received: by 2002:a05:600c:314a:b0:431:4847:47c0 with SMTP id 5b1f17b1804b1-431841eb704mr109059015e9.7.1729876562817;
+        Fri, 25 Oct 2024 10:16:02 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.03
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:04 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:02 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:15:35 +0100
-Subject: [PATCH v2 04/36] dt-bindings: display: Add BCM2712 HVS bindings
+Date: Fri, 25 Oct 2024 18:15:33 +0100
+Subject: [PATCH v2 02/36] drm/vc4: Fix reading of frame count on GEN5 / Pi4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-4-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-2-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -108,8 +108,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_181607_610236_8AEF0350 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20241025_181606_504718_DD7D0612 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,41 +124,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maxime Ripard <mripard@kernel.org>
+The frame count values moved within registers DISPSTAT1 and
+DISPSTAT2 with GEN5, so update the accessor function to
+accommodate that.
 
-The BCM2712 has a completely different HVS than the previous
-generations, so let's add a new compatible for it.
-
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Fixes: b51cd7ad143d ("drm/vc4: hvs: Fix frame count register readout")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 ---
- Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/vc4/vc4_hvs.c  | 45 +++++++++++++++++++++++++++++++-----------
+ drivers/gpu/drm/vc4/vc4_regs.h |  6 ++++++
+ 2 files changed, 40 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-index 2e8566f47e63..f91c9dce2a44 100644
---- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-+++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-@@ -13,6 +13,7 @@ properties:
-   compatible:
-     enum:
-       - brcm,bcm2711-hvs
-+      - brcm,bcm2712-hvs
-       - brcm,bcm2835-hvs
+diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
+index 1edf6e3fa7e6..f8edb0791091 100644
+--- a/drivers/gpu/drm/vc4/vc4_hvs.c
++++ b/drivers/gpu/drm/vc4/vc4_hvs.c
+@@ -272,19 +272,42 @@ u8 vc4_hvs_get_fifo_frame_count(struct vc4_hvs *hvs, unsigned int fifo)
+ 	if (!drm_dev_enter(drm, &idx))
+ 		return 0;
  
-   reg:
-@@ -36,7 +37,9 @@ if:
-   properties:
-     compatible:
-       contains:
--        const: brcm,bcm2711-hvs
-+        enum:
-+          - brcm,bcm2711-hvs
-+          - brcm,bcm2712-hvs
+-	switch (fifo) {
+-	case 0:
+-		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
+-				      SCALER_DISPSTAT1_FRCNT0);
+-		break;
+-	case 1:
+-		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
+-				      SCALER_DISPSTAT1_FRCNT1);
++	switch (vc4->gen) {
++	case VC4_GEN_5:
++		switch (fifo) {
++		case 0:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
++					      SCALER5_DISPSTAT1_FRCNT0);
++			break;
++		case 1:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
++					      SCALER5_DISPSTAT1_FRCNT1);
++			break;
++		case 2:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
++					      SCALER5_DISPSTAT2_FRCNT2);
++			break;
++		}
+ 		break;
+-	case 2:
+-		field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
+-				      SCALER_DISPSTAT2_FRCNT2);
++	case VC4_GEN_4:
++		switch (fifo) {
++		case 0:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
++					      SCALER_DISPSTAT1_FRCNT0);
++			break;
++		case 1:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT1),
++					      SCALER_DISPSTAT1_FRCNT1);
++			break;
++		case 2:
++			field = VC4_GET_FIELD(HVS_READ(SCALER_DISPSTAT2),
++					      SCALER_DISPSTAT2_FRCNT2);
++			break;
++		}
+ 		break;
++	default:
++		drm_err(drm, "Unknown VC4 generation: %d", vc4->gen);
++		return 0;
+ 	}
  
- then:
-   required:
+ 	drm_dev_exit(idx);
+diff --git a/drivers/gpu/drm/vc4/vc4_regs.h b/drivers/gpu/drm/vc4/vc4_regs.h
+index c55dec383929..341a75cf92e5 100644
+--- a/drivers/gpu/drm/vc4/vc4_regs.h
++++ b/drivers/gpu/drm/vc4/vc4_regs.h
+@@ -418,6 +418,10 @@
+ # define SCALER_DISPSTAT1_FRCNT0_SHIFT		18
+ # define SCALER_DISPSTAT1_FRCNT1_MASK		VC4_MASK(17, 12)
+ # define SCALER_DISPSTAT1_FRCNT1_SHIFT		12
++# define SCALER5_DISPSTAT1_FRCNT0_MASK		VC4_MASK(25, 20)
++# define SCALER5_DISPSTAT1_FRCNT0_SHIFT		20
++# define SCALER5_DISPSTAT1_FRCNT1_MASK		VC4_MASK(19, 14)
++# define SCALER5_DISPSTAT1_FRCNT1_SHIFT		14
+ 
+ #define SCALER_DISPSTATX(x)			(SCALER_DISPSTAT0 +        \
+ 						 (x) * (SCALER_DISPSTAT1 - \
+@@ -436,6 +440,8 @@
+ #define SCALER_DISPSTAT2                        0x00000068
+ # define SCALER_DISPSTAT2_FRCNT2_MASK		VC4_MASK(17, 12)
+ # define SCALER_DISPSTAT2_FRCNT2_SHIFT		12
++# define SCALER5_DISPSTAT2_FRCNT2_MASK		VC4_MASK(19, 14)
++# define SCALER5_DISPSTAT2_FRCNT2_SHIFT		14
+ 
+ #define SCALER_DISPBASE2                        0x0000006c
+ #define SCALER_DISPALPHA2                       0x00000070
 
 -- 
 2.34.1
