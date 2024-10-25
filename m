@@ -4,141 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E8FD149F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 00:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2E7D149F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 00:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6dG17MunVwVcYiNUHxHYS/ZiQYCsjJGFDI3pRFAE9s=; b=1Sqb4GIj1/yBpFIl4Oo07lVeED
-	67SPP8JU6xyWyU97rZ3Cox4VyqgNwfaUuCVGc7HN4kL2DaNR0A3Nm333kFYC4kHte+JzJ6+nr0EfC
-	nlCIGWq7zB3Ajn17ekFksew61liNEKBCX9LoZA+6Lc3IMd81CNb8ulXzQhtCAFhZAtu9VzPcUNeBU
-	Il5impGwTuciDBilL+i0OZCVAlf0ymWD6yogoi4uicPj1WK6Bui75iRFeWxBylYogR/ODlNvnPL5+
-	j+tGwxGc8q8rJ7uW9YCQ9oLEpCiM2IsBa7UZ+JHfoMvnlpyDUE1G0fxmtSZ1SShQbCKyyKJYRTHal
-	WlDwUvng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OBqr5/lEqbmI/hDIH3VI4HQy1crlFq/+2LAAjMEPiXM=; b=MEs9v8GH3iokp5T9nmeK6sOnYv
+	MaJrQAPO33XIC/Wq0NSCQ5UoyGcG2c2/3dwWGgGACsDI68HOVIaptV729bFhdjOOMFvJnlngq96NT
+	qqFu3QL5kUpLP9wlHXV7zGIe1kf1qr6ubJAU7hjKyZkbnLCt840qQSD7/Xb1kecWfDgxpUdTRe2yX
+	a2Yrxi7tJDAqCjQD2CoiRAEto7Ktj0/vT4qPDwZCof/CQzWUux700zpWRDlHJqOP/tu8Bl4U2fEcJ
+	vmRMMEHWZRgC6HXrse3gUs3/aDNUNbPq1w+6FXNBP7zJqJwZccNOJ6fB+fPsEjDny7xHmX1QCf0jI
+	lX/TaEFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Uh8-00000005eOR-46gd;
-	Sat, 26 Oct 2024 00:30:18 +0000
-Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1t4UiI-00000005eW6-1qBE;
+	Sat, 26 Oct 2024 00:31:30 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4U5M-00000005ZD1-1UI0
+	id 1t4STY-00000005Os0-3aK9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 23:51:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SFxNBWEw30hOicWe5LKHmqFjy9IfPrLxcSwLIlETZE201j1zuNdTnVnDFPAbuhrMxwK7WniOVxAjtORDQv4HEsLsnqF/sRAj6Mjcuk5M19FCIJO41HhFbnft5aTVTsSapaivi2N+jM/4kbfY4ReQ5ukNPYhffBhuH/SMU/YHeO/Up6KAfyRmID3oAMjcSuNhPTnUUsNiE+qVlX949oU234XAKKneCIX2zw1sOdRPF6AXfvz2CtDvqd+mDb7qf+TiLOIWjiTpHxQzht8vyhhJj7NUlNAUnaEkS3yzMG7aDmx+IfBPyHKzJ+AUTkopPU/4FEzBgF35MYej/jqFNDNUVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X6dG17MunVwVcYiNUHxHYS/ZiQYCsjJGFDI3pRFAE9s=;
- b=TTApuXO/s5a4vq4Sr8BAZGxeiYYUGpQRmR9zPr8ODGRzdjMddvj1t06cKGspREJ7D/ozE0qDXIWEjkz77lMEkC+ujJs3LYYZ8MRVPHGwbCVulrSIb/wL+5mVmWfxYPWTTMYnRObr9c1dRdh0boyZzKgDfY89OIw7AnoHkiavu9CZKm3T+cbcB6c1xYXvI3PNYV9EoVJ6u4wv3pLeq8OWzjNPTimsqyPceGqRdjftWytixm2EZchyiKn/Yx+6X2OjisOh5fi6okOseq1UJ+3Thn9Vxfi7//VDK6QIG5u6gs5EtWgkRp1oD0pBPbH43gnV5WhwixN3ygFyjWzSLZBWuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X6dG17MunVwVcYiNUHxHYS/ZiQYCsjJGFDI3pRFAE9s=;
- b=Z+PmJxHi9/J+ponkQWwW/VB45hmpxDEWwnKDd4pyD6mbVR6LbSUDk1bMmUHYulDLJLxh30uljiVqs31bNT9SQre7XGMVQRy52chG4o+y4MRF7+jwIzEkFaAI3qYSt/Ge6mXURfrOutjxrdLbCIUCcv+B35sZg6waz3Po40vtFVNsjkwSl0KkOxaKY2s5bTaJ8JGPjhtk5BjpintL3NXKc9QdBvkSSVE0GIIheh2fsCNzC1z7xFSV2FPtl0QS0qc9bEPieJe2ZIVNGwiyxuqa2mYS5ZZwFoMeNt376BsMD8ZaPYYyLIDB70TFAN801Pc1dN9Vp67N6trooHhGEzapkA==
-Received: from BYAPR05CA0105.namprd05.prod.outlook.com (2603:10b6:a03:e0::46)
- by BY5PR12MB4276.namprd12.prod.outlook.com (2603:10b6:a03:20f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Fri, 25 Oct
- 2024 23:51:09 +0000
-Received: from SJ1PEPF000023CF.namprd02.prod.outlook.com
- (2603:10b6:a03:e0:cafe::a5) by BYAPR05CA0105.outlook.office365.com
- (2603:10b6:a03:e0::46) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.8 via Frontend
- Transport; Fri, 25 Oct 2024 23:51:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ1PEPF000023CF.mail.protection.outlook.com (10.167.244.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.14 via Frontend Transport; Fri, 25 Oct 2024 23:51:08 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 25 Oct
- 2024 16:51:02 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 25 Oct 2024 16:51:01 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Fri, 25 Oct 2024 16:51:00 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>
-CC: <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
-	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
-Subject: [PATCH v5 10/13] iommufd/selftest: Add vIOMMU coverage for IOMMU_HWPT_INVALIDATE ioctl
-Date: Fri, 25 Oct 2024 16:50:39 -0700
-Message-ID: <35452ef0c1bcc9e0ed5217c89c9a72c1f7a17360.1729897278.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1729897278.git.nicolinc@nvidia.com>
-References: <cover.1729897278.git.nicolinc@nvidia.com>
+	Fri, 25 Oct 2024 22:08:11 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71ec997ad06so1808271b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 15:08:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1729894087; x=1730498887; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=OBqr5/lEqbmI/hDIH3VI4HQy1crlFq/+2LAAjMEPiXM=;
+        b=Ipzaekv8qAKrvwwT7bhKke76QKWSbBTKItdRoyPznnZhBYI7YEVCsXsQIPA/PaaCgY
+         OhGVbSymd6iSmHZkNcdes+RstfLxDN+UR8YBnkpF40YPdBMVofTQaoHlhc8tam6OZZ8/
+         mQamZGRhL8K5qdILAQJ6MRj2dGCK4urXaBy+U=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729894087; x=1730498887;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OBqr5/lEqbmI/hDIH3VI4HQy1crlFq/+2LAAjMEPiXM=;
+        b=n/6YRC2IUi3CA1h3V0YAiKyUTUx3teqXp6FmS0XTn/Rj838/rIMDYQt9JMcuTVPsNN
+         KiENzV+YayhOWgmoJLf+Tu4h/aCN6P+uQZU0ESSlCAYUI2Fw2k7dpcrvdRvSD+HpLoXY
+         tj1yd8WRvOG+3xZI1JT99vEt9sOGPOYsJ5+j/1p/vH5fG36sN3DSROQrMKarXdS4gox0
+         pWPCE2ZfaAxS/r5Nx+bSD/w9YqnUciOURyHISljl9Z9uGC5Q7cahTa4xA+erRhVK3rKc
+         H/SLHJWyGRPHJmWMLHRBEGFnsq2pDnv5wClkOjgKO6/X2BhjhZ9VQ37+2NgFtRQuAzNZ
+         RO4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXA57ZGa9shHLqPP1pqoN55p+8bel7TRNnLg6JcjJH1SNAV9vSI65qzyaKa+ZDo2g1j4po4jBX6Vl/bR+/tUQUn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuSvfqCUEXB/iX0JuVHh3oNps8QCFqFLQmg2j/Aant7PnK33TR
+	uvmUYE/EOk2ZEAnd9/LGdy7MbhMbtLVVMzhPVvX9c1AAJdP7Wk6P4by2iUWwcw==
+X-Google-Smtp-Source: AGHT+IEsAN/vuGOObXJbV29oiWth+FFeEcn13MWc0LfoAFSeMovkdy0dgMlpJxVC05ShdRU2btO0ZQ==
+X-Received: by 2002:a05:6a00:3d49:b0:71d:f510:b791 with SMTP id d2e1a72fcca58-72062f83b0dmr1416532b3a.12.1729894087565;
+        Fri, 25 Oct 2024 15:08:07 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a219d9sm1625474b3a.171.2024.10.25.15.08.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 15:08:06 -0700 (PDT)
+Message-ID: <8bf2ff23-9cb3-40f5-84dc-4aaab466961d@broadcom.com>
+Date: Fri, 25 Oct 2024 15:08:01 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CF:EE_|BY5PR12MB4276:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7becad32-3c21-454a-ce6b-08dcf54fe5fa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QuNa/mGfQChsSk9MusmIdVCOR4Wpr+hFlb9tNw6eO+5uuQj6oxwwjq+jo4kk?=
- =?us-ascii?Q?KysXCRuuS4Z9ulg+lI+rU2jD9kQC9xs6KMWHzWqKQYCuzJBrVpVe7/JWQHWp?=
- =?us-ascii?Q?j9olIgibFzJJlrgqGyTRK3cNlUHN1prk+RHgTkQZ5wJKP+81eSMq0ezAYH8w?=
- =?us-ascii?Q?fmI3rRJ5lodKtOZXZb7/yE2IqVUIzbKiJceR1noO9LO/p2fvpX1otsLgofOn?=
- =?us-ascii?Q?Chry3WVKSTGO9rFTxZbMY3iqpUFL6VQ8972oKkFVC+ffixWOQk4bH/Hm/U5I?=
- =?us-ascii?Q?I3oxeqRomk69Y4/ipU08krLfdSD/1atKBbjLXV5ZaTcgcDmaobaCinUpRZwN?=
- =?us-ascii?Q?srN8AWOoha07NJZoSkXaTs5X5m1yXYdXiMuYRjW5un04RbV90PYGEVJW/9fH?=
- =?us-ascii?Q?dRTDwV6WSvjHmGzLKliJTmZziIKjYXBULHqEv73LGwm9nV3TPyWxvuIwvKjf?=
- =?us-ascii?Q?lBpMpMf4PRJuIs91U+6oecGld6PSP72AJudzYmfDNxAJQbjLd3goOz7i1G4V?=
- =?us-ascii?Q?Fen1DoLxA8zdZxEgQog5mj9ioycLuwmnJMz4gl20IE1XkTG9x3W/azjMy9M1?=
- =?us-ascii?Q?QBvj65Yw/76YrabCTOkynbFXbjeNh1lQlvtYtmUmETaSnc3PVU/H0rq00+zq?=
- =?us-ascii?Q?tLgOXlmINjmmObqROsLtM47u42gxJztvKLlYNOs21OqdiX/hiY2975mb7LrX?=
- =?us-ascii?Q?wNR33N/JXDT0maCzQ0p9BFs2WlZuwg5ceFrx7jspb2b7bpwp0WfHQAaZ51Ri?=
- =?us-ascii?Q?yyJSsSLMQCrvzWsLeyJIA3YHTL0ZtIEqJSTs0SvyGRpP219AngYHyOB9J/uY?=
- =?us-ascii?Q?qhMkjvMKhtkGfMYl/NeOeOcumWT2cLa2guSThvHJWSYTDCFFOHpqi9tI8wH9?=
- =?us-ascii?Q?NBM9rdYbNv9RzAf5QkKXpGZloxFB0OQoow4N61SadgRaFowz6jotSL+9IeDE?=
- =?us-ascii?Q?Bo0SgyzWEbEuiW1wH06Cer7XGic+v1rZAiwdRsmaUYDDtMc24gyUqNgguMaz?=
- =?us-ascii?Q?Z6MwU3xzQzxrdVmVBwYpXfh+1inlxcAC64VscvcJsimKRMQKj7fyKDnvg7lG?=
- =?us-ascii?Q?N0wUD7c6Wj7TJ+P6xluLj48lUu9RO08w1Qn0h4JJ8070u8JsG4st8b4TOnW2?=
- =?us-ascii?Q?RtFlqrwD1KTJGVImFyKLDYQJgeyNvIiss5RaWWDb3MAzbB7I6R9PyC/z1g0O?=
- =?us-ascii?Q?ArKsC0kA3GeoLmOzeDTHI/P93XDojCAxuNdcWWHABoQbsbJHZ4+utXYOAo+z?=
- =?us-ascii?Q?H6dYareLbY7CsldiaCS9CfKDKUjrIKEBFzaim63i0i8WXmSXTGszdCnTF6CK?=
- =?us-ascii?Q?YuObHj1U5D74mp3hl/2LECLQ79gt7QQcKDd56fnfZwp7X5cyJN8SD7lRpSg1?=
- =?us-ascii?Q?w09PojrZlOjWDsqbLb076D891l9rGqyK5s82+3CqExohxJeS9Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 23:51:08.9252
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7becad32-3c21-454a-ce6b-08dcf54fe5fa
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CF.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4276
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/10] PCI: brcmstb: Adjust PHY PLL setup to use a
+ 54MHz input refclk
+To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
+References: <20241025124515.14066-1-svarbanov@suse.de>
+ <20241025124515.14066-9-svarbanov@suse.de>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20241025124515.14066-9-svarbanov@suse.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_165116_484062_529C0048 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20241025_150808_903215_1368D175 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,242 +136,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a viommu_cache test function to cover vIOMMU invalidations using the
-updated IOMMU_HWPT_INVALIDATE ioctl, which now allows passing in a vIOMMU
-via its hwpt_id field.
+On 10/25/24 05:45, Stanimir Varbanov wrote:
+> The default input reference clock for the PHY PLL is 100Mhz, except for
+> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
+> 
+> To implement this adjustments introduce a new .post_setup op in
+> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
+> 
+> The bcm2712 .post_setup callback implements the required MDIO writes that
+> switch the PLL refclk and also change PHY PM clock period.
+> 
+> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
+> the expansion connector.
+> 
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- tools/testing/selftests/iommu/iommufd_utils.h |  32 ++++
- tools/testing/selftests/iommu/iommufd.c       | 173 ++++++++++++++++++
- 2 files changed, 205 insertions(+)
-
-diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
-index 3ae6cb5eed7d..aa458c80ad30 100644
---- a/tools/testing/selftests/iommu/iommufd_utils.h
-+++ b/tools/testing/selftests/iommu/iommufd_utils.h
-@@ -289,6 +289,38 @@ static int _test_cmd_hwpt_invalidate(int fd, __u32 hwpt_id, void *reqs,
- 					     data_type, lreq, nreqs));   \
- 	})
- 
-+static int _test_cmd_viommu_invalidate(int fd, __u32 viommu_id, void *reqs,
-+				       uint32_t data_type, uint32_t lreq,
-+				       uint32_t *nreqs)
-+{
-+	struct iommu_hwpt_invalidate cmd = {
-+		.size = sizeof(cmd),
-+		.hwpt_id = viommu_id,
-+		.data_type = data_type,
-+		.data_uptr = (uint64_t)reqs,
-+		.entry_len = lreq,
-+		.entry_num = *nreqs,
-+	};
-+	int rc = ioctl(fd, IOMMU_HWPT_INVALIDATE, &cmd);
-+	*nreqs = cmd.entry_num;
-+	return rc;
-+}
-+
-+#define test_cmd_viommu_invalidate(viommu, reqs, lreq, nreqs)                  \
-+	({                                                                     \
-+		ASSERT_EQ(0,                                                   \
-+			  _test_cmd_viommu_invalidate(self->fd, viommu, reqs,  \
-+					IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST, \
-+					lreq, nreqs));                         \
-+	})
-+#define test_err_viommu_invalidate(_errno, viommu_id, reqs, data_type, lreq,   \
-+				 nreqs)                                        \
-+	({                                                                     \
-+		EXPECT_ERRNO(_errno, _test_cmd_viommu_invalidate(              \
-+					     self->fd, viommu_id, reqs,        \
-+					     data_type, lreq, nreqs));         \
-+	})
-+
- static int _test_cmd_access_replace_ioas(int fd, __u32 access_id,
- 					 unsigned int ioas_id)
- {
-diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-index ff0181e5db48..9a7d4b9c44f6 100644
---- a/tools/testing/selftests/iommu/iommufd.c
-+++ b/tools/testing/selftests/iommu/iommufd.c
-@@ -2498,4 +2498,177 @@ TEST_F(iommufd_viommu, vdevice_alloc)
- 	}
- }
- 
-+TEST_F(iommufd_viommu, vdevice_cache)
-+{
-+	struct iommu_viommu_invalidate_selftest inv_reqs[2] = {};
-+	uint32_t viommu_id = self->viommu_id;
-+	uint32_t dev_id = self->device_id;
-+	uint32_t vdev_id = 0;
-+	uint32_t num_inv;
-+
-+	if (dev_id) {
-+		test_cmd_vdevice_alloc(viommu_id, dev_id, 0x99, &vdev_id);
-+
-+		test_cmd_dev_check_cache_all(dev_id,
-+					     IOMMU_TEST_DEV_CACHE_DEFAULT);
-+
-+		/* Check data_type by passing zero-length array */
-+		num_inv = 0;
-+		test_cmd_viommu_invalidate(viommu_id, inv_reqs,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: Invalid data_type */
-+		num_inv = 1;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST_INVALID,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: structure size sanity */
-+		num_inv = 1;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs) + 1, &num_inv);
-+		assert(!num_inv);
-+
-+		num_inv = 1;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   1, &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: invalid flag is passed */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0xffffffff;
-+		inv_reqs[0].vdev_id = 0x99;
-+		test_err_viommu_invalidate(EOPNOTSUPP, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: invalid data_uptr when array is not empty */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, NULL,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: invalid entry_len when array is not empty */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   0, &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: invalid cache_id */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].cache_id = MOCK_DEV_CACHE_ID_MAX + 1;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/* Negative test: invalid vdev_id */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x9;
-+		inv_reqs[0].cache_id = 0;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(!num_inv);
-+
-+		/*
-+		 * Invalidate the 1st cache entry but fail the 2nd request
-+		 * due to invalid flags configuration in the 2nd request.
-+		 */
-+		num_inv = 2;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].cache_id = 0;
-+		inv_reqs[1].flags = 0xffffffff;
-+		inv_reqs[1].vdev_id = 0x99;
-+		inv_reqs[1].cache_id = 1;
-+		test_err_viommu_invalidate(EOPNOTSUPP, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(num_inv == 1);
-+		test_cmd_dev_check_cache(dev_id, 0, 0);
-+		test_cmd_dev_check_cache(dev_id, 1,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+		test_cmd_dev_check_cache(dev_id, 2,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+		test_cmd_dev_check_cache(dev_id, 3,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+
-+		/*
-+		 * Invalidate the 1st cache entry but fail the 2nd request
-+		 * due to invalid cache_id configuration in the 2nd request.
-+		 */
-+		num_inv = 2;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].cache_id = 0;
-+		inv_reqs[1].flags = 0;
-+		inv_reqs[1].vdev_id = 0x99;
-+		inv_reqs[1].cache_id = MOCK_DEV_CACHE_ID_MAX + 1;
-+		test_err_viommu_invalidate(EINVAL, viommu_id, inv_reqs,
-+					   IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(num_inv == 1);
-+		test_cmd_dev_check_cache(dev_id, 0, 0);
-+		test_cmd_dev_check_cache(dev_id, 1,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+		test_cmd_dev_check_cache(dev_id, 2,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+		test_cmd_dev_check_cache(dev_id, 3,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+
-+		/* Invalidate the 2nd cache entry and verify */
-+		num_inv = 1;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].cache_id = 1;
-+		test_cmd_viommu_invalidate(viommu_id, inv_reqs,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(num_inv == 1);
-+		test_cmd_dev_check_cache(dev_id, 0, 0);
-+		test_cmd_dev_check_cache(dev_id, 1, 0);
-+		test_cmd_dev_check_cache(dev_id, 2,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+		test_cmd_dev_check_cache(dev_id, 3,
-+					 IOMMU_TEST_DEV_CACHE_DEFAULT);
-+
-+		/* Invalidate the 3rd and 4th cache entries and verify */
-+		num_inv = 2;
-+		inv_reqs[0].flags = 0;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].cache_id = 2;
-+		inv_reqs[1].flags = 0;
-+		inv_reqs[1].vdev_id = 0x99;
-+		inv_reqs[1].cache_id = 3;
-+		test_cmd_viommu_invalidate(viommu_id, inv_reqs,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(num_inv == 2);
-+		test_cmd_dev_check_cache_all(dev_id, 0);
-+
-+		/* Invalidate all cache entries for nested_dev_id[1] and verify */
-+		num_inv = 1;
-+		inv_reqs[0].vdev_id = 0x99;
-+		inv_reqs[0].flags = IOMMU_TEST_INVALIDATE_FLAG_ALL;
-+		test_cmd_viommu_invalidate(viommu_id, inv_reqs,
-+					   sizeof(*inv_reqs), &num_inv);
-+		assert(num_inv == 1);
-+		test_cmd_dev_check_cache_all(dev_id, 0);
-+		test_ioctl_destroy(vdev_id);
-+	}
-+}
-+
- TEST_HARNESS_MAIN
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.43.0
-
+Florian
 
