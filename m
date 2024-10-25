@@ -4,85 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7658D1038E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 00:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9AAD10399
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3glZN7tdnxqEr7AALFevER6kTHzPF//GTHKC2fD5T4=; b=ac1Fi7VOECuF9tTv04+6VNPM39
-	8pwvNfjlHthFFMnFyrbvGhgLA8ILgQ3rtVqFCIYE2KOyYcRvJaX8Wm4UlLiJl28Y3BD2W0KGrQ/9z
-	IyRiVKSlfiMRBmrw66h9Qpdi4P4iQ5o9zET4Ow1veuAZ3twkFHWUZo+70mAs4X2cs9gLhm2txWnih
-	wuUc8IR7tE2JMi4pliULkyJ36GSHGWtx0uc/L4jBQohvLn/tB2HBjlUKc8k2OfVG1Hwe/74pZGzQ6
-	1QBOXfBBed6oQvBfGzJVhY4O8zrZ5r6IiOBIEvoycGt5D/zhqxMHk6cAZEVvxXg5SnubGUEtERsed
-	sPY49BNA==;
+	bh=0+1oLZauET+j+jh09kk+YkWrDtNFJkeHnfbIQSJpwvo=; b=bWV9qtMSRRy2WrvKx+0e1vSY16
+	B1HmF8EuByHNHhyTVLhkNgPUvx9K7JFv4f1jAtDz+NsvCzQkE8zFCZahSRmOq9qtGX4Uen07jH8IM
+	WlILWog7oKUDRL7vgQkleNeCrzRmUrau2LbzuQGV2HcCLtkL5RoFc7mqr2qKJZwenVx35Dk2xuHzK
+	Je42SRWw8+KgsAW+leORkzWXVkHyaBNYihlqgEom5QaMgBq9BeWF/hHIHnajzVUEvt1ny3JxqYR5V
+	dZeVJ0p9Lv1aN5IRb2HZIblt+85Nc76NgGEEWgB94f97XAXe3OItxc1HL/7aNvznlm6BWvo3Sgo9V
+	Xk9gbKCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48S9-000000027EM-1hy1;
-	Fri, 25 Oct 2024 00:45:21 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1t48ql-000000028WD-0wZ8;
+	Fri, 25 Oct 2024 01:10:47 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48P6-000000026j7-2BYY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 00:42:13 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3e601b6a33aso941960b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 17:42:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729816931; x=1730421731; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O3glZN7tdnxqEr7AALFevER6kTHzPF//GTHKC2fD5T4=;
-        b=HNupDc64cI4bQKb8ZgsAEeSwonP2bb/wYh2rrhXsZdefeswWiRcBXPJrRatEFXMMKF
-         DJ6JAIwFvFerIv2z+eNxOrdWj0XZnGRfBEfmad+WYjzvDuWvjcZdS7rDYwa2/axiqBN2
-         WGPoZkVkroaFz4azM39qpEy01dFp9vpXX6dfO3XVckPkK5a6Y4nYpSWfxtC8FCQbFRJu
-         kjcDnf4+PARFmWi6+DOqy0uhu+KcfGyfB5k6xWnpSudGPgl+4EPeQ8HA1lPaRI4+Z4PK
-         LStHSd3dxts35wgMlM99+QL/dgxkjPrBLDE0gmYP/WirAqBytBzbc292lj6Oy2/PC7os
-         Wh3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729816931; x=1730421731;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O3glZN7tdnxqEr7AALFevER6kTHzPF//GTHKC2fD5T4=;
-        b=Sixbl3PXa6LA+YOo86mIPatJqJQOGil4gKmZ8M+yIjI6vlkxNKdpss9BS1Cqw/Zsy9
-         FC3J2ti8DadwHxzz3agkkpx8U6hD7C9uNjEadNZLz1UZd8YZeTziJLSBmif/gKLFSkKV
-         n3h7KR3o5FU1kLUR2QvIaT+IdhRCn5hDeP+p10AhONamNqoesuXGkLXXTi8liJIMEQZa
-         NEiU5AQsisHcX0lChia9OXYsEB1JBsRETosN+f02yx6DgMDYDwtMz8XvaVy7auxomW3A
-         CYdSzkcMuJ7g4KK41frhSUxmBteI57Z2UscV9Dx4/KIy+hFcvzATiIaOYh3nbMQfzMxO
-         e7Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCXisQq6IGbPI/JzDyMDGD+CJnApY8y6ReCXk3WFEWZJ94j+lMe3IMF3yX0khB4pnRYKFGXR/Djwevn7TeBKSc9O@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUZvXGHjIG5dbH2dqRuDxZayMuYj4e4RP4X5PJNnc3YzCOE5yp
-	UhIdi1qFBBRynLOGqoLu+hubt0OsVhq485Vt31GNE4qU+rGfQkDM
-X-Google-Smtp-Source: AGHT+IH/yxaa5bTSEO6mVFg+zirKexUg+7iL8/DIbuhJOrW61wjJMRXPmsWuAZESLfEU0XQz2w5jgw==
-X-Received: by 2002:a05:6808:200b:b0:3e2:a1fe:f0c6 with SMTP id 5614622812f47-3e62450114amr7198590b6e.6.1729816931078;
-        Thu, 24 Oct 2024 17:42:11 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:b160:3edf:6e5d:8d4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8a3d2easm27289a12.85.2024.10.24.17.42.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 17:42:10 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH 2/2] dt-bindings: soc: imx: fsl,imx-anatop: Add additional regulators
-Date: Thu, 24 Oct 2024 21:41:59 -0300
-Message-Id: <20241025004159.1571782-2-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241025004159.1571782-1-festevam@gmail.com>
-References: <20241025004159.1571782-1-festevam@gmail.com>
+	id 1t48p9-000000028Hd-3Iwk;
+	Fri, 25 Oct 2024 01:09:09 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49OM4uA4016005;
+	Fri, 25 Oct 2024 01:08:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0+1oLZauET+j+jh09kk+YkWrDtNFJkeHnfbIQSJpwvo=; b=W4vvwOLPzOGaas9B
+	jLSprNxIjvObGraTCmiF/1exlX2OadCSEfpI+huU9MpUlcDGnsG+k+sBCoIy9Y/0
+	BekzNapLtjx2wj9geo0YUmMxEyiXQ+JwQBWu6pv8GVqt6GO5j1GGCRsocVyGTGj3
+	6SkTFSMyvNnfens8uKFS5ZKXaCU8q7iLGXIUier6OV3HjpYFkJcokirgmRPHusoT
+	8Q04Sh+QOVdUNKZkZyrWDS+UzsH5DWpVBRv0mYa4iuAeAaTRJlBZuzBYLndYqobV
+	zBEVp45X82ccGByKYuPk1Ge43Ne0ORh9PevtaOeU4cZsSgdTe209UHBucV4H5XnG
+	q5FajA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3xqb1e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 01:08:47 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49P18kTV030019
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 01:08:46 GMT
+Received: from [10.216.22.131] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Oct
+ 2024 18:08:40 -0700
+Message-ID: <77d3a1a9-c22d-0fd3-5942-91b9a3d74a43@quicinc.com>
+Date: Fri, 25 Oct 2024 06:38:37 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
+Content-Language: en-US
+To: Rob Herring <robh@kernel.org>, Jim Quinlan <james.quinlan@broadcom.com>
+CC: <linux-pci@vger.kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>,
+        Lorenzo Pieralisi
+	<lorenzo.pieralisi@arm.com>,
+        <bcm-kernel-feedback-list@broadcom.com>, <jim2101024@gmail.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
+        Manivannan Sadhasivam
+	<manivannan.sadhasivam@linaro.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "moderated list:BROADCOM BCM7XXX ARM
+ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+        "moderated
+ list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+	<linux-rpi-kernel@lists.infradead.org>,
+        "open list:OPEN FIRMWARE AND
+ FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+        open list
+	<linux-kernel@vger.kernel.org>
+References: <20241018182247.41130-1-james.quinlan@broadcom.com>
+ <20241018182247.41130-2-james.quinlan@broadcom.com>
+ <20241021190334.GA953710-robh@kernel.org>
+From: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
+In-Reply-To: <20241021190334.GA953710-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: bByYqpBSH2WD1znRWTx9ptXkLbDecWdR
+X-Proofpoint-ORIG-GUID: bByYqpBSH2WD1znRWTx9ptXkLbDecWdR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
+ impostorscore=0 mlxscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0
+ mlxlogscore=999 malwarescore=0 priorityscore=1501 adultscore=0
+ clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410250008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_174212_583731_A631C75B 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241024_180907_892001_01C79877 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +119,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
 
-i.MX7 has the following anatop regulators: vdd1p0d and vdd1p2.
 
-i.MX6SX has the following anatop regulators: vddpcie.
+On 10/22/2024 12:33 AM, Rob Herring wrote:
+> On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
+>> Support configuration of the GEN3 preset equalization settings, aka the
+>> Lane Equalization Control Register(s) of the Secondary PCI Express
+>> Extended Capability.  These registers are of type HwInit/RsvdP and
+>> typically set by FW.  In our case they are set by our RC host bridge
+>> driver using internal registers.
+>>
+>> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+>> ---
+>>   .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>> index 0925c520195a..f965ad57f32f 100644
+>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>> @@ -104,6 +104,18 @@ properties:
+>>       minItems: 1
+>>       maxItems: 3
+>>   
+>> +  brcm,gen3-eq-presets:
+>> +    description: |
+>> +      A u16 array giving the GEN3 equilization presets, one for each lane.
+>> +      These values are destined for the 16bit registers known as the
+>> +      Lane Equalization Control Register(s) of the Secondary PCI Express
+>> +      Extended Capability.  In the array, lane 0 is first term, lane 1 next,
+>> +      etc. The contents of the entries reflect what is necessary for
+>> +      the current board and SoC, and the details of each preset are
+>> +      described in Section 7.27.4 of the PCI base spec, Revision 3.0.
+> 
+> If these are defined by the PCIe spec, then why is it Broadcom specific
+> property?
+> 
+Hi Rob,
 
-Add them to the allowed patternProperties.
+qcom pcie driver also needs to program these presets as you suggested
+this can go to common pci bridge binding.
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- Documentation/devicetree/bindings/soc/imx/fsl,imx-anatop.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
+of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
+through P10) and where as data rates of 64.0 GT/s use different class of
+presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
+have optional preset hints (Table 4-24).
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-anatop.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-anatop.yaml
-index ae708a658d52..f40c157908aa 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-anatop.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-anatop.yaml
-@@ -44,7 +44,7 @@ properties:
-     $ref: /schemas/thermal/imx-thermal.yaml
- 
- patternProperties:
--  "regulator-((1p1)|(2p5)|(3p0)|(vddcore)|(vddpu)|(vddsoc))$":
-+  "regulator-((1p1)|(2p5)|(3p0)|(vdd1p0d)|(vdd1p2)|(vddcore)|(vddpcie)|(vddpu)|(vddsoc))$":
-     type: object
-     unevaluatedProperties: false
-     $ref: /schemas/regulator/anatop-regulator.yaml
--- 
-2.34.1
+And there is possibility that for each data rate we may require
+different preset configuration.
 
+Can we have a dt binding for each data rate of 16 byte array.
+like gen3-eq-preset array, gen4-eq-preset array etc.
+
+- Krishna Chaitanya
+>> +
+>> +    $ref: /schemas/types.yaml#/definitions/uint16-array
+> 
+> minItems: 1
+> maxItems: 16
+> 
+> Last I saw, you can only have up to 16 lanes.
+> 
+> Rob
+> 
 
