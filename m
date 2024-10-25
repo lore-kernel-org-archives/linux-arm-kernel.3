@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23D2D149F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77455D149F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0gN4lzQDHYSJ5VLFJlwQdonngrbWjkk6VPysWjKkhY=; b=R2/mKsRZQwdwhn/WEdaB4nbyr1
-	m49rRBsvoN6hcePFyv5eIEz9KBLoRp2ZmK5HfvTrpTnOJdjGqvGENdk7jCN3GENWdJytrbcD0oJ5k
-	IlhRox5eLsdaT2xSExGJ6tfl5n1VsqPUSYxHitbvvMX8XfESS6PJ79ptMs8blFRWDJAAQeHiXEe0P
-	OF2tpnADQ1TegJa9DrDZdDX7TffpZnvXIl+TQzM4gAYqgGRbagKgzPywoVzf7pkIbA7hsGS36iltC
-	chc6jjH79hTkDeF5WXehRi6E/cwVQIt4dA6IeDc8z867RBUT3IjobES+1NjXMbqR+jxqYWEt2Sbna
-	KVnOPlrQ==;
+	bh=UI1vTxlBOxYE5W4xsGO7gchMf+mOAzEAvs84vZBAp0U=; b=cIRnOpeRdlHI51T23RWjovPyPx
+	62ro0vOHKiSSuBGd5shHbLpL0bl1NJsryvtR58KQ5fxyVtoBx1VaGjdAC9MLdD2Wb0lILXbJwS7DH
+	lprRnhandtm2IRfWSBrvctHfHgoU7n5qUNtW5MscszbHyCXVHzRODbKbdwdTjE+LvxmibFCFWIZCY
+	v24lnsO/QvbAJ9m9ssFvoxCqqN8APLt57+WyKeVhTx+Y/plIgB61Y+V5dc4ZX9kkiduzysyC/vICp
+	2aYUJmteJfFbQlCZRFjG9FO2dy4Qs/GUc6dJstBUGrCJmtYoI9H1qrz3PRoO0o0vWFpG9VjSUet4h
+	CTiv4zHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Sg1-00000005Qdl-0tyy;
-	Fri, 25 Oct 2024 22:21:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4ShZ-00000005Qve-1kQ9;
+	Fri, 25 Oct 2024 22:22:37 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4SbS-00000005Pmm-1Lbi;
-	Fri, 25 Oct 2024 22:16:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F262A42FFF;
-	Fri, 25 Oct 2024 22:14:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8815C4CEE8;
-	Fri, 25 Oct 2024 22:16:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729894576;
-	bh=uJTuxxbpUOhYgzs5WgqjZ9oJKXZ+IXXPP0S1EvdK364=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=nnsUCoKsPy331Chn2UUcsngk6k5T9x6sJ5x/vQCqmf50lgps9XEwpgmo4ieWnMh2v
-	 hKKhwmyShVPTqg/aa8W1r73marKoLDlVeVlofleUY/xPKgT1+9Mj3gW7tRebb1/J0Z
-	 0Nb8Myml3Mh8xhW6GxZCRVqJQI9a0IlZxwhIb/FFLjWW7zb3vS5IAOKR5P46cuH1bX
-	 6HIe2Fv9Hy8qoXg6BWAQLe1RwZxXCtspPILf7Beo+xbCY0Zov9G0Zr+tfys0Y9cjmm
-	 B8TBd0ZUpDH1lyus/5Zn/fUtOn0w957/BJ7tJ0vN45wzDau2TLxE75xt0/m5uLMVPd
-	 35fr3Z21N4TFw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso2717239e87.2;
-        Fri, 25 Oct 2024 15:16:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVwuup/J1QSK2ntzDheuC9rh3g4O7txd+F1x9oO6vsVpSsiGvXiwF/EwsPo4h1gYzAi5SV430L3LLa0EDQ=@lists.infradead.org, AJvYcCXA3rhIpVhmHuAAudwQv+O3+EqCpnBsDrmDcH4JLoUaIgZ8ljbf8sk0Uju5OdkfaGUwqrlMPD1z3FuaOvR8Jino2w==@lists.infradead.org, AJvYcCXJ9llqqOGQxBiNDQkxkSiMpHg3LdiCHNQPJkq3+NaaYKZYPZ5YHxFT6HgbK7uj4SijP7tzVA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOT2ybsNffjcmSM+k+VoOLRxPYruX0aWADtD4aY3Hs4MlyN8p6
-	5TVqidbIFuI/NIB3Nz0rupF+cF6YFI1544biasA1a6VofPiPVv4479rS1ZK4rb/EJL3woPC/KMl
-	GTdqE3qwgimlO6R8E+HZvGGNDqg==
-X-Google-Smtp-Source: AGHT+IFDzz30e4eepxmp8y9NIgcU0ohK45V4obAXv/vuq7kDznzhS/1RZo0KUZFB2KLhRb/lyUfqMvvtY4COXI6AOVA=
-X-Received: by 2002:a05:6512:3d8b:b0:539:d0ef:b3f9 with SMTP id
- 2adb3069b0e04-53b3491dfc0mr415910e87.40.1729894575274; Fri, 25 Oct 2024
- 15:16:15 -0700 (PDT)
+	id 1t4SbV-00000005PnZ-3bgf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 22:16:23 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729894578;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UI1vTxlBOxYE5W4xsGO7gchMf+mOAzEAvs84vZBAp0U=;
+	b=ijXdlP1IJrJOQ+IsWfLev5HcVuwPf2qY7Xha9nF+1Hjf5SkAHdXobRxt5zA9IYzdOrlbJM
+	c17M+IZuvvHP6vQ64U+fwRnPELCXzN7JV1sg4QT7bT+guKjOpYc+xn5ck0bVCok+6vWluJ
+	c9JeOIHEkWMk/PHFxdxJr2KKXGnzgho=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 0/2] KVM: arm64: Simplify handling of GICv3 hardware with broken SEIS
+Date: Fri, 25 Oct 2024 22:16:07 +0000
+Message-ID: <172989453422.3686528.17691027763300650560.b4-ty@linux.dev>
+In-Reply-To: <20241022144016.27350-1-will@kernel.org>
+References: <20241022144016.27350-1-will@kernel.org>
 MIME-Version: 1.0
-References: <20241023171426.452688-1-usamaarif642@gmail.com>
-In-Reply-To: <20241023171426.452688-1-usamaarif642@gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 25 Oct 2024 17:15:53 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
-Message-ID: <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
-Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
-To: Usama Arif <usamaarif642@gmail.com>
-Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org, 
-	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net, 
-	saravanak@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_151618_450152_B17B354A 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20241025_151622_057345_2E43C82C 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,25 +73,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 12:14=E2=80=AFPM Usama Arif <usamaarif642@gmail.com=
-> wrote:
->
->  __pa() is only intended to be used for linear map addresses and using
-> it for initial_boot_params which is in fixmap for arm64 will give an
-> incorrect value. Hence save the physical address when it is known at
-> boot time when calling early_init_dt_scan for arm64 and use it at kexec
-> time instead of converting the virtual address using __pa().
->
-> Reported-by: Breno Leitao <leitao@debian.org>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
+On Tue, 22 Oct 2024 15:40:14 +0100, Will Deacon wrote:
+> While looking at reducing the host memory mapped into pKVM at EL2, I
+> noticed that the GICv3 CPU interface emulation for hardware with broken
+> SEIS implementations can be simplified and the corresponding mapping of
+> 'kvm_vgic_global_state' can be dropped.
+> 
+> Please have a look!
+> 
+> [...]
 
-This looks fine, but what is the symptom without this compared to
-before the above change? The original code in the referenced commit
-above didn't remove the reservation at all. Unless the current code
-does something worse, this is new functionality more than a fix (for
-stable).
+Included Marc's recommended changelog addition.
 
-Rob
+Applied to kvmarm/next, thanks!
+
+[1/2] KVM: arm64: Just advertise SEIS as 0 when emulating ICC_CTLR_EL1
+      https://git.kernel.org/kvmarm/kvmarm/c/ad361ed4771d
+[2/2] KVM: arm64: Don't map 'kvm_vgic_global_state' at EL2 with pKVM
+      https://git.kernel.org/kvmarm/kvmarm/c/8aaf3f7dce74
+
+--
+Best,
+Oliver
 
