@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACB0D10399
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B075AD1038E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGdp4UlHi9Rl6xWRgeoMoP+ShACtzGL6t7tsX92UPPE=; b=nOimATVVPkJrDIvQE4O4c2FKZo
-	FmpUTJkPN5WHcmrNXUtPslZzQUt6p3JBfA0Ci/sGPA0gEPQSrekzq82aYG1TDQZZ5YxRoJ6opg14d
-	du6dkqpLCSdof8MWh7yBgSQQ4GEwLjb5TCqdgbIdU3o74F+tZsg+SHmfkpr2yjTV/S6Wp6XLJY/j1
-	Gl2DG+oc1RiFdZPIzk1VOmTNyUo02smQh67+x8ijkTkKUd+vvd74uPcXfB3mcuI3geGQ4ue8udrbq
-	riNOkSz+56uUNqfu7fw4vt7MHRRQE2bOSOT5JuXAwqVXZI093eDu9jxFibzPRYMYbZZUFm6Mx24Wx
-	RI7bUKYA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sYpfrlq0V0bV9nsDJv9ukMK1/gCt1wSxEcrYWbmTl9Q=; b=nYRnDCMZeV6XGXctMlhjAdIxE2
+	fJ981AgbMQm5nuRNJ67xZoiOZkmaeSNKGfxk7twuvnxYcxg/NYnPbkXAOTgUJyMpkWx3IpmWQaTVt
+	dMCXHu4gv0eZR00NEF7h8UIeP9zN8h5YDqa1cW5KKGMWIPgYNa0OIS4QVHvts3Mq5Ndsa8uUbKsPW
+	d7w9d98bAdc/xNPYYwwi6tWggMmIZbLj9en6XpECE54wznhRXUSHM7E5z/SB8YG+9/F4673Qv9AJ9
+	ABmJkZDha8FQ4COmdAwlfgpG4XYtq7skieQb+tjkGVbCknrIVQhdKrApeSUE7YgragShvRA5Vdzhm
+	40IVp2iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48vM-000000029Jt-3oQW;
-	Fri, 25 Oct 2024 01:15:32 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1t48wt-000000029UL-3LX8;
+	Fri, 25 Oct 2024 01:17:07 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t48pX-000000028MZ-39oT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 01:09:33 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7ea8ecacf16so977900a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Oct 2024 18:09:30 -0700 (PDT)
+	id 1t48qQ-000000028R3-0JbR;
+	Fri, 25 Oct 2024 01:10:27 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71e5a1c9071so1118066b3a.0;
+        Thu, 24 Oct 2024 18:10:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729818570; x=1730423370; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jGdp4UlHi9Rl6xWRgeoMoP+ShACtzGL6t7tsX92UPPE=;
-        b=T97XsDHDkLBdqO6xAueCusYI5iesHWRi0VR5dhXvlbGQkm74OFf7W4K6Pjr5tIMiTL
-         I7mU3I3UO5P16IcGVKkLxkOuiUfJQC3c/kyjENXjLI4v/CCoP8J4hx03Z5nInA2qCufx
-         iZLWZtHZMi6TFXKo2EFZJecWjj/LMyCksYp86LXRVnc3IZ8EIoEg2rYwjmflpv3mde61
-         VVYapwvFkkrIsUH+zMGa+Zka4v4ZsLvwvUeiKX2lgIhNHgKVko/2YDsErueBWGza7foE
-         2Qw29tk2Ua/yhmMaWhEul1h8t26SsL+N9BOS+kB3PjfxWg4mZp83cckvkDvSP7fi0icz
-         XnFA==
+        d=gmail.com; s=20230601; t=1729818625; x=1730423425; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sYpfrlq0V0bV9nsDJv9ukMK1/gCt1wSxEcrYWbmTl9Q=;
+        b=H+RiVxHMBkB8LXdJm1arUm9oel0lz6uDPfCOBjgXZ1Lv7V82wAB/iiqe+PUNCaUmkM
+         HJ3s+emm7jWqw222tuy3CNMf26z3PzEIkegvnIN9XnEdiNtCCTTQD54a1Yn5IPOvAh+Z
+         q8JYy1nZzaau5tlvCP/yRX+TLRmHW4SYVXyNGTlf9S4WhyIqzpUHbNOagsSurvAkmt85
+         IyeGeXHAlV3tDa1Kkb20GS8w40nZzlZLeLE591weUMGQhCMw3BBlsMYDen1VhBaEVzzY
+         virj8eH7SF2HbACJ6oXr6RJIEnSP8RoKdnf/6mI+0hTu3yFi/qqdbfsHAF8c83FVf3f2
+         5qVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729818570; x=1730423370;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jGdp4UlHi9Rl6xWRgeoMoP+ShACtzGL6t7tsX92UPPE=;
-        b=NU47EkSIomS7GPnU9mQwPPc/7LTPCvG6DWAsmvMIZobhbqoWTPsvOvbynE9SJSDKCO
-         SgmRwVgyVyr7pb5jQ5XZhG6k5T2TlIHHGjdXTgxsz+xdD40UDdDcRC8uAx0FI4ZJbhPQ
-         9CwGdOjO7U9xsSNVOBihJ0M39Fbf7rUrEr4hVGX8/uWFgmeKZaU2gSneI6qoZeeQh8BI
-         Irsq/SHfQsUBBdWSPc/M26oGLmsBk5s18meyq72fblmxnt36sf0d6xeVwhlXYIJj8hHE
-         MXCBduoorrWGExJYd2PK5vSoYhQCD9ED3LazUmdE6sclJYlcYFM/w0ACv3v5GEt6aalz
-         IAIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRJzEAzNllGUlQ9Aw910u8PWHQLV7o+/CaNfcTFfENF8a7bVdK48MAtwu0Yl8n9DI6Z0WbzatqDUh1P5T+vGSr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4Z2YzikeOzaMo7IqP1F+/jjRKFDjTyMAHUi7lmFYnl/5KmFPX
-	Huq3OYxabqBB7Vsm+Ozk4fGihNE8UyS7r/WOzs/sRiTlQK20WxFQL5pukw==
-X-Google-Smtp-Source: AGHT+IHYYcX6rcKuACmUMAqT2j7xUKhF7rX1Eq0psxApSO+AaLQHyyTER201tiR+T8CoSPfZiRyBIw==
-X-Received: by 2002:a05:6a20:cf8c:b0:1d8:fcf2:9ce2 with SMTP id adf61e73a8af0-1d978bb3472mr9319125637.44.1729818570143;
-        Thu, 24 Oct 2024 18:09:30 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:b160:3edf:6e5d:8d4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0b93csm52875b3a.137.2024.10.24.18.09.27
+        d=1e100.net; s=20230601; t=1729818625; x=1730423425;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sYpfrlq0V0bV9nsDJv9ukMK1/gCt1wSxEcrYWbmTl9Q=;
+        b=A+zAZdkwFYGFsXgSh1eLfX/3SQ6/Tarf+VZKcJ6PlouDhKbJbV8FyJBbJpx3oYUbMV
+         W49/v2FIeb7Cu1QpVxqIks5WNjcvyd8hBrPeAaxeaae2YrvpcOwR4+aElXq082vwHPIy
+         jbl05SvPGLSlOoIwEVuQmV+uur/8li0QFMXoiG7uBYnZErviNFnJ0pfcwOLCTvGsM3Pd
+         gKx1ADpR78FngTlDXdadD5hYMgZImPVy2TO/w77UnuSDWx8founmSlxyFpK23RhnvbG4
+         qWtpjHNnqohJucurOlAHaOag5ZG/4lBkGQMrnu3Hv/xpOZYIEoP2Gip6ZQqjAqLqzIPZ
+         QC4w==
+X-Forwarded-Encrypted: i=1; AJvYcCU6tyckhjgMLci6QBa/OPhWGphciCQ+gH2zzwKYcYEJMlJtotS2hHwmQWDnsN6GJybuW90l+y0JwbQAKfo=@lists.infradead.org, AJvYcCXsrJ9DCEXm8dZ7f7lq0qclqDoahaiuX/yuvNg5JT/EF3M4rj5GmLw4pUEQWt0i2e3SfdMzOLuDQaYqVDqloQBe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuUm6EhKSjkIhhXSsCv/xrxurHe17CCYnkvG4iRaLwhV0uDkF0
+	4+FkRieR/gnqV3WCffmLPjfHXUFAVCABE1UQjil1nRgi4khfFBzw
+X-Google-Smtp-Source: AGHT+IFpOd28fEHMTcKxVcGsg5KEPz6mrlaxZYvtZFvJjTxq2WDoP6vXaOQgIFHT9LXF1AJwY1a6nA==
+X-Received: by 2002:a05:6a00:190e:b0:71e:4c86:6594 with SMTP id d2e1a72fcca58-72030a51d13mr11382153b3a.10.1729818624886;
+        Thu, 24 Oct 2024 18:10:24 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a0b9b1sm53397b3a.133.2024.10.24.18.10.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 18:09:29 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
+        Thu, 24 Oct 2024 18:10:24 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH 3/3] ARM: dts: imx6sl: Pass tempmon #thermal-sensor-cells
-Date: Thu, 24 Oct 2024 22:08:55 -0300
-Message-Id: <20241025010855.1593365-3-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241025010855.1593365-1-festevam@gmail.com>
-References: <20241025010855.1593365-1-festevam@gmail.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/4] riscv: sophgo: Add ethernet support for SG2044
+Date: Fri, 25 Oct 2024 09:09:56 +0800
+Message-ID: <20241025011000.244350-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_180932_242833_4FE284F0 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20241024_181026_230508_7F1202A3 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +112,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+The ethernet controller of SG2044 is Synopsys DesignWare IP with
+custom clock. Add glue layer for it.
 
-According to fsl,imx-anatop.yaml, #thermal-sensor-cells is a required
-property.
+Since v2, these patch depends on that following patch that provides
+helper function to compute rgmii clock:
+https://lore.kernel.org/netdev/20241013-upstream_s32cc_gmac-v3-4-d84b5a67b930@oss.nxp.com/
 
-Add it to fix the following dt-schema warning: 
+Changed from v1:
+1. patch 2: remove sophgo,syscon as this mac delay is resolved.
+2. patch 2: apply all the properties unconditionally.
+3. patch 4: remove sophgo,syscon code as this mac delay is resolved.
+4. patch 4: use the helper function to compute rgmii clock.
+5. patch 4: use remove instead of remove_new for the platform driver.
 
-tempmon: '#thermal-sensor-cells' is a required property
+Inochi Amaoto (4):
+  dt-bindings: net: snps,dwmac: Add dwmac-5.30a version
+  dt-bindings: net: Add support for Sophgo SG2044 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+  net: stmmac: Add glue layer for Sophgo SG2044 SoC
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/imx/imx6sl.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 124 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 109 +++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   3 +-
+ 6 files changed, 251 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-index 6aa61235e39e..6c98670a44ff 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-@@ -631,6 +631,7 @@ tempmon: tempmon {
- 					nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
- 					nvmem-cell-names = "calib", "temp_grade";
- 					clocks = <&clks IMX6SL_CLK_PLL3_USB_OTG>;
-+					#thermal-sensor-cells = <0>;
- 				};
- 			};
- 
--- 
-2.34.1
+--
+2.47.0
 
 
