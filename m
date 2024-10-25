@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D86D0C601
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB51D0C601
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2umKUDZroJhKWGugCA3KI+nJ29nYBg6+yfjh//bdgw=; b=c/WTjPAUfWN77r0Q8tY+ORjfZr
-	AnsQ4syTSWIFXtuXJcBBJ1vEH3WItDGUjj0dzJRNTIMSEulC4vBrctV7LKvb4JVWPkFI/7gB0jBdm
-	gUHcwAGprPV95CbcAYL1HvdVL+3hPzvbRnD/JiQ5eWMBiyRerQ3iiMl5CAjkNpkWJFFgzTb3Kx9ZF
-	FXvkfAgdy02ZghgKYrKjXwTlo9tPDu+6YfF8DTZ2SNVb1UkYEsn+n5tAUnBG6QQGv+uTgaQEkI/tk
-	uqJTBVf7fSL2NRTieWeSWBv0dbLz14xGmyx3dofC9dXlSFQ+42cU+qDPNmGNBlvlPNa2Cr949Zy+T
-	fRfGG5vA==;
+	bh=1rwfDoTPSMRtfXHmINVRgiQrkEDJjKEQXCOsodjYaCQ=; b=jqMHLBPftrqn3W2h4sk6w6yNCq
+	B1Myb69bEWu96/Epnkm/cheXEz7IVeZajJLIAQ1D2fKNDRPfGoXChnjgLR7Gn/NepAOgOzuuApgkG
+	AIRuNmVF8MTaeGypuxziMbWtS+OX1L5T/HaU8eMHkus5ccTTrwsXFp3CXVQOs8I9kLJRWkikIdjS0
+	hWMe3h+PUbf4qXBN5HEw90eCrI2su8OGXc10cD1SIa7KLCRxAGp9G7b9BNTRvxB4RRmAIjQgxK79L
+	SFKVRo1/jiTVE9A0WGelliI405/sXkGy0agIzSu3tcJ9QHiErvQmuB4XJIUfFATqRFT786qlGgGmU
+	2seseV1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JFe-00000003cbN-2FqD;
-	Fri, 25 Oct 2024 12:17:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t4JJf-00000003dKt-2wBA;
+	Fri, 25 Oct 2024 12:21:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JD6-00000003cON-3PWU
+	id 1t4JI2-00000003cuy-2e8T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 12:14:34 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PB2LML001170;
-	Fri, 25 Oct 2024 12:14:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l2umKUDZroJhKWGugCA3KI+nJ29nYBg6+yfjh//bdgw=; b=ESf501mKksOL8WaZ
-	oHthjn1WorQOyADQLZeoCbY9tMA5wX+EEfTL4g2R3v7Gjd5tSVe1570esSqINzES
-	vU+DN4p7Su8wRLfNUZbWoPUhtK9o04nNXR0cL1if+WtiMYQwPooSaglCxxPqn/fj
-	bPeQTr4fWz/kOHcFITl8TTNXN+VmSJjTRqCfRZXTKbDxJyRlyZF27IUfGK+XvDW8
-	IzuXLOrKAk/HTLnKoEdDZYZmPEUl8X6EandEhhQNwFcplkY9E3C3JiFyOYs2KNkA
-	lntzj3bWmEHh7a5dhXwk97g7IvCR5LhjcqKdPL4uxQ1wAQ2aUsyQyGVGwx2+k685
-	rH/QXg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ga3s06b8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 12:14:24 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49PCENWY003953
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 12:14:23 GMT
-Received: from [10.239.132.205] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 25 Oct
- 2024 05:14:17 -0700
-Message-ID: <6b70789a-a63b-42e6-beb0-9500cbe99ce7@quicinc.com>
-Date: Fri, 25 Oct 2024 20:14:15 +0800
+	Fri, 25 Oct 2024 12:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1729858776;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1rwfDoTPSMRtfXHmINVRgiQrkEDJjKEQXCOsodjYaCQ=;
+	b=f9bVcjvz3Fq4/aW6H6u6agZkEFu2bNN7SQSoSq64gqkpr7CtS7qqLpMldBArWF6Xq0oDt0
+	qYG4OpFr80QUaSD8eUoBhburJC5vXf6Tg+/1L1rYUvOud7nhq4zYfWisSg1OnqDflssf83
+	M6OFytWcH8XaveGR4GhLLWi+We970lo=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-342-vvk1Z4I9OIGPkrHlzM4JKQ-1; Fri, 25 Oct 2024 08:18:07 -0400
+X-MC-Unique: vvk1Z4I9OIGPkrHlzM4JKQ-1
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-6e5bdb9244eso32852917b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 05:18:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729858687; x=1730463487;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1rwfDoTPSMRtfXHmINVRgiQrkEDJjKEQXCOsodjYaCQ=;
+        b=M5MNAZxkNirOTbNpc5Uu+lPCYUMSKn+4mJi7cuagoqDDUJLtnsOFe7kQeczC9Fgkwk
+         BAWtb/fAUPEGtLy8s+T5VI5WdG1Ox6WH4ulf6w+MTjclKTDxJgHffDwMAr6S2s1XQhJo
+         YXSDqYKP4u/04AQ96ywaGgpxy1eWOTcCnJAouX35pEGbYTPRnt+XtnZ7B7Ojk0QLL6GE
+         47HqA37276+k1jcmnfuhoGTHDnHti+MNGcJbtXCATZVVHQ2bLzK2CzT/3MPr6zX8lrO3
+         9SO0BXIBi/9+RqGGxx/uFQWUp239v3YmtkDVUi0xkyKrXsDOq9c5gGVwhzE33vc1wLuZ
+         GLiA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2hrlCKHEw0GmVt3YU5BzMj+stsqlja4O3ZuO7dKcfxMxQ3DPkGTj2DzzXGKwXvfLJMGTVDBwlvjWHBg4op5GT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ5OIG1HL5BAo2XPwcumL8bMi3yJtLkL7USTAu0/FyCeGXKYQQ
+	VLTPkvaNj9cnRHi5nn8CVGDm5CXQhaKUHzBaI98dGLavsAETY2EtMO8Zc9Cg+f0yo6zC9bA0VC3
+	LrJN5GN9XyF29Vg1ws+v2BslMgbkBgaBti79eC9xLjakT7OFVu9WgwgQy+E4+hyXGGkH9QnI3
+X-Received: by 2002:a05:6902:2505:b0:e29:6692:d84 with SMTP id 3f1490d57ef6-e2f2fbc0f20mr5328319276.36.1729858687236;
+        Fri, 25 Oct 2024 05:18:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH1rUBoEoKRi1UMAQxws2WSnv93vUPbVshx6vDErv0r8+kymJM8JDcqvagwSTJs1tTUrJWTGA==
+X-Received: by 2002:a05:6902:2505:b0:e29:6692:d84 with SMTP id 3f1490d57ef6-e2f2fbc0f20mr5328299276.36.1729858686859;
+        Fri, 25 Oct 2024 05:18:06 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-461323abd6csm5321731cf.94.2024.10.25.05.18.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 05:18:05 -0700 (PDT)
+Message-ID: <92d755af-e19b-49a5-b4df-a8ed0fb7aece@redhat.com>
+Date: Fri, 25 Oct 2024 14:18:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] arm64: dts: qcom: add base QCS615 RIDE dts
-To: Bjorn Andersson <andersson@kernel.org>
-CC: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <kernel@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Tingguo Cheng
-	<quic_tingguoc@quicinc.com>
-References: <20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com>
- <20241022-add_initial_support_for_qcs615-v4-6-0a551c6dd342@quicinc.com>
- <4bhsuysjm2uwkk52g4pkspiadsf5y4m2afotj7ggo2lnj24ip2@yqkijcdkiloj>
-From: Lijuan Gao <quic_lijuang@quicinc.com>
-In-Reply-To: <4bhsuysjm2uwkk52g4pkspiadsf5y4m2afotj7ggo2lnj24ip2@yqkijcdkiloj>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: qCoYAuai4UbGPRAqXxGarM2Wbazx9fa8
-X-Proofpoint-GUID: qCoYAuai4UbGPRAqXxGarM2Wbazx9fa8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 clxscore=1015
- impostorscore=0 bulkscore=0 mlxlogscore=999 malwarescore=0 suspectscore=0
- phishscore=0 lowpriorityscore=0 mlxscore=0 priorityscore=1501 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2410250092
+Subject: Re: [PATCH] KVM: arm64: Don't eagerly teardown the vgic on init error
+To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, stable@vger.kernel.org,
+ Alexander Potapenko <glider@google.com>
+References: <20241009183603.3221824-1-maz@kernel.org>
+ <3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
+ <86ldyd2x7t.wl-maz@kernel.org>
+ <eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_051432_894874_FC17CA61 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20241025_051938_791324_00DE161B 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,309 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark, Marc,
+
+On 10/25/24 12:54, Mark Brown wrote:
+> On Thu, Oct 24, 2024 at 07:05:10PM +0100, Marc Zyngier wrote:
+>> Mark Brown <broonie@kernel.org> wrote:
+> 
+>>> # ==== Test Assertion Failure ====
+>>> #   lib/kvm_util.c:724: false
+>>> #   pid=1947 tid=1947 errno=5 - Input/output error
+>>> #      1	0x0000000000404edb: __vm_mem_region_delete at kvm_util.c:724 (discriminator 5)
+>>> #      2	0x0000000000405d0b: kvm_vm_free at kvm_util.c:762 (discriminator 12)
+>>> #      3	0x0000000000402d5f: vm_gic_destroy at vgic_init.c:101
+>>> #      4	 (inlined by) test_vcpus_then_vgic at vgic_init.c:368
+>>> #      5	 (inlined by) run_tests at vgic_init.c:720
+>>> #      6	0x0000000000401a6f: main at vgic_init.c:748
+>>> #      7	0x0000ffffa7b37543: ?? ??:0
+>>> #      8	0x0000ffffa7b37617: ?? ??:0
+>>> #      9	0x0000000000401b6f: _start at ??:?
+>>> #   KVM killed/bugged the VM, check the kernel log for clues
+>>> not ok 10 selftests: kvm: vgic_init # exit=254
+> 
+>>> which does rather look like a test bug rather than a problem in the
+>>> change itself.
+> 
+>> Well, the test tries to do braindead things, and then the test
+>> infrastructure seems surprised that KVM tells it to bugger off...
+> 
+>> I can paper over it with this (see below), but frankly, someone who
+>> actually cares about this crap should take a look (and ownership).
+As I am the original contributor of the crap I can definitively have a
+look at it and take ownership. Those tests were originally written
+because the init sequence was different between kvmtool and qemu and we
+had regular regressions when touching the init sequence at some point.
+Now this may be not valid anymore ...
+> 
+> I'm not even sure that's a terrible fix, looking at the changelog I get
+> the impression the test is deliberately looking to do problematic things
+> with the goal of making sure that the kernel handles them appropriately.
+> That's not interacting well with the KVM selftest framework's general
+> assert early assert often approach but it's a reasonable thing to want
+Can you elaborate on the "assert early assert often approach". What
+shall this test rather do according to you?
+
+I am OoO next week but I can have a look afterwards. On which machine is
+it failing?
+
+Thanks
+
+Eric
 
 
-在 10/23/2024 10:09 AM, Bjorn Andersson 写道:
-> On Tue, Oct 22, 2024 at 04:54:34PM GMT, Lijuan Gao wrote:
-> 
-> "arm64: dts: qcom: add base QCS615 RIDE dts"
->           ^ You already have dts here     ^ no need to put it here again
-> 
-> 
-> I'd suggest that we make the subject "arm64: dts: qcom: Add QCS615 RIDE board"
-> 
-
-Got it, I will update the title in the next version.
-
->> Add initial support for Qualcomm QCS615 RIDE board and enable
->> the QCS615 RIDE board to shell with uart console.
->>
->> [Tingguo: added regulator nodes]
-> 
-> Are you saying:
-> - Lijuan wrote the patch
-> - Lijuan signed the certificate of origin (i.e. he's allowed to
->    contribute its content)
-> - Tingguo added regulator nodes
-> - Tingguo signed the certificate of origin (i.e. patch was based on work
->    that was certified)
->    
-> Or are you saying:
-> "Tingguo and I developed this patch in pair programming fashion"
-> 
-> If so, I'd suggest dropping the "[Tingguo:...]" line.
-> 
-Yes, I wrote the base patch and Tingguo added the regulator nodes. I 
-will update the commit message with "Written with help from Tingguo 
-Cheng (added regulator nodes)" as suggested in the initial dtsi comments
-
->> Co-developed-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
->> Signed-off-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
->> Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/Makefile        |   1 +
->>   arch/arm64/boot/dts/qcom/qcs615-ride.dts | 219 +++++++++++++++++++++++++++++++
->>   2 files changed, 220 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
->> index 065bb19481c1..f14643187cac 100644
->> --- a/arch/arm64/boot/dts/qcom/Makefile
->> +++ b/arch/arm64/boot/dts/qcom/Makefile
->> @@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-idp.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
->> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
->>   dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
->> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
->> new file mode 100644
->> index 000000000000..ee6cab3924a6
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
->> @@ -0,0 +1,219 @@
->> +// SPDX-License-Identifier: BSD-3-Clause
->> +/*
->> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
->> + */
->> +/dts-v1/;
->> +
->> +#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
->> +#include "qcs615.dtsi"
->> +/ {
->> +	model = "Qualcomm Technologies, Inc. QCS615 Ride";
->> +	compatible = "qcom,qcs615-ride", "qcom,qcs615";
->> +	chassis-type = "embedded";
->> +
->> +	aliases {
->> +		serial0 = &uart0;
->> +	};
->> +
->> +	chosen {
->> +		stdout-path = "serial0:115200n8";
->> +	};
->> +
->> +	clocks {
->> +		sleep_clk: sleep-clk {
->> +			compatible = "fixed-clock";
->> +			clock-frequency = <32000>;
->> +			#clock-cells = <0>;
->> +		};
->> +
->> +		xo_board_clk: xo-board-clk {
->> +			compatible = "fixed-clock";
->> +			clock-frequency = <38400000>;
->> +			#clock-cells = <0>;
->> +		};
->> +	};
->> +};
->> +
->> +&apps_rsc {
->> +	regulators-0 {
->> +		compatible = "qcom,pm8150-rpmh-regulators";
->> +		qcom,pmic-id = "a";
->> +
->> +		vreg_s3a: smps3 {
-> 
-> You don't reference any of these regulators.
-> 
-> Can you please confirm that when you boot the qcs615 ride device with
-> this dtb it actually boots with a debug uart and does not crash when the
-> regulator framework disable all these "unused" regulators?
-> 
-> Regards,
-> Bjorn
-> 
-Yes, the device booted successfully. The regulator is part of Tingguo’s 
-PMIC-related modifications. The RPMhpd, which UART depends on, is also 
-part of this series of changes. The regulator will be used later, so 
-both of them were added.
-
->> +			regulator-name = "vreg_s3a";
->> +			regulator-min-microvolt = <600000>;
->> +			regulator-max-microvolt = <650000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_s4a: smps4 {
->> +			regulator-name = "vreg_s4a";
->> +			regulator-min-microvolt = <1800000>;
->> +			regulator-max-microvolt = <1829000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_s5a: smps5 {
->> +			regulator-name = "vreg_s5a";
->> +			regulator-min-microvolt = <1896000>;
->> +			regulator-max-microvolt = <2040000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_s6a: smps6 {
->> +			regulator-name = "vreg_s6a";
->> +			regulator-min-microvolt = <1304000>;
->> +			regulator-max-microvolt = <1404000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l1a: ldo1 {
->> +			regulator-name = "vreg_l1a";
->> +			regulator-min-microvolt = <488000>;
->> +			regulator-max-microvolt = <852000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l2a: ldo2 {
->> +			regulator-name = "vreg_l2a";
->> +			regulator-min-microvolt = <1650000>;
->> +			regulator-max-microvolt = <3100000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l3a: ldo3 {
->> +			regulator-name = "vreg_l3a";
->> +			regulator-min-microvolt = <1000000>;
->> +			regulator-max-microvolt = <1248000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l5a: ldo5 {
->> +			regulator-name = "vreg_l5a";
->> +			regulator-min-microvolt = <875000>;
->> +			regulator-max-microvolt = <975000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l7a: ldo7 {
->> +			regulator-name = "vreg_l7a";
->> +			regulator-min-microvolt = <1800000>;
->> +			regulator-max-microvolt = <1900000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l8a: ldo8 {
->> +			regulator-name = "vreg_l8a";
->> +			regulator-min-microvolt = <1150000>;
->> +			regulator-max-microvolt = <1350000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l10a: ldo10 {
->> +			regulator-name = "vreg_l10a";
->> +			regulator-min-microvolt = <2950000>;
->> +			regulator-max-microvolt = <3312000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l11a: ldo11 {
->> +			regulator-name = "vreg_l11a";
->> +			regulator-min-microvolt = <1232000>;
->> +			regulator-max-microvolt = <1260000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l12a: ldo12 {
->> +			regulator-name = "vreg_l12a";
->> +			regulator-min-microvolt = <1800000>;
->> +			regulator-max-microvolt = <1890000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l13a: ldo13 {
->> +			regulator-name = "vreg_l13a";
->> +			regulator-min-microvolt = <3000000>;
->> +			regulator-max-microvolt = <3230000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l15a: ldo15 {
->> +			regulator-name = "vreg_l15a";
->> +			regulator-min-microvolt = <1800000>;
->> +			regulator-max-microvolt = <1904000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l16a: ldo16 {
->> +			regulator-name = "vreg_l16a";
->> +			regulator-min-microvolt = <3000000>;
->> +			regulator-max-microvolt = <3312000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
->> +			regulator-allow-set-load;
->> +			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
->> +						   RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +
->> +		vreg_l17a: ldo17 {
->> +			regulator-name = "vreg_l17a";
->> +			regulator-min-microvolt = <2950000>;
->> +			regulator-max-microvolt = <3312000>;
->> +			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->> +		};
->> +	};
->> +};
->> +
->> +&gcc {
->> +	clocks = <&rpmhcc RPMH_CXO_CLK>,
->> +		 <&rpmhcc RPMH_CXO_CLK_A>,
->> +		 <&sleep_clk>;
->> +};
->> +
->> +&qupv3_id_0 {
->> +	status = "okay";
->> +};
->> +
->> +&rpmhcc {
->> +	clocks = <&xo_board_clk>;
->> +};
->> +
->> +&uart0 {
->> +	status = "okay";
->> +};
->> +
->> +&watchdog {
->> +	clocks = <&sleep_clk>;
->> +};
->>
->> -- 
->> 2.46.0
->>
-
--- 
-Thx and BRs
-Lijuan Gao
+> to test so relaxing the asserts like this is one way of squaring the
+> circile.
 
 
