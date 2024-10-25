@@ -4,117 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3289D0C61D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D443D0C61B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=ZX13lGCL77zSdVfWnnmgkIxrN0
-	plV9/qNlZ5zQ3ddqE6qCP4kP4WFSk3sNfxlIwzM0Ml4U1K8TOM84mKRO8go1+2OJsbwLoVhluDPL+
-	BTcNKXRRsT+R164PaGxAcJG0wWYyyOhRJgGPE3wki3x7aBuy/jawhrttn6wBRU0U2Wa2C4NXYAqWX
-	/Ehh9jQqLZLX0w7soO2cHxPxX0borCdAvD1nNfaf4b+BdgLjMtfbEopiVbBUVJym4Bb1fWpWh+81P
-	asN90GFGvkAc/R7hOSyLDg2HxH5jyjsSawgIGTZZSVaYYCgHfwBzCm9vRil9aEHJxKwQKNzGoSSq0
-	VbMQz9yw==;
+	bh=fbRBhp0nksiEsDwTJjRTX0/cwvwxa/39KRzDImBUbOA=; b=shwx/uhcSQ9RVIq46lmFAuoMRW
+	qMSCUMsJBs8JIu+5JeTnDVC9zobQPg5rGLgebOzH43nO7lJ9/4nMMBSpveeAfFI5pdMnIkfCgDtTE
+	h1WVWYs6B5HzH6DYYVeyMdhkaB6TlBArv5kriEbZVhjiXSSYsccz+h3hFEMFXTJKEDKvY9yYttIUG
+	ng3ve6c+AVhfA7mjICXIR71RCh27xpdLTzbyeVlZHSaDKNWWwU+y8OgpvdvQvtnkRy6qf1a5sQD9/
+	bpHuSz15OU7ySORDCSiP/EtP1xSGUvjvAClpYzJFzYybX8O5f8LwqP93pdmkDJSFU5Eabs2Zs7cy2
+	ck2lw7qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LVe-000000043Mq-2SNd;
-	Fri, 25 Oct 2024 14:41:51 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
+	id 1t4LXC-000000043fp-2Jjk;
+	Fri, 25 Oct 2024 14:43:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LB1-00000003zQF-359P
+	id 1t4LDI-0000000400w-2pPn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:20:33 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.stl.internal (Postfix) with ESMTP id 7146011400DA;
-	Fri, 25 Oct 2024 10:20:29 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 25 Oct 2024 10:20:30 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1729866029;
-	 x=1729952429; bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=
-	ABY0h0DTDAGctuJpIL6sS/zNH1ENNSmPu1GTEjlpQ5i/MnCrJwqbpzaF8Fzl6SAE
-	ty89srR+XMB3y0GO59LDr1lbqoSGUHF5vYQgUpFuvNnO1I9a4HVWWkekFIh4+iw3
-	++kRrGeULuovgoGE3lEBDVxVt76SyxQs7lrHVSg8RuKA40TCIekZuPf24SgW3VWv
-	y3Go9YZsNXysA0v31RtM5mhjq55MKMYCRF8fvYc4ghnxRT3QD8XS1b9MC2d8P6d6
-	Z8U2JobiENX6AweBG/AEkr2ZKdC++1C11Tmg1u0yUG3X4E9UHQDdWn82DAio4qtN
-	aMp4W5bYIp8Yz6/pab3idg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729866029; x=
-	1729952429; bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=A
-	MDBtAyiMr0utwlTGZ9ahqEfZF+IyfWeBqehZ/0Ns+cmcssE0+i0bkROW05yMQsdU
-	cOTraYDNR+PM39pXp17Q9l9ugknz+vTCTQqT/gZhppAEN6O0InRdGseTWr8j1cze
-	Fh85jShfOWDbEdB0hWDEpn6IEq1jIfU7dSqLAnRoCGh4mEvMa8892HRjDW/qPVrh
-	sqZA/2i1Ti+Bigv3Tveu8uo1Y8isbmRx0sJLqb1tUaroWhRIpYaXvCvPydz38kPd
-	pYcZr+L3SnOemqTzyNUjsUx5qUUrTSGRa8aYrLXmY/VkDwv4EtZ/DOZ7py6b/hVf
-	mW3ecRgZZT5G1a+zLc9rw==
-X-ME-Sender: <xms:LKkbZ6icSWtXOvkpYM87hQ0HLds7qfX9s7056_cXCQ0XSAle9zkPOA>
-    <xme:LKkbZ7C_7DPvl407kdsjlRrFBtoBQJcEsNgwljwRSIMZwcU56VrT5yfDgceTXrYKx
-    0resZ0Qv9r5yzYJWd0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdejvddgjeehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddu
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegurghvihgurdhlrghighhhthesrg
-    gtuhhlrggsrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghr
-    mhdrtghomhdprhgtphhtthhopehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrd
-    gtohhmpdhrtghpthhtohephhgthhesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthho
-    pehjvhgvthhtvghrsehkrghlrhgrhihinhgtrdgtohhmpdhrtghpthhtohephihsihhonh
-    hnvggruheskhgrlhhrrgihihhntgdrtghomhdprhgtphhtthhopegthhgvnhhhuhgrtggr
-    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhuohhrvghnsehkvghrnhgvlhdroh
-    hrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:LKkbZyEWph2OfuX5rp36qDXrBJGFeVx6L1j670c9oST-ROWHYLjhYQ>
-    <xmx:LKkbZzR-6CCISyD9v6h5geDwiCkn4rdaBNnAtm7k4SX1CIBqrMUUXQ>
-    <xmx:LKkbZ3w4lJB7XWYZExVb0i0_12fv6iRgHLcVQnpS3OZQYPaEV3l1GQ>
-    <xmx:LKkbZx4REtWx5i2Ye5_3HOyXw3kOW56cp2xiDUXTExtzk2q_YJoAQw>
-    <xmx:LakbZ8y4B_V6lMqvAbM25tHAe9VzZYCl0gf6JwYlrpYjDtQ8-3zK5Ogl>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1E61A2220071; Fri, 25 Oct 2024 10:20:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 25 Oct 2024 14:22:54 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PBC3IQ017697;
+	Fri, 25 Oct 2024 14:22:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fbRBhp0nksiEsDwTJjRTX0/cwvwxa/39KRzDImBUbOA=; b=ZE0KHZ+GY85xP6fS
+	p7gBZWklnjbqKAPIXNenvdNFftGJ6h4uwgMMDLtFg4VlMwkA5boaHBm4M20ozYs2
+	P/cnbHlHKlMkMTCRs6Idtr2jKugWVRXwORyG/SrPRSYj6V6Xq6kI0TyzvKSRs1CJ
+	anr9wF8dLoA210/Xp9tSPSk2keyELZZAaxKg1W6F/dP5EAQtahIowENrSmcvn4up
+	ZmNMglWxPUQvKAPObc0sFEkX5FIA8oVJorQoV3dbyKmJo341a+iSvKs/2OgKWQQJ
+	tfofNBH5KtdGpumjm3hugsuicXTSBXjhB8gxYgHmjl9/vqD/HG4MTJXbQQasJ34T
+	KkkriQ==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3whe9m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 14:22:41 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49PEMeov023378
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 14:22:40 GMT
+Received: from [10.214.227.50] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 25 Oct
+ 2024 07:21:54 -0700
+Message-ID: <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
+Date: Fri, 25 Oct 2024 19:51:22 +0530
 MIME-Version: 1.0
-Date: Fri, 25 Oct 2024 14:20:06 +0000
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "David Laight" <David.Laight@aculab.com>,
- "Julian Vetter" <jvetter@kalrayinc.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- guoren <guoren@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Richard Henderson" <richard.henderson@linaro.org>,
- "Niklas Schnelle" <schnelle@linux.ibm.com>, "Takashi Iwai" <tiwai@suse.com>,
- "Miquel Raynal" <miquel.raynal@bootlin.com>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Christoph Hellwig" <hch@infradead.org>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- Linux-Arch <linux-arch@vger.kernel.org>,
- "Yann Sionneau" <ysionneau@kalrayinc.com>
-Message-Id: <a6c524d4-d741-438a-b8ae-2492058a3b3b@app.fastmail.com>
-In-Reply-To: <0577266edb9440acb082c9e02c0a73b9@AcuMS.aculab.com>
-References: <20241021133154.516847-1-jvetter@kalrayinc.com>
- <0577266edb9440acb082c9e02c0a73b9@AcuMS.aculab.com>
-Subject: Re: [PATCH v10 0/4] Replace fallback for IO memcpy and IO memset
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in smmu
+ reset operation
+To: Will Deacon <will@kernel.org>
+CC: <robdclark@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+        <jgg@ziepe.ca>, <jsnitsel@redhat.com>, <robh@kernel.org>,
+        <krzysztof.kozlowski@linaro.org>, <quic_c_gdjako@quicinc.com>,
+        <dmitry.baryshkov@linaro.org>, <iommu@lists.linux.dev>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Konrad Dybcio <konrad.dybcio@linaro.org>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+ <20241024125241.GD30704@willie-the-truck>
+Content-Language: en-US
+From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+In-Reply-To: <20241024125241.GD30704@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: y1Vf84Z4S45OAOubf3kdrxvTuc6LPKz7
+X-Proofpoint-ORIG-GUID: y1Vf84Z4S45OAOubf3kdrxvTuc6LPKz7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
+ mlxscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 clxscore=1011
+ priorityscore=1501 mlxlogscore=999 suspectscore=0 bulkscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2410250111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_072031_875789_51C7550F 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20241025_072252_872827_787916CB 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,103 +106,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 21, 2024, at 14:16, David Laight wrote:
-> From: Julian Vetter
->> Sent: 21 October 2024 14:32
->> 
->> Thank you again for your remarks Arnd and Christoph! I have updated the
->> patchset, and placed the functions directly in asm-generic/io.h. I have
->> dropped the libs/iomem_copy.c and have updated/clarified the commit
->> message in the first patch.
->
-> Apart from build 'issues' what is the justification for inlining
-> these functions?
 
-I think I wasn't clear enough with my previous comment, and Julian
-just misunderstood what I was asking him to do. Sorry about causing
-extra work here.
 
-> They are quite large for inlining and some drivers could easily
-> call them many times.
->
-> The I/O cycles themselves are likely to be slow enough that
-> the cost of a function call is pretty much likely to be noise.
+On 10/24/2024 6:22 PM, Will Deacon wrote:
+> On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
+>> Default MMU-500 reset operation disables context caching in
+>> prefetch buffer. It is however expected for context banks using
+>> the ACTLR register to retain their prefetch value during reset
+>> and runtime suspend.
+>>
+>> Replace default MMU-500 reset operation with Qualcomm specific reset
+>> operation which envelope the default reset operation and re-enables
+>> context caching in prefetch buffer for Qualcomm SoCs.
+>>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+>> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+>> ---
+>>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
+>>   1 file changed, 42 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> index 087fb4f6f4d3..0cb10b354802 100644
+>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> @@ -16,6 +16,16 @@
+>>
+>>   #define QCOM_DUMMY_VAL	-1
+>>
+>> +/*
+>> + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
+>> + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
+>> + * buffer). The remaining bits are implementation defined and vary across
+>> + * SoCs.
+>> + */
+>> +
+>> +#define CPRE			(1 << 1)
+>> +#define CMTLB			(1 << 0)
+>> +
+>>   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>>   {
+>>   	return container_of(smmu, struct qcom_smmu, smmu);
+>> @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
+>>   	return match ? IOMMU_DOMAIN_IDENTITY : 0;
+>>   }
+>>
+>> +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
+>> +{
+>> +	int ret;
+>> +	u32 val;
+>> +	int i;
+>> +
+>> +	ret = arm_mmu500_reset(smmu);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/*
+>> +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
+>> +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
+>> +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
+>> +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
+>> +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
+>> +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
+>> +	 * during reset and runtime suspend operations.
+>> +	 */
+>> +
+>> +	for (i = 0; i < smmu->num_context_banks; ++i) {
+>> +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
+>> +		val |= CPRE;
+>> +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
+>> +	}
+> 
+> If CPRE only needs to be disabled prior to r2p2, then please teach the
+> MMU-500 code about that instead of adding qualcomm-specific logic here.
+> 
 
-I'm not overly worried about the this, as the functions are
-not that big and there are not that many callers. If a file
-contains multiple calls to this function, we can expect the
-compiler to be smart enough to keep it out of line, though it
-still gets duplicated in each driver calling it.
+Doing this on MMU-500 code would make it generic and reflect for SoC of 
+all the vendors on this platform.
+We can make sure that it won't cause any problems in Qualcomm SoCs as we 
+have been enabling this since for some years now and could not 
+observe/reproduce any issues around these errata.
 
-The bit that I am worried about however is the extra #include
-for linux/unaligned.h that pulls in fairly large headers
-and may lead to circular header dependencies.
+But we won't be able to guarantee the same behavior in SoC for other 
+vendors where these errata might still be applicable as per [1] and [2].
+So as per my understanding it's safe to include in Qualcomm specific 
+implementation and not changing the default behavior in all other 
+vendors' SoC even if they are not prior to r2p2 revision [3].
 
-To be clear: what I had expected here was to not have any
-changes to the v9 version of lib/iomem_copy.c and to simplify
-the asm-generic/io.h change to the version below.
+[1]: 
+https://lore.kernel.org/all/4db1b4d2-0aa9-4640-b7d7-7d18ab64569a@arm.com/
+[2]: 
+https://lore.kernel.org/all/467590c40029ef0712b1fd38f2928fd4f08d09af.1726232138.git.robin.murphy@arm.com/
+[3]: 
+https://lore.kernel.org/all/CAA8EJprHppoN6rg8-rS1F+4kynQqmV1L3OiHFnJ0HyrshywFig@mail.gmail.com/ 
 
-       Arnd
 
----
---- a/include/asm-generic/io.h
-+++ b/include/asm-generic/io.h
-@@ -1211,7 +1211,6 @@ static inline void unxlate_dev_mem_ptr(phys_addr_t phys, void *addr)
- #endif
- 
- #ifndef memset_io
--#define memset_io memset_io
- /**
-  * memset_io   Set a range of I/O memory to a constant value
-  * @addr:      The beginning of the I/O-memory range to set
-@@ -1220,15 +1219,10 @@ static inline void unxlate_dev_mem_ptr(phys_addr_t phys, void *addr)
-  *
-  * Set a range of I/O memory to a given value.
-  */
--static inline void memset_io(volatile void __iomem *addr, int value,
--                            size_t size)
--{
--       memset(__io_virt(addr), value, size);
--}
-+void memset_io(volatile void __iomem *addr, int value, size_t size);
- #endif
- 
- #ifndef memcpy_fromio
--#define memcpy_fromio memcpy_fromio
- /**
-  * memcpy_fromio       Copy a block of data from I/O memory
-  * @dst:               The (RAM) destination for the copy
-@@ -1237,16 +1231,11 @@ static inline void memset_io(volatile void __iomem *addr, int value,
-  *
-  * Copy a block of data from I/O memory.
-  */
--static inline void memcpy_fromio(void *buffer,
--                                const volatile void __iomem *addr,
--                                size_t size)
--{
--       memcpy(buffer, __io_virt(addr), size);
--}
-+void memcpy_fromio(void *buffer, const volatile void __iomem *addr,
-+                  size_t size);
- #endif
- 
- #ifndef memcpy_toio
--#define memcpy_toio memcpy_toio
- /**
-  * memcpy_toio         Copy a block of data into I/O memory
-  * @dst:               The (I/O memory) destination for the copy
-@@ -1255,11 +1244,8 @@ static inline void memcpy_fromio(void *buffer,
-  *
-  * Copy a block of data to I/O memory.
-  */
--static inline void memcpy_toio(volatile void __iomem *addr, const void *buffer,
--                              size_t size)
--{
--       memcpy(__io_virt(addr), buffer, size);
--}
-+void memcpy_toio(volatile void __iomem *addr, const void *buffer,
-+                size_t size);
- #endif
- 
- extern int devmem_is_allowed(unsigned long pfn);
+Thanks & regards,
+Bibek
+
+
+
+> Will
 
