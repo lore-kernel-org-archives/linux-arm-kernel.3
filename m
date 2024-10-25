@@ -4,168 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719F7D0C60D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E45DD0C608
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiOjV3UDoXTNZlpbwNibDRK/+GfCJSZGMJeoSXROglg=; b=WzWYMLBgRXMIrf1Oz4C856PLfQ
-	MV2IF+EYudiZR/qP9O51wF0M2hR7QjjLBx1S4IL54TLzmhpxvSAnVAJOBn6RSmuPuvE7sp4an9oVO
-	cG8ekMV2Givianmg43hkNdmY09j9yCdA02d6Os2T/ZRwPs4Q5XX+RMc+G8VuuzxyojLJpbLbbkbCl
-	g2+1PdILd4Zl0XjcWmRvoMoM4i8OoFBLSijw+WAZJ5MP79FZn0PH9mzc+ziYkvvdv5i2Orah5WPrR
-	1kYtLDVflRBa4dDw+guHb41EPSomwLtC1lecByMwzV0syj+7dmEr+iJP5a9sJyKRTyRHPvoJBuUpA
-	nD63f2uA==;
+	bh=uulKs7R9OvjriBWT/CC8Pnu+w5NlV4zIkkgOTtPu4c0=; b=PyxubVQfuEvuGwhmro6QmL0H49
+	QsiW2wuP0LxLVS06JOM9QyXLtmgGPGtTetqSLg3cJHKY0VzcobIeU8dUEQRx5ZgeGGTvXqazUyZ4Z
+	vffJsPeCNIyKhBlL5E+5Ial6MUSYMi03H/bLLIZzZqphLnRsUF9Ux3WKAxeeMT7C2xH4RsvbQmUNh
+	q2m0Sp4EN1sDYEnJVB44jF1hqEzo9M6PcI5RE1SOiaJJLkksqVNS4D5TxqHjr81qiAAEpT37IZKgk
+	D+ocNfBeXk2tpYng68jR4idiQjMCz22rvfbj8IUMWyoUvLVt/H+leDlbENjEKM39LT/lWTFzyVxZW
+	CaAmGXmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KZO-00000003qp7-37Kp;
-	Fri, 25 Oct 2024 13:41:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4Kaw-00000003r3H-3SgY;
+	Fri, 25 Oct 2024 13:43:14 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KFa-00000003nrr-0M02
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 13:21:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NiOjV3UDoXTNZlpbwNibDRK/+GfCJSZGMJeoSXROglg=; b=o+pzUqQlqIhRF8WQ0bkLOvTpAr
-	wU8Gut/wM2pzNql4j1ZRLLcA0TaBy51Bx7fUdwkM3Vud5QcGHgDKp00n2RE5xUwz78G1md958NHh7
-	V9tHeVRCLqMS2c9QO3e0GsUSofXvXuKbfZ2zznpz1jwPf2gtzBPuYh5a5fPVDxbkOXsi8hGT1hBrg
-	ZHe5Mv4UUjqW3T7vxab0e/htdBTe1l26Bm9tWreuCZiL6IdhsEWluNsUepeNolEBTtHe548EihrG6
-	Ix28uS6RGrfG7q4ezrTEz07Y3NnHsqFi/NXMKNIob/4OF/xF6u+joK6Yx1ZHYwh04QizAOTd2eWt2
-	Fu516JAw==;
-Received: from mail-co1nam11on20609.outbound.protection.outlook.com ([2a01:111:f403:2416::609] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KFW-00000008vQf-3DRF
+	id 1t4KEz-00000003nnM-30Wc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:21:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e9kOeFLWVZJOqsRe1ZbzxdiqRhrZtno0Q0s/Wx3eOmrGsrpQlNmGFw2vRgqbmUsXSLA8WpuM1EB6iFv12Bet7urC4a10Wq69YIScCg0IAQaf7aF6sP+3gWp/Wm4XulKeWMjuakR1AABwav3hbV7Zci1B0ikFrW4hGPw1W+JTtS8AKxY3XH9qbDesw5S8yschV2EJhGyosYAb6ktdy6XKF3ugIeQr4FoGhu+mfmjNkOzbxA2xa8zoimIaIyc088AvSPWuS5ZlpTC93eNSi8W65d6AijpFSIvGsINjXxVha2hrQXkk42AviwWb6oJZOVOBthXFG4SSj35lpv6UwqeQ+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NiOjV3UDoXTNZlpbwNibDRK/+GfCJSZGMJeoSXROglg=;
- b=zLZNRF0mRofguByNyxixBlJPWqTX9MyLpBOVwHur0ggcUgOP0iroBoF+tbex85mcl3J6FRbnPDSCZbD+sDMetfPqHy0K0z5KKoLzXwzyZQlCr2Zs6AHg5YPPpz1xDd+3xjtcFhTXA9mSkeHWjtnh+CY+4+SDCeXaVNbGuAlrXZfjxWt0WrSJML3kS8WKkj8vMyooP0Rl7ReWXJt6HkxIccRH1lsIbSkZOZ+X7ZQx8VaNBKHH6EVaeSD5nEjs526oY1Y30dmawRHpdpaplJ2NJ2mYF2ImgdkAW/V1XDwnaBQqL68iB8jWRiKugfWF2ZllxEvKXNOYqp3iqhP6/gHwAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NiOjV3UDoXTNZlpbwNibDRK/+GfCJSZGMJeoSXROglg=;
- b=QUb8VNOl/kxKFMEOceA2HJqw8Eno3fROesQcTNf0T9C7/0So5UhFYXxjkcWGnrhAC6N37wftbqNiBgA2Pc9TrBxfFdv/CgdEAW2u7f1rE/DNJySJYVKWM63IMLNVA3irXKR8wiQrdaXlE70iIP41xbVW0wUbYPB9+bO4Q3jvzNnpL7tCkqWjlFS2y3yfh8R1ynRAX5ZAw7y5PU0EEOGsYrYN69WjR7UOMzod0gJ8FpNhk/vEFn+qX9nUSW2fAu4GaJC5Uxmw0OLGpcq9l7qb6MCLlANwv1EiDG7LHHdZPQDt4g9b+kR17KxSitU+1GSrUKZGUv2IzJtzt5VTj+1NiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH8PR12MB6841.namprd12.prod.outlook.com (2603:10b6:510:1c8::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Fri, 25 Oct
- 2024 13:20:56 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 13:20:55 +0000
-Date: Fri, 25 Oct 2024 10:20:54 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	will@kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	shuah@kernel.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com, zhangfei.gao@linaro.org,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v4 01/14] iommufd/viommu: Introduce IOMMUFD_OBJ_VDEVICE
- and its related struct
-Message-ID: <20241025132054.GE6956@nvidia.com>
-References: <cover.1729555967.git.nicolinc@nvidia.com>
- <ec230c740b649bba1ca4d2ef054d90c79be4be28.1729555967.git.nicolinc@nvidia.com>
- <11dfc0b3-9e45-4f9b-a029-714105fda9c1@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <11dfc0b3-9e45-4f9b-a029-714105fda9c1@amd.com>
-X-ClientProxiedBy: BN1PR13CA0019.namprd13.prod.outlook.com
- (2603:10b6:408:e2::24) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 25 Oct 2024 13:21:57 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5cacb76e924so2639351a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:20:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729862431; x=1730467231; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=uulKs7R9OvjriBWT/CC8Pnu+w5NlV4zIkkgOTtPu4c0=;
+        b=kM+08tsaB8pafn43P+RdecKf62y7UrDDORcBf2AoIg+w8LDzqusuZBT50zgzJCo5m7
+         H23ktauosm/5aDmjbpNhdBGj1Qp4WdkR+49oOhBwdiHAVcfzs7E1pPbdSitHMtpHc/Dh
+         FE1HhajecDqaHP666/mGJN/6IYP+tgpKPnPz9Ppfc0n6i5NHznuUS2st5ds9sS1TkA6v
+         et4DydzQ3sPNvtL2r4pDmgL157hz/F6EDNfb0deyUHm+9R7m/dpuPBwvDvOvJ1eALGGK
+         7uPTVg3L27GfyzF263gBQSZ1JtJoXR0Di1azVPnLSwbTxvbR6TCVR8zbx+OKo7/W4Wwm
+         42Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729862431; x=1730467231;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uulKs7R9OvjriBWT/CC8Pnu+w5NlV4zIkkgOTtPu4c0=;
+        b=wvZlByiKUTI55YKsZLsQXlG7defPw8e9Li9OFEkocNapt6Lff2cjTLRxSCkBetyEDk
+         LbaZf281xRlbEaCt38Q8BPXNxb98XLmu6FIjKjD7iYJ8qW1uXzQPzeQ2lAfTnMO0Dy4j
+         zErlDwZVdhTTpkxgtC1AxO5pcrB4fFcKKC+5K5OEAhlU86uII4bwAqz/gTLO1wvnxocr
+         cywKdeYi/+8wlU2cNwP8uhXwZQICNP6v4x1WpdL1Q3Q2XC59hPH5x0Rc//ykgiENFjtQ
+         9wNowlJt124+yWn49CGPt/p13gEAcrpkx2xfk3XyMRlfXlBIjg4NM8WyTzHcWlYMVl0p
+         YFEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVwwlREr3BZj3wNci/rnXABLmZQ1YD/2QRKZhd79K7Zcxj2ehpxU8MLdu3Ai8nxxI0dEImmuDd21B4gqxai8ssJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMGvAXtTTiCW8pVkmiUysJ/KNsZCiuZMEICXOlurKwN3UacVRz
+	APXsCEfVojGx/i67GTUlIpbQR02oZI0Aj/zgdu/1+cAFgds3Y+uV01sZRvf+JTDCPKvVo1vG7OZ
+	1IYSxizrn57xoK2F3X2husnEusV8=
+X-Google-Smtp-Source: AGHT+IEb35gUbGtP4InZ6WMm5/IyT/Soo1Ihl70JzBa200ZUM9m1Q+qFTBBqDBODI/YSTqvPEhe969TFOoc5ILzCzQI=
+X-Received: by 2002:a17:907:980c:b0:a99:a9b6:2eb6 with SMTP id
+ a640c23a62f3a-a9abf53587cmr924971066b.0.1729862430611; Fri, 25 Oct 2024
+ 06:20:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH8PR12MB6841:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7db73b04-f418-4216-1a16-08dcf4f7db57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7gq0gustqufuwnB4cK4cxpWpFLunfigvxrc10SHG6fWwxHNYDbX0vZ+bG4R/?=
- =?us-ascii?Q?NoVJ22Yv/keJQJ+tZZgTOvKB5YljcFUtIXE+GwLsaL3DxBv39NX52ugq2pn3?=
- =?us-ascii?Q?YWe0XJBMr3cVTgb6QOASJSaezHL8bs1RkkB+ZpUHlfkS/DahVrrHlQP25jEq?=
- =?us-ascii?Q?ysfnASoSIppKB+OX/eum+efptOA21DGuRNURoeePrtFPcvPyVefnkNmqTXkt?=
- =?us-ascii?Q?dxn4sbVkpTtn48g8mToymgQ6CnYc1WxsiWnme9rTiJ8AHG0ks5B64Pi1DLtK?=
- =?us-ascii?Q?cUO0utw8Asu4xvpPnfr+pCz9sLYsQ2ZjLtFdc9y2kL09XkZjFmNc+h6yN9Td?=
- =?us-ascii?Q?5ZDZyooGsPMILxFnnjBBzmuemmOcpn29ZAZJV8fEf1n9iqo6IUT7lUi8oElU?=
- =?us-ascii?Q?l/nl58E4se/MkWHcKrrz+fTpiXh5rII1Yu+ljDUM1JNvbAv3ARFPub19eKqZ?=
- =?us-ascii?Q?lAb9Up4PFzy4sHI05WiE6MeKmr4bcE68FmiqQ2eQjVqI8gMhRtVtSkiMOp+e?=
- =?us-ascii?Q?0x8sFq+1aPPsdXsDEKtkl9cWgj1cOqjp5MwL55xPluwDK/z6A0AxERyZ8MIB?=
- =?us-ascii?Q?W9aeT37N5E7WlyBVqDvMeSBo95rWFXbv/iL44RkSTRBWd9ZsczqI1S1Hf1qX?=
- =?us-ascii?Q?11pI996HtMHvHwTMeQTbIxRa7Ys+4/Uc5q4shADxbWPJxF1EjujXO+TJFR51?=
- =?us-ascii?Q?Ezgksi6P6Gtr835QOzQ3JCOwNEg1f/fQhUNZZpDq+DiWSBngQ0+K8umU6/Mw?=
- =?us-ascii?Q?igsyGN7QVBPHVmkjhuZS7zvU60l+vXSuJfRJDoWolHgYKch63g06DzCh8VeB?=
- =?us-ascii?Q?adL4FFC4jIAhqM+4L3JhHhl36umf4i7UqNhxr8QvWcRFDla5dE1ALNtge6T0?=
- =?us-ascii?Q?/sM/Je6TACnIJX1RiTFDAOL5zT+OxEnX7e0Ey6kBSvBCDeH9RjUw8GK2Mvhn?=
- =?us-ascii?Q?S4nIlRSSM5hulxo+ttwvkUI/L4vSrXuxGqMcPLQ3icCNIQL0G+CQrvFVKK7r?=
- =?us-ascii?Q?moyKkHPiGGijUM3fM+ZatjiRxYXoj4e39nu8y17ZTsy4pcW9KD2WUBdu1vaa?=
- =?us-ascii?Q?il8Lr70kuU/msXtsKxXJiOUfeGDW3ey2UZ6e++hP8JJir0hQx38eWWwUlvRC?=
- =?us-ascii?Q?BOoY5T8GKhwCy80UP0PpWQgkjiiChQKRQ8E/NMGOF7nIz0dtiRrsQtJHEp5I?=
- =?us-ascii?Q?wOmSIqK7a8e64ytkBoL4qr/K43Clzo45GRkUHAl4zhRuQLvWi8RLEG2U1p7S?=
- =?us-ascii?Q?lIMoW6dhmXizTpWBYTbel8uRkPTduZ1NhAFAnoN5n9w97mLKXYnwfnn0f0U1?=
- =?us-ascii?Q?tdI3ovb/51t36sphOH0Z+1ph?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kDSlpS/tU5rCeeMBBcye7t3mmUHVR03KU8AXe8qNhFmd5kfopfEL2KPXT15x?=
- =?us-ascii?Q?Yj0InW1XBHb3KLeKgEtCU4aPC01p63H922xj+YYBnj/40MO6R4e/8qbj3ohD?=
- =?us-ascii?Q?C92d6J8IzPJzvI7tgn2PEqPw2sq6cs7BfepftHCK7QP+gZgeu3mvhKdpA7Zu?=
- =?us-ascii?Q?8D2bIbumNVzYAecj9mDyx3FGkqY5iP7iVg2aiGA2E5ynuTNCynKgRzdqsp2E?=
- =?us-ascii?Q?c6Tfb50EjncsQ0FZctxK+PaZQoUGoKV7HbYGhFY8DrYSNnQyEMyt6bMaEpoI?=
- =?us-ascii?Q?wjzVHMLkCb1zrk52ikqWTjHdKTn1cIAAsw4peAKTcGrEBuXDYcPaJKzB0ifQ?=
- =?us-ascii?Q?CAn4PGYhDtLGa2UySHI8EFloYn3Wdx67ya5Ieg+qKjrnOhsTE01sM7w/iL1a?=
- =?us-ascii?Q?6DVJIZJUECGgQg70AO1POb2r5DrnJHYt5yz5Fa4/NugidbQhS9v9Yy6AEIMX?=
- =?us-ascii?Q?J80QBy9n/aVpE5P4JXq+GxGKU0Bise1LznZgE/aK2QUGHK4vMRlevfWMxlGy?=
- =?us-ascii?Q?NQMGhZBolI5kYguFG0s3R359IO7r1LqsFMmjoQx1jP/5SQnnh12TUD6tRRW0?=
- =?us-ascii?Q?l1lZ9/GD+nMq5BXzO8A1BW5L/F2kCThkJeWF/WYBeG/VtCQdQqHH/VEniTXb?=
- =?us-ascii?Q?S1YnXxyefF4lvmbPkRp0ycmfFzX3fD4VjsUUv0+8nVJ4yp3ptm21+Wa6rDF/?=
- =?us-ascii?Q?h2TBzwx/YUFvPU4f4TLGhmf6j3jZ/cngQ4QedisWr9ccb0gXPIf+Pz4nmSsz?=
- =?us-ascii?Q?+k2AJADKekBmDI/x9dTQtx+a2h9koidDrPIGRTfMIix0jAscQniMltnfxjYy?=
- =?us-ascii?Q?x61NhDhB3ZVDRGSO0OJd9YWKzq1LtYidLoVT0IzyGBty8HrX9h6bWTG9feWP?=
- =?us-ascii?Q?P8OT9SL5Qr5rkBGMCfdk9MhJC36l6gx6SpYrVxJ3F2mqFODPvZ7m/cBFfTaq?=
- =?us-ascii?Q?uVBRy/v2ICNRIz6SqreYTGZElqiLPLmRCFfUl29rgxVsVftNn9P8I2NBSIs0?=
- =?us-ascii?Q?Ni8btj83QwdMqI54gNiFjDybuntW/dQ14oyZuCWJ/xNbR8wqwZp82sMaeO5e?=
- =?us-ascii?Q?3gGoNaZf/C+3InqpfhNmJZnxwo1Y9UZZ2CDp5/mPXJcrAP5vjwm/gtsrSiHJ?=
- =?us-ascii?Q?joLHHLLTFtokxe3ChatSEj6EHvAGosFuVfLecUsm+dyBMZdBo610ML86g7iN?=
- =?us-ascii?Q?acC0apInFJsROuu/2ZqkAzNP0DlC5O1tuYV1gmFM7DpvUhK4eXsz+x4FLfEU?=
- =?us-ascii?Q?N2n6dJ/iyS9E7DOpPDbDMljl/sWwKmav4xy9YwmQzXQveHlGrwYkRcQb8x8r?=
- =?us-ascii?Q?4JkgCbJ/XQ4hORTYgYF8eJrwRm9sMkWswvOi/QHtXm8OMM/nsebxfsmpxYiG?=
- =?us-ascii?Q?UhjeAxcCVihobWK8zMYG0n/tbKl7aWyhf0lmyVllu4l+SeeQmSZTojdxzGUG?=
- =?us-ascii?Q?+TPkEOljC+bIeAsN3qItgeZd/m6g1tAdeeJqWZXm9aMpE9REAvFlJPNKXs+O?=
- =?us-ascii?Q?qYBQSGiF4xSINOCnQPGN23Ky11otBmMXmcXte2nRIKg7a5Iaq2EZAcgrJoDN?=
- =?us-ascii?Q?7lKVsnvmCTFUUZu+BuskqXRlzCTzW/FX3D71qwd0?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7db73b04-f418-4216-1a16-08dcf4f7db57
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 13:20:55.5924
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5j6hmh9K79TovGZxkUFwfs+FO1dBeW9hHjKn7PxnnYe19bDABlI/+72dJ/5cmOEy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6841
+References: <20241023075917.186835-1-ryan@testtoast.com> <20241023075917.186835-2-ryan@testtoast.com>
+In-Reply-To: <20241023075917.186835-2-ryan@testtoast.com>
+From: Code Kipper <codekipper@gmail.com>
+Date: Fri, 25 Oct 2024 15:20:18 +0200
+Message-ID: <CAEKpxB=BQ1GvzdVCYKyr_Q1eCfcYYEz1L_RqzEVBBgNu8jDfwA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/7] clk: sunxi-ng: h616: Add sigma-delta modulation
+ settings for audio PLL
+To: Ryan Walklin <ryan@testtoast.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Chris Morgan <macroalpha82@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_142106_990023_CAC683DC 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20241025_062033_782137_415FEFDF 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,39 +94,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 06:53:01PM +1100, Alexey Kardashevskiy wrote:
-> > +#define iommufd_vdevice_alloc(ictx, drv_struct, member)                        \
-> > +	({                                                                     \
-> > +		static_assert(                                                 \
-> > +			__same_type(struct iommufd_vdevice,                    \
-> > +				    ((struct drv_struct *)NULL)->member));     \
-> > +		static_assert(offsetof(struct drv_struct, member.obj) == 0);   \
-> > +		container_of(_iommufd_object_alloc(ictx,                       \
-> > +						   sizeof(struct drv_struct),  \
-> > +						   IOMMUFD_OBJ_VDEVICE),       \
-> > +			     struct drv_struct, member.obj);                   \
-> > +	})
-> >   #endif
-> 
-> A nit: it hurts eyes to read:
-> 
-> mock_vdev = iommufd_vdevice_alloc(viommu->ictx, mock_vdevice, core);
-> 
-> vs.
-> 
-> mock_vdev = iommufd_vdevice_alloc(viommu->ictx, struct mock_vdevice, core);
-> 
-> as for the former I go searching for a "mock_vdevice" variable and for the
-> latter it is clear it is 1) a macro 2) which does some type checking.
-> 
-> also, it makes it impossible to pass things like typeof(..) or a type from
-> typedef. Thanks,
+On Wed, 23 Oct 2024 at 09:59, Ryan Walklin <ryan@testtoast.com> wrote:
+>
+> Allwinner has previously released a H616 audio driver which also
+> provides sigma-delta modulation for the audio PLL clocks. This approach
+> is used in other Allwinner SoCs, including the H3 and A64.
+>
+> The manual-provided clock values are:
+> PLL_AUDIO(hs) = 24 MHz*N/M1
+> PLL_AUDIO(4X) = 24 MHz*N/M0/M1/P
+> PLL_AUDIO(2X) = 24 MHz*N/M0/M1/P/2
+> PLL_AUDIO(1X) = 24 MHz*N/M0/M1/P/4
+>
+> A fixed post-divider of 2 is used to account for a M0 divider of
+> 2, which cannot be modelled by the existing macros and ccu_nm struct.
+>
+> Add SDM to the H616 clock control unit driver.
+>
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+>
+> ---
+> Changelog v1..v2:
+> - Add fixed_post_div to high-speed audio clock to correct M0 value to 1 (ie divide by 2) based on manual
+> - Correct PLL_AUDIO_(4/2/1)X clocks to manual-provided values
+> - Add/correct inline comments for the above.
+> - add CCU_FEATURE_FIXED_POSTDIV to pll_audio_hs_clk.common.features
+>
+> Changelog v2..v3:
+> - Update comments and commit message to more accurately reflect SDM changes and rationale
+> ---
+>  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 46 +++++++++++++++++---------
+>  1 file changed, 30 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> index 6c7623d4c59ea..05727fa1ee46e 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> @@ -215,20 +215,30 @@ static struct ccu_nkmp pll_de_clk = {
+>         },
+>  };
+>
+> -/*
+> - * TODO: Determine SDM settings for the audio PLL. The manual suggests
+> - * PLL_FACTOR_N=16, PLL_POST_DIV_P=2, OUTPUT_DIV=2, pattern=0xe000c49b
+> - * for 24.576 MHz, and PLL_FACTOR_N=22, PLL_POST_DIV_P=3, OUTPUT_DIV=2,
+> - * pattern=0xe001288c for 22.5792 MHz.
+> - * This clashes with our fixed PLL_POST_DIV_P.
+> +/*
+> + * Sigma-delta modulation settings table obtained from the vendor SDK driver.
+> + * There are additional M0 and M1 divider bits not modelled here, so forced to
+> + * fixed values in the probe routine. Sigma-delta modulation allows providing a
+> + * fractional-N divider in the PLL, to help reaching those specific
+> + * frequencies with less error.
+>   */
+> +static struct ccu_sdm_setting pll_audio_sdm_table[] = {
+> +       { .rate = 90316800, .pattern = 0xc001288d, .m = 3, .n = 22 },
+> +       { .rate = 98304000, .pattern = 0xc001eb85, .m = 5, .n = 40 },
+> +};
+> +
+>  #define SUN50I_H616_PLL_AUDIO_REG      0x078
+>  static struct ccu_nm pll_audio_hs_clk = {
+>         .enable         = BIT(31),
+>         .lock           = BIT(28),
+>         .n              = _SUNXI_CCU_MULT_MIN(8, 8, 12),
+> -       .m              = _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .m              = _SUNXI_CCU_DIV(16, 6),
+> +       .sdm            = _SUNXI_CCU_SDM(pll_audio_sdm_table,
+> +                                        BIT(24), 0x178, BIT(31)),
+> +       .fixed_post_div = 2,
+>         .common         = {
+> +               .features       = CCU_FEATURE_FIXED_POSTDIV |
+> +                                 CCU_FEATURE_SIGMA_DELTA_MOD,
+>                 .reg            = 0x078,
+>                 .hw.init        = CLK_HW_INIT("pll-audio-hs", "osc24M",
+>                                               &ccu_nm_ops,
+> @@ -701,18 +711,20 @@ static const struct clk_hw *clk_parent_pll_audio[] = {
+>  };
+>
+>  /*
+> - * The divider of pll-audio is fixed to 24 for now, so 24576000 and 22579200
+> - * rates can be set exactly in conjunction with sigma-delta modulation.
+> + * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the manual, with
+> + * a final divider of 1. The 2X and 1X clocks use 2 and 4 respectively. The 1x
+> + * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (and
+> + * multiples).
+>   */
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_1x_clk, "pll-audio-1x",
+>                             clk_parent_pll_audio,
+> -                           96, 1, CLK_SET_RATE_PARENT);
+> +                           4, 1, CLK_SET_RATE_PARENT);
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_2x_clk, "pll-audio-2x",
+>                             clk_parent_pll_audio,
+> -                           48, 1, CLK_SET_RATE_PARENT);
+> +                           2, 1, CLK_SET_RATE_PARENT);
+>  static CLK_FIXED_FACTOR_HWS(pll_audio_4x_clk, "pll-audio-4x",
+>                             clk_parent_pll_audio,
+> -                           24, 1, CLK_SET_RATE_PARENT);
+> +                           1, 1, CLK_SET_RATE_PARENT);
+>
+>  static const struct clk_hw *pll_periph0_parents[] = {
+>         &pll_periph0_clk.common.hw
+> @@ -1162,12 +1174,14 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+>         }
+>
+>         /*
+> -        * Force the post-divider of pll-audio to 12 and the output divider
+> -        * of it to 2, so 24576000 and 22579200 rates can be set exactly.
+> +        * Set the output-divider for the pll-audio clocks (M0) to 2 and the
+> +        * input divider (M1) to 1 as recommended by the manual when using
+> +        * SDM.
+>          */
+>         val = readl(reg + SUN50I_H616_PLL_AUDIO_REG);
+> -       val &= ~(GENMASK(21, 16) | BIT(0));
+> -       writel(val | (11 << 16) | BIT(0), reg + SUN50I_H616_PLL_AUDIO_REG);
+> +       val &= ~BIT(1);
+> +       val |= BIT(0);
+> +       writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
+>
+>         /*
+>          * First clock parent (osc32K) is unusable for CEC. But since there
+Hi Ryan,
+I noticed some white-space issues when cherry-picking this change from
+your repo.
+scripts/checkpatch.pl
+0001-clk-sunxi-ng-h616-Add-sigma-delta-modulation-setting.patch
+ERROR: trailing whitespace
+#51: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:218:
++/* $
 
-Makes sense to me
+ERROR: trailing whitespace
+#74: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:240:
++^I^I.features^I= CCU_FEATURE_FIXED_POSTDIV | $
 
-And the container_of() should not be used in these macros, the point
-was to avoid it to make the PTR_ERR behavior cleraer. Just put a force
-type cast
+ERROR: trailing whitespace
+#85: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:698:
++ * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the
+manual, with $
 
-Jason
+ERROR: trailing whitespace
+#86: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:699:
++ * a final divider of 1. The 2X and 1X clocks use 2 and 4
+respectively. The 1x $
+
+ERROR: trailing whitespace
+#87: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:700:
++ * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (and $
+
+ERROR: trailing whitespace
+#112: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:1152:
++^I * input divider (M1) to 1 as recommended by the manual when using $
+
+ERROR: trailing whitespace
+#113: FILE: drivers/clk/sunxi-ng/ccu-sun50i-h616.c:1153:
++^I * SDM. $
+
+total: 7 errors, 0 warnings, 80 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+but that didn't stop it from singing beautifully!,
+
+Tested-by: Marcus Cooper <codekipper@gmail.com>
+BR,
+CK
+> --
+> 2.47.0
+>
+>
 
