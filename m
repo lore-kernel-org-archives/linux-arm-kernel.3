@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B63D0C614
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4FBD0C614
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWzUyCWTyhczyf7Uce9ulzgufVX4L+WhFWUTMdf0I0U=; b=LRtae2Ns/QByzayCC0H/5eMa4x
-	DHQB/3lEbv2CV7AaR+oTncWrEu+DCVmSC6f4u0oGhC3CoVCuVwXqo8B2BDhszb0Oij16/X7PGoghB
-	4KIesihB0TEIRDfyjlr8wUHkfDvtdktwLdA+KwcdEIbtT5vPDR5lPhqIATQ1qXiSvfJHY/tgl8Nub
-	QroIGr+C51dRS4daHzdUeQDW1zY4QBszcW9mXbqTxhCQOUOrJF19v85X2Yi6Xo975LcohmgOVK+wM
-	kUn6qHKswmy2uRNsqwYNnkQrV5nOfh/pSkYtFeWodOcYAf112nqNWB5YMs1xF5Osfx7j/XivUvAU5
-	XBWHkDuQ==;
+	bh=eM5nkTRxomZGNrAn6Kh9dqC0qKVLwKAVOyxctouNCUI=; b=usMG22gcp45vAtqP4b71h+4sLx
+	thrPhDZlpuQ059jc74XgnDnN8p/WXdDxxpfdciBWJCEkplHFyB4sZ5ckzHu+givtreb2WwYm72BdL
+	28oYIVkB9O9uSeTTZRlbKf7mE1vfb5hznc4abJX8WANRJbFYdBnMqOeEOQUYX4CU4U5IUBjTXgCaj
+	gPoBFfOOA3Dt199QYbSTexPaIyEL+4/hr4zd9L/nMGoHNaTfGo0fRoW4TCNz81mq7JVTn2tK2LYns
+	AdNBdd0Xo/CnxwmAMaer5SyISJlopu4/FeHOTraM3LflqiPFjFeV7EIus+yiTpMfFEWvrBP7BweIg
+	kWxNa7Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4L6x-00000003yP0-2dQ2;
-	Fri, 25 Oct 2024 14:16:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t4L71-00000003ySB-2KUk;
+	Fri, 25 Oct 2024 14:16:23 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Ihp-00000003XgR-48WY
+	id 1t4K33-00000003lP6-0RPa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 11:42:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C089E5C5F8E;
-	Fri, 25 Oct 2024 11:41:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40131C4CEC3;
-	Fri, 25 Oct 2024 11:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729856532;
-	bh=b9j1zTmawGmrojfup/LOAlSwgn3LIFUdXbsokDQU9HM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Sctp4mwFa4+O8XrmsAVrFJHhkt2Auby18cDvGukLTGJOhHUrAFvja7DHRbKJ2YXLV
-	 Nfdo5Y3KNscyjyNFNhf1tQk82WvVBiMdqk1KVO2A26stzSpAGVPFn8Rvi/r+YkWzss
-	 Er7RYSK9/EsEeYh8L3Epkk8t435lqrMOHkXH1U8bSv7giqglHN+6YONOim9bh2uDCf
-	 JtxXUOYPpM/qMxle9U6WU6pUJ1lHOD7ryhWt1ADUHowHXUr348C3A5tlrJt2JXVVt2
-	 Pky2OI6CdSBbhKRgCSUDA1ihJc/awsyEIQ1LCuMYd1pUWQ12N1BE5jHNQA7DL0Xjax
-	 UIGdxXKoy1eag==
-Message-ID: <ef407e89-950f-4874-9dca-474d107f6a52@kernel.org>
-Date: Fri, 25 Oct 2024 13:42:04 +0200
+	Fri, 25 Oct 2024 13:08:14 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539e5c15fd3so1946922e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:08:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1729861691; x=1730466491; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eM5nkTRxomZGNrAn6Kh9dqC0qKVLwKAVOyxctouNCUI=;
+        b=C8vSRDSgZ7HdvWwRebnGppWup6NS1wkufQMvNT3aEdSvaOQCnIys3d4/tPnDZnD7A3
+         NNscwjs+egb6kgA45uIwsiKMTOzNjRgYuH43HfltttrzQ2DmxyRmJACGw9BQyh1h+jBr
+         hcxRw33YzJk5J65IpVvAsH2N8A567ZadAuRLEijb5LmoCF+dSS7iSkArgPSgA4EqHSSN
+         CS1m7dcsvyePT2mcc0jDLmwufE5yeOst3PorIz8ew6ErUyBVuOrnsjbYdvYUk3ESz2Bz
+         dxEpDvp38TiVvtaPs5XEnbbZFgqy/wlPxf/HiPHAm8TzOdSYsOWEtDp3j4mKDEqFu9sz
+         r+Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729861691; x=1730466491;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eM5nkTRxomZGNrAn6Kh9dqC0qKVLwKAVOyxctouNCUI=;
+        b=DTBYw6cXBk/BZDkqK+xFbr9NXAFgcq6m2jDMrWFTsvQx4ZYnP5p+kAYzWRoE3H+Wl+
+         RGssr6MWbW1sE96zX7svJdZWwTVpF/ugVveZrt+IXRvr5zLta1Q+nHKn01vUtTS8+xux
+         9I88ljF3s/eOHnrOGLEIWE1mKuRBInBGhm1+W3gM3Oy0g2Hh1W6mPFhhurlm+Dg/gaao
+         hwzJPxeNGHlBJ7FCTOPRBUq/rMUkimuVSES4V+T0H0UNHpVKke//FdiXLgiSpvwxoKMN
+         Xg4Qb5rdkJGYxfp/l8imfSWcClBEYDc558wbXEDpDBVDeVay55xQW9PWNBueoLuOziIC
+         9nUg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRnkSXpxqkScUKihNKLPke1/fO/oYpQ5Ez7EqtyEU8kgcvOefYvXo+1G0tPqvL8xUD8FbXwYyXi+3Wa6JSKGWV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSM89X152F63AEHfq7dgekj5frPBHhFfsOpCP5V2ZCZo7jcdFw
+	ec9jch/JVWvHrofL4II3eCS39sAF3ru1EONXMqkU45wsqRVdHrXnRE0QDG5Vlig=
+X-Google-Smtp-Source: AGHT+IFCT0tBIW4gocugoLB0PVdeFxoiVJ9M/pABhSRPvl5b0xI66ZUSnk//HMoGyQlwk1X0S/7NtA==
+X-Received: by 2002:a05:6512:1286:b0:539:fc42:e5ee with SMTP id 2adb3069b0e04-53b23e0880amr3207615e87.29.1729861690929;
+        Fri, 25 Oct 2024 06:08:10 -0700 (PDT)
+Received: from [192.168.68.136] ([145.224.65.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b7e8sm48189595e9.48.2024.10.25.06.08.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 06:08:10 -0700 (PDT)
+Message-ID: <1e115332-f68f-479a-8ae9-6b9a3120b21c@linaro.org>
+Date: Fri, 25 Oct 2024 14:08:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-To: Ming-Jen Chen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
- dmitry.torokhov@gmail.com
-References: <20241022063158.5910-1-mjchen0829@gmail.com>
- <20241022063158.5910-2-mjchen0829@gmail.com>
- <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
- <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v10 0/4] perf arm-spe: Allow synthesizing of branch
+ instructions
+To: Graham Woodward <graham.woodward@arm.com>
+Cc: nd@arm.com, acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
+ jolsa@kernel.org, irogers@google.com, mike.leach@linaro.org,
+ leo.yan@linux.dev, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241025105212.51779-1-graham.woodward@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241025105212.51779-1-graham.woodward@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_044214_136160_A2003787 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20241025_060813_200865_A23C5A0F 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,102 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/10/2024 07:36, Ming-Jen Chen wrote:
->>
->>> +      0  = 0 clock
->>> +      1  = 0 clock
->>> +      2  = 0 clock
->> Heh? So this is just 0
->>
->>> +      3  = 8 clocks
->> This is 8
->>
->>> +      4  = 16 clocks
->> 16, not 4
->>
->>> +      5  = 32 clocks
->>> +      6  = 64 clocks
->>> +      7  = 128 clocks
->>> +      8  = 256 clocks
->>> +      9  = 512 clocks
->>> +      10 = 1024 clocks
->>> +      11 = 2048 clocks
->>> +      12 = 4096 clocks
->>> +      13 = 8192 clocks
->> Use proper enum
-> I will update the definition to specify the debounce period in terms of 
-> keypad IP clock cycles, as follow:
+
+
+On 25/10/2024 11:52 am, Graham Woodward wrote:
+> Currently the --itrace=b will only show branch-misses but this change
+> allows perf to synthesize branches as well.
 > 
-> nuvoton,debounce-period:
->      type: integer
->      enum: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
->      description: |
->          Key debounce period select, specified in terms of keypad IP 
-> clock cycles.
->          This value corresponds to the register setting for the keypad 
-> interface.
->          The following values indicate the debounce time:
->          - 0 = 0 clock cycles (no debounce)
->          - 3 = 8 clock cycles
->          - 4 = 16 clock cycles
->          - 5 = 32 clock cycles
->          - 6 = 64 clock cycles
->          - 7 = 128 clock cycles
->          - 8 = 256 clock cycles
->          - 9 = 512 clock cycles
->          - 10 = 1024 clock cycles
->          - 11 = 2048 clock cycles
->          - 12 = 4096 clock cycles
->          - 13 = 8192 clock cycles
-
-No. 0, 8, 16, 32 , 64 etc.
-
->>
->>
->>> +
->>> +  per-scale:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
->> Missing constraints
->>
->>> +
->>> +  per-scalediv:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    description: Per-scale divider (1 to 256).
->> Missing constraints
->>
->> Both properties are unexpected... aren't you duplicating existing
->> properties?
-> pre-scale:
-> This value configures the IC register for the row scan cycle 
-> pre-scaling, with valid values ranging from 1 to 256
-> per-scalediv:(I will change pre-scalediv to pre-scale-div)
-
-Please look for matching existing properties first.
-
-> This will describe its role in setting the divisor for the row scan 
-> cycle pre-scaling, allowing for finer control over the keypad scanning 
-> frequency
+> The change also incorporates the ability to display the target
+> addresses when specifying the addr field if the instruction is a branch.
 > 
-> I will change it to the following content:
-> nuvoton,pre-scale:
->      type: uint32
->      description: |
->          Row Scan Cycle Pre-scale Value, used to pre-scale the row scan 
-> cycle. The valid range is from 1 to 256.
->      minimum: 1
->      maximum: 256
+> Graham Woodward (4):
+>    perf arm-spe: Set sample.addr to target address for instruction sample
+>    perf arm-spe: Use ARM_SPE_OP_BRANCH_ERET when synthesizing branches
+>    perf arm-spe: Correctly set sample flags
+>    perf arm-spe: Update --itrace help text
 > 
-> nuvoton,pre-scale-div:
->      type: uint32
->      description: |
->          Divider for the pre-scale value, further adjusting the scan 
-> frequency for the keypad.
->      minimum: 1
->      maximum: 256
+>   tools/perf/Documentation/itrace.txt       |  2 +-
+>   tools/perf/Documentation/perf-arm-spe.txt |  2 +-
+>   tools/perf/builtin-script.c               |  1 +
+>   tools/perf/util/arm-spe.c                 | 31 ++++++++++++++++++-----
+>   tools/perf/util/auxtrace.h                |  3 +--
+>   tools/perf/util/event.h                   |  1 +
+>   6 files changed, 29 insertions(+), 11 deletions(-)
+> 
 
+Hi Graham,
 
-Best regards,
-Krzysztof
+I think this is V1? Also it looks like the base doesn't include a few of 
+the new SPE changes and it doesn't apply cleanly. Make sure it's based 
+of the latest (46610ba41ef1)
+
+With that LGTM:
+
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
