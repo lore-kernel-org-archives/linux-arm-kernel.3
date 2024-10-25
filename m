@@ -4,181 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF84D149F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0D2D149F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=; b=LSum67I2DUTIuR+1J8M5R3uQ/w
-	ATkeBKaEKc//oO64uzHVkpGhSoh0B1L9+3ggFiBXwoa1FA4hwvQBB06x1dvVzNG28D/Knz8ONfJpT
-	rxtqrmgHxf2XmFAMEUz3ZWePF+kry5YzSkUG8pXxR/m+wGmEtsJUC9Pgie1YNvWjj+SupNwd6JOUY
-	1xG1w4NYalfFrhZnr3vz25NdZSihiyKw0PfsQA8OoL5LsQ9LCeOqZYSciPNLJt3UwuBM0q6PYNzbE
-	XY3Ibpc43BjYUqxEAupR+ZT8BbQWDMsrlPVB80dgabF9NdrPouraFXW0Y6Y/KoTdac2UXUMoMFMWl
-	pXdPWYNA==;
+	bh=xaOYDKDFzL3plG01sUZwTV6ucQ677i5/nFx9cmqwF3U=; b=3B3qLl0ffOlufG94vgbZneHp+6
+	XccqfRJmM+bBoM+L52f07OZDaYr98qjs6uhjxdZ1PppEN5p3stmWI7uZjIwhFN2hp1HTpD2tL/tqj
+	qY0Y6lbBJcCy9SRNdvyciaIQ3c+Rq8QVnlneiMV/QAUsrp7uTsPNrLmBZgkkOC77wViyLYIT15Hb3
+	EaZ1Lz3zJ18XOJaKVm98CZ9RYzuEcqWdybftiL/xue+f28HPPxSnbNy5j5omWOOSyops3nrBRduoN
+	fLb+37XIcg9hAe7I79lLeOR6lDskBJwYWpKYurzwGueWSvMgSeuofLFDWuEY5elcbucVO3vFjG24h
+	je2j7PpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RfB-00000005HSR-0dNh;
-	Fri, 25 Oct 2024 21:16:05 +0000
-Received: from mail-vi1eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2613::60d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t4RfY-00000005HWR-394D;
+	Fri, 25 Oct 2024 21:16:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RUu-00000005FK4-3lKn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 21:05:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P7oqwrYyltgDOK36r1jO7YXX8ZTGKMuJZjjdrOHsSgurkYpU87mmETtHyutg4TKc3tgCuAJXjvuYlFiSSTEqeePnSBB2u3BlO3ndoJdNfd9BXSmEBgk2HbRjQbX9WjkY7+oODp1IvvxJ+6vQNh8MxKQl2NPnn4342PUloG+TXq71Cuc196oGn9Q/4toa0Lwx7TTIzcqwY55AzXCpEfleGxhBfJtiLF8IKJ6cp5xktxAl87YT/HnCAu5crokR6vJLZYKFKs7+S8BKiWkj7vHyffFVI+cZta6UdQ7RKEkdZx0P1GRxcNKoIHcrvl5Qvii6jG0H+idYJF92+6oGG9bq/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=;
- b=gwmBh5XDaqPj9RJp8clkpcFfA5L8816Jh/zBmZ3NcYtP2g2Lasu7s3DqWFCql2YlgrMNbTzxXLGf/z9o9uHiY20UvZvrvg7YXX1w6A2U9I1p2Wg2O98ktk0+QjVfP6eJ8bTF4XYA3vm381UfzpKI7WuW8lK3/90zZ9LZr0XJ8iSZjW7fuKR0S3/MVIphMNa5lgvFNX32hTNCcIgTOtbbIi0pGVMxs4DNq5RcgFjLVjuv36gQmqNYvI6JTciiwSVw7Tpupb5HSQVwBG7NKzoAfoYuEHte21ACLwhe0wUCVb33UNC2tCL4zeqoaeSe149ruWtgbwIm7DGLB7YXtEMaQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ejTsSXODF4Z4HxJfwkbHKbPA09zgjJ+/6I2wKOYn9A0=;
- b=ebTBwSEgiHwRzwazBGBBmKwVDBo3T3gh+BbOqZHVJZsh9mjDd+4LyZMtj1OwJSNlaCAu9/DzuICcujUH+Ps6YvDPnqCB2sKDIIGhTze9k7ucrYBgIQCQaeRyXnTXGKTalEWjVqXeld3ncASL1neKkXcrldf4HqmtTKfP4dnMRdOpYBlGSiMr0RXcnpUaS+B6cbtyrAjtF7Fs1KI3A5hb3vTs9okOPNocuVuMgS84RwG8MSjM9UpG/yhfcdxn987o6bbBH992RmAzVaK9Qfk8pDecSDX3+JvI/SjAFqrRtCnrRRIMyhtDw6Trmun3U6sCmqYgOVOi5jV+zvoSYlIMUA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS1PR04MB9698.eurprd04.prod.outlook.com (2603:10a6:20b:481::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
- 2024 21:05:15 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8069.024; Fri, 25 Oct 2024
- 21:05:15 +0000
-Date: Fri, 25 Oct 2024 17:05:03 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 0/4] PCI: ep: dwc/imx6: Add bus address support for
- PCI endpoint devices
-Message-ID: <ZxwH//clayRL2emF@lizhi-Precision-Tower-5810>
-References: <20241024-pcie_ep_range-v4-0-08f8dcd4e481@nxp.com>
- <20241025204818.GA1028925@bhelgaas>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241025204818.GA1028925@bhelgaas>
-X-ClientProxiedBy: BY1P220CA0022.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:5c3::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1t4QGu-000000052G2-1Wda;
+	Fri, 25 Oct 2024 19:46:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=xaOYDKDFzL3plG01sUZwTV6ucQ677i5/nFx9cmqwF3U=; b=InzesxfQIk0kiC27/GIy6RJvhn
+	5ZWBBWDAu3HFxPnnJgA0Jbbg3zK6DEP5KJCM4ON3lj7zfDnA8dkEgAp2K2aVEs4POsgVTCnzoeNkF
+	fnnjEZO7vvlFuNavkpLtSow22qA2/JMotY+z6JsvXCWMMB7FR0ksnDl1CpNMpAcyic98Bjocu2eF4
+	bnA9CyOGkBObjC7rV9tMVZ/57O1s0ml9aemiG10U90XOWoui8Cz7frHqBi5I7rYpFKHJ1pPaH2vHv
+	4ium6qN8xfloVLZat8n+455gtsRpn9KgBi3qj7NRuO2VlWw6wZerRID1GxpODnxp7xVVWOPtmwdm2
+	ExFrBKkg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4QGH-000000093VW-2CKT;
+	Fri, 25 Oct 2024 19:46:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1729885574;
+	bh=IHDKkPuL6bGyn5e67txu92IjSUnnKlLm5rnqXrHDXfA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=UvWdNBT8E+GAvnMABd12C2gfjEy/go+AclK2eXCzTWQodocmtcvFeSHDBB7BtvLYn
+	 beJF7K7beKxA/8UIldFBb2Fyd3xtK2p2jDm97aF4rmFpj1yjV/cECCVNpDcUipjwCR
+	 bZtRbOPxPyS8ajt+WL4xSH/Jy1vmDYQtxB3Q3NwW3Wdvj5j15DqZ8SlnlrJsyjyBJH
+	 g7c2gZIsmkj1Gd+alM3oY5/ApuW/3xFSCqPxXmVqeNqGegcwteqgI6hfbSMvxaS/GX
+	 AwneRLNuHMKz3lSYYGdHSgNGaD+gn4TQewucuYm6jsNCBv3ExSHJRzi9KOfCGc8qXv
+	 gKmVw+uA/mt4A==
+Received: from [192.168.1.54] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A5C9D17E3750;
+	Fri, 25 Oct 2024 21:46:12 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Fri, 25 Oct 2024 15:45:38 -0400
+Subject: [PATCH RFC v2 3/5] pinctrl: mediatek: common: Expose more
+ configurations to GPIO set_config
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9698:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89d4e307-0529-4ae5-b02c-08dcf538b935
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NXRyTWZYNGZ4TUZwajZ6c21UMjhGbHpPby83Z2p1SXNOeXZBQUZQTHIwdzVU?=
- =?utf-8?B?dWlwcndnb0t5UU0yQnVzN3NPaEdaOXJTVGdaWmk4bEtlcm5EaTNWditBekp5?=
- =?utf-8?B?S1FORTBtb1ptVnVibjhTWVVIR2QwM3Mxd2tDOHFKR05lV3ZVcEU5M1N1VG9o?=
- =?utf-8?B?Zi81YWRUS1g4SFdCMFJ2a1o1UnozY2kyUGMydkdrOE5hSVdjSHpyQXZyV0hD?=
- =?utf-8?B?eG1rVU40dWhoMU53Q3cvYVhEQ3RYRjVrN21BSE9TcmdBWEI5UkxiUXExbWdq?=
- =?utf-8?B?NUk5YW1iMkJzSmVPcVBERXdqZHBpQXVtRUx2ck9mVFRIbHVjZE9mL2k4WjlM?=
- =?utf-8?B?djZ2aDZLb2VYVXpSUGltVEJBTzM0RDZTWjM5RWVJQ00zOXR2OEJnMUFqQ2Jl?=
- =?utf-8?B?RXBKc3pHanB4ZmFlZm4zRWVwL3VtSCtVSmZabXNWRGcvMDlQMDBNcXg5MnAv?=
- =?utf-8?B?Y0IwTzdyZUp2MS9HaGxMZXYvajNCRDIxUHVHaVRXR0hmL2xQVVBGYVY3KzFY?=
- =?utf-8?B?M3ZsNkZVRDY5TTAyT0pRaGFLd2g1NVBwcks5YU9vR2J1Z1dIdDd4ZE1CYml5?=
- =?utf-8?B?V2o3elVIMVpXVEczMkIzRnk2cDNDNmVZSlU0dzNyUWdNS2JPeFQreFJOa1Vk?=
- =?utf-8?B?c3gva2lwSEJuZTdiYUhKMHkwT0s4Z2lqT3NNTitKbDRQRkFoUU1kQUdtTGJ0?=
- =?utf-8?B?Njk3UHF4OHhPWUpCQStTVldlbEliWkdGYzFWV3FuQmJwZmtOSy91Z2s3Q21j?=
- =?utf-8?B?NHVlMVpSdS85aDFUVWxXcXMvdVhTRVVmTENTMit0QjZpV3pvTmVpbXBrU0oy?=
- =?utf-8?B?aDJsZHYyNzBwUy9NeTVHT3dOQVJ5YktMMWtOcjFhc1hXM29SaGpTMUlxOHpl?=
- =?utf-8?B?S2FsOWxjQ2RjcFRBZ3h6N3RCSGJQWS9hOE1xUDh0blRLUnhUclA3Vm1CM3Y3?=
- =?utf-8?B?YzZqUGp4dFU4eU0wSkpjMnlPZm5ZV20vVWwxZzl1L29OaDl4d2VJbHJCSU9D?=
- =?utf-8?B?MHk4ZEFxaEdJZCtGZFlKN3B0d1pUTVN4TGdDWUtBSGtKNEhZb0cwTEczazJk?=
- =?utf-8?B?SkNVNG5CSTJGc1RTQUpiUFQ3R0l0OVkxNWNPVXo4ZlI1Yi9sYnBhWlVTT2FS?=
- =?utf-8?B?V3hPczBBNVYvY2VPeUdrNGZCQ0FUZVRnYjg5N3Z4dWthMFVoVG5sWG9wZnJp?=
- =?utf-8?B?TGt4OTlHWHFCVVo4bXdkS1NsU3VYN0RscDU2UmgzdEEvRzNqTmM4VjlMRGRw?=
- =?utf-8?B?ZVdzRXVnbnVrVTZsSS9qV1dtSXpwSWF5ckNpRDdNaEEzeDNERSs2SVoybElW?=
- =?utf-8?B?a09Xc0M3OEV2MkVQamVFemwvRGV1UzZHZERXNkxybCtUNEEwZGJVS1p0ckRU?=
- =?utf-8?B?MlExRk94djdUQTVuM1VpSUdzaytXTS9LVTV5MCsvaE1mTGtkVmMxeFhwcHlG?=
- =?utf-8?B?eHlQSlVnQlJVbHBRVzRHS3A1RjI1aUd3SUhhTWdLV1l1K3dtQkI2b2ZVeGFO?=
- =?utf-8?B?RkJ4VGtIY3o5WXRNWFZlNHIzdUdmVzE5RnJUZm1EQjMyYTVNQ3dQc2lGS3A0?=
- =?utf-8?B?SnA2VnlMVlZ5MlJBNFFsU01udGRaRk9aR28xV1RqSkRXQkdVQ2I5YXl2SVRh?=
- =?utf-8?B?bTYyblAxNmtmNjRVbm0zRG1XYnhUTXBWc1BSSmhMOTRmd29qSTMrd1Zwb01X?=
- =?utf-8?B?WExMU1JnRlYvdFU0U0hzWFk4WlQ4bmM1L2YzZDdSTS9uRjNpZUtKM1Budm1B?=
- =?utf-8?B?SmRPSk5JaE9Kd2c2cnAyTHdmYUR5RWJDbVBKaXcxaFRQTFJsNjV4Z09tdUUy?=
- =?utf-8?B?RUVTNit3dHRxZU9JQlkxbHhMN3hTeWF0NTRFRFp6Y01FWEJtYnkzUmkwMkVR?=
- =?utf-8?Q?ug34pFY9DuQ8A?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZUN5czlRRVg5UUg5ckh6byszazFFakUwUnlHdGEyS0oxbUM4cWRiYlJXQi9G?=
- =?utf-8?B?VTBMVDZwdjZQNmlLVUxBVzVLOEpmK00vZlZLblJhY2VxeUJjdnF1MWVIT2RB?=
- =?utf-8?B?SGxPeWx2VldhNlcyQW1naTJuVkI2Z0hZSlNtWEFwYzNpdUFJMm1TUUtnL1lI?=
- =?utf-8?B?cHpLZ1BUWnMzSkVKRG94VzJJVGxMTzNCTlRFK1c0QjU5OVpCL3p3ajhhZU9G?=
- =?utf-8?B?WnFhbVdPTGZTbEdNWHJPK3EyVklRUmZuaUloemdTRGltK1U4SjNPUzZ2NUlE?=
- =?utf-8?B?amF1YzZ6ZkFjRDArdUt2OVpXNmptdzcrMGpHRlp3elV4M2FkREQ4eFM1SUJX?=
- =?utf-8?B?WCtrdmVSV2xRUjZFbzhZMHpGMjdXRVkzNzE1d2JHR2pGQ01ZMUJ4aldpS0pB?=
- =?utf-8?B?VW9Wek56SnZkOVE2Y2VyZU5PY3Y4OGI0cTJTTGo1TDdnNmtyY3VNOGhuSlFj?=
- =?utf-8?B?SmNsMHplOFNDOFludkR4OG02em56cHdRa1poTFVubGl5UmxJZS9QRkNlU2ZE?=
- =?utf-8?B?Wkd5M044YUs3L3BjUDAxS1ZvVE0rd0NLMktMRTdBL25WdjlOUm0xRThmVjdq?=
- =?utf-8?B?b2dlZjZsd1FkMnhJcnJ5TjVnRlQvUHdZN28xRkJPOThCanNmdm9UOE9QbkF4?=
- =?utf-8?B?R0ZSenB0ckM1RTk2a1RFNzA0VDIxeEp2cVNTQ2Y5M2VKdUN0WEIwOGxqWkRV?=
- =?utf-8?B?Z20zdHBoNjV3ZDZLWEEwSjNCWDhBWTFzbDZ4OE9ESzlyZWozbnBCLzR5b2M4?=
- =?utf-8?B?NEkvdGEzNld5ZTVFa0d4QkdPRkJzemVZZm1zbHpYRWxnR1ZTN2duQTBqS3F2?=
- =?utf-8?B?UVRLbHpReVlVajlIU2dlOEx4TnFwcnA2RXdKRFlDcjNOSnZKMlVHdmlaZW9p?=
- =?utf-8?B?Q0ZBYXZ1THd5Rnc5cms3ZThtUDJoM1YvcU1McE55VlRsVUpuY1FTRkN0WTE4?=
- =?utf-8?B?YlhQVTNDTU9nOGNGZW1CK2ZQazNMaUZQdW5yVDVKVDRUWFJFREtsRzJTTUlv?=
- =?utf-8?B?MEF2YlY3L2FaeTBzcTlpM1ViWkxvT283b1I0cXB1aVZ2RVhDZC81elJqMGNB?=
- =?utf-8?B?bmR3dFgzSmdlRjJac2RRRXRRM0MyeE9Mb002eDZyV01VN0tRdHl5b1NEdktQ?=
- =?utf-8?B?ZHZlQVpnT1R5dzlUVXlFcmpqZnFyNVZyYTlGVUtiakk3YTRYdEhhdWQ5cW5Y?=
- =?utf-8?B?NGxOaUFhUUp3Ym54dG5rTWZzWnFjcGtPYkhyVlIyTStzZGFxK0VtQmtSQ1U1?=
- =?utf-8?B?V0lxbWxjR3JseDZrOE11eUFkMkNEYkY1KzhHTDFSVzN2bm5SSFRMaWVFUnBr?=
- =?utf-8?B?V3JTNHp3c3pjVEM5SXhPVlZiNi9kOGhyWXpwbnNWbjE0RXRDeVY2NkZ0MGdu?=
- =?utf-8?B?ZC9mRHVYbDEzWCtrWW5BenlVNGtHcW5Cc3FQemFmQzNza2I0T0NoNUFsdDR0?=
- =?utf-8?B?V1RFVkp4TSs4a2tNb3NjR1I0WWNLV012VDJUVng3U284a2MxcmQ0Q29MQVBE?=
- =?utf-8?B?SGg1RlI0L2UxK2tyUU56blRqRjZ0d2xSNmhMMFpBR3BzQU5rc3IvOFRMWGJa?=
- =?utf-8?B?b0t0UWNuSFdOYnYzb3Rpc1Bhd0N6dHVzcElzRURNMmZjeUdqL1hvMjE0aWRJ?=
- =?utf-8?B?SXluWjVvY251OEFUNlF1QjBmS1I4ZU4xUWFWUUNBQnhCRHNRbU45ak5nN3lj?=
- =?utf-8?B?NFBka3NVRkRxNVlIeDViTWZrcUJEMFA4N2VOYncxT1cyOG5zYllJb3YyV21v?=
- =?utf-8?B?am9GTjc1VytlNTZnMlJwWFlMd1BZVTVVWmRzNEtPNUtsVVlLNVluMVJ4Wi9K?=
- =?utf-8?B?YmpVT2FSSXN1VGx4emsvQmN2RnB6eHhRQ3NMclBaczdHS3V0YnZpWlIrU1Mr?=
- =?utf-8?B?NS9EeVlJaTZMZzMvV2x4NXNZVG9OQ1l4OWxJU3JLNUJtWHl0RGROOVdibnZN?=
- =?utf-8?B?bklhWjcvT2Q1bjl2cm9QNFFLWkhZd1ErcGFWN05GbUFlV2hMemJUQVN5ZXNw?=
- =?utf-8?B?RVlPSWxScm1qL1l5aWFkdDlHZXBZUzNqbTQyd0FOU3E0K0VnampCN3F4ZDBZ?=
- =?utf-8?B?Q2Vid2YxRkpWUU9IMVduWkFUZFdWd3JuYllJRXZtcEdDNUwwZkRqWGhGTExK?=
- =?utf-8?Q?DySuds3mxq8Xx2+o93CNYO6y3?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89d4e307-0529-4ae5-b02c-08dcf538b935
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 21:05:15.5513
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +5yV6eDEyN1qPBwtkOkifU4o355qD6sOsj1X6PSf4uUVBSRtPhWTF0zRBZZ82JKklAj3B/UV87m3Sv5VQ8SYVg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9698
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241025-kselftest-gpio-set-get-config-v2-3-040d748840bb@collabora.com>
+References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+To: Sean Wang <sean.wang@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bamvor Jian Zhang <bamv2005@gmail.com>, Shuah Khan <shuah@kernel.org>
+Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ kernelci@lists.linux.dev, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_140529_172628_2C3361AB 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20241025_204627_830838_D7835A1A 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,150 +95,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 03:48:18PM -0500, Bjorn Helgaas wrote:
-> On Thu, Oct 24, 2024 at 04:41:42PM -0400, Frank Li wrote:
-> > Endpoint          Root complex
-> >                              ┌───────┐        ┌─────────┐
-> >                ┌─────┐       │ EP    │        │         │      ┌─────┐
-> >                │     │       │ Ctrl  │        │         │      │ CPU │
-> >                │ DDR │       │       │        │ ┌────┐  │      └──┬──┘
-> >                │     │◄──────┼─ATU ◄─┼────────┼─┤BarN│◄─┼─────────┘
-> >                │     │       │       │        │ └────┘  │ Outbound Transfer
-> >                └─────┘       │       │        │         │
-> >                              │       │        │         │
-> >                              │       │        │         │
-> >                              │       │        │         │ Inbound Transfer
-> >                              │       │        │         │      ┌──▼──┐
-> >               ┌───────┐      │       │        │ ┌───────┼─────►│DDR  │
-> >               │       │ outbound Transfer*    │ │       │      └─────┘
-> >    ┌─────┐    │ Bus   ┼─────►│ ATU  ─┬────────┼─┘       │
-> >    │     │    │ Fabric│Bus   │       │ PCI Addr         │
-> >    │ CPU ├───►│       │Addr  │       │ 0xA000_0000      │
-> >    │     │CPU │       │0x8000_0000   │        │         │
-> >    └─────┘Addr└───────┘      │       │        │         │
-> >           0x7000_0000        └───────┘        └─────────┘
-> >
-> > Add `bus_addr_base` to configure the outbound window address for CPU write.
-> > The BUS fabric generally passes the same address to the PCIe EP controller,
-> > but some BUS fabrics convert the address before sending it to the PCIe EP
-> > controller.
-> >
-> > Above diagram, CPU write data to outbound windows address 0x7000_0000,
-> > Bus fabric convert it to 0x8000_0000. ATU should use BUS address
-> > 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
->
-> The above doesn't match what's in patch 1/4, and I think the version
-> in 1/4 is better, so I'll comment there.
->
-> To avoid confusion, it might be better not to duplicate it in 0/4 and
-> 1/4.
+Currently the set_config callback in the gpio_chip registered by the
+pinctrl-mtk-common driver only supports configuring a single parameter
+on specific pins (the input debounce of the EINT controller, on pins
+that support it), even though many other configurations are already
+implemented and available through the pinctrl API for configuration of
+pins by the Devicetree and other drivers.
 
-Yes, cover letter don't come into git tree. This part is common and
-important, It is not good just said ref to patch1 commit message.
+Expose all configurations currently implemented through the GPIO API so
+they can also be set from userspace, which is particularly useful to
+allow testing them from userspace.
+---
+ drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 48 ++++++++++++++++-----------
+ 1 file changed, 28 insertions(+), 20 deletions(-)
 
-Add do you have addition comment about this and
-https://lore.kernel.org/imx/20241015-pci_fixup_addr-v5-0-ced556c85270@nxp.com/T/#t
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+index 91edb539925a49b4302866b9ac36f580cc189fb5..7f9764b474c4e7d0d4c3d6e542bdb7df0264daec 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+@@ -62,13 +62,12 @@ static unsigned int mtk_get_port(struct mtk_pinctrl *pctl, unsigned long pin)
+ 			<< pctl->devdata->port_shf;
+ }
+ 
+-static int mtk_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+-			struct pinctrl_gpio_range *range, unsigned offset,
+-			bool input)
++static int mtk_common_pin_set_direction(struct mtk_pinctrl *pctl,
++					unsigned int offset,
++					bool input)
+ {
+ 	unsigned int reg_addr;
+ 	unsigned int bit;
+-	struct mtk_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
+ 
+ 	reg_addr = mtk_get_port(pctl, offset) + pctl->devdata->dir_offset;
+ 	bit = BIT(offset & pctl->devdata->mode_mask);
+@@ -86,6 +85,15 @@ static int mtk_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+ 	return 0;
+ }
+ 
++static int mtk_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
++			struct pinctrl_gpio_range *range, unsigned int offset,
++			bool input)
++{
++	struct mtk_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
++
++	return mtk_common_pin_set_direction(pctl, offset, input);
++}
++
+ static void mtk_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
+ {
+ 	unsigned int reg_addr;
+@@ -363,12 +371,11 @@ static int mtk_pconf_set_pull_select(struct mtk_pinctrl *pctl,
+ 	return 0;
+ }
+ 
+-static int mtk_pconf_parse_conf(struct pinctrl_dev *pctldev,
++static int mtk_pconf_parse_conf(struct mtk_pinctrl *pctl,
+ 		unsigned int pin, enum pin_config_param param,
+-		enum pin_config_param arg)
++		u32 arg)
+ {
+ 	int ret = 0;
+-	struct mtk_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
+ 
+ 	switch (param) {
+ 	case PIN_CONFIG_BIAS_DISABLE:
+@@ -381,15 +388,15 @@ static int mtk_pconf_parse_conf(struct pinctrl_dev *pctldev,
+ 		ret = mtk_pconf_set_pull_select(pctl, pin, true, false, arg);
+ 		break;
+ 	case PIN_CONFIG_INPUT_ENABLE:
+-		mtk_pmx_gpio_set_direction(pctldev, NULL, pin, true);
++		mtk_common_pin_set_direction(pctl, pin, true);
+ 		ret = mtk_pconf_set_ies_smt(pctl, pin, arg, param);
+ 		break;
+ 	case PIN_CONFIG_OUTPUT:
+ 		mtk_gpio_set(pctl->chip, pin, arg);
+-		ret = mtk_pmx_gpio_set_direction(pctldev, NULL, pin, false);
++		ret = mtk_common_pin_set_direction(pctl, pin, false);
+ 		break;
+ 	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+-		mtk_pmx_gpio_set_direction(pctldev, NULL, pin, true);
++		mtk_common_pin_set_direction(pctl, pin, true);
+ 		ret = mtk_pconf_set_ies_smt(pctl, pin, arg, param);
+ 		break;
+ 	case PIN_CONFIG_DRIVE_STRENGTH:
+@@ -421,7 +428,7 @@ static int mtk_pconf_group_set(struct pinctrl_dev *pctldev, unsigned group,
+ 	int i, ret;
+ 
+ 	for (i = 0; i < num_configs; i++) {
+-		ret = mtk_pconf_parse_conf(pctldev, g->pin,
++		ret = mtk_pconf_parse_conf(pctl, g->pin,
+ 			pinconf_to_config_param(configs[i]),
+ 			pinconf_to_config_argument(configs[i]));
+ 		if (ret < 0)
+@@ -870,19 +877,20 @@ static int mtk_gpio_set_config(struct gpio_chip *chip, unsigned offset,
+ 	struct mtk_pinctrl *pctl = gpiochip_get_data(chip);
+ 	const struct mtk_desc_pin *pin;
+ 	unsigned long eint_n;
+-	u32 debounce;
++	enum pin_config_param param = pinconf_to_config_param(config);
++	u32 arg = pinconf_to_config_argument(config);
+ 
+-	if (pinconf_to_config_param(config) != PIN_CONFIG_INPUT_DEBOUNCE)
+-		return -ENOTSUPP;
++	if (param == PIN_CONFIG_INPUT_DEBOUNCE) {
++		pin = pctl->devdata->pins + offset;
++		if (pin->eint.eintnum == NO_EINT_SUPPORT)
++			return -EINVAL;
+ 
+-	pin = pctl->devdata->pins + offset;
+-	if (pin->eint.eintnum == NO_EINT_SUPPORT)
+-		return -EINVAL;
++		eint_n = pin->eint.eintnum;
+ 
+-	debounce = pinconf_to_config_argument(config);
+-	eint_n = pin->eint.eintnum;
++		return mtk_eint_set_debounce(pctl->eint, eint_n, arg);
++	}
+ 
+-	return mtk_eint_set_debounce(pctl->eint, eint_n, debounce);
++	return mtk_pconf_parse_conf(pctl, offset, param, arg);
+ }
+ 
+ static const struct gpio_chip mtk_gpio_chip = {
 
-The both are the pave the road to clean up pci_fixup_addr().
+-- 
+2.47.0
 
-Frank
-
->
-> > Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
-> > the device tree provides this information, preferring a common method.
-> >
-> > bus@5f000000 {
-> > 	compatible = "simple-bus";
-> > 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> >
-> > 	pcie-ep@5f010000 {
-> > 		reg = <0x5f010000 0x00010000>,
-> > 		      <0x80000000 0x10000000>;
-> > 		reg-names = "dbi", "addr_space";
-> > 		...
-> > 	};
-> > 	...
-> > };
-> >
-> > 'ranges' in bus@5f000000 descript how address convert from CPU address
-> > to BUS address.
-> >
-> > Use `of_property_read_reg()` to obtain the BUS address and set it to the
-> > ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
-> >
-> > The 1st patch implement above method in dwc common driver.
-> > The 2nd patch update imx6's binding doc to add fsl,imx8q-pcie-ep.
-> > The 3rd patch fix a pci-mx6's a bug
-> > The 4th patch enable pci ep function.
-> >
-> > The imx8q's dts is usptreaming, the pcie-ep part is below.
-> >
-> > hsio_subsys: bus@5f000000 {
-> >         compatible = "simple-bus";
-> >         #address-cells = <1>;
-> >         #size-cells = <1>;
-> >         /* Only supports up to 32bits DMA, map all possible DDR as inbound ranges */
-> >         dma-ranges = <0x80000000 0 0x80000000 0x80000000>;
-> >         ranges = <0x5f000000 0x0 0x5f000000 0x01000000>,
-> >                  <0x80000000 0x0 0x70000000 0x10000000>;
-> >
-> > 	pcieb_ep: pcie-ep@5f010000 {
-> >                 compatible = "fsl,imx8q-pcie-ep";
-> >                 reg = <0x5f010000 0x00010000>,
-> >                       <0x80000000 0x10000000>;
-> >                 reg-names = "dbi", "addr_space";
-> >                 num-lanes = <1>;
-> >                 interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
-> >                 interrupt-names = "dma";
-> >                 clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
-> >                          <&pcieb_lpcg IMX_LPCG_CLK_4>,
-> >                          <&pcieb_lpcg IMX_LPCG_CLK_5>;
-> >                 clock-names = "dbi", "mstr", "slv";
-> >                 power-domains = <&pd IMX_SC_R_PCIE_B>;
-> >                 fsl,max-link-speed = <3>;
-> >                 num-ib-windows = <6>;
-> >                 num-ob-windows = <6>;
-> >         };
-> > };
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > Changes in v4:
-> > - Fix 32bit build error
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
-> > - Link to v3: https://lore.kernel.org/r/20241021-pcie_ep_range-v3-0-b13526eb0089@nxp.com
-> >
-> > Changes in v3:
-> > - Add mani' review tag for patch 3,4
-> > - Add varible using_dtbus_info to control use bus range information instead
-> > cpu_address_fixup().
-> > - Link to v2: https://lore.kernel.org/r/20240923-pcie_ep_range-v2-0-78d2ea434d9f@nxp.com
-> >
-> > Changes in v2:
-> > - Totally rewrite with difference method. 'range' should in bus node
-> > instead pcie-ep node because address convert happen at bus fabric. Needn't
-> > add 'range' property at pci-ep node.
-> > - Link to v1: https://lore.kernel.org/r/20240919-pcie_ep_range-v1-0-b3e9d62780b7@nxp.com
-> >
-> > ---
-> > Frank Li (4):
-> >       PCI: dwc: ep: Add bus_addr_base for outbound window
-> >       dt-bindings: PCI: fsl,imx6q-pcie-ep: Add compatible string fsl,imx8q-pcie-ep
-> >       PCI: imx6: Pass correct sub mode when calling phy_set_mode_ext()
-> >       PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
-> >
-> >  .../devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml | 38 +++++++++++++++++++++-
-> >  drivers/pci/controller/dwc/pci-imx6.c              | 26 ++++++++++++++-
-> >  drivers/pci/controller/dwc/pcie-designware-ep.c    | 14 +++++++-
-> >  drivers/pci/controller/dwc/pcie-designware.h       |  9 +++++
-> >  4 files changed, 84 insertions(+), 3 deletions(-)
-> > ---
-> > base-commit: afb15ca28055352101286046c1f9f01fdaa1ace1
-> > change-id: 20240918-pcie_ep_range-4c5c5e300e19
-> >
-> > Best regards,
-> > ---
-> > Frank Li <Frank.Li@nxp.com>
-> >
 
