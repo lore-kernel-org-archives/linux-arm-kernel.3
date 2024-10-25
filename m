@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A84D0C5F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEB1D0C5F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQSE5SxVNGf2DbaZXHVRJ0zQ6As+c1Qhb4dBaJiSrMk=; b=3Ep2ga3Hd37JlrIwY93TrtJtke
-	09NLHJbhRuAVGhqWCIMExxROk7KOTmRc2cX2J+pIIbdxTstW9hOg3WwlHrIbYZGHnk6pgPpatMOsG
-	Qay8H+/nO7vrtVQGN1kX1nwK2ESyzpl34onpPEUxY0n7rtpXZSMBaeIzZLcIKBGZaozGBAkM1dHtE
-	9g8mlozV4DamCgSAwCi+/Uax9D4AQaBNeYDoH/2rKh99S2XVexUnrBZ8LoWFq0CgoK1eV7Exno9qN
-	36H2upE094ReYYRX5UFhqrMO+YriAZkqRbsRuod8n/Yfbsni3tQWtL3Smioeau2AARB3kvfcgLwY4
-	ruutsvFQ==;
+	bh=ZkcdfzXbvS0BpBzaxww66kx5tdJY21WTs7v1/tF0r0g=; b=E7Tl5wSi7d7GF29znVkFNlwUxa
+	QsH78NAvBpP8b8+KMLiLbIaguwY13FntQWIz008HB3os37l8t0KsBODAn+ANFqtwd6qW62pwApSp5
+	A1HUrM+wjvjV6wlE5GZnbAadC4UlJhzThE/B25lWrV8PWFVJlyA9RikSxGbByXTAHGCvrpKncrXOS
+	B0d5+0+ypjbq8X9er2k6uhuWX8KhPMCgWKjJJeWbFyec+7DIMrn9M3xFIJ45CfeEu18cdWFWMI7lc
+	UJbKbx3PZLnk2nrbqTJt9XJb9agIdyZmWawP/t27E66BWQYWSOLDlLJb7OM675aA9P0r18+Vg9TAb
+	o34JHhiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Gvt-00000003FCJ-3dzI;
-	Fri, 25 Oct 2024 09:48:37 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1t4GxT-00000003FOq-1Z61;
+	Fri, 25 Oct 2024 09:50:15 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GtM-00000003Eat-3bKB;
-	Fri, 25 Oct 2024 09:46:02 +0000
+	id 1t4Gv6-00000003F0b-0KcZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 09:47:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729849561; x=1761385561;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZARvpj+4y2gmcRwYkJIUqXAw6D/BozzudJM0om84MZw=;
-  b=SXvFZZ1sroJ6Jrx3eNYhf96jwj2GSDiJiAZJSQNpY+fyIvH3A379nHx4
-   IXdNQs7AHT3KmVc2mD0MkBzF4W5Pnhqzk2oKcZT1MpiW9ebb6q5ATRvqe
-   FZXZoMEmUxU1dO9Twx4wGPcZOe3k7AekMwnsOJRfFc3qI/LeK+B+lyL8/
-   5K7tzCIxBjKobvJ3zah4LOCsN0Aqc3WQ55u7EmN/A4JxfH+ySzIAWdFfB
-   IKEeSnS1U9bjUus4ct2DbyRGIvmw+q1XzzHJZVSnZp9yMzzDV+vBloPLE
-   o+LaOOao4kJ8fNNyuVCWdVQvGT6eVBiXvChcco328e+w5VZ7mZhTyXqOZ
+  t=1729849668; x=1761385668;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=6rbifKS/b/8sjhIHVhRdr8q9RaoX7LEiMZO8Aw36+T4=;
+  b=EhFlpJUwma2PzJ7T3JOl/pvB31nNnAa+aC5WCK5rF/40nA79CteOai6T
+   hHS8pD30qi9wp6Sn2ranB0Dd7UkBWQPs6mOcj3AuH43R5k9QNB9xlQYyL
+   sIGi/0IphOeMqcRXEACAhT/km15466tJyq+/8Osf6ip0mgT8J3GtYh1Ca
+   hlR+61bUsq2sGQp9bmZhObTIyIBBJ+IwdO3hplxp+HeDQcX/fkzqLeTG3
+   0XX7LODMNj4nVr8B2LtiCeaayErYOcoV4Tq/P/NeYhPp4Vqz133ZbcjoP
+   cp62ffzN9W1gvuATVmKQB1z5CzW+F8tjOEWwWi8G7Fz2ukWGvZfUr11h+
    g==;
-X-CSE-ConnectionGUID: b5CvaWUuRyGnIqlQFMIbJQ==
-X-CSE-MsgGUID: O9/R6Yn6SM+avjva7qUUnA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="40129332"
+X-CSE-ConnectionGUID: lnn0DWfdSB2Oj1gPOGbJog==
+X-CSE-MsgGUID: CB9uIBeIRfq+kUxsniHPIQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="46996338"
 X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="40129332"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 02:46:00 -0700
-X-CSE-ConnectionGUID: 5UHDvqAZSEqUUNxuUDqGnQ==
-X-CSE-MsgGUID: kC3HEjRVT0SmaAYZ8zBJ+A==
+   d="scan'208";a="46996338"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 02:47:45 -0700
+X-CSE-ConnectionGUID: KEo2T9dkTJus/LCCLp7lIw==
+X-CSE-MsgGUID: stIku8ljRxKprzLmkTjRng==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="81188264"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 25 Oct 2024 02:45:54 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4GtE-000Y0T-1q;
-	Fri, 25 Oct 2024 09:45:52 +0000
-Date: Fri, 25 Oct 2024 17:45:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 21/37] drm/vc4: txp: Add support for BCM2712 MOP
-Message-ID: <202410251725.ZQplKjRl-lkp@intel.com>
-References: <20241023-drm-vc4-2712-support-v1-21-1cc2d5594907@raspberrypi.com>
+   d="scan'208";a="81038257"
+Received: from zzombora-mobl1.ti.intel.com (HELO localhost) ([10.245.246.193])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 02:47:39 -0700
+From: Jani Nikula <jani.nikula@intel.com>
+To: kernel test robot <lkp@intel.com>, dri-devel@lists.freedesktop.org
+Cc: oe-kbuild-all@lists.linux.dev, David Airlie <airlied@gmail.com>, Hamza
+ Mahfooz <hamza.mahfooz@amd.com>, Javier Martinez
+ Canillas <javierm@redhat.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>, Simon Ser
+ <contact@emersion.fr>, Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann
+ <tzimmermann@suse.de>, Ville =?utf-8?B?U3lyasOkbMOk?=
+ <ville.syrjala@linux.intel.com>,
+ amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ nouveau@lists.freedesktop.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH 2/2] drm: remove driver date from struct drm_driver and
+ all drivers
+In-Reply-To: <202410251351.r16zfufe-lkp@intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241024162240.2398664-2-jani.nikula@intel.com>
+ <202410251351.r16zfufe-lkp@intel.com>
+Date: Fri, 25 Oct 2024 12:47:35 +0300
+Message-ID: <878qucqzt4.fsf@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023-drm-vc4-2712-support-v1-21-1cc2d5594907@raspberrypi.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_024600_928642_C1DC6EFC 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20241025_024748_141448_7C9D100B 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +93,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+On Fri, 25 Oct 2024, kernel test robot <lkp@intel.com> wrote:
+> Hi Jani,
+>
+> kernel test robot noticed the following build warnings:
+>
+> [auto build test WARNING on drm-misc/drm-misc-next]
+> [also build test WARNING on next-20241024]
+> [cannot apply to drm-exynos/exynos-drm-next shawnguo/for-next drm-xe/drm-xe-next linus/master v6.12-rc4]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Jani-Nikula/drm-remove-driver-date-from-struct-drm_driver-and-all-drivers/20241025-002344
+> base:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
+> patch link:    https://lore.kernel.org/r/20241024162240.2398664-2-jani.nikula%40intel.com
+> patch subject: [PATCH 2/2] drm: remove driver date from struct drm_driver and all drivers
+> config: i386-buildonly-randconfig-004-20241025 (https://download.01.org/0day-ci/archive/20241025/202410251351.r16zfufe-lkp@intel.com/config)
+> compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241025/202410251351.r16zfufe-lkp@intel.com/reproduce)
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202410251351.r16zfufe-lkp@intel.com/
+>
+> All warnings (new ones prefixed by >>):
+>
+>    drivers/accel/qaic/qaic_drv.c:211:10: error: 'const struct drm_driver' has no member named 'date'
+>      211 |         .date                   = "20190618",
+>          |          ^~~~
+>>> drivers/accel/qaic/qaic_drv.c:211:35: warning: initialization of 'unsigned int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+>      211 |         .date                   = "20190618",
+>          |                                   ^~~~~~~~~~
+>    drivers/accel/qaic/qaic_drv.c:211:35: note: (near initialization for 'qaic_accel_driver.driver_features')
+>    drivers/accel/qaic/qaic_drv.c:211:35: warning: initialized field overwritten [-Woverride-init]
+>    drivers/accel/qaic/qaic_drv.c:211:35: note: (near initialization for 'qaic_accel_driver.driver_features')
 
-kernel test robot noticed the following build warnings:
+Hrmh, looks like I missed all of drivers/accel, I'll send an update
+later.
 
-[auto build test WARNING on 91e21479c81dd4e9e22a78d7446f92f6b96a7284]
+BR,
+Jani.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dave-Stevenson/drm-vc4-Limit-max_bpc-to-8-on-Pi0-3/20241024-005239
-base:   91e21479c81dd4e9e22a78d7446f92f6b96a7284
-patch link:    https://lore.kernel.org/r/20241023-drm-vc4-2712-support-v1-21-1cc2d5594907%40raspberrypi.com
-patch subject: [PATCH 21/37] drm/vc4: txp: Add support for BCM2712 MOP
-config: arc-randconfig-r111-20241025 (https://download.01.org/0day-ci/archive/20241025/202410251725.ZQplKjRl-lkp@intel.com/config)
-compiler: arc-elf-gcc (GCC) 13.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20241025/202410251725.ZQplKjRl-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410251725.ZQplKjRl-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/gpu/drm/vc4/vc4_txp.c:513:27: sparse: sparse: symbol 'bcm2712_mop_data' was not declared. Should it be static?
-
-vim +/bcm2712_mop_data +513 drivers/gpu/drm/vc4/vc4_txp.c
-
-   512	
- > 513	const struct vc4_txp_data bcm2712_mop_data = {
-   514		.base = {
-   515			.name = "mop",
-   516			.debugfs_name = "mop_regs",
-   517			.hvs_available_channels = BIT(2),
-   518			.hvs_output = 2,
-   519		},
-   520		.encoder_type = VC4_ENCODER_TYPE_TXP0,
-   521		.high_addr_ptr_reg = TXP_DST_PTR_HIGH_MOP,
-   522		.has_byte_enable = true,
-   523		.size_minus_one = true,
-   524		.supports_40bit_addresses = true,
-   525	};
-   526	
+>
+>
+> vim +211 drivers/accel/qaic/qaic_drv.c
+>
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  205  
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  206  static const struct drm_driver qaic_accel_driver = {
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  207  	.driver_features	= DRIVER_GEM | DRIVER_COMPUTE_ACCEL,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  208  
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  209  	.name			= QAIC_NAME,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  210  	.desc			= QAIC_DESC,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27 @211  	.date			= "20190618",
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  212  
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  213  	.fops			= &qaic_accel_fops,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  214  	.open			= qaic_open,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  215  	.postclose		= qaic_postclose,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  216  
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  217  	.ioctls			= qaic_drm_ioctls,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  218  	.num_ioctls		= ARRAY_SIZE(qaic_drm_ioctls),
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  219  	.gem_prime_import	= qaic_gem_prime_import,
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  220  };
+> c501ca23a6a306 Jeffrey Hugo 2023-03-27  221  
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jani Nikula, Intel
 
