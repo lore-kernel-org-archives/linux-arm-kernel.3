@@ -4,168 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A31DD0C5EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CC1D0C5EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZSRIT/jeRnIARScqHi2syAgtXNsb5Qp+yMCFhdccpaY=; b=FcuAXIPwvru54i4/N02ZMyows9
-	2APNZOSrzQRaG8fRW9Qg+lCU9fqt9BI5cDM1o1gJdjrzVWRCIurvt7W5qoB9S+PDgB53NGHYNoGne
-	/aCvHksKHxOvXnHFrzKlPhbd8kXfZcWEAS3YIZuRK1Li6rxeVB1wzqVKQMpeTAeLGg79WN2pgqTZn
-	LnzbH5H8D6MUVdl9Kup3qYpYIXogEz2Ar27nyePzL7lrIZQRYgGGbsiX5ybFXn+7bFhzcbAYih+lt
-	ipM+r0+dsHQLAR6QsVTAtnjy2UqKrTocFH87PNAjY7gCU85TIcpJqc1pXt/B5MT768N+yQg/+rdDw
-	VRHa+kzA==;
+	bh=O2kUQRj4CNiS2F4WG16Olwz8YuS0hImd/l8EFAme2DM=; b=Ch6PBi75c8XtWuaX7nTSX7M8Sw
+	2ct3aJzedk/OWUcKjEi2lP4SJmuQJrTLL/PU7B7BvKGF0buK9xa82lo6xn+8A9kJO6WbMlfLaQMHr
+	gCDKg5DMMt7gvxYVGh43tYjjK92/X1rrxK3u1bUcKOVxbn8/bODe3BR/Z5y7Jj3U8vERYqazjWYfy
+	xMqvHTbxqQDHR9TjxGyo3Hof4k4aUArDR2vEdc4/NrLv2wOUgt6V477OgXEplcim6GcO0o3iJj8Jb
+	fjTnpzJtAqTwlD54eLUQlpSPc3/+EzcLbqu8zI03fK+agAyPOzR+XZyeqDMq3Zxr65lcKZ8K0+4XF
+	D3qraRJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fyf-0000000322p-0ARz;
-	Fri, 25 Oct 2024 08:47:25 +0000
-Received: from mail-germanywestcentralazlp170120004.outbound.protection.outlook.com ([2a01:111:f403:c20c::4] helo=FR5P281CU006.outbound.protection.outlook.com)
+	id 1t4G0E-000000032Lf-0kov;
+	Fri, 25 Oct 2024 08:49:02 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Foi-0000000309b-3HOo
+	id 1t4FsH-000000030ip-0elO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:37:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XB4/f4C6x2mk0bHgGhLpMLHQ/AbSV5P9MhkjJ17qhyfc6O6lRj8a3ti98gSQK5gimDqw3UXR0slsI1KCSDWCrEPHfjYzceXqVAT6aHdIJk1mAPPhNipQDuuLOB3D9QzHUt0s8BAT6h9+yj6Vi5yROgRU0IPxy5h68OXVkGFJR6UfSnlBXfiW6kITSn4FJV7puDojot/YVK3ouFXRy0PqMuio28+g/ktmRsLPslzoQJh1925FGcpz3MaVQzVw6IlQswdAF+IVu8qe6P5lG+2x+AdlG5U+Krt4xQEf+SmtsY6dYo02MCYnUhrhNDfvtKhyVdtSdsBw3sWTXjPK3IRJZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZSRIT/jeRnIARScqHi2syAgtXNsb5Qp+yMCFhdccpaY=;
- b=bHZ3sLXVbAI3MGwZJJtxUuXNOI0Es6qdf0hC0abFD59MEV+eX2IjOG/WqBgCM4g0aPTf2na67MW278UnQmUMd2hYygsqX9BZlkzccflKsRjYvVVp0WLXex423walJYcXJxXgt1vtPtwAZqd/rYgi4Rd/pNaxMo6qJSR0qkxz0Se9Vqx9M/xN7J4DQtO86MA4bgmkx5oGhOfZke3QxsOh6QOVVXt2KP7a1h5Ddh8Wg9eicx1djmopgjIM0oasWrBFN+196t8Qdw/ICwIrV5B2j0a16zB23JUGrHC52L+gFhbxxzT7i64kLDmybPXes6MaPEafulszy1Myd0orFkw+sg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=iris-sensing.com; dmarc=pass action=none
- header.from=iris-sensing.com; dkim=pass header.d=iris-sensing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iris-sensing.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZSRIT/jeRnIARScqHi2syAgtXNsb5Qp+yMCFhdccpaY=;
- b=PhVKrdm/uZbYni+sjEfdvCMj6pVltvSG/O7vRuRdS/wcJRXVO2i4EDdzkP7QR+GXRhodlxQ8twIwkq1l/QUFZkS53erGNh+AKMmBCUdD0+k7b9eMKuJqs6CwjzMmhTrF3yUJgsLlNig5nt9snc7ItvEXshQ67ybq9m27afeRbuTwyOfeWbBIVzLTci3sD/tnnEjkAV8E8nHwywjtflg5qxJAIaDEufQWcQOLBfQK/du3ADdubMlLd2jAkFoAm5Ykopl6GhqymPqcFeAKBrEeUNTTm2CEEwAuGShIFMZeXfWmTpKXGF05zU5RvEGgi0ZTX7iK0qM96R6a4SZtL+iThw==
-Received: from FR0P281MB2809.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:23::8) by
- BEUP281MB3428.DEUP281.PROD.OUTLOOK.COM (2603:10a6:b10:a0::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.21; Fri, 25 Oct 2024 08:37:00 +0000
-Received: from FR0P281MB2809.DEUP281.PROD.OUTLOOK.COM
- ([fe80::d685:f312:e114:519e]) by FR0P281MB2809.DEUP281.PROD.OUTLOOK.COM
- ([fe80::d685:f312:e114:519e%4]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 08:37:00 +0000
-From: Erik Schumacher <erik.schumacher@iris-sensing.com>
-To: "ukleinek@kernel.org" <ukleinek@kernel.org>
-CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-pwm@vger.kernel.org"
-	<linux-pwm@vger.kernel.org>
-Subject: [PATCH v3] pwm: imx-tpm: Use correct MODULO value for EPWM mode
-Thread-Topic: [PATCH v3] pwm: imx-tpm: Use correct MODULO value for EPWM mode
-Thread-Index: AQHbJrkPZIUl6hhjQE6BArXHpLZSvg==
-Date: Fri, 25 Oct 2024 08:37:00 +0000
-Message-ID: <1a3890966d68b9f800d457cbf095746627495e18.camel@iris-sensing.com>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iris-sensing.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: FR0P281MB2809:EE_|BEUP281MB3428:EE_
-x-ms-office365-filtering-correlation-id: ab1386fb-fc13-446f-d0f5-08dcf4d03187
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?Z0RjTmEvTzgyVTdpN29RTlVCVEEvU3BWekdKVEVWS1J1YWdrNWFzQnlTa2JP?=
- =?utf-8?B?amFvMlFNWWkzVm96b3ZaNWJ4b0QzNnNxQ1BNTEx4R3h0VWliY29UVlhJVG1B?=
- =?utf-8?B?cHd4K0hkK05DMkp4S21HLzlZYnBURmtrMVI5SnhoSXZWT2FUVGxRNnRqS3Zi?=
- =?utf-8?B?d1FLbTVmb0FoU2NkNXc5QTJPUW16S242R0VEZ1I1bjd2SWM1aXp2OFJOTVd0?=
- =?utf-8?B?NVh2TG96VS96djVCU2pTUXlseWJ1djNUd1RONk9WRkVGeWI5Y3BxdzZqQWlR?=
- =?utf-8?B?aFJwUlgwY0U2RkdmT25CcHc1YkxUdjJXeVNDT0xmTVdaRHR3Mno1ZE1FOWt6?=
- =?utf-8?B?R09DUlhpaUxoaitvU2ZQMjdXOG1USEg1YWhaaDZLUWYyblFsTjM2UXRmK2Nm?=
- =?utf-8?B?K0QrOW1LclZuNEJEZU81TVgvUnNmdEsyN05nZnlNZFpQcTJZU05paFJqc0ph?=
- =?utf-8?B?akltTkwyVkxVaTdLZmJ0WWdET1dKd2NSckRYVTN2eEl0Vmt3MzhER2ErLzhZ?=
- =?utf-8?B?SnhFUUl2RzZrZjkxWjJTQ2lweTRqcmtjN1BnK3U5VFJ4ZXZEN3FUVTlrVmJo?=
- =?utf-8?B?aU56YU80MmNYZzdrVis2amNDbG5XMi9xaWJOeEJ1b0NvbGJTTnR0bDhJUWpx?=
- =?utf-8?B?ZE9UbWJZYW03Mlp1b1cvY1ViN1hyekFQa0E0NldWOEFmZDQxNFRMeFJlT1Nq?=
- =?utf-8?B?akExclRTbllUNDEwVWEzRFRSdHVvdExMSHVWZ1EyRjcwdUp4MitOai80WEkv?=
- =?utf-8?B?ckZ3Q2Y5cWZNY2xZaVF5dVZ6Vi9WSEhvZU80elcrTmQ0enhoNExrRWN0czFC?=
- =?utf-8?B?MXNqZTVnZGtlMGhxbnRKMXhvK0ZyQm04cm1sSGROOTZrU3AvYVJPM2JtWDRZ?=
- =?utf-8?B?OVFzRkpXSlBQZnI5VWVNY2JxOEJSWGxVYlhzb0xIYnJYdEczTjk0YzRTbDRZ?=
- =?utf-8?B?Y3BmcnhEaHR4VE1nZU8vUzZFQ2Fpdjd3TTNjSnJWdkIwMXVEUWhqR1dBTTY3?=
- =?utf-8?B?UWtFNXRzdVZRN0lteklFNG10WVo4d0VORDE0cmpsQ0I5T0VXTjJZbGxDUzI5?=
- =?utf-8?B?RnZOajY2SjVmSGg1VEM3c2R2MlY4djI1Zk5lVHFZZUd0TGRkZmxYdTlwSzcy?=
- =?utf-8?B?d3Y0TUhRaDkxUG5tRVpxcEE1KzFzSVVPRkJ2eTZnSkNIQ0NrUTlYc1hiOTE1?=
- =?utf-8?B?cUFrbzI3VmVaaTkvd3dZb3RjMXRScklTN0ZhY1ZUNDRKQ3FKcWxsR2g3Mm1r?=
- =?utf-8?B?S2thWVovVTFOK1kweWpPTXpHQUpuZk1NcGIvbmhLMXJCZENuM3dYWXlZVnpH?=
- =?utf-8?B?TXBnWi83aXp5Zm42b0lvM1J0Z0FLTEI1TGRWZWpOWFRicWM1UW1rWkFjeXpP?=
- =?utf-8?B?d1o0b1dROVVtZlRDRk5sd1d6WjFOM0VtRktyOW5FNDVFaWZia0syS2dWNVo1?=
- =?utf-8?B?ZkVRY0hJbDNMUFpUd1RiMTlOM0FJZWJKN3pONUdOek1hR3hzRm9EZUo4c3J3?=
- =?utf-8?B?NHEyZDhVMlIzRHdKZXROQ1k2OFBKbFRkMjRqZm5tc3FkSTcxVjMvWkI1WS91?=
- =?utf-8?B?WUhsQi9ZbThLWHpSZ01wTlAyNTBPWi9qcXhTUnhLTUxzU3hwaHJxWE8rNTVF?=
- =?utf-8?B?THB6WkVFMkRQVFNCZnpFODcyNE85djhNa2xERU5hUG4vdnRsamwrM0hkUWNy?=
- =?utf-8?B?Q0JvQ0RxT21EZSs2YzMrQzl1QUlYMmRmaGlQY2F3Q1gxR3YrdmsxUVFvbnNV?=
- =?utf-8?B?MjkyTmpETjYxUEYzUjBZL2k0MWZpS3BPQldqUm5tZUJCZkZsK0tXbG45S21X?=
- =?utf-8?Q?QaphV/nNzqYTWug/cfyQsTi4bDPKSlxjoD/9Y=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR0P281MB2809.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QXpPZnRDR1ZvZnJtbFZxTGg0d3FwQWx1dFc1d0N0b2F1TDQzSWhzRzRBbGM0?=
- =?utf-8?B?OTgwVm9qWFIvV1pqRlNyL29hMXkyTEtpK2lKNUdOMitoaHVJTFNKMVBWSkt2?=
- =?utf-8?B?cHhrUUUxR0xBSytEak5JTzFXYTlWTzN1MkZacHhHaTRUYnp5SlI0Y0hja3hG?=
- =?utf-8?B?UWJBZ2s0MlhhUmthbDRNSGZRQlNlV3l4UGdGcnl5MllXYzNCTkR5bTJ1Mkow?=
- =?utf-8?B?eFFJNXpKd25RcDdqVGxMTFB3WjRtMmt3cDFIUmhpcXNTb1ZzY0RhSVYzQm40?=
- =?utf-8?B?eWxMT2xWMnFOZy80UnNPNTZDWTRlQmJ1Wk5iNFYrTHJ0SngxdlA5eTFKTHkv?=
- =?utf-8?B?YWFsUE9qaEhTVTloWnY3Nnc1TGJpcDlQUnlDaVZLa1VzOFhOUXc3cEVrR2Nr?=
- =?utf-8?B?TTJlNHVTT2pFa0Nhb2Fpdmd2SkExYnYvSFJDYkNDQkt6Szdja0pMeHBpNFRv?=
- =?utf-8?B?UGliT25nRUJFSXRiOGk5RlZYMU1aSmlOcy9Xdm1DRmFRZ1c0elhPaW1sdDdu?=
- =?utf-8?B?dEQ4L1diYklQeXZuamFHVjlZalk4RHlPa1pwcGxMMTlQaXJJcjI1WldBNGp1?=
- =?utf-8?B?dkZFSEQ2dnFCazJ4VjdKSXlMUGFlUkhXek1LVnFvYUtWYVJsRnh3aDJMTEpZ?=
- =?utf-8?B?THBOSzd0S080WWdjbEpnT0RIS25ia3hsektZcTNZUEkwMkZCYVRRM0V1aVJ5?=
- =?utf-8?B?SEM3aXhsWUxDb2xvdDNZMDVYRE0vYjNPU2hJa2xHc0c0OEppZXBXcng1VUtp?=
- =?utf-8?B?OUx6dUpDK09EcXFNWXhvYm5RYUI3VkQyMnRUQmxKUE9td1R1ZkoxdWl4aFlh?=
- =?utf-8?B?TGZURnJMM3hndjRiQ291ZHZNZjRWcGNOejcwNTBFNFhJQmNuSjN0aklEVzE1?=
- =?utf-8?B?dXZkUlkxMzFOaFFmZXRDV1hkVENwWk1ESlhBV0Jad3hPSmJQWmFlMkN5T3Ir?=
- =?utf-8?B?K2ZOaTRpWUtZTHFJRTFwNDI3ZlV0OHE5T3k1STE3RmdkQUNyZDJnTCtDZTR0?=
- =?utf-8?B?eWNUcGI0K1JnUzkvNWJId2xGWVZQbFVZeUhnZGNHVjZlLzlETlQ4MVNIcE9j?=
- =?utf-8?B?dkZSWnJoUE5ZU001cmpES2FBdXhPN3ZRanMyMWc2TEdtZDRBL2VpZXZWMHdN?=
- =?utf-8?B?eURuVFp6Vzc4bEw0K2hMRml0ZmFmTlQ1cUVuMWZPenFLZzBHTi9DWWh1djN6?=
- =?utf-8?B?VmpscWNOeUFSYzBhelBEWlpxNC9raVNRRERrT2U3bXlEMG1PMGVmZmt3ZWNT?=
- =?utf-8?B?RmhXdlV3V1lzc0Iyb0pWSituUlNzMXpuTDM4MUhwSHRWdXBJdlJhaU9LaGpR?=
- =?utf-8?B?ZGhKUXFrMFB5ZytzdENTcTJGY0lFSUFYaUE2OVRkSVNubFZqR2Nrc1hwZlNw?=
- =?utf-8?B?TGVvM3pPR0EwTjVSdGlQY0JPSmRWRDNxSU05ZUFML0QveGxyTzJnclRHb3ZY?=
- =?utf-8?B?OG1JZGZWcENidVZhZUsyZWVEbXFObFZuUkxnbkdmRmFYN21XOENwZUgxMXpu?=
- =?utf-8?B?aHRwQ3UySUZ4MkpMaDVFNmNjN0JVOFBTWlpwSGkzQjVCaWgrSG01NVdmL0lU?=
- =?utf-8?B?bUMvM25OZmlEeFVSYVBaT1VYajlLYjZXSjgzc2dFUUdoZXFTNDlHVUhUQnJL?=
- =?utf-8?B?c3pBMUhkNkt3RVltWGhYSy82SGZYcUQ3VkhWRE5LQ0tua2czTDlPMEJSSDVX?=
- =?utf-8?B?dmJHSkRkU3F0MGp0Q1B3NFN5YWU2Sk1YMk1jWnlKOS9YeCtIcWszWEpsL0xM?=
- =?utf-8?B?TzAydU0wVGxYdjdZWUxGcEtScWkyazJIbnlVN25mZ1NPNndGeCs5S21Bb2pU?=
- =?utf-8?B?VGtEbDcvQXRPSTVkZEoxdHYycWNrbzl5VmdFVjAyR21hMHQvZHJHd1l1VUpQ?=
- =?utf-8?B?bXJmVEJBWXdCRFBzeitTWEEzRTZ2NG9idTJDaUtrUlFjVEhaUjE3NXNEOGlp?=
- =?utf-8?B?L2lCbC90S0hiT2FaNWdINXU3WGY2M2lUUDI1eW9JUHg1TTdmN1NXVFUzWDBC?=
- =?utf-8?B?VTl5Z3JaVmk1eWZGY0gwRFRGeTVrRUFRWkI1dHZBUGJsS1BsVkFrMXg2QnhE?=
- =?utf-8?B?eVdaMjdVTS9UTVZlSnR3aGI1aFY0Qkx4WWI5TC9UOFQxNWNORWhlQlRabk4v?=
- =?utf-8?B?c1F4c2Y0dTZSeW51SEN1U3NFZFM3QnZKRGx0OU13K3U1TGUzQVhrOGhXdGd1?=
- =?utf-8?Q?ofTppHKmLuYy8I3ztQfc8JA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <8F12D5495ED5D3459CD66AF9EB43A60C@DEUP281.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Fri, 25 Oct 2024 08:40:51 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4XZbp25f7Yz4f3k6R
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 16:40:26 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 31E1C1A018C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 16:40:39 +0800 (CST)
+Received: from k01.huawei.com (unknown [10.67.174.197])
+	by APP4 (Coremail) with SMTP id gCh0CgCnJ8SEWRtnOalHFA--.45621S2;
+	Fri, 25 Oct 2024 16:40:37 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH bpf-next v2] bpf, arm64: Remove garbage frame for struct_ops trampoline
+Date: Fri, 25 Oct 2024 16:52:20 +0800
+Message-Id: <20241025085220.533949-1-xukuohai@huaweicloud.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-OriginatorOrg: iris-sensing.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: FR0P281MB2809.DEUP281.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab1386fb-fc13-446f-d0f5-08dcf4d03187
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2024 08:37:00.0752
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 963f3913-ffae-43fd-856b-2dfd3f6604e3
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MklkxNaifyVSi9kah6VqSur6IOaky9Eu6lRNV6Yj8Dx5FAm5zvH0w/FDaImu+Nus6M8EpnQU4XgfPHEWxu2UaWfhS9ktYzbcVEuFdAvDmL/ZBYnkI+6tcJK1JP8+eFFH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BEUP281MB3428
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgCnJ8SEWRtnOalHFA--.45621S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAr17XF48Jw4kZr1xWF45KFg_yoW7Gryxpr
+	1fCry5CF4xXr45XF4vgr4xAF1rtan7tw1UKFWUC3yrCa4FvryfKF1rtrWjyrZ3Wr9xCw1x
+	ZFyqyrn2kFWDArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1lc7CjxVAKzI0E
+	Y4vE52x082I5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8
+	ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8
+	mjg7UUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_013708_863157_C45D4C01 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20241025_014049_519114_676ADD00 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,29 +85,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VGhlIG1vZHVsbyByZWdpc3RlciBkZWZpbmVzIHRoZSBwZXJpb2Qgb2YgdGhlIGVkZ2UtYWxpZ25l
-ZCBQV00gbW9kZQ0KKHdoaWNoIGlzIHRoZSBvbmx5IG1vZGUgaW1wbGVtZW50ZWQpLiBUaGUgcmVm
-ZXJlbmNlIG1hbnVhbCBzdGF0ZXM6DQoiVGhlIEVQV00gcGVyaW9kIGlzIGRldGVybWluZWQgYnkg
-KE1PRCArIDAwMDFoKSAuLi4iIFNvIHRoZSB2YWx1ZSB0aGF0DQppcyB3cml0dGVuIHRvIHRoZSBN
-T0QgcmVnaXN0ZXIgbXVzdCB0aGVyZWZvcmUgYmUgb25lIGxlc3MgdGhhbiB0aGUNCmNhbGN1bGF0
-ZWQgcGVyaW9kIGxlbmd0aC4gUmV0dXJuIC1FSU5WQUwgaWYgdGhlIGNhbGN1bGF0ZWQgbGVuZ3Ro
-IGlzDQphbHJlYWR5IHplcm8uDQpBIGNvcnJlY3QgTU9EVUxPIHZhbHVlIGlzIHBhcnRpY3VsYXJs
-eSByZWxldmFudCBpZiB0aGUgUFdNIGhhcyB0byBvdXRwdXQNCmEgaGlnaCBmcmVxdWVuY3kgZHVl
-IHRvIGEgbG93IHBlcmlvZCB2YWx1ZS4NCg0KRml4ZXM6IDczOGExY2ZlYzJlZCAoInB3bTogQWRk
-IGkuTVggVFBNIFBXTSBkcml2ZXIgc3VwcG9ydCIpDQpDYzogc3RhYmxlQHZnZXIua2VybmVsLm9y
-Zw0KU2lnbmVkLW9mZi1ieTogRXJpayBTY2h1bWFjaGVyIDxlcmlrLnNjaHVtYWNoZXJAaXJpcy1z
-ZW5zaW5nLmNvbT4NCi0tLQ0KdjI6DQogLSBBZGQgRml4ZXM6IGFuZCBDYzogdGFncw0KdjM6DQog
-LSBBZGQgcGVyaW9kX2NvdW50ID09IDAgY2hlY2sgYW5kIHJldHVybiAtRUlOVkFMDQoNCiBkcml2
-ZXJzL3B3bS9wd20taW14LXRwbS5jIHwgNCArKystDQogMSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0
-aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KDQpkaWZmIC0tZ2l0IGEvZHJpdmVycy9wd20vcHdtLWlt
-eC10cG0uYyBiL2RyaXZlcnMvcHdtL3B3bS1pbXgtdHBtLmMNCmluZGV4IDk2ZWEzNDM4NTZmMC4u
-N2VlN2I2NWI5YjkwIDEwMDY0NA0KLS0tIGEvZHJpdmVycy9wd20vcHdtLWlteC10cG0uYw0KKysr
-IGIvZHJpdmVycy9wd20vcHdtLWlteC10cG0uYw0KQEAgLTEwNiw3ICsxMDYsOSBAQCBzdGF0aWMg
-aW50IHB3bV9pbXhfdHBtX3JvdW5kX3N0YXRlKHN0cnVjdCBwd21fY2hpcCAqY2hpcCwNCiAJcC0+
-cHJlc2NhbGUgPSBwcmVzY2FsZTsNCiANCiAJcGVyaW9kX2NvdW50ID0gKGNsb2NrX3VuaXQgKyAo
-KDEgPDwgcHJlc2NhbGUpID4+IDEpKSA+PiBwcmVzY2FsZTsNCi0JcC0+bW9kID0gcGVyaW9kX2Nv
-dW50Ow0KKwlpZiAocGVyaW9kX2NvdW50ID09IDApDQorCQlyZXR1cm4gLUVJTlZBTDsNCisJcC0+
-bW9kID0gcGVyaW9kX2NvdW50IC0gMTsNCiANCiAJLyogY2FsY3VsYXRlIHJlYWwgcGVyaW9kIEhX
-IGNhbiBzdXBwb3J0ICovDQogCXRtcCA9ICh1NjQpcGVyaW9kX2NvdW50IDw8IHByZXNjYWxlOw0K
-LS0gDQoyLjQ3LjANCg0K
+From: Xu Kuohai <xukuohai@huawei.com>
+
+The callsite layout for arm64 fentry is:
+
+mov x9, lr
+nop
+
+When a bpf prog is attached, the nop instruction is patched to a call
+to bpf trampoline:
+
+mov x9, lr
+bl <bpf trampoline>
+
+So two return addresses are passed to bpf trampoline: the return address
+for the traced function/prog, stored in x9, and the return address for
+the bpf trampoline itself, stored in lr. To obtain a full and accurate
+call stack, the bpf trampoline constructs two fake function frames using
+x9 and lr.
+
+However, struct_ops progs are invoked directly as function callbacks,
+meaning that x9 is not set as it is in the fentry callsite. In this case,
+the frame constructed using x9 is garbage. The following stack trace for
+struct_ops, captured by perf sampling, illustrates this issue, where
+tcp_ack+0x404 is a garbage frame:
+
+ffffffc0801a04b4 bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid+0x98 (bpf_prog_50992e55a0f655a9_bpf_cubic_cong_avoid)
+ffffffc0801a228c [unknown] ([kernel.kallsyms]) // bpf trampoline
+ffffffd08d362590 tcp_ack+0x798 ([kernel.kallsyms]) // caller for bpf trampoline
+ffffffd08d3621fc tcp_ack+0x404 ([kernel.kallsyms]) // garbage frame
+ffffffd08d36452c tcp_rcv_established+0x4ac ([kernel.kallsyms])
+ffffffd08d375c58 tcp_v4_do_rcv+0x1f0 ([kernel.kallsyms])
+ffffffd08d378630 tcp_v4_rcv+0xeb8 ([kernel.kallsyms])
+
+To fix it, construct only one frame using lr for struct_ops.
+
+The above stack trace also indicates that there is no kernel symbol for
+struct_ops bpf trampoline. This will be addressed in a follow-up patch.
+
+Fixes: efc9909fdce0 ("bpf, arm64: Add bpf trampoline for arm64")
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+Acked-by: Puranjay Mohan <puranjay@kernel.org>
+Tested-by: Puranjay Mohan <puranjay@kernel.org>
+---
+v2:
+Refine the commit message for clarity
+
+v1:
+https://lore.kernel.org/bpf/20241019092709.128359-1-xukuohai@huaweicloud.com/
+---
+ arch/arm64/net/bpf_jit_comp.c | 47 +++++++++++++++++++++++------------
+ 1 file changed, 31 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 5db82bfc9dc1..27ef366363e4 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2094,6 +2094,12 @@ static void restore_args(struct jit_ctx *ctx, int args_off, int nregs)
+ 	}
+ }
+ 
++static bool is_struct_ops_tramp(const struct bpf_tramp_links *fentry_links)
++{
++	return fentry_links->nr_links == 1 &&
++		fentry_links->links[0]->link.type == BPF_LINK_TYPE_STRUCT_OPS;
++}
++
+ /* Based on the x86's implementation of arch_prepare_bpf_trampoline().
+  *
+  * bpf prog and function entry before bpf trampoline hooked:
+@@ -2123,6 +2129,7 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	struct bpf_tramp_links *fmod_ret = &tlinks[BPF_TRAMP_MODIFY_RETURN];
+ 	bool save_ret;
+ 	__le32 **branches = NULL;
++	bool is_struct_ops = is_struct_ops_tramp(fentry);
+ 
+ 	/* trampoline stack layout:
+ 	 *                  [ parent ip         ]
+@@ -2191,11 +2198,14 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	 */
+ 	emit_bti(A64_BTI_JC, ctx);
+ 
+-	/* frame for parent function */
+-	emit(A64_PUSH(A64_FP, A64_R(9), A64_SP), ctx);
+-	emit(A64_MOV(1, A64_FP, A64_SP), ctx);
++	/* x9 is not set for struct_ops */
++	if (!is_struct_ops) {
++		/* frame for parent function */
++		emit(A64_PUSH(A64_FP, A64_R(9), A64_SP), ctx);
++		emit(A64_MOV(1, A64_FP, A64_SP), ctx);
++	}
+ 
+-	/* frame for patched function */
++	/* frame for patched function for tracing, or caller for struct_ops */
+ 	emit(A64_PUSH(A64_FP, A64_LR, A64_SP), ctx);
+ 	emit(A64_MOV(1, A64_FP, A64_SP), ctx);
+ 
+@@ -2289,19 +2299,24 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	/* reset SP  */
+ 	emit(A64_MOV(1, A64_SP, A64_FP), ctx);
+ 
+-	/* pop frames  */
+-	emit(A64_POP(A64_FP, A64_LR, A64_SP), ctx);
+-	emit(A64_POP(A64_FP, A64_R(9), A64_SP), ctx);
+-
+-	if (flags & BPF_TRAMP_F_SKIP_FRAME) {
+-		/* skip patched function, return to parent */
+-		emit(A64_MOV(1, A64_LR, A64_R(9)), ctx);
+-		emit(A64_RET(A64_R(9)), ctx);
++	if (is_struct_ops) {
++		emit(A64_POP(A64_FP, A64_LR, A64_SP), ctx);
++		emit(A64_RET(A64_LR), ctx);
+ 	} else {
+-		/* return to patched function */
+-		emit(A64_MOV(1, A64_R(10), A64_LR), ctx);
+-		emit(A64_MOV(1, A64_LR, A64_R(9)), ctx);
+-		emit(A64_RET(A64_R(10)), ctx);
++		/* pop frames */
++		emit(A64_POP(A64_FP, A64_LR, A64_SP), ctx);
++		emit(A64_POP(A64_FP, A64_R(9), A64_SP), ctx);
++
++		if (flags & BPF_TRAMP_F_SKIP_FRAME) {
++			/* skip patched function, return to parent */
++			emit(A64_MOV(1, A64_LR, A64_R(9)), ctx);
++			emit(A64_RET(A64_R(9)), ctx);
++		} else {
++			/* return to patched function */
++			emit(A64_MOV(1, A64_R(10), A64_LR), ctx);
++			emit(A64_MOV(1, A64_LR, A64_R(9)), ctx);
++			emit(A64_RET(A64_R(10)), ctx);
++		}
+ 	}
+ 
+ 	kfree(branches);
+-- 
+2.39.5
+
 
