@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF69D149E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D7F5D149E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 19:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pqtm4O409KQs+qC4qHIqpJ6fPA7Q/9J5YGrNZs6ZYaM=; b=imtTNq08Ch3ldFgMXiA8jkwBVY
-	WiYb6kFC+crRYC39w7oW5VgxngikYCZlVq6t4thTVY5F9kD3R/DJFGMfnBQWXkzVdCLnDLrdtY4uc
-	A8jsHbPXuL1iy2DPu1L+qUhe35m5bjLndLyn6E7HOZ2jtdg4/+ueQPLUlUK3tOBn744YwtCQ/CFpw
-	fe8PfnOWxfMg+z9s0EXVYYN0Szjb1Wn2kR1pdy1JF1cKSCbOVW1aOVgprDQ+H/fIf/tmuZSeoxzZG
-	7+rHAyrHiyNt+0quoT7wLaPJIaZqoYjhVbpjHPaGbh07qLG5jqiVaJWeTEYzvm+lwL5+g9aUBLE2K
-	T/m2zDWA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AENT3HV05ZYgfYGtK7xFvzc3fnZN0pfnRLgWILAuZnQ=; b=S8NhKZsXEPe3ubilZTXOW+Bq84
+	qTDwyTLWxpTbuCkAhDLJi1fvVvixKNmD79YJBa2iRPt0B9EHp5pVDuC0yYTXPTioTaA+a3TBZLktA
+	uNOW2TqP2nDZqCH+gXALjGLAmJVbAHW3TGPM8lfaeplLSpBRQu6iRIkj668ugv6F2mZkWYqjVgksO
+	1Fe6XU+AteEU+Jl54GalZ6XxLacnrjwN469BIfcaU6nt69FnXS+1O7EiToHlQ/q04S3DQQzOXdpVM
+	QsbOrc7wyQzc37riLoBoxzWH+JGTLbz4zWykIQUbNLwt9c+gkZ7D7vCzPasgLHXEYBSK8HwTsZANU
+	1RZdJ33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4PYs-00000004t2s-2dYF;
-	Fri, 25 Oct 2024 19:01:26 +0000
-Received: from out-184.mta1.migadu.com ([2001:41d0:203:375::b8])
+	id 1t4PaP-00000004tEb-3qM2;
+	Fri, 25 Oct 2024 19:03:01 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Oyn-00000004mlw-1854
+	id 1t4Oyo-00000004mmO-3TiH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 18:24:11 +0000
+	Fri, 25 Oct 2024 18:24:12 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729880646;
+	t=1729880648;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Pqtm4O409KQs+qC4qHIqpJ6fPA7Q/9J5YGrNZs6ZYaM=;
-	b=fJ6IvbC0WxjXQzJ+inEGwLweQ63h8mR57RCeZehUSbTWuHuZIv6YbrO7r5pnt003YZdFuh
-	3ycg0wI8sZFg6qmD2W3SEI6M+8Vq1NmJ89A6c44Ssk9ajH6ooZ6X7twqbNoZGvUV3RWt6I
-	hI5U3Tyg6SgvnQYDjM3HQAlFMx+CGAk=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AENT3HV05ZYgfYGtK7xFvzc3fnZN0pfnRLgWILAuZnQ=;
+	b=J9K565V5Mp1DK+wZq8UNE8ZhLwLNylJy4zux1sSKU6e9q/asZkxef2QDlnTmHlez3xIKcR
+	8Un/4YcuL2+92GFzohCcrXuwYh0sNgMbMX3O8GMiEkZl9zhxqWcZMBNJBwZFh3VzmXrht1
+	8sHA075HhzvHi20Sxz5ES3vHtFQ0MN4=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -49,16 +50,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH v4 00/18] KVM: arm64: nv: Support for EL2 PMU controls
-Date: Fri, 25 Oct 2024 18:23:35 +0000
-Message-ID: <20241025182354.3364124-1-oliver.upton@linux.dev>
+Subject: [PATCH v4 01/18] KVM: arm64: Extend masking facility to arbitrary registers
+Date: Fri, 25 Oct 2024 18:23:36 +0000
+Message-ID: <20241025182354.3364124-2-oliver.upton@linux.dev>
+In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_112409_724830_BC8E4804 
-X-CRM114-Status: UNSURE (   5.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_112411_179828_8D701BD7 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +75,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v3 -> v4:
- - Align sysreg definitions with DDI0601 2024-09
- - Fix 'accessible' counter mask construction
- - Fix MDCR_EL2.MTPME RES0 logic
+From: Marc Zyngier <maz@kernel.org>
 
-v3: https://lore.kernel.org/kvmarm/20241007174559.1830205-1-oliver.upton@linux.dev/
+We currently only use the masking (RES0/RES1) facility for VNCR
+registers, as they are memory-based and thus easy to sanitise.
 
-Marc Zyngier (1):
-  KVM: arm64: Extend masking facility to arbitrary registers
+But we could apply the same thing to other registers if we:
 
-Oliver Upton (17):
-  arm64: sysreg: Describe ID_AA64DFR2_EL1 fields
-  arm64: sysreg: Migrate MDCR_EL2 definition to table
-  arm64: sysreg: Add new definitions for ID_AA64DFR0_EL1
-  KVM: arm64: Describe RES0/RES1 bits of MDCR_EL2
-  KVM: arm64: nv: Allow coarse-grained trap combos to use complex traps
-  KVM: arm64: nv: Rename BEHAVE_FORWARD_ANY
-  KVM: arm64: nv: Reinject traps that take effect in Host EL0
-  KVM: arm64: nv: Honor MDCR_EL2.{TPM, TPMCR} in Host EL0
-  KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
-  KVM: arm64: nv: Advertise support for FEAT_HPMN0
-  KVM: arm64: Rename kvm_pmu_valid_counter_mask()
-  KVM: arm64: nv: Adjust range of accessible PMCs according to HPMN
-  KVM: arm64: Add helpers to determine if PMC counts at a given EL
-  KVM: arm64: nv: Honor MDCR_EL2.HPME
-  KVM: arm64: nv: Honor MDCR_EL2.HLP
-  KVM: arm64: nv: Apply EL2 event filtering when in hyp context
-  KVM: arm64: nv: Reprogram PMU events affected by nested transition
+- split the sanitisation from __VNCR_START__
+- apply the sanitisation when reading from a HW register
 
- arch/arm64/include/asm/kvm_arm.h     |  29 ---
- arch/arm64/include/asm/kvm_emulate.h |   5 +
- arch/arm64/include/asm/kvm_host.h    |  21 +-
- arch/arm64/kvm/emulate-nested.c      | 291 ++++++++++++++++-----------
- arch/arm64/kvm/nested.c              |  54 ++++-
- arch/arm64/kvm/pmu-emul.c            | 143 +++++++++++--
- arch/arm64/kvm/sys_regs.c            |  15 +-
- arch/arm64/tools/sysreg              |  76 ++++++-
- include/kvm/arm_pmu.h                |  18 +-
- 9 files changed, 465 insertions(+), 187 deletions(-)
+This involves a new "marker" in the vcpu_sysreg enum, which
+defines the point at which the sanitisation applies (the VNCR
+registers being of course after this marker).
 
+Whle we are at it, rename kvm_vcpu_sanitise_vncr_reg() to
+kvm_vcpu_apply_reg_masks(), which is vaguely more explicit,
+and harden set_sysreg_masks() against setting masks for
+random registers...
 
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/include/asm/kvm_host.h | 19 +++++++++++++------
+ arch/arm64/kvm/nested.c           | 12 ++++++++----
+ arch/arm64/kvm/sys_regs.c         |  3 +++
+ 3 files changed, 24 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 94cff508874b..07c7d2b7b3a3 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -367,7 +367,7 @@ struct kvm_arch {
+ 
+ 	u64 ctr_el0;
+ 
+-	/* Masks for VNCR-baked sysregs */
++	/* Masks for VNCR-backed and general EL2 sysregs */
+ 	struct kvm_sysreg_masks	*sysreg_masks;
+ 
+ 	/*
+@@ -401,6 +401,9 @@ struct kvm_vcpu_fault_info {
+ 	r = __VNCR_START__ + ((VNCR_ ## r) / 8),	\
+ 	__after_##r = __MAX__(__before_##r - 1, r)
+ 
++#define MARKER(m)				\
++	m, __after_##m = m - 1
++
+ enum vcpu_sysreg {
+ 	__INVALID_SYSREG__,   /* 0 is reserved as an invalid value */
+ 	MPIDR_EL1,	/* MultiProcessor Affinity Register */
+@@ -487,7 +490,11 @@ enum vcpu_sysreg {
+ 	CNTHV_CTL_EL2,
+ 	CNTHV_CVAL_EL2,
+ 
+-	__VNCR_START__,	/* Any VNCR-capable reg goes after this point */
++	/* Anything from this can be RES0/RES1 sanitised */
++	MARKER(__SANITISED_REG_START__),
++
++	/* Any VNCR-capable reg goes after this point */
++	MARKER(__VNCR_START__),
+ 
+ 	VNCR(SCTLR_EL1),/* System Control Register */
+ 	VNCR(ACTLR_EL1),/* Auxiliary Control Register */
+@@ -547,7 +554,7 @@ struct kvm_sysreg_masks {
+ 	struct {
+ 		u64	res0;
+ 		u64	res1;
+-	} mask[NR_SYS_REGS - __VNCR_START__];
++	} mask[NR_SYS_REGS - __SANITISED_REG_START__];
+ };
+ 
+ struct kvm_cpu_context {
+@@ -995,13 +1002,13 @@ static inline u64 *___ctxt_sys_reg(const struct kvm_cpu_context *ctxt, int r)
+ 
+ #define ctxt_sys_reg(c,r)	(*__ctxt_sys_reg(c,r))
+ 
+-u64 kvm_vcpu_sanitise_vncr_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
++u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+ #define __vcpu_sys_reg(v,r)						\
+ 	(*({								\
+ 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
+ 		u64 *__r = __ctxt_sys_reg(ctxt, (r));			\
+-		if (vcpu_has_nv((v)) && (r) >= __VNCR_START__)		\
+-			*__r = kvm_vcpu_sanitise_vncr_reg((v), (r));	\
++		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
++			*__r = kvm_vcpu_apply_reg_masks((v), (r), *__r);\
+ 		__r;							\
+ 	}))
+ 
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index f9e30dd34c7a..b20b3bfb9cae 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -908,15 +908,15 @@ static void limit_nv_id_regs(struct kvm *kvm)
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1, val);
+ }
+ 
+-u64 kvm_vcpu_sanitise_vncr_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg sr)
++u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *vcpu,
++			     enum vcpu_sysreg sr, u64 v)
+ {
+-	u64 v = ctxt_sys_reg(&vcpu->arch.ctxt, sr);
+ 	struct kvm_sysreg_masks *masks;
+ 
+ 	masks = vcpu->kvm->arch.sysreg_masks;
+ 
+ 	if (masks) {
+-		sr -= __VNCR_START__;
++		sr -= __SANITISED_REG_START__;
+ 
+ 		v &= ~masks->mask[sr].res0;
+ 		v |= masks->mask[sr].res1;
+@@ -927,7 +927,11 @@ u64 kvm_vcpu_sanitise_vncr_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg sr)
+ 
+ static void set_sysreg_masks(struct kvm *kvm, int sr, u64 res0, u64 res1)
+ {
+-	int i = sr - __VNCR_START__;
++	int i = sr - __SANITISED_REG_START__;
++
++	BUILD_BUG_ON(!__builtin_constant_p(sr));
++	BUILD_BUG_ON(sr < __SANITISED_REG_START__);
++	BUILD_BUG_ON(sr >= NR_SYS_REGS);
+ 
+ 	kvm->arch.sysreg_masks->mask[i].res0 = res0;
+ 	kvm->arch.sysreg_masks->mask[i].res1 = res1;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index dad88e31f953..30fe940cd5bd 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -165,6 +165,9 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+ 
+ 		/* Get the current version of the EL1 counterpart. */
+ 		WARN_ON(!__vcpu_read_sys_reg_from_cpu(el1r, &val));
++		if (reg >= __SANITISED_REG_START__)
++			val = kvm_vcpu_apply_reg_masks(vcpu, reg, val);
++
+ 		return val;
+ 	}
+ 
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
