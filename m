@@ -4,46 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36FEDD0C608
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A57D0C606
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 12:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLKovh7m+yI60Zvb7nhvOgVEU7nNjBthucfKY5rYw+E=; b=VMwmzCYQ0XwoD2YxO/N2yQrUKt
-	JYnYG3je4RSabbucsZD0Up1o72YYlbKZH5c4rztH4TUS6xuvELEbScW2qQTdKSWHN4KnZxr5cdJM+
-	54MFis7tsvQjACETAlUguI6Q+qsakW/KJviIYQnuh7B34Y1CsWofoMVfEL4XwC1LJY2kzH2GgSQib
-	qNygHdLU2DR96Wz8FcqKsaBUr+OZkoDJAD7qtA7AFnD5UpBiGOOtoVGWBBYYPsIFtumG+TXKhe7HK
-	wX/eOq8f1jT6gYI9Rb/sf2a2Vhx5xRsYY54L5zM1NbnP6IahADITsOon6YfZTA3Nxql3QCFO0afF7
-	ZCqaM7rA==;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=; b=Dd7eRLTDvwmBCl9Zg4GwMX0tG+
+	ryE6iWPSD9T1C9t7Z0KlOUtaCV3Id+JDyZM1pvlRuqHtedbMr/448whvtbQUiIJRHng98Iah5YMhc
+	5Jnk0WL/KTYCPzWTSS0j387EmWrcrTbhesge25N/szUXGcMMB64+Xbhx+0LCN1UFYdcQa19cm99s+
+	tuih0OHZgeKhv5+V+AMWRviMwrGarcuuRMDejYOI599VwOHJ/22tOkqIhRYmJ9gYb/hahffP9Mvzn
+	DRWg/ATDueQIg/iyQG9kgiB0ENSPLZFGnl3p5uXhSiQXtmBtsRKsd52U5DRxviZSLnDEeYqCBWvJA
+	e/ZfnNbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4JtI-00000003k0f-0PJz;
-	Fri, 25 Oct 2024 12:58:08 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1t4Jup-00000003kDX-31Hg;
+	Fri, 25 Oct 2024 12:59:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Jh5-00000003ht1-3yFo;
-	Fri, 25 Oct 2024 12:45:36 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	id 1t4JhA-00000003hv2-3kdh;
+	Fri, 25 Oct 2024 12:45:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=; b=obDoRzj+hQCHma20syUqBcwTB2
+	UHBeT7Ky3pA1Dc0HtvISYomw2fjS/QSga3Cr/Fz00Eg7SFz9LKSBS1KP7isC8cKlt13OevVBYgmgm
+	bClItgIB6gbEQ46s3YoNx6PDsFGSXfVo6zWQbt0mv1WmsxQ/fepUWFGipkA7wrwte94UzadCIBFma
+	x7jKvwW7GD49Wqwg7GQZy67IdOrD9fabT4qMDxmgrECDGs5VSW5ha8dxY06W1SI8sTKNjcmRpqZFS
+	pf5tS2YGt94IA0qqM7oSji9p9xj9YsFmjszwGOSD1JEiT5/oInvad9rJ6BWb2xpjCey3bRLh1kC+P
+	5StmJ5jQ==;
+Received: from smtp-out2.suse.de ([195.135.223.131])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Jh7-00000008uOz-275V;
+	Fri, 25 Oct 2024 12:45:35 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 49D771FE0C;
-	Fri, 25 Oct 2024 12:45:28 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 238D81FE70;
+	Fri, 25 Oct 2024 12:45:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1729860331; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=;
+	b=fJLoP7nu8RvnLSMPOjuFFhjBS0/Auc5a2ZdCNFdYAVV2Sm0sLUpMXkEPUPtxuxmIsQm1pU
+	mzETq6vwoxzoz8yOEy5NxJtfJ4U3p3hDKLqn9ND5nek75t+gTJegC+4q6Wz4+koLVukQlh
+	wToHvgygOfjdPHhwBe5oVWHSZTwNd5M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1729860331;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=;
+	b=C1K/li4t+9hKT7sIMCkW4VRMhEH9Z3F2rYYIgY2SP46BfaSAc+oOodNQRiXO70bv3JmK0v
+	YIS9vqZwmW7pTBDA==
 Authentication-Results: smtp-out2.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1729860331; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=;
+	b=fJLoP7nu8RvnLSMPOjuFFhjBS0/Auc5a2ZdCNFdYAVV2Sm0sLUpMXkEPUPtxuxmIsQm1pU
+	mzETq6vwoxzoz8yOEy5NxJtfJ4U3p3hDKLqn9ND5nek75t+gTJegC+4q6Wz4+koLVukQlh
+	wToHvgygOfjdPHhwBe5oVWHSZTwNd5M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1729860331;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c+uowGpwUz5NCg78o2YaCLio5zeWFG4cEvQGLiJUC+8=;
+	b=C1K/li4t+9hKT7sIMCkW4VRMhEH9Z3F2rYYIgY2SP46BfaSAc+oOodNQRiXO70bv3JmK0v
+	YIS9vqZwmW7pTBDA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 392F513B16;
-	Fri, 25 Oct 2024 12:45:27 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 625B213B16;
+	Fri, 25 Oct 2024 12:45:29 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0NqAC+eSG2fzOAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 25 Oct 2024 12:45:27 +0000
+	id YNGVFemSG2fzOAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 25 Oct 2024 12:45:29 +0000
 From: Stanimir Varbanov <svarbanov@suse.de>
 To: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -66,30 +116,43 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Phil Elwell <phil@raspberrypi.com>,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH v4 01/10] dt-bindings: interrupt-controller: Add bcm2712 MSI-X DT bindings
-Date: Fri, 25 Oct 2024 15:45:06 +0300
-Message-ID: <20241025124515.14066-2-svarbanov@suse.de>
+Subject: [PATCH v4 03/10] irqchip: Add Broadcom bcm2712 MSI-X interrupt controller
+Date: Fri, 25 Oct 2024 15:45:08 +0300
+Message-ID: <20241025124515.14066-4-svarbanov@suse.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241025124515.14066-1-svarbanov@suse.de>
 References: <20241025124515.14066-1-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
+X-Spamd-Result: default: False [-5.30 / 50.00];
 	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
 	TAGGED_RCPT(0.00)[dt];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU]
-X-Rspamd-Queue-Id: 49D771FE0C
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de];
+	FROM_HAS_DN(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_054532_207425_B8DB69EB 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20241025_134533_834824_E46BB767 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,84 +167,381 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds DT bindings for bcm2712 MSI-X interrupt peripheral controller.
+Add an interrupt controller driver for MSI-X Interrupt Peripheral (MIP)
+hardware block found in bcm2712. The interrupt controller is used to
+handle MSI-X interrupts from peripherials behind PCIe endpoints like
+RP1 south bridge found in RPi5.
+
+There are two MIPs on bcm2712, the first has 64 consecutive SPIs
+assigned to 64 output vectors, and the second has 17 SPIs, but only
+8 of them are consecutive starting at the 8th output vector.
 
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 v3 -> v4:
- - Added Reviewed-by.
+ - Addressed the comments for wrongly used PCI/MSI flags (Thomas)
 
- .../brcm,bcm2712-msix.yaml                    | 60 +++++++++++++++++++
- 1 file changed, 60 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
+ drivers/irqchip/Kconfig           |  16 ++
+ drivers/irqchip/Makefile          |   1 +
+ drivers/irqchip/irq-bcm2712-mip.c | 310 ++++++++++++++++++++++++++++++
+ 3 files changed, 327 insertions(+)
+ create mode 100644 drivers/irqchip/irq-bcm2712-mip.c
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 341cd9ca5a05..c9bd0a4f6871 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -116,6 +116,22 @@ config I8259
+ 	bool
+ 	select IRQ_DOMAIN
+ 
++config BCM2712_MIP
++	tristate "Broadcom BCM2712 MSI-X Interrupt Peripheral support"
++	depends on ARCH_BRCMSTB || COMPILE_TEST
++	default m if ARCH_BRCMSTB
++	depends on ARM_GIC
++	select GENERIC_IRQ_CHIP
++	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_MSI_IRQ
++	select IRQ_MSI_LIB
++	help
++	  Enable support for the Broadcom BCM2712 MSI-X target peripheral
++	  (MIP) needed by brcmstb PCIe to handle MSI-X interrupts on
++	  Raspberry Pi 5.
++
++	  If unsure say n.
++
+ config BCM6345_L1_IRQ
+ 	bool
+ 	select GENERIC_IRQ_CHIP
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index e3679ec2b9f7..a11307b1b610 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -62,6 +62,7 @@ obj-$(CONFIG_XTENSA_MX)			+= irq-xtensa-mx.o
+ obj-$(CONFIG_XILINX_INTC)		+= irq-xilinx-intc.o
+ obj-$(CONFIG_IRQ_CROSSBAR)		+= irq-crossbar.o
+ obj-$(CONFIG_SOC_VF610)			+= irq-vf610-mscm-ir.o
++obj-$(CONFIG_BCM2712_MIP)               += irq-bcm2712-mip.o
+ obj-$(CONFIG_BCM6345_L1_IRQ)		+= irq-bcm6345-l1.o
+ obj-$(CONFIG_BCM7038_L1_IRQ)		+= irq-bcm7038-l1.o
+ obj-$(CONFIG_BCM7120_L2_IRQ)		+= irq-bcm7120-l2.o
+diff --git a/drivers/irqchip/irq-bcm2712-mip.c b/drivers/irqchip/irq-bcm2712-mip.c
 new file mode 100644
-index 000000000000..c84614663b5d
+index 000000000000..fd73f2d41279
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
-@@ -0,0 +1,60 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/brcm,bcm2712-msix.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/irqchip/irq-bcm2712-mip.c
+@@ -0,0 +1,310 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024 Raspberry Pi Ltd., All Rights Reserved.
++ * Copyright (c) 2024 SUSE
++ */
 +
-+title: Broadcom bcm2712 MSI-X Interrupt Peripheral support
++#include <linux/bitmap.h>
++#include <linux/irqchip.h>
++#include <linux/irqdomain.h>
++#include <linux/msi.h>
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
 +
-+maintainers:
-+  - Stanimir Varbanov <svarbanov@suse.de>
++#include "irq-msi-lib.h"
 +
-+description:
-+  This interrupt controller is used to provide interrupt vectors to the
-+  generic interrupt controller (GIC) on bcm2712. It will be used as
-+  external MSI-X controller for PCIe root complex.
++#define MIP_INT_RAISE		0x00
++#define MIP_INT_CLEAR		0x10
++#define MIP_INT_CFGL_HOST	0x20
++#define MIP_INT_CFGH_HOST	0x30
++#define MIP_INT_MASKL_HOST	0x40
++#define MIP_INT_MASKH_HOST	0x50
++#define MIP_INT_MASKL_VPU	0x60
++#define MIP_INT_MASKH_VPU	0x70
++#define MIP_INT_STATUSL_HOST	0x80
++#define MIP_INT_STATUSH_HOST	0x90
++#define MIP_INT_STATUSL_VPU	0xa0
++#define MIP_INT_STATUSH_VPU	0xb0
 +
-+allOf:
-+  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++/**
++ * struct mip_priv - MSI-X interrupt controller data
++ * @lock:	Used to protect bitmap alloc/free
++ * @base:	Base address of MMIO area
++ * @msg_addr:	PCIe MSI-X address
++ * @msi_base:	MSI base
++ * @num_msis:	Count of MSIs
++ * @msi_offset:	MSI offset
++ * @bitmap:	A bitmap for hwirqs
++ * @parent:	Parent domain (GIC)
++ * @dev:	A device pointer
++ */
++struct mip_priv {
++	spinlock_t		lock;
++	void __iomem		*base;
++	u64			msg_addr;
++	u32			msi_base;
++	u32			num_msis;
++	u32			msi_offset;
++	unsigned long		*bitmap;
++	struct irq_domain	*parent;
++	struct device		*dev;
++};
 +
-+properties:
-+  compatible:
-+    const: brcm,bcm2712-mip
++static void mip_compose_msi_msg(struct irq_data *d, struct msi_msg *msg)
++{
++	struct mip_priv *mip = irq_data_get_irq_chip_data(d);
 +
-+  reg:
-+    items:
-+      - description: Base register address
-+      - description: PCIe message address
++	msg->address_hi = upper_32_bits(mip->msg_addr);
++	msg->address_lo = lower_32_bits(mip->msg_addr);
++	msg->data = d->hwirq;
++}
 +
-+  "#msi-cells":
-+    const: 0
++static struct irq_chip mip_middle_irq_chip = {
++	.name			= "MIP",
++	.irq_mask		= irq_chip_mask_parent,
++	.irq_unmask		= irq_chip_unmask_parent,
++	.irq_eoi		= irq_chip_eoi_parent,
++	.irq_set_affinity	= irq_chip_set_affinity_parent,
++	.irq_set_type		= irq_chip_set_type_parent,
++	.irq_compose_msi_msg	= mip_compose_msi_msg,
++};
 +
-+  brcm,msi-offset:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: Shift the allocated MSI's.
++static int mip_alloc_hwirq(struct mip_priv *mip, unsigned int nr_irqs,
++			   unsigned int *hwirq)
++{
++	int bit;
 +
-+unevaluatedProperties: false
++	spin_lock(&mip->lock);
++	bit = bitmap_find_free_region(mip->bitmap, mip->num_msis,
++				      ilog2(nr_irqs));
++	spin_unlock(&mip->lock);
 +
-+required:
-+  - compatible
-+  - reg
-+  - msi-controller
-+  - msi-ranges
++	if (bit < 0)
++		return bit;
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
++	if (hwirq)
++		*hwirq = bit;
 +
-+    axi {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
++	return 0;
++}
 +
-+        msi-controller@1000130000 {
-+            compatible = "brcm,bcm2712-mip";
-+            reg = <0x10 0x00130000 0x00 0xc0>,
-+                  <0xff 0xfffff000 0x00 0x1000>;
-+            msi-controller;
-+            #msi-cells = <0>;
-+            msi-ranges = <&gicv2 GIC_SPI 128 IRQ_TYPE_EDGE_RISING 64>;
-+        };
-+    };
++static void mip_free_hwirq(struct mip_priv *mip, unsigned int hwirq,
++			   unsigned int nr_irqs)
++{
++	spin_lock(&mip->lock);
++	bitmap_release_region(mip->bitmap, hwirq, ilog2(nr_irqs));
++	spin_unlock(&mip->lock);
++}
++
++static int mip_middle_domain_alloc(struct irq_domain *domain, unsigned int virq,
++				   unsigned int nr_irqs, void *arg)
++{
++	struct mip_priv *mip = domain->host_data;
++	struct irq_fwspec fwspec = {0};
++	unsigned int hwirq, irq, i;
++	struct irq_data *irqd;
++	int ret;
++
++	ret = mip_alloc_hwirq(mip, nr_irqs, &irq);
++	if (ret < 0)
++		return ret;
++
++	hwirq = irq + mip->msi_offset;
++
++	fwspec.fwnode = domain->parent->fwnode;
++	fwspec.param_count = 3;
++	fwspec.param[0] = 0;
++	fwspec.param[1] = hwirq + mip->msi_base;
++	fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
++
++	ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, &fwspec);
++	if (ret) {
++		mip_free_hwirq(mip, irq, nr_irqs);
++		return ret;
++	}
++
++	for (i = 0; i < nr_irqs; i++) {
++		irqd = irq_domain_get_irq_data(domain->parent, virq + i);
++		irqd->chip->irq_set_type(irqd, IRQ_TYPE_EDGE_RISING);
++
++		ret = irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
++						    &mip_middle_irq_chip, mip);
++		if (ret)
++			goto err_free;
++
++		irqd = irq_get_irq_data(virq + i);
++		irqd_set_single_target(irqd);
++		irqd_set_affinity_on_activate(irqd);
++	}
++
++	return 0;
++
++err_free:
++	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
++	mip_free_hwirq(mip, irq, nr_irqs);
++	return ret;
++}
++
++static void mip_middle_domain_free(struct irq_domain *domain, unsigned int virq,
++				   unsigned int nr_irqs)
++{
++	struct irq_data *irqd = irq_domain_get_irq_data(domain, virq);
++	struct mip_priv *mip;
++	unsigned int hwirq;
++
++	if (!irqd)
++		return;
++
++	mip = irq_data_get_irq_chip_data(irqd);
++	hwirq = irqd_to_hwirq(irqd);
++	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
++	mip_free_hwirq(mip, hwirq - mip->msi_offset, nr_irqs);
++}
++
++static const struct irq_domain_ops mip_middle_domain_ops = {
++	.select		= msi_lib_irq_domain_select,
++	.alloc		= mip_middle_domain_alloc,
++	.free		= mip_middle_domain_free,
++};
++
++#define MIP_MSI_FLAGS_REQUIRED	(MSI_FLAG_USE_DEF_DOM_OPS |	\
++				 MSI_FLAG_USE_DEF_CHIP_OPS |	\
++				 MSI_FLAG_PCI_MSI_MASK_PARENT)
++
++#define MIP_MSI_FLAGS_SUPPORTED	(MSI_GENERIC_FLAGS_MASK |	\
++				 MSI_FLAG_MULTI_PCI_MSI |	\
++				 MSI_FLAG_PCI_MSIX)
++
++static const struct msi_parent_ops mip_msi_parent_ops = {
++	.supported_flags	= MIP_MSI_FLAGS_SUPPORTED,
++	.required_flags		= MIP_MSI_FLAGS_REQUIRED,
++	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
++	.bus_select_mask	= MATCH_PCI_MSI,
++	.prefix			= "MIP-MSI-",
++	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
++};
++
++static int mip_init_domains(struct mip_priv *mip, struct device_node *np)
++{
++	struct irq_domain *middle;
++
++	middle = irq_domain_add_hierarchy(mip->parent, 0, mip->num_msis, np,
++					  &mip_middle_domain_ops, mip);
++	if (!middle)
++		return -ENOMEM;
++
++	irq_domain_update_bus_token(middle, DOMAIN_BUS_GENERIC_MSI);
++	middle->dev = mip->dev;
++	middle->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
++	middle->msi_parent_ops = &mip_msi_parent_ops;
++
++	return 0;
++}
++
++static int mip_parse_dt(struct mip_priv *mip, struct device_node *np)
++{
++	struct of_phandle_args args;
++	u64 size;
++	int ret;
++
++	ret = of_property_read_u32(np, "brcm,msi-offset", &mip->msi_offset);
++	if (ret)
++		mip->msi_offset = 0;
++
++	ret = of_parse_phandle_with_args(np, "msi-ranges", "#interrupt-cells",
++					 0, &args);
++	if (ret)
++		return ret;
++
++	ret = of_property_read_u32_index(np, "msi-ranges", args.args_count + 1,
++					 &mip->num_msis);
++	if (ret)
++		goto err_put;
++
++	ret = of_property_read_reg(np, 1, &mip->msg_addr, &size);
++	if (ret)
++		goto err_put;
++
++	mip->msi_base = args.args[1];
++
++	mip->parent = irq_find_host(args.np);
++	if (!mip->parent)
++		ret = -EINVAL;
++
++err_put:
++	of_node_put(args.np);
++	return ret;
++}
++
++static int __init mip_of_msi_init(struct device_node *node,
++				  struct device_node *parent)
++{
++	struct platform_device *pdev;
++	struct mip_priv *mip;
++	int ret;
++
++	pdev = of_find_device_by_node(node);
++	of_node_put(node);
++	if (!pdev)
++		return -EPROBE_DEFER;
++
++	mip = kzalloc(sizeof(*mip), GFP_KERNEL);
++	if (!mip)
++		return -ENOMEM;
++
++	spin_lock_init(&mip->lock);
++	mip->dev = &pdev->dev;
++
++	ret = mip_parse_dt(mip, node);
++	if (ret)
++		goto err_priv;
++
++	mip->base = of_iomap(node, 0);
++	if (!mip->base) {
++		ret = -ENXIO;
++		goto err_priv;
++	}
++
++	mip->bitmap = bitmap_zalloc(mip->num_msis, GFP_KERNEL);
++	if (!mip->bitmap) {
++		ret = -ENOMEM;
++		goto err_base;
++	}
++
++	/*
++	 * All MSI-X masked in for the host, masked out for the
++	 * VPU, and edge-triggered.
++	 */
++	writel(0, mip->base + MIP_INT_MASKL_HOST);
++	writel(0, mip->base + MIP_INT_MASKH_HOST);
++	writel(~0, mip->base + MIP_INT_MASKL_VPU);
++	writel(~0, mip->base + MIP_INT_MASKH_VPU);
++	writel(~0, mip->base + MIP_INT_CFGL_HOST);
++	writel(~0, mip->base + MIP_INT_CFGH_HOST);
++
++	ret = mip_init_domains(mip, node);
++	if (ret)
++		goto err_map;
++
++	dev_dbg(&pdev->dev,
++		"MIP: MSI-X count: %u, base: %u, offset: %u, msg_addr: %llx\n",
++		mip->num_msis, mip->msi_base, mip->msi_offset, mip->msg_addr);
++
++	return 0;
++
++err_map:
++	bitmap_free(mip->bitmap);
++err_base:
++	iounmap(mip->base);
++err_priv:
++	kfree(mip);
++	return ret;
++}
++
++IRQCHIP_PLATFORM_DRIVER_BEGIN(mip_msi)
++IRQCHIP_MATCH("brcm,bcm2712-mip", mip_of_msi_init)
++IRQCHIP_PLATFORM_DRIVER_END(mip_msi)
++MODULE_DESCRIPTION("Broadcom BCM2712 MSI interrupt controller");
++MODULE_AUTHOR("Phil Elwell <phil@raspberrypi.com>");
++MODULE_AUTHOR("Stanimir Varbanov <svarbanov@suse.de>");
++MODULE_LICENSE("GPL");
 -- 
 2.43.0
 
