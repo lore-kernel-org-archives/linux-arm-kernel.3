@@ -4,78 +4,197 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4E8D0C5EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E20D0C5E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2jONHGUQN65Wp/s13oZofhKzQ9O+ThI0+K9VkaZNt+A=; b=rruhQDXBXJRzeq2ug4RNxZeffX
-	OfkOeobswZZGmQ0qWhZZ4L/qO/PxgXiVVvmFK/qBq4HHGiKogO9PidGmoudDMDXBlJ0ht4R8jwr4r
-	KYyS26XR9CYMf8hpOnU44OR6qIjmTeQsuEgMgviSZWgk0juacqSy91gW2xAo0cimFc9zhHzNRgo/6
-	Cl+NKoVVz35+qpasyt04A5Ziimbs3a3kDrOmAtnK/nZRAF8aebJEVs7S0UXi1REoUzu9sBr7YHFox
-	1Mi1UoMQ1PleT2ZA0B9/RozFyvWevbdQAykTkgpZJtWIaTchWWpHd0DOpiP32USy/LbV4IvT+yQzu
-	Smsp8Log==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DFWu/t0pwpz9WSrKVZOuYLvvJbr8sOV5HAjPuxCrD/c=; b=4AmZ5ls7N56tfHRTbIDTd0tSxg
+	k7hZsl+einydnLnhaBEbBw5nUv5l7VlTb8bjRJqVbAZWutYcfStMsrKTOkx7COWuHciz6FKXDddjs
+	Dv9OaB/2CH7xmpKfqlemN/eO/2B7mCmZuiHeZ96PexW7yGKftrOspa2ofL2+CSMNZ0u5MNg9Z9uWZ
+	BkeoJTmyESGytFB1ubNdjc6z0JqTnKl+A7DxYbdypjrPbJNmrWX8/pxeAYm+s11e4/vsnaFwp703p
+	kKLo3Bp723t5LY/eh4aSHpi50iQnY7oABPMH63EGzTp9AezIvX5d2dcvlTtFmjCfl8TDFkIF0EvYm
+	QO+qXrvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GDB-000000035bP-40op;
-	Fri, 25 Oct 2024 09:02:25 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1t4GEm-0000000361O-0VjY;
+	Fri, 25 Oct 2024 09:04:04 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4G9h-000000034Nw-0Kt7;
-	Fri, 25 Oct 2024 08:58:50 +0000
-X-UUID: 545fc44a92af11ef9048ed6ed365623b-20241025
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=2jONHGUQN65Wp/s13oZofhKzQ9O+ThI0+K9VkaZNt+A=;
-	b=uKZ/SyOT3Mm9rRM83JQ/Iw08q6PU9rhMrxEew2p+XiUtQqWkzv7kjE5TagpjzwiTuQBOBCdPTGIWGDCiODcIjjZ5egMadNpE3bDio0pOFLn4nsD+g58XQiuV+UJtBrVToHQU/DYNot9nRxn1wytfTkd0BpcrZhOpIIPTyw0ebJ8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:3bf7653f-342f-4ed7-9734-880022faa6f9,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:93051a2e-a7a0-4b06-8464-80be82133975,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:1,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 545fc44a92af11ef9048ed6ed365623b-20241025
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <qun-wei.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 910621834; Fri, 25 Oct 2024 01:58:40 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+	id 1t4GA7-000000034YM-26B9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 08:59:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729846756; x=1761382756;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DFWu/t0pwpz9WSrKVZOuYLvvJbr8sOV5HAjPuxCrD/c=;
+  b=Loh0ngW1wyo+LWNASqjbQNWCW9JA6IKbV8HMRKKVmQI0QjpS+aUacef2
+   YlK7KfA3PgPrQztt+1bC9YqCVLO2CnoBhJJdyBWNIKo/BeIOuMuk4D+Hq
+   koPirCNiY8jMicHD9ARmrDiYcg2KenDvRhUs6BAvOIxX266KVdv41DpCn
+   vDYjsoG3RRVIqYP4oTQm4sXHigeXQY0djCKnWO6nZZjprjB1pqs0AQmqy
+   u/bJFNJufaFN8UF7FeOWN3EFPe2GTL3LB2zivlr9gvqZxDvFQxPS36Ila
+   YPl5vIUriMLDvRj8i1GWsH7lf+9HhWvaKRJQGmzoKp8DMVEwYXTTcbpAJ
+   g==;
+X-CSE-ConnectionGUID: jWxaWWEcQ0id3BH4LNCPjg==
+X-CSE-MsgGUID: ORgpoXmPTUiok2RKsjCuyg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52064111"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52064111"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 01:59:14 -0700
+X-CSE-ConnectionGUID: E1oeUuqUSiSbQUI27Zetzw==
+X-CSE-MsgGUID: j+DKjRG4SdS7d3V+wASACQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="118318986"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by orviesa001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 25 Oct 2024 01:59:15 -0700
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Fri, 25 Oct 2024 01:59:13 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Fri, 25 Oct 2024 01:59:13 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.49) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 25 Oct 2024 16:58:37 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 16:58:37 +0800
-From: Qun-Wei Lin <qun-wei.lin@mediatek.com>
-To: Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>, David
- Rientjes <rientjes@google.com>, Joonsoo Kim <iamjoonsoo.kim@lge.com>, Andrew
- Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@suse.cz>, Roman
- Gushchin <roman.gushchin@linux.dev>, Hyeonggon Yoo <42.hyeyoo@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Danilo Krummrich <dakr@kernel.org>
-CC: <catalin.marinas@arm.com>, <surenb@google.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <bpf@vger.kernel.org>, Casper Li
-	<casper.li@mediatek.com>, Chinwen Chang <chinwen.chang@mediatek.com>, Andrew
- Yang <andrew.yang@mediatek.com>, John Hsu <john.hsu@mediatek.com>,
-	<wsd_upstream@mediatek.com>, Qun-Wei Lin <qun-wei.lin@mediatek.com>
-Subject: [PATCH] mm: krealloc: Fix MTE false alarm in __do_krealloc
-Date: Fri, 25 Oct 2024 16:58:11 +0800
-Message-ID: <20241025085811.31310-1-qun-wei.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+ 15.1.2507.39; Fri, 25 Oct 2024 01:59:13 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yF9huUk4229454FuXU7YzCvXpREr0mK40AOn1uuUTSIO6fiHZwf2HRrQKEaccqylpNmIEaEqJUUUN/45LKb8DKec0Uc11p5vv8Pnx4M02tEBPtxu6Hp4TOh38Zb2dZaUrD77g3vt17wdSMrEFaTv3JrwW8mT/3THtEpy+e8AUidpHdz7cneBvhaUbH6nJlSl9CTjqt1L4BTF7VQSDHDg5HJ2hz19MPcPv4SGXxnvzMwuAAal+LgKr+1Uwm2zBBEoO47fq4BwzZWYSd25CMX7ZOo8NxmVrv/kwkHG87Z0rQyrIOPN1w+zboICCD6VnoS/pg7Na9td2EcNrhPLKNSt+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DFWu/t0pwpz9WSrKVZOuYLvvJbr8sOV5HAjPuxCrD/c=;
+ b=MKcQkFDzFoz8H+5frP9VAjmr3L8vpjdS1XOwM8TY2Nlct916lSMVIVhFKMEM6E0WWWmszM9GvBxHR5ZYiFHmvB3ZKokPLwuk6m5gxu7b8xG/gs8R/ocR3dcKocwQaVxHq/DU+MGtWwN+eASXavlgpUFQh2BV8790sZhpdcEqbveENmZBsPJB4/mSj4COywUBYI1GPQQCfuAH8OCcuzH/Hi666Svkh9UCAiOVkW0jRsYOWXSbq/Tk4N1vacVmBOTMPiITyOBs1ixPA/MESSsIXrLgTRCnQuZ0RWA5VIjDNvrBf1XldHBYjSjqPEO8CZCeDhECUPIey7xD0pMFkX2/Kw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SA3PR11MB7433.namprd11.prod.outlook.com (2603:10b6:806:31e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
+ 2024 08:59:11 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
+ 08:59:11 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
+	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
+	<eric.auger@redhat.com>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, "mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>, "aik@amd.com"
+	<aik@amd.com>, "zhangfei.gao@linaro.org" <zhangfei.gao@linaro.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH v4 04/11] iommufd/viommu: Add IOMMU_VIOMMU_ALLOC ioctl
+Thread-Topic: [PATCH v4 04/11] iommufd/viommu: Add IOMMU_VIOMMU_ALLOC ioctl
+Thread-Index: AQHbJBg1YAeYUD/RJEqxNQPpgn5DG7KXL3MA
+Date: Fri, 25 Oct 2024 08:59:11 +0000
+Message-ID: <BN9PR11MB5276BC711E46B073AF8846048C4F2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1729553811.git.nicolinc@nvidia.com>
+ <9da2cf334a182ced4d4ffa578b87889e9c0856f3.1729553811.git.nicolinc@nvidia.com>
+In-Reply-To: <9da2cf334a182ced4d4ffa578b87889e9c0856f3.1729553811.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SA3PR11MB7433:EE_
+x-ms-office365-filtering-correlation-id: 2eb02976-9486-4998-b064-08dcf4d34b3a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Xs9blUS6Y4Q/6lCY/t/8FuGFOmRlvIzw/48yKz3LNgVzI3VDNu3gTXylwtqT?=
+ =?us-ascii?Q?FFNWw90Qtz4zeh3szrzXVMi2WS0oRPj/EBHYQATNfPzpZ9/+99k7IK0gBthh?=
+ =?us-ascii?Q?puJBk7FUUz2ztl93YLdJPHnAfAMAgHBsLsrjWPPgkAghKh+ajAolb/he9EK5?=
+ =?us-ascii?Q?Ym4SZpevFYpiff+o2PcuiSUeqfqCSq9hKTNCty9ONuVHTQmh+aWQsuQLifal?=
+ =?us-ascii?Q?Wq0D0cx4mad4joothBI1nwun9RENuhmdbANRBo4k+TFaasAOn8tCBp35ly4L?=
+ =?us-ascii?Q?Bonyx+xLPPrRBTFw1InlJrp/nvMJKEZZwo3tKjam7VlVgj0EKOXS4Y4Cz3ke?=
+ =?us-ascii?Q?jHg5UhuzCux5AmhKzvtWsudnLVB82f84djUL2nf/jEouS/ZdEq3ThQkvlo+o?=
+ =?us-ascii?Q?fXGTxM7Gy+OtasgUFgJYdLLbyUJjHpQ949R8NzIGpi9sLpv7fDIvAYj+5Vgi?=
+ =?us-ascii?Q?USKqc7CFtV8vEjhsLAoWNZdVmpbhihzfTuWUAndtedwbTngJcz6Gqdq4iuwH?=
+ =?us-ascii?Q?l3oGUY9B5sFODzJeHGD9rXwo2gZ6GlXAm0yH3+bj38mMhf+BG0K4MI0HmI3q?=
+ =?us-ascii?Q?Sk8Q+tKwcY1RJPXAKRDltmydYoGPdwwJMeYIDNdP4nJDuch9ELssU5P+fjZu?=
+ =?us-ascii?Q?HSwAGWoGgCWyq8hI6thGhK2fMz384ujzgeb82rofq2KKIekoPT5aixAv4Ys+?=
+ =?us-ascii?Q?8YdpoTknKFzSh2ubqBTy3BxJ5W2Ton/mZl45W5E0t3CYr00B4RZyCK/kHL8k?=
+ =?us-ascii?Q?hp0WfbsLTzj+ZRyWm+zuwdJtglZ0fh4o5qtYyZ8QsivbuJwo76jBDggvRhfr?=
+ =?us-ascii?Q?PTekASGNaRYfAEClI3D8wrTW3PjF8wbHxyod93QBHOYuFbVPG7Veq/i7nl1Y?=
+ =?us-ascii?Q?xCV9IMwj5yw77Vlvb4SvLkxpUjbZHhFtER2bzKktzVqTDC0oLqKb+yt2f4Ge?=
+ =?us-ascii?Q?2AbYWHH0/sYPD0oR0INAFqp1Q4PCBJvrYszSplV/Yr15bJyJDksk0FSD6JaT?=
+ =?us-ascii?Q?eN19Cfl6U+rg44zT+GPquM8lN3ZgXHk2i0r0s932Lf3B6SrGDvHKWYXZlbN1?=
+ =?us-ascii?Q?N/Cwpl0UoT0kJagTd/5WNu6dcEFteoaXNmS03zdz5EqfVlhS/ac4rIT8c+2g?=
+ =?us-ascii?Q?AZe56n/ObZMSszdw5SOT5Obcsg9EBr+iH+rkBQom04P6LKXs/6kXdBbIiGv5?=
+ =?us-ascii?Q?WQxLyTOcf09TDnBc6nwMTMb8WwWMGne8i4jK/lItrLlwur/HqNfbrWRMIPcp?=
+ =?us-ascii?Q?AwJBbt/kGj3yxT2rQjwgC9kHqyA6rT1yAN2O8nXVBrn82elxeTZ26YVAR0eX?=
+ =?us-ascii?Q?LClowJRa/q7/IBiNnGBp/sn7K7XY2C8gkfZpxaNTIsM3EY6zboNB9JbUUHyx?=
+ =?us-ascii?Q?krRyl9A=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?/FRG+6Cz1xqsrCupEcR2ryqZlEjbYC7X7cwXJdpUtXrE+RhYTyatmCtGMd5t?=
+ =?us-ascii?Q?+kj0VtBJdEgw2jLuxDRuWO/uYzwV8CWtSiVqrLTqi+8gDlkj+cJ5jkBW7nNz?=
+ =?us-ascii?Q?Obyg2x4LKqfrwVzR13O42sdGbYI7SIZzpnQJd0I7X3PR+4iPZY6Z5MonIgxw?=
+ =?us-ascii?Q?I6GP5LtNS32W4blw/LHV3O/budymz4+o1emG/Nftpm4bDOXbUecjJMhyIo/4?=
+ =?us-ascii?Q?CTP1vWqHg/Ztxrfne17pM71gQ9E/NoAcYSlehgmeqRaR34LjAp+CfJOwds7H?=
+ =?us-ascii?Q?dCFN3F2raDJkHbnIADPjp2erpm03GWeEVZyW4RZZzgHKT+V4QQ24+0m5aPfH?=
+ =?us-ascii?Q?CqXg4aT7QKOXMkDP6O/ZdCi6p/mYYP9W9LX85K6ZR2KFNq4UMOJQfl0DE3ok?=
+ =?us-ascii?Q?LJ+ZUWQ4tIhQdACIQ3DJdneKu9FBpPNDLIobxyiIY0FJCmRO3PnF4uyyQ+PX?=
+ =?us-ascii?Q?sH0DcyoCLKWIU9QN+56W91C8d7H6/lKNtXccOtBf3nbANLkaOkJ6pPe9SiIB?=
+ =?us-ascii?Q?GMHHz12X5xOEpSmR3WrO7h04kYLtGUcENU4iLrWBXfZw8q3WauIgyrDnQhNU?=
+ =?us-ascii?Q?jCcRNFgjB9kgEbS4z+wcSqcVFW+zBO4hpXq8LtLMZNYtWvA53Dh1zdTUiUIp?=
+ =?us-ascii?Q?j9++iTD1RwnZzmSdlO3BgOuFsXhp/SOFyhKmTtneFOaiptNLnbfNF7VDY+fT?=
+ =?us-ascii?Q?MlNcWtBE4KWodhdRK4KcEr2NygFGgIy8EgfgoawoFC4+WXF+VBL9XR56HM6U?=
+ =?us-ascii?Q?QLewRsiS7PdY9a91i4GbSsPiiEYwym6xoN2Vpzkypbwz5wA1Aw9+PTiuTmNd?=
+ =?us-ascii?Q?789srcW7qNaes4/AHiXh6heGnf/rugpt/FpxwsbeoNAVbXbvWJ4SpMX5oZNZ?=
+ =?us-ascii?Q?P0JRMKVUGaf1gL6Ta9WiIp8eEz9nwJunF7MIMJpKAd+YgEo6aE2PWZjYxbag?=
+ =?us-ascii?Q?ZkZESifT4UmP48G0s8wL/0VwWnPhO9aKZ0mNbqYNEOwjv8h/hm8Eh8ByIK8g?=
+ =?us-ascii?Q?WsUYia4VTvp5+ltX1ucKZqphznqFO8L0V/7AofI9ZCY5/QlmX6ZICzVNyvPS?=
+ =?us-ascii?Q?VKfQ7ILh7x4PloEzKGANBLjKXhZ8GVozuvPRSmZ1KuW2tgnIePuLaZx+fBbG?=
+ =?us-ascii?Q?hGDvk1PRnV7vYfmeW7z76Bzrl8D/ZxYL55YHMFSE+95HFBFjkILuWXocJYrJ?=
+ =?us-ascii?Q?QKebcB390bF8WiTdoAmaK+vdu9c5ETYw7WMkdujbxATnLce/IvJ8CfpjRphL?=
+ =?us-ascii?Q?c6gQkM4r2+VyotGUOXtFNiI3h7/uKYXRpE/5ZxZxQKIk8J6EXNsGzmSHmGYA?=
+ =?us-ascii?Q?+7RVZj2VF9tlWmaCj9gKTzPTJky4tK1hv+eN9bDOd+2KmXaGAEXSk8uSYMhh?=
+ =?us-ascii?Q?jfq7gVtQTpXTJghJmJr2SaxSXnKexl66BGkUqK+c+u1CRNGJ0K1G5IS3uoZg?=
+ =?us-ascii?Q?S+TCKVuquSQPlOZpFp62yoLCyv9tkkAm606DwwRj9RoXVCkUzyqZmml5ZW2R?=
+ =?us-ascii?Q?I0O60KWLWtRkirQmLeBTllZOvXCM8x+5bwxGJdNhtpzW6F4uusDT7XXSVw3E?=
+ =?us-ascii?Q?UEi85tkYRvj7st4w1D2AvibNvVAkG39pU0KotF8n?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2eb02976-9486-4998-b064-08dcf4d34b3a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2024 08:59:11.7112
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mKsqn7e4FFQ2hyHhFVHts6SRBwHm5MigEjHe3GT73jEymqiMEMKUXxN79jR1OVSQuTs8cRRWIPTnIjg3zmzD3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB7433
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_015849_160053_37F9E9A6 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20241025_015915_613078_537C88EC 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,73 +209,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch addresses an issue introduced by commit 1a83a716ec233 ("mm:
-krealloc: consider spare memory for __GFP_ZERO") which causes MTE
-(Memory Tagging Extension) to falsely report a slab-out-of-bounds error.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Tuesday, October 22, 2024 8:19 AM
+>=20
+> Add a new ioctl for user space to do a vIOMMU allocation. It must be base=
+d
+> on a nesting parent HWPT, so take its refcount.
+>=20
+> If an IOMMU driver supports a driver-managed vIOMMU object, it must
+> define
 
-The problem occurs when zeroing out spare memory in __do_krealloc. The
-original code only considered software-based KASAN and did not account
-for MTE. It does not reset the KASAN tag before calling memset, leading
-to a mismatch between the pointer tag and the memory tag, resulting
-in a false positive.
+why highlight 'driver-managed', implying a core-managed vIOMMU=20
+object some day?
 
-Example of the error:
-==================================================================
-swapper/0: BUG: KASAN: slab-out-of-bounds in __memset+0x84/0x188
-swapper/0: Write at addr f4ffff8005f0fdf0 by task swapper/0/1
-swapper/0: Pointer tag: [f4], memory tag: [fe]
-swapper/0:
-swapper/0: CPU: 4 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.
-swapper/0: Hardware name: MT6991(ENG) (DT)
-swapper/0: Call trace:
-swapper/0:  dump_backtrace+0xfc/0x17c
-swapper/0:  show_stack+0x18/0x28
-swapper/0:  dump_stack_lvl+0x40/0xa0
-swapper/0:  print_report+0x1b8/0x71c
-swapper/0:  kasan_report+0xec/0x14c
-swapper/0:  __do_kernel_fault+0x60/0x29c
-swapper/0:  do_bad_area+0x30/0xdc
-swapper/0:  do_tag_check_fault+0x20/0x34
-swapper/0:  do_mem_abort+0x58/0x104
-swapper/0:  el1_abort+0x3c/0x5c
-swapper/0:  el1h_64_sync_handler+0x80/0xcc
-swapper/0:  el1h_64_sync+0x68/0x6c
-swapper/0:  __memset+0x84/0x188
-swapper/0:  btf_populate_kfunc_set+0x280/0x3d8
-swapper/0:  __register_btf_kfunc_id_set+0x43c/0x468
-swapper/0:  register_btf_kfunc_id_set+0x48/0x60
-swapper/0:  register_nf_nat_bpf+0x1c/0x40
-swapper/0:  nf_nat_init+0xc0/0x128
-swapper/0:  do_one_initcall+0x184/0x464
-swapper/0:  do_initcall_level+0xdc/0x1b0
-swapper/0:  do_initcalls+0x70/0xc0
-swapper/0:  do_basic_setup+0x1c/0x28
-swapper/0:  kernel_init_freeable+0x144/0x1b8
-swapper/0:  kernel_init+0x20/0x1a8
-swapper/0:  ret_from_fork+0x10/0x20
-==================================================================
+> +/**
+> + * struct iommu_viommu_alloc - ioctl(IOMMU_VIOMMU_ALLOC)
+> + * @size: sizeof(struct iommu_viommu_alloc)
+> + * @flags: Must be 0
+> + * @type: Type of the virtual IOMMU. Must be defined in enum
+> iommu_viommu_type
+> + * @dev_id: The device's physical IOMMU will be used to back the virtual
+> IOMMU
+> + * @hwpt_id: ID of a nesting parent HWPT to associate to
+> + * @out_viommu_id: Output virtual IOMMU ID for the allocated object
+> + *
+> + * Allocate a virtual IOMMU object that represents the underlying physic=
+al
+> + * IOMMU's virtualization support. The vIOMMU object is a security-isola=
+ted
+> + * slice of the physical IOMMU HW that is unique to a specific VM.
 
-Fixes: 1a83a716ec233 ("mm: krealloc: consider spare memory for
-__GFP_ZERO")
-Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
----
- mm/slab_common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/mm/slab_common.c b/mm/slab_common.c
-index 3d26c257ed8b..3445f4500b54 100644
---- a/mm/slab_common.c
-+++ b/mm/slab_common.c
-@@ -1209,7 +1209,7 @@ __do_krealloc(const void *p, size_t new_size, gfp_t flags)
- 		/* Zero out spare memory. */
- 		if (want_init_on_alloc(flags)) {
- 			kasan_disable_current();
--			memset((void *)p + new_size, 0, ks - new_size);
-+			memset(kasan_reset_tag((void *)p + new_size), 0, ks - new_size);
- 			kasan_enable_current();
- 		}
- 
--- 
-2.45.2
+the object itself is a software abstraction, while a 'slice' is a set of
+real hw resources.
 
 
