@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66042D0C61B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB245D0C61B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5vByOCJHAiQILFVYELX1Nhfd7tzaKXTJqOTEiiXr0E=; b=YDkppzkQ/+xc+M4RrT9Yds/llZ
-	e4kLgHLIV7Om7ewZigwQcqq93OP2zryrR9J3hnEmsMWmbVOqGZUlXJImM7Ui/V3iDMKCipX8VjvKQ
-	bUQLEz82cxAjYkPjAmMaCZoeyY/a0zOLWMVhQgwb0Fk1jOOJOvq3i0QWD17IQP/pAbq/dFQMNLDBd
-	Uxduq7FmzSZoSKHte5hYzx9RV55eNnMBR75WanXZso4gWCcw+XjRRcHP44p/x+IkPDcqYa7bSdPXU
-	JtYb9axLhUhgGOKb0YZsvGMpwCELwBe1JRpZ2GHA1/XkfmTDd/NCIMu+ZM4pG+f6KbEpfCaRVysWx
-	FKIM47Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbquxhEPXmo7FFtZ3hwObv8VJWZk+IW7/8bXuYfpc8s=; b=Xa3osNk89KmQZwAN4JCvEvifYU
+	97pwrNqEzIG+Z5alCuev5OYUFRItEOIEkO/k2p0DP6Odhaa7s1V8keOwJ+YY+o19lzAst89kVMh/d
+	rc+MQYtLqCpmU8XVhCd0rSnig9XNhgb7+KkwklWsJaZZvQMOa6tZw5KpAKCuTteyq7p8Xb3++lgBq
+	Udq8M1g6vMsAzEoYO+3qztFAsBJG8xv77sO8z/6I8T4YgxuGnITvbx/Koqe8d1ZiTOu17SYenhJVz
+	JUEWl89BEZsMjRa8Lnbe9bBGBrsDGwZCg8pO5zYr97tQZDLnjmB1udFyNO8VkknjhgB7RWlxm0F1C
+	tPt4yDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LPU-000000042Tl-0BZx;
-	Fri, 25 Oct 2024 14:35:28 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1t4LR2-000000042ez-0LCa;
+	Fri, 25 Oct 2024 14:37:04 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Kte-00000003vA6-0XQq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:02:36 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49PE2MN1105797;
-	Fri, 25 Oct 2024 09:02:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1729864942;
-	bh=v5vByOCJHAiQILFVYELX1Nhfd7tzaKXTJqOTEiiXr0E=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=wdqX+JU4FYbaPEQUDLr9NwUg7xxcjI4ZefgrmcSXIsI3ze7vDj/G6DL9ZTRMpq4de
-	 S2laTbqdv5YEVTR3VZcWnzEKxF4JfQe118rOoAgtJPnke9K/mAQgFFR1jLAatIhvyh
-	 TMeblBNp8r0aQ8fFXyW2ivAvjwHHvIR/cmImkPcY=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49PE2Mhs060117
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Oct 2024 09:02:22 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Oct 2024 09:02:22 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Oct 2024 09:02:21 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49PE2MrC126993;
-	Fri, 25 Oct 2024 09:02:22 -0500
-From: Nishanth Menon <nm@ti.com>
-To: <ssantosh@kernel.org>, Alessandro Zanni <alessandro.zanni87@gmail.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <skhan@linuxfoundation.org>,
-        <anupnewsmail@gmail.com>
-Subject: Re: [PATCH] soc: ti: knav_qmss_queue: remove useless statement
-Date: Fri, 25 Oct 2024 09:02:20 -0500
-Message-ID: <172986491063.176745.17597928563436598415.b4-ty@ti.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20240924214612.38854-1-alessandro.zanni87@gmail.com>
-References: <20240924214612.38854-1-alessandro.zanni87@gmail.com>
+	id 1t4KvW-00000003vUO-1oG5;
+	Fri, 25 Oct 2024 14:04:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729865071; x=1761401071;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vykQeynThE6u8FAc/pLYpmAljLUA5z/Z2yEelFtBZ+w=;
+  b=SOJYOtEejWu+zpDHnECBkMCai1Xquyz7Ps1ulDqKw+lVK/niDPuceyBE
+   rZbTGjt167mCjiT2XugHVGdhWQN77UL/tq4QSSfkGcziINR8o5DE/dJpv
+   t4LoQficrQhQqDt2wAIxUmYHqryxNtEX/vxpa2jrJ5+sWCBlGSEaevceg
+   +0S9MsS0Z2jKAQDPxWE1VMSMQ2H9mk9kqnSqoSiZmKOX2LJ5uynDtFiGe
+   8QfK225LWQMb3bUopNdMgoa0uQM1bB+7fpxodRnlcKRi5cn1vrj79vbdl
+   meOksuePVhbCSBvfObcVnTVaMHYyzbHgc21DzS7H4S//ZlR84Aki3f9dK
+   Q==;
+X-CSE-ConnectionGUID: Utk4ItDtSJOd2UGVnN/txw==
+X-CSE-MsgGUID: Y1DM9EXJQxmu0oMvfyoAeg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52089959"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52089959"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:04:29 -0700
+X-CSE-ConnectionGUID: HLP2qWM+QlKxHT0e7YHuZA==
+X-CSE-MsgGUID: BT54Y1PtQKOx3Qk7It9WkA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
+   d="scan'208";a="118380276"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:04:22 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1t4KvK-00000006vxH-0VKX;
+	Fri, 25 Oct 2024 17:04:18 +0300
+Date: Fri, 25 Oct 2024 17:04:17 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Esben Haabendal <esben@geanix.com>, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Stefan Wahren <wahrenst@gmx.net>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Ronald Wahl <ronald.wahl@raritan.com>, Udit Kumar <u-kumar1@ti.com>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	Rengarajan S <rengarajan.s@microchip.com>,
+	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+Message-ID: <ZxulYcgH1kTyx9Kr@smile.fi.intel.com>
+References: <20241025105728.602310-1-john.ogness@linutronix.de>
+ <20241025105728.602310-5-john.ogness@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241025105728.602310-5-john.ogness@linutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_070234_310186_E3447AA2 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20241025_070430_559853_3E8923AF 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alessandro Zanni,
+On Fri, Oct 25, 2024 at 01:03:26PM +0206, John Ogness wrote:
+> For RS485 mode, if SER_RS485_RX_DURING_TX is not available, the
+> console write callback needs to enable/disable TX. It does this
+> by calling the rs485_start/stop_tx() callbacks. However, these
 
-On Tue, 24 Sep 2024 23:46:10 +0200, Alessandro Zanni wrote:
-> Remove the statement "continue" at the end of the loop
-> where it becomes useless.
-> 
-> Problem found with Coccinelle static analisys tool,
-> using continue.cocci script
-> (coccinelle.gitlabpages.inria.fr/website/rules/continue.cocci)
-> 
-> [...]
+It would be nice if you be consistent across the commit messages and also
+provide the names of the callbacks in full, because I dunno if we have a local
+stop_tx() or rs485_start() or whatever the above means.
 
-I have applied the following to branch ti-drivers-soc-next on [1] with some
-minor fixups in commit message. Thank you!
+If it is "the rs485_start_tx() / rs485_stop_tx() callbacks.", it's
+much clearer for the reader.
 
-[1/1] soc: ti: knav_qmss_queue: remove useless statement
-      commit: 74280c3d73143dcb976491fc085ccb0437cb5f0e
+> callbacks will disable/enable interrupts, which is a problem
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+toggle?
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+> for console write, as it must be responsible for
+> disabling/enabling interrupts.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+toggling ?
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+> Add an argument @in_con to the rs485_start/stop_tx() callbacks
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+As per above.
+
+> to specify if they are being called from console write. If so,
+> the callbacks will not handle interrupt disabling/enabling.
+
+toggling ?
+
+> For all call sites other than console write, there is no
+> functional change.
+
+So, why not call the parameter better to emphasize that it's about IRQ
+toggling? bool toggle_irq ?
+
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+With Best Regards,
+Andy Shevchenko
+
 
 
