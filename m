@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E567D0C61D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26120D0C61F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 15:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUYtFsl8I2NATkjZr4N8nzokgh8OWRXI/p+TxqeAA1k=; b=RQU5nVAT8YXgvXMrOonrzEIiAF
-	Xe1EKRd2AVYzmMAkPmwq1VvpcrM+ypomXFWcLyxDSMg76o/G5q3y6F+OfvpC0MZWzbc/6a1yHytk+
-	k1TygCEhAUna6lHLOlXPTl588qL72a+G71APz5p5qkfPF+/dgzdGOerEtfLOymASJVOEOWwugALVx
-	betIhajCTnMJDx4MDfOI7oFIn8m6m0RNCLIuRKTGto1b84ivpQBHj1ZRF8LwUg7Ma/1jjZNmLJGU+
-	+RtsgjpcswrtTIv3LrkB7z+EG5952Jx5r3aJpTQLpUNp/C1RnG8hpw2TXSODiVhupUiEiQsC0hDqX
-	Jp46g3aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O/ywLeMkkzQzLZSpngNjiaNdAW5tMuTEEp9hvn8FDLI=; b=gF6r4GXhUNUeRxb1lFnGEYlhcp
+	SS8DQ+3TpL1kIfA9PvjXDXyPJEdE0T/gBVx3EtpqS9ZrGW07KOc0cNg2x1Uw6dDw9HllwphZzzaiq
+	P38HzQi/kFHtijA9QjAgg+E6dDg8i2Yzg/of1Sk+kPQI05WoA7KMBTzb+YEqgag21pPi587tCOUDY
+	0MDOBSEoXFqo2lpiUPqScLRxxd5DKgr0OpZbWIz71qG77PCcumd43iuFZmRm5b/lXzLGAQsgMDGeJ
+	GsvD2PRXHOwfNKF0CrWpMZqm9y4WvFPnCAOBrcfjkooYpOUUEeQuNNENxwMWmkjQfHGue2L6epvZ7
+	4oWCYCpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LpC-000000047v1-28N0;
-	Fri, 25 Oct 2024 15:02:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LLB-000000041QJ-3jgi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:31:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21C22339;
-	Fri, 25 Oct 2024 07:31:31 -0700 (PDT)
-Received: from VDW30FN91H.arm.com (unknown [10.57.79.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 249AB3F73B;
-	Fri, 25 Oct 2024 07:30:58 -0700 (PDT)
-From: Graham Woodward <graham.woodward@arm.com>
-To: acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	james.clark@linaro.org,
-	mike.leach@linaro.org,
-	leo.yan@linux.dev,
-	linux-perf-users@vger.kernel.org,
+	id 1t4Lqn-000000048OP-0otH;
+	Fri, 25 Oct 2024 15:03:41 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4LOq-000000042N4-20iL;
+	Fri, 25 Oct 2024 14:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729866889; x=1761402889;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7viiuER8jbmujoSNmtJXcCtGTp3mpZ8PS5MMH/KdKno=;
+  b=C/yvd5GvyCyAhR4+DJq4bSB1rApRZ8vnwUC/L00kPxrABdgvuYfuRoEc
+   DWHFyneRzPrWzA2SxEKKE4Q+7S6cCegsGcgAlTk1rTAfcaiM5+QxmQF35
+   kylqX//AbbTfWzmERxf+3CMKmuGuggoGLSfNR5shjPkzodVuhau1Tpsc7
+   lLXOenY3Nrz8GPYPjAXa2IxHEqRuVsRTrEWlt1gBlTFyY3CANcg4JkmZ7
+   hGVK5Qc3LGKC4b1EnGDNu1GT+WnjNHDX46p1b7esQ635vaEAiMNKZc1Nk
+   NyaQiDL+5Cr3Jr/EfdpB4nJ4Ss0vFlEUXfpDcJ3tG4k9wXdeJSqO4JNJ+
+   g==;
+X-CSE-ConnectionGUID: V0206GHtTaCDo4ujKP/QAA==
+X-CSE-MsgGUID: Sj/s1KIMRpW270rxMJ6XJg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="40642758"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="40642758"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:34:45 -0700
+X-CSE-ConnectionGUID: byLy1efMTj6exO2UKV5Ynw==
+X-CSE-MsgGUID: 8C37kqSxTve1124j9dGQhg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
+   d="scan'208";a="84889931"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 07:34:38 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1t4LOc-00000006wVK-3qoB;
+	Fri, 25 Oct 2024 17:34:34 +0300
+Date: Fri, 25 Oct 2024 17:34:34 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Esben Haabendal <esben@geanix.com>, linux-serial@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Stefan Wahren <wahrenst@gmx.net>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Ronald Wahl <ronald.wahl@raritan.com>, Udit Kumar <u-kumar1@ti.com>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	Rengarajan S <rengarajan.s@microchip.com>,
+	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: nd@arm.com,
-	Graham Woodward <graham.woodward@arm.com>
-Subject: [PATCH v1 4/4] perf arm-spe: Update --itrace help text
-Date: Fri, 25 Oct 2024 15:30:09 +0100
-Message-Id: <20241025143009.25419-5-graham.woodward@arm.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20241025143009.25419-1-graham.woodward@arm.com>
-References: <20241025143009.25419-1-graham.woodward@arm.com>
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+Message-ID: <ZxusemBwE8t9cAZ5@smile.fi.intel.com>
+References: <20241025105728.602310-1-john.ogness@linutronix.de>
+ <20241025105728.602310-5-john.ogness@linutronix.de>
+ <ZxulYcgH1kTyx9Kr@smile.fi.intel.com>
+ <84v7xg2rb2.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <84v7xg2rb2.fsf@jogness.linutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_073102_011968_3BA1DA69 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_073448_600845_1B7EB21C 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The --itrace help now needs updating to reflect that
-the --itrace=b argument sythesises branches as well
-as branch misses.
+On Fri, Oct 25, 2024 at 04:31:05PM +0206, John Ogness wrote:
+> On 2024-10-25, Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> >> Add an argument @in_con to the rs485_start/stop_tx() callbacks
+> >> to specify if they are being called from console write. If so,
+> >> the callbacks will not handle interrupt disabling/enabling.
+> >
+> > toggling ?
+> >
+> >> For all call sites other than console write, there is no
+> >> functional change.
+> >
+> > So, why not call the parameter better to emphasize that it's about IRQ
+> > toggling? bool toggle_irq ?
+> 
+> Currently there are only 2 users:
+> 
+> serial8250_em485_stop_tx()
+> bcm2835aux_rs485_stop_tx()
+> 
+> The first one toggles the IER bits, the second one does not. I figured
+> it would make more sense to specify the context rather than what needs
+> to be done and let the 8250-variant decide what it should do.
+> 
+> But I have no problems renaming it to toggle_irq. It is an 8250-specific
+> callback with few users. And really the IER bits is the only reason that
+> the argument even needs to exist.
 
-Signed-off-by: Graham Woodward <graham.woodward@arm.com>
----
- tools/perf/Documentation/itrace.txt       | 2 +-
- tools/perf/Documentation/perf-arm-spe.txt | 2 +-
- tools/perf/util/auxtrace.h                | 3 +--
- 3 files changed, 3 insertions(+), 4 deletions(-)
+Maybe toggle_ier will be better than? I haven't looked deeply into the
+implementations, so choose whichever describes better what's behind it.
 
-diff --git a/tools/perf/Documentation/itrace.txt b/tools/perf/Documentation/itrace.txt
-index 19cc179be9a7..40476b227f8d 100644
---- a/tools/perf/Documentation/itrace.txt
-+++ b/tools/perf/Documentation/itrace.txt
-@@ -1,6 +1,6 @@
- 		i	synthesize instructions events
- 		y	synthesize cycles events
--		b	synthesize branches events (branch misses for Arm SPE)
-+		b	synthesize branches events
- 		c	synthesize branches events (calls only)
- 		r	synthesize branches events (returns only)
- 		x	synthesize transactions events
-diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-index 0a3eda482307..de2b0b479249 100644
---- a/tools/perf/Documentation/perf-arm-spe.txt
-+++ b/tools/perf/Documentation/perf-arm-spe.txt
-@@ -187,7 +187,7 @@ groups:
-   7 llc-access
-   2 tlb-miss
-   1K tlb-access
--  36 branch-miss
-+  36 branch
-   0 remote-access
-   900 memory
- 
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index a1895a4f530b..dddaf4f3ffed 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -75,7 +75,6 @@ enum itrace_period_type {
-  *          (not fully accurate, since CYC packets are only emitted
-  *          together with other events, such as branches)
-  * @branches: whether to synthesize 'branches' events
-- *            (branch misses only for Arm SPE)
-  * @transactions: whether to synthesize events for transactions
-  * @ptwrites: whether to synthesize events for ptwrites
-  * @pwr_events: whether to synthesize power events
-@@ -650,7 +649,7 @@ bool auxtrace__evsel_is_auxtrace(struct perf_session *session,
- #define ITRACE_HELP \
- "				i[period]:    		synthesize instructions events\n" \
- "				y[period]:    		synthesize cycles events (same period as i)\n" \
--"				b:	    		synthesize branches events (branch misses for Arm SPE)\n" \
-+"				b:	    		synthesize branches events\n" \
- "				c:	    		synthesize branches events (calls only)\n"	\
- "				r:	    		synthesize branches events (returns only)\n" \
- "				x:	    		synthesize transactions events\n"		\
 -- 
-2.40.1
+With Best Regards,
+Andy Shevchenko
+
 
 
