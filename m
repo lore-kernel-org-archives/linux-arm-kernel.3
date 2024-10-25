@@ -4,193 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5CDD116E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 04:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D09AD116EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 04:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2Q/e4vN825Qd2VGVMni/47wJQ9L5x0eoUniDp67d2E=; b=Srvj+ns+Px60qr8z6lnuVWENSC
-	cx0CwwYJXGnFdG7NJLKhT7tBa2n9hCW30fa5JhTRM5mWDwFSbUl2HTt7Ndn8RmLnEs4iEtbtPF1rb
-	DfRbAm2xMYTQHmT2wbOzOtKjuDnSxzw79H45MLrN1CLNA8bveFGIiCR9ySkqTQkIZ6oSDkFxKtcnh
-	7TpbiH3zza+2UPhLd6r0hmNkHjizrpLGXcNqHzSfrb/bq1X8RZ62GbyyiwLWyPBdultVCnQll784u
-	wor9dDp4m8Rsx/++NHRlarnGiixSNBMRBZqSiovYF56BuHelvOra8r9d8Xac9imGIh+ZUGfNoH0om
-	bZhvXccw==;
+	bh=UN1mgpZoBuTAcRco+EKhHGYcU2cSRZtPtxGVgeq5oqQ=; b=yVJJqM6ZnnTSInmnEIetfg4u5H
+	jXiF+t1+b71JX/nqXYxu36P1cRlOhk4Srabs/X07IKK7lbxEpu4HGFr8Rd6ffhpscSXlXzU1XudFY
+	UQ9cq+c21hPNZ1GJ8vTAXh12YepHfPkdyD/9tBbDZynZty+ImlzG0UD+B1YEjyhr8/eeisYjvjbzm
+	ynVFR3g5J9V9uWfiSLCDFCEZP2WN084pRNWT+T7xONsWTkcq5K2KYdWKZOQrP1zYjakLAt0CsnqaK
+	NI+AMhwoTd0WpekN9h5S0rqE3vkwafJL325vGl/QRwZQyUgPbPbD/FOM7J80UBWEZadwXs//KhGys
+	iXETwRtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4C4I-00000002UgA-4557;
-	Fri, 25 Oct 2024 04:36:58 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t4CNU-00000002Ws0-43zO;
+	Fri, 25 Oct 2024 04:56:48 +0000
+Received: from mail-bn8nam12on2060a.outbound.protection.outlook.com ([2a01:111:f403:2418::60a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4C2i-00000002UTh-0ccm
+	id 1t4CLu-00000002Wa0-1XOp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 04:35:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729830920; x=1761366920;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=bxASGeT2BZrRV745L2C7JilNgKybBVEaMQ50Hiq7IY0=;
-  b=YCwPDSmMEDl1hHgOqUAetUFPjrR8miVB/bJBh0uPMjB1YnXnPrctuGxY
-   4zxZLuYGoCX/Wyi6EBwS/Rrb1Mg2E0JtCJqOWIR+HqNa08NUgarluezc9
-   Wd2cC2TMS4iDeHtVf/+44L9QJBoliDSySEJBXaV/xJVjK+nUNrW8ETHzL
-   NJceixR1Lp9lvi+EWWSVcqVes1qikiaGQPyL1e5+Ra7i00W7//7TvkVEb
-   bJuRF91gH+ZX4lzm5AmcmCPWvL/dHj3um4GQu1TZiIzc6xaW1bEnD3mqQ
-   vHJmmt9CVek6RZ3BXjG1Okoetu2t1hTkwlvE9cAEvbQtPVBEEv85k6Gbh
-   w==;
-X-CSE-ConnectionGUID: c/305MdDTVyQFQ2Jpig+mw==
-X-CSE-MsgGUID: +W+ObfvlQt+zvpnMLonR1g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11235"; a="29708770"
-X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="29708770"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2024 21:35:13 -0700
-X-CSE-ConnectionGUID: rXfZiFjVRWe55+1DQ4PGpQ==
-X-CSE-MsgGUID: ydWWa7n1RquxxejeMywVRA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,231,1725346800"; 
-   d="scan'208";a="85916569"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orviesa004.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 24 Oct 2024 21:35:12 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Thu, 24 Oct 2024 21:35:11 -0700
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Thu, 24 Oct 2024 21:35:11 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.173)
- by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Thu, 24 Oct 2024 21:35:11 -0700
+	Fri, 25 Oct 2024 04:55:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b1m1k5MAGvZdt0Gn02c8bCjhOQx4qYN4TekaYCkHbNKUOJ9wzCir3D0Tbt4iitH/4yOwws53oSEXbzQZOh4yA2pMTRINce+lAZ1+sBrzttD4q18ZPQAek1tJF9OZK25ezoaxPkuWDROXZFQ+kU1EtlGWUO7W8ROY/FLUMC6WZf9JnukbbCIgsZyjzku6kINyWFXDmBaJ6fV5o5B1vztRfBrGAeSP4af3axwO/GJqlYGduGcuoOmntFdJdhvYrnpjFj11+GihXXVflxWkMZKKWiDfJzWqECBv/iZuTx7CDlI5EhbpVVBagOM2iX1d1uauqTaQXDqLcicASzKYe/rPhg==
+ b=mkqj8/0an+uQ/4RYcs2PwEJbrCrn9HCW4MWGkwUZgEPL6QAm3BfwV1WfdAGmyrdjHqq43z912Xos6ROj5IVOA2XofAOHkG0sIgksqaHsU7lbpr8j7wzVYSK+8xQvGCYvTLN1+n93Ta/qX1fYIvTRmaFY0jnfCdhvMLbCoeC9SHG5ivZj/ngIc5DFJuG5HxpleRJx1GvzcGzfSjDdHvppgAF5zQ7shxl0IxWaLOX8UGCj4q7qwAdpRIuo6WEu5sHEJfhRrT3cvapODpvpByLNF9RQMBgAvL1X1xSIUxMhNEIQ7gVX+WOCNAwwSxnDDNRuZjEMH2PCI63k3fnrS02qNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T2Q/e4vN825Qd2VGVMni/47wJQ9L5x0eoUniDp67d2E=;
- b=YQlglDIzQYLE07/PrZuO/5Vjnrhv28dlf9k4V3c3Bp/BXzh8f5TnFaGxR+WE3BfwsQrHkm2Jqv5J+6WPjvPS0R2/B8RVNLoQjJcgOFFxrgj7qixHlZsXAVYQ0LKogtCfNptu/H4tY4+qc7pLGv/u613b6rTnN9l8F9cdfqyp9B2fhb5lZ/vfPBLx6K/n1TJ9ew623y+nvQ8072222XJ2lV702bTSQu5LXumZgfCtAOO6NU0/fn4Xzw4R9J2/+0GY5+AOlIB60f6abh5rrLJWv4LsTJevufPWi9AU8hL66LDXo0O+zuWbuptPeDHnAnbh0ezlTWi5pvQHzhI6z10BGQ==
+ bh=UN1mgpZoBuTAcRco+EKhHGYcU2cSRZtPtxGVgeq5oqQ=;
+ b=sw1Pi0JlpYZdm4F+9mbExrmGtCICMr9vOokz20r7XmCbp7PzzCJ5BXhlq/bRX7+rHRyJvzMR6VsTYA2goYrrGEbEFkdOhCVw21TpAQEpEuayPy2GlEmPQEI3tjpSFfDiZAjGbD0U1/8I1y8/b1yAsPxVVSyjIPu6i6cmM2RX2rjMAzCXGPvc+4wteprJemevtwME93rC92r2yJXEOUGrF/jJUAKR/sF+Qc8XTzcCR0AfZw0gO8MvQSQtA60jWoX2TguD+Gqwt+ulHxhd8f0h79ndJPMfThepKBvY1N8dnoiFgskUdNiwTFjGy6Sis3O4oEH8ul3r0rD5DQqecBIhAw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UN1mgpZoBuTAcRco+EKhHGYcU2cSRZtPtxGVgeq5oqQ=;
+ b=hLBQygVxKW8I/KJZclL63Bm5g73r5iYXWHdZjjbdJg7XiA1k/1tl7kPJfQGsJby+wlE4J8bNnG/4Zn2uzaM1E4vHsbi03RHpFNStTSMkq0lC1agQIj9lsa4ByaPTJzC0S5sRO5Bkl/rgftVP56u+ttnz5c2x4bvJQJ93A2lXJU8=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by PH7PR11MB6651.namprd11.prod.outlook.com (2603:10b6:510:1a9::20) with
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by PH7PR12MB5735.namprd12.prod.outlook.com (2603:10b6:510:1e2::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.19; Fri, 25 Oct
- 2024 04:35:08 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 04:35:06 +0000
-Date: Thu, 24 Oct 2024 21:35:02 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Alistair Popple <apopple@nvidia.com>, Dan Williams
-	<dan.j.williams@intel.com>
-CC: <linux-mm@kvack.org>, <vishal.l.verma@intel.com>, <dave.jiang@intel.com>,
-	<logang@deltatee.com>, <bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
-	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
-	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
-	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
-	<david@fromorbit.com>
-Subject: Re: [PATCH 10/12] fs/dax: Properly refcount fs dax pages
-Message-ID: <671b1ff62c64d_10e5929465@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.9f0e45d52f5cff58807831b6b867084d0b14b61c.1725941415.git-series.apopple@nvidia.com>
- <9f4ef8eaba4c80230904da893018ce615b5c24b2.1725941415.git-series.apopple@nvidia.com>
- <66f665d084aab_964f22948c@dwillia2-xfh.jf.intel.com.notmuch>
- <871q06c4z7.fsf@nvdebian.thelocal>
- <671addd27198f_10e5929472@dwillia2-xfh.jf.intel.com.notmuch>
- <87seskvqt2.fsf@nvdebian.thelocal>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <87seskvqt2.fsf@nvdebian.thelocal>
-X-ClientProxiedBy: MW4PR03CA0048.namprd03.prod.outlook.com
- (2603:10b6:303:8e::23) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 25 Oct
+ 2024 04:54:56 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::53fb:bf76:727f:d00f]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::53fb:bf76:727f:d00f%4]) with mapi id 15.20.8069.020; Fri, 25 Oct 2024
+ 04:54:56 +0000
+Message-ID: <98a0e135-4f9b-4a2e-94b5-f1a830a49f19@amd.com>
+Date: Fri, 25 Oct 2024 15:54:44 +1100
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v4 00/14] iommufd: Add vIOMMU infrastructure (Part-2:
+ vDEVICE)
+Content-Language: en-US
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
+ will@kernel.org
+Cc: joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+ dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+ mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+ smostafa@google.com, yi.l.liu@intel.com, zhangfei.gao@linaro.org,
+ patches@lists.linux.dev
+References: <cover.1729555967.git.nicolinc@nvidia.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+In-Reply-To: <cover.1729555967.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY5P282CA0115.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:20b::20) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH7PR11MB6651:EE_
-X-MS-Office365-Filtering-Correlation-Id: f608fc9b-4ef2-4a49-8c83-08dcf4ae667f
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|PH7PR12MB5735:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c3a9d36-367e-40f5-63cc-08dcf4b12bc4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?003X7Sg6yMCPEQ/WKyqA+xRyJS2Xc/NFTVZi/satp9ZXCx7fxN4zxdzdk0WY?=
- =?us-ascii?Q?3xDUFyNHF8YMeBYcTa3U1s9iYuWgMXpCQPwLQJ7pM6y8jo2F345iEDwkjG+n?=
- =?us-ascii?Q?AZsqy20JZbFyUbot9LZIe9yoPgaUnesPCUvmPfNdd6i7bQ2/h0RBOImD8dSp?=
- =?us-ascii?Q?97DzfWjoTBQqz3VJUigClxx0MeDXfBWRUWv+L2yrSDJUJzyVlFHiKoAAxd9n?=
- =?us-ascii?Q?X5WDpz9SiHsrtdeOgTgPi1ZAh3HIhCD2/2eNLVayp8MDoZH1ReVn/Akxl6Ay?=
- =?us-ascii?Q?Mk/oijnpZrpvsSCnsn3NdQ1cEIKFnfob5YEf239u94eCsOI1vDysYueF6mD6?=
- =?us-ascii?Q?nGZ5ZljlDdbqLN9dtMm3jj8HJzgWMHF70cFntGpGz2a+DEMkMMRiUDEXFA6H?=
- =?us-ascii?Q?bmbtls8KjZBZYyueoQN3OX6e0q11vLBN0W7r4uNqNUWouA0m3X0xSkxH+8Cl?=
- =?us-ascii?Q?akPwMg+YxGE5pVpjyRKAfu2lAXF6wtYsqWbIsECBeDfBLBlQEw/rfl0uKt4F?=
- =?us-ascii?Q?7MUq5Oc1O5Frvl/5flGyWjWbe7w4H7FGYxflp7dBFD0HWnzOVB2WGZB5Wt2r?=
- =?us-ascii?Q?rCqiPXyatSjbK34/OYYgjRbB+TR3hNDSAV8LillgA03y9vQIVT6s6/GdqF1o?=
- =?us-ascii?Q?/W+mddOy1sTsgiPSzuyf9dne+KobNtvKOUnFjUhdrtbvcQafkNEA1afYs0xs?=
- =?us-ascii?Q?p5etp7nw6FPIh6zS+rjXWwYK2z5n0pNv4rT+Z36Iy/wHbVZZuzZ+MbrjPsda?=
- =?us-ascii?Q?ihxB5GwWfIeu9j98o7NUbv0NW3kCmaHz4ScsVhCjoNEK2RRbQOhoq8OA1ojU?=
- =?us-ascii?Q?yTiyefeIkGCfhl7G8T27JEDrN0NvBiuv2wfRmsY2tmoahsP9HDpg8Mn9FDsd?=
- =?us-ascii?Q?e93taLKc57ywjE8qcAIANYZswfQHSpNs1CCG8KpO1vxWq6BtEUWWG1Trj1RG?=
- =?us-ascii?Q?TIXyzRfWHRjozarh3rUQ1XP+MgbNYcVNYHSlIGniYToXWQuhPFpBcNIjrBCr?=
- =?us-ascii?Q?1QHNVZlw0U6z2jRQ6Z3Gwji6w7+y492fQ58Z+LM9WRa+LLqycT39avX6k2cW?=
- =?us-ascii?Q?M6xtKnBN8+lpaJkc8w8fLTFJLbiuloGCtTg/+bfk2rdWFILgn7RKCGalqUxJ?=
- =?us-ascii?Q?ys0L5kDOyHMK23ldnaylGGjyjUAwv/o5qA0SWtK9JFneCp+uts7ncTbvPJq0?=
- =?us-ascii?Q?76mvhGrgQKx0lVSm9+cIDfoPD4Sro2rzOThZ+laABLNRvpnzpq9Uq8giJMbj?=
- =?us-ascii?Q?kKsgO/cxb31ZM7s9Gic8ocJJYtnVkmsRHGPQbGEubhv+3JmYwAL+QfOL9rfM?=
- =?us-ascii?Q?SYC0qe+gSLxhDRtibN8RT09C?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?a1YxYkVzYkVqdnloL2FmRHF2UTRBQkJhSU9HZDQwaURJdGZkajB6TjhiK2M2?=
+ =?utf-8?B?MnlyQURQOHVrbTZrTk1iN0xkcytxcjZaZVJMMnE5aVloVS9ZRFhaL0FIcHpp?=
+ =?utf-8?B?Q21FTitudzlVK0NQVTFmYU84OGNsdkdUUk1zTlhiT2dmT2g0bEpvQ2pwT3ll?=
+ =?utf-8?B?ZUlWTXNLWmhVWGtYODVkTGdJRlord0NpY2RnTHJjc2pYMW0yaEU1UmJESmV1?=
+ =?utf-8?B?VHk3bURpcm5hMzJ0RXhvQkw0RnlBZUFMOWI2OUxSUkNwd2hkbVFSZy96MTcy?=
+ =?utf-8?B?MktjeElzS3NHRE5Yc2thajd4bkRzMi9lYTM4b2tnTEMwRHJFdlUyNXJDOXBx?=
+ =?utf-8?B?RlQ2ZnR5OUlQd1ErVWZTdTZxaVgyOXFOMUN6VktjbjRodUpWU0dzT2NYMkpM?=
+ =?utf-8?B?Kyt1ckY5bzl2MGdIbE1zcXZ0bGYwb05WK25xNjhOdHNmdU11NFVKVHdOcHNM?=
+ =?utf-8?B?SHV1RlJBdituR1QzMW51WTFZNFFDczBVN3FOTUNMM2loeWMvUk5vc3NnK1NE?=
+ =?utf-8?B?SFllVVZMbTl2ZHRhNm5qcEUzWEtJeURSSkJCUlIya2duS1F2YTV3QjVUMXBN?=
+ =?utf-8?B?dktxWWttKzdrU3VtR2ZnWGx4OENqTU1QdDFrVW5zTWVwSnZSeTJNQjMyNjF6?=
+ =?utf-8?B?cUcva2xjcVhhWXI1anVNTDB5bmRpTXlsMkVWclZILyt6WVRqV3YxVDRKNXho?=
+ =?utf-8?B?Z3pXZUVwUkpxYlR0VVhybzRzU0ZTbytpUWwrVHptVUVOT2FZdWhadWpYaHpv?=
+ =?utf-8?B?UU94RDM3d1MxZnpGN21GQy9KWlFteHZWWjBQZWtBMkVRQmlWb0Rwb2VzeTYz?=
+ =?utf-8?B?aFBqTTZ1NmtpbHhIY2xiN3J0ZS8xZmRRYVhOYmRDS2RlMjRvdUVzV1lmNmky?=
+ =?utf-8?B?K0hkRWIxbTB3NWFBUXZheVd6dXhFTnNDcTdVUStScFY3SWdyaURORGw3VndQ?=
+ =?utf-8?B?QTdMQ00zTWk3d2N1ZElqNmJUR09BS3B1WjFQNUh5TXhiaGtwVTMxeTltUnhO?=
+ =?utf-8?B?SlpIeHRtV3o4Z0VmVlVDL3lMY1NEYzBtcnJDVjJVS2lIWXNkUmZVaDVNWHJr?=
+ =?utf-8?B?cjZycHhBZWIzMEl3UE1ZdHNhNy9IUWNCMEtFYXNmcUx2by90c01VSGNNVE9I?=
+ =?utf-8?B?SjFWMndFSlk3SlYrVjB0MDBLK3NncnlDK2E5YkNWcnFDaERlT1JvcXo5THhi?=
+ =?utf-8?B?N0ZUU2sxcWdIMjcwVzZYREdpQjBJcjdIVVEwV0V5cTQ3SjQ1VXZpTDBTeWR5?=
+ =?utf-8?B?OHVPLzZCcUdhVEMyekZTcmlnVk9Zam9xYktIVngwN2RTUUxNYktPdVNpcEdu?=
+ =?utf-8?B?ZHBFQ1VjdU5EcmVVdEQrOVZ1QkptUEFudVQvRW9GSndzaytDbjU3azlNVDA2?=
+ =?utf-8?B?VVRyVER6MkE1N2hkMnZ6b0hvMXRLcGJ1UTlCbkVqcmZFaXlSVllYL0V0Q2hI?=
+ =?utf-8?B?STI4VDc5QkNod05GVzdZUi9yR3U1ZnlNU2RiektoaFFqSzdMWnRlbnJtOXNz?=
+ =?utf-8?B?TlRUeTJ4alJGaXdCTGpvM3diZ2tTYTk5Skk3dUlaMzlaZExHVWxqRUFvejhR?=
+ =?utf-8?B?QjAxVmJIai92Y1ZMOGVpTjVqVytNUlJKNHVXNmFmdFJNMjhuYjNHK3ZaWTZp?=
+ =?utf-8?B?ZlFKbDNQbVYyZnpNNmdjOGJ2WTkvUEU1ZGFDamxlaVlTRG0ySHNmMnBDa2JP?=
+ =?utf-8?B?M0VIdlFuYmxFUk80MTZIY0drMEFvWTJ6QUxWeXVEcG92WlB0WnFDM2t3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XvhQDAdGRFDdCrOGWJaChz8S2vV9DsEdHxO9Nk6d2i9Zm6/fmO1zW5O3qREW?=
- =?us-ascii?Q?x2B0BalGC3zsqNcHxSf71OD0gr/OqiyqR8ZQ1PkgYIjI95GEBeggpmKdmeyL?=
- =?us-ascii?Q?WwNpGXddfxGd7OUoRp6GXThCCDrtGfq0NCMRx3WJvICcC1tshS0h0qw5SA0O?=
- =?us-ascii?Q?eh7zuKwQWoCHR7CWv5ZyiQFZeflNwgCqoj602B7FlIRPyoDvPbcmw+clMj8F?=
- =?us-ascii?Q?IzqQibPoti98DVkdNS7W3XxmEoDcUTpEuLHCnwmvhZ1l/GskNA+94kZcKlzG?=
- =?us-ascii?Q?GM1AgBLiPguu0NSElHAuyyW/AmdCl3CfUiW2MiMG/X2EOxM8esvfBS3a9Khe?=
- =?us-ascii?Q?Qb4JmYjsMjBZcToinH4pW10yYD2BDbM7Ymrlvhi55WEb0AfmqrpdPE3YKaFJ?=
- =?us-ascii?Q?nj2lbdksAvXxDo9rceX5+03xn0/sAOS0D9Tt8t8+hunu4GF79Rau982dO+q6?=
- =?us-ascii?Q?63Ly/c4qMBEUK2M7MNXuqVPVohJYUy2BoDqjrsw7VUlVhfgnJqYkcRXI4nwK?=
- =?us-ascii?Q?RYgVZj2xcOzp5eHB+NKWdCEPTVaFnkj6CPkNQw22NzR0jVNYDLJQog1mnGvD?=
- =?us-ascii?Q?5BvxTDcWsaGUaoJfMhS+LNvasYy9zZEfT4Yxv76chY3OV+bJDBdm/RO+56Br?=
- =?us-ascii?Q?vwfeVMN1YfmLoanaLVmw+avQKXuccjWrCDj3RgiFTSgpVfRyt56b+dFDAbnL?=
- =?us-ascii?Q?RKKGyaqcmkk/aWCbNv5ifP/j+x4U63wsdZ2Yq7Sfz0u820RJlNf7PDZdWtqH?=
- =?us-ascii?Q?kZmgIrhVTBAjBFJCdgrzZrA67Hs27iumDoCJOHTtjjXy47oecKHuEbRQlZzf?=
- =?us-ascii?Q?xKRXTUuyW+vTrs29vJM1DzuE408BiywvVO+wio6DtFYFgO91NfhELzX+C6jm?=
- =?us-ascii?Q?nPR7GgVpFHklXiMoIrJ09kTqw28G6beoo9eoZ5Lx8JKLnpKCfOEh1H3/E2+P?=
- =?us-ascii?Q?aavkF9SnteG+MkyXxTN5qhWyC4Zf8VZE3P1cwZkWUWz5YP8o0spBcTRIOgig?=
- =?us-ascii?Q?6vKBAPL2TQu6TMDzGN4Iy+k2W7ljEcBq2XfzUUp8o4SxF8DO2iZKhMalbcEW?=
- =?us-ascii?Q?s7JwAF0BUaaUxwvtLWeHytsxdyKNXOUOmTuG/BxD7WKWDbByayilnRDvrzRb?=
- =?us-ascii?Q?TaaPQ35pKMiOK1AjTcXct+gyu2ITrgJi7yOtIhWlwDphtL4pM28Q6T2Y+sq8?=
- =?us-ascii?Q?akEjrHeGZ1J0CvrVBjdmPa7bs2eKl7bi3iOJLZli31gSrj6zKp4M9i2gfLxp?=
- =?us-ascii?Q?7zTFTe0/LGXKv/XLlNlqw19iha3L8rZB5F33agvBTZ1RBFAgNUkT16/0ILuC?=
- =?us-ascii?Q?e4cZLe7flO+3UY9wbSJfa5Ux2ZKhIgQCkNBETCMCWy1xi3OO8wgTMT8ZtAJQ?=
- =?us-ascii?Q?inU7FSLq/4dOyvwtUTT+i7ntwKsE9xmbHQBsAwAjzzVYGBGAQWIge2eCAn+C?=
- =?us-ascii?Q?m6COXxNlD/rlVsT2s+d7IajtMMvZOgNLwJRA6gDhzQXr9PYjvE0UV/oK0qmy?=
- =?us-ascii?Q?G6VvwNgqtmWVEN6ifg00+DmEj4GWppHUvkWEX9iFErl4IZRqph68LFx57iU+?=
- =?us-ascii?Q?UWvokqM1qBHQCdtDEH4xRICZVucaMXI92p+wCITzEiwFncoeqd33MY7mPPyy?=
- =?us-ascii?Q?sA=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: f608fc9b-4ef2-4a49-8c83-08dcf4ae667f
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WkFBbEhReUpERzZNT2JPYm5ESEtJaG51MkdKQVFadlV5c25mUnFUZXl0VWdV?=
+ =?utf-8?B?RWlsM0lWd3NPOUxPeDZVeFcxa2Nub3JMQ2pkQm9CUEdsaFF4bUZxeGUwNmM0?=
+ =?utf-8?B?eldSd2FIei9adkxyWFlDZVBTLzROeGFtbUVJeXpCSDNIT3pleU1KdDBXUGVh?=
+ =?utf-8?B?V3pRajlLOGdORFNJS3BJbWMzdWlTUTd3cG10eTRXREpsSmJSVmRhamZNaGRt?=
+ =?utf-8?B?K2ZBeVRWaEVIVm84bW8xZzh5U3pmK3RFU0pyVWw3WndxMENaSzUyTG1HTzRK?=
+ =?utf-8?B?ZXdOYUxteC80R3ppNGdTbWNoUjNQaS9LN1d2cEJSV3FNek1uUzFzV001Z2Nn?=
+ =?utf-8?B?aFo4dmZoNUJOMDJ6OXRWdEVZV1hnM2hZT3JISUlRa3o3d1Btc045NlZ4VjNp?=
+ =?utf-8?B?M0FYMDl0WS9zU2U3RnRqWjdIU3BZeVY3QXFyZzVlR2VHamF4MmwyRlY1Vkgw?=
+ =?utf-8?B?aUxiOGlBYXplTEVhdHVNMndlRlhhTVoxTVRjbm5CM2ZqR21FNFpiYkJ0aWRW?=
+ =?utf-8?B?a3N1WTJ1VmhsNk5kRFQwdEpacEFibGE3WE9BL2VNY1hJbTM1M1Ywd1ZzRWZO?=
+ =?utf-8?B?MGdkWFRvR05hczYrVUdHT2JYOHQzN2V2UEk5Nk9qVWVTU0wrVXJPZy95U1Qz?=
+ =?utf-8?B?RW1tYnNPZDE3THdkRWJlaklkb2FlZjNZNGdCOTJsUHh5eStBbWNidXBlZWIz?=
+ =?utf-8?B?bElReFBQYmp3NThlMjZaMTdEQ0RqNzBBL2JtaXpFaVdQU1FqV2pjaDc0QnJS?=
+ =?utf-8?B?Q0paeDZqbGNibnhjTTRCc2QyTmJXSlVDUlJ3UnBOcExlaHFSTkZ6ZGJ5Nmdi?=
+ =?utf-8?B?bStMY0IxelhyMmJZd3JTeWszUmk1a1dOeHRPNXZ4WC9MeGxRQlV0YlVwRW5X?=
+ =?utf-8?B?Y01XZFFtU2JIQlFad2MxTFBDVHRQejRMcnNSNUxYUW1lbXJOVmhGdGpRNllW?=
+ =?utf-8?B?dGdzV3AyTFdLZ3RxWS9kUmRVN2RzSVRoWnhOQngyZzhNOGpSd1dvUHJWY0RK?=
+ =?utf-8?B?bzZ0bjk5Z3RaOERzdi9NY0tqNFRTQWhYZW0xTldFNUhGWTBUeStmN1BpSzBo?=
+ =?utf-8?B?bTBaS1E2MktnRlpoaDgvdklGMm00VGN1L2dROU5VdVZXVjFsTC9xVHk0c3du?=
+ =?utf-8?B?N0xuOEZBb0hzTVBpUENQdk94ZHBrbXZ4cGt3clFzc0dXYUZrVEc4WXNFTDYw?=
+ =?utf-8?B?bjRmN1UzeThhemJwMnJvdEwxZzNpZnBBamd1Z1FMdnJlN3B2aHJjR1REaVI4?=
+ =?utf-8?B?TXJoNUpLZDFBSklDY0RlRm9TOFF5b3BicDFldXFKVEFPTEcyangrS0dOZGE3?=
+ =?utf-8?B?dlBQTlYxRmYvWVl4YllPaXRLZHB1N3grZ2JNNFRwdXllNFBGYmlWWFdVV3NX?=
+ =?utf-8?B?b2xuS0JaZHVvMGsrRTJORHQ5NWY1WnM4MGdlWVJHOWY3UGkxamN2cyt4eTE3?=
+ =?utf-8?B?T04rTDZVMWI2NU9WMkRISkpKbW5kUDJPNnljcHpYbVpQQjlXN3BxaHdONDdv?=
+ =?utf-8?B?T0pDbjJLNFNvdmgrQ1YyZFlvc2pLYnRlRlZZenZjdDFFSXE5MEUyUXFFemg4?=
+ =?utf-8?B?ejgyRXl6VFkrYnpiSXM1b0cyVzVVcUo3YTdNWWR1SUlPTENGLzI1cWR4OU9V?=
+ =?utf-8?B?bHZ2WHJIMkg2VmtObkphc1ZIUDAzdmtKNEs2TnArdlBKQmh5MVBhaVdaSmJG?=
+ =?utf-8?B?eUJoSU45Q2QzS0g3VzFuL3VOeHMxMG8vRTRTM016ejJ2OGZhM0R2Q25YYXo5?=
+ =?utf-8?B?T2tBS2ZGRlQ2S3prektuUU9JYThOQUNSMmViUUlFOHBDZm1ORlQ0TndQaFZD?=
+ =?utf-8?B?UzQwRldwNzlFNTRrb2MzTzlERW15OUZ4R0ErWTVzWUowUnQzNzFQbENnUURB?=
+ =?utf-8?B?eWxKbUM4blZrdGZVanFBNkQ1bGhzUjAzYk8vTWhwc0xZdGRLVURiMGxxM2t0?=
+ =?utf-8?B?amhxV3lTWHdOcUdsV2FKREFKcDZodys4UjNNZzNhaUptelFRSm9BWnZmbzZq?=
+ =?utf-8?B?aUlNc05TU05PVWk3WnJQTm9hQkZ5SkQ0WGlHVHpIZFZsSEluanFUNDNGQ1kx?=
+ =?utf-8?B?cFJLVVdRVHV4NzlVeEU4TysyTDkvWWlLV0NjazRXRzN6YWxudmorZkhtUkha?=
+ =?utf-8?Q?CdciHSPuL6fPTXFK8pjd2w5vR?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c3a9d36-367e-40f5-63cc-08dcf4b12bc4
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 04:35:06.2386
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 04:54:56.2150
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vLtoCm3KOuFKw2BK0k6oywu6Aqg6Lc3qz54GSLyeD9olsPUUdQElXpEIA7wTJLBywV/lxCvTNqR9DJOZ26zFp7Rr/hi66j10lw3of3DDVZ4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6651
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: ju3VqB/MgriZn3fLpFcBueen1B+j0t/T/vRTMTB3pEZp+vrpau9aSHBkum0IruUbQyjHbVzO9ph+Gkmxw0LWcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_213520_290144_1A2C0056 
-X-CRM114-Status: GOOD (  44.57  )
+X-CRM114-CacheID: sfid-20241024_215510_491178_3E9803D5 
+X-CRM114-Status: GOOD (  24.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,216 +178,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alistair Popple wrote:
-[..]
->> I'm not really following this scenario, or at least how it relates to
-> >> the comment above. If the page is pinned for DMA it will have taken a
-> >> refcount on it and so the page won't be considered free/idle per
-> >> dax_wait_page_idle() or any of the other mm code.
-> >
-> > [ tl;dr: I think we're ok, analysis below, but I did talk myself into
-> > the proposed dax_busy_page() changes indeed being broken and needing to
-> > remain checking for refcount > 1, not > 0 ]
-> >
-> > It's not the mm code I am worried about. It's the filesystem block
-> > allocator staying in-sync with the allocation state of the page.
-> >
-> > fs/dax.c is charged with converting idle storage blocks to pfns to
-> > mapped folios. Once they are mapped, DMA can pin the folio, but nothing
-> > in fs/dax.c pins the mapping. In the pagecache case the page reference
-> > is sufficient to keep the DMA-busy page from being reused. In the dax
-> > case something needs to arrange for DMA to be idle before
-> > dax_delete_mapping_entry().
+
+
+On 22/10/24 11:20, Nicolin Chen wrote:
+> Following the previous vIOMMU series, this adds another vDEVICE structure,
+> representing the association from an iommufd_device to an iommufd_viommu.
+> This gives the whole architecture a new "v" layer:
+>    _______________________________________________________________________
+>   |                      iommufd (with vIOMMU/vDEVICE)                    |
+>   |                        _____________      _____________               |
+>   |                       |             |    |             |              |
+>   |      |----------------|    vIOMMU   |<---|   vDEVICE   |<------|      |
+>   |      |                |             |    |_____________|       |      |
+>   |      |     ______     |             |     _____________     ___|____  |
+>   |      |    |      |    |             |    |             |   |        | |
+>   |      |    | IOAS |<---|(HWPT_PAGING)|<---| HWPT_NESTED |<--| DEVICE | |
+>   |      |    |______|    |_____________|    |_____________|   |________| |
+>   |______|________|______________|__________________|_______________|_____|
+>          |        |              |                  |               |
+>    ______v_____   |        ______v_____       ______v_____       ___v__
+>   |   struct   |  |  PFN  |  (paging)  |     |  (nested)  |     |struct|
+>   |iommu_device|  |------>|iommu_domain|<----|iommu_domain|<----|device|
+>   |____________|   storage|____________|     |____________|     |______|
 > 
-> Ok. How does that work today? My current mental model is that something
-> has to call dax_layout_busy_page() whilst holding the correct locks to
-> prevent a new mapping being established prior to calling
-> dax_delete_mapping_entry(). Is that correct?
-
-Correct. dax_delete_mapping_entry() is invoked by the filesystem with
-inode locks held. See xfs_file_fallocate() where it takes the lock,
-calls xfs_break_layouts() and if that succeeds performs
-xfs_file_free_space() with the lock held.
-
-xfs_file_free_space() triggers dax_delete_mapping_entry() with knowledge
-that the mapping cannot be re-established until the lock is dropped.
-
-> > However, looking at XFS it indeed makes that guarantee. First it does
-> > xfs_break_dax_layouts() then it does truncate_inode_pages() =>
-> > dax_delete_mapping_entry().
-> >
-> > It follows that that the DMA-idle condition still needs to look for the
-> > case where the refcount is > 1 rather than 0 since refcount == 1 is the
-> > page-mapped-but-DMA-idle condition.
+> This vDEVICE object is used to collect and store all vIOMMU-related device
+> information/attributes in a VM. As an initial series for vDEVICE, add only
+> the virt_id to the vDEVICE, which is a vIOMMU specific device ID in a VM:
+> e.g. vSID of ARM SMMUv3, vDeviceID of AMD IOMMU, and vID of Intel VT-d to
+> a Context Table. This virt_id helps IOMMU drivers to link the vID to a pID
+> of the device against the physical IOMMU instance. This is essential for a
+> vIOMMU-based invalidation, where the request contains a device's vID for a
+> device cache flush, e.g. ATC invalidation.
 > 
-> Sorry, but I'm still not following this line of reasoning. If the
-> refcount == 1 the page is either mapped xor DMA-busy.
-
-No, my expectation is the refcount is 1 while the page has a mapping
-entry, analagous to an idle / allocated page cache page, and the
-refcount is 2 or more for DMA, get_user_pages(), or any page walker that
-takes a transient page pin.
-
-> is enough to conclude that the page cannot be reused because it is
-> either being accessed from userspace via a CPU mapping or from some
-> device DMA or some other in kernel user.
-
-Userspace access is not a problem, that access can always be safely
-revoked by unmapping the page, and that's what dax_layout_busy_page()
-does to force a fault and re-taking the inode + mmap locks so that the
-truncate path knows it has temporary exclusive access to the page, pfn,
-and storage-block association.
-
-> The current proposal is that dax_busy_page() returns true if refcount >=
-> 1, and dax_wait_page_idle() will wait until the refcount ==
-> 0. dax_busy_page() will try and force the refcount == 0 by unmapping it,
-> but obviously can't force other pinners to release their reference hence
-> the need to wait. Callers should already be holding locks to ensure new
-> mappings can't be established and hence can't become DMA-busy after the
-> unmap.
-
-Am I missing a page_ref_dec() somewhere? Are you saying that
-dax_layout_busy_page() will find entries with ->mapping non-NULL and
-refcount == 0?
-
-[..]
-> >> >> @@ -1684,14 +1663,21 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
-> >> >>  	if (dax_fault_is_synchronous(iter, vmf->vma))
-> >> >>  		return dax_fault_synchronous_pfnp(pfnp, pfn);
-> >> >>  
-> >> >> -	/* insert PMD pfn */
-> >> >> +	page = pfn_t_to_page(pfn);
-> >> >
-> >> > I think this is clearer if dax_insert_entry() returns folios with an
-> >> > elevated refrence count that is dropped when the folio is invalidated
-> >> > out of the mapping.
-> >> 
-> >> I presume this comment is for the next line:
-> >> 
-> >> +	page_ref_inc(page);
-> >>  
-> >> I can move that into dax_insert_entry(), but we would still need to
-> >> drop it after calling vmf_insert_*() to ensure we get the 1 -> 0
-> >> transition when the page is unmapped and therefore
-> >> freed. Alternatively we can make it so vmf_insert_*() don't take
-> >> references on the page, and instead ownership of the reference is
-> >> transfered to the mapping. Personally I prefered having those
-> >> functions take their own reference but let me know what you think.
-> >
-> > Oh, the model I was thinking was that until vmf_insert_XXX() succeeds
-> > then the page was never allocated because it was never mapped. What
-> > happens with the code as proposed is that put_page() triggers page-free
-> > semantics on vmf_insert_XXX() failures, right?
+> Therefore, with this vDEVICE object, support a vIOMMU-based invalidation,
+> by reusing IOMMUFD_CMD_HWPT_INVALIDATE for a vIOMMU object to flush cache
+> with a given driver data.
 > 
-> Right. And actually that means I can't move the page_ref_inc(page) into
-> what will be called dax_create_folio(), because an entry may have been
-> created previously that had a failed vmf_insert_XXX() which will
-> therefore have a zero refcount folio associated with it.
-
-I would expect a full cleanup on on vmf_insert_XXX() failure, not
-leaving a zero-referenced entry.
-
-> But I think that model is wrong. I think the model needs to be the page
-> gets allocated when the entry is first created (ie. when
-> dax_create_folio() is called). A subsequent free (ether due to
-> vmf_insert_XXX() failing or the page being unmapped or becoming
-> DMA-idle) should then delete the entry.
->
-> I think that makes the semantics around dax_busy_page() nicer as well -
-> no need for the truncate to have a special path to call
-> dax_delete_mapping_entry().
-
-I agree it would be lovely if the final put could clean up the mapping
-entry and not depend on truncate_inode_pages_range() to do that.
-
-...but I do not immediately see how to get there when block, pfn, and
-page are so tightly coupled with dax. That's a whole new project to
-introduce that paradigm, no? The page cache case gets away with
-it by safely disconnecting the pfn+page from the block and then letting
-DMA final put_page() take its time.
-
-> > There is no need to invoke the page-free / final-put path on
-> > vmf_insert_XXX() error because the storage-block / pfn never actually
-> > transitioned into a page / folio.
+> As for the implementation of the series, add driver support in ARM SMMUv3
+> for a real world use case.
 > 
-> It's not mapping a page/folio that transitions a pfn into a page/folio
-> it is the allocation of the folio that happens in dax_create_folio()
-> (aka. dax_associate_new_entry()). So we need to delete the entry (as
-> noted above I don't do that currently) if the insertion fails.
-
-Yeah, deletion on insert failure makes sense.
-
-[..]
-> >> >> @@ -519,21 +529,3 @@ void zone_device_page_init(struct page *page)
-> >> >>  	lock_page(page);
-> >> >>  }
-> >> >>  EXPORT_SYMBOL_GPL(zone_device_page_init);
-> >> >> -
-> >> >> -#ifdef CONFIG_FS_DAX
-> >> >> -bool __put_devmap_managed_folio_refs(struct folio *folio, int refs)
-> >> >> -{
-> >> >> -	if (folio->pgmap->type != MEMORY_DEVICE_FS_DAX)
-> >> >> -		return false;
-> >> >> -
-> >> >> -	/*
-> >> >> -	 * fsdax page refcounts are 1-based, rather than 0-based: if
-> >> >> -	 * refcount is 1, then the page is free and the refcount is
-> >> >> -	 * stable because nobody holds a reference on the page.
-> >> >> -	 */
-> >> >> -	if (folio_ref_sub_return(folio, refs) == 1)
-> >> >> -		wake_up_var(&folio->_refcount);
-> >> >> -	return true;
-> >> >
-> >> > It follow from the refcount disvussion above that I think there is an
-> >> > argument to still keep this wakeup based on the 2->1 transitition.
-> >> > pagecache pages are refcount==1 when they are dma-idle but still
-> >> > allocated. To keep the same semantics for dax a dax_folio would have an
-> >> > elevated refcount whenever it is referenced by mapping entry.
-> >> 
-> >> I'm not sold on keeping it as it doesn't seem to offer any benefit
-> >> IMHO. I know both Jason and Christoph were keen to see it go so it be
-> >> good to get their feedback too. Also one of the primary goals of this
-> >> series was to refcount the page normally so we could remove the whole
-> >> "page is free with a refcount of 1" semantics.
-> >
-> > The page is still free at refcount 0, no argument there. But, by
-> > introducing a new "page refcount is elevated while mapped" (as it
-> > should), it follows that "page is DMA idle at refcount == 1", right?
+> This series is on Github:
+> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4
 > 
-> No. The page is either mapped xor DMA-busy - ie. not free. If we want
-> (need?) to tell the difference we can use folio_maybe_dma_pinned(),
-> assuming the driver doing DMA has called pin_user_pages() as it should.
+> For testing, try this "with-rmr" branch:
+> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v4-with-rmr
+
+Is there any real example of a .vdevice_alloc hook, besides the 
+selftests? It is not in iommufd_viommu_p2-v4-with-rmr, hence the 
+question. I am trying to sketch something with this new machinery and 
+less guessing would be nice. Thanks,
+
+
+> Paring QEMU branch for testing:
+> https://github.com/nicolinc/qemu/commits/wip/for_iommufd_viommu_p2-v4
 > 
-> That said I'm not sure why we care about the distinction between
-> DMA-idle and mapped? If the page is not free from the mm perspective the
-> block can't be reallocated by the filesystem.
-
-"can't be reallocated", what enforces that in your view? I am hoping it
-is something I am overlooking.
-
-In my view the filesystem has no idea of this page-to-block
-relationship. All it knows is that when it wants to destroy the
-page-to-block association, dax notices and says "uh, oh, this is my last
-chance to make sure the block can go back into the fs allocation pool so
-I need to wait for the mm to say that the page is exclusive to me (dax
-core) before dax_delete_mapping_entry() destroys the page-to-block
-association and the fs reclaims the allocation".
-
-> > Otherwise, the current assumption that fileystems can have
-> > dax_layout_busy_page_range() poll on the state of the pfn in the mapping
-> > is broken because page refcount == 0 also means no page to mapping
-> > association.
+> Changelog
+> v4
+>   * Added missing brackets in switch-case
+>   * Fixed the unreleased idev refcount issue
+>   * Reworked the iommufd_vdevice_alloc allocator
+>   * Dropped support for IOMMU_VIOMMU_TYPE_DEFAULT
+>   * Added missing TEST_LENGTH and fail_nth coverages
+>   * Added a verification to the driver-allocated vDEVICE object
+>   * Added an iommufd_vdevice_abort for a missing mutex protection
+>   * Added a u64 structure arm_vsmmu_invalidation_cmd for user command
+>     conversion
+> v3
+>   https://lore.kernel.org/all/cover.1728491532.git.nicolinc@nvidia.com/
+>   * Added Jason's Reviewed-by
+>   * Split this invalidation part out of the part-1 series
+>   * Repurposed VDEV_ID ioctl to a wider vDEVICE structure and ioctl
+>   * Reduced viommu_api functions by allowing drivers to access viommu
+>     and vdevice structure directly
+>   * Dropped vdevs_rwsem by using xa_lock instead
+>   * Dropped arm_smmu_cache_invalidate_user
+> v2
+>   https://lore.kernel.org/all/cover.1724776335.git.nicolinc@nvidia.com/
+>   * Limited vdev_id to one per idev
+>   * Added a rw_sem to protect the vdev_id list
+>   * Reworked driver-level APIs with proper lockings
+>   * Added a new viommu_api file for IOMMUFD_DRIVER config
+>   * Dropped useless iommu_dev point from the viommu structure
+>   * Added missing index numnbers to new types in the uAPI header
+>   * Dropped IOMMU_VIOMMU_INVALIDATE uAPI; Instead, reuse the HWPT one
+>   * Reworked mock_viommu_cache_invalidate() using the new iommu helper
+>   * Reordered details of set/unset_vdev_id handlers for proper lockings
+> v1
+>   https://lore.kernel.org/all/cover.1723061377.git.nicolinc@nvidia.com/
 > 
-> And also means nothing from the mm (userspace mapping, DMA-busy, etc.)
-> is using the page so the page isn't busy and is free to be reallocated
-> right?
+> Thanks!
+> Nicolin
+> 
+> Jason Gunthorpe (2):
+>    iommu: Add iommu_copy_struct_from_full_user_array helper
+>    iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED
+> 
+> Nicolin Chen (12):
+>    iommufd/viommu: Introduce IOMMUFD_OBJ_VDEVICE and its related struct
+>    iommufd/viommu: Add IOMMU_VDEVICE_ALLOC ioctl
+>    iommufd/selftest: Add IOMMU_VDEVICE_ALLOC test coverage
+>    iommu/viommu: Add cache_invalidate to iommufd_viommu_ops
+>    iommufd/hw_pagetable: Enforce cache invalidation op on vIOMMU-based
+>      hwpt_nested
+>    iommufd: Allow hwpt_id to carry viommu_id for IOMMU_HWPT_INVALIDATE
+>    iommufd/viommu: Add vdev_to_dev helper
+>    iommufd/selftest: Add mock_viommu_cache_invalidate
+>    iommufd/selftest: Add IOMMU_TEST_OP_DEV_CHECK_CACHE test command
+>    iommufd/selftest: Add vIOMMU coverage for IOMMU_HWPT_INVALIDATE ioctl
+>    Documentation: userspace-api: iommufd: Update vDEVICE
+>    iommu/arm-smmu-v3: Add arm_vsmmu_cache_invalidate
+> 
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   9 +-
+>   drivers/iommu/iommufd/iommufd_private.h       |  12 ++
+>   drivers/iommu/iommufd/iommufd_test.h          |  30 +++
+>   include/linux/iommu.h                         |  49 ++++-
+>   include/linux/iommufd.h                       |  50 +++++
+>   include/uapi/linux/iommufd.h                  |  61 +++++-
+>   tools/testing/selftests/iommu/iommufd_utils.h |  83 +++++++
+>   .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 162 +++++++++++++-
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  32 ++-
+>   drivers/iommu/iommufd/device.c                |  11 +
+>   drivers/iommu/iommufd/driver.c                |   7 +
+>   drivers/iommu/iommufd/hw_pagetable.c          |  36 +++-
+>   drivers/iommu/iommufd/main.c                  |   7 +
+>   drivers/iommu/iommufd/selftest.c              | 115 +++++++++-
+>   drivers/iommu/iommufd/viommu.c                | 108 ++++++++++
+>   tools/testing/selftests/iommu/iommufd.c       | 204 +++++++++++++++++-
+>   .../selftests/iommu/iommufd_fail_nth.c        |   4 +
+>   Documentation/userspace-api/iommufd.rst       |  41 +++-
+>   18 files changed, 983 insertions(+), 38 deletions(-)
+> 
 
-Lets take the 'map => start dma => truncate => end dma' scenario.
+-- 
+Alexey
 
-At the 'end dma' step, how does the filesystem learn that the block that
-it truncated, potentially hours ago, is now a free block? The filesystem
-thought it reclaimed the block when truncate completed. I.e. dax says,
-thou shalt 'end dma' => 'truncate' in all cases.
-
-Note "dma" can be replaced with "any non dax core page_ref".
 
