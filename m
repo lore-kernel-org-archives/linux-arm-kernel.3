@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6D1D0C5EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4E8D0C5EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BKU9eGjiGpcEW9DhjB7Jaj0ZFVcpGNTSeTnuNH8OLnM=; b=aI4GMC1sSOu2yHtUQ7vCgKySsV
-	p3+pGQhGaJL5T0Kvupn/eAvPMSCKzwSFhRVxGMBPiYew9UQRrdZruxQcTwYHTEgT4dLZKf4bVIjRE
-	p1IlCO+RPADRD5iJoAv9BMVEzPt19l/EoyGv8lOiXqc4ohpUFkccwJjaSrOOYETa152UMXMP0qi35
-	USBESPDPRc4kyybAdc3n7sO3sL0WY8oHbX7IxGL+dFmRJ9yenxqobl3vcuAM/27XBTwBG3D6gHFhc
-	ej0RM3xiXYTlHkaGUgsUPOYNR0pjpNTKWuBsMmEPk6zRPwZItTt3zaRSUFXfDdy+g6acsuNaasx4V
-	tfLPEYeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2jONHGUQN65Wp/s13oZofhKzQ9O+ThI0+K9VkaZNt+A=; b=rruhQDXBXJRzeq2ug4RNxZeffX
+	OfkOeobswZZGmQ0qWhZZ4L/qO/PxgXiVVvmFK/qBq4HHGiKogO9PidGmoudDMDXBlJ0ht4R8jwr4r
+	KYyS26XR9CYMf8hpOnU44OR6qIjmTeQsuEgMgviSZWgk0juacqSy91gW2xAo0cimFc9zhHzNRgo/6
+	Cl+NKoVVz35+qpasyt04A5Ziimbs3a3kDrOmAtnK/nZRAF8aebJEVs7S0UXi1REoUzu9sBr7YHFox
+	1Mi1UoMQ1PleT2ZA0B9/RozFyvWevbdQAykTkgpZJtWIaTchWWpHd0DOpiP32USy/LbV4IvT+yQzu
+	Smsp8Log==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GBb-000000035C4-1WB7;
-	Fri, 25 Oct 2024 09:00:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4G8Q-0000000344D-3ILa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:57:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93963339;
-	Fri, 25 Oct 2024 01:57:59 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9815C3F528;
-	Fri, 25 Oct 2024 01:57:27 -0700 (PDT)
-Date: Fri, 25 Oct 2024 09:57:25 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:SYSTEM CONTROL & POWER/MANAGEMENT INTERFACE" <arm-scmi@vger.kernel.org>,
-	justin.chen@broadcom.com, opendmb@gmail.com,
-	Florian Fainelli <f.fainelli@gmail.com>, kapil.hali@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Support 'reg-io-width'
- property for shared memory
-Message-ID: <ZxtddQoBAjYN4hHa@bogus>
-References: <20240827182450.3608307-1-florian.fainelli@broadcom.com>
- <20240827182450.3608307-3-florian.fainelli@broadcom.com>
- <20240903154000.GA2080277@bogus>
- <ZxJbJa8Q3V02yf_z@bogus>
- <Zxop6E83YId0et5o@bogus>
- <04050b73-eb16-440f-acd7-986b1f39a6c9@broadcom.com>
+	id 1t4GDB-000000035bP-40op;
+	Fri, 25 Oct 2024 09:02:25 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4G9h-000000034Nw-0Kt7;
+	Fri, 25 Oct 2024 08:58:50 +0000
+X-UUID: 545fc44a92af11ef9048ed6ed365623b-20241025
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=2jONHGUQN65Wp/s13oZofhKzQ9O+ThI0+K9VkaZNt+A=;
+	b=uKZ/SyOT3Mm9rRM83JQ/Iw08q6PU9rhMrxEew2p+XiUtQqWkzv7kjE5TagpjzwiTuQBOBCdPTGIWGDCiODcIjjZ5egMadNpE3bDio0pOFLn4nsD+g58XQiuV+UJtBrVToHQU/DYNot9nRxn1wytfTkd0BpcrZhOpIIPTyw0ebJ8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:3bf7653f-342f-4ed7-9734-880022faa6f9,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:93051a2e-a7a0-4b06-8464-80be82133975,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:1,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 545fc44a92af11ef9048ed6ed365623b-20241025
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <qun-wei.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 910621834; Fri, 25 Oct 2024 01:58:40 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Fri, 25 Oct 2024 16:58:37 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 25 Oct 2024 16:58:37 +0800
+From: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+To: Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>, David
+ Rientjes <rientjes@google.com>, Joonsoo Kim <iamjoonsoo.kim@lge.com>, Andrew
+ Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@suse.cz>, Roman
+ Gushchin <roman.gushchin@linux.dev>, Hyeonggon Yoo <42.hyeyoo@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Danilo Krummrich <dakr@kernel.org>
+CC: <catalin.marinas@arm.com>, <surenb@google.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <bpf@vger.kernel.org>, Casper Li
+	<casper.li@mediatek.com>, Chinwen Chang <chinwen.chang@mediatek.com>, Andrew
+ Yang <andrew.yang@mediatek.com>, John Hsu <john.hsu@mediatek.com>,
+	<wsd_upstream@mediatek.com>, Qun-Wei Lin <qun-wei.lin@mediatek.com>
+Subject: [PATCH] mm: krealloc: Fix MTE false alarm in __do_krealloc
+Date: Fri, 25 Oct 2024 16:58:11 +0800
+Message-ID: <20241025085811.31310-1-qun-wei.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <04050b73-eb16-440f-acd7-986b1f39a6c9@broadcom.com>
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_015730_933340_206A60C3 
-X-CRM114-Status: GOOD (  35.51  )
+X-CRM114-CacheID: sfid-20241025_015849_160053_37F9E9A6 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,62 +90,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 09:45:25AM -0700, Florian Fainelli wrote:
-> On 10/24/24 04:05, Sudeep Holla wrote:
-> > Gentle ping! Not sure if my earlier email got into spam or didn't land
-> > in lore/ML. Just thought of checking again.
->
-> You did not land in spam, just being quite busy.
->
+This patch addresses an issue introduced by commit 1a83a716ec233 ("mm:
+krealloc: consider spare memory for __GFP_ZERO") which causes MTE
+(Memory Tagging Extension) to falsely report a slab-out-of-bounds error.
 
-Ah good, at times our email server acts up, so there is always some
-doubt about it 😄.
+The problem occurs when zeroing out spare memory in __do_krealloc. The
+original code only considered software-based KASAN and did not account
+for MTE. It does not reset the KASAN tag before calling memset, leading
+to a mismatch between the pointer tag and the memory tag, resulting
+in a false positive.
 
-> >
-> > On Fri, Oct 18, 2024 at 01:57:09PM +0100, Sudeep Holla wrote:
-> > > On Tue, Sep 03, 2024 at 04:40:00PM +0100, Sudeep Holla wrote:
-> > > > On Tue, Aug 27, 2024 at 11:24:50AM -0700, Florian Fainelli wrote:
-> > > > > Some shared memory areas might only support a certain access width,
-> > > > > such as 32-bit, which memcpy_{from,to}_io() does not adhere to at least
-> > > > > on ARM64 by making both 8-bit and 64-bit accesses to such memory.
-> > > > >
-> > > > > Update the shmem layer to support reading from and writing to such
-> > > > > shared memory area using the specified I/O width in the Device Tree. The
-> > > > > various transport layers making use of the shmem.c code are updated
-> > > > > accordingly to pass the I/O accessors that they store.
-> > > > >
-> > > >
-> > > > This looks good to me now, much simpler. I will push this to -next soon,
-> > > > but it won't be for v6.12. I have already sent PR for that. I want this
-> > > > to be in -next for longer just to see if anyone has any comments and
-> > > > doesn't break any platform(which it shouldn't anyways).
-> > > >
-> > > > Just hoping if anyone looks at it and have feedback once it is in -next.
-> > > > I will apply formally at v6.12-rc1 and report back if no one complains
-> > > > until then.
-> > > >
-> > >
-> > > Hi Florian,
-> > >
-> > > Just thought I will check with you if the content is -next are fine as I now
-> > > recall I did the rebase as this patch was original posted before the rework
-> > > of transport as modules were merged. Please confirm if you are happy with the
-> > > rebase as you see in -next. I also had to rebase it on recent fixes that
-> > > Justin added as there were trivial conflicts.
-> > >
-> > > Another thing I wanted to check is if [1] series has any impact on this.
-> > > IIUC no, but it would be good to give a go in terms of testing just in case
-> > > that as well lands in -next.
->
-> linux-next as of today (2024-10-24) still works good on the affected
-> platform, thanks for asking!
+Example of the error:
+==================================================================
+swapper/0: BUG: KASAN: slab-out-of-bounds in __memset+0x84/0x188
+swapper/0: Write at addr f4ffff8005f0fdf0 by task swapper/0/1
+swapper/0: Pointer tag: [f4], memory tag: [fe]
+swapper/0:
+swapper/0: CPU: 4 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.
+swapper/0: Hardware name: MT6991(ENG) (DT)
+swapper/0: Call trace:
+swapper/0:  dump_backtrace+0xfc/0x17c
+swapper/0:  show_stack+0x18/0x28
+swapper/0:  dump_stack_lvl+0x40/0xa0
+swapper/0:  print_report+0x1b8/0x71c
+swapper/0:  kasan_report+0xec/0x14c
+swapper/0:  __do_kernel_fault+0x60/0x29c
+swapper/0:  do_bad_area+0x30/0xdc
+swapper/0:  do_tag_check_fault+0x20/0x34
+swapper/0:  do_mem_abort+0x58/0x104
+swapper/0:  el1_abort+0x3c/0x5c
+swapper/0:  el1h_64_sync_handler+0x80/0xcc
+swapper/0:  el1h_64_sync+0x68/0x6c
+swapper/0:  __memset+0x84/0x188
+swapper/0:  btf_populate_kfunc_set+0x280/0x3d8
+swapper/0:  __register_btf_kfunc_id_set+0x43c/0x468
+swapper/0:  register_btf_kfunc_id_set+0x48/0x60
+swapper/0:  register_nf_nat_bpf+0x1c/0x40
+swapper/0:  nf_nat_init+0xc0/0x128
+swapper/0:  do_one_initcall+0x184/0x464
+swapper/0:  do_initcall_level+0xdc/0x1b0
+swapper/0:  do_initcalls+0x70/0xc0
+swapper/0:  do_basic_setup+0x1c/0x28
+swapper/0:  kernel_init_freeable+0x144/0x1b8
+swapper/0:  kernel_init+0x20/0x1a8
+swapper/0:  ret_from_fork+0x10/0x20
+==================================================================
 
-Thanks, though note that I am not sure if the series [1] I mentioned in queued
-yet or not.
+Fixes: 1a83a716ec233 ("mm: krealloc: consider spare memory for
+__GFP_ZERO")
+Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+---
+ mm/slab_common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---
-Regards,
-Sudeep
+diff --git a/mm/slab_common.c b/mm/slab_common.c
+index 3d26c257ed8b..3445f4500b54 100644
+--- a/mm/slab_common.c
++++ b/mm/slab_common.c
+@@ -1209,7 +1209,7 @@ __do_krealloc(const void *p, size_t new_size, gfp_t flags)
+ 		/* Zero out spare memory. */
+ 		if (want_init_on_alloc(flags)) {
+ 			kasan_disable_current();
+-			memset((void *)p + new_size, 0, ks - new_size);
++			memset(kasan_reset_tag((void *)p + new_size), 0, ks - new_size);
+ 			kasan_enable_current();
+ 		}
+ 
+-- 
+2.45.2
 
-[1] https://lore.kernel.org/all/20241010123627.695191-1-jvetter@kalrayinc.com
 
