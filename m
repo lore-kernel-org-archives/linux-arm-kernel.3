@@ -4,93 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9E9D0C61B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3289D0C61D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rn9Pt5hyYOkst6E9UWfygPgyliex/XcNrU8hJHBnOOM=; b=yhjCAWXOVCBQQ22l61KzsZ+w7E
-	kiB4ORhYapVfKK8rYPxJg6OIpDOn0h1eXNmu89bxjxE7ZBRHr+ZACM8KzPUQNSIeCSUgpCgK8k1cQ
-	Wf3MXgxEgCYo6ezaTi8yZQadZLJ5Mzmzu56LfPPgsVR1OH6jm2xOIMt3exkt4u1RUyPtsLrQa6ooN
-	Z3/k976wLCLR3mnqkgbHSPi2eztk1nu35haUeszKRh7TGpoRKF7ay8mo4SmrCdL/zyMMoAsHszhUA
-	UD4qVTSxxRAiEAymYnSgIkaQ5ObQ/ZlBx8Rx54bllvmR76ysLO4X621aF3JwyCMBB6s1Wa/N7Pfpm
-	wjrgSGUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=ZX13lGCL77zSdVfWnnmgkIxrN0
+	plV9/qNlZ5zQ3ddqE6qCP4kP4WFSk3sNfxlIwzM0Ml4U1K8TOM84mKRO8go1+2OJsbwLoVhluDPL+
+	BTcNKXRRsT+R164PaGxAcJG0wWYyyOhRJgGPE3wki3x7aBuy/jawhrttn6wBRU0U2Wa2C4NXYAqWX
+	/Ehh9jQqLZLX0w7soO2cHxPxX0borCdAvD1nNfaf4b+BdgLjMtfbEopiVbBUVJym4Bb1fWpWh+81P
+	asN90GFGvkAc/R7hOSyLDg2HxH5jyjsSawgIGTZZSVaYYCgHfwBzCm9vRil9aEHJxKwQKNzGoSSq0
+	VbMQz9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4LU7-000000043Ab-3FOF;
-	Fri, 25 Oct 2024 14:40:15 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1t4LVe-000000043Mq-2SNd;
+	Fri, 25 Oct 2024 14:41:51 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Kwc-00000003vkb-0c4r
+	id 1t4LB1-00000003zQF-359P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 14:05:39 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb3da341c9so22362971fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 07:05:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729865136; x=1730469936; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rn9Pt5hyYOkst6E9UWfygPgyliex/XcNrU8hJHBnOOM=;
-        b=u3GEc0ZEvEu/xkHgbPtJaXtdTz2UlXL+e3JR+Tpp73AbK3aM4gY3HB49DyGylGWWp3
-         n5/Xralfj0LM+BTTVbcPqMSjoGsG9n1SYxpb3nYaJ8hhkBcdMn3DL9oje4CJG3mTN+sG
-         FdHhpFweFY6iP8E0cPG9BHlo4U8QN5tMSw4wV8bQ+eT2f48G4qGKyE9LNyRjYOx2lQa2
-         qB9qDWH7unFHOX3NQzicy25MU56PN0SX+5HqDW7mqBNghbTS87hIWpXMYve3F+TqmMEV
-         H96hnRSzMCCgTxjSNAanuFWLxUivw/GR6aqfp4VMEEQlfbPbotrodg0o3EKCHFNrRnqE
-         borw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729865136; x=1730469936;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rn9Pt5hyYOkst6E9UWfygPgyliex/XcNrU8hJHBnOOM=;
-        b=M2DRthgcmkToSmpkI5508q8BfdgHmREbCPuZYnsQfRcAZ4N3WnfY97dfmoYjA5QlQY
-         lzQZfYaakCtTnrihXze3U0VEYO8zqfpEnmb7XOy4FwCvt4rrnCnZlB7Pfgv1AvOWbh+U
-         arS/ViasHMs6znGQB/VpROz7SdI52VJCk2eIoEfSzAouHF8CyolKdxyB+m544N9ZmYFZ
-         bUC+vx0IQHaKBGuIZZ9QGYzEU1Y3u0dkEkNGGK7n4+6T+hRXXtE3/j8NiorarpMSkySD
-         OaLYPNs6bY5tlU9F5EdjwbaJxYKFEVkYN1tTOfxH7Y9w/pO0mEE8McAALqHZNjRBzR4j
-         y2xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVQgjbmTkZz1+U6k1HawJBUU3z93MkIMT03QFZtOW8DBezTC96FhSsckbiMvrq3RR/N8+HafLHp2GAUfSiOPYDc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5qW0/XOLn5P26V8UCms4zM+myhaSGNSNz3UZ2ZIqMa6sjUqJl
-	loU4xOiLiQqWH1mAr6CLKvVsOmfQ24VFv0Mge1iU8OAjYSnXBxFcskCFyuyLF9Y=
-X-Google-Smtp-Source: AGHT+IGPO2N8dVilguOrd+D3mg0S1fdvTrVMbg1ZQKzSI2X+KHFMOXe6V+CSQpm6d8eAH4CXe6TVWw==
-X-Received: by 2002:a2e:4c0a:0:b0:2f6:4f17:aeaf with SMTP id 38308e7fff4ca-2fc9d586fc6mr34505861fa.45.1729865135784;
-        Fri, 25 Oct 2024 07:05:35 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb4612a5asm1984121fa.122.2024.10.25.07.05.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 07:05:34 -0700 (PDT)
-Date: Fri, 25 Oct 2024 17:05:31 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Jie Luo <quic_luoj@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, quic_kkumarcs@quicinc.com, quic_suruchia@quicinc.com, 
-	quic_pavir@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, 
-	bartosz.golaszewski@linaro.org, srinivas.kandagatla@linaro.org
-Subject: Re: [PATCH v4 4/4] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
-Message-ID: <g3wh3yjkzgdfwbj4hnabtmziwsmqn3cloffblhshrkgj3tx4h7@2w2ho2mvs5c6>
-References: <20241015-qcom_ipq_cmnpll-v4-0-27817fbe3505@quicinc.com>
- <20241015-qcom_ipq_cmnpll-v4-4-27817fbe3505@quicinc.com>
- <abro3enahzbugcwokcyyhwybbokestbigvzhywxhnfrdjihni3@7ej2hkgbgtf6>
- <b336724c-1fea-4e1e-9477-66f53d746f09@quicinc.com>
- <CAA8EJprVNOLO-CoorNhvKrrSD1bNKdFrzth5BL0GHXffPv62jw@mail.gmail.com>
- <32dbf7ee-1190-401c-b6b1-bc8c70a5158c@quicinc.com>
- <cqgkc3qpupbv47rqxiyhe2m466zxcxepyfcgyaieo2sggffprx@mstqi4pqoiqc>
- <a2448df9-9b8b-4b7e-ada5-6f26d7e7da97@quicinc.com>
+	Fri, 25 Oct 2024 14:20:33 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 7146011400DA;
+	Fri, 25 Oct 2024 10:20:29 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 25 Oct 2024 10:20:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1729866029;
+	 x=1729952429; bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=
+	ABY0h0DTDAGctuJpIL6sS/zNH1ENNSmPu1GTEjlpQ5i/MnCrJwqbpzaF8Fzl6SAE
+	ty89srR+XMB3y0GO59LDr1lbqoSGUHF5vYQgUpFuvNnO1I9a4HVWWkekFIh4+iw3
+	++kRrGeULuovgoGE3lEBDVxVt76SyxQs7lrHVSg8RuKA40TCIekZuPf24SgW3VWv
+	y3Go9YZsNXysA0v31RtM5mhjq55MKMYCRF8fvYc4ghnxRT3QD8XS1b9MC2d8P6d6
+	Z8U2JobiENX6AweBG/AEkr2ZKdC++1C11Tmg1u0yUG3X4E9UHQDdWn82DAio4qtN
+	aMp4W5bYIp8Yz6/pab3idg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1729866029; x=
+	1729952429; bh=wscwvk+/zfYGrxB9o7ElzO1RcnFw9HTQg1kU47YxPvw=; b=A
+	MDBtAyiMr0utwlTGZ9ahqEfZF+IyfWeBqehZ/0Ns+cmcssE0+i0bkROW05yMQsdU
+	cOTraYDNR+PM39pXp17Q9l9ugknz+vTCTQqT/gZhppAEN6O0InRdGseTWr8j1cze
+	Fh85jShfOWDbEdB0hWDEpn6IEq1jIfU7dSqLAnRoCGh4mEvMa8892HRjDW/qPVrh
+	sqZA/2i1Ti+Bigv3Tveu8uo1Y8isbmRx0sJLqb1tUaroWhRIpYaXvCvPydz38kPd
+	pYcZr+L3SnOemqTzyNUjsUx5qUUrTSGRa8aYrLXmY/VkDwv4EtZ/DOZ7py6b/hVf
+	mW3ecRgZZT5G1a+zLc9rw==
+X-ME-Sender: <xms:LKkbZ6icSWtXOvkpYM87hQ0HLds7qfX9s7056_cXCQ0XSAle9zkPOA>
+    <xme:LKkbZ7C_7DPvl407kdsjlRrFBtoBQJcEsNgwljwRSIMZwcU56VrT5yfDgceTXrYKx
+    0resZ0Qv9r5yzYJWd0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdejvddgjeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegurghvihgurdhlrghighhhthesrg
+    gtuhhlrggsrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghr
+    mhdrtghomhdprhgtphhtthhopehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrd
+    gtohhmpdhrtghpthhtohephhgthhesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthho
+    pehjvhgvthhtvghrsehkrghlrhgrhihinhgtrdgtohhmpdhrtghpthhtohephihsihhonh
+    hnvggruheskhgrlhhrrgihihhntgdrtghomhdprhgtphhtthhopegthhgvnhhhuhgrtggr
+    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhuohhrvghnsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:LKkbZyEWph2OfuX5rp36qDXrBJGFeVx6L1j670c9oST-ROWHYLjhYQ>
+    <xmx:LKkbZzR-6CCISyD9v6h5geDwiCkn4rdaBNnAtm7k4SX1CIBqrMUUXQ>
+    <xmx:LKkbZ3w4lJB7XWYZExVb0i0_12fv6iRgHLcVQnpS3OZQYPaEV3l1GQ>
+    <xmx:LKkbZx4REtWx5i2Ye5_3HOyXw3kOW56cp2xiDUXTExtzk2q_YJoAQw>
+    <xmx:LakbZ8y4B_V6lMqvAbM25tHAe9VzZYCl0gf6JwYlrpYjDtQ8-3zK5Ogl>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1E61A2220071; Fri, 25 Oct 2024 10:20:27 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a2448df9-9b8b-4b7e-ada5-6f26d7e7da97@quicinc.com>
+Date: Fri, 25 Oct 2024 14:20:06 +0000
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "David Laight" <David.Laight@aculab.com>,
+ "Julian Vetter" <jvetter@kalrayinc.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ guoren <guoren@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ "Niklas Schnelle" <schnelle@linux.ibm.com>, "Takashi Iwai" <tiwai@suse.com>,
+ "Miquel Raynal" <miquel.raynal@bootlin.com>,
+ "Johannes Berg" <johannes@sipsolutions.net>,
+ "Christoph Hellwig" <hch@infradead.org>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ "Yann Sionneau" <ysionneau@kalrayinc.com>
+Message-Id: <a6c524d4-d741-438a-b8ae-2492058a3b3b@app.fastmail.com>
+In-Reply-To: <0577266edb9440acb082c9e02c0a73b9@AcuMS.aculab.com>
+References: <20241021133154.516847-1-jvetter@kalrayinc.com>
+ <0577266edb9440acb082c9e02c0a73b9@AcuMS.aculab.com>
+Subject: Re: [PATCH v10 0/4] Replace fallback for IO memcpy and IO memset
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_070538_218481_BD88A0C0 
-X-CRM114-Status: GOOD (  47.22  )
+X-CRM114-CacheID: sfid-20241025_072031_875789_51C7550F 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,172 +129,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 09:05:09PM +0800, Jie Luo wrote:
-> 
-> 
-> On 10/18/2024 11:38 PM, Dmitry Baryshkov wrote:
-> > On Fri, Oct 18, 2024 at 10:03:08PM +0800, Jie Luo wrote:
-> > > 
-> > > 
-> > > On 10/18/2024 4:11 PM, Dmitry Baryshkov wrote:
-> > > > On Fri, 18 Oct 2024 at 09:55, Jie Luo <quic_luoj@quicinc.com> wrote:
-> > > > > 
-> > > > > 
-> > > > > 
-> > > > > On 10/18/2024 6:32 AM, Dmitry Baryshkov wrote:
-> > > > > > On Tue, Oct 15, 2024 at 10:16:54PM +0800, Luo Jie wrote:
-> > > > > > > The CMN PLL clock controller allows selection of an input
-> > > > > > > clock rate from a defined set of input clock rates. It in-turn
-> > > > > > > supplies fixed rate output clocks to the hardware blocks that
-> > > > > > > provide ethernet functions such as PPE (Packet Process Engine)
-> > > > > > > and connected switch or PHY, and to GCC.
-> > > > > > > 
-> > > > > > > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> > > > > > > ---
-> > > > > > >     arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi |  6 +++++-
-> > > > > > >     arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 20 +++++++++++++++++++-
-> > > > > > >     2 files changed, 24 insertions(+), 2 deletions(-)
-> > > > > > > 
-> > > > > > > diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> > > > > > > index 91e104b0f865..77e1e42083f3 100644
-> > > > > > > --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> > > > > > > +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> > > > > > > @@ -3,7 +3,7 @@
-> > > > > > >      * IPQ9574 RDP board common device tree source
-> > > > > > >      *
-> > > > > > >      * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-> > > > > > > - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-> > > > > > > + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> > > > > > >      */
-> > > > > > > 
-> > > > > > >     /dts-v1/;
-> > > > > > > @@ -164,6 +164,10 @@ &usb3 {
-> > > > > > >        status = "okay";
-> > > > > > >     };
-> > > > > > > 
-> > > > > > > +&cmn_pll_ref_clk {
-> > > > > > > +    clock-frequency = <48000000>;
-> > > > > > > +};
-> > > > > > > +
-> > > > > > >     &xo_board_clk {
-> > > > > > >        clock-frequency = <24000000>;
-> > > > > > >     };
-> > > > > > > diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> > > > > > > index 14c7b3a78442..93f66bb83c5a 100644
-> > > > > > > --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> > > > > > > +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> > > > > > > @@ -3,10 +3,11 @@
-> > > > > > >      * IPQ9574 SoC device tree source
-> > > > > > >      *
-> > > > > > >      * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-> > > > > > > - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-> > > > > > > + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> > > > > > >      */
-> > > > > > > 
-> > > > > > >     #include <dt-bindings/clock/qcom,apss-ipq.h>
-> > > > > > > +#include <dt-bindings/clock/qcom,ipq-cmn-pll.h>
-> > > > > > >     #include <dt-bindings/clock/qcom,ipq9574-gcc.h>
-> > > > > > >     #include <dt-bindings/interconnect/qcom,ipq9574.h>
-> > > > > > >     #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > > > > > @@ -19,6 +20,11 @@ / {
-> > > > > > >        #size-cells = <2>;
-> > > > > > > 
-> > > > > > >        clocks {
-> > > > > > > +            cmn_pll_ref_clk: cmn-pll-ref-clk {
-> > > > > > > +                    compatible = "fixed-clock";
-> > > > > > > +                    #clock-cells = <0>;
-> > > > > > > +            };
-> > > > > > 
-> > > > > > Which block provides this clock? If it is provided by the external XO
-> > > > > > then it should not be a part of the SoC dtsi.
-> > > > > 
-> > > > > The on-chip WiFi block supplies this reference clock. So keeping it in
-> > > > > the SoC DTSI is perhaps appropriate.
-> > > > 
-> > > > Then maybe it should be provided by the WiFi device node? At least you
-> > > > should document your design decisions in the commit message.
-> > > 
-> > > This CMN PLL reference clock is fixed rate and is automatically
-> > > generated by the SoC's internal Wi-Fi hardware block with no software
-> > > configuration required from the Wi-Fi side.
-> > > 
-> > > Sure, I will enhance the commit message to add the information on the
-> > > fixed reference clock from Wi-Fi block. Hope this is ok.
-> > 
-> > We have other fixed clocks which are provided by hardware blocks.
-> > Without additional details it is impossible to answer whether it is fine
-> > or not.
-> 
-> There is an XO on the board which supplies reference clock (48Mhz or
-> 96Mhz) to the Wi-Fi block on the SoC. There is a multiplier/divider in
-> the Wi-Fi block, which ensures the output reference clock of 48Mhz is
-> supplied to CMN PLL block.
-> 
-> In summary, below is the path to receive the reference clock at CMN PLL:
-> The clock path is .XO (48 MHZ/96 MHZ) --> WiFi (multiplier/divider) -->(48
-> MHZ) --> CMN PLL.
-> 
-> There is no software configuration required for the entire path, as it
-> is fully controlled by bootstrap pins on the board. There are bootstrap
-> pins for selecting the selecting the XO frequency (48Mhz or 96Mhz) and
-> based on this, the divider is automatically selected by HW (1 for 48Mhz,
-> 2 for 96Mhz), to ensure output clock to CMN PLL is 48Mhz.
+On Mon, Oct 21, 2024, at 14:16, David Laight wrote:
+> From: Julian Vetter
+>> Sent: 21 October 2024 14:32
+>> 
+>> Thank you again for your remarks Arnd and Christoph! I have updated the
+>> patchset, and placed the functions directly in asm-generic/io.h. I have
+>> dropped the libs/iomem_copy.c and have updated/clarified the commit
+>> message in the first patch.
+>
+> Apart from build 'issues' what is the justification for inlining
+> these functions?
 
-If the clock is always fixed to this frequency, then it's ok, thank you.
+I think I wasn't clear enough with my previous comment, and Julian
+just misunderstood what I was asking him to do. Sorry about causing
+extra work here.
 
-> 
-> > 
-> > > 
-> > > > 
-> > > > Also, I don't think this node passes DT schema validation. Did you check it?
-> > > 
-> > > Yes, the DT is validated against the schema, I have shared the logs
-> > > below. Could you please let me know If anything needs rectification?
-> > 
-> > I see, you are setting the cmn_pll_ref_clk frequency in the
-> > ipq9574-rdp-common.dtsi file. If the PLL is internal to the SoC, why is
-> > the frequency set outside of it? Is it generated by multiplying the XO
-> > clk? Should you be using fixed-factor clock instead?
-> > 
-> 
-> Since the reference clock is controlled by bootstrap pins on the board,
-> it may be appropriate to define the frequency for this reference clock
-> in the board DTS. Given the clock tree described above, I will update
-> the cmn_pll_ref_clk to define it as a fixed-factor clock as per your
-> suggestion, with its frequency and factors configured in board DTSI.
-> These values defined in rdp-common.dtsi will be default values that can
-> be overridden if necessary by different boards. Hope this approach is
-> fine.
-> 
-> In ipq9574.dtsi:
-> cmn_pll_ref_clk: cmn-pll-ref-clk {
-> 
->         compatible = "fixed-factor-clock";
-> 
->         clocks = <&xo_clk>;
-> 
-> 	#clock-cells = <0>;
-> };
-> 
-> xo_clk: xo {
-> 	compatible = "fixed-clock";
-> 	#clock-cells = <0>;
-> };
-> 
-> In ipq9574-rdp-common.dtsi.
-> &cmn_pll_ref_clk {
-> 	clock-div = <1>;
-> 	clock-mult = <1>;
-> };
-> 
-> &xo_clk {
-> 	clock-frequency = <48000000>;
-> }
+> They are quite large for inlining and some drivers could easily
+> call them many times.
+>
+> The I/O cycles themselves are likely to be slow enough that
+> the cost of a function call is pretty much likely to be noise.
 
-Sounds perfect, thank you!
+I'm not overly worried about the this, as the functions are
+not that big and there are not that many callers. If a file
+contains multiple calls to this function, we can expect the
+compiler to be smart enough to keep it out of line, though it
+still gets duplicated in each driver calling it.
 
+The bit that I am worried about however is the extra #include
+for linux/unaligned.h that pulls in fairly large headers
+and may lead to circular header dependencies.
 
--- 
-With best wishes
-Dmitry
+To be clear: what I had expected here was to not have any
+changes to the v9 version of lib/iomem_copy.c and to simplify
+the asm-generic/io.h change to the version below.
+
+       Arnd
+
+---
+--- a/include/asm-generic/io.h
++++ b/include/asm-generic/io.h
+@@ -1211,7 +1211,6 @@ static inline void unxlate_dev_mem_ptr(phys_addr_t phys, void *addr)
+ #endif
+ 
+ #ifndef memset_io
+-#define memset_io memset_io
+ /**
+  * memset_io   Set a range of I/O memory to a constant value
+  * @addr:      The beginning of the I/O-memory range to set
+@@ -1220,15 +1219,10 @@ static inline void unxlate_dev_mem_ptr(phys_addr_t phys, void *addr)
+  *
+  * Set a range of I/O memory to a given value.
+  */
+-static inline void memset_io(volatile void __iomem *addr, int value,
+-                            size_t size)
+-{
+-       memset(__io_virt(addr), value, size);
+-}
++void memset_io(volatile void __iomem *addr, int value, size_t size);
+ #endif
+ 
+ #ifndef memcpy_fromio
+-#define memcpy_fromio memcpy_fromio
+ /**
+  * memcpy_fromio       Copy a block of data from I/O memory
+  * @dst:               The (RAM) destination for the copy
+@@ -1237,16 +1231,11 @@ static inline void memset_io(volatile void __iomem *addr, int value,
+  *
+  * Copy a block of data from I/O memory.
+  */
+-static inline void memcpy_fromio(void *buffer,
+-                                const volatile void __iomem *addr,
+-                                size_t size)
+-{
+-       memcpy(buffer, __io_virt(addr), size);
+-}
++void memcpy_fromio(void *buffer, const volatile void __iomem *addr,
++                  size_t size);
+ #endif
+ 
+ #ifndef memcpy_toio
+-#define memcpy_toio memcpy_toio
+ /**
+  * memcpy_toio         Copy a block of data into I/O memory
+  * @dst:               The (I/O memory) destination for the copy
+@@ -1255,11 +1244,8 @@ static inline void memcpy_fromio(void *buffer,
+  *
+  * Copy a block of data to I/O memory.
+  */
+-static inline void memcpy_toio(volatile void __iomem *addr, const void *buffer,
+-                              size_t size)
+-{
+-       memcpy(__io_virt(addr), buffer, size);
+-}
++void memcpy_toio(volatile void __iomem *addr, const void *buffer,
++                size_t size);
+ #endif
+ 
+ extern int devmem_is_allowed(unsigned long pfn);
 
