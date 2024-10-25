@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F83D149D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B713D149CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 18:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6ynqPw+aFyVqyQgEAy8+ChgZ/7ftlVoUYbZGJVl5Fw=; b=lEx01JAD539TYsRk69kvOkY+ze
-	p56RRSOSus/AKAueWmk7IPa1JQeFdTa7+M5Tah9oGMksnlisSXXqNkP+Ih8ld6u3qoJo9B0wCByii
-	i2U07fT4Z8cWI2VKCI0NCALGJ2HFVDojpQKHSw9DpIBLBw2GNt/Oe/5q35m6MMsc6OCEWl6ri50U+
-	6InbSHs6K2ZytD9vFGFti+Dj4s5nfenNzZzj8H0kUL4+ECDxR6bv+pOPFkWFAJUJ+oNMFQsv87wAX
-	QUmIN9LjsnHAz81E7r5FLtDhbZz/CEbU48Ukh5yeX2SlcNWLFt2siS9Vj8mntymON4ugrjnPvhrCs
-	dQJMaVdA==;
+	bh=/ucVW7j3VRo2xghhoJqgDsgYFtjK370Q9Kpp51qjXUY=; b=yeyqYnnrN8QPi02PeKDtigiviD
+	7LVXKw1cY36MGxeINIUdAnFDZWqQtsTLEYGyJe4zO51E89OV4dRlMKgDQfsB85zvXukl6Kwr5w/TF
+	WQhcBci75THB2CeltO1OG00gm3cY1+2QPe2XJE2xEUwJ7J8FxuvbyVIPIl84DU/yXDpGqdWvCHNI3
+	O7GI8j9e7Jrj9cUMj+cQ8rNrEp4qIyL6Ag81C3KWOmJyjTtX7upphNjHjPbGuk2NFO+T4BX5jYWJr
+	J80wcdknc6HsUXDsuXrzqQBJOxrb7F2oypywmps/orCyCJWjVZbv0QiHrqz0MmTu25NiPrdAAq6SS
+	usNeUTGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Oce-00000004i8f-2ood;
-	Fri, 25 Oct 2024 18:01:16 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t4OeN-00000004iiB-3CKv;
+	Fri, 25 Oct 2024 18:03:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NvP-00000004Y5x-2tYR
-	for linux-arm-kernel@lists.infradead.org;
+	id 1t4NvR-00000004Y7j-24Kc
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 25 Oct 2024 17:16:37 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539f7606199so2897933e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=/ucVW7j3VRo2xghhoJqgDsgYFtjK370Q9Kpp51qjXUY=; b=QI1WN4GLKib3apZK4DB/0Ty4Be
+	gn7BezAvZr5ciFZQFmcKRTXtqvnPsT+qSZcFXOsHKZmE6G0FOHpt193ulALkLPu3Sn2tLYdRDxZtk
+	rS8ZYdksRZktwYuhktlybOM/3lYo2Jz6Mj+nlKq6jLK8eQ8s5no+wdUozaFJLDc0FMxgyrG7Pm/4k
+	ovgQcDIB38FNVRLgIV/HTsAAgVN5PgXi/FI5NVimw4sHSAElkxZHSNtDhneLIg1qh85SO0TSYh2Vu
+	fWZqtKG+iC5Lo99CV1mEZzLVkADd9MxLFkp3LNPFRLfVeUb4EXVN1W/z+AGU9FhjRSjjlaf3nMwqR
+	xI60ZVtg==;
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4NvM-00000008zrd-0CnJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 17:16:36 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-37d4b0943c7so1498891f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1729876594; x=1730481394; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1729876588; x=1730481388; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n6ynqPw+aFyVqyQgEAy8+ChgZ/7ftlVoUYbZGJVl5Fw=;
-        b=S5Kapmd45xEQXjO4G+C1r+yBr7JRQkWtv5LJwFoTyjQt0RCmM/vYa6qqNOdWsg2GVD
-         fP7ifIC5uq6wcEtG41ipU3jitEDi2G18TVKQMgUforeL0s+3wXK2lN3ZJOpigw7k7eAv
-         zjI7pagnxWGNUlBYmKWtBKXaVIxE5Egj8+4x9UOdeRfSSbF38YZB0lC1BB+hQnhUXF53
-         BmsPqk9YYTOEORtVQRdNY4qeDpRYWEXB5vTT2cBJk0OeWdVGL0XMA4QFmpikZEbasKFy
-         /iSNHpzzdKXORJP+096HnxyCFIwJDUz02EVgL8wgBTIV9oO9BzlfLtlQbDHVlbShklXU
-         PHcg==
+        bh=/ucVW7j3VRo2xghhoJqgDsgYFtjK370Q9Kpp51qjXUY=;
+        b=CxeYrde4mJU0NYcDDlGp/zXdJbR7/+wWHPrEy0CwU/dbf3SUQG0XI5wr6mJBCAatgs
+         CuJtZgOKjDaBvzuM9WHq7yUZV0xHJa+QZryNW1FQ/HUDTO6hh48v/+F12gCHJ45ElJmu
+         1VxpzXN33cCxT0VDE6kUIUNaWazhvGZyO9mYcM5QPnt+1N07L7qPG3qDmII33FaPFiv+
+         ret4nK2FHePMOT/qfXsMBq8fGH1WaK6/EIyXWIj9gQS46B3+PW6jg++x9yWEU4+Eh0it
+         0ThYKAjvoWL0rWRrdQBmwbFgWA4zbqEPIrB1/fl/l9/8LRlTzb+C/86VMLfSSN3GM76w
+         TdsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729876594; x=1730481394;
+        d=1e100.net; s=20230601; t=1729876588; x=1730481388;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n6ynqPw+aFyVqyQgEAy8+ChgZ/7ftlVoUYbZGJVl5Fw=;
-        b=qojuINq2TzCGUGooVlAM+jJI6uTb4N6y2wJ6exkLN+XcZGMyqCxlTltPlH7tifkn5b
-         sgsXVd4E6GP/2To0BkwDSiHjXn+mMicw5CINrS2IqdWRn7Xa820/wF9aM9uQKhHDNC53
-         GUC7I6XpjKymsjxw255lgIHSY2DLK3hO61rywoOJLKhr44D9q44FnEfg1GtvElxP3o4g
-         arhkq1lTkHH0wkniBOxZ7LssZjePUa2F9Em6IScuvh9/bue+L/Y9gAuVbufpOAAxgY9i
-         eQBM+XBF2wf1cLEzC/8qsWZb26+smAaWSJiYDx0u0GvN3/oxehnB2S5cBEuH86/eHmaY
-         3MWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUcf/e06tZIY3ZQDCWUooLaVgsIlVsv1FlZLpkRmwzvP6fmiLQhzjGOwMhD6tyCM8T0ZIzYLwUBZCybA4TFZVIM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTEtc2u3h18Y4Uh6di9VSAhGGt79kTf69DKhuHLRwik3uWQJGt
-	lNYuqDP/od/4cYbuM2Rqn3KjTvyYhJwM1sMv0Q1fvzKA2hibVpi6auqsUMtlU/w=
-X-Google-Smtp-Source: AGHT+IHK/c1INay68uUhSO5TRsMi7vzJxRxlcdjPaei9dfk9EKPm8CK9FYYjgLp5rLJi/EGzMMN1vQ==
-X-Received: by 2002:a05:6512:398a:b0:539:f2f6:c70f with SMTP id 2adb3069b0e04-53b1a2fed80mr5844694e87.8.1729876594028;
-        Fri, 25 Oct 2024 10:16:34 -0700 (PDT)
+        bh=/ucVW7j3VRo2xghhoJqgDsgYFtjK370Q9Kpp51qjXUY=;
+        b=OMT1ns9+0bKDgcaye0ocFV8ylHFXgs1wBZW6vWuDmfphd7BTQjysgSN3NkfbN1HS/d
+         Upto4tRFSwk+g7pMNcg+GiD2nJ1rydyfsjUm/R2LvU/5/0JbV8Pw7IBntO9wVs46gYth
+         jir+9/PK+13KEiEkjjPdZWscTfQJ0eQ+HFEXXOj16lYqHVuLKMWbVwecC3L22j4ISpor
+         L6Gozb2PnE0KqmtUVevmJThqpjAQHfh94AquzfmdIQNxHCf/82IryxIVwdbxKqyFr3Vj
+         PoL2HlDYqrlH8gKkkX8rf68hw9ySbULX/IZrRiTPR6mVhVbFRLXBug0adRMCv4ug0o0V
+         WDPw==
+X-Forwarded-Encrypted: i=1; AJvYcCU99ylv5T5f1fYv86K1aDEVwHKwye1gKLE0/DORAY7HjuC2VaRuP4O1/elQ00/rV53PUMg9Xr7+ad3zwhhOe868@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcObpWBoifgpxhxhZwlEtLwaZu6zvt8jCX6H0bxcax2bp2QsMf
+	G08qkBlZDV9tnhuD8oO5u84ayThoT9nCU3KkOJH3RwrEsvz5wPOONDNFZ9znmfU=
+X-Google-Smtp-Source: AGHT+IHith+nby6S+6PBCDtMGCYXz8WWaZpZndzlrwLswYlE/kRFwhddJaPxJNnioSkaK9oic7PjTw==
+X-Received: by 2002:adf:9bd4:0:b0:37d:4e74:687 with SMTP id ffacd0b85a97d-380611e1392mr111135f8f.41.1729876588429;
+        Fri, 25 Oct 2024 10:16:28 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.33
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.16.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 10:16:33 -0700 (PDT)
+        Fri, 25 Oct 2024 10:16:28 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 25 Oct 2024 18:16:05 +0100
-Subject: [PATCH v2 34/36] arm64: dts: broadcom: Add firmware clocks and
- power nodes to Pi5 DT
+Date: Fri, 25 Oct 2024 18:15:59 +0100
+Subject: [PATCH v2 28/36] drm/vc4: Drop planes that are completely
+ off-screen or 0 crtc size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241025-drm-vc4-2712-support-v2-34-35efa83c8fc0@raspberrypi.com>
+Message-Id: <20241025-drm-vc4-2712-support-v2-28-35efa83c8fc0@raspberrypi.com>
 References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 In-Reply-To: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 To: Maxime Ripard <mripard@kernel.org>, 
@@ -94,8 +109,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_101635_795059_C446DE1D 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241025_181633_353634_D058F015 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,50 +125,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BCM2712 still uses the firmware clocks and power drivers, so add
-them to the base device tree.
+It is permitted for a plane to be configured such that none
+of it is on-screen via either negative dest rectangle X,Y
+offset, or an offset that is greater than the crtc dimensions.
+
+These planes were resized via drm_atomic_helper_check_plane_state
+such that the source rectangle had a zero width or height, but
+they still created a dlist entry even though they contributed
+no pixels. In the case of vc6_plane_mode_set, that it could result
+in negative values being written into registers, which caused
+incorrect behaviour.
+
+Drop planes that result in a source width or height of 0 pixels
+or an on-screen size of 0 pixels to avoid the incorrect rendering.
 
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 28 ++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ drivers/gpu/drm/vc4/vc4_plane.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 2bdbb6780242..92a2ada037f3 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -62,3 +62,31 @@ &sdio1 {
- 	sd-uhs-ddr50;
- 	sd-uhs-sdr104;
- };
+diff --git a/drivers/gpu/drm/vc4/vc4_plane.c b/drivers/gpu/drm/vc4/vc4_plane.c
+index c084967d3527..94737c587f20 100644
+--- a/drivers/gpu/drm/vc4/vc4_plane.c
++++ b/drivers/gpu/drm/vc4/vc4_plane.c
+@@ -1230,6 +1230,13 @@ static int vc4_plane_mode_set(struct drm_plane *plane,
+ 	if (ret)
+ 		return ret;
+ 
++	if (!vc4_state->src_w[0] || !vc4_state->src_h[0] ||
++	    !vc4_state->crtc_w || !vc4_state->crtc_h) {
++		/* 0 source size probably means the plane is offscreen */
++		vc4_state->dlist_initialized = 1;
++		return 0;
++	}
 +
-+&soc {
-+	firmware: firmware {
-+		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
+ 	width = vc4_state->src_w[0] >> 16;
+ 	height = vc4_state->src_h[0] >> 16;
+ 
+@@ -1753,6 +1760,15 @@ static int vc6_plane_mode_set(struct drm_plane *plane,
+ 	if (ret)
+ 		return ret;
+ 
++	if (!vc4_state->src_w[0] || !vc4_state->src_h[0] ||
++	    !vc4_state->crtc_w || !vc4_state->crtc_h) {
++		/* 0 source size probably means the plane is offscreen.
++		 * 0 destination size is a redundant plane.
++		 */
++		vc4_state->dlist_initialized = 1;
++		return 0;
++	}
 +
-+		mboxes = <&mailbox>;
-+		dma-ranges;
+ 	width = vc4_state->src_w[0] >> 16;
+ 	height = vc4_state->src_h[0] >> 16;
+ 
+@@ -2135,6 +2151,10 @@ static int vc4_plane_atomic_check(struct drm_plane *plane,
+ 	if (ret)
+ 		return ret;
+ 
++	if (!vc4_state->src_w[0] || !vc4_state->src_h[0] ||
++	    !vc4_state->crtc_w || !vc4_state->crtc_h)
++		return 0;
 +
-+		firmware_clocks: clocks {
-+			compatible = "raspberrypi,firmware-clocks";
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset {
-+			compatible = "raspberrypi,firmware-reset";
-+			#reset-cells = <1>;
-+		};
-+	};
-+
-+	power: power {
-+		compatible = "raspberrypi,bcm2835-power";
-+		firmware = <&firmware>;
-+		#power-domain-cells = <1>;
-+	};
-+
-+};
+ 	ret = vc4_plane_allocate_lbm(new_plane_state);
+ 	if (ret)
+ 		return ret;
 
 -- 
 2.34.1
