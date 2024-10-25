@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C3DD0C60D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E5AD0C60D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNn15pq7FtlSd8hCdE286On7l4GZ1JdLdzQd70l8fTI=; b=Aw4dLQKyTB7YL8c32aeONuhG+t
-	buWhdfwOR6yYKkX1cHmrXGKKhok1Y7AGf+sUU+Qwi9ddiG3Ri+P7+X9qVqZVMxWq0lQSObmdrth3g
-	uy7szxSSTx3iJnKY6z7VcUwnouigmB3GWaYRBG8w9UMC8x9K4ewRtzpG68qy3j2P6ZZEOCRrlcqv3
-	bRPbDNVZby/miRHZBgL5+NHsVS4aKife7HF+LyFWLCQnLEzyCY6I4bISAzAJZEdVx5FRAlp/oSvJX
-	pXfpEk4HB4pLkC5thzcHafvndNSPsjblY/3CtyLHKz7RbC15e3I+DELEz9eXwbnPjOl8HYWaaX7Me
-	OdffN6/g==;
+	bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=; b=q88dKqA2FcKgdve5zvKSL5YU9f
+	H9rfK0ny3lB1M/cNlzVfxooMoW5SaHL4VOhz1tQpzEhdzBqhFp45hgLEYAiAVkWK2RwI2+kqye1Ys
+	YQ/lf2aGON2xrcuSoPB37irGss+GdoQ6gtKfG23rDIPrZptcQF+tvd/2pcpOdNDHoZ9R+mW6Ui0yq
+	nH0Hc9wMj9X3g14zhCSPMOK4m0XKZeGShtY08HhwOF/6+O4H6tp3doDb/aJi8VjuQ1/i92TQkXMq5
+	MHkwrcxa5QPKyiUAzQHKiXLpnk2teCw9QQo+15aZKN7L/he2nNkDYCAnnSL4i6NHJK5F0es2XQbfS
+	T454Z+Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KUm-00000003q9Q-3yo5;
-	Fri, 25 Oct 2024 13:36:52 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1t4KWJ-00000003qLC-3DzV;
+	Fri, 25 Oct 2024 13:38:27 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K9b-00000003mkH-01X6
+	id 1t4K9c-00000003mkx-2udP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:15:25 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso20688345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:58 -0700 (PDT)
+	Fri, 25 Oct 2024 13:15:33 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539e8607c2aso2359271e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:14:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729862097; x=1730466897; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1729862098; x=1730466898; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cNn15pq7FtlSd8hCdE286On7l4GZ1JdLdzQd70l8fTI=;
-        b=G/FwnueGUcPOcS5iP0bPN0SoFhb2WOGhRVGqnvsVPGwuMQ8exhoKh+bT4CFFgeMnf8
-         xBA7hpvGGUrutCWlSFHgkTojO2t/kHyUlaezrrSvTE6mVJQLa1jplff0BoloPy0k7tdI
-         Xo/DGWW46BRQ7JL2P717qGoeHPV28gab9f8HxuDetiHg6Eig1K1fv7qPAf8ODh4ngtKj
-         ZbeuXdw/8616DwGNA/AYniOg19yzpVN46iKq7414ba1xSvDD6Eoy3ZdHCWCovj71Qchh
-         47v1fijEsM9qC4khlnDrwFUr6jcyZORF7Yt9Zt+vCXz9k2RYyF/CN5C6pg8s7or46TBg
-         pr0g==
+        bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=;
+        b=kt/vKlRcU3IlPabyscKRmThZ/kxWJhjPBndymP2HXoqcXrkooK+Gzy/iZtPHW8aBA2
+         MpcXeV46e2E+92KpxnEAq+yOmYSjJBDCu+J6NeIpkB/oExIS5GKjT+ZLJ3/fEw+hkp56
+         pXIhkTqLRWhM2WeY/B3QEJpUm1bbz0wsxV7pI1c/ffF12MXzWW7FlTZY9wUNt/2GDL1S
+         UqI0l+QwOldVMyiofJdPvagETnpJSAE+lCjOd2m35/Oqqq6aAU5hdqc6l971rHJ2fHdp
+         NObSJuFnIkJceUDGmW/Vcx0xq6bBQx6oxjqyrtgTCuleCMIxnD92fQV0PTLBTHMQsaTv
+         nDvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729862097; x=1730466897;
+        d=1e100.net; s=20230601; t=1729862098; x=1730466898;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cNn15pq7FtlSd8hCdE286On7l4GZ1JdLdzQd70l8fTI=;
-        b=aJoCCc4nz3/RRNL5Fi/y3fhCXtYK3BQ+ROiEC6qwAPf+GjYrOHlEis9jfcNwJi1Ikq
-         pMXagxCr/Zn5hSquiU5U9uLnmGa/LGP/rpR8kndeO6dKw58cfBWI3vwevzykex7HM4e2
-         tITC0MH9Gav2lFKGdo+cmYidwljsJn6stfreFWNhPoS3yXXyxG2R4XKDPWAYSP1HdyuN
-         SODolKTfSWeUvxh0fxpqtPrAVxEVK9nEMHONk1iUsjvukBgQe63q/2lIOOhE9po8wxIM
-         Z0YqRcHlYFvEebnzmgf540N7l0j2//zwdMaDhEfLsHsRWePsjNhXI97+p/6/sYMgfxxl
-         kg4g==
-X-Forwarded-Encrypted: i=1; AJvYcCWVnnzSy8K0r6Rn4BvcCBz8jFlqfaESn6XH8i+UXkz7SAuOkh6jWTaOn4TC18lkXd+Bbam3B1T5P+ggg0C9522a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0O3vuI90YWgntav2thSYajj4vLQ9uKboz1pt5G5JKBBwvpjqm
-	aULm2FK7rLjnpk/zSXlcdJfDvcwkgfX110VLDfLdeCktOs2r3xae6PnsoNh28uY=
-X-Google-Smtp-Source: AGHT+IGmYuHoaUOEGVL/28LOiMK/A9Q47ttebm2jL0yHOWlag+R8pd+KgV3xQfuxq1xntOnAKAHD4w==
-X-Received: by 2002:a05:600c:46c4:b0:42a:a6d2:3270 with SMTP id 5b1f17b1804b1-43184224094mr87230815e9.21.1729862096953;
-        Fri, 25 Oct 2024 06:14:56 -0700 (PDT)
+        bh=8mSP0Idfdl9Bddnm7Irkt+YNMMsQJrdvTnch1RJ4UlY=;
+        b=YKBThB0eISdlt2wacUxwTzqhCzkcpL4Mhh4+UvTDvmmt3LqS7dRZpOZHHOPfs8HbH/
+         35leNifpV8YLn0pmCi82LyPM8JvOUgaHbwOGNsi6K4ml7OPtkGBXiUU6IK/S08wpRHDb
+         ky9NA7Ti6546y6hgMgdlszHl6wfRgEJdxpMj+MEmYGwoegla6O8A3MojIPEee1+YU3e1
+         O6MmtOHdqFwxhOOQloGJ94h/i5ADqr8dFkFbARwoTjXWj5kBaqUR4sCgXFtDOTUv83JR
+         iZMCZFl1iQvRdA0Bj6cex27la0icWaKBEHNUJbChSeDifOWBs8bUJd6t/7JDQa+HsJKd
+         5Qmw==
+X-Forwarded-Encrypted: i=1; AJvYcCURuyB3rU4wV8x+6rlQDib2H/3Nw5MIBwV2uYxOg62rLhT/IIQFZaIflQ2tjleu9JpTWSs+aYynMrzNgy5KsJyV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxowQZ6pDYiOq323J3c3eygpS7ZCewDBJRWwjOrrg5Ahzf//3XK
+	qnym6mpphFDebao5uFWJq7R2KuUdoUgx528jCM6XWOo2P/HEgAV3d6d/oJPUqDE=
+X-Google-Smtp-Source: AGHT+IFIjxCtFqGk3E1YIZeIbZDApteEen8rQ8qLd9MWNW7M5VeqNXGVeyRg3HBljC/8CXJKDn+GyA==
+X-Received: by 2002:ac2:4c55:0:b0:539:fc75:99ae with SMTP id 2adb3069b0e04-53b23e1df9emr3392181e87.31.1729862098342;
+        Fri, 25 Oct 2024 06:14:58 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.67.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b58b6bdsm47616685e9.45.2024.10.25.06.14.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 06:14:56 -0700 (PDT)
+        Fri, 25 Oct 2024 06:14:58 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -81,17 +81,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-kernel@vger.kernel.org,
 	ebiggers@kernel.org,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v2 06/11] scsi: ufs: exynos: remove tx_dif_p_nsec from exynosauto_ufs_drv_init()
-Date: Fri, 25 Oct 2024 14:14:37 +0100
-Message-ID: <20241025131442.112862-7-peter.griffin@linaro.org>
+Subject: [PATCH v2 07/11] scsi: ufs: exynos: add gs101_ufs_drv_init() hook and enable WriteBooster
+Date: Fri, 25 Oct 2024 14:14:38 +0100
+Message-ID: <20241025131442.112862-8-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241025131442.112862-1-peter.griffin@linaro.org>
 References: <20241025131442.112862-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_061459_068497_6E6E68B5 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20241025_061500_758758_DB5E9851 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +106,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Firstly exynosauto sets EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR so setting
-tx_dif_p_nsec has no effect.
+Factor out the common code into a new exynos_ufs_shareability() function
+and provide a dedicated gs101_drv_init() hook.
 
-Secondly this assignment can't get executed as samsung,sysreg dt property
-is provided in for this platform. Meaning the execution flow will return on
-regmap_update_bits call above.
+This allows us to enable WriteBooster capability (UFSHCD_CAP_WB_EN) in a
+way that doesn't effect other SoCs supported in this driver.
+
+WriteBooster improves write speeds by enabling a pseudo SLC cache. Using
+the `fio seqwrite` test we can achieve speeds of 945MB/s with this feature
+enabled (until the cache is exhausted) before dropping back to ~260MB/s
+(which are the speeds we see without the WriteBooster feature enabled).
+
+Assuming the UFSHCD_CAP_WB_EN capability is set by the host then
+WriteBooster can also be enabled and disabled via sysfs so it is possible
+for the system to only enable it when extra write performance is required.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- drivers/ufs/host/ufs-exynos.c | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 9d668d13fe94..d4e786afbbbc 100644
+index d4e786afbbbc..40b2563fe011 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -205,8 +205,6 @@ static int exynos7_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- 
- static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- {
--	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
--
- 	/* IO Coherency setting */
- 	if (ufs->sysreg) {
- 		return regmap_update_bits(ufs->sysreg,
-@@ -214,8 +212,6 @@ static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- 					  UFS_SHARABLE, UFS_SHARABLE);
- 	}
- 
--	attr->tx_dif_p_nsec = 3200000;
--
+@@ -203,7 +203,7 @@ static int exynos7_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
  	return 0;
  }
  
+-static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
++static int exynos_ufs_shareability(struct exynos_ufs *ufs)
+ {
+ 	/* IO Coherency setting */
+ 	if (ufs->sysreg) {
+@@ -215,6 +215,21 @@ static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
+ 	return 0;
+ }
+ 
++static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
++{
++	struct ufs_hba *hba = ufs->hba;
++
++	/* Enable WriteBooster */
++	hba->caps |= UFSHCD_CAP_WB_EN;
++
++	return exynos_ufs_shareability(ufs);
++}
++
++static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
++{
++	return exynos_ufs_shareability(ufs);
++}
++
+ static int exynosauto_ufs_post_hce_enable(struct exynos_ufs *ufs)
+ {
+ 	struct ufs_hba *hba = ufs->hba;
+@@ -2124,7 +2139,7 @@ static const struct exynos_ufs_drv_data gs101_ufs_drvs = {
+ 	.opts			= EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR |
+ 				  EXYNOS_UFS_OPT_UFSPR_SECURE |
+ 				  EXYNOS_UFS_OPT_TIMER_TICK_SELECT,
+-	.drv_init		= exynosauto_ufs_drv_init,
++	.drv_init		= gs101_ufs_drv_init,
+ 	.pre_link		= gs101_ufs_pre_link,
+ 	.post_link		= gs101_ufs_post_link,
+ 	.pre_pwr_change		= gs101_ufs_pre_pwr_change,
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
