@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCECFD0C612
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F553D0C612
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 14:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u1gLMI3dKOlmqF1qB+HHbZ1f9ezl7JyC71NvrPbCDrw=; b=abMXAA2D5Nl8KfdEeWism0cjlp
-	lebDQBxy2s3ZYGX42QSAJpKC/TtTH07y6V19M84Hm49UBKl5dJxaXkTfb1t1laSF7iolyFZe93/cZ
-	/bhgx6JyiJtbPumixdfk2eyZ++LvKhzYH2OaOcRFD2TAvnXV/4yZKhp4zEDkMaVEAds0wEF62FEWm
-	aOu5nmPcyQSK/xLf5PHo7B77Ty5jmC8Owufo6SQEtOOOP0GMZxrhvoxLFXuzawI1uVuMef7DpWink
-	67lQaA3bz1Xcd+K3wCRY48b04t5+Ls6u0CunQSw7p9K9MEqO3+S9YCrhCxM2yEFOgRdk9rwpRcANK
-	HyUWgDfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Djva4KOP4v9Rg26S81bBmAQ/5dEE1/x6R+NZGGRbJmc=; b=uxmsMsUtujhToc4b9xbuyr6FaU
+	sjNR+EKnD1HLL74nUzqaTrhwIkyA8uYs0zCT8TUB4wD7mIUhAVTHpL9fBz4mpzQet9Jndq/Qy4sPM
+	ivsZoDIGzXdeCiqA1oUkaPp60EbubcXmXjur3pe2AXEmi8hQZRv2n5rRr8LpZhgfcsgrkDZ2GIOPg
+	HdaS4xQMpgvPm4DrVyf4UwyNHUg0jMlU0lLtBhXlymgrYi4FkbP8b6BomxB/voazYOKSCjIQRyCX0
+	SVfahjxJJFGQPfPTJXnugQiC3D8tyM3w5sBccBWk5QPnCyz8FUhq7yeSt0NdDCr68k97V7QDtvpxa
+	3cXkz/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Kti-00000003vBg-1gfS;
-	Fri, 25 Oct 2024 14:02:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4KvF-00000003vPB-1hnC;
+	Fri, 25 Oct 2024 14:04:13 +0000
+Received: from mail-yb1-f172.google.com ([209.85.219.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4KkJ-00000003sxU-29v4
+	id 1t4Kkc-00000003t41-3pJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:52:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E50D0A42F7E;
-	Fri, 25 Oct 2024 13:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB083C4CEC3;
-	Fri, 25 Oct 2024 13:52:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729864374;
-	bh=Wv3aCtUjrX3Tkk0PNmsoXwKN+ujtjrsASQlTPopqlFc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rsBfQdx0CYpVQgYnKJ3fw+cPRsfW+IWq+2HTElyCPEZ0uy5y5Rt4DQ47La0XYGBcq
-	 s8CK0gl0+Kmdpc8QSGbLAFxC5KRbaC27w+8KDKfwp/N1+KbGvaFFwSLknMvaG0gWNn
-	 S2QG08s0uacuO0RbKXAEb1dKDvU2t59iGWnN42Heyv5yoPHq2/o50aVadRqexTOZTx
-	 WZoEAB3u1yJnSU8fkylIyYJ7JSkH+hKvTnaHvqVrqMx1mTie/W6kb4VhkF48CQ2zNT
-	 UX2Ls9un9yf8xoMKgCbz6ww7aTgekpEWuzz9WtHwlxe+LXHprg1yjP/plywoQL5/1P
-	 uicHUBGyoTXvA==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1t4KkZ-000000005ph-1vTz;
-	Fri, 25 Oct 2024 15:53:12 +0200
-Date: Fri, 25 Oct 2024 15:53:11 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, ulf.hansson@linaro.org,
-	jassisinghbrar@gmail.com, dmitry.baryshkov@linaro.org,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	konradybcio@kernel.org, linux-pm@vger.kernel.org,
-	tstrudel@google.com, rafael@kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>
-Subject: Re: [PATCH V4 3/4] pmdomain: core: Fix debugfs node creation failure
-Message-ID: <ZxuixxBzQZUdIW1c@hovoldconsulting.com>
-References: <20241023102148.1698910-1-quic_sibis@quicinc.com>
- <20241023102148.1698910-4-quic_sibis@quicinc.com>
+	Fri, 25 Oct 2024 13:53:16 +0000
+Received: by mail-yb1-f172.google.com with SMTP id 3f1490d57ef6-e0875f1e9edso2143904276.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:53:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729864392; x=1730469192;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Djva4KOP4v9Rg26S81bBmAQ/5dEE1/x6R+NZGGRbJmc=;
+        b=qSJgz0zIcixl5HU1+k6hvh8K1w+exo7Z67HuQgeQnbykU5fRLAG1aEP5+Gekfcq8yh
+         XmJ4QM/WiXspOmt3eiFN9AdZzSXdb/JLH1jB+kzo7E9JlNyVZCmk+ESNtxsm597FG78q
+         5t8bi96M4wugYOExlQ9mdOUHLOMyoIWKldO2nQ514/8qc7BwLrlWcdqTpkmHipxkPfpF
+         0Z6gt58YQECR5AsZzxBCp7Aqf6EDplISPHMAh1cyWgo7Xk3LDgJ+Kj+jqV+xpHEPZ0HD
+         RdOjTlCnichKKNPyjAzz6XlMHQ35faaQ0E3O5iXeKrKpfEdkq7TZ/gAch0u8uIECbQbo
+         ZCMA==
+X-Forwarded-Encrypted: i=1; AJvYcCXyKCkY3yTcZkuaBPTqx9hO3Kh/cQ6tEv3YSSajDFJ/tLNfHISqj2rV8Z/Ue2jfEI6aiPQ55TRGuxy3eJztTniY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNJbR0WKVXlFa/NkqYqrZdUYW0DDB9MajNasLBeyxbTW9Y2Ac0
+	Hj2OMmy2W/EzFFxzoS6jRFNfCvldohUu/PdQFQWEz6QdEM8YbRHoguuoLitD
+X-Google-Smtp-Source: AGHT+IEKAP3EscCO/+AKOTiaIei1NntrEy5MDwnW+wb5bYjeknh5s+FgQLKdMnWLDncRepFMVsfEYA==
+X-Received: by 2002:a05:690c:6084:b0:6e3:2e50:8c0c with SMTP id 00721157ae682-6e866332cd0mr66057927b3.41.1729864392292;
+        Fri, 25 Oct 2024 06:53:12 -0700 (PDT)
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com. [209.85.128.174])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e9c6c19d42sm2840957b3.71.2024.10.25.06.53.10
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Oct 2024 06:53:11 -0700 (PDT)
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-6e2e3e4f65dso23888747b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:53:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX+EB7IfgXamKDsGg41pElv5Rj+2EhrrnAnb1gLzNdDNKwEUZpseUeAbqCz+WVKEKHXpK7UK0XbkDXZn4BnV/h2@lists.infradead.org
+X-Received: by 2002:a05:690c:6610:b0:6e2:1527:446b with SMTP id
+ 00721157ae682-6e85814e730mr59897987b3.3.1729864390657; Fri, 25 Oct 2024
+ 06:53:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023102148.1698910-4-quic_sibis@quicinc.com>
+References: <20241023210313.1390767-1-Frank.Li@nxp.com>
+In-Reply-To: <20241023210313.1390767-1-Frank.Li@nxp.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 25 Oct 2024 15:52:58 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdW-tXFYSfTerb-eYmmbJHYN9xNyiGMPoeGArmDnAajUmg@mail.gmail.com>
+Message-ID: <CAMuHMdW-tXFYSfTerb-eYmmbJHYN9xNyiGMPoeGArmDnAajUmg@mail.gmail.com>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8mn-tqma8mqnl-mba8mx-usbot: fix
+ coexistence of output-low and output-high in GPIO
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	"open list:TQ SYSTEMS BOARD & DRIVER SUPPORT" <linux@ew.tq-group.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_065255_639641_9C7C997B 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_065315_006330_BF0F734C 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +96,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 03:51:47PM +0530, Sibi Sankar wrote:
-> The domain attributes returned by the perf protocol can end up
-> reporting identical names across domains, resulting in debugfs
-> node creation failure. Fix this failure by ensuring that pm domains
-> get a unique name using ida in pm_genpd_init.
-> 
-> Logs: [X1E reports 'NCC' for all its scmi perf domains]
-> debugfs: Directory 'NCC' with parent 'pm_genpd' already present!
-> debugfs: Directory 'NCC' with parent 'pm_genpd' already present!
-> 
-> Reported-by: Johan Hovold <johan+linaro@kernel.org>
-> Closes: https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
-> Fixes: 718072ceb211 ("PM: domains: create debugfs nodes when adding power domains")
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+Hi Frank,
+
+On Wed, Oct 23, 2024 at 11:07=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+> Fix the issue where both 'output-low' and 'output-high' exist under GPIO
+> hog nodes  (rst_usb_hub_hog and sel_usb_hub_hog) when applying device
+> tree overlays. Since /delete-property/ is not supported in the overlays,
+> setting 'output-low' results in both properties being present. The
+> workaround is to disable these hogs and create new ones with 'output-low'
+> as needed.
+>
+> Fix below CHECK_DTBS warning:
+> arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtb: sel-usb=
+-hub-hog:
+>    {'output-low': True, 'gpio-hog': True, 'gpios': [[1, 0]], 'output-high=
+': True, 'phandle': 108, '$nodename': ['sel-usb-hub-hog']}
+>        is valid under each of {'required': ['output-low']}, {'required': =
+['output-high']
+>
+> Fixes: 3f6fc30abebc ("arm64: dts: imx8mn: tqma8mqnl-mba8mx: Add USB DR ov=
+erlay")
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> 
-> v3:
-> * Update device names only when a name collision occurs [Dmitry/Ulf]
-> * Drop Johan's T-b from "fix debugfs node creation failure"
+> Alex:
+>         I have not hardware to run it. I check dtb output is correct.
+> ---
+>  .../imx8mn-tqma8mqnl-mba8mx-usbotg.dtso       | 29 +++++++++++++++++--
+>  1 file changed, 27 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg=
+.dtso b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
+> index 96db07fc9bece..1f2a0fe70a0a2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx-usbotg.dtso
+> @@ -29,12 +29,37 @@ usb_dr_connector: endpoint {
+>         };
+>  };
+>
+> +/*
+> + * rst_usb_hub_hog and sel_usb_hub_hog have property 'output-high',
+> + * dt overlay don't support /delete-property/. Both 'output-low' and
+> + * 'output-high' will be exist under hog nodes if overlay file set
+> + * 'output-low'. Workaround is disable these hog and create new hog with
+> + * 'output-low'.
+> + */
+> +
+>  &rst_usb_hub_hog {
+> -       output-low;
+> +       status =3D "disabled";
+> +};
+> +
+> +&expander0 {
+> +       rst-usb-low-hub-hog {
+> +               gpio-hog;
+> +               gpios =3D <13 0>;
+> +               output-low;
+> +               line-name =3D "RST_USB_HUB#";
+> +       };
+>  };
+>
+>  &sel_usb_hub_hog {
+> -       output-low;
+> +       status =3D "disabled";
+> +};
+> +
+> +&gpio2 {
+> +       sel-usb-low-hub-hog {
+> +               gpio-hog;
+> +               gpios =3D <1 GPIO_ACTIVE_HIGH>;
+> +               output-low;
+> +       };
+>  };
+>
+>  &usbotg1 {
 
-Also seems to do the trick:
+Note that after this, there is still
 
-Tested-by: Johan Hovold <johan+linaro@kernel.org>
+    /delete-property/ disable-over-current;
 
-But perhaps you could consider starting enumerating the duplicate
-domains from 2 (or 1) instead of 0?:
+left, which does not actually remove the property.
 
-NCC_1                           on                              0
-NCC_0                           on                              0
-NCC                             on                              0
+Gr{oetje,eeting}s,
 
-Johan
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
