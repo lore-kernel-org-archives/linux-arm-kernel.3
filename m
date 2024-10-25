@@ -4,97 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B2BD149C7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06F4D149C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eq3fXe6qq3ix8jve6B/lCKB6fSeKNV8aFXZ8E3BzHv4=; b=I/BZATYdqU2SpKHsQeqTZhL9uZ
-	vv0bNOvDVfXfc7YKrYeZrVPjojQ2CgKyMhKmvyBN/22FWDWd2LprGwhnrjirbmznldsjxeVSZflg7
-	hsxH+WoAweAYbG8HmPNZWWSO28tHxK/SCqCgSbU2HjcUx60aQOOORhKPz8PbErst3NcKCeycP0MzA
-	nCiAEZsKMS4lfCURXngeSY+DtTWuG3kWBp4p3L/KGjzQVeGetFyrDdvOPMj+/uMh7z3rpVvOQpNyV
-	PJZdTfnFb+7+CHeMVScpRfdxNmW6HI1DwerRB3wupImMLS2SdyHzzrHxowcsXyX4vstuv4Mr2GaPj
-	aK8t/gEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0XMaQ3DP9xk/WemoowKnrvJTGiklduflFsqrQtLCxvg=; b=ChGQuAIqzdTVOowJPClZPT6ntx
+	c1pW3EQ/Fpjp9dC3v52BEfJFjpiPPUbBKMml3Cuqy8uvcmpdjgq30R5jL4S54bxsoW6OAZgOHM44D
+	SgePdTiJ/V+j/l1O8ROrF6PB0f96A19ecHGRSrOu+xd8TtD9liHyps6JhdgMv1F8XO+WPOlENUjuv
+	MISbE7DiqQXeDWFFS/v/IR3mWvKcSh1VG/ooxp8NJ0e8iaVgJVS9C5K4CjPzXAuM9xY2hagEyl9mH
+	5DToS33VUH9XVh1aXPsFI0jg+/MuOHMZmihokbmnLeQbeD3Scn5smExuGIR5UZeUueDDexUZzEUzX
+	T8nnJQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NJT-00000004SZv-09KY;
-	Fri, 25 Oct 2024 16:37:23 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1t4NNO-00000004T63-32jT;
+	Fri, 25 Oct 2024 16:41:26 +0000
+Received: from mail-mw2nam10on20619.outbound.protection.outlook.com ([2a01:111:f403:2412::619] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NHr-00000004SLS-0ivf
+	id 1t4NLn-00000004SsF-3VKZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 16:35:45 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fb3c3d5513so22004731fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 09:35:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729874139; x=1730478939; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Eq3fXe6qq3ix8jve6B/lCKB6fSeKNV8aFXZ8E3BzHv4=;
-        b=Sov3ror+RwtFbBaxDabQSu9bTALFJiHu6zuRsvwNz6g3q86BE2oePucb7Weaa0dj8t
-         29We6yPXCGWT8TQEcQhD2xMlCjYcb4hO0U27yRgh6kNhCfaYfXGh4/2M5EAY1zWk2dwR
-         XPE8bW4fRSvJM/3/Y7zw0UDQwiR4RS6FD+f6k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729874139; x=1730478939;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Eq3fXe6qq3ix8jve6B/lCKB6fSeKNV8aFXZ8E3BzHv4=;
-        b=NW2MSwbMmklVSoqPg0S90+SFx+7yMdk8/Zfl9e+to3qPxXtYW8wpT62LRCiFbCPzFz
-         k2CJKc4UYn4zSFrnvXFd+sRPOXAvelvLxUx10X4aRBsMsdWMe3RvmT7FIxQk+Bb6JP3U
-         gfprALM+Tbzv8fShZqaeKLzk4H+EBlRkbPxBsBtmf+OwTl++XbdR9eoJ8P/IX3/c+SWQ
-         M7cHoGIBI6bGx/y0Fh8sEbpSUfrY84VLovSBQ7P34n676l4zD+j9SwCo9MCyjWPdfrDU
-         pSNJIpKf+LJwneQctMBk8PcxnKVPJRwMUmkZDLzoTfjbyHtvICN3V0snioP1xN3fDybe
-         uM1A==
-X-Gm-Message-State: AOJu0YzkWUf+7QtXqxIBnL+kr1mu4QZEBfZQOhjHcJFQAMS76VbsN6zj
-	KCApePCgja+aCDDKCexyZ27vw9S34NR85wliVMfL3Z3ka0Lh7NojWNFxDSsdDdk1h4gVFj2ohUs
-	EKExy
-X-Google-Smtp-Source: AGHT+IHscKa9cwZ4cec+yKurN59/y7+ThuGIOiwtmTA03/kXGe+5A1fo8lJ+nb9WhG/F67+xtTD9kw==
-X-Received: by 2002:a2e:b8ca:0:b0:2fb:b59:8167 with SMTP id 38308e7fff4ca-2fc9d5828d0mr62220761fa.39.1729874139258;
-        Fri, 25 Oct 2024 09:35:39 -0700 (PDT)
-Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com. [209.85.208.170])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb453e78csm2317291fa.69.2024.10.25.09.35.37
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 09:35:38 -0700 (PDT)
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-2fb3debdc09so19199741fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 09:35:37 -0700 (PDT)
-X-Received: by 2002:a05:651c:2210:b0:2fa:beb5:11cc with SMTP id
- 38308e7fff4ca-2fc9d582d71mr53240501fa.40.1729874137392; Fri, 25 Oct 2024
- 09:35:37 -0700 (PDT)
+	Fri, 25 Oct 2024 16:39:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GfrUxMOpiyBt+uINhu6uAzK8crcdlfqZbxsTuafO8yhioIBgQraj/thRBzRPMaY7wWupV/sCBcN26GaD5qTxCzVLuhCwZS2DPwC41fy5yf2cp8nuu6D1uYStbwCahRuSjFhe58Bdki0LQ0cJ0EIgYK1LeMMHRsqz9LQL3vU/xEQWghOFPorw2Ia1LoamdUIl5dBXpMhLDNXFWueyY3rBAlSM3k065VzigUNpAecFuKd1qukNzf3GeTu0g/3QEa5ayFfdfiSUDa07KsWEQKki+SDtpuXtXXW+wGPBALZKuZX06sRF2c4VluRwHHkmXERCp9SYK/rwA2T448wk363HMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0XMaQ3DP9xk/WemoowKnrvJTGiklduflFsqrQtLCxvg=;
+ b=X37satIOaWutAE9wGQ0BZraz3andVfLH8tuoJazdOlNgTNcwooM+wF42PLPihTAM2pS3FnW2S0otn9HRXjLa3iGZMHrcFfjF4pI2at5K4gHvPbaSkQMutk2I7HEYQGqf66PH9GMFBMJIcbcgemoQP9DtzXsAkW0n4FYJfYJ/pJWCMGdwb8GFTGzjp3R9vwImh+o7mz6kYp+xbLnnw7J+S/1u3fGPHomZD5XVY065JqfnezQX5I/A7HowcZsuskqypjhrGfReVQZfXcRJb4Z+xTlYFrDwFIa2HhPhnN3Qn+tic2R/SyIbAkQeVkNtTbvaYjtK8ugVzHiQHVZxhzKF6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0XMaQ3DP9xk/WemoowKnrvJTGiklduflFsqrQtLCxvg=;
+ b=udXf5c3A/J4NiYqxJwhj15XnPiBQet2IUqySmZ70yicE+jPk1bU43Y3gI5jnj0AytyP9OIbYJCjXsqk4Amt2dmPJVVJ0F4i+hKe4U9fnUe5cXFxfsdIHHgXdOlRK7RB//Jd4BSNVGpk9ZvxTbuyLtrhtAfXWH9gUmHVLDUj0vDyR7wbRAXFmALJjj5dmzKjry16+aqG1UfN1hFkLRRQSJ3OaWyXJg2ghpwZ9xc0krHyZaggbb4eJeTiTL4OPKjclQ7twaY3afGOqc3JNfVbfeBNFVEEsxkCrtHAtHnf3cmbruxzYSRgUx2Dig1fu+oPfV3rWFZnl+FdjH2pem34XQQ==
+Received: from MW4P220CA0026.NAMP220.PROD.OUTLOOK.COM (2603:10b6:303:115::31)
+ by MN0PR12MB6174.namprd12.prod.outlook.com (2603:10b6:208:3c5::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Fri, 25 Oct
+ 2024 16:39:40 +0000
+Received: from BN1PEPF00004680.namprd03.prod.outlook.com
+ (2603:10b6:303:115:cafe::74) by MW4P220CA0026.outlook.office365.com
+ (2603:10b6:303:115::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20 via Frontend
+ Transport; Fri, 25 Oct 2024 16:39:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN1PEPF00004680.mail.protection.outlook.com (10.167.243.85) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8093.14 via Frontend Transport; Fri, 25 Oct 2024 16:39:39 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 25 Oct
+ 2024 09:39:23 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 25 Oct
+ 2024 09:39:22 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Fri, 25 Oct 2024 09:39:21 -0700
+Date: Fri, 25 Oct 2024 09:39:19 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Alexey Kardashevskiy <aik@amd.com>, <kevin.tian@intel.com>,
+	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
+	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
+	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>, <zhangfei.gao@linaro.org>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v4 01/14] iommufd/viommu: Introduce IOMMUFD_OBJ_VDEVICE
+ and its related struct
+Message-ID: <ZxvJt740XDjRmEl5@Asurada-Nvidia>
+References: <cover.1729555967.git.nicolinc@nvidia.com>
+ <ec230c740b649bba1ca4d2ef054d90c79be4be28.1729555967.git.nicolinc@nvidia.com>
+ <11dfc0b3-9e45-4f9b-a029-714105fda9c1@amd.com>
+ <20241025132054.GE6956@nvidia.com>
 MIME-Version: 1.0
-References: <20240620-igt-v3-0-a9d62d2e2c7e@mediatek.com> <20240620-igt-v3-8-a9d62d2e2c7e@mediatek.com>
- <CAD=FV=XTsPBQ7Qp_oQmBXkNY==KQWZdN7VYbuVPoBTHhMvzjUQ@mail.gmail.com> <b75276ff8dc2f73818ccd132530c0d3825e17888.camel@mediatek.com>
-In-Reply-To: <b75276ff8dc2f73818ccd132530c0d3825e17888.camel@mediatek.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 25 Oct 2024 09:35:23 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=WSD9p61ePKXVOcUBGktRJkUx+KbiJXF-9QUtWE8zDt0A@mail.gmail.com>
-Message-ID: <CAD=FV=WSD9p61ePKXVOcUBGktRJkUx+KbiJXF-9QUtWE8zDt0A@mail.gmail.com>
-Subject: Re: [PATCH v3 08/14] drm/mediatek: Add DRM_MODE_ROTATE_0 to rotation property
-To: =?UTF-8?B?U2hhd24gU3VuZyAo5a6L5a2d6KyZKQ==?= <Shawn.Sung@mediatek.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	=?UTF-8?B?QmliYnkgSHNpZWggKOisnea/n+mBoCk=?= <Bibby.Hsieh@mediatek.com>, 
-	=?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>, 
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "djkurtz@chromium.org" <djkurtz@chromium.org>, 
-	=?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>, 
-	"daniel@ffwll.ch" <daniel@ffwll.ch>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
-	=?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "airlied@gmail.com" <airlied@gmail.com>, 
-	=?UTF-8?B?WVQgU2hlbiAo5rKI5bKz6ZyGKQ==?= <Yt.Shen@mediatek.com>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "littlecvr@chromium.org" <littlecvr@chromium.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Hsin-Yi Wang <hsinyi@chromium.org>, "zwisler@chromium.org" <zwisler@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241025132054.GE6956@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004680:EE_|MN0PR12MB6174:EE_
+X-MS-Office365-Filtering-Correlation-Id: 42e5574b-d44e-45ba-d387-08dcf5139ed6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?O72FkXoyD/h/hVuRHxRx6eaBrCz9rb6gEp77yp/jw/exgu2sjT+TYolvcRf2?=
+ =?us-ascii?Q?ZmSSva4bkBkhQHJjZ+Jh03jcErIX4D4yrIIYrODUNX9TXmQ0IH26VOXfDqC8?=
+ =?us-ascii?Q?fb8DGgzy+eI/kQOQw8YKDLmhKIvDqAOZfpj/+eAuDGzaEW9pKcl/o27iFD57?=
+ =?us-ascii?Q?JgYttcNdML+w+KIZ3Onlp3A6jV2ZDEclzl5CeQV8/LrPUzbTtla/s4Uboz+k?=
+ =?us-ascii?Q?0MSySkvHUELMWD4M5mrRhYLYXDo2jTfvegHOip7PdkU4+4VwlMZB7RJ3b8P5?=
+ =?us-ascii?Q?NzVuk7dXl9t6oTPLG7I4dmY6ZJDBy8KOlTqdCAfnghGgAzpFwnnG2s13VwlK?=
+ =?us-ascii?Q?jlYfB/84ZDLdGlGskjjbVjjEwv7r5lKur+jbs6xOZdt2CDg1YZTcTJj8QwnH?=
+ =?us-ascii?Q?lqAcpjxN0PKei7md9F2ry2mYolXg8QMdV8UStJriO+Cv0UzSE2YuQ+NqoCwU?=
+ =?us-ascii?Q?xYj1PDNH1NLz/JWHuKrqPUM/6kRIYBJcn0BG4rUB3otR6V4kUwHE7ol0P9pF?=
+ =?us-ascii?Q?FSKx6JqbeyrdLpX3slh7qd9JnqcCqFAuieteJwd0m2zlkZ3eD2Slj+jrXVIt?=
+ =?us-ascii?Q?Ec1CDhFilOcw9Uz9t2Piv5zzef1hM/hMBLpzBukoI/WRSE1cuiQpbJiVunAc?=
+ =?us-ascii?Q?IzMDqqFEIijloikF9nYJ8PJPMzqiCapnQ0nTIzM68TpmN58o8sffc2gmQqc6?=
+ =?us-ascii?Q?WpvOR28olqVggEJfvKRiMCF6kR+JivLR4lux8CmXb4Jov//3Fw0NxEnYhUAI?=
+ =?us-ascii?Q?vHUBk/56Zl7xvS5FtAoqFLX1bsUKIMZkCujv5SeCajy/6EFCsIvZ+/YBEOsO?=
+ =?us-ascii?Q?7RM3SlvWeDCX4iLQtlkdXsck8l49LLCXMIZ7tF9vIpJfWiTY5g8tzgbNP8U7?=
+ =?us-ascii?Q?UqYq4ry0RYA8GonGQr8RCp3XBw1L6PwDfDvDnW4x7mWFSHxunKShZyaV/9Ly?=
+ =?us-ascii?Q?se5ixQHux304g4TTFa6O0EZkJWJPjiLmNAJUnt152Gl2HnmSZBMVo2nkTTZk?=
+ =?us-ascii?Q?tJYTGu21DCnioZL/kQuwVc7YRehfdG07W25dquHX/NxyCdRDRYLVSLiIjW7T?=
+ =?us-ascii?Q?ufx00Voo1KVlDE5thmh7/XE6GKi9s0HZGMPgGaNLU513SQRAK3gSEU6J3axB?=
+ =?us-ascii?Q?QvQJ741p3P3pXXbzht+yfOoxlx6tS2zNdyMfWW18sX3wAkUaVKk4AWGUzGqI?=
+ =?us-ascii?Q?2GnfX++hLBA+A5AGBCqJGYSI3SAw11MUZhlQCc8n31a1pl/C4EPURs6/xkM0?=
+ =?us-ascii?Q?fZNfP50dLKvWWg7qHAnGzHqW6b6PHn1H4i1gfmDKiMywJgFfW8018xlALF8S?=
+ =?us-ascii?Q?yKyTSpS/kpm/0gCgZlRzkRweXE7I1si7+E0ZBeUUhxUXGJEMwT0XdLiJQs0V?=
+ =?us-ascii?Q?FkyaqeE0GXStDJrO43pPD+8q9Scv4sUw2yGH8kFydNV4EN2/jg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 16:39:39.5799
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42e5574b-d44e-45ba-d387-08dcf5139ed6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004680.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_093543_445713_6E4BDC69 
-X-CRM114-Status: GOOD (  32.04  )
+X-CRM114-CacheID: sfid-20241025_093947_887148_8A4836F9 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,87 +158,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn,
+On Fri, Oct 25, 2024 at 10:20:54AM -0300, Jason Gunthorpe wrote:
+> On Fri, Oct 25, 2024 at 06:53:01PM +1100, Alexey Kardashevskiy wrote:
+> > > +#define iommufd_vdevice_alloc(ictx, drv_struct, member)                        \
+> > > +	({                                                                     \
+> > > +		static_assert(                                                 \
+> > > +			__same_type(struct iommufd_vdevice,                    \
+> > > +				    ((struct drv_struct *)NULL)->member));     \
+> > > +		static_assert(offsetof(struct drv_struct, member.obj) == 0);   \
+> > > +		container_of(_iommufd_object_alloc(ictx,                       \
+> > > +						   sizeof(struct drv_struct),  \
+> > > +						   IOMMUFD_OBJ_VDEVICE),       \
+> > > +			     struct drv_struct, member.obj);                   \
+> > > +	})
+> > >   #endif
+> > 
+> > A nit: it hurts eyes to read:
+> > 
+> > mock_vdev = iommufd_vdevice_alloc(viommu->ictx, mock_vdevice, core);
+> > 
+> > vs.
+> > 
+> > mock_vdev = iommufd_vdevice_alloc(viommu->ictx, struct mock_vdevice, core);
+> > 
+> > as for the former I go searching for a "mock_vdevice" variable and for the
+> > latter it is clear it is 1) a macro 2) which does some type checking.
+> > 
+> > also, it makes it impossible to pass things like typeof(..) or a type from
+> > typedef. Thanks,
+> 
+> Makes sense to me
 
-On Thu, Oct 24, 2024 at 6:32=E2=80=AFPM Shawn Sung (=E5=AE=8B=E5=AD=9D=E8=
-=AC=99)
-<Shawn.Sung@mediatek.com> wrote:
->
-> Hi Doug,
->
-> On Thu, 2024-10-24 at 13:47 -0700, Doug Anderson wrote:
-> >
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> >  Hi,
-> >
-> > On Wed, Jun 19, 2024 at 9:39=E2=80=AFAM Hsiao Chien Sung via B4 Relay
-> > <devnull+shawn.sung.mediatek.com@kernel.org> wrote:
-> > >
-> > > From: Hsiao Chien Sung <shawn.sung@mediatek.com>
-> > >
-> > > Always add DRM_MODE_ROTATE_0 to rotation property to meet
-> > > IGT's (Intel GPU Tools) requirement.
-> > >
-> > > Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> > > Reviewed-by: AngeloGioacchino Del Regno <
-> > angelogioacchino.delregno@collabora.com>
-> > > Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC
-> > MT8173.")
-> > > Signed-off-by: Hsiao Chien Sung <shawn.sung@mediatek.com>
-> > > ---
-> > >  drivers/gpu/drm/mediatek/mtk_ddp_comp.h |  6 +++++-
-> > >  drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 17 +++++------------
-> > >  drivers/gpu/drm/mediatek/mtk_plane.c    |  2 +-
-> > >  3 files changed, 11 insertions(+), 14 deletions(-)
-> >
-> > FWIW, this patch got into ChromeOS's 5.15 branch via stable merge and
-> > apparently broke things. As a short term fix we've reverted it there:
-> >
-> > https://crrev.com/c/5960799
->
-> Thank you for reporting this issue. We are currently investigating the
-> bug.
->
-> Since I am unable to access the Google issue tracker [1], could you
-> please provide more details about this bug? The message in the revert
-> commit mentions "hana/sycamore360" (MT8173) and it appears that there
-> is a rotation issue in tablet mode.
+Ack. Will change accordingly.
 
-Thanks for the followup. I've only been peripherally involved in the
-problem, but I can at least copy the relevant bits over.
+> And the container_of() should not be used in these macros, the point
+> was to avoid it to make the PTR_ERR behavior cleraer. Just put a force
+> type cast
 
-It looks as if the problem is somehow only showing up when running
-Android apps on those devices, so whatever the problem is it's subtle.
-The report says that the apps work OK when the device is in tablet
-mode and in one rotation but the problem shows up when rotated 90
-degrees. The report says that "Screen content appears inverted". To me
-it also sounds _possible_ that the problem is somewhere in our
-userspace.
+I recall that I changed it for a compiler complaint. But it seems
+to be gone now. Will change it back.
 
-I think Hsin-Yi and Ross are continuing to dig a bit more. Maybe once
-they've dug they can add any details they find or can loop in others
-as it makes sense?
-
-
-> > ...apparently the patch is fine on newer kernels so maybe there is a
-> > missing dependency? Hopefully someone on this list can dig into this
-> > and either post the revert to stable 5.15 kernels or suggest
-> > additional backports.
-> >
->
-> There are known issues [2] regarding forward compatibility. Could you
-> confirm whether this patch is unable to resolve the mentioned problem?
-> Thanks.
->
-> [1] https://issuetracker.google.com/issues/369688659
-> [2]
-> https://patchwork.kernel.org/project/linux-mediatek/list/?series=3D896964
-
-The patches in [2] look related to alpha blending but I think they are
-seeing issues related to rotation. ...so I'm going to assume it's
-different? I don't have this hardware in front of me, so I'm just
-going by the report.
-
--Doug
+Thanks
+Nicolin
 
