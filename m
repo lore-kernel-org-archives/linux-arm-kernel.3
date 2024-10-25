@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC68D0C600
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48642D0C601
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 11:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6sRf6jyLr7Lp7D8SrksXFJe24XLraz/lmXNXBNiv60s=; b=lj6yCacGLBC9ocQWek1ne5vkY/
-	6qLEMY/hlhMIbBEUQbE+gupJbF2DQR8I6QyOUWIRtY6b0WUxlsb548atk0SqlAbLUCtN1V6aTqdMs
-	sV30ii8v2zo36bQq2M/bLHtT+yb25cxRFEWLoX4lympBViM/Wb+l/1Tl+0UkQ3WL9Kgvr9KvmKwOq
-	r36MqBwf/wATOKHX6O9mJe82rq4OsTdbnfsMrB2T6BhWvLHKsf7e67OX4dXD/6mZuc2UqD5xM9P6u
-	RSqgaH06U4DbnWjtxjbNBgGU//qK6rjIN/uD9mH0riCoz3H0g60zSLAAd7upFE965vwfrS/iro0nC
-	ZktFYNmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LGDxFbsJCpgRnwwlevb7m4c9bmH+TBe47/8+WZp8fvI=; b=XSPKDpl8UF7/5Y
+	m5/kdauPAHSSPXNzojTc+YzZhA09lDamTd/24Kgu+tKXEXRwyGEvA9otWY3O4Ups13YgmLg/KLd8P
+	RJ7QhTr2i9IzfA/kl8HgWcEOcIjm8xUE5nJ/YDelahJnYKTTN4Rj4GJpEUVBZia0QKXwAkFSv+4wO
+	cu/aW9ch1f4xMo74jRFDAKyGhjWLMeofq51mXY2+dl0b84ckhNtPutU1uieRTLwx3SnkWbO7iGIUY
+	ihNb2iBfwj5AHOKlgs0m341tvu4HwXOtj0iSdgjUMMcUqrcMfBX71EX4tqItx4wLQdW0Urx8GfcyS
+	RazuWwSk/0PffGlxa1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4IcS-00000003Wx5-3zpA;
-	Fri, 25 Oct 2024 11:36:40 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1t4Idz-00000003XAF-31Wg;
+	Fri, 25 Oct 2024 11:38:15 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4INe-00000003Uct-3HLi
+	id 1t4IRL-00000003UxK-2PZZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 11:21:25 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4a47f8a9168so669354137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:21:21 -0700 (PDT)
+	Fri, 25 Oct 2024 11:25:13 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-539f84907caso2134706e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:25:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1729855281; x=1730460081; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6sRf6jyLr7Lp7D8SrksXFJe24XLraz/lmXNXBNiv60s=;
-        b=U3ZOxK5SFWGujYqULnEtIqFsO+5wgQDFJWbpw5Lz55K9zMqJ/8Y3IEpp4RzBIb63B6
-         BNVw7Zqc0+l0hme8N8ojRAvA81wtDjVTfqaD/JywjnhFAm/GkGQ6/18CTnjIfzpipO5u
-         7m6MSS1BzOwhWxwqqEVdZWeKKv7pase2w2mwI=
+        d=gmail.com; s=20230601; t=1729855509; x=1730460309; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LGDxFbsJCpgRnwwlevb7m4c9bmH+TBe47/8+WZp8fvI=;
+        b=jubMGjmZ2Rnq9IJ3HllQi7sZm10zH0HHa1PBTQdjzRpvaMk1VA8ZzklGy99iF9kcKQ
+         0HU8pe7YZEd7AZV9JGa5LQv/MCUwrqpRYnxGnMEynd2Vg2gaG/rpEgcIfb8hR78CTBxS
+         Msa3ZN/xhbJnZHKb+yA1/fppqvuTlSA/Bh1UEVQTLnJD06lw002S5usKItLEbqZ8blI2
+         FP7l47wDzqqkgRwgLAbkGpClDL741aXpH7veQ3wBzu07n+ruSOIJztUqRfwjFbDhLOBz
+         V9SVzU85e42H3i+k/aLVmiIKvXzYOLXnEgf9jel24sabkoFSwOO3clYmgoXkUU2T11C/
+         Ouag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729855281; x=1730460081;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6sRf6jyLr7Lp7D8SrksXFJe24XLraz/lmXNXBNiv60s=;
-        b=Ry2hG8jOz32x+tT2237VZFNq9wX38Asg648oYozJJaY+Rho0K3iEpNKzNF9KwV8c4r
-         +hNldy9tQhMBhL7br3IVbq9C85aWXIh3pCwjAWoPNOtua2iZKJEtPXSRLipBknZic3ZT
-         OsBvLxooadZ08+FyBjNwdoIfSk51Xx2cXfKH7iIjUX4yMCFIKhb3dsfXlIRmOqTLgiB2
-         zdJDQC8yjvtLKJdfV8qwlqhlOqcfpKSkItnsX5QmAb2rl05QNd/k/Fgg7Qhl1r86mjCz
-         AROAlmKRILLResngenU7RtsqFI/R62naPsLjXP1YNcSDveOt5Pzc2gKSgy0zYjr+yFuU
-         dZIg==
-X-Forwarded-Encrypted: i=1; AJvYcCXJ5XYRWQHKMbD3ZnCIW649xOLqin3eaMSJW2AXa+oAlsXfEtqNAtr/lk/l7jkA24uX7zgmGE/l7oVXrkhk/CQz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnxm1NMRG1fwaTmyVBTq8YqCz3AMWYXU0ABU/0nygudbKXm/Yc
-	R95bGDFGuJtKsyyItStXL2UsnkzbUoX9x7FCxvicQ5IIbfDyU8dcVSp0UhOOWr6TKu0N3y5Hcce
-	eiw==
-X-Google-Smtp-Source: AGHT+IEjv3Sc9WpaE+s/1IvgdsiNrbsS2hGVgxYIYbG/whhoOGv2GtpqLcVv9Qostjh0CL2DW0PFdQ==
-X-Received: by 2002:a05:6102:3a0a:b0:4a4:8651:3c2c with SMTP id ada2fe7eead31-4a751c94332mr11629231137.20.1729855280742;
-        Fri, 25 Oct 2024 04:21:20 -0700 (PDT)
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-85580ab7093sm139431241.20.2024.10.25.04.21.19
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 04:21:19 -0700 (PDT)
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-84fc0212a60so522108241.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 04:21:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVynSO4dMzflo22wPqzSzMtCwzKpZcXEK4cePF8t6rL5/sf6/om/AXZgSFAFXNyx3OetmyIWM7vC4YiMHjyPORW@lists.infradead.org
-X-Received: by 2002:a05:6102:a47:b0:4a4:8346:186d with SMTP id
- ada2fe7eead31-4a751cbd6ffmr12043723137.26.1729855278733; Fri, 25 Oct 2024
- 04:21:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1729855509; x=1730460309;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LGDxFbsJCpgRnwwlevb7m4c9bmH+TBe47/8+WZp8fvI=;
+        b=aQvbtnHTQAP9eZlacdai4nMSQYbonDf2vyQiyTh095wjwBbBpCiintyhp04xpxPo++
+         6wz4jepgD0uY7nIqcM+ILEBbsPEZyGa2wQSaFPc6ykgqsH+KFJ3UxHTEAzo3BarcJjsz
+         Pj+HIaL3g57IWL2G8frxi17vKsRNklfZhdpD4n0o4rZ+Z2r/QpnDnuJlf2WEHJEBLmwV
+         7Gn5XomQbCI/2OiLZ+AY2v+hDuxjWo7egCBZmCZ0g6U5hYNFLibwGmfwAOxXjCrHexB0
+         oR4tKRcB/Z5YPkA8AsKcb2MglrvevVavHqy0cRnZgDSbUBqdLDVT8WWck3KUFTf33yQF
+         xbAg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1ic3Pboqp0K/6vPAy8tkqPDWmeOkrWAtc+ilyn9GFIkunbQKnvB5YMso80t9CC3FHGETSfvoRANCG+CYbYd/4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpYr3AOFSGApctSVBT7mOCCcV23CuCpA1vrsEEdAoPCAltSKbt
+	90DPtS2U4VG6CHcx3Kvji0lOk1HoOGzRzJ1lPP7ooY/g0DBtU4Cf
+X-Google-Smtp-Source: AGHT+IGLZ+DwA6Tv+psqxv1iXTbBvh4nLKYcWHwMvOU0NZepTzQtBH2heZMmyHzsdO30dYav8AWDTA==
+X-Received: by 2002:a05:6512:692:b0:539:da76:c77e with SMTP id 2adb3069b0e04-53b23ddcf22mr3404001e87.5.1729855508445;
+        Fri, 25 Oct 2024 04:25:08 -0700 (PDT)
+Received: from [192.168.1.105] ([178.136.36.129])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c90c0sm144028e87.189.2024.10.25.04.25.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 04:25:08 -0700 (PDT)
+From: Markuss Broks <markuss.broks@gmail.com>
+Subject: [PATCH v2 00/12] Add support for Exynos9810 SoC and Samsung Galaxy
+ S9 (SM-G960F)
+Date: Fri, 25 Oct 2024 14:24:47 +0300
+Message-Id: <20241025-exynos9810-v2-0-99ca3f316e21@gmail.com>
 MIME-Version: 1.0
-References: <20241025075630.3917458-1-wenst@chromium.org> <20241025075630.3917458-2-wenst@chromium.org>
-In-Reply-To: <20241025075630.3917458-2-wenst@chromium.org>
-From: Fei Shao <fshao@chromium.org>
-Date: Fri, 25 Oct 2024 19:20:42 +0800
-X-Gmail-Original-Message-ID: <CAC=S1nip+CN=YEA7qWgZzx4wY666Qpn1-S2yMHw_jQTcjGcRDg@mail.gmail.com>
-Message-ID: <CAC=S1nip+CN=YEA7qWgZzx4wY666Qpn1-S2yMHw_jQTcjGcRDg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt8183: Disable DSI display
- output by default
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAP9/G2cC/22MQQ6CMBBFr0Jmbc20oqGuvIdhQZkRJhFKWtNAS
+ O9uZe3iL95P3tshchCOcK92CJwkip8LmFMF/djNAyuhwmDQ1LpM8brNPtpGo3IXZrL26tBZKMI
+ S+CXrEXu2hUeJHx+2o5307/2bSVqhYtI1Id2QsHkMUyfvc+8naHPOX/PxgvOkAAAA
+X-Change-ID: 20241024-exynos9810-b3eed995b0b9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Markuss Broks <markuss.broks@gmail.com>, 
+ Maksym Holovach <nergzd@nergzd723.xyz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1729855507; l=3840;
+ i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
+ bh=54KeIELGN5UoU7VoTMqUmaFmxCb6rTL4TU17Be6imWM=;
+ b=aFoIQjX4s33D+HoI0XHlci/aW6O5Iloyc1/DSx9Q7I4F7SnEG1WTOSJvqq2kcGnSIDGXDPyz9
+ S7TvTxv4posB5BR3Egq4IG5rt1QLJcAB096BsSCEVtJjEBTym4LTI/n
+X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
+ pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_042122_857301_545F5832 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20241025_042511_658876_2233CECD 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +113,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 3:58=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> Most SoC dtsi files have the display output interfaces disabled by
-> default, and only enabled on boards that utilize them. The MT8183
-> has it backwards: the display outputs are left enabled by default,
-> and only disabled at the board level.
->
-> Reverse the situation for the DSI output so that it follows the
-> normal scheme. For ease of backporting the DPI output is handled
-> in a separate patch.
->
-> Fixes: 88ec840270e6 ("arm64: dts: mt8183: Add dsi node")
-> Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Hello,
 
-Reviewed-by: Fei Shao <fshao@chromium.org>
+This series adds initial SoC support for the Samsung Exynos 9810
+SoC and initial board support for Samsung Galaxy S9 phone (SM-G960F),
+codenamed starlte.
+
+The Exynos 9810 SoC is also used in S9 Plus (star2lte), Note 9 (crownlte),
+and perhaps more devices. Currently only Galaxy S9 DTS file is added but it
+should be fairly simple to add support for other devices based on this SoC,
+considering they're quite similar.
+
+The support added in this series includes:
+- cpus
+- pinctrl and gpio
+- simple-framebuffer
+
+This is enough to boot to a minimal initramfs shell.
+
+The preferred way to boot this device is by using a small shim bl called
+uniLoader [1], which packages the mainline kernel and DT and jumps to
+the kernel. This is done in order to work around some issues caused by
+the stock, and non-replacable Samsung S-Boot bootloader. For example,
+S-Boot leaves the decon trigger control unset, which causes the framebuffer
+to not refresh, so simple-framebuffer wouldn't work without a secondary loader.
+Ideally, there'll be a kernel driver for the display subsystem some day to
+resolve this issue.
+
+[1] https://github.com/ivoszbg/uniLoader
+
+Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
+---
+Changes in v2:
+- sort the pinctrl nodes alphabetically (ivo)
+- move the interrupts from pinctrl file to SoC dtsi (krzk)
+- move the wakeup-eint from pinctrl file to SoC dtsi (krzk)
+- sort gpio-keys pinctrl-0 and pinctrl-names (ivo)
+- rename the bixby key node to "wink" (ivo)
+- sort gpio-keys subnodes (ivo)
+- sort pinctrl_alive gpio-keys pin descriptions (ivo)
+- fix the Co-developed-by tags and add a signoff (krzk)
+
+- Link to v1: https://lore.kernel.org/r/20241024-exynos9810-v1-0-ed14d0d60d08@gmail.com
+
+---
+Markuss Broks (12):
+      dt-bindings: arm: cpus: Add Samsung Mongoose M3
+      dt-bindings: hwinfo: samsung,exynos-chipid: Add Samsung exynos9810 compatible
+      dt-bindings: pinctrl: samsung: Add compatible for Exynos9810 SoC
+      dt-bindings: pinctrl: samsung: Add compatible for exynos9810-wakeup-eint
+      dt-bindings: soc: samsung: exynos-pmu: Add exynos9810 compatible
+      dt-bindings: arm: samsung: Document Exynos9810 and starlte board binding
+      dt-bindings: arm: pmu: Add Samsung Mongoose core compatible
+      perf: arm_pmuv3: Add support for Samsung Mongoose PMU
+      soc: samsung: exynos-chipid: Add support for Exynos9810 SoC
+      pinctrl: samsung: Add Exynos9810 SoC specific data
+      arm64: dts: exynos: Add Exynos9810 SoC support
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S9 (SM-G960F)
+
+ Documentation/devicetree/bindings/arm/cpus.yaml    |   1 +
+ Documentation/devicetree/bindings/arm/pmu.yaml     |   1 +
+ .../bindings/arm/samsung/samsung-boards.yaml       |   6 +
+ .../bindings/hwinfo/samsung,exynos-chipid.yaml     |   1 +
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   1 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   1 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |   1 +
+ arch/arm64/boot/dts/exynos/Makefile                |   1 +
+ arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi | 503 +++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos9810-starlte.dts  | 120 +++++
+ arch/arm64/boot/dts/exynos/exynos9810.dtsi         | 273 +++++++++++
+ drivers/perf/arm_pmuv3.c                           |   3 +
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 154 +++++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   1 +
+ drivers/soc/samsung/exynos-chipid.c                |   1 +
+ 16 files changed, 1070 insertions(+)
+---
+base-commit: f2493655d2d3d5c6958ed996b043c821c23ae8d3
+change-id: 20241024-exynos9810-b3eed995b0b9
+
+Best regards,
+-- 
+Markuss Broks <markuss.broks@gmail.com>
+
 
