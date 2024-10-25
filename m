@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DECD149F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B6AD149F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 23:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=SiRqgI7Zfaex7nI3vRv5r+pM9CxakGyUF9M8Ufw1xZE=; b=n699gt+oHLbyY1
-	I43v0SAE/nwFLC+DYwgFF2vdlTCjjIGygXoVv4r3GkamnjuNm+lKo4VWAPbCTiIrph5l4T2biWiQI
-	PBnrMrmtoIkAO7PfE9OUEJ5txig969Ht1aulIvxP9D5u7E0Ddk4/j9NfAMoc+Pjt5jq6v86S8HkSA
-	48jvh0uuvD63t+f52XNorwmWVE8zr3gAfaO5mi4H6jVvry4/VCxb7a/jmaLV8HPxzw8b/+3yYkJBe
-	Qyqgs1KOAJUWcexf+s9bj+F3zJ7cOP7lTmfwVxzDSqNE/0bdpFVvTd1nIigtkuxUmtij2PU5v9wXC
-	IumohMJ/cIx+b08Rgm6A==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUOx9g9Hd29aDPaPnY4OSJGlF1FDFTub05boTsaeB/8=; b=Y+7li2d8vmr8FQ1MdJjR9lkRAN
+	zAT44pKCkJOmS3TGNqNmZ83Rh/cYoQSQbbxfub0hDoj6/XeGaUrfD2xsf8hcVY7IOW/gI3LTplggx
+	NvtfVzd1kgjOKIUqUEwTRBr84J4Jlsx4IF0Sxogo1S5CeB8jTGHu891by9QfkGsczhRv71ptizHBg
+	b6d9jrO+qUuBlRqAVPepLJgPjvnGh7wHJUoq7lqc42B2lK7BhT3la3wzNPFyP4+9y7ErrJyKaUdT6
+	P7X9tSULzjU4YNrUysZBs+5Vv5D+5fNxvn5uNwH9POJ0Y0RAGe9einqCM6HMuxCNvJPFHoooVuSJX
+	aSPQWdSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4SuY-00000005SLp-1Dzt;
-	Fri, 25 Oct 2024 22:36:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4ThN-00000005WHo-1iBZ;
+	Fri, 25 Oct 2024 23:26:29 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4SrH-00000005Rjk-1eyt
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 22:32:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3FEB7A44B88;
-	Fri, 25 Oct 2024 22:30:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B7A4C4CEC3;
-	Fri, 25 Oct 2024 22:32:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729895558;
-	bh=lvgqZKZL3hTSMXjWYkYB2dg3KyAAN40oIeI42dzGJls=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=bMqCwlt3rfSKnmYXP3CO1qHyjKGshQkpsafQF2TFtPpe8OJLF2eHJv0QZVeGh+vbR
-	 mbzYexzaFGMPKNILD/JuyECnaOF+BCjy7vXA8rpIu+ArdNAIBFHXogFUA7gI78NmNw
-	 wOCRX2/ZwmipiTNEyEGV/F1wK5DWL6poIRULNFbfZmKBLUvU5H3rTni7OtT7niq9ka
-	 6DyqbPXG8uK7S+Rc1Pr712yHYZUiycuKhtO6fWFTbc5fYdkealO2joTF2KcJlqVq1C
-	 k9JPcaw/czcYbe+l2XGV0RtVOMjgzc35OBiIKlLVTsemNgsTlJayFIt4grrcdQFn/i
-	 K0gq2aNy4BUKQ==
-Date: Fri, 25 Oct 2024 17:32:36 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Abraham I <kishon@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v4 4/4] PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
-Message-ID: <20241025223236.GA1030308@bhelgaas>
+	id 1t4Tfm-00000005WA1-2ZfE;
+	Fri, 25 Oct 2024 23:24:52 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20c8b557f91so22034045ad.2;
+        Fri, 25 Oct 2024 16:24:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729898690; x=1730503490; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AUOx9g9Hd29aDPaPnY4OSJGlF1FDFTub05boTsaeB/8=;
+        b=cXQ0Vk3DAL4E8rGeNpkycA4IbD9SWfH5sIjG5MmUveJHgA6XmDT52tmrlUzTjUsOBJ
+         yb14ZsxWGqz410XFlm7SGhsRLarfLV7rTuijvynMAToeMC4KKOPx1a2dj4/JFi1xCb1O
+         loHX77HYtYQcxvKQ6fR+XkcMqhLtayf8vfDxgGU2xM7Wcc6tjzXV6Lw85TSmca6/d6Hb
+         5CuEM/t2WN8tPTLJERS7Vs8rNWFOzp/St/t/wwdKqiqwtdfgMbDSYzt/K1qFtsyf2Cmj
+         BzIlm7ppUMARP4WprySw6Kp4xbIPGk6Lrup1bwZTAAlLih1qdN5wofYZrFdAIDmyahDR
+         WUVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729898690; x=1730503490;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AUOx9g9Hd29aDPaPnY4OSJGlF1FDFTub05boTsaeB/8=;
+        b=rMy9sfRMdiJcfGMNUqTU7WtQSoeYFcveYZqTCSiwr3rhVGOdtbBTzRcDsEouIu/f0o
+         /rOx3g7Nhg7xoYszw3onZ+wsQ59kTfKZ4kPtjEJb8x2CaEAN6fVtRs6McTIr9/43kIGO
+         hFR1SpOD09RLe7GxJuHJdrWAH+XYtamP30l39lSEcajZHz1JNfduN2ON+MiKLqOee/7v
+         ieYzLopf8w9Z4YVb6wIknU/Jb7bufv5s+PSvP22IWf3K0GmwrE2paY3mMokG6d0xW26W
+         bpOmvkJ3vp6eYcamAWWom5AcjUQj0W5xWqZ5To1j1uxfEF8yjjvdCEp/EDgHkrQ/0u+O
+         Jx5A==
+X-Forwarded-Encrypted: i=1; AJvYcCW00oLLqdWFSxRCH6Y4bOKnxwVbLOxKMelg6QKedBtJ9LMkFEBzSlL4EynaHZ0boVMZvDTkhS7rnYf4gbtM6C9X@lists.infradead.org, AJvYcCXHdHhjGLgoqSUNwIOeZa0eHTfmBsGrhNHOXlSoBqdnggcXkQfjG8PyLVIjlwBOKSwPaWTLhB+IBwY9cK4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9QtmlQIyasoDLVUnYRmDinBh3SH+tfs1HozkjOLKiZwmJj4fF
+	RNtKrSwjKJxp+oHBEoiJCpsoOVwh1SK48d6csTXIXY4De7U4JADC
+X-Google-Smtp-Source: AGHT+IFWUkTXqhX/x2uKnWo19NThA/0At3qPgoz/DFagDTJ6IoWaouVLt4TY0P6cRpHC9jOKRPrbGQ==
+X-Received: by 2002:a17:902:c94e:b0:20c:af07:a816 with SMTP id d9443c01a7336-210c6c0dcfcmr9231285ad.31.1729898689603;
+        Fri, 25 Oct 2024 16:24:49 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf6d311sm14429325ad.81.2024.10.25.16.24.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 16:24:49 -0700 (PDT)
+Date: Sat, 26 Oct 2024 07:24:27 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Simon Horman <horms@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/4] riscv: sophgo: Add ethernet support for SG2044
+Message-ID: <vslmecginak75lrgudcoltoarvi7pcge7qw4rljyo6bctx7flc@xpasjaasdkas>
+References: <20241025011000.244350-1-inochiama@gmail.com>
+ <20241025130817.GU1202098@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241024-pcie_ep_range-v4-4-08f8dcd4e481@nxp.com>
+In-Reply-To: <20241025130817.GU1202098@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_153239_586233_85FC0C91 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20241025_162450_675460_AF11B394 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,92 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 04:41:46PM -0400, Frank Li wrote:
-> Add support for i.MX8Q series (i.MX8QM, i.MX8QXP, and i.MX8DXL) PCIe
-> Endpoint (EP). On i.MX8Q platforms, the PCI bus addresses differ from the
-> CPU addresses. The DesignWare (DWC) driver already handles this in the
-> common code.
+On Fri, Oct 25, 2024 at 02:08:17PM +0100, Simon Horman wrote:
+> On Fri, Oct 25, 2024 at 09:09:56AM +0800, Inochi Amaoto wrote:
+> > The ethernet controller of SG2044 is Synopsys DesignWare IP with
+> > custom clock. Add glue layer for it.
+> > 
+> > Since v2, these patch depends on that following patch that provides
+> > helper function to compute rgmii clock:
+> > https://lore.kernel.org/netdev/20241013-upstream_s32cc_gmac-v3-4-d84b5a67b930@oss.nxp.com/
 > 
-> Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Chagne from v3 to v4
-> - none
-> change from v2 to v3
-> - add Mani's review tag
-> - Add pci->using_dtbus_info = true;
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
+> For future reference: patchsets for Networking, which have
+> not-yet-in-tree dependancies should be marked as an RFC.
+> Our CI doesn't know how to handle these and we don't have
+> a mechanism to re-run it once the dependencies are present:
+> the patchset needs to be sent again.
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index bdc2b372e6c13..5be9bac6206a7 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -70,6 +70,7 @@ enum imx_pcie_variants {
->  	IMX8MQ_EP,
->  	IMX8MM_EP,
->  	IMX8MP_EP,
-> +	IMX8Q_EP,
->  	IMX95_EP,
->  };
->  
-> @@ -1079,6 +1080,16 @@ static const struct pci_epc_features imx8m_pcie_epc_features = {
->  	.align = SZ_64K,
->  };
->  
-> +static const struct pci_epc_features imx8q_pcie_epc_features = {
-> +	.linkup_notifier = false,
-> +	.msi_capable = true,
-> +	.msix_capable = false,
-> +	.bar[BAR_1] = { .type = BAR_RESERVED, },
-> +	.bar[BAR_3] = { .type = BAR_RESERVED, },
-> +	.bar[BAR_5] = { .type = BAR_RESERVED, },
-> +	.align = SZ_64K,
-> +};
-> +
->  /*
->   * BAR#	| Default BAR enable	| Default BAR Type	| Default BAR Size	| BAR Sizing Scheme
->   * ================================================================================================
-> @@ -1448,6 +1459,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> +	pci->using_dtbus_info = true;
+> Also, I'm assuming this patch-set is targeted at net-next.
+> If so, that should be included in the subject like this:
+> 
+>   [PATCH net-next vX] ...
+> 
+> I would wait for review before posting any updated patchset.
+> 
+> Thanks!
+> 
 
-I mentioned this elsewhere, but I think the using_dtbus_info part
-should be part of a series that only deals with the address
-translation, and adding IMX8Q_EP should be in a separate series.
+Thanks for your explanation. I apologize for missing these
+rules. I will change it to the right title when sumbiting the
+next patch.
 
->  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
->  		ret = imx_add_pcie_ep(imx_pcie, pdev);
->  		if (ret < 0)
-> @@ -1645,6 +1658,14 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.epc_features = &imx8m_pcie_epc_features,
->  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
->  	},
-> +	[IMX8Q_EP] = {
-> +		.variant = IMX8Q_EP,
-> +		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
-> +		.mode = DW_PCIE_EP_TYPE,
-> +		.epc_features = &imx8q_pcie_epc_features,
-> +		.clk_names = imx8q_clks,
-> +		.clks_cnt = ARRAY_SIZE(imx8q_clks),
-> +	},
->  	[IMX95_EP] = {
->  		.variant = IMX95_EP,
->  		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> @@ -1674,6 +1695,7 @@ static const struct of_device_id imx_pcie_of_match[] = {
->  	{ .compatible = "fsl,imx8mq-pcie-ep", .data = &drvdata[IMX8MQ_EP], },
->  	{ .compatible = "fsl,imx8mm-pcie-ep", .data = &drvdata[IMX8MM_EP], },
->  	{ .compatible = "fsl,imx8mp-pcie-ep", .data = &drvdata[IMX8MP_EP], },
-> +	{ .compatible = "fsl,imx8q-pcie-ep", .data = &drvdata[IMX8Q_EP], },
->  	{ .compatible = "fsl,imx95-pcie-ep", .data = &drvdata[IMX95_EP], },
->  	{},
->  };
-> 
-> -- 
-> 2.34.1
-> 
+Regards,
+Inochi
 
