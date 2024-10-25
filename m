@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6A4D149C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B2CD149C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=; b=YXkOw4EMCwFop9uG3Z7WIarEZ7
-	8tUHaXS/ZHmPYwEq70ZYbNS1pAJ643aIqrNrMbyDieVs/1BnGkBgB75HujY8PrQzE6f6SWF/nNQgQ
-	btU6BbZ+42P0uGLFef1uG6WZTi8oBWc3HQqDvFnDN54cNg7BXIxpKVpOulFrEwCk0BgTUwN1i0Mds
-	Pyov8+YhAIvjo/xk3aGaXXRgYDjjKKRtwPPzFTRCgHLzq+oJVLIiD/UprQTdae1rqyB+VNNNOIPed
-	IStJevMGswfiK1ME93S1SHj7ygzgV5710bpEqN8l5UBcb0mB5zZhFNvS6mTF21ySmYVVHDFs7yEx8
-	IwQC8ovA==;
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Iw4mSeihGj1YsgWe8Zsotpic8lQYd8a9F0LzrpwBY4=; b=QfjGrnuwbpVuSjCcsJkfKuvORl
+	/J5q0Kvwk08sgoU8sy4JVcVsHXT/fVAKbYfBKD4laSHucZIVai/tJdOwIvn/bMUUu+eLw0JCveHO0
+	1FUGeMuOfk6JHSkYVCsx3xFuQ7//1UifxxycxKGWpNVREauQRq/78wI1PbCkHwE4R34tMqZHC9m/g
+	sK7Z6K11UZHoz1fFQ38fk93FGF8xnNUKny6zNN7WbVOvp03GdASn7hVazIndINyFzunotkRs9VKL9
+	MpAlnybD/S4pRub4jjbh8sHbnCV/1GLHQQbG+irPqtP9OZc4uFuIevH2fLtqGwer1hXb86z/43fmQ
+	VbJjrxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4MpN-00000004Lv0-2Xmj;
-	Fri, 25 Oct 2024 16:06:17 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1t4Mvf-00000004N28-3xpj;
+	Fri, 25 Oct 2024 16:12:47 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Mnm-00000004LjX-3cHf
+	id 1t4Mu1-00000004MbV-1ewE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 16:04:40 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb5111747cso21891511fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 09:04:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1729872277; x=1730477077; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=;
-        b=pwEqbAK304Z/jcOa+ipMFQgvJ+wD+RT5wO9bCJESpkqz71hg+pNtoGETQvlhYcfg5/
-         7i60y+HmjSRsWzXfPaKUBOjQB0/BjnK/oxc7QkKe8oLGGMWqXIKGz6gEWnhV5uEjFQIh
-         ebn5xUEU83OoNP5/aVfcUFbLSHopmScy5sZ0E=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729872277; x=1730477077;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=;
-        b=R6dUCrjb0LN2zNz96i1WYIJTBVW5edqeT3Veb2/s36VMeObPWYrxmN3bdhwFE6Ny+z
-         9AfvgqWiysoaTPP5T1XeqCRx+WjfGBmn2RR2/7l+6rwiWZQCh1BESpufUCwmqMRiGsKp
-         0/PggmBnXmsf3hnmaLv0Ml+aJ8J0TkIxUtgHMXRrXhlvWMQrxv/+kYYjlVgbwH4Y01em
-         nxkgZ0X3u25Eobc2oUOf/S7N70RCmCat9Qphkwp+cS8ctmyZhm83Kq9TNYQrnq77+KhI
-         B0ZH9HTwcawywM0SWTVidZc2vus44XGUQnqe6LzPr/uhbT+OISXpTwuMiLJSCleREv+9
-         ScOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVivEM1FX8Dyae2eCqvqrmjUSuqVmTSJlnmpG/owTznBMsQ56JvGoU8qDJ2FLd0ss8703YyzUQcV+9PRlEOU6c3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtNB8ZE2GtSIgh93vhBL7s2jjYhoRzcS8xf6Lf2G4hWcvffovS
-	rVnTpZMcL4wTWTiHgPmMXyv+HYUDHQH2ZZoRv1iEvUi8+1O/q40iGWfvN01OSzg=
-X-Google-Smtp-Source: AGHT+IE5tAGEzSGr1VKCRE9qh4Kh62Hto2hpFgEH+icsAjjqXGeOuQHrKjPabwauzhg1pQ0otdSs8A==
-X-Received: by 2002:a2e:bc09:0:b0:2f7:6653:8046 with SMTP id 38308e7fff4ca-2fc9d37468fmr61995861fa.25.1729872276573;
-        Fri, 25 Oct 2024 09:04:36 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.251])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058bb4348sm1848614f8f.111.2024.10.25.09.04.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Oct 2024 09:04:36 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2] pmdomain: imx: gpcv2: replace dev_err() with dev_err_probe()
-Date: Fri, 25 Oct 2024 18:03:56 +0200
-Message-ID: <20241025160430.4113467-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 25 Oct 2024 16:11:07 +0000
 MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1729872662;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7Iw4mSeihGj1YsgWe8Zsotpic8lQYd8a9F0LzrpwBY4=;
+	b=NkQveD4IeJyVYkwl4GNW11zstxIvo/Pkwm9FiFHL9Bu79vy3H890U5m7g1JxmTLm1xnuh/
+	Gkkd+S9bwz+MA/6wG/u1lvxrG/88/tEat2A6sW5Uk2LPhZgAh7GHstuFbYjBFpUUaSeJfj
+	hD3+6yQwvxWA/HqQvDI+p1hj7tDc8n3XXJ5AzuNQIN6jM1TLr6GwPwcGXO4F3jmGufT62T
+	bAaYRoGAdKyE3mUaHqfFjOPmL/ie+INilHsXVre0CNwM5X+TvQQTgBIGufdKRgUZvdbhzX
+	Z6gKNlS/v39pS6OZTZ5QP0NSAwknEXY6meB+kPmgTfnSEoZNytTH+mfPWvIG1A==
+Date: Fri, 25 Oct 2024 18:11:01 +0200
+From: Dragan Simic <dsimic@manjaro.org>
+To: wens@csie.org
+Cc: linux-sunxi@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, Ondrej Jirman
+ <megi@xff.cz>, Andrey Skvortsov <andrej.skvortzov@gmail.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: pinephone: Add mount matrix to
+ accelerometer
+In-Reply-To: <CAGb2v66aody60h=Bpk49pxogq93FekmO48uThPET2RKxvx=OGw@mail.gmail.com>
+References: <129f0c754d071cca1db5d207d9d4a7bd9831dff7.1726773282.git.dsimic@manjaro.org>
+ <bef0570137358c6c4a55f59e7a4977c4@manjaro.org>
+ <CAGb2v66aody60h=Bpk49pxogq93FekmO48uThPET2RKxvx=OGw@mail.gmail.com>
+Message-ID: <cfc090cb87a8b926116d1a436694d17d@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_090438_947450_942FDB7B 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20241025_091105_746565_80CC2A6C 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,50 +78,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch standardizes the probe() code by replacing the two occurrences
-of dev_err() with dev_err_probe(). Indeed, dev_err_probe() was used in all
-other error paths of the probe() function.
-Note that dev_err_probe() has advantages even if the error code is not
-EPROBE_DEFER, such as the symbolic output of the error code. Therefore,
-it should generally be preferred over dev_err().
+Hello Chen-Yu,
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+On 2024-10-25 16:47, Chen-Yu Tsai wrote:
+> On Wed, Oct 23, 2024 at 5:11 AM Dragan Simic <dsimic@manjaro.org> 
+> wrote:
+>> On 2024-09-19 21:15, Dragan Simic wrote:
+>> > The way InvenSense MPU-6050 accelerometer is mounted on the user-facing
+>> > side
+>> > of the Pine64 PinePhone mainboard, which makes it rotated 90 degrees
+>> > counter-
+>> > clockwise, [1] requires the accelerometer's x- and y-axis to be
+>> > swapped, and
+>> > the direction of the accelerometer's y-axis to be inverted.
+>> >
+>> > Rectify this by adding a mount-matrix to the accelerometer definition
+>> > in the Pine64 PinePhone dtsi file.
+>> >
+>> > [1] https://files.pine64.org/doc/PinePhone/PinePhone%20mainboard%20bottom%20placement%20v1.1%2020191031.pdf
+>> >
+>> > Fixes: 91f480d40942 ("arm64: dts: allwinner: Add initial support for
+>> > Pine64 PinePhone")
+>> > Cc: stable@vger.kernel.org
+>> > Helped-by: Ondrej Jirman <megi@xff.cz>
+>> > Helped-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
+>> > Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+>> 
+>> Just a brief reminder about this patch...  Please, let me know if some
+>> further work is needed for it to become accepted.
+> 
+> There's no "Helped-by" tag, and checkpatch would complain. The closest
+> would be either Suggested-by or Co-developed-by, but with the latter
+> you would also need their Signed-off-by.
 
----
+Thanks for your response.  You're totally right about checkpatch.pl
+not supporting Helped-by tags, but including neither Suggested-by
+nor Co-developed-by would fit very well in this case, because the
+associated level of credit falls right somewhere between what's
+indicated by these two tags.
 
-Changes in v2:
-- Improve the commit message.
-- Add 'Reviewed-by' tag of Marco Felsch.
+> I can change it to Suggested-by if that's OK with you.
 
- drivers/pmdomain/imx/gpcv2.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I've created and submitted a patch [*] that adds support for Helped-by
+tags to checkpatch.pl.  Let's see what kind of feedback that patch
+will receive, and then we'll be able to move forward accordingly.
 
-diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-index 963d61c5af6d..6e6ecbf2e152 100644
---- a/drivers/pmdomain/imx/gpcv2.c
-+++ b/drivers/pmdomain/imx/gpcv2.c
-@@ -1356,7 +1356,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
- 
- 	ret = pm_genpd_init(&domain->genpd, NULL, true);
- 	if (ret) {
--		dev_err(domain->dev, "Failed to init power domain\n");
-+		dev_err_probe(domain->dev, ret, "Failed to init power domain\n");
- 		goto out_domain_unmap;
- 	}
- 
-@@ -1367,7 +1367,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
- 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
- 					   &domain->genpd);
- 	if (ret) {
--		dev_err(domain->dev, "Failed to add genpd provider\n");
-+		dev_err_probe(domain->dev, ret, "Failed to add genpd provider\n");
- 		goto out_genpd_remove;
- 	}
- 
--- 
-2.43.0
+[*] 
+https://lore.kernel.org/linux-kernel/0e1ef28710e3e49222c966f07958a9879fa4e903.1729871544.git.dsimic@manjaro.org/T/#u
 
+>> > ---
+>> >
+>> > Notes:
+>> >     See also the linux-sunxi thread [2] that has led to this patch,
+>> > which
+>> >     provides a rather detailed analysis with additional details and
+>> > pictures.
+>> >     This patch effectively replaces the patch submitted in that thread.
+>> >
+>> >     [2]
+>> > https://lore.kernel.org/linux-sunxi/20240916204521.2033218-1-andrej.skvortzov@gmail.com/T/#u
+>> >
+>> >  arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 3 +++
+>> >  1 file changed, 3 insertions(+)
+>> >
+>> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+>> > b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+>> > index 6eab61a12cd8..b844759f52c0 100644
+>> > --- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+>> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+>> > @@ -212,6 +212,9 @@ accelerometer@68 {
+>> >               interrupts = <7 5 IRQ_TYPE_EDGE_RISING>; /* PH5 */
+>> >               vdd-supply = <&reg_dldo1>;
+>> >               vddio-supply = <&reg_dldo1>;
+>> > +             mount-matrix = "0", "1", "0",
+>> > +                            "-1", "0", "0",
+>> > +                            "0", "0", "1";
+>> >       };
+>> >  };
+>> 
 
