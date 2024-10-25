@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E0BD0C608
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F93ED0C608
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 13:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NN2SUD+OUfJKgPj+21gkXoKJrVd7DZ/UXCkZWnA0qJs=; b=DGQm74kCv48t/1KiGxPT0kg0ib
-	tj7LJn/TDDFZKLSUyTXs8wvKYG42N/cd6b/47i9lPDBi2VW+1Ivd9FU3f1uXAjvLbT+eOGWDKbnME
-	t3KyfXWg93Nwra1d0U5AaZeZ+So9illUlC7nhMMrlW3QHbIdQCmyTEtTwSrgxZzijDYQal3GGHsxv
-	0hx+LAta+bMtjdHBlOMf6hNglUagvNpd7uy7zsBEPeVc+Phm7W4zG9JNO+0yQkqTaV0cxW4HfoBNK
-	ipveaeAr2SK1mvYWZ44iG2ngPtDLxce+82hXwBwgJ80HD0eygFhdNfMw/OKHI8PAo/k6EM7Msjtu3
-	31yqXx1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6aUc8ARIpAq0rQB4r7RviNQMWUmufkfkZX7MUXYS/8w=; b=f7CyGw4sTIoMzUXDD8RL1vn3fh
+	eOkirMGghEewGnGIOz+M8PJQM4h7v7oid0A8YYhsuBMzsxKYQskWBMtWD5S8yqAF8CB3Hu0M2vd26
+	0cc/Vl1WxezN88rfXeSf+e0G+LSAdl0XmT4L6uMRo81ldV9nSeMjtTBkeLu4y6FhcUk7opgc2et8Q
+	cLP4dIRahXC9lKaLKwu2pugE2LWv7Dq9DnM7Rqg+D3fnqqtWJig2u1zz71EAeaofZ+47z7vpZgfgx
+	+GoJu/hiSSrDJC9M6kbne6pagZGJ8gu8wS8i9/CcmOIQbGTrqm0pWuCj0zCcJ5R8GQuJutYR/AQUt
+	/FsQVI9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K7U-00000003mKs-0rem;
-	Fri, 25 Oct 2024 13:12:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t4K94-00000003mf3-2Unz;
+	Fri, 25 Oct 2024 13:14:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4K0H-00000003l0F-2g0k
+	id 1t4K0Q-00000003l1K-3SQw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 13:05:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729861519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NN2SUD+OUfJKgPj+21gkXoKJrVd7DZ/UXCkZWnA0qJs=;
-	b=aSBKpYGIKK7D+KGs3+iXX15qBEbA5LceCf5I6B92iBQHVqNikzIxSSFLDfK+6Gtfm7/1qh
-	Xau9Njf4xVxDoK11WT5lKnQwOaNC5bZpkpOn8ySdbcOKgUvF4s382kPS8gq2YsiFyam4mr
-	+j1XP45XVwyEJmyeCnySLFaHuD4Ia7c=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-513-iYIjzd3wN4WPtb0VrJatOg-1; Fri, 25 Oct 2024 09:05:18 -0400
-X-MC-Unique: iYIjzd3wN4WPtb0VrJatOg-1
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-37d67f4bf98so1033641f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 06:05:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729861516; x=1730466316;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NN2SUD+OUfJKgPj+21gkXoKJrVd7DZ/UXCkZWnA0qJs=;
-        b=HlHED1OBvKTCbKPY7rXjq5KToope3nEMWvVDRu+tmuVMMW4ur10z4ZJ3QOHgEiOI7n
-         mLnDfJS9nGkpQXKEwLPvE5YyZqbu50qst5AXAJemq6/oeN/S2W1k6g/etNpnywgh0xgg
-         rPv3raR/Yvx7PZolMStNezmEKr97JQsMvLdbTCVY4lWzEIoRDYg9JOzsA/DvsuCetLzq
-         bANruFc8kqq/goAM0h0cbWAkr0n5egLf4IpoNSKsbO5/QlKSanqwlUNS3jzZSrbGF7Rl
-         B82lNBrOduDSabEGmbLknV0fk/Gf0aM8Ho33ZlGBKtCy7NPiUGIQAPSMx0j/IeT/l3g6
-         juAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYyi3D4X568yvPKYzVyg287W4UNwJhozkqNUWjpWIz+VefEnA0vHOgLX5fs1vTbeY+/NzRGGVxbSLPKaiVFlA9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDgyqDgUeBVUJDahrAJ0NKwOtFsOwTruPDpSM262bDZ0j/jDmX
-	Mzg7SdafP/QRW21fxOaJwDhvIyHkLOOlQqIcmQMJfq9wVfbGWKorDVKs31IFj8k2jxsNdCMxE9E
-	LVMUhKP+9Z0x05Ii/+xMI+MWkcNy97E7GCINIiYI3l8Rx6uwpaeAcK0U0Al9xFFo0A5R2mv09uh
-	w+6231
-X-Received: by 2002:a5d:6189:0:b0:37d:39c1:4d3 with SMTP id ffacd0b85a97d-3803ac84451mr3932494f8f.6.1729861516617;
-        Fri, 25 Oct 2024 06:05:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEHZX9EQgHC8n+5rGdSPJEtECAS97R5nQ80Ja/EQnqyzVVLXnGbDJE3YBe+VRN9JY0lWOP/Cw==
-X-Received: by 2002:a5d:6189:0:b0:37d:39c1:4d3 with SMTP id ffacd0b85a97d-3803ac84451mr3932455f8f.6.1729861516074;
-        Fri, 25 Oct 2024 06:05:16 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b9216fsm1459852f8f.100.2024.10.25.06.05.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2024 06:05:15 -0700 (PDT)
-Message-ID: <7c1a7b1c-6fbf-4bd9-80d0-d2c3d951e342@redhat.com>
-Date: Fri, 25 Oct 2024 15:05:13 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Don't eagerly teardown the vgic on init error
+	Fri, 25 Oct 2024 13:05:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0A2DB5C5848;
+	Fri, 25 Oct 2024 13:04:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C73F2C4CEC3;
+	Fri, 25 Oct 2024 13:05:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729861529;
+	bh=JHk7KYb3g3gubZ/UCoHENgcCGyzGa5kzhT1E3wr8230=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=t8iRUn7MW8+vBX02dVc9yoDre05ZBSkvXiKgdaN3nH3Xfn6kgX0qxhYM6SDdnRTvy
+	 5ZqCUQi9lghoJ8667mBCWv+Ej3lNrl2woZhNmF+0Bh896RrwpHIgVNj2k5AK9uAsUV
+	 lelBoqSj9hn2BFXDKm1CRKKNudW6GdKWXId7pE/GkKK+EX1HJ6bT+WIvnF4mfrmKsx
+	 /2W7ZAVekhd1JVpG515Q0A4fMdpBit5wkiyRc4eiKoAfc8tmdGAn7PtkW++LqPaAyr
+	 qEnnC4/gwWvuoMxYwq0cEFw4nfPJ7BZDlc3ll3+ejzX6giEXRFGjE3U4hXtg1/2f5H
+	 z0DzPv0yC7p6A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t4K0N-006muA-8R;
+	Fri, 25 Oct 2024 14:05:27 +0100
+Date: Fri, 25 Oct 2024 14:05:26 +0100
+Message-ID: <87v7xgtjs9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, stable@vger.kernel.org,
- Alexander Potapenko <glider@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	stable@vger.kernel.org,
+	Alexander Potapenko <glider@google.com>
+Subject: Re: [PATCH] KVM: arm64: Don't eagerly teardown the vgic on init error
+In-Reply-To: <eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
 References: <20241009183603.3221824-1-maz@kernel.org>
- <3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
- <86ldyd2x7t.wl-maz@kernel.org>
- <eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
- <92d755af-e19b-49a5-b4df-a8ed0fb7aece@redhat.com>
- <ZxuWIXFJignbcX1m@finisterre.sirena.org.uk>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <ZxuWIXFJignbcX1m@finisterre.sirena.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	<3f0918bf-0265-4714-9660-89b75da49859@sirena.org.uk>
+	<86ldyd2x7t.wl-maz@kernel.org>
+	<eb6e7e29-b0a8-47b1-94c4-f01569aa55cb@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, stable@vger.kernel.org, glider@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_060521_803710_0A79B3DA 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20241025_060531_003045_66DE95F3 
+X-CRM114-Status: GOOD (  25.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +91,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
-
-On 10/25/24 14:59, Mark Brown wrote:
-> On Fri, Oct 25, 2024 at 02:18:02PM +0200, Eric Auger wrote:
->> On 10/25/24 12:54, Mark Brown wrote:
+On Fri, 25 Oct 2024 11:54:38 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
->>> I'm not even sure that's a terrible fix, looking at the changelog I get
->>> the impression the test is deliberately looking to do problematic things
->>> with the goal of making sure that the kernel handles them appropriately.
->>> That's not interacting well with the KVM selftest framework's general
->>> assert early assert often approach but it's a reasonable thing to want
+> [1  <text/plain; us-ascii (7bit)>]
+> On Thu, Oct 24, 2024 at 07:05:10PM +0100, Marc Zyngier wrote:
+> > Mark Brown <broonie@kernel.org> wrote:
 > 
->> Can you elaborate on the "assert early assert often approach". What
->> shall this test rather do according to you?
+> > > # ==== Test Assertion Failure ====
+> > > #   lib/kvm_util.c:724: false
+> > > #   pid=1947 tid=1947 errno=5 - Input/output error
+> > > #      1	0x0000000000404edb: __vm_mem_region_delete at kvm_util.c:724 (discriminator 5)
+> > > #      2	0x0000000000405d0b: kvm_vm_free at kvm_util.c:762 (discriminator 12)
+> > > #      3	0x0000000000402d5f: vm_gic_destroy at vgic_init.c:101
+> > > #      4	 (inlined by) test_vcpus_then_vgic at vgic_init.c:368
+> > > #      5	 (inlined by) run_tests at vgic_init.c:720
+> > > #      6	0x0000000000401a6f: main at vgic_init.c:748
+> > > #      7	0x0000ffffa7b37543: ?? ??:0
+> > > #      8	0x0000ffffa7b37617: ?? ??:0
+> > > #      9	0x0000000000401b6f: _start at ??:?
+> > > #   KVM killed/bugged the VM, check the kernel log for clues
+> > > not ok 10 selftests: kvm: vgic_init # exit=254
 > 
-> In general the KVM selftests are filled with asserts which just
-> immediately cause the test to exit with a backtrace.  That's certainly
-> an approach that can be taken with testsuites, but it does make things
-> very fagile.  This means that if the test is deliberately doing
-> something which is liable to cause errors and put the VM in a bad state
-> then it seems relatively likely that some part of a partial cleanup will
-> run into a spurious error caused by the earlier testing putting the VM
-> in an error state.
-OK I better understand now. Thank you for the clarification.
+> > > which does rather look like a test bug rather than a problem in the
+> > > change itself.
 > 
->> I am OoO next week but I can have a look afterwards. On which machine is
->> it failing?
+> > Well, the test tries to do braindead things, and then the test
+> > infrastructure seems surprised that KVM tells it to bugger off...
 > 
-> It was failing on a wide range of arm64 machines, I think every one I
-> test (which would track with the change being very generic).
+> > I can paper over it with this (see below), but frankly, someone who
+> > actually cares about this crap should take a look (and ownership).
+> 
+> I'm not even sure that's a terrible fix, looking at the changelog I get
+> the impression the test is deliberately looking to do problematic things
+> with the goal of making sure that the kernel handles them appropriately.
+> That's not interacting well with the KVM selftest framework's general
+> assert early assert often approach but it's a reasonable thing to want
+> to test so relaxing the asserts like this is one way of squaring the
+> circile.
 
-Yes I can reproduce on my end.
+It *is* a terrible fix, since it makes no effort in finding out
+whether the VM is be dead for a good or a bad reason. In a way, the
+fix is worse than the current error, because it silently hide the
+crap.
 
-Thanks
+So this test will continue to explode until someone fixes it
+*properly*. And if that means rewriting the selftest harness, so be
+it.
 
-Eric
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
