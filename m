@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D76FD149F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 23:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D5FD149F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 23:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXWsYi8bGYheWlLvzzSja8YQDlmxSRT7Q8dneFWcjp4=; b=txAMiIeVqbQLjGbXanjJRclvQM
-	OYF/PQtRkza+b+JtiiJ12rWymodnYoTb1iBlngMBcEW3JZk+nHBvvQKM10N4mu3eZ3btMjBLqaOOS
-	mpwxFZTb7+4bCh37EVTgQQLJOZnsIyDrH79M37uTJ/ZRbWMbX08Xy4LrSIQqy1o905ZEUJ5bb+xBi
-	CXcGmucGAXr8FMn28bxkPpA4pH3HYtYIY4gCu8mEsaAOELGXE6S87/1n995Oo+zDrRLeUJyBUvgw3
-	bUg1xTSgkYvGK2NQlkhET3bA0Lsbro9nMBwF+iGbSC1WhVShHBL1b3okeWWNn48eWY7bGHdz6AKQh
-	V0y5vN7A==;
+	bh=Wp1HPOnz6KaDGaKZ01AnsiVak0lO4QvTbnFD63srZug=; b=HoiV2DgQL/p2wuf3H+k9+QX5oh
+	77eirScc6zrBi5uM4iCD4BIWIchvz7PDq/Y5nCHkInn10iT9CsiZFW9K8lRUWyKlsuGhQasTpahdW
+	SLxpo5QL208r/MKbavZXd4B/oidn5032aqtIO0qqVyO8uW1L2y8lqdOZ0Fx65SQ5x/2G1P1JH6MVE
+	jazr6tYsrUmNpg3CQzc16EGbDpR2mb+M661OSfuuVND6RqieId51gkCkAgFBAZ2TuyNMN1o4lAgnG
+	TDACmSjXlC5MEMVKLVhyoB0uQpP0zKD4fE5puuV/nUYPSN0UuTIAs2b3StPhJ+IkLF9qeBYkQsY0z
+	GzDZmFtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4To4-00000005XK5-0IcF;
-	Fri, 25 Oct 2024 23:33:24 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1t4Tpa-00000005XUS-3PDL;
+	Fri, 25 Oct 2024 23:34:58 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4TmR-00000005WxR-2k2o
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 23:31:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729899104; x=1761435104;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WdGE8rRJ8ooRbPNbKNU3Hoy1T8K2+Fph3zMZRkda4SE=;
-  b=LSmZF4/Fdue9q9YWb0UGFRLc6PXxi+1WPJhEBVoV+AmOMSe6IQLv2tIX
-   A5JznJ35ZeAtcnn5U8igvo0Sg+IAQp1/rvAQtcmD/U9R5lbp+K8Mtzfr1
-   Va6oMzJC0ewHRlMNKTj7d2hRQNhDiiMEA+yS0AZmde7BEdOwsAsNcmC1J
-   7ur8t6/ZuJ2NDrwm0UL9ex96NxwZINJsAnw5honhukMkVzt4UX/jwG2qx
-   w190YhVUnaB6Xn+qPJeXwP0uIy8X+dRIeZwjZEWdKSdYfNYovnqYaA3D+
-   lCZRaZzi4JR7JKnfs2wf+Ky5mytAxcV/iG757YEmdomLeFZWk9wDA49O4
-   A==;
-X-CSE-ConnectionGUID: uAbuGzFCR2GOUgJV2AkjOA==
-X-CSE-MsgGUID: 9r9uwlGRRBa4so11UaIzMQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="33278326"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="33278326"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 16:31:42 -0700
-X-CSE-ConnectionGUID: OLMACmv+TaOtuhdFaVR3Rw==
-X-CSE-MsgGUID: v4s9Hx64SkGsJKoNY5ASbg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,233,1725346800"; 
-   d="scan'208";a="111871703"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 25 Oct 2024 16:31:36 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4TmI-000Z1g-0k;
-	Fri, 25 Oct 2024 23:31:34 +0000
-Date: Sat, 26 Oct 2024 07:31:27 +0800
-From: kernel test robot <lkp@intel.com>
-To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
-	mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
-	richardcochran@gmail.com, geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	angelogioacchino.delregno@collabora.com, neil.armstrong@linaro.org,
-	arnd@arndb.de, nfraprado@collabora.com, quic_anusha@quicinc.com,
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, quic_srichara@quicinc.com,
-	quic_varada@quicinc.com
-Subject: Re: [PATCH v8 6/7] arm64: dts: qcom: ipq9574: Add nsscc node
-Message-ID: <202410260742.a9vvkaEz-lkp@intel.com>
-References: <20241025035520.1841792-7-quic_mmanikan@quicinc.com>
+	id 1t4TnG-00000005XD1-23ui;
+	Fri, 25 Oct 2024 23:32:35 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7206304f93aso296689b3a.0;
+        Fri, 25 Oct 2024 16:32:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729899153; x=1730503953; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wp1HPOnz6KaDGaKZ01AnsiVak0lO4QvTbnFD63srZug=;
+        b=Pg68h6mGirwTaTM2vwMG+4jkr+IZyc+oaRTpiKXEg6ALdsw1+VmHE/qY3vLo4sI0bP
+         J3CljFTTYq9l3clygPwHgC2D5AFra8oCxAz2FVLoEB76uua0Buyw2A2Y7ttEPN8dXIX3
+         DhDpVETwVXkZLXrBYa6Qjk1q5ESdTp1B4TD3CQK/DRho8fLEA97d0bPClJdr/pyLYzTC
+         sxYgEywTjVs4ehz5f0A+xU7bjswgydoqWxunyw7c8qGw+qxZFT6q3Tq+NlQyT21nPB+s
+         0SdHI2Audq1AUt/xQRicqPEsqL7NC/C1+ra+kTLGfyiWSdMDq2WB15yyK/klAla2AC9N
+         SdPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729899153; x=1730503953;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Wp1HPOnz6KaDGaKZ01AnsiVak0lO4QvTbnFD63srZug=;
+        b=JSI7KbgBqqRYnO4dp2EtKrLDY3U1+SXkk6ad7sOB02qzDSUlWqxsztm/QR5DyyPly/
+         sjMNoy1kErhWMx3QyG/nMS4zsZECcUfK8CEuP2PvdPb9GvwFiFVzR9ooQZINsVVZkAOm
+         2QD42eYd9Sz9/W9pSTw9sWEeuUU0pPd22b/sjqZreRCbu61nZcY6Nq6LaLuHDbTm35jH
+         ztkDhmv/73JFrCirz5KGKf1WEHYWwSZxrf/oqcYfj3fJyRqrt3R4yAxgJe16Ak7hDeNz
+         Uptp9hnIDd9kPNn/gAnuXEvEgqdmdSFbgIq8m5gCbl8m7AQJI5Gbl8yL9/swPCEh2roD
+         jzgA==
+X-Forwarded-Encrypted: i=1; AJvYcCWZdK8n2Xy7QChX4wLoO69IG8/ErfoseayqCJ4aMmusz8ImYEgg3++NSIkMccUxhc9F+ZH2V81D1sSylYI=@lists.infradead.org, AJvYcCXq4uGPSpzNjHoI77G0js/gVhopMs6RSaAtMAPQBfK2xfop+hl19/XqeCEgvcHlJ1/EBVtzMk98BomSqSU9BcPf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNL8gGihBPfPFgGy3iJZwd7HR6ux2QurWkR2+bymKyonipL9L8
+	byhXnXiM5LNFtXHvxgNjuIE+m5Fgfbc+wcQk0Rb4qmoWl8u9GX1D
+X-Google-Smtp-Source: AGHT+IFEMrLhc1Bg4iRCP4q4hozIJt6Sp7huOuGxcV+yJK49RmRzhj24Vshw5AfU6IcH7rJlxKNWYA==
+X-Received: by 2002:a05:6a00:b54:b0:71d:fb29:9f07 with SMTP id d2e1a72fcca58-72062fc7c5dmr1589435b3a.15.1729899153356;
+        Fri, 25 Oct 2024 16:32:33 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057931e2csm1641781b3a.63.2024.10.25.16.32.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 16:32:33 -0700 (PDT)
+Date: Sat, 26 Oct 2024 07:32:12 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 3/4] net: stmmac: platform: Add snps,dwmac-5.30a IP
+ compatible string
+Message-ID: <lsy4wjdce3bhnqgpnu6ysby6ghlzro2ghp6z3jzmwu6vuisr5m@dbljy7b3dhgs>
+References: <20241025011000.244350-1-inochiama@gmail.com>
+ <20241025011000.244350-4-inochiama@gmail.com>
+ <2b691bea-3b2a-469b-bf5f-5e80b9b9b9a8@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241025035520.1841792-7-quic_mmanikan@quicinc.com>
+In-Reply-To: <2b691bea-3b2a-469b-bf5f-5e80b9b9b9a8@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_163143_774176_0454CB06 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20241025_163234_551745_EC2E7A84 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manikanta,
+On Fri, Oct 25, 2024 at 04:44:55PM +0200, Alexander Lobakin wrote:
+> From: Inochi Amaoto <inochiama@gmail.com>
+> Date: Fri, 25 Oct 2024 09:09:59 +0800
+> 
+> > Add "snps,dwmac-5.30a" compatible string for 5.30a version that can avoid
+> > to define some platform data in the glue layer.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > index ad868e8d195d..3c4e78b10dd6 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> > @@ -555,7 +555,8 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+> >  	    of_device_is_compatible(np, "snps,dwmac-4.10a") ||
+> >  	    of_device_is_compatible(np, "snps,dwmac-4.20a") ||
+> >  	    of_device_is_compatible(np, "snps,dwmac-5.10a") ||
+> > -	    of_device_is_compatible(np, "snps,dwmac-5.20")) {
+> > +	    of_device_is_compatible(np, "snps,dwmac-5.20") ||
+> > +	    of_device_is_compatible(np, "snps,dwmac-5.30a")) {
+> 
+> Please convert this to a const char * const [] table with all these
+> strings + one of_device_compatible_match().
+> 
 
-kernel test robot noticed the following build errors:
+I will, this make the check more clear, thanks.
 
-[auto build test ERROR on clk/clk-next]
-[also build test ERROR on robh/for-next arm64/for-next/core linus/master v6.12-rc4 next-20241025]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Manikanta-Mylavarapu/clk-qcom-clk-alpha-pll-Add-NSS-HUAYRA-ALPHA-PLL-support-for-ipq9574/20241025-121244
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-patch link:    https://lore.kernel.org/r/20241025035520.1841792-7-quic_mmanikan%40quicinc.com
-patch subject: [PATCH v8 6/7] arm64: dts: qcom: ipq9574: Add nsscc node
-config: arm64-randconfig-001-20241026 (https://download.01.org/0day-ci/archive/20241026/202410260742.a9vvkaEz-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410260742.a9vvkaEz-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410260742.a9vvkaEz-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> Error: arch/arm64/boot/dts/qcom/ipq9574.dtsi:766.16-17 syntax error
-   FATAL ERROR: Unable to parse input tree
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+Inochi
 
