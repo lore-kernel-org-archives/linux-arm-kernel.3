@@ -4,101 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0ED2D1171E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A805D0C5E5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7IRHCiYcoaw9jtO5vigiOEHerBRKYUUQRuDw5/DXG8=; b=eY96inSJJFBhaeBfMcdLDhVzJU
-	izC2PgQY9uwO1ibDzzDZ3FG1v8/rcpjcQBipxX1+/l5QP+Sd7+P/lzTLBZwIjgZrkgeG3eYSiQOs+
-	V1MA0RgRTrSuMPVInqaU0KMu3Ycahn7yVQbvK+uqniKwlFuxDJaWwxmGQBPbKm/B8RLg3jY1kdjsA
-	nxbl8lCm5sfptOxRM5nYj9+jlaIMgzR3WAULno7Nea/xg2eX5Gp4OM5fjmsGxu4aShGmF11yOHG3b
-	XEXPVYDkH7UP4d1vvNsfeD3s7hPFauZPrUFZuYcOtH6zRH+KHdpPb9ypJDSSFDFTJVoUnF6McQPx+
-	KIx6EjBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=; b=jDpNomasT/2uDNHMxf361VJrVO
+	ybfVCT/abGLdMfGTtXz+vY3BIsOD0ktDWxjyW67vp51na/gBqk3aNlyG0Hfpim0+jg3QAAcGgYq/g
+	rq+tYDB1C5NdFUtbuMtAe2ZnNEhODxOqlzrMjidjUpGnN0ioqF83WaU2XKeJcHaGF7NKdyWGmG305
+	+RuWF0gxNxqHr8U+ITwMqCs3u+6P9IDmsr0m2E4oNcsQTcyl6CejFmgHOcPZXWFCLYjrFl9jqgWse
+	YcpSMcWHoWzG5QvQmaFWGMRMGqzBeBPm3gvs/63YfO+nj4ZYZdkQiNtqj+BInzTrscDhCTSaUsHYr
+	13M/i+NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FXm-00000002xaq-1FkQ;
-	Fri, 25 Oct 2024 08:19:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t4FeD-00000002yQB-0vBF;
+	Fri, 25 Oct 2024 08:26:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FPj-00000002wG5-35wG
+	id 1t4Fce-00000002yIZ-18s8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Oct 2024 08:24:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:In-Reply-To:
+	From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=; b=lf/U8uPMPPk6B7D3anwHLTlvS2
+	CwPZggACKPeadgOW/stp7mE4yi7OJDWHt0ERIaa2Rk+J6Zu8ZPyJ6DAe0LAKIy5P2mGzfm+VKDOSE
+	LvrkMzlEy9bvBBjA80de5Fs69KNAvNWZUxZSR4mLu7AWuq5f46qlZjxCYj3kLhaHgnL/CYYeiG78E
+	VHxbst/nO1sDOwnAZxW0QWgX2Di+u0GPKOFavHdWDuT8IZ3fICUvKr9gN+Urc5V1dqSeQil3AYRh4
+	CMCYVLJG93WOXKEGq6zleSnUE57i//DLs17YzTwBkuO80Tkr8Ajiw5fe2Ji+dPoi/0k9/N7fHvSri
+	2JDcP+JQ==;
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4FcY-00000008rlk-0yBj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:11:21 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49OKIl7Y031140;
-	Fri, 25 Oct 2024 08:10:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	e7IRHCiYcoaw9jtO5vigiOEHerBRKYUUQRuDw5/DXG8=; b=K4fC/WGi98wX9uB2
-	fVafKTflUfcRumDUUZjK6f1zEVy2DWxmhzgXpwbt16oDkFNfDbdAfTsWiDqJ67Ji
-	7cF7LSMPzTmh5C+dh6ZATWB0bJqzRr/ZqhmBsHew+U1gDRsxZSqosWB0t+urFxRJ
-	/bocPua1t7uWhEOGQbM1tFehAuy+YPNGPBFWcBFrUwTsf/jGthi8Vpz1btNlUEH8
-	1wzPyXbxbIv4uFiNJWKaGAiJjDM78lxd9QVCWZ9t/j9REwqe/jwGnO37LPItMNbP
-	5iU81YVFzcplE4iR5shl24Ggl3Y8xHI7Zl1XWBVboQqofAOA+u4Fxg9zpf8r9H22
-	igl7sw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42em3w09js-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 08:10:57 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49P8Auh2021635
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 08:10:56 GMT
-Received: from [10.239.132.205] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 25 Oct
- 2024 01:10:49 -0700
-Message-ID: <de0f9f1c-9d5e-492d-b7fa-cb7e9d05ae10@quicinc.com>
-Date: Fri, 25 Oct 2024 16:10:46 +0800
-MIME-Version: 1.0
+	Fri, 25 Oct 2024 08:24:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n5HHtOPcC7Rhb/o29qT56kKKU5XSv6ajUXUr9kb5JrMyAGd2x+yIFpt9YFzjQ1aGT/6VzZslPy/V6JB27tlxWLuWEAdETdqOCk86B4mi4zhB6Ud+xl/Qs0noxEwIofVoqOSoZVK4SWsRgrzUP6X3vRq1KLzRggnN9Gm4s1PNj539HWJjNjokn2nz262KokazxnMT57NY69eKV7cOi8Kn1dHIO77j4SAeCmrtIb3AuNIeOLnhWZnbmU1O2JdZV94kdpkpJ4zYBZgoMmakPuPCTew+V5haNKoiSJ8dD7K2oPD1JaALSQtrPgoxrN3dd3mKXgFFx35nHsGpegLgcSho4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=;
+ b=T7x1MJJLnhMsRlh8v7AFJeyS6/WbB8XZAzT9T2VhwAE8J8oXqBczmQCK9+BXY6qTWKZ7tZSHvH0lViKfNf5pkNeyQY8BUBFE7Ekx+OPo7rdQ0bMLsc5065HsmwOFn1BQXR9xc11FBFFIt63u3JG3oCY+N8aZOxNJsPZ3JexUlwUy/qMOTfYEG5JxN9/1VpcJYZxolJ57Oq4w4P0g4p9kBF4pIZkRJEdgKE0d16s76GuW2gzih13btcrc9jWL6PuHXB6HeKaFc5duK34d7gKhFjtj1xLzcyFoV6zRFyq3gx8D8d2kq+BS0W9qp30Nn1WNSlJRa3bGT1vKYXrxWEXrgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=;
+ b=F8Svgnq24RqX5AWFD39QCQ7DhcLxSDeIheB/+fugpBbhYTmOnpBuKvjcA0jjH2qfXl5OZ22Lw/kU4cfYlKDzs1NsjVlPupYbQkI8OoCNz2RjFph3NA4FOjGfsZGYILPxHVZgsZgnkHq75pZEVFyROOnnmdMRGj703UmSqviyjSGuHviWL9xGQjwxmbEONhDEYz0PoZTcTOUmxGMGJo1LsDW1JQmgPH8DFyP5es2mqLk0omDyjJtMMnQyosaIw5C3QrKl2p9W9PVeJw80sBE8NWLPAhsZZcQRfoae452uoYHp1F/qVAH0epPTtQeTXkibtKAMUnaO1oaSYp3YVsGr5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20)
+ by PAXPR04MB9140.eurprd04.prod.outlook.com (2603:10a6:102:22f::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Fri, 25 Oct
+ 2024 08:24:26 +0000
+Received: from DB8PR04MB7051.eurprd04.prod.outlook.com
+ ([fe80::8f9d:4273:ea83:167a]) by DB8PR04MB7051.eurprd04.prod.outlook.com
+ ([fe80::8f9d:4273:ea83:167a%5]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
+ 08:24:26 +0000
+Message-ID: <4e78781a-bce6-4582-b6aa-417f57c4725f@nxp.com>
+Date: Fri, 25 Oct 2024 16:24:48 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/7] Add initial support for QCS615 SoC and QCS615 RIDE
- board
-To: "Rob Herring (Arm)" <robh@kernel.org>
-CC: Taniya Das <quic_tdas@quicinc.com>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        Tingguo Cheng <quic_tingguoc@quicinc.com>,
-        Conor Dooley <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
-        "Will
- Deacon" <will@kernel.org>, <kernel@quicinc.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Swetha Chintavatla <quic_chintava@quicinc.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com>
- <172978739698.623494.13901719999982782781.robh@kernel.org>
-From: Lijuan Gao <quic_lijuang@quicinc.com>
-In-Reply-To: <172978739698.623494.13901719999982782781.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: CTbYYdIaI2Cq2J-7SVRATYo4BDz2HKXb
-X-Proofpoint-ORIG-GUID: CTbYYdIaI2Cq2J-7SVRATYo4BDz2HKXb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
- malwarescore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
- mlxlogscore=999 priorityscore=1501 mlxscore=0 suspectscore=0 phishscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410250062
+Subject: Re: [PATCH v3 12/15] drm/bridge: Add ITE IT6263 LVDS to HDMI
+ converter
+To: Biju Das <biju.das.jz@bp.renesas.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "rfoss@kernel.org" <rfoss@kernel.org>,
+ "laurent.pinchart" <laurent.pinchart@ideasonboard.com>,
+ "jonas@kwiboo.se" <jonas@kwiboo.se>,
+ "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
+ "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
+ <simona@ffwll.ch>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "quic_jesszhan@quicinc.com" <quic_jesszhan@quicinc.com>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>,
+ "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+ "tomi.valkeinen@ideasonboard.com" <tomi.valkeinen@ideasonboard.com>,
+ "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+ Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "sam@ravnborg.org" <sam@ravnborg.org>, "marex@denx.de" <marex@denx.de>
+References: <20241021064446.263619-1-victor.liu@nxp.com>
+ <20241021064446.263619-13-victor.liu@nxp.com>
+ <TY3PR01MB113465BBC5FD4EAAE89D9EA57864E2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <TY3PR01MB113465BBC5FD4EAAE89D9EA57864E2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+X-ClientProxiedBy: SI2PR02CA0048.apcprd02.prod.outlook.com
+ (2603:1096:4:196::23) To DB8PR04MB7051.eurprd04.prod.outlook.com
+ (2603:10a6:10:fd::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB7051:EE_|PAXPR04MB9140:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30020c35-450f-459d-dcc7-08dcf4ce703b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WXlqaEw0MUlWa1U0OHVaUlpjaW02eXNRQ05VdWxxN3BITE5GcXQ5N25qdWtF?=
+ =?utf-8?B?ODl6YzFBQU5kMWNycktCdmRLUC9PQWtUU1VvM2pOVmJEclkwL0c5UHc3Z2F3?=
+ =?utf-8?B?SFNVTEFYek10QWcrYnRDR1BhRGJmTTNTY1FiSllJRXZIc2RJVk8vai9UWjQ3?=
+ =?utf-8?B?UmN1NlRxQ09DN0JUc2ZKSmFON3JQd1V2d0g2ZE45aS9vZGtVcHhodnpieHdy?=
+ =?utf-8?B?azQrWTVKWVk0NEh1eXd5SVVJOG9GbDFvcVB6MFBPVUtXOWUyZDdiZ3F0UUVq?=
+ =?utf-8?B?MTQ5NTRvZG9rMkQzSWovQTZzYUdTTGtJZGlwSUFUSUg3SUpOVjltSm1VTFZr?=
+ =?utf-8?B?SVFnR1lNaFJWNjZWRHQremk3NENzdFEyRzRYaUhmWVlYYkVyNFlsRWNEVGNk?=
+ =?utf-8?B?bjlTeS9nVTlIcDRna1dicEJlWGlkK3BUeDFyNWZXd1lqdHV4Y1RZY0ZCVDB2?=
+ =?utf-8?B?U3FYVFRseC90RDJlaW9YdVp1L29RaGFzM1RqTHlwaSs5OUpYWGx1RjdVWURp?=
+ =?utf-8?B?NkYyWTAxb2ZDc1FSRFlMNE0wMFdGWFF1dHZuSGNQbDc2aGFNS1ZTQnNPTWcx?=
+ =?utf-8?B?YnNkNlZocVliKzNZYTVjMWNML3o2UGsyblZZYVduSElsNGpSOStOZmlaakdB?=
+ =?utf-8?B?K3pLY1lRbkd3amh4dmQyZjEwSUpDKytrY3l4NHVEY01TUWNUOGlIcS8vTk01?=
+ =?utf-8?B?R2xuVy92TXgyenhRcHR4UGdIaTI5SU1NU3JzbXg0SXE1dTA4b1dwL0RNVVVT?=
+ =?utf-8?B?TW1JK055RW5HZU9TeVVJeS84bG4vYlhreS9xY0xRNjZVS2JZWXRkWHhjWXBZ?=
+ =?utf-8?B?UkJQZnBjcWxycmlTN2QyektaK3cyZGhGclhYbldxaXdSem1jaHpvNjN6SVgr?=
+ =?utf-8?B?STJtekVJMlA1L2lyUXBTM0NzaUxlQnpEcXhJMXAyRjNnQlRPcWNMTVhrb1E4?=
+ =?utf-8?B?Y1ZaeW1pbXdFZUV1VzlBNkNsTjNoT3NnSFc3Wk10WG5pUmpFYVRRc1hvZjZF?=
+ =?utf-8?B?d1kvTDlxT29ieWNScWJWVEw0by9YMm96WDlCbGtSd21aa2xuZFNEY05tRVNu?=
+ =?utf-8?B?bXBxWlFYeHYyWGh6NktlNEp6K0ZzcjhTcWJwUVVzZ2lDUDVySU05QWJBZHBq?=
+ =?utf-8?B?ZE9ZMS9UWVc5citXdTlyZzlkSE9uQngwVTlqT3VoeUpPUitXTzZ3TmtGemgx?=
+ =?utf-8?B?TTBtZ1grQmdtY0N4ZHB6Tm5NNldWdHBhb1hZQjRQRVRoa2I4eHRlTkZnWEFy?=
+ =?utf-8?B?cUtsRnJyMkNmUUZFZjdyZWxTMUZqVmFodTRDTk5oRmR6ZndVNUVxM2gwNVJF?=
+ =?utf-8?B?aGt1Q3BHbTltR21HUmZOQzNuU3p4WW51Nk1lOHB3cTkxaVNERTh5UHBvZEdq?=
+ =?utf-8?B?eE9XdWlFQ0dqMXZERnJRQm5oZG13dnhKR2VsOU82SGNaWEZmUzhaOVB1dTB2?=
+ =?utf-8?B?UXQ5Skh1Q25HZVE2TW1XQnhUZTFaQW54b1NZd2FEeUdTSDJlRytMTFNsdkdt?=
+ =?utf-8?B?ekh4S1hNSDNPY0h5RFBuUm1WNHRDdGh2ZFVOZjNHbWVsUEVydUdqOE9jTWpM?=
+ =?utf-8?B?ZkxGbExHYUYzMXhQN1ZuSHB6RWRxYTlHbjJlOVpKSmN6SVZSMkVkL3VTMm9y?=
+ =?utf-8?B?RUJDY1dGZUVFeTJ3cGdsdllnTW9TQmoxbDJUcWVPTkZNNUJORU9YS0xnQ1J1?=
+ =?utf-8?B?MHFjMnQrenRKaUVSZnZXMm1BbkttbHo4eEtHd29UU1E3ZjVERWJadk5Mb2Fs?=
+ =?utf-8?Q?iOure9T770azIK/H9TE4WQ9wskg8AkfEPMyDm8Y?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7051.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S0kzYzlpdVRDM3FXSnN5d0Q1SkorTHFGSFJsSERNbEkvMVFIZmFWY0ZDL1dv?=
+ =?utf-8?B?ZUkxSjArcm1kNFZneTlOdlFGYVNjK0FOdmtET0J6anFvcHRGMjZ2dW5nYVgz?=
+ =?utf-8?B?blVXSDZKRytiekVQeDZGaDhRNWlwazRqeWsxaDRCQjdjVGp5bnFrVG52bmNp?=
+ =?utf-8?B?RTQ2Z3IycVh6VEdrWFhUcng5eXNRU2hQb08xREhYbSs2Z2c2RG5jOUtRN0da?=
+ =?utf-8?B?TFZwc3Y3SFQzQ1BRd0xCMXYwNi9UemIvZ21TcVVIL2FuamJWNitmaThXNUFP?=
+ =?utf-8?B?YkR1QnVhZmg3VTk5Z2htdG1UbzRSalZBd0tvYytyTmlUSnBWSy9QaEFKRUZU?=
+ =?utf-8?B?d1h2NmlXT0JIU2hsRkdSOWpiaDNHU1M1dy9jRlphNlRHRFg2RElUMUYwMlgz?=
+ =?utf-8?B?eHdvZ1duN2gzcnhwOEdYYlFpWm5TUmo1ZjRaeWlTV1VEOGlHcWZ3UkRMcXgv?=
+ =?utf-8?B?bFJHalVxNmhKcFBrcGNyYm1Sc1VrMWVCMnFuZWNtOTRyUUU2emNSMkhLRU5j?=
+ =?utf-8?B?QytUQm5xemtIM2ZIOGZBQWVGVU9nK0JQdWVMT29qMVRzYm1iZVU4b05aK0I3?=
+ =?utf-8?B?MXpmME5TOUxiaWYzZXB1ZzQ5MEQ5cERsYkZ2UUxpNmIyMDkwcFNSaEdlbTlT?=
+ =?utf-8?B?bXRaTWN3NmVvTUtrOHpDSmhGbm03K1BNK01aR0lGbmE1bnp1N2dTZE96dlZ4?=
+ =?utf-8?B?KzRwYnU1TDdzVVVBcVhXb0FYdDhVaGlPVHV4S3d1THRVS1RBWjh0a1Nicnp0?=
+ =?utf-8?B?dWNYaEVTejlUcndkaWNOY1M4TVlhR2VJY1M3ZG1tWStzUmlMeXNERndhOTZR?=
+ =?utf-8?B?TmlkbGxBSkh3d0JqY2NkQ05wek00Sk1yUVNtNFljeEU4UkNjTWlubFM3QlQy?=
+ =?utf-8?B?Y08wOE5iQ0Q0TGdNb2FGamZXRWtueWgzd1hvd3BEOWx6eitlV3dJVHhYd2tE?=
+ =?utf-8?B?UzdGbktYL25MV1RqVUl2T1JyRWVKL1h2a1BCdlllc01IL0RSQnlJMlBSSlhq?=
+ =?utf-8?B?SHoxMVNQaXIvNjFmT21xMGROaDFtZ0I1UTF6dVlieGJhRjhma1pFZUZaQ0JR?=
+ =?utf-8?B?SURWSFZoV2J1cWhhWkRWUkl2SzhSd09pTjYxVGVpRE1EYU84dUIrbGFKZ1Z2?=
+ =?utf-8?B?RFRYaGNrbHFqclBmS1VCL0lWbjNSNmpTUnY3Vk40Y3VadDNIYlFEaEd2TWhh?=
+ =?utf-8?B?SExRazJxdU1HTWtzdmVpTXU1R3pqOGczK2NBb3ZzMkY2OFhvV2xwbEg5QWpZ?=
+ =?utf-8?B?SnV5NDdBZ1FmV0xXVi9jeTZoTktzZkNxTW1wcHAxWjBqZ0JBOEdGNGJnQ3ha?=
+ =?utf-8?B?VXNnVEs4Q0ZwV0xRNDJWZ2F4ajBLZ0JtYTJVNHNvWmR5ZTh5dGUzTHVmamtV?=
+ =?utf-8?B?QjZqNzl2anRmRVIwaWl4NnY2RS9jRW5mc1Y2TVlhL2tpV0Jsc3hPSko3em1U?=
+ =?utf-8?B?REh5NTlObExmc1RDUGhIV1FNQW5nNkRmV0tkcjJhcmpXQWNpaGRQdi9OSlFr?=
+ =?utf-8?B?QVgyK25USjFxdElkeTR2aHFHeVBDMk1DRmp4citOMkNxMG51Y2phWVZhcU5R?=
+ =?utf-8?B?RlkvWE5udmFpZWQ5alNaYTJRTVM4TitTaWdOQWZqdzA2SFNmaUl6SEh4eXc0?=
+ =?utf-8?B?VThaclVwSTJFSnBlTlJ6VEdJcUNpVjhGODN6RW9oOGJaS0ZpMUdjYzlhMnRZ?=
+ =?utf-8?B?K2Z3ZWxPeGxKMTh0QWZzOXZhT0ZmV2dHSXB3cXFVZXVTMmpsLzRrSjFzczcr?=
+ =?utf-8?B?S2VGWCtOdWRjZExJQjNldktNd3RncmZicVBrMU1EYVhpdlN0QkhyOEJEUU1Y?=
+ =?utf-8?B?TjRpZUhsZ3Exc1JiMExDRFF2MzVRK285STF5Y0VwNE9zaHFVd1ZHOVFBK0xH?=
+ =?utf-8?B?azNiKzFyQUorNm9Bd2Q5M0JnQXkzZFlvZ1ZtQVBiNEpWeExBTHpsMHlUOUF0?=
+ =?utf-8?B?cTBNc2dpMUVrQmpGTi9RbC9hWTJXOW11amYyWm9WY3VqRC9uTzlpNEFaZFNB?=
+ =?utf-8?B?dTRuU2kwSXlsemNMa1Q2V3NnYnpXbGU2K3dFYXRTbUd0N3pnbVd2eXNtRjVI?=
+ =?utf-8?B?RUx6U1VVMnVsVWZicEF0c1ZuSnF4Ti9QMVBUQ05UWjh0bWlFK2lJMlNGc25W?=
+ =?utf-8?Q?uZfgvhn14yKvX+9kLSP5oVP5v?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30020c35-450f-459d-dcc7-08dcf4ce703b
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7051.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 08:24:26.4705
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Yugeoa6XZy1wbvtUC2RlA+Cwrg6q51eoNeNk05ulFaoCPYLAC2GwBqMyUmZMMlJDZhoooaLfFxaxt/xTYxxINw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_011119_854289_0F8CEA1C 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20241025_092436_440284_DA07193C 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,160 +225,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/24/2024, Biju Das wrote:
+> Hi Liu Ying,
 
+Hi Biju,
 
-在 10/25/2024 12:33 AM, Rob Herring (Arm) 写道:
 > 
-> On Tue, 22 Oct 2024 16:54:28 +0800, Lijuan Gao wrote:
->> Introduces the Device Tree for the QCS615 platform.
+>> -----Original Message-----
+>> From: Liu Ying <victor.liu@nxp.com>
+>> Sent: Monday, October 21, 2024 7:45 AM
+>> Subject: [PATCH v3 12/15] drm/bridge: Add ITE IT6263 LVDS to HDMI converter
 >>
->> Features added and enabled:
->> - CPUs with PSCI idle states
->> - Interrupt-controller with PDC wakeup support
->> - Timers, TCSR Clock Controllers
->> - Reserved Shared memory
->> - QFPROM
->> - TLMM
->> - Watchdog
->> - RPMH controller
->> - Sleep stats driver
->> - Rpmhpd power controller
->> - Interconnect
->> - GCC and Rpmhcc
->> - QUP with Uart serial support
+>> Add basic HDMI video output support. Currently, only RGB888 output pixel format is supported.  At the
+>> LVDS input side, the driver supports single LVDS link and dual LVDS links with "jeida-24" LVDS
+>> mapping.
 >>
->> Bindings and base Device Tree for the QCS615 SoC are splited
->> in four parts:
->> - 1-3: Binding files for QCS615 SoC and PDC (Reviewed)
->> - 4  : Soc table entry (Reviewed)
->> - 5-6: Initial DTSI and RIDE board device tree
->> - 7  : Enable uart related configs
->>
->> Bindings Dependencies:
->> - watchdog: https://lore.kernel.org/all/20240920-add_watchdog_compatible_for_qcs615-v2-1-427944f1151e@quicinc.com/ - Reviewed
->> - qfprom: https://lore.kernel.org/all/20240912-add_qfprom_compatible_for_qcs615-v1-1-9ef2e26c14ee@quicinc.com/ - Reviewed
->> - tcsr: https://lore.kernel.org/all/20240920-add_tcsr_compatible_for_qcs615-v2-1-8ce2dbc7f72c@quicinc.com/ - Applied
->> - tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-1-e03c42a9d055@quicinc.com/ - Applied
->> - interconnect: https://lore.kernel.org/all/20240924143958.25-2-quic_rlaggysh@quicinc.com/ - Reviewed
->> - rpmhcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-1-bb5d4135db45@quicinc.com/ - Reviewed
->> - gcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-3-bb5d4135db45@quicinc.com/ - Reviewed
->> - rpmhpd: https://lore.kernel.org/all/20240927-add_qcs615_qcs8300_powerdomains_driver_support-v2-3-18c030ad7b68@quicinc.com/ - Applied
->>
->> Build Dependencies:
->> - tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-2-e03c42a9d055@quicinc.com/ - Applied
->> - rpmhcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-2-bb5d4135db45@quicinc.com/ - Reviewed
->> - gcc: https://lore.kernel.org/all/20241016-qcs615-clock-driver-v3-4-bb5d4135db45@quicinc.com/
->>
->> Patch made the following verifications:
->> - Successfully passed dt_binding_check with DT_CHECKER_FLAGS=-m for earch binding file
->> - Successfully passed dtbs_check with W=1 for dts
->> - Verified CPU Hotplug, idle and online CPUs on QCS615 ride board
->> - Checked pinctrl-maps path
->> - Verified watchdog functionality with "echo 1 > /dev/watchdog", can trigger
->>    a watchdog bark and later bite
->> - Verified functionality with UART console on QCS615 ride board
->> - RPMH controller driver probed successfully
->> - Sleep stats driver probed successfully and checked qcom_stats
->>    node on QCS615 ride board
->>
->> Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
->> ---
->> Changes in v4:
->> - Configure vreg_l17a to High Power Mode (HPM) as it supplies power to UFS
->>    and eMMC, which can be utilized as boot devices.
->> - Link to v3: https://lore.kernel.org/r/20240926-add_initial_support_for_qcs615-v3-0-e37617e91c62@quicinc.com
->>
->> Changes in v3:
->> - Added interconnect, GCC, RPMHCC, QPU, and RPMHPD related nodes for UART console
->> - Enabled UART condole on ride board device
->> - Link to v2: https://lore.kernel.org/r/20240913-add_initial_support_for_qcs615-v2-0-9236223e7dab@quicinc.com
->>
->> Changes in v2:
->> - Collected reviewed-bys
->> - Removed extra blank line
->> - Removed redundant function
->> - Renamed xo-board to xo-board-clk and move it and sleep-clk to board dts
->> - Renamed system-sleep to cluster_sleep_2
->> - Removed cluster1
->> - Added entry-method for idle-states
->> - Added DTS chassis type
->> - Added TCSR Clock Controllers
->> - Added Reserved Shared memory
->> - Added QFPROM
->> - Added TLMM
->> - Added Watchdog
->> - Added RPMH controller
->> - Added Sleep stats driver
->> - Link to v1: https://lore.kernel.org/r/20240828-add_initial_support_for_qcs615-v1-0-5599869ea10f@quicinc.com
->> ---
->>
->> ---
->> Lijuan Gao (7):
->>        dt-bindings: arm: qcom: document QCS615 and the reference board
->>        dt-bindings: arm: qcom,ids: add SoC ID for QCS615
->>        dt-bindings: qcom,pdc: document QCS615 Power Domain Controller
->>        soc: qcom: socinfo: Add QCS615 SoC ID table entry
->>        arm64: dts: qcom: add initial support for QCS615 DTSI
->>        arm64: dts: qcom: add base QCS615 RIDE dts
->>        arm64: defconfig: enable clock controller, interconnect and pinctrl for QCS615
->>
->>   Documentation/devicetree/bindings/arm/qcom.yaml    |   6 +
->>   .../bindings/interrupt-controller/qcom,pdc.yaml    |   1 +
->>   arch/arm64/boot/dts/qcom/Makefile                  |   1 +
->>   arch/arm64/boot/dts/qcom/qcs615-ride.dts           | 219 +++++++
->>   arch/arm64/boot/dts/qcom/qcs615.dtsi               | 688 +++++++++++++++++++++
->>   arch/arm64/configs/defconfig                       |   3 +
->>   drivers/soc/qcom/socinfo.c                         |   1 +
->>   include/dt-bindings/arm/qcom,ids.h                 |   1 +
->>   8 files changed, 920 insertions(+)
->> ---
->> base-commit: de938618db2bafbe1a70c8fc43f06ccdd60364b2
->> change-id: 20241022-add_initial_support_for_qcs615-2256f64a9c24
->> prerequisite-change-id: 20240919-qcs615-clock-driver-d74abed69854:v3
->> prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
->> prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
->> prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
->> prerequisite-patch-id: d0c5edf9c06568ae2b3ffacba47e57ebb43acb15
->> prerequisite-change-id: 20240920-add_watchdog_compatible_for_qcs615-eec8a8c2c924:v2
->> prerequisite-patch-id: 3a76212d3a3e930d771312ff9349f87aee5c55d5
->> prerequisite-change-id: 20240911-add_qfprom_compatible_for_qcs615-e3b02f6fa71e:v1
->> prerequisite-patch-id: 8a2454d5e07e56a6dd03f762f498051065635d85
->>
->> Best regards,
->> --
->> Lijuan Gao <quic_lijuang@quicinc.com>
->>
->>
->>
+>> Product link:
+>> https://www.ite.com.tw/en/product/cate1/IT6263
 > 
+> Just a question,
 > 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
+> What is the maximum single link and dual link modes you have tested?
+
+With single LVDS link on i.MX8MP EVK, the highest pixel clock rate I
+tested is 74.25MHz(1280x720@60).  i.MX8MP LVDS Display Bridge(LDB)
+supports the highest 80MHz pixel clock rate with single LVDS link.
+
+With single LVDS link on i.MX8qxp MEK, the highest pixel clock rate I
+tested is 148.5MHz(1920x1080@60).  i.MX8qxp LDB supports the highest
+150MHz pixel clock rate with single LVDS link.
+
+With dual LVDS links on both i.MX8MP EVK and i.MX8qxp MEK, the highest
+pixel clock rate I tested is 148.5MHz(1920x1080@60).
+
 > 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
+> On Renesas SMARC RZ/G3E platform I have tested with this patch set,
 > 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
+> Dual link :1080p@60
 > 
->    pip3 install dtschema --upgrade
+> and
 > 
+> Single link:720p@60
 > 
-> New warnings running 'make CHECK_DTBS=y qcom/qcs615-ride.dtb' for 20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com:
+> For single link > 720p@60, sometimes I get message
+> "it6263 7-004c: failed to wait for video stable"
+
+I don't see this with i.MX8MP EVK and i.MX8qxp MEK.
+
 > 
-> arch/arm64/boot/dts/qcom/qcs615-ride.dtb: clock-controller@100000: 'clock-names' is a required property
-> 	from schema $id: http://devicetree.org/schemas/clock/qcom,qcs615-gcc.yaml#
+> From SoC side, it can support max dot clock of 87MHz for single link.
 > 
-Got it, it will be updated in the next version, thanks!
+> So just wondering other than reject modes greater than 87MHz from SOC
+> side, do we need to limit any thing on bridge device for single link Case?
+
+Since IT6263 works with 1920x1080@60(148.5MHz pixel clock rate) on
+i.MX8qxp MEK by using single LVDS link, I'm currently fine with
+the existing clock rate validation against the maximal 150MHz pixel
+clock rate.
+
 > 
-> 
-> 
-> 
+> Cheers,
+> Biju
 
 -- 
-Thx and BRs
-Lijuan Gao
+Regards,
+Liu Ying
 
 
