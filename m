@@ -4,142 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6357BD1039E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6A4D149C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 16:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7fehBQKoUt15Btf5np8pxH+JOni9h4K1ixFbRWGxNg=; b=P+zK0XhRO3F4v4VMNyh5tvWOsx
-	G9ACzEt8zNU8wa/CBaZliuGc6DItLaWYzqFj/hNMTskqLhgaaZW4ZvWkHpDY4Pk3G/l0BuzjzRaci
-	gyEkgfBVJ9WCL6MpY1rZReOkVw9BD1mfF6jrscbF0AFjWsbwXU57MfP7XFz0e4N3HC0PJ3fpavSc5
-	mmbrq5Qd49hp1CE1QHr+X9t2Ms1qh7lQeKnmz1z9Hl4aJo/xfcIbTgOQzRwQ56hWGS4kVCdf81bcP
-	qDUgnJK/IykgdTyLZpUit81eEWXPoAaf+jvR+U9E9YJ+sCuIyWnPxX5hIUF2tXxuimpIqeSoIANfc
-	T9H8ujcg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=; b=YXkOw4EMCwFop9uG3Z7WIarEZ7
+	8tUHaXS/ZHmPYwEq70ZYbNS1pAJ643aIqrNrMbyDieVs/1BnGkBgB75HujY8PrQzE6f6SWF/nNQgQ
+	btU6BbZ+42P0uGLFef1uG6WZTi8oBWc3HQqDvFnDN54cNg7BXIxpKVpOulFrEwCk0BgTUwN1i0Mds
+	Pyov8+YhAIvjo/xk3aGaXXRgYDjjKKRtwPPzFTRCgHLzq+oJVLIiD/UprQTdae1rqyB+VNNNOIPed
+	IStJevMGswfiK1ME93S1SHj7ygzgV5710bpEqN8l5UBcb0mB5zZhFNvS6mTF21ySmYVVHDFs7yEx8
+	IwQC8ovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Mka-00000004L9J-3qsB;
-	Fri, 25 Oct 2024 16:01:20 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1t4MpN-00000004Lv0-2Xmj;
+	Fri, 25 Oct 2024 16:06:17 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Jh4-00000003ht3-3D2p;
-	Fri, 25 Oct 2024 12:45:35 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 52E001FE0E;
-	Fri, 25 Oct 2024 12:45:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1729860329; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T7fehBQKoUt15Btf5np8pxH+JOni9h4K1ixFbRWGxNg=;
-	b=Bj8pyQ0sHVehUEnqur0c4LFAVmVsR+iX4mQvSBve6liZmscgPB73vxtYgB4EV9E0MQO/Oh
-	51EGjHvjs5XlEkK0U8hSxruClj27F6TTUUf+YmKZ5PE3KUjKH12HYu0SYW+jjjgY0CiNPr
-	3Z0w1uBso5X2JCrHNKTmXGxTqo4r7ak=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1729860329;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T7fehBQKoUt15Btf5np8pxH+JOni9h4K1ixFbRWGxNg=;
-	b=GpVf9qyR4OOYsP2rEwuhHN7eiPS3oep9cBKcs9V5KEEMks9nWyepBkI4Ohx/GkOBYipnfc
-	g6DYYQGRALnxwoBg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1729860329; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T7fehBQKoUt15Btf5np8pxH+JOni9h4K1ixFbRWGxNg=;
-	b=Bj8pyQ0sHVehUEnqur0c4LFAVmVsR+iX4mQvSBve6liZmscgPB73vxtYgB4EV9E0MQO/Oh
-	51EGjHvjs5XlEkK0U8hSxruClj27F6TTUUf+YmKZ5PE3KUjKH12HYu0SYW+jjjgY0CiNPr
-	3Z0w1uBso5X2JCrHNKTmXGxTqo4r7ak=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1729860329;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T7fehBQKoUt15Btf5np8pxH+JOni9h4K1ixFbRWGxNg=;
-	b=GpVf9qyR4OOYsP2rEwuhHN7eiPS3oep9cBKcs9V5KEEMks9nWyepBkI4Ohx/GkOBYipnfc
-	g6DYYQGRALnxwoBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 59BC0136F5;
-	Fri, 25 Oct 2024 12:45:28 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id WOB8E+iSG2fzOAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 25 Oct 2024 12:45:28 +0000
-From: Stanimir Varbanov <svarbanov@suse.de>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1t4Mnm-00000004LjX-3cHf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 16:04:40 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb5111747cso21891511fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 09:04:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1729872277; x=1730477077; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=;
+        b=pwEqbAK304Z/jcOa+ipMFQgvJ+wD+RT5wO9bCJESpkqz71hg+pNtoGETQvlhYcfg5/
+         7i60y+HmjSRsWzXfPaKUBOjQB0/BjnK/oxc7QkKe8oLGGMWqXIKGz6gEWnhV5uEjFQIh
+         ebn5xUEU83OoNP5/aVfcUFbLSHopmScy5sZ0E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729872277; x=1730477077;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1xCM1ACcR+e8vZp8ZeWNxMr9lABciJDnozk61Zgoap0=;
+        b=R6dUCrjb0LN2zNz96i1WYIJTBVW5edqeT3Veb2/s36VMeObPWYrxmN3bdhwFE6Ny+z
+         9AfvgqWiysoaTPP5T1XeqCRx+WjfGBmn2RR2/7l+6rwiWZQCh1BESpufUCwmqMRiGsKp
+         0/PggmBnXmsf3hnmaLv0Ml+aJ8J0TkIxUtgHMXRrXhlvWMQrxv/+kYYjlVgbwH4Y01em
+         nxkgZ0X3u25Eobc2oUOf/S7N70RCmCat9Qphkwp+cS8ctmyZhm83Kq9TNYQrnq77+KhI
+         B0ZH9HTwcawywM0SWTVidZc2vus44XGUQnqe6LzPr/uhbT+OISXpTwuMiLJSCleREv+9
+         ScOg==
+X-Forwarded-Encrypted: i=1; AJvYcCVivEM1FX8Dyae2eCqvqrmjUSuqVmTSJlnmpG/owTznBMsQ56JvGoU8qDJ2FLd0ss8703YyzUQcV+9PRlEOU6c3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtNB8ZE2GtSIgh93vhBL7s2jjYhoRzcS8xf6Lf2G4hWcvffovS
+	rVnTpZMcL4wTWTiHgPmMXyv+HYUDHQH2ZZoRv1iEvUi8+1O/q40iGWfvN01OSzg=
+X-Google-Smtp-Source: AGHT+IE5tAGEzSGr1VKCRE9qh4Kh62Hto2hpFgEH+icsAjjqXGeOuQHrKjPabwauzhg1pQ0otdSs8A==
+X-Received: by 2002:a2e:bc09:0:b0:2f7:6653:8046 with SMTP id 38308e7fff4ca-2fc9d37468fmr61995861fa.25.1729872276573;
+        Fri, 25 Oct 2024 09:04:36 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.251])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058bb4348sm1848614f8f.111.2024.10.25.09.04.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 09:04:36 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	kw@linux.com,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH v4 02/10] dt-bindings: PCI: brcmstb: Update bindings for PCIe on bcm2712
-Date: Fri, 25 Oct 2024 15:45:07 +0300
-Message-ID: <20241025124515.14066-3-svarbanov@suse.de>
+	linux-pm@vger.kernel.org
+Subject: [PATCH v2] pmdomain: imx: gpcv2: replace dev_err() with dev_err_probe()
+Date: Fri, 25 Oct 2024 18:03:56 +0200
+Message-ID: <20241025160430.4113467-1-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241025124515.14066-1-svarbanov@suse.de>
-References: <20241025124515.14066-1-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-5.30 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[21];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de];
-	FROM_HAS_DN(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_054530_979808_364EC907 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_090438_947450_942FDB7B 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,58 +99,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update brcmstb PCIe controller bindings with bcm2712 compatible
-and add new resets.
+The patch standardizes the probe() code by replacing the two occurrences
+of dev_err() with dev_err_probe(). Indeed, dev_err_probe() was used in all
+other error paths of the probe() function.
+Note that dev_err_probe() has advantages even if the error code is not
+EPROBE_DEFER, such as the symbolic output of the error code. Therefore,
+it should generally be preferred over dev_err().
 
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+
 ---
-v3 -> v4:
- - Dropped Reviewed-by and Acked-by tags because I have to re-work the patch
-   in order to fix newly produced  DTB warnings on the .dts files.
- - Account the number of resets for bcm2712 which are differs from bcm7712.
 
- .../bindings/pci/brcm,stb-pcie.yaml           | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+Changes in v2:
+- Improve the commit message.
+- Add 'Reviewed-by' tag of Marco Felsch.
 
-diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-index 0925c520195a..df9eeaef93cd 100644
---- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-@@ -14,6 +14,7 @@ properties:
-     items:
-       - enum:
-           - brcm,bcm2711-pcie # The Raspberry Pi 4
-+          - brcm,bcm2712-pcie # Raspberry Pi 5
-           - brcm,bcm4908-pcie
-           - brcm,bcm7211-pcie # Broadcom STB version of RPi4
-           - brcm,bcm7216-pcie # Broadcom 7216 Arm
-@@ -175,6 +176,26 @@ allOf:
-         - resets
-         - reset-names
+ drivers/pmdomain/imx/gpcv2.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
+index 963d61c5af6d..6e6ecbf2e152 100644
+--- a/drivers/pmdomain/imx/gpcv2.c
++++ b/drivers/pmdomain/imx/gpcv2.c
+@@ -1356,7 +1356,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: brcm,bcm2712-pcie
-+    then:
-+      properties:
-+        resets:
-+          minItems: 2
-+          maxItems: 2
-+
-+        reset-names:
-+          items:
-+            - const: bridge
-+            - const: rescal
-+
-+      required:
-+        - resets
-+        - reset-names
-+
- unevaluatedProperties: false
+ 	ret = pm_genpd_init(&domain->genpd, NULL, true);
+ 	if (ret) {
+-		dev_err(domain->dev, "Failed to init power domain\n");
++		dev_err_probe(domain->dev, ret, "Failed to init power domain\n");
+ 		goto out_domain_unmap;
+ 	}
  
- examples:
+@@ -1367,7 +1367,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
+ 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
+ 					   &domain->genpd);
+ 	if (ret) {
+-		dev_err(domain->dev, "Failed to add genpd provider\n");
++		dev_err_probe(domain->dev, ret, "Failed to add genpd provider\n");
+ 		goto out_genpd_remove;
+ 	}
+ 
 -- 
 2.43.0
 
