@@ -4,94 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E765D10399
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 01:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6BED1039C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 02:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFezwFo6gCZgxkhS3m0Bz40bL+vqBj5E53gWNhWxLYM=; b=2xLob4cAnVnqE9c1MTfOovBrOy
-	kIjTMqU06HL9xvLsiBcGDTs4SGQze1wSdj25yoE9mZiIA052lHiqApR4mADEk59qcFM/fbKD9yfct
-	FSXQZleuLKJQT2/CEJfodkD4X4VDzqXV5QrGJsgJrheS8B6nmkRXilrXeH+co6aJddi49T1ZIMhj1
-	gne0JMjhMSd2G3B+0teNNDutU7y8lNQS65E0IGOe2fM2616j59LHke+5c8Obu302mdZJ8rJ/psq7T
-	HR7nKYNnXvV+0zrYFwtm+cF5fpqQvUpI5EIJt2majqsPEUWH9GQ3r9PKRU2HHp1PPU3GMVnD/TX+o
-	PwjqR/HA==;
+	bh=NIBItyeLgS4NsJoFHC3Mns5cjUi0/WCdrZeWtr8m5OI=; b=Avp+i38KOh7Q2less1ixQefoe/
+	viyqix5RbYEqwZn9Q5aWnAC5QfdCUn9+WP46eVKfZ1LVXFDUOpZjPOv24/od9QqCvA9cKeQbdwrQj
+	J0t4o9QFw71sctWwrm46zQqCeJeemhsC2myomOQveclrmGrrIrwzVrKNpZaNldmtMedAsJxGeW9ms
+	lAsOsWtqS96NOjHvwYf1LNZQU0GnG6oHGsyQyTP/FYlHdq1OObIJ7LR1ATbhk4CGLDn1+3tlxVGeG
+	ORc73F13wbiBXfBFckrc1VLGiE5GMlWZ7ue9vFAxqCC3xEw0Ks1wCfL1h6fIN04AGc3sPcbYCgF6Y
+	pOtGtB7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t49KY-00000002DN6-0xJD;
-	Fri, 25 Oct 2024 01:41:34 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t49es-00000002FSG-1XZK;
+	Fri, 25 Oct 2024 02:02:34 +0000
+Received: from mail-eastasiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c400::2] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t49Ix-00000002D3z-3nyL;
-	Fri, 25 Oct 2024 01:39:57 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c77459558so12314085ad.0;
-        Thu, 24 Oct 2024 18:39:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729820395; x=1730425195; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=tFezwFo6gCZgxkhS3m0Bz40bL+vqBj5E53gWNhWxLYM=;
-        b=FWosoVzbXmaayT7oRKSVwANrL8c2UiamQQW8ljMOhABNfXeIGEJ9SdahTPI1AavbO+
-         h/EKqaTce71lU64oGBSsw95QhoeroSHP9n/A9BQ0YqQvCzR/QrWgnFhAcoqUMOnOiT83
-         gxSVgTChGlNjKCB42BuJouCnvDmRimugVofGESBLYsJZ8EcwFtEOQv3WzatjnH/2+1Dp
-         VLsozCcvDoITVHuypbDk3StJGJA8kIbjeOVZqh79LlyrxpiD3StN+rAqJXYKfq7fnMRp
-         Bj0F4I4x1p6kinsMHcdJjsz+SfXAHPLG1+qcIvBlujJ/D90MBfz3+7r/iesC7ahkU8VB
-         yVPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729820395; x=1730425195;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFezwFo6gCZgxkhS3m0Bz40bL+vqBj5E53gWNhWxLYM=;
-        b=hY5a0vj+qelfHYJvCx8mtQNc+34o+86LrVWvypK1JW+qCjvc5gGZ6UoR+9OjLiUHxx
-         nc//NHLdTKQ9hMvjEnQvkbSmka5deJKe7VonpCUrJvpXN0h0Oc2aPUN8prOmp4GFA9qp
-         i4+gmMJ4Fd29UHS6Qh0oL0EcAmZuglwedvcRUhV84cWSaIRse5UAry81mkqm4ndWldSm
-         t1KbrcQDJPCSPmW4eERm7HxLvVFkanbF4SiPdrw8xLw5u+LR90p/hEMt4Q+ADgbc3cYk
-         tP55uJiT67+G+yEKH4Nz+Ydo3Oy8fJZMnlHIT3bKXx3rvAZxZLEsyAqF5PmpznQzibTc
-         Nhyw==
-X-Forwarded-Encrypted: i=1; AJvYcCX2Qq9dHSl6n3oK/sE6z963dV6NXmWlzIHVk3Z6N3Rvpoqchz52wZRHeQ0+8wbseawkyjvM4rklnTyMRx8=@lists.infradead.org, AJvYcCXQ8AJJBI/stTZemv3jHUw7/3JUS2JtHOkcz5bUVqP2i6ReZT5v7+uyOsVREoSGNrLz8yspR30eOPHCTojMLEBH@lists.infradead.org
-X-Gm-Message-State: AOJu0YydNM/oQP/CMt05Z5MMs3kLvXcaysKDVzI2xsVndk/FVNcFgVoO
-	QzZRV5lYRJCfQm0NZnr6KNrbJMhmr7EKk8ZmCzd2GPRvCZGH5TXU
-X-Google-Smtp-Source: AGHT+IEHw2vnCcYrgnHOby/RDV1VCi/V1qVIt7cOTUZOAUPWFAmc5ivhTLTks2UseKSuzasudSeCxw==
-X-Received: by 2002:a17:902:ecd0:b0:20c:5cdd:a91 with SMTP id d9443c01a7336-20fa9e99bbdmr109987285ad.41.1729820394814;
-        Thu, 24 Oct 2024 18:39:54 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc02e661sm761665ad.191.2024.10.24.18.39.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Oct 2024 18:39:54 -0700 (PDT)
-Date: Fri, 25 Oct 2024 09:39:16 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Message-ID: <2emb7jimgg4utgecdfhc232qclp5yfiqvlw6gl53niwtgoeb7z@uvoy7kqedqst>
-References: <20241021103617.653386-1-inochiama@gmail.com>
- <20241021103617.653386-5-inochiama@gmail.com>
- <7lcmhspo5xq3numdbrfc44uqppbzigwq56vmqne5ldvg2uac6z@ivu4fmwbzajm>
+	id 1t49dJ-00000002FJk-06Tt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Oct 2024 02:00:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zGkHC2cazMAWd4u3K9KnEzbBHBQS7ZI1ruhX108Abu4ifz2dOIn7Un67xW2woKKmrATO6sbzqoG/uUf0tQ2M5GwzNYa4P/5xOqxHLV9qCO2a6Th8SgC6FHNbb9u7e6J0BXI551FMvSAlJ7TnBaXQTYvOSPPG4R5tAlOlz2J+F0V1H6Bo8PfSEho/14TX6jDETQtt1OILXrGhGj/Mf+9MJlERdjOx/5ZQcVnBjz8gkAF9d+GcckZp3Gc5gMEmVGzM1sMj3N/dOSL61X08Cst3jdrwuuFlCd0MOIUsozGq6Xraknf5mOi1DZPvl3NInxoRo+UsjJ/BOJaRpjt2qd/N8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NIBItyeLgS4NsJoFHC3Mns5cjUi0/WCdrZeWtr8m5OI=;
+ b=gwKrruzB8SosnxgaQDQNereudcENu8+THtEzB0BABpfclokhC/AC2GHGVhFIxUjnwrOMlQ2U1rs4u6JlZw915Qtc0Rvjq4tsFGp7UvcnjqbR4gxttWvvQiL5cSS+nxUJI8me5CX2jQ+Ip339XQvnmUT++L+WU51gDW2Q9EeLuqcN1VbUba09rmmSoa72UB2Lj58/HScM1QqngPCGK9iV52TFEWCok4++EGCPstXMIWT643zntSM14PBPBO1ZmTvwTT9Q/mf6DAWIvIw3Z9WEM0oVsEQfJBy+W2MEcQ+JbeiHv8jT6uHcIO+WV+1vwrsM0ikA4y/hW67kqRvaLeYmog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NIBItyeLgS4NsJoFHC3Mns5cjUi0/WCdrZeWtr8m5OI=;
+ b=Nrd2PLWBeuQSOm3wGVMl8Hv18l9IOKtxHgAhxXvGG/r3uXQYfeHCi4qNHxU1i8RCpqKTlTOS8yu8y2PO/elo0jPhPwEBLBav5gpsD5LSQD280MgHTskqc9HB+pN7t7JCwuV1f82SojQOAhFnobGuU9sFukj3NNrNxGb30bS0qz2P7N5bsmmk1YW883r9NH3Pp0Hg+t5cfjmytYnVFLsvOqCdOFRWPbsGkT7VYfwQE7R3ubgg+anfBmy5f1CpEeGbXA5piA5DaCjYtaI1lVgJGnIoz5aqdCC+xvIrek9J+oGNIWQjCNGIrL35Ok7S7peIGa/ApxHx7pMr9gzt0U6ulg==
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
+ by TY0PR06MB5658.apcprd06.prod.outlook.com (2603:1096:400:276::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.15; Fri, 25 Oct
+ 2024 02:00:39 +0000
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::814e:819a:7d52:7448]) by OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::814e:819a:7d52:7448%7]) with mapi id 15.20.8093.014; Fri, 25 Oct 2024
+ 02:00:39 +0000
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: Guenter Roeck <linux@roeck-us.net>, =?Windows-1252?Q?Uwe_Kleine-K=F6nig?=
+	<u.kleine-koenig@baylibre.com>
+CC: "jdelvare@suse.com" <jdelvare@suse.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "joel@jms.id.au"
+	<joel@jms.id.au>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "linux-hwmon@vger.kernel.org"
+	<linux-hwmon@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pwm@vger.kernel.org"
+	<linux-pwm@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH v1 0/2] Enable WDT reload feature
+Thread-Topic: [PATCH v1 0/2] Enable WDT reload feature
+Thread-Index: AQHbJeSSyha0WSkjXEyiFAbwEDTDJrKWCnCAgAAHbgCAAKOQ0w==
+Date: Fri, 25 Oct 2024 02:00:39 +0000
+Message-ID: <OSQPR06MB72529E67E67D0D07E59AF1C08B4F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
+References: <20241024071548.3370363-1-billy_tsai@aspeedtech.com>
+ <nm4ckxv6swajr6hnqlkq5uoo6ncjzlg6yfxroftat6dubiefyi@xbhi4dvqacxm>
+ <ea1be8af-0948-46b1-a1f4-fe572861cde4@roeck-us.net>
+In-Reply-To: <ea1be8af-0948-46b1-a1f4-fe572861cde4@roeck-us.net>
+Accept-Language: en-US, zh-TW
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TY0PR06MB5658:EE_
+x-ms-office365-filtering-correlation-id: c026687c-aae9-47fc-86d1-08dcf498d2fa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?Windows-1252?Q?rjei5sVMOeLX2o9Mz5wQk8Lh5EbGFVdiQgzSLl3rnY3UA40sVg/qJVh2?=
+ =?Windows-1252?Q?6KLLv13lyfk5O+ZepKaoBCssKxB4tyilUvyWxE0LDl7kT9Tm58FtkxFV?=
+ =?Windows-1252?Q?KmLV7IrmRrEWiYfYqEH1Bj6V4LvBqgCXAn/UYibvxe55iYt+x5jNfcJP?=
+ =?Windows-1252?Q?2FeuP7dEzyEpGY3Bj56QkCAhatqmVlHPoEbo56GXLMHP7SzbSIRIY51a?=
+ =?Windows-1252?Q?2txq3amCgeGu+8tAT7Ei4xyfhnIHBC+i66oOKgz3i40MkbDUKQ7ay4cn?=
+ =?Windows-1252?Q?zdol9lLS6jMNeaqHKH9sxOuvYeEsEafN5wcNo7m0lrGWERyWQKEY4G5h?=
+ =?Windows-1252?Q?pT0D2mTCjAOeOHeEprMofRY57I7zj7tPT7ocgwFMbPl/s7cVQxNRvVWi?=
+ =?Windows-1252?Q?ahgVCkEuvAtw1ViUgiez52cZaoJpH7Yv2CuKaYxyRXnMqxh6OsYteP3S?=
+ =?Windows-1252?Q?Jte42dOmAgPiQcMZrTF6LYv6dfpVgheROf18wOee6tCuf+n0eUFqDgT+?=
+ =?Windows-1252?Q?bl2TX0+dhizxkAcllY8D1+I2IH4GAPXFkBr62NOJ713kbuW4rkrbOnVq?=
+ =?Windows-1252?Q?QyMj8pQJsN+tADgjm2UtRe02ZzlpMEnn0ABnYATHB2RKMRkXVdtvYtpW?=
+ =?Windows-1252?Q?p2f3+D+0yIEC8Dv5NibdMyqd5a/NDmEA5mneAY0Qckzt5Oh8KjXnpHY1?=
+ =?Windows-1252?Q?9jXwa2dvol7eTH++IsnI60O9k0y3b/GUNPXnXXGb1S/G7RcKFuvKm8Z5?=
+ =?Windows-1252?Q?xMozSGSO7/JrROlAH/IWNJcb+7qm2L6hUmJ91QfskFamC2RQrob9n5ey?=
+ =?Windows-1252?Q?KHPFrAVX34ZLqHK759QwYerae1cGmurRbeneIAT56ZG7ItNl/nDQtuI8?=
+ =?Windows-1252?Q?rDW63KxVE1Gg0LKGuAzot7dETyqeEC9y2OAmfjDhwkEeXO3PVlt535Eq?=
+ =?Windows-1252?Q?XePnm/ElEqJib8v4ABZhYAuZI5ZisaO9FP979ymVnoAqYQwYX83zJfcY?=
+ =?Windows-1252?Q?uxQmbkDof0qPSICG9qMoWYzEVCxGLWlbWmz2IAdXGNjoIYub3sJL9lyV?=
+ =?Windows-1252?Q?90Wp6JxSwD3qD+9mHsj2qQzh2fJh3WSnGReruGft+ec0wi8fnCijbClN?=
+ =?Windows-1252?Q?Mckf/K8FCdwPMO55KWQMc1YxsGzEzW7+T7Z8nxwIMC1RMXDw4ZRh/IoR?=
+ =?Windows-1252?Q?dHBZMgYSwQVAZpYM3wjYhtfY3sqP7ONXPhwLw7qH822ptyMvJg/8k8ZF?=
+ =?Windows-1252?Q?cAL3wA4M8q5UL152X2T9rJhNZaQ324ifWWypc4X8KQ0vNLekp31+V4ZS?=
+ =?Windows-1252?Q?KRpTgDNYwTFyTyL/yS3XrjfD0SyUGofzn5BwMn6Pao4eAQX6H5iSgTKN?=
+ =?Windows-1252?Q?7Lc4sWiVXD7oxTpu5p0/Xn9Y6fzP2pZ0iHkqyySGisdENSqRrrfGhYPl?=
+ =?Windows-1252?Q?0819yW1HhYXS7dDJ/2vDSEys17ZClrryUlgmVQNiMco=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?Ul+0Ml2yaGancrIxQ0kkGKIMviwsAVbwJyhBlhuQTTzazjW1DnLIv7mq?=
+ =?Windows-1252?Q?p+afNV5EdXe2x1olFZOxe7UFwiWxPQeGyNpYgfkyDQs8C1AUZfgXDr85?=
+ =?Windows-1252?Q?3ypxYxRkop/7y9x1qQHQy4XxrDO0Izh9ToJPr/kT+vI3MhOuzr+8eB1C?=
+ =?Windows-1252?Q?m4n1QCUKbDkYDvuKotpRse5ITyxihdzfnnm/alOKJQY3PvVxz/ohEVdB?=
+ =?Windows-1252?Q?/kv3y5AAYu6wlrJ2mlBa1mRmQEmofq71Htg6VIgQXFkzqdQ3QbFHQ66/?=
+ =?Windows-1252?Q?4C7T4ac4sCN+AbRNdagZX9xXhCNdVYrGn05mG71hoSniVovmonxekP1L?=
+ =?Windows-1252?Q?0/soch5SsW5WzFuvWrN6EPbsT+OiEnqNjUmM2uM+bCxVXHF52rYAqRl2?=
+ =?Windows-1252?Q?unjFCXZG7OUz+huWMoTRFGDavEc+n6mWUcwAJRx08aF7ln/a70pPDJnH?=
+ =?Windows-1252?Q?yt2xn2li2bzMZjFbwOqALdQyHjF2+Df3iWE/WkmajsxM8+oGyBlRo04F?=
+ =?Windows-1252?Q?3gUD2OVF+/Xus3sthvvFW8Rhm0ymDeche4XVE36c5GLypWmdxBishGmm?=
+ =?Windows-1252?Q?vs6K2It0Xxd04F3gTClWOHk6cquZM0esPoUL3EuDTGUwxs+8F+WWcukb?=
+ =?Windows-1252?Q?H3kMqogXwyjjZ3rSBHgYSaBn25VG/JhHHT4FtCkkTbLx2Un+N4f4+ZgS?=
+ =?Windows-1252?Q?jc5XSWLgqDlYDfyA22Hay+NCvs4XF6oDATgwfsUN29XnBaf2VBkLMzRP?=
+ =?Windows-1252?Q?XQAJ8dGygBnSFKm4ha4KmKALP/ngKGvQKZHEYfm2bMlmx8od2TLXxgko?=
+ =?Windows-1252?Q?P2u0jeXQhvzAin8jLMiDWYAYkX5stJ9hgfD7NCA9Q9TMkmnPEQ6QbdjP?=
+ =?Windows-1252?Q?iEHdKaRa3OABX97983R2KgTGrAM6694L/Db8ZMuqcCB4RR4J2BMK/JUF?=
+ =?Windows-1252?Q?Uu/vZtsFKPQcp1JAblqjqg+HqzySrMMPNc8qdCnIRO8/UP1gAIY+x065?=
+ =?Windows-1252?Q?NbLmEpNrYjY7od/ak8dQ4kZAlkYstwfXnExBLjhVgKjkbe1NMcI5jazF?=
+ =?Windows-1252?Q?/3ugp6ZDY1iGP/5T6UROufI8QHS6GKTLogSjouS8c6OoMGOElMyb+rxe?=
+ =?Windows-1252?Q?khZdVx8Ft84aDQyqSuXTgpBC+nbUUXSYnDZW6/t06BnYjYF2o/0OWhV0?=
+ =?Windows-1252?Q?kdAZblwDqdFRCFJJ4eg2QfwaagWh61ptK4N9W8L0ydIpUHjUexbK+Z05?=
+ =?Windows-1252?Q?EH4xMWcb8YRCnK3Mp5aBbHw0RJ3GqFFG+88SuV3AiB8ulBAo8xj0/rSK?=
+ =?Windows-1252?Q?Amj6FsARvBud9pGdro7HxWMB3+GoDS1ZPrGu/A4kXOnkVJehcRwLoisk?=
+ =?Windows-1252?Q?N/ULKkTarEaEOGInaI8d1b8AGxdoc+4pI3Q+XgbNFFvhdwGgRisS95mC?=
+ =?Windows-1252?Q?pfojbyVv86cPs1uX1nEV8mlyQLokaJ8z3P3rwdz2144ktjvPsHh5SnpD?=
+ =?Windows-1252?Q?J6BCvQzmPpZcgJ1y+vGTc8vdTVIvqhyVp1ZYuzAi4984bcBY1Nxdnog6?=
+ =?Windows-1252?Q?ipSszhPwzu9OizF6914sAtcw5LUlzASB7yiQl7rvcQvtT53bpMp9GamL?=
+ =?Windows-1252?Q?BjAHDBfKsu92gA2kuqHqvukXg4DmdhXak/LnKdd22eBxIv9nXYln+fxv?=
+ =?Windows-1252?Q?cx46AWW2cbstaKeE8IdCl2MHEv+dq48e?=
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7lcmhspo5xq3numdbrfc44uqppbzigwq56vmqne5ldvg2uac6z@ivu4fmwbzajm>
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c026687c-aae9-47fc-86d1-08dcf498d2fa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2024 02:00:39.1464
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AvSnIgNuUaSWsxAmVQxmw1hdrgoQy3yG5f/anKM1dfdBbt4aNXUZIvzoO159/t08YbhqEgugA0puVM9AbQcxkqLDSDUCGrkG74SDnMT3q+U=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241024_183955_968524_C6C3E99A 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20241024_190058_172221_C44E04FE 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +174,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 05:37:03PM +0200, Uwe Kleine-König wrote:
-> Hello,
-> 
-> On Mon, Oct 21, 2024 at 06:36:17PM +0800, Inochi Amaoto wrote:
-> > +static struct platform_driver sophgo_dwmac_driver = {
-> > +	.probe  = sophgo_dwmac_probe,
-> > +	.remove_new = stmmac_pltfr_remove,
-> > +	.driver = {
-> > +		.name = "sophgo-dwmac",
-> > +		.pm = &stmmac_pltfr_pm_ops,
-> > +		.of_match_table = sophgo_dwmac_match,
-> > +	},
-> > +};
-> 
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers. Please just drop "_new".
-> 
-> Best regards
-> Uwe
-
-
-Thanks, I will fix it.
-
-Regards,
-Inochi
+> On 10/24/24 08:40, Uwe Kleine-K=F6nig wrote:=0A=
+> > Hello,=0A=
+> >=0A=
+> > On Thu, Oct 24, 2024 at 03:15:46PM +0800, Billy Tsai wrote:=0A=
+> >> Aspeed PWM controller has the WDT reload feature, which changes the du=
+ty=0A=
+> >> cycle to a preprogrammed value after a WDT/EXTRST#.=0A=
+> >>=0A=
+> >> Billy Tsai (2):=0A=
+> >>    hwmon: (aspeed-g6-pwm-tacho): Extend the #pwm-cells to 4=0A=
+> >>    hwmon: (aspeed-g6-pwm-tacho): Support the WDT reload=0A=
+> >=0A=
+> > Huh, I'm not convinced that extending #pwm-cells for that feature is a=
+=0A=
+> > good idea. Unless I'm missing something none of the other supported PWM=
+=0A=
+> > chips can do that, so I hesitate to change a standard for it. I suggest=
+=0A=
+> > to make this a separate property instead.=0A=
+> >=0A=
+=0A=
+> Agreed.=0A=
+> Guenter=0A=
+=0A=
+Hi Uwe and Guenter,=0A=
+=0A=
+Using a separate property to enable this feature is a straightforward metho=
+d, but I don=92t understand why extending #pwm-cells isn=92t a good idea in=
+ my situation. The feature =91WDT reload=92 can be set for individual PWM c=
+hannels, and the PWM subsystem has the of_xlate callback hook, which allows=
+ each driver to define its arguments for the PWM consumer. I=92m unsure if =
+I misunderstood this callback usage, as I couldn=92t find examples. If my u=
+nderstanding is correct, this method is better for adding our specific feat=
+ure, rather than using child nodes or separate properties to indicate which=
+ PWM channel should enable this feature with the corresponding duty cycle v=
+alues. I think using separate properties to achieve this feature would be q=
+uite cumbersome.=0A=
+As I know the arguments for this usage are as follows:=0A=
+First: PWM channel index=0A=
+Second: PWM period in ns=0A=
+Third: PWM polarity=0A=
+Therefore, I extended our feature to a fourth argument to avoid any confusi=
+on regarding usage and added the description in our yaml file.=0A=
+=0A=
+If my thinking is incorrect or doesn=92t make sense, please let me know.=0A=
+=0A=
+Thanks=0A=
+=0A=
 
