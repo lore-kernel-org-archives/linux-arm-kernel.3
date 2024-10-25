@@ -4,107 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8567D149F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFFAD149F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 22:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3kPJXsYEG94KcBKuUOEMCPWBU+fFx4dEjFZ+fZUq5yM=; b=uWxlvGeSeUQJaZhCKvJnbzle9h
-	9AVLxVF9Oe3SvF/joq/N4RkNBjfn5O5wkAyEZr2zpq/saDE3oPBu3RQysvvEhAaKt3DtVPnGnwy6Z
-	krvOfhicBxGWxQJVlE7Pl9/7CihzMcdtGJNlsjhb982+Yht+wPzPyFxD5o9JvoaJikJrMyU/f9neO
-	oM74OD44+wI8JNfXH/yV458vHUaxmomLCFXWosIMJlPUtmsfqS7TYHgK19e8SmwEl3W9odM9l0CcA
-	UXQ6hM4JfDjSRBj7Ifua1EWcG2E+P2j18N3omNcPFbOFXP3rSDH5F8du96P//BzJPmmfc5wuit7bM
-	ERE4IYmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zT1JrWE0wCzIdFq3Ykrqf07oSRTFil0hjG6CI7HG/ls=; b=35m4vzWRgiQ+fXd2Fz6SbpG0p7
+	FQbZNwQ7MGEguxEc2u9NjO2aACsxBciVsn21l6qBqF1XDL0dB7cBv46ZzKcCY/8m8C1UuJxBdv/VM
+	8hI5MzCyED5IoJRG4fw+H3+uOdNfKdS3iHhC0fWCP6n4rzanJ8whSegaTgrczvjZ0L9kKgO7aZMXl
+	Ep/F1Em6QDN7bcxlnMfDWv5H3uOo3AIU9Ojbo5HMTBbwpdT4NAAylG3XkKWL00FdgWFjM0XoLLAHC
+	51sMxhht2tb9wPoCmUONiUTO9mjfxriUfcKQ/6ElIwEvgxdeL3sxjovyUKzzfj/sMBc7560D3vG8T
+	582lt/Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Sbe-00000005PqF-2Hpn;
-	Fri, 25 Oct 2024 22:16:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4Sct-00000005Q6i-0HWa;
+	Fri, 25 Oct 2024 22:17:47 +0000
+Received: from out-175.mta0.migadu.com ([91.218.175.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RRQ-00000005ENA-1mWM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 21:01:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3kPJXsYEG94KcBKuUOEMCPWBU+fFx4dEjFZ+fZUq5yM=; b=FE6KnjSRuTwiJz9qZtnydm4N8v
-	M4XDmlWym7ZZwQ1AxJvWu4I1VsdCWfGo5oClSkpDZ/y8sGykHnG4woStFJebUQV6Hs1jVwmdU/E55
-	n4FQfTL8mTv0C6VF96nsjb4lMxT5fUmqzxRWHORvZMG42b/qori76EzKQ/I0pIOiei7/HIwAcpK1i
-	n0QYfCducfZFDU8Rq4paZLTqeUh095HpMJZD9FX/zkiRsLHQyWGfzLg6BexR9Wi3bAeynRnlcf65+
-	LTkp0Pvbvtj/g2uZl3emAh+V6Y/2ycVPj05rgiqZp3NAUMgj79sMFihU+byLs3ZutI8vw6MVqAtZj
-	6ih2dSFQ==;
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RRM-0000000961E-2UdZ
+	id 1t4SYF-00000005POP-2Gqa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 21:01:50 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PJKt1L032047;
-	Fri, 25 Oct 2024 23:01:38 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3kPJXsYEG94KcBKuUOEMCPWBU+fFx4dEjFZ+fZUq5yM=; b=bYe8luM5MxaUlQyv
-	ks64Y0BBmcH4bpwVwncQih/miGRSvvxhw3cwKUndToO5hT/fXWSrpwoWxKY4gD6P
-	gQvotaOXVhR7/pCvL4toxN9PEf9+49DqqRpBnyVsronjN3YPSYTK8+rVmVgptzRi
-	fCdYNSXBLfOjFcPpKyir3zOGnVfQP1LbAIXJKW5F9/pJSkqAnp20z4dBaQAP6KTC
-	X5mBoGD6UOQa7tfCxw9FXphc7oO8MYy6ei09L9VmYRGd4cnZ2G0iftEqM132O6l/
-	3TE7dIR1skt1wDCreZxuCmhakh3J9lffwW89jtc0HZ0dgAPxhIc180LgIuLpw/XW
-	lrQ9jg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42em4dyk0s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Oct 2024 23:01:38 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0656140047;
-	Fri, 25 Oct 2024 23:00:30 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8A266231946;
-	Fri, 25 Oct 2024 22:59:37 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:37 +0200
-Received: from localhost (10.252.3.121) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
- 2024 22:59:37 +0200
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>,
-        "Rob Herring" <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
-        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v12 4/7] remoteproc: Introduce release_fw optional operation
-Date: Fri, 25 Oct 2024 22:59:21 +0200
-Message-ID: <20241025205924.2087768-5-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
-References: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
+	Fri, 25 Oct 2024 22:13:01 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1729894375;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zT1JrWE0wCzIdFq3Ykrqf07oSRTFil0hjG6CI7HG/ls=;
+	b=GsqKIeiVrOjDeIqr8pui3jQ5t9ZLl0riwXzeEm3iMypLtUcBfhsFMieprt7Jp5OCC0vXYD
+	VeR8QxXxWX+5gPplyWcBcmvxVFiiLWnU3/GseaivcagIBJbS3cu7H4+xzUuK/o30WeNPCG
+	EK6wMoMIt90L9dhTT5SxTL+0e1zn780=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Zenghui Yu <yuzenghui@huawei.com>,
+	James Morse <james.morse@arm.com>,
+	linux-doc@vger.kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	kvmarm@lists.linux.dev,
+	Len Brown <len.brown@intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org,
+	Pavel Machek <pavel@ucw.cz>,
+	Shuah Khan <shuah@kernel.org>,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Miguel Luis <miguel.luis@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-kselftest@vger.kernel.org,
+	Francesco Lavra <francescolavra.fl@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: (subset) [PATCH v6 0/6] Add PSCI v1.3 SYSTEM_OFF2 support for hibernation
+Date: Fri, 25 Oct 2024 22:12:41 +0000
+Message-ID: <172989416837.3684225.4795897590830335669.b4-ty@linux.dev>
+In-Reply-To: <20241019172459.2241939-1-dwmw2@infradead.org>
+References: <20241019172459.2241939-1-dwmw2@infradead.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.3.121]
-X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_220148_861044_8CB7AA8D 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20241025_151300_134089_C4656538 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,70 +91,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch updates the rproc_ops struct to include an optional
-release_fw function.
+On Sat, 19 Oct 2024 18:15:41 +0100, David Woodhouse wrote:
+> The PSCI v1.3 spec (https://developer.arm.com/documentation/den0022)
+> adds support for a SYSTEM_OFF2 function enabling a HIBERNATE_OFF state
+> which is analogous to ACPI S4. This will allow hosting environments to
+> determine that a guest is hibernated rather than just powered off, and
+> ensure that they preserve the virtual environment appropriately to
+> allow the guest to resume safely (or bump the hardware_signature in the
+> FACS to trigger a clean reboot instead).
+> 
+> [...]
 
-The release_fw ops is responsible for releasing the remote processor
-firmware image. The ops is called in the following cases:
+I grabbed the KVM portions of this series, as they look ready to go. Happy
+to take the last one through kvmarm tree w/ acks, and can toss it on top.
 
- - An error occurs in rproc_start() between the loading of the segments and
-      the start of the remote processor.
- - after stopping the remote processor.
+Applied to kvmarm/next, thanks!
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
----
-Update vs previous revision:
-- fix typo in @release_fw comment
----
- drivers/remoteproc/remoteproc_core.c | 5 +++++
- include/linux/remoteproc.h           | 3 +++
- 2 files changed, 8 insertions(+)
+[1/6] firmware/psci: Add definitions for PSCI v1.3 specification
+      https://git.kernel.org/kvmarm/kvmarm/c/2f2d46959808
+[2/6] KVM: arm64: Add PSCI v1.3 SYSTEM_OFF2 function for hibernation
+      https://git.kernel.org/kvmarm/kvmarm/c/97413cea1c48
+[3/6] KVM: arm64: Add support for PSCI v1.2 and v1.3
+      https://git.kernel.org/kvmarm/kvmarm/c/8be82d536a9f
+[4/6] KVM: selftests: Add test for PSCI SYSTEM_OFF2
+      https://git.kernel.org/kvmarm/kvmarm/c/72be5aa6be4a
+[5/6] KVM: arm64: nvhe: Pass through PSCI v1.3 SYSTEM_OFF2 call
+      https://git.kernel.org/kvmarm/kvmarm/c/94f985c39a1e
 
-diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-index 7694817f25d4..46863e1ca307 100644
---- a/drivers/remoteproc/remoteproc_core.c
-+++ b/drivers/remoteproc/remoteproc_core.c
-@@ -1258,6 +1258,9 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
- 
- static void rproc_release_fw(struct rproc *rproc)
- {
-+	if (rproc->ops->release_fw)
-+		rproc->ops->release_fw(rproc);
-+
- 	/* Free the copy of the resource table */
- 	kfree(rproc->cached_table);
- 	rproc->cached_table = NULL;
-@@ -1377,6 +1380,8 @@ static int rproc_start(struct rproc *rproc, const struct firmware *fw)
- unprepare_subdevices:
- 	rproc_unprepare_subdevices(rproc);
- reset_table_ptr:
-+	if (rproc->ops->release_fw)
-+		rproc->ops->release_fw(rproc);
- 	rproc->table_ptr = rproc->cached_table;
- 
- 	return ret;
-diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
-index 2e0ddcb2d792..bce966bdca15 100644
---- a/include/linux/remoteproc.h
-+++ b/include/linux/remoteproc.h
-@@ -381,6 +381,8 @@ enum rsc_handling_status {
-  * @panic:	optional callback to react to system panic, core will delay
-  *		panic at least the returned number of milliseconds
-  * @coredump:	  collect firmware dump after the subsystem is shutdown
-+ * @release_fw:	optional function to release the firmware image from ROM memories.
-+ *              This function is called after stopping the remote processor or in case of an error
-  */
- struct rproc_ops {
- 	int (*prepare)(struct rproc *rproc);
-@@ -403,6 +405,7 @@ struct rproc_ops {
- 	u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
- 	unsigned long (*panic)(struct rproc *rproc);
- 	void (*coredump)(struct rproc *rproc);
-+	void (*release_fw)(struct rproc *rproc);
- };
- 
- /**
--- 
-2.25.1
-
+--
+Best,
+Oliver
 
