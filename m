@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544D8D0C5F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8FD0C5FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 09:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unWwaK5yyAGO05uDE4wFMw1H9hLwHos+KJJ2WW16+3w=; b=KQogq92Uq69eWM7anRA3PZBtPc
-	bo++bpKnFrx0en3pBYTgzi1XfVDS5BrYGXiM8tD+8/FJlYb+I7dg5XWFoYSdqz3wtTpmqaLFDMIWL
-	XrVUEIsbwPKA8htA0c/fZ4pYGKCIBadun3siUtsSm5m2e1Z87h6Hm1x1bLRPzbjbyBkCxoNfs/jfD
-	Ct1WN3ILHOoyq1vce0XGQ8aGdUm42gB1s4aJPTXOVjtakwXDBm5xtnuTnmjX3uFm2v1A3a8aOX2Xy
-	8keFPwNeUVqJZZ9AdOX1Xg/5nr7N0uxumA9RAL9i5ZHcmDnshUQ/qrIP3A11/TjdD72Usd5z5DpXE
-	bNFpCnDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I5tXriKq9Lk2p76AFYmIVaTBzO17l+W/6QIMEpt+hIA=; b=VCzJ1mAisKPZklJ98js2EtmajQ
+	k/Dgjgne1/+cJ2xjbg6WwzmCh0swPAuc8vGIXMBkaG/t7efz0Hp8p9qAVdPWQ0P3rttUTa1gkMHKS
+	wo9YlpPhwCHG1r0183SMBWcJ5DmSHIPEwYepY5lSHb5r9lg2ZJF4qWVYPMd+RW/yfkhv0P4OOk8aQ
+	sljM2ToTDqZYPtAlUpxVFprVIbjMWxsjw3euiuuMZYw/ziUzPyWo++5KjAdQ11pwBTO6INGmTbulC
+	qAKgbZDJ5YeNzohnZ2zUFyiYG6uZGmR1Mjhr/CAyHudTfrVi/atE4N9uFHh+Wlq4+PXuyTGP3cCDM
+	rIXqbdUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Gok-00000003CoL-01c1;
-	Fri, 25 Oct 2024 09:41:14 +0000
+	id 1t4Gtb-00000003Eg0-1Nf4;
+	Fri, 25 Oct 2024 09:46:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4GmS-00000003CVb-1Dma
+	id 1t4Fgi-00000002yte-1qtZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 09:38:54 +0000
+	Fri, 25 Oct 2024 08:28:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A1BF339;
-	Fri, 25 Oct 2024 02:39:20 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4FA13F528;
-	Fri, 25 Oct 2024 02:38:47 -0700 (PDT)
-Date: Fri, 25 Oct 2024 10:38:41 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Chris Morgan <macroalpha82@gmail.com>,
- Philippe Simons <simons.philippe@gmail.com>, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] clk: sunxi-ng: h616: Add sigma-delta modulation
- settings for audio PLL
-Message-ID: <20241025103828.41f459b5@donnerap.manchester.arm.com>
-In-Reply-To: <20241023075917.186835-2-ryan@testtoast.com>
-References: <20241023075917.186835-1-ryan@testtoast.com>
-	<20241023075917.186835-2-ryan@testtoast.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CD8A339;
+	Fri, 25 Oct 2024 01:29:19 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 549333F73B;
+	Fri, 25 Oct 2024 01:28:47 -0700 (PDT)
+Date: Fri, 25 Oct 2024 09:28:38 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Johan Hovold <johan@kernel.org>, sudeep.holla@arm.com,
+	cristian.marussi@arm.com, ulf.hansson@linaro.org,
+	jassisinghbrar@gmail.com, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org,
+	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org
+Subject: Re: [PATCH V3 0/4] firmware: arm_scmi: Misc Fixes
+Message-ID: <ZxtWtqsP5HdJYp5w@pluto>
+References: <20241007060642.1978049-1-quic_sibis@quicinc.com>
+ <ZwfsmqInJlqkQD_3@hovoldconsulting.com>
+ <ae5eaef9-301f-7d3f-c973-faa22ae780ee@quicinc.com>
+ <ZxkjqEmkBAsC6UkL@hovoldconsulting.com>
+ <c8e7420b-a7b4-89cd-1b6e-c1f6693c062d@quicinc.com>
+ <ik4dyfbphm7lkeipm2dbr7cmdfxewxd4jtuz2jfnscfwcyo2r4@lrin5hnsqvyd>
+ <83b635a7-fc69-7522-d985-810262500cb3@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <83b635a7-fc69-7522-d985-810262500cb3@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_023852_455564_63A9F302 
-X-CRM114-Status: GOOD (  34.41  )
+X-CRM114-CacheID: sfid-20241025_012852_595019_E6D61BB7 
+X-CRM114-Status: GOOD (  45.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,142 +73,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 20:56:57 +1300
-Ryan Walklin <ryan@testtoast.com> wrote:
-
-Hi Ryan,
-
-> Allwinner has previously released a H616 audio driver which also
-> provides sigma-delta modulation for the audio PLL clocks. This approach
-> is used in other Allwinner SoCs, including the H3 and A64.
+On Fri, Oct 25, 2024 at 12:15:59PM +0530, Sibi Sankar wrote:
 > 
-> The manual-provided clock values are:
-> PLL_AUDIO(hs) = 24 MHz*N/M1
-> PLL_AUDIO(4X) = 24 MHz*N/M0/M1/P
-> PLL_AUDIO(2X) = 24 MHz*N/M0/M1/P/2
-> PLL_AUDIO(1X) = 24 MHz*N/M0/M1/P/4
 > 
-> A fixed post-divider of 2 is used to account for a M0 divider of
-> 2, which cannot be modelled by the existing macros and ccu_nm struct.
+> On 10/25/24 11:44, Dmitry Baryshkov wrote:
+> > On Fri, Oct 25, 2024 at 11:38:36AM +0530, Sibi Sankar wrote:
+> > > 
+
+Hi,
+
+> > > 
+> > > On 10/23/24 21:56, Johan Hovold wrote:
+> > > > On Wed, Oct 23, 2024 at 01:16:47PM +0530, Sibi Sankar wrote:
+> > > > > On 10/10/24 20:32, Johan Hovold wrote:
+> > > > > > On Mon, Oct 07, 2024 at 11:36:38AM +0530, Sibi Sankar wrote:
+> > > > > > > The series addresses the kernel warnings reported by Johan at [1] and are
+> > > > > > > are required to X1E cpufreq device tree changes [2] to land.
+> > > > > > > 
+> > > > > > > [1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+> > > > > > > [2] - https://lore.kernel.org/lkml/20240612124056.39230-1-quic_sibis@quicinc.com/
+> > > > > > > 
+> > > > > > > The following warnings remain unadressed:
+> > > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > > > 
+> > > > > > Are there any plans for how to address these?
+> > > > 
+> > > > > Sorry missed replying to this. The error implies that duplicate
+> > > > > opps are reported by the SCP firmware and appear once during probe.
+> > > > 
+> > > > I only see it at boot, but it shows up four times here with the CRD:
+> > > 
+> > > https://lore.kernel.org/lkml/d54f6851-d479-a136-f747-4c0180904a5e@quicinc.com/
+> > > 
+> > > As explained ^^, we see duplicates for max sustainable performance twice
+> > > for each domain.
+> > 
+> > If existing products were shipped with the firmware that lists single
+> > freq twice, please filter the frequencies like qcom-cpufreq-hw does.
 > 
-> Add SDM to the H616 clock control unit driver.
-
-Thanks for the changes in the comments, that looks all good to me. I am
-still scratching my head on why Allwinner promotes odd dividers, when
-they somewhat warn about them in the manual, but I trust the wisdom of the
-BSP here, and it certainly works. If any issues arise, we can always fix
-that later.
-
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-
-Confirmed that the registers and bits match the manual, and the SDM values
-also add up to reach those frequencies:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
+> That was a qualcomm specific driver and hence we could do such
+> kind of filtering. This however is the generic scmi perf protocol
+> and it's not something we should ever consider introducing :/
 > 
-> ---
-> Changelog v1..v2:
-> - Add fixed_post_div to high-speed audio clock to correct M0 value to 1 (ie divide by 2) based on manual
-> - Correct PLL_AUDIO_(4/2/1)X clocks to manual-provided values
-> - Add/correct inline comments for the above.
-> - add CCU_FEATURE_FIXED_POSTDIV to pll_audio_hs_clk.common.features
+
++1
+
+In the case of the other warnings, those were similarly related to
+duplicates, but the warns themselves were genereated by the OPP
+subsystem when trying to register a duplicate...it was indeed a bug
+at the SCMI layer to try registering a well-known duplicate with
+the OPP subsytem, so it was fixed in the SCMI stack...avoiding to
+propagate it to the OPP layer...but the duplicate error condition
+indeed still exist (since dependent on what the fw spits out) and they
+are trapped at the SCMI level and those noisy warning are just meant
+to trap this kind of firmware anomalies...
+
+...IOW who would have ever spotted this thing and considered to fix the
+firmware in future releases without the warnings :P ?
+
+> > 
+> > > 
+> > > > 
+> > > > [    8.098452] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > [    8.109647] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > [    8.128970] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > [    8.142455] arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > 
+> > > > > This particular error can be fixed only by a firmware update and you
+> > > > > should be able to test it out soon on the CRD first.
+> > > > 
+> > > > Can you explain why this can only be fixed by a firmware update? Why
+> > > > can't we suppress these warnings as well, like we did for the other
+> > > > warnings related to the duplicate entries?
+> > > > 
+> > > > IIUC the firmware is not really broken, but rather describes a feature
+> > > > that Linux does not (yet) support, right?
+> > > 
+> > > We keep saying it's a buggy firmware because the SCP firmware reports
+> > > identical perf and power levels for the additional two opps and the
+> > > kernel has no way of treating it otherwise and we shouldn't suppress
+> > > them. Out of the two duplicate opps reported one is a artifact from how
+> > > Qualcomm usually show a transition to boost frequencies. The second opp
+> > > which you say is a feature should be treated as a boost opp i.e. one
+> > > core can run at max at a lower power when other cores are at idle but
+> > > we can start marking them as such once they start advertising their
+> > > correct power requirements. So I maintain that this is the best we
+> > > can do and need a firmware update for us to address anything more.
+> > 
+> > Will existing shipping products get these firmware updates?
 > 
-> Changelog v2..v3:
-> - Update comments and commit message to more accurately reflect SDM changes and rationale
-> ---
->  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 46 +++++++++++++++++---------
->  1 file changed, 30 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> index 6c7623d4c59ea..05727fa1ee46e 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> @@ -215,20 +215,30 @@ static struct ccu_nkmp pll_de_clk = {
->  	},
->  };
->  
-> -/*
-> - * TODO: Determine SDM settings for the audio PLL. The manual suggests
-> - * PLL_FACTOR_N=16, PLL_POST_DIV_P=2, OUTPUT_DIV=2, pattern=0xe000c49b
-> - * for 24.576 MHz, and PLL_FACTOR_N=22, PLL_POST_DIV_P=3, OUTPUT_DIV=2,
-> - * pattern=0xe001288c for 22.5792 MHz.
-> - * This clashes with our fixed PLL_POST_DIV_P.
-> +/* 
-> + * Sigma-delta modulation settings table obtained from the vendor SDK driver.
-> + * There are additional M0 and M1 divider bits not modelled here, so forced to
-> + * fixed values in the probe routine. Sigma-delta modulation allows providing a
-> + * fractional-N divider in the PLL, to help reaching those specific
-> + * frequencies with less error.
->   */
-> +static struct ccu_sdm_setting pll_audio_sdm_table[] = {
-> +	{ .rate = 90316800, .pattern = 0xc001288d, .m = 3, .n = 22 },
-> +	{ .rate = 98304000, .pattern = 0xc001eb85, .m = 5, .n = 40 },
-> +};
-> +
->  #define SUN50I_H616_PLL_AUDIO_REG	0x078
->  static struct ccu_nm pll_audio_hs_clk = {
->  	.enable		= BIT(31),
->  	.lock		= BIT(28),
->  	.n		= _SUNXI_CCU_MULT_MIN(8, 8, 12),
-> -	.m		= _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.m		= _SUNXI_CCU_DIV(16, 6),
-> +	.sdm		= _SUNXI_CCU_SDM(pll_audio_sdm_table,
-> +					 BIT(24), 0x178, BIT(31)),
-> +	.fixed_post_div = 2,
->  	.common		= {
-> +		.features	= CCU_FEATURE_FIXED_POSTDIV | 
-> +				  CCU_FEATURE_SIGMA_DELTA_MOD,
->  		.reg		= 0x078,
->  		.hw.init	= CLK_HW_INIT("pll-audio-hs", "osc24M",
->  					      &ccu_nm_ops,
-> @@ -701,18 +711,20 @@ static const struct clk_hw *clk_parent_pll_audio[] = {
->  };
->  
->  /*
-> - * The divider of pll-audio is fixed to 24 for now, so 24576000 and 22579200
-> - * rates can be set exactly in conjunction with sigma-delta modulation.
-> + * The PLL_AUDIO_4X clock defaults to 24.5714 MHz according to the manual, with 
-> + * a final divider of 1. The 2X and 1X clocks use 2 and 4 respectively. The 1x 
-> + * clock is set to either 24576000 or 22579200 for 48Khz and 44.1Khz (and 
-> + * multiples).
->   */
->  static CLK_FIXED_FACTOR_HWS(pll_audio_1x_clk, "pll-audio-1x",
->  			    clk_parent_pll_audio,
-> -			    96, 1, CLK_SET_RATE_PARENT);
-> +			    4, 1, CLK_SET_RATE_PARENT);
->  static CLK_FIXED_FACTOR_HWS(pll_audio_2x_clk, "pll-audio-2x",
->  			    clk_parent_pll_audio,
-> -			    48, 1, CLK_SET_RATE_PARENT);
-> +			    2, 1, CLK_SET_RATE_PARENT);
->  static CLK_FIXED_FACTOR_HWS(pll_audio_4x_clk, "pll-audio-4x",
->  			    clk_parent_pll_audio,
-> -			    24, 1, CLK_SET_RATE_PARENT);
-> +			    1, 1, CLK_SET_RATE_PARENT);
->  
->  static const struct clk_hw *pll_periph0_parents[] = {
->  	&pll_periph0_clk.common.hw
-> @@ -1162,12 +1174,14 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  	}
->  
->  	/*
-> -	 * Force the post-divider of pll-audio to 12 and the output divider
-> -	 * of it to 2, so 24576000 and 22579200 rates can be set exactly.
-> +	 * Set the output-divider for the pll-audio clocks (M0) to 2 and the
-> +	 * input divider (M1) to 1 as recommended by the manual when using 
-> +	 * SDM. 
->  	 */
->  	val = readl(reg + SUN50I_H616_PLL_AUDIO_REG);
-> -	val &= ~(GENMASK(21, 16) | BIT(0));
-> -	writel(val | (11 << 16) | BIT(0), reg + SUN50I_H616_PLL_AUDIO_REG);
-> +	val &= ~BIT(1);
-> +	val |= BIT(0);
-> +	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
->  
->  	/*
->  	 * First clock parent (osc32K) is unusable for CEC. But since there
+> They are sure to trickle out but I guess it's upto the oem
+> to decide if they do want to pick these up like some of the
+> other firmware updates being tested only on CRD. Not sure why
+> warnings duplicates should block cpufreq from landing for x1e
+> but if that's what the community wants I can drop reposting
+> this series!
+
+Not sure indeed which is the problem with such warnings since they are
+just doing their job...in general we tend not to disrupt operation even
+when the firmware is buggy (if possible) BUT we definitely try to be
+noisy about that to have firmware fixed (...not that fw guys seems so
+scared usually about warnings though :P)
+
+Anyway, I'm totally with Sibi here unless there is an impact at the
+functional level...Sudeep may think otherwise of course ...
+
+Thanks
+Cristian
 
 
