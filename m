@@ -4,213 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A805D0C5E5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41AE3D0C5E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 08:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=; b=jDpNomasT/2uDNHMxf361VJrVO
-	ybfVCT/abGLdMfGTtXz+vY3BIsOD0ktDWxjyW67vp51na/gBqk3aNlyG0Hfpim0+jg3QAAcGgYq/g
-	rq+tYDB1C5NdFUtbuMtAe2ZnNEhODxOqlzrMjidjUpGnN0ioqF83WaU2XKeJcHaGF7NKdyWGmG305
-	+RuWF0gxNxqHr8U+ITwMqCs3u+6P9IDmsr0m2E4oNcsQTcyl6CejFmgHOcPZXWFCLYjrFl9jqgWse
-	YcpSMcWHoWzG5QvQmaFWGMRMGqzBeBPm3gvs/63YfO+nj4ZYZdkQiNtqj+BInzTrscDhCTSaUsHYr
-	13M/i+NA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q2j1ysutg3cnHoTWvHlkrQi7vCOZRJv4lGXLirJf29A=; b=DOGyyIkoSnmGPEGtscb3Rz4iaY
+	wRk3NDAVSdl3GP7O8MX1tDfB4RKR1jC2rB3TySaSoylCcU8ZoCk4q2qAFWGeN613O+RoYBSQr1twO
+	w3zMYDCKWKsoM23+3fMyHIF8+3/uGVpLI6F0MYm2gkUYn1RbZa9RzV9tB5zQAiml+2ycQxfKHF7s+
+	1BSvP5XYAg3hstK8kJ7OJwdnR8NhQ8+vg+sJakvTVuZH0V8cNmF5ww8x2enHX1NKXIWfnJG+EqRRv
+	I79VzM/AmpHugj3VQlQmtO3nSFS/zi+B5lGbcISgDWgExyXM/pQFArO/wjqHVvObZSzmM9XW4+Q+I
+	IO0bAOXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FeD-00000002yQB-0vBF;
-	Fri, 25 Oct 2024 08:26:17 +0000
+	id 1t4Ffk-00000002ydI-0gt1;
+	Fri, 25 Oct 2024 08:27:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Fce-00000002yIZ-18s8
+	id 1t4Fcw-00000002yLp-32t2
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 08:24:40 +0000
+	Fri, 25 Oct 2024 08:24:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=; b=lf/U8uPMPPk6B7D3anwHLTlvS2
-	CwPZggACKPeadgOW/stp7mE4yi7OJDWHt0ERIaa2Rk+J6Zu8ZPyJ6DAe0LAKIy5P2mGzfm+VKDOSE
-	LvrkMzlEy9bvBBjA80de5Fs69KNAvNWZUxZSR4mLu7AWuq5f46qlZjxCYj3kLhaHgnL/CYYeiG78E
-	VHxbst/nO1sDOwnAZxW0QWgX2Di+u0GPKOFavHdWDuT8IZ3fICUvKr9gN+Urc5V1dqSeQil3AYRh4
-	CMCYVLJG93WOXKEGq6zleSnUE57i//DLs17YzTwBkuO80Tkr8Ajiw5fe2Ji+dPoi/0k9/N7fHvSri
-	2JDcP+JQ==;
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4FcY-00000008rlk-0yBj
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Q2j1ysutg3cnHoTWvHlkrQi7vCOZRJv4lGXLirJf29A=; b=TG+ihTtsZXENyZA2bFnHGqZJKw
+	gosT2YQ8pOv0djbFRqaUhcquXeRck+tBsA162x5boTLpsl1ERi5p8Iic6GBZc2YwVtJhxQ3HBgqkY
+	xtLotwwPCTQOcddCupdMhfUL1qKYoB8hUoSp5X9ulDccgLOH/WnI2HoJJojrn6qpaMgkbxc4dA6Ok
+	T3YM2ipgHrALiAsFs3Fahlp+kg4NeNZEhAsj9WPUXXrvqdFcbhj3z2JHyXIfmhfCUR1tBdhYSx1bD
+	bEC1T0xvQAmzlWYU7C2YXJ5YfSH+o2EagKe1i3WjWIp5XME2US7wCE9FiFGV0AxQYR+SOUjwkGWJt
+	S0pJUPRg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4Fcq-00000008rne-24gw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 08:24:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n5HHtOPcC7Rhb/o29qT56kKKU5XSv6ajUXUr9kb5JrMyAGd2x+yIFpt9YFzjQ1aGT/6VzZslPy/V6JB27tlxWLuWEAdETdqOCk86B4mi4zhB6Ud+xl/Qs0noxEwIofVoqOSoZVK4SWsRgrzUP6X3vRq1KLzRggnN9Gm4s1PNj539HWJjNjokn2nz262KokazxnMT57NY69eKV7cOi8Kn1dHIO77j4SAeCmrtIb3AuNIeOLnhWZnbmU1O2JdZV94kdpkpJ4zYBZgoMmakPuPCTew+V5haNKoiSJ8dD7K2oPD1JaALSQtrPgoxrN3dd3mKXgFFx35nHsGpegLgcSho4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=;
- b=T7x1MJJLnhMsRlh8v7AFJeyS6/WbB8XZAzT9T2VhwAE8J8oXqBczmQCK9+BXY6qTWKZ7tZSHvH0lViKfNf5pkNeyQY8BUBFE7Ekx+OPo7rdQ0bMLsc5065HsmwOFn1BQXR9xc11FBFFIt63u3JG3oCY+N8aZOxNJsPZ3JexUlwUy/qMOTfYEG5JxN9/1VpcJYZxolJ57Oq4w4P0g4p9kBF4pIZkRJEdgKE0d16s76GuW2gzih13btcrc9jWL6PuHXB6HeKaFc5duK34d7gKhFjtj1xLzcyFoV6zRFyq3gx8D8d2kq+BS0W9qp30Nn1WNSlJRa3bGT1vKYXrxWEXrgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LcBeeXpFAl/d0FTrrF1GbY9c3oSEWrJNaipXM7WvgR0=;
- b=F8Svgnq24RqX5AWFD39QCQ7DhcLxSDeIheB/+fugpBbhYTmOnpBuKvjcA0jjH2qfXl5OZ22Lw/kU4cfYlKDzs1NsjVlPupYbQkI8OoCNz2RjFph3NA4FOjGfsZGYILPxHVZgsZgnkHq75pZEVFyROOnnmdMRGj703UmSqviyjSGuHviWL9xGQjwxmbEONhDEYz0PoZTcTOUmxGMGJo1LsDW1JQmgPH8DFyP5es2mqLk0omDyjJtMMnQyosaIw5C3QrKl2p9W9PVeJw80sBE8NWLPAhsZZcQRfoae452uoYHp1F/qVAH0epPTtQeTXkibtKAMUnaO1oaSYp3YVsGr5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20)
- by PAXPR04MB9140.eurprd04.prod.outlook.com (2603:10a6:102:22f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Fri, 25 Oct
- 2024 08:24:26 +0000
-Received: from DB8PR04MB7051.eurprd04.prod.outlook.com
- ([fe80::8f9d:4273:ea83:167a]) by DB8PR04MB7051.eurprd04.prod.outlook.com
- ([fe80::8f9d:4273:ea83:167a%5]) with mapi id 15.20.8093.018; Fri, 25 Oct 2024
- 08:24:26 +0000
-Message-ID: <4e78781a-bce6-4582-b6aa-417f57c4725f@nxp.com>
-Date: Fri, 25 Oct 2024 16:24:48 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/15] drm/bridge: Add ITE IT6263 LVDS to HDMI
- converter
-To: Biju Das <biju.das.jz@bp.renesas.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Cc: "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "rfoss@kernel.org" <rfoss@kernel.org>,
- "laurent.pinchart" <laurent.pinchart@ideasonboard.com>,
- "jonas@kwiboo.se" <jonas@kwiboo.se>,
- "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
- "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
- <simona@ffwll.ch>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "mripard@kernel.org" <mripard@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "quic_jesszhan@quicinc.com" <quic_jesszhan@quicinc.com>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>,
- "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
- "tomi.valkeinen@ideasonboard.com" <tomi.valkeinen@ideasonboard.com>,
- "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
- Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "sam@ravnborg.org" <sam@ravnborg.org>, "marex@denx.de" <marex@denx.de>
-References: <20241021064446.263619-1-victor.liu@nxp.com>
- <20241021064446.263619-13-victor.liu@nxp.com>
- <TY3PR01MB113465BBC5FD4EAAE89D9EA57864E2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <TY3PR01MB113465BBC5FD4EAAE89D9EA57864E2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-X-ClientProxiedBy: SI2PR02CA0048.apcprd02.prod.outlook.com
- (2603:1096:4:196::23) To DB8PR04MB7051.eurprd04.prod.outlook.com
- (2603:10a6:10:fd::20)
+	Fri, 25 Oct 2024 08:24:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44C32339;
+	Fri, 25 Oct 2024 01:25:16 -0700 (PDT)
+Received: from [10.57.66.80] (unknown [10.57.66.80])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4033F3F73B;
+	Fri, 25 Oct 2024 01:24:43 -0700 (PDT)
+Message-ID: <d7d00ffc-2e92-46cb-95c2-c877723bcb5d@arm.com>
+Date: Fri, 25 Oct 2024 10:24:41 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB8PR04MB7051:EE_|PAXPR04MB9140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 30020c35-450f-459d-dcc7-08dcf4ce703b
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WXlqaEw0MUlWa1U0OHVaUlpjaW02eXNRQ05VdWxxN3BITE5GcXQ5N25qdWtF?=
- =?utf-8?B?ODl6YzFBQU5kMWNycktCdmRLUC9PQWtUU1VvM2pOVmJEclkwL0c5UHc3Z2F3?=
- =?utf-8?B?SFNVTEFYek10QWcrYnRDR1BhRGJmTTNTY1FiSllJRXZIc2RJVk8vai9UWjQ3?=
- =?utf-8?B?UmN1NlRxQ09DN0JUc2ZKSmFON3JQd1V2d0g2ZE45aS9vZGtVcHhodnpieHdy?=
- =?utf-8?B?azQrWTVKWVk0NEh1eXd5SVVJOG9GbDFvcVB6MFBPVUtXOWUyZDdiZ3F0UUVq?=
- =?utf-8?B?MTQ5NTRvZG9rMkQzSWovQTZzYUdTTGtJZGlwSUFUSUg3SUpOVjltSm1VTFZr?=
- =?utf-8?B?SVFnR1lNaFJWNjZWRHQremk3NENzdFEyRzRYaUhmWVlYYkVyNFlsRWNEVGNk?=
- =?utf-8?B?bjlTeS9nVTlIcDRna1dicEJlWGlkK3BUeDFyNWZXd1lqdHV4Y1RZY0ZCVDB2?=
- =?utf-8?B?U3FYVFRseC90RDJlaW9YdVp1L29RaGFzM1RqTHlwaSs5OUpYWGx1RjdVWURp?=
- =?utf-8?B?NkYyWTAxb2ZDc1FSRFlMNE0wMFdGWFF1dHZuSGNQbDc2aGFNS1ZTQnNPTWcx?=
- =?utf-8?B?YnNkNlZocVliKzNZYTVjMWNML3o2UGsyblZZYVduSElsNGpSOStOZmlaakdB?=
- =?utf-8?B?K3pLY1lRbkd3amh4dmQyZjEwSUpDKytrY3l4NHVEY01TUWNUOGlIcS8vTk01?=
- =?utf-8?B?R2xuVy92TXgyenhRcHR4UGdIaTI5SU1NU3JzbXg0SXE1dTA4b1dwL0RNVVVT?=
- =?utf-8?B?TW1JK055RW5HZU9TeVVJeS84bG4vYlhreS9xY0xRNjZVS2JZWXRkWHhjWXBZ?=
- =?utf-8?B?UkJQZnBjcWxycmlTN2QyektaK3cyZGhGclhYbldxaXdSem1jaHpvNjN6SVgr?=
- =?utf-8?B?STJtekVJMlA1L2lyUXBTM0NzaUxlQnpEcXhJMXAyRjNnQlRPcWNMTVhrb1E4?=
- =?utf-8?B?Y1ZaeW1pbXdFZUV1VzlBNkNsTjNoT3NnSFc3Wk10WG5pUmpFYVRRc1hvZjZF?=
- =?utf-8?B?d1kvTDlxT29ieWNScWJWVEw0by9YMm96WDlCbGtSd21aa2xuZFNEY05tRVNu?=
- =?utf-8?B?bXBxWlFYeHYyWGh6NktlNEp6K0ZzcjhTcWJwUVVzZ2lDUDVySU05QWJBZHBq?=
- =?utf-8?B?ZE9ZMS9UWVc5citXdTlyZzlkSE9uQngwVTlqT3VoeUpPUitXTzZ3TmtGemgx?=
- =?utf-8?B?TTBtZ1grQmdtY0N4ZHB6Tm5NNldWdHBhb1hZQjRQRVRoa2I4eHRlTkZnWEFy?=
- =?utf-8?B?cUtsRnJyMkNmUUZFZjdyZWxTMUZqVmFodTRDTk5oRmR6ZndVNUVxM2gwNVJF?=
- =?utf-8?B?aGt1Q3BHbTltR21HUmZOQzNuU3p4WW51Nk1lOHB3cTkxaVNERTh5UHBvZEdq?=
- =?utf-8?B?eE9XdWlFQ0dqMXZERnJRQm5oZG13dnhKR2VsOU82SGNaWEZmUzhaOVB1dTB2?=
- =?utf-8?B?UXQ5Skh1Q25HZVE2TW1XQnhUZTFaQW54b1NZd2FEeUdTSDJlRytMTFNsdkdt?=
- =?utf-8?B?ekh4S1hNSDNPY0h5RFBuUm1WNHRDdGh2ZFVOZjNHbWVsUEVydUdqOE9jTWpM?=
- =?utf-8?B?ZkxGbExHYUYzMXhQN1ZuSHB6RWRxYTlHbjJlOVpKSmN6SVZSMkVkL3VTMm9y?=
- =?utf-8?B?RUJDY1dGZUVFeTJ3cGdsdllnTW9TQmoxbDJUcWVPTkZNNUJORU9YS0xnQ1J1?=
- =?utf-8?B?MHFjMnQrenRKaUVSZnZXMm1BbkttbHo4eEtHd29UU1E3ZjVERWJadk5Mb2Fs?=
- =?utf-8?Q?iOure9T770azIK/H9TE4WQ9wskg8AkfEPMyDm8Y?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7051.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S0kzYzlpdVRDM3FXSnN5d0Q1SkorTHFGSFJsSERNbEkvMVFIZmFWY0ZDL1dv?=
- =?utf-8?B?ZUkxSjArcm1kNFZneTlOdlFGYVNjK0FOdmtET0J6anFvcHRGMjZ2dW5nYVgz?=
- =?utf-8?B?blVXSDZKRytiekVQeDZGaDhRNWlwazRqeWsxaDRCQjdjVGp5bnFrVG52bmNp?=
- =?utf-8?B?RTQ2Z3IycVh6VEdrWFhUcng5eXNRU2hQb08xREhYbSs2Z2c2RG5jOUtRN0da?=
- =?utf-8?B?TFZwc3Y3SFQzQ1BRd0xCMXYwNi9UemIvZ21TcVVIL2FuamJWNitmaThXNUFP?=
- =?utf-8?B?YkR1QnVhZmg3VTk5Z2htdG1UbzRSalZBd0tvYytyTmlUSnBWSy9QaEFKRUZU?=
- =?utf-8?B?d1h2NmlXT0JIU2hsRkdSOWpiaDNHU1M1dy9jRlphNlRHRFg2RElUMUYwMlgz?=
- =?utf-8?B?eHdvZ1duN2gzcnhwOEdYYlFpWm5TUmo1ZjRaeWlTV1VEOGlHcWZ3UkRMcXgv?=
- =?utf-8?B?bFJHalVxNmhKcFBrcGNyYm1Sc1VrMWVCMnFuZWNtOTRyUUU2emNSMkhLRU5j?=
- =?utf-8?B?QytUQm5xemtIM2ZIOGZBQWVGVU9nK0JQdWVMT29qMVRzYm1iZVU4b05aK0I3?=
- =?utf-8?B?MXpmME5TOUxiaWYzZXB1ZzQ5MEQ5cERsYkZ2UUxpNmIyMDkwcFNSaEdlbTlT?=
- =?utf-8?B?bXRaTWN3NmVvTUtrOHpDSmhGbm03K1BNK01aR0lGbmE1bnp1N2dTZE96dlZ4?=
- =?utf-8?B?KzRwYnU1TDdzVVVBcVhXb0FYdDhVaGlPVHV4S3d1THRVS1RBWjh0a1Nicnp0?=
- =?utf-8?B?dWNYaEVTejlUcndkaWNOY1M4TVlhR2VJY1M3ZG1tWStzUmlMeXNERndhOTZR?=
- =?utf-8?B?TmlkbGxBSkh3d0JqY2NkQ05wek00Sk1yUVNtNFljeEU4UkNjTWlubFM3QlQy?=
- =?utf-8?B?Y08wOE5iQ0Q0TGdNb2FGamZXRWtueWgzd1hvd3BEOWx6eitlV3dJVHhYd2tE?=
- =?utf-8?B?UzdGbktYL25MV1RqVUl2T1JyRWVKL1h2a1BCdlllc01IL0RSQnlJMlBSSlhq?=
- =?utf-8?B?SHoxMVNQaXIvNjFmT21xMGROaDFtZ0I1UTF6dVlieGJhRjhma1pFZUZaQ0JR?=
- =?utf-8?B?SURWSFZoV2J1cWhhWkRWUkl2SzhSd09pTjYxVGVpRE1EYU84dUIrbGFKZ1Z2?=
- =?utf-8?B?RFRYaGNrbHFqclBmS1VCL0lWbjNSNmpTUnY3Vk40Y3VadDNIYlFEaEd2TWhh?=
- =?utf-8?B?SExRazJxdU1HTWtzdmVpTXU1R3pqOGczK2NBb3ZzMkY2OFhvV2xwbEg5QWpZ?=
- =?utf-8?B?SnV5NDdBZ1FmV0xXVi9jeTZoTktzZkNxTW1wcHAxWjBqZ0JBOEdGNGJnQ3ha?=
- =?utf-8?B?VXNnVEs4Q0ZwV0xRNDJWZ2F4ajBLZ0JtYTJVNHNvWmR5ZTh5dGUzTHVmamtV?=
- =?utf-8?B?QjZqNzl2anRmRVIwaWl4NnY2RS9jRW5mc1Y2TVlhL2tpV0Jsc3hPSko3em1U?=
- =?utf-8?B?REh5NTlObExmc1RDUGhIV1FNQW5nNkRmV0tkcjJhcmpXQWNpaGRQdi9OSlFr?=
- =?utf-8?B?QVgyK25USjFxdElkeTR2aHFHeVBDMk1DRmp4citOMkNxMG51Y2phWVZhcU5R?=
- =?utf-8?B?RlkvWE5udmFpZWQ5alNaYTJRTVM4TitTaWdOQWZqdzA2SFNmaUl6SEh4eXc0?=
- =?utf-8?B?VThaclVwSTJFSnBlTlJ6VEdJcUNpVjhGODN6RW9oOGJaS0ZpMUdjYzlhMnRZ?=
- =?utf-8?B?K2Z3ZWxPeGxKMTh0QWZzOXZhT0ZmV2dHSXB3cXFVZXVTMmpsLzRrSjFzczcr?=
- =?utf-8?B?S2VGWCtOdWRjZExJQjNldktNd3RncmZicVBrMU1EYVhpdlN0QkhyOEJEUU1Y?=
- =?utf-8?B?TjRpZUhsZ3Exc1JiMExDRFF2MzVRK285STF5Y0VwNE9zaHFVd1ZHOVFBK0xH?=
- =?utf-8?B?azNiKzFyQUorNm9Bd2Q5M0JnQXkzZFlvZ1ZtQVBiNEpWeExBTHpsMHlUOUF0?=
- =?utf-8?B?cTBNc2dpMUVrQmpGTi9RbC9hWTJXOW11amYyWm9WY3VqRC9uTzlpNEFaZFNB?=
- =?utf-8?B?dTRuU2kwSXlsemNMa1Q2V3NnYnpXbGU2K3dFYXRTbUd0N3pnbVd2eXNtRjVI?=
- =?utf-8?B?RUx6U1VVMnVsVWZicEF0c1ZuSnF4Ti9QMVBUQ05UWjh0bWlFK2lJMlNGc25W?=
- =?utf-8?Q?uZfgvhn14yKvX+9kLSP5oVP5v?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30020c35-450f-459d-dcc7-08dcf4ce703b
-X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7051.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 08:24:26.4705
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Yugeoa6XZy1wbvtUC2RlA+Cwrg6q51eoNeNk05ulFaoCPYLAC2GwBqMyUmZMMlJDZhoooaLfFxaxt/xTYxxINw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9140
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
+ uaccess failures
+To: Dave Martin <Dave.Martin@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
+ anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org,
+ dave.hansen@linux.intel.com, jeffxu@chromium.org, joey.gouly@arm.com,
+ pierre.langlois@arm.com, shuah@kernel.org, sroettger@google.com,
+ will@kernel.org, linux-kselftest@vger.kernel.org, x86@kernel.org
+References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
+ <20241023150511.3923558-4-kevin.brodsky@arm.com> <ZxoooqtuqTK5CAMR@arm.com>
+ <80688edf-83dd-43c6-a1a8-b69acd30f5c3@arm.com> <Zxpq0k3b9q8nWrYa@arm.com>
+ <ZxpzexqNIfys3MnJ@e133380.arm.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <ZxpzexqNIfys3MnJ@e133380.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_092436_440284_DA07193C 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20241025_092454_931938_48AB1CDD 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -225,70 +87,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/24/2024, Biju Das wrote:
-> Hi Liu Ying,
+On 24/10/2024 18:19, Dave Martin wrote:
+> On Thu, Oct 24, 2024 at 04:42:10PM +0100, Catalin Marinas wrote:
+>> On Thu, Oct 24, 2024 at 04:55:48PM +0200, Kevin Brodsky wrote:
+>>> On 24/10/2024 12:59, Catalin Marinas wrote:
+>>>> On Wed, Oct 23, 2024 at 04:05:09PM +0100, Kevin Brodsky wrote:
+>>>>> +/*
+>>>>> + * Save the unpriv access state into ua_state and reset it to disable any
+>>>>> + * restrictions.
+>>>>> + */
+>>>>> +static void save_reset_user_access_state(struct user_access_state *ua_state)
+>>>>> +{
+>>>>> +	if (system_supports_poe()) {
+>>>>> +		/*
+>>>>> +		 * Enable all permissions in all 8 keys
+>>>>> +		 * (inspired by REPEAT_BYTE())
+>>>>> +		 */
+>>>>> +		u64 por_enable_all = (~0u / POE_MASK) * POE_RXW;
+>>>> I think this should be ~0ul.
+>>> It is ~0u on purpose, because unlike in REPEAT_BYTE(), I only wanted the
+>>> lower 32 bits to be filled with POE_RXW (we only have 8 keys, the top 32
+>>> bits are RES0). That said, given that D128 has 4-bit pkeys, we could
+>>> anticipate and fill the top 32 bits too (should make no difference on D64).
+>> I guess we could leave it as 32-bit for now and remember to update it
+>> when we enable more keys with D128. Setting the top RES0 bits doesn't
+>> hurt either since they are already documented in the Arm ARM. Up to you,
+>> it's fine like above as well.
+> Can we maybe just have a brute-force loop that constructs the value
+> using the appropriate #define macros?
+>
+> The compiler will const-fold it; I'd be prepared to bet that the
+> generated code would be identical...
 
-Hi Biju,
+Fine by me, I suppose I was too eager to use the one-liner I had found
+:) Building that value based on arch_max_pkey() is probably a better
+idea in the long run. (And indeed the codegen is the same, it boils down
+to a mov w0, #0x77777777 in both case.)
 
-> 
->> -----Original Message-----
->> From: Liu Ying <victor.liu@nxp.com>
->> Sent: Monday, October 21, 2024 7:45 AM
->> Subject: [PATCH v3 12/15] drm/bridge: Add ITE IT6263 LVDS to HDMI converter
->>
->> Add basic HDMI video output support. Currently, only RGB888 output pixel format is supported.  At the
->> LVDS input side, the driver supports single LVDS link and dual LVDS links with "jeida-24" LVDS
->> mapping.
->>
->> Product link:
->> https://www.ite.com.tw/en/product/cate1/IT6263
-> 
-> Just a question,
-> 
-> What is the maximum single link and dual link modes you have tested?
+>>>>> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+>>>>>  {
+>>>>>  	struct pt_regs *regs = current_pt_regs();
+>>>>>  	struct rt_sigframe __user *frame;
+>>>>> +	struct user_access_state ua_state;
+>>>>>  
+>>>>>  	/* Always make any pending restarted system calls return -EINTR */
+>>>>>  	current->restart_block.fn = do_no_restart_syscall;
+>>>>> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
+>>>>>  	if (!access_ok(frame, sizeof (*frame)))
+>>>>>  		goto badframe;
+>>>>>  
+>>>>> -	if (restore_sigframe(regs, frame))
+>>>>> +	if (restore_sigframe(regs, frame, &ua_state))
+>>>>>  		goto badframe;
+>>>>>  
+>>>>>  	if (restore_altstack(&frame->uc.uc_stack))
+>>>>>  		goto badframe;
+>>>>>  
+>>>>> +	restore_user_access_state(&ua_state);
+>>>>> +
+>>>>>  	return regs->regs[0];
+>>>>>  
+>>>>>  badframe:
+>>>> The saving part I'm fine with. For restoring, I was wondering whether we
+>>>> can get a more privileged POR_EL0 if reading the frame somehow failed.
+>>>> This is largely theoretical, there are other ways to attack like
+>>>> writing POR_EL0 directly than unmapping/remapping the signal stack.
+>>>>
+>>>> What I'd change here is always restore_user_access_state() to
+>>>> POR_EL0_INIT. Maybe just initialise ua_state above and add the function
+>>>> call after the badframe label.
+>>> I'm not sure I understand. When we enter this function, POR_EL0 is set
+>>> to whatever the signal handler set it to (POR_EL0_INIT by default).
+>>> There are then two cases:
+>>> 1) Everything succeeds, including reading the saved POR_EL0 from the
+>>> frame. We then call restore_user_access_state(), setting POR_EL0 to the
+>>> value we've read, and return to userspace.
+>>> 2) Any uaccess fails (for instance reading POR_EL0). In that case we
+>>> leave POR_EL0 unchanged and deliver SIGSEGV.
+>>>
+>>> In case 2 POR_EL0 is most likely already set to POR_EL0_INIT, or
+>>> whatever the signal handler set it to. It's not clear to me that forcing
+>>> it to POR_EL0_INIT helps much. Either way it's doubtful that the SIGSEGV
+>>> handler will be able to recover, since the new signal frame we will
+>>> create for it may be a mix of interrupted state and signal handler state
+>>> (depending on exactly where we fail).
+>> If the SIGSEGV delivery succeeds, returning would restore the POR_EL0
+>> set up by the previous signal handler, potentially more privileged. Does
+>> it matter? Can it return all the way to the original context?
 
-With single LVDS link on i.MX8MP EVK, the highest pixel clock rate I
-tested is 74.25MHz(1280x720@60).  i.MX8MP LVDS Display Bridge(LDB)
-supports the highest 80MHz pixel clock rate with single LVDS link.
+What we store into the signal frame when delivering that SIGSEGV is a
+mixture of the original state (up to the point of failure) and the
+signal handler's state (what we couldn't restore). It's hard to reason
+about how that SIGSEGV handler could possibly handle this, but in any
+case it would have to massage its signal frame so that the next
+sigreturn does the right thing. Restoring only part of the frame records
+is bound to cause trouble and that's true for POR_EL0 as well - I doubt
+there's much value in special-casing it.
 
-With single LVDS link on i.MX8qxp MEK, the highest pixel clock rate I
-tested is 148.5MHz(1920x1080@60).  i.MX8qxp LDB supports the highest
-150MHz pixel clock rate with single LVDS link.
+>
+> That seems a valid concern.
+>
+> It looks a bit like we don't back out the temporary change to POR_EL0
+> if writing the sigframe fails, so the temporary "allow all" perms might
+> get saved out into the SIGSEGV sigframe on the alternate signal
+> stack, and will then be restored as the user thread's POR_EL0 when the
+> SIGSEGV returns.
 
-With dual LVDS links on both i.MX8MP EVK and i.MX8qxp MEK, the highest
-pixel clock rate I tested is 148.5MHz(1920x1080@60).
+It sounds like you're referring to the delivery case, not the return
+case. In the delivery case (setup_rt_frame()), the "allow all" value
+will never be saved into the sigframe because we call
+restore_user_access_state() if anything failed (this is new in v2,
+exactly to prevent that scenario).
 
-> 
-> On Renesas SMARC RZ/G3E platform I have tested with this patch set,
-> 
-> Dual link :1080p@60
-> 
-> and
-> 
-> Single link:720p@60
-> 
-> For single link > 720p@60, sometimes I get message
-> "it6263 7-004c: failed to wait for video stable"
-
-I don't see this with i.MX8MP EVK and i.MX8qxp MEK.
-
-> 
-> From SoC side, it can support max dot clock of 87MHz for single link.
-> 
-> So just wondering other than reject modes greater than 87MHz from SOC
-> side, do we need to limit any thing on bridge device for single link Case?
-
-Since IT6263 works with 1920x1080@60(148.5MHz pixel clock rate) on
-i.MX8qxp MEK by using single LVDS link, I'm currently fine with
-the existing clock rate validation against the maximal 150MHz pixel
-clock rate.
-
-> 
-> Cheers,
-> Biju
-
--- 
-Regards,
-Liu Ying
-
+Kevin
 
