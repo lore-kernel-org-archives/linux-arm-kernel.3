@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0FCD149CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 156FAD149D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 17:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8WquX2cl7IffjuB5Igjt7I2WQrOobM1hAp+Qhi1fing=; b=I+2RLnbUlSph40o7BtUYCFimZU
-	y7OgfkhSdyTsPkpVqHz1XEboScuxWFCdcs4K4dcKtsPzV+Q0RiBxLPGVr/yO9mf2Ik3PuJYzmARbA
-	vGv5DHOsFg7B/pPrMOnjHpO93GqyTzgwAS5le1wLz+lZ8IcxJgAoQggJrsFhH552giPTnp6nhpuoN
-	5hEmDex//gMVQ+IYdprN5jYMma1UAEYapY/blKTpPn5DzjzIGqoCRPn+NjdjP849aUcqCL6K9R8oh
-	wsxJJ/WVAnk3JWEMTJRFQWr2m6VOzsNYFoqCejQWNr185iOD1ryAwwLRIrqf5N6+FEDBNAclduJRB
-	J+d3HSxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D8BkQHxl/jl98jZceXhfQCyyW7/L0TBeWdJpzjggPMw=; b=KWJULfnkSQl2Yw
+	KJjT2t9YDbOQxBAq9/6J7VU69BLOUijChI3EReWXBLKa0pd+sCexnFuFeopbu0Mcv5AjBpqtlrSxA
+	ziBuS9YsaP/4bSQvrsY01Ng/tOeb+p0IQC+t+hYbO7Ap8Wi2sHSvP63tTR2lhyRVt3U6Wty/lF7g0
+	CqnKyqvhoneCoL4o73oth4h6U0fLoaMINgMy392ayUicGxBbKvBi+KkQV5tGyO1KDZDHkFm5NOHLn
+	63uwcbab4jpA8X2lLwrzBLVZd3W8MDP2gPG/eGq6psHz0fz+HJj8aDS8I5QJqxhoIpHgyMJgNQOVf
+	k4uQuMj1YjSlzpvG/W8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Nry-00000004Wxm-1bW5;
-	Fri, 25 Oct 2024 17:13:02 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1t4Nwp-00000004YfP-2NBK;
+	Fri, 25 Oct 2024 17:18:03 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4NqO-00000004WkS-1q4Y
+	id 1t4Nus-00000004XkS-3wNo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 17:11:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729876285; x=1761412285;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MYQYsh2ZM0F5hLiv9jWAnO8EjpYfnIqM2b9zMJRm42c=;
-  b=ikZDEar7QA1SpCS2AIP+nuBrjwkz9yralhRHQzqyv+LsGdq7kUy2ksHW
-   arO3xxopYCxe6dVqE8QRtMPu/XO1m9TVgzf0IRD/kK6otkJDTkuOrJuiu
-   Rb2meY6Oa3iX6ebG5omcJf9JXSw83zTzage+ua1y0v+JCj5ixXbM6a5xN
-   nT+BPNL00ZVYxl0U2rwmsJc+dUjK81/pvmXMTqHr4mGP+dznDYDGCnDFb
-   ZJfSB3f1VGfMUU9p5zMlt8aJgAhhHXjAHLyEUAL2p2o27TBCt/NFwETD2
-   4cWthQk5YfPaxuFY6iExhFFS6jojBpF2KWggCHz8HxU4KXWqrQvjpgpxa
-   g==;
-X-CSE-ConnectionGUID: 4td2QrfNTUuVKSGdQ/RqWA==
-X-CSE-MsgGUID: 60qUbQSFTBuBf7H974DBSA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29497042"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="29497042"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2024 10:11:24 -0700
-X-CSE-ConnectionGUID: W8ffi6AWRIKUCKXfgRWWzw==
-X-CSE-MsgGUID: jBgwIuxpQcCrOIKJrpn2Yg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,232,1725346800"; 
-   d="scan'208";a="81267315"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 25 Oct 2024 10:11:20 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4NqH-000Yeq-1K;
-	Fri, 25 Oct 2024 17:11:17 +0000
-Date: Sat, 26 Oct 2024 01:10:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Vladimir Oltean <olteanv@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: Re: [PATCH net-next v4 3/6] net: stmmac: Refactor FPE functions to
- generic version
-Message-ID: <202410260025.sME33DwY-lkp@intel.com>
-References: <cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207@gmail.com>
+	Fri, 25 Oct 2024 17:16:07 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-37d51055097so1492540f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 10:16:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1729876561; x=1730481361; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=D8BkQHxl/jl98jZceXhfQCyyW7/L0TBeWdJpzjggPMw=;
+        b=Vs+YA3NAdAOpGFZa5xkLlWYztqFCa7M8VaYtwiwZiUcIPm0O0X2gGfYS1TmGekyipJ
+         ZHishK5pMpk8J1h296OGAFZYar1jyRBtvXrI/z9taVgH2iCiN0v+UUYIspTdluM2qDxP
+         DRiQoOs9AsO8cEw4P90A1gNbg+uwlZfDfJkwXIfwi9tr2Nc0qZUNJGD5ylRy2GjkRGiY
+         LxpuCZLvYSywCG7R2CDPqvEpb/0qjyqTLmFoXSXnpu7ez/5Q8d49fWyG4Cqx1KojJyWm
+         xKRITds4iA0VFNSJOKwvWgt2L1gzjxWrPTAMa064bVJaJxrr2M9g9UlQlCJyahxCVMRS
+         rEZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729876561; x=1730481361;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=D8BkQHxl/jl98jZceXhfQCyyW7/L0TBeWdJpzjggPMw=;
+        b=pS79O0WEIEnANgs9MLatiJCqCL/opMSC2YziJkLULZ2T0nXePaHbrNw9hguuYlTW2a
+         94BOYtab6FaLEDcBPe1y2WMg/59AxtQt3enoGRLRFp1aAg6CJYhMwwUqfSzEHh9U4M2x
+         igsdUzCwjqUy64Zw9DB7WlkuM7FgC1hlpR0shjsAQIcjg1KLcAfluci77L5ojNY04UBk
+         bxcSmT1ekSHMfQUEgQI/4/50WDe0WTMgZdVp5qIaiQ2QSswI3ZA1XkeRbuAgpDTdbaQf
+         frXCTmlYvU5isnKS9ZqGanWiuwQSXQ93VPB4fMCbL8fAdWWhowYXY/YYhSyncrNibgk1
+         x89Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXPHAXbxB+u6enjHI04wzaXVAoljs6lqlE1qCX6KiChQylxBvtvl8O/pFEsrSip2pfY38Gi5p2kXLkw3/20vS4h@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhYt/BNPaqVogRaVQQ8wLQWrvTYp3W1iXTn8esJHOgKLGKb+E0
+	qti+9CFsZCeOjx4tZItWq1yD1YMaRkp61aEV9mdHv9zp6ZaZ73h0a2e1zr3rvJE=
+X-Google-Smtp-Source: AGHT+IFmFpJPOGOxqboe3FSCJG1p90kkm0iTmlWq/Ni/uCdlNc+9cgBNSEFM0DbQDQceCqmCnrSi6Q==
+X-Received: by 2002:a05:6000:11cc:b0:37d:3650:fae5 with SMTP id ffacd0b85a97d-380611f5202mr113855f8f.52.1729876560748;
+        Fri, 25 Oct 2024 10:16:00 -0700 (PDT)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38058b91f50sm2013649f8f.94.2024.10.25.10.15.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Oct 2024 10:16:00 -0700 (PDT)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: [PATCH v2 00/36] drm/vc4: Add support for BCM2712 / Pi5 display
+ hardware
+Date: Fri, 25 Oct 2024 18:15:31 +0100
+Message-Id: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADTSG2cC/22NQQ6CMBBFr0Jm7Zh2ChJceQ/DorZFuoA2U2wkh
+ LtbiUuX7yX//Q2SY+8SXKsN2GWffJgL0KkCM+r56dDbwkCCaikEoeUJs6mRWkmYXjEGXrDTVpG
+ 6OGX0AGUa2Q3+fWTvfeHRpyXwerxk+bW/IKn/wSxRoDSGbNN0dSfaG+sUH455jf5swgT9vu8fY
+ xbB6b4AAAA=
+To: Maxime Ripard <mripard@kernel.org>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Javier Martinez Canillas <javierm@redhat.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Dom Cobley <popcornmix@gmail.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_101124_587978_38D58523 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20241025_101603_072410_6842C7C0 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,72 +112,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Furong,
+This series adds the required DRM, clock, and DT changes
+required to support the display hardware on Pi5.
+There are a couple of minor fixes first before the main patches.
 
-kernel test robot noticed the following build errors:
+Many of the patches were authored by Maxime whilst working
+for us, however there have been a number of fixes squashed
+into his original patches as issues have been found. I also
+reworked the way UBM allocations are done to avoid double
+buffering of the handles as they are quite a limited resource.
 
-[auto build test ERROR on net-next/main]
+There are 2 variants of the IP. Most Pi5's released to date
+have used the C1 step of the SoC, whilst the 2GB Pi5 released
+in August is using the D0 step, as will other boards in future.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Furong-Xu/net-stmmac-Introduce-separate-files-for-FPE-implementation/20241024-163526
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/cfc647f0d031517f9ec9095235a574aad9dc2c95.1729757625.git.0x1207%40gmail.com
-patch subject: [PATCH net-next v4 3/6] net: stmmac: Refactor FPE functions to generic version
-config: arm-spear13xx_defconfig (https://download.01.org/0day-ci/archive/20241026/202410260025.sME33DwY-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 13.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410260025.sME33DwY-lkp@intel.com/reproduce)
+Due to various reasons the register map got reworked between
+the steps, so there is extra code to handle the differences.
+Which step is in use is read out of the hardware, so they
+share a compatible string.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410260025.sME33DwY-lkp@intel.com/
+Thanks!
 
-All errors (new ones prefixed by >>):
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+---
+Changes in v2:
+- Collected Acks and R-b tags
+- Dropped patch 1 "drm/vc4: Limit max_bpc to 8 on Pi0-3". Already fixed as
+  noted by Maxime.
+- Fix unintialised var "mux" in vc6_hvs_pv_muxing_commit.
+- Fixed uninitialised var "reg" in vc4_hvs_cob_init.
+- Make bcm2712_mop_data and bcm2712_moplet_data static.
+- Removed the "disable_turbo" line from the struct in
+  raspberrypi_clock_property
+- I'm confused by the CI error "performing pointer arithmetic on a null
+  pointer has undefined behavior" for PCI_IOBASE as I'm not using it.
+- Link to v1: https://lore.kernel.org/r/20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com
 
-   arm-linux-gnueabi-ld: drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.o: in function `stmmac_fpe_configure':
->> drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:205:(.text+0x154): undefined reference to `__ffsdi2'
+---
+Dave Stevenson (11):
+      drm/vc4: Use of_device_get_match_data to set generation
+      drm/vc4: Fix reading of frame count on GEN5 / Pi4
+      drm/vc4: drv: Add support for 2712 D-step
+      drm/vc4: hvs: Add in support for 2712 D-step.
+      drm/vc4: plane: Add support for 2712 D-step.
+      drm/vc4: hdmi: Support 2712 D-step register map
+      drm/vc4: Enable bg_fill if there are no planes enabled
+      drm/vc4: Drop planes that are completely off-screen or 0 crtc size
+      arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
+      arm64: dts: broadcom: Add display pipeline support to BCM2712
+      arm64: dts: broadcom: Add DT for D-step version of BCM2712
 
+Dom Cobley (3):
+      clk: bcm: rpi: Add ISP to exported clocks
+      clk: bcm: rpi: Allow cpufreq driver to also adjust gpu clocks
+      clk: bcm: rpi: Enable minimize for all firmware clocks
 
-vim +205 drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+Maxime Ripard (22):
+      dt-bindings: display: Add BCM2712 HDMI bindings
+      dt-bindings: display: Add BCM2712 HVS bindings
+      dt-bindings: display: Add BCM2712 PixelValve bindings
+      dt-bindings: display: Add BCM2712 MOP bindings
+      dt-bindings: display: Add BCM2712 MOPLET bindings
+      dt-bindings: display: Add BCM2712 KMS driver bindings
+      drm/vc4: drv: Support BCM2712
+      drm/vc4: hvs: Add support for BCM2712 HVS
+      drm/vc4: crtc: Add support for BCM2712 PixelValves
+      drm/vc4: hdmi: Add support for BCM2712 HDMI controllers
+      drm/vc4: txp: Introduce structure to deal with revision differences
+      drm/vc4: txp: Rename TXP data structure
+      drm/vc4: txp: Add byte enable toggle bit
+      drm/vc4: txp: Add horizontal and vertical size offset toggle bit
+      drm/vc4: txp: Handle 40-bits DMA Addresses
+      drm/vc4: txp: Move the encoder type in the variant structure
+      drm/vc4: txp: Add a new TXP encoder type
+      drm/vc4: txp: Add support for BCM2712 MOP
+      drm/vc4: txp: Add BCM2712 MOPLET support
+      drm/vc4: Add additional warn_on for incorrect revisions
+      clk: bcm: rpi: Create helper to retrieve private data
+      clk: bcm: rpi: Add disp clock
 
-   191	
-   192	void stmmac_fpe_configure(struct stmmac_priv *priv, u32 num_txq, u32 num_rxq,
-   193				  bool tx_enable, bool pmac_enable)
-   194	{
-   195		struct stmmac_fpe_cfg *cfg = &priv->fpe_cfg;
-   196		const struct stmmac_fpe_reg *reg = cfg->reg;
-   197		void __iomem *ioaddr = priv->ioaddr;
-   198		u32 value;
-   199	
-   200		if (tx_enable) {
-   201			cfg->fpe_csr = STMMAC_MAC_FPE_CTRL_STS_EFPE;
-   202			value = readl(ioaddr + reg->rxq_ctrl1_reg);
-   203			value &= ~reg->fprq_mask;
-   204			/* Keep this SHIFT, FIELD_PREP() expects a constant mask :-/ */
- > 205			value |= (num_rxq - 1) << __bf_shf(reg->fprq_mask);
-   206			writel(value, ioaddr + reg->rxq_ctrl1_reg);
-   207		} else {
-   208			cfg->fpe_csr = 0;
-   209		}
-   210		writel(cfg->fpe_csr, ioaddr + reg->mac_fpe_reg);
-   211	
-   212		value = readl(ioaddr + reg->int_en_reg);
-   213	
-   214		if (pmac_enable) {
-   215			if (!(value & reg->int_en_bit)) {
-   216				/* Dummy read to clear any pending masked interrupts */
-   217				readl(ioaddr + reg->mac_fpe_reg);
-   218	
-   219				value |= reg->int_en_bit;
-   220			}
-   221		} else {
-   222			value &= ~reg->int_en_bit;
-   223		}
-   224	
-   225		writel(value, ioaddr + reg->int_en_reg);
-   226	}
-   227	
+ .../bindings/display/brcm,bcm2711-hdmi.yaml        |   2 +
+ .../bindings/display/brcm,bcm2835-hvs.yaml         |   5 +-
+ .../bindings/display/brcm,bcm2835-pixelvalve0.yaml |   3 +
+ .../bindings/display/brcm,bcm2835-txp.yaml         |   5 +-
+ .../bindings/display/brcm,bcm2835-vc4.yaml         |   1 +
+ arch/arm64/boot/dts/broadcom/Makefile              |   1 +
+ arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  37 +
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  42 +
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 188 +++++
+ drivers/clk/bcm/clk-raspberrypi.c                  |  33 +-
+ drivers/gpu/drm/vc4/tests/vc4_mock.c               |   8 +-
+ drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c     | 106 +--
+ drivers/gpu/drm/vc4/vc4_crtc.c                     |  96 ++-
+ drivers/gpu/drm/vc4/vc4_drv.c                      |  19 +-
+ drivers/gpu/drm/vc4/vc4_drv.h                      |  54 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     | 107 ++-
+ drivers/gpu/drm/vc4/vc4_hdmi.h                     |   4 +
+ drivers/gpu/drm/vc4/vc4_hdmi_phy.c                 | 640 +++++++++++++++
+ drivers/gpu/drm/vc4/vc4_hdmi_regs.h                | 217 ++++++
+ drivers/gpu/drm/vc4/vc4_hvs.c                      | 737 ++++++++++++++++--
+ drivers/gpu/drm/vc4/vc4_kms.c                      | 105 ++-
+ drivers/gpu/drm/vc4/vc4_plane.c                    | 866 ++++++++++++++++++++-
+ drivers/gpu/drm/vc4/vc4_regs.h                     | 297 +++++++
+ drivers/gpu/drm/vc4/vc4_txp.c                      |  91 ++-
+ include/soc/bcm2835/raspberrypi-firmware.h         |   1 +
+ 25 files changed, 3461 insertions(+), 204 deletions(-)
+---
+base-commit: 3ae80b375739495e36fc6143ff27716fe390a13e
+change-id: 20241002-drm-vc4-2712-support-9ad3236e3caf
 
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Dave Stevenson <dave.stevenson@raspberrypi.com>
+
 
