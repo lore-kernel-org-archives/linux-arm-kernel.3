@@ -4,103 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C111CD149F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 20:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB60D149F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Oct 2024 21:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=; b=E1d78Ch8WJcv3JTfrFkePKuUGB
-	4nhyEJ72Pqs8WjLkU7Xth57avTtKeHRYbdGmr4h+GL8yjiefoZKLgDARiPuLKHSJ+Vl+yL+2ouFBU
-	HX7cjmuTsiXkOFAGFvVb5+ANkJG10IC2TCc8E+r5LoPv0XJlOzuyszADA3wGnZPC4BKDZbDx9I6/L
-	nm3oZyJkE5caqfPCtnXaGBnNuSj6zRLsT7g66Xww7CtpCyqLuTS+YX6YJstuX0Xa+16JXU/AIZn3s
-	HcxT6pxzIt+ql7afvcH1Fhoku7zpV6HYSfDKAyxEFul3uZ5TaT8aW318RybSxOunvfCPDDgDMGavl
-	1oVEs1xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rey2MIFbXJYbf7gqd9/z8wWxcJ52jSMJCnsq2KEpbKM=; b=xWbllpcvvnZvvzgVsgwp/cjO14
+	fg70HnRWaXRusnPlHGrRmtkoE9u2hMG2QQaHgvPnjN5cqf3UpWV/V+uilvT5vjQUE2TKELbjm54t/
+	ZRxs+gjkL9Z/oHx8nZkjEy/PD5hS+YMn+nAn6K+vSXvQCH+FypRCbeCm2hq53Coik1alvwAAdhFHr
+	ALyIHDjw+QxBVGW6vvok81uRFU3rhmZtAhGPac9gJ74zSTg9Ss8pBLRmGGf4yI3c+Gn0wL9QJzB7e
+	C33LZooJZTTAkSHPUPOjQcy294p5uWnAXYMZibrwZgD+/dhPwEQ4lw81rw34Hz4YJtn1xEsaj7o3g
+	sMjHqNIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4ROn-00000005Don-3avr;
-	Fri, 25 Oct 2024 20:59:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t4RSg-00000005Ejz-0SmS;
+	Fri, 25 Oct 2024 21:03:10 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RND-00000005DX7-1mQT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Oct 2024 20:57:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=; b=UdyAXVau+8oWw/eIXVGpYb/hGT
-	TlJIDre9vodsRr8/zqcmSiF8A0fA/AWuVVU92ExtgO43mmQA7HJ4AI6s4UYGP9xIj/iwVa3ysahAH
-	DXaPleNvhLgVmapukYbxLZWB7cugJXdTU65P8+NgU0Kkeqh7dgqa1hTo96WWQGeSeUdIjoVaDtbws
-	yjJZ0jCO2mmPyp5ZVFxJ+zMCbx5iSmmjs0rRVMekxcpRM7rfZodHIaLB52f3FmZYi/WYJvgXKZRVV
-	3YAUhDbl6+lv/x4r/i4dZuPFrp803/CRwt2ZxmfdBobK0SNVsO8QqdBoJ3W/CRC6kamV4g/hq1svC
-	65qcvwhw==;
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4RNA-000000095j9-0fZ0
+	id 1t4RQz-00000005EEe-1F6p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 20:57:30 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so4110651e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Oct 2024 13:57:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729889845; x=1730494645; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=;
-        b=eG5NmktX/fA0dMmQlhlC0Q4uKf+tgYLqYWtnmDT0k8xBfhq/rOwZ4bKIElCgm5USk2
-         wv+doreocPKM9xVPsKvaGDzQDbuPimqsZ/GNnX/3nifyxS+SCS2RsivZqr22cpg5DOcA
-         3dvxMBftXw6mcHfTNn8CdG5px9z+Oza+vPSkXIuN3A/78vhDslZruZhqCpPl85TnSGLZ
-         JpVDdS65LSO9+6scfyqf2j0V1eMgNGyRt2FQA0YpklMCz6c2N9A/rmWP1tdhUGdgDlSB
-         q0g50fpD1l2q1paXoWYOz1wRWy0utwSAsxjC9hXz3cTVNxYX0UN6vVyVntxR1E14dHNT
-         yLSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729889845; x=1730494645;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hNPFlVbZVA/OKJ3932WwecR37g7+EI0egSRr36/qweM=;
-        b=UKjMEyxA+ETlzGyNegJ9WK6Kz1MLtUzv0T6MrcANnmDEIiq/lS0l1BAwj2KpmlWWoH
-         hUI92cHU1RwEzvV4pinyFbN/VIBYcWfwDIZXnZRFLxjQdCT/dlKKpVkMM4eE5SObblXI
-         bv6gry9n0hiXeHXo5bu5Wt/772lDayarT1+npxzk8kDoDovf4Sd+tEnYPQ8ic0+snMeP
-         kmCd/6UxL1XtbUE7D4o+OqRP59MWEg8vlZPY7NVxuscg2AesroeOE4us9HMZOpU9wjwJ
-         fmj8kgmufCznZ3LkChlhS2td/CnhtLfII/+iWgUjYLmphufNzI7GdPnEB2hU0oXqrWPi
-         4qYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9tmF3RU1RGgd3796kGZTTcc/hfdu20SD0bdAjAHTYz1AW15wPFgOgbB8RGP1IHClDHDy+z9C38SCx5M0FMcFN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG/bxVLaVTUqwI1oYNkPCn5LTuAllM7XY1yEgv8aTpAYk+b0vr
-	+yadZou7Qt/K1jjJCtDm8/aCBZmrr0ESQjAqgoUgDL2wYRbLwBOYpnr9iGxAUCFyI7WlvQ7CApR
-	Ikaj5yYgXhai8KGwheZ4mLUZqvwZonGdUC2X5lw==
-X-Google-Smtp-Source: AGHT+IGNM4TYAOHuoUTcKkN3riSvNQrGUI2BitGMjHxjJ9ZNHlb/Bci2C7h3R3BXPLmrz9pSyztWUOGUMtDmtzwbabk=
-X-Received: by 2002:a05:6512:3da8:b0:535:6baa:8c5d with SMTP id
- 2adb3069b0e04-53b348cbb72mr418498e87.20.1729889844751; Fri, 25 Oct 2024
- 13:57:24 -0700 (PDT)
+	Fri, 25 Oct 2024 21:01:27 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49PInJh9002936;
+	Fri, 25 Oct 2024 23:01:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=Rey2MIFbXJYbf7gqd9/z8w
+	WxcJ52jSMJCnsq2KEpbKM=; b=HwFxvG+0+WmkBMhtVGNHyeVECBGX8UeMq34LnX
+	LFMKCuOS8brOr8the56XTU19CQkHSWO7RTRMx4fbA6Wt5g90Q/9R8dCweBrubQW5
+	YudbXJZnq/HFKApL7wk7XmQQtCGpb8VfuTcRfYXhXb/L8CgNWjmqpHMhjEvps5l6
+	UIwpwPniY09YARFcaIXGwyZU/2L6Y7GpajVY3dKu3jP/5zSv/a2pMhmmXke7bmBd
+	EPFdRH3y5JEtN/bypyUncVKBv0f/pxflDHxLAKXJrZYYxNgY2z5ga5G7612qmlwS
+	dAhtzUFPgrM5SHYNyXiqj69G2hsE+1oimxSHRBIQPGaYW3bg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42em4afjru-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Oct 2024 23:01:13 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 713BD4002D;
+	Fri, 25 Oct 2024 23:00:02 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C670E23193A;
+	Fri, 25 Oct 2024 22:59:31 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
+ 2024 22:59:31 +0200
+Received: from localhost (10.252.3.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 25 Oct
+ 2024 22:59:30 +0200
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v12 0/7] Introduction of a remoteproc tee to load signed firmware
+Date: Fri, 25 Oct 2024 22:59:17 +0200
+Message-ID: <20241025205924.2087768-1-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20241017-arm-kasan-vmalloc-crash-v3-0-d2a34cd5b663@linaro.org>
- <20241017-arm-kasan-vmalloc-crash-v3-1-d2a34cd5b663@linaro.org>
- <69f71ac8-4ba6-46ed-b2ab-e575dcada47b@foss.st.com> <CACRpkdYvgZj1R4gAmzFhf4GmFOxZXhpHVTOio+hVP52OBAJP0A@mail.gmail.com>
- <46336aba-e7dd-49dd-aa1c-c5f765006e3c@foss.st.com> <CACRpkdY2=qdY_0GA1gB03yHODPEvxum+4YBjzsXRVnhLaf++6Q@mail.gmail.com>
- <f3856158-10e6-4ee8-b4d5-b7f2fe6d1097@foss.st.com> <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
-In-Reply-To: <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 25 Oct 2024 22:57:12 +0200
-Message-ID: <CACRpkdYtG3ObRCghte2D0UgeZxkOC6oEUg39uRs+Z0nXiPhUTA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] ARM: ioremap: Sync PGDs for VMALLOC shadow
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	kasan-dev <kasan-dev@googlegroups.com>, Russell King <linux@armlinux.org.uk>, 
-	Kees Cook <kees@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mark Brown <broonie@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.3.121]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_215728_425871_F3DBA5CB 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241025_140125_651421_DA7C5766 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,18 +101,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Me]
-> What happens if you just
->
-> git checkout b6506981f880^
->
-> And build and boot that? It's just running the commit right before the
-> unwinding patch.
 
-Another thing you can test is to disable vmap:ed stacks and see
-what happens. (General architecture-dependent options uncheck
-"Use a virtually-mapped stack".)
 
-Yours,
-Linus Walleij
+Main updates from version V11[1]:
+- rename structures, functions, and variables from "tee_rproc_xxx" to
+  "rproc_tee_xxx",
+- update rproc_tee_register to return an error instead of
+  "struct rproc_tee *" pointer
+  
+[1] https://lore.kernel.org/lkml/ZxZ4cBilIlpf3IPw@p14s/T/
+
+Tested-on: 42f7652d3eb5 ("Linux 6.12-rc4")
+
+Description of the feature:
+--------------------------
+This series proposes the implementation of a remoteproc tee driver to
+communicate with a TEE trusted application responsible for authenticating
+and loading the remoteproc firmware image in an Arm secure context.
+
+1) Principle:
+
+The remoteproc tee driver provides services to communicate with the OP-TEE
+trusted application running on the Trusted Execution Context (TEE).
+The trusted application in TEE manages the remote processor lifecycle:
+
+- authenticating and loading firmware images,
+- isolating and securing the remote processor memories,
+- supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
+- managing the start and stop of the firmware by the TEE.
+
+2) Format of the signed image:
+
+Refer to:
+https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
+
+3) OP-TEE trusted application API:
+
+Refer to:
+https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
+
+4) OP-TEE signature script
+
+Refer to:
+https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
+
+Example of usage:
+sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
+
+
+5) Impact on User space Application
+
+No sysfs impact. The user only needs to provide the signed firmware image
+instead of the ELF image.
+
+
+For more information about the implementation, a presentation is available here
+(note that the format of the signed image has evolved between the presentation
+and the integration in OP-TEE).
+
+https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
+
+Arnaud Pouliquen (7):
+  remoteproc: core: Introduce rproc_pa_to_va helper
+  remoteproc: Add TEE support
+  remoteproc: core: Refactor resource table cleanup into
+    rproc_release_fw
+  remoteproc: Introduce release_fw optional operation
+  dt-bindings: remoteproc: Add compatibility for TEE support
+  remoteproc: stm32: Create sub-functions to request shutdown and
+    release
+  remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+
+ .../bindings/remoteproc/st,stm32-rproc.yaml   |  58 +-
+ drivers/remoteproc/Kconfig                    |  10 +
+ drivers/remoteproc/Makefile                   |   1 +
+ drivers/remoteproc/remoteproc_core.c          |  72 ++-
+ drivers/remoteproc/remoteproc_tee.c           | 510 ++++++++++++++++++
+ drivers/remoteproc/stm32_rproc.c              | 139 +++--
+ include/linux/remoteproc.h                    |   8 +
+ include/linux/remoteproc_tee.h                | 106 ++++
+ 8 files changed, 849 insertions(+), 55 deletions(-)
+ create mode 100644 drivers/remoteproc/remoteproc_tee.c
+ create mode 100644 include/linux/remoteproc_tee.h
+
+
+base-commit: 42f7652d3eb527d03665b09edac47f85fb600924
+-- 
+2.25.1
+
 
