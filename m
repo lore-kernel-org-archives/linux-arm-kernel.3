@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C99D10BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 11:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473D1D10BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 11:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ejHAN46hvZ7hCRqH1gPLU+sA3zZmTRWTq5lQcUbWNa0=; b=j5Qr53JcGua2mOdT0HV6hW7tKC
-	8RjxZash5qLIjM1b5td+dzNoRMmOjHcUCzVrkAaazXykTXXaktH7n5vTYOUDcWBKfvhawcrTUnU2e
-	4q/AKRlaiSGJLgy2uePBW2ZAkUT/a1/19/BfH8WACAYK5A9s5YdnEVK7KgWBN87PZMkIlNeXNXFv/
-	dFpUIPMG1Kl3Uji2CE6z8NWbFG9Quof1uuKuCpIWg3LfkwLyV0upsbu9PovzD9A/urpUq+MPzMbpp
-	7VmTE+c5vdPpQFl1GiwwOepK+F6FWJdlw9PQsrmF6QMVvvk+LpQsq47Ej3rBzPFFij/P3AeaTIzzD
-	9oexAg6w==;
+	bh=j0Hx5QsPQkOZVcv0ttTRtYKNVoFy2smPfVzCioGbHus=; b=tgSb7Jr3Jlj/ptc9FYLohCpj5F
+	gOMNIi6FYI4BPMvfbz+yNgotrqjINT7XGWBc7k34Zy3FMBq1aKZ90CyBOFSXIqiz56aMeil5wGQEk
+	zjuv/3z6NmcfVIuq0NEnpyHUttUDhGpvunXvzVutuye278nKaRWdZ3Qzd+cwuSHwTUA9dLbXeGNMU
+	Zok4rXHf/vRywSJuY1WrmLeSnxZxfZODkNnoPnQH3Byon74bO52l5kGdwZh4RKz/Mh7lP1cpSipBB
+	ncVBoIkBJAnUcq+r/dbYV+OPB+XzsvafbRtofkSpd21/7/yTyJIpgCX+Rz+ghg4qUtxjlL69DmzaY
+	peNiduUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4eyC-00000006UrZ-1gVX;
-	Sat, 26 Oct 2024 11:28:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4fOJ-00000006YUS-2stU;
+	Sat, 26 Oct 2024 11:55:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4ewc-00000006UXn-1mIL;
-	Sat, 26 Oct 2024 11:26:59 +0000
+	id 1t4fMi-00000006YJd-3H2O
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Oct 2024 11:53:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 068E5A40315;
-	Sat, 26 Oct 2024 11:25:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6BB6C4CEC7;
-	Sat, 26 Oct 2024 11:26:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5C23C5C3E4F;
+	Sat, 26 Oct 2024 11:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E43CC4CEC6;
+	Sat, 26 Oct 2024 11:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729942017;
-	bh=1aijchob2546XDzQr/sSoRHna2pm5upAiZBnO2Eq28k=;
+	s=k20201202; t=1729943635;
+	bh=2GUZBYAEYNqmLrUqB4Ttn5DIg8qbFosS8tsj7i2afWg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B55TDTMI/fKu5yUYgMltxk7cjFbChSOaSGJG45SZTU2N/Y0KccuxjFlPUdpFZsV20
-	 /LjZ4pHdYznMgq/jx8M5/miAiKRooGWC514laJKhbXHzxIgjEBZpXlClDR3nIFzJZA
-	 D82noSdJkzUTvCiX2N3WRAVguFaHrXhgIqiGq2wYxMvuZvV/XDuqcWjwcD0LR018gC
-	 aB0QzSe34yg5jnSZP+2UyZPTlRQosjwAc/CNGjsduv4nMaXbv9pnDvEuM3QlYvOv9t
-	 ZTMut3xdeY8bdyLcpvCOfZ2PKbyWA+ixXzFjDX/c8ukKn47llO2RuwyeNpFI6p1Kvu
-	 DVjJyhbsvFQeQ==
-Message-ID: <2d5f9959-17c9-4e61-a6df-ebd187f422e6@kernel.org>
-Date: Sat, 26 Oct 2024 13:26:48 +0200
+	b=EfW6YS9PW4m4o4CBUQtIctdPvOew1TXy0eboFfLIbPc4WPeoVantKBzpmihKxBgKn
+	 gxEBVGKu8kk7Fxxe6ejRdeh+qidENhNwy9f8hfl9AUqCwnCp4JRBNBJCvr+UgBzKU8
+	 D+axoNMWqd8a0CWrjZzU4qQSaJwi3HNKiYHToT4meYIW6jo7nJbInOrN9DrJ73lyOa
+	 pHViK1I0jeY1jEIv1hAy4YgiQZqQ/OalZ/JIv1ieUcCD8nsD6g2pj/TWHpDGUAFSMv
+	 LHj4JzQunS5YJwUlEKuBnp4SsFtMLdg9J0aJhy7VWONbv0h0vPNUl2PYzAw9UXIUY9
+	 L30q88qYezqGA==
+Message-ID: <8240d3b4-3367-4f13-a42f-0f40da08e371@kernel.org>
+Date: Sat, 26 Oct 2024 13:53:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] dt-bindings: soc: bcm: Convert
- raspberrypi,bcm2835-power to Dt schema
-To: Karan Sanghavi <karansanghvi98@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
+ and spi_0/1
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>,
- Alexander Aring <alex.aring@gmail.com>, Eric Anholt <eric@anholt.net>
-References: <20241022-raspberrypi-bcm2835-power-v2-1-1a4a8a8a5737@gmail.com>
- <lfzxcilud65ype66frb7eihq2hvranzxp6fomjvjyxvciiixlj@2efv5266wt5r>
- <zaqykppssizdpd2mynpoatp4smbzkr7atuurxkkegbegk5dw6s@a2daqovt2aod>
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <zaqykppssizdpd2mynpoatp4smbzkr7atuurxkkegbegk5dw6s@a2daqovt2aod>
+In-Reply-To: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_042658_626402_21BB5C7F 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20241026_045356_943293_43D5100C 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,59 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/10/2024 20:22, Karan Sanghavi wrote:
->>> +
->>> +examples:
->>> +  - |
->>> +    power: power {
->>
->> Drop label. Node name: power-controller
->>
->> I don't think this passes tests because of this. See power-domain.yaml
->> schema.
->>
+On 23/10/2024 11:17, Ivaylo Ivanov wrote:
+> Hey folks,
 > 
-> Below code is from bcm2711-rpi-4-b.dts decompiled from the dtb file.
-
-Uh? Why would we ever care about decompiling some DTBs?
-
-
+> This patchset adds device tree nodes for multiple clock management unit
+> blocks, MCT, SPI and UART for Exynos8895.
 > 
-> firmware {
->          compatible = "raspberrypi,bcm2835-firmware\0simple-mfd";
->          mboxes = <0x1d>;
->          phandle = <0x1e>;
->         ...
-> };
+> Exynos8895 uses USIv1 for most of its serial buses, except a few that
+> have been implemented in this series. Support for USIv1 and HSI2C will
+> be added in the future.
 > 
-> power {
->          compatible = "raspberrypi,bcm2835-power";
->          firmware = <0x1e>;
->          #power-domain-cells = <0x01>;
->          phandle = <0x0b>;
-> };
+> This patchset is dependent on [1] and [2], which add driver support for
+> CMU and UART.
 > 
-> I had a doubt that as above the raspberrypi,bcm2835-power compatible node
-> is defined with power keyword, so should I still rename the node as
-> power-controll or keep it has power?
+> [1] https://lore.kernel.org/all/20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com/
 
-I don't understand your arguments. Schema expects this to have proper
-name (see bindings). DT spec as well.
+I cannot merge driver changes into DTS. Are you sure you have driver
+dependency?
 
-> 
-> Also it does passes the dt_binding_check and CHECK_DTBS=y broadcom/bcm2711-rpi-4-b.dtb
-> but does gives the message as
-> soc: power: 'ranges' is a required property
-> so do I need to add the range property here?
+> [2] https://lore.kernel.org/all/20241023090902.538040-1-ivo.ivanov.ivanov1@gmail.com/
 
-I have no clue what you are testing here. We do not care about some out
-of tree DTB. And if you ask about upstream, then take conversions tasks
-after reading this:
+I cannot merge this either. This is serial tree.
 
-https://social.kernel.org/notice/Ai9hYRUKo8suzX3zNY
-
-BTW, your patch has patch errors which *have to be fixed* as well. Apply
-your patch to see them. Run checkpatch.
+Maybe you these are not really dependencies? What is here depending on
+what, specifically? What prevents me from applying it?
 
 Best regards,
 Krzysztof
