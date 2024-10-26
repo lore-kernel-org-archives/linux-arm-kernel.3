@@ -4,93 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9447CD10BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F733D10BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=; b=zBTld7qDfV/oRmFkhgA4AFrAsV
-	Ktvq9blI46HrmSMy2R2pnlhd0bd8YAhlxOOwnYAOibMFCvVzXykZt+0qb0cSGMgOWDrRwxcojpMeb
-	vw/FyPWXJ8cEgoCkO4V/zbpFLK9QjooC44aVxKJS9aCSzmqHpywZXpZ3fOSjQokA6CLgS8QOYbCHr
-	bpYv2PPd9N0OOL5cP9KielMwuqz9oRbuDQd+aMo4IQ76an077DHf78wW4O+fNKBF5KZNh5nMRJ/A2
-	0jEECDNqxYEypuqe6bi93UmzWGJyO5XUs7Hdc1s0R8J4O+y/jdE8ryTSpM45M0N977FeDNwWQdDTB
-	rrjUkpCg==;
+	bh=YKMDwvDxefm3CZT0enCdB0jDYHQGXQwDQKeZfm8PzSA=; b=VjVyN3uVvA8htLLx6mXOK2sktg
+	KLuY91Px0hVsEqPkFdQxQvsTrWAQnl1MhaOKGpTmB5L6fk75b86SlOLBC9gXUYNfOwF2TX7hTHpT0
+	2ZTYKqBDNEzyyI/WTKt5iz4gpoM2Qkv6Q5kvO0Y85w15LEQqzmFlJn0fLymJnQy/PP2Bq5O8VEI7m
+	CJSCVLPAbg1m3Xvavd/j1mbTnTo1yByrL4/M6l3xieD2vfgK9pMKxZ0r3F/NRiqZE1HLE5vWcO2OR
+	AnsqWPIKZvzmA1sEBQ6gODmMVdyt5W0p6Dy+l1ER4Dx8xjwVnMyvLUHXfU4Z1D6qNVnqWzS7zELO2
+	EAsnvzpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fW2-00000006ZE3-32K7;
-	Sat, 26 Oct 2024 12:03:34 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1t4fXZ-00000006ZS5-2QCd;
+	Sat, 26 Oct 2024 12:05:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fUR-00000006Z2n-22LB
+	id 1t4fVV-00000006ZA9-3b5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:01:57 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c9ff17eddbso505696a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 05:01:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1729944113; x=1730548913; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=;
-        b=Svd64WlABdn7oh7IRx2q0N9Lu2jOUDlF8uCgqzUzTsb95+CZYq6gxvY4ueab1g17Ap
-         G35NcrkQ88etfxNGC0B1OBjPS0LFAs+/PFtaYExF4EjPDoOKjPaA+CKtiISIre+t87r0
-         iGCntzGRvZ/j7GjhOr/DhS9CWaK3a8VGD+CWrA7HeVUMZFUH5S7hBNx76Vy21yQ3BcRP
-         WtFvOC14lDcCBDLt1LAdoHTaribivtv2vjodiYVmEmcJyDUHRzQDmAD+Mp9ve5KO6pxZ
-         Y/6oE5tW9bgbSU8ir+WQrsIe8ZXcGEXybwx45gRfLCn3NRlCNuHf1FfPHqESoK9Cz96m
-         S1mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729944113; x=1730548913;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=;
-        b=dgqyuDaWKqSU/JkQDu4mvOJan1b52yXms+X3sr80CZFU75qdOZMjoGpxoCxCwPca50
-         aIDACJQV+KvqmzQXf0RfiSAwfvkNgXa1p/6emCzFj5IMiAGoLY3N8COmKzR32YizoyAj
-         Yumgb3w4E4P7h8HXWpPW8GM1zi0EFhhehcDQTs8f17gDjYkbg+XAptN7MeeLPgXVckUR
-         jew5kFh2/nu2oszRFkHX6GDhYsIBMqyaaRf6GdieiRJbB9HN2a2KFKzweAaN7cTMzGeB
-         hc532wnaI4JBFnQYvyNhJtCnQGi6oEwzhwXid4VxSsuISxJQ4OuR+D042KEsGYtvbW/A
-         YSZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzHRLVdCi3nV9y19qCzYo0HFK27Htb+Q/RdBVbKmawj6yY1482daPZjzuPpAHUmFEF7SZeAzmUNzIEHlqPEEKV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoXXJS+Jk2CyVO9AO1h1P7a+HFE6gkRtlx1gEizy1T59BD2C0n
-	EW75ep1V/5KLFJDR58g+aoMghugzjTjamz/JKJQFS/6HMkx8YdJ63w716oR/Z5c=
-X-Google-Smtp-Source: AGHT+IH1dsULDIYCbXnhWrr2hutsWuzTM/gAfeo0yzwyxxJYFFg4QA218/5byXKAvC9+SNM44aVSrA==
-X-Received: by 2002:a05:6402:13d5:b0:5c9:7f8b:4fcf with SMTP id 4fb4d7f45d1cf-5cbbfa58bf5mr660881a12.6.1729944113136;
-        Sat, 26 Oct 2024 05:01:53 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.211.167])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb6319711sm1490421a12.66.2024.10.26.05.01.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Oct 2024 05:01:52 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/3] clk: samsung: Introduce Exynos8895 clock driver
-Date: Sat, 26 Oct 2024 14:01:48 +0200
-Message-ID: <172994382528.22240.15972019701074354702.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com>
+	Sat, 26 Oct 2024 12:03:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 85D84A40796;
+	Sat, 26 Oct 2024 12:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86960C4CEC6;
+	Sat, 26 Oct 2024 12:02:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729944180;
+	bh=Gp969nbLLy2qXaC10Zwhzqhb0xcH6uuDvqbV4Y4+IMg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BQrHdDKBs+/wzMDtVnpYpXv51A1APKjIaweOxov0TsCay/AK14LsdLQcCfoUY3bj8
+	 6QNWneG1qMW5nwr5n+qSwsrw7/GdCba5CmmIbRlR3MkmTaOLZNt79ctD8EueutHdkK
+	 OxGORMSudtNykoyeg3Eg3o3OfLtiyYUWvRiMLDJTv0QCb4DSRtKmrgikm5LbxAjPs+
+	 B0fYuS2a4Yw00qDT9gtvRI8lf6LYBqc+Cs3tFPNEkC+E3LS10gjaLCoDNXk771thkr
+	 lZDDUIrxq/GBtVuvrzEHNZwdz+XBe7piuOwCLRqltjtD2uVFuE7IWAnww3e21wYgXi
+	 DP30CQuquv1iA==
+Message-ID: <0fbf3170-659e-49d4-ab8a-35546bc2d00f@kernel.org>
+Date: Sat, 26 Oct 2024 14:02:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
+ and spi_0/1
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
+ <8240d3b4-3367-4f13-a42f-0f40da08e371@kernel.org>
+ <8e6810f2-366a-4c52-8406-79ea3970b530@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <8e6810f2-366a-4c52-8406-79ea3970b530@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_050155_562483_714517D0 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20241026_050302_070352_10BECC78 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 23 Oct 2024 12:01:33 +0300, Ivaylo Ivanov wrote:
-> Hey folks,
+On 26/10/2024 13:59, Ivaylo Ivanov wrote:
 > 
-> This patchset adds initial clock driver support for Exynos8895 SoC,
-> which allows clocking peripherals like MCT, serial buses, MMC, UFS and
-> PCIE. As platform support grows in the future, other blocks like APM
-> will be added.
 > 
-> [...]
+> 
+> On 10/26/24 14:53, Krzysztof Kozlowski wrote:
+>> On 23/10/2024 11:17, Ivaylo Ivanov wrote:
+>>> Hey folks,
+>>>
+>>> This patchset adds device tree nodes for multiple clock management unit
+>>> blocks, MCT, SPI and UART for Exynos8895.
+>>>
+>>> Exynos8895 uses USIv1 for most of its serial buses, except a few that
+>>> have been implemented in this series. Support for USIv1 and HSI2C will
+>>> be added in the future.
+>>>
+>>> This patchset is dependent on [1] and [2], which add driver support for
+>>> CMU and UART.
+>>>
+>>> [1] https://lore.kernel.org/all/20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com/
+>> I cannot merge driver changes into DTS. Are you sure you have driver
+>> dependency?
+>>
+>>> [2] https://lore.kernel.org/all/20241023090902.538040-1-ivo.ivanov.ivanov1@gmail.com/
+>> I cannot merge this either. This is serial tree.
+>>
+>> Maybe you these are not really dependencies? What is here depending on
+>> what, specifically? What prevents me from applying it?
+> 
+> The specified patchsets add driver functionality, as well as bindings,
+> for serial and clocks. This patchset makes 8895's device tree a user
+> of them. I guess it's not really a dependency, as 8895 devices should
+> still function without the driver compatibles merged, but there's gonna
+> be missing bindings.
 
-Applied, thanks!
-
-[1/3] as well
-
-[2/3] clk: samsung: clk-pll: Add support for pll_{1051x,1052x}
-      https://git.kernel.org/krzk/linux/c/49fefe602d8fa7323b51ffc4891acf4a91dac193
-[3/3] clk: samsung: Introduce Exynos8895 clock driver
-      https://git.kernel.org/krzk/linux/c/c6e45979204d092770c55c0b2d1fce6cff8dedd6
+So the only dependency is on clock bindings? If so, that's the only
+message expected here. There are no other dependencies.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Krzysztof
+
 
