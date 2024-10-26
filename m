@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E558D10BF7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25A4D10BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsNb/l8P+ovBzoihIQ5fxrfqePSLqA4WIatD2wbUDcM=; b=rCHsXDYusVvQvaXVr3NdcPxymY
-	lBepvAL6jiHN4MDvFaHErtgrQYLJjcEFjrUT3FuietFW63kCerey2id/CshB4DTTMBZzOxQUwKniu
-	2WwlOIb/zQCwUL5AF4Ouv2fq54/JxaI9QF2f92hJEmiyXvgiBDjmswT29hPZFuPUTZoTQVeKAN0Bv
-	zvIxSFy8ta2AgUyP6fqDpPbnP6NdtndhFHC/dbs8yrn4QHgiWACFAorbYYduK1L6HgtQUXflNlVk0
-	FlfXAJnzcBXNnR+3ol503ECjT2wLTn/L0PCiiL7FcNE8wrt88KL5Q5Lu+IwAO2m+tyqkgoXCv7WZX
-	mFxZk34A==;
+	bh=DC21zz27zupE1oMo+AsXsCNMjPFcuj91U80TqH3FRyg=; b=RP6R5CIKvrjAOHGEiWt5Kwe5s5
+	a/Q/DQsOutSJuXOGUYzslrePc6eiQvjQt3UvQw9EHud+HS1De7sX7CtgX5LzkSNNgMEGXYMG8YLOs
+	pcJDY3avFQCikqIm0n9bnXqyXqqqBu6meFxcfxn9N6i4JttY466p18+p1uqct/Fk4XIARoAVD9NBZ
+	fyZc9XxWo1PEBNzz9S+K0+DYkOkMC1Fetgg2OCcCN6zpgs/hEx+hegfK3zprjx/FFc41a0TZ3kMlO
+	7Zg49fDzrg7b6YCC9eQ/frlVZ6LfyCjriAr7hQ7psWMO6VduuBgw08qr6XATPiiXB6r6T90wgxZhC
+	VSk71H3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fs6-00000006byX-226c;
-	Sat, 26 Oct 2024 12:26:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t4fuB-00000006cLa-1ztU;
+	Sat, 26 Oct 2024 12:28:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fq6-00000006blg-3ePx
+	id 1t4fsQ-00000006c24-1Sbb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:24:20 +0000
+	Sat, 26 Oct 2024 12:26:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B7CE0A404FF;
-	Sat, 26 Oct 2024 12:22:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA8AFC4CEC6;
-	Sat, 26 Oct 2024 12:23:49 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DB5E5A402CA;
+	Sat, 26 Oct 2024 12:24:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F06AC4CEC6;
+	Sat, 26 Oct 2024 12:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729945457;
-	bh=kO1q2x2TNqovqSKbL+rwFnj9xp9ouk5oRfZzFVn7LN4=;
+	s=k20201202; t=1729945600;
+	bh=vlTJxPv2hpMGHbCdwNowbs1x9acLLoluxWNNFVabxMM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mthH6AlbHiPMsUNrjGp6yVtLLDqxtd8g4cIebz1H1zt7h00qm7TpB2D1LtmgNMrMZ
-	 D2suiFczBjLaPlDggh2kieOezM8UmOcVHIKjbQa6AMP6fbrvx/r2EBheE3w0GXbH5+
-	 lYjaGgvJrvIhXRIwlas+XEySa/kQ7VljFfUnAKSkilUo+PDE54o+StlG7fZhRItVV0
-	 /pC5QXdOe0WOZIMIjZbGBAogsg4yulH1HoPWVSAWqQf0+MBl/ldoPRnTwnw0yPY82f
-	 dYH3P6b9/+MLE7lLk2KpB12OnJWKy05LUVT6MAJEWE3bvDCgfG/hMxQdT7FdPQWiO+
-	 o4hf6pTCUMlcg==
-Date: Sat, 26 Oct 2024 13:23:33 +0100
+	b=dO2Up6eyFA00wtIu1eKIzr4FHLenroJ+GhPOJGXPB30hjWhR7vkq09eQzcjKqya57
+	 rJKnZlBhTu1zfFDjvaIQ18QYeDOL08aiaLP0mV3Dl7Z4wsFv5oFRmxVPCusH9NjiQb
+	 C0DaH+jMpUg2gydCUy/T6pXM0eJzudxFtlY/0o6zbZzcspwn1GzZ4bWx01JdC2ffuR
+	 TWp95dUb3HYQKeBFB+r1fkwPJ33hwaoJ7wOqEMyIIhl72Mrk2C9W/03cLGl5NUGKj+
+	 MeqX6HJSdGAENBbPYmuB9zhw7j/sffaJeQH8Q4JebVodN1/+E5D4I00W4G/11oQSTo
+	 2tb+KZcb+F+Yw==
+Date: Sat, 26 Oct 2024 13:25:47 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Julien Stephan <jstephan@baylibre.com>
 Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
@@ -63,20 +63,19 @@ Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
  <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
  linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH 3/7] iio: light: ltr501: simplify code in
+Subject: Re: [PATCH 4/7] iio: light: veml6030: simplify code in
  write_event_config callback
-Message-ID: <20241026132333.2ed8f343@jic23-huawei>
-In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-3-7d29e5a31b00@baylibre.com>
+Message-ID: <20241026132547.481ca1be@jic23-huawei>
+In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-4-7d29e5a31b00@baylibre.com>
 References: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
-	<20241024-iio-fix-write-event-config-signature-v1-3-7d29e5a31b00@baylibre.com>
+	<20241024-iio-fix-write-event-config-signature-v1-4-7d29e5a31b00@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_052419_004836_539C5541 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241026_052642_534956_42734B88 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,7 +90,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Oct 2024 11:11:25 +0200
+On Thu, 24 Oct 2024 11:11:26 +0200
 Julien Stephan <jstephan@baylibre.com> wrote:
 
 > iio_ev_state_store is actually using kstrtobool to check user
@@ -102,4 +101,28 @@ Julien Stephan <jstephan@baylibre.com> wrote:
 > 
 > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 Applied.
+
+After patch 7 this will include a shift of a bool which is a little
+unusual but valid C.
+
+> ---
+>  drivers/iio/light/veml6030.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/drivers/iio/light/veml6030.c b/drivers/iio/light/veml6030.c
+> index d6f3b104b0e6be8e095a1ad9f20acb81ce492630..95751c1015909cd80543a559673f435d1a168f68 100644
+> --- a/drivers/iio/light/veml6030.c
+> +++ b/drivers/iio/light/veml6030.c
+> @@ -826,9 +826,6 @@ static int veml6030_write_interrupt_config(struct iio_dev *indio_dev,
+>  	int ret;
+>  	struct veml6030_data *data = iio_priv(indio_dev);
+>  
+> -	if (state < 0 || state > 1)
+> -		return -EINVAL;
+> -
+>  	ret = veml6030_als_shut_down(data);
+>  	if (ret < 0) {
+>  		dev_err(&data->client->dev,
+> 
+
 
