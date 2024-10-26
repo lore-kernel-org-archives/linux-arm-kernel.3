@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E51D10BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 10:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF19D10BF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 11:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VfGb/D1BxknT+o8I7XliQpk+FGJy+H+E4MvaZvzaKM0=; b=fnZHMGtNxnRka0yN3KT3JE4/Tw
-	G+jQH+uQABJErwkc4pGOoslToLQOqD7sxmq6r63xvztdLD9QquojLyWYNcPaIsonMZpFe1cp6AVnl
-	UTIgOX/XZb55gHXTdSDfb3/gtGlkmrfiWOeLnEurVGkPWRQvlp7rzQNPxZ61ZvlhqwBi002EbcUZZ
-	B0xxnPYXW2+XXju/oZrr79emEd8QzEm2DrtA12kl2ZZOkXK2tJ3RjiB5RayB6oaaBP3EOJqsyHLNE
-	GFxbbspa+BctN1/LRshjpwsKqyOQIipaMZth/hxlQLqrKVIjq35SaZP3bfZ8YuKwwgWSej523UaxO
-	TcvYkHmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uepjXSsNqFucMSnwMjNTgUmu9t3lyLfDvlOZx3AMk2g=; b=o7lQcMXCHp7l/X
+	C5bISf5Cwl50D+3tWhgCzmEDZTpzmyrUNVglcB7WDGXG8fbvAGMRKkfSn2fkRDs76CSSkX7DQaNOt
+	KMLMmO4TlGopsDCNHvtJPOpoC0/nd28kc9+5aFFU74SJlIgCXsqK9T5oRsB6U+BPenrr7vhTsNNnl
+	MmZR6R0xVd1Lt23VmRyRk/CBL1x1qXI1wSoHQwzVj9Zhz2HCvi499Z3FZDN48XKxVhR008zDBY6RQ
+	KZ4AFKJqHFU/Vt4k/eHPcgEU/4zJTNCjixykfYd80SOzT1Ab9WyMr8UGAj19wHPjgV2VoaGsJPt3h
+	LLr6DO8Mo14Ors74NocQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4eHk-00000006OOw-0OhC;
-	Sat, 26 Oct 2024 10:44:44 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1t4elO-00000006SR5-2viP;
+	Sat, 26 Oct 2024 11:15:22 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4eG9-00000006OEK-258X
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 10:43:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729939385; x=1761475385;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9gVwNcR3yel3JsSy5pGYF3kpnt/UQMXBg0o/oFDzLJc=;
-  b=T/qSFx5goUFeTPSpYZNMjhvX5QjcZAEojaitJz06Dh0I/uPqMNLLKiCm
-   p5gECxDKy62aQmPZv2C3n7TiBrRiiolZH9jTj/zDev+rK3GZVQ+s1UWX5
-   aooH17CeVRDhukCdVA5GbSwPXD7R3f/nbewaBa0GXkrcztqtnMTIn55Tu
-   WvLyVCLMNuRu5bomXut81JRVlTkepT+It6p3WSU0OgMjq9jr2xoO//5dY
-   7L/kBWl6hkBrRq+jTTJJXvwys08Z14r27FRkOlgDTeNH1coEK7jYTk8C0
-   98OwSCXexPStkoMftafkj7d+KGUf12UVObKtaX9W5AzZUXO4nZ7bBBRip
-   A==;
-X-CSE-ConnectionGUID: QVmgiK75TryJvbjaFWdQIQ==
-X-CSE-MsgGUID: B5J1tI73SR+Nb+5JZZmTSw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="29064885"
-X-IronPort-AV: E=Sophos;i="6.11,234,1725346800"; 
-   d="scan'208";a="29064885"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 03:43:00 -0700
-X-CSE-ConnectionGUID: mMOIbCyXRwyZRGGBfDLOfw==
-X-CSE-MsgGUID: S0CHul1SSlCWgangkFYJUg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,234,1725346800"; 
-   d="scan'208";a="81079534"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 26 Oct 2024 03:42:57 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4eFz-000ZWs-0K;
-	Sat, 26 Oct 2024 10:42:55 +0000
-Date: Sat, 26 Oct 2024 18:42:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Oliver Upton <oliver.upton@linux.dev>, kvmarm@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: Re: [PATCH v4 10/18] KVM: arm64: nv: Describe trap behaviour of
- MDCR_EL2.HPMN
-Message-ID: <202410261839.enJ68VEv-lkp@intel.com>
-References: <20241025182354.3364124-11-oliver.upton@linux.dev>
+	id 1t4ejn-00000006S4Z-2HC2;
+	Sat, 26 Oct 2024 11:13:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 456C5A4050C;
+	Sat, 26 Oct 2024 11:11:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D172C4CEC6;
+	Sat, 26 Oct 2024 11:13:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729941222;
+	bh=uepjXSsNqFucMSnwMjNTgUmu9t3lyLfDvlOZx3AMk2g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cuohDEERw1KIj6Kqx7iWme4k35V7pDvSZE8UghmobXDCKmvMenxWhQf8J+9VY5EOx
+	 6m9ACNbhPoh0cgfWIFWoeYwhPMmsMbZkBtJIYXc6j4ekwX0n4QMCQIEsYB9WBoTC4o
+	 uOK+Ser5vhmC/gCWqmGJQ3SCn06MoHJ/Vd1H+tii8GbXBkws1RmSNk7bqIJXAXdCIk
+	 Nh2EQP0x9Zhy8S1+R4pne900hSFbMSMSzC617eitYgksuU7zTuXVXk1guXZcY9/aE+
+	 LlFuLZ28kfojcIQh/fToRIiO2OuQGm8YdO+UI4o9guiNH4UPwC453BDWSz0yuq2+Ef
+	 bG6xmiephFAuA==
+Message-ID: <ba6d1274-08ab-4754-9d5a-92f0ebab88d3@kernel.org>
+Date: Sat, 26 Oct 2024 13:13:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241025182354.3364124-11-oliver.upton@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/2] dt-bindings: mtd: Add bindings for describing
+ concatinated MTD devices
+To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+ tudor.ambarus@linaro.org, michael@walle.cc, broonie@kernel.org,
+ pratyush@kernel.org, richard@nod.at, vigneshr@ti.com,
+ miquel.raynal@bootlin.com, robh@kernel.org, conor+dt@kernel.org,
+ krzk+dt@kernel.org
+References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
+ <20241026075347.580858-2-amit.kumar-mahapatra@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241026075347.580858-2-amit.kumar-mahapatra@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_034305_606126_0453778B 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20241026_041343_751502_23B60365 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,75 +116,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: git@amd.com, alexandre.belloni@bootlin.com, alsa-devel@alsa-project.org, patches@opensource.cirrus.com, amitrkcian2002@gmail.com, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, venkatesh.abbarapu@amd.com, claudiu.beznea@tuxon.dev, linux-spi@vger.kernel.org, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, beanhuo@micron.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On 26/10/2024 09:53, Amit Kumar Mahapatra wrote:
+> This approach was suggested by Rob [1] during a discussion on Miquel's
+> initial approach [2] to extend the MTD-CONCAT driver to support stacked
+> memories.
+> Define each flash node separately with its respective partitions, and add
+> a 'concat-parts' binding to link the partitions of the two flash nodes that
+> need to be concatenated.
 
-kernel test robot noticed the following build errors:
+I understand this was not sent to proper addresses for review because it
+is a RFC. It's fine then.
 
-[auto build test ERROR on 8e929cb546ee42c9a61d24fae60605e9e3192354]
+If this was not the intention and this should be reviewed (and tested,
+although I assume you tested these patches first), then please read the
+standard form bellow:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Oliver-Upton/KVM-arm64-Extend-masking-facility-to-arbitrary-registers/20241026-023055
-base:   8e929cb546ee42c9a61d24fae60605e9e3192354
-patch link:    https://lore.kernel.org/r/20241025182354.3364124-11-oliver.upton%40linux.dev
-patch subject: [PATCH v4 10/18] KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
-config: arm64-randconfig-004-20241026 (https://download.01.org/0day-ci/archive/20241026/202410261839.enJ68VEv-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410261839.enJ68VEv-lkp@intel.com/reproduce)
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410261839.enJ68VEv-lkp@intel.com/
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-All errors (new ones prefixed by >>):
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-   arch/arm64/kvm/emulate-nested.c: In function 'check_mdcr_hpmn':
->> arch/arm64/kvm/emulate-nested.c:532:13: error: too many arguments to function 'kvm_pmu_counter_is_hyp'
-     532 |         if (kvm_pmu_counter_is_hyp(vcpu, idx))
-         |             ^~~~~~~~~~~~~~~~~~~~~~
-   In file included from arch/arm64/include/asm/kvm_host.h:38,
-                    from include/linux/kvm_host.h:45,
-                    from arch/arm64/kvm/emulate-nested.c:8:
-   include/kvm/arm_pmu.h:191:20: note: declared here
-     191 | static inline bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu)
-         |                    ^~~~~~~~~~~~~~~~~~~~~~
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
+Best regards,
+Krzysztof
 
-vim +/kvm_pmu_counter_is_hyp +532 arch/arm64/kvm/emulate-nested.c
-
-   509	
-   510	static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
-   511	{
-   512		u32 sysreg = esr_sys64_to_sysreg(kvm_vcpu_get_esr(vcpu));
-   513		unsigned int idx;
-   514	
-   515	
-   516		switch (sysreg) {
-   517		case SYS_PMEVTYPERn_EL0(0) ... SYS_PMEVTYPERn_EL0(30):
-   518		case SYS_PMEVCNTRn_EL0(0) ... SYS_PMEVCNTRn_EL0(30):
-   519			idx = (sys_reg_CRm(sysreg) & 0x3) << 3 | sys_reg_Op2(sysreg);
-   520			break;
-   521		case SYS_PMXEVTYPER_EL0:
-   522		case SYS_PMXEVCNTR_EL0:
-   523			idx = SYS_FIELD_GET(PMSELR_EL0, SEL,
-   524					    __vcpu_sys_reg(vcpu, PMSELR_EL0));
-   525			break;
-   526		default:
-   527			/* Someone used this trap helper for something else... */
-   528			KVM_BUG_ON(1, vcpu->kvm);
-   529			return BEHAVE_HANDLE_LOCALLY;
-   530		}
-   531	
- > 532		if (kvm_pmu_counter_is_hyp(vcpu, idx))
-   533			return BEHAVE_FORWARD_RW | BEHAVE_IN_HOST_EL0;
-   534	
-   535		return BEHAVE_HANDLE_LOCALLY;
-   536	}
-   537	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
