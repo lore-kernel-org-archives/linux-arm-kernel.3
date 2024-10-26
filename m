@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030C5D10BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC83BD10BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yH+o/HY3JXmwHdmBgupIEIWVJlcQTGn4DbO6wqm5C4I=; b=lXOeygHCNsp5xFoV+T0y0JIQH9
-	DzVJHXSwMmNh1xnSZYVobBNddigU1pO32YHHbEQPAgkshAJXgBylhJEwdjQ5WD0jdD/TrIuFTRKPx
-	XohrfhnK0Oor2CF5HkHqeS9mN1hgDUm4yL7/ocIpDZRw+Tn4+uP3rPvOs5KpWVHCpvsQDfZPf07K9
-	dwPFDxyMXCRGbDPfmWx5cojV4+xK9ts1MsMq2V9FKNEwDPTeS7VhvU2CY0W30vstlRLM9KOzvY13O
-	ybbKOZI0Im3uJMei2l5tHbRy9YiVODKlqWctsM+k8khUi8P+uvMfgfdWnK3peteG0DY7NJ7moJvum
-	Y9Wnqj5w==;
+	bh=Kpjdr2kRgpUw0bQeftTA1pAfUKhXD/L2hFZ3x8J9yG0=; b=mFIAsdf/LLvRUc4VXNaMvALLUu
+	HuXQNE4idgubMpqYCXmT6idhReyX4JxYjJCethXvLNWnji6CIQtoliagO9ANBmKEGxZoWY5olxkZC
+	GDzY7Zwdh/s7a0rDQjKRPTJt+B6JYLyYY0u6iPswl5eoRyxE+33XkmJ+F9bw0UnfB+jX2aJSN3EPr
+	qywS+HuIqOMwZdtZdSK8SY7ClBlFb66VlfUNWVvNy5c3Zq9Ovawb/cvQ9fXll7EG0j+/U2UkRS90C
+	Jb9HlaTS1pXg8dh+w3pBZgk/gQQLf270pqwGXW7ZxGrTqwUl+eYkFsWTQVfoNY8Q4dfKh8kNNYYm3
+	yanSKeWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fly-00000006bAh-2ERj;
-	Sat, 26 Oct 2024 12:20:02 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t4fp1-00000006bdz-0wT5;
+	Sat, 26 Oct 2024 12:23:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fkB-00000006aYW-1VnH
+	id 1t4fnR-00000006bTS-3Pe0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:18:13 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9a850270e2so469300466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 05:18:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729945089; x=1730549889; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yH+o/HY3JXmwHdmBgupIEIWVJlcQTGn4DbO6wqm5C4I=;
-        b=H8ksgjUkt/VQ8uWXqdvVzx/s/sGxPCz4RNZhdn4ClmINYUhXh3g+6umnHj6ivKvw37
-         jc+eoXv/n9OAzYyhgeG9xxsUgP4t710nOIw7MWkER18XjEDf1rMPCoBjJQqATOnwtCNh
-         HGyd2pxvFy9fe/dys+NEDkUvjjwc4ot0C+wef6VwwML/Sundh4f6qPR9Y19bG6mnirF4
-         ThNH6U2A0z3MjqEw+xBLEIvSe9we3mZ8F/2g6xNgPcJGpd8SkWi+oIcvrGMm/Pdwwm0q
-         OaWBVF/RztsQV86ic8G+eG7gMtOzXh/bglxekV8ztVI3jqXWC0p5gs6a+x/RRiki8b/X
-         AIbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729945089; x=1730549889;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yH+o/HY3JXmwHdmBgupIEIWVJlcQTGn4DbO6wqm5C4I=;
-        b=TKbCANXd8QmZNoEqTqbtQkHS+LKjaC/BK7c7R3K2pXmSFJRdElDHv7ozXM0pFQ5xOs
-         TGwsfkEldozwW7h+ImCzAoVd3eEVY3wivSwUkUviTnybqr6IwICXalz5+bnaC225hsAA
-         LsleZ6g6aliKgy3akxqKeiqqfE9PmDi1PXhTaBTujkWgt1/zzR7/CaGfjW5lF2xcChl0
-         m6WlEIvpYhFVChItRrhFUeFp+psOMFr4jTtWSZrf37iwXFBUv4nAn1+u2QxuktTJG3c9
-         qDBboYdczpeAzp58SA6uQxUGSSSRTU3Ak7e6pz3aAwvfq2inUBrs6k0jkmY0DeSqvEKK
-         7qPw==
-X-Forwarded-Encrypted: i=1; AJvYcCV1khEP02WfC0zwYKIheRErgOFCAj9w9sPhG5667c21jnIll/3Y5/VBBAkGsMojcU+YEJ64KdoCYF1Qp2FV3y2+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzxAiQugwcTQyRGP5oZPFpUzZq122SqDHCwU5zmL7WVPH5IUrm
-	dfAn3scmSdolnGHHAtbDbeKMdmvkux8bq4WAiito787drt+Gkzch3McZTg==
-X-Google-Smtp-Source: AGHT+IFYyYwgZquxy67wBugI4PFcafIe8a40Si0QwupoEmiT4JdDegPMKfAYvoQS+vjZC9maXdtMqw==
-X-Received: by 2002:a17:907:7ea0:b0:a9a:17fb:4c40 with SMTP id a640c23a62f3a-a9de5d6e1e7mr178998366b.26.1729945088794;
-        Sat, 26 Oct 2024 05:18:08 -0700 (PDT)
-Received: from [192.168.1.102] ([94.131.202.55])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b3a089278sm168124866b.220.2024.10.26.05.18.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Oct 2024 05:18:08 -0700 (PDT)
-Message-ID: <f232dbb0-9036-46d6-83f9-27363813930d@gmail.com>
-Date: Sat, 26 Oct 2024 15:18:07 +0300
+	Sat, 26 Oct 2024 12:21:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0CA1AA404FF;
+	Sat, 26 Oct 2024 12:19:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58460C4CEE4;
+	Sat, 26 Oct 2024 12:20:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729945292;
+	bh=Ju/lj4vABPXWpilJsZn2ZHii6DTE7FTc99SBlTaAD3k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JSvc8r+Uw1DWrTEM5C7W1k7Ks8GEApnqCgs/61ldeB40ISoLzMVAyDjyavK3RZ5oa
+	 6b36O30X6KyTXnxMKTnyGyZgaP3ZcTTZBnKw/yBkICpmeNjoOJFCML2FAqcP1ChqP4
+	 +GE7WXP+yWqklYIW5YELuuJBm4oVaRqazifC6bNRUtHfvuS/6VIh767cO6KhvjA90k
+	 9jF+9jz2RVd9cZP2zYz53XjA94eP6TI/SQ9qjthPG7LTH5bl1slSr5QGiuqH+RZafh
+	 8ls170l7gssruKdgFhzEMNE87r26b31zL3ufQILnEDhwmY0/Cy6Q2iKsn5J+RVSeB2
+	 85vA/1KemdKvQ==
+Date: Sat, 26 Oct 2024 13:20:25 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Julien Stephan <jstephan@baylibre.com>
+Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, Javier Carrasco
+ <javier.carrasco.cruz@gmail.com>, Jean-Baptiste Maneyrol
+ <jean-baptiste.maneyrol@tdk.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Cosmin Tanislav
+ <cosmin.tanislav@analog.com>, Ramona Gradinariu
+ <ramona.gradinariu@analog.com>, Antoniu Miclaus
+ <antoniu.miclaus@analog.com>, Dan Robertson <dan@dlrobertson.com>, Marcelo
+ Schmitt <marcelo.schmitt@analog.com>, Matteo Martelli
+ <matteomartelli3@gmail.com>, Anand Ashok Dumbre
+ <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>,
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J
+ <jagathjog1996@gmail.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Subhajit
+ Ghosh <subhajit.ghosh@tweaklogic.com>, Kevin Tsai <ktsai@capellamicro.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Benson Leung
+ <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH 1/7] iio: light: bh1745: simplify code in
+ write_event_config callback
+Message-ID: <20241026132025.1d7a700c@jic23-huawei>
+In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-1-7d29e5a31b00@baylibre.com>
+References: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
+	<20241024-iio-fix-write-event-config-signature-v1-1-7d29e5a31b00@baylibre.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
- and spi_0/1
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Mark Brown <broonie@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
- <172994467264.24870.11860096857422265131.b4-ty@linaro.org>
-Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <172994467264.24870.11860096857422265131.b4-ty@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_051811_533812_B900337D 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20241026_052134_020682_92F0FA1F 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 24 Oct 2024 11:11:23 +0200
+Julien Stephan <jstephan@baylibre.com> wrote:
 
+> iio_ev_state_store is actually using kstrtobool to check user
+> input, then gives the converted boolean value to the write_event_config
+> callback.
+> 
+> Remove useless code in write_event_config callback.
+> 
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+There are a few additions needed to the final patch. 
+I'll pick up the earlier ones now though.
 
+Applied this one.
 
-On 10/26/24 15:12, Krzysztof Kozlowski wrote:
-> On Wed, 23 Oct 2024 12:17:29 +0300, Ivaylo Ivanov wrote:
->> Hey folks,
->>
->> This patchset adds device tree nodes for multiple clock management unit
->> blocks, MCT, SPI and UART for Exynos8895.
->>
->> Exynos8895 uses USIv1 for most of its serial buses, except a few that
->> have been implemented in this series. Support for USIv1 and HSI2C will
->> be added in the future.
->>
->> [...]
-> NOT applied patch 4/5 - I wait for bindings to be accepted by Greg.
-
-Alright, thanks for applying the rest!
-
-Best regards, Ivo.
-
->
-> Applied, thanks!
->
-> [1/5] dt-bindings: timer: exynos4210-mct: Add samsung,exynos8895-mct compatible
->       https://git.kernel.org/krzk/linux/c/e54eb0465e548a7c6115e336ec5cfec04bbe8747
-> [2/5] arm64: dts: exynos8895: Add clock management unit nodes
->       https://git.kernel.org/krzk/linux/c/fa986d1073805154888a788eda38d46a796346e8
-> [3/5] arm64: dts: exynos8895: Add Multi Core Timer (MCT) node
->       https://git.kernel.org/krzk/linux/c/9ad6c3bd1bcbb73e2a5723e13b9d06e2296b07e4
-> [5/5] arm64: dts: exynos8895: Add spi_0/1 nodes
->       https://git.kernel.org/krzk/linux/c/a5541d737c8de71948bcdaee912bcb6b0781af7e
->
-> Best regards,
+> ---
+>  drivers/iio/light/bh1745.c | 48 +++++++++++++++++++++-------------------------
+>  1 file changed, 22 insertions(+), 26 deletions(-)
+> 
+> diff --git a/drivers/iio/light/bh1745.c b/drivers/iio/light/bh1745.c
+> index 2e458e9d5d85308fb6a13d9dbd845fa03b56a40e..fc6bf062d4f510886f909509d8115f0cf892f3c4 100644
+> --- a/drivers/iio/light/bh1745.c
+> +++ b/drivers/iio/light/bh1745.c
+> @@ -643,41 +643,37 @@ static int bh1745_write_event_config(struct iio_dev *indio_dev,
+>  	struct bh1745_data *data = iio_priv(indio_dev);
+>  	int value;
+>  
+> -	if (state == 0)
+> +	if (!state)
+>  		return regmap_clear_bits(data->regmap,
+>  					 BH1745_INTR, BH1745_INTR_ENABLE);
+>  
+> -	if (state == 1) {
+> -		/* Latch is always enabled when enabling interrupt */
+> -		value = BH1745_INTR_ENABLE;
+> +	/* Latch is always enabled when enabling interrupt */
+> +	value = BH1745_INTR_ENABLE;
+>  
+> -		switch (chan->channel2) {
+> -		case IIO_MOD_LIGHT_RED:
+> -			return regmap_write(data->regmap, BH1745_INTR,
+> -					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> -							       BH1745_INTR_SOURCE_RED));
+> +	switch (chan->channel2) {
+> +	case IIO_MOD_LIGHT_RED:
+> +		return regmap_write(data->regmap, BH1745_INTR,
+> +				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> +						       BH1745_INTR_SOURCE_RED));
+>  
+> -		case IIO_MOD_LIGHT_GREEN:
+> -			return regmap_write(data->regmap, BH1745_INTR,
+> -					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> -							       BH1745_INTR_SOURCE_GREEN));
+> +	case IIO_MOD_LIGHT_GREEN:
+> +		return regmap_write(data->regmap, BH1745_INTR,
+> +				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> +						       BH1745_INTR_SOURCE_GREEN));
+>  
+> -		case IIO_MOD_LIGHT_BLUE:
+> -			return regmap_write(data->regmap, BH1745_INTR,
+> -					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> -							       BH1745_INTR_SOURCE_BLUE));
+> +	case IIO_MOD_LIGHT_BLUE:
+> +		return regmap_write(data->regmap, BH1745_INTR,
+> +				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> +						       BH1745_INTR_SOURCE_BLUE));
+>  
+> -		case IIO_MOD_LIGHT_CLEAR:
+> -			return regmap_write(data->regmap, BH1745_INTR,
+> -					    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> -							       BH1745_INTR_SOURCE_CLEAR));
+> +	case IIO_MOD_LIGHT_CLEAR:
+> +		return regmap_write(data->regmap, BH1745_INTR,
+> +				    value | FIELD_PREP(BH1745_INTR_SOURCE_MASK,
+> +						       BH1745_INTR_SOURCE_CLEAR));
+>  
+> -		default:
+> -			return -EINVAL;
+> -		}
+> +	default:
+> +		return -EINVAL;
+>  	}
+> -
+> -	return -EINVAL;
+>  }
+>  
+>  static int bh1745_read_avail(struct iio_dev *indio_dev,
+> 
 
 
