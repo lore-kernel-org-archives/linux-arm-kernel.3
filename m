@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478FAD10BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB44CD10BF8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0plPXDnOJyhdLZ4QAS0L6bxoR/JVZWmlkOGmQwv1gU=; b=3POJd3Ga8ocXOOhXzQayRD+uss
-	WuwPTT8Q/cTyXd63M71FGvTegKEQZ9de/o3T76QYNSZMdJEmYpfThnXm5Jy1Ixy59xzax23bg8ZHf
-	CLHbBp3Hu1bIE7vMfkpdDAYcXvgXgAyB3c7IJ2+F0nHBATiTZts+DWayLdX/EXurKmybSACjY4YyS
-	uofMFIZ0o85d+rnUIIXUb0aStHP67RG1Uc/uE0JIdYLEOmxsTj55Dtg6DEimqw4t7Ngu8MsuBTJsD
-	2pKHJHTPcV4aNWZBhbqNjrixHj6RQT/r0+2LG3cidBMrqgXCUnYpfJfsVWCYf6EHqjvViO076iwVn
-	RgJJy7Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yzfV3yUC/n+Wj0ujYCzcSKXUlnvek472THNU8i2rxwc=; b=K/XYy1S8XRo4aWObXQvRZiDc6l
+	944vEzS9s0So3JlVk1KRgu3+BwfbmrHZ3R6NEeuijOQZDO+8kmcPvjNxIO7A2N44Wy85lBpBlCA3A
+	ZO4Nk9q/MADl/KYE6i3InPo6hsQs1foigJTei0NRNgWPbjMnjVhWEl33+Gf1RGfplNEnXvTL+h70l
+	UcerH2o7sMcweIBqQyC1UbNjlkb+i9d6ftI8s5w5PcYgBFjI0rRlPdhCsmXQ7KSzuXhJ180IJloLU
+	7WMZjwMblNPaWgAEtzCh9Xp8S56AhDU0QD4twSIPuuoJNY9bQacNtxVUlsJgA5kcsELl9I9ct/cjM
+	GVeRZ1Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fyV-00000006cvM-0Bwb;
-	Sat, 26 Oct 2024 12:32:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t4gCn-00000006dxn-2l1f;
+	Sat, 26 Oct 2024 12:47:45 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fwu-00000006cfH-09ja
+	id 1t4gBD-00000006drA-0bhx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:31:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 303D95C0440;
-	Sat, 26 Oct 2024 12:30:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 964B1C4CEC6;
-	Sat, 26 Oct 2024 12:30:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729945879;
-	bh=R/H1PsXY01GRskZLD70K/F7ZGE40dFF0NFTDLydVC68=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lUJk+S/MQmFzr4RKHIxhUiy2zUnLAqzIEuKoF4/RJ1b6grii7PG0WGE0zSq56hwXz
-	 bWZO93/MhN9t4cymKBLENf365sT7y+crOFNauUI5/RvZ3zaOv7kt5bcPrMwphM1Pw8
-	 amChXnPLlCREf8Gn5pnVGKp7lsB5xQZr6JDdOJQ2fEdjoocIN92Gqff0Bwznd49FIY
-	 69LG+TEsmW4gnqlk6xBMe+DvUZapZFvbil1wxVhwR7RrGECOGpNnnqj3SuXEakYgDB
-	 bZvuR5tsKw6XrN+EsFA0ekPrkTsn+jMQMjRU+7inIPiCc4odTMEFBnRjomwwpsRkF6
-	 NsgwNdAKhGcug==
-Date: Sat, 26 Oct 2024 13:30:39 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Julien Stephan <jstephan@baylibre.com>
-Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
- <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, Javier Carrasco
- <javier.carrasco.cruz@gmail.com>, Jean-Baptiste Maneyrol
- <jean-baptiste.maneyrol@tdk.com>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Cosmin Tanislav
- <cosmin.tanislav@analog.com>, Ramona Gradinariu
- <ramona.gradinariu@analog.com>, Antoniu Miclaus
- <antoniu.miclaus@analog.com>, Dan Robertson <dan@dlrobertson.com>, Marcelo
- Schmitt <marcelo.schmitt@analog.com>, Matteo Martelli
- <matteomartelli3@gmail.com>, Anand Ashok Dumbre
- <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>,
- Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J
- <jagathjog1996@gmail.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Subhajit
- Ghosh <subhajit.ghosh@tweaklogic.com>, Kevin Tsai <ktsai@capellamicro.com>,
- Linus Walleij <linus.walleij@linaro.org>, Benson Leung
- <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH 6/7] iio: light: stk3310: simplify code in
- write_event_config callback
-Message-ID: <20241026133039.10742c75@jic23-huawei>
-In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-6-7d29e5a31b00@baylibre.com>
-References: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
-	<20241024-iio-fix-write-event-config-signature-v1-6-7d29e5a31b00@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sat, 26 Oct 2024 12:46:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1729946768; x=1761482768;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ir8FkLHslMuuyZwduZxcZ09RxlFF0QcVt/0ML1tcSSw=;
+  b=C+XhgZLaIQCJafVcpGHG4MUVfgUCYsYBN3NCcqF8J1DEYc1Z+qDmkf16
+   V/iaATLSM2PvRcDa9WkT5J/3QRIhmq9pva5zJm+FoWuQ9nq+vgOBSwkoF
+   ciElt4C2cCwkM4SiO5P5Mv0VjU2w5p6awBUevwNqkpTSQFF5LhFKluQkL
+   qKWmzr5zNhRlxQKrSKvn/KM6NY0PE+elFneqS7WXZjUQtrj7Hn/yvLttO
+   Tj4iXtpQzuFYbEd9VBW5PBIFv0ldcTIlu+hJ4GevAiOxinX7Rbhs4Baq+
+   AKLJxZu6MmeWQXIVey3LXMS8PbEl4wJDR/4Cn6sYr2Nf0Zw0DAE6yLH8b
+   A==;
+X-CSE-ConnectionGUID: 1pZJntQHS8i91owJLFYvtQ==
+X-CSE-MsgGUID: uWYHrwdgQAOHiKfQmvL4fA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="40707428"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="40707428"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 05:46:07 -0700
+X-CSE-ConnectionGUID: 9HSKHftfRgSHktAkkf+4bQ==
+X-CSE-MsgGUID: ThDfStWoSiOeAgXlh2HKYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,235,1725346800"; 
+   d="scan'208";a="82011344"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 26 Oct 2024 05:46:02 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t4gB6-000Zem-1Y;
+	Sat, 26 Oct 2024 12:46:00 +0000
+Date: Sat, 26 Oct 2024 20:45:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: Re: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA
+ to load the firmware
+Message-ID: <202410262040.PWNrKv2Q-lkp@intel.com>
+References: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_053120_158212_C6EDB4D0 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20241026_054607_293384_09CB3AE4 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +97,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Oct 2024 11:11:28 +0200
-Julien Stephan <jstephan@baylibre.com> wrote:
+Hi Arnaud,
 
-> iio_ev_state_store is actually using kstrtobool to check user
-> input, then gives the converted boolean value to the write_event_config
-> callback.
-> 
-> Remove useless code in write_event_config callback.
-> 
-> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
-This one is odd.  The field is 1 bit so I've no idea why checking against 7
-would ever have made sense.
+kernel test robot noticed the following build warnings:
 
-Applied, but if anyone is familiar with this part I would like more
-eyes on that code to see if there is a bug hiding there.
+[auto build test WARNING on 42f7652d3eb527d03665b09edac47f85fb600924]
 
-Jonathan
+url:    https://github.com/intel-lab-lkp/linux/commits/Arnaud-Pouliquen/remoteproc-core-Introduce-rproc_pa_to_va-helper/20241026-050443
+base:   42f7652d3eb527d03665b09edac47f85fb600924
+patch link:    https://lore.kernel.org/r/20241025205924.2087768-8-arnaud.pouliquen%40foss.st.com
+patch subject: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20241026/202410262040.PWNrKv2Q-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410262040.PWNrKv2Q-lkp@intel.com/reproduce)
 
-> ---
->  drivers/iio/light/stk3310.c | 3 ---
->  1 file changed, 3 deletions(-)
-> 
-> diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-> index ed20b67145463d253a0dff28a4c1c3e02e710319..c6f950af5afa0f77a617bd2baf0a08eef5ec26f0 100644
-> --- a/drivers/iio/light/stk3310.c
-> +++ b/drivers/iio/light/stk3310.c
-> @@ -330,9 +330,6 @@ static int stk3310_write_event_config(struct iio_dev *indio_dev,
->  	struct stk3310_data *data = iio_priv(indio_dev);
->  	struct i2c_client *client = data->client;
->  
-> -	if (state < 0 || state > 7)
-> -		return -EINVAL;
-> -
->  	/* Set INT_PS value */
->  	mutex_lock(&data->lock);
->  	ret = regmap_field_write(data->reg_int_ps, state);
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410262040.PWNrKv2Q-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+   drivers/remoteproc/stm32_rproc.c: In function 'stm32_rproc_probe':
+>> drivers/remoteproc/stm32_rproc.c:904:21: warning: assignment to 'int' from 'struct rproc_tee *' makes integer from pointer without a cast [-Wint-conversion]
+     904 |                 ret = rproc_tee_register(dev, rproc, proc_id);
+         |                     ^
+   drivers/remoteproc/stm32_rproc.c:963:30: error: passing argument 1 of 'rproc_tee_unregister' from incompatible pointer type [-Werror=incompatible-pointer-types]
+     963 |         rproc_tee_unregister(rproc);
+         |                              ^~~~~
+         |                              |
+         |                              struct rproc *
+   In file included from drivers/remoteproc/stm32_rproc.c:21:
+   include/linux/remoteproc_tee.h:59:58: note: expected 'struct rproc_tee *' but argument is of type 'struct rproc *'
+      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
+         |                                        ~~~~~~~~~~~~~~~~~~^~~~~~
+   drivers/remoteproc/stm32_rproc.c: In function 'stm32_rproc_remove':
+   drivers/remoteproc/stm32_rproc.c:986:30: error: passing argument 1 of 'rproc_tee_unregister' from incompatible pointer type [-Werror=incompatible-pointer-types]
+     986 |         rproc_tee_unregister(rproc);
+         |                              ^~~~~
+         |                              |
+         |                              struct rproc *
+   include/linux/remoteproc_tee.h:59:58: note: expected 'struct rproc_tee *' but argument is of type 'struct rproc *'
+      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
+         |                                        ~~~~~~~~~~~~~~~~~~^~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +904 drivers/remoteproc/stm32_rproc.c
+
+   874	
+   875	static int stm32_rproc_probe(struct platform_device *pdev)
+   876	{
+   877		struct device *dev = &pdev->dev;
+   878		struct stm32_rproc *ddata;
+   879		struct device_node *np = dev->of_node;
+   880		struct rproc *rproc;
+   881		unsigned int state;
+   882		u32 proc_id;
+   883		int ret;
+   884	
+   885		ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
+   886		if (ret)
+   887			return ret;
+   888	
+   889		if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
+   890			/*
+   891			 * Delegate the firmware management to the secure context.
+   892			 * The firmware loaded has to be signed.
+   893			 */
+   894			ret = of_property_read_u32(np, "st,proc-id", &proc_id);
+   895			if (ret) {
+   896				dev_err(dev, "failed to read st,rproc-id property\n");
+   897				return ret;
+   898			}
+   899	
+   900			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, NULL, sizeof(*ddata));
+   901			if (!rproc)
+   902				return -ENOMEM;
+   903	
+ > 904			ret = rproc_tee_register(dev, rproc, proc_id);
+   905			if (ret)
+   906				return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
+   907		} else {
+   908			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, NULL, sizeof(*ddata));
+   909			if (!rproc)
+   910				return -ENOMEM;
+   911		}
+   912	
+   913		ddata = rproc->priv;
+   914	
+   915		rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_NONE);
+   916	
+   917		ret = stm32_rproc_parse_dt(pdev, ddata, &rproc->auto_boot);
+   918		if (ret)
+   919			goto free_rproc;
+   920	
+   921		ret = stm32_rproc_of_memory_translations(pdev, ddata);
+   922		if (ret)
+   923			goto free_rproc;
+   924	
+   925		ret = stm32_rproc_get_m4_status(ddata, &state);
+   926		if (ret)
+   927			goto free_rproc;
+   928	
+   929		if (state == M4_STATE_CRUN)
+   930			rproc->state = RPROC_DETACHED;
+   931	
+   932		rproc->has_iommu = false;
+   933		ddata->workqueue = create_workqueue(dev_name(dev));
+   934		if (!ddata->workqueue) {
+   935			dev_err(dev, "cannot create workqueue\n");
+   936			ret = -ENOMEM;
+   937			goto free_resources;
+   938		}
+   939	
+   940		platform_set_drvdata(pdev, rproc);
+   941	
+   942		ret = stm32_rproc_request_mbox(rproc);
+   943		if (ret)
+   944			goto free_wkq;
+   945	
+   946		ret = rproc_add(rproc);
+   947		if (ret)
+   948			goto free_mb;
+   949	
+   950		return 0;
+   951	
+   952	free_mb:
+   953		stm32_rproc_free_mbox(rproc);
+   954	free_wkq:
+   955		destroy_workqueue(ddata->workqueue);
+   956	free_resources:
+   957		rproc_resource_cleanup(rproc);
+   958	free_rproc:
+   959		if (device_may_wakeup(dev)) {
+   960			dev_pm_clear_wake_irq(dev);
+   961			device_init_wakeup(dev, false);
+   962		}
+   963		rproc_tee_unregister(rproc);
+   964	
+   965		return ret;
+   966	}
+   967	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
