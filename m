@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB44CD10BF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45772D10BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 13:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yzfV3yUC/n+Wj0ujYCzcSKXUlnvek472THNU8i2rxwc=; b=K/XYy1S8XRo4aWObXQvRZiDc6l
-	944vEzS9s0So3JlVk1KRgu3+BwfbmrHZ3R6NEeuijOQZDO+8kmcPvjNxIO7A2N44Wy85lBpBlCA3A
-	ZO4Nk9q/MADl/KYE6i3InPo6hsQs1foigJTei0NRNgWPbjMnjVhWEl33+Gf1RGfplNEnXvTL+h70l
-	UcerH2o7sMcweIBqQyC1UbNjlkb+i9d6ftI8s5w5PcYgBFjI0rRlPdhCsmXQ7KSzuXhJ180IJloLU
-	7WMZjwMblNPaWgAEtzCh9Xp8S56AhDU0QD4twSIPuuoJNY9bQacNtxVUlsJgA5kcsELl9I9ct/cjM
-	GVeRZ1Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9ETfeuhyCwYY9K66dX8gKJ3GIszOO5rAWcVtTLU0ZI=; b=T8mPrIo1shU43cvax4XMbSC3M7
+	/bg7IugufMf1V/TnPkFyXhik53MQW7tYUS5b5SMzvBYYf1+uO+kxum79LNEGOjfiIZFosfaTOLOHi
+	HZY3b9mrsLJl850HaH0yMgcpRYgavajFfztPSMLuE9SoEYcUilPwRbpC+egQUI0zjymBgNvmbA/fo
+	28W4/+1F367XOMpQbR/wEtcGdQQGTd+VXdeaDHJNn0lNcnZjObbkE1wiLs+x4OP+QI+RLBMU9MQLY
+	wQlrKieSAE6YazXA2aCp07ehcCPXanZb7aZa/PE4cfhLIQYuckEaAKX6bKumJuqJNVSFzCpm0fY4x
+	hIYoQgww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4gCn-00000006dxn-2l1f;
-	Sat, 26 Oct 2024 12:47:45 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1t4gQL-00000006fUp-2Cge;
+	Sat, 26 Oct 2024 13:01:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4gBD-00000006drA-0bhx
+	id 1t4gOk-00000006fNv-3y6C
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:46:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729946768; x=1761482768;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Ir8FkLHslMuuyZwduZxcZ09RxlFF0QcVt/0ML1tcSSw=;
-  b=C+XhgZLaIQCJafVcpGHG4MUVfgUCYsYBN3NCcqF8J1DEYc1Z+qDmkf16
-   V/iaATLSM2PvRcDa9WkT5J/3QRIhmq9pva5zJm+FoWuQ9nq+vgOBSwkoF
-   ciElt4C2cCwkM4SiO5P5Mv0VjU2w5p6awBUevwNqkpTSQFF5LhFKluQkL
-   qKWmzr5zNhRlxQKrSKvn/KM6NY0PE+elFneqS7WXZjUQtrj7Hn/yvLttO
-   Tj4iXtpQzuFYbEd9VBW5PBIFv0ldcTIlu+hJ4GevAiOxinX7Rbhs4Baq+
-   AKLJxZu6MmeWQXIVey3LXMS8PbEl4wJDR/4Cn6sYr2Nf0Zw0DAE6yLH8b
-   A==;
-X-CSE-ConnectionGUID: 1pZJntQHS8i91owJLFYvtQ==
-X-CSE-MsgGUID: uWYHrwdgQAOHiKfQmvL4fA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="40707428"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="40707428"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 05:46:07 -0700
-X-CSE-ConnectionGUID: 9HSKHftfRgSHktAkkf+4bQ==
-X-CSE-MsgGUID: ThDfStWoSiOeAgXlh2HKYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,235,1725346800"; 
-   d="scan'208";a="82011344"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 26 Oct 2024 05:46:02 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4gB6-000Zem-1Y;
-	Sat, 26 Oct 2024 12:46:00 +0000
-Date: Sat, 26 Oct 2024 20:45:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: Re: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA
- to load the firmware
-Message-ID: <202410262040.PWNrKv2Q-lkp@intel.com>
-References: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
+	Sat, 26 Oct 2024 13:00:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A0EE5C486A;
+	Sat, 26 Oct 2024 12:59:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABEF5C4CEC6;
+	Sat, 26 Oct 2024 12:59:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729947606;
+	bh=AKe3BO5YIIiqIgoXshZ0dnLuyG4anBM5h4hKomPr3ZA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eZsRTfaQy0QEOptCpJbvD7bNT06ZGWWc5yS/hsKJU16O1pY51oRrg0HW8Hi5uam6W
+	 +xuC4+VZpCu5px7ZfavBBuAwldCR61BHzgEs/lNJs2nAHdjESQxoIkoxYkYI80W5aj
+	 FM89u0FY0f9duLGBe+5z2ajHcRifZm5WaRvi31EfvPMQq/aWCTyUroeu51IB/y49/r
+	 BjlgYiT4QQPVns5WGal3vv1pd34lXQwkq8QHvwq8W96i6vxqx+dfgh/MDRX8l/3ipc
+	 eWIHiMiu8zaOKf+h65OlT1qZV7AqLl0hIr9CoqZsMakQ4Qk8c01/Jkg7IP+b9ghVkz
+	 Sv3qwmcfq5vWg==
+Date: Sat, 26 Oct 2024 13:59:08 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Julien Stephan <jstephan@baylibre.com>
+Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, Javier Carrasco
+ <javier.carrasco.cruz@gmail.com>, Jean-Baptiste Maneyrol
+ <jean-baptiste.maneyrol@tdk.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Cosmin Tanislav
+ <cosmin.tanislav@analog.com>, Ramona Gradinariu
+ <ramona.gradinariu@analog.com>, Antoniu Miclaus
+ <antoniu.miclaus@analog.com>, Dan Robertson <dan@dlrobertson.com>, Marcelo
+ Schmitt <marcelo.schmitt@analog.com>, Matteo Martelli
+ <matteomartelli3@gmail.com>, Anand Ashok Dumbre
+ <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>,
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J
+ <jagathjog1996@gmail.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Subhajit
+ Ghosh <subhajit.ghosh@tweaklogic.com>, Kevin Tsai <ktsai@capellamicro.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Benson Leung
+ <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev,
+ Julia Lawall <julia.lawall@inria.fr>
+Subject: Re: [PATCH 7/7] iio: fix write_event_config signature
+Message-ID: <20241026135908.092c2736@jic23-huawei>
+In-Reply-To: <20241024-iio-fix-write-event-config-signature-v1-7-7d29e5a31b00@baylibre.com>
+References: <20241024-iio-fix-write-event-config-signature-v1-0-7d29e5a31b00@baylibre.com>
+	<20241024-iio-fix-write-event-config-signature-v1-7-7d29e5a31b00@baylibre.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_054607_293384_09CB3AE4 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20241026_060007_121920_640DD69F 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,150 +90,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnaud,
+On Thu, 24 Oct 2024 11:11:29 +0200
+Julien Stephan <jstephan@baylibre.com> wrote:
 
-kernel test robot noticed the following build warnings:
+> write_event_config callback use an int for state, but it is actually a
+> boolean. iio_ev_state_store is actually using kstrtobool to check user
+> input, then gives the converted boolean value to write_event_config.
+> 
+> Fix signature and update all iio drivers to use the new signature.
+> 
+> This patch has been partially written using coccinelle with the
+> following script:
+> 
+> $ cat iio-bool.cocci
+> // Options: --all-includes
+> 
+> virtual patch
+> 
+> @c1@
+> identifier iioinfo;
+> identifier wecfunc;
+> @@
+>  static const struct iio_info iioinfo = {
+>         ...,
+>         .write_event_config =
+> (
+>  wecfunc
+> |
+>  &wecfunc
+> ),
+>         ...,
+>  };
+> 
+> @@
+> identifier c1.wecfunc;
+> identifier indio_dev, chan, type, dir, state;
+> @@
+>  int wecfunc(struct iio_dev *indio_dev, const struct iio_chan_spec *chan, enum iio_event_type type, enum iio_event_direction dir,
+> -int
+> +bool
+>  state) {
+>   ...
+>  }
+> 
+> make coccicheck MODE=patch COCCI=iio-bool.cocci M=drivers/iio
+> 
+> Unfortunately, this script didn't match all files:
+> * all write_event_config callbacks using iio_device_claim_direct_scoped
+>   were not detected and not patched.
+> * all files that do not assign and declare the write_event_config
+>   callback in the same file.
+> 
+> iio.h was also manually updated.
+> 
+> The patch was build tested using allmodconfig config.
+> 
+> cc: Julia Lawall <julia.lawall@inria.fr>
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 
-[auto build test WARNING on 42f7652d3eb527d03665b09edac47f85fb600924]
+Hi Julien,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Arnaud-Pouliquen/remoteproc-core-Introduce-rproc_pa_to_va-helper/20241026-050443
-base:   42f7652d3eb527d03665b09edac47f85fb600924
-patch link:    https://lore.kernel.org/r/20241025205924.2087768-8-arnaud.pouliquen%40foss.st.com
-patch subject: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20241026/202410262040.PWNrKv2Q-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 13.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410262040.PWNrKv2Q-lkp@intel.com/reproduce)
+It's a nice cleanup, but the challenge of this sort of change is the odd ways
+various drivers use what you are changing.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410262040.PWNrKv2Q-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/remoteproc/stm32_rproc.c: In function 'stm32_rproc_probe':
->> drivers/remoteproc/stm32_rproc.c:904:21: warning: assignment to 'int' from 'struct rproc_tee *' makes integer from pointer without a cast [-Wint-conversion]
-     904 |                 ret = rproc_tee_register(dev, rproc, proc_id);
-         |                     ^
-   drivers/remoteproc/stm32_rproc.c:963:30: error: passing argument 1 of 'rproc_tee_unregister' from incompatible pointer type [-Werror=incompatible-pointer-types]
-     963 |         rproc_tee_unregister(rproc);
-         |                              ^~~~~
-         |                              |
-         |                              struct rproc *
-   In file included from drivers/remoteproc/stm32_rproc.c:21:
-   include/linux/remoteproc_tee.h:59:58: note: expected 'struct rproc_tee *' but argument is of type 'struct rproc *'
-      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
-         |                                        ~~~~~~~~~~~~~~~~~~^~~~~~
-   drivers/remoteproc/stm32_rproc.c: In function 'stm32_rproc_remove':
-   drivers/remoteproc/stm32_rproc.c:986:30: error: passing argument 1 of 'rproc_tee_unregister' from incompatible pointer type [-Werror=incompatible-pointer-types]
-     986 |         rproc_tee_unregister(rproc);
-         |                              ^~~~~
-         |                              |
-         |                              struct rproc *
-   include/linux/remoteproc_tee.h:59:58: note: expected 'struct rproc_tee *' but argument is of type 'struct rproc *'
-      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
-         |                                        ~~~~~~~~~~~~~~~~~~^~~~~~
-   cc1: some warnings being treated as errors
+So ever single case needs close inspection.  I took a fairly broad look at it and there
+is at least one case that I think is broken by the change :(
++ a bunch of others where the result needs tidying up to not end up confusing.
 
 
-vim +904 drivers/remoteproc/stm32_rproc.c
+Jonathan
 
-   874	
-   875	static int stm32_rproc_probe(struct platform_device *pdev)
-   876	{
-   877		struct device *dev = &pdev->dev;
-   878		struct stm32_rproc *ddata;
-   879		struct device_node *np = dev->of_node;
-   880		struct rproc *rproc;
-   881		unsigned int state;
-   882		u32 proc_id;
-   883		int ret;
-   884	
-   885		ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
-   886		if (ret)
-   887			return ret;
-   888	
-   889		if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
-   890			/*
-   891			 * Delegate the firmware management to the secure context.
-   892			 * The firmware loaded has to be signed.
-   893			 */
-   894			ret = of_property_read_u32(np, "st,proc-id", &proc_id);
-   895			if (ret) {
-   896				dev_err(dev, "failed to read st,rproc-id property\n");
-   897				return ret;
-   898			}
-   899	
-   900			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, NULL, sizeof(*ddata));
-   901			if (!rproc)
-   902				return -ENOMEM;
-   903	
- > 904			ret = rproc_tee_register(dev, rproc, proc_id);
-   905			if (ret)
-   906				return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
-   907		} else {
-   908			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, NULL, sizeof(*ddata));
-   909			if (!rproc)
-   910				return -ENOMEM;
-   911		}
-   912	
-   913		ddata = rproc->priv;
-   914	
-   915		rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_NONE);
-   916	
-   917		ret = stm32_rproc_parse_dt(pdev, ddata, &rproc->auto_boot);
-   918		if (ret)
-   919			goto free_rproc;
-   920	
-   921		ret = stm32_rproc_of_memory_translations(pdev, ddata);
-   922		if (ret)
-   923			goto free_rproc;
-   924	
-   925		ret = stm32_rproc_get_m4_status(ddata, &state);
-   926		if (ret)
-   927			goto free_rproc;
-   928	
-   929		if (state == M4_STATE_CRUN)
-   930			rproc->state = RPROC_DETACHED;
-   931	
-   932		rproc->has_iommu = false;
-   933		ddata->workqueue = create_workqueue(dev_name(dev));
-   934		if (!ddata->workqueue) {
-   935			dev_err(dev, "cannot create workqueue\n");
-   936			ret = -ENOMEM;
-   937			goto free_resources;
-   938		}
-   939	
-   940		platform_set_drvdata(pdev, rproc);
-   941	
-   942		ret = stm32_rproc_request_mbox(rproc);
-   943		if (ret)
-   944			goto free_wkq;
-   945	
-   946		ret = rproc_add(rproc);
-   947		if (ret)
-   948			goto free_mb;
-   949	
-   950		return 0;
-   951	
-   952	free_mb:
-   953		stm32_rproc_free_mbox(rproc);
-   954	free_wkq:
-   955		destroy_workqueue(ddata->workqueue);
-   956	free_resources:
-   957		rproc_resource_cleanup(rproc);
-   958	free_rproc:
-   959		if (device_may_wakeup(dev)) {
-   960			dev_pm_clear_wake_irq(dev);
-   961			device_init_wakeup(dev, false);
-   962		}
-   963		rproc_tee_unregister(rproc);
-   964	
-   965		return ret;
-   966	}
-   967	
+> diff --git a/drivers/iio/accel/adxl380.c b/drivers/iio/accel/adxl380.c
+> index 9f6f0a45efce7981736c3a8f005f4fef83f05cfd..5d2bda1a6a783c3f5bf6dfa6830bc80cc7055e01 100644
+> --- a/drivers/iio/accel/adxl380.c
+> +++ b/drivers/iio/accel/adxl380.c
+> @@ -1386,7 +1386,7 @@ static int adxl380_write_event_config(struct iio_dev *indio_dev,
+>  				      const struct iio_chan_spec *chan,
+>  				      enum iio_event_type type,
+>  				      enum iio_event_direction dir,
+> -				      int state)
+> +				      bool state)
+>  {
+>  	struct adxl380_state *st = iio_priv(indio_dev);
+>  	enum adxl380_axis axis;
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+
+
+> diff --git a/drivers/iio/accel/mma9551.c b/drivers/iio/accel/mma9551.c
+> index fa1799b0b0dff35ccd811c4abee3883249c184da..0656e35a1c4e5c1268a4bbf7011fd9282053dbbf 100644
+> --- a/drivers/iio/accel/mma9551.c
+> +++ b/drivers/iio/accel/mma9551.c
+> @@ -225,7 +225,7 @@ static int mma9551_write_event_config(struct iio_dev *indio_dev,
+>  				      const struct iio_chan_spec *chan,
+>  				      enum iio_event_type type,
+>  				      enum iio_event_direction dir,
+> -				      int state)
+> +				      bool state)
+>  {
+>  	struct mma9551_data *data = iio_priv(indio_dev);
+>  	int ret;
+
+Good to push down into functions called.
+
+> diff --git a/drivers/iio/accel/sca3000.c b/drivers/iio/accel/sca3000.c
+> index 87c54e41f6ccd2f9311653b757b2d794df1dd5d4..36cbfcbba04d6920ba68bebd70d21bc3898a044d 100644
+> --- a/drivers/iio/accel/sca3000.c
+> +++ b/drivers/iio/accel/sca3000.c
+> @@ -1253,7 +1253,7 @@ static int sca3000_write_event_config(struct iio_dev *indio_dev,
+>  				      const struct iio_chan_spec *chan,
+>  				      enum iio_event_type type,
+>  				      enum iio_event_direction dir,
+> -				      int state)
+> +				      bool state)
+>  {
+>  	struct sca3000_state *st = iio_priv(indio_dev);
+>  	int ret;
+Good to push down the state into the functions called.
+
+> diff --git a/drivers/iio/imu/bmi323/bmi323_core.c b/drivers/iio/imu/bmi323/bmi323_core.c
+> index 1e6c083ea5c1bbddb878f08cd4f4be725c0e319f..76a88e1ccc1d89988eb52d6b1be8da0f5005f0e6 100644
+> --- a/drivers/iio/imu/bmi323/bmi323_core.c
+> +++ b/drivers/iio/imu/bmi323/bmi323_core.c
+> @@ -785,7 +785,7 @@ static const struct attribute_group bmi323_event_attribute_group = {
+>  static int bmi323_write_event_config(struct iio_dev *indio_dev,
+>  				     const struct iio_chan_spec *chan,
+>  				     enum iio_event_type type,
+> -				     enum iio_event_direction dir, int state)
+> +				     enum iio_event_direction dir, bool state)
+>  {
+>  	struct bmi323_data *data = iio_priv(indio_dev);
+>  
+Mix of types used to store state. Would be good to chase the boolean though. But no
+need to do that for this series.
+
+
+
+> diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> index fb4c6c39ff2e157593f02513cc8e01cd7eea9bdf..caefa15e559b8808051ff1c7f82c3f36c947933c 100644
+> --- a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> @@ -1959,7 +1959,7 @@ static int
+>  st_lsm6dsx_write_event_config(struct iio_dev *iio_dev,
+>  			      const struct iio_chan_spec *chan,
+>  			      enum iio_event_type type,
+> -			      enum iio_event_direction dir, int state)
+> +			      enum iio_event_direction dir, bool state)
+>  {
+>  	struct st_lsm6dsx_sensor *sensor = iio_priv(iio_dev);
+>  	struct st_lsm6dsx_hw *hw = sensor->hw;
+state is stored in a mix of bool and int in this driver. Might be a nice to cleanup
+thing but not strictly part of what you are doing here.
+
+> diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
+> index 2e0170be077aef9aa194fab51afbb33aec02e513..a36cdad113f774ef8733eb1aaef0f87d5d2532f1 100644
+> --- a/drivers/iio/light/adux1020.c
+> +++ b/drivers/iio/light/adux1020.c
+> @@ -502,7 +502,8 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
+>  static int adux1020_write_event_config(struct iio_dev *indio_dev,
+>  				       const struct iio_chan_spec *chan,
+>  				       enum iio_event_type type,
+> -				       enum iio_event_direction dir, int state)
+> +				       enum iio_event_direction dir,
+> +				       bool state)
+
+This one is a bug, because state is used as an intermediate for other stuff.
+Bad code, but needs fixing before you can do this.
+
+>  {
+>  	struct adux1020_data *data = iio_priv(indio_dev);
+>  	int ret, mask;
+> diff --git a/drivers/iio/light/apds9300.c b/drivers/iio/light/apds9300.c
+> index 11f2ab4ca261813aff04b8c25d4595a531fb43cb..95861b2a5b2d94011d894959289c5c4f06cc1efe 100644
+> --- a/drivers/iio/light/apds9300.c
+> +++ b/drivers/iio/light/apds9300.c
+> @@ -321,7 +321,7 @@ static int apds9300_read_interrupt_config(struct iio_dev *indio_dev,
+>  
+>  static int apds9300_write_interrupt_config(struct iio_dev *indio_dev,
+>  		const struct iio_chan_spec *chan, enum iio_event_type type,
+> -		enum iio_event_direction dir, int state)
+> +		enum iio_event_direction dir, bool state)
+>  {
+>  	struct apds9300_data *data = iio_priv(indio_dev);
+>  	int ret;
+Tidying up the interrupt state to all be tracked with a bool in here would make this better, but
+not strictly related to what you have here.
+
+> diff --git a/drivers/iio/light/apds9306.c b/drivers/iio/light/apds9306.c
+> index 079e02be1005210ddd30b384ffa1ff7feeb098d7..8adc74040db2bddf93fbb773e3519abcc726b9a6 100644
+> --- a/drivers/iio/light/apds9306.c
+> +++ b/drivers/iio/light/apds9306.c
+> @@ -1071,7 +1071,7 @@ static int apds9306_write_event_config(struct iio_dev *indio_dev,
+>  				       const struct iio_chan_spec *chan,
+>  				       enum iio_event_type type,
+>  				       enum iio_event_direction dir,
+> -				       int state)
+> +				       bool state)
+>  {
+>  	struct apds9306_data *data = iio_priv(indio_dev);
+>  	struct apds9306_regfields *rf = &data->rf;
+This has a rather silly regmap_field_write() related if statement you could clean up but
+that's an optional extra.
+
+> diff --git a/drivers/iio/light/apds9960.c b/drivers/iio/light/apds9960.c
+> index 3a56eaae5a68f2891d061871c7013f0b5447bb47..a7f0cc99f236685900f89fbc48de3be0e9a40704 100644
+> --- a/drivers/iio/light/apds9960.c
+> +++ b/drivers/iio/light/apds9960.c
+> @@ -757,7 +757,7 @@ static int apds9960_write_event_config(struct iio_dev *indio_dev,
+>  				       const struct iio_chan_spec *chan,
+>  				       enum iio_event_type type,
+>  				       enum iio_event_direction dir,
+> -				       int state)
+> +				       bool state)
+>  {
+>  	struct apds9960_data *data = iio_priv(indio_dev);
+>  	int ret;
+Should change type of pxs_int etc to bool.
+
+
+
+> diff --git a/drivers/iio/light/ltr390.c b/drivers/iio/light/ltr390.c
+> index ff6b5d8b582b33eba60b769dff529caa00fb7244..b67c811cdf54af8de3dec3e1713a41312fb238d4 100644
+> --- a/drivers/iio/light/ltr390.c
+> +++ b/drivers/iio/light/ltr390.c
+> @@ -553,7 +553,7 @@ static int ltr390_write_event_config(struct iio_dev *indio_dev,
+>  				const struct iio_chan_spec *chan,
+>  				enum iio_event_type type,
+>  				enum iio_event_direction dir,
+> -				int state)
+> +				bool state)
+>  {
+>  	struct ltr390_data *data = iio_priv(indio_dev);
+>  	int ret;
+
+See review of patch 2.
+
+
+
+> diff --git a/drivers/iio/light/tsl2772.c b/drivers/iio/light/tsl2772.c
+> index cab468a82b616a23394977da1d8822d29d8941d3..13086048ee5ffae77c26db8cbd3cb7002e1a72e2 100644
+> --- a/drivers/iio/light/tsl2772.c
+> +++ b/drivers/iio/light/tsl2772.c
+> @@ -1081,7 +1081,7 @@ static int tsl2772_write_interrupt_config(struct iio_dev *indio_dev,
+>  					  const struct iio_chan_spec *chan,
+>  					  enum iio_event_type type,
+>  					  enum iio_event_direction dir,
+> -					  int val)
+> +					  bool val)
+>  {
+>  	struct tsl2772_chip *chip = iio_priv(indio_dev);
+>  
+
+val ? true : false
+in here should go.
+
+> diff --git a/drivers/iio/proximity/hx9023s.c b/drivers/iio/proximity/hx9023s.c
+> index d8fb34060d3db88a3ba5ecdc209b14be8e42e8b9..8c2f1cf062033dd8580f8f75649543289fbf9fb7 100644
+> --- a/drivers/iio/proximity/hx9023s.c
+> +++ b/drivers/iio/proximity/hx9023s.c
+> @@ -874,7 +874,7 @@ static int hx9023s_write_event_config(struct iio_dev *indio_dev,
+>  				      const struct iio_chan_spec *chan,
+>  				      enum iio_event_type type,
+>  				      enum iio_event_direction dir,
+> -				      int state)
+> +				      bool state)
+>  {
+>  	struct hx9023s_data *data = iio_priv(indio_dev);
+Has a !!state that should go. 
+>  
+> diff --git a/drivers/iio/proximity/irsd200.c b/drivers/iio/proximity/irsd200.c
+> index 6e96b764fed8b577d71c3146210679b0b61d4c38..eded45a778737a699f8b69ad86a9909594e04b32 100644
+> --- a/drivers/iio/proximity/irsd200.c
+> +++ b/drivers/iio/proximity/irsd200.c
+> @@ -648,7 +648,8 @@ static int irsd200_read_event_config(struct iio_dev *indio_dev,
+
+This has a !!state that should go.
+
+>  static int irsd200_write_event_config(struct iio_dev *indio_dev,
+>  				      const struct iio_chan_spec *chan,
+>  				      enum iio_event_type type,
+> -				      enum iio_event_direction dir, int state)
+> +				      enum iio_event_direction dir,
+> +				      bool state)
+>  {
+>  	struct irsd200_data *data = iio_priv(indio_dev);
+>  	unsigned int tmp;
+> diff --git a/drivers/iio/proximity/sx9500.c b/drivers/iio/proximity/sx9500.c
+> index 3f4eace05cfc6a4679fe82854dc059aa4a710d6d..e7da02c59b753158c30c7473bdeea8886a2977a3 100644
+> --- a/drivers/iio/proximity/sx9500.c
+> +++ b/drivers/iio/proximity/sx9500.c
+> @@ -540,7 +540,7 @@ static int sx9500_write_event_config(struct iio_dev *indio_dev,
+>  				     const struct iio_chan_spec *chan,
+>  				     enum iio_event_type type,
+>  				     enum iio_event_direction dir,
+> -				     int state)
+> +				     bool state)
+>  {
+This one treats state as an integer.  We should change that before applying this patch.
+
+>  	struct sx9500_data *data = iio_priv(indio_dev);
+>  	int ret;
 
