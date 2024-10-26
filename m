@@ -4,141 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C1AD149F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 00:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D41CD149F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 00:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klNgxq4doYeESjjSjmv1yXG01PlVRtxfKFAm5gKvwXk=; b=Ba0k6kWDya3ky4MhFYraY1srCd
-	Ldkqm0y9dAHiY4MzbseHwiFw/3flq38awCpKulX2EN/TBfG7LLhqQEIsxL+euygEy2b36BBtoUdFG
-	63cAmECHnc08GyQ0fWVatvDYDEzEOioBfLY9dOxfhC8g/wc2y7KnnNKdVoLvm0x1ZGiUu+gA/tStp
-	l8y3uE5Wtt8aqDIg0k653sroNC+G1wdeofqStQz/Ijw8/IDWMmiWgr884fujSFB98siuiqgrSXxl0
-	+dA4/jM/K9K/brpYnb81lwbUlfxpjvZJPRsQ7wJaMOJRianVcd2z3wqZvDGMrBRIkEn8ZW+p+hRi+
-	AajS+jSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQyaREyI02dVpWrHh5IW74tlfaGfUJTmgG6plgvhZc8=; b=Cjv/qreAc8j29f7B/ZKfAA+Jrh
+	wOmQmJT6uyqP2AQeP9CTxAApnS+TIQvxVNXXREvzFHQuLR7/ITCrB5LAMana/gDJG4G4DWp1HeD+s
+	gxhIoAbDZ40a0boXrOH0MgXaIA4BJxyATghzk9GZu/TciU6KCCzhqAUArxgdAxBYDoQrh815gBI6F
+	CUJJ6wpLzOhydviXf2R0kzJmRkcSoH599plmrQoNCyDwYMqmRDeJGoCCx+Mnt1tENX1VGJCRNFNXW
+	Ub4PyKp2eQIULcDNHnGTD+0K0J5PEAeTr5iYslu898SZJ6O49rkUxP6dyo6WRrIbERUngf56tQOxv
+	bBNodPAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4Ulj-00000005esF-3fJT;
-	Sat, 26 Oct 2024 00:35:03 +0000
-Received: from mail-dm6nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2415::620] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4U5S-00000005ZGa-1tht
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Oct 2024 23:51:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EGsRQDCXcqAcsHeYQiEVn4lMGF4V7zOn/yo8hWIkwKF+YmFI4mXF/eq7nJQ1/pK4Zy5s5lr7K8c0hBXUHqgKLUQmEDxBq8n3A8VvSqT8y+j5dclTv4IHMq5GRHQKWnBFg+t8Dxy5vQM+IE5H/s9sj6zhbAlahXf2olHkWMTxaSJWY6gUtTX13ch3+bReY7rBNmpkYIdS1T0M3Ns5Dmhj5XPAGEaP1gHpjFEzUwGG7hofmiQrNBHoNCnAp/aN3tDojxm6VMk98vqoPP5oXjqFm8f8L7j9ZK5c4/YVM5PL3uiAwpBhARMe1nIVM5xxk4ZyHI+1qSafW2LMXjI512zIEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=klNgxq4doYeESjjSjmv1yXG01PlVRtxfKFAm5gKvwXk=;
- b=SfZfASiaaEzcflWO5lQtio4CdT0Tv1SJwP1ZOhhfBSoh+OJ3tptFGVUwL5bxK6ZEdyCgikFksCCwa1psde4VPF544b8cCAzePPM7Wl8l7lBv0lx7hr6YlRLi/HklHLtMN6MNswisxtpyXU4Ciu7saOAFTsdlhOW2WhE+u6quNc6Urfw5Wrr3VQqCZL20sY8eFE1KJC4IOpJE0qIfXroDqh2mKuOSqdBeT0asILlBv2HNTRoqv+qyYisyf1HFRa2OxW51mAfvAoz1qOQetZL9aQNcl/1AYYi1VYWD682OmAi3vumhgaMUYReIajt1zmgQzdfdnPjUc8tEkXsWKwmD5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=klNgxq4doYeESjjSjmv1yXG01PlVRtxfKFAm5gKvwXk=;
- b=TKgU2cLbN+Bhq3lwvJDtVmUoh9KhZc1kvMN43644bBYoV2wmIgpc9wzz9PxbKqOXBSmH0GMKCTMshl0n0JrxCvA9KJZrFXU0sbiCxlFGt3F2UC/wWy7wbv54cVSu9C8cQBYY1jaV7H1V61cr4E7foWRemLhI4AraVx3CggUN0O0uxatKkZsjC081OZVQh191td2o0RNN+zORp+HYUSWA17+uhoHoaPfuNSzx3IzIRtKQ6debPmLgh01hnMk7AiX609mMmUz2lJC02YK8McEwKSxnhrPpSpcp2pjbQoLGYx68Gn5WzNlBePj68b61KElsEHi02s/lIXoWLkeB3q+Ogg==
-Received: from BYAPR02CA0025.namprd02.prod.outlook.com (2603:10b6:a02:ee::38)
- by SA1PR12MB8095.namprd12.prod.outlook.com (2603:10b6:806:33f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Fri, 25 Oct
- 2024 23:51:18 +0000
-Received: from CO1PEPF000075EF.namprd03.prod.outlook.com
- (2603:10b6:a02:ee:cafe::77) by BYAPR02CA0025.outlook.office365.com
- (2603:10b6:a02:ee::38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20 via Frontend
- Transport; Fri, 25 Oct 2024 23:51:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CO1PEPF000075EF.mail.protection.outlook.com (10.167.249.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.14 via Frontend Transport; Fri, 25 Oct 2024 23:51:17 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 25 Oct
- 2024 16:51:05 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 25 Oct 2024 16:51:04 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Fri, 25 Oct 2024 16:51:03 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>
-CC: <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
-	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
-Subject: [PATCH v5 12/13] iommu/arm-smmu-v3: Add arm_vsmmu_cache_invalidate
-Date: Fri, 25 Oct 2024 16:50:41 -0700
-Message-ID: <16cb47d80cfd37028f6d32231a785a3c486239f5.1729897278.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1729897278.git.nicolinc@nvidia.com>
-References: <cover.1729897278.git.nicolinc@nvidia.com>
+	id 1t4Uwv-00000005fnf-2TeB;
+	Sat, 26 Oct 2024 00:46:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t4UvK-00000005fbJ-19bq;
+	Sat, 26 Oct 2024 00:45:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19F9A339;
+	Fri, 25 Oct 2024 17:45:25 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8BFB3F71E;
+	Fri, 25 Oct 2024 17:44:50 -0700 (PDT)
+Date: Sat, 26 Oct 2024 01:44:44 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Cody Eksal <masterr3c0rd@epochal.quest>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-usb@vger.kernel.org, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+ Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Parthiban <parthiban@linumiz.com>, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Vinod Koul <vkoul@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Thierry Reding
+ <treding@nvidia.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Maxime Ripard <mripard@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Yangtao Li <tiny.windzz@gmail.com>, Viresh
+ Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH 07/13] arm64: dts: allwinner: a100: add usb related
+ nodes
+Message-ID: <20241026014444.12c8c99b@minigeek.lan>
+In-Reply-To: <20241024170540.2721307-8-masterr3c0rd@epochal.quest>
+References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
+	<20241024170540.2721307-8-masterr3c0rd@epochal.quest>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075EF:EE_|SA1PR12MB8095:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5de8bf90-2e41-458d-f040-08dcf54feb57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?olA5H4JYP0ZDO2FZwfdhD90RqJPnfSzBOH0rPYDSgDEsAyeS12T0qO7bbxZs?=
- =?us-ascii?Q?icWQULFJkuDRi8KGyxeDDlL6FWid0G1GKFglEKusbKE/vJtu4yIgOb9wu+T8?=
- =?us-ascii?Q?reH/5EiifOKH0fqAVRkuyymz1n5o+p8bYZMVBOOIvMvY2dqf2Ap6zO+Lyz1Z?=
- =?us-ascii?Q?U1EyPhRW7rTAgEA7e3HZupQH/vcP399wzB0oyBywBolnn6jg26+k5//q0JTG?=
- =?us-ascii?Q?dwmLSH5alC4LU6svLoVvHFv3eHztZEcAfLYpHm8Hcrxv3NAdBV0Lw+XwbWGO?=
- =?us-ascii?Q?GP0x9rFdtJNoK1SiJ8mSXx5notKvZCBaHS3RGFKETMvogeRGdGWwnPfZqOJR?=
- =?us-ascii?Q?agmGmZ4HE9e9QDjRtd1dtom70bO/s89IQueKUp0ggf1QR/B50zQuftFtUkFA?=
- =?us-ascii?Q?2HB5d+8Tjp19fukpMXQhkYYXUSuEHqHcYheKmiGBs82mq06n13ll8vexQ1rD?=
- =?us-ascii?Q?dvW7j21ww9Vi/PGKbNqav3TbMU+YIsRTMbUgOO/TMho4TYn4sVkY//2d5BlB?=
- =?us-ascii?Q?AWVeZkGnrzowl+2ih98kvm2vYyWuHRDUtjczXW7ah3v1/KltOw5DK9vNg7Pc?=
- =?us-ascii?Q?wk4bZtF8dbBzv1xQ/R6E1OBmUIyNciwQgmM8hGrMQk3spDV4yK3XaShQj4ci?=
- =?us-ascii?Q?XfyFc34itfIY218ie/+b5CIzCFi6jZds84kCCsnBA2eMWY2ufsKEqWkNktpn?=
- =?us-ascii?Q?XHkUqjA3GzJRl3VoPGW83OMPhC2CTWU5Unz71bMe12DWGLyeXyH0rBveLolK?=
- =?us-ascii?Q?p02eJa79rBdMVXN9QqUT0mKD6KMMQJztNWQ2XQasF8iqr3n6QeMZ5yBTM6Rz?=
- =?us-ascii?Q?t54gSuPZGzG4+JFRz4h2GjsJTxclVIpr/Jms9NknRtARav33RHZVPxLVqhPO?=
- =?us-ascii?Q?uMcg7lV1bOa9FAzOk+sj12E3BpM7emlKJvfmtR/b8JcwXCpQvzExatsarWQJ?=
- =?us-ascii?Q?P4lxSFhBXbdqQeaF6CPXMPjzEGd+bswKhlz+dMNDFe7CfrHSEjTtP+8yfDgw?=
- =?us-ascii?Q?3ugAbd3kUfADrmZ0MVDjEZoxMoljLz/IPab75NzXMthiTDcGRVVN4+1nF2PU?=
- =?us-ascii?Q?e4gH5xBTR7ELTAJEd9cBGMws17MYrNsCZ6aMyt8jYjf56L/PRmj8L8vAqpqG?=
- =?us-ascii?Q?VBu7Xon6eDyMLSYz0JxcD6sVwyeP4r+KmYGmlYtZreTgPZThxLJJpa179faf?=
- =?us-ascii?Q?s5iEO6cg7KAa/+dML3eUhtuWBBGGnMM5oiAVGcOvFi5rAjR6iCn35pQLrzSE?=
- =?us-ascii?Q?fkiQKWIj6UNV/j+GzSLcZzaD3BNkllfM1lg0x96U67z3xe6hhrZ9gXsV3abZ?=
- =?us-ascii?Q?xCkthLkKsFAGK5apPsN/8lGkw/5sApb5949LnhatVfo9WkqiQmlJrLd+BngB?=
- =?us-ascii?Q?s5RKLGAZtSAz+ahrct4R12YOSQ3SFQPwzBGq4/c2QZ3jvPTFiQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Oct 2024 23:51:17.8460
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5de8bf90-2e41-458d-f040-08dcf54feb57
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EF.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8095
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_165122_572186_7FFEEE02 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20241025_174458_447460_8E61CD25 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,262 +78,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the vIOMMU's cache_invalidate op for user space to invalidate the
-IOTLB entries, Device ATS and CD entries that are still cached by hardware.
+On Thu, 24 Oct 2024 14:05:25 -0300
+Cody Eksal <masterr3c0rd@epochal.quest> wrote:
 
-Add struct iommu_viommu_arm_smmuv3_invalidate defining invalidation entries
-that are simply in the native format of a 128-bit TLBI command. Scan those
-commands against the permitted command list and fix their VMID/SID fields.
+Hi,
 
-Co-developed-by: Eric Auger <eric.auger@redhat.com>
-Signed-off-by: Eric Auger <eric.auger@redhat.com>
-Co-developed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   5 +
- include/uapi/linux/iommufd.h                  |  24 ++++
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 130 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   6 +-
- 4 files changed, 162 insertions(+), 3 deletions(-)
+> From: Yangtao Li <frank@allwinnertech.com>
+> 
+> Allwinner A64 have two HCI USB controllers, a OTG controller and a USB
+> PHY device, let's add nodes on dts.
+> 
+> Signed-off-by: Yangtao Li <frank@allwinnertech.com>
+> [masterr3c0rd@epochal.quest: fallback to a33-musb instead of h3-musb]
+> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> ---
+>  .../arm64/boot/dts/allwinner/sun50i-a100.dtsi | 91 +++++++++++++++++++
+>  1 file changed, 91 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> index adb11b26045f..0aee1b578661 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> @@ -302,6 +302,97 @@ ths: thermal-sensor@5070400 {
+>  			#thermal-sensor-cells = <1>;
+>  		};
+>  
+> +		usbphy: phy@5100400 {
+> +			#phy-cells = <1>;
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 5a025d310dbe..8bd740f537ee 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -529,6 +529,7 @@ struct arm_smmu_cmdq_ent {
- 		#define CMDQ_OP_TLBI_NH_ALL     0x10
- 		#define CMDQ_OP_TLBI_NH_ASID	0x11
- 		#define CMDQ_OP_TLBI_NH_VA	0x12
-+		#define CMDQ_OP_TLBI_NH_VAA	0x13
- 		#define CMDQ_OP_TLBI_EL2_ALL	0x20
- 		#define CMDQ_OP_TLBI_EL2_ASID	0x21
- 		#define CMDQ_OP_TLBI_EL2_VA	0x22
-@@ -949,6 +950,10 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state);
- void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
- 				  const struct arm_smmu_ste *target);
- 
-+int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-+				struct arm_smmu_cmdq *cmdq, u64 *cmds, int n,
-+				bool sync);
-+
- #ifdef CONFIG_ARM_SMMU_V3_SVA
- bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
- bool arm_smmu_master_sva_supported(struct arm_smmu_master *master);
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index c2c5f49fdf17..8e66e2fde1dd 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -686,9 +686,11 @@ struct iommu_hwpt_get_dirty_bitmap {
-  * enum iommu_hwpt_invalidate_data_type - IOMMU HWPT Cache Invalidation
-  *                                        Data Type
-  * @IOMMU_HWPT_INVALIDATE_DATA_VTD_S1: Invalidation data for VTD_S1
-+ * @IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3: Invalidation data for ARM SMMUv3
-  */
- enum iommu_hwpt_invalidate_data_type {
- 	IOMMU_HWPT_INVALIDATE_DATA_VTD_S1 = 0,
-+	IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3 = 1,
- };
- 
- /**
-@@ -727,6 +729,28 @@ struct iommu_hwpt_vtd_s1_invalidate {
- 	__u32 __reserved;
- };
- 
-+/**
-+ * struct iommu_viommu_arm_smmuv3_invalidate - ARM SMMUv3 cahce invalidation
-+ *         (IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3)
-+ * @cmd: 128-bit cache invalidation command that runs in SMMU CMDQ.
-+ *       Must be little-endian.
-+ *
-+ * Supported command list only when passing in a vIOMMU via @hwpt_id:
-+ *     CMDQ_OP_TLBI_NSNH_ALL
-+ *     CMDQ_OP_TLBI_NH_VA
-+ *     CMDQ_OP_TLBI_NH_VAA
-+ *     CMDQ_OP_TLBI_NH_ALL
-+ *     CMDQ_OP_TLBI_NH_ASID
-+ *     CMDQ_OP_ATC_INV
-+ *     CMDQ_OP_CFGI_CD
-+ *     CMDQ_OP_CFGI_CD_ALL
-+ *
-+ * -EIO will be returned if the command is not supported.
-+ */
-+struct iommu_viommu_arm_smmuv3_invalidate {
-+	__aligned_le64 cmd[2];
-+};
-+
- /**
-  * struct iommu_hwpt_invalidate - ioctl(IOMMU_HWPT_INVALIDATE)
-  * @size: sizeof(struct iommu_hwpt_invalidate)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index abb6d2868376..2479074db820 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -184,9 +184,131 @@ arm_vsmmu_alloc_domain_nested(struct iommufd_viommu *viommu,
- 	return &nested_domain->domain;
- }
- 
-+static int arm_vsmmu_vsid_to_sid(struct arm_vsmmu *vsmmu, u32 vsid, u32 *sid)
-+{
-+	struct arm_smmu_master *master;
-+	struct device *dev;
-+	int ret = 0;
-+
-+	xa_lock(&vsmmu->core.vdevs);
-+	dev = iommufd_viommu_find_dev(&vsmmu->core, (unsigned long)vsid);
-+	if (!dev) {
-+		ret = -EIO;
-+		goto unlock;
-+	}
-+	master = dev_iommu_priv_get(dev);
-+
-+	/* At this moment, iommufd only supports PCI device that has one SID */
-+	if (sid)
-+		*sid = master->streams[0].id;
-+unlock:
-+	xa_unlock(&vsmmu->core.vdevs);
-+	return ret;
-+}
-+
-+/* This is basically iommu_viommu_arm_smmuv3_invalidate in u64 for conversion */
-+struct arm_vsmmu_invalidation_cmd {
-+	u64 cmd[2];
-+};
-+
-+/*
-+ * Convert, in place, the raw invalidation command into an internal format that
-+ * can be passed to arm_smmu_cmdq_issue_cmdlist(). Internally commands are
-+ * stored in CPU endian.
-+ *
-+ * Enforce the VMID or SID on the command.
-+ */
-+static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
-+				      struct arm_vsmmu_invalidation_cmd *cmd)
-+{
-+	/* Commands are le64 stored in u64 */
-+	cmd->cmd[0] = le64_to_cpu((__force __le64)cmd->cmd[0]);
-+	cmd->cmd[1] = le64_to_cpu((__force __le64)cmd->cmd[1]);
-+
-+	switch (cmd->cmd[0] & CMDQ_0_OP) {
-+	case CMDQ_OP_TLBI_NSNH_ALL:
-+		/* Convert to NH_ALL */
-+		cmd->cmd[0] = CMDQ_OP_TLBI_NH_ALL |
-+			      FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
-+		cmd->cmd[1] = 0;
-+		break;
-+	case CMDQ_OP_TLBI_NH_VA:
-+	case CMDQ_OP_TLBI_NH_VAA:
-+	case CMDQ_OP_TLBI_NH_ALL:
-+	case CMDQ_OP_TLBI_NH_ASID:
-+		cmd->cmd[0] &= ~CMDQ_TLBI_0_VMID;
-+		cmd->cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
-+		break;
-+	case CMDQ_OP_ATC_INV:
-+	case CMDQ_OP_CFGI_CD:
-+	case CMDQ_OP_CFGI_CD_ALL: {
-+		u32 sid, vsid = FIELD_GET(CMDQ_CFGI_0_SID, cmd->cmd[0]);
-+
-+		if (arm_vsmmu_vsid_to_sid(vsmmu, vsid, &sid))
-+			return -EIO;
-+		cmd->cmd[0] &= ~CMDQ_CFGI_0_SID;
-+		cmd->cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
-+		break;
-+	}
-+	default:
-+		return -EIO;
-+	}
-+	return 0;
-+}
-+
-+static int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
-+				      struct iommu_user_data_array *array)
-+{
-+	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
-+	struct arm_smmu_device *smmu = vsmmu->smmu;
-+	struct arm_vsmmu_invalidation_cmd *last;
-+	struct arm_vsmmu_invalidation_cmd *cmds;
-+	struct arm_vsmmu_invalidation_cmd *cur;
-+	struct arm_vsmmu_invalidation_cmd *end;
-+	int ret;
-+
-+	cmds = kcalloc(array->entry_num, sizeof(*cmds), GFP_KERNEL);
-+	if (!cmds)
-+		return -ENOMEM;
-+	cur = cmds;
-+	end = cmds + array->entry_num;
-+
-+	static_assert(sizeof(*cmds) == 2 * sizeof(u64));
-+	ret = iommu_copy_struct_from_full_user_array(
-+		cmds, sizeof(*cmds), array,
-+		IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3);
-+	if (ret)
-+		goto out;
-+
-+	last = cmds;
-+	while (cur != end) {
-+		ret = arm_vsmmu_convert_user_cmd(vsmmu, cur);
-+		if (ret)
-+			goto out;
-+
-+		/* FIXME work in blocks of CMDQ_BATCH_ENTRIES and copy each block? */
-+		cur++;
-+		if (cur != end && (cur - last) != CMDQ_BATCH_ENTRIES - 1)
-+			continue;
-+
-+		/* FIXME always uses the main cmdq rather than trying to group by type */
-+		ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, last->cmd,
-+						  cur - last, true);
-+		if (ret) {
-+			cur--;
-+			goto out;
-+		}
-+		last = cur;
-+	}
-+out:
-+	array->entry_num = cur - cmds;
-+	kfree(cmds);
-+	return ret;
-+}
- 
- static const struct iommufd_viommu_ops arm_vsmmu_ops = {
- 	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
-+	.cache_invalidate = arm_vsmmu_cache_invalidate,
- };
- 
- struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
-@@ -206,6 +328,14 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
- 		return ERR_PTR(-EOPNOTSUPP);
- 
-+	/*
-+	 * FORCE_SYNC is not set with FEAT_NESTING. Some study of the exact HW
-+	 * defect is needed to determine if arm_vsmmu_cache_invalidate() needs
-+	 * any change to remove this.
-+	 */
-+	if (WARN_ON(smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC))
-+		return ERR_PTR(-EOPNOTSUPP);
-+
- 	/*
- 	 * Must support some way to prevent the VM from bypassing the cache
- 	 * because VFIO currently does not do any cache maintenance.
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 8215c49d3bac..d1abfb42d828 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -766,9 +766,9 @@ static void arm_smmu_cmdq_write_entries(struct arm_smmu_cmdq *cmdq, u64 *cmds,
-  *   insert their own list of commands then all of the commands from one
-  *   CPU will appear before any of the commands from the other CPU.
-  */
--static int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
--				       struct arm_smmu_cmdq *cmdq,
--				       u64 *cmds, int n, bool sync)
-+int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-+				struct arm_smmu_cmdq *cmdq, u64 *cmds, int n,
-+				bool sync)
- {
- 	u64 cmd_sync[CMDQ_ENT_DWORDS];
- 	u32 prod;
--- 
-2.43.0
+Please keep the compatible string first, and move #phy-cells to the end.
+
+> +			compatible = "allwinner,sun50i-a100-usb-phy";
+> +			reg = <0x05100400 0x14>,
+> +			      <0x05101800 0x4>,
+> +			      <0x05200800 0x4>;
+
+We need at least 0x24 for the phy_ctrl and 0x14 for the PMUs. But I
+wonder if we should use 0x100 for all of them, like for the D1, as there
+are more registers. The fact that the Linux driver doesn't use more
+shouldn't prevent the DT from describing them.
+
+> +			reg-names = "phy_ctrl",
+> +				    "pmu0",
+> +				    "pmu1";
+> +			clocks = <&ccu CLK_USB_PHY0>,
+> +				 <&ccu CLK_USB_PHY1>;
+> +			clock-names = "usb0_phy",
+> +				      "usb1_phy";
+> +			resets = <&ccu RST_USB_PHY0>,
+> +				 <&ccu RST_USB_PHY1>;
+> +			reset-names = "usb0_reset",
+> +				      "usb1_reset";
+> +			status = "disabled";
+> +		};
+> +
+> +		ehci0: usb@5101000 {
+
+The nodes are ordered by their MMIO base address, so please move them
+around accordingly.
+
+> +			compatible = "allwinner,sun50i-a100-ehci",
+> +				     "generic-ehci";
+> +			reg = <0x05101000 0x100>;
+> +			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI0>,
+> +				 <&ccu CLK_BUS_EHCI0>,
+> +				 <&ccu CLK_USB_OHCI0>;
+> +			resets = <&ccu RST_BUS_OHCI0>,
+> +				 <&ccu RST_BUS_EHCI0>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ohci0: usb@5101400 {
+> +			compatible = "allwinner,sun50i-a100-ohci",
+> +				     "generic-ohci";
+> +			reg = <0x05101400 0x100>;
+> +			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI0>,
+> +				 <&ccu CLK_USB_OHCI0>;
+> +			resets = <&ccu RST_BUS_OHCI0>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		usb_otg: usb@5100000 {
+> +			compatible = "allwinner,sun50i-a100-musb",
+> +				     "allwinner,sun8i-a33-musb";
+> +			reg = <0x05100000 0x0400>;
+> +			clocks = <&ccu CLK_BUS_OTG>;
+> +			resets = <&ccu RST_BUS_OTG>;
+> +			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "mc";
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			extcon = <&usbphy 0>;
+> +			dr_mode = "otg";
+
+dr_mode should be set in the board .dts, so please remove that line
+from here.
+
+For the records: I checked the MMIO base addresses, clock and reset
+names and the IRQs against the manual: they all match.
+
+Cheers,
+Andre
+
+> +			status = "disabled";
+> +		};
+> +
+> +		ehci1: usb@5200000 {
+> +			compatible = "allwinner,sun50i-a100-ehci",
+> +				     "generic-ehci";
+> +			reg = <0x05200000 0x100>;
+> +			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI1>,
+> +				 <&ccu CLK_BUS_EHCI1>,
+> +				 <&ccu CLK_USB_OHCI1>;
+> +			resets = <&ccu RST_BUS_OHCI1>,
+> +				 <&ccu RST_BUS_EHCI1>;
+> +			phys = <&usbphy 1>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ohci1: usb@5200400 {
+> +			compatible = "allwinner,sun50i-a100-ohci",
+> +				     "generic-ohci";
+> +			reg = <0x05200400 0x100>;
+> +			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI1>,
+> +				 <&ccu CLK_USB_OHCI1>;
+> +			resets = <&ccu RST_BUS_OHCI1>;
+> +			phys = <&usbphy 1>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+>  		r_ccu: clock@7010000 {
+>  			compatible = "allwinner,sun50i-a100-r-ccu";
+>  			reg = <0x07010000 0x300>;
 
 
