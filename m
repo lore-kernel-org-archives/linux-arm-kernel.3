@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E88DD10BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35F6D10BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=iqjgwPoSadyGxLdrVj7DYmqocPwRm0P5OMZARcUhpIg=; b=pja002j608CN58
-	iypUjv2OK53eE2reh/VdogS8g8rhlibqr7vexcIPo5T2Xc33+1gxtQ91ardrHt7osF9nJtTWcc38N
-	ILOHotCzhLbwOVGzAr2DzrDZs5iCNQ6yEKBtqI7NFIPSChytXJA60CZH661VYTTy8TJ1z/wdNubwt
-	CKD+Aou0CBgAIKZ9f699Yi6rkMEIVgex/VyrCsa9dkX6T2GhdDxibBNLOpz+s0rYIgKOw8RNWfhMI
-	bLyBdMce454FY7qFby7q7N7pJe/yTMpLu3Fub+4VrFzVyB7xkirLVKkD266uQqKLu2CVeV/paIfOs
-	732eCxl4gWInvaFB4K5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V5OD2a+5Yf5Ws+WfrS2k1xUKw09ng7ymDsOzBUfC86k=; b=d8k1oDRxxcHIIudvy29Wv/KGI4
+	rSKmXlXi8hmHRyIiauwO17782zCQuxdIKNV5fMsX2ATeNO/qC7tN9naPVZUjNglfbShSND3y6MBO0
+	bVWXMPXKlXvTtoS5QblJ3fJEpdQ1P/nSJH1nuk5zzb2cYPnwW/tIAWVAruZzDBsQIRbeX3QWwzZax
+	IpPudreIgQ04vCu8i7AKYyOxujOECH9eBmxy9v5YgaHwYaKKmCOKC3xAH4vQavcLpnwAFVnyzVjDN
+	4MbDY+R9/S863gm2orhLPc9sOdqOnt8uR7a/2JatGKLWqAKKWpTRu/hra+Ycue5lLTBOvB6tjnCFq
+	YzD3Vp9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4ard-000000065Xe-392f;
-	Sat, 26 Oct 2024 07:05:33 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1t4bC8-000000067NY-1HTo;
+	Sat, 26 Oct 2024 07:26:44 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4aq2-000000065GD-2w9f
+	id 1t4bAT-000000066si-2kiE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 07:03:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iqjgwPoSadyGxLdrVj7DYmqocPwRm0P5OMZARcUhpIg=; b=YboSmBu1TFEJbpaBgR8TCTVnhS
-	P6jGo1LcARnvh6ckzHNzThGd4Ao6Vt8XgtgpNGcEW75wvyMhKH9tYDpADEbaZ2kkJ52zgMSFWCzvc
-	l/6b9/ZAUUcBwdfYl3ozz/y0EUH80b9OJBIoSp2UW37mRT7aazrtC2PSweYQqRhDYA7YhqKhXkOyk
-	zmsFwCj2ttGQtU8gkUB1o4iAAo42TPPylBSKvJKw605wg1gEV2XdyYcFTEeZbO4kZoS6Cn3MPZ7Ae
-	OBZl/SFOkWcEcCiqHZZTzw2gGjz1cLpbEBf8is7imHWdk8ybTiEAOLunbCLBxb0u8/Osp7R6h07KA
-	aF/VtEFw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1t4apz-00CG1O-1S;
-	Sat, 26 Oct 2024 15:03:52 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 26 Oct 2024 15:03:51 +0800
-Date: Sat, 26 Oct 2024 15:03:51 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, ardb@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto - move crypto_simd_disabled_for_test to lib
-Message-ID: <ZxyUV2cMZoKJ317I@gondor.apana.org.au>
+	Sat, 26 Oct 2024 07:25:03 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4XbB2h6Rlcz1SDBg;
+	Sat, 26 Oct 2024 15:23:24 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4DD171400D3;
+	Sat, 26 Oct 2024 15:24:52 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Sat, 26 Oct 2024 15:24:51 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
+	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
+Subject: [PATCH v3 6/8] drivers/perf: hisi: Export associated CPUs of each PMU through sysfs
+Date: Sat, 26 Oct 2024 15:24:22 +0800
+Message-ID: <20241026072424.29887-7-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241026072424.29887-1-yangyicong@huawei.com>
+References: <20241026072424.29887-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241018235343.425758-1-ebiggers@kernel.org>
-X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_000354_758529_78133FD4 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20241026_002502_175968_DF1BF82E 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +71,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Eric Biggers <ebiggers@kernel.org> wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Move crypto_simd_disabled_for_test to lib/ so that crypto_simd_usable()
-> can be used by library code.
-> 
-> This was discussed previously
-> (https://lore.kernel.org/linux-crypto/20220716062920.210381-4-ebiggers@kernel.org/)
-> but was not done because there was no use case yet.  However, this is
-> now needed for the arm64 CRC32 library code.
-> 
-> Tested with:
->    export ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
->    echo CONFIG_CRC32=y > .config
->    echo CONFIG_MODULES=y >> .config
->    echo CONFIG_CRYPTO=m >> .config
->    echo CONFIG_DEBUG_KERNEL=y >> .config
->    echo CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=n >> .config
->    echo CONFIG_CRYPTO_MANAGER_EXTRA_TESTS=y >> .config
->    make olddefconfig
->    make -j$(nproc)
-> 
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
-> crypto/algapi.c     |  6 ------
-> lib/crypto/Makefile |  2 ++
-> lib/crypto/simd.c   | 11 +++++++++++
-> 3 files changed, 13 insertions(+), 6 deletions(-)
-> create mode 100644 lib/crypto/simd.c
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Patch applied.  Thanks.
+Although the event of the uncore PMU can only be opened on a single
+CPU, some PMU does have the affinity on a range of CPUs. For example
+the L3C PMU is associated to the CPUs sharing the L3T it monitors.
+Users may infer this affinity by the PMU name which may have SCCL ID
+and CCL ID encoded (for L3C etc), but it's not that straightforward.
+So export this information by adding an "associated_cpus" sysfs
+attribute then user can get this directly.
+
+Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
+ drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+index 5cc248d18c63..2b3d5a90c34c 100644
+--- a/Documentation/admin-guide/perf/hisi-pmu.rst
++++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+@@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
+ SCCL ID #1.
+ 
+ The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
+-ID used to count the uncore PMU event.
++ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
++also provided to show the CPUs associated with this PMU. The "cpumask" indicates
++the CPUs to open the events, usually as a hit for userspaces tools like perf.
++It only contains one associated CPU from the "associated_cpus".
+ 
+ Example usage of perf::
+ 
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index ac74d8312ee5..b27de6b3f9b4 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -51,8 +51,18 @@ EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
+ 
+ static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+ 
++static ssize_t hisi_associated_cpus_sysfs_show(struct device *dev,
++				struct device_attribute *attr, char *buf)
++{
++	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
++
++	return cpumap_print_to_pagebuf(true, buf, &hisi_pmu->associated_cpus);
++}
++static DEVICE_ATTR(associated_cpus, 0444, hisi_associated_cpus_sysfs_show, NULL);
++
+ static struct attribute *hisi_pmu_cpumask_attrs[] = {
+ 	&dev_attr_cpumask.attr,
++	&dev_attr_associated_cpus.attr,
+ 	NULL
+ };
+ 
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.24.0
+
 
