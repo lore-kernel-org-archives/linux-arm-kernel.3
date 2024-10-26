@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC337D0C604
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 20:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5013BD10C03
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 20:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=; b=PK/3BGeSadTDoMeG2jqYy/bdQx
-	K4+uDWXL7mkoyYzNBUmvICrcZWpyQjEAqYimMjM1TBvipx2tk9OtBIfL7c5iWgfLYpJjwhKqoUdtu
-	8sL5lV03zFGDy2NC8qXUP0PDIecm/2eZigfS4zeeM0TOedwd27N/633zibS9xbWp+DnGuo6mKVQ/W
-	m2UfrSP6QgPug9K8xAierujOc9dzGAGMnp94qybLONqVehA/ZYRLfYwi8XUAn0n5lDTT53WB0hdc8
-	LftaqTcEoOezCM0mBYHl/UKnqeoXFraCG+lFFFymhAZorYUoRQiYZIS6X7TeKCYpsCuVoAVk5SGN1
-	2L9gJ9hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cNNg7zzXFJSGsARqfxEpGo4FAbXgJfDgVsYkeL3nKao=; b=YLGtgQBlt+0Gl2
+	zLbln0OaEMki0CTO34WbS0mXv8pRGBFEmLNB1awmZiIbFVscO8q9x7qrtFNcK0YQpU+MM7FCq0zXK
+	3cWTzEQE8rm3jsWLVOomPh4Qg2NmqR6zDPCfg1tmAxEdsAm3QPkc44q74x3XVRKQ0R52fcRS5YeOx
+	mDspFrqByRIowLOwsxOCfVovZCaLOIJXhAax3ahdNNpFC4vn3hJC/o66cwF3OVEk7Mn2ffErjp7SE
+	dXY0AOI1QDMcbMKLYmWnVPSbWrA3Dat35JNivPXxFStgAhrps4KFJpyr3uyTZPBgvzzqebg5C5KRo
+	TsaJXm41PUQThdauVmGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4nPi-00000007Bqy-3anV;
-	Sat, 26 Oct 2024 20:29:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1t4nRG-00000007ByX-0OB0;
+	Sat, 26 Oct 2024 20:31:10 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4nO6-00000007Be0-3AEH
+	id 1t4nOi-00000007BfG-1GmI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 20:27:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1729974472;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=;
-	b=SSkM8HK2gm6j1vqGhJIa54BEVqWv/qnXV7vJAlLfnVy5kEhqRJSWLuy2KooWuRe0lRWSgi
-	7LgaE1fzP4zvfh1EEBOHFTGxSn9HuhZ6iZm+oJDLk2ngh6+sNXU1vCdcunwJTzW5KpRiHN
-	muiYxxurT+8JlYJquwvwTiXZSuO6SuM=
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
- [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-103-NEZ5htamPU6R-FZ8WMjmSw-1; Sat, 26 Oct 2024 16:26:03 -0400
-X-MC-Unique: NEZ5htamPU6R-FZ8WMjmSw-1
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-71e49bad8adso3290366b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 13:26:03 -0700 (PDT)
+	Sat, 26 Oct 2024 20:28:33 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2f7657f9f62so28538251fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 13:28:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729974509; x=1730579309; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cNNg7zzXFJSGsARqfxEpGo4FAbXgJfDgVsYkeL3nKao=;
+        b=aUz+B8vG+ZAtamc6xWApQgRZBgYGDEnQHFIbGdynE28pzR/zxwzOWUXUM4Rs++1I85
+         F4APyZOnrhY761z8aBfvAiZbZSFHX8GTVOl6f5hCaRixPrbhQIXYJf3pOO6Z39Jz03Bo
+         Xwnoj2/6laZKqEwtPoi/pfizntRFRm2GlNmfWMausohjbFiC4Qrdvo14oQQdbnGH08Ah
+         WPk6lBkV7rYnIzVATQhpEWlZeHgBAMzesetEhQte4XdBALB8i3ajglfHca8l84P5kGbe
+         yvHt39FHcpVouRBfi96+tt5ZrAwhFKGA0NsWhgwMbPJbyLe/u2Va4pGFUKgEJTEAScA0
+         rg4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729974363; x=1730579163;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=;
-        b=wEIyt7xgeQZ1GjoKTQwiC3OhTyN+lBnBt5NoWctsdoVgc/lWq0CbV0QRVFsXyjq0WU
-         /17oIlOB3ZkblSIt2bQ2br3NZBRTAwy4W4nbJHgrWEz6zmWM2SkYyYQVJ2+ziPl96IQU
-         zl/dYb0jKXoSwLKqSsjgg8cXmiTZON0azuT763g0DGUZI4Rltzx1fxwWHrewcfSTyxqm
-         1vTlfk25yxmS9Hw1Gn/kw19EVTpCUS4SxqWqiD8FgtEUNWo5rEkQI1qL1q1c7zmb3VOr
-         K8vQBnh0rkYV4uONrro/eN85pw80KRdyj+9o9qsZPxidqIT0KD63ZETAPeyP6eYoULBM
-         7rRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXZHrQ2IJW9GXt5068iNa87v2J8ayPF//8CYq4Pfg7hi2tuw0sTtfwH5Z388+yYiETuzqHMp+DyUtj2mxllu9yS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy2h0VbtfREISPfjL0KLaWCXLQ3cMtfhtWid/ySjoc4wSPiFFd
-	geAIbh4SayfxsAvqi6/YXNpYDJMtqDQ1uFee9jSQ7HGSIhybnb9tyKJKOz7cIcXVXf8jpWmS7EM
-	UQbI5raNyC1WdYL+3TLkySpOa31YprFY9uhzyS8kMTigUmmMaGDIdPrK9n30lgtQYtIRhYJ58
-X-Received: by 2002:a05:6a21:394b:b0:1d9:3acf:8bdd with SMTP id adf61e73a8af0-1d9a767bdfamr5925543637.22.1729974362657;
-        Sat, 26 Oct 2024 13:26:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGwP/m05oeFk9b8sbVzI0tK+++7zBHiaxMX3MviGhXhL+kZBBndL9iS5Tpoq327xlI5FsMfmw==
-X-Received: by 2002:a05:6a21:394b:b0:1d9:3acf:8bdd with SMTP id adf61e73a8af0-1d9a767bdfamr5925511637.22.1729974362246;
-        Sat, 26 Oct 2024 13:26:02 -0700 (PDT)
-Received: from localhost (ip98-179-76-110.ph.ph.cox.net. [98.179.76.110])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205791dda2sm3081517b3a.42.2024.10.26.13.26.01
+        d=1e100.net; s=20230601; t=1729974509; x=1730579309;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cNNg7zzXFJSGsARqfxEpGo4FAbXgJfDgVsYkeL3nKao=;
+        b=fx8p9+3NSZgBz7lZcBp+bVSIBNVTXFy83kDjG05o0fMnRFRLVPVNlrG8hwHPtiCaCt
+         Yr9mgKhdGHAP9NNkCNSeM5UYOqc2LqJqzzRBPOSf5/xVuz8ZyBbawI+zjozp51syBioJ
+         myEFxu6JiQ5RXGx2DFr3o3rVCz1gCkKUgSwZQaYRvwZShVaYsKclx/vDzojlgqJI1Euh
+         33K2xdUmKinrhdQSSaY3IBujyi0vPxB9y5MiMQOv1Q0ZF0tyGN7awnJEKRR8Ef4aipdw
+         ua55kg7URWlDJhGiV9YNCaWnwUwNlRvKjsVJnFi/lUgBXHcXvfVng+zqZa7z4sESTOOE
+         GzJg==
+X-Gm-Message-State: AOJu0YxoGlyb4wCf5daD5hDyTgFf9G/jGuktDGe7U5VqpYDagEmdqASG
+	3gRq+aMQ5ynAfJEMOQtztOVv8FDxyw1N/4OoOy0ImzyrFNrz3BCQ
+X-Google-Smtp-Source: AGHT+IESiuS1iKzvuE8ZzZM3tstDBPTHvi4LpV62cM6BsC9Kiz7nGmLch+PHppJzR77qJwttX7SpNQ==
+X-Received: by 2002:a05:651c:4ca:b0:2fa:cc86:f217 with SMTP id 38308e7fff4ca-2fcc940c73cmr351921fa.35.1729974509067;
+        Sat, 26 Oct 2024 13:28:29 -0700 (PDT)
+Received: from [192.168.1.105] ([178.136.36.129])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb451a494sm6370421fa.39.2024.10.26.13.28.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Oct 2024 13:26:01 -0700 (PDT)
-Date: Sat, 26 Oct 2024 13:26:00 -0700
-From: Jerry Snitselaar <jsnitsel@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linux.dev, Hanjun Guo <guohanjun@huawei.com>, 
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>, 
-	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org, Len Brown <lenb@kernel.org>, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, 
-	Alex Williamson <alex.williamson@redhat.com>, Eric Auger <eric.auger@redhat.com>, 
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, Moritz Fischer <mdf@kernel.org>, 
-	Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v3 0/9] Initial support for SMMUv3 nested translation
-Message-ID: <7uv6kandebgqyw64im2kfwmiqahsikpsb6yp2tkd6qol3li3r3@fxsra3soryma>
-References: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+        Sat, 26 Oct 2024 13:28:28 -0700 (PDT)
+From: Markuss Broks <markuss.broks@gmail.com>
+Subject: [PATCH 0/2] arm_pmuv3: Add support for Samsung Mongoose PMU
+Date: Sat, 26 Oct 2024 23:28:07 +0300
+Message-Id: <20241026-mongoose-pmu-v1-0-f1a7448054be@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANdQHWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDAyMz3dz8vPT8/OJU3YLcUl1TIyMTg9QUY0OD5BQloJaCotS0zAqwcdG
+ xtbUAi74RGF4AAAA=
+X-Change-ID: 20241026-mongoose-pmu-52240ed310cd
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Maksym Holovach <nergzd@nergzd723.xyz>, 
+ Markuss Broks <markuss.broks@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1729974508; l=905;
+ i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
+ bh=Ctuv+X/u4Q3Y6JaiCMyXRkwH6JLPkazQ4p5Gw8ErVTs=;
+ b=oALoBWszqZ6dy47IJH8/aQnv86LTjr2f8ij5r5Ykxk6QX21A4nGEyqhUcqrf7qHphoKCrU9fu
+ AOx5ZzTBuslCdM9DDf04cbscGyCksv8DAbrc2uU4IDI2XP5PGKZN/bR
+X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
+ pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_132754_883239_65DC40E2 
-X-CRM114-Status: GOOD (  31.66  )
+X-CRM114-CacheID: sfid-20241026_132832_381924_8C484919 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,128 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 09, 2024 at 01:23:06PM -0300, Jason Gunthorpe wrote:
-> This brings support for the IOMMFD ioctls:
-> 
->  - IOMMU_GET_HW_INFO
->  - IOMMU_HWPT_ALLOC_NEST_PARENT
->  - IOMMU_DOMAIN_NESTED
->  - ops->enforce_cache_coherency()
-> 
-> This is quite straightforward as the nested STE can just be built in the
-> special NESTED domain op and fed through the generic update machinery.
-> 
-> The design allows the user provided STE fragment to control several
-> aspects of the translation, including putting the STE into a "virtual
-> bypass" or a aborting state. This duplicates functionality available by
-> other means, but it allows trivially preserving the VMID in the STE as we
-> eventually move towards the vIOMMU owning the VMID.
-> 
-> Nesting support requires the system to either support S2FWB or the
-> stronger CANWBS ACPI flag. This is to ensure the VM cannot bypass the
-> cache and view incoherent data, currently VFIO lacks any cache flushing
-> that would make this safe.
-> 
-> Yan has a series to add some of the needed infrastructure for VFIO cache
-> flushing here:
-> 
->  https://lore.kernel.org/linux-iommu/20240507061802.20184-1-yan.y.zhao@intel.com/
-> 
-> Which may someday allow relaxing this further.
-> 
-> Remove VFIO_TYPE1_NESTING_IOMMU since it was never used and superseded by
-> this.
-> 
-> This is the first series in what will be several to complete nesting
-> support. At least:
->  - IOMMU_RESV_SW_MSI related fixups
->     https://lore.kernel.org/linux-iommu/cover.1722644866.git.nicolinc@nvidia.com/
->  - vIOMMU object support to allow ATS and CD invalidations
->     https://lore.kernel.org/linux-iommu/cover.1723061377.git.nicolinc@nvidia.com/
->  - vCMDQ hypervisor support for direct invalidation queue assignment
->     https://lore.kernel.org/linux-iommu/cover.1712978212.git.nicolinc@nvidia.com/
->  - KVM pinned VMID using vIOMMU for vBTM
->     https://lore.kernel.org/linux-iommu/20240208151837.35068-1-shameerali.kolothum.thodi@huawei.com/
->  - Cross instance S2 sharing
->  - Virtual Machine Structure using vIOMMU (for vMPAM?)
->  - Fault forwarding support through IOMMUFD's fault fd for vSVA
-> 
-> The vIOMMU series is essential to allow the invalidations to be processed
-> for the CD as well.
-> 
-> It is enough to allow qemu work to progress.
-> 
-> This is on github: https://github.com/jgunthorpe/linux/commits/smmuv3_nesting
-> 
-> v3:
->  - Rebase on v6.12-rc2
->  - Revise commit messages
->  - Consolidate CANWB checks into arm_smmu_master_canwbs()
->  - Add CONFIG_ARM_SMMU_V3_IOMMUFD to compile out iommufd only features
->    like nesting
->  - Shift code into arm-smmu-v3-iommufd.c
->  - Add missed IS_ERR check
->  - Add S2FWB to arm_smmu_get_ste_used()
->  - Fixup quirks checks
->  - Drop ARM_SMMU_FEAT_COHERENCY checks for S2FWB
->  - Limit S2FWB to S2 Nesting Parent domains "just in case"
-> v2: https://patch.msgid.link/r/0-v2-621370057090+91fec-smmuv3_nesting_jgg@nvidia.com
->  - Revise commit messages
->  - Guard S2FWB support with ARM_SMMU_FEAT_COHERENCY, since it doesn't make
->    sense to use S2FWB to enforce coherency on inherently non-coherent hardware.
->  - Add missing IO_PGTABLE_QUIRK_ARM_S2FWB validation
->  - Include formal ACPIA commit for IORT built using
->    generate/linux/gen-patch.sh
->  - Use FEAT_NESTING to block creating a NESTING_PARENT
->  - Use an abort STE instead of non-valid if the user requests a non-valid
->    vSTE
->  - Consistently use 'nest_parent' for naming variables
->  - Use the right domain for arm_smmu_remove_master_domain() when it
->    removes the master
->  - Join bitfields together
->  - Drop arm_smmu_cache_invalidate_user patch, invalidation will
->    exclusively go via viommu
-> v1: https://patch.msgid.link/r/0-v1-54e734311a7f+14f72-smmuv3_nesting_jgg@nvidia.com
-> 
-> Jason Gunthorpe (6):
->   vfio: Remove VFIO_TYPE1_NESTING_IOMMU
->   iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
->   iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
->   iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
->   iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED
->   iommu/arm-smmu-v3: Use S2FWB for NESTED domains
-> 
-> Nicolin Chen (3):
->   ACPICA: IORT: Update for revision E.f
->   ACPI/IORT: Support CANWBS memory access flag
->   iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct
->     arm_smmu_hw_info
-> 
->  drivers/acpi/arm64/iort.c                     |  13 ++
->  drivers/iommu/Kconfig                         |   9 +
->  drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 204 ++++++++++++++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 114 ++++++----
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  83 ++++++-
->  drivers/iommu/arm/arm-smmu/arm-smmu.c         |  16 --
->  drivers/iommu/io-pgtable-arm.c                |  27 ++-
->  drivers/iommu/iommu.c                         |  10 -
->  drivers/iommu/iommufd/vfio_compat.c           |   7 +-
->  drivers/vfio/vfio_iommu_type1.c               |  12 +-
->  include/acpi/actbl2.h                         |   3 +-
->  include/linux/io-pgtable.h                    |   2 +
->  include/linux/iommu.h                         |   5 +-
->  include/uapi/linux/iommufd.h                  |  55 +++++
->  include/uapi/linux/vfio.h                     |   2 +-
->  16 files changed, 465 insertions(+), 98 deletions(-)
->  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> 
-> 
-> base-commit: 8cf0b93919e13d1e8d4466eb4080a4c4d9d66d7b
-> -- 
-> 2.46.2
-> 
+Hello,
 
-Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
+This series adds support to performance monitoring unit of
+the Samsung Mongoose CPU cores. They were released between
+2016 and 2020, and they were used in Samsung Exynos SoCs,
+such as Exynos 8890, 8895, 9810, 9820 and 990 (9830).
+They implement ARMv8.2-A ISA and they are used as a fast
+cluster (big in the big.little scheme).
+
+This series consists of a patch adding the support and
+a patch for the dt-bindings.
+
+---
+Markuss Broks (2):
+      dt-bindings: arm: pmu: Add Samsung Mongoose core compatible
+      perf: arm_pmuv3: Add support for Samsung Mongoose PMU
+
+ Documentation/devicetree/bindings/arm/pmu.yaml | 1 +
+ drivers/perf/arm_pmuv3.c                       | 3 +++
+ 2 files changed, 4 insertions(+)
+---
+base-commit: f2493655d2d3d5c6958ed996b043c821c23ae8d3
+change-id: 20241026-mongoose-pmu-52240ed310cd
+
+Best regards,
+-- 
+Markuss Broks <markuss.broks@gmail.com>
 
 
