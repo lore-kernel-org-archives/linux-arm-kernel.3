@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC64D10BEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 08:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0592CD10BE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 08:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=50erLDHaCcD3189jmEiSuXIG5d+DYHBnUbc/wg7QSIQ=; b=m1KFZ0P9TA2McClgfTS5aMbnyP
-	vQckHMqg8/c72TY8pVnoZF6eRoQeYjE2AladPhmvvqCw9i9infFda0CS2oYloplqmTSKY4pjvfvyL
-	PDzLbyr70mYriiJjAcmDPv6qMTLLb+fnuEfrV0lp0JhdiC9/90o88vF3/5LPyR1TZcQTkAHjr3v5V
-	m7XaYMc84HAvznpVcxlnu7wQz8c+QPvgZK8t2+txbF8UOKyWaXlZ8oeZZ3xcn53O14qlIy8lsQd6p
-	CsZQuEryyLsyrgDXP5/N5T8PVjL2abeHmPFcaa0Mhupe6Ct+qJLbz3H0toe8sFHv0wdLs8TV4l8gg
-	CSjibaLg==;
+	bh=qQTy2rFDHPLrhwWx3I4lTxF3fj+WYgsnlWrVFwmkt1A=; b=p/1f9vcYZANTJxg+2wajoqDDkL
+	Qd9RWPVvIfoJdvX5AMZRvu+oxhJCbimgjS2beTdpXn96q2ASL3VHTBu+fZc3GQov+DlEB4vF8y+BQ
+	yvEPd+PXKlMcXSWzOne9EBVkAtfWrXrjCsEl6OzU/iDMrEQGH3CjE15sNDOpsV7ubQVwh/A9rqvcD
+	GRpbQScsNYwUdgQfY7O29TQnsH2VbHFRPR3r/d0lvmML5DLzA90mKp50F0KSfxw1fMAzHTlKuRUNp
+	IqtWx3IgC6tQBPneTWIA57KPRmNX2bkTwJOF49Hh38nYipQ+LzsGMUiwEv9eI813sMCp+kqekS7z7
+	mQd/0xng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4c4n-00000006DFG-2KAG;
-	Sat, 26 Oct 2024 08:23:13 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1t4c6K-00000006DOe-45Od;
+	Sat, 26 Oct 2024 08:24:48 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4c1e-00000006CsC-2jWS;
-	Sat, 26 Oct 2024 08:20:01 +0000
+	id 1t4c1g-00000006CsD-1VXt;
+	Sat, 26 Oct 2024 08:20:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=50erL
-	DHaCcD3189jmEiSuXIG5d+DYHBnUbc/wg7QSIQ=; b=lkCWm1gJaG9Vp1z/1Q5v2
-	gdHxxlQ+kjBp79vpNhrG+rOP2oB2PVol7pSXVATs/I9JYZIuUarKjKplo6lWBCZ6
-	KliH8hkHC7j+akeJczvVxrERzeKrl6lf0HxwDR6VgGy+trdqNN2lvFHX9GFuRkqy
-	Sqx3sV/FxkFXsA43u6V4Ck=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=qQTy2
+	rFDHPLrhwWx3I4lTxF3fj+WYgsnlWrVFwmkt1A=; b=aUvyIYPeo+c+Bkas6eAVP
+	/er3KGXeofuVVPCf+jYg4E15z8eZ7lQSqlbeGRHLdsfFESWGH+O+Qlt3FrMwtE85
+	kOo7QBEcAEdyDQfcC2f0vbnGMT0jmxRh+OsnaBNLqLzqyZ7HnfMXDORbLHPCKpik
+	6VUTU14brg2hd6Xsv9ODOU=
 Received: from ProDesk.. (unknown [103.29.142.67])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3v9wkphxnW2U0Dg--.30094S3;
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3v9wkphxnW2U0Dg--.30094S4;
 	Sat, 26 Oct 2024 16:19:53 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
@@ -41,24 +41,24 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Andy Yan <andyshrk@163.com>
-Subject: [PATCH 1/3] arm64: dts: rockchip: Enable HDMI0 for rk3588 Cool Pi CM5 EVB
-Date: Sat, 26 Oct 2024 16:19:26 +0800
-Message-ID: <20241026081942.348459-2-andyshrk@163.com>
+Subject: [PATCH 2/3] arm64: dts: rockchip: Enable HDMI display for rk3588 Cool Pi 4B
+Date: Sat, 26 Oct 2024 16:19:27 +0800
+Message-ID: <20241026081942.348459-3-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241026081942.348459-1-andyshrk@163.com>
 References: <20241026081942.348459-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3v9wkphxnW2U0Dg--.30094S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJrW3ur13Xry3tw18Cw1kuFg_yoW8Ar4fp3
-	ZxurZ5WFZ3Way2yw4ayFn7tFnYyrs5urWfG343ZFyxtr4agFnYyw1UWwn2vFyDAFZrZayx
-	CF1kJF1j9r1qqw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_Q6pfUUUUU=
+X-CM-TRANSID: _____wD3v9wkphxnW2U0Dg--.30094S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFy5GF1rury3ZrWxuryfWFg_yoW8Arykp3
+	ZrurZ5Wr93urW7JwsxAF1xArsYyws5C3yxG343ZFy3tr42gas5tw1xGr1vvFyDAFWxZ3yf
+	Cr1kJFyj9r4jqw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziRBTxUUUUU=
 X-Originating-IP: [103.29.142.67]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMxuEXmccoZRKCAABs-
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMxuEXmccoZRKIgAAsU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_011959_064937_F5AEC410 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20241026_012000_771649_F5A7445D 
+X-CRM114-Status: UNSURE (   9.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,35 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the hdmi-qp controller recently get merged, we can enable the
-HDMI0 display on this board now.
+Enable the micro HDMI on Cool Pi 4B.
 
 Signed-off-by: Andy Yan <andyshrk@163.com>
-
 ---
 
- .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    | 49 +++++++++++++++++++
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 49 +++++++++++++++++++
  1 file changed, 49 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-index a4946cdc3bb3..2d7feb88aeeb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-@@ -7,6 +7,7 @@
- /dts-v1/;
- 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+index 074c316a9a69..7ceb61b6ce4a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/gpio/gpio.h>
  #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
 +#include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3588-coolpi-cm5.dtsi"
+ #include "rk3588s.dtsi"
  
  / {
-@@ -22,6 +23,17 @@ backlight: backlight {
- 		pwms = <&pwm2 0 25000 0>;
+@@ -38,6 +39,17 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
  	};
  
 +	hdmi-con {
 +		compatible = "hdmi-connector";
-+		type = "a";
++		type = "d";
 +
 +		port {
 +			hdmi_con_in: endpoint {
@@ -113,8 +111,8 @@ index a4946cdc3bb3..2d7feb88aeeb 100644
 +
  	leds: leds {
  		compatible = "gpio-leds";
- 
-@@ -214,3 +226,40 @@ &usb_host1_ehci {
+ 		pinctrl-names = "default";
+@@ -815,3 +827,40 @@ &usb_host1_ehci {
  &usb_host1_ohci {
  	status = "okay";
  };
