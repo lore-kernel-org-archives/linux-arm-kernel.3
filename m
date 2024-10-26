@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BC0D10BE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 06:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E88DD10BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hBuPIS6+ZQ7QZigY7In18BLl6WbtmuNuTaKGdqh3q9A=; b=f/MTHEPfYOf7bdiKz5IJUzmnpT
-	X2lRubrLE2/2fzfCppJZBlDrWCFs9KyLLg+pWQwCelVCh1QQGk7E/3jnxNcObdTfFm9DmCFz5YA4K
-	S60Ut8PKPNsHROE/+rAVSDwWsWX2h67d1UdYEm5iBRa37s/ldM9flgTSq9fx7ho1Bsi+gxlsrhL1f
-	qDoaQIG/u75F1DPAxLlE2UvxEeAZmu1HFdc/mdO5NrpE1lUpV18mCc0JjX+fKs81whZFuMBmsod/3
-	zyuBv307PaYyQeNIb8K46ol2fTbl/kbk23+o0rm5DicuIFBCqWsCYzGhXfgoObKNiFdn0L968bPYW
-	9Ig0NoBg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iqjgwPoSadyGxLdrVj7DYmqocPwRm0P5OMZARcUhpIg=; b=pja002j608CN58
+	iypUjv2OK53eE2reh/VdogS8g8rhlibqr7vexcIPo5T2Xc33+1gxtQ91ardrHt7osF9nJtTWcc38N
+	ILOHotCzhLbwOVGzAr2DzrDZs5iCNQ6yEKBtqI7NFIPSChytXJA60CZH661VYTTy8TJ1z/wdNubwt
+	CKD+Aou0CBgAIKZ9f699Yi6rkMEIVgex/VyrCsa9dkX6T2GhdDxibBNLOpz+s0rYIgKOw8RNWfhMI
+	bLyBdMce454FY7qFby7q7N7pJe/yTMpLu3Fub+4VrFzVyB7xkirLVKkD266uQqKLu2CVeV/paIfOs
+	732eCxl4gWInvaFB4K5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4akt-000000064ol-1qH6;
-	Sat, 26 Oct 2024 06:58:35 +0000
+	id 1t4ard-000000065Xe-392f;
+	Sat, 26 Oct 2024 07:05:33 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4ajJ-000000064ed-01Tf
+	id 1t4aq2-000000065GD-2w9f
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 06:56:58 +0000
+	Sat, 26 Oct 2024 07:03:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=hBuPIS6+ZQ7QZigY7In18BLl6WbtmuNuTaKGdqh3q9A=; b=ITmC0Ex5SrggdQaW6YOKb7Ora3
-	p065txEO3fe8zaxUEzB5syDVDlbkMR897dUbcChSfZQOwwy4906+9/FfcphK60ZHtIuQV8Q3bR63c
-	l0F2gn65gYMhLtcg/PkyJK58jMWKzqIsPPosDFrvf3Ohg/ckfoSSwTlssTxBKO6n7V7Oe8O3xdzLb
-	Hb3CsvfKC+05bCSherBbM7MuEM/z5oSndRf29XPga+Jx/4O9XMt40PLWLNHvk/7ZhlMZnjAY4Hhq5
-	XPWZR4yTfg/BtcYeGinVgh64SBE8rspzFSqw1tn7WQyfZfXDzuWAifFiNCAfjpCIjSDlXifM0jrTk
-	qACFhdxA==;
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=iqjgwPoSadyGxLdrVj7DYmqocPwRm0P5OMZARcUhpIg=; b=YboSmBu1TFEJbpaBgR8TCTVnhS
+	P6jGo1LcARnvh6ckzHNzThGd4Ao6Vt8XgtgpNGcEW75wvyMhKH9tYDpADEbaZ2kkJ52zgMSFWCzvc
+	l/6b9/ZAUUcBwdfYl3ozz/y0EUH80b9OJBIoSp2UW37mRT7aazrtC2PSweYQqRhDYA7YhqKhXkOyk
+	zmsFwCj2ttGQtU8gkUB1o4iAAo42TPPylBSKvJKw605wg1gEV2XdyYcFTEeZbO4kZoS6Cn3MPZ7Ae
+	OBZl/SFOkWcEcCiqHZZTzw2gGjz1cLpbEBf8is7imHWdk8ybTiEAOLunbCLBxb0u8/Osp7R6h07KA
+	aF/VtEFw==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1t4aj1-00CFy1-0p;
-	Sat, 26 Oct 2024 14:56:40 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 26 Oct 2024 14:56:39 +0800
-Date: Sat, 26 Oct 2024 14:56:39 +0800
+	id 1t4apz-00CG1O-1S;
+	Sat, 26 Oct 2024 15:03:52 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 26 Oct 2024 15:03:51 +0800
+Date: Sat, 26 Oct 2024 15:03:51 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Olivia Mackall <olivia@selenic.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lionel Debieve <lionel.debieve@foss.st.com>, marex@denx.de,
-	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, ardb@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] Add support for stm32mp25x RNG
-Message-ID: <ZxySp0kkUinBPhjD@gondor.apana.org.au>
-References: <20241016-rng-mp25-v2-v4-0-5dca590cb092@foss.st.com>
+Subject: Re: [PATCH] crypto - move crypto_simd_disabled_for_test to lib
+Message-ID: <ZxyUV2cMZoKJ317I@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241016-rng-mp25-v2-v4-0-5dca590cb092@foss.st.com>
+In-Reply-To: <20241018235343.425758-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241025_235657_068268_ECDBB759 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20241026_000354_758529_78133FD4 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 10:04:17AM +0200, Gatien Chevallier wrote:
-> This patchset adds support for the Random Number
-> Generator(RNG) present on the stm32mp25x platforms.
-> On these platforms, the clock management and the RNG
-> parameters are different.
+Eric Biggers <ebiggers@kernel.org> wrote:
+> From: Eric Biggers <ebiggers@google.com>
 > 
-> While there, update the RNG max clock frequency on
-> stm32mp15 platforms according to the latest specs.
+> Move crypto_simd_disabled_for_test to lib/ so that crypto_simd_usable()
+> can be used by library code.
 > 
-> Tested on the stm32mp257f-ev1 platform with a deep
-> power sequence with rngtest before/after the sequence with
-> satisfying results.
+> This was discussed previously
+> (https://lore.kernel.org/linux-crypto/20220716062920.210381-4-ebiggers@kernel.org/)
+> but was not done because there was no use case yet.  However, this is
+> now needed for the arm64 CRC32 library code.
 > 
-> Same was done on stm32mp135f-dk to make sure no regression was added.
+> Tested with:
+>    export ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+>    echo CONFIG_CRC32=y > .config
+>    echo CONFIG_MODULES=y >> .config
+>    echo CONFIG_CRYPTO=m >> .config
+>    echo CONFIG_DEBUG_KERNEL=y >> .config
+>    echo CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=n >> .config
+>    echo CONFIG_CRYPTO_MANAGER_EXTRA_TESTS=y >> .config
+>    make olddefconfig
+>    make -j$(nproc)
 > 
-> On stm32mp157c-dk2, I didn't perform a power sequence but the rngtest
-> results were satisfying.
-> 
-> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
 > ---
-> Changes in v4:
-> - Changed the restrictions on clock names per compatible
-> - Link to v3: https://lore.kernel.org/r/20241015-rng-mp25-v2-v3-0-87630d73e5eb@foss.st.com
-> 
-> Changes in v3:
-> - Add restriction on clock-names some compatibles
-> - Use clk_bulk APIs in the RNG driver to avoid manually handling clocks.
-> - Link to v2: https://lore.kernel.org/r/20241011-rng-mp25-v2-v2-0-76fd6170280c@foss.st.com
-> 
-> Changes in V2:
-> 	-Fixes in bindings
-> 	-Removed MP25 RNG example
-> 	-Renamed RNG clocks for mp25 to "core" and "bus"
-> 
-> ---
-> Gatien Chevallier (4):
->       dt-bindings: rng: add st,stm32mp25-rng support
->       hwrng: stm32 - implement support for STM32MP25x platforms
->       hwrng: stm32 - update STM32MP15 RNG max clock frequency
->       arm64: dts: st: add RNG node on stm32mp251
-> 
->  .../devicetree/bindings/rng/st,stm32-rng.yaml      | 28 +++++++-
->  arch/arm64/boot/dts/st/stm32mp251.dtsi             | 10 +++
->  drivers/char/hw_random/stm32-rng.c                 | 76 ++++++++++++++++------
->  3 files changed, 94 insertions(+), 20 deletions(-)
-> ---
-> base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-> change-id: 20241011-rng-mp25-v2-b6460ef11e1f
-> 
-> Best regards,
-> -- 
-> Gatien Chevallier <gatien.chevallier@foss.st.com>
+> crypto/algapi.c     |  6 ------
+> lib/crypto/Makefile |  2 ++
+> lib/crypto/simd.c   | 11 +++++++++++
+> 3 files changed, 13 insertions(+), 6 deletions(-)
+> create mode 100644 lib/crypto/simd.c
 
-Patches 1-3 applied.  Thanks.
+Patch applied.  Thanks.
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
