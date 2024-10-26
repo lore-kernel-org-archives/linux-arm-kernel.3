@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA13D10BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9447CD10BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 12:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hRvwX8abU6mhUzcO7BdyglpggcaxGQag0aNV4NkYU0=; b=o6yPDbFQSDNgxGHLd4+NJbt2a9
-	FT7F8eBQbM+MSMKPQvlQMd4sph4l0jiVdBEO3+XhRF8S41Z+mAr065kXl99XqGwCRW/zAoqna/hvU
-	EdbdihV8f/S8Cgkh+DcZCh3a4+PK6XfLLxTuxqyR2Ihcb1cNfHLSnT9a5J0obsmjjU8r9nxSarFOZ
-	Aashp5Vz9mvl4vBx4MsYRTX0YSuk6Fo1uZ9fEub1IamnqjgSCASykuULX3OOuvefgv4lO6+6j9tEW
-	61DVSbfWgDJ1WhfME8F2B4lLMv63X6YLyedTM9w3vSJfFAAcloNndwf1+eWTL2Vg0FiACC6sj/J2Q
-	5WGAouaA==;
+	bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=; b=zBTld7qDfV/oRmFkhgA4AFrAsV
+	Ktvq9blI46HrmSMy2R2pnlhd0bd8YAhlxOOwnYAOibMFCvVzXykZt+0qb0cSGMgOWDrRwxcojpMeb
+	vw/FyPWXJ8cEgoCkO4V/zbpFLK9QjooC44aVxKJS9aCSzmqHpywZXpZ3fOSjQokA6CLgS8QOYbCHr
+	bpYv2PPd9N0OOL5cP9KielMwuqz9oRbuDQd+aMo4IQ76an077DHf78wW4O+fNKBF5KZNh5nMRJ/A2
+	0jEECDNqxYEypuqe6bi93UmzWGJyO5XUs7Hdc1s0R8J4O+y/jdE8ryTSpM45M0N977FeDNwWQdDTB
+	rrjUkpCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fUA-00000006Z0K-0TYq;
-	Sat, 26 Oct 2024 12:01:38 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1t4fW2-00000006ZE3-32K7;
+	Sat, 26 Oct 2024 12:03:34 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4fSZ-00000006YtK-46UW
+	id 1t4fUR-00000006Z2n-22LB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 12:00:01 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a9a26a5d6bfso423540066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 04:59:59 -0700 (PDT)
+	Sat, 26 Oct 2024 12:01:57 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c9ff17eddbso505696a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 05:01:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1729943998; x=1730548798; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3hRvwX8abU6mhUzcO7BdyglpggcaxGQag0aNV4NkYU0=;
-        b=iYzd+ZodcQjcq9Qpqr0VFsAzP5KW+bR6naRwxiHyJ2p/GTPYRD7FJJ1rMfRgmDw0at
-         /oHS62bgPPut7caknQCVnNHe2KIy0CmrN36jX1DyEY75amCp3RuXMjBFSCiaqRV/2MaS
-         bAtm5YNQg751fP8IL4y7t8iah2bHy2UNDMV8wqgqcyOaZ0rvPwVA0PRu1E+we1fTFBsN
-         d4RxmOj/ZWm+oi226MBkcM61SIXKxVB1fe3DL21U8hUpskaqEo20Dxyod/xgd7nABCdr
-         P6sSGfnbIdQobrw1A/1rHXfkTLzVu7zMKxMcWrZavs0wLVLHIrtAqRGg7GOlH/DM2qBZ
-         RQPQ==
+        d=linaro.org; s=google; t=1729944113; x=1730548913; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=;
+        b=Svd64WlABdn7oh7IRx2q0N9Lu2jOUDlF8uCgqzUzTsb95+CZYq6gxvY4ueab1g17Ap
+         G35NcrkQ88etfxNGC0B1OBjPS0LFAs+/PFtaYExF4EjPDoOKjPaA+CKtiISIre+t87r0
+         iGCntzGRvZ/j7GjhOr/DhS9CWaK3a8VGD+CWrA7HeVUMZFUH5S7hBNx76Vy21yQ3BcRP
+         WtFvOC14lDcCBDLt1LAdoHTaribivtv2vjodiYVmEmcJyDUHRzQDmAD+Mp9ve5KO6pxZ
+         Y/6oE5tW9bgbSU8ir+WQrsIe8ZXcGEXybwx45gRfLCn3NRlCNuHf1FfPHqESoK9Cz96m
+         S1mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729943998; x=1730548798;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3hRvwX8abU6mhUzcO7BdyglpggcaxGQag0aNV4NkYU0=;
-        b=cAERGvmHuzkN7VQDBdZnWKi8YNDePWb5vM9xvOTAESxmdP2cgCGlF3CWt01moeufUk
-         mG5MLXHQ/imHMIhnBqfVKml7XHI3cfUrFt59iclrZdeoxFm37wyr30Pp14mfZMd4axw/
-         A4kKHJtpMYi7Mp59OZbhmabxHf4KATipyfOhI6tl17mjLUaRen9km4tMwLMFqI+1tijP
-         mEJ/xMAqOqleBaXm6OSrzhIBCANc8a9bvHuLNk/2eb2styIM2NxGdjYPN6/PYWec7ePX
-         vYmYORAefVLunHNuB0Vw6phUO/R4XPhKmTtJz3F0pPWVYATuf4ZYxTC9DJrIMxatbl2o
-         kjSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+y6skYh9pLUNAQOQRRcN56b+N5J1kuWfjjNQ/TylkdU9eRB4RSdpaRtF0ezPNzuUKclpaW1UcX+UG086GA1TV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0ljRWOfk6btuDicJ7QbP+JWMtfxSimLXVJDwcZiY1VGhuxK3S
-	0oj7poDJ+ldOn5iBWxqxFoXYOeXifFIotYMGtieS5DpuIvPm76gu
-X-Google-Smtp-Source: AGHT+IETv0EHj3RY4NKxX4kQx37sy1UdTF3SyBHlZtuMNE+HoPSPWxbCv/DN5djcxSrl9V5JqeBi7A==
-X-Received: by 2002:a17:907:86a6:b0:a99:f833:ca32 with SMTP id a640c23a62f3a-a9de5cea32amr184020166b.18.1729943997814;
-        Sat, 26 Oct 2024 04:59:57 -0700 (PDT)
-Received: from [192.168.1.102] ([94.131.202.55])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1dec7d69sm168167066b.7.2024.10.26.04.59.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Oct 2024 04:59:57 -0700 (PDT)
-Message-ID: <8e6810f2-366a-4c52-8406-79ea3970b530@gmail.com>
-Date: Sat, 26 Oct 2024 14:59:56 +0300
+        d=1e100.net; s=20230601; t=1729944113; x=1730548913;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ivIAohcESshAYpEPq++t9hJfCpjXuscXbD6Im/FDokQ=;
+        b=dgqyuDaWKqSU/JkQDu4mvOJan1b52yXms+X3sr80CZFU75qdOZMjoGpxoCxCwPca50
+         aIDACJQV+KvqmzQXf0RfiSAwfvkNgXa1p/6emCzFj5IMiAGoLY3N8COmKzR32YizoyAj
+         Yumgb3w4E4P7h8HXWpPW8GM1zi0EFhhehcDQTs8f17gDjYkbg+XAptN7MeeLPgXVckUR
+         jew5kFh2/nu2oszRFkHX6GDhYsIBMqyaaRf6GdieiRJbB9HN2a2KFKzweAaN7cTMzGeB
+         hc532wnaI4JBFnQYvyNhJtCnQGi6oEwzhwXid4VxSsuISxJQ4OuR+D042KEsGYtvbW/A
+         YSZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXzHRLVdCi3nV9y19qCzYo0HFK27Htb+Q/RdBVbKmawj6yY1482daPZjzuPpAHUmFEF7SZeAzmUNzIEHlqPEEKV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoXXJS+Jk2CyVO9AO1h1P7a+HFE6gkRtlx1gEizy1T59BD2C0n
+	EW75ep1V/5KLFJDR58g+aoMghugzjTjamz/JKJQFS/6HMkx8YdJ63w716oR/Z5c=
+X-Google-Smtp-Source: AGHT+IH1dsULDIYCbXnhWrr2hutsWuzTM/gAfeo0yzwyxxJYFFg4QA218/5byXKAvC9+SNM44aVSrA==
+X-Received: by 2002:a05:6402:13d5:b0:5c9:7f8b:4fcf with SMTP id 4fb4d7f45d1cf-5cbbfa58bf5mr660881a12.6.1729944113136;
+        Sat, 26 Oct 2024 05:01:53 -0700 (PDT)
+Received: from krzk-bin.. ([178.197.211.167])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb6319711sm1490421a12.66.2024.10.26.05.01.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Oct 2024 05:01:52 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/3] clk: samsung: Introduce Exynos8895 clock driver
+Date: Sat, 26 Oct 2024 14:01:48 +0200
+Message-ID: <172994382528.22240.15972019701074354702.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
- and spi_0/1
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti
- <andi.shyti@kernel.org>, Mark Brown <broonie@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
- <8240d3b4-3367-4f13-a42f-0f40da08e371@kernel.org>
-Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <8240d3b4-3367-4f13-a42f-0f40da08e371@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_050000_051710_9EDAAC10 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20241026_050155_562483_714517D0 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +106,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Wed, 23 Oct 2024 12:01:33 +0300, Ivaylo Ivanov wrote:
+> Hey folks,
+> 
+> This patchset adds initial clock driver support for Exynos8895 SoC,
+> which allows clocking peripherals like MCT, serial buses, MMC, UFS and
+> PCIE. As platform support grows in the future, other blocks like APM
+> will be added.
+> 
+> [...]
 
+Applied, thanks!
 
-On 10/26/24 14:53, Krzysztof Kozlowski wrote:
-> On 23/10/2024 11:17, Ivaylo Ivanov wrote:
->> Hey folks,
->>
->> This patchset adds device tree nodes for multiple clock management unit
->> blocks, MCT, SPI and UART for Exynos8895.
->>
->> Exynos8895 uses USIv1 for most of its serial buses, except a few that
->> have been implemented in this series. Support for USIv1 and HSI2C will
->> be added in the future.
->>
->> This patchset is dependent on [1] and [2], which add driver support for
->> CMU and UART.
->>
->> [1] https://lore.kernel.org/all/20241023090136.537395-1-ivo.ivanov.ivanov1@gmail.com/
-> I cannot merge driver changes into DTS. Are you sure you have driver
-> dependency?
->
->> [2] https://lore.kernel.org/all/20241023090902.538040-1-ivo.ivanov.ivanov1@gmail.com/
-> I cannot merge this either. This is serial tree.
->
-> Maybe you these are not really dependencies? What is here depending on
-> what, specifically? What prevents me from applying it?
+[1/3] as well
 
-The specified patchsets add driver functionality, as well as bindings,
-for serial and clocks. This patchset makes 8895's device tree a user
-of them. I guess it's not really a dependency, as 8895 devices should
-still function without the driver compatibles merged, but there's gonna
-be missing bindings.
+[2/3] clk: samsung: clk-pll: Add support for pll_{1051x,1052x}
+      https://git.kernel.org/krzk/linux/c/49fefe602d8fa7323b51ffc4891acf4a91dac193
+[3/3] clk: samsung: Introduce Exynos8895 clock driver
+      https://git.kernel.org/krzk/linux/c/c6e45979204d092770c55c0b2d1fce6cff8dedd6
 
-Best regards, Ivo.
-
-> Best regards,
-> Krzysztof
->
-
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
