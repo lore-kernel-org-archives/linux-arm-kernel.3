@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33620D10C02
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 18:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC337D0C604
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 20:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Nht/6b3BNTXrG3YlvsVcaD8i6O+4V872r9rEZxhCeA=; b=kDWGBXY6igorQmPb7fyRvbptz4
-	k7BBrsVfBBocBG5kkzEmgUBHaP6wL8xwCMS3IBElA68oSZsKvoY5x/pXfd/KE3k+sG87MW2GMCWpE
-	QMnqUhU5g6HmC6XxQDr5iMdGKku7sFCBXtII5IiGBGT2hYDHmXM06M1+Z3/6My/iAWZsCfLepoy8p
-	1IceHe6Owt85HHvcXfDtH/PAWqfv56PW/BuoLZGu/2pYsagpDjSqL8Wx0F0KEKTANzu7XEhFG+34Z
-	xXMinqrQx9dHGpmdrVVJEQW3Mg+2I/3WVxmIyvrg+qoz10QbVHvhVcAZwUyrkOKAc+clPi1Unzk3f
-	H2/XwSEA==;
+	bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=; b=PK/3BGeSadTDoMeG2jqYy/bdQx
+	K4+uDWXL7mkoyYzNBUmvICrcZWpyQjEAqYimMjM1TBvipx2tk9OtBIfL7c5iWgfLYpJjwhKqoUdtu
+	8sL5lV03zFGDy2NC8qXUP0PDIecm/2eZigfS4zeeM0TOedwd27N/633zibS9xbWp+DnGuo6mKVQ/W
+	m2UfrSP6QgPug9K8xAierujOc9dzGAGMnp94qybLONqVehA/ZYRLfYwi8XUAn0n5lDTT53WB0hdc8
+	LftaqTcEoOezCM0mBYHl/UKnqeoXFraCG+lFFFymhAZorYUoRQiYZIS6X7TeKCYpsCuVoAVk5SGN1
+	2L9gJ9hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4lY4-0000000759K-1oYV;
-	Sat, 26 Oct 2024 18:30:04 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1t4nPi-00000007Bqy-3anV;
+	Sat, 26 Oct 2024 20:29:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4lWT-0000000751v-0fJ1;
-	Sat, 26 Oct 2024 18:28:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729967305; x=1761503305;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Qn0+EUEBwHw/wS8WVeU9EYrJ/6q9fzV8u+7eXowaNyU=;
-  b=Z7Ijdl9w1i8qoPpdlbTX5v5QF3mivhHb9hMMY27GwpJJrPEwo3ah+kf+
-   r0P2nl3qAXHwcb0pco9CzPbBH8ZcYhTovWLm6EVcQFIU+n1fo8TrBfA6M
-   M6Z89AtdyMteBWItBicG/oIjKxlE8jmuV4/mZS/IC1fT7xoCMeiba3FUD
-   vyhXkCDi2at/C7nDvfjnhx6qk/cgURLZsdHk8UPPsucHlHtjnaeQUKwtw
-   R4RVUGiSzYLUZcTA44v3X4RYXC+kaUFNflh2RA3T7WIVmj/A2ROjsthud
-   9TutVCpnii1qOH/xCZvRBVvmfChKHSLs6KrsaNlj+j6Ww+4iKXY621wVT
-   A==;
-X-CSE-ConnectionGUID: sZ4i3EqrTrSTyWURxQD0Mg==
-X-CSE-MsgGUID: INJGU5i/RAabpUoz4QFGbA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11237"; a="41006189"
-X-IronPort-AV: E=Sophos;i="6.11,235,1725346800"; 
-   d="scan'208";a="41006189"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 11:28:19 -0700
-X-CSE-ConnectionGUID: C1/vY19HRTa7GdJOUmrzQg==
-X-CSE-MsgGUID: SsPm+H7rQMWmsp4BOsyosg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,235,1725346800"; 
-   d="scan'208";a="80806687"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 26 Oct 2024 11:28:16 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t4lWI-000Zvt-0z;
-	Sat, 26 Oct 2024 18:28:14 +0000
-Date: Sun, 27 Oct 2024 02:27:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: chang hao <ot_chhao.chang@mediatek.com>, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, sean.wang@kernel.org,
-	linus.walleij@linaro.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Chhao Chang <ot_chhao.chang@mediatek.com>
-Subject: Re: [PATCH] pinctrl: mediatek: add eint new design for mt8196
-Message-ID: <202410270252.vGIAE54G-lkp@intel.com>
-References: <20241025031814.21442-1-ot_chhao.chang@mediatek.com>
+	id 1t4nO6-00000007Be0-3AEH
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Oct 2024 20:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1729974472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=;
+	b=SSkM8HK2gm6j1vqGhJIa54BEVqWv/qnXV7vJAlLfnVy5kEhqRJSWLuy2KooWuRe0lRWSgi
+	7LgaE1fzP4zvfh1EEBOHFTGxSn9HuhZ6iZm+oJDLk2ngh6+sNXU1vCdcunwJTzW5KpRiHN
+	muiYxxurT+8JlYJquwvwTiXZSuO6SuM=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-103-NEZ5htamPU6R-FZ8WMjmSw-1; Sat, 26 Oct 2024 16:26:03 -0400
+X-MC-Unique: NEZ5htamPU6R-FZ8WMjmSw-1
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-71e49bad8adso3290366b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Oct 2024 13:26:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729974363; x=1730579163;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8ILgF2ANT9OZDmDrUe3BvutpFI6Z0i+T3Y7sxTWoDZw=;
+        b=wEIyt7xgeQZ1GjoKTQwiC3OhTyN+lBnBt5NoWctsdoVgc/lWq0CbV0QRVFsXyjq0WU
+         /17oIlOB3ZkblSIt2bQ2br3NZBRTAwy4W4nbJHgrWEz6zmWM2SkYyYQVJ2+ziPl96IQU
+         zl/dYb0jKXoSwLKqSsjgg8cXmiTZON0azuT763g0DGUZI4Rltzx1fxwWHrewcfSTyxqm
+         1vTlfk25yxmS9Hw1Gn/kw19EVTpCUS4SxqWqiD8FgtEUNWo5rEkQI1qL1q1c7zmb3VOr
+         K8vQBnh0rkYV4uONrro/eN85pw80KRdyj+9o9qsZPxidqIT0KD63ZETAPeyP6eYoULBM
+         7rRw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZHrQ2IJW9GXt5068iNa87v2J8ayPF//8CYq4Pfg7hi2tuw0sTtfwH5Z388+yYiETuzqHMp+DyUtj2mxllu9yS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy2h0VbtfREISPfjL0KLaWCXLQ3cMtfhtWid/ySjoc4wSPiFFd
+	geAIbh4SayfxsAvqi6/YXNpYDJMtqDQ1uFee9jSQ7HGSIhybnb9tyKJKOz7cIcXVXf8jpWmS7EM
+	UQbI5raNyC1WdYL+3TLkySpOa31YprFY9uhzyS8kMTigUmmMaGDIdPrK9n30lgtQYtIRhYJ58
+X-Received: by 2002:a05:6a21:394b:b0:1d9:3acf:8bdd with SMTP id adf61e73a8af0-1d9a767bdfamr5925543637.22.1729974362657;
+        Sat, 26 Oct 2024 13:26:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGwP/m05oeFk9b8sbVzI0tK+++7zBHiaxMX3MviGhXhL+kZBBndL9iS5Tpoq327xlI5FsMfmw==
+X-Received: by 2002:a05:6a21:394b:b0:1d9:3acf:8bdd with SMTP id adf61e73a8af0-1d9a767bdfamr5925511637.22.1729974362246;
+        Sat, 26 Oct 2024 13:26:02 -0700 (PDT)
+Received: from localhost (ip98-179-76-110.ph.ph.cox.net. [98.179.76.110])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205791dda2sm3081517b3a.42.2024.10.26.13.26.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Oct 2024 13:26:01 -0700 (PDT)
+Date: Sat, 26 Oct 2024 13:26:00 -0700
+From: Jerry Snitselaar <jsnitsel@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, Hanjun Guo <guohanjun@huawei.com>, 
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>, 
+	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org, Len Brown <lenb@kernel.org>, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, 
+	Alex Williamson <alex.williamson@redhat.com>, Eric Auger <eric.auger@redhat.com>, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Moritz Fischer <mdf@kernel.org>, 
+	Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>, 
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v3 0/9] Initial support for SMMUv3 nested translation
+Message-ID: <7uv6kandebgqyw64im2kfwmiqahsikpsb6yp2tkd6qol3li3r3@fxsra3soryma>
+References: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
 MIME-Version: 1.0
+In-Reply-To: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241025031814.21442-1-ot_chhao.chang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_112825_312385_17996EAE 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241026_132754_883239_65DC40E2 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,262 +109,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi chang,
+On Wed, Oct 09, 2024 at 01:23:06PM -0300, Jason Gunthorpe wrote:
+> This brings support for the IOMMFD ioctls:
+> 
+>  - IOMMU_GET_HW_INFO
+>  - IOMMU_HWPT_ALLOC_NEST_PARENT
+>  - IOMMU_DOMAIN_NESTED
+>  - ops->enforce_cache_coherency()
+> 
+> This is quite straightforward as the nested STE can just be built in the
+> special NESTED domain op and fed through the generic update machinery.
+> 
+> The design allows the user provided STE fragment to control several
+> aspects of the translation, including putting the STE into a "virtual
+> bypass" or a aborting state. This duplicates functionality available by
+> other means, but it allows trivially preserving the VMID in the STE as we
+> eventually move towards the vIOMMU owning the VMID.
+> 
+> Nesting support requires the system to either support S2FWB or the
+> stronger CANWBS ACPI flag. This is to ensure the VM cannot bypass the
+> cache and view incoherent data, currently VFIO lacks any cache flushing
+> that would make this safe.
+> 
+> Yan has a series to add some of the needed infrastructure for VFIO cache
+> flushing here:
+> 
+>  https://lore.kernel.org/linux-iommu/20240507061802.20184-1-yan.y.zhao@intel.com/
+> 
+> Which may someday allow relaxing this further.
+> 
+> Remove VFIO_TYPE1_NESTING_IOMMU since it was never used and superseded by
+> this.
+> 
+> This is the first series in what will be several to complete nesting
+> support. At least:
+>  - IOMMU_RESV_SW_MSI related fixups
+>     https://lore.kernel.org/linux-iommu/cover.1722644866.git.nicolinc@nvidia.com/
+>  - vIOMMU object support to allow ATS and CD invalidations
+>     https://lore.kernel.org/linux-iommu/cover.1723061377.git.nicolinc@nvidia.com/
+>  - vCMDQ hypervisor support for direct invalidation queue assignment
+>     https://lore.kernel.org/linux-iommu/cover.1712978212.git.nicolinc@nvidia.com/
+>  - KVM pinned VMID using vIOMMU for vBTM
+>     https://lore.kernel.org/linux-iommu/20240208151837.35068-1-shameerali.kolothum.thodi@huawei.com/
+>  - Cross instance S2 sharing
+>  - Virtual Machine Structure using vIOMMU (for vMPAM?)
+>  - Fault forwarding support through IOMMUFD's fault fd for vSVA
+> 
+> The vIOMMU series is essential to allow the invalidations to be processed
+> for the CD as well.
+> 
+> It is enough to allow qemu work to progress.
+> 
+> This is on github: https://github.com/jgunthorpe/linux/commits/smmuv3_nesting
+> 
+> v3:
+>  - Rebase on v6.12-rc2
+>  - Revise commit messages
+>  - Consolidate CANWB checks into arm_smmu_master_canwbs()
+>  - Add CONFIG_ARM_SMMU_V3_IOMMUFD to compile out iommufd only features
+>    like nesting
+>  - Shift code into arm-smmu-v3-iommufd.c
+>  - Add missed IS_ERR check
+>  - Add S2FWB to arm_smmu_get_ste_used()
+>  - Fixup quirks checks
+>  - Drop ARM_SMMU_FEAT_COHERENCY checks for S2FWB
+>  - Limit S2FWB to S2 Nesting Parent domains "just in case"
+> v2: https://patch.msgid.link/r/0-v2-621370057090+91fec-smmuv3_nesting_jgg@nvidia.com
+>  - Revise commit messages
+>  - Guard S2FWB support with ARM_SMMU_FEAT_COHERENCY, since it doesn't make
+>    sense to use S2FWB to enforce coherency on inherently non-coherent hardware.
+>  - Add missing IO_PGTABLE_QUIRK_ARM_S2FWB validation
+>  - Include formal ACPIA commit for IORT built using
+>    generate/linux/gen-patch.sh
+>  - Use FEAT_NESTING to block creating a NESTING_PARENT
+>  - Use an abort STE instead of non-valid if the user requests a non-valid
+>    vSTE
+>  - Consistently use 'nest_parent' for naming variables
+>  - Use the right domain for arm_smmu_remove_master_domain() when it
+>    removes the master
+>  - Join bitfields together
+>  - Drop arm_smmu_cache_invalidate_user patch, invalidation will
+>    exclusively go via viommu
+> v1: https://patch.msgid.link/r/0-v1-54e734311a7f+14f72-smmuv3_nesting_jgg@nvidia.com
+> 
+> Jason Gunthorpe (6):
+>   vfio: Remove VFIO_TYPE1_NESTING_IOMMU
+>   iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
+>   iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
+>   iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
+>   iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED
+>   iommu/arm-smmu-v3: Use S2FWB for NESTED domains
+> 
+> Nicolin Chen (3):
+>   ACPICA: IORT: Update for revision E.f
+>   ACPI/IORT: Support CANWBS memory access flag
+>   iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct
+>     arm_smmu_hw_info
+> 
+>  drivers/acpi/arm64/iort.c                     |  13 ++
+>  drivers/iommu/Kconfig                         |   9 +
+>  drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 204 ++++++++++++++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 114 ++++++----
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  83 ++++++-
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c         |  16 --
+>  drivers/iommu/io-pgtable-arm.c                |  27 ++-
+>  drivers/iommu/iommu.c                         |  10 -
+>  drivers/iommu/iommufd/vfio_compat.c           |   7 +-
+>  drivers/vfio/vfio_iommu_type1.c               |  12 +-
+>  include/acpi/actbl2.h                         |   3 +-
+>  include/linux/io-pgtable.h                    |   2 +
+>  include/linux/iommu.h                         |   5 +-
+>  include/uapi/linux/iommufd.h                  |  55 +++++
+>  include/uapi/linux/vfio.h                     |   2 +-
+>  16 files changed, 465 insertions(+), 98 deletions(-)
+>  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> 
+> 
+> base-commit: 8cf0b93919e13d1e8d4466eb4080a4c4d9d66d7b
+> -- 
+> 2.46.2
+> 
 
-kernel test robot noticed the following build warnings:
+Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 
-[auto build test WARNING on linusw-pinctrl/devel]
-[also build test WARNING on linusw-pinctrl/for-next linus/master v6.12-rc4 next-20241025]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/chang-hao/pinctrl-mediatek-add-eint-new-design-for-mt8196/20241025-111952
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git devel
-patch link:    https://lore.kernel.org/r/20241025031814.21442-1-ot_chhao.chang%40mediatek.com
-patch subject: [PATCH] pinctrl: mediatek: add eint new design for mt8196
-config: arm-randconfig-r122-20241026 (https://download.01.org/0day-ci/archive/20241027/202410270252.vGIAE54G-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.1.0
-reproduce: (https://download.01.org/0day-ci/archive/20241027/202410270252.vGIAE54G-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410270252.vGIAE54G-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/pinctrl/mediatek/mtk-eint.c:686:14: sparse: sparse: symbol 'mtk_eint_get_debounce_en' was not declared. Should it be static?
->> drivers/pinctrl/mediatek/mtk-eint.c:709:14: sparse: sparse: symbol 'mtk_eint_get_debounce_value' was not declared. Should it be static?
->> drivers/pinctrl/mediatek/mtk-eint.c:823:53: sparse: sparse: incorrect type in argument 1 (different base types) @@     expected restricted __be32 const [usertype] *p @@     got unsigned int const [usertype] *[assigned] ph @@
-   drivers/pinctrl/mediatek/mtk-eint.c:823:53: sparse:     expected restricted __be32 const [usertype] *p
-   drivers/pinctrl/mediatek/mtk-eint.c:823:53: sparse:     got unsigned int const [usertype] *[assigned] ph
-
-vim +/mtk_eint_get_debounce_en +686 drivers/pinctrl/mediatek/mtk-eint.c
-
-   685	
- > 686	unsigned int mtk_eint_get_debounce_en(struct mtk_eint *eint,
-   687					      unsigned int eint_num)
-   688	{
-   689		unsigned int instance, index, bit;
-   690		void __iomem *reg;
-   691	
-   692		reg = mtk_eint_get_ofset(eint, eint_num, MTK_EINT_NO_OFSET,
-   693					  &instance, &index);
-   694	
-   695		if (!reg) {
-   696			dev_err(eint->dev, "%s invalid eint_num %d\n",
-   697				__func__, eint_num);
-   698			return 0;
-   699		}
-   700	
-   701		reg = eint->instances[instance].base +
-   702			(index / REG_OFSET) * REG_OFSET + eint->comp->regs->dbnc_ctrl;
-   703	
-   704		bit = MTK_EINT_DBNC_SET_EN << ((index % REG_OFSET) * DB_GROUP);
-   705	
-   706		return (readl(reg) & bit) ? 1 : 0;
-   707	}
-   708	
- > 709	unsigned int mtk_eint_get_debounce_value(struct mtk_eint *eint,
-   710						   unsigned int eint_num)
-   711	{
-   712		unsigned int instance, index, mask, ofset;
-   713		void __iomem *reg;
-   714	
-   715		reg = mtk_eint_get_ofset(eint, eint_num, MTK_EINT_NO_OFSET,
-   716					  &instance, &index);
-   717	
-   718		if (!reg) {
-   719			dev_err(eint->dev, "%s invalid eint_num %d\n",
-   720				__func__, eint_num);
-   721			return 0;
-   722		}
-   723	
-   724		reg = eint->instances[instance].base +
-   725			(index / REG_OFSET) * REG_OFSET + eint->comp->regs->dbnc_ctrl;
-   726	
-   727		ofset = MTK_EINT_DBNC_SET_DBNC_BITS + ((index % REG_OFSET) * DB_GROUP);
-   728		mask = 0xf << ofset;
-   729	
-   730		return ((readl(reg) & mask) >> ofset);
-   731	}
-   732	
-   733	int mtk_eint_find_irq(struct mtk_eint *eint, unsigned long eint_n)
-   734	{
-   735		int irq;
-   736	
-   737		irq = irq_find_mapping(eint->domain, eint_n);
-   738		if (!irq)
-   739			return -EINVAL;
-   740	
-   741		return irq;
-   742	}
-   743	EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
-   744	
-   745	static const struct mtk_eint_compatible default_compat = {
-   746		.regs = &mtk_generic_eint_regs,
-   747	};
-   748	
-   749	static const struct of_device_id eint_compatible_ids[] = {
-   750		{ }
-   751	};
-   752	
-   753	int mtk_eint_do_init(struct mtk_eint *eint)
-   754	{
-   755		int i, virq;
-   756		unsigned int size, inst = 0;
-   757		eint->instance_number = 1;
-   758		eint->total_pin_number = eint->hw->ap_num;
-   759	
-   760		for (i = 0; i < eint->total_pin_number; i++) {
-   761			eint->pins[i].enabled = true;
-   762			eint->pins[i].instance = inst;
-   763			eint->pins[i].index = i;
-   764			eint->pins[i].debounce =  (i < eint->hw->db_cnt) ? 1 : 0;
-   765	
-   766			eint->instances[inst].pin_list[i] = i;
-   767			eint->instances[inst].number++;
-   768		}
-   769	
-   770		for (i = 0; i < eint->instance_number; i++) {
-   771			size = (eint->instances[i].number / MAX_BIT + 1) * sizeof(unsigned int);
-   772			eint->instances[i].wake_mask =
-   773				devm_kzalloc(eint->dev, size, GFP_KERNEL);
-   774			eint->instances[i].cur_mask =
-   775				devm_kzalloc(eint->dev, size, GFP_KERNEL);
-   776	
-   777			if (!eint->instances[i].wake_mask ||
-   778			    !eint->instances[i].cur_mask)
-   779				return -ENOMEM;
-   780		}
-   781	
-   782		eint->comp = &default_compat;
-   783	
-   784		eint->domain = irq_domain_add_linear(eint->dev->of_node,
-   785						     eint->total_pin_number,
-   786						     &irq_domain_simple_ops, NULL);
-   787		if (!eint->domain)
-   788			return -ENOMEM;
-   789	
-   790		mtk_eint_hw_init(eint);
-   791		for (i = 0; i < eint->total_pin_number; i++) {
-   792			virq = irq_create_mapping(eint->domain, i);
-   793	
-   794			irq_set_chip_and_handler(virq, &mtk_eint_irq_chip,
-   795						 handle_level_irq);
-   796			irq_set_chip_data(virq, eint);
-   797		}
-   798	
-   799		irq_set_chained_handler_and_data(eint->irq, mtk_eint_irq_handler,
-   800						 eint);
-   801	
-   802		global_eintc = eint;
-   803	
-   804		return 0;
-   805	}
-   806	EXPORT_SYMBOL_GPL(mtk_eint_do_init);
-   807	
-   808	int mtk_eint_do_init_v2(struct mtk_eint *eint)
-   809	{
-   810		int i, virq, matrix_number = 0;
-   811		struct device_node *node;
-   812		unsigned int ret, size, ofset;
-   813		unsigned int id, inst, idx, support_deb;
-   814	
-   815		const phandle *ph;
-   816	
-   817		ph = of_get_property(eint->dev->of_node, "mediatek,eint", NULL);
-   818		if (!ph) {
-   819			dev_err(eint->dev, "Cannot find EINT phandle in PIO node.\n");
-   820			return -ENODEV;
-   821		}
-   822	
- > 823		node = of_find_node_by_phandle(be32_to_cpup(ph));
-   824		if (!node) {
-   825			dev_err(eint->dev, "Cannot find EINT node by phandle.\n");
-   826			return -ENODEV;
-   827		}
-   828	
-   829		ret = of_property_read_u32(node, "mediatek,total-pin-number",
-   830					   &eint->total_pin_number);
-   831		if (ret) {
-   832			dev_err(eint->dev,
-   833			       "%s cannot read total-pin-number from device node.\n",
-   834			       __func__);
-   835			return -EINVAL;
-   836		}
-   837	
-   838		dev_info(eint->dev, "%s eint total %u pins.\n", __func__,
-   839			eint->total_pin_number);
-   840	
-   841		ret = of_property_read_u32(node, "mediatek,instance-num",
-   842					   &eint->instance_number);
-   843		if (ret)
-   844			eint->instance_number = 1; // only 1 instance in legacy chip
-   845	
-   846		size = eint->instance_number * sizeof(struct mtk_eint_instance);
-   847		eint->instances = devm_kzalloc(eint->dev, size, GFP_KERNEL);
-   848		if (!eint->instances)
-   849			return -ENOMEM;
-   850	
-   851		size = eint->total_pin_number * sizeof(struct mtk_eint_pin);
-   852		eint->pins = devm_kzalloc(eint->dev, size, GFP_KERNEL);
-   853		if (!eint->pins)
-   854			return -ENOMEM;
-   855	
-   856		for (i = 0; i < eint->instance_number; i++) {
-   857			ret = of_property_read_string_index(node, "reg-name", i,
-   858							    &(eint->instances[i].name));
-   859			if (ret) {
-   860				dev_info(eint->dev,
-   861					 "%s cannot read the name of instance %d.\n",
-   862					 __func__, i);
-   863			}
-   864	
-   865			eint->instances[i].base = of_iomap(node, i);
-   866			if (!eint->instances[i].base)
-   867				return -ENOMEM;
-   868		}
-   869	
-   870		matrix_number = of_property_count_u32_elems(node, "mediatek,pins") / ARRAY_0;
-   871		if (matrix_number < 0) {
-   872			matrix_number = eint->total_pin_number;
-   873			dev_info(eint->dev, "%s eint in legacy mode, assign the matrix number to %u.\n",
-   874				 __func__, matrix_number);
-   875		} else
-   876			dev_info(eint->dev, "%s eint in new mode, assign the matrix number to %u.\n",
-   877				 __func__, matrix_number);
-   878	
-   879		for (i = 0; i < matrix_number; i++) {
-   880			ofset = i * REG_OFSET;
-   881	
-   882			ret = of_property_read_u32_index(node, "mediatek,pins",
-   883						   ofset, &id);
-   884			ret |= of_property_read_u32_index(node, "mediatek,pins",
-   885						   ofset+FIRST, &inst);
-   886			ret |= of_property_read_u32_index(node, "mediatek,pins",
-   887						   ofset+SECOND, &idx);
-   888			ret |= of_property_read_u32_index(node, "mediatek,pins",
-   889						   ofset+THIRD, &support_deb);
-   890	
-   891			/* Legacy chip which no need to give coordinate list */
-   892			if (ret) {
-   893				id = i;
-   894				inst = 0;
-   895				idx = i;
-   896				support_deb = (i < MAX_BIT) ? 1 : 0;
-   897			}
-   898	
-   899			eint->pins[id].enabled = true;
-   900			eint->pins[id].instance = inst;
-   901			eint->pins[id].index = idx;
-   902			eint->pins[id].debounce = support_deb;
-   903	
-   904			eint->instances[inst].pin_list[idx] = id;
-   905			eint->instances[inst].number++;
-   906	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
