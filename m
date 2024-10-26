@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7A6D10BFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 14:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A16D10BFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 14:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFmQ3g+4IAepm2mpZZIQvyrjJDFwDM0PVhWAGARzdh0=; b=iX5bIro7CbSkpAmT8E65HtXnhK
-	1pGSmxZaEk10od9C7y2tdBEefkh/aNq7miIG37NTv6u2Oox0TKEGbm9Yud0ggqdLKobUoechd2+F3
-	Y83yUUz0XoTXmLbyi+/S+HEoadmim9lSOKik/+tw5qf/N8yk17REbTCRhZvftlGHJ+tJ+9RoU413+
-	LMDBd6cXrVjLP9+04/ASYVzVXY/tuBzEK4TSOeP2mU5g0/A2SrfoG+Z9wRAZ2yZ3snWPpkR+8DCOD
-	dn31Oxc7LVsYk6a4ThlTZECsJeteIXqvGkPcHvTXj6DY5OfXF3uZ9AKksgFwIp7KM9z8cUApsbkbJ
-	mHaIOumQ==;
+	bh=f6oEY5I2mn6JavjYEYeWI4XafhLDooXmCGvLmqMJIxw=; b=Rnt2ALz9IgHbpZ99SvYNdZf1kq
+	1ISAaEETLtoFBnA86AiagH5uZowTNqyHbVGQUaSXxl4CnNjZHIh+6dBY+prTcN717FM3Ik/DU1lbN
+	FKwyW5GeUpNVYrLi1JijxtMQ1REpp9i76ZMkyIfsL7+xczCEVa5otUPULWRRjttbv/hnZy6gMHj6u
+	Jj41qvQNl52ZhheeQOk6nyRgUoAo4HO8BoCkgb1qfniwLSMPyncHxnUvt+24ZK98glcMARHrJ/ZcU
+	21/PXIrIY5lbRioOn0Zg4VfiqDtLx1ePoUZFWXH+ZXVQvEPiv5hrN05udg9aPJ3gWWPf3Df4UFycO
+	kaQH3MtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4huk-00000006kgZ-3OPm;
-	Sat, 26 Oct 2024 14:37:14 +0000
-Received: from out-184.mta1.migadu.com ([2001:41d0:203:375::b8])
+	id 1t4iBp-00000006mRU-2EYi;
+	Sat, 26 Oct 2024 14:54:53 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4htA-00000006kZo-3ICB
+	id 1t4iAE-00000006mFp-19Ss
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 14:35:38 +0000
-Date: Sat, 26 Oct 2024 14:35:26 +0000
+	Sat, 26 Oct 2024 14:53:16 +0000
+Date: Sat, 26 Oct 2024 07:53:03 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1729953332;
+	t=1729954390;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zFmQ3g+4IAepm2mpZZIQvyrjJDFwDM0PVhWAGARzdh0=;
-	b=F2IYVKt9wwTeWiNFOGahnxdxOpcgp+X0rGKqdi4PqbQICyB4SfSARm0Xpljy1aYEwkn6Bl
-	oCYeG0DFz7Z93sbK5WE3peOEVOaWehi7dBCwiLLjomlOxzNveqUYWzWEeMmxcdIij2coZi
-	ETkOmQtFcMi1girOaHrfX7jRS2MkEhs=
+	bh=f6oEY5I2mn6JavjYEYeWI4XafhLDooXmCGvLmqMJIxw=;
+	b=IDXAYO04odV2PC/0FFjwWPsKKHzqtlkfTZw+5+KuPl8w5Mo++yXHzLsZTEF+ZR0DNjAfqL
+	zSWPUbrqLaREWWiScSQsS5jxMFGdimkChYtRQ3L6M0S4/mZk4JHQiWuyT1ybNlLbsQlnI0
+	vAy0Oz+0NMusUx+JOGzqoh6uH80Rnlw=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/18] KVM: arm64: nv: Reinject traps that take effect
- in Host EL0
-Message-ID: <Zxz-LocgUKuzE3t0@linux.dev>
-References: <20241025182354.3364124-1-oliver.upton@linux.dev>
- <20241025182354.3364124-9-oliver.upton@linux.dev>
- <87r083th7m.wl-maz@kernel.org>
+Cc: Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	stable@vger.kernel.org, syzbot <syzkaller@googlegroups.com>
+Subject: Re: [PATCH] KVM: arm64: Mark the VM as dead for failed
+ initializations
+Message-ID: <Zx0CT1gdSWVyKLuD@linux.dev>
+References: <20241025221220.2985227-1-rananta@google.com>
+ <Zxx_X9-MdmAFzHUO@linux.dev>
+ <87ttcztili.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87r083th7m.wl-maz@kernel.org>
+In-Reply-To: <87ttcztili.wl-maz@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_073536_992571_77E27042 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20241026_075314_686493_09706153 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +72,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
-
-On Sat, Oct 26, 2024 at 09:13:17AM +0100, Marc Zyngier wrote:
-> On Fri, 25 Oct 2024 19:23:43 +0100,
-> Oliver Upton <oliver.upton@linux.dev> wrote:
-> > 
-> > Wire up the other end of traps that affect host EL0 by actually
-> > injecting them into the guest hypervisor. Skip over FGT entirely, as a
-> > cursory glance suggests no FGT is effective in host EL0.
+On Sat, Oct 26, 2024 at 08:43:21AM +0100, Marc Zyngier wrote:
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bf64fed9820e..c315bc1a4e9a 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -74,8 +74,6 @@ enum kvm_mode kvm_get_mode(void);
+>  static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
+>  #endif
+>  
+> -DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
+> -
+>  extern unsigned int __ro_after_init kvm_sve_max_vl;
+>  extern unsigned int __ro_after_init kvm_host_sve_max_vl;
+>  int __init kvm_arm_init_sve(void);
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 879982b1cc73..1215df590418 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -206,8 +206,7 @@ void get_timer_map(struct kvm_vcpu *vcpu, struct timer_map *map)
+>  
+>  static inline bool userspace_irqchip(struct kvm *kvm)
+>  {
+> -	return static_branch_unlikely(&userspace_irqchip_in_use) &&
+> -		unlikely(!irqchip_in_kernel(kvm));
+> +	return unlikely(!irqchip_in_kernel(kvm));
+>  }
+>  
+>  static void soft_timer_start(struct hrtimer *hrt, u64 ns)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 48cafb65d6ac..70ff9a20ef3a 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -69,7 +69,6 @@ DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+>  static bool vgic_present, kvm_arm_initialised;
+>  
+>  static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
+> -DEFINE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
+>  
+>  bool is_kvm_arm_initialised(void)
+>  {
+> @@ -503,9 +502,6 @@ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+>  
+>  void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+>  {
+> -	if (vcpu_has_run_once(vcpu) && unlikely(!irqchip_in_kernel(vcpu->kvm)))
+> -		static_branch_dec(&userspace_irqchip_in_use);
+> -
+>  	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
+>  	kvm_timer_vcpu_terminate(vcpu);
+>  	kvm_pmu_vcpu_destroy(vcpu);
+> @@ -848,14 +844,6 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>  			return ret;
+>  	}
+>  
+> -	if (!irqchip_in_kernel(kvm)) {
+> -		/*
+> -		 * Tell the rest of the code that there are userspace irqchip
+> -		 * VMs in the wild.
+> -		 */
+> -		static_branch_inc(&userspace_irqchip_in_use);
+> -	}
+> -
+>  	/*
+>  	 * Initialize traps for protected VMs.
+>  	 * NOTE: Move to run in EL2 directly, rather than via a hypercall, once
+> @@ -1077,7 +1065,7 @@ static bool kvm_vcpu_exit_request(struct kvm_vcpu *vcpu, int *ret)
+>  	 * state gets updated in kvm_timer_update_run and
+>  	 * kvm_pmu_update_run below).
+>  	 */
+> -	if (static_branch_unlikely(&userspace_irqchip_in_use)) {
+> +	if (unlikely(!irqchip_in_kernel(vcpu->kvm))) {
+>  		if (kvm_timer_should_notify_user(vcpu) ||
+>  		    kvm_pmu_should_notify_user(vcpu)) {
+>  			*ret = -EINTR;
+> @@ -1199,7 +1187,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  			vcpu->mode = OUTSIDE_GUEST_MODE;
+>  			isb(); /* Ensure work in x_flush_hwstate is committed */
+>  			kvm_pmu_sync_hwstate(vcpu);
+> -			if (static_branch_unlikely(&userspace_irqchip_in_use))
+> +			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+>  				kvm_timer_sync_user(vcpu);
+>  			kvm_vgic_sync_hwstate(vcpu);
+>  			local_irq_enable();
+> @@ -1245,7 +1233,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  		 * we don't want vtimer interrupts to race with syncing the
+>  		 * timer virtual interrupt state.
+>  		 */
+> -		if (static_branch_unlikely(&userspace_irqchip_in_use))
+> +		if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+>  			kvm_timer_sync_user(vcpu);
+>  
+>  		kvm_arch_vcpu_ctxsync_fp(vcpu);
 > 
-> Yes, and this (thankfully) is by design! :-)
-> 
-> > 
-> > Note that kvm_inject_nested() is already equipped for handling
-> > exceptions while the VM is already in a host context.
-> > 
-> > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> > ---
-> >  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
-> >  arch/arm64/kvm/emulate-nested.c      | 29 ++++++++++++++++++++++++----
-> >  2 files changed, 30 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> > index a601a9305b10..bf0c48403f59 100644
-> > --- a/arch/arm64/include/asm/kvm_emulate.h
-> > +++ b/arch/arm64/include/asm/kvm_emulate.h
-> > @@ -225,6 +225,11 @@ static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
-> >  	return vcpu_has_nv(vcpu) && __is_hyp_ctxt(&vcpu->arch.ctxt);
-> >  }
-> >  
-> > +static inline bool vcpu_is_host_el0(const struct kvm_vcpu *vcpu)
-> > +{
-> > +	return is_hyp_ctxt(vcpu) && !vcpu_is_el2(vcpu);
-> > +}
-> > +
-> >  /*
-> >   * The layout of SPSR for an AArch32 state is different when observed from an
-> >   * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
-> > diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> > index e1a30d1bcd06..db3149379a4d 100644
-> > --- a/arch/arm64/kvm/emulate-nested.c
-> > +++ b/arch/arm64/kvm/emulate-nested.c
-> > @@ -20,6 +20,9 @@ enum trap_behaviour {
-> >  	BEHAVE_FORWARD_READ	= BIT(0),
-> >  	BEHAVE_FORWARD_WRITE	= BIT(1),
-> >  	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
-> > +
-> > +	/* Traps that take effect in Host EL0, this is rare! */
-> > +	BEHAVE_IN_HOST_EL0	= BIT(2),
-> 
-> nit: BEHAVE_IN_HOST_EL0 lacks an action verb (forward?).
+> I think this would fix the problem you're seeing without changing the
+> userspace view of an erroneous configuration. It would also pave the
+> way for the complete removal of the interrupt notification to
+> userspace, which I claim has no user and is just a shit idea.
 
-Thinking I'll squash this in (plus renaming in later patches):
+Yeah, looks like this ought to get it done.
 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index db3149379a4d..b072098ee44e 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -22,7 +22,7 @@ enum trap_behaviour {
- 	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
- 
- 	/* Traps that take effect in Host EL0, this is rare! */
--	BEHAVE_IN_HOST_EL0	= BIT(2),
-+	BEHAVE_FORWARD_IN_HOST_EL0	= BIT(2),
- };
- 
- struct trap_bits {
-@@ -2279,7 +2279,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
- 
- 	b = compute_trap_behaviour(vcpu, tc);
- 
--	if (!(b & BEHAVE_IN_HOST_EL0) && vcpu_is_host_el0(vcpu))
-+	if (!(b & BEHAVE_FORWARD_IN_HOST_EL0) && vcpu_is_host_el0(vcpu))
- 		goto local;
- 
- 	if (((b & BEHAVE_FORWARD_READ) && is_read) ||
+Even with a fix for this particular issue I do wonder if we should
+categorically harden against late initialization failures and un-init
+the vCPU (or bug VM, where necessary) to avoid dealing with half-baked
+vCPUs/VMs across our UAPI surfaces.
+
+A sane userspace will probably crash when KVM_RUN returns EINVAL anyway.
 
 -- 
 Thanks,
