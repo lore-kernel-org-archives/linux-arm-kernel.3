@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF4ED10BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 10:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E51D10BF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 10:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plkP2v/yPqaebXM5krrKJAlJgpz+5QdAKcDIR46NP/o=; b=yNutZRTdLGvdHHUQ14A1Pv5f7m
-	TZQVxIB9eTa5tlR3fmKvVYqq9SY2Qs7TRvyvOn+snPbLHhFIRyszk+wh/wrvBLpxhvOzaJiudg32f
-	kjY1mDSfU5zAWnwK0tE72IVohMctHUawHzWsh9sECefNYDGSeoTMC+0Zlfof/tq4pzfJ3qloJ8mWm
-	9Q7BOp5p5yJAQCpIF3WIWgr8gIiw/FytKuxFFz/AYRSgXVMS3vUCuGeU0205j4ViAvFec0BFxium6
-	sLLy6gqWFxUUnBuSOQDDPtiwaHYEIs4+4p/rSva5LDfOSYVUjRH8CHKc3RNXSveazw/NjCHuwShm6
-	sQR+zQDg==;
+	bh=VfGb/D1BxknT+o8I7XliQpk+FGJy+H+E4MvaZvzaKM0=; b=fnZHMGtNxnRka0yN3KT3JE4/Tw
+	G+jQH+uQABJErwkc4pGOoslToLQOqD7sxmq6r63xvztdLD9QquojLyWYNcPaIsonMZpFe1cp6AVnl
+	UTIgOX/XZb55gHXTdSDfb3/gtGlkmrfiWOeLnEurVGkPWRQvlp7rzQNPxZ61ZvlhqwBi002EbcUZZ
+	B0xxnPYXW2+XXju/oZrr79emEd8QzEm2DrtA12kl2ZZOkXK2tJ3RjiB5RayB6oaaBP3EOJqsyHLNE
+	GFxbbspa+BctN1/LRshjpwsKqyOQIipaMZth/hxlQLqrKVIjq35SaZP3bfZ8YuKwwgWSej523UaxO
+	TcvYkHmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4dyu-00000006Mkk-0wR9;
-	Sat, 26 Oct 2024 10:25:16 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1t4eHk-00000006OOw-0OhC;
+	Sat, 26 Oct 2024 10:44:44 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4dvo-00000006MUy-15Lp
+	id 1t4eG9-00000006OEK-258X
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Oct 2024 10:22:06 +0000
+	Sat, 26 Oct 2024 10:43:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1729938125; x=1761474125;
+  t=1729939385; x=1761475385;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=guKMtpxx0qM0j1Dl4we/Mt9T6SoqQOQJbdp1lVRh8gY=;
-  b=BpA2cVhC6rrilDW/lk5ReUUdmrMuB+O7A6ixYsL9+mojzPFcjeh0xZ0L
-   y+Yp9SPLC7my57wPnYLdcktV6rfQdXdZ+z3bxs2/KK4VKjJtSxUxU0Z/s
-   5CzsTEJu3vI8j/nUXGtpKE4e8PRPs2skkb+Su9L80VLqmNf+qrMZdoV/k
-   WJ4DYBuejBSsoD13XdT8Abo8EFfKvK3x5yJ0iAJruNMEz0gWtktKLFIeB
-   MbX5drnz3rOhmHZDnBTrgMiYZaMKO199jM8girmuIrStI+0PItpjUgPjy
-   GC0l4UjVdB9IYLnSdQCYce9Xn3rACsr4t3OCeBO7Bg5vs1CHF7JjrkCCa
-   g==;
-X-CSE-ConnectionGUID: J0UiaPzCR1ic/ry5QzdU1w==
-X-CSE-MsgGUID: mZV5UxhXTKuZucILg+1T7g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29557751"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="29557751"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 03:22:01 -0700
-X-CSE-ConnectionGUID: uh1SH1KMSAWR2mhw/qK58Q==
-X-CSE-MsgGUID: oCPlxs+WQKi5wUUrldX92A==
+  bh=9gVwNcR3yel3JsSy5pGYF3kpnt/UQMXBg0o/oFDzLJc=;
+  b=T/qSFx5goUFeTPSpYZNMjhvX5QjcZAEojaitJz06Dh0I/uPqMNLLKiCm
+   p5gECxDKy62aQmPZv2C3n7TiBrRiiolZH9jTj/zDev+rK3GZVQ+s1UWX5
+   aooH17CeVRDhukCdVA5GbSwPXD7R3f/nbewaBa0GXkrcztqtnMTIn55Tu
+   WvLyVCLMNuRu5bomXut81JRVlTkepT+It6p3WSU0OgMjq9jr2xoO//5dY
+   7L/kBWl6hkBrRq+jTTJJXvwys08Z14r27FRkOlgDTeNH1coEK7jYTk8C0
+   98OwSCXexPStkoMftafkj7d+KGUf12UVObKtaX9W5AzZUXO4nZ7bBBRip
+   A==;
+X-CSE-ConnectionGUID: QVmgiK75TryJvbjaFWdQIQ==
+X-CSE-MsgGUID: B5J1tI73SR+Nb+5JZZmTSw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11236"; a="29064885"
+X-IronPort-AV: E=Sophos;i="6.11,234,1725346800"; 
+   d="scan'208";a="29064885"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2024 03:43:00 -0700
+X-CSE-ConnectionGUID: mMOIbCyXRwyZRGGBfDLOfw==
+X-CSE-MsgGUID: S0CHul1SSlCWgangkFYJUg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,234,1725346800"; 
-   d="scan'208";a="85720389"
+   d="scan'208";a="81079534"
 Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 26 Oct 2024 03:21:56 -0700
+  by orviesa010.jf.intel.com with ESMTP; 26 Oct 2024 03:42:57 -0700
 Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1t4dve-000ZVa-1a;
-	Sat, 26 Oct 2024 10:21:54 +0000
-Date: Sat, 26 Oct 2024 18:21:15 +0800
+	id 1t4eFz-000ZWs-0K;
+	Sat, 26 Oct 2024 10:42:55 +0000
+Date: Sat, 26 Oct 2024 18:42:05 +0800
 From: kernel test robot <lkp@intel.com>
-To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: Re: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA
- to load the firmware
-Message-ID: <202410261837.eRmJAHKZ-lkp@intel.com>
-References: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
+To: Oliver Upton <oliver.upton@linux.dev>, kvmarm@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: [PATCH v4 10/18] KVM: arm64: nv: Describe trap behaviour of
+ MDCR_EL2.HPMN
+Message-ID: <202410261839.enJ68VEv-lkp@intel.com>
+References: <20241025182354.3364124-11-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241025205924.2087768-8-arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20241025182354.3364124-11-oliver.upton@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_032204_388172_6AA333AB 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20241026_034305_606126_0453778B 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,148 +95,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnaud,
+Hi Oliver,
 
 kernel test robot noticed the following build errors:
 
-[auto build test ERROR on 42f7652d3eb527d03665b09edac47f85fb600924]
+[auto build test ERROR on 8e929cb546ee42c9a61d24fae60605e9e3192354]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Arnaud-Pouliquen/remoteproc-core-Introduce-rproc_pa_to_va-helper/20241026-050443
-base:   42f7652d3eb527d03665b09edac47f85fb600924
-patch link:    https://lore.kernel.org/r/20241025205924.2087768-8-arnaud.pouliquen%40foss.st.com
-patch subject: [PATCH v12 7/7] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-config: x86_64-buildonly-randconfig-004-20241026 (https://download.01.org/0day-ci/archive/20241026/202410261837.eRmJAHKZ-lkp@intel.com/config)
-compiler: clang version 19.1.2 (https://github.com/llvm/llvm-project 7ba7d8e2f7b6445b60679da826210cdde29eaf8b)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410261837.eRmJAHKZ-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Oliver-Upton/KVM-arm64-Extend-masking-facility-to-arbitrary-registers/20241026-023055
+base:   8e929cb546ee42c9a61d24fae60605e9e3192354
+patch link:    https://lore.kernel.org/r/20241025182354.3364124-11-oliver.upton%40linux.dev
+patch subject: [PATCH v4 10/18] KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
+config: arm64-randconfig-004-20241026 (https://download.01.org/0day-ci/archive/20241026/202410261839.enJ68VEv-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410261839.enJ68VEv-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410261837.eRmJAHKZ-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410261839.enJ68VEv-lkp@intel.com/
 
 All errors (new ones prefixed by >>):
 
-   In file included from drivers/remoteproc/stm32_rproc.c:9:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:8:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/remoteproc/stm32_rproc.c:904:7: error: incompatible pointer to integer conversion assigning to 'int' from 'struct rproc_tee *' [-Wint-conversion]
-     904 |                 ret = rproc_tee_register(dev, rproc, proc_id);
-         |                     ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/remoteproc/stm32_rproc.c:963:23: error: incompatible pointer types passing 'struct rproc *' to parameter of type 'struct rproc_tee *' [-Werror,-Wincompatible-pointer-types]
-     963 |         rproc_tee_unregister(rproc);
-         |                              ^~~~~
-   include/linux/remoteproc_tee.h:59:58: note: passing argument to parameter 'trproc' here
-      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
-         |                                                          ^
-   drivers/remoteproc/stm32_rproc.c:986:23: error: incompatible pointer types passing 'struct rproc *' to parameter of type 'struct rproc_tee *' [-Werror,-Wincompatible-pointer-types]
-     986 |         rproc_tee_unregister(rproc);
-         |                              ^~~~~
-   include/linux/remoteproc_tee.h:59:58: note: passing argument to parameter 'trproc' here
-      59 | static inline int rproc_tee_unregister(struct rproc_tee *trproc)
-         |                                                          ^
-   1 warning and 3 errors generated.
+   arch/arm64/kvm/emulate-nested.c: In function 'check_mdcr_hpmn':
+>> arch/arm64/kvm/emulate-nested.c:532:13: error: too many arguments to function 'kvm_pmu_counter_is_hyp'
+     532 |         if (kvm_pmu_counter_is_hyp(vcpu, idx))
+         |             ^~~~~~~~~~~~~~~~~~~~~~
+   In file included from arch/arm64/include/asm/kvm_host.h:38,
+                    from include/linux/kvm_host.h:45,
+                    from arch/arm64/kvm/emulate-nested.c:8:
+   include/kvm/arm_pmu.h:191:20: note: declared here
+     191 | static inline bool kvm_pmu_counter_is_hyp(struct kvm_vcpu *vcpu)
+         |                    ^~~~~~~~~~~~~~~~~~~~~~
 
 
-vim +904 drivers/remoteproc/stm32_rproc.c
+vim +/kvm_pmu_counter_is_hyp +532 arch/arm64/kvm/emulate-nested.c
 
-   874	
-   875	static int stm32_rproc_probe(struct platform_device *pdev)
-   876	{
-   877		struct device *dev = &pdev->dev;
-   878		struct stm32_rproc *ddata;
-   879		struct device_node *np = dev->of_node;
-   880		struct rproc *rproc;
-   881		unsigned int state;
-   882		u32 proc_id;
-   883		int ret;
-   884	
-   885		ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
-   886		if (ret)
-   887			return ret;
-   888	
-   889		if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
-   890			/*
-   891			 * Delegate the firmware management to the secure context.
-   892			 * The firmware loaded has to be signed.
-   893			 */
-   894			ret = of_property_read_u32(np, "st,proc-id", &proc_id);
-   895			if (ret) {
-   896				dev_err(dev, "failed to read st,rproc-id property\n");
-   897				return ret;
-   898			}
-   899	
-   900			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, NULL, sizeof(*ddata));
-   901			if (!rproc)
-   902				return -ENOMEM;
-   903	
- > 904			ret = rproc_tee_register(dev, rproc, proc_id);
-   905			if (ret)
-   906				return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
-   907		} else {
-   908			rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, NULL, sizeof(*ddata));
-   909			if (!rproc)
-   910				return -ENOMEM;
-   911		}
-   912	
-   913		ddata = rproc->priv;
-   914	
-   915		rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_NONE);
-   916	
-   917		ret = stm32_rproc_parse_dt(pdev, ddata, &rproc->auto_boot);
-   918		if (ret)
-   919			goto free_rproc;
-   920	
-   921		ret = stm32_rproc_of_memory_translations(pdev, ddata);
-   922		if (ret)
-   923			goto free_rproc;
-   924	
-   925		ret = stm32_rproc_get_m4_status(ddata, &state);
-   926		if (ret)
-   927			goto free_rproc;
-   928	
-   929		if (state == M4_STATE_CRUN)
-   930			rproc->state = RPROC_DETACHED;
-   931	
-   932		rproc->has_iommu = false;
-   933		ddata->workqueue = create_workqueue(dev_name(dev));
-   934		if (!ddata->workqueue) {
-   935			dev_err(dev, "cannot create workqueue\n");
-   936			ret = -ENOMEM;
-   937			goto free_resources;
-   938		}
-   939	
-   940		platform_set_drvdata(pdev, rproc);
-   941	
-   942		ret = stm32_rproc_request_mbox(rproc);
-   943		if (ret)
-   944			goto free_wkq;
-   945	
-   946		ret = rproc_add(rproc);
-   947		if (ret)
-   948			goto free_mb;
-   949	
-   950		return 0;
-   951	
-   952	free_mb:
-   953		stm32_rproc_free_mbox(rproc);
-   954	free_wkq:
-   955		destroy_workqueue(ddata->workqueue);
-   956	free_resources:
-   957		rproc_resource_cleanup(rproc);
-   958	free_rproc:
-   959		if (device_may_wakeup(dev)) {
-   960			dev_pm_clear_wake_irq(dev);
-   961			device_init_wakeup(dev, false);
-   962		}
- > 963		rproc_tee_unregister(rproc);
-   964	
-   965		return ret;
-   966	}
-   967	
+   509	
+   510	static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+   511	{
+   512		u32 sysreg = esr_sys64_to_sysreg(kvm_vcpu_get_esr(vcpu));
+   513		unsigned int idx;
+   514	
+   515	
+   516		switch (sysreg) {
+   517		case SYS_PMEVTYPERn_EL0(0) ... SYS_PMEVTYPERn_EL0(30):
+   518		case SYS_PMEVCNTRn_EL0(0) ... SYS_PMEVCNTRn_EL0(30):
+   519			idx = (sys_reg_CRm(sysreg) & 0x3) << 3 | sys_reg_Op2(sysreg);
+   520			break;
+   521		case SYS_PMXEVTYPER_EL0:
+   522		case SYS_PMXEVCNTR_EL0:
+   523			idx = SYS_FIELD_GET(PMSELR_EL0, SEL,
+   524					    __vcpu_sys_reg(vcpu, PMSELR_EL0));
+   525			break;
+   526		default:
+   527			/* Someone used this trap helper for something else... */
+   528			KVM_BUG_ON(1, vcpu->kvm);
+   529			return BEHAVE_HANDLE_LOCALLY;
+   530		}
+   531	
+ > 532		if (kvm_pmu_counter_is_hyp(vcpu, idx))
+   533			return BEHAVE_FORWARD_RW | BEHAVE_IN_HOST_EL0;
+   534	
+   535		return BEHAVE_HANDLE_LOCALLY;
+   536	}
+   537	
 
 -- 
 0-DAY CI Kernel Test Service
