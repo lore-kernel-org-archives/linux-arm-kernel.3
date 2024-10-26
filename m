@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF19D10BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 11:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C99D10BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 11:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uepjXSsNqFucMSnwMjNTgUmu9t3lyLfDvlOZx3AMk2g=; b=o7lQcMXCHp7l/X
-	C5bISf5Cwl50D+3tWhgCzmEDZTpzmyrUNVglcB7WDGXG8fbvAGMRKkfSn2fkRDs76CSSkX7DQaNOt
-	KMLMmO4TlGopsDCNHvtJPOpoC0/nd28kc9+5aFFU74SJlIgCXsqK9T5oRsB6U+BPenrr7vhTsNNnl
-	MmZR6R0xVd1Lt23VmRyRk/CBL1x1qXI1wSoHQwzVj9Zhz2HCvi499Z3FZDN48XKxVhR008zDBY6RQ
-	KZ4AFKJqHFU/Vt4k/eHPcgEU/4zJTNCjixykfYd80SOzT1Ab9WyMr8UGAj19wHPjgV2VoaGsJPt3h
-	LLr6DO8Mo14Ors74NocQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejHAN46hvZ7hCRqH1gPLU+sA3zZmTRWTq5lQcUbWNa0=; b=j5Qr53JcGua2mOdT0HV6hW7tKC
+	8RjxZash5qLIjM1b5td+dzNoRMmOjHcUCzVrkAaazXykTXXaktH7n5vTYOUDcWBKfvhawcrTUnU2e
+	4q/AKRlaiSGJLgy2uePBW2ZAkUT/a1/19/BfH8WACAYK5A9s5YdnEVK7KgWBN87PZMkIlNeXNXFv/
+	dFpUIPMG1Kl3Uji2CE6z8NWbFG9Quof1uuKuCpIWg3LfkwLyV0upsbu9PovzD9A/urpUq+MPzMbpp
+	7VmTE+c5vdPpQFl1GiwwOepK+F6FWJdlw9PQsrmF6QMVvvk+LpQsq47Ej3rBzPFFij/P3AeaTIzzD
+	9oexAg6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4elO-00000006SR5-2viP;
-	Sat, 26 Oct 2024 11:15:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t4eyC-00000006UrZ-1gVX;
+	Sat, 26 Oct 2024 11:28:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4ejn-00000006S4Z-2HC2;
-	Sat, 26 Oct 2024 11:13:44 +0000
+	id 1t4ewc-00000006UXn-1mIL;
+	Sat, 26 Oct 2024 11:26:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 456C5A4050C;
-	Sat, 26 Oct 2024 11:11:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D172C4CEC6;
-	Sat, 26 Oct 2024 11:13:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 068E5A40315;
+	Sat, 26 Oct 2024 11:25:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6BB6C4CEC7;
+	Sat, 26 Oct 2024 11:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1729941222;
-	bh=uepjXSsNqFucMSnwMjNTgUmu9t3lyLfDvlOZx3AMk2g=;
+	s=k20201202; t=1729942017;
+	bh=1aijchob2546XDzQr/sSoRHna2pm5upAiZBnO2Eq28k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cuohDEERw1KIj6Kqx7iWme4k35V7pDvSZE8UghmobXDCKmvMenxWhQf8J+9VY5EOx
-	 6m9ACNbhPoh0cgfWIFWoeYwhPMmsMbZkBtJIYXc6j4ekwX0n4QMCQIEsYB9WBoTC4o
-	 uOK+Ser5vhmC/gCWqmGJQ3SCn06MoHJ/Vd1H+tii8GbXBkws1RmSNk7bqIJXAXdCIk
-	 Nh2EQP0x9Zhy8S1+R4pne900hSFbMSMSzC617eitYgksuU7zTuXVXk1guXZcY9/aE+
-	 LlFuLZ28kfojcIQh/fToRIiO2OuQGm8YdO+UI4o9guiNH4UPwC453BDWSz0yuq2+Ef
-	 bG6xmiephFAuA==
-Message-ID: <ba6d1274-08ab-4754-9d5a-92f0ebab88d3@kernel.org>
-Date: Sat, 26 Oct 2024 13:13:30 +0200
+	b=B55TDTMI/fKu5yUYgMltxk7cjFbChSOaSGJG45SZTU2N/Y0KccuxjFlPUdpFZsV20
+	 /LjZ4pHdYznMgq/jx8M5/miAiKRooGWC514laJKhbXHzxIgjEBZpXlClDR3nIFzJZA
+	 D82noSdJkzUTvCiX2N3WRAVguFaHrXhgIqiGq2wYxMvuZvV/XDuqcWjwcD0LR018gC
+	 aB0QzSe34yg5jnSZP+2UyZPTlRQosjwAc/CNGjsduv4nMaXbv9pnDvEuM3QlYvOv9t
+	 ZTMut3xdeY8bdyLcpvCOfZ2PKbyWA+ixXzFjDX/c8ukKn47llO2RuwyeNpFI6p1Kvu
+	 DVjJyhbsvFQeQ==
+Message-ID: <2d5f9959-17c9-4e61-a6df-ebd187f422e6@kernel.org>
+Date: Sat, 26 Oct 2024 13:26:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/2] dt-bindings: mtd: Add bindings for describing
- concatinated MTD devices
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- tudor.ambarus@linaro.org, michael@walle.cc, broonie@kernel.org,
- pratyush@kernel.org, richard@nod.at, vigneshr@ti.com,
- miquel.raynal@bootlin.com, robh@kernel.org, conor+dt@kernel.org,
- krzk+dt@kernel.org
-References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
- <20241026075347.580858-2-amit.kumar-mahapatra@amd.com>
+Subject: Re: [PATCH v2] dt-bindings: soc: bcm: Convert
+ raspberrypi,bcm2835-power to Dt schema
+To: Karan Sanghavi <karansanghvi98@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>,
+ Alexander Aring <alex.aring@gmail.com>, Eric Anholt <eric@anholt.net>
+References: <20241022-raspberrypi-bcm2835-power-v2-1-1a4a8a8a5737@gmail.com>
+ <lfzxcilud65ype66frb7eihq2hvranzxp6fomjvjyxvciiixlj@2efv5266wt5r>
+ <zaqykppssizdpd2mynpoatp4smbzkr7atuurxkkegbegk5dw6s@a2daqovt2aod>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241026075347.580858-2-amit.kumar-mahapatra@amd.com>
+In-Reply-To: <zaqykppssizdpd2mynpoatp4smbzkr7atuurxkkegbegk5dw6s@a2daqovt2aod>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_041343_751502_23B60365 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20241026_042658_626402_21BB5C7F 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,44 +122,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: git@amd.com, alexandre.belloni@bootlin.com, alsa-devel@alsa-project.org, patches@opensource.cirrus.com, amitrkcian2002@gmail.com, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, venkatesh.abbarapu@amd.com, claudiu.beznea@tuxon.dev, linux-spi@vger.kernel.org, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, beanhuo@micron.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/10/2024 09:53, Amit Kumar Mahapatra wrote:
-> This approach was suggested by Rob [1] during a discussion on Miquel's
-> initial approach [2] to extend the MTD-CONCAT driver to support stacked
-> memories.
-> Define each flash node separately with its respective partitions, and add
-> a 'concat-parts' binding to link the partitions of the two flash nodes that
-> need to be concatenated.
+On 25/10/2024 20:22, Karan Sanghavi wrote:
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    power: power {
+>>
+>> Drop label. Node name: power-controller
+>>
+>> I don't think this passes tests because of this. See power-domain.yaml
+>> schema.
+>>
+> 
+> Below code is from bcm2711-rpi-4-b.dts decompiled from the dtb file.
 
-I understand this was not sent to proper addresses for review because it
-is a RFC. It's fine then.
+Uh? Why would we ever care about decompiling some DTBs?
 
-If this was not the intention and this should be reviewed (and tested,
-although I assume you tested these patches first), then please read the
-standard form bellow:
 
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
+> 
+> firmware {
+>          compatible = "raspberrypi,bcm2835-firmware\0simple-mfd";
+>          mboxes = <0x1d>;
+>          phandle = <0x1e>;
+>         ...
+> };
+> 
+> power {
+>          compatible = "raspberrypi,bcm2835-power";
+>          firmware = <0x1e>;
+>          #power-domain-cells = <0x01>;
+>          phandle = <0x0b>;
+> };
+> 
+> I had a doubt that as above the raspberrypi,bcm2835-power compatible node
+> is defined with power keyword, so should I still rename the node as
+> power-controll or keep it has power?
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+I don't understand your arguments. Schema expects this to have proper
+name (see bindings). DT spec as well.
 
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
+> 
+> Also it does passes the dt_binding_check and CHECK_DTBS=y broadcom/bcm2711-rpi-4-b.dtb
+> but does gives the message as
+> soc: power: 'ranges' is a required property
+> so do I need to add the range property here?
 
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
+I have no clue what you are testing here. We do not care about some out
+of tree DTB. And if you ask about upstream, then take conversions tasks
+after reading this:
+
+https://social.kernel.org/notice/Ai9hYRUKo8suzX3zNY
+
+BTW, your patch has patch errors which *have to be fixed* as well. Apply
+your patch to see them. Run checkpatch.
 
 Best regards,
 Krzysztof
