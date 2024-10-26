@@ -4,140 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8090FD10BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2C4D10BE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 08:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=owYK/6+V3VUTla7EukrIdWHtCfgdNgNjjMHBG3WW1+E=; b=XyfAlvK6mD9v/b
-	KMoxCVbbXGxQvlceS8roVdTMwpAM8hsYX87iQ4rPU4vf0w0rfrJLUbV19JBjcv/AdUb6tFTIMhl3C
-	AD/DnDywDyvi/Dv/tg/Ev9Y/Ib31pRe9zjc4dA9FAE1WXKKZrarQWFk2OCeHBS4icl/rgYR8eIehD
-	RKTNIZ3zQLYt2ITX9Y5CQ3fH92Va9sKhBxR4dRbe7lAkKg+vDBaIZkRx/yb+f+oiZf4ooecO0PmAJ
-	v9Zd7oxEw7iiptpw/z9AWs8XlKnS5yplv1ctTD9Zwmx2xFw2LYo6h2bfDw05aZi9vH+ezaBu49Jvr
-	/IB30D2PvjaOikQvAQnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Qy1ea0Jsg7gs86cQdDhmAn083244b15cFMUkkLkGUE=; b=l8/5RwfacZMb0lejK94g7NvT/H
+	tR5VgNx/1VKiQFnpYUPxRAdKHLY8YXUf7qZZAI+v2K1ivRATMxocMFQJYtCck87iphEdpek7+Lf5A
+	mBRC0TROtZ7x/DpYI774SCKev+Er2XSd7FUWVL4nFzwHhq1v8cvzPLIsmL3u6rp98zXJ586YfMyzX
+	ISiYxRbT4NC6XAP5cDp+cVBXiCOU+hSLUgWAXZi4JJAYltLZN8Y87N8/S1zty3JCfWuX76BgW/csc
+	rYaIS461gYJeBymp4G4D6cqJN5ezP0Bzs4hr+eLBlPFuhM1gBrBPWIh2owvbOmtWhNsEZh0R0LMMR
+	6qemDnjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bhW-00000006BKU-0ngZ;
-	Sat, 26 Oct 2024 07:59:10 +0000
-Received: from mail-dm6nam11on20604.outbound.protection.outlook.com ([2a01:111:f403:2415::604] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1t4bwp-00000006Ccc-0cqS;
+	Sat, 26 Oct 2024 08:14:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bcq-00000006AlK-1DmX;
-	Sat, 26 Oct 2024 07:54:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGa5b1Tb8Ec5UNVg69VQ45wWus7I5LoKduuRd69tEP4co/3bbduMxHBcb2YG2I1XQPa4jUi4vf9/0qE6AHYyaih0ULAhJBDrc5qOU0SXee8UTum4nT4iuQAGVaXmaaMrqI5yXSd0bVJn0lph1NQyJA6dNweyvCWngI0QrQzSsfVuqYq7GKvvwq3l1N2aA+4VORUzjorL2NSIBnZnh3tSYP5OGPKnsuA/qeUvvOyKWoKhBhYNXhcKL6PE8tqK/bhqAZHF6dbwuhHmMSKCR/P0Gea1tzI4Z2LcHa2p1OhmFgCwq6fvrJMLysbHn1o8GtI496jTvkDdyVwSP8zh9LZAIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=owYK/6+V3VUTla7EukrIdWHtCfgdNgNjjMHBG3WW1+E=;
- b=pfrBohqvElexBbyvO1ocJxVuwo1n+ZZTPolgfZAcGKWsaElV4d4T+UTFFyRppq45DiUPF+yp09CnMGQvPDIacubwJu242Sq2/eTAA+64cu+gX+flPcodXvl1d/Z8Z7nSWPuuCgb2IGR8lL2+7uxdL6n4TrWvQOVbuaj+/WY2DVsOJmuDpS2HbVmFAzhOoYrVwlr9nYk+zC/JZPeuQcsc6JzxGyAmjHwBNHL2FgvZ16e9JoJZCLeKyS8qJ0LD0MTFIBADwalnnyOh8c+9BsxImSWu5xg4hiQqIF7eQ2sk8jFvlgn/Vgu4u2y076hlvPt5PmJ7uID2/vWTykMdm1fdBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=owYK/6+V3VUTla7EukrIdWHtCfgdNgNjjMHBG3WW1+E=;
- b=tLYoDJejm9yXd5otWASOIRpGzV3hVu555/6sqnMvbYMADckGUMc7EUeOfQV6SyZK7NmiA9OdrPaRA9UF6IZqrOZKwFZfQNMvL9moeRo9fADP8bi4MYe7wxB2qMEYDqt5EEaB7UAb6OZOQyURz3i8H0R8GiHv4MDIrm8jow/4V9A=
-Received: from BN9P221CA0012.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::7)
- by PH7PR12MB5733.namprd12.prod.outlook.com (2603:10b6:510:1e0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Sat, 26 Oct
- 2024 07:54:14 +0000
-Received: from BL02EPF0001A0FF.namprd03.prod.outlook.com
- (2603:10b6:408:10a:cafe::7b) by BN9P221CA0012.outlook.office365.com
- (2603:10b6:408:10a::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23 via Frontend
- Transport; Sat, 26 Oct 2024 07:54:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- BL02EPF0001A0FF.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8093.14 via Frontend Transport; Sat, 26 Oct 2024 07:54:14 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Sat, 26 Oct
- 2024 02:54:12 -0500
-Received: from xhdakumarma40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Sat, 26 Oct 2024 02:54:07 -0500
-From: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-To: <tudor.ambarus@linaro.org>, <michael@walle.cc>, <broonie@kernel.org>,
-	<pratyush@kernel.org>, <richard@nod.at>, <vigneshr@ti.com>,
-	<miquel.raynal@bootlin.com>, <robh@kernel.org>, <conor+dt@kernel.org>,
-	<krzk+dt@kernel.org>
-Subject: [RFC PATCH 2/2] dt-bindings: spi: Update stacked and parallel bindings
-Date: Sat, 26 Oct 2024 13:23:47 +0530
-Message-ID: <20241026075347.580858-3-amit.kumar-mahapatra@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
-References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-Received-SPF: None (SATLEXMB04.amd.com: amit.kumar-mahapatra@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FF:EE_|PH7PR12MB5733:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7da072c1-1097-459b-0c34-08dcf5936289
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NzBmMFBlUitLelU5WCt5UWxnbDhsUDQ4MlJPVVdFMk9ieENrTU8yUzdVY2tt?=
- =?utf-8?B?N1N5U2RnMnhRTGdsbmU5dndwVU1jTHFFbEY2SUxsRndzQ0IwNXNhaDdkOTFX?=
- =?utf-8?B?OVh6WWp2dnNGOFUvaXVSQVFwbUJTbkhkNDlhSnBLWXlQamRzalRDRGdkTVlP?=
- =?utf-8?B?S0dzY1VtUFRQdWlkNnN6aTByOVZLLzdvTVdRaUxBMnBmUVdSY2dIMnN5NkRR?=
- =?utf-8?B?ODREaUYvejJuSlQxVzRTOVJVbUhHMjk2cy8vV1J1dElTRW12dUtpSHVJSU9B?=
- =?utf-8?B?a3ptbTQzRVZhdWdCWUhOU1RFYkhXVHFkY3ZBemhhRjZCL1JPM1BKU29VbGdL?=
- =?utf-8?B?VlBZK01CZmhTV21EdGtNeVVvMllXalNHaHJEaXBHd2J4dCtLR2MvZDhoWm13?=
- =?utf-8?B?KzBJNUtnbC9pN0xtazRCajc2ZzQ0UG11MVMybGdJbnhhcGtsZFJzelEyTE1C?=
- =?utf-8?B?Nlo4Z3ArZzVBOEFqRHB1ay9jOThZdmJ6VDAveWxvNG9tWGRrd2tFRWpkMFlD?=
- =?utf-8?B?WkRvNWxldWtSVmtyTUZQUGpWNjRiQVhKdlRpOGxsRE54TzBEa2YxdW9VdENn?=
- =?utf-8?B?ZTBCUzQ1eHhjNVE1WHJtaVpFRWZoajRObUhwSTZqaUt4RXAxbEQyZXRDZm9J?=
- =?utf-8?B?ZytjcmViSkJsbW9uMDk2ZE5uNVpuOVJIend0UlVJakJhSlFoUmpZc042YnE1?=
- =?utf-8?B?NnJQaGZwOUxvY2Q0VWRWVFUxOFB2aVRQZEtGQTZDUVdKdmJ2S2xxdGJ6TG1X?=
- =?utf-8?B?ZkNRdDBQL1VaNmJiVWtnbW9hRzNXbmZkTDJodWdJOWJrTVRFWGovRU9YUkZw?=
- =?utf-8?B?cEI3NEN2b092dnNESjFvaXlQL3dmeTg1cUFuOHBPZktqaHZ2d0xDdHhCZlk5?=
- =?utf-8?B?N0NhZTUwQzZUazR4SlhabGdrTEUvYlQyRU9KVG9KK0FEWkg1eDhaR3BDeXNP?=
- =?utf-8?B?a3NmMlRBM2N2eGRNN2tFN09aSnlMYUlZUHNYN3dNdURnY1FyT3JLL3pKU3dF?=
- =?utf-8?B?UW96OHVxMllpMGdhK1U5d0FjUDdNdE5YKytJdHQvdytVd2w0ZVFlaXk3R1Vk?=
- =?utf-8?B?amNqRkN2S0Q1RGpuQ2RwQlFhSlFtRWhrVFJqRWxvenBRN1JMbTEreVNMV0px?=
- =?utf-8?B?SGtpOUhsQ2FFeDNBUTNyTTJ3MHF0NzFRcCtCYUpWVElqTG44UUdITmYvVktp?=
- =?utf-8?B?U0lPenhYYk5Xc0I0ZjczTkdqT0kya0N0bzlEN1NMZ0htWGRuVjJFNk9hWEJ4?=
- =?utf-8?B?WXVRc0JTNXdobW1wMmovamhqbHRqamdMSjNqR01lQ05ua0JhQXkxTlQ5Qk9o?=
- =?utf-8?B?eEdma3F0ejcxR09ROStzRzg3ZE52WStnZGwraFVJTXR1Y3lVK3J2L2tZTkpD?=
- =?utf-8?B?d01KaXpuNEVOSHZHTU9qeTk1MGRKLzFYRU54dDBQM0R1THVrV0VKQzRycjBs?=
- =?utf-8?B?akhOVHE5QmNobzZWYjFPcThkdEczbWx0TTE0SmxONk5lUTBHRk5UbkRRVUN1?=
- =?utf-8?B?VEd0cDBxR2FZZDkrRU8wS05yWFdXTXBvdmJ4aHRTYXdQNk1HNHI5ZlpwY0ZU?=
- =?utf-8?B?V080N2hSQlFuSFhLQkNlZDlRSU10QkNma1dZSG1XckNudHk4dzYwVlJQV0x3?=
- =?utf-8?B?MXpWS29EQWJ3OE9UUE1MSWM3M0pmd3dEdzZaRUkyektMZk85S1BCYjM3ZFNN?=
- =?utf-8?B?VDRXOG02VWpBRHZMRG45emdSNzFCZ2VRN2ZsQnQxdkluNDN4Vy9SU1hCNWpm?=
- =?utf-8?B?MVoxRGgzWS9PeUlIcmwwTUtHUGYrbmxIbWJaUEsxczVXMFJmKzZJcEpXMHRF?=
- =?utf-8?B?Q2dXa2tieW5SQmt3aWxJNkN0OWlpQW5Yb1psR0NtK1lHa2lUN1FPc3oxMU9Z?=
- =?utf-8?B?Y0pqWklzWEhxVG1mT2tVb0g1Q1FGZTlLVlB6UTVrNi9obWRmbjBMODlkak41?=
- =?utf-8?Q?PAV9WO4hsQ4=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2024 07:54:14.1289
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7da072c1-1097-459b-0c34-08dcf5936289
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FF.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5733
+	id 1t4bvF-00000006CWG-259x
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Oct 2024 08:13:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABAA95C547F;
+	Sat, 26 Oct 2024 08:12:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 819AFC4CEC6;
+	Sat, 26 Oct 2024 08:13:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729930400;
+	bh=iUZr6BDcVRGSUW29ErBwFNHY3AC1kCqFEh1SFFtq9jM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jSci9EO/b+wxEhWKDntRJ2jWIDHRMgt3lazq084TshS2r05DjpHShIgJMwZ1YcWgm
+	 T0w/jahRVgXu6RG0eEDA9L0/yBSzRPU+/6Xsgw+mDeB+PmMZ3IlBnoWXHvDRAwGXqF
+	 IeUrNNSZkRngDWWPL2XTd+86W5pRfY5r/w4j7kMy0rjKxirvFWn6Fu14TaofPxhBMM
+	 NrWh7cmE3B4wXhPqa6dlw8IaMATwbahfSU+On00W5yR8aLOi05MOjO7B23qb+5Sv7e
+	 gXZuIZ3FG5ROtXDldAsuB1QSSwZ3YZD90ioOvCRP6S0POSMLp8+yaSn88KpjOXtoYF
+	 //YewaP2IDaDw==
+Received: from [81.145.206.43] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t4bvC-0076Ee-7z;
+	Sat, 26 Oct 2024 09:13:18 +0100
+Date: Sat, 26 Oct 2024 09:13:17 +0100
+Message-ID: <87r083th7m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 08/18] KVM: arm64: nv: Reinject traps that take effect in Host EL0
+In-Reply-To: <20241025182354.3364124-9-oliver.upton@linux.dev>
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
+	<20241025182354.3364124-9-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 81.145.206.43
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_005420_416501_A410DD9D 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20241026_011321_643399_0FA86825 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,158 +88,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: git@amd.com, alexandre.belloni@bootlin.com, Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, alsa-devel@alsa-project.org, patches@opensource.cirrus.com, amitrkcian2002@gmail.com, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, venkatesh.abbarapu@amd.com, claudiu.beznea@tuxon.dev, linux-spi@vger.kernel.org, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, beanhuo@micron.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For implementing the proposed solution the current 'stacked-memories' &
-'parallel-memories' bindings need to be updated as follow.
+On Fri, 25 Oct 2024 19:23:43 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Wire up the other end of traps that affect host EL0 by actually
+> injecting them into the guest hypervisor. Skip over FGT entirely, as a
+> cursory glance suggests no FGT is effective in host EL0.
 
-stacked-memories binding changes:
-- Each flash will have its own flash node. This approach allows flashes of
-  different makes and sizes to be stacked together, as each flash will be
-  probed individually.
-- Each of the flash node will have its own “reg” property that will contain
-  its physical CS.
-- Remove the size information from the bindings as it can be retrived
-  drirectly from the flash.
-- The stacked-memories DT bindings will contain the phandles of the flash
-  nodes connected in stacked mode.
+Yes, and this (thankfully) is by design! :-)
 
-The new layer will update the mtd->size and other mtd_info parameters after
-both the flashes are probed and will call mtd_device_register with the
-combined information.
+> 
+> Note that kvm_inject_nested() is already equipped for handling
+> exceptions while the VM is already in a host context.
+> 
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
+>  arch/arm64/kvm/emulate-nested.c      | 29 ++++++++++++++++++++++++----
+>  2 files changed, 30 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index a601a9305b10..bf0c48403f59 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -225,6 +225,11 @@ static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
+>  	return vcpu_has_nv(vcpu) && __is_hyp_ctxt(&vcpu->arch.ctxt);
+>  }
+>  
+> +static inline bool vcpu_is_host_el0(const struct kvm_vcpu *vcpu)
+> +{
+> +	return is_hyp_ctxt(vcpu) && !vcpu_is_el2(vcpu);
+> +}
+> +
+>  /*
+>   * The layout of SPSR for an AArch32 state is different when observed from an
+>   * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index e1a30d1bcd06..db3149379a4d 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -20,6 +20,9 @@ enum trap_behaviour {
+>  	BEHAVE_FORWARD_READ	= BIT(0),
+>  	BEHAVE_FORWARD_WRITE	= BIT(1),
+>  	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
+> +
+> +	/* Traps that take effect in Host EL0, this is rare! */
+> +	BEHAVE_IN_HOST_EL0	= BIT(2),
 
-spi@0 {
-        ...
-        flash@0 {
-                compatible = "jedec,spi-nor"
-                reg = <0x00>;
-                stacked-memories = <&flash@0 &flash@1>;
-                spi-max-frequency = <50000000>;
-                ...
-                        partitions {
-                        compatible = "fixed-partitions";
-                                concat-partition = <&flash0_partition &flash1_partition>;
-                                flash0_partition: partition@0 {
-                                        label = "part0_0";
-                                        reg = <0x0 0x800000>;
-                                }
-                        }
-        }
-        flash@1 {
-                compatible = "jedec,spi-nor"
-                reg = <0x01>;
-                stacked-memories = <&flash@0 &flash@1>;
-                spi-max-frequency = <50000000>;
-                ...
-                        partitions {
-                        compatible = "fixed-partitions";
-                                concat-partition = <&flash0_partition &flash1_partition>;
-                                flash1_partition: partition@0 {
-                                        label = "part0_1";
-                                        reg = <0x0 0x800000>;
-                                }
-                        }
-        }
+nit: BEHAVE_IN_HOST_EL0 lacks an action verb (forward?).
 
-}
+Thanks,
 
-parallel-memories binding changes:
-- Remove the size information from the bindings and change the type to
-  boolen.
-- Each flash connected in parallel mode should be identical and will have
-  one flash node for both the flash devices.
-- The “reg” prop will contain the physical CS number for both the connected
-  flashes.
+	M.
 
-The new layer will double the mtd-> size and register it with the mtd layer.
-
-spi@1 {
-        ...
-        flash@3 {
-                compatible = "jedec,spi-nor"
-                reg = <0x00 0x01>;
-                paralle-memories ;
-                spi-max-frequency = <50000000>;
-                ...
-                        partitions {
-                        compatible = "fixed-partitions";
-                                flash0_partition: partition@0 {
-                                        label = "part0_0";
-                                        reg = <0x0 0x800000>;
-                                }
-                        }
-        }
-}
-
-Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
----
- .../bindings/spi/spi-controller.yaml          | 23 +++++++++++++++++--
- .../bindings/spi/spi-peripheral-props.yaml    |  9 +++-----
- 2 files changed, 24 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/spi/spi-controller.yaml b/Documentation/devicetree/bindings/spi/spi-controller.yaml
-index 093150c0cb87..2d300f98dd72 100644
---- a/Documentation/devicetree/bindings/spi/spi-controller.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-controller.yaml
-@@ -185,7 +185,26 @@ examples:
-         flash@2 {
-             compatible = "jedec,spi-nor";
-             spi-max-frequency = <50000000>;
--            reg = <2>, <3>;
--            stacked-memories = /bits/ 64 <0x10000000 0x10000000>;
-+            reg = <2>;
-+            stacked-memories = <&flash0 &flash1>;
-         };
-+
-     };
-+
-+  - |
-+    spi@90010000 {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        compatible = "fsl,imx28-spi";
-+        reg = <0x90010000 0x2000>;
-+        interrupts = <96>;
-+        dmas = <&dma_apbh 0>;
-+        dma-names = "rx-tx";
-+
-+        flash@0 {
-+            compatible = "jedec,spi-nor";
-+            spi-max-frequency = <50000000>;
-+            reg = <0>, <1>;
-+            parallel-memories;
-+        };
-+      };
-diff --git a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-index 15938f81fdce..2a014160d701 100644
---- a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-@@ -96,7 +96,7 @@ properties:
-       space with only a single additional wire, while still needing
-       to repeat the commands when crossing a chip boundary. The size of
-       each chip should be provided as members of the array.
--    $ref: /schemas/types.yaml#/definitions/uint64-array
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-     minItems: 2
-     maxItems: 4
- 
-@@ -107,11 +107,8 @@ properties:
-       different memories (eg. even bits are stored in one memory, odd
-       bits in the other). This basically doubles the address space and
-       the throughput while greatly complexifying the wiring because as
--      many busses as devices must be wired. The size of each chip should
--      be provided as members of the array.
--    $ref: /schemas/types.yaml#/definitions/uint64-array
--    minItems: 2
--    maxItems: 4
-+      many busses as devices must be wired.
-+    $ref: /schemas/types.yaml#/definitions/flag
- 
-   st,spi-midi-ns:
-     description: |
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
