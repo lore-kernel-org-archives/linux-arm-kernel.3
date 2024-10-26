@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390CBD10BE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C0DD10BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9Pz1BIyvFjX/7C5sPIU0Qrn9H+kdyul8nmfkpvCTqk=; b=jAMD18oImR6cig7LL/NRdzLWFR
-	JpEU1Irt2y3Ld526Rlf51oBO8Ji5XHbp+ZZzPmUcqtKGK6Aj+lYpVtu9UqDiZ7ep8zSg31JHGCmdW
-	A4BaKRPandzCYf4d2Fc0NNO7Uw+JjN1l/dPdTnlEfpY5pgj/p2Xo56ueAQbfzQ/MGJnRVamYQMhiq
-	gmkyf0FI4/M0lsS0X/pAA58lxlku30LWhzlQgoWkzjFYC2r3OMA1UykClhz+dRfy6PxWgZyPITdMO
-	I4QaorGvWexbAYLth8jcRgcpmKLK23fa799cn+Q4+MbB1WB1RTRcvC2bfpdOWQeSmvveAltu5KcMB
-	8zO2rZqQ==;
+	bh=u/cfnRdGTqWkuF7xSCc7xE9/Pp3MGIjF5qrUXoTiTFI=; b=OEit0ddMtsWvajNzSTcXHsak/0
+	UDI3pOt4VE8VoISJN/jHNXiW7OFRHWP2AwnkeiqoY9zFSdDHTO9TeFRNEiwBAuvRUyBvOAGcXxZEj
+	dbM4XntGuGWmQGwsx4nBTVwyLbwWJiJQlTFnEBJlIuDOYJlVZ4R0MEjnjj9UVUkc4tMLWpy2Gwte7
+	1EpJVYpGRVzksTzjoaem9oi71f8RHMEI3I3uwLmxgFPMFHdWJxpgca7t/sVpEPkiF51IvDZJcU+3X
+	FwvIdqfdduEqNHmurERQQpPDvd71uueVmOzIjS7bbkkvPzXLXULQlDQiyddbcKEI6ap8sCp4NeFUo
+	BMzTt6vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bJp-000000068Cy-3MfR;
-	Sat, 26 Oct 2024 07:34:41 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1t4bLY-000000068fA-0dnd;
+	Sat, 26 Oct 2024 07:36:28 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bAT-000000066sd-3EtP
+	id 1t4bAV-000000066sc-3h1D
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 26 Oct 2024 07:25:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XbB273cZNzlXHQ;
-	Sat, 26 Oct 2024 15:22:55 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4XbB1z5cJyz1T98Y;
+	Sat, 26 Oct 2024 15:22:47 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id D881D140258;
-	Sat, 26 Oct 2024 15:24:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 300A518006C;
+	Sat, 26 Oct 2024 15:24:53 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Sat, 26 Oct 2024 15:24:51 +0800
+ 15.2.1258.34; Sat, 26 Oct 2024 15:24:52 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v3 5/8] drivers/perf: hisi: Provide a generic implementation of cpumask/identifier
-Date: Sat, 26 Oct 2024 15:24:21 +0800
-Message-ID: <20241026072424.29887-6-yangyicong@huawei.com>
+Subject: [PATCH v3 8/8] drivers/perf: hisi: Delete redundant blank line of DDRC PMU
+Date: Sat, 26 Oct 2024 15:24:24 +0800
+Message-ID: <20241026072424.29887-9-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241026072424.29887-1-yangyicong@huawei.com>
 References: <20241026072424.29887-1-yangyicong@huawei.com>
@@ -55,8 +55,9 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_002502_278947_FEE4F373 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20241026_002504_261518_1CC3BE8C 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,456 +72,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+From: Junhao He <hejunhao3@huawei.com>
 
-Each type of HiSilicon Uncore PMU has the following sysfs attributes:
+Do not add blank line at the end of a code block defined by braces.
 
-- format: bitmask in perf_event_attr::config[012] of corresponding
-  attribute
-- event: events name and corresponding event code
-- cpumask: range of CPUs the events can be opened on
-- identifier: the version of this PMU
-
-Different types of PMU have different implementations of the "format"
-and "event" but all share the same implementation of the "cpumask"
-and "identifier". Thus we can move cpumask and identifier to the
-hisi_uncore_pmu framework and drivers can use the generic
-implementation.
-
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 27 +----------
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 31 ++-----------
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 31 ++-----------
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  | 31 ++-----------
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 35 +++------------
- drivers/perf/hisilicon/hisi_uncore_pmu.c      | 45 ++++++++++++++-----
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |  4 ++
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 27 +----------
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 27 +----------
- 9 files changed, 63 insertions(+), 195 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-index 39b6ba91c8bf..40a2bbc01d3c 100644
---- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-@@ -225,34 +225,11 @@ static const struct attribute_group hisi_cpa_pmu_events_group = {
- 	.attrs = hisi_cpa_pmu_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_cpa_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_cpa_pmu_cpumask_attr_group = {
--	.attrs = hisi_cpa_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_cpa_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_cpa_pmu_identifier_attrs[] = {
--	&hisi_cpa_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_cpa_pmu_identifier_group = {
--	.attrs = hisi_cpa_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_cpa_pmu_attr_groups[] = {
- 	&hisi_cpa_pmu_format_group,
- 	&hisi_cpa_pmu_events_group,
--	&hisi_cpa_pmu_cpumask_attr_group,
--	&hisi_cpa_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index 4a6e22f66de9..1b8f8b18d1a7 100644
+index b6b53ead6ac2..5286f2215fa6 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -380,42 +380,19 @@ static const struct attribute_group hisi_ddrc_pmu_v2_events_group = {
- 	.attrs = hisi_ddrc_pmu_v2_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_ddrc_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL,
--};
--
--static const struct attribute_group hisi_ddrc_pmu_cpumask_attr_group = {
--	.attrs = hisi_ddrc_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_ddrc_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_ddrc_pmu_identifier_attrs[] = {
--	&hisi_ddrc_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_ddrc_pmu_identifier_group = {
--	.attrs = hisi_ddrc_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_ddrc_pmu_v1_attr_groups[] = {
- 	&hisi_ddrc_pmu_v1_format_group,
- 	&hisi_ddrc_pmu_v1_events_group,
--	&hisi_ddrc_pmu_cpumask_attr_group,
--	&hisi_ddrc_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL,
- };
- 
- static const struct attribute_group *hisi_ddrc_pmu_v2_attr_groups[] = {
- 	&hisi_ddrc_pmu_v2_format_group,
- 	&hisi_ddrc_pmu_v2_events_group,
--	&hisi_ddrc_pmu_cpumask_attr_group,
--	&hisi_ddrc_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-index c47d33ccb489..f4e03e4baef5 100644
---- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-@@ -405,42 +405,19 @@ static const struct attribute_group hisi_hha_pmu_v2_events_group = {
- 	.attrs = hisi_hha_pmu_v2_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_hha_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL,
--};
--
--static const struct attribute_group hisi_hha_pmu_cpumask_attr_group = {
--	.attrs = hisi_hha_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_hha_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_hha_pmu_identifier_attrs[] = {
--	&hisi_hha_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_hha_pmu_identifier_group = {
--	.attrs = hisi_hha_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_hha_pmu_v1_attr_groups[] = {
- 	&hisi_hha_pmu_v1_format_group,
- 	&hisi_hha_pmu_v1_events_group,
--	&hisi_hha_pmu_cpumask_attr_group,
--	&hisi_hha_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL,
- };
- 
- static const struct attribute_group *hisi_hha_pmu_v2_attr_groups[] = {
- 	&hisi_hha_pmu_v2_format_group,
- 	&hisi_hha_pmu_v2_events_group,
--	&hisi_hha_pmu_cpumask_attr_group,
--	&hisi_hha_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index 069ea8ced4c4..9bd53aa54a4a 100644
---- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -441,42 +441,19 @@ static const struct attribute_group hisi_l3c_pmu_v2_events_group = {
- 	.attrs = hisi_l3c_pmu_v2_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_l3c_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL,
--};
--
--static const struct attribute_group hisi_l3c_pmu_cpumask_attr_group = {
--	.attrs = hisi_l3c_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_l3c_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_l3c_pmu_identifier_attrs[] = {
--	&hisi_l3c_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_l3c_pmu_identifier_group = {
--	.attrs = hisi_l3c_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_l3c_pmu_v1_attr_groups[] = {
- 	&hisi_l3c_pmu_v1_format_group,
- 	&hisi_l3c_pmu_v1_events_group,
--	&hisi_l3c_pmu_cpumask_attr_group,
--	&hisi_l3c_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL,
- };
- 
- static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
- 	&hisi_l3c_pmu_v2_format_group,
- 	&hisi_l3c_pmu_v2_events_group,
--	&hisi_l3c_pmu_cpumask_attr_group,
--	&hisi_l3c_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-index d0f89086403b..a38fe50abdd9 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-@@ -353,29 +353,6 @@ static const struct attribute_group hisi_h60pa_pmu_events_group = {
- 	.attrs = hisi_h60pa_pmu_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_pa_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_pa_pmu_cpumask_attr_group = {
--	.attrs = hisi_pa_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_pa_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_pa_pmu_identifier_attrs[] = {
--	&hisi_pa_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_pa_pmu_identifier_group = {
--	.attrs = hisi_pa_pmu_identifier_attrs,
--};
--
- static struct hisi_pa_pmu_int_regs hisi_pa_pmu_regs = {
- 	.mask_offset = PA_INT_MASK,
- 	.clear_offset = PA_INT_CLEAR,
-@@ -385,8 +362,8 @@ static struct hisi_pa_pmu_int_regs hisi_pa_pmu_regs = {
- static const struct attribute_group *hisi_pa_pmu_v2_attr_groups[] = {
- 	&hisi_pa_pmu_v2_format_group,
- 	&hisi_pa_pmu_v2_events_group,
--	&hisi_pa_pmu_cpumask_attr_group,
--	&hisi_pa_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-@@ -399,8 +376,8 @@ static const struct hisi_pmu_dev_info hisi_h32pa_v2 = {
- static const struct attribute_group *hisi_pa_pmu_v3_attr_groups[] = {
- 	&hisi_pa_pmu_v2_format_group,
- 	&hisi_pa_pmu_v3_events_group,
--	&hisi_pa_pmu_cpumask_attr_group,
--	&hisi_pa_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-@@ -419,8 +396,8 @@ static struct hisi_pa_pmu_int_regs hisi_h60pa_pmu_regs = {
- static const struct attribute_group *hisi_h60pa_pmu_attr_groups[] = {
- 	&hisi_pa_pmu_v2_format_group,
- 	&hisi_h60pa_pmu_events_group,
--	&hisi_pa_pmu_cpumask_attr_group,
--	&hisi_pa_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index e422a41fba60..ac74d8312ee5 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -49,6 +49,41 @@ ssize_t hisi_cpumask_sysfs_show(struct device *dev,
- }
- EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
- 
-+static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
-+
-+static struct attribute *hisi_pmu_cpumask_attrs[] = {
-+	&dev_attr_cpumask.attr,
-+	NULL
-+};
-+
-+const struct attribute_group hisi_pmu_cpumask_attr_group = {
-+	.attrs = hisi_pmu_cpumask_attrs,
-+};
-+EXPORT_SYMBOL_NS_GPL(hisi_pmu_cpumask_attr_group, HISI_PMU);
-+
-+ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
-+					     struct device_attribute *attr,
-+					     char *page)
-+{
-+	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
-+
-+	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
-+}
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
-+
-+static struct device_attribute hisi_pmu_identifier_attr =
-+	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
-+
-+static struct attribute *hisi_pmu_identifier_attrs[] = {
-+	&hisi_pmu_identifier_attr.attr,
-+	NULL
-+};
-+
-+const struct attribute_group hisi_pmu_identifier_group = {
-+	.attrs = hisi_pmu_identifier_attrs,
-+};
-+EXPORT_SYMBOL_NS_GPL(hisi_pmu_identifier_group, HISI_PMU);
-+
- static bool hisi_validate_event_group(struct perf_event *event)
+@@ -550,7 +550,6 @@ static void __exit hisi_ddrc_pmu_module_exit(void)
  {
- 	struct perf_event *sibling, *leader = event->group_leader;
-@@ -99,16 +134,6 @@ int hisi_uncore_pmu_get_event_idx(struct perf_event *event)
+ 	platform_driver_unregister(&hisi_ddrc_pmu_driver);
+ 	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE);
+-
  }
- EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_get_event_idx, HISI_PMU);
- 
--ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
--					     struct device_attribute *attr,
--					     char *page)
--{
--	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
--
--	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
--}
--EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
--
- static void hisi_uncore_pmu_clear_event_idx(struct hisi_pmu *hisi_pmu, int idx)
- {
- 	clear_bit(idx, hisi_pmu->pmu_events.used_mask);
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-index da5cf622c2b0..e12bb4842070 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-@@ -138,6 +138,10 @@ struct hisi_pmu {
- 	u32 identifier;
- };
- 
-+/* Generic implementation of cpumask/identifier group */
-+extern const struct attribute_group hisi_pmu_cpumask_attr_group;
-+extern const struct attribute_group hisi_pmu_identifier_group;
-+
- int hisi_uncore_pmu_get_event_idx(struct perf_event *event);
- void hisi_uncore_pmu_read(struct perf_event *event);
- int hisi_uncore_pmu_add(struct perf_event *event, int flags);
-diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-index cc78de890316..02c298263f8b 100644
---- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-@@ -344,34 +344,11 @@ static const struct attribute_group hisi_sllc_pmu_v2_events_group = {
- 	.attrs = hisi_sllc_pmu_v2_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_sllc_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_sllc_pmu_cpumask_attr_group = {
--	.attrs = hisi_sllc_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_sllc_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_sllc_pmu_identifier_attrs[] = {
--	&hisi_sllc_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_sllc_pmu_identifier_group = {
--	.attrs = hisi_sllc_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_sllc_pmu_v2_attr_groups[] = {
- 	&hisi_sllc_pmu_v2_format_group,
- 	&hisi_sllc_pmu_v2_events_group,
--	&hisi_sllc_pmu_cpumask_attr_group,
--	&hisi_sllc_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-index 2df8976ab4be..f90f752f32dd 100644
---- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-@@ -437,34 +437,11 @@ static const struct attribute_group hisi_uc_pmu_events_group = {
- 	.attrs = hisi_uc_pmu_events_attr,
- };
- 
--static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
--
--static struct attribute *hisi_uc_pmu_cpumask_attrs[] = {
--	&dev_attr_cpumask.attr,
--	NULL,
--};
--
--static const struct attribute_group hisi_uc_pmu_cpumask_attr_group = {
--	.attrs = hisi_uc_pmu_cpumask_attrs,
--};
--
--static struct device_attribute hisi_uc_pmu_identifier_attr =
--	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
--
--static struct attribute *hisi_uc_pmu_identifier_attrs[] = {
--	&hisi_uc_pmu_identifier_attr.attr,
--	NULL
--};
--
--static const struct attribute_group hisi_uc_pmu_identifier_group = {
--	.attrs = hisi_uc_pmu_identifier_attrs,
--};
--
- static const struct attribute_group *hisi_uc_pmu_attr_groups[] = {
- 	&hisi_uc_pmu_format_group,
- 	&hisi_uc_pmu_events_group,
--	&hisi_uc_pmu_cpumask_attr_group,
--	&hisi_uc_pmu_identifier_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
- 	NULL
- };
+ module_exit(hisi_ddrc_pmu_module_exit);
  
 -- 
 2.24.0
