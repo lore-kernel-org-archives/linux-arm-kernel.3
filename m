@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1926D10BE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C2ED10BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvSoVXsXJaF6FhP0ZQOvDa+hyLFyvo6McM7V8aRgxqg=; b=2M6t88MKdpfOtHFe/QgWSYHLcA
-	EEnZ7eXRHMlAoZaVMtosqNcP+Glh/3uPvudtOYMRsuGQPSgqcZe+T+G+U1A3RHz8Q1qKuTeRglhL0
-	1LRPOPJO7NIpLuSGtjMLejmzFSUpvXveHAXC4cdcLS8A211Yr217BFEgEb04Vt97TeXZx3dzMOyot
-	JDYmuty+/Fdd8vhj1qTbwVvd9bVAg8mzvDWCLah7dSp0AL1kCnTWnKFnQx6yWgyqJADCPJEcUKKP3
-	K8em4hTd7b/br2OXH/B0eK1M0J60fn+gchKv9eAYU2IexZ3H5KBxd05L6GNTpMr9ehWGcRH6M2TjU
-	bdbencKA==;
+	bh=HoaxUUesxT16IxkWKlQ4cTvmjb5oxvhm94yoZZz1rAw=; b=ewlzxIWk0DP1HB0JS6Rjlj1VqU
+	+kAMqkzUZg1gsS6q7cezaKuDtby//BdSD8YHAWGy7NHNIpPCdVvXZfkhCj5Z+zVnhX6+4gYUe3FVp
+	FlyaHKW1NTQRQnRGejxVAshtRgU/nMetM/pJrdDeim26TtxmmmxckKBtf79/g7zaIjYxYWD3xfIf8
+	jghyYjxb7b+VVtYdwal4j9Ny3mE4rDpwqWc1ILDyx9tG+IYePlzOF0aYl4RtJOnE5wNu3VOfZUO26
+	geMDyIxnLNyj1yQ7E5jsLoe4MoJRcljL9RqYbCuMBiifrepbu8x5WMn+mRhDro6faedl09MZywFzQ
+	BkqYwCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bN6-000000068sg-2RBH;
-	Sat, 26 Oct 2024 07:38:04 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1t4bOd-0000000692h-3uj6;
+	Sat, 26 Oct 2024 07:39:39 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bAW-000000066se-2Die
+	id 1t4bAU-000000066sf-2RDz
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 26 Oct 2024 07:25:07 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XbB3H5YZlz20qbD;
-	Sat, 26 Oct 2024 15:23:55 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XbB1Q41yCzdkKQ;
+	Sat, 26 Oct 2024 15:22:18 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9AA8114010D;
+	by mail.maildlp.com (Postfix) with ESMTPS id 3696D1800CF;
 	Sat, 26 Oct 2024 15:24:50 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Sat, 26 Oct 2024 15:24:50 +0800
+ 15.2.1258.34; Sat, 26 Oct 2024 15:24:49 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v3 2/8] drivers/perf: hisi: Improve the detection of associated CPUs
-Date: Sat, 26 Oct 2024 15:24:18 +0800
-Message-ID: <20241026072424.29887-3-yangyicong@huawei.com>
+Subject: [PATCH v3 1/8] drivers/perf: hisi: Define a symbol namespace for HiSilicon Uncore PMUs
+Date: Sat, 26 Oct 2024 15:24:17 +0800
+Message-ID: <20241026072424.29887-2-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241026072424.29887-1-yangyicong@huawei.com>
 References: <20241026072424.29887-1-yangyicong@huawei.com>
@@ -55,8 +55,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_002505_105304_4CEBFA43 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20241026_002502_992252_395917DF 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,146 +73,272 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Currently the associated CPUs are detected in the cpuhp online
-callback. If the CPU's sccl_id or the ccl_id matches the PMU's,
-they're associated. There's an exception that some PMUs locate
-on the SICL and will match no CPUs. The events of these PMUs
-can be opened on any online CPUs. To handle this we just check
-whether the PMU's sccl_id is -1, if so we know it locates on
-SICL and make any CPU associated to it.
-
-This can be tweaked so in this patch just do the below changes:
-- If the PMU doesn't match any CPU then associated it to online CPUs
-- Choose the target CPU according to the NUMA affinity for opening
-  events
-
-The function is implemented by hisi_pmu_init_associated_cpus() and
-invoked in hisi_pmu_init().
-
-Also the associated_cpus are maintained with all the online CPUs. This
-is redundant since we'll always schedule the events on the online CPUs.
-Get rid of this and make associated_cpus contain offline CPUs as well.
+The HiSilicon Uncore PMU framework implements some common functions
+and exported them to the drivers. Use a specific HISI_PMU namespace
+for the exported symbols to avoid pollute the generic ones.
 
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_pmu.c | 56 +++++++++++++++++++-----
- drivers/perf/hisilicon/hisi_uncore_pmu.h |  5 +++
- 2 files changed, 49 insertions(+), 12 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  |  1 +
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c |  1 +
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |  1 +
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  1 +
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |  1 +
+ drivers/perf/hisilicon/hisi_uncore_pmu.c      | 36 +++++++++----------
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c |  1 +
+ drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   |  1 +
+ 8 files changed, 25 insertions(+), 18 deletions(-)
 
+diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
+index 0e923f94fa5b..710c1f92fef6 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
+@@ -389,6 +389,7 @@ static void __exit hisi_cpa_pmu_module_exit(void)
+ }
+ module_exit(hisi_cpa_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SoC CPA PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Qi Liu <liuqi115@huawei.com>");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
+index b804e3738113..56f15e9775bd 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
+@@ -579,6 +579,7 @@ static void __exit hisi_ddrc_pmu_module_exit(void)
+ }
+ module_exit(hisi_ddrc_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SoC DDRC uncore PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
+index 21e69b1cdd4d..81804fe873bf 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
+@@ -581,6 +581,7 @@ static void __exit hisi_hha_pmu_module_exit(void)
+ }
+ module_exit(hisi_hha_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SoC HHA uncore PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+index 51ba76871097..cb559789861a 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+@@ -615,6 +615,7 @@ static void __exit hisi_l3c_pmu_module_exit(void)
+ }
+ module_exit(hisi_l3c_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SoC L3C uncore PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Anurup M <anurup.m@huawei.com>");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
+index 3cdb35c741f9..8d29c87980e4 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
+@@ -569,6 +569,7 @@ static void __exit hisi_pa_pmu_module_exit(void)
+ }
+ module_exit(hisi_pa_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon Protocol Adapter uncore PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
 diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index 416f72a813fc..c3549e16e0c3 100644
+index 918cdc31de57..416f72a813fc 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -399,6 +399,27 @@ void hisi_uncore_pmu_disable(struct pmu *pmu)
- }
- EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_disable, HISI_PMU);
+@@ -34,7 +34,7 @@ ssize_t hisi_event_sysfs_show(struct device *dev,
  
-+static void hisi_pmu_init_associated_cpus(struct hisi_pmu *hisi_pmu)
-+{
-+	/*
-+	 * If the associated_cpus has already been initialized, for example
-+	 * determined by comparing the sccl_id and ccl_id with the CPU's
-+	 * mpidr_el1, then do nothing here. Otherwise the PMU has no affinity
-+	 * and could be opened on any online CPU.
-+	 */
-+	if (!cpumask_empty(&hisi_pmu->associated_cpus))
-+		return;
-+
-+	cpumask_copy(&hisi_pmu->associated_cpus, cpu_online_mask);
-+	hisi_pmu->dummy_associated_cpus = true;
-+
-+	/*
-+	 * Otherwise the associated CPUs haven't been online yet. Pick a
-+	 * nearest CPU according to the PMU's numa node instead.
-+	 */
-+	hisi_pmu->on_cpu = cpumask_local_spread(0, dev_to_node(hisi_pmu->dev));
-+	WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(hisi_pmu->on_cpu)));
-+}
+ 	return sysfs_emit(page, "config=0x%lx\n", (unsigned long)eattr->var);
+ }
+-EXPORT_SYMBOL_GPL(hisi_event_sysfs_show);
++EXPORT_SYMBOL_NS_GPL(hisi_event_sysfs_show, HISI_PMU);
  
  /*
-  * The Super CPU Cluster (SCCL) and CPU Cluster (CCL) IDs can be
-@@ -446,10 +467,6 @@ static bool hisi_pmu_cpu_is_associated_pmu(struct hisi_pmu *hisi_pmu)
+  * sysfs cpumask attributes. For uncore PMU, we only have a single CPU to show
+@@ -46,7 +46,7 @@ ssize_t hisi_cpumask_sysfs_show(struct device *dev,
+ 
+ 	return sysfs_emit(buf, "%d\n", hisi_pmu->on_cpu);
+ }
+-EXPORT_SYMBOL_GPL(hisi_cpumask_sysfs_show);
++EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
+ 
+ static bool hisi_validate_event_group(struct perf_event *event)
  {
- 	int sccl_id, ccl_id;
+@@ -96,7 +96,7 @@ int hisi_uncore_pmu_get_event_idx(struct perf_event *event)
  
--	/* If SCCL_ID is -1, the PMU is in a SICL and has no CPU affinity */
--	if (hisi_pmu->sccl_id == -1)
--		return true;
--
- 	if (hisi_pmu->ccl_id == -1) {
- 		/* If CCL_ID is -1, the PMU only shares the same SCCL */
- 		hisi_read_sccl_and_ccl_id(&sccl_id, NULL);
-@@ -467,13 +484,29 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
- 	struct hisi_pmu *hisi_pmu = hlist_entry_safe(node, struct hisi_pmu,
- 						     node);
+ 	return idx;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_get_event_idx);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_get_event_idx, HISI_PMU);
  
--	if (!hisi_pmu_cpu_is_associated_pmu(hisi_pmu))
--		return 0;
-+	/*
-+	 * If the CPU is not in the associated_cpus, it maybe a new CPU.
-+	 * Test whether it's associated or not.
-+	 */
-+	if (!cpumask_test_cpu(cpu, &hisi_pmu->associated_cpus)) {
-+		if (!hisi_pmu_cpu_is_associated_pmu(hisi_pmu))
-+			return 0;
-+
-+		/*
-+		 * We found an associated CPU so we don't need to use the dummy
-+		 * associated CPUs. Update it.
-+		 */
-+		if (hisi_pmu->dummy_associated_cpus) {
-+			cpumask_clear(&hisi_pmu->associated_cpus);
-+			hisi_pmu->dummy_associated_cpus = false;
-+		}
+ ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
+ 					     struct device_attribute *attr,
+@@ -106,7 +106,7 @@ ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
  
--	cpumask_set_cpu(cpu, &hisi_pmu->associated_cpus);
-+		cpumask_set_cpu(cpu, &hisi_pmu->associated_cpus);
-+	}
+ 	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_identifier_attr_show);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
  
--	/* If another CPU is already managing this PMU, simply return. */
--	if (hisi_pmu->on_cpu != -1)
-+	/* If another associated CPU is already managing this PMU, simply return. */
-+	if (hisi_pmu->on_cpu != -1 &&
-+	    cpumask_test_cpu(hisi_pmu->on_cpu, &hisi_pmu->associated_cpus))
- 		return 0;
- 
- 	/* Use this CPU in cpumask for event counting */
-@@ -492,9 +525,6 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
- 						     node);
- 	unsigned int target;
- 
--	if (!cpumask_test_and_clear_cpu(cpu, &hisi_pmu->associated_cpus))
--		return 0;
--
- 	/* Nothing to do if this CPU doesn't own the PMU */
- 	if (hisi_pmu->on_cpu != cpu)
- 		return 0;
-@@ -521,6 +551,8 @@ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
+ static void hisi_uncore_pmu_clear_event_idx(struct hisi_pmu *hisi_pmu, int idx)
  {
- 	struct pmu *pmu = &hisi_pmu->pmu;
+@@ -165,7 +165,7 @@ int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
  
-+	hisi_pmu_init_associated_cpus(hisi_pmu);
-+
- 	pmu->module             = module;
- 	pmu->parent             = hisi_pmu->dev;
- 	pmu->task_ctx_nr        = perf_invalid_context;
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-index 25b2d43b72bf..0e2f844b5fd9 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-@@ -89,6 +89,11 @@ struct hisi_pmu {
- 	struct hisi_pmu_hwevents pmu_events;
- 	/* associated_cpus: All CPUs associated with the PMU */
- 	cpumask_t associated_cpus;
-+	/*
-+	 * If the real associated CPUs not onlined by the time initializing,
-+	 * we'll initialize with online CPUs and indicate it.
-+	 */
-+	bool dummy_associated_cpus;
- 	/* CPU used for counting */
- 	int on_cpu;
- 	int irq;
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_init_irq);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_init_irq, HISI_PMU);
+ 
+ int hisi_uncore_pmu_event_init(struct perf_event *event)
+ {
+@@ -219,7 +219,7 @@ int hisi_uncore_pmu_event_init(struct perf_event *event)
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_event_init);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_event_init, HISI_PMU);
+ 
+ /*
+  * Set the counter to count the event that we're interested in,
+@@ -273,7 +273,7 @@ void hisi_uncore_pmu_set_event_period(struct perf_event *event)
+ 	/* Write start value to the hardware event counter */
+ 	hisi_pmu->ops->write_counter(hisi_pmu, hwc, val);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_set_event_period);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_set_event_period, HISI_PMU);
+ 
+ void hisi_uncore_pmu_event_update(struct perf_event *event)
+ {
+@@ -294,7 +294,7 @@ void hisi_uncore_pmu_event_update(struct perf_event *event)
+ 		HISI_MAX_PERIOD(hisi_pmu->counter_bits);
+ 	local64_add(delta, &event->count);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_event_update);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_event_update, HISI_PMU);
+ 
+ void hisi_uncore_pmu_start(struct perf_event *event, int flags)
+ {
+@@ -317,7 +317,7 @@ void hisi_uncore_pmu_start(struct perf_event *event, int flags)
+ 	hisi_uncore_pmu_enable_event(event);
+ 	perf_event_update_userpage(event);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_start);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_start, HISI_PMU);
+ 
+ void hisi_uncore_pmu_stop(struct perf_event *event, int flags)
+ {
+@@ -334,7 +334,7 @@ void hisi_uncore_pmu_stop(struct perf_event *event, int flags)
+ 	hisi_uncore_pmu_event_update(event);
+ 	hwc->state |= PERF_HES_UPTODATE;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_stop);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_stop, HISI_PMU);
+ 
+ int hisi_uncore_pmu_add(struct perf_event *event, int flags)
+ {
+@@ -357,7 +357,7 @@ int hisi_uncore_pmu_add(struct perf_event *event, int flags)
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_add);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_add, HISI_PMU);
+ 
+ void hisi_uncore_pmu_del(struct perf_event *event, int flags)
+ {
+@@ -369,14 +369,14 @@ void hisi_uncore_pmu_del(struct perf_event *event, int flags)
+ 	perf_event_update_userpage(event);
+ 	hisi_pmu->pmu_events.hw_events[hwc->idx] = NULL;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_del);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_del, HISI_PMU);
+ 
+ void hisi_uncore_pmu_read(struct perf_event *event)
+ {
+ 	/* Read hardware counter and update the perf counter statistics */
+ 	hisi_uncore_pmu_event_update(event);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_read);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_read, HISI_PMU);
+ 
+ void hisi_uncore_pmu_enable(struct pmu *pmu)
+ {
+@@ -389,7 +389,7 @@ void hisi_uncore_pmu_enable(struct pmu *pmu)
+ 
+ 	hisi_pmu->ops->start_counters(hisi_pmu);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_enable);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_enable, HISI_PMU);
+ 
+ void hisi_uncore_pmu_disable(struct pmu *pmu)
+ {
+@@ -397,7 +397,7 @@ void hisi_uncore_pmu_disable(struct pmu *pmu)
+ 
+ 	hisi_pmu->ops->stop_counters(hisi_pmu);
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_disable);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_disable, HISI_PMU);
+ 
+ 
+ /*
+@@ -484,7 +484,7 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_online_cpu);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_online_cpu, HISI_PMU);
+ 
+ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+@@ -515,7 +515,7 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(hisi_uncore_pmu_offline_cpu);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_offline_cpu, HISI_PMU);
+ 
+ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
+ {
+@@ -535,7 +535,7 @@ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
+ 	pmu->attr_groups        = hisi_pmu->pmu_events.attr_groups;
+ 	pmu->capabilities       = PERF_PMU_CAP_NO_EXCLUDE;
+ }
+-EXPORT_SYMBOL_GPL(hisi_pmu_init);
++EXPORT_SYMBOL_NS_GPL(hisi_pmu_init, HISI_PMU);
+ 
+ MODULE_DESCRIPTION("HiSilicon SoC uncore Performance Monitor driver framework");
+ MODULE_LICENSE("GPL v2");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+index 765bbd61db26..d0c2e86c558e 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+@@ -507,6 +507,7 @@ static void __exit hisi_sllc_pmu_module_exit(void)
+ }
+ module_exit(hisi_sllc_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SLLC uncore PMU driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
+index 481dcc9e8fbf..9c724dab6b64 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
+@@ -613,6 +613,7 @@ static void __exit hisi_uc_pmu_module_exit(void)
+ }
+ module_exit(hisi_uc_pmu_module_exit);
+ 
++MODULE_IMPORT_NS(HISI_PMU);
+ MODULE_DESCRIPTION("HiSilicon SoC UC uncore PMU driver");
+ MODULE_LICENSE("GPL");
+ MODULE_AUTHOR("Junhao He <hejunhao3@huawei.com>");
 -- 
 2.24.0
 
