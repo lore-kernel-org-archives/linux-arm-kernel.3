@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD4DD10BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7A1D10BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Oct 2024 07:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mxGL0aSl2NqkbgZ9Kshh0Puh8j8C+ZvBlwJAex/m8Jc=; b=KHCn4tSLbN0u7NN7tkDpTfzCX4
-	Rx4zBxDN7laIwtFZ9Ibz8IP6dc/qsQ6vEwwgwma+b+tmkoovcG96nUOCLhk53Yvo17QbNt2Nszf62
-	dT3Ar5V2gv6+HvdDRJybpu2KuawmBm7AoyvFHSYatTAgpP1klDMlLI8GnwefJHp3EALqR7dxIucRP
-	X1I29yfOIElOCjqweIAvC+iJyklU/Cg/Fz3TwQje4ctqF5p6eYJof0fBGEFYKDGsYQRCFYyx9sgCp
-	GW7BjxqMMTTAmC0WjTDtJXJDUmZhIO8TM8WeiR+xtIcyQ00Bi5dkugMq8gt22kaJGBOqHDXvzz82w
-	ijWnfrzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23jEpBb2+PElaAVJU1sDjDTFty2amcJXMtHFD7BQrEA=; b=t9H75LjSqK3vZ8enN/fiW5lXDV
+	JHQQXcJKh+3hu7PMKGk8SeVB3413N5hFs0HpSZD2IOIkAjC2nIXvJQuGCYxTlxsGi+Bd4f3KX97jV
+	e4K1XPGIG6F3vpgkgkyMcaoLcApTDDY9MAaicQQ4i8GUs4aKc7u8uGwSv4m0i6FsvuvNb8wNSZM2c
+	NvYr44fN7rzBsLmHpKnHJT9wO1y7QCy6DEuU7jy+gaVV/aSIMd6bsHkGwQ55XPrlAuug2ApTEaK/u
+	8zaouvZOXVy2V283jm4l78SKIdF6Z5rN1YkHM5FrAOAdRBF6kmrahjSNBqQDi7RMa2Tln0eohO1sH
+	AS6ZdVaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bQC-000000069Jp-3mFf;
-	Sat, 26 Oct 2024 07:41:16 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1t4bTt-000000069rW-28o4;
+	Sat, 26 Oct 2024 07:45:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4bMR-000000068ln-3e2k;
-	Sat, 26 Oct 2024 07:37:25 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4XbBLl18RYz1ynNn;
-	Sat, 26 Oct 2024 15:37:19 +0800 (CST)
-Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
-	by mail.maildlp.com (Postfix) with ESMTPS id 49B241400D3;
-	Sat, 26 Oct 2024 15:37:11 +0800 (CST)
-Received: from huawei.com (10.67.175.84) by kwepemd200012.china.huawei.com
- (7.221.188.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Sat, 26 Oct
- 2024 15:37:10 +0800
-From: Zicheng Qu <quzicheng@huawei.com>
-To: <neil.armstrong@linaro.org>, <jbrunet@baylibre.com>,
-	<mturquette@baylibre.com>, <sboyd@kernel.org>, <khilman@baylibre.com>,
-	<martin.blumenstingl@googlemail.com>, <linux-amlogic@lists.infradead.org>,
-	<linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <tanghui20@huawei.com>, <zhangqiao22@huawei.com>,
-	<judy.chenhui@huawei.com>, <quzicheng@huawei.com>
-Subject: [PATCH] clk: meson clk-phase: fix division by zero in meson_clk_degrees_to_val()
-Date: Sat, 26 Oct 2024 07:26:24 +0000
-Message-ID: <20241026072624.976199-1-quzicheng@huawei.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.175.84]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemd200012.china.huawei.com (7.221.188.145)
+	id 1t4bSI-000000069j8-3Srg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Oct 2024 07:43:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4ADE6A4043F;
+	Sat, 26 Oct 2024 07:41:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28E13C4CEC7;
+	Sat, 26 Oct 2024 07:43:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1729928605;
+	bh=yfbxVTOdjNWyFdOg0N0IInAkyNx3S7CGOwN19VHJsjA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JQkDBy09B1l/Y5nwDWFidJDsLQb3b/ObeRiKMKPJUDvTDs6VeOAWKV2loLemCB7cW
+	 gM+LhoUUgrMHAha82zGUIeH9KqNbIpduEqqDKQWe0WmCGpqu3COystN60ajC/hHcoy
+	 BUDqKi5+PN79CUAvYWcWZIdtaq2/LhthAaYYLWc3TIQdwGowqWUxkCoqSzZ0Gv8SRt
+	 etFAbXuWp+xB66vKAWEquBbs+vhCE9mRq2qls4x8Ya7L2Nn5XRAx6KvrHQg3HwOTZ5
+	 4GrF+r9Qb127BvdBFWQyfSiCXwH9vxMEPxXwnX5lnfzkKdrTxe4Ml9E3QkWtsWelkS
+	 7q82Q2eVBEhAQ==
+Received: from [81.145.206.43] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t4bSE-0075vH-K3;
+	Sat, 26 Oct 2024 08:43:22 +0100
+Date: Sat, 26 Oct 2024 08:43:21 +0100
+Message-ID: <87ttcztili.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>, Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	stable@vger.kernel.org,
+	syzbot <syzkaller@googlegroups.com>
+Subject: Re: [PATCH] KVM: arm64: Mark the VM as dead for failed initializations
+In-Reply-To: <Zxx_X9-MdmAFzHUO@linux.dev>
+References: <20241025221220.2985227-1-rananta@google.com>
+	<Zxx_X9-MdmAFzHUO@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 81.145.206.43
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, stable@vger.kernel.org, syzkaller@googlegroups.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241026_003724_084366_3B3E9EB2 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241026_004327_023323_D7242CF7 
+X-CRM114-Status: GOOD (  39.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +88,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the meson_clk_phase_set_phase() function, the variable phase->ph.width
-is of type u8, with a range of 0 to 255. When calling
-meson_clk_degrees_to_val with width as an argument, if width > 8,
-phase_step(width) will return 0. Lead to a division by zero error in
-DIV_ROUND_CLOSEST(). The same issue exists in the
-meson_clk_triphase_set_phase() and meson_sclk_ws_inv_set_phase().
+Hi both,
 
-Fixes: 7b70689b07c1 ("clk: meson: add sclk-ws driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Zicheng Qu <quzicheng@huawei.com>
----
- drivers/clk/meson/clk-phase.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On Sat, 26 Oct 2024 06:34:23 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Hi Raghu,
+> 
+> Thanks for posting this fix.
+> 
+> On Fri, Oct 25, 2024 at 10:12:20PM +0000, Raghavendra Rao Ananta wrote:
+> > Syzbot hit the following WARN_ON() in kvm_timer_update_irq():
+> > 
+> > WARNING: CPU: 0 PID: 3281 at arch/arm64/kvm/arch_timer.c:459
+> > kvm_timer_update_irq+0x21c/0x394
+> > Call trace:
+> >   kvm_timer_update_irq+0x21c/0x394 arch/arm64/kvm/arch_timer.c:459
+> >   kvm_timer_vcpu_reset+0x158/0x684 arch/arm64/kvm/arch_timer.c:968
+> >   kvm_reset_vcpu+0x3b4/0x560 arch/arm64/kvm/reset.c:264
+> >   kvm_vcpu_set_target arch/arm64/kvm/arm.c:1553 [inline]
+> >   kvm_arch_vcpu_ioctl_vcpu_init arch/arm64/kvm/arm.c:1573 [inline]
+> >   kvm_arch_vcpu_ioctl+0x112c/0x1b3c arch/arm64/kvm/arm.c:1695
+> >   kvm_vcpu_ioctl+0x4ec/0xf74 virt/kvm/kvm_main.c:4658
+> >   vfs_ioctl fs/ioctl.c:51 [inline]
+> >   __do_sys_ioctl fs/ioctl.c:907 [inline]
+> >   __se_sys_ioctl fs/ioctl.c:893 [inline]
+> >   __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
+> >   __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+> >   invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
+> >   el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
+> >   do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
+> >   el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
+> >   el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
+> >   el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
+> > 
+> > The sequence that led to the report is when KVM_ARM_VCPU_INIT ioctl is
+> > invoked after a failed first KVM_RUN. In a general sense though, since
+> > kvm_arch_vcpu_run_pid_change() doesn't tear down any of the past
+> > initiatializations, it's possible that the VM's state could be left
+> 
+> typo: initializations
+> 
+> > half-baked. Any upcoming ioctls could behave erroneously because of
+> > this.
+> 
+> You may want to highlight a bit more strongly that, despite the name,
+> we do a lot of late *VM* state initialization in kvm_arch_vcpu_run_pid_change().
+> 
+> When that goes sideways we're left with few choices besides bugging the
+> VM or gracefully tearing down state, potentially w/ concurrent users.
+> 
+> > Since these late vCPU initializations is past the point of attributing
+> > the failures to any ioctl, instead of tearing down each of the previous
+> > setups, simply mark the VM as dead, gving an opportunity for the
+> > userspace to close and try again.
+> > 
+> > Cc: <stable@vger.kernel.org>
+> > Reported-by: syzbot <syzkaller@googlegroups.com>
+> > Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+> 
+> I definitely recommended this to you, so blame *me* for imposing some
+> toil on you with the following.
+> 
+> > @@ -836,16 +836,16 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+> >  
+> >  	ret = kvm_timer_enable(vcpu);
+> >  	if (ret)
+> > -		return ret;
+> > +		goto out_err;
+> >  
+> >  	ret = kvm_arm_pmu_v3_enable(vcpu);
+> >  	if (ret)
+> > -		return ret;
+> > +		goto out_err;
+> >  
+> >  	if (is_protected_kvm_enabled()) {
+> >  		ret = pkvm_create_hyp_vm(kvm);
+> >  		if (ret)
+> > -			return ret;
+> > +			goto out_err;
+> >  	}
+> >  
+> >  	if (!irqchip_in_kernel(kvm)) {
+> > @@ -869,6 +869,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+> >  	mutex_unlock(&kvm->arch.config_lock);
+> >  
+> >  	return ret;
+> > +
+> > +out_err:
+> > +	kvm_vm_dead(kvm);
+> > +	return ret;
+> >  }
+> 
+> After rereading, I think we could benefit from a more distinct separation
+> of late VM vs. vCPU state initialization.
+> 
+> Bugging the VM is a big hammer, we should probably only resort to that
+> when the VM state is screwed up badly.
+>
+> Otherwise, for screwed up vCPU state we could uninitialize the vCPU and
+> let userspace try again. An example of this is how we deal with VMs that
+> run 32 bit userspace when KVM tries to hide the feature.
 
-diff --git a/drivers/clk/meson/clk-phase.c b/drivers/clk/meson/clk-phase.c
-index c1526fbfb6c4..b88d59b7a90d 100644
---- a/drivers/clk/meson/clk-phase.c
-+++ b/drivers/clk/meson/clk-phase.c
-@@ -51,6 +51,9 @@ static int meson_clk_phase_set_phase(struct clk_hw *hw, int degrees)
- 	struct meson_clk_phase_data *phase = meson_clk_phase_data(clk);
- 	unsigned int val;
+I tend to agree. We shouldn't make a misconfiguration fatal unless we
+know for sure that the state is not recoverable (such as a screwed up
+memory map).
+
+When it comes to this particular issue, I wonder why the (maybe overly
+simplistic) hack below isn't enough. The userspace_irqchip_in_use
+static key brings more problems than it is worth it, and the feature
+is mostly nonsense anyway.
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index bf64fed9820e..c315bc1a4e9a 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -74,8 +74,6 @@ enum kvm_mode kvm_get_mode(void);
+ static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
+ #endif
  
-+	if (phase->ph.width > 8)
-+		return -EINVAL;
-+
- 	val = meson_clk_degrees_to_val(degrees, phase->ph.width);
- 	meson_parm_write(clk->map, &phase->ph, val);
+-DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
+-
+ extern unsigned int __ro_after_init kvm_sve_max_vl;
+ extern unsigned int __ro_after_init kvm_host_sve_max_vl;
+ int __init kvm_arm_init_sve(void);
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 879982b1cc73..1215df590418 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -206,8 +206,7 @@ void get_timer_map(struct kvm_vcpu *vcpu, struct timer_map *map)
  
-@@ -110,6 +113,9 @@ static int meson_clk_triphase_set_phase(struct clk_hw *hw, int degrees)
- 	struct meson_clk_triphase_data *tph = meson_clk_triphase_data(clk);
- 	unsigned int val;
+ static inline bool userspace_irqchip(struct kvm *kvm)
+ {
+-	return static_branch_unlikely(&userspace_irqchip_in_use) &&
+-		unlikely(!irqchip_in_kernel(kvm));
++	return unlikely(!irqchip_in_kernel(kvm));
+ }
  
-+	if (tph->ph0.width > 8)
-+		return -EINVAL;
-+
- 	val = meson_clk_degrees_to_val(degrees, tph->ph0.width);
- 	meson_parm_write(clk->map, &tph->ph0, val);
- 	meson_parm_write(clk->map, &tph->ph1, val);
-@@ -167,6 +173,9 @@ static int meson_sclk_ws_inv_set_phase(struct clk_hw *hw, int degrees)
- 	struct meson_sclk_ws_inv_data *tph = meson_sclk_ws_inv_data(clk);
- 	unsigned int val;
+ static void soft_timer_start(struct hrtimer *hrt, u64 ns)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 48cafb65d6ac..70ff9a20ef3a 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -69,7 +69,6 @@ DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+ static bool vgic_present, kvm_arm_initialised;
  
-+	if (tph->ph.width > 8)
-+		return -EINVAL;
-+
- 	val = meson_clk_degrees_to_val(degrees, tph->ph.width);
- 	meson_parm_write(clk->map, &tph->ph, val);
- 	meson_parm_write(clk->map, &tph->ws, val ? 0 : 1);
+ static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
+-DEFINE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
+ 
+ bool is_kvm_arm_initialised(void)
+ {
+@@ -503,9 +502,6 @@ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+ 
+ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+ {
+-	if (vcpu_has_run_once(vcpu) && unlikely(!irqchip_in_kernel(vcpu->kvm)))
+-		static_branch_dec(&userspace_irqchip_in_use);
+-
+ 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
+ 	kvm_timer_vcpu_terminate(vcpu);
+ 	kvm_pmu_vcpu_destroy(vcpu);
+@@ -848,14 +844,6 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+ 			return ret;
+ 	}
+ 
+-	if (!irqchip_in_kernel(kvm)) {
+-		/*
+-		 * Tell the rest of the code that there are userspace irqchip
+-		 * VMs in the wild.
+-		 */
+-		static_branch_inc(&userspace_irqchip_in_use);
+-	}
+-
+ 	/*
+ 	 * Initialize traps for protected VMs.
+ 	 * NOTE: Move to run in EL2 directly, rather than via a hypercall, once
+@@ -1077,7 +1065,7 @@ static bool kvm_vcpu_exit_request(struct kvm_vcpu *vcpu, int *ret)
+ 	 * state gets updated in kvm_timer_update_run and
+ 	 * kvm_pmu_update_run below).
+ 	 */
+-	if (static_branch_unlikely(&userspace_irqchip_in_use)) {
++	if (unlikely(!irqchip_in_kernel(vcpu->kvm))) {
+ 		if (kvm_timer_should_notify_user(vcpu) ||
+ 		    kvm_pmu_should_notify_user(vcpu)) {
+ 			*ret = -EINTR;
+@@ -1199,7 +1187,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 			vcpu->mode = OUTSIDE_GUEST_MODE;
+ 			isb(); /* Ensure work in x_flush_hwstate is committed */
+ 			kvm_pmu_sync_hwstate(vcpu);
+-			if (static_branch_unlikely(&userspace_irqchip_in_use))
++			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 				kvm_timer_sync_user(vcpu);
+ 			kvm_vgic_sync_hwstate(vcpu);
+ 			local_irq_enable();
+@@ -1245,7 +1233,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		 * we don't want vtimer interrupts to race with syncing the
+ 		 * timer virtual interrupt state.
+ 		 */
+-		if (static_branch_unlikely(&userspace_irqchip_in_use))
++		if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 			kvm_timer_sync_user(vcpu);
+ 
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+
+I think this would fix the problem you're seeing without changing the
+userspace view of an erroneous configuration. It would also pave the
+way for the complete removal of the interrupt notification to
+userspace, which I claim has no user and is just a shit idea.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
