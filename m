@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D1CD13582
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49220D13582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLTmMIJID3AGFwWG59EcP60iKJtkbZG1LGkHeuiSGE4=; b=DmaUUo/OjnLXRUsTiRHMO1WRkL
-	P+tk5Fj4edO84UJ5FmD11rEeTbP2HzWF6HyaAIQf9Tv4JM9NKhXvFJXbkrqrVNkzQwkmjyve9TFDP
-	3eq7VQa/XRn9dVveLydpcK28M6QFfQ1SiXDVlKPbuyluZ3wrGADV2WSZVrVB35inHE0/wDDhRcGUI
-	+agPjsp22J51pwulUsx1WAXk9tbfOh0VOtErX3a1i0lD4Pj3elibUJ324XmuUBDph11WcjmfL2QfM
-	eNpi+RyOIyyEGrbftZRtKnBt4fw2TNQa+Cubp0ljDiZIhNF0qcOOjMuGLin7gquwLrQxcajoZJ05v
-	ppWzSlTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NEcowf8ktgEkgBPoby7LiT4jMh5oe7jA08lyqHKait8=; b=GrPjsaMjAMm4ZslwnkRT5YhfBJ
+	g12Wdmfa+PYHnOkur3Eu37pnjgpwfWnKGTAu2ZKVH7Jz2lJjq92NK+H/4s6K9iZ1WQ/ZTdRJBJcTx
+	AZR6eCx6ChkjFCZoSjxFimNXZFOxNvqhIvhyJQ7gKpv5rENi2+noupjw5kWPtF1BedN6lw8n0cgXE
+	ZNtXOiDugoHL1A9MxJhvuliYsCTNsHpygA+GlhTkTYqYPS8/Q/Vlb1FmoRQg3ZJW+mWxA8OslXv6N
+	Cu9VgD1o3miIUGgRPM5JV0IuRgGFIYtcwofgub6oMeDhjEqFJFVQGHnr9reAUGD6aDrwFQkb3J+Ox
+	dRXZc5WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59dk-00000008oNo-2njC;
-	Sun, 27 Oct 2024 20:13:32 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1t59fI-00000008oWe-28Dd;
+	Sun, 27 Oct 2024 20:15:09 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59TP-00000008n9e-2ms0
+	id 1t59W4-00000008nTx-1ock
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 20:02:53 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4315ce4d250so4229315e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 13:02:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730059370; x=1730664170; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kLTmMIJID3AGFwWG59EcP60iKJtkbZG1LGkHeuiSGE4=;
-        b=PpWbe8xPllABWQL0k2YLKECPpcKE69vgq0ROJX9GQsDr/Nq4YiM3Es4s3vqlSNxxvc
-         E9XGI/r8D2ShZUbKpgNsHWAeAMaIQmgieWSwiSbKnnVQKlxsNXJ5j6xZcBu0tdAV//4S
-         1Z5wJS0MmviTO2lXK9jbjVDTJqbHIsu3Xgl3iTJ/80BqFp6G7y9Bk1sTDfbWF9xFCPLR
-         giK10JwDH8tXvGODsm9x/MQXvQZtjO4RvAPffOYufOLK6XQcN/SyfWoL9+5gz3/gpTC2
-         KY+AK5UbCODKNiP+s/wQfibwCNxDBm9sjX3QIw7/3Orn4MfFY4r/wk6gMUOrzXpOZuvS
-         WeKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730059370; x=1730664170;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kLTmMIJID3AGFwWG59EcP60iKJtkbZG1LGkHeuiSGE4=;
-        b=FrGRXzI4ojdSrIXgQYq6cpHFMIHYnb851asCQmJ0oW+3ZiEBDJThtgcFco8xsZHrk2
-         JVEIwrENSNmPuAjOwIf+ZC8a0EJAHlVVZ53jqm8TIBqOkJQWRLrYUPNJ1igjjjl+CaTH
-         QPKDmTlYMR/h8NUKZQ+u6vGydjo8NVTJqso8+GnCqzt4DaF7exFnPrkD8RfQbYqJbZG2
-         0yga0lRd7vWFR6qSckIbIXcXeIhVwfkJlk030pRM2ngyf9rchY9xm2JBP3DlQNEENn93
-         /U97RcNf+er/woDDnwWFP5gFxsl/GLDmxIM2JNhgISTCPkfkuGd/LwipBKAPLC6jw/E6
-         pLKA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcNxwF/4CpRDLr1uA3EslqI3/bltrHIa7I5UMZn7ShDoSbXeWkE7McL6CTbYxHUYqir0zUYdKt1bZSgU/OZLZW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU2z1N+bhvYwhCVRvG1bjt8FDsnczvgK+C+cN92nuvagP6TjiX
-	fYra0GcgV+H24kchummFiwYvVU0MuwZGo3ckUtYXyNBG/HYx+6YlOJooL0I6w2s=
-X-Google-Smtp-Source: AGHT+IGFy5ReZ4pQxsghQ3Q5SAkMg3xbszhbMlXqP7CNsuS41wn845lvrqrdk2cF6zHoSJqbcmaS0Q==
-X-Received: by 2002:a05:600c:35ca:b0:42c:bfd6:9d2f with SMTP id 5b1f17b1804b1-4319ac6f88amr19362195e9.1.1730059370093;
-        Sun, 27 Oct 2024 13:02:50 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.211.167])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b70d50sm7526833f8f.76.2024.10.27.13.02.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Oct 2024 13:02:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Markuss Broks <markuss.broks@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Maksym Holovach <nergzd@nergzd723.xyz>
-In-Reply-To: <20241026-exynos9810-v3-3-b89de9441ea8@gmail.com>
-References: <20241026-exynos9810-v3-0-b89de9441ea8@gmail.com>
- <20241026-exynos9810-v3-3-b89de9441ea8@gmail.com>
-Subject: Re: (subset) [PATCH v3 03/10] dt-bindings: pinctrl: samsung: Add
- compatible for Exynos9810 SoC
-Message-Id: <173005936806.12757.10682268420257045105.b4-ty@linaro.org>
-Date: Sun, 27 Oct 2024 21:02:48 +0100
+	Sun, 27 Oct 2024 20:05:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730059537; x=1761595537;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oqFW2VxOVGvgIGKy5VVtVslqsTTBny7YWCNT4mqdRxQ=;
+  b=Tv7OvAdVjrcgmzCLakrZ/GCDn7IWY6C+TlP+2W5kCfJftvTJZ7xBHLtf
+   Fbzo4u+22viXCIvcWYZDJ7SS4HtnnHX1r1Ndi6b8CZgpc3mfxRiQxALcD
+   m7GprI8qamPBNQD96aoU+iLQn3DMJPNGXd+aZhTtzEcOmVWPxAnbvdTco
+   q2WUV+IID3zusqcBjuTTV8kBI986azxmXwO5NvGK/7YP0ZcSVR/Z90EjZ
+   vb18sKqXz9f8/3zVRYBZWhhd4JbFxxdKHPOYnJOOEim/ftI/5zx6zObqS
+   tEPW1/DVkTtTkRzgBoZKasnqdzwbV8L0KfPBqa9gbRFiEWQCcm7zxPj5A
+   g==;
+X-CSE-ConnectionGUID: F28dDNfKT0yDPybgkLKTBA==
+X-CSE-MsgGUID: bbJGUuUvRuSHvDtXJpXdbw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11238"; a="32521616"
+X-IronPort-AV: E=Sophos;i="6.11,237,1725346800"; 
+   d="scan'208";a="32521616"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2024 13:05:33 -0700
+X-CSE-ConnectionGUID: unMkF5qyQOuoKxpmhf3UUw==
+X-CSE-MsgGUID: veCkSTGiRiOyHz/WmDKz1g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,237,1725346800"; 
+   d="scan'208";a="104745381"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 27 Oct 2024 13:05:30 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t59Vw-000ax6-16;
+	Sun, 27 Oct 2024 20:05:28 +0000
+Date: Mon, 28 Oct 2024 04:05:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Mesih Kilinc <mesihkilinc@gmail.com>,
+	=?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
+	Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: Re: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
+Message-ID: <202410280330.S1S4TKbz-lkp@intel.com>
+References: <20241027091440.1913863-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241027091440.1913863-2-csokas.bence@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_130251_739300_61EF9EA1 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241027_130536_556321_51B45447 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,21 +93,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Bence,
 
-On Sat, 26 Oct 2024 23:32:34 +0300, Markuss Broks wrote:
-> Add a compatible for Samsung Exynos9810 pinctrl block to the schema.
-> Exynos9810 has 9 total pin banks and it's similar to other Samsung
-> SoC pinctrl blocks.
-> 
-> 
+kernel test robot noticed the following build errors:
 
-Applied, thanks!
+[auto build test ERROR on sunxi/sunxi/for-next]
+[also build test ERROR on vkoul-dmaengine/next broonie-sound/for-next arm64/for-next/core clk/clk-next kvmarm/next rockchip/for-next shawnguo/for-next soc/for-next arm/for-next arm/fixes linus/master v6.12-rc4 next-20241025]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[03/10] dt-bindings: pinctrl: samsung: Add compatible for Exynos9810 SoC
-        https://git.kernel.org/pinctrl/samsung/c/47c3309d58b5e6fd3fc425253491c1ce014538c0
+url:    https://github.com/intel-lab-lkp/linux/commits/Cs-k-s-Bence/dma-engine-sun4i-Add-has_reset-option-to-quirk/20241027-172307
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20241027091440.1913863-2-csokas.bence%40prolan.hu
+patch subject: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
+config: arm-sunxi_defconfig (https://download.01.org/0day-ci/archive/20241028/202410280330.S1S4TKbz-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241028/202410280330.S1S4TKbz-lkp@intel.com/reproduce)
 
-Best regards,
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410280330.S1S4TKbz-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/dma/sun4i-dma.c: In function 'sun4i_dma_probe':
+>> drivers/dma/sun4i-dma.c:1225:51: error: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
+    1225 |                         dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+         |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                                   |
+         |                                                   char *
+   In file included from include/linux/device.h:15,
+                    from include/linux/dma-mapping.h:8,
+                    from drivers/dma/sun4i-dma.c:10:
+   include/linux/dev_printk.h:278:64: note: expected 'int' but argument is of type 'char *'
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                                                            ~~~~^~~
+   drivers/dma/sun4i-dma.c:1225:25: error: too few arguments to function 'dev_err_probe'
+    1225 |                         dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+         |                         ^~~~~~~~~~~~~
+   include/linux/dev_printk.h:278:20: note: declared here
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                    ^~~~~~~~~~~~~
+
+
+vim +/dev_err_probe +1225 drivers/dma/sun4i-dma.c
+
+  1193	
+  1194	static int sun4i_dma_probe(struct platform_device *pdev)
+  1195	{
+  1196		struct sun4i_dma_dev *priv;
+  1197		int i, j, ret;
+  1198	
+  1199		priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+  1200		if (!priv)
+  1201			return -ENOMEM;
+  1202	
+  1203		priv->cfg = of_device_get_match_data(&pdev->dev);
+  1204		if (!priv->cfg)
+  1205			return -ENODEV;
+  1206	
+  1207		priv->base = devm_platform_ioremap_resource(pdev, 0);
+  1208		if (IS_ERR(priv->base))
+  1209			return PTR_ERR(priv->base);
+  1210	
+  1211		priv->irq = platform_get_irq(pdev, 0);
+  1212		if (priv->irq < 0)
+  1213			return priv->irq;
+  1214	
+  1215		priv->clk = devm_clk_get(&pdev->dev, NULL);
+  1216		if (IS_ERR(priv->clk)) {
+  1217			dev_err(&pdev->dev, "No clock specified\n");
+  1218			return PTR_ERR(priv->clk);
+  1219		}
+  1220	
+  1221		if (priv->cfg->has_reset) {
+  1222			priv->rst = devm_reset_control_get_exclusive(&pdev->dev,
+  1223								     NULL);
+  1224			if (IS_ERR(priv->rst)) {
+> 1225				dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+  1226				return PTR_ERR(priv->rst);
+  1227			}
+  1228		}
+  1229	
+  1230		platform_set_drvdata(pdev, priv);
+  1231		spin_lock_init(&priv->lock);
+  1232	
+  1233		dma_set_max_seg_size(&pdev->dev, SUN4I_DMA_MAX_SEG_SIZE);
+  1234	
+  1235		dma_cap_zero(priv->slave.cap_mask);
+  1236		dma_cap_set(DMA_PRIVATE, priv->slave.cap_mask);
+  1237		dma_cap_set(DMA_MEMCPY, priv->slave.cap_mask);
+  1238		dma_cap_set(DMA_CYCLIC, priv->slave.cap_mask);
+  1239		dma_cap_set(DMA_SLAVE, priv->slave.cap_mask);
+  1240	
+  1241		INIT_LIST_HEAD(&priv->slave.channels);
+  1242		priv->slave.device_free_chan_resources	= sun4i_dma_free_chan_resources;
+  1243		priv->slave.device_tx_status		= sun4i_dma_tx_status;
+  1244		priv->slave.device_issue_pending	= sun4i_dma_issue_pending;
+  1245		priv->slave.device_prep_slave_sg	= sun4i_dma_prep_slave_sg;
+  1246		priv->slave.device_prep_dma_memcpy	= sun4i_dma_prep_dma_memcpy;
+  1247		priv->slave.device_prep_dma_cyclic	= sun4i_dma_prep_dma_cyclic;
+  1248		priv->slave.device_config		= sun4i_dma_config;
+  1249		priv->slave.device_terminate_all	= sun4i_dma_terminate_all;
+  1250		priv->slave.copy_align			= 2;
+  1251		priv->slave.src_addr_widths		= BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+  1252							  BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+  1253							  BIT(DMA_SLAVE_BUSWIDTH_4_BYTES);
+  1254		priv->slave.dst_addr_widths		= BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+  1255							  BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+  1256							  BIT(DMA_SLAVE_BUSWIDTH_4_BYTES);
+  1257		priv->slave.directions			= BIT(DMA_DEV_TO_MEM) |
+  1258							  BIT(DMA_MEM_TO_DEV);
+  1259		priv->slave.residue_granularity		= DMA_RESIDUE_GRANULARITY_BURST;
+  1260	
+  1261		priv->slave.dev = &pdev->dev;
+  1262	
+  1263		priv->pchans = devm_kcalloc(&pdev->dev, priv->cfg->dma_nr_max_channels,
+  1264					    sizeof(struct sun4i_dma_pchan), GFP_KERNEL);
+  1265		priv->vchans = devm_kcalloc(&pdev->dev, SUN4I_DMA_NR_MAX_VCHANS,
+  1266					    sizeof(struct sun4i_dma_vchan), GFP_KERNEL);
+  1267		priv->pchans_used = devm_kcalloc(&pdev->dev,
+  1268						 BITS_TO_LONGS(priv->cfg->dma_nr_max_channels),
+  1269						 sizeof(unsigned long), GFP_KERNEL);
+  1270		if (!priv->vchans || !priv->pchans || !priv->pchans_used)
+  1271			return -ENOMEM;
+  1272	
+  1273		/*
+  1274		 * [0..priv->cfg->ndma_nr_max_channels) are normal pchans, and
+  1275		 * [priv->cfg->ndma_nr_max_channels..priv->cfg->dma_nr_max_channels) are
+  1276		 * dedicated ones
+  1277		 */
+  1278		for (i = 0; i < priv->cfg->ndma_nr_max_channels; i++)
+  1279			priv->pchans[i].base = priv->base +
+  1280				SUN4I_NDMA_CHANNEL_REG_BASE(i);
+  1281	
+  1282		for (j = 0; i < priv->cfg->dma_nr_max_channels; i++, j++) {
+  1283			priv->pchans[i].base = priv->base +
+  1284				SUN4I_DDMA_CHANNEL_REG_BASE(j);
+  1285			priv->pchans[i].is_dedicated = 1;
+  1286		}
+  1287	
+  1288		for (i = 0; i < SUN4I_DMA_NR_MAX_VCHANS; i++) {
+  1289			struct sun4i_dma_vchan *vchan = &priv->vchans[i];
+  1290	
+  1291			spin_lock_init(&vchan->vc.lock);
+  1292			vchan->vc.desc_free = sun4i_dma_free_contract;
+  1293			vchan_init(&vchan->vc, &priv->slave);
+  1294		}
+  1295	
+  1296		ret = clk_prepare_enable(priv->clk);
+  1297		if (ret) {
+  1298			dev_err(&pdev->dev, "Couldn't enable the clock\n");
+  1299			return ret;
+  1300		}
+  1301	
+  1302		/* Deassert the reset control */
+  1303		ret = reset_control_deassert(priv->rst);
+  1304		if (ret) {
+  1305			dev_err(&pdev->dev,
+  1306				"Failed to deassert the reset control\n");
+  1307			goto err_clk_disable;
+  1308		}
+  1309	
+  1310		/*
+  1311		 * Make sure the IRQs are all disabled and accounted for. The bootloader
+  1312		 * likes to leave these dirty
+  1313		 */
+  1314		writel(0, priv->base + SUN4I_DMA_IRQ_ENABLE_REG);
+  1315		writel(0xFFFFFFFF, priv->base + SUN4I_DMA_IRQ_PENDING_STATUS_REG);
+  1316	
+  1317		ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+  1318				       0, dev_name(&pdev->dev), priv);
+  1319		if (ret) {
+  1320			dev_err(&pdev->dev, "Cannot request IRQ\n");
+  1321			goto err_clk_disable;
+  1322		}
+  1323	
+  1324		ret = dma_async_device_register(&priv->slave);
+  1325		if (ret) {
+  1326			dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+  1327			goto err_clk_disable;
+  1328		}
+  1329	
+  1330		ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+  1331						 priv);
+  1332		if (ret) {
+  1333			dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+  1334			goto err_dma_unregister;
+  1335		}
+  1336	
+  1337		dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+  1338	
+  1339		return 0;
+  1340	
+  1341	err_dma_unregister:
+  1342		dma_async_device_unregister(&priv->slave);
+  1343	err_clk_disable:
+  1344		clk_disable_unprepare(priv->clk);
+  1345		return ret;
+  1346	}
+  1347	
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
