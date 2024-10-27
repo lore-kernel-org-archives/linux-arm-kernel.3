@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231EED10C15
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 10:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80300D10C1E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 10:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IQKDNN0t8q4zvKMd9PTXKvruPz6Ex6yg+Xo+HJDuU3w=; b=de6haTSvCJ1TwgW0lMeVJdNnUv
-	k3mNNY+KeEiuKgxTtfm0o6KxPqhPh3cnDkMmuzBBPC38c9aVxVR7abU/zawI3brD1kLF5d7z026d7
-	WbEsxtltwwerzBdkIiW5ojmKLDDK63+Kml44u8sahcGFB/jC5U6QDxgasoyvXT1kJv55AWAwrlw1K
-	tbbuGjrehkNXzyyZPth5ryZI34+JvjaANrebzujfUxB+lU1nUcYZxw1Clu52921435ABuYUUlkYat
-	1LU8TA2wIPcR2xz4AyF926Q8NtMh3HZ0i+K5+NqXzs4xErrXqE0iqjnrOtRdWu62iGBPVheQEAoME
-	47pc316Q==;
+	bh=8iAjfp3IZqNtfjG5p6rBm4nIaaA6IIY8fzarf/jnTV4=; b=0vSNzDOf2+LDOjpICsZ2q25mL9
+	ZZwKIVkens25RwaW8IpY3riUuYeDVFC97iRkPCOiwgDMSuu1YJbvOueMrLmNO4pfJq1DmgT/8OkgM
+	G3+fSzAiwdrkzv2Oqv+I3nKl5oB6gXWAWbCEXxJYg/uNll96cLn0H/Fy86QpToUqpIxTYRd8OQaS3
+	hhGzqbgo4rA2mzKMLypO0MbrPy0Sy2/RKuIhylgchqF7a5r2MyVls86LvoDOpYYsZDhzKz0rXWKyJ
+	SDXquHYIrmrg25nT/L0sw5n9cMyWoCNiSffCzjRNw6d1OPYMHR+8ASiua3U6pSSOmf89byFd1hiz/
+	/RxnezyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t50RM-0000000816m-0oMO;
-	Sun, 27 Oct 2024 10:24:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t50ve-00000008485-0I4y;
+	Sun, 27 Oct 2024 10:55:26 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t50Pk-000000080qI-2kGU
+	id 1t50u3-000000083yT-2bLY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 10:22:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDE045C3F06;
-	Sun, 27 Oct 2024 10:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46316C4CEC3;
-	Sun, 27 Oct 2024 10:22:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730024545;
-	bh=0k3MEtE9BF8rhv6xudb8XxGPOormm9MhLswXlpEWSUo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MZWwo/UsB+fGmGC8cUmGUFUAuYqzccLyCvXjDbUNtRQSVCiP5ot0TpxiU9pKo9III
-	 bCeJutiffoylbY/x5N1tVK18HjblSsE18Fa+4aomsBf+sMK0aMBDEV4SyTSgGFrSeb
-	 zwN5L4o1UADnSYHKHjRO6xWUOgPoEtRqK0TbHpayYoXngzeAFlue62PDJTXFDqgjiY
-	 WbRMslifzOKyjgxtIOyRpWIttZmVJXfL9jD78TxCiPHnZHWU51hGDFgs5g1zk+0awc
-	 H++UBvYzKPGWibPylvLFCChOxLOGEUH1kdodS5uwQSGmr6QpVPZuARaKQKtKtdgoHe
-	 4NRS0AzPqJ2IQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t50Pf-007I7d-3j;
-	Sun, 27 Oct 2024 10:22:23 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH] irqchip/gic-v4: Correctly deal with set_affinity on lazily-mapped VPEs
-Date: Sun, 27 Oct 2024 10:22:20 +0000
-Message-Id: <20241027102220.1858558-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Sun, 27 Oct 2024 10:53:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730026407; x=1730631207; i=wahrenst@gmx.net;
+	bh=8iAjfp3IZqNtfjG5p6rBm4nIaaA6IIY8fzarf/jnTV4=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=qsjma/KTfsBWZ7Ay0WZgqTunCSgisy+6kN9qVfz+DzCiDhtoZaiwYXR0PBuSQLZI
+	 LTcGNadO1hsqJrvYnDVEEvnTUNrzICYJgEZgIxy5/bmuCiZr1OI6xldizRh8neAQe
+	 6/y9NNqZA/eNco07S9qn6afmTLQJMqYVOWV9J3iQydK/SF9MMuPLVdst8Q5ZNw5V3
+	 8ZMbKtiYf+2X08s0tUtMA8abk1ytBrGeKmXJw/mF4RNSzcffyqJCD1w+Y212CQ3/T
+	 uLiOTHZPADaiJxGTpNtYtc17ncppc5oLscNriP3aIpM8tZeOSObmDMwsr0cqil+Qx
+	 Zs32fuUPKrc0A9aWsA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.248.43]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1N2mBa-1u1XtS3BFs-016h5e; Sun, 27
+ Oct 2024 11:53:26 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Alice Guo <alice.guo@nxp.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-watchdog@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH 0/2] watchdog: imx7ulp_wdt: Improve readability
+Date: Sun, 27 Oct 2024 11:53:21 +0100
+Message-Id: <20241027105323.93699-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dPMOiJ9GJbaXK0x2k4K4y1HnNpBHzzvVLoB1lJKuePVd/q9fADX
+ TyKyqzplLk7c0AKBNDqqWC+M23hqCBv7KwT9+45WH+mghrTP9GBuUrKEusG8Y0KoxtgAmCf
+ e+eY8a47yfZ8cW2ChV8n/kWCdwrHRhHXc9F1JZ6xZEcFp8yKxDcpGYY/52y7EQJqMvZaphm
+ chQpfT08ZBHK6Zbv0bOJg==
+UI-OutboundReport: notjunk:1;M01:P0:UEX/VUDuIUs=;bxPMBdSJ3TZO+ouRniI5660LoTs
+ GqRd24na/MuaoH4sCc/dM1+K5nymLZtjK+7lRtb2JQydUdb+c3CSWxMjiA0BW6UB14Wel0giM
+ ibobIedPDP2m/YVKF4qGXwTLB/rKypn4YWUsYeuhuJvE7qD/gxLBHosFw2UphfuETMlXmrqwp
+ yFpIAYqD6ajVA3tF6BivzjRLpnqpCtYbqiIQospQmOvmAIVqDfEfqcIi6yFUpSphkOoq3PxOk
+ 9fJ5eRddGyjWZnBljSz+RXc7Q8qtWnhvvvpFoqxh9QS0GDAUL4JAzcnRqJgOD9KT9DYDiS/Q0
+ nAdgoLj9tot/YA5SfnWA3IyLwWeoucZAu2sbo9w5GdfAbp+ZoEOz+cwZ6/kcGJ3RdFs0EqaEH
+ njuZzy0SCU/pEq/iAKjKKJwwJZ1XADBItrOBrtQU45AT4VIEtBAVAxlfkya4i8wwrnxPbg3XK
+ 0xNRWalhhe4AGxIHGUOiXs23z1OQEiksAJbfAroekor1c9xH+U8qfBLstJRrSdPI9XBJ24x7J
+ 3qgCK8LMVgOEdZDiThD5Mb2UHmF1nYneuU3B58jl9f/wG/XRUn2LWgzMHYsxoshrhwY3w4GpW
+ 773LCndWzqCR+h3X5mnixVd00y36LMAL7iY8M1D07u7S3RWWKnUCSvRS6mykXxjP0WEHouDTX
+ 93vOa53mmT1pWCzuOYiZX9IMlrmOVOifnZPQN60Ue3OirrPeXKVzHTj+lCJC3h+FiDCHYDboz
+ YN4fc9kpydtiCTr7FzS/YDPVXo5gI3gm67ZEaQkRvza1c6nrZ79yMlbTJ94wezLNWBQhn5S0O
+ 9dt2jq7r9Iu//TV6/VrS2pTQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_032228_760896_BC5A9287 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20241027_035348_041321_F04B3231 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +97,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zenghui points out that a recent change to the way set_affinity is
-handled for VPEs has the potential to return an error if the VPE
-hasn't been mapped yet (because the guest hasn't emited a MAPTI
-command yet), affecting GICv4.0 implementations that rely on the
-ITSList feature.
+This small series tries to improve the readability of imx7ulp_wdt.
+For someone who didn't read the reference manual, some parts of
+the watchdog driver are not clear.
 
-Fix this by making the set_affinity succeed in this case, and
-return early, without trying to touch the HW.
+Stefan Wahren (2):
+  watchdog: imx7ulp_wdt: Clarify timing units
+  watchdog: imx7ulp_wdt: Add TOVAL range check
 
-Fixes: 1442ee0011983 ("irqchip/gic-v4: Don't allow a VMOVP on a dying VPE")
-Reported-by: Zenghui Yu <yuzenghui@huawei.com>
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/aab45cd3-e5ca-58cf-e081-e32a17f5b4e7@huawei.com
----
- drivers/irqchip/irq-gic-v3-its.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ drivers/watchdog/imx7ulp_wdt.c | 26 ++++++++++++++++++--------
+ 1 file changed, 18 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index ab597e74ba08e..52f625e07658c 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -3810,8 +3810,18 @@ static int its_vpe_set_affinity(struct irq_data *d,
- 	 * Check if we're racing against a VPE being destroyed, for
- 	 * which we don't want to allow a VMOVP.
- 	 */
--	if (!atomic_read(&vpe->vmapp_count))
--		return -EINVAL;
-+	if (!atomic_read(&vpe->vmapp_count)) {
-+		if (gic_requires_eager_mapping())
-+			return -EINVAL;
-+
-+		/*
-+		 * If we lazily map the VPEs, this isn't an error and
-+		 * we can exit cleanly.
-+		 */
-+		cpu = cpumask_first(mask_val);
-+		irq_data_update_effective_affinity(d, cpumask_of(cpu));
-+		return IRQ_SET_MASK_OK_DONE;
-+	}
- 
- 	/*
- 	 * Changing affinity is mega expensive, so let's be as lazy as
--- 
-2.39.2
+=2D-
+2.34.1
 
 
