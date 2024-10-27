@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28A5D13572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 18:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E91D13572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 18:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQYMBjKa/6089/ZeL5xAOUfW85stKiaNK4L4qGdqr04=; b=zP8bFWh/p98l7kt98L8S/OdtdC
-	Ds9sxtdlIDgh/xYMRPySP7tdz52lgXe84g2l86WMGkmw4yIdi9AxMKt7FNNTb3C7HiSCLm4GDEtDl
-	hmcJpus0SSvmaHpm4s90BgNHMOMgOGWdcbYAcxNVWJ7u/tJnou/VQ1wLOcY/RPKYWBtkIHzgf4bhY
-	zvhLRITcVUWjIdWgHZf7muZIteJcruExIiLcL3oox24bUoQxvB/zGHs/SNfe+FCpIisg4LHli0nTh
-	ksz/guLN0c8eRXA3PEhfj8d7h2vHrmiRU5mvHKKbAMPEtf10YneyfPTqsyMACXRF6mdOePHGQe/Fu
-	YR1BA1ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3bDCnwr2tpiCqAF/4OFQ7NQ0kkACLDkBSUOszTtAHBM=; b=s2Gpy3ANp+aK1J21ZmYnkVBrak
+	vxH1zGCaDgClrVlkPtM/WnKnKKu2goVjM7kJRX2jUy4gCd+v/zDBEyMSlpPJsii/m9I/SDtB0ZVxd
+	AhOfkHAVZlIdDNPEqtJ2Px6kJta3P2knobYGFljX37LsOTXyx/a78DEfr/etQak1O+FOOP4SEVxQN
+	IGQbw8hopoqTPmwg1IH46vBf1jzUBvY18WwWPx1sY/LeE6tPubzygosptjAb1AtSI5aLuj9+u2u6Q
+	c7lHLz+bITAqzMeYp6wgGoT5EsR6InlDepimU4k84ZGPicfu99wrv2X0HgwOOwLgQ3uN6GPiJ6ITv
+	J6VC2tdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t57jp-00000008eZA-0SEf;
-	Sun, 27 Oct 2024 18:11:41 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t57iE-00000008eSo-0r1N
+	id 1t57rD-00000008fR7-1L5R;
+	Sun, 27 Oct 2024 18:19:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t57pZ-00000008ezb-2Dxt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 18:10:03 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 655CBA0472;
-	Sun, 27 Oct 2024 19:10:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=CQYMBjKa/6089/ZeL5xA
-	OUfW85stKiaNK4L4qGdqr04=; b=FMJkX+bJSwPqBMXD4Q4BKkFtLymd0M6lsHR9
-	be8afXm3uNXRMAY/T4H4ReFiLi3GquQaI/CJq9/45fz+ksGhWc3KHHPdGAKdOyGV
-	wBfxn0anf2F2n76ghD/OeVyObZjwjoNahcCPcFMBWlhiLfkzTwQ+jOm6S7X4DMzo
-	r81Xl97O0bUcfHB5qGdZ6SlSjz0Isruj68gqD/TH8oFZru61H0K2q4B7Rdur0NIo
-	IrpGF4wQAlO4vTVzICjHRludv77cGemmv7b3nBhO4JgG7LP21Em0r/+7DPfmvuyT
-	JMSXXJ+OiOda0T8H7McGgSwoyo3JVYFt5xF+gNakl7mv/1jS3oophSxMH+KFkMTa
-	v15WEqy/sVOAvnlaOZyqX6ndG6mcvTOh4iqP1DwETJmRNgbNy0Aw7CxDUVD4Me6M
-	smPeWjadffqIZxwTUu5rWvZ87ky24p7MMDL47/sOUSbUolXVLvMIk3YMgkGVLytB
-	9UaxrxDKIQn0cn3XMw+Oq1HybCnhW9Hdgfd1sc0mnAZhbfxwIyx0h5sZj1FfeqoJ
-	An9dSBo8U0ok7Ryl/IoiCqYlgifS70zGDweuFvsA9bQaQV39QkU/jDBxFzTEUsz5
-	JWjodgTGf2MjiIhDBuA3FJedJed/ewaVQUcJIaZebF/npECMJBkUS4FxjpMvFbYD
-	VZ3TpUY=
-From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: Mesih Kilinc <mesihkilinc@gmail.com>,
-	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Vinod Koul
-	<vkoul@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, "Philipp
- Zabel" <p.zabel@pengutronix.de>
-Subject: [PATCH v3 02/10] dma-engine: sun4i: Add has_reset option to quirk
-Date: Sun, 27 Oct 2024 19:08:55 +0100
-Message-ID: <20241027180903.2035820-2-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <4b614d6c-6b46-438a-b5c3-de1e69f0feb8@prolan.hu>
-References: 
+	Sun, 27 Oct 2024 18:17:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7972F497;
+	Sun, 27 Oct 2024 11:18:03 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEA5B3F73B;
+	Sun, 27 Oct 2024 11:17:29 -0700 (PDT)
+Date: Sun, 27 Oct 2024 19:16:56 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: viresh.kumar@linaro.org, rafael@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	catalin.marinas@arm.com, sudeep.holla@arm.com, will@kernel.org,
+	sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com
+Subject: Re: [PATCH v7 0/4] Add support for AArch64 AMUv1-based average freq
+Message-ID: <Zx6DmCBYQZkLWRhf@arm.com>
+References: <20240913132944.1880703-1-beata.michalska@arm.com>
+ <Zw-cje76QgQIN5kq@arm.com>
+ <ZxAnbflwMuIWpKCW@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730052599;VERSION=7978;MC=629135376;ID=158215;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94855677C63
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ZxAnbflwMuIWpKCW@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_111002_431779_BD00FEEF 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20241027_111737_633567_32CACA32 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,98 +68,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mesih Kilinc <mesihkilinc@gmail.com>
+On Wed, Oct 16, 2024 at 10:51:57PM +0200, Beata Michalska wrote:
+> On Wed, Oct 16, 2024 at 11:59:25AM +0100, Catalin Marinas wrote:
 
-Allwinner suniv F1C100s has a reset bit for DMA in CCU. Sun4i do not
-has this bit but in order to support suniv we need to add it. So add
-support for reset bit.
+Hi Viresh,
+Hi Rafael,
 
-Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
-[ csokas.bence: Rebased and addressed comments ]
-Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+> Hi Catalin,
+> > Hi Beata,
+> > 
+> > On Fri, Sep 13, 2024 at 02:29:40PM +0100, Beata Michalska wrote:
+> > > This series adds support for obtaining an average CPU frequency based on
+> > > a hardware provided feedback. The average frequency is being exposed via
+> > > dedicated yet optional cpufreq sysfs attribute - cpuinfo_avg_freq.
+> > > The architecture specific bits are being provided for AArch64, caching on
+> > > existing implementation for FIE and AMUv1 support: the frequency scale
+> > > factor, updated on each sched tick, serving as a base for retrieving
+> > > the frequency for a given CPU, representing an average frequency
+> > > reported between the ticks.
+> > > 
+> > > The changes have been rather lightly (due to some limitations) tested on
+> > > an FVP model. Note that some small discrepancies have been observed while
+> > > testing (on the model) and this is currently being investigated, though it
+> > > should not have any significant impact on the overall results.
+> > > 
+> > > Note that [PATCH 2/4] arm64: amu: Delay allocating cpumask for AMU FIE support
+> > > can be merged independently.
+> > 
+> > What's the plan with the rest of the patches? Are you going to respin?
+> > The first patch would need an ack from Rafael or Viresh if we are to
+> > merge them via the arm64 tree.
+> >
+> I am still waiting on any feedback on [PATCH 1/4] - changes to cpufreq, as that
+> one drives the changes in arch specific bits. There is also an ongoing discussion
+> on how to handle idle cpu cases - so I would say we still need to agree on few
+> details.
+
+Would really appreciate your feedback on above mentioned [PATCH 1/4] ->  [1]
+as well as the discussion at [2].
+
+Thank you.
+
 ---
-
-Notes:
-    Changes in v2:
-    * Call reset_control_deassert() unconditionally, as it supports optional resets
-    * Use dev_err_probe()
-    * Whitespace
-    Changes in v3:
-    * More dev_err_probe()
-
- drivers/dma/sun4i-dma.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
-index d472f57a39ea..f485d6f378c0 100644
---- a/drivers/dma/sun4i-dma.c
-+++ b/drivers/dma/sun4i-dma.c
-@@ -15,6 +15,7 @@
- #include <linux/of_dma.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- 
-@@ -159,6 +160,7 @@ struct sun4i_dma_config {
- 	u8 ddma_drq_sdram;
- 
- 	u8 max_burst;
-+	bool has_reset;
- };
- 
- struct sun4i_dma_pchan {
-@@ -208,6 +210,7 @@ struct sun4i_dma_dev {
- 	int				irq;
- 	spinlock_t			lock;
- 	const struct sun4i_dma_config *cfg;
-+	struct reset_control *rst;
- };
- 
- static struct sun4i_dma_dev *to_sun4i_dma_dev(struct dma_device *dev)
-@@ -1215,6 +1218,16 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 		return PTR_ERR(priv->clk);
- 	}
- 
-+	if (priv->cfg->has_reset) {
-+		priv->rst = devm_reset_control_get_exclusive(&pdev->dev,
-+							     NULL);
-+		if (IS_ERR(priv->rst)) {
-+			dev_err_probe(&pdev->dev, PTR_ERR(priv->rst),
-+						  "Failed to get reset control\n");
-+			return PTR_ERR(priv->rst);
-+		}
-+	}
-+
- 	platform_set_drvdata(pdev, priv);
- 	spin_lock_init(&priv->lock);
- 
-@@ -1287,6 +1300,14 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	/* Deassert the reset control */
-+	ret = reset_control_deassert(priv->rst);
-+	if (ret) {
-+		dev_err_probe(&pdev->dev, ret,
-+			"Failed to deassert the reset control\n");
-+		goto err_clk_disable;
-+	}
-+
- 	/*
- 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
- 	 * likes to leave these dirty
-@@ -1356,6 +1377,7 @@ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
- 	.ddma_drq_sdram		= SUN4I_DDMA_DRQ_TYPE_SDRAM,
- 
- 	.max_burst		= SUN4I_MAX_BURST,
-+	.has_reset		= false,
- };
- 
- static const struct of_device_id sun4i_dma_match[] = {
--- 
-2.34.1
-
-
+[1] https://lore.kernel.org/all/20240913132944.1880703-2-beata.michalska@arm.com/
+[2] https://lore.kernel.org/all/ZxAl77IYcMO2SfWh@arm.com/
+---
+> 
+> ---
+> BR
+> Beata
+> > Thanks.
+> > 
+> > -- 
+> > Catalin
+> 
 
