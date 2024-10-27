@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0414ED13585
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4B7D13585
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dM5YmtEjZSENFbMYFFXTorlapyBszpcOJWCoA6m0IQk=; b=r0XCcEux6k1v1224I/Aw6ZDToH
-	gFQOzsivzWWATWIn/H1iYvzffeMvAi1zY6RIPkTW3vrbfkg1wDCT7HjwEDhTjKnOwLsAdt+CRqB5Z
-	+8fLnWNirzLKJaB7KcQxaaJvr7EGGdm17XGevhk3dzngogxqtHhqIpAsjHamkw05iHZjiSEqaCSsP
-	kSyxaFZjwf6wjC+amfcZWavCC76T0RuvQ6a1jxB4zS1NO25XfGSSF7GKV8wyCiOxu9kFyBybF3Hh9
-	atGAFQyaVitvDVSMZjC2kTRyqcxSzhUUKM5TJwiJz2C7Pg72QeU7BHXRY2N4HuzJKHhbyGRssErjs
-	hSTWFUNQ==;
+	bh=oZ2WYyGF0GFT3vSYcra1zUpfg+zSYnB8QcKAnlwig/Y=; b=REUSJQKvr9jGJFVGZIa+akAWmA
+	QUQFPB/hIiBQcZlP+8DUsCDO2DYMgj9OQ1olMSTGXHTf0VGugv+ekmB+6fO+vgOysIiaf/9yNNHf+
+	KFtEq+AI3Iu2hhIE8zX+eFhM2CJB1cvNds2jevq4mmcrA4Y8qFGSVFmVtJZhrQ1vy/8tIOPK1Yp0i
+	HWMXtqCKoH9ja9SNwhGc8n6qsr8badY2NRx1XxKxkd+mnOF9UH9B9NwvsPpsxBIZ2mmajehMtpHEl
+	NqUW5kRsRIvX4MXZimxkfetXAcEBDBc2atxOdi4BhMBifQ3K5MeTTyrhzMtjKX2mWDkpk2bV96FSS
+	kmjwlUUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5AGe-00000008t6J-3hxu;
-	Sun, 27 Oct 2024 20:53:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5AJ4-00000008tOK-3lnO;
+	Sun, 27 Oct 2024 20:56:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5AF4-00000008sws-1ewY;
-	Sun, 27 Oct 2024 20:52:07 +0000
+	id 1t5AHT-00000008tBB-3Ki9;
+	Sun, 27 Oct 2024 20:54:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0AAD05C589D;
-	Sun, 27 Oct 2024 20:51:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C105C4CEC3;
-	Sun, 27 Oct 2024 20:52:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BFD3CA400AD;
+	Sun, 27 Oct 2024 20:52:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A44C4CEC3;
+	Sun, 27 Oct 2024 20:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730062324;
-	bh=YQvA8AaVapsjmTVTAY2FtWHoPIl3pWww+615y5P3MVU=;
+	s=k20201202; t=1730062474;
+	bh=2/SY7cEbrOd1n+Q4oIA/+7D/s8Dxlqav5A6rulFeiwk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EEzL4258ubi7gLAucsKes8CpIkt/0PJUde2W0lNeLxNeYwAvkwEj6ml8A1lXS/l64
-	 11G430dKvGGQyQNTK8z0QlGR8QvcdQi82gcIP5Aey1ZzlKGGpWy6VF6Nw7j+A+zgtJ
-	 WRh4hhPnsY5xoNfwUmOiuQbAXQhSyBIj8pMrLeCikpZqu59DAeW1ALwZLjFSaVbuqL
-	 BttcfwHQLxxHclh2wq4Ci+WD3q6ABNtl4EJsZMdQ5YY2hYz8fI+DFVU8glTznoVnDb
-	 aZmJ/kqWVwMQzUVhp6taLq0in7zgRqxNx3OAO49fU9c0OqeE8EAuCSFrAINoQL/2cN
-	 iYX5BYYX2Ik/Q==
-Date: Sun, 27 Oct 2024 21:52:00 +0100
+	b=BpUBkjQKLIg/MxSaS7yQD2D3MK30x8PBJ+ulbTB2LMQYacegiKfSxp1WzW/QhvNfV
+	 xLLC57Qy1aD8cd8EleiJvcrMPRoh4nUwCXdenM0NrP0vTw9f/aRwkW0N6cdm55DVVt
+	 +RXTg3kc6t44DlBcR3roEi1j4P8RKlpHnL6T7lggwOMT5v8tzN9KJ6pdnCrICEeCDA
+	 43rzYfvKfh/4zPQyofcirmId0kERVFshiiG+z/TAt5wRCcfo97LbizilGQ6sjwcQ7g
+	 IWwYs8DcP+uVJ8STQnZrh7x8j25pGLnwYW/uQUlIG5p6rBKyjzEiPPx4Xg+BU+bLmq
+	 JkWtuoB7gd+6A==
+Date: Sun, 27 Oct 2024 21:54:30 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Fei Shao <fshao@chromium.org>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+Cc: Mark Brown <broonie@kernel.org>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Jitao shi <jitao.shi@mediatek.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: display: mediatek: dp: Add #sound-dai-cells
- property
-Message-ID: <5vjaxo652w5hici5hxi3t6o2r5vkggrz25lqvm3or5fip3svke@fttqk5wabxqb>
-References: <20241025104310.1210946-1-fshao@chromium.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Trevor Wu <trevor.wu@mediatek.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH 1/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add adsp
+ and dai-link properties
+Message-ID: <5vmfh2nkxtpzt2vk4j6ghro7z5stoyvry3enzoqepg6hjxqrho@fofs5cwa2iqq>
+References: <20241025104548.1220076-1-fshao@chromium.org>
+ <20241025104548.1220076-2-fshao@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241025104310.1210946-1-fshao@chromium.org>
+In-Reply-To: <20241025104548.1220076-2-fshao@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_135206_504927_52C1B52E 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20241027_135435_925234_FE1D733B 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 06:42:45PM +0800, Fei Shao wrote:
-> The MediaTek DP hardware supports audio, and the "#sound-dai-cells"
-> property is required to describe DAI links and audio routing.
+On Fri, Oct 25, 2024 at 06:44:41PM +0800, Fei Shao wrote:
+> Add "mediatek,adsp" property for the ADSP handle if ADSP is enabled on
+> the platform.
+
+We see this from the diff.
+
+> Add "mediatek,dai-link" property for the required DAI links to configure
+> sound card.
+
+We see this from the diff.
+
 > 
-> Add "#sound-dai-cells" property to the binding and filter out non-DP
-> compatibles, as MediaTek eDP doesn't support audio.
+> Both properties are commonly used in the MediaTek sound card driver.
+
+If they are used, why suddenly they are needed? What changed?
+
 > 
 > Signed-off-by: Fei Shao <fshao@chromium.org>
 > ---
 > 
->  .../bindings/display/mediatek/mediatek,dp.yaml   | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+>  .../bindings/sound/mediatek,mt8188-mt6359.yaml         | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-> index 2aef1eb32e11..c05c2b409780 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-> @@ -42,6 +42,9 @@ properties:
->    interrupts:
->      maxItems: 1
+> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+> index f94ad0715e32..701cedfa38d2 100644
+> --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+> @@ -29,6 +29,16 @@ properties:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>      description: The phandle of MT8188 ASoC platform.
 >  
-> +  "#sound-dai-cells":
-> +    const: 0
+> +  mediatek,adsp:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: The phandle of MT8188 ADSP platform.
+
+And what is the difference between ASoC and ADSP platforms? What are
+they used for?
+
 > +
->    ports:
->      $ref: /schemas/graph.yaml#/properties/ports
->      properties:
-> @@ -87,6 +90,19 @@ required:
->  
+> +  mediatek,dai-link:
+> +    $ref: /schemas/types.yaml#/definitions/string-array
+> +    description:
+> +      A list of the desired dai-links in the sound card. Each entry is a
+> +      name defined in the machine driver.
 
-You need to reference dai-common instead, since this is DAI.
-
->  additionalProperties: false
-
-and this becomes unevaluatedProperties: false
+The list is provided below. I don't understand why do you need it. Your
+msg is pretty useless - you describe what you do, instead of why.
 
 Best regards,
 Krzysztof
