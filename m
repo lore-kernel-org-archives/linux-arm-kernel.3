@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80300D10C1E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 10:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70657D10C1E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 10:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8iAjfp3IZqNtfjG5p6rBm4nIaaA6IIY8fzarf/jnTV4=; b=0vSNzDOf2+LDOjpICsZ2q25mL9
-	ZZwKIVkens25RwaW8IpY3riUuYeDVFC97iRkPCOiwgDMSuu1YJbvOueMrLmNO4pfJq1DmgT/8OkgM
-	G3+fSzAiwdrkzv2Oqv+I3nKl5oB6gXWAWbCEXxJYg/uNll96cLn0H/Fy86QpToUqpIxTYRd8OQaS3
-	hhGzqbgo4rA2mzKMLypO0MbrPy0Sy2/RKuIhylgchqF7a5r2MyVls86LvoDOpYYsZDhzKz0rXWKyJ
-	SDXquHYIrmrg25nT/L0sw5n9cMyWoCNiSffCzjRNw6d1OPYMHR+8ASiua3U6pSSOmf89byFd1hiz/
-	/RxnezyQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jjwNijrvKZT0Ys4wclgpDfV+voMAzDqhFR7Df0Ey+kU=; b=Vo4spwQZQsZX8nlBb/tFmJnrYI
+	2EKvMgBgz8IsLvnRQ4zFWk8Wo6s+JbIJXI01LjrAFDaW2OTg3d1OkWzyUWsPDYlzNoJP0qQG1la8O
+	ubjNDvccckalI3DBitwFmxGFc3p8a5OJkJCSmpP0K/o8iJ4P4qvFDxhGLJDr9jKsTZ8nWOv41acbf
+	iVWSWceD5Ampv/wjq/UBBXnqEQN4N7ruWl8fhy+j9KIcty2ru3t7KjE8mvByoB5Ij1Fpm/U6lij8v
+	4XULzuINUl4mV46kv4GavgDElR0YA1rjebErMwWRu6keRXLMVf4Ob75NCUrsQwWFzijh6eufG0uzD
+	1Lh4PVlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t50ve-00000008485-0I4y;
-	Sun, 27 Oct 2024 10:55:26 +0000
+	id 1t50xC-000000084Ig-0TW8;
+	Sun, 27 Oct 2024 10:57:02 +0000
 Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t50u3-000000083yT-2bLY
+	id 1t50u3-000000083yM-3QMw
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 27 Oct 2024 10:53:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
 	s=s31663417; t=1730026407; x=1730631207; i=wahrenst@gmx.net;
-	bh=8iAjfp3IZqNtfjG5p6rBm4nIaaA6IIY8fzarf/jnTV4=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
+	bh=jjwNijrvKZT0Ys4wclgpDfV+voMAzDqhFR7Df0Ey+kU=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=qsjma/KTfsBWZ7Ay0WZgqTunCSgisy+6kN9qVfz+DzCiDhtoZaiwYXR0PBuSQLZI
-	 LTcGNadO1hsqJrvYnDVEEvnTUNrzICYJgEZgIxy5/bmuCiZr1OI6xldizRh8neAQe
-	 6/y9NNqZA/eNco07S9qn6afmTLQJMqYVOWV9J3iQydK/SF9MMuPLVdst8Q5ZNw5V3
-	 8ZMbKtiYf+2X08s0tUtMA8abk1ytBrGeKmXJw/mF4RNSzcffyqJCD1w+Y212CQ3/T
-	 uLiOTHZPADaiJxGTpNtYtc17ncppc5oLscNriP3aIpM8tZeOSObmDMwsr0cqil+Qx
-	 Zs32fuUPKrc0A9aWsA==
+	b=BmNigL3WljbvSp30E/IesTCVHH0yVDLhAvzTm9xhHSIKmKJSWFKdS8sb/bNx5xJN
+	 DQ0oLzc+Rzk1ilc3elHNlD5v4l+quSo1RzFTPYlCv3gsSWCopaZ4jSznV4cudqOKN
+	 uKQfT0OgyPzjIu7zNqYDPC2ZqgfhKwIhvKqZyfBZGKRdsqXCwKI9/1O+A0q02jxP5
+	 1LqQDvLqVm0GurzoO7YKaoRxF9lqAaTMIpLnDw0CqmbVULR6bUIt6frrzabSgpzlo
+	 OQ/D8JKt3v3aFTznjc9c1H/CUTor2uF0tuSE8Slu/4tzbiz1IUEE/i20AvKZOyAAV
+	 N+Nct5wsctdrHSGHQg==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([37.4.248.43]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N2mBa-1u1XtS3BFs-016h5e; Sun, 27
- Oct 2024 11:53:26 +0100
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MiacH-1tYYcq14Ip-00Zvmb; Sun, 27
+ Oct 2024 11:53:27 +0100
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Alice Guo <alice.guo@nxp.com>,
 	Wim Van Sebroeck <wim@linux-watchdog.org>,
@@ -56,33 +56,34 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 0/2] watchdog: imx7ulp_wdt: Improve readability
-Date: Sun, 27 Oct 2024 11:53:21 +0100
-Message-Id: <20241027105323.93699-1-wahrenst@gmx.net>
+Subject: [PATCH 1/2] watchdog: imx7ulp_wdt: Clarify timing units
+Date: Sun, 27 Oct 2024 11:53:22 +0100
+Message-Id: <20241027105323.93699-2-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241027105323.93699-1-wahrenst@gmx.net>
+References: <20241027105323.93699-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:dPMOiJ9GJbaXK0x2k4K4y1HnNpBHzzvVLoB1lJKuePVd/q9fADX
- TyKyqzplLk7c0AKBNDqqWC+M23hqCBv7KwT9+45WH+mghrTP9GBuUrKEusG8Y0KoxtgAmCf
- e+eY8a47yfZ8cW2ChV8n/kWCdwrHRhHXc9F1JZ6xZEcFp8yKxDcpGYY/52y7EQJqMvZaphm
- chQpfT08ZBHK6Zbv0bOJg==
-UI-OutboundReport: notjunk:1;M01:P0:UEX/VUDuIUs=;bxPMBdSJ3TZO+ouRniI5660LoTs
- GqRd24na/MuaoH4sCc/dM1+K5nymLZtjK+7lRtb2JQydUdb+c3CSWxMjiA0BW6UB14Wel0giM
- ibobIedPDP2m/YVKF4qGXwTLB/rKypn4YWUsYeuhuJvE7qD/gxLBHosFw2UphfuETMlXmrqwp
- yFpIAYqD6ajVA3tF6BivzjRLpnqpCtYbqiIQospQmOvmAIVqDfEfqcIi6yFUpSphkOoq3PxOk
- 9fJ5eRddGyjWZnBljSz+RXc7Q8qtWnhvvvpFoqxh9QS0GDAUL4JAzcnRqJgOD9KT9DYDiS/Q0
- nAdgoLj9tot/YA5SfnWA3IyLwWeoucZAu2sbo9w5GdfAbp+ZoEOz+cwZ6/kcGJ3RdFs0EqaEH
- njuZzy0SCU/pEq/iAKjKKJwwJZ1XADBItrOBrtQU45AT4VIEtBAVAxlfkya4i8wwrnxPbg3XK
- 0xNRWalhhe4AGxIHGUOiXs23z1OQEiksAJbfAroekor1c9xH+U8qfBLstJRrSdPI9XBJ24x7J
- 3qgCK8LMVgOEdZDiThD5Mb2UHmF1nYneuU3B58jl9f/wG/XRUn2LWgzMHYsxoshrhwY3w4GpW
- 773LCndWzqCR+h3X5mnixVd00y36LMAL7iY8M1D07u7S3RWWKnUCSvRS6mykXxjP0WEHouDTX
- 93vOa53mmT1pWCzuOYiZX9IMlrmOVOifnZPQN60Ue3OirrPeXKVzHTj+lCJC3h+FiDCHYDboz
- YN4fc9kpydtiCTr7FzS/YDPVXo5gI3gm67ZEaQkRvza1c6nrZ79yMlbTJ94wezLNWBQhn5S0O
- 9dt2jq7r9Iu//TV6/VrS2pTQ==
+X-Provags-ID: V03:K1:PSXaYff7MhW/cCEWq4pGPqiHPaIKUJrD02Vd9fPxvSEvWykyfaF
+ jeqmtiu4K8OyvbOGINbaaFWETDZHznNml9O+vu3z2z6+Px9RoZMoeqazLMXKwDdokcwKdpN
+ hd9buWnnFBbsk6qObQeh+Y12byK9tds/NLGMHVMgCfVAZNu14OPbe6nWo/KPOLautFfsvQ8
+ S8WDWLVjG6z3H87UFRmcQ==
+UI-OutboundReport: notjunk:1;M01:P0:RL3RZAw2w/w=;SOIsteGMqRBtXO8l74/YUpLUDLM
+ KmUperZps0hv5tYV6fDr7RA/K5nfeVLVVmyrVJTOhQNIF8+2Rzg/tJMzYEX5RaMLnMUKHN75i
+ +SHmetpvW9D66KFbVY0OLk9o/kLxWZPdBfwPm31gHAIwlsuA/Ojsjj37nEJW6KybkSBJnA8E+
+ kIccQ2xGBhoU+2cwR8AjAyux37ncOLbi05c/ZqZwaiusis2RhfPG8RsAvLzUnDNn3PhKLs3JZ
+ 47xM8+b1LOBpH5QegPTsrdCW2KVJ6dIBYAXbyhoVzpLhNxgJ+JWr0VIgCB1ZjswDVE5MZ2ZuH
+ eYOBKNOOyUd3o2ov0JNRj/r8ZPBaW6+VyRv/IU6qCErxb5ZpeIeqG8QBJ8s3R5E2B8bFTPpNO
+ iku/JX1F4hpwqs6z6DxyT6eW9Rfg9xCUSKB0BdNdbCfx3GG5W0QaFL1+eN0hcgm5W53/qcJzx
+ gI7Iw9vBn3EpdhzgRz2QcRFkZFIBsEq4WhKe9eU8aMoBk9QRLjTlm9HDEnFnpV4gq8XPOQUJ+
+ XvAghV50XpMBeK79xgCcAs0wzwlP3F90pqzetVlqeb4MYxGCrUxtKkAddcDVFlO04DEYgxAd5
+ yfq/rxkI4Gh0Ys54vRmnZnVMZlLNQ1Eph3e6IClOkz/TToF6ut3KYVycv4dLUS0RlV24hUC8h
+ ihVwrXOQnWeWItRsGNZyLLSAaMLRpwuWlwNe21qlbohiPK8+5f6dFgj7YoQFlj5l8bxkBMbEL
+ XnsDz4OhSWhY031LKmGDVvt7vvtGDPgonBedVTP7IfLwIdPHmCI4Yko3Pntu2QBCz7rHrDdkY
+ 01IDFxh9f9bxAr4ABFhGXmQQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_035348_041321_F04B3231 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241027_035348_167787_78E00ABC 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,17 +98,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This small series tries to improve the readability of imx7ulp_wdt.
-For someone who didn't read the reference manual, some parts of
-the watchdog driver are not clear.
+imx7ulp_wdt mixes a lot of timing units (frequency, clocks, seconds)
+in a not obvious way. So improve readability of imx7ulp_wdt by
+clarifying the relevant units.
 
-Stefan Wahren (2):
-  watchdog: imx7ulp_wdt: Clarify timing units
-  watchdog: imx7ulp_wdt: Add TOVAL range check
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/watchdog/imx7ulp_wdt.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
- drivers/watchdog/imx7ulp_wdt.c | 26 ++++++++++++++++++--------
- 1 file changed, 18 insertions(+), 8 deletions(-)
+diff --git a/drivers/watchdog/imx7ulp_wdt.c b/drivers/watchdog/imx7ulp_wdt=
+.c
+index 0f13a3053357..0f92d2217088 100644
+=2D-- a/drivers/watchdog/imx7ulp_wdt.c
++++ b/drivers/watchdog/imx7ulp_wdt.c
+@@ -19,7 +19,7 @@
+ #define WDOG_CS_PRES		BIT(12)
+ #define WDOG_CS_ULK		BIT(11)
+ #define WDOG_CS_RCS		BIT(10)
+-#define LPO_CLK			0x1
++#define LPO_CLK			0x1	/* 32 kHz */
+ #define LPO_CLK_SHIFT		8
+ #define WDOG_CS_CLK		(LPO_CLK << LPO_CLK_SHIFT)
+ #define WDOG_CS_EN		BIT(7)
+@@ -39,8 +39,8 @@
+ #define UNLOCK_SEQ1	0xD928
+ #define UNLOCK		((UNLOCK_SEQ1 << 16) | UNLOCK_SEQ0)
 
+-#define DEFAULT_TIMEOUT	60
+-#define MAX_TIMEOUT	128
++#define DEFAULT_TIMEOUT	60	/* seconds */
++#define MAX_TIMEOUT	128	/* seconds */
+ #define WDOG_CLOCK_RATE	1000
+ #define WDOG_ULK_WAIT_TIMEOUT	1000
+ #define WDOG_RCS_WAIT_TIMEOUT	10000
+@@ -240,7 +240,8 @@ static const struct watchdog_info imx7ulp_wdt_info =3D=
+ {
+ 		    WDIOF_MAGICCLOSE,
+ };
+
+-static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int=
+ timeout, unsigned int cs)
++static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt,
++			     unsigned int timeout_clks, unsigned int cs)
+ {
+ 	u32 val;
+ 	int ret;
+@@ -263,7 +264,7 @@ static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device=
+ *wdt, unsigned int timeou
+ 		goto init_out;
+
+ 	/* set an initial timeout value in TOVAL */
+-	writel(timeout, wdt->base + WDOG_TOVAL);
++	writel(timeout_clks, wdt->base + WDOG_TOVAL);
+ 	writel(cs, wdt->base + WDOG_CS);
+ 	local_irq_enable();
+ 	ret =3D imx7ulp_wdt_wait_rcs(wdt);
+@@ -275,7 +276,8 @@ static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device=
+ *wdt, unsigned int timeou
+ 	return ret;
+ }
+
+-static int imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int =
+timeout)
++static int imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt,
++			    unsigned int timeout_clks)
+ {
+ 	/* enable 32bit command sequence and reconfigure */
+ 	u32 val =3D WDOG_CS_CMD32EN | WDOG_CS_CLK | WDOG_CS_UPDATE |
+@@ -296,11 +298,11 @@ static int imx7ulp_wdt_init(struct imx7ulp_wdt_devic=
+e *wdt, unsigned int timeout
+ 	}
+
+ 	do {
+-		ret =3D _imx7ulp_wdt_init(wdt, timeout, val);
++		ret =3D _imx7ulp_wdt_init(wdt, timeout_clks, val);
+ 		toval =3D readl(wdt->base + WDOG_TOVAL);
+ 		cs =3D readl(wdt->base + WDOG_CS);
+ 		cs &=3D ~(WDOG_CS_FLG | WDOG_CS_ULK | WDOG_CS_RCS);
+-	} while (--loop > 0 && (cs !=3D val || toval !=3D timeout || ret));
++	} while (--loop > 0 && (cs !=3D val || toval !=3D timeout_clks || ret));
+
+ 	if (loop =3D=3D 0)
+ 		return -EBUSY;
 =2D-
 2.34.1
 
