@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41C0D1358A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 22:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540C2D1358A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 23:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vgy3VGk1Pn11Ai88JL42MQBwi3PPMEdh/Mp+3wfCo1k=; b=HjTuenD09mh1EiCfM8Qk0tqX2W
-	dDhyuRdj6qq0pA89D5ozyoql4bWPbjB82ACiRRbo+imjJgJrjJvv7tFC8bl67p/SQFfk+9Dfvx426
-	oCSsnA17yaoxB33u23O2SU8PQT0NvFCSGOLxkTD5vXukhkUsQ/00IytGAntBb4kl1cmOW8hVNoFZw
-	pFc5WTPA0jP1yzzS7np/foF6D6TxAR99nUJyfG8VfRQBEPnyJWrwA+6YeAgeyMBpooPZig++8dTE+
-	rMDMhFDFspYBecsS3Ocllt7nzT25TUPejW3gxm5pCW9HUhlMeb1Yzhb26bFCgJjf2rHSTuZD/e5Hm
-	wlbi1NqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=; b=XoQ8ZDWlG/xgFPVHbA+k+7m8lQ
+	jjj4y0oRE8dzfilvaBpUh6dlsvMPUbMuGZ9LtLKa04jArgmuAU/XWJMBAnb2SBzjbYEjxV35wS/dg
+	EnoffUz0+3Fkk7z/qbGYpp4Of/p/vIKM2RY+E6VQvaam7uhfyEldnhL29yOQc79ciIktAEpp/WHKb
+	FLYO5zoDUct4zLRdLzslTW4UHZ3TzqPAX2WKxTzYxkOrRNghaPK+YvzG+GkOQZUfBbMDjyOd2M9bj
+	8kBjdhGYWEj/x9yuiWlykQXRcIElbr8qnsDut/60g/iLhforlkLF/fVWU+u6ShFTri1jp9qnu7Xiv
+	KNBHFOAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5CE6-000000092rl-0GDO;
-	Sun, 27 Oct 2024 22:59:14 +0000
-Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
+	id 1t5CmI-000000094qf-08lg;
+	Sun, 27 Oct 2024 23:34:34 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5CCU-000000092lM-3obt
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 22:57:36 +0000
-Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4a5c4d8ee99so1241051137.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 15:57:34 -0700 (PDT)
+	id 1t5Ckh-000000094fb-19sU;
+	Sun, 27 Oct 2024 23:32:56 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20c803787abso28297535ad.0;
+        Sun, 27 Oct 2024 16:32:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730069853; x=1730674653; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vgy3VGk1Pn11Ai88JL42MQBwi3PPMEdh/Mp+3wfCo1k=;
-        b=YrtPsnQAWPIm0B5b+cqBvja2uJM+N0rTNMobonibyh19YfIOZYzkVX/8i4zMztBRZk
-         cI03hRM+dX4CUbHR7O3GH/4FzFVNzZXRe7AgfU3hpAz/zzDWU+tm3UlXFDHCG1k2azJJ
-         1fKj6MiFW9rnLI4C0Atkq+yJuF3RaiL2wdTZgnFujoqieqZNFh9Y8cHO4S6cRYayeTqr
-         EaScHtU21xKG3u6mGc+1zIMBDrg5W3zmcGfITIr1MEDDCQ2NNNklHECLRPqLDn6fm4I0
-         fiqOY+cjxv0sfQfhxfDNUo+fDJxDlufBtK4RDBgCe95QLZrtP1RnH+M8W4QLNi3PyvcE
-         oSsQ==
+        d=gmail.com; s=20230601; t=1730071974; x=1730676774; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=;
+        b=MWgM1WA7kDQ/Rht4y3bsgWgv0HVLxtkU7Kfup3uAUgO89FLtrV8nonF+RTyzHL748b
+         NVLLFA/f+7Kr5C6pbL7wbonnmK3cajequWdNidYS4L90cE8quaLoEHcVavYPACgrSu8U
+         PORSVJykdFCk5SpjTT7Y0KX3d8Qd/Jrdf0rcx/WPK6CxRDRdGn0W3y97qs+fqVchQWwF
+         UlfFzoyUoy0JQajn8eUAWiqcpBGTVBfiIjlcJ2sLqYV2IP+0cZxguwbvTT/oJEJMD1I1
+         S9N1vBEEpywIvbqahZCRJ+hKBTpyU8hmKvBI5FuR/16tR4gEeMH94mAJnD2KRNawkXBl
+         JnVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730069853; x=1730674653;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vgy3VGk1Pn11Ai88JL42MQBwi3PPMEdh/Mp+3wfCo1k=;
-        b=YBMJycD6+V5Ri0KUMn09GI6ftjnCZXSdVwoQavm8iDgFN9pVycqOwl5fomdXhr2/Ii
-         qJy/jWjFEO9zHwd7VtTq90H/qz7QLIoY4tJRnafuKbFfGQsSzl+oXmqu3YswCQ7MT9H/
-         /uVwJzrpEi+N7NVTL+HNye4U3WMXGJ+9gqLSMbeV5JchM39rSP6B23PI8cF5gD8jhBxs
-         IEhVsqUIaF4zFzwpvt6XTItmcVQ0LjaaWYhYJjKAvu/tvJbCzejag8bvWqP41N4ruORU
-         6JOucVKeyHIQpC833h0K0zgZpI2mCI0rEg3oGALhKVDyjdo0werNj4YzBLQd+jGtorZo
-         QBhw==
-X-Forwarded-Encrypted: i=1; AJvYcCUonZrDXIeoecZ4Ii7FmP5fL+JsVRQgyFMCjSHTOFGx5Diab6eckn77/vbW4q8Pmy9g7DxV75hZf/yTE0HGiY0I@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlXeNbMBJiRC2PJLRKptbXzAkwFk3ZMphQ5G5/myMekOtoNn7/
-	qCi2dKj05Xba9qoXfiki79GpEevLfMhf66XMzXh2IfYcpLhFKtXrGwOOarkJ
-X-Google-Smtp-Source: AGHT+IEp5GS5n0x05w29XQotioDngzTwdv1OubJphqMniSQH5Is15OR/44MN0WnwiCxIyQF01R4TOg==
-X-Received: by 2002:a05:6102:a4a:b0:4a5:be31:b349 with SMTP id ada2fe7eead31-4a8cfd6d248mr3458945137.28.1730069853086;
-        Sun, 27 Oct 2024 15:57:33 -0700 (PDT)
-Received: from localhost.localdomain ([2605:59c0:1487:f210:963b:c209:74fa:42bd])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-85580b18374sm819159241.26.2024.10.27.15.57.30
+        d=1e100.net; s=20230601; t=1730071974; x=1730676774;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=;
+        b=sG0PV86+azm6vYZHO8bc2gKDOIPH8RLm56fLFY8jXciqRW6U7x8rxXzg5oJPOwVv5Z
+         rdlFP5PCSyqfn9EJ0AmNxQMgSu7aKhcoNHjjiNwlMXPNTKnal9F5y15APJUnJsZ7/k81
+         1DxHnKyorkDLLeMguucz+sNLisjqDKeuGnxWSjYqs7uykgKzxgFOCYPjeMvongX2OIDB
+         tJHEf78xHO9TtbzTyKCIRCYXA369X3i3JTvbFK6LOyPrLMt6J5Xj+wz4mrUQUgBXUh/f
+         EeL8HzosaMskIz/06n+QIa+ecybYwwrrkQ06mmdUQUQyKbRWs5nyqVpICdqtVx/T4Tbh
+         UnUw==
+X-Forwarded-Encrypted: i=1; AJvYcCWXSPjst5SdHZj/5KDFy4eOOtJQyXR5zTbrPyK69Qlzgq94ARDy2su06AYDYmfw4SVyJmzg36AbNjSd4kA=@lists.infradead.org, AJvYcCXIDvGReQ0/m2ZU0inCAuq3mxetds6Pl1Udn714k8vXaXFt+riaRVu/oNj+0HG14lioNTHl/55sZpPV69r5Jxji@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywf8EIiixopl7qKCW7CESx0eaftdBclxTJkskTsrpzWOfmLSuWf
+	DXVtiNc1dA+t+oD/Blu30WQXhRoojQdckL0H0uFxDGxFGiQ50zFW
+X-Google-Smtp-Source: AGHT+IGH/FrrfW96edZYOU/1eyhLzJAIrm6AzqPxdvn8RuUgJVuG2hN9MhbFU5coSZ1MSxKcT0X90A==
+X-Received: by 2002:a17:902:db0f:b0:20c:c482:1d72 with SMTP id d9443c01a7336-210c5a46f96mr94859525ad.20.1730071973692;
+        Sun, 27 Oct 2024 16:32:53 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc044cb1sm39854595ad.249.2024.10.27.16.32.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Oct 2024 15:57:31 -0700 (PDT)
-From: Gilles Talis <gilles.talis@gmail.com>
-To: conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	shawnguo@kernel.org,
-	devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	festevam@gmail.com,
-	Gilles Talis <gilles.talis@gmail.com>
-Subject: [PATCH] arm64: dts: imx8mp-navqp: Add HDMI support
-Date: Sun, 27 Oct 2024 18:54:08 -0400
-Message-ID: <20241027225408.195475-1-gilles.talis@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sun, 27 Oct 2024 16:32:53 -0700 (PDT)
+Date: Mon, 28 Oct 2024 07:32:28 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
+ dwmac
+Message-ID: <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
+References: <20241025011000.244350-1-inochiama@gmail.com>
+ <20241025011000.244350-3-inochiama@gmail.com>
+ <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_155734_974005_F5E826B2 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20241027_163255_341004_64F568CC 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,95 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI connector on the board is a micro-HDMI (type "d")
+On Sun, Oct 27, 2024 at 09:38:00PM +0100, Krzysztof Kozlowski wrote:
+> On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
+> > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+> > with some extra clock.
+> > 
+> > Add necessary compatible string for this device.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> 
+> This should be squashed with a corrected previous patch 
 
-Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
----
- .../arm64/boot/dts/freescale/imx8mp-navqp.dts | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+Good, I will.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-navqp.dts b/arch/arm64/boot/dts/freescale/imx8mp-navqp.dts
-index 5fd1614982cd..4a4f7c1adc23 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-navqp.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-navqp.dts
-@@ -18,6 +18,18 @@ chosen {
- 		stdout-path = &uart2;
- 	};
- 
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		label = "J15";
-+		type = "d";
-+
-+		port {
-+			hdmi_connector_in: endpoint {
-+				remote-endpoint = <&hdmi_tx_out>;
-+			};
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -85,6 +97,28 @@ ethphy0: ethernet-phy@0 {
- 	};
- };
- 
-+&hdmi_pvi {
-+	status = "okay";
-+};
-+
-+&hdmi_tx {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hdmi>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			hdmi_tx_out: endpoint {
-+				remote-endpoint = <&hdmi_connector_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&hdmi_tx_phy {
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	clock-frequency = <400000>;
- 	pinctrl-names = "default";
-@@ -213,6 +247,10 @@ rtc@53 {
- 	};
- };
- 
-+&lcdif3 {
-+	status = "okay";
-+};
-+
- &uart2 {
- 	/* console */
- 	pinctrl-names = "default";
-@@ -279,6 +317,15 @@ MX8MP_IOMUXC_NAND_READY_B__GPIO3_IO16				0x19
- 		>;
- 	};
- 
-+	pinctrl_hdmi: hdmigrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL			0x1c2
-+			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA			0x1c2
-+			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD				0x10
-+			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC				0x10
-+		>;
-+	};
-+
- 	pinctrl_i2c1: i2c1grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL					0x400001c3
+> (why do you need to select snps,dwmac-5.30a?), 
 
-base-commit: 42f7652d3eb527d03665b09edac47f85fb600924
--- 
-2.43.0
+The is because the driver use the fallback versioned compatible 
+string to set up some common arguments. (This is what the patch
+3 does). It is also better to have a accurate fallback compatible
+if we already know what it is.
 
+Regards,
+Inochi
 
