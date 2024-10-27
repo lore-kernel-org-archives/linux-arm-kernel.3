@@ -4,58 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD968D1357E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7780AD13582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4vv2BXbPx+tCbP2OdqHpMRdqwjXqHTq800xkqclIArs=; b=uTjjYvYCFLhOwxP3eD/mDpw+XE
-	Ls4eeyCFNGKCtL6AFqNq3qwpBWWKjcnlrgfP/E95W1NnC3kqRqVG+R/scqUwCUYIrtval7jZi3Oqa
-	aa1XEOGE3v5uvosJtumK8ontq6ArVJOISMQSsNd5YcCpz9DUPAwaZhyjoRmOSs0l2KDmC+AnKJDoX
-	jM6r86P93dDZo6KJeAN4vNox6uliP1NhGH+W5dsQhQ3LrJbAqFGIrjYGtXfKTl9l/zYPVukiP0zut
-	n8gxWnDAm/GPvpG1LWKKMNY1TAyB0p2Sr/tJKpF1WkgbTIk0O4SmXQQtoVLriUFo7ugfBgKCfr7Gg
-	BsTB2gGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z43MNvtr+jq6zZy/Ceg3w8kHzHBw2gUNp+Mcx1ypN08=; b=P6AJ14VhpFvqg1UcifyV9FxF+h
+	iXeKi7Yvf6vfLTEjdthptWO7jS+imeN8U4ohioBjMJj57MYQ5fPNzKPtXGwCZ3gHRtgVV+o2toLgb
+	EXDtDHx1/pV2p7jnoktTyOYiIC+m5RUSpJKs9Xd2ghJ8tS0Fkm8JgNTCDnH/6pLeY+2CtiXi0YoZ3
+	KKDy3lUXnbOFQ27VMexSzXi1BROuwuLm3/TRbdu5hZMmbG6QQrRHYA8pcdKBZ2ccmQ+1M2l7PyU/l
+	vQFxuEtgnJyBLLShdD0BqZMTzIlQqqfpNwXEC+ohJ7EIgwq49SGSOSIfMyzlviJy3uXScR/oSwB7J
+	LJMTf1mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59RA-00000008maA-2Tmi;
-	Sun, 27 Oct 2024 20:00:32 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t59Sl-00000008n1R-2Trv;
+	Sun, 27 Oct 2024 20:02:11 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59NQ-00000008m8f-0FLd;
-	Sun, 27 Oct 2024 19:56:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4vv2BXbPx+tCbP2OdqHpMRdqwjXqHTq800xkqclIArs=; b=uHBl+u/W8KIqbqEz+0oLnQFPnX
-	T9B7RCIzdcdcFJSVXUbI8sISd64pcL5nSRU4OoUuKaNraT2MgVJJVqeoeE8Xj3BdhnqYj6mwcU57I
-	iBE5NJ8Bv+c8PfP3HF6eDILKXzl2MfBYr0O82ZXWUpUcjskLr803F3jEegx761pmFJM+G03fQHksZ
-	1WjlRYDjhqRKTw7tssZz8BASovXqOXGEyMGmvM3rS3cstP+LXtbLl/oNfhjx4PqFeiDXN/Chw6np6
-	BHhEoteHJ46Gwpa7Qm/xG8/JRrJicwmFuTpFJCbBNQfWCHp/VHxoQwakp4LuwNtIacWmzItP/RGYn
-	+noZcy7Q==;
-Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t59NM-0004KY-Sd; Sun, 27 Oct 2024 20:56:36 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts fixes for 6.12
-Date: Sun, 27 Oct 2024 20:56:35 +0100
-Message-ID: <2847150.mvXUDI8C0e@phil>
+	id 1t59Qd-00000008mQh-3OyH
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Oct 2024 20:00:02 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43160c5bad8so3860255e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 12:59:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730059198; x=1730663998; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z43MNvtr+jq6zZy/Ceg3w8kHzHBw2gUNp+Mcx1ypN08=;
+        b=v3klYBQuofFbbShmW6OW+714ZPLbXL/AZQMicZ2xVs/U4JX+J0lSwtti0V3f9u+kL7
+         GgEMOQiX6Nnw3GDBeFuGnn4rYcXxp/TdPCa8OM6ZhUElnVSyNmCQSJFJhmfqKit9mq8B
+         W01d5ZHcxqjgocDvZp8Xbimzks5k8QBL1+O5hqlGJbvynjCE7nuB0tnJt2Os9idQPH+N
+         q/q2n/MXcdaJwZYSAgs8Fb58t6rnvo6d42o5VZK9qfr99TaWXp+iEXCGo162dqwWQghA
+         IBR8UDTNSuFJ0+ljRhNLT6JYhs2quhxZ0qXmrAriKm0dig64aHyuYnmXmV6/ksv7j2t9
+         ou3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730059198; x=1730663998;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z43MNvtr+jq6zZy/Ceg3w8kHzHBw2gUNp+Mcx1ypN08=;
+        b=DXvom+egyoSxAAuLRPxhRPRfmb6fpIXnOI5DAv/FPkCnd4uHAJYaCD4108jm+hS6Gl
+         Dv91LTw+7PIRn1eXkwpkW2q7WeHJeaIklz1YmCfrv/ppKVoon+8nqndxpARPzXP0bQ4/
+         QFjPW8K7vcCxbYV/Vj7qtf5BZy2Ts/YJWvXRwQgqiEInPbmat6GxMp/WZd1vR0osGijJ
+         N/EjhI/+B9BVkhY/KWDyM1msatT90sminHnV7xJ8WBEMfNa/v6+UxnAaeBdKPyXkZscl
+         UGV9JTZqPv0luqtXwAU7LzTOugVaw/gXfw2cJD25s3FSh8NckGMVsUNuJ+Ph65afPiC3
+         Eodw==
+X-Forwarded-Encrypted: i=1; AJvYcCXiS3pHVNDlVsN1yIZ6+eCyPTLM0HlOQT+28PGzJCBAKVJ5+MIQ3Wf1PhP9J0UsF9J9y6+FL9yk65/2gdSmD2LD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQG1apwbvfJRSO8Bivt/zEPPdt8sBX4Nk8JfNOeWiX5u9wl8w5
+	ltOyKjPDhLBJWEgzyBQ719u3r2D2hgdkm8Jn/iRpREConCncKPBs9c+WypvyGyQn8y9OGvknlup
+	xoO4=
+X-Google-Smtp-Source: AGHT+IENeIZ6Q2creRcBv5NlAj4Kk+mWXSMXHI7UEuySjpU9jJIS4txaEKNvMA/dJM33aIeSmrHz6w==
+X-Received: by 2002:a05:600c:468d:b0:42c:aeee:da86 with SMTP id 5b1f17b1804b1-4319ad75782mr20378395e9.8.1730059196577;
+        Sun, 27 Oct 2024 12:59:56 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.211.167])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b6f838sm7506639f8f.83.2024.10.27.12.59.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Oct 2024 12:59:56 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Markuss Broks <markuss.broks@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Maksym Holovach <nergzd@nergzd723.xyz>
+In-Reply-To: <20241026-exynos9810-v3-1-b89de9441ea8@gmail.com>
+References: <20241026-exynos9810-v3-0-b89de9441ea8@gmail.com>
+ <20241026-exynos9810-v3-1-b89de9441ea8@gmail.com>
+Subject: Re: (subset) [PATCH v3 01/10] dt-bindings: arm: cpus: Add Samsung
+ Mongoose M3
+Message-Id: <173005919374.11546.17517915253250206692.b4-ty@linaro.org>
+Date: Sun, 27 Oct 2024 20:59:53 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_125640_160894_079E2CD1 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20241027_125959_891626_F01B7108 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,98 +108,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd, Kevin, Olof,
 
-please find a below a collection of fixes for the current release 6.12
-cycle.
+On Sat, 26 Oct 2024 23:32:32 +0300, Markuss Broks wrote:
+> Add the compatible for Samsung Mongoose M3 CPU core to the schema.
+> Mongoose M3 (codenamed Meerkat) is the big core in Exynos9810 SoC,
+> designed by Samsung. It implements ARMv8.2-A ISA.
+> 
+> 
 
-Please pull
+Applied, thanks!
 
-Thanks
-Heiko
+[01/10] dt-bindings: arm: cpus: Add Samsung Mongoose M3
+        https://git.kernel.org/krzk/linux/c/608c8f408dac3d1fd96191494f1a32ba2b1e133d
 
-
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
-
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.12-rockchip-dtsfixes1
-
-for you to fetch changes up to 08846522d9a7bccf18d4f97c3f39d03c7a193970:
-
-  arm64: dts: rockchip: Correct GPIO polarity on brcm BT nodes (2024-10-25 08:41:15 +0200)
-
-----------------------------------------------------------------
-A number of DTS correctnes fixes, to bring down the amount of errors
-reported by dtbscheck.
-
-----------------------------------------------------------------
-Cristian Ciocaltea (1):
-      arm64: dts: rockchip: Drop invalid clock-names from es8388 codec nodes
-
-Diederik de Haas (4):
-      arm64: dts: rockchip: Remove hdmi's 2nd interrupt on rk3328
-      arm64: dts: rockchip: Fix wakeup prop names on PineNote BT node
-      arm64: dts: rockchip: Fix reset-gpios property on brcm BT nodes
-      arm64: dts: rockchip: Correct GPIO polarity on brcm BT nodes
-
-Dragan Simic (2):
-      arm64: dts: rockchip: Move L3 cache outside CPUs in RK3588(S) SoC dtsi
-      arm64: dts: rockchip: Start cooling maps numbering from zero on ROCK 5B
-
-Geert Uytterhoeven (2):
-      arm64: dts: rockchip: Fix rt5651 compatible value on rk3399-eaidk-610
-      arm64: dts: rockchip: Fix rt5651 compatible value on rk3399-sapphire-excavator
-
-Heiko Stuebner (13):
-      arm64: dts: rockchip: fix i2c2 pinctrl-names property on anbernic-rg353p/v
-      arm64: dts: rockchip: Drop regulator-init-microvolt from two boards
-      arm64: dts: rockchip: Fix bluetooth properties on rk3566 box demo
-      arm64: dts: rockchip: Fix bluetooth properties on Rock960 boards
-      arm64: dts: rockchip: Remove undocumented supports-emmc property
-      arm64: dts: rockchip: Remove #cooling-cells from fan on Theobroma lion
-      arm64: dts: rockchip: Fix LED triggers on rk3308-roc-cc
-      arm64: dts: rockchip: remove num-slots property from rk3328-nanopi-r2s-plus
-      arm64: dts: rockchip: remove orphaned pinctrl-names from pinephone pro
-      ARM: dts: rockchip: fix rk3036 acodec node
-      ARM: dts: rockchip: drop grf reference from rk3036 hdmi
-      ARM: dts: rockchip: Fix the spi controller on rk3036
-      ARM: dts: rockchip: Fix the realtek audio codec on rk3036-kylin
-
-Sam Edwards (1):
-      arm64: dts: rockchip: Designate Turing RK1's system power controller
-
- arch/arm/boot/dts/rockchip/rk3036-kylin.dts          |  4 ++--
- arch/arm/boot/dts/rockchip/rk3036.dtsi               | 14 +++++++-------
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi      |  1 -
- arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts       |  4 ++--
- .../boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts     |  2 --
- arch/arm64/boot/dts/rockchip/rk3328.dtsi             |  3 +--
- arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi        |  1 -
- arch/arm64/boot/dts/rockchip/rk3399-eaidk-610.dts    |  2 +-
- .../arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts |  2 --
- arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts  |  1 -
- arch/arm64/boot/dts/rockchip/rk3399-rock960.dtsi     |  2 +-
- .../boot/dts/rockchip/rk3399-sapphire-excavator.dts  |  2 +-
- .../boot/dts/rockchip/rk3566-anbernic-rg353p.dts     |  2 +-
- .../boot/dts/rockchip/rk3566-anbernic-rg353v.dts     |  2 +-
- arch/arm64/boot/dts/rockchip/rk3566-box-demo.dts     |  6 +++---
- arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts   |  1 -
- arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi    |  6 +++---
- arch/arm64/boot/dts/rockchip/rk3566-radxa-cm3.dtsi   |  2 +-
- arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dts   |  1 -
- arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dts       |  3 ---
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi        | 20 ++++++++++++--------
- .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts     |  1 -
- arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts  |  1 -
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts      |  4 ++--
- arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts  |  1 -
- arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi  |  1 +
- .../boot/dts/rockchip/rk3588s-indiedroid-nova.dts    |  1 -
- 27 files changed, 39 insertions(+), 51 deletions(-)
-
-
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
