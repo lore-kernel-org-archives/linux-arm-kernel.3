@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E82D13585
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C4CD13585
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59kqX7iCt5azttU6rwySXkfPxOIsAlH1pH1H9UVtw2M=; b=Eno6JreCCZTLtkdVpfH64Bes8y
-	ABEbhhO4WUMZ5JWOdyA/h4jtbhT5bieqOrTET51Z10y/KT+hQGNyVAjan7IeVmfYUWTekGEIFjYpc
-	IGKzOvA8nmU4VCo2L4O8DAg6LO5a3ghmNpVd3Hx/Vcpawt+SYFeC13g6rFxnX2Z/+amKw//vV0oqG
-	qgoqHOYgmAeirUy7gKwX5pQ4d2oOl3Xgk/50JMbGt+FAvP0K0m5qLq6kvskuuj7Cv5fchCJYcG00B
-	Hg9DAn1dEN6HDI1JKF1V9Gu6OsEYyJXlZVLhLU7yFggv0Gh+O0beYTErPrFXOF7RLx4/WQ7+XeElH
-	3oPJip6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YhE6OJbE4zVQRfI6WKab0cFThX0KUKxVPvY6gL/TaCQ=; b=dbfli2ExUBnSfKCWzVvVlRoqrm
+	6gfB/PF63ke9CTWyLer1VV8rM6gZ/KSeGAzdxj2OOw7vzRBXVMBa2Ky94QGX6QParmc8fmqRbGFFo
+	Klbsq/Dx2Q9HSFPgPG0xBctGYasZ05GgdvyNJEtMfp4DH6xlR0UgReIJvaLDP2oVNDVnj5Uc1aQO/
+	uxYTcO36f/evaaRRun3lKrXNZGq/6laPwP0RRmxzrFmRRCq48enrplG4EJWZ2fD184DljPxck6ndd
+	IWICrqycFMfGCNxqSAFnzzqQPrvoy2j413n+8erNHoVp5/CfP+btExId46FypBPX0DEomxUkF1e2X
+	byMYLTrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59vJ-00000008qCd-1Yd3;
-	Sun, 27 Oct 2024 20:31:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t59x2-00000008qOl-1HpQ;
+	Sun, 27 Oct 2024 20:33:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t59ti-00000008q0Z-3gAl;
-	Sun, 27 Oct 2024 20:30:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 46616A4136B;
-	Sun, 27 Oct 2024 20:28:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A76C4CEC3;
-	Sun, 27 Oct 2024 20:29:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730061000;
-	bh=RBDRTpmoR7tK0vxcuHjvBDGbXIBaa+8Lb+u9fte4zhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rutxLgU/wTlndCeDb7HYLHZCODaBvWvV/qEdpaagQBcGr5ZTWtSXjhYHR0H39cFLe
-	 qhJIBYhsNZ72/Ig1XyL1If0m5hzHP7Rgdra4LdJ7k90SzTY0DAiu8DPkg9OeuuVr1Q
-	 nIexNmmU1PKO0FN0N6qkUmsq1x0LM1rl+TSi3FF0+h97I1nR2O8YuMZ8RvxvqJdZiW
-	 ANWISnLvQSb8MIs63cEHtoefcR8j7cizxWPUN25DiKUy0B3/5ifZSiNnzwqplaKpKp
-	 J92aiavCOpFCt8ZH7zy/YOuyqP2KYcthjHMjCdbsJpx6OfOhPiS3m4lrQczyNrMetr
-	 HmRrcQS93/+4g==
-Date: Sun, 27 Oct 2024 21:29:56 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Karan Sanghavi <karansanghvi98@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, Alexander Aring <alex.aring@gmail.com>, 
-	Eric Anholt <eric@anholt.net>
-Subject: Re: [PATCH v3] dt-bindings: power: Convert raspberrypi,bcm2835-power
- to Dt schema
-Message-ID: <tmxgkiso66gr62dlnnf4zij7oxtbyf3lkgtmbudiwzolbkuuff@y3l7kxr6rwyy>
-References: <20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com>
+	id 1t59um-00000008q7H-0wuc;
+	Sun, 27 Oct 2024 20:31:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YhE6OJbE4zVQRfI6WKab0cFThX0KUKxVPvY6gL/TaCQ=; b=LpOh5+xeN/inEL/dPQJp4tRodC
+	na18rzgLHD4nM95QO7Z2L2Of7swBgX1hQAurCzrKqdY1Sibvl+M+9GRZxIcWIo3Gs2rwXSiYPYimN
+	v5YhLFFkSKAxZpyePrbZdvq7vzFrm1cCVjIo+1LbwvgJevfOHV1f04Q3lQKrPRpU8O5zfz4wW15Q7
+	9n+W7hMh8Vw+TnpGv4vnqbGWNfYiCo9hjZiZmSBjJOYPQt5A19vpGkY5CFsW5kceWM7EEe0cY5sIe
+	+CYygv1SM5J+3rffbOjfsvPpvcMeMWgDZOO93sWQCTj/FPURSJJNxnj7AkvYV0O9itGmobBU/kg1I
+	/MAgZ0qg==;
+Received: from i53875b34.versanet.de ([83.135.91.52] helo=phil.sntech)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t59ue-00068h-3G; Sun, 27 Oct 2024 21:31:00 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	robh@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de,
+	Heiko Stuebner <heiko.stuebner@cherry.de>,
+	andy.yan@rock-chips.com,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: soc: rockchip: add rk3588 mipi dcphy syscon
+Date: Sun, 27 Oct 2024 21:30:56 +0100
+Message-ID: <173006096669.97564.15899385543058068813.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240506124632.3621378-1-heiko@sntech.de>
+References: <20240506124632.3621378-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_133003_273259_BDCCCDF6 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20241027_133108_284272_EA6CFC4D 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,89 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26, 2024 at 01:59:13PM +0000, Karan Sanghavi wrote:
-> Convert the raspberrypi,bcm2835-power binding to Dt schema
+On Mon, 6 May 2024 14:46:32 +0200, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> Signed-off-by: Karan Sanghavi <karansanghvi98@gmail.com>
-> ---
-> Changes in v3:
-> - Applied changes as per the feedback received for title and description
-> - Removed power label and renamed node to power-controller	
-> - Moved the file from bindings/soc/bcm to bindings/power
-> - Link to v2: https://lore.kernel.org/r/20241022-raspberrypi-bcm2835-power-v2-1-1a4a8a8a5737@gmail.com
+> RK3588 CSI and DSI support requires the GRF for DC-PHY.
 > 
-> Changes in v2:
-> - Added original file maintainers
-> - Removed unnecessary headers from example and formating from description 
-> - Link to v1: https://lore.kernel.org/r/20241019-raspberrypi-bcm2835-power-v1-1-75e924dc3745@gmail.com
-> ---
->  .../bindings/power/raspberrypi,bcm2835-power.yaml  | 44 ++++++++++++++++++++
->  .../bindings/soc/bcm/raspberrypi,bcm2835-power.txt | 47 ----------------------
->  2 files changed, 44 insertions(+), 47 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml b/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml
-> new file mode 100644
-> index 000000000000..71b3fa41c495
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +
 
-Some random changes... this wasn't in previous version
+Applied, thanks!
 
-> +---
-> +
-
-Neither this.
-
-> +$id: http://devicetree.org/schemas/power/raspberrypi,bcm2835-power.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Broadcom BCM2835 power domain
-> +
-> +maintainers:
-> +  - Alexander Aring <alex.aring@gmail.com>
-> +  - Eric Anholt <eric@anholt.net>
-> +
-> +description:
-> +  The Raspberry Pi power domain manages power for various subsystems
-> +  in the Raspberry Pi BCM2835 SoC.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - raspberrypi,bcm2835-power
-> +
-> +  firmware:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Reference to the RPi firmware device node
-> +
-> +  "#power-domain-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - firmware
-> +  - "#power-domain-cells"
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    power-controller {
-> +      compatible = "raspberrypi,bcm2835-power";
-> +      firmware = <&firmware>;
-> +      #power-domain-cells = <1>;
-> +      };
-
-Nor this misindent.
-
-Your task was to do 'mv', not rewrite the patch. How random differences
-could appear here?
+[1/1] dt-bindings: soc: rockchip: add rk3588 mipi dcphy syscon
+      commit: 22e027cc74488dba49f19f943c2da02726261f08
 
 Best regards,
-Krzysztof
-
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
