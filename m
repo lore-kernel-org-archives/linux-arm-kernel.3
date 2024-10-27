@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FEBD13572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 18:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFDED1357D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 19:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1bxIWA7tzzuJ88LIetAizLHq7RYaGqEOl9fJGgiZvw=; b=h2e93U9JlApm3MkqoggLXxAuHa
-	+jfg+j31tEIkAYeNhCFzfVxqbsw5qNIS6ajg24yadANNVX79cChVcJ8DIu9YAhQ/EkmEQKIjnot3U
-	s4CGUJvQgaIuyn4W5roP6b3X9mPDI/dq00ffZYGt2361gpUO6F1st+w1hT+x+ulgBwK7JT3h+S5JC
-	aLHrKheUQ7Z0rn3VlTGrZ2mXuB2Rehc4/zZZpjvJX+Zk1CAszsIdkp52tfaKKoffTbeptSwgZQ3mb
-	1L4OL+vEmXdblIg4mQEwCO/SNa9sJa04GqKBf1Y9ietgKUMEHgNLfvZLH6YxuPYjqSRVobcJcLN/s
-	exgE4sSg==;
+	bh=iHBlqwdglp7Riq8VcPiQgr0GhWrwV/+7BFz+TOVeT1Q=; b=1Sx+YdY8NYrM9Fhjg1TQFKT1Yu
+	IZlzGW6K75utBKRDOtG7oe2hPdG9a+Y6RKZgq1fBAOu0RuYnenUVWwJuN2GUwr6SOUjDVOiWquZGe
+	NUBWFAFr2rfSHqwNiMda/iwEtBiBMB5KIg9YYA8L6LiTVYsUTJpJM0Wu0TEhi83OdSNHUDlOJdtNW
+	oreYpyx0XldPNVdCROKa1R/WOomCul1ZlknI3SJVxjN93+z/eNZGUzeqy5GVSo0O0ECgLOEARb/iF
+	em59+NjH8FZCW8+YVzPZ9Wo15viq45nwVnGWldnzB1cF0fcYcKpOaJYAnvHPdGVdQBheQy6uTUSN6
+	7JUR3uuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t57uv-00000008fjq-2Wqa;
-	Sun, 27 Oct 2024 18:23:09 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1t58jC-00000008jW0-1k5z;
+	Sun, 27 Oct 2024 19:15:06 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t57tK-00000008fch-1Opw;
-	Sun, 27 Oct 2024 18:21:32 +0000
+	id 1t58hc-00000008jPO-0f24
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Oct 2024 19:13:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730053290; x=1761589290;
+  t=1730056408; x=1761592408;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=M0foY50M4HsUnWQT73wNT19qOzDjY/3ojUHdpCR2Au0=;
-  b=euQ2ayl+pBz8RRviwKEyxXlfiSnffmGYeD13pgSrHajDW95OtO4fA0wu
-   fmsBCd+hB4BqQSHu5iusQqGOC+aATLsIRh/OQetZtpz51ctMDhPaf6cQ7
-   gy6StdySZsnEWBqkJ/0n6flKvy/9u6cVCfNX/1aYCGxaV89FVYuHqFGmC
-   OadeECcYqZR3cvKOne9d3eaQrznJkfv/Ml5Yz3CD1K0PUWKY3JYAlV+56
-   MDkki2qUWRbu7FK5OiPkzEs5xkZI58oCtbC5h/2pXQogLIv09d0fxCyWV
-   unFZoLbADqVNyJowwgFyJkiEsDXa6UbDdJZglWDMSnWg+l2HPxJt88xNK
-   A==;
-X-CSE-ConnectionGUID: g+2QbFDISf+TLkYslISCPA==
-X-CSE-MsgGUID: dnXekOsqT6G2Zn8/qKUAeg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11238"; a="33564715"
+  bh=UOBtR7avR4LJi9ncivSqNFYPGG3xDXyQQ8t6Oyigaus=;
+  b=BUnCmRwSKaso7I2SHF8dMA834vNivyleVO2hiDDvNCAuRdnkroQY6riB
+   kkDladzSOr3SpdfjkJK4RNzWA+ZYv2Oc8IN0CvkPMR/mUvSnlAi+rrcGp
+   FrmYU4/GibrG9ZFBYL2fLq3HXw/QY2absjSPfgd33n2k37vhSEF+WAe6d
+   xWl2V66BnmclxAB6EHdKMVlkzKioB0/3gPnCzRWpz+zrvKXcB++wOGVU+
+   ur0D7IkCBOm8SlXrhPq6p0M8FQ4rvEdNqabU3qSWxDgZ9W5CfTzWl9QlN
+   kZOZsN/tRhOX+Fqbjqlp0MNm+ERr3BhGdSskULEyJ0pOg3dJBLTL5kjPV
+   w==;
+X-CSE-ConnectionGUID: c1gA2kJ8RPGHgRkTQscyJw==
+X-CSE-MsgGUID: ZFSLWluERKOeYh5yJ1/Anw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11238"; a="33454096"
 X-IronPort-AV: E=Sophos;i="6.11,237,1725346800"; 
-   d="scan'208";a="33564715"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2024 11:21:23 -0700
-X-CSE-ConnectionGUID: H1QstXZTRRS7jy5jDhNBEg==
-X-CSE-MsgGUID: IpKzxFHhSB6Dxzeg+K+IdA==
+   d="scan'208";a="33454096"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2024 12:13:25 -0700
+X-CSE-ConnectionGUID: EmkVCLkfRJqj4ztNf3jeUQ==
+X-CSE-MsgGUID: 50isPq14Ty+074B2ysi87g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,237,1725346800"; 
-   d="scan'208";a="81353158"
+   d="scan'208";a="81854668"
 Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 27 Oct 2024 11:21:20 -0700
+  by orviesa007.jf.intel.com with ESMTP; 27 Oct 2024 12:13:22 -0700
 Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1t57t7-000au5-2t;
-	Sun, 27 Oct 2024 18:21:17 +0000
-Date: Mon, 28 Oct 2024 02:20:29 +0800
+	id 1t58hT-000avQ-25;
+	Sun, 27 Oct 2024 19:13:19 +0000
+Date: Mon, 28 Oct 2024 03:12:53 +0800
 From: kernel test robot <lkp@intel.com>
-To: chang hao <ot_chhao.chang@mediatek.com>, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, sean.wang@kernel.org,
-	linus.walleij@linaro.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Chhao Chang <ot_chhao.chang@mediatek.com>
-Subject: Re: [PATCH] pinctrl: mediatek: add eint new design for mt8196
-Message-ID: <202410280230.KAMZK7aZ-lkp@intel.com>
-References: <20241025031814.21442-1-ot_chhao.chang@mediatek.com>
+To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Mesih Kilinc <mesihkilinc@gmail.com>,
+	=?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
+	Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: Re: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
+Message-ID: <202410280225.baqFmTsa-lkp@intel.com>
+References: <20241027091440.1913863-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241025031814.21442-1-ot_chhao.chang@mediatek.com>
+In-Reply-To: <20241027091440.1913863-2-csokas.bence@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_112130_449675_AE3C613B 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20241027_121328_313560_32E77CFE 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,150 +93,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi chang,
+Hi Bence,
 
 kernel test robot noticed the following build errors:
 
-[auto build test ERROR on linusw-pinctrl/devel]
-[also build test ERROR on linusw-pinctrl/for-next linus/master v6.12-rc4 next-20241025]
+[auto build test ERROR on sunxi/sunxi/for-next]
+[also build test ERROR on vkoul-dmaengine/next broonie-sound/for-next arm64/for-next/core clk/clk-next kvmarm/next rockchip/for-next shawnguo/for-next soc/for-next arm/for-next arm/fixes linus/master v6.12-rc4 next-20241025]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/chang-hao/pinctrl-mediatek-add-eint-new-design-for-mt8196/20241025-111952
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git devel
-patch link:    https://lore.kernel.org/r/20241025031814.21442-1-ot_chhao.chang%40mediatek.com
-patch subject: [PATCH] pinctrl: mediatek: add eint new design for mt8196
-config: s390-randconfig-r131-20241027 (https://download.01.org/0day-ci/archive/20241028/202410280230.KAMZK7aZ-lkp@intel.com/config)
-compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
-reproduce: (https://download.01.org/0day-ci/archive/20241028/202410280230.KAMZK7aZ-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Cs-k-s-Bence/dma-engine-sun4i-Add-has_reset-option-to-quirk/20241027-172307
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20241027091440.1913863-2-csokas.bence%40prolan.hu
+patch subject: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
+config: arm-multi_v7_defconfig (https://download.01.org/0day-ci/archive/20241028/202410280225.baqFmTsa-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241028/202410280225.baqFmTsa-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410280230.KAMZK7aZ-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410280225.baqFmTsa-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
-   In file included from drivers/pinctrl/mediatek/mtk-eint.c:14:
-   In file included from include/linux/gpio/driver.h:8:
-   In file included from include/linux/irqchip/chained_irq.h:10:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __raw_readb(PCI_IOBASE + addr);
-                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:37:59: note: expanded from macro '__le16_to_cpu'
-   #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
-                                                             ^
-   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
-   #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
-                                                        ^
-   In file included from drivers/pinctrl/mediatek/mtk-eint.c:14:
-   In file included from include/linux/gpio/driver.h:8:
-   In file included from include/linux/irqchip/chained_irq.h:10:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:35:59: note: expanded from macro '__le32_to_cpu'
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
-   #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
-                                                        ^
-   In file included from drivers/pinctrl/mediatek/mtk-eint.c:14:
-   In file included from include/linux/gpio/driver.h:8:
-   In file included from include/linux/irqchip/chained_irq.h:10:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:14:
-   In file included from arch/s390/include/asm/io.h:93:
-   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writeb(value, PCI_IOBASE + addr);
-                               ~~~~~~~~~~ ^
-   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-                                                         ~~~~~~~~~~ ^
-   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-                                                         ~~~~~~~~~~ ^
-   include/asm-generic/io.h:693:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsb(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:701:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsw(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:709:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsl(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:718:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesb(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
-   include/asm-generic/io.h:727:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesw(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
-   include/asm-generic/io.h:736:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesl(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
->> drivers/pinctrl/mediatek/mtk-eint.c:588:2: error: call to undeclared function 'dsb'; ISO C99 and later do not support implicit function declarations [-Werror,-Wimplicit-function-declaration]
-           dsb(sy);
-           ^
-   drivers/pinctrl/mediatek/mtk-eint.c:588:6: error: use of undeclared identifier 'sy'
-           dsb(sy);
-               ^
-   drivers/pinctrl/mediatek/mtk-eint.c:609:2: error: call to undeclared function 'dsb'; ISO C99 and later do not support implicit function declarations [-Werror,-Wimplicit-function-declaration]
-           dsb(sy);
-           ^
-   drivers/pinctrl/mediatek/mtk-eint.c:609:6: error: use of undeclared identifier 'sy'
-           dsb(sy);
-               ^
-   drivers/pinctrl/mediatek/mtk-eint.c:686:14: warning: no previous prototype for function 'mtk_eint_get_debounce_en' [-Wmissing-prototypes]
-   unsigned int mtk_eint_get_debounce_en(struct mtk_eint *eint,
-                ^
-   drivers/pinctrl/mediatek/mtk-eint.c:686:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   unsigned int mtk_eint_get_debounce_en(struct mtk_eint *eint,
-   ^
-   static 
-   drivers/pinctrl/mediatek/mtk-eint.c:709:14: warning: no previous prototype for function 'mtk_eint_get_debounce_value' [-Wmissing-prototypes]
-   unsigned int mtk_eint_get_debounce_value(struct mtk_eint *eint,
-                ^
-   drivers/pinctrl/mediatek/mtk-eint.c:709:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   unsigned int mtk_eint_get_debounce_value(struct mtk_eint *eint,
-   ^
-   static 
-   14 warnings and 4 errors generated.
+   drivers/dma/sun4i-dma.c: In function 'sun4i_dma_probe':
+>> drivers/dma/sun4i-dma.c:1225:51: warning: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
+    1225 |                         dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+         |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                                   |
+         |                                                   char *
+   In file included from include/linux/device.h:15,
+                    from include/linux/dma-mapping.h:8,
+                    from drivers/dma/sun4i-dma.c:10:
+   include/linux/dev_printk.h:278:64: note: expected 'int' but argument is of type 'char *'
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                                                            ~~~~^~~
+>> drivers/dma/sun4i-dma.c:1225:25: error: too few arguments to function 'dev_err_probe'
+    1225 |                         dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+         |                         ^~~~~~~~~~~~~
+   include/linux/dev_printk.h:278:20: note: declared here
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                    ^~~~~~~~~~~~~
 
 
-vim +/dsb +588 drivers/pinctrl/mediatek/mtk-eint.c
+vim +/dev_err_probe +1225 drivers/dma/sun4i-dma.c
 
-   572	
-   573	int mtk_eint_do_suspend(struct mtk_eint *eint)
-   574	{
-   575		unsigned int i, j, port;
-   576	
-   577		for (i = 0; i < eint->instance_number; i++) {
-   578			struct mtk_eint_instance inst = eint->instances[i];
-   579	
-   580			for (j = 0; j < inst.number; j += MAX_BIT) {
-   581				port = j >> REG_GROUP;
-   582				writel_relaxed(~inst.wake_mask[port],
-   583					       inst.base + port*REG_OFSET + eint->comp->regs->mask_set);
-   584				writel_relaxed(inst.wake_mask[port],
-   585					       inst.base + port*REG_OFSET + eint->comp->regs->mask_clr);
-   586			}
-   587		}
- > 588		dsb(sy);
-   589	
-   590		return 0;
-   591	}
-   592	EXPORT_SYMBOL_GPL(mtk_eint_do_suspend);
-   593	
+  1193	
+  1194	static int sun4i_dma_probe(struct platform_device *pdev)
+  1195	{
+  1196		struct sun4i_dma_dev *priv;
+  1197		int i, j, ret;
+  1198	
+  1199		priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+  1200		if (!priv)
+  1201			return -ENOMEM;
+  1202	
+  1203		priv->cfg = of_device_get_match_data(&pdev->dev);
+  1204		if (!priv->cfg)
+  1205			return -ENODEV;
+  1206	
+  1207		priv->base = devm_platform_ioremap_resource(pdev, 0);
+  1208		if (IS_ERR(priv->base))
+  1209			return PTR_ERR(priv->base);
+  1210	
+  1211		priv->irq = platform_get_irq(pdev, 0);
+  1212		if (priv->irq < 0)
+  1213			return priv->irq;
+  1214	
+  1215		priv->clk = devm_clk_get(&pdev->dev, NULL);
+  1216		if (IS_ERR(priv->clk)) {
+  1217			dev_err(&pdev->dev, "No clock specified\n");
+  1218			return PTR_ERR(priv->clk);
+  1219		}
+  1220	
+  1221		if (priv->cfg->has_reset) {
+  1222			priv->rst = devm_reset_control_get_exclusive(&pdev->dev,
+  1223								     NULL);
+  1224			if (IS_ERR(priv->rst)) {
+> 1225				dev_err_probe(&pdev->dev, "Failed to get reset control\n");
+  1226				return PTR_ERR(priv->rst);
+  1227			}
+  1228		}
+  1229	
+  1230		platform_set_drvdata(pdev, priv);
+  1231		spin_lock_init(&priv->lock);
+  1232	
+  1233		dma_set_max_seg_size(&pdev->dev, SUN4I_DMA_MAX_SEG_SIZE);
+  1234	
+  1235		dma_cap_zero(priv->slave.cap_mask);
+  1236		dma_cap_set(DMA_PRIVATE, priv->slave.cap_mask);
+  1237		dma_cap_set(DMA_MEMCPY, priv->slave.cap_mask);
+  1238		dma_cap_set(DMA_CYCLIC, priv->slave.cap_mask);
+  1239		dma_cap_set(DMA_SLAVE, priv->slave.cap_mask);
+  1240	
+  1241		INIT_LIST_HEAD(&priv->slave.channels);
+  1242		priv->slave.device_free_chan_resources	= sun4i_dma_free_chan_resources;
+  1243		priv->slave.device_tx_status		= sun4i_dma_tx_status;
+  1244		priv->slave.device_issue_pending	= sun4i_dma_issue_pending;
+  1245		priv->slave.device_prep_slave_sg	= sun4i_dma_prep_slave_sg;
+  1246		priv->slave.device_prep_dma_memcpy	= sun4i_dma_prep_dma_memcpy;
+  1247		priv->slave.device_prep_dma_cyclic	= sun4i_dma_prep_dma_cyclic;
+  1248		priv->slave.device_config		= sun4i_dma_config;
+  1249		priv->slave.device_terminate_all	= sun4i_dma_terminate_all;
+  1250		priv->slave.copy_align			= 2;
+  1251		priv->slave.src_addr_widths		= BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+  1252							  BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+  1253							  BIT(DMA_SLAVE_BUSWIDTH_4_BYTES);
+  1254		priv->slave.dst_addr_widths		= BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+  1255							  BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+  1256							  BIT(DMA_SLAVE_BUSWIDTH_4_BYTES);
+  1257		priv->slave.directions			= BIT(DMA_DEV_TO_MEM) |
+  1258							  BIT(DMA_MEM_TO_DEV);
+  1259		priv->slave.residue_granularity		= DMA_RESIDUE_GRANULARITY_BURST;
+  1260	
+  1261		priv->slave.dev = &pdev->dev;
+  1262	
+  1263		priv->pchans = devm_kcalloc(&pdev->dev, priv->cfg->dma_nr_max_channels,
+  1264					    sizeof(struct sun4i_dma_pchan), GFP_KERNEL);
+  1265		priv->vchans = devm_kcalloc(&pdev->dev, SUN4I_DMA_NR_MAX_VCHANS,
+  1266					    sizeof(struct sun4i_dma_vchan), GFP_KERNEL);
+  1267		priv->pchans_used = devm_kcalloc(&pdev->dev,
+  1268						 BITS_TO_LONGS(priv->cfg->dma_nr_max_channels),
+  1269						 sizeof(unsigned long), GFP_KERNEL);
+  1270		if (!priv->vchans || !priv->pchans || !priv->pchans_used)
+  1271			return -ENOMEM;
+  1272	
+  1273		/*
+  1274		 * [0..priv->cfg->ndma_nr_max_channels) are normal pchans, and
+  1275		 * [priv->cfg->ndma_nr_max_channels..priv->cfg->dma_nr_max_channels) are
+  1276		 * dedicated ones
+  1277		 */
+  1278		for (i = 0; i < priv->cfg->ndma_nr_max_channels; i++)
+  1279			priv->pchans[i].base = priv->base +
+  1280				SUN4I_NDMA_CHANNEL_REG_BASE(i);
+  1281	
+  1282		for (j = 0; i < priv->cfg->dma_nr_max_channels; i++, j++) {
+  1283			priv->pchans[i].base = priv->base +
+  1284				SUN4I_DDMA_CHANNEL_REG_BASE(j);
+  1285			priv->pchans[i].is_dedicated = 1;
+  1286		}
+  1287	
+  1288		for (i = 0; i < SUN4I_DMA_NR_MAX_VCHANS; i++) {
+  1289			struct sun4i_dma_vchan *vchan = &priv->vchans[i];
+  1290	
+  1291			spin_lock_init(&vchan->vc.lock);
+  1292			vchan->vc.desc_free = sun4i_dma_free_contract;
+  1293			vchan_init(&vchan->vc, &priv->slave);
+  1294		}
+  1295	
+  1296		ret = clk_prepare_enable(priv->clk);
+  1297		if (ret) {
+  1298			dev_err(&pdev->dev, "Couldn't enable the clock\n");
+  1299			return ret;
+  1300		}
+  1301	
+  1302		/* Deassert the reset control */
+  1303		ret = reset_control_deassert(priv->rst);
+  1304		if (ret) {
+  1305			dev_err(&pdev->dev,
+  1306				"Failed to deassert the reset control\n");
+  1307			goto err_clk_disable;
+  1308		}
+  1309	
+  1310		/*
+  1311		 * Make sure the IRQs are all disabled and accounted for. The bootloader
+  1312		 * likes to leave these dirty
+  1313		 */
+  1314		writel(0, priv->base + SUN4I_DMA_IRQ_ENABLE_REG);
+  1315		writel(0xFFFFFFFF, priv->base + SUN4I_DMA_IRQ_PENDING_STATUS_REG);
+  1316	
+  1317		ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+  1318				       0, dev_name(&pdev->dev), priv);
+  1319		if (ret) {
+  1320			dev_err(&pdev->dev, "Cannot request IRQ\n");
+  1321			goto err_clk_disable;
+  1322		}
+  1323	
+  1324		ret = dma_async_device_register(&priv->slave);
+  1325		if (ret) {
+  1326			dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+  1327			goto err_clk_disable;
+  1328		}
+  1329	
+  1330		ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+  1331						 priv);
+  1332		if (ret) {
+  1333			dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+  1334			goto err_dma_unregister;
+  1335		}
+  1336	
+  1337		dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+  1338	
+  1339		return 0;
+  1340	
+  1341	err_dma_unregister:
+  1342		dma_async_device_unregister(&priv->slave);
+  1343	err_clk_disable:
+  1344		clk_disable_unprepare(priv->clk);
+  1345		return ret;
+  1346	}
+  1347	
 
 -- 
 0-DAY CI Kernel Test Service
