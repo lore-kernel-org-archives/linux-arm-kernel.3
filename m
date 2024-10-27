@@ -4,57 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F0AD13571
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 22:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04EDFD1358A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 22:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0a5p6YtYSzeKtaz6aWDigSdFrHFpxaC3J2kJiQXdoOM=; b=a4gtnT+p9nEQIpLgAPuR8fNnHg
-	uUa1znNiyYwN8eUxaUj9tyKtfIs96twWQL1ysQsDAeDJHCMDwxOY2YPie2oz/Vn7rsMNGAMF0dG9A
-	PIRc4iRrSqItVipi5vcP2ew0UBL/k4u2vSKPuaOx0uezMZHi3A9DvcY7JT22zQ8LIcC5gxTsX788E
-	e05t3m9f5DwlVGKydL1giQWO1Q0AjXUYute5RbjbKm6AfNqlnM/WS/WcjriTf77NpVwgxgpi6P78Z
-	hHvrLmfFu8Ute8jrjks09jHAifk7v5VNpoTUq1jS22cNH33C8ZMfWXZgL8miqVT8HQXAJ0KnQoYYQ
-	P9aPqdTg==;
+	bh=GbHKFKO5IxI4QZvGkL8Vc8LZBTGxCpbQFVtBuYwA68Q=; b=FdqI3wOi4QPgZR2jknXcayNReN
+	2QLo3cKj1sIxybmBEpCWlJGqRfqKXQytgfpszq8imYHU1aWC23Ogk4kGKcGGmIzd5wjnJCE0ntSZj
+	fm20mSXjvMQUBzOPIavf9F43RI4eglllBR/AvTVy+Qiov2hV6pd4VR/gr2tfr5IybmRAb6JllP4DU
+	4W7upeqSgIjCG5pANDJb0+j4xAJtpz95HKMBEqSoWKQdeBL9n7RyG/guOw3tIexYTmWuQp5yJLZU5
+	iM143BmVqAPhxi5r4M24WCniXevwokBBT/anKZURXvV4yrTLn8hweNlHm5j29WepaKUgZu9+RIXir
+	odNsTeNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5C4G-0000000924o-2OPo;
-	Sun, 27 Oct 2024 22:49:04 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1t5C6X-000000092Ip-0BjK;
+	Sun, 27 Oct 2024 22:51:25 +0000
+Received: from mail-mw2nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2412::612] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5C2e-000000091pg-3RpI;
-	Sun, 27 Oct 2024 22:47:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1730069239; bh=8Zm5MjZ8zaSPXSP0fhK2I0ghqIIU2RPotYegaZLnZUw=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=PcYLK+tykd5DXK6UAW1uAKNzSwdgN0bb20OIhaDMlm6umHy1gO0DAdPGBEV+dCbki
-	 noVA/7EVjEXZkcOeJ38sCieKfrfUb/Nkg+RMKo0SacO7c4bgGcEcEP7c2GdsL/G/Eu
-	 gXG+kdMN3iv0RW1ROMmu281Z3/iXv5Af/d3Obe7k=
-Date: Sun, 27 Oct 2024 23:47:19 +0100
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0
- ports
-Message-ID: <pe2ornjaqn24i7e3x64rfdtqbp2c347mc5okgj5y6bfvkwnv6z@jux5yei3vxxa>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Chen-Yu Tsai <wens@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20241025175415.887368-1-wens@kernel.org>
+	id 1t5C4v-000000092AB-3FCT
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Oct 2024 22:49:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GdeE0sV5Nm9atWbMj3fmE+pg81DKv7+4hvOgXFrVYUB8nDHGmDEBdfBnkyYtY7mfuD54iszxXcnDCyyLasL5tKeerCqanbE9357p19W/F5p+hN6DarB9dgX0YlgbZo9aGRB/5Gjz/XFQk6l7gJeT0SZsrY2qSDzQ44fu+AuCHhxQRA6iV5iYMAyoyXXAAPvXfVGYfoCwOK/D5/fYVHcKkANetbrfTZcylpLnWycU73R/Gx8p3tBoyx3oj5lr15rPfBjdeXx1eEuZ28mgVW4nSQa1wZGiSvtIlkeUBLHxNgO6NTpE+xV8fNKX5F/SN/HuVBgjfWMkjBn5nj9VLtgKwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GbHKFKO5IxI4QZvGkL8Vc8LZBTGxCpbQFVtBuYwA68Q=;
+ b=ekXaFpzdNHcBGH04dyITGq1xQoPUDdrGvKAkHtfQZ3Dt8T78ZR0q1MtESwp+JUK1ieSLLj/va16TYPulwjeHpsmKLQXsy6P+ok+apQnA/I8wSJsblc6KDzwPN3kRiaX3sBxIPu4vVT7a9rPUBvbA5JCMLv76ZOb7SFOJHJBretFTVlop78ZrehvcNCBS5+EJ5N3IIyTWfW/03dcCdf3gk1s+qf3EPv/pkO+IvMGTObeFJxXCiFDeR0AxuC3/oyUr1RtdYhiz18eId02zo+MEksW2ZGrqCj90paf1+1R6ZviF0RfD6tlgZSyvwMdiPuzAO/CgK8hhghChtNRUTeuOsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GbHKFKO5IxI4QZvGkL8Vc8LZBTGxCpbQFVtBuYwA68Q=;
+ b=eXudX+2QrCEoplqhHRHxt/rEZu+OGV4xAHNhuv7FVd/idm46pEmuOmBdd/Hm8T0/yLu77tFG/Cqz31faP2iTpJvzOPhcjd48Udgqh3CmEMCSvotytG9W8iqHcMg4ACk5fS+ey4htNedp/0HnTGzgLMKaY4qrDNW/YMpnpIpHgyNy+Fi/S3TaBiiFnFHrjDnZBDtO3hjECLXRHL/hAnEp532wKE5Wbl92W/FtEOqGudWcDKXzBWU/KgEWiDnqWu3HS0CYR35UmLJViBc9p0pA5LFBNvRPqJc0A2wf5Ksb/Y4N+9KR5X8Eh6oU/a3vPC2VbHZXiWtSULAAA361gjuYmg==
+Received: from BL0PR0102CA0050.prod.exchangelabs.com (2603:10b6:208:25::27) by
+ CH3PR12MB9283.namprd12.prod.outlook.com (2603:10b6:610:1cd::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Sun, 27 Oct
+ 2024 22:49:34 +0000
+Received: from BN2PEPF000055DC.namprd21.prod.outlook.com
+ (2603:10b6:208:25:cafe::d2) by BL0PR0102CA0050.outlook.office365.com
+ (2603:10b6:208:25::27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25 via Frontend
+ Transport; Sun, 27 Oct 2024 22:49:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF000055DC.mail.protection.outlook.com (10.167.245.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8137.0 via Frontend Transport; Sun, 27 Oct 2024 22:49:33 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 27 Oct
+ 2024 15:49:28 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 27 Oct
+ 2024 15:49:27 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Sun, 27 Oct 2024 15:49:26 -0700
+Date: Sun, 27 Oct 2024 15:49:24 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Zhangfei Gao <zhangfei.gao@linaro.org>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v5 07/13] iommufd/viommu: Add iommufd_viommu_find_dev
+ helper
+Message-ID: <Zx7DdPmEF/9aU70W@Asurada-Nvidia>
+References: <cover.1729897278.git.nicolinc@nvidia.com>
+ <384f7b4333a1f75da09e390902b8f82be21a0dd3.1729897278.git.nicolinc@nvidia.com>
+ <CABQgh9EpGPwdQhv7mepiMGVgR-8NMx5dcXyJ2A92W8ZzQt3bJw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20241025175415.887368-1-wens@kernel.org>
+In-Reply-To: <CABQgh9EpGPwdQhv7mepiMGVgR-8NMx5dcXyJ2A92W8ZzQt3bJw@mail.gmail.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000055DC:EE_|CH3PR12MB9283:EE_
+X-MS-Office365-Filtering-Correlation-Id: 577be983-55e4-49c0-00c2-08dcf6d9a07f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z1E8WdFaRy8SXcdsUfYf3k8SgWImgsmrFYoN1PQuNxw5SPFSf1NdWaK59M0V?=
+ =?us-ascii?Q?ARUHcXc4gzhV5BrAq0DHkdAbGjdJm8U6Pxn8lj/MFumN5Ro9YiAPOKP3EbJk?=
+ =?us-ascii?Q?O0yarCpQXO8wntLRZZlASU0jWdy7iArRi4c0OScdWa6FY6MzYzRp7KhZ7Vad?=
+ =?us-ascii?Q?MGt2NEYy96CKmJ99N8p4k8n1uLOMhYGCeeCmj9ePnxAOsjZFPzBewWlNvT67?=
+ =?us-ascii?Q?SkeXVtyUpqYViz/zQf83dDh7Wcv/rZnTOaMx9LTo8/cbr6IL4SwTPYTKdkRP?=
+ =?us-ascii?Q?expzjm8pWiD65Oj88I19TUcvKQZ8RUArhBda8MmyyVksF94rSZpYUgoEqSPM?=
+ =?us-ascii?Q?RV2RsvDg46E0MJiWKyopwHxFjQ1mqzaPI3XejdgqMQlRFd+ZnUU0LcrnkP49?=
+ =?us-ascii?Q?O3mkHf5h9EznkJJu9tFIPAIOlnCKmxJXW7j+Ejb3OInjLTmaGKcrD3JYXsJ0?=
+ =?us-ascii?Q?EdPcXhgeIxPtUNYigi9q4/luXkY5Dtp8Fey296MILLp5ILFHb5gcW5T8BMqv?=
+ =?us-ascii?Q?UeR0veSTQREfnbRD+7gHH49dX6x/E7lgXHQDlpayyrQfTPmMrFzOo5ANPoKC?=
+ =?us-ascii?Q?YRgy5D5AYQac2hwt260VeC1w5HoURdxrpdynCKtsqf9UerXJu7oMSYdK+uwQ?=
+ =?us-ascii?Q?kXJ78Nn0EjV0D9XLv6nV56iHsGsCWwY1Cd+rPaCzEw77cLa6YN59HgKSpWCD?=
+ =?us-ascii?Q?awGlv/Ui+J57PHS2DHGFFfxlfi7dnJRjW0art3eYACWGLsrWj/Xx7joYRO+R?=
+ =?us-ascii?Q?xUe/WmHz7i2NNmAV1PLfMVBdFDfQpjWLEz4yd8cRIR0uJJfREhulB3NC2al2?=
+ =?us-ascii?Q?HKuy/Zfmska1TYR1xZS2zrS/6M/nru4udDNxPpZbbt7NHXpsZhm8aGam4PSE?=
+ =?us-ascii?Q?X3EEc2DFJ3AupU7Rkh0qrlG1UxuxE4A9rJLIcBGlqn2NWXhXN2lQBRk0iN8G?=
+ =?us-ascii?Q?WSjN5JOnGsvhNQTe+gqZgSPw0GNX0YuNcYOAoxcIQeIhcUwuHAbHfkyS/gpH?=
+ =?us-ascii?Q?gJaDAOhfGFRPK4L8AjNak/kFbKDgEos79Rg86vbF1W0s6BYFVUetGsVekjrc?=
+ =?us-ascii?Q?hum35+lGrr7RfXMZ37RrY7Whwm2WinGH18TIp52omCVLExDeQUv2HbxOJfIq?=
+ =?us-ascii?Q?8nouaaO7ZWMbE9JoIQVvXKElBtXEoVQpmOuvfHSY1ZMVIR+xf6cxi/yxTUlK?=
+ =?us-ascii?Q?Ks9wgm5Lik/Aw9rys3qB5/SAYlfJZwFF1mE5rSgP7RITFYtIyCwjX/fJMYDx?=
+ =?us-ascii?Q?p6cAJjC7Gyy4bHSmDXoDNSNWTjeAzsiQhjJoUiAGhDoMag+VIpKFkf/DKJoy?=
+ =?us-ascii?Q?oqRFZIt2+1uHWrzQGLVFpRzI1x7Fb4ftRIZVQSfMbTo6JHfHzF3fDDSzbx1q?=
+ =?us-ascii?Q?W4NX46bnx0hslAjBXx6VzhV5RIGMy7Hkjlzrb8oNimO5bLfWBg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2024 22:49:33.8750
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 577be983-55e4-49c0-00c2-08dcf6d9a07f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DC.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_154725_347813_88B3D3B5 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20241027_154945_851731_B0769397 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,240 +157,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Chen-Yu,
-
-On Sat, Oct 26, 2024 at 01:54:15AM GMT, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
+On Sun, Oct 27, 2024 at 11:02:31PM +0800, Zhangfei Gao wrote:
+> On Sat, 26 Oct 2024 at 07:51, Nicolin Chen <nicolinc@nvidia.com> wrote:
+> > +/* Caller should xa_lock(&viommu->vdevs) to protect the return value */
+> > +struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+> > +                                      unsigned long vdev_id)
+> > +{
+> > +       struct iommufd_vdevice *vdev;
+> > +
+> > +       lockdep_is_held(&viommu->vdevs.xa_lock);
+> > +
+> > +       vdev = xa_load(&viommu->vdevs, vdev_id);
+> > +       return vdev ? vdev->idev->dev : NULL;
+> > +}
 > 
-> The Orange Pi 5 Plus has its first USB 3.0 interface on the SoC wired
-> directly to the USB type C port next to the MASKROM button, and the
-> second interface wired to a USB 3.0 hub which in turn is connected to
-> the USB 3.0 host ports on the board, as well as the USB 2.0 connection
-> on the M.2 E-key slot.
+> Got this error?
 > 
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ld: Unexpected GOT/PLT entries detected!
+> ld: Unexpected run-time procedure linkages detected!
+> ld: drivers/iommu/iommufd/driver.o: in function `iommufd_viommu_find_dev':
+> linux/drivers/iommu/iommufd/driver.c:47: undefined reference to
+> `lockdep_is_held'
+> make[2]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 1
+> make[1]: *** [/home/linaro/iommufd/linux/Makefile:1166: vmlinux] Error 2
+> make: *** [Makefile:224: __sub-make] Error 2
 
-CCing the DTS author would be nice. :)
+Should fix it with:
+-	lockdep_is_held(&viommu->vdevs.xa_lock);
++	lockdep_assert_held(&viommu->vdevs.xa_lock);
 
-Thanks for submitting this. I found a few issues. See below:
-
-> ---
->  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 132 ++++++++++++++++++
->  1 file changed, 132 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> index dd03c9db6953..b826c5e368aa 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> @@ -177,6 +177,18 @@ daicodec: simple-audio-card,codec {
->  		};
->  	};
->  
-> +	vbus_typec: vbus-typec-regulator {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&typec5v_pwren>;
-> +		regulator-name = "vbus_typec";
-
-This is named vbus5v0_typec in the schematic.
-
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
->  	vcc3v3_pcie30: vcc3v3-pcie30-regulator {
->  		compatible = "regulator-fixed";
->  		enable-active-high;
-> @@ -339,6 +351,56 @@ &i2c6 {
->  	clock-frequency = <400000>;
->  	status = "okay";
->  
-> +	usbc0: usb-typec@22 {
-> +		compatible = "fcs,fusb302";
-> +		reg = <0x22>;
-> +		interrupt-parent = <&gpio0>;
-> +		interrupts = <RK_PD3 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&usbc0_int>;
-> +		vbus-supply = <&vbus_typec>;
-> +		status = "okay";
-> +
-> +		usb_con: connector {
-> +			compatible = "usb-c-connector";
-> +			label = "USB-C";
-> +			data-role = "dual";
-> +			op-sink-microwatt = <1000000>;
-> +			power-role = "dual";
-> +			sink-pdos =
-> +				<PDO_FIXED(5000, 1000, PDO_FIXED_USB_COMM)>;
-
-The board can't sink power from this port. It's a source only port. So sink-pdos
-can be lower, so that if you plug this into type-c hub as a peripheral, the hub
-doesn't need to reserve 5W for this port.
-
-op-sink-microwat can also be lower. The port will not sink any power when
-connected to 5V VBUS externally.
-
-Otherwise you can probably keep power-role = "dual";
-
-> +			source-pdos =
-> +				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-
-This port can't source 3A. U22 (SY6280AAC) is configured via Rset for 1.44A
-limit. So let's say 1.5A.
-
-> +			try-power-role = "source";
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +					usbc0_hs: endpoint {
-> +						remote-endpoint = <&usb_host0_xhci_drd_sw>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +					usbc0_ss: endpoint {
-> +						remote-endpoint = <&usbdp_phy0_typec_ss>;
-> +					};
-> +				};
-> +
-> +				port@2 {
-> +					reg = <2>;
-> +					usbc0_sbu: endpoint {
-> +						remote-endpoint = <&usbdp_phy0_typec_sbu>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
-> +
->  	hym8563: rtc@51 {
->  		compatible = "haoyu,hym8563";
->  		reg = <0x51>;
-> @@ -480,6 +542,16 @@ vcc5v0_usb20_en: vcc5v0-usb20-en {
->  			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
-> +
-> +	usb-typec {
-> +		usbc0_int: usbc0-int {
-> +			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +
-> +		typec5v_pwren: typec5v-pwren {
-> +			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
->  };
->  
->  &pwm2 {
-> @@ -871,6 +943,22 @@ &tsadc {
->  	status = "okay";
->  };
->  
-> +&u2phy0 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_otg {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_otg {
-
-Needs:
-	phy-supply = <&vcc5v0_host>;
-
-> +	status = "okay";
-> +};
-> +
->  &u2phy2 {
->  	status = "okay";
->  };
-> @@ -899,6 +987,33 @@ &uart9 {
->  	status = "okay";
->  };
->  
-> +&usbdp_phy0 {
-> +	mode-switch;
-> +	orientation-switch;
-> +	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-> +	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-> +	status = "okay";
-> +
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		usbdp_phy0_typec_ss: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&usbc0_ss>;
-> +		};
-> +
-> +		usbdp_phy0_typec_sbu: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&usbc0_sbu>;
-> +		};
-> +	};
-> +};
-> +
-> +&usbdp_phy1 {
-> +	status = "okay";
-> +};
-> +
->  &usb_host0_ehci {
->  	status = "okay";
->  };
-> @@ -907,6 +1022,18 @@ &usb_host0_ohci {
->  	status = "okay";
->  };
->  
-> +&usb_host0_xhci {
-> +	dr_mode = "otg";
-
-This is the default. No need to have it here.
-
-Kind regards,
-	o.
-
-> +	usb-role-switch;
-> +	status = "okay";
-> +
-> +	port {
-> +		usb_host0_xhci_drd_sw: endpoint {
-> +			remote-endpoint = <&usbc0_hs>;
-> +		};
-> +	};
-> +};
-> +
->  &usb_host1_ehci {
->  	status = "okay";
->  };
-> @@ -915,6 +1042,11 @@ &usb_host1_ohci {
->  	status = "okay";
->  };
->  
-> +&usb_host1_xhci {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
->  &vop_mmu {
->  	status = "okay";
->  };
-> -- 
-> 2.39.5
-> 
+Thanks
+Nicolin
 
