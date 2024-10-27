@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1F9D10C16
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 09:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231EED10C15
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 10:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZCQu8PNGzbUydOutittbytVy0ecwKj8suiZ8x5X5G4=; b=k+Zgtfp0F+HiOvH75i/cBw9cS6
-	ypyfir3ZO1p7h1xcvb/SW+xYsOknDMJ0b/IkxmC88FEyqaAfDuDWlm73+p8vhoZ7Qu7b/64Px+yVY
-	GenpQDbsSBo7SukXeb5gRt6VQx/ZUdux9fPFV0tLbgfQk2I30PDJT2w/dCgRVBwDddUxzE09Mmcce
-	tdgpCiI3pokMTbZtax0fmVUI6gBxvaxT4Sw5S1JovKvezqJq/fOWhyaemMP+lmT9xC97OFHnXuzRV
-	xMb+ge1nexe/pjibOaWSZ/UHrdZFkTOGQxn9A2gsfiaha83qEIKxzX5rMeKacankyUDF+l34PZk2x
-	+3IpFM9A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IQKDNN0t8q4zvKMd9PTXKvruPz6Ex6yg+Xo+HJDuU3w=; b=de6haTSvCJ1TwgW0lMeVJdNnUv
+	k3mNNY+KeEiuKgxTtfm0o6KxPqhPh3cnDkMmuzBBPC38c9aVxVR7abU/zawI3brD1kLF5d7z026d7
+	WbEsxtltwwerzBdkIiW5ojmKLDDK63+Kml44u8sahcGFB/jC5U6QDxgasoyvXT1kJv55AWAwrlw1K
+	tbbuGjrehkNXzyyZPth5ryZI34+JvjaANrebzujfUxB+lU1nUcYZxw1Clu52921435ABuYUUlkYat
+	1LU8TA2wIPcR2xz4AyF926Q8NtMh3HZ0i+K5+NqXzs4xErrXqE0iqjnrOtRdWu62iGBPVheQEAoME
+	47pc316Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4zeB-00000007uN2-1eco;
-	Sun, 27 Oct 2024 09:33:19 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1t50RM-0000000816m-0oMO;
+	Sun, 27 Oct 2024 10:24:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t4zSM-00000007swi-0qmp
+	id 1t50Pk-000000080qI-2kGU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 09:21:07 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DF660A064A;
-	Sun, 27 Oct 2024 10:21:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=ZZCQu8PNGzbUydOutitt
-	bytVy0ecwKj8suiZ8x5X5G4=; b=pTzbvm66ynymgrDhb5IeUDfKfrrFJeXacKhk
-	He1xi1hVx8+QmcaybexD01sOUur9n3DKDwko39/PMgg48CyHNUf3r+IzXGB6f/NW
-	rwdYtoROvxmBVtU1yqCjWJ2iHP6QsGdgGxDKxDAKPL0Gja7goG5rjY2dzX0iHDxj
-	zXR2MT9w8RB8ov+w2vyNaYxXLUG33COW5Ms4u5Yb5ugZIPnNu3aOOQ2RriFmOy7P
-	Xw2OavY7kGzLKSuqcFSvPzpG0MgKENp/qxkPbR26xGOb2HEVf5Udsd2f6A6a4qlR
-	M119xCi1NhqEMswCpSyZZVaiFi+WhlnRtAea1zzdSzugBKbGYLSkH5u3uh92Zjhm
-	EG1I6tZ/8SFfw+0lRBvSBixkQGuLn+iXxBNP/2dzeWMNA5b/M1gHwCxQ8A7wjobR
-	j2XuHjaTCaBvBBRyXFw4YEAH/CUdplNzS8NtQ7T7MxXA9XvZN93M1+oqdsuKwxep
-	GhUjInq3/CumHYpnzBdmsS1zLb+lAsEqgSGAquueIWh/r5ZJPBVIt+U+fQol8SjQ
-	J4S6F6oZ9aD1yBMpxBlS5SBVCsLamUT0tDntvGKAd+h6K/oXSlgSHcZbDQyp5xF4
-	J3+pwpvVwVRhMQznw12RE0A3r55kqpaMKQsHNpIRb6NOQP9Sm1X8mUhohet577iz
-	DoJ8ezY=
-From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: Mesih Kilinc <mesihkilinc@gmail.com>,
-	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-Subject: [PATCH v2 10/10] ARM: dts: suniv: f1c100s: Activate Audio Codec for Lichee Pi Nano
-Date: Sun, 27 Oct 2024 10:14:41 +0100
-Message-ID: <20241027091440.1913863-10-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241027091440.1913863-1-csokas.bence@prolan.hu>
-References: <20241027091440.1913863-1-csokas.bence@prolan.hu>
+	Sun, 27 Oct 2024 10:22:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BDE045C3F06;
+	Sun, 27 Oct 2024 10:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46316C4CEC3;
+	Sun, 27 Oct 2024 10:22:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730024545;
+	bh=0k3MEtE9BF8rhv6xudb8XxGPOormm9MhLswXlpEWSUo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MZWwo/UsB+fGmGC8cUmGUFUAuYqzccLyCvXjDbUNtRQSVCiP5ot0TpxiU9pKo9III
+	 bCeJutiffoylbY/x5N1tVK18HjblSsE18Fa+4aomsBf+sMK0aMBDEV4SyTSgGFrSeb
+	 zwN5L4o1UADnSYHKHjRO6xWUOgPoEtRqK0TbHpayYoXngzeAFlue62PDJTXFDqgjiY
+	 WbRMslifzOKyjgxtIOyRpWIttZmVJXfL9jD78TxCiPHnZHWU51hGDFgs5g1zk+0awc
+	 H++UBvYzKPGWibPylvLFCChOxLOGEUH1kdodS5uwQSGmr6QpVPZuARaKQKtKtdgoHe
+	 4NRS0AzPqJ2IQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t50Pf-007I7d-3j;
+	Sun, 27 Oct 2024 10:22:23 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] irqchip/gic-v4: Correctly deal with set_affinity on lazily-mapped VPEs
+Date: Sun, 27 Oct 2024 10:22:20 +0000
+Message-Id: <20241027102220.1858558-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730020864;VERSION=7978;MC=1006103771;ID=156046;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94855677D65
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_022106_429314_DB871D3D 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241027_032228_760896_BC5A9287 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mesih Kilinc <mesihkilinc@gmail.com>
+Zenghui points out that a recent change to the way set_affinity is
+handled for VPEs has the potential to return an error if the VPE
+hasn't been mapped yet (because the guest hasn't emited a MAPTI
+command yet), affecting GICv4.0 implementations that rely on the
+ITSList feature.
 
-Allwinner suniv F1C100s now has basic audio codec support. Activate it
-for Lichee Pi Nano board.
+Fix this by making the set_affinity succeed in this case, and
+return early, without trying to touch the HW.
 
-Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
-[ csokas.bence: Moved and fixed conflict ]
-Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+Fixes: 1442ee0011983 ("irqchip/gic-v4: Don't allow a VMOVP on a dying VPE")
+Reported-by: Zenghui Yu <yuzenghui@huawei.com>
+Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/aab45cd3-e5ca-58cf-e081-e32a17f5b4e7@huawei.com
 ---
- .../boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts    | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/irqchip/irq-gic-v3-its.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts b/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-index 43896723a994..472ded0aafcf 100644
---- a/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-+++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-@@ -62,6 +62,14 @@ &uart0 {
- 	status = "okay";
- };
- 
-+&codec {
-+	allwinner,audio-routing =
-+		"Headphone", "HP",
-+		"Headphone", "HPCOM",
-+		"MIC", "Mic";
-+	status = "okay";
-+};
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index ab597e74ba08e..52f625e07658c 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3810,8 +3810,18 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	 * Check if we're racing against a VPE being destroyed, for
+ 	 * which we don't want to allow a VMOVP.
+ 	 */
+-	if (!atomic_read(&vpe->vmapp_count))
+-		return -EINVAL;
++	if (!atomic_read(&vpe->vmapp_count)) {
++		if (gic_requires_eager_mapping())
++			return -EINVAL;
 +
- &usb_otg {
- 	dr_mode = "otg";
- 	status = "okay";
++		/*
++		 * If we lazily map the VPEs, this isn't an error and
++		 * we can exit cleanly.
++		 */
++		cpu = cpumask_first(mask_val);
++		irq_data_update_effective_affinity(d, cpumask_of(cpu));
++		return IRQ_SET_MASK_OK_DONE;
++	}
+ 
+ 	/*
+ 	 * Changing affinity is mega expensive, so let's be as lazy as
 -- 
-2.34.1
-
+2.39.2
 
 
