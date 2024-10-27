@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5EAD13585
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0414ED13585
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 20:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Usb9amq8HOjzfGw0j0mbZgAOAqgC4c6H4BMe91R4tL4=; b=oLumLZizEW8uiUdrPJOWPV0DuC
-	Ns8vXFMbpgakYUOU3qCJpR3gJe94TKjx4fFhSyAkVWWny1y9kmruDPAAomo6Mpeukc83/F0ZIYXRq
-	EeKdgDTzdZ7UuN631efDm33kpgln3EkbuqyH86WfmXQWA5+UT5qrGz2sOsLpIy2J5aLKkF+9YOUG4
-	ab/n+T7XTUdFXyhCDcnwhVtGVoqCUulUwJ9840NQeDYZMe3MmGRY+75GhP8/u7iHZOifkHnzqUiDg
-	HBypNydIOJLhKIfqAQGv+54GHri5nwemysvCSjVjts23xzEmbpSIuzbH3yNOR7Lki5BROE6BOtEnA
-	aBIR8h6w==;
+	bh=dM5YmtEjZSENFbMYFFXTorlapyBszpcOJWCoA6m0IQk=; b=r0XCcEux6k1v1224I/Aw6ZDToH
+	gFQOzsivzWWATWIn/H1iYvzffeMvAi1zY6RIPkTW3vrbfkg1wDCT7HjwEDhTjKnOwLsAdt+CRqB5Z
+	+8fLnWNirzLKJaB7KcQxaaJvr7EGGdm17XGevhk3dzngogxqtHhqIpAsjHamkw05iHZjiSEqaCSsP
+	kSyxaFZjwf6wjC+amfcZWavCC76T0RuvQ6a1jxB4zS1NO25XfGSSF7GKV8wyCiOxu9kFyBybF3Hh9
+	atGAFQyaVitvDVSMZjC2kTRyqcxSzhUUKM5TJwiJz2C7Pg72QeU7BHXRY2N4HuzJKHhbyGRssErjs
+	hSTWFUNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ADX-00000008sq1-44TY;
-	Sun, 27 Oct 2024 20:50:31 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5AGe-00000008t6J-3hxu;
+	Sun, 27 Oct 2024 20:53:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5AAr-00000008sXr-1XHD;
-	Sun, 27 Oct 2024 20:47:46 +0000
+	id 1t5AF4-00000008sws-1ewY;
+	Sun, 27 Oct 2024 20:52:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C418A41381;
-	Sun, 27 Oct 2024 20:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85284C4CEE4;
-	Sun, 27 Oct 2024 20:47:43 +0000 (UTC)
-Date: Sun, 27 Oct 2024 21:47:41 +0100
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Cody Eksal <masterr3c0rd@epochal.quest>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, Yangtao Li <tiny.windzz@gmail.com>, 
-	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Parthiban <parthiban@linumiz.com>, Yangtao Li <frank@allwinnertech.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Vinod Koul <vkoul@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Thierry Reding <treding@nvidia.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH 11/13] dt-bindings: opp: h6: Add A100 operating points
-Message-ID: <7dybkf3zveidwapwfivvq3jk6qxntuqgycndff3ajjl2owhjhn@khqgycnzh76j>
-References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
- <20241024170540.2721307-12-masterr3c0rd@epochal.quest>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0AAD05C589D;
+	Sun, 27 Oct 2024 20:51:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C105C4CEC3;
+	Sun, 27 Oct 2024 20:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730062324;
+	bh=YQvA8AaVapsjmTVTAY2FtWHoPIl3pWww+615y5P3MVU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EEzL4258ubi7gLAucsKes8CpIkt/0PJUde2W0lNeLxNeYwAvkwEj6ml8A1lXS/l64
+	 11G430dKvGGQyQNTK8z0QlGR8QvcdQi82gcIP5Aey1ZzlKGGpWy6VF6Nw7j+A+zgtJ
+	 WRh4hhPnsY5xoNfwUmOiuQbAXQhSyBIj8pMrLeCikpZqu59DAeW1ALwZLjFSaVbuqL
+	 BttcfwHQLxxHclh2wq4Ci+WD3q6ABNtl4EJsZMdQ5YY2hYz8fI+DFVU8glTznoVnDb
+	 aZmJ/kqWVwMQzUVhp6taLq0in7zgRqxNx3OAO49fU9c0OqeE8EAuCSFrAINoQL/2cN
+	 iYX5BYYX2Ik/Q==
+Date: Sun, 27 Oct 2024 21:52:00 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Fei Shao <fshao@chromium.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Jitao shi <jitao.shi@mediatek.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: display: mediatek: dp: Add #sound-dai-cells
+ property
+Message-ID: <5vjaxo652w5hici5hxi3t6o2r5vkggrz25lqvm3or5fip3svke@fttqk5wabxqb>
+References: <20241025104310.1210946-1-fshao@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241024170540.2721307-12-masterr3c0rd@epochal.quest>
+In-Reply-To: <20241025104310.1210946-1-fshao@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_134745_486532_BD90AAA0 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20241027_135206_504927_52C1B52E 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +77,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 02:05:29PM -0300, Cody Eksal wrote:
-> The A100, similar to the H6 and H616, use an NVMEM value to determine
-> speed binnings. The method used is similar to that of the H6. However,
-> the information is stored at a slightly different bit offset.
+On Fri, Oct 25, 2024 at 06:42:45PM +0800, Fei Shao wrote:
+> The MediaTek DP hardware supports audio, and the "#sound-dai-cells"
+> property is required to describe DAI links and audio routing.
 > 
-> Add a new compatible for the A100.
+> Add "#sound-dai-cells" property to the binding and filter out non-DP
+> compatibles, as MediaTek eDP doesn't support audio.
 > 
-> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> Signed-off-by: Fei Shao <fshao@chromium.org>
 > ---
->  .../bindings/opp/allwinner,sun50i-h6-operating-points.yaml       | 1 +
->  1 file changed, 1 insertion(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> index ec5e424bb3c8..603c6c88d080 100644
-> --- a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> +++ b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> @@ -23,6 +23,7 @@ properties:
->    compatible:
->      enum:
->        - allwinner,sun50i-h6-operating-points
-> +      - allwinner,sun50i-a100-operating-points
->        - allwinner,sun50i-h616-operating-points
+>  .../bindings/display/mediatek/mediatek,dp.yaml   | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+> index 2aef1eb32e11..c05c2b409780 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+> @@ -42,6 +42,9 @@ properties:
+>    interrupts:
+>      maxItems: 1
+>  
+> +  "#sound-dai-cells":
+> +    const: 0
+> +
+>    ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+>      properties:
+> @@ -87,6 +90,19 @@ required:
+>  
 
-I have no clue why a100 is between h6 and h616. :/
+You need to reference dai-common instead, since this is DAI.
+
+>  additionalProperties: false
+
+and this becomes unevaluatedProperties: false
 
 Best regards,
 Krzysztof
