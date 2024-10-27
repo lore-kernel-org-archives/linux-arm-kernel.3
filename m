@@ -4,130 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DA0D13564
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 14:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D00D13569
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 14:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7A3lbsEM7HKz9vAURuZDu+UknulQsKtxt8b5QEI9hvQ=; b=o+xfzoVSFwiGOz1njfjJ5gad/n
-	i7fjwVwBTO6CQtTmEtz2wMYC9Sjz66eE2AbVPrYTeHABfdLbFLaTd+OhF99hA16HyIIyt6tFzwi24
-	jfbeZA6I28ZQayioM6MTd5PIhVrtMpS1kXUtEezdvpPNGlT/YrMD/K0voYj0Y5bTsbHAeNw6K0lkj
-	EvZ0rYGfnMraRQomQxdqT8a5BFzs4hk/0o7ej6qFqMQnaeuBNXoQKEPurdeqvB+pBVYO109xSjOSr
-	4PT4lSaT4AA9tK0p40xzzHQDfMrQKUsHW/Chgoyfpov6ncfQ7X/Osh4Z2FQnknfU5+PBdBfNon64+
-	RiybEusA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xJvzBad7BdbiPp+Q5rmwluJa3grMemuK7fh1H4tocws=; b=dbH4u4VLpit3z4J0qt/8OLFnJ+
+	auErGQOjzfiOhxQM/8+SykTUlNBKrfNJzag+roZtU7ZXe2qcqsJKc65Yxf3RVA0TP95c/JswRF992
+	iHVmQOivr11Xd8cMYZFJjuDmRUHiF3Jpvd50KQCu+7Y+xw5n9I627jUrwGq81oOyJz1iXVO+ePjps
+	ZidK5IptjtUiFGoCqn8soFZI1UWRvgARdJHrwgV1MVHvhGqfsbj5r/zk8RL5jhG31J7M4l4XGcI/l
+	IAQAYrChaqUlW4wFxUSH/5m9jiuvk+2tnJY6MNLeb4USR88qP1XLS0DZKyqVy69vXttCmNiWgBwFk
+	TpFuNy2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t54Hi-00000008NyG-0tcR;
-	Sun, 27 Oct 2024 14:30:26 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1t54U0-00000008QOQ-3Skz;
+	Sun, 27 Oct 2024 14:43:08 +0000
+Received: from mail-db5eur02on2070e.outbound.protection.outlook.com ([2a01:111:f403:2608::70e] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t54G1-00000008NPf-2BPV
+	id 1t54SP-00000008Q7k-38wd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 14:28:42 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7c1324be8easo3094438a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 07:28:40 -0700 (PDT)
+	Sun, 27 Oct 2024 14:41:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q2NHdCZy8uTD35kK8TmufmfDWzHt8JGNfwPin2cvQq2XPO88gbPaEW34/REXFDW46lzqBbpTZ4Lm3RKiMldmr7MBsjyNKIO6at6Ny+zulZfIp5pUvt5WYs9FMu0eAdxmoHM3E71QaP2pSwpwZikvCTafYw1zqPcA+UlJWlBBso+vVgfBr4f/4zZOw7J0Hy95hi4tFb9jgY26ujPAQoN0wv/aMhlfMyn9Hhx3v4OEi22QHL/hHQguaZzHYaO+nB5+DIlY8p9hMICMu2ShTIzs+wJk9lX3/jjjvQe1Iz1M9gUGzRZ5CTwFZoDoAcQ7BoofP7+g69ZGtQRJ+Yj0sMQtIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xJvzBad7BdbiPp+Q5rmwluJa3grMemuK7fh1H4tocws=;
+ b=ojs5wEJk8RnghP0s+jDTDZ65EwOpAKC4qXTrUW+a9sYux01O7wxXaDlT3OvRf0qb+6jz0DMxfUYHiwMuafyxGju0lK4AxrzbRgsS3hIG6ACfa0woYDE/iG//+bv6LCeiNaPz8275G75SORhsB/UJ4K91lCe0lIk7Pr1bk5/E8gYjatoea3NM0E4InFYHBzkbTzHh7UGtd5Q5jCUlwmas0WH/7bpgARNZgyQRFu9fzp+1qTelpH3KVGdxP6VPyA07EuJJuFe76JGKwU4s8CZSdwfwMLlhOaRZDEqMUHwe1KarijtKIuOaniQXf5hq16C+V4pZOBtYA0F7Io/uCxjR6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730039320; x=1730644120; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=7A3lbsEM7HKz9vAURuZDu+UknulQsKtxt8b5QEI9hvQ=;
-        b=IClGdfoa0cRPfHr1r7VizXxuR7vWRSjKFIKcMW241t9TM7dplT5suJMBXzZxQijGCF
-         wo6HyVtK3VmDuHVvIpJ12BwD5v2lfGyfCpLQJkk631RDQFmDFr8oFPCVjEKrt9URnvU3
-         OiVtMmYhWkLXahiQLHUvJOHQHk7sTzzblZzLh3CMtIvzcdmTk9D0U7vzT5xCRPoEHBnj
-         scfokFkMJm8vHsjHtBUJEYCPUJ/3ACcx+e1O22K/iLUkwbbXzb6JPs3ZB5hFUSPi5oLm
-         yH2gcq5IeCxunyJXu9yg8b+xasi7XerKFBYO/oyFgSwI/YNYM3yGMbDCzUSWKWgyD6N5
-         AenQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730039320; x=1730644120;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7A3lbsEM7HKz9vAURuZDu+UknulQsKtxt8b5QEI9hvQ=;
-        b=ZbEGDM8IVihPDnIuZCxFNniS3BA8upvvI6SgP5kz9UqfP1SUYyvwawDQA99tOIA5A7
-         IqcWS64CttlQ1okoyBMm1aznvqjiQj/GDB5xhLQcrC+AevZTSfGqhf/L+uIub69XpWq8
-         M+JA7Al2JW9X6W8rVA/3oai6dNGBuXsURt9aK0rCfmYhRYhZgXghYkJ8VPsbxlSfg4JD
-         42zoo+XpdcpmjFgv3jhVHtmg0aIoMSx4bQ5PQKzcMZ+PTRFCm+OeGo9cfpZuPsgJn9ys
-         jwKOObip1PjfWMl9JJeoxAnQuNXCz2K4Phym4OjWYblew9idBXG3e03UQFGY5d3XNeUW
-         dj6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWGUrwQyUNYAGIKESF2WjPIyyvF1+zCxQSHbAkGW5wE3HazbLP0sIFtzpXsnCA5BVWuzZfmPJYnaT+hddc7t106@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKlVEX1aEF0QR6gwxiqb4nny1ppxj5D0Tr53q3xBCTcI74DXjn
-	UuCdi3Uvbb2Nd0yRX9slalgWNUX2TVEOkWQfIKqt1QDWx7ubBxLT
-X-Google-Smtp-Source: AGHT+IEddC7mt3S+zIgad3iK7xrMPQBFENvpB2vP99X6e/sU/fDdtOXzTrC5bdqxPz4evOD0/cdxvg==
-X-Received: by 2002:a17:903:2307:b0:20b:723a:cba1 with SMTP id d9443c01a7336-20fb884fc0dmr183973465ad.1.1730039320157;
-        Sun, 27 Oct 2024 07:28:40 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8a3e2a4sm4177619a12.88.2024.10.27.07.28.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 27 Oct 2024 07:28:39 -0700 (PDT)
-Message-ID: <fb93ba0f-d414-4f7f-aff9-cd958c715e23@roeck-us.net>
-Date: Sun, 27 Oct 2024 07:28:37 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] watchdog: imx7ulp_wdt: Clarify timing units
-To: Stefan Wahren <wahrenst@gmx.net>, Alice Guo <alice.guo@nxp.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20241027105323.93699-1-wahrenst@gmx.net>
- <20241027105323.93699-2-wahrenst@gmx.net>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241027105323.93699-2-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xJvzBad7BdbiPp+Q5rmwluJa3grMemuK7fh1H4tocws=;
+ b=XGNLriCYupaD11OdiNFvVwHkjCB9wmF9vB0Y/zDjNcCAyZLJrL7MMkYlI/z6Esgh/lxvXesfDuSixpaLs1xH6p0wUPNir2ckHccMwQvp4nYAveLcupdcuOoKvm1m/XVgvqz5FPEGW8uhHa5n5sFsPLCXi6BbkQZZIR8ZD2Zk8Qo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by AS8PR04MB8385.eurprd04.prod.outlook.com (2603:10a6:20b:3f3::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.17; Sun, 27 Oct
+ 2024 14:41:16 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8093.024; Sun, 27 Oct 2024
+ 14:41:16 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Sun, 27 Oct 2024 15:41:02 +0100
+Subject: [PATCH] mmc: host: sdhci-esdhc-imx: implement emmc hardware reset
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20241027-imx-emmc-reset-v1-1-d5d0c672864a@solid-run.com>
+X-B4-Tracking: v=1; b=H4sIAP1QHmcC/x3MQQqAIBBA0avIrBtwTBC6SrQInWoWWmiEIN09a
+ fkW/zconIULTKpB5keKnKmDBgX+WNPOKKEbjDaWtHEosSLH6DFz4RsdGRdGInLWQ4+uzJvUfzg
+ v7/sBVNauuGAAAAA=
+X-Change-ID: 20241027-imx-emmc-reset-7127d311174c
+To: Adrian Hunter <adrian.hunter@intel.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Rabeeh Khoury <rabeeh@solid-run.com>, imx@lists.linux.dev, 
+ linux-mmc@vger.kernel.org, s32@nxp.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: FR3P281CA0183.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a4::11) To AM9PR04MB7586.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2d5::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB7586:EE_|AS8PR04MB8385:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a991ab4-c15d-4ec3-9005-08dcf695696f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZmlGYS9XSGE0UktKc0JPL0ZVZzV2WVRSNkoxZUFTajdRUDVaTWVrb3liL3Jt?=
+ =?utf-8?B?aHhSUFZSVm9yNlVkeDUxTDVqOUlrNTNOQWYzdFNwdDBlVERzQjdCNC9BNEho?=
+ =?utf-8?B?RGFDWFRMV0JaZmFWbGZ1Y0lRM1hzRk1STnZMTjJOd1JkelIvSW9mQlBtSWpx?=
+ =?utf-8?B?MWxsUVp1ZUowK1FoVmNBS3pZQ0o1ZTF2bDI2dlFJWnJLWWt2c2F2TDZ5M0FG?=
+ =?utf-8?B?Yy9DVzhDcnJRaHhIOUZFTWJ3RnIwQUlVRmNES3BBZ2x4TytDd2lwaUd5VG5v?=
+ =?utf-8?B?M1RTemVmOGQ4Q2xWa0hGbnZlVmhGY2xUYmlORFNxWFNCS1VESGQ5bUgxZW5y?=
+ =?utf-8?B?d0tybzNjaDV1a01OUytVYUJGU0F0NytQVVdhREVpbkxZYndFQjhIY3hPSHBu?=
+ =?utf-8?B?bWdHN21jc0M5Z3F3SVAyWTFRQndBVEx5WGRmSWpCd0ZxS1drTks3Z3hybjcw?=
+ =?utf-8?B?MDhSYUNlMW9Xc3ZScTJJbDB4blhqcUw2SnBNZ0VBL240TW5keS96UWNqZVpO?=
+ =?utf-8?B?Z2tUMmhNdjVUU3dwQWhtMmdUV20wZ0h4VW5oTklZWjFPNXlFbDZNZUEwUEJ4?=
+ =?utf-8?B?VGZQVEFsdkZhNXNJMTl1N2hIcDNrdlh3QXNEUzZyUHRQcXpVOFoyQWtac0w3?=
+ =?utf-8?B?UnVuOUNCKzBGNldDRER1b0NwamZvc3Q3OS9uZHdDcC83YjkrVGtwa0RzdThO?=
+ =?utf-8?B?N3F3cDVhT0RyNDM0RFgvSWF1WFNyeFZlTktxU1dmYnQzWUNENWt6V01CVG9F?=
+ =?utf-8?B?LzVXdnlxd1JpWTgyTnZ1S0NHUzBINEl2elc3ZjR1ZmVUcDlXcUVkQzBDTGJT?=
+ =?utf-8?B?Wk56OTRKZmFIMDIzbmt4WnJXRndZQjNUazBhTURGRGZGVmxtZVZISlBoUUp0?=
+ =?utf-8?B?WmNTTEhiaTdTd3pnSHZIaVhhbUpiRkRjV3Z0VTRsMHp5cGpuSzJKd3ZaU0ow?=
+ =?utf-8?B?REhNRHc1bHJkQnd2blA3b29nYTF3OGVDbHRnUEVLeTJDTXpkUHNKRnlzd0Vz?=
+ =?utf-8?B?YSt0NVdLUGp5S1J1TkpYaHhtWElhT2IzTUlVVmp3eUJ1cEhzelZoZFNHRjRE?=
+ =?utf-8?B?U21pN25sUHhIQXFocHQ2U29WVWJpQXIwcjJYMFJqSmdJU0k3d0hQejFmWWxR?=
+ =?utf-8?B?cnRoNzJHcWRMRmFLSHJKRWNoOVdRMGhnSUQwUXAvVW1udHFKK2Uyc0dIVnVW?=
+ =?utf-8?B?UEFLdVdHMXNHdTg2UkNZNUVCaks1Rm9YZmY2RzR4L1FpQlk3WGRQT251TWRE?=
+ =?utf-8?B?ZFhSa1EyYmtIdlQ2Wms1MzRGRXhldmFiR1UxTWJSS09Rb0czWUYwTjhkZ1Q5?=
+ =?utf-8?B?MUxlc3lzbW4wcXQ4ekNxNGJqdTdrV2IzNE1EWE5zYzJ0aHZCNCtKYVdySmZK?=
+ =?utf-8?B?T3F5YVhQMTYvV1pvU2ROeXJXMnZ1VGd5MDRTY2F3dGFabzBHZkVaUGt5ZWpJ?=
+ =?utf-8?B?TVFRcnFQQ05JUHNDQlB3V1hEREd1a2J1TnlISXNodkhHQW9BaHF5b3RSM3dC?=
+ =?utf-8?B?QkZUeDhieHUyZzloSFZLRXNxcUlnWHpzY0tFOHorSkJQOFIrRit5NHp1N3dM?=
+ =?utf-8?B?Z1ZIQ3lYVUw0UVYxUUNRZDdwcjZHaXNSeEEvK1B4Z0RHUTVESkNXYlFhTVFC?=
+ =?utf-8?B?OTkzeFJzKy9KQ0V0RGxOejkvUEQ4Y0RSY2JoL3lwWXhTL21Db3dYRHVENzNX?=
+ =?utf-8?B?c0x6YXVFWmY3bno5cm9OV3crUkRPemFaSm1YTEttemQwN21qazZhS3lvS1ZV?=
+ =?utf-8?B?UWNFVGZxNEF5Yzl5SkpPMmxkdC9vTDFNeXVMaEdGeFlyYll5MDFzSzcyT3pt?=
+ =?utf-8?Q?WWrzw9Ox5rNSulSi5r0MNa2yg3SCzMTDCmkhc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZUVNVThKYTArWGhLN0FubDU2bEg1MVJZOU9VblhTamw4UTRkNGlPQTh0UGxG?=
+ =?utf-8?B?Vkl3UytMYWV4cU5XaDcrajZNd1RxNlRaV1RzN2pvZHRFZ2xSeXFTZUlRNzdJ?=
+ =?utf-8?B?WWx1dG1ZdVFvYmo2cmNvK1JlMnc0S3p0bU94YzFKYzhzaEZiYjk5K0dGOG5o?=
+ =?utf-8?B?dHFEL3U3SzN6LzdZRy8rU0poZjY1SmpqdDRHV3ViSTNLL2Y0enRWMmg2alAx?=
+ =?utf-8?B?M0c2Vmdycmg1dkF2Snh3MEppVkFCM3V2SHFJYkJEVm1WSWw1MkJwZm9YWXJ2?=
+ =?utf-8?B?Z1ZqV1ZYODNkRmdybkRxV1RleG1Ic3NrZlBGOTJUM1RCeUhEYTQrQlVGM3A3?=
+ =?utf-8?B?VUIxWHdVb3dETzNMdWtqMDJINFhrc1dtWjdTVnBLYjN6ZW5IaENMWWd5RVFX?=
+ =?utf-8?B?aGtpcmVDemRBcHVveU5tTUUya0hOWk42THY0WDI1Qy9iMDd3L2s3dGppQkJy?=
+ =?utf-8?B?VVpWYWd1R3k1MWl2OW9QZEpwWjNicnN5QkhTY2RCTzNENW8xeGR6NkowYWlp?=
+ =?utf-8?B?ZGFBdnphNVFiMUlzU0RaUFZWMnduWmJzV2VHQUhCU010Z0FkMnhtUWlLQllk?=
+ =?utf-8?B?aHNKb0dhUHlXQ2toS3pLL21CeFBEcUZjdzZSTXZGUlpKWjRwV2xxUnUyUTYv?=
+ =?utf-8?B?cHNQL2hKUTZtTUpYR21va3BITGVqaTNXbkJzNk4zYTNyV3M4U0tQeTRkQmVz?=
+ =?utf-8?B?dDE4QzV1WFhQc2p2WHlSaTlmS09xNHI1dSsxZ3RiKzBRNmhaT29TZk9iMWVp?=
+ =?utf-8?B?c3BiMXYyRHcvVUVDanF6L2lVeVRnWlpqWHQxd1JYY1RXSHNGTSs2WGI3ZkJR?=
+ =?utf-8?B?SVRQUWxiUGIrWmxBVEwyRDRLYkdYdjQ1NlhwNGY0cUNtcGlUa3VkanBGcHdG?=
+ =?utf-8?B?bDc0ckZEUVI0SGsrN0xLWHBUQTBuM0V5ZW5SSitjVXBRL0pyaEN5Y1dMU2Fy?=
+ =?utf-8?B?eEN6RmJSRE1MYlZNcTg5TGc3bXpiUFVqdVNQbUx0bmV0OUtOMW5zS1p6WUlO?=
+ =?utf-8?B?ZXVLQTRzc2tkVWVJdENPcTh0ZktMeFNSSkhTM0NhQjV4TXRpL1BWTXVocHkz?=
+ =?utf-8?B?MEt2bTJHOGpWQ3QrYjU2SzcyKzE1YjdudFBNWWtZOHNiQjVxZVM1RUlTVXRp?=
+ =?utf-8?B?Q25UbEtGK0VaYXpjTTlKS2dRblRUemhncE5ldVVuTUUxMEF3SzFPUFVSVCt4?=
+ =?utf-8?B?U0VjN2FHdkVGcHFWcWtLOG5ObzhxL0l0YmVMMFlmeU9KbWxWT3UrNnZEaTU4?=
+ =?utf-8?B?MXdlVW1XSis1Y0Y4bnZUR042MUJVd2ZaQUpBY3lVNTlITURTeWhmdkszcEpQ?=
+ =?utf-8?B?MmdNc0lkcElWbyt0WWpGc1Z4QzdxZ2FJZ3RSN1c0N0dHUzZsM0w5MTFJR2ll?=
+ =?utf-8?B?VS9Ta1VOS1pjK2VlUFcydnlBcTlRaDdaZnJreE1UUFQrMjVZOEc3ZzRMNFVa?=
+ =?utf-8?B?eUZYVFZlSVcyQzdoQVMvNjJvM0ZFNWswVlh5QnZhYjVFZllpb1FSSkw5S2lM?=
+ =?utf-8?B?cDN2OUQxTlVyL2xCVmNVWUZwM2ZxSFNPZjdQakVBejNLK0U0bTJOeGRlT082?=
+ =?utf-8?B?em8wNUNtR1ZYcDJvYm90dlg0d3FHUVltdDlnRjUyd2hmK3Bnd3VyWkZ6YXY5?=
+ =?utf-8?B?a1pnbUFqQ1ltNUl6ZG01VlRZSE85Uks4TzVwemw3WHdiaEhuaEp4NDBXSVNp?=
+ =?utf-8?B?M3p2T2dsbjREK1F2aHBab3dydlRXU2o4cS90VTZoU3N0Z3gwZW0zRlAzMXJp?=
+ =?utf-8?B?cUhGdlJUZjl4eE5ibHV6S3NIaUFwQzFZdXgycHowKzJSemhjMEMrcjB4d3Zj?=
+ =?utf-8?B?UGlodlNUb2JLM00wNjk4SzMyWEt2SWZKMG1SaFoxUGZ3VGxiK2hGaEN6L3Uy?=
+ =?utf-8?B?eHJPT1JnUEZtYXZoaWhUeHlwbTFFdG5vMW1ta3d1OEtVODJYbUxBeW9OQWxB?=
+ =?utf-8?B?dCtTMFp4bmNnbXp6YUtkZVRrZGprKzl0MC9WdXp2UkErb3JDTUpVc3NZUzVN?=
+ =?utf-8?B?bG9QRXJGMlVTUmhSeStTa2VYS0NIZ0R4aXVob05PZW05N3pzSEFpNHh6QW9D?=
+ =?utf-8?B?RS8yMnV5VURqZ0VWRGhQM0Q4OWlQYXUwck5MWWZZWGY5ckZGTUFYVEdQYjZF?=
+ =?utf-8?Q?A0JbPLKA14xovEMdhL8gA1aqd?=
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a991ab4-c15d-4ec3-9005-08dcf695696f
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2024 14:41:16.0409
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /+PowfP02mi1rqObxzkV3zcUp/Zxq+OoJzb8IbFUqdQE+sj070RmvFifEFYY6UkzyObegrXijBdCvsrdUX+hxQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8385
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_072841_598724_ABC6A970 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20241027_074129_841709_B65E5676 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,98 +181,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/27/24 03:53, Stefan Wahren wrote:
-> imx7ulp_wdt mixes a lot of timing units (frequency, clocks, seconds)
-> in a not obvious way. So improve readability of imx7ulp_wdt by
-> clarifying the relevant units.
-> 
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->   drivers/watchdog/imx7ulp_wdt.c | 18 ++++++++++--------
->   1 file changed, 10 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/watchdog/imx7ulp_wdt.c b/drivers/watchdog/imx7ulp_wdt.c
-> index 0f13a3053357..0f92d2217088 100644
-> --- a/drivers/watchdog/imx7ulp_wdt.c
-> +++ b/drivers/watchdog/imx7ulp_wdt.c
-> @@ -19,7 +19,7 @@
->   #define WDOG_CS_PRES		BIT(12)
->   #define WDOG_CS_ULK		BIT(11)
->   #define WDOG_CS_RCS		BIT(10)
-> -#define LPO_CLK			0x1
-> +#define LPO_CLK			0x1	/* 32 kHz */
+NXP ESDHC supports control of native emmc reset signal when pinmux is
+set accordingly, using uSDHCx_SYS_CTRL register IPP_RST_N bit.
+Documentation is available in NXP i.MX6Q Reference Manual.
 
-This configures the clock source to be the LPO clock, which according to the
-chip datasheets is a 1kHz clock for all chips except IMX93. It is only 32kHz
-for IMX93, and the prescaler is enabled for that chip.
+Implement the hw_reset function in sdhci_ops asserting reset for at
+least 10us and waiting an extra 300us after deassertion.
+These particular delays were inspired by sunxi-mmc hw_reset function.
 
-The comment is not only misleading because it selects the clock source,
-not the rate, but wrong, because it only selects a 32kHz clock for IMX93,
-and that value is then prescaled.
+Tested on SolidRun i.MX8DXL SoM with a scope, and confirmed that eMMC is
+still accessible after boot. eMMC extcsd has RST_N_FUNCTION=0x01, i.e.
+reset input enabled, Linux v5.15.
 
->   #define LPO_CLK_SHIFT		8
->   #define WDOG_CS_CLK		(LPO_CLK << LPO_CLK_SHIFT)
->   #define WDOG_CS_EN		BIT(7)
-> @@ -39,8 +39,8 @@
->   #define UNLOCK_SEQ1	0xD928
->   #define UNLOCK		((UNLOCK_SEQ1 << 16) | UNLOCK_SEQ0)
-> 
-> -#define DEFAULT_TIMEOUT	60
-> -#define MAX_TIMEOUT	128
-> +#define DEFAULT_TIMEOUT	60	/* seconds */
-> +#define MAX_TIMEOUT	128	/* seconds */
->   #define WDOG_CLOCK_RATE	1000
->   #define WDOG_ULK_WAIT_TIMEOUT	1000
->   #define WDOG_RCS_WAIT_TIMEOUT	10000
-> @@ -240,7 +240,8 @@ static const struct watchdog_info imx7ulp_wdt_info = {
->   		    WDIOF_MAGICCLOSE,
->   };
-> 
-> -static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int timeout, unsigned int cs)
-> +static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt,
-> +			     unsigned int timeout_clks, unsigned int cs)
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+ drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-I don't think "_clks" adds any clarity because the value doesn't set a "clock".
-"_ticks", maybe.
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index 8f0bc6dca2b0402fd2a0695903cf261a5b4e19dc..ebcfa427cca6cc2791a1701a3515ef6515779aa4 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -33,6 +33,8 @@
+ #define ESDHC_SYS_CTRL_DTOCV_MASK	0x0f
+ #define	ESDHC_CTRL_D3CD			0x08
+ #define ESDHC_BURST_LEN_EN_INCR		(1 << 27)
++#define ESDHC_SYS_CTRL			0x2c
++#define ESDHC_SYS_CTRL_IPP_RST_N	BIT(23)
+ /* VENDOR SPEC register */
+ #define ESDHC_VENDOR_SPEC		0xc0
+ #define  ESDHC_VENDOR_SPEC_SDIO_QUIRK	(1 << 1)
+@@ -1402,6 +1404,15 @@ static u32 esdhc_cqhci_irq(struct sdhci_host *host, u32 intmask)
+ 	return 0;
+ }
+ 
++static void esdhc_hw_reset(struct sdhci_host *host)
++{
++	esdhc_clrset_le(host, ESDHC_SYS_CTRL_IPP_RST_N, 0, ESDHC_SYS_CTRL);
++	udelay(10);
++	esdhc_clrset_le(host, ESDHC_SYS_CTRL_IPP_RST_N,
++			ESDHC_SYS_CTRL_IPP_RST_N, ESDHC_SYS_CTRL);
++	udelay(300);
++}
++
+ static struct sdhci_ops sdhci_esdhc_ops = {
+ 	.read_l = esdhc_readl_le,
+ 	.read_w = esdhc_readw_le,
+@@ -1420,6 +1431,7 @@ static struct sdhci_ops sdhci_esdhc_ops = {
+ 	.reset = esdhc_reset,
+ 	.irq = esdhc_cqhci_irq,
+ 	.dump_vendor_regs = esdhc_dump_debug_regs,
++	.hw_reset = esdhc_hw_reset,
+ };
+ 
+ static const struct sdhci_pltfm_data sdhci_esdhc_imx_pdata = {
 
->   {
->   	u32 val;
->   	int ret;
-> @@ -263,7 +264,7 @@ static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int timeou
->   		goto init_out;
-> 
->   	/* set an initial timeout value in TOVAL */
-> -	writel(timeout, wdt->base + WDOG_TOVAL);
-> +	writel(timeout_clks, wdt->base + WDOG_TOVAL);
->   	writel(cs, wdt->base + WDOG_CS);
->   	local_irq_enable();
->   	ret = imx7ulp_wdt_wait_rcs(wdt);
-> @@ -275,7 +276,8 @@ static int _imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int timeou
->   	return ret;
->   }
-> 
-> -static int imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int timeout)
-> +static int imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt,
-> +			    unsigned int timeout_clks)
->   {
->   	/* enable 32bit command sequence and reconfigure */
->   	u32 val = WDOG_CS_CMD32EN | WDOG_CS_CLK | WDOG_CS_UPDATE |
-> @@ -296,11 +298,11 @@ static int imx7ulp_wdt_init(struct imx7ulp_wdt_device *wdt, unsigned int timeout
->   	}
-> 
->   	do {
-> -		ret = _imx7ulp_wdt_init(wdt, timeout, val);
-> +		ret = _imx7ulp_wdt_init(wdt, timeout_clks, val);
->   		toval = readl(wdt->base + WDOG_TOVAL);
->   		cs = readl(wdt->base + WDOG_CS);
->   		cs &= ~(WDOG_CS_FLG | WDOG_CS_ULK | WDOG_CS_RCS);
-> -	} while (--loop > 0 && (cs != val || toval != timeout || ret));
-> +	} while (--loop > 0 && (cs != val || toval != timeout_clks || ret));
-> 
->   	if (loop == 0)
->   		return -EBUSY;
-> --
-> 2.34.1
-> 
+---
+base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+change-id: 20241027-imx-emmc-reset-7127d311174c
+
+Best regards,
+-- 
+Josua Mayer <josua@solid-run.com>
 
 
