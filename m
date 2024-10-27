@@ -4,149 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189DFD10C1B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 11:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC2CD10C1F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 11:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KQYxqCNqjgBgoADfol0s8i3WZwblUUwlEvY2lkYP0+o=; b=Z7QTQtupgcvYeHuBbwlMIbthHs
-	t8uwGUD6/I9vSy1n6D1EpFOUxrcPWbH9McE5d/xprJAp7igW5s/9O1XS/dXU9vFkpYXaaVNqSbUav
-	E4ekXJkzHlqicqDVkSBRdi7lnXosqPadai0RkpFdk9aUrFe4kjxmjh9VwxayrmIE7yW9hYTiydExo
-	2ComN5kSAbsR4J5v2Kk72RiBhW3UeRKpTbfovmrp5axEtLdh86VZaxp4PVEjVMQxUk81ICiZJXeO3
-	Yp25c/T9cN/x+yRNwfN4zl8gvQDF3AYBdRIhhdguz2T3x16XoaGpMhXLMrr7D7cnuSfMSfmsB0ocF
-	6kIbyVxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/cPFShITTIvH/DlQLcbPYfMWua0oqN7/wabrQnP5/RY=; b=S++1RJRH3U8PUofSvDnArsYPtK
+	2uc5j8391k4Ffy2TmSkfufOqsljUWMqv3qy4FoXZMat0zik1V4fJ00fu2KTqK/fO4qBWgOVqcFfaR
+	t6HL1/hTFvyZzE4YIzdOHif5H1zTw/i6bvqyTtJid13LneqPd1DWngm2MvZQHdKmm02y7xTvRTe1m
+	AczhbCdvcOXRY6Sk+uYWADNQSam41TQqbDUYrlIl5jpSwlC9BIi/TrC4YAnnSHmE5z+bmDySeh5FR
+	0I3RdRo2J0ek5e3SVAHDsrwdWVbjjb2rYB/p6AqiZy5zdzHjuGqPLfbUQkQNpCUv0kvpzWzBWDc+s
+	bCl/8gyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t51SG-000000087cC-0rmH;
-	Sun, 27 Oct 2024 11:29:08 +0000
-Received: from mail-vi1eur05on2062b.outbound.protection.outlook.com ([2a01:111:f403:2613::62b] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t51Tn-000000087tr-1Khm;
+	Sun, 27 Oct 2024 11:30:43 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t51Qe-000000087Ip-1yC9
+	id 1t51RC-000000087Pg-3uQq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 11:27:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xZgmHvJIsvrOrfWL88En+9dlxa0ia1/oZJzpaKKxmo/EMmTPw/0u66PvW1uPbutEXlNszmWFe6TVF7HJ3UZhoPJAx9Cy78Aic8e2T6tTfZP4kHLSfb98gas97Wc+V7qZwrXChXBlEiiVLZ8/2pxQeV77046FDC5P1yVQCShq8LP/rR8UFQu9+W56x/Gww05ApDi6tmTy24NYZOCtuB3wEeUmw9JQvxiVF/f2d6vRW7HnWf2a2ODjQLNW1Nr558y/gdf0qrYVLtQkKEi6PYAX+ie+JMzZKuk9m/BcykowU6Ol/WK22cd2RcHiDKu4yBRb0mThv6irA7+A/Vwx4RMobw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KQYxqCNqjgBgoADfol0s8i3WZwblUUwlEvY2lkYP0+o=;
- b=S9Hbz8daV4rgfOzsVOuyT9qCmuITNx2eNFy5HzNONk71VVbMvRXBNr8tJifHfuKR7FEmqPO3qxwP/GYy1/sskT6biz+onwBfXG3L/16FjatnqjWTPZeKO80LKkUzd1rYrjBh90dJxi3IVo4UD/57s8hpT/qBZ76Upo4NP8bNYtDI+UffqXOkI38CVkj74UMM//ZHcto1VK47WMPc6fiXDkznV8rw/fA/T3+Lz7gf9e7zTkYZA8CsqDGYEx7bvCEq0uHOheQegjtTyum8wQJ9YoLBP4rgJDR0NEBuffhDw5wW7L2F2xvfvWNQpUbRLTAMIs2Tq8GJ+U954XmlCwNtvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KQYxqCNqjgBgoADfol0s8i3WZwblUUwlEvY2lkYP0+o=;
- b=RJd+tBlr4Gxh9dmaYYA5oUTb6h5dXRHL02g43Cem5i/gNcbAhu9xHf8BzJSxKLIn/buMGaQur/2WYRqXUu5iveTP6ZNoCa/DzDF4gl9wrC78/K5B1RsCLsbwIStwsN1la/yCKAq20tLyw/Vld+ihy4wE2akyjJmCScZrRXy/mUOTKwPf6QYhsCKU0hG/mW7eOBmAciHJ2ueo4wwN3iIk4GKyZplobPzNaQYd4/fo4MQqHzzoje6bGcqCvYayaCjJZsycUHX9mXOkT6Zrit5N8GjwA/buuXaA2o8eBnmY5bKUm9pbQ+xU8/D3kjNZ3O1krvL+xa4zXayn/YfjWIF2hw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by AM9PR04MB8470.eurprd04.prod.outlook.com (2603:10a6:20b:415::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.20; Sun, 27 Oct
- 2024 11:27:16 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49%5]) with mapi id 15.20.8093.021; Sun, 27 Oct 2024
- 11:27:16 +0000
-From: alice.guo@oss.nxp.com
-To: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"alice.guo" <alice.guo@nxp.com>
-Subject: [PATCH v1] soc: imx: Add SoC device register for i.MX9
-Date: Sun, 27 Oct 2024 19:25:57 +0800
-Message-Id: <20241027112557.3866257-1-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0021.apcprd02.prod.outlook.com
- (2603:1096:3:17::33) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	Sun, 27 Oct 2024 11:28:04 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a99fa009adcso229399866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 04:28:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1730028481; x=1730633281; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/cPFShITTIvH/DlQLcbPYfMWua0oqN7/wabrQnP5/RY=;
+        b=CnjNM5SbmDLSlH5/qM3b6HLghlS4ebwH5UEQ1AU0bLLOhv80SyuMvI9zUUaVq0dLhf
+         PkjfZILMUa3Pz58zjcPemY1q0uZrIERKzC3IDdJJ0KYNlp8O4P/kckZG/1dKIwy1cWNp
+         Djj0q6hnph+VYH640UzujDIe/MEvq+a9ALnjqUDFEYEPZutWCTMG3daR4+1ukH2qafS1
+         iW2pxKuKsFJfeLY/HUfmnL/xOmVtNJ3LTsiRbCr+OaumNDgXvThsjWlZAyasaXKbV/Ve
+         fvdxhTwvxaJtiljflxIdS60hwJpTbhT8W2rI1PjjTYuUA2x2BQRLEE351nxqIvks7Uq7
+         PuWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730028481; x=1730633281;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/cPFShITTIvH/DlQLcbPYfMWua0oqN7/wabrQnP5/RY=;
+        b=gC+qSyq55SwX03Zz/fUvBjVjxN9wqVfenSAf9x0MtOJxTVa8BlsUFkjwLhIDJZG5VP
+         lrnIGT1mIN27cJCzykGjZyl2BfLQGv6pvspeCxZl4P4Snpf76umzvJ4NyM5nV8jQ4t2N
+         +w/wRaKnfFqIZQwHFl6YVU212WwChbP1sRsCJCmbwhX4zzVeWo7ybLe6ZwlSKdjkkNM8
+         JLVytXIyZobVu4T5Oe63/NvP8KQVX/molCzFZBlu2n12k54MJZV+hRLLshPZj6UMhuLa
+         LlK7jDtDNRclch6Sk9u1v6tqvWoP8UWQlOrLhnt1roYbH0szPlPbiHF++TqbSLbRwi9p
+         dYgA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0WSdOCg4e3oa+hRXsXaBxKBoK1UVKIS3SryrFiDz4I3MYhW/yFR/vM81TDa7G7KWKz0teC7r/ECHstMjvcRlk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXa2NjONFgzPFfw62FSn9Q5vVBhi7o+WHqp+HMhMVghbVJTN38
+	EpBZK1uPMmyvB45W5AYiWLVTQ9BEHjWFwGCxav29ZvC4jxKM34z5OMPSvH2WAeM=
+X-Google-Smtp-Source: AGHT+IHDe3aK5safK/g97VZSuOAzRy7Z2gXlHXYzn/JhQ/9v/lVnM4Ln7FVM4yZYPgeb/pi28OnT4g==
+X-Received: by 2002:a05:6402:5244:b0:5c9:45b5:6077 with SMTP id 4fb4d7f45d1cf-5cbbfa72da0mr6049967a12.23.1730028481000;
+        Sun, 27 Oct 2024 04:28:01 -0700 (PDT)
+Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb63487fcsm2268240a12.91.2024.10.27.04.28.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Oct 2024 04:28:00 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Sun, 27 Oct 2024 12:28:23 +0100
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Andrew Lunn <andrew@lunn.ch>, Arnd Bergmann <arnd@arndb.de>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	St efan Wahren <wahrenst@gmx.net>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	phil@raspberrypi.com, jonathan@raspberrypi.com
+Subject: Re: [PATCH v2 08/14] clk: rp1: Add support for clocks provided by RP1
+Message-ID: <Zx4j1-y26si9Ojp8@apocalypse>
+References: <cover.1728300189.git.andrea.porta@suse.com>
+ <022cf4920f8147cc720eaf02fd52c0fa56f565c5.1728300189.git.andrea.porta@suse.com>
+ <611de50b5f083ea4c260f920ccc0e300.sboyd@kernel.org>
+ <ZxkX5gnDkWrTynRv@apocalypse>
+ <21fe104262989f04fadf9ec57dcac6df.sboyd@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|AM9PR04MB8470:EE_
-X-MS-Office365-Filtering-Correlation-Id: 13d40c47-cf74-4857-349e-08dcf67a4f6e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v8oy6HP4bF6C6aUeqk25ICTuCwk9VRB9zjVv2j2OAxJIqteA5INSWDB01YdC?=
- =?us-ascii?Q?fDT43AN84Sr6JEPhpinAzLffSpY1YfVLCMlFlqe2KsYbeo1E2XsDFGYbFlaS?=
- =?us-ascii?Q?LT2eRRP3vUKZyy6tvHZFnnV0Pz+9U6Fsza3MK8vnLbdDohKvK7Cg1DVAYI0j?=
- =?us-ascii?Q?NxOMmStzgW+wl3TiIq0RNOjaIbBl4QW52ywXRoTmuyAe7rkvc5TON+MjwUBf?=
- =?us-ascii?Q?Ay1cEcni6OCxovLYjRiFyX7OewQsmIi3YQdj+7eqvG/jysjhFcSKSTeTXPOY?=
- =?us-ascii?Q?oNtJ37llcHpw2MMMpmfacENrS6ngvHteBTiWAYdPgwF1AhQhaRahMYzLTDTx?=
- =?us-ascii?Q?/u6Jf8YtUW0ISs1kI9GKM/ku4kPq+BLTgglQiyhp3VC4Q0pm49jMnGi6K2t3?=
- =?us-ascii?Q?fe0Bsms4iKGKcXobwN5VdQa70mIgXt6EOGd5xgqf8PIWs1Bu+tjlOzoqkxrK?=
- =?us-ascii?Q?sefQFvCkZkFA+QvhKETHybNaeeadqOcjtmmM7x6IVbJdhmRolgYXQ8g9vbc7?=
- =?us-ascii?Q?DT2LijA9krFTc/G7tdEXSLUeelYICj+TMDqixQW6HjJEQSkRgPaGMBG/79UA?=
- =?us-ascii?Q?VHozTEfLYdxO/2xdd4iELbsVEdqQmRLxhZu02YuWuWhX46Y7N0hlaC8HyZX/?=
- =?us-ascii?Q?YlqrLHidIPltFWYVWaTOg3El/Pq11zsE/vht7FDJnxKAtfgiRFpDbEJlzI7I?=
- =?us-ascii?Q?yrUxDyXb+1gGZQaQNMrvkIM2w6QypYyZJGTJ+0PBfE1F/3ZX5immVCWu+bXe?=
- =?us-ascii?Q?kcKbxiHwMGvLYGy/kCr/eaQ7+wGMiMbpmmypUNkiCi46bfeKLTFp1d1I8S/r?=
- =?us-ascii?Q?+VELV0phQhIzAaJIDJXb8/76Aukp11KwQxJRIhgLdHFLP/Ux/UHLRYewX2JQ?=
- =?us-ascii?Q?ReChDk4FJlq98lEmRw1fqhNn+LCig+0K2Z2X+Dw7VB94fhEI9wYmLpvfdAek?=
- =?us-ascii?Q?LXbuKNEuSXcCNn+nr3668einYM4F0nyiziVjJgG+N8uvnUDMzcAY6BL3wkbm?=
- =?us-ascii?Q?J1CLAl/C7ck/NeBAwxPE6z4EPDLArNh92YGyUz+xW1PI9iMab406widYq5Q7?=
- =?us-ascii?Q?0F0H0wLKJY4MmR9CmQUYcEILUaILXZ+F0iydfoF1/duhEn1lnoksFhhXoioZ?=
- =?us-ascii?Q?A59Vlce2I+QCm3mtEetTFc7kla2u0YB4+CokszpLq5la/XENjBnm89/M693R?=
- =?us-ascii?Q?XkgUtzh3XzsiWI/mCyjaQLlliZGM5OpfIwa4Z6Nb1RcOeFI26BxbHImAepzR?=
- =?us-ascii?Q?b5Q+2Oi2hC/jJjFhZBU7PsLN7eeGIKjEF5KzhOtH/oW83ECEj242PQdq7VBg?=
- =?us-ascii?Q?KRHu1/l9+7BjRRvENSo2y1NlC7we+Se8H9o0VI3HuE1EIkz8CaKCTXv1Bf9F?=
- =?us-ascii?Q?kqFZuDs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LuMivvl7zcBY9dHzu5c7LfkwXgRnfEyZ9cZw0KLRY6dt6HtE4SswqD/iZVgH?=
- =?us-ascii?Q?Isw2ou8ZnCpMHzpmFDYizcVmxqPnsqH4Vr6ofsSAKXwU+CfBCmaeSm8i7FJK?=
- =?us-ascii?Q?LEaZPotU59GTwspnbZ5tKfTDCsFpgavL74GfNjdEgF8oDtmE04uWVfmP2WsJ?=
- =?us-ascii?Q?t6R6ODp2SqLd6c04jHWQtDBjf1kWRyD4flMfIQde4StgSSwX1boRBJ7wF4Fj?=
- =?us-ascii?Q?DL+cFIjb9bKZqLK1GyO57hyjcqFruDdreQp3d8VTPCg6k17bFcVLdF8aZ2zG?=
- =?us-ascii?Q?O67CpgwYAHRdDX+qFzAUvP4wcCUfeIrTwZH2kbDW5hTiRWJaLONoRTzkiWG2?=
- =?us-ascii?Q?0kwAH+K0h6di60oo58KfqpieQNtIj40LBPnlRxfNuNds6b4jDfLzfb8r3oZN?=
- =?us-ascii?Q?ziTmoD1PZBPMIPoh2gUEcjqzQkjXvh63O1UlDgTYkFWbcJtdMk5bt6RC2CpL?=
- =?us-ascii?Q?o23GWtl7bgdikWm40uyXFt1v0POcLu/ZEVJVy8n4QQ4LPdkX+WkrBp8rmOBM?=
- =?us-ascii?Q?lZeVddHiJFprV1YkepM1/yMDwfV8/L/RL3PCoEThRHcM7JQ4riFeDVMXsC5q?=
- =?us-ascii?Q?JQdah0mVFoapGHuSV38RdgsqtI0csLlOtbo4a8Jnm7YqNYk8jCcHjM0YkyEn?=
- =?us-ascii?Q?2x+QGkSOrPQwt/c4kHUKluVTd5omuAOKx7BNPhq3r+o48mNrXOt6Adb2uNLn?=
- =?us-ascii?Q?zUzS+l+dE/ea/JRQLODgnH/xeNHtLmPV105gXvavW9grJkEV84zeyS+brJlI?=
- =?us-ascii?Q?OFP7fGq6qJQXdTj3hH6tjgo/qKdnHnk5jtyCTSkREu1tPhZwkYHvIJ/XTM5w?=
- =?us-ascii?Q?UM6MLwDHQPWhLJyN+XloMODaMa9d+xGEIlWqVIRtvAdOFj4Brp8s9ArcXdan?=
- =?us-ascii?Q?752Y6/p1l0w+7FgDJx4MCo/WiZePQxdeu7O4SSkZLg1c9sRLxJZj2ZOpuhej?=
- =?us-ascii?Q?vhI3liq96YsF+tH5o13aCLYWqQxseBDz+Jb3hphFNcba9ryZ90z9yxiQ4F/x?=
- =?us-ascii?Q?wnFm+oh6wH4JlrvrPTqaue+bL+ZXi5klz1W9aApg1YOn4aZ9QoOEZJI9Ct9D?=
- =?us-ascii?Q?PLhF4tuBm3yvbxaBybVhUX+irdEvIrI4QWJZy1DhY2SHHK6rthlukfZJqu8f?=
- =?us-ascii?Q?Mk0riLo9EPrl/WnY2EncL9kDZGgzMvZhhiuoPCldNYbGx7s5uPfyyL+aMfMF?=
- =?us-ascii?Q?6MvNTPj+DyjK6WMaMdV/ci8k8f0nm+x7o/DnktLcWtnzPVUt5qCcFGcBrAhm?=
- =?us-ascii?Q?wlHnGYFpddCSQ9FBx1Co3QRFvqXFLi14ztYtM+YWKBaWdeS6aUCOe7oMUwei?=
- =?us-ascii?Q?oMnpYsZlJaOSuy4okWhysID9gcfmNhab2kbzWVYNzmh9LEUWhWsCYO72/74s?=
- =?us-ascii?Q?LPQ7v0dyjh0eqOM8251anViXLJvSoWVxuqwhyfjJJnCX+jC1jFGZOjMn1xBd?=
- =?us-ascii?Q?/fCWxLX0qympHf4S97ff4YFyUydiIP1QQrVQJPsJwxhXMgLeIOdMIiAb3b2x?=
- =?us-ascii?Q?lmQPR1Q9uem1ppqYG/AyJJBYpvn73bv7qFSc8NGjvCXTZWcirBuCRbZiy/y9?=
- =?us-ascii?Q?r6veTC+s1aw2Cfq2gXocJO14KSBx6VHiKadWovp+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13d40c47-cf74-4857-349e-08dcf67a4f6e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2024 11:27:16.1514
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AiGo5F7pru/F3oIVF2LIwCJ5gyB9RQ7kDIMY8eHu2s2rRTFgg+4XUS0oipidKbBLJfRdDXsMkZd44w6n4j527Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8470
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <21fe104262989f04fadf9ec57dcac6df.sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_042728_555178_AB4E2C95 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20241027_042803_014590_4C837927 
+X-CRM114-Status: GOOD (  61.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,139 +123,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "alice.guo" <alice.guo@nxp.com>
+Hi Stephen,
 
-i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-which are provided by the corresponding ARM trusted firmware API. This
-patch intends to use SMC call to obtain these information and then
-register i.MX9 SoC as a device.
+On 14:52 Wed 23 Oct     , Stephen Boyd wrote:
+> Quoting Andrea della Porta (2024-10-23 08:36:06)
+> > Hi Stephen,
+> > 
+> > On 15:08 Wed 09 Oct     , Stephen Boyd wrote:
+> > > Quoting Andrea della Porta (2024-10-07 05:39:51)
+> > > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > > > index 299bc678ed1b..537019987f0c 100644
+> > > > --- a/drivers/clk/Kconfig
+> > > > +++ b/drivers/clk/Kconfig
+> > > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
+> > > >           These multi-function devices have two fixed-rate oscillators, clocked at 32KHz each.
+> > > >           Clkout1 is always on, Clkout2 can off by control register.
+> > > >  
+> > > > +config COMMON_CLK_RP1
+> > > > +       tristate "Raspberry Pi RP1-based clock support"
+> > > > +       depends on PCI || COMPILE_TEST
+> > > 
+> > > A better limit would be some ARCH_* config.
+> > 
+> > I've avoided ARCH_BCM2835 since the original intention is for this driver
+> > to work (in the future) also for custom PCI cards with RP1 on-board, and not
+> > only for Rpi5.
+> 
+> How will that custom PCI card work? It will need this driver to probe?
 
-Signed-off-by: alice.guo <alice.guo@nxp.com>
----
- drivers/soc/imx/Makefile   |   2 +-
- drivers/soc/imx/soc-imx9.c | 102 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 103 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/imx/soc-imx9.c
+AFAICT there's no commercially available PCI card slot sporting an RP1 on-board,
+but this driver should be used to probe and use that card too.
 
-diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-index 3ad321ca608a..ca6a5fa1618f 100644
---- a/drivers/soc/imx/Makefile
-+++ b/drivers/soc/imx/Makefile
-@@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
- obj-$(CONFIG_ARCH_MXC) += soc-imx.o
- endif
- obj-$(CONFIG_SOC_IMX8M) += soc-imx8m.o
--obj-$(CONFIG_SOC_IMX9) += imx93-src.o
-+obj-$(CONFIG_SOC_IMX9) += imx93-src.o soc-imx9.o
-diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-new file mode 100644
-index 000000000000..7e8a8b2efa61
---- /dev/null
-+++ b/drivers/soc/imx/soc-imx9.c
-@@ -0,0 +1,102 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <linux/arm-smccc.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/sys_soc.h>
-+
-+#define IMX_SIP_GET_SOC_INFO	0xc2000006
-+#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-+#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-+#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-+
-+static int imx9_soc_device_register(void)
-+{
-+	struct soc_device_attribute *attr;
-+	struct arm_smccc_res res;
-+	struct soc_device *sdev;
-+	u32 soc_id, rev_major, rev_minor;
-+	u64 uid127_64, uid63_0;
-+	int err;
-+
-+	attr = kzalloc(sizeof(*attr), GFP_KERNEL);
-+	if (!attr)
-+		return -ENOMEM;
-+
-+	err = of_property_read_string(of_root, "model", &attr->machine);
-+	if (err) {
-+		err = -EINVAL;
-+		goto attr;
-+	}
-+
-+	attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
-+
-+	/*
-+	 * Retrieve the soc id, rev & uid info:
-+	 * res.a1[31:16]: soc revision;
-+	 * res.a1[15:0]: soc id;
-+	 * res.a2: uid[127:64];
-+	 * res.a3: uid[63:0];
-+	 */
-+	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-+	if (res.a0 != SMCCC_RET_SUCCESS) {
-+		err = -EINVAL;
-+		goto family;
-+	}
-+
-+	soc_id = SOC_ID(res.a1);
-+	rev_major = SOC_REV_MAJOR(res.a1);
-+	rev_minor = SOC_REV_MINOR(res.a1);
-+
-+	attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-+	attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
-+
-+	uid127_64 = res.a2;
-+	uid63_0 = res.a3;
-+	attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
-+
-+	sdev = soc_device_register(attr);
-+	if (IS_ERR(sdev)) {
-+		err = -ENODEV;
-+		goto soc_id;
-+	}
-+
-+	return 0;
-+
-+soc_id:
-+	kfree(attr->soc_id);
-+	kfree(attr->serial_number);
-+	kfree(attr->revision);
-+family:
-+	kfree(attr->family);
-+attr:
-+	kfree(attr);
-+	return err;
-+}
-+
-+static int __init imx9_soc_init(void)
-+{
-+	int ret = 0;
-+
-+	if (of_machine_is_compatible("fsl,imx91") ||
-+		of_machine_is_compatible("fsl,imx93") ||
-+		of_machine_is_compatible("fsl,imx95")) {
-+		ret = imx9_soc_device_register();
-+		if (ret) {
-+			pr_err("%s: imx9_soc_device_register returned %d\n", __func__, ret);
-+			return ret;
-+		}
-+	}
-+
-+	return ret;
-+}
-+device_initcall(imx9_soc_init);
-+
-+MODULE_AUTHOR("NXP");
-+MODULE_DESCRIPTION("NXP i.MX9 SoC");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
+> Is the iomem going to be exposed through some PCI config space?
 
+Yes, just as leverage in this driver through BAR1.
+
+> 
+> It's not great to depend on CONFIG_PCI because then the driver is forced
+> to be =m if PCI ever becomes tristate (unlikely, but still makes for bad
+> copy/pasta). I understand this line is trying to limit the availability
+> of the config symbol. Maybe it should simply depend on ARM or ARM64? Or
+> on nothing at all.
+
+I see, Herve proposed CONFIG_MISC_RP1 that is enabled whenever this driver is
+selected, and it makes a lot of sense to me.
+
+> 
+> > 
+> > > > diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> > > > new file mode 100644
+> > > > index 000000000000..9016666fb27d
+> > > > --- /dev/null
+> > > > +++ b/drivers/clk/clk-rp1.c
+> > > 
+> > > > +#include <linux/clk.h>
+> > > 
+> > > Preferably this include isn't included.
+> > 
+> > This include is currently needed by devm_clk_get_enabled() to retrieve
+> > the xosc. Since that clock is based on a crystal (so it's fixed and
+> > always enabled), I'm planning to hardcode it in the driver. This will
+> > not only get rid of the devm_clk_get_enabled() call (and hence of the
+> > clk.h include), but it'll also simplify the top devicetree. No promise
+> > though, I need to check a couple of things first.
+> 
+> A clk provider (clk-provider.h) should ideally not be a clk consumer
+> (clk.h).
+
+Ack.
+
+> 
+> > 
+> > 
+> > > > +
+> > > > +static int rp1_pll_ph_set_rate(struct clk_hw *hw,
+> > > > +                              unsigned long rate, unsigned long parent_rate)
+> > > > +{
+> > > > +       struct rp1_pll_ph *pll_ph = container_of(hw, struct rp1_pll_ph, hw);
+> > > > +       const struct rp1_pll_ph_data *data = pll_ph->data;
+> > > > +
+> > > > +       /* Nothing really to do here! */
+> > > 
+> > > Is it read-only? Don't define a set_rate function then and make the rate
+> > > determination function return the same value all the time.
+> > 
+> > Not 100% sure about it, maybe Raspberry Pi colleagues can explain.
+> > By 'rate determination function' you're referring (in this case) to
+> > rp1_pll_ph_recalc_rate(), right?
+> 
+> Yes.
+> 
+> > If so, that clock type seems to have
+> > a fixed divider but teh resulting clock depends on the parent rate, so
+> > it has to be calculated.
+> 
+> Sure, it has to be calculated, but it will return the rate that causes
+> no change to the hardware. When that happens, the set_rate() op should
+> be skipped, and you can see that with clk_divider_ro_ops not having a
+> set_rate() function pointer.
+
+Ack.
+
+> 
+> > 
+> > > > +static int rp1_clock_determine_rate(struct clk_hw *hw,
+> > > > +                                   struct clk_rate_request *req)
+> > > > +{
+> > > > +       struct clk_hw *parent, *best_parent = NULL;
+> > > > +       unsigned long best_rate = 0;
+> > > > +       unsigned long best_prate = 0;
+> > > > +       unsigned long best_rate_diff = ULONG_MAX;
+> > > > +       unsigned long prate, calc_rate;
+> > > > +       size_t i;
+> > > > +
+> > > > +       /*
+> > > > +        * If the NO_REPARENT flag is set, try to use existing parent.
+> > > > +        */
+> > > > +       if ((clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT)) {
+> > > 
+> > > Is this flag ever set?
+> > 
+> > Not right now, but it will be used as soon as I'll add the video clocks,
+> > so I thought to leave it be to avoid adding it back in the future.
+> > For this minimal support is not needed though, so let me know if you
+> > want it removed.
+> > 
+> 
+> Ok sure.
+> 
+> > 
+> > > > +
+> > > > +       [RP1_CLK_ETH_TSU] = REGISTER_CLK(.name = "clk_eth_tsu",
+> > > > +                               .parents = {"rp1-xosc"},
+> > > > +                               .num_std_parents = 0,
+> > > > +                               .num_aux_parents = 1,
+> > > > +                               .ctrl_reg = CLK_ETH_TSU_CTRL,
+> > > > +                               .div_int_reg = CLK_ETH_TSU_DIV_INT,
+> > > > +                               .sel_reg = CLK_ETH_TSU_SEL,
+> > > > +                               .div_int_max = DIV_INT_8BIT_MAX,
+> > > > +                               .max_freq = 50 * MHz,
+> > > > +                               .fc0_src = FC_NUM(5, 7),
+> > > > +                               ),
+> > > > +
+> > > > +       [RP1_CLK_SYS] = REGISTER_CLK(.name = "clk_sys",
+> > > > +                               .parents = {"rp1-xosc", "-", "pll_sys"},
+> > > 
+> > > Please use struct clk_parent_data or clk_hw directly. Don't use strings
+> > > to describe parents.
+> > 
+> > Describing parents as as strings allows to directly assign it to struct
+> > clk_init_data, as in rp1_register_clock():
+> > 
+> > const struct rp1_clock_data *clock_data = data;
+> > struct clk_init_data init = { };
+> > ...
+> > init.parent_names = clock_data->parents;
+> > 
+> > otherwise we should create an array and populate from clk_parent_data::name,
+> > which is of course feasible but a bit less compact. Are you sure you want
+> > to change it?
+> > 
+> 
+> Do not use strings to describe parents. That's the guiding principle
+> here. I agree using strings certainly makes it easy to describe things
+> but that doesn't mean it is acceptable.
+
+Ack.
+
+> 
+> > > > +       struct clk *clk_xosc;
+> > > > +       struct clk_hw **hws;
+> > > > +       unsigned int i;
+> > > > +
+> > > > +       clockman = devm_kzalloc(dev, struct_size(clockman, onecell.hws, asize),
+> > > > +                               GFP_KERNEL);
+> > > > +       if (!clockman)
+> > > > +               return -ENOMEM;
+> > > > +
+> > > > +       spin_lock_init(&clockman->regs_lock);
+> > > > +       clockman->dev = dev;
+> > > > +
+> > > > +       clockman->regs = devm_platform_ioremap_resource(pdev, 0);
+> > > > +       if (IS_ERR(clockman->regs))
+> > > > +               return PTR_ERR(clockman->regs);
+> > > > +
+> > > > +       clk_xosc = devm_clk_get_enabled(dev, NULL);
+> > > > +       if (IS_ERR(clk_xosc))
+> > > > +               return PTR_ERR(clk_xosc);
+> > > > +
+> > > > +       clockman->hw_xosc = __clk_get_hw(clk_xosc);
+> > > 
+> > > Please use struct clk_parent_data::index instead.
+> > 
+> > Sorry, I didn't catch what you mean here. Can you please elaborate?
+> > 
+> 
+> Don't use __clk_get_hw() at all. Also, don't use clk_get() and friends
+> in clk provider drivers. Use struct clk_parent_data so that the
+> framework can do the work for you at the right time.
+
+Ack.
+
+Many thanks,
+Andrea
 
