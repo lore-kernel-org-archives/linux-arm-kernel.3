@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24F1D1356C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 15:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E38DD1356C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 15:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0SVi4wuY31MEA962sDb73MizyKBANV4LsDxIEBcBrY=; b=v3k1QopjZ0Z3ew2dzd1FNvJkST
-	E7A3DSE6BkUCaqEWrLhwMnz8JAXB3umyyaQpjL8C4IflwNVnSVC7JhqUevUzITt+Thr/uLwRyFWH8
-	ccR9VqTd4zhOpz8JUphPxWzH2I3Wm3G383pTFk90JOwn3fcq5jGbLu14hher+P+3nH78zId/5PD8n
-	olFyaHUTR4er/2/eSrTF3dkX8ieoBWaZ+C/HGo65sc9qE+vHRXSFpNxwsvBQA334cCB2E1Zyf1+v5
-	wwk0o5p1ARIWBTMl+t/BM/NnBdNp88IO+rfS6af9gJCkETkDbixnNC4QIXCQWpLmuaX4Mw/Dyf6ed
-	Jt9ugTAg==;
+	bh=S52TV53JYVw4ssB8apb8QpRsCbB5Ll6Prp5SvUoLNv4=; b=RLxtroJ1l/ZK7Anskt3C6AZHdm
+	by7ryjh9rrkA0HC+2M0ZhzqCW4o0TDxvvgbQz8kZjDT45UhMGJWrjHo6vDZuTopLZCcZnbeaLV+8n
+	nMIPF91sNb3mMn7A5wumSf5RDDs/Ax1ZEWyCg69+R8tgYNtJBcZyaN1CBOKl8iS9YQN7Lns6ogHlG
+	LeHRYohy4RYlSR/t2hsgQK5+MDnmVbh6TfC2gBU2bL6rRCBI0x5RYk8+dXkAQLUdVxo9UG2DX0rGT
+	k4cXKXMtpoRxNbNrTXDkGJRqw1u5AIWKzeYZFx+QQpDoaP74XEndo3bHyNtwnsKVF0cOkDUuIS6xA
+	oaIGXfLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t55M8-00000008Unf-3vvR;
-	Sun, 27 Oct 2024 15:39:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t55cX-00000008Vf4-1o4S;
+	Sun, 27 Oct 2024 15:56:01 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t55KW-00000008Uep-3eqD
+	id 1t55ax-00000008Vbe-3Zqd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 15:37:27 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49REIi6J020846;
-	Sun, 27 Oct 2024 15:37:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	w0SVi4wuY31MEA962sDb73MizyKBANV4LsDxIEBcBrY=; b=l0aKoSdVTsmllT9Q
-	Q8E2g2TiRdeN1n2yADEr4Ss1oadNTl/PlF+ITidFlXxXSoB+wk3dNqbky7TU2SJw
-	zThsIWSxnYYD36G0gFahxDXl8yfru8kP7ZxG25sSauyGLj7OeAwdd0KPb/7EseU1
-	w+Tjoiiu3bsHr4HpiYo5SVd645di8ne41XEdmHBSUSvzF5KciQ5aLCOyNRZE0Bd5
-	StHJoXy17QL7YzLfkSdHW/+CvO5Cm2yY5Bt4UXR5vOZGWoaKMAgsTndDiqoqeK1H
-	ISGtIE4gNJqa9pquZ0H6cpmS/brSCaMmmlCZyKsCji2FGkVDMI3HWVBtqwEv+b2t
-	DxOodg==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42grguajqu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Oct 2024 15:37:02 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49RFb1eC030189
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Oct 2024 15:37:01 GMT
-Received: from [10.216.8.251] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 27 Oct
- 2024 08:36:56 -0700
-Message-ID: <6b3d3815-ca7a-470e-993d-862f96249edb@quicinc.com>
-Date: Sun, 27 Oct 2024 21:06:53 +0530
+	Sun, 27 Oct 2024 15:54:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730044445; x=1730649245; i=wahrenst@gmx.net;
+	bh=S52TV53JYVw4ssB8apb8QpRsCbB5Ll6Prp5SvUoLNv4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=NDogIxbncmRPVdih/3caGPpkAwbhLpDLgVyxD9T4llzJviJRagVvfh+v4wyaJB09
+	 oqCfsF+zAnxHLbw0ax3iZKEKT5vvk9CzEpMXKkq6VAlBgfTIMMVpqaRNnyFr+EWSi
+	 9D+3o6WK9r1CWze2mKBwyfB+dAK+hkJhI7f/kkE2XKOjjfndk1JMKTLzXkTe3FB1r
+	 rk4P8a44Ynbpv3sJN0OVoKGFu6jWYa8ZCamy9FDxfbWl/pfyD2aVmJXcMgly8bsgo
+	 9+DObDY0LPCRZxHj0F0Eq3H/wauaxcaJdf54zrLb5/wAXWYH3uqhjSCXtgVBQMO7b
+	 86FDM4e+6z5b0AhgdA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M7sHo-1t09de3Zly-0047OO; Sun, 27
+ Oct 2024 16:54:04 +0100
+Message-ID: <686d128c-ce02-421e-9af5-6c418e82071d@gmx.net>
+Date: Sun, 27 Oct 2024 16:54:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/arm-smmu: Defer probe of clients after smmu
- device bound
-To: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>
-CC: <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
-        <robdclark@chromium.org>, <quic_c_gdjako@quicinc.com>,
-        <dmitry.baryshkov@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <quic_charante@quicinc.com>, <stable@vger.kernel.org>,
-        Prakash Gupta
-	<quic_guptap@quicinc.com>
-References: <20241004090428.2035-1-quic_pbrahma@quicinc.com>
- <d4a52579-0e2a-4df3-a1fa-e8e154ff1e90@quicinc.com>
- <3925d2f0-3b1f-4200-acc4-8f991616ec0f@arm.com>
+Subject: Re: [PATCH 2/2] watchdog: imx7ulp_wdt: Add TOVAL range check
+To: Guenter Roeck <linux@roeck-us.net>, Alice Guo <alice.guo@nxp.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20241027105323.93699-1-wahrenst@gmx.net>
+ <20241027105323.93699-3-wahrenst@gmx.net>
+ <33721072-6ff4-45bd-b20f-cc0a213e3aae@roeck-us.net>
 Content-Language: en-US
-From: Pratyush Brahma <quic_pbrahma@quicinc.com>
-In-Reply-To: <3925d2f0-3b1f-4200-acc4-8f991616ec0f@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: jm-iVN1pNVfu1vBKJI6TSGdOIwF8CGpr
-X-Proofpoint-GUID: jm-iVN1pNVfu1vBKJI6TSGdOIwF8CGpr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1011
- lowpriorityscore=0 adultscore=0 mlxscore=0 bulkscore=0 suspectscore=0
- phishscore=0 spamscore=0 malwarescore=0 mlxlogscore=999 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2410270136
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <33721072-6ff4-45bd-b20f-cc0a213e3aae@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:ddXs+8wjTNEs+IMlPWyG2xgLyVyw5OMmDdi9zc/aCnPov5BFN4I
+ edgV7Yzx8e4r+6Fp5077g4/uvmrv+Q15YWXI/O5wKKFP0dIl4hh9v05mu3VRwRKIHMcsQMF
+ 4T3AZO6p9ZnDgXhBua7CcHsekJYcwE1E5yAD+VzQn7Ug0Go1uC6f6tw5c75DcNtCFYCzZbj
+ XXiE9LbP3sFxgECF+QG9Q==
+UI-OutboundReport: notjunk:1;M01:P0:6w/mAcG88Kw=;TlJu9eOKkpqPo7CziDcShLo73b0
+ yvWgFYOzFlV0eSuv5xprGGznT9tk4voDXZ9SAqZVjeUstwxNC3fuzO2BGo1nJEAmaMKItzii5
+ GK/yKIaQ2YY64FUS6rRKqSFnbfHiSws75kTh0oujuqkXTjMCEmLyIuHQ0aJbV7gI1xZUv9T+8
+ YTHDTJzy+4Iuam2ITFmgXUWpIUVr/7PJi5w6umFMysbS784wuwv4KxPO2MqqKqoDjmJ3QYfAm
+ o3vlNNoX1j1nIOGN6fK0H4VjRtQylyBQB2utB/+gAh6GXijgj4bLtjj9p8282Cl9prOihLecf
+ Ael8vyZ4uNJJK9RwOdjtqLAdZW/sOc5yvphgzz3SA0qTAB48KlqVRQ+2axxyYUcpHGF1b9S+y
+ sCe6J2iXufTNbO0XXgAHT806OHXlIQIKop09DItsPvXBDb/3nWp5Q1Pnoss+qUm1f3sjtF8yG
+ JvMOrYpxhp3VkFHfAVdsklOYduRZjzjbtdrU26Yi7TKCRCH4gI2DMnhsQFrJAzSAM5zjGD79w
+ g84ctygoGZuzvMNxY7LzL4MsL2wOjoRUP1sOSteoqhCdgNNaC5eyUMkhqteR5QUjy7cH1NTiT
+ YPFcQzRREDl9aCsRi6DVHgEf2xR6DjOqkMBNwXby0CzxcPp6vQF/Oi65zm2xR0ERQUchqbaK8
+ /Cm8zxcmhXBTaHvIGGgJoVK6VpAtwTPgMOqP/HmwFD1MU01e/U7+gZATEheDctoDczEgy4FhN
+ K5WM36oVRkugSQ6XEaYU0v2kkm10nys1mfe42lhFSvTsEgi2yGWxBHhzZdl8X1pO20br49ocL
+ XTCADH3+vCYRQ/07XrjRZCbQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_083725_080572_F76D3E24 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20241027_085424_200919_41029ED9 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,102 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 10/17/2024 7:24 PM, Robin Murphy wrote:
-> On 15/10/2024 2:31 pm, Pratyush Brahma wrote:
+Am 27.10.24 um 14:36 schrieb Guenter Roeck:
+> On 10/27/24 03:53, Stefan Wahren wrote:
+>> The WDOG Timeout Value (TOVAL) is a 16 bit value, which is stored
+>> at the beginning of a 32 bit register. So add a range check to
+>> prevent writing in the reserved register area.
 >>
->> On 10/4/2024 2:34 PM, Pratyush Brahma wrote:
->>> Null pointer dereference occurs due to a race between smmu
->>> driver probe and client driver probe, when of_dma_configure()
->>> for client is called after the iommu_device_register() for smmu driver
->>> probe has executed but before the driver_bound() for smmu driver
->>> has been called.
->>>
->>> Following is how the race occurs:
->>>
->>> T1:Smmu device probe        T2: Client device probe
->>>
->>> really_probe()
->>> arm_smmu_device_probe()
->>> iommu_device_register()
->>>                     really_probe()
->>>                     platform_dma_configure()
->>>                     of_dma_configure()
->>>                     of_dma_configure_id()
->>>                     of_iommu_configure()
->>>                     iommu_probe_device()
->>>                     iommu_init_device()
->>>                     arm_smmu_probe_device()
->>>                     arm_smmu_get_by_fwnode()
->>>                         driver_find_device_by_fwnode()
->>>                         driver_find_device()
->>>                         next_device()
->>>                         klist_next()
->>>                             /* null ptr
->>>                                assigned to smmu */
->>>                     /* null ptr dereference
->>>                        while smmu->streamid_mask */
->>> driver_bound()
->>>     klist_add_tail()
->>>
->>> When this null smmu pointer is dereferenced later in
->>> arm_smmu_probe_device, the device crashes.
->>>
->>> Fix this by deferring the probe of the client device
->>> until the smmu device has bound to the arm smmu driver.
->>>
->>> Fixes: 021bb8420d44 ("iommu/arm-smmu: Wire up generic configuration 
->>> support")
->>> Cc: stable@vger.kernel.org
->>> Co-developed-by: Prakash Gupta <quic_guptap@quicinc.com>
->>> Signed-off-by: Prakash Gupta <quic_guptap@quicinc.com>
->>> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
->>> ---
->>> Changes in v2:
->>>   Fix kernel test robot warning
->>>   Add stable kernel list in cc
->>>   Link to v1: 
->>> https://lore.kernel.org/all/20241001055633.21062-1-quic_pbrahma@quicinc.com/
->>>
->>>   drivers/iommu/arm/arm-smmu/arm-smmu.c | 3 +++
->>>   1 file changed, 3 insertions(+)
->>>
->>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c 
->>> b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>> index 723273440c21..7c778b7eb8c8 100644
->>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>> @@ -1437,6 +1437,9 @@ static struct iommu_device 
->>> *arm_smmu_probe_device(struct device *dev)
->>>               goto out_free;
->>>       } else {
->>>           smmu = arm_smmu_get_by_fwnode(fwspec->iommu_fwnode);
->>> +        if (!smmu)
->>> +            return ERR_PTR(dev_err_probe(dev, -EPROBE_DEFER,
->>> +                        "smmu dev has not bound yet\n"));
->>>       }
->>>       ret = -EINVAL;
+>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+>> ---
+>> =C2=A0 drivers/watchdog/imx7ulp_wdt.c | 8 ++++++++
+>> =C2=A0 1 file changed, 8 insertions(+)
 >>
+>> diff --git a/drivers/watchdog/imx7ulp_wdt.c
+>> b/drivers/watchdog/imx7ulp_wdt.c
+>> index 0f92d2217088..a7574f9c9150 100644
+>> --- a/drivers/watchdog/imx7ulp_wdt.c
+>> +++ b/drivers/watchdog/imx7ulp_wdt.c
+>> @@ -48,6 +48,8 @@
 >>
->> Hi
->> Can someone please review this patch? Let me know if any further 
->> information is required.
+>> =C2=A0 #define RETRY_MAX 5
+>>
+>> +#define TOVAL_MAX=C2=A0=C2=A0=C2=A0 0xFFFF
+>> +
+>> =C2=A0 static bool nowayout =3D WATCHDOG_NOWAYOUT;
+>> =C2=A0 module_param(nowayout, bool, 0000);
+>> =C2=A0 MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once star=
+ted
+>> (default=3D"
+>> @@ -192,6 +194,9 @@ static int imx7ulp_wdt_set_timeout(struct
+>> watchdog_device *wdog,
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 loop =3D RETRY_MAX;
+>>
+>> +=C2=A0=C2=A0=C2=A0 if (toval > TOVAL_MAX)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EINVAL;
+>> +
 >
-> This really shouldn't be leaking into drivers... :(
+> The whole idea of having max_timeout in struct watchdog_device is to
+> avoid the need
+> for this check. max_timeout should be set to 0xffff /
+> wdt->hw->wdog_clock_rate.
+> It is currently set to 128. With wdt->hw->wdog_clock_rate set to
+> either 125 or 1000,
+> it can indeed overflow. However, checking the value above is wrong.
+> max_timeout should
+> be initialized correctly instead.
 >
-> Honestly, I'm now so fed up of piling on hacks around the fundamental 
-> mis-design here, I think it's finally time to blow everything else off 
-> and spend a few days figuring out the most expedient way to fix it 
-> properly once and for all. Watch this space...
+> Even better would be to set max_hw_heartbeat_ms and let the watchdog
+> core handle
+> larger timeouts.
+It's funny because I tried this on a i.MX93 board but it didn't work for
+me. But I must confess that I didn't spend much time in the investigation.
 >
-> Thanks,
-> Robin.
+> Another question is why the driver enables a clock but doesn't use its
+> actual
+> frequency.
+Yes, this would be better
 
-Hi Robin
+Regards
+>
+> Guenter
+>
+>
 
-Do you have any approaches in mind that you are currently considering or 
-exploring?
-
-Thanks
-Pratyush
 
