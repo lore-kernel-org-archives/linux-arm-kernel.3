@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D007CD13587
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 21:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF5CD13587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 21:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdPF6NOKLB3j4XA6P6zhFX0eegfYJY+iTcyB4ekzs70=; b=K+/6/G5nkWo8bRyh0IGBUI6fJu
-	khC36YlhrQ4qJGiahGnqxGUTrvqYKSfI8zEaI2v6hm1kzCWgDMkWLVBZIQkY68ype6IdZy55RFQEM
-	9i6yrudj7iGjPQTC+HHeAFq31Mkh7WrsIjzoKRt2hkPRoJfzPTKoh/asYBJ/flFIQhkJoih8O7L+L
-	UKIMeN8CY3hE4+9LtObyk39kePFInSht2vtdf6ULKyDS5gTyud9pPaKuTJFe5CO6tBLMQ8poJp4DQ
-	nf4KZZtcbUkfyifIq6RSBQAo3/6gwBN3Yqfk+/5AcVEiXGNsNAcQVzzcMxEZK+OVFCFApLku+2/1Y
-	eU3ReoAQ==;
+	bh=wvs36MoN0dvn0aJm2hhDVYv5o9sHY0H4Cr+/qFhaBUA=; b=PbLrqd6EFTFak99tHS1uuW/WBg
+	W0EK/Eac7sxZMH//HkBVMfQAZDCM7TAlLLU69FBi1l60dcqhBKtt15CeScpdO8WIlKW3krpuXceBg
+	AyS05IooCcWJp/TMSfb+w6GnLKhG2BQMosEoDLhyQptEmOJqjgI2MYt8X1VVUxyuLQUP7gWSpbyQb
+	jhm4cLl/ALiC97sG0FBHPP2qr5QwpIen+anq7Sj7Uo2MvahU6RoYg/emlkjMjSJRH3QH/OpTHNGql
+	1vo+wPlrHXpAgPyerxZDFeFatKv6SEyKUliCrvte66WM5AoLTO+BpW/WOPkXkMIE3eFwqIQSStApX
+	wZzue9cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5AUr-00000008uRj-35Qm;
-	Sun, 27 Oct 2024 21:08:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5AZP-00000008utO-2r4P;
+	Sun, 27 Oct 2024 21:13:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ATG-00000008uHs-2o7j
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 21:06:48 +0000
+	id 1t5AXn-00000008ui2-3i0Z;
+	Sun, 27 Oct 2024 21:11:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C13205C58B3;
-	Sun, 27 Oct 2024 21:06:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E333C4CEC3;
-	Sun, 27 Oct 2024 21:06:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 85C1C5C5833;
+	Sun, 27 Oct 2024 21:10:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0D27C4CEC3;
+	Sun, 27 Oct 2024 21:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730063205;
-	bh=CO7k2Dg/RtRuxPaLMt+WxKeEr7MfB16b+EAkMICuDQY=;
+	s=k20201202; t=1730063486;
+	bh=qxdDf/jwCLwtMg/BFx08kpItrd6GwiKsheCB5mZ8L5g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pIIcuwp4gdtTDh6Clgp23Kw9gsZ0nOzwkhUKsgMa2vpwg3C9L91p4Fy3gnTZjk6po
-	 r3lhEHhgiMCAQYilsGrxu7mOghlEBJuMKhG/xrZ0iWsEGBbqEHlq3K60fcx910Nrh3
-	 EsrJWjlmiKyCCifgbgeLoYpS0TA37cXTgXO/2MqyZP7srQ9xsx3D0S4XfP+0F92gYJ
-	 MkamC0N2UAGHHFUJoK3YrNWH2XOe27G8eADqIvi+KwXk0EYJ0dpHW7LnIqlzbXIrAn
-	 NQbmNOyqYHJRnYlIEwsvScQ0Kvt+xdm/xbhaOPUAdT5M/rCyUxBOsFZwHtDTbSL6c2
-	 mycV4qiZ7HAMw==
-Date: Sun, 27 Oct 2024 22:06:41 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Markuss Broks <markuss.broks@gmail.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
-	Maksym Holovach <nergzd@nergzd723.xyz>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: pmu: Add Samsung Mongoose core
- compatible
-Message-ID: <zcxzmsc642ggozzpj73skzxfce7jnoj7fmdg57edbin2rfh7mn@6acurllfar73>
-References: <20241026-mongoose-pmu-v1-0-f1a7448054be@gmail.com>
- <20241026-mongoose-pmu-v1-1-f1a7448054be@gmail.com>
+	b=roFr7gAuUh9x1bpL1a0X8t4pPfIME4ciTyiS0Xlu+4gWLAEBQ+uQL0SehfyR/hlc3
+	 wt5kyLKGovdfDXWrMtpmn4LPYhctXKnxbGbSkcppX3uiveof5OYnKSWQ1D2xYM1myr
+	 uUdHKipcFFu2jiHLHXcw/nK/Xgqy6JqzlhoqoAJ8yea3k923xOnYX7+KYpkWCIRT5p
+	 Xq85rQpq71LfaYvdEiIF93WtNBxtPUym+NgeS/EM6MKs99yapMKkMQcumgMTba2oZc
+	 PVx6EDRO2HXb2Y0Qa2lz20vNo3Ig/eR7jkBwRiKtOIdvFCegFlu+EjtHYKdntM69ob
+	 h0SNp3L2sf16Q==
+Date: Sun, 27 Oct 2024 16:11:25 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Cody Eksal <masterr3c0rd@epochal.quest>
+Cc: Samuel Holland <samuel@sholland.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thierry Reding <treding@nvidia.com>, Nishanth Menon <nm@ti.com>,
+	Chen-Yu Tsai <wens@csie.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yangtao Li <frank@allwinnertech.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, linux-pm@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-sunxi@lists.linux.dev, Yangtao Li <tiny.windzz@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Parthiban <parthiban@linumiz.com>
+Subject: Re: [PATCH 03/13] dt-bindings: phy: sun50i-a64: add a100 compatible
+Message-ID: <173006348387.87150.15151805812797724971.robh@kernel.org>
+References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
+ <20241024170540.2721307-4-masterr3c0rd@epochal.quest>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241026-mongoose-pmu-v1-1-f1a7448054be@gmail.com>
+In-Reply-To: <20241024170540.2721307-4-masterr3c0rd@epochal.quest>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_140646_780286_38245B72 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241027_141128_006214_1251519C 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +90,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26, 2024 at 11:28:08PM +0300, Markuss Broks wrote:
-> Add the compatible for the Samsung Mongoose CPU PMU to the schema.
+
+On Thu, 24 Oct 2024 14:05:21 -0300, Cody Eksal wrote:
+> The USB PHY found in the A100 is similar to that found in the A64,
+> although it requires some quirks to be enabled. Add a compatible for the
+> A100's variant.
 > 
-> Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
-> Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
-> Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
+> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
 > ---
->  Documentation/devicetree/bindings/arm/pmu.yaml | 1 +
+>  .../devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml    | 1 +
 >  1 file changed, 1 insertion(+)
+> 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
