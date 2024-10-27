@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD88D13569
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 15:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24F1D1356C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 15:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x4R7lu/kAshlAJXnNL3llyVtKBCbHq8h1Es4W4nUkAU=; b=E3onkEJTSTBGx1xNd6WzMYKAc3
-	xzAEYhNGwjyGwM2Bc6lzBy+OsdycWDANi+L4HzePiVP/gpbR8xYMpLg6mKiyz7sxCKWcXJdfDxVYL
-	fIXgYxC7njU2odxc29TT3/CViIxzg//rGUrf9bwIefgcieSFLwFmSbQ90py+7gwKErfVNo3qzIrFF
-	JQAaogaFh+SRHY+MrVBQwIiwfA7YQ/yI/b+zxSd/K+p4SXcL/GjvT8Ir3I0nAiPoq1IAm02JjTAtB
-	unUu/eL0bpvTiT8ZqYTvUXBfrfP0k2JWDhkF6mRGqpzOkpZwHLvXmkvU0bYL9PW0IcEGdaTWob/O9
-	fPbNXb5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w0SVi4wuY31MEA962sDb73MizyKBANV4LsDxIEBcBrY=; b=v3k1QopjZ0Z3ew2dzd1FNvJkST
+	E7A3DSE6BkUCaqEWrLhwMnz8JAXB3umyyaQpjL8C4IflwNVnSVC7JhqUevUzITt+Thr/uLwRyFWH8
+	ccR9VqTd4zhOpz8JUphPxWzH2I3Wm3G383pTFk90JOwn3fcq5jGbLu14hher+P+3nH78zId/5PD8n
+	olFyaHUTR4er/2/eSrTF3dkX8ieoBWaZ+C/HGo65sc9qE+vHRXSFpNxwsvBQA334cCB2E1Zyf1+v5
+	wwk0o5p1ARIWBTMl+t/BM/NnBdNp88IO+rfS6af9gJCkETkDbixnNC4QIXCQWpLmuaX4Mw/Dyf6ed
+	Jt9ugTAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t54oa-00000008SNW-1uIj;
-	Sun, 27 Oct 2024 15:04:24 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1t55M8-00000008Unf-3vvR;
+	Sun, 27 Oct 2024 15:39:04 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t54n0-00000008SGa-0yk8
+	id 1t55KW-00000008Uep-3eqD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Oct 2024 15:02:48 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb443746b8so32568361fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Oct 2024 08:02:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730041363; x=1730646163; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=x4R7lu/kAshlAJXnNL3llyVtKBCbHq8h1Es4W4nUkAU=;
-        b=A2Pb4hgDXmtAdD1hdzsG9YZAO9EEzgYkBoCqrvICADE9XsOb0N2a/YMRpEwUs4hR+B
-         kqXUZ0fDas8QWh2DAew5LMgwlv3wmRV0KoySQn9zRmuYgI9pGxFcgfagce2e4zvVuYa2
-         ZEbNaU4oItdlQV2d+uZ6WLsvJil50XMc3nNv681nrtf+preyTPVI/lRsKRLlLDmz9VpW
-         GXXziUt+T4JyJ6Q0G4AszScDJIJkoEwRs8i3TECry73kG/x1XH+waEq6KMr0gHEl4F3d
-         nrWhFW+pJvKtMyDNkeVseEp0Vrw0HzhMHmLerWP3mkhXXFbfVhnUaTyU/rzF8qudtgDF
-         dSqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730041363; x=1730646163;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=x4R7lu/kAshlAJXnNL3llyVtKBCbHq8h1Es4W4nUkAU=;
-        b=HuXqjyhSUIcUx4SY62KfvzLtIxYHto/6aQTKUgGHgYwogdjgAxI/iZPdmKvOBl0vSG
-         h3sh18OFF6dS7bYJ9KWW0ViRjFHBmyJY2fc+Y69sjBhfTTYU49Dvf/PNSdILSTPyBKwe
-         nFucAbKUQ28+ES/sLgWxndV/cdgqEVKtoNb8WQSYjxWSuZXeKijsFHjiV9LJVpwRkbmx
-         5X+r7WVP9eyqHh5mMPEHkMim4wwKrHadNr1sCAr96F/9cLfCDxjw4STLNDtCWeb3BxHa
-         1le9cgVgtSfEPoCf+2Nzlx+hki3XutpyKfyROshWwXxnDv4e9+oliXyeH5pw0T+n7n9i
-         2Reg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQ+dghUa7rxKVWtTc47oSHabWHL3RbqGXfWzuVfz83GPkIo1v43oP3J3WtwAKSiAlh8oCFwHjSHWmz75IgNJf0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+nBhgu9j2Wq2ECZR0u8rmqNcUA2sVwbfzlGHo29SDvsbSVFuj
-	l2J3Vfy6oFxA0JQezc6mWOFjalr3CcIHUhUahyGkEMGWt7dGAgHm6cHsVcV8k+Yuu3Jn76Tuyjn
-	jIp6gOHOT+47SCEk37uQ6KgHnIlYz86wTmvdXKQ==
-X-Google-Smtp-Source: AGHT+IFqLjsyKJ5CxjDNJGvvyW3lXMFUulX6UFQluIj2OcmHgocN09ZljnrI5ISQ8+uIxzhs+el7dmiVvKGjST2wbUc=
-X-Received: by 2002:a05:6512:1092:b0:53b:20a1:1c4a with SMTP id
- 2adb3069b0e04-53b34a19077mr1821924e87.42.1730041363426; Sun, 27 Oct 2024
- 08:02:43 -0700 (PDT)
+	Sun, 27 Oct 2024 15:37:27 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49REIi6J020846;
+	Sun, 27 Oct 2024 15:37:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	w0SVi4wuY31MEA962sDb73MizyKBANV4LsDxIEBcBrY=; b=l0aKoSdVTsmllT9Q
+	Q8E2g2TiRdeN1n2yADEr4Ss1oadNTl/PlF+ITidFlXxXSoB+wk3dNqbky7TU2SJw
+	zThsIWSxnYYD36G0gFahxDXl8yfru8kP7ZxG25sSauyGLj7OeAwdd0KPb/7EseU1
+	w+Tjoiiu3bsHr4HpiYo5SVd645di8ne41XEdmHBSUSvzF5KciQ5aLCOyNRZE0Bd5
+	StHJoXy17QL7YzLfkSdHW/+CvO5Cm2yY5Bt4UXR5vOZGWoaKMAgsTndDiqoqeK1H
+	ISGtIE4gNJqa9pquZ0H6cpmS/brSCaMmmlCZyKsCji2FGkVDMI3HWVBtqwEv+b2t
+	DxOodg==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42grguajqu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Oct 2024 15:37:02 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49RFb1eC030189
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Oct 2024 15:37:01 GMT
+Received: from [10.216.8.251] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 27 Oct
+ 2024 08:36:56 -0700
+Message-ID: <6b3d3815-ca7a-470e-993d-862f96249edb@quicinc.com>
+Date: Sun, 27 Oct 2024 21:06:53 +0530
 MIME-Version: 1.0
-References: <cover.1729897278.git.nicolinc@nvidia.com> <384f7b4333a1f75da09e390902b8f82be21a0dd3.1729897278.git.nicolinc@nvidia.com>
-In-Reply-To: <384f7b4333a1f75da09e390902b8f82be21a0dd3.1729897278.git.nicolinc@nvidia.com>
-From: Zhangfei Gao <zhangfei.gao@linaro.org>
-Date: Sun, 27 Oct 2024 23:02:31 +0800
-Message-ID: <CABQgh9EpGPwdQhv7mepiMGVgR-8NMx5dcXyJ2A92W8ZzQt3bJw@mail.gmail.com>
-Subject: Re: [PATCH v5 07/13] iommufd/viommu: Add iommufd_viommu_find_dev helper
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, will@kernel.org, joro@8bytes.org, 
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com, dwmw2@infradead.org, 
-	baolu.lu@linux.intel.com, shuah@kernel.org, linux-kernel@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com, 
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com, 
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com, yi.l.liu@intel.com, 
-	aik@amd.com, patches@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu/arm-smmu: Defer probe of clients after smmu
+ device bound
+To: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>
+CC: <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
+        <robdclark@chromium.org>, <quic_c_gdjako@quicinc.com>,
+        <dmitry.baryshkov@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <quic_charante@quicinc.com>, <stable@vger.kernel.org>,
+        Prakash Gupta
+	<quic_guptap@quicinc.com>
+References: <20241004090428.2035-1-quic_pbrahma@quicinc.com>
+ <d4a52579-0e2a-4df3-a1fa-e8e154ff1e90@quicinc.com>
+ <3925d2f0-3b1f-4200-acc4-8f991616ec0f@arm.com>
+Content-Language: en-US
+From: Pratyush Brahma <quic_pbrahma@quicinc.com>
+In-Reply-To: <3925d2f0-3b1f-4200-acc4-8f991616ec0f@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: jm-iVN1pNVfu1vBKJI6TSGdOIwF8CGpr
+X-Proofpoint-GUID: jm-iVN1pNVfu1vBKJI6TSGdOIwF8CGpr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1011
+ lowpriorityscore=0 adultscore=0 mlxscore=0 bulkscore=0 suspectscore=0
+ phishscore=0 spamscore=0 malwarescore=0 mlxlogscore=999 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2410270136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_080246_318592_B8A57263 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20241027_083725_080572_F76D3E24 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +106,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Oct 2024 at 07:51, Nicolin Chen <nicolinc@nvidia.com> wrote:
->
-> This avoids a bigger trouble of exposing struct iommufd_device and struct
-> iommufd_vdevice in the public header.
->
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  include/linux/iommufd.h        |  8 ++++++++
->  drivers/iommu/iommufd/driver.c | 13 +++++++++++++
->  2 files changed, 21 insertions(+)
->
-> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-> index 0287a6d00192..dc174d02132b 100644
-> --- a/include/linux/iommufd.h
-> +++ b/include/linux/iommufd.h
-> @@ -184,6 +184,8 @@ static inline int iommufd_vfio_compat_set_no_iommu(struct iommufd_ctx *ictx)
->  struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
->                                              size_t size,
->                                              enum iommufd_object_type type);
-> +struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
-> +                                      unsigned long vdev_id);
->  #else /* !CONFIG_IOMMUFD_DRIVER */
->  static inline struct iommufd_object *
->  _iommufd_object_alloc(struct iommufd_ctx *ictx, size_t size,
-> @@ -191,6 +193,12 @@ _iommufd_object_alloc(struct iommufd_ctx *ictx, size_t size,
->  {
->         return ERR_PTR(-EOPNOTSUPP);
->  }
-> +
-> +static inline struct device *
-> +iommufd_viommu_find_dev(struct iommufd_viommu *viommu, unsigned long vdev_id)
-> +{
-> +       return NULL;
-> +}
->  #endif /* CONFIG_IOMMUFD_DRIVER */
->
->  /*
-> diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
-> index c0876d3f91c7..3604443f82a1 100644
-> --- a/drivers/iommu/iommufd/driver.c
-> +++ b/drivers/iommu/iommufd/driver.c
-> @@ -36,3 +36,16 @@ struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
->         return ERR_PTR(rc);
->  }
->  EXPORT_SYMBOL_NS_GPL(_iommufd_object_alloc, IOMMUFD);
-> +
-> +/* Caller should xa_lock(&viommu->vdevs) to protect the return value */
-> +struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
-> +                                      unsigned long vdev_id)
-> +{
-> +       struct iommufd_vdevice *vdev;
-> +
-> +       lockdep_is_held(&viommu->vdevs.xa_lock);
-> +
-> +       vdev = xa_load(&viommu->vdevs, vdev_id);
-> +       return vdev ? vdev->idev->dev : NULL;
-> +}
 
-Got this error?
+On 10/17/2024 7:24 PM, Robin Murphy wrote:
+> On 15/10/2024 2:31 pm, Pratyush Brahma wrote:
+>>
+>> On 10/4/2024 2:34 PM, Pratyush Brahma wrote:
+>>> Null pointer dereference occurs due to a race between smmu
+>>> driver probe and client driver probe, when of_dma_configure()
+>>> for client is called after the iommu_device_register() for smmu driver
+>>> probe has executed but before the driver_bound() for smmu driver
+>>> has been called.
+>>>
+>>> Following is how the race occurs:
+>>>
+>>> T1:Smmu device probe        T2: Client device probe
+>>>
+>>> really_probe()
+>>> arm_smmu_device_probe()
+>>> iommu_device_register()
+>>>                     really_probe()
+>>>                     platform_dma_configure()
+>>>                     of_dma_configure()
+>>>                     of_dma_configure_id()
+>>>                     of_iommu_configure()
+>>>                     iommu_probe_device()
+>>>                     iommu_init_device()
+>>>                     arm_smmu_probe_device()
+>>>                     arm_smmu_get_by_fwnode()
+>>>                         driver_find_device_by_fwnode()
+>>>                         driver_find_device()
+>>>                         next_device()
+>>>                         klist_next()
+>>>                             /* null ptr
+>>>                                assigned to smmu */
+>>>                     /* null ptr dereference
+>>>                        while smmu->streamid_mask */
+>>> driver_bound()
+>>>     klist_add_tail()
+>>>
+>>> When this null smmu pointer is dereferenced later in
+>>> arm_smmu_probe_device, the device crashes.
+>>>
+>>> Fix this by deferring the probe of the client device
+>>> until the smmu device has bound to the arm smmu driver.
+>>>
+>>> Fixes: 021bb8420d44 ("iommu/arm-smmu: Wire up generic configuration 
+>>> support")
+>>> Cc: stable@vger.kernel.org
+>>> Co-developed-by: Prakash Gupta <quic_guptap@quicinc.com>
+>>> Signed-off-by: Prakash Gupta <quic_guptap@quicinc.com>
+>>> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
+>>> ---
+>>> Changes in v2:
+>>>   Fix kernel test robot warning
+>>>   Add stable kernel list in cc
+>>>   Link to v1: 
+>>> https://lore.kernel.org/all/20241001055633.21062-1-quic_pbrahma@quicinc.com/
+>>>
+>>>   drivers/iommu/arm/arm-smmu/arm-smmu.c | 3 +++
+>>>   1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c 
+>>> b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>> index 723273440c21..7c778b7eb8c8 100644
+>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>> @@ -1437,6 +1437,9 @@ static struct iommu_device 
+>>> *arm_smmu_probe_device(struct device *dev)
+>>>               goto out_free;
+>>>       } else {
+>>>           smmu = arm_smmu_get_by_fwnode(fwspec->iommu_fwnode);
+>>> +        if (!smmu)
+>>> +            return ERR_PTR(dev_err_probe(dev, -EPROBE_DEFER,
+>>> +                        "smmu dev has not bound yet\n"));
+>>>       }
+>>>       ret = -EINVAL;
+>>
+>>
+>> Hi
+>> Can someone please review this patch? Let me know if any further 
+>> information is required.
+>
+> This really shouldn't be leaking into drivers... :(
+>
+> Honestly, I'm now so fed up of piling on hacks around the fundamental 
+> mis-design here, I think it's finally time to blow everything else off 
+> and spend a few days figuring out the most expedient way to fix it 
+> properly once and for all. Watch this space...
+>
+> Thanks,
+> Robin.
 
-ld: Unexpected GOT/PLT entries detected!
-ld: Unexpected run-time procedure linkages detected!
-ld: drivers/iommu/iommufd/driver.o: in function `iommufd_viommu_find_dev':
-linux/drivers/iommu/iommufd/driver.c:47: undefined reference to
-`lockdep_is_held'
-make[2]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 1
-make[1]: *** [/home/linaro/iommufd/linux/Makefile:1166: vmlinux] Error 2
-make: *** [Makefile:224: __sub-make] Error 2
+Hi Robin
+
+Do you have any approaches in mind that you are currently considering or 
+exploring?
+
+Thanks
+Pratyush
 
