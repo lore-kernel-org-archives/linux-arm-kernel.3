@@ -4,64 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00389D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012CCD13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F1d9UbM+iv9dpkI8jCZTRBpTFJRk79Erd5qBt/eWrY0=; b=cu5hAqKjM6pMSYJvldi/AfWWRu
-	gtVwh432Cxtt+DffMKVVVdTLcbuTq7Q1hbIA+5LA9dVkflDqy+sy+VVIXQmwylHW+xe0a2sBhCJn4
-	SXldKcr/JUyuTgKb9llLZCxob7//O4N8cuBjkqvJtKgHFKNxp8DLwGMWOYMk5ilkqPs/dUZs5C8bG
-	TI5SWMstE0cypeY7ApnOIZbT2QasmWmsJWN3RH+D0aLJibaighOaq+3ZQCS8t+IYnCmCV1glFmYkm
-	/IWshGomgi9niNbzvQiJYLDj1+ewVidQQ8qGKjthOdtKxr1n2F8dCBXrGIjhsAts8pQy8jmkdFb+M
-	TZPjN2Ug==;
+	bh=ZUh2ubO5zo9HEqX5tnqUdLodt3loSirbydNhDvzHEH0=; b=4Wiq0K6zfEtULtOaxbjlEEj/7z
+	U3lzLTzuIyOn0icuIoWM9yK9iZpb/YmIHSVYcei/imx9qZJDcsWtesJy3aIog/YZKzuc1OcRD6zRG
+	EuD4tylVETfZdT6Ck2j3vLbWyACYiSGNKTBHIi6h/93RNnW1Uv4a7Le326LwidkM2sprEV6KigYGX
+	y6Rbs2RDBPG84OaAWTUau8Mjr2k2boEh0xpvVDpnCJcPlCAuAjFf97Na244ULF/vmq3hHEBvsuQFx
+	CyMV5opt+J+HLmidY8HUcUTs1s6O3SQRYbcdtWTpQIjcPgS6h8oAuXFPY/msBp48IaMaRaE9kROSQ
+	qOhKYf0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Lyr-0000000ADwD-1Oo0;
-	Mon, 28 Oct 2024 09:24:09 +0000
+	id 1t5M14-0000000AERM-0y6o;
+	Mon, 28 Oct 2024 09:26:26 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Lw8-0000000ADOb-31k3;
-	Mon, 28 Oct 2024 09:21:22 +0000
+	id 1t5Lxf-0000000ADda-19wX;
+	Mon, 28 Oct 2024 09:22:56 +0000
 Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BF3CA641;
-	Mon, 28 Oct 2024 10:21:12 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AB0CF594;
+	Mon, 28 Oct 2024 10:22:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730107273;
-	bh=7C8GKNsxOV7uIiousxHGq/ulpsVekLC8whXBXydwizw=;
+	s=mail; t=1730107372;
+	bh=0sjlB70XXmFa0iFe8EEWL9DEVcnBKv/jF5LDkmrHyL4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YsqBksVxzjKPQo0OARBlnZZJ+oMaHz+Vb1Z5fuCUd8BdNlGSXbJwg9nepIuLMYomj
-	 Ph0q85caRSP/EN1zl9rRVtJvs2mqE6bFyHYD0OYaJwUIpnIcAHXAyBVdd0jJDld6jz
-	 bxGIuAJylg2D3SaXT4GOiwKf0xVpx55UWGmrJDXs=
-Message-ID: <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
-Date: Mon, 28 Oct 2024 11:21:11 +0200
+	b=BvVj1upOdodZz4isu4mkauaVTUzeEJcc+jYS0Ac8J8RQqf9TBLyRkXm8PmiTEkr4P
+	 cKZ/AdRIFqVbdpFKlDtAlOVMWvcyceJMMQQPIdpZNKgylokQbdAflv4FY3ls3isLYa
+	 O1UZZld6xVdB5rQYYjW1mKSkZl5+h5yY4Ily1O3s=
+Message-ID: <332e84d1-72fe-4a0c-8686-8cd838af09a0@ideasonboard.com>
+Date: Mon, 28 Oct 2024 11:22:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
-To: Hans Verkuil <hverkuil@xs4all.nl>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Naushir Patuck
- <naush@raspberrypi.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
+Subject: Re: [PATCH next] media: raspberrypi: Do some cleanup in probe()
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
  Florian Fainelli <florian.fainelli@broadcom.com>,
  Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
- <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
- <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+References: <fff40b7a-20cd-4933-9534-1f72435bded8@stanley.mountain>
 Content-Language: en-US
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
@@ -107,12 +97,12 @@ Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
  ueeIlwJl5CpT5l8RpoZXEOVtXYn8zzOJ7oGZYINRV9Pf8qKGLf3Dft7zKBP832I3PQjeok7F
  yjt+9S+KgSFSHP3Pa4E7lsSdWhSlHYNdG/czhoUkSCN09C0rEK93wxACx3vtxPLjXu6RptBw
  3dRq7n+mQChEB1am0BueV1JZaBboIL0AGlSJkm23kw==
-In-Reply-To: <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+In-Reply-To: <fff40b7a-20cd-4933-9534-1f72435bded8@stanley.mountain>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_022120_936226_5953CFBD 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20241028_022255_498926_989A98C4 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,56 +119,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On 24/10/2024 11:20, Hans Verkuil wrote:
-> Hi Tomi,
+On 23/10/2024 11:30, Dan Carpenter wrote:
+> If devm_clk_get() fails then we need to free "cfe" before returning.
 > 
-> I know this driver is already merged, but while checking for drivers that use
-> q->max_num_buffers I stumbled on this cfe code:
+> Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>   drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 8 +++++---
+>   1 file changed, 5 insertions(+), 3 deletions(-)
 > 
-> <snip>
-> 
->> +/*
->> + * vb2 ops
->> + */
->> +
->> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
->> +			   unsigned int *nplanes, unsigned int sizes[],
->> +			   struct device *alloc_devs[])
->> +{
->> +	struct cfe_node *node = vb2_get_drv_priv(vq);
->> +	struct cfe_device *cfe = node->cfe;
->> +	unsigned int size = is_image_node(node) ?
->> +				    node->vid_fmt.fmt.pix.sizeimage :
->> +				    node->meta_fmt.fmt.meta.buffersize;
->> +
->> +	cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
->> +		node->buffer_queue.type);
->> +
->> +	if (vq->max_num_buffers + *nbuffers < 3)
->> +		*nbuffers = 3 - vq->max_num_buffers;
-> 
-> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
-> is called. So 32 + *nbuffers is never < 3.
-> 
-> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
-> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
-> for you.
-> 
-> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
-> since the code is almost always wrong.
+> diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> index 045910de6c57..1da58b07c1d3 100644
+> --- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> +++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> @@ -2343,9 +2343,11 @@ static int cfe_probe(struct platform_device *pdev)
+>   
+>   	/* TODO: Enable clock only when running. */
+>   	cfe->clk = devm_clk_get(&pdev->dev, NULL);
+> -	if (IS_ERR(cfe->clk))
+> -		return dev_err_probe(&pdev->dev, PTR_ERR(cfe->clk),
+> -				     "clock not found\n");
+> +	if (IS_ERR(cfe->clk)) {
+> +		ret = dev_err_probe(&pdev->dev, PTR_ERR(cfe->clk),
+> +				    "clock not found\n");
+> +		goto err_cfe_put;
+> +	}
+>   
+>   	cfe->mdev.dev = &pdev->dev;
+>   	cfe->mdev.ops = &cfe_media_device_ops;
 
-Looking at this, the original code in the old BSP tree was, which 
-somehow, along the long way, got turned into the above:
-
-if (vq->num_buffers + *nbuffers < 3)
-         *nbuffers = 3 - vq->num_buffers;
-
-So... I think that is the same as "q->min_reqbufs_allocation = 3"?
-
-The distinction between min_queued_buffers and min_reqbufs_allocation, 
-or rather the need for the latter, still escapes me. If the HW/SW 
-requires N buffers to be queued, why would we require allocating more 
-than N buffers?
+Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
   Tomi
 
