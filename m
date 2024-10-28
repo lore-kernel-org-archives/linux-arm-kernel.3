@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6D0D3399B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30278D339A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L/CK72WBoLRu+mlWuAyWKBAXJvh229c4kXsgrNQRnWM=; b=OMpFYfCWQJfIBcKscmtaTMw3mJ
-	V5OsB5G2bje+FNrMvcYMDRiVTrrQ61Jtg7PDD3ZSvZldLlR48GiVR+oDrYR4RdL8adtjshJMFivVK
-	7Sfdmyd9BldWy2SVPr1omiuVVDOZsqDlEwzG+EZ8rX55pKWHwXFQqYpxW6nRhVhC3GBzcqXduLhCy
-	BPYvbnHZeDj7S+/CktI+Y6paTEiPxysq9PrcXaFieNiLAP+8FtppgOfFpPL7UJCMHSJTZtR2LkF1s
-	lqjejAlhjCFWwqZ2yw/OQ4us3AxpM1LyfyAVebJBpwI9BmLOs6FDddtYcYFSXIUz7/RaeL3Dy20Tj
-	xDIGjXZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gdOU4coDgP08ETzmQ6TrRirADJ9U/DUQX3kgQYM7trA=; b=XAG/E3Neblf6W5NvCojpAvaDNq
+	1tyuwDLn9qq821BU0cQebt7KeF+e7kOkHiSa6VpjAQS0aXYcLILlDobuAo9gH/Wc6cdOAcxJRxc1a
+	zxHipX88bX0/nh5KXfeNBJRsGqe8uIfqCsoLBtaMBzfmroPhhKyVHrqrQGP+qFv61+MsSNIR0bW2U
+	Kxu0P2M95fc78z5brJPdPC/YEbnq2IjZA3CZDSyzcMpitaiyNUg2O7NWyZvyaFDJrvvNBSdRI9OIu
+	C6IJIERZ3kKTBFo7R4diNO87lxYvtVkUDuFnVqBQmanJVA9TYqzw9MhNHLqllPrH+Ldasow8aIcxv
+	+C4P339A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5StT-0000000BYzJ-2kv8;
-	Mon, 28 Oct 2024 16:47:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5Sv4-0000000BZK5-0qmh;
+	Mon, 28 Oct 2024 16:48:42 +0000
+Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SiN-0000000BVOX-1bbe
+	id 1t5Sk9-0000000BVl0-1MLk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 16:35:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 45E5AA429D8;
-	Mon, 28 Oct 2024 16:33:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4354AC4CEC3;
-	Mon, 28 Oct 2024 16:35:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730133333;
-	bh=B+pJhWPiLhnporLquPyi2au3DHThLhnQTOKU50phhKA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=h5H9CyHY+7U9M417dT5UQgoE0GhbLmXiFBB0fYmDKClDxIWeb1sYo0spRU3mLXYPF
-	 QqrkVeBxEV7DE0/CiFRJBHzeObzzzIJ3KpGZJaw3QKOa1WJkDVa8Q7VzaWbBDNrFcw
-	 RQorsCq5K6NhdWFIbwdgGgmmZ6GSqyaUfACbMjfH9vglAkKUrHeRw1uTsoNirn7LF1
-	 sJk9KoWtA2H2n5/60Z/zVxNtuwh+KJE0Z78kRxZyXHc8MkFk7aTBp6VYBUB86kYJAL
-	 QCLJlx+8qySvwYe2PjVB4NBv32H3y4wCNADIEzrbORnqWGciwBZ5OxO1THfQpb85go
-	 784NbkD7g4y9A==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	=?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/imx/dcss: include drm/drm_bridge.h header
-Date: Mon, 28 Oct 2024 16:35:07 +0000
-Message-Id: <20241028163527.2425783-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Mon, 28 Oct 2024 16:37:27 +0000
+Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
+	by a.peacevolution.org (Postfix) with ESMTPA id DFFE24C7D9;
+	Mon, 28 Oct 2024 16:37:21 +0000 (UTC)
+Date: Mon, 28 Oct 2024 12:37:14 -0400
+From: Aren Moynihan <aren@peacevolution.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Kaustabh Chakraborty <kauschluss@disroot.org>, =?utf-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, 
+	Ondrej Jirman <megi@xff.cz>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v3 3/6] iio: light: stk3310: Implement vdd and leda
+ supplies
+Message-ID: <ggpxs4mlkobdkvqxbzroeogqe2kxlixne7ly4njb5ynnszvvkv@3gusj5w53bbj>
+References: <20241028142000.1058149-1-aren@peacevolution.org>
+ <20241028142000.1058149-4-aren@peacevolution.org>
+ <Zx-h7QUnCKwtu8iC@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Zx-h7QUnCKwtu8iC@smile.fi.intel.com>
+X-Spamd-Bar: /
+Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
+	s=dkim; t=1730133443;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:in-reply-to:references;
+	bh=gdOU4coDgP08ETzmQ6TrRirADJ9U/DUQX3kgQYM7trA=;
+	b=kFVcCIcJo6Ek5A4d6Q2vJUHdv6X6HwVgUIczq4fGAc+pf54dMUmDlrVQ6Eke3XInhVXd7E
+	PVtfa3b4ITCZ9SQQ/Y/6Os+XfjHE4beWqBE1BJrzfxNZHraO2ZgAak/YNnz/C9L2F1F+ij
+	uXKcRDiF/zD1BEXb+ZEbsKob8TH3ZTA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_093535_506195_68CA6AEE 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_093725_539819_D7CEB519 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +78,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Oct 28, 2024 at 04:38:37PM +0200, Andy Shevchenko wrote:
+> On Mon, Oct 28, 2024 at 10:19:57AM -0400, Aren Moynihan wrote:
+> > The vdd and leda supplies must be powered on for the chip to function
+> > and can be powered off during system suspend.
+> > 
+> > Co-developed-by: Ondrej Jirman <megi@xff.cz>
+> 
+> Missing SoB. Please, read Submitting Patches documentation for understanding
+> what has to be done here.
+> 
+> > Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+> 
+> ...
+> 
+> > Notes:
+> >     I'm not sure what the proper way to handle attribution for this patch
+> >     is. It was origionally based on a patch by Ondrej Jirman[1], but I have
+> >     rewritten a large portion if it. I have included a Co-developed-by tag
+> >     to indicate this, but haven't sent him this patch, so I'm not sure what
+> >     to do about a Signed-off-by.
+> 
+> Ah, seems you already aware of this issue. So, either drop Co-developed-by
+> (and if you wish you may give a credit in a free form inside commit message)
+> or make sure you get his SoB tag.
 
-Compile-testing random configurations leads to failures in
-dcss-kms.c from a missing declaration:
+Alright, thanks for clarifying that.
 
-drivers/gpu/drm/imx/dcss/dcss-kms.c:95:8: error: use of undeclared identifier 'drm_bridge_attach'
-   95 |         ret = drm_bridge_attach(encoder, bridge, NULL,
-      |               ^
-drivers/gpu/drm/imx/dcss/dcss-kms.c:96:5: error: use of undeclared identifier 'DRM_BRIDGE_ATTACH_NO_CONNECTOR'
-   96 |                                 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-      |                                 ^
+> >  	mutex_init(&data->lock);
+> 
+> Somewhere (in the previous patch?) you want to switch to devm_mutex_init().
 
-Include the header directly.
+Good catch, it looks like that was being leaked before this refactor.
+Yeah that sounds like the right place, I'll include it in v4.
 
-Fixes: 004555a18d57 ("drm/imx/dcss: Allow build with COMPILE_TEST=y")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
- 1 file changed, 1 insertion(+)
+> > +	ret = devm_regulator_bulk_get(&client->dev, ARRAY_SIZE(data->supplies),
+> > +				      data->supplies);
+> > +	if (ret)
+> > +		return dev_err_probe(&client->dev, ret, "get regulators failed\n");
+> 
+> > +		return dev_err_probe(&client->dev, ret,
+> > +				     "regulator enable failed\n");
+> 
+> > +	ret = devm_add_action_or_reset(&client->dev, stk3310_regulators_disable, data);
+> > +	if (ret)
+> > +		return dev_err_probe(&client->dev, ret,
+> > +				     "failed to register regulator cleanup\n");
+> 
+> With
+> 
+> 	struct devuce *dev = &client->dev;
+> 
+> at the top of the function makes these and more lines neater.
+> 
+[snip]
+> 
+> While changing to RCT order here, it seems you have inconsistent approach
+> elsewhere (in your own patches!). Please, be consistent with chosen style.
 
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-index 3ec721afc30c..63a335c62296 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-@@ -5,6 +5,7 @@
- 
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/drm_client_setup.h>
- #include <drm/drm_drv.h>
--- 
-2.39.5
+Sounds easy enough to fix, I'll include these in v4.
 
+Thanks taking the time to review
+ - Aren
 
