@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BF1D10C11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0DFD10C11
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZ4hMgDyF+hmAM7eQSmcGsakM00Wrbl9ZfBiU5r7XrI=; b=aCPvcxggNnWzowqQbBVD1GakEs
-	eQL14ZS5ZHOEvPzy4a+M5OUW/wYGudzuIb4zEH4/LJ929NE5iM0WXO7nHxNH278jKK00DtYYStFA0
-	EfPlNsLerHIbWBzolKwL56UwSL6Ah4+NRf7mXQksORO3ZS1Lus7pNpienF3KMQsfY0h4FmGxlOL0O
-	Bmo8f4vvw1zUk0z10l7qjG0g7K4e4dLs6Lp15AI2ecieko1LvRG+ghqPn948CJHYyudJ4b3pkof8L
-	05bd5hT2ei863FkQdhdyuSONH1KOphuaQoEXww2Xso+viUofAq+j5K124ExZ6TTgpLjkOwac3zC4n
-	6rg+sHyg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b4+yraJweQxiypTwgt/zZDRzjUUkz2XRIrNoNkRuEaw=; b=o+zf5eJggQ5gO54J7iax4jkthe
+	W2ppb2LN/lEcuo0WJbANV+nZ/Q9jkx9izrYZxvHfxT2a5yjeeAUOlPIfLhoovtObOPD6vqzK+/vLn
+	j/Yz2CLlMvu+r+HVLKlEt1fplOtqIR+pCbJKcfUFv/zXJQSvdgEp000OjXjrs4px3VtTOfI8SImGP
+	Bu4sN5hptAiwXObrvZkIvdggg++ZRXZBe3qzaxdfjSGzs8M1pTUKz5PMZxIPp5Tq2iwdcKFUS/Cez
+	K4D+thdpjZZAbGJg8LBfaR9DSEjebIySMKphrX4fO8f0MufBglpnPo8eV+sinv75ahjLwuu+o5Egz
+	DkHzvXAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PCb-0000000AppV-2AeP;
-	Mon, 28 Oct 2024 12:50:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5PEC-0000000AqBe-061S;
+	Mon, 28 Oct 2024 12:52:12 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5P6g-0000000AoFe-2UB9
+	id 1t5P7f-0000000AoWK-3xKP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 12:44:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C84965C0FAB;
-	Mon, 28 Oct 2024 12:43:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0499BC4CEC3;
-	Mon, 28 Oct 2024 12:44:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730119465;
-	bh=VwZ9IZR5Q9q9+rWO0vR3QoA58P01r5/+aKkI8SPCRew=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hX3H+UTI4CMLAlJQ6Fl/WsKtmQAMFAwJSc+vw0kdpqR1FAInYngxKsXoKNP3VaH+7
-	 xfPrCqsBpxgE4rL4jhiGPFpSJQlaZVqGAB2/TwweBRP4ziNS0oPX5k1KcrFXoefdGA
-	 N6XhVgoClIdu/yU4p6jhp3mc9CQUiKhQUIskclwL9hDRutqPFRmIP/jPrZQkhpd+zl
-	 Yy9jL++D/Mx5GildJIvf4fCbOJ3hXY6bdp82/HRgnC7rUQDPLRa2UaewSl8PpPXF8s
-	 Bvp/3SaCO0clcwwvvVrKdGC+4BVGr/rusLN/yFSYXE/QbztqXpe4tdlgjX4OrB34/v
-	 l/JkTJxcNLfVg==
-Message-ID: <0b3ea279-bdbd-4608-94d8-5f53fdd12024@kernel.org>
-Date: Mon, 28 Oct 2024 13:44:19 +0100
+	Mon, 28 Oct 2024 12:45:29 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7205b6f51f3so2001012b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 05:45:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730119527; x=1730724327; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=b4+yraJweQxiypTwgt/zZDRzjUUkz2XRIrNoNkRuEaw=;
+        b=NGL86oPaOT8oHWsxDLi19bgmBFDM5SO1Pmf4s46jlK1HVM75JoYWDQZDaIWCuixbOI
+         zciT9Ef7c+a4zXSRD1sk334nujq7eQEDdcxXpupUhHjV0eMKRZoSTbhl4jqU5GVS72jN
+         FDm6BMVGI/uPEzLic7ip4eVFjL3ePKZd5bYV+ZMuv8tkVXhRpv4zMfojQKTohEE1kki0
+         yPPQ7xW9AtliOnUPIjMTgQaxG61kmHs8iuQJiV7ZIL845hP4INSyME2wI/25UDKI+68c
+         6JVLUTIeiGPfURc9L7OoCYxDJoy6UH1oSGJvU/wweks0696HpGdLGbgyXk+rjNBwLikw
+         da6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730119527; x=1730724327;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=b4+yraJweQxiypTwgt/zZDRzjUUkz2XRIrNoNkRuEaw=;
+        b=Wik+d5TKERjbf10ZR8sGEQxsnOvKGiEHwqm+5pwcbkKZyGzrFvJSvuFfvX5sEihb4O
+         2WV1Z9xOICvcR+8hrXCZPgodbCdMGJoquiPGi+dwQHqVl9vM/oKBEQAZ+TCYeuDbco1s
+         rK0Dyq4PVNGWWvLybRQvI5ZDYsmsI+6T9DNSW6mjLIf3Iy/0csoMHunmBY7uwIPAOugk
+         ccHraSjO1NfzBl8b4xqmerKivgugGhER1gANnp0RUEKjtVgFRB98EDY+oeEq4VxGmIqa
+         x9Aw3UtHuC5NGEKOGnXm+ROLXYXu0xDDhaK7WzGalFbl2s7oz4bYjoEPe7Tljc6e0L9L
+         M2+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVpYlZMEKPMf+HHimdxrxiJxq1Z9O2UneKk6i7SiTLQgLRCy9BSVaUtqtK1ppu08qW3r1afrBDCV/x3DozHkVaY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIf1IPh6wfspEu03V744ZMppG63CAKAoX4XuYh347DXvV8AZoz
+	2UVWkSDVrEg7chUF/0rFVLPVRHg8MJ40NrWTI2/CcuPs5Ezx0VzD
+X-Google-Smtp-Source: AGHT+IG4sdSjIEoJgKuJMhieAf+RDBF2IIEmvJ3Njvg+7TW5xtuV5KFh2xBO8zd/zHrDDA/Wwztq+A==
+X-Received: by 2002:a05:6a00:9a4:b0:71e:19a:c48b with SMTP id d2e1a72fcca58-7206303657dmr12667155b3a.22.1730119526671;
+        Mon, 28 Oct 2024 05:45:26 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:325c:8d87:ee5c:f04e])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a1fe5fsm5638823b3a.160.2024.10.28.05.45.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 05:45:26 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] dt-bindings: power: fsl,imx-gpc: Document fsl,imx6sll-gpc
+Date: Mon, 28 Oct 2024 09:45:18 -0300
+Message-Id: <20241028124518.72576-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: imx8mp: add aristainetos3 board
- support
-To: hs@denx.de, linux-kernel@vger.kernel.org
-Cc: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241028082332.21672-1-hs@denx.de>
- <20241028082332.21672-3-hs@denx.de>
- <f4150aa3-4c0e-45fa-9c9c-879ac04c4364@kernel.org>
- <bf2c81e1-4e97-cfa2-326f-0a6125b2cff9@denx.de>
- <fd4fffb3-44d3-4efb-8c74-4d94e1f26298@kernel.org>
- <1c21a636-5778-03c0-85b0-a4b3710b8f3d@denx.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <1c21a636-5778-03c0-85b0-a4b3710b8f3d@denx.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_054426_762139_E127C3A8 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20241028_054528_013475_95EDBA9D 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,167 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 12:21, Heiko Schocher wrote:
-> Hello Krzysztof,
-> 
-> On 28.10.24 11:49, Krzysztof Kozlowski wrote:
->> On 28/10/2024 11:41, Heiko Schocher wrote:
->>> Hello Krzysztof,
->>>
->>> On 28.10.24 11:24, Krzysztof Kozlowski wrote:
->>>> On 28/10/2024 09:23, Heiko Schocher wrote:
->>>>> Add support for the i.MX8MP based aristainetos3 boards from ABB.
->>>>>
->>>>> The board uses a ABB specific SoM from ADLink, based on NXP
->>>>> i.MX8MP SoC. The SoM is used on 3 different carrier boards,
->>>>> with small differences, which are all catched up in
->>>>> devicetree overlays. The kernel image, the basic dtb
->>>>> and all dtbos are collected in a fitimage. As bootloader
->>>>> is used U-Boot which detects in his SPL stage the carrier
->>>>> board by probing some i2c devices. When the correct
->>>>> carrier is probed, the SPL applies all needed dtbos to
->>>>> the dtb with which U-Boot gets loaded. Same principle
->>>>> later before linux image boot, U-Boot applies the dtbos
->>>>> needed for the carrier board before booting Linux.
->>>>>
->>>>> Signed-off-by: Heiko Schocher <hs@denx.de>
->>>>> ---
->>>>> checkpatch dropped the following warnings:
->>>>> arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi:248: warning: DT compatible string "ethernet-phy-id2000.a231" appears un-documented -- check ./Documentation/devicetree/bindings/
->>>>>
->>>>> ignored, as this compatible string is usedin other dts too, for example in
->>>>>
->>>>> arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
->>>>>
->>>>>    arch/arm64/boot/dts/freescale/Makefile        |    5 +
->>>>>    .../imx8mp-aristainetos3-adpismarc.dtsi       |   64 +
->>>>>    .../imx8mp-aristainetos3-adpismarc.dtso       |   14 +
->>>>>    .../imx8mp-aristainetos3-helios-lvds.dtsi     |   89 ++
->>>>>    .../imx8mp-aristainetos3-helios-lvds.dtso     |   13 +
->>>>>    .../imx8mp-aristainetos3-helios.dtsi          |  103 ++
->>>>>    .../imx8mp-aristainetos3-helios.dtso          |   13 +
->>>>>    .../imx8mp-aristainetos3-proton2s.dtsi        |  176 +++
->>>>>    .../imx8mp-aristainetos3-proton2s.dtso        |   13 +
->>>>>    .../imx8mp-aristainetos3a-som-v1.dts          |   18 +
->>>>>    .../imx8mp-aristainetos3a-som-v1.dtsi         | 1210 +++++++++++++++++
->>>>>    11 files changed, 1718 insertions(+)
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtso
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtsi
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtso
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dts
->>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->>>>> index 9d3df8b218a2..7c3586509b8b 100644
->>>>> --- a/arch/arm64/boot/dts/freescale/Makefile
->>>>> +++ b/arch/arm64/boot/dts/freescale/Makefile
->>>>> @@ -163,6 +163,11 @@ imx8mn-tqma8mqnl-mba8mx-usbotg-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8m
->>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtb
->>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-usbotg.dtb
->>>>>    
->>>>> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-aristainetos3a-som-v1.dtb \
->>>>> +			  imx8mp-aristainetos3-adpismarc.dtbo \
->>>>> +			  imx8mp-aristainetos3-proton2s.dtbo \
->>>>> +			  imx8mp-aristainetos3-helios.dtbo \
->>>>> +			  imx8mp-aristainetos3-helios-lvds.dtbo
->>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-beacon-kit.dtb
->>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb
->>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-model-a.dtb
->>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>>>> new file mode 100644
->>>>> index 000000000000..cc0cddaa33ea
->>>>> --- /dev/null
->>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>>>> @@ -0,0 +1,64 @@
->>>>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->>>>> +/*
->>>>> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
->>>>> + */
->>>>> +
->>>>> +#include <dt-bindings/gpio/gpio.h>
->>>>> +#include <dt-bindings/interrupt-controller/irq.h>
->>>>> +
->>>>> +&ecspi1 {
->>>>> +	spidev0: spi@0 {
->>>>> +		reg = <0>;
->>>>> +		compatible = "rohm,dh2228fv";
->>>>
->>>> Hm? I have some doubts, what device is here?
->>>
->>> $ grep -lr dh2228fv drivers/
->>> drivers/spi/spidev.c
->>>
->>> Customer uses an userspace implementation...
->>
->> That's not the question. I asked what device is here.
-> 
-> I do not know, as on carrier boards there are only connectors,
-> to which a spi device can be attached. So may I need to use here
-> a more generic entry?
+From: Fabio Estevam <festevam@denx.de>
 
-So this description is just not true. You have here nothing connected
-and this cannot be in the DTS.
+Document the existing fsl,imx6sll-gpc compatible used with fsl,imx6q-gpc
+fallback.
 
-> 
->>>
->>>>
->>>>> +		spi-max-frequency = <500000>;
->>>>> +	};
->>>>> +};
->>>>> +
->>>>> +&ecspi2 {
->>>>> +	spidev1: spi@0 {
->>>>> +		reg = <0>;
->>>>> +		compatible = "rohm,dh2228fv";
->>>>> +		spi-max-frequency = <500000>;
->>>>> +	};
->>>>> +};
->>>>> +
->>>>> +&i2c2 {
->>>>> +	/* SX1509(2) U1001@IPi SMARC Plus */
->>>>> +	gpio8: i2c2_gpioext0@3e {
->>>>
->>>> Uh, no, please never send us downstream code.
->>>>
->>>> Please follow DTS coding style in all upstream submissions.
->>>
->>> driver is in here:
->>>
->>> $ grep -lr probe-reset drivers/pinctrl/
->>> drivers/pinctrl/pinctrl-sx150x.c
->>
->> This so not related... Your driver does not matter. You send us poor
->> quality downstream code.
-> 
-> The driver is upstream... see:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pinctrl/pinctrl-sx150x.c
-> 
-> or may I misunderstood you here too?
-> 
-> Poor is my dts, checks are running and I fix them.
+This fixes the following dt-schema warning:
 
-My comment was that I see this as you sent DTS code which is taken
-straight from some downstream code.
+['fsl,imx6sll-gpc', 'fsl,imx6q-gpc'] is too long
 
->>>> And why this is DTSO, I have no clue...
->>
->> Why is this a DTSO, not a DTS?
-> 
-> Hmm... the idea is, that the bootloader applies the dtbo on runtime,
-> when it has detected the carrier board it runs on, I tried to explain
-> in cover letter.
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Then there is some mess here. First, SoM cannot be DTS, because it
-cannot be booted. Second, specific board/carrier is the DTS. Third,
-overlays bring some subset of features, not new board.
-
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml b/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
+index c21a66422d4f..9de3fe73c1eb 100644
+--- a/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
++++ b/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
+@@ -30,6 +30,7 @@ properties:
+           - enum:
+               - fsl,imx6qp-gpc
+               - fsl,imx6sl-gpc
++              - fsl,imx6sll-gpc
+               - fsl,imx6sx-gpc
+               - fsl,imx6ul-gpc
+           - const: fsl,imx6q-gpc
+-- 
+2.34.1
 
 
