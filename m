@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86AF9D33992
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B01FD33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lze2D8j1O7gv9ahMxtht6Or8GHfd6On32yyYfuBSCwU=; b=rPkeMN12Lt5ma8
-	D8virM9Xw5GlbaSyJy1SH42whYWcE1aMDXFzJwB6YbnLRjornm/RfAeoB1UDiKX3Rw1yHLPuH34m1
-	v4TCwmI5tS7yT/eWUmdn/hcBp2PBpmVv/6kuA9VXFhP1JKPwioqHu+4i6h//W69eBXwt1rZUJxaDQ
-	CzdU6BJTyyRU1bsRCX5zL8qUZX3xUP+UDHUKmuLO5dm5/nzhIYJgA5rer5Sz9WP2q41QNfr/ZM8Fv
-	c0Wv6IlLedUbu8al/9ssSIDfvpsswIV9nYlUT0fEbRQN7PyJKVndgu1boSFIhPFQ1rZHPpQkPIKnt
-	aQEMkJsdG5cWYd7kvZng==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8DduQ5a5iEKGftFFpS2C6ZNV4q2UCgGo/WE7bIsCA74=; b=Fk1Tn+/ROwq0DqpSQnr2qnfA2m
+	/nf+LRye76IKPFI+X1PACbKhGOFCCVKuTNG/lx6kstPjbAoEQGwyEqGIhzC5zYR0mLWRJUzbGMoeG
+	UAXm1+AoPQ/5cvfPGrjGHs1Er62Rgo919FFT7wuH3xgc+sHRbW5xrwjv0iHvYtFG4DEl8LwRE6zjD
+	UFPD9rt1Y3YxfHirLNVq4trOFz0p1+qIk3pSUloS9OoShljmsMdA5I6YNH9mktRxJ1emlb55WSkCP
+	BJp+lRoVSw8kQhsJs7WitZrcTZgP207WqRpzEXlXoRfpsOVguYjFRj7S6d7IOKGlE36UJFaO5NHz7
+	9seYAvyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5R9f-0000000BD1D-0yY3;
-	Mon, 28 Oct 2024 14:55:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5RBE-0000000BDHG-3N9f;
+	Mon, 28 Oct 2024 14:57:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qe9-0000000B6Ty-1zhy
+	id 1t5QeF-0000000B6Vu-0UQ4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:23:07 +0000
+	Mon, 28 Oct 2024 14:23:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A2CC5C5C30;
-	Mon, 28 Oct 2024 14:22:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF3EC4CEC3;
-	Mon, 28 Oct 2024 14:23:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 80644A425CA;
+	Mon, 28 Oct 2024 14:21:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4680C4CECD;
+	Mon, 28 Oct 2024 14:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730125384;
-	bh=ZQCzSCdRJnarUvUNjH4dcubxSkcXGcHBY3Q+CZQ2Yus=;
-	h=From:Subject:Date:To:Cc:From;
-	b=kntAFHzSa2STXgjS3+YZA6rDD097Rmxcv2cwb13ucIBzhSUPKir7czv48YTSwBCmk
-	 s/nt9qfNjkC8hx4YpyCledjyzk3Xyq6fIVbpDpqhgtWh/+ymhhjwE4ssKqOZMDoTsf
-	 0FicV63BQ+MfiTFrj8eouf9lv4cu0hm3K4FfcQ3d8117m4U07LL5WbIjSLm+Ba04ml
-	 fWCUvy5Cwmb6hQTNc84YnNhUelOTQryn21sTuJ6qRu/r/qyn0Thfats9R78w0U5L91
-	 5JdWjwqGTA4y+iz1eyGMnXOJqxfhiovfuWpksRMUxoifQLHcacIK332IFoMZqmWW/A
-	 H/woj9j5T0ggA==
+	s=k20201202; t=1730125388;
+	bh=70JpgkYvN9YM24Jz+FtvScOfqAM/jZI33kSB5+f8jrI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=uWoduNTdbhD9TXD1VwGSVhid/JfbNZDhhSTtQ+Zs3ioRGg6tvVfDDsO7n6Ybo/UJl
+	 NsxIokqQOYhAL4WSF2svmo6fDJ32xwI3BhJ4nntHQH/9m04sMJzuX8t4AytmOrUT6S
+	 IxWlHolrSrED7yOnX/7n39zdEROIZr2p1dIlWx7wY+W7sUA86CfxB2bGLD+pOaaf6A
+	 banm0ijjslbav+xsnj1utuXglFa/F/XmiZcKG1MexyAYqAZyvIQH0RfdF7NOp1l8JX
+	 pN++CrTWodTvybBb9bEtYQ6Taw6kleIsLkJw3qOrLTxSI2wILjGwQQQgLV2ktbpqE8
+	 GOTAT3N1G8tKw==
 From: Konrad Dybcio <konradybcio@kernel.org>
-Subject: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
- PSCI impls
-Date: Mon, 28 Oct 2024 15:22:56 +0100
-Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
+Date: Mon, 28 Oct 2024 15:22:57 +0100
+Subject: [PATCH 1/3] dt-bindings: arm,psci: Allow S2RAM power_state
+ parameter description
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAECeH2cC/x3MQQqAIBBA0avErBNsKLCuEhGiU80iFaciiO6et
- HyL/x8QykwCQ/VApouFYyho6grcZsNKin0xoMa20WjUERM75dI5yymJgp8Fs90VmsXpvvPa2hZ
- KnTItfP/ncXrfDxOo+w9pAAAA
-X-Change-ID: 20241028-topic-cpu_suspend_s2ram-28fc095d0aa4
+Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
+References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
+In-Reply-To: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -62,19 +60,18 @@ Cc: Marijn Suijten <marijn.suijten@somainline.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
  Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Sudeep Holla <sudeep.holla@arm.com>, Konrad Dybcio <konradybcio@kernel.org>
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=1608;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=1434;
  i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
- bh=ZQCzSCdRJnarUvUNjH4dcubxSkcXGcHBY3Q+CZQ2Yus=;
- b=CJb5iv370J3U0frllG/BZzoHQSaWIPmZgpGoQ58p2btL7ihJwcbBT8zD1VKQ/ziRzdc1U6Uas
- 0G+Ugzn/wmLBSi4AbM9rrHA7dtq5o+QUORoJO4QpnMwGDqz1XQcdumk
+ bh=qowdcUV0IcXfH3TE+fGW1N5ucMJrGFxOqfTc+GjqJNE=;
+ b=PkrsrLQrYHBH3Z0pNaW3PK242z+Gnl0VhBs6CQJrIOlHjhysAG9+Zc9b2RC7ghkCCjFg5lCTT
+ bin1KT4oKNJA+UZHJeDOPleGn5YYe0DX/fXojY3JnSxnRIA+8yqJTag
 X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
  pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072305_648874_74D51EAF 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20241028_072311_363117_6D0BBF9D 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,40 +87,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
-CPU_SUSPEND instead. Inform Linux about that.
-Please see the commit messages for a more detailed explanation.
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-This is effectively a more educated follow-up to [1].
+Certain firmware implementations (such as the ones found on Qualcomm
+SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
+through the CPU_SUSPEND call, as opposed to exposing PSCIv1.0's
+optional PSCI_SYSTEM_SUSPEND.
 
-The ultimate goal is to stop making Linux think that certain states
-only concern cores/clusters, and consequently setting
-pm_set_suspend/resume_via_firmware(), so that client drivers (such as
-NVMe, see related discussion over at [2]) can make informed decisions
-about assuming the power state of the device they govern.
-
-If this series gets green light, I'll push a follow-up one that wires
-up said sleep state on Qualcomm SoCs across the board.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20231227-topic-psci_fw_sus-v1-0-6910add70bf3@linaro.org/
-[2] https://lore.kernel.org/linux-nvme/20241024-topic-nvmequirk-v1-1-51249999d409@oss.qualcomm.com/
+This really doesn't work well with the model where we associate all
+calls to CPU_SUSPEND with cpuidle. Allow specifying a single special
+CPU_SUSPEND suspend parameter value that is to be treated just like
+SYSTEM_SUSPEND from the OS's point of view.
 
 Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 ---
-Konrad Dybcio (3):
-      dt-bindings: arm,psci: Allow S2RAM power_state parameter description
-      firmware/psci: Set pm_set_resume/suspend_via_firmware() for SYSTEM_SUSPEND
-      firmware/psci: Allow specifying an S2RAM state through CPU_SUSPEND
+ Documentation/devicetree/bindings/arm/psci.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- Documentation/devicetree/bindings/arm/psci.yaml |  6 ++++
- drivers/firmware/psci/psci.c                    | 44 ++++++++++++++++++++++---
- 2 files changed, 46 insertions(+), 4 deletions(-)
----
-base-commit: a39230ecf6b3057f5897bc4744a790070cfbe7a8
-change-id: 20241028-topic-cpu_suspend_s2ram-28fc095d0aa4
+diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
+index cbb012e217ab80c1ca88e611e7acc06c6d56fad0..a6901878697c8e1ec1cbfed62298ae3bc58f2501 100644
+--- a/Documentation/devicetree/bindings/arm/psci.yaml
++++ b/Documentation/devicetree/bindings/arm/psci.yaml
+@@ -98,6 +98,12 @@ properties:
+       [1] Kernel documentation - ARM idle states bindings
+         Documentation/devicetree/bindings/cpu/idle-states.yaml
+ 
++  arm,psci-s2ram-param:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      power_state parameter denoting the S2RAM/S3-like system suspend state
++    maxItems: 1
++
+ patternProperties:
+   "^power-domain-":
+     $ref: /schemas/power/power-domain.yaml#
 
-Best regards,
 -- 
-Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+2.47.0
 
 
