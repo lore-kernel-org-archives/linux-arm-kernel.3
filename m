@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756DBD33998
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74CED33998
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=; b=w4pl7nY2Ytry3HV7ykCJGh3EAx
-	pfT5bHKEJLKHMNkrvlM0JPHJjBJQODHzJfRcwwW1bjEe+co2CJT1xbY/LyTrBeA5/KeOxNrXkuUVe
-	f6Ek7LSoWtGT7D4Hm/SR83rusOEwHzdIxn6u1sK9gCQpujrzTGJzvnCjfL1Re3/6E2tnZLCS5UKZx
-	JGxxUe8X3tPeAdUy/f4FwgBoxBBvTukx5Qev9ind8KZ1XoXfDw366P8YaR94ZdHYPjZp/lMOFg/nr
-	lMgelArEkJ00lK2jFtQzR7K5zA2GZMI68qQ+JokkLbwdJYXlMbLlEzQbOPN1rQTl6jXJHPmomTuwa
-	pbCFMtwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75XNMAa64Nrib7pgLMg1Z1XYi4OYy86joo0hy0CXwKI=; b=bJIsQUgwxMFz77iXWKPiTB5AEy
+	FDILeL8gtJ8k3EoF1XnRIzQwaUWVEhOhog/HTpxmvAwo0dDnnUz33qaAxO6hbmKg7L9Aidn23et+l
+	wTBxfEaDCGD+oQOHQb00VCBE8VPcx3gq/aj1qVIBw/9u1DjMb9vJ8NmrSbMD1Ita50sJ8povpUeLn
+	E2K2p6mlWg+bsB0FGJhVH0aADkTyH3NCIQbdudnrVJLQ7bkt/7qq3IaGl+Kkt2uNgGBb02fFzHLn5
+	KZZToLEp2BesrQy2gd40u0zqolDhN7qz+F2e5ioBxKdbEJVjc7KsDSN2EmqoZc/FkFhFubJasyNv5
+	m5HyCYzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SIf-0000000BQhK-1R8y;
-	Mon, 28 Oct 2024 16:09:01 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t5SKI-0000000BRCQ-34Vu;
+	Mon, 28 Oct 2024 16:10:42 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Rtf-0000000BLk7-0CWJ
+	id 1t5Rvb-0000000BMHU-2ZGE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 15:43:12 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539fe76e802so5309081e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 08:43:10 -0700 (PDT)
+	Mon, 28 Oct 2024 15:45:13 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4a47cdaf158so1495762137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 08:45:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730130188; x=1730734988; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=;
-        b=bcOtZBxTbZy2O1gQgmAScwIm6psmhUfYXQBe/ZpZ+f0hmhvzXuzaRf7QD5swc8HN7G
-         gnFr8R9DcqA013d0sF+O1MMndLga1TL5D+MgR5qB7LKnJLtYXG9VpI3V7j7ZBcYOlegC
-         bxgKPHboqC2HhaGp/6exyNHyaZEQtmzqhFzGQ=
+        d=linaro.org; s=google; t=1730130310; x=1730735110; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=75XNMAa64Nrib7pgLMg1Z1XYi4OYy86joo0hy0CXwKI=;
+        b=K/yq9NKshD73LNtM4xaCjPxZa1BvfE8196ZYG3mhgWIOQk9FVmQNf32U088pX3fbBv
+         6KLdN2dB4JFN/SDlPc406W53epf8Cq4L8ly2iM9/8FkTve23wk3/cMzcLizyklSvVmKb
+         Wa63T+0MHGRlYj0XwFVZuzZ9kpCs5HQYdGewz+rnxilToCxGmRDBcPQsn24fiTgOMR2n
+         04McVen1mWWZRfOzrDQ8Ik/3iZi0F8sid1MXbB9pLaZt+mckJtP8MH9Gbj818zvZwan6
+         g9NkhbwIoA9GlKxk656YN2PZPMVec86Ur+CrUoqh5r7de8qjsgnx/EiBL0ijgl6NjUDo
+         BKlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730130188; x=1730734988;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=;
-        b=PelxwcNcOr5nZo/tlgutIf6srIcI2++gLXtwkJRKK/JXpAznDQO7urqfOS5svydy1E
-         k75GgvlOD9dSWdoY7kYdW9p/3GSmnEQ9SeesOdiqb/5y+Tu0XlWWikvW0XOYGOE/8tJW
-         Jr+SBnIzeCJ6z8tBpNeUYN0hMv9f7ldDeA7YJ6FOfJvWaEIexslTSqTjR7QYdcZ7G8Zy
-         bqPynNE5HCiUqSEeveEW09wfmyh8r0VUpN7m9GvcQ+vztsGe6DND7BzRISGDUNxhXch9
-         32hIA/jbbgnRt6JUIDgnIn2Fc6y+KNlRqNsbXcSirwQA2pU5V/JX87gC8ji8kGx/npSA
-         cL8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWgZVJYJP4mvW7tNRN0xFtK17djBy6Flb8I/o+GRMsM5gy2i+Ic/idG2RulNERwO+prFpkIXwUPY+TQc1uvauFr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJOUHeWo7DovkypVV75DrHOJhYYwbKMvrz0LE+ig4PpDJx4Ia/
-	wl65wtZ3+y8XiS9jfXeanooYlUFiIINaDkFZ/ZkMRAR5Kug0hqwKAlIHi29ZIoBJu7GblnjnjxJ
-	qZQ==
-X-Google-Smtp-Source: AGHT+IFHo9IKxcAjlvNhGEkkhwAuNj4qmjl6J68KLIFHdR41wM1E2R9BYKKW1r51NlXFL/RHuPPFYQ==
-X-Received: by 2002:a05:6512:1293:b0:539:d870:9a51 with SMTP id 2adb3069b0e04-53b34a18fe2mr4102944e87.48.1730130188096;
-        Mon, 28 Oct 2024 08:43:08 -0700 (PDT)
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e10a51esm1100617e87.17.2024.10.28.08.43.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 08:43:07 -0700 (PDT)
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2fb3110b964so35189361fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 08:43:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU9wtZ0QKIkNZ07JVXx+JBGT95ibXExIcjxmwnt8Cm1dkeptQ8GF+7w3RlmYiKFstASbr3zhyvk8YwyCIscv67n@lists.infradead.org
-X-Received: by 2002:a2e:bc0d:0:b0:2fa:d9db:7bac with SMTP id
- 38308e7fff4ca-2fcbdf6250cmr34338691fa.3.1730130185979; Mon, 28 Oct 2024
- 08:43:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730130310; x=1730735110;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=75XNMAa64Nrib7pgLMg1Z1XYi4OYy86joo0hy0CXwKI=;
+        b=Lf0QnavcL2F6zmNFIPvYnyJsbLUG0cWetIcyVyxpEnRcSCCykTnk9c+ZA5rTcCDgTs
+         zAVhUNl5qYjmy/RYC3Dh0cg9EY2PwXVD4gbmNc9UDxgMx6kugJnOpr4SOIXbSSP/Gn2M
+         ivNDnnJvMGFEKwNtkAGv898+NHSHEKI859Tn9RWtpONfn70Cg/j7pCdJ4W3YubAlbcib
+         MX91RE9A0b+j0xi4+YHSBFs7eaI+htv6MwqtA8Uq+UlCflZJAD8OyAwYlV97s+i3JUhd
+         msi0P0Iz4FGxoafmRmWtUkGAWAqSoTv+/ztYu7vmYAjC4IlDoYJHDCZY+rlLoyxvwNcB
+         r3mA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBAJ3tevynVDCxVInq+46JzPX8Cnu3YOnHjmZCe9ma2ZW7YnH9i9FqshyzWXa1uldGMum7v6PgGSRbSHWzaXoT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdQLsKjEC6cycwm5OnM/JYuWb7I3FL3uTKtSEwqaTh7jP9mZ/I
+	utGBN6BQjvc5czNDBJAJVz8YRWPRLbQZEFOZbaZLbFrR6Ukg9fDTvDL8smfhZOs4c70x4uq4fWj
+	1x0sI/eEcoVvq/7nyssL07AvmBU6eErExay9P3g==
+X-Google-Smtp-Source: AGHT+IGLxPJJ2NCoGI8hRsiiwLEAN/a5Dqx+FocGdkHpFfwjM3keyeu4LatSC2h948xtYi1UWvkv7JVZmh/VHgunRi4=
+X-Received: by 2002:a05:6102:2924:b0:4a5:b543:ee64 with SMTP id
+ ada2fe7eead31-4a8cfb5f764mr5871139137.11.1730130309682; Mon, 28 Oct 2024
+ 08:45:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241017094222.1014936-1-wenst@chromium.org> <20241017094222.1014936-8-wenst@chromium.org>
- <CAD=FV=X-YzEGEc+tp-uB6vdPMEC-V9M=Gb60H69=_XY9w4R8nw@mail.gmail.com> <CAGXv+5H8kxrr=JJsMMY5Y+HC5JqMN-bMkm7hztOzQgrbew6-rw@mail.gmail.com>
-In-Reply-To: <CAGXv+5H8kxrr=JJsMMY5Y+HC5JqMN-bMkm7hztOzQgrbew6-rw@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 28 Oct 2024 08:42:51 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=VbTMLr8ybCvKwm4aau+UkwCewuj2mqFX_+9hdCALLBRA@mail.gmail.com>
-Message-ID: <CAD=FV=VbTMLr8ybCvKwm4aau+UkwCewuj2mqFX_+9hdCALLBRA@mail.gmail.com>
-Subject: Re: [PATCH v9 7/7] arm64: dts: mediatek: mt8173-elm-hana: Mark
- touchscreens and trackpads as fail
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wolfram Sang <wsa@kernel.org>, 
-	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Johan Hovold <johan@kernel.org>, 
-	Jiri Kosina <jikos@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	linux-i2c@vger.kernel.org
+References: <20241028062312.001273460@linuxfoundation.org>
+In-Reply-To: <20241028062312.001273460@linuxfoundation.org>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 28 Oct 2024 21:14:57 +0530
+Message-ID: <CA+G9fYu-tpwX=09=VOjniFnBz3MSXpaHb_gir2AqyNpihERT2Q@mail.gmail.com>
+Subject: Re: [PATCH 6.11 000/261] 6.11.6-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@denx.de, 
+	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+	srw@sladewatkins.net, rwarsow@gmx.de, conor@kernel.org, allen.lkml@gmail.com, 
+	broonie@kernel.org, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_084311_127052_71C654FE 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20241028_084511_690265_642D102B 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +96,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Mon, Oct 28, 2024 at 2:14=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
+On Mon, 28 Oct 2024 at 12:16, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
 >
-> > > @@ -35,6 +37,7 @@ touchscreen@40 {
-> > >                 hid-descr-addr =3D <0x0001>;
-> > >                 interrupt-parent =3D <&pio>;
-> > >                 interrupts =3D <88 IRQ_TYPE_LEVEL_LOW>;
-> > > +               status =3D "fail-needs-probe";
-> >
-> > It's a little weird that there's no pinctrl definition for the
-> > touchscreens but there is one for the trackpad, but that predates your
-> > patch and is unlikely to be a big deal.
+> This is the start of the stable review cycle for the 6.11.6 release.
+> There are 261 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 >
-> To be honest I'm in favor of getting rid of pinctrl settings that
-> do nothing more than mux in a GPIO, as mentioned in my talk at ELCE.
-> Such settings are already implied by the interrupts or gpios properties.
-> The fact that the OS doesn't enforce exclusiveness between the
-> subsystems is not something the DT should deal with.
+> Responses should be made by Wed, 30 Oct 2024 06:22:39 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+>         https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.11.6-rc1.gz
+> or in the git tree and branch at:
+>         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.11.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
 
-One could also argue that the fact that the Linux kernel happens to
-auto-mux pins to GPIO is not something that the device tree should
-assume. Personally I have never liked the "auto-mux" behavior of Linux
-and I've found that it can get in the way when you need to do more
-advanced pinmuxing, like when a driver needs to sometimes use a pin in
-"special function" mode and sometimes in GPIO mode. The auto-muxing
-happens behind the back of the driver which then needs to account for
-this fact and work around it. Just sayin. :-P
+
+The selftests: kvm: vgic_init test failed on stable-rc linux-6.11.y,
+also seen on Linux next-20241023 onwards and Linus v6.12-rc5
+on the Graviton4 and rk3399-rock-pi.
+
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+
+Test log:
+---------
+# selftests: kvm: vgic_init
+# Random seed: 0x6b8b4567
+# Running GIC_v3 tests.
+# ==== Test Assertion Failure ====
+#   lib/kvm_util.c:727: false
+#   pid=2680 tid=2680 errno=5 - Input/output error
+#      1 0x0000000000404eaf: __vm_mem_region_delete at kvm_util.c:727
+(discriminator 5)
+#      2 0x0000000000405d0f: kvm_vm_free at kvm_util.c:765 (discriminator 12)
+#      3 0x0000000000402d5f: vm_gic_destroy at vgic_init.c:101
+#      4 (inlined by) test_vcpus_then_vgic at vgic_init.c:368
+#      5 (inlined by) run_tests at vgic_init.c:720
+#      6 0x0000000000401a6f: main at vgic_init.c:748
+#      7 0x0000ffff8620773f: ?? ??:0
+#      8 0x0000ffff86207817: ?? ??:0
+#      9 0x0000000000401b6f: _start at ??:?
+#   KVM killed/bugged the VM, check the kernel log for clues
+not ok 9 selftests: kvm: vgic_init # exit=254
+
+Upstream discussion thread on this failures,
+ - https://lore.kernel.org/linux-arm-kernel/20241009183603.3221824-1-maz@kernel.org/
+
+Test failed log:
+ - https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.11.y/build/v6.11.4-397-g4ccf0b49d5b6/testrun/25583294/suite/kselftest-kvm/test/kvm_vgic_init/log
+ - https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.11.y/build/v6.11.4-397-g4ccf0b49d5b6/testrun/25583294/suite/kselftest-kvm/test/kvm_vgic_init/history/
+
+## Build
+* kernel: 6.11.6-rc1
+* git: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+* git commit: 4ccf0b49d5b6ec739a290593658bebd035bb5f10
+* git describe: v6.11.4-397-g4ccf0b49d5b6
+* test details:
+https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.11.y/build/v6.11.4-397-g4ccf0b49d5b6
+
+## Test Regressions (compared to v6.11.4-136-g96563e3507d7)
+* graviton4-metal, kselftest-kvm
+  - kvm_vgic_init
+
+* rk3399-rock-pi-4b-nvhe, kselftest-kvm
+  - kvm_vgic_init
+
+* rk3399-rock-pi-4b-protected, kselftest-kvm
+  - kvm_vgic_init
+
+* rk3399-rock-pi-4b-vhe, kselftest-kvm
+  - kvm_vgic_init
+
+## Metric Regressions (compared to v6.11.4-136-g96563e3507d7)
+
+## Test Fixes (compared to v6.11.4-136-g96563e3507d7)
+
+## Metric Fixes (compared to v6.11.4-136-g96563e3507d7)
+
+## Test result summary
+total: 143710, pass: 118866, fail: 1602, skip: 23242, xfail: 0
+
+## Build Summary
+* arc: 5 total, 5 passed, 0 failed
+* arm: 131 total, 129 passed, 2 failed
+* arm64: 43 total, 43 passed, 0 failed
+* i386: 18 total, 16 passed, 2 failed
+* mips: 26 total, 25 passed, 1 failed
+* parisc: 4 total, 4 passed, 0 failed
+* powerpc: 36 total, 35 passed, 1 failed
+* riscv: 16 total, 14 passed, 2 failed
+* s390: 14 total, 13 passed, 1 failed
+* sh: 5 total, 5 passed, 0 failed
+* sparc: 4 total, 3 passed, 1 failed
+* x86_64: 35 total, 35 passed, 0 failed
+
+## Test suites summary
+* boot
+* commands
+* kselftest-arm64
+* kselftest-breakpoints
+* kselftest-capabilities
+* kselftest-cgroup
+* kselftest-clone3
+* kselftest-core
+* kselftest-cpu-hotplug
+* kselftest-cpufreq
+* kselftest-efivarfs
+* kselftest-exec
+* kselftest-filesystems
+* kselftest-filesystems-binderfs
+* kselftest-filesystems-epoll
+* kselftest-firmware
+* kselftest-fpu
+* kselftest-ftrace
+* kselftest-futex
+* kselftest-gpio
+* kselftest-intel_pstate
+* kselftest-ipc
+* kselftest-kcmp
+* kselftest-kvm
+* kselftest-livepatch
+* kselftest-membarrier
+* kselftest-memfd
+* kselftest-mincore
+* kselftest-mqueue
+* kselftest-net
+* kselftest-net-mptcp
+* kselftest-openat2
+* kselftest-ptrace
+* kselftest-rseq
+* kselftest-rtc
+* kselftest-rust
+* kselftest-seccomp
+* kselftest-sigaltstack
+* kselftest-size
+* kselftest-tc-testing
+* kselftest-timers
+* kselftest-tmpfs
+* kselftest-tpm2
+* kselftest-user_events
+* kselftest-vDSO
+* kselftest-watchdog
+* kselftest-x86
+* kunit
+* kvm-unit-tests
+* libgpiod
+* libhugetlbfs
+* log-parser-boot
+* ltp-commands
+* ltp-containers
+* ltp-controllers
+* ltp-cpuhotplug
+* ltp-crypto
+* ltp-cve
+* ltp-dio
+* ltp-fcntl-locktests
+* ltp-fs
+* ltp-fs_bind
+* ltp-fs_perms_simple
+* ltp-hugetlb
+* ltp-ipc
+* ltp-math
+* ltp-mm
+* ltp-nptl
+* ltp-pty
+* ltp-sched
+* ltp-smoke
+* ltp-syscalls
+* ltp-tracing
+* perf
+* rcutorture
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
