@@ -4,127 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C26FD33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B1FD33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aGAN8OQHWbROV21OhVadnJ0uBcldibamiO+AcgPGbI=; b=Y8KuefdV2TEQxLALLRI0Xo6iFu
-	g0eJFQVAaBY18KJNahjod/tJm4NoXesctp+8KlpWBW4dm3/4Rd3S4Lxbv010V9G7fzY663u415qkm
-	mzgMcvdRd7gl5pIkXMfdqeVy4CYkUybSGV3PSAnnvIWv5CzYzB8hJ7jBR+GcW4W5P75t1m1PpwWem
-	cxwGJde+lXQiWwMpapnJ63W77lH6ZvUxNqAYYBHdj2mqYcwlRBsqqsQnJIe98AzUQs+bHxvuiEXGQ
-	kraEv4CX00B8i8u2cGICLiiMvZS+/C3avuIcbxdkNEWwyfpGVmDEEl53MkodmCh3f4Iua2VF+8eIj
-	92r/ecNQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdEG+PzvG0Vo99BU/R4RjPsHvmaNQJ3LSrH+8TVql9M=; b=j4AYc2GSNxJpflli+Ql8m7Ic2G
+	CkilRy9tfSabLEnfFcSc6ZDwQlFQxOP6oPBT7Ey4U5/QAceQUiyT7Edpm3ILZ+l3OyCk1IO7DQ9q6
+	Vfjr7ue9uViHhOyQsWWEUdyk1P5na07h1VmdMFOoBmI8Ejb8Rv50B6S2AbskQ4HpusT56NGw9EbYf
+	ohwP2Sime1/yhtsSKBFFfzHO8iZRLv8Glafw64muiv7n+xd3iftrcU8bp7pvCNx5T6fusmERnpp9E
+	bON62RCsSkU9lAEEyDmkd2x7n4gRsHd9SElENrjygNIzCAx2YqbMHAX5pURN2p0DWGlpH2hGssIVB
+	otevyxmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5R0C-0000000BBXo-2gq8;
-	Mon, 28 Oct 2024 14:45:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5R1n-0000000BBsW-3KVE;
+	Mon, 28 Oct 2024 14:47:31 +0000
+Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qd3-0000000B69r-0UWq;
-	Mon, 28 Oct 2024 14:21:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D8C035C5B42;
-	Mon, 28 Oct 2024 14:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B32AC4CEC3;
-	Mon, 28 Oct 2024 14:21:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730125315;
-	bh=4W6dh8e7x/YeKppPVhtsgkLSqr2AXYe+TtfKUf77AS8=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=HZBVIPnKkbtgwofyduapSoFsJ79igIqXEooSEARRekdndPhe5VmVE0MT1YCo6E7AR
-	 QH96dEufH/AYdFI6Iq7NBY4ha7iioo5qWa4sGQPsnuY8qBzgtN9IdaA0GncH3JQjU3
-	 L33+0hQVqpbjP0xXoLBIZmSBpI/LRaojThzUZDE5JBA0zl2NSkr/0Q0iejSGCCwVAH
-	 Uf/Y2kxA281a6AHyJiz9+g1QHU+BlYSLFIrjzHHPo8D489ReUHoram+K2sQKrcsEsz
-	 ykiruhKPf/26/eQeXq6Xzgo9BPJdEOhA+hjrvDW+Rt2UJ4tDDYoeUu3Y6ZaOD44snJ
-	 P49sCsPFNeNrA==
-Message-ID: <5911e238-345a-4403-b023-585a17aa76f6@kernel.org>
-Date: Mon, 28 Oct 2024 15:21:42 +0100
+	id 1t5Qd5-0000000B6AH-1tsm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 14:22:01 +0000
+Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
+	by a.peacevolution.org (Postfix) with ESMTPA id 8BFDB4C6A3;
+	Mon, 28 Oct 2024 14:21:57 +0000 (UTC)
+From: Aren Moynihan <aren@peacevolution.org>
+To: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Aren Moynihan <aren@peacevolution.org>,
+	Kaustabh Chakraborty <kauschluss@disroot.org>,
+	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <trabarni@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Ondrej Jirman <megi@xff.cz>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Dragan Simic <dsimic@manjaro.org>,
+	phone-devel@vger.kernel.org
+Subject: [PATCH v3 2/6] iio: light: stk3310: handle all remove logic with devm callbacks
+Date: Mon, 28 Oct 2024 10:19:56 -0400
+Message-ID: <20241028142000.1058149-3-aren@peacevolution.org>
+In-Reply-To: <20241028142000.1058149-1-aren@peacevolution.org>
+References: <20241028142000.1058149-1-aren@peacevolution.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/12] dt-bindings: clock: Add RaspberryPi RP1 clock
- bindings
-To: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
- <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
-References: <cover.1730123575.git.andrea.porta@suse.com>
- <914978925d34cfb5bee10fe92603f98763af48b0.1730123575.git.andrea.porta@suse.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <914978925d34cfb5bee10fe92603f98763af48b0.1730123575.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
+X-Spamd-Bar: +++++
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
+	s=dkim; t=1730125318;
+	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
+	bh=XdEG+PzvG0Vo99BU/R4RjPsHvmaNQJ3LSrH+8TVql9M=;
+	b=N2EsH13FDOQFjN8HkB+osgOBN8dUDuhjxjaYEcRsLPXlm636aADXeXR8Ybm0VHHf8pGmmv
+	YScoijdrRYm4Jrw2F3qOCB+ANT9XC/0ViSVsKemakgDBPPVntrbuj8e0HHL06jWOL6jpX6
+	94B/thP/0MgpRh548+mX3NM11ZItS+g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072157_365841_7A7BE79A 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_072159_652099_024864FE 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,19 +85,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 15:07, Andrea della Porta wrote:
-> Add device tree bindings for the clock generator found in RP1 multi
-> function device, and relative entries in MAINTAINERS file.
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
+Using devm callbacks helps to make the ordering of probe / remove
+operations easier to reason about and removes some duplicate code
+between the probe error path and driver remove.
+---
 
-Please do not send new versions of patchsets while discussion is still
-going. I responded to you on v2, pretty next day I think. It took you
-two weeks to respond to my comments. That was on 21st of October, a week
-ago, so I still have some time to respond to you.
+Notes:
+    Added in v3
 
-Best regards,
-Krzysztof
+ drivers/iio/light/stk3310.c | 35 +++++++++++++++++++----------------
+ 1 file changed, 19 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
+index ed20b6714546..2e1aa551bdbc 100644
+--- a/drivers/iio/light/stk3310.c
++++ b/drivers/iio/light/stk3310.c
+@@ -484,6 +484,17 @@ static int stk3310_set_state(struct stk3310_data *data, u8 state)
+ 	return ret;
+ }
+ 
++static void stk3310_set_state_disable(void *private)
++{
++	int ret;
++	struct stk3310_data *data = private;
++	struct device *dev = &data->client->dev;
++
++	ret = stk3310_set_state(data, STK3310_STATE_STANDBY);
++	if (ret)
++		dev_err(dev, "failed to set state to standby: %d\n", ret);
++}
++
+ static int stk3310_init(struct iio_dev *indio_dev)
+ {
+ 	int ret;
+@@ -507,6 +518,11 @@ static int stk3310_init(struct iio_dev *indio_dev)
+ 		return ret;
+ 	}
+ 
++	ret = devm_add_action_or_reset(&client->dev, stk3310_set_state_disable, data);
++	if (ret)
++		return dev_err_probe(&client->dev, ret,
++				     "failed to register cleanup function\n");
++
+ 	/* Enable PS interrupts */
+ 	ret = regmap_field_write(data->reg_int_ps, STK3310_PSINT_EN);
+ 	if (ret < 0)
+@@ -650,29 +666,17 @@ static int stk3310_probe(struct i2c_client *client)
+ 		if (ret < 0) {
+ 			dev_err(&client->dev, "request irq %d failed\n",
+ 				client->irq);
+-			goto err_standby;
++			return ret;
+ 		}
+ 	}
+ 
+-	ret = iio_device_register(indio_dev);
++	ret = devm_iio_device_register(&client->dev, indio_dev);
+ 	if (ret < 0) {
+ 		dev_err(&client->dev, "device_register failed\n");
+-		goto err_standby;
++		return ret;
+ 	}
+ 
+ 	return 0;
+-
+-err_standby:
+-	stk3310_set_state(data, STK3310_STATE_STANDBY);
+-	return ret;
+-}
+-
+-static void stk3310_remove(struct i2c_client *client)
+-{
+-	struct iio_dev *indio_dev = i2c_get_clientdata(client);
+-
+-	iio_device_unregister(indio_dev);
+-	stk3310_set_state(iio_priv(indio_dev), STK3310_STATE_STANDBY);
+ }
+ 
+ static int stk3310_suspend(struct device *dev)
+@@ -736,7 +740,6 @@ static struct i2c_driver stk3310_driver = {
+ 		.acpi_match_table = stk3310_acpi_id,
+ 	},
+ 	.probe =        stk3310_probe,
+-	.remove =           stk3310_remove,
+ 	.id_table =         stk3310_i2c_id,
+ };
+ 
+-- 
+2.47.0
 
 
