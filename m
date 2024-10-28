@@ -4,93 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082CCD5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D185D5B15A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U5JCDOT4G1vRDgamkQTQYoEg3xqOKYS4iUoOBpBdGUM=; b=zEnmk8GlAVX/tVpOHO7VbakXEc
-	EY46GUkBLwcYNlcxXZPqVFF7zxmMzHND58UCnOJvVs+bdI2BStZyEtUri+fJanflii3V3CVRRNU+n
-	ce/suNCmqOoX+AfgVxBJ0aNezVbp2YMxVbpjVpDrGWKmCubFxzHF6QSYVBwKNGP+0p60BPaxQZlRN
-	8jkel40htfIgvkIyJoHU5+muS+DqxlSFMOe+GaSKR3vIXIL6ZSsQZwmJ3O93QEOEidz6m0wczfDhS
-	kICy7yzR2Aj8ZLj7XlzdF/N6KX4c1wzL3apet+QsL8g7Gfnq0chryvWI/X6ZSj8XRhwusMODhvbLk
-	KH7goKmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=; b=QJDK4LQg+6IM7Dbla6HpGpNFWs
+	+ezlhye/a6G/NItlXc2V1SCojNK9SOIErEocVEyh0sR7sdPI+ElHqHfResBWbv+UbcWcyHzSCFkAW
+	aDk0ZLx5vsMGR2XrI1WRSD9GPAbBgtocUByEDWDQXfYYrg2cNz9gNJpOTNQ4KhjFU74wMvmlHjqDX
+	+iCJOcbPOFmI6fFcWD24H0GR4Iq433vO57uy2OAqCw863nTRL/yyqTd1lNNvzfDsbr140OcRsU+eZ
+	FOGTlVltF+q4gKyZMPBwclO15ZoeTiE8RPjt54RayIhGo7CJImQp6fqfP68fuH5q0u9J00Yzrbuzp
+	CcVnbQ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XtY-0000000CTdg-29Sf;
-	Mon, 28 Oct 2024 22:07:28 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1t5Xv8-0000000CTpi-0S4M;
+	Mon, 28 Oct 2024 22:09:06 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XOc-0000000CM1c-17uG
+	id 1t5Xq0-0000000CSpH-08nY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:35:31 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-72070d341e5so1610998b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:35:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730151329; x=1730756129; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U5JCDOT4G1vRDgamkQTQYoEg3xqOKYS4iUoOBpBdGUM=;
-        b=E6Q4mwqa1fY3Ua/T+1IF0icbf9/rA1q9bC5PmFA70myWPr9v7vSTIey3wCTMvz1COV
-         fnfrk40rM9zPhUHZxihUCDhg6CZ4p+qjHzdqCGfrRuMtSLO1usi9Ew9Qo4kI7z6NcGfr
-         XJB7fqCkakm+XwFybfRXlVN/zfh5BePHYmSUbOxmdCKdVW9MHv/ir0rIAfJ9wyRBMAfG
-         I94AfYBTjgKvsC1munG2UHO9pzX6WHn+XqjStJTc4uqzoFxqtsrF0HU15/vcuefqPfvW
-         F3TkdiuqDrMl+sFV0iLY40WAdn6NodfBZoSsOscuGfxQCv/YUM4EWcnkvHoPEUQzI1li
-         VVLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730151329; x=1730756129;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U5JCDOT4G1vRDgamkQTQYoEg3xqOKYS4iUoOBpBdGUM=;
-        b=GD0dlo3G3VvdEZ9M8+KjHPKKlqhUsepnVHKTgQj83xOQiUWPot9T4/rl1D+++Y8JMj
-         UTypVHCFmMypOIOWXddYFZsjgtfilKH6iIwaGMH0AYL+Vxtjx5m9lx9Ji3WadS5jqgXk
-         o2Xx4dKiEaZNTc5cH+s1t/PNqerAcqvAHchXrsM0sBAOgb+EGFPLUnTEwcqT3sNb/VPA
-         Ft9dj6cY6i856yXyTWBfS5V4eLvg/tyqaOc9x3HlmyyoI0GXr0B8cWBo5erP0J0WJZww
-         7RG1k0BQ/NmnwUYz+B1OcDC7lc1pU8AKlJ2FiknXPe4+ueeFDHy0Sr95bU9gLzp4j2Bi
-         deSA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAbpWy/hinUH9mBSm1eeuMzqcRJRIrzrQmFvw0RVQl3eOqpC5SIDxkVVwBNzWjmxwSdRnvEYVXkrQIcivpAr2T@lists.infradead.org
-X-Gm-Message-State: AOJu0YwU+G6DIdG5VF18kUILTLALDt75ytG0tx9SeyPkxwfnCLLUJdkG
-	fK9Qw4Wdhz8mQa7airy5W4QyuqpHxfECEDDiW+fELyZ+NcNiPwvC
-X-Google-Smtp-Source: AGHT+IGJ/vSmxwIqBeNVXBSzAWZP5g2tROL+0Y2wcPzndUVsioqMA6yobuvrQ/JZESgfajh0W3hfHw==
-X-Received: by 2002:a05:6a00:230b:b0:71e:4cff:2654 with SMTP id d2e1a72fcca58-72062f86088mr14718581b3a.6.1730151329086;
-        Mon, 28 Oct 2024 14:35:29 -0700 (PDT)
-Received: from localhost ([2a00:79e1:2e00:1301:12e9:d196:a1e9:ab67])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7205791e4dasm6207770b3a.25.2024.10.28.14.35.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 14:35:28 -0700 (PDT)
-From: Rob Clark <robdclark@gmail.com>
-To: iommu@lists.linux.dev
-Cc: linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Vasant Hegde <vasant.hegde@amd.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
+	Mon, 28 Oct 2024 22:03:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aF79/lU3FqHf+7o2cMnGlK4fVhkGc+XAEPX8NSJ34fbFIqcf2R2KCJqjbYLL8IbgsL5RbOFRA62NK7yw0lYITLnCIZ12m0VxhYxy0V1so1FLNyS1u0Yv+h+yhLsv2E2tlT7Y/Mz/ZYlHyRs9OlyEkysGgHcLw7Jd2UlF5gIvoERa2eooLInDKkwI41fn1igqDIqgXaKtTKrsAMO8j2WI+YsyOi5Ld+PM84cQZ2tLW1vzmy43G5ELltiGgkmzXWPP1koDBjitzsoKyyXHO/9E0AgKgFPXyFUct9ro4YZLB3JDcZ884vgWa123zPu4c66XUfIep5u3Sy+N4IMTCgWfGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=;
+ b=yXK2Ob7DK7OLwUyQVXEaeF12EmxmmGlqG4AS+K5qBqhZrHYpGbZCyaKtgnSzLqhJMCUn55eJl2lR8uz5ZBSsKQjbhFGQoVnppGDj1bkUXSAJ/do7bcFnA6xtC+DeGPdVs6OEm0Zjhs0BE8aU4yLVOUGjBSsLWdwbzuQRDmBnKcGBbDmnQDAB6kzY+zcPX9vFrc5oaQNj4ZkajMGbjwF1IXFzA2SXyHquNsuwPd0PVesr1tWWN4xRUl9qfi6iGDIqZGOoW+viyN38YOlk+5TPyt8FUSezyzSB0SnYq26oAsZvsj9t7eek/F6H6++jpmg1GgJ+83RHGq15w50sfiU94A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=;
+ b=V3kpbQL17ZaYANPxQ/dY54epjV8Pj7cjTN936OmZgIs0FWnWicwaaKFUab+NS3jsOH31EABmKPMP7tdM7UFAVcmuzWnj9Bt3kHlovgX6jswOqejDtnT13EWQJE69zqUgn86CPqmTpSQlHFNflJTcAAgZXS+P7d+pOHk0EL/zGxMTBsE7SWUucLd+3DL1OAfNUaUWQDzJIJbbwxJizYA5D0zvkI41i3kRM4oAmpJkZ6by2gNSx9BkCaMDGZq/rkUp12N7Y3yEh0ooPEzQkQcFAm5L0vLsklZuNULHfCiIqkopwNt0mFD5VsoEUeZJ/O/fn0l8JGh/FNl6QlBhKdDULw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBBPR04MB7641.eurprd04.prod.outlook.com (2603:10a6:10:1f7::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Mon, 28 Oct
+ 2024 22:03:35 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
+ 22:03:34 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v10 3/4] iommu/io-pgtable-arm: Add way to debug pgtable walk
-Date: Mon, 28 Oct 2024 14:31:39 -0700
-Message-ID: <20241028213146.238941-4-robdclark@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241028213146.238941-1-robdclark@gmail.com>
-References: <20241028213146.238941-1-robdclark@gmail.com>
-MIME-Version: 1.0
+Subject: [PATCH 1/1] arm64: dts: imx8qm-mek: add audio-codec cs42888 and related nodes
+Date: Mon, 28 Oct 2024 18:03:18 -0400
+Message-Id: <20241028220318.2047870-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR05CA0090.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0::31) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7641:EE_
+X-MS-Office365-Filtering-Correlation-Id: be1dcbd5-3813-4d81-008d-08dcf79c5e41
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0kcuuO1CIEhZYSUZId/0YsYbTQiu9KDlAkfV+CIoU0MOFaU5cnQejY6iAqtP?=
+ =?us-ascii?Q?kc5hvO2JjFHsq5y2rfD/zazrl93c/LMNvT5df7Gbf3o+BpIKxm9CiD/J1Xf+?=
+ =?us-ascii?Q?063hZNbJKhMUS4HuZKnadJ2/IH0UY5njrFwQuvbh4fhcS8phkQMVbXGDjykc?=
+ =?us-ascii?Q?a68pg3JqnE/i0LkLN9oStMDPIWDKHCVC6dooFgYOd6XDhcef1jrEIVAk0+VW?=
+ =?us-ascii?Q?tuli4Q+D61oZ1Ov1o4A7ABKOWNlqh4gQNX1+SY7wPdkltFw6+bHgg5LAL/KM?=
+ =?us-ascii?Q?uXTaD/ovBHjQSbxzTfSFrial+O0ulFBdA7cES1N05yW/v2opZdh/Xi+cTp6o?=
+ =?us-ascii?Q?mvwD5Av8CvnDAHHwp7W386y2ah3ibNWGZ1RaAg0lQxTdRdUFt9zv6uRNSWHA?=
+ =?us-ascii?Q?eA5XEVLhe6ibQatfuKDmi/UAQGi17gZKZiZ0+84HJdA3VcX0ByYBzgdGxeap?=
+ =?us-ascii?Q?6djRiJIj4M+E+g3TIp3akTCAQ5stqrQDLu2zWHFWQNIiQz/2TlC3ZUuqtkR+?=
+ =?us-ascii?Q?YrPg37UvP7aonuaWaBc56ZQNe/FTNrGfXb9Bkzg//9ium4OlECqy3feP9Btc?=
+ =?us-ascii?Q?yVfooJ5iHk9wroNN8ZiB94bW0U7L7ZLonf+AgAhm62bqIJjUMPvp18UUILq6?=
+ =?us-ascii?Q?aAP2q23auMxLX7ZGNmNlo1gROC9mbjOpIPOnp6ZUhsjHMLbiSkRPUfJDzDw8?=
+ =?us-ascii?Q?DBfi2A/fqz6m3KebF6QC9uXiaK1Df1VXmsjVwIuWpjZtRLOZ4BIyiCNOHwwO?=
+ =?us-ascii?Q?qbNotCvCQQvOj0R8NqEeEZr2vZIT1us1fOPRSfOW5ACWPWKVrPv9BndVkMzp?=
+ =?us-ascii?Q?hIWS6hi2zppwIl9pBvLhJQoDTrrSuVmnzROf4h0RicDJdjn3WYKW8M+kpSCS?=
+ =?us-ascii?Q?YQs8NDWj6OGV/FlFaO0CtLwuRBv+iNZtEQRQYfwVxOZlulkTYD7gQKfP4yqK?=
+ =?us-ascii?Q?UWNSKLFjCa2RitC9TsQTE8TyEV7Od9oaNmCyyG62IHVrok95MdEkF/n8NMr+?=
+ =?us-ascii?Q?xPAQ5DGoWCkdfgOtXhvcBGQmiZTYTOQyB0/sbxKuDZzAJMZ0ZMpagKgFvtkg?=
+ =?us-ascii?Q?ba9mkV1bMcg57LBjRixTMs0xdFjF8f6weQkWomaqOcV2LwrMdZgDZw16ktmq?=
+ =?us-ascii?Q?7RNQ+yob0gh6RgPoeBob6TALINR/yQFyY9kdf/+5R3fEgh2U4J4WdmqVhDYK?=
+ =?us-ascii?Q?9NxGUE9j257C7VKACDpGilK5E0F7yd+COlvI2yEPIi263XwCQSPswT1ac80t?=
+ =?us-ascii?Q?Mm9TXikkMS0u2FzkoPgFPI1/ax0uVD2PMjfmULX35WZLY9CXCaoxqpwlDsPv?=
+ =?us-ascii?Q?6ZO+xr8Py2dLkqmrqoJWl66EiERTdHHbwFdul7nMyO+2csKgnfQEnPEwwCBK?=
+ =?us-ascii?Q?+HCOXbiDBi4Iin0njdp+qpulC7um?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iTq17fnDDNqADuAQCgfXZIv77UXXpgYNUl8YJ6ULb1w8ip7mV4A501uGqyGL?=
+ =?us-ascii?Q?qlrM1kLgbHajyjcWArPYdDaCMdp+wNhUsGuNkP7nIbu9OzUvDbO5wHMAUc8L?=
+ =?us-ascii?Q?O722H7XHLyTyOvGVFOIWC0TI7eq7MUduuqNTPe2TIWP9VC5wF0ibW8RbjUFB?=
+ =?us-ascii?Q?bH3u2G/E31k6DxhmdnPHeH7RXLa3JkHvADi9I+StYAP76uLKxUa7zSkcTfhP?=
+ =?us-ascii?Q?AwpZDkjSuzWUiLg56ImwD1v7U6FKY82/5T7KsFovdxxN0NBTKduL0k3FcDy2?=
+ =?us-ascii?Q?ab0EnfwN6MXIg9x7Dr514KP4/p+1gDKP5MeUIQuY7hw6PJAphjknoJPDkWNA?=
+ =?us-ascii?Q?ynE2YQs+iQMqR2DKeYzuPtRwHZWZuo6TgTf7n7MfPaS2HaTFx5jgnGD7lj2t?=
+ =?us-ascii?Q?jikP0Kg3QBBL+k2P8Fy/j7pGcrYqR8G4i2SHZp6RMUmu9fnv/cun2+qdl5/p?=
+ =?us-ascii?Q?QO7VQOTIcXcQ2Kla8zRVjmJjuMJuww1K2waci8dVYsyqgrAr/1Z3iMfwUc2N?=
+ =?us-ascii?Q?Zo84mXzi4heP/lEDRCWFvo7DFuROfr/U5QT93CqCQFZFIcnM4rLfYy+rpgoU?=
+ =?us-ascii?Q?Pj6G1yf+FcqI4NaXudGCYHZXkB2KZjtDvJcvn0Smp9kijEYTORYDX68atyPg?=
+ =?us-ascii?Q?PsLO0+ChVvNWSYZIqEYeehEH++yAHf5mfEgf/AVmB6ZzOeZTk4TFbQyKW+y2?=
+ =?us-ascii?Q?BClxyx1XHN78SI448J55aNrmrfDcHEEdIojA3BfbHbsrwVP4SK6E2poNawag?=
+ =?us-ascii?Q?0WZPuteRtc3IpjR1NpLvcvHGzs4nR6Hj3iugHXQOQrEFMZ9ETgqMJsYUfXbJ?=
+ =?us-ascii?Q?53mW2zMycL6oEepoQvwGbEHAf19ps4iKjcsQ6x/DIpXkjZCIhNrF4ajlH/zy?=
+ =?us-ascii?Q?KOyIuhbkVlxOzCjHInFfh7iN/of6g7dCdJ6+XticZUAJcmcD/TVK58ZL7qcf?=
+ =?us-ascii?Q?H/mGZ+fmkC8R/5ckyz8t0WVBh4z/6nR7lROTHBxaEH2a4y4dfpgcxDyGKjtM?=
+ =?us-ascii?Q?drq5m6YhJrKz/5Q6wLuFt+tD5z4x+BVRH9b5jl+fP30IslzH6108zJt9HbHt?=
+ =?us-ascii?Q?0ZgEr6kUCuhJ1Reu4d1N3tW+tnyhXopaAA+clrBKvZS4Nx9KhLDHr9XDyjL0?=
+ =?us-ascii?Q?WSdsQYO9oux0G4I95PyzHNC4M09PiYC1LpDQIESZEnt0hxpSa52w6e4LkgZD?=
+ =?us-ascii?Q?Jb6cfUY6LVVDTE3LPDX1h5Uf7ySgiuU0m3liIvUP8onlGxojk2Yt1ITvsWKQ?=
+ =?us-ascii?Q?vAmeGc/zToSwEI7N9FpefdVxbt6SZXyS6tPM3nEOKHHYxsAWFIf0PjFBhDGx?=
+ =?us-ascii?Q?S9Q0LIKyc17t9opj4+nIMJBQLKT6Yy5EXgOpP13aW/vv4Ai8oiHrJ5aT1n98?=
+ =?us-ascii?Q?pxZV5jp6Tw7w/7y7duLV0VxGjbeQNG9b/LjqirYQRpvU0wrsUBq25KNvoN6a?=
+ =?us-ascii?Q?QARvxTiBYDKekJbe357g045G2yQztzmmQ6egCOXXXTon6NLQ+gYdQbb2ANnA?=
+ =?us-ascii?Q?cYciyhZF/+3WeRVqSYtVCMTkGU4f23TWdGLjInepPucLsXyRh9mb+DG1+1L4?=
+ =?us-ascii?Q?2+tNy+rQ8LFi4kxbidSnkTTUCuIhQNdbRRm3PR75?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be1dcbd5-3813-4d81-008d-08dcf79c5e41
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 22:03:34.9630
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: thLlxvHWeHZ3NQ1kKPMwHdishKiPxtWnRSZOVngfHTzXv0r+rc1nQI9f3q047FflyYjdpKr3/aLpds8Mx0MZ5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7641
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_143530_333227_518F9814 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241028_150348_156556_AF0724C2 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +162,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Clark <robdclark@chromium.org>
+Add audio-codec cs42888, enable esai0 and asrc0.
 
-Add an io-pgtable method to walk the pgtable returning the raw PTEs that
-would be traversed for a given iova access.
-
-Signed-off-by: Rob Clark <robdclark@chromium.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/iommu/io-pgtable-arm.c | 25 +++++++++++++++++++++++++
- include/linux/io-pgtable.h     | 15 +++++++++++++++
- 2 files changed, 40 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 82 ++++++++++++++++++++
+ 1 file changed, 82 insertions(+)
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 88b128c77893..6739e1fa54ec 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -762,6 +762,30 @@ static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
- 	return iopte_to_paddr(d.pte, data) | iova;
- }
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+index e983633a4bb31..31cf02275ca9e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+@@ -134,6 +134,13 @@ reg_usdhc2_vmmc: usdhc2-vmmc {
+ 		enable-active-high;
+ 	};
  
-+static int visit_pgtable_walk(struct io_pgtable_walk_data *walk_data, int lvl,
-+			      arm_lpae_iopte *ptep, size_t size)
-+{
-+	struct arm_lpae_io_pgtable_walk_data *data = walk_data->data;
-+	data->ptes[data->level++] = *ptep;
-+	return 0;
-+}
-+
-+static int arm_lpae_pgtable_walk(struct io_pgtable_ops *ops, unsigned long iova,
-+				 void *wd)
-+{
-+	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
-+	struct io_pgtable_walk_data walk_data = {
-+		.data = wd,
-+		.visit = visit_pgtable_walk,
-+		.addr = iova,
-+		.end = iova + 1,
++	reg_audio: regulator-audio {
++		compatible = "regulator-fixed";
++		regulator-name = "cs42888_supply";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
 +	};
 +
-+	((struct arm_lpae_io_pgtable_walk_data *)wd)->level = 0;
-+
-+	return __arm_lpae_iopte_walk(data, &walk_data, data->pgd, data->start_level);
-+}
-+
- static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
- 			    struct io_pgtable_walk_data *walk_data,
- 			    arm_lpae_iopte *ptep, int lvl)
-@@ -937,6 +961,7 @@ arm_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg)
- 		.unmap_pages	= arm_lpae_unmap_pages,
- 		.iova_to_phys	= arm_lpae_iova_to_phys,
- 		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
-+		.pgtable_walk	= arm_lpae_pgtable_walk,
+ 	reg_fec2_supply: regulator-fec2-nvcc {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "fec2_nvcc";
+@@ -223,6 +230,27 @@ simple-audio-card,codec {
+ 		};
  	};
  
- 	return data;
-diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-index b1ecfc3cd5bc..d7bfbf351975 100644
---- a/include/linux/io-pgtable.h
-+++ b/include/linux/io-pgtable.h
-@@ -178,12 +178,26 @@ struct io_pgtable_cfg {
++	sound-cs42888 {
++		compatible = "fsl,imx-audio-cs42888";
++		model = "imx-cs42888";
++		audio-cpu = <&esai0>;
++		audio-codec = <&cs42888>;
++		audio-asrc = <&asrc0>;
++		audio-routing = "Line Out Jack", "AOUT1L",
++				"Line Out Jack", "AOUT1R",
++				"Line Out Jack", "AOUT2L",
++				"Line Out Jack", "AOUT2R",
++				"Line Out Jack", "AOUT3L",
++				"Line Out Jack", "AOUT3R",
++				"Line Out Jack", "AOUT4L",
++				"Line Out Jack", "AOUT4R",
++				"AIN1L", "Line In Jack",
++				"AIN1R", "Line In Jack",
++				"AIN2L", "Line In Jack",
++				"AIN2R", "Line In Jack";
++		status = "okay";
++	};
++
+ 	sound-wm8960 {
+ 		compatible = "fsl,imx-audio-wm8960";
+ 		model = "wm8960-audio";
+@@ -301,12 +329,45 @@ pca6416: gpio@20 {
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
  	};
++
++	cs42888: audio-codec@48 {
++		compatible = "cirrus,cs42888";
++		reg = <0x48>;
++		clocks = <&mclkout0_lpcg IMX_LPCG_CLK_0>;
++		clock-names = "mclk";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_cs42888_reset>;
++		VA-supply = <&reg_audio>;
++		VD-supply = <&reg_audio>;
++		VLS-supply = <&reg_audio>;
++		VLC-supply = <&reg_audio>;
++		reset-gpios = <&lsio_gpio4 25 GPIO_ACTIVE_LOW>;
++		assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
++				  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
++				  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
++				  <&mclkout0_lpcg IMX_LPCG_CLK_0>;
++		assigned-clock-rates = <786432000>, <49152000>, <12288000>, <12288000>;
++		status = "okay";
++	};
  };
  
-+/**
-+ * struct arm_lpae_io_pgtable_walk_data - information from a pgtable walk
-+ *
-+ * @ptes:     The recorded PTE values from the walk
-+ * @level:    The level of the last PTE
-+ *
-+ * @level also specifies the last valid index in @ptes
-+ */
-+struct arm_lpae_io_pgtable_walk_data {
-+	u64 ptes[4];
-+	int level;
+ &cm41_intmux {
+ 	status = "okay";
+ };
+ 
++&esai0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_esai0>;
++	assigned-clocks = <&acm IMX_ADMA_ACM_ESAI0_MCLK_SEL>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
++			  <&esai0_lpcg IMX_LPCG_CLK_4>;
++	assigned-clock-parents = <&aud_pll_div0_lpcg IMX_LPCG_CLK_0>;
++	assigned-clock-rates = <0>, <786432000>, <49152000>, <12288000>, <49152000>;
++	status = "okay";
 +};
 +
- /**
-  * struct io_pgtable_ops - Page table manipulation API for IOMMU drivers.
-  *
-  * @map_pages:    Map a physically contiguous range of pages of the same size.
-  * @unmap_pages:  Unmap a range of virtually contiguous pages of the same size.
-  * @iova_to_phys: Translate iova to physical address.
-+ * @pgtable_walk: (optional) Perform a page table walk for a given iova.
-  *
-  * These functions map directly onto the iommu_ops member functions with
-  * the same names.
-@@ -197,6 +211,7 @@ struct io_pgtable_ops {
- 			      struct iommu_iotlb_gather *gather);
- 	phys_addr_t (*iova_to_phys)(struct io_pgtable_ops *ops,
- 				    unsigned long iova);
-+	int (*pgtable_walk)(struct io_pgtable_ops *ops, unsigned long iova, void *wd);
- 	int (*read_and_clear_dirty)(struct io_pgtable_ops *ops,
- 				    unsigned long iova, size_t size,
- 				    unsigned long flags,
+ &hsio_phy {
+ 	fsl,hsio-cfg = "pciea-pcieb-sata";
+ 	fsl,refclk-pad-mode = "input";
+@@ -691,6 +752,12 @@ IMX8QM_SCU_GPIO0_03_LSIO_GPIO0_IO31			0x0600004c
+ 		>;
+ 	};
+ 
++	pinctrl_cs42888_reset: cs42888_resetgrp {
++		fsl,pins = <
++			IMX8QM_QSPI1A_DATA1_LSIO_GPIO4_IO25			0x0600004c
++		>;
++	};
++
+ 	pinctrl_i2c0: i2c0grp {
+ 		fsl,pins = <
+ 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0x06000021
+@@ -725,6 +792,21 @@ IMX8QM_M41_I2C0_SCL_M41_I2C0_SCL			0x0600004c
+ 		>;
+ 	};
+ 
++	pinctrl_esai0: esai0grp {
++		fsl,pins = <
++			IMX8QM_ESAI0_FSR_AUD_ESAI0_FSR				0xc6000040
++			IMX8QM_ESAI0_FST_AUD_ESAI0_FST				0xc6000040
++			IMX8QM_ESAI0_SCKR_AUD_ESAI0_SCKR			0xc6000040
++			IMX8QM_ESAI0_SCKT_AUD_ESAI0_SCKT			0xc6000040
++			IMX8QM_ESAI0_TX0_AUD_ESAI0_TX0				0xc6000040
++			IMX8QM_ESAI0_TX1_AUD_ESAI0_TX1				0xc6000040
++			IMX8QM_ESAI0_TX2_RX3_AUD_ESAI0_TX2_RX3			0xc6000040
++			IMX8QM_ESAI0_TX3_RX2_AUD_ESAI0_TX3_RX2			0xc6000040
++			IMX8QM_ESAI0_TX4_RX1_AUD_ESAI0_TX4_RX1			0xc6000040
++			IMX8QM_ESAI0_TX5_RX0_AUD_ESAI0_TX5_RX0			0xc6000040
++		>;
++	};
++
+ 	pinctrl_fec1: fec1grp {
+ 		fsl,pins = <
+ 			IMX8QM_ENET0_MDC_CONN_ENET0_MDC				0x06000020
 -- 
-2.47.0
+2.34.1
 
 
