@@ -4,182 +4,197 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38026D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 03:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA0ED13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 03:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mn2hy3RZD6OTVqGtLmgaaLgbAxI4KZZpISE2ZfRKKWo=; b=Dmz5QBo12luNSzr0dTQTDgUFdz
-	Cexb1Wx1zcZWBAfX0fa0RACtMNaLP5YGv3TaK9wEgua4E9kZ0Gjv7SVtaRbo0YUmEBv7FZALjUcSc
-	lonYe2GfzDEocQAMq0Fb4hzlFxo4td//3vtu5N/B8PmHgK7086QEP4IxsGH1JnXU0gL4YIBkTxQjv
-	c2anCMxwr6ClflpHjC3B+0mGigu9CFMogb644eJwW9+GY6RwH4RYWkSyR+qQn7220gBWa0rdoNdvP
-	PUPdzEMpvcO3yvmbdps/lgMbwZ3Re8V2NjEeDjTKIuoq6zBqZxSgxf8Lo2TARis8L3z56PZ5cYfjs
-	rCGbmNuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Re5ITpxbbHFi1My/X20g799ii1+qJuKqzXe3DZHlmQo=; b=muvRSmeYWMv/5m7wTQkyI+d7Iy
+	cyI2UMZi63L+bOPdRmEfNjepG7wAbvSCaH8QOEwiDXgnIDsvTvRvkjhb/Hg4wot4mPxVyTwilXaNi
+	BqIaGn4SD7USmnw9krsnW0npyDV5OzoCZ0CrtGwWdz0EDSY3cK5YoMMowz1pVRRYW18DWm4UbhOcr
+	97M+QHXy0Jb6/8KW1iqnatIp0EskaJ1M6VvAfKrXqrbpcUnxh8jFhbic7ZzZNGqHJD/NwMEWxRI0h
+	sLjoR1jx3K2Gh+8GxC3sXEQM+Htxl8np/a0YF68FlQqrS8gExCKR1iFhfAPiUmsgHn+opyM42sEd2
+	JjDEWf2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5GLM-00000009Qiq-1Tm1;
-	Mon, 28 Oct 2024 03:23:00 +0000
-Received: from mail-am6eur05on20601.outbound.protection.outlook.com ([2a01:111:f403:2612::601] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1t5GMt-00000009QqU-1TSI;
+	Mon, 28 Oct 2024 03:24:35 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Fuc-00000009O5h-3emW
+	id 1t5G2T-00000009Op7-0KJH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 02:55:24 +0000
+	Mon, 28 Oct 2024 03:03:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730084609; x=1761620609;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Vfg0MPbg74XP4Pa2LAY3PNv5Ub2mykzK8ACXB0Jcftc=;
+  b=KAl9Zl0Jt1YfQ2EInitgVREYAUrXNkfwNKh1c5e9IRywWs9yWOz1E+hu
+   EAcT3bMsXbUJ1iln3LUKGv4MexRnqrJ8xTIqvE7E1gAspbijWdRKePFwn
+   Di7tXKYq7TLqG3ac7tZcAI2EIUXMbO9srWaOHlEwpP5wAfQ02Bn86NnW+
+   Q9ldyvaMF5+i76T2OCFFKHgYXG7Rdk28MOftBomc7r6Hbx63B6M1L0THn
+   /Y7Wspmw5G3TUIv+i5Sefk2U9eRJNBXEzI4LIzmJU/kL1sFvyMLg4Vj7K
+   vpeuCLGKx+NGkuofbvEWyruYSVZrTBNNNfkhJ8FFNL+6EWvrnTZI7BVvV
+   g==;
+X-CSE-ConnectionGUID: n6iZpW8FS6eJTxJrC+2KpQ==
+X-CSE-MsgGUID: Akj9VPeLRUiGGlQJro9wXg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="47131128"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="47131128"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2024 20:03:28 -0700
+X-CSE-ConnectionGUID: 1Rs8G2t5RPyiYDO++0opAw==
+X-CSE-MsgGUID: X1UV1P5DSLWIFzvEhFQ8GA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,238,1725346800"; 
+   d="scan'208";a="86584931"
+Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
+  by orviesa004.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 27 Oct 2024 20:03:28 -0700
+Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
+ fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Sun, 27 Oct 2024 20:03:27 -0700
+Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Sun, 27 Oct 2024 20:03:27 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.173)
+ by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Sun, 27 Oct 2024 20:03:26 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kmAlLmlmucKQI7UuuHruINtMmnl2OWwHtSMNudMfCiCZdyQAVH1KbK3qRsHAFEoE+sJJ9epeLkpCchKJIsyCDXs3JiNsg0GseBf5qFmiz96EsUuiml3MJH9lZ2dkNDE2uMIvTMRhF06IgEaePIg1nCJYF7PLhOB/WuGOwigTEtNVtYwwqn3UsGGuOAPFSFerQv+QLq5VRaHgiMLhI7A03uGoPYervr7UL7B53wRQovPLcbORsXlzVEqyULSaorSBTFHhM1gPnMCTSr6svuHy4U1PAmnYNsoLUW7KnO35vTbEku4PIVsnU3bhu9biVvcQXmVb1CbnhkNoP3P0Xgmx0Q==
+ b=NoCSCJGEqcCHeo+IYci7uEN4mDRDnED/wKIzpW9NrDSs55hL5CxzI0UxAq3aV40mCYDpUK6FwCIZpQJBe+lpoLY2+uilCKk+wasmspBD6qQQXGCAzSqf6WmAOvQ5wiUEPYW4zb2orsO/0RLOC/kcSkZXofqJ844dVVCuFmV2jHoe4dVokg0YfKxCP6KqhPOVV5/eC2Pl3HEfnr5UTFF38j/x8uUEsmV2PQ+WOrUdpUPNHnZ6Umu+kYUw9/bgMeWE9ZC3ILjvz4zq4FBoZtdZMESoSEGwgTESD/Bm0zotsQR9ej8EUZhxpq0WBnMPhUc/j6m5sbR4vg7/Cj/T6cF6RQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mn2hy3RZD6OTVqGtLmgaaLgbAxI4KZZpISE2ZfRKKWo=;
- b=ImvhD+EmeWRP3PX43dc5FfWyvJnA9ZzLGia2uQSz5lIRK7eaiuIWoK6HF9VtN4SV8ZDonGAdtkKu7sOoEEboULZO3eVE4B+7lvGEYRBr+FcLtblebhC9rjK5IzDU6RaHBPjUajj9bGcDKYc8QjCMX3lT9ffCm6CE8SMoGQ4l3sBG3Zes+tOR6H8W4VNumssyZBkD/T/NEQHnlyMoVXVcG8OnPQ+m7Gbuv492foBL8uAEW+ln605oIT/Vyc5kr+KAeupO3hI78zAEzNWpS1hF3MP0s/2BMCegHxQsrPkPGykHQloDBAuNk5GZKcUJ2XVMHeZ3qRpXakMe964tMzXDJw==
+ bh=Re5ITpxbbHFi1My/X20g799ii1+qJuKqzXe3DZHlmQo=;
+ b=P1k97jZZf5ItBbrFgOLAbzhBwkXW5Tp2FGgska3+xH8ipLlRcwzwDr8oDNauoa4M5gTSe4coXm7wKZCCY6lAeTWqOYkMdJAX2tAukUczbXWlTL+YOGX3CfHAwNu8FdY5z0VqEudRxbSaUrZXmYL0W3W7idGMx4CqAC7X67sbJD09FkyVrHKW7d6MVEFM8w/3Ooa7oa/Sc8LyYgO6lgq7wSJY1vEYKOozmgHtdmhrJb4MM3GHp5SY9sBgWgG2Y60qq4hTdHuoH4WdRU+occI6tgbyx5yE1p7Xhn4gDoxCaak3cD4mAEqyLbjy+E50QJ3sphu057yiA7lzDmHjh6bIeA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mn2hy3RZD6OTVqGtLmgaaLgbAxI4KZZpISE2ZfRKKWo=;
- b=H6HCMOkgVg38CcfhLshUsmOW9JIYiVw/26FCVUs0BceCwHcpuI3pxNOAKzizLg5o3ZOGJPtGHBuVUTsifej3MmrI9gNio7fc1b/yav1/VwZUdAqaRyn13cheyj4pB2QW45cs15EkZ9KKhWyZ0ZlgKVLDvhhav/Iu08R0AGUU1f4FNIZD45Ki8LXw7LY8iO1gkM0/pvvYCh+JPL5/AcPy7SiwdrygTiXFtamTAOBAexITRk5E3EIXAEB/gIr5a3wB1o/FxGn+KyG+4OqX2CSw00A5pLWqgAGkTv3bo9PVC/celbLGZdv7PaLbC3Z2QcifBrJ7E08Lvi9KNFEs7IWzeA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU2PR04MB8902.eurprd04.prod.outlook.com (2603:10a6:10:2e1::20) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DM6PR11MB4611.namprd11.prod.outlook.com (2603:10b6:5:2a5::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Mon, 28 Oct
- 2024 02:39:46 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
- 02:39:45 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quic_jesszhan@quicinc.com,
-	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	sakari.ailus@linux.intel.com,
-	hverkuil@xs4all.nl,
-	tomi.valkeinen@ideasonboard.com,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	thierry.reding@gmail.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	sam@ravnborg.org,
-	marex@denx.de,
-	biju.das.jz@bp.renesas.com
-Subject: [PATCH v4 11/13] arm64: dts: imx8mp-evk: Add NXP LVDS to HDMI adapter cards
-Date: Mon, 28 Oct 2024 10:37:38 +0800
-Message-Id: <20241028023740.19732-12-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241028023740.19732-1-victor.liu@nxp.com>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::16) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Mon, 28 Oct
+ 2024 03:03:24 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8093.024; Mon, 28 Oct 2024
+ 03:03:24 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
+	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
+	<eric.auger@redhat.com>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, "mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>, "aik@amd.com"
+	<aik@amd.com>, "zhangfei.gao@linaro.org" <zhangfei.gao@linaro.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH v5 00/13] iommufd: Add vIOMMU infrastructure (Part-2:
+ vDEVICE)
+Thread-Topic: [PATCH v5 00/13] iommufd: Add vIOMMU infrastructure (Part-2:
+ vDEVICE)
+Thread-Index: AQHbJzjDl1+fCVXsnEi2WCoYqtSYK7KbfMYg
+Date: Mon, 28 Oct 2024 03:03:24 +0000
+Message-ID: <BN9PR11MB5276FFE90D75B2146674E0BC8C4A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1729897278.git.nicolinc@nvidia.com>
+In-Reply-To: <cover.1729897278.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM6PR11MB4611:EE_
+x-ms-office365-filtering-correlation-id: fac068a4-c8d5-4fe4-40df-08dcf6fd164f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?WvoUGudwmJf5G+FiO1xi1c+VKYTpjvmOUd3wOIN7ZPcq7IE9uXk3Zgnfsvro?=
+ =?us-ascii?Q?lQqaLzLaqytrL52EDZZ/oXxPSA6uzeJ2q83PG6sMhRBf7UVrGcPjSfMDGVQD?=
+ =?us-ascii?Q?m0Z7opZv6Pbp8X/+bCzPt4utypG+80SKxdteHxYKphonTJt50JHvTw9mb72E?=
+ =?us-ascii?Q?VsQAKILmveeJQki7UxLyOiODCjj5o5tG9Sp/x0Ui9G9hz5JN9M3z4SeuksTN?=
+ =?us-ascii?Q?yCooAZkauBTz8FHkkudaAItv0UhsWbDPaspk+32UypJJRCS4Sm5mgyLDtnfh?=
+ =?us-ascii?Q?I34TWQOoY97AzmCqNFl2azuyJLYWEh6g8Eu8kQx2g07CospX1A8GlKR8ehz4?=
+ =?us-ascii?Q?oi4suiiqwK+v+ImgZc7uWY539sbA2JIJJr+RdhvXMYd+JhOqDnjeesJ2PAUV?=
+ =?us-ascii?Q?ewWPgeTAV6X2sSbev4aDsAIqncFu6BvOyqegZpTW5wmGV0d5k/Qqm9Bm8Flw?=
+ =?us-ascii?Q?iblxcYVhuk1Tmm9E7NcNKOq5U1NTSgSrzC2bQlUGWC8GqmqCCJD1nDpxXzmd?=
+ =?us-ascii?Q?cR182vlFzCoVznID28gpK4OZ497xjgEejfgbDRExi/dJMWGZJnHCOhVE5z+F?=
+ =?us-ascii?Q?aN9gE/oe82OH2j5oCkfQl9cr/xLLLC84h4e7AaHrAlZN+2FzbANqD9xAN1mY?=
+ =?us-ascii?Q?MV46Ex8Wwal56uV5NvpW4uZr8U6BmI6sVAbqS8QOCmzReM1/GPBW93cvalpA?=
+ =?us-ascii?Q?Z3XSsjFBK66Obd1k25ngyOvDlfOybxUgNRkxGygg5FqAEea+viM9K3GdUDh3?=
+ =?us-ascii?Q?a7pr2AEv9c2v9Wddp0/B8SdwG3oXRdc5qI8hlxQklFUKxl+p6B3DY8p34T1b?=
+ =?us-ascii?Q?YcNlW4Ejn2gqeRMRIAVgAgcoIUqi/gWpK9FIR4GYVUVWqrmKAnofNtmoND9/?=
+ =?us-ascii?Q?4mV2CS8iU30gI4Rc0YLjG1VJJ+ImZ2u+ljcIpeWuSN1aUFl7gHkqofre3OOD?=
+ =?us-ascii?Q?M+vP3UcJjTqy8T5w6z/uZNEn5JhCDaVTkwzRQh+q1XsRecn2j/JcpgUiCOeg?=
+ =?us-ascii?Q?jhlPT+lN7XNJG6pTWgRb1dB5HQUf/21rZWSrNDY5hfcF1Dz54lskfjAuS06m?=
+ =?us-ascii?Q?CR23WIZVO1/O4Gh+I3z0jyR1Qvr4VbtTD+nXnzfVR+RoEJtvCfjVsWmrA981?=
+ =?us-ascii?Q?xhr3WuWUSZ33q6+APZwrWrHTDKMICX9Dzl1pMF5GglLHcdF1jISj5sTqmB9p?=
+ =?us-ascii?Q?vde21gpBP5P/zgPDMa7D1+ge47r53iv7EHCRzhr6zBd9Apj7y0IWqYCtMdkD?=
+ =?us-ascii?Q?c3gqiLHtwrX/T5BCgcDzqX+5VPFdhxkYo27oz8ITw0j7ddwIJiIQaCx5GD5B?=
+ =?us-ascii?Q?83EsH1jhX3QtWHVAwDpUUkWhUb1f9VQGMCyJaTXJxXKgKg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Xp9nEKJ02v83vuEAESMNQ0FfamHERW6NV3GVNxMy+QvfjOmWF0Sak8PUeg+7?=
+ =?us-ascii?Q?Us4YHIhvShMSgM3Jdspl0YaVkl7ySk0vCR0wJXyJJjvuw3iyC2uZUcAL50pw?=
+ =?us-ascii?Q?ypdSgHs3qSXFVKX/oxF4olY7mFEfzIWrLJen/IPt4jTIH8DZybZ4+sL+mAK0?=
+ =?us-ascii?Q?2Mfelvv8Dx4Q4WJD600DcbDm/0s+ueC4/djERGHPH/xVK85w0mZ4HbnxBEHZ?=
+ =?us-ascii?Q?/EWBYNFM7X/eT+SdOCVAVdB3HB68uRj7sWyWxFkqZHIdBwvQePehqN3eFgRz?=
+ =?us-ascii?Q?6ILP9FYE6JzALISWwcs5Eo7F6sST92XJuRXMB8xtDMrKSy7PO5TybUgL6/co?=
+ =?us-ascii?Q?pyBWWU1sy1EgXhU4azNnJiO0qcjExtoY5QR3mRBqUX6cJLEYx8t98TT2yz14?=
+ =?us-ascii?Q?jK+7oTlDhNrptoEiQMSN5ctpcCFkspu1ftSEPan0ZEYWiU3zZEMn9Y6v0EkU?=
+ =?us-ascii?Q?or3Y0nMA7pwPh11S7Ce5dkzGK+Fo/KZaPbr1SqDH+3azuTeHK4oi42c3J3SK?=
+ =?us-ascii?Q?XA3vxGcWhoQJT8AYMp+3JriN+NVY3z+Ff+cYsS9eoMUGU4b9RV3Tj4GiwyUJ?=
+ =?us-ascii?Q?n44ATpXMAhuISjN21mTatcPCQGM3FR5xNI5i0GRT2z674rV6fpFMo5pjZgfw?=
+ =?us-ascii?Q?41Eekjzj1iiw8V8PdrBQDyoJR+zbEpqjCWu7R60Ow9BuLlPUzDV3GfCmSQ3v?=
+ =?us-ascii?Q?uTzpVlteqVuLSD5wiTwObMHP930kdafLKApYEHAl3v+8gGzMIRcU/zsSCq0s?=
+ =?us-ascii?Q?4sEPAaLNM36Xpt7ESWUVeQIJsdTDIf0iJjCMMI/YEtTJX0Ruaq8daoFRDmc7?=
+ =?us-ascii?Q?Dh5nf/S0X32bIxsfcRaoxR1OquFt93YvmX3L5jUs9LXGq5Rx11kjem8knhh1?=
+ =?us-ascii?Q?utdAgcz6vBUTdUcwuUA7OfCX/kYESKcJufG1E+uMYOgT1G1JiI0GSULKWhhl?=
+ =?us-ascii?Q?cxTWcTLakYUBumqPTnz/ElXCR+B/+v/ovQIK4UqjuFeaZepnyD1qdwkARymE?=
+ =?us-ascii?Q?Ci9/WU17reNY3+HYSKX7NVl7enWOziVWg5qi2cmqQGmIwAscjhcYnHVkLd6I?=
+ =?us-ascii?Q?A78+FpRukWlM7X6JuRC8kvXa4/y9TOg7K6ehBN3jL1hN8soHSgU9MsCwp+T4?=
+ =?us-ascii?Q?CVi034oZjZf6yOI9WrP9jfHyTogidJYwn9bQ8ID700dvCRI8ZHwiHp8wdGpC?=
+ =?us-ascii?Q?rDQOOkn0kR8mHpbH8NIDQ1q//peA0ztZvr9kVoOyqxjvLZnCKVfFJ3sL2mBs?=
+ =?us-ascii?Q?Pz0mS9Pr799BPQHoYZxip4cLT1+MsozYKBi8/y5IxVaZkixaBL6B/+38jlS/?=
+ =?us-ascii?Q?Icw9TvZ3MkuFMj+AGyjBidWN8JXSgqsYff0RLjFRiq6V7dis7W9MZUSKho1z?=
+ =?us-ascii?Q?YPB6sY2DX7SRRI8TX8+qNOIZ4tMaA3xhUxJlPDfRfsCbjFiGClXZscDZPGzg?=
+ =?us-ascii?Q?ouikmrGot2lHHqIFPWo37lhC8Niz6KCtDsu5j2IEQkhZMDoaZUj3N2hiYyMi?=
+ =?us-ascii?Q?iAkgxc3XNvuC7jWnxUL0aAEzqmISv2uR+AhI4HuHRdqxpC+KBVOeXuCYpha0?=
+ =?us-ascii?Q?YPf+a/x5auTth37riE9mmwRppFc9jpOK+CQNxGVc?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8902:EE_
-X-MS-Office365-Filtering-Correlation-Id: 407550ec-97c0-42ba-0eac-08dcf6f9c8d6
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y+GPZhwjGqf926p6PDrTW1V3dBNRtjLN/k2D5E5V4h/fp7PGB1KYBJY9F8YT?=
- =?us-ascii?Q?4gVLCBtMRwSwZTF2uoXgEMYAriSAZ9gX4ahwiVN+ay1lfEc90SjGashNr6/d?=
- =?us-ascii?Q?I3y8pdD5XfE2rt3/1jkMDcMqgbdissW9+Vd0wuABjoFisnKrVZWV/21hAiL8?=
- =?us-ascii?Q?aQyN1ZHQH7oDNvTBkmHBJjQzR3w4NfyeAM828EZo5PgQI5kosoADYec+h8VG?=
- =?us-ascii?Q?AAneHHem2O0Vk5oXeZOwGLebgzdKee4nZfdY9O3uObKcpec1T/SYpfELvsY1?=
- =?us-ascii?Q?Fe0vDKkxuGMaBkzduMNC68VJfV7SxQh4ZUGvC1vLpKBGxlKu+MI/u5J2B2/P?=
- =?us-ascii?Q?0Wx/SPLZKgqfRfKdEAbv+5IwhZGY2HRbxwM3w43267ljOaM7U1xjHPLHsKON?=
- =?us-ascii?Q?Najb56H0R7eUWGgYwLQRm/UrvkZ0yfa7MQJclJr4QNvdUDgNdVm/c8G2UETH?=
- =?us-ascii?Q?P2Z6ymeySHN6H+1d+d0Q6G5SpKChPEC5NSM7dS8fjGHbac6Nb9oGaKmYZQsi?=
- =?us-ascii?Q?UY0cUS83C1GAvW0BK86xvEgJ1iwmUxgao9Vh7TNx/J94myewIJJcsCeBs2UI?=
- =?us-ascii?Q?1X4D0Iq8gWYj5NN8xdapA8Z4f3UobUZFJnENrq8DQgCIgvWruf7Cix6Cl9i4?=
- =?us-ascii?Q?pKWkoRobpdQjhViV6De4x5lmrU6/qm69C3JOFM5dnemMLO0cnbmaHx/DR47r?=
- =?us-ascii?Q?L6/bNoXJII0NbcfrXQwHz0LjPi5h3NQofXRcUbhM82Fq8sGx0efUsTKaCK33?=
- =?us-ascii?Q?Fn/mddW2PJffTtVrd5F+e0Ro/UYXD4EummcgBWM6hAZMN86RtXmUDnX+MGoX?=
- =?us-ascii?Q?AsLn4K2xYKWt9BXrjOlXGg0B3sEEk4h2B4EwpZlYt04iLX6FKaF2Cy0WNnkt?=
- =?us-ascii?Q?Iy6SZ0utZQ98kU7wojCM+6KkYuNXb45XxKYAGOMRb4sUFi7gLU3MqZ/wnGo3?=
- =?us-ascii?Q?o313cbcQhnSmoAR4tgGRBnkD2VxionRsHbf7eBv2U240JwmR5zNBr9HyAduj?=
- =?us-ascii?Q?1FBhxRBNyz16fz5kgui8MH3qvuEitr5d5zshhBlEtklIxD1ITabGoy16uEZT?=
- =?us-ascii?Q?ZC1cVX2ZpX6hhSzWNf014K0SuzF/IwpPWcIEd8ypOL6wJph4jlOfmsx333Wl?=
- =?us-ascii?Q?ECiRQRCDopOwoMAL32cJKEGPLu7KSrJYvc8aFjW2R9Skpe0FVSsEARdKi/hg?=
- =?us-ascii?Q?Z9AmsuTvJPnLKvW8TdFPKFDli/5u+yDhdZ051H4oWVqGNxKj4I+ZJ193b3tf?=
- =?us-ascii?Q?xEWoRpenLIZ/YujrSNC6scXDfVG0XWbbZAm1xfkni7lcbxizzFMgtkonUkqX?=
- =?us-ascii?Q?/7jcKF8rDNV4Jyy3IjVI60eR2XLoi8uSj5mB72omNDJjq4NWZWOqAL2jZDaJ?=
- =?us-ascii?Q?8xbHQVXRdvPpQS+4JllTxAyuQgql?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Lhc61x4F7QD48NeqTwloTGuLgW1IfJchISB+jWjNvOh9JxAB8V14HI6zY990?=
- =?us-ascii?Q?Rm/+kjUqc/K7nbVgyeJpRVH9IIf3SjR+beIyKOjZAAGAjZBxeKquASXfkIer?=
- =?us-ascii?Q?4SSypJKEB/Qs4jmXd6rnqRNmUOEo5PHqNNJG6gvQhlrFd+5+lm82cEUYrMb/?=
- =?us-ascii?Q?NB+AOHhENc/t3ICr7ltWYI/aqP4/Ucc0pBoo7J2ZTeek8rgBIQgChMLcdGj1?=
- =?us-ascii?Q?EN00JrdoR+mBEAhXOkfe8xzcvhW4sBEpp0zefJHdRkgNw8BeQMuwX120xZMY?=
- =?us-ascii?Q?PAoLKWZySvynJPOHrdbZj+vCObFXiqmnLC3XCIxVT9QleznfZAjtlFX9NY12?=
- =?us-ascii?Q?MOuQj5TCGptYiXIDfx3CVGA7KXitv5jIJVQC1iky8QUToRQVrXn0BIqEOVE0?=
- =?us-ascii?Q?vO7UnQ0fsxrbk6SXk7nnt3P33eZpNGr37WCy/shdAGr/za/YJf9JbOSUFWeR?=
- =?us-ascii?Q?QW/hB6D8Yk/3AZypUfAVGx1fYzJGAXNgyw9vfe7rtgXI8wOxc2rKKsjlG8qk?=
- =?us-ascii?Q?PH7l01T9oIupmUw4EJb/B+buvRhOYiTdhhQVh/SyoOdXlwI1WumDNFsQ0S0I?=
- =?us-ascii?Q?5F5C26O5u7/MIGrUgTFNaqfXC6QUJKO1BkYwrsAZcbdyVYizgTBr/pyKkWPX?=
- =?us-ascii?Q?/LT+9gd/5VBNN71MO7QIICHk1z0/T0GJ81zfhrY2jHQo7UIYvrBAzYEYDyxD?=
- =?us-ascii?Q?vNLn0j0/Izl13D2LLmiGuPwEHGJTIEB9GfuHmWdZ15syiFzyiJ99s7YQEWIu?=
- =?us-ascii?Q?zq99oWFri5UPOcgyRulNWmpcK94fahyMe8qzO+KPW8zPMvnaR/TGJU/TISAR?=
- =?us-ascii?Q?17hxKT2yfSVfa1oGp62sCEtsVWz7deJo/+uuL5RCPqx94LNethfHyjpI430X?=
- =?us-ascii?Q?DLhczNeggjNs3NDddjIQEdxHsWcS6hjdl7s2OcRWK5xE2/ABzaLMH0z12Yml?=
- =?us-ascii?Q?Ao32B/23jQqzm20DTnPXaHIR3qxI7mGX3vORMYTCtxlIGu/yQfNItjanfQhJ?=
- =?us-ascii?Q?Ykk+FVwfCRAWWB9tthAwRbNjYOlVbF7ZvQuOJ/ZnTvxvsXeggzwxTIW5M91g?=
- =?us-ascii?Q?CY3icaK55qGD4+xeBlWmp85cWYdhhv+JvRiTyeTh3Co9KEHu7ZSQ3OADbBAz?=
- =?us-ascii?Q?2XKsNeEHU88TwksBU7kuJoSK5qWivGKThtU0+PfgaeRpSVfobkIbHqlWPkC7?=
- =?us-ascii?Q?XMxiVhNHHvhCR5+gJQtHEt6By0mQq+N5aM5rZ6eIFaVsw412OMTOGpYoWLeS?=
- =?us-ascii?Q?YbRzMC+aDU+DR6g/UB2P9KoQykUfzLK8+AUymL2tbEX68O5ColNN5SmJRDSk?=
- =?us-ascii?Q?XKuZQMRvYNos8sJ2R5/kCg3kqItmpIBDt4v798VNTy6aSRJBn2BmknUtk8kp?=
- =?us-ascii?Q?0xKLfMzcSiZUFpy1dsa2IfMiZVZi1yJKTQH5JMxmd5sWw6T95kBIDNgyCEHi?=
- =?us-ascii?Q?DiyywtDLwmuNXP4j3xvQYY3r2fJkfWanLiW5jxK5fQ0V/pD4fDMeo2uJElxY?=
- =?us-ascii?Q?f4O1CLDcSVEe54yvinWd93fEuhlICvUUynsKmDqJm90a9f+dY7DFZ0aaW1t7?=
- =?us-ascii?Q?+xzJ3+EtrhYDgq6JfaNlXOMOrJYkYM9FEM+lINi4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 407550ec-97c0-42ba-0eac-08dcf6f9c8d6
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 02:39:45.9010
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fac068a4-c8d5-4fe4-40df-08dcf6fd164f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2024 03:03:24.0784
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JnU09tT+q9qBeqHhPR9lr5EtTGCtTPDIOYspTalqu0krR/L4BkY9fxnQF8qT27v8giHhwpfWE19A4t38EWHc/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8902
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CHhQYlwsZog5/K4dQFcacLLLzy+FMZDu1CIBaLi33CcCz7QNPYhF6qttV9D+e5GyG6Sfa81dCbdCF4PH6UrFOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4611
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_195523_075395_27680DF5 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241027_200330_420291_18DD996B 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,403 +209,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One ITE IT6263 LVDS to HDMI converter is populated on NXP IMX-LVDS-HDMI
-and IMX-DLVDS-HDMI adapter cards.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, October 26, 2024 7:50 AM
+>=20
+> Following the previous vIOMMU series, this adds another vDEVICE structure=
+,
+> representing the association from an iommufd_device to an
+> iommufd_viommu.
+> This gives the whole architecture a new "v" layer:
+>=20
+> ________________________________________________________________
+> _______
+>  |                      iommufd (with vIOMMU/vDEVICE)                    =
+|
+>  |                        _____________      _____________               =
+|
+>  |                       |             |    |             |              =
+|
+>  |      |----------------|    vIOMMU   |<---|   vDEVICE   |<------|      =
+|
+>  |      |                |             |    |_____________|       |      =
+|
+>  |      |     ______     |             |     _____________     ___|____  =
+|
+>  |      |    |      |    |             |    |             |   |        | =
+|
+>  |      |    | IOAS |<---|(HWPT_PAGING)|<---| HWPT_NESTED |<--| DEVICE | =
+|
+>  |      |    |______|    |_____________|    |_____________|   |________| =
+|
+>=20
+> |______|________|______________|__________________|_____________
+> __|_____|
+>         |        |              |                  |               |
+>   ______v_____   |        ______v_____       ______v_____       ___v__
+>  |   struct   |  |  PFN  |  (paging)  |     |  (nested)  |     |struct|
+>  |iommu_device|  |------>|iommu_domain|<----|iommu_domain|<----
+> |device|
+>  |____________|   storage|____________|     |____________|     |______|
+>=20
+> This vDEVICE object is used to collect and store all vIOMMU-related devic=
+e
+> information/attributes in a VM. As an initial series for vDEVICE, add onl=
+y
+> the virt_id to the vDEVICE, which is a vIOMMU specific device ID in a VM:
+> e.g. vSID of ARM SMMUv3, vDeviceID of AMD IOMMU, and vID of Intel VT-d
 
-Card IMX-LVDS-HDMI supports single LVDS link(IT6263 link1).
-Card IMX-DLVDS-HDMI supports dual LVDS links(IT6263 link1 and link2).
+s/vID/vRID/ for VT-d
 
-Only one card can be enabled with one i.MX8MP EVK.
+> to
+> a Context Table. This virt_id helps IOMMU drivers to link the vID to a pI=
+D
+> of the device against the physical IOMMU instance. This is essential for =
+a
+> vIOMMU-based invalidation, where the request contains a device's vID for =
+a
+> device cache flush, e.g. ATC invalidation.
 
-Add dedicated overlays to support the below four connections:
-1) imx8mp-evk-lvds0-imx-lvds-hdmi.dtso:
-   i.MX8MP EVK LVDS0 connector <=> LVDS adapter card J6(IT6263 link1)
+probably connect this to vCMDQ passthrough? otherwise for sw-based
+invalidation the userspace can always replace vID with pID before
+submitting the request.
 
-2) imx8mp-evk-lvds1-imx-lvds-hdmi.dtso:
-   i.MX8MP EVK LVDS1 connector <=> LVDS adapter card J6(IT6263 link1)
-
-3) imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso:
-   i.MX8MP EVK LVDS0 connector <=> DLVDS adapter card channel0(IT6263 link1)
-   i.MX8MP EVK LVDS1 connector <=> DLVDS adapter card channel1(IT6263 link2)
-
-4) imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso:
-   i.MX8MP EVK LVDS1 connector <=> DLVDS adapter card channel0(IT6263 link1)
-   i.MX8MP EVK LVDS0 connector <=> DLVDS adapter card channel1(IT6263 link2)
-
-Part links:
-https://www.nxp.com/part/IMX-LVDS-HDMI
-https://www.nxp.com/part/IMX-DLVDS-HDMI
-
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-v4:
-* Rebase this patch upon next-20241025 to resolve conflicts when apply.
-
-v3:
-* Use data-mapping DT property instead of ite,lvds-link-num-data-lanes.
-  (Dmitry, Biju)
-
-v2:
-* Add ite,lvds-link-num-data-lanes properties.
-
- arch/arm64/boot/dts/freescale/Makefile        |  8 ++++
- .../imx8mp-evk-imx-lvds-hdmi-common.dtsi      | 29 ++++++++++++
- ...8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso | 44 +++++++++++++++++++
- ...imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi | 43 ++++++++++++++++++
- .../imx8mp-evk-lvds0-imx-lvds-hdmi.dtso       | 28 ++++++++++++
- ...8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso | 44 +++++++++++++++++++
- ...imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi | 43 ++++++++++++++++++
- .../imx8mp-evk-lvds1-imx-lvds-hdmi.dtso       | 28 ++++++++++++
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  6 +++
- 9 files changed, 273 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-imx-lvds-hdmi-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 5c157529fb88..ec04d693c313 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -207,8 +207,16 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-yavia.dtb
- 
-+imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtbo
-+imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-hdmi.dtbo
-+imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
-+imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
- imx8mp-evk-mx8-dlvds-lcd1-dtbs += imx8mp-evk.dtb imx8mp-evk-mx8-dlvds-lcd1.dtbo
- imx8mp-evk-pcie-ep-dtbs += imx8mp-evk.dtb imx8mp-evk-pcie-ep.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-mx8-dlvds-lcd1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-pcie-ep.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-imx-lvds-hdmi-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-evk-imx-lvds-hdmi-common.dtsi
-new file mode 100644
-index 000000000000..44b30e9b3fde
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-imx-lvds-hdmi-common.dtsi
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	lvds-hdmi-connector {
-+		compatible = "hdmi-connector";
-+		label = "J2";
-+		type = "a";
-+
-+		port {
-+			lvds2hdmi_connector_in: endpoint {
-+				remote-endpoint = <&it6263_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso
-new file mode 100644
-index 000000000000..4008d2fd36d6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include "imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi"
-+
-+&it6263 {
-+	ports {
-+		port@0 {
-+			reg = <0>;
-+			dual-lvds-odd-pixels;
-+
-+			it6263_lvds_link1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dual-lvds-even-pixels;
-+
-+			it6263_lvds_link2: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch1>;
-+			};
-+		};
-+	};
-+};
-+
-+&lvds_bridge {
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&it6263_lvds_link1>;
-+			};
-+		};
-+
-+		port@2 {
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&it6263_lvds_link2>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi
-new file mode 100644
-index 000000000000..6eae7477abf8
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "imx8mp-evk-imx-lvds-hdmi-common.dtsi"
-+
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	it6263: hdmi@4c {
-+		compatible = "ite,it6263";
-+		reg = <0x4c>;
-+		data-mapping = "jeida-24";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_lvds_en>;
-+		reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
-+		ivdd-supply = <&reg_buck5>;
-+		ovdd-supply = <&reg_vext_3v3>;
-+		txavcc18-supply = <&reg_buck5>;
-+		txavcc33-supply = <&reg_vext_3v3>;
-+		pvcc1-supply = <&reg_buck5>;
-+		pvcc2-supply = <&reg_buck5>;
-+		avcc-supply = <&reg_vext_3v3>;
-+		anvdd-supply = <&reg_buck5>;
-+		apvdd-supply = <&reg_buck5>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				it6263_out: endpoint {
-+					remote-endpoint = <&lvds2hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi.dtso
-new file mode 100644
-index 000000000000..9e11f261ad13
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi.dtso
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include "imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi"
-+
-+&it6263 {
-+	ports {
-+		port@0 {
-+			reg = <0>;
-+
-+			it6263_lvds_link1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&lvds_bridge {
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&it6263_lvds_link1>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso
-new file mode 100644
-index 000000000000..af2e73e36a1b
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include "imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi"
-+
-+&it6263 {
-+	ports {
-+		port@0 {
-+			reg = <0>;
-+			dual-lvds-even-pixels;
-+
-+			it6263_lvds_link1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch1>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dual-lvds-odd-pixels;
-+
-+			it6263_lvds_link2: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&lvds_bridge {
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&it6263_lvds_link2>;
-+			};
-+		};
-+
-+		port@2 {
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&it6263_lvds_link1>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi
-new file mode 100644
-index 000000000000..8cc9d361c2a4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "imx8mp-evk-imx-lvds-hdmi-common.dtsi"
-+
-+&i2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	it6263: hdmi@4c {
-+		compatible = "ite,it6263";
-+		reg = <0x4c>;
-+		data-mapping = "jeida-24";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_lvds_en>;
-+		reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
-+		ivdd-supply = <&reg_buck5>;
-+		ovdd-supply = <&reg_vext_3v3>;
-+		txavcc18-supply = <&reg_buck5>;
-+		txavcc33-supply = <&reg_vext_3v3>;
-+		pvcc1-supply = <&reg_buck5>;
-+		pvcc2-supply = <&reg_buck5>;
-+		avcc-supply = <&reg_vext_3v3>;
-+		anvdd-supply = <&reg_buck5>;
-+		apvdd-supply = <&reg_buck5>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				it6263_out: endpoint {
-+					remote-endpoint = <&lvds2hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi.dtso
-new file mode 100644
-index 000000000000..527a893a71b2
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi.dtso
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include "imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi"
-+
-+&it6263 {
-+	ports {
-+		port@0 {
-+			reg = <0>;
-+
-+			it6263_lvds_link1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch1>;
-+			};
-+		};
-+	};
-+};
-+
-+&lvds_bridge {
-+	ports {
-+		port@2 {
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&it6263_lvds_link1>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index d26930f1a9e9..68e12a752edd 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -938,6 +938,12 @@ MX8MP_IOMUXC_SPDIF_TX__I2C5_SCL         0x400001c2
- 		>;
- 	};
- 
-+	pinctrl_lvds_en: lvdsengrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10	0x1c0
-+		>;
-+	};
-+
- 	pinctrl_pcie0: pcie0grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_I2C4_SCL__PCIE_CLKREQ_B	0x60 /* open drain, pull up */
--- 
-2.34.1
+>=20
+> Therefore, with this vDEVICE object, support a vIOMMU-based invalidation,
+> by reusing IOMMUFD_CMD_HWPT_INVALIDATE for a vIOMMU object to
+> flush cache
+> with a given driver data.
+>=20
+> As for the implementation of the series, add driver support in ARM SMMUv3
+> for a real world use case.
+>=20
+> This series is on Github:
+> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v5
+>=20
+> For testing, try this "with-rmr" branch:
+> https://github.com/nicolinc/iommufd/commits/iommufd_viommu_p2-v5-
+> with-rmr
+> Paring QEMU branch for testing:
+> https://github.com/nicolinc/qemu/commits/wip/for_iommufd_viommu_p2-
+> v5
+>=20
+> Changelog
+> v5
+>  * Dropped driver-allocated vDEVICE support
+>  * Changed vdev_to_dev helper to iommufd_viommu_find_dev
+> v4
+>  https://lore.kernel.org/all/cover.1729555967.git.nicolinc@nvidia.com/
+>  * Added missing brackets in switch-case
+>  * Fixed the unreleased idev refcount issue
+>  * Reworked the iommufd_vdevice_alloc allocator
+>  * Dropped support for IOMMU_VIOMMU_TYPE_DEFAULT
+>  * Added missing TEST_LENGTH and fail_nth coverages
+>  * Added a verification to the driver-allocated vDEVICE object
+>  * Added an iommufd_vdevice_abort for a missing mutex protection
+>  * Added a u64 structure arm_vsmmu_invalidation_cmd for user command
+>    conversion
+> v3
+>  https://lore.kernel.org/all/cover.1728491532.git.nicolinc@nvidia.com/
+>  * Added Jason's Reviewed-by
+>  * Split this invalidation part out of the part-1 series
+>  * Repurposed VDEV_ID ioctl to a wider vDEVICE structure and ioctl
+>  * Reduced viommu_api functions by allowing drivers to access viommu
+>    and vdevice structure directly
+>  * Dropped vdevs_rwsem by using xa_lock instead
+>  * Dropped arm_smmu_cache_invalidate_user
+> v2
+>  https://lore.kernel.org/all/cover.1724776335.git.nicolinc@nvidia.com/
+>  * Limited vdev_id to one per idev
+>  * Added a rw_sem to protect the vdev_id list
+>  * Reworked driver-level APIs with proper lockings
+>  * Added a new viommu_api file for IOMMUFD_DRIVER config
+>  * Dropped useless iommu_dev point from the viommu structure
+>  * Added missing index numnbers to new types in the uAPI header
+>  * Dropped IOMMU_VIOMMU_INVALIDATE uAPI; Instead, reuse the HWPT
+> one
+>  * Reworked mock_viommu_cache_invalidate() using the new iommu helper
+>  * Reordered details of set/unset_vdev_id handlers for proper lockings
+> v1
+>  https://lore.kernel.org/all/cover.1723061377.git.nicolinc@nvidia.com/
+>=20
+> Thanks!
+> Nicolin
+>=20
+> Jason Gunthorpe (2):
+>   iommu: Add iommu_copy_struct_from_full_user_array helper
+>   iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED
+>=20
+> Nicolin Chen (11):
+>   iommufd/viommu: Add IOMMUFD_OBJ_VDEVICE and
+> IOMMU_VDEVICE_ALLOC ioctl
+>   iommufd/selftest: Add IOMMU_VDEVICE_ALLOC test coverage
+>   iommu/viommu: Add cache_invalidate to iommufd_viommu_ops
+>   iommufd/hw_pagetable: Enforce invalidation op on vIOMMU-based
+>     hwpt_nested
+>   iommufd: Allow hwpt_id to carry viommu_id for
+> IOMMU_HWPT_INVALIDATE
+>   iommufd/viommu: Add iommufd_viommu_find_dev helper
+>   iommufd/selftest: Add mock_viommu_cache_invalidate
+>   iommufd/selftest: Add IOMMU_TEST_OP_DEV_CHECK_CACHE test
+> command
+>   iommufd/selftest: Add vIOMMU coverage for IOMMU_HWPT_INVALIDATE
+> ioctl
+>   Documentation: userspace-api: iommufd: Update vDEVICE
+>   iommu/arm-smmu-v3: Add arm_vsmmu_cache_invalidate
+>=20
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   9 +-
+>  drivers/iommu/iommufd/iommufd_private.h       |  20 ++
+>  drivers/iommu/iommufd/iommufd_test.h          |  30 +++
+>  include/linux/iommu.h                         |  48 ++++-
+>  include/linux/iommufd.h                       |  21 ++
+>  include/uapi/linux/iommufd.h                  |  61 +++++-
+>  tools/testing/selftests/iommu/iommufd_utils.h |  83 +++++++
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 161 +++++++++++++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  32 ++-
+>  drivers/iommu/iommufd/device.c                |  11 +
+>  drivers/iommu/iommufd/driver.c                |  13 ++
+>  drivers/iommu/iommufd/hw_pagetable.c          |  36 +++-
+>  drivers/iommu/iommufd/main.c                  |   7 +
+>  drivers/iommu/iommufd/selftest.c              |  98 ++++++++-
+>  drivers/iommu/iommufd/viommu.c                | 101 +++++++++
+>  tools/testing/selftests/iommu/iommufd.c       | 204 +++++++++++++++++-
+>  .../selftests/iommu/iommufd_fail_nth.c        |   4 +
+>  Documentation/userspace-api/iommufd.rst       |  41 +++-
+>  18 files changed, 942 insertions(+), 38 deletions(-)
+>=20
+> --
+> 2.43.0
 
 
