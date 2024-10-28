@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2878CD3398B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ADED3398B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=; b=3EAmxFQgEixnIdjeF6hTKIr6QK
-	3pfzwm5dJVHCsLma0gZSvETtCmABnELSDMiKnDNGXZQP40b7bQYiYXwobfAMb4j8cEOUg4XectkLN
-	MYcgquYW5nNjxWrW9xwaxSvVJHSMEgeboBC6v+mdcSeDscrKDHzJA3LtcQyIo0Ab7NnzN5UJDVwry
-	jHNycEx0CYSIw00+mAh4C4Ycl7eorLKgTp2Z8NcHTm3JA4Pi1EUZvQL6NjnC7D8sEOT2UUSkDa1SE
-	OE9Q7bcR4IMKz5rTJ7tM3AP9n3bdAM+R1C9+8OQt+jul3XLeYa7dGPKOD5Viwpauwl9i8dfYWWQpF
-	U8qPTMqg==;
+	bh=XxqlkITvdCM/QWIQix/9plieOyS0wK2Vm/r1GXcM7hA=; b=GvmG7QqaG45Udym7anjJlG732A
+	YB2rwXsRuKqTcesAqYhb2pcViAduo45Kz+RWXngRTfkqPyMD8D8y6NErO4I8PKbluJ6wHNSZk9IIF
+	JOoeWVM5QbHG8hIkLkS4eOQVj2jHPiL/9hioGsA11jkCx8+9ENqVYEIC50r6+T0sNOl3GXbFEdOkD
+	spIyMk4rF10uKb/o/gEzPDn1RsujWSo8FJCvwb3LTQ7RdY8r/g/dWktefIndht2/S1if800z7gM2c
+	y6BMctP38uvUPl/BfbCyFbobxS8I3P7f3pEjxlOwrJE3VAfgFDX11n5bUb3Urng4LH8fSs0kd200L
+	2Zo+H8jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QdK-0000000B6EQ-1z5j;
-	Mon, 28 Oct 2024 14:22:14 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1t5Qf7-0000000B6j8-0Bws;
+	Mon, 28 Oct 2024 14:24:05 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QP3-0000000B2os-3bxc
+	id 1t5QP5-0000000B2oy-0r8c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:07:33 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c94c4ad9d8so5479836a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:29 -0700 (PDT)
+	Mon, 28 Oct 2024 14:07:34 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-a9a68480164so603344966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730124448; x=1730729248; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1730124449; x=1730729249; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=;
-        b=NkRl/wp+zoKvO9tBUBj4qEYgzdtw55QrWzoGJMG9ogkmA4b+l++p0hGbElWRVuF8gy
-         6tANaY8m34ZXtH3AxEI/ZnfACl3zQJfTc2RECO5vY9/yTTSXyTLw7hmIAnqhypTefmeB
-         uUU0TF9o38cj6FkqNEMrekXGTXh/MFmfgLCGlOdKS88XK8aWttDHa6tgef8SVdLClGGe
-         QymZhdSjUFS8eoE7uqmEQ3tFnLXqDsR6zR+fj55Gw7QRl7sau/lsu3QMoa96YTRcQejB
-         l/pnyqJwdc3EhpwhHcDednT+FJSNwTXMHe1C4spm9KIg6znxMiuAp1SMKPBsn4ArUcDY
-         tWzg==
+        bh=XxqlkITvdCM/QWIQix/9plieOyS0wK2Vm/r1GXcM7hA=;
+        b=RXARUEknjKsNsivfZ/1gE38lZ1GYFWwxPKxPd/wByFVg5Ic1RGnJVySMUCFjL2yS5g
+         GFys1WlrI9jpQuvyJHTCVd+D9IUioM73VmFUx09CZcPW3Af+n2+scAgowqa4jpPTrCrh
+         LuAA/qgMBqOuJqBALtBUiR4NdwCd/g8joyBNJl1QgsFQQMKtl4441t7RiZg17fVEcWE9
+         HfHDSLcpaVMLdbPkVdlHnrP/bumRWlvxctfjmbEEYM21Midf9kSLRCZ7SmJE3qbxMHFe
+         o8U1xQMfkiT3gadvB9MgGJJpXnaJxe+8WXPCTbLbqQEz5UiZXVv31JUS4zDxRz3kKF+S
+         h7AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730124448; x=1730729248;
+        d=1e100.net; s=20230601; t=1730124449; x=1730729249;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=;
-        b=nrrQN0fPU9BTrVO8hzpZ7mKu5aInr47HTYvXenby5E8xphv/YZI4bfW5+gcjW9Y7zm
-         3roI+hFnpdIHxIt4cXgvFhKraTUxd9rpGwA8AxugMACwmfXBr71mp/x4ShbEROpxpugt
-         jJzg7uR80sSm61b5Z0wzXQ+d/uIFpCUFOSBKbL1G2yqt4ozLA5ccoxdIvAqm7ptkM5Gm
-         jcPrGQd522NRxnuDcn53AqrbLjSlTBl7u41d19IKEMFtiEeoCHsBhktgQri54pQK+ldE
-         6nqqquIAd15IpyEVrcIAWUuXuyd+JyXu8vTs2dm/PnXRnCJIOfdKREc1GI/dpmg0xVPM
-         K9BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVpSpKB+yObQPhDVA2DkZsXUOwdboRCaWSNrRVCcdihZPt9flUFytIMJrmYP+0Udr4R2R9RqFCC1OAENbK/UO6Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq6orQb5/sMshUYeVcC5J+kQ0PBucCikZ9BreE07b3HKfjo5C1
-	hX0tQSVJ3A/9Js+Xq8C+tjoivWsX1fr6fm1DDrsHDckkejUKiCbMQcyZOC/X158=
-X-Google-Smtp-Source: AGHT+IGfZma7X0ezVVYvvMm++bwyKvKeoZexLczbfZgPE9InzBp7Q/p9irVjhvXQTbzMj3l4IWc0BQ==
-X-Received: by 2002:a17:907:9608:b0:a9a:835:b4eb with SMTP id a640c23a62f3a-a9de5fa6071mr718089466b.38.1730124447425;
-        Mon, 28 Oct 2024 07:07:27 -0700 (PDT)
+        bh=XxqlkITvdCM/QWIQix/9plieOyS0wK2Vm/r1GXcM7hA=;
+        b=oaBb5SgJtDOFiO0Y8YpPiH3l+n0eY27PM37EVkSzr8OvJWdg2fWf6OkmAMYsXACu9u
+         TcPxEPzS1ws3/t05hHLnTbecnqgi/lo+pM98MrNXcfn6avimmqJcJmhbKirPBZ2SLcdJ
+         KdJZRw0OHfS3pDUwgOQhAhyPobGTaqoQovJnFhs5FC2MQS/akFqfwKzt8ObOfI41uE8j
+         647ctX6cghmwpyQadOBJNsvmqrmZroZxWwCgn9hkLDV0vU6g8iQBqkEfSDXkjlfHMPe6
+         0DkwPo1wH6tiTHK/f2EyBNHvXiUHhEMuNh8USWOesq8wKfAt+xFZZpiJiJPsPK19uvQ/
+         fH1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUtJPCdXroSjGNivq4LF1PYq91eeSjutXRbjzjvwQObepd4FOwdQH+lrRYzQa/2LSyaE/+fMsHKvWDhDoyEUkOj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpShKwC6Lbs6BUUdxSI3FlaRKtIoS/YPrCqU2G3nXxZRj2BMMQ
+	7YMy5liEjEJOUfKETz5Kj4+bmrYrZxONSdQ568Ja2JxZmYB/8boAwX8DYxta2to=
+X-Google-Smtp-Source: AGHT+IGqxvdjrDjtQcNnn4jWGuT849mWymPdjWEdlc16+0LL2sooJ9QKroNYPN94MhkXvqI/l5IquA==
+X-Received: by 2002:a17:907:970a:b0:a9a:4a:284a with SMTP id a640c23a62f3a-a9de5d8690amr826616066b.26.1730124449033;
+        Mon, 28 Oct 2024 07:07:29 -0700 (PDT)
 Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f029559sm380642166b.58.2024.10.28.07.07.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f297a9csm374074266b.126.2024.10.28.07.07.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 07:07:27 -0700 (PDT)
+        Mon, 28 Oct 2024 07:07:28 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -98,17 +98,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v3 11/12] arm64: dts: bcm2712: Add external clock for RP1 chipset on Rpi5
-Date: Mon, 28 Oct 2024 15:07:28 +0100
-Message-ID: <13ad41f172cc8605cb9b324ea0f22296c4c97033.1730123575.git.andrea.porta@suse.com>
+Subject: [PATCH v3 12/12] arm64: defconfig: Enable RP1 misc/clock/gpio drivers
+Date: Mon, 28 Oct 2024 15:07:29 +0100
+Message-ID: <53f9c2cc91403070475ce01e2f1491e09abea72e.1730123575.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1730123575.git.andrea.porta@suse.com>
 References: <cover.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_070730_050752_F8AF15FF 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241028_070731_337480_51A99B89 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +123,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
-Add clk_rp1_xosc node to provide that.
+Select the RP1 drivers needed to operate the PCI endpoint containing
+several peripherals such as Ethernet and USB Controller. This chip is
+present on RaspberryPi 5.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 6e5a984c1d4e..efdf9abf04c4 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -38,6 +38,13 @@ clk_emmc2: clk-emmc2 {
- 			clock-frequency = <200000000>;
- 			clock-output-names = "emmc2-clock";
- 		};
-+
-+		clk_rp1_xosc: clock-rp1-xosc {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-output-names = "rp1-xosc";
-+			clock-frequency = <50000000>;
-+		};
- 	};
- 
- 	cpus: cpus {
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 5fdbfea7a5b2..5fcd9ae0d373 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -609,6 +609,7 @@ CONFIG_PINCTRL_QCM2290=y
+ CONFIG_PINCTRL_QCS404=y
+ CONFIG_PINCTRL_QDF2XXX=y
+ CONFIG_PINCTRL_QDU1000=y
++CONFIG_PINCTRL_RP1=y
+ CONFIG_PINCTRL_SA8775P=y
+ CONFIG_PINCTRL_SC7180=y
+ CONFIG_PINCTRL_SC7280=y
+@@ -689,6 +690,7 @@ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
+ CONFIG_SENSORS_SL28CPLD=m
+ CONFIG_SENSORS_INA2XX=m
+ CONFIG_SENSORS_INA3221=m
++CONFIG_MISC_RP1=m
+ CONFIG_THERMAL_GOV_POWER_ALLOCATOR=y
+ CONFIG_CPU_THERMAL=y
+ CONFIG_DEVFREQ_THERMAL=y
+@@ -1270,6 +1272,7 @@ CONFIG_COMMON_CLK_CS2000_CP=y
+ CONFIG_COMMON_CLK_FSL_SAI=y
+ CONFIG_COMMON_CLK_S2MPS11=y
+ CONFIG_COMMON_CLK_PWM=y
++CONFIG_COMMON_CLK_RP1=m
+ CONFIG_COMMON_CLK_RS9_PCIE=y
+ CONFIG_COMMON_CLK_VC3=y
+ CONFIG_COMMON_CLK_VC5=y
 -- 
 2.35.3
 
