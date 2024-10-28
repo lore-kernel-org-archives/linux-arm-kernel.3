@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADF5D3399E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A619DD33998
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQ1XilLzMmv/k5AvyiBaieM/m3JB5wIKmkgDo6GM0yQ=; b=Rl4RJopS4MQ0L0N8xp686P+pAq
-	kq7iBXT1uJYW4QFJcNeb8Hv4lMhubZVwQx3V1KobUEehyElmzB/sztRQh37jOLcp0yMftF7hPeFbz
-	DT0hJkSuTTphol2l+lehUm84HN36ewA6hJ/tE6ayf3fvFt5kKGR8aRoym0TmIC+fJrtY4ZMAEgVgj
-	9LzevXZeruhC1hFcM5+7Lrcq60bPQItjgflK2JTGDGIuS72tJJXuy03F0hMxoAzoQfOGz+pLE7zfT
-	XT41rYNVkv7OnWFyuHWBpruMeg/RrFW87Hkcl+HMMfqpxljXrNKECQ+09vDBrU0O7zX/0tWmTUA7k
-	6pJuxauA==;
+	bh=JmodkLtS/XYD6QZM7LmJmXh4F9FYhEXNq73oZR86uq4=; b=JfvHbE5b05mZmA2AU2CV9sjaKo
+	FVdjrd3Sl5DCDzkQjfC5NDUgJo2NTh0L6ZN9/L0zluclvYY3ASWfSKmq8RTI588S+MX/ZasRg2IEL
+	mt0KSO5IH2cFsHi02OjEkxGz9Fjqcx8BlO03HxH6zk4cgOOIcwGUzQ1olmTJTB7hZ4i/Zkn/gBpNx
+	uCUMUAObWg0eEDr7+UZaxFqyOknbVbR4RfIWlEmrpFB8P24x+rAV885aSmWRho074uXxvPVurKrj3
+	jZvvjFGz7Ca0ltUm7QqLVsibaf/VnRDj3gRdKa/ag+JeAw4gJiktoYaeWhHGcThkUa0pJ2TzAJDPJ
+	JwN8SirA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SFT-0000000BPra-35IY;
-	Mon, 28 Oct 2024 16:05:43 +0000
+	id 1t5SH5-0000000BQKs-07Iu;
+	Mon, 28 Oct 2024 16:07:23 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RqT-0000000BLMg-2TMG;
-	Mon, 28 Oct 2024 15:39:54 +0000
+	id 1t5Rrb-0000000BLVs-2dlW;
+	Mon, 28 Oct 2024 15:41:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C42BF5C5B61;
-	Mon, 28 Oct 2024 15:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDF4C4CEC7;
-	Mon, 28 Oct 2024 15:39:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E3FD25C5B61;
+	Mon, 28 Oct 2024 15:40:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0E1C4CEC3;
+	Mon, 28 Oct 2024 15:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730129992;
-	bh=Fx4vDdViRJ8GcQyvhRhbci3FJE9Eix0UuCepUomfBko=;
+	s=k20201202; t=1730130062;
+	bh=1OnKnskO1uPXHT57ko80fWNSrAKlqsEB3xePdsqM5Vs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MIU4DVl/ICbBONRfOJ78jWcnPlXWX85nIcNollz35p37CBnWr9WE2D9YFGUqwpy6T
-	 AvMZkI8V/mOsMw7s3ICzEeTM7go3Wbb1xF4fflMPVLaR94dzQiXS9mSokovK150zzg
-	 Dl+56JLPy1/2kkXed3l09MLTA0Ra5c+m1gyVO8m+ELozLlI304K04eSdUx42QlTzkt
-	 cuuZxEqgUg1ezOWocpl4laFF4Afho3rBK4cGrMXZjZDRHZXa88FLFc2xa6kf0DoH3t
-	 V6s/obpZt83YsWAihAQpvAWPl1LYvwI3ARFkaPn3EOCrj6rhO0Aii+53fPf+qEQMIE
-	 aOHXQT3sJ6WSA==
-Date: Mon, 28 Oct 2024 15:39:47 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mikhail Rudenko <mike.rudenko@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Liam Girdwood <lgirdwood@gmail.com>, Alex Bee <knaerzche@gmail.com>,
-	Lee Jones <lee@kernel.org>, Quentin Schulz <foss+kernel@0leil.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>
-Subject: Re: [PATCH] regulator: rk808: Add apply_bit for BUCK3 on RK809
-Message-ID: <a979db13-9ced-487a-ad35-47d6ea50ddf2@sirena.org.uk>
-References: <20241017-rk809-dcdc3-v1-1-e3c3de92f39c@gmail.com>
- <87v7xcp7bh.fsf@gmail.com>
+	b=p+bslp5nYFB5IdzYlqcPXUe0Deg2tPLvvs4TWlciZJnyPqj4C7msUDWod/mZ74Wbi
+	 V+npdeWkLAM2YaCU68ORi88AWKUdk+SexkhRmxohs3rLk/42hVRfWw3lmcgEXhKfmW
+	 l+9bfe1QEI3TUsTCQUmiCfe1cOZzdBeIsDmI24fTFiyKZwDu9f4TeXEh9Tmi9Z7A4g
+	 RQuSC3lG7y94YkqEIK4qkURF8Scn98uwTY1D6XvZn72zlsfH7cHelHDCN5wkvgpceU
+	 yWqXIdxX1dAjLGXoC7cRczTCjM1LzpGhlbBh2ntrVJVtMMwopnozbfMsplC2SfLpCE
+	 /bnM2cMZeJadg==
+Date: Mon, 28 Oct 2024 15:40:55 +0000
+From: Will Deacon <will@kernel.org>
+To: Usama Arif <usamaarif642@gmail.com>
+Cc: robh@kernel.org, mark.rutland@arm.com, leitao@debian.org,
+	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net,
+	saravanak@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
+ early_init_dt_verify
+Message-ID: <20241028154054.GE2484@willie-the-truck>
+References: <20241023171426.452688-1-usamaarif642@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5gCpyIDO+BYmkXID"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87v7xcp7bh.fsf@gmail.com>
-X-Cookie: Remember the... the... uhh.....
+In-Reply-To: <20241023171426.452688-1-usamaarif642@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_083953_710800_34E29425 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20241028_084103_782861_F97875F6 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +78,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 23, 2024 at 06:14:26PM +0100, Usama Arif wrote:
+>  __pa() is only intended to be used for linear map addresses and using
+> it for initial_boot_params which is in fixmap for arm64 will give an
+> incorrect value. Hence save the physical address when it is known at
+> boot time when calling early_init_dt_scan for arm64 and use it at kexec
+> time instead of converting the virtual address using __pa().
+> 
+> Reported-by: Breno Leitao <leitao@debian.org>
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
+> ---
+> v1 -> 2:
+> - pass dt_phys in early_init_dt_scan instead of creating
+>   anorther arch->dt function (Rob Herring)
+> ---
+>  arch/arc/kernel/devtree.c              |  2 +-
+>  arch/arm/kernel/devtree.c              |  2 +-
+>  arch/arm64/kernel/setup.c              |  6 +++++-
+>  arch/csky/kernel/setup.c               |  4 ++--
+>  arch/loongarch/kernel/setup.c          |  2 +-
+>  arch/microblaze/kernel/prom.c          |  2 +-
+>  arch/mips/kernel/prom.c                |  2 +-
+>  arch/mips/kernel/relocate.c            |  2 +-
+>  arch/nios2/kernel/prom.c               |  4 ++--
+>  arch/openrisc/kernel/prom.c            |  2 +-
+>  arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
+>  arch/powerpc/kernel/prom.c             |  2 +-
+>  arch/powerpc/platforms/pseries/plpks.c |  2 +-
+>  arch/riscv/kernel/setup.c              |  2 +-
+>  arch/sh/kernel/setup.c                 |  2 +-
+>  arch/um/kernel/dtb.c                   |  2 +-
+>  arch/x86/kernel/devicetree.c           |  2 +-
+>  arch/xtensa/kernel/setup.c             |  2 +-
+>  drivers/of/fdt.c                       | 14 ++++++++------
+>  drivers/of/kexec.c                     |  2 +-
+>  include/linux/of_fdt.h                 |  5 +++--
+>  21 files changed, 36 insertions(+), 29 deletions(-)
+> 
+> diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
+> index 4c9e61457b2f..cc6ac7d128aa 100644
+> --- a/arch/arc/kernel/devtree.c
+> +++ b/arch/arc/kernel/devtree.c
+> @@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt)
+>  	const struct machine_desc *mdesc;
+>  	unsigned long dt_root;
+>  
+> -	if (!early_init_dt_scan(dt))
+> +	if (!early_init_dt_scan(dt, __pa(dt)))
+>  		return NULL;
+>  
+>  	mdesc = of_flat_dt_match_machine(NULL, arch_get_next_mach);
+> diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
+> index fdb74e64206a..3b78966e750a 100644
+> --- a/arch/arm/kernel/devtree.c
+> +++ b/arch/arm/kernel/devtree.c
+> @@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt_virt)
+>  
+>  	mdesc_best = &__mach_desc_GENERIC_DT;
+>  
+> -	if (!dt_virt || !early_init_dt_verify(dt_virt))
+> +	if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
+>  		return NULL;
+>  
+>  	mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);
+> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> index b22d28ec8028..177262739c49 100644
+> --- a/arch/arm64/kernel/setup.c
+> +++ b/arch/arm64/kernel/setup.c
+> @@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
+>  	if (dt_virt)
+>  		memblock_reserve(dt_phys, size);
+>  
+> -	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
+> +	/*
+> +	 * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used.
+> +	 * Pass dt_phys directly.
+> +	 */
+> +	if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
 
---5gCpyIDO+BYmkXID
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+nit: It looks like early_init_dt_verify() will now return false if
+!dt_virt, so we can drop the additional check here.
 
-On Mon, Oct 28, 2024 at 06:20:55PM +0300, Mikhail Rudenko wrote:
-> Gentle ping.
-
-Please don't send content free pings and please allow a reasonable time
-for review.  People get busy, go on holiday, attend conferences and so=20
-on so unless there is some reason for urgency (like critical bug fixes)
-please allow at least a couple of weeks for review.  If there have been
-review comments then people may be waiting for those to be addressed.
-
-Sending content free pings adds to the mail volume (if they are seen at
-all) which is often the problem and since they can't be reviewed
-directly if something has gone wrong you'll have to resend the patches
-anyway, so sending again is generally a better approach though there are
-some other maintainers who like them - if in doubt look at how patches
-for the subsystem are normally handled.
-
-Please don't top post, reply in line with needed context.  This allows
-readers to readily follow the flow of conversation and understand what
-you are talking about and also helps ensure that everything in the
-discussion is being addressed.
-
---5gCpyIDO+BYmkXID
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcfsEIACgkQJNaLcl1U
-h9AP3gf/Uo6vVVZ6YhtYq18TjA/BmdNMf6/mLW1e27b4glU3DHiJ0/C8Yi0FIFgq
-v0b2Xiczw/KjSc5T/xu/lz4epzO5vCnqOQ6zk+xzUyOkAg5OGcEEXnq7Ru75YJUL
-+CZj+n8OzccZ+OBtwCSV4AJeValaUO06/ZSRdkY8Y62/fQphXNTJ0SpBBMEV1LJd
-Nb2aL2R5gkQzxRdzEEtG/I8BZIh5XG9PtC+LgkqsoPBCZKderLmJ5huCkrnuBVUN
-DZAF6s6jYDG+wjXYzdfdII4o3l44UDarGzcViWIYlZCeuhw+YPXNxNp0L8Z28bFs
-ln4TlJl1jvXbqEciGDsDAjPI3RmpYA==
-=29HX
------END PGP SIGNATURE-----
-
---5gCpyIDO+BYmkXID--
+Will
 
