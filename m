@@ -4,115 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADABCD13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F426D13596
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLBHziUltQAW7FDBNK1gP2sVn/TdfmJpGc5rzsDsKXI=; b=NEqBWtjOPhvB4NAy1/0RciCnKW
-	0eJj6hamCvtJx2ExN/0BksDawZkscVrsAVHlckRH5NuYViz+WSSjU6RNbo/HzQmrVf3vGANyMFX8f
-	kkw//GTijqiLqkSphXWaQ52GpKEEmlMsGjyEShHexPAVt90xHabizOGy+q8MVcY8gG3wUmtlFcoJL
-	UYbjYz9oiVGkiyTASVoMit9kVQ75X+iWu2HNt5qbWCdp9dqP1MoJsaOoqSrERqOFNUqMM7kPTVIF4
-	KDJYH6p7Gq4bO+qg7vE/bZ6pQneqURHdX2aEK0IsyFGI4vNFahpo0PZzXXKFgAOdgrIGPQsqHUWKe
-	ZW5KW1EQ==;
+	bh=UH7ysjCS+kNlXATrNwXolPo94lK1Lgla+BXfgwd6XPY=; b=0OTe2E5QDw+panVxNrr03eCMN4
+	Udnro/Z7QgNhHH22Y1WCyyTppmIW3VBPlIXZ2yVk8McAsvw3znDFuPbkmGgXEZOFTTqxB+ejae1s2
+	R4wMRP0Eif7BzlRwLlgOMcpT/SdEWk6OeX0c2dc/riYoUjss2m+ymldGZV0AHVymuo5Zh8k1ER3ea
+	DJ1cKJgaVfPjhDpOJplkSNkPTlKMmNZvuVk0miEP95pRky70gGf3tWtSm6ZIxt6Sbwv30djPR6DQR
+	OnPYfjUwmYvZrblCh07g5Z2E0wykBBVTctUIx5VJoEJ1nruThAU9xmoa9t4QJACLqaHgtbA+N3PJB
+	7WVAWkHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Nz7-0000000AaXx-3syV;
-	Mon, 28 Oct 2024 11:32:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NxV-0000000AaM1-3ITz;
-	Mon, 28 Oct 2024 11:30:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6218DA419C9;
-	Mon, 28 Oct 2024 11:28:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86E8C4CEC3;
-	Mon, 28 Oct 2024 11:30:47 +0000 (UTC)
-Message-ID: <563347aa-4155-47e1-b71a-0107aed83eb6@xs4all.nl>
-Date: Mon, 28 Oct 2024 12:30:45 +0100
+	id 1t5OA9-0000000AbiR-1luw;
+	Mon, 28 Oct 2024 11:43:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5O8X-0000000AbPA-3v9y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 11:42:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A52B497;
+	Mon, 28 Oct 2024 04:42:44 -0700 (PDT)
+Received: from [10.57.89.58] (unknown [10.57.89.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59E0C3F73B;
+	Mon, 28 Oct 2024 04:42:12 -0700 (PDT)
+Message-ID: <3d2041e7-95eb-4d60-92ab-d67e2f46531e@arm.com>
+Date: Mon, 28 Oct 2024 11:41:25 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Naushir Patuck
- <naush@raspberrypi.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
- <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
- <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
- <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
- <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
- <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
- <59cf95be-fb53-4a94-bc6e-f9dca322749d@xs4all.nl>
- <5832a2f9-c908-4f5a-a3ee-9cb7d23ddab4@ideasonboard.com>
-Content-Language: en-US, nl
-From: Hans Verkuil <hverkuil@xs4all.nl>
-Autocrypt: addr=hverkuil@xs4all.nl; keydata=
- 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
-In-Reply-To: <5832a2f9-c908-4f5a-a3ee-9cb7d23ddab4@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2] iommu/arm-smmu: Add judgment on the size and granule
+ parameters passed in
+To: goutongchen@uniontech.com
+Cc: dmitry.baryshkov@linaro.org, gouhao@uniontech.com, iommu@lists.linux.dev,
+ jgg@ziepe.ca, joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, robdclark@chromium.org, will@kernel.org
+References: <20241024100224.62942-1-goutongchen@uniontech.com>
+ <20241028034823.22838-1-goutongchen@uniontech.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241028034823.22838-1-goutongchen@uniontech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_043053_958119_59563B79 
-X-CRM114-Status: GOOD (  37.01  )
+X-CRM114-CacheID: sfid-20241028_044218_100386_B8F3CEF2 
+X-CRM114-Status: GOOD (  25.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,150 +67,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 12:25, Tomi Valkeinen wrote:
-> Hi,
+On 2024-10-28 3:48 am, goutongchen@uniontech.com wrote:
+> From: goutongchen <goutongchen@uniontech.com>
 > 
-> On 28/10/2024 13:13, Hans Verkuil wrote:
->> On 28/10/2024 12:05, Tomi Valkeinen wrote:
->>> Hi Hans,
->>>
->>> On 28/10/2024 12:11, Hans Verkuil wrote:
->>>> On 28/10/2024 10:21, Tomi Valkeinen wrote:
->>>>> Hi,
->>>>>
->>>>> On 24/10/2024 11:20, Hans Verkuil wrote:
->>>>>> Hi Tomi,
->>>>>>
->>>>>> I know this driver is already merged, but while checking for drivers that use
->>>>>> q->max_num_buffers I stumbled on this cfe code:
->>>>>>
->>>>>> <snip>
->>>>>>
->>>>>>> +/*
->>>>>>> + * vb2 ops
->>>>>>> + */
->>>>>>> +
->>>>>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
->>>>>>> +               unsigned int *nplanes, unsigned int sizes[],
->>>>>>> +               struct device *alloc_devs[])
->>>>>>> +{
->>>>>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
->>>>>>> +    struct cfe_device *cfe = node->cfe;
->>>>>>> +    unsigned int size = is_image_node(node) ?
->>>>>>> +                    node->vid_fmt.fmt.pix.sizeimage :
->>>>>>> +                    node->meta_fmt.fmt.meta.buffersize;
->>>>>>> +
->>>>>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
->>>>>>> +        node->buffer_queue.type);
->>>>>>> +
->>>>>>> +    if (vq->max_num_buffers + *nbuffers < 3)
->>>>>>> +        *nbuffers = 3 - vq->max_num_buffers;
->>>>>>
->>>>>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
->>>>>> is called. So 32 + *nbuffers is never < 3.
->>>>>>
->>>>>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
->>>>>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
->>>>>> for you.
->>>>>>
->>>>>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
->>>>>> since the code is almost always wrong.
->>>>>
->>>>> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
->>>>>
->>>>> if (vq->num_buffers + *nbuffers < 3)
->>>>>           *nbuffers = 3 - vq->num_buffers;
->>>>>
->>>>> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
->>>>>
->>>>> The distinction between min_queued_buffers and min_reqbufs_allocation, or rather the need for the latter, still escapes me. If the HW/SW requires N buffers to be queued, why would we require
->>>>> allocating more than N buffers?
->>>>
->>>> min_queued_buffers is easiest to explain: that represents the requirements of the DMA
->>>> engine, i.e. how many buffers much be queued before the DMA engine can be started.
->>>> Typically it is 0, 1 or 2.
->>>>
->>>> min_reqbufs_allocation is the minimum number of buffers that will be allocated when
->>>> calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
->>>> or dropping frames.
->>>>
->>>> Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
->>>> and the third is being processed by userspace. But sometimes drivers have other
->>>> requirements.
->>>>
->>>> The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
->>>> expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
->>>> https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
->>>>
->>>> "It can be smaller than the number requested, even zero, when the driver runs out of
->>>>    free memory. A larger number is also possible when the driver requires more buffers
->>>>    to function correctly."
->>>>
->>>> How drivers implement this is a mess, and usually the code in the driver is wrong as
->>>> well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
->>>> instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
->>>
->>> Thanks, this was educational!
->>>
->>> So. If I have a driver that has min_queued_buffers = 1, I can use VIDIOC_CREATE_BUFS to allocate a single buffer, and then capture just one buffer, right? Whereas VIDIOC_REQBUFS would give me
->>> (probably) three (or two, if the driver does not set min_reqbufs_allocation). Three buffers makes sense for full streaming, of course.
->>>
->>>> When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
->>>> to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
->>>> if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
->>>> with this ioctl the number of buffers will never be more than requested, although it
->>>> may be less if you run out of memory.
->>>>
->>>> I really should go through all existing drivers and fix them up if they try to
->>>> handle this in the queue_setup function, I suspect a lot of them are quite messy.
->>>>
->>>> One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
->>>> buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
->>>
->>> Hmm, so what I wrote above is not correct? One needs min_queued_buffers + 1? Why is that?
->>
->> The DMA engine always uses min_queued_buffers, so if there are only that many buffers,
->> then it can never return a buffer to userspace! So you need one more. That's the absolute
->> minimum. For smooth capture you need two more to allow time for userspace to process the
->> buffer.
+> In the arm_smmu_tlb_inv_range_s1 and arm_smmu_tlb_inv_range_s2
+> functions, the size and granule passed in must be judged.
+> It must be ensured that the passed in parameter is not 0 and
+> the size is an integer multiple of the granule, otherwise it
+> will cause an infinite while loop.
 > 
-> Hmm, ok, I see. Well, I guess my "I want to capture just a single frame" is not a very common case.
-> 
-> Can I queue one buffer, start streaming, stop streaming, and get the filled buffer? But then I guess I don't when the buffer has been filled, i.e. when to call stop streaming.
+> This was encountered during testing, and was initially triggered
+> by passing in a size value of 0, causing the kernel to crash.
 
-Exactly. If you really want that, then the driver has to be adapted in the way that Laurent
-suggested, i.e. with one or more scratch buffers. But that is not always possible, esp. with
-older hardware without an IOMMU.
+Still NAK. If there is a bug in the upstream io-pgtable-arm code which 
+can actually cause this, please send a patch to fix *that* bug. 
+Otherwise, if you've made a broken downstream change then it is not 
+upstream's responsibility to maintain unnecessary code in a questionable 
+attempt to paper over (some small subset of) such brokenness.
 
-Regards,
+If you pass any sufficiently large size value which *does* happen to be 
+a multiple of the granule, you're still going to see the same RCU stalls 
+and failure to progress within reasonable time. If you pass something 
+inappropriate for the "cookie" pointer, you're likely to corrupt memory 
+or really crash. If you pass arguments which all look plausible but 
+still don't match what actually needs invalidating, the consequences of 
+under-invalidation can be even more subtle, nasty and hard to debug.
 
-	Hans
+The iommu_flush_ops are not a public interface intended to be called 
+arbitrarily from anywhere in the kernel with unchecked input, they are a 
+low-level private interface between IOMMU drivers and their respective 
+io-pgtable implementations, and as such they are designed for their 
+callers to call them correctly by construction. Calling them incorrectly 
+indicates a serious bug in the caller, since getting mapping and/or TLB 
+invalidation wrong often leads to memory corruption or other issues down 
+the line. Hence I'm not convinced this change is actually even desirable 
+as a downstream debugging aid - if you're lucky enough to get stuck on 
+an obviously-wrong call here, that's surely the clearest possible 
+indication of the source of the bug in its calling context, far better 
+than trying to ignore it and then having it drowned out by more distant 
+things blowing up later due to 2nd- and 3rd-order effects.
 
+Thanks,
+Robin.
+
+> [    8.214378][  T675] xhci_hcd 0000:0b:00.0: new USB bus registered, assigned bus number 1
+> [   68.246185][    C0] rcu: INFO: rcu_sched self-detected stall on CPU
+> [   68.246866][    C0] rcu:     0-....: (5999 ticks this GP) idle=796c/1/0x4000000000000000 softirq=161/161 fqs=2999
+> [   68.247924][    C0] rcu:     (t=6000 jiffies g=-699 q=1 ncpus=128)
+> [   68.248452][    C0] CPU: 0 PID: 675 Comm: kworker/0:2 Not tainted 6.6.0-25.02.2500.002.uos25.aarch64 #1
+> [   68.249237][    C0] Hardware name: Inspur     CS5260F     /CS5260F          , BIOS 4.0.16 05/31/22 16:53:51
+> [   68.250029][    C0] Workqueue: events work_for_cpu_fn
+> [   68.250497][    C0] pstate: a0000005 (NzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [   68.251188][    C0] pc : arm_smmu_tlb_inv_range_s1+0xf0/0x158
+> [   68.251704][    C0] lr : arm_smmu_tlb_inv_walk_s1+0x44/0x68
+> [   68.252189][    C0] sp : ffff80008044b780
+> [   68.252530][    C0] x29: ffff80008044b780 x28: 0000000000000000 x27: 0000000000001000
+> [   68.253212][    C0] x26: 0000000000000600 x25: 0000000000000001 x24: 0000000000000600
+> [   68.253857][    C0] x23: 0000000000000000 x22: 0000000000001000 x21: fffffc64e2e59000
+> [   68.254544][    C0] x20: 0000000039c1d1a6 x19: ffff3fe944c40280 x18: 0000000000000000
+> [   68.255240][    C0] x17: 626d756e20737562 x16: ffffb0e7e08c1008 x15: 0000000000000000
+> [   68.255930][    C0] x14: ffff3ef8c1ea15cd x13: ffff3ef8c1ea15cb x12: fffffcfba30e3880
+> [   68.256538][    C0] x11: 00000000ffff7fff x10: ffff80008044b6b0 x9 : ffffb0e7decd1b5c
+> [   68.257126][    C0] x8 : 0000000000000dc0 x7 : ffff3ee8c4148000 x6 : ffff3ee8c4148000
+> [   68.257822][    C0] x5 : 0000000000000008 x4 : 0000000000000000 x3 : ffff3fe944c40800
+> [   68.258497][    C0] x2 : 0000000000000010 x1 : 0000000000000020 x0 : ffffb0e7dfd6c3d0
+> [   68.259185][    C0] Call trace:
+> [   68.259451][    C0]  arm_smmu_tlb_inv_range_s1+0xf0/0x158
+> [   68.259933][    C0]  arm_smmu_tlb_inv_walk_s1+0x44/0x68
+> [   68.260384][    C0]  __arm_lpae_map+0x1f0/0x2c0
+> [   68.260796][    C0]  arm_lpae_map_pages+0xec/0x150
+> [   68.261215][    C0]  arm_smmu_map_pages+0x48/0x130
+> [   68.261654][    C0]  __iommu_map+0x134/0x2a8
+> [   68.262098][    C0]  iommu_map_sg+0xb8/0x1c8
+> [   68.262500][    C0]  __iommu_dma_alloc_noncontiguous.constprop.0+0x180/0x270
+> [   68.263145][    C0]  iommu_dma_alloc+0x178/0x238
+> [   68.263557][    C0]  dma_alloc_attrs+0xf8/0x108
+> [   68.263962][    C0]  xhci_mem_init+0x1e8/0x6d0
+> [   68.264372][    C0]  xhci_init+0x88/0x1d0
+> [   68.264736][    C0]  xhci_gen_setup+0x284/0x468
+> [   68.265121][    C0]  xhci_pci_setup+0x60/0x1f8
+> [   68.265506][    C0]  usb_add_hcd+0x278/0x650
+> [   68.265860][    C0]  usb_hcd_pci_probe+0x218/0x458
+> [   68.266256][    C0]  xhci_pci_probe+0x7c/0x270
+> [   68.266660][    C0]  local_pci_probe+0x48/0xb8
+> [   68.267074][    C0]  work_for_cpu_fn+0x24/0x40
+> [   68.267548][    C0]  process_one_work+0x170/0x3c0
+> [   68.267999][    C0]  worker_thread+0x234/0x3b8
+> [   68.268383][    C0]  kthread+0xf0/0x108
+> [   68.268704][    C0]  ret_from_fork+0x10/0x20
 > 
-> So, never mind, I don't actually have any use case for this, just wondering.
+> Signed-off-by: goutongchen <goutongchen@uniontech.com>
+> ---
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
 > 
->>>
->>>> to use CREATE_BUFS you need that information so you know that you have to create
->>>> at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
->>>> but it is effectively codec specific. This probably should be clarified.
->>>>
->>>> I wonder if it wouldn't be better to add a min_num_buffers field to
->>>> struct v4l2_create_buffers and set it to min_queued_buffers + 1.
->>>
->>> I think this makes sense (although I still don't get the +1).
->>>
->>> However, based on the experiences from adding the streams features to various ioctls, let's be very careful =). The new 'min_num_buffers' can be filled with garbage by the userspace. If we define the
->>> 'min_num_buffers' field to be always filled by the kernel, and any value provided from the userspace to be ignored, I think it should work.
->>
->> I've posted an RFC for this.
-> 
-> Thanks, I'll check it out.
-> 
-> For the original issue in this thread, I think the correct fix is to remove the lines from cfe_queue_setup(), and add "q->min_reqbufs_allocation = 3".
-> 
-> I'll send a patch for that.
-> 
->  Tomi
-> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index 8321962b3714..fdd7d7e9ce06 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -282,6 +282,13 @@ static void arm_smmu_tlb_inv_range_s1(unsigned long iova, size_t size,
+>   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>   	int idx = cfg->cbndx;
+>   
+> +	if (size == 0 || granule == 0 || (size % granule) != 0) {
+> +		dev_err(smmu->dev,
+> +				 "The size or granule passed in is err. size=%zu, granule=%zu\n",
+> +				 size, granule);
+> +		return;
+> +	}
+> +
+>   	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
+>   		wmb();
+>   
+> @@ -309,6 +316,13 @@ static void arm_smmu_tlb_inv_range_s2(unsigned long iova, size_t size,
+>   	struct arm_smmu_device *smmu = smmu_domain->smmu;
+>   	int idx = smmu_domain->cfg.cbndx;
+>   
+> +	if (size == 0 || granule == 0 || (size % granule) != 0) {
+> +		dev_err(smmu->dev,
+> +				 "The size or granule passed in is err. size=%zu, granule=%zu\n",
+> +				 size, granule);
+> +		return;
+> +	}
+> +
+>   	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
+>   		wmb();
+>   
 
 
