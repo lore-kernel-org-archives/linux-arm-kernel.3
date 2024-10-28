@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FC5D10C11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECA6D1039A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=idA2hEcUdIZdPkR2DtLiEItPPio04naz2YdamBrPyD0=; b=y0TVJdi4Dn81fmHyo97IkkHcMq
-	SDEUynrgLWacNzC3Cnqn30jiqvgnS1DOuPQdnOrRfywxAineNNUwVOEXfjyAtdMcWCALlgSNzgTry
-	906sauhgECRp5N0oo5xesQnqOh1uK+NHNIluHKoo/ehDCpgAc5q3++m80iYKo4K8kJy4U/Xxj3ufM
-	az5FM2sYv2Z7NXPDeane7+KMWXyHJhI3v53CfrcEIXmq8h63kVHyB17LQ87vti6sv/tC04Qq+5o64
-	LJ0y/0tyQDAAw2y2yAbcYep2GhplFPjIjRMD/v++NXmJrA6rX7AmGGKp84L6q31WA0YpxsaysPduT
-	LpNVppzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Yf3z2Ms2l6WFLpLoKfJUapanT3ncANvk30GijyreCw=; b=JoPDGjFIfmqtYZHc1hIbmuQ7Ge
+	cQyKO7EKapvtt6bwaY8ePYcX1VfawQ1utR6HMg5SlJ9uh/78A9mQY/eKn5Oj7IQF8CXhpUnkYPOV1
+	GEN5g+ySjCJFQGulU5VwBo3X6/Gm37djWbTaGoW4YRHe16tpMEEU7VquUaPK5kAVJpE9WD0CXS1E2
+	UCA2fEadzfVhcegqtMKYASOc0Cx9vEAkeEAWbRGyb8Phi2bS7i8aA1P5XZtswjGXiEdeiKAtIxIEu
+	PkoQtruw2pEaJ/7B8IGW0g+tcqRF76P/OBxc5jCTHRLxs0rZ+9bZJFaAmsumS9Ps8/7Recd6dgw0i
+	nbTqHeBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PFk-0000000AqOn-4BRF;
-	Mon, 28 Oct 2024 12:53:49 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1t5PHK-0000000Aqam-2gSS;
+	Mon, 28 Oct 2024 12:55:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5P8P-0000000Aojq-16E3
+	id 1t5P9n-0000000ApA0-27mN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 12:46:14 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20b5affde14so29411845ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 05:46:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730119572; x=1730724372; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=idA2hEcUdIZdPkR2DtLiEItPPio04naz2YdamBrPyD0=;
-        b=lZBBDNROHViABAtPup/yHPT0Fgl3INn3GfSReL53cLXw15sN3EAgR2Nk7c0gbl8ige
-         gXDcfZYe8SqCUo5O13yfohEWA3875lmT1wDYSOteOl+vPCjRJToALH0Q6WBGjUlryJ4g
-         4WG/YlzCGkECclOGFXa/zOPbd4uEVE6RzjxGNAZmhy1X/u+xl8EtFu96OCqLqO+N2cyb
-         QIoo6qglNoJc8cp3CAK0gSMW8LjyrG3e8YX8tFLhWGdHWMdzV8tSi0gljEe3fvi3+vq5
-         50/nu8gH65paRPuF+RLq+E4ZS6rqmEULNWs2oVxiHOl0dL14MQhiNZOAJyyZvbmuoGtg
-         KzSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730119572; x=1730724372;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=idA2hEcUdIZdPkR2DtLiEItPPio04naz2YdamBrPyD0=;
-        b=bV6ss8jf44a/4QFrJPNyVTWuDh8tFgNAvMJBEv5D7SleLxfgjacBTR1idVl9IZn4zi
-         lq/8wlzur53iAskXYUj6DBRUVd6NTsUXCaByCoSmGbDXIgh2+lTmRRl8KKAw+K593X5i
-         BlUL2Wd6CtYm0f0Ev7dWLFZorN3Z2X/ExSCYqX4mwViIEHrN1477O39dagjSg9EGGSMO
-         QLMa79MdMAWuMpxtnVRVKqu9SA6FtlrBtsLs2KslfOuLNS56AgFl6AmpVbf4ZiUvnhGE
-         cheyTklYHSybApYt4neEMG4V/mnJIwZvSsy8C6FKtewdMz2JkxpZ/fMOrfDvFygW7yww
-         kiPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7ffDnDrfLPDp+NWGxvLxTZEVTcMgdLM6gTo6U3KiCP1F/eg99BvZ1Y234mzYqIyOVCuN8FndEJGrGJBjBibhO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAvdB8NZyHlkYGlEF7UhpEim1TwL34/sYKMrp1/NHG4qqwkaL3
-	XO7Pb/y+J3nPhR2umVw02EeYdVa2YZDX3ImawbQSB6/+cKGYwj6y
-X-Google-Smtp-Source: AGHT+IEhWhO8jWtASWcjVnLJnH+2CiugnkO8wyv3J5+FMlEyhT7K9Ky7XdsE9koqPkJFrgnGLvmvEw==
-X-Received: by 2002:a17:902:db0f:b0:20c:cf39:fe3c with SMTP id d9443c01a7336-210c6c34824mr111646485ad.41.1730119572121;
-        Mon, 28 Oct 2024 05:46:12 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:325c:8d87:ee5c:f04e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc017858sm49969895ad.134.2024.10.28.05.46.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 05:46:11 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH] ARM: dts: imx6sll: Improve gpc description
-Date: Mon, 28 Oct 2024 09:45:45 -0300
-Message-Id: <20241028124545.72652-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 28 Oct 2024 12:47:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A6DFEA419DD;
+	Mon, 28 Oct 2024 12:45:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5529BC4CEC3;
+	Mon, 28 Oct 2024 12:47:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730119658;
+	bh=OlZRFoq/d2AxHvHoLmuiflTglaY8xpIsCiBPVNVcTJI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=XgEqUa8ho42bb+yGuEH9XkK4eQ9oawObnaYQ3J0+IZvXG3ToTEigom2v9XbI+d6vy
+	 xYQ4vHIt4IYi1Ksh39GYV77uXOYz85aZ6jNU+OWk6pHfDB7n2JfgjkouF6ofaaIYsF
+	 3DmWhoIwwlhDRSMJnFhJgiSYQOKZ1gyvAoy5THY3hrTM4nCJjTtExvQJP3a7bUT88b
+	 KRZA8e6CDinrPSPidQib2chsGbcvivIeelaa5WIkqDPDdtKZPwzWjqtpIXl5n7pwzx
+	 Zwr4w9QCEfUecTACLN3WnN+9ont9VpdWNGxQpFtKImVKYe5he04xL0d4ueIv7Doyod
+	 j4t6juMe+uiwQ==
+X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 3/4] arm64: mte: update code comments
+In-Reply-To: <87plnktt2q.wl-maz@kernel.org>
+References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+ <20241028094014.2596619-4-aneesh.kumar@kernel.org>
+ <87plnktt2q.wl-maz@kernel.org>
+Date: Mon, 28 Oct 2024 18:17:30 +0530
+Message-ID: <yq5attcwcs2l.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_054613_340818_C8F40BF3 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_054739_694059_3325BDF4 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+Hi Marc,
 
-According to fsl,imx-gpc.yaml, 'clocks', 'clock-names', and 'pgc'
-are required properties.
+Thanks for reviewing the changes.
 
-Describe them to fix the following dt-schema warnings:
+Marc Zyngier <maz@kernel.org> writes:
 
-interrupt-controller@20dc000: 'clocks' is a required property
-interrupt-controller@20dc000: 'clock-names' is a required property
-interrupt-controller@20dc000: 'pgc' is a required property
+> On Mon, 28 Oct 2024 09:40:13 +0000,
+> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+>> 
+>> commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
+>> initialisation") updated the locking such the kernel now allows
+>> VM_SHARED mapping with MTE. Update the code comment to reflect this.
+>> 
+>> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>> ---
+>>  arch/arm64/kvm/mmu.c | 12 ++++++------
+>>  1 file changed, 6 insertions(+), 6 deletions(-)
+>
+> This is a KVM patch. Please make sure you write the subject
+> accordingly, matching the existing conventions (in this case, this
+> should read something like: "KVM: arm64: MTE: Update...").
+>
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Will update
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-index 85fe2a4ab97a..d219c2b67294 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-@@ -602,6 +602,18 @@ gpc: interrupt-controller@20dc000 {
- 				#interrupt-cells = <3>;
- 				interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
- 				interrupt-parent = <&intc>;
-+				clocks = <&clks IMX6SLL_CLK_IPG>;
-+				clock-names = "ipg";
-+
-+				pgc {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					power-domain@0 {
-+						reg = <0>;
-+						#power-domain-cells = <0>;
-+					};
-+				};
- 			};
- 
- 			iomuxc: pinctrl@20e0000 {
--- 
-2.34.1
+>
+>> 
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index a509b63bd4dd..b5824e93cee0 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1390,11 +1390,8 @@ static int get_vma_page_shift(struct vm_area_struct *vma, unsigned long hva)
+>>   * able to see the page's tags and therefore they must be initialised first. If
+>>   * PG_mte_tagged is set, tags have already been initialised.
+>>   *
+>> - * The race in the test/set of the PG_mte_tagged flag is handled by:
+>> - * - preventing VM_SHARED mappings in a memslot with MTE preventing two VMs
+>> - *   racing to santise the same page
+>> - * - mmap_lock protects between a VM faulting a page in and the VMM performing
+>> - *   an mprotect() to add VM_MTE
+>> + * The race in the test/set of the PG_mte_tagged flag is handled by
+>> + * using PG_mte_lock and PG_mte_tagged together.
+>
+> How? This comment is pretty content-free. TO be useful, you should
+> elaborate on *how* these two are used together.
+>
 
+I will add more details described in commit d77e59a8fccde7fb5dd8c57594ed147b4291c970
+Should i quote the commit there in the comment? 
+
+>
+>>   */
+>>  static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
+>>  			      unsigned long size)
+>> @@ -1646,7 +1643,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>>  	}
+>>  
+>>  	if (!fault_is_perm && !device && kvm_has_mte(kvm)) {
+>> -		/* Check the VMM hasn't introduced a new disallowed VMA */
+>> +		/*
+>> +		 *  not a permission fault implies a translation fault which
+>> +		 *  means mapping the page for the first time
+>
+> How about an Access fault due to page ageing?
+>
+
+IIUC access fault is already handled by the caller kvm_handle_guest_abort?
+I can add that as part of the updated comments?
+
+-aneesh
 
