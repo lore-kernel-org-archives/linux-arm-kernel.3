@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C91D5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BCCD5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUzm3iOgGmyjFGkOgYhiwc8Vi6QzfsnUah2xeQSmRA8=; b=1TmoZVzxw86PNTcYhBi9tAdWWe
-	Q4g8hDd1xfiwncPCYyWstD385w0nU/vPTZTKjQHRg4wlECb3EJ8iVfE1hQ54Q/ik3Ywg7BJ8EOG19
-	+Pw+uC+CP0uX805TCUfk/XXIeFJHnJzjKD5SBXPtKG4K3Qe9xu5Q3DB+L6+pu9DlUcEFRi83s54vs
-	wQ1XQJd+sX+Ex8Z0qMQbFOW40rdsglHYALoPxREhlQZ8SnIn8HEMFnP6Fwpr+N2N6q3VfJbDsZkR5
-	6fkLhAuFKmLJO/S6IV4qeVck9Ytx56buwOB58CFbtmmM6xNPSBRBqieAo4FT/6MIyO37vpfY5Sw2L
-	YFLSocsw==;
+	bh=9BcUR4WgMD71KizwO9zUGlZyjt1hViz8r9BhCnOrocU=; b=OOShEptYqMjb96/lJdu6c3YAF+
+	bzjxJebGsInPLrDUqwbU/Guzhno0n8QI+pOYNOzx/m2hATlMVnNQvJ4TzymtbyQjppIlkfY5P/K6g
+	xy9+6ISxf5rT01zgsuf+xDDEhGYDKAOYyF7p+RM7Lemzxncr62Em433NVCYiVF9ifMHhqWJQHXofJ
+	pzene00/f2Qa8MA8Va6duJ/sS2dPR4NXsSfoAHAXx+nxFOVCtBeFvw9/k8KVursks2eYNN3JgGYe9
+	JVUb/EuhI7sPsH4ALiIPuefsCEtL6W3BZ67fYOK+Izruwdh5dpz37mh/UBIFpX6mIyOCozeK/opiR
+	lurrbtaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Wsr-0000000CHSe-1sSK;
-	Mon, 28 Oct 2024 21:02:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5WuP-0000000CHaj-1zmr;
+	Mon, 28 Oct 2024 21:04:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5WJw-0000000C9YK-42iC
+	id 1t5WK0-0000000C9ZC-1hIO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:26:38 +0000
+	Mon, 28 Oct 2024 20:26:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6F81A5C53C8;
-	Mon, 28 Oct 2024 20:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E4EC4CEE4;
-	Mon, 28 Oct 2024 20:26:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 87B8DA4298D;
+	Mon, 28 Oct 2024 20:24:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BE27C4CEC3;
+	Mon, 28 Oct 2024 20:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730147196;
-	bh=FN01wAAM5D8ZMfrYQkBkqRMg6r+p3qmFRREh7tSlgYo=;
+	s=k20201202; t=1730147199;
+	bh=7uuIvssgPmNN0rgvBR2HltfMJC/cwbms6ZSXTgQ7BIU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=P3C0ddgp4phz7rTiKtrn+fbmvzltuGLSD+3p+Au18P72iXatX5ce7fvsRnFjBbYqj
-	 QipLXVvqhMxyL9mFgsi4y1qU1u7xgFRKZmJaDSJezL0IFf2s5j1IHM2exEhd8mkCHz
-	 uOv5WokY6qtcIi+cfa9LMoMBaf3nU9+Bm9QcQItDxhPG1iJJwseN5Bm5zWNJZSgTkf
-	 PKmSp3T+COJUc3f4cwSdMMGvuqDAU89JrkkoTbYHO1TJlQzOPoqMPNrVyVGx4s4wsG
-	 kXplxAixT1Thq+rH2uzki76Wufh0CjMVp4rCVwXUyJlDKwuzF7ZNfDFkcoji57A0/q
-	 yeIdarDR0v6Hw==
+	b=l3uO/ulc3ocueXipIvwxjEj/c0ijlaZ8oAL1cZRXhMGXqldt5LMHpkebFm2iuqR2R
+	 7lbwBHsAAPGxe/+dCexr2UqrJ5wc6L7KrxBvFHgyV0XOkcZlXtjctHrvu8u0ZEbKlY
+	 9nloLi+6tYnF3gzNGET6LnpXD8jgenT89wgATOkpsP1Ldcn1dn7BCPodS2Ek6RgPO3
+	 QK3teelEI8OjQCkABs26+pmK7WK0JlEFuqzYgaA8majnKgc1yDivewwr91jLB6uwYG
+	 vFSBMCUjdFAgqJQaowbwDPLjHd3Fa5VhPMUbNvbxbobkjeU9Fl3te0ddMkX+IXm54j
+	 /Ow5vr52c7vDg==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 28 Oct 2024 20:24:13 +0000
-Subject: [PATCH 4/9] arm64/sysreg: Update ID_AA64ZFR0_EL1 to DDI0601
+Date: Mon, 28 Oct 2024 20:24:14 +0000
+Subject: [PATCH 5/9] arm64/sysreg: Update ID_AA64SMFR0_EL1 to DDI0601
  2024-09
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-arm64-2024-dpisa-v1-4-a38d08b008a8@kernel.org>
+Message-Id: <20241028-arm64-2024-dpisa-v1-5-a38d08b008a8@kernel.org>
 References: <20241028-arm64-2024-dpisa-v1-0-a38d08b008a8@kernel.org>
 In-Reply-To: <20241028-arm64-2024-dpisa-v1-0-a38d08b008a8@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -61,20 +61,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1302; i=broonie@kernel.org;
- h=from:subject:message-id; bh=FN01wAAM5D8ZMfrYQkBkqRMg6r+p3qmFRREh7tSlgYo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnH/NoFqkcnBz5GKBfDodahpIRTDaaf4zSQp/88sVI
- r9TS7PyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZx/zaAAKCRAk1otyXVSH0FzMB/
- 96ysFmW6P71QjtffhaS+xwXkOmBCPFj+RfWbn6KXXPQ0pqf5VxBamOOlh0hjvifAHQ8DClaDeupO5H
- 9/qXOFxmb9tJLD8pC5OxDdCJT2tRBIzEwP9fOJW4h1kD9N5ZczGGiOYsSrScvrKqO3WUZPij2pd4ks
- j0n8HTPMWOlZXhtNk7OHlaFdQrvjEVjnCY1A0kzAusHYnImNGMAuXrV1/aHcGoiT8sWWBftSNo6FFr
- BlsTWLMYWf5sopFeNA5y/iVHffBe0QLCxCo3HfzdwghVYvbJ6HVCp23aARQfFC43L4+4I0hkvgHJHu
- uY1EesCMNi9sjo1Qf+JXtkFkM+jlHS
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1279; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=7uuIvssgPmNN0rgvBR2HltfMJC/cwbms6ZSXTgQ7BIU=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhnT5z5mhH1wdu152/fp1M+Nmta6exZnPv89NDVWS8TbbX8uk
+ w6XZyWjMwsDIxSArpsiy9lnGqvRwia3zH81/BTOIlQlkCgMXpwDcaD/2v+I3dtbv5FOdtKPxtczuko
+ mWjM2LjJd7qiRpvo59mu6WXOkiEiF/YtZUx/hDe6V/ylkuOhd7ZPN0jgn2RoLusvUZ/V+YVZ7rteqI
+ 3ZjnNpfpdEbF8y/M/ifiz3O5MfNz2CuenOaif01OcfJ5eRkxzR7fB8ZnwpW0LFmDWyK/JAst9Tu0fn
+ 2lzGPbp2sttK4H+Wx5szDvwqF3istZNyReu/C7vu1MjFZKUaytRpO+pU0A//+bUUc0dOxf5W4TZUnz
+ 9p3qOc0h5vsl+c+BAZuP9e6tcnj01y1dS0rnZT6f8pq0MBG+p+t1So9vju2M+XFcfLGDs1Nlx7/bL4
+ KWbWZgVmu17/mo0Bpgc0T8zFkA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_132637_075824_0E641BA7 
-X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-CacheID: sfid-20241028_132640_533259_03C33B00 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,62 +90,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DDI0601 2024-09 introduces SVE 2.2 as well as a few new optional features,
-update sysreg to reflect the changes in ID_AA64ZFR0_EL1 enumerating them.
+DDI0601 2024-09 introduces SME 2.2 as well as a few new optional features,
+update sysreg to reflect the changes in ID_AA64SMFR0_EL1 enumerating them.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/tools/sysreg | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ arch/arm64/tools/sysreg | 32 +++++++++++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 26f1350c9d2e3baf39ac3bdcc96fc1e6deb5a5c6..d487c78520b97c8f96c70181e39eccb91d6fe1af 100644
+index d487c78520b97c8f96c70181e39eccb91d6fe1af..808bbd6d3a40a4cd652ac25d686f11ccafc5acf3 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1040,7 +1040,10 @@ UnsignedEnum	55:52	F32MM
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--Res0	51:48
-+UnsignedEnum	51:48	F16MM
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- UnsignedEnum	47:44	I8MM
- 	0b0000	NI
- 	0b0001	IMP
-@@ -1058,6 +1061,7 @@ Res0	31:28
- UnsignedEnum	27:24	B16B16
- 	0b0000	NI
- 	0b0001	IMP
-+	0b0010	BFSCALE
- EndEnum
- UnsignedEnum	23:20	BF16
- 	0b0000	NI
-@@ -1068,16 +1072,22 @@ UnsignedEnum	19:16	BitPerm
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--Res0	15:8
-+UnsignedEnum	15:12	EltPerm
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
-+Res0	11:8
- UnsignedEnum	7:4	AES
- 	0b0000	NI
- 	0b0001	IMP
- 	0b0010	PMULL128
-+	0b0011	AES2
- EndEnum
- UnsignedEnum	3:0	SVEver
+@@ -1105,6 +1105,7 @@ UnsignedEnum	59:56	SMEver
+ 	0b0000	SME
+ 	0b0001	SME2
+ 	0b0010	SME2p1
++	0b0011	SME2p2
  	0b0000	IMP
- 	0b0001	SVE2
- 	0b0010	SVE2p1
-+	0b0011	SVE2p2
  EndEnum
+ UnsignedEnum	55:52	I16I64
+@@ -1169,7 +1170,36 @@ UnsignedEnum	28	SF8DP2
+ 	0b0	NI
+ 	0b1	IMP
+ EndEnum
+-Res0	27:0
++UnsignedEnum	27	SF8MM8
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	26	SF8MM4
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	25	SBitPerm
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	24	AES
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	23	SFEXPA
++	0b0	NI
++	0b1	IMP
++EndEnum
++Res0	22:17
++UnsignedEnum	16	STMOP
++	0b0	NI
++	0b1	IMP
++EndEnum
++Res0	15:1
++UnsignedEnum	0	SMOP4
++	0b0	NI
++	0b1	IMP
++EndEnum
  EndSysreg
  
+ Sysreg	ID_AA64FPFR0_EL1	3	0	0	4	7
 
 -- 
 2.39.2
