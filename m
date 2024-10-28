@@ -4,72 +4,202 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF72D33998
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE9CD33998
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ek231t06jS6RkmTQz1qzd1xmke7zrYrcAAhEd0EtWxE=; b=dl1IjCzCi14NqCg6WDoL9HepBy
-	V4qfRBUxVV0RuNztcHQFWw3JatKDa91siv1KtgUUJqw9SX4Kfjk/9CtLvTAft148Lnmtb3Ih3niUq
-	QwCAV2sAl5pEBGwiOpKqPrCK1gWQvC0A3mTKmqc85HRGU/c/wfXWygRIq5H2Upo/wBoZ0K41KwZCF
-	5Ea3zwVa4rp1K2ItGPA0Op0J2HpNTc2/n34rlqjDf0iZrxv9bW1PHIZKl+4onoDObvAV4qHfNCiRq
-	HQRGFH8QSUTPL7UVi04STopHGUdlFSzvwiS+IP9l6/m6ue9naiiv7pFbUxWofAHjnyOBwqX+ketpd
-	wNXMUL/g==;
+	bh=slDlURqNAZgnWBhcHL7h13UMJpYsooCmrGxImD8Il20=; b=pso3HfGVkGN6ljLCjtwqWhWrXH
+	9Q4x6aZ8D1kiMEJk13G9a4i7SuRZMILN6wTBZWICbvU9etCKrFYPJmYAmxt4pcDQUZGAIy+U8+2Rm
+	HvTrMNWaaKz38MrNuQke+Yuzk9xkwcmOTrUt+vFVmUakyWStK2cZdqt2TbYqz5os/UyRtB3AOt57T
+	ZfhjntsdROM07spJYjHmuZErUnapne72+7UJMfeh+Oppb12uCxCB7PFBfL6hzGLyNM8iZF/fLxTH/
+	u82IFaIqrntQXtuxgKlG2f3vAp0H1zYWWLUAUtIvqOVhiP/9+c+U1xdITPSgk8+deAU6rAHtI1L4X
+	gs0Z6mzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5S2q-0000000BNSi-2yoM;
-	Mon, 28 Oct 2024 15:52:40 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t5S4O-0000000BNba-2GN3;
+	Mon, 28 Oct 2024 15:54:16 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RZf-0000000BISO-0h35
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 15:22:32 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SFMMeh027800;
-	Mon, 28 Oct 2024 10:22:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730128942;
-	bh=Ek231t06jS6RkmTQz1qzd1xmke7zrYrcAAhEd0EtWxE=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=fIXk/2PyUIoV18k7oq+/iYmIgFv8YqrilOnQaSMGifnxCTP35qN3QXGPnlmyooBpc
-	 mLMeclC3EGwfL3ZO/HfYf22ULLB075gHoJD5mIIfJyi6u3Pgq6mYJ1Zg7BqY4tclov
-	 S4hkeaVoiGOPihomMJo0t225ufWzS+m2hXvAdApw=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49SFMMv0049529
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Oct 2024 10:22:22 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Oct 2024 10:22:22 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Oct 2024 10:22:22 -0500
-Received: from localhost (ula0507357.dhcp.ti.com [172.24.227.166])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SFMLNi017857;
-	Mon, 28 Oct 2024 10:22:22 -0500
-Date: Mon, 28 Oct 2024 20:52:21 +0530
-From: Suhaas Joshi <s-joshi@ti.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <s-vadapalli@ti.com>,
-        <devarsht@ti.com>, <vigneshr@ti.com>, <b-brnich@ti.com>,
-        <danishanwar@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <c-shilwant@ti.com>, <praneeth@ti.com>
-Subject: Re: [PATCH 6.6] arm64: configs: Enable additional docker configs
-Message-ID: <20241028152221.bnawg4wz4y7oqd55@ula0507357>
-References: <20241028045340.1079402-1-s-joshi@ti.com>
+	id 1t5RdE-0000000BIrd-0G1G;
+	Mon, 28 Oct 2024 15:26:13 +0000
+X-UUID: f25b6030954011ef82ff63e91e7eb18c-20241028
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:To:From; bh=slDlURqNAZgnWBhcHL7h13UMJpYsooCmrGxImD8Il20=;
+	b=ppjQI54ScM+uxdtm36PcUolORPLKBdb78YJXuiDsxswrzih4PFygiwh1pUk77EzgYuFqxNdjtZ8xU8euiPnSrs+Jl8Ep3R0D8UlaM5DpqNZcYEhdXk1a6PTMUXTUe59X3TrF69nmHgZvGbBFDkXBdKbQgosEpsQFoeJiEIxKtzg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:0556100e-b5fe-4a45-9ed6-ef004a5966b8,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:bb853b2e-a7a0-4b06-8464-80be82133975,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: f25b6030954011ef82ff63e91e7eb18c-20241028
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1392435302; Mon, 28 Oct 2024 08:26:04 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Mon, 28 Oct 2024 08:26:02 -0700
+Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Mon, 28 Oct 2024 23:26:01 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ynN49N0Sth/8xPqGtgKYUh8hHtjb76u1UcuA9DQBhbPuZMs4N2UnjY5rURaZwNfXRkvHLdPiu5qjjMRTrYb82MlIr4L3InCbLHKMBJbuDGKcwl4XXFel/aOFmNy6pF+XTdV62sUGVfWNu/Xpj5tbylb3MOlwMVJF/nmZJ2HTyy3n4IDZWQDVf4lti/aUOtapm4e8M9/TQizlSUS856G1rAl6iOpEGvsV76T/HhmylXQnncuHl9nHqQ4YVwHwEsy/F230j1y3JWhlYOjFBgEOP7GNTVK7qnPyxOH16XAYXlT2Y61CNlf1WeSddTiYyHq4fR+yX2ZzGtXGfJVLTpRMtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=slDlURqNAZgnWBhcHL7h13UMJpYsooCmrGxImD8Il20=;
+ b=nUQsA01BOuC8z2fKHvc1n8zaWqDkZAWd0Gyp1Yw6KrpKerZhyKwsKfdabNVpnIDw9AZ+gm+z6oAx+hqlHDKTOeAqhksAk4UqyLQcHwtEm4/OHx8HmkpPjks9a9NxI38JTqQLuJYP96BklyHb1qWUPzmrWbzT+21v6hCLrVjQTP4wps8Hnd9Qt2jILON9YXA8kS8Uq1UzdO0PXdw8iXEuKsrB7Xc2Xd7XEDkDhtpjsP5PzX2oNem5+cu99StCBK6uLIxAaKVpSLU9FX5WPqqA0aOaJBrBQJITDmwKmzN2RHTcObqhCfVUe4hvvEZuY+QgamqdOpASX0KoU3xFeMquag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=slDlURqNAZgnWBhcHL7h13UMJpYsooCmrGxImD8Il20=;
+ b=ONOYQb2hxsCbxNiEv42v7RO5AZnrOohF4pJjeBxyJqW+AFHweBMQWjg4DocZpZP8BIzAmCoFoLBFA1W9okFlA4xxBdZuNQU81zJZdyqRCh33Q2aGTk9pxHlb2qT0nzNmAdyqW236Ba7/YQu9nFn+Zz0OQ72nItq/r5XmUrOnBIs=
+Received: from KL1PR03MB6226.apcprd03.prod.outlook.com (2603:1096:820:8c::14)
+ by TY0PR03MB8197.apcprd03.prod.outlook.com (2603:1096:405:1a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Mon, 28 Oct
+ 2024 15:25:59 +0000
+Received: from KL1PR03MB6226.apcprd03.prod.outlook.com
+ ([fe80::f3:c11:8422:7ce3]) by KL1PR03MB6226.apcprd03.prod.outlook.com
+ ([fe80::f3:c11:8422:7ce3%4]) with mapi id 15.20.8093.024; Mon, 28 Oct 2024
+ 15:25:59 +0000
+From: =?utf-8?B?U2t5TGFrZSBIdWFuZyAo6buD5ZWf5r6kKQ==?=
+	<SkyLake.Huang@mediatek.com>
+To: "miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"acelan.kao@canonical.com" <acelan.kao@canonical.com>,
+	"chengminglin@mxic.com.tw" <chengminglin@mxic.com.tw>,
+	"mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "daniel@makrotopia.org" <daniel@makrotopia.org>,
+	"vigneshr@ti.com" <vigneshr@ti.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "richard@nod.at" <richard@nod.at>
+Subject: Re: [RFC PATCH nand/next 0/4] mtd: nand: spi: Add CASN page support
+Thread-Topic: [RFC PATCH nand/next 0/4] mtd: nand: spi: Add CASN page support
+Thread-Index: AQHbIvPeZSyVhSH6jEWOSv7DrSm/prKcVXeA
+Date: Mon, 28 Oct 2024 15:25:59 +0000
+Message-ID: <e8c1ea093943141b431d8eb3ed3831c50601dfb1.camel@mediatek.com>
+References: <20241020132722.20565-1-SkyLake.Huang@mediatek.com>
+In-Reply-To: <20241020132722.20565-1-SkyLake.Huang@mediatek.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR03MB6226:EE_|TY0PR03MB8197:EE_
+x-ms-office365-filtering-correlation-id: 95e949be-9d66-4575-0fea-08dcf764d331
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?T0xYcDlGV0tsY1ozZGJJVG5BdnZPd1cvYmlWR1VDM09tSE95ekE0NDlxTy9H?=
+ =?utf-8?B?WnZZY25JY0Y5RGMrV25LL1FIU0h2cG43dklVTHlMZU1FbE53MU5Va1dab21Z?=
+ =?utf-8?B?QzROVFQrY0dmcFQxd1VWYVVLck9PZURNK2pPY1ArUmpCcEJnLzlaSldGT3lQ?=
+ =?utf-8?B?MlhwMFpUb0FtSkMwaTN0VmJHVkdONytkd3hxdHE0MlFpNDdTTTVwZWduTHhK?=
+ =?utf-8?B?WjRIOUxwVzJlb3FKVS9rejV3TTdPRkI1MXRVSnlCS0E4NlpnbzVraEJNeDB6?=
+ =?utf-8?B?ZllhbkxjRGJCR3RzMlJGSHVPNldwcTJnY1RJVFdvNUMzNFh1UkNoa0dUNnJ1?=
+ =?utf-8?B?dExtNEhjaXBneFBRaEJIT2R3dkdlckZjUjk3RUJmclRlcWZUZkwyMGFvaGtO?=
+ =?utf-8?B?VUNvOXZCUERESkhiTDY2NmJoSVMvRHdyWTB3WDZxN0pRNkg0SVVDVXZYajlU?=
+ =?utf-8?B?T3hnakVVcFVHTUZYQWFMd0dmVGJjbVZoNS9RbGlsaXRTM2hQNVlnRzdPZzkr?=
+ =?utf-8?B?Uk4wN3VJNlprVFJjUHQ1ZXhvSDNaS0RIaDJiM0JtM3FYL1VsbCtxNEtOUHoz?=
+ =?utf-8?B?Vy9pTHJiYmREZXhxRHRyalpaTnhqcGRFTUZQWEhRTENidFhSWFhHVTQ0SHl3?=
+ =?utf-8?B?ZTRuTlhaVS9HRnJUNXVLTnhYS2daTi9JRFFaTEs4aHFBK2V1b2VrTy9wSEU0?=
+ =?utf-8?B?Q2RWalVIWTdISTlUbjhVZi9uZHVuS3QxT3RGL3RkWCtxQ1ZRaXFGc0hqVjJY?=
+ =?utf-8?B?NHIxTVIvdFlaWmdqeVlhUjhXazZmL3ZkcW0xT2ZKL0piMm5FZHJtOHRlWGlK?=
+ =?utf-8?B?SURSTjZMbVRQczJKQVpzT08rMzNqNjQ1REIyWEV0TEM0blZXOFN3VlpJQUh1?=
+ =?utf-8?B?V1VCaGk1Z1dyN0U4NkpXOXNzSVBKU2RiTDdYdHA2U0d2TU1ocnpJMVNCZXFD?=
+ =?utf-8?B?dWJrRmpDdVQxeG9CY0c5RkhrZ2NMVTdHenJYZGNZMkk2emNKeFZzL3dHQ043?=
+ =?utf-8?B?THh2dmV3ZXpuMDhpTzAwRjRZU3RYVnhuTFpySzZQQkVvbUVkZEhEb3VyVU1t?=
+ =?utf-8?B?T0FibThyNms2aUp4dS80alR2bmtvOUlzQk8vWGNkekI0NG12b1IxNXp0a29M?=
+ =?utf-8?B?U1RiTGtFaW4rT003MW16cmZKV29WeVEzK2tuUXhXMzVmOHlURmdGRlYreXdJ?=
+ =?utf-8?B?RGs0aSszTzZrYUxXRFJycDQ0MlJRZ3R1aG82QVozV2l2N0hzMEV3bmhnR1cv?=
+ =?utf-8?B?TGxES0lSendheE1QazJGUGhqQjRTQzVCc2QwK2RCL1dJd2VGeU1kSHNSNFhz?=
+ =?utf-8?B?TSsydHowU1pKUzl6c2psb1d3TEc2cjNlSlZZRUtaOVFuYWVTVU1sQi96a0ZL?=
+ =?utf-8?B?bThXUG9QY1FzRkNZSjlZOC9RdGhUSTF5dUFZM1l4UFRLbmdLaUw2Z2xpcTB0?=
+ =?utf-8?B?NGcwM2g2d3ludFptT21peWdmZExSQU0rUS9SbDZmazdEV2FGOEVqTmVnS2gw?=
+ =?utf-8?B?M0hSK05Cb1lKeGpRejBkaUdVN1RNdk82N1JiMUo0OFJST2xDWC80MXNjbTJU?=
+ =?utf-8?B?emlYNFdJUTFTeDVGLzN2bGxHQXJHUFhsZ2RBSW9LMnMrbTRhL3FUaHNodDdK?=
+ =?utf-8?B?YXhYckJqdEozMm5TREJtTlRjZUVSR0VJNUxibElUSzRpS2RBd3VJRTJnOTdr?=
+ =?utf-8?B?RDZ4N1FFRlhEcnp3aUVsVXVJOGY5dUhYdUxJZDgzbmk1eVdtWUhPRVdjMWlu?=
+ =?utf-8?B?Y3NUTjNDbXVrQkt1a3ErY3RhMHFkb1dCcE1ZYkwyRzRoYy8wZDBMQ01jNnlx?=
+ =?utf-8?B?TFdRVlc2REhYWmQrd1FpTWY1ZzR5QzVzandHVHFieDRXY1hJVmtLN1R4cm50?=
+ =?utf-8?Q?Htt/SQDq5wZ34?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB6226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V055d1NCVWYzcmNZQVUrYW81YnMxMkhEK2hPK0E1T1lMZ1ludnd0MXdzSDJl?=
+ =?utf-8?B?OXpkMnc4ZVZiTXhkWTRRcGV1d1JWc3pHdW8ybXVtZkdzaEZCNk00eEtGRU56?=
+ =?utf-8?B?bi9reUFtSjdkT2ZnalpkMUlldkRGZll3emxXSW5Fbms0dnhWWDU3d3ZHemVU?=
+ =?utf-8?B?eW9kVldlTU1PUGpoTDdaWDJqZndDLzNlTld2cTFKZi8xWEszcm1aWHZNZmNN?=
+ =?utf-8?B?S2dEeEhSZmlBTHhqaE5ISW9PRDhvckNOWGpTTjJLcktOL2VKcmxsdUNETFRp?=
+ =?utf-8?B?b0NGMmpuanpsdTNRL3BHR3lXVnAxQkhGT1JSZjVQR2YrQjRpMTVXQnpQVXpZ?=
+ =?utf-8?B?OHduRjNtT1pRMHVpeVBMdDR4M25lVGV4QVJON08wNE9aNG45Ymp1VXdaTENj?=
+ =?utf-8?B?OHJoUlVORDQ2eGV4WitZdVltVWdRbTRmbVFsTnBtT0U4MjhMYzJLdm9nZ1p0?=
+ =?utf-8?B?Y2NDMDZUclFtYi8rUXdtT2RsOFNLQXgrOEM0enNUVmgxSFdJSUFFWnNYbzZj?=
+ =?utf-8?B?MTlTRS9JRkNFK0VDd0Rkc1lXQ2lSMjlYcnAxQURZV2hCUDVQY2RFMXlqMGxk?=
+ =?utf-8?B?UnpoZWs4RWFiZ1RCaldxeXR0Q29NczNvNGxaVitVelhNdXVZWHZ5T2owKzBM?=
+ =?utf-8?B?UVFMK3c1TTVkL0NHdXBDQk81akdzaVcwOFZMa2J3dTdXcytPYXF2N29VWUxC?=
+ =?utf-8?B?aGpOMW9HYXNqR2J4RC8rOE5PZnprUmhqV1dCTTlzTU1YdWt5dkJBaHZ2UG53?=
+ =?utf-8?B?MmlBbXhFYm94RWdFbTYzUU5WV3R0QjY1OXpnSVU1L1ZsTE9mOVk1ZFJ4QU1K?=
+ =?utf-8?B?aDhkR3ZzbG1iNDcxdk15SndkYmdtTThOeHp3dFJiMTUvUUpVNWNhRjNETGlX?=
+ =?utf-8?B?amJxaVl2WTZRMWFlUVBVK0lXZU50MVFucllLS0lUTTl1VHIvZWk1MmVlaDRS?=
+ =?utf-8?B?Y3dUU1VrTjVienJIK3RqL3ZCbWRZbnVuZXRvVWd0WmFGc2Z0N21oRjB2ZUZq?=
+ =?utf-8?B?eVpDN3lHYlNPWkNJYzh0TERkN3poNlNFbEUyNDN2L2VDS1kxQ1Q0S3FZOU9l?=
+ =?utf-8?B?a2VwWEVnbmZpT1d2MTVqSnFJYU1NTlpLUWdSQTZTMFVpTStaTkpNVUJUUzli?=
+ =?utf-8?B?eFN0UVpFSUphNkZybjl1S0xXOWdVUUJ1bm1SWDVyRXhtTXJiK1FhTmY5S2FG?=
+ =?utf-8?B?YTMvYnFCSXNWdGo2aFBOVHMwV2pKTStOZlRxVjRaWEwwdGtCbDErNFRCZ1Ji?=
+ =?utf-8?B?aTBmLzJ6cE1oQ0VWRExyV3F3QmQzMFIrTmtJSC9IZ0k0OGx1MnhpM25UblF2?=
+ =?utf-8?B?WHJHckNKcmE4Q010OHdsb0NkQlVUMzduTHRsOWoybVRnUExmQkNEMTRieHR6?=
+ =?utf-8?B?TzY1SVBGYkp1M1d3UlZBMzJ1cE9XNDFWQlhzY1V3MzlCdHh6ZXphaHJOV0xj?=
+ =?utf-8?B?aGVFeFZaZURGOWZoQ2RhVnlta1RadmhRL3FsdWZjTFhKNHpmMTRFVklQMVYv?=
+ =?utf-8?B?Q0dxKzUzanJQN01sQUJ5K1hYQUhyOVlZZGZ0M08vVFpKN21kR1NLSnNNREFT?=
+ =?utf-8?B?UkVWYWRXWlZEQndOR3phemhxVW9LNndjK2JwemJUenE0Rnk0MVk1cTVNeE0y?=
+ =?utf-8?B?SW83dkxrb3BjSmlnOThZUVo1L1BURklZTStDeVM2VHFQdGdOOG02alpGTmFX?=
+ =?utf-8?B?T3JUUGVXeURrZGxCRXF5dUtCdDZLRnhBcUl6eDk1MTFuelBEV2dyMVVtVzZB?=
+ =?utf-8?B?U25XUmEyeUdRdlhHSUZsWndhWDBkT0o3YVljeEkzTkpFeTV4U2d0MjZYUHZK?=
+ =?utf-8?B?a0lObkNlUFFaTUlmd1Z4UWtUOGZxVThNbm5aN295OUtJRGVwN3J4SFQrNXBo?=
+ =?utf-8?B?cFNLNENkaWl0dHVlZGhrVDBEb0Ezc2hoNnRnVzBlVHN2bzhmY3A0a0xmMVp4?=
+ =?utf-8?B?dVI4V09tdmpvb1JRV1F3ZXNKY2NhWmZhL1FmNkJidG4yMWFPSFV4M2hjMytq?=
+ =?utf-8?B?eVNkdDFiRlJMS3h3cHVRWnFqYVJaQ3RXdGtpR2tsZ2NoSU91aDR5eituaktK?=
+ =?utf-8?B?R2hzRm5FVVo4MU13eWZsUjk4WFJhYkVmZ3B3cjQzd3VGQ255M1huTkdRS2VV?=
+ =?utf-8?B?Vy9lVHBJdklQcjgyYnRaYVZoV3hYVW91QkZnVk4vQ2pGaUNTVkkvQ0tHbXhj?=
+ =?utf-8?B?UkE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <7B37B1BA5F46464AB5F771522F653BD9@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241028045340.1079402-1-s-joshi@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB6226.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95e949be-9d66-4575-0fea-08dcf764d331
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2024 15:25:59.1626
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: J9rS66EJ+/76mVrsSFUEQBLk2d4Uanqt0D40Z1q9GESJBmMwzAsLLUsRAvni6xZyCptX8Vd3d+lxInjtc+JA4ZZCvjPAgAw3Fy0NHenwXII=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB8197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_082231_340177_23BEA06C 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20241028_082612_184359_CCB5E2C7 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,179 +214,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-This patch is a mistake. Please disregard it. I will send a new patch
-across the latest baseline, with a better commit message.
-
-Thanks
-Suhaas
-
-On 10:23-20241028, Suhaas Joshi wrote:
-> Docker requires a list of config options to be enabled in the kernel.
-> This list is generated by the script at [1]. The list has "mandatory"
-> configs and "optional" ones. The mandatory ones are already enabled, so
-> Docker works well with some images. But many of the optional ones,
-> particularly security and network configs, aren't enabled. So
-> enable those so that Docker can pull and run all valid images.
-> 
-> The configs generated are listed below.
-> 
-> Generally Necessary
-> ...
-> - CONFIG_MEMCG_SWAP: enabled
-> - CONFIG_BLK_DEV_THROTTLING: enabled
-> - CONFIG_NET_CLS_CGROUP: enabled (as module)
-> - CONFIG_CGROUP_NET_PRIO: enabled
-> - CONFIG_CFS_BANDWIDTH: enabled
-> - CONFIG_IP_NF_TARGET_REDIRECT: enabled (as module)
-> - CONFIG_IP_VS_NFCT: enabled
-> - CONFIG_IP_VS_PROTO_TCP: enabled
-> - CONFIG_IP_VS_PROTO_UDP: enabled
-> - CONFIG_IP_VS_RR: enabled (as module)
-> - CONFIG_SECURITY_SELINUX: enabled
-> - CONFIG_SECURITY_APPARMOR: enabled
-> - CONFIG_EXT3_FS_XATTR: enabled
-> - CONFIG_EXT3_FS_POSIX_ACL: enabled
-> - CONFIG_EXT3_FS_SECURITY: enabled
-> - CONFIG_EXT4_FS_SECURITY: enabled
-> - CONFIG_VXLAN: enabled (as module)
-> - CONFIG_CRYPTO_SEQIV: enabled (as module)
-> - CONFIG_XFRM: enabled
-> - CONFIG_XFRM_USER: enabled
-> - CONFIG_XFRM_ALGO: enabled
-> - CONFIG_INET_ESP: enabled
-> - CONFIG_NETFILTER_XT_MATCH_BPF: enabled (as module)
-> - CONFIG_IPVLAN: enabled (as module)
-> - CONFIG_DUMMY: enabled (as module)
-> - CONFIG_NF_NAT_FTP: enabled (as module)
-> - CONFIG_NF_CONNTRACK_FTP: enabled (as module)
-> - CONFIG_NF_NAT_TFTP: enabled (as module)
-> - CONFIG_NF_CONNTRACK_TFTP: enabled (as module)
-> ...
-> 
-> [1] https://github.com/moby/moby/blob/25.0/contrib/check-config.sh
-> 
-> Signed-off-by: Suhaas Joshi <s-joshi@ti.com>
-> ---
->  arch/arm64/configs/defconfig | 29 +++++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 7ffb46b74ae5..c37f18bddd38 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1,6 +1,7 @@
->  CONFIG_SYSVIPC=y
->  CONFIG_POSIX_MQUEUE=y
->  CONFIG_AUDIT=y
-> +CONFIG_DUMMY=m
->  CONFIG_NO_HZ_IDLE=y
->  CONFIG_HIGH_RES_TIMERS=y
->  CONFIG_BPF_SYSCALL=y
-> @@ -16,7 +17,9 @@ CONFIG_IKCONFIG=y
->  CONFIG_IKCONFIG_PROC=y
->  CONFIG_NUMA_BALANCING=y
->  CONFIG_MEMCG=y
-> +CONFIG_MEMCG_SWAP=y
->  CONFIG_BLK_CGROUP=y
-> +CONFIG_CFS_BANDWIDTH=y
->  CONFIG_CGROUP_PIDS=y
->  CONFIG_CGROUP_FREEZER=y
->  CONFIG_CGROUP_HUGETLB=y
-> @@ -28,6 +31,7 @@ CONFIG_CGROUP_BPF=y
->  CONFIG_USER_NS=y
->  CONFIG_SCHED_AUTOGROUP=y
->  CONFIG_BLK_DEV_INITRD=y
-> +CONFIG_BLK_DEV_THROTTLING=y
->  CONFIG_KALLSYMS_ALL=y
->  CONFIG_PROFILING=y
->  CONFIG_KEXEC=y
-> @@ -135,22 +139,33 @@ CONFIG_IP_PNP=y
->  CONFIG_IP_PNP_DHCP=y
->  CONFIG_IP_PNP_BOOTP=y
->  CONFIG_IPV6=m
-> +CONFIG_IPVLAN=m
->  CONFIG_NETFILTER=y
->  CONFIG_BRIDGE_NETFILTER=m
->  CONFIG_NF_CONNTRACK=m
->  CONFIG_NF_CONNTRACK_EVENTS=y
-> +CONFIG_NF_NAT_FTP=m
-> +CONFIG_NF_NAT_TFTP=m
-> +CONFIG_NF_CONNTRACK_FTP=m
-> +CONFIG_NF_CONNTRACK_TFTP=m
->  CONFIG_NETFILTER_XT_MARK=m
->  CONFIG_NETFILTER_XT_TARGET_CHECKSUM=m
->  CONFIG_NETFILTER_XT_TARGET_LOG=m
->  CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=m
->  CONFIG_NETFILTER_XT_MATCH_CONNTRACK=m
->  CONFIG_NETFILTER_XT_MATCH_IPVS=m
-> +CONFIG_NETFILTER_XT_MATCH_BPF=m
->  CONFIG_IP_VS=m
-> +CONFIG_IP_VS_PROTO_TCP=y
-> +CONFIG_IP_VS_PROTO_UDP=y
-> +CONFIG_IP_VS_RR=m
-> +CONFIG_IP_VS_NFCT=y
->  CONFIG_IP_NF_IPTABLES=m
->  CONFIG_IP_NF_FILTER=m
->  CONFIG_IP_NF_TARGET_REJECT=m
->  CONFIG_IP_NF_NAT=m
->  CONFIG_IP_NF_TARGET_MASQUERADE=m
-> +CONFIG_IP_NF_TARGET_REDIRECT=m
->  CONFIG_IP_NF_MANGLE=m
->  CONFIG_IP6_NF_IPTABLES=m
->  CONFIG_IP6_NF_FILTER=m
-> @@ -171,6 +186,7 @@ CONFIG_NET_SCH_TAPRIO=m
->  CONFIG_NET_SCH_MQPRIO=m
->  CONFIG_NET_SCH_INGRESS=m
->  CONFIG_NET_CLS_BASIC=m
-> +CONFIG_NET_CLS_CGROUP=m
->  CONFIG_NET_CLS_ROUTE4=m
->  CONFIG_NET_CLS_FW=m
->  CONFIG_NET_CLS_U32=m
-> @@ -198,6 +214,7 @@ CONFIG_NET_ACT_GATE=m
->  CONFIG_HSR=m
->  CONFIG_QRTR_SMD=m
->  CONFIG_QRTR_TUN=m
-> +CONFIG_CGROUP_NET_PRIO=y
->  CONFIG_CAN=m
->  CONFIG_BT=m
->  CONFIG_BT_HIDP=m
-> @@ -1573,7 +1590,12 @@ CONFIG_HTE_TEGRA194=y
->  CONFIG_HTE_TEGRA194_TEST=m
->  CONFIG_EXT2_FS=y
->  CONFIG_EXT3_FS=y
-> +CONFIG_EXT3_FS_XATTR=y
-> +CONFIG_EXT3_FS_POSIX_ACL=y
-> +CONFIG_EXT3_FS_SECURITY=y
->  CONFIG_EXT4_FS_POSIX_ACL=y
-> +CONFIG_EXT4_FS_SECURITY=y
-> +CONFIG_VXLAN=m
->  CONFIG_BTRFS_FS=m
->  CONFIG_BTRFS_FS_POSIX_ACL=y
->  CONFIG_FANOTIFY=y
-> @@ -1598,6 +1620,8 @@ CONFIG_9P_FS=y
->  CONFIG_NLS_CODEPAGE_437=y
->  CONFIG_NLS_ISO8859_1=y
->  CONFIG_SECURITY=y
-> +CONFIG_SECURITY_SELINUX=y
-> +CONFIG_SECURITY_APPARMOR=y
->  CONFIG_CRYPTO_USER=y
->  CONFIG_CRYPTO_TEST=m
->  CONFIG_CRYPTO_ECHAINIV=y
-> @@ -1628,6 +1652,11 @@ CONFIG_CRYPTO_DEV_HISI_HPRE=m
->  CONFIG_CRYPTO_DEV_HISI_TRNG=m
->  CONFIG_CRYPTO_DEV_SA2UL=m
->  CONFIG_CRYPTO_DEV_TI_MCRC64=m
-> +CONFIG_CRYPTO_SEQIV=m
-> +CONFIG_XFRM=y
-> +CONFIG_XFRM_USER=y
-> +CONFIG_XFRM_ALGO=y
-> +CONFIG_INET_ESP=y
->  CONFIG_DMA_RESTRICTED_POOL=y
->  CONFIG_CMA_SIZE_MBYTES=32
->  CONFIG_PRINTK_TIME=y
-> -- 
-> 2.40.0
-> 
+T24gU3VuLCAyMDI0LTEwLTIwIGF0IDIxOjI3ICswODAwLCBTa3kgSHVhbmcgd3JvdGU6DQo+IEZy
+b206ICJTa3kgSHVhbmciIDxza3lsYWtlLmh1YW5nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEhpLCB0
+aGlzIGlzIFFpLVplIEh1YW5nKFNreSBIdWFuZykgZnJvbSBNZWRpYVRlay4gT24gb3VyIHJvdXRl
+cg0KPiBwbGF0Zm9ybXMNCj4gY2hpcHMsIHdlIGhhdmUgdG8gcXVhbGl0eSBsb3RzIG9mIFNQSS1O
+QU5EIGRldmljZXMgYW5kIGFyZSBlYWdlciBmb3INCj4gYSBzdGFuZGFyZCBzbyB0aGF0IHdlIGRv
+bid0IG5lZWQgdG8gbWFpbnRhaW4gdHJpdmlhbCBmbGFzaCBJRCB0YWJsZQ0KPiBhbnltb3JlLiBJ
+IGFsc28gbm90aWNlZCBhIHRhbGsgaW4gMjAxOSBFbWJlZGRlZCBMaW51eCBDb25mZXJlbmNlLA0K
+PiBNZW1vcnkgVGVjaG5vbG9neSBEZXZpY2VzOiB3aGF0J3MgbmV3LCB3aGljaCBtZW50aW9uZWQg
+Ik9ORkkgZm9yDQo+IFNQSS1OQU5Ecz8gTWF5YmUsIG1heWJlIG5vdCIuDQo+IA0KPiBTbyBlYXJs
+aWVyIHRoaXMgeWVhciwgSSBwcm9wb3NlZCBhIGJvbGQgaWRlYSwgQ0FTTiBwYWdlIChDb21tb24N
+Cj4gQXR0cmlidXRlcw0KPiBmb3IgU1BJLU5BTkQpLiBJIHdvcmtlZCB0b2dldGhlciB3aXRoIHRv
+cCAzIFNQSS1OQU5EIG1hcmtldCBzaGFyZQ0KPiBmbGFzaA0KPiB2ZW5kb3JzIGFuZCBvdGhlciB2
+ZW5kb3JzIHRvIGludGVncmF0ZSBDQVNOIHBhZ2Ugb24gdGhlaXIgU1BJLU5BTkQNCj4gZGV2aWNl
+cw0KPiBpbmNsdWRpbmcgYnV0IG5vdCBsaW1pdGVkIHRvOg0KPiANCmdlbnRsZSBwaW5nDQoNCkJS
+cywNClNreQ0K
 
