@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95461D1359F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDB7D1359D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDAxh8rAowmrfTLmw0pRYh3uXIFupcrA2Etja/kgrig=; b=k3zVByEt8TMzS+lj00YU22/RtX
-	WU+1BB+irUWcjdCpqRWVwnDdnFFsDKpu2xowPmr5S7lItes+OoIsQIsKVdV8YAc5GDpvOD78bWKYA
-	z2544jtRkxDwu7+U+ISc7yP/8MhyFyqLcIrLzNKmg64G7q073PHKRpCi7ED+2u1sSw9rsVSC+TTLa
-	o4ARw20DF8G898Xx8vuX0X03FyIMql7zyqaCAGmT5xjN77HYi8PHdJ8zP3NLQCuraCYiITVLWV0BV
-	Ta7Z7Gab2u27jifGozXoccWCxuQRklaRupeld97cpjJ9SqkZNi8Bbe1XQxIAbXbv8pQ65y/MWqvdW
-	iH2q9FsA==;
+	bh=qNSrP49ZH8ytm8NHDPfyYi/0pmdfxKvl6lwV271NMrY=; b=I3y5MInAChRaqKvnth10LE7HVH
+	wo2zPmDuTYnac9aUJEEyZT2jKkQOz4c0MCWfr1PQ8JCNAjeOWTZbxnBOS3IlSc6bINIHnKZtmcd8m
+	vwuhlKIS1SgHSkmqLBjtnvcfWhF7c2vBr8lEuwF66z72BLdP7wlK8cywfF40utxDXBrhRHs1CoFZs
+	IJAMUpx17z3A2F1Q4KxT3/9qEXl+5XEE9HHQ4XJW7Jlfyr+y+x3sIpEgqtIYq2T8CfW5q5tfx7joM
+	IJCWFUDr+ToXLYoOn/+xzP+zlJhTvfg4EwNPtFUkF4aaGcY0UFDLJ5LA4f1JU7PpHEdqZTvTapU4A
+	yrARORVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5OUy-0000000AfmE-1sBC;
-	Mon, 28 Oct 2024 12:05:28 +0000
+	id 1t5OWd-0000000AgHl-2L9N;
+	Mon, 28 Oct 2024 12:07:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ORm-0000000Aezw-475I
+	id 1t5ORn-0000000Af0W-1QOz
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Oct 2024 12:02:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A7C013D5;
-	Mon, 28 Oct 2024 05:02:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB79B1691;
+	Mon, 28 Oct 2024 05:02:40 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 040473F73B;
-	Mon, 28 Oct 2024 05:02:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 190AB3F73B;
+	Mon, 28 Oct 2024 05:02:08 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -47,18 +47,19 @@ Cc: sudeep.holla@arm.com,
 	quic_sibis@quicinc.com,
 	quic_nkela@quicinc.com,
 	dan.carpenter@linaro.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v3 1/7] firmware: arm_scmi: Account for SHMEM memory overhead
-Date: Mon, 28 Oct 2024 12:01:45 +0000
-Message-ID: <20241028120151.1301177-2-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Subject: [PATCH v3 2/7] firmware: arm_scmi: Calculate virtio PDU max size dynamically
+Date: Mon, 28 Oct 2024 12:01:46 +0000
+Message-ID: <20241028120151.1301177-3-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241028120151.1301177-1-cristian.marussi@arm.com>
 References: <20241028120151.1301177-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_050211_135659_1FAB837B 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20241028_050211_493232_380328BC 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,178 +74,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Transports using shared memory have to consider the overhead due to the
-layout area when determining the area effectively available for messages.
+SCMI virtio transport maximum PDU size is currently hardcoded at build
+time; this will not play well with the possibile retrieval of a different
+size at run-time.
 
-Till now, such definitions were ambiguos across the SCMI stack and the
-overhead layout area was not considered at all.
+Make the virtio transport derive the maximum PDU size from the max_msg_size
+provided by the SCMI core.
 
-Add proper checks in the shmem layer to validate the provided max_msg_size
-against the effectively available memory area, less the layout.
+No functional change.
 
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v2 --> v3
-- using a single SCMI_SHMEM_PAYLOAD_SIZE common define
----
-Note that as a consequence of this fix the default max_msg_size is reduced
-to 104 bytes for shmem-based transports, in order to fit into the most
-common implementations where the whole shmem area is sized at 128,
-including the 24 bytes of standard layout area.
+ drivers/firmware/arm_scmi/transports/virtio.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
-This should have NO bad side effects, since the current maximum payload
-size of any messages across any protocol (including all the known vendor
-ones) is 76 bytes.
----
- drivers/firmware/arm_scmi/common.h             | 6 +++++-
- drivers/firmware/arm_scmi/driver.c             | 1 +
- drivers/firmware/arm_scmi/shmem.c              | 7 +++++++
- drivers/firmware/arm_scmi/transports/mailbox.c | 2 +-
- drivers/firmware/arm_scmi/transports/optee.c   | 8 +++-----
- drivers/firmware/arm_scmi/transports/smc.c     | 2 +-
- 6 files changed, 18 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 6c2032d4f767..cb39b6bbcffd 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -31,6 +31,8 @@
+diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+index d349766bc0b2..41aea33776a9 100644
+--- a/drivers/firmware/arm_scmi/transports/virtio.c
++++ b/drivers/firmware/arm_scmi/transports/virtio.c
+@@ -32,8 +32,8 @@
  
- #define SCMI_MAX_RESPONSE_TIMEOUT	(2 * MSEC_PER_SEC)
+ #define VIRTIO_MAX_RX_TIMEOUT_MS	60000
+ #define VIRTIO_SCMI_MAX_MSG_SIZE 128 /* Value may be increased. */
+-#define VIRTIO_SCMI_MAX_PDU_SIZE \
+-	(VIRTIO_SCMI_MAX_MSG_SIZE + SCMI_MSG_MAX_PROT_OVERHEAD)
++#define VIRTIO_SCMI_MAX_PDU_SIZE(ci) \
++	((ci)->max_msg_size + SCMI_MSG_MAX_PROT_OVERHEAD)
+ #define DESCRIPTORS_PER_TX_MSG 2
  
-+#define SCMI_SHMEM_MAX_PAYLOAD_SIZE	104
-+
- enum scmi_error_codes {
- 	SCMI_SUCCESS = 0,	/* Success */
- 	SCMI_ERR_SUPPORT = -1,	/* Not supported */
-@@ -165,6 +167,7 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id);
-  *	 channel
-  * @is_p2a: A flag to identify a channel as P2A (RX)
-  * @rx_timeout_ms: The configured RX timeout in milliseconds.
-+ * @max_msg_size: Maximum size of message payload.
-  * @handle: Pointer to SCMI entity handle
-  * @no_completion_irq: Flag to indicate that this channel has no completion
-  *		       interrupt mechanism for synchronous commands.
-@@ -177,6 +180,7 @@ struct scmi_chan_info {
- 	struct device *dev;
- 	bool is_p2a;
- 	unsigned int rx_timeout_ms;
-+	unsigned int max_msg_size;
- 	struct scmi_handle *handle;
- 	bool no_completion_irq;
- 	void *transport_info;
-@@ -224,7 +228,7 @@ struct scmi_transport_ops {
-  * @max_msg: Maximum number of messages for a channel type (tx or rx) that can
-  *	be pending simultaneously in the system. May be overridden by the
-  *	get_max_msg op.
-- * @max_msg_size: Maximum size of data per message that can be handled.
-+ * @max_msg_size: Maximum size of data payload per message that can be handled.
-  * @force_polling: Flag to force this whole transport to use SCMI core polling
-  *		   mechanism instead of completion interrupts even if available.
-  * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index dccd066e3ba8..015a4d52ae37 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2645,6 +2645,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ /**
+@@ -90,6 +90,7 @@ enum poll_states {
+  * @input: SDU used for (delayed) responses and notifications
+  * @list: List which scmi_vio_msg may be part of
+  * @rx_len: Input SDU size in bytes, once input has been received
++ * @max_len: Maximumm allowed SDU size in bytes
+  * @poll_idx: Last used index registered for polling purposes if this message
+  *	      transaction reply was configured for polling.
+  * @poll_status: Polling state for this message.
+@@ -102,6 +103,7 @@ struct scmi_vio_msg {
+ 	struct scmi_msg_payld *input;
+ 	struct list_head list;
+ 	unsigned int rx_len;
++	unsigned int max_len;
+ 	unsigned int poll_idx;
+ 	enum poll_states poll_status;
+ 	/* Lock to protect access to poll_status */
+@@ -234,7 +236,7 @@ static int scmi_vio_feed_vq_rx(struct scmi_vio_channel *vioch,
+ 	unsigned long flags;
+ 	struct device *dev = &vioch->vqueue->vdev->dev;
  
- 	cinfo->is_p2a = !tx;
- 	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
-+	cinfo->max_msg_size = info->desc->max_msg_size;
+-	sg_init_one(&sg_in, msg->input, VIRTIO_SCMI_MAX_PDU_SIZE);
++	sg_init_one(&sg_in, msg->input, msg->max_len);
  
- 	/* Create a unique name for this transport device */
- 	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-diff --git a/drivers/firmware/arm_scmi/shmem.c b/drivers/firmware/arm_scmi/shmem.c
-index e9f30ab671a8..11c347bff766 100644
---- a/drivers/firmware/arm_scmi/shmem.c
-+++ b/drivers/firmware/arm_scmi/shmem.c
-@@ -16,6 +16,8 @@
+ 	spin_lock_irqsave(&vioch->lock, flags);
  
- #include "common.h"
+@@ -439,9 +441,9 @@ static int virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		if (!msg)
+ 			return -ENOMEM;
  
-+#define SCMI_SHMEM_LAYOUT_OVERHEAD	24
-+
- /*
-  * SCMI specification requires all parameters, message headers, return
-  * arguments or any protocol data to be expressed in little endian
-@@ -221,6 +223,11 @@ static void __iomem *shmem_setup_iomap(struct scmi_chan_info *cinfo,
- 	}
++		msg->max_len = VIRTIO_SCMI_MAX_PDU_SIZE(cinfo);
+ 		if (tx) {
+-			msg->request = devm_kzalloc(dev,
+-						    VIRTIO_SCMI_MAX_PDU_SIZE,
++			msg->request = devm_kzalloc(dev, msg->max_len,
+ 						    GFP_KERNEL);
+ 			if (!msg->request)
+ 				return -ENOMEM;
+@@ -449,8 +451,7 @@ static int virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 			refcount_set(&msg->users, 1);
+ 		}
  
- 	size = resource_size(res);
-+	if (cinfo->max_msg_size + SCMI_SHMEM_LAYOUT_OVERHEAD > size) {
-+		dev_err(dev, "misconfigured SCMI shared memory\n");
-+		return IOMEM_ERR_PTR(-ENOSPC);
-+	}
-+
- 	addr = devm_ioremap(dev, res->start, size);
- 	if (!addr) {
- 		dev_err(dev, "failed to ioremap SCMI %s shared memory\n", desc);
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index e7efa3376aae..b66df2981456 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -371,7 +371,7 @@ static struct scmi_desc scmi_mailbox_desc = {
- 	.ops = &scmi_mailbox_ops,
- 	.max_rx_timeout_ms = 30, /* We may increase this if required */
- 	.max_msg = 20, /* Limited by MBOX_TX_QUEUE_LEN */
--	.max_msg_size = 128,
-+	.max_msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE,
- };
+-		msg->input = devm_kzalloc(dev, VIRTIO_SCMI_MAX_PDU_SIZE,
+-					  GFP_KERNEL);
++		msg->input = devm_kzalloc(dev, msg->max_len, GFP_KERNEL);
+ 		if (!msg->input)
+ 			return -ENOMEM;
  
- static const struct of_device_id scmi_of_match[] = {
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-index 663272879edf..3949a877e17d 100644
---- a/drivers/firmware/arm_scmi/transports/optee.c
-+++ b/drivers/firmware/arm_scmi/transports/optee.c
-@@ -17,8 +17,6 @@
- 
- #include "../common.h"
- 
--#define SCMI_OPTEE_MAX_MSG_SIZE		128
--
- enum scmi_optee_pta_cmd {
- 	/*
- 	 * PTA_SCMI_CMD_CAPABILITIES - Get channel capabilities
-@@ -299,7 +297,7 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
- 
- 	param[2].attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT;
- 	param[2].u.memref.shm = channel->tee_shm;
--	param[2].u.memref.size = SCMI_OPTEE_MAX_MSG_SIZE;
-+	param[2].u.memref.size = SCMI_SHMEM_MAX_PAYLOAD_SIZE;
- 
- 	ret = tee_client_invoke_func(scmi_optee_private->tee_ctx, &arg, param);
- 	if (ret < 0 || arg.ret) {
-@@ -332,7 +330,7 @@ static void scmi_optee_clear_channel(struct scmi_chan_info *cinfo)
- 
- static int setup_dynamic_shmem(struct device *dev, struct scmi_optee_channel *channel)
- {
--	const size_t msg_size = SCMI_OPTEE_MAX_MSG_SIZE;
-+	const size_t msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE;
- 	void *shbuf;
- 
- 	channel->tee_shm = tee_shm_alloc_kernel_buf(scmi_optee_private->tee_ctx, msg_size);
-@@ -519,7 +517,7 @@ static struct scmi_desc scmi_optee_desc = {
- 	.ops = &scmi_optee_ops,
- 	.max_rx_timeout_ms = 30,
- 	.max_msg = 20,
--	.max_msg_size = SCMI_OPTEE_MAX_MSG_SIZE,
-+	.max_msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE,
- 	.sync_cmds_completed_on_ret = true,
- };
- 
-diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-index 2f0e981e7599..f632a62cfb3e 100644
---- a/drivers/firmware/arm_scmi/transports/smc.c
-+++ b/drivers/firmware/arm_scmi/transports/smc.c
-@@ -282,7 +282,7 @@ static struct scmi_desc scmi_smc_desc = {
- 	.ops = &scmi_smc_ops,
- 	.max_rx_timeout_ms = 30,
- 	.max_msg = 20,
--	.max_msg_size = 128,
-+	.max_msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE,
- 	/*
- 	 * Setting .sync_cmds_atomic_replies to true for SMC assumes that,
- 	 * once the SMC instruction has completed successfully, the issued
 -- 
 2.47.0
 
