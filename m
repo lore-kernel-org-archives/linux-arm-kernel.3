@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43720D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D543D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jzwxp88ilPxMqqVour7KBL4/+4MkX3IVm03TfWmTjFQ=; b=U+/3G3DkNVRZZ9vStsdiZkj075
-	X3zbgz1JBUpkAwVs4Ei4YmM/lK6fW7BbWLEVq5Kupq5azIpFGbLIQ3Py5ttxFzXYKrsi+IpNfPMYm
-	y93z/2xFQxUyPr7yaHyqOCugmfVJ5rUcqrfGwj/1iS97CxHtR8MQmwzwN7OK+JUgc66FM4BYmQFQs
-	swoG8vblll7VnePVpGJLzWOBUOZWoCb0W+th0UOWHVGra+G7RFD2Sbn8H9h6klpOHkVlTsswt9en3
-	/fSeGdg3tvDWbmrR/d8QIQH1QlgwcLjrcOWMBH59+0wnSTLTiLNqlRQ14Y8/GlVLFNmJ7X9AuRdTY
-	3QYcYv+Q==;
+	bh=287KWmOfFKcs0dlBRnlt+d7btk7Hb/h6HiT3XKFPwiE=; b=4jdT+Hemy+U7zDv+TRZoyn0R8o
+	DHi01gmUxOm3nMBinzT6B6wN0TrS7vVg3c3ObB8jV19rXp9K1LtwI3Qv2JZsMdEO2AGs1TVMyfKzn
+	2DXtBwfgi3sRdZ3Rd4U29GXsHJvgcLSASBvsneCUK4AEG/vOeAzoehfDxuz5d48d8EsGD/198VDKi
+	JBdBvH+o8ni7kaW5MCWfhvYJJK7bW8+zD3deULyvnyGeRaFp6MlhhocLdvWO4yDXB8cWR2gMJM4j2
+	kKKT4kwrvwcBJ7zLVqxQmvxZzm1CWm1rPDFURYYAMxDB/Fg/RUMoCWY+E1XYaCZU0Hk5kkX2BWTch
+	pTdD0bqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KId-00000009tUM-3Gpj;
-	Mon, 28 Oct 2024 07:36:27 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1t5KKJ-00000009u3T-3qeG;
+	Mon, 28 Oct 2024 07:38:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KDe-00000009rqq-3BnL
+	id 1t5KGK-00000009so5-1yaF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 07:31:22 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 05A64A0767;
-	Mon, 28 Oct 2024 08:31:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=Jzwxp88ilPxMqqVour7K
-	BL4/+4MkX3IVm03TfWmTjFQ=; b=e5AtdkqFLnQ+WxX26HGP43hZIJUhu/t/Zcil
-	JKaYUFaXL+MgHxNclZXtIzFUKHVmO+Fm9WBDHPHsh6CKBuuVucuMZn/xv5IRfxdo
-	8YcQfQvuPqSKGVyzrHX9QaCzXTZtlDWfixiwS/+5ZWnM6rN7XXnOnCc4RX3DaejG
-	bNN9LxzdByk2JwdVYv9qQb0B1xdln/Tm3pfTq+bKzk4caPn4HJ9dygubggkkr1iq
-	BzJYZqsOZxYthfbdrUr3vwLbVp6H+3mndmgOOArJrKjY+agNSkGR0CQJwXiWi1uM
-	y8ByvuexjiGYFHaggVe2EZZUr1iIjH6LdWyaN5j4LQJ8ej3zUHbLWBsK2pFS5+9y
-	i6fiwAZSrGX6qLv/9dpbraVA7Sbrrb7RDUtvj0qIXIeIc/TTa2RqHJXzDDeXoWEG
-	G1Edf/9SQr8HanjRy1WQifQ9CAHSCQrv1pyKtqAoYM6XvORaxe8ZKj4E8jcbTs0M
-	/rQApTpqnuUv0PeBNulT2WRCpk0Xs2d1QOAsZx8YqkOw0wgKzbh44kdlWeg3T+VE
-	0eeqlcoiWEuc9c/v06t4bZ0VB/Zg5iRQDtZtVOVAz6f5dOVMUl1P8fV7CkCtyF45
-	k/RnyI+iZJGfym8UgEgPNaHkMJS6Z9cYTTwFNtvEoDvlxHiq8j2rcLq904vQmJYD
-	NfQtGDo=
-Message-ID: <5eedfe71-7a8d-4b91-ab49-e09352e7d6f3@prolan.hu>
-Date: Mon, 28 Oct 2024 08:31:13 +0100
+	Mon, 28 Oct 2024 07:34:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D2131A418DC;
+	Mon, 28 Oct 2024 07:32:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E8CC4CEC3;
+	Mon, 28 Oct 2024 07:33:59 +0000 (UTC)
+Message-ID: <269ea671-e7cb-41fa-95a8-6d0a4cffff46@xs4all.nl>
+Date: Mon, 28 Oct 2024 08:33:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/10] dma-engine: sun4i: Add has_reset option to quirk
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Mesih Kilinc
-	<mesihkilinc@gmail.com>, Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai
-	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
-	<samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
-References: <4b614d6c-6b46-438a-b5c3-de1e69f0feb8@prolan.hu>
- <20241027180903.2035820-2-csokas.bence@prolan.hu>
- <dsuadjqzybikpnuyr7q2fbq5jdzev33rqqhnehh3ns2lgfvdlb@bdmib46vlxt3>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <dsuadjqzybikpnuyr7q2fbq5jdzev33rqqhnehh3ns2lgfvdlb@bdmib46vlxt3>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [RFC v3 2/4] media: vivid: Add an rectangle control
+To: Ming Qian <ming.qian@nxp.com>, mchehab@kernel.org
+Cc: yunkec@google.com, nicolas@ndufresne.ca, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+ xiahong.bao@nxp.com, ming.zhou@nxp.com, eagle.zhou@nxp.com,
+ tao.jiang_2@nxp.com, ming.qian@oss.nxp.com, imx@lists.linux.dev,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241022084040.3390878-1-ming.qian@nxp.com>
+ <20241022084040.3390878-3-ming.qian@nxp.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+In-Reply-To: <20241022084040.3390878-3-ming.qian@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855677C65
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_003119_330253_190E1B01 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_003404_654369_1812356F 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +68,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2024. 10. 27. 21:43, Krzysztof Kozlowski wrote:
-> You did not build v2. Then you send v3... which you also did not build.
+On 22/10/2024 10:40, Ming Qian wrote:
+> From: Yunke Cao <yunkec@google.com>
 > 
-> Please start at least compiling your own code. Then start testing it,
-> but without building it cannot obviously be even tested.
+> This control represents a generic read/write rectangle.
+> It supports V4L2_CTRL_WHICH_MIN/MAX_VAL.
+> 
+> Signed-off-by: Yunke Cao <yunkec@google.com>
+> Reviewed-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
 
-I forgot to rebase an amend! before sending v2, which I corrected in v3. 
-I *did* in fact build v3 (after the aforementioned correction) rebased 
-on top of Linux 6.5, which is what I have available for my board. And I 
-also *did* test with aplay and confirmed to have working audio. If you 
-believe there are differences between 6.5 and master that break v3 of 
-the patch, then please point those out as opposed to making accusations.
+This patch should come after patch 3/4 since it relies on the new
+V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX flag introduced in 3/4.
 
-Bence
+Regards,
+
+	Hans
+
+> ---
+>  .../media/test-drivers/vivid/vivid-ctrls.c    | 34 +++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/drivers/media/test-drivers/vivid/vivid-ctrls.c b/drivers/media/test-drivers/vivid/vivid-ctrls.c
+> index 8bb38bc7b8cc..bed5f4fb0c69 100644
+> --- a/drivers/media/test-drivers/vivid/vivid-ctrls.c
+> +++ b/drivers/media/test-drivers/vivid/vivid-ctrls.c
+> @@ -37,6 +37,7 @@
+>  #define VIVID_CID_U8_PIXEL_ARRAY	(VIVID_CID_CUSTOM_BASE + 14)
+>  #define VIVID_CID_S32_ARRAY		(VIVID_CID_CUSTOM_BASE + 15)
+>  #define VIVID_CID_S64_ARRAY		(VIVID_CID_CUSTOM_BASE + 16)
+> +#define VIVID_CID_RECT			(VIVID_CID_CUSTOM_BASE + 17)
+>  
+>  #define VIVID_CID_VIVID_BASE		(0x00f00000 | 0xf000)
+>  #define VIVID_CID_VIVID_CLASS		(0x00f00000 | 1)
+> @@ -360,6 +361,38 @@ static const struct v4l2_ctrl_config vivid_ctrl_ro_int32 = {
+>  	.step = 1,
+>  };
+>  
+> +static const struct v4l2_rect rect_def = {
+> +	.top = 100,
+> +	.left = 200,
+> +	.width = 300,
+> +	.height = 400,
+> +};
+> +
+> +static const struct v4l2_rect rect_min = {
+> +	.top = 0,
+> +	.left = 0,
+> +	.width = 1,
+> +	.height = 1,
+> +};
+> +
+> +static const struct v4l2_rect rect_max = {
+> +	.top = 0,
+> +	.left = 0,
+> +	.width = 1000,
+> +	.height = 2000,
+> +};
+> +
+> +static const struct v4l2_ctrl_config vivid_ctrl_rect = {
+> +	.ops = &vivid_user_gen_ctrl_ops,
+> +	.id = VIVID_CID_RECT,
+> +	.name = "Rect",
+> +	.type = V4L2_CTRL_TYPE_RECT,
+> +	.flags = V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX,
+> +	.p_def.p_const = &rect_def,
+> +	.p_min.p_const = &rect_min,
+> +	.p_max.p_const = &rect_max,
+> +};
+> +
+>  /* Framebuffer Controls */
+>  
+>  static int vivid_fb_s_ctrl(struct v4l2_ctrl *ctrl)
+> @@ -1685,6 +1718,7 @@ int vivid_create_controls(struct vivid_dev *dev, bool show_ccs_cap,
+>  	dev->int_menu = v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_int_menu, NULL);
+>  	dev->ro_int32 = v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_ro_int32, NULL);
+>  	v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_area, NULL);
+> +	v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_rect, NULL);
+>  	v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_u32_array, NULL);
+>  	v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_u32_dyn_array, NULL);
+>  	v4l2_ctrl_new_custom(hdl_user_gen, &vivid_ctrl_u16_matrix, NULL);
 
 
