@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA73D5B846
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0398DD5B845
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leKULRwFrUrUHl+gqC5TSoYb0TiNILSW4aeMxjzqon8=; b=B1VI4w9vYapuPMEM9x62XFyYKf
-	LGVMN/GeBAqFF3pwXBbSkGFJUzuM10WPIn45cUE07jU4vyKgO6HnJ+soPySZiZ3gfOubvjt+YzHMQ
-	4+zrzx1N2TgJ+ldTndpvLdKed9PwGW2NfO4El3+CejRb5cM2EDEQZtdsbS745bE5ecJ6Xhbb3VyOc
-	srd23ykgLaj/jiZvfnUDz4EJGP5I+rJ2PsN7CBsAwA1SMe3NqSCIXZOh81GC78+quto5BCg0nm/qc
-	bkcu3GxVQKm1FzJjgb514dSUogz2J73j+HkQCOdcBxu4AXBRdr+ruhXwNVSjMOV+dSIiKjp4yQMog
-	zWdqx8Ug==;
+	bh=AYLSk03sy13DZ5QB/3NhRsbKu0MswGH4SuUJv0OP7+4=; b=4sTEqz0JaTRLjJ+ZlzrCZYgaru
+	7QD31v5l3i91FGqUerfkxhQEvFZjtP0Ksf6D2WLbQ2Dk7gysc1ZFmCXOeKvLHU4Q0U1jJIfPVfP+c
+	6ihRqzB8ik+VA4cYlFBxzmX8p9ZYCYnM+ZElqyPILB6WEFnGozBrjwRECsUlBeRvbwLzaST285NzJ
+	t40I9gRzlwS3mVWYdW+3JOeLt5XNlr78qAoFC0O+QmHGp//bpPLTXMJZvjeJI6DjPX7uHN43bq8hc
+	UJHHiGrRRvnoZ7s8McEQS6iikT9vhYgbvVknHkDS0YEbUt+uKqOW1XBNvmgXvhhe8KsMDMfWOnPJm
+	pdIC3E9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5YTt-0000000CYiI-3hmQ;
-	Mon, 28 Oct 2024 22:45:01 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1t5YVT-0000000CYwr-2vZI;
+	Mon, 28 Oct 2024 22:46:39 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5YP5-0000000CXqS-0Sl3
+	id 1t5YR5-0000000CY3C-38Kv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 22:40:05 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2fc96f9c41fso48077221fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 15:40:02 -0700 (PDT)
+	Mon, 28 Oct 2024 22:42:09 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb3debdc09so37349601fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 15:42:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730155201; x=1730760001; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=leKULRwFrUrUHl+gqC5TSoYb0TiNILSW4aeMxjzqon8=;
-        b=V5GOSJckJuzYIeIPkOvdHRljDMS56M/trIPEIUOxiqrE7b2JJQZOohmgPCm4vjB+MS
-         f0ygIzS6tCQgzq5yK1YbkC2IHFQnJ3lNf1O/TwU8nc6BCfKrFlEN7hsW+YaTvvMKxr4v
-         pWprHsJutmTaJwiIzE3Gb18dKlil3yggIWtpVTNcUTuD2OHbICkRn7AMsAcyEvBxUibT
-         DULwyY+xDRy/bExyVv1/6TBoQTuDo0CuuCNIRC5+zX4h4cV9IlosxUP0xVn7yp/sAZXh
-         yVJigi/WtvbLnqkGoEiQ7uj6cGbYKQ4R7NLGJR8VNTZ15uGn/r+hJIPGxDKzyNJ1d9Jc
-         vMbA==
+        d=linaro.org; s=google; t=1730155325; x=1730760125; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AYLSk03sy13DZ5QB/3NhRsbKu0MswGH4SuUJv0OP7+4=;
+        b=aBb1b/stfod6hTlgrqMhVWrdTzIpHZepUAJPHXFBZl9PTcPZXCDV+G01hkVPGJXuDw
+         WSFVSdoCwKWrXE9lOQRYZ+TAn6OfoxeDly4xCvYE99HWwy0RDgFMvX6ECiE5WzN4GFPY
+         bNipujHAA7efRPUO5M9f3RSKxDydOu0ki2cwedht4DuoahAHe52XUQjGaSidHTXIRnCf
+         e+4DczxYKx1kryoslm4Ktg6Res/eohFvqoI+Q1Nj7FzQ4rozFd5VmARZnXGGT2xi3wDR
+         BPAPiBGQslqdeT8GM5TTaEnRWJWSRGFpHXIKYmW0Q7o9Yj2dqYuqdYQKKE17WS2el46o
+         0B5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730155201; x=1730760001;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1730155325; x=1730760125;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=leKULRwFrUrUHl+gqC5TSoYb0TiNILSW4aeMxjzqon8=;
-        b=MSiJplxvL8TQa+Q54xkcoCLEX+FugLExtSbfMlvS18MjPYpMF0GsfBUJRiffKEd42E
-         atxeriqKAf7kNs1vIKTY2uSwCICjM4owEH2D15rEHjUv/f9eu+vc3wQPXNLiw5kXZm4R
-         Zn2EaKNvyXDS/Lhwu+WnzkYaFN0AVpFUp3yEZJBGo9ug+eitC/gXDbmAK4Ct6wyor15Y
-         lcyTFHwdjVqPTkllHuDfWEpvwOOtj9kAFq4a9N5EzP3g470Ef1qRGpchwsZhn9erdlR+
-         LHPdP6it1plz/tJIbJiE6WyF+8xko78P/dhI4kh/ihb3mcFy8xqOQvXFNiU0j1DJI3f2
-         +xlA==
-X-Gm-Message-State: AOJu0Yx9cl1JuB9yUjsBwvIEgWOKym6B61mwBLXEEwpoyZrDOyLCHGar
-	hPenNxlWeBv9efomtU+kKTyMsFMTcTnqGU/2gb164UYmF46Iszo1H9V779fM6WQ=
-X-Google-Smtp-Source: AGHT+IFonm/0d6VzeJyq2z2GBjua9udVbBmqU2gCcyAAFcnWLjIbIE7Nn3A6tdQNHkzfUmh4gEGnog==
-X-Received: by 2002:a2e:ab06:0:b0:2fa:c185:ac4e with SMTP id 38308e7fff4ca-2fcdc7ab519mr286331fa.13.1730155200651;
-        Mon, 28 Oct 2024 15:40:00 -0700 (PDT)
-Received: from lino.lan ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb451caa2sm12648561fa.36.2024.10.28.15.40.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 15:40:00 -0700 (PDT)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 28 Oct 2024 23:39:59 +0100
-Subject: [PATCH 2/2] ARM: entry: expand comment in __switch_to
+        bh=AYLSk03sy13DZ5QB/3NhRsbKu0MswGH4SuUJv0OP7+4=;
+        b=ZlSt+HpTA9fvkP3jXq93h8A8Pp25J1UBMxEqX6C6hryAq4yGU3OyxRRT6j6B7wzDtE
+         gkt0W8QuY8ouOLVPf58AiDbv31fxLXlonF8WL02d+9PD0BPvXrM5duvxjeKi/p47FMDR
+         YavqLGmdiHz58mnua5vFFqpSzt2f0vR+wdeb2Yurfqa7nZHdx27ImJohGL81bFF0FNIM
+         8yKUmxgE69s4kRXg64NEhPjm4khGsmHD5juTcAef7wRrR8qg/C0RPhSqW5qW6VuGY53D
+         A89Jdc9W4Z5TC3d+8VZ1VWlXoRlCFjeS/GVWcq3vlcpUtIQgd1ohyF1LgpUHThZUljlc
+         xLUQ==
+X-Gm-Message-State: AOJu0YzB8CiaJO+tqAAMJPdh363NJtz+xKK3QJMFkH8903EI4XgIsjWv
+	Z5WeM84b/pfLMWM+r7B59ZGBLaGU67/KaUMk9Qq8AJzDgfi8cQ1eP2H5jq971pxy04uxu2Y0boH
+	SBaLr84eqFzo8d6XAn6Yn1s0rbt8PWOOu8w7V3w==
+X-Google-Smtp-Source: AGHT+IEg8JVfjXJd/ucT4jDduwHOoGxeFrwMNbyZhgEQKzFwgAbPlV0NnwUmDCq5NLL+EdCc1bSUIXxZA8jFl12JEHM=
+X-Received: by 2002:a2e:b895:0:b0:2fa:d354:1435 with SMTP id
+ 38308e7fff4ca-2fcbddfa6admr39806201fa.0.1730155324821; Mon, 28 Oct 2024
+ 15:42:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-comments-in-switch-to-v1-2-7280d09671a8@linaro.org>
-References: <20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org>
-In-Reply-To: <20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org>
+References: <20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org> <20241028-comments-in-switch-to-v1-1-7280d09671a8@linaro.org>
+In-Reply-To: <20241028-comments-in-switch-to-v1-1-7280d09671a8@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 28 Oct 2024 23:41:53 +0100
+Message-ID: <CACRpkdbo=raavMALT4JtFG7L_kT5dDdH=E1KGCG3Nu5L5NahOg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] ARM: entry: Do a dummy read from VMAP shadow
 To: Russell King <linux@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Mark Rutland <mark.rutland@arm.com>
-X-Mailer: b4 0.14.0
+Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+	Clement LE GOFFIC <clement.legoffic@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_154003_482283_6D5289BE 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20241028_154207_839812_7F6B2DC7 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,43 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per discussion between the developers in the mail thread
-linked, expand the comment in __switch_to so that readers
-of the code understand what is going on.
+On Mon, Oct 28, 2024 at 11:39=E2=80=AFPM Linus Walleij <linus.walleij@linar=
+o.org> wrote:
 
-Link: https://lore.kernel.org/linux-arm-kernel/ZxDh9biUbf9W8gNN@J2N7QTR9R3/
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- arch/arm/kernel/entry-armv.S | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+> When switching task, in addition to a dummy read from the new
+> VMAP stack, also do a dummy read from the VMAP stack's
+> corresponding KASAN shadow memory to sync things up in
+> the new MM context.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: a1c510d0adc6 ("ARM: implement support for vmap'ed stacks")
+> Link: https://lore.kernel.org/linux-arm-kernel/a1a1d062-f3a2-4d05-9836-3b=
+098de9db6d@foss.st.com/
+> Reported-by: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index ef6a657c8d13..5c016c68b5a3 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -557,9 +557,16 @@ ENTRY(__switch_to)
- 	ldmia	r4, {r4 - sl, fp, ip, lr}	@ Load all regs saved previously
- #ifdef CONFIG_VMAP_STACK
- 	@
--	@ Do a dummy read from the new stack while running from the old one so
--	@ that we can rely on do_translation_fault() to fix up any stale PMD
--	@ entries covering the vmalloc region.
-+	@ For a non-lazy mm switch, check_vmalloc_seq() has ensured that
-+	@ that the active mm's page tables have mappings for the prev
-+	@ task's stack and the next task's stack.
-+	@
-+	@ For a lazy mm switch the active mm's page tables have mappings
-+	@ for the prev task's stack but might not have mappings for the
-+	@ new taks stack. Do a dummy read from the new stack while
-+	@ running from the old stack so that we can rely on
-+	@ do_translation_fault() to fix up any stale PMD entries
-+	@ covering the vmalloc region.
- 	@
- 	ldr	r2, [ip]
- #ifdef CONFIG_KASAN_VMALLOC
+This patch is already in the patch tracker in it's final form.
 
--- 
-2.46.2
+This was not supposed to go with the other patch, apologies.
 
+Only patch 2/2 is new material.
+
+Yours,
+Linus Walleij
 
