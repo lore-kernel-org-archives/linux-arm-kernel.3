@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82683D3398C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2878CD3398B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=; b=X2BX4pP0NtMkGNLIcN3QQ8weGO
-	nCR+TY5Pj3QbevjxafNlw3X1ijeyRIJcSmKQdujZJxakHfK2V9Weedk8rbCqkWVCH4uhwUVe/L0cQ
-	EL+0yo5SCcxBKpv3ra9VheYBJFprHAMsCoIfePWyBqQDfpWhtL6ZwV/ALzM5oj94v/O9EyhbfBHoN
-	GqD1mwE4J8ETO/zTy6aYhThwDLPuat5QTrh8Ko8K44oKN9FWzJ2+ZjOn/7yJ9BNZUZB55LvHA0kR6
-	oUAjh8qjw58MIBz9E1mfBSS6BLCQoXFG6bMOwtbygLkOzPgLme9C+byO14wdcoXQYc9fv38F7mAXz
-	/dide//Q==;
+	bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=; b=3EAmxFQgEixnIdjeF6hTKIr6QK
+	3pfzwm5dJVHCsLma0gZSvETtCmABnELSDMiKnDNGXZQP40b7bQYiYXwobfAMb4j8cEOUg4XectkLN
+	MYcgquYW5nNjxWrW9xwaxSvVJHSMEgeboBC6v+mdcSeDscrKDHzJA3LtcQyIo0Ab7NnzN5UJDVwry
+	jHNycEx0CYSIw00+mAh4C4Ycl7eorLKgTp2Z8NcHTm3JA4Pi1EUZvQL6NjnC7D8sEOT2UUSkDa1SE
+	OE9Q7bcR4IMKz5rTJ7tM3AP9n3bdAM+R1C9+8OQt+jul3XLeYa7dGPKOD5Viwpauwl9i8dfYWWQpF
+	U8qPTMqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QbR-0000000B5vs-2u5b;
-	Mon, 28 Oct 2024 14:20:17 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t5QdK-0000000B6EQ-1z5j;
+	Mon, 28 Oct 2024 14:22:14 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QP1-0000000B2nW-2Xlu
+	id 1t5QP3-0000000B2os-3bxc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:07:30 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9acafdb745so782279766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:26 -0700 (PDT)
+	Mon, 28 Oct 2024 14:07:33 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c94c4ad9d8so5479836a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730124445; x=1730729245; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1730124448; x=1730729248; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=;
-        b=fkshA+52sXDgHdW22duulN7yRiCMzy5dvspQgOw11O+JAZOuDC/bL3AA58N4lAJdO+
-         XM3x5EcXMNO3KILlasVh9bOad+U0iR8pXTy/GPp5Gpszate8cJ1ZngwkzJzOHAk+BbYa
-         qxVhT09AYnU7962F2pzFWon9xhk4x+uiVqK2HDh6Q5Kd4SzouV3Hsaj3UGOf91j0ODRE
-         hku+iXZQnxO93wtWtLs4wyFNNK65FSnd6wCXG3jMVZqo8IVP5Q0i6eV6J9/MLITEtn9g
-         A0vjPf6wxaBtDwU+sNrNQo2kIDisbXOdUdiD/OpvxHHraaLlC6oEXuULdTvCn9lnj35I
-         S0Fg==
+        bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=;
+        b=NkRl/wp+zoKvO9tBUBj4qEYgzdtw55QrWzoGJMG9ogkmA4b+l++p0hGbElWRVuF8gy
+         6tANaY8m34ZXtH3AxEI/ZnfACl3zQJfTc2RECO5vY9/yTTSXyTLw7hmIAnqhypTefmeB
+         uUU0TF9o38cj6FkqNEMrekXGTXh/MFmfgLCGlOdKS88XK8aWttDHa6tgef8SVdLClGGe
+         QymZhdSjUFS8eoE7uqmEQ3tFnLXqDsR6zR+fj55Gw7QRl7sau/lsu3QMoa96YTRcQejB
+         l/pnyqJwdc3EhpwhHcDednT+FJSNwTXMHe1C4spm9KIg6znxMiuAp1SMKPBsn4ArUcDY
+         tWzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730124445; x=1730729245;
+        d=1e100.net; s=20230601; t=1730124448; x=1730729248;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=;
-        b=LC1OlwM/1QpcYCy8w/0jQ3vr/vLAu7/IZVYbGntpYKL4P/qBE80H37OmMk40QTNfcV
-         /u/GJ/A41jOZrrFtVDVIzJmnc6vC9v06C82ttgQGH1fXSZwhDvctlAWSCbA4CU6Xc3ii
-         uRF4bq4MT8KKqDcZ5h7bQPXwjcIy8BabYEOWAKjxYuo1rVQd6e/TiTHRsuuKxX93j6iA
-         MSAQDgS70VvU2sg3zCcqtg/tTovuu1+7iaNXogjo2n+G6Txdx+xUtuk4zP2IMG3qNpP5
-         8a3kyGQyWfVqH8l1DeYkVzTXm0IEEVp5agH6fdqQANMX94HMGY+seek0DDurNN3JG1w7
-         NWRw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4uE4tF0Mt5HM9n9LBJK4zQAV6iGHQoa5P+ho91IV/inW8GSub/WhBE/Dy2NXtGiW0w9B2fKhosKkmqHD4o9mg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHFSDpak7qS2DVxuNZpGO+2zlpW7jVjhCtJvWRo4aQ4PdZfL9j
-	Dpcl7LrL0D6YJTy40acBdgvVW3prUyqPmNMNHYSVquxKHFbHi5nawtxU7gmuW5Wrc1Cw+RudqER
-	KKI8=
-X-Google-Smtp-Source: AGHT+IEQdbITjqhgIXETXbiDGS9CpxFITbMxPJxEoYU59S+9lkAwLuR8Fmvi9lRxn9X6MPz0PlOOOw==
-X-Received: by 2002:a17:907:1c92:b0:a99:f9fa:5c01 with SMTP id a640c23a62f3a-a9de391b292mr763533366b.32.1730124445300;
-        Mon, 28 Oct 2024 07:07:25 -0700 (PDT)
+        bh=ExSdnw6SFXuTqFss0pRdd0b0/LidGX7ZLflADrh46f0=;
+        b=nrrQN0fPU9BTrVO8hzpZ7mKu5aInr47HTYvXenby5E8xphv/YZI4bfW5+gcjW9Y7zm
+         3roI+hFnpdIHxIt4cXgvFhKraTUxd9rpGwA8AxugMACwmfXBr71mp/x4ShbEROpxpugt
+         jJzg7uR80sSm61b5Z0wzXQ+d/uIFpCUFOSBKbL1G2yqt4ozLA5ccoxdIvAqm7ptkM5Gm
+         jcPrGQd522NRxnuDcn53AqrbLjSlTBl7u41d19IKEMFtiEeoCHsBhktgQri54pQK+ldE
+         6nqqquIAd15IpyEVrcIAWUuXuyd+JyXu8vTs2dm/PnXRnCJIOfdKREc1GI/dpmg0xVPM
+         K9BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVpSpKB+yObQPhDVA2DkZsXUOwdboRCaWSNrRVCcdihZPt9flUFytIMJrmYP+0Udr4R2R9RqFCC1OAENbK/UO6Z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq6orQb5/sMshUYeVcC5J+kQ0PBucCikZ9BreE07b3HKfjo5C1
+	hX0tQSVJ3A/9Js+Xq8C+tjoivWsX1fr6fm1DDrsHDckkejUKiCbMQcyZOC/X158=
+X-Google-Smtp-Source: AGHT+IGfZma7X0ezVVYvvMm++bwyKvKeoZexLczbfZgPE9InzBp7Q/p9irVjhvXQTbzMj3l4IWc0BQ==
+X-Received: by 2002:a17:907:9608:b0:a9a:835:b4eb with SMTP id a640c23a62f3a-a9de5fa6071mr718089466b.38.1730124447425;
+        Mon, 28 Oct 2024 07:07:27 -0700 (PDT)
 Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1dec7d16sm378731766b.21.2024.10.28.07.07.24
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f029559sm380642166b.58.2024.10.28.07.07.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 07:07:24 -0700 (PDT)
+        Mon, 28 Oct 2024 07:07:27 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -99,17 +98,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v3 09/12] arm64: dts: rp1: Add support for RaspberryPi's RP1 device
-Date: Mon, 28 Oct 2024 15:07:26 +0100
-Message-ID: <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
+Subject: [PATCH v3 11/12] arm64: dts: bcm2712: Add external clock for RP1 chipset on Rpi5
+Date: Mon, 28 Oct 2024 15:07:28 +0100
+Message-ID: <13ad41f172cc8605cb9b324ea0f22296c4c97033.1730123575.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1730123575.git.andrea.porta@suse.com>
 References: <cover.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_070727_710445_C636AAE4 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20241028_070730_050752_F8AF15FF 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,104 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RaspberryPi RP1 is a multi function PCI endpoint device that
-exposes several subperipherals via PCI BAR.
-Add a dtb overlay that will be compiled into a binary blob
-and linked in the RP1 driver.
-This overlay offers just minimal support to represent the
-RP1 device itself, the sub-peripherals will be added by
-future patches.
+The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
+Add clk_rp1_xosc node to provide that.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
-NOTE: this patch should be taken by the same maintainer that will take
-"[PATCH v3 10/12] misc: rp1: RaspberryPi RP1 misc driver", since they
-are closely related in terms of compiling.
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
- MAINTAINERS                           |  1 +
- arch/arm64/boot/dts/broadcom/rp1.dtso | 61 +++++++++++++++++++++++++++
- 2 files changed, 62 insertions(+)
- create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 06277969a522..510a071ede78 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19383,6 +19383,7 @@ F:	include/uapi/linux/media/raspberrypi/
- RASPBERRY PI RP1 PCI DRIVER
- M:	Andrea della Porta <andrea.porta@suse.com>
- S:	Maintained
-+F:	arch/arm64/boot/dts/broadcom/rp1.dtso
- F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
- F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
- F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
-diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
-new file mode 100644
-index 000000000000..8d1bbf207a30
---- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
-@@ -0,0 +1,61 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index 6e5a984c1d4e..efdf9abf04c4 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -38,6 +38,13 @@ clk_emmc2: clk-emmc2 {
+ 			clock-frequency = <200000000>;
+ 			clock-output-names = "emmc2-clock";
+ 		};
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+/ {
-+	fragment@0 {
-+		target-path="";
-+		__overlay__ {
-+			compatible = "pci1de4,1";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+
-+			pci_ep_bus: pci-ep-bus@1 {
-+				compatible = "simple-bus";
-+				ranges = <0xc0 0x40000000
-+					  0x01 0x00 0x00000000
-+					  0x00 0x00400000>;
-+				dma-ranges = <0x10 0x00000000
-+					      0x43000000 0x10 0x00000000
-+					      0x10 0x00000000>;
-+				#address-cells = <2>;
-+				#size-cells = <2>;
-+
-+				rp1_clocks: clocks@c040018000 {
-+					compatible = "raspberrypi,rp1-clocks";
-+					reg = <0xc0 0x40018000 0x0 0x10038>;
-+					#clock-cells = <1>;
-+					clocks = <&clk_rp1_xosc>;
-+					clock-names = "xosc";
-+					assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
-+							  <&rp1_clocks RP1_PLL_SYS>,
-+							  <&rp1_clocks RP1_CLK_SYS>;
-+					assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
-+							       <200000000>,  // RP1_PLL_SYS
-+							       <200000000>;  // RP1_CLK_SYS
-+				};
-+
-+				rp1_gpio: pinctrl@c0400d0000 {
-+					compatible = "raspberrypi,rp1-gpio";
-+					reg = <0xc0 0x400d0000  0x0 0xc000>,
-+					      <0xc0 0x400e0000  0x0 0xc000>,
-+					      <0xc0 0x400f0000  0x0 0xc000>;
-+					gpio-controller;
-+					#gpio-cells = <2>;
-+					interrupt-controller;
-+					#interrupt-cells = <2>;
-+					interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
-+						     <1 IRQ_TYPE_LEVEL_HIGH>,
-+						     <2 IRQ_TYPE_LEVEL_HIGH>;
-+				};
-+			};
++		clk_rp1_xosc: clock-rp1-xosc {
++			compatible = "fixed-clock";
++			#clock-cells = <0>;
++			clock-output-names = "rp1-xosc";
++			clock-frequency = <50000000>;
 +		};
-+	};
-+};
+ 	};
+ 
+ 	cpus: cpus {
 -- 
 2.35.3
 
