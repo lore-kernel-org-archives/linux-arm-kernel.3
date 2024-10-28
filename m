@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540C2D1358A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Oct 2024 23:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF413D1358F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 00:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=; b=XoQ8ZDWlG/xgFPVHbA+k+7m8lQ
-	jjj4y0oRE8dzfilvaBpUh6dlsvMPUbMuGZ9LtLKa04jArgmuAU/XWJMBAnb2SBzjbYEjxV35wS/dg
-	EnoffUz0+3Fkk7z/qbGYpp4Of/p/vIKM2RY+E6VQvaam7uhfyEldnhL29yOQc79ciIktAEpp/WHKb
-	FLYO5zoDUct4zLRdLzslTW4UHZ3TzqPAX2WKxTzYxkOrRNghaPK+YvzG+GkOQZUfBbMDjyOd2M9bj
-	8kBjdhGYWEj/x9yuiWlykQXRcIElbr8qnsDut/60g/iLhforlkLF/fVWU+u6ShFTri1jp9qnu7Xiv
-	KNBHFOAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lpKLsphvAee4QIkTtcAv2Ov+QXCubN1rwSAQDCdYNZE=; b=wv579kbmUq55+PfhoVOeoQK6xa
+	1zv0imIONn+gAIGu5phs1CJcX9G1g0LqpleAgmgzXHrz+vNcS4UTliSfAaROazdOOQ7SJE8vUm6id
+	CtUc0JzXwUz3jBe4Io2WlabxGirDqDxVLbBpyLLLlk86MMHvqxZ4sRR4rYVDrAA/i49BQMJX0+N+2
+	gKpysuV+wJaqWVD/S/TWaYpF8EVQq7WeCf7RVaW4uU8i9P4GF3f5BKRswsvKO6X0QbOYr4RAqAguE
+	YFKNmoxlSyBrJTcjfy8tYwEhb1UQMgRWWYtvFtWKuk6P0RkNEJn89rUxYk/ToxAqNr/Kemqj64a3y
+	bEUPLtjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5CmI-000000094qf-08lg;
-	Sun, 27 Oct 2024 23:34:34 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1t5E3V-00000009AlA-2f16;
+	Mon, 28 Oct 2024 00:56:25 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Ckh-000000094fb-19sU;
-	Sun, 27 Oct 2024 23:32:56 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20c803787abso28297535ad.0;
-        Sun, 27 Oct 2024 16:32:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730071974; x=1730676774; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=;
-        b=MWgM1WA7kDQ/Rht4y3bsgWgv0HVLxtkU7Kfup3uAUgO89FLtrV8nonF+RTyzHL748b
-         NVLLFA/f+7Kr5C6pbL7wbonnmK3cajequWdNidYS4L90cE8quaLoEHcVavYPACgrSu8U
-         PORSVJykdFCk5SpjTT7Y0KX3d8Qd/Jrdf0rcx/WPK6CxRDRdGn0W3y97qs+fqVchQWwF
-         UlfFzoyUoy0JQajn8eUAWiqcpBGTVBfiIjlcJ2sLqYV2IP+0cZxguwbvTT/oJEJMD1I1
-         S9N1vBEEpywIvbqahZCRJ+hKBTpyU8hmKvBI5FuR/16tR4gEeMH94mAJnD2KRNawkXBl
-         JnVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730071974; x=1730676774;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=63amZP33iYpS8AXXhtgX4nWJKEpmd3UTb0cRGCmUwK0=;
-        b=sG0PV86+azm6vYZHO8bc2gKDOIPH8RLm56fLFY8jXciqRW6U7x8rxXzg5oJPOwVv5Z
-         rdlFP5PCSyqfn9EJ0AmNxQMgSu7aKhcoNHjjiNwlMXPNTKnal9F5y15APJUnJsZ7/k81
-         1DxHnKyorkDLLeMguucz+sNLisjqDKeuGnxWSjYqs7uykgKzxgFOCYPjeMvongX2OIDB
-         tJHEf78xHO9TtbzTyKCIRCYXA369X3i3JTvbFK6LOyPrLMt6J5Xj+wz4mrUQUgBXUh/f
-         EeL8HzosaMskIz/06n+QIa+ecybYwwrrkQ06mmdUQUQyKbRWs5nyqVpICdqtVx/T4Tbh
-         UnUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXSPjst5SdHZj/5KDFy4eOOtJQyXR5zTbrPyK69Qlzgq94ARDy2su06AYDYmfw4SVyJmzg36AbNjSd4kA=@lists.infradead.org, AJvYcCXIDvGReQ0/m2ZU0inCAuq3mxetds6Pl1Udn714k8vXaXFt+riaRVu/oNj+0HG14lioNTHl/55sZpPV69r5Jxji@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf8EIiixopl7qKCW7CESx0eaftdBclxTJkskTsrpzWOfmLSuWf
-	DXVtiNc1dA+t+oD/Blu30WQXhRoojQdckL0H0uFxDGxFGiQ50zFW
-X-Google-Smtp-Source: AGHT+IGH/FrrfW96edZYOU/1eyhLzJAIrm6AzqPxdvn8RuUgJVuG2hN9MhbFU5coSZ1MSxKcT0X90A==
-X-Received: by 2002:a17:902:db0f:b0:20c:c482:1d72 with SMTP id d9443c01a7336-210c5a46f96mr94859525ad.20.1730071973692;
-        Sun, 27 Oct 2024 16:32:53 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc044cb1sm39854595ad.249.2024.10.27.16.32.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Oct 2024 16:32:53 -0700 (PDT)
-Date: Mon, 28 Oct 2024 07:32:28 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
- dwmac
-Message-ID: <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
-References: <20241025011000.244350-1-inochiama@gmail.com>
- <20241025011000.244350-3-inochiama@gmail.com>
- <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
+	id 1t5E1q-00000009Ae9-3iCl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 00:54:48 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49RNuURu023439;
+	Mon, 28 Oct 2024 00:54:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lpKLsphvAee4QIkTtcAv2Ov+QXCubN1rwSAQDCdYNZE=; b=C0nDK58VprlJRRu5
+	TH9OXwrAIK1GExr54Pv6RW42alN6oqmJtAHO0NwIyCyveO31DGu01SJ9nTrj8PN7
+	jHWhXJbvr6p3tOxZLBR1Uq8rGG2OQbKbYN/7Ut7eyt6AD/fhgxbtSRRJB1wCobJx
+	I+WEEg+oKDA/LhXriPizaxgFW1LwT8UEWV2fTatGOnY1n54AKihi6XRjQ2XNXzF3
+	Nkv5vqR14Ry6PoXVCC/nsfdWN2jh59IpDJk6A1UhFYAjg7CY7BnpQxFIugOMFyrv
+	RDyPTAUPzxJCt886hn2pQtWOUMBKkCL+6J/rNnbEJGQUzZx8T3D2a6Ws5izIVdNJ
+	aylDcg==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gqe5u8ks-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 00:54:37 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49S0saoN006141
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 00:54:36 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 27 Oct
+ 2024 17:54:32 -0700
+Message-ID: <3f90b3d6-9637-47b7-ad8a-ff43cb28ad32@quicinc.com>
+Date: Mon, 28 Oct 2024 08:54:29 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: qcom: Add coresight nodes for QCS615
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>,
+        Tao Zhang <quic_taozha@quicinc.com>
+References: <20241017030005.893203-1-quic_jiegan@quicinc.com>
+ <69be09ec-e9a5-4fb6-890e-74a65f3ce404@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <69be09ec-e9a5-4fb6-890e-74a65f3ce404@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: YNg6ClML5fS4ZAquffo5rDUaVqZ29SKr
+X-Proofpoint-ORIG-GUID: YNg6ClML5fS4ZAquffo5rDUaVqZ29SKr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
+ phishscore=0 bulkscore=0 mlxlogscore=999 malwarescore=0 adultscore=0
+ priorityscore=1501 impostorscore=0 mlxscore=0 clxscore=1015
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410280006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_163255_341004_64F568CC 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20241027_175443_085392_0BF6040F 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 27, 2024 at 09:38:00PM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
-> > The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
-> > with some extra clock.
-> > 
-> > Add necessary compatible string for this device.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
+
+
+On 10/26/2024 2:47 AM, Konrad Dybcio wrote:
+> On 17.10.2024 5:00 AM, Jie Gan wrote:
+>> Add following coresight components on QCS615, EUD, TMC/ETF, TPDM, dynamic
+>> Funnel, TPDA, Replicator and ETM.
+>>
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>> Already checked by command:dtbs_check W=1.
+>>
+>> Dependencies:
+>> 1. Depends on qcs615 base dtsi change:
+>> https://lore.kernel.org/all/20240926-add_initial_support_for_qcs615-v3-5-e37617e91c62@quicinc.com/
+>> 2. Depends on qcs615 AOSS_QMP change:
+>> https://lore.kernel.org/linux-arm-msm/20241017025313.2028120-4-quic_chunkaid@quicinc.com/
+>> ---
+>>   arch/arm64/boot/dts/qcom/qcs615.dtsi | 1632 ++++++++++++++++++++++++++
+>>   1 file changed, 1632 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/qcs615.dtsi b/arch/arm64/boot/dts/qcom/qcs615.dtsi
+>> index 856b40e20cf3..87cca5de018e 100644
+>> --- a/arch/arm64/boot/dts/qcom/qcs615.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/qcs615.dtsi
+>> @@ -202,6 +202,18 @@ l3_0: l3-cache {
+>>   		};
+>>   	};
+>>   
+>> +	dummy_eud: dummy_sink {
 > 
-> This should be squashed with a corrected previous patch 
+> Node names (after the ':' and before the '{' signs) can't contain
+> underscores, use '-' instead.
+Sure, will fix it.
 
-Good, I will.
+> 
+> [...]
+> 
+>> +		stm@6002000 {
+>> +			compatible = "arm,coresight-stm", "arm,primecell";
+>> +			reg = <0x0 0x6002000 0x0 0x1000>,
+> 
+> Please pad the non-zero address part to 8 hex digits with leading
+> zeroes, across the board
+Will fix it.
 
-> (why do you need to select snps,dwmac-5.30a?), 
+> 
+> This looks like a lot of nodes, all enabled by default. Will this run
+> on a production-fused device?
+Yes, usually Coresight nodes are enabled by default. Those nodes can run 
+on the commercial devices.
 
-The is because the driver use the fallback versioned compatible 
-string to set up some common arguments. (This is what the patch
-3 does). It is also better to have a accurate fallback compatible
-if we already know what it is.
+> 
+> Konrad
 
-Regards,
-Inochi
+Thanks,
+Jie
 
