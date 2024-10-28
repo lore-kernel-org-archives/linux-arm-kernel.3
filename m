@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF70D339A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EA0D339AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8sz6wh0OIVIkejtPgz8KKAxbt53GPgPAdNVSqgtC44=; b=SC8Rjq9U6NcPAOCFBn50sliD0q
-	vnku2h7CGnX5y18is+uvzVVIFDG0xV05B7m1Fhfo0yJyOFD0T0dtuEFg1Hnb/f6BvBH1qyBw5CE/8
-	aFR+kc8vGAvMKxR0nzn7DpcvzALjxDEmAG1f2wIIimrjK8sg7qS1dRjHECbdq6YepMcCAXFCWHmbT
-	zAEaBaleri5vVS5fFMyriJWKpYTMMGxIwWxIFGEbbuPsljefcSQUBiMYBd3lita9sTjGoA35S4+62
-	4UNOdDFWV7KX6XmWV3ipyBsAZr/en9OGo4bpoJVkTZsgmXKoHRyGqI2p9NS7ePWAHhEq6h4HFZoYu
-	b79kenkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o2qaK69S8d1ir0mooHfux1HV+2f4k5U8+ZmSB4W8X3k=; b=rCfCXz8zz3CYGb2PXivDbsuoR4
+	MqSEsb0HggqWvIVOIm9NJ6ZZ8JtEKhmacgXt3Banpuwgdykmtg2Nq9jr3/2MS14XCvzNQf1iECtol
+	WVrOHUYOIafh0bBGmiaJvLKjgm0mswyLo1gXpZnuULZ6tsMPlHy6uqIs4UfcrSXaIpqdV4dHjQHP0
+	6PGJFbY9nKyM6XpwcjP5ToW7kpiqraSPEQv1hlaurzXFaYw25ZqlvF3kSin/YxYKnAfLmMwopHxrw
+	a0oMrb7YTmNYNB+yaLtSzHg0go1qb5we8jccduuamu+TE8YLlWp3mY1p8OuKzEZKIhZtT8GGFqNId
+	nNWljnmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5TcM-0000000BfGy-1fbs;
-	Mon, 28 Oct 2024 17:33:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5Teg-0000000BfYT-27Sx;
+	Mon, 28 Oct 2024 17:35:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Tad-0000000Bf0P-48WT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 17:31:41 +0000
+	id 1t5Td2-0000000BfLX-3Dtd;
+	Mon, 28 Oct 2024 17:34:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2A814A42A0E;
-	Mon, 28 Oct 2024 17:29:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B73BC4CEC3;
-	Mon, 28 Oct 2024 17:31:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D62785C5C12;
+	Mon, 28 Oct 2024 17:33:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E76C4CEE7;
+	Mon, 28 Oct 2024 17:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730136698;
-	bh=rfxuY3krSdeJD90i0XiLhAYyM3TlscAhrdX2CtNW5MU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pgIYAjasd25IPDv/s+zTfTP1EaLE2Qh/RBgGP3qf6/4CbqnQhf4Qa0XOVqqI3HVoF
-	 UcJVGXk/l7Wopyg3wUarOugqabCgF1EtqRVdOSqO1K5HdqhYjDq55U/Z89ptaQGBO6
-	 HrYclKKJ47pqSHBqTBU8MlkTuqRtsqLtNFOPwOkjXXt/xAIG20rh1wTu9NKcvh83Qk
-	 xGsYdZBBaKvPmt1fbONqNedP43EzsaA4xvdEHk5qzw+f+Gqe3Re5XketKexZpRNBoy
-	 rWGmaEWscGfqZUpgVfXMZp6WfsrSaK7mj+xPdIv8j1IV98qOtKaa9ZGtBeq7F5g0cg
-	 5eNsJgFXcIwWQ==
-Date: Mon, 28 Oct 2024 17:31:34 +0000
-From: Will Deacon <will@kernel.org>
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] perf/dwc_pcie: Load DesignWare PCIe PMU driver
- automatically on Ampere SoCs
-Message-ID: <20241028173132.GC2871@willie-the-truck>
-References: <20241008231824.5102-1-ilkka@os.amperecomputing.com>
- <20241008231824.5102-3-ilkka@os.amperecomputing.com>
- <20241024113201.GA30270@willie-the-truck>
- <617bffb7-9dee-6139-53d5-524ba03197f6@os.amperecomputing.com>
+	s=k20201202; t=1730136847;
+	bh=pcLLhLxlquE4QPOlWW4Lr1bb5MuHYN7k6DZdbDCx9DQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=N2N8PbhzCFAC8L9B/R+n6LS/2Vz3FY30Fm8hWgEopytD1knoRkeGPQKL3kqI2YZh4
+	 N66V/nX5SYYKx1XlmynUto9sGLWOvhBEmg5rJSntmjzIwGDKa6y6pQ5CqfVhu6ox3z
+	 XXy4qMSqLoaPINE/LE66ohBgCVuwypgcmHq7aI6zsMGsZnZ0NSH6AbSvbsTjET7iO5
+	 tM6H9w8I9wRriKG8/z+JwgusAW1OG4vSksb8DGG2Dt3CZPSWdvjdM4zjviLYwYBMsG
+	 60iDnfcMYPZgh5mphm7YYFd/flxuIVSEHd35xe9nF7CCH1OilerJX6R47wN1hlmM2E
+	 GJMGejqlT3Efw==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-53a007743e7so5250608e87.1;
+        Mon, 28 Oct 2024 10:34:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVBAo6pbX/nMZ4DWSeW4pJ++IbfxTMicmcYyI21EiKf2/MlayznbJ+RJgDCdl8leEtHKWkv7+CkgJ2sLP+Ljsz/MQ==@lists.infradead.org, AJvYcCVXodPayS/2IcpDWoXjpJ4W/0B2YUn2oXUX+0Rrl8/Bvbvu2VPjUYXnKRAyLYB3sF14KYpSnw==@lists.infradead.org, AJvYcCXsvHC8GDd6pwllSXXhuUy2BDMHFlb6f2QmxZ8YQcDNBk7dra8syTjAPluYiZtixUoXot2mBF2fh8LbwnU=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTmaPXYkJnprt3rt+T8dchElQC89DCqaOJTa4jqNbzjVBAH6Qx
+	q8cu/rNgb8VHAaENFnJFhDdn5+FOijmC87u6MjcdBlR9PEiSS8SRAT5oH11r4dljSYnoQClB7G8
+	vXW7uX8kTNX3iq8V9TJaE1xOXLw==
+X-Google-Smtp-Source: AGHT+IF5IETAXGDmlx+LAKug+dwz64NqnsL1okXnnGJyl9RYKmQIgXl4x3+ziMcKV48JBCGh1PNtcevuXjcqmWy53WY=
+X-Received: by 2002:a05:6512:224e:b0:539:e85c:c888 with SMTP id
+ 2adb3069b0e04-53b34a1900emr4148343e87.40.1730136845913; Mon, 28 Oct 2024
+ 10:34:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <617bffb7-9dee-6139-53d5-524ba03197f6@os.amperecomputing.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20241023171426.452688-1-usamaarif642@gmail.com> <20241028154054.GE2484@willie-the-truck>
+In-Reply-To: <20241028154054.GE2484@willie-the-truck>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 28 Oct 2024 12:33:51 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqK=cbknmjKa-rtr9vPhaOoYf26KNzvQ0uGabOwy19jcCA@mail.gmail.com>
+Message-ID: <CAL_JsqK=cbknmjKa-rtr9vPhaOoYf26KNzvQ0uGabOwy19jcCA@mail.gmail.com>
+Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
+To: Will Deacon <will@kernel.org>
+Cc: Usama Arif <usamaarif642@gmail.com>, mark.rutland@arm.com, leitao@debian.org, 
+	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net, 
+	saravanak@google.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	kexec@lists.infradead.org, loongarch@lists.linux.dev, 
+	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_103140_106947_BA529F0E 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20241028_103408_921998_4229AD27 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +87,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 03:19:17PM -0700, Ilkka Koskinen wrote:
-> 
-> Hi Will,
-> 
-> On Thu, 24 Oct 2024, Will Deacon wrote:
-> > On Tue, Oct 08, 2024 at 11:18:23PM +0000, Ilkka Koskinen wrote:
-> > > Load DesignWare PCIe PMU driver automatically if the system has a PCI
-> > > bridge by Ampere.
-> > > 
-> > > Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> > > ---
-> > >  drivers/perf/dwc_pcie_pmu.c | 10 ++++++++++
-> > >  1 file changed, 10 insertions(+)
-> > > 
-> > > diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> > > index 3581d916d851..d752168733cf 100644
-> > > --- a/drivers/perf/dwc_pcie_pmu.c
-> > > +++ b/drivers/perf/dwc_pcie_pmu.c
-> > > @@ -782,6 +782,16 @@ static void __exit dwc_pcie_pmu_exit(void)
-> > >  module_init(dwc_pcie_pmu_init);
-> > >  module_exit(dwc_pcie_pmu_exit);
-> > > 
-> > > +static const struct pci_device_id dwc_pcie_pmu_table[] = {
-> > > +	{
-> > > +		PCI_DEVICE(PCI_VENDOR_ID_AMPERE, PCI_ANY_ID),
-> > > +		.class		= PCI_CLASS_BRIDGE_PCI_NORMAL,
-> > > +		.class_mask	= ~0,
-> > > +	},
-> > > +	{ }
-> > > +};
-> > > +MODULE_DEVICE_TABLE(pci, dwc_pcie_pmu_table);
-> > 
-> > Hmm, won't this only work if the driver is modular? Should we be calling
-> > pci_register_driver() for the builtin case?
-> 
-> That would be the normal case indeed. However, this driver is quite
-> different: dwc_pcie_pmu_init() goes through all the pci devices looking for
-> root ports with the pmu capabilities. Moreover, the probe function isn't
-> bound to any specific vendor/class/device IDs. This patch simply makes sure
-> the driver is loaded and the init function gets called, if the driver was
-> built as module and ran on Ampere system.
+On Mon, Oct 28, 2024 at 10:41=E2=80=AFAM Will Deacon <will@kernel.org> wrot=
+e:
+>
+> On Wed, Oct 23, 2024 at 06:14:26PM +0100, Usama Arif wrote:
+> >  __pa() is only intended to be used for linear map addresses and using
+> > it for initial_boot_params which is in fixmap for arm64 will give an
+> > incorrect value. Hence save the physical address when it is known at
+> > boot time when calling early_init_dt_scan for arm64 and use it at kexec
+> > time instead of converting the virtual address using __pa().
+> >
+> > Reported-by: Breno Leitao <leitao@debian.org>
+> > Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> > Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+> > Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()"=
+)
+> > ---
+> > v1 -> 2:
+> > - pass dt_phys in early_init_dt_scan instead of creating
+> >   anorther arch->dt function (Rob Herring)
+> > ---
+> >  arch/arc/kernel/devtree.c              |  2 +-
+> >  arch/arm/kernel/devtree.c              |  2 +-
+> >  arch/arm64/kernel/setup.c              |  6 +++++-
+> >  arch/csky/kernel/setup.c               |  4 ++--
+> >  arch/loongarch/kernel/setup.c          |  2 +-
+> >  arch/microblaze/kernel/prom.c          |  2 +-
+> >  arch/mips/kernel/prom.c                |  2 +-
+> >  arch/mips/kernel/relocate.c            |  2 +-
+> >  arch/nios2/kernel/prom.c               |  4 ++--
+> >  arch/openrisc/kernel/prom.c            |  2 +-
+> >  arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
+> >  arch/powerpc/kernel/prom.c             |  2 +-
+> >  arch/powerpc/platforms/pseries/plpks.c |  2 +-
+> >  arch/riscv/kernel/setup.c              |  2 +-
+> >  arch/sh/kernel/setup.c                 |  2 +-
+> >  arch/um/kernel/dtb.c                   |  2 +-
+> >  arch/x86/kernel/devicetree.c           |  2 +-
+> >  arch/xtensa/kernel/setup.c             |  2 +-
+> >  drivers/of/fdt.c                       | 14 ++++++++------
+> >  drivers/of/kexec.c                     |  2 +-
+> >  include/linux/of_fdt.h                 |  5 +++--
+> >  21 files changed, 36 insertions(+), 29 deletions(-)
+> >
+> > diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
+> > index 4c9e61457b2f..cc6ac7d128aa 100644
+> > --- a/arch/arc/kernel/devtree.c
+> > +++ b/arch/arc/kernel/devtree.c
+> > @@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(=
+void *dt)
+> >       const struct machine_desc *mdesc;
+> >       unsigned long dt_root;
+> >
+> > -     if (!early_init_dt_scan(dt))
+> > +     if (!early_init_dt_scan(dt, __pa(dt)))
+> >               return NULL;
+> >
+> >       mdesc =3D of_flat_dt_match_machine(NULL, arch_get_next_mach);
+> > diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
+> > index fdb74e64206a..3b78966e750a 100644
+> > --- a/arch/arm/kernel/devtree.c
+> > +++ b/arch/arm/kernel/devtree.c
+> > @@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fd=
+t(void *dt_virt)
+> >
+> >       mdesc_best =3D &__mach_desc_GENERIC_DT;
+> >
+> > -     if (!dt_virt || !early_init_dt_verify(dt_virt))
+> > +     if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
+> >               return NULL;
+> >
+> >       mdesc =3D of_flat_dt_match_machine(mdesc_best, arch_get_next_mach=
+);
+> > diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> > index b22d28ec8028..177262739c49 100644
+> > --- a/arch/arm64/kernel/setup.c
+> > +++ b/arch/arm64/kernel/setup.c
+> > @@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t d=
+t_phys)
+> >       if (dt_virt)
+> >               memblock_reserve(dt_phys, size);
+> >
+> > -     if (!dt_virt || !early_init_dt_scan(dt_virt)) {
+> > +     /*
+> > +      * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used=
+.
+> > +      * Pass dt_phys directly.
+> > +      */
+> > +     if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
+>
+> nit: It looks like early_init_dt_verify() will now return false if
+> !dt_virt, so we can drop the additional check here.
 
-Ok, but that seems like the wrong approach, no? We end up with a weird
-list of vendors who want the thing to probe on their SoCs and, by
-omission, everybody not on the list doesn't want that behaviour.
+That was true before, but I'll fix this up when applying.
 
-Will
+Rob
 
