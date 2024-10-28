@@ -4,75 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EA0D339AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41820D339A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2qaK69S8d1ir0mooHfux1HV+2f4k5U8+ZmSB4W8X3k=; b=rCfCXz8zz3CYGb2PXivDbsuoR4
-	MqSEsb0HggqWvIVOIm9NJ6ZZ8JtEKhmacgXt3Banpuwgdykmtg2Nq9jr3/2MS14XCvzNQf1iECtol
-	WVrOHUYOIafh0bBGmiaJvLKjgm0mswyLo1gXpZnuULZ6tsMPlHy6uqIs4UfcrSXaIpqdV4dHjQHP0
-	6PGJFbY9nKyM6XpwcjP5ToW7kpiqraSPEQv1hlaurzXFaYw25ZqlvF3kSin/YxYKnAfLmMwopHxrw
-	a0oMrb7YTmNYNB+yaLtSzHg0go1qb5we8jccduuamu+TE8YLlWp3mY1p8OuKzEZKIhZtT8GGFqNId
-	nNWljnmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+24tbWmwYqjI0PixvLwCG5KaQzbdJT94obj/v2TLFYw=; b=okS5PCfd+lGpLv
+	4hps4xXekYZ8KSjJXCNh30xe39d6zJNyrxsc9iTtZB5887tWg8v3m8LYWkA8Q2EAShpjOTpYxOxts
+	XVUHL4fMhm1KzHX2PSM8LVYFG19HGOY/5MEWi/68qjW84/jQhRRVFKrY6r+ULxufoXwpM4Pno0Q2h
+	uoO6C+Y6FEnYlFr134dr+ppfwFSW/ahjj91cFcA6AWtAS6gvmjjIFur9fNivgxh0Zeyaj7BTeNXgd
+	xBLkEt12fIesskYEKHgj+eHUJDRVO2NKN42WsIh4R+XhEVLQe8kf0QZWtDzMFOuU5sm/9Vb+ySzbM
+	Jx2PTDLF2Z8vZ3z3I3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Teg-0000000BfYT-27Sx;
-	Mon, 28 Oct 2024 17:35:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5Tkf-0000000BgQO-1jXp;
+	Mon, 28 Oct 2024 17:42:01 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Td2-0000000BfLX-3Dtd;
-	Mon, 28 Oct 2024 17:34:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D62785C5C12;
-	Mon, 28 Oct 2024 17:33:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E76C4CEE7;
-	Mon, 28 Oct 2024 17:34:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730136847;
-	bh=pcLLhLxlquE4QPOlWW4Lr1bb5MuHYN7k6DZdbDCx9DQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=N2N8PbhzCFAC8L9B/R+n6LS/2Vz3FY30Fm8hWgEopytD1knoRkeGPQKL3kqI2YZh4
-	 N66V/nX5SYYKx1XlmynUto9sGLWOvhBEmg5rJSntmjzIwGDKa6y6pQ5CqfVhu6ox3z
-	 XXy4qMSqLoaPINE/LE66ohBgCVuwypgcmHq7aI6zsMGsZnZ0NSH6AbSvbsTjET7iO5
-	 tM6H9w8I9wRriKG8/z+JwgusAW1OG4vSksb8DGG2Dt3CZPSWdvjdM4zjviLYwYBMsG
-	 60iDnfcMYPZgh5mphm7YYFd/flxuIVSEHd35xe9nF7CCH1OilerJX6R47wN1hlmM2E
-	 GJMGejqlT3Efw==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-53a007743e7so5250608e87.1;
-        Mon, 28 Oct 2024 10:34:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVBAo6pbX/nMZ4DWSeW4pJ++IbfxTMicmcYyI21EiKf2/MlayznbJ+RJgDCdl8leEtHKWkv7+CkgJ2sLP+Ljsz/MQ==@lists.infradead.org, AJvYcCVXodPayS/2IcpDWoXjpJ4W/0B2YUn2oXUX+0Rrl8/Bvbvu2VPjUYXnKRAyLYB3sF14KYpSnw==@lists.infradead.org, AJvYcCXsvHC8GDd6pwllSXXhuUy2BDMHFlb6f2QmxZ8YQcDNBk7dra8syTjAPluYiZtixUoXot2mBF2fh8LbwnU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTmaPXYkJnprt3rt+T8dchElQC89DCqaOJTa4jqNbzjVBAH6Qx
-	q8cu/rNgb8VHAaENFnJFhDdn5+FOijmC87u6MjcdBlR9PEiSS8SRAT5oH11r4dljSYnoQClB7G8
-	vXW7uX8kTNX3iq8V9TJaE1xOXLw==
-X-Google-Smtp-Source: AGHT+IF5IETAXGDmlx+LAKug+dwz64NqnsL1okXnnGJyl9RYKmQIgXl4x3+ziMcKV48JBCGh1PNtcevuXjcqmWy53WY=
-X-Received: by 2002:a05:6512:224e:b0:539:e85c:c888 with SMTP id
- 2adb3069b0e04-53b34a1900emr4148343e87.40.1730136845913; Mon, 28 Oct 2024
- 10:34:05 -0700 (PDT)
+	id 1t5Tj2-0000000Bg4k-2a5W
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 17:40:22 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43159c9f617so44769195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 10:40:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730137219; x=1730742019; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+24tbWmwYqjI0PixvLwCG5KaQzbdJT94obj/v2TLFYw=;
+        b=15DxPIfFaEtFnas9A7IQ515zo9bnsZ26X29Nt/lwAZe3ctFYhlCuva69pKNHOMK1hA
+         F4+ztEl2OCeeO4QHAZvtbr6SG62mWXux/x0DZPhv9N1vh6KOAgaTiairKiCGYR2OONot
+         NbnOoTFSf21ECmhVSIVmxkDMP+hlsPtvy3eGX0+64vLfmsnocFPAJYSUMycGlC1T6iN3
+         HyaeQsWiPvAycawz6jmROHQbxtQxQJX/+TmiuPYsdINpJHtGz95vrRS00ZwuwqtOkFxX
+         zF0OsS874rroS5dfWLILSJKVncPk5b7FNWbFPTE+GoUzuhBJO1fNDPQNKCZsyLBY5Qsa
+         +r+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730137219; x=1730742019;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+24tbWmwYqjI0PixvLwCG5KaQzbdJT94obj/v2TLFYw=;
+        b=HpPLoiwa6gyb5k8qPmkbCaunNZYJWiyh3OnfyiIyiRSX24W3K6YfaOKl/wkSBaQy3m
+         0Q//Fs8DXGqNLra5mfPgTqwBAT/akgwtSeS/NZgcNjssQue+yUoR4JaaF1A7lCzbVO83
+         JR/zLWHvT0jehYAuEat0yw9a8l40CroUupTiWratBQvgfSU8WGrGR5HWL82WI7q9jSo6
+         FWtsEbHUMtl/BLDP72fbBVUtDDky0jb2UJIAZc6qAul1RehazmggME2lORaQEb7rLiIx
+         luHHfDFmszUMd85NsdxeYYHyES/8Wcx2dfYl2MIItwJSfYmIFNvekhQxj+hFNFRWyzjo
+         sw5g==
+X-Forwarded-Encrypted: i=1; AJvYcCVrDQKz9LHE/8/xfzbWCFUQIoaKBzdX/0uMFOBIFogk1YS1EcCtO95w7uADKWHgrRh2koG/ij2TkzIJaCy7sWkk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg+4ufBLvO/pNqpO5BCXWwCQEE5Eqq5GuJIZIUdFRnWsl6L6xl
+	aGTs72F7kZZDiHRLc4l5EVmpw2VHaDVjlq60Tur3BYpxSoWYqM8gETkL5WSLZ8U=
+X-Google-Smtp-Source: AGHT+IFE550FE2Nqygic/ljdueXDXIsWvxFQ/MLExhS5Kk1L7VSfa17/mmDjKm+s/AppiBgP1SXRCQ==
+X-Received: by 2002:adf:cc8f:0:b0:37d:52b5:451e with SMTP id ffacd0b85a97d-3806118aa34mr6936830f8f.33.1730137218641;
+        Mon, 28 Oct 2024 10:40:18 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:81f4:340d:1a9d:1fa6:531f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431935f744esm117408815e9.34.2024.10.28.10.40.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 10:40:18 -0700 (PDT)
+From: Markus Schneider-Pargmann <msp@baylibre.com>
+Subject: [PATCH v5 0/9] can: m_can: Add am62 wakeup support
+Date: Mon, 28 Oct 2024 18:38:06 +0100
+Message-Id: <20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com>
 MIME-Version: 1.0
-References: <20241023171426.452688-1-usamaarif642@gmail.com> <20241028154054.GE2484@willie-the-truck>
-In-Reply-To: <20241028154054.GE2484@willie-the-truck>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 28 Oct 2024 12:33:51 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqK=cbknmjKa-rtr9vPhaOoYf26KNzvQ0uGabOwy19jcCA@mail.gmail.com>
-Message-ID: <CAL_JsqK=cbknmjKa-rtr9vPhaOoYf26KNzvQ0uGabOwy19jcCA@mail.gmail.com>
-Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
-To: Will Deacon <will@kernel.org>
-Cc: Usama Arif <usamaarif642@gmail.com>, mark.rutland@arm.com, leitao@debian.org, 
-	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net, 
-	saravanak@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAP7LH2cC/4XOTQ6CMBCG4auQrh3DlH9X3sO4KO0gjUpJC1VCu
+ LuFuDBuWL6zeL6ZmSOrybFTNDNLXjttuhDZIWKyFd2NQKvQjMc8xTiuYDC9lvCUooOXuNPYgzO
+ jlQQ+B+RQSlR5VSVYq5IFpLfU6Pc2cLmGbrUbjJ22PZ+s1y+NuEf7BGKoiozLAlOhkJ9rMT10b
+ ekozZOtuk9/xWxXTIPYKBF+RiqEyP/EZVk+aKLTGSEBAAA=
+X-Change-ID: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8
+To: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
+Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, 
+ Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Dhruva Gole <d-gole@ti.com>, Simon Horman <horms@kernel.org>, 
+ Vincent MAILHOL <mailhol.vincent@wanadoo.fr>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4574; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=PjmzZrky7c9XHiIloWKYccp5bYvY8EkYK6R8+nR4g8A=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNLlz3i1l97ltzN8+evMnOe3jCZNSGpdPbW6yWxf9o0tH
+ rf657aadZSyMIhxMMiKKbLc/bDwXZ3c9QUR6x45wsxhZQIZwsDFKQATSc1h+O/LpDzV/p6y3/GN
+ GW97zrY3nD+2aPPzKF+hJ4cjEnX4tDYzMnzpX3WNkzP8dNu9DdJ28rmFNzYE3VjNeatsHa/u3ZT
+ aPgYA
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_103408_921998_4229AD27 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20241028_104020_965123_80BCCD37 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,99 +117,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 10:41=E2=80=AFAM Will Deacon <will@kernel.org> wrot=
-e:
->
-> On Wed, Oct 23, 2024 at 06:14:26PM +0100, Usama Arif wrote:
-> >  __pa() is only intended to be used for linear map addresses and using
-> > it for initial_boot_params which is in fixmap for arm64 will give an
-> > incorrect value. Hence save the physical address when it is known at
-> > boot time when calling early_init_dt_scan for arm64 and use it at kexec
-> > time instead of converting the virtual address using __pa().
-> >
-> > Reported-by: Breno Leitao <leitao@debian.org>
-> > Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> > Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-> > Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()"=
-)
-> > ---
-> > v1 -> 2:
-> > - pass dt_phys in early_init_dt_scan instead of creating
-> >   anorther arch->dt function (Rob Herring)
-> > ---
-> >  arch/arc/kernel/devtree.c              |  2 +-
-> >  arch/arm/kernel/devtree.c              |  2 +-
-> >  arch/arm64/kernel/setup.c              |  6 +++++-
-> >  arch/csky/kernel/setup.c               |  4 ++--
-> >  arch/loongarch/kernel/setup.c          |  2 +-
-> >  arch/microblaze/kernel/prom.c          |  2 +-
-> >  arch/mips/kernel/prom.c                |  2 +-
-> >  arch/mips/kernel/relocate.c            |  2 +-
-> >  arch/nios2/kernel/prom.c               |  4 ++--
-> >  arch/openrisc/kernel/prom.c            |  2 +-
-> >  arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
-> >  arch/powerpc/kernel/prom.c             |  2 +-
-> >  arch/powerpc/platforms/pseries/plpks.c |  2 +-
-> >  arch/riscv/kernel/setup.c              |  2 +-
-> >  arch/sh/kernel/setup.c                 |  2 +-
-> >  arch/um/kernel/dtb.c                   |  2 +-
-> >  arch/x86/kernel/devicetree.c           |  2 +-
-> >  arch/xtensa/kernel/setup.c             |  2 +-
-> >  drivers/of/fdt.c                       | 14 ++++++++------
-> >  drivers/of/kexec.c                     |  2 +-
-> >  include/linux/of_fdt.h                 |  5 +++--
-> >  21 files changed, 36 insertions(+), 29 deletions(-)
-> >
-> > diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
-> > index 4c9e61457b2f..cc6ac7d128aa 100644
-> > --- a/arch/arc/kernel/devtree.c
-> > +++ b/arch/arc/kernel/devtree.c
-> > @@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(=
-void *dt)
-> >       const struct machine_desc *mdesc;
-> >       unsigned long dt_root;
-> >
-> > -     if (!early_init_dt_scan(dt))
-> > +     if (!early_init_dt_scan(dt, __pa(dt)))
-> >               return NULL;
-> >
-> >       mdesc =3D of_flat_dt_match_machine(NULL, arch_get_next_mach);
-> > diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
-> > index fdb74e64206a..3b78966e750a 100644
-> > --- a/arch/arm/kernel/devtree.c
-> > +++ b/arch/arm/kernel/devtree.c
-> > @@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fd=
-t(void *dt_virt)
-> >
-> >       mdesc_best =3D &__mach_desc_GENERIC_DT;
-> >
-> > -     if (!dt_virt || !early_init_dt_verify(dt_virt))
-> > +     if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
-> >               return NULL;
-> >
-> >       mdesc =3D of_flat_dt_match_machine(mdesc_best, arch_get_next_mach=
-);
-> > diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> > index b22d28ec8028..177262739c49 100644
-> > --- a/arch/arm64/kernel/setup.c
-> > +++ b/arch/arm64/kernel/setup.c
-> > @@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t d=
-t_phys)
-> >       if (dt_virt)
-> >               memblock_reserve(dt_phys, size);
-> >
-> > -     if (!dt_virt || !early_init_dt_scan(dt_virt)) {
-> > +     /*
-> > +      * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used=
-.
-> > +      * Pass dt_phys directly.
-> > +      */
-> > +     if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
->
-> nit: It looks like early_init_dt_verify() will now return false if
-> !dt_virt, so we can drop the additional check here.
+Hi,
 
-That was true before, but I'll fix this up when applying.
+Series
+------
+am62, am62a and am62p support Partial-IO, a poweroff SoC state with a
+few pin groups being active for wakeup.
 
-Rob
+To support mcu_mcan0 and mcu_mcan1 wakeup for the mentioned SoCs, the
+series introduces a notion of wake-on-lan for m_can. If the user decides
+to enable wake-on-lan for a m_can device, the device is set to wakeup
+enabled. A 'wakeup' pinctrl state is selected to enable wakeup flags for
+the relevant pins. If wake-on-lan is disabled the default pinctrl is
+selected.
+
+It is based on v6.12-rc1.
+
+Partial-IO
+----------
+This series is part of a bigger topic to support Partial-IO on am62,
+am62a and am62p. Partial-IO is a poweroff state in which some pins are
+able to wakeup the SoC. In detail MCU m_can and two serial port pins can
+trigger the wakeup.
+A documentation can also be found in section 6.2.4 in the TRM:
+  https://www.ti.com/lit/pdf/spruiv7
+
+This other series is relevant for the support of Partial-IO:
+
+ - firmware: ti_sci: Partial-IO support
+   https://gitlab.baylibre.com/msp8/linux/-/tree/topic/am62-partialio/v6.12?ref_type=heads
+
+Testing
+-------
+A test branch is available here that includes all patches required to
+test Partial-IO:
+
+https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62/v6.12?ref_type=heads
+
+After enabling Wake-on-LAN the system can be powered off and will enter
+the Partial-IO state in which it can be woken up by activity on the
+specific pins:
+    ethtool -s can0 wol p
+    ethtool -s can1 wol p
+    poweroff
+
+I tested these patches on am62-lp-sk.
+
+Best,
+Markus
+
+Previous versions:
+ v1: https://lore.kernel.org/lkml/20240523075347.1282395-1-msp@baylibre.com/
+ v2: https://lore.kernel.org/lkml/20240729074135.3850634-1-msp@baylibre.com/
+ v3: https://lore.kernel.org/lkml/20241011-topic-mcan-wakeup-source-v6-12-v3-0-9752c714ad12@baylibre.com
+ v4: https://lore.kernel.org/r/20241015-topic-mcan-wakeup-source-v6-12-v4-0-fdac1d1e7aa6@baylibre.com
+
+Changes in v5:
+ - Make the check of wol options nicer to read
+
+Changes in v4:
+ - Remove leftover testing code that always returned -EIO in a specific
+ - Redesign pincontrol setup to be easier understandable and less nested
+ - Fix missing parantheses around wol_enable expression
+ - Remove | from binding description
+
+Changes in v3:
+ - Rebase to v6.12-rc1
+ - Change 'wakeup-source' to only 'true'
+ - Simplify m_can_set_wol by returning early on error
+ - Add vio-suuply binding and handling of this optional property.
+   vio-supply is used to reflect the SoC architecture and which power
+   line powers the m_can unit. This is important as some units are
+   powered in special low power modes.
+
+Changes in v2:
+ - Rebase to v6.11-rc1
+ - Squash these two patches for the binding into one:
+   dt-bindings: can: m_can: Add wakeup-source property
+   dt-bindings: can: m_can: Add wakeup pinctrl state
+ - Add error handling to multiple patches of the m_can driver
+ - Add error handling in m_can_class_allocate_dev(). This also required
+   to add a new patch to return error pointers from
+   m_can_class_allocate_dev().
+
+Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+---
+Markus Schneider-Pargmann (8):
+      dt-bindings: can: m_can: Add wakeup properties
+      dt-bindings: can: m_can: Add vio-supply
+      can: m_can: Map WoL to device_set_wakeup_enable
+      can: m_can: Return ERR_PTR on error in allocation
+      can: m_can: Support pinctrl wakeup state
+      can: m_can: Add use of optional regulator
+      arm64: dts: ti: k3-am62: Mark mcu_mcan0/1 as wakeup-source
+      arm64: dts: ti: k3-am62a-mcu: Mark mcu_mcan0/1 as wakeup-source
+
+Vibhore Vardhan (1):
+      arm64: dts: ti: k3-am62p-mcu: Mark mcu_mcan0/1 as wakeup-source
+
+ .../devicetree/bindings/net/can/bosch,m_can.yaml   |  22 ++++
+ arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi            |   2 +
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi           |   2 +
+ .../boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi     |   2 +
+ drivers/net/can/m_can/m_can.c                      | 117 ++++++++++++++++++++-
+ drivers/net/can/m_can/m_can.h                      |   4 +
+ drivers/net/can/m_can/m_can_pci.c                  |   4 +-
+ drivers/net/can/m_can/m_can_platform.c             |   4 +-
+ drivers/net/can/m_can/tcan4x5x-core.c              |   4 +-
+ 9 files changed, 152 insertions(+), 9 deletions(-)
+---
+base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+change-id: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8
+
+Best regards,
+-- 
+Markus Schneider-Pargmann <msp@baylibre.com>
+
 
