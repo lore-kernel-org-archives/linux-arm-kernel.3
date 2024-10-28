@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938D2D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F83AD13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1grSvU5Tn2s3ry5oErdwTQ9/uQCVVjQWC+Dff+1YOQ=; b=0H+VLr12DFVWCmbvIr6C6LMNL5
-	Peb9Iu03QpP8RHFNO71SUh925DG6tQkBs9N97Hu5cVgclU/8pm7exWA4zzVv428yQv1ZZAlV581/n
-	QxIoEh56SJlREZumQV0pz0ACtOTQmxWV8QT6Ibytuj+XmZwxIPsdfsi0X0RVRuITHuVTRh3Q2TmS/
-	/SLPqQwUgw9VuX1RPipayrygj3LQtGOAb3UEJvbz602oTL65gya3PR/A9c8WxU5VxkRwT/IJQFSDC
-	gwNacYs3LHqFRGbZf7nMPhPsCxicOvjQLPiegkdytYD1iTEOYz1WDm50ukSeXSrkjcwLM1jx8cEUj
-	vaGMzGbA==;
+	bh=lULs5ECe2v/eFZFaOgsynlSrffO8W5NVPtm3h9ZcjLk=; b=FfQmW27syiOVq2poixqWG+ImUP
+	CeJbEOLUKAIN7kPH9ap0xz2WuitiHkO32yomfGG3IT9fd0aAiroo8NJOwbQg0Rlf3j2No/0gYa7sb
+	iyh7Z+c2GjPZOjGtPo4dx2H3xyuddap8CDq3IYwXHdwCzPXtqWdFdJFmD80l96h6TfPAT16jjr8Pm
+	wm9EImOlfmxxlRhVCdSMtnKL0jE6BIAYQ5kJO+bZHSqfIYij2sAfWWjpHBoVgUhpVOX3MgGUsMesN
+	B+9tcalHEuVj1WH+49O7D6yKwIsYi4mICv/uq/z5X4p+19CfmOR7aOKFsEc8sXJ5vNcUxbbza9Dqx
+	ANqBkQ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MAb-0000000AFkH-32Eo;
-	Mon, 28 Oct 2024 09:36:17 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t5MCA-0000000AFx2-04B9;
+	Mon, 28 Oct 2024 09:37:54 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Lxm-0000000ADgu-3mFE
+	id 1t5Lxo-0000000ADhJ-3vsh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:23:04 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso4019120e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:23:02 -0700 (PDT)
+	Mon, 28 Oct 2024 09:23:06 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539ee1acb86so4019340e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:23:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730107381; x=1730712181; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730107383; x=1730712183; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=b1grSvU5Tn2s3ry5oErdwTQ9/uQCVVjQWC+Dff+1YOQ=;
-        b=MpSqRfd3LbtRk6gp1HLbFd+6ms+vBhiXK3WA+jGqR6JDwjK4hg9GmeBVBskxYEdnZu
-         bRGX5Ckn6O/GAcfEVB55cRpxjsKq97Blbx9d+Jb0lERpp42+GJ9Ff75Xv0jYTg06hU/5
-         nRQslFHO2ooYZ5vkJJ75uJBzGq+OFoz9mF/y7/qbgx7ign9njG0u5h/SXjscNjIX+ynH
-         CHYjEPazJgxtdWFEizeV+b2ZmU061fqL8FO0tS7MU67efDG2Yi5NbDur0vOknZhrRDEj
-         baza0iv0zKXkKDmGbhpPh4qRO1YvMCWmPe51BpT1kR+Aqtn9oGocnpu8g818qTYExK9r
-         nFCg==
+        bh=lULs5ECe2v/eFZFaOgsynlSrffO8W5NVPtm3h9ZcjLk=;
+        b=An0WyZCmkk6ORkBG39ZlcwEwx1e/u028QXJ6a5KWnSDzVNcSdCs9xV8swv7WE2NdVA
+         1NUCp3mw+wec/KMfmGVZF0+HACDQbv8QRp+gq4DLeQncilrvEm44N1dHfrpLJVGJaTx2
+         60l/+MlybbIA2pvdYGrkuoPzj5Nm2fCOEj7Wz3RJT4G9cSOCEafhPOtBm1nSJtVQT5kM
+         EABtK5OIFfv6tigqFcJ66NszrTT/83Ps+tZo934zJ32N5tPf1yWl18uBF6zgk10cw60a
+         oTkV6pX0ZrG2cD2tnzauLmLJH5w+aqibjAadoxbUzDYvmVh3ugCSPLzn4X/LGS8H94hw
+         nJBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730107381; x=1730712181;
+        d=1e100.net; s=20230601; t=1730107383; x=1730712183;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=b1grSvU5Tn2s3ry5oErdwTQ9/uQCVVjQWC+Dff+1YOQ=;
-        b=OsfO9/MQWmZD3nLI/hImP199yk5YxwDqSrM6bQHkp1Zq4hl3/Saj6xDHcj4hSL2AG9
-         seAmKtjaQDEc8N7AoWcss8XEjePpPC5ZW1Ju7UPYc7y2XheLaUs1YdkU8YIfSHfyUhkK
-         M5BixbJVsYtUB/r+jgoUAHWsAO/0PbKZzCug4XN20EvFzGgr79wvPwgJ6YJVDjzAyiky
-         zOlFR1Z188vH0KrJR0KzSH8vLFTIBQZNhJULWn1jz6+5hrfBp7JiWvRIPxoor/9BqviG
-         K8cma873w2caBdLglTzqz40d6ouWsfhnjd6yftBcVOzi5jMt7p/DAPBH+lUPtIb1cofF
-         XltA==
-X-Forwarded-Encrypted: i=1; AJvYcCUuot+UkdZEtlkrR1s/nsYtUBW+oHj/86MCFzSZffBkIpgPpFSYA95LJ1Ez6y20Xe605951GE//1jVUgw7zz04r@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyk03lOdVyD3isWz7bwWmY8GxYkdfl/zkM9gB4z5caJq8aXDTJT
-	WwvBfxxJl2u5gBHmu713YBLWo3ABu8lWMBYxiJMa46PIzVKLvJ3f
-X-Google-Smtp-Source: AGHT+IEt083O6CT7AeEmqZollBJQYbaWxn/JpO0WvFxIhUiYyRXYkjBYaaUe1bqZgDhu1R3ZSUQKjQ==
-X-Received: by 2002:a05:6512:124c:b0:539:8d2c:c01c with SMTP id 2adb3069b0e04-53b3491e0dfmr2664379e87.41.1730107381211;
-        Mon, 28 Oct 2024 02:23:01 -0700 (PDT)
+        bh=lULs5ECe2v/eFZFaOgsynlSrffO8W5NVPtm3h9ZcjLk=;
+        b=qqbjKhyoSPudDDBvh/naMetdm7FAeyuBWuLagFvelRxNwLGWw53L3AWkEeMfU+ylna
+         kK6V5t1GIusqHFlPhY4HTk2j25xp7RW9s5Rdgeyp5xehhoo9644AXl3Qht5Hx/naUlKJ
+         YaeB6YmXGIOSAR8cB80BSiRR3oAXmyobTsJTbCKoA36lD0osHnbT8PntRVoCgFEjTIgA
+         4MMcf2LGOEFZ3foQ6ndpuFz6UmMcqgaX58QrVLXMW531QNGW0zeWDpq25E42OXOeYcwc
+         Oj2zKVLyMHyZ6vN3wOEHH+gFzrK8+6u7TRLllPhTkktL4jSFW/Jec4kJp8gghnEuVlOw
+         JQBw==
+X-Forwarded-Encrypted: i=1; AJvYcCXbRoQwrQJBNIKmmLCLM8s/t63SIlUpVHl4DblTJMWXp0mCwAIbtMkdRu+D1n74/U0uPIRt9gtlyj00wNQXY89R@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvUymsTDCzhD7Zd6opfGj748aUCkBuGfmHlTAcCKIfa3koVOlg
+	3ePrGQpaSrVFFar+eZh+b36keT9Qeptbd30F1+AdsKZBS38xDkkO
+X-Google-Smtp-Source: AGHT+IEqtnjZtXnnjinm/JZUfiqvF+qabb/BGc98HrsLidXhMPAXZuzXSfOZUI+CMpO8R1g9w5lKaA==
+X-Received: by 2002:a05:6512:39c7:b0:52e:9e70:d068 with SMTP id 2adb3069b0e04-53b348c0c88mr3478898e87.4.1730107382508;
+        Mon, 28 Oct 2024 02:23:02 -0700 (PDT)
 Received: from [192.168.1.105] ([178.136.36.129])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1af331sm1043785e87.152.2024.10.28.02.22.59
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1af331sm1043785e87.152.2024.10.28.02.23.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 02:23:00 -0700 (PDT)
+        Mon, 28 Oct 2024 02:23:02 -0700 (PDT)
 From: Markuss Broks <markuss.broks@gmail.com>
-Date: Mon, 28 Oct 2024 11:22:35 +0200
-Subject: [PATCH v4 07/10] soc: samsung: exynos-chipid: Add support for
- Exynos9810 SoC
+Date: Mon, 28 Oct 2024 11:22:36 +0200
+Subject: [PATCH v4 08/10] pinctrl: samsung: Add Exynos9810 SoC specific
+ data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-exynos9810-v4-7-6191f9d0c0f1@gmail.com>
+Message-Id: <20241028-exynos9810-v4-8-6191f9d0c0f1@gmail.com>
 References: <20241028-exynos9810-v4-0-6191f9d0c0f1@gmail.com>
 In-Reply-To: <20241028-exynos9810-v4-0-6191f9d0c0f1@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Markuss Broks <markuss.broks@gmail.com>, 
  Maksym Holovach <nergzd@nergzd723.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730107370; l=938;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730107370; l=9499;
  i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=UX/VlaIr9ETHnZFFn3Brzw/0L1791ZTGgYbdKg640mU=;
- b=f1vCIJ9anD7EW/S1jHqDde3L1h2YQMkMCv8esVK0ODs52bHlEJo+uZvBnxlE9r+4En0o2wM36
- HDV5y4csjghCKsEQGuTsT3hswbecYcvpcG1OGrMjTKXGGvfGgDeVZb7
+ bh=/Wc4BlemWmeccz/B4/h7WpFQZV+ll/cqwv5qNCPJALQ=;
+ b=GL5LQZfPY6F0E/mYr3jZGqc9ErIKnedJlvZDed/l/DFoqBUooFxFTmIU4R19ItdaHDxCqcnyD
+ ++eyQUs+dqlAdojXwfdhAipcv2Ldqw/DEhz4y0NS24QSoB5OH3KR7n2
 X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
  pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_022302_953179_1310E7E9 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241028_022305_026354_CF2844AA 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +112,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos 9810 has the product ID of "0xE9810000". Add this ID to
-the IDs together with the name of the SoC.
+Add Samsung Exynos9810 SoC specific data to enable pinctrl
+support for platforms based on Exynos9810.
 
 Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
 Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
 Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 ---
- drivers/soc/samsung/exynos-chipid.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 154 +++++++++++++++++++++++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
+ 3 files changed, 157 insertions(+)
 
-diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-index 94c7cc0d11e4c6f151336dc6e25495a31cbec02d..23cc20896b85a2da02f36703225a4f62e7538a62 100644
---- a/drivers/soc/samsung/exynos-chipid.c
-+++ b/drivers/soc/samsung/exynos-chipid.c
-@@ -59,6 +59,7 @@ static const struct exynos_soc_id {
- 	{ "EXYNOS7885", 0xE7885000 },
- 	{ "EXYNOS850", 0xE3830000 },
- 	{ "EXYNOS8895", 0xE8895000 },
-+	{ "EXYNOS9810", 0xE9810000 },
- 	{ "EXYNOS990", 0xE9830000 },
- 	{ "EXYNOSAUTOV9", 0xAAA80000 },
- 	{ "EXYNOSAUTOV920", 0x0A920000 },
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+index f07c26d374425505019447161150929f7677f91d..c833cb8fb4854e69c92213ef1f53d7b524e56306 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
++++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+@@ -767,6 +767,160 @@ const struct samsung_pinctrl_of_match_data exynos990_of_data __initconst = {
+ 	.num_ctrl	= ARRAY_SIZE(exynos990_pin_ctrl),
+ };
+ 
++/* pin banks of exynos9810 pin-controller 0 (ALIVE) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks0[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTN(6, 0x000, "etc1"),
++	EXYNOS850_PIN_BANK_EINTW(8, 0x020, "gpa0", 0x00),
++	EXYNOS850_PIN_BANK_EINTW(8, 0x040, "gpa1", 0x04),
++	EXYNOS850_PIN_BANK_EINTW(8, 0x060, "gpa2", 0x08),
++	EXYNOS850_PIN_BANK_EINTW(8, 0x080, "gpa3", 0x0c),
++	EXYNOS850_PIN_BANK_EINTN(6, 0x0a0, "gpq0"),
++	EXYNOS850_PIN_BANK_EINTW(2, 0x0c0, "gpa4", 0x10),
++};
++
++/* pin banks of exynos9810 pin-controller 1 (AUD) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks1[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(5, 0x000, "gpb0", 0x00),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x020, "gpb1", 0x04),
++	EXYNOS850_PIN_BANK_EINTG(4, 0x040, "gpb2", 0x08),
++};
++
++/* pin banks of exynos9810 pin-controller 2 (CHUB) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks2[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(8, 0x000, "gph0", 0x00),
++	EXYNOS850_PIN_BANK_EINTG(5, 0x020, "gph1", 0x04),
++};
++
++/* pin banks of exynos9810 pin-controller 3 (CMGP) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks3[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTW(1, 0x000, "gpm0", 0x00),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x020, "gpm1", 0x04),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x040, "gpm2", 0x08),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x060, "gpm3", 0x0c),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x080, "gpm4", 0x10),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x0a0, "gpm5", 0x14),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x0c0, "gpm6", 0x18),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x0e0, "gpm7", 0x1c),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x100, "gpm10", 0x20),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x120, "gpm11", 0x24),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x140, "gpm12", 0x28),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x160, "gpm13", 0x2c),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x180, "gpm14", 0x30),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x1a0, "gpm15", 0x34),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x1c0, "gpm16", 0x38),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x1e0, "gpm17", 0x3c),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x200, "gpm40", 0x40),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x220, "gpm41", 0x44),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x240, "gpm42", 0x48),
++	EXYNOS850_PIN_BANK_EINTW(1, 0x260, "gpm43", 0x4c),
++};
++
++/* pin banks of exynos9810 pin-controller 4 (FSYS0) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks4[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(2, 0x000, "gpf0", 0x00),
++};
++
++/* pin banks of exynos9810 pin-controller 5 (FSYS1) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks5[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(7, 0x000, "gpf1", 0x00),
++	EXYNOS850_PIN_BANK_EINTG(6, 0x020, "gpf2", 0x04),
++};
++
++/* pin banks of exynos9810 pin-controller 6 (PERIC0) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks6[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(8, 0x000, "gpp0", 0x00),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x020, "gpp1", 0x04),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x040, "gpp2", 0x08),
++	EXYNOS850_PIN_BANK_EINTG(4, 0x060, "gpp3", 0x0c),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x080, "gpg0", 0x10),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x0a0, "gpg1", 0x14),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x0c0, "gpg2", 0x18),
++};
++
++/* pin banks of exynos9810 pin-controller 7 (PERIC1) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks7[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(8, 0x000, "gpp4", 0x00),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x020, "gpp5", 0x04),
++	EXYNOS850_PIN_BANK_EINTG(4, 0x040, "gpp6", 0x08),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x060, "gpc0", 0x0c),
++	EXYNOS850_PIN_BANK_EINTG(8, 0x080, "gpc1", 0x10),
++	EXYNOS850_PIN_BANK_EINTG(4, 0x0a0, "gpd0", 0x14),
++	EXYNOS850_PIN_BANK_EINTG(7, 0x0c0, "gpg3", 0x18),
++};
++
++/* pin banks of exynos9810 pin-controller 8 (VTS) */
++static const struct samsung_pin_bank_data exynos9810_pin_banks8[] __initconst = {
++	EXYNOS850_PIN_BANK_EINTG(3, 0x000, "gpt0", 0x00),
++};
++
++static const struct samsung_pin_ctrl exynos9810_pin_ctrl[] __initconst = {
++	{
++		/* pin-controller instance 0 ALIVE data */
++		.pin_banks      = exynos9810_pin_banks0,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks0),
++		.eint_wkup_init = exynos_eint_wkup_init,
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 1 AUD data */
++		.pin_banks      = exynos9810_pin_banks1,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks1),
++	}, {
++		/* pin-controller instance 2 CHUB data */
++		.pin_banks      = exynos9810_pin_banks2,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks2),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 3 CMGP data */
++		.pin_banks      = exynos9810_pin_banks3,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks3),
++		.eint_wkup_init = exynos_eint_wkup_init,
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 4 FSYS0 data */
++		.pin_banks      = exynos9810_pin_banks4,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks4),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 5 FSYS1 data */
++		.pin_banks      = exynos9810_pin_banks5,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks5),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 6 PERIC0 data */
++		.pin_banks      = exynos9810_pin_banks6,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks6),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 7 PERIC1 data */
++		.pin_banks      = exynos9810_pin_banks7,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks7),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend        = exynos_pinctrl_suspend,
++		.resume         = exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 8 VTS data */
++		.pin_banks      = exynos9810_pin_banks8,
++		.nr_banks       = ARRAY_SIZE(exynos9810_pin_banks8),
++	},
++};
++
++const struct samsung_pinctrl_of_match_data exynos9810_of_data __initconst = {
++	.ctrl		= exynos9810_pin_ctrl,
++	.num_ctrl	= ARRAY_SIZE(exynos9810_pin_ctrl),
++};
++
+ /* pin banks of exynosautov9 pin-controller 0 (ALIVE) */
+ static const struct samsung_pin_bank_data exynosautov9_pin_banks0[] __initconst = {
+ 	EXYNOS850_PIN_BANK_EINTW(8, 0x000, "gpa0", 0x00),
+diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
+index 42e40860841bcc94e3c11bf313df792da10ab00b..bbedd980ec67234aad847b757f40af5002b11ebb 100644
+--- a/drivers/pinctrl/samsung/pinctrl-samsung.c
++++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
+@@ -1479,6 +1479,8 @@ static const struct of_device_id samsung_pinctrl_dt_match[] = {
+ 		.data = &exynos850_of_data },
+ 	{ .compatible = "samsung,exynos8895-pinctrl",
+ 		.data = &exynos8895_of_data },
++	{ .compatible = "samsung,exynos9810-pinctrl",
++		.data = &exynos9810_of_data },
+ 	{ .compatible = "samsung,exynos990-pinctrl",
+ 		.data = &exynos990_of_data },
+ 	{ .compatible = "samsung,exynosautov9-pinctrl",
+diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/samsung/pinctrl-samsung.h
+index 615048f945243d4173d40142f1e62c8aeefe5b7e..bb0689d52ea0b4392714fa9bcdcbae8d253c73a1 100644
+--- a/drivers/pinctrl/samsung/pinctrl-samsung.h
++++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
+@@ -385,6 +385,7 @@ extern const struct samsung_pinctrl_of_match_data exynos7_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos7885_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos850_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos8895_of_data;
++extern const struct samsung_pinctrl_of_match_data exynos9810_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos990_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynosautov9_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynosautov920_of_data;
 
 -- 
 2.46.2
