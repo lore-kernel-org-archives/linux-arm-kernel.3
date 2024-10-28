@@ -4,181 +4,199 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122BFD13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 03:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B743AD13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 03:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X0MXb51dWLwzIYBv3HCuE9rQsm7JB2ox21JOfSc/9sE=; b=iINoYsIGY0+Ql1q81zHsl93kcw
-	2AaoB2hVOY1qL4o6VY40GqBU1fbsgzCdeavK+p2PPgsP+3U8snhh6N8RLnNjQos6UUigeWwqwfjfG
-	OIw6g1PcC68rHaytcZr2CO4Hp39RfBB7VLx251pSEIYiKfDjj2zBIgXCmzesOBVXYAbH203LDAUw9
-	tAyOpCJCNuA6uzcTsPMHdYsjDXu8gvSJ9iTX/D54ItbMrXDYlt4rvePlg4x1Wt3w/0YyrUW8qTkG7
-	rj0MRTG3LXcTaxypKbzx5JFOVAfMgLzODg61KE3K6DE8OxyFyDRBH76PXflCRPwdvz5PXaicsrAY2
-	Vz17HX0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nBX0NyxWhtv8py5vP1f1f7XNpgJtfFUMQ+4Wvvsl7sU=; b=f3D9QXaSeo6Rl3SfHOQCLTQq5S
+	ctOZmMDuH4M1l16qgc3l/9CnnOOSgBX9ppoZEOkxYi4JHbd2CC5NqBynm/auAzZB4d2Li4pAFNYPB
+	5QwHKOdSpxsYAmOOg+5skn6PckpFhCTlUP6P+TtJGC10yxfYEZTl8Q5UVETf57bP/WTitun9Q813c
+	VP127MOxdQrJp3kMbJYI9eCTAQ+wFtrP8IBs9Ej6ZcvP3pJXDwzGNEvMPh184xXOPoz0WLm08ZhFz
+	cE/DJowFn244t8J6NXLdSRz8XvvDKTegwEYUf+W8XVZCO6rBRVsPEytPrjT/Y5Cz4NIn21OQ+yi55
+	uJjezHfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5GIH-00000009QVV-1085;
-	Mon, 28 Oct 2024 03:19:49 +0000
-Received: from mail-am7eur03on20625.outbound.protection.outlook.com ([2a01:111:f403:260e::625] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1t5GJo-00000009QcH-200j;
+	Mon, 28 Oct 2024 03:21:24 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Ftv-00000009Nva-0KcH
+	id 1t5Ftz-00000009NxF-0SXt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 02:54:40 +0000
+	Mon, 28 Oct 2024 02:54:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730084083; x=1761620083;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=nBX0NyxWhtv8py5vP1f1f7XNpgJtfFUMQ+4Wvvsl7sU=;
+  b=It72zijU4vRzktr+NZbJJe49ckQnUxuq2D4MEsub4zWj3M2rHTqnjw9m
+   xvo29cCMT1DZpu8TjOiPjAIe+1StcXBGXhsd5qM3Xrh6ODypqeovZjzL/
+   Bjy0FPQ4S5/cyGE1Mx2B0HvAedfagfsNKGp9fvX6OXijO4hCtOaUP9gHn
+   l7GCIIA9PvT/s3FSya0l/tFHJVDksEkTHXmtDximHtL1XE5BnF8M1QefC
+   AkBiZi2d9H2pdudHRmQIOZcR2rmcUV71jdZZFhHaFyV6mDHcRc1Luj3LC
+   rmjaO1D/cDDJ42j6bhmmjjK4bv0bLAPOosqMezLjuESx7jWGROYdR7jdB
+   Q==;
+X-CSE-ConnectionGUID: MjjQDaz3S1mvNJgrwpUddw==
+X-CSE-MsgGUID: eYxwSbROTCGZa0mpo7D3UA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52227466"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52227466"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2024 19:54:43 -0700
+X-CSE-ConnectionGUID: oq8LBIGuSGa78l6F/lrxnw==
+X-CSE-MsgGUID: +n93uLpbR3+CoCAT0YXtvg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,238,1725346800"; 
+   d="scan'208";a="118944774"
+Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
+  by orviesa001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 27 Oct 2024 19:54:43 -0700
+Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
+ fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Sun, 27 Oct 2024 19:54:41 -0700
+Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Sun, 27 Oct 2024 19:54:41 -0700
+Received: from NAM02-DM3-obe.outbound.protection.outlook.com (104.47.56.40) by
+ edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Sun, 27 Oct 2024 19:54:41 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YNYOEkixx2r5yvrVG9LrjgFlD6uxwPP36u94O0f4EwZI9udH7VUjM09K7sTP4hdGNa4BJ5oh0HKx/N093kZqTWdNJKBGzPK5vk9gkYMgeIF5FEp5/PMRoqMMDm44/JNVKSMUVJWQwag8dTEnPi74pj/BO3Eee0wZGjUkV7pLmQ4w5emIt6v10JPelPnHex7j8KxFmzyg8jlRByjOg6gDbJfSl81tNBOk6symEx0MRE0o61nGjAOmxuyfGcqKC2Oo7JIucUhmBmrJvkGTIhN1JNn5h5365HXH83dPm+Xw9xfQ6mdw/y3uMWrmO64JeP+ZEiAKIsWiaoQXW8a8J4OEhQ==
+ b=qa6p9UJDd1Z1M4wb0L2hpD1nxr78wjuAzOg3FgqcnF/unaZMyMtZKsf/d8pQpbouRteke7kQjZIak4HltvZQ3Lv5UqzQg9PuTspfx7GT8CV58PECDCyFNUhTPPIy05cAAq26b5VtrwontVnpy2QKZx0WGW/OxkDee9ne2BCsknvbgtj8JA5FOExG2IordCdQKKbC+53lvzeaZGu0EuWU9iZJHjPRj65EyLzQ4BpfjEpwHW0FJ3bKEcne6u6uqosCvvkwWNcCIZrR8pNPJlYirqmHaMHqez8fFSTyFid+aa+6W4sM3gmHcHxIQTtupSAspEMVBjQOPALxTT7WnCrj0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X0MXb51dWLwzIYBv3HCuE9rQsm7JB2ox21JOfSc/9sE=;
- b=vmOREsrL5h6nUauAAbT8/QSedTVUAo9jtBRwtWpMl6TS273RWAhDHkLCWxiEvr4ZqjeJjWrSGfXCbdaoAXlwy7LL92q2W1AYlYR1d+hZ1oVLkf5QjcjIyw00PsuVLYHG9AGkOGu7lIjLhk+UKGA1cpNDw2BbH0U96ItG/qnGQUK/9m8eVLdfn6e6xEFpsTa1bSX25ANm+vT3SbOkD/pBbiwVgFTvbUCXFSwa9LYzH8k/eC8fYaFkMI1KsU9SN/vonNsdGhSKuFlWiifVn9bS8YuECaEf4Q5ye+1xVcqcl8OXDFMCTqtzTuLykJG+bZ8EHUIKXJAMs9ZW31dDeA7FIA==
+ bh=nBX0NyxWhtv8py5vP1f1f7XNpgJtfFUMQ+4Wvvsl7sU=;
+ b=aLsOQpIIi1IQyHBL2oTmrxMMIARBBc4uFPGT4Oha5HzM2slpn6rEQQysA+8bmE8XXPmwUvc2+xSsTcCfxXGEHdxGEIlgxlI67iuZyjyVrVZ4o3RMuONcpLG2t3uGlF/EXLpnFk2GM+SqvLZCGZZG8pbx/297653CLNizUpKyxTmUJVgTjVERIKc2oghIYM77EYEJMJzfJoT0igt3LTo/g4qGNSxRks1pE/j1gRQixWgXIK5t3WKlFlfvssP9pHsYs520d4m0O1cSoF7su78xgVVHItsaLMxQibcL8l68eUR2lcjlOY7Fk0Ih50GbDfNHFBRvfeYNTiTC0J4dYllsmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X0MXb51dWLwzIYBv3HCuE9rQsm7JB2ox21JOfSc/9sE=;
- b=NM0qdkseoi1R1o89pqcLLz8EKMA75f4dtgmL/43pjEB6bpogUyhTmeOeVWlEnrmc+CZ3LVuDcrgePpOS9TS/ugU/zaQnxRCg+rc3xr6hn9J96hhAQ+yLijDTr1IWPOgmFfwJxs2FqgILX0DMdFsvgDn1A5mgYL4YR2iQ9gJnib1GquyPXB74xT43zxvuil5I3XLaP5OIdRpg5n9+U0F52dGOt98sLUePlH5+KN2mQGTjK9ZyWLWCUcqdJwjaSIeow9FIDK/bNR1iWmEPQ7NTPADW6rF9xAnOd0VARXiBXGleaIcdsCkv5gEzGV8DXuwyLH3f/P9CWY0CWy82hW6Q9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU2PR04MB8709.eurprd04.prod.outlook.com (2603:10a6:10:2dc::7) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by MW5PR11MB5810.namprd11.prod.outlook.com (2603:10b6:303:192::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Mon, 28 Oct
- 2024 02:39:12 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
- 02:39:12 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quic_jesszhan@quicinc.com,
-	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	sakari.ailus@linux.intel.com,
-	hverkuil@xs4all.nl,
-	tomi.valkeinen@ideasonboard.com,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	thierry.reding@gmail.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	sam@ravnborg.org,
-	marex@denx.de,
-	biju.das.jz@bp.renesas.com
-Subject: [PATCH v4 08/13] dt-bindings: display: Document dual-link LVDS display common properties
-Date: Mon, 28 Oct 2024 10:37:35 +0800
-Message-Id: <20241028023740.19732-9-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241028023740.19732-1-victor.liu@nxp.com>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::16) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Mon, 28 Oct
+ 2024 02:54:39 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8093.024; Mon, 28 Oct 2024
+ 02:54:39 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
+	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
+	<eric.auger@redhat.com>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, "mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>, "aik@amd.com"
+	<aik@amd.com>, "zhangfei.gao@linaro.org" <zhangfei.gao@linaro.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH v5 13/13] iommu/arm-smmu-v3: Add
+ IOMMU_VIOMMU_TYPE_ARM_SMMUV3 support
+Thread-Topic: [PATCH v5 13/13] iommu/arm-smmu-v3: Add
+ IOMMU_VIOMMU_TYPE_ARM_SMMUV3 support
+Thread-Index: AQHbJzjEFQGb3BMOBkuH6R9Jv9LrW7Kbesvw
+Date: Mon, 28 Oct 2024 02:54:39 +0000
+Message-ID: <BN9PR11MB5276DD5AC54621A71CDCC77C8C4A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1729897352.git.nicolinc@nvidia.com>
+ <20c85597e5d579e020f027da4fc36275adcc91bf.1729897352.git.nicolinc@nvidia.com>
+In-Reply-To: <20c85597e5d579e020f027da4fc36275adcc91bf.1729897352.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|MW5PR11MB5810:EE_
+x-ms-office365-filtering-correlation-id: 6f385178-c89c-495d-6547-08dcf6fbdd70
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?dq8TC79lnymBKyBxuIFO0Y10xn0XEIbw0MeKnPVVzRAAUHb5XH8TABkUXjxq?=
+ =?us-ascii?Q?HyQ0kJUQVTcjpL6EvVp2CkbHue+yregC9j8Ze83fleQdJmLPIkbCGUH3DR2L?=
+ =?us-ascii?Q?OQyGTXhvw+Ap62/jzvu2f1vtah5qslnn2NOYGGNn/sYA4LOHnnGVs0DJIcWS?=
+ =?us-ascii?Q?SW4LjGTJ69/n5Lh5F+ORng17zYNBd8p7U0YdmCXRoFz9wVTSM6sb8fiW4Xr2?=
+ =?us-ascii?Q?CrYnXQUeAdzldNa3koqlxLu9p7bRimMRI9ehlh6V9ax8e93fsFjg8XH9ISdg?=
+ =?us-ascii?Q?FvoL6PjO2BzHwEDrqSVAo3ehVqbK/65KB72MDUqPr29ashb1TJmxVhB9zYtU?=
+ =?us-ascii?Q?+ckGOr5WCVDvItHjyTuvmoEez5aFDagUxvSBLw9wviKCLpgyA7fhS2HOdoJD?=
+ =?us-ascii?Q?GlTuyNYhP25X837W6/ErFihGL4xOua5LayFMlTrJ4/6fi0Q9D1oA5FrFTdwF?=
+ =?us-ascii?Q?drnPc5lpUhm0OtAzH8MSGt8F8j/l7Yh4NVrdsvJpZ0gccith2MEZZJ0fLeMt?=
+ =?us-ascii?Q?VJUXQprkBqdcj1aMT9bWqTrqtBAhQkdLUoirvM2c4KT4z8d37ioTN5saoKLj?=
+ =?us-ascii?Q?k3Rdbx/G7TBjyclmiUN6WR+bifxQ6it+834210klLGtYDY76G0Ef2WaqAJWL?=
+ =?us-ascii?Q?tN8KqG9NBAv0YAjdPkUY4SQJRvxq8zkj7lMk1E3GSJ6uFykbWxlM9NC7vLhu?=
+ =?us-ascii?Q?14yBV9qVWeEXR5D32m8bbUean0xxLt5o0NetpObbEQEI6gisRVln55KJONsB?=
+ =?us-ascii?Q?c1QXng5MTByiZ5AZLbIKPsfVfdud7Yxcq2ycXtIvz472I+fcQJngpJq2Okqb?=
+ =?us-ascii?Q?yuk2WbhZsNKKe+iEfN8QZ83YhNdEap3Rr11AOU8TGTixC2z3aYFUcX870piu?=
+ =?us-ascii?Q?KUsVVltoDDd+QJ4pTQrZA8qdqj/YcoYqfpyH4nfyz9dvQahmNMDQDdHD6ZRM?=
+ =?us-ascii?Q?UeLJKeFc3Az/9llmPVHIzNO5h7+RHmxd+kLCMzEg1tT/Sc7WSlXCdj72aYa1?=
+ =?us-ascii?Q?cfm1AfGRFtGQzC43wtBplQoFcIxJMC3OunHRs0fLtNXRRujlY5XbPf18lTFj?=
+ =?us-ascii?Q?vGNiBjUDQ/Km9NV3EYTVxBBUXavZJbtRzhwYzWHL2uI06PXgaGviilDq1z/K?=
+ =?us-ascii?Q?32ccXaO/fmzqA+EV3pfEcK+fK82W3IviH5Z3V/7PcHVdzGzw6UDXYt2iUsTH?=
+ =?us-ascii?Q?flsRl2HMdaaW/jXDR/wP2G4p/+dNRuqADp8b5DzI0qIn0c9lRKTmtkID53aw?=
+ =?us-ascii?Q?aKJn3AW2H2bmvK4SafQCduFEXziY4JUrl4msfDSh3oh71UxwuVvGemUpSjgq?=
+ =?us-ascii?Q?ey+aKctZTafEI+mzBXApElr3uTv29kWKDg5Vq2eoRPLEeDHkEEJexDyBrjBE?=
+ =?us-ascii?Q?LGgQ4Fw=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9aURIBuU6+w4bwMG7gZK/zBnJK87E/6j6u2VwzgUHjcm4RufJSEitXjivk1z?=
+ =?us-ascii?Q?2fDBbiKLbnfrLfXrhYsBEBuTqbG5I5zw/5TDwXQBcq/Gi9h1eVIgj8AFzTqu?=
+ =?us-ascii?Q?Bs7qltbrmIWnh57h+ZRB6KoHOu8cOh6NY4bPblYzsICBEsSwlKdaNp3OLqdP?=
+ =?us-ascii?Q?CTJ+Yzj6IRcHAuTrmERNmsil0unMCY6auO09wT+VqfH+zdBxeXSo3dtgRQP7?=
+ =?us-ascii?Q?TJ2VDFl6gZKxARefVKkVXoqJXhTPbCaK8Xyz1DbaOxXNOi1gY1CLXhD1i4K0?=
+ =?us-ascii?Q?Td7TZyO3FQ5euPDZgX0BwUcTi0qUzVIY4eqvsbWW1M+ciIeUyO3JiDEpypiW?=
+ =?us-ascii?Q?dFQK/84e8IyuNi2vueX9DbB28eFcX4CvOKSiv7DWmIVpacsQxDUZ4OkJlXTe?=
+ =?us-ascii?Q?whkpz1tZiUgHHSbIfrq+IVyFdZWeRoRtv7qKnF/Lnr9sE/R6slRo3/YLNetH?=
+ =?us-ascii?Q?ZrFeVRKubfNoXjb7Lu/Z8Z3cFXIy8GmUSlGdAllKV9iP1Zz/7g0RwXn/0lZ8?=
+ =?us-ascii?Q?4j9WOSPzpJJ8aQRbUCIm2RWlXt1/V+MJJyBUNGdqb2EDuGjXB8MkJeW3Phrl?=
+ =?us-ascii?Q?o/ztamXwN2InVm5OZsyYX3L3AKWBKxB+/VnCUSd7UdZRox6ptO03qDIeTZl7?=
+ =?us-ascii?Q?RLm04I1ysxF18Jhx2QFKS7xJmzRrGpAtSiG74TZb8ngjjOAdQRjIHKaLenGa?=
+ =?us-ascii?Q?7WgVgpP1USIiZ8qwvUSWw5wUTiSu8kxQXyFL9wsE9OyFJuaj2fR/2w0DjAwN?=
+ =?us-ascii?Q?ymeA/HByekwJzZ3gg84PTc+Jvm+2vW/dhOMWP0LEVvIErgPwifu4Ft8H/1YD?=
+ =?us-ascii?Q?Erw1CUNau9pEMJAU0VyLG+YIg3ZgyvPjfE8tJpT3uaO5COFtEEo0iiHgEq0q?=
+ =?us-ascii?Q?I70bKxSMi4hfbM1kY/HRmqjGWifOveSngodtRbM/6onorCjH+hDWKHvFMvC2?=
+ =?us-ascii?Q?44kWea32Zql1Me6ZDN4q0g5a9FPXGpJPybfUN4bJRke9ztDOfTWK/92l4ZKj?=
+ =?us-ascii?Q?k7aJbPHJNIpY0sG+wpTKucybGKOvwO+xcL+2zhxmHruKOkcNuNhzYylgPlJZ?=
+ =?us-ascii?Q?cVH2omk5i2EQu481Iw+AfcbefvkdY6F4hm+k0TPrFwOwWPbKle1aNZ2kSbnI?=
+ =?us-ascii?Q?5iRWZ+vWVyRjbzQUXlorOHUnvh5eTbWa1kxNHrBxDn372zxX8PeMt4GXtLfd?=
+ =?us-ascii?Q?UEWFt5ymWYSOwDLmy+Mf82RJm+4PeEcq7iRuycUe4tq5wFmPTSzivSyzK6aa?=
+ =?us-ascii?Q?kP9D0cXE+/KVyNkNQRXp7129R7hxa+17cbNnBdZHZ2q6wWqQ0OgU3NgSuVVl?=
+ =?us-ascii?Q?PbVPoFckgtD+jwLQi2fh1Cw2Zl4lJsCl5gduQgjlAmHq2FhvSxLFXiKZMmBG?=
+ =?us-ascii?Q?NU3pqRD/W9VEJwHq24e5zFuILkTYwDLZ+R1BK0xeM/4TzCRgH+aEwdOebx0K?=
+ =?us-ascii?Q?bswp+bjdYnTkoc9g1QTY7MZkNJfUfEWWuxOMg25+0yk6ihcxfEpxI1XjIIMr?=
+ =?us-ascii?Q?hN18dAnMQNIuwI6tBdz0Kgjd4ec8KHAqYA0fPx/ZvDXUlJWJsmlS4XceuqwY?=
+ =?us-ascii?Q?ya1Hv73XELbXlDmrmTLGCT2p4gfZm+qk0jcbnFna?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8709:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65c68bdf-4b61-429d-c027-08dcf6f9b519
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LwTcbiYLiMUHjWwYyXjepMDZj3eaUfQEq6xqVIRZwoT75WKpESSHjRqoGLlz?=
- =?us-ascii?Q?mOpbmdiog4GXBoAayDUKn3o29bdMeM/Gj6P7wSbQyD5vltf3/fLNP23lyWL7?=
- =?us-ascii?Q?99EyD96ERlH3T+wRrDCXpEuIl1Csw79e0AloGOF5Z7pj9SoGQZlrOhGvLQ/A?=
- =?us-ascii?Q?dDv3mbIcnay528UoUvo4jsDybkcKUjTFqCOCN659EOGoh5i0yfLU6+nsA7mW?=
- =?us-ascii?Q?BiiHYPO0dVHsm084jW/U0ZTZNzF0oMhoM8slv+6RGDloYUnc06uQlWgy+qcC?=
- =?us-ascii?Q?tpPul8SVRrgBo50LSvDzsd4vc8WrlthFq42DUXHMa0qDS7VKcyJ9w5no059y?=
- =?us-ascii?Q?nTEiznMOrPW7kPP0HRmxl/IEkmvezDSpVyzXlFU0hcV7kScvmvVVKETA2+VI?=
- =?us-ascii?Q?3wrbFbzUqMgoewL8cktiKdtBY7UogXtpMh6GnajXUs34RSGNCGnx7zJSu/q3?=
- =?us-ascii?Q?r0b9acFEN3qBr7g8X1r9prbJuzs+WmeoC51XHRBvlNz1LHJCAu7oTHjpH8eL?=
- =?us-ascii?Q?iJlPTDAbBYa6ubFHMlIh3gdn1iozxRHRpXd0sIvLlVFzCtOJ8iiTYYXun/y4?=
- =?us-ascii?Q?t+CMKeuoZOzgYnu58q9V7VM2rWOot0qmxiINrbaiGGOz3tqVPn0+fc3YwlMS?=
- =?us-ascii?Q?Bz0+cLtVRF3Q80jVq9D4X7cSgV6bOWK8mbfU39aKHZyIseGtpI6AVENIVIfP?=
- =?us-ascii?Q?Y38EDPpirsHPeUdgudG6GE6gzPY/F7BAqQ1s4DNh0kEJKXzD0yl3MWAkiOGk?=
- =?us-ascii?Q?w4VIWrOJ8Qboxcm1MInfKdCACuv1o6zy5NknU3BAcJa2E6YB7r8H2vTZJxxo?=
- =?us-ascii?Q?HShog4LO4evcI8oEM1lSJU8Jhzl8ZyIFBBKzjexAhWfOFdJ3aqPTVIWUW7L0?=
- =?us-ascii?Q?AzkusxW+XEW3WCxmct33+t8LrmsM/GkI3DBfj09O6HqXxy/ynbD+H+sOT+vc?=
- =?us-ascii?Q?dV5Iem8hEguTifIkorR06VKrKOCVLJb9GSyQ2orIok5uTqspW0S4p205J8Bz?=
- =?us-ascii?Q?kfXA4nZjLK4UQPJ67kxZAim6ibdXi5O/NWsrdusdfmaqdbLwvLEwewZ+CVSl?=
- =?us-ascii?Q?NTa14ZM9GIhZMSHyRPwOqIucj6ZDKhm3qNr//nSRKOF6vyWicBNKaVWmtzuy?=
- =?us-ascii?Q?AOu4a6ctNS3EoRRGLYTjpVehFnDCA1hlNYStyGsX7R6g2w6CKNz5/1sgbAu5?=
- =?us-ascii?Q?jU+6ur38NIAXViKe7O+JK6ElksCJdwi8gZ3r9+L/uXw+lP0/QkDm1EebMF6n?=
- =?us-ascii?Q?BCWhAuuwelsWCUz+ECSMyO0cwuwDJjhEn8eZEFS7Y6Xlq/o3jsjG93f4gEXe?=
- =?us-ascii?Q?I+th+QBZYJsNZSfggWONHkuz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/GZBue8I3eGxfLT8uabOU2T1Y5P0sx8jmwTIVmycpxGh5jVkxzDJwBvFeDZ/?=
- =?us-ascii?Q?sgvjv+C745sjoQB7J+TbbWpP4+cEB36AcShR+yNmPgE5MNV5xMNnsWWNvaRF?=
- =?us-ascii?Q?le+P93n9JQ7bvnuXgBMFSSUAgrc/XK1uM2Rs1ZahSd5Fu6fZ66XleLV8B8Bs?=
- =?us-ascii?Q?2C9PxmZEauUL7Clb4aji+94UBtjsTrb+T7SpFXV2TnocJNsQPqeT0gkg8OgB?=
- =?us-ascii?Q?zi0OLm4sFGQh5aiaXw7MYxLvrmYgzphMunb4YJUnY2i91kRzWLTW2CFQbIfo?=
- =?us-ascii?Q?0FgCWjBoRNydlx3FEeA16FYpbAPdmbf22Y65K2L2E30wRxxCxRZi/8lhsesO?=
- =?us-ascii?Q?RaiIqZcgbqUkfnVfpHk6OMKZYFrv2E9gQ6te24Ak6YF2b2/SnYSCWxT5M/n1?=
- =?us-ascii?Q?sMqffJhC0wZVxCgFe8e93SDAiS9Stbhs5DnlEnE65jjAr0oB+Prh4ZFXhj0x?=
- =?us-ascii?Q?PFurSDwYaoCjSBuTH6LHD/11R88ljFVcSP0DcBCBnlaYdp5pLygB5CwLoEwC?=
- =?us-ascii?Q?I7Ch4nebpyjQr9fBc5MME1twYpOVu/XZa9PfkZFqWwDFwT33snI+yIwrDQRN?=
- =?us-ascii?Q?ArLt48IQ2XKAkckG+IjGk5MYuGFmhl8r5C7TmfXsNu+1OmySAEzDXjzlGF0M?=
- =?us-ascii?Q?WM/aZqfRVzXeJh5wzEDryyY2jR80M4/t92soo7rSsvqs/maCPmDQCiuYjRZr?=
- =?us-ascii?Q?zxv7aD60wKHZ2jQBapOUZNQ89+vfcUQDRoR8ywApxTXC33GGtM4wToS8urzO?=
- =?us-ascii?Q?qRxecSE8PPQa07zeQ/El+UXRBRavGFjS0VaiHPqi71W886DxBue0M3fk7CUQ?=
- =?us-ascii?Q?k3ki9eCQgj7p9ZsBzF/h4WGxUnuoGMpD8byl7OeyeEBpLITKexFM6+A7AE8w?=
- =?us-ascii?Q?LrY16Etp5jxcJyfx2uxr75Igd3baUWd9THNnNsewowoJNVDiUhymEz7kDBt4?=
- =?us-ascii?Q?Z7PRkzA7IP1YKqf6zI/k3/uJhtsKeGAylWbngyWNZZgU0VnuaCR6RCC1cCIU?=
- =?us-ascii?Q?ujx9izycK4PpEbBHBuGMq5IDrs8YyyBeZNTOktIAUz+PsbjxvZzTUSrIsD3p?=
- =?us-ascii?Q?/9Eipda1b6kJU3Ks9IWPUKnZmehbBJq/vWCgqSsf4s02o2R6yoN4O75jlbC7?=
- =?us-ascii?Q?/4IndSGKQJNt/3yIG7kaER+Nc9Rlw0WFZejtCms3MA3vTVIM7Uglmu8QpPS+?=
- =?us-ascii?Q?kg1G/ACNOcIBJhmU/XlbaxqJIIzD/XfE0jR86/JQIRhL4m8CzuOgLB/Yi+W+?=
- =?us-ascii?Q?rjz90V0SWNfxO/1MzchhIH/lkBhmn3rek1vVKBg5UqtYDUSoj5PyzxaMtBg0?=
- =?us-ascii?Q?gnt/EP0LUU1A6b2wEiflxzxZj5+SlJVTyRDx+r3jkVG5uBGQDR6iTFaAEapS?=
- =?us-ascii?Q?q63wzCtvaX33Om5NMzrjz3XTj4rzUTwPDR+BSk25J6Rth2Pa77m2ix29cKeE?=
- =?us-ascii?Q?6dVMOGDcdggyrLeXVIKrKd7s3mncDi/fAzJ+ZYB3On9xW8Y8ZmIMn/qSrlpm?=
- =?us-ascii?Q?XNKBWjNC7b6DN2PINtXIGN9FfeRWeJ/UV5sgL84tR22v7yvS9nTeJcOSjaeF?=
- =?us-ascii?Q?uM944AHSNpgtsWf8dnSgwOYEpgvNDrV0GqwsM12L?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65c68bdf-4b61-429d-c027-08dcf6f9b519
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 02:39:12.7225
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f385178-c89c-495d-6547-08dcf6fbdd70
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2024 02:54:39.1839
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CnoOGy2n8yFWd/lrXQQc61f8HYTiTCSduZbWmmib7cpEw051n1TjhM0tBFYB0RcgT+5vxXwpbKLvlmzi4rtV0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8709
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: phVYF4d8usmwcpn3HrS47A4+tcH+mR8H/4P2wfzd1qd3ZWHKnxv7Aywmw/z4HutlMHRod4fw+lJqFUkfQLPx6w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR11MB5810
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_195439_279693_38B2DE69 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20241027_195443_266888_CC6B868C 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,205 +211,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dual-link LVDS displays receive odd pixels and even pixels separately from
-dual LVDS links.  One link receives odd pixels and the other receives even
-pixels.  Some of those displays may also use only one LVDS link to receive
-all pixels, being odd and even agnostic.  Document common properties for
-those displays by extending LVDS display common properties defined in
-lvds.yaml.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, October 26, 2024 7:50 AM
+>=20
+> Add a new driver-type for ARM SMMUv3 to enum iommu_viommu_type.
+> Implement
+> an arm_vsmmu_alloc() with its viommu op
+> arm_vsmmu_domain_alloc_nested(),
+> to replace arm_smmu_domain_alloc_nesting(). As an initial step, copy the
+> VMID from s2_parent. A later cleanup series is required to move the VMID
+> allocation out of the stage-2 domain allocation routine to this.
+>=20
+> After that, replace nested_domain->s2_parent with nested_domain->vsmmu.
+>=20
+> Note that the validatting conditions for a nested_domain allocation are
+> moved from arm_vsmmu_domain_alloc_nested to arm_vsmmu_alloc, since
+> there
+> is no point in creating a vIOMMU (vsmmu) from the beginning if it would
+> not support a nested_domain.
+>=20
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-v4:
-* Squash change for advantech,idk-2121wr.yaml and
-  panel-simple-lvds-dual-ports.yaml with lvds-dual-ports.yaml.  (Rob)
-* Improve description in lvds-dual-ports.yaml.  (Krzysztof)
-
-v3:
-* New patch.  (Dmitry)
-
- .../bindings/display/lvds-dual-ports.yaml     | 76 +++++++++++++++++++
- .../display/panel/advantech,idk-2121wr.yaml   | 14 +---
- .../panel/panel-simple-lvds-dual-ports.yaml   | 20 +----
- 3 files changed, 78 insertions(+), 32 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-
-diff --git a/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml b/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-new file mode 100644
-index 000000000000..5f7a30640404
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-@@ -0,0 +1,76 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/lvds-dual-ports.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Dual-link LVDS Display Common Properties
-+
-+maintainers:
-+  - Liu Ying <victor.liu@nxp.com>
-+
-+description: |
-+  Common properties for LVDS displays with dual LVDS links. Extend LVDS display
-+  common properties defined in lvds.yaml.
-+
-+  Dual-link LVDS displays receive odd pixels and even pixels separately from
-+  the dual LVDS links. One link receives odd pixels and the other receives
-+  even pixels. Some of those displays may also use only one LVDS link to
-+  receive all pixels, being odd and even agnostic.
-+
-+allOf:
-+  - $ref: lvds.yaml#
-+
-+properties:
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: the first LVDS input link
-+
-+        properties:
-+          dual-lvds-odd-pixels:
-+            type: boolean
-+            description: the first LVDS input link for odd pixels
-+
-+          dual-lvds-even-pixels:
-+            type: boolean
-+            description: the first LVDS input link for even pixels
-+
-+        oneOf:
-+          - required: [dual-lvds-odd-pixels]
-+          - required: [dual-lvds-even-pixels]
-+          - properties:
-+              dual-lvds-odd-pixels: false
-+              dual-lvds-even-pixels: false
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: the second LVDS input link
-+
-+        properties:
-+          dual-lvds-odd-pixels:
-+            type: boolean
-+            description: the second LVDS input link for odd pixels
-+
-+          dual-lvds-even-pixels:
-+            type: boolean
-+            description: the second LVDS input link for even pixels
-+
-+        oneOf:
-+          - required: [dual-lvds-odd-pixels]
-+          - required: [dual-lvds-even-pixels]
-+          - properties:
-+              dual-lvds-odd-pixels: false
-+              dual-lvds-even-pixels: false
-+
-+required:
-+  - ports
-+
-+additionalProperties: true
-+
-+...
-diff --git a/Documentation/devicetree/bindings/display/panel/advantech,idk-2121wr.yaml b/Documentation/devicetree/bindings/display/panel/advantech,idk-2121wr.yaml
-index 2e8dbdb5a3d5..05ca3b2385f8 100644
---- a/Documentation/devicetree/bindings/display/panel/advantech,idk-2121wr.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/advantech,idk-2121wr.yaml
-@@ -20,6 +20,7 @@ description: |
-   dual-lvds-odd-pixels or dual-lvds-even-pixels).
- 
- allOf:
-+  - $ref: /schemas/display/lvds-dual-ports.yaml#
-   - $ref: panel-common.yaml#
- 
- properties:
-@@ -44,22 +45,10 @@ properties:
- 
-     properties:
-       port@0:
--        $ref: /schemas/graph.yaml#/$defs/port-base
--        unevaluatedProperties: false
--        description: The sink for odd pixels.
--        properties:
--          dual-lvds-odd-pixels: true
--
-         required:
-           - dual-lvds-odd-pixels
- 
-       port@1:
--        $ref: /schemas/graph.yaml#/$defs/port-base
--        unevaluatedProperties: false
--        description: The sink for even pixels.
--        properties:
--          dual-lvds-even-pixels: true
--
-         required:
-           - dual-lvds-even-pixels
- 
-@@ -75,7 +64,6 @@ required:
-   - height-mm
-   - data-mapping
-   - panel-timing
--  - ports
- 
- examples:
-   - |+
-diff --git a/Documentation/devicetree/bindings/display/panel/panel-simple-lvds-dual-ports.yaml b/Documentation/devicetree/bindings/display/panel/panel-simple-lvds-dual-ports.yaml
-index 10ed4b57232b..e80fc7006984 100644
---- a/Documentation/devicetree/bindings/display/panel/panel-simple-lvds-dual-ports.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/panel-simple-lvds-dual-ports.yaml
-@@ -22,6 +22,7 @@ description: |
-   If the panel is more advanced a dedicated binding file is required.
- 
- allOf:
-+  - $ref: /schemas/display/lvds-dual-ports.yaml#
-   - $ref: panel-common.yaml#
- 
- properties:
-@@ -55,28 +56,10 @@ properties:
- 
-     properties:
-       port@0:
--        $ref: /schemas/graph.yaml#/$defs/port-base
--        unevaluatedProperties: false
--        description: The first sink port.
--
--        properties:
--          dual-lvds-odd-pixels:
--            type: boolean
--            description: The first sink port for odd pixels.
--
-         required:
-           - dual-lvds-odd-pixels
- 
-       port@1:
--        $ref: /schemas/graph.yaml#/$defs/port-base
--        unevaluatedProperties: false
--        description: The second sink port.
--
--        properties:
--          dual-lvds-even-pixels:
--            type: boolean
--            description: The second sink port for even pixels.
--
-         required:
-           - dual-lvds-even-pixels
- 
-@@ -88,7 +71,6 @@ unevaluatedProperties: false
- 
- required:
-   - compatible
--  - ports
-   - power-supply
- 
- examples:
--- 
-2.34.1
-
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
