@@ -4,126 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BC1D33981
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 13:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DE7D33982
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 13:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QkuTHZTyP/OL+vuMUAVq++z1k090MBBOJMEXDdFz2c=; b=TNNnpv0Kj/EvASp7TP+6ocW6OA
-	nK0NH4Oq4QvPX4l3AC1WW30zmSa3zycJATl1cNFjsGY0nmCbk5/HOFzWFs917e85e2fZu497uGz66
-	HkjkxUN/ljsXYaVM238dW3jHylmXJ2xN80qr/84r6zGYXHpTaKUfn9JGvrJIsOsXmQ6GR+W4jcqzf
-	F7tSKFiBWKbNcNEF/x478WCFfIU2f0/ECiAqVOarU2WemLwD6kf1Q42xbW+pXrsCW4LVrDFxQKTYc
-	E8MOAipr+/cyEn0YaDH9BfvIk8TPJ5khLByqNtocVmbJ+hZOVpkHENr7lPVz10nN4VsYag0Elc3O+
-	NQBfKx/A==;
+	bh=BJ5aMDFu1K/igURfavaHvHn7gpkTf36UNHvBD9xoaRw=; b=WJR3UcBBnme8BL/+7uDi2ISY8w
+	3FzkIaJQmlCb/KRV6BLVO5/lzxUM8rcfYxxxk4tE9A7uABf7ceS2zImjTAdpEs7h1YRoLttHorWFF
+	g9y7Wzvz1o2F7KU/8FmLr4yIJ3/2/5z+pAumUXEMFCXX1ImipIJ1J+R7H0RtYmmZAiwys0iytVsxj
+	4drQbn/kxRtJ2O0gepdp1miq7w029eRLExFhr3XmOlZjUZnHfgZZ9tqHyZn9yb0I2nKITj20q+8y9
+	ReELwkGkiHSMjf2ZYCHjcLuoZjZ3GZRznXoXJO2iiknusTC0Li4FVTlSprja0pOZnvatViyVw5OW3
+	iV3Lyj/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QAb-0000000Azpe-02wu;
-	Mon, 28 Oct 2024 13:52:33 +0000
-Received: from smtpout35.security-mail.net ([85.31.212.35])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Q1x-0000000AyIX-14Bc
+	id 1t5QCD-0000000B0Iw-26mV;
+	Mon, 28 Oct 2024 13:54:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5Q22-0000000AyKs-1oLI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 13:43:39 +0000
-Received: from localhost (fx305.security-mail.net [127.0.0.1])
-	by fx305.security-mail.net (Postfix) with ESMTP id 1B91F30F2D5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:42:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalrayinc.com;
-	s=sec-sig-email; t=1730122967;
-	bh=SK40+kQmmYe34MUXIQFA+C1X8leWHhF6rdjFQ/RSa14=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Q2Gh5pwqBmk3qWEtGleAFpdQXAOaajbVHvYeh5gEbLZJyQ7lI+Ls/LDxdiyifB6RA
-	 pej1m6VD5DwVKwrDZp9fyRdtVNp2kP3OE+W5UVY6+PUt8piWdEMxFcAr5hlSIBnPte
-	 3/dWMRK0TY173qjGoI0Ep7KXPqlFjJ2R3ITuD6XU=
-Received: from fx305 (fx305.security-mail.net [127.0.0.1]) by
- fx305.security-mail.net (Postfix) with ESMTP id 8D61E30F2CE; Mon, 28 Oct
- 2024 14:42:46 +0100 (CET)
-Received: from PR0P264CU014.outbound.protection.outlook.com
- (mail-francecentralazlp17012055.outbound.protection.outlook.com
- [40.93.76.55]) by fx305.security-mail.net (Postfix) with ESMTPS id
- 8C78130F097; Mon, 28 Oct 2024 14:42:44 +0100 (CET)
-Received: from PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:118::6)
- by PAZP264MB2397.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1e4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Mon, 28 Oct
- 2024 13:42:42 +0000
-Received: from PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM
- ([fe80::6fc2:2c8c:edc1:f626]) by PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM
- ([fe80::6fc2:2c8c:edc1:f626%3]) with mapi id 15.20.8093.024; Mon, 28 Oct
- 2024 13:42:42 +0000
-X-Secumail-id: <125b6.671f94d4.899d0.2>
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i+RW0ezMThZ0S9oCV6hxhsJqsD8AZjXzHQJXQEaiV694HfaFqOBGh0CD6Pv+EOWokX2FTR/ORzkrQ9wZ9YJCvPZHO6tGnPIoW/ieRMXUtqrN8wA5Bskb43PvmUxhLngA66YQjS4wqESe7wVrqSqH5X4rftMAWMFOJ+Q3klu3clfdcQXnM968CZm0J1W4zOvN7H4VAVK+Qr3Mp3Yecl3aMOd1t/Eo0vjtOGNn3Rz1mY394qfUvjBuROMaCcK3XKd/cdOAmZkhHKA2VtnK9JjjrvKzRaT/GInnp1ri8gAdVOhwqSraqHjp8+2PJXfGEtMTAu5gl0u4VaqEwj8aSF3Z9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microsoft.com; s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0QkuTHZTyP/OL+vuMUAVq++z1k090MBBOJMEXDdFz2c=;
- b=Wc7GhSD6lQFjGU+SuIEJyI/rdZq3NDyi1PB0ZF0f8BDtxcElOJnvLtp1vRntzwFDlI1s903pVGbXgR8imSMldJEE+mjmMtmK5Jpz8VI15Chb8kT+gDTy/jCu9Pb4GASso9PWxsZB1SyYlamzkIG63cykEG44SZc34ISSazflE98iajQwBl1J6EbLM22UEYQ6+kPw1bEAlsZwXaCbjHhlLrST9fcKqDBm20A4vu/2aPvvdBgP3l03K2Ox3g2kO6/UD1dcSeV59inY+lebTXpnMomikdzrOsAEXd/6Z42f9jnk1gk9D1Kce2LQTrNMq6vYsZDDOG5wOanmp7t3bXaP+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kalrayinc.com; dmarc=pass action=none
- header.from=kalrayinc.com; dkim=pass header.d=kalrayinc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalrayinc.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0QkuTHZTyP/OL+vuMUAVq++z1k090MBBOJMEXDdFz2c=;
- b=g8l0aSxoTPojjY4Xa0iPWvblOwUxpKqEm6Yvog0ttHoohT261Q1ImG7kdNo2d8TYjeuOa/Hw4sk00N1C1mufYExNcG5yCa4jeGfQfHfEQwiPOqbuOtpHm75bXzDUQXft9NiVJ3Gept9IqUNGj6K0aHQ3jI80gvye3zJajkG4hLnA7Tb023rf4KGJy5KKVjm5kcmpuOGNwmvO3PtNk5vGeZiZ2UKHWvDmsh7zW7mVoPswfP3c5MgLTrbOpzgqNclT8rbBRi7LInBPYHzRb6frb1Z5A48QN78xI0UQia7C80WYPSmKjUZX+3mEiOy2LGP1euaBHn0a8fs+Dhuzu1Vanw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kalrayinc.com;
-From: Julian Vetter <jvetter@kalrayinc.com>
-To: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
- <kernel@xen0n.name>, Andrew Morton <akpm@linux-foundation.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Richard Henderson
- <richard.henderson@linaro.org>, Niklas Schnelle <schnelle@linux.ibm.com>,
- Takashi Iwai <tiwai@suse.com>, Miquel Raynal <miquel.raynal@bootlin.com>,
- David Laight <David.Laight@aculab.com>, Johannes Berg
- <johannes@sipsolutions.net>, Christoph Hellwig <hch@infradead.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-arch@vger.kernel.org, Yann Sionneau <ysionneau@kalrayinc.com>, Julian
- Vetter <jvetter@kalrayinc.com>
-Subject: [PATCH v11 2/4] arm64: Use new fallback IO memcpy/memset
-Date: Mon, 28 Oct 2024 14:42:25 +0100
-Message-ID: <20241028134227.4020894-3-jvetter@kalrayinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241028134227.4020894-1-jvetter@kalrayinc.com>
-References: <20241028134227.4020894-1-jvetter@kalrayinc.com>
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P195CA0037.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:65a::26) To PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:118::6)
+	Mon, 28 Oct 2024 13:43:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02037497;
+	Mon, 28 Oct 2024 06:44:11 -0700 (PDT)
+Received: from [10.163.42.200] (unknown [10.163.42.200])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C4103F66E;
+	Mon, 28 Oct 2024 06:43:36 -0700 (PDT)
+Message-ID: <92124be9-ffa5-4cf9-bec4-e7d3afb91a96@arm.com>
+Date: Mon, 28 Oct 2024 19:13:33 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAYP264MB3766:EE_|PAZP264MB2397:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97681da1-0ec8-4773-16b6-08dcf75665ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: M7NdEqZdvzUNRZZSJDcDDXMgG98bsYNdONhWHvabSMTAEf4AIU77FPnePDL47S88ql6OhQwonOLOnUyFzEhkiAi7jSTWdoWVbzJsuyeBjX1mXXzGQsvSB0a43KDKYKvfwhDchymG2isehCZ/uI8PpcgsL+JmyVRF/EOrX7X25PAplZnmiwNVZyLLzsUMev9we4ISQX3QOzV1W1E2YZ+cGjLylio0Lkq6AbaqUVrMmbtelIPyYck5MJAW1oYUkEJvCsp7pfsSCdGTx+SzNOX2PfVe4i1AOH2LMDF+Dg79njZa0dUdTF+UQ03Z63FU50JFTkzQrinjVIy5Epx9w60P1wLY3ai84OqFg9FDQJCq5xgEtCAdDtiG6GDNOIG+P8OEwUvQZ/9IHsSTdPWiS1gIgt2DDttAk5n0HTBs66LwVcz18k6iL0hrusiyJOwvnGSx6PVXEh4gA3pu8YSVGHPCo7tSy8UEoO1fznvo0SUkpWAuYD4o/OkoLz6piLpvOFlysfnfOye0AvBUubkNe2R9saYyngl1jnsmkAc7fj7/YnnlwVLreNa29htjTBciPweXyTMJMLr6Qjbxj6y6/Lu9FTKLJN9Mf+toppT0QpCqYOnUMjj5n8gx9itqpUsoBumHGqj1g7V3h+zFLGdc9TgWsnWHF92sZ8uAW0B2Phx+9CHjCTKnxUmpA/ixyDsNnxtN8YdyjX4q5ZCcX9ZKzU5ScBNEnPViU54jr9sfvj0D8K83vTXs/cBER79yACYBM2aURKu7G8oTl0gpDsiz+yGp8Qps4HOSelKcO0Z9fGoE89Ts/e218+2yGcWRwFGf/PLnSsYGwP4J1TmUo++BG5R8zZ86Ks80IYOjGq0Pj/R5Ur/hvFE3F4/x2DZ/4rQGUk0wvV0eo7eVmDMXvhZORUtiUbJB5uYnBkudF/xvCehqUKOvciKug8B9ojouRU9qQlma4Gv
- 4l/UbLdR78AZ7clNIDWjPQR9Syou8sdPIHMjnfgoT9HdGsHTZ/pEkHAX64K4BO7VFD0iIwRgSzxW8b6CETc1e0CF2eUKy9H0dHj5NPSmiiMFqZAXV589JhTi1MtldkflI4I4ndzsw710iK6MJ53JYSZd87BMOsOFjkEIO6gu6qvEKSq0RvIYMr/v5yUTJROwGavWg4yLv1KE0HjKR7Gjk0BzxN97dQ8qpv08KtrrTn3wi0miqM6yQ+Na20QVzPyZcPsuyfO4rRGsiU3sZtph600gN3UMFVOon9kf3+UGgGYUN6G1AJmLs86c5dN5lXn8O1Z4x0RP6sw8cgnfsrEb+S/6tScJxYtuXNhnyFKs1nS9KxC3axu2ueNVVArWFbIXKNOG3R8yvBQPKHOSIUBEvcb7PiOkHwNbwVpgkTSq9xSCOyw1PxCJULPwhboMr
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TGyYVr2+y9tW75auuQKk9nOKRo0KZ9zcabxPt37mlS27vcIz+Vr/K6zb3jxD/35kvmcnv0aqFpM3aikD0s8Zk8vBxGnGoeiGd7LnbZMGdAGsP5AIDMBtUT6gUafSJSPuNtkuc1JKokEObQj/NmnsmY7vJESSikeSZdzqoJoFJyHKy2UytWPMweixsllPDfwna5wqcTROmJOo/sLeITRGfb3/LjpbRK9TuJqlNRy0x60lE+KiF8VXIwlE5bp9qw/3whaI5/dNd5TrS0VavMTmC3LT/m1mQRKMbbyUI66NhBCfYetVSwZkI+OJ6vgYWpQhXuqBMMHTjVvD5NTMabau+jhw+9Hi4crPSLNPyRwEk16c4Ij0StU3h6RLqdowjS/kmoKwCcyfj1a7Vyp1+gtiipPU8OuPqDRtfjR03OrEAA00sh/iNX16AWdjmSanZpEv3JBOWHX+uzTWkFAyxzIWqqLLDoPIXpT3l+C0dTiVJnn+LUNpOfUclpMDUQePRgwVvJpmZQeFzVmmipqpcrHCHKTrifqlLtnpxiAdJG6LANarhV4BSKQ4ag82MdADuY+0SAXuw/odXjROS3yzumx4X2lfOWRTk0ibXbH+Ul0cGgw+kfkT8DcgWZ0fgZ8+tdQXPAm0yc/jvwHMIXJqorIePqi/dOt0otUsunIrMIlmqxctiLSh3A12ZN9csVgLUX0d167ZqQkbix3PJ2b84Nrd0r8YJ5rFaqGWpSnZ7Je07qDIGxKxYE+EZFWXyQZoi/qu85289/Y/ls1wk8Lh/wnVuKNLLU4v/tFnoynpC2LXSa08+7VwhN2af5Qpzi+aozefgf6sekBVpaN0np3IPJwPe3w9lWJNA8vhF0D1eeAZ/ARMqEAR/fm040+9qIYqL4DVpi/aQqoBEBz7HDv8VAO2J85NzM48c/TtLB/wxlWamiDKSR8rliYQKW+thK4KUe2c
- 5bx+50YaIcCAHcHAINuixs27y3Pii9txnK3UZqJdNRBWYgc27lFweTq7wxNPzVCMCKdEb4wZsOCLHcgWBC5gsDbPIzqEHNTtld679+podVhHx2Qw+CyFfx55wkf1ozhKx0G4qaXMMZ8uNA2kNrE2bv6EmonxjZ4VpzWGRa1LoKacOWM2GiIrzGEgzN2gN3FSiA3Nyu+97Qomx91onZkGNYg+JIHTaoeyA44mVNtyx39nrj5b8SCdvXEdIv3rddr0hQPgU9YyGck6VSC3BMS+kRvS36JOF3AKZb4cpLqtx2HJYSNspBR11GadTpTUga3bn5SdUCgEYlSUWpRSlfiSlaaxRQHUEyHshFBa8p+X4QwFgf7xIfJECuPGFsimPKlvgtiHPTwLoUWe2OhUJg0vR700vdT4JLJlbQ/PG7Jeo4QozNF4BocFQgDO9P0iraysIEDB1k6FpMKHzliCNUcA6tBdgNWMcEAlY+iNPp54fHFELjZAD+HfdQJsdgNxuFLvP/EuByzAG3/M9uolEt8kFymk75Yu2+icPxULlw1YxsuSKBDkmoh9LH9Uf/MDfTa7vN3DMaldmsCKvRPHvJYvatFgiwg+9uFILUdywGnbuZXubzg+Jf2nrLLo1ojLTBV1
-X-OriginatorOrg: kalrayinc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97681da1-0ec8-4773-16b6-08dcf75665ba
-X-MS-Exchange-CrossTenant-AuthSource: PAYP264MB3766.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 13:42:42.6766
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8931925d-7620-4a64-b7fe-20afd86363d3
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8J+QfXw4XLffdYJ5GDuCOogtEVjMevR9UIG9Tp0b+5fdVQcletKsrVWb1350bcof5RTllVRJecFfoFLtMG2c/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAZP264MB2397
-Content-Type: text/plain; charset=utf-8
-X-ALTERMIMEV2_out: done
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64/boot: Enable EL2 requirements for
+ FEAT_Debugv8p9
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+ linux-doc@vger.kernel.org
+References: <20241001043602.1116991-1-anshuman.khandual@arm.com>
+ <20241001043602.1116991-3-anshuman.khandual@arm.com>
+ <ZxfOeqyb3RvsdYbU@J2N7QTR9R3> <72700154-cbf4-4a0a-b6e2-6f0709dec0ce@arm.com>
+ <Zx-E_8SFV74s6xN8@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Zx-E_8SFV74s6xN8@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_064337_459907_5CD745BD 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20241028_064342_779413_C42FF6AE 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,149 +73,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new fallback memcpy_{from,to}io and memset_io functions from
-lib/iomem_copy.c on the arm64 processor architecture.
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Yann Sionneau <ysionneau@kalrayinc.com>
-Signed-off-by: Julian Vetter <jvetter@kalrayinc.com>
----
-Changes for v11:
-- Updated commit message
----
- arch/arm64/include/asm/io.h | 11 -----
- arch/arm64/kernel/io.c      | 87 -------------------------------------
- 2 files changed, 98 deletions(-)
-
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 1ada23a6ec19..463067bffdfd 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -128,17 +128,6 @@ static __always_inline u64 __raw_readq(const volatile void __iomem *addr)
- #define IO_SPACE_LIMIT		(PCI_IO_SIZE - 1)
- #define PCI_IOBASE		((void __iomem *)PCI_IO_START)
- 
--/*
-- * String version of I/O memory access operations.
-- */
--extern void __memcpy_fromio(void *, const volatile void __iomem *, size_t);
--extern void __memcpy_toio(volatile void __iomem *, const void *, size_t);
--extern void __memset_io(volatile void __iomem *, int, size_t);
--
--#define memset_io(c,v,l)	__memset_io((c),(v),(l))
--#define memcpy_fromio(a,c,l)	__memcpy_fromio((a),(c),(l))
--#define memcpy_toio(c,a,l)	__memcpy_toio((c),(a),(l))
--
- /*
-  * The ARM64 iowrite implementation is intended to support drivers that want to
-  * use write combining. For instance PCI drivers using write combining with a 64
-diff --git a/arch/arm64/kernel/io.c b/arch/arm64/kernel/io.c
-index ef48089fbfe1..fe86ada23c7d 100644
---- a/arch/arm64/kernel/io.c
-+++ b/arch/arm64/kernel/io.c
-@@ -9,34 +9,6 @@
- #include <linux/types.h>
- #include <linux/io.h>
- 
--/*
-- * Copy data from IO memory space to "real" memory space.
-- */
--void __memcpy_fromio(void *to, const volatile void __iomem *from, size_t count)
--{
--	while (count && !IS_ALIGNED((unsigned long)from, 8)) {
--		*(u8 *)to = __raw_readb(from);
--		from++;
--		to++;
--		count--;
--	}
--
--	while (count >= 8) {
--		*(u64 *)to = __raw_readq(from);
--		from += 8;
--		to += 8;
--		count -= 8;
--	}
--
--	while (count) {
--		*(u8 *)to = __raw_readb(from);
--		from++;
--		to++;
--		count--;
--	}
--}
--EXPORT_SYMBOL(__memcpy_fromio);
--
- /*
-  * This generates a memcpy that works on a from/to address which is aligned to
-  * bits. Count is in terms of the number of bits sized quantities to copy. It
-@@ -78,62 +50,3 @@ void __iowrite32_copy_full(void __iomem *to, const void *from, size_t count)
- 	dgh();
- }
- EXPORT_SYMBOL(__iowrite32_copy_full);
--
--/*
-- * Copy data from "real" memory space to IO memory space.
-- */
--void __memcpy_toio(volatile void __iomem *to, const void *from, size_t count)
--{
--	while (count && !IS_ALIGNED((unsigned long)to, 8)) {
--		__raw_writeb(*(u8 *)from, to);
--		from++;
--		to++;
--		count--;
--	}
--
--	while (count >= 8) {
--		__raw_writeq(*(u64 *)from, to);
--		from += 8;
--		to += 8;
--		count -= 8;
--	}
--
--	while (count) {
--		__raw_writeb(*(u8 *)from, to);
--		from++;
--		to++;
--		count--;
--	}
--}
--EXPORT_SYMBOL(__memcpy_toio);
--
--/*
-- * "memset" on IO memory space.
-- */
--void __memset_io(volatile void __iomem *dst, int c, size_t count)
--{
--	u64 qc = (u8)c;
--
--	qc |= qc << 8;
--	qc |= qc << 16;
--	qc |= qc << 32;
--
--	while (count && !IS_ALIGNED((unsigned long)dst, 8)) {
--		__raw_writeb(c, dst);
--		dst++;
--		count--;
--	}
--
--	while (count >= 8) {
--		__raw_writeq(qc, dst);
--		dst += 8;
--		count -= 8;
--	}
--
--	while (count) {
--		__raw_writeb(c, dst);
--		dst++;
--		count--;
--	}
--}
--EXPORT_SYMBOL(__memset_io);
--- 
-2.34.1
 
 
+On 10/28/24 18:05, Mark Rutland wrote:
+> On Wed, Oct 23, 2024 at 11:42:37AM +0530, Anshuman Khandual wrote:
+>>
+>>
+>> On 10/22/24 21:40, Mark Rutland wrote:
+>>> On Tue, Oct 01, 2024 at 10:06:01AM +0530, Anshuman Khandual wrote:
+>>>> Fine grained trap control for MDSELR_EL1 register needs to be configured in
+>>>> HDFGRTR2_EL2, and HDFGWTR2_EL2 registers when kernel enters at EL1, but EL2
+>>>> is also present. This adds a new helper __init_el2_fgt2() initializing this
+>>>> new FEAT_FGT2 based fine grained registers.
+>>>>
+>>>> MDCR_EL2.EBWE needs to be enabled for additional (beyond 16) breakpoint and
+>>>> watchpoint exceptions when kernel enters at EL1, but EL2 is also present.
+>>>> This updates __init_el2_debug() as required for FEAT_Debugv8p9.
+>>>>
+>>>> While here, also update booting.rst with MDCR_EL3 and SCR_EL3 requirements.
+>>>
+>>> [...]
+>>>
+>>>> +  For CPUs with FEAT_Debugv8p9 extension present:
+>>>> +
+>>>> +  - If the kernel is entered at EL1 and EL2 is present:
+>>>> +
+>>>> +    - HDFGRTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+>>>> +    - HDFGWTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+>>>> +    - MDCR_EL2.EBWE (bit 43) must be initialized to 0b1
+>>>> +
+>>>> +  - If EL3 is present:
+>>>> +
+>>>> +    - MDCR_EL3.TDA (bit 9) must be initialized to 0b0
+>>>
+>>> AFAICT we need TDA==0 this regardless of FEAT_Debugv8p9 (and e.g. we need
+>>
+>> That's because MDCR_EL3.TDA=0, enables access to many other debug registers
+>> beside FEAT_Debugv8p9, which are currently used and hence this MDCR_EL3.TDA
+>> =0 requirement is a not a new one but rather a missing one instead ?
+> 
+> Yes, that's why I said we need it regardless; it's an existing
+> requirement that wasn't documented.
 
+Alright, got it.
 
+> 
+>>
+>>> MDCR_EL3.TPM==0 where FEAT_PMUv3 is implemented), so we should probably
+>>> check if there's anything else we haven't yet documented in MDCR_EL3.
+>>
+>> Will scan through MDCR_EL3 register and match it with existing documentation
+>> i.e Documentation/arch/arm64/booting.rst. If there are some missing MDCR_EL3
+>> fields which should be mentioned, will add them via a separate pre-requisite
+>> patch ?
+> 
+> Yes please.
+> 
+> Mark.
 
+Sure, will separate those changes in a pre-requisite patch as suggested.
 
