@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C46CD5B158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10BAD5B158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m061Pyg3UwMZEnlvYwP1sOYnaFDaV5Le181aUe2JWFs=; b=s1pbU/02TrUPLPm+v4KFhcqgQo
-	csU6wS+CPMxJBQqCLAziACmGnOQ5F/O8jSjVyDkwZGYc8pARbfU+P2T9t7N31dPGoKZO7UJbb9dU+
-	plvtvAxjOIXn0Lkyr9MSOf0IXNeI9HaiKo5Wr4EoN++yRSWo7EDPBhg68FufnurpsZ8HWXN8V67Xc
-	E40sV+z57UVdHGMjniLcMmMIzHYJ4ax5HuYBZvF/fL99bxRB91M/DDB9KAFm3gHqm/u0ihFcEnz8J
-	nTybZ/riQ9IvEu5bQZCO3twoTmqmJ9GXKpGz7hR0EnigLa0CM1Riu/qibirZJzTeF6u6tn7GIoZ21
-	z8twsHNw==;
+	bh=HG6V5IEjg5fR7H7zxvH/yThNTAfW1zJep5mmD3Nzp9E=; b=mY2Dbi4zr7EiHD+ROcqpotPaX+
+	pj9NDpWJZvWeabw8ZIpBl5hE7qy5l38PFoh5Yeu3YJk3c0VN8KThD9lqzzT94+JolLyJWrP8eZXo/
+	w2wLWAsRdv203+YwUAVi4R2hRaIIKQD+assH3/joG8uzos0+l7kWNneAbi/En5YNpxFv8uCbrzHsg
+	Ohnk4S1E+cjdyy6Pi6WdgIitt4WZMNGc7+OMgmGblrXbMjr7b6BYmevbpVXJ8nmf77YliYWDxha6c
+	87tLqz6g3v813Y+2FkM/XB4xZkf08kBn5hRZrYaq5+bt2bALk1bPctygYX4Pw2tJ90ZgGXDYzg81T
+	yAIz09rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XqJ-0000000CSuy-3n0z;
-	Mon, 28 Oct 2024 22:04:07 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1t5Xrx-0000000CTMt-1aRI;
+	Mon, 28 Oct 2024 22:05:49 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XOX-0000000CM09-0GMM
+	id 1t5XOZ-0000000CM0q-0wVb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:35:26 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e2b9480617so3805956a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:35:24 -0700 (PDT)
+	Mon, 28 Oct 2024 21:35:28 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7eb0bc007edso2188733a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:35:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730151324; x=1730756124; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730151326; x=1730756126; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m061Pyg3UwMZEnlvYwP1sOYnaFDaV5Le181aUe2JWFs=;
-        b=Q2c5PL3IFY+zZgiXrtlOc8D2t5CVyF9HiFboAGGOgfxpGsbeuuQ4SEw+AXet40tcSQ
-         hClznJInqCFedTm7Dc1WW0gAhJdxdx0fPNTUhE+yPSr9+Jv+HrtvLpfLzTaiZ7CSMGcZ
-         1f4fKjib2M0SUOgCacENiv39j6IOVm468Eeg63e7OJL+iqKlEpjIzu5xSxr6vT/t9dNb
-         zyOoxtisAs86Qt3iRhAEQslLPccahsMIM5TBQwdDx9Pwm2jUoQPfRKYfNVYjmERbuVYp
-         AvyWhWy2/VGQUXdxpmx4KTo4D3ZAcnj95EMRBIcNfr5XFD3RuAVYSYaad5zsFy8IGrmD
-         yUTA==
+        bh=HG6V5IEjg5fR7H7zxvH/yThNTAfW1zJep5mmD3Nzp9E=;
+        b=m8HFRTyVXKVtvQ/w/kLMR/n3z7ZjCGvhwlTuWXVOQ9VhN8wpU1k4sVct1q18imhVbz
+         ss4N/AGi6kIJ9E5GgxFGpZG2MhlGS3Vy9kx8/b5NM76MedkIwaxNeTLi8Jiwi4A9JWUd
+         iwh7YQ6+qyA7t4AnYdabKPehYX71FIJi59AzTCKHqSkOfAmcbfQptSnzDUpa/gwPNE+D
+         EzEP+ISkuZb7ROX7lBUb647tgTkG+7QSs+kpd7jwOqetFQtmoxtB/T8xRugdIXZMZm6m
+         6q8qqHzV/jERpPSKJUZI7HL5q25B5UrBVhEvyQUiDNH0Tapi/Dd6va4zPja0nSGIUveF
+         cOdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730151324; x=1730756124;
+        d=1e100.net; s=20230601; t=1730151326; x=1730756126;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=m061Pyg3UwMZEnlvYwP1sOYnaFDaV5Le181aUe2JWFs=;
-        b=FGO6h6hKCng+y5PXD/zOsE+2m/13H+ZQnDkluKlhyFkfLv2CFodmlecL7qwJ3Hk/hM
-         NsnHW7tZgIaKXHLSoP9NWEpwvPqwJ9GZPvVUvtmzALKx21CuLvHDFAwYqSiKpG+pQopl
-         cEorWvgSHOmEGXpTwVisZA4O42fJlkvUsc287r3YFFZvDterSXSdIV3p11SgT6nudmvT
-         fLir48iPspLhpnZkZUYPPA9Wmmn7UlVEC0IU7HM6QeivWntz+zQGyXmJVNWtVumGDHlJ
-         6VsFtoL2uu3sbQ/UbLloR4sKTSweG/G5dYtETs2nVlhZhg39xl1lzt063oS3upbwGwhv
-         NHpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVNDzoVApNV3w65gdmnbN9+dioisU4hr4VNzgB29oaPyLuH5Szra6i54No33VTO70J0CjktGXERkWr/PEahdlWt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2usgirCKg3hZufxo+uLv2YBPtFI+7G/m3XPX8VZH8bTmBur2p
-	yzZqzsT9RbHTXkbc40Jt1lL7UbevqStsRiCt6Cda9U91uvPa8SVW
-X-Google-Smtp-Source: AGHT+IFMkNPD4yFz3qyWlzboYMBT0a0xBeKCCszOPUsi1vknNqZcTwRtbyVqgGg1MSNysN4Mc2hgGA==
-X-Received: by 2002:a17:90a:c90b:b0:2e2:e092:5323 with SMTP id 98e67ed59e1d1-2e8f11a9716mr11015208a91.29.1730151323871;
-        Mon, 28 Oct 2024 14:35:23 -0700 (PDT)
+        bh=HG6V5IEjg5fR7H7zxvH/yThNTAfW1zJep5mmD3Nzp9E=;
+        b=C4f1hJF5i74cbShQLpWCuYjnX7NEY0Kc7So+t2CKV/MXBV+CdmM4kK3AXXkMyI54X3
+         U62O5Lq5Bgk3ureBom2Jce4xrNsg7os/egIWYQEfbi9ABP//Jb/HUWkV23sM+BtWVeMW
+         /VB09jZvwmBA9+7RxCx0Du+tVm1oi4OaWPAMu2uwBRsV8k+DdlMwCbcPP8/zbCckflNR
+         ZH89/PlfgfJpggjUFZMzGq3PMlrTpC1AvgQ1Oi5Lw1OsscfuEx8ABYlsG5uU1z7igSA2
+         um4fpz8bm1we5m+9ncZ4UDED6Jmpyz12wUsGZhkDWnywInm7idvILgxy1m3hjw6LvrKX
+         Xh6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXMiClFyHCYACoe46R8EdFYR83dN51fUOzi/mMSBTOp5uEWxdA9/ZMc9AkaTSAGHgabjbR4/wa8TeDzBN9lhH3k@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQckvZK3iwAccsznZwVRVRyJOFabtEJC3brMepcklM+03UAaAn
+	COCSlzrWyThX/C+mYzUi3SXcHKdeqsOHZ4dMnwbFkAXcACa+uER+
+X-Google-Smtp-Source: AGHT+IHYfTByDMFcPygEQ50HF0A5OEX5ytobSAKHJ4GmVG1OnJTN978gymeL5m5xxwFxhYlpGaAN7A==
+X-Received: by 2002:a05:6a20:4499:b0:1d9:1a3b:85d4 with SMTP id adf61e73a8af0-1d9a83b5192mr14212818637.6.1730151325996;
+        Mon, 28 Oct 2024 14:35:25 -0700 (PDT)
 Received: from localhost ([2a00:79e1:2e00:1301:12e9:d196:a1e9:ab67])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e77e4c2a9dsm9890110a91.15.2024.10.28.14.35.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057931a06sm6216898b3a.55.2024.10.28.14.35.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 14:35:23 -0700 (PDT)
+        Mon, 28 Oct 2024 14:35:25 -0700 (PDT)
 From: Rob Clark <robdclark@gmail.com>
 To: iommu@lists.linux.dev
 Cc: linux-arm-msm@vger.kernel.org,
@@ -74,17 +74,17 @@ Cc: linux-arm-msm@vger.kernel.org,
 	Joerg Roedel <joro@8bytes.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v10 1/4] iommu/io-pgtable-arm: Make pgtable walker more generic
-Date: Mon, 28 Oct 2024 14:31:37 -0700
-Message-ID: <20241028213146.238941-2-robdclark@gmail.com>
+Subject: [PATCH v10 2/4] iommu/io-pgtable-arm: Re-use the pgtable walk for iova_to_phys
+Date: Mon, 28 Oct 2024 14:31:38 -0700
+Message-ID: <20241028213146.238941-3-robdclark@gmail.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241028213146.238941-1-robdclark@gmail.com>
 References: <20241028213146.238941-1-robdclark@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_143525_138394_27D3DB96 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20241028_143527_291746_72774C9A 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,139 +101,113 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rob Clark <robdclark@chromium.org>
 
-We can re-use this basic pgtable walk logic in a few places.
+Re-use the generic pgtable walk path.
 
 Signed-off-by: Rob Clark <robdclark@chromium.org>
 ---
- drivers/iommu/io-pgtable-arm.c | 67 ++++++++++++++++++++++------------
- 1 file changed, 43 insertions(+), 24 deletions(-)
+ drivers/iommu/io-pgtable-arm.c | 74 +++++++++++++++++-----------------
+ 1 file changed, 37 insertions(+), 37 deletions(-)
 
 diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0e67f1721a3d..7e9c0f8ae138 100644
+index 7e9c0f8ae138..88b128c77893 100644
 --- a/drivers/iommu/io-pgtable-arm.c
 +++ b/drivers/iommu/io-pgtable-arm.c
-@@ -749,33 +749,33 @@ static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
+@@ -712,42 +712,6 @@ static size_t arm_lpae_unmap_pages(struct io_pgtable_ops *ops, unsigned long iov
+ 				data->start_level, ptep);
  }
  
+-static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
+-					 unsigned long iova)
+-{
+-	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
+-	arm_lpae_iopte pte, *ptep = data->pgd;
+-	int lvl = data->start_level;
+-
+-	do {
+-		/* Valid IOPTE pointer? */
+-		if (!ptep)
+-			return 0;
+-
+-		/* Grab the IOPTE we're interested in */
+-		ptep += ARM_LPAE_LVL_IDX(iova, lvl, data);
+-		pte = READ_ONCE(*ptep);
+-
+-		/* Valid entry? */
+-		if (!pte)
+-			return 0;
+-
+-		/* Leaf entry? */
+-		if (iopte_leaf(pte, lvl, data->iop.fmt))
+-			goto found_translation;
+-
+-		/* Take it to the next level */
+-		ptep = iopte_deref(pte, data);
+-	} while (++lvl < ARM_LPAE_MAX_LEVELS);
+-
+-	/* Ran out of page tables to walk */
+-	return 0;
+-
+-found_translation:
+-	iova &= (ARM_LPAE_BLOCK_SIZE(lvl, data) - 1);
+-	return iopte_to_paddr(pte, data) | iova;
+-}
+-
  struct io_pgtable_walk_data {
--	struct iommu_dirty_bitmap	*dirty;
-+	struct io_pgtable		*iop;
-+	void				*data;
-+	int (*visit)(struct io_pgtable_walk_data *walk_data, int lvl,
-+		     arm_lpae_iopte *ptep, size_t size);
- 	unsigned long			flags;
- 	u64				addr;
- 	const u64			end;
- };
+ 	struct io_pgtable		*iop;
+ 	void				*data;
+@@ -763,6 +727,41 @@ static int __arm_lpae_iopte_walk(struct arm_lpae_io_pgtable *data,
+ 				 arm_lpae_iopte *ptep,
+ 				 int lvl);
  
--static int __arm_lpae_iopte_walk_dirty(struct arm_lpae_io_pgtable *data,
--				       struct io_pgtable_walk_data *walk_data,
--				       arm_lpae_iopte *ptep,
--				       int lvl);
-+static int __arm_lpae_iopte_walk(struct arm_lpae_io_pgtable *data,
-+				 struct io_pgtable_walk_data *walk_data,
-+				 arm_lpae_iopte *ptep,
-+				 int lvl);
- 
--static int io_pgtable_visit_dirty(struct arm_lpae_io_pgtable *data,
--				  struct io_pgtable_walk_data *walk_data,
--				  arm_lpae_iopte *ptep, int lvl)
-+static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
-+			    struct io_pgtable_walk_data *walk_data,
-+			    arm_lpae_iopte *ptep, int lvl)
- {
- 	struct io_pgtable *iop = &data->iop;
- 	arm_lpae_iopte pte = READ_ONCE(*ptep);
- 
--	if (iopte_leaf(pte, lvl, iop->fmt)) {
--		size_t size = ARM_LPAE_BLOCK_SIZE(lvl, data);
-+	size_t size = ARM_LPAE_BLOCK_SIZE(lvl, data);
-+	int ret = walk_data->visit(walk_data, lvl, ptep, size);
-+	if (ret)
-+		return ret;
- 
--		if (iopte_writeable_dirty(pte)) {
--			iommu_dirty_bitmap_record(walk_data->dirty,
--						  walk_data->addr, size);
--			if (!(walk_data->flags & IOMMU_DIRTY_NO_CLEAR))
--				iopte_set_writeable_clean(ptep);
--		}
-+	if (iopte_leaf(pte, lvl, iop->fmt)) {
- 		walk_data->addr += size;
- 		return 0;
- 	}
-@@ -784,13 +784,13 @@ static int io_pgtable_visit_dirty(struct arm_lpae_io_pgtable *data,
- 		return -EINVAL;
- 
- 	ptep = iopte_deref(pte, data);
--	return __arm_lpae_iopte_walk_dirty(data, walk_data, ptep, lvl + 1);
-+	return __arm_lpae_iopte_walk(data, walk_data, ptep, lvl + 1);
- }
- 
--static int __arm_lpae_iopte_walk_dirty(struct arm_lpae_io_pgtable *data,
--				       struct io_pgtable_walk_data *walk_data,
--				       arm_lpae_iopte *ptep,
--				       int lvl)
-+static int __arm_lpae_iopte_walk(struct arm_lpae_io_pgtable *data,
-+				 struct io_pgtable_walk_data *walk_data,
-+				 arm_lpae_iopte *ptep,
-+				 int lvl)
- {
- 	u32 idx;
- 	int max_entries, ret;
-@@ -805,7 +805,7 @@ static int __arm_lpae_iopte_walk_dirty(struct arm_lpae_io_pgtable *data,
- 
- 	for (idx = ARM_LPAE_LVL_IDX(walk_data->addr, lvl, data);
- 	     (idx < max_entries) && (walk_data->addr < walk_data->end); ++idx) {
--		ret = io_pgtable_visit_dirty(data, walk_data, ptep + idx, lvl);
-+		ret = io_pgtable_visit(data, walk_data, ptep + idx, lvl);
- 		if (ret)
- 			return ret;
- 	}
-@@ -813,6 +813,23 @@ static int __arm_lpae_iopte_walk_dirty(struct arm_lpae_io_pgtable *data,
- 	return 0;
- }
- 
-+static int visit_dirty(struct io_pgtable_walk_data *walk_data, int lvl,
-+		       arm_lpae_iopte *ptep, size_t size)
++struct iova_to_phys_data {
++	arm_lpae_iopte pte;
++	int lvl;
++};
++
++static int visit_iova_to_phys(struct io_pgtable_walk_data *walk_data, int lvl,
++			      arm_lpae_iopte *ptep, size_t size)
 +{
-+	struct iommu_dirty_bitmap *dirty = walk_data->data;
-+
-+	if (!iopte_leaf(*ptep, lvl, walk_data->iop->fmt))
-+		return 0;
-+
-+	if (iopte_writeable_dirty(*ptep)) {
-+		iommu_dirty_bitmap_record(dirty, walk_data->addr, size);
-+		if (!(walk_data->flags & IOMMU_DIRTY_NO_CLEAR))
-+			iopte_set_writeable_clean(ptep);
-+	}
-+
++	struct iova_to_phys_data *data = walk_data->data;
++	data->pte = *ptep;
++	data->lvl = lvl;
 +	return 0;
 +}
 +
- static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
- 					 unsigned long iova, size_t size,
- 					 unsigned long flags,
-@@ -821,7 +838,9 @@ static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
- 	struct io_pgtable_walk_data walk_data = {
--		.dirty = dirty,
-+		.iop = &data->iop,
-+		.data = dirty,
-+		.visit = visit_dirty,
- 		.flags = flags,
- 		.addr = iova,
- 		.end = iova + size,
-@@ -836,7 +855,7 @@ static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
- 	if (data->iop.fmt != ARM_64_LPAE_S1)
++static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
++					 unsigned long iova)
++{
++	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
++	struct iova_to_phys_data d;
++	struct io_pgtable_walk_data walk_data = {
++		.data = &d,
++		.visit = visit_iova_to_phys,
++		.addr = iova,
++		.end = iova + 1,
++	};
++	int ret;
++
++	ret = __arm_lpae_iopte_walk(data, &walk_data, data->pgd, data->start_level);
++	if (ret)
++		return 0;
++
++	iova &= (ARM_LPAE_BLOCK_SIZE(d.lvl, data) - 1);
++	return iopte_to_paddr(d.pte, data) | iova;
++}
++
+ static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
+ 			    struct io_pgtable_walk_data *walk_data,
+ 			    arm_lpae_iopte *ptep, int lvl)
+@@ -780,8 +779,9 @@ static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
+ 		return 0;
+ 	}
+ 
+-	if (WARN_ON(!iopte_table(pte, lvl)))
++	if (!iopte_table(pte, lvl)) {
  		return -EINVAL;
++	}
  
--	return __arm_lpae_iopte_walk_dirty(data, &walk_data, ptep, lvl);
-+	return __arm_lpae_iopte_walk(data, &walk_data, ptep, lvl);
- }
- 
- static void arm_lpae_restrict_pgsizes(struct io_pgtable_cfg *cfg)
+ 	ptep = iopte_deref(pte, data);
+ 	return __arm_lpae_iopte_walk(data, walk_data, ptep, lvl + 1);
 -- 
 2.47.0
 
