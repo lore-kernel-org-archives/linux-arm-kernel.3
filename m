@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03601D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502E2D13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pw5YnYv4Wslj94nJVrUQOqg92+AyMieqLMZ3dof7L1c=; b=4aJEQZs0mm+sLUa699jW86nOJA
-	Pe2TGCrTwvczuu5J1Dth577OsLFKszG0oo0ILDutMzqPbGnIV8C1L6KTmPVDIpJTBHjHwzfOL0JOd
-	Kl6YriG+6ytsoF8FB6xDVa3WD1/JDcycpcN8x5uRxKS1P4J3JR25gHNl5239MkEdwDQVelPvfcn7K
-	VvTgPdzwnMlTF6EDs0lnan/uxkqk9v4bvAi0VdubHXI6SRyTCyMvHfBdRGYH4sHzju1cGnUWdeSfo
-	JaG7YKFRa3h9heePIZ/u5wB5jeGsj/dFvvWy+KD7Q2pop4d2zkmh9cOQx2aHwj0stfvy8RRuQR4TR
-	be/yfFHA==;
+	bh=aJzTmcQ4J4yuVJ3dMHuGSZVYZokqfc6xLFPAjiP9FnM=; b=anBVXHVv6WaxL1FHg9tUlk9WTs
+	QYUxTb7bPNsF/oRqyhpsFFOo+UpU+A+EVdZZFRJtZRMq5iaX0/Rm2OBBndi16dko7Qh1sG1Vz/OWG
+	kli3qG+GxR78+rlMxqtq1CnOMWrk+OSCP4aSyhiz7rdBZ3pKsLBaTaYXx+EiZwr5O8GUz+GQhzfxq
+	nNBWn5OEuS3CEUh9MnfL9q/tURwAfZrqT7AE6811onS1UfE0SXU2oAIkKaFAjX1W1uue92D61uZYn
+	hE3lEiIfSxt45sksi3yt6QAriT46ZIqW7PiRKLY6qw6Fy4U0kAfqP0dE91S/XZp1kV3BzFTmcbs4N
+	pX70Pp7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IXS-00000009dot-43G6;
-	Mon, 28 Oct 2024 05:43:38 +0000
+	id 1t5IZ1-00000009e9O-1dhg;
+	Mon, 28 Oct 2024 05:45:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IOs-00000009bWi-3odM
+	id 1t5IOw-00000009bXW-35Qi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 05:34:48 +0000
+	Mon, 28 Oct 2024 05:34:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E55DD497;
-	Sun, 27 Oct 2024 22:35:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE05B13D5;
+	Sun, 27 Oct 2024 22:35:19 -0700 (PDT)
 Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.84])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9A1E33F66E;
-	Sun, 27 Oct 2024 22:34:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AC0FB3F66E;
+	Sun, 27 Oct 2024 22:34:46 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -47,17 +47,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Mark Brown <broonie@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	kvmarm@lists.linux.dev
-Subject: [PATCH V2 2/7] arm64/sysreg: Add register fields for MDSELR_EL1
-Date: Mon, 28 Oct 2024 11:04:21 +0530
-Message-Id: <20241028053426.2486633-3-anshuman.khandual@arm.com>
+Subject: [PATCH V2 3/7] arm64/sysreg: Add register fields for HDFGRTR2_EL2
+Date: Mon, 28 Oct 2024 11:04:22 +0530
+Message-Id: <20241028053426.2486633-4-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241028053426.2486633-1-anshuman.khandual@arm.com>
 References: <20241028053426.2486633-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_223447_009616_A186A400 
-X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-CacheID: sfid-20241027_223450_858188_66E0C8FE 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,7 +73,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds register fields for MDSELR_EL1 as per the definitions based
+This adds register fields for HDFGRTR2_EL2 as per the definitions based
 on DDI0601 2024-09.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -84,31 +84,49 @@ Cc: linux-kernel@vger.kernel.org
 Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/arm64/tools/sysreg | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/tools/sysreg | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 41b0e54515eb..a92fc241fb4e 100644
+index a92fc241fb4e..1ee850b3e7a7 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -93,6 +93,17 @@ Res0	63:32
- Field	31:0	DTRTX
+@@ -2476,6 +2476,35 @@ Field	1	ICIALLU
+ Field	0	ICIALLUIS
  EndSysreg
  
-+Sysreg	MDSELR_EL1	2	0	0	4	2
-+Res0	63:6
-+Enum	5:4	BANK
-+	0b00	BANK_0
-+	0b01	BANK_1
-+	0b10	BANK_2
-+	0b11	BANK_3
-+EndEnum
-+Res0	3:0
++Sysreg HDFGRTR2_EL2	3	4	3	1	0
++Res0	63:25
++Field	24	nPMBMAR_EL1
++Field	23	nMDSTEPOP_EL1
++Field	22	nTRBMPAM_EL1
++Res0	21
++Field	20	nTRCITECR_EL1
++Field	19	nPMSDSFR_EL1
++Field	18	nSPMDEVAFF_EL1
++Field	17	nSPMID
++Field	16	nSPMSCR_EL1
++Field	15	nSPMACCESSR_EL1
++Field	14	nSPMCR_EL0
++Field	13	nSPMOVS
++Field	12	nSPMINTEN
++Field	11	nSPMCNTEN
++Field	10	nSPMSELR_EL0
++Field	9	nSPMEVTYPERn_EL0
++Field	8	nSPMEVCNTRn_EL0
++Field	7	nPMSSCR_EL1
++Field	6	nPMSSDATA
++Field	5	nMDSELR_EL1
++Field	4	nPMUACR_EL1
++Field	3	nPMICFILTR_EL0
++Field	2	nPMICNTR_EL0
++Field	1	nPMIAR_EL1
++Field	0	nPMECR_EL1
 +EndSysreg
 +
- Sysreg	OSECCR_EL1	2	0	0	6	2
- Res0	63:32
- Field	31:0	EDECCR
+ Sysreg HDFGRTR_EL2	3	4	3	1	4
+ Field	63	PMBIDR_EL1
+ Field	62	nPMSNEVFR_EL1
 -- 
 2.25.1
 
