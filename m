@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3EAD33994
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6A7D33994
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AuCV83JNF5xt/o7+RdWbgGzw1E9aI+J1rqqbiHJI0pk=; b=WXHqWr8w4NmF754dJBfQMcFj6i
-	gKnaLHI98kiwvZpnR2fhXPPHiZUTT81UpYO+QoFQ5azxdAHM6l8B5AAtaQ0hDHMSjabOJTDFCLW8+
-	VLtH6sJIfIOw3gWL2m4azLrdcq61P7qhGc8k63wj5EjJbXn7OwMDzG2kDgE4PXsrNhrQ2DTKmu8mj
-	Q8mCOpDmLZRWIjEXrp5XI9RtmTUFAxCGditVvD41QxlGUXs7iTFac2JT0DbohnPOqEZD0www8Ys/2
-	5tu5HL45ylb7coNXGhLw04kiqyA+9j0Uq5zgyRpVIGtfZVlFibA8iIqV4b2t4mZXlGwRP9cR/+4rh
-	EOaUHZIQ==;
+	bh=PJVoaxehblCKmdHBph6FbwKv7y3g2I/GW3hKFWio3YI=; b=akX0HacrfGr/cDazNOc9QI6GAs
+	PXu+ZQnWj/ODLc2BXu+rI6Lt4T/QZB8fm8vYiJeh3NfYD4Y/H/YSCpv80J6Dr/teSal4Zow1TWkSK
+	wo+FV0ZbrzpPcKZE1nban0+HCR3EDKWZQmBWtNwlJgCw+LLku5dkb3CSXIedJmmhUujTrd0abmQ60
+	XD95wvsisleKudSShM0BWk0Cmae0zePk/93NYw/Ohuz0FXIem60NlmjkPBvXuTdcrdgMpDJuFhNNq
+	0hp+jzlb3AqxE4u3QSuWnq3M7MY2fGntyUwlEx5bzN5J4ZxBsvtskK9EewDY8HqeHl8Q503c0UnkK
+	mQBO6M+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RJL-0000000BFBS-15nX;
-	Mon, 28 Oct 2024 15:05:39 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1t5RKw-0000000BFVp-2QvT;
+	Mon, 28 Oct 2024 15:07:18 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QrS-0000000B93J-2DYf
+	id 1t5QsS-0000000B9CD-2v7B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:36:52 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539e13375d3so4926575e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:36:49 -0700 (PDT)
+	Mon, 28 Oct 2024 14:37:54 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-539fbbadf83so5568781e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:37:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730126208; x=1730731008; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730126270; x=1730731070; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AuCV83JNF5xt/o7+RdWbgGzw1E9aI+J1rqqbiHJI0pk=;
-        b=m9rLBSQLOQe+pzXizMrFA2VXG35DVowqaIH4e/4rqteEI54/BnIQhXnNuLq97WNMBS
-         MJYvHXWy8BdcGZZIwtoRJHynyXf8xqcmU5+MgfiXUDA4ZvI6BvI1IrJek/mmaXm0yG+B
-         85exv2z0l7IQmW4Oafizt6rDDEnNLctRD3QGYPqtef2hZEUgB3ilf7Q/8uuFauyQnBvD
-         A6jYymSB8nfXJM0r2G+08xQjzliPrAYNi6o0cNjWFQTEJhfbkjnGsUCy4DyNLbXEt4Md
-         h84PYgvRMHeki0fOYcjTblX74u8P7bi//aomlqpOTzUG48iYT1kxSvYdTjlow5wlnaIr
-         KMnA==
+        bh=PJVoaxehblCKmdHBph6FbwKv7y3g2I/GW3hKFWio3YI=;
+        b=n1iIuF658+vKOHrLtxcQ05SeRrOeAA+SBO/jxJMb9cTj+CKJB3tQh4y5bIiYrDLpLu
+         SBLqc9G5kfGgnXfZSU1VG6SgS/bLrL78zpOgrelW81D55vxZVKfIt44Y8KRKCWoLQpbo
+         GTBLoya6wXliZg926NlOXvO2ZKquv7rC+4jdD40OBJ1aQt+8nvsn7eGOfUAwLKR0QOsk
+         OvC8BDGbZMumX4+ne0ZtSVbQ98pqlHUR1fMu6pWasxPmxyg/g5M0xk5B713arsefsiZo
+         8DIqmRmJHiVO18C91ry2eY1YGKroUrMAJhsM/r7LA6SUQuUDAO5T6XY0mxtJrdhBBUFa
+         JeKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730126208; x=1730731008;
+        d=1e100.net; s=20230601; t=1730126270; x=1730731070;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AuCV83JNF5xt/o7+RdWbgGzw1E9aI+J1rqqbiHJI0pk=;
-        b=O1fi50do4LnBqhj0at34zG+ydPFpmV+lMblewi3E0WPxJYHHSbXe+e4YGglpdc8N6N
-         TKQSyonbQAKmHpaj8iLkkl5RBN8+usXvx4PqPbGjkRutEMvBdhAW/oYXOUc0WLm9mWgA
-         zX3p4FLyEFc7m/51YT1QmMTsm9R4/ESO/EOCnwGMXNedzSRTVYO6HiaxpsPA0bHuIqkV
-         xo0zX+qZNgororUq8GQ1D53dZ+SjIXI53cKX8ZkGtxsmYmi7J6GOtq0fccz7woJOha8V
-         SRXcPhfGgFaUetqeIiUvh8iidKPnbg/VyQVupOzURuudAHJPCIZ2xtqTOXsxlkIq4hRE
-         LrmA==
-X-Forwarded-Encrypted: i=1; AJvYcCX38MP0FUq3BT3mDrAIIfvq6qeYdG/GgSUpdANs1rhOQ01RjgtQ7sSc93r9rpiC9KmDbY4yiHhxc9MIlAff9po+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFQU+HUyzXtG90K9GZcAEjG4qDjx7Z0ksyWtc5izIggsyrsTzo
-	BnUPPX4shWUB57atbE+sdMDVWpc3q7EaUMnD+EPufspG+dCzSwdL62dqPYW6Zf7UbDosCE55/Kc
-	vjEBW8R+BtlCtmjkuYduzQCBPuvlZB/3b66NC9g==
-X-Google-Smtp-Source: AGHT+IFMXRyPb+X0jTeOQPVKekZJqG3FwwMxDwb4pHs5ttD6aPRHRy5s8zoMSwymv42X/0WESdQov/Yws8ZdNY7ZJJI=
-X-Received: by 2002:a05:6512:3c8f:b0:539:8fcd:524 with SMTP id
- 2adb3069b0e04-53b348e576amr3463522e87.30.1730126208152; Mon, 28 Oct 2024
- 07:36:48 -0700 (PDT)
+        bh=PJVoaxehblCKmdHBph6FbwKv7y3g2I/GW3hKFWio3YI=;
+        b=hA0nHv+jzrv/eiydZGdNwBrgL7EofO1k7P37XTgW7rZB3mw8DKOAR5OmpESredlWSY
+         yvAP8LmTf4x1YVdAjfLoTPlq0h/zIOyP5BKIsPIwn71K/KEkBPK2M5SW/PvdkYiXmX7r
+         B9c3OsYhemCPHrx7gQFCYPsoJv65/fXMDrZ4qQ6KGLbNJ93/vZk8OVZlb6RGOG0cfXFl
+         Pl6pExZLZ/bFjWU1QFVAr/nbOj059F2fAt4vFyC6XWnRAqDie4DUZxnxE2zpiUfMy7Mn
+         AJd75mG6dm+S7hlEbPnJUVS2ySiWjCl8U750ab1gGJWCAKZxgr7KuBWOcdW+MyZXtfFx
+         V63Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVh16RsgyR5VitN5Hj1xia5yJ9Gar63lLiLtHC4NP4kkSeU1e6TzZZqLklagr4FoNwE0Vung65tTV1l6ChiJVnH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3HBUDE70OemP/1gPWjA3bzaLXZcURy6Pup/8q9Bmdrqtwf00H
+	VFtNi52yffjMjVPtdbkukLmpe+q3tLwAHJuUiFDYHmMm9YyMmLxhOTRHykKWheh+Rj7TwBXLn1m
+	vG5hdvMvltlAC+r7yHfCknkVZNgc2qWkvzOVIUQ==
+X-Google-Smtp-Source: AGHT+IFM0/yV2rcX60bAr1jwz7/ljMj4gRvX4g1B3bqoWSs6hvQQ1s7ThycVBCr4zTDLzqa054swjVaA1m5A272EI3Y=
+X-Received: by 2002:a05:6512:3f03:b0:535:6992:f2cb with SMTP id
+ 2adb3069b0e04-53b3490efc1mr3742461e87.42.1730126270080; Mon, 28 Oct 2024
+ 07:37:50 -0700 (PDT)
 MIME-Version: 1.0
 References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
- <20241025-kselftest-gpio-set-get-config-v2-4-040d748840bb@collabora.com>
-In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-4-040d748840bb@collabora.com>
+ <20241025-kselftest-gpio-set-get-config-v2-5-040d748840bb@collabora.com>
+In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-5-040d748840bb@collabora.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 28 Oct 2024 15:36:37 +0100
-Message-ID: <CACRpkdbBAa5piO8BJoxx04spOc22CBJ-zbi82BT9sG54c=csNw@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 4/5] selftest: gpio: Add wait flag to gpio-mockup-cdev
+Date: Mon, 28 Oct 2024 15:37:39 +0100
+Message-ID: <CACRpkdZONPzUOzYiN0+kd_wFdiF-2Vk+wKC1psmR8P9zF2c=AA@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 5/5] selftest: gpio: Add a new set-get config test
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -80,8 +80,8 @@ Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_073650_606319_0AAA14EA 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20241028_073752_745472_FF76ACF9 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +99,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Oct 25, 2024 at 9:46=E2=80=AFPM N=C3=ADcolas F. R. A. Prado
 <nfraprado@collabora.com> wrote:
 
-
-> Add a -w flag to the gpio-mockup-cdev utility that causes the program to
-> wait until a signal is received before exiting, even when its behavior
-> is to retrieve the GPIO value of the line. This allows using this
-> utility to keep a GPIO line configured even when in input mode, which
-> will be relied on in other tests.
+> Add a new kselftest that sets a configuration to a GPIO line and then
+> gets it back to verify that it was correctly carried out by the driver.
+>
+> Setting a configuration is done through the GPIO uAPI, but retrieving it
+> is done through the debugfs interface since that is the only place where
+> it can be retrieved from userspace.
+>
+> The test reads the test plan from a YAML file, which includes the chips
+> and pin settings to set and validate.
 >
 > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 
-Bartosz has to look at this patch!
+Bartosz needs to review this too.
 
-But overall the idea looks sound to me.
+It also looks good though, thanks for expanding the tests!
 
 Yours,
 Linus Walleij
