@@ -4,96 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378E9D1359C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84BAD1359B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwJ3DlzMC5Spqb6D+akOOq/eSQT0uNKLvSt3GaumXO0=; b=GFGr+Nr+y+FPcgua9XiT81Vdzd
-	I/qhUc2NU0uAa51oy0mCKfURQgC3xY19XJvKDQAepKmYaMnjUjPHRRz+NEWrYSd++AVWNYCWgOECt
-	0eevVl0xwoSBa6TViJ1xzVN2vS3KbAdsEW9kUG8q8sZC5kTkzLPC0DNTmKLpmwsi1UTekRi6RRMAb
-	M9BObcdbHDMhXFk4Hza+lNOygd/P3LI6YWk1TTUpJVlCy067QZ8WQGTinNpbU34oD0xL6kPo88C8X
-	PPCAFp/sTZBe18nxTKlxhY1PSwEkbuHTM2GRRj6LDgCf5IQ8gi2fDGlmi9zo3DVjfl2zjCn1yd4QQ
-	ti4m1EfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5G67oYCK/WZ+A0TRBPgT8CrbL0SkVdCc7yfABdsdDn4=; b=2UA/94kK9yBjxwa2gh75NxgJXY
+	8z2Uk1BALF06nXHylrWhRQV5MCmYWu6IBSiMEXQzRoRJndrt4Mpx5bIv5YiItAyNR3PTkC/01LCTA
+	wG9jCh7vsGn2CjODtM/5ONsVEP3DIGQgF/CR/OFKSInpqH11kZ/IbY29pqJ8cZmxTpq/5TEWajplQ
+	3QR5VLQig/71/fUl5enuhsKb/GykrjVnJzKgHJvsRzzXMplX/nXSUWDKpCBIymcfCRNThnklUuvLD
+	SzKU3iCpe7CrgyeIs0DWXdXK3cF0QvNO/ExKCdMtQZUR+XiNYWHYv+9cbVAtWi7S9Af0r0Tl7JjnZ
+	W2GW4g6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5OQ2-0000000AeKK-2wmN;
-	Mon, 28 Oct 2024 12:00:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NOE-0000000ATme-0nHJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Oct 2024 10:54:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kwJ3DlzMC5Spqb6D+akOOq/eSQT0uNKLvSt3GaumXO0=; b=dEHB704PJkV0Nvs+CvcVChQfx1
-	pTFRoU30IhLW/JRKa+8MP3id5XpfkPa5SsLpGRkobpTcHyMg9GRnzGfCS21dS67Pn4NhHfgQVB6lF
-	YGp/UPbDhg4aSfPNthKSIpjkUUWgkWx2VXCz/Gj2RKI6rO+aYc+VoC6OG3vBXO62WG4mI54JOPGd7
-	WhRoHb40ygC3fr0WcLXoHqGu/QJKJaNQbqb9ivUTUzjpzlna2zArcUAZqGOAgH92DHQQo5YVmHApg
-	OdxlKtYDXydq0G9Rn0rLXwwQghN7/76m9BFBuVxrBcPOnNITK0nAqkYSYlqophhj/zmiMbvMtoQIQ
-	NQC5CmKA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NOB-00000009dLE-0Vco
+	id 1t5OTN-0000000AfLl-13iq;
+	Mon, 28 Oct 2024 12:03:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5ORl-0000000Aezh-2adK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 10:54:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53E775C3E06;
-	Mon, 28 Oct 2024 10:53:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC13FC4CEC3;
-	Mon, 28 Oct 2024 10:54:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730112860;
-	bh=zIOXzuRG3dc6vNZ1stnKzWp2pTIwZMS6vUh1dOBMtLQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H9iLtQEMzLKjdhnTxEUC5FFzsYwGwY+mTpPCgosBKxyDl7wEcR1f/fASlpOPAawXB
-	 qHfblsangru8s7Cfc+8Qw/vbKqtmfBbv8efTB2GbzZFfdlwmrXtVMcjxoIhOwrXyf1
-	 bUQb7jbiBk5yQ/UqrR7gWc0H/ktuAkOhyQuqjh4Tlj4BbYfo9oqgEsr6sQ0Bv7MU/O
-	 Fo/9hxwRoHmHtv4WR7xizmplVSVRD6JBIuh9znF250lm4yrtur/59ke0S/vRjry5+d
-	 dWUK8QVwUUb9iC9n8LinOAZ9rNIU0ZfSxRVUaGhIAq9XEsGsZ24XRWy4ZcT8ftpRn+
-	 /N8wDW+EYwj5Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t5NO5-007X6U-MV;
-	Mon, 28 Oct 2024 10:54:17 +0000
-Date: Mon, 28 Oct 2024 10:54:17 +0000
-Message-ID: <87o734ts4m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
+	Mon, 28 Oct 2024 12:02:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75676497;
+	Mon, 28 Oct 2024 05:02:36 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E015C3F73B;
+	Mon, 28 Oct 2024 05:02:04 -0700 (PDT)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 4/4] arm64: mte: Use stage-2 NoTagAccess memory attribute if supported
-In-Reply-To: <20241028094014.2596619-5-aneesh.kumar@kernel.org>
-References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
-	<20241028094014.2596619-5-aneesh.kumar@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, Suzuki.Poulose@arm.com, steven.price@arm.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	arm-scmi@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	quic_sibis@quicinc.com,
+	quic_nkela@quicinc.com,
+	dan.carpenter@linaro.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v3 0/7] Expose SCMI Transport properties
+Date: Mon, 28 Oct 2024 12:01:44 +0000
+Message-ID: <20241028120151.1301177-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.47.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_105423_611850_3EA4D73B 
-X-CRM114-Status: GOOD (  40.93  )
+X-CRM114-CacheID: sfid-20241028_050209_718934_F51E6DB0 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,216 +71,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 09:40:14 +0000,
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
-> 
-> Currently, the kernel won't start a guest if the MTE feature is enabled
-> and the guest RAM is backed by memory which doesn't support access tags.
-> Update this such that the kernel uses the NoTagAccess memory attribute
-> while mapping pages from VMAs for which MTE is not allowed. The fault
-> from accessing the access tags with such pages is forwarded to VMM so
-> that VMM can decide to kill the guest or remap the pages so that
-> access tag storage is allowed.
+Hi,
 
-I only have questions here:
+SCMI transports are characterized by a number of properties: the values
+assumed by some of them tightly depend on the choices taken at design
+time and on the overall archiecture of the specific platform: things like
+timeouts, maximum message size and number of in-flight messages are closely
+tied to the architecture of the platform like number of SCMI agents on the
+system, physical memory available to the SCMI server...so on and so forth.
 
-- what is the benefit of such approach? why shouldn't that be the
-  kernel's job to fix it?
+Moreover, since the SCMI specification does not delve into the details
+of specific transports, that are, indeed, outside the scope of the
+specification itself, such characteristics are NOT even discoverable
+at run-time on an SCMI platform.
 
-- where is the documentation for this new userspace ABI?
+Currently such properties are simple default values defined at build time,
+but the increasing number and variety of platforms using SCMI with a wide
+range of designs has increased the need to have a way to describe such
+properties across all these platforms.
 
-- are you expecting the VMM to create a new memslot for this?
+This series, at first removes a few ambiguities in how some of the current
+built-in properties are interpreted, then lays out a way for the core to
+propagate back to the transports any possible setting gathered at runtime
+from devicetree and finally introduce a pair of new properties used to
+describe such per-platform transport characteristics.
 
-- where is the example of a VMM using this?
+Based on v6.12-rc3.
 
-> 
-> NOTE: We could also use KVM_EXIT_MEMORY_FAULT for this. I chose to
-> add a new EXIT type because this is arm64 specific exit type.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
->  arch/arm64/include/asm/kvm_pgtable.h |  1 +
->  arch/arm64/kvm/hyp/pgtable.c         | 16 +++++++++++++---
->  arch/arm64/kvm/mmu.c                 | 28 ++++++++++++++++++++++------
->  include/uapi/linux/kvm.h             |  7 +++++++
->  5 files changed, 48 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index a601a9305b10..fa0149a0606a 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -373,6 +373,11 @@ static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
->  	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
->  }
->  
-> +static inline bool kvm_vcpu_trap_is_tagaccess(const struct kvm_vcpu *vcpu)
-> +{
-> +	return !!(ESR_ELx_ISS2(kvm_vcpu_get_esr(vcpu)) & ESR_ELx_TagAccess);
-> +}
-> +
->  static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
->  {
->  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 03f4c3d7839c..5657ac1998ad 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -252,6 +252,7 @@ enum kvm_pgtable_prot {
->  
->  	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
->  	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
-> +	KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS	= BIT(5),
+V3 adds 2 additional patches to fix an already existing similar property
+that was missing the vendor prefix.
 
-This seems wrong. NOTAGACCESS is a *permission*, not a memory type.
-
->  
->  	KVM_PGTABLE_PROT_SW0			= BIT(55),
->  	KVM_PGTABLE_PROT_SW1			= BIT(56),
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index b11bcebac908..bc0d9f08c49a 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -677,9 +677,11 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
->  {
->  	kvm_pte_t attr;
->  	u32 sh = KVM_PTE_LEAF_ATTR_LO_S2_SH_IS;
-> +	unsigned long prot_mask = KVM_PGTABLE_PROT_DEVICE |
-> +				  KVM_PGTABLE_PROT_NORMAL_NC |
-> +				  KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
->  
-> -	switch (prot & (KVM_PGTABLE_PROT_DEVICE |
-> -			KVM_PGTABLE_PROT_NORMAL_NC)) {
-> +	switch (prot & prot_mask) {
->  	case KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC:
->  		return -EINVAL;
->  	case KVM_PGTABLE_PROT_DEVICE:
-> @@ -692,6 +694,12 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
->  			return -EINVAL;
->  		attr = KVM_S2_MEMATTR(pgt, NORMAL_NC);
->  		break;
-> +	case KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS:
-> +		if (system_supports_notagaccess())
-> +			attr = KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS);
-> +		else
-> +			return -EINVAL;
-> +		break;
-
-How do you see this working when migrating a VM from one host to
-another, one that supports FEAT_MTE_PERM and one that doesn't? The
-current assumptions are that the VMM will replay the *exact same*
-setup on the target host, and this obviously doesn't work.
-
->  	default:
->  		attr = KVM_S2_MEMATTR(pgt, NORMAL);
->  	}
-> @@ -872,7 +880,9 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
->  static bool stage2_pte_cacheable(struct kvm_pgtable *pgt, kvm_pte_t pte)
->  {
->  	u64 memattr = pte & KVM_PTE_LEAF_ATTR_LO_S2_MEMATTR;
-> -	return kvm_pte_valid(pte) && memattr == KVM_S2_MEMATTR(pgt, NORMAL);
-> +	return kvm_pte_valid(pte) &&
-> +	       ((memattr == KVM_S2_MEMATTR(pgt, NORMAL)) ||
-> +		(memattr == KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS)));
->  }
->  
->  static bool stage2_pte_executable(kvm_pte_t pte)
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index b5824e93cee0..e56c6996332e 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1647,12 +1647,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  		 *  not a permission fault implies a translation fault which
->  		 *  means mapping the page for the first time
->  		 */
-> -		if (mte_allowed) {
-> +		if (mte_allowed)
->  			sanitise_mte_tags(kvm, pfn, vma_pagesize);
-> -		} else {
-> -			ret = -EFAULT;
-> -			goto out_unlock;
-> -		}
-> +		else
-> +			prot |= KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
->  	}
->  
->  	if (writable)
-> @@ -1721,6 +1719,15 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
->  		kvm_set_pfn_accessed(kvm_pte_to_pfn(pte));
->  }
->  
-> +static inline void kvm_prepare_notagaccess_exit(struct kvm_vcpu *vcpu,
-> +						 gpa_t gpa, gpa_t size)
-> +{
-> +	vcpu->run->exit_reason = KVM_EXIT_ARM_NOTAG_ACCESS;
-> +	vcpu->run->notag_access.flags = 0;
-> +	vcpu->run->notag_access.gpa = gpa;
-> +	vcpu->run->notag_access.size = size;
-
-Why does size matter here? It seems pretty pointless.
-
-> +}
-> +
->  /**
->   * kvm_handle_guest_abort - handles all 2nd stage aborts
->   * @vcpu:	the VCPU pointer
-> @@ -1833,6 +1840,14 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  
->  	gfn = ipa >> PAGE_SHIFT;
->  	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +
-> +	if (kvm_vcpu_trap_is_tagaccess(vcpu)) {
-> +		/* exit to host and handle the error */
-> +		kvm_prepare_notagaccess_exit(vcpu, gfn << PAGE_SHIFT, PAGE_SIZE);
-> +		ret = 0;
-> +		goto out;
-> +	}
-> +
->  	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->  	write_fault = kvm_is_write_fault(vcpu);
->  	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-> @@ -2145,7 +2160,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->  		if (!vma)
->  			break;
->  
-> -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
-> +		if (kvm_has_mte(kvm) && !system_supports_notagaccess() &&
-> +		    !kvm_vma_mte_allowed(vma)) {
->  			ret = -EINVAL;
->  			break;
->  		}
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 637efc055145..a8268a164c4d 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -178,6 +178,7 @@ struct kvm_xen_exit {
->  #define KVM_EXIT_NOTIFY           37
->  #define KVM_EXIT_LOONGARCH_IOCSR  38
->  #define KVM_EXIT_MEMORY_FAULT     39
-> +#define KVM_EXIT_ARM_NOTAG_ACCESS 40
->  
->  /* For KVM_EXIT_INTERNAL_ERROR */
->  /* Emulate instruction failed. */
-> @@ -446,6 +447,12 @@ struct kvm_run {
->  			__u64 gpa;
->  			__u64 size;
->  		} memory_fault;
-> +		/* KVM_EXIT_ARM_NOTAG_ACCESS */
-> +		struct {
-> +			__u64 flags;
-> +			__u64 gpa;
-> +			__u64 size;
-> +		} notag_access;
->  		/* Fix the size of the union. */
->  		char padding[256];
->  	};
-
-How do you plan to handle the same thing for NV?
+Any feedback welcome.
 
 Thanks,
+Cristian
 
-	M.
+---
+v2 --> v3
+- unified SHMEM_PAYLOAD_SIZE definition
+- fixed format-string
+- added reviewed tags
+- added missing vendor to existing max-rx-timeout-ms
+v1 --> v2
+- added arm, vendor prefix to new DT bindings props
+- clarified arm,max-msg bindings meaning
+- removed useless warning on advised minimum size on arm,max-msg-size
+- fixed maintainers CC list
+- removed CCed maintainers from commit log
+- using new prefixed arm, props
+
+
+
+Cristian Marussi (7):
+  firmware: arm_scmi: Account for SHMEM memory overhead
+  firmware: arm_scmi: Calculate virtio PDU max size dynamically
+  dt-bindings: firmware: arm,scmi: Introduce more transport properties
+  firmware: arm_scmi: Use max_msg and max_msg_size devicetree properties
+  firmware: arm_scmi: Relocate atomic_threshold to scmi_desc
+  dt-bindings: firmware: arm,scmi: Add missing vendor string
+  firmware: arm_scmi: Use vendor string in max-rx-timeout-ms
+
+ .../bindings/firmware/arm,scmi.yaml           | 17 ++++++-
+ drivers/firmware/arm_scmi/common.h            | 13 +++++-
+ drivers/firmware/arm_scmi/driver.c            | 46 +++++++++++--------
+ drivers/firmware/arm_scmi/shmem.c             |  7 +++
+ .../firmware/arm_scmi/transports/mailbox.c    |  2 +-
+ drivers/firmware/arm_scmi/transports/optee.c  |  8 ++--
+ drivers/firmware/arm_scmi/transports/smc.c    |  2 +-
+ drivers/firmware/arm_scmi/transports/virtio.c | 15 +++---
+ 8 files changed, 74 insertions(+), 36 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.0
+
 
