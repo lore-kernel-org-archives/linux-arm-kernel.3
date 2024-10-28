@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445A0D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC02D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=; b=tg9wDZGL33njKulhP6A1Ew3eU2
-	FbGm1j4x/fYK4e/PE29aYx4dojObsMix450WZ+p59dsxf5vzHutFDRLjDKkFaFPjYh7B+Lf+W47+L
-	D0GRCGIVcvwyXw4A3zGvuhsoT2OsrHXg/HwsVn82OMeV3uOmi4Pp33YcGNDYYMldn9ih7Y1676+Y3
-	jfDrq6ZKdOE6pvn48y8C1vRDUqAbwcGw82BTweLgx3hNGUfSFwrH83SVgvGAFKsqhDXCel3l+/fph
-	GbwhZWHaj2xGrrjL5QXGMXOOEWJkrYm/kaT8AiWNt1bYFyPl23iBVVBhmVbOfa525t5ZWfIx+ZCxU
-	1m4piFdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5gcR1znD1cGAtY6UrFbxboTgffk6OVdycQmErW5b3Qg=; b=cDxDaZO7vTsRh0yUqBYfbb/Nnc
+	IrhL0WHueGLmhcWHnfF2ztw/SJlxYz1yeuvIf0PJnyrcqIYFHjt1CASjBTHGaY3PKGidaquaVoJFQ
+	ejybpiu3fRkp18Ej20xQU1YByHca1oyZ/XpVzeW8j4qckKJ1P1X5P+rQeO0nzuSvNLcKqKA5H+HmM
+	LN4wonM4sf+V886SNWA46E999ATEyW/at+MWrLOqWxlvbnpls5nBRUm6DC3WZq8G0mY+CFoyFkKcj
+	sslAQTqz7d33807qusOz1gqzYLrgcss7xxoRQQJiOF2ilmCbEWGpnrt2020VqkEdcWBHprr3wQr9Z
+	SbdHnodw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NMY-0000000ATFd-2Zm5;
-	Mon, 28 Oct 2024 10:52:42 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1t5NOZ-0000000ATqr-23Am;
+	Mon, 28 Oct 2024 10:54:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NJg-0000000AScA-2s83;
-	Mon, 28 Oct 2024 10:49:46 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5cbb719839eso3706264a12.2;
-        Mon, 28 Oct 2024 03:49:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730112582; x=1730717382; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=;
-        b=CiRm2cRaLIY8yXwQhOWdqcJ6m0RYpo0yr/Lyj7TvfbCkDU8dAnxaYIsyjBB00oNCME
-         6zd+NPp8355nj0HL2YLT3GXVNoL05W6kaeucqIC/xuL5oNYVEcL9eXUVoAs1bNe8EEqv
-         7TCJmrglxqZvQxM5Ma4oCjCXDw0+r02LptcscrPGJH7BOLQem7Tq2V3Iv0L206GKX6IH
-         9bA2LPUcsSY/o7zoxJPAT7M7OIM3klc168IYDKoIrVLxHug5pzjE9tKBUnDnj6GFGU60
-         bJ1GkVwsGUMAwWyiWGaMU72n+XijP5aRby3PdrSqNZ4kS4w4t7/aWNk4Xci2aclSiLy3
-         SCUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730112582; x=1730717382;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=;
-        b=qdecB4Pev+dQyxPCcvrS9Q1VPVQQy+qSpKk93zOV75APlxQ86oS+cJoa6rder+leFV
-         aVRb44LIIpikN7oJYIhxo9hlg7Pgn7M795tZqXgZDaxkCY3kjCw/9XvCcpLSw85COi2H
-         eusb9bHQ7HiP1EyuHl5B0vUd7APj/Z/TpVXz9pGez7yp1Nay/3zjCD2LS+TMBjV/gYLo
-         uv4cfYGBaSW6st+TnlSqdVOIF5mEdTAv33yDu9Gudx7ddsFp4WmkjJFK9B+HFKoocWsc
-         TSiHorePVX7l5+1HbJSdnkW9FI8I2Ca+jNFyan4jCh9YJgtSoEs48eGbMnc2PVfSWIEE
-         27Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCUvEzscbC9tjHUWTPSMvA/dQGz3hb3Lx+TYaFchyTxmC/HElJFJT3QNe+Hty97PzSBd6inp9piyRH6TMSY=@lists.infradead.org, AJvYcCX13b5qXtbg8TQYcZNjQvnQU8wrsa3IZ1CWiKygd9IpFV9REzdbK5EJViKSGwKztazOSFYDZVHFRrrxxJT/F+4eRA==@lists.infradead.org, AJvYcCX7ez5ueG4k+2DSG3z8XadXpIQuGXfxNSKYNfeKHcgbOYPKrf74xd2oies7Jzm0sMpJMFt2Ug==@lists.infradead.org
-X-Gm-Message-State: AOJu0YysjJi8kb/6vTiD6U/meP77t15g/X8RWNgLxIUdt6/L95hrdW+U
-	mBt5yHU5EO3E3EiCljy/YhyhG8QvNaQ0GUwvCQb7+rVJMvUQgB7Q
-X-Google-Smtp-Source: AGHT+IEm+HFLbPsaDOWlAHThJ3+XtoGjdhXujglmfhVMP7yNqtZqIoTJpMUXVSYjXbaSqnnT3/SHtw==
-X-Received: by 2002:a05:6402:5202:b0:5c9:5cff:3cc2 with SMTP id 4fb4d7f45d1cf-5cbbfa71a66mr5776613a12.29.1730112582021;
-        Mon, 28 Oct 2024 03:49:42 -0700 (PDT)
-Received: from ?IPV6:2a03:83e0:1126:4:eb:d0d0:c7fd:c82c? ([2620:10d:c092:500::5:1494])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb6258683sm3063919a12.20.2024.10.28.03.49.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 03:49:41 -0700 (PDT)
-Message-ID: <71decb01-4241-4fb0-bc38-187e180d6ee5@gmail.com>
-Date: Mon, 28 Oct 2024 10:49:40 +0000
+	id 1t5NJx-0000000ASgS-3jht
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 10:50:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4023FA41AE2;
+	Mon, 28 Oct 2024 10:48:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D388C4CEC3;
+	Mon, 28 Oct 2024 10:49:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730112599;
+	bh=5gcR1znD1cGAtY6UrFbxboTgffk6OVdycQmErW5b3Qg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VGtDN4rCB75s5s0aUagy+xt8qdgqkWDO7bcJSQo6NCniEXIl6De1+xQqmvmZKTMNu
+	 5pVmauCmMVuEgflzUrOepb/hIPUuq75qgoMLTlveFBuqPH96Btsbw0hhIqRvQW0cWi
+	 nkB+O7GV66nyRa7n0kUzql9jEPjVoB/Mk+JL/ToAybXnCb+Tm8TWc4Wmts02N7rcjw
+	 L3ns2Nn+j8o6kto65VgI862il+H/dP24X51QrlRMsGk3LHOLJcWcM7J3VT3M7a+9Ik
+	 bpBkonJL4OdxoMJMg03+WCJfi+QG5W3itXVJomovKxkqYjb+4CV8qhyJXWTjEJl7cX
+	 7AoRu5HYBGSmw==
+Date: Mon, 28 Oct 2024 11:49:57 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Andrey Smirnov <andrew.smirnov@gmail.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Jessica Zhang <quic_jesszhan@quicinc.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Michael Trimarchi <michael@amarulasolutions.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Simona Vetter <simona@ffwll.ch>, Stefan Agner <stefan@agner.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
+Subject: Re: [RFC PATCH 00/10] Support simple-framebuffer on imx8m
+Message-ID: <20241028-scrupulous-paper-condor-0742fb@houat>
+References: <20241028102559.1451383-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
- early_init_dt_verify
-To: Rob Herring <robh@kernel.org>
-Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org,
- catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net,
- saravanak@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- kexec@lists.infradead.org, loongarch@lists.linux.dev,
- linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
-References: <20241023171426.452688-1-usamaarif642@gmail.com>
- <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
-Content-Language: en-US
-From: Usama Arif <usamaarif642@gmail.com>
-In-Reply-To: <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mpcp65bzqsipkaam"
+Content-Disposition: inline
+In-Reply-To: <20241028102559.1451383-1-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_034944_747397_3DD0A289 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20241028_035002_143462_7449BC0C 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,44 +88,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--mpcp65bzqsipkaam
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [RFC PATCH 00/10] Support simple-framebuffer on imx8m
+MIME-Version: 1.0
 
-On 25/10/2024 23:15, Rob Herring wrote:
-> On Wed, Oct 23, 2024 at 12:14 PM Usama Arif <usamaarif642@gmail.com> wrote:
->>
->>  __pa() is only intended to be used for linear map addresses and using
->> it for initial_boot_params which is in fixmap for arm64 will give an
->> incorrect value. Hence save the physical address when it is known at
->> boot time when calling early_init_dt_scan for arm64 and use it at kexec
->> time instead of converting the virtual address using __pa().
->>
->> Reported-by: Breno Leitao <leitao@debian.org>
->> Suggested-by: Mark Rutland <mark.rutland@arm.com>
->> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
->> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
-> 
-> This looks fine, but what is the symptom without this compared to
-> before the above change? The original code in the referenced commit
-> above didn't remove the reservation at all. Unless the current code
-> does something worse, this is new functionality more than a fix (for
-> stable).
-> 
-> Rob
+Hi,
 
-After the series in [1] was merged, we always get a warning when kexecing
-a debug kernel, which was reported by Breno in [2].
-The issue is using __pa for a fixmap address in arm64 as described in [2],
-which could result in removing a memory reservation for a completely
-unrelated area.
-That was introduced by the patch just before 
-"arm64: Use common of_kexec_alloc_and_setup_fdt" [3], but arm64 switched to
-using the common kexec fdt function in that commit. This commit is trying
-to fix removing and corrupting any random memory reservation (and get rid
-of the warning) that was introduced by [1], not adding a new functionality.
+On Mon, Oct 28, 2024 at 11:25:23AM +0100, Dario Binacchi wrote:
+> This series is the Linux counterpart of what was sent to U-Boot [1]
+> for the support of the simple-framebuffer for the BSH SMM S2Pro board.
 
-[1] https://lore.kernel.org/all/20210221174930.27324-7-nramas@linux.microsoft.com/ 
-[2] https://lore.kernel.org/all/ZnFKEtqfqJkYflwL@gmail.com/
-[3] https://lore.kernel.org/all/20210221174930.27324-6-nramas@linux.microsoft.com/
+I'm confused. simple-framebuffer is a mechanism for which the entire
+point is that the kernel doesn't need the driver for.
 
-Thanks,
-Usama
+Why do you need to have patches for bridges and panels for
+simple-framebuffer? They won't be used.
+
+> The need to avoid re-initializing the hardware (power domains,
+> controllers, bridges, display panels) that has already been initialized
+> and kept powered on by the bootloader has required updating more than
+> one YAML file, with the addition of boolean properties to inform the
+> driver that the corresponding hardware has been initialized and left
+> on by the bootloader. All these properties are added on the fly by the
+> bootloader to the various relevant nodes.
+
+So it's not about simple-framebuffer at all, but rather that you don't
+want to re-initialize the hardware that has already been setup?
+
+If so, this isn't how you should do it, but rather:
+https://lore.kernel.org/all/CAKMK7uHtqHy_oz4W7F+hmp9iqp7W5Ra8CxPvJ=9BwmvfU-O0gg@mail.gmail.com/
+
+Maxime
+
+--mpcp65bzqsipkaam
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZx9sUAAKCRAnX84Zoj2+
+dmtQAX9wVFF++uMLanShp1lqMmKbCAPRFsgHbuZ+e7vfogD2WBD/EF768xzbQaKx
+8geIGicBgLRVa5ByCU/nhpBq9G9w4jzWcQ3tuYcJYH2sUP44PdFel9LS9HcmKc2G
+pooK6h9HIg==
+=7XGK
+-----END PGP SIGNATURE-----
+
+--mpcp65bzqsipkaam--
 
