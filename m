@@ -4,82 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC391D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC0ED13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7K45HjSMt/9gA6zxMznqSFJcbdybvdb2DhwArNKYp/Y=; b=ukCU9q826A+InAPk3Yphl1KvyK
-	AEdG1D9usyKIAEW4Jb9srmI+Pu/g+9/R9h4VJrjkDIsZ2YSDcorydWQ8pgABgCs+4l8Np37zG0SNt
-	A+n+mCkYy30gFrf1w5vhhfzIadZTG2KUz8+U56rTRsb/jtMhP9Ckgwqis2gd8LymmmBBE7MQumNVn
-	uGyGh5tCN2UiCkY5cvditWMqn1SXZaa5QA2zfsxEtByEdvuDAa/uq4Yk7XMvtaqKdu4O+iL66S2ZZ
-	CWb4YRYLZWOzA38IJKrWLI3VDC42aZpE1W9CXaAC8GsJ4pzNmhP9/mjfbjoEYnvRB04R5fYWDsKP/
-	7TK3pxPA==;
+	bh=PkxBuoVPqj0OfiHh/mFn83XdlLQoFKmbAZ+ZKZ6JhHA=; b=W8+tuYh/gZB8yYvLhZFFLilz57
+	YkGQv+1C0Ka9JCdt/I3y1Z6KyGgLKwdQYs7rMEVfr89A1zwi3QzaqtRPAqnGUUIFf01GdX/SUJDqo
+	XficasVav1BB5TkW4kpehGWFUAB0j7xg7ARrObKtGsjwpx/gzvi4gMpwMlVA9GI9kiC+aN50J1reL
+	WptA17UTtLJ+SgqxdPjXRNjuCgpNuV0PU3hCkZ4qgTw1Ky4HR8ZyjxJ0GgObQtaYyd8Jn2R+BrgPx
+	Xk/Jifeo14+Wn/MiEc5lnnXFWcNVL3h//BVsZyFzzrQbANC1tBbr3VADl4+hHQZvG1ej+AjfoGMPg
+	RaR7hZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MWm-0000000AKDR-1Dgk;
-	Mon, 28 Oct 2024 09:59:12 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1t5MdT-0000000ALJW-0Qrg;
+	Mon, 28 Oct 2024 10:06:07 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MF7-0000000AGUr-1ecz
+	id 1t5MUy-0000000AK2Z-45sy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:40:59 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49S9IFwZ007777;
-	Mon, 28 Oct 2024 02:40:47 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=7K45HjSMt/9gA6zxMznqSFJcb
-	dybvdb2DhwArNKYp/Y=; b=EdCbZ99qejtb+pLxI9GMxqiXK8NMc5Lqc5xd3cwjn
-	tog+AKYKe+KjqcRN+pZrjV3tmibmzZSV8SbQtkhybTSTpWvdfybDsfuoQ+I2wHg1
-	+GqyURcC1kWY/Z9c7GMBGZYFCuPfvxsclmf3eIB1VOBzWL70UU5IgaaBcmI0U3JC
-	KQw0rHEGeUjZYKuINRbMPbLG7rYWSEJrpUCuUplJSHd6epUeH2svRRA2S7Y1FR3S
-	n+INgLLAmz2pukB1W9NxDfMXoxwuib2+Emzi6YBykZCqCYLc6uIa3xgdtOYXqVwC
-	s7XVvtkeliW7fKrsThQgaJdpsj8gXV8HqqzcanXWNTJYA==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42j7v2017b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Oct 2024 02:40:46 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Mon, 28 Oct 2024 02:40:45 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Mon, 28 Oct 2024 02:40:45 -0700
-Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
-	by maili.marvell.com (Postfix) with SMTP id 5C5FC5E6862;
-	Mon, 28 Oct 2024 02:40:41 -0700 (PDT)
-Date: Mon, 28 Oct 2024 15:10:40 +0530
-From: Linu Cherian <lcherian@marvell.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-CC: <mike.leach@linaro.org>, <james.clark@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>
-Subject: Re: [PATCH v10 4/8] coresight: tmc: Enable panic sync handling
-Message-ID: <20241028094040.GA974163@hyd1403.caveonetworks.com>
-References: <20240916103437.226816-1-lcherian@marvell.com>
- <20240916103437.226816-5-lcherian@marvell.com>
- <6b405b22-9b1e-487b-9b9c-5944358488e2@arm.com>
- <20241017121221.GA901001@hyd1403.caveonetworks.com>
+	Mon, 28 Oct 2024 09:57:22 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-a9a628b68a7so636432366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:57:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1730109439; x=1730714239; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PkxBuoVPqj0OfiHh/mFn83XdlLQoFKmbAZ+ZKZ6JhHA=;
+        b=f12z6umjHqXUruKSOmXdB493m2coni9ds73dv3H9YvB+VolpzjgP1Ia3YA1gHlWjPL
+         ys7btFMneBzbJtecV7PA8Nmjs93Ze+qSYgfvSTpZsxGcrPTki2fto5pjeWegN5+hB3X1
+         CeWmW5oa5zTOLKXs2NX8AZDXRpJHfz+y0uAnmtdW5jbvYJj56r55SEfwHjc1lOXxNEnI
+         gO8/VXGgazLSi5RFl/yd8BZRpNByR2bsMcBAd5YL1mSRcTEPnXCkflFdZ4wt7VX+vatM
+         hGVq0lI0QQ88keqCiCTHFboQcDBIZV6IUruIUbBnr6SkXQCJ/7ExVXLHifhJOMoam3r8
+         12aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730109439; x=1730714239;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PkxBuoVPqj0OfiHh/mFn83XdlLQoFKmbAZ+ZKZ6JhHA=;
+        b=jl446M35eZyz5xJ4ODV5JfVxQ8heeOOd04KGaZ6zpx0D/5IOxQ1GGxn+o9kW6sXC51
+         qRqKJlJFfn2T+fNzRm7WS2Kci/ahSBpxSRpcUAT34Ff6om0Jpe8GB8640TBg8B5Obf75
+         VONcyWL6azG6DFOW71Y5CGyWY/cgMQQbB/mOYGJjK/lzcVzXXY7UHjE1OCs+jsmW267d
+         BLtTQ9+hdgsQevKpPsk0atn25yY2XoFCManDTmUV7yUDWrvja7IoeQg9MJESV8jhODp/
+         m/cWn8w2q2vTXfUmwE+RqV35jxgGMXJhrfXO/zCE479nTm5XSeADCgdjnihx+9t6dlmY
+         vDJg==
+X-Forwarded-Encrypted: i=1; AJvYcCUO+xRZlOUJAd9kK3iwgYHVzzPN+6TAdQePbr4QNqeWnbgWw4AHBfEEXasmMRnkmwWuXaDajEBcQEgiBHTkVRPI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG2wWmKcSBcn4WBOaqmpO2qmlH8KdS8IvwBdTzmMQmk+6gnoqr
+	I1NjIU+kEA6AXiE1UIYHzAVtfsb2VpBjxXqADQjugG20/mubneqLeHcxT+QinzA=
+X-Google-Smtp-Source: AGHT+IFotamnLiSYsC5Q56j0LUhyeU0liHMjWSjtW4QU8pUEQOmpkk4Bl6W6TMCdmj6CG056zWIhuQ==
+X-Received: by 2002:a17:907:97d4:b0:a9a:a7fd:d840 with SMTP id a640c23a62f3a-a9de5cfea5emr627872766b.1.1730109438690;
+        Mon, 28 Oct 2024 02:57:18 -0700 (PDT)
+Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1e1a6bfesm363431566b.19.2024.10.28.02.57.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 02:57:18 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 28 Oct 2024 10:57:41 +0100
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v2 11/14] misc: rp1: RaspberryPi RP1 misc driver
+Message-ID: <Zx9gFahEv4tq_YVl@apocalypse>
+References: <cover.1728300189.git.andrea.porta@suse.com>
+ <c5b072393d2dc157d34f6dbeff6261d142d4de69.1728300190.git.andrea.porta@suse.com>
+ <20241007174127.13a901cd@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20241017121221.GA901001@hyd1403.caveonetworks.com>
-X-Proofpoint-GUID: tooSzRuK8tjJ_aUbMhfAIS7xLTVWqWlh
-X-Proofpoint-ORIG-GUID: tooSzRuK8tjJ_aUbMhfAIS7xLTVWqWlh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241007174127.13a901cd@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_024057_477403_AA4F95C0 
-X-CRM114-Status: GOOD (  48.00  )
+X-CRM114-CacheID: sfid-20241028_025721_040342_69A8A6E7 
+X-CRM114-Status: GOOD (  50.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,503 +121,390 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+Hi Herve,
 
-On 2024-10-17 at 17:42:21, Linu Cherian (lcherian@marvell.com) wrote:
-> Hi Suzuki,
+On 17:41 Mon 07 Oct     , Herve Codina wrote:
+> Hi Andrea,
 > 
-> On 2024-10-01 at 22:13:12, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
-> > Hi Linu
-> > 
-> > On 16/09/2024 11:34, Linu Cherian wrote:
-> > > - Get reserved region from device tree node for metadata
-> > > - Define metadata format for TMC
-> > > - Add TMC ETR panic sync handler that syncs register snapshot
-> > >    to metadata region
-> > > - Add TMC ETF panic sync handler that syncs register snapshot
-> > >    to metadata region and internal SRAM to reserved trace buffer
-> > >    region.
-> > 
-> > The patch looks good overall. Some minor comments below.
-> > 
-> > > 
-> > > Signed-off-by: Linu Cherian <lcherian@marvell.com>
-> > > ---
-> > > Changelog from v9:
-> > > - Add common helper function of_tmc_get_reserved_resource_by_name
-> > >    for better code reuse
-> > > - Inorder to keep the reserved buffer validity and crashdata validity
-> > >    independent, is_tmc_reserved_region_valid renamed to tmc_has_reserved_buffer
-> > > - drvdata->crash_tbuf renamed to drvdata->resrv_buf
-> > > - New fields added to crash metadata: version, ffcr, ffsr, mode
-> > > - Defined crashdata version with Major version 1, Minor version 0
-> > > - Set version while creating crashdata record
-> > > - Removed Reviewed-by tag due to the above changes
-> > >   .../hwtracing/coresight/coresight-tmc-core.c  | 14 ++++
-> > >   .../hwtracing/coresight/coresight-tmc-etf.c   | 77 ++++++++++++++++++
-> > >   .../hwtracing/coresight/coresight-tmc-etr.c   | 78 +++++++++++++++++++
-> > >   drivers/hwtracing/coresight/coresight-tmc.h   | 66 ++++++++++++++++
-> > >   4 files changed, 235 insertions(+)
-> > > 
-> > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > index 0764c21aba0f..54bf8ae2bff8 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > @@ -445,6 +445,20 @@ static void tmc_get_reserved_region(struct device *parent)
-> > >   	drvdata->resrv_buf.paddr = res.start;
-> > >   	drvdata->resrv_buf.size  = resource_size(&res);
-> > > +
-> > > +	if (of_tmc_get_reserved_resource_by_name(parent, "metadata", &res))
-> > > +		return;
-> > > +
-> > > +	drvdata->crash_mdata.vaddr = memremap(res.start,
-> > > +					       resource_size(&res),
-> > > +					       MEMREMAP_WC);
-> > > +	if (IS_ERR_OR_NULL(drvdata->crash_mdata.vaddr)) {
-> > > +		dev_err(parent, "Metadata memory mapping failed\n");
-> > > +		return;
-> > > +	}
-> > > +
-> > > +	drvdata->crash_mdata.paddr = res.start;
-> > > +	drvdata->crash_mdata.size  = resource_size(&res);
-> > >   }
-> > >   /* Detect and initialise the capabilities of a TMC ETR */
-> > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > index d4f641cd9de6..d77ec9307e98 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > @@ -590,6 +590,78 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
-> > >   	return to_read;
-> > >   }
-> > > +static int tmc_panic_sync_etf(struct coresight_device *csdev)
-> > > +{
-> > > +	u32 val;
-> > > +	struct csdev_access *csa;
-> > > +	struct tmc_crash_metadata *mdata;
-> > > +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > > +
-> > > +	csa = &drvdata->csdev->access;
-> > > +	mdata = (struct tmc_crash_metadata *)drvdata->crash_mdata.vaddr;
-> > > +
-> > > +	/* Make sure we have valid reserved memory */
-> > > +	if (!tmc_has_reserved_buffer(drvdata) ||
-> > > +	    !tmc_has_crash_mdata_buffer(drvdata))
-> > > +		return 0;
-> > > +
-> > > +	tmc_crashdata_set_invalid(drvdata);
-> > > +
-> > > +	CS_UNLOCK(drvdata->base);
-> > > +
-> > > +	/* Proceed only if ETF is enabled or configured as sink */
-> > > +	val = readl(drvdata->base + TMC_CTL);
-> > > +	if (!(val & TMC_CTL_CAPT_EN))
-> > > +		goto out;
-> > > +
-> > 
-> > minor nit : Since the check below is "covered" by the same comment
-> > above, please drop the extra line here to make it clear that "we check
-> > for sink" by checking the "MODE == CIRCULAR_BUFFER".
+> Nice to see that other PCI drivers will use the DT overlay over PCI feature!
 > 
-> Ack.
+> On Mon,  7 Oct 2024 14:39:54 +0200
+> Andrea della Porta <andrea.porta@suse.com> wrote:
 > 
+> > The RaspberryPi RP1 is a PCI multi function device containing
+> > peripherals ranging from Ethernet to USB controller, I2C, SPI
+> > and others.
 > > 
-> > > +	val = readl(drvdata->base + TMC_MODE);
-> > > +	if (val != TMC_MODE_CIRCULAR_BUFFER)
-> > > +		goto out;
-> > > +
-> > > +	val = readl(drvdata->base + TMC_FFSR);
-> > > +	/* Do manual flush and stop only if its not auto-stopped */
-> > > +	if (!(val & TMC_FFSR_FT_STOPPED)) {
-> > > +		dev_info(&csdev->dev,
-> > > +			 "%s: Triggering manual flush\n", __func__);
+> > Implement a bare minimum driver to operate the RP1, leveraging
+> > actual OF based driver implementations for the on-board peripherals
+> > by loading a devicetree overlay during driver probe.
 > > 
-> > Please drop the ^^^ line. We don't want to do anything like that from a
-> > panic callback.
+> > The peripherals are accessed by mapping MMIO registers starting
+> > from PCI BAR1 region.
+> > 
+> > With the overlay approach we can achieve more generic and agnostic
+> > approach to managing this chipset, being that it is a PCI endpoint
+> > and could possibly be reused in other hw implementations. The
+> > presented approach is also used by Bootlin's Microchip LAN966x
+> > patchset (see link) as well, for a similar chipset.
+> > 
+> > Since the gpio line names should be provided by the user, there
+> > is an interface through configfs that allows the userspace to
+> > load a DT overlay that will provide gpio-line-names property.
+> > The interface can be invoked like this:
+> > 
+> > cat rpi-rp1-gpios-5-b.dtbo > /sys/kernel/config/rp1-cfg/gpio_set_names
+> > 
+> > and is designed to be similar to what users are already used to
+> > from distro with downstream kernel.
+> > 
+> > For reasons why this driver is contained in drivers/misc, please
+> > check the links.
+> > 
+> > This driver is heavily based on downstream code from RaspberryPi
+> > Foundation, and the original author is Phil Elwell.
+> > 
+> > Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
+> > Link: https://lore.kernel.org/all/20240612140208.GC1504919@google.com/
+> > Link: https://lore.kernel.org/all/83f7fa09-d0e6-4f36-a27d-cee08979be2a@app.fastmail.com/
+> > Link: https://lore.kernel.org/all/2024081356-mutable-everyday-6f9d@gregkh/
+> > Link: https://lore.kernel.org/all/20240808154658.247873-1-herve.codina@bootlin.com/
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > 
-> Ack.
+> ...
+> > --- /dev/null
+> > +++ b/drivers/misc/rp1/Makefile
+> > @@ -0,0 +1,5 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
+> > +obj-$(CONFIG_MISC_RP1)		+= rp1-pci.o
+> > +rp1-pci-objs			:= rp1_pci.o rp1-pci.dtbo.o
+> > +
+> > +DTC_FLAGS_rp1-pci += -@
+> Why do you need to add the symbol table (-@ option) in your dtbo ?
 
-Are we okay to change this dev_dbg instead of removing it. Have found
-this quite useful to understand if the CTI trigger has fired.
-
+This was needed for loading the dtbo for gpio-line-names over the dtbo for
+RP1, but now that I've dropped that patch it is not needed anymore, so I'll
+remove that.
 
 > 
-> > 
-> > > +		tmc_flush_and_stop(drvdata);
-> > > +	} else
-> > > +		tmc_wait_for_tmcready(drvdata);
-> > > +
-> > > +	/* Sync registers from hardware to metadata region */
-> > > +	mdata->sts = csdev_access_relaxed_read32(csa, TMC_STS);
-> > 
-> > Why are we using "csa" here and not for TMC_CTL etc ? Simply drop the "csa"
-> > and use the raw reads like above. TMC doesn't have anyother modes
-> > of access.
-> > 
+> ...
+> > diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
+> > new file mode 100644
+> > index 000000000000..a1f7bf1804c0
+> > --- /dev/null
+> > +++ b/drivers/misc/rp1/rp1_pci.c
+> > @@ -0,0 +1,365 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
+> > + * All rights reserved.
+> > + */
+> > +
+> > +#include <linux/clk.h>
+> > +#include <linux/clkdev.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/err.h>
+> > +#include <linux/interrupt.h>
+> > +#include <linux/irq.h>
+> > +#include <linux/irqchip/chained_irq.h>
+> > +#include <linux/irqdomain.h>
+> > +#include <linux/module.h>
+> > +#include <linux/msi.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/pci.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/reset.h>
+> > +
+> > +#include "rp1_pci.h"
+> > +
+> > +#define RP1_DRIVER_NAME		"rp1"
+> > +
+> > +#define RP1_HW_IRQ_MASK		GENMASK(5, 0)
+> > +
+> > +#define REG_SET			0x800
+> > +#define REG_CLR			0xc00
+> > +
+> > +/* MSI-X CFG registers start at 0x8 */
+> > +#define MSIX_CFG(x) (0x8 + (4 * (x)))
+> > +
+> > +#define MSIX_CFG_IACK_EN        BIT(3)
+> > +#define MSIX_CFG_IACK           BIT(2)
+> > +#define MSIX_CFG_ENABLE         BIT(0)
+> > +
+> > +/* Address map */
+> > +#define RP1_PCIE_APBS_BASE	0x108000
+> > +
+> > +/* Interrupts */
+> > +#define RP1_INT_IO_BANK0	0
+> > +#define RP1_INT_IO_BANK1	1
+> > +#define RP1_INT_IO_BANK2	2
+> > +#define RP1_INT_AUDIO_IN	3
+> > +#define RP1_INT_AUDIO_OUT	4
+> > +#define RP1_INT_PWM0		5
+> > +#define RP1_INT_ETH		6
+> > +#define RP1_INT_I2C0		7
+> > +#define RP1_INT_I2C1		8
+> > +#define RP1_INT_I2C2		9
+> > +#define RP1_INT_I2C3		10
+> > +#define RP1_INT_I2C4		11
+> > +#define RP1_INT_I2C5		12
+> > +#define RP1_INT_I2C6		13
+> > +#define RP1_INT_I2S0		14
+> > +#define RP1_INT_I2S1		15
+> > +#define RP1_INT_I2S2		16
+> > +#define RP1_INT_SDIO0		17
+> > +#define RP1_INT_SDIO1		18
+> > +#define RP1_INT_SPI0		19
+> > +#define RP1_INT_SPI1		20
+> > +#define RP1_INT_SPI2		21
+> > +#define RP1_INT_SPI3		22
+> > +#define RP1_INT_SPI4		23
+> > +#define RP1_INT_SPI5		24
+> > +#define RP1_INT_UART0		25
+> > +#define RP1_INT_TIMER_0		26
+> > +#define RP1_INT_TIMER_1		27
+> > +#define RP1_INT_TIMER_2		28
+> > +#define RP1_INT_TIMER_3		29
+> > +#define RP1_INT_USBHOST0	30
+> > +#define RP1_INT_USBHOST0_0	31
+> > +#define RP1_INT_USBHOST0_1	32
+> > +#define RP1_INT_USBHOST0_2	33
+> > +#define RP1_INT_USBHOST0_3	34
+> > +#define RP1_INT_USBHOST1	35
+> > +#define RP1_INT_USBHOST1_0	36
+> > +#define RP1_INT_USBHOST1_1	37
+> > +#define RP1_INT_USBHOST1_2	38
+> > +#define RP1_INT_USBHOST1_3	39
+> > +#define RP1_INT_DMA		40
+> > +#define RP1_INT_PWM1		41
+> > +#define RP1_INT_UART1		42
+> > +#define RP1_INT_UART2		43
+> > +#define RP1_INT_UART3		44
+> > +#define RP1_INT_UART4		45
+> > +#define RP1_INT_UART5		46
+> > +#define RP1_INT_MIPI0		47
+> > +#define RP1_INT_MIPI1		48
+> > +#define RP1_INT_VIDEO_OUT	49
+> > +#define RP1_INT_PIO_0		50
+> > +#define RP1_INT_PIO_1		51
+> > +#define RP1_INT_ADC_FIFO	52
+> > +#define RP1_INT_PCIE_OUT	53
+> > +#define RP1_INT_SPI6		54
+> > +#define RP1_INT_SPI7		55
+> > +#define RP1_INT_SPI8		56
+> > +#define RP1_INT_SYSCFG		58
+> > +#define RP1_INT_CLOCKS_DEFAULT	59
+> > +#define RP1_INT_VBUSCTRL	60
+> > +#define RP1_INT_PROC_MISC	57
+> > +#define RP1_INT_END		61
+> > +
+> > +struct rp1_dev {
+> > +	struct pci_dev *pdev;
+> > +	struct device *dev;
+> > +	struct clk *sys_clk;
+> > +	struct irq_domain *domain;
+> > +	struct irq_data *pcie_irqds[64];
+> > +	void __iomem *bar1;
+> > +	int ovcs_id;
+> > +	bool level_triggered_irq[RP1_INT_END];
+> > +};
+> > +
+> > +static void dump_bar(struct pci_dev *pdev, unsigned int bar)
+> > +{
+> > +	dev_info(&pdev->dev,
+> > +		 "bar%d %pR\n",
+> > +		 bar,
+> > +		 pci_resource_n(pdev, bar));
+> > +}
 > 
-> Okay.
-> 
-> > > +	mdata->mode = csdev_access_relaxed_read32(csa, TMC_MODE);
-> > > +	mdata->ffcr = csdev_access_relaxed_read32(csa, TMC_FFCR);
-> > > +	mdata->ffsr = csdev_access_relaxed_read32(csa, TMC_FFSR);
-> > > +	mdata->trace_paddr = drvdata->resrv_buf.paddr;
-> > > +
-> > > +	/* Sync Internal SRAM to reserved trace buffer region */
-> > > +	drvdata->buf = drvdata->resrv_buf.vaddr;
-> > > +	tmc_etb_dump_hw(drvdata);
-> > > +	/* Store as per RSZ register convention */
-> > > +	mdata->size = drvdata->len >> 2;
-> > > +	mdata->version = CS_CRASHDATA_VERSION;
-> > > +
-> > > +	/*
-> > > +	 * Make sure all previous writes are completed,
-> > > +	 * before we mark valid
-> > > +	 */
-> > > +	dsb(sy);
-> > 
-> > I don't think this matters much, as this would only be read by a
-> > secondary kernel. In the worst case, you only need `dmb(ish)` to make
-> > sure the writes are visible before valid is set to true.
-> 
-> Ack. Will change that.
-> 
-> > 
-> > > +	mdata->valid = true;
-> > > +	/*
-> > > +	 * Below order need to maintained, since crc of metadata
-> > > +	 * is dependent on first
-> > > +	 */
-> > > +	mdata->crc32_tdata = find_crash_tracedata_crc(drvdata, mdata);
-> > > +	mdata->crc32_mdata = find_crash_metadata_crc(mdata);
-> > > +
-> > > +	tmc_disable_hw(drvdata);
-> > > +
-> > > +	dev_info(&csdev->dev, "%s: success\n", __func__);
-> > 
-> > Please no "prints" from a panic call back, unless it absolutely CRITICAL.
-> 
-> Ack.
+> Is this dump_bar() really needed ?
 
-Would it be okay to convert this to dev_dbg? Helps to understand if the
-panic call handler has run just in case if we want to debug if the metadata saving
-happened or not.
+Nope. Removed.
 
 > 
-> > 
-> > > +out:
-> > > +	CS_UNLOCK(drvdata->base);
-> > > +	return 0;
-> > > +}
-> > > +
-> > >   static const struct coresight_ops_sink tmc_etf_sink_ops = {
-> > >   	.enable		= tmc_enable_etf_sink,
-> > >   	.disable	= tmc_disable_etf_sink,
-> > > @@ -603,6 +675,10 @@ static const struct coresight_ops_link tmc_etf_link_ops = {
-> > >   	.disable	= tmc_disable_etf_link,
-> > >   };
-> > > +static const struct coresight_ops_panic tmc_etf_sync_ops = {
-> > > +	.sync		= tmc_panic_sync_etf,
-> > > +};
-> > > +
-> > >   const struct coresight_ops tmc_etb_cs_ops = {
-> > >   	.sink_ops	= &tmc_etf_sink_ops,
-> > >   };
-> > > @@ -610,6 +686,7 @@ const struct coresight_ops tmc_etb_cs_ops = {
-> > >   const struct coresight_ops tmc_etf_cs_ops = {
-> > >   	.sink_ops	= &tmc_etf_sink_ops,
-> > >   	.link_ops	= &tmc_etf_link_ops,
-> > > +	.panic_ops	= &tmc_etf_sync_ops,
-> > >   };
-> > >   int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
-> > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > > index 8bca5b36334a..8228d7aaa361 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > > +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > > @@ -1814,6 +1814,79 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
-> > >   	return 0;
-> > >   }
-> > > +static int tmc_panic_sync_etr(struct coresight_device *csdev)
-> > > +{
-> > > +	u32 val;
-> > > +	struct csdev_access *csa;
-> > > +	struct tmc_crash_metadata *mdata;
-> > > +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > > +
-> > > +	csa = &drvdata->csdev->access;
-> > 
-> > As earlier, drop the csa.
+> ...
+> > +static int rp1_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device_node *rp1_node;
+> > +	struct reset_control *reset;
+> > +	struct rp1_dev *rp1;
+> > +	int err  = 0;
+> > +	int i;
+> > +
+> > +	rp1_node = dev_of_node(dev);
+> > +	if (!rp1_node) {
+> > +		dev_err(dev, "Missing of_node for device\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	rp1 = devm_kzalloc(&pdev->dev, sizeof(*rp1), GFP_KERNEL);
+> > +	if (!rp1)
+> > +		return -ENOMEM;
+> > +
+> > +	rp1->pdev = pdev;
+> > +	rp1->dev = &pdev->dev;
+> > +
+> > +	reset = devm_reset_control_get_optional_exclusive(&pdev->dev, NULL);
+> > +	if (IS_ERR(reset))
+> > +		return PTR_ERR(reset);
+> > +	reset_control_reset(reset);
+> 
+> This device is a PCI device.
+> Seems strange to get the reset control line for a PCI device.
+
+And it isn't declared in teh node either, so right now seems a no-op.
+Removed.
+
+> 
+> > +
+> > +	dump_bar(pdev, 0);
+> > +	dump_bar(pdev, 1);
+> No sure those 2 dump_bar() calls are really needed.
+
+Removed as well.
+
+> > +
+> > +	if (pci_resource_len(pdev, 1) <= 0x10000) {
+> > +		dev_err(&pdev->dev,
+> > +			"Not initialised - is the firmware running?\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	err = pcim_enable_device(pdev);
+> > +	if (err < 0) {
+> > +		dev_err(&pdev->dev, "Enabling PCI device has failed: %d",
+> > +			err);
+> > +		return err;
+> > +	}
+> > +
+> > +	rp1->bar1 = pcim_iomap(pdev, 1, 0);
+> > +	if (!rp1->bar1) {
+> > +		dev_err(&pdev->dev, "Cannot map PCI BAR\n");
+> > +		return -EIO;
+> > +	}
+> > +
+> > +	u32 dtbo_size = __dtbo_rp1_pci_end - __dtbo_rp1_pci_begin;
+> > +	void *dtbo_start = __dtbo_rp1_pci_begin;
+> 
+> Those declarations should be move at the beginning of the function.
+
+Ack.
+
+> 
+> > +
+> > +	err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id, rp1_node);
+> > +	if (err)
+> > +		return err;
+> > +
+> 
+> Maybe applying the overlay should be done after the interrupt controller
+> is ready.
+
+Right.
+
+> 
+> > +	pci_set_master(pdev);
+> > +
+> > +	err = pci_alloc_irq_vectors(pdev, RP1_INT_END, RP1_INT_END,
+> > +				    PCI_IRQ_MSIX);
+> > +	if (err != RP1_INT_END) {
+> > +		dev_err(&pdev->dev, "pci_alloc_irq_vectors failed - %d\n", err);
+> > +		goto err_unload_overlay;
+> > +	}
+> > +
+> > +	pci_set_drvdata(pdev, rp1);
+> > +	rp1->domain = irq_domain_add_linear(of_find_node_by_name(NULL, "pci-ep-bus"), RP1_INT_END,
+> > +					    &rp1_domain_ops, rp1);
+> > +
+> > +	for (i = 0; i < RP1_INT_END; i++) {
+> > +		int irq = irq_create_mapping(rp1->domain, i);
+> > +
+> > +		if (irq < 0) {
+> > +			dev_err(&pdev->dev, "failed to create irq mapping\n");
+> > +			err = irq;
+> > +			goto err_unload_overlay;
+> > +		}
+> > +		irq_set_chip_and_handler(irq, &rp1_irq_chip, handle_level_irq);
+> > +		irq_set_probe(irq);
+> > +		irq_set_chained_handler_and_data(pci_irq_vector(pdev, i),
+> > +						 rp1_chained_handle_irq, rp1);
+> > +	}
+> > +
+> > +	err = of_platform_default_populate(rp1_node, NULL, dev);
+> > +	if (err)
+> > +		goto err_unload_overlay;
+> > +
+> > +	return 0;
+> > +
+> > +err_unload_overlay:
+> > +	of_overlay_remove(&rp1->ovcs_id);
+> > +
+> > +	return err;
+> > +}
+> > +
+> > +static void rp1_remove(struct pci_dev *pdev)
+> > +{
+> > +	struct rp1_dev *rp1 = pci_get_drvdata(pdev);
+> > +	struct device *dev = &pdev->dev;
+> > +
+> > +	of_platform_depopulate(dev);
+> > +	of_overlay_remove(&rp1->ovcs_id);
+> > +
+> > +	clk_unregister(rp1->sys_clk);
+> 
+> Unless I missed something, rp1->sys_clk is never set in probe().
+> If this is correct, clk_unregister() should be removed and also
+> the related clk header files.
+
+Ack.
+
+> 
+> The interrupt controller created at probe() should be destroyed at remove().
+
+Ack.
+
+> 
+> > +}
+> > +
+> 
+> ...
+> > diff --git a/drivers/misc/rp1/rp1_pci.h b/drivers/misc/rp1/rp1_pci.h
+> > new file mode 100644
+> > index 000000000000..7982f13bad9b
+> > --- /dev/null
+> > +++ b/drivers/misc/rp1/rp1_pci.h
+> > @@ -0,0 +1,14 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +
+> > +/*
+> > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
+> > + * All rights reserved.
+> > + */
+> > +
+> > +#ifndef _RP1_EXTERN_H_
+> > +#define _RP1_EXTERN_H_
+> > +
+> > +extern char __dtbo_rp1_pci_begin[];
+> > +extern char __dtbo_rp1_pci_end[];
+> > +
+> > +#endif
+> 
+> These two symbols are only used by the rp1_pci.c file.
+> Not sure that the rp1_pci.h is needed.
+> Simply declare the symbols in the rp1_pci.c file.
+
+I agree with you, and I did exactly as you suggest in the very first submission
+of this patch, but I received a couple of comments against it, so I've created
+the new header file.
+
+Many thanks,
+Andrea
+
+
 > 
 > 
-> Okay.
-> 
-> > 
-> > > +	mdata = (struct tmc_crash_metadata *)drvdata->crash_mdata.vaddr;
-> > > +
-> > > +	if (!drvdata->etr_buf)
-> > > +		return 0;
-> > > +
-> > > +	/* Being in RESRV mode implies valid reserved memory as well */
-> > > +	if (drvdata->etr_buf->mode != ETR_MODE_RESRV)
-> > > +		return 0;
-> > > +
-> > > +	if (!tmc_has_reserved_buffer(drvdata) ||
-> > 
-> > Do we need to check this again ? We wouldn't be in ETR_MODE_RESRV
-> > otherwise, also indicated by the comment.
-> 
-> Will drop.
-> 
-> > 
-> > > +	    !tmc_has_crash_mdata_buffer(drvdata))
-> > > +		return 0;
-> > > +
-> > > +	tmc_crashdata_set_invalid(drvdata);
-> > > +
-> > > +	CS_UNLOCK(drvdata->base);
-> > > +
-> > > +	/* Proceed only if ETR is enabled */
-> > > +	val = readl(drvdata->base + TMC_CTL);
-> > > +	if (!(val & TMC_CTL_CAPT_EN))
-> > > +		goto out;
-> > > +
-> > > +	val = readl(drvdata->base + TMC_FFSR);
-> > > +	/* Do manual flush and stop only if its not auto-stopped */
-> > > +	if (!(val & TMC_FFSR_FT_STOPPED)) {
-> > > +		dev_info(&csdev->dev,
-> > > +			 "%s: Triggering manual flush\n", __func__);
-> > 
-> > Drop the info
-> 
-> Ack.
-> 
-> > 
-> > > +		tmc_flush_and_stop(drvdata);
-> > > +	} else
-> > > +		tmc_wait_for_tmcready(drvdata);
-> > > +
-> > > +	/* Sync registers from hardware to metadata region */
-> > > +	mdata->size = csdev_access_relaxed_read32(csa, TMC_RSZ);
-> > > +	mdata->sts = csdev_access_relaxed_read32(csa, TMC_STS);
-> > > +	mdata->mode = csdev_access_relaxed_read32(csa, TMC_MODE);
-> > > +	mdata->ffcr = csdev_access_relaxed_read32(csa, TMC_FFCR);
-> > > +	mdata->ffsr = csdev_access_relaxed_read32(csa, TMC_FFSR);
-> > 
-> > Please use raw reads, don't mix csa and raw reads.
-> 
-> Ack.
-> 
-> > 
-> > > +	mdata->rrp = tmc_read_rrp(drvdata);
-> > > +	mdata->rwp = tmc_read_rwp(drvdata);
-> > > +	mdata->dba = tmc_read_dba(drvdata);
-> > > +	mdata->trace_paddr = drvdata->resrv_buf.paddr;
-> > > +	mdata->version = CS_CRASHDATA_VERSION;
-> > > +
-> > > +	/*
-> > > +	 * Make sure all previous writes are completed,
-> > > +	 * before we mark valid
-> > > +	 */
-> > > +	dsb(sy);
-> > 
-> > Same as earlier, doesn't buy us much
-> 
-> Will convert to dmb.
-> 
-> > 
-> > > +	mdata->valid = true;
-> > > +	/*
-> > > +	 * Below order need to maintained, since crc of metadata
-> > > +	 * is dependent on first
-> > > +	 */
-> > > +	mdata->crc32_tdata = find_crash_tracedata_crc(drvdata, mdata);
-> > > +	mdata->crc32_mdata = find_crash_metadata_crc(mdata);
-> > > +
-> > > +	tmc_disable_hw(drvdata);
-> > > +
-> > > +	dev_info(&csdev->dev, "%s: success\n", __func__);
-> > 
-> > Drop
-> > 
-> > > +out:
-> > > +	CS_UNLOCK(drvdata->base);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > >   static const struct coresight_ops_sink tmc_etr_sink_ops = {
-> > >   	.enable		= tmc_enable_etr_sink,
-> > >   	.disable	= tmc_disable_etr_sink,
-> > > @@ -1822,8 +1895,13 @@ static const struct coresight_ops_sink tmc_etr_sink_ops = {
-> > >   	.free_buffer	= tmc_free_etr_buffer,
-> > >   };
-> > > +static const struct coresight_ops_panic tmc_etr_sync_ops = {
-> > > +	.sync		= tmc_panic_sync_etr,
-> > > +};
-> > > +
-> > >   const struct coresight_ops tmc_etr_cs_ops = {
-> > >   	.sink_ops	= &tmc_etr_sink_ops,
-> > > +	.panic_ops	= &tmc_etr_sync_ops,
-> > >   };
-> > >   int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
-> > > diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> > > index d2261eddab71..75e504e51956 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> > > +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> > > @@ -12,6 +12,7 @@
-> > >   #include <linux/miscdevice.h>
-> > >   #include <linux/mutex.h>
-> > >   #include <linux/refcount.h>
-> > > +#include <linux/crc32.h>
-> > >   #define TMC_RSZ			0x004
-> > >   #define TMC_STS			0x00c
-> > > @@ -76,6 +77,9 @@
-> > >   #define TMC_AXICTL_AXCACHE_OS	(0xf << 2)
-> > >   #define TMC_AXICTL_ARCACHE_OS	(0xf << 16)
-> > > +/* TMC_FFSR - 0x300 */
-> > > +#define TMC_FFSR_FT_STOPPED	BIT(1)
-> > > +
-> > >   /* TMC_FFCR - 0x304 */
-> > >   #define TMC_FFCR_FLUSHMAN_BIT	6
-> > >   #define TMC_FFCR_EN_FMT		BIT(0)
-> > > @@ -94,6 +98,9 @@
-> > >   #define TMC_AUTH_NSID_MASK	GENMASK(1, 0)
-> > > +/* Major version 1 Minor version 0 */
-> > > +#define CS_CRASHDATA_VERSION	(1 << 16)
-> > > +
-> > >   enum tmc_config_type {
-> > >   	TMC_CONFIG_TYPE_ETB,
-> > >   	TMC_CONFIG_TYPE_ETR,
-> > > @@ -131,6 +138,25 @@ enum tmc_mem_intf_width {
-> > >   #define CORESIGHT_SOC_600_ETR_CAPS	\
-> > >   	(TMC_ETR_SAVE_RESTORE | TMC_ETR_AXI_ARCACHE)
-> > > +/* TMC metadata region for ETR and ETF configurations */
-> > > +struct tmc_crash_metadata {
-> > > +	uint32_t crc32_mdata;	/* crc of metadata */
-> > > +	uint32_t crc32_tdata;	/* crc of tracedata */
-> > > +	uint32_t version;	/* 31:16 Major version, 15:0 Minor version */
-> > > +	uint32_t valid;         /* Indicate if this ETF/ETR was enabled */
-> > > +	uint32_t size;          /* Ram Size register */
-> > 
-> > Please could you not keep this "plain bytes" ? Or rename the field to
-> > tmc_ram_size if we want to stick to TMC RAM SIZE register. It is very
-> > easy to confuse it with "normal" bytes.
-> 
-> Okay. Will change the name.
-> 
-> > 
-> > > +	uint32_t sts;           /* Status register */
-> > 
-> > tmc_sts
-> > 
-> > > +	uint32_t mode;		/* Mode register */
-> > 
-> > tmc_mode
-> > 
-> > This doesn't look packed. Please could you add a padding here to make sure
-> > the fields are 64bit aligned ?
-> > 
-> > > +	uint64_t ffcr;		/* Formatter and flush control register */
-> > 
-> > tmc_ffcr
-> > 
-> > > +	uint64_t ffsr;		/* Formatter and flush status register */
-> > 
-> > tmc_ffsr
-> > 
-> > 
-> > Also, why are they both 64bit ? They are all 32bit for sure ?
-> > 
-> > > +	uint32_t reserved32[3];
-> > 
-> > Why do we have reserved bits here ? They should be near the 32bit fields.
-> 
-> Have added them for the sake of future extensions, just in case if we
-> wish to add additional registers without changing the overall metadata
-> size.
-> 
-> 
-> > 
-> > I think, once you fix the type of ffcr and ffsr things, everything will
-> > be in order.
-> 
-> 
-> Okay will fix.
-> 
-> > 
-> > 
-> > > +	uint64_t rrp;           /* Ram Read pointer register */
-> > > +	uint64_t rwp;           /* Ram Write pointer register */
-> > > +	uint64_t dba;		/* Data buffer address register */
-> > > +	uint64_t trace_paddr;	/* Phys address of trace buffer */
-> > > +	uint64_t reserved64[3];
-> > > +};
-> > 
-> > 
-> > Suzuki
-> > 
-> > 
-> > > +
-> > >   enum etr_mode {
-> > >   	ETR_MODE_FLAT,		/* Uses contiguous flat buffer */
-> > >   	ETR_MODE_ETR_SG,	/* Uses in-built TMC ETR SG mechanism */
-> > > @@ -205,6 +231,8 @@ struct tmc_resrv_buf {
-> > >    *		retention (after crash) only when ETR_MODE_RESRV buffer
-> > >    *		mode is enabled. Used by ETF for trace data retention
-> > >    *		(after crash) by default.
-> > > + * @crash_mdata: Reserved memory for storing tmc crash metadata.
-> > > + *		 Used by ETR/ETF.
-> > >    */
-> > >   struct tmc_drvdata {
-> > >   	struct clk		*pclk;
-> > > @@ -231,6 +259,7 @@ struct tmc_drvdata {
-> > >   	struct etr_buf		*sysfs_buf;
-> > >   	struct etr_buf		*perf_buf;
-> > >   	struct tmc_resrv_buf	resrv_buf;
-> > > +	struct tmc_resrv_buf	crash_mdata;
-> > >   };
-> > >   struct etr_buf_operations {
-> > > @@ -356,6 +385,43 @@ static inline bool tmc_has_reserved_buffer(struct tmc_drvdata *drvdata)
-> > >   	return false;
-> > >   }
-> > > +static inline bool tmc_has_crash_mdata_buffer(struct tmc_drvdata *drvdata)
-> > > +{
-> > > +	if (drvdata->crash_mdata.vaddr &&
-> > > +	    drvdata->crash_mdata.size)
-> > > +		return true;
-> > > +	return false;
-> > > +}
-> > > +
-> > > +static inline void tmc_crashdata_set_invalid(struct tmc_drvdata *drvdata)
-> > > +{
-> > > +	struct tmc_crash_metadata *mdata;
-> > > +
-> > > +	mdata = (struct tmc_crash_metadata *)drvdata->crash_mdata.vaddr;
-> > > +
-> > > +	if (tmc_has_crash_mdata_buffer(drvdata))
-> > > +		mdata->valid = false;
-> > > +}
-> > > +
-> > > +static inline uint32_t find_crash_metadata_crc(struct tmc_crash_metadata *md)
-> > > +{
-> > > +	unsigned long crc_size;
-> > > +
-> > > +	crc_size = sizeof(struct tmc_crash_metadata) -
-> > > +		offsetof(struct tmc_crash_metadata, crc32_tdata);
-> > > +	return crc32_le(0, (void *)&md->crc32_tdata, crc_size);
-> > > +}
-> > > +
-> > > +static inline uint32_t find_crash_tracedata_crc(struct tmc_drvdata *drvdata,
-> > > +						struct tmc_crash_metadata *md)
-> > > +{
-> > > +	unsigned long crc_size;
-> > > +
-> > > +	/* Take CRC of configured buffer size to keep it simple */
-> > > +	crc_size = md->size << 2;
-> > > +	return crc32_le(0, (void *)drvdata->resrv_buf.vaddr, crc_size);
-> > > +}
-> > > +
-> > >   struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata *drvdata);
-> > >   void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
-> > 
-> > 
-> 
+> Best regards,
+> Hervé
 
