@@ -4,147 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505A7D5B158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77044D5B158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/94DjP8AZN+nyxAsn4CFaOPl50B8/B4vzqoL8xHL1I=; b=2QhlgR8OzEWljJTdsSFww0VpiU
-	swgFaVKr04fI58IQItHAZqkpwYK9IvMjTjQSunpyQZRNscYoU8cC1MQ3ov1NuqfhA63IM+qqIRIYq
-	D/RN6Br4sAOb9mcMEbPD9pwWoqC3WwX/DiJbEYsFnQ2pHoFTylP9GQJ/QUxQrUAegE7sbjDRg/D8O
-	kMmlCFwVmIfM17j2Jp1UwVOdaIVycS0RfVDRSGxCVgY4Ux2Y0cdc/RLiD0HUvYQM5ybMH9qZNuQuV
-	hbR9uQNqlx4fZ2L3L/IXBjm3CKni7/zq/jWanICOOfkko6dFvYxjnDYz3BCJgrMQ+jkyqh5UbCG8K
-	QBAlc/gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PgydGo78UUNFcEV6DKA5ytibdOMHFroL34YfVzKhiUs=; b=eBGWedyaLXWBRLkDdNyW0OyRTK
+	kT7acxMb5pRZxHrMpYT+7HZU3X7JVq7bCDx/qkcg6MG1ur9DMa/SdxsufFIWAxqQaQJbWiEJcKyXl
+	PQKbz+rfLUi33yIIuoyAybi76PqEpF5MCUg666N0yvZqDwPu4Dx7ZtOaXY1XU4QZJc2sVb19EqZo+
+	npEWXSIOUFFlfnoYKXAtzux26lgNZGMHcPFe1PvOWmHEXNAIQtCYcaL2XZTyUaRpsesrkAMPZzzK3
+	GGis1MikIZEpnLKvRYg8DuirnPFTtmkSRw1UD/OkWIzm+g6+2AIhoFlFNT793kUDtjdmfvD2aN+Jy
+	6wh+lK9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XV4-0000000CNCs-0qbD;
-	Mon, 28 Oct 2024 21:42:10 +0000
-Received: from mail-mw2nam12on2061d.outbound.protection.outlook.com ([2a01:111:f403:200a::61d] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1t5XWe-0000000CNNI-0YKk;
+	Mon, 28 Oct 2024 21:43:48 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Wyw-0000000CIBs-10rs
+	id 1t5X2w-0000000CIjh-1dBq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:09:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BIIRmxnipvJTmlFIBVFxbjSP8s1hGRi5a5GJJV16aV7Dic4EKJ/etU2GIIZnX2+gqIMzLLWu96qS+tMeTudbkllakmtcqz8KuJo9OLNgNLnDUyIVeLLMWtC1It2GK46X+JfP6xGCv6fM60hZF0t0RB8+I5DCRpMP/2AsdNccOp3N0ywcesbRFpLo+pZtcTw9TJR1FjrespKGyv2oidAjIDeoM0Osxu0eWvKalA7Cu/LOtSFVzsr3ckAzaFurgPP8ag3aG1fz2oohmZaYlMuSbbRXRrngT1bYivL9n9cbRAUZ7mDm9yZKm8RBU2Qqa4Nk2ehraS25MBFqG2yVTbQAPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5/94DjP8AZN+nyxAsn4CFaOPl50B8/B4vzqoL8xHL1I=;
- b=GhlmGo1zABUSZy7qCK/7o347gIEwPqQBSKvsx8/IVz9QX4T/C3ow22+oSVuOJgvltj92iokmUYGztWHWtbpACqlY3xfHD4rUYJDabSkRqrKw1xc4xN4UTe6WL8gAEA+SStMOouJ7/W4DBW03S9bN+6f40JhQQI4Ah1S6lqOJ4UHU4H7BdbUq/KwV0nk5wZblYJPljMkq5rc6/gGA2LfVUsVqwMLHHwDkVb8gj9+T2ZwGgwGIKn7l7ODaPTZSPqnD0GGWK3BCPPkQ/Ff13OA7SI7mpyX3jnenlxY+IcmrVVBwlKg5dkyvLXD1LrYDKHvVE6NJWTVeLHSZWASTTgfXmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5/94DjP8AZN+nyxAsn4CFaOPl50B8/B4vzqoL8xHL1I=;
- b=UseCCBb3Ynh/0a60uQYL41jI8CiYaAq/XNH+TqH5XAzOqFv3cyQxeSLGSRAO75uuSt9GtafIsousDLtltoudPIo5oQ/MJUC0JUwW95y2Tp+ka9xoWLCyOmg+2HFjCDczTQ5UP07lAarc8EcJvT/M5sIPnXylNXmFAFtuC1GVsLR5KqUuFV5zrrDThQIOyht1TsphiAVl0hptKw7S1OEgJ6aUngjGJvn9eS3yc7q1yQ84Gz16THgA4u7iG+vlhIDMFlcAda/5dOIqrD35DW5IQOXcFAumA4YlhdQxEA+zOY1QUFVgH9b9EKrd2764RoVSbredrRhAi5TO+0km5x46BQ==
-Received: from MN2PR14CA0024.namprd14.prod.outlook.com (2603:10b6:208:23e::29)
- by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Mon, 28 Oct
- 2024 21:08:51 +0000
-Received: from BL02EPF00021F6D.namprd02.prod.outlook.com
- (2603:10b6:208:23e:cafe::86) by MN2PR14CA0024.outlook.office365.com
- (2603:10b6:208:23e::29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.26 via Frontend
- Transport; Mon, 28 Oct 2024 21:08:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BL02EPF00021F6D.mail.protection.outlook.com (10.167.249.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.16 via Frontend Transport; Mon, 28 Oct 2024 21:08:50 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Oct
- 2024 14:08:26 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Oct
- 2024 14:08:26 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Mon, 28 Oct 2024 14:08:24 -0700
-Date: Mon, 28 Oct 2024 14:08:23 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, <kevin.tian@intel.com>
-CC: Zhangfei Gao <zhangfei.gao@linaro.org>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v5 06/13] iommufd: Allow pt_id to carry viommu_id for
- IOMMU_HWPT_ALLOC
-Message-ID: <Zx/9R5o59B2knsx6@Asurada-Nvidia>
-References: <cover.1729897352.git.nicolinc@nvidia.com>
- <4f5ed9d75c23a503ffe672a85cf9010569652794.1729897352.git.nicolinc@nvidia.com>
- <CABQgh9Gkt5tsw+wr_=WeA+m=Kz2xY5Z7aSBNhHCvBG2r=7O3TQ@mail.gmail.com>
- <20241028130309.GP6956@nvidia.com>
- <Zx+lGr9iD4DSkc8I@Asurada-Nvidia>
+	Mon, 28 Oct 2024 21:13:07 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3a3a6abcbf1so19028845ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:13:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730149985; x=1730754785; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PgydGo78UUNFcEV6DKA5ytibdOMHFroL34YfVzKhiUs=;
+        b=IWjScjtuSs8U4cCsXCmwu3Wn2aqQRrSHLU99g2jrKAu7fRvJMekcl9GJ8QDB3NS/t/
+         MZZa8dPqrwLynNw+Y8dC7X8oA/h7jCjyII8fLh2Q5CTDvmUnc3yzrfz7EAKivqDZOZO4
+         lvEsWjISbfg6cJjvnJniu+NGRYe/CODXgFjqwX2dCo4MZ1N0HMlNVxlLtA1MjX5N55uF
+         u4mwBqBzE/q4hqdXErjtC7hDKfvvkCoMKpBdeCwonUL89rp2h0rY64fsovWYKG8Euqec
+         DQty6MqXPnSu4xkIRzDRXajlEaX6c64TgNSziITWzzB/RuSL5QxJLqqqgHKo9lq++3cS
+         9kqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730149985; x=1730754785;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PgydGo78UUNFcEV6DKA5ytibdOMHFroL34YfVzKhiUs=;
+        b=N1vifLiOWQcWO5gCNHcGF/MmTISbj5vLxW84vwPrCHuMMIPHaSskW5FMfSTtx8P1uq
+         nR0aX5wuFzlifPLx/DNALPxBlZc2/xhr8JveQHrMj7FLoubcnj5dCCpUtgZ+SGT03EW7
+         WG+HxcmHo9CmdpJSLS3STG6EOWP7WzOXwI9wR2KyBMrFAJ+pIro347/CYflPjRBICXGq
+         qbY1dZmBTM8WbOuxuG8HaCukTLl7gAkpkO4D6SvzJoGKAHCqxTmQ6Yxio7/P2LiKGuZQ
+         ShKiVJvsEpyVr0UtVKGBWYAefmqIyIUQZRfuiMOrV+jEoN96RK5YO9i4wTczqjTL0GoO
+         QbEg==
+X-Forwarded-Encrypted: i=1; AJvYcCW3nX3VcpB+5b49mPZpRV1uj/mBmZ+caOTPnKMea0MjxFZ0yP0cUp23sUXyUWmXxU9bXZnrLsWzzVl86HSA4g2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHTLnQiXNSvlpD04SV/Kov4RQLlIsbC0I5qFHMtOXHkAClAaYs
+	07OF7Cc7W6SbQRLK4X8XXcBPLnbZcsxwf4mZdKB2kCsTm2IqNWZkrNmZCoeFdihpeHgyKUTaJRn
+	y8RwkygyLwUnjRnhdkYxd1wJeOBs=
+X-Google-Smtp-Source: AGHT+IETQNXUS47G9SKDmicHSxSQjk2HxvylV+/jMNFioWMi2SJd15y2W6PAAa5jrnbbG4eLxU+17nmW168V2EDC/W4=
+X-Received: by 2002:a05:6e02:1546:b0:3a0:8eb3:5154 with SMTP id
+ e9e14a558f8ab-3a4ed275c09mr80530505ab.4.1730149984571; Mon, 28 Oct 2024
+ 14:13:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <Zx+lGr9iD4DSkc8I@Asurada-Nvidia>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6D:EE_|IA1PR12MB7685:EE_
-X-MS-Office365-Filtering-Correlation-Id: e781456a-75ff-4c26-1f23-08dcf794b8f4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DoJwqzvTgm2R8rlc3zAX8aGQGcr83niqJfAyedc4SaNz7L3tmPsoZ5dLgOR+?=
- =?us-ascii?Q?YxN5eAHAVeMCb8oK3knO7Axk7QXDCY67AX7jwQproCjXCbyDZFJgg+bnWOgc?=
- =?us-ascii?Q?kNa1szTERW7/WU+2bOjsJu26K64D7OuMszRiXOw4bcbsPjMeb9z/h6z/C6m9?=
- =?us-ascii?Q?/Qntgy4e++YRuLGYilMNFIqBPzYpYoXZAxbjW/kVvB9bK9aUuZrSUq13/xyu?=
- =?us-ascii?Q?lefUaqJVuO0RBAWHuEqWPcx4NXttIliW+ZWb//ClFCB2ZD9DZVbUg8VxVdxN?=
- =?us-ascii?Q?L+vUzCvgsJs9jMpwrg0HGN7WeGC6tSO/YTalJmS9ZW7RdHapIvHO6mrmINc7?=
- =?us-ascii?Q?4lh8p+Lq7mz5XjveLBH0gpbYnCHNmz55HdvRuqICr91Uk0yYvYlfIhD9yqVk?=
- =?us-ascii?Q?aNigz2uN9+/+OH8UG2JUYgnMaOtCgW0WxrADJOq9vxF+2TgEq7JeDeEFAPcV?=
- =?us-ascii?Q?a6OF5O+CKy1hmGXJNvUNdEKyQDeM1KWDI38w9RsKGskiKXVJXwNLYT1vcr5r?=
- =?us-ascii?Q?sLsdhjfbVcgUvxR61W3jMxxb2BJSVHWxBHmSCoD2fTiseAegn/oFk+F8ACjc?=
- =?us-ascii?Q?5OtQ9NVmwbpIyYndCdM3bjq9/bk9/ZxFsjjnX6T3hb5tLa3tbWSimhUI5WYv?=
- =?us-ascii?Q?DYCaQFltSlzRnEZgReLTUs8zVj/qNM+8Vw85OCGPjJEPt0UPQYb13Bt4g1Ph?=
- =?us-ascii?Q?yxWApkChoqrp/jdtXqPQOv/4xA1kWV9t8qrt/y3TF8o5qGYZ7qsXVSgY0H6y?=
- =?us-ascii?Q?BnJLzDuOZsq47y1MK7JTT+DqaU/8s62hhuC86dTYrMlDwC93q4arY2bxF23d?=
- =?us-ascii?Q?v8bB76RAjGoxkl4AjNMjLtitPA6jiLVoPcoUx+YL2NfXY+awxy3iNohqd1pW?=
- =?us-ascii?Q?mbZsZEFqb104v6qNyuJc4FmLxmmysx0sI7F2MzQ25XidgpZsSqfupJTG+s24?=
- =?us-ascii?Q?Wa9LzZ4wXCeoCl+8bGJXYTSd90frigYgS1ABtqnFUzbnfBDcpLLVS9BrL9+l?=
- =?us-ascii?Q?dAqi+/YdfT9nIGs82/zga+kb1PoB5DHCeCXBvivpDlJ0TZaAVNgeeG8zyF89?=
- =?us-ascii?Q?/m6oDVdKOiDg6VdQKrbUH+t9F/WhpsinjqUSXgiFnowBxJeiY/zqVYdKrxSl?=
- =?us-ascii?Q?ocacrSdKfEWQuUlI8Rt+I1fnCY7q6adaWwme62aAe1Z8QgdcmKyAOgUGEpZT?=
- =?us-ascii?Q?8F+rz5gEqTrm+qyLWgKqC1VeH0vgAjP80y6WiTprf5vTZgT2mx1FsK8wr44Z?=
- =?us-ascii?Q?zT4xVUXIo5PD9yYa9xuJ2SqoWjji6JihtGK3BS2Wvk0gX8uvzverc9618ZQS?=
- =?us-ascii?Q?X/vhhGr0cYgjCwABBqITxr0BYCdjF4Ru7qcv2WxKmKgEIPfeuC+m9qnRXHTu?=
- =?us-ascii?Q?YZhYQIfRmKDDTx5d4o7MOcG3LjHRbL+6bKEmp5i7oJha8Vjeag=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 21:08:50.7026
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e781456a-75ff-4c26-1f23-08dcf794b8f4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com> <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+In-Reply-To: <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Mon, 28 Oct 2024 14:12:52 -0700
+Message-ID: <CAF6AEGtKP8EGp7iLMomTAFvaUOAPNeu6YiJ=e=MLvBAsA_yHdA@mail.gmail.com>
+Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in smmu
+ reset operation
+To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
+	jsnitsel@redhat.com, robh@kernel.org, krzysztof.kozlowski@linaro.org, 
+	quic_c_gdjako@quicinc.com, dmitry.baryshkov@linaro.org, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_140858_294642_B093C2CA 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20241028_141306_451978_A0FF97B4 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,107 +94,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 07:52:10AM -0700, Nicolin Chen wrote:
-> On Mon, Oct 28, 2024 at 10:03:09AM -0300, Jason Gunthorpe wrote:
-> > On Mon, Oct 28, 2024 at 11:24:10AM +0800, Zhangfei Gao wrote:
-> >
-> > > > +/**
-> > > > + * iommufd_viommu_alloc_hwpt_nested() - Get a hwpt_nested for a vIOMMU
-> > > > + * @viommu: vIOMMU ojbect to associate the hwpt_nested/domain with
-> > > > + * @user_data: user_data pointer. Must be valid
-> > > > + *
-> > > > + * Allocate a new IOMMU_DOMAIN_NESTED for a vIOMMU and return it as a NESTED
-> > > > + * hw_pagetable.
-> > > > + */
-> > > > +static struct iommufd_hwpt_nested *
-> > > > +iommufd_viommu_alloc_hwpt_nested(struct iommufd_viommu *viommu, u32 flags,
-> > > > +                                const struct iommu_user_data *user_data)
-> > > > +{
-> > > > +       struct iommufd_hwpt_nested *hwpt_nested;
-> > > > +       struct iommufd_hw_pagetable *hwpt;
-> > > > +       int rc;
-> > > > +
-> > > > +       if (flags)
-> > > > +               return ERR_PTR(-EOPNOTSUPP);
-> > >
-> > > This check should be removed.
-> > >
-> > > When a user page fault is required, IOMMU_HWPT_FAULT_ID_VALID is set.
-> > > if (cmd->flags & IOMMU_HWPT_FAULT_ID_VALID) {
-> >
-> > It can't just be removed..
-> >
-> > I suspect that IOMMU_HWPT_FAULT_ID_VALID should not be set on the
-> > nested domain but on the parent?
-> 
-> By giving another look,
-> 
-> In iommufd_hwpt_paging_alloc(), we reject IOMMU_HWPT_FAULT_ID_VALID:
->         const u32 valid_flags = IOMMU_HWPT_ALLOC_NEST_PARENT |
->                                 IOMMU_HWPT_ALLOC_DIRTY_TRACKING;
->         ...
->         if (flags & ~valid_flags)
->                 return ERR_PTR(-EOPNOTSUPP);
-> 
-> In iommufd_hwpt_nested_alloc(), we mask the flag away:
->         if ((flags & ~IOMMU_HWPT_FAULT_ID_VALID) ||
->             !user_data->len || !ops->domain_alloc_user)
->                 return ERR_PTR(-EOPNOTSUPP);
->         ...
->         hwpt->domain = ops->domain_alloc_user(idev->dev,
->                                               flags & ~IOMMU_HWPT_FAULT_ID_VALID,
->                                               parent->common.domain, user_data);
-> 
-> Then, in the common function it has a section of
->         if (cmd->flags & IOMMU_HWPT_FAULT_ID_VALID) {
->         ...
-> 
-> It seems that this IOMMU_HWPT_FAULT_ID_VALID is for nested domains?
-> 
-> So, aligning with that, here we need:
->         if ((flags & ~IOMMU_HWPT_FAULT_ID_VALID) || !user_data->len)
->                 return ERR_PTR(-EOPNOTSUPP);
+On Tue, Oct 8, 2024 at 5:54=E2=80=AFAM Bibek Kumar Patro
+<quic_bibekkum@quicinc.com> wrote:
+>
+> Default MMU-500 reset operation disables context caching in
+> prefetch buffer. It is however expected for context banks using
+> the ACTLR register to retain their prefetch value during reset
+> and runtime suspend.
+>
+> Replace default MMU-500 reset operation with Qualcomm specific reset
+> operation which envelope the default reset operation and re-enables
+> context caching in prefetch buffer for Qualcomm SoCs.
+>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
 
-I added a TEST_F for the coverage:
+Reviewed-by: Rob Clark <robdclark@gmail.com>
 
-+TEST_F(iommufd_viommu, viommu_alloc_nested_iopf)
-+{
-+       struct iommu_hwpt_selftest data = {
-+               .iotlb = IOMMU_TEST_IOTLB_DEFAULT,
-+       };
-+       uint32_t viommu_id = self->viommu_id;
-+       uint32_t dev_id = self->device_id;
-+       uint32_t iopf_hwpt_id;
-+       uint32_t fault_id;
-+       uint32_t fault_fd;
-+
-+       if (self->device_id) {
-+               test_ioctl_fault_alloc(&fault_id, &fault_fd);
-+               test_err_hwpt_alloc_iopf(
-+                       ENOENT, dev_id, viommu_id, UINT32_MAX,
-+                       IOMMU_HWPT_FAULT_ID_VALID, &iopf_hwpt_id,
-+                       IOMMU_HWPT_DATA_SELFTEST, &data, sizeof(data));
-+               test_err_hwpt_alloc_iopf(
-+                       EOPNOTSUPP, dev_id, viommu_id, fault_id,
-+                       IOMMU_HWPT_FAULT_ID_VALID | (1 << 31), &iopf_hwpt_id,
-+                       IOMMU_HWPT_DATA_SELFTEST, &data, sizeof(data));
-+               test_cmd_hwpt_alloc_iopf(
-+                       dev_id, viommu_id, fault_id, IOMMU_HWPT_FAULT_ID_VALID,
-+                       &iopf_hwpt_id, IOMMU_HWPT_DATA_SELFTEST, &data,
-+                       sizeof(data));
-+
-+               test_cmd_mock_domain_replace(self->stdev_id, iopf_hwpt_id);
-+               EXPECT_ERRNO(EBUSY,
-+                            _test_ioctl_destroy(self->fd, iopf_hwpt_id));
-+               test_cmd_trigger_iopf(dev_id, fault_fd);
-+
-+               test_cmd_mock_domain_replace(self->stdev_id, self->ioas_id);
-+               test_ioctl_destroy(iopf_hwpt_id);
-+               close(fault_fd);
-+               test_ioctl_destroy(fault_id);
-+       }
-+}
-
-Thanks
-Nicolin
+> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
+>  1 file changed, 42 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/a=
+rm/arm-smmu/arm-smmu-qcom.c
+> index 087fb4f6f4d3..0cb10b354802 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -16,6 +16,16 @@
+>
+>  #define QCOM_DUMMY_VAL -1
+>
+> +/*
+> + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
+> + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
+> + * buffer). The remaining bits are implementation defined and vary acros=
+s
+> + * SoCs.
+> + */
+> +
+> +#define CPRE                   (1 << 1)
+> +#define CMTLB                  (1 << 0)
+> +
+>  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>  {
+>         return container_of(smmu, struct qcom_smmu, smmu);
+> @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device =
+*dev)
+>         return match ? IOMMU_DOMAIN_IDENTITY : 0;
+>  }
+>
+> +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
+> +{
+> +       int ret;
+> +       u32 val;
+> +       int i;
+> +
+> +       ret =3D arm_mmu500_reset(smmu);
+> +       if (ret)
+> +               return ret;
+> +
+> +       /*
+> +        * arm_mmu500_reset() disables CPRE which is re-enabled here.
+> +        * The errata for MMU-500 before the r2p2 revision requires CPRE =
+to be
+> +        * disabled. The arm_mmu500_reset function disables CPRE to accom=
+modate all
+> +        * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revisio=
+n, where
+> +        * the CPRE bit can be enabled, the qcom_smmu500_reset function r=
+e-enables
+> +        * the CPRE bit for the next-page prefetcher to retain the prefet=
+ch value
+> +        * during reset and runtime suspend operations.
+> +        */
+> +
+> +       for (i =3D 0; i < smmu->num_context_banks; ++i) {
+> +               val =3D arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
+> +               val |=3D CPRE;
+> +               arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+>  static int qcom_sdm845_smmu500_reset(struct arm_smmu_device *smmu)
+>  {
+>         int ret;
+>
+> -       arm_mmu500_reset(smmu);
+> +       qcom_smmu500_reset(smmu);
+>
+>         /*
+>          * To address performance degradation in non-real time clients,
+> @@ -427,7 +466,7 @@ static const struct arm_smmu_impl qcom_smmu_500_impl =
+=3D {
+>         .init_context =3D qcom_smmu_init_context,
+>         .cfg_probe =3D qcom_smmu_cfg_probe,
+>         .def_domain_type =3D qcom_smmu_def_domain_type,
+> -       .reset =3D arm_mmu500_reset,
+> +       .reset =3D qcom_smmu500_reset,
+>         .write_s2cr =3D qcom_smmu_write_s2cr,
+>         .tlb_sync =3D qcom_smmu_tlb_sync,
+>  #ifdef CONFIG_ARM_SMMU_QCOM_DEBUG
+> @@ -461,7 +500,7 @@ static const struct arm_smmu_impl qcom_adreno_smmu_v2=
+_impl =3D {
+>  static const struct arm_smmu_impl qcom_adreno_smmu_500_impl =3D {
+>         .init_context =3D qcom_adreno_smmu_init_context,
+>         .def_domain_type =3D qcom_smmu_def_domain_type,
+> -       .reset =3D arm_mmu500_reset,
+> +       .reset =3D qcom_smmu500_reset,
+>         .alloc_context_bank =3D qcom_adreno_smmu_alloc_context_bank,
+>         .write_sctlr =3D qcom_adreno_smmu_write_sctlr,
+>         .tlb_sync =3D qcom_smmu_tlb_sync,
+> --
+> 2.34.1
+>
 
