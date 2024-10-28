@@ -4,131 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41946D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE52D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxtPA/U78ERZ+ppdXXWbhxnMqxfDhJ72xcfBzWrzRXU=; b=kC1lyhsyaEHPqNjutfhwYQq6fl
-	+bEJyl2hSC3iLVSgCsU7PQlLeK0rZHfoYPbqJUjicrmDv+8kMlrJRYGZNDoP5zjHJblLGa/KFMCxN
-	mJZglL/NLcA9gZWWLr4DZBPJHlZkvweuWa1S/0c3bNqptjzPiXZOvftbyeHYC6vCBL5pI74ah4pO6
-	b3lUNtVoc28eVOH7kyPPWF8/z5UkrnglB4NDmnFqJQj6m886qf919tmCpjXRUbWsj4S+Co9TXXhtG
-	AE/MJAYyoiQv4sftn8dSaAQ0y84XuaKy51ks5SrioIWPwaC4QsFkX9FGMb/AepVhUm6HL0nhhNCWz
-	klPtlRng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SKFMobegjRneCqMLMYdsFsl/wDBedQO7CQHDsWG4aEM=; b=hw/VJEgV6NlwtvS4u2YqRSJxYl
+	dZjTjhLJRXLChE0lK7KlNeFsyJowQmoXpNWXlY8Gpo/x5m/f7NkN4w0uNEHmL2P5FLW/q8G6NOH6+
+	LxOQoGxkdl2I9EKjznRQyoEsyeF/vsPjbplo90GyeGQfjF9ce/elKa1fz/QuHc9jTgPr4rrha7tsi
+	kd8ZXcabR4NSgWUz+wGAXegW3W6xDMPB1Cy3o1pkv/6le380ruVvLaiqiNs7t9lmmjd2DZxBXJ6Pq
+	20v13+1O7MpRErMKSdqs1kczxAHLGuo3HeLNPIwjOwN13XeqAp+9f5irJwnIr+End3VQ0fFoXd5mv
+	1qnuEHmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MgZ-0000000ALd7-1DRV;
-	Mon, 28 Oct 2024 10:09:19 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1t5MkC-0000000AMFS-0unM;
+	Mon, 28 Oct 2024 10:13:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MKS-0000000AHcF-3AV6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:46:31 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2fb498a92f6so38526561fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:46:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730108787; x=1730713587; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hxtPA/U78ERZ+ppdXXWbhxnMqxfDhJ72xcfBzWrzRXU=;
-        b=DVz2z2DuGRn4LJR4JgqrHDyg/A9zAQKQolDdvZytjPIwY0jOGwdOeu7DDL04YVk78G
-         hxvZ9ez+AuqDe34XsmuUZA54HyBJavVY77RKV07Fh6FkGp8AWSIQUoGROZFLl47tApzS
-         gGdZylmPdxxxss4eI6gdag4Z0P5AvBwwMhXl+Hb21xHkf0ovsUJv5tWd7eN0vYCuao1M
-         IuTvMRzOZ0z2LkPmZ3t+nIgEsn2rL5gJKNgM6sCaLzAh1Lk2M5aV+H+cLecfve3xQl0P
-         uLpvSg6VTyws2DcOAUdvP3UhIrFygKMAgTbzX9J3nJQOyNB5lGuW6nkdIE8O65BQUm9p
-         ttDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730108787; x=1730713587;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=hxtPA/U78ERZ+ppdXXWbhxnMqxfDhJ72xcfBzWrzRXU=;
-        b=PT6wmaUaVRsHZ2fwk+9YwwOi0lSRwzK/dm2Mjv3OYtbG355mC3sBf+dDMDPEbnK7LZ
-         lOjvBG6dDgxRTRe5JC9IzsYsLfIVht5vaqeAvybRq+fkoSs9k7e0Qoa2fjh0LyFqA+ri
-         bwyqyiNua7ap04cwJnbHckleNxrHbwm4BcPn+CtDXUqPhmrsIZO7lV9n4ifee6QGqBg/
-         /D76TaN9noRJMGkkwalPRgCc1+OlYr8qKHFGFsQoR5H9iQalIoCm3MObwexAkp67TXCZ
-         j5/1iLG2DEvUWuZn/wn9UCJHVp7tCS+P494lsdrVVJH1P7VUqlHGr7iKO12pC6Jck53c
-         f/VA==
-X-Forwarded-Encrypted: i=1; AJvYcCXAPh4DOujNfHjYiTQ88YRKmuyMjRl2vms9IE2neoUoQ48dtX4xAeQEiJy+AzylKjstsLN1UcJsBTHu07QdJtdj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGQR1a0x4VZritGMmSP/44zCPxDvxeYHXCyeEJ0cNGXO75fOgX
-	8rGXfSeRftC2lsw2kt0TZvwM4F4/tZpb/bLupBWS1gBe6OShLyEPhBs5WlLOo8Q=
-X-Google-Smtp-Source: AGHT+IFWhDgOD4KwMZ5u7zjg9xk4YCKQ/VGKmAhMl71E6/XB3UI+mDlDu4avbbZcnOkfYTddUxKcDw==
-X-Received: by 2002:a05:651c:b20:b0:2fb:3bc0:9c7c with SMTP id 38308e7fff4ca-2fcbe005e17mr28310221fa.25.1730108786669;
-        Mon, 28 Oct 2024 02:46:26 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:982:cbb0:c11d:e163:200e:8a5d? ([2a01:e0a:982:cbb0:c11d:e163:200e:8a5d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431935a4ad8sm103872435e9.23.2024.10.28.02.46.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 02:46:26 -0700 (PDT)
-Message-ID: <a0c30691-ad28-4217-bf46-924fca5f48de@linaro.org>
-Date: Mon, 28 Oct 2024 10:46:24 +0100
+	id 1t5Mia-0000000ALyY-1Zv4;
+	Mon, 28 Oct 2024 10:11:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A2955C594F;
+	Mon, 28 Oct 2024 10:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0C2C4CEC3;
+	Mon, 28 Oct 2024 10:11:18 +0000 (UTC)
+Message-ID: <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
+Date: Mon, 28 Oct 2024 11:11:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add support for Amlogic A4
- SoCs
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241018-a4_pinctrl-v3-0-e76fd1cf01d7@amlogic.com>
- <20241018-a4_pinctrl-v3-1-e76fd1cf01d7@amlogic.com>
- <4a79f996-9d82-48b2-8a93-d7917413ed8c@kernel.org>
- <1jttd9rein.fsf@starbuckisacylon.baylibre.com>
- <4127b448-a914-4c69-b938-29512995326f@amlogic.com>
- <1jmsj1rclh.fsf@starbuckisacylon.baylibre.com>
- <d654d2b2-977b-44c0-8b01-b26f5eb0a3fe@kernel.org>
- <5ad8f396-84a5-486d-b90d-98fbf8882d1b@linaro.org>
- <e6cd13b5-2f7a-4ab1-899c-5867bc0ea64f@kernel.org>
- <fdb4d0eb-a5e5-4061-b3cc-14958473baf3@linaro.org>
- <c8a03fa6-9ac5-434f-ba13-78e47ad341b8@kernel.org>
- <f6c4cee8-dd22-4b30-a3b2-aee48e2c3611@linaro.org>
- <91bcc765-2e56-433d-a629-c5255fc8d256@kernel.org>
- <24acd645-4094-48aa-82e3-42d30a340884@amlogic.com>
- <78e6ca30-9fd6-4384-9583-440c485fb8ed@linaro.org>
- <d4ae04da-d841-49e8-be88-b0fe0c7b3de5@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <d4ae04da-d841-49e8-be88-b0fe0c7b3de5@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Naushir Patuck
+ <naush@raspberrypi.com>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
+ <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
+ <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+ <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Autocrypt: addr=hverkuil@xs4all.nl; keydata=
+ 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
+In-Reply-To: <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_024628_832564_BBFC3AC3 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20241028_031124_524505_DAE33014 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,117 +120,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 10:36, Xianwei Zhao wrote:
-> Hi Neil,
->     Thanks for your advice.
+On 28/10/2024 10:21, Tomi Valkeinen wrote:
+> Hi,
 > 
-> On 2024/10/28 17:09, neil.armstrong@linaro.org wrote:
->> [ EXTERNAL EMAIL ]
+> On 24/10/2024 11:20, Hans Verkuil wrote:
+>> Hi Tomi,
 >>
->> On 28/10/2024 10:07, Xianwei Zhao wrote:
->>> Hi Neil,
->>>      Based on the current discussion results, GPIO index macro definition does not belong to bindings. If so, the pinctrl driver keeps the existing architecture, and use numbers instead in dts file. Or the pinctrl driver use bank mode acess, this may not be compatible with existing frameworks. This is done by adding of_xlate hook functions in pinctrl_chip struct.
->>>
->>> What is your advice that I can implement in the next version. Thanks!
+>> I know this driver is already merged, but while checking for drivers that use
+>> q->max_num_buffers I stumbled on this cfe code:
 >>
->> Keep the driver as-is, but move the header file into arch/arm64/boot/dts/amlogic like it was done for the last reset controller support:
->> arch/arm64/boot/dts/amlogic/amlogic-t7-reset.h
+>> <snip>
 >>
+>>> +/*
+>>> + * vb2 ops
+>>> + */
+>>> +
+>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
+>>> +               unsigned int *nplanes, unsigned int sizes[],
+>>> +               struct device *alloc_devs[])
+>>> +{
+>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
+>>> +    struct cfe_device *cfe = node->cfe;
+>>> +    unsigned int size = is_image_node(node) ?
+>>> +                    node->vid_fmt.fmt.pix.sizeimage :
+>>> +                    node->meta_fmt.fmt.meta.buffersize;
+>>> +
+>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
+>>> +        node->buffer_queue.type);
+>>> +
+>>> +    if (vq->max_num_buffers + *nbuffers < 3)
+>>> +        *nbuffers = 3 - vq->max_num_buffers;
+>>
+>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
+>> is called. So 32 + *nbuffers is never < 3.
+>>
+>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
+>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
+>> for you.
+>>
+>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
+>> since the code is almost always wrong.
 > 
-> I don't see examples C file applies dts header file.
-> C file need to be defined once, and this needs to be defined again in dts header file.
+> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
+> 
+> if (vq->num_buffers + *nbuffers < 3)
+>         *nbuffers = 3 - vq->num_buffers;
+> 
+> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
+> 
+> The distinction between min_queued_buffers and min_reqbufs_allocation, or rather the need for the latter, still escapes me. If the HW/SW requires N buffers to be queued, why would we require
+> allocating more than N buffers?
 
-Sorry could you rephrase, the sentence isn't clear.
+min_queued_buffers is easiest to explain: that represents the requirements of the DMA
+engine, i.e. how many buffers much be queued before the DMA engine can be started.
+Typically it is 0, 1 or 2.
 
-Neil
+min_reqbufs_allocation is the minimum number of buffers that will be allocated when
+calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
+or dropping frames.
+
+Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
+and the third is being processed by userspace. But sometimes drivers have other
+requirements.
+
+The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
+expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
+https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
+
+"It can be smaller than the number requested, even zero, when the driver runs out of
+ free memory. A larger number is also possible when the driver requires more buffers
+ to function correctly."
+
+How drivers implement this is a mess, and usually the code in the driver is wrong as
+well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
+instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
+
+When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
+to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
+if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
+with this ioctl the number of buffers will never be more than requested, although it
+may be less if you run out of memory.
+
+I really should go through all existing drivers and fix them up if they try to
+handle this in the queue_setup function, I suspect a lot of them are quite messy.
+
+One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
+buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
+to use CREATE_BUFS you need that information so you know that you have to create
+at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
+but it is effectively codec specific. This probably should be clarified.
+
+I wonder if it wouldn't be better to add a min_num_buffers field to
+struct v4l2_create_buffers and set it to min_queued_buffers + 1.
+
+Regards,
+
+	Hans
 
 > 
->> Neil
->>
->>>
->>> On 2024/10/21 23:27, Krzysztof Kozlowski wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On 21/10/2024 12:38, neil.armstrong@linaro.org wrote:
->>>>>>> ====><=================
->>>>>>> +/* Standard port */
->>>>>>> +#define GPIOB_START        0
->>>>>>> +#define GPIOB_NUM  14
->>>>>>> +
->>>>>>> +#define GPIOD_START        (GPIOB_START + GPIOB_NUM)
->>>>>>> +#define GPIOD_NUM  16
->>>>>>> +
->>>>>>> +#define GPIOE_START        (GPIOD_START + GPIOD_NUM)
->>>>>>> +#define GPIOE_NUM  2
->>>>>>> +
->>>>>>> +#define GPIOT_START        (GPIOE_START + GPIOE_NUM)
->>>>>>> +#define GPIOT_NUM  23
->>>>>>> +
->>>>>>> +#define GPIOX_START        (GPIOT_START + GPIOT_NUM)
->>>>>>> +#define GPIOX_NUM  18
->>>>>>> +
->>>>>>> +#define PERIPHS_PIN_NUM    (GPIOX_START + GPIOX_NUM)
->>>>>>> +
->>>>>>> +/* Aobus port */
->>>>>>> +#define GPIOAO_START       0
->>>>>>> +#define GPIOAO_NUM 7
->>>>>>> +
->>>>>>> +/* It's a special definition, put at the end, just 1 num */
->>>>>>> +#define    GPIO_TEST_N     (GPIOAO_START +  GPIOAO_NUM)
->>>>>>> +#define    AOBUS_PIN_NUM   (GPIO_TEST_N + 1)
->>>>>>> +
->>>>>>> +#define AMLOGIC_GPIO(port, offset) (port##_START + (offset))
->>>>>>> ====><=================
->>>>>>>
->>>>>>> is exactly what rob asked for, and you nacked it.
->>>>>>
->>>>>> No, this is not what was asked, at least according to my understanding.
->>>>>> Number of GPIOs is not an ABI. Neither is their relationship, where one
->>>>>> starts and other ends.
->>>>>
->>>>> I confirm this need some work, but it moved the per-pin define to start
->>>>> and ranges, so what did rob expect ?
->>>>>
->>>>>>
->>>>>> Maybe I missed something, but I could not find any users of these in the
->>>>>> DTS. Look:
->>>>>>
->>>>>> https://lore.kernel.org/all/20241014-a4_pinctrl-v2-3-3e74a65c285e@amlogic.com/
->>>>>
->>>>> So you want consumers before the bindings ? strange argument
->>>>>
->>>>>>
->>>>>> Where is any of above defines?
->>>>>>
->>>>>> Maybe they will be visible in the consumer code, but I did not imagine
->>>>>> such use. You expect:
->>>>>> reset-gpios = <&ctrl GPIOAO_START 1>???
->>>>>
->>>>> No I expect:
->>>>> reset-gpios = <&ctrl AMLOGIC_GPIO(B, 0) 1>;
->>>>>
->>>>> but the macro should go along the dts like we did for the reset defines,
->>>>> so perhaps this is the solution ?
->>>>
->>>> OK, so I said it was not a binding:
->>>> https://lore.kernel.org/all/u4afxqc3ludsic4n3hs3r3drg3ftmsbcwfjltic2mb66foo47x@xe57gltl77hq/
->>>>
->>>> and you here confirm, if I understood you correctly, that it goes with
->>>> the DTS like reset defines (I assume non-ID like defines?), so also not
->>>> a binding?
->>>>
->>>> What are we disagreeing with?
->>>>
->>>> Just to recall, Jerome asked whether you have to now use arbitrary
->>>> numbers in DTS and my answer was: not. It's still the same answer.
->>>>
->>>> Best regards,
->>>> Krzysztof
->>>>
->>
+>  Tomi
+> 
 
 
