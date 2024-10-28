@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AEED339A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7692AD3399B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMdoqtd5Or4egsm/ysACUyrqRpKWAPTDiHGIU58xz0g=; b=yoFHG2Z9g+HFq5fkODoy7newAW
-	Bpjr62b+/G/kd4wPQuRjuhNGPsRv6AU32fN5Kk1PxY7AYy13THdqAHrOb5G3yM/Sa6UxDZOsqVXp4
-	WxCZhz7IOYvtHbSXma1zkwBTpS3t9F+Oh4zX481TAZJ+fq4CMjGcbPIzSVa2tP7d0HNqJmFa+lTjf
-	ybFXI+sCmAKVLCnXNvanJk+8RYmRKRwrsZBTo4U8e94ki2a9hLpKhrt5P4Be647ulYTWzYyJC/xZL
-	ZhvHbsgFBuSHLbS6tf3RURfxv9N8Br2LIPhhGtkKwppjYGgEfDHtuixDPZb9rfefD2UfZihSj923F
-	SFK/LEUA==;
+	bh=YnLp2twzv2TNQbo4aCFZTZoiRr0XaMjJP+UKxGSJsRk=; b=aQASe/gE9Y8dNwfSPHMzO15ugQ
+	l6GXTA5A1NNPElQvQ+GMsb+zNcoGssSPla1769O+kOY17UOxpPvyrIBa47+jYvj/ceuZbyZjNo2cB
+	/A/YWCBeSol9ieUoc3YvPQk/TF38YVKzExjFsPjYyzS9L3/W5iAs6FQiH/+E52H4BelRXJ0iRDxjr
+	lxoaSZgqTr7vZFxfmEKs5vJziHSehg6Yvsg87mUN/t+JYJNJxv+RAKOWHZLb51cZBRj45m3vCBiD6
+	r1b/1F5NajghDoFf5SGdgq2X1X0vvO1bT/jkuRsyRSq3LhLQu+9nwGS2v0YXCJlI0QUbzrVx3QX1l
+	zzWlzRRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5T95-0000000BbGl-1qJK;
-	Mon, 28 Oct 2024 17:03:11 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t5TAe-0000000BbTh-46Yg;
+	Mon, 28 Oct 2024 17:04:49 +0000
+Received: from mail-4316.protonmail.ch ([185.70.43.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5T4t-0000000BakD-1p1K
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 16:58:52 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwlFS127484;
-	Mon, 28 Oct 2024 11:58:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730134727;
-	bh=MMdoqtd5Or4egsm/ysACUyrqRpKWAPTDiHGIU58xz0g=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=FikjylivUnHNMVaS4gfS000Fxsf5d00p551H8vGEHp3SQXATPCqJhtoeOOEYE7lv6
-	 DHGKP2heoAVrCK4AKFbWmlfiUSo0ojKPFufEwpMf/3zoSGLWL8U3rtjzbO1Dlexuol
-	 +WyAKNEJ6Ibm5Owy2hjoCQvXT5JhGI/gAhDnxivs=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwlOW120677;
-	Mon, 28 Oct 2024 11:58:47 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Oct 2024 11:58:47 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Oct 2024 11:58:47 -0500
-Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwh3V128346;
-	Mon, 28 Oct 2024 11:58:44 -0500
-Message-ID: <3d6f78b8-d6b1-4c11-b87a-3922254ce360@ti.com>
-Date: Mon, 28 Oct 2024 22:28:43 +0530
+	id 1t5SnY-0000000BXVF-02IU;
+	Mon, 28 Oct 2024 16:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1730133652; x=1730392852;
+	bh=YnLp2twzv2TNQbo4aCFZTZoiRr0XaMjJP+UKxGSJsRk=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=YDPMWx+VopN7IYplxBpOGlkFuWwiT0GjcLnCz/I7w3zK8cYhr/x9MRkDkWtFKNbt0
+	 GuokZV2xiVMslVNXUso5BClJwe29PB0anTiGBGDxkAH4/4g/0Pdq/ZQYpn1tbsis8d
+	 Jh/j1593zuLLkEzL9LtnyXZiyk1dsrdn/4GOXE9o+SzVZclfjLV25zyy4eABWHjZXo
+	 ReRwqZJjW7aUN0dQyecLkqMMwEg4saP5paeE4yNMUL+uPOQp2W+WM/cuuDVY7VukL/
+	 p2OCHCd9MA/8rzOp1+hz9J9t+5YSuQPGA8qkRUx2Kdddk4PakB/P4Ex23rK+F2UQDU
+	 rqdNzkUVc3Qdw==
+Date: Mon, 28 Oct 2024 16:40:46 +0000
+To: Andy Yan <andyshrk@163.com>
+From: Piotr Zalewski <pZ010001011111@proton.me>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, Daniel Stone <daniel@fooishbar.org>, Dragan Simic <dsimic@manjaro.org>, Diederik de Haas <didi.debian@cknow.org>
+Subject: Re:Re: [PATCH v6] rockchip/drm: vop2: add support for gamma LUT
+Message-ID: <-rVNN65kgfRzFJBJDIwQF3jNMfXIZFP8GibtUgB_p-eWGLBkNZhYFr-BXEas8IjjofHxWQUqNicUSTp5rb9XmuLi35XsDd0PzJPz79j-M-8=@proton.me>
+In-Reply-To: <2bb58a1c.6287.192d1dc9b2d.Coremail.andyshrk@163.com>
+References: <20241016223558.673145-2-pZ010001011111@proton.me> <DurUfF_0TBHKv4DHKIP3ggQh_85nRY0usYWn_fu_oJ45txO7dGKv-OK5rl6EDEPmX5l8WzrwPCzAvYz0xFPfeKGyx7enu1g-prsWIpilv88=@proton.me> <2bb58a1c.6287.192d1dc9b2d.Coremail.andyshrk@163.com>
+Feedback-ID: 53478694:user:proton
+X-Pm-Message-ID: 70c53b22f6b3d3f24ee6b0df1f6f75d1e7f29476
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-*: Add GPIO INTR region in ranges
-To: Vaishnav Achath <vaishnav.a@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20240903055733.3483840-1-vaishnav.a@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20240903055733.3483840-1-vaishnav.a@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_095851_597041_6A1733CE 
-X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-CacheID: sfid-20241028_094056_803375_D7633D96 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,27 +69,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Monday, October 28th, 2024 at 7:42 AM, Andy Yan <andyshrk@163.com> wrote=
+:
 
+> Hi Piotr=EF=BC=8C
 
-On 03/09/24 11:27, Vaishnav Achath wrote:
-> Add GPIO Interrupt Router regions in ranges. Although not currently used
-> by the Linux TI-SCI INTR driver, these regions should be included in the
-> ranges mapping.
-> 
-> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
-> ---
-> 
-> This was observed while trying to boot Xen hypervisor on these platforms
-> and the mapping failed due to missing GPIO INTR region.
-> 
-> Keeping all platforms changes in single patch as it is identical and trivial.
-> 
+Hi Andy
 
+> Tested on top of Linux 6.12-rc5 with rk3566-box-demo in a buildroot + wes=
+ton environment:
+> weston --backend=3Ddrm-backend.so -i 0 --continue-without-input
+> weston-simple-egl
 
-Please rebase on top of latest -next
+Thank you for testing it!
 
+> simple-egl will draw a triangle on the desktop.
+> After the patch applied=EF=BC=8Cthe triangle will flicker again and agian=
+=E3=80=82
+> So it break some function=E3=80=82
 
--- 
-Regards
-Vignesh
+Did you have gamma on? The screen flickered for me when I ran something=20
+writing gamma LUT frequently because of disable step I reckon.
+
+> I've been quite busy lately, and it will take some time before I can anal=
+yze what the specific reason is.
+
+Np, I will try to reproduce this behavior with weston on Pinetab2 in the
+meantime.
+
+Best Regards, Piotr Zalewski
+
 
