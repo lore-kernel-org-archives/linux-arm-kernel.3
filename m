@@ -4,57 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BC6D5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2DAD5B158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0OL5D3wRRnScnzyZ9auDpW3UVQiUgrhsjMKbblKCAs=; b=DNKJC/2+n+kXbubYJlMR7tgHUf
-	8zraSG1mfH8WFWqUCxakwvsyn4JdvvS5T94bCWOCZIkzF3FuV4vSOEqpYaJLdFvolnV/hXsT3H6xH
-	YOLqZzGKbP/m591SbuYfIa76m8wGXPJ+3S5NxkkdZpVqY+v+0bJ38A0ESPtTRyx6ilqUI8/GMS6XQ
-	uU9yj6Kay4vZ9zEiSeZEhSOOrQoFa9dh/k1hpQA7TSYx39Mmbb8gRNf2JPEuhF0rqnjS4TLAwq2ha
-	NbufL+7PQCg4di1fu/qy4sHyxR66DrgY/DtMWqrtrgSbroEL+JADDysTtW0b5TrLcb3Ygm5wo1rjz
-	0QsvoNuQ==;
+	bh=MIu8nbphfr0kRpJXu0L3XhSe06h41uBB4XXp8vIsjxU=; b=thzgLmgX4vEpJaw09FjQDHk1gY
+	SevsCUH6bljWood4VJig5FvxnndQ+qDZTRX46AYYlJV1b6uX7TNj/9dgOYhyyLVp0KtzFoI0tnteQ
+	UKGekCJj8rL7/BOapB5J3wDhNq44OF1cTO1K0a1ndpmUIovJ4FnDY+5NcuUE68S0qluzQw21u/BQN
+	gErCfbh8xc1LNFWVpbjl/Ba5IlcyB7Rhgt+035EWoD+JOyB1ZT2radEjyTxW9OnZGSgNAAQh/LXdq
+	H8HJCn2MLQuggfYsvp0l/Hxpvv7v56CtD1ZQSdqAtCKPwqNsCRC8ko7cGS8UfcZERoFOjMonWY5D4
+	x1uBtpfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XOk-0000000CM3j-2EaU;
-	Mon, 28 Oct 2024 21:35:39 +0000
-Received: from mail-40134.protonmail.ch ([185.70.40.134])
+	id 1t5XQK-0000000CMRx-3fok;
+	Mon, 28 Oct 2024 21:37:16 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Wm1-0000000CGUT-2uJ4
+	id 1t5WqQ-0000000CH9M-0lrH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:55:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1730148931; x=1730408131;
-	bh=o0OL5D3wRRnScnzyZ9auDpW3UVQiUgrhsjMKbblKCAs=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=LvLyWoWiUh9ggZTBZ8zvQN5/B8ObjInqvBYhRHgkDODoLIPoHwDpmzcKoCLpx7zTj
-	 vW8CXBLVD4VHqjrSARPpXxEa8WG7lLfIBOgyu4y17E9N03LO4Nv13G24lyxJcnPB98
-	 ojl2y1CTGAOMKBpUfMyVBIySZ4bL9i2t+iJnwOGWHyx4JQrCZgX95OysTKBSF+4cHx
-	 UY+VtUJKyZl0Nrlb4xwUNMUqyTMpLTSa4HvWq/wqzglu6ysFWkrVVtEtgMdcSz9PKm
-	 dE51KCNUudFfX0gaWEZti32YbEMyrgava2m14Xqz/qHrsNpKUbRq+Mfk8LHr7oX6hx
-	 EjNYZ8PFu1/jg==
-Date: Mon, 28 Oct 2024 20:55:28 +0000
-To: Andy Yan <andyshrk@163.com>
-From: Piotr Zalewski <pZ010001011111@proton.me>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, Daniel Stone <daniel@fooishbar.org>, Dragan Simic <dsimic@manjaro.org>, Diederik de Haas <didi.debian@cknow.org>
-Subject: Re:Re: [PATCH v6] rockchip/drm: vop2: add support for gamma LUT
-Message-ID: <wXgQHAvchmtDzCTJX5pnEcLvGM1Rf2HTeooQ7GwE-6luNP_BLRQ2LW0wWSXcGWgARzDnfhKd1xQXeMMGYSAhIlX9m7pl3CZ6FxM1yc0qslg=@proton.me>
-In-Reply-To: <-rVNN65kgfRzFJBJDIwQF3jNMfXIZFP8GibtUgB_p-eWGLBkNZhYFr-BXEas8IjjofHxWQUqNicUSTp5rb9XmuLi35XsDd0PzJPz79j-M-8=@proton.me>
-References: <20241016223558.673145-2-pZ010001011111@proton.me> <DurUfF_0TBHKv4DHKIP3ggQh_85nRY0usYWn_fu_oJ45txO7dGKv-OK5rl6EDEPmX5l8WzrwPCzAvYz0xFPfeKGyx7enu1g-prsWIpilv88=@proton.me> <2bb58a1c.6287.192d1dc9b2d.Coremail.andyshrk@163.com> <-rVNN65kgfRzFJBJDIwQF3jNMfXIZFP8GibtUgB_p-eWGLBkNZhYFr-BXEas8IjjofHxWQUqNicUSTp5rb9XmuLi35XsDd0PzJPz79j-M-8=@proton.me>
-Feedback-ID: 53478694:user:proton
-X-Pm-Message-ID: c6c0ed3cb59d5081b7c3f97d9c933c5ec18de402
+	Mon, 28 Oct 2024 21:00:15 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 94D911FDB4;
+	Mon, 28 Oct 2024 21:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1730149206; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MIu8nbphfr0kRpJXu0L3XhSe06h41uBB4XXp8vIsjxU=;
+	b=FQrsIqMBVP10UOIMfQvrX+aobJcjBh7NVYsyW41hVX9BmQ+//g5HdDepr0L2CwIac1AH2s
+	4BEaojhyk2KZ4p9im60xvzurEd9dyD5W8hldNl/V9e6VcwDwxdwPsGMOlQgmpdSTFDlZw6
+	5JNIuKMMGkY2vgjRR6+5JWDxmk2/wkU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1730149206;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MIu8nbphfr0kRpJXu0L3XhSe06h41uBB4XXp8vIsjxU=;
+	b=MPB0AEQhutVquFsbMPAPyr4KT05AUMlM06orXwlKpxm7r5ftfbhFTIpCZBwWxYi8bh4eFl
+	rRPqTg19sGNodGCw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1730149205; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MIu8nbphfr0kRpJXu0L3XhSe06h41uBB4XXp8vIsjxU=;
+	b=WkTgtwGxafHo3jqf8s0DkgSAtYnyWxW9Po1ya/Q+HPeSMaSryT7B0l55Czayr1A7sKfZbD
+	NsAXUMCFKJcMm4N2hnqxCwwis/eTTxBgJfTJvs6VAsSFQwKCu6p11wZ2FqcdUDk5ii+wmH
+	dWZA13rE+weuIwA7gVr4VSfAZnne9QE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1730149205;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MIu8nbphfr0kRpJXu0L3XhSe06h41uBB4XXp8vIsjxU=;
+	b=o/eeHX7YK1XUT6/NSl54j2oHJBm1I27JN02FaM2tXuEjtXKo21efrTp4andrnl5/3p181s
+	srA3iv17R1Z/1CCg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 76F1D136DC;
+	Mon, 28 Oct 2024 21:00:05 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 2ImzHFX7H2c+agAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Mon, 28 Oct 2024 21:00:05 +0000
+Message-ID: <0b64edb9-491e-4dcd-8dc1-d3c8a336a49b@suse.cz>
+Date: Mon, 28 Oct 2024 22:00:05 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region() error
+ path behaviour
+Content-Language: en-US
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Mark Brown <broonie@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Aishwarya TCV <Aishwarya.TCV@arm.com>
+References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
+ <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
+ <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk>
+ <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+ <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
+ <438f50c5-8b8c-444f-ae85-10e5151f3f24@lucifer.local>
+ <57mgmdx7wgfwci3yo3ggkmcnm3ujamgkwcccm77ypvmer5tegn@opiq3ceh2uvy>
+ <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
+ <bea02efe-a695-49e0-b15c-2270a82cadbf@lucifer.local>
+ <CAHk-=whpXVBNvd0NJpw9=FGcuTuThwtfcKeM3Ug=Uk6kpChCPA@mail.gmail.com>
+From: Vlastimil Babka <vbabka@suse.cz>
+Autocrypt: addr=vbabka@suse.cz; keydata=
+ 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
+ EP+ylKVEKb0Q2A==
+In-Reply-To: <CAHk-=whpXVBNvd0NJpw9=FGcuTuThwtfcKeM3Ug=Uk6kpChCPA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-4.29 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.19)[-0.932];
+	MIME_GOOD(-0.10)[text/plain];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[oracle.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_135538_355649_38669E08 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20241028_140010_519733_54C88B30 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,52 +186,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi again
+On 10/28/24 21:22, Linus Torvalds wrote:
+> On Mon, 28 Oct 2024 at 10:18, Lorenzo Stoakes
+> <lorenzo.stoakes@oracle.com> wrote:
+>>
+>> I'm genuinely not opposed to a horrible, awful:
+>>
+>> #ifdef CONFIG_ARM64
+>>         if (file && file->f_ops == shmem_file_operations)
+>>                 vm_flags |= VM_MTE_ALLOWED;
+>> #endif
+>>
+>> Early in the operation prior to the arch_validate_flags() check.
+> 
+> I would just put it inside the arm64 code itself.
+> 
+> IOW, get rid of the VM_MTE_ALLOWED flag entirely, and just make the
+> arm64 arch_validate_flags() code do something like
+> 
+>         if (flags & VM_MTE) {
+>                 if (file->f_ops != shmem_file_operations)
+>                         return false;
+>         }
+> 
+> and be done with it.
 
-On Monday, October 28th, 2024 at 5:40 PM, Piotr Zalewski <pZ010001011111@pr=
-oton.me> wrote:
+VM_MTE_ALLOWED is also set by arm64's arch_calc_vm_flag_bits():
 
-> On Monday, October 28th, 2024 at 7:42 AM, Andy Yan andyshrk@163.com wrote=
-:
->=20
-> > Hi Piotr=EF=BC=8C
->=20
->=20
-> Hi Andy
->=20
-> > Tested on top of Linux 6.12-rc5 with rk3566-box-demo in a buildroot + w=
-eston environment:
-> > weston --backend=3Ddrm-backend.so -i 0 --continue-without-input
-> > weston-simple-egl
->=20
->=20
-> Thank you for testing it!
->=20
-> > simple-egl will draw a triangle on the desktop.
-> > After the patch applied=EF=BC=8Cthe triangle will flicker again and agi=
-an=E3=80=82
-> > So it break some function=E3=80=82
->=20
->=20
-> Did you have gamma on? The screen flickered for me when I ran something
-> writing gamma LUT frequently because of disable step I reckon.
->=20
-> > I've been quite busy lately, and it will take some time before I can an=
-alyze what the specific reason is.
->=20
->=20
-> Np, I will try to reproduce this behavior with weston on Pinetab2 in the
-> meantime.
->
+        if (system_supports_mte() && (flags & MAP_ANONYMOUS))
+                return VM_MTE_ALLOWED;
 
-So I got weston (version 13) and ran it as you did, then ran the same
-client. Nothing flickered. Since weston doesn't support gamma control, I
-ran sway in the other tty and set color temperature there with `gammastep
--O 3000`. Then switched again to weston and color temp. wasn't retained,
-triangle didn't flicker. Then I ran weston-simple-egl under sway (while
-having `gammastep` running and doing gamma lut adjustments every ~5
-seconds) and the triangle didn't flicker too (but there were _expected_
-flickers every ~5 seconds because of gamma adjustments by gammastep).
+And there's also this in arch/arm64/include/asm/page.h
 
-Best Regards, Piotr Zalewski
+#define VM_DATA_DEFAULT_FLAGS     (VM_DATA_FLAGS_TSK_EXEC | VM_MTE_ALLOWED)
+
+So it would need to all be considered in the validation if we wanted to
+replace VM_MTE_ALLOWED completely?
+
+> Considering that we only have that horrendous arch_validate_flags()
+> for two architectures, and that they both just have magical special
+> cases for MTE-like behavior, I do think that just making it be a hack
+> inside those functions is the way to go.
+> 
+>               Linus
+
 
