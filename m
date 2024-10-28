@@ -4,106 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F30D5B158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D19BD5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=; b=2iDAgqeGg8/90DelQxhfbX1hNV
-	0PxAUEHeUFg8U4/mDJz+pFwBXMPmX9wCogTnRzqJV1B+K9chZp9yHgiPecMOZZerDnqBmSW8DKiqu
-	Dr6+JY6W0PmAyVWW86ltzpjYceU3kl+HGRlZo6tyPMifJHbICUG/d8ZdePZynjBwlUBS3nVkEc6Ng
-	+shw/LxiYHCFA/CQfaZHdZ5HBuHAwx5LJXfGss69tG6Wiz0PHFog+aFX6/izOjEUARxsRBPnDsSXs
-	BE1v5HraadB/qIie3c/3b05hhNqvwVMUBgmHWKMSGIZVtIyq6thI+Yd8rfML+6FMTrq89WDwGLPUp
-	vGZSH9GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jglMBUH0rqWlBMLOhgpBoBeEyEUwnWucC7PIWz9hsqQ=; b=NpQvAXYiuLa134cBpiSqeU77cr
+	sw4auwh+uq4tk/EqLpZoH8oZKHJXR7123d9aooJWMX0bILnS92/8hG+kIjkXe0GmxSTT8+2oFhT6h
+	j2iCnw9TeBdnuol7P9dR0K7uiKJGsDQCR7NBTfcpbfZyl25fjoNsTp9QStUGg1wv3HjAreFFw9h7i
+	15Gje8K+AXhF6PqEkGcHKeXotNgCoo12uToNY4jn7CanXT1Ro+RnbbxwbzSok9s9nsEYvnjw7DcFD
+	i4iIrrtN8L7MjxdwBAi16MpJCpE5nUxns/AMtBV8EIKpUk+HLCDtNpUj3UaERaAlPzCiYHWhrIlMo
+	Ubebd2KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XLZ-0000000CLNC-3Bsr;
-	Mon, 28 Oct 2024 21:32:22 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([81.169.146.165])
+	id 1t5XNA-0000000CLi3-0cko;
+	Mon, 28 Oct 2024 21:34:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Wdf-0000000CF4Y-18lz
+	id 1t5Whx-0000000CFqU-3xab
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:47:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1730148399; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=NcDlSnE57617bMfC3xbE4wCADkegivbFIpctkNNfLTdPN8MD6NjCZJ7cVZcw5H09KN
-    lURcLTjgyYYnmBTct3UCVXnnvX9/EqZzj+68M4ym2PZ6SvLXAa7uyjNfVoaNq+9EKTtW
-    1UpqawFQZI0QPVCCkkxE8fywAyoo26bwL5a0CmW4BvwbCOP2UDvTLAIgdv5T3O51HtNa
-    1+YCExkWk8G8JmATjBKrncYefw4gqq/UMAP5/jdNFTRE7Gz/84+pPSQsnN+psVB+nhSM
-    Ljs8Ni8mZPcOjSK0Qn3j0odgM07ivUIYR7z8lOfqxk/aemZoKfgQLN5lGduz/ZzWGPxH
-    7fTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1730148399;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
-    b=D2qMT3rfnzLRD9I+8sFDPHdBb141fsgyVYpB7svT/lQ6Or0DqDZB41DsCSQbi0PMW9
-    4NiyQtnB8LneWFaByNn32bpCvUQT1TebaRu/yjEa7d7ry4tzdLlqTLjUrWzxYh70pSFO
-    oV5EFUFeLVhwGN4q8A8zwPMhKA4bq/HpwsFlcoBZZKKZG0hUbaZ3//pfuzN5uBLH9ZSt
-    RsMdjxxhLLl4/7EcH8qwjFSr6y9BML4teiLnYEFADaV2tURanT8jaJ3RwpBO+ROF5iS2
-    3o0qE83XqetjTYLMikdCgY2I37nS+11wsAc9c0HPdI8qHWuzlXKF8dglL3I8mxgoHsBJ
-    uD4w==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1730148399;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
-    b=oXvXRNnnDlh4EFDy2Jm1FVHTocq5/AgpOU3R7hx5Akyf98y4YaXDkiqhRayK1COrG3
-    aMkhVqhhEAVnwiId/XNd/Ar09Y22xOs5/ZiPXorjow7sLa6LJJjIA5H339Ks7dXXfp7C
-    DglorPhpHRUwqVZ2o7zoBf1QZ9Y8kylZiz09PhMGrqUD2bvAYY4cL8DrLfpAH7cJzTfg
-    t9pczeIH8rKvg5KcvuLKm8sxDi1PX0tDM0Gi+L1gEUnW2TnL3l7rjIeUrhYl/pdb3cfV
-    Nl1jmDLT47FLeOb9vCCnuOQUYsZHNugKkkUzFX+zrNogZvvbVpfLZ6So1JL18+Jhs5UV
-    +QCw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1730148399;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
-    b=9i3butY11/2LpbfRMpDFkRYu3cQJmGU4qAx1SU+Em6HF1Va5Lmn2V918alzfwLvrpn
-    meRjg6YjhVAq6ep/V0Bw==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV3ZoNnMiNdxeutsfZzRfx7IXe+fc9o4UKxSY="
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 51.2.11 AUTH)
-    with ESMTPSA id Qb7e4009SKkcK9Y
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Mon, 28 Oct 2024 21:46:38 +0100 (CET)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51.11.1\))
-Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <cover.1730136799.git.robin.murphy@arm.com>
-Date: Mon, 28 Oct 2024 21:46:27 +0100
-Cc: joro@8bytes.org,
- will@kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- mchehab@kernel.org,
- andersson@kernel.org,
- mathieu.poirier@linaro.org,
- Beleswar Padhi <b-padhi@ti.com>,
- Andreas Kemnade <andreas@kemnade.info>,
- iommu@lists.linux.dev,
- arm-soc <linux-arm-kernel@lists.infradead.org>,
- Linux-OMAP <linux-omap@vger.kernel.org>,
- linux-media@vger.kernel.org,
- linux-remoteproc@vger.kernel.org,
- Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <831CC29D-3B89-4091-8145-0E310FF838CB@goldelico.com>
-References: <cover.1730136799.git.robin.murphy@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-X-Mailer: Apple Mail (2.3776.700.51.11.1)
+	Mon, 28 Oct 2024 20:51:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 66A3E5C5B1D;
+	Mon, 28 Oct 2024 20:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BFBC4CEE7;
+	Mon, 28 Oct 2024 20:51:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730148685;
+	bh=YVImwvRfK5SkCR0Ri+wW4EXpx6zRqJl2vuY6cmlakVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AzBf1/SJXyeqwRAdwQRA5eLFwrmd+2xOAyN2y+115dwiC7KaEjKok+w6qdFBnnJ9e
+	 wEPiii/iF6oS9zRIymChTAi0YQ6owStm5c4K35txnWSoZpBht8uty2CnLxWUlUTmpK
+	 wFDDqKDnwzPy7aPCkhYw1Q2ijJQ/UoPJg9BzTAZUAnvf+NOnyNrTPgW3j2VjdjYTg8
+	 0J0XBvD5qXF96x7F5u6G+YxotYCj2NGtaNliZnIdAdYyd2+ZEeWYQ0fV9lzR2nYsMZ
+	 tZzGxZwFgtcdFoh38kLOrOTqEuSZckUL3Qm5aKc6+CtIXmCrolMHSQwu+6DYRSY/TQ
+	 iORK8RDRSd8SA==
+Date: Mon, 28 Oct 2024 20:51:19 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Jann Horn <jannh@google.com>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
+ error path behaviour
+Message-ID: <0618af23-dca7-40b9-a083-47de9fcd7e50@sirena.org.uk>
+References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
+ <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
+ <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk>
+ <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HPJWBhFva0ZUDklg"
+Content-Disposition: inline
+In-Reply-To: <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+X-Cookie: Remember the... the... uhh.....
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_134659_497504_D6CE7DD1 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20241028_135126_048977_7D25F7ED 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,120 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
 
-> Am 28.10.2024 um 18:58 schrieb Robin Murphy <robin.murphy@arm.com>:
->=20
-> Hi all,
->=20
-> It seems omap-iommu hasn't had enough mainline users to avoid =
-bitrotting
-> through the more recent evolution of the IOMMU API internals. These
-> patches attempt to bring it and its consumers sufficiently up-to-date
-> to work again, in a manner that's hopefully backportable. This is
-> largely all written by inspection, but I have managed to lightly boot
-> test patch #3 on an OMAP4 Pandaboard to confirm iommu_probe_device()
-> working again.
->=20
-> This supersedes my previous patch[1]. Patches #1 and #2 are =
-functionally
-> independent, and can be applied directly to their respective trees if
-> preferred.
+--HPJWBhFva0ZUDklg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I can confirm that this series works on omap3 with v6.12-rc5 and
-Camera is back to the GTA04.
+On Mon, Oct 28, 2024 at 06:57:25PM +0000, Lorenzo Stoakes wrote:
+> On Mon, Oct 28, 2024 at 06:29:36PM +0000, Mark Brown wrote:
 
-So you can add:
-Tested-by: H. Nikolaus Schaller <hns@goldelico.com>
+> > any meaingful detail.  There's nothing particularly instructive in the
+> > test logs, just plain reports that the tests failed:
 
-BR and thanks,
-Nikolaus
+> On these memory allocation failures, could you tell me what errno is? Could you
+> check dmesg for anything strange?
 
-root@letux:~# dmesg|fgrep iommu
-[    0.522613] iommu: Default domain type: Translated
-[    0.522644] iommu: DMA domain TLB invalidation policy: strict mode
-[    0.525177] omap-iommu 480bd400.mmu: 480bd400.mmu registered
-[   10.752563] omap3isp 480bc000.isp: Adding to iommu group 0
-[   10.811218] omap-iommu 480bd400.mmu: 480bd400.mmu: version 1.1
-[   11.039489] omap-iommu 480bd400.mmu: 480bd400.mmu: version 1.1
-root@letux:~# dmesg|fgrep .isp
-[   10.752563] omap3isp 480bc000.isp: Adding to iommu group 0
-[   10.841522] omap3isp 480bc000.isp: supply vdd-csiphy1 not found, =
-using dummy regulator
-[   10.948577] omap3isp 480bc000.isp: supply vdd-csiphy2 not found, =
-using dummy regulator
-[   10.990814] omap3isp 480bc000.isp: Revision 15.0 found
-[   11.089324] omap3isp 480bc000.isp: hist: using DMA channel dma0chan15
-[   11.115905] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-CCP2 was not initialized!
-[   11.168792] omap3isp 480bc000.isp: isp_xclk_set_rate: cam_xclka set =
-to 24685714 Hz (div 7)
-[   11.220062] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-CSI2a was not initialized!
-[   11.291748] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-CCDC was not initialized!
-[   11.362152] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-preview was not initialized!
-[   11.404266] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-resizer was not initialized!
-[   11.485687] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-AEWB was not initialized!
-[   11.520874] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-AF was not initialized!
-[   11.574981] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
-histogram was not initialized!
-[   11.594268] omap3isp 480bc000.isp: parsing parallel interface
-[  106.102905] omap3isp 480bc000.isp: -------------CCDC Register =
-dump-------------
-[  106.110595] omap3isp 480bc000.isp: ###CCDC PCR=3D0x00000000
-[  106.116973] omap3isp 480bc000.isp: ###CCDC SYN_MODE=3D0x00031704
-[  106.123657] omap3isp 480bc000.isp: ###CCDC HD_VD_WID=3D0x00000000
-[  106.129974] omap3isp 480bc000.isp: ###CCDC PIX_LINES=3D0x00000000
-[  106.136810] omap3isp 480bc000.isp: ###CCDC HORZ_INFO=3D0x000004ff
-[  106.143615] omap3isp 480bc000.isp: ###CCDC VERT_START=3D0x00000000
-[  106.149932] omap3isp 480bc000.isp: ###CCDC VERT_LINES=3D0x000003ff
-[  106.156799] omap3isp 480bc000.isp: ###CCDC CULLING=3D0xffff00ff
-[  106.163299] omap3isp 480bc000.isp: ###CCDC HSIZE_OFF=3D0x00000a00
-[  106.169616] omap3isp 480bc000.isp: ###CCDC SDOFST=3D0x00000000
-[  106.176086] omap3isp 480bc000.isp: ###CCDC SDR_ADDR=3D0x40000000
-[  106.182708] omap3isp 480bc000.isp: ###CCDC CLAMP=3D0x00000010
-[  106.188598] omap3isp 480bc000.isp: ###CCDC DCSUB=3D0x00000000
-[  106.195068] omap3isp 480bc000.isp: ###CCDC COLPTN=3D0xbb11bb11
-[  106.201507] omap3isp 480bc000.isp: ###CCDC BLKCMP=3D0x00000000
-[  106.207550] omap3isp 480bc000.isp: ###CCDC FPC=3D0x00000000
-[  106.213684] omap3isp 480bc000.isp: ###CCDC FPC_ADDR=3D0x00000000
-[  106.219909] omap3isp 480bc000.isp: ###CCDC VDINT=3D0x03fe02aa
-[  106.226409] omap3isp 480bc000.isp: ###CCDC ALAW=3D0x00000006
-[  106.232696] omap3isp 480bc000.isp: ###CCDC REC656IF=3D0x00000000
-[  106.238830] omap3isp 480bc000.isp: ###CCDC CFG=3D0x00008800
-[  106.244964] omap3isp 480bc000.isp: ###CCDC FMTCFG=3D0x00000000
-[  106.251434] omap3isp 480bc000.isp: ###CCDC FMT_HORZ=3D0x00000000
-[  106.257568] omap3isp 480bc000.isp: ###CCDC FMT_VERT=3D0x00000000
-[  106.264251] omap3isp 480bc000.isp: ###CCDC PRGEVEN0=3D0x00000000
-[  106.271606] omap3isp 480bc000.isp: ###CCDC PRGEVEN1=3D0x00000000
-[  106.285400] omap3isp 480bc000.isp: ###CCDC PRGODD0=3D0x00000000
-[  106.301147] omap3isp 480bc000.isp: ###CCDC PRGODD1=3D0x00000000
-[  106.307220] omap3isp 480bc000.isp: ###CCDC VP_OUT=3D0x00000000
-[  106.326019] omap3isp 480bc000.isp: ###CCDC LSC_CONFIG=3D0x00006600
-[  106.340087] omap3isp 480bc000.isp: ###CCDC LSC_INITIAL=3D0x00000000
-[  106.358001] omap3isp 480bc000.isp: ###CCDC LSC_TABLE_BASE=3D0x00000000
-[  106.372985] omap3isp 480bc000.isp: ###CCDC =
-LSC_TABLE_OFFSET=3D0x00000000
-[  106.379882] omap3isp 480bc000.isp: =
---------------------------------------------
-[  118.617980] omap3isp 480bc000.isp: OMAP3 ISP AEWB: user wants to =
-disable module.
-[  118.626068] omap3isp 480bc000.isp: OMAP3 ISP AEWB: module is being =
-disabled
-[  118.633392] omap3isp 480bc000.isp: OMAP3 ISP AF: user wants to =
-disable module.
-[  118.641937] omap3isp 480bc000.isp: OMAP3 ISP AF: module is being =
-disabled
-[  118.649627] omap3isp 480bc000.isp: OMAP3 ISP histogram: user wants to =
-disable module.
-[  118.658508] omap3isp 480bc000.isp: OMAP3 ISP histogram: module is =
-being disabled
-root@letux:~#=20
+Looks like this is mostly figured out already but JFTR:
 
+As I said in the report there's nothing in the logs that I noticed,
+anything there is that I've missed should be in the linked logs.  The
+errnos I'm seeing are all:
 
+# mmap(): Invalid argument (22)
+
+> >   # # FAIL: mmap allocation
+
+> Interesting that it MAP_FAIL's though. This could be arch_validate_flags() being
+> moved around.
+
+> Could you do me a further favour then and try a kernel at this commit with:
+
+> 	/* Allow architectures to sanity-check the vm_flags. */
+> 	if (!arch_validate_flags(vm_flags))
+> 		return -EINVAL;
+
+> In mmap_region() commented out?
+
+Unsurprisingly given the above and the rest of the thread commenting out
+that check causes the affected tests to pass, I didn't check for any
+additional impacts.
+
+--HPJWBhFva0ZUDklg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcf+UYACgkQJNaLcl1U
+h9CZHQf9FUhFRBSQGkNvWmC10WNDKbe/eWlGst9t5uiegBC++Eao7ztSSeFz/jHE
+FkqU4UEL8vgXe3qXhgI9JJD1YqU6g3lWuQPqmMR6g7spS8HDDAvcngWQG7fkZfMj
+iabxxefEINHDHC0tQhqXOiPfnAdXKu+q7tCOBbLpx82hkVOybKbJI+Y0lbk+QrQZ
+cPXneploajNGet5UF84W8ph/zc9jbyCDAh8zrR4tsalEHhAbyKf52n7Q5GCnr5hf
+HSCguShWK5nzbi0Q3ejHEJe0h7G0A28EC1m8RFqGS3YN8VI+HxWOwQUuFXpdxh1H
+SmC+WOXm/4ZelGFwPz3DNLXqvDoJYA==
+=2rTT
+-----END PGP SIGNATURE-----
+
+--HPJWBhFva0ZUDklg--
 
