@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B997FD5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F30D5B158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xKuNSIYTBR1rDIPTuHwqfwMTGhTV2i8TmyskVsFOfO4=; b=mqZR1UCaIikKIDuuR9TEPeVnnN
-	UPwIKWX/6efTmrNKrk3sSzcRMiURP9tCauHGwjLEml1QsvOKunyxxHNjwfKN2M6SSXP69F0+5liBc
-	1je2FNBdn94BkOuErRlLs409nGAd5EOjQithuFnt1BFWlde9/jIL9uu4GqxcR4a008nKFpGNJdQNp
-	9VZE9Uo7PacZy9iUR4/63GpfPFFAmrCWgZqz/MilIKllcD01/JvQnSQoqx7jc1iaAEgbe8sAXNPTx
-	/N2K4p+dC+Wu6J72A3FzLk3JGyk8utVfhWrGr45wNNcabJJVwolWEwTzAliqSoi8IcKBaMCDof2XB
-	wUvy9B+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=; b=2iDAgqeGg8/90DelQxhfbX1hNV
+	0PxAUEHeUFg8U4/mDJz+pFwBXMPmX9wCogTnRzqJV1B+K9chZp9yHgiPecMOZZerDnqBmSW8DKiqu
+	Dr6+JY6W0PmAyVWW86ltzpjYceU3kl+HGRlZo6tyPMifJHbICUG/d8ZdePZynjBwlUBS3nVkEc6Ng
+	+shw/LxiYHCFA/CQfaZHdZ5HBuHAwx5LJXfGss69tG6Wiz0PHFog+aFX6/izOjEUARxsRBPnDsSXs
+	BE1v5HraadB/qIie3c/3b05hhNqvwVMUBgmHWKMSGIZVtIyq6thI+Yd8rfML+6FMTrq89WDwGLPUp
+	vGZSH9GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XK0-0000000CLA5-1Oo2;
-	Mon, 28 Oct 2024 21:30:44 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1t5XLZ-0000000CLNC-3Bsr;
+	Mon, 28 Oct 2024 21:32:22 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([81.169.146.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5WcJ-0000000CEgG-11BN
+	id 1t5Wdf-0000000CF4Y-18lz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:45:37 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e30859e1580so3130015276.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 13:45:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730148334; x=1730753134; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xKuNSIYTBR1rDIPTuHwqfwMTGhTV2i8TmyskVsFOfO4=;
-        b=eBnsKg9XBfkTrkWWjbxIBvHTj/lDG5/JitSsYUUn99uhVbG73yE3ct0n47O+EEBfvy
-         +bgW/YxvzCc0ZJ3wYdVhqllCvYqXkDLQIm3+4tyatOQNk4TQZYAd9+gXo9nnIDKNnuR1
-         J7v/Aa74Mie0USnGI62PTr/5OhOJAcFQz9TzWMNXYik0a1WbzNQwhnk7pF59/NAijHBE
-         H8uUAmw1pZPrAQSVIJGF90J7wo+iUcN7MRf/qtnznuEvlaCsSe2M/RF/y7FNtsof2VMw
-         yw+lbWQrRN7+MlJzt2kQ0dloEJ0qZKjc7yYjGTjSqIWCpWkbyA0Q0HgRxeRGMJtuZ6MW
-         nqRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730148334; x=1730753134;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xKuNSIYTBR1rDIPTuHwqfwMTGhTV2i8TmyskVsFOfO4=;
-        b=cFFDLCZaF1Ag75ZxyWL60/+TZyCLeQE7GEc/0KDuRQzga2zmFsv1qy8J0q9vlGziGG
-         eZ8+2DVakiuhkftkgMdmVbSQ1cWleVqOFkDUzldNRaWhVI5L/DbjrpBM9Ai70J/6E42J
-         GFDGh1AzgSfZ1jec7mMdUjGjbpPToD1hOVyMT5H+aLVy/oOBbHRHyPJmpuiz6vAqntgr
-         z8Do51ZdrilD2dBqMn7HElYymWM8B1dB5ywjpANbcByuk0t1Vk6J239EahwXQPb+QNN8
-         q5wjH//jFYcXPgcYO6Q2xY8SKQB22+h51exrbgvfLGUnZr3ITbo4P2dVPlaB1oA+8Jv+
-         VVug==
-X-Gm-Message-State: AOJu0YyY8r4fg2bRELt9Va6jvK8noL2RndutE+HPSHhbnywzAFXQ3bOW
-	7W+fPseKkBhZgwAYsR1X6aeFlp31eIN4BiENKTcRgCMBPqS49wsauUXHv3S/UjESR9aUoYKI3wK
-	SjQ==
-X-Google-Smtp-Source: AGHT+IHUv/Dlq02qbqz0gjBFFfL25anLHCsRNYQi4mL1loTc7X5gbHLuxRGm93NhBDNRsTac4zgpo4TCt0s=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a5b:d43:0:b0:e29:7454:a4da with SMTP id
- 3f1490d57ef6-e3087a705fcmr7090276.4.1730148333867; Mon, 28 Oct 2024 13:45:33
- -0700 (PDT)
-Date: Mon, 28 Oct 2024 20:45:32 +0000
-In-Reply-To: <CADrL8HUEwnP8e700y2XYDgVhhUJuj1UEJmd2NLdtZ1dV845DNw@mail.gmail.com>
-Mime-Version: 1.0
-References: <20241009154953.1073471-1-seanjc@google.com> <20241009154953.1073471-10-seanjc@google.com>
- <CADrL8HUEwnP8e700y2XYDgVhhUJuj1UEJmd2NLdtZ1dV845DNw@mail.gmail.com>
-Message-ID: <Zx_37E9QY_PfBaTB@google.com>
-Subject: Re: [PATCH v3 09/14] KVM: sefltests: Explicitly include
- ucall_common.h in mmu_stress_test.c
-From: Sean Christopherson <seanjc@google.com>
-To: James Houghton <jthoughton@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+	Mon, 28 Oct 2024 20:47:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1730148399; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=NcDlSnE57617bMfC3xbE4wCADkegivbFIpctkNNfLTdPN8MD6NjCZJ7cVZcw5H09KN
+    lURcLTjgyYYnmBTct3UCVXnnvX9/EqZzj+68M4ym2PZ6SvLXAa7uyjNfVoaNq+9EKTtW
+    1UpqawFQZI0QPVCCkkxE8fywAyoo26bwL5a0CmW4BvwbCOP2UDvTLAIgdv5T3O51HtNa
+    1+YCExkWk8G8JmATjBKrncYefw4gqq/UMAP5/jdNFTRE7Gz/84+pPSQsnN+psVB+nhSM
+    Ljs8Ni8mZPcOjSK0Qn3j0odgM07ivUIYR7z8lOfqxk/aemZoKfgQLN5lGduz/ZzWGPxH
+    7fTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1730148399;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
+    b=D2qMT3rfnzLRD9I+8sFDPHdBb141fsgyVYpB7svT/lQ6Or0DqDZB41DsCSQbi0PMW9
+    4NiyQtnB8LneWFaByNn32bpCvUQT1TebaRu/yjEa7d7ry4tzdLlqTLjUrWzxYh70pSFO
+    oV5EFUFeLVhwGN4q8A8zwPMhKA4bq/HpwsFlcoBZZKKZG0hUbaZ3//pfuzN5uBLH9ZSt
+    RsMdjxxhLLl4/7EcH8qwjFSr6y9BML4teiLnYEFADaV2tURanT8jaJ3RwpBO+ROF5iS2
+    3o0qE83XqetjTYLMikdCgY2I37nS+11wsAc9c0HPdI8qHWuzlXKF8dglL3I8mxgoHsBJ
+    uD4w==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1730148399;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
+    b=oXvXRNnnDlh4EFDy2Jm1FVHTocq5/AgpOU3R7hx5Akyf98y4YaXDkiqhRayK1COrG3
+    aMkhVqhhEAVnwiId/XNd/Ar09Y22xOs5/ZiPXorjow7sLa6LJJjIA5H339Ks7dXXfp7C
+    DglorPhpHRUwqVZ2o7zoBf1QZ9Y8kylZiz09PhMGrqUD2bvAYY4cL8DrLfpAH7cJzTfg
+    t9pczeIH8rKvg5KcvuLKm8sxDi1PX0tDM0Gi+L1gEUnW2TnL3l7rjIeUrhYl/pdb3cfV
+    Nl1jmDLT47FLeOb9vCCnuOQUYsZHNugKkkUzFX+zrNogZvvbVpfLZ6So1JL18+Jhs5UV
+    +QCw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1730148399;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=/DBUgSl/fXm+QxrXuouOBjRsFk/JryARzx/x5XkmPtY=;
+    b=9i3butY11/2LpbfRMpDFkRYu3cQJmGU4qAx1SU+Em6HF1Va5Lmn2V918alzfwLvrpn
+    meRjg6YjhVAq6ep/V0Bw==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV3ZoNnMiNdxeutsfZzRfx7IXe+fc9o4UKxSY="
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 51.2.11 AUTH)
+    with ESMTPSA id Qb7e4009SKkcK9Y
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Mon, 28 Oct 2024 21:46:38 +0100 (CET)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51.11.1\))
+Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <cover.1730136799.git.robin.murphy@arm.com>
+Date: Mon, 28 Oct 2024 21:46:27 +0100
+Cc: joro@8bytes.org,
+ will@kernel.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ mchehab@kernel.org,
+ andersson@kernel.org,
+ mathieu.poirier@linaro.org,
+ Beleswar Padhi <b-padhi@ti.com>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ iommu@lists.linux.dev,
+ arm-soc <linux-arm-kernel@lists.infradead.org>,
+ Linux-OMAP <linux-omap@vger.kernel.org>,
+ linux-media@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org,
+ Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <831CC29D-3B89-4091-8145-0E310FF838CB@goldelico.com>
+References: <cover.1730136799.git.robin.murphy@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+X-Mailer: Apple Mail (2.3776.700.51.11.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_134535_317276_9DB3F807 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_134659_497504_D6CE7DD1 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,14 +118,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+lists
+Hi Robin,
 
-Unless there is a good reason for off-list communication, please keep the Cc
-list intact when responding, even for trivialities.
+> Am 28.10.2024 um 18:58 schrieb Robin Murphy <robin.murphy@arm.com>:
+>=20
+> Hi all,
+>=20
+> It seems omap-iommu hasn't had enough mainline users to avoid =
+bitrotting
+> through the more recent evolution of the IOMMU API internals. These
+> patches attempt to bring it and its consumers sufficiently up-to-date
+> to work again, in a manner that's hopefully backportable. This is
+> largely all written by inspection, but I have managed to lightly boot
+> test patch #3 on an OMAP4 Pandaboard to confirm iommu_probe_device()
+> working again.
+>=20
+> This supersedes my previous patch[1]. Patches #1 and #2 are =
+functionally
+> independent, and can be applied directly to their respective trees if
+> preferred.
 
-On Mon, Oct 28, 2024, James Houghton wrote:
-> BTW, there is a typo in the shortlog: "sefltests". Guessing you've
-> noticed that already.
+I can confirm that this series works on omap3 with v6.12-rc5 and
+Camera is back to the GTA04.
 
-I had not.  Thanks for the eyeballs!
+So you can add:
+Tested-by: H. Nikolaus Schaller <hns@goldelico.com>
+
+BR and thanks,
+Nikolaus
+
+root@letux:~# dmesg|fgrep iommu
+[    0.522613] iommu: Default domain type: Translated
+[    0.522644] iommu: DMA domain TLB invalidation policy: strict mode
+[    0.525177] omap-iommu 480bd400.mmu: 480bd400.mmu registered
+[   10.752563] omap3isp 480bc000.isp: Adding to iommu group 0
+[   10.811218] omap-iommu 480bd400.mmu: 480bd400.mmu: version 1.1
+[   11.039489] omap-iommu 480bd400.mmu: 480bd400.mmu: version 1.1
+root@letux:~# dmesg|fgrep .isp
+[   10.752563] omap3isp 480bc000.isp: Adding to iommu group 0
+[   10.841522] omap3isp 480bc000.isp: supply vdd-csiphy1 not found, =
+using dummy regulator
+[   10.948577] omap3isp 480bc000.isp: supply vdd-csiphy2 not found, =
+using dummy regulator
+[   10.990814] omap3isp 480bc000.isp: Revision 15.0 found
+[   11.089324] omap3isp 480bc000.isp: hist: using DMA channel dma0chan15
+[   11.115905] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+CCP2 was not initialized!
+[   11.168792] omap3isp 480bc000.isp: isp_xclk_set_rate: cam_xclka set =
+to 24685714 Hz (div 7)
+[   11.220062] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+CSI2a was not initialized!
+[   11.291748] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+CCDC was not initialized!
+[   11.362152] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+preview was not initialized!
+[   11.404266] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+resizer was not initialized!
+[   11.485687] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+AEWB was not initialized!
+[   11.520874] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+AF was not initialized!
+[   11.574981] omap3isp 480bc000.isp: Entity type for entity OMAP3 ISP =
+histogram was not initialized!
+[   11.594268] omap3isp 480bc000.isp: parsing parallel interface
+[  106.102905] omap3isp 480bc000.isp: -------------CCDC Register =
+dump-------------
+[  106.110595] omap3isp 480bc000.isp: ###CCDC PCR=3D0x00000000
+[  106.116973] omap3isp 480bc000.isp: ###CCDC SYN_MODE=3D0x00031704
+[  106.123657] omap3isp 480bc000.isp: ###CCDC HD_VD_WID=3D0x00000000
+[  106.129974] omap3isp 480bc000.isp: ###CCDC PIX_LINES=3D0x00000000
+[  106.136810] omap3isp 480bc000.isp: ###CCDC HORZ_INFO=3D0x000004ff
+[  106.143615] omap3isp 480bc000.isp: ###CCDC VERT_START=3D0x00000000
+[  106.149932] omap3isp 480bc000.isp: ###CCDC VERT_LINES=3D0x000003ff
+[  106.156799] omap3isp 480bc000.isp: ###CCDC CULLING=3D0xffff00ff
+[  106.163299] omap3isp 480bc000.isp: ###CCDC HSIZE_OFF=3D0x00000a00
+[  106.169616] omap3isp 480bc000.isp: ###CCDC SDOFST=3D0x00000000
+[  106.176086] omap3isp 480bc000.isp: ###CCDC SDR_ADDR=3D0x40000000
+[  106.182708] omap3isp 480bc000.isp: ###CCDC CLAMP=3D0x00000010
+[  106.188598] omap3isp 480bc000.isp: ###CCDC DCSUB=3D0x00000000
+[  106.195068] omap3isp 480bc000.isp: ###CCDC COLPTN=3D0xbb11bb11
+[  106.201507] omap3isp 480bc000.isp: ###CCDC BLKCMP=3D0x00000000
+[  106.207550] omap3isp 480bc000.isp: ###CCDC FPC=3D0x00000000
+[  106.213684] omap3isp 480bc000.isp: ###CCDC FPC_ADDR=3D0x00000000
+[  106.219909] omap3isp 480bc000.isp: ###CCDC VDINT=3D0x03fe02aa
+[  106.226409] omap3isp 480bc000.isp: ###CCDC ALAW=3D0x00000006
+[  106.232696] omap3isp 480bc000.isp: ###CCDC REC656IF=3D0x00000000
+[  106.238830] omap3isp 480bc000.isp: ###CCDC CFG=3D0x00008800
+[  106.244964] omap3isp 480bc000.isp: ###CCDC FMTCFG=3D0x00000000
+[  106.251434] omap3isp 480bc000.isp: ###CCDC FMT_HORZ=3D0x00000000
+[  106.257568] omap3isp 480bc000.isp: ###CCDC FMT_VERT=3D0x00000000
+[  106.264251] omap3isp 480bc000.isp: ###CCDC PRGEVEN0=3D0x00000000
+[  106.271606] omap3isp 480bc000.isp: ###CCDC PRGEVEN1=3D0x00000000
+[  106.285400] omap3isp 480bc000.isp: ###CCDC PRGODD0=3D0x00000000
+[  106.301147] omap3isp 480bc000.isp: ###CCDC PRGODD1=3D0x00000000
+[  106.307220] omap3isp 480bc000.isp: ###CCDC VP_OUT=3D0x00000000
+[  106.326019] omap3isp 480bc000.isp: ###CCDC LSC_CONFIG=3D0x00006600
+[  106.340087] omap3isp 480bc000.isp: ###CCDC LSC_INITIAL=3D0x00000000
+[  106.358001] omap3isp 480bc000.isp: ###CCDC LSC_TABLE_BASE=3D0x00000000
+[  106.372985] omap3isp 480bc000.isp: ###CCDC =
+LSC_TABLE_OFFSET=3D0x00000000
+[  106.379882] omap3isp 480bc000.isp: =
+--------------------------------------------
+[  118.617980] omap3isp 480bc000.isp: OMAP3 ISP AEWB: user wants to =
+disable module.
+[  118.626068] omap3isp 480bc000.isp: OMAP3 ISP AEWB: module is being =
+disabled
+[  118.633392] omap3isp 480bc000.isp: OMAP3 ISP AF: user wants to =
+disable module.
+[  118.641937] omap3isp 480bc000.isp: OMAP3 ISP AF: module is being =
+disabled
+[  118.649627] omap3isp 480bc000.isp: OMAP3 ISP histogram: user wants to =
+disable module.
+[  118.658508] omap3isp 480bc000.isp: OMAP3 ISP histogram: module is =
+being disabled
+root@letux:~#=20
+
+
 
