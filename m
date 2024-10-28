@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63E1D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E13D13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qJTHi2KMszU57wb1zZI7nXL+Y5UzOwkROHjRJN6Unm0=; b=dUHWVQI5x54YvYeM9yGJ+U1Bha
-	4q2V9Ve003BXRk/jjBkAmPBxZj+LiReZBnc2OXcsyJSpsrNFS4EZ7NrkK+nhjq5qc4/UvjWNGK5SZ
-	XoEv5OXzixR/4LHsAjMGhvqm2X5qJrjTxusruv2wBhWZy6Edmed7t1qtOvDfHp0x0+/Qx2qyaogFZ
-	xdWsS9TTZtEDvsy/gGlUF0fGQoXehbVQKvL2bmh2ShuJ2QjfK6ZAxhns+DcLTgiDHmSizmtxnOZeS
-	ofH4gWjIUnSEo//gjzZ/UcOEXlt++ZKLR8gTvJ/ljBK5U+XBTCrocSsdNpL02Ed1BdFmecHzIwa5x
-	l3GALNiw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BAlECAcGnuh4cuscZB5s8TRPHJ/b/S5CapIyxKLOHrA=; b=1LHhdXkfkhmDagxbJY6bjPEmJl
+	vg8/5FtCrYvXILAjhCiLUoA2DgNmUEglpVi/58FcvRVpCXXyI3vRDUxwnFGxDSKCIC/NAX5CC9m2V
+	cTVhcqDI4NDTA+OAIJ1lXL7TxV1C24jj3fRt60vh8wWoZ/DDQGmAxoxivlzwqvfE4Pz8HrVVNuAD4
+	3iCUQ9ZKU3C235ERhaF/fEDkDgvzfjzk0OSkuelXNWFcj2990p9PkFxcltFJike8NcbMRS0u/152E
+	X778ztuGN0PAOeaRYuDBs8IVJSw6WP+qlKShhFvKFwSUmfkWLuMSQ1skhJe8dNvZQ3C7ciaw56TM6
+	LBWumNzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MOk-0000000AIZM-168B;
-	Mon, 28 Oct 2024 09:50:54 +0000
+	id 1t5MQV-0000000AJCI-05mK;
+	Mon, 28 Oct 2024 09:52:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MEe-0000000AGLH-04fU
+	id 1t5MEm-0000000AGOB-1AlM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:40:29 +0000
+	Mon, 28 Oct 2024 09:40:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1E43B5C597C;
-	Mon, 28 Oct 2024 09:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5BEC4CEC3;
-	Mon, 28 Oct 2024 09:40:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B587F5C586B;
+	Mon, 28 Oct 2024 09:39:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD72C4CEC3;
+	Mon, 28 Oct 2024 09:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730108426;
-	bh=cJ+xOHKsd2TE6St+Y4s0cnha3ZN14d8zhSDTUgcPAJQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=E8Wy/uS8MmrVLrH6Eg66uVopyNyEs0D1w1NRIett4Jm9ho0cwd7BDvKUDI2tqtqaw
-	 FNEjL4wUvmmxz76o0sDV4u3FQ7LRJU8Z5dqiXscxE9iADdm+PKlmL31hftZLyNkwds
-	 fpmQ2gTPdz4S/s1bWxzzwDRc6iwzCuCkw9YVO4/1PhGsuxY296H0PYQ/YvOvcpfX5M
-	 BhQ+ppSTvKZP6Ydv6dCfxOJnCyi5/Z1G7Eb9L08+oKmBhT/fpiHASxEvKtaLp2AO78
-	 PIjd7hdol5g9Zzq1n1YpmJ7hZe/fLb6SdS+rvkCvFintECgOPDLReqiZWCA9QMgWj+
-	 e2sz3O+aLu6zQ==
+	s=k20201202; t=1730108435;
+	bh=fOfCtMTTqempwM/M8Zy6RaQ+0MELCkS3ty5RpQLNX8I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TMWEb3Q3yr8sCY6ZLd++1Af1iFAAgAf3jSpETEVxbSccuguh6Cym2Gy0O5Ke8gqrC
+	 l5hThnrs87kVHIuDBxZmVkSq1poOrkDHM5x5HUXaraiyME1BiLZ2esgzvPO7Y4Ot5e
+	 bjGZudSe67agjEV28Y3gCStBWuGGggC97WWT2CcNoUsTBDAWL1FvpPwbas9N+tdNtK
+	 w8X2G2eQhWRt7LfDwo4moHlF8IhsecpR/PWczONikDyrTvfKsVbhSaFyFwA8akimW2
+	 rAF62ze9EJPFvPfwyFiRkrpRcBbThL/JNNr5imv6a2GX4RfpPJgaauHUZDlKbVpeoF
+	 Ta9UPxKwRrkTQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,15 +56,18 @@ Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [PATCH 0/4] Add support for NoTagAccess memory attribute
-Date: Mon, 28 Oct 2024 15:10:10 +0530
-Message-ID: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+Subject: [PATCH 1/4] arm64: Update the values to binary from hex
+Date: Mon, 28 Oct 2024 15:10:11 +0530
+Message-ID: <20241028094014.2596619-2-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_024028_117924_0186B471 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20241028_024036_384421_2346DF81 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A VMM allows assigning different types of memory regions to the guest and not
-all memory regions support storing allocation tags. Currently, the kernel
-doesn't allow enabling the MTE feature in the guest if any of the assigned
-memory regions don't allow MTE. This prevents the usage of MTE in the guest even
-though the guest will never use these memory regions as allocation tagged
-memory.
+This matches the ARM ARM representation. No functional change in this
+patch.
 
-This patch series provides a way to enable MTE in such configs. Translations
-from non-MTE-allowed memory regions are installed in stage-2 with NoTagAccess
-memory attributes. Guest access of allocation tags with these memory regions
-will result in a VM Exit.
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ arch/arm64/include/asm/memory.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-Note: We could use the existing KVM_EXIT_MEMORY_FAULT for this. I chose to add a
-new EXIT type because this is an arm64-specific exit type and I was not sure
-whether KVM_EXIT_MEMORY_FAULT needs a NoTagAccess flag.
-
-
-Aneesh Kumar K.V (Arm) (4):
-  arm64: Update the values to binary from hex
-  arm64: cpufeature: add Allocation Tag Access Permission (MTE_PERM)
-    feature
-  arm64: mte: update code comments
-  arm64: mte: Use stage-2 NoTagAccess memory attribute if supported
-
- arch/arm64/include/asm/cpufeature.h  |  5 ++++
- arch/arm64/include/asm/kvm_emulate.h |  5 ++++
- arch/arm64/include/asm/kvm_pgtable.h |  1 +
- arch/arm64/include/asm/memory.h      | 14 +++++-----
- arch/arm64/kernel/cpufeature.c       |  9 +++++++
- arch/arm64/kvm/hyp/pgtable.c         | 16 ++++++++---
- arch/arm64/kvm/mmu.c                 | 40 +++++++++++++++++++---------
- arch/arm64/tools/cpucaps             |  1 +
- include/uapi/linux/kvm.h             |  7 +++++
- 9 files changed, 77 insertions(+), 21 deletions(-)
-
-
-base-commit: c964ced7726294d40913f2127c3f185a92cb4a41
+diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
+index 0480c61dbb4f..ca42f6d87c16 100644
+--- a/arch/arm64/include/asm/memory.h
++++ b/arch/arm64/include/asm/memory.h
+@@ -178,17 +178,17 @@
+ /*
+  * Memory types for Stage-2 translation
+  */
+-#define MT_S2_NORMAL		0xf
+-#define MT_S2_NORMAL_NC		0x5
+-#define MT_S2_DEVICE_nGnRE	0x1
++#define MT_S2_NORMAL			0b1111
++#define MT_S2_NORMAL_NC			0b0101
++#define MT_S2_DEVICE_nGnRE		0b0001
+ 
+ /*
+  * Memory types for Stage-2 translation when ID_AA64MMFR2_EL1.FWB is 0001
+  * Stage-2 enforces Normal-WB and Device-nGnRE
+  */
+-#define MT_S2_FWB_NORMAL	6
+-#define MT_S2_FWB_NORMAL_NC	5
+-#define MT_S2_FWB_DEVICE_nGnRE	1
++#define MT_S2_FWB_NORMAL		0b0110
++#define MT_S2_FWB_NORMAL_NC		0b0101
++#define MT_S2_FWB_DEVICE_nGnRE		0b0001
+ 
+ #ifdef CONFIG_ARM64_4K_PAGES
+ #define IOREMAP_MAX_ORDER	(PUD_SHIFT)
 -- 
 2.43.0
 
