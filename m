@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB81D5B158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4930D5B159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HFZKIzMwJccmjbRWz8hr4dF1BDbSPdCqeQ+MDKxNuD8=; b=v+F9Xu0X6SNU+kBd4khjadGcSX
-	Pp4OAeRXTUy0zbaOQgkIQ8YoeIESoehBYW9LSNN+s+CJ1kuvFmW0EmTb8+Xwi1UDBOzZB9BwBnzpx
-	cItND71W8qZEQFVeZMRc6lgwW0PPWR1SgWYvUvK0gMnuBtyy3w2Qzr4xwO3FTkpoTEzkdVGc7h2Dx
-	I9EDJ08ERtEOZCXiDnOjy6LhBoN6m7Ynn6zs+7+KsfEAAw1ob9w5aoO6ZPmn+LfosaviSfVFHWgWj
-	JoC0nQx5prxZ/l1UXgsSjCWQzctHrkzgg+Tos+sO+7D+RhiJusXlN5+hEpfxkMyNQV5g5ElgOpMjx
-	Pu4s1K0g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P3jhy7g92HAelJpeRVsKB0qQVe3H+zDTlj5MJNUzblc=; b=c2yNlsBevxmVjAk3fJXNYG3JK6
+	aPQ/u7xkCzb028tsMA+iPJEtJJSBlv3vO0RxXkrN7N3uRUj0RBbxh+0UB56qJHIV60CjT9d5bBtJt
+	B8sahjP8EygEuhkehw57aNxbmiSsKwVD113JdQySkV/tb7Xg5qM6V9zHXHIswEacNYczCPjxswjyI
+	SX7qeBtQDlK4S9wvfB4LuvKuAE8Z/K0emE4x3/9mCCSjhNg3S/mZ1+ZN9dqh5YkqytYqj2JxcoSsb
+	Gsraqy1IF8jiCmFX4g83Iti8hKGsbq7qglSD2Eh8sTN/Hsl36akWyEOvz3bCH2WO8yy1BcS78ugJb
+	i2iZWlaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XgT-0000000CQ4C-3Kw2;
-	Mon, 28 Oct 2024 21:53:57 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1t5Xi5-0000000CQWg-25xw;
+	Mon, 28 Oct 2024 21:55:37 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XMb-0000000CLZr-0x9v
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:33:26 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-82cd93a6617so158220639f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:33:24 -0700 (PDT)
+	id 1t5XMu-0000000CLdg-2JDA;
+	Mon, 28 Oct 2024 21:33:46 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53a007743e7so5497744e87.1;
+        Mon, 28 Oct 2024 14:33:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730151203; x=1730756003; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HFZKIzMwJccmjbRWz8hr4dF1BDbSPdCqeQ+MDKxNuD8=;
-        b=la23ev6OLjYNJ9OW7komuaYf71C+k4270kegYisa+G7AfMOrhcKCPKOpzSNfW/JYj/
-         FdLRl6JoHvJW9hy/NOdrw7mpMoGFOqGrGEQFvkFXy0OmSNIGIqkdZUcW9rv8TMYLbhof
-         F2X3/kLShha/5tSLGlXi95uU6JueO2H2qYDY4=
+        d=gmail.com; s=20230601; t=1730151222; x=1730756022; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P3jhy7g92HAelJpeRVsKB0qQVe3H+zDTlj5MJNUzblc=;
+        b=U7CF0vJXBkznJCmftDMwsV1aP1PSKTXMNZPDXNHelVNzhSNEAHypWN3TU4CfIQ7bVc
+         fj6HjRFBm+Zh/SWHAiHTaO5McqtVsVPMxYYZUnkUv+t5TW4xc/w5nLtJn+8ivkpwUepj
+         LfYKH7RJSag8S/+QtBae7kS6NBMWpIG9qN4Y120jDyxs5fd6mAeYV5YZuI1mB78R4XMA
+         +SlLpN9a9CtzvkxVKlNgA7enyjuhr6QJLx0dBU34tESjN5jNahiGCiGphdU1S5gBmL+c
+         lWTY9OYIEJy5TqeqEsY/GxFDOunG92qYEk1qDdggKyfTZBmjM97qGLGKPQbt9Veg0oQB
+         3Gpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730151203; x=1730756003;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HFZKIzMwJccmjbRWz8hr4dF1BDbSPdCqeQ+MDKxNuD8=;
-        b=Ob+I3SpaqCRe/dJWq+txlMo9bUPr5BGrHTy3mFhVz6Vw2R2VYPUjBwO1XQwTw1JhbH
-         2+mLa9pVZTmEW+ZldeY+mIRdmqbO6wDFmmAWjtvOXLZ7gxLZZo2nIQlIgjYeWX0IcYNt
-         OCEx8Y3YtzIEf19p6ZE9P/UBrH2Ayr5QOdBLKhcl5OUEmOz2zqg2yj2+3OcRLWZj7Ci1
-         +jFTKP79BQSMi9Auy3GMQNym9iagxtnCmQQ/J+Jzxbcqa7IQ+p8Tsx6KizgjQg17Fb1l
-         BIhTyhA9gjBPZNzDUHOyjutSu4O554CZP/wTTFKvPb8lOxZgC24mXLD/4GVqScCD6lhW
-         57QA==
-X-Forwarded-Encrypted: i=1; AJvYcCXhgCngsDjhgDgtVNxqxi9RyYjMcQKWpbc09sg11t1H553EyZnnV3IXciQWBJGWwCBKmcFfA8fl12+N3wtElkjU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMeitEGSDuv9ybHeyWF9uNBsiB6e+Rw/NHYq7Cxu3pocnDOaNI
-	zg3wqPwk1NRYzoBYhacYpF8+DWtF7oJBbAEj3WI5Te3NgOJH4tj2VfJ/ODP+ii2obeXecAJChqh
-	eFAKIqf/QC0tF26/GdSxTHLAxu5rkvzS7w+27
-X-Google-Smtp-Source: AGHT+IFRf7Qdfzoq2U9A+NIDwOGbIKY7nZWXffb09QD8AJkz3xy2j34ROShaH6Jj6HGBK3DfHA78bcGG4mf4sL65r5o=
-X-Received: by 2002:a05:6602:1686:b0:82a:2a67:9429 with SMTP id
- ca18e2360f4ac-83b1c3e7abemr939673139f.5.1730151203568; Mon, 28 Oct 2024
- 14:33:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730151222; x=1730756022;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P3jhy7g92HAelJpeRVsKB0qQVe3H+zDTlj5MJNUzblc=;
+        b=gDOSH90nrZ6u26+Xym2B7JOiGDVwy5jGKhVCg9DDIGiHY+cUotRJMPGr8Fh9cKW7iK
+         HtnUvIc512Nz21vLGMmkHN8iC1VNFGc06dd2pqCjSBKsJvwRGAg5jQ6NeZpg6ljCKMDU
+         mP5UmKk2tqlTfLAzPsylpOLuVAWJr+lEXPEwL1/U4ag0uaZsLMlFu3THUWBm/M2PULnl
+         1B6utveZzs4R0shWJtPExDJZLF5eps+aQjymUNYrImaYVpOjmaPEOkPBVb2iYFdZgWAB
+         TtNWpO4k4DizPEzPsWeBx5dZ2+jFKkI2v+f3RBJGSabq9WpOLot0r6d9hjR4R6klhMWL
+         L8fg==
+X-Forwarded-Encrypted: i=1; AJvYcCVf3Fem9SOW0pO/4wVD+BeI+52wnr61eTDppNtspJOlrbmbfLrsrwgqPpt3RpEKYXML3BuWHuosvrnu88/Xvqg=@lists.infradead.org, AJvYcCWBV2GnFDW62iAXXomvU4/B6iB0CsrrdA/lgugVYf8AKk4PyImpNb0prdPf3IVZaIIUYIFEPifj2pxqMloYq9HY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWnVrZO3aIQmBdBmRLJT6LVPwrIxSD2jtHo3ILLuWU1ai1N7RC
+	17k4qotPDYGofLGIEgQcQ4E7e0QEOHNsslVYJPgnEP7ryyh5auFx
+X-Google-Smtp-Source: AGHT+IH8QWe0UkauZn2bm3eeSh3k+dWuXtsVQf4Au1Nx9JEZxSU0NN5Ic64IUzcAKVKuVoc6QI2zug==
+X-Received: by 2002:a05:6512:3d22:b0:539:f6c4:c29d with SMTP id 2adb3069b0e04-53b34b39798mr4508983e87.54.1730151221818;
+        Mon, 28 Oct 2024 14:33:41 -0700 (PDT)
+Received: from localhost.localdomain ([91.90.219.38])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c98b9sm1204625e87.224.2024.10.28.14.33.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 14:33:41 -0700 (PDT)
+From: Dmitry Yashin <dmt.yashin@gmail.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dmitry Yashin <dmt.yashin@gmail.com>
+Subject: [PATCH 0/3] arm64: dts: rockchip: add Banana Pi BPI-P2 Pro board
+Date: Tue, 29 Oct 2024 02:33:11 +0500
+Message-ID: <20241028213314.476776-1-dmt.yashin@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-References: <20240827181717.187245-1-robdclark@gmail.com> <Zx97PU7cUEVCnpPl@google.com>
-In-Reply-To: <Zx97PU7cUEVCnpPl@google.com>
-From: Rob Clark <robdclark@chromium.org>
-Date: Mon, 28 Oct 2024 14:33:12 -0700
-Message-ID: <CAJs_Fx6EB=0GMqe4cZVdxptFSV3b63HHybfTOgiYVBudgAafsA@mail.gmail.com>
-Subject: Re: [PATCH v9 0/4] io-pgtable-arm + drm/msm: Extend iova fault debugging
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Rob Clark <robdclark@gmail.com>, iommu@lists.linux.dev, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, 
-	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <dri-devel@lists.freedesktop.org>, 
-	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <freedreno@lists.freedesktop.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Joao Martins <joao.m.martins@oracle.com>, Kevin Tian <kevin.tian@intel.com>, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>, 
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <linux-arm-msm@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:SUSPEND TO RAM" <linux-pm@vger.kernel.org>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Sean Paul <sean@poorly.run>, Steven Price <steven.price@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_143325_317283_4897C4A8 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20241028_143344_625020_476705D4 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +99,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 4:53=E2=80=AFAM Mostafa Saleh <smostafa@google.com>=
- wrote:
->
-> Hi Rob,
->
-> On Tue, Aug 27, 2024 at 11:17:08AM -0700, Rob Clark wrote:
-> > From: Rob Clark <robdclark@chromium.org>
-> >
-> > This series extends io-pgtable-arm with a method to retrieve the page
-> > table entries traversed in the process of address translation, and then
-> > beefs up drm/msm gpu devcore dump to include this (and additional info)
-> > in the devcore dump.
-> >
-> > This is a respin of https://patchwork.freedesktop.org/series/94968/
-> > (minus a patch that was already merged)
-> >
-> > v2: Fix an armv7/32b build error in the last patch
-> > v3: Incorperate Will Deacon's suggestion to make the interface
-> >     callback based.
-> > v4: Actually wire up the callback
-> > v5: Drop the callback approach
-> > v6: Make walk-data struct pgtable specific and rename
-> >     io_pgtable_walk_data to arm_lpae_io_pgtable_walk_data
-> > v7: Re-use the pgtable walker added for arm_lpae_read_and_clear_dirty()
-> > v8: Pass pte pointer to callback so it can modify the actual pte
-> > v9: Fix selftests_running case
-> >
-> > Rob Clark (4):
-> >   iommu/io-pgtable-arm: Make pgtable walker more generic
-> >   iommu/io-pgtable-arm: Re-use the pgtable walk for iova_to_phys
-> >   iommu/io-pgtable-arm: Add way to debug pgtable walk
-> >   drm/msm: Extend gpu devcore dumps with pgtbl info
->
-> Do you have plans to post another version of this series, as I am
-> working on some patches, that would use some of the common page walk
-> logic, so it would be more convenient to have them upstream.
-> Otherwise, I can have your series as a dependency.
+This series add support for Banana Pi BPI-P2 Pro based on Rockchip RK3308
+(RK3308B-S variant) made by Shenzhen SINOVOIP.
 
-Sorry, this had dropped off my radar, I'll post an updated iteration
-in a couple minutes.
+Patch 1 fixes rk3308-codec DTB warning.
+Patch 2-3 adds binding and dts for the board.
 
-BR,
--R
+Dmitry Yashin (3):
+  ASoC: dt-bindings: rockchip,rk3308-codec: add port property
+  dt-bindings: arm: rockchip: add Banana Pi BPI-P2 Pro board
+  arm64: dts: rockchip: add Banana Pi BPI-P2 Pro board
 
-> Thanks,
-> Mostafa
->
->
-> >
-> >  drivers/gpu/drm/msm/adreno/adreno_gpu.c |  10 ++
-> >  drivers/gpu/drm/msm/msm_gpu.c           |   9 ++
-> >  drivers/gpu/drm/msm/msm_gpu.h           |   8 ++
-> >  drivers/gpu/drm/msm/msm_iommu.c         |  22 ++++
-> >  drivers/gpu/drm/msm/msm_mmu.h           |   3 +-
-> >  drivers/iommu/io-pgtable-arm.c          | 149 +++++++++++++++---------
-> >  include/linux/io-pgtable.h              |  15 +++
-> >  7 files changed, 160 insertions(+), 56 deletions(-)
-> >
-> > --
-> > 2.46.0
-> >
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ .../bindings/sound/rockchip,rk3308-codec.yaml |   4 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3308-bpi-p2-pro.dts   | 362 ++++++++++++++++++
+ 4 files changed, 372 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3308-bpi-p2-pro.dts
+
+
+base-commit: 9220a541da2bc49ac79e0475843048ba29e4d076
+-- 
+2.39.5
+
 
