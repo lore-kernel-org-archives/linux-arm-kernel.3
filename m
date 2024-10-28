@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BB8D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95074D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qIqfkzVktUqGL4TZCqG/TtE6T+nDkJffSarBT3k/9Y=; b=auzoe4Cznw0iUT/NjOwegnmHCv
-	u9A1E43TAMV5SXK+bzqb2iBpsP3ndzn6lXd6v+oPY1mtVeVbVQzRFiq20sOznlSvuyQYT8e4xFcOV
-	KoyQYqiQjlJT3y0g+piQJcKvFinw6fG0TWZ2+9Z4G/g51SaHYDoGR+Nc7q4vwy0YZgWO9FTM4giqk
-	OG5dOFShQSfxRlxzjN7YgzlOtnBREUuaGpu9rhBr6Z5R6dENA6pcBTi7j7R2UIIzpYbVLlsT/MwaD
-	38NIY1K6EbF2jYTZhJ2mg81mGguvIstd9s+aYDJYQFMo7GFC0+6erzUl+wQFNLqTsqvlMttWFpQZ6
-	gwDzEF5Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ReNNa/bjIUuQfNRlBiXhYY/+3u8nvvMSOrGOZBdjHB0=; b=vA3LQSMcH1xNKbbmU7DEN2pG3u
+	Drhvja2CUDkUHY0LOIlzXE5+v3RVAgr4quRB8k+wFyEsqd3XvJjpHG2KNKJQRe/B1DGVQDl74TGqA
+	PzBeo0Xm+Gm75WZGjLYCgsfb/r5/bxkOWC17WvSxnpWu2hOlKwWXB9a3V+m1/iBZv+dWyTA63p9bA
+	fySpQW8Ea8PSfA4oQyZpPBC/HiEVk9MJDsB/zFE9Fd4cLMcNaFv8SzA6ir9+Ym9FQ0547z/lDa93n
+	ESjmUkDXLYKMmnQ9dTQ/9X+agDbRUjAcPCeauWHIcCXmhtst4i/ZpGq0Ym2Djj0QicCzspltyNCVA
+	VZNV0uOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KM2-00000009uct-3umV;
-	Mon, 28 Oct 2024 07:39:58 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KJY-00000009tmD-22yQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 07:37:28 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id CFC6EA0767;
-	Mon, 28 Oct 2024 08:37:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=8qIqfkzVktUqGL4TZCqG
-	/TtE6T+nDkJffSarBT3k/9Y=; b=khpG7v+0iIyiW18Bod+0hVtkZ/dm8REBF7OQ
-	+2mnCyibYzfdDRLIkPajNd7AysCLbBVjwatGc30KDxZR7fRgX2Acg0anP5P2vj6t
-	QgGYO7adaVb0mrDVM+2o7tMEaD8g2llZMXNDTvoUTG/l/2xs507g0kgRP773cLD8
-	lzHMY6xmOG3hm4l1SsA7gNtIPIfJ+xp23jm2NyNwhjIi5pI9fZU1a9j3ygJmiui6
-	Oqgb71KTX5ftpELGpvXM2ptUZft7Hteu7YhLX6h0vLZvVzDmLzWbk8dGdJIJRKud
-	c4eQoyYinGD0HNal5Elo7lC7rhyTa53hFNgZpUgntoICWmkda6qsvcOdwr6FgmI+
-	TPzA9vgn5sZPF7mWQVUnN8WigmjochcWrGvWZ+IDp6IrF4m28pOMac48AJZbAe22
-	Ow33c4lfr8Pa5msQ8928EKifDDBeetGWZ4iHnTOsRbjWIKzapehXrwpXMTrXLhnf
-	oPF5F8dS11aUcTFHiH0ktmoa52RX689jyIbkLAHQWzxonAWR1Wwy+qdyCQ0pan2V
-	ynqWbSoGl/vUYxdn+pFByMNTiPh5BSebicb3QNJL1uyjpoe48KulEiFnUEnm5Y1P
-	2AD8SBkrnwqmdZCm4N5G060wf9htlJgOqPLnS1lXMj9V1xlctwN61qnoT2qdmrzc
-	Ch5qujk=
-Message-ID: <b74dafed-197a-4644-a546-54c7a1639484@prolan.hu>
-Date: Mon, 28 Oct 2024 08:37:21 +0100
+	id 1t5KPV-00000009vjO-0A4K;
+	Mon, 28 Oct 2024 07:43:33 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5KNt-00000009vMU-1Tqs;
+	Mon, 28 Oct 2024 07:41:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=ReNNa
+	/bjIUuQfNRlBiXhYY/+3u8nvvMSOrGOZBdjHB0=; b=O3ZDwoOajOf3TPWHJlXlb
+	DnNxqlYO2fv0gRHOTg8W7dd/MUwDJwX1SFnWeH23dqRvT4GFRdXh3VWdWKT9UcgB
+	99EIr0BQe71NtFKty3glh2L9IFl5Pbo2YJxok4mrk0+ne3vmNOI9I799m1h3T0nC
+	jaaC+8sE4A5ZcXYto9eRP0=
+Received: from ProDesk.. (unknown [58.22.7.114])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDnr6c1QB9nigGjDg--.909S2;
+	Mon, 28 Oct 2024 15:41:44 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH] drm/rockchip: vop2: Don't spam logs in atomic update
+Date: Mon, 28 Oct 2024 15:41:34 +0800
+Message-ID: <20241028074140.382199-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Mesih Kilinc
-	<mesihkilinc@gmail.com>, Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai
-	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
-	<samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
-References: <20241027091440.1913863-1-csokas.bence@prolan.hu>
- <20241027091440.1913863-2-csokas.bence@prolan.hu>
- <nlhsxigg3rbfvua76ekmub4p6df2asps2ihueouuk6zkbn56zl@xdj6jzzt4gfb>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <nlhsxigg3rbfvua76ekmub4p6df2asps2ihueouuk6zkbn56zl@xdj6jzzt4gfb>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855677C65
+X-CM-TRANSID: _____wDnr6c1QB9nigGjDg--.909S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJw13Gr1xCw4kAr4rZFyUGFg_yoW5WFW8pF
+	y7CF909r4Utr4qga47JrZxZr43K392ka4xtF4xW3W7K343trn7JrsxGF4xJrWYvF48u34U
+	AFn8J34Y9a4xZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j-SdgUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gyGXmcfN0LRQQAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_003724_742134_80AE79D2 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20241028_004153_718157_82C5A30C 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On 2024. 10. 27. 21:42, Krzysztof Kozlowski wrote:
-> On Sun, Oct 27, 2024 at 10:14:32AM +0100, Csókás, Bence wrote:
->> From: Mesih Kilinc <mesihkilinc@gmail.com>
->>
->> Allwinner suniv F1C100s has a reset bit for DMA in CCU. Sun4i do not
->> has this bit but in order to support suniv we need to add it. So add
->> support for reset bit.
->>   
->>   static struct sun4i_dma_dev *to_sun4i_dma_dev(struct dma_device *dev)
->> @@ -1215,6 +1218,15 @@ static int sun4i_dma_probe(struct platform_device *pdev)
->>   		return PTR_ERR(priv->clk);
->>   	}
->>   
->> +	if (priv->cfg->has_reset) {
->> +		priv->rst = devm_reset_control_get_exclusive(&pdev->dev,
->> +							     NULL);
->> +		if (IS_ERR(priv->rst)) {
->> +			dev_err_probe(&pdev->dev, "Failed to get reset control\n");
-> 
-> syntax is: return dev_err_probe()
-> 
-> Best regards,
-> Krzysztof
+Demote the error message to drm_dbg_kms to only print the message
+if the respective debug messages are enabled.
 
-Thanks! And regarding v3 of this patch, I have `clk_disable_unprepare()` 
-after `dev_err_probe()`, I assume I have to let that be i.e. not return 
-immediately?
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
+
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 5c5459ee03076..e75b027674869 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1373,8 +1373,9 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 	dsp_w = drm_rect_width(dest);
+ 
+ 	if (dest->x1 + dsp_w > adjusted_mode->hdisplay) {
+-		drm_err(vop2->drm, "vp%d %s dest->x1[%d] + dsp_w[%d] exceed mode hdisplay[%d]\n",
+-			vp->id, win->data->name, dest->x1, dsp_w, adjusted_mode->hdisplay);
++		drm_dbg_kms(vop2->drm,
++			    "vp%d %s dest->x1[%d] + dsp_w[%d] exceed mode hdisplay[%d]\n",
++			    vp->id, win->data->name, dest->x1, dsp_w, adjusted_mode->hdisplay);
+ 		dsp_w = adjusted_mode->hdisplay - dest->x1;
+ 		if (dsp_w < 4)
+ 			dsp_w = 4;
+@@ -1384,8 +1385,9 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 	dsp_h = drm_rect_height(dest);
+ 
+ 	if (dest->y1 + dsp_h > adjusted_mode->vdisplay) {
+-		drm_err(vop2->drm, "vp%d %s dest->y1[%d] + dsp_h[%d] exceed mode vdisplay[%d]\n",
+-			vp->id, win->data->name, dest->y1, dsp_h, adjusted_mode->vdisplay);
++		drm_dbg_kms(vop2->drm,
++			    "vp%d %s dest->y1[%d] + dsp_h[%d] exceed mode vdisplay[%d]\n",
++			    vp->id, win->data->name, dest->y1, dsp_h, adjusted_mode->vdisplay);
+ 		dsp_h = adjusted_mode->vdisplay - dest->y1;
+ 		if (dsp_h < 4)
+ 			dsp_h = 4;
+@@ -1398,14 +1400,14 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 	 */
+ 	if (!(win->data->feature & WIN_FEATURE_AFBDC)) {
+ 		if (actual_w > dsp_w && (actual_w & 0xf) == 1) {
+-			drm_err(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
++			drm_dbg_kms(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
+ 				vp->id, win->data->name, actual_w);
+ 			actual_w -= 1;
+ 		}
+ 	}
+ 
+ 	if (afbc_en && actual_w % 4) {
+-		drm_err(vop2->drm, "vp%d %s actual_w[%d] not 4 pixel aligned\n",
++		drm_dbg_kms(vop2->drm, "vp%d %s actual_w[%d] not 4 pixel aligned\n",
+ 			vp->id, win->data->name, actual_w);
+ 		actual_w = ALIGN_DOWN(actual_w, 4);
+ 	}
+@@ -1443,7 +1445,7 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		 */
+ 		stride = (fb->pitches[0] << 3) / bpp;
+ 		if ((stride & 0x3f) && (xmirror || rotate_90 || rotate_270))
+-			drm_err(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
++			drm_dbg_kms(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
+ 				vp->id, win->data->name, stride);
+ 
+ 		uv_swap = vop2_afbc_uv_swap(fb->format->format);
+-- 
+2.34.1
 
 
