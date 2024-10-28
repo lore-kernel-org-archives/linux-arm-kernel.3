@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467DDD13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A49DD13595
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eec3/hgtOskNnavO9iZ9Pai/zF/+x4ygGxVLf4dVcM=; b=diDhpVp+DMQZbib7EkV3Ygw0lT
-	1gPjcw6+WzKP5g1jNDgksVyi2c9RbMBpvplkLSSAEI/AsA0UKoyAgE8H4Bw9ZVF5CadyV6ZxTEH/x
-	S14e9TpY4olXcP6zeMr9bcGPmmsYDivgT7TpfKzlDyrHfXRUPSSKAcYXrBwABgyDE0uiyCX/lv9SH
-	lAL9anKv/WpbCwNBd2E0mpe9BB7bqJXwys0AqLVviUSHibIhzwXxDmsHAtckPolqB7vimeAFeIuvb
-	VCcWYQOhFOoOXvCu+MtCisw2IwQBJjgYWNC7uvvOiEFhYX/aCucBvYhj3zR+hfPXdzhIO6pZSNpo9
-	ugLr1p+A==;
+	bh=u0Unt55RRemD6ENmrHRTyYU8MH9wsbBDRFlWoRfK0T4=; b=OpaKCFviKUiUPcqr5RhaN4QR7e
+	QC6Tn3QElzH+2F8NsYC64n86MW2l++GxBMfYpGEIjqeJdYxcGhl+/rdTrCzWpROC9D/+3XeJqkxO7
+	F3eZxa676x6a+wWqJ8Pr+pOKnpSwSiflMqrw/ehFatnf9TxrG2j1yWmaC9ZvlQPSYLWjk+05M2Ks6
+	+mKBXIvlxaqW8s7mVId3MS7BcaQBZiQAaoWDouho+9PmwdV1NwM01/ZluXhqbsOTmcqPGL9uUA6Jj
+	3DA+5sX9pN1fnqniG4djMtRODtqShSBEFFNhLKgdEsXY9b4s2YjFcN51f86cC/GIddn7GjuLgN6Wu
+	BEr802OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5JpR-00000009nz3-45sH;
-	Mon, 28 Oct 2024 07:06:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5JrM-00000009oEQ-3lTI;
+	Mon, 28 Oct 2024 07:08:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5JnW-00000009ner-0ag0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 07:04:19 +0000
+	id 1t5Jpm-00000009o4Z-1hJk;
+	Mon, 28 Oct 2024 07:06:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D33735C03CC;
-	Mon, 28 Oct 2024 07:03:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B18AC4CEC3;
-	Mon, 28 Oct 2024 07:04:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 45F47A418CC;
+	Mon, 28 Oct 2024 07:04:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13209C4CEC3;
+	Mon, 28 Oct 2024 07:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730099056;
-	bh=IFtzioYoMCrWC81G9MYTULX0ymqOZQrC+0Er2G6w02s=;
+	s=k20201202; t=1730099197;
+	bh=C6ecd/IilLnEJaRLZPz9N5mizdHDr5C84R9swhXE194=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s4JENpkiaVagP4ja3lR3I/+eQ6q0RnPMxEF0weztAm4glUbkwNhX6ODVee7gm34aB
-	 54k/A7nxVQjMkDPBsRrWLzBXwZ8Lq7ZcTULRvGwBe5tHuDSdyZLS201prRhaTVauoM
-	 VY8SuVXmzHbZVK/pjChwG4MYIFPfKGP5fZcXkgTEIfftnd1KBUUOkPpmOrfmn+FtgR
-	 Z+6zw/ioIE92FHeeVxNdS/f6z13dclVmSOAKOV/9ICygTPBwOzVJ2W5OZ2VRTiV2SE
-	 cBFGFdtFy4H0f5sbmbLuhS1cJQd0oifmfnNJe749lULfjkHFwvEhgJwg/7smM4nmvL
-	 aK54ya6O5Pe0A==
-Message-ID: <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
-Date: Mon, 28 Oct 2024 08:04:09 +0100
+	b=VCUlQA93gEIP1NchFREE5xQcXjzsAzjJIC+oFkDeVy452QZzmUGi5sZvLoVQaPtrk
+	 scwWaNnc7kMoUSpCnEYkUB51OcV+bxrHeRZQotNLpsCHPSOmRricfXNBWQfE8DtJFR
+	 DjSoA/QGAYRZH9+Oh9bdIF7lkuYvmjWZvDnwJzXbWnpNvqJrAeC34lu0ZDnnV+++07
+	 Xysk5czeUUhrXktJlYbj9CTiEOZ2dSz3PmO3GSuoZz3lxwmGdPIz7I7aRzBQm9Ftmo
+	 o+N5Fc3ZxK5nyzZMoyAARIU5/Wo9z78TBK3czpljO1wINA7TgavHydybaFsUfBhskw
+	 Zz80XJvXNYfeQ==
+Message-ID: <8eeb1f7c-3198-45ac-be9a-c3d4e5174f1f@kernel.org>
+Date: Mon, 28 Oct 2024 08:06:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-To: Ming-Jen Chen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
- dmitry.torokhov@gmail.com
-References: <20241022063158.5910-1-mjchen0829@gmail.com>
- <20241022063158.5910-2-mjchen0829@gmail.com>
- <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
- <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
- <ef407e89-950f-4874-9dca-474d107f6a52@kernel.org>
- <984781ba-9f4c-4179-84d5-4ab8bbe4c3c6@gmail.com>
+Subject: Re: [PATCH v2 2/4] dt-bindings: net: Add support for Sophgo SG2044
+ dwmac
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, Yixun Lan <dlan@gentoo.org>,
+ Longbin Li <looong.bin@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+References: <20241025011000.244350-1-inochiama@gmail.com>
+ <20241025011000.244350-3-inochiama@gmail.com>
+ <4avwff7m4puralnaoh6pat62nzpovre2usqkmp3q4r4bk5ujjf@j3jzr4p74v4a>
+ <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +114,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <984781ba-9f4c-4179-84d5-4ab8bbe4c3c6@gmail.com>
+In-Reply-To: <mwlbdxw7yh5cqqi5mnbhelf4ihqihup4zkzppkxm7ggsb5itbb@mcbyevoat76d>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_000418_293906_44E68BA1 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_000638_606821_EC52048F 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,93 +134,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 02:15, Ming-Jen Chen wrote:
-> 
-> On 2024/10/25 下午 07:42, Krzysztof Kozlowski wrote:
->> On 25/10/2024 07:36, Ming-Jen Chen wrote:
->>>>> +      0  = 0 clock
->>>>> +      1  = 0 clock
->>>>> +      2  = 0 clock
->>>> Heh? So this is just 0
->>>>
->>>>> +      3  = 8 clocks
->>>> This is 8
->>>>
->>>>> +      4  = 16 clocks
->>>> 16, not 4
->>>>
->>>>> +      5  = 32 clocks
->>>>> +      6  = 64 clocks
->>>>> +      7  = 128 clocks
->>>>> +      8  = 256 clocks
->>>>> +      9  = 512 clocks
->>>>> +      10 = 1024 clocks
->>>>> +      11 = 2048 clocks
->>>>> +      12 = 4096 clocks
->>>>> +      13 = 8192 clocks
->>>> Use proper enum
->>> I will update the definition to specify the debounce period in terms of
->>> keypad IP clock cycles, as follow:
+On 28/10/2024 00:32, Inochi Amaoto wrote:
+> On Sun, Oct 27, 2024 at 09:38:00PM +0100, Krzysztof Kozlowski wrote:
+>> On Fri, Oct 25, 2024 at 09:09:58AM +0800, Inochi Amaoto wrote:
+>>> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare MAC
+>>> with some extra clock.
 >>>
->>> nuvoton,debounce-period:
->>>       type: integer
->>>       enum: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
->>>       description: |
->>>           Key debounce period select, specified in terms of keypad IP
->>> clock cycles.
->>>           This value corresponds to the register setting for the keypad
->>> interface.
->>>           The following values indicate the debounce time:
->>>           - 0 = 0 clock cycles (no debounce)
->>>           - 3 = 8 clock cycles
->>>           - 4 = 16 clock cycles
->>>           - 5 = 32 clock cycles
->>>           - 6 = 64 clock cycles
->>>           - 7 = 128 clock cycles
->>>           - 8 = 256 clock cycles
->>>           - 9 = 512 clock cycles
->>>           - 10 = 1024 clock cycles
->>>           - 11 = 2048 clock cycles
->>>           - 12 = 4096 clock cycles
->>>           - 13 = 8192 clock cycles
->> No. 0, 8, 16, 32 , 64 etc.
+>>> Add necessary compatible string for this device.
+>>>
+>>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+>>> ---
+>>
+>> This should be squashed with a corrected previous patch 
 > 
-> I will change it to the following content:
+> Good, I will.
 > 
-> nuvoton,debounce-period:
->    type:  integer
->    enum:  [0,8,16,32,64,128,256,512,1024,2048,4096,8192]
->    description:  | Key debounce period select, specified in terms of keypad IP clock 
-> cycles. Valid values include 0 (no debounce) and specific clock cycle 
-> values: 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, and 8192.
+>> (why do you need to select snps,dwmac-5.30a?), 
 > 
->>>>
->>>>> +
->>>>> +  per-scale:
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
->>>> Missing constraints
->>>>
->>>>> +
->>>>> +  per-scalediv:
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +    description: Per-scale divider (1 to 256).
->>>> Missing constraints
->>>>
->>>> Both properties are unexpected... aren't you duplicating existing
->>>> properties?
->>> pre-scale:
->>> This value configures the IC register for the row scan cycle
->>> pre-scaling, with valid values ranging from 1 to 256
->>> per-scalediv:(I will change pre-scalediv to pre-scale-div)
->> Please look for matching existing properties first.
-> 
-> I will change it to the following content:
-> 
-> nuvoton,scan-time:
+> The is because the driver use the fallback versioned compatible 
+> string to set up some common arguments. (This is what the patch
 
-Why? What about my request?
+Nope. Driver never relies on schema doing select. That's just incorrect.
 
+> 3 does). It is also better to have a accurate fallback compatible
+> if we already know what it is.
 
 Best regards,
 Krzysztof
