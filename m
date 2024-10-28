@@ -4,98 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CED4D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA0AD13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PobXzPGGnjLtxgHS3B4nk270t4SMrzqU1Y+YvIFP7Vw=; b=LbayFTBgA1TdDJLz1KY/QmqDr2
-	HeFya0iGn5W/L1c0lAfGnjzukRf8QW16CWg9aw7X72wf+XqrKwiviANa1iRUBdboaGnpQcFRDSlRe
-	M78t6c0j2z2swPBZ3xLHr+lbsGzqpVZQcIZZmTHC0mv5gylhN4G1JBwcq28YVuFRqNGkL0VNutpsW
-	DL/ugKYYLZpMKFQYWKR5aavH2Zu6G1DtPmASlU9VhR5zzrohGv0A2r9gwPKDCErzEjkvGoXNYk+Vf
-	l7flBy0+c602e34sUEaipCWTGJ0Hn8fakdHKU8L4CVagCzPeqcjBSpgaKBN9HdqrFZJ4pc2mYtbo+
-	YdJIqLBA==;
+	bh=IsLoSHZYm9sXqTBVaEs0amC39F2EwZiRTIgkn4sjr7Y=; b=LOXcdBZcMqsZTnLjJog+pUYQEH
+	3lx9lkF0IZyQ5IG8jzCM8Iobh9hqt/veWVeYwE+umeIk+J6IPxw8W4o35EMr9kn5COX4DdA7s1BNs
+	TLjHGmyWrGlCVcxkTnoMUCJVC5xcZ689YGwPw0ZvXE3bTmywmtQRlF4tyuN4H3NdneviISRjuJvA3
+	Cc/W9KEXtwcL0nvIPDEkmxanVghEjm4R6nkbptm0IxP71gFw3nDP+v6HwVWRtd3sBteG9sdWavD3y
+	cxjedHaEltCvNKvrh6ub2zKb5sLbwuovlA3Ap2obNC6qmKsOsX/fpxtZDL3h19deA23LGK0nR0lgv
+	RmCKK18w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KUe-00000009xQe-1qr9;
-	Mon, 28 Oct 2024 07:48:52 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t5Kck-0000000A0ID-15Bk;
+	Mon, 28 Oct 2024 07:57:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5KS1-00000009wZn-13F9
+	id 1t5Kax-00000009zjU-3u3M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 07:46:21 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49RN0OG6010456;
-	Mon, 28 Oct 2024 07:45:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PobXzPGGnjLtxgHS3B4nk270t4SMrzqU1Y+YvIFP7Vw=; b=Bi3RkSbDc7A892gc
-	pyMeJPC3Hob/hxOxDhrNLvf1wvhb8uFzE0CkC8DKjY6+zEr9acONf12+AXYH9NmC
-	PBReXXGYoOBT5wIneCkKCZU6LmP7nm3HtN/CbA3yESqUsHbLTlPNyY1KZ5x0iOZh
-	XkZJ1VyWT8XbEdLtpsWRJ4JxbQpqdSIVidTC3umUgEI1n+lMX0I+CG3DXLUQjCHq
-	/Rb7bTnM/5d8cyRJDgX+8Okm1X6c5pLW4RBnwkgos8oNvs6mGubIO+2q21qBJlXK
-	0KIYFAKCuB6JLAdnC7JgRuehPmNDNmtQLnc+1gqYsbCiZI3cj2qSfohcNOpDT/Iz
-	fauHuQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gr0x40xn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Oct 2024 07:45:54 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49S7jqO9014587
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Oct 2024 07:45:52 GMT
-Received: from [10.152.195.140] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 28 Oct
- 2024 00:45:43 -0700
-Message-ID: <5862062c-8c52-421d-94b3-6b6000b53616@quicinc.com>
-Date: Mon, 28 Oct 2024 13:15:40 +0530
+	Mon, 28 Oct 2024 07:55:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CADD9A419B6;
+	Mon, 28 Oct 2024 07:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B50C4CEC3;
+	Mon, 28 Oct 2024 07:55:19 +0000 (UTC)
+Message-ID: <17c06e51-ff5e-45f0-8292-14c77f6fd19c@xs4all.nl>
+Date: Mon, 28 Oct 2024 08:55:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 4/7] dt-bindings: clock: Add ipq9574 NSSCC clock and
- reset definitions
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
-        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
-        <angelogioacchino.delregno@collabora.com>, <neil.armstrong@linaro.org>,
-        <arnd@arndb.de>, <nfraprado@collabora.com>, <quic_anusha@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
-References: <20241025035520.1841792-1-quic_mmanikan@quicinc.com>
- <20241025035520.1841792-5-quic_mmanikan@quicinc.com>
- <lyafg7jwbwoe3j7voecgd5tnhrb65utc3vkc5qqxoqug3qd47m@iudkp4w2mrso>
-Content-Language: en-US
-From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-In-Reply-To: <lyafg7jwbwoe3j7voecgd5tnhrb65utc3vkc5qqxoqug3qd47m@iudkp4w2mrso>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [RFC v3 4/4] media: v4l2-ctrls: Add video encoder ROI ctrls
+To: Ming Qian <ming.qian@nxp.com>, mchehab@kernel.org
+Cc: yunkec@google.com, nicolas@ndufresne.ca, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+ xiahong.bao@nxp.com, ming.zhou@nxp.com, eagle.zhou@nxp.com,
+ tao.jiang_2@nxp.com, ming.qian@oss.nxp.com, imx@lists.linux.dev,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241022084040.3390878-1-ming.qian@nxp.com>
+ <20241022084040.3390878-5-ming.qian@nxp.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+In-Reply-To: <20241022084040.3390878-5-ming.qian@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 2B14fMh6JTJ678YrLvHL2MnvQnTUs5Ax
-X-Proofpoint-GUID: 2B14fMh6JTJ678YrLvHL2MnvQnTUs5Ax
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
- clxscore=1011 bulkscore=0 adultscore=0 impostorscore=0 mlxscore=0
- malwarescore=0 mlxlogscore=703 priorityscore=1501 spamscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410280063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_004609_818384_E4FED7D1 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20241028_005524_152296_DE062312 
+X-CRM114-Status: GOOD (  34.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,40 +68,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 22/10/2024 10:40, Ming Qian wrote:
+> Add some ctrls to support the video encoder region-of-interest(ROI)
+> feature. The ROI QP Map and rectangular configuration are supported.
+> 
+> Signed-off-by: Ming Qian <ming.qian@nxp.com>
+> Signed-off-by: TaoJiang <tao.jiang_2@nxp.com>
+> ---
+>  .../media/v4l/ext-ctrls-codec.rst             | 95 +++++++++++++++++++
+>  drivers/media/v4l2-core/v4l2-ctrls-defs.c     | 46 +++++++++
+>  include/uapi/linux/v4l2-controls.h            | 16 ++++
+>  3 files changed, 157 insertions(+)
+> 
+> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> index 4a379bd9e3fb..7188d8212677 100644
+> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> @@ -1667,6 +1667,101 @@ enum v4l2_mpeg_video_h264_hierarchical_coding_type -
+>      Codecs need to always use the specified range, rather then a HW custom range.
+>      Applicable to encoders
+>  
+> +``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    (enum)
+> +
+> +enum v4l2_mpeg_video_roi_mode -
+> +    Indicates Video Encoding region-of-interest (ROI) Mode.
+> +    Possible values are:
+> +
+> +
+> +.. flat-table::
+> +    :header-rows:  0
+> +    :stub-columns: 0
+> +
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_NONE``
+> +      - No ROI in the MPEG stream
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``
+> +      - Rectangle ROI mode and specifies ROI delta QP.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``
+> +      - Rectangle ROI mode and specifies ROI priority.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP``
+> +      - Map ROI mode and specifies ROI delta QP
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP``
+> +      - Map ROI mode and specifies ROI absolute QP value
 
+You need to extend these descriptions, it is really vague.
 
-On 10/25/2024 5:30 PM, Krzysztof Kozlowski wrote:
-> On Fri, Oct 25, 2024 at 09:25:17AM +0530, Manikanta Mylavarapu wrote:
->> From: Devi Priya <quic_devipriy@quicinc.com>
->>
->> Add NSSCC clock and reset definitions for ipq9574.
->>
->> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
->> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
->> ---
->> Changes in V8:
->> 	- Replace bias_pll_cc_clk, bias_pll_ubi_nc_clk with CMN_PLL
->> 	  NSS_1200MHZ_CLK and PPE_353MHZ_CLK
->> 	- Remove bias_pll_nss_noc_clk because it's not required.
->> 	- Drop R-b tag
-> 
-> That's not really a change waranting re-review.
-> 
-> I wished you did not create here dependency, skipped the header and just
-> use some number for the clock. Having dependencies does not help anyone:
-> neither you to get this merged, nor us to see that it was tested.
-> 
-> Please confirm that this patch was fully tested.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
+Also point to the controls that are involved: e.g. for _RECT_DELTA_QP
+you need to provide V4L2_CID_MPEG_VIDEO_ROI_RECT + V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP.
 
-Yes, it's fully tested.
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE (struct)``
+> +    This control returns the ROI block size in pixels. The struct
+> +    :c:type:`v4l2_area` provides the width and height in separate
+> +    fields. The resolution of the frame will be rounded up to be
+> +    aligned to this value when it's partitioned in blocks for QP
+> +    maps and the number of QP values in those maps will be the
+> +    number of blocks of these indicated pixel size that comprise
+> +    a full frame. This control depends on the encoding format,
+> +    and the detailed encoder hardware.
+> +    Applicable to encoders.
 
-Thanks & Regards,
-Manikanta.
+You should mention that this is a read-only control.
+
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_RECT (struct)``
+> +    A struct :c:type:`v4l2_rect` provides the rectangular region
+> +    described by the position of its top-left corner, the width
+> +    and the height. The unit is in pixels. And it should be aligned
+> +    to the ROI block size, which can be queried from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. X,Y gets rounded down,
+> +    and width/height up. The maximum number of rectangular regions
+
+So this rounding down/up happens if the rectangle is NOT aligned to
+the ROI block size, right?
+
+It is probably good to mention this:
+
+"If it is not aligned to the ROI block size, then X, Y gets..."
+
+> +    depends on the hardware. This control is a dynamically sized array.
+> +    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP`` or
+> +    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``. For overlapping
+> +    regions, the value that is first in the ROI array will have priority.
+> +    Applicable to encoders.
+> +
+> +``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP (integer)``
+> +    Specifies the ROI delta QP of a rectangular region. The delta QP
+> +    is the value that will be added on top of the frame level QP.
+> +    It can be positive (more distortion) or negative (less distortion)
+> +    values. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``, and need to be used
+
+need to -> must
+
+> +    in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+> +    This control is a dynamically sized array, and the array size
+> +    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+
+What happens if it does not match the V4L2_CID_MPEG_VIDEO_ROI_RECT array size?
+
+> +    Applicable to encoders.
+> +
+> +``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY (integer)``
+> +    Specifies the ROI priority of a rectangular region. it can
+> +    be positive (more important) or negative (less important)
+> +    values and is compared with non-ROI region (taken as value 0).
+> +    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``, and need
+
+need to -> must
+
+> +    to be used in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+
+Add:
+
+    This control is a dynamically sized array, and the array size
+    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+
+> +    Applicable to encoders.
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP (integer)``
+> +    This is to configure ROI as a map as an integer array,
+
+"configure ROI as a map as an integer array": not a very clear
+description. I had to read this control description several times before
+I understood what it does.
+
+> +    each value represents the delta QP of a block region
+> +    in raster scan order. The block size can be got from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
+> +    dynamically sized array, the array size can be calculated
+> +    from video resolution and the ROI block size, and the
+> +    width and height should be rounded up to be aligned to
+
+What happens if the array size is too small?
+
+> +    the block size. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP``.
+> +    Applicable to encoders.
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP (integer)``
+> +    This is to configure ROI as a map as an integer array,
+> +    each value represents the absolute QP of a block region
+> +    in raster scan order. The block size can be got from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
+> +    dynamically sized array, the array size can be calculated
+> +    from video resolution and the ROI block size, and the
+> +    width and height should be rounded up to be aligned to
+> +    the block size. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP``.
+> +    Applicable to encoders.
+> +
+>  .. raw:: latex
+>  
+>      \normalsize
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> index 1ea52011247a..4d89309bf8d0 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> @@ -612,6 +612,15 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
+>  		NULL,
+>  	};
+>  
+> +	static const char * const mpeg_video_roi_mode[] = {
+> +		"None",
+> +		"Rectangle Delta QP",
+> +		"Rectangle Priority",
+> +		"Map Delta QP",
+> +		"Map Absolute QP",
+> +		NULL,
+> +	};
+> +
+>  	switch (id) {
+>  	case V4L2_CID_MPEG_AUDIO_SAMPLING_FREQ:
+>  		return mpeg_audio_sampling_freq;
+> @@ -750,6 +759,8 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
+>  		return camera_orientation;
+>  	case V4L2_CID_MPEG_VIDEO_INTRA_REFRESH_PERIOD_TYPE:
+>  		return intra_refresh_period_type;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
+> +		return mpeg_video_roi_mode;
+>  	default:
+>  		return NULL;
+>  	}
+> @@ -971,6 +982,13 @@ const char *v4l2_ctrl_get_name(u32 id)
+>  	case V4L2_CID_MPEG_VIDEO_FRAME_LTR_INDEX:		return "Frame LTR Index";
+>  	case V4L2_CID_MPEG_VIDEO_USE_LTR_FRAMES:		return "Use LTR Frames";
+>  	case V4L2_CID_MPEG_VIDEO_AVERAGE_QP:			return "Average QP Value";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:		return "Video ROI Mode";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:	return "Video ROI Block Size";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT:		return "Video ROI Rectangle Region";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:	return "Video ROI Rectangle Delta QP";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:	return "Video ROI Rectangle Priority";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:	return "Video ROI Delta QP Map";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:	return "Video ROI Absolute QP Map";
+>  	case V4L2_CID_FWHT_I_FRAME_QP:				return "FWHT I-Frame QP Value";
+>  	case V4L2_CID_FWHT_P_FRAME_QP:				return "FWHT P-Frame QP Value";
+>  
+> @@ -1512,6 +1530,34 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
+>  		*type = V4L2_CTRL_TYPE_INTEGER;
+>  		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+>  		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
+> +		*type = V4L2_CTRL_TYPE_MENU;
+> +		*flags |= V4L2_CTRL_FLAG_UPDATE;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:
+> +		*type = V4L2_CTRL_TYPE_AREA;
+> +		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT:
+> +		*type = V4L2_CTRL_TYPE_RECT;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+>  	case V4L2_CID_PIXEL_RATE:
+>  		*type = V4L2_CTRL_TYPE_INTEGER64;
+>  		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+> index 974fd254e573..bf67d53af737 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -900,6 +900,22 @@ enum v4l2_mpeg_video_av1_level {
+>  
+>  #define V4L2_CID_MPEG_VIDEO_AVERAGE_QP  (V4L2_CID_CODEC_BASE + 657)
+>  
+> +enum v4l2_mpeg_video_roi_mode {
+> +	V4L2_MPEG_VIDEO_ROI_MODE_NONE,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP
+> +};
+> +
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MODE			(V4L2_CID_CODEC_BASE + 658)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE		(V4L2_CID_CODEC_BASE + 659)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT			(V4L2_CID_CODEC_BASE + 660)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP		(V4L2_CID_CODEC_BASE + 661)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY		(V4L2_CID_CODEC_BASE + 662)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP		(V4L2_CID_CODEC_BASE + 663)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP		(V4L2_CID_CODEC_BASE + 664)
+> +
+>  /*  MPEG-class control IDs specific to the CX2341x driver as defined by V4L2 */
+>  #define V4L2_CID_CODEC_CX2341X_BASE				(V4L2_CTRL_CLASS_CODEC | 0x1000)
+>  #define V4L2_CID_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE		(V4L2_CID_CODEC_CX2341X_BASE+0)
+
+Regards,
+
+	Hans
 
