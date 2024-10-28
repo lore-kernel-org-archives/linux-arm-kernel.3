@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13855D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AF1D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 07:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXeJH9+dd3cazFRcmOcTf4KQwEKjtruutzeaxtbL0pk=; b=rMRLqQuBtNr+vv3r3XC8UXl6kc
-	HmAvcvbwqzTCxXwsHm2Jv+aF+L/RUe7q+qXSTjKAaHDf0GOTxlT/xyxybJnC8lnPNES4zavo+d1Ov
-	TS0y757Bw9bFdYMv5tHCZI9bIJAJo+GBJ+Uq38ZpNJ2JGMwykGNJtKZ20ApQrM4Y5FaGU1S9U2R+s
-	dPN+0yF2MisMC6vd8e1cz2pcjd1ExlOez41atl7ugxwvyJmX0v0oVofNQAP6tq2J4P10qnBCyEFoz
-	ETrgMEbqy4+pFqkTcZx4DjKuG+I+0qFtddu/GrLQi62YImcf8dMKSwAVIm/PuZY0hbksjK1zcjcWV
-	e8T+ARrw==;
+	bh=Cmwyegq7pd+RNDhv4uH4MzNeE4hWCQOLImM4aqdf6HM=; b=1dFZh76T4JtioXRwJFuMi+CLf5
+	U/OkXZex4pB7yCqgkRv+qzuMfdLjqbqD2tQSIXxJH7WlTwgL5eCptnSWfSna00thzmgSZ8WKVDsQT
+	sAE5C6kCmSFJWE2YOzJlLLXgAiXL7MuOfHhkCjuBpANE3Rgze7H/EH/3H7pceF4vL1o14i8hm7uTz
+	ITgcyrxkcljPKoTYs0lJf6HdsC9xpBT+JSWaEJ+3uKPWChb3hKiMmh6Nv378kjtr4L5EbNA4V+5Tm
+	TnBfLjTO/B5JgqudNDpnvqvW0wwAsJlrsh0VQgL1v/Vs2hVjeClIAayl47Ty0b1IzFMPU5hzTQQdX
+	ZU0Y9ftg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Jle-00000009nSc-10Aq;
-	Mon, 28 Oct 2024 07:02:22 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1t5JnB-00000009nal-2Ume;
+	Mon, 28 Oct 2024 07:03:57 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Jk2-00000009nF8-3nNR
+	id 1t5JkG-00000009nI7-1zEn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 07:00:44 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539f4d8ef66so5213108e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 00:00:42 -0700 (PDT)
+	Mon, 28 Oct 2024 07:00:57 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539e59dadebso4581005e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 00:00:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730098841; x=1730703641; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1730098854; x=1730703654; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oXeJH9+dd3cazFRcmOcTf4KQwEKjtruutzeaxtbL0pk=;
-        b=WE8X3f+WklR0C5Hb+Uh7q1vNKmOLJGm81GuNBDU5g+zl7qwYJ6+QOsBA5V7DQaOAZi
-         YQPaC63Ofjl6tuLwHkVP/2Qtapy3AcCUzp8q3QXizYfsU+PVtaKowCf0NEuXG5qH/Z2D
-         pgnK6SNHGKMSGVsf5dX4tkO3SYF1MsckTybtc=
+        bh=Cmwyegq7pd+RNDhv4uH4MzNeE4hWCQOLImM4aqdf6HM=;
+        b=KHlRqjYMDcnlcnCv0o2u4InCEWIFpIULku7zr69hLr6+hO9rF62NJy/vEBk9q+UxAm
+         5k+CMV36AcwZwLTrsrCjcf/10ENuqQIL7IlE1eU71YuoGhgTuj5roys7TAVGN9G8Pcao
+         wY1PXV/VPz+VaSiVZLElHcol3O+3y4P4beF5w=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730098841; x=1730703641;
+        d=1e100.net; s=20230601; t=1730098854; x=1730703654;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oXeJH9+dd3cazFRcmOcTf4KQwEKjtruutzeaxtbL0pk=;
-        b=QsfA611qIjn9AA18HMDNgYSf1/yPgrDE7Z7UU512MU1aXVKdLZYiNIksjJP482nF+s
-         aVG+czlcsESJ2nw3Kmgte6D7Pyg1EtV6Dum8XQsReE02W8bShXU5qHjP4mHUEC3JSLHj
-         2cuMaDgpbNl38R8N7y4ggr3qXsz5fV3kUKd8a2lRO1I7/UabfX10FrYjCaZxOikXWxwJ
-         1gqNEypTVO+dskTTqF/ajBlco/sVLrBsa3KwGK9NNfqHMlH4UZSB590F31w6iEizODBg
-         uFJkRJ2CRTsBc9MV4OG4FpIGqVcKblJLC+0n97CVUMGrUE8Gibq+LNokYETH9yZQlgxa
-         sOZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQHxLquPD7vJJU3jZVE61U1o7Esaybjh6+YnPp/K6H6Hvo7gVziXhgX8ukhCdMobiGm3XTVYFVgYyDv9MUXKwN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL7lD02LIqF/wtsfmsgSglPd0O1iD3HOXtuMezMbrtxV1+pgPa
-	QojvrFin6OIlKIHlO7HIlGPvattBDejnjSudlpZoCBZghFSsPIq7GkLe220OTorE9JKCvFz6/Mc
-	MzgZjq1QukTSpaJhnCB+VhrHd8uTzEqzZdhYz
-X-Google-Smtp-Source: AGHT+IG0bSkKwUt4vIe/DSFsd27a0aZcM775T78oioXCX/0ert+iimxun6TtbNvBDPU5UOHkKZf2rc0Rt4hi62j6fcI=
-X-Received: by 2002:a05:6512:3ba3:b0:539:eb44:7ec3 with SMTP id
- 2adb3069b0e04-53b3490fabamr2408370e87.31.1730098840615; Mon, 28 Oct 2024
- 00:00:40 -0700 (PDT)
+        bh=Cmwyegq7pd+RNDhv4uH4MzNeE4hWCQOLImM4aqdf6HM=;
+        b=hPrBRhNIL8jiDY3lPJ4UyB6Y9g/HMgQ7qZtMcWKsS3wy6cp5P0JZZ27O6ytqJiXNke
+         Cr9CbqiEAfQqqnIDxFAGNjsx+bIB9rbshbHOjlmA27R3lPEblg3oX/tDUpQESWO6J30c
+         1vym/Y2N7HC4VquWcURQyM+CCRXUDwAyP+dIgRZqCV2tfVTyyj/sGXRkISqmeuQolw7t
+         v6LozNrde82bdkIJOzlVMvibktDXCGBJJnRMNJEPWlkMuIs9hcZHIiBU9eC6z5Dj9GW2
+         SVtwCArMinkwwWtSEwwhPZH0XlK0Ut77KImmYB2pJe/FBBYmC/bICAJj6A9mAH4fV0AJ
+         vSqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWB3DTeg+XJB5sFkUXshwB6k+7WaLhrwnHG3ykdGQTKrumElwfQ6qt2/2t4ZkNsEX2iE07rwOSVdJ9kfdIL0aPT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwef1T6NX0a6j7IOoMTmYTeksGw9wIb9wlCdhSjCxyqTpC8/4P
+	gaJvmisF2bkfG6HXDWbX5rPWmnK+LNsLAm+AUfc13NhuwSTyxVeMLdoigUNltU+L3twouOwC6g5
+	GtiQEp/PHvJNhn1oBggSmJAD3+0NNwHhdOsZs
+X-Google-Smtp-Source: AGHT+IFCTK/9t8GApx2c313ElibGHVQt1aCzEHXMhwQB7y5ngpH9maQprAhY8bEpEJF/nzrqaJAxSEh5HOrX6QHHt28=
+X-Received: by 2002:a05:6512:3ca7:b0:539:e873:6e2 with SMTP id
+ 2adb3069b0e04-53b348ec22cmr2169421e87.8.1730098854425; Mon, 28 Oct 2024
+ 00:00:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241011-mtk_drm_drv_memleak-v1-0-2b40c74c8d75@gmail.com> <20241011-mtk_drm_drv_memleak-v1-1-2b40c74c8d75@gmail.com>
-In-Reply-To: <20241011-mtk_drm_drv_memleak-v1-1-2b40c74c8d75@gmail.com>
+References: <20241011-mtk_drm_drv_memleak-v1-0-2b40c74c8d75@gmail.com> <20241011-mtk_drm_drv_memleak-v1-2-2b40c74c8d75@gmail.com>
+In-Reply-To: <20241011-mtk_drm_drv_memleak-v1-2-2b40c74c8d75@gmail.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 28 Oct 2024 15:00:29 +0800
-Message-ID: <CAGXv+5Ge_qcXaSBQ9d8QZOWe3x_9-6r9LhDGvAbUHNKYMwevUA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] drm/mediatek: Fix child node refcount handling in
- early exit
+Date: Mon, 28 Oct 2024 15:00:43 +0800
+Message-ID: <CAGXv+5HAXuqxZM+CwfseXbAr2bsPgP__wc34mfmiJfui_fLOOw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] drm/mediatek: Switch to for_each_child_of_node_scoped()
 To: Javier Carrasco <javier.carrasco.cruz@gmail.com>
 Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
 	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -74,12 +73,13 @@ Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.
 	Alexandre Mergnat <amergnat@baylibre.com>, CK Hu <ck.hu@mediatek.com>, 
 	"Jason-JH.Lin" <jason-jh.lin@mediatek.com>, dri-devel@lists.freedesktop.org, 
 	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_000042_982056_C55D73A8 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20241028_000056_558367_1E951F61 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +97,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Sat, Oct 12, 2024 at 3:22=E2=80=AFAM Javier Carrasco
 <javier.carrasco.cruz@gmail.com> wrote:
 >
-> Early exits (goto, break, return) from for_each_child_of_node() required
-> an explicit call to of_node_put(), which was not introduced with the
-> break if cnt =3D=3D MAX_CRTC.
->
-> Add the missing of_node_put() before the break.
->
-> Cc: stable@vger.kernel.org
-> Fixes: d761b9450e31 ("drm/mediatek: Add cnt checking for coverity issue")
+> Introduce the scoped variant of the loop to automatically release the
+> child node when it goes out of scope, which is more robust than the
+> non-scoped variant, and accounts for new early exits that could be added
+> in the future.
 >
 > Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
 
