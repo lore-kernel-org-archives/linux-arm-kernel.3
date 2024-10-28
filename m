@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9916AD13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C267D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FgC/yWGHmE4AGKMxUzujN8ihPZGQwuq5HhMl1Sf1wCU=; b=sPcj3VqVN0+k3ENoeAikLr28yv
-	gly+1Wfht3bL37CQs3hX7aP78tWQ65nv/8n3/XF2ocZsiP744pu1mu4tT+UGd7+7njVnECqAJwQEx
-	BSzeth4b23zFffqLUDibawkGY2j7i9cVHzO4kav5EhlihhWIyV7oR4NdPh6mFivblpdMXtw/SM6m7
-	6Z+tY3QDeXfUkXNLZh55zZt8wRHCv+ZstPtAmpUVREOEUZwORLoSnQrh3n0ylrUeV/jRv1ueHiXv+
-	RRsZOyjYtzXn1IoRXERHFWBcpNjEGNXbeHiWpVZuCCszMOKzGsgOA4dE0HOccJmi88GvePyJRUVwM
-	JJP5iHqQ==;
+	bh=xAAedIyV3yu/mGysIGhr9+vINZgzRZ0gyG70DOqn8T4=; b=YPcdER/CFYRVfdU9Zkdix0pKy+
+	bN/d7tDjCid8R6+Z2kt5cwAlSsUIAfIM3XnEpqCZ7La8YJ/jm1p8RSP50OFZMneh7ugCsfyLygIty
+	61Khdl2pU6hXIrqhK1ptX6Ap+7qDYK7pIdAeCiQU6MgGU/tI9w5g8efqaZQS8BKEP+XErlnL+TLH6
+	dU12MNjOaPY9UCpdK7svK3iITo7/hIrpl8lNS1T6VP9NpHTvythpe6tnYBKvhtfjSf2ZaS+4sVMqa
+	OE3b0oB5eYuS40wof3nMjnrr+yW6qC9sPfaGspnMZJsh3YJYBco/WAMnQMF5+Da2zLXP+XdV1mBM1
+	ZuKuz9/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MK0-0000000AHYz-0Cct;
-	Mon, 28 Oct 2024 09:46:00 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1t5MLZ-0000000AHqh-23OQ;
+	Mon, 28 Oct 2024 09:47:37 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Lxf-0000000ADdM-2vNy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:22:57 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539e690479cso3852527e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:22:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730107373; x=1730712173; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FgC/yWGHmE4AGKMxUzujN8ihPZGQwuq5HhMl1Sf1wCU=;
-        b=XxC84fTPmmNpLTORrTGafM3hnvyxnxB3ee4djVeQKdSBHmsf0nqr21oPdrVeWSdC0j
-         BHmFiyDVoJ4REP3sx4XUk7rMhRLFXEfMZzzxdNuE975ywGjaIdZoAYDoZfJNj5dO2w0/
-         fWJXWkwjNXzGUxqrBV8/98/dfVnZHiqwfokz64H0hPNdY1h88QJe7i3JVUy3Ziw/9z44
-         Oh5i7h0L3Odm1B/fEOReZJ0rHOPm90xG0NYNAzkJYPdrP02MbeW+QWJtyTLVQgoeBnVa
-         acsa7Gs2R3ACPuig+5xs2HO2aB7+I7Oww8zUYVa214f0PA8+UwUS+oBPxlVClscvZZnc
-         hWuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730107373; x=1730712173;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FgC/yWGHmE4AGKMxUzujN8ihPZGQwuq5HhMl1Sf1wCU=;
-        b=eyp6A2/B/ZI3U04ty/9y519ZdrpN9e73SKiuC9DjObJmrpnY89ww6GGimgRRghb6gG
-         E0bxK8y4UUTSlRdLf/BqnZurJZgwI/rFWLNSLTFWmYKarN2I4+58Z1sWDWVjGAxjFQNh
-         1SGnQjVlYRp2sbK10xxmiDc/Q8+asNLnwfjKc/tYEDkxYvL2uQlvh2Ws1oAzfOUibI9n
-         v5zg3yeG3h62hWukJC/ZYO5QhnUSTWhX8L6HnUysXlgsbHNPeALCbBuow1+4nTbJSvhJ
-         xNTnkqfp66FBsKWKzjtLRKm8v7DYPVEDBoqrElTp7u+rW7ie6WxdGkyEgMzTSGzQKjyu
-         0e2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUfyX5XKwBeb5Ke6lYhD3/GHJRZ4hpwFKCTeGQhPTC61seWcmVfrl4E8sMxDEvdpMXIwvckF9BfocM9ED4zRStJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ8xbD1GMpOExqnsscKfzDsApMJnrLzn1/L2e5VXa6G3+/+Qc4
-	rkwS1neQaLgVwTbIT/46mpy4vk+MnqkjafLs7LHZL/MFEUahGkjR
-X-Google-Smtp-Source: AGHT+IE+Ev9N1xNlkGTKVpoO2qeGQ9vWoj/Z7Tf2T0auYtqb7BI0SMITAYGyR+Qtz9DG724XXJZWJA==
-X-Received: by 2002:a05:6512:318c:b0:539:918c:5124 with SMTP id 2adb3069b0e04-53b348df188mr2752749e87.31.1730107372891;
-        Mon, 28 Oct 2024 02:22:52 -0700 (PDT)
-Received: from [192.168.1.105] ([178.136.36.129])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1af331sm1043785e87.152.2024.10.28.02.22.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 02:22:52 -0700 (PDT)
-From: Markuss Broks <markuss.broks@gmail.com>
-Date: Mon, 28 Oct 2024 11:22:29 +0200
-Subject: [PATCH v4 01/10] dt-bindings: arm: cpus: Add Samsung Mongoose M3
+	id 1t5M2v-0000000AErj-0o2K;
+	Mon, 28 Oct 2024 09:28:22 +0000
+Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3B086641;
+	Mon, 28 Oct 2024 10:28:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730107697;
+	bh=4BL2DejjDELiLEhAB40ADpi5+EGK99TWoHcY01BTeKk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lPgGGgsL3dJ3ISFWjjmRU2wQa/M+6pqqmlqU4B3cGA0aGxQDP/sHKmXGXQI/Uwi5o
+	 +LX82Xp5DDQaUizwPOwyTB0f7uXo5inaO1pqfMDlLLYfzUefGCYFWupWIx34uyitLg
+	 LSmET1L6R2LCTCyLd88rQPyKp/UJduBTUAVT+hdQ=
+Message-ID: <d8622666-cb4e-4f40-a64c-1b430994e84f@ideasonboard.com>
+Date: Mon, 28 Oct 2024 11:28:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: raspberrypi: Remove redundant "no IRQ" message
+To: Ricardo Ribalda <ribalda@chromium.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241018-rpi-irq-cocci-v1-1-b597595e98e4@chromium.org>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20241018-rpi-irq-cocci-v1-1-b597595e98e4@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-exynos9810-v4-1-6191f9d0c0f1@gmail.com>
-References: <20241028-exynos9810-v4-0-6191f9d0c0f1@gmail.com>
-In-Reply-To: <20241028-exynos9810-v4-0-6191f9d0c0f1@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Markuss Broks <markuss.broks@gmail.com>, 
- Maksym Holovach <nergzd@nergzd723.xyz>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730107370; l=977;
- i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=UwXq8/s+/ZWgzHv8GxfRHapMvLu4ujsMuyVEiwqZOGw=;
- b=UEC62CDHdhTaw/gc44/m2/6av2OQGEdphnBwv4+sZ2AFqTkHx3KbF0dwtXTALXrc0rbPEIvPc
- dltazm5zyzQD/XEstuSvL2pbQ2hyrGcl3pK+ymHuyUP2zlh11igxW3O
-X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
- pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_022255_767511_3D6A599B 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20241028_022821_408936_AB561E64 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +114,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for Samsung Mongoose M3 CPU core to the schema.
-Mongoose M3 (codenamed Meerkat) is the big core in Exynos9810 SoC,
-designed by Samsung. It implements ARMv8.2-A ISA.
+Hi,
 
-Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
-Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
-Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
----
- Documentation/devicetree/bindings/arm/cpus.yaml | 1 +
- 1 file changed, 1 insertion(+)
+On 18/10/2024 17:24, Ricardo Ribalda wrote:
+> platform_get_irq() already provides a error message.
+> 
+> This fixes the following cocci error:
+> drivers/media/platform/raspberrypi/rp1-cfe/cfe.c:2326:2-9: line 2326 is redundant because platform_get_irq() already prints an error
+> 
+> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+> ---
+>   drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 1 -
+>   1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> index 045910de6c57..4e99cccd9a20 100644
+> --- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> +++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> @@ -2323,7 +2323,6 @@ static int cfe_probe(struct platform_device *pdev)
+>   
+>   	ret = platform_get_irq(pdev, 0);
+>   	if (ret <= 0) {
+> -		dev_err(&pdev->dev, "No IRQ resource\n");
+>   		ret = -EINVAL;
+>   		goto err_cfe_put;
+>   	}
+> 
+> ---
+> base-commit: 698b6e3163bafd61e1b7d13572e2c42974ac85ec
+> change-id: 20241018-rpi-irq-cocci-878e4a82ea2c
+> 
+> Best regards,
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index c54d20dd9d7efcbbfe73e5a63fd2f61d1e010d29..2fa7d3513da839ddfb2844628b1249567226a025 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -207,6 +207,7 @@ properties:
-       - qcom,oryon
-       - qcom,scorpion
-       - samsung,mongoose-m2
-+      - samsung,mongoose-m3
-       - samsung,mongoose-m5
- 
-   enable-method:
+Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
--- 
-2.46.2
+  Tomi
 
 
