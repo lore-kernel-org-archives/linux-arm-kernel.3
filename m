@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F25D3E2BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AF5D3E2BA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7BCIKpTVqIRNR9S6eacMDL7qtu1ZJ5oyLsNXt+b1AU=; b=uHSLg9lRwXJQZwZlfVB0LZ7+7L
-	5/jgpFHMd54t7GyIlqNv0BlDXac+aTiiJ0Bld598tyPy+5ZcRb50POaYpCaWDvc3ZE1UNzCnZn36c
-	JfjhINXdvHudR70AqhW4sfBMHfG2Kw7zUtze7gBBKb0vDcCJfbq4AQmdN41n5ZorHpO5SRE9FRhEA
-	xrxYrkX4ZfpngEjib8USPMcB6SINLk3/vZNcUv/HCwclp1vqE5aXVYnusPDFjnjOGYjp97ZOpNgS4
-	cMlD8VeN2fed/945xTSKffEcOdyAFEwRgJqQNFCzNhnPYpV/dIBMkFLEEdAXV06g3kS7hTCeVkWWT
-	JSWZ+l3A==;
+	bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=; b=BvWiNZIbKRHFvK6w0GJY7HwLWb
+	eeBwHe0ZeX3pqW6qZedU/xNGXrgbSvQq0Azvx+zkY47q3rMNPlZfdyHrKfz3k75eVDP2FDl34zfRF
+	EBN7SPdF5zdmxH5CBWRY5fRi35He9QqGP3Kf0Kzst0eSd2kxVKUUlcZ8iP3AE7cz+tMFs7tP7zurg
+	8g/pUgiuKdb/PeUxDO283zCRWHL7NPb/tZFrTD3kfXL5931Erxwbdwu92ypIxsgje1rqhiA6Cm0aQ
+	PD4kLr3C4a+P6YuC2Leop5eZj9SV4p4RDxZ1w+lC7qDAfjfjBjljcPzKK0JzkCUL9TOV0spBkKfEb
+	w/Zjweug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5VG6-0000000Bz2R-3CvN;
-	Mon, 28 Oct 2024 19:18:34 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1t5VHf-0000000BzFt-3ifc;
+	Mon, 28 Oct 2024 19:20:12 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5V0n-0000000Bw2u-0Z2z
+	id 1t5V41-0000000Bwaj-39iw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 19:02:46 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43159603c92so31365715e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:02:44 -0700 (PDT)
+	Mon, 28 Oct 2024 19:06:06 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539fb49c64aso7761130e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:06:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730142163; x=1730746963; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a7BCIKpTVqIRNR9S6eacMDL7qtu1ZJ5oyLsNXt+b1AU=;
-        b=ZL9ygH4ezKQdjTyxG2rJQrYm1Kru/9w/n5+l5RXg/c/71z+v/hM6k0+k1CCBFh1O/r
-         +08tNQaJCFHj6p+ObdMnG+jX6NfroSzZYpQmGOSJ8kLw/NRaaURoo+KOSmtYDHqPQ7Hx
-         /6oKZhj0C8uld1Nj4UJSOcqKCQmAnzwhmO8Kf2d2M9+ZsJ4k+jI0wWeJuYtnq4CMbA8O
-         ZTREN49ChMxeWz7eLDkkbs0Q38Wl+TTJgRnW/5yDoooNB3JdrKTKhMh/K5ZipjhEAMVu
-         x/u2MurpWZlB3bStDhW4sfaHNqKxR//u3K9tzq33XgKIgS9JXaRMjChNDqoplnf60cXE
-         p1MQ==
+        d=linux-foundation.org; s=google; t=1730142362; x=1730747162; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=;
+        b=R9LlwN1QxqF+aChTCvQ97Gy3PoberCUM86rdkYRbkWeC8X4Wq53JzGl6x9yPDAXodB
+         P1MWS3uv2wQ/mcxSSbAem3FW8/3RcGpRklcBrJilO2zIRux9JpBRLLoNFhy4/cv7vvA2
+         YOFJjAAEV0e0hB6H0uhxMmQ9PxfzVggmsFisw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730142163; x=1730746963;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a7BCIKpTVqIRNR9S6eacMDL7qtu1ZJ5oyLsNXt+b1AU=;
-        b=nCvZXxWWS9fpU2oUDl4YgBRvK4vW6/cFU/YMhhcccwC7D3vqTXEWwwLtkOvYVlHvtw
-         G6g+RndHrESj5B8Hx/eccKUQvHe9g3YZVIPzALnEfiJyIZSl5RtuRJ3+TJCH2tyqU7kW
-         yczKUa1cUTRPWcLMWqGVOh7kZJhKngc09d6fHC7EjlpkbqNZt11vg4kYYZZtDGS0QRW0
-         U2Bsr09UpDOekaRpjqlbqlSIFdeE3LLTB05tBxGPfoylQUn9Foq7hbQglV3xsUfi68u1
-         bzCfwQrtb8/5CQYFkKUuXQ+loX5AkBJ4VGbp0wmaEkhHF4fIbmy4wd/0SPNkEB7Lz8dK
-         pGjQ==
-X-Gm-Message-State: AOJu0YwobdpKr0uz8cwzsVj+vNToqIEc10uUyvg/6svaHsjArUq648AT
-	gQtTWwPMPCs8CNZyI60B1+inBEa9tS+gFog1PeV4GCExBsMQJX1kRZAGfqTVTOvz9h+xaQ==
-X-Google-Smtp-Source: AGHT+IEzvN2ok8rDBPNnkk6TZNp9LKGhiBd3e2OVhcExVW8L9WPTUFB0RHTWAmh3/KKNio+2HfLioMjl
-X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a05:600c:4306:b0:42c:a7dc:a5be with SMTP id
- 5b1f17b1804b1-4319ad1fc7bmr1257055e9.5.1730142163422; Mon, 28 Oct 2024
- 12:02:43 -0700 (PDT)
-Date: Mon, 28 Oct 2024 20:02:14 +0100
-In-Reply-To: <20241028190207.1394367-8-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20241028190207.1394367-8-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5729; i=ardb@kernel.org;
- h=from:subject; bh=eoCM7N8BhzX8EfbDlPGwcIi6u3yVlDPFwPgcxjWgo+Q=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV3+/g7m2yfeb4usKay/K6ry867R8S0XL7ef+HZjZ6a5i
- oT23G+7OkpZGMQ4GGTFFFkEZv99t/P0RKla51myMHNYmUCGMHBxCsBEfOcyMnxivttTWmitdX1Z
- kEibDdsUMcFzM42arr44MT9Ws/ftb2mG/+EzCzXspqdZuOzo/+hafl5Vk0d/dszOCOWzGuwKehp TGQA=
-X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
-Message-ID: <20241028190207.1394367-14-ardb+git@google.com>
-Subject: [PATCH 6/6] crypto: arm/crct10dif - Implement plain NEON variant
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, ebiggers@kernel.org, 
-	herbert@gondor.apana.org.au, keescook@chromium.org, 
-	Ard Biesheuvel <ardb@kernel.org>
+        d=1e100.net; s=20230601; t=1730142362; x=1730747162;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=;
+        b=PoTuJYZAxaTbXiF1LaTVnYP+BRG/v8I/+B3J2CbX3IPyJkN4Kb916EJOO0UUsRiciV
+         HZ7NYAlW2bLkLYVED302Uurcq0OR1VH9CXIo5SU1lW46W1eQCCiTe3BkqoEYQF+uq2Z6
+         QqBaQzXNZ9b/bGPDDQzRR+ShgiypokJndQF/yIqW6boz7EC17tyvmRTdmayLtEvLpXle
+         uhRJqfhUGks9e4ynO5qCErGtATH4KWJ+C3/6GlO7XjhDuOT18cHQqeDWG1Wd4XCZxaJM
+         pgUZ4jcjndqBmIN2WwROWHCN+raGEUYwNF9DacvtUkLP4hLsN4nInkL8HCpa5lAxaxBq
+         ZXdg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPehUko53Koh4cqcFxuLB80crogdw11l6y1x0RNIHKcSDMcHV+P1zQ6ighp+2OERkLEtIj71kP2g9DsbhiLBQo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx37fu6OKWD0ExT4uO9+HdJgR4aFWNF2zntAgYGMAyupbDr1uRz
+	+lIz6LMQ2Cae2MKLJrcLdBXQ1TA312+OHzCGl9nt5usIkDDMzkoEVvu0Gh4Lh4lfSTEW56bbRJ/
+	Bmy0=
+X-Google-Smtp-Source: AGHT+IHRg6p5jDh3VoRNJxpN9CHGpc0QDWSeJ4nfHXbvuazwIAXYBZdAq+jdXr1sg4nioFCR5yy4Vg==
+X-Received: by 2002:a05:6512:1384:b0:53b:2105:18bb with SMTP id 2adb3069b0e04-53b34a343camr7123463e87.51.1730142362063;
+        Mon, 28 Oct 2024 12:06:02 -0700 (PDT)
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com. [209.85.167.44])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c7aa8sm1151218e87.187.2024.10.28.12.06.01
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 12:06:01 -0700 (PDT)
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-539fb49c64aso7761096e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:06:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX6uhyAHW+CldFJPp++iwfbXKOSJ8tFoRJfIvYl9aHDcoyMedpm/WdUl0Z7Fa7i/yrBpOYRRMfqfOwDQCX3CzIj@lists.infradead.org
+X-Received: by 2002:a05:6512:1189:b0:53b:163a:f279 with SMTP id
+ 2adb3069b0e04-53b34a345f7mr6904745e87.53.1730142360985; Mon, 28 Oct 2024
+ 12:06:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
+ <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
+ <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk> <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+In-Reply-To: <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 28 Oct 2024 09:05:44 -1000
+X-Gmail-Original-Message-ID: <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
+Message-ID: <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region() error
+ path behaviour
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Mark Brown <broonie@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Jann Horn <jannh@google.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_120245_203623_1A66BC55 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20241028_120605_827356_1386B196 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,198 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Mon, 28 Oct 2024 at 08:57, Lorenzo Stoakes
+<lorenzo.stoakes@oracle.com> wrote:
+>
+> So likely hook on your mapping changes flags to set VM_MTE | VM_MTE_ALLOWED and
+> expects this to be checked after (ugh).
 
-The CRC-T10DIF algorithm produces a 16-bit CRC, and this is reflected in
-the folding coefficients, which are also only 16 bits wide.
+Gaah. Yes. mm/shmem.c: shmem_mmap() does
 
-This means that the polynomial multiplications involving these
-coefficients can be performed using 8-bit long polynomial multiplication
-(8x8 -> 16) in only a few steps, and this is an instruction that is part
-of the base NEON ISA, which is all most real ARMv7 cores implement. (The
-64-bit PMULL instruction is part of the crypto extensions, which are
-only implemented by 64-bit cores)
+        /* arm64 - allow memory tagging on RAM-based files */
+        vm_flags_set(vma, VM_MTE_ALLOWED);
 
-The final reduction is a bit more involved, but we can delegate that to
-the generic CRC-T10DIF implementation after folding the entire input
-into a 16 byte vector.
+and while I found the equivalent hack for the VM_SPARC_ADI case, I
+hadn't noticed that MTE thing.
 
-This results in a speedup of around 6.6x on Cortex-A72 running in 32-bit
-mode.
+How very annoying.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm/crypto/crct10dif-ce-core.S | 50 ++++++++++++++++++--
- arch/arm/crypto/crct10dif-ce-glue.c | 44 +++++++++++++++--
- 2 files changed, 85 insertions(+), 9 deletions(-)
+So the arch_validate_flags() case does need to be done after the ->mmap() call.
 
-diff --git a/arch/arm/crypto/crct10dif-ce-core.S b/arch/arm/crypto/crct10dif-ce-core.S
-index 6b72167574b2..5e103a9a42dd 100644
---- a/arch/arm/crypto/crct10dif-ce-core.S
-+++ b/arch/arm/crypto/crct10dif-ce-core.S
-@@ -112,6 +112,34 @@
- 	FOLD_CONST_L	.req	q10l
- 	FOLD_CONST_H	.req	q10h
- 
-+__pmull16x64_p8:
-+	vmull.p8	q13, d23, d24
-+	vmull.p8	q14, d23, d25
-+	vmull.p8	q15, d22, d24
-+	vmull.p8	q12, d22, d25
-+
-+	veor		q14, q14, q15
-+	veor		d24, d24, d25
-+	veor		d26, d26, d27
-+	veor		d28, d28, d29
-+	vmov.i32	d25, #0
-+	vmov.i32	d29, #0
-+	vext.8		q12, q12, q12, #14
-+	vext.8		q14, q14, q14, #15
-+	veor		d24, d24, d26
-+	bx		lr
-+ENDPROC(__pmull16x64_p8)
-+
-+        .macro		pmull16x64_p8, v16, v64
-+	vext.8		q11, \v64, \v64, #1
-+	vld1.64		{q12}, [r4, :128]
-+	vuzp.8		q11, \v64
-+	vtbl.8		d24, {\v16\()_L-\v16\()_H}, d24
-+	vtbl.8		d25, {\v16\()_L-\v16\()_H}, d25
-+	bl		__pmull16x64_p8
-+	veor		\v64, q12, q14
-+        .endm
-+
-         .macro		pmull16x64_p64, v16, v64
- 	vmull.p64	q11, \v64\()l, \v16\()_L
- 	vmull.p64	\v64, \v64\()h, \v16\()_H
-@@ -249,9 +277,9 @@ CPU_LE(	vrev64.8	q0, q0	)
- 	vswp		q0l, q0h
- 
- 	// q1 = high order part of second chunk: q7 left-shifted by 'len' bytes.
--	mov_l		r3, .Lbyteshift_table + 16
--	sub		r3, r3, len
--	vld1.8		{q2}, [r3]
-+	mov_l		r1, .Lbyteshift_table + 16
-+	sub		r1, r1, len
-+	vld1.8		{q2}, [r1]
- 	vtbl.8		q1l, {q7l-q7h}, q2l
- 	vtbl.8		q1h, {q7l-q7h}, q2h
- 
-@@ -341,9 +369,20 @@ ENTRY(crc_t10dif_pmull64)
- 
- 	vmov.u16	r0, q0l[0]
- 	bx		lr
--
- ENDPROC(crc_t10dif_pmull64)
- 
-+ENTRY(crc_t10dif_pmull8)
-+	push		{r4, lr}
-+	mov_l		r4, .L16x64perm
-+
-+	crct10dif	p8
-+
-+CPU_LE(	vrev64.8	q7, q7	)
-+	vswp		q7l, q7h
-+	vst1.64		{q7}, [r3, :128]
-+	pop		{r4, pc}
-+ENDPROC(crc_t10dif_pmull8)
-+
- 	.section	".rodata", "a"
- 	.align		4
- 
-@@ -376,3 +415,6 @@ ENDPROC(crc_t10dif_pmull64)
- 	.byte		0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f
- 	.byte		 0x0,  0x1,  0x2,  0x3,  0x4,  0x5,  0x6,  0x7
- 	.byte		 0x8,  0x9,  0xa,  0xb,  0xc,  0xd,  0xe , 0x0
-+
-+.L16x64perm:
-+	.quad		0x808080800000000, 0x909090901010101
-diff --git a/arch/arm/crypto/crct10dif-ce-glue.c b/arch/arm/crypto/crct10dif-ce-glue.c
-index 60aa79c2fcdb..4431e4ce2dbe 100644
---- a/arch/arm/crypto/crct10dif-ce-glue.c
-+++ b/arch/arm/crypto/crct10dif-ce-glue.c
-@@ -20,6 +20,7 @@
- #define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
- 
- asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
-+asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len, u8 *out);
- 
- static int crct10dif_init(struct shash_desc *desc)
- {
-@@ -45,6 +46,27 @@ static int crct10dif_update_ce(struct shash_desc *desc, const u8 *data,
- 	return 0;
- }
- 
-+static int crct10dif_update_neon(struct shash_desc *desc, const u8 *data,
-+			         unsigned int length)
-+{
-+	u16 *crcp = shash_desc_ctx(desc);
-+	u8 buf[16] __aligned(16);
-+	u16 crc = *crcp;
-+
-+	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
-+		kernel_neon_begin();
-+		crc_t10dif_pmull8(crc, data, length, buf);
-+		kernel_neon_end();
-+
-+		crc = 0;
-+		data = buf;
-+		length = sizeof(buf);
-+	}
-+
-+	*crcp = crc_t10dif_generic(crc, data, length);
-+	return 0;
-+}
-+
- static int crct10dif_final(struct shash_desc *desc, u8 *out)
- {
- 	u16 *crc = shash_desc_ctx(desc);
-@@ -53,7 +75,19 @@ static int crct10dif_final(struct shash_desc *desc, u8 *out)
- 	return 0;
- }
- 
--static struct shash_alg crc_t10dif_alg = {
-+static struct shash_alg algs[] = {{
-+	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
-+	.init			= crct10dif_init,
-+	.update			= crct10dif_update_neon,
-+	.final			= crct10dif_final,
-+	.descsize		= CRC_T10DIF_DIGEST_SIZE,
-+
-+	.base.cra_name		= "crct10dif",
-+	.base.cra_driver_name	= "crct10dif-arm-neon",
-+	.base.cra_priority	= 150,
-+	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
-+	.base.cra_module	= THIS_MODULE,
-+}, {
- 	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
- 	.init			= crct10dif_init,
- 	.update			= crct10dif_update_ce,
-@@ -65,19 +99,19 @@ static struct shash_alg crc_t10dif_alg = {
- 	.base.cra_priority	= 200,
- 	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
- 	.base.cra_module	= THIS_MODULE,
--};
-+}};
- 
- static int __init crc_t10dif_mod_init(void)
- {
--	if (!(elf_hwcap2 & HWCAP2_PMULL))
-+	if (!(elf_hwcap & HWCAP_NEON))
- 		return -ENODEV;
- 
--	return crypto_register_shash(&crc_t10dif_alg);
-+	return crypto_register_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
- }
- 
- static void __exit crc_t10dif_mod_exit(void)
- {
--	crypto_unregister_shash(&crc_t10dif_alg);
-+	crypto_unregister_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
- }
- 
- module_init(crc_t10dif_mod_init);
--- 
-2.47.0.163.g1226f6d8fa-goog
+How about just finalizing everything, and then doing a regular
+munmap() afterwards and returning an error (all still holding the mmap
+semaphore, of course).
 
+That still avoids the whole "partially completed mmap" case.
+
+             Linus
 
