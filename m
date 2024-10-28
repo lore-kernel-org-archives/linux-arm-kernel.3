@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A1ED5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BA6D5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktS5JZlVOvEaixmraj14grQIGS0mOTMVZfsZ8ze71Ik=; b=12qfmJAN+3Wamr6pF2X3ylVaxt
-	9RJMYpimN4fcB3pNBHJMgGyR5zJCqgIDawYhIIpN1yqthvFIXQ3mNg1IN2kYNvdONppkeUJ6I3Qca
-	3BkRPE7hH9WGCGmOs0zNfxuEZxZBEqZ4gjt+5GXKf8W7TRMnWnKhphJx7VnNHe2B1cBcTtbwOYDBX
-	kC4x1Us1lGPC981WjSl2qNMHCTlZkBF6FmmMfK++KhIpUcfEtYz+BLsJ3C4pliYJWkjXS4Us1X/oJ
-	duXujSoJIEFI9a9rqh3tgsjDQOQu+PdYlAP1/sE9wH4Erho4US/M+20RpmYxrntrstreeJ7KSOPGH
-	uuttslSg==;
+	bh=CY+XwZ0fuc1pJBzr3ZbrtC3qPygvT+6N7jxEZ8PMcdI=; b=RwVhz8MMAMOpEZKbUxguDGt7kP
+	HsXorwfBDzMWetQSIVtv375fSoXZrAFY/5h18+XqxwEyWyT4HQ1GgYC9qo1Ns9VGKAR97mU8ARHgQ
+	Zaqg0eZ9faTSNZuKzoArJ8PTNlk9u6EKXrs4leQXWu/fZMMuSCH7OcXJqNZgYx8ku8tbJrf0c6RWM
+	+hwn3JscU42P9k5og4I1F1bis/MRecxvfDNZkIgHtbawLpvNdbY4zso4q/H48qIxAzSvv5t8hUsJH
+	DK2WeiRd7OsYGo6o/NDMe0vKJBXZzM9qYZHDf98WF2QIE0amlGVQuG4Rp1MmDYX/Wv1khlaFiOsTT
+	4IQtTp/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XGn-0000000CKZ4-32k3;
-	Mon, 28 Oct 2024 21:27:25 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
+	id 1t5XIN-0000000CKlq-4ATR;
+	Mon, 28 Oct 2024 21:29:04 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5X6J-0000000CJMe-1cb6
+	id 1t5Wbb-0000000CELC-0LOi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:16:36 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a4e5e57679so11971645ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:16:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730150194; x=1730754994; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ktS5JZlVOvEaixmraj14grQIGS0mOTMVZfsZ8ze71Ik=;
-        b=kwdVwRposanL3uqGKGbz82PAAAc87VtxtjKhfTmtBr5HSglTERpixFKw4T6CJ24fQf
-         Jke2qeSidl8JhD9vem8VW1TAxM/zc0bU2B+S3Us1OTn4JEWF/eeClawQxONH4tPVdWTS
-         EzG/NwA44aE0ZyA6wQVPpge4YL6YG3IsB8HXzsT8BjKb1TR8lN8KjoQKTghs0PV4aJYj
-         uJsX8coBY3cCvGf+lRcvc0xrcG3LJt0iR3UwHqCFX4FoZLFmfZlZIr0nOxHLxCMGWRCM
-         WycBfZHIbSmC0Mj7DOGHZ0aie1iU1dpxl1kywX8QlROykxNbVe4tCc9kmheyHiQzf4Y+
-         gEfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730150194; x=1730754994;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ktS5JZlVOvEaixmraj14grQIGS0mOTMVZfsZ8ze71Ik=;
-        b=Ti89w7scUNugrN4yP7/R7/29JiDOitbEY/LV38fw43cQx3qK1eNMA9FUXSOVC98ca4
-         PsTSE6GLq2wy3RzavpqpjIaTeeedHYK5TCAitn1bxCNAyLizEoVeP+BTzI2VHjJXPjyV
-         sr4YIc5gW1oC/GhYnR3nDucYe7ujFzEdRJe7LuJ731csBBhj1Ws1X3WmxjAZ6bUF+R6i
-         46ltahw4c3OjDFbhr/LnKpmN7ngLSdwLts8QQ7S/65eT1uw0Q2TLVJpgyRdrb8HqPx+r
-         4/yYipcWU0Bzlgz13k5IVEZhrpLlbQ+lUzvrnzzAT2veHjED/WMII1vHqvo/BJhjY52F
-         2P+g==
-X-Forwarded-Encrypted: i=1; AJvYcCW+JJ+toF2CJ8sjTG9zdHaMChekADu1Zv61klBy7BAi6e/pRDiga/vabfzmr6jqjAE0qL04C6/sBGjnvxOQa8KQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7J7bwa+oyfaogm3SgGHjoc2RlMGeSTFnMvWCFQObOkpoF5ANz
-	M8m2Guf/CT9UzBuhNxHEm8eplHJZqKJ1kOZ+C3VdsKUp722kzXgeCtHAbkzaiDHCh8+2UYC+Qm5
-	2JQl4ntDj9/d91snpUnF5mY6yj5g=
-X-Google-Smtp-Source: AGHT+IG9XrLh5NKIexOxyfcazqPge3CPHDgNBsyKjId3gtC/MJJHMtgd1LcfGFYvXzXYtIB2lAVzQZdmZdFDCxa0qBU=
-X-Received: by 2002:a05:6e02:20c8:b0:3a0:8c68:7705 with SMTP id
- e9e14a558f8ab-3a4ed3012b2mr68380955ab.21.1730150194399; Mon, 28 Oct 2024
- 14:16:34 -0700 (PDT)
+	Mon, 28 Oct 2024 20:44:52 +0000
 MIME-Version: 1.0
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com> <20241008125410.3422512-6-quic_bibekkum@quicinc.com>
-In-Reply-To: <20241008125410.3422512-6-quic_bibekkum@quicinc.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Mon, 28 Oct 2024 14:16:22 -0700
-Message-ID: <CAF6AEGtOn3+99KMVRvpH=8Qs-g52ajVQyeBkxThSES_dEdVH+Q@mail.gmail.com>
-Subject: Re: [PATCH v16 5/5] iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
-To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	jsnitsel@redhat.com, robh@kernel.org, krzysztof.kozlowski@linaro.org, 
-	quic_c_gdjako@quicinc.com, dmitry.baryshkov@linaro.org, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1730148280;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CY+XwZ0fuc1pJBzr3ZbrtC3qPygvT+6N7jxEZ8PMcdI=;
+	b=V4msOG75IkYLOHuvX3IjHDPHm/gxy4ZUnk0PDBO8WsGVwRNG0V3ymYOSNTwnkjqkg02iRH
+	zA0RtCZwy9wwafaGfqKwnI/d+o1keEyBbYQS5k3q9iNnp3zzLB/9g0HvCd1YZpyOLX9qVE
+	YHMg0moOoeDHs9MrGBLMBmrLn3t3UKairICOMRfmWE10lwkQT18Ma7ChZORbYgT4lo7OJt
+	rxp9UV/5Z3v3xW4LV/y0c7vmb/rB+d6sBpj9PkGVyL8NCjMPO1vauLAMJAOaTCcoRlfbLf
+	NfZuGHCgrPppLYL8OgVJB+q9FtNP46+UerKpV0ISmjaSsZgh6LBYZdHT76YIHQ==
+Date: Mon, 28 Oct 2024 21:44:37 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Aren Moynihan <aren@peacevolution.org>, Jonathan Cameron
+ <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Kaustabh
+ Chakraborty <kauschluss@disroot.org>, =?UTF-8?Q?Barnab=C3=A1s_Cz=C3=A9?=
+ =?UTF-8?Q?m=C3=A1n?= <trabarni@gmail.com>, Ondrej Jirman <megi@xff.cz>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v3 3/6] iio: light: stk3310: Implement vdd and leda
+ supplies
+In-Reply-To: <Zx-h7QUnCKwtu8iC@smile.fi.intel.com>
+References: <20241028142000.1058149-1-aren@peacevolution.org>
+ <20241028142000.1058149-4-aren@peacevolution.org>
+ <Zx-h7QUnCKwtu8iC@smile.fi.intel.com>
+Message-ID: <98dd3fbf970559de8b7559da312e22fc@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_141635_458889_ADE60455 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20241028_134451_313511_1328365D 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,80 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 8, 2024 at 5:55=E2=80=AFAM Bibek Kumar Patro
-<quic_bibekkum@quicinc.com> wrote:
->
-> Add ACTLR data table for qcom_smmu_500 including
-> corresponding data entry and set prefetch value by
-> way of a list of compatible strings.
->
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-> ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 24 ++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
->
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/a=
-rm/arm-smmu/arm-smmu-qcom.c
-> index 2d2c1e75632c..dd4fb883ebcd 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -25,8 +25,31 @@
->
->  #define CPRE                   (1 << 1)
->  #define CMTLB                  (1 << 0)
-> +#define PREFETCH_SHIFT         8
-> +#define PREFETCH_DEFAULT       0
-> +#define PREFETCH_SHALLOW       (1 << PREFETCH_SHIFT)
-> +#define PREFETCH_MODERATE      (2 << PREFETCH_SHIFT)
-> +#define PREFETCH_DEEP          (3 << PREFETCH_SHIFT)
->  #define GFX_ACTLR_PRR          (1 << 5)
->
-> +static const struct of_device_id qcom_smmu_actlr_client_of_match[] =3D {
-> +       { .compatible =3D "qcom,adreno",
-> +                       .data =3D (const void *) (PREFETCH_DEEP | CPRE | =
-CMTLB) },
-> +       { .compatible =3D "qcom,adreno-gmu",
-> +                       .data =3D (const void *) (PREFETCH_DEEP | CPRE | =
-CMTLB) },
-> +       { .compatible =3D "qcom,adreno-smmu",
-> +                       .data =3D (const void *) (PREFETCH_DEEP | CPRE | =
-CMTLB) },
-> +       { .compatible =3D "qcom,fastrpc",
-> +                       .data =3D (const void *) (PREFETCH_DEEP | CPRE | =
-CMTLB) },
-> +       { .compatible =3D "qcom,sc7280-mdss",
-> +                       .data =3D (const void *) (PREFETCH_SHALLOW | CPRE=
- | CMTLB) },
-> +       { .compatible =3D "qcom,sc7280-venus",
-> +                       .data =3D (const void *) (PREFETCH_SHALLOW | CPRE=
- | CMTLB) },
-> +       { .compatible =3D "qcom,sm8550-mdss",
-> +                       .data =3D (const void *) (PREFETCH_DEFAULT | CMTL=
-B) },
-> +       { }
-> +};
+Hello Aren,
 
-I guess by now there are some more entries to add
-("qcom,x1e80100-mdss", for example), but I guess those could be
-followup patches
+On 2024-10-28 15:38, Andy Shevchenko wrote:
+> On Mon, Oct 28, 2024 at 10:19:57AM -0400, Aren Moynihan wrote:
+>> The vdd and leda supplies must be powered on for the chip to function
+>> and can be powered off during system suspend.
+>> 
+>> Co-developed-by: Ondrej Jirman <megi@xff.cz>
+> 
+> Missing SoB. Please, read Submitting Patches documentation for 
+> understanding
+> what has to be done here.
+> 
+>> Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+> 
+> ...
+> 
+>> Notes:
+>>     I'm not sure what the proper way to handle attribution for this 
+>> patch
+>>     is. It was origionally based on a patch by Ondrej Jirman[1], but I 
+>> have
+>>     rewritten a large portion if it. I have included a Co-developed-by 
+>> tag
+>>     to indicate this, but haven't sent him this patch, so I'm not sure 
+>> what
+>>     to do about a Signed-off-by.
+> 
+> Ah, seems you already aware of this issue. So, either drop 
+> Co-developed-by
+> (and if you wish you may give a credit in a free form inside commit 
+> message)
+> or make sure you get his SoB tag.
 
-Reviewed-by: Rob Clark <robdclark@gmail.com>
-
-> +
->  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
->  {
->         return container_of(smmu, struct qcom_smmu, smmu);
-> @@ -640,6 +663,7 @@ static const struct qcom_smmu_match_data qcom_smmu_50=
-0_impl0_data =3D {
->         .impl =3D &qcom_smmu_500_impl,
->         .adreno_impl =3D &qcom_adreno_smmu_500_impl,
->         .cfg =3D &qcom_smmu_impl0_cfg,
-> +       .client_match =3D qcom_smmu_actlr_client_of_match,
->  };
->
->  /*
-> --
-> 2.34.1
->
+Perhaps the best and also easiest solution would be to provide an
+Originally-by tag for Ondrej, because that's what it is.  The patch
+was written originally by Ondrej, but you've changed many parts of
+the patch while upstreaming it.
 
