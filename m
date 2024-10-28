@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC0CD3E2A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4C8D3E2A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DUkcZkztcKYtSayxBSAaJQSQcIpRZkRxOYaxJkc6BbQ=; b=f1krjTrQCGdJ+3JLLrG1kihX6b
-	FM4sPopjiJiAcYqu8gI6kb2pT6I+LEsNgcLkQWLzYcn2WfMgg5574rZm1UTxMvztZVyBUvNtHwvwL
-	nx4ZT/CQH1FZ8LRprvT1/eBUziw4M1JFEpba4wkJh9ar69RHDokj6F9Ezr4dRta+S+KtLoCvKE29a
-	yMUz7qTPl5wt1fVveWoFN8N3rmUTQA8mZv+6s4tP5NsmY15EBnXtObS8lrITDieV/5W9GLHgtLbn0
-	T+3fRvVCU5m8CqtQySmF1R4kWiDf846FXNo7dY39ufXTXI1CsuaWCkDk2W4LgFu+S/zCLZ0ihRF46
-	E/DfDUEQ==;
+	bh=jjwdVov97C9wKEXVxqkoCXRvze/CKi3rnyys8vVm2A8=; b=g93bFzt3UZRB3pjy4m6HcWL4FP
+	W8unLVH/DolUz/n90ovru9EBtkQiOxyYxwU5ICCF4oipg2XlHWzS47Lf9FBAWRwAIssm2FlZCLAQJ
+	N0MXUJmSkBlgwkyQNYXdJ9/YydMw51WhnRGyNjLxFFgVYk8wezo8ITSz94J2RiHVdkqHS9EPOQzMZ
+	k4DsNHbw849QROAPwkHdjgtiULYgvDbiPR+uK2oVJaMh8Ck0fLC+8yHfTE2UA9lZyPVoVmwbH1p7u
+	8QUjc451oR1B4eQV2Du6IOu1bG/iREEHDLNnsVbm8xQe2/UcLVExw+utg4ZuxJhGA/HWTV9mVW0/q
+	CrgkSoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Uak-0000000BqX8-0Ck4;
-	Mon, 28 Oct 2024 18:35:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5Udy-0000000BrCH-0yEs;
+	Mon, 28 Oct 2024 18:39:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5UZ3-0000000BqJz-3gku
+	id 1t5UcJ-0000000BqoL-36s6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 18:34:10 +0000
+	Mon, 28 Oct 2024 18:37:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9C0AB5C4B9A;
-	Mon, 28 Oct 2024 18:33:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC067C4CEC3;
-	Mon, 28 Oct 2024 18:34:01 +0000 (UTC)
-Date: Mon, 28 Oct 2024 18:33:59 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: will@kernel.org, yangyicong@hisilicon.com, maz@kernel.org,
-	mark.rutland@arm.com, broonie@kernel.org,
-	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev,
-	ryan.roberts@arm.com, linuxarm@huawei.com,
-	jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
-	prime.zeng@hisilicon.com, xuwei5@huawei.com,
-	wangkefeng.wang@huawei.com
-Subject: Re: [PATCH v3 3/5] arm64: Add support for FEAT_HAFT
-Message-ID: <Zx_ZFwbDUtuDtfmc@arm.com>
-References: <20241022092734.59984-1-yangyicong@huawei.com>
- <20241022092734.59984-4-yangyicong@huawei.com>
- <ZxfvVO75Mob_FWF7@arm.com>
- <3ad59e2d-957d-e704-4a4c-ee0af2bd8dd4@huawei.com>
- <Zxjt62hKsNu06OrD@arm.com>
- <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5b31a644-1eac-46de-6212-d2733234814b@huawei.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9CFBFA42B20;
+	Mon, 28 Oct 2024 18:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AA42C4CEC3;
+	Mon, 28 Oct 2024 18:37:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730140646;
+	bh=8CbXDcVuo9k+di5CjlwiPaTTcw2cZ7PEvxl4QrnMpS8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M5Y7agbrpI0En6Vw4bZu/NShw2kpS2pLp1e3a2ziR3EMAdikd/t6Ua4eaj1nwE34J
+	 zlgSq1TOpo9QBecVcJI8hRlH55aeWZ4qwoDRyZV+uiUr0/n1A5A9DqOWTwI4nKdU+q
+	 RtE/r3jJa2yAxsoOH9kHmb75UvyYc5O8uQYx+GlQxMSlEsMazAZgmf/f1Rmd9DPi+c
+	 tonfrVu8tFHrIt1WVFkeL+tPrZybE8MxxGSI+UDNaMgLeyTg4fAhMBTamGiVxQGRYk
+	 65KBXSkPaeJnrOVREqgwkHqCWmGkN6c74ZGYBHaveX9WbETXLWc5j0nkyA88XzmLdm
+	 R4DhHO27wNhaQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t5UcF-007g2P-M1;
+	Mon, 28 Oct 2024 18:37:23 +0000
+Date: Mon, 28 Oct 2024 18:37:23 +0000
+Message-ID: <87jzdst6os.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 4/4] arm64: mte: Use stage-2 NoTagAccess memory attribute if supported
+In-Reply-To: <yq5ar080cq5x.fsf@kernel.org>
+References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+	<20241028094014.2596619-5-aneesh.kumar@kernel.org>
+	<87o734ts4m.wl-maz@kernel.org>
+	<yq5ar080cq5x.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, Suzuki.Poulose@arm.com, steven.price@arm.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_113406_037028_0DAB97E3 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20241028_113727_941392_34A3633E 
+X-CRM114-Status: GOOD (  59.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,58 +95,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 10:45:51PM +0800, Yicong Yang wrote:
-> On 2024/10/23 20:36, Catalin Marinas wrote:
-> > On Wed, Oct 23, 2024 at 06:30:18PM +0800, Yicong Yang wrote:
-> >> On 2024/10/23 2:30, Catalin Marinas wrote:
-> >>> On Tue, Oct 22, 2024 at 05:27:32PM +0800, Yicong Yang wrote:
-> >>>> +#ifdef CONFIG_ARM64_HAFT
-> >>>> +	{
-> >>>> +		.desc = "Hardware managed Access Flag for Table Descriptor",
-> >>>> +		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
-> >>>
-> >>> I'd actually use ARM64_CPUCAP_SYSTEM_FEATURE here. We use something
-> >>> similar for HW DBM but there we get a fault and set the pte dirty. You
-> >>> combined it with a system_support_haft() that checks the sanitised regs
-> >>> but I'd rather have a static branch check via cpus_have_cap(). Even with
-> >>> your approach we can have a race with a late CPU hot-plugged that
-> >>> doesn't have the feature in the middle of some core code walking the
-> >>> page tables.
-> >>>
-> >>> With a system feature type, late CPUs not having the feature won't be
-> >>> brought online (if feature enabled) but in general I don't have much
-> >>> sympathy for SoC vendors combining CPUs with incompatible features ;).
-> >>
-> >> ok. If we make it a system feature, we can using cpus_have_cap() then and
-> >> drop the system_support_haft() which is checking with the sanitised registers.
-> >> It's fine for me.
-> >>
-> >> Will ask to not refuse online a CPU due to mismatch of this feature in [1],
-> >> hope we have an agreement :)
-> >>
-> >> [1] https://lore.kernel.org/linux-arm-kernel/20240820161822.GC28750@willie-the-truck/
-> > 
-> > I initially thought this would work but I don't feel easy about having
-> > should_clear_pmd_young() change its polarity at runtime while user space
-> > is running. If that's not a problem, we can go with your current
-> > approach.
+On Mon, 28 Oct 2024 13:28:42 +0000,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
 > 
-> this should be ok as I image. after online a CPU without HAFT the system won't
-> advertise HAFT support but we don't disable the HAFT update on the supported
-> CPUs, the ongoing page aging process can still use the updated table AF information
-> and later process will fallback to use the PTE's AF bit. efficiency maybe reduced
-> but the function should be correct.
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > On Mon, 28 Oct 2024 09:40:14 +0000,
+> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> >> 
+> >> Currently, the kernel won't start a guest if the MTE feature is enabled
+> >> and the guest RAM is backed by memory which doesn't support access tags.
+> >> Update this such that the kernel uses the NoTagAccess memory attribute
+> >> while mapping pages from VMAs for which MTE is not allowed. The fault
+> >> from accessing the access tags with such pages is forwarded to VMM so
+> >> that VMM can decide to kill the guest or remap the pages so that
+> >> access tag storage is allowed.
+> >
+> > I only have questions here:
+> >
+> > - what is the benefit of such approach? why shouldn't that be the
+> >   kernel's job to fix it?
+> >
+> 
+> IMHO leaving that policy decision to VMM makes the kernel changes
+> simpler. In most cases, VMM will kill the guest, because these
+> restrictions of MTE_ALLOWED are applied at the memslot/vma.
 
-It's more of a theoretical case - walk_pmd_range() for example checks
-should_clear_pmd_young() followed by !pmd_young(). Between these two
-checks, should_clear_pmd_young() becomes false but the pmd may have been
-accessed by a CPU without HAFT. We'd miss this. However, such race is
-benign I think, only used for page aging so it shouldn't matter.
+Where is that captured? The whole idea behind FEAT_MTE_PERM was that
+it would be the hypervisor's task to lazily allocate MTE-capable
+memory as tagged-access would occur.
 
-The other thing with your approach is the cost of checking (load, mask,
-compare) vs just a static branch. Given that it's only done for pmds,
-it's probably lost in the noise but you could check it to be sure.
+> 
+> >
+> > - where is the documentation for this new userspace ABI?
+> >
+> 
+> I will add the details if we agree that this should be a separate EXIT
+> as outlined in this patch.
+
+Woooot??? This isn't a *DETAIL*. This is the very first thing you
+should write. Everything *else* is an implementation detail.
+
+> 
+> >
+> > - are you expecting the VMM to create a new memslot for this?
+> >
+> 
+> I guess there are examples of configs where some memory regions are
+> backed by page cache where we don't directly use those memory regions as
+> allocatable memory in the guest. This change allows us to enable MTE in such
+> configs.
+
+This doesn't answer my question. What is expected sequence a VMM
+should apply to provide tagged memory to the guest?
+
+> 
+> > - where is the example of a VMM using this?
+> >
+> 
+> I do have changes to kvmtool which won't do any fixup on receiving that
+> VM exit. I expect other VMM to do the same by default when they get a
+> VM exit with an unknown exit_reason. So unless VMM wants to do any
+> special handling, we don't need any change in the VMM.
+
+OK, so this has never been tested. I'm sorry, but for something of
+this magnitude, with expected userspace interactions, and requiring
+VMM handling, I want to see the full end-to-end thing.
+
+> 
+> 
+> diff --git a/arm/kvm-cpu.c b/arm/kvm-cpu.c
+> index 3b95750ecec7..4760bad07476 100644
+> --- a/arm/kvm-cpu.c
+> +++ b/arm/kvm-cpu.c
+> @@ -239,6 +239,17 @@ static bool handle_memoryfault(struct kvm_cpu *vcpu)
+>  	return true;
+>  }
+>  
+> +static bool handle_notag_access(struct kvm_cpu *vcpu)
+> +{
+> +	u64 gpa = vcpu->kvm_run->memory_fault.gpa;
+> +	u64 size = vcpu->kvm_run->memory_fault.size;
+> +
+> +	/* For now VMM just panic */
+> +	pr_err("Tag Access to a wrong memory region 0x%lx size 0x%lx\n",
+> +	       (unsigned long)gpa, (unsigned long)size);
+> +	return false;
+> +}
+> +
+>  bool kvm_cpu__handle_exit(struct kvm_cpu *vcpu)
+>  {
+>  	switch (vcpu->kvm_run->exit_reason) {
+> @@ -246,6 +257,8 @@ bool kvm_cpu__handle_exit(struct kvm_cpu *vcpu)
+>  		return handle_hypercall(vcpu);
+>  	case KVM_EXIT_MEMORY_FAULT:
+>  		return handle_memoryfault(vcpu);
+> +	case KVM_EXIT_ARM_NOTAG_ACCESS:
+> +		return handle_notag_access(vcpu);
+>  	}
+>  
+>  	return false;
+> diff --git a/include/linux/kvm.h b/include/linux/kvm.h
+> index 32cff22f0e4d..deef6614f577 100644
+> --- a/include/linux/kvm.h
+> +++ b/include/linux/kvm.h
+> @@ -178,6 +178,7 @@ struct kvm_xen_exit {
+>  #define KVM_EXIT_NOTIFY           37
+>  #define KVM_EXIT_LOONGARCH_IOCSR  38
+>  #define KVM_EXIT_MEMORY_FAULT     39
+> +#define KVM_EXIT_ARM_NOTAG_ACCESS 40
+>  
+>  /* For KVM_EXIT_INTERNAL_ERROR */
+>  /* Emulate instruction failed. */
+> @@ -429,10 +430,17 @@ struct kvm_run {
+>  		/* KVM_EXIT_MEMORY_FAULT */
+>  		struct {
+>  #define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
+> +#define KVM_MEMORY_EXIT_FLAG_NOTAGACCESS (1ULL << 4)
+>  			__u64 flags;
+>  			__u64 gpa;
+>  			__u64 size;
+>  		} memory_fault;
+> +  		/* KVM_EXIT_ARM_NOTAG_ACCESS */
+> +		struct {
+> +			__u64 flags;
+> +			__u64 gpa;
+> +			__u64 size;
+> +		} notag_access;
+>  		/* Fix the size of the union. */
+>  		char padding[256];
+>  	};
+> 
+> >> 
+> >> NOTE: We could also use KVM_EXIT_MEMORY_FAULT for this. I chose to
+> >> add a new EXIT type because this is arm64 specific exit type.
+> >> 
+> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> >> ---
+> >>  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
+> >>  arch/arm64/include/asm/kvm_pgtable.h |  1 +
+> >>  arch/arm64/kvm/hyp/pgtable.c         | 16 +++++++++++++---
+> >>  arch/arm64/kvm/mmu.c                 | 28 ++++++++++++++++++++++------
+> >>  include/uapi/linux/kvm.h             |  7 +++++++
+> >>  5 files changed, 48 insertions(+), 9 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> >> index a601a9305b10..fa0149a0606a 100644
+> >> --- a/arch/arm64/include/asm/kvm_emulate.h
+> >> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> >> @@ -373,6 +373,11 @@ static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
+> >>  	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
+> >>  }
+> >>  
+> >> +static inline bool kvm_vcpu_trap_is_tagaccess(const struct kvm_vcpu *vcpu)
+> >> +{
+> >> +	return !!(ESR_ELx_ISS2(kvm_vcpu_get_esr(vcpu)) & ESR_ELx_TagAccess);
+> >> +}
+> >> +
+> >>  static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+> >>  {
+> >>  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
+> >> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> >> index 03f4c3d7839c..5657ac1998ad 100644
+> >> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> >> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> >> @@ -252,6 +252,7 @@ enum kvm_pgtable_prot {
+> >>  
+> >>  	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
+> >>  	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
+> >> +	KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS	= BIT(5),
+> >
+> > This seems wrong. NOTAGACCESS is a *permission*, not a memory type.
+> >
+> 
+> Are you suggesting the name is wrong? The memory attribute value I
+> wanted to use is
+> 
+> MemAttr[3:0] = 0b0100 which is Normal, NoTagAccess, writeback cacheable.
+> 
+> I am following the changes similar to KVM_PGTABLE_PROT_NORMAL_NC.
+
+But that's entirely different. This really isn't a memory type. Quite
+the opposite, actually. This is a stage-2 permission setting, which
+you are conflating with the actual memory type.
+
+Also, I don't see why that should be incompatible with something other
+than Normal memory.
+
+> 
+> >
+> >>  
+> >>  	KVM_PGTABLE_PROT_SW0			= BIT(55),
+> >>  	KVM_PGTABLE_PROT_SW1			= BIT(56),
+> >> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> >> index b11bcebac908..bc0d9f08c49a 100644
+> >> --- a/arch/arm64/kvm/hyp/pgtable.c
+> >> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> >> @@ -677,9 +677,11 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+> >>  {
+> >>  	kvm_pte_t attr;
+> >>  	u32 sh = KVM_PTE_LEAF_ATTR_LO_S2_SH_IS;
+> >> +	unsigned long prot_mask = KVM_PGTABLE_PROT_DEVICE |
+> >> +				  KVM_PGTABLE_PROT_NORMAL_NC |
+> >> +				  KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
+> >>  
+> >> -	switch (prot & (KVM_PGTABLE_PROT_DEVICE |
+> >> -			KVM_PGTABLE_PROT_NORMAL_NC)) {
+> >> +	switch (prot & prot_mask) {
+> >>  	case KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC:
+> >>  		return -EINVAL;
+> >>  	case KVM_PGTABLE_PROT_DEVICE:
+> >> @@ -692,6 +694,12 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+> >>  			return -EINVAL;
+> >>  		attr = KVM_S2_MEMATTR(pgt, NORMAL_NC);
+> >>  		break;
+> >> +	case KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS:
+> >> +		if (system_supports_notagaccess())
+> >> +			attr = KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS);
+> >> +		else
+> >> +			return -EINVAL;
+> >> +		break;
+> >
+> > How do you see this working when migrating a VM from one host to
+> > another, one that supports FEAT_MTE_PERM and one that doesn't? The
+> > current assumptions are that the VMM will replay the *exact same*
+> > setup on the target host, and this obviously doesn't work.
+> >
+> 
+> I missed looking at kvm migration. I guess I will have to expose this as
+> a capability and only allow migration if the target also supports the
+> same capability?
+
+I don't think so. This doesn't affect the guest at all, as the guest
+doesn't know anything about S2, unless you decide to expose
+FEAT_MTE_PERM to NV.
+
+It affects the VMM though, and that's because you are making a
+difference in handling between having FEAT_MTE_PERM or not. Given that
+this is invisible to userspace, that's not a great design.
+
+Thanks,
+
+	M.
 
 -- 
-Catalin
+Without deviation from the norm, progress is not possible.
 
