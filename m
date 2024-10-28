@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1EFD339A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B29ED339AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uoSe/osPZM5KlWFY2p8NKc5PKZqtCcQla6SsIgyOw4=; b=4mz3p69gXqS9AZmcOCx31GfwPz
-	8NAoOtP61exqd6OUMvDWgqBj7O46uZxXtb8dnMRd6E4Bs1GbRf1Cn8mISnYFnyloKQrHytRW9p2Xn
-	WTth/SQ5QW1nvhSZX7wD8eLYx0ad2kcAHw6pR5ti5G0HmWtv85bFU3gHM/23TX1BYwMC1u7lnY6wJ
-	rsnUTIF93xxIo0vTrvuASLtNHylZAqWNdD26mHCwCZhJTv4OoBpbq9BzLxKh+DyCS+RwoLV85AFrL
-	jHB93Y4cihU3pykr37T9gRnVna6DmctJp3ByY98IJ1z47yKd/FC/sJctCJMxVkkAh83Qk4qA1HImI
-	f6IpDR3w==;
+	bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=; b=i4E0YHvKPEbfpFXFISvzAG5SA2
+	lKPvGPil0wEa6rSFWII7CmTV/Ck4sxOilQ8ZX39ARSe5L1qv8e+XLLb7cPRqA8uRgq+iSRwGpCN0X
+	mCJSnZAC0lmgbOxLwx4xS5RMUNtBDIMdXFi7OGDO7mdExG1Fijdp/jsWlnYRZmTMZ9bJUQTCGNSer
+	EQLzVTaU7ZpyaZ7gi5dfORP/1MQbGZWY/J8bDE1SB3mWz1gZpwVM97zFb95k8nkFCcmKxBvQRhxWz
+	dkDCtaOgr3M1heAquA2Tpj3PdvL2+hAullmTLC6IrgY5XD4PTccHg7vfsgQw0BF/mUU66sHEy6Vwu
+	PVi+1noA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5TpO-0000000BhcK-1tnH;
-	Mon, 28 Oct 2024 17:46:54 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1t5Tu5-0000000BiHn-45iU;
+	Mon, 28 Oct 2024 17:51:45 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Tj6-0000000Bg5j-2MEA
+	id 1t5TjA-0000000Bg6t-2Qkq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 17:40:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4314fa33a35so44529765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 10:40:24 -0700 (PDT)
+	Mon, 28 Oct 2024 17:40:29 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d50fad249so3437935f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 10:40:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730137223; x=1730742023; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730137227; x=1730742027; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7uoSe/osPZM5KlWFY2p8NKc5PKZqtCcQla6SsIgyOw4=;
-        b=klpI53P7Byh5V0JWagSxUbAnJBqdjktBL+2RFYi4yoVzISJqiu8B/rYx2p5Za76U+x
-         RZBPNtplVuuSxLKIKVO82OJEzQrtSkcik7qGC4i29WF3GYyVyGWuTk4yT91fnCH969iA
-         S1uXCxzNg0m3jyLtdhrY8iYGf0vfTXsPSkqc3uo4SvfqKpofcQ0uGcDL2SNNIoTFNaK3
-         nbN/xblMbu7/HUByEj1CdmFQqlxpKsfGq/7Ohw6Pg8H/Y5JqYhDJJ+wbX87qMwbLwHGq
-         zmXOpMuY2lbtEerBls+rj6cwEsoEhhF1lCS9hV4QlJv6aezGdPZf5yUwQ0c4Rl8SfV5i
-         3J9Q==
+        bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=;
+        b=3XafDNCF+p8mDtdux5lfjcTliLPzb8p995R1xdMlvNM42Jh/GV0PwAJXdJF1QO6X+U
+         +4X8i2Kk9odJiqSELIHnoLgL4otTxai938qbp4pwWWXucpgr89SISiryPPpwTXy+srrK
+         fTgQkQSg4CaA6ITtVrtw7YdaBNYCCMYe+KdKWyGXTHMD6qGIvKd6qUvqCOkm9XezkGH0
+         bGbEGolbPAuI0bfYASvdhs3rzZQ4Qr4VRYFQJT3h/PdBjoQgp59PoZR9jfaV1NyHLtLE
+         ni6GF7rhbx6XlYYZR0WBRXSFuYtHf0Z+u3n1xm/1P7UTjYPUciZZwcFLTtHf6uwiQO4V
+         OEOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730137223; x=1730742023;
+        d=1e100.net; s=20230601; t=1730137227; x=1730742027;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7uoSe/osPZM5KlWFY2p8NKc5PKZqtCcQla6SsIgyOw4=;
-        b=r1HNb9UKotPtBm0HoQrHTPrwDE+w9hE1wgcrRGcYUIL0DhAOWh3Gu+WrAyaPyKipHl
-         e29tya+u78oUNEhZvC3WIWanB2OdnLexCxRyNh7cDCLDSAVcliP05AtOvJLMlhwS3VWz
-         UVpfm0ewCID59+3Y0QbIYuZ+xIbzoNE7ElrFSeS2NjNR9/EeLE8pBFqxKZDZk/xq+Upa
-         cN871GJsF/mwuZn3AaqQOlqcbzHSn4hqxuT/xtfIXQ4Wdma4qE1T8bGPaL4lcApJUlg5
-         T4RaKS3SsxaR9LQvuncvz5E1SvM18Rt7BGW5r2Beq16KlKvsAPEy6cZD78esK3cF8Nq/
-         SjKA==
-X-Forwarded-Encrypted: i=1; AJvYcCVAQRTGmaQAu3Rgh+t1r/Xj7dTsSKcwlNAdZ7dobfvPFG8EFGf5cVe46RFlYZidzH5AVl/SGGi1MiqLt9zWmBg7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLDE9t0OFioWblPFu668uYxvkNZjcVsg/2O8lqSfm9id/wEaVy
-	jZ0cgDBKda46T7qn7GdWTGJA9IATMNgMXXETuOeJ7SZI/nPPbgXLS8stdkySY+s=
-X-Google-Smtp-Source: AGHT+IEFSR/zG77GxCKMdEA6ZBLL2jNoMnHHBu+9OH7sb56aIGjLWheqa9jEnSLBwlhUQRsnp7JZVQ==
-X-Received: by 2002:adf:ea4a:0:b0:37c:d54b:a39a with SMTP id ffacd0b85a97d-38061145761mr6895987f8f.33.1730137222779;
-        Mon, 28 Oct 2024 10:40:22 -0700 (PDT)
+        bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=;
+        b=wTneR+t1YQgdBfKaI+VqnQWyKKAsQcvXNeWQUTOwgQIWkdd3ERAPls5E6V/ycuyAfE
+         nCXL6KW2ZQkfTsrjn8pHgQck1eFCDAAgUOPo/Sx892HYKeC+M0Dp6S3dS83Z7WqvxLOz
+         ei7lrN46U1HvAYvCQbcda0VNB8PUz7Eucx/xepY176h29rdabShZagOWU7d3A4U/IeNv
+         ZFm4M4H3t3phSB/SJiXVWpRoDvcc7wTcSMgOLeGpXouZFYq4/CBaHnXRHTeWkHVxlO+F
+         DLB+nWhtJer4yXrBROuKKm9a/l/lXaEmnubxua95hfbfLtp0QCKsHKlBh37u3QlVWcz8
+         UifA==
+X-Forwarded-Encrypted: i=1; AJvYcCUObNaJEapE9PNO+CUYZU6gBvkT38WwfY50eGGR/15sCOh1fqyfgDCJ6GE3mHVm1mh2UXoST/K8oUF1NVT4QONW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY9k1Su6EpG1uwrd+CCfab9sIrBnzJp0ZIp4IYEXF7fXNfsBO4
+	B7DcTqcET5rx5pKsh9M5Kl4tGBF4OqaudXiZeegUC21fKdPBjDNCzfxko1Ez7xQ=
+X-Google-Smtp-Source: AGHT+IFqMPdBogulD24ryHYACs/0/kPy+ME5m39YFDX+/TOrN8GU2WdBOh9BaqWlHQ/G2u6uOhGjww==
+X-Received: by 2002:adf:fa07:0:b0:37d:54de:1609 with SMTP id ffacd0b85a97d-380610f3056mr6761435f8f.10.1730137226809;
+        Mon, 28 Oct 2024 10:40:26 -0700 (PDT)
 Received: from localhost ([2001:4091:a245:81f4:340d:1a9d:1fa6:531f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b0ed7bsm10150974f8f.19.2024.10.28.10.40.22
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b714fesm10130545f8f.71.2024.10.28.10.40.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 10:40:22 -0700 (PDT)
+        Mon, 28 Oct 2024 10:40:26 -0700 (PDT)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Mon, 28 Oct 2024 18:38:09 +0100
-Subject: [PATCH v5 3/9] can: m_can: Map WoL to device_set_wakeup_enable
+Date: Mon, 28 Oct 2024 18:38:12 +0100
+Subject: [PATCH v5 6/9] can: m_can: Add use of optional regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-topic-mcan-wakeup-source-v6-12-v5-3-33edc0aba629@baylibre.com>
+Message-Id: <20241028-topic-mcan-wakeup-source-v6-12-v5-6-33edc0aba629@baylibre.com>
 References: <20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com>
 In-Reply-To: <20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com>
 To: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
@@ -89,17 +89,17 @@ Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org,
  Vincent MAILHOL <mailhol.vincent@wanadoo.fr>, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2839; i=msp@baylibre.com;
- h=from:subject:message-id; bh=XYYmgD9hEGtxNIWY9snEM0dWMiWJG8YdzXkcAQHDIMQ=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNLlz0SxP7w5mbP/+MqNZt6FkftLkoVjHVI7CmTVr63bw
- F358euhjlIWBjEOBlkxRZa7Hxa+q5O7viBi3SNHmDmsTCBDGLg4BWAimycyMhyudZAq0F0tbzN5
- ofD37/u+a2eyLtPZOYVp0WuhHp1jv/Yw/JWLPjLtpkdU+0f5/PDXDRMS+KUe39zqZTBrXlCfSqq
- yIz8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1254; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=f+4c/xAyZM4ng0MgHl2luM8EJirET+RfnpCZLFWpJ+I=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNLlz2QdE8mMSbp8bbLv+ZxJ8W/43HN2iuR/eBo7KWhiW
+ 9W35aeMOkpZGMQ4GGTFFFnuflj4rk7u+oKIdY8cYeawMoEMYeDiFICJTIth+Ct75s0SoUmLJiUr
+ ha7aLa3Z8zkktDC/YM8J38kCalWLlA0Y/vBvX7j1/Mzma7P+zEq3bLi1nruHSVAv7eGNle9/J1+
+ 7Us8KAA==
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_104024_638670_AD4AA7EB 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20241028_104028_658714_9C3FBD3D 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,83 +114,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some devices the pins of the m_can module can act as a wakeup source.
-This patch helps do that by connecting the PHY_WAKE WoL option to
-device_set_wakeup_enable. By marking this device as being wakeup
-enabled, this setting can be used by platform code to decide which
-sleep or poweroff mode to use.
-
-Also this prepares the driver for the next patch in which the pinctrl
-settings are changed depending on the desired wakeup source.
+Add support to use a regulator for the core. This is optional and used
+to register the dependency on the regulator.
 
 Reviewed-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- drivers/net/can/m_can/m_can.c | 37 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+ drivers/net/can/m_can/m_can.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
-index a978b960f1f1e1e8273216ff330ab789d0fd6d51..b358b60a1dee0f39aba9e2ec89dcbd0d65cd7823 100644
+index 8c6452d1490c11d365bab598f2abe047f730d24b..56884c49b6f2a36acbcd7ca04be506154f991621 100644
 --- a/drivers/net/can/m_can/m_can.c
 +++ b/drivers/net/can/m_can/m_can.c
-@@ -2185,6 +2185,36 @@ static int m_can_set_coalesce(struct net_device *dev,
- 	return 0;
- }
+@@ -23,6 +23,7 @@
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/regulator/consumer.h>
  
-+static void m_can_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
-+{
-+	struct m_can_classdev *cdev = netdev_priv(dev);
-+
-+	wol->supported = device_can_wakeup(cdev->dev) ? WAKE_PHY : 0;
-+	wol->wolopts = device_may_wakeup(cdev->dev) ? WAKE_PHY : 0;
-+}
-+
-+static int m_can_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
-+{
-+	struct m_can_classdev *cdev = netdev_priv(dev);
-+	bool wol_enable = !!(wol->wolopts & WAKE_PHY);
-+	int ret;
-+
-+	if (wol->wolopts & ~WAKE_PHY)
-+		return -EINVAL;
-+
-+	if (wol_enable == device_may_wakeup(cdev->dev))
-+		return 0;
-+
-+	ret = device_set_wakeup_enable(cdev->dev, wol_enable);
-+	if (ret) {
-+		netdev_err(cdev->net, "Failed to set wakeup enable %pE\n",
-+			   ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static const struct ethtool_ops m_can_ethtool_ops_coalescing = {
- 	.supported_coalesce_params = ETHTOOL_COALESCE_RX_USECS_IRQ |
- 		ETHTOOL_COALESCE_RX_MAX_FRAMES_IRQ |
-@@ -2194,10 +2224,14 @@ static const struct ethtool_ops m_can_ethtool_ops_coalescing = {
- 	.get_ts_info = ethtool_op_get_ts_info,
- 	.get_coalesce = m_can_get_coalesce,
- 	.set_coalesce = m_can_set_coalesce,
-+	.get_wol = m_can_get_wol,
-+	.set_wol = m_can_set_wol,
- };
+ #include "m_can.h"
  
- static const struct ethtool_ops m_can_ethtool_ops = {
- 	.get_ts_info = ethtool_op_get_ts_info,
-+	.get_wol = m_can_get_wol,
-+	.set_wol = m_can_set_wol,
- };
+@@ -2421,6 +2422,11 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
+ 	if (dev->of_node && of_property_read_bool(dev->of_node, "wakeup-source"))
+ 		device_set_wakeup_capable(dev, true);
  
- static int register_m_can_dev(struct m_can_classdev *cdev)
-@@ -2324,6 +2358,9 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 		goto out;
- 	}
- 
-+	if (dev->of_node && of_property_read_bool(dev->of_node, "wakeup-source"))
-+		device_set_wakeup_capable(dev, true);
++	ret = devm_regulator_get_enable_optional(dev, "vio");
++	if (ret)
++		return ERR_PTR(
++			dev_err_probe(dev, ret, "Failed to get or enable optional regulator\n"));
 +
  	/* Get TX FIFO size
  	 * Defines the total amount of echo buffers for loopback
