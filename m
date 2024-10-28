@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01268D3399B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3059BD339A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8mX4PXEjoqXMUGgb5Mn9KAI5YZMFTWUiBiXo2pQxEU=; b=OBXekraZr5FzJcy2NW9i47UeMf
-	Nl4TlFv/fpYdWTxOfs/kWjjMec9SC/kCDWELiXlMAKoKH1LVRM516X2pLg5U9ShYIMrICClOeeIBr
-	Of+zRzelffWd72FF4FNimaxCwCq0dhrpYHyUo8183KOWHkyiDYfqaJ/phzDzGJ9aGBIw+l2FMnVK+
-	QQZfpDwLuMBLJIPz9Zz2wBUdxKvtAKtrZziMB6tiOTz86gVMV+vvkpG/4QE4P9g4JAAu0qJUGviJS
-	UDd0UsjmAvzN13j3G2L+eGPpXwX8weMgyiMKXM9AzjyX1UCdv3Repj2rHhR8fdFiGF9GrBLF4hDSk
-	TqX1j71Q==;
+	bh=iGj/2RrjtCME9sfaOGl76QJ8dsNtSXG+PLWljGpACOE=; b=mIILOA2z7iKo6q+SbmYdcxXMnh
+	XtaLIgyn6ZLt7ZVtZ6Y1uMQSv0+1hS/+Spn+5dEP9HzZ+SrVL9EiT9kS0pC17eG+AdWyAv8LGlJFt
+	Lc7GDOBvIgcJiHnB3DnjEyIe6rFZ8YVfP9TLuUcwXRRcDDpKzSgdBEuVLeQrmR+MbKo43x7zqLK+s
+	Ud/4dkWZyauFCtHTTtaxaNRf2WdjrQW9G2KTXvtFGkEdqzwYiDptx3YVBLRBWegEKz9Z/smL/orOJ
+	V9MeFfyycPJofKMZ5piFW1tc2VeB3aWebTx/TXfRU89YLFQk/tJUTEeOH3DXDfz6vM2amZGRZaHIf
+	KjKJXqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sko-0000000BWEA-4AN8;
-	Mon, 28 Oct 2024 16:38:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t5Sku-0000000BWJM-2PdR;
+	Mon, 28 Oct 2024 16:38:12 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SRq-0000000BTDj-2FeY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Oct 2024 16:18:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=C8mX4PXEjoqXMUGgb5Mn9KAI5YZMFTWUiBiXo2pQxEU=; b=CSixJc9KbGoYLDfMbDpJHLrYeW
-	aeqSc6UBpwLif9DvpVrg/Kg9xn2TRK3rAuUoDII7dSly1eXME5mL2ZMwuFA+twED1xRHK5Xyj8jE3
-	PB1J6eq1bxEYglvPRauXsodP5jp+wcoUCpULXLVnsekUjdTUXxyfzI12GHSHVxQDctVyEjUmYlyjC
-	a7BWHea/obZJrLtPXkdC6Daj+AEl52k1zVOzqV8U11nC4JNIrUbzjZkGZrdpp2aSMheR9OJnXRUE2
-	NMXhOoN5ws6i7ZrvSC3bUOBf+5jdQBKOtrFCVUHooMo0YpdQEy/v/H2uPF/O6t7WAU9GABJvcqCVp
-	XZjdmJaA==;
-Received: from [78.133.40.109] (helo=[127.0.0.1])
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SRi-00000009hqM-19H1;
-	Mon, 28 Oct 2024 16:18:22 +0000
-Date: Mon, 28 Oct 2024 17:17:14 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Richard Cochran <richardcochran@gmail.com>,
- Peter Hilber <peter.hilber@opensynergy.com>, linux-kernel@vger.kernel.org,
- virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rtc@vger.kernel.org, "Ridoux, Julien" <ridouxj@amazon.com>,
- virtio-dev@lists.linux.dev, "Luu, Ryan" <rluu@amazon.com>,
- "Chashper, David" <chashper@amazon.com>,
- "Mohamed Abuelfotoh, Hazem" <abuehaze@amazon.com>,
- Paolo Abeni <pabeni@redhat.com>,
- "Christopher S . Hall" <christopher.s.hall@intel.com>,
- Jason Wang <jasowang@redhat.com>, John Stultz <jstultz@google.com>,
- "Michael S . Tsirkin" <mst@redhat.com>, netdev@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- qemu-devel <qemu-devel@nongnu.org>, Simon Horman <horms@kernel.org>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net-next_v7=5D_ptp=3A_Add_supp?=
- =?US-ASCII?Q?ort_for_the_AMZNC10C_=27vmclock=27_device?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20241028091256.1b0752b4@kernel.org>
-References: <78969a39b51ec00e85551b752767be65f6794b46.camel@infradead.org> <20241009173253.5eb545db@kernel.org> <c20d5f27c9106f3cb49e2d8467ade680f0092f91.camel@infradead.org> <20241014131238.405c1e58@kernel.org> <c1eb33ffd66d45af77dea58db8bdca3dcd2468c4.camel@infradead.org> <20241028091256.1b0752b4@kernel.org>
-Message-ID: <5077F160-52F0-4E76-B2B9-F0EA9DA76FB4@infradead.org>
+	id 1t5SVy-0000000BTtb-3rmI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 16:22:49 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DFA71A0767;
+	Mon, 28 Oct 2024 17:22:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=iGj/2RrjtCME9sfaOGl7
+	6QJ8dsNtSXG+PLWljGpACOE=; b=qV07+cWiw94LKr8EnW7ekg/8PU6Cq5iklcxY
+	RkY/yh+JCrnbycKAiPVOWk6dJZTEFEfpGUMQ8fqT5Cco1RhcQhrr/w27xcWnll64
+	qazulhAYyIo8xMSHNZ6a/12xpmMXZpf1+oltT57Aw7Qo4099cPFljKoSZyP/xBz4
+	f0HAo3ZxSHA+AZ2/0mbLIBNQmmIbV4ug50NCVdOois5tDffuX2HUzsPSuiAv/l6S
+	Azrz5N6PpAPhInyTNsPfBY6VPAg95OL9gzpEEyDCW0TriyaLyaJl/FFf5F7Ba1/X
+	b+c8qJmxV+G4QDsdkVlVffisHd0TLoQtkHakMkkrlfCDMye1OvAUGnV8BxmGQR1h
+	RVh1c8CJFLGI2/mCggqlZ1NWTIoMIIgnJWXkinK9ktVrSyLq76EcYJsa2I7LNPBO
+	n7UfGwRT0ZChxUWzaAU72AVW6gmqtjPyLfJFY8w0yHVNCeagpvWF0AXtkK1PnyWa
+	UJ2GUlYwdrNTseFIv+F5n3IqUdOhXeJ/DYMAItyJy/yPM6aC6BQqDErWgEbdEU0C
+	e8obxrAbuAV9Qk6ZrsECY3haoJN/xAl0Bs62S+cryJyHhrKSNkuSykscaUExcT9g
+	3wwPmH7b1him2CvnKSbKkBU9T9gdK7iyRwBMjsOBTJE2CcbirmXrFXodZ6I98fjK
+	D6BQ1fY=
+Message-ID: <bdf6a38d-e113-41c5-abc9-c18571ed13d8@prolan.hu>
+Date: Mon, 28 Oct 2024 17:22:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+To: <wens@kernel.org>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, <dmaengine@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, Mesih Kilinc <mesihkilinc@gmail.com>, "Vinod
+ Koul" <vkoul@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
+ Holland" <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
+References: <20241027091440.1913863-1-csokas.bence@prolan.hu>
+ <20241027091440.1913863-2-csokas.bence@prolan.hu>
+ <nlhsxigg3rbfvua76ekmub4p6df2asps2ihueouuk6zkbn56zl@xdj6jzzt4gfb>
+ <b74dafed-197a-4644-a546-54c7a1639484@prolan.hu>
+ <CAGb2v65ZXftjrG9+f1_88=EsU7rM8vnOPZCszWfWYFQ+Do9Xsg@mail.gmail.com>
+ <1811aa2a-3d19-4ce4-83c5-863aa0f4daab@prolan.hu>
+Content-Language: en-US
+In-Reply-To: <1811aa2a-3d19-4ce4-83c5-863aa0f4daab@prolan.hu>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855667563
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241028_092247_446922_A374E74A 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +91,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28 October 2024 17:12:56 CET, Jakub Kicinski <kuba@kernel=2Eorg> wrote:
->On Sat, 19 Oct 2024 18:49:24 +0100 David Woodhouse wrote:
->> > Yes please and thank you! We gotta straighten it out before=20
->> > the merge window=2E =20
->>=20
->> Hm, as I (finally) come to do that, I realise that many of the others
->> defined in drivers/ptp/Kconfig are also 'default y'=2E Which is only
->> really 'default PTP_1588_CLOCK' in practice since they all depend on
->> that=2E
->
->AFAICT nothing defaulted to enabled since 2017, so I'd chalk it up
->to us getting better at catching mistakes over time=2E
->
->> Most importantly, PTP_1588_CLOCK_KVM is 'default y'=2E And that one is
->> fundamentally broken (at least in the presence of live migration if
->> guests care about their clock suddenly being wrong) which is why it's
->> being superseded by the new VMCLOCK thing=2E We absolutely don't want t=
-o
->> leave the _KVM one enabled by default and not its _VMCLOCK replacement=
-=2E
->
->You can default to =2E=2E_CLOCK_KVM, and provide the explanation in
->the commit message and Kconfig help=2E
+On 2024. 10. 28. 14:12, Csókás Bence wrote:
+> 
+> 
+> On 2024. 10. 28. 8:44, Chen-Yu Tsai wrote:
+>> I suggest adding a patch to switch the clk API calls to 
+>> devm_clk_get_enabled()
+>> which handles all the cleanup. Similarly you can switch to
+>>
+>>      devm_reset_control_get_exclusive_deasserted()
+>>
+>> for this patch.
+>>
+>>
+>> ChenYu
+> 
+> Huh, that's a new API! Thanks, I'll switch to that then.
 
-That works for me=2E But now it's my vacation time so it'll be at least Th=
-ursday before I can do that=2E I'll offer a preemptive Acked-by: David Wood=
-house <dwmw@amazon=2Eco=2Euk> to anyone who beats me to it :)
+Actually, it doesn't seem to be merged to Linus' tree yet. I'll probably 
+just switch it after it is merged.
+
+Bence
 
 
