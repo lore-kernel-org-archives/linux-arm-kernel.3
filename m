@@ -4,69 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37272D33982
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE80D33982
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kb4LdJWW6f8y1GhUSlZL6T9c+Ow9/VMDwR8sFapd1nA=; b=KXSfvGa8PNn6ru2xO3I1bIj1U/
-	DTkVzHU5tqNzrof4jSOHky87tRwURFR0bIU16vdXpobT2+i9v0t26fXvFiZ3gx+C3byWLbKfiRShB
-	lRwEFC/ZyhbFDeiRFsXT8uOtPjATV3z5ZFsk9Mg1DF7w0/9R1OaGGCxl/jd5E/b3QkZhdq8cKXxxl
-	uDXaBnPTmZS8HAcSmBhqbVUGaV0eaimkmBs0Axnyb84W0JtGeusLuklxEkke39NIH92dF1maw5RVR
-	4sDqYOjjXlS/MvPeJ2psDFp3vVDgh9b7r2a2u3KAGwG8ASxT9ROhvTg0L+mSZ8lUPCsPKNGc9bxjh
-	gMRaeAaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fT/8CN3uQM667asE4FC0BJ2VmDl+BTDbxH6qSb3j5Z8=; b=vcaYm3h2zrBppy
+	89UnioAAKafPs+jdIUdcUjtVUoRgYsKtfVzWFnKduDffckNlC9B3TzuuFPBpSgDkFqHbf02a+kZVO
+	5lk4uBuV0fyj8RbLdZoj2FCb8hl+0pg2AAHIBZOwQiK4f20AZqnO7qo0ROGDGw70gGFOzHdGTcvZ5
+	wcYu7HOTHZKV4JaLn6cnlr92+EYZW8qK1c69zxRaq57nfRMdXvRWfkBl9sQLLqxzpeKnNJZkCy8Er
+	Kn2a4ene5wYZYo2EOE1Di8UOEyV+WWU+V6wsbToyteA5fsgKCBbkxT6kzCGWLwwvpaZZLzKPWTkBv
+	necb+1GxZ28SAKpHjzew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QNH-0000000B2Ol-1E3u;
-	Mon, 28 Oct 2024 14:05:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t5QOp-0000000B2ez-34Mw;
+	Mon, 28 Oct 2024 14:07:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QKX-0000000B1g0-3wuK;
-	Mon, 28 Oct 2024 14:02:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730124166;
-	bh=GARURTPO3rxpQXzZwj7FF8BdkvH2AjtCyCh0MqYT5vA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BPKqAkDEwKSvzgI+d7NCdISq1yOm+4PmPcY/g1FvCeseJW1LI6xksrH7ivDzwWxY5
-	 sGqELxzRCfM4QwZcJkbonBxQkoQj/0zgG6NAKf4D5lL0u+4YE4Zr6yPVJkdfC0F3VL
-	 nwDEgq5fKNXFTNu4mJ/ZslyE8VgdhNLc7PcFvjAgUFw94CbWQWUPZRceD9j4Y/mBkt
-	 vfsLrVEOK56FqOR7pbYISoTvp5pHgDj4+zTYPHuwwWsxIRcL4FYFG93xlG0NR4USg7
-	 wV0JoYWq/+kUZY0slHTCCObmYSLpNOygG0WBNM207xU/wdum4dvi5nzqxu21z5TPhL
-	 l/sjPvx8i1Z4g==
-Received: from notapiano (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 321DF17E3613;
-	Mon, 28 Oct 2024 15:02:44 +0100 (CET)
-Date: Mon, 28 Oct 2024 10:02:41 -0400
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bamvor Jian Zhang <bamv2005@gmail.com>,
-	Shuah Khan <shuah@kernel.org>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, kernelci@lists.linux.dev
-Subject: Re: [PATCH RFC v2 0/5] Verify bias functionality for pinctrl_paris
- driver through new gpio test
-Message-ID: <cda91b70-7179-49b5-9207-3fa3a1aaa4d5@notapiano>
-References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+	id 1t5QMF-0000000B2BJ-3bel
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 14:04:38 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49SAVqHE027014;
+	Mon, 28 Oct 2024 14:04:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=fT/8CN3uQM667asE4FC0BJ
+	2VmDl+BTDbxH6qSb3j5Z8=; b=dEMivi0jn1DGZLGVHbcVPNt+azsZ6V0zLJj4yW
+	xImooj4pC67Zt/+znx+szQtEaiHA0CIkdlniz0VMim4WNubLwnFFIG7dEteTI7yu
+	zj3HTByer2ymH9JwFfk0xLCUHMuUmOmDuc50zJwFLOE4bTF0UHuWcSdkUPU+2wa0
+	uWEi6aIBDHRt6f2rYCMg4iGREJ975dRb4hyz1qGVW/qJwlK/HyKZR8NEduDSBu2p
+	gV5JmSzc1OGh85Tt2Xo6Szs/MXl/oWYJDQQOWzoKOKYjMmpDKxwyf0ETU7ggjeud
+	EIZ05/o0hanovngYlrB+kBx/XZDxEik4KwyaX42IhDzedLGA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gqrgn6hm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 14:04:25 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49SE4NTL009681
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 14:04:23 GMT
+Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 28 Oct 2024 07:04:18 -0700
+From: Luo Jie <quic_luoj@quicinc.com>
+Subject: [PATCH v5 0/4] Add CMN PLL clock controller driver for IPQ9574
+Date: Mon, 28 Oct 2024 22:04:07 +0800
+Message-ID: <20241028-qcom_ipq_cmnpll-v5-0-339994b0388d@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANeZH2cC/2XOTQ6CMBAF4KuQrq3pL1RX3sMYImWQSaBAq42Gc
+ HcLCxPD8k3mfTMzCeARAjlnM/EQMeDgUtCHjNj27h5AsU6ZCCYUZ1zRyQ59ieNU2t6NXUerGlg
+ uTaM4z0lqjR4afG/i9ZZyi+E5+M92IMp1ulnMiGJnRUkZNcDYyYIFU4nL9EKLzh7TIlm1qH5C+
+ kbvBZUEURheNBVIzfS/sCzLF1ou0X7yAAAA
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>,
+        Luo Jie
+	<quic_luoj@quicinc.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730124258; l=3680;
+ i=quic_luoj@quicinc.com; s=20240808; h=from:subject:message-id;
+ bh=SOIvPyJRmfJFGhYZ/LtCwoJ8ea6QC7C8lqnI5ohpZWU=;
+ b=Q8ogq98h7xQnI1EwFgrxsiytJ6hwx2Fa+PSz1A+TvIrhXe4q7BKMsvKnee2EvHG+6+QF+5Uuh
+ g9v/6br40RhCxsASFJLuUM/JLP14rokvxXw9va/c39P7GFIvTXhYvP3
+X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
+ pk=P81jeEL23FcOkZtXZXeDDiPwIwgAHVZFASJV12w3U6w=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: htoyhtuBrr-Vrd1PcZnwdTSInhPjOI-S
+X-Proofpoint-GUID: htoyhtuBrr-Vrd1PcZnwdTSInhPjOI-S
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 malwarescore=0
+ clxscore=1015 impostorscore=0 suspectscore=0 spamscore=0 mlxscore=0
+ adultscore=0 priorityscore=1501 mlxlogscore=999 phishscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410280113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_070250_201523_ACCDEC36 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20241028_070436_063432_A0087CAE 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,115 +122,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 03:45:35PM -0400, Nícolas F. R. A. Prado wrote:
-> This series was motivated by the regression fixed by 166bf8af9122
-> ("pinctrl: mediatek: common-v2: Fix broken bias-disable for
-> PULL_PU_PD_RSEL_TYPE"). A bug was introduced in the pinctrl_paris driver
-> which prevented certain pins from having their bias configured.
-> 
-> Running this test on the mt8195-tomato platform with the test plan
-> included below[1] shows the test passing with the fix applied, but failing
-> without the fix:
-> 
-> With fix:
->   $ ./gpio-setget-config.py
->   TAP version 13
->   # Using test plan file: ./google,tomato.yaml
->   1..3
->   ok 1 pinctrl_paris.34.pull-up
->   ok 2 pinctrl_paris.34.pull-down
->   ok 3 pinctrl_paris.34.disabled
->   # Totals: pass:3 fail:0 xfail:0 xpass:0 skip:0 error:0
-> 
-> Without fix:
->   $ ./gpio-setget-config.py
->   TAP version 13
->   # Using test plan file: ./google,tomato.yaml
->   1..3
->   # Bias doesn't match: Expected pull-up, read pull-down.
->   not ok 1 pinctrl_paris.34.pull-up
->   ok 2 pinctrl_paris.34.pull-down
->   # Bias doesn't match: Expected disabled, read pull-down.
->   not ok 3 pinctrl_paris.34.disabled
->   # Totals: pass:1 fail:2 xfail:0 xpass:0 skip:0 error:0
-> 
-> In order to achieve this, the first three patches expose bias
-> configuration through the GPIO API in the MediaTek pinctrl drivers,
-> notably, pinctrl_paris, patch 4 extends the gpio-mockup-cdev utility for
-> use by patch 5, and patch 5 introduces a new GPIO kselftest that takes a
-> test plan in YAML, which can be tailored per-platform to specify the
-> configurations to test, and sets and gets back each pin configuration to
-> verify that they match and thus that the driver is behaving as expected.
-> 
-> Since the GPIO uAPI only allows setting the pin configuration, getting
-> it back is done through pinconf-pins in the pinctrl debugfs folder.
-> 
-> The test currently only verifies bias but it would be easy to extend to
-> verify other pin configurations.
-> 
-> The test plan YAML file can be customized for each use-case and is
-> platform-dependant. For that reason, only an example is included in
-> patch 3 and the user is supposed to provide their test plan. That said,
-> the aim is to collect test plans for ease of use at [2].
-> 
-> [1] This is the test plan used for mt8195-tomato:
-> 
-> - label: "pinctrl_paris"
->   tests:
->   # Pin 34 has type MTK_PULL_PU_PD_RSEL_TYPE and is unused.
->   # Setting bias to MTK_PULL_PU_PD_RSEL_TYPE pins was fixed by
->   # 166bf8af9122 ("pinctrl: mediatek: common-v2: Fix broken bias-disable for PULL_PU_PD_RSEL_TYPE")
->   - pin: 34
->     bias: "pull-up"
->   - pin: 34
->     bias: "pull-down"
->   - pin: 34
->     bias: "disabled"
-> 
-> [2] https://github.com/kernelci/platform-test-parameters
-> 
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
-> Changes in v2:
-> - Added patches 2 and 3 enabling the extra GPIO pin configurations on
->   the other mediatek drivers: pinctrl-moore and pinctrl-mtk-common
-> - Tweaked function name in patch 1:
->   mtk_pinconf_set -> mtk_paris_pin_config_set,
->   to make it clear it is not a pinconf_ops
-> - Adjusted commit message to make it clear the current support is
->   limited to pins supported by the EINT controller
-> - Link to v1: https://lore.kernel.org/r/20240909-kselftest-gpio-set-get-config-v1-0-16a065afc3c1@collabora.com
-> 
-> ---
-> Nícolas F. R. A. Prado (5):
->       pinctrl: mediatek: paris: Expose more configurations to GPIO set_config
->       pinctrl: mediatek: moore: Expose more configurations to GPIO set_config
->       pinctrl: mediatek: common: Expose more configurations to GPIO set_config
+The CMN PLL clock controller in Qualcomm IPQ chipsets provides
+the clocks to the networking hardware blocks that are internal
+or external to the SoC, and to the GCC. This driver configures
+the CMN PLL clock controller to enable the output clocks. The
+networking blocks include the internal blocks such as PPE
+(Packet Process Engine) and PCS blocks, and external hardware
+such as Ethernet PHY or switch. The CMN PLL block also outputs
+fixed rate clocks to GCC, such as 24 MHZ as XO clock and 32 KHZ
+as sleep clock supplied to GCC.
 
-I forgot to mention that I don't have hardware that uses the moore or the common
-drivers, so I'm not able to runtime test patches 2 and 3. So help with that is
-appreciated.
+The controller expects the input reference clock from the internal
+Wi-Fi block acting as the clock source. The output clocks supplied
+by the controller are fixed rate clocks.
 
-Thanks,
-Nícolas
+The CMN PLL hardware block does not include any other function
+other than enabling the clocks to the networking hardware blocks
+and GCC.
 
->       selftest: gpio: Add wait flag to gpio-mockup-cdev
->       selftest: gpio: Add a new set-get config test
-> 
->  drivers/pinctrl/mediatek/pinctrl-moore.c           | 283 +++++++++++----------
->  drivers/pinctrl/mediatek/pinctrl-mtk-common.c      |  48 ++--
->  drivers/pinctrl/mediatek/pinctrl-paris.c           |  26 +-
->  tools/testing/selftests/gpio/Makefile              |   2 +-
->  tools/testing/selftests/gpio/gpio-mockup-cdev.c    |  14 +-
->  .../gpio-set-get-config-example-test-plan.yaml     |  15 ++
->  .../testing/selftests/gpio/gpio-set-get-config.py  | 183 +++++++++++++
->  7 files changed, 395 insertions(+), 176 deletions(-)
-> ---
-> base-commit: a39230ecf6b3057f5897bc4744a790070cfbe7a8
-> change-id: 20240906-kselftest-gpio-set-get-config-6e5bb670c1a5
-> 
-> Best regards,
-> -- 
-> Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> 
+The driver is being enabled to support IPQ9574 SoC initially, and
+will be extended for other SoCs.
+
+Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+---
+Changes in v5:
+- Move the hardware configurations into set_rate() from determine_rate().
+- Remove the dependency on IPQ_GCC_9574.
+- Correct the header files included.
+- Update reference clock of CMN PLL to use fixed factor clock.
+- Link to v4: https://lore.kernel.org/r/20241015-qcom_ipq_cmnpll-v4-0-27817fbe3505@quicinc.com
+
+Changes in v4:
+- Rename driver file to ipq-cmn-pll.c
+- Register CMN PLL as a 12 GHZ clock.
+- Configure CMN PLL input ref clock using clk_ops::determine_rate().
+  Add the additional output clocks to GCC and PCS.
+- Update the same information in dtbindings.
+- Use PM clock APIs for input clock enablement.
+- Link to v3: https://lore.kernel.org/r/20240827-qcom_ipq_cmnpll-v3-0-8e009cece8b2@quicinc.com
+
+Changes in v3:
+- Update description of dt-binding to explain scope of 'CMN' in CMN PLL.
+- Collect Reviewed-by tags for dtbindings and defconfig patches.
+- Enable PLL_LOCKED check for the stability of output clocks.
+- Link to v2: https://lore.kernel.org/r/20240820-qcom_ipq_cmnpll-v2-0-b000dd335280@quicinc.com
+
+Changes in v2:
+- Rename the dt-binding file with the compatible.
+- Remove property 'clock-output-names' from dt-bindings and define
+  names in the driver. Add qcom,ipq-cmn-pll.h to export the output
+  clock specifier.
+- Alphanumeric ordering of 'cmn_pll_ref_clk' node in DTS.
+- Fix allmodconfig error reported by test robot.
+- Replace usage of "common" to "CMN" to match the name with the
+  hardware specification.
+- Clarify in commit message on scope of CMN PLL function.
+- Link to v1: https://lore.kernel.org/r/20240808-qcom_ipq_cmnpll-v1-0-b0631dcbf785@quicinc.com
+
+---
+Luo Jie (4):
+      dt-bindings: clock: qcom: Add CMN PLL clock controller for IPQ SoC
+      clk: qcom: Add CMN PLL clock controller driver for IPQ SoC
+      arm64: defconfig: Enable Qualcomm IPQ CMN PLL clock controller
+      arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
+
+ .../bindings/clock/qcom,ipq9574-cmn-pll.yaml       |  85 ++++
+ arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi   |  16 +-
+ arch/arm64/boot/dts/qcom/ipq9574.dtsi              |  26 +-
+ arch/arm64/configs/defconfig                       |   1 +
+ drivers/clk/qcom/Kconfig                           |   9 +
+ drivers/clk/qcom/Makefile                          |   1 +
+ drivers/clk/qcom/ipq-cmn-pll.c                     | 436 +++++++++++++++++++++
+ include/dt-bindings/clock/qcom,ipq-cmn-pll.h       |  22 ++
+ 8 files changed, 594 insertions(+), 2 deletions(-)
+---
+base-commit: d61a00525464bfc5fe92c6ad713350988e492b88
+change-id: 20241014-qcom_ipq_cmnpll-bde0638f4116
+
+Best regards,
+-- 
+Luo Jie <quic_luoj@quicinc.com>
+
 
