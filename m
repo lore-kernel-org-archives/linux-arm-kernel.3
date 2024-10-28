@@ -4,77 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D59D3398B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1307DD33989
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/Km0duaUxN9zrPZeOy2RJQXZwW6MUMmomrvB9hLoAo=; b=lx1JUzjCwwtZZHjN7gFVbzpkGF
-	ppMspRb76GNBRWFUN7Pj0BfRS62MwOSE6i4+JirmR2351pdWWTUAugmmkQUBlMLmbGzsFABV0Ugli
-	tSyaj6IrTtsfe+nhWMCbsHrz5NJULm0OZyzKTktzxXeLonB0isvGFkuXYGv1vVIzyFgp9cwLCDs0l
-	cHX+CDiezVrR7OHUt0d2ZDMuVrPgtbSxPRoNoV0G5oxsuWdjoG5j5WxSRXFdjn1uESPUxOfaE08Of
-	pQpFeypEPuI+GiAru0whnhiebugiGpvY5h6SxB1MGLkT1NFHJvLptRiQ7Bq/FZHVv29uzpDxnNcWX
-	hN6f3AKA==;
+	bh=yqh56MHAf6NGyxNJb5XjKGyAFS1Pm7/dh/+rsUlSsqw=; b=odFI26lRRPIKQI6dI1rK/tip+o
+	o12eMGvHkCbu0iAxuoirmiDD+x8qS8yTXVyWGhDjQt3xNt/iw7COETs8TK0awRbYe5avmAg9L5d+g
+	yb0VjjvpWydyxnVMTKybQhiD7yRh8mUBcBL4EpL/iTfgQgFww7OY4I1zbifmqNJDk3c1UO3kXnYnm
+	P63Nl6ARFJE6csgxtIiBkemzERewz9EQe9APfe72KVTrmZ/6pdpTVxjHAIDRvqGDFNZbt8w1Joggi
+	6Ee3TXQF+wW5aQXn3LRQeBd2V3ChYxzsNjI4DPxeV0K+hNjLBZkJPA2VTdqytrn0g86dCA+RinDdH
+	qFhHUa3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QWf-0000000B4nE-0ZBt;
-	Mon, 28 Oct 2024 14:15:21 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1t5QY8-0000000B5C7-1vOc;
+	Mon, 28 Oct 2024 14:16:52 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PY1-0000000AtWZ-0E36
+	id 1t5QOx-0000000B2j5-0J7r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 13:12:43 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 998F7A09F1;
-	Mon, 28 Oct 2024 14:12:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=a/Km0duaUxN9zrPZeOy2
-	RJQXZwW6MUMmomrvB9hLoAo=; b=UQseZHBFhaIAsUXZ58dfmX3kXyOr9KsCgXPS
-	SvuPoNSgAFOOUl0/qNd3141M6WDsLsFoSJC9JjZn4ivvS5+kBpqngIkhOaMwCNQA
-	KF9fqHW8dSodcN9PKeBElOXmZ/Cc9XR6fMS5zYOp5eHGprkGKm4+JYL3TKRv1lrV
-	IwDjMqW9TiEPX0ROUTWXUUgXhaBee6TuaOxGoh/QkJaHcxRuuWJvRPFEhCrghNU3
-	Wmluxl01SWWNsb4JT/xp7OFcnmbzEhMchUJRKB4xfmoKwe86k6Zr4UvuR9fQE52x
-	o9dUohQCkaQCuvxubzo5yxWjXUvMzYgs0h8fdtf2wbXcpj2KuaXiHt9chN4011Kg
-	NyV1Rb9pbRzbTl3NPDdb3A422KwNadY7u65YL7tPNavAz6HP0cvMXeoi6OE9Tufs
-	TJbMGsiTimrxoP2HPth+1UadXhZcoCG3nBiDXgBzuhnM0c8l+5azFD68+TMHYDUo
-	vCKaiXeak4hGeMKvtkia51+se47Rj1vf6CmQSb/RSwyL/A4vVMK7IPCMDa/rXCfe
-	z3uleYY5GPW2+FT9T3fw/Akugxsk0c6hfBFdpIxDBkoLy8ej+oP+cQVpJRvZaE30
-	L72tb6TkN9X+9ZNPRyl9r+AilBTLusns99Yctynj3xNHUPEaSjZ5SMoNVVdF4C7P
-	JdnmnSo=
-Message-ID: <1811aa2a-3d19-4ce4-83c5-863aa0f4daab@prolan.hu>
-Date: Mon, 28 Oct 2024 14:12:27 +0100
+	Mon, 28 Oct 2024 14:07:26 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5c9388a00cfso5049340a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1730124440; x=1730729240; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yqh56MHAf6NGyxNJb5XjKGyAFS1Pm7/dh/+rsUlSsqw=;
+        b=DLzMtwCAlUVIgf7ZV7wnY7Cd1uIgZJfKonHf8hQCvDR5T6iDh1KdJZk76pMepxkcZ3
+         5lAYUL2/4pE9RPT8eaRXVnF7EcFpuFwl83r/QdlBwjiwTcZCP0KofsLcXjKtgE/0r5iA
+         8XnxtnrG+NCezqfgz1AedU6VnS0g5yicwnWvZRaLNpzPRQzdCHu8q7Ostyb/7Diltlyl
+         oZ/U9qrtRm2WfuBgjrDQC6qEIYtn/WPezNlj8P2iQjwZ6QitGk9B3wrlKwgPus1Ij9/I
+         PPi3z+p9Rn5DVoJdgzhro17QoP1VIUuAE9TtJMs5helTP6b6WgRgVbx8GcvOeddjR7qG
+         HYEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730124440; x=1730729240;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yqh56MHAf6NGyxNJb5XjKGyAFS1Pm7/dh/+rsUlSsqw=;
+        b=kYS7DbGcTfwvo7RPhu3PTMUdFsre7+T3KWmhSuiOFmPTAB/T9JTeeRiN5wOfb++in2
+         /skDTIiPLezDjwqtxjrB/84Sqv6RQLXH4R8MSO4pctRsgVy6/a3Cb989AOfaEcX2MmDr
+         T3UkfaJEKZd6v+KH9s8T94iyXyYY0uCceuizUGxdL9P3lNsGzs8f2l2K/n/C8x6pX+Hb
+         F6LobVMS56X6hWseUC3ezGJslqewrKZDZugtyQsvgH3FAD+T0Chizf1r2RGyPB0V6ICh
+         3tJr1Bm4jAoFt16vzTNWJjERltCwVmEKEEdtbJQHxA6DDGOz92uvsnUAO4tj05kqUKlg
+         aRVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW0Sr/LwUpQLPdCxIfCIdwHXspyJZxBKdrJroT4Rk+zSIqel/yqW2/y5BojY90RbPvhDPsXfx03nlhV/HzvI1fd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlamG7IWMxMj7t2VxLXZ0smDhNsG59BOJluifjt2Nt+HHoou9Y
+	E7ZLWvdaP6oTgv/zCDk31AC4qmFE0X83mOsB1iHbx2mJYQG8lZBLSlDtti1n32g=
+X-Google-Smtp-Source: AGHT+IEJsXz3JLUo8t8BMAbJDLTmQNDfk74M3MzGZPfukI0B32f64s3so2uEdukAd0Pl42XLPpmBkw==
+X-Received: by 2002:a17:907:3e1a:b0:a99:f4be:7a6c with SMTP id a640c23a62f3a-a9de61669cdmr835551966b.52.1730124440047;
+        Mon, 28 Oct 2024 07:07:20 -0700 (PDT)
+Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b32455a14sm388970666b.178.2024.10.28.07.07.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 07:07:19 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus address to dynamic bridge nodes
+Date: Mon, 28 Oct 2024 15:07:22 +0100
+Message-ID: <f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <cover.1730123575.git.andrea.porta@suse.com>
+References: <cover.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/10] dma-engine: sun4i: Add has_reset option to quirk
-To: <wens@kernel.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, <dmaengine@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Mesih Kilinc <mesihkilinc@gmail.com>, "Vinod
- Koul" <vkoul@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
-References: <20241027091440.1913863-1-csokas.bence@prolan.hu>
- <20241027091440.1913863-2-csokas.bence@prolan.hu>
- <nlhsxigg3rbfvua76ekmub4p6df2asps2ihueouuk6zkbn56zl@xdj6jzzt4gfb>
- <b74dafed-197a-4644-a546-54c7a1639484@prolan.hu>
- <CAGb2v65ZXftjrG9+f1_88=EsU7rM8vnOPZCszWfWYFQ+Do9Xsg@mail.gmail.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <CAGb2v65ZXftjrG9+f1_88=EsU7rM8vnOPZCszWfWYFQ+Do9Xsg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855677C6B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_061241_595263_2FC80B63 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20241028_070723_161677_C61529B7 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
+incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
+bridge, the window should instead be in PCI address space. Call
+pci_bus_address() on the resource in order to obtain the PCI bus
+address.
 
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ drivers/pci/of_property.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 2024. 10. 28. 8:44, Chen-Yu Tsai wrote:
-> I suggest adding a patch to switch the clk API calls to devm_clk_get_enabled()
-> which handles all the cleanup. Similarly you can switch to
-> 
->      devm_reset_control_get_exclusive_deasserted()
-> 
-> for this patch.
-> 
-> 
-> ChenYu
-
-Huh, that's a new API! Thanks, I'll switch to that then.
-
-Regarding the change to devm_clk_get_enabled(), I think that should be a 
-separate patch from this series, where all the pre-existing dev_err()'s 
-get changed as well. If someone wants to work on that, go ahead, but if 
-no one does then after this series is merged I might get around to that too.
-
-Bence
+diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
+index 5a0b98e69795..886c236e5de6 100644
+--- a/drivers/pci/of_property.c
++++ b/drivers/pci/of_property.c
+@@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
+ 		if (of_pci_get_addr_flags(&res[j], &flags))
+ 			continue;
+ 
+-		val64 = res[j].start;
++		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
+ 		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
+ 				   false);
+ 		if (pci_is_bridge(pdev)) {
+-- 
+2.35.3
 
 
