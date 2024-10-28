@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DC5D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A455ED13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bmhpyzKwivp1MPmXjUPqcRT+n1WMkVSe66d8hP62sVw=; b=P0c/lPToZtEbm9SaoTf52jb56X
-	o/b3lq+cmOzZEX1Bjmm/QHdK8GgD9fFgmEauYsDlG5sRUbzWkoHFrrvQdUh0Hx0k2Wg+noEh2ITtB
-	gE5aJnIMBGu990GmzFXT8PgBXIndll3F91Iq1i11lYkFWR1ycsccR24lucWoxES4jyIeUkk8sl0x1
-	Dg2wFDux9ona8a2c/R/lHzs8z2lvuJmm7/aY4H2JdmXA2/aJC0RGGn6kgxEKcbKHtWjCcRjm29c0T
-	3qbjvlA12Rkozs3Q/LIY8dT6RXQdl7NTm6IrM6k3DKAy5g8n3DfOq6DWVHbmq7CG0xueDiIPJOJRF
-	PJ9wT10Q==;
+	bh=EToRdi4PLtXQOuR54JEvxDoKLjK+uuvFg10nZz5uGsI=; b=WP8QA42wvng1+QMbrMKFK5k2o0
+	upH9PP26I0ljQUrgpT9MsQSyi7hiU7VQd6aMSwH+gkB/c9OAq2xqOh/Bt/jEOYGpZW245qJwrBPE8
+	Fe4ktAJlH9gfMQiO+7Vr16fn/lgscByyPvJgZyhifyAPghAZLv0fdN8Ninz5+ErhTyw4W5LtZ4xGJ
+	lhXdeLUyIR7ogZtojYxSCARJr45cJR9JcwFWIXCVrkDWrQz1lxK4kMbNpRvepaiutHjuh04Y9ZvS5
+	Enni4i+NP3c4jdjPOnE9EanT6RYUFQ+vZjsVzlHRPkIAGLe9uRY3PLKwjX30M+w7/QcPwAk+1HjWj
+	lxFa4hyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MuZ-0000000ANuD-3APO;
-	Mon, 28 Oct 2024 10:23:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MrT-0000000ANMX-2tKf
+	id 1t5Mwp-0000000AOMW-0QJk;
+	Mon, 28 Oct 2024 10:26:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5Mv9-0000000ANyu-0qPA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 10:20:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E73A9497;
-	Mon, 28 Oct 2024 03:21:01 -0700 (PDT)
-Received: from [10.57.64.61] (unknown [10.57.64.61])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A0EA3F528;
-	Mon, 28 Oct 2024 03:20:28 -0700 (PDT)
-Message-ID: <03ddf191-f0bc-4d63-abcc-932141512314@arm.com>
-Date: Mon, 28 Oct 2024 11:20:26 +0100
+	Mon, 28 Oct 2024 10:24:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58C2B5C5563;
+	Mon, 28 Oct 2024 10:23:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0F8FC4CEC3;
+	Mon, 28 Oct 2024 10:24:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730111062;
+	bh=NZY1+Ssx85kUHoilLgO+B6qDtQ06eiMsdics2ydE8Vc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dMmK/HCOFVtg0ZaN1e6xteqSlyVPkqHRzdFiUs2HD0yLwpupAlCDl1egOXGSa8pg6
+	 ScyzSYbCrCY21KCXms5jKNB0ZJ8mJLjDNJad7mlk264FT7jl++vDGCeTsgOqt6N5ql
+	 y25+JCxRm9brgj+lxxQINp8MtoM0+fCkp0YMg7LItKYUJPzAq8wvswgJG2JYlmfqeG
+	 n0L6ID8e/hQnZJXT1K6duZuSNQc8Jk4zbqx1NXR4y1JNAm5nzrXER06Jmvk5tplaPp
+	 90+g2EBiuTipVKsonS24X4CLBWXwCBRxxe4Uv3CXHBGzBF2G6Gq5jt/0CPw2kQ6hah
+	 la0m9W1zXztdw==
+Message-ID: <f4150aa3-4c0e-45fa-9c9c-879ac04c4364@kernel.org>
+Date: Mon, 28 Oct 2024 11:24:14 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] selftests/mm: Use generic pkey register
- manipulation
-To: Dave Hansen <dave.hansen@intel.com>, linux-arm-kernel@lists.infradead.org
-Cc: akpm@linux-foundation.org, anshuman.khandual@arm.com,
- aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, dave.martin@arm.com, jeffxu@chromium.org,
- joey.gouly@arm.com, pierre.langlois@arm.com, shuah@kernel.org,
- sroettger@google.com, will@kernel.org, linux-kselftest@vger.kernel.org,
- x86@kernel.org, Yury Khrustalev <Yury.Khrustalev@arm.com>
-References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
- <20241023150511.3923558-5-kevin.brodsky@arm.com>
- <6b575236-7e4e-4128-9ab6-7ecec7b81428@intel.com>
- <c35d8783-c754-4864-b964-4a3bfaa4cd11@arm.com>
- <5fa27331-db95-4d60-8fd9-19fbd18f12bb@intel.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <5fa27331-db95-4d60-8fd9-19fbd18f12bb@intel.com>
+Subject: Re: [PATCH v1 2/2] arm64: dts: imx8mp: add aristainetos3 board
+ support
+To: Heiko Schocher <hs@denx.de>, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241028082332.21672-1-hs@denx.de>
+ <20241028082332.21672-3-hs@denx.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241028082332.21672-3-hs@denx.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_032035_879950_B45D8EC5 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20241028_032423_373349_6B10D565 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +122,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/10/2024 17:09, Dave Hansen wrote:
-> [...]
->>>>  static inline void __page_o_noops(void)
->>>>  {
->>>>  	/* 8-bytes of instruction * 512 bytes = 1 page */
->>>> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
->>>> index a8088b645ad6..b5e1767ee5d9 100644
->>>> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
->>>> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
->>>> @@ -37,6 +37,8 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
->>>>  pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
->>>>  siginfo_t siginfo = {0};
->>>>  
->>>> +static u64 pkey_reg_no_access;
->>> Ideally, this would be a real const or a #define because it really is
->>> static.  Right?  Or is there something dynamic about the ARM
->>> implementation's value?
->> It isn't dynamic no, the issue is that on architectures where pkeys
->> restrict execution we need to allow X for pkey 0. Of course it would be
->> possible to define PKEY_REG_ALLOW_ALL in such a way that X is allowed
->> for pkey 0, but I was concerned this might be misleading. No strong
->> opinion either way, happy to make it purely a macro, maybe with a better
->> name?
-> I do think we should differentiate truly "no access" value from the one
-> that allows X on pkey 0, at least in the selftest.  Define a helper that
-> uses the *real* "no access" value:
->
-> /*
->  * Returns the most restrictive register value
->  * that can be used in the selftest.
->  */
-> static inline u64 pkey_reg_restrictive_default(void)
-> {
-> 	/*
-> 	 * The selftest code runs (mostly) with its code mapped with
-> 	 * pkey-0.  Allows execution on pkey-0 so that each site doesn't
-> 	 * have to do this:
-> 	 */
-> 	return set_pkey_bits(PKEY_REG_NO_ACCESS, 0, PKEY_X);
-> }
->
-> and then use it like this:
->
-> 	pkey_reg = pkey_reg_restrictive_default();
->  	pkey_reg = set_pkey_bits(pkey_reg, 1, PKEY_ALLOW_ALL);
+On 28/10/2024 09:23, Heiko Schocher wrote:
+> Add support for the i.MX8MP based aristainetos3 boards from ABB.
+> 
+> The board uses a ABB specific SoM from ADLink, based on NXP
+> i.MX8MP SoC. The SoM is used on 3 different carrier boards,
+> with small differences, which are all catched up in
+> devicetree overlays. The kernel image, the basic dtb
+> and all dtbos are collected in a fitimage. As bootloader
+> is used U-Boot which detects in his SPL stage the carrier
+> board by probing some i2c devices. When the correct
+> carrier is probed, the SPL applies all needed dtbos to
+> the dtb with which U-Boot gets loaded. Same principle
+> later before linux image boot, U-Boot applies the dtbos
+> needed for the carrier board before booting Linux.
+> 
+> Signed-off-by: Heiko Schocher <hs@denx.de>
+> ---
+> checkpatch dropped the following warnings:
+> arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi:248: warning: DT compatible string "ethernet-phy-id2000.a231" appears un-documented -- check ./Documentation/devicetree/bindings/
+> 
+> ignored, as this compatible string is usedin other dts too, for example in
+> 
+> arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> 
+>  arch/arm64/boot/dts/freescale/Makefile        |    5 +
+>  .../imx8mp-aristainetos3-adpismarc.dtsi       |   64 +
+>  .../imx8mp-aristainetos3-adpismarc.dtso       |   14 +
+>  .../imx8mp-aristainetos3-helios-lvds.dtsi     |   89 ++
+>  .../imx8mp-aristainetos3-helios-lvds.dtso     |   13 +
+>  .../imx8mp-aristainetos3-helios.dtsi          |  103 ++
+>  .../imx8mp-aristainetos3-helios.dtso          |   13 +
+>  .../imx8mp-aristainetos3-proton2s.dtsi        |  176 +++
+>  .../imx8mp-aristainetos3-proton2s.dtso        |   13 +
+>  .../imx8mp-aristainetos3a-som-v1.dts          |   18 +
+>  .../imx8mp-aristainetos3a-som-v1.dtsi         | 1210 +++++++++++++++++
+>  11 files changed, 1718 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtso
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtso
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 9d3df8b218a2..7c3586509b8b 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -163,6 +163,11 @@ imx8mn-tqma8mqnl-mba8mx-usbotg-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8m
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-usbotg.dtb
+>  
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-aristainetos3a-som-v1.dtb \
+> +			  imx8mp-aristainetos3-adpismarc.dtbo \
+> +			  imx8mp-aristainetos3-proton2s.dtbo \
+> +			  imx8mp-aristainetos3-helios.dtbo \
+> +			  imx8mp-aristainetos3-helios-lvds.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-beacon-kit.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-model-a.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+> new file mode 100644
+> index 000000000000..cc0cddaa33ea
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+> @@ -0,0 +1,64 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +&ecspi1 {
+> +	spidev0: spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
 
-Didn't think of introducing a helper, that looks good, thanks! Inlining
-and optimisations should be able to reduce the call to a constant,
-another win compared to using a global. Will go for that in v3.
+Hm? I have some doubts, what device is here?
 
-> [...]
->>> ...
->>>> +	/* Only allow X for MPK 0 and nothing for other keys */
->>>> +	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0,
->>>> +					   PKEY_DISABLE_ACCESS);
->>> If the comment says "only allow X", then I'd expect the code to say:
->>>
->>> 	pkey_reg_no_access = set_pkey_bits(PKEY_ALLOW_NONE, 0, PKEY_X);
->>>
->>> ... or something similar.
->> I could #define PKEY_X PKEY_DISABLE_ACCESS but is the mixture of
->> negative and positive polarity really helping? We cannot define PKEY_R
->> and PKEY_W so that (for instance) PKEY_R | PKEY_X does what it says.
->> Having to use PKEY_DISABLE_ACCESS to mean "X only" is not ideal, but
->> this is what userspace already has to do.
-> There would be some churn, but we could also convert the whole thing
-> over to just use explicit RWX enable bits, like in the
-> thread_segv_maperr_ptr() test:
->
-> 	// Truly turn everything off:
-> 	pkey_reg = PKEY_REG_NO_ACCESS;
->  	pkey_reg = set_pkey_perm(pkey_reg, 1, PKEY_RW);
+> +		spi-max-frequency = <500000>;
+> +	};
+> +};
+> +
+> +&ecspi2 {
+> +	spidev1: spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
+> +		spi-max-frequency = <500000>;
+> +	};
+> +};
+> +
+> +&i2c2 {
+> +	/* SX1509(2) U1001@IPi SMARC Plus */
+> +	gpio8: i2c2_gpioext0@3e {
 
-I suppose that not granting X permission for pkey 1 would make sense,
-but since we don't have anything mapped with PROT_EXEC and pkey 1 the
-benefits are minimal.
+Uh, no, please never send us downstream code.
 
-> I'm not sure that's worth the churn though.
+Please follow DTS coding style in all upstream submissions.
 
-I'm not convinced either. I'd rather keep using the standard uapi
-macros, even though they can be confusing (but they at least combine in
-the way you'd expect).
+Also:
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Kevin
+
+> +		/* GPIO Expander 2 Mapping :
+> +		 * - 0: E_GPIO1_0	<=>	IPi SMARC Plus CN101_PIN29: E_GPIO1_0
+> +		 * - 1: E_GPIO1_1	<=>	IPi SMARC Plus CN101_PIN31: E_GPIO1_1
+> +		 * - 2: E_GPIO1_2	<=>	IPi SMARC Plus CN101_PIN32: E_GPIO1_2
+> +		 * - 3: E_GPIO1_3	<=>	IPi SMARC Plus CN101_PIN33: E_GPIO1_3
+> +		 * - 4: E_GPIO1_4	<=>	IPi SMARC Plus CN101_PIN35: E_GPIO1_4
+> +		 * - 5: E_GPIO1_5	<=>	IPi SMARC Plus CN101_PIN36: E_GPIO1_5
+> +		 * - 6: E_GPIO1_6	<=>	IPi SMARC Plus CN101_PIN37: E_GPIO1_6
+> +		 * - 7: E_GPIO1_7	<=>	IPi SMARC Plus CN101_PIN38: E_GPIO1_7
+> +		 * - 8: E_GPIO2_8	<=>	IPi SMARC Plus CN101_PIN40: E_GPIO2_8
+> +		 * - 9: TP1002		<=>	IPi SMARC Plus TP1002 (won't use)
+> +		 * - 10: TP1003		<=>	IPi SMARC Plus TP1003 (won't use)
+> +		 * - 11: TP1004		<=>	IPi SMARC Plus TP1004 (won't use)
+> +		 * - 12: TP1005		<=>	IPi SMARC Plus TP1005 (won't use)
+> +		 * - 13: TP1006		<=>	IPi SMARC Plus TP1006 (won't use)
+> +		 * - 14: TP1007		<=>	IPi SMARC Plus TP1007 (won't use)
+> +		 * - 15: TP1008		<=>	IPi SMARC Plus TP1008 (won't use)
+> +		 * - 16: OSCIO		<=>	IPi SMARC Plus TP1001 (won't use)
+> +		 */
+> +		#gpio-cells = <2>;
+> +		#interrupt-cells = <2>;
+> +		compatible = "semtech,sx1509q";
+> +		reg = <0x3e>;
+> +
+> +		semtech,probe-reset;
+> +		gpio-controller;
+> +		interrupt-controller;
+> +
+> +		interrupt-parent = <&gpio6>;
+> +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
+> +	};
+> +
+
+Drop
+
+> +};
+> +
+> +&flexcan1 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
+> new file mode 100644
+> index 000000000000..5a9adccbf7cf
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
+> @@ -0,0 +1,14 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+> + */
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include "imx8mp-aristainetos3-adpismarc.dtsi"
+> +
+> +&{/} {
+> +	model = "Aristainetos3 ADLink PI SMARC carrier";
+> +	compatible = "abb,aristainetos3-adpismarc", "imx8mp-aristianetos3",
+> +		     "abb,aristianetos3-som", "fsl,imx8mp";
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+
+And why this is DTSO, I have no clue...
+
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
+> new file mode 100644
+> index 000000000000..55aabd6fc1f7
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
+> @@ -0,0 +1,89 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/pwm/pwm.h>
+> +
+> +&{/} {
+> +	panel: panel {
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_lcd0_vdd_en>;
+> +		compatible = "lg,lb070wv8";
+> +		backlight = <&lvds_backlight>;
+> +		enable-gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>;
+> +
+> +		port {
+> +			panel_in: endpoint {
+> +				remote-endpoint = <&ldb_lvds_ch0>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&gpio3 {
+> +	mipi_lvds_select {
+
+No, read coding style.
+
+
+> +		gpio-hog;
+> +		gpios = <23 GPIO_ACTIVE_HIGH>;
+> +		output-low;
+> +		line-name = "mipi_lvds_select";
+> +	};
+> +};
+> +
+> +&hdmi_blk_ctrl {
+> +	status = "disabled";
+> +};
+> +
+> +&hdmi_pvi {
+> +	status = "disabled";
+> +};
+> +
+> +&hdmi_tx {
+> +	status = "disabled";
+> +};
+> +
+> +&hdmi_tx_phy {
+> +	status = "disabled";
+> +};
+> +
+> +&irqsteer_hdmi {
+> +	status = "disabled";
+> +};
+> +
+> +&ldb_lvds_ch0 {
+> +	fsl,data-mapping = "jeida";
+> +	fsl,data-width = <24>;
+> +	remote-endpoint = <&panel_in>;
+> +};
+> +
+> +&lcdif1 {
+> +	status = "disabled";
+> +};
+> +
+> +&lcdif2 {
+> +	status = "okay";
+> +};
+> +
+> +&lcdif3 {
+> +	status = "disabled";
+> +};
+> +
+> +&lvds_backlight {
+> +	status = "okay";
+> +};
+> +
+> +&lvds_bridge {
+> +	status = "okay";
+> +};
+> +
+> +&media_blk_ctrl {
+> +	/*
+> +	 * The internal divider will always divide the output LVDS clock by 7
+> +	 * so our display needs 33246000 Hz, so set VIDEO_PLL1 to
+> +	 * 33246000 * 7 = 232722000 Hz
+> +	 */
+> +	assigned-clock-rates = <500000000>, <200000000>, <0>, <0>, <232722000>;
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
+> new file mode 100644
+> index 000000000000..06d1883b962a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
+> @@ -0,0 +1,13 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+> + */
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include "imx8mp-aristainetos3-helios-lvds.dtsi"
+> +
+> +&{/} {
+> +	model = "Aristainetos3 helios LVDS carrier";
+> +	compatible = "abb,aristainetos3-helios-lvds", "abb,aristainetos3-helios", "abb,aristianetos3-som", "fsl,imx8mp";
+
+Read not only DTS coding style, but also kernel coding style. Lines are
+supposed to be wrapped according to kernel coding style.
+
+
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
+> new file mode 100644
+> index 000000000000..b4b1cb3b0cb3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
+> @@ -0,0 +1,103 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +&{/} {
+> +	helios_gpio_leds {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +		compatible = "gpio-leds";
+> +
+> +		helios_blue {
+
+So this was absolutely never tested.
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+
+> +			label = "helios:blue";
+
+Use function and color instead.
+
+I finished review here. Rest of the code does not look good, really. You
+have so many, really so many, trivial issues which tools point out, that
+using humans for such review is just waste of our time.
+
+Best regards,
+Krzysztof
+
 
