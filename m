@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B29ED339AF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC6FD339AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=; b=i4E0YHvKPEbfpFXFISvzAG5SA2
-	lKPvGPil0wEa6rSFWII7CmTV/Ck4sxOilQ8ZX39ARSe5L1qv8e+XLLb7cPRqA8uRgq+iSRwGpCN0X
-	mCJSnZAC0lmgbOxLwx4xS5RMUNtBDIMdXFi7OGDO7mdExG1Fijdp/jsWlnYRZmTMZ9bJUQTCGNSer
-	EQLzVTaU7ZpyaZ7gi5dfORP/1MQbGZWY/J8bDE1SB3mWz1gZpwVM97zFb95k8nkFCcmKxBvQRhxWz
-	dkDCtaOgr3M1heAquA2Tpj3PdvL2+hAullmTLC6IrgY5XD4PTccHg7vfsgQw0BF/mUU66sHEy6Vwu
-	PVi+1noA==;
+	bh=81ZVnQPK5cdOXNd0U587x7C4r0h4m8ObdC4H2ODABA8=; b=BaBNN5kzr4kStkcsuXs8vGd3O6
+	Hr/xyCIVDT21UTKmIg5hCOo3x9zMhFhQDalzti8ZGqoMOPbG7qFHPhySXGMCa9IT0SYcuLetCfVWB
+	3aaiEeRadklvluO+2CAIH+Jm32L6vL9ICO2Aa3z4sEuOlNbk9AccyXban8tD9MIY8vdmKM1P7W+Sf
+	IaFHPdbM0MEGCTernXAjeeA0ixGml4i/qe1wbwPM+ayHhVNovw/UPd4DSGELUxawdMGSTCkZOoFGy
+	Y5Az2V5ksUzZFjRzLWMYdtSDhmh0h3rshMvNB73jwREWgbb/6Nbya7rmWYU59zvGfffCq35Vttq/D
+	6LSB1oYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Tu5-0000000BiHn-45iU;
-	Mon, 28 Oct 2024 17:51:45 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1t5Tvi-0000000BiUO-0sfO;
+	Mon, 28 Oct 2024 17:53:26 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5TjA-0000000Bg6t-2Qkq
+	id 1t5TjB-0000000Bg7J-1fN7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 17:40:29 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d50fad249so3437935f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 10:40:28 -0700 (PDT)
+	Mon, 28 Oct 2024 17:40:30 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso47379555e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 10:40:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730137227; x=1730742027; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730137228; x=1730742028; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=;
-        b=3XafDNCF+p8mDtdux5lfjcTliLPzb8p995R1xdMlvNM42Jh/GV0PwAJXdJF1QO6X+U
-         +4X8i2Kk9odJiqSELIHnoLgL4otTxai938qbp4pwWWXucpgr89SISiryPPpwTXy+srrK
-         fTgQkQSg4CaA6ITtVrtw7YdaBNYCCMYe+KdKWyGXTHMD6qGIvKd6qUvqCOkm9XezkGH0
-         bGbEGolbPAuI0bfYASvdhs3rzZQ4Qr4VRYFQJT3h/PdBjoQgp59PoZR9jfaV1NyHLtLE
-         ni6GF7rhbx6XlYYZR0WBRXSFuYtHf0Z+u3n1xm/1P7UTjYPUciZZwcFLTtHf6uwiQO4V
-         OEOw==
+        bh=81ZVnQPK5cdOXNd0U587x7C4r0h4m8ObdC4H2ODABA8=;
+        b=ADzHfQQmPAM2Ci0IsFv4LjaNrB5jR6EpQuD2AtnseKVOyW6m2qus0oBjUl0HkRRrd/
+         wbYqEK0OlXsBk26WHzwAVhegE96Q4OPTEk7avJwSdHZT3jWBJp2Yh9y+gSYft2lsUY2Q
+         qfi+73bLExXf1+m1T6dU2zxqFdttQG46VKaodlXQ0a5uAAb0qRmDx0Z449rlQ1OrACl9
+         3dfITPefSyzw51jOFz6eqkLSEdJ9VJZKLbZHo+10/zh5GjgvctV2RkJsLb48h6a1CSCW
+         SFhf9C+yhkD6B72Pg6OiPzQUU47Zm0hSW/Q+PKFz7AralIzT4MGu8YT/VZ1iYS2lYE4m
+         YuCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730137227; x=1730742027;
+        d=1e100.net; s=20230601; t=1730137228; x=1730742028;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Te/9/WdXEHbGw1bV3Tw3mQ9dGEF+E7KMYxRV/chzUCY=;
-        b=wTneR+t1YQgdBfKaI+VqnQWyKKAsQcvXNeWQUTOwgQIWkdd3ERAPls5E6V/ycuyAfE
-         nCXL6KW2ZQkfTsrjn8pHgQck1eFCDAAgUOPo/Sx892HYKeC+M0Dp6S3dS83Z7WqvxLOz
-         ei7lrN46U1HvAYvCQbcda0VNB8PUz7Eucx/xepY176h29rdabShZagOWU7d3A4U/IeNv
-         ZFm4M4H3t3phSB/SJiXVWpRoDvcc7wTcSMgOLeGpXouZFYq4/CBaHnXRHTeWkHVxlO+F
-         DLB+nWhtJer4yXrBROuKKm9a/l/lXaEmnubxua95hfbfLtp0QCKsHKlBh37u3QlVWcz8
-         UifA==
-X-Forwarded-Encrypted: i=1; AJvYcCUObNaJEapE9PNO+CUYZU6gBvkT38WwfY50eGGR/15sCOh1fqyfgDCJ6GE3mHVm1mh2UXoST/K8oUF1NVT4QONW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY9k1Su6EpG1uwrd+CCfab9sIrBnzJp0ZIp4IYEXF7fXNfsBO4
-	B7DcTqcET5rx5pKsh9M5Kl4tGBF4OqaudXiZeegUC21fKdPBjDNCzfxko1Ez7xQ=
-X-Google-Smtp-Source: AGHT+IFqMPdBogulD24ryHYACs/0/kPy+ME5m39YFDX+/TOrN8GU2WdBOh9BaqWlHQ/G2u6uOhGjww==
-X-Received: by 2002:adf:fa07:0:b0:37d:54de:1609 with SMTP id ffacd0b85a97d-380610f3056mr6761435f8f.10.1730137226809;
-        Mon, 28 Oct 2024 10:40:26 -0700 (PDT)
+        bh=81ZVnQPK5cdOXNd0U587x7C4r0h4m8ObdC4H2ODABA8=;
+        b=vuT7cN257kmOZ7FqG0bWYjpql5PI8bllYMKY/4ZQk9w0EqdleaUDaBvcOjtIgWcwHm
+         DFO2Pg0C1MDqqR2puJnTk4O+6OTx5DYKXMXYIWHiEkyajOCi5cKt1Mn10BBGnWoMBsCY
+         dhmnc+WAAWVyVSwJAJIxTN70RyYdwMpoAL/Zv821ui+5r2+q95fKS0jq8FHjR9uJgrKm
+         dgXT9ch04WtM+nlOhp5MwPKYpwbWV2AC8XiwyM8Nei4ZqlpnCD52AxM0YU9UMujJt8zm
+         WAmesDZ5JrAnS+Hoaj93igRiEmX6xRiH3raryZCBIYsMbr4ibqBurfKdW3BTnFgDLUVB
+         g6aw==
+X-Forwarded-Encrypted: i=1; AJvYcCU6EY6jeumhN3aba4QvdWgHVmF7d8MLizK2MlwhEgwC3W9DDSWAQoCU+Km4hOk8wMK+uNdR+D2Wq4k2rYxkJOxO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzp4aVrFbmbofZbI8IfbIkkuVNM1dBy6IsqLtCvBBZsmUt7Dgo+
+	P3eGYq+RPAEgf060evLJX15yeFFC/hCjeEpJFm1tahvU3dziLoztiA5nJtr9PJY=
+X-Google-Smtp-Source: AGHT+IHSnXc+29Qbn383aWq7m+TPYika3FVB6W69uEQ0CryPJ25FNSrebl0db2HQt51eU8vLxtQ8Zw==
+X-Received: by 2002:adf:ce89:0:b0:37d:476d:2d58 with SMTP id ffacd0b85a97d-380611e56aemr6462733f8f.45.1730137228088;
+        Mon, 28 Oct 2024 10:40:28 -0700 (PDT)
 Received: from localhost ([2001:4091:a245:81f4:340d:1a9d:1fa6:531f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b714fesm10130545f8f.71.2024.10.28.10.40.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b70c52sm10085494f8f.74.2024.10.28.10.40.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 10:40:26 -0700 (PDT)
+        Mon, 28 Oct 2024 10:40:27 -0700 (PDT)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Mon, 28 Oct 2024 18:38:12 +0100
-Subject: [PATCH v5 6/9] can: m_can: Add use of optional regulator
+Date: Mon, 28 Oct 2024 18:38:13 +0100
+Subject: [PATCH v5 7/9] arm64: dts: ti: k3-am62: Mark mcu_mcan0/1 as
+ wakeup-source
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-topic-mcan-wakeup-source-v6-12-v5-6-33edc0aba629@baylibre.com>
+Message-Id: <20241028-topic-mcan-wakeup-source-v6-12-v5-7-33edc0aba629@baylibre.com>
 References: <20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com>
 In-Reply-To: <20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com>
 To: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
@@ -89,17 +90,17 @@ Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org,
  Vincent MAILHOL <mailhol.vincent@wanadoo.fr>, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1254; i=msp@baylibre.com;
- h=from:subject:message-id; bh=f+4c/xAyZM4ng0MgHl2luM8EJirET+RfnpCZLFWpJ+I=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNLlz2QdE8mMSbp8bbLv+ZxJ8W/43HN2iuR/eBo7KWhiW
- 9W35aeMOkpZGMQ4GGTFFFnuflj4rk7u+oKIdY8cYeawMoEMYeDiFICJTIth+Ct75s0SoUmLJiUr
- ha7aLa3Z8zkktDC/YM8J38kCalWLlA0Y/vBvX7j1/Mzma7P+zEq3bLi1nruHSVAv7eGNle9/J1+
- 7Us8KAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1023; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=L5jePk++a0uY91JQrASnpEj/bjSiMyJjUq1CjjPGGl0=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNLlz+SLHqiNv37RLvXbupOvLYK+/3DuON5sdD/DL1Vh1
+ vb4xC8TO0pZGMQ4GGTFFFnuflj4rk7u+oKIdY8cYeawMoEMYeDiFICJbD3FyHCMe5oZ84qtnQ+r
+ dXPFHq39YJIVG6+Zb/Cty1yo54eH3yGGv3KhbEsVkiI42XYl72T7E9Uruj7v7yud7IUxv1zCe24
+ FMAIA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_104028_658714_9C3FBD3D 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20241028_104029_470634_9B904388 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,39 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to use a regulator for the core. This is optional and used
-to register the dependency on the regulator.
+mcu_mcan0 and mcu_mcan1 can be wakeup sources for the SoC. Mark them
+accordingly in the devicetree.
 
-Reviewed-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- drivers/net/can/m_can/m_can.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
-index 8c6452d1490c11d365bab598f2abe047f730d24b..56884c49b6f2a36acbcd7ca04be506154f991621 100644
---- a/drivers/net/can/m_can/m_can.c
-+++ b/drivers/net/can/m_can/m_can.c
-@@ -23,6 +23,7 @@
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regulator/consumer.h>
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+index bb43a411f59b281df476afcb1a71b988ca27f002..e22177b9dfecb541e99b0807f8b79e7b878b6514 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+@@ -160,6 +160,7 @@ mcu_mcan0: can@4e08000 {
+ 		clocks = <&k3_clks 188 6>, <&k3_clks 188 1>;
+ 		clock-names = "hclk", "cclk";
+ 		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
++		wakeup-source;
+ 		status = "disabled";
+ 	};
  
- #include "m_can.h"
- 
-@@ -2421,6 +2422,11 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 	if (dev->of_node && of_property_read_bool(dev->of_node, "wakeup-source"))
- 		device_set_wakeup_capable(dev, true);
- 
-+	ret = devm_regulator_get_enable_optional(dev, "vio");
-+	if (ret)
-+		return ERR_PTR(
-+			dev_err_probe(dev, ret, "Failed to get or enable optional regulator\n"));
-+
- 	/* Get TX FIFO size
- 	 * Defines the total amount of echo buffers for loopback
- 	 */
+@@ -172,6 +173,7 @@ mcu_mcan1: can@4e18000 {
+ 		clocks = <&k3_clks 189 6>, <&k3_clks 189 1>;
+ 		clock-names = "hclk", "cclk";
+ 		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
++		wakeup-source;
+ 		status = "disabled";
+ 	};
+ };
 
 -- 
 2.45.2
