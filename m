@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1823D33989
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82683D3398C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swCBcHFwbpQdYlunV/s1MTQ6ysUtUuoY2KcKt+W3ztU=; b=hzLDsGIdy4wgE7v9DkiW5dq23E
-	vJdmjhRnhQavGjzogG3N9gX2u2FNrXwHo+KWc7e57JPNeDBvh9TUuFdxH2uBB93odRMhl1Jb8fKVQ
-	rfSAktCYAn2/T2RWV0axHfk14Yro2kKI6uq5YR3ZJh+PpMEPg8bAnKoLmQ5Y3aWNu/AcroGhC4uup
-	aUde2Gi5WFEv+WR4GYC4zab9fqyna8s7He4bbBA4a3W/oFrybyTQdDaBOa0N8Kd03ksL6DxSXIhOp
-	d6aiRK/0VXULfvR4HqpjoELSpHkrYQ9OUasCilxlpsOKIW+ktpWJ+v73L87bxOujGyKwub4GjeFgI
-	WI5MWzfg==;
+	bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=; b=X2BX4pP0NtMkGNLIcN3QQ8weGO
+	nCR+TY5Pj3QbevjxafNlw3X1ijeyRIJcSmKQdujZJxakHfK2V9Weedk8rbCqkWVCH4uhwUVe/L0cQ
+	EL+0yo5SCcxBKpv3ra9VheYBJFprHAMsCoIfePWyBqQDfpWhtL6ZwV/ALzM5oj94v/O9EyhbfBHoN
+	GqD1mwE4J8ETO/zTy6aYhThwDLPuat5QTrh8Ko8K44oKN9FWzJ2+ZjOn/7yJ9BNZUZB55LvHA0kR6
+	oUAjh8qjw58MIBz9E1mfBSS6BLCQoXFG6bMOwtbygLkOzPgLme9C+byO14wdcoXQYc9fv38F7mAXz
+	/dide//Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QZr-0000000B5W8-1fZE;
-	Mon, 28 Oct 2024 14:18:39 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1t5QbR-0000000B5vs-2u5b;
+	Mon, 28 Oct 2024 14:20:17 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QOz-0000000B2lf-1Kuq
+	id 1t5QP1-0000000B2nW-2Xlu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:07:29 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a9a4031f69fso588714966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:24 -0700 (PDT)
+	Mon, 28 Oct 2024 14:07:30 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9acafdb745so782279766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730124443; x=1730729243; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1730124445; x=1730729245; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=swCBcHFwbpQdYlunV/s1MTQ6ysUtUuoY2KcKt+W3ztU=;
-        b=ZIQOnsREhDd3jOF1VXTlToYReaM21NnzcF09bJ8CL8+mUR/noxPhFDCB/PKjl9nAMc
-         VtfrFtConAvs/A0v76gXVUK9Ja0YD/6jgj/CZ/sX0RAqkhssK1MVEFP6gzKQBe2O6zLf
-         IJpa1qe9hhP9Piv7YZtIx3Bu3HKqBysnF80S12WR0m+45kDA2GGKp7v0Ihc2PXBbqEO8
-         Q8RdnCOdj/ro3VSBvm1kGqD7edxy10KRhKujYwsLnffQ4zfr5jS4Tpb5mcRPoeoINCK9
-         zpwtv36/u3Uz2mHFLLbTOWKyt+Vfiv54Ek2jsmcM3FgKqX4dE5rIi9WAYLWkqE4XZCGt
-         wmZg==
+        bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=;
+        b=fkshA+52sXDgHdW22duulN7yRiCMzy5dvspQgOw11O+JAZOuDC/bL3AA58N4lAJdO+
+         XM3x5EcXMNO3KILlasVh9bOad+U0iR8pXTy/GPp5Gpszate8cJ1ZngwkzJzOHAk+BbYa
+         qxVhT09AYnU7962F2pzFWon9xhk4x+uiVqK2HDh6Q5Kd4SzouV3Hsaj3UGOf91j0ODRE
+         hku+iXZQnxO93wtWtLs4wyFNNK65FSnd6wCXG3jMVZqo8IVP5Q0i6eV6J9/MLITEtn9g
+         A0vjPf6wxaBtDwU+sNrNQo2kIDisbXOdUdiD/OpvxHHraaLlC6oEXuULdTvCn9lnj35I
+         S0Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730124443; x=1730729243;
+        d=1e100.net; s=20230601; t=1730124445; x=1730729245;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=swCBcHFwbpQdYlunV/s1MTQ6ysUtUuoY2KcKt+W3ztU=;
-        b=DMTsm2PO22g0x/U+P6eZ1BitPRA0TvmBd45t93XnhjoiECt8agl33MyzgnO7EaQ6Zh
-         7jYpgxXj8kGJOT2s1fV+TQr63+zQfbj1kUtfHAO7VDsl46GLHPSY7a2pV/+n60r+Gozw
-         brUdFor2/A14cWPYRHP0AHk4tY/UzcxVqRCFjKT9hMAHcWgKs63wo0JRWqAXW8TtGRe2
-         zICuXthpQaZINy+u1wp0eRVCrRmxVsI60nDHn24qOY/e0GJwmK6oYD3+wObCRAGzIN1R
-         vIlR3BntOe/v2I7ITgPiDo7KkFHRlG1PbJ9flSHxvSy8n4jlccKwJh2B9s17AenQ8saN
-         FEpw==
-X-Forwarded-Encrypted: i=1; AJvYcCU/ycqsMhopIKiVpZV2SM5LHFX7kT1Z+PO/t13Va9ufiQNgwegaBHpBEJB+A0zynDT5LzCJkoq7f7gR70OwjRwT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdAzRNm6t9RX9TlguOBGEJYTsA9W68HwMSWYBG26ULecb92o3G
-	6o1Lih98KzdDRipN9WzD1jcyKBpaXWtoK66ToZ7akzPoAe/bj6nR9rvex+n7tg4=
-X-Google-Smtp-Source: AGHT+IGiitqycYCo3/lyoN3sj+Fb/wx8xhVEFZbV0XiyUCPIFMr64YsrwaAk6d7PqXLF1p56ePIhvQ==
-X-Received: by 2002:a17:907:7e8b:b0:a99:fd32:11dc with SMTP id a640c23a62f3a-a9de5d858aemr792499666b.24.1730124443374;
-        Mon, 28 Oct 2024 07:07:23 -0700 (PDT)
+        bh=nVZZiKyJj7ZnmSyKDxiL2Ewqy8l9yzTHRtpEpGvvetk=;
+        b=LC1OlwM/1QpcYCy8w/0jQ3vr/vLAu7/IZVYbGntpYKL4P/qBE80H37OmMk40QTNfcV
+         /u/GJ/A41jOZrrFtVDVIzJmnc6vC9v06C82ttgQGH1fXSZwhDvctlAWSCbA4CU6Xc3ii
+         uRF4bq4MT8KKqDcZ5h7bQPXwjcIy8BabYEOWAKjxYuo1rVQd6e/TiTHRsuuKxX93j6iA
+         MSAQDgS70VvU2sg3zCcqtg/tTovuu1+7iaNXogjo2n+G6Txdx+xUtuk4zP2IMG3qNpP5
+         8a3kyGQyWfVqH8l1DeYkVzTXm0IEEVp5agH6fdqQANMX94HMGY+seek0DDurNN3JG1w7
+         NWRw==
+X-Forwarded-Encrypted: i=1; AJvYcCV4uE4tF0Mt5HM9n9LBJK4zQAV6iGHQoa5P+ho91IV/inW8GSub/WhBE/Dy2NXtGiW0w9B2fKhosKkmqHD4o9mg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHFSDpak7qS2DVxuNZpGO+2zlpW7jVjhCtJvWRo4aQ4PdZfL9j
+	Dpcl7LrL0D6YJTy40acBdgvVW3prUyqPmNMNHYSVquxKHFbHi5nawtxU7gmuW5Wrc1Cw+RudqER
+	KKI8=
+X-Google-Smtp-Source: AGHT+IEQdbITjqhgIXETXbiDGS9CpxFITbMxPJxEoYU59S+9lkAwLuR8Fmvi9lRxn9X6MPz0PlOOOw==
+X-Received: by 2002:a17:907:1c92:b0:a99:f9fa:5c01 with SMTP id a640c23a62f3a-a9de391b292mr763533366b.32.1730124445300;
+        Mon, 28 Oct 2024 07:07:25 -0700 (PDT)
 Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b3a084b10sm383779866b.195.2024.10.28.07.07.22
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1dec7d16sm378731766b.21.2024.10.28.07.07.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 07:07:23 -0700 (PDT)
+        Mon, 28 Oct 2024 07:07:24 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -98,17 +99,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v3 08/12] pinctrl: rp1: Implement RaspberryPi RP1 gpio support
-Date: Mon, 28 Oct 2024 15:07:25 +0100
-Message-ID: <b189173d893f300e81b18844a1c164fe4ad5bc20.1730123575.git.andrea.porta@suse.com>
+Subject: [PATCH v3 09/12] arm64: dts: rp1: Add support for RaspberryPi's RP1 device
+Date: Mon, 28 Oct 2024 15:07:26 +0100
+Message-ID: <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1730123575.git.andrea.porta@suse.com>
 References: <cover.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_070725_524437_5887FCCD 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20241028_070727_710445_C636AAE4 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,873 +124,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RP1 is an MFD supporting a gpio controller and /pinmux/pinctrl.
-Add minimum support for the gpio only portion. The driver is in
-pinctrl folder since upcoming patches will add the pinmux/pinctrl
-support where the gpio part can be seen as an addition.
+RaspberryPi RP1 is a multi function PCI endpoint device that
+exposes several subperipherals via PCI BAR.
+Add a dtb overlay that will be compiled into a binary blob
+and linked in the RP1 driver.
+This overlay offers just minimal support to represent the
+RP1 device itself, the sub-peripherals will be added by
+future patches.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- MAINTAINERS                   |   1 +
- drivers/pinctrl/Kconfig       |  11 +
- drivers/pinctrl/Makefile      |   1 +
- drivers/pinctrl/pinctrl-rp1.c | 801 ++++++++++++++++++++++++++++++++++
- 4 files changed, 814 insertions(+)
- create mode 100644 drivers/pinctrl/pinctrl-rp1.c
+NOTE: this patch should be taken by the same maintainer that will take
+"[PATCH v3 10/12] misc: rp1: RaspberryPi RP1 misc driver", since they
+are closely related in terms of compiling.
+
+ MAINTAINERS                           |  1 +
+ arch/arm64/boot/dts/broadcom/rp1.dtso | 61 +++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index dc064cd4b6b5..06277969a522 100644
+index 06277969a522..510a071ede78 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -19388,6 +19388,7 @@ F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+@@ -19383,6 +19383,7 @@ F:	include/uapi/linux/media/raspberrypi/
+ RASPBERRY PI RP1 PCI DRIVER
+ M:	Andrea della Porta <andrea.porta@suse.com>
+ S:	Maintained
++F:	arch/arm64/boot/dts/broadcom/rp1.dtso
+ F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+ F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
  F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
- F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
- F:	drivers/clk/clk-rp1.c
-+F:	drivers/pinctrl/pinctrl-rp1.c
- F:	include/dt-bindings/clock/rp1.h
- F:	include/dt-bindings/misc/rp1.h
- 
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index 354536de564b..f49b8b7f6afa 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -587,6 +587,17 @@ config PINCTRL_MLXBF3
- 	  each pin. This driver can also be built as a module called
- 	  pinctrl-mlxbf3.
- 
-+config PINCTRL_RP1
-+	bool "Pinctrl driver for RP1"
-+	select PINMUX
-+	select PINCONF
-+	select GENERIC_PINCONF
-+	select GPIOLIB
-+	select GPIOLIB_IRQCHIP
-+	help
-+	  Enable the gpio and pinctrl/mux driver for RaspberryPi RP1
-+	  multi function device.
-+
- source "drivers/pinctrl/actions/Kconfig"
- source "drivers/pinctrl/aspeed/Kconfig"
- source "drivers/pinctrl/bcm/Kconfig"
-diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
-index 97823f52b972..2d714047a1ce 100644
---- a/drivers/pinctrl/Makefile
-+++ b/drivers/pinctrl/Makefile
-@@ -47,6 +47,7 @@ obj-$(CONFIG_PINCTRL_PIC32)	+= pinctrl-pic32.o
- obj-$(CONFIG_PINCTRL_PISTACHIO)	+= pinctrl-pistachio.o
- obj-$(CONFIG_PINCTRL_RK805)	+= pinctrl-rk805.o
- obj-$(CONFIG_PINCTRL_ROCKCHIP)	+= pinctrl-rockchip.o
-+obj-$(CONFIG_PINCTRL_RP1)       += pinctrl-rp1.o
- obj-$(CONFIG_PINCTRL_SCMI)	+= pinctrl-scmi.o
- obj-$(CONFIG_PINCTRL_SINGLE)	+= pinctrl-single.o
- obj-$(CONFIG_PINCTRL_ST) 	+= pinctrl-st.o
-diff --git a/drivers/pinctrl/pinctrl-rp1.c b/drivers/pinctrl/pinctrl-rp1.c
+diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
 new file mode 100644
-index 000000000000..853091893eeb
+index 000000000000..8d1bbf207a30
 --- /dev/null
-+++ b/drivers/pinctrl/pinctrl-rp1.c
-@@ -0,0 +1,801 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for Raspberry Pi RP1 GPIO unit
-+ *
-+ * Copyright (C) 2023 Raspberry Pi Ltd.
-+ *
-+ * This driver is inspired by:
-+ * pinctrl-bcm2835.c, please see original file for copyright information
-+ */
++++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +
-+#include <linux/gpio/driver.h>
-+#include <linux/of_irq.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
 +
-+#define MODULE_NAME "pinctrl-rp1"
-+#define RP1_NUM_GPIOS	54
-+#define RP1_NUM_BANKS	3
++/dts-v1/;
++/plugin/;
 +
-+#define RP1_INT_EDGE_FALLING		BIT(0)
-+#define RP1_INT_EDGE_RISING		BIT(1)
-+#define RP1_INT_LEVEL_LOW		BIT(2)
-+#define RP1_INT_LEVEL_HIGH		BIT(3)
-+#define RP1_INT_MASK			GENMASK(3, 0)
-+#define RP1_INT_EDGE_BOTH		(RP1_INT_EDGE_FALLING |	\
-+					 RP1_INT_EDGE_RISING)
++/ {
++	fragment@0 {
++		target-path="";
++		__overlay__ {
++			compatible = "pci1de4,1";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
 +
-+#define RP1_FSEL_COUNT			9
++			pci_ep_bus: pci-ep-bus@1 {
++				compatible = "simple-bus";
++				ranges = <0xc0 0x40000000
++					  0x01 0x00 0x00000000
++					  0x00 0x00400000>;
++				dma-ranges = <0x10 0x00000000
++					      0x43000000 0x10 0x00000000
++					      0x10 0x00000000>;
++				#address-cells = <2>;
++				#size-cells = <2>;
 +
-+#define RP1_FSEL_ALT0			0x00
-+#define RP1_FSEL_GPIO			0x05
-+#define RP1_FSEL_NONE			0x09
-+#define RP1_FSEL_NONE_HW		0x1f
++				rp1_clocks: clocks@c040018000 {
++					compatible = "raspberrypi,rp1-clocks";
++					reg = <0xc0 0x40018000 0x0 0x10038>;
++					#clock-cells = <1>;
++					clocks = <&clk_rp1_xosc>;
++					clock-names = "xosc";
++					assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
++							  <&rp1_clocks RP1_PLL_SYS>,
++							  <&rp1_clocks RP1_CLK_SYS>;
++					assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
++							       <200000000>,  // RP1_PLL_SYS
++							       <200000000>;  // RP1_CLK_SYS
++				};
 +
-+#define RP1_PAD_DRIVE_2MA		0x0
-+#define RP1_PAD_DRIVE_4MA		0x1
-+#define RP1_PAD_DRIVE_8MA		0x2
-+#define RP1_PAD_DRIVE_12MA		0x3
-+
-+enum {
-+	RP1_PUD_OFF			= 0,
-+	RP1_PUD_DOWN			= 1,
-+	RP1_PUD_UP			= 2,
++				rp1_gpio: pinctrl@c0400d0000 {
++					compatible = "raspberrypi,rp1-gpio";
++					reg = <0xc0 0x400d0000  0x0 0xc000>,
++					      <0xc0 0x400e0000  0x0 0xc000>,
++					      <0xc0 0x400f0000  0x0 0xc000>;
++					gpio-controller;
++					#gpio-cells = <2>;
++					interrupt-controller;
++					#interrupt-cells = <2>;
++					interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
++						     <1 IRQ_TYPE_LEVEL_HIGH>,
++						     <2 IRQ_TYPE_LEVEL_HIGH>;
++				};
++			};
++		};
++	};
 +};
-+
-+enum {
-+	RP1_DIR_OUTPUT			= 0,
-+	RP1_DIR_INPUT			= 1,
-+};
-+
-+enum {
-+	RP1_OUTOVER_PERI		= 0,
-+	RP1_OUTOVER_INVPERI		= 1,
-+	RP1_OUTOVER_LOW			= 2,
-+	RP1_OUTOVER_HIGH		= 3,
-+};
-+
-+enum {
-+	RP1_OEOVER_PERI			= 0,
-+	RP1_OEOVER_INVPERI		= 1,
-+	RP1_OEOVER_DISABLE		= 2,
-+	RP1_OEOVER_ENABLE		= 3,
-+};
-+
-+enum {
-+	RP1_INOVER_PERI			= 0,
-+	RP1_INOVER_INVPERI		= 1,
-+	RP1_INOVER_LOW			= 2,
-+	RP1_INOVER_HIGH			= 3,
-+};
-+
-+enum {
-+	RP1_GPIO_CTRL_IRQRESET_SET		= 0,
-+	RP1_GPIO_CTRL_INT_CLR			= 1,
-+	RP1_GPIO_CTRL_INT_SET			= 2,
-+	RP1_GPIO_CTRL_OEOVER			= 3,
-+	RP1_GPIO_CTRL_FUNCSEL			= 4,
-+	RP1_GPIO_CTRL_OUTOVER			= 5,
-+	RP1_GPIO_CTRL				= 6,
-+};
-+
-+enum {
-+	RP1_INTE_SET			= 0,
-+	RP1_INTE_CLR			= 1,
-+};
-+
-+enum {
-+	RP1_RIO_OUT_SET			= 0,
-+	RP1_RIO_OUT_CLR			= 1,
-+	RP1_RIO_OE			= 2,
-+	RP1_RIO_OE_SET			= 3,
-+	RP1_RIO_OE_CLR			= 4,
-+	RP1_RIO_IN			= 5,
-+};
-+
-+enum {
-+	RP1_PAD_SLEWFAST		= 0,
-+	RP1_PAD_SCHMITT			= 1,
-+	RP1_PAD_PULL			= 2,
-+	RP1_PAD_DRIVE			= 3,
-+	RP1_PAD_IN_ENABLE		= 4,
-+	RP1_PAD_OUT_DISABLE		= 5,
-+};
-+
-+static const struct reg_field rp1_gpio_fields[] = {
-+	[RP1_GPIO_CTRL_IRQRESET_SET]	= REG_FIELD(0x2004, 28, 28),
-+	[RP1_GPIO_CTRL_INT_CLR]		= REG_FIELD(0x3004, 20, 23),
-+	[RP1_GPIO_CTRL_INT_SET]		= REG_FIELD(0x2004, 20, 23),
-+	[RP1_GPIO_CTRL_OEOVER]		= REG_FIELD(0x0004, 14, 15),
-+	[RP1_GPIO_CTRL_FUNCSEL]		= REG_FIELD(0x0004, 0, 4),
-+	[RP1_GPIO_CTRL_OUTOVER]		= REG_FIELD(0x0004, 12, 13),
-+	[RP1_GPIO_CTRL]			= REG_FIELD(0x0004, 0, 31),
-+};
-+
-+static const struct reg_field rp1_inte_fields[] = {
-+	[RP1_INTE_SET]			= REG_FIELD(0x2000, 0, 0),
-+	[RP1_INTE_CLR]			= REG_FIELD(0x3000, 0, 0),
-+};
-+
-+static const struct reg_field rp1_rio_fields[] = {
-+	[RP1_RIO_OUT_SET]		= REG_FIELD(0x2000, 0, 0),
-+	[RP1_RIO_OUT_CLR]		= REG_FIELD(0x3000, 0, 0),
-+	[RP1_RIO_OE]			= REG_FIELD(0x0004, 0, 0),
-+	[RP1_RIO_OE_SET]		= REG_FIELD(0x2004, 0, 0),
-+	[RP1_RIO_OE_CLR]		= REG_FIELD(0x3004, 0, 0),
-+	[RP1_RIO_IN]			= REG_FIELD(0x0008, 0, 0),
-+};
-+
-+static const struct reg_field rp1_pad_fields[] = {
-+	[RP1_PAD_SLEWFAST]		= REG_FIELD(0, 0, 0),
-+	[RP1_PAD_SCHMITT]		= REG_FIELD(0, 1, 1),
-+	[RP1_PAD_PULL]			= REG_FIELD(0, 2, 3),
-+	[RP1_PAD_DRIVE]			= REG_FIELD(0, 4, 5),
-+	[RP1_PAD_IN_ENABLE]		= REG_FIELD(0, 6, 6),
-+	[RP1_PAD_OUT_DISABLE]		= REG_FIELD(0, 7, 7),
-+};
-+
-+struct rp1_iobank_desc {
-+	int min_gpio;
-+	int num_gpios;
-+	int gpio_offset;
-+	int inte_offset;
-+	int ints_offset;
-+	int rio_offset;
-+	int pads_offset;
-+};
-+
-+struct rp1_pin_info {
-+	u8 num;
-+	u8 bank;
-+	u8 offset;
-+	u8 fsel;
-+	u8 irq_type;
-+
-+	struct regmap_field *gpio[ARRAY_SIZE(rp1_gpio_fields)];
-+	struct regmap_field *rio[ARRAY_SIZE(rp1_rio_fields)];
-+	struct regmap_field *inte[ARRAY_SIZE(rp1_inte_fields)];
-+	struct regmap_field *pad[ARRAY_SIZE(rp1_pad_fields)];
-+};
-+
-+struct rp1_pinctrl {
-+	struct device *dev;
-+	void __iomem *gpio_base;
-+	void __iomem *rio_base;
-+	void __iomem *pads_base;
-+	int irq[RP1_NUM_BANKS];
-+	struct rp1_pin_info pins[RP1_NUM_GPIOS];
-+
-+	struct pinctrl_dev *pctl_dev;
-+	struct gpio_chip gpio_chip;
-+	struct pinctrl_gpio_range gpio_range;
-+
-+	raw_spinlock_t irq_lock[RP1_NUM_BANKS];
-+};
-+
-+static const struct rp1_iobank_desc rp1_iobanks[RP1_NUM_BANKS] = {
-+	/*         gpio   inte    ints     rio    pads */
-+	{  0, 28, 0x0000, 0x011c, 0x0124, 0x0000, 0x0004 },
-+	{ 28,  6, 0x4000, 0x411c, 0x4124, 0x4000, 0x4004 },
-+	{ 34, 20, 0x8000, 0x811c, 0x8124, 0x8000, 0x8004 },
-+};
-+
-+static int rp1_pinconf_set(struct rp1_pin_info *pin,
-+			   unsigned int offset, unsigned long *configs,
-+			   unsigned int num_configs);
-+
-+static struct rp1_pin_info *rp1_get_pin(struct gpio_chip *chip,
-+					unsigned int offset)
-+{
-+	struct rp1_pinctrl *pc = gpiochip_get_data(chip);
-+
-+	if (pc && offset < RP1_NUM_GPIOS)
-+		return &pc->pins[offset];
-+	return NULL;
-+}
-+
-+static void rp1_input_enable(struct rp1_pin_info *pin, int value)
-+{
-+	regmap_field_write(pin->pad[RP1_PAD_IN_ENABLE], !!value);
-+}
-+
-+static void rp1_output_enable(struct rp1_pin_info *pin, int value)
-+{
-+	regmap_field_write(pin->pad[RP1_PAD_OUT_DISABLE], !value);
-+}
-+
-+static u32 rp1_get_fsel(struct rp1_pin_info *pin)
-+{
-+	u32 oeover, fsel;
-+
-+	regmap_field_read(pin->gpio[RP1_GPIO_CTRL_OEOVER], &oeover);
-+	regmap_field_read(pin->gpio[RP1_GPIO_CTRL_FUNCSEL], &fsel);
-+
-+	if (oeover != RP1_OEOVER_PERI || fsel >= RP1_FSEL_COUNT)
-+		fsel = RP1_FSEL_NONE;
-+
-+	return fsel;
-+}
-+
-+static void rp1_set_fsel(struct rp1_pin_info *pin, u32 fsel)
-+{
-+	if (fsel >= RP1_FSEL_COUNT)
-+		fsel = RP1_FSEL_NONE_HW;
-+
-+	rp1_input_enable(pin, 1);
-+	rp1_output_enable(pin, 1);
-+
-+	if (fsel == RP1_FSEL_NONE) {
-+		regmap_field_write(pin->gpio[RP1_GPIO_CTRL_OEOVER], RP1_OEOVER_DISABLE);
-+	} else {
-+		regmap_field_write(pin->gpio[RP1_GPIO_CTRL_OUTOVER], RP1_OUTOVER_PERI);
-+		regmap_field_write(pin->gpio[RP1_GPIO_CTRL_OEOVER], RP1_OEOVER_PERI);
-+	}
-+
-+	regmap_field_write(pin->gpio[RP1_GPIO_CTRL_FUNCSEL], fsel);
-+}
-+
-+static int rp1_get_dir(struct rp1_pin_info *pin)
-+{
-+	unsigned int val;
-+
-+	regmap_field_read(pin->rio[RP1_RIO_OE], &val);
-+
-+	return !val ? RP1_DIR_INPUT : RP1_DIR_OUTPUT;
-+}
-+
-+static void rp1_set_dir(struct rp1_pin_info *pin, bool is_input)
-+{
-+	int reg = is_input ? RP1_RIO_OE_CLR : RP1_RIO_OE_SET;
-+
-+	regmap_field_write(pin->rio[reg], 1);
-+}
-+
-+static int rp1_get_value(struct rp1_pin_info *pin)
-+{
-+	unsigned int val;
-+
-+	regmap_field_read(pin->rio[RP1_RIO_IN], &val);
-+
-+	return !!val;
-+}
-+
-+static void rp1_set_value(struct rp1_pin_info *pin, int value)
-+{
-+	/* Assume the pin is already an output */
-+	int reg = value ? RP1_RIO_OUT_SET : RP1_RIO_OUT_CLR;
-+
-+	regmap_field_write(pin->rio[reg], 1);
-+}
-+
-+static int rp1_gpio_get(struct gpio_chip *chip, unsigned int offset)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+	int ret;
-+
-+	if (!pin)
-+		return -EINVAL;
-+
-+	ret = rp1_get_value(pin);
-+
-+	return ret;
-+}
-+
-+static void rp1_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+
-+	if (pin)
-+		rp1_set_value(pin, value);
-+}
-+
-+static int rp1_gpio_get_direction(struct gpio_chip *chip, unsigned int offset)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+	u32 fsel;
-+
-+	if (!pin)
-+		return -EINVAL;
-+
-+	fsel = rp1_get_fsel(pin);
-+	if (fsel != RP1_FSEL_GPIO)
-+		return -EINVAL;
-+
-+	return (rp1_get_dir(pin) == RP1_DIR_OUTPUT) ?
-+		GPIO_LINE_DIRECTION_OUT :
-+		GPIO_LINE_DIRECTION_IN;
-+}
-+
-+static int rp1_gpio_direction_input(struct gpio_chip *chip, unsigned int offset)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+
-+	if (!pin)
-+		return -EINVAL;
-+	rp1_set_dir(pin, RP1_DIR_INPUT);
-+	rp1_set_fsel(pin, RP1_FSEL_GPIO);
-+
-+	return 0;
-+}
-+
-+static int rp1_gpio_direction_output(struct gpio_chip *chip, unsigned int offset,
-+				     int value)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+
-+	if (!pin)
-+		return -EINVAL;
-+	rp1_set_value(pin, value);
-+	rp1_set_dir(pin, RP1_DIR_OUTPUT);
-+	rp1_set_fsel(pin, RP1_FSEL_GPIO);
-+
-+	return 0;
-+}
-+
-+static int rp1_gpio_set_config(struct gpio_chip *chip, unsigned int offset,
-+			       unsigned long config)
-+{
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, offset);
-+	unsigned long configs[] = { config };
-+
-+	return rp1_pinconf_set(pin, offset, configs,
-+			       ARRAY_SIZE(configs));
-+}
-+
-+static const struct gpio_chip rp1_gpio_chip = {
-+	.label = MODULE_NAME,
-+	.owner = THIS_MODULE,
-+	.request = gpiochip_generic_request,
-+	.free = gpiochip_generic_free,
-+	.direction_input = rp1_gpio_direction_input,
-+	.direction_output = rp1_gpio_direction_output,
-+	.get_direction = rp1_gpio_get_direction,
-+	.get = rp1_gpio_get,
-+	.set = rp1_gpio_set,
-+	.base = -1,
-+	.set_config = rp1_gpio_set_config,
-+	.ngpio = RP1_NUM_GPIOS,
-+	.can_sleep = false,
-+};
-+
-+static void rp1_gpio_irq_handler(struct irq_desc *desc)
-+{
-+	struct gpio_chip *chip = irq_desc_get_handler_data(desc);
-+	struct irq_chip *host_chip = irq_desc_get_chip(desc);
-+	struct rp1_pinctrl *pc = gpiochip_get_data(chip);
-+	const struct rp1_iobank_desc *bank;
-+	int irq = irq_desc_get_irq(desc);
-+	unsigned long ints;
-+	int bit_pos;
-+
-+	if (pc->irq[0] == irq)
-+		bank = &rp1_iobanks[0];
-+	else if (pc->irq[1] == irq)
-+		bank = &rp1_iobanks[1];
-+	else
-+		bank = &rp1_iobanks[2];
-+
-+	chained_irq_enter(host_chip, desc);
-+
-+	ints = readl(pc->gpio_base + bank->ints_offset);
-+	for_each_set_bit(bit_pos, &ints, 32) {
-+		struct rp1_pin_info *pin = rp1_get_pin(chip, bit_pos);
-+
-+		regmap_field_write(pin->gpio[RP1_GPIO_CTRL_IRQRESET_SET], 1);
-+		generic_handle_irq(irq_linear_revmap(pc->gpio_chip.irq.domain,
-+						     bank->gpio_offset + bit_pos));
-+	}
-+
-+	chained_irq_exit(host_chip, desc);
-+}
-+
-+static void rp1_gpio_irq_config(struct rp1_pin_info *pin, bool enable)
-+{
-+	int reg = enable ? RP1_INTE_SET : RP1_INTE_CLR;
-+
-+	regmap_field_write(pin->inte[reg], 1);
-+	if (!enable)
-+		/* Clear any latched events */
-+		regmap_field_write(pin->gpio[RP1_GPIO_CTRL_IRQRESET_SET], 1);
-+}
-+
-+static void rp1_gpio_irq_enable(struct irq_data *data)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(data);
-+	unsigned int gpio = irqd_to_hwirq(data);
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, gpio);
-+
-+	rp1_gpio_irq_config(pin, true);
-+}
-+
-+static void rp1_gpio_irq_disable(struct irq_data *data)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(data);
-+	unsigned int gpio = irqd_to_hwirq(data);
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, gpio);
-+
-+	rp1_gpio_irq_config(pin, false);
-+}
-+
-+static int rp1_irq_set_type(struct rp1_pin_info *pin, unsigned int type)
-+{
-+	u32 irq_flags;
-+
-+	switch (type) {
-+	case IRQ_TYPE_NONE:
-+		irq_flags = 0;
-+		break;
-+	case IRQ_TYPE_EDGE_RISING:
-+		irq_flags = RP1_INT_EDGE_RISING;
-+		break;
-+	case IRQ_TYPE_EDGE_FALLING:
-+		irq_flags = RP1_INT_EDGE_FALLING;
-+		break;
-+	case IRQ_TYPE_EDGE_BOTH:
-+		irq_flags = RP1_INT_EDGE_RISING | RP1_INT_EDGE_FALLING;
-+		break;
-+	case IRQ_TYPE_LEVEL_HIGH:
-+		irq_flags = RP1_INT_LEVEL_HIGH;
-+		break;
-+	case IRQ_TYPE_LEVEL_LOW:
-+		irq_flags = RP1_INT_LEVEL_LOW;
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* Clear them all */
-+	regmap_field_write(pin->gpio[RP1_GPIO_CTRL_INT_CLR], RP1_INT_MASK);
-+
-+	/* Set those that are needed */
-+	regmap_field_write(pin->gpio[RP1_GPIO_CTRL_INT_SET], irq_flags);
-+	pin->irq_type = type;
-+
-+	return 0;
-+}
-+
-+static int rp1_gpio_irq_set_type(struct irq_data *data, unsigned int type)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(data);
-+	unsigned int gpio = irqd_to_hwirq(data);
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, gpio);
-+	struct rp1_pinctrl *pc = gpiochip_get_data(chip);
-+	int bank = pin->bank;
-+	unsigned long flags;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&pc->irq_lock[bank], flags);
-+
-+	ret = rp1_irq_set_type(pin, type);
-+	if (!ret) {
-+		if (type & IRQ_TYPE_EDGE_BOTH)
-+			irq_set_handler_locked(data, handle_edge_irq);
-+		else
-+			irq_set_handler_locked(data, handle_level_irq);
-+	}
-+
-+	raw_spin_unlock_irqrestore(&pc->irq_lock[bank], flags);
-+
-+	return ret;
-+}
-+
-+static void rp1_gpio_irq_ack(struct irq_data *data)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(data);
-+	unsigned int gpio = irqd_to_hwirq(data);
-+	struct rp1_pin_info *pin = rp1_get_pin(chip, gpio);
-+
-+	/* Clear any latched events */
-+	regmap_field_write(pin->gpio[RP1_GPIO_CTRL_IRQRESET_SET], 1);
-+}
-+
-+static struct irq_chip rp1_gpio_irq_chip = {
-+	.name = MODULE_NAME,
-+	.irq_enable = rp1_gpio_irq_enable,
-+	.irq_disable = rp1_gpio_irq_disable,
-+	.irq_set_type = rp1_gpio_irq_set_type,
-+	.irq_ack = rp1_gpio_irq_ack,
-+	.irq_mask = rp1_gpio_irq_disable,
-+	.irq_unmask = rp1_gpio_irq_enable,
-+	.flags = IRQCHIP_IMMUTABLE,
-+};
-+
-+static void rp1_pull_config_set(struct rp1_pin_info *pin, unsigned int arg)
-+{
-+	regmap_field_write(pin->pad[RP1_PAD_PULL], arg & 0x3);
-+}
-+
-+static int rp1_pinconf_set(struct rp1_pin_info *pin, unsigned int offset,
-+			   unsigned long *configs, unsigned int num_configs)
-+{
-+	u32 param, arg;
-+	int i;
-+
-+	if (!pin)
-+		return -EINVAL;
-+
-+	for (i = 0; i < num_configs; i++) {
-+		param = pinconf_to_config_param(configs[i]);
-+		arg = pinconf_to_config_argument(configs[i]);
-+
-+		switch (param) {
-+		case PIN_CONFIG_BIAS_DISABLE:
-+			rp1_pull_config_set(pin, RP1_PUD_OFF);
-+			break;
-+
-+		case PIN_CONFIG_BIAS_PULL_DOWN:
-+			rp1_pull_config_set(pin, RP1_PUD_DOWN);
-+			break;
-+
-+		case PIN_CONFIG_BIAS_PULL_UP:
-+			rp1_pull_config_set(pin, RP1_PUD_UP);
-+			break;
-+
-+		case PIN_CONFIG_INPUT_ENABLE:
-+			rp1_input_enable(pin, arg);
-+			break;
-+
-+		case PIN_CONFIG_OUTPUT_ENABLE:
-+			rp1_output_enable(pin, arg);
-+			break;
-+
-+		case PIN_CONFIG_OUTPUT:
-+			rp1_set_value(pin, arg);
-+			rp1_set_dir(pin, RP1_DIR_OUTPUT);
-+			rp1_set_fsel(pin, RP1_FSEL_GPIO);
-+			break;
-+
-+		case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-+			regmap_field_write(pin->pad[RP1_PAD_SCHMITT], !!arg);
-+			break;
-+
-+		case PIN_CONFIG_SLEW_RATE:
-+			regmap_field_write(pin->pad[RP1_PAD_SLEWFAST], !!arg);
-+			break;
-+
-+		case PIN_CONFIG_DRIVE_STRENGTH:
-+			switch (arg) {
-+			case 2:
-+				arg = RP1_PAD_DRIVE_2MA;
-+				break;
-+			case 4:
-+				arg = RP1_PAD_DRIVE_4MA;
-+				break;
-+			case 8:
-+				arg = RP1_PAD_DRIVE_8MA;
-+				break;
-+			case 12:
-+				arg = RP1_PAD_DRIVE_12MA;
-+				break;
-+			default:
-+				return -ENOTSUPP;
-+			}
-+			regmap_field_write(pin->pad[RP1_PAD_DRIVE], arg);
-+			break;
-+
-+		default:
-+			return -ENOTSUPP;
-+
-+		} /* switch param type */
-+	} /* for each config */
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id rp1_pinctrl_match[] = {
-+	{ .compatible = "raspberrypi,rp1-gpio" },
-+	{},
-+};
-+
-+static struct rp1_pinctrl rp1_pinctrl_data = {};
-+
-+static const struct regmap_config rp1_pinctrl_regmap_cfg = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.fast_io = true,
-+	.name = "rp1-pinctrl",
-+};
-+
-+static int rp1_gen_regfield(struct device *dev,
-+			    const struct reg_field *array,
-+			    size_t array_size,
-+			    int reg_off,
-+			    int pin_off,
-+			    bool additive_offset,
-+			    struct regmap *regmap,
-+			    struct regmap_field *out[])
-+{
-+	struct reg_field regfield;
-+	int k;
-+
-+	for (k = 0; k < array_size; k++) {
-+		regfield = array[k];
-+		regfield.reg = (additive_offset ? regfield.reg : 0) + reg_off;
-+		if (pin_off >= 0) {
-+			regfield.lsb = pin_off;
-+			regfield.msb = regfield.lsb;
-+		}
-+		out[k] = devm_regmap_field_alloc(dev, regmap, regfield);
-+
-+		if (IS_ERR(out[k]))
-+			return PTR_ERR(out[k]);
-+	}
-+
-+	return 0;
-+}
-+
-+static int rp1_pinctrl_probe(struct platform_device *pdev)
-+{
-+	struct regmap *gpio_regmap, *rio_regmap, *pads_regmap;
-+	struct rp1_pinctrl *pc = &rp1_pinctrl_data;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct gpio_irq_chip *girq;
-+	int err, i;
-+
-+	pc->dev = dev;
-+	pc->gpio_chip = rp1_gpio_chip;
-+	pc->gpio_chip.parent = dev;
-+
-+	pc->gpio_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pc->gpio_base)) {
-+		dev_err(dev, "could not get GPIO IO memory\n");
-+		return PTR_ERR(pc->gpio_base);
-+	}
-+
-+	pc->rio_base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(pc->rio_base)) {
-+		dev_err(dev, "could not get RIO IO memory\n");
-+		return PTR_ERR(pc->rio_base);
-+	}
-+
-+	pc->pads_base = devm_platform_ioremap_resource(pdev, 2);
-+	if (IS_ERR(pc->pads_base)) {
-+		dev_err(dev, "could not get PADS IO memory\n");
-+		return PTR_ERR(pc->pads_base);
-+	}
-+
-+	gpio_regmap = devm_regmap_init_mmio(dev, pc->gpio_base,
-+					    &rp1_pinctrl_regmap_cfg);
-+	if (IS_ERR(gpio_regmap)) {
-+		dev_err(dev, "could not init GPIO regmap\n");
-+		return PTR_ERR(gpio_regmap);
-+	}
-+
-+	rio_regmap = devm_regmap_init_mmio(dev, pc->rio_base,
-+					   &rp1_pinctrl_regmap_cfg);
-+	if (IS_ERR(rio_regmap)) {
-+		dev_err(dev, "could not init RIO regmap\n");
-+		return PTR_ERR(rio_regmap);
-+	}
-+
-+	pads_regmap = devm_regmap_init_mmio(dev, pc->pads_base,
-+					    &rp1_pinctrl_regmap_cfg);
-+	if (IS_ERR(pads_regmap)) {
-+		dev_err(dev, "could not init PADS regmap\n");
-+		return PTR_ERR(pads_regmap);
-+	}
-+
-+	for (i = 0; i < RP1_NUM_BANKS; i++) {
-+		const struct rp1_iobank_desc *bank = &rp1_iobanks[i];
-+		int j;
-+
-+		for (j = 0; j < bank->num_gpios; j++) {
-+			struct rp1_pin_info *pin =
-+				&pc->pins[bank->min_gpio + j];
-+			int reg_off;
-+
-+			pin->num = bank->min_gpio + j;
-+			pin->bank = i;
-+			pin->offset = j;
-+
-+			reg_off = bank->gpio_offset + pin->offset
-+				  * sizeof(u32) * 2;
-+			err = rp1_gen_regfield(dev,
-+					       rp1_gpio_fields,
-+					       ARRAY_SIZE(rp1_gpio_fields),
-+					       reg_off,
-+					       -1,
-+					       true,
-+					       gpio_regmap,
-+					       pin->gpio);
-+
-+			if (err) {
-+				dev_err(dev, "Unable to allocate regmap for gpio\n");
-+				return err;
-+			}
-+
-+			reg_off = bank->inte_offset;
-+			err = rp1_gen_regfield(dev,
-+					       rp1_inte_fields,
-+					       ARRAY_SIZE(rp1_inte_fields),
-+					       reg_off,
-+					       pin->offset,
-+					       true,
-+					       gpio_regmap,
-+					       pin->inte);
-+
-+			if (err) {
-+				dev_err(dev, "Unable to allocate regmap for inte\n");
-+				return err;
-+			}
-+
-+			reg_off = bank->rio_offset;
-+			err = rp1_gen_regfield(dev,
-+					       rp1_rio_fields,
-+					       ARRAY_SIZE(rp1_rio_fields),
-+					       reg_off,
-+					       pin->offset,
-+					       true,
-+					       rio_regmap,
-+					       pin->rio);
-+
-+			if (err) {
-+				dev_err(dev, "Unable to allocate regmap for rio\n");
-+				return err;
-+			}
-+
-+			reg_off = bank->pads_offset + pin->offset * sizeof(u32);
-+			err = rp1_gen_regfield(dev,
-+					       rp1_pad_fields,
-+					       ARRAY_SIZE(rp1_pad_fields),
-+					       reg_off,
-+					       -1,
-+					       false,
-+					       pads_regmap,
-+					       pin->pad);
-+
-+			if (err) {
-+				dev_err(dev, "Unable to allocate regmap for pad\n");
-+				return err;
-+			}
-+		}
-+
-+		raw_spin_lock_init(&pc->irq_lock[i]);
-+	}
-+
-+	girq = &pc->gpio_chip.irq;
-+	girq->chip = &rp1_gpio_irq_chip;
-+	girq->parent_handler = rp1_gpio_irq_handler;
-+	girq->num_parents = RP1_NUM_BANKS;
-+	girq->parents = pc->irq;
-+	girq->default_type = IRQ_TYPE_NONE;
-+	girq->handler = handle_level_irq;
-+
-+	/*
-+	 * Use the same handler for all groups: this is necessary
-+	 * since we use one gpiochip to cover all lines - the
-+	 * irq handler then needs to figure out which group and
-+	 * bank that was firing the IRQ and look up the per-group
-+	 * and bank data.
-+	 */
-+	for (i = 0; i < RP1_NUM_BANKS; i++) {
-+		pc->irq[i] = irq_of_parse_and_map(np, i);
-+		if (!pc->irq[i]) {
-+			girq->num_parents = i;
-+			break;
-+		}
-+	}
-+
-+	platform_set_drvdata(pdev, pc);
-+
-+	err = devm_gpiochip_add_data(dev, &pc->gpio_chip, pc);
-+	if (err) {
-+		dev_err(dev, "could not add GPIO chip\n");
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct platform_driver rp1_pinctrl_driver = {
-+	.probe = rp1_pinctrl_probe,
-+	.driver = {
-+		.name = MODULE_NAME,
-+		.of_match_table = rp1_pinctrl_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver(rp1_pinctrl_driver);
 -- 
 2.35.3
 
