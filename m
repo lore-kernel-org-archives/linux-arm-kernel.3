@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE5FD339A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0013D339A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhKQEalQq5DhqXZjp2nVcnuYVrHx6DAoEyqeJ8d+4hw=; b=J6g0/PClaEjnyZCuaiijrAwORC
-	Gl6xigCaTLUvZhlQ2MwU2CLTvApSHS2KL54GZbvSPxwwqvcqNXvT+hejp2C5+c1AcxlD0+Xw+dGzX
-	yDySj3vUXoxr5b09m1rxiumM5jUJun3mi87xPeG3ihSgdVgYokLv61L1IwoJjKIPopR7iMmPp0GuV
-	5y9NN35DENuo5PlL3sY+cLZg8mRXLz3MPMylKQp/xmlKIUqeNit2LRMuaP5BabGHW9TX0jwme4hwN
-	fjmnNS0xaaYGn9GhBErWWkLatbH5s5lLOfX/hN20SRTv/jrM+IUvT37watoRhOI+NW8H6hjQTr1RY
-	CAX9MEkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=zsElNMK4wW2YxQLcbHfLIYdVn1MtzfX8cyF6J/TdT+Q=; b=MiA74J7FgCvNyL
+	uddHr1bQwzY56uEPWD614c/CGkbMzMGRDIB6OYC9Qe8loSmeVpF5DewvjjLtUljy8ywsz7d81ZKxk
+	IDYrYM3sdkwgpRFHj1R6HSaPyJjejkHJ60r8eG4JCSvQMkdnY4VTuIVvr3GNwpJp+lERx/n3yib05
+	xzxIi0z6MTHha8YRDNIN7qoxVCt9xUM9E1xwOtTbHTJ4UQgP1to6HyYDk88Fqkg14+K4LlsxKcyQS
+	anYHc1swbjEzYoQDKZbUPiiLhhDpABvQoZ32Acfmt+RVxqlCBnskFIdI+fzLLMoNYoAQsJRNYnK8X
+	nBQg6KWnSCeUUFdr6AgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5TGv-0000000BcO4-34wC;
-	Mon, 28 Oct 2024 17:11:18 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1t5TIU-0000000BcYT-1Di1;
+	Mon, 28 Oct 2024 17:12:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Syf-0000000BZre-1qYE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 16:52:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730134325; x=1730739125; i=wahrenst@gmx.net;
-	bh=GhKQEalQq5DhqXZjp2nVcnuYVrHx6DAoEyqeJ8d+4hw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=UQQyaMxiQO7Q4b41H0HfESW7Mu1BFb81cidVwRD+yI2pIAddr9k1WhCPQ4PrRgZk
-	 TFPnbwm/pwrkbjo9/0bDrWDfayHxkb4M8zMsvW1h1hITteSUScOlPjTyA1j8pZNJF
-	 EQCgVyaCcaXCoijIY8Rog9sTLuiDTlQSlxxS+ouU/9RY1e5ybbP9Y5mbT/qPlN6Xr
-	 dVEK9Q+bQUmW+HJ5J8AXU0PFFXpzw2IWDizJjnh1NYF1uTtYBNmtbrE4FzcRFynJo
-	 oK2rNWjQaT5lmsWktg1Dyybi5ggUfadiLRyO4gpYu9hefoqXgMh8fBaiTKzo1/p7Q
-	 P02vDoz/XEgZdCfLSA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mulm5-1tvEXv3UtH-00zMj7; Mon, 28
- Oct 2024 17:52:04 +0100
-Message-ID: <7f175303-b7e8-4d49-ad17-9cb434721bd1@gmx.net>
-Date: Mon, 28 Oct 2024 17:52:03 +0100
+	id 1t5T3Z-0000000BabM-30Pp;
+	Mon, 28 Oct 2024 16:57:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8972F5C552C;
+	Mon, 28 Oct 2024 16:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13830C4CEC3;
+	Mon, 28 Oct 2024 16:57:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730134648;
+	bh=2KecpOx0TISZK4hZM9Euk6MQyQdvrq36DoUE8N/sBa0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=h32sXUpaAnVumDOyku8/9Z8DVogCkQPwAm2biBrs1JAmpJvbPnG+3JG00FuOLC9qf
+	 K2+Wb6dI8G5kHI9GLzJCjIWgGXO/rP3y++vElJlzSjwS/awLaBvhmuHYe3ZGl6lZj6
+	 3YR0psC9Aih1eFll7R/64Qjq0X23cxSr7/jtdjS3Jq9qddATKWZrWaNA8CzwNRrgB7
+	 qv9/PEXHzFs7uRvlOYv7cnbu9OSfwKtyei6r+FQnoYvUhFhzqQU4MpnzTtROZtwBQP
+	 xwUjRM89PN2ZlqEJg8LMH3MRy2Zw36WGt8KpXzEx3UoLCtV6Ye4TlfkFoSWZuqJEfO
+	 4+3uMVhYdbpTg==
+Date: Mon, 28 Oct 2024 11:57:25 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
+ address to dynamic bridge nodes
+Message-ID: <20241028165725.GA1106415@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] watchdog: imx7ulp_wdt: Add TOVAL range check
-To: Guenter Roeck <linux@roeck-us.net>, Alice Guo <alice.guo@nxp.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20241027105323.93699-1-wahrenst@gmx.net>
- <20241027105323.93699-3-wahrenst@gmx.net>
- <33721072-6ff4-45bd-b20f-cc0a213e3aae@roeck-us.net>
- <686d128c-ce02-421e-9af5-6c418e82071d@gmx.net>
- <016f25b9-58ec-4b51-81d7-4a573a4cc18a@roeck-us.net>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <016f25b9-58ec-4b51-81d7-4a573a4cc18a@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:7XdQT3hLhRr9ALXESZ/YWfwjV+ddX83sIaU4FF5eHKFEb/hlLC6
- JiGDIRp1mTanuohRfhCtrOWRgE1ds1ZX86VKINdnZrVJqoB9jFr/P6QkO3LnjUTmYKTeGmo
- eA8nAThKn5rjoKLWrB0j53wGeqLpXocXPL4+EMXlQP01M3Ns1aUqbBaqTWPRae40sWk4Avx
- 7rrLdswy5aI4amw5xFMhQ==
-UI-OutboundReport: notjunk:1;M01:P0:SFlAgT4Oyxc=;Np0jtOdDNzlQoExMBs5gBffx/iw
- F1j7m0F467Gdelbf6LkLnr8jxsKH+lApkOAyuy82iooGeqP5VhsvkGoSHp0x+DtLRoONj/alp
- 17lmZVH6qhMJP4wElRH3kFwqbyIEAAoVqYafGXQAkOp/MOKkB+B8KHY6269kgNH8704HX+TsE
- Eejm/ElutIQgUjvq/kHF3DzFtWH7w5GQAKVzc/YPzxiaPw5zhu95EKvOMAAMdD+hD0G1rvmgT
- nbdfkaHiHyXaFlDKQLlqC/4bxy0Xel58LOz5EcbnPg5HtN/+bGS4hkF9rPiALasj31qNqI5i3
- DQlzf/Pb0jTfewhhzLNHNdrYuZ0gxr7GgWJAUWgIafvBSmevt7B74ERcSvyFEvElAlpB3D7Wr
- AeG2acZ8AkBxhBwMvNMzAr0IMFV8BJjZqFmlUiOGHmYDJOoHwT+sqPpkw/chx+nkIRGtBdxGh
- xbsp3SgJyMKYinsN2ttQqtQdSwYVXDXTFHiAdOrIVubmFOkt74XvypRpP/rpGdUtZhXS8puux
- SYw79W7SwX5mvqaKyJGbZBrBBLKGMoDO+5X+ILOlr+SR3OsXrTnNmdQZIyiJerylRZMwiTfwP
- Q/40osCuocieAuQaDQZjCre+mSzwyZS9pAfK8CXlBqkGD7KGAYNHshDd67pIel7QUV4xqnsOu
- RBcw7Pt1i1AYQaNrRcPBYfnM6DnWaCWlCIMYwwZBI4nvsdrGXndo4bdKUeCZM42NO+9YQ0bGr
- kmRj9Y2qV+rD5RK8BKWWGJbofglEU1boGNrSjFy24NHBxljeby6SVfAVPsQIEqaaUV9Vvu24D
- g9yjPVJjXGpG0y7OEynflEdQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_095225_871103_40916CF8 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20241028_095729_819055_A7CD2560 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,135 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter,
+On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
+> When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
+> incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
+> bridge, the window should instead be in PCI address space. Call
+> pci_bus_address() on the resource in order to obtain the PCI bus
+> address.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 
-Am 27.10.24 um 18:35 schrieb Guenter Roeck:
-> On 10/27/24 08:54, Stefan Wahren wrote:
->> Am 27.10.24 um 14:36 schrieb Guenter Roeck:
->>> On 10/27/24 03:53, Stefan Wahren wrote:
->>>> The WDOG Timeout Value (TOVAL) is a 16 bit value, which is stored
->>>> at the beginning of a 32 bit register. So add a range check to
->>>> prevent writing in the reserved register area.
->>>>
->>>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->>>> ---
->>>> =C2=A0 drivers/watchdog/imx7ulp_wdt.c | 8 ++++++++
->>>> =C2=A0 1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/drivers/watchdog/imx7ulp_wdt.c
->>>> b/drivers/watchdog/imx7ulp_wdt.c
->>>> index 0f92d2217088..a7574f9c9150 100644
->>>> --- a/drivers/watchdog/imx7ulp_wdt.c
->>>> +++ b/drivers/watchdog/imx7ulp_wdt.c
->>>> @@ -48,6 +48,8 @@
->>>>
->>>> =C2=A0 #define RETRY_MAX 5
->>>>
->>>> +#define TOVAL_MAX=C2=A0=C2=A0=C2=A0 0xFFFF
->>>> +
->>>> =C2=A0 static bool nowayout =3D WATCHDOG_NOWAYOUT;
->>>> =C2=A0 module_param(nowayout, bool, 0000);
->>>> =C2=A0 MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once st=
-arted
->>>> (default=3D"
->>>> @@ -192,6 +194,9 @@ static int imx7ulp_wdt_set_timeout(struct
->>>> watchdog_device *wdog,
->>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
->>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 loop =3D RETRY_MAX;
->>>>
->>>> +=C2=A0=C2=A0=C2=A0 if (toval > TOVAL_MAX)
->>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EINVAL;
->>>> +
->>>
->>> The whole idea of having max_timeout in struct watchdog_device is to
->>> avoid the need
->>> for this check. max_timeout should be set to 0xffff /
->>> wdt->hw->wdog_clock_rate.
->>> It is currently set to 128. With wdt->hw->wdog_clock_rate set to
->>> either 125 or 1000,
->>> it can indeed overflow. However, checking the value above is wrong.
->>> max_timeout should
->>> be initialized correctly instead.
->>>
->>> Even better would be to set max_hw_heartbeat_ms and let the watchdog
->>> core handle
->>> larger timeouts.
->> It's funny because I tried this on a i.MX93 board but it didn't work fo=
-r
->> me. But I must confess that I didn't spend much time in the
->> investigation.
->
-> I can't test it, but something like the diff below should do.
-Thanks, I will give it a try but it will take some time.
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-Regards
->
-> Guenter
->
+Thanks for working through this!
+
 > ---
-> diff --git a/drivers/watchdog/imx7ulp_wdt.c
-> b/drivers/watchdog/imx7ulp_wdt.c
-> index 0f13a3053357..e672d27af63e 100644
-> --- a/drivers/watchdog/imx7ulp_wdt.c
-> +++ b/drivers/watchdog/imx7ulp_wdt.c
-> @@ -187,11 +187,16 @@ static int imx7ulp_wdt_set_timeout(struct
-> watchdog_device *wdog,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int =
-timeout)
-> =C2=A0{
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct imx7ulp_wdt_device *wd=
-t =3D watchdog_get_drvdata(wdog);
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 toval =3D wdt->hw->wdog_clock_=
-rate * timeout;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 toval;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 val;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 loop =3D RETRY_MAX;
->
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (timeout > 0xffff / wdt->hw->wd=
-og_clock_rate)
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 toval =3D 0xffff;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 toval =3D wdt->hw->wdog_clock_rate * timeout;
-> +
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 do {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 ret =3D _imx7ulp_wdt_set_timeout(wdt, toval);
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 val =3D readl(wdt->base + WDOG_TOVAL);
-> @@ -338,7 +343,6 @@ static int imx7ulp_wdt_probe(struct
-> platform_device *pdev)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->info =3D &imx7ulp_wdt_i=
-nfo;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->ops =3D &imx7ulp_wdt_op=
-s;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->min_timeout =3D 1;
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->max_timeout =3D MAX_TIMEOUT;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->parent =3D dev;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->timeout =3D DEFAULT_TIM=
-EOUT;
->
-> @@ -348,6 +352,7 @@ static int imx7ulp_wdt_probe(struct
-> platform_device *pdev)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 watchdog_set_drvdata(wdog, im=
-x7ulp_wdt);
->
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 imx7ulp_wdt->hw =3D of_device=
-_get_match_data(dev);
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->max_hw_heartbeat_ms =3D 0xff=
-ff * 1000 /
-> imx7ulp_wdt->hw->wdog_clock_rate;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D imx7ulp_wdt_init(imx7=
-ulp_wdt, wdog->timeout *
-> imx7ulp_wdt->hw->wdog_clock_rate);
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 return ret;
->
->
-
+>  drivers/pci/of_property.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
+> index 5a0b98e69795..886c236e5de6 100644
+> --- a/drivers/pci/of_property.c
+> +++ b/drivers/pci/of_property.c
+> @@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
+>  		if (of_pci_get_addr_flags(&res[j], &flags))
+>  			continue;
+>  
+> -		val64 = res[j].start;
+> +		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
+>  		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
+>  				   false);
+>  		if (pci_is_bridge(pdev)) {
+> -- 
+> 2.35.3
+> 
 
