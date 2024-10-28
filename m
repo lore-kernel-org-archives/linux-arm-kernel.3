@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B1FD33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CA3D33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XdEG+PzvG0Vo99BU/R4RjPsHvmaNQJ3LSrH+8TVql9M=; b=j4AYc2GSNxJpflli+Ql8m7Ic2G
-	CkilRy9tfSabLEnfFcSc6ZDwQlFQxOP6oPBT7Ey4U5/QAceQUiyT7Edpm3ILZ+l3OyCk1IO7DQ9q6
-	Vfjr7ue9uViHhOyQsWWEUdyk1P5na07h1VmdMFOoBmI8Ejb8Rv50B6S2AbskQ4HpusT56NGw9EbYf
-	ohwP2Sime1/yhtsSKBFFfzHO8iZRLv8Glafw64muiv7n+xd3iftrcU8bp7pvCNx5T6fusmERnpp9E
-	bON62RCsSkU9lAEEyDmkd2x7n4gRsHd9SElENrjygNIzCAx2YqbMHAX5pURN2p0DWGlpH2hGssIVB
-	otevyxmw==;
+	bh=XzAaEXLSb0gVUT48L6jxPocvqnzRypxww88Qv3DK4cg=; b=mRuWlxT5js4F3KY5Q+yQtCTdP+
+	vyrPklqc3NtxJOSRXNpOp3xD4c6xiIuW8OrnXkAKUnr4z/C8S4X6gO7nhqw2KbGIcS+w/IdK9YILC
+	Db/HoHm5rK1fBq5OGkllvqVwd+OyHojYYhu/64sozITm0MYw/N4RP2xNc7C9/+P3lqPuZONrlpMdU
+	ApqOuTQG5NZjQzWPizwMjPBewscLncEiVJGq4JsoGQdDdT5uwriwAhH14cVsYZ5tuq6hf3TRfDEXz
+	J1E1myy+cMmx/bwFLWiksK94GLmj+oy0asUtZ8wOiL16W75SLHxLjNWjTiRO/JrhqAoRi9cFjFBcK
+	j+G2W2rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5R1n-0000000BBsW-3KVE;
-	Mon, 28 Oct 2024 14:47:31 +0000
+	id 1t5R3L-0000000BC1U-2oVO;
+	Mon, 28 Oct 2024 14:49:07 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qd5-0000000B6AH-1tsm
+	id 1t5Qd7-0000000B6Aq-2pUI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:22:01 +0000
+	Mon, 28 Oct 2024 14:22:03 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 8BFDB4C6A3;
-	Mon, 28 Oct 2024 14:21:57 +0000 (UTC)
+	by a.peacevolution.org (Postfix) with ESMTPA id D55D14C75C;
+	Mon, 28 Oct 2024 14:21:59 +0000 (UTC)
 From: Aren Moynihan <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
@@ -52,25 +52,25 @@ Cc: Aren Moynihan <aren@peacevolution.org>,
 	linux-sunxi@lists.linux.dev,
 	Dragan Simic <dsimic@manjaro.org>,
 	phone-devel@vger.kernel.org
-Subject: [PATCH v3 2/6] iio: light: stk3310: handle all remove logic with devm callbacks
-Date: Mon, 28 Oct 2024 10:19:56 -0400
-Message-ID: <20241028142000.1058149-3-aren@peacevolution.org>
+Subject: [PATCH v3 3/6] iio: light: stk3310: Implement vdd and leda supplies
+Date: Mon, 28 Oct 2024 10:19:57 -0400
+Message-ID: <20241028142000.1058149-4-aren@peacevolution.org>
 In-Reply-To: <20241028142000.1058149-1-aren@peacevolution.org>
 References: <20241028142000.1058149-1-aren@peacevolution.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: +++++
+X-Spamd-Bar: ++++++
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730125318;
+	s=dkim; t=1730125321;
 	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=XdEG+PzvG0Vo99BU/R4RjPsHvmaNQJ3LSrH+8TVql9M=;
-	b=N2EsH13FDOQFjN8HkB+osgOBN8dUDuhjxjaYEcRsLPXlm636aADXeXR8Ybm0VHHf8pGmmv
-	YScoijdrRYm4Jrw2F3qOCB+ANT9XC/0ViSVsKemakgDBPPVntrbuj8e0HHL06jWOL6jpX6
-	94B/thP/0MgpRh548+mX3NM11ZItS+g=
+	bh=XzAaEXLSb0gVUT48L6jxPocvqnzRypxww88Qv3DK4cg=;
+	b=brSA4imXB0mSeHbBEkm0HIhd4Kor5Vt3u76cpfTs6Mort8TXHc5mtytkhkZxfEUntzK3TF
+	Gte8CA20RGA0VPC2Tog1IkFQC1N0k/1QvyQo4L4fTi9n1UfQGWKGH61OSyFvEVE+8iDfI5
+	uk41hR2FP09oEmQGNBA8dnFAiQDdsLE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072159_652099_024864FE 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20241028_072201_865260_4DA55A99 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,92 +85,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using devm callbacks helps to make the ordering of probe / remove
-operations easier to reason about and removes some duplicate code
-between the probe error path and driver remove.
+The vdd and leda supplies must be powered on for the chip to function
+and can be powered off during system suspend.
+
+Co-developed-by: Ondrej Jirman <megi@xff.cz>
+Signed-off-by: Aren Moynihan <aren@peacevolution.org>
 ---
 
 Notes:
-    Added in v3
+    I'm not sure what the proper way to handle attribution for this patch
+    is. It was origionally based on a patch by Ondrej Jirman[1], but I have
+    rewritten a large portion if it. I have included a Co-developed-by tag
+    to indicate this, but haven't sent him this patch, so I'm not sure what
+    to do about a Signed-off-by.
+    
+    1: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82
+    
+    Changes in v3:
+     - use bulk regulators instead of two individual ones
+     - handle cleanup using devm callbacks instead of the remove function
+    
+    Changes in v2:
+     - always enable / disable regulators and rely on a dummy regulator if
+       one isn't specified
+     - replace usleep_range with fsleep
+     - reorder includes so iio headers are last
+     - add missing error handling to resume
 
- drivers/iio/light/stk3310.c | 35 +++++++++++++++++++----------------
- 1 file changed, 19 insertions(+), 16 deletions(-)
+ drivers/iio/light/stk3310.c | 76 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 74 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index ed20b6714546..2e1aa551bdbc 100644
+index 2e1aa551bdbc..f02b4d20c282 100644
 --- a/drivers/iio/light/stk3310.c
 +++ b/drivers/iio/light/stk3310.c
-@@ -484,6 +484,17 @@ static int stk3310_set_state(struct stk3310_data *data, u8 state)
- 	return ret;
+@@ -13,6 +13,8 @@
+ #include <linux/module.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++
+ #include <linux/iio/events.h>
+ #include <linux/iio/iio.h>
+ #include <linux/iio/sysfs.h>
+@@ -130,6 +132,7 @@ struct stk3310_data {
+ 	struct regmap_field *reg_int_ps;
+ 	struct regmap_field *reg_flag_psint;
+ 	struct regmap_field *reg_flag_nf;
++	struct regulator_bulk_data supplies[2];
+ };
+ 
+ static const struct iio_event_spec stk3310_events[] = {
+@@ -621,6 +624,31 @@ static irqreturn_t stk3310_irq_event_handler(int irq, void *private)
+ 	return IRQ_HANDLED;
  }
  
-+static void stk3310_set_state_disable(void *private)
++static int stk3310_regulators_enable(struct stk3310_data *data)
++{
++	int ret;
++
++	ret = regulator_bulk_enable(ARRAY_SIZE(data->supplies), data->supplies);
++	if (ret)
++		return ret;
++
++	/* we need a short delay to allow the chip time to power on */
++	fsleep(1000);
++
++	return 0;
++}
++
++static void stk3310_regulators_disable(void *private)
 +{
 +	int ret;
 +	struct stk3310_data *data = private;
 +	struct device *dev = &data->client->dev;
 +
-+	ret = stk3310_set_state(data, STK3310_STATE_STANDBY);
++	ret = regulator_bulk_disable(ARRAY_SIZE(data->supplies), data->supplies);
 +	if (ret)
-+		dev_err(dev, "failed to set state to standby: %d\n", ret);
++		dev_err(dev, "failed to disable regulators: %d\n", ret);
 +}
 +
- static int stk3310_init(struct iio_dev *indio_dev)
+ static int stk3310_probe(struct i2c_client *client)
  {
  	int ret;
-@@ -507,6 +518,11 @@ static int stk3310_init(struct iio_dev *indio_dev)
- 		return ret;
- 	}
+@@ -642,6 +670,13 @@ static int stk3310_probe(struct i2c_client *client)
  
-+	ret = devm_add_action_or_reset(&client->dev, stk3310_set_state_disable, data);
+ 	mutex_init(&data->lock);
+ 
++	data->supplies[0].supply = "vdd";
++	data->supplies[1].supply = "leda";
++	ret = devm_regulator_bulk_get(&client->dev, ARRAY_SIZE(data->supplies),
++				      data->supplies);
++	if (ret)
++		return dev_err_probe(&client->dev, ret, "get regulators failed\n");
++
+ 	ret = stk3310_regmap_init(data);
+ 	if (ret < 0)
+ 		return ret;
+@@ -652,6 +687,16 @@ static int stk3310_probe(struct i2c_client *client)
+ 	indio_dev->channels = stk3310_channels;
+ 	indio_dev->num_channels = ARRAY_SIZE(stk3310_channels);
+ 
++	ret = stk3310_regulators_enable(data);
 +	if (ret)
 +		return dev_err_probe(&client->dev, ret,
-+				     "failed to register cleanup function\n");
++				     "regulator enable failed\n");
 +
- 	/* Enable PS interrupts */
- 	ret = regmap_field_write(data->reg_int_ps, STK3310_PSINT_EN);
++	ret = devm_add_action_or_reset(&client->dev, stk3310_regulators_disable, data);
++	if (ret)
++		return dev_err_probe(&client->dev, ret,
++				     "failed to register regulator cleanup\n");
++
+ 	ret = stk3310_init(indio_dev);
  	if (ret < 0)
-@@ -650,29 +666,17 @@ static int stk3310_probe(struct i2c_client *client)
- 		if (ret < 0) {
- 			dev_err(&client->dev, "request irq %d failed\n",
- 				client->irq);
--			goto err_standby;
-+			return ret;
- 		}
- 	}
+ 		return ret;
+@@ -682,18 +727,45 @@ static int stk3310_probe(struct i2c_client *client)
+ static int stk3310_suspend(struct device *dev)
+ {
+ 	struct stk3310_data *data;
++	int ret;
  
--	ret = iio_device_register(indio_dev);
-+	ret = devm_iio_device_register(&client->dev, indio_dev);
- 	if (ret < 0) {
- 		dev_err(&client->dev, "device_register failed\n");
--		goto err_standby;
+ 	data = iio_priv(i2c_get_clientdata(to_i2c_client(dev)));
+ 
+-	return stk3310_set_state(data, STK3310_STATE_STANDBY);
++	ret = stk3310_set_state(data, STK3310_STATE_STANDBY);
++	if (ret)
 +		return ret;
- 	}
- 
- 	return 0;
--
--err_standby:
--	stk3310_set_state(data, STK3310_STATE_STANDBY);
--	return ret;
--}
--
--static void stk3310_remove(struct i2c_client *client)
--{
--	struct iio_dev *indio_dev = i2c_get_clientdata(client);
--
--	iio_device_unregister(indio_dev);
--	stk3310_set_state(iio_priv(indio_dev), STK3310_STATE_STANDBY);
++
++	regcache_mark_dirty(data->regmap);
++
++	ret = regulator_bulk_disable(ARRAY_SIZE(data->supplies), data->supplies);
++	if (ret) {
++		dev_err(dev, "failed to disable regulators: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
  }
  
- static int stk3310_suspend(struct device *dev)
-@@ -736,7 +740,6 @@ static struct i2c_driver stk3310_driver = {
- 		.acpi_match_table = stk3310_acpi_id,
- 	},
- 	.probe =        stk3310_probe,
--	.remove =           stk3310_remove,
- 	.id_table =         stk3310_i2c_id,
- };
+ static int stk3310_resume(struct device *dev)
+ {
+-	u8 state = 0;
+ 	struct stk3310_data *data;
++	u8 state = 0;
++	int ret;
  
+ 	data = iio_priv(i2c_get_clientdata(to_i2c_client(dev)));
++
++	ret = stk3310_regulators_enable(data);
++	if (ret) {
++		dev_err(dev, "Failed to re-enable regulators: %d", ret);
++		return ret;
++	}
++
++	ret = regcache_sync(data->regmap);
++	if (ret) {
++		dev_err(dev, "Failed to restore registers: %d\n", ret);
++		return ret;
++	}
++
+ 	if (data->ps_enabled)
+ 		state |= STK3310_STATE_EN_PS;
+ 	if (data->als_enabled)
 -- 
 2.47.0
 
