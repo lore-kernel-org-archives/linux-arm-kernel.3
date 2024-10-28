@@ -4,59 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03120D1359C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D908D1359F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWcxSE4UatI1A76VSCuunJn/cxuWm4V1GW48Va12z3s=; b=bJNgkDKbLECIRWTdDg8MVTko3k
-	PCjEZIujJjoOcPfbvsGHoo2fY3phFPPJ8cCoV3REBe69zxxz9QW+FeymQJwT6zuJfx81X/2HFSy9F
-	01YsRZT1Ur3vayMAlT6TuDl2v2HccDDEAZszyijjJCQTllO0neqmPVS10feWKjiXPJXSaNOvXcVOv
-	/hzrHyyXV8pnXZuVK3X71R+Iy4XEwbOtpFbVycUcSaR35ja6+63Ih0llNs9Q716nb/RybSUzJtBnJ
-	GrxY92zKI5Jw5ahRWgqBS/K8MPWY/dxwhK/OKzgYjQly7naGCRTPpJ2YeE0irHJT35f48olq2EtYd
-	An7eypQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0PUy1F4k8sbf0Z151je9PbMj3Wtx2JX6KzUNFW46ndA=; b=2Un9dnSSgQILr2HkODsd0s//c3
+	6uTvbAm1kFbMpUQ5BRWG0lNYurr4dBWcoMAc7BaS9zk35ZdDx3ngu0SEHOh+K5baRQXs5EbvNyCPD
+	3R6GTW1R2YETtjYzt7F46+2hiqiZahwCqNSp8d8sKg0kK/qmyTLXwwQ0rATwudHDI2sFojFtRCjSx
+	BSn7dBh0j6xXiNDGsUaKtc5u1/z/HunDi+cBi6TH3rFTGORMkDdf8XXl/My8qQmDiJLVBqgpIgblC
+	/CpVzcEqeuuwcrgNhPHQfhP7yoBPXxqLtxMbqAevm8nvZuftyqj480WZXjYcTciV6a34FP/QE4YBs
+	lBfZaiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Ona-0000000Ajpb-3vrU;
-	Mon, 28 Oct 2024 12:24:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Olx-0000000AjSb-1hXY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 12:23:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB68213D5;
-	Mon, 28 Oct 2024 05:23:29 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FA963F73B;
-	Mon, 28 Oct 2024 05:22:57 -0700 (PDT)
-Date: Mon, 28 Oct 2024 12:22:54 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, quic_nkela@quicinc.com,
-	dan.carpenter@linaro.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 6/7] dt-bindings: firmware: arm,scmi: Add missing
- vendor string
-Message-ID: <Zx-CHlAb61FWdzkA@bogus>
-References: <20241028120151.1301177-1-cristian.marussi@arm.com>
- <20241028120151.1301177-7-cristian.marussi@arm.com>
+	id 1t5Ot2-0000000AkrJ-1RRl;
+	Mon, 28 Oct 2024 12:30:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5NhM-0000000AXZh-3LqO;
+	Mon, 28 Oct 2024 11:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=0PUy1F4k8sbf0Z151je9PbMj3Wtx2JX6KzUNFW46ndA=; b=jWSH+G4vODs6XOa5QOgEt9oktC
+	SP1s+KXZSTaWf+eiBO4zTLeec/4x7QKXH/ke9JfU1esgYe6mWC1AqOReWpJ7evjRjYByx9zZwEgoY
+	ULu9Re8mAH0CHbmbJMaJqDliguYemxmcsidQkXmiKWsZ2/gzBf4umUTL1c+Ehy+TTxq17GGST1SS9
+	NabG88TpBRR8vEuWxuSC1P3qL54P65GqMSjGfxsI2noMKNQZykSlMBL7ta90neg+pBdKOWidEFArU
+	BFyJm4cqvwmXswmXIpwtpK5UHm57Jfcuby9xTuPzNprZ6kFYzpEj/AuDOgbina/Gigzm8+wBSOyIr
+	mxCny+Ow==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5NhJ-00000009eYh-0pM8;
+	Mon, 28 Oct 2024 11:14:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 454415C5B07;
+	Mon, 28 Oct 2024 11:13:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04399C4CEC3;
+	Mon, 28 Oct 2024 11:14:00 +0000 (UTC)
+Message-ID: <59cf95be-fb53-4a94-bc6e-f9dca322749d@xs4all.nl>
+Date: Mon, 28 Oct 2024 12:13:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241028120151.1301177-7-cristian.marussi@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Naushir Patuck
+ <naush@raspberrypi.com>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
+ <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
+ <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+ <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
+ <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
+ <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Autocrypt: addr=hverkuil@xs4all.nl; keydata=
+ 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
+In-Reply-To: <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_052301_507645_6FA8DAC7 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20241028_111409_610070_8992C237 
+X-CRM114-Status: GOOD (  37.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +139,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 12:01:50PM +0000, Cristian Marussi wrote:
-> Recently introduced max-rx-timeout-ms optionao property is missing a
-> vendor prefix.
->
-> Add the vendor prefix from the original committer.
->
-
-It should be "arm," not "nxp," just because NXP happens to introduce that.
-It just highlight that the property is X vendor specific and here it is
-associated with SCMI and specifically Arm SCMI, so "arm,". If for some
-reason nxp or any other vendor overrides this definition and need to add
-additional property then they can add their own vendor name into that
-property.
-
-If there are no objections, I can fix it up when applying.
-
-> Fixes: 3a5e6ab06eab ("dt-bindings: firmware: arm,scmi: Introduce property max-rx-timeout-ms")
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
-> Note that this fixes a commit that has been merged in v6.12-rc1...so it
-> should not present any backward compatibility issue.
-> ---
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: Peng Fan <peng.fan@nxp.com>
-> ---
->  Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On 28/10/2024 12:05, Tomi Valkeinen wrote:
+> Hi Hans,
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> index 9d6e1147f9e9..e331da4d606b 100644
-> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> @@ -124,7 +124,7 @@ properties:
->        atomic mode of operation, even if requested.
->      default: 0
->  
-> -  max-rx-timeout-ms:
-> +  nxp,max-rx-timeout-ms:
->      description:
->        An optional time value, expressed in milliseconds, representing the
->        transport maximum timeout value for the receive channel. The value should
-> -- 
-> 2.47.0
+> On 28/10/2024 12:11, Hans Verkuil wrote:
+>> On 28/10/2024 10:21, Tomi Valkeinen wrote:
+>>> Hi,
+>>>
+>>> On 24/10/2024 11:20, Hans Verkuil wrote:
+>>>> Hi Tomi,
+>>>>
+>>>> I know this driver is already merged, but while checking for drivers that use
+>>>> q->max_num_buffers I stumbled on this cfe code:
+>>>>
+>>>> <snip>
+>>>>
+>>>>> +/*
+>>>>> + * vb2 ops
+>>>>> + */
+>>>>> +
+>>>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
+>>>>> +               unsigned int *nplanes, unsigned int sizes[],
+>>>>> +               struct device *alloc_devs[])
+>>>>> +{
+>>>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
+>>>>> +    struct cfe_device *cfe = node->cfe;
+>>>>> +    unsigned int size = is_image_node(node) ?
+>>>>> +                    node->vid_fmt.fmt.pix.sizeimage :
+>>>>> +                    node->meta_fmt.fmt.meta.buffersize;
+>>>>> +
+>>>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
+>>>>> +        node->buffer_queue.type);
+>>>>> +
+>>>>> +    if (vq->max_num_buffers + *nbuffers < 3)
+>>>>> +        *nbuffers = 3 - vq->max_num_buffers;
+>>>>
+>>>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
+>>>> is called. So 32 + *nbuffers is never < 3.
+>>>>
+>>>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
+>>>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
+>>>> for you.
+>>>>
+>>>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
+>>>> since the code is almost always wrong.
+>>>
+>>> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
+>>>
+>>> if (vq->num_buffers + *nbuffers < 3)
+>>>          *nbuffers = 3 - vq->num_buffers;
+>>>
+>>> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
+>>>
+>>> The distinction between min_queued_buffers and min_reqbufs_allocation, or rather the need for the latter, still escapes me. If the HW/SW requires N buffers to be queued, why would we require
+>>> allocating more than N buffers?
+>>
+>> min_queued_buffers is easiest to explain: that represents the requirements of the DMA
+>> engine, i.e. how many buffers much be queued before the DMA engine can be started.
+>> Typically it is 0, 1 or 2.
+>>
+>> min_reqbufs_allocation is the minimum number of buffers that will be allocated when
+>> calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
+>> or dropping frames.
+>>
+>> Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
+>> and the third is being processed by userspace. But sometimes drivers have other
+>> requirements.
+>>
+>> The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
+>> expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
+>> https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
+>>
+>> "It can be smaller than the number requested, even zero, when the driver runs out of
+>>   free memory. A larger number is also possible when the driver requires more buffers
+>>   to function correctly."
+>>
+>> How drivers implement this is a mess, and usually the code in the driver is wrong as
+>> well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
+>> instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
 > 
+> Thanks, this was educational!
+> 
+> So. If I have a driver that has min_queued_buffers = 1, I can use VIDIOC_CREATE_BUFS to allocate a single buffer, and then capture just one buffer, right? Whereas VIDIOC_REQBUFS would give me
+> (probably) three (or two, if the driver does not set min_reqbufs_allocation). Three buffers makes sense for full streaming, of course.
+> 
+>> When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
+>> to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
+>> if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
+>> with this ioctl the number of buffers will never be more than requested, although it
+>> may be less if you run out of memory.
+>>
+>> I really should go through all existing drivers and fix them up if they try to
+>> handle this in the queue_setup function, I suspect a lot of them are quite messy.
+>>
+>> One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
+>> buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
+> 
+> Hmm, so what I wrote above is not correct? One needs min_queued_buffers + 1? Why is that?
 
---
+The DMA engine always uses min_queued_buffers, so if there are only that many buffers,
+then it can never return a buffer to userspace! So you need one more. That's the absolute
+minimum. For smooth capture you need two more to allow time for userspace to process the
+buffer.
+
+> 
+>> to use CREATE_BUFS you need that information so you know that you have to create
+>> at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
+>> but it is effectively codec specific. This probably should be clarified.
+>>
+>> I wonder if it wouldn't be better to add a min_num_buffers field to
+>> struct v4l2_create_buffers and set it to min_queued_buffers + 1.
+> 
+> I think this makes sense (although I still don't get the +1).
+> 
+> However, based on the experiences from adding the streams features to various ioctls, let's be very careful =). The new 'min_num_buffers' can be filled with garbage by the userspace. If we define the
+> 'min_num_buffers' field to be always filled by the kernel, and any value provided from the userspace to be ignored, I think it should work.
+
+I've posted an RFC for this.
+
 Regards,
-Sudeep
+
+	Hans
+
+> 
+>  Tomi
+> 
+
 
