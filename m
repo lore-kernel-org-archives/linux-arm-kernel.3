@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE52D339B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94513D339AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3caiOEyyqpKPSJqqFA2rXjqrWT0E3bBDl+mODs76KKo=; b=uu+PhIl71GNpU+LP1X/P2qTRaZ
-	FC7IGwqYz6Xr0m89ZMEabAqqtcpu2AiYi0v/xEJLLILR+h5zTzqGhcB2v2iiuUnyjfxflLeV68aj7
-	/AIdOYxUE+NqoU0nOtM15sXloh0OpJ37WGE7OC6M7/9B0wdfWfjwwCqcLKTWEi9UC8WqLyQuHJKCK
-	dXDUOeb3ozHH/pXc0FUv+4HpIzODdmU/FqifhF46OXoLgkuiv1R0nU9tGRyHtaXa2OM6UEQjxQMfy
-	IKtK0lr4bMIA1sd1SH8hj/VrFNHo38W0PqqrnRgj6+o8lCNdWxEU7TVcHg0oXXIA/LP+F+MMhFRA6
-	xaErfT/g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RKs1RKbi5ql42C9tWBVv87+H/Yk19C0NmjTIvYROwUI=; b=RjRQh3uDYvniZMbwyBmgjRJl9U
+	Agf/tzVrSZR4JZ8hiqd+eW9TcfJXWh5GgPg0/hN5uW4AkenxLtxwpA9g5BHEA0rERYIFw3foyXZg5
+	dUbYaXiVnf/XtQELd/d4rLaCEYFV55wYrF8QHU7gHJ2xlfmfzD+oXHpYqRNRpYzW3LIZmqsTScMB3
+	/arKRDcVCfKLqcJpdjXNlqBZlcYQE0904NjT63gcmDbwPrSLsdAbLMQ29EbEq5/qDCWs+5TvWucMU
+	bmhOGLeHkl3is8GYbnZR1u8HuMxDZSAdwHcTkMCxMKGw+n0aSoI1D22NSj1+DTLkt1XYMC0oqQLax
+	1tsEtguw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5UGE-0000000BmFG-3kqo;
-	Mon, 28 Oct 2024 18:14:38 +0000
+	id 1t5UGF-0000000BmFQ-1yyZ;
+	Mon, 28 Oct 2024 18:14:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5U0u-0000000BjLz-0eLx
+	id 1t5U0v-0000000BjMG-2To7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 17:58:50 +0000
+	Mon, 28 Oct 2024 17:58:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1D29497;
-	Mon, 28 Oct 2024 10:59:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0511213D5;
+	Mon, 28 Oct 2024 10:59:19 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1A5BB3F66E;
-	Mon, 28 Oct 2024 10:58:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 421D43F66E;
+	Mon, 28 Oct 2024 10:58:47 -0700 (PDT)
 From: Robin Murphy <robin.murphy@arm.com>
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -48,16 +48,17 @@ Cc: hns@goldelico.com,
 	linux-omap@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	linux-remoteproc@vger.kernel.org
-Subject: [PATCH 0/4] Fix omap-iommu bitrot
-Date: Mon, 28 Oct 2024 17:58:34 +0000
-Message-Id: <cover.1730136799.git.robin.murphy@arm.com>
+Subject: [PATCH 1/4] remoteproc/omap: Handle ARM dma_iommu_mapping
+Date: Mon, 28 Oct 2024 17:58:35 +0000
+Message-Id: <6186e311cb6f64a787f87fd41e49a73f409b789c.1730136799.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+In-Reply-To: <cover.1730136799.git.robin.murphy@arm.com>
+References: <cover.1730136799.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_105848_265607_3379EADE 
-X-CRM114-Status: UNSURE (   7.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_105849_695897_D500C00E 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +73,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+It's no longer practical for the OMAP IOMMU driver to trick
+arm_setup_iommu_dma_ops() into ignoring its presence, so let's use the
+same tactic as other IOMMU API users on 32-bit ARM and explicitly kick
+the arch code's dma_iommu_mapping out of the way to avoid problems.
 
-It seems omap-iommu hasn't had enough mainline users to avoid bitrotting
-through the more recent evolution of the IOMMU API internals. These
-patches attempt to bring it and its consumers sufficiently up-to-date
-to work again, in a manner that's hopefully backportable. This is
-largely all written by inspection, but I have managed to lightly boot
-test patch #3 on an OMAP4 Pandaboard to confirm iommu_probe_device()
-working again.
+Fixes: 4720287c7bf7 ("iommu: Remove struct iommu_ops *iommu from arch_setup_dma_ops()")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/remoteproc/omap_remoteproc.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-This supersedes my previous patch[1]. Patches #1 and #2 are functionally
-independent, and can be applied directly to their respective trees if
-preferred.
-
-Thanks,
-Robin.
-
-[1] https://lore.kernel.org/linux-iommu/c44545c6d07c65d89daa297298c27bb0f15c8b84.1728393458.git.robin.murphy@arm.com/
-
-
-Robin Murphy (4):
-  remoteproc/omap: Handle ARM dma_iommu_mapping
-  media: omap3isp: Handle ARM dma_iommu_mapping
-  iommu/omap: Add minimal fwnode support
-  iommu: Make bus_iommu_probe() static
-
- drivers/iommu/iommu.c                    |  3 ++-
- drivers/iommu/omap-iommu.c               | 26 +++++++++++++++---------
- drivers/media/platform/ti/omap3isp/isp.c |  7 +++++++
- drivers/remoteproc/omap_remoteproc.c     | 17 ++++++++++++++++
- include/linux/iommu.h                    |  1 -
- 5 files changed, 42 insertions(+), 12 deletions(-)
-
+diff --git a/drivers/remoteproc/omap_remoteproc.c b/drivers/remoteproc/omap_remoteproc.c
+index 9ae2e831456d..3260dd512491 100644
+--- a/drivers/remoteproc/omap_remoteproc.c
++++ b/drivers/remoteproc/omap_remoteproc.c
+@@ -37,6 +37,10 @@
+ 
+ #include <linux/platform_data/dmtimer-omap.h>
+ 
++#ifdef CONFIG_ARM_DMA_USE_IOMMU
++#include <asm/dma-iommu.h>
++#endif
++
+ #include "omap_remoteproc.h"
+ #include "remoteproc_internal.h"
+ 
+@@ -1323,6 +1327,19 @@ static int omap_rproc_probe(struct platform_device *pdev)
+ 	/* All existing OMAP IPU and DSP processors have an MMU */
+ 	rproc->has_iommu = true;
+ 
++#ifdef CONFIG_ARM_DMA_USE_IOMMU
++	/*
++	 * Throw away the ARM DMA mapping that we'll never use, so it doesn't
++	 * interfere with the core rproc->domain and we get the right DMA ops.
++	 */
++	if (pdev->dev.archdata.mapping) {
++		struct dma_iommu_mapping *mapping = to_dma_iommu_mapping(&pdev->dev);
++
++		arm_iommu_detach_device(&pdev->dev);
++		arm_iommu_release_mapping(mapping);
++	}
++#endif
++
+ 	ret = omap_rproc_of_get_internal_memories(pdev, rproc);
+ 	if (ret)
+ 		return ret;
 -- 
 2.39.2.101.g768bb238c484.dirty
 
