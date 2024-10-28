@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EB8D33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472CCD33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3SJsn209UDpyRULEXcIotSNd90N8HU8i+Pdz1wraJM=; b=Zjafvf7lirDTJXmfcVJCzq8GEV
-	RNxxYmC/oQmiXwgt0+WN84cRu4c6soY9VZX5/VJXNHmTS4OTkMnK8qKO8auXsqdVEkxtBqjwpC94P
-	GFAfxPZdLwXkWmAmq/s06LVWBUPdjylkBtcS+PuRhUm15c1lZusyaD63gplRdsR0EEntBuRxiIsse
-	+Da+v/kiMVnCIg9AFJrpDk2UYvYkSlh1dsbvdpZpCbsCnutk+qXny8UIFJIJ1vdMfOpMviubNeJ3Z
-	flQ4VCfqg7LJKxIF5TDz9kAbiTbhIFjLngRfPW0CJ6KSETTq97Hrm3tkdeZD5jFDTRBzJqaOwATzS
-	f7z/lDIQ==;
+	bh=1Fb34FGXqzMNx+nxE4qoPozuG7GAzwlPuHgHmRcGRGE=; b=ceVUscWAsRqyCWjh6DG4oXZbeX
+	GVbnCgs5ITZul7AdoEfLw8KKAu5qtnwQKF/UtMC7v5nazpLBJsmPm6rNwrPqDPi9WZ3F1DMMkXGyC
+	uGW4A2+ZqjWuNUvv3L90Ji3meETKxNj/91bAOeAz5w0BBDcLHeEdWpe/xePoxPsX9zhhQ1zzbL9UF
+	7O3uervmMb8X8gQBO0sJnPyAtoC5vEWLgZHia7q8LUfDuwOXUTRsOyxGdopNtNeT8o+BiyS4sWzcG
+	XNzQQfjH8YPSoEQazkfSEgdOBidyv5zWY9THfLmKlGAugNaaQVxUvqXj8pce2LDJ5Ps3lH9uPwStu
+	Rw0oLPDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5R6W-0000000BCRg-0xTg;
-	Mon, 28 Oct 2024 14:52:24 +0000
+	id 1t5R83-0000000BCeD-3cEv;
+	Mon, 28 Oct 2024 14:53:59 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QdG-0000000B6DK-1qmd
+	id 1t5QdN-0000000B6Ew-3Bgb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:22:11 +0000
+	Mon, 28 Oct 2024 14:22:20 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 8DB834C784;
-	Mon, 28 Oct 2024 14:22:08 +0000 (UTC)
+	by a.peacevolution.org (Postfix) with ESMTPA id D87254C77B;
+	Mon, 28 Oct 2024 14:22:15 +0000 (UTC)
 From: Aren Moynihan <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
@@ -52,25 +52,26 @@ Cc: Aren Moynihan <aren@peacevolution.org>,
 	linux-sunxi@lists.linux.dev,
 	Dragan Simic <dsimic@manjaro.org>,
 	phone-devel@vger.kernel.org
-Subject: [PATCH v3 5/6] iio: light: stk3310: log error if reading the chip id fails
-Date: Mon, 28 Oct 2024 10:19:59 -0400
-Message-ID: <20241028142000.1058149-6-aren@peacevolution.org>
+Subject: [PATCH v3 6/6] arm64: dts: allwinner: pinephone: Add power supplies to stk3311
+Date: Mon, 28 Oct 2024 10:20:00 -0400
+Message-ID: <20241028142000.1058149-7-aren@peacevolution.org>
 In-Reply-To: <20241028142000.1058149-1-aren@peacevolution.org>
 References: <20241028142000.1058149-1-aren@peacevolution.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++
+X-Spamd-Bar: ++++
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730125329;
+	s=dkim; t=1730125337;
 	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=i3SJsn209UDpyRULEXcIotSNd90N8HU8i+Pdz1wraJM=;
-	b=FBqMepA1LEQfxSQzxA8lQ7FXfVil2UfQKoUX/doiPoLlKCQ+r0/cnJtv9A6iO7QSWOzHwa
-	y3iP0aHsKbF15e8rC43zc0nB+8ka+zp6c91Z0Ch9bc38wA/iEY0MCJWqDkdU75psvUDhzO
-	Woiq9EL4FydfpkCjf+85CXPyDBjKpcw=
+	bh=1Fb34FGXqzMNx+nxE4qoPozuG7GAzwlPuHgHmRcGRGE=;
+	b=FkSuad9R/jOLZe6Le3I3hEkUAGnymubOEJP9B67v9DKLxDo0Kv1JVBbAyoZo6mAvNAhWwl
+	CEgB3woOmCngbAnZe2SqrND+rM0eK4TqqQs3T0Xez4k8T4NTn+CU3f795Y1nQvttv5Qf22
+	9EbvET02emJZvfxMPsW9m7Ucx4vHdW8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072210_563912_6BB678DE 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20241028_072218_121868_325E77D6 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the chip isn't powered, this call is likely to return an error.
-Without a log here the driver will silently fail to probe. Common errors
-are ENXIO (when the chip isn't powered) and ETIMEDOUT (when the i2c bus
-isn't powered).
+From: Ondrej Jirman <megi@xff.cz>
 
+This allows the driver to properly handle powering this device, and
+disable power during suspend.
+
+Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Aren Moynihan <aren@peacevolution.org>
 ---
 
 Notes:
     Changes in v2:
-     - use dev_err_probe
+     - add leda-supply
 
- drivers/iio/light/stk3310.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index 968a2cc59d09..d314659e7dc2 100644
---- a/drivers/iio/light/stk3310.c
-+++ b/drivers/iio/light/stk3310.c
-@@ -508,7 +508,7 @@ static int stk3310_init(struct iio_dev *indio_dev)
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+index 6d152066a59a..618341b63db2 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+@@ -260,6 +260,8 @@ light-sensor@48 {
+ 		reg = <0x48>;
+ 		interrupt-parent = <&pio>;
+ 		interrupts = <1 0 IRQ_TYPE_EDGE_FALLING>; /* PB0 */
++		vdd-supply = <&reg_ldo_io0>;
++		leda-supply = <&reg_dldo1>;
+ 	};
  
- 	ret = regmap_read(data->regmap, STK3310_REG_ID, &chipid);
- 	if (ret < 0)
--		return ret;
-+		return dev_err_probe(&client->dev, ret, "failed to read chip id\n");
- 
- 	ret = stk3310_check_chip_id(chipid);
- 	if (ret < 0)
+ 	/* Accelerometer/gyroscope */
 -- 
 2.47.0
 
