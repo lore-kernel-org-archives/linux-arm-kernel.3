@@ -4,55 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195C1D5B144
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 20:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB3BD5B144
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 20:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWjsQv9mkAzmYHDKdtrDusKRzscSDXSkXMx0whLHWkI=; b=zs6bvK77CkAbWI7cAsN/EbdXt7
-	5Z6M35tr+OwT4tdS3LJsXNLZvZitFj8yYGKhUb2YmEKQ0Fw82sQzC/a8/BaLU2ZkqR7aFs20Nygoo
-	Ujrh+1fQ2Ik4VHbb8wuRdgk84YzPmm1OgUmKCVpY/lgIDgJGt5bSn7ZoGhiBhE05UusH43P0/k3mM
-	ul0fXhLTyntIy5JFy23xtFAZlyEUvzrLCiHUAA52yw950erywpaoWiFnQzK/xfDnEzvyVM/+ipEoW
-	mq5VyB2hR12OYL1dq8u7+MHDlzQC/woIZ26J5hwO1/uQR2lSjzsYNgiZH5eJy29gk30UxjRFr8sDV
-	kNT/dILw==;
+	bh=yoUm8YtmZTzUNEIgdimZFa5LFGCg32E/BfAQHFdS3mA=; b=0/nc8+XN5H4YUDnBskOzQsCznB
+	3Dw+t+v6thBBfTsmjwzZ4eI2bFEX0qCm7TOvCpq3xlowEsSZF9X0B+NY9qL4mJnLyl1NbOREwDG2e
+	eEh2ZIEj2/9s75kQ8xFIG6FBscApmDmePGf+XpWjb25INLckz7rD0DPTzrBjgY0LspoVquaWv3fth
+	Frs07mqtVNs+05haR0zUid6NtFHUCGoo1oGfg8HWsuN8tKa27EYwC1AEOgEOnaipoV6wnpPfO1H0f
+	IGUVMFu8DOvS0jqwmy9nNtzeC8+oBqbp8BzUifjWtueXz6/elA5GmalwKJ49hmMLu0rdzmudTfCGy
+	VBayVCZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5W80-0000000C7Ja-0awz;
-	Mon, 28 Oct 2024 20:14:16 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1t5WDN-0000000C80t-3cXB;
+	Mon, 28 Oct 2024 20:19:49 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5W6O-0000000C7Df-36Jt
+	id 1t5WBk-0000000C7jL-20Kq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:12:38 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 2726D1A02CA;
-	Mon, 28 Oct 2024 21:12:33 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 0F99D1A12AE;
-	Mon, 28 Oct 2024 21:12:33 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 498682039A;
-	Mon, 28 Oct 2024 21:12:32 +0100 (CET)
-Date: Mon, 28 Oct 2024 21:12:32 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v3 04/16] net: phy: Add helper for mapping RGMII link
- speed to clock rate
-Message-ID: <Zx/wMO0YjJ+QK7qT@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20241013-upstream_s32cc_gmac-v3-0-d84b5a67b930@oss.nxp.com>
- <20241013-upstream_s32cc_gmac-v3-4-d84b5a67b930@oss.nxp.com>
- <4686019c-f6f1-4248-9555-c736813417b7@lunn.ch>
-MIME-Version: 1.0
+	Mon, 28 Oct 2024 20:18:10 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49SEtdrS020885;
+	Mon, 28 Oct 2024 20:17:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=yoUm8YtmZTzUNEIgdi
+	mZFa5LFGCg32E/BfAQHFdS3mA=; b=Ile/H5R903z1ej8Jq/NvEONXsE63YBodY7
+	mYVWhLasqrQvjaKCa3H5Rb1jtc6Od9DCKwSwxsJsF0ylHTJl1rn/wwB5tvDeRalU
+	mO8I7XCsZ6cQllTcSbD+/Wim4ppzt7ZYLm5uzcyueBy/V4zxewV2qeRRObUMgpUZ
+	9fbtD/DxkhF0S3VlRnm1lAoQj4U/Sbl9Ibo3GY/AJu5dj+ErMCk/VqF0VGHZn24o
+	oisvw2/gILy+vNOILhodQzB9ZM/TBVf4L1zFDcblk2YcnmW4EfYX11O3VpZJGbMo
+	q3lN8cwGD0FKcIM9nmtryDAySmPYf+ZPX6OAYCA79/c1AJKiwBBw==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 42grys3vw8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Oct 2024 20:17:52 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 49SKCiBR040035;
+	Mon, 28 Oct 2024 20:17:51 GMT
+Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2044.outbound.protection.outlook.com [104.47.66.44])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 42hnan0ghw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Oct 2024 20:17:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wRl437mtZT1pi+L8tbzMTWrbLXL5QpyKYRV6MPaAV1XIMtiZ1jilHC0zKdHNRtgywuIpeAbhw/63UNXBbKy4TmBrFaAWAb+Arya1GcU/GtDwgfn23911uxHyz3qC6h5/sDRWJ+nxorCG0h+VawDS+ofKh0ca+eeRdZ1Fa3ChQ87TbgVfG/6zPCLaxW/uq5xZAoSStYqUAWNbk3bXALV/aARYdxYkJjmzaN0kf2i0i9f3Ir2aw3kymgPuq99TqimMdM/954cfT55pgohHmx0oz5Dlbq1G7jgC918KQx7KSPXP7FQ16YRZQ5dLBy8HsdqCk5iUocdX2WWZCOfet10AfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yoUm8YtmZTzUNEIgdimZFa5LFGCg32E/BfAQHFdS3mA=;
+ b=qTT2PZop1Xpr3zscFK4FrcdVGduXqZBCNb88Fq+Uc8Wpp11OY6g73tHbfySm6JLf7uvZUeHwjprii206bb9NFN1TefCo4B/5u+l7RskawuWyFE7IllcOardB/63iFfAH1qqoSqDzJq509a/5MMCOw72H00/pZEhEC+dGUsSaohdsybK83XoGYlKP9Y6Ihu8ytX67wsrxcmdjD/CkhJOLmI9S20yG8MGWJAjmmu7+IAcXTN0if1HC3A21aX5fLP9OhgcPnl+CESi73j8eYVxOqUhTUybsffAt0+S4wc+3+j54UTG4zZI72YM4QGWnJvLP5krJI3rNIKp9L0Le82p4Pw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yoUm8YtmZTzUNEIgdimZFa5LFGCg32E/BfAQHFdS3mA=;
+ b=t0fZGjfsR6UDpoS5SDccG38Pr9m/wdqnj9SWQb7qIa+XaXVCaXjZcREQnYoBUYcYMirDQU7wrofUKgvtwn+ayDBvs+Ld8k9VX71/tzNme4cG1w3hWzOiO1nJCCbC1yx4M3gfLa4WOoTsiQK1bn1qtZbYvkVvZrH5V8FavTqP+2I=
+Received: from BYAPR10MB3366.namprd10.prod.outlook.com (2603:10b6:a03:14f::25)
+ by CH3PR10MB7164.namprd10.prod.outlook.com (2603:10b6:610:123::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.24; Mon, 28 Oct
+ 2024 20:17:48 +0000
+Received: from BYAPR10MB3366.namprd10.prod.outlook.com
+ ([fe80::baf2:dff1:d471:1c9]) by BYAPR10MB3366.namprd10.prod.outlook.com
+ ([fe80::baf2:dff1:d471:1c9%6]) with mapi id 15.20.8093.024; Mon, 28 Oct 2024
+ 20:17:44 +0000
+Date: Mon, 28 Oct 2024 20:17:39 +0000
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Mark Brown <broonie@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Vlastimil Babka <vbabka@suse.cz>, Jann Horn <jannh@google.com>,
+        linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+        Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
+ error path behaviour
+Message-ID: <bea02efe-a695-49e0-b15c-2270a82cadbf@lucifer.local>
+References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
+ <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
+ <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk>
+ <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+ <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
+ <438f50c5-8b8c-444f-ae85-10e5151f3f24@lucifer.local>
+ <57mgmdx7wgfwci3yo3ggkmcnm3ujamgkwcccm77ypvmer5tegn@opiq3ceh2uvy>
+ <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4686019c-f6f1-4248-9555-c736813417b7@lunn.ch>
-X-Virus-Scanned: ClamAV using ClamSMTP
+In-Reply-To: <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
+X-ClientProxiedBy: LO4P123CA0213.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a5::20) To BYAPR10MB3366.namprd10.prod.outlook.com
+ (2603:10b6:a03:14f::25)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR10MB3366:EE_|CH3PR10MB7164:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99cbed74-7556-4feb-56c6-08dcf78d950f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qsCJqJGDSiMrQCp99FWHocAvY7akDjciv2A7HxqR2eesO+myGS/fhVKJRHdW?=
+ =?us-ascii?Q?ruJzNgXomXKnKjS+HBMgfnM7rw1IcIcANfArvbghAhMDm78pVtB8BKhAplRw?=
+ =?us-ascii?Q?DEPh2oIAhyrWcRJMir1UnGXT6+X1cZpZcrUJG3uNxz6+NOsd1aGAZmLXYbfJ?=
+ =?us-ascii?Q?gMvR0OCDcsQgD6jYaWE9dWwmWQqSNhRvcK32ya4v/t0b62GCHZt3DERQIswv?=
+ =?us-ascii?Q?3AIDcNpmGjL1KwAQwGDTMTp+2XjxBrVXkAYT20STJrZe9A314HKsbK6P5ala?=
+ =?us-ascii?Q?hXybhMXzVsQ/aBdO+4xYzlX016XtPE3r6l0xnbkeVSY1LlOCOVg35qnyDfCE?=
+ =?us-ascii?Q?vpedom+rBlyeF1Bnjq8C7gqzrq5WbIhKJhA5wby6avdccvu/hHWyVhzh/AJf?=
+ =?us-ascii?Q?c/8df59huxZhDpiaBCIyNR60KK8kAvbP9m9ZihUa0tkprZLk98Os61VMIJ2U?=
+ =?us-ascii?Q?SY/aHJjPomLMSh0mY7GNQkhkeB1CnA4LRaZO5q14NMS1ESoeCbhTh0DKcggn?=
+ =?us-ascii?Q?MkHaAwNOBNWZRlHooYH4JnXxkaWHJk5e688Ll7xINCnVYAxkEbYul+QGKhVQ?=
+ =?us-ascii?Q?OMvQPgpcx1lH7MMwgcK7YOnU76eQMYpg0XEk+qOk2YN10wfiRGiU6EQ5oksn?=
+ =?us-ascii?Q?KJ6I7RfcbP4WbVi8G5wDM6ldsbemPpd0MdNEcKpyMOOe1zG1rlET2e15f3cF?=
+ =?us-ascii?Q?k3+Vhsku1n3P4Nn1LQGWb6E41wgDcbQCGXQAHsdbP9J8FMVU458B71DICN8W?=
+ =?us-ascii?Q?U0aoJi8yw7lauC+3trESJR0Zz8zz7vZ+9jwbcJIKRk3XSAFXrJvuUtcrjrGA?=
+ =?us-ascii?Q?j2li6ippprlj0QxEweVFVGEbY66v/PWnmpuDo+JhYdBT1RhgQsibcpZTjHND?=
+ =?us-ascii?Q?EZ1abQIZKq0iiN/lcGGnomvqExMbG+NnFjSCU759sYXHdoeLnJdsoCb8PR6Y?=
+ =?us-ascii?Q?kE9W4aetqxZoxCiay8L2yMyJslAfr13aKp7L4oQovX56aR0M5yDbspp5NJU3?=
+ =?us-ascii?Q?Xm5doZq9laDOCsKsZzdDvUtBgj2M3LPHxtw4AK3YwBP7IobF8gLqxFAHwqCt?=
+ =?us-ascii?Q?58xQx3p57geXXNZdgm42inSsWogtDbR2ZD9Gn2SGMBJ3mpBFcukfog8zRyeY?=
+ =?us-ascii?Q?BLYD19VYAvaapseY3XdAl84FbCoo/jaen2O1oxw/DDWc3HOD/65S67q796MV?=
+ =?us-ascii?Q?jX4Yo3ofpYRlvT2cSgmiajqn/6/0GRQ072xqwTKUGymzdKRuu546fc3tsfq3?=
+ =?us-ascii?Q?mk6PiFCT6kEeAPWDUQG1QGM8FZesgoxGDsYkT99tsaP3QvDbr2AhRGXoW2vH?=
+ =?us-ascii?Q?3MIDyhhMteooN1xKZhyF4W4UVtVTyCSvLr3UOdGT4u/30cdDbD3CNIVFcxQA?=
+ =?us-ascii?Q?Ay7BmME=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR10MB3366.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZZJ3mzgnvzC3m9bg2C4+xyaEyJHz95XEiP3rKH5UdD/jwN8Ix9oeES358Ewe?=
+ =?us-ascii?Q?h367msndReqiRZLOo21ztLv0mpjq1/iAI4CaTpxI/yihpksjEyCqZvxu5B4G?=
+ =?us-ascii?Q?Hicj+QFp6hWogMyLAPqtk2aoPAzxkJlJmQFPiUjmbj87bMWqVlyi8QY2iHiR?=
+ =?us-ascii?Q?AnAJXmB/2xWeDZyIp93sSaXK4kjlKoYPCOr91qFYajtCeXTW25PhShJbMb7i?=
+ =?us-ascii?Q?PC60WyMBrgAV2s/uYHM8lKYXW9qglO3gWzbhZOsjqDUkYw4YnllVKaa32MVc?=
+ =?us-ascii?Q?dMgRCNZszxnRVaEHD7upyzmdMsuq0YG47Kqf8VEao0vmD1g/sJpxiWK/dQ3h?=
+ =?us-ascii?Q?jrDPvUT1TvvibcR0v/lYBHh7ZS+6IRMoKoso6UooJE2rvP/KQKPV43y69W3E?=
+ =?us-ascii?Q?0pEaD+INvxIH1Dyvl//DlHaox9bPLAHm/0ARWD0FdkwriaVrQRGk4lrUaSt8?=
+ =?us-ascii?Q?POBJnlfqBZo8kXnB0CwalmaypAt89fquJ47EaQ8nO43MY8CWnV++jC3ZHy08?=
+ =?us-ascii?Q?KOdzqpEDtvyypMsxpBywPFeLB9f68E8Ce/3mrhMw35+MNVBnCydZnz513skw?=
+ =?us-ascii?Q?eui533PeyEDgp/PzHbJz50nsB82MvQAUmHISrg+TIwjuyBwznJKRNEm/Ogfi?=
+ =?us-ascii?Q?p766IjsJGYlAlgzZocWYyLPiXs1UOPqQgZRDwiIqeKK0oQ2lqVkfp9cEma6w?=
+ =?us-ascii?Q?pYXOtWapxwL5+c6V7PmQ06sm4I/2E4IZoi7ZXeSsLsHXhfDN8Bi7237RAYHv?=
+ =?us-ascii?Q?pIMcmSthA0YF/SVdt9WBwjGBMamZ8xbGLpxqHWpZszJB2Ev/kCzZnMCMk/yf?=
+ =?us-ascii?Q?6IZms5uCktOj8bsHInDEh4M2C2zVGgwHiuVARWRDi7f5hSrdMmiMyip0v5pJ?=
+ =?us-ascii?Q?G3hBOcHK6oNavawkLdB1j+ZrhnCoOxUF8sslCAIs1t5RczrOlQAzK/uKgsnv?=
+ =?us-ascii?Q?ED7u70qPZ/xsa9ZeCUzR5MjuzrJDELcpubZFoH94SBKEBWVAMVdmxBunjiE4?=
+ =?us-ascii?Q?vqvtPuWs7GVz29XGM/FbEt5/r29rnPPvTgsj0OSwpc5gAIYi3n2y6DrfGYrh?=
+ =?us-ascii?Q?dG00UQntTEmBsSaSxhc5GeZd6vEJVsxzRrMbTVJFSWbUNyFKoWPorJBYlsaQ?=
+ =?us-ascii?Q?oEQUQDTv4UjwXJSFztS9uBXyMP9FYYpbHTcMM4XzaIIGt3pNWe9lGv42ZR0J?=
+ =?us-ascii?Q?tLOahjrHonNv6BWEeElDQFP3+1opCL1S/Rn71c8WtSU4O9XFk4Dw3oe4iNz7?=
+ =?us-ascii?Q?kOfJMAYHdvP0xk+rOlQApM1lP0rVMUa4ckeSWSl6j/j673FlXSuV2ltA/VUG?=
+ =?us-ascii?Q?z8DGKojIV41arb8rdAvS03ipcm4Bp2msYnyFRddENwfgMEbrERVrx6Jx3cd9?=
+ =?us-ascii?Q?i6v6MZiI61tSahjZ3bgOIl0wusP38B9GZ73VpUtEW7w4h/7GgnemQL+0jZFn?=
+ =?us-ascii?Q?YAU/XpFIg/uG1APh+fvpwjbmFjUy5B5OVicwaLEV6Py/NEVtRza7ZRpmFZe8?=
+ =?us-ascii?Q?u8wKBQvLIB6wsivF91HUtNbrD8ct33oIv/Fzl2EA5PqAfWfgDeWUbOnG8SWB?=
+ =?us-ascii?Q?lGhREUJuTV/zwNhCrm0FKV6BWoB/ptAkmCx5Tt22zDn7Na0IBR5yb2otaAwu?=
+ =?us-ascii?Q?ag=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: HRp4X38x9s09kV+U6JCRObFo9KdAX5QfehWzvHYmBhlbQzVTZ0p1t1divssvz6okWUr2B+hcEWj0qXqvyP+d1yJ1cRGaMlIDSB8nLulnNnsiqBl9T2svOjmAQmUnXdPT+/IXMFuuG2WddbQQMUlKnALmGB7XvPsIienXCa+zCb7UVdrlJ5YxRbYiCgmA8R7mVDfHceAFfpL3lFhTMNP8Kwozkoe1adhgrED6aIX0U6HPNZ9bL9C2N/nAoJcqoMrzi+5zXGTAUHcan8kHVVZuz1VVSjYxWE/7VoqBqaKQFdoDYAuspuxzn3+DqQIjoTi34xOQmsmcwLLPvyDeCirSu3oxnxfSM3WUgo8BQoG+64WbOzjMS+0ZPWO/e5KncyDIYWj3kBeQgqj824hVvlRakHukB75cSLonbvFiMtC9LxCT3vU0YIyqUyN1+i3MkAUtvRRid+Nqb/W3NonhtpMlxYIhOjP2YII1WQQ1oi0w5ViGsRPKpdC7ZHdfXBDpp/IWXOE24chaFnbZxDg+30onQF9FLjSgdY2l2oayuKjxPlsyaloI/C1eeNbrHaWbKfuv0rJnNwoKussjIqBCpQkCiwcgABs0KdmEHKtl9iBD3YM=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99cbed74-7556-4feb-56c6-08dcf78d950f
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR10MB3366.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 20:17:44.5562
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MVuOdKYqz0hiHQ1mGYmF21M6uJ9d8z45kYXS5Rh7wxG+ls3FgxZ+w37cJnpC7arBZ1z76duylve0La3iLTiTnfA9RQz3slbzfF2+9oNI3qg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7164
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-28_09,2024-10-28_02,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxscore=0 adultscore=0
+ mlxlogscore=999 phishscore=0 bulkscore=0 malwarescore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2409260000
+ definitions=main-2410280157
+X-Proofpoint-ORIG-GUID: ZEVfy20TIX5XOapIl_xkn9l266RCDxXP
+X-Proofpoint-GUID: ZEVfy20TIX5XOapIl_xkn9l266RCDxXP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_131237_066980_977D244E 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20241028_131808_555541_1C54C8FD 
+X-CRM114-Status: GOOD (  36.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,81 +199,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, "Russell King \(Oracle\)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 03:40:51PM +0200, Andrew Lunn wrote:
-> On Sun, Oct 13, 2024 at 11:27:39PM +0200, Jan Petrous via B4 Relay wrote:
-> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> > 
-> > The helper rgmii_clock() implemented Russel's hint during stmmac
-> > glue driver review:
-> > 
-> >   > We seem to have multiple cases of very similar logic in lots of stmmac
-> >   > platform drivers, and I think it's about time we said no more to this.
-> >   > So, what I think we should do is as follows:
-> >   >
-> >   > add the following helper - either in stmmac, or more generically
-> >   > (phylib? - in which case its name will need changing.)
-> >   >
-> >   > static long stmmac_get_rgmii_clock(int speed)
-> >   > {
-> >   >        switch (speed) {
-> >   >        case SPEED_10:
-> >   >                return 2500000;
-> >   >
-> >   >        case SPEED_100:
-> >   >                return 25000000;
-> >   >
-> >   >        case SPEED_1000:
-> >   >                return 125000000;
-> >   >
-> >   >        default:
-> >   >                return -ENVAL;
-> >   >        }
-> >   > }
-> >   >
-> >   > Then, this can become:
-> >   >
-> >   >        long tx_clk_rate;
-> >   >
-> >   >        ...
-> >   >
-> >   >        tx_clk_rate = stmmac_get_rgmii_clock(speed);
-> >   >        if (tx_clk_rate < 0) {
-> >   >                dev_err(gmac->dev, "Unsupported/Invalid speed: %d\n", speed);
-> >   >                return;
-> >   >        }
-> >   >
-> >   >        ret = clk_set_rate(gmac->tx_clk, tx_clk_rate);
-> > 
-> > Suggested-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> 
-> But of an unusual commit message, but it does explain the "Why?".
+On Mon, Oct 28, 2024 at 04:00:29PM -0400, Liam R. Howlett wrote:
+> * Liam R. Howlett <Liam.Howlett@oracle.com> [241028 15:50]:
+> > * Lorenzo Stoakes <lorenzo.stoakes@oracle.com> [241028 15:14]:
+> > > On Mon, Oct 28, 2024 at 09:05:44AM -1000, Linus Torvalds wrote:
+> > > > On Mon, 28 Oct 2024 at 08:57, Lorenzo Stoakes
+> > > > <lorenzo.stoakes@oracle.com> wrote:
+> > > > >
+> > > > > So likely hook on your mapping changes flags to set VM_MTE | VM_MTE_ALLOWED and
+> > > > > expects this to be checked after (ugh).
+> > > >
+> > > > Gaah. Yes. mm/shmem.c: shmem_mmap() does
+> > > >
+> > > >         /* arm64 - allow memory tagging on RAM-based files */
+> > > >         vm_flags_set(vma, VM_MTE_ALLOWED);
+> > > >
+> > > > and while I found the equivalent hack for the VM_SPARC_ADI case, I
+> > > > hadn't noticed that MTE thing.
+> > > >
+> > > > How very annoying.
+> > > >
+> > > > So the arch_validate_flags() case does need to be done after the ->mmap() call.
+> > > >
+> > > > How about just finalizing everything, and then doing a regular
+> > > > munmap() afterwards and returning an error (all still holding the mmap
+> > > > semaphore, of course).
+> > > >
+> > > > That still avoids the whole "partially completed mmap" case.
+> > > >
+> > > >              Linus
+> > >
+> > > Yeah I was thinking the same... just bite the bullet, go through the whole damn
+> > > process and revert if arch_validate_flags() chokes. It also removes the ugly
+> > > #ifdef CONFIG_SPARC64 hack...
+> > >
+> > > This will litearlly only be applicable for these two cases and (hopefully) most
+> > > of the time you'd not fail it.
+> > >
+> > > I mean by then it'll be added into the rmap and such but nothing will be
+> > > populated yet and we shouldn't be able to fault as vma_start_write() should have
+> > > incremented the vma lock seqnum.
+> > >
+> > > Any issues from the RCU visibility stuff Liam?
+> >
+> > It is probably fine?  We would see a mapping appear then disappear.
+> > We'd have a (benign) race with rmap for truncating the PTEs (but it's
+> > safe).  Page faults would be stopped though.
+> >
+> > Unfortunately, we'd have to write to the vma tree so that we could...
+> > write to the vma tree.  We'd have to somehow ensure munmap() is done
+> > with a gfp flag to ensure no failures as well...
+> >
+> > Maybe we should just call close on the vma again (and do whatever
+> > call_mmap() needs to undo)?
+>
+> I take it back, that won't work.
+>
+> >
+> > >
+> > > Any security problems Jann...?
+> > >
+> > > It'd suck to have to bring back a partial complete case. Though I do note we
+> > > handle errors from mmap_file() ok so we could still potentially handle that
+> > > there, but would sort of semi-undo some of the point of the series.
 
-I will reformulate description in v4.
+I'm genuinely not opposed to a horrible, awful:
 
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> 
+#ifdef CONFIG_ARM64
+	if (file && file->f_ops == shmem_file_operations)
+		vm_flags |= VM_MTE_ALLOWED;
+#endif
 
-Thanks.
+Early in the operation prior to the arch_validate_flags() check.
 
-> >  
-> > +/**
-> > + * rgmii_clock - map link speed to the clock rate
-> > + * @speed: link speed value
-> > + *
-> > + * Description: maps RGMII supported link speeds
-> > + * into the clock rates.
-> > + */
-> 
-> A Returns: line would be nice. 
+Just to get this over the finish line (original idea credit to Vlastimil, insane
+ugliness credit to me).
 
- will add it in v4.
+Could be in a __arch_workarounds() type function heavily commented...
 
-Thanks
-/Jan
+I mean this is pretty gross but...
 
