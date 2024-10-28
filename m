@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AC5D10C0B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD45D1039A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=06mJVPJym0SyHcFccgWpKccgGv9LEF4FLJZs0IEec+Q=; b=ZfdQ+LtDWZCkegMT8ulKcwsmj3
-	1LhmzdZ0yjdrk5SNsDF2AgruIGyNjdwq0QdIsS0tyrnFjn8caC30jfJa5xLNW/6zs4spGDB/P+I1I
-	XLUEjEtiifuzAaTi0DIheNXooDAg6MgHL/LrWX2VAXqbrOdl9UGCFVs8aw/+tivztm2f4JCUvU1+g
-	YDiQMhk4E/hxIamgLDzNdLVCtMwPkh9a7S1JWOtwWsQ04GEapN2l9gvN/5ToYbVSH3pcvOUROz6Vw
-	l7mouDYig3Ie/RsgYyxDUsaxsjwkUJLfk6BOR7a0SiP3+XpElMiGtMWqE/w3y96JtHhZMwky9ljOO
-	CgI2526w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XuEu0/1eGUhUp9uVsCOsUp2uMFvFlIjHzY+O20qRa4Q=; b=31pyXWvSQuCT6i7BhQ4Lcc+YIo
+	JOj7zF6cAFXHSQOz6u3zHGpMpPLVvaSO3I1Dh+CcS7CJcxhua5f+qkLXHB/YsvaXt5a/usVEqX66t
+	Mfqc+S7gINzuU66LkIGTqzQi1Nf9e+ZhsEUC3AYpNuqHk5/PXHsV5mhedTQzxAFCIWqgt8EzueE6M
+	x0Wwqd0o0R7zs/mYiTBzxZJtHdxY8dmx6unGc67A+Fcn2qnb8TSKi2x57ZAC7zaxD8RQfAgly+X7s
+	ZGUGqVUvdU6sAd37Oqoj/X7POK+dPbuKn/lHHifirj+CVzou3VM0i2N+FxQhbzedl6PmdAWiDKX3a
+	VdIHW0bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5P4Y-0000000AnKk-2RgW;
-	Mon, 28 Oct 2024 12:42:14 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1t5P69-0000000Ao29-0JI7;
+	Mon, 28 Oct 2024 12:43:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Oxn-0000000AlpQ-147j;
+	id 1t5Oxn-0000000AlqJ-3kIY
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Oct 2024 12:35:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=06mJV
-	PJym0SyHcFccgWpKccgGv9LEF4FLJZs0IEec+Q=; b=OeRpjGEB8g1dhDGftQnCV
-	e0FHTp2fBxnmuQS5j6Xky+9ZNOJqi/YFVYeXcQaZLtg1qGvr+WqkO30cFeXFpJB6
-	4zR/9+1USs8OvcCZqdRPrBSsIU108r584rVX12sr1z0utuT++Ec0brgciEtOMd3I
-	3DeVbc3l3IIshgkwgL3KPI=
-Received: from ProDesk.. (unknown [58.22.7.114])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3f+b5hB9nytgkBw--.9113S2;
-	Mon, 28 Oct 2024 20:35:08 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andyshrk@163.com>
-Subject: [PATCH v2 0/3] Enable hdmi for rk3588 based Cool Pi
-Date: Mon, 28 Oct 2024 20:34:55 +0800
-Message-ID: <20241028123503.384866-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29BE5497;
+	Mon, 28 Oct 2024 05:35:45 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E2FB3F73B;
+	Mon, 28 Oct 2024 05:35:13 -0700 (PDT)
+Date: Mon, 28 Oct 2024 12:35:11 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev, linux-doc@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64/boot: Enable EL2 requirements for
+ FEAT_Debugv8p9
+Message-ID: <Zx-E_8SFV74s6xN8@J2N7QTR9R3>
+References: <20241001043602.1116991-1-anshuman.khandual@arm.com>
+ <20241001043602.1116991-3-anshuman.khandual@arm.com>
+ <ZxfOeqyb3RvsdYbU@J2N7QTR9R3>
+ <72700154-cbf4-4a0a-b6e2-6f0709dec0ce@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3f+b5hB9nytgkBw--.9113S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr13Zw17JrW5Jw1kXw1UJrb_yoWxZwbEya
-	47ur9rZa1rZ3Z5JF9xt3WUWa9ak3y5W34UJayUtFy7tF97J3ZrX3WrGw4DZ3Z8AF17Zr4x
-	AayUArZ7Ww13CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRAqXlUUUUUU==
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqRKGXmcffS5+5gAAsQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <72700154-cbf4-4a0a-b6e2-6f0709dec0ce@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_053515_731969_0EF6D914 
-X-CRM114-Status: UNSURE (   6.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_053515_995104_072D570F 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +72,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the hdmi-qp controller recently get merged, we can enable hdmi
-display out on these boards now.
+On Wed, Oct 23, 2024 at 11:42:37AM +0530, Anshuman Khandual wrote:
+> 
+> 
+> On 10/22/24 21:40, Mark Rutland wrote:
+> > On Tue, Oct 01, 2024 at 10:06:01AM +0530, Anshuman Khandual wrote:
+> >> Fine grained trap control for MDSELR_EL1 register needs to be configured in
+> >> HDFGRTR2_EL2, and HDFGWTR2_EL2 registers when kernel enters at EL1, but EL2
+> >> is also present. This adds a new helper __init_el2_fgt2() initializing this
+> >> new FEAT_FGT2 based fine grained registers.
+> >>
+> >> MDCR_EL2.EBWE needs to be enabled for additional (beyond 16) breakpoint and
+> >> watchpoint exceptions when kernel enters at EL1, but EL2 is also present.
+> >> This updates __init_el2_debug() as required for FEAT_Debugv8p9.
+> >>
+> >> While here, also update booting.rst with MDCR_EL3 and SCR_EL3 requirements.
+> > 
+> > [...]
+> > 
+> >> +  For CPUs with FEAT_Debugv8p9 extension present:
+> >> +
+> >> +  - If the kernel is entered at EL1 and EL2 is present:
+> >> +
+> >> +    - HDFGRTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+> >> +    - HDFGWTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+> >> +    - MDCR_EL2.EBWE (bit 43) must be initialized to 0b1
+> >> +
+> >> +  - If EL3 is present:
+> >> +
+> >> +    - MDCR_EL3.TDA (bit 9) must be initialized to 0b0
+> > 
+> > AFAICT we need TDA==0 this regardless of FEAT_Debugv8p9 (and e.g. we need
+> 
+> That's because MDCR_EL3.TDA=0, enables access to many other debug registers
+> beside FEAT_Debugv8p9, which are currently used and hence this MDCR_EL3.TDA
+> =0 requirement is a not a new one but rather a missing one instead ?
 
-Changes in v2:
-- Remove enable-gpios as it is unevaluated
-- Remove pinctrl setting as it use the default
+Yes, that's why I said we need it regardless; it's an existing
+requirement that wasn't documented.
 
-Andy Yan (3):
-  arm64: dts: rockchip: Enable HDMI0 for rk3588 Cool Pi CM5 EVB
-  arm64: dts: rockchip: Enable HDMI display for rk3588 Cool Pi 4B
-  arm64: dts: rockchip: Enable HDMI display for rk3588 Cool Pi GenBook
+> 
+> > MDCR_EL3.TPM==0 where FEAT_PMUv3 is implemented), so we should probably
+> > check if there's anything else we haven't yet documented in MDCR_EL3.
+> 
+> Will scan through MDCR_EL3 register and match it with existing documentation
+> i.e Documentation/arch/arm64/booting.rst. If there are some missing MDCR_EL3
+> fields which should be mentioned, will add them via a separate pre-requisite
+> patch ?
 
- .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    | 47 +++++++++++++++++
- .../rockchip/rk3588-coolpi-cm5-genbook.dts    | 50 +++++++++++++++++++
- .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 47 +++++++++++++++++
- 3 files changed, 144 insertions(+)
+Yes please.
 
--- 
-2.43.0
-
+Mark.
 
