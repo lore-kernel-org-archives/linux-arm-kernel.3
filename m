@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A619DD33998
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756DBD33998
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JmodkLtS/XYD6QZM7LmJmXh4F9FYhEXNq73oZR86uq4=; b=JfvHbE5b05mZmA2AU2CV9sjaKo
-	FVdjrd3Sl5DCDzkQjfC5NDUgJo2NTh0L6ZN9/L0zluclvYY3ASWfSKmq8RTI588S+MX/ZasRg2IEL
-	mt0KSO5IH2cFsHi02OjEkxGz9Fjqcx8BlO03HxH6zk4cgOOIcwGUzQ1olmTJTB7hZ4i/Zkn/gBpNx
-	uCUMUAObWg0eEDr7+UZaxFqyOknbVbR4RfIWlEmrpFB8P24x+rAV885aSmWRho074uXxvPVurKrj3
-	jZvvjFGz7Ca0ltUm7QqLVsibaf/VnRDj3gRdKa/ag+JeAw4gJiktoYaeWhHGcThkUa0pJ2TzAJDPJ
-	JwN8SirA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=; b=w4pl7nY2Ytry3HV7ykCJGh3EAx
+	pfT5bHKEJLKHMNkrvlM0JPHJjBJQODHzJfRcwwW1bjEe+co2CJT1xbY/LyTrBeA5/KeOxNrXkuUVe
+	f6Ek7LSoWtGT7D4Hm/SR83rusOEwHzdIxn6u1sK9gCQpujrzTGJzvnCjfL1Re3/6E2tnZLCS5UKZx
+	JGxxUe8X3tPeAdUy/f4FwgBoxBBvTukx5Qev9ind8KZ1XoXfDw366P8YaR94ZdHYPjZp/lMOFg/nr
+	lMgelArEkJ00lK2jFtQzR7K5zA2GZMI68qQ+JokkLbwdJYXlMbLlEzQbOPN1rQTl6jXJHPmomTuwa
+	pbCFMtwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SH5-0000000BQKs-07Iu;
-	Mon, 28 Oct 2024 16:07:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5SIf-0000000BQhK-1R8y;
+	Mon, 28 Oct 2024 16:09:01 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Rrb-0000000BLVs-2dlW;
-	Mon, 28 Oct 2024 15:41:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E3FD25C5B61;
-	Mon, 28 Oct 2024 15:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0E1C4CEC3;
-	Mon, 28 Oct 2024 15:40:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730130062;
-	bh=1OnKnskO1uPXHT57ko80fWNSrAKlqsEB3xePdsqM5Vs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p+bslp5nYFB5IdzYlqcPXUe0Deg2tPLvvs4TWlciZJnyPqj4C7msUDWod/mZ74Wbi
-	 V+npdeWkLAM2YaCU68ORi88AWKUdk+SexkhRmxohs3rLk/42hVRfWw3lmcgEXhKfmW
-	 l+9bfe1QEI3TUsTCQUmiCfe1cOZzdBeIsDmI24fTFiyKZwDu9f4TeXEh9Tmi9Z7A4g
-	 RQuSC3lG7y94YkqEIK4qkURF8Scn98uwTY1D6XvZn72zlsfH7cHelHDCN5wkvgpceU
-	 yWqXIdxX1dAjLGXoC7cRczTCjM1LzpGhlbBh2ntrVJVtMMwopnozbfMsplC2SfLpCE
-	 /bnM2cMZeJadg==
-Date: Mon, 28 Oct 2024 15:40:55 +0000
-From: Will Deacon <will@kernel.org>
-To: Usama Arif <usamaarif642@gmail.com>
-Cc: robh@kernel.org, mark.rutland@arm.com, leitao@debian.org,
-	catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net,
-	saravanak@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
- early_init_dt_verify
-Message-ID: <20241028154054.GE2484@willie-the-truck>
-References: <20241023171426.452688-1-usamaarif642@gmail.com>
+	id 1t5Rtf-0000000BLk7-0CWJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 15:43:12 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539fe76e802so5309081e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 08:43:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730130188; x=1730734988; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=;
+        b=bcOtZBxTbZy2O1gQgmAScwIm6psmhUfYXQBe/ZpZ+f0hmhvzXuzaRf7QD5swc8HN7G
+         gnFr8R9DcqA013d0sF+O1MMndLga1TL5D+MgR5qB7LKnJLtYXG9VpI3V7j7ZBcYOlegC
+         bxgKPHboqC2HhaGp/6exyNHyaZEQtmzqhFzGQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730130188; x=1730734988;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=p/+Fm3T4pn4crwgwgU+f7W2PGkdCB3Gmk2ieoRtXcSM=;
+        b=PelxwcNcOr5nZo/tlgutIf6srIcI2++gLXtwkJRKK/JXpAznDQO7urqfOS5svydy1E
+         k75GgvlOD9dSWdoY7kYdW9p/3GSmnEQ9SeesOdiqb/5y+Tu0XlWWikvW0XOYGOE/8tJW
+         Jr+SBnIzeCJ6z8tBpNeUYN0hMv9f7ldDeA7YJ6FOfJvWaEIexslTSqTjR7QYdcZ7G8Zy
+         bqPynNE5HCiUqSEeveEW09wfmyh8r0VUpN7m9GvcQ+vztsGe6DND7BzRISGDUNxhXch9
+         32hIA/jbbgnRt6JUIDgnIn2Fc6y+KNlRqNsbXcSirwQA2pU5V/JX87gC8ji8kGx/npSA
+         cL8w==
+X-Forwarded-Encrypted: i=1; AJvYcCWgZVJYJP4mvW7tNRN0xFtK17djBy6Flb8I/o+GRMsM5gy2i+Ic/idG2RulNERwO+prFpkIXwUPY+TQc1uvauFr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJOUHeWo7DovkypVV75DrHOJhYYwbKMvrz0LE+ig4PpDJx4Ia/
+	wl65wtZ3+y8XiS9jfXeanooYlUFiIINaDkFZ/ZkMRAR5Kug0hqwKAlIHi29ZIoBJu7GblnjnjxJ
+	qZQ==
+X-Google-Smtp-Source: AGHT+IFHo9IKxcAjlvNhGEkkhwAuNj4qmjl6J68KLIFHdR41wM1E2R9BYKKW1r51NlXFL/RHuPPFYQ==
+X-Received: by 2002:a05:6512:1293:b0:539:d870:9a51 with SMTP id 2adb3069b0e04-53b34a18fe2mr4102944e87.48.1730130188096;
+        Mon, 28 Oct 2024 08:43:08 -0700 (PDT)
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e10a51esm1100617e87.17.2024.10.28.08.43.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 08:43:07 -0700 (PDT)
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2fb3110b964so35189361fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 08:43:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU9wtZ0QKIkNZ07JVXx+JBGT95ibXExIcjxmwnt8Cm1dkeptQ8GF+7w3RlmYiKFstASbr3zhyvk8YwyCIscv67n@lists.infradead.org
+X-Received: by 2002:a2e:bc0d:0:b0:2fa:d9db:7bac with SMTP id
+ 38308e7fff4ca-2fcbdf6250cmr34338691fa.3.1730130185979; Mon, 28 Oct 2024
+ 08:43:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241023171426.452688-1-usamaarif642@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20241017094222.1014936-1-wenst@chromium.org> <20241017094222.1014936-8-wenst@chromium.org>
+ <CAD=FV=X-YzEGEc+tp-uB6vdPMEC-V9M=Gb60H69=_XY9w4R8nw@mail.gmail.com> <CAGXv+5H8kxrr=JJsMMY5Y+HC5JqMN-bMkm7hztOzQgrbew6-rw@mail.gmail.com>
+In-Reply-To: <CAGXv+5H8kxrr=JJsMMY5Y+HC5JqMN-bMkm7hztOzQgrbew6-rw@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 28 Oct 2024 08:42:51 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=VbTMLr8ybCvKwm4aau+UkwCewuj2mqFX_+9hdCALLBRA@mail.gmail.com>
+Message-ID: <CAD=FV=VbTMLr8ybCvKwm4aau+UkwCewuj2mqFX_+9hdCALLBRA@mail.gmail.com>
+Subject: Re: [PATCH v9 7/7] arm64: dts: mediatek: mt8173-elm-hana: Mark
+ touchscreens and trackpads as fail
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wolfram Sang <wsa@kernel.org>, 
+	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Johan Hovold <johan@kernel.org>, 
+	Jiri Kosina <jikos@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	linux-i2c@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_084103_782861_F97875F6 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20241028_084311_127052_71C654FE 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 06:14:26PM +0100, Usama Arif wrote:
->  __pa() is only intended to be used for linear map addresses and using
-> it for initial_boot_params which is in fixmap for arm64 will give an
-> incorrect value. Hence save the physical address when it is known at
-> boot time when calling early_init_dt_scan for arm64 and use it at kexec
-> time instead of converting the virtual address using __pa().
-> 
-> Reported-by: Breno Leitao <leitao@debian.org>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
-> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
-> ---
-> v1 -> 2:
-> - pass dt_phys in early_init_dt_scan instead of creating
->   anorther arch->dt function (Rob Herring)
-> ---
->  arch/arc/kernel/devtree.c              |  2 +-
->  arch/arm/kernel/devtree.c              |  2 +-
->  arch/arm64/kernel/setup.c              |  6 +++++-
->  arch/csky/kernel/setup.c               |  4 ++--
->  arch/loongarch/kernel/setup.c          |  2 +-
->  arch/microblaze/kernel/prom.c          |  2 +-
->  arch/mips/kernel/prom.c                |  2 +-
->  arch/mips/kernel/relocate.c            |  2 +-
->  arch/nios2/kernel/prom.c               |  4 ++--
->  arch/openrisc/kernel/prom.c            |  2 +-
->  arch/powerpc/kernel/dt_cpu_ftrs.c      |  2 +-
->  arch/powerpc/kernel/prom.c             |  2 +-
->  arch/powerpc/platforms/pseries/plpks.c |  2 +-
->  arch/riscv/kernel/setup.c              |  2 +-
->  arch/sh/kernel/setup.c                 |  2 +-
->  arch/um/kernel/dtb.c                   |  2 +-
->  arch/x86/kernel/devicetree.c           |  2 +-
->  arch/xtensa/kernel/setup.c             |  2 +-
->  drivers/of/fdt.c                       | 14 ++++++++------
->  drivers/of/kexec.c                     |  2 +-
->  include/linux/of_fdt.h                 |  5 +++--
->  21 files changed, 36 insertions(+), 29 deletions(-)
-> 
-> diff --git a/arch/arc/kernel/devtree.c b/arch/arc/kernel/devtree.c
-> index 4c9e61457b2f..cc6ac7d128aa 100644
-> --- a/arch/arc/kernel/devtree.c
-> +++ b/arch/arc/kernel/devtree.c
-> @@ -62,7 +62,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt)
->  	const struct machine_desc *mdesc;
->  	unsigned long dt_root;
->  
-> -	if (!early_init_dt_scan(dt))
-> +	if (!early_init_dt_scan(dt, __pa(dt)))
->  		return NULL;
->  
->  	mdesc = of_flat_dt_match_machine(NULL, arch_get_next_mach);
-> diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
-> index fdb74e64206a..3b78966e750a 100644
-> --- a/arch/arm/kernel/devtree.c
-> +++ b/arch/arm/kernel/devtree.c
-> @@ -200,7 +200,7 @@ const struct machine_desc * __init setup_machine_fdt(void *dt_virt)
->  
->  	mdesc_best = &__mach_desc_GENERIC_DT;
->  
-> -	if (!dt_virt || !early_init_dt_verify(dt_virt))
-> +	if (!dt_virt || !early_init_dt_verify(dt_virt, __pa(dt_virt)))
->  		return NULL;
->  
->  	mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index b22d28ec8028..177262739c49 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -175,7 +175,11 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
->  	if (dt_virt)
->  		memblock_reserve(dt_phys, size);
->  
-> -	if (!dt_virt || !early_init_dt_scan(dt_virt)) {
-> +	/*
-> +	 * dt_virt is a fixmap address, hence __pa(dt_virt) can't be used.
-> +	 * Pass dt_phys directly.
-> +	 */
-> +	if (!dt_virt || !early_init_dt_scan(dt_virt, dt_phys)) {
+Hi,
 
-nit: It looks like early_init_dt_verify() will now return false if
-!dt_virt, so we can drop the additional check here.
+On Mon, Oct 28, 2024 at 2:14=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> > > @@ -35,6 +37,7 @@ touchscreen@40 {
+> > >                 hid-descr-addr =3D <0x0001>;
+> > >                 interrupt-parent =3D <&pio>;
+> > >                 interrupts =3D <88 IRQ_TYPE_LEVEL_LOW>;
+> > > +               status =3D "fail-needs-probe";
+> >
+> > It's a little weird that there's no pinctrl definition for the
+> > touchscreens but there is one for the trackpad, but that predates your
+> > patch and is unlikely to be a big deal.
+>
+> To be honest I'm in favor of getting rid of pinctrl settings that
+> do nothing more than mux in a GPIO, as mentioned in my talk at ELCE.
+> Such settings are already implied by the interrupts or gpios properties.
+> The fact that the OS doesn't enforce exclusiveness between the
+> subsystems is not something the DT should deal with.
 
-Will
+One could also argue that the fact that the Linux kernel happens to
+auto-mux pins to GPIO is not something that the device tree should
+assume. Personally I have never liked the "auto-mux" behavior of Linux
+and I've found that it can get in the way when you need to do more
+advanced pinmuxing, like when a driver needs to sometimes use a pin in
+"special function" mode and sometimes in GPIO mode. The auto-muxing
+happens behind the back of the driver which then needs to account for
+this fact and work around it. Just sayin. :-P
 
