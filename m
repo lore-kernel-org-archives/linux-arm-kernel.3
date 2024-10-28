@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5179D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA46D13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olAdDoO8Vaa6XXtgtMKcGLefQsEkcD3dJfAhuHQxZcw=; b=KtEd/DHK/1pV1GTlefc/S80Ykq
-	IoYa1a4OTEj9TyXJcEzxXJ6z5cL4q7suX2uGtot6N0kj/S6LUWbgz4J5y5YhoGaJSAYFK/NSCydOH
-	zRkTcZsGlEyx2cYTN/0SfvKsIW3Tz6V77MjPd9f2sVCW7WTUl8ajOssM0goG/Pv3mBUQwHHBCf9cv
-	2TOfn0aFt2/G6QY903JPlvgL5NYYbg2Kwy5wyIEnAJD0mK3oV5HLSokj87ccmhlzaX+Vygvs7DrwH
-	L9YLvA2rYy7y3for5kz0rm8ldJKQ0aL5ECmFcePpDxZ5O6t2L/Kb8EvtWiwq0LpwL1dRFef41HoNl
-	OnMv/V+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=laVQnM6vYt/0jqj3OZj/EPW1rZAsyWlcz5nIfyE8biU=; b=h0pLDo6GHmAzHpg2Nxg2ZpNlvA
+	k+g/9Q8VWFNoev5Os9OWI5ik12frhZBgqaBuRX1LPZs5e0QccTF00sZuHGgsTqBEMzs71HBVbEZSP
+	KrztgrAgszpyAlQJ7O6ajttZW9I3+Az0ZTodA7ie0gdXix9d42oB+YAuBPgUtgQcikddHyuZqgXG4
+	sPB07P5mdnQs5joVyrQ+c2nu7zMhh6ps9gFI/wemstiij61PTd9NGLjjhWNWHbvn/SMIwY0c5pG4p
+	Yp4F/QsldKi7jCQ00NlpCWddXG45jvxn7H/MSK5rl6r3T9ZndzpB24E08+ff3bZ3FnQDOaDbYUND0
+	WLY6tvog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IfD-00000009evC-1Kgh;
-	Mon, 28 Oct 2024 05:51:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IPD-00000009beL-1UAf
+	id 1t5Iiz-00000009fPU-0ZQ5;
+	Mon, 28 Oct 2024 05:55:33 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5IhL-00000009fCE-1Txz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 05:35:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C626497;
-	Sun, 27 Oct 2024 22:35:36 -0700 (PDT)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.84])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1AC1E3F66E;
-	Sun, 27 Oct 2024 22:35:02 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	kvmarm@lists.linux.dev
-Subject: [PATCH V2 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-Date: Mon, 28 Oct 2024 11:04:26 +0530
-Message-Id: <20241028053426.2486633-8-anshuman.khandual@arm.com>
+	Mon, 28 Oct 2024 05:53:54 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49RNgmna023606;
+	Sun, 27 Oct 2024 22:53:37 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=laVQnM6vYt/0jqj3OZj/EPW
+	1rZAsyWlcz5nIfyE8biU=; b=TyJS4zbQ713pu1saVpRFUNhbtB254DPTaNKa1BC
+	c7eNKZmGQkBTWf+aiznoldxHtIcKOVRqabDBYSL8GnHnukc73xyO8CvEJ3PZQxMF
+	ewt35/3wjW7epZMGg02X2PSzbxZbnEmrTpRkOSN0g7gMtPwzSD4mwjeG4vUX+Scn
+	uPm62KB5KxDvQE+Sh6YQkwxySG6NjphLM4DfJFhcQQwnP24IzAzTu31t7s0iGx7P
+	m0UP02GhMp/FpQvc4ZBce8t64q1CTPwUu/3UVCO8LPBj5V3iEs1L4fuCX9zRTInH
+	8DYiWCqPf1SlVsz3wRf7gqoKowe4Gim7YK4+H1JTttbATcw==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42gwsjjtpt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Oct 2024 22:53:37 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Sun, 27 Oct 2024 22:53:36 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Sun, 27 Oct 2024 22:53:36 -0700
+Received: from IPBU-BLR-SERVER1.marvell.com (IPBU-BLR-SERVER1.marvell.com [10.28.8.41])
+	by maili.marvell.com (Postfix) with ESMTP id D2AF43F7072;
+	Sun, 27 Oct 2024 22:53:33 -0700 (PDT)
+From: Gowthami Thiagarajan <gthiagarajan@marvell.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <gcherian@marvell.com>, <sgoutham@marvell.com>, <lcherian@marvell.com>,
+        Gowthami Thiagarajan <gthiagarajan@marvell.com>
+Subject: [PATCH v10] perf/marvell: Marvell PEM performance monitor support
+Date: Mon, 28 Oct 2024 11:23:09 +0530
+Message-ID: <20241028055309.17893-1-gthiagarajan@marvell.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241028053426.2486633-1-anshuman.khandual@arm.com>
-References: <20241028053426.2486633-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-GUID: FmzC76sD5L-lTCJomxfy68WiwiYB2fuB
+X-Proofpoint-ORIG-GUID: FmzC76sD5L-lTCJomxfy68WiwiYB2fuB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_223507_502925_1C3CD177 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20241027_225351_753953_B5F09A95 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,260 +87,601 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently there can be maximum 16 breakpoints, and 16 watchpoints available
-on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
-fields. But these breakpoint, and watchpoints can be extended further up to
-64 via a new arch feature FEAT_Debugv8p9.
+PCI Express Interface PMU includes various performance counters
+to monitor the data that is transmitted over the PCIe link. The
+counters track various inbound and outbound transactions which
+includes separate counters for posted/non-posted/completion TLPs.
+Also, inbound and outbound memory read requests along with their
+latencies can also be monitored. Address Translation Services(ATS)events
+such as ATS Translation, ATS Page Request, ATS Invalidation along with
+their corresponding latencies are also supported.
 
-This first enables banked access for the breakpoint and watchpoint register
-set via MDSELR_EL1, extended exceptions via MDSCR_EL1.EMBWE and determining
-available breakpoints and watchpoints in the platform from ID_AA64DFR1_EL1,
-when FEAT_Debugv8p9 is enabled.
+The performance counters are 64 bits wide.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+For instance,
+perf stat -e ib_tlp_pr <workload>
+tracks the inbound posted TLPs for the workload.
+
+Co-developed-by: Linu Cherian <lcherian@marvell.com>
+Signed-off-by: Linu Cherian <lcherian@marvell.com>
+Signed-off-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
 ---
-Changes in V2:
+v9->v10:
+- Changed MODULE_AUTHOR, made to be consistent with the author.
+- Added Co-Developed tag.
+v8->v9:
+- Removed additional commas and minor cosmetic changes 
 
-- Alphabetically order header files in debug-monitors.c
-- Dropped embwe_ref_count mechanism
-- Dropped preempt_enable() from AARCH64_DBG_READ
-- Dropped preempt_disable() from AARCH64_DBG_WRITE
-- Dropped set_bank_index()
-- Renamed read/write_wb_reg() as __read/__write_wb_reg()
-- Modified read/write_wb_reg() to have MDSELR_E1 based banked read/write
+ Documentation/admin-guide/perf/index.rst      |   1 +
+ .../admin-guide/perf/mrvl-pem-pmu.rst         |  56 +++
+ MAINTAINERS                                   |   6 +
+ drivers/perf/Kconfig                          |   7 +
+ drivers/perf/Makefile                         |   1 +
+ drivers/perf/marvell_pem_pmu.c                | 425 ++++++++++++++++++
+ include/linux/cpuhotplug.h                    |   1 +
+ 7 files changed, 497 insertions(+)
+ create mode 100644 Documentation/admin-guide/perf/mrvl-pem-pmu.rst
+ create mode 100644 drivers/perf/marvell_pem_pmu.c
 
- arch/arm64/include/asm/debug-monitors.h |  1 +
- arch/arm64/include/asm/hw_breakpoint.h  | 46 +++++++++++++++++++------
- arch/arm64/kernel/debug-monitors.c      | 15 +++++---
- arch/arm64/kernel/hw_breakpoint.c       | 38 ++++++++++++++++++--
- 4 files changed, 84 insertions(+), 16 deletions(-)
-
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index 13d437bcbf58..a14097673ae0 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -20,6 +20,7 @@
- #define DBG_MDSCR_KDE		(1 << 13)
- #define DBG_MDSCR_MDE		(1 << 15)
- #define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
-+#define DBG_MDSCR_EMBWE		(1UL << 32)
- 
- #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
- 
-diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/asm/hw_breakpoint.h
-index bd81cf17744a..ec7c7901c61a 100644
---- a/arch/arm64/include/asm/hw_breakpoint.h
-+++ b/arch/arm64/include/asm/hw_breakpoint.h
-@@ -79,8 +79,8 @@ static inline void decode_ctrl_reg(u32 reg,
-  * Limits.
-  * Changing these will require modifications to the register accessors.
-  */
--#define ARM_MAX_BRP		16
--#define ARM_MAX_WRP		16
-+#define ARM_MAX_BRP		64
-+#define ARM_MAX_WRP		64
- 
- /* Virtual debug register bases. */
- #define AARCH64_DBG_REG_BVR	0
-@@ -94,6 +94,14 @@ static inline void decode_ctrl_reg(u32 reg,
- #define AARCH64_DBG_REG_NAME_WVR	wvr
- #define AARCH64_DBG_REG_NAME_WCR	wcr
- 
-+static inline bool is_debug_v8p9_enabled(void)
-+{
-+	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	int dver = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_DebugVer_SHIFT);
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 8502bc174640..a58bd3f7e190 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -26,3 +26,4 @@ Performance monitor support
+    meson-ddr-pmu
+    cxl
+    ampere_cspmu
++   mrvl-pem-pmu
+diff --git a/Documentation/admin-guide/perf/mrvl-pem-pmu.rst b/Documentation/admin-guide/perf/mrvl-pem-pmu.rst
+new file mode 100644
+index 000000000000..c39007149b97
+--- /dev/null
++++ b/Documentation/admin-guide/perf/mrvl-pem-pmu.rst
+@@ -0,0 +1,56 @@
++=================================================================
++Marvell Odyssey PEM Performance Monitoring Unit (PMU UNCORE)
++=================================================================
 +
-+	return dver == ID_AA64DFR0_EL1_DebugVer_V8P9;
++The PCI Express Interface Units(PEM) are associated with a corresponding
++monitoring unit. This includes performance counters to track various
++characteristics of the data that is transmitted over the PCIe link.
++
++The counters track inbound and outbound transactions which
++includes separate counters for posted/non-posted/completion TLPs.
++Also, inbound and outbound memory read requests along with their
++latencies can also be monitored. Address Translation Services(ATS)events
++such as ATS Translation, ATS Page Request, ATS Invalidation along with
++their corresponding latencies are also tracked.
++
++There are separate 64 bit counters to measure posted/non-posted/completion
++tlps in inbound and outbound transactions. ATS events are measured by
++different counters.
++
++The PMU driver exposes the available events and format options under sysfs,
++/sys/bus/event_source/devices/mrvl_pcie_rc_pmu_<>/events/
++/sys/bus/event_source/devices/mrvl_pcie_rc_pmu_<>/format/
++
++Examples::
++
++  # perf list | grep mrvl_pcie_rc_pmu
++  mrvl_pcie_rc_pmu_<>/ats_inv/             [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ats_inv_latency/     [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ats_pri/             [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ats_pri_latency/     [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ats_trans/           [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ats_trans_latency/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_inflight/         [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_reads/            [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_req_no_ro_ebus/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_req_no_ro_ncb/    [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_cpl_partid/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_dwords_cpl_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_dwords_npr/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_dwords_pr/    [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_npr/          [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ib_tlp_pr/           [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_inflight_partid/  [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_merges_cpl_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_merges_npr_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_merges_pr_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_reads_partid/     [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_cpl_partid/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_dwords_cpl_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_dwords_npr_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_dwords_pr_partid/ [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_npr_partid/   [Kernel PMU event]
++  mrvl_pcie_rc_pmu_<>/ob_tlp_pr_partid/    [Kernel PMU event]
++
++
++  # perf stat -e ib_inflight,ib_reads,ib_req_no_ro_ebus,ib_req_no_ro_ncb <workload>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e9659a5a7fb3..b415f8bf29b5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13813,6 +13813,12 @@ S:	Supported
+ F:	Documentation/networking/device_drivers/ethernet/marvell/octeontx2.rst
+ F:	drivers/net/ethernet/marvell/octeontx2/af/
+ 
++MARVELL PEM PMU DRIVER
++M:	Linu Cherian <lcherian@marvell.com>
++M:	Gowthami Thiagarajan <gthiagarajan@marvell.com>
++S:	Supported
++F:	drivers/perf/marvell_pem_pmu.c
++
+ MARVELL PRESTERA ETHERNET SWITCH DRIVER
+ M:	Taras Chornyi <taras.chornyi@plvision.eu>
+ S:	Supported
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index bab8ba64162f..4e268de351c4 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -284,4 +284,11 @@ config CXL_PMU
+ 
+ 	  If unsure say 'm'.
+ 
++config MARVELL_PEM_PMU
++	tristate "MARVELL PEM PMU Support"
++	depends on ARCH_THUNDER || (COMPILE_TEST && 64BIT)
++	help
++	  Enable support for PCIe Interface performance monitoring
++	  on Marvell platform.
++
+ endmenu
+diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+index 8268f38e42c5..de71d2574857 100644
+--- a/drivers/perf/Makefile
++++ b/drivers/perf/Makefile
+@@ -26,6 +26,7 @@ obj-$(CONFIG_ARM_SPE_PMU) += arm_spe_pmu.o
+ obj-$(CONFIG_ARM_DMC620_PMU) += arm_dmc620_pmu.o
+ obj-$(CONFIG_MARVELL_CN10K_TAD_PMU) += marvell_cn10k_tad_pmu.o
+ obj-$(CONFIG_MARVELL_CN10K_DDR_PMU) += marvell_cn10k_ddr_pmu.o
++obj-$(CONFIG_MARVELL_PEM_PMU) += marvell_pem_pmu.o
+ obj-$(CONFIG_APPLE_M1_CPU_PMU) += apple_m1_cpu_pmu.o
+ obj-$(CONFIG_ALIBABA_UNCORE_DRW_PMU) += alibaba_uncore_drw_pmu.o
+ obj-$(CONFIG_DWC_PCIE_PMU) += dwc_pcie_pmu.o
+diff --git a/drivers/perf/marvell_pem_pmu.c b/drivers/perf/marvell_pem_pmu.c
+new file mode 100644
+index 000000000000..29fbcd1848e4
+--- /dev/null
++++ b/drivers/perf/marvell_pem_pmu.c
+@@ -0,0 +1,425 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Marvell PEM(PCIe RC) Performance Monitor Driver
++ *
++ * Copyright (C) 2024 Marvell.
++ */
++
++#include <linux/acpi.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/perf_event.h>
++#include <linux/platform_device.h>
++
++/*
++ * Each of these events maps to a free running 64 bit counter
++ * with no event control, but can be reset.
++ */
++enum pem_events {
++	IB_TLP_NPR,
++	IB_TLP_PR,
++	IB_TLP_CPL,
++	IB_TLP_DWORDS_NPR,
++	IB_TLP_DWORDS_PR,
++	IB_TLP_DWORDS_CPL,
++	IB_INFLIGHT,
++	IB_READS,
++	IB_REQ_NO_RO_NCB,
++	IB_REQ_NO_RO_EBUS,
++	OB_TLP_NPR,
++	OB_TLP_PR,
++	OB_TLP_CPL,
++	OB_TLP_DWORDS_NPR,
++	OB_TLP_DWORDS_PR,
++	OB_TLP_DWORDS_CPL,
++	OB_INFLIGHT,
++	OB_READS,
++	OB_MERGES_NPR,
++	OB_MERGES_PR,
++	OB_MERGES_CPL,
++	ATS_TRANS,
++	ATS_TRANS_LATENCY,
++	ATS_PRI,
++	ATS_PRI_LATENCY,
++	ATS_INV,
++	ATS_INV_LATENCY,
++	PEM_EVENTIDS_MAX
++};
++
++static u64 eventid_to_offset_table[] = {
++	[IB_TLP_NPR]	     = 0x0,
++	[IB_TLP_PR]	     = 0x8,
++	[IB_TLP_CPL]	     = 0x10,
++	[IB_TLP_DWORDS_NPR]  = 0x100,
++	[IB_TLP_DWORDS_PR]   = 0x108,
++	[IB_TLP_DWORDS_CPL]  = 0x110,
++	[IB_INFLIGHT]	     = 0x200,
++	[IB_READS]	     = 0x300,
++	[IB_REQ_NO_RO_NCB]   = 0x400,
++	[IB_REQ_NO_RO_EBUS]  = 0x408,
++	[OB_TLP_NPR]         = 0x500,
++	[OB_TLP_PR]          = 0x508,
++	[OB_TLP_CPL]         = 0x510,
++	[OB_TLP_DWORDS_NPR]  = 0x600,
++	[OB_TLP_DWORDS_PR]   = 0x608,
++	[OB_TLP_DWORDS_CPL]  = 0x610,
++	[OB_INFLIGHT]        = 0x700,
++	[OB_READS]	     = 0x800,
++	[OB_MERGES_NPR]      = 0x900,
++	[OB_MERGES_PR]       = 0x908,
++	[OB_MERGES_CPL]      = 0x910,
++	[ATS_TRANS]          = 0x2D18,
++	[ATS_TRANS_LATENCY]  = 0x2D20,
++	[ATS_PRI]            = 0x2D28,
++	[ATS_PRI_LATENCY]    = 0x2D30,
++	[ATS_INV]            = 0x2D38,
++	[ATS_INV_LATENCY]    = 0x2D40,
++};
++
++struct pem_pmu {
++	struct pmu pmu;
++	void __iomem *base;
++	unsigned int cpu;
++	struct	device *dev;
++	struct hlist_node node;
++};
++
++#define to_pem_pmu(p)	container_of(p, struct pem_pmu, pmu)
++
++static int eventid_to_offset(int eventid)
++{
++	return eventid_to_offset_table[eventid];
 +}
 +
- /* Accessor macros for the debug registers. */
- #define AARCH64_DBG_READ(N, REG, VAL) do {\
- 	VAL = read_sysreg(dbg##REG##N##_el1);\
-@@ -138,19 +146,37 @@ static inline void ptrace_hw_copy_thread(struct task_struct *task)
- /* Determine number of BRP registers available. */
- static inline int get_num_brps(void)
- {
--	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
--	return 1 +
--		cpuid_feature_extract_unsigned_field(dfr0,
--						ID_AA64DFR0_EL1_BRPs_SHIFT);
-+	u64 dfr0, dfr1;
-+	int dver, brps;
++/* Events */
++static ssize_t pem_pmu_event_show(struct device *dev,
++				  struct device_attribute *attr,
++				  char *page)
++{
++	struct perf_pmu_events_attr *pmu_attr;
 +
-+	dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	dver = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_DebugVer_SHIFT);
-+	if (dver == ID_AA64DFR0_EL1_DebugVer_V8P9) {
-+		dfr1 = read_sanitised_ftr_reg(SYS_ID_AA64DFR1_EL1);
-+		brps = cpuid_feature_extract_unsigned_field_width(dfr1,
-+								  ID_AA64DFR1_EL1_BRPs_SHIFT, 8);
-+	} else {
-+		brps = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRPs_SHIFT);
++	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
++	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
++}
++
++#define PEM_EVENT_ATTR(_name, _id)					\
++	(&((struct perf_pmu_events_attr[]) {				\
++	{ .attr = __ATTR(_name, 0444, pem_pmu_event_show, NULL),	\
++		.id = _id, }						\
++	})[0].attr.attr)
++
++static struct attribute *pem_perf_events_attrs[] = {
++	PEM_EVENT_ATTR(ib_tlp_npr, IB_TLP_NPR),
++	PEM_EVENT_ATTR(ib_tlp_pr, IB_TLP_PR),
++	PEM_EVENT_ATTR(ib_tlp_cpl_partid, IB_TLP_CPL),
++	PEM_EVENT_ATTR(ib_tlp_dwords_npr, IB_TLP_DWORDS_NPR),
++	PEM_EVENT_ATTR(ib_tlp_dwords_pr, IB_TLP_DWORDS_PR),
++	PEM_EVENT_ATTR(ib_tlp_dwords_cpl_partid, IB_TLP_DWORDS_CPL),
++	PEM_EVENT_ATTR(ib_inflight, IB_INFLIGHT),
++	PEM_EVENT_ATTR(ib_reads, IB_READS),
++	PEM_EVENT_ATTR(ib_req_no_ro_ncb, IB_REQ_NO_RO_NCB),
++	PEM_EVENT_ATTR(ib_req_no_ro_ebus, IB_REQ_NO_RO_EBUS),
++	PEM_EVENT_ATTR(ob_tlp_npr_partid, OB_TLP_NPR),
++	PEM_EVENT_ATTR(ob_tlp_pr_partid, OB_TLP_PR),
++	PEM_EVENT_ATTR(ob_tlp_cpl_partid, OB_TLP_CPL),
++	PEM_EVENT_ATTR(ob_tlp_dwords_npr_partid, OB_TLP_DWORDS_NPR),
++	PEM_EVENT_ATTR(ob_tlp_dwords_pr_partid, OB_TLP_DWORDS_PR),
++	PEM_EVENT_ATTR(ob_tlp_dwords_cpl_partid, OB_TLP_DWORDS_CPL),
++	PEM_EVENT_ATTR(ob_inflight_partid, OB_INFLIGHT),
++	PEM_EVENT_ATTR(ob_reads_partid, OB_READS),
++	PEM_EVENT_ATTR(ob_merges_npr_partid, OB_MERGES_NPR),
++	PEM_EVENT_ATTR(ob_merges_pr_partid, OB_MERGES_PR),
++	PEM_EVENT_ATTR(ob_merges_cpl_partid, OB_MERGES_CPL),
++	PEM_EVENT_ATTR(ats_trans, ATS_TRANS),
++	PEM_EVENT_ATTR(ats_trans_latency, ATS_TRANS_LATENCY),
++	PEM_EVENT_ATTR(ats_pri, ATS_PRI),
++	PEM_EVENT_ATTR(ats_pri_latency, ATS_PRI_LATENCY),
++	PEM_EVENT_ATTR(ats_inv, ATS_INV),
++	PEM_EVENT_ATTR(ats_inv_latency, ATS_INV_LATENCY),
++	NULL
++};
++
++static struct attribute_group pem_perf_events_attr_group = {
++	.name = "events",
++	.attrs = pem_perf_events_attrs,
++};
++
++PMU_FORMAT_ATTR(event, "config:0-5");
++
++static struct attribute *pem_perf_format_attrs[] = {
++	&format_attr_event.attr,
++	NULL
++};
++
++static struct attribute_group pem_perf_format_attr_group = {
++	.name = "format",
++	.attrs = pem_perf_format_attrs,
++};
++
++/* cpumask */
++static ssize_t pem_perf_cpumask_show(struct device *dev,
++				     struct device_attribute *attr,
++				     char *buf)
++{
++	struct pem_pmu *pmu = dev_get_drvdata(dev);
++
++	return cpumap_print_to_pagebuf(true, buf, cpumask_of(pmu->cpu));
++}
++
++static struct device_attribute pem_perf_cpumask_attr =
++	__ATTR(cpumask, 0444, pem_perf_cpumask_show, NULL);
++
++static struct attribute *pem_perf_cpumask_attrs[] = {
++	&pem_perf_cpumask_attr.attr,
++	NULL
++};
++
++static struct attribute_group pem_perf_cpumask_attr_group = {
++	.attrs = pem_perf_cpumask_attrs,
++};
++
++static const struct attribute_group *pem_perf_attr_groups[] = {
++	&pem_perf_events_attr_group,
++	&pem_perf_cpumask_attr_group,
++	&pem_perf_format_attr_group,
++	NULL
++};
++
++static int pem_perf_event_init(struct perf_event *event)
++{
++	struct pem_pmu *pmu = to_pem_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	struct perf_event *sibling;
++
++	if (event->attr.type != event->pmu->type)
++		return -ENOENT;
++
++	if (event->attr.config >= PEM_EVENTIDS_MAX)
++		return -EINVAL;
++
++	if (is_sampling_event(event) ||
++	    event->attach_state & PERF_ATTACH_TASK) {
++		return -EOPNOTSUPP;
 +	}
-+	return 1 + brps;
- }
- 
- /* Determine number of WRP registers available. */
- static inline int get_num_wrps(void)
- {
--	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
--	return 1 +
--		cpuid_feature_extract_unsigned_field(dfr0,
--						ID_AA64DFR0_EL1_WRPs_SHIFT);
-+	u64 dfr0, dfr1;
-+	int dver, wrps;
 +
-+	dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	dver = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_DebugVer_SHIFT);
-+	if (dver == ID_AA64DFR0_EL1_DebugVer_V8P9) {
-+		dfr1 = read_sanitised_ftr_reg(SYS_ID_AA64DFR1_EL1);
-+		wrps = cpuid_feature_extract_unsigned_field_width(dfr1,
-+								  ID_AA64DFR1_EL1_WRPs_SHIFT, 8);
-+	} else {
-+		wrps = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_WRPs_SHIFT);
++	if (event->cpu < 0)
++		return -EOPNOTSUPP;
++
++	/*  We must NOT create groups containing mixed PMUs */
++	if (event->group_leader->pmu != event->pmu &&
++	    !is_software_event(event->group_leader))
++		return -EINVAL;
++
++	for_each_sibling_event(sibling, event->group_leader) {
++		if (sibling->pmu != event->pmu &&
++		    !is_software_event(sibling))
++			return -EINVAL;
 +	}
-+	return 1 + wrps;
- }
- 
- #ifdef CONFIG_CPU_PM
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 024a7b245056..b56716c654d8 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -21,6 +21,7 @@
- #include <asm/cputype.h>
- #include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
-+#include <asm/hw_breakpoint.h>
- #include <asm/system_misc.h>
- #include <asm/traps.h>
- 
-@@ -34,7 +35,7 @@ u8 debug_monitors_arch(void)
- /*
-  * MDSCR access routines.
-  */
--static void mdscr_write(u32 mdscr)
-+static void mdscr_write(u64 mdscr)
- {
- 	unsigned long flags;
- 	flags = local_daif_save();
-@@ -43,7 +44,7 @@ static void mdscr_write(u32 mdscr)
- }
- NOKPROBE_SYMBOL(mdscr_write);
- 
--static u32 mdscr_read(void)
-+static u64 mdscr_read(void)
- {
- 	return read_sysreg(mdscr_el1);
- }
-@@ -79,7 +80,7 @@ static DEFINE_PER_CPU(int, kde_ref_count);
- 
- void enable_debug_monitors(enum dbg_active_el el)
- {
--	u32 mdscr, enable = 0;
-+	u64 mdscr, enable = 0;
- 
- 	WARN_ON(preemptible());
- 
-@@ -90,6 +91,9 @@ void enable_debug_monitors(enum dbg_active_el el)
- 	    this_cpu_inc_return(kde_ref_count) == 1)
- 		enable |= DBG_MDSCR_KDE;
- 
-+	if (is_debug_v8p9_enabled())
-+		enable |= DBG_MDSCR_EMBWE;
-+
- 	if (enable && debug_enabled) {
- 		mdscr = mdscr_read();
- 		mdscr |= enable;
-@@ -100,7 +104,7 @@ NOKPROBE_SYMBOL(enable_debug_monitors);
- 
- void disable_debug_monitors(enum dbg_active_el el)
- {
--	u32 mdscr, disable = 0;
-+	u64 mdscr, disable = 0;
- 
- 	WARN_ON(preemptible());
- 
-@@ -111,6 +115,9 @@ void disable_debug_monitors(enum dbg_active_el el)
- 	    this_cpu_dec_return(kde_ref_count) == 0)
- 		disable &= ~DBG_MDSCR_KDE;
- 
-+	if (is_debug_v8p9_enabled())
-+		disable &= ~DBG_MDSCR_EMBWE;
-+
- 	if (disable) {
- 		mdscr = mdscr_read();
- 		mdscr &= disable;
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index 722ac45f9f7b..630db607ca2b 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -103,7 +103,7 @@ int hw_breakpoint_slots(int type)
- 	WRITE_WB_REG_CASE(OFF, 14, REG, VAL);	\
- 	WRITE_WB_REG_CASE(OFF, 15, REG, VAL)
- 
--static u64 read_wb_reg(int reg, int n)
-+static u64 __read_wb_reg(int reg, int n)
- {
- 	u64 val = 0;
- 
-@@ -118,9 +118,27 @@ static u64 read_wb_reg(int reg, int n)
- 
- 	return val;
- }
-+
-+static u64 read_wb_reg(int reg, int n)
-+{
-+	int mdsel_bank, index;
-+	u64 val;
-+
-+	if (!is_debug_v8p9_enabled())
-+		return __read_wb_reg(reg, n);
-+
-+	mdsel_bank = n / 16;
-+	index = n % 16;
-+	preempt_disable();
-+	write_sysreg_s(mdsel_bank << MDSELR_EL1_BANK_SHIFT, SYS_MDSELR_EL1);
-+	isb();
-+	val = __read_wb_reg(reg, index);
-+	preempt_enable();
-+	return val;
++	/*
++	 * Set ownership of event to one CPU, same event can not be observed
++	 * on multiple cpus at same time.
++	 */
++	event->cpu = pmu->cpu;
++	hwc->idx = -1;
++	return 0;
 +}
- NOKPROBE_SYMBOL(read_wb_reg);
- 
--static void write_wb_reg(int reg, int n, u64 val)
-+static void __write_wb_reg(int reg, int n, u64 val)
- {
- 	switch (reg + n) {
- 	GEN_WRITE_WB_REG_CASES(AARCH64_DBG_REG_BVR, AARCH64_DBG_REG_NAME_BVR, val);
-@@ -132,6 +150,22 @@ static void write_wb_reg(int reg, int n, u64 val)
- 	}
- 	isb();
- }
 +
-+static void write_wb_reg(int reg, int n, u64 val)
++static u64 pem_perf_read_counter(struct pem_pmu *pmu,
++				 struct perf_event *event, int eventid)
 +{
-+	int mdsel_bank, index;
-+
-+	if (!is_debug_v8p9_enabled())
-+		return __write_wb_reg(reg, n, val);
-+
-+	mdsel_bank = n / 16;
-+	index = n % 16;
-+	preempt_disable();
-+	write_sysreg_s(mdsel_bank << MDSELR_EL1_BANK_SHIFT, SYS_MDSELR_EL1);
-+	isb();
-+	__write_wb_reg(reg, index, val);
-+	preempt_enable();
++	return readq_relaxed(pmu->base + eventid_to_offset(eventid));
 +}
- NOKPROBE_SYMBOL(write_wb_reg);
- 
- /*
++
++static void pem_perf_event_update(struct perf_event *event)
++{
++	struct pem_pmu *pmu = to_pem_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	u64 prev_count, new_count;
++
++	do {
++		prev_count = local64_read(&hwc->prev_count);
++		new_count = pem_perf_read_counter(pmu, event, hwc->idx);
++	} while (local64_xchg(&hwc->prev_count, new_count) != prev_count);
++
++	local64_add((new_count - prev_count), &event->count);
++}
++
++static void pem_perf_event_start(struct perf_event *event, int flags)
++{
++	struct pem_pmu *pmu = to_pem_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	int eventid = hwc->idx;
++
++	/*
++	 * All counters are free-running and associated with
++	 * a fixed event to track in Hardware
++	 */
++	local64_set(&hwc->prev_count,
++		    pem_perf_read_counter(pmu, event, eventid));
++
++	hwc->state = 0;
++}
++
++static int pem_perf_event_add(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	hwc->idx = event->attr.config;
++	if (WARN_ON_ONCE(hwc->idx >= PEM_EVENTIDS_MAX))
++		return -EINVAL;
++	hwc->state |= PERF_HES_STOPPED;
++
++	if (flags & PERF_EF_START)
++		pem_perf_event_start(event, flags);
++
++	return 0;
++}
++
++static void pem_perf_event_stop(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	if (flags & PERF_EF_UPDATE)
++		pem_perf_event_update(event);
++
++	hwc->state |= PERF_HES_STOPPED;
++}
++
++static void pem_perf_event_del(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	pem_perf_event_stop(event, PERF_EF_UPDATE);
++	hwc->idx = -1;
++}
++
++static int pem_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
++{
++	struct pem_pmu *pmu = hlist_entry_safe(node, struct pem_pmu, node);
++	unsigned int target;
++
++	if (cpu != pmu->cpu)
++		return 0;
++
++	target = cpumask_any_but(cpu_online_mask, cpu);
++	if (target >= nr_cpu_ids)
++		return 0;
++
++	perf_pmu_migrate_context(&pmu->pmu, cpu, target);
++	pmu->cpu = target;
++	return 0;
++}
++
++static int pem_perf_probe(struct platform_device *pdev)
++{
++	struct pem_pmu *pem_pmu;
++	struct resource *res;
++	void __iomem *base;
++	char *name;
++	int ret;
++
++	pem_pmu = devm_kzalloc(&pdev->dev, sizeof(*pem_pmu), GFP_KERNEL);
++	if (!pem_pmu)
++		return -ENOMEM;
++
++	pem_pmu->dev = &pdev->dev;
++	platform_set_drvdata(pdev, pem_pmu);
++
++	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	pem_pmu->base = base;
++
++	pem_pmu->pmu = (struct pmu) {
++		.module	      = THIS_MODULE,
++		.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
++		.task_ctx_nr = perf_invalid_context,
++		.attr_groups = pem_perf_attr_groups,
++		.event_init  = pem_perf_event_init,
++		.add	     = pem_perf_event_add,
++		.del	     = pem_perf_event_del,
++		.start	     = pem_perf_event_start,
++		.stop	     = pem_perf_event_stop,
++		.read	     = pem_perf_event_update,
++	};
++
++	/* Choose this cpu to collect perf data */
++	pem_pmu->cpu = raw_smp_processor_id();
++
++	name = devm_kasprintf(pem_pmu->dev, GFP_KERNEL, "mrvl_pcie_rc_pmu_%llx",
++			      res->start);
++	if (!name)
++		return -ENOMEM;
++
++	cpuhp_state_add_instance_nocalls(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE,
++					 &pem_pmu->node);
++
++	ret = perf_pmu_register(&pem_pmu->pmu, name, -1);
++	if (ret)
++		goto error;
++
++	return 0;
++error:
++	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE,
++					    &pem_pmu->node);
++	return ret;
++}
++
++static void pem_perf_remove(struct platform_device *pdev)
++{
++	struct pem_pmu *pem_pmu = platform_get_drvdata(pdev);
++
++	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE,
++					    &pem_pmu->node);
++
++	perf_pmu_unregister(&pem_pmu->pmu);
++}
++
++#ifdef CONFIG_ACPI
++static const struct acpi_device_id pem_pmu_acpi_match[] = {
++	{"MRVL000E", 0},
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, pem_pmu_acpi_match);
++#endif
++
++static struct platform_driver pem_pmu_driver = {
++	.driver	= {
++		.name   = "pem-pmu",
++		.acpi_match_table = ACPI_PTR(pem_pmu_acpi_match),
++		.suppress_bind_attrs = true,
++	},
++	.probe		= pem_perf_probe,
++	.remove		= pem_perf_remove,
++};
++
++static int __init pem_pmu_init(void)
++{
++	int ret;
++
++	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE,
++				      "perf/marvell/pem:online", NULL,
++				       pem_pmu_offline_cpu);
++	if (ret)
++		return ret;
++
++	ret = platform_driver_register(&pem_pmu_driver);
++	if (ret)
++		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
++	return ret;
++}
++
++static void __exit pem_pmu_exit(void)
++{
++	platform_driver_unregister(&pem_pmu_driver);
++	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
++}
++
++module_init(pem_pmu_init);
++module_exit(pem_pmu_exit);
++
++MODULE_DESCRIPTION("Marvell PEM Perf driver");
++MODULE_AUTHOR("Gowthami Thiagarajan <gthiagarajan@marvell.com>");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 2361ed4d2b15..61d9a66d1807 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -227,6 +227,7 @@ enum cpuhp_state {
+ 	CPUHP_AP_PERF_ARM_APM_XGENE_ONLINE,
+ 	CPUHP_AP_PERF_ARM_CAVIUM_TX2_UNCORE_ONLINE,
+ 	CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE,
++	CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE,
+ 	CPUHP_AP_PERF_POWERPC_NEST_IMC_ONLINE,
+ 	CPUHP_AP_PERF_POWERPC_CORE_IMC_ONLINE,
+ 	CPUHP_AP_PERF_POWERPC_THREAD_IMC_ONLINE,
 -- 
 2.25.1
 
