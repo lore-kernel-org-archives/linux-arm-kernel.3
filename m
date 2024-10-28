@@ -4,91 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AF5D3E2BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC58D3E2BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=; b=BvWiNZIbKRHFvK6w0GJY7HwLWb
-	eeBwHe0ZeX3pqW6qZedU/xNGXrgbSvQq0Azvx+zkY47q3rMNPlZfdyHrKfz3k75eVDP2FDl34zfRF
-	EBN7SPdF5zdmxH5CBWRY5fRi35He9QqGP3Kf0Kzst0eSd2kxVKUUlcZ8iP3AE7cz+tMFs7tP7zurg
-	8g/pUgiuKdb/PeUxDO283zCRWHL7NPb/tZFrTD3kfXL5931Erxwbdwu92ypIxsgje1rqhiA6Cm0aQ
-	PD4kLr3C4a+P6YuC2Leop5eZj9SV4p4RDxZ1w+lC7qDAfjfjBjljcPzKK0JzkCUL9TOV0spBkKfEb
-	w/Zjweug==;
+	bh=j/JXxzlgrGYw0PU9k1GSfpOM2XBdolyCC6yjHKtj9mc=; b=0VdPHDB0fVMEx1IV6U+AhU89xP
+	fjru4RqujdWXDWMNkFXryYUROnidRWPASDt3O7olYXQYNMtvZP2tEU02VCccSfbTjj0TEqdzGMzQV
+	jwUySqWnuO6ZAniZg5wqPDOG8fuVMw4pIbHMJR+XiNww1u/k2iAqsSbJfxKffhrhTLEN0xPdlOHAF
+	nVzxs5ZGgasHkbt0AhPuqHsCLZxThGGVpwBRqseVwpcIjsmZmjAyY3QbQ9R0KEUR6dcfBhnvhJ9qq
+	XxoS4SnprKjbLe67zjJ8Uk5TV2JN5D7ecqMWYmo+bLIpjhlYtGY9vhHfkkm0jNQMGxR/FMcTukWab
+	yT3vLb8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5VHf-0000000BzFt-3ifc;
-	Mon, 28 Oct 2024 19:20:12 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1t5VJF-0000000BzTc-2aOy;
+	Mon, 28 Oct 2024 19:21:49 +0000
+Received: from mail-vi1eur03on20602.outbound.protection.outlook.com ([2a01:111:f403:260c::602] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5V41-0000000Bwaj-39iw
+	id 1t5V4E-0000000BwcM-3QkX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 19:06:06 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539fb49c64aso7761130e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:06:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1730142362; x=1730747162; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=;
-        b=R9LlwN1QxqF+aChTCvQ97Gy3PoberCUM86rdkYRbkWeC8X4Wq53JzGl6x9yPDAXodB
-         P1MWS3uv2wQ/mcxSSbAem3FW8/3RcGpRklcBrJilO2zIRux9JpBRLLoNFhy4/cv7vvA2
-         YOFJjAAEV0e0hB6H0uhxMmQ9PxfzVggmsFisw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730142362; x=1730747162;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sUA383ePY3cLN09IzuAP8lfzOlaIkGWSAwBIwcN9qDM=;
-        b=PoTuJYZAxaTbXiF1LaTVnYP+BRG/v8I/+B3J2CbX3IPyJkN4Kb916EJOO0UUsRiciV
-         HZ7NYAlW2bLkLYVED302Uurcq0OR1VH9CXIo5SU1lW46W1eQCCiTe3BkqoEYQF+uq2Z6
-         QqBaQzXNZ9b/bGPDDQzRR+ShgiypokJndQF/yIqW6boz7EC17tyvmRTdmayLtEvLpXle
-         uhRJqfhUGks9e4ynO5qCErGtATH4KWJ+C3/6GlO7XjhDuOT18cHQqeDWG1Wd4XCZxaJM
-         pgUZ4jcjndqBmIN2WwROWHCN+raGEUYwNF9DacvtUkLP4hLsN4nInkL8HCpa5lAxaxBq
-         ZXdg==
-X-Forwarded-Encrypted: i=1; AJvYcCUPehUko53Koh4cqcFxuLB80crogdw11l6y1x0RNIHKcSDMcHV+P1zQ6ighp+2OERkLEtIj71kP2g9DsbhiLBQo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx37fu6OKWD0ExT4uO9+HdJgR4aFWNF2zntAgYGMAyupbDr1uRz
-	+lIz6LMQ2Cae2MKLJrcLdBXQ1TA312+OHzCGl9nt5usIkDDMzkoEVvu0Gh4Lh4lfSTEW56bbRJ/
-	Bmy0=
-X-Google-Smtp-Source: AGHT+IHRg6p5jDh3VoRNJxpN9CHGpc0QDWSeJ4nfHXbvuazwIAXYBZdAq+jdXr1sg4nioFCR5yy4Vg==
-X-Received: by 2002:a05:6512:1384:b0:53b:2105:18bb with SMTP id 2adb3069b0e04-53b34a343camr7123463e87.51.1730142362063;
-        Mon, 28 Oct 2024 12:06:02 -0700 (PDT)
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com. [209.85.167.44])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1c7aa8sm1151218e87.187.2024.10.28.12.06.01
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 12:06:01 -0700 (PDT)
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-539fb49c64aso7761096e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:06:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX6uhyAHW+CldFJPp++iwfbXKOSJ8tFoRJfIvYl9aHDcoyMedpm/WdUl0Z7Fa7i/yrBpOYRRMfqfOwDQCX3CzIj@lists.infradead.org
-X-Received: by 2002:a05:6512:1189:b0:53b:163a:f279 with SMTP id
- 2adb3069b0e04-53b34a345f7mr6904745e87.53.1730142360985; Mon, 28 Oct 2024
- 12:06:00 -0700 (PDT)
+	Mon, 28 Oct 2024 19:06:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bYdR31S7JxRhwuB2Qa+v1lkJ5lEnSOpyh+o/d4iIoKQmdj3Vxj3PMFHJ9iqEVUO+4Myl5fapCCJg6szdamK0ISgbtwIyaEjAOVkbWTWgn3DUUJ0+vANxGzCMDAf9N8f3C7y5MYRuXnnmomKW7Rs52er2kLq/c9TDycwHFS/xw22b5x7MqcXPMq1ei34lXaVcAdaXXEKRITC48lChj0PvhNhFoCFqGaSwuW2jjiJ9ac9Ne0K/DsCtukBYHTdlqQwdkJ5Rtw+tT7jrnjwSJKhz3jGyEMQ0NyjCMnLc6yVafrsn7F4QqtFXcg98NttEOP/top+zF8xXUkitq7qzFRDbfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j/JXxzlgrGYw0PU9k1GSfpOM2XBdolyCC6yjHKtj9mc=;
+ b=U56AaNicLTW7w20oCYSoDMhA9/kzpNpJLAHudHvbTaHVTgxAp+vcjMhVB/UvHoB9ICcvzhfyWFvb+Ud0bJqWBPWbKh38N5yclpCQzY0ZEGzS4giuHRuuzwtLs/kHQul3WhMF54dtSS45aoNQBJNlujSxOg/0BEHdMV8hnaRa3WGrfGKKl7NBuApP8fqp0IfA/q7aTb/v/85mgoGDTjcr560VQ7zSG30y3ODji8MmlUKancXIlcNyMI7+zxhFZkBd31HGXO+2Vd3kd8ZM+9Y1ktpgHrJF58DgLBeQ5ZARxnA6NxOKxLfUvG0liNyQibPNihmbPFJcB52IZTRc3ubs1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j/JXxzlgrGYw0PU9k1GSfpOM2XBdolyCC6yjHKtj9mc=;
+ b=i44CfLEATVuAKr9NkEo5nIT8nyAN0O3131/VQOW+g+pNar4yLiviiHDj4fqxtWQT3NVTQlwTU0sQWbhRrBon4gP4MvU0GoKld3jJFHAfawcO2t/WhpPa+SB0Bm8z3QECX/4wHt6j6Ye9OnsJV1JYOAyqYB3FffytSE5p7/NiQYash93aa+tNn2mqSLaM6BdRiTRwsUrqrlu0TGWf308qRBEjAN5VWLJLVDt+qUM44ggoLCBBaxrh8DsyqkeG93KSxXa82mMe4baL3pM6ELmvr8IzfuxT7cmTdnUPyPM7qQH4IVLpdw3ynBBqly3eMiP3CVd/ccTRu4ZaLk1GCmFYqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBBPR04MB7946.eurprd04.prod.outlook.com (2603:10a6:10:1ec::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Mon, 28 Oct
+ 2024 19:06:13 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
+ 19:06:12 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Mon, 28 Oct 2024 15:05:55 -0400
+Subject: [PATCH v6 1/7] of: address: Add parent_bus_addr to struct
+ of_pci_range
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241028-pci_fixup_addr-v6-1-ebebcd8fd4ff@nxp.com>
+References: <20241028-pci_fixup_addr-v6-0-ebebcd8fd4ff@nxp.com>
+In-Reply-To: <20241028-pci_fixup_addr-v6-0-ebebcd8fd4ff@nxp.com>
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Jingoo Han <jingoohan1@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730142363; l=4762;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=1rSpPrZTOLMx4xcaG4Itd6ReEroEzwhMtX2XtNZo75A=;
+ b=J6JHDGWw7+6ttmVw93GRpH/jRwLln1TzuZg5mAkybhPYDvZQ+fEG8f+9RhzC56plqOFdcImic
+ T2IfknfXeVzDnLRpqG3P3EcsV5ohLwEU6D/ZNYt0B17KM190FvUOY4/
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: BYAPR03CA0005.namprd03.prod.outlook.com
+ (2603:10b6:a02:a8::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
- <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
- <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk> <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
-In-Reply-To: <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 28 Oct 2024 09:05:44 -1000
-X-Gmail-Original-Message-ID: <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
-Message-ID: <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
-Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region() error
- path behaviour
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Mark Brown <broonie@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Jann Horn <jannh@google.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7946:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7335a89-7173-47e9-2c42-08dcf7839706
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|376014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SGZueXJmb1JHS0JTMHVicWdEbFVJQWlaKzZudDhoZHNWcFhPL1RFZExtQ1R0?=
+ =?utf-8?B?dFpTN2dGRVhDTWorQUkxN0NUdWVINGJYZHpjbUxkbWhlV2padHgvR3JqQ1Nr?=
+ =?utf-8?B?ZWhvL0N0WEhidTJydzR1ZzQ1NEIya1dUY3BBd3NwYlN3RkdTazRZSk14d2xG?=
+ =?utf-8?B?Z0hKK1R0VjN6OWZKbDBzazlMSnEreHFtRU0rbjlmMFZrOWI3aUIxOWFQMitZ?=
+ =?utf-8?B?ZjZySENVV0FYR2NMNWJtT3Z5VmJNeVpmWTRRdWVldTNPOUNvMWhJYmYyaU1N?=
+ =?utf-8?B?RUFTMWdGVGxJcTdQbElwNjQ0ZGNSTml3cVI1TklkaFkyc0lmeTdCQ3p2bEFJ?=
+ =?utf-8?B?Zm5ORlRiTnZNTDNSSjk4dUNGL2gxN1Z5Lzh0V0NjcW8wcjhwcjY2RmZUd24r?=
+ =?utf-8?B?N0w5VEVrY2VhcWlHVlpyelJoYlMzU0EzVXpIVGc1SHhYQnFVUW55ZUZLSEU1?=
+ =?utf-8?B?bHRad1h6NXlhc0JWYWZlYkljdVA2YS96bFlQNVZPUHdLTU9TN0hTbjhhTnpt?=
+ =?utf-8?B?OU1EMFN1SlF5RlV4VWVxZXUyVnV5citoU1NnVy9yRkJxVzltb2V2VUpsendP?=
+ =?utf-8?B?aUw5dGtaWWd2WDBiUVFKQ041M3RnRCtORTVMTENoK2lSdXZtV25nZUx1QmhF?=
+ =?utf-8?B?NXl6SGxsUTc4dHhJNGRjZ25RSm95OVozbkZkdHpxTDVpSkx6ek5TVFk5S1Q3?=
+ =?utf-8?B?NjdXUkFzRG5SbkVtNHV3elgxVlphb2dGSE5YeFNHaTIxQS9ieVBhRHFUTS9r?=
+ =?utf-8?B?SlpoZjlGVlBDQnFoekdMTGlVY2xOajBLN3kzZ1Ivb1RqSnRTRHhVWnNkU3Q3?=
+ =?utf-8?B?V3h6bmtRTGJMTkpMUXhSTGpBblkvanBZZ04vYWZNdVY3THdGZVFEbG1vNkw3?=
+ =?utf-8?B?RWc1WEhHYmNFczl2WTk0bTdDN0NDZ3I0N3NsQS94SktIZmRiaGswRFMzb2o5?=
+ =?utf-8?B?N01rWDYxTkl2M1pvRE9iZnZUMEp2TFZlK0lmdGtTTERDcjdOTEZVMktKTi9F?=
+ =?utf-8?B?aDdZTE9FekdFMEt1ZWU2ZlZ0QlJ6Z1ZLc1FCMitqUS9KcFd0Z1k0ajBQcVpr?=
+ =?utf-8?B?dEwrWjFSaldNY3hSRlFxcytxaWczbEdacHcrS2xRV2czeTVwVG85TnJtaXF4?=
+ =?utf-8?B?cUdCemd6dVk5WkhJaDI5Sjc5cThUbmNLY0JGa0hoTitmWlNBZi9JMUY0c2lZ?=
+ =?utf-8?B?cG1YalVGRzBXZlFqOWttcGNSUEFPMVNqZEFZd0RNUE14YUZMaWlHL1NBTmZQ?=
+ =?utf-8?B?UGcySld6OU9TMnI5aXpWK0xPbmladlRIZ1hCNytpTmoxU2Z4R0l2QWVxd0ha?=
+ =?utf-8?B?OWgvMGJVdHMzYUNad0JvQ0YzYjY0RlN5aEs5TkhIVUNQYlFTRDJaaE1JRVJu?=
+ =?utf-8?B?ZDVOV0NCN3M2YmRxUExyMEErbDc3eVNzTUsweXd2WEU2aTNFWnNRdzlBRXY0?=
+ =?utf-8?B?MW8zK2Y1UVoydld1SGs5bko5Um5RUUZ3TmJUQWtsS0YvTXIzYmtkcFE0YkZr?=
+ =?utf-8?B?WWtwbnZwTnFBaVQ5QUFBcFFmNDQ5OXlxdTlpRk9LUCtMeGNjS2ZGS2JZemxh?=
+ =?utf-8?B?YVZTQVNZeEJHVEpMcWVrcDVwN0VHdkRtNWhzNWJETmN0UnNKRFNBUmRQZEQy?=
+ =?utf-8?B?ejBKcEZGRk81K2lzVk5PWTR1bTJOeUtUdFlEd1VlTDNtMTNMeGx5RFJnT1gw?=
+ =?utf-8?B?dUhzRmQ5enBDVUgxSVl6SmlTZkNGVjd6QytYdCsvN2lleXpURmU2eVdrWWtw?=
+ =?utf-8?B?RlN0bGJDQkJBUjdDT0dCVDZJUWkzWWJudXhLVG5XYjd3VzRQendqR2krSnB0?=
+ =?utf-8?B?OWNjaWJRUzVGUkhuWkZTamNBV1V6Zm1MdFBYdVExOWlmUUl6UDBveXJaSHFx?=
+ =?utf-8?Q?DmSYgp99UliHY?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d25heHlBNllZeE8xbzNVRk1ZVG9rRkdhdElPZDdsR0NIcnVyK2ROZ1BGdm5j?=
+ =?utf-8?B?c0tvRHQ4NjNxQjJ1MWVaLzkwZTNNUjhDQm9XajR0c2hKbkk5U2FhVTJaRUFo?=
+ =?utf-8?B?cWFqeWVwc0tqT1Y1enJzR0pwT29SZzZEY3BpTTRyeGdabTJoRW1EU2RCb1JL?=
+ =?utf-8?B?bEh0bEtPNDhQYXlOZzRhR3ppY1JaM0swSXJQZ2oyRWhhSW8reGNwMU5NNVcz?=
+ =?utf-8?B?K3UwN3lTK01FOEp4ZVd5amFOem1Xb3pwYlFweG1vK1JNUkY0T0Y0N1RaQU9r?=
+ =?utf-8?B?M0c1MXlSNkc4VTRUSHgwa245T3hROERyOEsrQ202TEViVmRJKzJValNQTVpt?=
+ =?utf-8?B?dFdhSFozb1FGaHdnYXdrMWQzNFlNamFZR0F1T290dHZVV2d1RmxKdG5UNjFP?=
+ =?utf-8?B?LzluQXdjWFF3cm1FcnhHSmJIdGluQURKbCtRbmdTUnMva1FSUFlINEE5ZHlS?=
+ =?utf-8?B?aDJscjdyV2dxZkdTdUp6VVlOdW9WV2NwT2s5S21acDkrV28rdXlvYk95dGc1?=
+ =?utf-8?B?RGhQOFlhb3l4V3JPb3FOY0hHcWhkNkZLeHlULzZyYXJvdTh3SWt0b0ZsR0x4?=
+ =?utf-8?B?aUtHWHRwZDAyYi81azloS0c4akt1RXpqaVpBVjJLd1FSYXpuaExEYUw3dmho?=
+ =?utf-8?B?OUhaN0dDOHZZZ2RiODEyUFdvdlc3Ri9TK1k0MyswcU9jek85WjE1TzJsQlNU?=
+ =?utf-8?B?RWZIR2xFSkg5MTREMndXQjVjUXhGbitSRm1BZEpBcmh2b3l5eUFkam1QZUJr?=
+ =?utf-8?B?OEZSTm8rNFNZOXpmM0l5dzkvYmZGcHYxMGhaRkJ1SkxPL0hiMnF0OG9WQ2xt?=
+ =?utf-8?B?UXRxNGRsdTF6MDgzU2FpbUZlUzNxNkRhdFBzZmZ0Zy83VzBNMis2Zno0UGpy?=
+ =?utf-8?B?Mk5KTVlnLzVCdkxERXgzYm9QelB3dGt6UHpQUmZ2NHdOakJDaW1pNDBTL25a?=
+ =?utf-8?B?TmFseldTaWNwWWJNZXdJMjZYbnM1MUlxeHl4aEVZQ2NxaXlIZEpwemZvb25P?=
+ =?utf-8?B?SWxVeWNBS2h2MGkvTDJRcjNVS1kyVkNDajVoSXNoSVdLQ3NSM2dranpJbnBC?=
+ =?utf-8?B?ZGRmKzZVZlFlOFlzZlpqNkNkR1NubWMrWGJxMjFkMFNQTDBmQTBNTWVJUU1R?=
+ =?utf-8?B?eFhId2JkczlXYlpvL1JxVXozL0Ruelh4Nlowei80YWo2WWwrVDY4aFdZeFFv?=
+ =?utf-8?B?NzRCc3hHNTF6VzF6Y0RTVDhxaDlJRGIra0E5b1p5U2JyQ2JXYmdiK2YyWEZs?=
+ =?utf-8?B?V2RWMklHMkZWbGZZaFo5c3cvSU9sOWJ0NEVORVNFTVVrQlExRTBKSVd2S1JX?=
+ =?utf-8?B?bGpYTFkrYnFlZnI4OXVLRW9mOHB3eit5VnFoYzFqZ1JSUGxyRlNlVUFML1Ft?=
+ =?utf-8?B?ZjhvT2VRU0RGUnpub3B0c0Y0SmZQRjVGdm5VSDZJVUh2Ry9SbmdIRHh5d2lH?=
+ =?utf-8?B?WnFjMXZjRmlRejZUUk1UWElKdkg3RXpQYWxpQVhIcmNWaVNraWhxMmtOMHQw?=
+ =?utf-8?B?NFl0dmhnN3N0Snk3TUlxcU9VWG5qbi8vUzJ1amhvNENteWJ6ZVpQZXFIMzV4?=
+ =?utf-8?B?V3ZNanN6TVpNK0pXVm5WNFFqdEYybVoxdFdYOWJIQUlsaC91ZDJMVU9lTFov?=
+ =?utf-8?B?TVRQMXNoaTdPM1BkQnRkTVBsMnZqVWFabkh2OHY0N3RpY2dsRUV0VFpnZDY4?=
+ =?utf-8?B?VXVQL00wQjIxWXgvdktFSTE2cFM3WGUvRlF2aVc4WStyNm13U1YzbWIzSmFr?=
+ =?utf-8?B?ZU9FRTVQazFmZUN0VnhGNTluQlFHcSsyUHNiTUcxNURYemE1djV0cU53eXRI?=
+ =?utf-8?B?VUZhUzhwTGY2end2NHZUTnJScjdualZqL0l0OGIyT0wrRlM4eVNXeVk1U1JU?=
+ =?utf-8?B?N2tmcmE1d21XTVhDTVB3cnBLdzRZd2VWbDJ4L0JIOTBNN1JleEhmZUYyaTFF?=
+ =?utf-8?B?TmU4dTBtSnlRb2hFajZBTzZTTm9pbGVSaGtnWUtyUTIxSUh2UnBWYmtvZklT?=
+ =?utf-8?B?MWtvbnU5UUlXMEhBWlFaNlROeG1mY05CNVdNOUJjMlpjQ0p6aTN1cGlxSE5E?=
+ =?utf-8?B?K0JrUVV2dnpGcHhML3EvNk9CMDE0Y2xrYXBXeDN0Y1lxeTNnZTNVcVpWbUhG?=
+ =?utf-8?Q?Vs8CHeTntbm1NC3nusIImSUTY?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7335a89-7173-47e9-2c42-08dcf7839706
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 19:06:12.7368
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jPbyIgtpRxiIuPXYjon8GAYaJTu9MplsXJ9SzDQ6HYMWKdghiBYsKb3CdfLRghskuAAnussHAy4ILdy9nppsYg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7946
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_120605_827356_1386B196 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20241028_120619_076773_6B6543E0 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +190,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 at 08:57, Lorenzo Stoakes
-<lorenzo.stoakes@oracle.com> wrote:
->
-> So likely hook on your mapping changes flags to set VM_MTE | VM_MTE_ALLOWED and
-> expects this to be checked after (ugh).
+Introduce field 'parent_bus_addr' in struct of_pci_range to retrieve parent
+bus address information.
 
-Gaah. Yes. mm/shmem.c: shmem_mmap() does
+Refer to the diagram below to understand that the bus fabric in some
+systems (like i.MX8QXP) does not use a 1:1 address map between input and
+output.
 
-        /* arm64 - allow memory tagging on RAM-based files */
-        vm_flags_set(vma, VM_MTE_ALLOWED);
+Currently, many controller drivers use .cpu_addr_fixup() callback hardcodes
+that translation in the code, e.g., "cpu_addr & CDNS_PLAT_CPU_TO_BUS_ADDR"
+(drivers/pci/controller/cadence/pcie-cadence-plat.c),
+"cpu_addr + BUS_IATU_OFFSET"(drivers/pci/controller/dwc/pcie-intel-gw.c),
+etc, even though those translations *should* be described via DT.
 
-and while I found the equivalent hack for the VM_SPARC_ADI case, I
-hadn't noticed that MTE thing.
+The .cpu_addr_fixup() can be eliminated if DT correct reflect hardware
+behavior and driver use 'parent_bus_addr' in struct of_pci_range.
 
-How very annoying.
+            ┌─────────┐                    ┌────────────┐
+ ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
+ │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
+ └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
+  CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
+0x7ff8_0000─┼───┘  │  │             │   │  │            │
+            │      │  │             │   │  │            │   PCI Addr
+0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
+            │         │             │      │            │    0
+0x7000_0000─┼────────►├─────────┐   │      │            │
+            └─────────┘         │   └──────► CfgSpace  ─┼────────────►
+             BUS Fabric         │          │            │    0
+                                │          │            │
+                                └──────────► MemSpace  ─┼────────────►
+                        IA: 0x8000_0000    │            │  0x8000_0000
+                                           └────────────┘
 
-So the arch_validate_flags() case does need to be done after the ->mmap() call.
+bus@5f000000 {
+        compatible = "simple-bus";
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges = <0x80000000 0x0 0x70000000 0x10000000>;
 
-How about just finalizing everything, and then doing a regular
-munmap() afterwards and returning an error (all still holding the mmap
-semaphore, of course).
+        pcie@5f010000 {
+                compatible = "fsl,imx8q-pcie";
+                reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
+                reg-names = "dbi", "config";
+                #address-cells = <3>;
+                #size-cells = <2>;
+                device_type = "pci";
+                bus-range = <0x00 0xff>;
+                ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+                         <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+	...
+	};
+};
 
-That still avoids the whole "partially completed mmap" case.
+'parent_bus_addr' in struct of_pci_range can indicate above diagram internal
+address (IA) address information.
 
-             Linus
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change from v5 to v6
+-none
+
+Change from v4 to v5
+- remove confused  <0x5f000000 0x0 0x5f000000 0x21000000>
+- change address order to 7ff8_0000, 7ff0_0000, 7000_0000
+- In commit message use parent bus addres
+
+Change from v3 to v4
+- improve commit message by driver source code path.
+
+Change from v2 to v3
+- cpu_untranslate_addr -> parent_bus_addr
+- Add Rob's review tag
+  I changed commit message base on Bjorn, if you have concern about review
+added tag, let me know.
+
+Change from v1 to v2
+- add parent_bus_addr in struct of_pci_range, instead adding new API.
+---
+ drivers/of/address.c       | 2 ++
+ include/linux/of_address.h | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/drivers/of/address.c b/drivers/of/address.c
+index 286f0c161e332..1a0229ee4e0b2 100644
+--- a/drivers/of/address.c
++++ b/drivers/of/address.c
+@@ -811,6 +811,8 @@ struct of_pci_range *of_pci_range_parser_one(struct of_pci_range_parser *parser,
+ 	else
+ 		range->cpu_addr = of_translate_address(parser->node,
+ 				parser->range + na);
++
++	range->parent_bus_addr = of_read_number(parser->range + na, parser->pna);
+ 	range->size = of_read_number(parser->range + parser->pna + na, ns);
+ 
+ 	parser->range += np;
+diff --git a/include/linux/of_address.h b/include/linux/of_address.h
+index 26a19daf0d092..13dd79186d02c 100644
+--- a/include/linux/of_address.h
++++ b/include/linux/of_address.h
+@@ -26,6 +26,7 @@ struct of_pci_range {
+ 		u64 bus_addr;
+ 	};
+ 	u64 cpu_addr;
++	u64 parent_bus_addr;
+ 	u64 size;
+ 	u32 flags;
+ };
+
+-- 
+2.34.1
+
 
