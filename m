@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF762D339A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4BBD3399B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M+1pUpYpNPTK6G6Rr/j1s+QqeT3yQD0uFQiGrWOE6AU=; b=XseR/SctbMZXbyG3m8mO6ragI3
-	7jWMzOV3wpSwFaAoyYdMJbP+MODwSD9MhF+T6E15qDLGb6BdMPv7YnSkhLH6MVVVwffrAPfQaQZip
-	LvTKLDwhJi1sMouKO8rCLUEIsPbazq/JiW/BlOuQn1dmT/miCpadN/evKDruJVcJ9nqISDpNNp2cW
-	78BEIK2DgzLqC5I8uUvUTE/GVOTEwOO+lRBMTrebz5x0IvlnnvEISJ5ckPNceRrjWJQjU8QKGwgSB
-	mBdsam5OmO27wyisoXSU2uSvPVn7kjrLgOdq4Jd8sZdwaqOJbg8L/nDYXKjDQd+BkZPGvl0UzIYnR
-	XfziGWcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=; b=awhEs85DbKK7Mj6+ylasnrEiBE
+	VFpSgnw5PdjThpznJ1bRKwoij30eF/t/saciot9S1JAGf4YPexSiU56S3CJhnVtAYyQhIfNXRuplD
+	/fdjtqST6xZJtwsI5iDNsv0mpxgEn8kVvTTS6zYfyOE45vLheBScZF0uLp8qATGpAldAoefBfwquc
+	cVhKcG3m/Qe64tQjL747B5Mg0J50tslyBG0ApCMh3KmvVASrLPTVW1HeEU150Dfu9dNrGkAZgjHjF
+	yxuSMSVg+PvsvI1RLcb6rS8dnJcTzZk/odjmJ4qdxLCduHTZVjzcoud7BmONVncFXMoaCrT++oepx
+	bU0DR4aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Szl-0000000BZx6-22oh;
-	Mon, 28 Oct 2024 16:53:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5T1L-0000000BaDG-03mk;
+	Mon, 28 Oct 2024 16:55:11 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sn3-0000000BXMO-0vt3
+	id 1t5SnV-0000000BXV6-2PR8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 16:40:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A5D575C5947;
-	Mon, 28 Oct 2024 16:39:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2195C4CEC7;
-	Mon, 28 Oct 2024 16:40:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730133624;
-	bh=OptEfkBlqnLUcNrZkw8zjO+SkzPv2Z++IFDjSLN66ow=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ooNScbAjyxpdu74JVGExx/m71ciQbe/1kU+MHXg0Xm+JT/vCgVpKenkCIkf1JGmVJ
-	 9nkQvvvAPHyXcTvz5hMjTNxdw6U64zWj2JVUvllxeF43Fz52gSn8hRr80UZsYiIFnE
-	 BpnbHdTJSzRauOJ0i6WaJExnzalfVoxs6PZGGD5+ZOe5m/6uQys0UFy4Ff7wPai2Hk
-	 80iIJYYr8rTIeB3zD+F1EFCOn/NZQbGBtK50zhudN+FGepn7Pkmz8jcn8pIx/xvegf
-	 79pJeMRZeIYxpowZwE8DM/09biIXtQdJHl0bE7mQ0ZIoPjzyfX13Y5GpyAgKHVhgMS
-	 1Muk0FaRQMN8w==
-Date: Mon, 28 Oct 2024 09:40:21 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Graham Woodward <graham.woodward@arm.com>
-Cc: acme@kernel.org, mark.rutland@arm.com, jolsa@kernel.org,
-	irogers@google.com, james.clark@linaro.org, mike.leach@linaro.org,
-	leo.yan@linux.dev, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	nd@arm.com
-Subject: Re: [PATCH v1 0/4] perf arm-spe: Allow synthesizing of branch
-Message-ID: <Zx--dTqaZPjeWA2I@google.com>
-References: <20241025143009.25419-1-graham.woodward@arm.com>
+	Mon, 28 Oct 2024 16:40:55 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4315baec69eso46069045e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 09:40:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730133652; x=1730738452; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=;
+        b=fpA9JZgfg248bk+6RtPYOerCgQ+clOBNxKoKqEePJ/YxRCHjxhw1l63F4U6Ody1j3+
+         ho2yMnEJ0IibqhmHRzM1RyF3tMXsTg3M6IZ/GgLOiYJAeVaxTRCwYC0IneqEyXM/dIG6
+         rByXZH2oZFJPytr8X8TkIXUOBYmJEE7yFCXGQsjNIJmxwt49WR9kypFT0Y98T491fvDS
+         lnxHxfhnsqqh2y/seAwTq1C8YNV1WtPh04x87L8lpDbtAm1gqeXjFdYUiRZoOM9gN8Gg
+         tnWchHA1zELxoWaRdAQnroVWUc+gC51VCxlITiWRP8r6f4Z2cuO7sK6Pb0FtNBqN8ZFd
+         seYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730133652; x=1730738452;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=;
+        b=K2DH2MFVZUbjpOf3HruaG4rSmwMa5fCCdZO1GiicuUFe+OBorir5DWNkcAqhHWo+hN
+         hD/wgRuaNpme1f97uL1iLWrUIcScVTEVmUj+hQp2MIPb3JbnOqyrrveJoOaKDx7MNpn3
+         5xAWTbUccV0OoWhmfnoOPP/ukBGMiLEw3584sIN+TSHIL/v3ikK93LSDvKBT3DtcvZEg
+         lYaU5vwdBIFlpMN3JNlTGRVQw4KoIxeixDi+PK+nA1n3yvtB8FmeY8I2sfMv5zysPEqy
+         Da/eLVCqjCdgSuzOTHOYpFvQWb11RiJnaucFD18+SGoNevgAxmI4IPlMjlcmgqoNPEAD
+         vLGA==
+X-Forwarded-Encrypted: i=1; AJvYcCX1MzWin9o89Us40ArrLQjgyVjx6n4RA2oPWmLqgNj7jKdJHsL7Cgipdxf0+mVGzKmS+OfXNSgWhrAN7JV39L63@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZIBVV49C4EqdOSWD/UeTQq9uwg/FJVF9CxHM7UIpl1XNO/Bi4
+	3KUUeCHF4zxJ1XzMXX/KbMAjAbelKl+tUk6aOzIAr1l9xd185e+GwqlGzqyBhiA=
+X-Google-Smtp-Source: AGHT+IHD7ecehSeRSersefttuZxWWc/yvJLPk3kslyGa7nuUur+ExAiKbF2BIlY7ADLI6KIVbs9TAw==
+X-Received: by 2002:a05:600c:4fce:b0:431:54d9:da57 with SMTP id 5b1f17b1804b1-4319ad20fb6mr68256455e9.30.1730133651812;
+        Mon, 28 Oct 2024 09:40:51 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4318b5433f2sm146420585e9.1.2024.10.28.09.40.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 09:40:50 -0700 (PDT)
+Message-ID: <0f626477-7af1-4f8e-a770-39f69d9b6cbb@linaro.org>
+Date: Mon, 28 Oct 2024 17:40:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241025143009.25419-1-graham.woodward@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH][next] thermal/drivers/mediatek/lvts_thermal: make
+ read-only arrays static const
+To: Colin Ian King <colin.i.king@gmail.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Nicolas Pitre <npitre@baylibre.com>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org, linux-mediatek@lists.infradead.org
+References: <20241022184622.1296044-1-colin.i.king@gmail.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241022184622.1296044-1-colin.i.king@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_094027_084379_AC4FD6B5 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20241028_094053_652484_D990A440 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 22/10/2024 20:46, Colin Ian King wrote:
+> Don't populate the read-only arrays on the stack at run time, instead
+> make them static const.
+> 
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> ---
 
-On Fri, Oct 25, 2024 at 03:30:05PM +0100, Graham Woodward wrote:
-> Currently the --itrace=b will only show branch-misses but this change
-> allows perf to synthesize branches as well.
-> 
-> The change also incorporates the ability to display the target
-> addresses when specifying the addr field if the instruction is a branch.
-> 
-> Graham Woodward (4):
->   perf arm-spe: Set sample.addr to target address for instruction sample
->   perf arm-spe: Use ARM_SPE_OP_BRANCH_ERET when synthesizing branches
->   perf arm-spe: Correctly set sample flags
->   perf arm-spe: Update --itrace help text
+Applied, thanks
 
-It doesn't apply to perf-tools-next cleanly.  Can you please rebase?
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-Thanks,
-Namhyung
-
-> 
->  tools/perf/Documentation/itrace.txt       |  2 +-
->  tools/perf/Documentation/perf-arm-spe.txt |  2 +-
->  tools/perf/builtin-script.c               |  1 +
->  tools/perf/util/arm-spe.c                 | 31 ++++++++++++++++++-----
->  tools/perf/util/auxtrace.h                |  3 +--
->  tools/perf/util/event.h                   |  1 +
->  6 files changed, 29 insertions(+), 11 deletions(-)
-> 
-> -- 
-> 2.40.1
-> 
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
