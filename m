@@ -4,79 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEB4D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B20D13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J3ddcrfgye+/HdaRhg7pJh3MNd6nUm1/2A/gEQxQhVE=; b=dVgboFJPnI8NnvzZbJdAgvSjCv
-	T8k9Nr08ag1CfDQwCvIjahzNBJ3KfsyuDXNeSfZczQn2ta/UJZIJjrILh8Yl9zYtNsd33/s5AVhey
-	9EWfDUyctZlZGhzO/Km5f5RcFJBmU2GuvZJU405luHvNepnS3uzYtvzDXQbwjsz05Cq3hySPYE6a7
-	KTjKD7riUJbNRAVFRa7B0jV/AjS6pksa5xTt975jA9vMXpP7qmWxmo8+Q/Uen57NaLOVPT2gGjBiU
-	YlV7M65G95PUyloxX5nDsS3DUrRzfmLFrsotY4Jt1fhMAbSb9Br0li3v0k9/wgXL+9LmHWyiDDXx0
-	bQTlj9fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IdHIuXNcRTp7WeqJ7Dz3GAtmBDa+RGbotWoT8FSQELk=; b=wGiLe59vtMPeVTGNuaIJcRZZWp
+	ducuSOQ7PZXAtWQZFWXR9Zf5R3n5LFHnrdPry1lu5L3DculAbKpNicoxrflDCPgED36kt08PHyZOr
+	deQpr+L+nuqEy8kR3ynOBdk4VlbyI3OHIsZetKpBBznDmK96exWGYeKeBgcZvbf2D72IUOqSWiY4J
+	8Ji4EKcIA1+nH5f7bPHj6J/ooXrOD5Sj6bCrkPd4zfjQ6nmTuFPWFopm2vU+GeoD2N76/tuGad804
+	Yq/4jmZEuHDzMRh/R2niu/xw9CZLHqtCWz06paECc/7929eJp2Dix65JeRyfEs+wkrIDHB6ETVKT3
+	4dksIhDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Nkm-0000000AYMp-1Ze6;
-	Mon, 28 Oct 2024 11:17:44 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t5Nqx-0000000AZMF-35KE;
+	Mon, 28 Oct 2024 11:24:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Ng0-0000000AXGN-0TUA
+	id 1t5Nov-0000000AZ1F-2FKR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Oct 2024 11:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IdHIuXNcRTp7WeqJ7Dz3GAtmBDa+RGbotWoT8FSQELk=; b=LIdU6E0+Mm207QZOqNhNeHp7Mi
+	iEgN70uY2c3yZu7cIrX0SPmey1OpfxeUXR35nZe0W104PD+6Io/kX107VnTXHGkQ9lrY9kgQq8EVk
+	hWbarYsnXWU4Eaqo1W+UmMocOBjSgxE1D6uGIvILZQSAJFpb+VWPF6dGXQyMfPTRKJZcrTjBS2yiB
+	sedZQLfnvbnWjhUwbaaZQ5uGtQVBAAmwteQ5DlAmp8qYI+oGVmt1bE4VmxbO8jNGKH/yKCKKTK5jN
+	Cgc6jGB/29hnpsYN3OW3Ni4FCaZCLaNJ36LD6KVv9FRQaPpWlt1kuNRARDtt6ow26ItTTuPUnsjJF
+	Mnmj2YaA==;
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5Nor-00000009f8v-1b8t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 11:12:49 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SBCOtR024786;
-	Mon, 28 Oct 2024 06:12:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730113944;
-	bh=J3ddcrfgye+/HdaRhg7pJh3MNd6nUm1/2A/gEQxQhVE=;
-	h=From:To:CC:Subject:Date;
-	b=qG25LAP5UZoe4PSg0njZavSRFDQoHMSgbkJTC/nuuSrr0mCLxS03k3VVxOq/1Uoa4
-	 teo2mtWnoMiL+XoFghxa9PRzb2I98ZJe3F2VWSUZbOPJJeWAp9cShEdnE9OVy4g0gr
-	 HnBpHxRCLEQirdtXFnCuRKFuxEC269TEjiK42N+4=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49SBCODp039166
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Oct 2024 06:12:24 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Oct 2024 06:12:23 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Oct 2024 06:12:24 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SBCNbL107215;
-	Mon, 28 Oct 2024 06:12:23 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 49SBCMUk028004;
-	Mon, 28 Oct 2024 06:12:23 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <vigneshr@ti.com>, <grygorii.strashko@ti.com>, <horms@kernel.org>,
-        <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>,
-        <m-malladi@ti.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>
-Subject: [PATCH net v3] net: ti: icssg-prueth: Fix 1 PPS sync
-Date: Mon, 28 Oct 2024 16:40:52 +0530
-Message-ID: <20241028111051.1546143-1-m-malladi@ti.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 28 Oct 2024 11:22:00 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-5ebc52deca0so2053257eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 04:21:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730114514; x=1730719314; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IdHIuXNcRTp7WeqJ7Dz3GAtmBDa+RGbotWoT8FSQELk=;
+        b=kRxgJBsrfPbSyuO1xg2OntPkeCf2Kt0SpjqgOxK8HuHaKPmKigUXbVMGH17piUG4sP
+         LQZgia9w5YKYowUM5z5Lm70EUiShYsyTgcJQg3u2ECMQtDPEXJTg66KMrIRzGjshIUso
+         TcJb37ssMM1kVvTLJuBDD9Xd4UDp5/sM1v33I=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730114514; x=1730719314;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IdHIuXNcRTp7WeqJ7Dz3GAtmBDa+RGbotWoT8FSQELk=;
+        b=mnLgq0jInMYi6j+RHTjm128ornk3pBEmP4sVE2Zd1lnDaXXUfsMIlyj5ViJ6q95aIC
+         o9E6gm5L8kjfc4JXhTbt/DkPDGaQwSx53yVC36MCcUAmS6oVOfvipf4hxT+ZKDJ90Zx1
+         QZPH+VO6I6Ev/5bpnTnghpuvRHjGJZUIWRtmyRRtqvvJk7dM+a2J1jUAufrIw/VJ/0Po
+         q8OaDupOmpUGsR9WSr5TJNEJdaru8aE/jJx+LET7K/YGOrIVeUy/XcHZajnLFOC3edJA
+         zxzg7D4Gf1hwu7BRxco6ZTfxD+rMZXjtnR8exotY8TypDsqoJk9UpB1CiXIWZP9XyCJr
+         8TdA==
+X-Forwarded-Encrypted: i=1; AJvYcCViqT1khX0brf8LYm8o0dCRRgUTZn6hYUDsZvR5WwbVyCUL517YIqqeB0esSNCTBOZBJAg/VLWi9N68I4BNB+7Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRsye0XErTdd5rIQJKV07AWa+/x9jAA8bBK8qWMWDWIAu2JUOn
+	c24bzAltkx1RyzbQEdrvRgfunOENzQnvIobj1JuOgXLUhWY57VHvMCJBNF6Sp7JxPXHVUITL/gY
+	=
+X-Google-Smtp-Source: AGHT+IEk/EfV/omedMxyXsl6Ri0QcxVTQiuRtBadTENQDBlxZ4MF7fXn3HjLZoF3OJBZmK93Rd9r9w==
+X-Received: by 2002:a05:6870:64ab:b0:288:60d6:f183 with SMTP id 586e51a60fabf-29051d6a2f2mr5518479fac.38.1730114513720;
+        Mon, 28 Oct 2024 04:21:53 -0700 (PDT)
+Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com. [209.85.167.171])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2903517701dsm1936625fac.0.2024.10.28.04.21.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 04:21:53 -0700 (PDT)
+Received: by mail-oi1-f171.google.com with SMTP id 5614622812f47-3e60825aa26so2466732b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 04:21:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWMhHk3CkcMpH2RAOYoR7MaY0auKwaSWcpOxzdLZa53QL45l8f51v8P/0rbsnKKm68b084XVTN0nuqwapt36MBy@lists.infradead.org
+X-Received: by 2002:a05:6122:1786:b0:509:e278:c28a with SMTP id
+ 71dfb90a1353d-5101504d301mr4253732e0c.7.1730114015383; Mon, 28 Oct 2024
+ 04:13:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20241025104548.1220076-1-fshao@chromium.org> <20241025104548.1220076-3-fshao@chromium.org>
+ <j5qw52grlce63mccduvryx467h4hvcnqrxrova74d52izq3g5r@wjiflssmq6a5>
+In-Reply-To: <j5qw52grlce63mccduvryx467h4hvcnqrxrova74d52izq3g5r@wjiflssmq6a5>
+From: Fei Shao <fshao@chromium.org>
+Date: Mon, 28 Oct 2024 19:12:59 +0800
+X-Gmail-Original-Message-ID: <CAC=S1ni-F_oudNyskSbxS1s2gZG7m4U4+nLxt0=dt5+DDkhV4Q@mail.gmail.com>
+Message-ID: <CAC=S1ni-F_oudNyskSbxS1s2gZG7m4U4+nLxt0=dt5+DDkhV4Q@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Update DAI
+ link node pattern
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_041248_274252_701DD8C1 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20241028_112158_615941_1551D9FD 
+X-CRM114-Status: GOOD (  32.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,76 +120,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first PPS latch time needs to be calculated by the driver
-(in rounded off seconds) and configured as the start time
-offset for the cycle. After synchronizing two PTP clocks
-running as master/slave, missing this would cause master
-and slave to start immediately with some milliseconds
-drift which causes the PPS signal to never synchronize with
-the PTP master.
+On Mon, Oct 28, 2024 at 4:56=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On Fri, Oct 25, 2024 at 06:44:42PM +0800, Fei Shao wrote:
+> > The associated machine driver is not dependent on the format of DAI lin=
+k
+> > node names. This means we are allowed to use more descriptive names
+> > instead of indices without impacting functionality.
+> >
+> > Update the binding to accept arbitrary DAI link names with a "-dai-link=
+"
+> > suffix. This is the common pattern used by the target (MT8188) and othe=
+r
+> > (MT8195, MT8186 etc.) MediaTek-based Chromebooks.
+>
+> We do not want arbitrary names. Why for example green-batman-dai-link
+> should be correct? The existing pattern looks wrong. Please read DT spec
+> and chapter about recommended names.
 
-Fixes: 186734c15886 ("net: ti: icssg-prueth: add packet timestamping and ptp support")
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Reviewed-by: MD Danish Anwar <danishanwar@ti.com>
----
+At first I was thinking about regex like
+`^[a-z-]+(-[a-z]+)*-dai-link$` based on the DTS coding style guide,
+but your example is not suggesting that.
+and the name like "hs-capture-dai-link" was rejected, so it's not just
+about enumerating the names either.
+Or "^dai-link@[0-9a-f]+$"? But they don't tie to particular register
+addresses... or just for some pseudo indices?
+I could miss something about DAI links under the sound documentation.
+Still trying to figure it out.
 
-Hello,
+>
+> >
+> > Signed-off-by: Fei Shao <fshao@chromium.org>
+> > ---
+> >
+> >  .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml     | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt=
+6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.=
+yaml
+> > index 701cedfa38d2..2da34b66818f 100644
+> > --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.ya=
+ml
+> > +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.ya=
+ml
+> > @@ -40,7 +40,7 @@ properties:
+> >        name defined in the machine driver.
+> >
+> >  patternProperties:
+> > -  "^dai-link-[0-9]+$":
+> > +  ".*-dai-link$":
+>
+> This breaks existing users.
 
-This patch is based on net-next tagged next-2024102.
-v2:https://lore.kernel.org/all/20241024113140.973928-1-m-malladi@ti.com/
-Changes since v2 (v3-v2):
-- Use hi_lo_writeq() and hi_lo_readq() instead of own helpers
-(icssg_readq() & iccsg_writeq()) as asked by Andrew Lunn <andrew@lunn.ch>
-- Collected Reviewed-by tags from Vadim and Danish
+There's no existing users in upstream, and the only downstream user is
+the MT8188 Chromebook DT that I'm trying to upstream, which I can fix.
+This binding was upstreamed exclusively for that DT.
+Even if we take a step back and assume someone has another DT already
+following this pattern (and that would be a surprise), this wouldn't
+break anything except a dtbs_check error, which would be trivial if
+they don't run that or attempt upstreaming. The driver doesn't use
+node names to distinguish DAI links.
+I want to fix this pattern before any actual users are in the tree if
+possible, but I'm also fine to stick with dai-link-0 to dai-link-10 in
+the case that nothing is changed and the DT has to follow the existing
+patterns.
 
 Regards,
-Meghana.
+Fei
 
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 0556910938fa..678a99882627 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -16,6 +16,7 @@
- #include <linux/if_hsr.h>
- #include <linux/if_vlan.h>
- #include <linux/interrupt.h>
-+#include <linux/io-64-nonatomic-hi-lo.h>
- #include <linux/kernel.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
-@@ -411,6 +412,8 @@ static int prueth_perout_enable(void *clockops_data,
- 	struct prueth_emac *emac = clockops_data;
- 	u32 reduction_factor = 0, offset = 0;
- 	struct timespec64 ts;
-+	u64 current_cycle;
-+	u64 start_offset;
- 	u64 ns_period;
- 
- 	if (!on)
-@@ -449,8 +452,14 @@ static int prueth_perout_enable(void *clockops_data,
- 	writel(reduction_factor, emac->prueth->shram.va +
- 		TIMESYNC_FW_WC_SYNCOUT_REDUCTION_FACTOR_OFFSET);
- 
--	writel(0, emac->prueth->shram.va +
--		TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
-+	current_cycle = hi_lo_readq(emac->prueth->shram.va +
-+				    TIMESYNC_FW_WC_CYCLECOUNT_OFFSET);
-+
-+	/* Rounding of current_cycle count to next second */
-+	start_offset = roundup(current_cycle, MSEC_PER_SEC);
-+
-+	hi_lo_writeq(start_offset, emac->prueth->shram.va +
-+		     TIMESYNC_FW_WC_SYNCOUT_START_TIME_CYCLECOUNT_OFFSET);
- 
- 	return 0;
- }
-
-base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
--- 
-2.25.1
-
+>
+> >      type: object
+> >      description:
+> >        Container for dai-link level properties and CODEC sub-nodes.
+> > @@ -112,7 +112,7 @@ examples:
+> >              "Headphone", "Headphone L",
+> >              "Headphone", "Headphone R",
+> >              "AIN1", "Headset Mic";
+> > -        dai-link-0 {
+> > +        hdmi-dai-link {
+>
+> No. Not really justified.
+>
+> Best regards,
+> Krzysztof
+>
 
