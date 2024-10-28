@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889D5D33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33BDD3398E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNEc7Ab11J7D2bwXEyWPM+PpwLENCKqu46gw0+Cu+lU=; b=hUuNG6m3O24oKlAcu186D9fJg5
-	5AGQmg4umSny/r5wAHCJsfDP9Xf9KrFa/tI4bG9SUPqPB2jVMp4++Hd1s7lm4PugATq69+MWVCgJg
-	qt6gqd2G+jbIelhx4AlTek2zJc8OBvx+7PXPsVf3bBbLEYGKwwagHqduy7K0uCvLqW2hykFJp1Tpt
-	3O8xK/6pbbZJrB71L8gDdJZlZyfGsKcO/R/4ur0COgtIz/8aV7QbG8SFaq90p1Vgk7zsFuzLbS/Gq
-	gLkVL//9lsQw2Dh+P+Adv3LF7d6KYUiSiD7kuuGiWq/uciJ6Q/OtT2s4d4ybmpWTFKCzJDBcVjc7L
-	u88I2Z+w==;
+	bh=GW6kvc4ZbQp7jOxwPlUXi8bHuXjPpwn11nTKKI/C1qY=; b=lRPwxxgThwiK5/PsW/dyXFwij6
+	UBVAAjrgaVP0g1+fAaIfUmrRrro6hbImvdq7OQLagqW/c94EWDVoL3tOmbwO+tgSaUvj3jlVn5phH
+	JdPZ+FUZhC+vtiSSLAlg4Ws0iM5rixrKGPWUkC0kuO4nKJU3ukWPiwtDjVttoIoENxRVOsyvkEKo/
+	v3bR1du4JppyjGa63USnKk1VORd4S/aDRKg1JErxv0EqD4/bMJvKqGtHUvLVIUSIBZGaPNiy3k/PC
+	S8ONhfwUBDdq4Z3NNNYv9ouBKkG0Q6jg33G3fQji59l4SMm07i4qKhuLRv7BoMIhjyNospRcO3I4q
+	x5flff7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qq9-0000000B8kc-09Lz;
-	Mon, 28 Oct 2024 14:35:29 +0000
-Received: from mail-ed1-f65.google.com ([209.85.208.65])
+	id 1t5Qrk-0000000B96u-1YmW;
+	Mon, 28 Oct 2024 14:37:08 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QOw-0000000B2ic-00fA
+	id 1t5QOx-0000000B2jv-18TX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:07:24 +0000
-Received: by mail-ed1-f65.google.com with SMTP id 4fb4d7f45d1cf-5cb74434bc5so5625349a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:20 -0700 (PDT)
+	Mon, 28 Oct 2024 14:07:25 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a86e9db75b9so651918866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 07:07:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730124439; x=1730729239; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1730124441; x=1730729241; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iNEc7Ab11J7D2bwXEyWPM+PpwLENCKqu46gw0+Cu+lU=;
-        b=ITzEeEM2bh0M9jNDNPbBGAustdm22nUrp2X1eh7lj/V5250PvF/UBQMPJQwpZrOD4a
-         ROOO/jf6nH5i2VSMEpVoeIRu41crnRcX80e5L7WRF0i0dOhq0FZwgjLRQ8vkS3cIBbBL
-         /vZkPrhv8tAkxfOo5RyZqh6Y3dWGJkURa277/Zf7aqPT/p/OotH9b5NVpp5PUfh8Rt2q
-         ldUu2R9IW2gyaMDVbOL9GPmogRGUurCmJzf1gJht/2UYEM7W7DsEZ4xL+tSP3ylQni7N
-         NUsJL7Pr6yIR8YuOAX2P2q1zxd5rXVVinYWT+frvZezjHy8kKyi5WJxzKFUZIDNaQCKM
-         mqmw==
+        bh=GW6kvc4ZbQp7jOxwPlUXi8bHuXjPpwn11nTKKI/C1qY=;
+        b=FqHk9jssjLLnNRrFVAH2g0vReXaI4UABVsLFaJ5RnSJH1+0K27Bg1+tC2V7algar8C
+         dVzq0DNz+8kpIb4vXRpzJVF3RsRZY0xrRso6aTokAl6KBjATqb2EGEApmRQDyC40bcyN
+         7QaFT4peYivU5LXQ6qzC2130Sl0lbLCP2Tzp5I03/o2i6uhF1rSwDAUYPExjhxuubBGT
+         NUgrNrU6hBgClXJjUmtYKLNn/5CT1hp6SyehHroOPflf+EgtQgBYfD6/GfUnG02CyyBH
+         h+uvM7aF42uByMJy8lenr3drtkopUwo/32ZFmYgwzb2XvtwSkvj07l7TBqtktNVDkBMY
+         B/XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730124439; x=1730729239;
+        d=1e100.net; s=20230601; t=1730124441; x=1730729241;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iNEc7Ab11J7D2bwXEyWPM+PpwLENCKqu46gw0+Cu+lU=;
-        b=r0oBIG/7Gel7x4HUqv8ispO31rzAHi6FvM6McLRCgXd/RNXToTzJGHYU9n7gx9cCAk
-         m/aduaNpLzfls+BVZGxscShp8u4Wn0mOjmDC1QV23ScFsFV9OuxIXtEayDvNVmBaxH+n
-         ZMlVclN9cJpno+FCNz8H2Wrj2xuiK47s+Vcm8+E5VYvB0W8X24mYutRX0nL557ntqpbV
-         b/+DxFVqShUzReaRMAH/MNIejudcWuBMYsIdiw92zkw5+Lz9PwnoUHGZqeMxoIIhRk2z
-         TDtFY+H0TNP7/v/RVNw9LUZECK3ZBBYuYvl/49xYHKj1tDllx80Uw9IUzeXRT7rlfB8B
-         fJ0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWnJ0obV93iu40OAwO4ciNHZDemRR1Qm1Vu1EM4N2eYbfHtuHhy+v3oXepP5syO7CukAdL7yZA22nhDwRq9PXHs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2bsuaQn0ShL5hipZ1SVdiWvrZIQYKZa2c68XY8jnFx4NwvUnX
-	w0U2FYJ+4aCWVKAiQzz+FHNNWQWy9SC8bbHHA9Zjzad8lOUELw8b8hRhrHWtrzo=
-X-Google-Smtp-Source: AGHT+IGLRlQTVhRPQemiDdTWqan8eXJlYIgmzJ3VjDMdLX43CD2E2sNJ5FgkqwMaVS/d3Bu6+8CK3Q==
-X-Received: by 2002:a17:907:3da1:b0:a99:4e35:9a25 with SMTP id a640c23a62f3a-a9de61a17a1mr698709666b.44.1730124439054;
-        Mon, 28 Oct 2024 07:07:19 -0700 (PDT)
+        bh=GW6kvc4ZbQp7jOxwPlUXi8bHuXjPpwn11nTKKI/C1qY=;
+        b=Xctcml2jkGY6eSDOv+hY5zp084r2nKMKwmZyzdVnQE8/8MVKhIGoOA2LQfm5v6BeT8
+         sz5d9pQs+bTvCLtCYy51KH1V+8fcyVDMnTXXUR/ERzM4h/mUmQQt0jp9/JxiVGEH6gT5
+         zF3ubU2QzQtRudc1ojAMZHZN5oggtMR5yI8hg416FFwL+rlrXcZo+WlsBxKAhzDmL7X8
+         rzlENFg6WjL6z+6FQsRFSWCtDIUcKJ53nTas75NofJ69jZ9X/rng2sOdQjXyzqY/96nn
+         9lkd0+1RWlPWroDOFwwrDOtV6v7+lerNxbj4I92/LDp2iDQ7Z6ZN+sx3EgLIB8m2FkKt
+         4wbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWK093nr3tflKBzq/g6o9n9VsaROSKdWYBgdp0mfqasSUMks7nH3vpISCbQZ2uGFRDPk3eBxWGsvhyf+OcPSJX1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1h8utn/ZKIlgWWMjx4NJsg1ghgjDd42kkgfZHrU3r+DU6bAfk
+	QLAunj/Ef2AHaKCNKw7KxJmEFlFen4sb17/W8b44LgLxajL9hWHePjbBisFci+k=
+X-Google-Smtp-Source: AGHT+IE5csQvNeeQQV2TiEg3S3V6yZpGcfTplYGENkEB1u6HmkJa4la0HF/+Zf2tdkb6gQWZYObepQ==
+X-Received: by 2002:a17:907:9452:b0:a99:fbfc:5ff3 with SMTP id a640c23a62f3a-a9de5ce1611mr802908466b.18.1730124441130;
+        Mon, 28 Oct 2024 07:07:21 -0700 (PDT)
 Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b3a08b29asm383846066b.225.2024.10.28.07.07.18
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f2982ecsm376935166b.106.2024.10.28.07.07.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 07:07:18 -0700 (PDT)
+        Mon, 28 Oct 2024 07:07:20 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -98,17 +98,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v3 04/12] dt-bindings: misc: Add device specific bindings for RaspberryPi RP1
-Date: Mon, 28 Oct 2024 15:07:21 +0100
-Message-ID: <768d2307342e1054c58324a9d51957456dc82cbf.1730123575.git.andrea.porta@suse.com>
+Subject: [PATCH v3 06/12] of: address: Preserve the flags portion on 1:1 dma-ranges mapping
+Date: Mon, 28 Oct 2024 15:07:23 +0100
+Message-ID: <3029857353c9499659369c1540ba887d7860670f.1730123575.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1730123575.git.andrea.porta@suse.com>
 References: <cover.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_070722_104323_A01F81AF 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20241028_070723_456929_90F00C2F 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,115 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RP1 is a MFD that exposes its peripherals through PCI BARs. This
-schema is intended as minimal support for the clock generator and
-gpio controller peripherals which are accessible through BAR1.
+A missing or empty dma-ranges in a DT node implies a 1:1 mapping for dma
+translations. In this specific case, the current behaviour is to zero out
+the entire specifier so that the translation could be carried on as an
+offset from zero.  This includes address specifier that has flags (e.g.
+PCI ranges).
+Once the flags portion has been zeroed, the translation chain is broken
+since the mapping functions will check the upcoming address specifier
+against mismatching flags, always failing the 1:1 mapping and its entire
+purpose of always succeeding.
+Set to zero only the address portion while passing the flags through.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- .../devicetree/bindings/misc/pci1de4,1.yaml   | 80 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 81 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+ drivers/of/address.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/misc/pci1de4,1.yaml b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-new file mode 100644
-index 000000000000..d66b2fc130d1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-@@ -0,0 +1,80 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/misc/pci1de4,1.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RaspberryPi RP1 MFD PCI device
-+
-+maintainers:
-+  - Andrea della Porta <andrea.porta@suse.com>
-+
-+description:
-+  The RaspberryPi RP1 is a PCI multi function device containing
-+  peripherals ranging from Ethernet to USB controller, I2C, SPI
-+  and others.
-+  The peripherals are accessed by addressing the PCI BAR1 region.
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-ep-bus.yaml
-+
-+properties:
-+  compatible:
-+    additionalItems: true
-+    maxItems: 3
-+    items:
-+      - const: pci1de4,1
-+
-+  '#interrupt-cells':
-+    const: 2
-+    description:
-+      Specifies respectively the interrupt number and flags as defined
-+      in include/dt-bindings/interrupt-controller/irq.h.
-+
-+  interrupt-controller: true
-+
-+unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - '#interrupt-cells'
-+  - interrupt-controller
-+  - pci-ep-bus@1
-+
-+examples:
-+  - |
-+    pci {
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+
-+        rp1@0,0 {
-+            compatible = "pci1de4,1";
-+            ranges = <0x01 0x00 0x00000000
-+                      0x82010000 0x00 0x00
-+                      0x00 0x400000>;
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            interrupt-controller;
-+            #interrupt-cells = <2>;
-+
-+            pci_ep_bus: pci-ep-bus@1 {
-+                compatible = "simple-bus";
-+                ranges = <0xc0 0x40000000
-+                          0x01 0x00 0x00000000
-+                          0x00 0x00400000>;
-+                dma-ranges = <0x10 0x00000000
-+                              0x43000000 0x10 0x00000000
-+                              0x10 0x00000000>;
-+                #address-cells = <2>;
-+                #size-cells = <2>;
-+
-+                rp1_clocks: clocks@c040018000 {
-+                    compatible = "raspberrypi,rp1-clocks";
-+                    reg = <0xc0 0x40018000 0x0 0x10038>;
-+                    #clock-cells = <1>;
-+                    clocks = <&clk_rp1_xosc>;
-+                    clock-names =  "xosc";
-+                };
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ccf123b805c8..2aea5a6166bd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19384,6 +19384,7 @@ RASPBERRY PI RP1 PCI DRIVER
- M:	Andrea della Porta <andrea.porta@suse.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-+F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
- F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
- F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
- F:	include/dt-bindings/clock/rp1.h
+diff --git a/drivers/of/address.c b/drivers/of/address.c
+index 286f0c161e33..72b6accff21c 100644
+--- a/drivers/of/address.c
++++ b/drivers/of/address.c
+@@ -455,7 +455,8 @@ static int of_translate_one(struct device_node *parent, struct of_bus *bus,
+ 	}
+ 	if (ranges == NULL || rlen == 0) {
+ 		offset = of_read_number(addr, na);
+-		memset(addr, 0, pna * 4);
++		/* copy the address while preserving the flags */
++		memset(addr + pbus->flag_cells, 0, (pna - pbus->flag_cells) * 4);
+ 		pr_debug("empty ranges; 1:1 translation\n");
+ 		goto finish;
+ 	}
 -- 
 2.35.3
 
