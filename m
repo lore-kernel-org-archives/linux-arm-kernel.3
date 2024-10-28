@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEF3D13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0C6D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O7sEAvP8NG9JnAXi5TH/KAqfu5gH9AuYe39avRf1R9I=; b=uTe3Ydye9s243y/Qxrg0mFKx+S
-	V7Zdch7L2BXWvQxc0kfYxKTIFgiqhx0mDItjR9IYrMdG/h7y/N1uCspb8nfouQLBIa7bWtArPLnbi
-	Dii+WoTpf/n2Jfcg6U1y81DgzezUSzSyNKgVJ7J9UQ0j9yFvf6sCYOx6LiR50tAbd8eX+OFOk5FZJ
-	iTt8otNC6DHO/FWg0SKMbpjHLtMs0RNUV7EX0POferVlAKJR35HysHCV69K8HrPKLYeA7jEr3LwoE
-	mXj0QOEGnTr2FnYxiIaFqp1m2x0xTux3AFPa+vrZ56rLpp1rylFOGvFWMDSSqo9LYBddwKYRqrDO8
-	Zjc8QZiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VPBuezFB3CXtTW5/lJNTKguPGRqG+lEFtQVwqgqjd4Q=; b=L1x6qVE5OaJu+d62Z6Y9kqezSt
+	1dTMn1YYOfbJ95MXspuBZ7m6gpvsUMQeS22paGz4fD+nFSk0dBhjpURF3OJmrb+gIX5Fl0OgiDp/q
+	CZTb6sIoc4D7XMT5lIwdHaPtNzy82Cr8Glu08n0J9wf/SyYeVFE6vP7ck+nrW4zX1UwzquM0exs99
+	aCu5Oa6mYv7G/Qq+GL7J+DK4aH6llOmBA6C0lLNMXFySmDUGAIex3UiD2Ps2x4rTwgUwZzSGDac1j
+	ak8IHy6rxWKTl4piVtnDbUs9ngK21yE029u0vui5ZCfgTdwGTNhSbeMnHyerWkbRTWa/AqLNkYUzk
+	DjKlD0dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Lru-0000000ACTZ-207u;
-	Mon, 28 Oct 2024 09:16:58 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1t5LxI-0000000ADb0-16vv;
+	Mon, 28 Oct 2024 09:22:32 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5LpD-0000000AC9Z-3ILF
+	id 1t5Lvf-0000000ADIX-39YR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:14:13 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539d9fffea1so3762791e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:14:11 -0700 (PDT)
+	Mon, 28 Oct 2024 09:20:53 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2fb58980711so35122701fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 02:20:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730106850; x=1730711650; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O7sEAvP8NG9JnAXi5TH/KAqfu5gH9AuYe39avRf1R9I=;
-        b=OFXGyFzB3liN2IqTMXmofHCQ+rPSuzZIGwoyUMkgKPmNUIKtdnhWLhZLQTGa7BySJV
-         wIxfj5jJXUM5KXvb1lFP0uM3MS0QpH4+OpEOxOJ/hVhMV7lgFE4tGOOIhqXeIgGI5N0x
-         +lXBUeE1TY3Yr7po4UvaYxp69YcYTjH4CjXi0=
+        d=linaro.org; s=google; t=1730107249; x=1730712049; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VPBuezFB3CXtTW5/lJNTKguPGRqG+lEFtQVwqgqjd4Q=;
+        b=c/fVxmiQr61W1ni8lvxgmYBBRRFk+YNrD96McJvSk8ncUaPD7ZqEP4lmZCGHgx7dBU
+         cm48M+1ojoqC8cL5tbiWRWPnPuI5tM170D2g/LOM4VVmC5yhdVydaPCE8o02DdPyBzHm
+         fUk4SnMPMwFRERF1nw7NyY82/PAv8kjQoh4UtTq4LZY6YRECWk+NE0UAoBUVHDX41Fyt
+         beMPGhEpId430PwkHiDRsb+ArinNF+HLG5Tud0yovXADPgaGXTuT+ORO0C83u3bTWD1P
+         WgeCWhQA8h7JLm/pQLcU6xW6vKsZrmsWxVfBRWB2SnNbE44/4X0pVceQDVZ3jrFNUUTp
+         aSOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730106850; x=1730711650;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O7sEAvP8NG9JnAXi5TH/KAqfu5gH9AuYe39avRf1R9I=;
-        b=O4tY9BlI9BuTCALsUCphIYgfdj8BJh2QP7Ra7ZuK/9ccecBB36P6Z07ES8v7V+hY3D
-         2IKcYo5qMvpiPuNoKm8OptBuznanXKoNBlzo4s38b//YGjTH5/9VGYDMFMrGe4b3Yldd
-         Rl4mcy7+Zt6bhMxL/2vJhOT5QKpSbyPojUIaHC4bdd5dKWWHmxUCftvWFD6/9JHTx+08
-         u0d6J7Eot9SKBr8TT/gQnrVT8T/P9CxgJ/jQjsYgyo6jIOrhL54ivHeg4Z5GepV1lVVE
-         2clxfSxGhLG57228RzmdaXD6gajtS4hQDTqzUHALC34yZLaUCTf6nkMVnv2doBNTuhWW
-         Q4mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVm6T1uRk0r9GTP5tyNJ55xw6g06Q3vJzZlNYfDTOXboI5Bu/o+pSreiMC8OG+kFzwD3zibj5G4XYM+EWzjTV+G@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhnfzxIQPCsCexSs1XX1SO4n4EK2X4hyt0LiXyCHBnKepKueVE
-	a3icalVZdw+c9n3A0s2vQDzUsLCF/AF25c4Qj5fTeLIyduRTzPaKoTqOYbq5BPbksp9EEqSqJRZ
-	AW85f7iDLDXZuJAtXDDAfGKqryzYYMNG9gH3JDlEburFtAtc=
-X-Google-Smtp-Source: AGHT+IFPHFbPyPXoPFbsVwjDIUW/0WQx3PxGtpf1eVaSW6Z7Z3fXH3i+SJTqnAp2zN1OASRPnjVQ7nAeuz6Vm9QIUx0=
-X-Received: by 2002:a05:6512:1188:b0:539:fc26:74bd with SMTP id
- 2adb3069b0e04-53b3490ee7dmr2587366e87.27.1730106849694; Mon, 28 Oct 2024
- 02:14:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730107249; x=1730712049;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VPBuezFB3CXtTW5/lJNTKguPGRqG+lEFtQVwqgqjd4Q=;
+        b=R7FJ1/3u/gXHCX4j8YqA4qrXYGvuqxDigbB5FSmj2mNJenxRGoSjbRnzvdbPYjgQPb
+         X+HDMEIE1Y2ytPTszCiD3Ai1HjrHl/sRhCT2wJz87XexWI1QaPwLDmNS88Njq/uumUNY
+         o6mBAi9WL+A0NUkwnvKRZ6YjwBZJADJ8edgtTlhiBjmnUVwwMFy5/MNQM73HFYh6Q6D0
+         hI7FGQz++RLK6qPy4l0Q+PWmFNvzUoTEGBl4wJlbX7hOeiB8VCL5ZysQzxT6QqP8QGoV
+         o2DetNlc8kBIVEFydQDrpfgQ0evDg2C1HpHUla2e82wij43yRscdZySRXfzzk45lzhPr
+         HYbg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1oluYVJy3DbJD1p0RPEYxvt3RRyVLBTKPQnSGoNDTXy6mm2VG8vbu2mxXOqEYlw4h2/vDFBy9pTVgTneGtJd0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfVU0o/3NBzJfmHSV2FCDqgEOzmc4E/OQUtZMhWB3nbUMwjgJ4
+	4iOK1PByNEANRYaBZPgi4WbwhXM6zYI2UAgMzzKBOR/ugOK93esUItLYFrWFd1g=
+X-Google-Smtp-Source: AGHT+IHMzC2RrBK1gDyjb7BDtN9UQMSMyOUaimH3SDT8yHY0Jieo0+u5sTv3iUOAiXJhLKZA5AAPKQ==
+X-Received: by 2002:a2e:bea0:0:b0:2fb:5014:c941 with SMTP id 38308e7fff4ca-2fcbdf71340mr25188781fa.14.1730107249435;
+        Mon, 28 Oct 2024 02:20:49 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb4507c44sm11199391fa.19.2024.10.28.02.20.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 02:20:47 -0700 (PDT)
+Date: Mon, 28 Oct 2024 11:20:45 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
+	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, quic_jesszhan@quicinc.com, 
+	mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	sakari.ailus@linux.intel.com, hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com, 
+	quic_bjorande@quicinc.com, geert+renesas@glider.be, arnd@arndb.de, nfraprado@collabora.com, 
+	thierry.reding@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, 
+	marex@denx.de, biju.das.jz@bp.renesas.com
+Subject: Re: [PATCH v4 10/13] drm/bridge: Add ITE IT6263 LVDS to HDMI
+ converter
+Message-ID: <tjtbvn5ewlzs6wqkp2ffquiiebakhv2eg3vt4mzooeb6nibx4u@qhwx4hxvj6ou>
+References: <20241028023740.19732-1-victor.liu@nxp.com>
+ <20241028023740.19732-11-victor.liu@nxp.com>
 MIME-Version: 1.0
-References: <20241017094222.1014936-1-wenst@chromium.org> <20241017094222.1014936-8-wenst@chromium.org>
- <CAD=FV=X-YzEGEc+tp-uB6vdPMEC-V9M=Gb60H69=_XY9w4R8nw@mail.gmail.com>
-In-Reply-To: <CAD=FV=X-YzEGEc+tp-uB6vdPMEC-V9M=Gb60H69=_XY9w4R8nw@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 28 Oct 2024 17:13:58 +0800
-Message-ID: <CAGXv+5H8kxrr=JJsMMY5Y+HC5JqMN-bMkm7hztOzQgrbew6-rw@mail.gmail.com>
-Subject: Re: [PATCH v9 7/7] arm64: dts: mediatek: mt8173-elm-hana: Mark
- touchscreens and trackpads as fail
-To: Doug Anderson <dianders@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wolfram Sang <wsa@kernel.org>, 
-	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Johan Hovold <johan@kernel.org>, 
-	Jiri Kosina <jikos@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028023740.19732-11-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_021411_923342_E0E05447 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20241028_022051_815617_352C5909 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +104,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 18, 2024 at 5:16=E2=80=AFAM Doug Anderson <dianders@chromium.or=
-g> wrote:
->
-> Hi,
->
-> On Thu, Oct 17, 2024 at 2:42=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org>=
- wrote:
-> >
-> > Instead of having them all available, mark them all as "fail-needs-prob=
-e"
-> > and have the implementation try to probe which one is present.
-> >
-> > Also remove the shared resource workaround by moving the pinctrl entry
-> > for the trackpad interrupt line back into the individual trackpad nodes=
-.
->
-> It could be worth noting in the description that it's a really bad
-> idea to pick this patch if you don't also have the patch
-> ("platform/chrome: Introduce device tree hardware prober").
+On Mon, Oct 28, 2024 at 10:37:37AM +0800, Liu Ying wrote:
+> Add basic HDMI video output support. Currently, only RGB888 output
+> pixel format is supported.  At the LVDS input side, the driver
+> supports single LVDS link and dual LVDS links with "jeida-24" LVDS
+> mapping.
+> 
+> Product link:
+> https://www.ite.com.tw/en/product/cate1/IT6263
+> 
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> Reviewed-by: Biju Das <biju.das.jz@bp.renesas.com>
+> Acked-by: Maxime Ripard <mripard@kernel.org>
 
-I found that there's a stable tag one can add to reject AUTOSEL.
-Sounds like the perfect thing to add here.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-> > @@ -35,6 +37,7 @@ touchscreen@40 {
-> >                 hid-descr-addr =3D <0x0001>;
-> >                 interrupt-parent =3D <&pio>;
-> >                 interrupts =3D <88 IRQ_TYPE_LEVEL_LOW>;
-> > +               status =3D "fail-needs-probe";
->
-> It's a little weird that there's no pinctrl definition for the
-> touchscreens but there is one for the trackpad, but that predates your
-> patch and is unlikely to be a big deal.
-
-To be honest I'm in favor of getting rid of pinctrl settings that
-do nothing more than mux in a GPIO, as mentioned in my talk at ELCE.
-Such settings are already implied by the interrupts or gpios properties.
-The fact that the OS doesn't enforce exclusiveness between the
-subsystems is not something the DT should deal with.
-
-> >         };
-> >  };
-> >
-> > @@ -47,6 +50,8 @@ &i2c4 {
-> >         trackpad2: trackpad@2c {
-> >                 compatible =3D "hid-over-i2c";
-> >                 interrupts-extended =3D <&pio 117 IRQ_TYPE_LEVEL_LOW>;
-> > +               pinctrl-names =3D "default";
-> > +               pinctrl-0 =3D <&trackpad_irq>;
-> >                 reg =3D <0x2c>;
->
-> I should have noticed before, but officially the order above is
-> slightly off. According to:
->
-> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
->
-> The "reg" property should be higher (right after compatible). It's not
-> a new problem with your patch but since you're inserting a new
-> property you might as well match the new dts style.
-
-The entry in mt8173-elm.dtsi is also in the wrong order. I think I'll
-do a patch later on to just fix it up if it's a major eyesore.
-
-Angelo what do you think?
-
-> In any case, nothing is a huge deal.
->
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
-
-Thanks!
-ChenYu
+-- 
+With best wishes
+Dmitry
 
