@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472CCD33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86AF9D33992
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Fb34FGXqzMNx+nxE4qoPozuG7GAzwlPuHgHmRcGRGE=; b=ceVUscWAsRqyCWjh6DG4oXZbeX
-	GVbnCgs5ITZul7AdoEfLw8KKAu5qtnwQKF/UtMC7v5nazpLBJsmPm6rNwrPqDPi9WZ3F1DMMkXGyC
-	uGW4A2+ZqjWuNUvv3L90Ji3meETKxNj/91bAOeAz5w0BBDcLHeEdWpe/xePoxPsX9zhhQ1zzbL9UF
-	7O3uervmMb8X8gQBO0sJnPyAtoC5vEWLgZHia7q8LUfDuwOXUTRsOyxGdopNtNeT8o+BiyS4sWzcG
-	XNzQQfjH8YPSoEQazkfSEgdOBidyv5zWY9THfLmKlGAugNaaQVxUvqXj8pce2LDJ5Ps3lH9uPwStu
-	Rw0oLPDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lze2D8j1O7gv9ahMxtht6Or8GHfd6On32yyYfuBSCwU=; b=rPkeMN12Lt5ma8
+	D8virM9Xw5GlbaSyJy1SH42whYWcE1aMDXFzJwB6YbnLRjornm/RfAeoB1UDiKX3Rw1yHLPuH34m1
+	v4TCwmI5tS7yT/eWUmdn/hcBp2PBpmVv/6kuA9VXFhP1JKPwioqHu+4i6h//W69eBXwt1rZUJxaDQ
+	CzdU6BJTyyRU1bsRCX5zL8qUZX3xUP+UDHUKmuLO5dm5/nzhIYJgA5rer5Sz9WP2q41QNfr/ZM8Fv
+	c0Wv6IlLedUbu8al/9ssSIDfvpsswIV9nYlUT0fEbRQN7PyJKVndgu1boSFIhPFQ1rZHPpQkPIKnt
+	aQEMkJsdG5cWYd7kvZng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5R83-0000000BCeD-3cEv;
-	Mon, 28 Oct 2024 14:53:59 +0000
-Received: from a.peacevolution.org ([206.189.193.133])
+	id 1t5R9f-0000000BD1D-0yY3;
+	Mon, 28 Oct 2024 14:55:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QdN-0000000B6Ew-3Bgb
+	id 1t5Qe9-0000000B6Ty-1zhy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:22:20 +0000
-Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id D87254C77B;
-	Mon, 28 Oct 2024 14:22:15 +0000 (UTC)
-From: Aren Moynihan <aren@peacevolution.org>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Aren Moynihan <aren@peacevolution.org>,
-	Kaustabh Chakraborty <kauschluss@disroot.org>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <trabarni@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Ondrej Jirman <megi@xff.cz>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org
-Subject: [PATCH v3 6/6] arm64: dts: allwinner: pinephone: Add power supplies to stk3311
-Date: Mon, 28 Oct 2024 10:20:00 -0400
-Message-ID: <20241028142000.1058149-7-aren@peacevolution.org>
-In-Reply-To: <20241028142000.1058149-1-aren@peacevolution.org>
-References: <20241028142000.1058149-1-aren@peacevolution.org>
+	Mon, 28 Oct 2024 14:23:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A2CC5C5C30;
+	Mon, 28 Oct 2024 14:22:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF3EC4CEC3;
+	Mon, 28 Oct 2024 14:23:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730125384;
+	bh=ZQCzSCdRJnarUvUNjH4dcubxSkcXGcHBY3Q+CZQ2Yus=;
+	h=From:Subject:Date:To:Cc:From;
+	b=kntAFHzSa2STXgjS3+YZA6rDD097Rmxcv2cwb13ucIBzhSUPKir7czv48YTSwBCmk
+	 s/nt9qfNjkC8hx4YpyCledjyzk3Xyq6fIVbpDpqhgtWh/+ymhhjwE4ssKqOZMDoTsf
+	 0FicV63BQ+MfiTFrj8eouf9lv4cu0hm3K4FfcQ3d8117m4U07LL5WbIjSLm+Ba04ml
+	 fWCUvy5Cwmb6hQTNc84YnNhUelOTQryn21sTuJ6qRu/r/qyn0Thfats9R78w0U5L91
+	 5JdWjwqGTA4y+iz1eyGMnXOJqxfhiovfuWpksRMUxoifQLHcacIK332IFoMZqmWW/A
+	 H/woj9j5T0ggA==
+From: Konrad Dybcio <konradybcio@kernel.org>
+Subject: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
+ PSCI impls
+Date: Mon, 28 Oct 2024 15:22:56 +0100
+Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++++
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730125337;
-	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=1Fb34FGXqzMNx+nxE4qoPozuG7GAzwlPuHgHmRcGRGE=;
-	b=FkSuad9R/jOLZe6Le3I3hEkUAGnymubOEJP9B67v9DKLxDo0Kv1JVBbAyoZo6mAvNAhWwl
-	CEgB3woOmCngbAnZe2SqrND+rM0eK4TqqQs3T0Xez4k8T4NTn+CU3f795Y1nQvttv5Qf22
-	9EbvET02emJZvfxMPsW9m7Ucx4vHdW8=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAECeH2cC/x3MQQqAIBBA0avErBNsKLCuEhGiU80iFaciiO6et
+ HyL/x8QykwCQ/VApouFYyho6grcZsNKin0xoMa20WjUERM75dI5yymJgp8Fs90VmsXpvvPa2hZ
+ KnTItfP/ncXrfDxOo+w9pAAAA
+X-Change-ID: 20241028-topic-cpu_suspend_s2ram-28fc095d0aa4
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+Cc: Marijn Suijten <marijn.suijten@somainline.org>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Konrad Dybcio <konradybcio@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=1608;
+ i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
+ bh=ZQCzSCdRJnarUvUNjH4dcubxSkcXGcHBY3Q+CZQ2Yus=;
+ b=CJb5iv370J3U0frllG/BZzoHQSaWIPmZgpGoQ58p2btL7ihJwcbBT8zD1VKQ/ziRzdc1U6Uas
+ 0G+Ugzn/wmLBSi4AbM9rrHA7dtq5o+QUORoJO4QpnMwGDqz1XQcdumk
+X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
+ pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072218_121868_325E77D6 
-X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-CacheID: sfid-20241028_072305_648874_74D51EAF 
+X-CRM114-Status: UNSURE (   7.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,36 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
+Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
+CPU_SUSPEND instead. Inform Linux about that.
+Please see the commit messages for a more detailed explanation.
 
-This allows the driver to properly handle powering this device, and
-disable power during suspend.
+This is effectively a more educated follow-up to [1].
 
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
-Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+The ultimate goal is to stop making Linux think that certain states
+only concern cores/clusters, and consequently setting
+pm_set_suspend/resume_via_firmware(), so that client drivers (such as
+NVMe, see related discussion over at [2]) can make informed decisions
+about assuming the power state of the device they govern.
+
+If this series gets green light, I'll push a follow-up one that wires
+up said sleep state on Qualcomm SoCs across the board.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20231227-topic-psci_fw_sus-v1-0-6910add70bf3@linaro.org/
+[2] https://lore.kernel.org/linux-nvme/20241024-topic-nvmequirk-v1-1-51249999d409@oss.qualcomm.com/
+
+Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 ---
+Konrad Dybcio (3):
+      dt-bindings: arm,psci: Allow S2RAM power_state parameter description
+      firmware/psci: Set pm_set_resume/suspend_via_firmware() for SYSTEM_SUSPEND
+      firmware/psci: Allow specifying an S2RAM state through CPU_SUSPEND
 
-Notes:
-    Changes in v2:
-     - add leda-supply
+ Documentation/devicetree/bindings/arm/psci.yaml |  6 ++++
+ drivers/firmware/psci/psci.c                    | 44 ++++++++++++++++++++++---
+ 2 files changed, 46 insertions(+), 4 deletions(-)
+---
+base-commit: a39230ecf6b3057f5897bc4744a790070cfbe7a8
+change-id: 20241028-topic-cpu_suspend_s2ram-28fc095d0aa4
 
- arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-index 6d152066a59a..618341b63db2 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-@@ -260,6 +260,8 @@ light-sensor@48 {
- 		reg = <0x48>;
- 		interrupt-parent = <&pio>;
- 		interrupts = <1 0 IRQ_TYPE_EDGE_FALLING>; /* PB0 */
-+		vdd-supply = <&reg_ldo_io0>;
-+		leda-supply = <&reg_dldo1>;
- 	};
- 
- 	/* Accelerometer/gyroscope */
+Best regards,
 -- 
-2.47.0
+Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
 
