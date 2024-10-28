@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D19BD3399E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8CFD3399F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FD4VxrCxXj/vuhbbYoyQ1RvbV7RS1kZWHSuzEFjeBXc=; b=gc7txh+AO6eH7VIEg5GtQ0NYf6
-	cR6B+eN8G2BMlh4j7Ei6Pwi4an1YBkQMSoOHpKUu1XKQQ3xYuRakrFiW0uowuudTNrxtyIrLCfaiF
-	ZyiX6bUyfGcf/+Bbq8t1zadPcWF358LckGfUV5EW6yP+bsQV333GyKcbdVAdop8+F75cO9KCiaGI9
-	t8OJ7f3RMXcV2gA0euBw6F0vi3ooOpKrBGuKtGBTyX+p8nkB1LAwVmSntUAOutGso5wOsWHuk5neH
-	xCDuv94E94xjCKpWWo+J1FB7mFpnjutfu7ktlrbk0jAiQ76MZO0LrOpHMBvbd+NLNxRyaO4p5rIHm
-	QSFrfEqA==;
+	bh=vOGWxeNo10IJ1zx3NeNqhpFpTCjszPdvsXE0VdFejGc=; b=q7BxKGoTk/ujawqOkAsfFkKVj/
+	8KK0Q/ZtbsZeBc7MUI7ybB7a0BPF5m+uCVONMc8Fgj1KhbWurq/p9vi/zmDxPlWWMBhUExf2bAY00
+	1/9NghL0bzs02SphdT9liQCZe8LSUGmIQxnlEr9zrxyQWCegz0FlwdqXm4v6/0hanXmRpwj4SYGrj
+	srvqM3vBOJSpfRtBJpd3LvZcIycdUAD6JnBA8ttGYUv7tgOUwV1dSDe+QWgBo77Ymdw5E9u+Ezx9t
+	+jhVUFoiFcqtahXP14WxAo1NrRop7k7iRTjKdwcUtz2bgW9Q2D8cncIol1COgRCkgPP9mx/zmJXfm
+	vMRb2Meg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SkO-0000000BVrL-43eT;
-	Mon, 28 Oct 2024 16:37:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1t5SkM-0000000BVpk-44ns;
+	Mon, 28 Oct 2024 16:37:38 +0000
+Received: from thales.epochal.quest ([51.222.15.28])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SId-0000000BQgd-28jD;
-	Mon, 28 Oct 2024 16:09:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730131737;
-	bh=RFIuHkEL9QlURGA8odJLQx+5TzCk9F/XU/g4Ze+ayaY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LnP7lfOS/ZKF0gdhu6J4yKLLyvp6/z6MZnb8GwOvInLDSODHuT4wcS3dC36ZFWSKM
-	 oUMo6abWT5nc69ETfNHy0ZTItIvwU1ZjooRzCz+Hh3PoBNanqgrlbV3/5v+kPRdU9h
-	 xEc1vCOOm1ysf/9jwW6gUZl5AunFMwPuCE6RE4SjsmWHSkmbIZm/fPvIzUw/gWIdMz
-	 1GqSGykSd5VCOjWf0c7pCksRO/yjQKJF78jnY0xAfLcLWow1xgPgAzfjH77o8xz5WV
-	 iW6u9KiYfsn35uS+sVN/lCVBHdYllJt48fAnq1qjV8pqqIW0Ldk6vxEJ0rmbAeMZxP
-	 1p1Ry3c1FgwGA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A783217E3663;
-	Mon, 28 Oct 2024 17:08:56 +0100 (CET)
-Message-ID: <006dfe88-25fd-47a1-a57c-3345af2bff21@collabora.com>
-Date: Mon, 28 Oct 2024 17:08:56 +0100
+	id 1t5SGZ-0000000BQDA-1wI3;
+	Mon, 28 Oct 2024 16:06:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
+	s=default; t=1730131609;
+	bh=Bu58v2gr38UKxgFPQsmkozo+upmq0xR+OgYGP8APTu0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IM7SQiOvG7FJObmipWN8JTq47jKeael3a2b8Q6gnuceSY6J+yNMxhDmxAmuWj7EkP
+	 YuV92LsR4eoZvbj4dnYwmDRIV/S1AEqQ+kidPEm42ZjWfu+dYcu9DlcYoJJn89i8CP
+	 WhhNvG52oeCzbGaB4InOH+YCHsC+0f+OT4qPUEYHOi4nwQiSpj+IMsfyVZAU9cqUeM
+	 iMvgq1Ek/lqRbMk/xeCB3dQWrvMQBneH5vdSGfXvJXlM+t8Lv6F20fUEDC/hROSHO8
+	 8Y5TvAWX/92Q2t/G7gFHn8jNsYr7Nk3UYO9Hq4jt6krloaONiYqfBW9XDWI9tEqZvw
+	 tv/pc+yqAHLGw==
+X-Virus-Scanned: by epochal.quest
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: mfd: mediatek: mt6397: add adc, codec
- and regulators for mt6359
-To: Macpaul Lin <macpaul.lin@mediatek.com>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Lee Jones <lee@kernel.org>,
+Date: Mon, 28 Oct 2024 13:06:48 -0300
+From: Cody Eksal <masterr3c0rd@epochal.quest>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-usb@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
- Macpaul Lin <macpaul@gmail.com>, Chris-qj chen <chris-qj.chen@mediatek.com>,
- MediaTek Chromebook Upstream
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- Chen-Yu Tsai <wenst@chromium.org>
-References: <20241004030148.13366-1-macpaul.lin@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241004030148.13366-1-macpaul.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maxime Ripard <mripard@kernel.org>, Andre Przywara <andre.przywara@arm.com>,
+ Parthiban <parthiban@linumiz.com>, Yangtao Li <frank@allwinnertech.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Vinod Koul
+ <vkoul@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Thierry Reding
+ <treding@nvidia.com>, Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar
+ <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH 05/13] dt-bindings: usb: sunxi-musb: Add A100 compatible
+ string
+In-Reply-To: <cdfocja5u4jh6xh2jkouzyztsjinggep45ymbdwxc4zpscy376@i5voj36oqrrf>
+References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
+ <20241024170540.2721307-6-masterr3c0rd@epochal.quest>
+ <cdfocja5u4jh6xh2jkouzyztsjinggep45ymbdwxc4zpscy376@i5voj36oqrrf>
+Message-ID: <91fc635a58ce647a3183d17c35e33ba4@epochal.quest>
+X-Sender: masterr3c0rd@epochal.quest
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_090859_736525_1F323497 
-X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-CacheID: sfid-20241028_090651_671816_333C1C0D 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,19 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/10/24 05:01, Macpaul Lin ha scritto:
-> Since MT6359 PMIC has been added as one of the compatibles of
-> "mediatek,mt6397.yaml", the sub-device node of "MT6359 PMIC AUXADC",
-> "MT6359 Audio Codec"  and "MT6359 PMIC Regulators" should also be
-> contained in this DT Schema as well.
+On 2024/10/27 5:47 pm, Krzysztof Kozlowski wrote:
+> On Thu, Oct 24, 2024 at 02:05:23PM -0300, Cody Eksal wrote:
+>> diff --git 
+>> a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml 
+>> b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+>> index f972ce976e86..d4993336a29b 100644
+>> --- 
+>> a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+>> +++ 
+>> b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+>> @@ -24,6 +24,7 @@ properties:
+>>                - allwinner,sun8i-a83t-musb
+>>                - allwinner,sun20i-d1-musb
+>>                - allwinner,sun50i-h6-musb
+>> +              - allwinner,sun50i-a100-musb
 > 
-> This patch includes:
->   - add 'adc' property and $ref for 'mediatek,mt6359-auxadc'.
->   - add 'mt6359-regulator' to the compatibles of regulators.
->   - add 'mt6359-codec' to the compatibles of audio-codec.
-> 
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
+> List looked ordered, now doesn't.... are you sure you keep intented
+> ordering here?
+I'll move this entry to fit the expected order for V2, thanks!
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com
-
+- Cody
+> Best regards,
+> Krzysztof
 
