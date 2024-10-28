@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9932AD1359C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B76D1359C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/rUyDx0vuklpgjcam5pFybAYZ9WYDYJD93t6vy8jbVY=; b=lniTDUMMysR/FP7mC1VlVWnTSL
-	34RR9xuD1GW2KxuUH/I2fViNSF99JirIGHIxLwy7Oz0Ej4iwrd79Awm4MnuJblacOpe9sUieLoKbJ
-	4lhOj77MVZ5DvVvjeh/clsbPbhJZN1D+/z/nNSMv2r0vakO+6bIwa2J1LNkpY1OjjAQSXa+vb5wad
-	+Ev4nbDScvhlMK/AX4APbgMzPScf51NJVPkDnosda6v0vIqgci68qAumtIpTEPcll88/Lm8o8NMDt
-	kvxbguxEfWy6fTDC9Cfv9dDe0O4ViuJAexVFm5ZfjBpSf50Wcc7RzRd8BDArEhKLxLLnGlSdew9cB
-	xI4vO6+w==;
+	bh=w9kc/MvcCGqsHKnuIn7RBxtKONFpaars6wfvKoTsFt0=; b=wxXHR9IlqvyrgO1eV23+4Jf6gZ
+	pyqd0f9fkxyqTnLdoSnuvmqZM1+2CTWt73ao02VfHQmLEH6qxf/jaGysHFnDejrFZEFHVb8FsZPIA
+	Qg5Vu0q02F1Tk6yBs8fX7YR7HgMoRa5qV82cQ2088KSdf8CwlRO51BKp0NM8epaDBMexSVnDYN5Qu
+	mIRQSOvnh+iTKwuHLn/pMG+idxZmrBVp7qUTkNUuCD7ab/53A3rOA6FLexqIBOZ9VnLxu5v8Lf2CP
+	AhtPZk0HuPje8jJVJ93M7AOJoBr9XwMiKsqIfgXKz03u9QBtGcUcV73nESg7+Yxb/ydLoIUQ1mbw+
+	N2HvSXTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Od0-0000000Ahpz-3ZGa;
-	Mon, 28 Oct 2024 12:13:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ORw-0000000Af41-3Elr
+	id 1t5OeX-0000000Ahxp-0N5h;
+	Mon, 28 Oct 2024 12:15:21 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5Nex-0000000AX3Q-0ru4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 12:02:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9CFA13D5;
-	Mon, 28 Oct 2024 05:02:49 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC5A93F73B;
-	Mon, 28 Oct 2024 05:02:17 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	quic_nkela@quicinc.com,
-	dan.carpenter@linaro.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 6/7] dt-bindings: firmware: arm,scmi: Add missing vendor string
-Date: Mon, 28 Oct 2024 12:01:50 +0000
-Message-ID: <20241028120151.1301177-7-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241028120151.1301177-1-cristian.marussi@arm.com>
-References: <20241028120151.1301177-1-cristian.marussi@arm.com>
+	Mon, 28 Oct 2024 11:11:44 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-431695fa98bso41016495e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 04:11:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730113902; x=1730718702; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=w9kc/MvcCGqsHKnuIn7RBxtKONFpaars6wfvKoTsFt0=;
+        b=xkxl+V3E0M2JAHWO7lRSWZNQaJreJjVGLWNk8MS+ygt5fzliwI7HLuPz1XXZQNNsjs
+         bnFcY92BpukINXtuTB74CtzXC6uY6r9kBHOcLAoNAFe4ZUvOXpYiEOGGEHxLjNV6fXBO
+         NCK7hcz9YvgqXh6uqCSch2jXt/0IhXh/NYi65MWyQe1xWoE7XOt0EIIju4Q6J+WOglHK
+         vy+lLjIe5UIHOFFxS15UcL5svlmznjk74eHtJF+6ik20OkjddetkqqWb6BPYDi657GtK
+         HVjIHcRp9l8WbgMmecoh21fhsRxRvgXq7Rt+Ju2NDaYXIApNOl8OM9KqKjLOJvEEGxOp
+         Y94g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730113902; x=1730718702;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=w9kc/MvcCGqsHKnuIn7RBxtKONFpaars6wfvKoTsFt0=;
+        b=occCQ5QOK/ymHbtbQDsFfLHIYNhish+HiOF7mfM8KfEv8nr7IRlCWJeZRd8pBUX7Xi
+         rSMKdA9leIiLXDE2phAdSA1d9ciB6tzf5oSTMhaMpj/XJgPhViFEWt75d1W0rYKrXZqH
+         c9HDut0SX11MlfJZN5DrOCLrTiNk3lseuHBBbNXjKeLePUaZe7T51Y39Q6TWuvSZFBTK
+         qLwHYKhe0cGP+xj2uauA0Jkww6U2P6JPDK0+Q09oLh58yJgtbAkLjwbL/ETxxkDQRqOM
+         cqotVKhqwpgGgDKKBzAZB+o7o6HtJAz1qsc2pU11Se8BdEhq7CGgB06wpwzGqE9qd8Nx
+         Bmyw==
+X-Forwarded-Encrypted: i=1; AJvYcCU8QV/jrSHfkmUzoteejr+eg9Lnyv8GVLId9f/DRMLplvSIt+eJsffiPS3Y8mFMKk+yEF1mvxxzdK0PbgZMEy4u@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzY+ga1yaKeX1Opkr4huaqWeJUFTyzRvII502muiExS+QiVK/n
+	0UwxRI56wBV/W6OluAwBS8dHqAQX31euH1Ar4lZfWZSCwlmNQDB6r4Rk/xPmqzs=
+X-Google-Smtp-Source: AGHT+IE+Z165sXrl550KdLAVYhJzn5VZwWhbSDKWVfm/qVBNZ5a2SDbV2JU/QTEhxtpAj9JuK3Plsg==
+X-Received: by 2002:a05:600c:511c:b0:42c:a580:71cf with SMTP id 5b1f17b1804b1-4319ad24423mr63292375e9.30.1730113901661;
+        Mon, 28 Oct 2024 04:11:41 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43193594fe7sm105537645e9.14.2024.10.28.04.11.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 04:11:41 -0700 (PDT)
+Message-ID: <f87a0f0d-8501-438c-b05e-7e4554547c79@linaro.org>
+Date: Mon, 28 Oct 2024 12:11:40 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] clocksource: sp804: Make user selectable
+To: Mark Brown <broonie@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ David Abdurachmanov <david.abdurachmanov@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ross Burton <ross.burton@arm.com>, Mark Rutland <mark.rutland@arm.com>
+References: <20241001-arm64-vexpress-sp804-v3-1-0a2d3f7883e4@kernel.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241001-arm64-vexpress-sp804-v3-1-0a2d3f7883e4@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_050220_875308_A25A3593 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241028_041143_278383_B9EF40F8 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recently introduced max-rx-timeout-ms optionao property is missing a
-vendor prefix.
+On 01/10/2024 13:23, Mark Brown wrote:
+> The sp804 is currently only user selectable if COMPILE_TEST, this was
+> done by commit dfc82faad725 ("clocksource/drivers/sp804: Add
+> COMPILE_TEST to CONFIG_ARM_TIMER_SP804") in order to avoid it being
+> spuriously offered on platforms that won't have the hardware since it's
+> generally only seen on Arm based platforms.  This config is overly
+> restrictive, while platforms that rely on the SP804 do select it in
+> their Kconfig there are others such as the Arm fast models which have a
+> SP804 available but currently unused by Linux.  Relax the dependency to
+> allow it to be user selectable on arm and arm64 to avoid surprises and
+> in case someone comes up with a use for extra timer hardware.
+> 
+> Fixes: dfc82faad725 ("clocksource/drivers/sp804: Add COMPILE_TEST to CONFIG_ARM_TIMER_SP804")
+> Reported-by: Ross Burton <ross.burton@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
 
-Add the vendor prefix from the original committer.
+Applied, thanks
 
-Fixes: 3a5e6ab06eab ("dt-bindings: firmware: arm,scmi: Introduce property max-rx-timeout-ms")
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-Note that this fixes a commit that has been merged in v6.12-rc1...so it
-should not present any backward compatibility issue.
----
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>
----
- Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-index 9d6e1147f9e9..e331da4d606b 100644
---- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-@@ -124,7 +124,7 @@ properties:
-       atomic mode of operation, even if requested.
-     default: 0
- 
--  max-rx-timeout-ms:
-+  nxp,max-rx-timeout-ms:
-     description:
-       An optional time value, expressed in milliseconds, representing the
-       transport maximum timeout value for the receive channel. The value should
 -- 
-2.47.0
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
