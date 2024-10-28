@@ -4,55 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F426D13596
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0EBD13596
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UH7ysjCS+kNlXATrNwXolPo94lK1Lgla+BXfgwd6XPY=; b=0OTe2E5QDw+panVxNrr03eCMN4
-	Udnro/Z7QgNhHH22Y1WCyyTppmIW3VBPlIXZ2yVk8McAsvw3znDFuPbkmGgXEZOFTTqxB+ejae1s2
-	R4wMRP0Eif7BzlRwLlgOMcpT/SdEWk6OeX0c2dc/riYoUjss2m+ymldGZV0AHVymuo5Zh8k1ER3ea
-	DJ1cKJgaVfPjhDpOJplkSNkPTlKMmNZvuVk0miEP95pRky70gGf3tWtSm6ZIxt6Sbwv30djPR6DQR
-	OnPYfjUwmYvZrblCh07g5Z2E0wykBBVTctUIx5VJoEJ1nruThAU9xmoa9t4QJACLqaHgtbA+N3PJB
-	7WVAWkHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w67vg9M/PUfllFizpdXiSM7HQlThvR5jg0fvSeOpX5U=; b=lg6h+hnbqZDGmnhkOcM47sJInU
+	n9qLb7SexLkopLfLWDQ7Pj14IWmDgcikfdBzlHpviD2B9RvvLEiqBAXPZWn1UljWhe8nlc/DGBOuO
+	YFWbCg6eG2RHWg50WqHOFPtWY+2gDfwWNw3ttJOHzAKSznoxNDYEIRrZ39IIfw29qLmyUtbVH1VAQ
+	tm7lA7Bnit+PyXOInn3xtAOsKPPT4C6XZhMySNdbACFpUkV9iIuT4Aj5+jhBRXvguO669XMGHWm82
+	kkufm3BYkoikjOPv9h5xZxxm6h8t07dVppKBQWr12u2mKp1XyFDOM6Hs4C/ZmMdnLenU8Rx3Ew5Fq
+	RDoNA9+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5OA9-0000000AbiR-1luw;
-	Mon, 28 Oct 2024 11:43:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5O8X-0000000AbPA-3v9y
+	id 1t5OCW-0000000AcIk-3C7w;
+	Mon, 28 Oct 2024 11:46:24 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5OAh-0000000AbtR-1Ald
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 11:42:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A52B497;
-	Mon, 28 Oct 2024 04:42:44 -0700 (PDT)
-Received: from [10.57.89.58] (unknown [10.57.89.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59E0C3F73B;
-	Mon, 28 Oct 2024 04:42:12 -0700 (PDT)
-Message-ID: <3d2041e7-95eb-4d60-92ab-d67e2f46531e@arm.com>
-Date: Mon, 28 Oct 2024 11:41:25 +0000
+	Mon, 28 Oct 2024 11:44:34 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-6e5ef7527deso43402847b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 04:44:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730115870; x=1730720670; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=w67vg9M/PUfllFizpdXiSM7HQlThvR5jg0fvSeOpX5U=;
+        b=YL2gvN6Vuw1RrMn5AgHIjoHSxZJmTc1uhOl8EPjKP5RvrghtOYDBexMyWJBG91pYMd
+         +tUucZnEkuASX2nN2idarCxzohaa6OwqtZIEbKSvp3VkFEz2WuqFeC2T3vhFJx2HoGgv
+         Qd9oerYIcaqViCPG8ERaMsgjJBCkdCoZrfGhrGpO58Et8Zxxm4Hj/zRDViwd/MeG0HGa
+         9fTDh2NNfKjY5ldVOpughaIv4RdrElepBdaCil3SW/5RALvT5pM3LpTfLp3S7tXEmNG5
+         ivsCnxjpByi6KkuCsGyJ99NHo2/OLQXVMHesGkbAeL2lSBSiX6foeTR4DFijIDC4nCy2
+         5xSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730115870; x=1730720670;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w67vg9M/PUfllFizpdXiSM7HQlThvR5jg0fvSeOpX5U=;
+        b=JnqCskg5oiwVW+kb+kndjRCQd5hAaHuO6t13VkiX6XayUVQJUcc1mO6xxwQ6mQyzDO
+         yzMQzJmROVv1v9B6X6RCLlET0PPcqcEnN/xaa4lGXu1AlnYXpnnvYKz+qVM3YfwStV7F
+         295mPCzdYEoRzKNXV6CmpDgW7UAW9WFOQ4IMjUy5MEo3s1DgQxHnYDzsdsRpenb815n2
+         RRpk4CeduHVmZmpL9lc8goLCEWUHB6nFN4XlaAP5LhMeBrfbKBYoABcPpT4qCk4o1RTc
+         XGGCgDPjpGhRfGCEaB9KB5Wdky2HmbjboPrdDXVF4wthNva6qOTBq4Provx+H1LowCbm
+         APCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVvM0YnykYbMlH9SodsYV8TXljzuYpoWVriY9U2VZSoEcFTEjStJhtTIXUo98GMu8P5+sZEbtl8VRwQ0UP9PFlA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtZEXEL0mG5fp45fwMBgS5xpfcg9uLNKzHLED6amuGd5jVBSI+
+	pdnkYLICYdOBPu6NMWA+0QJFN3GZZ+I8DeC44hP8cg+VmdS73ax44kDIlAzr0A+gwW+OpVsd27o
+	ilthCepf2arASWPaioqflYNNIBExH2CjSuYjwhw==
+X-Google-Smtp-Source: AGHT+IF26G/KW53BnVmsufrZN4oEUN/Y3tFfc1+XSv54Nwo/CrFvFba9ljoAEAfzBRZISL4FpyAIkN8L5k8Ymwv2dPg=
+X-Received: by 2002:a05:690c:46c6:b0:6e5:a431:af41 with SMTP id
+ 00721157ae682-6e9d8ad6cf4mr74632897b3.38.1730115869914; Mon, 28 Oct 2024
+ 04:44:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/arm-smmu: Add judgment on the size and granule
- parameters passed in
-To: goutongchen@uniontech.com
-Cc: dmitry.baryshkov@linaro.org, gouhao@uniontech.com, iommu@lists.linux.dev,
- jgg@ziepe.ca, joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, robdclark@chromium.org, will@kernel.org
-References: <20241024100224.62942-1-goutongchen@uniontech.com>
- <20241028034823.22838-1-goutongchen@uniontech.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241028034823.22838-1-goutongchen@uniontech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20241025103621.4780-1-wahrenst@gmx.net> <20241025103621.4780-4-wahrenst@gmx.net>
+In-Reply-To: <20241025103621.4780-4-wahrenst@gmx.net>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 28 Oct 2024 12:43:54 +0100
+Message-ID: <CAPDyKFr7mJPWPkTrtB9ORdQw0TtBDKM=B9g6QsKvUHRx1zDNxQ@mail.gmail.com>
+Subject: Re: [PATCH V5 3/9] mmc: bcm2835: Fix type of current clock speed
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Vinod Koul <vkoul@kernel.org>, 
+	Minas Harutyunyan <hminas@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>, 
+	"Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org, 
+	kernel-list@raspberrypi.com, bcm-kernel-feedback-list@broadcom.com, 
+	dmaengine@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-usb@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_044218_100386_B8F3CEF2 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20241028_044431_386209_D82D7898 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,131 +94,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-10-28 3:48 am, goutongchen@uniontech.com wrote:
-> From: goutongchen <goutongchen@uniontech.com>
-> 
-> In the arm_smmu_tlb_inv_range_s1 and arm_smmu_tlb_inv_range_s2
-> functions, the size and granule passed in must be judged.
-> It must be ensured that the passed in parameter is not 0 and
-> the size is an integer multiple of the granule, otherwise it
-> will cause an infinite while loop.
-> 
-> This was encountered during testing, and was initially triggered
-> by passing in a size value of 0, causing the kernel to crash.
+On Fri, 25 Oct 2024 at 12:36, Stefan Wahren <wahrenst@gmx.net> wrote:
+>
+> The type of mmc_ios.clock is unsigned int, so the cached value
+> should be of the same type.
+>
+> Fixes: 660fc733bd74 ("mmc: bcm2835: Add new driver for the sdhost controller.")
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 
-Still NAK. If there is a bug in the upstream io-pgtable-arm code which 
-can actually cause this, please send a patch to fix *that* bug. 
-Otherwise, if you've made a broken downstream change then it is not 
-upstream's responsibility to maintain unnecessary code in a questionable 
-attempt to paper over (some small subset of) such brokenness.
+Applied for next, thanks!
 
-If you pass any sufficiently large size value which *does* happen to be 
-a multiple of the granule, you're still going to see the same RCU stalls 
-and failure to progress within reasonable time. If you pass something 
-inappropriate for the "cookie" pointer, you're likely to corrupt memory 
-or really crash. If you pass arguments which all look plausible but 
-still don't match what actually needs invalidating, the consequences of 
-under-invalidation can be even more subtle, nasty and hard to debug.
+Kind regards
+Uffe
 
-The iommu_flush_ops are not a public interface intended to be called 
-arbitrarily from anywhere in the kernel with unchecked input, they are a 
-low-level private interface between IOMMU drivers and their respective 
-io-pgtable implementations, and as such they are designed for their 
-callers to call them correctly by construction. Calling them incorrectly 
-indicates a serious bug in the caller, since getting mapping and/or TLB 
-invalidation wrong often leads to memory corruption or other issues down 
-the line. Hence I'm not convinced this change is actually even desirable 
-as a downstream debugging aid - if you're lucky enough to get stuck on 
-an obviously-wrong call here, that's surely the clearest possible 
-indication of the source of the bug in its calling context, far better 
-than trying to ignore it and then having it drowned out by more distant 
-things blowing up later due to 2nd- and 3rd-order effects.
 
-Thanks,
-Robin.
-
-> [    8.214378][  T675] xhci_hcd 0000:0b:00.0: new USB bus registered, assigned bus number 1
-> [   68.246185][    C0] rcu: INFO: rcu_sched self-detected stall on CPU
-> [   68.246866][    C0] rcu:     0-....: (5999 ticks this GP) idle=796c/1/0x4000000000000000 softirq=161/161 fqs=2999
-> [   68.247924][    C0] rcu:     (t=6000 jiffies g=-699 q=1 ncpus=128)
-> [   68.248452][    C0] CPU: 0 PID: 675 Comm: kworker/0:2 Not tainted 6.6.0-25.02.2500.002.uos25.aarch64 #1
-> [   68.249237][    C0] Hardware name: Inspur     CS5260F     /CS5260F          , BIOS 4.0.16 05/31/22 16:53:51
-> [   68.250029][    C0] Workqueue: events work_for_cpu_fn
-> [   68.250497][    C0] pstate: a0000005 (NzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [   68.251188][    C0] pc : arm_smmu_tlb_inv_range_s1+0xf0/0x158
-> [   68.251704][    C0] lr : arm_smmu_tlb_inv_walk_s1+0x44/0x68
-> [   68.252189][    C0] sp : ffff80008044b780
-> [   68.252530][    C0] x29: ffff80008044b780 x28: 0000000000000000 x27: 0000000000001000
-> [   68.253212][    C0] x26: 0000000000000600 x25: 0000000000000001 x24: 0000000000000600
-> [   68.253857][    C0] x23: 0000000000000000 x22: 0000000000001000 x21: fffffc64e2e59000
-> [   68.254544][    C0] x20: 0000000039c1d1a6 x19: ffff3fe944c40280 x18: 0000000000000000
-> [   68.255240][    C0] x17: 626d756e20737562 x16: ffffb0e7e08c1008 x15: 0000000000000000
-> [   68.255930][    C0] x14: ffff3ef8c1ea15cd x13: ffff3ef8c1ea15cb x12: fffffcfba30e3880
-> [   68.256538][    C0] x11: 00000000ffff7fff x10: ffff80008044b6b0 x9 : ffffb0e7decd1b5c
-> [   68.257126][    C0] x8 : 0000000000000dc0 x7 : ffff3ee8c4148000 x6 : ffff3ee8c4148000
-> [   68.257822][    C0] x5 : 0000000000000008 x4 : 0000000000000000 x3 : ffff3fe944c40800
-> [   68.258497][    C0] x2 : 0000000000000010 x1 : 0000000000000020 x0 : ffffb0e7dfd6c3d0
-> [   68.259185][    C0] Call trace:
-> [   68.259451][    C0]  arm_smmu_tlb_inv_range_s1+0xf0/0x158
-> [   68.259933][    C0]  arm_smmu_tlb_inv_walk_s1+0x44/0x68
-> [   68.260384][    C0]  __arm_lpae_map+0x1f0/0x2c0
-> [   68.260796][    C0]  arm_lpae_map_pages+0xec/0x150
-> [   68.261215][    C0]  arm_smmu_map_pages+0x48/0x130
-> [   68.261654][    C0]  __iommu_map+0x134/0x2a8
-> [   68.262098][    C0]  iommu_map_sg+0xb8/0x1c8
-> [   68.262500][    C0]  __iommu_dma_alloc_noncontiguous.constprop.0+0x180/0x270
-> [   68.263145][    C0]  iommu_dma_alloc+0x178/0x238
-> [   68.263557][    C0]  dma_alloc_attrs+0xf8/0x108
-> [   68.263962][    C0]  xhci_mem_init+0x1e8/0x6d0
-> [   68.264372][    C0]  xhci_init+0x88/0x1d0
-> [   68.264736][    C0]  xhci_gen_setup+0x284/0x468
-> [   68.265121][    C0]  xhci_pci_setup+0x60/0x1f8
-> [   68.265506][    C0]  usb_add_hcd+0x278/0x650
-> [   68.265860][    C0]  usb_hcd_pci_probe+0x218/0x458
-> [   68.266256][    C0]  xhci_pci_probe+0x7c/0x270
-> [   68.266660][    C0]  local_pci_probe+0x48/0xb8
-> [   68.267074][    C0]  work_for_cpu_fn+0x24/0x40
-> [   68.267548][    C0]  process_one_work+0x170/0x3c0
-> [   68.267999][    C0]  worker_thread+0x234/0x3b8
-> [   68.268383][    C0]  kthread+0xf0/0x108
-> [   68.268704][    C0]  ret_from_fork+0x10/0x20
-> 
-> Signed-off-by: goutongchen <goutongchen@uniontech.com>
 > ---
->   drivers/iommu/arm/arm-smmu/arm-smmu.c | 14 ++++++++++++++
->   1 file changed, 14 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 8321962b3714..fdd7d7e9ce06 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -282,6 +282,13 @@ static void arm_smmu_tlb_inv_range_s1(unsigned long iova, size_t size,
->   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
->   	int idx = cfg->cbndx;
->   
-> +	if (size == 0 || granule == 0 || (size % granule) != 0) {
-> +		dev_err(smmu->dev,
-> +				 "The size or granule passed in is err. size=%zu, granule=%zu\n",
-> +				 size, granule);
-> +		return;
-> +	}
-> +
->   	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
->   		wmb();
->   
-> @@ -309,6 +316,13 @@ static void arm_smmu_tlb_inv_range_s2(unsigned long iova, size_t size,
->   	struct arm_smmu_device *smmu = smmu_domain->smmu;
->   	int idx = smmu_domain->cfg.cbndx;
->   
-> +	if (size == 0 || granule == 0 || (size % granule) != 0) {
-> +		dev_err(smmu->dev,
-> +				 "The size or granule passed in is err. size=%zu, granule=%zu\n",
-> +				 size, granule);
-> +		return;
-> +	}
-> +
->   	if (smmu->features & ARM_SMMU_FEAT_COHERENT_WALK)
->   		wmb();
->   
-
+>  drivers/mmc/host/bcm2835.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
+> index 35d8fdea668b..3d3eda5a337c 100644
+> --- a/drivers/mmc/host/bcm2835.c
+> +++ b/drivers/mmc/host/bcm2835.c
+> @@ -150,7 +150,7 @@ struct bcm2835_host {
+>
+>         struct platform_device  *pdev;
+>
+> -       int                     clock;          /* Current clock speed */
+> +       unsigned int            clock;          /* Current clock speed */
+>         unsigned int            max_clk;        /* Max possible freq */
+>         struct work_struct      dma_work;
+>         struct delayed_work     timeout_work;   /* Timer for timeouts */
+> --
+> 2.34.1
+>
 
