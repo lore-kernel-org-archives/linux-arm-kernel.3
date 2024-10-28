@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592B4D3E2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F95D3E2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 20:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+KMmOh5WvjZELiasYUozQp/OOyft9O+zabARWiGnzSU=; b=TO5xbutTKBFjgGmMophrIWqlyi
-	0/OKymmKzdCrPj3bk1jUpk3B93aScBpRCfA1hnyd1PqeoHdECjQ4lhmuwYw2tzAitwgiKAGoR4y+C
-	ss6cKwWqLxEGHBKQnssZDXMKNCl77fB9rGwheCMMbMamQwG4M3eqbPssysnLWcuSWRY3t376ddOCH
-	GVZSVvgW8IK87lUHn6SjQJUIOOnl03PGVYNC2Dmvlgw34Rx9nyk4brdo/kZ/xDFrMyQL7WEiTTig/
-	f+I9nXmC5tegYcB5f1Yz5NhK6ilr558liC/NcwYXfCl5k5n7klirwbtQ+FAVKubXbAZPrpBHO2hoM
-	PN46jwDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PhCQSKAzJ9tsQ+/Te4HmtC0TWacCvVbNEkAW60a1+cg=; b=qA0iO0S6C7IO3xG9ZSP0HKVc+I
+	yolJeKbkiMGP5ON/qoVRS336dPqtriZCPMdOYRjXC9b3GT5nquPtMmkNmXYJ9B3+g42MAddAbHz2G
+	XRp2YXvoRfFs1oMWyD+I5LnbcXhBwDRh8OQwlXSMoJTfnh2GH0U3Wp4sCjos+2rb1HrRabwnBhpxW
+	P9sI5KlaTD3l5Wq+fIBpcfyupr4NcCgONE1uW0qfvGJp/pTO/ZbF4q4pHBlK5vetgL4eGvsQDrGlm
+	09BkhBcIKYDO1YDZQ0U9/K6m2cqGlGy8uAVef7aDCiqHUoPRbc1fVFi9dOcj8umYFhOAbT9BPObh0
+	A2vAdkSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5VtQ-0000000C5BH-33gR;
-	Mon, 28 Oct 2024 19:59:12 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t5Vv1-0000000C5Vt-1AZO;
+	Mon, 28 Oct 2024 20:00:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Vr6-0000000C4lr-3nie
+	id 1t5Vt8-0000000C55F-3BSh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 19:56:51 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20ca388d242so42025275ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:56:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1730145408; x=1730750208; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=+KMmOh5WvjZELiasYUozQp/OOyft9O+zabARWiGnzSU=;
-        b=PIRbeYEj56LuU1poFCFe3MY58hS3v35YQ9Sffz5exg3+u1hqmCB7RLjSr1e/cwiCvD
-         kSDpylrDM4fdU6HwPyjte2Jh145cJKSc58fbZRwkfQN8NTJUutth+ZR4mrsvlKbdcRix
-         xMxj38rFIN8GX67XaezmamG8Tpwc8EB5fvNnB6xsuU2dJHbs8d39T5j0HOelip0VBgKX
-         k7h7B6wuvG1IzJQ2ns7InLTZiAhHJlQ4KJdfCEJg6UzudXCDAjHpTDTvSwP3k21sgT8H
-         wV+7y8H8gWtRnXqifNj1tZ0YiWbpUOBVfFI262FFSoFre2Gwcy2fh2mmGQ4xw+ChrJsp
-         LQVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730145408; x=1730750208;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+KMmOh5WvjZELiasYUozQp/OOyft9O+zabARWiGnzSU=;
-        b=VR9hym1oqsnIZ/+o+KZaMGTVdydGpPZGxgx8UPip5wLIUrWKP0jaNEMoVVeH+isQIg
-         GrZO36muMh9h1xJUIESRCu8Wudul9jB5VlUa5LyRERzi8d2Lfnj44EKiIEYxJO72sDWn
-         K12u4surxGIOE0kTGl9SP13PMu2HWuO4kVqyedyt5pvn98grVIiI2mGvaZaAlrXpByrA
-         Z5IUGkO54wDxQdvE/9KYn8YavKxrfdOrro6FcL8HieHFwiiuJzbcCQc2qeJggZqSpi5W
-         0VKf/6pkt87cwlIoo0BhXJuoMAYTHpIYouridvX8u+a5gqgJjA+wOg5ZWEzv//qcfs7l
-         ehOg==
-X-Forwarded-Encrypted: i=1; AJvYcCWER/pPeGC4mrg3dLGSa4Aga0B/hCO/aNesBFVeYpZICixdxWuYzec1CR4N7agX79rAmG53irfdCnxsF9Jg2Grt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7y4NfRPhISfXaDLDtQRQiuCTnnTh0lnDXwPr1eJJKdGevIpyJ
-	bqYIJP20O5GXQs7EcKVZnfEzcFlrqk5IdSIhBX8YJaxDbTPWIOWgw8eTDpKhxus=
-X-Google-Smtp-Source: AGHT+IGqcPzeP5W0onUzARxlGwHapRbVfUZQUlMArkaEOe3s4YwUF4QgYHHAJ1uyC0F1MU2DKlbqSw==
-X-Received: by 2002:a17:902:f612:b0:20c:8f78:67be with SMTP id d9443c01a7336-210c6c3e341mr153160855ad.40.1730145407945;
-        Mon, 28 Oct 2024 12:56:47 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc04ae0esm53843215ad.271.2024.10.28.12.56.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 12:56:47 -0700 (PDT)
-Message-ID: <671fec7f.170a0220.e1349.4c72@mx.google.com>
-Date: Mon, 28 Oct 2024 12:56:47 -0700 (PDT)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 28 Oct 2024 19:59:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 01A1BA42C1D;
+	Mon, 28 Oct 2024 19:56:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E64E6C4CEC3;
+	Mon, 28 Oct 2024 19:58:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730145533;
+	bh=yi5GD//oyGJgqQTF4vZx4zIWoIkEhZQZC+WnPRbK328=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AUK/BsV/WXBkBPAlgv8OjGtRLG/wsaeYi8b8A/1AdjLoUbH20vYH4Zi7P/E2+g+am
+	 fKUQbqz8uukGzNeumWYxps1Lc15jPo1IXkhT1Pl0egDPFNgQSuXeyeOwi1izYQ62Nw
+	 u6Bwkn33lIu7Uk+26KWVAtyZubkizMGKfsYHwwZlmCQ1dYJ2QmuKVSH53dEsUgINKQ
+	 FTSwmg4qDxYAE3Bmar1YEYYQXkW6beleFOQQLQ80iBgZAQX2uaLPLmdQMQ+d8G6Nmd
+	 Zi2qE3TpJwWJtgcup9Why9IDPIMHl+tT8aM22eJqbIpzGPcEOFM5ncWQqQw8dpXRgQ
+	 zshpDQE4OprPw==
+Date: Mon, 28 Oct 2024 19:58:47 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: open list <linux-kernel@vger.kernel.org>,
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	lkft-triage@lists.linaro.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Subject: Re: kselftest:arm64/FVP: arm64_check_buffer_fill - failed on Linux
+ next-20241025
+Message-ID: <c9980897-7b7a-47ec-a2d3-1410083f4d08@sirena.org.uk>
+References: <CA+G9fYt0pqM_f-uiK=xH0RWrhfABdjy743yyxu4CLtb+kkS6-w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: test
-X-Kernelci-Kernel: v6.12-rc5-145-g1bf329c696cf
-X-Kernelci-Branch: for-kernelci
-X-Kernelci-Tree: arm64
-Subject: arm64/for-kernelci baseline: 16 runs,
- 4 regressions (v6.12-rc5-145-g1bf329c696cf)
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
- kernelci-results@groups.io
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="B2ij6K8NYtCweVVO"
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYt0pqM_f-uiK=xH0RWrhfABdjy743yyxu4CLtb+kkS6-w@mail.gmail.com>
+X-Cookie: Remember the... the... uhh.....
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_125648_972680_6BF32D6C 
-X-CRM114-Status: UNSURE (   4.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_125854_881883_E1903D98 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,173 +83,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64/for-kernelci baseline: 16 runs, 4 regressions (v6.12-rc5-145-g1bf329c=
-696cf)
 
-Regressions Summary
--------------------
+--B2ij6K8NYtCweVVO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+On Tue, Oct 29, 2024 at 01:16:32AM +0530, Naresh Kamboju wrote:
+> The following kselftest arm64 and FVP failed with Linux next-20241025 on
+>   - Qemu-arm64
+>   - FVP
+>=20
+> running Linux next-20241025 kernel.
+>=20
+> First seen on next-20241025
+>   Good: next-20241024
+>   BAD:  next-20241025
+>=20
+>  kselftest-arm64, FVP
+>     * arm64_check_buffer_fill
+>     * arm64_check_mmap_options
+>     * arm64_check_child_memory
+>=20
+> Anyone have seen these failures ?
 
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+Already reported here:
 
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+   https://lore.kernel.org/r/61461dcc-e455-450d-9c01-5465003fc31c@sirena.or=
+g.uk
 
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+--B2ij6K8NYtCweVVO
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-  Details:  https://kernelci.org/test/job/arm64/branch/for-kernelci/kernel/=
-v6.12-rc5-145-g1bf329c696cf/plan/baseline/
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcf7PcACgkQJNaLcl1U
+h9CkLQf9Fc2xP/RalLbR8qhm8sehoQq6vMBzDovEbDMB6k1Tk4MKwpIxpSlQphnI
+YbcEVLgQ9G0bbEIqqJWYAJIl5rgoTNvpSe20WctUPjCPD+uz3zMhEScKO7A2/gYH
+Jp9y35VbKkfJEIiOfibFMef+o6cYcqQp4XxpDTbrPuIs7I3UsKtlIZKctLJW54ff
+93hMnpctARzoMUX5w1ykX4pTPZVc4ovfo7UnyiKvJvq1x7jkR3jk1WuuXzN0w58+
+a8bcB6U9qzhs8TDcvkog47kTRWtjDdkYtq3XzMTAg3HCM3vOWMYiTy2iLLvuKEG9
+cc/QVGZoz1GuMaZhCDD/lHsDWvT4Jw==
+=vRao
+-----END PGP SIGNATURE-----
 
-  Test:     baseline
-  Tree:     arm64
-  Branch:   for-kernelci
-  Describe: v6.12-rc5-145-g1bf329c696cf
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-  SHA:      1bf329c696cf80000f1098bcdc23534e6fe14fe2 =
-
-
-
-Test Regressions
----------------- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/671fe20d4c49fb3bb9c8685a
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/671fe20d4c49fb3bb9c86=
-85b
-        failing since 12 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/671fe2c03b644cb195c86862
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/671fe2c03b644cb195c86=
-863
-        failing since 12 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/671fe2258cb9008d71c86863
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/671fe2258cb9008d71c86=
-864
-        failing since 12 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/671fe20cfd1610de7cc86859
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc5-1=
-45-g1bf329c696cf/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/671fe20cfd1610de7cc86=
-85a
-        failing since 12 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =20
+--B2ij6K8NYtCweVVO--
 
