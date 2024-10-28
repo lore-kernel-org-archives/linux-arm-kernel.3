@@ -4,66 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52655D10C11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BF1D10C11
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UalDViA3yaDlhxM27mCslpLgsREGyijfzPfoJVZi8Ak=; b=IVjaETfhfPS9tCo1Qc++IsHyFf
-	ccOO1PI6yG5Xn9k37AQDm8GD8M8fwpatWAiKq/pX5ufRNG60JcB6CVP2fJFuXCwdbPdpawxzBoqzU
-	so4AGoOvFe7TmUHK1zj0DOiz18klbzFC50ua9DmM6RBVOlp7phTr/SgwVxjz9ElOL2SxB+DMzez8P
-	joFUqwyuIii06A0HFoSxq8UkscIBIQIj9PGN01mOaogTv1ly8s2BUtJwfl20LvehT8+dQx/QjcgyK
-	yjKqjr9stKOyXI9k0KlsRUFAY2rj6/Mjz+DxbG3VYDfzrjyfWy0gFutC+lAQa0IRHSNJYn8Eropyd
-	1AvbUe7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tZ4hMgDyF+hmAM7eQSmcGsakM00Wrbl9ZfBiU5r7XrI=; b=aCPvcxggNnWzowqQbBVD1GakEs
+	eQL14ZS5ZHOEvPzy4a+M5OUW/wYGudzuIb4zEH4/LJ929NE5iM0WXO7nHxNH278jKK00DtYYStFA0
+	EfPlNsLerHIbWBzolKwL56UwSL6Ah4+NRf7mXQksORO3ZS1Lus7pNpienF3KMQsfY0h4FmGxlOL0O
+	Bmo8f4vvw1zUk0z10l7qjG0g7K4e4dLs6Lp15AI2ecieko1LvRG+ghqPn948CJHYyudJ4b3pkof8L
+	05bd5hT2ei863FkQdhdyuSONH1KOphuaQoEXww2Xso+viUofAq+j5K124ExZ6TTgpLjkOwac3zC4n
+	6rg+sHyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5PB3-0000000ApZm-0lFS;
-	Mon, 28 Oct 2024 12:48:57 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t5PCb-0000000AppV-2AeP;
+	Mon, 28 Oct 2024 12:50:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5P49-0000000AnBV-17wt;
-	Mon, 28 Oct 2024 12:41:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=UalDViA3yaDlhxM27mCslpLgsREGyijfzPfoJVZi8Ak=; b=T8+F1J7D6FlB7VF3f9VkqSn+IJ
-	dZuHmTkbE4emk7+hSHQCf63cq81OrRQT3xrEVc56xyPgTcs5rrU9CX8bNtsKEgF2XjEPeQN8AMl7m
-	siMBygrhTnKkepPl067drbzc0LVE2VKJJB3xTk0BymMjsL9pPoq4SN/I6fXKM5Yzqf8Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t5P44-00BRgQ-GN; Mon, 28 Oct 2024 13:41:44 +0100
-Date: Mon, 28 Oct 2024 13:41:44 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, Sujuan Chen <sujuan.chen@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Mark Lee <Mark-MC.Lee@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH net] net: ethernet: mtk_wed: fix path of MT7988 WO
- firmware
-Message-ID: <8dea87fc-c37c-43ac-a541-9ac67e351319@lunn.ch>
-References: <Zxz0GWTR5X5LdWPe@pidgin.makrotopia.org>
+	id 1t5P6g-0000000AoFe-2UB9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 12:44:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C84965C0FAB;
+	Mon, 28 Oct 2024 12:43:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0499BC4CEC3;
+	Mon, 28 Oct 2024 12:44:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730119465;
+	bh=VwZ9IZR5Q9q9+rWO0vR3QoA58P01r5/+aKkI8SPCRew=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hX3H+UTI4CMLAlJQ6Fl/WsKtmQAMFAwJSc+vw0kdpqR1FAInYngxKsXoKNP3VaH+7
+	 xfPrCqsBpxgE4rL4jhiGPFpSJQlaZVqGAB2/TwweBRP4ziNS0oPX5k1KcrFXoefdGA
+	 N6XhVgoClIdu/yU4p6jhp3mc9CQUiKhQUIskclwL9hDRutqPFRmIP/jPrZQkhpd+zl
+	 Yy9jL++D/Mx5GildJIvf4fCbOJ3hXY6bdp82/HRgnC7rUQDPLRa2UaewSl8PpPXF8s
+	 Bvp/3SaCO0clcwwvvVrKdGC+4BVGr/rusLN/yFSYXE/QbztqXpe4tdlgjX4OrB34/v
+	 l/JkTJxcNLfVg==
+Message-ID: <0b3ea279-bdbd-4608-94d8-5f53fdd12024@kernel.org>
+Date: Mon, 28 Oct 2024 13:44:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Zxz0GWTR5X5LdWPe@pidgin.makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/2] arm64: dts: imx8mp: add aristainetos3 board
+ support
+To: hs@denx.de, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241028082332.21672-1-hs@denx.de>
+ <20241028082332.21672-3-hs@denx.de>
+ <f4150aa3-4c0e-45fa-9c9c-879ac04c4364@kernel.org>
+ <bf2c81e1-4e97-cfa2-326f-0a6125b2cff9@denx.de>
+ <fd4fffb3-44d3-4efb-8c74-4d94e1f26298@kernel.org>
+ <1c21a636-5778-03c0-85b0-a4b3710b8f3d@denx.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <1c21a636-5778-03c0-85b0-a4b3710b8f3d@denx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_054149_328512_DF62C239 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20241028_054426_762139_E127C3A8 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +126,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26, 2024 at 02:52:25PM +0100, Daniel Golle wrote:
-> linux-firmware commit 808cba84 ("mtk_wed: add firmware for mt7988
-> Wireless Ethernet Dispatcher") added mt7988_wo_{0,1}.bin in the
-> 'mediatek/mt7988' directory while driver current expects the files in
-> the 'mediatek' directory.
+On 28/10/2024 12:21, Heiko Schocher wrote:
+> Hello Krzysztof,
 > 
-> Change path in the driver header now that the firmware has been added.
+> On 28.10.24 11:49, Krzysztof Kozlowski wrote:
+>> On 28/10/2024 11:41, Heiko Schocher wrote:
+>>> Hello Krzysztof,
+>>>
+>>> On 28.10.24 11:24, Krzysztof Kozlowski wrote:
+>>>> On 28/10/2024 09:23, Heiko Schocher wrote:
+>>>>> Add support for the i.MX8MP based aristainetos3 boards from ABB.
+>>>>>
+>>>>> The board uses a ABB specific SoM from ADLink, based on NXP
+>>>>> i.MX8MP SoC. The SoM is used on 3 different carrier boards,
+>>>>> with small differences, which are all catched up in
+>>>>> devicetree overlays. The kernel image, the basic dtb
+>>>>> and all dtbos are collected in a fitimage. As bootloader
+>>>>> is used U-Boot which detects in his SPL stage the carrier
+>>>>> board by probing some i2c devices. When the correct
+>>>>> carrier is probed, the SPL applies all needed dtbos to
+>>>>> the dtb with which U-Boot gets loaded. Same principle
+>>>>> later before linux image boot, U-Boot applies the dtbos
+>>>>> needed for the carrier board before booting Linux.
+>>>>>
+>>>>> Signed-off-by: Heiko Schocher <hs@denx.de>
+>>>>> ---
+>>>>> checkpatch dropped the following warnings:
+>>>>> arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi:248: warning: DT compatible string "ethernet-phy-id2000.a231" appears un-documented -- check ./Documentation/devicetree/bindings/
+>>>>>
+>>>>> ignored, as this compatible string is usedin other dts too, for example in
+>>>>>
+>>>>> arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+>>>>>
+>>>>>    arch/arm64/boot/dts/freescale/Makefile        |    5 +
+>>>>>    .../imx8mp-aristainetos3-adpismarc.dtsi       |   64 +
+>>>>>    .../imx8mp-aristainetos3-adpismarc.dtso       |   14 +
+>>>>>    .../imx8mp-aristainetos3-helios-lvds.dtsi     |   89 ++
+>>>>>    .../imx8mp-aristainetos3-helios-lvds.dtso     |   13 +
+>>>>>    .../imx8mp-aristainetos3-helios.dtsi          |  103 ++
+>>>>>    .../imx8mp-aristainetos3-helios.dtso          |   13 +
+>>>>>    .../imx8mp-aristainetos3-proton2s.dtsi        |  176 +++
+>>>>>    .../imx8mp-aristainetos3-proton2s.dtso        |   13 +
+>>>>>    .../imx8mp-aristainetos3a-som-v1.dts          |   18 +
+>>>>>    .../imx8mp-aristainetos3a-som-v1.dtsi         | 1210 +++++++++++++++++
+>>>>>    11 files changed, 1718 insertions(+)
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtso
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtsi
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtso
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dts
+>>>>>    create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+>>>>> index 9d3df8b218a2..7c3586509b8b 100644
+>>>>> --- a/arch/arm64/boot/dts/freescale/Makefile
+>>>>> +++ b/arch/arm64/boot/dts/freescale/Makefile
+>>>>> @@ -163,6 +163,11 @@ imx8mn-tqma8mqnl-mba8mx-usbotg-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8m
+>>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtb
+>>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-usbotg.dtb
+>>>>>    
+>>>>> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-aristainetos3a-som-v1.dtb \
+>>>>> +			  imx8mp-aristainetos3-adpismarc.dtbo \
+>>>>> +			  imx8mp-aristainetos3-proton2s.dtbo \
+>>>>> +			  imx8mp-aristainetos3-helios.dtbo \
+>>>>> +			  imx8mp-aristainetos3-helios-lvds.dtbo
+>>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-beacon-kit.dtb
+>>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb
+>>>>>    dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-model-a.dtb
+>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+>>>>> new file mode 100644
+>>>>> index 000000000000..cc0cddaa33ea
+>>>>> --- /dev/null
+>>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
+>>>>> @@ -0,0 +1,64 @@
+>>>>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>>>>> +/*
+>>>>> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
+>>>>> + */
+>>>>> +
+>>>>> +#include <dt-bindings/gpio/gpio.h>
+>>>>> +#include <dt-bindings/interrupt-controller/irq.h>
+>>>>> +
+>>>>> +&ecspi1 {
+>>>>> +	spidev0: spi@0 {
+>>>>> +		reg = <0>;
+>>>>> +		compatible = "rohm,dh2228fv";
+>>>>
+>>>> Hm? I have some doubts, what device is here?
+>>>
+>>> $ grep -lr dh2228fv drivers/
+>>> drivers/spi/spidev.c
+>>>
+>>> Customer uses an userspace implementation...
+>>
+>> That's not the question. I asked what device is here.
 > 
-> Fixes: e2f64db13aa1 ("net: ethernet: mtk_wed: introduce WED support for MT7988")
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> I do not know, as on carrier boards there are only connectors,
+> to which a spi device can be attached. So may I need to use here
+> a more generic entry?
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+So this description is just not true. You have here nothing connected
+and this cannot be in the DTS.
 
-    Andrew
+> 
+>>>
+>>>>
+>>>>> +		spi-max-frequency = <500000>;
+>>>>> +	};
+>>>>> +};
+>>>>> +
+>>>>> +&ecspi2 {
+>>>>> +	spidev1: spi@0 {
+>>>>> +		reg = <0>;
+>>>>> +		compatible = "rohm,dh2228fv";
+>>>>> +		spi-max-frequency = <500000>;
+>>>>> +	};
+>>>>> +};
+>>>>> +
+>>>>> +&i2c2 {
+>>>>> +	/* SX1509(2) U1001@IPi SMARC Plus */
+>>>>> +	gpio8: i2c2_gpioext0@3e {
+>>>>
+>>>> Uh, no, please never send us downstream code.
+>>>>
+>>>> Please follow DTS coding style in all upstream submissions.
+>>>
+>>> driver is in here:
+>>>
+>>> $ grep -lr probe-reset drivers/pinctrl/
+>>> drivers/pinctrl/pinctrl-sx150x.c
+>>
+>> This so not related... Your driver does not matter. You send us poor
+>> quality downstream code.
+> 
+> The driver is upstream... see:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pinctrl/pinctrl-sx150x.c
+> 
+> or may I misunderstood you here too?
+> 
+> Poor is my dts, checks are running and I fix them.
+
+My comment was that I see this as you sent DTS code which is taken
+straight from some downstream code.
+
+>>>> And why this is DTSO, I have no clue...
+>>
+>> Why is this a DTSO, not a DTS?
+> 
+> Hmm... the idea is, that the bootloader applies the dtbo on runtime,
+> when it has detected the carrier board it runs on, I tried to explain
+> in cover letter.
+
+Then there is some mess here. First, SoM cannot be DTS, because it
+cannot be booted. Second, specific board/carrier is the DTS. Third,
+overlays bring some subset of features, not new board.
+
+Best regards,
+Krzysztof
+
 
