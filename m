@@ -4,150 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D185D5B15A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B78D5B845
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 22:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=; b=QJDK4LQg+6IM7Dbla6HpGpNFWs
-	+ezlhye/a6G/NItlXc2V1SCojNK9SOIErEocVEyh0sR7sdPI+ElHqHfResBWbv+UbcWcyHzSCFkAW
-	aDk0ZLx5vsMGR2XrI1WRSD9GPAbBgtocUByEDWDQXfYYrg2cNz9gNJpOTNQ4KhjFU74wMvmlHjqDX
-	+iCJOcbPOFmI6fFcWD24H0GR4Iq433vO57uy2OAqCw863nTRL/yyqTd1lNNvzfDsbr140OcRsU+eZ
-	FOGTlVltF+q4gKyZMPBwclO15ZoeTiE8RPjt54RayIhGo7CJImQp6fqfP68fuH5q0u9J00Yzrbuzp
-	CcVnbQ6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mLJb+MSFeIuMjaWbZFbinF8pHkgM5h+mk8sFEoJ/Tys=; b=0UNvdfotzxEPDtpWrKL/lHHSnf
+	3TYm4pm6ECC6Odyi4HohCl2KbFe0HmzFjrVDMHnDFF737BdxMaSQk+bLrTZhyhEPDz9pqZNJusg2A
+	zwFlbnmnp7shO/GUcupkVFx+kylN56+LFAyqnVG+sXO64ICm76bR85qNvHtXf3KgKoyUQoAucmvyH
+	HnJRUQEJm4UkXaUKaBtToJVQKRIWndkuHUvkTm7ZXq7NGxn10sq+kp6AJ3UxHhHRDRcoNnOXckgCk
+	ob4E3dvqQEKrm87CC400/QVJKQcNPW8wAu5nhFoOgFZ8igMibfMIVxzAEl59j/JdGwuP41zkVTzSx
+	8Xc/bGAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Xv8-0000000CTpi-0S4M;
-	Mon, 28 Oct 2024 22:09:06 +0000
-Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1t5Y39-0000000CUwn-3mjA;
+	Mon, 28 Oct 2024 22:17:23 +0000
+Received: from mail-vs1-xe2a.google.com ([2607:f8b0:4864:20::e2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Xq0-0000000CSpH-08nY
+	id 1t5XyV-0000000CUIV-2WFr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 22:03:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aF79/lU3FqHf+7o2cMnGlK4fVhkGc+XAEPX8NSJ34fbFIqcf2R2KCJqjbYLL8IbgsL5RbOFRA62NK7yw0lYITLnCIZ12m0VxhYxy0V1so1FLNyS1u0Yv+h+yhLsv2E2tlT7Y/Mz/ZYlHyRs9OlyEkysGgHcLw7Jd2UlF5gIvoERa2eooLInDKkwI41fn1igqDIqgXaKtTKrsAMO8j2WI+YsyOi5Ld+PM84cQZ2tLW1vzmy43G5ELltiGgkmzXWPP1koDBjitzsoKyyXHO/9E0AgKgFPXyFUct9ro4YZLB3JDcZ884vgWa123zPu4c66XUfIep5u3Sy+N4IMTCgWfGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=;
- b=yXK2Ob7DK7OLwUyQVXEaeF12EmxmmGlqG4AS+K5qBqhZrHYpGbZCyaKtgnSzLqhJMCUn55eJl2lR8uz5ZBSsKQjbhFGQoVnppGDj1bkUXSAJ/do7bcFnA6xtC+DeGPdVs6OEm0Zjhs0BE8aU4yLVOUGjBSsLWdwbzuQRDmBnKcGBbDmnQDAB6kzY+zcPX9vFrc5oaQNj4ZkajMGbjwF1IXFzA2SXyHquNsuwPd0PVesr1tWWN4xRUl9qfi6iGDIqZGOoW+viyN38YOlk+5TPyt8FUSezyzSB0SnYq26oAsZvsj9t7eek/F6H6++jpmg1GgJ+83RHGq15w50sfiU94A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0fyRgYWjnckjF1PPUqUQePRkCFvkPeJF04H7NSKi/3w=;
- b=V3kpbQL17ZaYANPxQ/dY54epjV8Pj7cjTN936OmZgIs0FWnWicwaaKFUab+NS3jsOH31EABmKPMP7tdM7UFAVcmuzWnj9Bt3kHlovgX6jswOqejDtnT13EWQJE69zqUgn86CPqmTpSQlHFNflJTcAAgZXS+P7d+pOHk0EL/zGxMTBsE7SWUucLd+3DL1OAfNUaUWQDzJIJbbwxJizYA5D0zvkI41i3kRM4oAmpJkZ6by2gNSx9BkCaMDGZq/rkUp12N7Y3yEh0ooPEzQkQcFAm5L0vLsklZuNULHfCiIqkopwNt0mFD5VsoEUeZJ/O/fn0l8JGh/FNl6QlBhKdDULw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7641.eurprd04.prod.outlook.com (2603:10a6:10:1f7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Mon, 28 Oct
- 2024 22:03:35 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
- 22:03:34 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 1/1] arm64: dts: imx8qm-mek: add audio-codec cs42888 and related nodes
-Date: Mon, 28 Oct 2024 18:03:18 -0400
-Message-Id: <20241028220318.2047870-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR05CA0090.namprd05.prod.outlook.com
- (2603:10b6:a03:e0::31) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 28 Oct 2024 22:12:37 +0000
+Received: by mail-vs1-xe2a.google.com with SMTP id ada2fe7eead31-4a47d70cd8aso1454424137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 15:12:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730153549; x=1730758349; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mLJb+MSFeIuMjaWbZFbinF8pHkgM5h+mk8sFEoJ/Tys=;
+        b=tKPqs6Za4NBXxPeRi62KytHEFzJ4+BOIf/TOKt2QL1X+OHPmg4QQN7mntAqiaBhGm6
+         KykslKIzL3wk4brv9oYVkIljeMJx1wVjYr19f1jq19IAMXleC22CE3rkP+T3bYfapqtK
+         bNf6JfbUiNRaNtu98oNffZ4bszXtWN1HAmtIGf/yS7zKsLM2XwuTVd2Y/jeq4OQJ0SD9
+         QBLNhP2ij7ZfUTv8h32t0z43XvbjEKKPKz5ufK/DoN0T4/iBh07BPImOBFqi9rW29ppp
+         4PqSigPA5N/AjHjQmjIfp3BMhlmaIjbp5p/AEdyvf4gAnN1W/WZKK73jxrlu/DmytbCd
+         gpVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730153549; x=1730758349;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mLJb+MSFeIuMjaWbZFbinF8pHkgM5h+mk8sFEoJ/Tys=;
+        b=aLLs4XyU2oWGdug7gfvdkaNUJdMTDI9ITRVO4qobTUNIubhUYIUSDZMEehlxlcAa6W
+         kW8DQe+3UDVPfE24Z/4uIFQo368VJXTflwwwqBiH/qUOBJE4EImhv7aiXYF9cIXjEFl+
+         wD2KdGaq0Q3Zb6QDMURwl+notiuZsve6z9fZ+isOaP3AUwF4ywhwyEAcUCN3t12qEWt+
+         5PkCenhI/L3fKu6PyBnufp6D9kmwH2yBL2fsulsq5yY68l9/4/JZFTvYzwEQe8rd6e/V
+         FFd0RzgCUN5hP50uaIbCJ/Yxh0L6k7aGtDhAIZEcxX5Ts1clUz/eGXBpuPtgJU0T++CH
+         C/RA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhg/7LagZ/063U/Pv61ycFZcTPSePlEo+zn1C79q/bK1fRb9yhkuyWerQIB4VMKE+9Ln5qaRMSL5SBjJpX80xT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy19G6SupPoAUTHPqTy5DCKyLqzizF56k3mORRpis9J9K6ISfP1
+	GtK66Z7v5TcDNKyxlhBcOFDKndkpV74SgCTJIsn3kBadtwSEEMTII53FDOPdb3OKaQlqgwcaHOS
+	cBgqQdzTkuBqjOizVvJ79Q9C8eda/60GpSsYk
+X-Google-Smtp-Source: AGHT+IGhZjhk8TWm4Ox13TlDPCl1f+no887h0FoY5bya9X/aDkGoU1CVHkU9ScAAG7rcSvUbBqANUY0rSjFirr2oCPk=
+X-Received: by 2002:a05:6102:290e:b0:4a5:e63f:3655 with SMTP id
+ ada2fe7eead31-4a8cfb27a53mr8607614137.1.1730153549305; Mon, 28 Oct 2024
+ 15:12:29 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7641:EE_
-X-MS-Office365-Filtering-Correlation-Id: be1dcbd5-3813-4d81-008d-08dcf79c5e41
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0kcuuO1CIEhZYSUZId/0YsYbTQiu9KDlAkfV+CIoU0MOFaU5cnQejY6iAqtP?=
- =?us-ascii?Q?kc5hvO2JjFHsq5y2rfD/zazrl93c/LMNvT5df7Gbf3o+BpIKxm9CiD/J1Xf+?=
- =?us-ascii?Q?063hZNbJKhMUS4HuZKnadJ2/IH0UY5njrFwQuvbh4fhcS8phkQMVbXGDjykc?=
- =?us-ascii?Q?a68pg3JqnE/i0LkLN9oStMDPIWDKHCVC6dooFgYOd6XDhcef1jrEIVAk0+VW?=
- =?us-ascii?Q?tuli4Q+D61oZ1Ov1o4A7ABKOWNlqh4gQNX1+SY7wPdkltFw6+bHgg5LAL/KM?=
- =?us-ascii?Q?uXTaD/ovBHjQSbxzTfSFrial+O0ulFBdA7cES1N05yW/v2opZdh/Xi+cTp6o?=
- =?us-ascii?Q?mvwD5Av8CvnDAHHwp7W386y2ah3ibNWGZ1RaAg0lQxTdRdUFt9zv6uRNSWHA?=
- =?us-ascii?Q?eA5XEVLhe6ibQatfuKDmi/UAQGi17gZKZiZ0+84HJdA3VcX0ByYBzgdGxeap?=
- =?us-ascii?Q?6djRiJIj4M+E+g3TIp3akTCAQ5stqrQDLu2zWHFWQNIiQz/2TlC3ZUuqtkR+?=
- =?us-ascii?Q?YrPg37UvP7aonuaWaBc56ZQNe/FTNrGfXb9Bkzg//9ium4OlECqy3feP9Btc?=
- =?us-ascii?Q?yVfooJ5iHk9wroNN8ZiB94bW0U7L7ZLonf+AgAhm62bqIJjUMPvp18UUILq6?=
- =?us-ascii?Q?aAP2q23auMxLX7ZGNmNlo1gROC9mbjOpIPOnp6ZUhsjHMLbiSkRPUfJDzDw8?=
- =?us-ascii?Q?DBfi2A/fqz6m3KebF6QC9uXiaK1Df1VXmsjVwIuWpjZtRLOZ4BIyiCNOHwwO?=
- =?us-ascii?Q?qbNotCvCQQvOj0R8NqEeEZr2vZIT1us1fOPRSfOW5ACWPWKVrPv9BndVkMzp?=
- =?us-ascii?Q?hIWS6hi2zppwIl9pBvLhJQoDTrrSuVmnzROf4h0RicDJdjn3WYKW8M+kpSCS?=
- =?us-ascii?Q?YQs8NDWj6OGV/FlFaO0CtLwuRBv+iNZtEQRQYfwVxOZlulkTYD7gQKfP4yqK?=
- =?us-ascii?Q?UWNSKLFjCa2RitC9TsQTE8TyEV7Od9oaNmCyyG62IHVrok95MdEkF/n8NMr+?=
- =?us-ascii?Q?xPAQ5DGoWCkdfgOtXhvcBGQmiZTYTOQyB0/sbxKuDZzAJMZ0ZMpagKgFvtkg?=
- =?us-ascii?Q?ba9mkV1bMcg57LBjRixTMs0xdFjF8f6weQkWomaqOcV2LwrMdZgDZw16ktmq?=
- =?us-ascii?Q?7RNQ+yob0gh6RgPoeBob6TALINR/yQFyY9kdf/+5R3fEgh2U4J4WdmqVhDYK?=
- =?us-ascii?Q?9NxGUE9j257C7VKACDpGilK5E0F7yd+COlvI2yEPIi263XwCQSPswT1ac80t?=
- =?us-ascii?Q?Mm9TXikkMS0u2FzkoPgFPI1/ax0uVD2PMjfmULX35WZLY9CXCaoxqpwlDsPv?=
- =?us-ascii?Q?6ZO+xr8Py2dLkqmrqoJWl66EiERTdHHbwFdul7nMyO+2csKgnfQEnPEwwCBK?=
- =?us-ascii?Q?+HCOXbiDBi4Iin0njdp+qpulC7um?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iTq17fnDDNqADuAQCgfXZIv77UXXpgYNUl8YJ6ULb1w8ip7mV4A501uGqyGL?=
- =?us-ascii?Q?qlrM1kLgbHajyjcWArPYdDaCMdp+wNhUsGuNkP7nIbu9OzUvDbO5wHMAUc8L?=
- =?us-ascii?Q?O722H7XHLyTyOvGVFOIWC0TI7eq7MUduuqNTPe2TIWP9VC5wF0ibW8RbjUFB?=
- =?us-ascii?Q?bH3u2G/E31k6DxhmdnPHeH7RXLa3JkHvADi9I+StYAP76uLKxUa7zSkcTfhP?=
- =?us-ascii?Q?AwpZDkjSuzWUiLg56ImwD1v7U6FKY82/5T7KsFovdxxN0NBTKduL0k3FcDy2?=
- =?us-ascii?Q?ab0EnfwN6MXIg9x7Dr514KP4/p+1gDKP5MeUIQuY7hw6PJAphjknoJPDkWNA?=
- =?us-ascii?Q?ynE2YQs+iQMqR2DKeYzuPtRwHZWZuo6TgTf7n7MfPaS2HaTFx5jgnGD7lj2t?=
- =?us-ascii?Q?jikP0Kg3QBBL+k2P8Fy/j7pGcrYqR8G4i2SHZp6RMUmu9fnv/cun2+qdl5/p?=
- =?us-ascii?Q?QO7VQOTIcXcQ2Kla8zRVjmJjuMJuww1K2waci8dVYsyqgrAr/1Z3iMfwUc2N?=
- =?us-ascii?Q?Zo84mXzi4heP/lEDRCWFvo7DFuROfr/U5QT93CqCQFZFIcnM4rLfYy+rpgoU?=
- =?us-ascii?Q?Pj6G1yf+FcqI4NaXudGCYHZXkB2KZjtDvJcvn0Smp9kijEYTORYDX68atyPg?=
- =?us-ascii?Q?PsLO0+ChVvNWSYZIqEYeehEH++yAHf5mfEgf/AVmB6ZzOeZTk4TFbQyKW+y2?=
- =?us-ascii?Q?BClxyx1XHN78SI448J55aNrmrfDcHEEdIojA3BfbHbsrwVP4SK6E2poNawag?=
- =?us-ascii?Q?0WZPuteRtc3IpjR1NpLvcvHGzs4nR6Hj3iugHXQOQrEFMZ9ETgqMJsYUfXbJ?=
- =?us-ascii?Q?53mW2zMycL6oEepoQvwGbEHAf19ps4iKjcsQ6x/DIpXkjZCIhNrF4ajlH/zy?=
- =?us-ascii?Q?KOyIuhbkVlxOzCjHInFfh7iN/of6g7dCdJ6+XticZUAJcmcD/TVK58ZL7qcf?=
- =?us-ascii?Q?H/mGZ+fmkC8R/5ckyz8t0WVBh4z/6nR7lROTHBxaEH2a4y4dfpgcxDyGKjtM?=
- =?us-ascii?Q?drq5m6YhJrKz/5Q6wLuFt+tD5z4x+BVRH9b5jl+fP30IslzH6108zJt9HbHt?=
- =?us-ascii?Q?0ZgEr6kUCuhJ1Reu4d1N3tW+tnyhXopaAA+clrBKvZS4Nx9KhLDHr9XDyjL0?=
- =?us-ascii?Q?WSdsQYO9oux0G4I95PyzHNC4M09PiYC1LpDQIESZEnt0hxpSa52w6e4LkgZD?=
- =?us-ascii?Q?Jb6cfUY6LVVDTE3LPDX1h5Uf7ySgiuU0m3liIvUP8onlGxojk2Yt1ITvsWKQ?=
- =?us-ascii?Q?vAmeGc/zToSwEI7N9FpefdVxbt6SZXyS6tPM3nEOKHHYxsAWFIf0PjFBhDGx?=
- =?us-ascii?Q?S9Q0LIKyc17t9opj4+nIMJBQLKT6Yy5EXgOpP13aW/vv4Ai8oiHrJ5aT1n98?=
- =?us-ascii?Q?pxZV5jp6Tw7w/7y7duLV0VxGjbeQNG9b/LjqirYQRpvU0wrsUBq25KNvoN6a?=
- =?us-ascii?Q?QARvxTiBYDKekJbe357g045G2yQztzmmQ6egCOXXXTon6NLQ+gYdQbb2ANnA?=
- =?us-ascii?Q?cYciyhZF/+3WeRVqSYtVCMTkGU4f23TWdGLjInepPucLsXyRh9mb+DG1+1L4?=
- =?us-ascii?Q?2+tNy+rQ8LFi4kxbidSnkTTUCuIhQNdbRRm3PR75?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be1dcbd5-3813-4d81-008d-08dcf79c5e41
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 22:03:34.9630
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: thLlxvHWeHZ3NQ1kKPMwHdishKiPxtWnRSZOVngfHTzXv0r+rc1nQI9f3q047FflyYjdpKr3/aLpds8Mx0MZ5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7641
+References: <20241021042218.746659-1-yuzhao@google.com> <20241021042218.746659-5-yuzhao@google.com>
+ <868qug3yig.wl-maz@kernel.org>
+In-Reply-To: <868qug3yig.wl-maz@kernel.org>
+From: Yu Zhao <yuzhao@google.com>
+Date: Mon, 28 Oct 2024 16:11:52 -0600
+Message-ID: <CAOUHufabSWTZ+cBjXEDTRh61GeALL5b6uh0M76=2ninZP3KAzQ@mail.gmail.com>
+Subject: Re: [PATCH v1 4/6] arm64: broadcast IPIs to pause remote CPUs
+To: Marc Zyngier <maz@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Muchun Song <muchun.song@linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
+	Will Deacon <will@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_150348_156556_AF0724C2 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_151235_677178_B0B083C8 
+X-CRM114-Status: GOOD (  49.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,141 +95,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add audio-codec cs42888, enable esai0 and asrc0.
+On Tue, Oct 22, 2024 at 10:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
+e:
+>
+> On Mon, 21 Oct 2024 05:22:16 +0100,
+> Yu Zhao <yuzhao@google.com> wrote:
+> >
+> > Broadcast pseudo-NMI IPIs to pause remote CPUs for a short period of
+> > time, and then reliably resume them when the local CPU exits critical
+> > sections that preclude the execution of remote CPUs.
+> >
+> > A typical example of such critical sections is BBM on kernel PTEs.
+> > HugeTLB Vmemmap Optimization (HVO) on arm64 was disabled by
+> > commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
+> > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the folllowing reason:
+> >
+> >   This is deemed UNPREDICTABLE by the Arm architecture without a
+> >   break-before-make sequence (make the PTE invalid, TLBI, write the
+> >   new valid PTE). However, such sequence is not possible since the
+> >   vmemmap may be concurrently accessed by the kernel.
+> >
+> > Supporting BBM on kernel PTEs is one of the approaches that can make
+> > HVO theoretically safe on arm64.
+>
+> Is the safety only theoretical? I would have expected that we'd use an
+> approach that is absolutely rock-solid.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 82 ++++++++++++++++++++
- 1 file changed, 82 insertions(+)
+We've been trying to construct a repro against the original HVO
+(missing BBM), but so far no success. Hopefully a repro does exist,
+and then we'd be able to demonstrate the effectiveness of this series,
+which is only theoretical at the moment.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index e983633a4bb31..31cf02275ca9e 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -134,6 +134,13 @@ reg_usdhc2_vmmc: usdhc2-vmmc {
- 		enable-active-high;
- 	};
- 
-+	reg_audio: regulator-audio {
-+		compatible = "regulator-fixed";
-+		regulator-name = "cs42888_supply";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+
- 	reg_fec2_supply: regulator-fec2-nvcc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "fec2_nvcc";
-@@ -223,6 +230,27 @@ simple-audio-card,codec {
- 		};
- 	};
- 
-+	sound-cs42888 {
-+		compatible = "fsl,imx-audio-cs42888";
-+		model = "imx-cs42888";
-+		audio-cpu = <&esai0>;
-+		audio-codec = <&cs42888>;
-+		audio-asrc = <&asrc0>;
-+		audio-routing = "Line Out Jack", "AOUT1L",
-+				"Line Out Jack", "AOUT1R",
-+				"Line Out Jack", "AOUT2L",
-+				"Line Out Jack", "AOUT2R",
-+				"Line Out Jack", "AOUT3L",
-+				"Line Out Jack", "AOUT3R",
-+				"Line Out Jack", "AOUT4L",
-+				"Line Out Jack", "AOUT4R",
-+				"AIN1L", "Line In Jack",
-+				"AIN1R", "Line In Jack",
-+				"AIN2L", "Line In Jack",
-+				"AIN2R", "Line In Jack";
-+		status = "okay";
-+	};
-+
- 	sound-wm8960 {
- 		compatible = "fsl,imx-audio-wm8960";
- 		model = "wm8960-audio";
-@@ -301,12 +329,45 @@ pca6416: gpio@20 {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 	};
-+
-+	cs42888: audio-codec@48 {
-+		compatible = "cirrus,cs42888";
-+		reg = <0x48>;
-+		clocks = <&mclkout0_lpcg IMX_LPCG_CLK_0>;
-+		clock-names = "mclk";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_cs42888_reset>;
-+		VA-supply = <&reg_audio>;
-+		VD-supply = <&reg_audio>;
-+		VLS-supply = <&reg_audio>;
-+		VLC-supply = <&reg_audio>;
-+		reset-gpios = <&lsio_gpio4 25 GPIO_ACTIVE_LOW>;
-+		assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-+				  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-+				  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-+				  <&mclkout0_lpcg IMX_LPCG_CLK_0>;
-+		assigned-clock-rates = <786432000>, <49152000>, <12288000>, <12288000>;
-+		status = "okay";
-+	};
- };
- 
- &cm41_intmux {
- 	status = "okay";
- };
- 
-+&esai0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_esai0>;
-+	assigned-clocks = <&acm IMX_ADMA_ACM_ESAI0_MCLK_SEL>,
-+			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-+			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-+			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-+			  <&esai0_lpcg IMX_LPCG_CLK_4>;
-+	assigned-clock-parents = <&aud_pll_div0_lpcg IMX_LPCG_CLK_0>;
-+	assigned-clock-rates = <0>, <786432000>, <49152000>, <12288000>, <49152000>;
-+	status = "okay";
-+};
-+
- &hsio_phy {
- 	fsl,hsio-cfg = "pciea-pcieb-sata";
- 	fsl,refclk-pad-mode = "input";
-@@ -691,6 +752,12 @@ IMX8QM_SCU_GPIO0_03_LSIO_GPIO0_IO31			0x0600004c
- 		>;
- 	};
- 
-+	pinctrl_cs42888_reset: cs42888_resetgrp {
-+		fsl,pins = <
-+			IMX8QM_QSPI1A_DATA1_LSIO_GPIO4_IO25			0x0600004c
-+		>;
-+	};
-+
- 	pinctrl_i2c0: i2c0grp {
- 		fsl,pins = <
- 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0x06000021
-@@ -725,6 +792,21 @@ IMX8QM_M41_I2C0_SCL_M41_I2C0_SCL			0x0600004c
- 		>;
- 	};
- 
-+	pinctrl_esai0: esai0grp {
-+		fsl,pins = <
-+			IMX8QM_ESAI0_FSR_AUD_ESAI0_FSR				0xc6000040
-+			IMX8QM_ESAI0_FST_AUD_ESAI0_FST				0xc6000040
-+			IMX8QM_ESAI0_SCKR_AUD_ESAI0_SCKR			0xc6000040
-+			IMX8QM_ESAI0_SCKT_AUD_ESAI0_SCKT			0xc6000040
-+			IMX8QM_ESAI0_TX0_AUD_ESAI0_TX0				0xc6000040
-+			IMX8QM_ESAI0_TX1_AUD_ESAI0_TX1				0xc6000040
-+			IMX8QM_ESAI0_TX2_RX3_AUD_ESAI0_TX2_RX3			0xc6000040
-+			IMX8QM_ESAI0_TX3_RX2_AUD_ESAI0_TX3_RX2			0xc6000040
-+			IMX8QM_ESAI0_TX4_RX1_AUD_ESAI0_TX4_RX1			0xc6000040
-+			IMX8QM_ESAI0_TX5_RX0_AUD_ESAI0_TX5_RX0			0xc6000040
-+		>;
-+	};
-+
- 	pinctrl_fec1: fec1grp {
- 		fsl,pins = <
- 			IMX8QM_ENET0_MDC_CONN_ENET0_MDC				0x06000020
--- 
-2.34.1
+> > Note that it is still possible for the paused CPUs to perform
+> > speculative translations. Such translations would cause spurious
+> > kernel PFs, which should be properly handled by
+> > is_spurious_el1_translation_fault().
+>
+> Speculative translation faults are never reported, that'd be a CPU
+> bug.
 
+Right, I meant to say "speculative accesses that cause translations".
+
+> *Spurious* translation faults can be reported if the CPU doesn't
+> implement FEAT_ETS2, for example, and that has to do with the ordering
+> of memory access wrt page-table walking for the purpose of translations.
+
+Just want to make sure I fully understand: after the local CPU sends
+TLBI (followed by DSB & ISB), FEAT_ETS2 would act like DSB & ISB on
+remote CPUs when they perform the invalidation, and therefore
+speculative accesses are ordered as well on remote CPUs.
+
+Also I'm assuming IPIs on remote CPUs don't act like a full barrier,
+and whatever they interrupt still can be speculatively executed even
+though the IPI hander itself doesn't access the vmemmap area
+undergoing BBM. Is this correct?
+
+> > Signed-off-by: Yu Zhao <yuzhao@google.com>
+> > ---
+> >  arch/arm64/include/asm/smp.h |  3 ++
+> >  arch/arm64/kernel/smp.c      | 92 +++++++++++++++++++++++++++++++++---
+> >  2 files changed, 88 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.=
+h
+> > index 2510eec026f7..cffb0cfed961 100644
+> > --- a/arch/arm64/include/asm/smp.h
+> > +++ b/arch/arm64/include/asm/smp.h
+> > @@ -133,6 +133,9 @@ bool cpus_are_stuck_in_kernel(void);
+> >  extern void crash_smp_send_stop(void);
+> >  extern bool smp_crash_stop_failed(void);
+> >
+> > +void pause_remote_cpus(void);
+> > +void resume_remote_cpus(void);
+> > +
+> >  #endif /* ifndef __ASSEMBLY__ */
+> >
+> >  #endif /* ifndef __ASM_SMP_H */
+> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> > index 3b3f6b56e733..68829c6de1b1 100644
+> > --- a/arch/arm64/kernel/smp.c
+> > +++ b/arch/arm64/kernel/smp.c
+> > @@ -85,7 +85,12 @@ static int ipi_irq_base __ro_after_init;
+> >  static int nr_ipi __ro_after_init =3D NR_IPI;
+> >  static struct irq_desc *ipi_desc[MAX_IPI] __ro_after_init;
+> >
+> > -static bool crash_stop;
+> > +enum {
+> > +     SEND_STOP =3D BIT(0),
+> > +     CRASH_STOP =3D BIT(1),
+> > +};
+> > +
+> > +static unsigned long stop_in_progress;
+> >
+> >  static void ipi_setup(int cpu);
+> >
+> > @@ -917,6 +922,79 @@ static void __noreturn ipi_cpu_crash_stop(unsigned=
+ int cpu, struct pt_regs *regs
+> >  #endif
+> >  }
+> >
+> > +static DEFINE_SPINLOCK(cpu_pause_lock);
+>
+> PREEMPT_RT will turn this into a sleeping lock. Is it safe to sleep as
+> you are dealing with kernel mappings?
+
+Right, it should be a raw spinlock -- the caller disabled preemption,
+which as you said is required when dealing with the kernel mappings.
+
+> > +static cpumask_t paused_cpus;
+> > +static cpumask_t resumed_cpus;
+> > +
+> > +static void pause_local_cpu(void)
+> > +{
+> > +     int cpu =3D smp_processor_id();
+> > +
+> > +     cpumask_clear_cpu(cpu, &resumed_cpus);
+> > +     /*
+> > +      * Paired with pause_remote_cpus() to confirm that this CPU not o=
+nly
+> > +      * will be paused but also can be reliably resumed.
+> > +      */
+> > +     smp_wmb();
+> > +     cpumask_set_cpu(cpu, &paused_cpus);
+> > +     /* paused_cpus must be set before waiting on resumed_cpus. */
+> > +     barrier();
+>
+> I'm not sure what this is trying to enforce. Yes, the compiler won't
+> reorder the set and the test.
+
+Sorry I don't follow: does cpumask_set_cpu(), i.e., set_bit(), already
+contain a compiler barrier?
+
+My understanding is that the compiler is free to reorder the set and
+test on those two independent variables, and make it like this:
+
+  while (!cpumask_test_cpu(cpu, &resumed_cpus))
+      cpu_relax();
+  cpumask_set_cpu(cpu, &paused_cpus);
+
+So the CPU sent the IPI would keep waiting on paused_cpus being set,
+and this CPU would keep waiting on resumed_cpus being set, which would
+end up with a deadlock.
+
+> But your comment seems to indicate that
+> also need to make sure the CPU preserves that ordering
+> and short of a
+> DMB, the test below could be reordered.
+
+If this CPU reorders the set and test like above, it wouldn't be a
+problem because the set would eventually appear on the other CPU that
+sent the IPI.
+
+> > +     while (!cpumask_test_cpu(cpu, &resumed_cpus))
+> > +             cpu_relax();
+> > +     /* A typical example for sleep and wake-up functions. */
+>
+> I'm not sure this is "typical",...
+
+Sorry, this full barrier isn't needed. Apparently I didn't properly
+fix this from the previous attempt to use wfe()/sev() to make this
+function the sleeper for resume_remote_cpus() to wake up.
+
+> > +     smp_mb();
+> > +     cpumask_clear_cpu(cpu, &paused_cpus);
+> > +}
+> > +
+> > +void pause_remote_cpus(void)
+> > +{
+> > +     cpumask_t cpus_to_pause;
+> > +
+> > +     lockdep_assert_cpus_held();
+> > +     lockdep_assert_preemption_disabled();
+> > +
+> > +     cpumask_copy(&cpus_to_pause, cpu_online_mask);
+> > +     cpumask_clear_cpu(smp_processor_id(), &cpus_to_pause);
+>
+> This bitmap is manipulated outside of your cpu_pause_lock. What
+> guarantees you can't have two CPUs stepping on each other here?
+
+Do you mean cpus_to_pause? If so, that's a local bitmap.
+
+> > +
+> > +     spin_lock(&cpu_pause_lock);
+> > +
+> > +     WARN_ON_ONCE(!cpumask_empty(&paused_cpus));
+> > +
+> > +     smp_cross_call(&cpus_to_pause, IPI_CPU_STOP_NMI);
+> > +
+> > +     while (!cpumask_equal(&cpus_to_pause, &paused_cpus))
+> > +             cpu_relax();
+>
+> This can be a lot of things to compare, specially that you are
+> explicitly mentioning large systems. Why can't this be implemented as
+> a counter instead?
+
+Agreed - that'd be sufficient and simpler.
+
+> Overall, this looks like stop_machine() in disguise. Why can't this
+> use the existing infrastructure?
+
+This came up during the previous discussion [1]. There are
+similarities. The main concern with reusing stop_machine() (or part of
+its current implementation) is that it may not meet the performance
+requirements. Refactoring might be possible, however, it seems to me
+(after checking the code again) that such a refactoring unlikely ends
+up cleaner or simpler codebase, especially after I got rid of CPU
+masks, as you suggested.
+
+[1] https://lore.kernel.org/all/ZbKjHHeEdFYY1xR5@arm.com/
+
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..b672af2441a3 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -917,6 +922,64 @@ static void __noreturn
+ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+ #endif
+ }
+
++static DEFINE_RAW_SPINLOCK(cpu_pause_lock);
++static bool __cacheline_aligned_in_smp cpu_paused;
++static atomic_t __cacheline_aligned_in_smp nr_cpus_paused;
++
++static void pause_local_cpu(void)
++{
++ atomic_inc(&nr_cpus_paused);
++
++ while (READ_ONCE(cpu_paused))
++ cpu_relax();
++
++ atomic_dec(&nr_cpus_paused);
++}
++
++void pause_remote_cpus(void)
++{
++ cpumask_t cpus_to_pause;
++ int nr_cpus_to_pause =3D num_online_cpus() - 1;
++
++ lockdep_assert_cpus_held();
++ lockdep_assert_preemption_disabled();
++
++ if (!nr_cpus_to_pause)
++ return;
++
++ cpumask_copy(&cpus_to_pause, cpu_online_mask);
++ cpumask_clear_cpu(smp_processor_id(), &cpus_to_pause);
++
++ raw_spin_lock(&cpu_pause_lock);
++
++ WARN_ON_ONCE(cpu_paused);
++ WARN_ON_ONCE(atomic_read(&nr_cpus_paused));
++
++ cpu_paused =3D true;
++
++ smp_cross_call(&cpus_to_pause, IPI_CPU_STOP_NMI);
++
++ while (atomic_read(&nr_cpus_paused) !=3D nr_cpus_to_pause)
++ cpu_relax();
++
++ raw_spin_unlock(&cpu_pause_lock);
++}
++
++void resume_remote_cpus(void)
++{
++ if (!cpu_paused)
++ return;
++
++ raw_spin_lock(&cpu_pause_lock);
++
++ WRITE_ONCE(cpu_paused, false);
++
++ while (atomic_read(&nr_cpus_paused))
++ cpu_relax();
++
++ raw_spin_unlock(&cpu_pause_lock);
+
++}
++
+ static void arm64_backtrace_ipi(cpumask_t *mask)
+ {
+  __ipi_send_mask(ipi_desc[IPI_CPU_BACKTRACE], mask);
 
