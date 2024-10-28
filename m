@@ -4,91 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A751BD13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CE5D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIDm7KBT1s0AbOc3yV3TQ9ohvs8sUqIvua5HhBI5V8A=; b=MxBiltWpntB7ca3h8BtUxHeTWk
-	YmpUwTaBMyKMkqP2tgg+pK1syAM0Ti+b7SbJUEFGu0rw9Kop6uPozBjCj7FpvF8ZXCi74hqucXJXg
-	KxhpfVDvOvbtqrhiX2Ba/RduDkpUa+RBn3BF3c+EohZDkJv3q2evdOMu8i/7gmzlrP3FNc+g+ARbF
-	L4poCJYxBbnlZ8hBD/q+D42e55VrC9QRjqjyy0HCJutuAylA2zo1QqSahUtXK+t4jwCsCXX6ZO1M/
-	Vy6bMxFpXrytiqhZ4aeETL93BY9a2uArdxducfStqOMlFiX1bP2L1kGWW85VLZVh1pI+EOb8tErEu
-	HCZwAW9A==;
+	bh=Sifr2jJTKHUjzilORSWtcX+eJYT6NU0RJzPCM1a85Qs=; b=NJg0RBUjVDoXFNihZOGtAIDRYq
+	ynl5MMWrkhaxqz0eRsSbGyEvBACtfpVw9o9z9WYT55gUR7mVhEYW+0j6yZ2YDfzwt+mDEEdLxDD/M
+	2ORD4NLreo+llwxKZaQvsYCw8DOw14AA6j80f4j4x4t9ugZfHd51/Hs7e2cmo6SNkR+uWCCVN0q5s
+	o0hH2nTbh59YXRMTKVD1XvFIHzlwbaRRFFiRdzH/4N1Cwb79VWyIoZ25mHMLIU+1INH4+j6jjWFeu
+	5wV58KeK0sYtdLBQJsYSVmFzJPnmBx5liVt5q6kGfgdwcl4CI5shU/7iRMe87adyJMJX2MLKtSwb2
+	7L4e9ifQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5N6O-0000000APzj-3i8V;
-	Mon, 28 Oct 2024 10:36:00 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1t5N7x-0000000AQEI-3PXG;
+	Mon, 28 Oct 2024 10:37:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Mx9-0000000AOSN-1Dth
+	id 1t5N37-0000000APWZ-2v0S
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Oct 2024 10:32:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Sifr2jJTKHUjzilORSWtcX+eJYT6NU0RJzPCM1a85Qs=; b=Q2EZrdQLOPrJJea5PofBzjCGRK
+	XWyC4YAdIAnI7sNJNpylmOISsCeAz6S84JUoBoViABaSdsL2oeti9zYNYUlsCprs1vsiY87Qfb5As
+	ekBvJr7lr+2L+uG3H8/jG9Wf1PxDYuTyLXqVUplTyghn+4P+V7gy2qhWER4qCveeFP8/SyevnGTuT
+	8JzfoI1p1N6UgeE4h0ZXgWCrtYsktjvNNXoTJNlvqkcTV4gwUBXb4pShIVjg6CUR0aBRDA6xjxNXk
+	yyPWKF3dHtp30icgszGTOIirvAFGhzgjnufxzTBwIi3r4qAOH3vO3s+hf/2r/lppnGjsDVEALe8jg
+	b5bEUwWQ==;
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5N34-00000009czQ-0AI3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 10:26:28 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a86e9db75b9so614950466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 03:26:27 -0700 (PDT)
+	Mon, 28 Oct 2024 10:32:36 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e29327636f3so4280364276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 03:32:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1730111186; x=1730715986; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=amarulasolutions.com; s=google; t=1730111550; x=1730716350; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=aIDm7KBT1s0AbOc3yV3TQ9ohvs8sUqIvua5HhBI5V8A=;
-        b=UoSxzFggnBHuBMowTO6/zmAHT8dNHP1FwkSLDrPl+xPBH5bIz69LtUaLeJ6dz7mtJb
-         irm7bkk/MYuw/5RuOgBD6pHS3VOQFUOYTPRscTQnvmNq89lJ+cRhmQ3vEwdj2Im/ZnV0
-         Ry80qZMmM8D1G2592iFH4g++DQBB4D1uj7Wu0=
+        bh=Sifr2jJTKHUjzilORSWtcX+eJYT6NU0RJzPCM1a85Qs=;
+        b=cddophJ+9HZeu5JHb5M0FthMkLsUjDjpkKokqwr1pc5nDYERiUdg8KQFadRU42X2K7
+         fmiFQSAYOGC9u3L7J1o4B2v7Jt/06Q9+y2X+/7LDG4XDCaK78gPG6a10HKUmhNUm2aMC
+         hBnG17MclylxxHfvGoEPy0vfhtdAqYVPzn8iw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730111186; x=1730715986;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1730111550; x=1730716350;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aIDm7KBT1s0AbOc3yV3TQ9ohvs8sUqIvua5HhBI5V8A=;
-        b=AIqG5QcySyyG7KA7uxAGSp/E3ekqp96hSU27hFiEIdvJaD22CPtGKA21o75gLlWvZK
-         5SLWXIlMAomPZqR0Cv2SaiQkBOWEl5JzJxkhZWdXrrAFxd/KopFw1pWkqYxekyWn+t2N
-         Do7XssbEH1ElckLeYuS6tA9BhxKL2/zoIERZrxzCe1Fe7XRbi+u9vH58+vMcnBb6xJmh
-         aT23BFz1BrD8S9he2Y50bdduILN6yzefQfLXqW4yLph+II3XOuAuVfljLmc0VeG6f98+
-         XHOi13AfRNJQGxysOS8CgCv7GY66T38LEHL/M3LLeWUctqet4C7WycILKvbRAaBvoyUv
-         J0iw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqPzrmabFslQXQsdcrZohbG5+p6ud8zK0/7DDzZv3NoYuDkczfx/whAT3HwSsJRE7ah66mfrqKoH+FHqvzTi19@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOiAyFg+orfpH2NLK78/MRNIBrEJTO+qF9keWKZUjwp+3W5t6i
-	1on6WMjD6XzgzXCIMdMg3aQg8FfeuN4v/1I1K+NrVLM/4PHwUcxvhFdChxqLbco=
-X-Google-Smtp-Source: AGHT+IEA5nCg2j7DVomJoAqNLW+z2Nbv9V6XM3cl17RychbK0FRUPkeqVCDGC4TH9y5e5TfNamZx8g==
-X-Received: by 2002:a17:906:da8a:b0:a99:425c:c653 with SMTP id a640c23a62f3a-a9de5ce24f6mr866426966b.22.1730111185881;
-        Mon, 28 Oct 2024 03:26:25 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2.196.41.121])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b1f297b04sm363613966b.134.2024.10.28.03.26.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 03:26:25 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 10/10] drm/mxsfb: stop controller and drain FIFOs if already initialized
-Date: Mon, 28 Oct 2024 11:25:33 +0100
-Message-ID: <20241028102559.1451383-11-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241028102559.1451383-1-dario.binacchi@amarulasolutions.com>
-References: <20241028102559.1451383-1-dario.binacchi@amarulasolutions.com>
+        bh=Sifr2jJTKHUjzilORSWtcX+eJYT6NU0RJzPCM1a85Qs=;
+        b=jVoAs4wEF2aXR/6CtkV2GZvqEDnkf2676b0J/W/gFOzpKhHUoihaGJADcuO8foiIOe
+         SeRGaOpZdCCgjQBdTwjvdZsNaCxtvwJPRVZQKI0SG0EEHd5jo5vZciqpSqyYxtXoxdjz
+         jha6dnMeT5kwi2VpvAhplEu72EStELABV33d/+ofBrBRnJaspMPfrckQ2u1OepegGQG/
+         9/CEwqsAJMB+ArSYVmKJWb207jmcl5TGDwGjJs8EEsGYusWz1GROxoiOSdXu7LtR3t5Q
+         HPVA0ZgF9mFvWseAiyP+Is8VEv2ALYpgKj0WEaUmylzcjCu4rvewBR0eLOJi9Mqx6i7S
+         Lrkw==
+X-Forwarded-Encrypted: i=1; AJvYcCUB5PXkCHzGiAlGCn7AJAxvW5mRBPXfjUIYYAkI5/nkdbB6j3V60L5LLxx7kMOAVAdg/mIlzmUwcUfZK8zoglkZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBvyY4Iq9tGWuj0of45eiJNXoq41KwS25apXJCDLVfAKjxU3C8
+	ZvdSuLS3SI61zqVtl9Qb/khVUSw2bpqLD5/BXFCrs4cN0Yzyw6cV+6dlScoQoIWn3TtWmYZ6JsO
+	OpD0TfMgdIMd83mM8YlMVMhCo2bk6ogyL8th5sw==
+X-Google-Smtp-Source: AGHT+IF9ddqHdtij3qzgutlZYqDdqye4Y0X7im5D9JxYtJ3EWaxqlKOCIp8dtlSZCbbCN0feWNn58wnCJ9/AjxCbxos=
+X-Received: by 2002:a05:6902:18d6:b0:e1d:194a:51ee with SMTP id
+ 3f1490d57ef6-e3087a4cabcmr6741526276.12.1730111550644; Mon, 28 Oct 2024
+ 03:32:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20240928083804.1073942-1-dario.binacchi@amarulasolutions.com>
+ <20240928083804.1073942-2-dario.binacchi@amarulasolutions.com>
+ <566859c1-a397-4465-987e-0682b07a703e@kernel.org> <CABGWkvqqg-PGAZTCz=MMLRx5F93jaN_=z8zJt1sDd3PHXd80PQ@mail.gmail.com>
+ <6c3e6071-822f-4230-b76b-276330de07ef@kernel.org> <CABGWkvrU507BHoP94Y7fEyFr=chuuy3o=oBHtuWRvwTw3GnxXw@mail.gmail.com>
+ <82db5037-bbd3-4005-bde9-02df1bf4c475@kernel.org> <CABGWkvqXZ+YAvo-AtUy+Ftdu0xxXKuhOwcSTwO5Fv6D3yzttNg@mail.gmail.com>
+ <b847ccb1-1eb8-4119-8612-212804cb50d8@kernel.org> <CABGWkvqkmo9O-O1taR651W4xo=yqar=p71e0LKqRte2CGZ2Z8w@mail.gmail.com>
+ <7bce31c0-8c74-4d65-812f-01951a0d75d1@kernel.org> <CABGWkvqFi_y8OzKbi=K7ucW4RuY_zh6Z4a=uO2oqQRoVE8LaCQ@mail.gmail.com>
+ <CABGWkvrR-vVTpNSBD_etjn4SteO8cpUed+dTvYguHR67UUSsYA@mail.gmail.com> <fdb76466-3258-4c71-bca3-50fd3cc94a0e@kernel.org>
+In-Reply-To: <fdb76466-3258-4c71-bca3-50fd3cc94a0e@kernel.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Mon, 28 Oct 2024 11:32:19 +0100
+Message-ID: <CABGWkvpTospGbdPtEz-Fn5OL52+Fp6tQxdoAVFZUP_HeG=a7aA@mail.gmail.com>
+Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m-anatop: support spread
+ spectrum clocking
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_032627_357905_B13028A7 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20241028_103234_265971_4B13ED8F 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +115,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-You can't re-program the controller if it is still running. This may
-lead to shifted pictures, so stop the controller and drain its FIFOs
-in case it's already properly setup.
-This patch is crucial when supporting the simple framebuffer, as the
-controller has already been initialized by the bootloader.
+On Wed, Oct 23, 2024 at 7:49=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 23/10/2024 16:58, Dario Binacchi wrote:
+> >>>>
+> >>>> This is another commit [1] on enabling spread spectrum that I
+> >>>> implemented some time ago for
+> >>>> the am335x. The most evident difference is that in that case the nod=
+e
+> >>>> was a clock node and not
+> >>>> a clock controller, as in the case of anatop. The parameters are als=
+o
+> >>>> not exactly the same, but
+> >>>> that depends on the platform.
+> >>>>
+> >>>> [1] 4a8bc2644ef0cbf8e ("dt-bindings: ti: dpll: add spread spectrum s=
+upport")
+> >>>
+> >>>
+> >>> OK, I still do not know what "0" was, but the items are fixed, so you
+> >>> know exactly which clock you are configuring here.
+> >>
+> >> So, after delving deeper into the topic, is it now acceptable to use
+> >> the property
+> >> "fsl,ssc-clocks" instead of "clocks"?  As in the patch I applied local=
+ly?
+> >
+> > A gentle ping.
+> > Sorry, but I haven't yet received your response to the previous email,
+> > and I'm not sure how to proceed.
+> >
+>
+> Yeah, the property is fine, but I don't think you need the clock index.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+So it then becomes reviewable v2, which I had already sent some time ago?
 
----
+https://patchwork.kernel.org/project/linux-clk/patch/20240929172743.1758292=
+-2-dario.binacchi@amarulasolutions.com/
 
- drivers/gpu/drm/mxsfb/mxsfb_drv.c |  3 +++
- drivers/gpu/drm/mxsfb/mxsfb_drv.h |  1 +
- drivers/gpu/drm/mxsfb/mxsfb_kms.c | 14 +++++++++++++-
- 3 files changed, 17 insertions(+), 1 deletion(-)
+Thanks and regards,
+Dario
 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index cb5ce4e81fc7..38c94cdc8f6c 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -10,6 +10,7 @@
- 
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
-+#include <linux/of.h>
- #include <linux/io.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
-@@ -221,6 +222,8 @@ static int mxsfb_load(struct drm_device *drm,
- 	if (!mxsfb)
- 		return -ENOMEM;
- 
-+	mxsfb->enabled =
-+		of_property_read_bool(drm->dev->of_node, "fsl,boot-on");
- 	mxsfb->drm = drm;
- 	drm->dev_private = mxsfb;
- 	mxsfb->devdata = devdata;
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-index d160d921b25f..0f9ae4ce450c 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-@@ -47,6 +47,7 @@ struct mxsfb_drm_private {
- 	struct drm_bridge		*bridge;
- 
- 	bool				crc_active;
-+	bool                            enabled;
- };
- 
- static inline struct mxsfb_drm_private *
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-index 7ed2516b6de0..d064a2bb65df 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-@@ -202,9 +202,11 @@ static void mxsfb_enable_controller(struct mxsfb_drm_private *mxsfb)
- 	writel(reg, mxsfb->base + LCDC_CTRL1);
- 
- 	writel(CTRL_RUN, mxsfb->base + LCDC_CTRL + REG_SET);
-+
-+	mxsfb->enabled = true;
- }
- 
--static void mxsfb_disable_controller(struct mxsfb_drm_private *mxsfb)
-+static void _mxsfb_disable_controller(struct mxsfb_drm_private *mxsfb)
- {
- 	u32 reg;
- 
-@@ -221,6 +223,13 @@ static void mxsfb_disable_controller(struct mxsfb_drm_private *mxsfb)
- 	reg &= ~VDCTRL4_SYNC_SIGNALS_ON;
- 	writel(reg, mxsfb->base + LCDC_VDCTRL4);
- 
-+	mxsfb->enabled = false;
-+}
-+
-+static void mxsfb_disable_controller(struct mxsfb_drm_private *mxsfb)
-+{
-+	_mxsfb_disable_controller(mxsfb);
-+
- 	clk_disable_unprepare(mxsfb->clk);
- 	if (mxsfb->clk_disp_axi)
- 		clk_disable_unprepare(mxsfb->clk_disp_axi);
-@@ -354,6 +363,9 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
- 	u32 bus_format = 0;
- 	dma_addr_t dma_addr;
- 
-+	if (mxsfb->enabled)
-+		_mxsfb_disable_controller(mxsfb);
-+
- 	pm_runtime_get_sync(drm->dev);
- 	mxsfb_enable_axi_clk(mxsfb);
- 
--- 
-2.43.0
+> The lists - like clocks and your spread property - have strictly defined
+> items, so it is enough if schema lists items and says which spread
+> points to which clock.
+>
+>
+> P.S. I think you might pinged me on IRC, but you know,
+> https://nohello.net/en/
+>
+>
+> Best regards,
+> Krzysztof
+>
 
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
