@@ -4,74 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAB0D33992
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C26FD33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6wjZ1pTHZq/+k3MCnSbbzmSo0hoqjpDUYVU+ZZfLBNM=; b=mxTwd/+VUki5NfwX62D2Ed5JQ1
-	E1VCfDI7dgbGbIOuop6BSuTDrbL85tK73VjyWA7Js/jCfPKqTH4Y/cMhM2DCtHS1b0r8U2oD4jPws
-	WnruEC6qiMKtzCRFGbj1VXaRleQmhDwCp4TkspQcPPerI7tSwabezvC/Ja2nN0ab82c3iM+SVW5CN
-	Hgv41MoSAjeqcKCpe7wHjtPsugrMFbPqj+BLu00tZOH/E7xIcWMVp6f8OVF0fIMwT2Yen3xgygBHj
-	Uc37L6KDa4ZUiNOPHHl/SdM+eAn0JlQla4zJnoKsUNtbGQ0qbEYPPocITR9tFxaMqbXN+tPamjAKh
-	G/8HzMmg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8aGAN8OQHWbROV21OhVadnJ0uBcldibamiO+AcgPGbI=; b=Y8KuefdV2TEQxLALLRI0Xo6iFu
+	g0eJFQVAaBY18KJNahjod/tJm4NoXesctp+8KlpWBW4dm3/4Rd3S4Lxbv010V9G7fzY663u415qkm
+	mzgMcvdRd7gl5pIkXMfdqeVy4CYkUybSGV3PSAnnvIWv5CzYzB8hJ7jBR+GcW4W5P75t1m1PpwWem
+	cxwGJde+lXQiWwMpapnJ63W77lH6ZvUxNqAYYBHdj2mqYcwlRBsqqsQnJIe98AzUQs+bHxvuiEXGQ
+	kraEv4CX00B8i8u2cGICLiiMvZS+/C3avuIcbxdkNEWwyfpGVmDEEl53MkodmCh3f4Iua2VF+8eIj
+	92r/ecNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qyd-0000000BBJq-2nOK;
-	Mon, 28 Oct 2024 14:44:15 +0000
-Received: from a.peacevolution.org ([206.189.193.133])
+	id 1t5R0C-0000000BBXo-2gq8;
+	Mon, 28 Oct 2024 14:45:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Qcx-0000000B69O-0dv2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:21:52 +0000
-Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 588034C736;
-	Mon, 28 Oct 2024 14:21:48 +0000 (UTC)
-From: Aren Moynihan <aren@peacevolution.org>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Aren Moynihan <aren@peacevolution.org>,
-	Kaustabh Chakraborty <kauschluss@disroot.org>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <trabarni@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Ondrej Jirman <megi@xff.cz>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v3 1/6] dt-bindings: iio: light: stk33xx: add vdd and leda regulators
-Date: Mon, 28 Oct 2024 10:19:55 -0400
-Message-ID: <20241028142000.1058149-2-aren@peacevolution.org>
-In-Reply-To: <20241028142000.1058149-1-aren@peacevolution.org>
-References: <20241028142000.1058149-1-aren@peacevolution.org>
+	id 1t5Qd3-0000000B69r-0UWq;
+	Mon, 28 Oct 2024 14:21:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8C035C5B42;
+	Mon, 28 Oct 2024 14:21:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B32AC4CEC3;
+	Mon, 28 Oct 2024 14:21:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730125315;
+	bh=4W6dh8e7x/YeKppPVhtsgkLSqr2AXYe+TtfKUf77AS8=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=HZBVIPnKkbtgwofyduapSoFsJ79igIqXEooSEARRekdndPhe5VmVE0MT1YCo6E7AR
+	 QH96dEufH/AYdFI6Iq7NBY4ha7iioo5qWa4sGQPsnuY8qBzgtN9IdaA0GncH3JQjU3
+	 L33+0hQVqpbjP0xXoLBIZmSBpI/LRaojThzUZDE5JBA0zl2NSkr/0Q0iejSGCCwVAH
+	 Uf/Y2kxA281a6AHyJiz9+g1QHU+BlYSLFIrjzHHPo8D489ReUHoram+K2sQKrcsEsz
+	 ykiruhKPf/26/eQeXq6Xzgo9BPJdEOhA+hjrvDW+Rt2UJ4tDDYoeUu3Y6ZaOD44snJ
+	 P49sCsPFNeNrA==
+Message-ID: <5911e238-345a-4403-b023-585a17aa76f6@kernel.org>
+Date: Mon, 28 Oct 2024 15:21:42 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++++++
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730125309;
-	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=6wjZ1pTHZq/+k3MCnSbbzmSo0hoqjpDUYVU+ZZfLBNM=;
-	b=lIbTPM/AeaMflAcdwUJTLIqKg+0qzjN+F7YnXFOaviiL719lrG2kCKUyGQWu4NKN79l5qL
-	5mqVD0tWkcaaCIf3a1sRdridQwMCanS1iTHnmY5GoM4GLEIMQpq+ZcPYw6LsTkZLoS7yEw
-	yQBC8DXXeh9XO+ZV2jk9kFdDP9rki/Y=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/12] dt-bindings: clock: Add RaspberryPi RP1 clock
+ bindings
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+ <914978925d34cfb5bee10fe92603f98763af48b0.1730123575.git.andrea.porta@suse.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <914978925d34cfb5bee10fe92603f98763af48b0.1730123575.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072151_277252_430AF67D 
-X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-CacheID: sfid-20241028_072157_365841_7A7BE79A 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,45 +139,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stk3310 and stk3311 are typically connected to power supplies for the
-chip (vdd) and the infrared LED (leda). Add properties so we can power
-these up / down appropriately.
+On 28/10/2024 15:07, Andrea della Porta wrote:
+> Add device tree bindings for the clock generator found in RP1 multi
+> function device, and relative entries in MAINTAINERS file.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
 
-Signed-off-by: Aren Moynihan <aren@peacevolution.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
+Please do not send new versions of patchsets while discussion is still
+going. I responded to you on v2, pretty next day I think. It took you
+two weeks to respond to my comments. That was on 21st of October, a week
+ago, so I still have some time to respond to you.
 
-Notes:
-    Changes in v2:
-     - add leda-supply
-     - add supplies to examples
-
- Documentation/devicetree/bindings/iio/light/stk33xx.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-index e4341fdced98..96ee8ec16463 100644
---- a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-+++ b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-@@ -34,6 +34,8 @@ properties:
-   interrupts:
-     maxItems: 1
- 
-+  vdd-supply: true
-+  leda-supply: true
-   proximity-near-level: true
- 
- required:
-@@ -57,6 +59,8 @@ examples:
-                 proximity-near-level = <25>;
-                 interrupt-parent = <&gpio1>;
-                 interrupts = <5 IRQ_TYPE_LEVEL_LOW>;
-+                vdd-supply = <&vdd_regulator>;
-+                leda-supply = <&led_regulator>;
-         };
-     };
- ...
--- 
-2.47.0
+Best regards,
+Krzysztof
 
 
