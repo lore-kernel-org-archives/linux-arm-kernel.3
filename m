@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6328BD5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A866D5B156
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9okxa3Q0g0QmicSYuvHmUoOcciSTa4JWfgy8EOP1LU=; b=KZF1Ua0kE5cuRt+JFJLl87uchz
-	ePkv1kurwKhF3EQndylrehYRUfCk5hBBSV0GcQjRbg/0sM5KQ7WpV9jtCPXpUfYWfaENyV87NTC8T
-	6RXoytdJF69wXnreGieMcXosF51fGvj+ihxqrN3dk1M7fFLU9me4iRFT2x/z3GVl61YDXheuRjOiZ
-	BXu0aTjrx0c5UiAwpW/NkITD6CooqDZdvGiqG5IBD4CvXuWssLgjHhzg+WYEnJfLgCxAxa8ZSNPuc
-	F5ZJaBKDs0taMDhk+cWCjyxPqQAIS8jzMaqRyV6blZcGYYeAi/o4NwubUzv8dTy47rB1jsNGBaphF
-	lg0avB/w==;
+	bh=8VhBTgRcvoEu0iow72UBK8g23QXw3BQ0zWkKZeXjZxc=; b=1qN8W7bCVDchacqrFEkSK4+nRb
+	etnscZEBm+RfoADF/uB9t7P77Ziqpqt2Pvs2oD289tE9D3FHrbQVkaxmuFNBDdnj0R/xvKd/Ba9tt
+	KFoLkJRQvuxyjVx8+c0M+fddM1lZzDmpFesx/iWcAwgwsMCKf4rxxvZ4z+K5vBgAQAyewwyaTKIdM
+	4K5WXZQtqiDCgaq5Jpm/gG4vGQqRPn6RsvSWz4GnNZi+FvC2mX51VRi0LZHO2miMEgGj1osvLZXKp
+	bFqXUuqcgps4AHwpvjAy2gC0YBOxC3VJEMooFFpypcyBzBWuGWrbpAzfmoBMk4idp0ay/6WZ4+ePU
+	L3vuMt4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XC3-0000000CK51-1Bgp;
-	Mon, 28 Oct 2024 21:22:31 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1t5XDb-0000000CKCV-0rOh;
+	Mon, 28 Oct 2024 21:24:07 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5X3u-0000000CIt9-1Rv8
+	id 1t5X4J-0000000CJ0N-3SwP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:14:07 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3a4dc2fff04so16132005ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:14:05 -0700 (PDT)
+	Mon, 28 Oct 2024 21:14:33 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a394418442so15576555ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 14:14:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730150045; x=1730754845; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730150070; x=1730754870; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=K9okxa3Q0g0QmicSYuvHmUoOcciSTa4JWfgy8EOP1LU=;
-        b=ONyuWKk8cbwYBDkWGNXRNu+uspH6vZNaVihH9a8gqsc4mKe71278ZM1dC7mS22+Dhm
-         lLmqx4ZpBQltdBw005l9bUadztj6RGIzAsxLDD1/alvP5tiolfD7tYMSDr9eNpticMFp
-         Jw3OLAAlIqmyDrmG79k1iWJjUR7i4eID6dlxE44Bb+k06e4UUQzIQ5mY5YJhzoc0qVCR
-         IUGg5RW9VQknjr5FrAz1Qzf9zwfvXHuRD/1ZeKtPQYTSilNSQz9SwbeIzwFcl5prd4J+
-         bziRyyqxxZaiQmzClNbWuUjbvzhJgx2dvpmbnSgMDZgkBFUN7UKErTxrHCkb7zEC1Pml
-         o91g==
+        bh=8VhBTgRcvoEu0iow72UBK8g23QXw3BQ0zWkKZeXjZxc=;
+        b=AkxSHr4DlDIsTRT3FXm77zrRw924eZhJ/jHz/L0x1JjTZMzY1VO/qqeYl8oIupqjA8
+         RY9T8+PPGmcogewmZCrvQAb+7rxkJVBI7hGpSQYYlwt71bO1NXMt8hE1vU9XRYM1u8jy
+         87kbUt4l0JOjxqLm+fv5cfa55JPjAF4CK/UnZ0wm6A2sybbw2U3M4hLPDNGRqihsF0fk
+         qgzp4FoTsS+0BHiaLwJkP6iaq+h8Trau6kB3Siy2DfKjSv5ZWJRsVWKuDG8LTPXvc0YY
+         4xCpDe+tPy04x/VI3yXkgP8YJw3RWcgb42YT0eTFMgyPPkRcBCOq1+eaiEKQL3KV/gXk
+         XcSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730150045; x=1730754845;
+        d=1e100.net; s=20230601; t=1730150070; x=1730754870;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=K9okxa3Q0g0QmicSYuvHmUoOcciSTa4JWfgy8EOP1LU=;
-        b=aSJRNuXjSVYdAb7JZkgGG/Vmi8/OReHnUOROj4X3P5DKlRts645/1ryReb5XQA9vCp
-         lbuDrMZgOnzAzxPkYb7TLgKjW2eY+4rfYYWkWunAr5oUvdjzepd3OYMtqNQCTij4JOSC
-         erQjpO8UpFidMFphHjvMsqfDg6maD/aHd8y0jm8Xr6oKUNXkMPF0oZEbFN/YKqxP/fSB
-         VLkem8YFCUZDJxcaPm63iw3t9odQc6umFlnGO/JybtqbqxrYJbweiWZRh+oNKDT8EKWg
-         fd1VbXgaiOkDVsv21cKjuowICGjcgqyQJ0PbKg12O2X7YP/Ldz/7Y6TC+p+TfJwVgjP0
-         U0cg==
-X-Forwarded-Encrypted: i=1; AJvYcCUTipq8BQD4XA8rsxW3DLbhkBhHR7jnsID9kdQQyqcDLWS9Yrzjrm3L/byLhs+ydDS/632HvRKo9xO9sd3VLi6j@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXKmPrB/kycutMfjXn28Wmgch6dgVUXsyqg6/QWeKOhav4nTyJ
-	Kd/S/NOq9dkZNPWRp6hyDzKQx41qGOrtiYHWBmHzRkyJzBvcAp0Xwhm8D3q+K1vBxruNfWC1xPs
-	dZjtVyuBSzabO/DYGNOwmeQGsymI=
-X-Google-Smtp-Source: AGHT+IEoro3zvUNoTUS9DRoCkr30RdGb4Txbh508oi+qXOwLzunjNjeXZW5mwOUVMfFBSM2AC0IlmPQVR59TYAjtfdc=
-X-Received: by 2002:a05:6e02:3dc2:b0:3a0:9f85:d74f with SMTP id
- e9e14a558f8ab-3a4ed338581mr88116405ab.16.1730150044912; Mon, 28 Oct 2024
- 14:14:04 -0700 (PDT)
+        bh=8VhBTgRcvoEu0iow72UBK8g23QXw3BQ0zWkKZeXjZxc=;
+        b=Z7nRv9NXc2rxFj29ZTO3+GqM88ty5vXeRn3Y1slhc2A2U3GZ2em3B9G5na77Cwyf3p
+         zDqNVPFYGtJGWCpFVbNuhWXgVk70TuWt5gNK9zIrLAmMEMvHMlLHmgnCl6N7XngOeee9
+         Qm86rmHwjQ8KbOEQI8cK5QkUt/25M0gK3TBSqUxwZDCu5HfDNl6t2u/94cuilyoFAaln
+         PsNysXZl4imU40cFZ48DbKj3i+vTUAm+Omc4mn4mYNeaeLjztsIbIKOIEAZZ8tGYPuM3
+         ea+7BU0GuPxfSSgwQ8qrqwko3QfyrEmmsWxPhFPvTtW/WW/IDlBk3TfIJI9+btb7GOgt
+         WIAA==
+X-Forwarded-Encrypted: i=1; AJvYcCWDJH47SFgr/sYnIUwwQDrKjBdZBYDsh9jYkMOLW0K2w4rDoheqyRaKrO+K5AQP4wgQsllefSlws5cCeULAuYgY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwWyz3AIw7hT7uctYF3/g/iz/ZCHUhWCIXY9IktPSMunljDbXk
+	sw0PD/CeUP0SvW+UMP2Xp64/mJk1mkll6y3Q5BAAyZZHyqIXdzzbv3XFxKcwceYtUK/xqi2mXMo
+	ukm/s792ygRAdg4EyEHG8KkncNJE=
+X-Google-Smtp-Source: AGHT+IHhFCxiRxfNhtJxV/D4dzofAyWTuWm7f9BRM/ecWCIKcKlpSKo+pbKgNvyJlnuEuFMGIZ+4UAGr/b4EGAEODzw=
+X-Received: by 2002:a05:6e02:1c0d:b0:3a3:968b:4e3f with SMTP id
+ e9e14a558f8ab-3a4ed2f67a0mr85108735ab.18.1730150070444; Mon, 28 Oct 2024
+ 14:14:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com> <20241008125410.3422512-4-quic_bibekkum@quicinc.com>
-In-Reply-To: <20241008125410.3422512-4-quic_bibekkum@quicinc.com>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com> <20241008125410.3422512-5-quic_bibekkum@quicinc.com>
+In-Reply-To: <20241008125410.3422512-5-quic_bibekkum@quicinc.com>
 From: Rob Clark <robdclark@gmail.com>
-Date: Mon, 28 Oct 2024 14:13:53 -0700
-Message-ID: <CAF6AEGst2uOosTiu63mr95w=Km1bMEQbryxEAGRpiUKqr_rM-g@mail.gmail.com>
-Subject: Re: [PATCH v16 3/5] iommu/arm-smmu: add support for PRR bit setup
+Date: Mon, 28 Oct 2024 14:14:17 -0700
+Message-ID: <CAF6AEGtZ=7KmfYjOXRHZx4nxdnh3VDr+UAGqKY_y_=pmfo3b=Q@mail.gmail.com>
+Subject: Re: [PATCH v16 4/5] iommu/arm-smmu: introduction of ACTLR for custom
+ prefetcher settings
 To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
 Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
 	jsnitsel@redhat.com, robh@kernel.org, krzysztof.kozlowski@linaro.org, 
@@ -77,8 +78,8 @@ Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_141406_427123_5DD6C50E 
-X-CRM114-Status: GOOD (  26.57  )
+X-CRM114-CacheID: sfid-20241028_141431_887034_54BE4C29 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,147 +94,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 8, 2024 at 5:54=E2=80=AFAM Bibek Kumar Patro
+On Tue, Oct 8, 2024 at 5:55=E2=80=AFAM Bibek Kumar Patro
 <quic_bibekkum@quicinc.com> wrote:
 >
-> Add an adreno-smmu-priv interface for drm/msm to call
-> into arm-smmu-qcom and initiate the PRR bit setup or reset
-> sequence as per request.
+> Currently in Qualcomm  SoCs the default prefetch is set to 1 which allows
+> the TLB to fetch just the next page table. MMU-500 features ACTLR
+> register which is implementation defined and is used for Qualcomm SoCs
+> to have a custom prefetch setting enabling TLB to prefetch the next set
+> of page tables accordingly allowing for faster translations.
 >
-> This will be used by GPU to setup the PRR bit and related
-> configuration registers through adreno-smmu private
-> interface instead of directly poking the smmu hardware.
+> ACTLR value is unique for each SMR (Stream matching register) and stored
+> in a pre-populated table. This value is set to the register during
+> context bank initialisation.
 >
-> Suggested-by: Rob Clark <robdclark@gmail.com>
+> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
 
 Reviewed-by: Rob Clark <robdclark@gmail.com>
 
-> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+
 > ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 37 ++++++++++++++++++++++
->  drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
->  include/linux/adreno-smmu-priv.h           | 10 +++++-
->  3 files changed, 48 insertions(+), 1 deletion(-)
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 26 ++++++++++++++++++++++
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h |  1 +
+>  2 files changed, 27 insertions(+)
 >
 > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/a=
 rm/arm-smmu/arm-smmu-qcom.c
-> index 6e0a2a43e45a..38ac9cab763b 100644
+> index 38ac9cab763b..2d2c1e75632c 100644
 > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
 > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -25,6 +25,7 @@
->
->  #define CPRE                   (1 << 1)
->  #define CMTLB                  (1 << 0)
-> +#define GFX_ACTLR_PRR          (1 << 5)
->
->  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
->  {
-> @@ -109,6 +110,40 @@ static void qcom_adreno_smmu_resume_translation(cons=
-t void *cookie, bool termina
->         arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
+> @@ -252,6 +252,20 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_smmu=
+_device *smmu)
+>         return true;
 >  }
 >
-> +static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
+> +static void qcom_smmu_set_actlr_dev(struct device *dev, struct arm_smmu_=
+device *smmu, int cbndx,
+> +               const struct of_device_id *client_match)
 > +{
-> +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> +       const struct device_node *np =3D smmu->dev->of_node;
-> +       struct arm_smmu_cfg *cfg =3D &smmu_domain->cfg;
-> +       u32 reg =3D 0;
+> +       const struct of_device_id *match =3D
+> +                       of_match_device(client_match, dev);
 > +
-> +       if (of_device_is_compatible(np, "qcom,smmu-500") &&
-> +                       of_device_is_compatible(np, "qcom,adreno-smmu")) =
-{
-> +               reg =3D  arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_A=
-CTLR);
-> +               reg &=3D ~GFX_ACTLR_PRR;
-> +               if (set)
-> +                       reg |=3D FIELD_PREP(GFX_ACTLR_PRR, 1);
-> +               arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR, re=
-g);
+> +       if (!match) {
+> +               dev_dbg(dev, "no ACTLR settings present\n");
+> +               return;
 > +       }
+> +
+> +       arm_smmu_cb_write(smmu, cbndx, ARM_SMMU_CB_ACTLR, (unsigned long)=
+match->data);
 > +}
 > +
-> +static void qcom_adreno_smmu_set_prr_addr(const void *cookie, phys_addr_=
-t page_addr)
-> +{
-> +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
+>  static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_do=
+main,
+>                 struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
+>  {
+> @@ -316,8 +330,20 @@ static const struct of_device_id qcom_smmu_client_of=
+_match[] __maybe_unused =3D {
+>  static int qcom_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>                 struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
+>  {
 > +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> +       const struct device_node *np =3D smmu->dev->of_node;
+> +       struct qcom_smmu *qsmmu =3D to_qcom_smmu(smmu);
+> +       const struct of_device_id *client_match;
+> +       int cbndx =3D smmu_domain->cfg.cbndx;
 > +
-> +       if (of_device_is_compatible(np, "qcom,smmu-500") &&
-> +                       of_device_is_compatible(np, "qcom,adreno-smmu")) =
-{
-> +               writel_relaxed(lower_32_bits(page_addr),
-> +                                       smmu->base + ARM_SMMU_GFX_PRR_CFG=
-_LADDR);
-> +
-> +               writel_relaxed(upper_32_bits(page_addr),
-> +                                       smmu->base + ARM_SMMU_GFX_PRR_CFG=
-_UADDR);
-> +       }
-> +}
-> +
->  #define QCOM_ADRENO_SMMU_GPU_SID 0
+>         smmu_domain->cfg.flush_walk_prefer_tlbiasid =3D true;
 >
->  static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
-> @@ -249,6 +284,8 @@ static int qcom_adreno_smmu_init_context(struct arm_s=
-mmu_domain *smmu_domain,
->         priv->get_fault_info =3D qcom_adreno_smmu_get_fault_info;
->         priv->set_stall =3D qcom_adreno_smmu_set_stall;
->         priv->resume_translation =3D qcom_adreno_smmu_resume_translation;
-> +       priv->set_prr_bit =3D qcom_adreno_smmu_set_prr_bit;
-> +       priv->set_prr_addr =3D qcom_adreno_smmu_set_prr_addr;
->
+> +       client_match =3D qsmmu->data->client_match;
+> +
+> +       if (!client_match)
+> +               return 0;
+> +
+> +       qcom_smmu_set_actlr_dev(dev, smmu, cbndx, client_match);
+> +
 >         return 0;
 >  }
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/ar=
-m-smmu/arm-smmu.h
-> index e2aeb511ae90..2dbf3243b5ad 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> @@ -154,6 +154,8 @@ enum arm_smmu_cbar_type {
->  #define ARM_SMMU_SCTLR_M               BIT(0)
 >
->  #define ARM_SMMU_CB_ACTLR              0x4
-> +#define ARM_SMMU_GFX_PRR_CFG_LADDR     0x6008
-> +#define ARM_SMMU_GFX_PRR_CFG_UADDR     0x600C
->
->  #define ARM_SMMU_CB_RESUME             0x8
->  #define ARM_SMMU_RESUME_TERMINATE      BIT(0)
-> diff --git a/include/linux/adreno-smmu-priv.h b/include/linux/adreno-smmu=
--priv.h
-> index c637e0997f6d..03466eb16933 100644
-> --- a/include/linux/adreno-smmu-priv.h
-> +++ b/include/linux/adreno-smmu-priv.h
-> @@ -49,7 +49,13 @@ struct adreno_smmu_fault_info {
->   *                 before set_ttbr0_cfg().  If stalling on fault is enab=
-led,
->   *                 the GPU driver must call resume_translation()
->   * @resume_translation: Resume translation after a fault
-> - *
-> + * @set_prr_bit:   Extendible interface to be used by GPU to modify the
-> + *                ACTLR register bits, currently used to configure
-> + *                Partially-Resident-Region (PRR) bit for feature's
-> + *                setup and reset sequence as requested.
-> + * @set_prr_addr:  Configure the PRR_CFG_*ADDR register with the
-> + *                physical address of PRR page passed from
-> + *                GPU driver.
->   *
->   * The GPU driver (drm/msm) and adreno-smmu work together for controllin=
-g
->   * the GPU's SMMU instance.  This is by necessity, as the GPU is directl=
-y
-> @@ -67,6 +73,8 @@ struct adreno_smmu_priv {
->      void (*get_fault_info)(const void *cookie, struct adreno_smmu_fault_=
-info *info);
->      void (*set_stall)(const void *cookie, bool enabled);
->      void (*resume_translation)(const void *cookie, bool terminate);
-> +    void (*set_prr_bit)(const void *cookie, bool set);
-> +    void (*set_prr_addr)(const void *cookie, phys_addr_t page_addr);
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h b/drivers/iommu/a=
+rm/arm-smmu/arm-smmu-qcom.h
+> index b55cd3e3ae48..8addd453f5f1 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
+> @@ -28,6 +28,7 @@ struct qcom_smmu_match_data {
+>         const struct qcom_smmu_config *cfg;
+>         const struct arm_smmu_impl *impl;
+>         const struct arm_smmu_impl *adreno_impl;
+> +       const struct of_device_id * const client_match;
 >  };
 >
->  #endif /* __ADRENO_SMMU_PRIV_H */
+>  irqreturn_t qcom_smmu_context_fault(int irq, void *dev);
 > --
 > 2.34.1
 >
