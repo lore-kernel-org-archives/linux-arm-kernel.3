@@ -4,90 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8C7D3E2A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47FDD3E2A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 18:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xYgYe0OlHKa5EeZMU5xT/sJGAiMZdG0VMyPo/JHxaU=; b=0opZZNCY/DjwLWbEeFj9YZ1+wc
-	mJ66TCjx7FyqucwsJ2OYhQdUKQ0Rxxo5TILrKcaiAeDenuKDPQ8gjcZwBIBpMsj3/bJpBckZwteqR
-	5LVFVjtWCP1FGhrILgu2gRlUBMOfz0PD9V6sEuu1AEMM0tvSQWcytLXIDi6k+obffDUcwq1G/4yaZ
-	Tahqqw7zESkINJT64OXXfku9wx0AitshT4BjjviM46slI0cZscG36flXzmujY2R4zsLz/Af3md+Z5
-	ETdKCSEvVzJXxDBb06aMttDSyxNCZtPWE52NZs58a2pII+cwTg6m1NBiFkz6K9u2VcXnIe8BloVoE
-	Gio9V7pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FFpEevja3y6wKaFfcKqCGL7fQ+TPELn6XQKMoqKg3lA=; b=aDW7iGnxGcdWhD
+	x6KS2syfniy1xFvDIi9KZh4boG4w0RqkuzfcWk2yuINbTD+HRo/3R20aXLuK3/7EhFJRHnEgvS1om
+	xd/A91QZVvVQDXm7/gprbr0+9qUMQe8sJFuci9jbNEwQhLuiddMHE4qVdmAZ1vAamcGBVeKqi5tgD
+	gki1nfs5xJcD/koU89jSbvUdGkFrmIxrsJXEXaDRH1biGRjHjpS7K5O+EFcGSrUhmKIEeUyc/QT6D
+	dquRnnie5IwHPILQAJl/1F7a99i8ZHD7G5KjJDCTeXNEv8btq4iiIU1HNwwgvq2UHUascSdOEQBDv
+	vIlNU+X//JtIu1iI9mHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5UlC-0000000Bsjd-4Bus;
-	Mon, 28 Oct 2024 18:46:39 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1t5Umm-0000000Bt3b-0l5B;
+	Mon, 28 Oct 2024 18:48:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5UjZ-0000000BsNO-2KqM
+	id 1t5Ujq-0000000BsRl-1ezp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 18:44:59 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SIimNl054286;
-	Mon, 28 Oct 2024 13:44:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730141088;
-	bh=3xYgYe0OlHKa5EeZMU5xT/sJGAiMZdG0VMyPo/JHxaU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=B/vdsh1ScMPdMTZEbP98n/vyaALNHCox9IvSBd2RsME9FFx2oOuZft9qajQh5Mmtx
-	 RuUcokp331qiquhm1H9BDRTkplu24zANK/9aECiML565JEavJ8JhfpfdymZughVso4
-	 F4BkUk/1/M2zIogx4IPAbp/h0MM01kRuXL0ugrbE=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49SIimaA017613
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Oct 2024 13:44:48 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Oct 2024 13:44:48 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Oct 2024 13:44:48 -0500
-Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SIiir6044459;
-	Mon, 28 Oct 2024 13:44:45 -0500
-Message-ID: <cd02e760-54c6-4a92-af4e-e786d80cfbbd@ti.com>
-Date: Tue, 29 Oct 2024 00:14:44 +0530
+	Mon, 28 Oct 2024 18:45:16 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49SBF3WQ027649;
+	Mon, 28 Oct 2024 18:45:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=FFpEevja3y6wKaFfcKqCGL
+	7fQ+TPELn6XQKMoqKg3lA=; b=X+wcFRTa4tKDvCkFYHarNO/3VoVRxILlDjfvl1
+	dvkoQGp0Kh3y93VIYcGSNWdte4wDHuzaQdlF0ovsKRaFBRZFQyv6YpYxjsbqA0Ty
+	XALNCH2Xi3cv+lrMT3EcQxAJGumaUjHhS/DFKp7pgj+DHcC8+c6Elx7V17PyWd2V
+	gW4WfQO5A3b1EsxOYfNdwMehCqZY82HFOLuQ/6Fnmy2JKVabuwtt4DyGXkPhe4vg
+	vt9dWcSr3jtiuzR+cqtAasV+01iEE/fSn0xuPEO8i6DTzrDEwRkgl5LTZCWZMv6k
+	bJNLjDeSCp3aIhEKb/95r1EjVw8G17W1+S5AbyfUEbpfXxKw==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gqcqp3qy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 18:45:01 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49SIj1wf012515
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 18:45:01 GMT
+Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 28 Oct 2024 11:45:00 -0700
+From: Elliot Berman <quic_eberman@quicinc.com>
+Subject: [PATCH v7 0/5] Implement vendor resets for PSCI SYSTEM_RESET2
+Date: Mon, 28 Oct 2024 11:44:54 -0700
+Message-ID: <20241028-arm-psci-system_reset2-vendor-reboots-v7-0-a4c40b0ebc54@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 4/4] arm64: dts: ti: hummingboard-t: add overlays for
- m.2 pci-e and usb-3
-To: Josua Mayer <josua@solid-run.com>,
-        Geert Uytterhoeven
-	<geert@linux-m68k.org>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Yazan Shhady <yazan.shhady@solid-run.com>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-References: <20240219-add-am64-som-v7-0-0e6e95b0a05d@solid-run.com>
- <20240219-add-am64-som-v7-4-0e6e95b0a05d@solid-run.com>
- <CAMuHMdXTgpTnJ9U7egC2XjFXXNZ5uiY1O+WxNd6LPJW5Rs5KTw@mail.gmail.com>
- <a65e17e9-0055-4e5a-902f-8ee2807a86df@ti.com>
- <299b6b75-beef-46aa-9203-b96009226677@solid-run.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <299b6b75-beef-46aa-9203-b96009226677@solid-run.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKfbH2cC/5XSy07DMBAF0F+pssZoxq84XfEfCCFnPKFeNCl2i
+ Kiq/jtOeRRoF+lyvDh35sqHKnOKnKv16lAlnmKOQ1+G+m5V0cb3LyxiKHMlQSoEtMKnrdhliiL
+ v88jb58SZRykm7sOQROJ2GMYsiJQP2liCGqpi7RJ38f2U8/hU5k3M45D2p9gJ59evBKkXJkwoQ
+ IDFtq4JGtTw8PoWKfZ0T8N2jvz0FNziBQrBKmWkD3jVQ6xv2k+RtijRKJZ/vLmDSX7frUHj4rv
+ lvKdvPBjjrXbdpavOrkGz1FXFRRuC7hoC3+pLV59di7jU1cVtXFe29bX27C5d89td3K+Z+3W2M
+ dBZA3TFtT9u+bluqWuLW7yWnWvBy389HI/HDzELh7M0AwAA
+To: Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel
+	<sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andy Yan
+	<andy.yan@rock-chips.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Mark
+ Rutland" <mark.rutland@arm.com>,
+        Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>,
+        Arnd Bergmann <arnd@arndb.de>, "Olof
+ Johansson" <olof@lixom.net>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        <cros-qcom-dts-watchers@chromium.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+        Melody Olvera
+	<quic_molvera@quicinc.com>,
+        Shivendra Pratap <quic_spratap@quicinc.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        Stephen Boyd <swboyd@chromium.org>, <linux-pm@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        Elliot Berman
+	<quic_eberman@quicinc.com>
+X-Mailer: b4 0.14.1
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: szCmzW5AzBZvPNpUoWbl-H_bOCqMtg17
+X-Proofpoint-GUID: szCmzW5AzBZvPNpUoWbl-H_bOCqMtg17
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ malwarescore=0 suspectscore=0 bulkscore=0 adultscore=0 spamscore=0
+ phishscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 mlxscore=0
+ mlxlogscore=809 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410280147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_114457_750682_5CD9EF22 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20241028_114514_495242_4F4B7473 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,103 +131,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The PSCI SYSTEM_RESET2 call allows vendor firmware to define additional
+reset types which could be mapped to the reboot argument.
 
+Setting up reboot on Qualcomm devices can be inconsistent from chipset
+to chipset. Generally, there is a PMIC register that gets written to
+decide the reboot type. There is also sometimes a cookie that can be
+written to indicate that the bootloader should behave differently than a
+regular boot. These knobs evolve over product generations and require 
+more drivers. Qualcomm firmwares are beginning to expose vendor
+SYSTEM_RESET2 types to simplify driver requirements from Linux.
 
-On 28/10/24 22:49, Josua Mayer wrote:
-> Hi Geert, Vignesh,
-> 
-> Am 28.10.24 um 16:31 schrieb Vignesh Raghavendra:
->>
->> On 25/10/24 19:27, Geert Uytterhoeven wrote:
->>> Hi Josua,
->>>
->>> On Mon, Feb 19, 2024 at 4:05 PM Josua Mayer <josua@solid-run.com> wrote:
->>>> HummingBoard-T features two M.2 connectors labeled "M1" and "M2".
->>>> The single SerDes lane of the SoC can be routed to either M1 pci-e
->>>> signals, or M2 usb-3 signals by a gpio-controlled mux.
->>>>
->>>> Add overlays for each configuration.
->>>>
->>>> Signed-off-by: Josua Mayer <josua@solid-run.com>
->>> Thanks for your patch, which is now commit bbef42084cc170cb ("arm64:
->>> dts: ti: hummingboard-t: add overlays for m.2 pci-e and usb-3") in v6.9.
->>>
->>>> --- /dev/null
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dtso
->>>> @@ -0,0 +1,44 @@
->>>> +// SPDX-License-Identifier: GPL-2.0+
->>>> +/*
->>>> + * Copyright (C) 2023 Josua Mayer <josua@solid-run.com>
->>>> + *
->>>> + * Overlay for SolidRun AM642 HummingBoard-T to enable USB-3.1.
->>>> + */
->>>> +
->>>> +/dts-v1/;
->>>> +/plugin/;
->>>> +
->>>> +#include <dt-bindings/phy/phy.h>
->>>> +
->>>> +#include "k3-serdes.h"
->>>> +
->>>> +&serdes0 {
->>>> +       #address-cells = <1>;
->>>> +       #size-cells = <0>;
->>>> +
->>>> +       serdes0_link: phy@0 {
->>>> +               reg = <0>;
->>>> +               cdns,num-lanes = <1>;
->>>> +               cdns,phy-type = <PHY_TYPE_USB3>;
->>>> +               #phy-cells = <0>;
->>>> +               resets = <&serdes_wiz0 1>;
->>>> +       };
->>>> +};
->>>> +
->>>> +&serdes_ln_ctrl {
->>>> +       idle-states = <AM64_SERDES0_LANE0_USB>;
->>>> +};
->>>> +
->>>> +&serdes_mux {
->>>> +       idle-state = <0>;
->>>> +};
->>>> +
->>>> +&usbss0 {
->>>> +       /delete-property/ ti,usb2-only;
->>> /delete-property/ (and /delete-node/) to delete something in the base DTS
->>> does not work.
-> 
-> My understanding is that flags are equivalent to boolean, i.e:
-> 
-> ti,usb2-only = <true>;
-> ti,usb2-only;
-> 
-> are equivalent.
-> 
-> If so, can we assign <false> within the overlay?
-> 
->> Geert,
->>
->> Thanks for the catching
-> Excellent spotting indeed.
-> I noticed this in passing about a week ago when I requested
-> Debian enable the necessary drivers in their distro kernel
-> (without understanding the root cause).
->>
->> Joshua,
->>
->> This overlay is pretty useless in light of above issue.  I intend to
->> just drop this file unless you convince me otherwise?
->>
-> I would really prefer to fix it, or somehow replace with equivalent functionality.
-> 
-> My original proposal was having the board a dtsi, and the pci and usb3
-> variants as standalone dts.
-> 
+Add support in PSCI to statically wire reboot mode commands from
+userspace to a vendor reset and cookie value using the device tree. The
+DT bindings are similar to reboot mode framework except that 2
+integers are accepted (the type and cookie). Also, reboot mode framework
+is intended to program the cookies, but not actually reboot the host.
+PSCI SYSTEM_RESET2 does both. I've not added support for reading ACPI
+tables since I don't have any device which provides them + firmware that
+supports vendor SYSTEM_RESET2 types.
 
+Lorenzo and I are also looking for some feedback on whether it is safe
+to perform a vendor SYSTEM_RESET2 irrespective of the enum reboot_mode:
 
-Yeah, you would need a separate board dts for this profile. Please
-propose a patch
+https://lore.kernel.org/all/Zw5ffeYW5uRpsaG3@lpieralisi/
 
+Previous discussions around SYSTEM_RESET2:
+- https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
+- https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
+
+Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+
+Changes in v7:
+- Code style nits from Stephen
+- Dropped unnecessary hunk from the sa8775p-ride patch
+- Link to v6: https://lore.kernel.org/r/20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com
+
+Changes in v6:
+- Rebase to v6.11 and fix trivial conflicts in qcm6490-idp
+- Add sa8775p-ride support (same as qcm6490-idp)
+- Link to v5: https://lore.kernel.org/r/20240617-arm-psci-system_reset2-vendor-reboots-v5-0-086950f650c8@quicinc.com
+
+Changes in v5:
+- Drop the nested "items" in prep for future dtschema tools
+- Link to v4: https://lore.kernel.org/r/20240611-arm-psci-system_reset2-vendor-reboots-v4-0-98f55aa74ae8@quicinc.com
+
+Changes in v4:
+- Change mode- properties from uint32-matrix to uint32-array
+- Restructure the reset-types node so only the restriction is in the
+  if/then schemas and not the entire definition
+- Link to v3: https://lore.kernel.org/r/20240515-arm-psci-system_reset2-vendor-reboots-v3-0-16dd4f9c0ab4@quicinc.com
+
+Changes in v3:
+- Limit outer number of items to 1 for mode-* properties
+- Move the reboot-mode for psci under a subnode "reset-types"
+- Fix the DT node in qcm6490-idp so it doesn't overwrite the one from
+  sc7820.dtsi
+- Link to v2: https://lore.kernel.org/r/20240414-arm-psci-system_reset2-vendor-reboots-v2-0-da9a055a648f@quicinc.com
+
+Changes in v2:
+- Fixes to schema as suggested by Rob and Krzysztof
+- Add qcm6490 idp as first Qualcomm device to support
+- Link to v1: https://lore.kernel.org/r/20231117-arm-psci-system_reset2-vendor-reboots-v1-0-03c4612153e2@quicinc.com
+
+Changes in v1:
+- Reference reboot-mode bindings as suggeted by Rob.
+- Link to RFC: https://lore.kernel.org/r/20231030-arm-psci-system_reset2-vendor-reboots-v1-0-dcdd63352ad1@quicinc.com
+
+---
+Elliot Berman (5):
+      dt-bindings: power: reset: Convert mode-.* properties to array
+      dt-bindings: arm: Document reboot mode magic
+      firmware: psci: Read and use vendor reset types
+      arm64: dts: qcom: Add PSCI SYSTEM_RESET2 types for qcm6490-idp
+      arm64: dts: qcom: Add PSCI SYSTEM_RESET2 types for sa8775p-ride
+
+ Documentation/devicetree/bindings/arm/psci.yaml    |  43 +++++++++
+ .../bindings/power/reset/nvmem-reboot-mode.yaml    |   4 +
+ .../devicetree/bindings/power/reset/qcom,pon.yaml  |   7 ++
+ .../bindings/power/reset/reboot-mode.yaml          |   4 +-
+ .../bindings/power/reset/syscon-reboot-mode.yaml   |   4 +
+ arch/arm64/boot/dts/qcom/qcm6490-idp.dts           |   7 ++
+ arch/arm64/boot/dts/qcom/sa8775p-ride.dtsi         |   7 ++
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi              |   2 +-
+ arch/arm64/boot/dts/qcom/sc7280.dtsi               |   2 +-
+ drivers/firmware/psci/psci.c                       | 104 +++++++++++++++++++++
+ 10 files changed, 180 insertions(+), 4 deletions(-)
+---
+base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
+change-id: 20231016-arm-psci-system_reset2-vendor-reboots-cc3ad456c070
+
+Best regards,
 -- 
-Regards
-Vignesh
+Elliot Berman <quic_eberman@quicinc.com>
+
 
