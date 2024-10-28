@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E13D13570
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503EFD13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAlECAcGnuh4cuscZB5s8TRPHJ/b/S5CapIyxKLOHrA=; b=1LHhdXkfkhmDagxbJY6bjPEmJl
-	vg8/5FtCrYvXILAjhCiLUoA2DgNmUEglpVi/58FcvRVpCXXyI3vRDUxwnFGxDSKCIC/NAX5CC9m2V
-	cTVhcqDI4NDTA+OAIJ1lXL7TxV1C24jj3fRt60vh8wWoZ/DDQGmAxoxivlzwqvfE4Pz8HrVVNuAD4
-	3iCUQ9ZKU3C235ERhaF/fEDkDgvzfjzk0OSkuelXNWFcj2990p9PkFxcltFJike8NcbMRS0u/152E
-	X778ztuGN0PAOeaRYuDBs8IVJSw6WP+qlKShhFvKFwSUmfkWLuMSQ1skhJe8dNvZQ3C7ciaw56TM6
-	LBWumNzQ==;
+	bh=2r0XkKCkIV0VttGmWfz8BNo6AjiFKEbQQk81gPYGYLY=; b=vvrNlmzh2Mp5KLvxbTjYBycr5t
+	8S0bp4S98syvQmSGI2vaGO1GCvom12Llcg+iIJ1o34P4579iB11Kx4TzfJcdA13ya/MnRcGhGEzIk
+	Us/+1Yjkhk0jdsGuoXuaYOLPpta/wploZC47Dq4kGHyW4VJ0EvJi9g2a6Dqu8Zmutm5Co1K1raiSL
+	bL8Cw13QUBt18B1E3zEefWgRpD8dRB2lEOLSJWT5z6zJy0gooACdnSiTU2ZxZLiC5zyVFj96sL0oq
+	8vxuri6HRcY12rYWg+BzsVXkAfgQMA98EWNEsj5BXRhs7N+kLykUsbH4+xq0C8IXaoyzuP9ZomKWy
+	qqO4Zfdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MQV-0000000AJCI-05mK;
-	Mon, 28 Oct 2024 09:52:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5MS5-0000000AJbm-1EqU;
+	Mon, 28 Oct 2024 09:54:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MEm-0000000AGOB-1AlM
+	id 1t5MEt-0000000AGQs-0yQN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 09:40:37 +0000
+	Mon, 28 Oct 2024 09:40:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B587F5C586B;
-	Mon, 28 Oct 2024 09:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD72C4CEC3;
-	Mon, 28 Oct 2024 09:40:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D8B66A41B2F;
+	Mon, 28 Oct 2024 09:38:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7022BC4CEC3;
+	Mon, 28 Oct 2024 09:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730108435;
-	bh=fOfCtMTTqempwM/M8Zy6RaQ+0MELCkS3ty5RpQLNX8I=;
+	s=k20201202; t=1730108441;
+	bh=RL1PZZNf/Qj/0CoaY+xr8w3mCVtSPwhdkys11uyrEvE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TMWEb3Q3yr8sCY6ZLd++1Af1iFAAgAf3jSpETEVxbSccuguh6Cym2Gy0O5Ke8gqrC
-	 l5hThnrs87kVHIuDBxZmVkSq1poOrkDHM5x5HUXaraiyME1BiLZ2esgzvPO7Y4Ot5e
-	 bjGZudSe67agjEV28Y3gCStBWuGGggC97WWT2CcNoUsTBDAWL1FvpPwbas9N+tdNtK
-	 w8X2G2eQhWRt7LfDwo4moHlF8IhsecpR/PWczONikDyrTvfKsVbhSaFyFwA8akimW2
-	 rAF62ze9EJPFvPfwyFiRkrpRcBbThL/JNNr5imv6a2GX4RfpPJgaauHUZDlKbVpeoF
-	 Ta9UPxKwRrkTQ==
+	b=HlSAs4nHSi8Xsp1PizspeIZXy72a6PgV2vUn6GZDzYeFo5s/f3OEKccFiiaEfWYo6
+	 KbLSASzGtqlGRfJWRpeJbqkFUcS25er91XoEvH9eGWzp+wUWoGSM69I/9zz3ZG4yKD
+	 XDbv63ZzJhUTGzbyDugx79sYl2qD8AAohXOmhVAPtLIHXk4gnGtT+nYnUpYIi04ks5
+	 NJXKMmA196rgn3y6KQEBsJUwCEgvnjD2YRrYEZKAW84wFeUB7JyIr0kzqXBXEV2yMw
+	 +tBdbjz+OHqAaHAqDqyaI1Ml64RYfZH1XH+UkuSCkF8/H/l+evz/FTk8pLSI2pNasd
+	 ucGbLvsHnKKoQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,18 +56,17 @@ Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [PATCH 1/4] arm64: Update the values to binary from hex
-Date: Mon, 28 Oct 2024 15:10:11 +0530
-Message-ID: <20241028094014.2596619-2-aneesh.kumar@kernel.org>
+Subject: [PATCH 2/4] arm64: cpufeature: add Allocation Tag Access Permission (MTE_PERM) feature
+Date: Mon, 28 Oct 2024 15:10:12 +0530
+Message-ID: <20241028094014.2596619-3-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
 References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_024036_384421_2346DF81 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_024043_415232_87D6E0E4 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +81,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This matches the ARM ARM representation. No functional change in this
-patch.
+This indicates if the system supports MTE_PERM. This will be used by KVM
+for stage 2 mapping. This is a CPUCAP_SYSTEM feature because if we enable
+the feature all cpus must have it.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/memory.h | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/cpufeature.h | 5 +++++
+ arch/arm64/include/asm/memory.h     | 2 ++
+ arch/arm64/kernel/cpufeature.c      | 9 +++++++++
+ arch/arm64/tools/cpucaps            | 1 +
+ 4 files changed, 17 insertions(+)
 
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 3d261cc123c1..6e6631890021 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -805,6 +805,11 @@ static inline bool system_supports_mte(void)
+ 	return alternative_has_cap_unlikely(ARM64_MTE);
+ }
+ 
++static inline bool system_supports_notagaccess(void)
++{
++	return alternative_has_cap_unlikely(ARM64_MTE_PERM);
++}
++
+ static inline bool system_has_prio_mask_debugging(void)
+ {
+ 	return IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING) &&
 diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index 0480c61dbb4f..ca42f6d87c16 100644
+index ca42f6d87c16..006a649d4ac7 100644
 --- a/arch/arm64/include/asm/memory.h
 +++ b/arch/arm64/include/asm/memory.h
-@@ -178,17 +178,17 @@
- /*
+@@ -179,6 +179,7 @@
   * Memory types for Stage-2 translation
   */
--#define MT_S2_NORMAL		0xf
--#define MT_S2_NORMAL_NC		0x5
--#define MT_S2_DEVICE_nGnRE	0x1
-+#define MT_S2_NORMAL			0b1111
-+#define MT_S2_NORMAL_NC			0b0101
-+#define MT_S2_DEVICE_nGnRE		0b0001
+ #define MT_S2_NORMAL			0b1111
++#define MT_S2_NORMAL_NOTAGACCESS	0b0100
+ #define MT_S2_NORMAL_NC			0b0101
+ #define MT_S2_DEVICE_nGnRE		0b0001
  
- /*
-  * Memory types for Stage-2 translation when ID_AA64MMFR2_EL1.FWB is 0001
+@@ -187,6 +188,7 @@
   * Stage-2 enforces Normal-WB and Device-nGnRE
   */
--#define MT_S2_FWB_NORMAL	6
--#define MT_S2_FWB_NORMAL_NC	5
--#define MT_S2_FWB_DEVICE_nGnRE	1
-+#define MT_S2_FWB_NORMAL		0b0110
-+#define MT_S2_FWB_NORMAL_NC		0b0101
-+#define MT_S2_FWB_DEVICE_nGnRE		0b0001
+ #define MT_S2_FWB_NORMAL		0b0110
++#define MT_S2_FWB_NORMAL_NOTAGACCESS	0b1110
+ #define MT_S2_FWB_NORMAL_NC		0b0101
+ #define MT_S2_FWB_DEVICE_nGnRE		0b0001
  
- #ifdef CONFIG_ARM64_4K_PAGES
- #define IOREMAP_MAX_ORDER	(PUD_SHIFT)
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 718728a85430..608e24e313ad 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -305,6 +305,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEPERM_SHIFT, 4, 0),
+ 	ARM64_FTR_END,
+ };
+ 
+@@ -2742,6 +2743,14 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, MTE, MTE3)
+ 	},
++	{
++		.desc = "MTE Allocation Tag Access Permission",
++		.capability = ARM64_MTE_PERM,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTEPERM, IMP)
++	},
++
+ #endif /* CONFIG_ARM64_MTE */
+ 	{
+ 		.desc = "RCpc load-acquire (LDAPR)",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index eedb5acc21ed..81c6599d2a95 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -62,6 +62,7 @@ KVM_PROTECTED_MODE
+ MISMATCHED_CACHE_TYPE
+ MTE
+ MTE_ASYMM
++MTE_PERM
+ SME
+ SME_FA64
+ SME2
 -- 
 2.43.0
 
