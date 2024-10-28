@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEE2D33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA06D33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OGZekl39DzQk3gPXzj5m3/fX/JZ09Ijuh97AGPbBD8=; b=jTrqB3HerdByne0Un+n3fCjq9V
-	y4vVWgbyRHkq12Q3gsCYpuFeFUupd9X0wM+IF3L+yEK/yrAVSV+t3ns2VVgxpq7KOeZjOVG7e3WQ7
-	SR377TDRZgfPtz33X+YRcv8vqq+VNcKj7uCGnQpC5x6wWvrYfZVf/fyUiIe2Sx4oXyRn9Z5rm9fJA
-	t/BgRtxvuTy0ncy7yOMOGbtkqmdRhAYX+DxwXy410j/Jr8xttsmUTggcoMtvkKmKnDne6zodena05
-	mDnqfjc0dkVqGO/KT0nb0oTBww6uQhGkZDlL+7x2n5tKyMcSjBNjOill4NJ5HQEthwPs2nSA70ywh
-	z1asN7Og==;
+	bh=oPAcTY2IJ3Jwsohx3QQn9jafhPwYw4TiHZjQIB0PHSA=; b=Qs8pa/W5h/Hb57ogdY0ufMDj5w
+	96sr3pfIAJwSKJjQx5kckPk72DRAzRzVsNfparCCnwhdAOOiJq93w9f89zbZfpeRxuQIf3xQcmzRU
+	KPcSJepU/MRu4MAlvfXK0vKUelJywPgrr6f05m0GdavJdmgDaEpHvYJLeVKJPchKIsJSZ07M02kvC
+	N4xj2r6R7s9Kv6FTjYqbr7My0xTkySa6Oq/KFEBu+kd8k0eCzzN3ccc6OQxkMULFHLyVrPBep+F2p
+	+sFrfBwiPwmvLBm+V1bcgvIZxUScNPWj8X7I8abiSwtz3TimbFne4PBi+m1LmxNckKgSrCtrtleCu
+	pAEAMJtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5REN-0000000BDno-499J;
-	Mon, 28 Oct 2024 15:00:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5RFz-0000000BE7Q-0yJx;
+	Mon, 28 Oct 2024 15:02:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QeK-0000000B6Xg-2WDv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:23:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 158305C56FA;
-	Mon, 28 Oct 2024 14:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E12C4CEE7;
-	Mon, 28 Oct 2024 14:23:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730125396;
-	bh=yl7Mfs856g30vpNRTxQo0XG82uyk/8hEkmCtSRgI5BE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Mffzb+IZ/0b3uzci/Q0aZsGlREKdAflGhK9yFluzbPp8ILpQeFqZJV4CKWQQGMrgR
-	 NyxCydIX83gVfMkZMPYQWFWG2I8ndKIvBI7qiSNo9VgdKlTMA6rtAV6SoX0Uy1OVWj
-	 VuKuaH6lnzLvE6T5rC29dD0NgdxQ6alkw++42ZfhGUJn6JdKgNd1ElrcxGpTj8trd0
-	 FkgNAM1zS0vjT3bF9g9RW0AsMWWvKka85fcAK2KFGRgKXtNQVabkyuYNaBEv8Pos5m
-	 dx6HuPQnKUUap8JUH07gFuhmBGtiOrvlCDdkZIlGDWWahkxj/BQsprRgdwsrrVGZS7
-	 jHZtTG1POO0Fg==
-From: Konrad Dybcio <konradybcio@kernel.org>
-Date: Mon, 28 Oct 2024 15:22:59 +0100
-Subject: [PATCH 3/3] firmware/psci: Allow specifying an S2RAM state through
- CPU_SUSPEND
+	id 1t5Qgq-0000000B79M-3ZvL;
+	Mon, 28 Oct 2024 14:25:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730125551;
+	bh=nzbeRC8p1ugu2E5p8U1ZLC9i2WJ4DpBmxiovMdzFjB0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=psHnpBDlyIoBue1qxNZAsRNdEq3/bomzXLFpsQqv596QTFtpBWUyraULO2IdN96QB
+	 cCbtO1QYndaTTUmE8lIYyBkkuFT9wpBKp5LRdmqGrJCLzbC5P7701Lx2nTBxYq57NK
+	 +UbFvMsaciTgHHdCMFY11UxXlG09/t8oG5WFyYfbEoBwL6g07cztXCk/WYL1AllBnp
+	 NSoq6ptWRSCoSG8Q7l2MkvL17MfjaG4b8j2IDslzbVq6wYS55TARY+rpvnjuFj66aO
+	 29uOmaPygiFgSw4cdh5F9zW5MXeczWQmEFCdIFniBcLsuyLOFFs27Bvg41wGh9S0S7
+	 YonAhjR0T++3g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 899EB17E35FC;
+	Mon, 28 Oct 2024 15:25:50 +0100 (CET)
+Message-ID: <20c793fb-cfdf-4c05-a421-3eb623ff6df0@collabora.com>
+Date: Mon, 28 Oct 2024 15:25:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-3-9fdd9a04b75c@oss.qualcomm.com>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
-In-Reply-To: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=3714;
- i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
- bh=Bf2hbCxvBem19Ny5a2acnQioUv9USzkxEe/DauTX7oc=;
- b=FlN28QeiFZU8O2MvaHh0SMZln2dKNtdGQHi7Hs7jxj9PC3ah05CBwHvJH95lZGaASdtMNjQLk
- 1fNmg0+xUfyDeRqvE0W40TGGMjzDjMITQEIDQ9a0cduZox0+iTIK7WH
-X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
- pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add adsp
+ and dai-link properties
+To: Fei Shao <fshao@chromium.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Rob Herring <robh@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-sound@vger.kernel.org
+References: <20241025104548.1220076-1-fshao@chromium.org>
+ <20241025104548.1220076-2-fshao@chromium.org>
+ <5vmfh2nkxtpzt2vk4j6ghro7z5stoyvry3enzoqepg6hjxqrho@fofs5cwa2iqq>
+ <CAC=S1njPjtvhsc+voNK447wbQmRiN0xVDi-jgOmba4NLRiNi0Q@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAC=S1njPjtvhsc+voNK447wbQmRiN0xVDi-jgOmba4NLRiNi0Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072316_766668_5BA507A6 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20241028_072553_120957_4456BE50 
+X-CRM114-Status: GOOD (  37.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,109 +83,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Il 28/10/24 12:10, Fei Shao ha scritto:
+> On Mon, Oct 28, 2024 at 4:54 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On Fri, Oct 25, 2024 at 06:44:41PM +0800, Fei Shao wrote:
+>>> Add "mediatek,adsp" property for the ADSP handle if ADSP is enabled on
+>>> the platform.
+>>
+>> We see this from the diff.
+>>
+>>> Add "mediatek,dai-link" property for the required DAI links to configure
+>>> sound card.
+>>
+>> We see this from the diff.
+>>
+>>>
+>>> Both properties are commonly used in the MediaTek sound card driver.
+>>
+>> If they are used, why suddenly they are needed? What changed?
+> 
+> Nothing has changed. These should have been added altogether when the
+> binding was first introduced. This patch is to fill the gaps and fix
+> dtbs_check warnings, like I mentioned in the cover letter.
+> I can add a line in the commit message saying it's to fix the warning
+> in addition to the cover letter, if that's preferred.
+> 
+>>
+>>>
+>>> Signed-off-by: Fei Shao <fshao@chromium.org>
+>>> ---
+>>>
+>>>   .../bindings/sound/mediatek,mt8188-mt6359.yaml         | 10 ++++++++++
+>>>   1 file changed, 10 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+>>> index f94ad0715e32..701cedfa38d2 100644
+>>> --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+>>> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+>>> @@ -29,6 +29,16 @@ properties:
+>>>       $ref: /schemas/types.yaml#/definitions/phandle
+>>>       description: The phandle of MT8188 ASoC platform.
+>>>
+>>> +  mediatek,adsp:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description: The phandle of MT8188 ADSP platform.
+>>
+>> And what is the difference between ASoC and ADSP platforms? What are
+>> they used for?
+> 
+> I'm not a MediaTek or audio folks, and I'm afraid that I'm not the
+> best person to explain the details accurately in front of experts on
+> the list... I know it's an audio DSP but that explains nothing.
+> MediaTek didn't provide a meaningful explanation in the tree or
+> commits, and I want to avoid adding additional but likely misleading
+> descriptions from someone who doesn't have enough knowledge,
+> potentially causing even more confusing situations in the future.
+> Plus, the same changes were accepted as-is in the past, so I assumed
+> they might be self-explanatory to people who are familiar with the
+> matter.
+> 
 
-Certain firmware implementations (such as the ones found on Qualcomm
-SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
-through the CPU_SUSPEND call.
+The Audio DSP is a Tensilica HiFi-5 DSP, and it's a block that is - hardware
+speaking - separated from the rest of the Audio interfaces of the SoC.
 
-This works exactly like SYSTEM_SUSPEND. The PSCI spec describes that
-call as optional (and only introduced in PSCIv1.0), so not all
-platforms expose it.
+The whole sound subsystem can work either with or without the DSP, in the sense
+that the DSP itself can remain unpowered and completely unconfigured if its
+functionality is not desired - hence, this is a board specific configuration:
+if the board wants to use the DSP, we use the DSP - otherwise, we just don't.
 
-Marking a DT-described "domain-idle-state" as such isn't currently
-well accounted for in the PSCI idle topology infrastructure: the
-cpuidle and genpd framework are deeply intertwined, and trying to
-separate them would cause more havoc than good.
+Regarding the two "platforms", in short:
+"mediatek,platform" -> Audio Front End (AFE)
+"mediatek,adsp" -> Audio DSP
 
-Instead, allow the specifying of a single CPU_SUSPEND sleep param
-under the /psci node that shall be treated exactly like SYSTEM_SUSPEND
-from Linux's POV. As a bonus, this way we also don't have to fight
-with the genpd idle governor to avoid taking the S3-like state into
-consideration.
+Now, you can either link the AFE DAIs to the I2S
 
-Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
----
- drivers/firmware/psci/psci.c | 36 +++++++++++++++++++++++++++++++-----
- 1 file changed, 31 insertions(+), 5 deletions(-)
+As for "mediatek,platform" - that's used to link the Analog Front End (AFE) as
+the DAI Link platform (so the path is direct to/from DL/UL DAIs to AFE) or the
+ADSP one as the DAI Link platform (so that the path is to/from DL/UL DAIs to
+DSP to AFE), but that - of course - still requires an AFE, otherwise you cannot
+get the audio out of the speakers or in from the mic anyway.
 
-diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-index 0e622aa5ad58bbe69dfc3a71bced597618e73f15..20ae6a6d59a9f276db75260b6ca1a5827e443782 100644
---- a/drivers/firmware/psci/psci.c
-+++ b/drivers/firmware/psci/psci.c
-@@ -78,6 +78,7 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
- 
- static u32 psci_cpu_suspend_feature;
- static bool psci_system_reset2_supported;
-+static u32 psci_s2ram_suspend_param;
- 
- static inline bool psci_has_ext_power_state(void)
- {
-@@ -519,10 +520,10 @@ static int psci_system_suspend_begin(suspend_state_t state)
- 	return 0;
- }
- 
--static const struct platform_suspend_ops psci_suspend_ops = {
--	.valid          = suspend_valid_only_mem,
--	.enter          = psci_system_suspend_enter,
--	.begin          = psci_system_suspend_begin,
-+static const struct platform_suspend_ops psci_system_suspend_ops = {
-+	.valid = suspend_valid_only_mem,
-+	.enter = psci_system_suspend_enter,
-+	.begin = psci_system_suspend_begin,
- };
- 
- static void __init psci_init_system_reset2(void)
-@@ -545,7 +546,7 @@ static void __init psci_init_system_suspend(void)
- 	ret = psci_features(PSCI_FN_NATIVE(1_0, SYSTEM_SUSPEND));
- 
- 	if (ret != PSCI_RET_NOT_SUPPORTED)
--		suspend_set_ops(&psci_suspend_ops);
-+		suspend_set_ops(&psci_system_suspend_ops);
- }
- 
- static void __init psci_init_cpu_suspend(void)
-@@ -673,6 +674,17 @@ static int __init psci_probe(void)
- 
- typedef int (*psci_initcall_t)(const struct device_node *);
- 
-+static int psci_cpu_suspend_s2ram_enter(suspend_state_t state)
-+{
-+	return psci_cpu_suspend_enter(psci_s2ram_suspend_param);
-+}
-+
-+static const struct platform_suspend_ops psci_cpu_suspend_s2ram_ops = {
-+	.valid = suspend_valid_only_mem,
-+	.enter = psci_cpu_suspend_s2ram_enter,
-+	.begin = psci_system_suspend_begin,
-+};
-+
- /*
-  * PSCI init function for PSCI versions >=0.2
-  *
-@@ -686,6 +698,20 @@ static int __init psci_0_2_init(const struct device_node *np)
- 	if (err)
- 		return err;
- 
-+	/*
-+	 * Some firmwares expose S2RAM entry through a custom suspend param.
-+	 *
-+	 * If found, register a suspend handler instead of registering the
-+	 * idle state with cpuidle.
-+	 */
-+	err = of_property_read_u32(np, "arm,psci-s2ram-param", &psci_s2ram_suspend_param);
-+	if (!err) {
-+		suspend_set_ops(&psci_cpu_suspend_s2ram_ops);
-+	} else if (err != -EINVAL) {
-+		pr_err("Couldn't read the S2RAM PSCI suspend param: %d\n",
-+		       psci_s2ram_suspend_param);
-+	}
-+
- 	/*
- 	 * Starting with v0.2, the PSCI specification introduced a call
- 	 * (PSCI_VERSION) that allows probing the firmware version, so
+>>
+>>> +
+>>> +  mediatek,dai-link:
+>>> +    $ref: /schemas/types.yaml#/definitions/string-array
+>>> +    description:
+>>> +      A list of the desired dai-links in the sound card. Each entry is a
+>>> +      name defined in the machine driver.
+>>
+>> The list is provided below. I don't understand why do you need it. Your
+>> msg is pretty useless - you describe what you do, instead of why.
+> 
+> I think this is used to explicitly list the intermediate but hidden
+> DAIs, but again, there's not much info about them unless MediaTek can
+> explain more details and why they need a vendor property for this.
+> 
 
--- 
-2.47.0
+Yes, this is used for exactly that... but I believe that we can deprecate this
+now that we have support for the "standard" `audio-routing` property and for the
+DAI Link nodes (examples that you can find in current device trees are mm-dai-link,
+hs-playback-dai-link, or any other subnode of the sound card).
+
+Specifically, those subnodes *do* require a "link-name" property, which *does*
+effectively contain the same DAI Link names as the ones that are inside of the
+"mediatek,dai-link" property.
+
+On MT8195, you can find both the subnodes and the mediatek,dai-link - yes - but
+that was done to retain compatibility of the device tree with old drivers (so,
+an unusual case of new device tree on old kernel).
+
+Finally, I believe that we can avoid adding that "mediatek,dai-link" property
+to the MT8188 binding, and rely on:
+  1. Whatever is provided in struct snd_soc_card for that device; and
+  2. Whatever is provided in device trees as dai link subnodes, which would
+     restrict N.1 as that's anyway describing card prelinks.
+
+Cheers,
+Angelo
+
+> Regards,
+> Fei
+> 
+>>
+>> Best regards,
+>> Krzysztof
+>>
 
 
