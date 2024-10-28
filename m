@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249C1D3399B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE5FD339A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dXjXaMc1+NjmQK/N1YVEu7l1Gn/kANyJvtlcEB9iCKI=; b=beCd9f45AgEN1fmfIGi4Y/v3Am
-	QJQmpw+83NeDQMHPBAAaL1+zYrw5JDZeXsiUhq4VQC18nLQ7ItKuOAkxljH4MYZ4X1xwVOVfAX3Tp
-	XI2dRUGaqUHOt5xKAGH6j72m/CUzBiopW8aWRct+iIuLwsmJJDA1yGCEfAmMgTlFXcE8YP6SatJBN
-	5LBIUqMVlH7Z1+LVirA9kiDUzXEAd44zjGxKXyuKXWY83B4e/g8xxIpVfd3dzRQZCX/bcy3pIPozw
-	8Mw/fzBRrZWbGHgvLD+1kmyrQLdy2e/oLP2UZEbQwMASq+mGRBOp9S79jN0vSX2YP49DHGxgP9VgV
-	2ps8jSsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GhKQEalQq5DhqXZjp2nVcnuYVrHx6DAoEyqeJ8d+4hw=; b=J6g0/PClaEjnyZCuaiijrAwORC
+	Gl6xigCaTLUvZhlQ2MwU2CLTvApSHS2KL54GZbvSPxwwqvcqNXvT+hejp2C5+c1AcxlD0+Xw+dGzX
+	yDySj3vUXoxr5b09m1rxiumM5jUJun3mi87xPeG3ihSgdVgYokLv61L1IwoJjKIPopR7iMmPp0GuV
+	5y9NN35DENuo5PlL3sY+cLZg8mRXLz3MPMylKQp/xmlKIUqeNit2LRMuaP5BabGHW9TX0jwme4hwN
+	fjmnNS0xaaYGn9GhBErWWkLatbH5s5lLOfX/hN20SRTv/jrM+IUvT37watoRhOI+NW8H6hjQTr1RY
+	CAX9MEkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5TFN-0000000BcEl-2d6Q;
-	Mon, 28 Oct 2024 17:09:41 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t5TGv-0000000BcO4-34wC;
+	Mon, 28 Oct 2024 17:11:18 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sr0-0000000BYCI-0ZUc;
-	Mon, 28 Oct 2024 16:44:31 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-207115e3056so38473325ad.2;
-        Mon, 28 Oct 2024 09:44:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730133868; x=1730738668; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dXjXaMc1+NjmQK/N1YVEu7l1Gn/kANyJvtlcEB9iCKI=;
-        b=k529pgATj8McgYFGpI2CcmtlkDi+VDYfAaYyJYNDir+7Z5J1pBXXFuSBUltzynx6tO
-         rDcJfSg2UXOUxWNiM4AZZ6TbCeR/lGuPqlAbQuYoQZJLJFwe4m0GfoCP0biES4UZizse
-         QSwjBcFcntqNuXvcZOe8Sk6Au6xUOJYoDLn96lWuse4/qY28UpoWomxn5odCOUldwR3f
-         Oh4wbk+HaDYqoaOBZNJUy2vxh56KZbWs2FwBr9ZpjqSJzwfw8xORKG71kySHu6V/Px4W
-         v4PfdbXDWdHrHIVvpRz/JdsIgh9O+x+TTv+P5bYGZVXD2pap2m7zEIJmnM1GJ+RTef+f
-         n9KA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730133868; x=1730738668;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dXjXaMc1+NjmQK/N1YVEu7l1Gn/kANyJvtlcEB9iCKI=;
-        b=BNqeKnfmsnrPaC5GsilUFN8OZ+DjS7GrAHoUb3EMFPtkWYALycDegyoHrMkWV+EZiu
-         A5EKZm3+Dt41Wh6R3XS68ctqS/v1wTNqV9Os1fe9V3kFz5EO/aVbCKUF4bnfw0pSYLg9
-         zdRDMtT1acU7myUzGrF2RHv8670rOydjbdKcDR5GUCOitOxYeCgED6mkTa/UyJiiHPsx
-         Pk0NibphfO+ozwBAl8DT000z3sX77Ohv4twTPWFVtn4IL9T4R0jV+0I4F3IUzpvygdXx
-         tcYsgzWjKkXcWtMHXjNLaUMtH9WvyKGYuD5VFjOvVbBrKX68BQXOqmGG2KCkPWt+EI2d
-         VkNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUQNcufxa1d0JfRvPOHGgA5ZhexkgxJEOlpyxpyrP3jMR2h1qNyTPZr26hmvWJzbrHz077acjr4pN/k2obcFkhbQA==@lists.infradead.org, AJvYcCUYHbF583CRKLyydRWpo580/cqtbmfPNpkbYFogPDPDyTXlYOQdLMYjagyLqXestebjaj0uVwQKcycuVGjEr+MP@lists.infradead.org
-X-Gm-Message-State: AOJu0YygTBN3X3Iw15HHkkcjfqfK4Ag/iHDarr+W5ITnQZPgBz8rW5Mi
-	ma6/GJEiO+u3b9UW8ewkwEqSA7SVNorRZkKApKmTRlnltd8824nJ
-X-Google-Smtp-Source: AGHT+IEoqZmHqm6VAVqxfSwuXHWEddFHtQFD30kf+K8fdWv/AuPsHvUw8j0J5Wk9KXaGWw2byK+M7g==
-X-Received: by 2002:a17:902:ecc3:b0:20c:f292:3a21 with SMTP id d9443c01a7336-210c6892a36mr128561235ad.15.1730133868261;
-        Mon, 28 Oct 2024 09:44:28 -0700 (PDT)
-Received: from Emma ([2401:4900:1c96:f151:5054:ff:fe53:2787])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc044f82sm52646685ad.258.2024.10.28.09.44.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 09:44:27 -0700 (PDT)
-From: Karan Sanghavi <karansanghvi98@gmail.com>
-Date: Mon, 28 Oct 2024 16:44:12 +0000
-Subject: [PATCH v4] dt-bindings: power: Convert raspberrypi,bcm2835-power
- to Dt schema
+	id 1t5Syf-0000000BZre-1qYE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 16:52:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730134325; x=1730739125; i=wahrenst@gmx.net;
+	bh=GhKQEalQq5DhqXZjp2nVcnuYVrHx6DAoEyqeJ8d+4hw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=UQQyaMxiQO7Q4b41H0HfESW7Mu1BFb81cidVwRD+yI2pIAddr9k1WhCPQ4PrRgZk
+	 TFPnbwm/pwrkbjo9/0bDrWDfayHxkb4M8zMsvW1h1hITteSUScOlPjTyA1j8pZNJF
+	 EQCgVyaCcaXCoijIY8Rog9sTLuiDTlQSlxxS+ouU/9RY1e5ybbP9Y5mbT/qPlN6Xr
+	 dVEK9Q+bQUmW+HJ5J8AXU0PFFXpzw2IWDizJjnh1NYF1uTtYBNmtbrE4FzcRFynJo
+	 oK2rNWjQaT5lmsWktg1Dyybi5ggUfadiLRyO4gpYu9hefoqXgMh8fBaiTKzo1/p7Q
+	 P02vDoz/XEgZdCfLSA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mulm5-1tvEXv3UtH-00zMj7; Mon, 28
+ Oct 2024 17:52:04 +0100
+Message-ID: <7f175303-b7e8-4d49-ad17-9cb434721bd1@gmx.net>
+Date: Mon, 28 Oct 2024 17:52:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-raspberrypi-bcm2835-power-v4-1-acf44abd45ff@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAFy/H2cC/43NwQ6DIAyA4VdZOI9FCojstPdYdkCsSjLFwOJmj
- O8+9GR2MEtPf5N+nUnE4DCS62kmAUcXne9TiPOJ2Nb0DVJXpSaQgWAZ0zSYOJQYwjQ4WtoOCi7
- p4N8YqDQCOCux0FKTdD8ErN1ns++P1K2LLx+m7dXI1u0/6sgoo0qiBlFZroS8NZ1xz4v1HVnVE
- XYSwJEESWJGmCKNVFz9Snwv5UcST1KeA8NMyYrzei8ty/IFyppN2FYBAAA=
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Alexander Aring <alex.aring@gmail.com>, Eric Anholt <eric@anholt.net>, 
- Karan Sanghavi <karansanghvi98@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730133864; l=4072;
- i=karansanghvi98@gmail.com; s=20241017; h=from:subject:message-id;
- bh=VYXYBYtZZtmYHYEH++bEHUARDCjOd5EUg4f7Zg6dWOE=;
- b=SxiVf23KimpjOkVKsF4/k3vHDNwyubJt+SdtqEl7+QYLfn+WnZ0z2mrcRUCInTQ/sC8RBJm50
- fs/4Yjc4BBWCgAMHKe+CjF7l09yo6bUvg0LyIpivuqZfq1Xbmumrsu8
-X-Developer-Key: i=karansanghvi98@gmail.com; a=ed25519;
- pk=UAcbefT1C06npNVDJHdgpPqTm4WE9IhaA1fmJb3A37Y=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] watchdog: imx7ulp_wdt: Add TOVAL range check
+To: Guenter Roeck <linux@roeck-us.net>, Alice Guo <alice.guo@nxp.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20241027105323.93699-1-wahrenst@gmx.net>
+ <20241027105323.93699-3-wahrenst@gmx.net>
+ <33721072-6ff4-45bd-b20f-cc0a213e3aae@roeck-us.net>
+ <686d128c-ce02-421e-9af5-6c418e82071d@gmx.net>
+ <016f25b9-58ec-4b51-81d7-4a573a4cc18a@roeck-us.net>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <016f25b9-58ec-4b51-81d7-4a573a4cc18a@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:7XdQT3hLhRr9ALXESZ/YWfwjV+ddX83sIaU4FF5eHKFEb/hlLC6
+ JiGDIRp1mTanuohRfhCtrOWRgE1ds1ZX86VKINdnZrVJqoB9jFr/P6QkO3LnjUTmYKTeGmo
+ eA8nAThKn5rjoKLWrB0j53wGeqLpXocXPL4+EMXlQP01M3Ns1aUqbBaqTWPRae40sWk4Avx
+ 7rrLdswy5aI4amw5xFMhQ==
+UI-OutboundReport: notjunk:1;M01:P0:SFlAgT4Oyxc=;Np0jtOdDNzlQoExMBs5gBffx/iw
+ F1j7m0F467Gdelbf6LkLnr8jxsKH+lApkOAyuy82iooGeqP5VhsvkGoSHp0x+DtLRoONj/alp
+ 17lmZVH6qhMJP4wElRH3kFwqbyIEAAoVqYafGXQAkOp/MOKkB+B8KHY6269kgNH8704HX+TsE
+ Eejm/ElutIQgUjvq/kHF3DzFtWH7w5GQAKVzc/YPzxiaPw5zhu95EKvOMAAMdD+hD0G1rvmgT
+ nbdfkaHiHyXaFlDKQLlqC/4bxy0Xel58LOz5EcbnPg5HtN/+bGS4hkF9rPiALasj31qNqI5i3
+ DQlzf/Pb0jTfewhhzLNHNdrYuZ0gxr7GgWJAUWgIafvBSmevt7B74ERcSvyFEvElAlpB3D7Wr
+ AeG2acZ8AkBxhBwMvNMzAr0IMFV8BJjZqFmlUiOGHmYDJOoHwT+sqPpkw/chx+nkIRGtBdxGh
+ xbsp3SgJyMKYinsN2ttQqtQdSwYVXDXTFHiAdOrIVubmFOkt74XvypRpP/rpGdUtZhXS8puux
+ SYw79W7SwX5mvqaKyJGbZBrBBLKGMoDO+5X+ILOlr+SR3OsXrTnNmdQZIyiJerylRZMwiTfwP
+ Q/40osCuocieAuQaDQZjCre+mSzwyZS9pAfK8CXlBqkGD7KGAYNHshDd67pIel7QUV4xqnsOu
+ RBcw7Pt1i1AYQaNrRcPBYfnM6DnWaCWlCIMYwwZBI4nvsdrGXndo4bdKUeCZM42NO+9YQ0bGr
+ kmRj9Y2qV+rD5RK8BKWWGJbofglEU1boGNrSjFy24NHBxljeby6SVfAVPsQIEqaaUV9Vvu24D
+ g9yjPVJjXGpG0y7OEynflEdQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_094430_216364_A19F649E 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20241028_095225_871103_40916CF8 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,137 +100,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the raspberrypi,bcm2835-power binding to Dt schema
+Hi Guenter,
 
-Signed-off-by: Karan Sanghavi <karansanghvi98@gmail.com>
----
-Changes in v4:
-- Corrected misindentations and random differences.
-- Link to v3: https://lore.kernel.org/r/20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com
+Am 27.10.24 um 18:35 schrieb Guenter Roeck:
+> On 10/27/24 08:54, Stefan Wahren wrote:
+>> Am 27.10.24 um 14:36 schrieb Guenter Roeck:
+>>> On 10/27/24 03:53, Stefan Wahren wrote:
+>>>> The WDOG Timeout Value (TOVAL) is a 16 bit value, which is stored
+>>>> at the beginning of a 32 bit register. So add a range check to
+>>>> prevent writing in the reserved register area.
+>>>>
+>>>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+>>>> ---
+>>>> =C2=A0 drivers/watchdog/imx7ulp_wdt.c | 8 ++++++++
+>>>> =C2=A0 1 file changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/drivers/watchdog/imx7ulp_wdt.c
+>>>> b/drivers/watchdog/imx7ulp_wdt.c
+>>>> index 0f92d2217088..a7574f9c9150 100644
+>>>> --- a/drivers/watchdog/imx7ulp_wdt.c
+>>>> +++ b/drivers/watchdog/imx7ulp_wdt.c
+>>>> @@ -48,6 +48,8 @@
+>>>>
+>>>> =C2=A0 #define RETRY_MAX 5
+>>>>
+>>>> +#define TOVAL_MAX=C2=A0=C2=A0=C2=A0 0xFFFF
+>>>> +
+>>>> =C2=A0 static bool nowayout =3D WATCHDOG_NOWAYOUT;
+>>>> =C2=A0 module_param(nowayout, bool, 0000);
+>>>> =C2=A0 MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once st=
+arted
+>>>> (default=3D"
+>>>> @@ -192,6 +194,9 @@ static int imx7ulp_wdt_set_timeout(struct
+>>>> watchdog_device *wdog,
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 loop =3D RETRY_MAX;
+>>>>
+>>>> +=C2=A0=C2=A0=C2=A0 if (toval > TOVAL_MAX)
+>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EINVAL;
+>>>> +
+>>>
+>>> The whole idea of having max_timeout in struct watchdog_device is to
+>>> avoid the need
+>>> for this check. max_timeout should be set to 0xffff /
+>>> wdt->hw->wdog_clock_rate.
+>>> It is currently set to 128. With wdt->hw->wdog_clock_rate set to
+>>> either 125 or 1000,
+>>> it can indeed overflow. However, checking the value above is wrong.
+>>> max_timeout should
+>>> be initialized correctly instead.
+>>>
+>>> Even better would be to set max_hw_heartbeat_ms and let the watchdog
+>>> core handle
+>>> larger timeouts.
+>> It's funny because I tried this on a i.MX93 board but it didn't work fo=
+r
+>> me. But I must confess that I didn't spend much time in the
+>> investigation.
+>
+> I can't test it, but something like the diff below should do.
+Thanks, I will give it a try but it will take some time.
 
-Changes in v3:
-- Applied changes as per the feedback received for title and description
-- Removed power label and renamed node to power-controller	
-- Moved the file from bindings/soc/bcm to bindings/power
-- Link to v2: https://lore.kernel.org/r/20241022-raspberrypi-bcm2835-power-v2-1-1a4a8a8a5737@gmail.com
-
-Changes in v2:
-- Added original file maintainers
-- Removed unnecessary headers from example and formating from description 
-- Link to v1: https://lore.kernel.org/r/20241019-raspberrypi-bcm2835-power-v1-1-75e924dc3745@gmail.com
----
- .../bindings/power/raspberrypi,bcm2835-power.yaml  | 42 +++++++++++++++++++
- .../bindings/soc/bcm/raspberrypi,bcm2835-power.txt | 47 ----------------------
- 2 files changed, 42 insertions(+), 47 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml b/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml
-new file mode 100644
-index 000000000000..259e1d9b3fab
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/raspberrypi,bcm2835-power.yaml
-@@ -0,0 +1,42 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/raspberrypi,bcm2835-power.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Broadcom BCM2835 power domain
-+
-+maintainers:
-+  - Alexander Aring <alex.aring@gmail.com>
-+  - Eric Anholt <eric@anholt.net>
-+
-+description:
-+  The Raspberry Pi power domain manages power for various subsystems
-+  in the Raspberry Pi BCM2835 SoC.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - raspberrypi,bcm2835-power
-+
-+  firmware:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Reference to the RPi firmware device node
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - firmware
-+  - "#power-domain-cells"
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    power-controller {
-+      compatible = "raspberrypi,bcm2835-power";
-+      firmware = <&firmware>;
-+      #power-domain-cells = <1>;
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/bcm/raspberrypi,bcm2835-power.txt b/Documentation/devicetree/bindings/soc/bcm/raspberrypi,bcm2835-power.txt
-deleted file mode 100644
-index 30942cf7992b..000000000000
---- a/Documentation/devicetree/bindings/soc/bcm/raspberrypi,bcm2835-power.txt
-+++ /dev/null
-@@ -1,47 +0,0 @@
--Raspberry Pi power domain driver
--
--Required properties:
--
--- compatible:		Should be "raspberrypi,bcm2835-power".
--- firmware:		Reference to the RPi firmware device node.
--- #power-domain-cells:	Should be <1>, we providing multiple power domains.
--
--The valid defines for power domain are:
--
-- RPI_POWER_DOMAIN_I2C0
-- RPI_POWER_DOMAIN_I2C1
-- RPI_POWER_DOMAIN_I2C2
-- RPI_POWER_DOMAIN_VIDEO_SCALER
-- RPI_POWER_DOMAIN_VPU1
-- RPI_POWER_DOMAIN_HDMI
-- RPI_POWER_DOMAIN_USB
-- RPI_POWER_DOMAIN_VEC
-- RPI_POWER_DOMAIN_JPEG
-- RPI_POWER_DOMAIN_H264
-- RPI_POWER_DOMAIN_V3D
-- RPI_POWER_DOMAIN_ISP
-- RPI_POWER_DOMAIN_UNICAM0
-- RPI_POWER_DOMAIN_UNICAM1
-- RPI_POWER_DOMAIN_CCP2RX
-- RPI_POWER_DOMAIN_CSI2
-- RPI_POWER_DOMAIN_CPI
-- RPI_POWER_DOMAIN_DSI0
-- RPI_POWER_DOMAIN_DSI1
-- RPI_POWER_DOMAIN_TRANSPOSER
-- RPI_POWER_DOMAIN_CCP2TX
-- RPI_POWER_DOMAIN_CDP
-- RPI_POWER_DOMAIN_ARM
--
--Example:
--
--power: power {
--	compatible = "raspberrypi,bcm2835-power";
--	firmware = <&firmware>;
--	#power-domain-cells = <1>;
--};
--
--Example for using power domain:
--
--&usb {
--       power-domains = <&power RPI_POWER_DOMAIN_USB>;
--};
-
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241019-raspberrypi-bcm2835-power-5a4231be8959
-
-Best regards,
--- 
-Karan Sanghavi <karansanghvi98@gmail.com>
+Regards
+>
+> Guenter
+>
+> ---
+> diff --git a/drivers/watchdog/imx7ulp_wdt.c
+> b/drivers/watchdog/imx7ulp_wdt.c
+> index 0f13a3053357..e672d27af63e 100644
+> --- a/drivers/watchdog/imx7ulp_wdt.c
+> +++ b/drivers/watchdog/imx7ulp_wdt.c
+> @@ -187,11 +187,16 @@ static int imx7ulp_wdt_set_timeout(struct
+> watchdog_device *wdog,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int =
+timeout)
+> =C2=A0{
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct imx7ulp_wdt_device *wd=
+t =3D watchdog_get_drvdata(wdog);
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 toval =3D wdt->hw->wdog_clock_=
+rate * timeout;
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 toval;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 val;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 loop =3D RETRY_MAX;
+>
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (timeout > 0xffff / wdt->hw->wd=
+og_clock_rate)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 toval =3D 0xffff;
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 toval =3D wdt->hw->wdog_clock_rate * timeout;
+> +
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 do {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 ret =3D _imx7ulp_wdt_set_timeout(wdt, toval);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 val =3D readl(wdt->base + WDOG_TOVAL);
+> @@ -338,7 +343,6 @@ static int imx7ulp_wdt_probe(struct
+> platform_device *pdev)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->info =3D &imx7ulp_wdt_i=
+nfo;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->ops =3D &imx7ulp_wdt_op=
+s;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->min_timeout =3D 1;
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->max_timeout =3D MAX_TIMEOUT;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->parent =3D dev;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->timeout =3D DEFAULT_TIM=
+EOUT;
+>
+> @@ -348,6 +352,7 @@ static int imx7ulp_wdt_probe(struct
+> platform_device *pdev)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 watchdog_set_drvdata(wdog, im=
+x7ulp_wdt);
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 imx7ulp_wdt->hw =3D of_device=
+_get_match_data(dev);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wdog->max_hw_heartbeat_ms =3D 0xff=
+ff * 1000 /
+> imx7ulp_wdt->hw->wdog_clock_rate;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D imx7ulp_wdt_init(imx7=
+ulp_wdt, wdog->timeout *
+> imx7ulp_wdt->hw->wdog_clock_rate);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 return ret;
+>
+>
 
 
