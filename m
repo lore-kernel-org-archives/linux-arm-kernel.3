@@ -4,121 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7758AD3399D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5802D3399B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R0mm1WxaJDvn+L5oLnfUxnWi9zpw+7fHXuO6XRH8TVw=; b=uADFoa92Gr6bveC7F5qUbfUoYJ
-	XAlbh3QNRKc/eIkEHHOIqMebYeOVt95pu51GYY8S88Rrzq7b/PlTJ+mF8qXjJn0f89RWaeV7/U+f5
-	1TEG967WxgKQq1UEak578MCpwLE9gnJJzdtqT6m8ilIQ/njQJxwOPnn743tbvmZHX73a39uqFkIIU
-	StM4kDHlmR3GEgFXZwXvPy+VyeRsrKlzu79TeNx7mj3e55Cx9WrnoCm/XlGS5pJBpeDRRQxBufaX/
-	uf58vd2IobO9euY315qUSWicLYXQf5DHCQ5nwFRMen3uy1s68gR6oiLzdlqgvLJb/8blMpFMCYrVs
-	xtyduD/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:In-reply-to:Date:Subject:Cc:To:From:References:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7e74bDnvczhbgPY2hFm8VtRHbs4Ka+p6FF5bmoD6B5w=; b=wbRUcHpTwUJZjatB7W5RGMAX7i
+	nE6H1VGn9C8DKcmJ1Xnzlv84NCB1yG+pPp90DlGysNLiQp8S6ex9W6lr0Ezr9kA1JPVM3U7e4bFuR
+	XUxGPtyxo8giPCyuBUMlS72w6C7VDazIzZ6SxSWP3bwbRbowMdfhrcSXWWEh2p4hXUz6PDcXXeyDl
+	DFnN+/b8au3PwWtHPB8qCL8sCgZ0ikApgPnFZywAQENhwG+J1KbMne7r0Nafj+nXzhFQqCks6h89T
+	tdht0M+1t6ByF/FvUAUfqZPJpEEPmyOlm9KiN4M0TglioVFPZ9J369RH+sF3bCDYuioBRHw7dIgrz
+	FHtIjKDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5S99-0000000BOXL-0LE2;
-	Mon, 28 Oct 2024 15:59:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t5SAj-0000000BOtg-1Bay;
+	Mon, 28 Oct 2024 16:00:49 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RjO-0000000BKFr-0gXt;
-	Mon, 28 Oct 2024 15:32:36 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7D4F3743;
-	Mon, 28 Oct 2024 16:32:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730129549;
-	bh=NbMZisdFcz4ACvPI0iTxOfwwOk6Hcpnxy+CAtnZn0OY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RxO3W2KA54SlswsiY2OQCeQjf6fBZMEJSWNxwva8dwbRXH63VhRxVMIrpVXMiSp3B
-	 sWxphgQaeietass/SrKrc1pgaLx25MhfbCQ48FEPim8FQ1/BjL3QxS3LaErDWGXZpI
-	 sS/RlPxUG3zxaYdNVPNyigDBpbo/FdpLJEbVP/p8=
-Message-ID: <62073d7a-0a4b-4440-90e5-dcce0dec72d7@ideasonboard.com>
-Date: Mon, 28 Oct 2024 17:32:27 +0200
+	id 1t5Ro8-0000000BKwo-0p9G;
+	Mon, 28 Oct 2024 15:37:29 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-539f1292a9bso5183728e87.2;
+        Mon, 28 Oct 2024 08:37:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730129846; x=1730734646; darn=lists.infradead.org;
+        h=mime-version:message-id:in-reply-to:date:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=7e74bDnvczhbgPY2hFm8VtRHbs4Ka+p6FF5bmoD6B5w=;
+        b=i8fTz1P4kjwJfC/me7vlPLN5A+OsF31VgB1NzrrgEzAq9LvZXiiMuaGWQpwFR9S0Yz
+         COEPCAri8KX3QHb8l4iyISJL9+5+4i1aVXO2XiRYS7/VmjsirHQkdpQu6R7BGEROESCT
+         CiUtJzCEMw2Skvq6Wf/H4m64Ppxjv+1dRHEVk47h5J1vZALN65JvoznluwcT99MrMM/0
+         8n2+BQYJpTrhcEK/H5r/ommV2PM8YvEMFN3KHfbOSKRU3yKJRSU/x3eNoXpUiLDnVfmu
+         D2n2Ey5iGKhaNF2xRN4Wq8F88ivcVz69Y/2zjz9ycGh33+SAtbJ1zadD3uE3phmkkz5O
+         67kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730129846; x=1730734646;
+        h=mime-version:message-id:in-reply-to:date:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7e74bDnvczhbgPY2hFm8VtRHbs4Ka+p6FF5bmoD6B5w=;
+        b=QUHvoSQHJWUwlgSueMwsPwDXqlvCXKpH14/T/7Tvd7e5llraytQMa7I7O4Lf4o3rX2
+         kJjHjQAVvdeoI3zWXsX40ki2H5iUNbMa/UxFSg+iQoH0wGay3smV0oqHoMEv1akgRqLV
+         ztxZOz42l9XTyHrIizCOSvxJ61LAmo9ffWKl4+wEihqVjYCwI6//Ct3LIfCpZiEbL/R9
+         zGu8wkqzYPn6E2oHIhSkb0NxgvMCmTAslSluQEvk4zejpwn46Ek0G4GZqks4bLVSbcXG
+         Q3pCJ/Ca5iQS6SGSiTe5mAOlh++LqQELf/KGHEAgZzP+7ODoeAQX2zIN04A35qB6Ncuw
+         jZ+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUmHVSMt3hKx8InuYAI17/sDtyG9rfhJDWS3yYq8iSfNbs8glG5sg8L8SogWoQrIaynzePUKB3Z86W9iVWPcxI=@lists.infradead.org, AJvYcCVbWbu1bu/7WwFQkZ6AKj8TAeJHmfkaEkSq6JmrEnJ6l2cwZmr0BNwgh26AarQZP8VIaVlOuCy2hbD567XhnteS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoQUOHNevgunEsKh5RkckUu0Gcr36UbQB1idqnhrPOK99FMcow
+	Lzh8cR1tKItPBYWhRjME7qhGZA2Acg2q1Qeki7c/aEMtlU1pWVqPhZ19GFddTRA=
+X-Google-Smtp-Source: AGHT+IEKqRcc/BlM5jdtPFigKOcuoyKaziXHTFpzuCBlf/+AQSM1aLQDV5fQ2Q5I6XrKnFzSoZmINQ==
+X-Received: by 2002:a05:6512:401f:b0:52c:9383:4c16 with SMTP id 2adb3069b0e04-53b348cea2amr3986159e87.22.1730129845496;
+        Mon, 28 Oct 2024 08:37:25 -0700 (PDT)
+Received: from razdolb ([45.12.135.46])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e1dcbbdsm1110984e87.236.2024.10.28.08.37.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Oct 2024 08:37:24 -0700 (PDT)
+References: <20241017-rk809-dcdc3-v1-1-e3c3de92f39c@gmail.com>
+User-agent: mu4e 1.10.8; emacs 29.4.50
+From: Mikhail Rudenko <mike.rudenko@gmail.com>
+To: linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+    Mark Brown <broonie@kernel.org>,
+    Alex Bee <knaerzche@gmail.com>,
+    Lee Jones <lee@kernel.org>,
+    Quentin Schulz <foss+kernel@0leil.net>,
+    Linus Walleij <linus.walleij@linaro.org>,
+    Chris Zhong <zyw@rock-chips.com>,
+    Zhang Qing <zhangqing@rock-chips.com>,
+    Mikhail Rudenko <mike.rudenko@gmail.com>
+Subject: Re: [PATCH] regulator: rk808: Add apply_bit for BUCK3 on RK809
+Date: Mon, 28 Oct 2024 18:20:55 +0300
+In-reply-to: <20241017-rk809-dcdc3-v1-1-e3c3de92f39c@gmail.com>
+Message-ID: <87v7xcp7bh.fsf@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Hans Verkuil <hverkuil@xs4all.nl>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Naushir Patuck
- <naush@raspberrypi.com>, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20241003-rp1-cfe-v6-0-d6762edd98a8@ideasonboard.com>
- <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
- <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
- <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
- <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
- <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
- <59cf95be-fb53-4a94-bc6e-f9dca322749d@xs4all.nl>
- <5832a2f9-c908-4f5a-a3ee-9cb7d23ddab4@ideasonboard.com>
- <563347aa-4155-47e1-b71a-0107aed83eb6@xs4all.nl>
- <20241028151713.GI24052@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20241028151713.GI24052@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_083234_512273_037B3802 
-X-CRM114-Status: GOOD (  49.28  )
+X-CRM114-CacheID: sfid-20241028_083728_254477_A80FA7BF 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,208 +98,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+Gentle ping.
 
-On 28/10/2024 17:17, Laurent Pinchart wrote:
-> On Mon, Oct 28, 2024 at 12:30:45PM +0100, Hans Verkuil wrote:
->> On 28/10/2024 12:25, Tomi Valkeinen wrote:
->>> On 28/10/2024 13:13, Hans Verkuil wrote:
->>>> On 28/10/2024 12:05, Tomi Valkeinen wrote:
->>>>> On 28/10/2024 12:11, Hans Verkuil wrote:
->>>>>> On 28/10/2024 10:21, Tomi Valkeinen wrote:
->>>>>>> On 24/10/2024 11:20, Hans Verkuil wrote:
->>>>>>>> Hi Tomi,
->>>>>>>>
->>>>>>>> I know this driver is already merged, but while checking for drivers that use
->>>>>>>> q->max_num_buffers I stumbled on this cfe code:
->>>>>>>>
->>>>>>>> <snip>
->>>>>>>>
->>>>>>>>> +/*
->>>>>>>>> + * vb2 ops
->>>>>>>>> + */
->>>>>>>>> +
->>>>>>>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
->>>>>>>>> +               unsigned int *nplanes, unsigned int sizes[],
->>>>>>>>> +               struct device *alloc_devs[])
->>>>>>>>> +{
->>>>>>>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
->>>>>>>>> +    struct cfe_device *cfe = node->cfe;
->>>>>>>>> +    unsigned int size = is_image_node(node) ?
->>>>>>>>> +                    node->vid_fmt.fmt.pix.sizeimage :
->>>>>>>>> +                    node->meta_fmt.fmt.meta.buffersize;
->>>>>>>>> +
->>>>>>>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
->>>>>>>>> +        node->buffer_queue.type);
->>>>>>>>> +
->>>>>>>>> +    if (vq->max_num_buffers + *nbuffers < 3)
->>>>>>>>> +        *nbuffers = 3 - vq->max_num_buffers;
->>>>>>>>
->>>>>>>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
->>>>>>>> is called. So 32 + *nbuffers is never < 3.
->>>>>>>>
->>>>>>>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
->>>>>>>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
->>>>>>>> for you.
->>>>>>>>
->>>>>>>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
->>>>>>>> since the code is almost always wrong.
->>>>>>>
->>>>>>> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
->>>>>>>
->>>>>>> if (vq->num_buffers + *nbuffers < 3)
->>>>>>>            *nbuffers = 3 - vq->num_buffers;
->>>>>>>
->>>>>>> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
->>>>>>>
->>>>>>> The distinction between min_queued_buffers and
->>>>>>> min_reqbufs_allocation, or rather the need for the latter, still
->>>>>>> escapes me. If the HW/SW requires N buffers to be queued, why
->>>>>>> would we require allocating more than N buffers?
->>>>>>
->>>>>> min_queued_buffers is easiest to explain: that represents the requirements of the DMA
->>>>>> engine, i.e. how many buffers much be queued before the DMA engine can be started.
->>>>>> Typically it is 0, 1 or 2.
-> 
-> That's partly true only. Even if the hardware requires 2 buffers, a
-> driver can allocate scratch buffers to lower the requirement for
-> userspace. Setting min_queued_buffers to 1 is usually fine, as there are
-> few use cases for userspace to start the hardware before a buffer is
-> available to capture a frame to. A value of 2 is much more problematic,
-> as it prevents operating with a single buffer. I know using a single
-> buffer results in frame drops, but there are resource-constrained
-> systems where application don't always need all the frames (such as the
-> Raspberry Pi Zero for instance). I very strongly encourage drivers to
-> never set a min_queued_buffers value higher than 1.
-> 
->>>>>>
->>>>>> min_reqbufs_allocation is the minimum number of buffers that will be allocated when
->>>>>> calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
->>>>>> or dropping frames.
->>>>>>
->>>>>> Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
->>>>>> and the third is being processed by userspace. But sometimes drivers have other
->>>>>> requirements.
-> 
-> This is exactly why I dislike min_reqbufs_allocation when set based on
-> this logic, it encodes assumption on userspace use cases that a capture
-> driver really shouldn't make.
-> 
->>>>>>
->>>>>> The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
->>>>>> expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
->>>>>> https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
->>>>>>
->>>>>> "It can be smaller than the number requested, even zero, when the driver runs out of
->>>>>>     free memory. A larger number is also possible when the driver requires more buffers
->>>>>>     to function correctly."
->>>>>>
->>>>>> How drivers implement this is a mess, and usually the code in the driver is wrong as
->>>>>> well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
->>>>>> instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
->>>>>
->>>>> Thanks, this was educational!
->>>>>
->>>>> So. If I have a driver that has min_queued_buffers = 1, I can use
->>>>> VIDIOC_CREATE_BUFS to allocate a single buffer, and then capture
->>>>> just one buffer, right? Whereas VIDIOC_REQBUFS would give me
->>>>> (probably) three (or two, if the driver does not set
->>>>> min_reqbufs_allocation). Three buffers makes sense for full
->>>>> streaming, of course.
->>>>>
->>>>>> When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
->>>>>> to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
-> 
-> I agree it's better to handle it in the core than in drivers, even if I
-> dislike the feature in the first place.
-> 
->>>>>> if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
->>>>>> with this ioctl the number of buffers will never be more than requested, although it
->>>>>> may be less if you run out of memory.
-> 
-> On a side note, we should transition libcamera to use VIDIOC_CREATE_BUFS
-> unconditionally.
-> 
->>>>>>
->>>>>> I really should go through all existing drivers and fix them up if they try to
->>>>>> handle this in the queue_setup function, I suspect a lot of them are quite messy.
->>>>>>
->>>>>> One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
->>>>>> buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
->>>>>
->>>>> Hmm, so what I wrote above is not correct? One needs min_queued_buffers + 1? Why is that?
->>>>
->>>> The DMA engine always uses min_queued_buffers, so if there are only that many buffers,
->>>> then it can never return a buffer to userspace! So you need one more. That's the absolute
->>>> minimum. For smooth capture you need two more to allow time for userspace to process the
->>>> buffer.
->>>
->>> Hmm, ok, I see. Well, I guess my "I want to capture just a single frame" is not a very common case.
-> 
-> It's not that uncommon, see above.
-> 
->>>
->>> Can I queue one buffer, start streaming, stop streaming, and get the
->>> filled buffer? But then I guess I don't when the buffer has been
->>> filled, i.e. when to call stop streaming.
->>
->> Exactly. If you really want that, then the driver has to be adapted in the way that Laurent
->> suggested, i.e. with one or more scratch buffers. But that is not always possible, esp. with
->> older hardware without an IOMMU.
-> 
-> Drivers can always allocate a full-frame scratch buffer in the worst
-> case. That can waste memory though, which is less than ideal.
-> 
->>> So, never mind, I don't actually have any use case for this, just wondering.
->>>
->>>>>
->>>>>> to use CREATE_BUFS you need that information so you know that you have to create
->>>>>> at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
->>>>>> but it is effectively codec specific. This probably should be clarified.
->>>>>>
->>>>>> I wonder if it wouldn't be better to add a min_num_buffers field to
->>>>>> struct v4l2_create_buffers and set it to min_queued_buffers + 1.
-> 
-> Don't add the +1. We should give userspace the information it needs to
-> make informed decisions, not make decisions on its behalf.
-> 
->>>>>
->>>>> I think this makes sense (although I still don't get the +1).
->>>>>
->>>>> However, based on the experiences from adding the streams features
->>>>> to various ioctls, let's be very careful =). The new
->>>>> 'min_num_buffers' can be filled with garbage by the userspace. If
->>>>> we define the 'min_num_buffers' field to be always filled by the
->>>>> kernel, and any value provided from the userspace to be ignored, I
->>>>> think it should work.
->>>>
->>>> I've posted an RFC for this.
->>>
->>> Thanks, I'll check it out.
->>>
->>> For the original issue in this thread, I think the correct fix is to
->>> remove the lines from cfe_queue_setup(), and add
->>> "q->min_reqbufs_allocation = 3".
-> 
-> Or just don't set min_reqbufs_allocation ? This is a new driver, and it
-> requires a device-specific userspace to operate the ISP. I don't think
-> we need to care about applications blindly calling VIDIOC_REQBUFS(1) and
-> expecting to get more buffers.
+Also Cc more potential reviewers.
 
-It doesn't require a device-specific userspace for plain CSI-2 capture.
+On 2024-10-17 at 21:37 +03, Mikhail Rudenko <mike.rudenko@gmail.com> wrote:
 
-If I understood right, the expected behavior for VIDIOC_REQBUFS is to 
-return enough buffers for "smooth streaming". So even if device-specific 
-userspace would be required, doesn't it still make sense to have 
-min_reqbufs_allocation = 3?
+> Currently, RK809's BUCK3 regulator is modelled in the driver as a
+> configurable regulator with 0.5-2.4V voltage range. But the voltage
+> setting is not actually applied, because when bit 6 of
+> PMIC_POWER_CONFIG register is set to 0 (default), BUCK3 output voltage
+> is determined by the external feedback resistor. Fix this, by setting
+> bit 6 when voltage selection is set. Existing users which do not
+> specify voltage constraints in their device trees will not be affected
+> by this change, since no voltage setting is applied in those cases,
+> and bit 6 is not enabled.
+>
+> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+> ---
+>  drivers/regulator/rk808-regulator.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/regulator/rk808-regulator.c b/drivers/regulator/rk808-regulator.c
+> index 14b60abd6afc..01a8d0487918 100644
+> --- a/drivers/regulator/rk808-regulator.c
+> +++ b/drivers/regulator/rk808-regulator.c
+> @@ -1379,6 +1379,8 @@ static const struct regulator_desc rk809_reg[] = {
+>  		.n_linear_ranges = ARRAY_SIZE(rk817_buck1_voltage_ranges),
+>  		.vsel_reg = RK817_BUCK3_ON_VSEL_REG,
+>  		.vsel_mask = RK817_BUCK_VSEL_MASK,
+> +		.apply_reg = RK817_POWER_CONFIG,
+> +		.apply_bit = RK817_BUCK3_FB_RES_INTER,
+>  		.enable_reg = RK817_POWER_EN_REG(0),
+>  		.enable_mask = ENABLE_MASK(RK817_ID_DCDC3),
+>  		.enable_val = ENABLE_MASK(RK817_ID_DCDC3),
+>
+> ---
+> base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+> change-id: 20241017-rk809-dcdc3-388632b4da03
+>
 
-Or is your point that even a device-specific userspace, which knows 
-exactly what it's doing, would use VIDIOC_REQBUFS, instead of 
-VIDIOC_CREATE_BUFS?
-
-Also, if I don't set min_reqbufs_allocation, VIDIOC_REQBUFS(1) would 
-still allocate two buffers, not one.
-
-  Tomi
-
+--
+Best regards,
+Mikhail Rudenko
 
