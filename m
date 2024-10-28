@@ -4,181 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F5ED13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63E1D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 09:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vj7dJKstOKG2jwJmYvlVySZaTqYcboJuoN6wJUTgSnA=; b=JiK8C95+svh7OINLRbZtMZ4eEt
-	OeLEZjSFA22TxO7ttUmx6ciPZxiYpkdffc3rhTXYw8FZWG6Mpnp1WFXM2l5FFCbJbz7chPcHeXkRf
-	ZsawvgoKZGC7uHLf0vS0XzHwfo7Upoe6VSvhlJWgyOzpjs76hQDeQE3c8gN8rsRSx+xPfM+OFUShx
-	A3VoYOcurjRTy5tPqx7zpGpxeBJFO+8biEETHpr5ZlP4nbpK/gIevZk27l4WO9WrUMChALHQcxd4Q
-	6wBQGXDIRgq8Nk6OLPhwXWYUr3GiL//3WmvLlhk+wx8qconXyEZQDxyfv4xHik5OBQrQE5vKLn3hh
-	U+esPkOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qJTHi2KMszU57wb1zZI7nXL+Y5UzOwkROHjRJN6Unm0=; b=dUHWVQI5x54YvYeM9yGJ+U1Bha
+	4q2V9Ve003BXRk/jjBkAmPBxZj+LiReZBnc2OXcsyJSpsrNFS4EZ7NrkK+nhjq5qc4/UvjWNGK5SZ
+	XoEv5OXzixR/4LHsAjMGhvqm2X5qJrjTxusruv2wBhWZy6Edmed7t1qtOvDfHp0x0+/Qx2qyaogFZ
+	xdWsS9TTZtEDvsy/gGlUF0fGQoXehbVQKvL2bmh2ShuJ2QjfK6ZAxhns+DcLTgiDHmSizmtxnOZeS
+	ofH4gWjIUnSEo//gjzZ/UcOEXlt++ZKLR8gTvJ/ljBK5U+XBTCrocSsdNpL02Ed1BdFmecHzIwa5x
+	l3GALNiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MNA-0000000AIDU-0VyZ;
-	Mon, 28 Oct 2024 09:49:16 +0000
-Received: from mail-psaapc01on20724.outbound.protection.outlook.com ([2a01:111:f403:200e::724] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1t5MOk-0000000AIZM-168B;
+	Mon, 28 Oct 2024 09:50:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5MAo-0000000AFm9-2KoQ;
-	Mon, 28 Oct 2024 09:36:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tr8z/j5SiC3FQc9tgCx2/a1/epg+7NlKByTkfTBQag1a4IHcSRl4jsV0+/mmaIi9AKm+Dqz49flHMYrKuq4avF9L4ArZS+W/IV+72Og5aRwMguXaSy96WcBujuvmF+5u9yRE0kfQZe3Pjpwxhh0GjJWl419RVKRMEfTPbTUpv84VE/Q4ohke1s0RKDVNYXcGDAxh/vf0u964EOYUp2MkP7Au2SXwmixeu07Ow3semukcJj97yzDo7Rn2GVM21ox89hLlSZ4bTPILVz7oOzo/+YvPm0ZKfVWff/eUHYYRx9z2Eu2bvGVt0AUY1CobEDsKaYROkesYvJIZQFyIXTWY3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vj7dJKstOKG2jwJmYvlVySZaTqYcboJuoN6wJUTgSnA=;
- b=if5JKY8jrEqj76ykYNZoxSvRE+EYcm6V/5L1J+sGyAYDv0M/zwpv8pLv57VBEXHjYZwDcdDg71MGybzM8syZR4niFwKdSOFeVm6Y4HgpGEnhJVBLTkAsUf2JvRkGq8mDDcA22WxSLVBeypdzxb+roJyBsq6GmSy7HI10bE4+IGFTumVztJTTkNMT6XlyRDz/frVgSpzW6v/FVWwfJebOsTFcbdhyl1TTXmxhS31rwHV7jx5aR+WGgCv7La9ZlPQzSzXWuQhDaRJIPPFqjt+7jy3OxHUIZAPoFgGFYICROgXTLyKPC//E0aUlwB+LZcKSrVlpYJTWj7MyNeoY3CBiIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vj7dJKstOKG2jwJmYvlVySZaTqYcboJuoN6wJUTgSnA=;
- b=C7+Pn+dm5dzTo+j3ydgMJ0YThCGztnhod+kSgisQfVt6VfyaBMdTEJ7lqDLAPrzRuC47eQOi6G8pWdhtF9ze5fn0jJa7u8AH+7uKUYqHOq5fV/NRujVG/QiEw3XoibbAIE2EOdyKSK5hB+pci1pKJayz6J6Sp8VwpKR7/AJp486cHjw7RX/cOAJMuzQ98hPTLLkVAjW06OQ7asy6Q+G0yfDM1jQ3aQEBn0Ztzm3jdsbVNTN3F6mi99t3FdwiDMMec6RDcWFe3ZQBbj3QvAoiIYnBKeLmvwC926XCwqgrl9C3PuKemg0J4C/qBsDL5zhrckFMLrLNz5/obqS8gY3y6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from PUZPR03MB6888.apcprd03.prod.outlook.com (2603:1096:301:100::7)
- by TY0PR03MB6774.apcprd03.prod.outlook.com (2603:1096:400:217::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.24; Mon, 28 Oct
- 2024 09:36:20 +0000
-Received: from PUZPR03MB6888.apcprd03.prod.outlook.com
- ([fe80::57d0:f9e6:1d9f:91f]) by PUZPR03MB6888.apcprd03.prod.outlook.com
- ([fe80::57d0:f9e6:1d9f:91f%3]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
- 09:36:20 +0000
-Message-ID: <d4ae04da-d841-49e8-be88-b0fe0c7b3de5@amlogic.com>
-Date: Mon, 28 Oct 2024 17:36:16 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add support for Amlogic A4
- SoCs
-Content-Language: en-US
-To: neil.armstrong@linaro.org, Krzysztof Kozlowski <krzk@kernel.org>,
- Jerome Brunet <jbrunet@baylibre.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241018-a4_pinctrl-v3-0-e76fd1cf01d7@amlogic.com>
- <20241018-a4_pinctrl-v3-1-e76fd1cf01d7@amlogic.com>
- <4a79f996-9d82-48b2-8a93-d7917413ed8c@kernel.org>
- <1jttd9rein.fsf@starbuckisacylon.baylibre.com>
- <4127b448-a914-4c69-b938-29512995326f@amlogic.com>
- <1jmsj1rclh.fsf@starbuckisacylon.baylibre.com>
- <d654d2b2-977b-44c0-8b01-b26f5eb0a3fe@kernel.org>
- <5ad8f396-84a5-486d-b90d-98fbf8882d1b@linaro.org>
- <e6cd13b5-2f7a-4ab1-899c-5867bc0ea64f@kernel.org>
- <fdb4d0eb-a5e5-4061-b3cc-14958473baf3@linaro.org>
- <c8a03fa6-9ac5-434f-ba13-78e47ad341b8@kernel.org>
- <f6c4cee8-dd22-4b30-a3b2-aee48e2c3611@linaro.org>
- <91bcc765-2e56-433d-a629-c5255fc8d256@kernel.org>
- <24acd645-4094-48aa-82e3-42d30a340884@amlogic.com>
- <78e6ca30-9fd6-4384-9583-440c485fb8ed@linaro.org>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <78e6ca30-9fd6-4384-9583-440c485fb8ed@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TY2PR0101CA0003.apcprd01.prod.exchangelabs.com
- (2603:1096:404:92::15) To PUZPR03MB6888.apcprd03.prod.outlook.com
- (2603:1096:301:100::7)
+	id 1t5MEe-0000000AGLH-04fU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 09:40:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1E43B5C597C;
+	Mon, 28 Oct 2024 09:39:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5BEC4CEC3;
+	Mon, 28 Oct 2024 09:40:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730108426;
+	bh=cJ+xOHKsd2TE6St+Y4s0cnha3ZN14d8zhSDTUgcPAJQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=E8Wy/uS8MmrVLrH6Eg66uVopyNyEs0D1w1NRIett4Jm9ho0cwd7BDvKUDI2tqtqaw
+	 FNEjL4wUvmmxz76o0sDV4u3FQ7LRJU8Z5dqiXscxE9iADdm+PKlmL31hftZLyNkwds
+	 fpmQ2gTPdz4S/s1bWxzzwDRc6iwzCuCkw9YVO4/1PhGsuxY296H0PYQ/YvOvcpfX5M
+	 BhQ+ppSTvKZP6Ydv6dCfxOJnCyi5/Z1G7Eb9L08+oKmBhT/fpiHASxEvKtaLp2AO78
+	 PIjd7hdol5g9Zzq1n1YpmJ7hZe/fLb6SdS+rvkCvFintECgOPDLReqiZWCA9QMgWj+
+	 e2sz3O+aLu6zQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Subject: [PATCH 0/4] Add support for NoTagAccess memory attribute
+Date: Mon, 28 Oct 2024 15:10:10 +0530
+Message-ID: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PUZPR03MB6888:EE_|TY0PR03MB6774:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1848bfaa-0cb5-4c2b-b2bc-08dcf733fad6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eWV5V044NGNxRHJEUUFjQ2xnLzBydjRsSlRzTXp3UkdxQjhxZG5MU3ErRDBQ?=
- =?utf-8?B?UkMwczNjN0Q1bFc3dWR3MkFQbzQvTWtIVmJudEZjelVYeDcyZmRnVG1vTlRI?=
- =?utf-8?B?b0NjU2xaVmxic1hWQkJ0bU5GWmx3d2NtR2FsZ29pejl4NXVJTGZ6TFU1Lzlk?=
- =?utf-8?B?MnMzUU5qMUIzdkk2bnc3MHY3dnpWOGhybHpMd0pwZWg2UURnV2tXMVg0Q2Js?=
- =?utf-8?B?alVkT1FXNzh2dCs5YTNEOWtLekNONitOZXlrd2R1Y0JQTHAxSTcyNnVIUHRV?=
- =?utf-8?B?RERCdXgvbCt4Nk1VQWhUL2RFWGp3TFUxQVhUSmxMSDdEcGVSczRKWXVTUGFn?=
- =?utf-8?B?TDZuSHdtWkV0SHRPN0dtbDM5WHNCN2tWTG03THFLb09xYWpSQkFLRXdKWmVN?=
- =?utf-8?B?TFpNUDdjVUJIVDBaOWIrVGhiRnlnVFpBbDljNE44eGtCdVZkWWVJWEJ6TGhT?=
- =?utf-8?B?anAzWUQ4dXJ6S0JsdFFxbHk4amVrSzJaWGxNNjJESU1GTmRmRW5waml3c2la?=
- =?utf-8?B?Q3hEcURWV1p2bk5UbDdSeUNDQXc5bjRaamtsR28yM2xJb1JrRHk2OXNLSG11?=
- =?utf-8?B?eEVEbTlDYVRVaE5zQmhVbzNrTW04ZmJINXB3VS9wUUp6MnJBbitZenlhTEFP?=
- =?utf-8?B?UnVJbUkyRnQ2ZmV6UHJiQWNLUG10N3lkaTZUa3RFMUx4TE5kWElrUDB4Snpo?=
- =?utf-8?B?VDhteUhWaks5SWRZVFhic3pvdnFtbjgxbkJYd0V2L05LekFUd2I2bG5RL2h4?=
- =?utf-8?B?cG1MR09wS3BVcDFzNVF4QmtMQzFqcUFZUXYxMGdlSGFKOFdlRUxRZVFza2Uw?=
- =?utf-8?B?TGZMb2RtQU9oc2hUb2Npc25oYlBzK0xlVkRHVytyc3lobUZ2eGxuajl5Nzdz?=
- =?utf-8?B?Q21uRkxBbW8xUGdsaGQzQnorQ0FMRmZoaUpFUXJOR3hwbzhlMVowL0J6dHJh?=
- =?utf-8?B?YzJpRUNoTE4zaTl3VXpZK01sM0RsTDJXWnRaQ1JadWFSK1NzZ29jczVjRVRk?=
- =?utf-8?B?Vlp6RUdXQnhPdkpDYUVKN1I4RFFPdHNyb3N6K3Y5TDRVTGROQWJvVGZROFpF?=
- =?utf-8?B?bjlDL2Y4OEpMVzUrU0xRRzkySnorYmVscVdqZVVyaldROFRrU1BHdjJVREVK?=
- =?utf-8?B?UDlEd1NGbG9vTDNqNElBMkV6bW50UDFhREo3MFRPYVFYSWlVOWVGZXhVZG82?=
- =?utf-8?B?aVJjNHN5UE9maSsrVFAvY3pDdURISGRtMlhUVkpVU1RSVUZPcmwzaDVCNXJP?=
- =?utf-8?B?aUZ0VEdMdVBibVBuWjRKZEZpUE9XZjNlRzZPMzBIV05GOXdxeDdaZjJSYjAz?=
- =?utf-8?B?d2FwY01Ka2xTemVCSDB2eTkyQ3Nyc2RVbnVJOWZ2TWpyZVRRT2cxN09yMHU2?=
- =?utf-8?B?dTN0VmJLUnRoclJCdHpLcm9sU1Z3cHJYSVdVSnFuMTRpZ0NXbVdKWVpmUzhh?=
- =?utf-8?B?dk1Fb3Mzbi9JOStJYldlU1dvWnRiMytQVUFwYTBxUGhtZFBBSWQrRTlRbnVz?=
- =?utf-8?B?a25XU3I3WnFvLytRcGx4eTdtMUFHUnRXSHdyNXFpck1kKythajB6L3k0MXBj?=
- =?utf-8?B?c1hWZTFlc1BBb1VVU1FrWFNVUHAzN0FYZEQxODMxOS9GeVpWTElTeEJDWmhw?=
- =?utf-8?B?LzJkdTA2RGRqU3BaN2NheXEvczFSQUJSZzRpQ2l1YUNRQU9jUWd1YzBvUDVO?=
- =?utf-8?B?ays5cVAvTDVjNlhCVml0Y0JEdFpKNTAzM0ZnR051TTlvdTg0UW5jWEw3aFBh?=
- =?utf-8?Q?aw5s+0afkShP4Cyvw3+9xPxVpn7Hkki/Ma72ZJz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6888.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mm16SGxGRlFLU21XRHV0ZE1LNnFHdStQckNkeGdCeWZxcjRqWHhmcEUxa2k1?=
- =?utf-8?B?Z2xyU0Evci9zM0xnWW1sKzNEeVZDQ1g1eHUvQVIxeTdOSStGcGdxUjg0MDJv?=
- =?utf-8?B?bVJOZjcwQy9EV0d0Mm1zNWl2SHlIOXJFdlZvNzE2N1pRNHUwd0RvQlRvY3Jw?=
- =?utf-8?B?VkVlL0FkY3pWY3ZRc1B6S0x5a0FrZTBCalp1WEE0WFoyYTM1RWVkemt4UkxX?=
- =?utf-8?B?ZUJRK29xeHhaQmdEK3JzV08xdmltMzAzVlVEVW5PVk5WMWxYciszVnEzemlH?=
- =?utf-8?B?aXdRZm5Ec1Erdk9seDNwQ3FOTUJIRER0a2dyZFNYYnMxM1JmcGRXa0x2Qmlr?=
- =?utf-8?B?MjAzdklrMXVlMmwzNGtES0pGR0cxaC80K1ZibGVZcU1lbFpodE1jOEhXdjQy?=
- =?utf-8?B?RDY0cmRGdnFSeDRxSithbUU4WExMR0tSTXd1RFJWUkZpajBIaWI4Rk9sNUxs?=
- =?utf-8?B?Tzd4ZHBDUGkyd1lqQi91Qm45aFdqVmNsU0I4ZDU2WlFSaHp3M2o3eGRzMVpM?=
- =?utf-8?B?ejFmQnlrRStEeWY0ZmpRNGd3Mlowd3NzTHVjV3phRmdkVXY0VEM0M0duVHlE?=
- =?utf-8?B?WUFVcUwrckpxUVAwRlZ2MWpSb0x0dGM2OVBsSVZWY1huZDNHSzE5aENLUzhv?=
- =?utf-8?B?RGR0WnZiMnFDa205c05HakhjNzN3SW5zaHVMbFhMd0g2bVBKUWtsa1dnb1c5?=
- =?utf-8?B?amQ5NzlwTzV6K0xTQS8vcmdDWDVvakFSR0luVVlzNThEZVFlNW55dW05bk5m?=
- =?utf-8?B?L2pVaUhqclZEVm02VFVSWWVPTXpnb3pkTlJkdFY0czFoSHFacWRpZWZnbTNx?=
- =?utf-8?B?S1JRL0I3K2k5czVUd1ZrMUwvTzhlZGYwanV2dE1YSzZHbStYRnBPcGEyV1Z2?=
- =?utf-8?B?QjF2Vlo1cGZJb3NJU3BkMHQ4aUhnUFNUaUhWQzBudnF2MHJGZFlwM0YrMnVv?=
- =?utf-8?B?R0tLQ3RvSHc3S1lIVFIxRGNzMS8zSllRODhodjlYUStkaDF3ZDhGRDQ3S1Bw?=
- =?utf-8?B?V0hDVG84anRjelN5K1g2NVdibDBEMWxXbmMzcHBTVm1ZQm42dG5pZHZVZXRi?=
- =?utf-8?B?Vy9tRmNMakZWbnB0QWo1NGpqeG9zM0NzeUhGNm1Qa1BjeXpjcHBsUVJRVTFo?=
- =?utf-8?B?UUkvZTFLL2V1QnVvY05SUlhnWUdsU3M0RjR4ZG5wcGU2L1VEYVJiek9UK3Jo?=
- =?utf-8?B?WFpybHdpZTJoSkJNaFVFdjgrcEQxQ3pySTlWNmhncXZDVHI2dWhVd2Ewa2lB?=
- =?utf-8?B?YnBkL2VsTG1wTUxsdU5FV3UyZk05bUtreHl2d0JnWURKdFhGUjdVblBCQUlU?=
- =?utf-8?B?NVNFdjBuNVFieW02RUROUXo5NHNZbjIzcCtlYjZCWWNOTVhxelFiZ05ZaVZR?=
- =?utf-8?B?RzduaWdPYTVkeDROQ0tkZ0dKVnNhTWJJTVNpeURHcDR2MjRVSVdFa0JaaEdB?=
- =?utf-8?B?TmhJZE5BQkNmYm1qZ0t3VmZPYnRxZDFNQzN4dE9QTC9haW5ybk1qcElPRkVJ?=
- =?utf-8?B?Wnl3QVJZT3dESjc1Mzh1R25xVnNJU1Z0YjVlWFhuRXh6NmRLU2NiQW5JQmhB?=
- =?utf-8?B?TmZFL3E5cnJtVlBLczZURmEzWGtWM1kzcFM5MEpuMXFhbEU0U3lpWTF5cVNT?=
- =?utf-8?B?SWxnRVY0dXJjRUVTMkd3aFlYTDR1M1FnaHFqQm1EbkhSRk1KSDlSbnhQeU1u?=
- =?utf-8?B?dVdzRVMrWmVZeFR1eDFEa3NWZzV1M1dJTjBKMG1TZ2txYkZTSG1Nam5LeEF3?=
- =?utf-8?B?THlDQUEwOVluQzRKU2JYVG55c05CQmJXQmdIeE54YzRLUGVrOUI3UytlbHhB?=
- =?utf-8?B?Yys3akZFKzMrbFdTZUw3ZnRMWjBSM0hiWnhFUWRZdzM0OGZSR3lXaFNpMFdQ?=
- =?utf-8?B?VGxON1pxQWx2cjVvUnlDWWp3WkNxclNsTXoyT2thWFVTaXNLdGt4SkhSb3pS?=
- =?utf-8?B?RU0ybHdpM0tLTVJmNlFENmlHeHFPZ29CSkJXNVZjMUthaWx4RU00bDgvWDlh?=
- =?utf-8?B?NUZrTnlvZDdDNFFVaVZNdGErMGJWWHVicUF5YzB3bGgvRWJkK3NyQ1NxT2ty?=
- =?utf-8?B?R2FTZWRpRERXN0tCVDNBcHc1VlAxVi90THJvRDRFOEpoZFhLQnQyaGdEeEZP?=
- =?utf-8?B?V0xOTXdpMHhSa3REVmt2dVNld1V0ckwzT21WVlFWQk9OU3Q4ZnRIYlQ2aFlS?=
- =?utf-8?B?TFE9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1848bfaa-0cb5-4c2b-b2bc-08dcf733fad6
-X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6888.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2024 09:36:20.4889
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KVWKt3Mf4tLm1SQnAPmxeaUUSeGWoLlgUPYpUgNn6LVxN2fZmOP+pcVqBvj3Z/Xt6whiixFxQUMqE/FfN3DBkuJHRFG0d8092dFKXYlWTWk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB6774
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_023630_631421_6B547FF3 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20241028_024028_117924_0186B471 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,118 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
-    Thanks for your advice.
+A VMM allows assigning different types of memory regions to the guest and not
+all memory regions support storing allocation tags. Currently, the kernel
+doesn't allow enabling the MTE feature in the guest if any of the assigned
+memory regions don't allow MTE. This prevents the usage of MTE in the guest even
+though the guest will never use these memory regions as allocation tagged
+memory.
 
-On 2024/10/28 17:09, neil.armstrong@linaro.org wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On 28/10/2024 10:07, Xianwei Zhao wrote:
->> Hi Neil,
->>      Based on the current discussion results, GPIO index macro 
->> definition does not belong to bindings. If so, the pinctrl driver 
->> keeps the existing architecture, and use numbers instead in dts file.  
->> Or the pinctrl driver use bank mode acess, this may not be compatible 
->> with existing frameworks. This is done by adding of_xlate hook 
->> functions in pinctrl_chip struct.
->>
->> What is your advice that I can implement in the next version. Thanks!
-> 
-> Keep the driver as-is, but move the header file into 
-> arch/arm64/boot/dts/amlogic like it was done for the last reset 
-> controller support:
-> arch/arm64/boot/dts/amlogic/amlogic-t7-reset.h
->
+This patch series provides a way to enable MTE in such configs. Translations
+from non-MTE-allowed memory regions are installed in stage-2 with NoTagAccess
+memory attributes. Guest access of allocation tags with these memory regions
+will result in a VM Exit.
 
-I don't see examples C file applies dts header file.
-C file need to be defined once, and this needs to be defined again in 
-dts header file.
+Note: We could use the existing KVM_EXIT_MEMORY_FAULT for this. I chose to add a
+new EXIT type because this is an arm64-specific exit type and I was not sure
+whether KVM_EXIT_MEMORY_FAULT needs a NoTagAccess flag.
 
-> Neil
-> 
->>
->> On 2024/10/21 23:27, Krzysztof Kozlowski wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On 21/10/2024 12:38, neil.armstrong@linaro.org wrote:
->>>>>> ====><=================
->>>>>> +/* Standard port */
->>>>>> +#define GPIOB_START        0
->>>>>> +#define GPIOB_NUM  14
->>>>>> +
->>>>>> +#define GPIOD_START        (GPIOB_START + GPIOB_NUM)
->>>>>> +#define GPIOD_NUM  16
->>>>>> +
->>>>>> +#define GPIOE_START        (GPIOD_START + GPIOD_NUM)
->>>>>> +#define GPIOE_NUM  2
->>>>>> +
->>>>>> +#define GPIOT_START        (GPIOE_START + GPIOE_NUM)
->>>>>> +#define GPIOT_NUM  23
->>>>>> +
->>>>>> +#define GPIOX_START        (GPIOT_START + GPIOT_NUM)
->>>>>> +#define GPIOX_NUM  18
->>>>>> +
->>>>>> +#define PERIPHS_PIN_NUM    (GPIOX_START + GPIOX_NUM)
->>>>>> +
->>>>>> +/* Aobus port */
->>>>>> +#define GPIOAO_START       0
->>>>>> +#define GPIOAO_NUM 7
->>>>>> +
->>>>>> +/* It's a special definition, put at the end, just 1 num */
->>>>>> +#define    GPIO_TEST_N     (GPIOAO_START +  GPIOAO_NUM)
->>>>>> +#define    AOBUS_PIN_NUM   (GPIO_TEST_N + 1)
->>>>>> +
->>>>>> +#define AMLOGIC_GPIO(port, offset) (port##_START + (offset))
->>>>>> ====><=================
->>>>>>
->>>>>> is exactly what rob asked for, and you nacked it.
->>>>>
->>>>> No, this is not what was asked, at least according to my 
->>>>> understanding.
->>>>> Number of GPIOs is not an ABI. Neither is their relationship, where 
->>>>> one
->>>>> starts and other ends.
->>>>
->>>> I confirm this need some work, but it moved the per-pin define to start
->>>> and ranges, so what did rob expect ?
->>>>
->>>>>
->>>>> Maybe I missed something, but I could not find any users of these 
->>>>> in the
->>>>> DTS. Look:
->>>>>
->>>>> https://lore.kernel.org/all/20241014-a4_pinctrl-v2-3-3e74a65c285e@amlogic.com/
->>>>
->>>> So you want consumers before the bindings ? strange argument
->>>>
->>>>>
->>>>> Where is any of above defines?
->>>>>
->>>>> Maybe they will be visible in the consumer code, but I did not imagine
->>>>> such use. You expect:
->>>>> reset-gpios = <&ctrl GPIOAO_START 1>???
->>>>
->>>> No I expect:
->>>> reset-gpios = <&ctrl AMLOGIC_GPIO(B, 0) 1>;
->>>>
->>>> but the macro should go along the dts like we did for the reset 
->>>> defines,
->>>> so perhaps this is the solution ?
->>>
->>> OK, so I said it was not a binding:
->>> https://lore.kernel.org/all/u4afxqc3ludsic4n3hs3r3drg3ftmsbcwfjltic2mb66foo47x@xe57gltl77hq/
->>>
->>> and you here confirm, if I understood you correctly, that it goes with
->>> the DTS like reset defines (I assume non-ID like defines?), so also not
->>> a binding?
->>>
->>> What are we disagreeing with?
->>>
->>> Just to recall, Jerome asked whether you have to now use arbitrary
->>> numbers in DTS and my answer was: not. It's still the same answer.
->>>
->>> Best regards,
->>> Krzysztof
->>>
-> 
+
+Aneesh Kumar K.V (Arm) (4):
+  arm64: Update the values to binary from hex
+  arm64: cpufeature: add Allocation Tag Access Permission (MTE_PERM)
+    feature
+  arm64: mte: update code comments
+  arm64: mte: Use stage-2 NoTagAccess memory attribute if supported
+
+ arch/arm64/include/asm/cpufeature.h  |  5 ++++
+ arch/arm64/include/asm/kvm_emulate.h |  5 ++++
+ arch/arm64/include/asm/kvm_pgtable.h |  1 +
+ arch/arm64/include/asm/memory.h      | 14 +++++-----
+ arch/arm64/kernel/cpufeature.c       |  9 +++++++
+ arch/arm64/kvm/hyp/pgtable.c         | 16 ++++++++---
+ arch/arm64/kvm/mmu.c                 | 40 +++++++++++++++++++---------
+ arch/arm64/tools/cpucaps             |  1 +
+ include/uapi/linux/kvm.h             |  7 +++++
+ 9 files changed, 77 insertions(+), 21 deletions(-)
+
+
+base-commit: c964ced7726294d40913f2127c3f185a92cb4a41
+-- 
+2.43.0
+
 
