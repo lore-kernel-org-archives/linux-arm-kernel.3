@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D85D3399E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B318FD3399E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFCOLroLFXcEgjchaIorQHiTpZB3miBEfJXzHQvpThA=; b=Tb96BQJz8Z/V7z3+BKGRmnl+hO
-	Xh2cDRN9H/IVnbhnzvXZSjZMXsAmWYvJoPHFFULHt6PvZ9zzs8KtwlA2HojoivwIncOwwWOrEL+HX
-	6FU4z1tKPPzvhNfMf5WsyPa+kW2uperbQQe+t5Qw0YVnKIqKbEo1bz8TMPFntjeMg7JZeWs6c3gtp
-	Mm/OmpJ9P6Y/daDW+5MGJ4t2P1BBk/+XbJfO/0IQ3Jc8bKJF+AXAIUnqDLT2jLS/quqYI4yPtwA0m
-	gLGvM4sruLN1OVtvhA/OmsHsIXWfmP/R4pzn6oqzCfGwVZlYm0chVMacB3YJS1UcbbKWsWna8wZA1
-	i4lsxc8A==;
+	bh=h/gCeVTPDfCZ9Sq1m6pfoJ1aYry8ZWlrjxDFFQhYtRk=; b=IO5YdrviFdhTPPkeWGtBV5o+Zc
+	gDSnWcFGSYIzOyiyLQKnRk8Vfqlu8nMkGxiAWCfCrPugubh2nCwShCLIsOzeRw+BCC/kqL5HhTSap
+	UjcmOdjHgT/icjnNsyJhsPcTwTuebc04qm0r0kSGhEF19nizMchN4+W9y9mR4Hr83kvpuozHlWMjV
+	0OTXld4TGdTBq5R4yyZ3Sq2/u0xIm+lzAfQ0Vkq5YGHyWBJPZ/qdAG1AJlOwoCxEH1ypIh4FrY5Ij
+	jzW7+a5+2MWjXJvVHOGCKLi6EXFleO151Bk/iAZFa/nRDBhcsrV4iYOdhL7rZYMYxRGHnhtYRHyu+
+	GpZsgxCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sn8-0000000BXN8-2Awb;
-	Mon, 28 Oct 2024 16:40:30 +0000
-Received: from thales.epochal.quest ([51.222.15.28])
+	id 1t5Soh-0000000BXhG-3EcK;
+	Mon, 28 Oct 2024 16:42:07 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sib-0000000BVQa-1r4o;
-	Mon, 28 Oct 2024 16:35:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
-	s=default; t=1730133348;
-	bh=SgbZ6d/TsfOwGbc31ZKuYuZl628O9USHtGUALdy8B+A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ZgS7BZdH9XB4Xl54n/5i1z3TmXuFPGbZT7e1yyh6uidffhW5fJX3UtOgD2UeUYK1h
-	 aPieFahk0TWr7mrR5UR2vvYcP5G9n0GfgeYuBZezw2UKR5niDymDl8Chm2YXq1yxqd
-	 vV4KAWsY0azGRYxHjbp5QIGL1rr6H6czLNQ6yUZmoFu5Ga1u8VcJoyhLXkD0lsoVNi
-	 T2CoAgCcSGveBqJ5QOz7kqvpbcs/+pHyUxwaXhJI4d0jDTHHpou488yykXHXa3FNB2
-	 SauQb81+iQBLuqZg93k1S5j7eQe03frPSqwIwgzzfHf1Vz5qoXIeBK2irb+YrAK9yQ
-	 VpuH4DjlbmtDw==
-X-Virus-Scanned: by epochal.quest
+	id 1t5SjZ-0000000BVch-3nH7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 16:36:51 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SGajEu053859;
+	Mon, 28 Oct 2024 11:36:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730133405;
+	bh=h/gCeVTPDfCZ9Sq1m6pfoJ1aYry8ZWlrjxDFFQhYtRk=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=B5DrNiN0pEhLp8QSnCI5A2+V2KDXIFqTp+MceeqNiuSE+sLDK7LuHXunemDEZG2AE
+	 5gfegkfufNVCYnh0U0MIk3UHD6u7zBBwgmJ9UmOydfoBIuJn+y3ccMxbMFL76uL5MD
+	 2r1gGviVduJDS9WGCwLYZ8PiquWBzESUSiSXScMk=
+Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGajIk109530;
+	Mon, 28 Oct 2024 11:36:45 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Oct 2024 11:36:45 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Oct 2024 11:36:45 -0500
+Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGafbs106057;
+	Mon, 28 Oct 2024 11:36:42 -0500
+Message-ID: <b2dadb0a-fd85-42fc-b340-6c77fe5ded0a@ti.com>
+Date: Mon, 28 Oct 2024 22:06:41 +0530
 MIME-Version: 1.0
-Date: Mon, 28 Oct 2024 13:35:46 -0300
-From: Cody Eksal <masterr3c0rd@epochal.quest>
-To: wens@csie.org
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-usb@vger.kernel.org, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>, Parthiban <parthiban@linumiz.com>,
- Yangtao Li <frank@allwinnertech.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Vinod Koul <vkoul@kernel.org>, Linus
- Walleij <linus.walleij@linaro.org>, Thierry Reding <treding@nvidia.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Maxime Ripard
- <mripard@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, Kishon Vijay
- Abraham I <kishon@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH 07/13] arm64: dts: allwinner: a100: add usb related nodes
-In-Reply-To: <CAGb2v64tQ_9C3mwJqt-tm-6SV=SHAk75sO5Ho7gT=p=iyRfLcw@mail.gmail.com>
-References: <20241024170540.2721307-1-masterr3c0rd@epochal.quest>
- <20241024170540.2721307-8-masterr3c0rd@epochal.quest>
- <CAGb2v64tQ_9C3mwJqt-tm-6SV=SHAk75sO5Ho7gT=p=iyRfLcw@mail.gmail.com>
-Message-ID: <542c16a63ab228a7ed1cc81fc91b961f@epochal.quest>
-X-Sender: masterr3c0rd@epochal.quest
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62x-sk-common: Add bootph-all
+ property in cpsw_mac_syscon node
+To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero
+ Kristo <kristo@kernel.org>,
+        Nishanth Menon <nm@ti.com>
+CC: <s-vadapalli@ti.com>, <srk@ti.com>, <danishanwar@ti.com>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241011110207.600678-1-c-vankar@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20241011110207.600678-1-c-vankar@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_093549_588881_13E336B2 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20241028_093650_027569_50DEBFC7 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/10/25 10:29 pm, Chen-Yu Tsai wrote:
-> On Fri, Oct 25, 2024 at 1:09 AM Cody Eksal <masterr3c0rd@epochal.quest> 
-> wrote:
->> 
->> From: Yangtao Li <frank@allwinnertech.com>
->> 
->> Allwinner A64 have two HCI USB controllers, a OTG controller and a USB
-> 
->             ^^^ Please update this.
-I wasn't sure if I was supposed to update the commit messages; a few 
-others have grammar errors as well. I'll fix those alongside this one in 
-V2.
 
-Thanks!
-- Cody
->> PHY device, let's add nodes on dts.
->> 
->> Signed-off-by: Yangtao Li <frank@allwinnertech.com>
->> [masterr3c0rd@epochal.quest: fallback to a33-musb instead of h3-musb]
->> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
->> ---
->>  .../arm64/boot/dts/allwinner/sun50i-a100.dtsi | 91 
->> +++++++++++++++++++
->>  1 file changed, 91 insertions(+)
->> 
->> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi 
->> b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
->> index adb11b26045f..0aee1b578661 100644
->> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
->> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+
+On 11/10/24 16:32, Chintan Vankar wrote:
+> Add bootph-all property in CPSW MAC's eFuse node cpsw_mac_syscon.
+> 
+
+Why?
+
+Please make sure commit message is verbose enough to say why the change
+is needed vs what that change is (latter is obvious lookng at the diff)
+
+> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+> ---
+> 
+> This patch is based on linux-next tagged next-20241011.
+> 
+>  arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> index 44ff67b6bf1e..82d34dfb91ed 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> @@ -303,6 +303,10 @@ AM62X_MCU_IOPAD(0x028, PIN_OUTPUT, 0) /* (C5/C6) WKUP_UART0_TXD */
+>  	};
+>  };
+>  
+> +&cpsw_mac_syscon {
+> +	bootph-all;
+> +};
+> +
+>  &wkup_uart0 {
+>  	/* WKUP UART0 is used by DM firmware */
+>  	bootph-pre-ram;
+
+-- 
+Regards
+Vignesh
 
