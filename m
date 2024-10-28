@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B97D33998
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA12D33990
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 15:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KlGN/0+vFoLsYFatiqSvw4oQaHMdZl9X2oVOAIFRVZ4=; b=xd7I9+64BZwS60ZMkdG/MxKCS8
-	HruwCnDR1fxhSpnWcWHj2+JHZtGcKATwwHECfv5t+pl/jKlVOKJX4/JiYnqUu8AxVFmN5KvKuu/Fz
-	18v+1FcleCMV4OWwhUSRDMmtxwu24LE9jlMJEc7dcnCw/m9VoYsyFj3kScA1xB3EtYajjU8/MNw7m
-	jEL8g6eCwa+YyCqPe9QZGxMjOo4we2IT+IQ0zcG7V7pouh+EzQio/agXM22LEMl2cf/VV/I2kyMU4
-	eH8/fS0XEH09GwQX8/pT8o0frdURIlhzfrZ7dK6VptPkK2xzPvlBRcnkzTJkQx/NVm/n4KvdlZawv
-	W53yFasw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Uq5bz0/uLvuCGnqo7Ja68lnqAVIcBafEDmrDLYmls4=; b=2GBsUaXthuGZOK2BzOMSQdKIKd
+	iI4ty/ET/wCPpxhh9dZpkeD9Q1OB3SdUyBRBsNYc7abPpViQJYN/dGyE1U1iDOHjDOJe3CJWPHXn4
+	z3gwjQPSBhn8hbGcRKl3aGs3ScNHtU+g+Q6pd8LHeAlSy9RawvfmmiRBwrvC7kW7PTQ+J1Z9RGmMn
+	NFMuEnu03SbXYwJQhKl9er8R3kbtyH3CL8ms9041lBJEpI16b5I+ipCBgDyAECrnsztI0mZPY4NEf
+	61Hxmcqjn2dHMrMdpanJXvlIztyZbPReT2s8McBeP5/u0mLrqR+HpEc3BJjvK/f/EcRZCpYgIvvkO
+	SBOQKhPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RqG-0000000BLJJ-33Pm;
-	Mon, 28 Oct 2024 15:39:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5Rrq-0000000BLZP-3yOC;
+	Mon, 28 Oct 2024 15:41:18 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RJX-0000000BFHU-3Kkv
+	id 1t5RJs-0000000BFMh-0x8m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 15:05:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DDF915C0374;
-	Mon, 28 Oct 2024 15:05:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91570C4CEC3;
-	Mon, 28 Oct 2024 15:05:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730127950;
-	bh=w2P/8ycnCHlajaF4QMUagcR3Ej160nBhPte8pHBd84Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ONd+qB50vr1ew8g7rsXxyOjMM73ZIr2c1hX9o/Q+V4txnGtYdUnAeBE68uQUhojXy
-	 pFUDehwU9m3iVAKEVdzcjPZq0VHMnL8HRQvmCSQjNesEE+zcpMVi7R5MmOdtBPNZTW
-	 XWK/NxV3zaE69oyVa6q1mIjXDhrBuXxE22uSYDWeFUz722z9n1PQrUAyzNrliSuDd9
-	 8GSO+s1e0dF1eqziJosvJiWsqUImCVZpDREoW2Ro5KZ3whi+YTWWlmNu/0YHkho42e
-	 wJoQy0GLo1EQML2KKytz8YwjBEWUaVclSQS5sS04gF7AILCqyt0bHnDGvP04piW/+p
-	 7glfqqAgUwhxg==
-Date: Mon, 28 Oct 2024 15:05:45 +0000
-From: Will Deacon <will@kernel.org>
-To: huanglei814 <huanglei814@163.com>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, huanglei <huanglei@kylinos.cn>
-Subject: Re: [PATCH] arm64/Kconfig: introduce GENERIC_ISA_DMA
-Message-ID: <20241028150544.GA2445@willie-the-truck>
-References: <20241025011641.4858-1-huanglei814@163.com>
+	Mon, 28 Oct 2024 15:06:14 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SF5wB1022225;
+	Mon, 28 Oct 2024 10:05:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730127958;
+	bh=9Uq5bz0/uLvuCGnqo7Ja68lnqAVIcBafEDmrDLYmls4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=RdLPTFg7+rmpq9di6vik8km+WtCAZnYeKKuyhi6BCl81mGdwOS8CgDLN+vRK40Olj
+	 4EXCrB04KY+Vp31W5nkd5vGfW2SZlVGEU75VvrVE22AcQzZEtGd6VG3p0RJBYDbXh8
+	 qGLdh27FtuU7umKSQEWt5QHRjoMF1r6GRVXtC2zI=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49SF5wPf039975
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Oct 2024 10:05:58 -0500
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Oct 2024 10:05:58 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Oct 2024 10:05:58 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SF5tco129665;
+	Mon, 28 Oct 2024 10:05:55 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v12 0/5] TI K3 M4F support on AM62 and AM64 SoCs
+Date: Mon, 28 Oct 2024 20:35:20 +0530
+Message-ID: <173012710988.558239.13240176298323302898.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241003170118.24932-1-afd@ti.com>
+References: <20241003170118.24932-1-afd@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241025011641.4858-1-huanglei814@163.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_080551_898597_D836859C 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241028_080612_484713_019D3C22 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 09:16:41AM +0800, huanglei814 wrote:
-> From: huanglei <huanglei@kylinos.cn>
+Hi Andrew Davis,
+
+On Thu, 03 Oct 2024 12:01:13 -0500, Andrew Davis wrote:
+> M4F driver[0] and DT bindings[1] are in, so last step is adding the
+> nodes to the base AM64/AM62 DTSI files, plus a couple of our
+> SK boards. These can be used as a reference for other boards using
+> AM64/AM62, or I can add these nodes for existing upstream boards,
+> just let me know.
 > 
-> Enable GENERIC_ISA_DMA feature on arm64 platform,
-> thus, request_dma and free_dma interface can be export.
-> and driver modules can use the this interfaces on arm64
-> platform.
+> Thanks,
+> Andrew
 > 
-> Currently, many pcie parallel port drivers still use these
-> interfaces when ported to arm64 platform.
+> [...]
 
-Why has it taken so long for anybody to notice?
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-> Signed-off-by: huanglei <huanglei@kylinos.cn>
-> ---
->  arch/arm64/Kconfig | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fd9df6dcc593..986eb251f68f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -367,6 +367,9 @@ config GENERIC_CSUM
->  config GENERIC_CALIBRATE_DELAY
->  	def_bool y
->  
-> +config GENERIC_ISA_DMA
-> +	def_bool y
-> +
+[1/5] arm64: dts: ti: k3-am62: Add M4F remoteproc node
+      commit: be4bac3bcb281b264bd35ae1ff7bbbb99e3e00fe
+[2/5] arm64: dts: ti: k3-am625-sk: Add M4F remoteproc node
+      commit: 23a6aba92e53883bccbbb27933aad6dd09992e6f
+[3/5] arm64: dts: ti: k3-am64: Add M4F remoteproc node
+      commit: ef1876ff76096b3cad6fdb8b797226e4914f5726
+[4/5] arm64: dts: ti: k3-am642-sk: Add M4F remoteproc node
+      commit: 6e36e6200360e1703071b38fa5e91f4894716658
+[5/5] arm64: dts: ti: k3-am642-evm: Add M4F remoteproc node
+      commit: 8e77fc1fbb291e193664df0ac5176ac9fbfb3ea8
 
-Does this actually do anything without MAX_DMA_CHANNELS defined?
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Will
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
+
 
