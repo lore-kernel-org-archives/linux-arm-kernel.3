@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B080BD13596
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDC7D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 11:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48Mqgz0yoPcTn42M0JioJyjAgLLTyWy+bgFbYFVMpQY=; b=juV35dd/per/jdr+rXs3JiWzkz
-	UAjtAwNgW6nxKwUO1JtITfuzIYTH7GkxpwT29LKQizyRjod4HUV33eHKSma/yIwLa1D/lJsu3SXY+
-	QyzEMRid1WRzjao1avuzR5Nw8lRqyy6KdsJASM1/STGzkp2NfKJmJjZ9NWR281BqRx1bwu8zwLy7b
-	00SzX0OZ87l3OMBYTszHr5+JOnFid9pa7JhjdNA8bPV7q5SrgFRgPYkRNahl/0VQfYPf51dMle2qh
-	OokUru0y8IDIla1X2TqhP3UFFVe/DuA3qPeL6tqG3S/hwTnSb1GqgxblTJ0Znof33g+OQhqm1ZvlY
-	JGTK2pmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ptxN7UQx680+8Nep+cFTxjI9+zmvMwutLIQwIT3A9BA=; b=HtzFXEmSZ7IXztFYILBmz7guo9
+	HOURuY930tgd4W5A5LLOr28xk2v05DEdRx8s5zGO5Ia0I/uPZosbV4xAq6kZr5t1v18Y9ZON4QPpc
+	jAcLG9qjhzbZ07mjmzuNRg1lew7G/I3lVYDLGYsCJpMzLlAkOCyYYB70GvIE5N/dufZwFsj5HeT7B
+	nhMsQudetcF0SftC1SQS1fDw5sotVwsKNKxzs60RuXPlBEMPBnC9wzL4tdvPAQDbT7RX/ZGBhhezq
+	meL0J9OuPhWHqdT8oUNLyXPABB191zeXNFpD3S2g14oXxG1UrXrNRrmdk/9fnMmXGmrUnu+sUmfjA
+	PrByK7nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NUp-0000000AUrW-3InT;
-	Mon, 28 Oct 2024 11:01:15 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1t5NcU-0000000AWOe-0Hf9;
+	Mon, 28 Oct 2024 11:09:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NQz-0000000AUJW-02Vv
+	id 1t5NZA-0000000AVsf-1u9O
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Oct 2024 11:05:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ptxN7UQx680+8Nep+cFTxjI9+zmvMwutLIQwIT3A9BA=; b=NWtyisdNdPhRscbpeFIi4hyuSC
+	nnCOZBrzW9QSup7VlX6I+NCwDLTwoc61biCibKmE7FoJNSPzoX3iEuY69lEQRNl1m+1KiHIy8SF8a
+	m+TlJgjXezECUqhuVcjPbONxkYuzo+MxsjhCZE8BiV59z3hmCYYLkMH8O9rGYtidjHUUT3+nhkaU4
+	Oj1GckalUNJwz8DNwmLEFF3HXfGCXq8bFRPbkgZP76VEdVw1N2jAsLg+odUV/8V4eW4GBAee3A7ry
+	+Scs2BimVTvT1Zgp8QMDIDptB2cLrjdzAjMzwsBw83x4mG54gq3J3Wh9dpHl2BxYJ7ecBBO1W/mtb
+	VpwG1gVQ==;
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5NZ7-00000009e36-0PF9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 10:59:16 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6e9f8dec3daso6896227b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 03:57:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730113035; x=1730717835; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=48Mqgz0yoPcTn42M0JioJyjAgLLTyWy+bgFbYFVMpQY=;
-        b=CD0+epFgGHAoXED6Ve0Pod1CJMcYj9hT8Db3u+xRR4rpwm8tfExcjIaC51Xf8yezJ7
-         xxip/1VMjm1ujYuzcz/STywzK4Btn6cGl3sWNpMBC9TKmZPykJm3c8gn8X7YGKs3rdN5
-         +lriOoMGM1wdVuUPeClyP5ibyUVLij4eXcgBfMaYxl/pwI8zuTD1AlBE4IfGkPv7KK30
-         95TncP3jfe27iViqT5+e6ssZXf/V3Gw81JuLqSVCtTDJNy7kLhF8vC6G6oPT7bW2+ORB
-         Vj87hYLcj9ELEQHe4ubRcF/PrMCTXomQXBLUe4RdUS+3hTY2ZSVl3priqQHVM3D+mPhi
-         Vt7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730113035; x=1730717835;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=48Mqgz0yoPcTn42M0JioJyjAgLLTyWy+bgFbYFVMpQY=;
-        b=dKy+Vz6aCsWDV6xZQS1OXGa5pfTVRfvQx0xTrTLQIyn6DHllRk0p3ZDSBIiE8rkddo
-         SNik9ihkF9Qg9qlXvKV2UUATl+zd/012RhuEA9mslBawtz0y/4PVRDsfXzw1ihbL42/C
-         WaeMziRN7xMgwUl2mIgfodC3NnnSErZ9DV+/dTNQ4fl1BEf4Vh3otp6XG+BFxko2uaT1
-         Mx1VhXDW31aRAnx7QKfNt1NQlxFs8iGKR5RtcDDCcJbCd91iaHBOcixozQ1ORrOUhN9U
-         EqehpgcJSIFJ6okqoyQu/MsFaSG5EMwIXi4mHsFOfxcJ2zqOO6MA+jEIYmg+CPnryLPU
-         qYHA==
-X-Forwarded-Encrypted: i=1; AJvYcCXfhgVdeaTl8CL7SeKU5Lwm08GZaklqgy1vo/gBoXQ2xfkE++DVicDVVL1YQJUhWniiy0FSc+SG/GAwcZPEviu2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0HTiMss3kOMeN8r/rm+m2KqK1N+/3f7fYK8BBaVFWIpenPAQh
-	S+0e1R1/duime7J0GvxmXECLZCjpiRL/dhTWTzWTcjDgCbQsbj2gjx/3yE/pi2sqkcc8lwRYmSh
-	HM/BbrtnQ+QGcfuaQpVygOk0avDNSIe7SrD3a2Q==
-X-Google-Smtp-Source: AGHT+IHA0r4lmbXa1zcBrKWmUfLUZyXRw9N6lNM3hTgpKMnZRgAzGlVS4oP7yDvcJkxKm4/yuGEHcyAWNjCtADPWGf0=
-X-Received: by 2002:a05:690c:3809:b0:6e3:1063:91ca with SMTP id
- 00721157ae682-6e9d8ad3e88mr72127657b3.40.1730113035192; Mon, 28 Oct 2024
- 03:57:15 -0700 (PDT)
+	Mon, 28 Oct 2024 11:05:43 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SB5DfL072486;
+	Mon, 28 Oct 2024 06:05:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730113513;
+	bh=ptxN7UQx680+8Nep+cFTxjI9+zmvMwutLIQwIT3A9BA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=V0PV4PaS1bEc3epVawS7wXANJouMPBMRniKiFy0N/XG6H0nFPJGCYx12UiCL/ICi9
+	 B1iLpaq4Z61Om8O5zNFPkeHgU+oaUjhLpI+LxfUhhT0wf1cLkrY1C5pNYVeaQrPd2D
+	 xe1BJzF7i0bCZ+z138UQYrQd9Jgekoik9MCv+PfQ=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SB5DDZ047842;
+	Mon, 28 Oct 2024 06:05:13 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Oct 2024 06:05:12 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Oct 2024 06:05:13 -0500
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SB58Ln020827;
+	Mon, 28 Oct 2024 06:05:08 -0500
+Message-ID: <a2848e9f-028e-4d58-87e4-50848fe4bca1@ti.com>
+Date: Mon, 28 Oct 2024 16:35:07 +0530
 MIME-Version: 1.0
-References: <20241025103621.4780-1-wahrenst@gmx.net> <20241025103621.4780-6-wahrenst@gmx.net>
-In-Reply-To: <20241025103621.4780-6-wahrenst@gmx.net>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 28 Oct 2024 11:56:38 +0100
-Message-ID: <CAPDyKFoKuZD596mVNeV5VszU8ncQ8cPda1fbktb3UQQiv+67GQ@mail.gmail.com>
-Subject: Re: [PATCH V5 5/9] mmc: bcm2835: add suspend/resume pm support
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Vinod Koul <vkoul@kernel.org>, 
-	Minas Harutyunyan <hminas@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>, 
-	"Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org, 
-	kernel-list@raspberrypi.com, bcm-kernel-feedback-list@broadcom.com, 
-	dmaengine@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-usb@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix 1 PPS sync
+To: Andrew Lunn <andrew@lunn.ch>
+CC: <vigneshr@ti.com>, <horms@kernel.org>, <jan.kiszka@siemens.com>,
+        <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <vadim.fedorenko@linux.dev>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20241024113140.973928-1-m-malladi@ti.com>
+ <1a0a632e-0b3c-4192-8d00-51d23c15c97e@lunn.ch>
+ <060c298c-5961-467a-80dd-947c85207eea@ti.com>
+ <2288a9a9-f9d0-4414-80a2-e11ba66fad50@lunn.ch>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <2288a9a9-f9d0-4414-80a2-e11ba66fad50@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_035717_078538_1C843D6B 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20241028_110541_540081_FC57BB46 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 at 12:36, Stefan Wahren <wahrenst@gmx.net> wrote:
->
-> Add a minimalistic suspend/resume PM support.
->
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->  drivers/mmc/host/bcm2835.c | 25 +++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
->
-> diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
-> index 107666b7c1c8..17c327b7b5cc 100644
-> --- a/drivers/mmc/host/bcm2835.c
-> +++ b/drivers/mmc/host/bcm2835.c
-> @@ -1343,6 +1343,30 @@ static int bcm2835_add_host(struct bcm2835_host *host)
->         return 0;
->  }
->
-> +static int bcm2835_suspend(struct device *dev)
-> +{
-> +       struct bcm2835_host *host = dev_get_drvdata(dev);
-> +
-> +       if (!host->data_complete) {
-> +               dev_warn(dev, "Suspend is prevented\n");
-> +               return -EBUSY;
-> +       }
 
-This should not be needed.
 
-The mmc core makes sure all outstanding requests have been flushed,
-before the host controller becomes suspended.
+On 25/10/24 18:52, Andrew Lunn wrote:
+> On Fri, Oct 25, 2024 at 11:17:44AM +0530, Meghana Malladi wrote:
+>>
+>>
+>> On 25/10/24 01:25, Andrew Lunn wrote:
+>>>> +static inline u64 icssg_readq(const void __iomem *addr)
+>>>> +{
+>>>> +	return readl(addr) + ((u64)readl(addr + 4) << 32);
+>>>> +}
+>>>> +
+>>>> +static inline void icssg_writeq(u64 val, void __iomem *addr)
+>>>> +{
+>>>> +	writel(lower_32_bits(val), addr);
+>>>> +	writel(upper_32_bits(val), addr + 4);
+>>>> +}
+>>>
+>>> Could readq() and writeq() be used, rather than your own helpers?
+>>>
+>>> 	Andrew
+>>>
+>> The addresses we are trying to read here are not 64-bit aligned, hence using
+>> our own helpers to read the 64-bit value.
+> 
+> Ah, you should document this, because somebody might do a drive by
+> patch converting this to readq()/write(q).
+> 
+> Alternatively, i think hi_lo_writeq() would work.
+> 
+> 	Andrew
+I tried hi_lo_readq() and hi_lo_writeq(), and it is fitting my 
+requirement. Thanks, I will update it.
 
-> +
-> +       clk_disable_unprepare(host->clk);
-> +
-> +       return 0;
-> +}
-> +
-> +static int bcm2835_resume(struct device *dev)
-> +{
-> +       struct bcm2835_host *host = dev_get_drvdata(dev);
-> +
-> +       return clk_prepare_enable(host->clk);
-> +}
-> +
-> +static DEFINE_SIMPLE_DEV_PM_OPS(bcm2835_pm_ops, bcm2835_suspend,
-> +                               bcm2835_resume);
-> +
->  static int bcm2835_probe(struct platform_device *pdev)
->  {
->         struct device *dev = &pdev->dev;
-> @@ -1471,6 +1495,7 @@ static struct platform_driver bcm2835_driver = {
->                 .name           = "sdhost-bcm2835",
->                 .probe_type     = PROBE_PREFER_ASYNCHRONOUS,
->                 .of_match_table = bcm2835_match,
-> +               .pm = pm_ptr(&bcm2835_pm_ops),
->         },
->  };
->  module_platform_driver(bcm2835_driver);
-
-Kind regards
-Uffe
+Regards,
+Meghana
 
