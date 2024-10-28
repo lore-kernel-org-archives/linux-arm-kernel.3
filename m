@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6C4D3399E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6D0D3399B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrtG+WyZdptl2c+BUJEdljqqVlfYwJYmOSwGbcMfC3s=; b=S77615fP5+21tJxBpQ+MiMdjCR
-	PjHoXV9NNsbQoRzD25Na+EmKAGEic7ficNakJpdNg+sER0OW5fhIV6YuJLcLhW6936aDUm91TdSR6
-	LthOPveCmSmDKXPGETpgwYvPmErsyG3kPhUBZVzauT3Ru9cKvcwPCOSJox9NactnEl50Okkc2V+W9
-	DIzkpo+f7YdImgpaf5cUd/zxzpshdpmij83wF2b1oLqbF4EB3cpte1OBrHgZ/DLHoiJtu0fYy3Rlu
-	m6pUeJMLU48gTg3J/dNCg7WGbvnJ7xKEaTLWVnVLNHnA7BB4GEa7/wLX8xoiRYyk9EzFSt09IyIoI
-	CZUxsGCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/CK72WBoLRu+mlWuAyWKBAXJvh229c4kXsgrNQRnWM=; b=OMpFYfCWQJfIBcKscmtaTMw3mJ
+	V5OsB5G2bje+FNrMvcYMDRiVTrrQ61Jtg7PDD3ZSvZldLlR48GiVR+oDrYR4RdL8adtjshJMFivVK
+	7Sfdmyd9BldWy2SVPr1omiuVVDOZsqDlEwzG+EZ8rX55pKWHwXFQqYpxW6nRhVhC3GBzcqXduLhCy
+	BPYvbnHZeDj7S+/CktI+Y6paTEiPxysq9PrcXaFieNiLAP+8FtppgOfFpPL7UJCMHSJTZtR2LkF1s
+	lqjejAlhjCFWwqZ2yw/OQ4us3AxpM1LyfyAVebJBpwI9BmLOs6FDddtYcYFSXIUz7/RaeL3Dy20Tj
+	xDIGjXZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Srs-0000000BYMM-1G72;
-	Mon, 28 Oct 2024 16:45:24 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t5StT-0000000BYzJ-2kv8;
+	Mon, 28 Oct 2024 16:47:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Sfi-0000000BUw7-3aGl;
-	Mon, 28 Oct 2024 16:32:52 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1A1B8641;
-	Mon, 28 Oct 2024 17:32:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730133167;
-	bh=dX9dtqxTAZzZ8oaWbpxD+Vr5AqGKDD1hpjrSJQfrnfU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kYMdFsiAhe6U/DPUvrYAUG/AFfhcfJCMiTF/asy5Nugs5+urnvuPgDgilpeypMM8D
-	 kXt5MzHUDTqCTpxkP8vQehLnI4TeRWnKlQctyeF6ZJDrwh1c1cztZHZT1qwuEONDNT
-	 YTzzOT9ZUgXxEIGOzINNZah5hTPmnS2dyuLH7O6c=
-Date: Mon, 28 Oct 2024 18:32:43 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Hans Verkuil <hverkuil@xs4all.nl>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	id 1t5SiN-0000000BVOX-1bbe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 16:35:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 45E5AA429D8;
+	Mon, 28 Oct 2024 16:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4354AC4CEC3;
+	Mon, 28 Oct 2024 16:35:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730133333;
+	bh=B+pJhWPiLhnporLquPyi2au3DHThLhnQTOKU50phhKA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=h5H9CyHY+7U9M417dT5UQgoE0GhbLmXiFBB0fYmDKClDxIWeb1sYo0spRU3mLXYPF
+	 QqrkVeBxEV7DE0/CiFRJBHzeObzzzIJ3KpGZJaw3QKOa1WJkDVa8Q7VzaWbBDNrFcw
+	 RQorsCq5K6NhdWFIbwdgGgmmZ6GSqyaUfACbMjfH9vglAkKUrHeRw1uTsoNirn7LF1
+	 sJk9KoWtA2H2n5/60Z/zVxNtuwh+KJE0Z78kRxZyXHc8MkFk7aTBp6VYBUB86kYJAL
+	 QCLJlx+8qySvwYe2PjVB4NBv32H3y4wCNADIEzrbORnqWGciwBZ5OxO1THfQpb85go
+	 784NbkD7g4y9A==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	=?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
-Message-ID: <20241028163243.GB26852@pendragon.ideasonboard.com>
-References: <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
- <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
- <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
- <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
- <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
- <59cf95be-fb53-4a94-bc6e-f9dca322749d@xs4all.nl>
- <5832a2f9-c908-4f5a-a3ee-9cb7d23ddab4@ideasonboard.com>
- <563347aa-4155-47e1-b71a-0107aed83eb6@xs4all.nl>
- <20241028151713.GI24052@pendragon.ideasonboard.com>
- <62073d7a-0a4b-4440-90e5-dcce0dec72d7@ideasonboard.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/imx/dcss: include drm/drm_bridge.h header
+Date: Mon, 28 Oct 2024 16:35:07 +0000
+Message-Id: <20241028163527.2425783-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <62073d7a-0a4b-4440-90e5-dcce0dec72d7@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_093251_069990_46E70397 
-X-CRM114-Status: GOOD (  66.27  )
+X-CRM114-CacheID: sfid-20241028_093535_506195_68CA6AEE 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,221 +85,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 05:32:27PM +0200, Tomi Valkeinen wrote:
-> On 28/10/2024 17:17, Laurent Pinchart wrote:
-> > On Mon, Oct 28, 2024 at 12:30:45PM +0100, Hans Verkuil wrote:
-> >> On 28/10/2024 12:25, Tomi Valkeinen wrote:
-> >>> On 28/10/2024 13:13, Hans Verkuil wrote:
-> >>>> On 28/10/2024 12:05, Tomi Valkeinen wrote:
-> >>>>> On 28/10/2024 12:11, Hans Verkuil wrote:
-> >>>>>> On 28/10/2024 10:21, Tomi Valkeinen wrote:
-> >>>>>>> On 24/10/2024 11:20, Hans Verkuil wrote:
-> >>>>>>>> Hi Tomi,
-> >>>>>>>>
-> >>>>>>>> I know this driver is already merged, but while checking for drivers that use
-> >>>>>>>> q->max_num_buffers I stumbled on this cfe code:
-> >>>>>>>>
-> >>>>>>>> <snip>
-> >>>>>>>>
-> >>>>>>>>> +/*
-> >>>>>>>>> + * vb2 ops
-> >>>>>>>>> + */
-> >>>>>>>>> +
-> >>>>>>>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
-> >>>>>>>>> +               unsigned int *nplanes, unsigned int sizes[],
-> >>>>>>>>> +               struct device *alloc_devs[])
-> >>>>>>>>> +{
-> >>>>>>>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
-> >>>>>>>>> +    struct cfe_device *cfe = node->cfe;
-> >>>>>>>>> +    unsigned int size = is_image_node(node) ?
-> >>>>>>>>> +                    node->vid_fmt.fmt.pix.sizeimage :
-> >>>>>>>>> +                    node->meta_fmt.fmt.meta.buffersize;
-> >>>>>>>>> +
-> >>>>>>>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
-> >>>>>>>>> +        node->buffer_queue.type);
-> >>>>>>>>> +
-> >>>>>>>>> +    if (vq->max_num_buffers + *nbuffers < 3)
-> >>>>>>>>> +        *nbuffers = 3 - vq->max_num_buffers;
-> >>>>>>>>
-> >>>>>>>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
-> >>>>>>>> is called. So 32 + *nbuffers is never < 3.
-> >>>>>>>>
-> >>>>>>>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
-> >>>>>>>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
-> >>>>>>>> for you.
-> >>>>>>>>
-> >>>>>>>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
-> >>>>>>>> since the code is almost always wrong.
-> >>>>>>>
-> >>>>>>> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
-> >>>>>>>
-> >>>>>>> if (vq->num_buffers + *nbuffers < 3)
-> >>>>>>>            *nbuffers = 3 - vq->num_buffers;
-> >>>>>>>
-> >>>>>>> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
-> >>>>>>>
-> >>>>>>> The distinction between min_queued_buffers and
-> >>>>>>> min_reqbufs_allocation, or rather the need for the latter, still
-> >>>>>>> escapes me. If the HW/SW requires N buffers to be queued, why
-> >>>>>>> would we require allocating more than N buffers?
-> >>>>>>
-> >>>>>> min_queued_buffers is easiest to explain: that represents the requirements of the DMA
-> >>>>>> engine, i.e. how many buffers much be queued before the DMA engine can be started.
-> >>>>>> Typically it is 0, 1 or 2.
-> > 
-> > That's partly true only. Even if the hardware requires 2 buffers, a
-> > driver can allocate scratch buffers to lower the requirement for
-> > userspace. Setting min_queued_buffers to 1 is usually fine, as there are
-> > few use cases for userspace to start the hardware before a buffer is
-> > available to capture a frame to. A value of 2 is much more problematic,
-> > as it prevents operating with a single buffer. I know using a single
-> > buffer results in frame drops, but there are resource-constrained
-> > systems where application don't always need all the frames (such as the
-> > Raspberry Pi Zero for instance). I very strongly encourage drivers to
-> > never set a min_queued_buffers value higher than 1.
-> > 
-> >>>>>>
-> >>>>>> min_reqbufs_allocation is the minimum number of buffers that will be allocated when
-> >>>>>> calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
-> >>>>>> or dropping frames.
-> >>>>>>
-> >>>>>> Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
-> >>>>>> and the third is being processed by userspace. But sometimes drivers have other
-> >>>>>> requirements.
-> > 
-> > This is exactly why I dislike min_reqbufs_allocation when set based on
-> > this logic, it encodes assumption on userspace use cases that a capture
-> > driver really shouldn't make.
-> > 
-> >>>>>>
-> >>>>>> The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
-> >>>>>> expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
-> >>>>>> https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
-> >>>>>>
-> >>>>>> "It can be smaller than the number requested, even zero, when the driver runs out of
-> >>>>>>     free memory. A larger number is also possible when the driver requires more buffers
-> >>>>>>     to function correctly."
-> >>>>>>
-> >>>>>> How drivers implement this is a mess, and usually the code in the driver is wrong as
-> >>>>>> well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
-> >>>>>> instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
-> >>>>>
-> >>>>> Thanks, this was educational!
-> >>>>>
-> >>>>> So. If I have a driver that has min_queued_buffers = 1, I can use
-> >>>>> VIDIOC_CREATE_BUFS to allocate a single buffer, and then capture
-> >>>>> just one buffer, right? Whereas VIDIOC_REQBUFS would give me
-> >>>>> (probably) three (or two, if the driver does not set
-> >>>>> min_reqbufs_allocation). Three buffers makes sense for full
-> >>>>> streaming, of course.
-> >>>>>
-> >>>>>> When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
-> >>>>>> to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
-> > 
-> > I agree it's better to handle it in the core than in drivers, even if I
-> > dislike the feature in the first place.
-> > 
-> >>>>>> if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
-> >>>>>> with this ioctl the number of buffers will never be more than requested, although it
-> >>>>>> may be less if you run out of memory.
-> > 
-> > On a side note, we should transition libcamera to use VIDIOC_CREATE_BUFS
-> > unconditionally.
-> > 
-> >>>>>>
-> >>>>>> I really should go through all existing drivers and fix them up if they try to
-> >>>>>> handle this in the queue_setup function, I suspect a lot of them are quite messy.
-> >>>>>>
-> >>>>>> One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
-> >>>>>> buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
-> >>>>>
-> >>>>> Hmm, so what I wrote above is not correct? One needs min_queued_buffers + 1? Why is that?
-> >>>>
-> >>>> The DMA engine always uses min_queued_buffers, so if there are only that many buffers,
-> >>>> then it can never return a buffer to userspace! So you need one more. That's the absolute
-> >>>> minimum. For smooth capture you need two more to allow time for userspace to process the
-> >>>> buffer.
-> >>>
-> >>> Hmm, ok, I see. Well, I guess my "I want to capture just a single frame" is not a very common case.
-> > 
-> > It's not that uncommon, see above.
-> > 
-> >>>
-> >>> Can I queue one buffer, start streaming, stop streaming, and get the
-> >>> filled buffer? But then I guess I don't when the buffer has been
-> >>> filled, i.e. when to call stop streaming.
-> >>
-> >> Exactly. If you really want that, then the driver has to be adapted in the way that Laurent
-> >> suggested, i.e. with one or more scratch buffers. But that is not always possible, esp. with
-> >> older hardware without an IOMMU.
-> > 
-> > Drivers can always allocate a full-frame scratch buffer in the worst
-> > case. That can waste memory though, which is less than ideal.
-> > 
-> >>> So, never mind, I don't actually have any use case for this, just wondering.
-> >>>
-> >>>>>
-> >>>>>> to use CREATE_BUFS you need that information so you know that you have to create
-> >>>>>> at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
-> >>>>>> but it is effectively codec specific. This probably should be clarified.
-> >>>>>>
-> >>>>>> I wonder if it wouldn't be better to add a min_num_buffers field to
-> >>>>>> struct v4l2_create_buffers and set it to min_queued_buffers + 1.
-> > 
-> > Don't add the +1. We should give userspace the information it needs to
-> > make informed decisions, not make decisions on its behalf.
-> > 
-> >>>>>
-> >>>>> I think this makes sense (although I still don't get the +1).
-> >>>>>
-> >>>>> However, based on the experiences from adding the streams features
-> >>>>> to various ioctls, let's be very careful =). The new
-> >>>>> 'min_num_buffers' can be filled with garbage by the userspace. If
-> >>>>> we define the 'min_num_buffers' field to be always filled by the
-> >>>>> kernel, and any value provided from the userspace to be ignored, I
-> >>>>> think it should work.
-> >>>>
-> >>>> I've posted an RFC for this.
-> >>>
-> >>> Thanks, I'll check it out.
-> >>>
-> >>> For the original issue in this thread, I think the correct fix is to
-> >>> remove the lines from cfe_queue_setup(), and add
-> >>> "q->min_reqbufs_allocation = 3".
-> > 
-> > Or just don't set min_reqbufs_allocation ? This is a new driver, and it
-> > requires a device-specific userspace to operate the ISP. I don't think
-> > we need to care about applications blindly calling VIDIOC_REQBUFS(1) and
-> > expecting to get more buffers.
-> 
-> It doesn't require a device-specific userspace for plain CSI-2 capture.
-> 
-> If I understood right, the expected behavior for VIDIOC_REQBUFS is to 
-> return enough buffers for "smooth streaming". So even if device-specific 
-> userspace would be required, doesn't it still make sense to have 
-> min_reqbufs_allocation = 3?
+From: Arnd Bergmann <arnd@arndb.de>
 
-"Smooth streaming" is use case-dependent, you will need different number
-of buffers for different use cases. That's why I don't like hardcoding
-this in a video capture driver. I'd rather expose information about the
-driver behaviour (in particular, how many buffers it will hold on
-without returning anything to userspace until a new buffer gets queued)
-and let applications make a decision. I don't expect applications
-relying on VIDIOC_REQBUFS(1) to work out-of-the-box on Pi 5 anyway, as
-the media graph needs to be configured.
+Compile-testing random configurations leads to failures in
+dcss-kms.c from a missing declaration:
 
-> Or is your point that even a device-specific userspace, which knows 
-> exactly what it's doing, would use VIDIOC_REQBUFS, instead of 
-> VIDIOC_CREATE_BUFS?
+drivers/gpu/drm/imx/dcss/dcss-kms.c:95:8: error: use of undeclared identifier 'drm_bridge_attach'
+   95 |         ret = drm_bridge_attach(encoder, bridge, NULL,
+      |               ^
+drivers/gpu/drm/imx/dcss/dcss-kms.c:96:5: error: use of undeclared identifier 'DRM_BRIDGE_ATTACH_NO_CONNECTOR'
+   96 |                                 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+      |                                 ^
 
-I expect a device-specific userspace not to require drivers to make
-policy decisions on its behalf.
+Include the header directly.
 
-> Also, if I don't set min_reqbufs_allocation, VIDIOC_REQBUFS(1) would 
-> still allocate two buffers, not one.
+Fixes: 004555a18d57 ("drm/imx/dcss: Allow build with COMPILE_TEST=y")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+index 3ec721afc30c..63a335c62296 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+@@ -5,6 +5,7 @@
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_bridge.h>
+ #include <drm/drm_bridge_connector.h>
+ #include <drm/drm_client_setup.h>
+ #include <drm/drm_drv.h>
 -- 
-Regards,
+2.39.5
 
-Laurent Pinchart
 
