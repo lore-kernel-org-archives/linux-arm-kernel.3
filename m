@@ -4,101 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B13D1359F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03120D1359C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 12:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kewq0jun/sKTyFEkBiL9iXhIasxDz8VGr2qCbe0+u6U=; b=hkAg5kN3v5bkjUFbyK+zbdviDg
-	QbvrZzQUtT6xkMlD8xqwdR42j6AD+nop/QS/Wua6XMzBLqKNe8q44wB4lQlC/EEo6p+6w3n1TsRuj
-	e42Dj8uB+SWZ0IqYGaONBbju0DAXuyo7V2mYxm8qn10lSpSoqvJ5ONY4yj1orSdxGUSAB6/w53s+R
-	b7HruD+77flfKATmBIP6pxrjJpxxSIz8Vqy6sbfCQZXLrvSqCmrUx1rF90UqKXEKXjxV6bnXCQSJX
-	ksGM38sFRXuHlcOrVhCMA73GS9677dbSPRXKthfj31dOlJ1cVRTz7UQItRYCZ1r1ujEs0gDgRsi3D
-	/L95xbUg==;
+	bh=RWcxSE4UatI1A76VSCuunJn/cxuWm4V1GW48Va12z3s=; b=bJNgkDKbLECIRWTdDg8MVTko3k
+	PCjEZIujJjoOcPfbvsGHoo2fY3phFPPJ8cCoV3REBe69zxxz9QW+FeymQJwT6zuJfx81X/2HFSy9F
+	01YsRZT1Ur3vayMAlT6TuDl2v2HccDDEAZszyijjJCQTllO0neqmPVS10feWKjiXPJXSaNOvXcVOv
+	/hzrHyyXV8pnXZuVK3X71R+Iy4XEwbOtpFbVycUcSaR35ja6+63Ih0llNs9Q716nb/RybSUzJtBnJ
+	GrxY92zKI5Jw5ahRWgqBS/K8MPWY/dxwhK/OKzgYjQly7naGCRTPpJ2YeE0irHJT35f48olq2EtYd
+	An7eypQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5OkB-0000000Aj8R-1Mt5;
-	Mon, 28 Oct 2024 12:21:11 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5OiT-0000000AihJ-0Y3w
+	id 1t5Ona-0000000Ajpb-3vrU;
+	Mon, 28 Oct 2024 12:24:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5Olx-0000000AjSb-1hXY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 12:19:26 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-539fe02c386so4859494e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 05:19:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730117963; x=1730722763; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kewq0jun/sKTyFEkBiL9iXhIasxDz8VGr2qCbe0+u6U=;
-        b=wi236YqPJxo8TifZDNK62q7tnoFibHKdQDExbsivnyKMxpJ0xtAhMPmAT2tvqmyBaJ
-         q3nCaSmy0RgCQcUFJQvkvolyfix2HBnT1tXUPOkF6EOnSkOfmSeHCEwF4t7m6ous+sVR
-         eOXDT1aeKOBcoY6FuDyzKsbmmdS/zwjleUcaY9kZerizBM7NZBHhgFpQ4tyL8O6YCcOS
-         fHt23x4eO535YErOMWPQdvhPttx1Q6IsmJoC9UMqqXBlj+MPXiiVcIl/9QMIWhWHfugy
-         0Q27IUZFhOmLzXkYohXkeB4tfHz/wcPQYLdIrcuwscbsLBBPAWAYlLBRMKBqtco9MXnk
-         MWWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730117963; x=1730722763;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kewq0jun/sKTyFEkBiL9iXhIasxDz8VGr2qCbe0+u6U=;
-        b=HY33ACXdp4JaIgHABY9CTN/CdlRjZrpgkdYBMsQssi5pCWehi2XvY0cdIoXpvb9WTK
-         +LtQAmZZKLcsVDdeDeMX219oeFa0oQs2EI1N1DeFmnUt0Ddp2pkDlSiSr1oXQ/itfCy/
-         cfLps3/ufXK88rv807J8NyXWgiBfBJK+FfeHulCxABCMfEg11MpawxJ9WW3cNzejfFGN
-         7zmL12BMXhKepJzuJCrnA933PiUbs3/iofiBafbHZMR764iMk/PmZl3j2+fTewWrEA1/
-         h/rBYwDw5jAbjeAcS0CzJEHWTtJS/teV1dJwbw7VM7vSlpzVttrUceu5Sztf1YFyv9vx
-         Ngmg==
-X-Forwarded-Encrypted: i=1; AJvYcCW3X4OiVKEWyLFUYqwXz41x/NMXNulG2IdcaU++Rkpn4L1UWF78CsjohAk6E3mVqy8viTcOuMgHis+FzHzedgBw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9WxhQLREvNTmkCYCSDWKHdhxN3yGqM0KSXePOnQylyAOYoXC7
-	kdaei+5KZ84DgP/WI/vSOj93wv7dFrcha1bx5ySUOWZF/C7v2BTSlsSTW2qMTNs=
-X-Google-Smtp-Source: AGHT+IFcJ911YncxzDz+vUGU2wKxP//zFGp4XOAPitX3IxTT9WIuDtrsNPSJE+JGqHL6nbUCTYefbQ==
-X-Received: by 2002:a05:6512:33d5:b0:539:eb97:61d7 with SMTP id 2adb3069b0e04-53b236a6912mr4462705e87.4.1730117963369;
-        Mon, 28 Oct 2024 05:19:23 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e10a7bcsm1047277e87.21.2024.10.28.05.19.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Oct 2024 05:19:22 -0700 (PDT)
-Date: Mon, 28 Oct 2024 14:19:21 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Liu Ying <victor.liu@nxp.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>, 
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, "rfoss@kernel.org" <rfoss@kernel.org>, 
-	"laurent.pinchart" <laurent.pinchart@ideasonboard.com>, "jonas@kwiboo.se" <jonas@kwiboo.se>, 
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, 
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>, "mripard@kernel.org" <mripard@kernel.org>, 
-	"tzimmermann@suse.de" <tzimmermann@suse.de>, "airlied@gmail.com" <airlied@gmail.com>, 
-	"simona@ffwll.ch" <simona@ffwll.ch>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"quic_jesszhan@quicinc.com" <quic_jesszhan@quicinc.com>, "mchehab@kernel.org" <mchehab@kernel.org>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, 
-	"sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>, 
-	"tomi.valkeinen@ideasonboard.com" <tomi.valkeinen@ideasonboard.com>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>, 
-	"geert+renesas@glider.be" <geert+renesas@glider.be>, "arnd@arndb.de" <arnd@arndb.de>, 
-	"nfraprado@collabora.com" <nfraprado@collabora.com>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>, 
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, "sam@ravnborg.org" <sam@ravnborg.org>, 
-	"marex@denx.de" <marex@denx.de>
-Subject: Re: [PATCH v4 00/13] Add ITE IT6263 LVDS to HDMI converter support
-Message-ID: <5ycxltnw3vhik3iype6ncuh4nelwwtom745o5dlf32qyiqh5bv@yjj5l6kb2psm>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <CAA8EJprFBbC_=kBHi86j-nE_K68QeG+c2OBzJCbUyNWs5zQK0Q@mail.gmail.com>
- <TY3PR01MB11346F956733032EC10E997AF864A2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+	Mon, 28 Oct 2024 12:23:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB68213D5;
+	Mon, 28 Oct 2024 05:23:29 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FA963F73B;
+	Mon, 28 Oct 2024 05:22:57 -0700 (PDT)
+Date: Mon, 28 Oct 2024 12:22:54 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, quic_nkela@quicinc.com,
+	dan.carpenter@linaro.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 6/7] dt-bindings: firmware: arm,scmi: Add missing
+ vendor string
+Message-ID: <Zx-CHlAb61FWdzkA@bogus>
+References: <20241028120151.1301177-1-cristian.marussi@arm.com>
+ <20241028120151.1301177-7-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <TY3PR01MB11346F956733032EC10E997AF864A2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+In-Reply-To: <20241028120151.1301177-7-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_051925_204372_5934B023 
-X-CRM114-Status: GOOD (  32.89  )
+X-CRM114-CacheID: sfid-20241028_052301_507645_6FA8DAC7 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,87 +71,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 11:12:00AM +0000, Biju Das wrote:
-> Hi Dmitry, Liu,
-> 
-> > -----Original Message-----
-> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > Sent: 28 October 2024 10:20
-> > Subject: Re: [PATCH v4 00/13] Add ITE IT6263 LVDS to HDMI converter support
-> > 
-> > Hi,
-> > 
-> > On Mon, 28 Oct 2024 at 04:37, Liu Ying <victor.liu@nxp.com> wrote:
-> > >
-> > > Hi,
-> > >
-> > > This patch series aims to add ITE IT6263 LVDS to HDMI converter on
-> > > i.MX8MP EVK.  Combined with LVDS receiver and HDMI 1.4a transmitter,
-> > > the IT6263 supports LVDS input and HDMI 1.4 output by conversion
-> > > function.  IT6263 product link can be found at [1].
-> > >
-> > > Patch 1 is a preparation patch to allow display mode of an existing
-> > > panel to pass the added mode validation logic in patch 3.
-> > >
-> > > Patch 2 allows i.MX8MP LVDS Display Bridge(LDB) bridge driver to find
-> > > the next non-panel bridge, that is the IT6263 in this case.
-> > >
-> > > Patch 3 adds mode validation logic to i.MX8MP LDB bridge driver
-> > > against "ldb" clock so that it can filter out unsupported display
-> > > modes read from EDID.
-> > >
-> > > Patch 4 adds MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG,JEIDA} support, as
-> > > they are supported by IT6263(with LVDS data bit reversed order).
-> > >
-> > > Patch 5 makes drm_of.c use MEDIA_BUS_FMT_RGB101010_1X7X5_{JEIDA,SPWG}.
-> > >
-> > > Patch 6 supports getting dual-link LVDS pixel order for the sink side
-> > > as needed by IT6263 driver.
-> > >
-> > > Patch 7 documents jeida-30 and vesa-30 data mappings in
-> > > lvds-data-mapping.yaml, as needed by IT6263 DT binding.
-> > >
-> > > Patch 8 extracts common dual-link LVDS display properties into new
-> > > lvds-dual-ports.yaml so that IT6263 DT binding can reference it.
-> > >
-> > > Patch 9 adds DT binding for IT6263.
-> > >
-> > > Patch 10 adds IT6263 bridge driver.  Only video output is supported.
-> > >
-> > > Patch 11 adds DT overlays to support NXP adapter cards[2][3] with
-> > > IT6263 populated.
-> > >
-> > > Patch 12 enables the IT6263 bridge driver in defconfig.
-> > >
-> > > Patch 13 updates MAINTAINERS to add maintainer for IT6263 driver.
-> > 
-> > This has pretty complicated structure from the merging point of view.
-> > 
-> > I propose we take patches 6, 8, 9 (without 30-bit formats, they can be dropped while applying), 11, 12
-> > (?) and 13 through drm-misc in one batch (once DT maintainers review the binding parts). This looks
-> > like a minimal set, having no extra dependencies.
-> 
-> > 
-> > The second set might be 4, 5 + new patch, re-adding 30-bit formats to
-> > IT6263 binding (no driver changes are necessary). This can go in separately, after an Ack from media
-> > maintainers.
-> > 
-> > Of course both sets can go together if linux-media maintainers reacts quickly and ack merging media-
-> > formats patch through drm-misc tree.
-> > 
-> > The rest of the patches don't have such strong dependencies and go in once ready / reviewed.
-> > 
-> > WDYT?
-> 
-> I guess, 6,8,9(without 30-bit formats), 10, 12 and 13.
-> 
-> 11 may have dependency on 1, 2 and 3 as it is SoC specific.
+On Mon, Oct 28, 2024 at 12:01:50PM +0000, Cristian Marussi wrote:
+> Recently introduced max-rx-timeout-ms optionao property is missing a
+> vendor prefix.
+>
+> Add the vendor prefix from the original committer.
+>
 
-Yes, of course, 10, not 11.
+It should be "arm," not "nxp," just because NXP happens to introduce that.
+It just highlight that the property is X vendor specific and here it is
+associated with SCMI and specifically Arm SCMI, so "arm,". If for some
+reason nxp or any other vendor overrides this definition and need to add
+additional property then they can add their own vendor name into that
+property.
 
-> Then 4, 5 + new patch, re-adding 30-bit formats to IT6263 binding.
+If there are no objections, I can fix it up when applying.
 
--- 
-With best wishes
-Dmitry
+> Fixes: 3a5e6ab06eab ("dt-bindings: firmware: arm,scmi: Introduce property max-rx-timeout-ms")
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+> Note that this fixes a commit that has been merged in v6.12-rc1...so it
+> should not present any backward compatibility issue.
+> ---
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: Peng Fan <peng.fan@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+> index 9d6e1147f9e9..e331da4d606b 100644
+> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+> @@ -124,7 +124,7 @@ properties:
+>        atomic mode of operation, even if requested.
+>      default: 0
+>  
+> -  max-rx-timeout-ms:
+> +  nxp,max-rx-timeout-ms:
+>      description:
+>        An optional time value, expressed in milliseconds, representing the
+>        transport maximum timeout value for the receive channel. The value should
+> -- 
+> 2.47.0
+> 
+
+--
+Regards,
+Sudeep
 
