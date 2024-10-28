@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D19BD5B154
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BC6D5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jglMBUH0rqWlBMLOhgpBoBeEyEUwnWucC7PIWz9hsqQ=; b=NpQvAXYiuLa134cBpiSqeU77cr
-	sw4auwh+uq4tk/EqLpZoH8oZKHJXR7123d9aooJWMX0bILnS92/8hG+kIjkXe0GmxSTT8+2oFhT6h
-	j2iCnw9TeBdnuol7P9dR0K7uiKJGsDQCR7NBTfcpbfZyl25fjoNsTp9QStUGg1wv3HjAreFFw9h7i
-	15Gje8K+AXhF6PqEkGcHKeXotNgCoo12uToNY4jn7CanXT1Ro+RnbbxwbzSok9s9nsEYvnjw7DcFD
-	i4iIrrtN8L7MjxdwBAi16MpJCpE5nUxns/AMtBV8EIKpUk+HLCDtNpUj3UaERaAlPzCiYHWhrIlMo
-	Ubebd2KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o0OL5D3wRRnScnzyZ9auDpW3UVQiUgrhsjMKbblKCAs=; b=DNKJC/2+n+kXbubYJlMR7tgHUf
+	8zraSG1mfH8WFWqUCxakwvsyn4JdvvS5T94bCWOCZIkzF3FuV4vSOEqpYaJLdFvolnV/hXsT3H6xH
+	YOLqZzGKbP/m591SbuYfIa76m8wGXPJ+3S5NxkkdZpVqY+v+0bJ38A0ESPtTRyx6ilqUI8/GMS6XQ
+	uU9yj6Kay4vZ9zEiSeZEhSOOrQoFa9dh/k1hpQA7TSYx39Mmbb8gRNf2JPEuhF0rqnjS4TLAwq2ha
+	NbufL+7PQCg4di1fu/qy4sHyxR66DrgY/DtMWqrtrgSbroEL+JADDysTtW0b5TrLcb3Ygm5wo1rjz
+	0QsvoNuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XNA-0000000CLi3-0cko;
-	Mon, 28 Oct 2024 21:34:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5XOk-0000000CM3j-2EaU;
+	Mon, 28 Oct 2024 21:35:39 +0000
+Received: from mail-40134.protonmail.ch ([185.70.40.134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Whx-0000000CFqU-3xab
+	id 1t5Wm1-0000000CGUT-2uJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 20:51:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 66A3E5C5B1D;
-	Mon, 28 Oct 2024 20:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BFBC4CEE7;
-	Mon, 28 Oct 2024 20:51:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730148685;
-	bh=YVImwvRfK5SkCR0Ri+wW4EXpx6zRqJl2vuY6cmlakVY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AzBf1/SJXyeqwRAdwQRA5eLFwrmd+2xOAyN2y+115dwiC7KaEjKok+w6qdFBnnJ9e
-	 wEPiii/iF6oS9zRIymChTAi0YQ6owStm5c4K35txnWSoZpBht8uty2CnLxWUlUTmpK
-	 wFDDqKDnwzPy7aPCkhYw1Q2ijJQ/UoPJg9BzTAZUAnvf+NOnyNrTPgW3j2VjdjYTg8
-	 0J0XBvD5qXF96x7F5u6G+YxotYCj2NGtaNliZnIdAdYyd2+ZEeWYQ0fV9lzR2nYsMZ
-	 tZzGxZwFgtcdFoh38kLOrOTqEuSZckUL3Qm5aKc6+CtIXmCrolMHSQwu+6DYRSY/TQ
-	 iORK8RDRSd8SA==
-Date: Mon, 28 Oct 2024 20:51:19 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Jann Horn <jannh@google.com>,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
- error path behaviour
-Message-ID: <0618af23-dca7-40b9-a083-47de9fcd7e50@sirena.org.uk>
-References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
- <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
- <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk>
- <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
+	Mon, 28 Oct 2024 20:55:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1730148931; x=1730408131;
+	bh=o0OL5D3wRRnScnzyZ9auDpW3UVQiUgrhsjMKbblKCAs=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=LvLyWoWiUh9ggZTBZ8zvQN5/B8ObjInqvBYhRHgkDODoLIPoHwDpmzcKoCLpx7zTj
+	 vW8CXBLVD4VHqjrSARPpXxEa8WG7lLfIBOgyu4y17E9N03LO4Nv13G24lyxJcnPB98
+	 ojl2y1CTGAOMKBpUfMyVBIySZ4bL9i2t+iJnwOGWHyx4JQrCZgX95OysTKBSF+4cHx
+	 UY+VtUJKyZl0Nrlb4xwUNMUqyTMpLTSa4HvWq/wqzglu6ysFWkrVVtEtgMdcSz9PKm
+	 dE51KCNUudFfX0gaWEZti32YbEMyrgava2m14Xqz/qHrsNpKUbRq+Mfk8LHr7oX6hx
+	 EjNYZ8PFu1/jg==
+Date: Mon, 28 Oct 2024 20:55:28 +0000
+To: Andy Yan <andyshrk@163.com>
+From: Piotr Zalewski <pZ010001011111@proton.me>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, Daniel Stone <daniel@fooishbar.org>, Dragan Simic <dsimic@manjaro.org>, Diederik de Haas <didi.debian@cknow.org>
+Subject: Re:Re: [PATCH v6] rockchip/drm: vop2: add support for gamma LUT
+Message-ID: <wXgQHAvchmtDzCTJX5pnEcLvGM1Rf2HTeooQ7GwE-6luNP_BLRQ2LW0wWSXcGWgARzDnfhKd1xQXeMMGYSAhIlX9m7pl3CZ6FxM1yc0qslg=@proton.me>
+In-Reply-To: <-rVNN65kgfRzFJBJDIwQF3jNMfXIZFP8GibtUgB_p-eWGLBkNZhYFr-BXEas8IjjofHxWQUqNicUSTp5rb9XmuLi35XsDd0PzJPz79j-M-8=@proton.me>
+References: <20241016223558.673145-2-pZ010001011111@proton.me> <DurUfF_0TBHKv4DHKIP3ggQh_85nRY0usYWn_fu_oJ45txO7dGKv-OK5rl6EDEPmX5l8WzrwPCzAvYz0xFPfeKGyx7enu1g-prsWIpilv88=@proton.me> <2bb58a1c.6287.192d1dc9b2d.Coremail.andyshrk@163.com> <-rVNN65kgfRzFJBJDIwQF3jNMfXIZFP8GibtUgB_p-eWGLBkNZhYFr-BXEas8IjjofHxWQUqNicUSTp5rb9XmuLi35XsDd0PzJPz79j-M-8=@proton.me>
+Feedback-ID: 53478694:user:proton
+X-Pm-Message-ID: c6c0ed3cb59d5081b7c3f97d9c933c5ec18de402
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HPJWBhFva0ZUDklg"
-Content-Disposition: inline
-In-Reply-To: <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
-X-Cookie: Remember the... the... uhh.....
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_135126_048977_7D25F7ED 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20241028_135538_355649_38669E08 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +69,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi again
 
---HPJWBhFva0ZUDklg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Monday, October 28th, 2024 at 5:40 PM, Piotr Zalewski <pZ010001011111@pr=
+oton.me> wrote:
 
-On Mon, Oct 28, 2024 at 06:57:25PM +0000, Lorenzo Stoakes wrote:
-> On Mon, Oct 28, 2024 at 06:29:36PM +0000, Mark Brown wrote:
+> On Monday, October 28th, 2024 at 7:42 AM, Andy Yan andyshrk@163.com wrote=
+:
+>=20
+> > Hi Piotr=EF=BC=8C
+>=20
+>=20
+> Hi Andy
+>=20
+> > Tested on top of Linux 6.12-rc5 with rk3566-box-demo in a buildroot + w=
+eston environment:
+> > weston --backend=3Ddrm-backend.so -i 0 --continue-without-input
+> > weston-simple-egl
+>=20
+>=20
+> Thank you for testing it!
+>=20
+> > simple-egl will draw a triangle on the desktop.
+> > After the patch applied=EF=BC=8Cthe triangle will flicker again and agi=
+an=E3=80=82
+> > So it break some function=E3=80=82
+>=20
+>=20
+> Did you have gamma on? The screen flickered for me when I ran something
+> writing gamma LUT frequently because of disable step I reckon.
+>=20
+> > I've been quite busy lately, and it will take some time before I can an=
+alyze what the specific reason is.
+>=20
+>=20
+> Np, I will try to reproduce this behavior with weston on Pinetab2 in the
+> meantime.
+>
 
-> > any meaingful detail.  There's nothing particularly instructive in the
-> > test logs, just plain reports that the tests failed:
+So I got weston (version 13) and ran it as you did, then ran the same
+client. Nothing flickered. Since weston doesn't support gamma control, I
+ran sway in the other tty and set color temperature there with `gammastep
+-O 3000`. Then switched again to weston and color temp. wasn't retained,
+triangle didn't flicker. Then I ran weston-simple-egl under sway (while
+having `gammastep` running and doing gamma lut adjustments every ~5
+seconds) and the triangle didn't flicker too (but there were _expected_
+flickers every ~5 seconds because of gamma adjustments by gammastep).
 
-> On these memory allocation failures, could you tell me what errno is? Could you
-> check dmesg for anything strange?
-
-Looks like this is mostly figured out already but JFTR:
-
-As I said in the report there's nothing in the logs that I noticed,
-anything there is that I've missed should be in the linked logs.  The
-errnos I'm seeing are all:
-
-# mmap(): Invalid argument (22)
-
-> >   # # FAIL: mmap allocation
-
-> Interesting that it MAP_FAIL's though. This could be arch_validate_flags() being
-> moved around.
-
-> Could you do me a further favour then and try a kernel at this commit with:
-
-> 	/* Allow architectures to sanity-check the vm_flags. */
-> 	if (!arch_validate_flags(vm_flags))
-> 		return -EINVAL;
-
-> In mmap_region() commented out?
-
-Unsurprisingly given the above and the rest of the thread commenting out
-that check causes the affected tests to pass, I didn't check for any
-additional impacts.
-
---HPJWBhFva0ZUDklg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcf+UYACgkQJNaLcl1U
-h9CZHQf9FUhFRBSQGkNvWmC10WNDKbe/eWlGst9t5uiegBC++Eao7ztSSeFz/jHE
-FkqU4UEL8vgXe3qXhgI9JJD1YqU6g3lWuQPqmMR6g7spS8HDDAvcngWQG7fkZfMj
-iabxxefEINHDHC0tQhqXOiPfnAdXKu+q7tCOBbLpx82hkVOybKbJI+Y0lbk+QrQZ
-cPXneploajNGet5UF84W8ph/zc9jbyCDAh8zrR4tsalEHhAbyKf52n7Q5GCnr5hf
-HSCguShWK5nzbi0Q3ejHEJe0h7G0A28EC1m8RFqGS3YN8VI+HxWOwQUuFXpdxh1H
-SmC+WOXm/4ZelGFwPz3DNLXqvDoJYA==
-=2rTT
------END PGP SIGNATURE-----
-
---HPJWBhFva0ZUDklg--
+Best Regards, Piotr Zalewski
 
