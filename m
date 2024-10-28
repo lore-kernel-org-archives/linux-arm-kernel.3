@@ -4,112 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A315D13593
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445A0D13570
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 10:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfwfwxYwd5ZdyQrvqngEtMB8kPfQufhgd5iZscnqUqk=; b=1vgy7prkgg7c/4l4zWh4tQuxwx
-	NJiYMDLqC36eUpFmDPMyhysdTuaHqRWVaNesyYhRi4btbI0xRFFcYpdVMYpI9AnHtwkPAgCYm2hyI
-	D/O5t6i1pXrJ5aO2nAgWSAb3meByG1aUm7UivbsigAfe0zvq/XXulSPPPOk06Q3+ioA9s9SE4tyO+
-	P5G5QJzyEeGYqQoIs3N5aJnUKKKe92ODTL+kNkVq6aWK2q5bg2W1hX+H8YEtKPyEWhimTzwyPZqo5
-	V7SqX/VgzZ7lvgDJbD8a05ounB1e5PX68XQ+mR+XVjL4kgC2nL05jISPXg+3d3EXj0gX5VE1xvv42
-	Jjh3x8yQ==;
+	bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=; b=tg9wDZGL33njKulhP6A1Ew3eU2
+	FbGm1j4x/fYK4e/PE29aYx4dojObsMix450WZ+p59dsxf5vzHutFDRLjDKkFaFPjYh7B+Lf+W47+L
+	D0GRCGIVcvwyXw4A3zGvuhsoT2OsrHXg/HwsVn82OMeV3uOmi4Pp33YcGNDYYMldn9ih7Y1676+Y3
+	jfDrq6ZKdOE6pvn48y8C1vRDUqAbwcGw82BTweLgx3hNGUfSFwrH83SVgvGAFKsqhDXCel3l+/fph
+	GbwhZWHaj2xGrrjL5QXGMXOOEWJkrYm/kaT8AiWNt1bYFyPl23iBVVBhmVbOfa525t5ZWfIx+ZCxU
+	1m4piFdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NKv-0000000ASr0-2g96;
-	Mon, 28 Oct 2024 10:51:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5NMY-0000000ATFd-2Zm5;
+	Mon, 28 Oct 2024 10:52:42 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5NJH-0000000ASWk-0ZBr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 10:49:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B9495C3D17;
-	Mon, 28 Oct 2024 10:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87550C4CEC3;
-	Mon, 28 Oct 2024 10:49:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730112558;
-	bh=v6EHhhVXOSG8ZL9YvhzZLZdGXNHG3JkKEDntfhN7X50=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i2/MnGixTaxiehclVcN4zqa7p3XLhvQW7/CPplOhhQvO2aff5bsKSW43W/qdjwiU6
-	 CcNygD0rbjq+XAh7SW1ad5DMijLq4X4ynkjpplqD4kjO5x/Vkad7cqk7FwSkuBEepw
-	 3KYjcNqZzfjvWxQuIfFsZLPfAZ/XV/9XW1en3aFWGql/BUe1+W1V3XEWabxq3KdApC
-	 fGKerSYGOqbpGbVp8r38t+xsZ/aCFZRGr3Ejg5/q7bPYMm1xsWv982Pebn/3+Zqdzp
-	 o4rbw7fPmGjJgSAZzjopKGovrl7+/0462308enC8ZzctTD4iT2VXkW6M6vLAUAEI+A
-	 zViFJePMVFqeA==
-Message-ID: <fd4fffb3-44d3-4efb-8c74-4d94e1f26298@kernel.org>
-Date: Mon, 28 Oct 2024 11:49:10 +0100
+	id 1t5NJg-0000000AScA-2s83;
+	Mon, 28 Oct 2024 10:49:46 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5cbb719839eso3706264a12.2;
+        Mon, 28 Oct 2024 03:49:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730112582; x=1730717382; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=;
+        b=CiRm2cRaLIY8yXwQhOWdqcJ6m0RYpo0yr/Lyj7TvfbCkDU8dAnxaYIsyjBB00oNCME
+         6zd+NPp8355nj0HL2YLT3GXVNoL05W6kaeucqIC/xuL5oNYVEcL9eXUVoAs1bNe8EEqv
+         7TCJmrglxqZvQxM5Ma4oCjCXDw0+r02LptcscrPGJH7BOLQem7Tq2V3Iv0L206GKX6IH
+         9bA2LPUcsSY/o7zoxJPAT7M7OIM3klc168IYDKoIrVLxHug5pzjE9tKBUnDnj6GFGU60
+         bJ1GkVwsGUMAwWyiWGaMU72n+XijP5aRby3PdrSqNZ4kS4w4t7/aWNk4Xci2aclSiLy3
+         SCUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730112582; x=1730717382;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BADti5TEboUpz7hQZAwm95LJ4r/iBnqor7lFpH91gUs=;
+        b=qdecB4Pev+dQyxPCcvrS9Q1VPVQQy+qSpKk93zOV75APlxQ86oS+cJoa6rder+leFV
+         aVRb44LIIpikN7oJYIhxo9hlg7Pgn7M795tZqXgZDaxkCY3kjCw/9XvCcpLSw85COi2H
+         eusb9bHQ7HiP1EyuHl5B0vUd7APj/Z/TpVXz9pGez7yp1Nay/3zjCD2LS+TMBjV/gYLo
+         uv4cfYGBaSW6st+TnlSqdVOIF5mEdTAv33yDu9Gudx7ddsFp4WmkjJFK9B+HFKoocWsc
+         TSiHorePVX7l5+1HbJSdnkW9FI8I2Ca+jNFyan4jCh9YJgtSoEs48eGbMnc2PVfSWIEE
+         27Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCUvEzscbC9tjHUWTPSMvA/dQGz3hb3Lx+TYaFchyTxmC/HElJFJT3QNe+Hty97PzSBd6inp9piyRH6TMSY=@lists.infradead.org, AJvYcCX13b5qXtbg8TQYcZNjQvnQU8wrsa3IZ1CWiKygd9IpFV9REzdbK5EJViKSGwKztazOSFYDZVHFRrrxxJT/F+4eRA==@lists.infradead.org, AJvYcCX7ez5ueG4k+2DSG3z8XadXpIQuGXfxNSKYNfeKHcgbOYPKrf74xd2oies7Jzm0sMpJMFt2Ug==@lists.infradead.org
+X-Gm-Message-State: AOJu0YysjJi8kb/6vTiD6U/meP77t15g/X8RWNgLxIUdt6/L95hrdW+U
+	mBt5yHU5EO3E3EiCljy/YhyhG8QvNaQ0GUwvCQb7+rVJMvUQgB7Q
+X-Google-Smtp-Source: AGHT+IEm+HFLbPsaDOWlAHThJ3+XtoGjdhXujglmfhVMP7yNqtZqIoTJpMUXVSYjXbaSqnnT3/SHtw==
+X-Received: by 2002:a05:6402:5202:b0:5c9:5cff:3cc2 with SMTP id 4fb4d7f45d1cf-5cbbfa71a66mr5776613a12.29.1730112582021;
+        Mon, 28 Oct 2024 03:49:42 -0700 (PDT)
+Received: from ?IPV6:2a03:83e0:1126:4:eb:d0d0:c7fd:c82c? ([2620:10d:c092:500::5:1494])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb6258683sm3063919a12.20.2024.10.28.03.49.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 03:49:41 -0700 (PDT)
+Message-ID: <71decb01-4241-4fb0-bc38-187e180d6ee5@gmail.com>
+Date: Mon, 28 Oct 2024 10:49:40 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: imx8mp: add aristainetos3 board
- support
-To: hs@denx.de, linux-kernel@vger.kernel.org
-Cc: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241028082332.21672-1-hs@denx.de>
- <20241028082332.21672-3-hs@denx.de>
- <f4150aa3-4c0e-45fa-9c9c-879ac04c4364@kernel.org>
- <bf2c81e1-4e97-cfa2-326f-0a6125b2cff9@denx.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
+ early_init_dt_verify
+To: Rob Herring <robh@kernel.org>
+Cc: mark.rutland@arm.com, will@kernel.org, leitao@debian.org,
+ catalin.marinas@arm.com, tglx@linutronix.de, chris@zankel.net,
+ saravanak@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ kexec@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
+References: <20241023171426.452688-1-usamaarif642@gmail.com>
+ <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <bf2c81e1-4e97-cfa2-326f-0a6125b2cff9@denx.de>
+From: Usama Arif <usamaarif642@gmail.com>
+In-Reply-To: <CAL_JsqLBuzRYgnYHCdbdO4wneFNPe5_iEfbehvKK5M7bBuiyfA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_034919_306130_FD0F17F7 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20241028_034944_747397_3DD0A289 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,141 +101,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 11:41, Heiko Schocher wrote:
-> Hello Krzysztof,
-> 
-> On 28.10.24 11:24, Krzysztof Kozlowski wrote:
->> On 28/10/2024 09:23, Heiko Schocher wrote:
->>> Add support for the i.MX8MP based aristainetos3 boards from ABB.
->>>
->>> The board uses a ABB specific SoM from ADLink, based on NXP
->>> i.MX8MP SoC. The SoM is used on 3 different carrier boards,
->>> with small differences, which are all catched up in
->>> devicetree overlays. The kernel image, the basic dtb
->>> and all dtbos are collected in a fitimage. As bootloader
->>> is used U-Boot which detects in his SPL stage the carrier
->>> board by probing some i2c devices. When the correct
->>> carrier is probed, the SPL applies all needed dtbos to
->>> the dtb with which U-Boot gets loaded. Same principle
->>> later before linux image boot, U-Boot applies the dtbos
->>> needed for the carrier board before booting Linux.
->>>
->>> Signed-off-by: Heiko Schocher <hs@denx.de>
->>> ---
->>> checkpatch dropped the following warnings:
->>> arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi:248: warning: DT compatible string "ethernet-phy-id2000.a231" appears un-documented -- check ./Documentation/devicetree/bindings/
->>>
->>> ignored, as this compatible string is usedin other dts too, for example in
->>>
->>> arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
->>>
->>>   arch/arm64/boot/dts/freescale/Makefile        |    5 +
->>>   .../imx8mp-aristainetos3-adpismarc.dtsi       |   64 +
->>>   .../imx8mp-aristainetos3-adpismarc.dtso       |   14 +
->>>   .../imx8mp-aristainetos3-helios-lvds.dtsi     |   89 ++
->>>   .../imx8mp-aristainetos3-helios-lvds.dtso     |   13 +
->>>   .../imx8mp-aristainetos3-helios.dtsi          |  103 ++
->>>   .../imx8mp-aristainetos3-helios.dtso          |   13 +
->>>   .../imx8mp-aristainetos3-proton2s.dtsi        |  176 +++
->>>   .../imx8mp-aristainetos3-proton2s.dtso        |   13 +
->>>   .../imx8mp-aristainetos3a-som-v1.dts          |   18 +
->>>   .../imx8mp-aristainetos3a-som-v1.dtsi         | 1210 +++++++++++++++++
->>>   11 files changed, 1718 insertions(+)
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtso
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtsi
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtsi
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtso
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtsi
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtso
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dts
->>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
->>>
->>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->>> index 9d3df8b218a2..7c3586509b8b 100644
->>> --- a/arch/arm64/boot/dts/freescale/Makefile
->>> +++ b/arch/arm64/boot/dts/freescale/Makefile
->>> @@ -163,6 +163,11 @@ imx8mn-tqma8mqnl-mba8mx-usbotg-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8m
->>>   dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtb
->>>   dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-usbotg.dtb
->>>   
->>> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-aristainetos3a-som-v1.dtb \
->>> +			  imx8mp-aristainetos3-adpismarc.dtbo \
->>> +			  imx8mp-aristainetos3-proton2s.dtbo \
->>> +			  imx8mp-aristainetos3-helios.dtbo \
->>> +			  imx8mp-aristainetos3-helios-lvds.dtbo
->>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-beacon-kit.dtb
->>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb
->>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-model-a.dtb
->>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>> new file mode 100644
->>> index 000000000000..cc0cddaa33ea
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtsi
->>> @@ -0,0 +1,64 @@
->>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->>> +/*
->>> + * Copyright (C) 2024 Heiko Schocher <hs@denx.de>
->>> + */
->>> +
->>> +#include <dt-bindings/gpio/gpio.h>
->>> +#include <dt-bindings/interrupt-controller/irq.h>
->>> +
->>> +&ecspi1 {
->>> +	spidev0: spi@0 {
->>> +		reg = <0>;
->>> +		compatible = "rohm,dh2228fv";
+
+
+On 25/10/2024 23:15, Rob Herring wrote:
+> On Wed, Oct 23, 2024 at 12:14 PM Usama Arif <usamaarif642@gmail.com> wrote:
 >>
->> Hm? I have some doubts, what device is here?
-> 
-> $ grep -lr dh2228fv drivers/
-> drivers/spi/spidev.c
-> 
-> Customer uses an userspace implementation...
-
-That's not the question. I asked what device is here.
-
-
-> 
+>>  __pa() is only intended to be used for linear map addresses and using
+>> it for initial_boot_params which is in fixmap for arm64 will give an
+>> incorrect value. Hence save the physical address when it is known at
+>> boot time when calling early_init_dt_scan for arm64 and use it at kexec
+>> time instead of converting the virtual address using __pa().
 >>
->>> +		spi-max-frequency = <500000>;
->>> +	};
->>> +};
->>> +
->>> +&ecspi2 {
->>> +	spidev1: spi@0 {
->>> +		reg = <0>;
->>> +		compatible = "rohm,dh2228fv";
->>> +		spi-max-frequency = <500000>;
->>> +	};
->>> +};
->>> +
->>> +&i2c2 {
->>> +	/* SX1509(2) U1001@IPi SMARC Plus */
->>> +	gpio8: i2c2_gpioext0@3e {
->>
->> Uh, no, please never send us downstream code.
->>
->> Please follow DTS coding style in all upstream submissions.
+>> Reported-by: Breno Leitao <leitao@debian.org>
+>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+>> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+>> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
 > 
-> driver is in here:
+> This looks fine, but what is the symptom without this compared to
+> before the above change? The original code in the referenced commit
+> above didn't remove the reservation at all. Unless the current code
+> does something worse, this is new functionality more than a fix (for
+> stable).
 > 
-> $ grep -lr probe-reset drivers/pinctrl/
-> drivers/pinctrl/pinctrl-sx150x.c
+> Rob
 
-This so not related... Your driver does not matter. You send us poor
-quality downstream code.
+After the series in [1] was merged, we always get a warning when kexecing
+a debug kernel, which was reported by Breno in [2].
+The issue is using __pa for a fixmap address in arm64 as described in [2],
+which could result in removing a memory reservation for a completely
+unrelated area.
+That was introduced by the patch just before 
+"arm64: Use common of_kexec_alloc_and_setup_fdt" [3], but arm64 switched to
+using the common kexec fdt function in that commit. This commit is trying
+to fix removing and corrupting any random memory reservation (and get rid
+of the warning) that was introduced by [1], not adding a new functionality.
 
-...
+[1] https://lore.kernel.org/all/20210221174930.27324-7-nramas@linux.microsoft.com/ 
+[2] https://lore.kernel.org/all/ZnFKEtqfqJkYflwL@gmail.com/
+[3] https://lore.kernel.org/all/20210221174930.27324-6-nramas@linux.microsoft.com/
 
-> 
->> And why this is DTSO, I have no clue...
-
-Why is this a DTSO, not a DTS?
-
-
-Best regards,
-Krzysztof
-
+Thanks,
+Usama
 
