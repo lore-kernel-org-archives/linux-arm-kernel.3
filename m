@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4BBD3399B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 16:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AEED339A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 17:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=; b=awhEs85DbKK7Mj6+ylasnrEiBE
-	VFpSgnw5PdjThpznJ1bRKwoij30eF/t/saciot9S1JAGf4YPexSiU56S3CJhnVtAYyQhIfNXRuplD
-	/fdjtqST6xZJtwsI5iDNsv0mpxgEn8kVvTTS6zYfyOE45vLheBScZF0uLp8qATGpAldAoefBfwquc
-	cVhKcG3m/Qe64tQjL747B5Mg0J50tslyBG0ApCMh3KmvVASrLPTVW1HeEU150Dfu9dNrGkAZgjHjF
-	yxuSMSVg+PvsvI1RLcb6rS8dnJcTzZk/odjmJ4qdxLCduHTZVjzcoud7BmONVncFXMoaCrT++oepx
-	bU0DR4aw==;
+	bh=MMdoqtd5Or4egsm/ysACUyrqRpKWAPTDiHGIU58xz0g=; b=yoFHG2Z9g+HFq5fkODoy7newAW
+	Bpjr62b+/G/kd4wPQuRjuhNGPsRv6AU32fN5Kk1PxY7AYy13THdqAHrOb5G3yM/Sa6UxDZOsqVXp4
+	WxCZhz7IOYvtHbSXma1zkwBTpS3t9F+Oh4zX481TAZJ+fq4CMjGcbPIzSVa2tP7d0HNqJmFa+lTjf
+	ybFXI+sCmAKVLCnXNvanJk+8RYmRKRwrsZBTo4U8e94ki2a9hLpKhrt5P4Be647ulYTWzYyJC/xZL
+	ZhvHbsgFBuSHLbS6tf3RURfxv9N8Br2LIPhhGtkKwppjYGgEfDHtuixDPZb9rfefD2UfZihSj923F
+	SFK/LEUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5T1L-0000000BaDG-03mk;
-	Mon, 28 Oct 2024 16:55:11 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1t5T95-0000000BbGl-1qJK;
+	Mon, 28 Oct 2024 17:03:11 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5SnV-0000000BXV6-2PR8
+	id 1t5T4t-0000000BakD-1p1K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 16:40:55 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4315baec69eso46069045e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 09:40:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730133652; x=1730738452; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=;
-        b=fpA9JZgfg248bk+6RtPYOerCgQ+clOBNxKoKqEePJ/YxRCHjxhw1l63F4U6Ody1j3+
-         ho2yMnEJ0IibqhmHRzM1RyF3tMXsTg3M6IZ/GgLOiYJAeVaxTRCwYC0IneqEyXM/dIG6
-         rByXZH2oZFJPytr8X8TkIXUOBYmJEE7yFCXGQsjNIJmxwt49WR9kypFT0Y98T491fvDS
-         lnxHxfhnsqqh2y/seAwTq1C8YNV1WtPh04x87L8lpDbtAm1gqeXjFdYUiRZoOM9gN8Gg
-         tnWchHA1zELxoWaRdAQnroVWUc+gC51VCxlITiWRP8r6f4Z2cuO7sK6Pb0FtNBqN8ZFd
-         seYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730133652; x=1730738452;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=z7H7MOZKwUSVXW/SZzObgRj+x6rST0JwI+YL7Wp/UUE=;
-        b=K2DH2MFVZUbjpOf3HruaG4rSmwMa5fCCdZO1GiicuUFe+OBorir5DWNkcAqhHWo+hN
-         hD/wgRuaNpme1f97uL1iLWrUIcScVTEVmUj+hQp2MIPb3JbnOqyrrveJoOaKDx7MNpn3
-         5xAWTbUccV0OoWhmfnoOPP/ukBGMiLEw3584sIN+TSHIL/v3ikK93LSDvKBT3DtcvZEg
-         lYaU5vwdBIFlpMN3JNlTGRVQw4KoIxeixDi+PK+nA1n3yvtB8FmeY8I2sfMv5zysPEqy
-         Da/eLVCqjCdgSuzOTHOYpFvQWb11RiJnaucFD18+SGoNevgAxmI4IPlMjlcmgqoNPEAD
-         vLGA==
-X-Forwarded-Encrypted: i=1; AJvYcCX1MzWin9o89Us40ArrLQjgyVjx6n4RA2oPWmLqgNj7jKdJHsL7Cgipdxf0+mVGzKmS+OfXNSgWhrAN7JV39L63@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZIBVV49C4EqdOSWD/UeTQq9uwg/FJVF9CxHM7UIpl1XNO/Bi4
-	3KUUeCHF4zxJ1XzMXX/KbMAjAbelKl+tUk6aOzIAr1l9xd185e+GwqlGzqyBhiA=
-X-Google-Smtp-Source: AGHT+IHD7ecehSeRSersefttuZxWWc/yvJLPk3kslyGa7nuUur+ExAiKbF2BIlY7ADLI6KIVbs9TAw==
-X-Received: by 2002:a05:600c:4fce:b0:431:54d9:da57 with SMTP id 5b1f17b1804b1-4319ad20fb6mr68256455e9.30.1730133651812;
-        Mon, 28 Oct 2024 09:40:51 -0700 (PDT)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4318b5433f2sm146420585e9.1.2024.10.28.09.40.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 09:40:50 -0700 (PDT)
-Message-ID: <0f626477-7af1-4f8e-a770-39f69d9b6cbb@linaro.org>
-Date: Mon, 28 Oct 2024 17:40:50 +0100
+	Mon, 28 Oct 2024 16:58:52 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwlFS127484;
+	Mon, 28 Oct 2024 11:58:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730134727;
+	bh=MMdoqtd5Or4egsm/ysACUyrqRpKWAPTDiHGIU58xz0g=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=FikjylivUnHNMVaS4gfS000Fxsf5d00p551H8vGEHp3SQXATPCqJhtoeOOEYE7lv6
+	 DHGKP2heoAVrCK4AKFbWmlfiUSo0ojKPFufEwpMf/3zoSGLWL8U3rtjzbO1Dlexuol
+	 +WyAKNEJ6Ibm5Owy2hjoCQvXT5JhGI/gAhDnxivs=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwlOW120677;
+	Mon, 28 Oct 2024 11:58:47 -0500
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Oct 2024 11:58:47 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Oct 2024 11:58:47 -0500
+Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49SGwh3V128346;
+	Mon, 28 Oct 2024 11:58:44 -0500
+Message-ID: <3d6f78b8-d6b1-4c11-b87a-3922254ce360@ti.com>
+Date: Mon, 28 Oct 2024 22:28:43 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH][next] thermal/drivers/mediatek/lvts_thermal: make
- read-only arrays static const
-To: Colin Ian King <colin.i.king@gmail.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Nicolas Pitre <npitre@baylibre.com>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org, linux-mediatek@lists.infradead.org
-References: <20241022184622.1296044-1-colin.i.king@gmail.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-*: Add GPIO INTR region in ranges
+To: Vaishnav Achath <vaishnav.a@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20240903055733.3483840-1-vaishnav.a@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20241022184622.1296044-1-colin.i.king@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20240903055733.3483840-1-vaishnav.a@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_094053_652484_D990A440 
-X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-CacheID: sfid-20241028_095851_597041_6A1733CE 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,19 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2024 20:46, Colin Ian King wrote:
-> Don't populate the read-only arrays on the stack at run time, instead
-> make them static const.
-> 
-> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
-> ---
 
-Applied, thanks
+
+On 03/09/24 11:27, Vaishnav Achath wrote:
+> Add GPIO Interrupt Router regions in ranges. Although not currently used
+> by the Linux TI-SCI INTR driver, these regions should be included in the
+> ranges mapping.
+> 
+> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+> ---
+> 
+> This was observed while trying to boot Xen hypervisor on these platforms
+> and the mapping failed due to missing GPIO INTR region.
+> 
+> Keeping all platforms changes in single patch as it is identical and trivial.
+> 
+
+
+Please rebase on top of latest -next
+
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Regards
+Vignesh
 
