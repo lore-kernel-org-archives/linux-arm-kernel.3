@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B01FD33990
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE044D33992
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 14:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8DduQ5a5iEKGftFFpS2C6ZNV4q2UCgGo/WE7bIsCA74=; b=Fk1Tn+/ROwq0DqpSQnr2qnfA2m
-	/nf+LRye76IKPFI+X1PACbKhGOFCCVKuTNG/lx6kstPjbAoEQGwyEqGIhzC5zYR0mLWRJUzbGMoeG
-	UAXm1+AoPQ/5cvfPGrjGHs1Er62Rgo919FFT7wuH3xgc+sHRbW5xrwjv0iHvYtFG4DEl8LwRE6zjD
-	UFPD9rt1Y3YxfHirLNVq4trOFz0p1+qIk3pSUloS9OoShljmsMdA5I6YNH9mktRxJ1emlb55WSkCP
-	BJp+lRoVSw8kQhsJs7WitZrcTZgP207WqRpzEXlXoRfpsOVguYjFRj7S6d7IOKGlE36UJFaO5NHz7
-	9seYAvyQ==;
+	bh=RIsY/nREQ/fAaAdcNyrnzEfHa8eQNfg/wq8e5XlHCaA=; b=ATdO8KGYgsk7kQOcR20fkb443Z
+	rHhlPkUX3URRT+HnabIBddPq+8xN5IzR+TMBnkyziIo6yyeRopaRYWfG13NbnP8iWIcIQGs8fGx8F
+	FGQoe1Tmwk5aimMuj45DyyeRyP6Sp8oi4eRDHyedaRfKwi6rCqC6CBVhBrJ3OdFGRRnko+++ayLds
+	AjHAk0zDGvzzmncyGYeCC7mZSHARxOOVmfMwA4A/OVZpglCqpMzZoeN4YxOi3/I2btDRI5jG9bYm/
+	pVDrcVe8soE7dKP7zFY22piXwRycM+DfHXa+OCJzFrROFYRtw9F0sR5KQqoLXAXMU2VU2qjHrLRTM
+	/QxxaLug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5RBE-0000000BDHG-3N9f;
-	Mon, 28 Oct 2024 14:57:16 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5RCn-0000000BDWQ-3VIV;
+	Mon, 28 Oct 2024 14:58:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5QeF-0000000B6Vu-0UQ4
+	id 1t5QeH-0000000B6WZ-12b4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 14:23:12 +0000
+	Mon, 28 Oct 2024 14:23:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 80644A425CA;
-	Mon, 28 Oct 2024 14:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4680C4CECD;
-	Mon, 28 Oct 2024 14:23:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6DD1F5C56F3;
+	Mon, 28 Oct 2024 14:22:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B58B3C4CEE8;
+	Mon, 28 Oct 2024 14:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730125388;
-	bh=70JpgkYvN9YM24Jz+FtvScOfqAM/jZI33kSB5+f8jrI=;
+	s=k20201202; t=1730125392;
+	bh=INIyxIjyW8dZrymPTrJki0+QEIhN5rfp5OXIveeeXZ0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uWoduNTdbhD9TXD1VwGSVhid/JfbNZDhhSTtQ+Zs3ioRGg6tvVfDDsO7n6Ybo/UJl
-	 NsxIokqQOYhAL4WSF2svmo6fDJ32xwI3BhJ4nntHQH/9m04sMJzuX8t4AytmOrUT6S
-	 IxWlHolrSrED7yOnX/7n39zdEROIZr2p1dIlWx7wY+W7sUA86CfxB2bGLD+pOaaf6A
-	 banm0ijjslbav+xsnj1utuXglFa/F/XmiZcKG1MexyAYqAZyvIQH0RfdF7NOp1l8JX
-	 pN++CrTWodTvybBb9bEtYQ6Taw6kleIsLkJw3qOrLTxSI2wILjGwQQQgLV2ktbpqE8
-	 GOTAT3N1G8tKw==
+	b=jJ2f9wPsfrE+3WverENvTtoDPFfJmQyO1YYV46otysBHoQkrDQ2LSKZfoA5L5qju4
+	 Zc0rx+1EQtCOXtkw1hlSTfDUDTPj8y2xH56BUB18XzAI2BFL/qwAeM/g+yv8YoluYl
+	 kL5zNLidcdx7h+lqz/o2Pv6MzLCyHtHwBup4AMq8o0aRA5kfbR6vwI2gpoCb+QuGEJ
+	 B7cs2vBEe17JVwULTELVB8YgA2/x/b+efJ6oiUZwp/emdJ09HI/DO49eJ+C1IUDeMD
+	 CCeuPSTY1jXexgHkvLvTYKhReHQA0VGzVz1D55YRMUrPaDCMTPQeIF04nBTqfJZktg
+	 GPWif56YlStwg==
 From: Konrad Dybcio <konradybcio@kernel.org>
-Date: Mon, 28 Oct 2024 15:22:57 +0100
-Subject: [PATCH 1/3] dt-bindings: arm,psci: Allow S2RAM power_state
- parameter description
+Date: Mon, 28 Oct 2024 15:22:58 +0100
+Subject: [PATCH 2/3] firmware/psci: Set
+ pm_set_resume/suspend_via_firmware() for SYSTEM_SUSPEND
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
+Message-Id: <20241028-topic-cpu_suspend_s2ram-v1-2-9fdd9a04b75c@oss.qualcomm.com>
 References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
 In-Reply-To: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,19 +60,19 @@ Cc: Marijn Suijten <marijn.suijten@somainline.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
  Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Konrad Dybcio <konradybcio@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=1434;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730125380; l=1306;
  i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
- bh=qowdcUV0IcXfH3TE+fGW1N5ucMJrGFxOqfTc+GjqJNE=;
- b=PkrsrLQrYHBH3Z0pNaW3PK242z+Gnl0VhBs6CQJrIOlHjhysAG9+Zc9b2RC7ghkCCjFg5lCTT
- bin1KT4oKNJA+UZHJeDOPleGn5YYe0DX/fXojY3JnSxnRIA+8yqJTag
+ bh=INIyxIjyW8dZrymPTrJki0+QEIhN5rfp5OXIveeeXZ0=;
+ b=hEJdSTloRMtioiwdZulRfEu6ZrNIJW/pFqzZKFYyiI1neblGkpxAW34SRPduGpLKNGaZLn5Dx
+ 8UHBjCVaPk5Cet6SNHK/H7Pzfc47zOOWQ+8V6z1TwP6LpSXQ8RsXjCU
 X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
  pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_072311_363117_6D0BBF9D 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_072313_401520_81B82ECA 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Some device drivers are curious to know whether "the firmware" (which is
+often assumed to be ACPI) takes care of suspending or resuming the
+platform. Set the flag that reports this behavior if SYSTEM_SUSPEND is
+implemented.
 
-Certain firmware implementations (such as the ones found on Qualcomm
-SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
-through the CPU_SUSPEND call, as opposed to exposing PSCIv1.0's
-optional PSCI_SYSTEM_SUSPEND.
-
-This really doesn't work well with the model where we associate all
-calls to CPU_SUSPEND with cpuidle. Allow specifying a single special
-CPU_SUSPEND suspend parameter value that is to be treated just like
-SYSTEM_SUSPEND from the OS's point of view.
-
-Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- Documentation/devicetree/bindings/arm/psci.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/firmware/psci/psci.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
-index cbb012e217ab80c1ca88e611e7acc06c6d56fad0..a6901878697c8e1ec1cbfed62298ae3bc58f2501 100644
---- a/Documentation/devicetree/bindings/arm/psci.yaml
-+++ b/Documentation/devicetree/bindings/arm/psci.yaml
-@@ -98,6 +98,12 @@ properties:
-       [1] Kernel documentation - ARM idle states bindings
-         Documentation/devicetree/bindings/cpu/idle-states.yaml
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index 2328ca58bba61fdb677ac20a1a7447882cd0cf22..0e622aa5ad58bbe69dfc3a71bced597618e73f15 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -507,12 +507,22 @@ static int psci_system_suspend(unsigned long unused)
  
-+  arm,psci-s2ram-param:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      power_state parameter denoting the S2RAM/S3-like system suspend state
-+    maxItems: 1
+ static int psci_system_suspend_enter(suspend_state_t state)
+ {
++	pm_set_resume_via_firmware();
 +
- patternProperties:
-   "^power-domain-":
-     $ref: /schemas/power/power-domain.yaml#
+ 	return cpu_suspend(0, psci_system_suspend);
+ }
+ 
++static int psci_system_suspend_begin(suspend_state_t state)
++{
++	pm_set_suspend_via_firmware();
++
++	return 0;
++}
++
+ static const struct platform_suspend_ops psci_suspend_ops = {
+ 	.valid          = suspend_valid_only_mem,
+ 	.enter          = psci_system_suspend_enter,
++	.begin          = psci_system_suspend_begin,
+ };
+ 
+ static void __init psci_init_system_reset2(void)
 
 -- 
 2.47.0
