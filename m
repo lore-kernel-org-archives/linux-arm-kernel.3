@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00D5D3E2C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073DFD3E2C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j5XRrBUeW9Wl3ksjbcOXPj9gNcJLkL1Vlbum4WC6ah4=; b=IKMJH4fneW63NN9EKVgqXu8+zA
-	lu/A9VGaXq6q7YFJb8ZPD35YWogO2sC1RttUqVwx1EI+KALcIm2dPezgF1ZRWPGu9XKI73mDLPG+T
-	V9ZGhVYADDTPtZNClePk0Q/qJN3vd/G15oG1Ij2LdcFcBXpxa5J8k/GIKcuMoPJj7ojWx7GSgtt8w
-	mwUuLsFPYduQuDzlmMYTxwX/fZ3hCq/EGIReOYWUfPvO9BYD4oblvZyQOvPejYjgCCbYP6NpVWWPe
-	lISlgF71P1Ddm7Ht7JYtAShBUZ0Vizt7TozQbO+PeAeWjF6pYvOxU3WS15SfmG3q4xQ0jYlvtXXeo
-	/7jj2/EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/kvSrQqqbLNQTUVRHoadSzM2dB0+MrpOREbt1fRDUeo=; b=Znp1oijlkwSI0KEdrQ9OeTJ9GP
+	UkY0V3/2P6emxKgnFpk0gKvcALlUx+SdEsFolOu3C28SnyGErz5sYkcDZk3jN8vNwthuWhVYiKKB3
+	4XWna0ZlxESLrdF+uOUPYP9QBtosTH8vlHH2MzcuPWjSiDcxxtFHe4wd9lbbr22WPY8fNYz7kvRsX
+	1/mnb91R4YAme2ZcGYQS+ZAkKMPXdIqT76z0Wlyk6cX2YBoO7i/IMejfqPXBCoSvgGhT5iCddGVx0
+	pXPPTV+60IVciUYNPLp4V3lSmX75qDbkbPpDmQufDbXLnbYhl+EDgPYPCmh5S6oh97MKcruKB3oXT
+	J5jpjmOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Vj0-0000000C35F-1gkt;
-	Mon, 28 Oct 2024 19:48:26 +0000
-Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
+	id 1t5Vkk-0000000C3Wi-3ww0;
+	Mon, 28 Oct 2024 19:50:14 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5VhN-0000000C2mJ-0I8g
+	id 1t5Vj4-0000000C35c-0ZOb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 19:46:46 +0000
-Received: by mail-ua1-x932.google.com with SMTP id a1e0cc1a2514c-84fb86af725so1117172241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:46:44 -0700 (PDT)
+	Mon, 28 Oct 2024 19:48:31 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so46622691fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 12:48:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730144804; x=1730749604; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=j5XRrBUeW9Wl3ksjbcOXPj9gNcJLkL1Vlbum4WC6ah4=;
-        b=A4Nj5zmNCEJi6M+uZhcnBUjz/56TXrzx+d7uNEoOB1Dv04XfZVdFMTA7CSGJmsDKCv
-         d8rE+9V+6KbGUuDyRtuyairzCc9E9qHr5uZSUjZexHgnH/KS96L1JmsPPqkhH4K1k9Hv
-         oSp6+zDhQ4EtOo46kQfKXXTZJjADstTGd4Sh62KL8ngjnLP8axykIVllXx8ilEYAXRot
-         bnk1BiGgLx1Qv8KFT0ruZ8VfkgsyqDqMtZfaQpR6uZ5CwGVIcR46gN3z8mVS1qKqB9dr
-         MG0TDHDA/3JW8/4nueNvukSkmL8DpIAAUPImNym+qZGHUu0mF7hwbXaXrHFTvy3fS59/
-         PEDQ==
+        d=gmail.com; s=20230601; t=1730144908; x=1730749708; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/kvSrQqqbLNQTUVRHoadSzM2dB0+MrpOREbt1fRDUeo=;
+        b=YfUG7BmKOuM3VuYSsgeykRxYL03e0yik8231mX7Cn4z9fHZ7ino7zntw4B4VdjtHqy
+         gXU6n654xXnSDy9EkfG7gZj0IVAjxUzXfAy8klmfMte8TW4V4d6GpvQ2RtiEg80SQM05
+         Q5E3uH3jnxPCcFO03AeH5kU48AtyRQ8KHadb7yp+wLp1/wFSIIOFNQH3up4aRHWBYMVq
+         SEr7O2+AJfitJiFbSID9yX1D3BHqpG131WEm7GiBHjaE41N1y0RnzjIpfH6Owm4c8/bo
+         QgYHJ/74BAniyT/L0Rhts7ETbBeNf+TUc0LMNSmSZL9o1F6D5K39iHBG8lUnLbVwxwXc
+         OHOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730144804; x=1730749604;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=j5XRrBUeW9Wl3ksjbcOXPj9gNcJLkL1Vlbum4WC6ah4=;
-        b=mYCt4jeSDvxaK+TufRtFc4x0p2qOcNvLKOlTdIKXtzxlCK9TNgdVvEAanMrfbB7RNW
-         nlMq8XYeiChPlpvEHWT/wzS6NnIBFES4JJHLch9Q4MyrXfkWKfba8kdS5ZsXiDxUJK4D
-         fp/qO8cl+sD+gTEs88iYYmhaqKOvj2loZqd2sBNirm8mFh652+dONlzSj4neXXyU3Gl7
-         pzmC/DC+rjFC36h8qjqrd3NXd+D1TkUwrrDGH9qSREMQtTod/SRC86CNgM5j7KByw7/W
-         XEs9PXMKLi2ttKpi7Z2IUj55ERdWEKC9yGS6asr4CA9WdNttSNRIFksQes2+eYlVdJ9E
-         eRBg==
-X-Forwarded-Encrypted: i=1; AJvYcCVGUAa+BR4auhtHc2E+Q1m1kA4hvmAwAB6jaGmVNUnpzgW+S1zH8FiU/SQm7bJk0ovoLJtxhCfFj+nPAbCHlQN7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKXRmAOxqIuxFe53RkEa+nwz6Jebm+MkfKVM1WDHCOp58nsE6c
-	FlRiLeAFSkw5xhFLaZABP9K0CEDC7XNNmrvIMoQyo30hY+o1fkBhPCfnekv4RfMtg3Y4ZulyGZh
-	iByU8SHKK3KdeKAPkCvl3Eichh54ga9WCWLNPew==
-X-Google-Smtp-Source: AGHT+IH6BXN+34x6/Q4FZwz5j6uquVhYmRBikZ0QKoU5eshCI12u7ivTDuCHpv6wXsxYB2wLgvjIZwpib6ufggFyI1Y=
-X-Received: by 2002:a05:6102:3707:b0:4a5:c0e2:c42d with SMTP id
- ada2fe7eead31-4a8cfb45762mr7377334137.8.1730144803771; Mon, 28 Oct 2024
- 12:46:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730144908; x=1730749708;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/kvSrQqqbLNQTUVRHoadSzM2dB0+MrpOREbt1fRDUeo=;
+        b=GLsJHEr42PQDeYlPHPYiIoBe4SxelJb28aJcqxdCfaJ7Ta+YOIWCX1EzyjmrK98etp
+         lAYWw0FSOf10m9nv8vhw8ZtrNbyGKuSOq4R1jA80cTduiPHYqypNvBqhvHDK3VlWvkTe
+         gteHl2I3xBUNMObWzhnwkM43GH7KBDYc7VJyPtWkL3+lzHWfnsFX5v0PWaSCxb4NPmK7
+         v4UqwBjbxZfL3A5PatTPpSHOlOBVI18xvp2mzqNZJdO4qeAKZAria1Or56zSvR8ouU8J
+         unf3H77VZA5prlsqZNhoMPNbvMRhRu30x7OuSMAFvjn4FbVWRF0Z7eiwXI+WCSpn4+Ed
+         5xZw==
+X-Forwarded-Encrypted: i=1; AJvYcCWW5AGBcCxoGIkw8Xmm6ubRsARBLZ9eYFdLn8DQRV2j7JcmZTm38Gp73i/g+rJHKjky43pI7aM4zct9SSHdccZp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg8ABcI5avlOaw+VEi+bDQbsRE4bpgx8DOyvCSmiZVn8Z4tjzo
+	K2bmy42Gj5KAGfTVmHJKTBSvAWksNkA4Wr/h7s+EC8VxMA4EV9vlrKizBbpE/TnBKdIGw/v7y0k
+	HANBTM7pKKKs5lMXuQSgMO/sc2c0=
+X-Google-Smtp-Source: AGHT+IELGhB95rG+9fE7ziAngeTj3KV9sBRB/cO1X2UqxH738DKa/nlaAv3YXumbQYQm4kl2IZm04mlWo9msT3Gf+zU=
+X-Received: by 2002:a05:651c:2115:b0:2ef:2490:46fb with SMTP id
+ 38308e7fff4ca-2fcbe08973dmr38305511fa.37.1730144908053; Mon, 28 Oct 2024
+ 12:48:28 -0700 (PDT)
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 29 Oct 2024 01:16:32 +0530
-Message-ID: <CA+G9fYt0pqM_f-uiK=xH0RWrhfABdjy743yyxu4CLtb+kkS6-w@mail.gmail.com>
-Subject: kselftest:arm64/FVP: arm64_check_buffer_fill - failed on Linux next-20241025
-To: open list <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, lkft-triage@lists.linaro.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Andre Przywara <andre.przywara@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Aishwarya TCV <Aishwarya.TCV@arm.com>, 
-	Anders Roxell <anders.roxell@linaro.org>
+References: <20241028180844.154349-1-festevam@gmail.com> <20241028180844.154349-2-festevam@gmail.com>
+ <20241028194728.0655edd3@akair>
+In-Reply-To: <20241028194728.0655edd3@akair>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 28 Oct 2024 16:48:16 -0300
+Message-ID: <CAOMZO5APJM57_ixBiRFZSZex3AiawA=mtqMszdGezVoajaXYhA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ARM: dts: imx6sx: Remove fsl,imx6sx-lcdif fallback
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_124645_138829_141A2DC2 
-X-CRM114-Status: UNSURE (   6.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_124830_198323_E2B83446 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,126 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following kselftest arm64 and FVP failed with Linux next-20241025 on
-  - Qemu-arm64
-  - FVP
+Hi Andreas,
 
-running Linux next-20241025 kernel.
+On Mon, Oct 28, 2024 at 3:47=E2=80=AFPM Andreas Kemnade <andreas@kemnade.in=
+fo> wrote:
 
-First seen on next-20241025
-  Good: next-20241024
-  BAD:  next-20241025
+> As the devicetree might also be used with other software (e.g. u-boot),
+> this might break something.  So if u-boot (or any other software) does
+> work with fsl,imx28-lcdif because it only uses a subset of features of
+> fsl,imx6sx, it might be worth changing the binding instead.
+>
+> Same for Patch 1. But I cannot test that and do not have a strong
+> opinion here.
 
- kselftest-arm64, FVP
-    * arm64_check_buffer_fill
-    * arm64_check_mmap_options
-    * arm64_check_child_memory
+U-Boot would not be broken after these series:
 
-Anyone have seen these failures ?
-
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-Test log:
-----------
-# selftests: arm64: check_buffer_fill
-# 1..20
-# ok 1 Check buffer correctness by byte with sync err mode and mmap memory
-# ok 2 Check buffer correctness by byte with async err mode and mmap memory
-# ok 3 Check buffer correctness by byte with sync err mode and
-mmap/mprotect memory
-# ok 4 Check buffer correctness by byte with async err mode and
-mmap/mprotect memory
-# ok 5 Check buffer write underflow by byte with sync mode and mmap memory
-# ok 6 Check buffer write underflow by byte with async mode and mmap memory
-# ok 7 Check buffer write underflow by byte with tag check fault
-ignore and mmap memory
-# ok 8 Check buffer write underflow by byte with sync mode and mmap memory
-# ok 9 Check buffer write underflow by byte with async mode and mmap memory
-# ok 10 Check buffer write underflow by byte with tag check fault
-ignore and mmap memory
-# ok 11 Check buffer write overflow by byte with sync mode and mmap memory
-# ok 12 Check buffer write overflow by byte with async mode and mmap memory
-# ok 13 Check buffer write overflow by byte with tag fault ignore mode
-and mmap memory
-# ok 14 Check buffer write correctness by block with sync mode and mmap memory
-# ok 15 Check buffer write correctness by block with async mode and mmap memory
-# ok 16 Check buffer write correctness by block with tag fault ignore
-and mmap memory
-# # FAIL: mmap allocation
-# # FAIL: memory allocation
-# not ok 17 Check initial tags with private mapping, sync error mode
-and mmap memory
-# ok 18 Check initial tags with private mapping, sync error mode and
-mmap/mprotect memory
-# # FAIL: mmap allocation
-# # FAIL: memory allocation
-# not ok 19 Check initial tags with shared mapping, sync error mode
-and mmap memory
-# ok 20 Check initial tags with shared mapping, sync error mode and
-mmap/mprotect memory
-# # Totals: pass:18 fail:2 xfail:0 xpass:0 skip:0 error:0
-not ok 21 selftests: arm64: check_buffer_fill # exit=1
-# timeout set to 45
-# selftests: arm64: check_child_memory
-# 1..12
-# ok 1 Check child anonymous memory with private mapping, precise mode
-and mmap memory
-# ok 2 Check child anonymous memory with shared mapping, precise mode
-and mmap memory
-# ok 3 Check child anonymous memory with private mapping, imprecise
-mode and mmap memory
-# ok 4 Check child anonymous memory with shared mapping, imprecise
-mode and mmap memory
-# ok 5 Check child anonymous memory with private mapping, precise mode
-and mmap/mprotect memory
-# ok 6 Check child anonymous memory with shared mapping, precise mode
-and mmap/mprotect memory
-# # FAIL: mmap allocation
-# # FAIL: memory allocation
-# not ok 7 Check child file memory with private mapping, precise mode
-and mmap memory
-# # FAIL: mmap allocation
-# # FAIL: memory allocation
-# not ok 8 Check child file memory with shared mapping, precise mode
-and mmap memory
-# ok 9 Check child file memory with private mapping, imprecise mode
-and mmap memory
-# ok 10 Check child file memory with shared mapping, imprecise mode
-and mmap memory
-# ok 11 Check child file memory with private mapping, precise mode and
-mmap/mprotect memory
-# ok 12 Check child file memory with shared mapping, precise mode and
-mmap/mprotect memory
-# # Totals: pass:10 fail:2 xfail:0 xpass:0 skip:0 error:0
-not ok 22 selftests: arm64: check_child_memory # exit=1
-
-boot Log links,
---------
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241028/testrun/25586532/suite/kselftest-arm64/test/arm64_check_buffer_fill/log
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241028/testrun/25586576/suite/kselftest-arm64/test/arm64_check_mmap_options/log
-
-
-Test results history:
-----------
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241028/testrun/25586532/suite/kselftest-arm64/test/arm64_check_buffer_fill/history/
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241028/testrun/25586532/suite/kselftest-arm64/test/arm64_check_mmap_options/history/
-
-metadata:
-----
-  git describe: next-20241028
-  git repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
-  git sha: dec9255a128e19c5fcc3bdb18175d78094cc624d
-  kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2o3tMqzOtHXYQjlvfR5tnTcVMe5/config
-  build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2o3tMqzOtHXYQjlvfR5tnTcVMe5/
-  toolchain: gcc-13
-
-Steps to reproduce:
----------
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2o3tON5kNijMOtxu3bD6Cg6QFYC/reproducer
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2o3tON5kNijMOtxu3bD6Cg6QFYC/tux_plan
-
---
-Linaro LKFT
-https://lkft.linaro.org
+https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/video/mxsfb.c?re=
+f_type=3Dheads#L388
 
