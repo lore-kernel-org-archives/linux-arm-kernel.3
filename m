@@ -4,176 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE48D5B158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E50DD5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 21:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3D2dtsJXjqQOtB0+meeTCf0vlHG3Ad378pPp6PP5FRU=; b=c4yLuT3N5JnMSNQv96SWTwrFE1
-	EiCFmN5kqv6kjaYNZi2F3NpnPht30opsOfUlJACsLWYAqfmWo9mfNngsRl8w4RBk7+gJArm/FOwPI
-	oVmzIIWvqq/KfywPhNKH7cWbv9x2Lq90ovjNPBDEgCQ+u1dMiojiUmoejpJ3Jqb8CH0eUdn3fd51D
-	LPncaHGtVy5FCZe4G3k41nsFX4NSZblW/+TAmLzQs10Cwe1rK5v8JwMFYk0mtxb/sMwxGaRN0lmni
-	C9qAJ78T03i1jUm91OLNSyy3DBKperB0DfHowiWd1C3BcRLz9Fu7gxKItaeMmaagtcUrVRyJCf3GB
-	1nJ+d4mg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ut6t7FZcAUGa8RQ2/hjJ00unz+iUqPCxG7le70TlUtM=; b=g0IJEPyvLDS2Zhit9h55Dczabe
+	R2XBmug0tbljxv79ykm1w+xL2M8pBXISvj+qwWxmUJQ+RyZCIRb3zmx/hBIp+/cm6gbpVWujy69zg
+	0+LTjL4kWhbM2RbIc2XTxVtV8+qZJ11wv9N4dH0Qk+Pidqw/GNQTr4599LaK+XYx5QETNV/D475U8
+	AMWAloMWHyCiGSTVaws3X1L7PhN6094jSNa0WIwSuSnbyTYG1y1JKpJ6pk6Mmeo3yDkzSbLUwgZJT
+	WDUUjWpR/YzbHNwfxuo7s3ASqSDJ38ZgL9zVIOuPK0ZZgaRm0+ojWGIaGksJZLQ0I1F2erf8nIaaE
+	WkBR7nEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XdF-0000000CPDQ-1Izg;
-	Mon, 28 Oct 2024 21:50:37 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1t5Xes-0000000CPeX-3Jbm;
+	Mon, 28 Oct 2024 21:52:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5XI9-0000000CKhf-2309
+	id 1t5XLR-0000000CLMj-07ph
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 21:28:53 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	Mon, 28 Oct 2024 21:32:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1730151130;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Ut6t7FZcAUGa8RQ2/hjJ00unz+iUqPCxG7le70TlUtM=;
+	b=jVxjIAY19D9T6bgTQPDp5bCdN8poGFJ2fBxYFWcJ0wET1bkNCjjR2cAjoVYbYDXB+9bNko
+	kJlYzPeGAh2l2Dbjuyz49NchT2hgY2LZrZJ7hL2oWfssVZMOSqXMe4hY1WrTO0EyMmjU/7
+	fKjd96Hq4qz1uarYowuPkELkPeWSokU=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-564-KPUWmOQ2OSS9US5vnSpJZA-1; Mon,
+ 28 Oct 2024 17:32:07 -0400
+X-MC-Unique: KPUWmOQ2OSS9US5vnSpJZA-1
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id C04A81FB77;
-	Mon, 28 Oct 2024 21:28:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1730150927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3D2dtsJXjqQOtB0+meeTCf0vlHG3Ad378pPp6PP5FRU=;
-	b=gY4S+t2lqE1DJRPEygvR4Zo2PiJJpaMppdYeu1Ay0Ww1MuvRhx+eSKgpfidSUIWARm4UD9
-	xCZN++gvce6iGQxNQQvJDFMOjxQn91zcl8C/KQmnAvup05Mvgaprwj82a9CCgeWH7rx5TN
-	NxaDL8BJV8h53m1Q1koPrnJG1wPE/V4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1730150927;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3D2dtsJXjqQOtB0+meeTCf0vlHG3Ad378pPp6PP5FRU=;
-	b=2Yx611nVglvbQbNLxDSerKFPar75CUHMN8NqfWiLT39z7P657rpybVsZTlpEv/SpYIUqjf
-	NPDQ9rUeBWR6o7DA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1730150927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3D2dtsJXjqQOtB0+meeTCf0vlHG3Ad378pPp6PP5FRU=;
-	b=gY4S+t2lqE1DJRPEygvR4Zo2PiJJpaMppdYeu1Ay0Ww1MuvRhx+eSKgpfidSUIWARm4UD9
-	xCZN++gvce6iGQxNQQvJDFMOjxQn91zcl8C/KQmnAvup05Mvgaprwj82a9CCgeWH7rx5TN
-	NxaDL8BJV8h53m1Q1koPrnJG1wPE/V4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1730150927;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3D2dtsJXjqQOtB0+meeTCf0vlHG3Ad378pPp6PP5FRU=;
-	b=2Yx611nVglvbQbNLxDSerKFPar75CUHMN8NqfWiLT39z7P657rpybVsZTlpEv/SpYIUqjf
-	NPDQ9rUeBWR6o7DA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9FF64136DC;
-	Mon, 28 Oct 2024 21:28:47 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ncpoJg8CIGeUcAAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Mon, 28 Oct 2024 21:28:47 +0000
-Message-ID: <1608957a-d138-4401-98ef-7fbe5fb7c387@suse.cz>
-Date: Mon, 28 Oct 2024 22:28:47 +0100
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4C82D1955F40;
+	Mon, 28 Oct 2024 21:32:06 +0000 (UTC)
+Received: from [172.64.8.116] (unknown [10.30.32.116])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 82D191956086;
+	Mon, 28 Oct 2024 21:32:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.12.0-rc5,
+ arm-next, 1bf329c6)
+Date: Mon, 28 Oct 2024 21:32:05 -0000
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region() error
- path behaviour
-Content-Language: en-US
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Mark Brown
- <broonie@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Aishwarya TCV <Aishwarya.TCV@arm.com>
-References: <cover.1729715266.git.lorenzo.stoakes@oracle.com>
- <6e8deda970b982e1e8ffd876e3cef342c292fbb5.1729715266.git.lorenzo.stoakes@oracle.com>
- <61461dcc-e455-450d-9c01-5465003fc31c@sirena.org.uk>
- <c24a174d-c8f3-4267-87ae-cf77fa587e82@lucifer.local>
- <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
- <438f50c5-8b8c-444f-ae85-10e5151f3f24@lucifer.local>
- <57mgmdx7wgfwci3yo3ggkmcnm3ujamgkwcccm77ypvmer5tegn@opiq3ceh2uvy>
- <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
- <bea02efe-a695-49e0-b15c-2270a82cadbf@lucifer.local>
- <CAHk-=whpXVBNvd0NJpw9=FGcuTuThwtfcKeM3Ug=Uk6kpChCPA@mail.gmail.com>
- <0b64edb9-491e-4dcd-8dc1-d3c8a336a49b@suse.cz>
- <CAHk-=wgE8410gu3EabjNEHhOYh1dyYwt23J62S4a9SYcwZUFhw@mail.gmail.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-Autocrypt: addr=vbabka@suse.cz; keydata=
- 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
- EP+ylKVEKb0Q2A==
-In-Reply-To: <CAHk-=wgE8410gu3EabjNEHhOYh1dyYwt23J62S4a9SYcwZUFhw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.29 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.19)[-0.928];
-	MIME_GOOD(-0.10)[text/plain];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:mid,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <20755.124102817320703848@us-mta-564.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_142849_723502_3CCDEE1B 
-X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-CacheID: sfid-20241028_143213_161850_D5F24A3C 
+X-CRM114-Status: UNSURE (   6.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -189,19 +82,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/24 22:19, Linus Torvalds wrote:
-> On Mon, 28 Oct 2024 at 11:00, Vlastimil Babka <vbabka@suse.cz> wrote:
->>
->> VM_MTE_ALLOWED is also set by arm64's arch_calc_vm_flag_bits():
->>
->>         if (system_supports_mte() && (flags & MAP_ANONYMOUS))
->>                 return VM_MTE_ALLOWED;
-> 
-> Yeah, but that should just move into arch_validate_flags() too.
-> There's no reason why that's done in a separate place.
-> 
->                      Linus
+Hi, we tested your kernel and here are the results:
 
-Right, and VM_DATA_DEFAULT_FLAGS is only used in do_brk_flags() which is
-also an anonymous VMA, and it doesn't perform arch_validate_flags() anyway.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
+
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge remote-tracking branch 'tip/irq/core' into for-ke=
+rnelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1516898072
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
