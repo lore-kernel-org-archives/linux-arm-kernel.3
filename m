@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FE5D3E2A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DB1D3E2A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 19:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8V+uFBFKCdrp0N8Uwf8EaMC+XfBivxTYVsNuIPzM2o=; b=GIpVDIZ74Hkbxwy41tt66xfQox
-	AdTvTOaj1oSIpVBq8vSuVJK0EFamSZsoXEGTCkkgUD3ByhGYg8Ffh0FvnrNuZH1tMc4vREZMV/DJN
-	K6MiCMzRr0IRHyXt2Bw7guv1YXvyCgncTnRi8tmjcl8DJsxjSZRnYa68Wl0n8lvfTRaiSYSFAz9rY
-	SMXqJh8sc3GVlRHebTJkbdwFuplS/hafgk+0He/L6+DsObXmD0dlPn9ztWCJ3Rs82TaMWEhSZnp5I
-	shftVX8h0/lLCxOeAYrlqYxvbjO2l/wazFIA5+7XCkIzvCYookxn6eXLTRO9W1G0M2ILwm9ha2nVF
-	RlMEq9Vw==;
+	bh=GB1Kagh+F5SEWVjqzO7gxFwFcSR2vS3OXNBe1plb0VA=; b=DbSrsxfJ75srLxw2l5zX0hHL9u
+	V2cu76e7gtUaLkM930Sc2Gdvaq1bYij4taObfFbZ7KZs9/Kflfz0m5j9s6msSW2mWJW2uQOkhCGG7
+	yOjX6imS5lxS/JL60Jht6c+B5zZke0ChjIC9NgFZFTeTsBGEys9Kqozs90XbG70VYeMdcBzOVKjRu
+	RHvX/ML0n3Q992CWYeSX+BlqheQIUntO+TpJPH25Bv3CYVa7Sh9+ff6qprtfJjKwjT1l4UzbK6JJL
+	HiIJS3JZzod0RtRg4DPxJ1CfZHa/sI17JjxEkVfL/ClI6i4tx7RJp0TymLet+YqGn9RjbgQA0r7x9
+	swwaCxIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5V18-0000000Bw6I-0e1V;
-	Mon, 28 Oct 2024 19:03:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5V2h-0000000BwNH-2qXk;
+	Mon, 28 Oct 2024 19:04:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5Uqr-0000000Btwm-3J9o
+	id 1t5Uqt-0000000Btx9-2ZKa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Oct 2024 18:52:31 +0000
+	Mon, 28 Oct 2024 18:52:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D242CA42AD1;
-	Mon, 28 Oct 2024 18:50:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99849C4CEC3;
-	Mon, 28 Oct 2024 18:52:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB5F75C5DDC;
+	Mon, 28 Oct 2024 18:51:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F29D2C4CEE4;
+	Mon, 28 Oct 2024 18:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730141548;
-	bh=ZASCXqyqeKEqmkgLJmRKVYVAx20KxDN1lRlbt5A3fTM=;
+	s=k20201202; t=1730141550;
+	bh=aOaHr4oONyfJNeV8zxUGMQ48BDUo4kPUaMe9VE1kEIM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SlQxEFz7DrVnEJOW/sRypc1wm8pKWjk41lSbDk/n+rQhpZNMZFot5MSStmb4ve8yH
-	 InAB8xVutdi6YWWNziUzp30uaVK8/+ZitVLZqjC9KEfOedZLuy0bl2RBxWC+Wq3UNH
-	 x92KgaXo4aFxvocDOSLMBaQwfm+kql1I8QnDdNefQjtOeT4ZJdQjnnByne1vTN6lJ8
-	 y5omnyXk4p+PkvfQ6WJVJ+NyLsW9jRiOer6zkJkiy1qdFcAysWXpoiaqBFMV8fjjhX
-	 4HMsJzJt0kKRf7h6drgVAgmnLqTKNnZINv/ErENgCcRKlM1ejM/i2JLsCV0qBXRPdF
-	 SFGnTk131IbMA==
+	b=XrtKYXjIPHN7+hSKciIP782In5nosaMgoCPNmoVqEZHzYbFxBseBaL+5hXfJQuxFd
+	 ldUPyXec5fhWIXRTQukN2dtAOmH0aiFDAX8BHNnFzDpzwPPi6wTBQVvWySQo0jX6VT
+	 Id8JZmhWAvZxfuQs4TR9GBHi6qEhIjaOiSpZrEzDZvsPlbMrsIvpVQJTSIYRB3wzqF
+	 0dXTRk+9EDN8LfmjhByTkT9VvFlASLCw+yhuuFgkovmrVbUNY8raiuFiNBCzEjOMlo
+	 XDXdXgVJ8b4LUzcfZGVExzJ/BpSF6s5ADhH00aLr7rFzvMFBcDXhhxJOJZ+ekyBeH9
+	 2I2cu4Ijn/plw==
 From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Gowthami Thiagarajan <gthiagarajan@marvell.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Marc Zyngier <maz@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	gcherian@marvell.com,
-	sgoutham@marvell.com,
-	lcherian@marvell.com
-Subject: Re: [PATCH v10] perf/marvell: Marvell PEM performance monitor support
-Date: Mon, 28 Oct 2024 18:52:20 +0000
-Message-Id: <173013693587.4157891.11060695677574129414.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control
+Date: Mon, 28 Oct 2024 18:52:21 +0000
+Message-Id: <173013643645.2908148.3061264044552373982.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241028055309.17893-1-gthiagarajan@marvell.com>
-References: <20241028055309.17893-1-gthiagarajan@marvell.com>
+In-Reply-To: <20241002184326.1105499-1-robh@kernel.org>
+References: <20241002184326.1105499-1-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_115229_907641_1D0FFCEF 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20241028_115231_711654_0DFE90E0 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,22 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 11:23:09 +0530, Gowthami Thiagarajan wrote:
-> PCI Express Interface PMU includes various performance counters
-> to monitor the data that is transmitted over the PCIe link. The
-> counters track various inbound and outbound transactions which
-> includes separate counters for posted/non-posted/completion TLPs.
-> Also, inbound and outbound memory read requests along with their
-> latencies can also be monitored. Address Translation Services(ATS)events
-> such as ATS Translation, ATS Page Request, ATS Invalidation along with
-> their corresponding latencies are also supported.
+On Wed, 02 Oct 2024 13:43:24 -0500, Rob Herring (Arm) wrote:
+> Armv8.9/9.4 PMUv3.9 adds per counter EL0 access controls. Per counter
+> access is enabled with the UEN bit in PMUSERENR_EL1 register. Individual
+> counters are enabled/disabled in the PMUACR_EL1 register. When UEN is
+> set, the CR/ER bits control EL0 write access and must be set to disable
+> write access.
+> 
+> With the access controls, the clearing of unused counters can be
+> skipped.
 > 
 > [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf/marvell: Marvell PEM performance monitor support
-      https://git.kernel.org/will/c/e1dce56443a4
+[1/1] perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control
+      https://git.kernel.org/will/c/0bbff9ed8165
 
 Cheers,
 -- 
