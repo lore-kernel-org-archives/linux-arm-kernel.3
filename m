@@ -4,223 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486EAD13588
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A078D13588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Oct 2024 05:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTr10uYgFguXGzgawNSgAycW0bOcEzhzqKqPImrOmXo=; b=CoXGlnHOr6FCtw89dYjipT+BDe
-	YZR8A7WLqSs2NhPb22qW6GUrILC0oG4kY5NqspVxTXUxj2MbEpuDwPRKpsmnyO16U4ixGlM3KpFUm
-	dUKwpRoWBXs2eUdzHA0+t26auAx+IHf3U06RT4m2jXTEmNryhRzfc12Eh5gF+Rp0a67WN3rIA/13w
-	AO+YIbwWbDcMB/8Z51MLBvLUvLz1j5YYzo7ITKmv//jdd8Y93uXaPPzuINUgNUZdpvrlwPNyg+1Kn
-	jQ9BelLQ8yJVmvIoQb9R2eW9YI3j/p/hdzA34bCbZ2jj15YzFr+MJSjxgyRsU9KX9eEQ84DB9L+If
-	Lc9OIJLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dv7+rR9AwpA7tQj3oL00LAfLVN3Hl1x2TuG62KQGJls=; b=2ZgVSE4DkZx8v6
+	nYNA3wkVXq1Yqpu1uOU5V/3paYPS9PoI2vmzcMf6BkH+/aL1qkT6huIyiEGLsSN8xeG3iZr8wDYTU
+	fZ9y1GRAzyFZhjYX19Vat/LiCdxQJlSc4D/sGJbvxVgYzx2PQsSCh/poH8kIr3XQz9M9X/dEs0T26
+	C6ssa8y2idmROp8S9+J/uEgT6iftSU1smiumC1PCOwJ3yQ+O6eDXZaFQo5Q0ZN1lZU5uKqXiHm5u2
+	ZumNl9gT6xK2Pbc1q02X/ms5xagBBYwgN3Mwr2LdRfgq1dEGmIvzA71Z+TTTaY6U5wr8u+1a0jr1J
+	H8/jrETb6bY7gGBCP5mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IHx-00000009aRe-0BlU;
-	Mon, 28 Oct 2024 05:27:37 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t5IMJ-00000009b1g-32Ta;
+	Mon, 28 Oct 2024 05:32:07 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5IGM-00000009aDb-0WOW;
-	Mon, 28 Oct 2024 05:25:59 +0000
-X-UUID: 1848122e94ed11ef82ff63e91e7eb18c-20241027
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=VTr10uYgFguXGzgawNSgAycW0bOcEzhzqKqPImrOmXo=;
-	b=bcCU8dpdpzajBUEYS4TQpbqfRh3R5vZWF1Vt046NA1+L9shgLoG1TZW7EI8tm4TCL7UUOGM2+OUn2T82CZ0R0JBkqBGU2fhpNPYwiRr4wISF/nYZD845zrHkSByLCEqnsWMKbQwIAVVJVUu6FMHsus2hFkdXj6byKdrHR/7uMsQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:f43964b6-b030-4935-80ea-7b08cb1464c5,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:3760342e-a7a0-4b06-8464-80be82133975,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|-5,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1848122e94ed11ef82ff63e91e7eb18c-20241027
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 487399716; Sun, 27 Oct 2024 22:25:50 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Mon, 28 Oct 2024 13:25:48 +0800
-Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Mon, 28 Oct 2024 13:25:48 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C85UJZGHccUbAvOuJUFnd05YY+hVEXvAbmS42uABxnM4eEhoC4JPOO/MDuVsqukufa2Ioie+rljqU7RkN5fDhM8ihrZUlE3usm90Vx0Q6SUACswWSLP4k0zordFIQSGB8bSCpkV/hOm/A42u+GtBUZRtTjp3yHdoT+AQPXyjGfdXq9+xtW93UmJUbn5m5Lb/U2EO29zYErdX/UEPzMN+mRA44O5sCbCrCXftVpzk3NDghBh5gAv9nGny5qZb66nWR5yi5kRHv5+yQOzuAOJkKc1ELElPmfaql6VzcG4qkoh+Nj62qNjIKH7HkqxPLzRjmEIqCPUOJc5YYqueWNdFxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VTr10uYgFguXGzgawNSgAycW0bOcEzhzqKqPImrOmXo=;
- b=u52L+/VZG+EYuyJ4ABpLhaBrEzsB58ax4F4A2mX+jOxc7naf0/KUH5A7DqXZgxGf0US7Xh/ara3un2I1Wqtxoip9//NybQPRYSnaXCGr2hsKyLUWhgupYqt6tJzAzaVszmKTJrtfPaoZeRv+0Q129l+tZtzq5Q7KfEz57PCW6nMwNZcdj0DtFhg69zQyRW1jvWbUCnUMZzqfKOfGNYDGABsN6ZBCrvLZvX1goR6yS4A4PI+Hd4rkB3JJJomfpmhZuJfT6JhiQ5rt075m/8mGpLkwKkAt1QhJ8V9+N/AFGEago5IrxgOj//EClRjaRpnNLxaH1v9GZCi6WJvNfflAhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VTr10uYgFguXGzgawNSgAycW0bOcEzhzqKqPImrOmXo=;
- b=inny4BeEi61/Zq0RZg93Dwa11J1lsrlG1ninpVcz1rmFZWAjgniLdjwFRpOBvK+5xHdJjuf2uLkepT4YsP8Q5/kWZH/iRKji+LKD3/4Xo/Z9jnSp3DSe9SxZjssLQKy4ooxT6bSINeUEo22TFHr9AS/17j7CmreDRug/G7R4M3c=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by TYSPR03MB8158.apcprd03.prod.outlook.com (2603:1096:400:471::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.23; Mon, 28 Oct
- 2024 05:25:43 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%7]) with mapi id 15.20.8093.021; Mon, 28 Oct 2024
- 05:25:43 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
-	"christian.koenig@amd.com" <christian.koenig@amd.com>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?U2h1LWhzaWFuZyBZYW5nICjmpYroiJLnv5Qp?=
-	<Shu-hsiang.Yang@mediatek.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"yunkec@chromium.org" <yunkec@chromium.org>, "linaro-mm-sig@lists.linaro.org"
-	<linaro-mm-sig@lists.linaro.org>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, =?utf-8?B?WWF5YSBDaGFuZyAo5by16ZuF5riFKQ==?=
-	<Yaya.Chang@mediatek.com>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	=?utf-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?= <Teddy.Chen@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "hidenorik@chromium.org"
-	<hidenorik@chromium.org>, =?utf-8?B?U2h1bi1ZaSBXYW5nICjnjovpoIblhIQp?=
-	<Shun-Yi.Wang@mediatek.com>
-Subject: Re: [PATCH v1 08/10] media: platform: mediatek: add isp_7x state ctrl
-Thread-Topic: [PATCH v1 08/10] media: platform: mediatek: add isp_7x state
- ctrl
-Thread-Index: AQHbGj2y1UKRq3h+wU6S0U6tpTQ9lbKbvcmAgAABZoA=
-Date: Mon, 28 Oct 2024 05:25:43 +0000
-Message-ID: <6ebd023637e80bf24662975b61cd37077a251797.camel@mediatek.com>
-References: <20241009111551.27052-1-Shu-hsiang.Yang@mediatek.com>
-	 <20241009111551.27052-9-Shu-hsiang.Yang@mediatek.com>
-	 <1e6d50edc8c14313cdf2bd1b9d33e94e88ed2770.camel@mediatek.com>
-In-Reply-To: <1e6d50edc8c14313cdf2bd1b9d33e94e88ed2770.camel@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYSPR03MB8158:EE_
-x-ms-office365-filtering-correlation-id: 3fb61f1d-d3f0-4dcf-d01d-08dcf710f836
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?eWhEMnZJRlZmZDZXR1dlMmVQSWNPSHdIK2dEN3NrQ0tkZjVLaS9xVUdJeW9G?=
- =?utf-8?B?ZGZnalBEYVFHSGRYellEV0VEeUsrVG1lVDBLVFhNcGJRcFBZM2JsbFBtQ2x5?=
- =?utf-8?B?L1c3aDNWUGZnV3FFUTIvVENrWEMyNXVRVnRIK2R6NEVGNmc2WjdPZmZKSlVK?=
- =?utf-8?B?YXREQWRWbUY5Tk42MkNFdDh2TS93ZkZ6TFBUelMzVkV6TTVEdHRpaHVIMHpZ?=
- =?utf-8?B?RUNIUEs1WGNFdG5xa1UyU2QweThaY2hoVDg1YWk0UEZuV0dnalJwVGNuYWRw?=
- =?utf-8?B?TFVuSWNxcElmdjlVNk1OeUJ1TnpPbzdEdURwMFExYzQ0bFZsTWh1TkVvcFZ1?=
- =?utf-8?B?WkhDUUhwcmxtR1BnNWtTYVdOR1FXbTJsblVybFQ3K0tIS0RGS2JvQ2NLdEtm?=
- =?utf-8?B?elpxeCtIbCtLN0IwTmpId0ZiMStmc2k2RCtxcTNXWldYdWtPazEvRFVlTUxG?=
- =?utf-8?B?Q2dTK056VCtsQldZTVlaUmZERVd3MVFIb1h5SjhEczQ5S1Y5Sy9Nek8vRFFJ?=
- =?utf-8?B?YkpOMUpRWlJZVi8rUDZ3VDBWcnc3R2dFZ1NhWlpVQ3NjNXgwbisycFBtN1NE?=
- =?utf-8?B?RzkyRmtXZkl3Z3dTeFJudnZjaGg1LzRiWVoxR3d5Z2xJUEM4QUtUbjdrcVJl?=
- =?utf-8?B?N1lQdm5vc3VWNzhuSkRHUU05WE5EVFB5dWdEanJnOUJrdlRRaW1DQlJXOGtB?=
- =?utf-8?B?ZGgwdnJnVm4zOUtYUWprQlkrYklLbS81WmlONDNsVkVJVU9ERjk2UHVnelcx?=
- =?utf-8?B?UnFrZ0hFMXBKYmZqRUJsUlJDdWxTZ2xpTHF0MnZJYzgwSTJNMkFPLzkvV2tR?=
- =?utf-8?B?dXNIdm16TitwVFgwQ3FnNXhkODVNNU9SNGd6bmtEUDQzaFBTeGxjd091QTVx?=
- =?utf-8?B?ZENJSHVRdjZkK1BPcjhHQUZERkFKaW85VUpPVFJvNVhrTWt6c28vTUlhaWpx?=
- =?utf-8?B?RXpqQ3VSTVRtaks5V0RTZ2hSYko2M0x2N3ZySFBtZ2NZcyt3S2VnMGFINWRR?=
- =?utf-8?B?dUEvbUp5am9UdUdpZnRrME9URUE2cnVWQlk5bHF2N0VIWUV3Z2M0MHlXb0do?=
- =?utf-8?B?cHJnK1NEaExCaytPTWhpZEgxRmFNTVVuWW03OXVra0pteEJiYkZTREpSZk0y?=
- =?utf-8?B?QzdmTGM2L0VBUVBEczF4TFVjMFIvZ0Q1eXIyUmlNYkZPRUxQbHRFRTBEdTZh?=
- =?utf-8?B?dlVUd2tJSkoySHVWbXBRaEFwYkl6SzdFMU1iU3NoNkIrd2s0NFlRU2Q1Q1Bn?=
- =?utf-8?B?N0hPc05pZjBZWlM0RDUzbFNqMzRGc1dPcTdWeUZSVVFtZFFaSlE0YmNpMnBm?=
- =?utf-8?B?aUwySzBPMUsreWVLSFYrZjVrazlrNWVVMU1sMlp1YzB0NUdNSU9hbU9Tb1hB?=
- =?utf-8?B?OS9GUjliTEdNcHFIRVdCMll6eFVPSUZpYkYyWm9Jb2hzQ2dodlpoWm1NeFpw?=
- =?utf-8?B?Q2xwNXFOd1VEYzhvVWxROTc5eS9UeHdWSDBrNzNMNVI2MUxBTGdMeUxIamJH?=
- =?utf-8?B?bUx4eFhka1RMSkhZUkNidERwQkU1Q0R0VUNCUkc5alNBRURvcVA1RmYxUlYw?=
- =?utf-8?B?VEp3N3lHd2M2bWw0VEwzSkpLaVl4MG9MZzE1QW1EallKNnBTb09kSjh3YlZn?=
- =?utf-8?B?NDBydmtqRUxPYVUvYm9yUUhDUlNYeURRNk8weG9qTlFvTFFCUlRKUEEwTXZX?=
- =?utf-8?B?ZkFld1pTc05uNllWWjV0Z0JmMndtb3dQSzdwWmpkUmdkbGtNRHVmeVFDa212?=
- =?utf-8?B?NHcrbmh2SXdycVRYdHpRSjlYSGJHSkUvV2JWUVJuN0w4U0l6d1MxQ1dtcEZR?=
- =?utf-8?Q?0ft1jRZ4gRO9UAmSaw+VQnb8I+nuTh7B55knY=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?S2Z0VU81SzREZjIzKytwbjhvRnUyNFdvNnJCT0V1aG1OZWUzVzNNTnBmYkds?=
- =?utf-8?B?NnREajk0eXJaSU1jYzFOY24vV2JlYkl2TGRGbk5UdnQ4MURNbkhQMFhPbDRB?=
- =?utf-8?B?OFBMTVdhbUFSWEU4UW43d0dsZXdEa2s0MnY4eHhmTFM4RXF1UDhONlJvTTRw?=
- =?utf-8?B?L3lJcm9XbDBEQ0lKd1BTcm01YjhTU05Xdjk4c3VZMm9yRGFyNVJSOWFBWHcx?=
- =?utf-8?B?dnFGQllrbldUREpMTFlVTjdrNnRjSWp2ODdwMHkyTFQwZ1hyQnU1UkltTjhB?=
- =?utf-8?B?eWU0OXJlZTczWTR1UjFEdU5MeGNxVU9sc0l4Sm0yRE5ZM0NhZVV1eGpZZVc2?=
- =?utf-8?B?UnhsSUlLK1c4dUxoZGpVRDhtcFJuWjVxSk9ubEoveE1zeUpNUE5xcW9JaDR6?=
- =?utf-8?B?SjdxM3FwbXFvNjlNMngvTlV4Y0d4Q0x0Q1dMdHBNcUh1SDNGbHFrZWRwSXgy?=
- =?utf-8?B?cjlrTnBUUmhPQm83a2ZKZW0xNThablpwT1cvZXg4Y0UyaHFnZ0JzSHJtT0ZZ?=
- =?utf-8?B?eDZJR1RqVkJMZ0NybEFIeittZ0MwZENPakNEV1l3TU5kbGN6VEFlTXcyWkdI?=
- =?utf-8?B?TG1EUlZWN2x6QWdqYmE3a3pzVkVzcFBRUThaVG1jZkdnNGhDRS9wODQ2SERK?=
- =?utf-8?B?Zkl6VDBoRDBBa1JkVVpNckQrLzkyV2NmR3AreGladjZmcTNlOUJwT3E2WEdm?=
- =?utf-8?B?dG9NOVpacVNQcXFwWjdwVEx2LzVIVHAwV3FuTmlsUXZaSjdlNWJoMnhwTGls?=
- =?utf-8?B?T2Q0a1lEM1ZLUGgzblg0Q1hMNWlhOHVrTm9PdndnR0VlR0VhK0NhdFNOMXo5?=
- =?utf-8?B?azVGZk5ObHpyNStWNVMvUTdncGZnNk5KdldlUHZkUVVvV25PT3JNTGpxSXNo?=
- =?utf-8?B?UzJoeGJveGxIMjFvd2JMUUdLT2RGSjNmdzlyRGthNXV1dXFvY0NraklQUklF?=
- =?utf-8?B?cG1XdGtyKzlJblZoMldJSFlxdlF2dWFzNlVRZGVNRWhlcklCbnQvdXdKS21O?=
- =?utf-8?B?SVpqYnNtK3F5L2dKZTZPYklxSmhFRmIydVh1QU53c05iV28xK0ZtM1kyNjJp?=
- =?utf-8?B?cGhFZi9seitybWZoVkQyNXEvbFJzNEVwNHRqdXZ3bm5qMm5pNWJuQ0xGdTdi?=
- =?utf-8?B?Z1ZNbEZYVDV5UlR6Z2syaXZCdzdpRkVDQ3pCeS9lZzdQK2w5RDR2SWVGRmJZ?=
- =?utf-8?B?Tlo5Q1lHWjQzUmg0S28wVTBKaXF0U3NrN1RjK09iaHZyY3Z5SGhFKzRuYU03?=
- =?utf-8?B?dk9ZMG5pU2N4QzBsMGtuZ2c5enZacnRVY3J1RkZoT0xKK2txdEl4S2lIQklV?=
- =?utf-8?B?dmQydWFwVHZseDJpRzJqNjdHcUtUUlM3WTJJN2ZYemNNRHZUU3lWck95amhz?=
- =?utf-8?B?cjZhQ1J6aUV0YzZ4eWNneTNrZCtVRk4za0t3NmV3SnI4MmpXQ0FNamxJbys2?=
- =?utf-8?B?ZHUralgyQkxCUnFhak9wcEtkaDB2T1VyODFtZzRxWmNCQmQvQzlmV2JWdjlO?=
- =?utf-8?B?UnFMeTlEZytZZzh3VnpaaS9hSUFQN3FFRC9qVDBSZlo5QjZ4ZVJkSll5ZDFl?=
- =?utf-8?B?T3h0ZWZTVHhVQm9Ubmo1OXQ3RFQ2SGYvRmlKcjVhMjBiTUdCUWRVTzNJWlhJ?=
- =?utf-8?B?anBJKzdaUGhkeHhVNTJ0MHhnMC9CajdzV3BISFF4RVlNUGpMT0FrSWJpNXlU?=
- =?utf-8?B?WkVuZjYwOC9USzJJWmZ3eGhnQXRFOEI2eTRHakx6dnc5TncxRlFRT0Fua2hL?=
- =?utf-8?B?MlZmbU16K1h3VUFOL2tDYjNZRlBsaVlhWmxMZ0hQWklycGVKYjVuYmhvTjRC?=
- =?utf-8?B?NTl0VFFCdWFFeG83USt1UUdvRmpTdDVxTHNSU2NtRXFJZ1FpSzVMSm1FYTBO?=
- =?utf-8?B?WmE0NmVvR2JJSEhqSVUrNFkxdE9mZkZiNE1IYlRKN3VMcWE4MVR2bGNtNkhT?=
- =?utf-8?B?MDRUbm96U2sweFdQZTZwSFNNZjJRRnUwUldHUS9NOEdTWW5yR0ZQUWl2dmd2?=
- =?utf-8?B?SlJwdld1UkUxMDY4SEora1FNeTFVMkc5eFFpLy84Y0owTlNFSitubzJ5TG5o?=
- =?utf-8?B?TGU2ZUpNZmJmNU1zUkRJdHBCMlJxYVZVZnRyMEhYMDR6b0Nhb3ZQR29Ha3Qw?=
- =?utf-8?B?WXZmVllvM3NYcWtrVHVoUmR6MGgwcW8xT1pzdEU2Y0JPVEc4QXAzV0ZlenA3?=
- =?utf-8?B?VEE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <234C7C009C4B15429E900B8DD53FED2F@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1t5IKf-00000009afT-3g3p
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Oct 2024 05:30:27 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Mon, 28 Oct
+ 2024 13:30:18 +0800
+Received: from twmbx02.aspeed.com (192.168.10.152) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Mon, 28 Oct 2024 13:30:18 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: <ryan_chen@aspeedtech.com>, <lee@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
+	<andrew@codeconstruct.com.au>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<dmitry.baryshkov@linaro.org>
+Subject: [PATCH v7 0/3] [PATCH v6 0/3] Add support for AST2700 clk driver
+Date: Mon, 28 Oct 2024 13:30:15 +0800
+Message-ID: <20241028053018.2579200-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3fb61f1d-d3f0-4dcf-d01d-08dcf710f836
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2024 05:25:43.5445
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: bUDJ3S7t9GeeiJAyLTbq24ZGCGAO0L6BhKACrqL83oZYvTNIO4q9+IUOiDxhYO8C88amqF1ZSnlqaRmcDzhDuA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB8158
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--16.736200-8.000000
-X-TMASE-MatchedRID: 7ySqCuYCpfj4OiVTWoD8RCa1MaKuob8PC/ExpXrHizyX0aNVfPpyq/Ax
-	2yQOAW2940NH+QBQ1HKMyv4sRvPuVBFetKpHyMm5z5rIW0RbS5gc5VtPyiEZ4XvsbfoZixUTVSd
-	AA6mVeIbMAS+aj7ouPI3/d0NuPcI1QkfxbJAyTm6eAiCmPx4NwMFrpUbb72MU1kTfEkyaZdz6C0
-	ePs7A07QKmARN5PTKc
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--16.736200-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 03373147F6518987C2EA55CFAEAD4A4B82C312F1B8ACB3EF836462776FDE56292000:8
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241027_222558_211729_E37ABD70 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20241027_223025_939532_50839B55 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -235,31 +66,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI0LTEwLTI4IGF0IDEzOjIwICswODAwLCBDSyBIdSB3cm90ZToNCj4gSGksIFNo
-dS1oc2lhbmc6DQo+IA0KPiBPbiBXZWQsIDIwMjQtMTAtMDkgYXQgMTk6MTUgKzA4MDAsIFNodS1o
-c2lhbmcgWWFuZyB3cm90ZToNCj4gPiBJbnRyb2R1Y2VzIHN0YXRlIG1hbmFnZW1lbnQgYW5kIGRl
-YnVnZ2luZyBtZWNoYW5pc21zIGZvciB0aGUgTWVkaWFUZWsNCj4gPiBJU1A3LnggY2Ftc3lzIHBs
-YXRmb3JtLiBTdGF0ZSBtYW5hZ2VtZW50IGVzdGFibGlzaGVzIGNvbnRyb2wgb3ZlciBJU1ANCj4g
-PiBvcGVyYXRpb25zIGFuZCBldmVudHMsIGRlZmluaW5nIGRpc3RpbmN0IHN0YXRlcyBmb3IgcmVx
-dWVzdCBoYW5kbGluZywNCj4gPiBzZW5zb3IgY29udHJvbCwgYW5kIGZyYW1lIHN5bmNocm9uaXph
-dGlvbiwgZW5zdXJpbmcgZXZlbnQgcHJvY2Vzc2luZy4NCj4gPiBUaGUgZGVidWdnaW5nIG1lY2hh
-bmlzbSBlbnN1cmVzIHN0YWJsZSBvcGVyYXRpb24gYW5kIHRpbWVseSBkYXRhDQo+ID4gY29sbGVj
-dGlvbiBkdXJpbmcgYW5vbWFsaWVzLg0KPiA+IA0KPiA+IFNpZ25lZC1vZmYtYnk6IFNodS1oc2lh
-bmcgWWFuZyA8U2h1LWhzaWFuZy5ZYW5nQG1lZGlhdGVrLmNvbT4NCj4gPiAtLS0NCj4gDQo+IFtz
-bmlwXQ0KPiANCj4gPiAraW50IG10a19jYW1zeXNfaXNyX2V2ZW50KHN0cnVjdCBtdGtfY2FtX2Rl
-dmljZSAqY2FtLA0KPiA+ICsJCQkgZW51bSBNVEtfQ0FNU1lTX0VOR0lORV9UWVBFIGVuZ2luZV90
-eXBlLA0KPiA+ICsJCQkgdW5zaWduZWQgaW50IGVuZ2luZV9pZCwNCj4gPiArCQkJIHN0cnVjdCBt
-dGtfY2Ftc3lzX2lycV9pbmZvICppcnFfaW5mbykNCj4gPiArew0KPiA+ICsJaW50IHJldCA9IDA7
-DQo+ID4gKw0KPiA+ICsJc3dpdGNoIChlbmdpbmVfdHlwZSkgew0KPiA+ICsJY2FzZSBDQU1TWVNf
-RU5HSU5FX1JBVzoNCj4gPiArCQlyZXQgPSBtdGtfY2Ftc3lzX2V2ZW50X2hhbmRsZV9yYXcoY2Ft
-LCBlbmdpbmVfaWQsIGlycV9pbmZvKTsNCj4gPiArCQlicmVhazsNCj4gPiArCWNhc2UgQ0FNU1lT
-X0VOR0lORV9TRU5JTkY6DQoNCkNBTVNZU19FTkdJTkVfU0VOSU5GIGlzIGFsc28gbmV2ZXIgc2V0
-LCBzbyBkcm9wIGl0Lg0KDQpSZWdhcmRzLA0KQ0sNCg0KPiA+ICsJCWlmIChpcnFfaW5mby0+aXJx
-X3R5cGUgJiAoMSA8PCBDQU1TWVNfSVJRX0ZSQU1FX0RST1ApKQ0KPiANCj4gQ0FNU1lTX0lSUV9G
-UkFNRV9EUk9QIGlzIG5ldmVyIHNldCwgc28gZHJvcCBpdC4NCj4gDQo+IFJlZ2FyZHMsDQo+IENL
-DQo+IA0KPiA+ICsJCQlkZXZfaW5mbyhjYW0tPmRldiwNCj4gPiArCQkJCSAiTVRLX0NBTVNZU19F
-TkdJTkVfU0VOSU5GX1RBRyBlbmdpbmU6JWQgdHlwZToweCV4XG4iLA0KPiA+ICsJCQkJIGVuZ2lu
-ZV9pZCwgaXJxX2luZm8tPmlycV90eXBlKTsNCj4gPiArCQlicmVhazsNCj4gPiArCWRlZmF1bHQ6
-DQo+ID4gKwkJYnJlYWs7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICsJcmV0dXJuIHJldDsNCj4gPiAr
-fQ0KPiA+ICsNCg==
+This patch series is add clk driver for AST2700.
+
+AST2700 is the 8th generation of Integrated Remote Management Processor
+introduced by ASPEED Technology Inc. Which is Board Management controller
+(BMC) SoC family. AST2700 have two SoC connected, one is SoC0, another
+is SoC1, it has it's own scu, this driver inlcude SCU0 and SCU1 driver.
+
+v7:
+-reset-aspeed.h: fix declare static inline aspeed_reset_controller_register
+if the function is not used.
+
+v6:
+-patch-2: add reset-aspeed.h
+-reset-aspeed: add include cleanup.h for guard()
+-reset-aspeed: change ids name clk_aspeed to reset_aspeed
+-reset-aspeed: move aspeed_reset_controller_register,
+aspeed_reset_adev_release, aspeed_reset_unregister_adev from clk-ast2700.c
+-reset-aspeed: drop base check, since it check in clk-ast2700.c
+-clk-ast2700: sync each gate name from *clk to *clk-gate name.
+-clk-ast2700: add CLK_GATE_ASPEED to diff clk_hw_register_gate and
+ast2700_clk_hw_register_gate.
+
+v5:
+-patch-2 Kconfig: add select AUXILIARY_BUS
+-reset-aspeed: #define to_aspeed_reset(p) turn into static inline function.
+-reset-aspeed: modify spin_lock_irqsave to guard(spinlock_irqsave)
+-reset-aspeed: remove unnecessary parentheses.
+-clk-ast2700: use <linux/units.h> and refrain from define clk
+
+v4:
+-yaml: keep size-cells=<1>.
+-merge clk,reset dt binding header with yaml the same patch.
+-rename clk,reset dt binding header to aspeed,ast2700-scu.h
+-reset-aspeed: update tables tabs sapces to consistent spaces.
+-reset-aspeed: remove no use dev_set_drvdata.
+-clk-ast2700: modify reset_name to const int scu in struct clk_data.
+-clk-ast2700: use scu number in clk_data generate reset_name for reset
+ driver register.
+-clk-ast2700: fix pll number mix up scu0,scu1.
+-clk-ast2700: update dt-binding clock include file.
+
+v3:
+-yaml: v2 missing send yaml patch, v3 add.
+-yaml: drop 64bits address example.
+-yaml: add discription about soc0 and soc1
+-dt-bindings: remove (), *_NUMS, reserved.
+-dt-bindings: remove dulipated define number.
+-dt-bindings: merge clk and reset to be one patch.
+-reset-aspeed: add auxiliary device for reset driver.
+-clk-ast2700: modify reset to be auxiliary add.
+-clk-ast2700: modify to be platform driver.
+-clk-ast2700: modify each clk to const clk array.
+
+v2:
+-yaml: drop 64bits address example.
+-yaml: add discription about soc0 and soc1
+-dt-bindings: remove (), *_NUMS, reserved.
+-dt-bindings: remove dulipated define number
+-clk-ast2700: drop WARN_ON, weird comment.
+
+Ryan Chen (3):
+  dt-bindings: mfd: aspeed: support for AST2700
+  reset: aspeed: register AST2700 reset auxiliary bus device
+  clk: aspeed: add AST2700 clock driver.
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml      |    8 +-
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-ast2700.c                     | 1513 +++++++++++++++++
+ drivers/reset/Kconfig                         |    7 +
+ drivers/reset/Makefile                        |    1 +
+ drivers/reset/reset-aspeed.c                  |  302 ++++
+ .../dt-bindings/clock/aspeed,ast2700-scu.h    |  163 ++
+ .../dt-bindings/reset/aspeed,ast2700-scu.h    |  124 ++
+ include/soc/aspeed/reset-aspeed.h             |   21 +
+ 10 files changed, 2147 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/clk/clk-ast2700.c
+ create mode 100644 drivers/reset/reset-aspeed.c
+ create mode 100644 include/dt-bindings/clock/aspeed,ast2700-scu.h
+ create mode 100644 include/dt-bindings/reset/aspeed,ast2700-scu.h
+ create mode 100644 include/soc/aspeed/reset-aspeed.h
+
+-- 
+2.34.1
+
 
