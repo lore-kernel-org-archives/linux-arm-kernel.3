@@ -4,67 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DD0D3A66B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF5BD3A66B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/l2svaTzZ+AiDvUzyRRzZRqHQoQCXsogemwGjfJUps=; b=Dr2d1fI9bvqrO1Ofe0ff58Uda8
-	KOUMqWsiIWUQHQ1RzOj4MLMiba0x3yRAnQWyg9f9ERRV5yMFTp4Kp2sfrAscpp4FY5dzIwwEJC6Ta
-	Mj3B7z0Ji0Rd/VS6Qe6pJ8nRrhiQnoQARDLXQkNm6wrpGHFk52zGCIi8clADReDVj4buC7PVQUHnu
-	CpsJDxFqjUTnu6dfjUUixjHutYz3As53dknQ10zxgliEhFaRG+F0QpGJmry25Hesfl+twRyqqEnCb
-	KEPkwNj+Zx1v1YgpSOj5LcxaevNUYKprZFG3O7hgBsZ/EWx6J0YFXQEYWiPJDSh9u2cDZtNvWqxPJ
-	EXaXdWGg==;
+	bh=954MQIFYfA2JQMytxuXtZxiZV9LQUF91cAYq0LSm0XY=; b=pqFDqsdSknd34zwH2oPuu5KEOc
+	Yb8Ov7p3rNuoHo1rBILVgbxCIA5Nn/IHrE+6Ss8SwL+6QkmXkywMhqurIkgirxuBp6O6Y4oWYC8rV
+	/9mWdcyMlQJ4N1/SLLB1btgERRf/ZwJjJRL01wzpUtOiHRAeQKzTb3ke6HdJCN8dCUdduaioDvucy
+	oDK1nJwQ9foAYaD+WeSqEKTQYJjF1TKMIdrLyQRv20u2KXzqbfg1meQh/WFjLwM/Sa6iXr6GMK3pu
+	AR4l88O8M96Bbr2lK9nBD96sQ8j0cwrD2iLbW48yj+ZX5MxHdU6vx9n0ufsqbHfnhpnjrb01GLsXQ
+	iIodDeTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5npY-0000000EpyM-35cS;
-	Tue, 29 Oct 2024 15:08:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nm3-0000000EoSU-2y6o
+	id 1t5nrA-0000000EqH4-0GRJ;
+	Tue, 29 Oct 2024 15:10:04 +0000
+Received: from mail-dm6nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2417::61c] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5ncN-0000000EnGK-3Qg8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:04:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDC51113E;
-	Tue, 29 Oct 2024 08:05:14 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 754203F73B;
-	Tue, 29 Oct 2024 08:04:43 -0700 (PDT)
-Date: Tue, 29 Oct 2024 15:04:41 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Brown <broonie@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
- error path behaviour
-Message-ID: <ZyD5iXikMzotl9mU@arm.com>
-References: <CAHk-=whD9MrPwPMBgVG16T_u+my8xYtZg2tUGz932HeodVX7Bg@mail.gmail.com>
- <438f50c5-8b8c-444f-ae85-10e5151f3f24@lucifer.local>
- <57mgmdx7wgfwci3yo3ggkmcnm3ujamgkwcccm77ypvmer5tegn@opiq3ceh2uvy>
- <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
- <bea02efe-a695-49e0-b15c-2270a82cadbf@lucifer.local>
- <CAHk-=whpXVBNvd0NJpw9=FGcuTuThwtfcKeM3Ug=Uk6kpChCPA@mail.gmail.com>
- <0b64edb9-491e-4dcd-8dc1-d3c8a336a49b@suse.cz>
- <CAHk-=wgE8410gu3EabjNEHhOYh1dyYwt23J62S4a9SYcwZUFhw@mail.gmail.com>
- <1608957a-d138-4401-98ef-7fbe5fb7c387@suse.cz>
- <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
-MIME-Version: 1.0
+	Tue, 29 Oct 2024 14:54:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=StlmFd6YRL4UkiYAgUxEf4FTCDYLcRzJtHWOW/PeVJX5yO8eFuVbLYBJ+d3eBrIajJcUXi2VFj8LwZZu4tiBpZBl4wq6a7Lm1++jI6eGfAziQ7vrgks00pgMDJpBxezBWdB4PNvDwYF4dJwXZx0+57pLUrKObAl3fJ2DqZPf7zlWDDeLpQSQ8Gt88WkbVqOiUYoZI5geRnZSxa2ANs9n3esVCl85vjdh8+CTZpozmhV4h0sD3GdVqnkhA+FB3RykL+8aJ1wIP9pWvb+7IiB+q7sKpMEbIGc/UgsoTGk+2d/c7JrqNKa/5juYDRQ8CFLBQvb3yy8P3zasv1VM1BizfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=954MQIFYfA2JQMytxuXtZxiZV9LQUF91cAYq0LSm0XY=;
+ b=yGvoRRg3lttDhWcXH7sULnlkiXU3mW6m1DLPzXR+jGTMDvilKmPDd0RRa7eBnxm9ZNk9MNYTgGRRVAhVRDmuQ2LCUoKXJOq3wDaMGvu4wW4IwwgoD/dT0R126Y5v7dOv69txoVcfT7XGzbB8t63U4+dyNpPzzjo2s8YQB6fWLHuFQChUbNPLw5bE8MhQOXwuLrgMCGH0oEDyPIUljF5Gyh7qUtPaMz+JWmBVfRuU1+D28TJZhV8YhtEZoWLHPKwP13DUkeD9aVUZaZS8jnncU4W9AKW972t67K6GfHCBrUX5iPUq1UY6d7xuGwsfu4T/SDiB+QohS2IEWhVkm3HUeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=954MQIFYfA2JQMytxuXtZxiZV9LQUF91cAYq0LSm0XY=;
+ b=qg2MOYBxUJnUlpGgQOcAniTnDRtbBRLpYbMaW3AvGizv9loveifz678/emlNX+cJFcTZTuEjO1MpZWd/lv7sX17GvBJ9MeSrFvH5IT0Jdf1FqZRoqNaB17IYMQrG9q7gGa04wv2BKx9H4MO/+ioDoDEsdBDiVw7iiBE0q7OUZn8nlnNRQhvcIrQIsMJ3bpCC9OXPIt6fOcHSC4gj4AgIljT4D78CPGuYY1mzjKf1jENoxVTLUY7O/nlobWAwXjHTOqmctvdQ8P9Rt3MOThP7XQxLfDv9xHNhrOVeV4l71azpGgvaL5NkC+tX83droYqi/mME/s5n3AhDEGRsxsn77g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by LV3PR12MB9355.namprd12.prod.outlook.com (2603:10b6:408:216::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
+ 2024 14:54:37 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
+ 14:54:37 +0000
+Date: Tue, 29 Oct 2024 11:54:36 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
+	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 04/13] iommufd/viommu: Add IOMMU_VIOMMU_ALLOC ioctl
+Message-ID: <20241029145436.GC209124@nvidia.com>
+References: <cover.1729897352.git.nicolinc@nvidia.com>
+ <f24628d774181da6df6e62bfa3376fbcacef8906.1729897352.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
+In-Reply-To: <f24628d774181da6df6e62bfa3376fbcacef8906.1729897352.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: MN2PR15CA0032.namprd15.prod.outlook.com
+ (2603:10b6:208:1b4::45) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV3PR12MB9355:EE_
+X-MS-Office365-Filtering-Correlation-Id: da78e835-ade5-4bf8-abf4-08dcf8299c06
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7/cSDGCcyAHDWEXD8bsH38bQzXnrTfkR150CJry+B5Rjvxd1Yq1QVcORU/xV?=
+ =?us-ascii?Q?s76Iksk1lGPU9SgSIOkeZ/UGD0HPwmOwREGyVfGCzN1N+hLpDVItnA9YLiLD?=
+ =?us-ascii?Q?97hrFWuxt2qq7zj7YmbT9O0ptTKDKvVyxLL8LiF86toXxLWFGlli1nCIq9Fd?=
+ =?us-ascii?Q?jI6Any3t6fJEpysH9M9X7oTzA0xc0Y9FZDeTACsMk3PLKEnjOkcQG8dBADF/?=
+ =?us-ascii?Q?0njzjLsc0y7ba3NYTh0gCAtVcW3GOJ+ILzcEkA8CCbelsePHw0ObNplMwSV6?=
+ =?us-ascii?Q?HUNWNkLfxdRs48nRKlukLRcrgqzaEDaDIWAmgCxYN/GlbYms3nrHrb4QN5yc?=
+ =?us-ascii?Q?PgxJynJHf1mPXb2Vt6UDJB53iN+xN2XeU5m0KMSJnp17BamEEl1VfNzZfulO?=
+ =?us-ascii?Q?yZl8xc4H4mE/C/tPZLIbSIKN4qp0JLp+ypsCflgVhROruHwyTUZBZcTrcZyL?=
+ =?us-ascii?Q?foobcqX5TdpHWfFqTE8ioJgj+Fap8VG47wwU25IIFYp5f/ADMroaEhmH4QkP?=
+ =?us-ascii?Q?2spvLy5F2taG5wlWx1UTUL+67BN6R6oUCScvMcHSZM94jj7r/oxN8aIw4im7?=
+ =?us-ascii?Q?6sw0xLGLMDDxgQy/txE2VvUrByc8ZSiuokCpPybe6Wa+ekzgNKwg0sig2t6E?=
+ =?us-ascii?Q?0BHQjjzg63E6MEkv/vbbhiX4Qa09j0ofqc8+wRyaLnAiL4TDyld/4C5n6zIq?=
+ =?us-ascii?Q?RRO7qXimJA54LAN4fv+3ITBYaVCtNjTyEBeQe8hB44ir+shhOiTFOCP/XXfZ?=
+ =?us-ascii?Q?saBUxNnnY1/469j70xWjCSfNwuf3hzCEiVZ+fRmDPi9FGfSTT9iaXHEibreZ?=
+ =?us-ascii?Q?oofZ/wVofHwq/EDLNYAkFuC86MBYHCPx+eQz41U2Wm2AJ2F4iMMo7uFp8Sr6?=
+ =?us-ascii?Q?2nnE8eMsYkzaRc9dkzpApKHRZmwg+Jz37Uj7161j3IoBerOI3Y3ydpTqdE60?=
+ =?us-ascii?Q?5LY6ZxK2LzoS2b5FXaEBCgv/LCqjvEuQbv50rjV7DT/xW376mVYDv6NIxwJP?=
+ =?us-ascii?Q?ZUdRNtPP2D5un2f1nU2Z3tLDRVIx3mf0q/F8QUanZCe7Wh1x606KVO/DN6Rg?=
+ =?us-ascii?Q?sw9S5womtGAVL8DVC7imN+FeyO5vHhRJoyUr3IEFGxgDIbhc6hSh0w+hdEDC?=
+ =?us-ascii?Q?ch4VMN28huUA8rHYRvyYJXFvn5C9IP23mvYOASP35rVRlicB46HPT2IHkoS0?=
+ =?us-ascii?Q?Q06C4iWTPnD3OPornCXQK36tDpGak2rWU4+0cCwEAHdMfcd9VlzMzrwenX6R?=
+ =?us-ascii?Q?aTpPgve3K3U7akFuNSkXUZa/SWlS55LhASAtv2OnbVvzonEqIz5YM/5gEHmt?=
+ =?us-ascii?Q?LHnrMrFNuV1yAciyN+QAV26f?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4tFHHWwe0VyZEilNWYZBlxMegQN13YxNk/wBdDyl1ThcQ8qiS4wd25DXb429?=
+ =?us-ascii?Q?yWmJiySoIhQySoVcQysSFpT1xR9RPQNH1XUiUR3rV+i1qM3EYGLhSRjTejg7?=
+ =?us-ascii?Q?w+D0WLe4otbceV/t6pJ7QYD8Cvg9v1C7TjrBrwdxuRCa5CVq44IH+D0veoKD?=
+ =?us-ascii?Q?G1lajZ1V9hIAwsJUkPcJ0xj2kbPCG3NAN+ynN+dhSNR3IB2q7M67pbms0uxf?=
+ =?us-ascii?Q?2qUAyGrWrawB4cCEVZxuA241AiVxXasOjZYPOR6WU2ZsJ4ZTJFgcFQkHoVXK?=
+ =?us-ascii?Q?9JGPnC1h/5mksxBv/1cScupGzXZot1cXAQSR4wV4KEbkIgNLKqqVMGRWdpbV?=
+ =?us-ascii?Q?KLvea7US4NWLOkyu4PXN+VVXtQE9QYqdgnKIHI9nfRSGjTS+SEr1wBMkn1KU?=
+ =?us-ascii?Q?N7WEbWyLlvIIAPVlWuaJp4/Ahnmd0NgkMMJhOKK0QRemY/+pYDfTM/ih5QJD?=
+ =?us-ascii?Q?bD6aGOhg8RF6ps66K3CPyxhE43IQRdwkQFbtozyOXOXAbLnhBbglxH0x+y9L?=
+ =?us-ascii?Q?eSG2cgd8lvd05IEHLyuP6X/Jhn5mfZPd4RKIpdcwANBhXB8PE4vqY6q/31Oi?=
+ =?us-ascii?Q?KaYCcI/Mce/viGKd1sz7NiEVkTq+ZVIP6DqKShHOlvxTfQmUoKAEUvv3vEVi?=
+ =?us-ascii?Q?wq3zt5hifhsfzuiAUowqA3ndCR+g3MsB2UBTuepvMVsWfF5O0vDUlZpT+y4F?=
+ =?us-ascii?Q?iuO0WnUQKSzPEJPhJ8LAvkgwitl5eXuU5ha55q3ZApnuTfjD/9wJELUw22B+?=
+ =?us-ascii?Q?kZo9O45e+88Yq4exYCAcWUdWDdGrwa3dkVuFUJMEOvQiP3IgopBoxBlVLaR6?=
+ =?us-ascii?Q?tG5kE/p1wce9T8mdmyf1npgoH8qTk3MY/0TNRESNEHndbkUnniOO1vwP33g5?=
+ =?us-ascii?Q?WaL7moWBUf6Y4JuHxsGyvGUVN0npQm/0BouOMdHRbw2yrh0c78EUeOfYwBNK?=
+ =?us-ascii?Q?jrGsaZJZv0ew+qRyZo8Qh7mrSHzXqtJRIrVaLTHniLgVxsJ6SfjQVELB8Hs2?=
+ =?us-ascii?Q?pKxKvVcdf91X46A0lYH84mD51N1Cv/Lmecv/BegPX5H9/8tNa8B3+uWAwQ5z?=
+ =?us-ascii?Q?LGOEScbmSB8ZhwwyzQVJ9I92AxTId3iGHX+h+3AZK2y4sCvdFF0awHkxv+EX?=
+ =?us-ascii?Q?TfDPFppuskrR1lC47ohGBMGalnNgCXTHpVJ2T5LEFgteDFweHV+G1n8sorrK?=
+ =?us-ascii?Q?cjkjwB48TAL/0RLXYL3YEWwAH1AIwAyEXQGXA7GHvPvvx1Cu1pGMwQLSDcsP?=
+ =?us-ascii?Q?vuoVBTS/VfHavvDPQI8tKXtXKgOFJrI7DpxaZuAkRpZCfi5BS5R1rtErJnd3?=
+ =?us-ascii?Q?nkMKCal/qRmBmLqRqmpT8LIGvv5e1D728ozwv0vSYWGGqKp1Tbaf/1r3iLV5?=
+ =?us-ascii?Q?GXU8eIgEd6EO1GJt9RqNZGmdTV5jdOrSVOMAe9Xa3wcPKHtgPesjeMxUYIO4?=
+ =?us-ascii?Q?OE0RbbUzkg0yq2iepKGdfAP0HjvnRPVxH0J5PkoZd4jC3w4PVB9W4CRNQXbR?=
+ =?us-ascii?Q?YzcKOjn5PvXIk5Fzl5JcNORdK+IttSJK1ul3m/Lg6DTrlvpVski02lH0LVy/?=
+ =?us-ascii?Q?HCJ3EzBjhgqLgZFZa1Q=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da78e835-ade5-4bf8-abf4-08dcf8299c06
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 14:54:37.6981
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +/e+2+8c6FQTEPnvPqFW90GvX4MZZ8Jh8X0ZNANGAsvq4dO++QYWwsekKn9PnwTO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_080447_864164_982535D0 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20241029_075447_873176_07407D60 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,60 +163,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+On Fri, Oct 25, 2024 at 04:49:44PM -0700, Nicolin Chen wrote:
+> +void iommufd_viommu_destroy(struct iommufd_object *obj)
+> +{
+> +	struct iommufd_viommu *viommu =
+> +		container_of(obj, struct iommufd_viommu, obj);
+> +
+> +	if (viommu->ops && viommu->ops->free)
+> +		viommu->ops->free(viommu);
 
-Thanks for trying to fix this.
+Ops can't be null and free can't be null, that would mean there is a
+memory leak.
 
-On Mon, Oct 28, 2024 at 10:14:50PM +0000, Lorenzo Stoakes wrote:
-> From 247003cd2a4b5f4fc2dac97f5ef7e473a47f4324 Mon Sep 17 00:00:00 2001
-> From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Date: Mon, 28 Oct 2024 22:05:44 +0000
-> Subject: [PATCH] mm: perform MTE check within arm64 hook entirely
-> 
-> It doesn't make sense to have shmem explicitly check this one arch-specific
-> case, it is arch-specific, so the arch should handle it. We know shmem is a
-> case in which we want to permit MTE, so simply check for this directly.
-> 
-> This also fixes the issue with checking arch_validate_flags() early, which
-> would otherwise break mmap_region().
-> 
-> In order to implement this we must pass a file pointer, and additionally
-> update the sparc code to accept this parameter too.
-> 
-> We'd ideally like to have eliminated the arch_calc_vm_flag_bits() case, but
-> we risk inadvertently changing behaviour as we do not have mmap() flags
-> available at the point of the arch_validate_flags() check and a MAP_ANON |
-> MAP_HUGETLB case would be accepted for MTE currently, but a MAP_SHARED |
-> MAP_HUGETLB would not.
-> 
-> This is likely an oversight but we want to try to keep behaviour identical
-> to before in this patch.
+> +	refcount_dec(&viommu->hwpt->common.obj.users);
 
-MAP_HUGETLB support for MTE is only in -next currently, so there
-wouldn't be any ABI change if we also allowed MAP_SHARED | MAP_HUGETLB.
-In 6.12, MAP_HUGETLB is not allowed to have PROT_MTE.
+Don't touch viommu after freeing it
 
-> So continue to check VM_MTE_ALLOWED which arch_calc_vm_flag_bits() sets if
-> MAP_ANON.
-[...]
-> diff --git a/mm/shmem.c b/mm/shmem.c
-> index 4ba1d00fabda..e87f5d6799a7 100644
-> --- a/mm/shmem.c
-> +++ b/mm/shmem.c
-> @@ -2733,9 +2733,6 @@ static int shmem_mmap(struct file *file, struct vm_area_struct *vma)
->  	if (ret)
->  		return ret;
-> 
-> -	/* arm64 - allow memory tagging on RAM-based files */
-> -	vm_flags_set(vma, VM_MTE_ALLOWED);
+Did you run selftests with kasn?
 
-This breaks arm64 KVM if the VMM uses shared mappings for the memory
-slots (which is possible). We have kvm_vma_mte_allowed() that checks for
-the VM_MTE_ALLOWED flag as the VMM may not use PROT_MTE/VM_MTE directly.
+> +int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+> +{
+> +	struct iommu_viommu_alloc *cmd = ucmd->cmd;
+> +	struct iommufd_hwpt_paging *hwpt_paging;
+> +	struct iommufd_viommu *viommu;
+> +	struct iommufd_device *idev;
+> +	const struct iommu_ops *ops;
+> +	int rc;
+> +
+> +	if (cmd->flags || cmd->type == IOMMU_VIOMMU_TYPE_DEFAULT)
+> +		return -EOPNOTSUPP;
+> +
+> +	idev = iommufd_get_device(ucmd, cmd->dev_id);
+> +	if (IS_ERR(idev))
+> +		return PTR_ERR(idev);
+> +
+> +	ops = dev_iommu_ops(idev->dev);
+> +	if (!ops->viommu_alloc) {
+> +		rc = -EOPNOTSUPP;
+> +		goto out_put_idev;
+> +	}
+> +
+> +	hwpt_paging = iommufd_get_hwpt_paging(ucmd, cmd->hwpt_id);
+> +	if (IS_ERR(hwpt_paging)) {
+> +		rc = PTR_ERR(hwpt_paging);
+> +		goto out_put_idev;
+> +	}
+> +
+> +	if (!hwpt_paging->nest_parent) {
+> +		rc = -EINVAL;
+> +		goto out_put_hwpt;
+> +	}
+> +
+> +	viommu = ops->viommu_alloc(idev->dev, hwpt_paging->common.domain,
+> +				   ucmd->ictx, cmd->type);
+> +	if (IS_ERR(viommu)) {
+> +		rc = PTR_ERR(viommu);
+> +		goto out_put_hwpt;
+> +	}
 
-I need to read this thread properly but why not pass the file argument
-to arch_calc_vm_flag_bits() and set VM_MTE_ALLOWED in there?
+Check that ops and ops->free are valid here with a WARN_ON
 
--- 
-Catalin
+> +	rc = iommufd_verify_unfinalized_object(ucmd->ictx, &viommu->obj);
+> +	if (rc) {
+> +		kfree(viommu);
+> +		goto out_put_hwpt;
+> +	}
+> +
+> +	viommu->type = cmd->type;
+> +	viommu->ictx = ucmd->ictx;
+> +	viommu->hwpt = hwpt_paging;
+> +	/*
+> +	 * It is the most likely case that a physical IOMMU is unpluggable. A
+> +	 * pluggable IOMMU instance (if exists) is responsible for refcounting
+> +	 * on its own.
+> +	 */
+> +	viommu->iommu_dev = __iommu_get_iommu_dev(idev->dev);
+> +
+> +	refcount_inc(&viommu->hwpt->common.obj.users);
+
+Put this line right after the one storing to viommu_>hwpt
+
+Jason
 
