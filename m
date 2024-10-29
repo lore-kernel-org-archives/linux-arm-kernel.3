@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732F9D3A66D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D889D3A661
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qFdy+7XodOmS+eOy9bx2WifeyhqBvgoS9r/9EkXMxFM=; b=enz7cMCnfXx88haODDs8MPHQMZ
-	wlkxjpEWYKVIumyBm53g1zjttTInymwVRrGmvGA13gjSyZNYAUnvsGxjMpI9z54vzHZeqIfe2PA9l
-	JJ7xbEe+r/HBU+XzZReRr4VHs111c0yOyS4SKt4zUnwy8jJ4h/4UhuR/vm6vYVFxd6qQ/8v4bMfR9
-	HijFtPYq7+YNBvJApstMZ8PQRr+9YKXNqrLoWG/XTyVCPxr3WL9IDDhoKkvTWwFgp4C+wVl7AQzYG
-	IfOuWps6vJw9GyigRreSf0/Wa5iRtaI9NMBhmPWHAD0BwoFZqDNgZG47x5qNjLDCFj4kHUUPuizfH
-	CPoKOO2A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kfUygAy9nh51QZckgGNXpejnnKhJD7wqm16KtekAINI=; b=s08UfWaxiR2/bF/2jiSQIt/sxH
+	ghIrrxyIMvZZVSQIuRskhpBqHAR1ShTto9Ln3xnrbC9MLWAoUG7VeW2MV8Ao/ild1ad/PBwE1podS
+	bTo0Kfu9xjgIEMhRmukcZYlBk4Xr4IuNGnXhUyRGZIOxb1FxfXZY88Wdca8JrW/DPdelCKBOeTTUf
+	LHniz8QiDCGBu/Kx/TLdwl6T7a0ebbCItOvh7JYjSJAEj3qRY3HVrISBIl/1MkWUL3e4XZutRTPLS
+	bzHyfGnZUE3Sp4C4/94pjPCS4BRoIxX4wH8yJIA7PbCZwakt6inP4vVYAXN2Fa0pZ7wq7JZ0VuCbY
+	VtrFGsvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nnD-0000000Eoie-2y4Y;
-	Tue, 29 Oct 2024 15:05:59 +0000
+	id 1t5nnC-0000000EoiX-3aEC;
+	Tue, 29 Oct 2024 15:05:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5nUA-0000000EltT-0Itc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Oct 2024 14:46:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kfUygAy9nh51QZckgGNXpejnnKhJD7wqm16KtekAINI=; b=ciwAz2kE5A4NSRBAp+Yg2xl9cx
+	pvZvo42cnmBNms6OXDoCZtie5Jx9oYE7IFsyc8qg9E6LkIH8QbMab6RA62KJhKW6Y7XVl35jrb65l
+	NngMk7bvg4m9J6ML7baJ/wxPpxzhYmwLWynk+6hIbMXNrMuXgx2pMbuyK6mR3dDADHDAIQXm5hkvb
+	1R5GuDRimLKgXTR7BKvH7K3XWLOxdlQs03sjgQFX6H6Ez1d0owhXRn3rQy6bHFVnWGy0/4u43HLcG
+	J8FUy8eXtUP+Jd17Cr1FR6v73iA3oQbRpKDJDDldLe7lc0vdXAqQUQxGQxqGTIoe687nDjh3GAVO7
+	1QkcYlug==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nTr-0000000Elq6-1VZF
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5nU5-00000009upm-1qwg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:47:35 +0000
+	Tue, 29 Oct 2024 14:46:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9423C113E;
-	Tue, 29 Oct 2024 07:46:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00E161713;
+	Tue, 29 Oct 2024 07:46:42 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 12BC83F528;
-	Tue, 29 Oct 2024 07:45:53 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 780B43F528;
+	Tue, 29 Oct 2024 07:46:09 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
@@ -54,15 +69,17 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
 	yury.khrustalev@arm.com,
 	linux-kselftest@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v3 0/5] Improve arm64 pkeys handling in signal delivery
-Date: Tue, 29 Oct 2024 14:45:34 +0000
-Message-ID: <20241029144539.111155-1-kevin.brodsky@arm.com>
+Subject: [PATCH v3 5/5] selftests/mm: Enable pkey_sighandler_tests on arm64
+Date: Tue, 29 Oct 2024 14:45:39 +0000
+Message-ID: <20241029144539.111155-6-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241029144539.111155-1-kevin.brodsky@arm.com>
+References: <20241029144539.111155-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_074559_588521_D1CEC3BF 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20241029_144613_868608_FEAB0605 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +94,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is a follow-up to Joey's Permission Overlay Extension (POE)
-series [1] that recently landed on mainline. The goal is to improve the
-way we handle the register that governs which pkeys/POIndex are
-accessible (POR_EL0) during signal delivery. As things stand, we may
-unexpectedly fail to write the signal frame on the stack because POR_EL0
-is not reset before the uaccess operations. See patch 1 for more details
-and the main changes this series brings.
+pkey_sighandler_tests.c makes raw syscalls using its own helper,
+syscall_raw(). One of those syscalls is clone, which is problematic
+as every architecture has a different opinion on the order of its
+arguments.
 
-A similar series landed recently for x86/MPK [2]; the present series
-aims at aligning arm64 with x86. Worth noting: once the signal frame is
-written, POR_EL0 is still set to POR_EL0_INIT, granting access to pkey 0
-only. This means that a program that sets up an alternate signal stack
-with a non-zero pkey will need some assembly trampoline to set POR_EL0
-before invoking the real signal handler, as discussed here [3]. This is
-not ideal, but it makes experimentation with pkeys in signal handlers
-possible while waiting for a potential interface to control the pkey
-state when delivering a signal. See Pierre's reply [4] for more
-information about use-cases and a potential interface.
+To complete arm64 support, we therefore add an appropriate
+implementation in syscall_raw(), and introduce a clone_raw() helper
+that shuffles arguments as needed for each arch.
 
-The x86 series also added kselftests to ensure that no spurious SIGSEGV
-occurs during signal delivery regardless of which pkey is accessible at
-the point where the signal is delivered. This series adapts those
-kselftests to allow running them on arm64 (patch 4-5). There is a
-dependency on Yury's PKEY_UNRESTRICTED patch [7] for patch 4
-specifically.
+Having done this, we enable building pkey_sighandler_tests for arm64
+in the Makefile.
 
-Finally patch 2 is a clean-up following feedback on Joey's series [5].
-
-I have tested this series on arm64 and x86_64 (booting and running the
-protection_keys and pkey_sighandler_tests mm kselftests).
-
-- Kevin
-
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
+ tools/testing/selftests/mm/Makefile           |  8 +--
+ .../selftests/mm/pkey_sighandler_tests.c      | 62 ++++++++++++++-----
+ 2 files changed, 50 insertions(+), 20 deletions(-)
 
-v2..v3:
-* Reordered patches (patch 1 is now the main patch).
-* Patch 1: compute por_enable_all with an explicit loop, based on
-  arch_max_pkey() (suggestion from Dave M).
-* Patch 4: improved naming, replaced global pkey reg value with inline
-  helper, made use of Yury's PKEY_UNRESTRICTED macro [7] (suggestions
-  from Dave H).
-
-v2: https://lore.kernel.org/linux-arm-kernel/20241023150511.3923558-1-kevin.brodsky@arm.com/
-
-v1..v2:
-* In setup_rt_frame(), ensured that POR_EL0 is reset to its original
-  value if we fail to deliver the signal (addresses Catalin's concern [6]).
-* Renamed *unpriv_access* to *user_access* in patch 3 (suggestion from
-  Dave).
-* Made what patch 1-2 do explicit in the commit message body (suggestion
-  from Dave).
-
-v1: https://lore.kernel.org/linux-arm-kernel/20241017133909.3837547-1-kevin.brodsky@arm.com/
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240822151113.1479789-1-joey.gouly@arm.com/
-[2] https://lore.kernel.org/lkml/20240802061318.2140081-1-aruna.ramakrishna@oracle.com/
-[3] https://lore.kernel.org/lkml/CABi2SkWxNkP2O7ipkP67WKz0-LV33e5brReevTTtba6oKUfHRw@mail.gmail.com/
-[4] https://lore.kernel.org/linux-arm-kernel/87plns8owh.fsf@arm.com/
-[5] https://lore.kernel.org/linux-arm-kernel/20241015114116.GA19334@willie-the-truck/
-[6] https://lore.kernel.org/linux-arm-kernel/Zw6D2waVyIwYE7wd@arm.com/
-[7] https://lore.kernel.org/all/20241028090715.509527-2-yury.khrustalev@arm.com/
-
-Cc: akpm@linux-foundation.org
-Cc: anshuman.khandual@arm.com
-Cc: aruna.ramakrishna@oracle.com
-Cc: broonie@kernel.org
-Cc: catalin.marinas@arm.com
-Cc: dave.hansen@linux.intel.com
-Cc: Dave.Martin@arm.com
-Cc: jeffxu@chromium.org
-Cc: joey.gouly@arm.com
-Cc: keith.lucas@oracle.com
-Cc: pierre.langlois@arm.com
-Cc: shuah@kernel.org
-Cc: sroettger@google.com
-Cc: tglx@linutronix.de
-Cc: will@kernel.org
-Cc: yury.khrustalev@arm.com
-Cc: linux-kselftest@vger.kernel.org
-Cc: x86@kernel.org
-
-Kevin Brodsky (5):
-  arm64: signal: Improve POR_EL0 handling to avoid uaccess failures
-  arm64: signal: Remove unnecessary check when saving POE state
-  arm64: signal: Remove unused macro
-  selftests/mm: Use generic pkey register manipulation
-  selftests/mm: Enable pkey_sighandler_tests on arm64
-
- arch/arm64/kernel/signal.c                    |  95 ++++++++++++---
- tools/testing/selftests/mm/Makefile           |   8 +-
- tools/testing/selftests/mm/pkey-arm64.h       |   1 +
- tools/testing/selftests/mm/pkey-x86.h         |   2 +
- .../selftests/mm/pkey_sighandler_tests.c      | 115 ++++++++++++++----
- 5 files changed, 176 insertions(+), 45 deletions(-)
-
+diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+index 02e1204971b0..0f8c110e0805 100644
+--- a/tools/testing/selftests/mm/Makefile
++++ b/tools/testing/selftests/mm/Makefile
+@@ -105,12 +105,12 @@ endif
+ ifeq ($(CAN_BUILD_X86_64),1)
+ TEST_GEN_FILES += $(BINARIES_64)
+ endif
+-else
+ 
+-ifneq (,$(filter $(ARCH),arm64 powerpc))
++else ifeq ($(ARCH),arm64)
++TEST_GEN_FILES += protection_keys
++TEST_GEN_FILES += pkey_sighandler_tests
++else ifeq ($(ARCH),powerpc)
+ TEST_GEN_FILES += protection_keys
+-endif
+-
+ endif
+ 
+ ifneq (,$(filter $(ARCH),arm64 mips64 parisc64 powerpc riscv64 s390x sparc64 x86_64 s390))
+diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+index 501880dbdc37..c593a426341c 100644
+--- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
++++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+@@ -60,12 +60,44 @@ long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
+ 		      : "=a"(ret)
+ 		      : "a"(n), "b"(a1), "c"(a2), "d"(a3), "S"(a4), "D"(a5)
+ 		      : "memory");
++#elif defined __aarch64__
++	register long x0 asm("x0") = a1;
++	register long x1 asm("x1") = a2;
++	register long x2 asm("x2") = a3;
++	register long x3 asm("x3") = a4;
++	register long x4 asm("x4") = a5;
++	register long x5 asm("x5") = a6;
++	register long x8 asm("x8") = n;
++	asm volatile ("svc #0"
++		      : "=r"(x0)
++		      : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5), "r"(x8)
++		      : "memory");
++	ret = x0;
+ #else
+ # error syscall_raw() not implemented
+ #endif
+ 	return ret;
+ }
+ 
++static inline long clone_raw(unsigned long flags, void *stack,
++			     int *parent_tid, int *child_tid)
++{
++	long a1 = flags;
++	long a2 = (long)stack;
++	long a3 = (long)parent_tid;
++#if defined(__x86_64__) || defined(__i386)
++	long a4 = (long)child_tid;
++	long a5 = 0;
++#elif defined(__aarch64__)
++	long a4 = 0;
++	long a5 = (long)child_tid;
++#else
++# error clone_raw() not implemented
++#endif
++
++	return syscall_raw(SYS_clone, a1, a2, a3, a4, a5, 0);
++}
++
+ /*
+  * Returns the most restrictive pkey register value that can be used by the
+  * tests.
+@@ -294,14 +326,13 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
+ 	memset(&siginfo, 0, sizeof(siginfo));
+ 
+ 	/* Use clone to avoid newer glibcs using rseq on new threads */
+-	long ret = syscall_raw(SYS_clone,
+-			       CLONE_VM | CLONE_FS | CLONE_FILES |
+-			       CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
+-			       CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
+-			       CLONE_DETACHED,
+-			       (long) ((char *)(stack) + STACK_SIZE),
+-			       (long) &parent_pid,
+-			       (long) &child_pid, 0, 0);
++	long ret = clone_raw(CLONE_VM | CLONE_FS | CLONE_FILES |
++			     CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
++			     CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
++			     CLONE_DETACHED,
++			     stack + STACK_SIZE,
++			     &parent_pid,
++			     &child_pid);
+ 
+ 	if (ret < 0) {
+ 		errno = -ret;
+@@ -466,14 +497,13 @@ static void test_pkru_sigreturn(void)
+ 	sigstack.ss_size = STACK_SIZE;
+ 
+ 	/* Use clone to avoid newer glibcs using rseq on new threads */
+-	long ret = syscall_raw(SYS_clone,
+-			       CLONE_VM | CLONE_FS | CLONE_FILES |
+-			       CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
+-			       CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
+-			       CLONE_DETACHED,
+-			       (long) ((char *)(stack) + STACK_SIZE),
+-			       (long) &parent_pid,
+-			       (long) &child_pid, 0, 0);
++	long ret = clone_raw(CLONE_VM | CLONE_FS | CLONE_FILES |
++			     CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
++			     CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
++			     CLONE_DETACHED,
++			     stack + STACK_SIZE,
++			     &parent_pid,
++			     &child_pid);
+ 
+ 	if (ret < 0) {
+ 		errno = -ret;
 -- 
 2.43.0
 
