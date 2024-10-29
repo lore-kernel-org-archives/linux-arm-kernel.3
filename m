@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1420D2AB20
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82DAD2AB24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JG70TegBMj/ibFZUxIkrxShKc87NYQy7WkHukok4xoE=; b=Nin0+hiF7nqRp6lU7SPvhnphv4
-	1sEqs3LlTCIkNaONaVDdhyWsfOxL0ya7xU9dPoncTXHshCG6nvVPkECWYhoWZ44jVXZ4cvylgK9G/
-	hjTS5Zn/Hh+wTpytU27URDdLPT0n4898yNHiQ1G+8+nOWvO6h50waYeRx+YSzxAi6PUffdhKsLrhq
-	1fCzgclmq8+XGECMSbzDT7c2u5XZVLfv/B2MpAh0E1728uyqzh3CpXJC+VzRcwjiatDp2osxKgBF1
-	eY4Huyu5f1iIPFzLVsphKVUUVC0DIG3qipD8TRLIo+DHr9d6cLuFmnaZz0KMJET6FJD0phG4GMPz/
-	+4mIYB6w==;
+	bh=7Zqi6Sl+Kx4Ji1QwakjgbRzaeDN7PqxTEdUVl3GZZf8=; b=XOmK6RiGx3oEHAmI1/x81ycJsw
+	oz6aXDQrtqPevaXol/I1aYqMV2ZRdPiFztngbPEJsIVxDuHQAsp9oFyWY8fdtoHN9FPkUMWMlvmsI
+	9a7UcD98QUCuj451AlKl8L+E5tc3R9xo/5bqMEfwOyx6U47jW8v44kfR2a3tatLktcReCg7sTm8/f
+	TLSk5YPAQ/XoTvtOLDaOO7l+jM6CnoV2GR0hsBsHzgcs+9FjPN54KQIoQS1B/0BsDqFv0eGhwgC8C
+	VnQd8O3A9fTsCqDThQZIsi/q3sG1NCHBBaj03QQGim+hAEYFg38wW9BQ5/dN9/9KLa5rLK+FwGr9i
+	ymchU9ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kjr-0000000EIBr-1e44;
-	Tue, 29 Oct 2024 11:50:19 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1t5klR-0000000EINx-080d;
+	Tue, 29 Oct 2024 11:51:57 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jde-0000000E48L-0eN3;
-	Tue, 29 Oct 2024 10:39:51 +0000
+	id 1t5jde-0000000E48X-2DVK;
+	Tue, 29 Oct 2024 10:39:52 +0000
 Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout2.routing.net (Postfix) with ESMTP id BC3EE60644;
+	by mxout3.routing.net (Postfix) with ESMTP id 23B966164E;
 	Tue, 29 Oct 2024 10:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=20200217; t=1730198388;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JG70TegBMj/ibFZUxIkrxShKc87NYQy7WkHukok4xoE=;
-	b=O7new4Pb2Nq6S/vobN0VL74FAHFkpDjBzr9klQ48cO3crw0XnNIn0QXbRTpIJYLfOwmVvw
-	YFUFVqyTMXHc0lm3SMYaHGAggtgH0gMjgu4HW0aLZ+u/0JGQDBzPkgJKsAmS6fh4kC/DmF
-	KiIbm7wfOG71mCl7nfo12HGPcF77GN4=
+	bh=7Zqi6Sl+Kx4Ji1QwakjgbRzaeDN7PqxTEdUVl3GZZf8=;
+	b=T4tW4Pjh43l3XljyaRqU9KlcGnR0fhiX2E9UWADtycYVAGuymEwDQK9AL5m4dyWr+zAOR2
+	jNpJMwSUvdbLtsp56XJyzF9xDuTJIOOqyI1Z+6xv8zmXV/X2Sw6fjO1MqPaHOv1FcyDPRq
+	alwwm7A4KHF+3xfeMhtOiarqJjEjEfE=
 Received: from frank-u24.. (fttx-pool-80.245.73.173.bambit.de [80.245.73.173])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 24BBF3600D8;
-	Tue, 29 Oct 2024 10:39:48 +0000 (UTC)
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 892EE36037C;
+	Tue, 29 Oct 2024 10:39:47 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,18 +53,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [RFC v1 09/14] arm64: dts: mediatek: mt7988: extend efuse node
-Date: Tue, 29 Oct 2024 11:39:28 +0100
-Message-ID: <20241029103937.45852-10-linux@fw-web.de>
+Subject: [RFC v1 08/14] arm64: dts: mediatek: mt7988: add fixed regulators for 1v8 and 3v3
+Date: Tue, 29 Oct 2024 11:39:27 +0100
+Message-ID: <20241029103937.45852-9-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241029103937.45852-1-linux@fw-web.de>
 References: <20241029103937.45852-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: 8e66c03e-5b0a-4db8-be5a-f6e0180b4bd9
+X-Mail-ID: 351e04a4-f535-41b6-80ef-f6eadcd15412
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_033950_411269_30D12C87 
-X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-CacheID: sfid-20241029_033950_739401_C24DDF42 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,43 +82,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add subnodes for efuse containing calibration data for lvts and phys.
+Add regulator nodes used for mmc.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 7371cd80a4ff..ed8ce1e6f68b 100644
+index 639c307b9984..7371cd80a4ff 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -330,6 +330,25 @@ efuse: efuse@11f50000 {
- 			reg = <0 0x11f50000 0 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
-+
-+			cpufreq_calibration: calib@278 {
-+				reg = <0x278 0x1>;
-+			};
-+			lvts_calibration: calib@918 {
-+				reg = <0x918 0x28>;
-+			};
-+			phy_calibration_p0: calib@940 {
-+				reg = <0x940 0x10>;
-+			};
-+			phy_calibration_p1: calib@954 {
-+				reg = <0x954 0x10>;
-+			};
-+			phy_calibration_p2: calib@968 {
-+				reg = <0x968 0x10>;
-+			};
-+			phy_calibration_p3: calib@97c {
-+				reg = <0x97c 0x10>;
-+			};
- 		};
+@@ -62,6 +62,24 @@ psci {
+ 		method = "smc";
+ 	};
  
- 		clock-controller@15000000 {
++	reg_1p8v: regulator-1p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed-1.8V";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
++	reg_3p3v: regulator-3p3v {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed-3.3V";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
+ 	soc {
+ 		compatible = "simple-bus";
+ 		ranges;
 -- 
 2.43.0
 
