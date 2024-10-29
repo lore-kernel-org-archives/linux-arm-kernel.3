@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6D1D2AB35
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4B3D2AB33
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lJpykFaYI1xkl+2h37OQVMMCDwoLFpotNWfg5DS8+W8=; b=w9okeN2LhrpV2AlUS+c64Oi/Ad
-	4+mhsnB40pOR+fbLyqyoaXXEetZx2ghyLU+EKQJGNseLtz/l8JBgJBrQPl1FyBaSE1bJ/8JgIXdKt
-	x1giWzfV4Gp6S/WjZowKZ6FMc5LwETnntmllUI/gD64KbxpetMzOTlfkFgLew0NRJW9J2WCSjNRvh
-	alXR1wiU74vyu5Oj0RWx4UDGYwehf2dyl6HR5Dx1TeZ7LfohBG+1eSS7wq+n2m66ETgC8kZs8MevM
-	WARjrDGvu4oZlv0JfKpDDI19Ixm9HOcX5C4qgUGxxJUeMPXQq67f2HWDNRspNM/kfoSs1jl8P0GkU
-	NtNK3jXQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z4VyTp5+y/e+0m/mVUXyvUDk3HWSlqTKu4UNCW+JxDU=; b=MUe7+ZIeOQz9CmkO/S1pkSBJcL
+	HfKZFFP+/TmKRWPE7qcLOiVGihh9k0IeWy5xwtkRIS9zpKFN4ZlL5PZiuft1WxFGwB7XskWDhrxsE
+	yV9jF832aOXzid5tkTbI1xoMLYyaZWtjhlTuCnZ3/V/maQ900FU9A0cP47zvB64FduZOMDIFdyIA2
+	qLMqScY2C7NEDWrgWMlDl4uuv4YGpuI8sFR3aZzmUk4mBEgiLQu3d64vqTBe5w4Fux4rwdbFxT/eO
+	Utzpmh8FNhgBRDhY1BOQhVlOAnlnIkHhhS5Ao6GPfy6dgUtaPjb7GLR4rJr3JA9GDA2oi0WM8433f
+	SpbBLLVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lEI-0000000EOHb-26d9;
-	Tue, 29 Oct 2024 12:21:46 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1t5lFt-0000000EOYS-3iEk;
+	Tue, 29 Oct 2024 12:23:25 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5knq-0000000EIoP-3KDx
+	id 1t5kns-0000000EIop-0ZK4
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 29 Oct 2024 11:54:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EFE3A1C0002;
-	Tue, 29 Oct 2024 11:54:20 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id AB5491C0005;
+	Tue, 29 Oct 2024 11:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730202862;
+	t=1730202866;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=lJpykFaYI1xkl+2h37OQVMMCDwoLFpotNWfg5DS8+W8=;
-	b=EBAqimTTsliRJJCA4biH2rIBJLlKYw9TfFmBjIsErWLNjRJs5JfIWGGlchaFpSvbbSohgj
-	4QMozgMOL/uUSh183b0LMH57cqD2OsdiUZVRaMKzDWsWfE45KqoakQxeM2cTEU2iKCaAN6
-	t0bYztiTvQURcoiOXepIAcKhRT8lCZKpaydkj4cglLeGUYtWvSdZnn9X988mdRBOl0P021
-	7tWGM4kSy1rk90+2bf72Sv3vmjm5gW04rZ36HDVatNMUjT6qqWj7Tck0226b778xWB+AZj
-	9sTN1s9XFFSxgXPPpjYk45H4kMWrR3jBNiwIJQVOtsc5013jhUyIbMA4P97OYw==
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z4VyTp5+y/e+0m/mVUXyvUDk3HWSlqTKu4UNCW+JxDU=;
+	b=FvHDWDN89BVFjjEkthTWcdZSSaK3bhl/5W3r1QfylC7mrxK4uERpCunKwJNsNnBk/U86ZD
+	veXTUNKeI/E0LdseKS6oDh9zhVS2sqr3yDAJmuIzyIszKohARgVaFJVkJDqxJAYUugKw52
+	oK/zyNP26/u7QLeathbhL5exvlL/h32MpKUFcdqDRtYyKyRbTc7gKO17H+TU9eHZOh05Bk
+	UU6ZHGppgI8j4P7kiD9PcYKFf08MSmG8ahEyBGBF7D9gTzaQzc8I8pcD+mcVrSE3qXPRu7
+	fXo6D3xJjdtl+Wmo8suuVIOfQZzRNfBGKC4mpDYexXZ5Gv40cEGKAck7dnIzYQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -57,17 +58,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 0/7] Support external snapshots on dwmac1000
-Date: Tue, 29 Oct 2024 12:54:08 +0100
-Message-ID: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 4/7] net: stmmac: Introduce dwmac1000 ptp_clock_info and operations
+Date: Tue, 29 Oct 2024 12:54:12 +0100
+Message-ID: <20241029115419.1160201-5-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+References: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_045427_321266_3240727B 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20241029_045428_489766_9E1AC548 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,100 +84,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The PTP configuration for GMAC3_X differs from the other implementations
+in several ways :
 
-This series is another take on the pervious work [1] done by
-Alexis Lothoré, that fixes the support for external snapshots
-timestamping in GMAC3-based devices.
+ - There's only one external snapshot trigger
+ - The snapshot configuration is done through the PTP_TCR register,
+   whereas the other dwmac variants have a dedicated ACR (auxiliary
+   control reg) for that purpose
+ - The layout for the PTP_TCR register also differs, as bits 24/25 are
+   used for the snapshot configuration. These bits are reserved on other
+   variants.
 
-The registers that are used to configure this don't have the same layout
-in the dwmac1000 compared to dwmac4 and others.
+On GMAC3_X, we also can't discover the number of snapshot triggers
+automatically.
 
-One example would be the TS seconds/nanoseconds registet for snapshots,
-which aren't mapped at the 0x48/0x4c but rather at 0x30/0x34.
+The GMAC3_X has one PPS output, however it's configuration isn't
+supported yet so report 0 n_per_out for now.
 
-Another example is the was the snapshots are enabled. DWMAC4 has a
-dedicated auxiliary control register (PTP_ACR at 0x40) while on
-DWMAC1000, this is controled through the PTP Timestamp Control Reg using
-fields maked as reserved on DWMAC4.
+Introduce a dedicated set of ptp_clock_info ops and configuration
+parameters to reflect these differences specific to GMAC3_X.
 
-Interrupts are also not handled the same way, as on dwmac1000 they are
-cleared by reading the Auxiliary Status Reg, which simply doesn't exist
-on dwmac4.
+This was tested on dwmac_socfpga.
 
-All of this means that with the current state of the code, auxiliary
-timestamps simply don't work on dwmac1000.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/dwmac1000.h   |  5 +++
+ .../ethernet/stmicro/stmmac/dwmac1000_core.c  | 45 +++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 18 ++++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  6 +++
+ 6 files changed, 77 insertions(+), 2 deletions(-)
 
-Besides that, there are some limitations in the number of external
-snapshot channels. It was also found that the PPS out configuration is
-also not done the same way, but fixing PPS out isn't in the scope of
-this series.
-
-To address that hardware difference, we introduce dedicated
-ptp_clock_info ops and parameters as well as dedicated hwtstamp_ops for
-the dwmac100/dwmac1000. This allows simplifying the code for these
-platforms, and avoids the introduction of other sets of stmmac internal
-callbacks.
-
-The naming for the non-dwmac1000 ops wasn't changed, so we have :
- - dwmac1000_ptp & stmmac_ptp
- - dwmac1000_ptp_clock_ops & stmmac_ptp_clock_ops
-
-where the "stmmac_*" ops use the dwmac4-or-later behaviour.
-
-I have converted dwmac100 along the way to these ops, however that's
-hasn't been tested nor fully confirmed that this is correct, as I don't
-have datasheets for devices that uses dwmac100.
-
-I've converted dwmac100 just on the hypothesis that the GMAC3_X PTP offset
-being used in both dwmac1000 and dwmac100 means that they share these same
-register layouts as well.
-
-Patch 1 prepares the use of per-hw interface ptp_clock_info by avoiding
-the modification of the global parameters. This allows making the
-stmmac_ptp_clock_ops const.
-
-Patch 2 adds the ptp_clock_info as an hwif parameter.
-
-Patch 3 addresses the autodiscovery of the timestamping features, as
-dwmac1000 doesn't provide these parameters
-
-Patch 4 introduces the ptp_clock_info specific to dwmac1000 platforms,
-and Patch 5 the hwtstamping info.
-
-Patch 6 enables the timestamping interrupt for external snapshot
-
-Patch 7 removes a non-necessary include from stmmac_ptp.c.
-
-This was tested on dwmac_socfpga, however this wasn't tested on a
-dwmac4-based platform.
-
-[1]: https://lore.kernel.org/netdev/20230616100409.164583-1-alexis.lothore@bootlin.com/
-
-Thanks Alexis for laying the groundwork for this,
-
-Best regards,
-
-Maxime
-
-Maxime Chevallier (7):
-  net: stmmac: Don't modify the global ptp ops directly
-  net: stmmac: Use per-hw ptp clock ops
-  net: stmmac: Only update the auto-discovered PTP clock features
-  net: stmmac: Introduce dwmac1000 ptp_clock_info and operations
-  net: stmmac: Introduce dwmac1000 timestamping operations
-  net: stmmac: Enable timestamping interrupt on dwmac1000
-  net: stmmac: Don't include dwmac4 definitions in stmmac_ptp
-
- drivers/net/ethernet/stmicro/stmmac/common.h  |  4 +
- .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 15 +++-
- .../ethernet/stmicro/stmmac/dwmac1000_core.c  | 85 +++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.c    | 14 ++-
- .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 11 +++
- .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 38 +++++++--
- .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  | 10 +++
- 7 files changed, 165 insertions(+), 12 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 4a0a1708c391..6f68a6b298c9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -552,6 +552,7 @@ extern const struct stmmac_hwtimestamp stmmac_ptp;
+ extern const struct stmmac_mode_ops dwmac4_ring_mode_ops;
+ 
+ extern const struct ptp_clock_info stmmac_ptp_clock_ops;
++extern const struct ptp_clock_info dwmac1000_ptp_clock_ops;
+ 
+ struct mac_link {
+ 	u32 caps;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 4296ddda8aaa..01eafeb1272f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -329,5 +329,10 @@ enum rtc_control {
+ #define GMAC_MMC_RX_CSUM_OFFLOAD   0x208
+ #define GMAC_EXTHASH_BASE  0x500
+ 
++/* PTP and timestamping registers */
++
++#define GMAC_PTP_TCR_ATSFC	BIT(24)
++#define GMAC_PTP_TCR_ATSEN0	BIT(25)
++
+ extern const struct stmmac_dma_ops dwmac1000_dma_ops;
+ #endif /* __DWMAC1000_H__ */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index d413d76a8936..b6930009ea06 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -18,6 +18,7 @@
+ #include <linux/io.h>
+ #include "stmmac.h"
+ #include "stmmac_pcs.h"
++#include "stmmac_ptp.h"
+ #include "dwmac1000.h"
+ 
+ static void dwmac1000_core_init(struct mac_device_info *hw,
+@@ -551,3 +552,47 @@ int dwmac1000_setup(struct stmmac_priv *priv)
+ 
+ 	return 0;
+ }
++
++/* DWMAC 1000 ptp_clock_info ops */
++
++int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
++			 struct ptp_clock_request *rq, int on)
++{
++	struct stmmac_priv *priv =
++	    container_of(ptp, struct stmmac_priv, ptp_clock_ops);
++	void __iomem *ptpaddr = priv->ptpaddr;
++	int ret = -EOPNOTSUPP;
++	u32 tcr_val;
++
++	switch (rq->type) {
++	case PTP_CLK_REQ_EXTTS:
++		mutex_lock(&priv->aux_ts_lock);
++		tcr_val = readl(ptpaddr + PTP_TCR);
++
++		if (on) {
++			tcr_val |= GMAC_PTP_TCR_ATSEN0;
++			tcr_val |= GMAC_PTP_TCR_ATSFC;
++			priv->plat->flags |= STMMAC_FLAG_EXT_SNAPSHOT_EN;
++		} else {
++			tcr_val &= ~GMAC_PTP_TCR_ATSEN0;
++			priv->plat->flags &= ~STMMAC_FLAG_EXT_SNAPSHOT_EN;
++		}
++
++		netdev_dbg(priv->dev, "Auxiliary Snapshot %s.\n",
++			   on ? "enabled" : "disabled");
++		writel(tcr_val, ptpaddr + PTP_TCR);
++
++		mutex_unlock(&priv->aux_ts_lock);
++
++		/* wait for auxts fifo clear to finish */
++		ret = readl_poll_timeout(ptpaddr + PTP_TCR, tcr_val,
++					 !(tcr_val & GMAC_PTP_TCR_ATSFC),
++					 10, 10000);
++		break;
++
++	default:
++		break;
++	}
++
++	return ret;
++}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index caa8d9810cd3..4af6a5fceb20 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -134,7 +134,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac100_dma_ops,
+ 		.mac = &dwmac100_ops,
+ 		.hwtimestamp = &stmmac_ptp,
+-		.ptp = &stmmac_ptp_clock_ops,
++		.ptp = &dwmac1000_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = NULL,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -153,7 +153,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac1000_dma_ops,
+ 		.mac = &dwmac1000_ops,
+ 		.hwtimestamp = &stmmac_ptp,
+-		.ptp = &stmmac_ptp_clock_ops,
++		.ptp = &dwmac1000_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = NULL,
+ 		.mmc = &dwmac_mmc_ops,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 8ea2b4226234..430905f591b2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -282,6 +282,24 @@ const struct ptp_clock_info stmmac_ptp_clock_ops = {
+ 	.getcrosststamp = stmmac_getcrosststamp,
+ };
+ 
++/* structure describing a PTP hardware clock */
++const struct ptp_clock_info dwmac1000_ptp_clock_ops = {
++	.owner = THIS_MODULE,
++	.name = "stmmac ptp",
++	.max_adj = 62500000,
++	.n_alarm = 0,
++	.n_ext_ts = 1,
++	.n_per_out = 0,
++	.n_pins = 0,
++	.pps = 0,
++	.adjfine = stmmac_adjust_freq,
++	.adjtime = stmmac_adjust_time,
++	.gettime64 = stmmac_get_time,
++	.settime64 = stmmac_set_time,
++	.enable = dwmac1000_ptp_enable,
++	.getcrosststamp = stmmac_getcrosststamp,
++};
++
+ /**
+  * stmmac_ptp_register
+  * @priv: driver private structure
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
+index fce3fba2ffd2..fa4611855311 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
+@@ -94,4 +94,10 @@ enum aux_snapshot {
+ 	AUX_SNAPSHOT3 = 0x80,
+ };
+ 
++struct ptp_clock_info;
++struct ptp_clock_request;
++
++int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
++			 struct ptp_clock_request *rq, int on);
++
+ #endif	/* __STMMAC_PTP_H__ */
 -- 
 2.47.0
 
