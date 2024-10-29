@@ -4,74 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8222BD2AB1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8DAD2AB1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jDWl88eqbUJdTnd/iT225VsyWB5sNzS8ii9Q3FUU+E=; b=3NyvlKt7qOSa7HWM+B+w+IYYYx
-	PL/P/ayr4PLTtlIRXcy3SCZQeDTQ9+LeP1CwbEQIJfinbTflfw4ayoPRqu4tqkigl/baqNaZ+j+Aq
-	U5qFdPr/O/xK8YbWVfHXC53RHV8od1tPahskwc+GK0VBUOC007LnZxUYFaLDisyP1zE09SbR4Vj4c
-	3fnSrBLXdKonivGnPRPGHfVTQJtfKIIYMAlfLQzE9/8DFzq0QRFEidDV4rcLYAyaynJEXeEbr9mbC
-	2zuj4Qz/gLrCi/sxXWSD0IKVZ+FQsDOo5OpxN7e4sg0MCPL1Ta5RhASPh2Ee5NZ31yQ1iN280LNek
-	ef5Rtxww==;
+	bh=mJZ4LxLTdUQ5ow0BQS4fH3A0I237UwdEEzZcDht84Hw=; b=tbixewRiECGBdEddKrBpXJH/T8
+	QDTQiPNhHsQjR2nsGmoTebqRuPH/J/0ND38B4XQ2J7m95/Gu4BYKoDbk3sIN5AvAsot7cf/VbR3CH
+	rceZfqZACfDWxW8yk92VTNfoASH87kfZrQzACGHFwIXQol+ao2k9nar2lLGmOejLjhM9TjATLRxAg
+	tUZ83Cj/9k7nHD2Q6diwGEPcackCep+u4eOk/+auLFIFO96v8VN7xsRtWlZoPhdurLwsVcrFyE02G
+	IbMjX90KTxQgh4pkZGfWqsR1Y7HJZwmZ98Irds7PemCqbknVsGcMyKAAcrQZpGJHh9P2dLRf8rmyS
+	3sK0wNvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jUC-0000000E2Rn-3g20;
-	Tue, 29 Oct 2024 10:30:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5jUa-0000000E2UW-0er2;
+	Tue, 29 Oct 2024 10:30:28 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5j1k-0000000DxrU-3bEi
+	id 1t5iTm-0000000DsUS-0yrl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:00:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 20A6FA42763
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 09:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4AB7C4CECD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 10:00:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730196039;
-	bh=vIPXjsUqI6HisFaD5e3T1+6vU/Ckcl0BQpGw086P6gw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bkwWNBGK3ybEgtstc+fsNOBpqY398By4SOfObp8/pF5OFN9peYNyjSJDE8vocWpdM
-	 64VUzPvWqBNqPFpv9DSf8hZULRqESYmdONZ6Zh0lhki68STxJrB7Tso6Ail17qU5Ym
-	 yWs776uZHtnsufpH8GOj6d3v9xS66V31o9EVoZSD2KkHgdQ73L00fg10aMuPbDcpmu
-	 zcjyekz+6vC1LlQBD7OrEVpifLGGH2R4y4IxR+EmxByUS98fJiZfAqaG917zls13Hb
-	 uFQBrfRWbXyD2T9Z3q5a7u9MyGcMcNqQtclsb42Zzw0cwtyEFbn3XFOt/P+YGJMCOb
-	 vUAgUg7yKqN9g==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2fb51f39394so51786581fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:00:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWlY2aHZfAfSuFvsQ4TqtQDMfzfqoqJla+eGg4WZ8kkcrUKpkDZqmfVupwfd21xjwEPfeY1PrKuouJ+Fr04OTuZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTGZckBQfL5ucW7GqEpqF7CIuhS5IvpOdpOATlOul/Bv4ahffr
-	IIxojbhEmjaYy2zMM+3QSlrNq/OK0gIh2cuemjHA5H3IKi85v4T/dfdCssh5Lh8HKQnhSHm/Bv3
-	nB3d40kibgDJE2dV7TbYGsv3bhkc=
-X-Google-Smtp-Source: AGHT+IEv2f7Ljf5pVqXirJwrfDfhMrJaZsnX3FjHVnAe45g6dbvPnMbZ194jmmjiIFlWMdevuzci9mGXdnuc0ENnVSs=
-X-Received: by 2002:a05:651c:2209:b0:2ef:17f7:6e1d with SMTP id
- 38308e7fff4ca-2fcbdf689acmr49293801fa.4.1730196036055; Tue, 29 Oct 2024
- 03:00:36 -0700 (PDT)
+	Tue, 29 Oct 2024 09:25:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730193934; x=1761729934;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=BYd4r/1wX0M5hcNUjG8+JuxMuuUJD1J8Vp22bp2U6ls=;
+  b=OeGrlkraSaPiCqa53PRhejvd/UkJCZ1AsfNBfsRTKOFF8eqocNKMh2mx
+   i9BFQNBEuXTGRVTeiHpKdIWlIOnW8vci+gUs2OYuClienMNLGwU1ScjSQ
+   6y0xd6ax9eHQYsmbWC6ztRzqXYxrlWMXoiSVr2DFSfRbfkgC2SvZyxpX6
+   +zdnNWpGEKdYqmTzk7y31tRXEJs0wMphIP41C12YcU7QxHVzmGRO/QEnr
+   Qbv5Ct6hEjOdn7IgOl5UI47xHn8msEOqkSITuiijg8CfUAQ7E2m+uUV6h
+   2A7sjE8v3ICjh3a23r4GMLV79YB1VDxCqd4sgZqhNR1wP/Jnqrr8yEcoy
+   g==;
+X-CSE-ConnectionGUID: Zgw/8mNdSIqoBbgOxW/0Lw==
+X-CSE-MsgGUID: amCMnHZMTGSs2oZ9P8AUxA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11239"; a="17455942"
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="17455942"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 02:25:30 -0700
+X-CSE-ConnectionGUID: /Boari7nToWQRLawqTyVkA==
+X-CSE-MsgGUID: U6NtUwEcRn+66uGQzXkCxQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="119360072"
+Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
+  by orviesa001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 29 Oct 2024 02:25:30 -0700
+Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
+ fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 29 Oct 2024 02:25:29 -0700
+Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Tue, 29 Oct 2024 02:25:29 -0700
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.42) by
+ edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 29 Oct 2024 02:25:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OwcR3Hv//C1dHOt7lgUty8RT3mn+5u0jh+V4QB3MzH7tBY83pPBbxXDy8EDLu1hE3iHVVnK+zCTjAhcoGOqv/A3tkhm2+fim61M1ONM+1TyZ10+H7xYbiiNVs8caAh3kZ/npFVtgM1C2mpXNr9wyZ2tJgOGtPMmOVNjzRutONs3eu9wKdY5EHw2to9hDgPpWjpE0lCxaYgKJpPvZEJyhDkHfCkso3fMog43sR+PnN8TMNZXejsL/Cl9pzfAZPFH7ivwf6fe0hjza6tb6h0SHFtp7JeQC8cWQUfj7bytx++26vpO3XGnqwzvGI7aY5dAfUEc8yIjtJg7m5iZb22ykDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mJZ4LxLTdUQ5ow0BQS4fH3A0I237UwdEEzZcDht84Hw=;
+ b=ggG3NjqM85hIiuKmtFu9ghInzmragl3wHrcoROtxh0aq14fa77KXwNHhHcGfwNWrX6OTTB7+atmbJCwdpYIRtNwKbhXmvkEPrgMjNf5SNQs8PBBm1GOCdbCoBTKUN+pWAEPZsZIbcDbvMIMj6hi+ei6j7k1ja1it4UeGv5L3x/qooVHVaG3dbFqsj1h6aRtRdr11i0k3mmTx8nEuQ9bkOFeKhLVKgCvDdK7wF+85DPkC90NZdVC3qEl+CO+XSaXna3B/gw9gErpmxnOdIi9eH+e/626sG3p+BADqm4KHVv6R4yf173suOEGfUfmRJjPJWy5F6zoKv/3MZC9EAK+zqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB5423.namprd11.prod.outlook.com (2603:10b6:5:39b::20)
+ by BL3PR11MB6505.namprd11.prod.outlook.com (2603:10b6:208:38c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Tue, 29 Oct
+ 2024 09:25:21 +0000
+Received: from DM4PR11MB5423.namprd11.prod.outlook.com
+ ([fe80::dffa:e0c8:dbf1:c82e]) by DM4PR11MB5423.namprd11.prod.outlook.com
+ ([fe80::dffa:e0c8:dbf1:c82e%3]) with mapi id 15.20.8093.021; Tue, 29 Oct 2024
+ 09:25:21 +0000
+Date: Tue, 29 Oct 2024 17:25:04 +0800
+From: Philip Li <philip.li@intel.com>
+To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+CC: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, kernel test robot
+	<lkp@intel.com>, <andersson@kernel.org>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <konradybcio@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
+	<geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
+	<angelogioacchino.delregno@collabora.com>, <neil.armstrong@linaro.org>,
+	<arnd@arndb.de>, <nfraprado@collabora.com>, <quic_anusha@quicinc.com>,
+	<linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<oe-kbuild-all@lists.linux.dev>, <quic_srichara@quicinc.com>,
+	<quic_varada@quicinc.com>
+Subject: Re: [PATCH v8 6/7] arm64: dts: qcom: ipq9574: Add nsscc node
+Message-ID: <ZyCp8JepAWTJ/TNR@rli9-mobl>
+References: <20241025035520.1841792-7-quic_mmanikan@quicinc.com>
+ <202410260742.a9vvkaEz-lkp@intel.com>
+ <ca0137a6-3ffa-46ad-a970-7420520f09ae@oss.qualcomm.com>
+ <b34cfd80-88de-4f7b-ae55-3b65abf8924a@quicinc.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <b34cfd80-88de-4f7b-ae55-3b65abf8924a@quicinc.com>
+X-ClientProxiedBy: SG2PR04CA0165.apcprd04.prod.outlook.com (2603:1096:4::27)
+ To DM4PR11MB5423.namprd11.prod.outlook.com (2603:10b6:5:39b::20)
 MIME-Version: 1.0
-References: <mb61p4j4wwlap.fsf@kernel.org> <86ed4031zh.wl-maz@kernel.org>
- <CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com> <86bjz32q2q.wl-maz@kernel.org>
-In-Reply-To: <86bjz32q2q.wl-maz@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 29 Oct 2024 11:00:24 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
-Message-ID: <CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
-Subject: Re: Supporting KVM_GUESTDBG_BLOCKIRQ or something similar on ARM64
-To: Marc Zyngier <maz@kernel.org>
-Cc: puranjay@kernel.org, Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, 
-	=?UTF-8?B?QWxleCBCZW5uw6ll?= <alex.bennee@linaro.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Sumit Garg <sumit.garg@linaro.org>, 
-	puranjay12@gmail.com, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Zenghui Yu <zenghui.yu@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR11MB5423:EE_|BL3PR11MB6505:EE_
+X-MS-Office365-Filtering-Correlation-Id: 118a1620-1476-45ce-6962-08dcf7fb9c65
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X00uzMDfHgM8oOrDUVUn2aFhFlAvUL4VXummkYy4D1luZg83t32xkGRxAfpB?=
+ =?us-ascii?Q?dFN5zAiV+zom6ch3IOcxxbVrOJeRzO0zpmyht9s5Oq9lIS7YE9Vk9z0E9NW7?=
+ =?us-ascii?Q?ErGmia+7lxAgrFFgxGxFBO1Vw7buPfARiM+kgQBgc8D7Rd70iweAovEN5tUr?=
+ =?us-ascii?Q?1snVhTBxcDFWMgyQRrndTCtK6XIbtr+dPpVGoQK2G04wGRNnY5IyT0mtm9Y6?=
+ =?us-ascii?Q?3C0mWhRR9vW8lwU90SgXBimwMj9MHa3B4yhIgyX7pCBwcre2oiMHa/N9WDjK?=
+ =?us-ascii?Q?RSmCJBDzZh/VkUN8KgK30Ox7ZoU0ES+6MJ86TUnIG1Dxq1A9RqWhiudg+a9Z?=
+ =?us-ascii?Q?xMu+t0MXMjTfVwT4bpUvudjb+c+2TxvjIPhVjuYzr7VKqtEp6n1WKN6pohMh?=
+ =?us-ascii?Q?809CYkzwH75Gh/9gNzOYI3jI+foGekMLPa8gfycvz9facscnzF1ieIyQUfyI?=
+ =?us-ascii?Q?CKrR6dDXuvtcYjiTwaOAxXUiDy/i3de/DyMoNCBDz7nFwhuNQXrj5xFOhPud?=
+ =?us-ascii?Q?G+S1mGXGKP3xDArSMiHCf+wfq0KzA7x+KjkLfPEOeCX/M/2XrCSHH0mJdt/3?=
+ =?us-ascii?Q?DzDrhhme9E7vpePrOx6YzAh+LmggpgHD9/NqBeLc20EhzZ6HFVMBc+7SuEJ1?=
+ =?us-ascii?Q?1z63aCSxkgQS2NQQglNV67QBIN/AJgBzw+6lEdFonKXlT/DvbSK0K6m4r+aH?=
+ =?us-ascii?Q?MnsB7ALz2jJKw3CyQ6u7gC7h6h637pjScCyHDLKAwdX4hqtLJsbFuujifepv?=
+ =?us-ascii?Q?CxmBcIox3T/XyVOC6V5GL6WiWlGDSNeuspHuqxfWs9oGXjWN5j3xdLYpNeT+?=
+ =?us-ascii?Q?jaoCuW8rtnTE4ubfWVHcNGQNdxkmC+io31F6zRt5C3d5WY04EYmnOJFPAUVD?=
+ =?us-ascii?Q?Q2SXTZHiKaaDOvcMPk+ru1OqTCONinttFqwggKLE8UM5bYCoa+Nyw27zGlZa?=
+ =?us-ascii?Q?6RQt06bpw866yWNpa1BdIOTGvLQNRCJgDwAvDyT2PUzC89e8Imj069y7ygp4?=
+ =?us-ascii?Q?XE7+xfxZJWs8+lO4fcU2jsgwuolQQjIB7Fb5N1PyQfeeZVhoX3yfaMEDVRXE?=
+ =?us-ascii?Q?9M5Fl2XyGns/PJf4PUYrSGtZkDMlqHN9ducoQlwtuRvvzel49X9oromZxjKg?=
+ =?us-ascii?Q?zccshuxZQ1cswv8Th67v6HCyHndF3p5v3HoYghW4mQCyK6+1sLeMrYe5iCXi?=
+ =?us-ascii?Q?xM6OqJicH9EN4O+HCogkJTQEDNyKrV63wu9WbYls7trE2MmwVoz6vz02X6g6?=
+ =?us-ascii?Q?x5F1BjnBPCPCfHg7KbuwgrCvQwchMHWClukWR0X17g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB5423.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DdMvtu4fD8hmIZ7Xe7gHFD5FjNJ4uPtGW3E+NGuIrvf2WtdUe0+iNz7hdCSv?=
+ =?us-ascii?Q?QfiE8Te1OCD2ezrhC5l2KH+kaDZOZ8FS7jWVhpjupqW8WEXzU1RqXoEj2fMb?=
+ =?us-ascii?Q?3oK3+UEJ8Go58c7Nue2aV7BMdPS9Z+0q4UbTBnYQ19o9YYNUZOflM0oRZvIN?=
+ =?us-ascii?Q?Fa2wfaxD6MHY4aVjswtmpHskifKTeF+RyQQcqQe62ZyYbf0cJB5y2Y1WkDDA?=
+ =?us-ascii?Q?T6VWkl+oBvkEYpsG4sYoFj3LeNkfl5FrmHwvMdpsfjuViM5jOZqetIjo9qlO?=
+ =?us-ascii?Q?38gkd5/7YNrO2eyxdC2/1IruKUvbKReO0WiZ264aZkNOX09A9obC2eduYGjZ?=
+ =?us-ascii?Q?A+2KcTrtZbmIN85aZX8WSKL7CeZbgRlQ6OZDxWmWbACKYBx1Dj3l9MMVVGnb?=
+ =?us-ascii?Q?Wtc7n6F/BUWlwz2EomeQtA0gQQ6bXJ3vxgM08DlIEmWnAe3+saowtJmohp+s?=
+ =?us-ascii?Q?Xkdd2GIEnkrLhmJbJDULe6YKfaZxU2qUrj8AJNNXBTH/LSp31Dj4R/rF2LjD?=
+ =?us-ascii?Q?PgJeo1A24csyq/x6gsbNKe2V3saaRLOHb1FtioCmz3qUorDExwtnpHe+E2+o?=
+ =?us-ascii?Q?R93JLjWOuzL5o2ikfQgVI9uQ/nOse/MLeNqbXyPpmoXHe7gyv6SAY1Ym9wwV?=
+ =?us-ascii?Q?vohtBnLduxYKBMc2vgd//+bamq55IsDDfMDn+iY+4iXYmDFEejlsOjLMpIFI?=
+ =?us-ascii?Q?Ee5yRpqZKbF4u+5724arnsDvIrw8W2+D9Ihr1hjRMkXKbYtlzaNA3fnVluNk?=
+ =?us-ascii?Q?mNvAjgh3oFWWfdRT/jhS43w2yr+qtSIarkFrWsDYT/vKcaYIoguXdpgE9aP+?=
+ =?us-ascii?Q?2kkp5q9CW4cxxkjHz+AmEUdh6Mmr9vjDm9aRnDkQbmI1Q8/ykJKiD3upMYiT?=
+ =?us-ascii?Q?o1X560fZSDBVkmk+j7dtgfYbPmj9Ft1rnjCuPyZ5AHgD0GvoeWiuir4MYPu0?=
+ =?us-ascii?Q?P71fxQxE/zIn5bnBNvQ3gEEuOqygmgjpPOTQD0LKKrW9cMF4/thdtkU9/Ew0?=
+ =?us-ascii?Q?i1oo2Kw0LJVS86LTZYCt3KYfGhDdC5ycsZ+ndWQMB1glzoOUSFSiALs+AEo/?=
+ =?us-ascii?Q?SoNw/B2xxvdWGMLM62ZpsV7vrlnRFy4qiwnhqEN9Ppm9eNyYZRU7vGGizVL3?=
+ =?us-ascii?Q?823ZQ3Z3KbNFW8F6bekdwod+d5uqALlZKD2muUQhZyM4K4wWFZyh5cWbnaAb?=
+ =?us-ascii?Q?O/Ze96IJJpaGhBnTJcVRtCPkdxplG71Sv88LAgRZjRWrj2BP47a0JnPsREm3?=
+ =?us-ascii?Q?yq1a6Z4W85Ikd4c9E7ClB8qAfNln4bYd42EtpSfujBf2+o4tud8sD7zhC6dS?=
+ =?us-ascii?Q?X5JSxrGUAgQnrv0RYX/m8oQTydltNOj94m72DB3ZymI5CmaH3pHHwSNqNBQ9?=
+ =?us-ascii?Q?ZVOSEhSUIMxaiPJDTwk3/PL4nk65g6fFyNmHWICLeUSAPv5fE0x2GYPk/DIo?=
+ =?us-ascii?Q?QSqWcGBFJpxP6YEl1Ox98Y5JO/Y3UrYOczbA5FU9ZRWkWcPHpsk4PJ8deALZ?=
+ =?us-ascii?Q?qqr+S8fHqD3avAoDx04D/go1EADl15kVROlfgJUkKTSpHqQ3j1/LcGlPvcnD?=
+ =?us-ascii?Q?97o2zX/J8NHcS+WzfbF6BrsBi9k3XzBBUao4Ty6b?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 118a1620-1476-45ce-6962-08dcf7fb9c65
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB5423.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 09:25:21.7023
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cNJZONV03Yp9nkhrrCshcdK38c+5cOmlUQurLC6fnKTK8ZHzLaV6O4vUwtFof/Csp+19kHq42WmXtznVFRvh9A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR11MB6505
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_030041_047649_122035AC 
-X-CRM114-Status: GOOD (  32.26  )
+X-CRM114-CacheID: sfid-20241029_022534_375600_CDE878F4 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,78 +200,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Oct 2024 at 10:53, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Tue, 29 Oct 2024 08:52:41 +0000,
-> Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > On Mon, 28 Oct 2024 at 12:23, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > > Let's start a discussion about what needs to be done to support this on
-> > > > arm64.
-> > >
-> > > A good start would be to define the semantics of such a flag:
-> > >
-> > > - what should it affect? the vcpu you are single-stepping? all vcpu?
-> > >
-> > > - should userspace to know that interrupts are pending?
-> > >
-> > > - should this result in any effect on the guest's view of time?
-> > >
-> > > - what of interactions on the rest of the system (such as devices)?
-> > >
-> >
-> > Sorry to give a handwavy answer here, but approaching this from a
-> > usability PoV (like what Puranjay is doing), it is really about
-> > adhering to the principle of least surprise for the user.
-> >
-> > So in that sense, it is not really about blocking IRQs at all, as long
-> > as we step over them rather than into them. How that is achieved is
-> > not that relevant from the user PoV, and maybe KVM_GUESTDBG_BLOCKIRQ
-> > is not the right solution for ARM at all.
->
-> I definitely sympathise with the goal, but there is no simple way to
-> let interrupts through while stepping (which is what your "step over"
-> implies):
->
-> - the hypervisor (in general) doesn't interact with the guest delivery
->   and handling of interrupts -- this is either very opaque (list
->   registers) or completely invisible (direct injection)
->
-> - replacing the step with a breakpoint after the stepped instruction
->   requires us to decode the guest instructions to handle branching
->   effects
->
+On Mon, Oct 28, 2024 at 01:12:04PM +0530, Manikanta Mylavarapu wrote:
+> 
+> 
+> On 10/26/2024 3:35 PM, Konrad Dybcio wrote:
+> > On 26.10.2024 1:31 AM, kernel test robot wrote:
+> >> Hi Manikanta,
+> >>
+> >> kernel test robot noticed the following build errors:
+> >>
+> >> [auto build test ERROR on clk/clk-next]
+> >> [also build test ERROR on robh/for-next arm64/for-next/core linus/master v6.12-rc4 next-20241025]
+> >> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> >> And when submitting patch, we suggest to use '--base' as documented in
+> >> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> >>
+> >> url:    https://github.com/intel-lab-lkp/linux/commits/Manikanta-Mylavarapu/clk-qcom-clk-alpha-pll-Add-NSS-HUAYRA-ALPHA-PLL-support-for-ipq9574/20241025-121244
+> >> base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+> >> patch link:    https://lore.kernel.org/r/20241025035520.1841792-7-quic_mmanikan%40quicinc.com
+> >> patch subject: [PATCH v8 6/7] arm64: dts: qcom: ipq9574: Add nsscc node
+> >> config: arm64-randconfig-001-20241026 (https://download.01.org/0day-ci/archive/20241026/202410260742.a9vvkaEz-lkp@intel.com/config)
+> >> compiler: aarch64-linux-gcc (GCC) 14.1.0
+> >> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241026/202410260742.a9vvkaEz-lkp@intel.com/reproduce)
+> >>
+> >> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> >> the same patch/commit), kindly add following tags
+> >> | Reported-by: kernel test robot <lkp@intel.com>
+> >> | Closes: https://lore.kernel.org/oe-kbuild-all/202410260742.a9vvkaEz-lkp@intel.com/
+> >>
+> >> All errors (new ones prefixed by >>):
+> >>
+> >>>> Error: arch/arm64/boot/dts/qcom/ipq9574.dtsi:766.16-17 syntax error
+> >>    FATAL ERROR: Unable to parse input tree
+> > 
+> > I believe you also need to include <dt-bindings/clock/qcom,ipq-cmn-pll.h>
+> > 
+> > Konrad
+> 
+> The above build error is because kernel test robot didn't pick the
+> dependent series [1] mentioned in cover letter. Not sure if that is
+> because 'base-commit' & 'prerequisite-patch-id' tags were not present
+> in the cover letter. Will include them and post a new version.
+> 
+> Will that help the test robot to pick the correct dependency and
+> resolve this build failure? If the dependencies are picked,
 
-Yeah, and we still want to take non-IRQ/FIQ exceptions, so this does
-not seem feasible to me.
+yes, with extra info like base-commit, it helps the bot find the right
+base to apply or to ignore the patch if the required base can't be found.
 
-> One possible mechanism would be to:
->
-> - while stepping, add breakpoints to the interrupt vectors for the EL
->   we are stepping (3 breakpoints for any of the 4 possible exception
->   groups),
->
-> - when any interrupt breakpoint hits, clear all 3, place a breakpoint
->   on the instruction that was about to be single-stepped (pointed to
->   by SPSR)
->
-> - run to completion, until the breakpoint hits
->
-> - disable the breakpoint, reinstall the previous 3 interrupt
->   breakpoints
->
-> - single-step, rinse, repeat
->
-> But then I'm asking myself the question: why is this KVM's job? It
-> seems to me that this is what an external debugger would do when
-> interacting with HW on bare metal.
->
-> So can we implement this as part of the debugger's state machine?
->
+This can help to avoid false report.
 
-Which debugger is that? The GDB stub in QEMU?
+> <dt-bindings/clock/qcom,ipq-cmn-pll.h> would automatically get
+> included.
 
-Setting a one-shot breakpoint on the address in SPSR when taking an
-IRQ exception seems like a reasonable approach to me.
+thanks for info, and sorry about the false positive report.
+
+> 
+> [1] https://lore.kernel.org/linux-arm-msm/20241015-qcom_ipq_cmnpll-v4-0-27817fbe3505@quicinc.com/
+> 
+> Thanks & Regards,
+> Manikanta.
+> 
 
