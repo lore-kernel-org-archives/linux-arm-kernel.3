@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53450D2AB2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CC9D2AB30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=; b=DqBWyWGth32K+gDtUm8j9aV+pN
-	eWku9+157V9ZftDTQrtWVltjz//u+stczS0gozw2YQfTzP6XJjgqSGOYUvjtIFcCbiwgimSPP/CLA
-	ghFHurQUyDg++V4+WVentirraTcqaqGpj68Yrg7P2GUt8kXlvTh1Nhx7rvIHvSTiVwQVi+Dz0zi7U
-	xVZjPOYb+8LPHoUz5QKa3UaVjdXjcEM8Mv9MbaoLtBmUQVDSSUvfXnE/dXf/tXqg22KqQ+UoBBGMr
-	a5jrOKAISFeeVt0isLbraxPKPDXBrKHAu+dlKNH2ApJ1mCH9sjOExUxxNzsKmzuoDwK1E+siKOmgf
-	Zr3kKrfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Idi7mW1U/PRXaQCkWe/8k2CB2lHuMJvDPUFBBqLYcGc=; b=OQtBYCFcZEqlmn3/kjzJ2ElCTS
+	aWHab1PuyPWbBqGdcXjAxWmSi9joNSzZtI1guQL8z4y4n1w5hEcH47RU9q9biU5gQnBY3QiAMRQf2
+	m5BXGTatd+q3azOqFn+8rrfjQHl6ZSYvjLi9pR/JCylNIYh086NBRqwbYmr6oCxHjTzMOYKKNeZnK
+	LtAISO1gtaZQOKefTwZjSbS1IVFvpYtDf6YDyYE0pw6rBq2aCopm//H8m/f9FF4ujW2TP048iDt92
+	bO7GOK/pJor6NGkt6ySnHrrfsJXzGL2kIsqV9ksUrnA82Xek2cFfMFvOw2IJS2PwDfRt3Ihz0VM8T
+	MGfGUV6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5l36-0000000EM4q-2UPc;
-	Tue, 29 Oct 2024 12:10:12 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1t5l4i-0000000EMTg-1dEv;
+	Tue, 29 Oct 2024 12:11:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kKS-0000000EE6Q-0REU;
-	Tue, 29 Oct 2024 11:24:05 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb5743074bso43586101fa.1;
-        Tue, 29 Oct 2024 04:24:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730201042; x=1730805842; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=;
-        b=IZJYtmVF1fuj0rTJ702t+9XnPkespKcLqw+eOQtQr5FMfa9URB2bJUSAmC47G7nLwO
-         Hmd/RKhU3G+mdW3MjWwyNv0MC0BwiZAhrhqqyGGFHg7QMUfh052VJ96WRPQOz+EGnzvX
-         YsREqTVIeSJiaP9Vc15Lr+9z3Co6kem+s5TVVm0osswfLqhRCfV0HByQ1AATkWtAbFQq
-         JodNNFMnJoZ45NflPeZisOfTQQDUH00683qLO5WuZgQQglEH9ma2u46A/bOSm//oIDS/
-         hGHjReRt1sIHF0uNSgYqdoF2V7av52IFKqtxvv5DYWvo40sCyDgbJO07oNoO7yfbkkeb
-         xgOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730201042; x=1730805842;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=;
-        b=uR7z54FD7RHpSXYAsCXH+T1tAMTCCzjLWBwxp0bv5650Q2Z9Epti7bdJ9WK0Y6vzvL
-         p8ygT7ExJSSPu99DOO0GQ3SEzZIhBusNWPZMht3feDN4uEKSeYV+L5tQf79TGqeP2xWh
-         Q1xqtZicrA+okvc/wPwmu+Pls0dtYep9Rav6SlkKQHuW8ZoQD7U81jDi1VrC4tcO/rT/
-         rNdTppZxYHiYYJFVaPScJbRMrmNUDLdH7aqZZCTkOynZEKI3DjFL3jBkpYeW6RuxanRA
-         qLuz8E1wJTT6U/a7eAYlNUOTjDRtm0Bpel2aLnPeKPFiikfar6fqbIaL+/UZe+Bz/NMW
-         QUpA==
-X-Forwarded-Encrypted: i=1; AJvYcCWXrgDlWXuPStG5jM9XVI5ExOsXuKlDA7Grfrc3EkwkODH5Z+jXX9XGz7WZWLF4Hu3KJ1+UrbKqkIdUjDi+C4XQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww6YwR8BwjTyDT4J+4EidrbL//SGPnJpUAA0oj/5vMp8gyVEwI
-	F47gR/iNxHk0XY2rqwB3zJ1co+Sw1yX2c5URTtdMJb0sAiEyybWX
-X-Google-Smtp-Source: AGHT+IEHQFQWslu58ODNcgJ0kA7mcOUn92YiGRqwT9IXE64HXJya3wT0vI60FTSmoh816Nm6CnQPvA==
-X-Received: by 2002:a2e:be09:0:b0:2fb:50e9:34cc with SMTP id 38308e7fff4ca-2fcdc7f6a51mr5886061fa.17.1730201042130;
-        Tue, 29 Oct 2024 04:24:02 -0700 (PDT)
-Received: from [192.168.1.11] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb45d20dfsm14691601fa.80.2024.10.29.04.24.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 04:24:00 -0700 (PDT)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Tue, 29 Oct 2024 12:23:30 +0100
-Subject: [PATCH v2] mtd: spi-nor: atmel: add at25sf321 entry
+	id 1t5kRZ-0000000EF0u-3R68
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 11:31:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 291D15C59A2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 11:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D414FC4CECD
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 11:31:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730201484;
+	bh=b3iDHqbap1LmKFhPTuu1Qqk4svOtioflicE0/GgpTbA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=FdtekhKLhC3d/47DQcpqir6P9jrHeh/KQ3dbRMElLhUWBbCPiD/wxpAj6swRfKlcv
+	 l9y/mwOJ5uivr4TmsTKzbyOOz2zaC76a2fNCHcxdG0YV0vacvF4rQ4BbN80Ecf+CNc
+	 cAezVQPUku0aL6ZYvrHAksowSYgq2HszMc80q/rxdUdHBA5zHC2gvQy4qc5gvApgV4
+	 v05AE1JGw7pQE7KYADRciW6kB1I+IiFmKim8zeHXAUjPSkAn0QXEFHJjlZPQRMXmhq
+	 gZV8fcIXD3EMTR1ulwX6Gfp2ENkLhpapFwHK+Ug9chxCxWpA5bc2kmvZAJa+sWXMXS
+	 3hkh0rhoZSv3g==
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-290d8d5332cso965251fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 04:31:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXk/yCQZ17LA0Y2wikz1DvYIYZRB+S6jZqDXSKmRx4JTwz/xMikHYdYAdLEwspLKzEyQEKqkAqzQEQ+rXKeb6U+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMHqCx2o510Y/o1Fx6K8p5Sc/Qu5zbHLD+hj4UPKhJyKpciC55
+	xtaQhMAR6kQSKar8iyIid3apgfYBOaBt/tRisTYEx9opBy5JMrHBZN36EHWS84i22sBn3+mF5XF
+	xMrd3sJrGUr4DCYnReCyqQfAdk6Y=
+X-Google-Smtp-Source: AGHT+IEkBtXhRClA2cm6t78kcyGJpyo2fCtEeh/HZcjhxwG2r5DEwf1//i8B3FFywZwUiFp2Jvl4f95iRwVJ4NKyimU=
+X-Received: by 2002:a05:6870:82a5:b0:288:59d3:2a03 with SMTP id
+ 586e51a60fabf-29051dd1728mr9737620fac.39.1730201484141; Tue, 29 Oct 2024
+ 04:31:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-spi-nor-v2-1-e166c3900e19@gmail.com>
-X-B4-Tracking: v=1; b=H4sIALHFIGcC/2XMQQ7CIBCF4as0sxbDELWtq97DdEFhaCex0IAhm
- oa7i926/F9evh0SRaYE92aHSJkTB19DnRowi/YzCba1QUl1QYmdSBsLH6KwRvW3vrOkpYP63iI
- 5fh/SY6y9cHqF+DngjL/138goUNhWXSc3tRLJDPOq+Xk2YYWxlPIFZ9O5Hp4AAAA=
-X-Change-ID: 20241018-spi-nor-dc29698dea0f
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Marcus Folkesson <marcus.folkesson@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2442;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=Bh/pCGhgwpeso/ZlnFF+4oo3hRtxyJ4ukGqD9q6lDhw=;
- b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnIMXLk1V2su/q8mCIPTOsrJENpDhv/6uVHZuvj
- k1jAj4sLd2JAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZyDFywAKCRCIgE5vWV1S
- MtE6D/0dhDciMdCaBBKUIEVGnm65MDeeHCj5uxDQhy5EdwWO/LIrD/paTeTRKOizfdjddOCX/Yx
- nB1kBZHlvWeoTNkarX3fENeCca2t7fI4BFSG7Jq5MnhQAion0YxLsczQa73jv+WFlD3q3QN0fHo
- asVkPagkJsiIM1YHpbfPuU2mxe3jFujXT2Wg5+5zsqa5eIuH+ybMgGE+rU6nsw2KI+8eFtuOUbM
- GCss0zZqQmrQ+ASg/BwEaa9lKKprmbqzOOL3ykEopy87gXtrQgwoVXulm8qbNm7Ugf6efqRTRAm
- +0hri72DrCgi7Im5IAxGVzfG75FEDQKC7bj2xwEPbm7mG3373qWxpvqx3QNPR+wAi23hR1j+sn0
- CqonFM0Hdr7uH7pNNAf6r3AMCE0XQM+35Z5e2gO8NitmxpFt+Ep5ciHHVJ23W2gKZrbe/+1sT6G
- ZSPnr7dAu5yskxZhzV3yab+fMBrpOVNyd1FpvELpBr74tVQO1EVpNkYALlDTwLQz1Z3GGiw+8WW
- uGQr0ExilGiMuaFf2GWp18S1xOOPZjU+9GlYnfzWlQoAOVR3RY9KYN5tggIogxWv7T3fqvDI3m0
- UB6Fs9CpQCW0ACwziipYqlpbJsueJsCyRKIU7vPvCSu8f8OpzApGkwACBvJaAlcX9zBnSc+nL4A
- 6q1AR+CdoauNAtg==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+References: <20240913132944.1880703-1-beata.michalska@arm.com>
+ <20240913132944.1880703-2-beata.michalska@arm.com> <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
+In-Reply-To: <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 29 Oct 2024 12:31:11 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0i2KUPXfeAKhkimetOMpx+5opgt26URJF8cstnZsaeZwA@mail.gmail.com>
+Message-ID: <CAJZ5v0i2KUPXfeAKhkimetOMpx+5opgt26URJF8cstnZsaeZwA@mail.gmail.com>
+Subject: Re: [PATCH v7 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org, 
+	catalin.marinas@arm.com, rafael@kernel.org, sumitg@nvidia.com, 
+	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com, 
+	lihuisong@huawei.com, zhanjie9@hisilicon.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_042404_187958_A6FAD634 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20241029_043125_964425_3BE041CF 
+X-CRM114-Status: GOOD (  30.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,101 +88,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entry for the at25sf321 32Mbit SPI flash.
+On Tue, Oct 29, 2024 at 8:04=E2=80=AFAM Viresh Kumar <viresh.kumar@linaro.o=
+rg> wrote:
+>
+> Apologies for the delay from my side. September was mostly holidays
+> for me and then I was stuck with other stuff plus email backlog and
+> this series was always a painful point to return to :(
+>
+> On 13-09-24, 14:29, Beata Michalska wrote:
+> > Currently the CPUFreq core exposes two sysfs attributes that can be use=
+d
+> > to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
+> > and scaling_cur_freq. Both provide slightly different view on the
+> > subject and they do come with their own drawbacks.
+> >
+> > cpuinfo_cur_freq provides higher precision though at a cost of being
+> > rather expensive. Moreover, the information retrieved via this attribut=
+e
+> > is somewhat short lived as frequency can change at any point of time
+> > making it difficult to reason from.
+> >
+> > scaling_cur_freq, on the other hand, tends to be less accurate but then
+> > the actual level of precision (and source of information) varies betwee=
+n
+> > architectures making it a bit ambiguous.
+> >
+> > The new attribute, cpuinfo_avg_freq, is intended to provide more stable=
+,
+> > distinct interface, exposing an average frequency of a given CPU(s), as
+> > reported by the hardware, over a time frame spanning no more than a few
+> > milliseconds. As it requires appropriate hardware support, this
+> > interface is optional.
+>
+> From what I recall, the plan is to:
+> - keep cpuinfo_cur_freq as it is, not expose for x86 and call ->get()
+>   for ARM.
 
-This flash is populated on a custom board and was tested at
-10MHz frequency using the "ti,da830-spi" SPI controller.
+Yes.
 
-Link:
-https://www.renesas.com/en/document/dst/at25sf321-datasheet?r=1608801
+> - introduce cpuinfo_avg_freq() and make it return frequency from hw
+>   counters for both ARM and Intel and others who provide the API.
 
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
----
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/partname
-at25sf321
+Yes.
 
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/jedec_id
-1f8701
+> - update scaling_cur_freq() to only return the requested frequency or
+>   error in case of X86
 
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/manufacturer
-atmel
+Yes.
 
-root# cat /sys/kernel/debug/spi-nor/spi1.1/capabilities
-Supported read modes by the flash
- 1S-1S-1S
-  opcode        0x03
-  mode cycles   0
-  dummy cycles  0
- 1S-1S-1S (fast read)
-  opcode        0x0b
-  mode cycles   0
-  dummy cycles  8
+Preferably, -ENOTSUPP for "setpolicy" drivers without the .get() callback.
 
-Supported page program modes by the flash
- 1S-1S-1S
-  opcode        0x0
+>   and update documentation to reflect the same.
+>   Right now or after some time ? How much time ?
 
-root# cat /sys/kernel/debug/spi-nor/spi1.1/params
-name            at25sf321
-id              1f 87 01
-size            4.00 MiB
-write size      1
-page size       256
-address nbytes  3
-flags           HAS_16BIT_SR
+After some time, I think at least two cycles, so people have the time
+to switch over, but much more may be necessary if someone is stuck
+with RHEL or similar user space.
 
-opcodes
- read           0x0b
-  dummy cycles  8
- erase          0x20
- program        0x02
- 8D extension   none
+Anyway, x86 will be the only one affected and there may be a Kconfig
+option even to allow it to be changed at the kernel build time.
 
-protocols
- read           1S-1S-1S
- write          1S-1S-1S
- register       1S-1S-1S
+The documentation for cpuinfo_avg_freq() needs to be added along with it.
 
-erase commands
- 20 (4.00 KiB) [0]
- d8 (64.0 KiB) [1]
- c7 (4.00 MiB)
-
-sector map
- region (in hex)   | erase mask | flags
- ------------------+------------+----------
- 00000000-003fffff |     [01  ] |
----
-Changes in v2:
-- Change from at25sf321b to at25sf321
-- Link to v1: https://lore.kernel.org/r/20241018-spi-nor-v1-1-d725bfb701ec@gmail.com
----
- drivers/mtd/spi-nor/atmel.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
-index 45d1153a04a07b7c61f46b117311b24ab695038f..8285a16b253d54ae8c4a5302850244d2248aa755 100644
---- a/drivers/mtd/spi-nor/atmel.c
-+++ b/drivers/mtd/spi-nor/atmel.c
-@@ -238,6 +238,11 @@ static const struct flash_info atmel_nor_parts[] = {
- 		.flags = SPI_NOR_HAS_LOCK,
- 		.no_sfdp_flags = SECT_4K,
- 		.fixups = &at25fs_nor_fixups
-+	}, {
-+		.id = SNOR_ID(0x1f, 0x87, 0x01),
-+		.name = "at25sf321",
-+		.size = SZ_4M,
-+		.no_sfdp_flags = SECT_4K,
- 	},
- };
- 
-
----
-base-commit: 200289db261f0c8131a5756133e9d30966289c3b
-change-id: 20241018-spi-nor-dc29698dea0f
-
-Best regards,
--- 
-Marcus Folkesson <marcus.folkesson@gmail.com>
-
+> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> > index 04fc786dd2c0..3493e5a9500d 100644
+> > --- a/drivers/cpufreq/cpufreq.c
+> > +++ b/drivers/cpufreq/cpufreq.c
+> > @@ -752,6 +752,16 @@ __weak unsigned int arch_freq_get_on_cpu(int cpu)
+> >       return 0;
+> >  }
+> >
+> > +__weak int arch_freq_avg_get_on_cpu(int cpu)
+> > +{
+> > +     return -EOPNOTSUPP;
+> > +}
+> > +
+> > +static inline bool cpufreq_avg_freq_supported(struct cpufreq_policy *p=
+olicy)
+> > +{
+> > +     return arch_freq_avg_get_on_cpu(policy->cpu) >=3D 0;
+> > +}
+>
+> And why aren't we simply reusing arch_freq_get_on_cpu() here ?
+>
+> --
+> viresh
 
