@@ -4,195 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD0AD5B840
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DCAD5B854
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ipd3R0XPPqBvXqkhdKucx+TiJlGjpp7/oLrHqojklQM=; b=4lHz9O3Up/NTkZPGb24XZllkrQ
-	OVKogccUKkN+lQ4oUU9MmCdpQj73AzhAyZ0n2AZRGStINwLjUSI/bzeWfH4uGhApnYR3JsrDNJamy
-	9ycoqPK0FUwFK8IHEtizIC73Tdow+HxYg0IMy8dh0vwNhMMV11Fjrwb+/IF1MACWbF2K+/MQT5bOi
-	sC52R4wA+cpdoumL1IX/qN1VvnUJXCSyyl/EnwMro5dXEwZl0KqUNdbbMfrS2fxQXAbiDk01v4hP2
-	YWN6/NCqPNQKcNrjc/F0sYgwiK1HX0UI4lnsXY/d23m2a8gdzRmVaR1IBjPb0s+y8vI/Wujuh/l5o
-	ChpTJm7w==;
+	bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=; b=s8IPvnz0EbWm3/V1mgNnlw3yBM
+	PGRJdTCJb1acntK6eI6RluZmqR3baYlhC4pnxdQZHGaoPq2XlLssrC26++M79J7MMfNF9QqNzAkRc
+	hCvb3x3LKhagLUbA2mY/AUQj/c1xQNBNZiocqhbcSeo06QqASsyaLpJhwieDHxiNNnX/HC1WZhWHp
+	rpI4cva/z3knXMM6vDOAFWVpNMRZE/WEYwSQcl+8dFz5wH5Pn9rKwYSpgPgzyp0aH7aFQyUbitXYD
+	bQb7TOSdetu8uVO9qhQnoc+GSB9UPDTp5mbaIyu6kvv4EFxx0UZXB3YEcDQZQa4SqxOX+v9uwWjeO
+	uW0/mO2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bch-0000000CvdP-0XuF;
-	Tue, 29 Oct 2024 02:06:19 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1t5beh-0000000Cvw3-1y81;
+	Tue, 29 Oct 2024 02:08:23 +0000
+Received: from mail-eastusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c101::] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bb1-0000000CvO0-0A7D
+	id 1t5bd5-0000000CvhP-1Bw7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 02:04:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730167475; x=1761703475;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=K2ZfybCrzkAsLmHDYJyV5b0HEEp9lIXG/MjUcI04DEI=;
-  b=WhLp2y5nhOCxyrKV6LDBgVbQ0pqFdfqpfgVuCSRXTazRYTWqgxn+QS+8
-   An/7Fs+UwUZ8wNdTVBBhRU2WVhEXKonhACgoHXuh45zcvArK9cZBbPxwQ
-   b4c2BLg80FCkbBgb/04muArwL7Yj25pVLQcqHg0ftwEbh3zfT/e0/GyRi
-   0sFU49DFF9LmwEskYtBTHxj+jveNrALboAcoOPY7KfjUOcAjDkt5txbz5
-   OgiaEOtzt9pZLeIE3eF60auPS6keeEmYQXbw8X19TO30Tk883dbDwR3mt
-   1ERvdrxNFJkgwt/onpKyY7stb42k+iRPeuJhWRDQH6pU7Zaa7qVC/9fXG
-   Q==;
-X-CSE-ConnectionGUID: UVXNvtGeTX6pUsrNoFEBKA==
-X-CSE-MsgGUID: xQDXvp4wRbWs5gHzbw4QSQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11239"; a="29220019"
-X-IronPort-AV: E=Sophos;i="6.11,240,1725346800"; 
-   d="scan'208";a="29220019"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2024 19:04:32 -0700
-X-CSE-ConnectionGUID: 8fka4D9mS7uhPL7WEThPgw==
-X-CSE-MsgGUID: Wg/BnqAfSemgywnvb42oxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,240,1725346800"; 
-   d="scan'208";a="81898620"
-Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 28 Oct 2024 19:04:09 -0700
-Received: from orsmsx602.amr.corp.intel.com (10.22.229.15) by
- ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 28 Oct 2024 19:04:08 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Mon, 28 Oct 2024 19:04:08 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.168)
- by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 28 Oct 2024 19:04:08 -0700
+	Tue, 29 Oct 2024 02:06:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v+dQ4OPlkUcQ7/V/jCOFGCpCDO928lfVZB7jLfpmav7c4Kd/SBtzWyyB0Abn4bJH4ymwxC6EdOJ1ecSiuu3vfMIrWQyop0/A4r/KDaK7FNqxos+Hjd3hVF17mLTr1cj67lEEU63lZ577z6DwHef3SXe9EEMZfP5z9SadgYqT+Jm6dRfKAyDA62yDoN6m2oBNGSmlfH96iDGkPug95ocWjQFJ3cWu+tA6/cmRZhOTsPmrwBB6QhPpSdxuLaj8/x2Nm+rxUfAovYyOzwSHqubPXtuQkWrz6y8MLjuydKosNqMWq7e02liEnsEvZ/ntcpViYqySiwUzJ9lKgAxpjOzNpA==
+ b=c5QJGpRAR/Zf7kYqawr/x327FC5vLQMNJ7aLXk/jCT38Jph2IAZtnCt8flQuEUZCdV6B9mmgNgKvT8EBh2xc/9c1x3Y07KgmCesUmg3fZaa7CCmfiqaNsePXcE8qbk9YEXaeEngpJZre6e0BE2Kb5q9F4YsBGThWGOi+jpVoSSC3H3wELPa+4fFqBNDvFmVZA3hUpItnv3igzuEetny4UdFrxixzcAQmkAPqJkVGAOXZW8kc0cI8Wcyzu8/dg/PNvUC9XJlasH9sF44FvwPZZRCh3f/k+L6zn30WnebQL4fHZ1eek8UB86ULqOs6LY8ccHpiGDrsn3LhR7qqPFis+A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ipd3R0XPPqBvXqkhdKucx+TiJlGjpp7/oLrHqojklQM=;
- b=Fm9PmP8OVWwDS2Q5WyBFHM3wWnQWmc9EGOHoCscPA/DxaFGx63+1Jj6jMvFWxsiVhONUl2oaodBvcQfPscC9PC/AafAcYXHbRSI3Cy1RoPMJB0VAe8Wa/0EQgDhB31VAOlIlYV7/yhJa/z2lCgLGCkX0cFU8iMxigvB/VPuzJZQKk3KSxgWx+YeYGwF+t/t1THZvOmlfiruANZgI1FCWtgy/NoDe8vFJrVtFN2zEutef65ybPzRZULaQuXvyHBoly/d31YnRMxpIfeg0oyZh86syr0ps/+yBJf+tOsnXYqjAw/u6YPgQxHfQwTrvW5n9NpN3XNuQBe1IeF4UlN2Bqw==
+ bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=;
+ b=MoFtuWUBPCKIrRFdJOQvh+i7PoTlMSR3QKX8UTH0UESV/7JhqOu8Oea2fbbUcMTVHSAsXkv7IE9fgVnUTLqOyZZHYhtKYi63yMfWUfoMxyLyAHw1inZ28xUl3pyR9KUtrXiOpdHlnBKA+wi/T3vZ35sh72/bbm6nO2svMQwfBbydDXjrUWCBtUKd+sjunTzgHyK1VfsSJH2DAffdGJ0seaxHfMOkoL+icf52VlxHXt1QvVVeZRqHFQwZznabxtcuIvPfDo5FRtdLvXlPGTKnlyZH1VtE8vgs4bHNRM2c8TgRLhhe8lqzGDkLoUv0hE1TAklMhZfwhSLYLAaduEROwA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=;
+ b=FKw8OPhwC4PsaAbnV4bK6qfKPPILgZxz4bm2dmT2hz7853LzwGoBhFkad3c9hSo4dwNvMtg7FwDjf/Awr7YQlLixFCt/dks2yAwP+j4pfyodiqUhp3JIX8UO7wyY3Fi3hU6H8A9btZ+tnvi8jVik2shNh2tUbkrkH/vyQsv91EI=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by DS7PR11MB6223.namprd11.prod.outlook.com (2603:10b6:8:98::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Tue, 29 Oct
- 2024 02:04:00 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
- 02:04:00 +0000
-Date: Mon, 28 Oct 2024 19:03:54 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Alistair Popple <apopple@nvidia.com>, Dan Williams
-	<dan.j.williams@intel.com>
-CC: <linux-mm@kvack.org>, <vishal.l.verma@intel.com>, <dave.jiang@intel.com>,
-	<logang@deltatee.com>, <bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
-	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
-	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
-	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
-	<david@fromorbit.com>
-Subject: Re: [PATCH 10/12] fs/dax: Properly refcount fs dax pages
-Message-ID: <6720428aa1fcc_bc6a929439@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.9f0e45d52f5cff58807831b6b867084d0b14b61c.1725941415.git-series.apopple@nvidia.com>
- <9f4ef8eaba4c80230904da893018ce615b5c24b2.1725941415.git-series.apopple@nvidia.com>
- <66f665d084aab_964f22948c@dwillia2-xfh.jf.intel.com.notmuch>
- <871q06c4z7.fsf@nvdebian.thelocal>
- <671addd27198f_10e5929472@dwillia2-xfh.jf.intel.com.notmuch>
- <87seskvqt2.fsf@nvdebian.thelocal>
- <671b1ff62c64d_10e5929465@dwillia2-xfh.jf.intel.com.notmuch>
- <87a5eon8v3.fsf@nvdebian.thelocal>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <87a5eon8v3.fsf@nvdebian.thelocal>
-X-ClientProxiedBy: MW4PR04CA0032.namprd04.prod.outlook.com
- (2603:10b6:303:6a::7) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ CO1PR01MB8841.prod.exchangelabs.com (2603:10b6:303:26d::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.12; Tue, 29 Oct 2024 02:06:37 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8114.015; Tue, 29 Oct 2024
+ 02:06:37 +0000
+Date: Mon, 28 Oct 2024 19:06:26 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: James Clark <james.clark@linaro.org>
+cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
+    linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, 
+    Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+    Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+    Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+    Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+    Adrian Hunter <adrian.hunter@intel.com>, 
+    "Liang, Kan" <kan.liang@linux.intel.com>, 
+    John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+    Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>
+Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
+ AmpereOne
+In-Reply-To: <963d58e4-c00e-40b5-bb64-97476807ed61@linaro.org>
+Message-ID: <86abfa22-4d2e-2a4-7365-571a69e8a233@os.amperecomputing.com>
+References: <20241024233035.7979-1-ilkka@os.amperecomputing.com> <963d58e4-c00e-40b5-bb64-97476807ed61@linaro.org>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+X-ClientProxiedBy: CH2PR15CA0018.namprd15.prod.outlook.com
+ (2603:10b6:610:51::28) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DS7PR11MB6223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5fb67051-17bd-4e5c-4cac-08dcf7bdf382
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB8841:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3439dca-8b1f-40d8-0c26-08dcf7be51bf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?S/LeL2+Ae4N5LRTUvNDLwuOUHIMLEQ8iHGzDfPrnKZMNAW+FUJO95Rt5iiZg?=
- =?us-ascii?Q?zfBdVj/gHywFtrJUg3ZnwAqMBxgBWu05ysK40M9nOeKEGkZE7hPgrYPl6f41?=
- =?us-ascii?Q?meZ7H7U/9UtZOJCNNR3LdXwkq/yImpaBX/XPg9JXSjwYXyPtJleTdk4WWOsN?=
- =?us-ascii?Q?Ex83PdkY+i4MoB7RdVk1i2D4B7C01falR9kuzKSEaYlG/9Un6JxqkZueRhFU?=
- =?us-ascii?Q?AQDQ0cunAbZhV94yCOvNiQG+8Y5ibA/W0VQf8q4jSnZt2P0wqpVnJT0P7YQm?=
- =?us-ascii?Q?fnhlq1JTYuLcxwPNmygy1LkgV0vETfKb0AB8IchAJUXQhTTEFXxFo7Rs3eBM?=
- =?us-ascii?Q?x4bEOV02okrBoRUVcBTX67WD8M+uMOOGTunu7qQn1J/INNKEL9vRYX87ksMn?=
- =?us-ascii?Q?EV453R8tgzM0NCBXkkR8cIHP7ydSTJY+wFpe8IYB1+WU3tE3fClXXy2u63Hi?=
- =?us-ascii?Q?TzZgnPlFtBOMMHIKV8LqaUXJA4bMoC/H1vUgOerTFyQoyOmuOk2VGKSwyrg4?=
- =?us-ascii?Q?n8TTDbDdmPIDb/jtxGdIzMjYG9fCHXjcw0gyaLcpdQNQJ43JHwPUYo9+pQgg?=
- =?us-ascii?Q?WLTIm6REVv/OE0q1/CurmbzvaVfNmT05aUTcyTVRKhKgto/6jcUV+Jubtq1l?=
- =?us-ascii?Q?kVOB8w0QwI93nlTk8v3S4ySm8gxECXjp60S9ESpPMeXxktCXhM9YhftspPVt?=
- =?us-ascii?Q?hnqkXucZ/dPNjPT5ddlA20kNdKkVxqAwapo2LH592GOfIbPxWdukWIPd/gxk?=
- =?us-ascii?Q?lUzzpnioe0w2tbYrWcRmWFG07vimOKsukCimjWu/aYekIDbJ/e66rpgQRuiy?=
- =?us-ascii?Q?925N2Uws+O9RX32hMRK4YdhSdGjy2cX1o1//+oLcMmz9FuUSUzek/EJGSvsi?=
- =?us-ascii?Q?XrQGqoQz92Sy3/YxF7vQkBsTAvM3rHeeK2P1VdcET7IqdnUyz+LOMw1KVaTe?=
- =?us-ascii?Q?k5BEweY8dNP3UDCVC+4O3dns3/Lkik37xa+uRCf8GN/x0LAOUFKBWJdU8zbY?=
- =?us-ascii?Q?Oi3cod1mRZ4l/LR2ooqDTcerIOo+CLkizSjRdnLORYJ/zqIGGd3i8HczbpsZ?=
- =?us-ascii?Q?vmzgTYyY3XXQB1yUDO5YFaWVvRSuI3k8oEGujMsbtrQhnavtGPspACN0aQ+3?=
- =?us-ascii?Q?XW/zUSb2euvwYNVrJpkO0ZOFZU9u0VB7zZMDXrE95OrYZgWCVN8HNjKC1qXD?=
- =?us-ascii?Q?dTzy0REhZnIAGTWA3sQj/uAZKlow2vdF4Ap6wm6ysh8Vr5005NCYA8om8ZJw?=
- =?us-ascii?Q?S1WFBTdsJiQUjKuJURxyYHo3LO4/whJFfYegQvVuNW61ZV7EVxiwK54vqxOF?=
- =?us-ascii?Q?jA19VJY2goOLXezInfJLW5V/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PrsAlP7h55hbnjWCQhwWCW6cYtsP8Iqmz2ZTqd6McNTS/NhRGeUvniiFwxNE?=
+ =?us-ascii?Q?sm4+kRbY7vTT23pLlO+PYr/fgxOpLZQyZw7VciGniMYDIJKzf9SUCbAjXjBw?=
+ =?us-ascii?Q?0rVtDYg6ND4ED4xOhYowTxxen+PBXMxOZ+mtfNlHsB5hduOh5erXfM/o/UlE?=
+ =?us-ascii?Q?rG8kRaMH30C4J5zWBv+sWm9plWjH26xMM2Eg//ZbcBU4K/axw2eGLmzh+Dyx?=
+ =?us-ascii?Q?FT8JO5IToH+wrhF96gQGEcrHFH9Dhv3o7y+LvQIkUcHNvRS57lLyXN+/EBP5?=
+ =?us-ascii?Q?6bT0U+psp3b/gsSypDlDxf5rkXMHO2dW0x5Mb0QqhSA0bZE+9nAvrcgR0lsx?=
+ =?us-ascii?Q?JEfCmjRLaK/6xvZicndGM3zXXh8Li8YAuGaeJeyjEAay3Qg90kcMKSEexLPX?=
+ =?us-ascii?Q?un90BpN0UIa8bgCV/RObZhzd2RgU5wbDsQXdv6ZSxpwhcSroIYtWU2sddRaa?=
+ =?us-ascii?Q?wA42MzpXoyNueJMoivVDoVgltrPGeDlL+s4QevMVwLZBif2qj8Gd3RprZpQL?=
+ =?us-ascii?Q?c7yelr0f5gU8NJ+vZ94xaaaKDp2PtiGPWJmCsTQtLhaYYO2qmkBQGAGnzQgg?=
+ =?us-ascii?Q?rzXNILISPmDM3N4etzyRlEZgPM463eZeG+dVJX8pThat73KI4QgHrZwllgBK?=
+ =?us-ascii?Q?rdZGV7XqhCLgOws7E7NW0xQ7eT4+PbWQ6tZvo9Dbr+wqLsOw0WACz/gQRifr?=
+ =?us-ascii?Q?Q3oJwPu3VuRpnF0z7tsf/i+8iJQmEA4TEGV/mtoP5mKJB5LKUN7s76YqOWyH?=
+ =?us-ascii?Q?u7tPh6pWiZZKRZNp7pKBzVXWpYbIUGEaIIif/tzqRHfOdhLfM79w+8wDbB08?=
+ =?us-ascii?Q?nUUlL8DbnJTnZV/2/9vwsK0RFcRpOFe7wb/LvFbpkwzSEVgjgii7igLAp6cv?=
+ =?us-ascii?Q?kkHBPlkjs7zOp+A5DreHvx7MnMmhjwiXKraL4aHJw8jOdk72ir+nfB7yaPl8?=
+ =?us-ascii?Q?UA7KdOFUmLCBGO6QJFGCj6rJfmnISJ2EGkbElPcNMGIU5M0R1frwFDRU1Kyo?=
+ =?us-ascii?Q?cDGoN1gXUIb0kBEVbYm6wGJ9gKF53CkXlaTWyzgqXYBal1SBL0HygHDM73ld?=
+ =?us-ascii?Q?L9F5sD8Qgja8lNTlw1+gkteQYqSWHJBp0dxv8YzZowg3rXX8UwfbupehfwGo?=
+ =?us-ascii?Q?y+liV1CFb4U/NvoKV6PwPuPy4pCwsq4bxff9SVho12vXuq84hwwdwk/oY029?=
+ =?us-ascii?Q?m++zbF18/NihNljKGop20lcvMmvSucfZm5v7Nx/rydnldy7T6LXjdABLimnx?=
+ =?us-ascii?Q?d0kSb7hIsJ6SEyQFccg3I4pH/iN4FJZR9r2soUvtQsgjRxNC0w16fnnFnQQ0?=
+ =?us-ascii?Q?mXmZCwJsdpNdz7MumV2WJK2XvoJa3ryRlEcuA0lKy4c0xSdxHaN8XybrtyQA?=
+ =?us-ascii?Q?0oRejSc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tFId78MkabJ3o5Yezskz9rIFEZB5ZIyxPzfu93B1EmjzixYKXDkT26NIbN/W?=
- =?us-ascii?Q?gUYQ4auvdVq6TZjt8WXtbjU4RGTr/+HmJGjmWbgwL8kDT66LpYiCAN7jSrx0?=
- =?us-ascii?Q?3Yg9ik7nble2lOg4SNCOA7ZcQFZHg/HLrc+l0WAXJgNneN3gYRfE8d89niuG?=
- =?us-ascii?Q?qtEYOYQnkpXuNi8+qxsxCBtDYAMPaHExeL/dD/BIWyqg1YEx1wmsAVlELxdo?=
- =?us-ascii?Q?Rb3qhsi+Bwi68fjmzQ2DSm6oHSaijBqQSgdh7Av+85MKRN/ev2HSAP8ZeINk?=
- =?us-ascii?Q?JGGG4ActNgybldEcAEFtAht1OiR0B5O57/S1R8YFjPi5sPI30ZJoSdGHE7WD?=
- =?us-ascii?Q?3I6pxgfQZtC/2c15UNvrjRbvg+Nd10bMYO29Xg2wRfVRHbzzg4vbJB3cd31c?=
- =?us-ascii?Q?50JpxTencmaOxjy1yMFaVpj3F2qU7co0FDjUjmwYJIngXDPt0xVzL7l3UMrj?=
- =?us-ascii?Q?dTeOy4owdg6sTxTuNAvFRkBrjbpQoZSdkm2vngRH+h0pG1O15hSPTtEUn2ie?=
- =?us-ascii?Q?8h3kWToJB8//vT0I7oPWmDQ2/xyMKYjbYNDbKmReh7SwB/UOHy8MYl1bYYWd?=
- =?us-ascii?Q?cRlOS2yQT8Q4gHnsqBBrP+6frIHMWr5GE7UG5V9DjoUUCd1ihdKgrV9YGB+p?=
- =?us-ascii?Q?xPVGHAmMZvVZtOHMZQczDYRq5sL543HW/iJmpGMK95bCvwphHsq/wol/2+2F?=
- =?us-ascii?Q?ptKnHjkHY2e2agydNQNLwoRr83ox3JiJmUpRfff9nPrUPyVF7k+D6ANqZq/Q?=
- =?us-ascii?Q?wFISAOmLwPbU2blG7qs5V3zXpSJZ6TouV7/OJ9Jcmd8+9EYAmpeE2DgQGzbx?=
- =?us-ascii?Q?BF9Pn+fTd2eZ1BZXLogRb3l2i3tLaYVt1rV4gUjoQ5AGEOMGP+FaJU0aovfe?=
- =?us-ascii?Q?ZfUyZIc7/sQ+LCBR2v1KlxQLKQC0PzxYC02NvP7ccSVfGwXD1QvCbDZd1P10?=
- =?us-ascii?Q?o/3FTSq9turAkkvaHfwnvKcyDAVbF8nbb4PQ7QU4JiSixKX4DxSIr/wuW/Db?=
- =?us-ascii?Q?JaNy4C75Z3/B26B1zgTPeksl1h7PkDGTBhm/PsYhuvDrlam/xZBCDewRjdwy?=
- =?us-ascii?Q?WOx1l1gkxlcYgTFB5Js6YM4o1F9+JzcmkbRPLDAvG41WFAtUZuhufH0/A0bn?=
- =?us-ascii?Q?F+ZtIXJASaXoRljMY0qrZnocA+k0VM46MA5OleQ9EVPwfd1eW+XQ5r7/o4KU?=
- =?us-ascii?Q?HzCBOqxRT4PIvaqdxlAzyEIrXDsFFOmFAtqYvwVKKzhAchk0CzbKxWFMglDQ?=
- =?us-ascii?Q?DabsESpCTnpTGeSUDjD5VwW8cfIlVzdXscpqNyiK5zP2qaJo5M5sE8GY+Q7N?=
- =?us-ascii?Q?eEHTYjN1WU2RZkrZ9hM+MF54cf5LtYn+eaUQp5QaJEhv6a8YPo2FthT4I+tJ?=
- =?us-ascii?Q?o0PCLxOhCIRZdYAtnPfulsBPiBWnEBTQw3NCwf+ib1LOJHhz3imZA5dLzsyu?=
- =?us-ascii?Q?M+tiTuHcEx8CrfZ+GuO7pQiYRTnKPOKf7V+ROEi5qS4pr/XTRLK+rLt3/PZT?=
- =?us-ascii?Q?1g8xWeJJbjmwhZY9ejJyHT6d2EzCXhPgDzIyaftpClUmu1VU1atNvNT/yDKP?=
- =?us-ascii?Q?m+KQAPrc+LFeWEUtCI+IN2haqrEKIohxzR0k4vhlxvieSkRzu0czUGiCCHwr?=
- =?us-ascii?Q?9g=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5fb67051-17bd-4e5c-4cac-08dcf7bdf382
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1C6oq3UGNScsVPpDRa+bADZfzTFiI7R6oVHmluAqax+szvvIs0Pzn2KpzuOl?=
+ =?us-ascii?Q?M3s7eAjPkZgHQXO2ywzLfcuOui1QV8HwDjC71CUtGkZ4rX8uucykXWgidBjr?=
+ =?us-ascii?Q?d+LCEQXjyg2VsrVGW+AE0+MtUQ7OUfw7tql/Oo4Mf3ivTi5jD7w0YU1lmLPA?=
+ =?us-ascii?Q?WWp1OCf9amljjn4onTDjm07t+QCSf8SFW7G7YlO9yTCRZZ1QG8Qasnldqo/J?=
+ =?us-ascii?Q?XcFTUdSkYbtADGggLviNg5keioudOO42RMmlom79KIu5s4AGTTNa/Ta08aN5?=
+ =?us-ascii?Q?mXN35vbn12g0Vi8C8MxI/+4TDNIKXpYEKMmWkEuVUyiaB50/RoLCDIRgmZLL?=
+ =?us-ascii?Q?MVst/iPNC6dM+eW61bRh7OeEY97MN9GT39xK25cmNpd9tp76kL8gh47BbR0Q?=
+ =?us-ascii?Q?aNyn/mPdyBlYOAZ3fbSsKra2r3SeMO8jEX9fxbhpFwtvLf7/llWtuwdGDdxv?=
+ =?us-ascii?Q?jMSg5l2XM+LdQReEeq/kh5/tfz/5dFuI7H6GOAWV2f+F0KJqcXus/1gnD/UJ?=
+ =?us-ascii?Q?ZIy9y2QRndDUDk28sSPaEoREugHHb090soZMNk5BFGQd6bXeFXtYE4K8+nr6?=
+ =?us-ascii?Q?NYSD4Apobt1SKOiUOEWeTYCPIAdCr2vTiwHTjoEM0/HPf5aBEvfYDvR3v7gz?=
+ =?us-ascii?Q?q2kmGh84FyG40eAgBP0ekxF1EZKHO3L3nOz2cWh4lfjROaQOZaKL6Xmos7l8?=
+ =?us-ascii?Q?0gwFqtrk9rQBVrss6iq3MF8aNWJjcGvoLBvtev8pJrAnjnjGOYZ5s4WfBI4I?=
+ =?us-ascii?Q?tEXM8cAlsg9xKyxE6THN/RuYIhNW/kouOyhX37qqrJNjnLmpmDr/RP5NDrHx?=
+ =?us-ascii?Q?rEx8kUu3H8YLbefNbaRBVPemWRlJ6fXkanEQnKDBN/u1K8LeqmsYBbeO3AzD?=
+ =?us-ascii?Q?c8pmhAX4ATyFRrQvf7FtR9QK9uSVhDdnYMfK3St8dSKSJdSlcBKbkgtZquFk?=
+ =?us-ascii?Q?8I+QnaPnA6okP0QtsU3FHhoz6HEfRFYLxjrV+YKCudNDID4cehXFPwQ2iW5N?=
+ =?us-ascii?Q?Zs2QVucQBs4x/C7L4ICYUo+6++/3GeW05GEygc4RwcLT45e2Lckc2z9cZmAb?=
+ =?us-ascii?Q?DP7UKRE+pOnbWB19Na9wgsiXcdMl6hAnGILjdRGq5hLxDWV8+qrxsm/97qI8?=
+ =?us-ascii?Q?Tjd4tF7fw7p+r30BKz1ttiQq/FC0czfJEiG2uvUWAi5iHMRYPtyWoXjZWLV3?=
+ =?us-ascii?Q?MRkAQzhf8VWuO9ihJZMpklbPrpowQDB+UUjjVINMfhAN0puvLEdi9UTjZRLy?=
+ =?us-ascii?Q?seLlRfs+kw0aK2QmI78YNXSjEGaB6yCvNsAOLICHRzCqXHvIOrkzF9iob2Gn?=
+ =?us-ascii?Q?3rZu3CXUi3tApjM2ALafQqasd0C/VC4k03lAvubzqTnyjPTjJnyB7psE4nhP?=
+ =?us-ascii?Q?th0iiqfONZAdxac5L2aZGYBvELI4wGHO4fS1DjtalKS/fOhdWP6sLFAFBh+6?=
+ =?us-ascii?Q?f0EyHNTE4MSaAtaprfdapYeVzR6OKTfpjLsYW8X9QOauBisYiKnbQhbUf/Q0?=
+ =?us-ascii?Q?pafW3DMGy+tqdwtJKeE3QmqxaIXT8UlfAIv72n99n3fOunx/AnmDjO1Faufm?=
+ =?us-ascii?Q?eRJbjOAEp6IJr0Tbvg1wUT8iKByl+5wk0MKYZQYXId5BJCPCWhlRnRpdFYh2?=
+ =?us-ascii?Q?Jx+g7UDJXPfTJlXiiuJzw/A=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3439dca-8b1f-40d8-0c26-08dcf7be51bf
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:04:00.6704
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:06:37.1304
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fB+OmcDZMgJ0kthijVpM0QQhxb8QAcAct2PA9o2lL6+66IMjprEtw/FfcS2b07zsi7so+vi2M/3PPIXriyfjxkdhHa3RyECs5gX+R5xa0bk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB6223
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8PNO2RnW7EtKuxmHMunYB9Ja1wDQMLuA5oKVwX7km6KyHkqeEXdLDadNeZGRJiXaxsLD3Z2mLyEWJln50G9T0uQjXGpggNYKGZz50ohCWk7lA0ZzjJrwhIBxONNfPHvF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8841
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_190435_124115_8DF508A8 
-X-CRM114-Status: GOOD (  34.68  )
+X-CRM114-CacheID: sfid-20241028_190643_365060_DD5B426C 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,106 +166,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alistair Popple wrote:
-[..]
-
-> >> > It follows that that the DMA-idle condition still needs to look for the
-> >> > case where the refcount is > 1 rather than 0 since refcount == 1 is the
-> >> > page-mapped-but-DMA-idle condition.
-> 
-> Because if the DAX page-cache holds a reference the refcount won't go to
-> zero until dax_delete_mapping_entry() is called. However this interface
-> seems really strange to me - filesystems call
-> dax_layout_busy_page()/dax_wait_page_idle() to make sure both user-space
-> and DMA[1] have finished with the page, but not the DAX code which still
-> has references in it's page-cache.
-
-First, I appreciate the clarification that I was mixing up "mapped"
-(elevated map count) with, for lack of a better term, "tracked" (mapping
-entry valid).
-
-So, to repeat back to you what I understand now, the proposal is to
-attempt to allow _count==0 as the DMA idle condition, but still have the
-final return of the block to the allocator (fs allocator) occur after
-dax_delete_mapping_entry().
-
-> Is there some reason for this? In order words why can't the interface to
-> the filesystem be something like calling dax_break_layouts() which
-> ensures everything, including core FS DAX code, has finished with the
-> page(s) in question? I don't see why that wouldn't work for at least
-> EXT4 and XFS (FUSE seemed a bit different but I haven't dug too deeply).
-> 
-> If we could do that dax_break_layouts() would essentially:
-> 1. unmap userspace via eg. unmap_mapping_pages() to drive the refcount
->    down.
-
-Am I missing where unmap_mapping_pages() drops the _count? I can see
-where it drops _mapcount. I don't think that matters for the proposal,
-but that's my last gap in tracking the proposed refcount model.
-
-> 2. delete the DAX page-cache entry to remove its refcount.
-> 3. wait for DMA to complete by waiting for the refcount to hit zero.
-> 
-> The problem with the filesystem truncate code at the moment is steps 2
-> and 3 are reversed so step 3 has to wait for a refcount of 1 as you
-> pointed out previously. But does that matter? Are there ever cases when
-> a filesystem needs to wait for the page to be idle but maintain it's DAX
-> page-cache entry?
-
-No, not that I can think of. The filesystem just cares that the page was
-seen as part of the file at some point and that it is holding locks to
-keep the block associated with that page allocated to the file until it
-can complete its operation.
-
-I think what we are talking about is a pfn-state not a page state. If
-the block-pfn-page lifecycle from allocation to free is deconstructed as:
-
-    block free
-    block allocated
-    pfn untracked
-    pfn tracked
-    page free
-    page busy
-    page free
-    pfn untracked
-    block free
-
-...then I can indeed see cases where there is pfn metadata live even
-though the page is free.
-
-So I think I was playing victim to the current implementation that
-assumes that "pfn tracked" means the page is allocated and that
-pfn_to_folio(pfn)->mapping is valid and not NULL.
-
-All this to say I am at least on the same page as you that _count == 0
-can be used as the page free state even if the pfn tracking goes through
-delayed cleanup.
-
-However, if vmf_insert_XXX is increasing _count then, per my
-unmap_mapping_pages() question above, I think dax_wait_page_idle() needs
-to call try_to_unmap() to drop that _count, right? Similar observation
-for the memory_failure_dev_pagemap() path, I think that path only calls
-unmap_mapping_range() not try_to_unmap() and leaves _count elevated.
-
-Lastly walking through the code again I think this fix is valid today:
-
-diff --git a/fs/dax.c b/fs/dax.c
-index fcbe62bde685..48f2c85690e1 100644
---- a/fs/dax.c
-+++ b/fs/dax.c
-@@ -660,7 +660,7 @@ struct page *dax_layout_busy_page_range(struct address_space *mapping,
-        pgoff_t end_idx;
-        XA_STATE(xas, &mapping->i_pages, start_idx);
- 
--       if (!dax_mapping(mapping) || !mapping_mapped(mapping))
-+       if (!dax_mapping(mapping))
-                return NULL;
- 
-        /* If end == LLONG_MAX, all pages from start to till end of file */
 
 
-...because unmap_mapping_pages() will mark the mapping as unmapped even
-though there are "pfn tracked + page busy" entries to clean up.
+Hi James,
 
-Appreciate you grappling this with me!
+On Fri, 25 Oct 2024, James Clark wrote:
+> On 25/10/2024 12:30 am, Ilkka Koskinen wrote:
+>> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
+>> 
+>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+>> ---
+>>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
+>>   tools/perf/util/arm-spe.c                     | 61 +++++++++++++++++++
+>>   2 files changed, 70 insertions(+)
+>> 
+>> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h 
+>> b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> index 1443c28545a9..e4115b1e92b2 100644
+>> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> @@ -67,6 +67,15 @@ enum arm_spe_neoverse_data_source {
+>>   	ARM_SPE_NV_DRAM		 = 0xe,
+>>   };
+>>   +enum arm_spe_ampereone_data_source {
+>> +	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE	= 0x0,
+>> +	ARM_SPE_AMPEREONE_SLC				= 0x3,
+>> +	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE		= 0x5,
+>> +	ARM_SPE_AMPEREONE_DDR				= 0x7,
+>> +	ARM_SPE_AMPEREONE_L1D				= 0x8,
+>> +	ARM_SPE_AMPEREONE_L2D				= 0x9,
+>> +};
+>> +
+>>   struct arm_spe_record {
+>>   	enum arm_spe_sample_type type;
+>>   	int err;
+>> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+>> index 138ffc71b32d..04bd21ad7ea8 100644
+>> --- a/tools/perf/util/arm-spe.c
+>> +++ b/tools/perf/util/arm-spe.c
+>> @@ -515,10 +515,69 @@ static void arm_spe__synth_data_source_generic(const 
+>> struct arm_spe_record *reco
+>>   		data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
+>>   }
+>>   +static const struct midr_range ampereone_source_spe[] = {
+>> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+>> +	{},
+>> +};
+>> +
+>> +static void arm_spe__synth_data_source_ampereone(const struct 
+>> arm_spe_record *record,
+>> +						 union perf_mem_data_src 
+>> *data_src,
+>> +						 u64 midr)
+>> +{
+>> +	if (!is_midr_in_range_list(midr, ampereone_source_spe)) {
+>> +		arm_spe__synth_data_source_generic(record, data_src);
+>> +		return;
+>> +	}
+> [...]
+>>   static u64 arm_spe__synth_data_source(const struct arm_spe_record 
+>> *record, u64 midr)
+>>   {
+>>   	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
+>>   	bool is_neoverse = is_midr_in_range_list(midr, neoverse_spe);
+>> +	bool is_ampereone = (read_cpuid_implementor() == ARM_CPU_IMP_AMPERE);
+>> 
+>
+> Hi Ilkka,
+>
+> I think this read_cpuid_implementor() is for the device that's running 
+> report, rather than record. You need to use the midr that's saved into the 
+> file.
+
+Uh, that didn't come to my mind at all.
+
+> But it looks like you've done that for is_midr_in_range_list(midr, 
+> ampereone_source_spe) above. Is it possible to just do that and not 
+> read_cpuid_implementor() and then it's done the same way as neoverse and also 
+> works off target?
+
+You're right, it's wrong and there's no even need for separate implementor 
+id check. I fix it.
+
+Cheers, Ilkka
+
+>
+> Thanks
+>
+> James
+>
+>
 
