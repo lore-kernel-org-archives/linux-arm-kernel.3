@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF2CD3A679
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C774D3A678
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PMUpO4GHw4JTvBKu5JvINhynu0MBcZcJA0tvXvTxH3I=; b=b5x6CzxnVmTBilJr8ClzmGDsE3
-	cgAuB2ZepfPGiP9cZ25yrlEuBvvQiEXAILUVsknG9d24ex+8Ve/GvJSt35McPOyV9TC6BZStzfuzE
-	iN3/GlNXoJAHXWE7ziHOqs2FxSyeCGomgR4nuTt3ml64NXPWN31uKoKNAEXZAOtq+S+O7KPPoh7+v
-	dAGva3hTVW+uXLD/6F5MZEb7DRinef36wE+qNWlIf1DkKcG09EA9OfhHmY4k5+PerM75kJsZ76r32
-	g5n2ILaWkziqolPhma3kQQWJAn/NGraYRGR4sUugGaAuVDwhsdnv4ZOJp0+Ky7Skp8d2aa46kp80b
-	T03xafkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PoG2ltFbfN+WnHJpt5RjjG6F3QLPQGH+biFB2YP687g=; b=EpiEAEY9oFZa55itOB1jsWWDk/
+	3CXjcbCE3w09yoCRBUbvMQtQb/gwAhxHbiOnsVuvxhZtTWZOO8nIBnCRLsfHZziA3UxNao4obEYrV
+	pO/Yz7Ivkbftl8G9xPMg6Kf3lkJXysS9Hy9pTu+ZyxbbJ5vK0NQYOQo4dEkj4yvyK6w8+N7X9Zkmf
+	vc/bEKL8lByBCVQVf8pBnvYAxcfO43I+WtVnEu8KPl7i2knvcUb/d7oTIg9WSmvZv0R4OEoD4iLvD
+	KtUObCa34ivSy0vf3R/T9IZo7l7HftvVbDDDzCttxfJeruJiT/AS0VnrvaOtBQVv7UwyJtfEEHidb
+	vgxHZzOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qO9-0000000FO2A-48u3;
-	Tue, 29 Oct 2024 17:52:17 +0000
-Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	id 1t5qPm-0000000FOhN-0rBK;
+	Tue, 29 Oct 2024 17:53:58 +0000
+Received: from mail-yw1-f174.google.com ([209.85.128.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5phG-0000000FDK3-48Ha
+	id 1t5prR-0000000FE6n-3d5V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 17:08:00 +0000
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-20c693b68f5so61901945ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 10:07:57 -0700 (PDT)
+	Tue, 29 Oct 2024 17:18:31 +0000
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-6e59a9496f9so63177307b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 10:18:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730221677; x=1730826477;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PMUpO4GHw4JTvBKu5JvINhynu0MBcZcJA0tvXvTxH3I=;
-        b=e7lWhhP6ZwGq05g9xao6qgI1lvYtD5tU1MYSiLXoppbx9KTDGs04hG+1+ZvFNuT9Uk
-         0xgwtWc3L5/p1l/mwQZkdpHKXSwLAdXNBc8AwC6YhpQq7XovvHmHJm611BwUJdhYiy44
-         BPGO3a9epXWVV0hV8GjTmYVsOZ1tO7auusIuHsjRDB7xtUx14bTx5ldWBPxp6BP1uUW+
-         LXADE59M02rlZT6U0qd4FZkkNHhqA7748yOz6EiAAidD/4UoR0O/8UE0IEqKmwOy5ouE
-         wgRQ0K9boBNWnmNn4vUmtN0xVKjGvhb7zU/G/Hxn2vVGsSCk29tq6tXweT5AEOKZolcu
-         iB/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVmY5andYLXr51WJgJrvCqpGe6Tq5Bd8wTbaNVm0jbAqcBKBcaSFhuJB9B1dSXk0CiAKSlqOPGbmIHQ0fIasjHh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB4m5H+Za2ndsh7Dw3QK57OzUwnCUI0SNnycwt1nyp/wVfws92
-	VcMwzBXnvHGM12DR6c+D1hPYL/bOGzplFgfjBgSIRgbL982q8IjYkuv2hSSHB9M=
-X-Google-Smtp-Source: AGHT+IHQ6hqt2GFIDvzxzB6z/d1rlXeJz0yqkXbJH8u2AzK+uLr+X4awDkW0ZAHg6kt+Bt1a+fJPTw==
-X-Received: by 2002:a17:903:22c5:b0:20c:ce1f:13bd with SMTP id d9443c01a7336-210c68ab683mr167590195ad.18.1730221677056;
-        Tue, 29 Oct 2024 10:07:57 -0700 (PDT)
-Received: from localhost ([97.126.177.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf46cd4sm68256225ad.41.2024.10.29.10.07.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 10:07:56 -0700 (PDT)
-From: Kevin Hilman <khilman@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org, will@kernel.org,
- laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
- andersson@kernel.org, mathieu.poirier@linaro.org
-Cc: hns@goldelico.com, b-padhi@ti.com, andreas@kemnade.info,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, linux-media@vger.kernel.org,
- linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
-In-Reply-To: <cover.1730136799.git.robin.murphy@arm.com>
-References: <cover.1730136799.git.robin.murphy@arm.com>
-Date: Tue, 29 Oct 2024 10:07:56 -0700
-Message-ID: <7hiktasuqb.fsf@baylibre.com>
+        d=1e100.net; s=20230601; t=1730222308; x=1730827108;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PoG2ltFbfN+WnHJpt5RjjG6F3QLPQGH+biFB2YP687g=;
+        b=ObnqJZ036/02vPChliZOKVGcEHR4P/dzsj4xyuu9wJF7zqghlC8yMn/y43mC+Q+35H
+         MZb0LwCI/5gUmokLtWsjSaG7DbsTBvEHvQC5Modq72BQDGDhR1M0oXlm9o8eOCdPypvs
+         67Lvg9FtlJnIebMj8Ph8EJ29tnNVAJDOKEtdwNOzG1wAX2d6FHA/I0G5Xt+PGhq8Bm6c
+         7d5Y3PX+JxUbiyNhZJ6/SSFfaLgV/DU3FaEwRuNCka0Zp8a8ksTx2Q/pIY909LRfdix2
+         sXzq1ZkRsjlM33yFM/mKm9VMZR3TaMXQyjWfcUIISgKlgr6bfi6vwGZKpCRe/s7D7ucO
+         ZxFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXWDx/rbvXkShDQLEVJVgmuRS7JV/H+yD5ekcncbdEyK3It0ORFBNJv8aLlQk0nzgAePWfuQEW6I+jri1QxtJOZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWGlt4EH7vuJRy7L7I41c0b8maBOP4JwqiNOQ1M+E0PLhtVZng
+	x6W96/okJqjH5qwySm1EYnGK+hPBzgH6qfpBY6FPgfMZuEW19wLbcDM02Que
+X-Google-Smtp-Source: AGHT+IF7Yhe4SxMlho4lzmKbR3FbFlZyW4Wn20WSHeNKZ2kWgjnPJ9WXhkjGyuHdwPoeTywNhic6Ew==
+X-Received: by 2002:a05:690c:6711:b0:6dd:ba9b:2ca7 with SMTP id 00721157ae682-6e9d8b3c6cdmr118799427b3.46.1730222307781;
+        Tue, 29 Oct 2024 10:18:27 -0700 (PDT)
+Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com. [209.85.128.170])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e9c6c977adsm20310467b3.120.2024.10.29.10.18.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Oct 2024 10:18:27 -0700 (PDT)
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-6e390d9ad1dso47223117b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 10:18:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWEVxCwC4tx8lclSyjJmvHkaAP9jZp4i49hJ54bIiyjr7SqYO586MdY5t57158qvwu/aOSXQ8CSg1vYFlxJNaZG@lists.infradead.org
+X-Received: by 2002:a05:690c:6885:b0:6dd:fb48:118c with SMTP id
+ 00721157ae682-6e9d8ab3d0bmr135385657b3.31.1730222306713; Tue, 29 Oct 2024
+ 10:18:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 29 Oct 2024 18:18:14 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
+Message-ID: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
+Subject: BeagleBone Black Ethernet PHY issues
+To: ext Tony Lindgren <tony@atomide.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+	Roger Quadros <rogerq@kernel.org>
+Cc: "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>, netdev <netdev@vger.kernel.org>, 
+	Matti Vaittinen <mazziesaccount@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_100759_042005_9B73681E 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20241029_101829_926142_4C1DF0BA 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +85,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Robin Murphy <robin.murphy@arm.com> writes:
+Hi all,
 
-> It seems omap-iommu hasn't had enough mainline users to avoid bitrotting
-> through the more recent evolution of the IOMMU API internals. These
-> patches attempt to bring it and its consumers sufficiently up-to-date
-> to work again, in a manner that's hopefully backportable. This is
-> largely all written by inspection, but I have managed to lightly boot
-> test patch #3 on an OMAP4 Pandaboard to confirm iommu_probe_device()
-> working again.
->
-> This supersedes my previous patch[1]. Patches #1 and #2 are functionally
-> independent, and can be applied directly to their respective trees if
-> preferred.
+During the last few months, booting kernels on BeagleBone Black
+sometimes fails with:
 
-Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-Tested-by: Kevin Hilman <khilman@baylibre.com>
+    +SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
+LAN8710/LAN8720 failed with error -5
+     davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00,
+driver SMSC LAN8710/LAN8720
+     soc_device_match(cpsw_soc_devices): no match
+     cpsw-switch 4a100000.switch: initialized cpsw ale version 1.4
+     ...
+     am335x-phy-driver 47401300.usb-phy: dummy supplies not allowed
+for exclusive requests (id=vbus)
+    +cpsw-125mhz-clkctrl:0014:0: failed to disable
+     am335x-phy-driver 47401b00.usb-phy: using DT
+'/ocp/target-module@47400000/usb-phy@1b00' for 'reset' GPIO lookup
+     ...
+     cpsw-switch 4a100000.switch: starting ndev. mode: dual_mac
+    -SMSC LAN8710/LAN8720 4a101000.mdio:00: attached PHY driver
+(mii_bus:phy_addr=4a101000.mdio:00, irq=POLL)
+    -cpsw-switch 4a100000.switch eth0: Link is Up - 100Mbps/Full -
+flow control off
+    -Sending DHCP requests ., OK
+    -IP-Config: Complete:
+    -[...]
+    +cpsw-switch 4a100000.switch: phy
+"/ocp/interconnect@4a000000/segment@0/target-module@100000/switch@0/mdio@1000/ethernet-phy@0"
+not found on slave 0
+    +[HANG]
 
-I tested this on am57xx-beagle-x15 where before this series, I was
-seeing various remoteproc drivers fail with
+Adding debug prints to smsc_phy_probe() makes the issue go away, so it
+must be timing related.
 
-       remoteproc remoteproc0: can't enable iommu: -12
+Adding specific debug prints in the failure case gives:
 
-and now with this the remoteproc drivers are successfully loading again.
+    SMSC LAN8710/LAN8720 4a101000.mdio:00: genphy_read_abilities:2859:
+phy_read(MII_BMSR) failed -EIO
+    SMSC LAN8710/LAN8720 4a101000.mdio:00: phy_probe:3613:
+genphy_read_abilities() failed -EIO
+    SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
+LAN8710/LAN8720 failed with error -5
 
-Thanks Robin for working on bringing this back into modern times!
+and later:
 
-Kevin
+    Generic PHY 4a101000.mdio:00: genphy_read_abilities:2859:
+phy_read(MII_BMSR) failed -EIO
+    Generic PHY 4a101000.mdio:00: phy_probe:3609:
+genphy_read_abilities failed -EIO
+    cpsw-switch 4a100000.switch: phy
+"/ocp/interconnect@4a000000/segment@0/target-module@100000/switch@0/mdio@1000/ethernet-phy@0"
+not found on slave 0
+
+Adding debug prints to __mdiobus_read() and davinci_mdio_read() gives:
+
+    mdio_bus 4a101000.mdio: davinci_mdio_read:444:
+readl(&data->regs->user[0].access) = 0x3a0ffff
+    mdio_bus 4a101000.mdio: __mdiobus_read:900: davinci_mdio_read failed -EIO
+
+but this is a different (and unimportant?) early failure from
+smsc_phy_config_intr(), and that debug print actually makes the issue go
+away, too.
+
+Ignoring the early failure reveals that phy_read(MII_BMSR) failed due
+to:
+
+    mdio_bus 4a101000.mdio: davinci_mdio_read:446:
+readl(&data->regs->user[0].access) = 0x20ffff
+
+Anyone with a clue?
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
