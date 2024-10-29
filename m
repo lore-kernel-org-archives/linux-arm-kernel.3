@@ -4,173 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E08D5B87A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557FAD5B874
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJALp2IH9MXgiw37AzRb6d6KlU6QoXVtqwy4yj7dvIc=; b=PksYw1gsmYUmk8BPgOZcdSLe5n
-	YKGw4ZoA53NXfHC0OBeOVZzPcxLsLyMns7FjVw1O7CN6KkFS1l9dMNzY+8Nehnk8D7F0+9733+tl/
-	rEpmiwMNjGdmLDJy5KJZi/373RienTUCnT9ZLL18+IN+KT0Xvx1Op1IjNPO0arOP6dwNeEp551XON
-	ZrAEuNM6rJAEJHc7vbKffLDbyVGq5XLib781o3ZOwxgSsfu/u4As6u0/yOGglGAMbIgyJ859m0wq6
-	P7KJ7JgzBRDloZe4cZG9DZhy5wcXNJb6hLdV8mkYO+78FQuT5IE74Q6M6GfCK2R3bVABPilRBoYR5
-	Gl1U/bOQ==;
+	bh=K1ynE8W+TczoalRe2wSDRe6sqYPAktMak8oWY7jsCYI=; b=PD9+rMn91dj0nBAtjfNRG4d9cH
+	RiXM9xsIwJ0JjJ5KnwGGDt1+XoUooyvAllNddRs1fbuSygi5OvFso8+CfAGeprorR/IlgIaLq8R1k
+	Q/wSZjOEKyf4PVdsak8eeN8bwsbQOLtilbMaygNjF/BvBN8FPXVC6wNQGG7EZWj9HMCsQlPPCSFQi
+	sWslsbEANkpT0JaXv0K1P82XNQnx/SNIFyPYpb+T2jKbkmm196RufIDmMI5y3B+8eVNRk3zVU3Ypj
+	Sz+Y2507TlDQj2Y7I7nsrohaKcvPqEHavjYIcbiQ2ZTXPC0nmGdoCN1JXh+xOoMC8nqBxMRZ5aETT
+	vSGfhYKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5fbG-0000000DMCt-2rpF;
-	Tue, 29 Oct 2024 06:21:06 +0000
-Received: from mail-db8eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2614::603] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t5feR-0000000DMTT-1aUw;
+	Tue, 29 Oct 2024 06:24:23 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5fX2-0000000DLP5-3qpj
+	id 1t5fbh-0000000DMGz-2ypM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 06:16:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R8/01jds+l3CSTKQChNj+WpFfqoLZ4twDugQl21CfqD/xsLYH1omqgcuc5h+taPsebskj5GhXutpTLyGGFqAXEm/geghuSXarrZByb45jqeUJ96Uv9Pj/L4MuzvP7IHG74cvoz7Ao6lj6fJoCxsqnWDeGHm2dpyBeOMuOL9Q83lVhI8A6k60ZTcRx8xJCOnIsrF0LXfwFZs3a52VCKmKY0Ig4glz1X18vUsOu/DwBkTrD1xKb8QKBusokDvtVjj1vn8q/tjLsAu94pxB5x0Q41SQx3Ajw3PLAOLeeBr4Cq2qgn9Nb71BsrQ+ixOYiteeTstmm0oxCo19D5d8nmpQoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CJALp2IH9MXgiw37AzRb6d6KlU6QoXVtqwy4yj7dvIc=;
- b=kh4Piy0aHWJCRA47cA1ac9qvxhwkt4/74pno8RxQKwvQzATSh5Plda3l/ZBWZltFtaixi8VxnYuFXtxSkeheG6J1DbZvbDgM8+UP3XO/Ng8BQWj8nYur9OiKJZUW3NXV4JUTi8dZ4JPTV/V5SQC1AyFhzEU2TIJr8jaMPQA9Fgmsn4bqHs7fx9p3lO+vLvHZBRx8DywoGdS1O2EM1kiCRxdI8Bj7/xIhl8LMksWwPl6pZpfAZHNofirgM4sRUmuy9tlG+rcoGQ2sChT5Lmjmsci662HOaw67DW3Bbu3Bb23n6dAW/vwLL84R5pFZYFNuezmQrZn7EgtZ+gBvWDgyiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CJALp2IH9MXgiw37AzRb6d6KlU6QoXVtqwy4yj7dvIc=;
- b=Ln3MmjjtL4xomH1opGjef5BpZ53MIf9UO3n7rotuxj4b6WU11kZbbqgDbg58t3I16W2ot23B6HA6oRmilZJOODyjwT5jsHVsXPJplU9gawhQl3Ti+i5nDQ4cwKb9JSmWWT/eWGE4ReKOr6RDTVNMJ0WRT+X2kAVDf2fbjdPYeSvIo8YVUY+WT4A2Rs9ANmhATNW3yTEO4yAj4Myix4Ln/bnq2xly0CZ/IOOKGkyGXOWvpCMyYebbMA/2yA3udqH7cjo/Xoh+zUy+XT6joIGwqhkpZNkHAH3UeBdua4XkiLZqL/RYu4JarETTpfhFQZoAfc4RCpVnoeJQ9iPh3Daxrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB10437.eurprd04.prod.outlook.com (2603:10a6:800:216::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
- 2024 06:16:39 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.023; Tue, 29 Oct 2024
- 06:16:39 +0000
-Message-ID: <01c1c4f3-1652-4b08-bd35-08b4e1c04c79@nxp.com>
-Date: Tue, 29 Oct 2024 14:16:59 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/13] dt-bindings: display: Document dual-link LVDS
- display common properties
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- quic_jesszhan@quicinc.com, mchehab@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- catalin.marinas@arm.com, will@kernel.org, sakari.ailus@linux.intel.com,
- hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com,
- quic_bjorande@quicinc.com, geert+renesas@glider.be,
- dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
- thierry.reding@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
- sam@ravnborg.org, marex@denx.de, biju.das.jz@bp.renesas.com
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <20241028023740.19732-9-victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20241028023740.19732-9-victor.liu@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR06CA0189.apcprd06.prod.outlook.com (2603:1096:4:1::21)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Tue, 29 Oct 2024 06:21:36 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49T3RJiS021204;
+	Mon, 28 Oct 2024 23:21:19 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=K1ynE8W+TczoalRe2wSDRe6sq
+	YPAktMak8oWY7jsCYI=; b=X96Z6NadRlY/3RJ/wrj4rspCBCqunD2jQEbLypL8S
+	quVqkqRtZKcxOO2TgdTNkkUpTAx5a5yobBNR93Gg6NtPMwmsgDu1NwR6YexiE7Pg
+	MUQ3fWcTjWmvIXGou9kMxx0dk5I7a04cNL/9jVzhzloIwplGU7rEn6E0paHO8Od4
+	pA9fryHIENQXyq1zTZ8kIqtVY3mpG0bdyHLCY92QD2e0//OgBbfVr5fOa0JQI7pU
+	kXEc32UWFYi435EFjYv3ZR3xBSgdrIlKCeDwNJ3pu6MFnQX9AvQo3ceiUWSJOseX
+	VRz4Zj8rJoWgFC8YXtL7Izpk8XIMjoV0Gm6fYISUaYKuQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42jqtcgb0g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Oct 2024 23:21:19 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Mon, 28 Oct 2024 23:21:18 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Mon, 28 Oct 2024 23:21:18 -0700
+Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
+	by maili.marvell.com (Postfix) with SMTP id 7FD5E5E6988;
+	Mon, 28 Oct 2024 23:21:13 -0700 (PDT)
+Date: Tue, 29 Oct 2024 11:51:12 +0530
+From: Linu Cherian <lcherian@marvell.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+CC: <mike.leach@linaro.org>, <james.clark@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>, Anil Kumar Reddy <areddy3@marvell.com>,
+        "Tanmay
+ Jagdale" <tanmay@marvell.com>
+Subject: Re: [PATCH v10 5/8] coresight: tmc: Add support for reading crash
+ data
+Message-ID: <20241029062112.GA978396@hyd1403.caveonetworks.com>
+References: <20240916103437.226816-1-lcherian@marvell.com>
+ <20240916103437.226816-6-lcherian@marvell.com>
+ <f1acfd07-7317-4b7e-bb81-ea9a894f25ac@arm.com>
+ <20241017114054.GC896339@hyd1403.caveonetworks.com>
+ <05ed4a6f-cb41-4953-a654-9988f0fcd373@arm.com>
+ <20241021124040.GA929726@hyd1403.caveonetworks.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10437:EE_
-X-MS-Office365-Filtering-Correlation-Id: 21c18a5a-110b-4679-6648-08dcf7e14000
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NlFOcS83UWlXejJVNXJnd2hqSDdTWSttaDBieGZtTHdtQjMvakVaVGRPb29P?=
- =?utf-8?B?czdZYklGeCt0ekxERDhpbFFBRUJMa3hoeHNjS3lidjUvUWtUMFhJeG9HK1BR?=
- =?utf-8?B?NVhwekFBWCsrZWVScWdZYmE5VFFodDN6dnFQNG95TFVBR09zTXl2LzNqMW1l?=
- =?utf-8?B?YUdueXdMU0xqRUhid3hURFNDYXptZjNNNjZwUHhNR3FnL1o2YlpVNFdSU1Vv?=
- =?utf-8?B?YkYxZWMvK2VSOTN1OWNvZTlHK3VSUzVJcEhNbUpTQm9EeE40K3VkZU5kamVF?=
- =?utf-8?B?aFRxZDlpeTR3SUl2bnJTYWtnQjFyZnlhVXZRaGhWNDg0NmpVWE0xZElDK0k3?=
- =?utf-8?B?NEdyVVFQQmJXK1U4eElmV1huQmRmaGN3TFhTeEJaeTc3RHRWLzlXMExqempw?=
- =?utf-8?B?NktFY0EvRFM4WmhUVDZ2MUNBUUNhaEdhenJ4U1UxZDVXQlNDM09BTnF5YStQ?=
- =?utf-8?B?OWpad0dPWGV4c1ExNzl6Tzg0d2Z1bkpXaEYwZ3hvWFV6Z095WUVoZXRqMy9q?=
- =?utf-8?B?L3VMUjhQS3BFR0xPaGgzUTlZQkpLTDExTUNFejhaV09pOXNieExYRUJLS3RV?=
- =?utf-8?B?anNWa1dwa21lWUJpNUhqc1AxM2QvaHRpb1RRVERuMzhYN0tSUTNaVldXZ2s5?=
- =?utf-8?B?MThVOGdRWUgxcTVXbzlXUkxXM2JKOHU2MW1LVjBqMXlYM1M5MXdpRFJXa2hw?=
- =?utf-8?B?cUFoYzZXNHhjY3ZkVndHSnR3Umc1NHlIS3NEL3ZQNzRiOVZqMk5FOWhBcVlI?=
- =?utf-8?B?Tk45VEtjUG14b3paVzh2bG5IY2pZRXpxNThjWXJGcGNzZmcwYmhtOE4wWVBG?=
- =?utf-8?B?Y3owMjhRTVlmeEY3U0ZKYWpiWEVlMTNxS29qMVRleHFqOXF6TmRkOGkxL3Vn?=
- =?utf-8?B?YXp1SENjOVlZYTNsM3g5cnkyZVNOV0N0V1pBTzdEdFlWcVJ0V1R1ZU5jMENW?=
- =?utf-8?B?VWVsMHdhTDJ6Tkdia0svblFYS2t1Ym5YMUIweGh6WGdUUmEvVlFjYjEzYmdq?=
- =?utf-8?B?Q1FjSDRlT0p4VnkxcExiTEpKeVlOSVhVUEhoWE5PZlI0V2kwZjY5dFBsdEh4?=
- =?utf-8?B?d1Ftd083R25hci95RFVCMzVNdy8zUEJRVU9VNlBPek82bjZabFRoZ2NwenJU?=
- =?utf-8?B?NDBLT0EzU1RuSzBadkJETjZyU1o5aHhtOU9ZakhXUnc1T2dQTkE0REJsVUZG?=
- =?utf-8?B?SElxRFlJSkZlSmdMN2ZSY1doakNNaW5FTmovY3dUSDRmeXRSenNVZG5kSXEw?=
- =?utf-8?B?TUtITFcyMEQ4dWV6eU5lTUVyRkppRHAzcHJpbWxhQzdKcEwvYjJnVjJueFhM?=
- =?utf-8?B?VWNYWjdITkRLS1oyWGlSVXJPZGY3VzJ2YWd5L04wNTFVb3BSampyWm5kWEp2?=
- =?utf-8?B?eWNQSG9YRk8yWit0OXpYOGJzYnV3d1JuZFRUZVFJN0kwcHpaMTZ6VXNGWXE1?=
- =?utf-8?B?QXRqTnZZVG9FUCtaVnRDeGt0MWg3Rm1UZG16TWlLRy9OcXZ2K0N0RjdOQmRn?=
- =?utf-8?B?K0FGS3ptTnkxekI3N1N4M2RqUVRLMWlHeC9KTStlQkpLZWJPa0tBdUFRcHhy?=
- =?utf-8?B?akhwSjFDVk1nSDdSYkZjU29JeE9vRnpIRFdqRGt0UUFxS256cXhnOHpHOThn?=
- =?utf-8?B?UHlESlJrbWdqeTAxYlVOWmlxK0crSUc4dE50dVBmVVJRcGJ6L1A2b1BtZ0lH?=
- =?utf-8?Q?bySkWqx6vo9oeyLq4yEz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dkhCZzRHR0doQkZ3dTd1ckNJdTd6N21aTUxYWnQ1QVVzZG1QeW13S0RCajNO?=
- =?utf-8?B?YzdsUXRkMDJTdGovZUlWOWVoWjBqZnQ0ckxabnNGNjlHWHdXRGl0eFpJMyty?=
- =?utf-8?B?TTRRRmtrVG9lSFQ3Y2Ira01vM0lhYkFKWm40V1hZeDFaRWVERUxIRldid0tH?=
- =?utf-8?B?Ym1yRDJ5aGpPMDJuQUVuMHIyMlRSd3dyUkZHTENqSHYrWitxNmkxMWpPWlh4?=
- =?utf-8?B?Y0IxeEwzT1VhRUN1TVQ0ZytjZjBHbHVjRHdPaHAxWmF4eVdmbjA4VU9haGI1?=
- =?utf-8?B?dHczNURXWlB3ZHI5ZzR1YlI1WGtRR05iTFZ0LzQyQUhydDJQRk9BWmk4V2N3?=
- =?utf-8?B?bWh4NmNoSkJEc3RIa0Qvd05PTitMU2Z5T3lQQmJRUEg4WE9VMXBHWE05YXZM?=
- =?utf-8?B?bDRjdjVMUWRIYi9udE12MnVJd0FYbm9yWm41c3FtUlVhZVlPTWllcGI3VHVS?=
- =?utf-8?B?TUtYMGZpcEZ1bDFxZTRGQUFJa04vMjEydHVGWTluUnlDSmhuV2kxc0Y5MGNz?=
- =?utf-8?B?NTdBNFRMMFRHQzN3Zkh0WjMzeDZNZWt5RVlkR05jL0FIL05RSnFMdTFnbE5K?=
- =?utf-8?B?UWtpbndvZnNEUHZwUnpNdFlDVy8xSjJjSktLRDQ3NUE3Z0xCNzhScWVEVXpz?=
- =?utf-8?B?N0lmakZUVWhTaDNQN1lOOHQwdkk2TjNMcmJmak5aSjdSUGEvWnJKbmo2NExL?=
- =?utf-8?B?UHg1ZjMvaDR4eFBWSFFjdkxSNERFbW5Gb3krWGw5dGhUWDJNYjlhMk14cDB0?=
- =?utf-8?B?UFpzZitRK2l1VWs1N00wWGloNlRPWjRueVgxT0FJM1o0bHdhaWtFaEhsa3hM?=
- =?utf-8?B?VkhiN1B6TWFxbzFJZk13eWdYMmtISFBHOWxUclV5NUR0VUp6bU01OGZEcy92?=
- =?utf-8?B?V2VGNzc3MVJxMEJOQXBLazU1T29sell0MUFmZjlpanJ5OTFNOWFpRmNJY0sz?=
- =?utf-8?B?Vi9qOXNycEloMVVNdzNncWdIVWwySi9Da0R2RnBjUEdqalZWSzNlNElLNi9V?=
- =?utf-8?B?cWZkZWhmWFdKYk5keTJYcm1hRWdKWXAyT1JIOUN2TmZKV0QwZkFoRi9RWSsx?=
- =?utf-8?B?Zm5BcXJZbWZoNktyeEhva0FMak9pMmF3M0czRU9wRVg2OU5NTUQwSTZjRHBO?=
- =?utf-8?B?ZUFDMXdQOFRlRTkxTzZmQnVlM2VHQzZqN2hTSGF6WVZYUXN1Um52QllRSG1a?=
- =?utf-8?B?THlyZ3ZWb2RsaTNCazh5MXY4QzlpZWRUY1F4eVVCM1RvZEt3QWs4UE9XWENa?=
- =?utf-8?B?M3ozVnFKMmh0NGt3ZkJZME5aa09FSWdTSGZGd3dCSU9iUmV1TzBWQ0xyUmNJ?=
- =?utf-8?B?YTQ3UlArRGYxc1kzRUJxM3k1V21WSy8zcWhzMUZMdjYzT1Q2bFdHckpnK0tw?=
- =?utf-8?B?U3FBcVRSVUwrRVY4MDdMZitKWWRaZE5WUnlzL0pWZVhYY2gyZUlzOVM3cStI?=
- =?utf-8?B?bjU0aWpJOVBkZXkxMmRZNHJoUWNOTlJuRzFvSXFxODc2T0lqVVJNeDcrbVFC?=
- =?utf-8?B?NSs4bzlpOFdsUVl5eGlnZ3JvNjBuT3pNS2xmRTBSMjJNd0lodnY3anhIWTM1?=
- =?utf-8?B?Y2xSWC93Z3NuTGxGRCt3RXZ0TTNmT0RpQnNuSHgvWFNIcGphRDhyMDRYZ2ZE?=
- =?utf-8?B?T3VQcVhVLzZPS2s0Q3ZNOVFmbjc0T3o4MWdmRmFzbTBsWTF6K1NmNFdWbVBE?=
- =?utf-8?B?V0FFRldDK1pRaTgvc2dBZjdaYnNMMHV5K05GODZ3Vmg4djdjcWhEZ2NIVmZK?=
- =?utf-8?B?RXlFOEV0T2xucE1xd0pQZm5WcWdibHg2Q25NWVUyM0M2MTAzR1Y3N2tNdldQ?=
- =?utf-8?B?YnRoNGJtQmhRR2RTVGZxVEpNM2FyQ2VsOUxGTlNmSm5uV0xoZ0xUZXhJYmM2?=
- =?utf-8?B?enRGRHlmeVZWeGc3N3BPNjRZakZZVEgvTzZteEJwK2k0QzBxZ1VhcU9JeFdH?=
- =?utf-8?B?MzR5OW1panJld0k1eG9Hek1pTlYrcXNEZWUxMGFSOVZ2blZuSEVjeWs0cFRQ?=
- =?utf-8?B?TktTTjRvZ1FzMmk1T0UzTXA5ZjBTOFNiWjNYejY4VmI5cEFHTTM0UkJvbkJh?=
- =?utf-8?B?UGV2QzFqS1VBdVVNejFiM2xHT2N4bGlkc1RGeFpWcS9Jc1ArTk5CakdqUnFr?=
- =?utf-8?Q?P8r4fRnawXr50kHM1Fl4YFFNY?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21c18a5a-110b-4679-6648-08dcf7e14000
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 06:16:39.7225
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4vqxNVEzrApY8rYbSVhdv/K0SNKZB/yn7ENYGFr3UCzOWAy8eXnZL2Xcw1rNtbKonwevGi3fjO9vVoEgOMaygw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10437
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241021124040.GA929726@hyd1403.caveonetworks.com>
+X-Proofpoint-ORIG-GUID: NKPqAWKODujtGMfbgAstczsDI6RTCe7E
+X-Proofpoint-GUID: NKPqAWKODujtGMfbgAstczsDI6RTCe7E
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_231645_000221_2C1F5C55 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20241028_232133_795018_654F71CC 
+X-CRM114-Status: GOOD (  55.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,130 +99,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/2024, Liu Ying wrote:
-> Dual-link LVDS displays receive odd pixels and even pixels separately from
-> dual LVDS links.  One link receives odd pixels and the other receives even
-> pixels.  Some of those displays may also use only one LVDS link to receive
-> all pixels, being odd and even agnostic.  Document common properties for
-> those displays by extending LVDS display common properties defined in
-> lvds.yaml.
+Hi Suzuki,
+
+On 2024-10-21 at 18:10:40, Linu Cherian (lcherian@marvell.com) wrote:
+> Hi Suzuki,
 > 
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
-> v4:
-> * Squash change for advantech,idk-2121wr.yaml and
->   panel-simple-lvds-dual-ports.yaml with lvds-dual-ports.yaml.  (Rob)
-> * Improve description in lvds-dual-ports.yaml.  (Krzysztof)
-> 
-> v3:
-> * New patch.  (Dmitry)
-> 
->  .../bindings/display/lvds-dual-ports.yaml     | 76 +++++++++++++++++++
->  .../display/panel/advantech,idk-2121wr.yaml   | 14 +---
->  .../panel/panel-simple-lvds-dual-ports.yaml   | 20 +----
->  3 files changed, 78 insertions(+), 32 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml b/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-> new file mode 100644
-> index 000000000000..5f7a30640404
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/lvds-dual-ports.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Dual-link LVDS Display Common Properties
-> +
-> +maintainers:
-> +  - Liu Ying <victor.liu@nxp.com>
-> +
-> +description: |
-> +  Common properties for LVDS displays with dual LVDS links. Extend LVDS display
-> +  common properties defined in lvds.yaml.
-> +
-> +  Dual-link LVDS displays receive odd pixels and even pixels separately from
-> +  the dual LVDS links. One link receives odd pixels and the other receives
-> +  even pixels. Some of those displays may also use only one LVDS link to
-> +  receive all pixels, being odd and even agnostic.
-> +
-> +allOf:
-> +  - $ref: lvds.yaml#
-> +
-> +properties:
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: the first LVDS input link
-> +
-> +        properties:
-> +          dual-lvds-odd-pixels:
-> +            type: boolean
-> +            description: the first LVDS input link for odd pixels
-> +
-> +          dual-lvds-even-pixels:
-> +            type: boolean
-> +            description: the first LVDS input link for even pixels
-> +
-> +        oneOf:
-> +          - required: [dual-lvds-odd-pixels]
-> +          - required: [dual-lvds-even-pixels]
-> +          - properties:
-> +              dual-lvds-odd-pixels: false
-> +              dual-lvds-even-pixels: false
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: the second LVDS input link
-> +
-> +        properties:
-> +          dual-lvds-odd-pixels:
-> +            type: boolean
-> +            description: the second LVDS input link for odd pixels
-> +
-> +          dual-lvds-even-pixels:
-> +            type: boolean
-> +            description: the second LVDS input link for even pixels
-> +
-> +        oneOf:
-> +          - required: [dual-lvds-odd-pixels]
-> +          - required: [dual-lvds-even-pixels]
-> +          - properties:
-> +              dual-lvds-odd-pixels: false
-> +              dual-lvds-even-pixels: false
+> On 2024-10-18 at 15:16:17, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
+> > On 17/10/2024 12:40, Linu Cherian wrote:
+> > > On 2024-10-03 at 18:55:54, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
+> > > > Hi Linu
+> > > > 
+> > > > On 16/09/2024 11:34, Linu Cherian wrote:
+> > > > > * Add support for reading crashdata using special device files.
+> > > > >     The special device files /dev/crash_tmc_xxx would be available
+> > > > >     for read file operation only when the crash data is valid.
+> > > > > 
+> > > > > * User can read the crash data as below
+> > > > > 
+> > > > >     For example, for reading crash data from tmc_etf sink
+> > > > > 
+> > > > >     #dd if=/dev/crash_tmc_etfXX of=~/cstrace.bin
+> > > > 
+> > > > There are some comments below, please take a look.
+> > > > 
+> > > > > 
+> > > > > Signed-off-by: Anil Kumar Reddy <areddy3@marvell.com>
+> > > > > Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
+> > > > > Signed-off-by: Linu Cherian <lcherian@marvell.com>
+> > > > > ---
+> > > > > Changelog from v9:
+> > > > > - Removed READ_CRASHDATA mode meant for special casing crashdata read
+> > > > > - Added new fields full, len, offset to struct tmc_resrv_buf
+> > > > 
+> > > > Why do we need "full" ? See more on that below.
+> > > > 
+> > > > >     so as to have a common read function for ETR and ETF
+> > > > > - Introduced read file operation, tmc_crashdata_read
+> > > > >     specific to crashdata reads common for both ETR and ETF
+> > > > > - Introduced is_tmc_crashdata_valid function
+> > > > >     Special device file /dev/crash_tmc_xxx will be available only when
+> > > > >     crashdata is valid.
+> > > > > - Version checks added to crashdata validity checks
+> > > > > - Mark crashdata as invalid when user starts tracing with ETR sink in
+> > > > >     "resrv" buffer mode
+> > > > > 
+> > > > >    .../hwtracing/coresight/coresight-tmc-core.c  | 206 +++++++++++++++++-
+> > > > >    .../hwtracing/coresight/coresight-tmc-etf.c   |  36 +++
+> > > > >    .../hwtracing/coresight/coresight-tmc-etr.c   |  63 ++++++
+> > > > >    drivers/hwtracing/coresight/coresight-tmc.h   |  18 +-
+> > > > >    include/linux/coresight.h                     |  12 +
+> > > > >    5 files changed, 333 insertions(+), 2 deletions(-)
+> > > > > 
+> > > > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > > > > index 54bf8ae2bff8..47b6b3f88750 100644
+> > > > > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > > > > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > > > > @@ -105,6 +105,125 @@ u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata)
+> > > > >    	return mask;
+> > > > >    }
+> > > > > +bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata)
+> > > > > +{
+> > > > > +	struct tmc_crash_metadata *mdata;
+> > > > > +
+> > > > > +	if (!tmc_has_reserved_buffer(drvdata) ||
+> > > > > +	    !tmc_has_crash_mdata_buffer(drvdata))
+> > > > > +		return false;
+> > > > > +
+> > > > > +	mdata = drvdata->crash_mdata.vaddr;
+> > > > > +
+> > > > > +	/* Check version match */
+> > > > > +	if (mdata->version != CS_CRASHDATA_VERSION)
+> > > > > +		return false;
+> > > > > +
+> > > > > +	/* Check data integrity of metadata */
+> > > > > +	if (mdata->crc32_mdata != find_crash_metadata_crc(mdata)) {
+> > > > > +		dev_dbg(&drvdata->csdev->dev,
+> > > > > +			"CRC mismatch in tmc crash metadata\n");
+> > > > > +		return false;
+> > > > > +	}
+> > > > > +	/* Check data integrity of tracedata */
+> > > > > +	if (mdata->crc32_tdata != find_crash_tracedata_crc(drvdata, mdata)) {
+> > > > > +		dev_dbg(&drvdata->csdev->dev,
+> > > > > +			"CRC mismatch in tmc crash tracedata\n");
+> > > > > +		return false;
+> > > > > +	}
+> > > > > +	/* Check for valid metadata */
+> > > > > +	if (!mdata->valid) {
+> > > > 
+> > > > minor nit: This could be checked right after the VERSION and we verify
+> > > > the CRC anyway later and thus could skip all the CRC calculations if
+> > > > !valid.
+> > > 
+> > > 
+> > > Ack.
+> > > 
+> > > > 
+> > > > > +		dev_dbg(&drvdata->csdev->dev,
+> > > > > +			"Data invalid in tmc crash metadata\n");
+> > > > > +		return false;
+> > > > > +	}
+> > > > > +
+> > > > > +	return true;
+> > > > > +}
+> > > > > +
+> > > > > +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata)
+> > > > > +{
+> > > > > +	int ret = 0;
+> > > > > +	unsigned long flags;
+> > > > > +	struct tmc_crash_metadata *mdata;
+> > > > > +	struct coresight_device *csdev = drvdata->csdev;
+> > > > > +
+> > > > > +	spin_lock_irqsave(&drvdata->spinlock, flags);
+> > > > > +
+> > > > > +	if (!is_tmc_crashdata_valid(drvdata)) {
+> > > > > +		ret = -ENXIO;
+> > > > > +		goto out;
+> > > > > +	}
+> > > > > +
+> > > > > +	mdata = drvdata->crash_mdata.vaddr;
+> > > > > +	/*
+> > > > > +	 * Buffer address given by metadata for retrieval of trace data
+> > > > > +	 * from previous boot is expected to be same as the reserved
+> > > > > +	 * trace buffer memory region provided through DTS
+> > > > > +	 */
+> > > > > +	if (drvdata->resrv_buf.paddr != mdata->trace_paddr) {
+> > > > > +		dev_dbg(&csdev->dev, "Trace buffer address of previous boot invalid\n");
+> > > > 
+> > > > Couldn't this be made part of the "is_tmc_crashdata_valid()" and not
+> > > > repeated everytime we do the read ? Surely, this can't change after
+> > > > boot.
+> > > 
+> > > Ack. Will move.
+> > > 
+> > > > 
+> > > > > +		ret = -EINVAL;
+> > > > > +		goto out;
+> > > > > +	}
+> > > > > +
+> > > > > +	/* Sink specific crashdata mode preparation */
+> > > > > +	ret = crashdata_ops(csdev)->prepare(csdev);
+> > > > > +	if (ret)
+> > > > > +		goto out;
+> > > > > +
+> > > > > +	if (mdata->sts & 0x1)
+> > > > > +		coresight_insert_barrier_packet(drvdata->buf);
+> > > > > +
+> > > > > +	drvdata->reading = true;
+> > > > 
+> > > > Why are we dealing with drvdata->reading ? That is supposed to be only
+> > > > for the normal trace reading ?
+> > > 
+> > > Ack. Will remove, we dont need this.
+> > > 
+> > > > 
+> > > > > +out:
+> > > > > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> > > > > +	return ret;
+> > > > > +}
+> > > > > +
+> > > > > +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata)
+> > > > > +{
+> > > > > +	int ret;
+> > > > > +	unsigned long flags;
+> > > > > +	struct coresight_device *csdev = drvdata->csdev;
+> > > > > +
+> > > > > +	spin_lock_irqsave(&drvdata->spinlock, flags);
+> > > > > +
+> > > > > +	/* Sink specific crashdata mode preparation */
+> > > > > +	ret = crashdata_ops(csdev)->unprepare(csdev);
+> > > > > +
+> > > > > +	drvdata->reading = false;
+> > > > 
+> > > > 
+> > > > 
+> > > > > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> > > > > +
+> > > > > +	return ret;
+> > > > > +}
+> > > > > +
+> > > > > +static inline ssize_t tmc_get_resvbuf_trace(struct tmc_drvdata *drvdata,
+> > > > > +					  loff_t pos, size_t len, char **bufpp)
+> > > > > +{
+> > > > > +	s64 offset;
+> > > > > +	ssize_t actual = len;
+> > > > > +	struct tmc_resrv_buf *rbuf = &drvdata->resrv_buf;
+> > > > > +
+> > > > > +	if (pos + actual > rbuf->len)
+> > > > > +		actual = rbuf->len - pos;
+> > > > > +	if (actual <= 0)
+> > > > > +		return actual;
+> > > > 
+> > > > return 0 ? Because, we went beyond the file position, not because there was
+> > > > an error. So, that it doesn't look like we are suppressing an ERROR ?
+> > > 
+> > > 
+> > > return 0 looks fine to me. Will recheck on this.
+> > > 
+> > > > 
+> > > > 
+> > > > > +
+> > > > > +	/* Compute the offset from which we read the data */
+> > > > > +	offset = rbuf->offset + pos;
+> > > > > +	if (offset >= rbuf->size)
+> > > > > +		offset -= rbuf->size;
+> > > > > +
+> > > > > +	/* Adjust the length to limit this transaction to end of buffer */
+> > > > > +	actual = (actual < (rbuf->size - offset)) ?
+> > > > > +		actual : rbuf->size - offset;
+> > > > > +
+> > > > > +	*bufpp = (char *)rbuf->vaddr + offset;
+> > > > > +
+> > > > > +	return actual;
+> > > > > +}
+> > > > > +
+> > > > >    static int tmc_read_prepare(struct tmc_drvdata *drvdata)
+> > > > >    {
+> > > > >    	int ret = 0;
+> > > > > @@ -224,6 +343,70 @@ static const struct file_operations tmc_fops = {
+> > > > >    	.llseek		= no_llseek,
+> > > > >    };
+> > > > > +static int tmc_crashdata_open(struct inode *inode, struct file *file)
+> > > > > +{
+> > > > > +	int ret;
+> > > > > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
+> > > > > +						   struct tmc_drvdata,
+> > > > > +						   crashdev);
+> > > > > +
+> > > > > +	ret = tmc_read_prepare_crashdata(drvdata);
+> > > > 
+> > > > I don't see the point of this "prepare" and unprepare callbacks, as they
+> > > > can be made generic by populating the mdata->rrp,rwp fields accordingly ?
+> > > > 
+> > > > i.e., while populating the mdata-> fields, for ETR, do what you do now.
+> > > > For ETF you could :
+> > > > 
+> > > > mdata->rrp = 0;
+> > > > mdata->dba = 0;
+> > > > mdata->rwp = drvdata->len;
+> > > > mdata->size = drvdata->len >> 2;
+> > > > mdata->sts = TMC_STS_FULL;
+> > > 
+> > > Agree with your point that this would get rid of sink specific
+> > > callbacks.
+> > > 
+> > > But few points to consider before we go with the above approach,
+> > > 
+> > > * mdata register snapshots wont be true to their definition,
+> > >    with such encodings.
+> > > 
+> > >    We had a similar discussion on this earlier regarding mdata->size,
+> > >    ie. We decided to stick to register format instead of storing bytes.
+> > >    https://lore.kernel.org/linux-arm-kernel/20240620041054.GC125816@hyd1403.caveonetworks.com/
+> > 
+> > Understood. But whoever fills in the metdata does need to fill the
+> > mdata information above ? Including calculating the hash. So, I think it
+> > is fair to say that mdata is populated in a way that makes sense
+> > just by looking at it. In fact, we should :
+> > 
+> > 
+> > mdata->dba = <address of the tracedata>
+> > mdata->rrp = mdata->dba;
+> > mdata->rwp = mdata->rrp + drvdata->len;
+> > mdata->size = drvdata->len >> 2;
+> > mdata->sts = TMC_STS_FULL;
+> > 
+> > Rather than filling in 0's.
 
-Hmm, I should require port@0 or port@1.
-Will wait a while for comments and add this in next version.
+Just wanted to point out that, in case of watchdog reset when firmware
+is updating this, dba would be the physical address while in ETR case
+it could be virtual address (with IOMMU).
+So in that regard, filling in zeros seems better to me for rrp and dba. 
 
---8<--
-    anyOf:                                                                      
-      - required:                                                               
-          - port@0                                                              
-      - required:                                                               
-          - port@1
---8<--
+Please let me know your preference on this.
 
-> +
-> +required:
-> +  - ports
-> +
-> +additionalProperties: true
-> +
-> +...
-
-[...]
-
--- 
-Regards,
-Liu Ying
-
+Thanks.
 
