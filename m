@@ -4,152 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684F8D3A679
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6993DD3A678
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JP34gkxPMMJ3taUGG5F0zZVDGtPB7KyWqytY20AULD8=; b=ItaM176SBVRnc4K6L9tj5smOAR
-	6AjC5D+hTa/wzl9SIz2EH/NeWKtmhsrd6EQYYOuIeNfnU31njcK/+tjAXquwOZUILLbkVsYgn+ERs
-	9P4RSTYYm7O14QvcdYr+Y8kgNv7yrYTfBkuvLJ1JsOts3wMTbzEUhH3eNUt1drtrT9n5OhWSZ2XY/
-	k8Rt82AjBRUHo4Uk4aqdB3vbm/M3ONIb9LkMRPH7fWGj9At4K9T+XzTRjjAIQV9kYzl5vQCLB9K7i
-	viKZMJAnMYbWEd1AHpT/3kcC3rV2AiDj9EWJS59dDEb+wHXjAkMirVSlUWcdQ2JJyIfBNsNTWAY0Y
-	D+UC0Ebg==;
+	bh=xzkkuHcJAdCarQ1DZBUjrbYTIlPteyvNO1MGL5JwwK0=; b=oi8Qfm97A4q2zMFpzwl5Px/oNG
+	7rnNXHLb5zBnMoG7qeUlbTqLmnI9rkg2RungAUzWoMvEXHg82XdW3mbolHkLlsGxE0iXECw58PvbF
+	EudDuYrZOIxds8g+3Ztz5wZgd1ypE/Ht7PqZg5kR1k5K+GU8kiA9zmnI58BWbt0Wjyp/eZwmB5DLR
+	MI95q1/ce42EQvonIfDlQb/3aSZ69K3h7QbX5WU/s4J4MXljxS792t4edF+5mWULCd72PYBu5/39T
+	ymjlrRrKaqO1JR7TfJ3a7VNmPBQeDDN/IXdq2hfvgTnSF2XpSwA8xS8WbcTjav2EPXtvku8scWL08
+	XSOHo6bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q86-0000000FHer-25ES;
-	Tue, 29 Oct 2024 17:35:42 +0000
-Received: from mail-bn8nam11on20614.outbound.protection.outlook.com ([2a01:111:f403:2414::614] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1t5q88-0000000FHhM-3F0e;
+	Tue, 29 Oct 2024 17:35:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oFC-0000000Ewcw-2UyI
+	id 1t5oGM-0000000EwmZ-3AVj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:34:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lfh1UT4a20II4p4Pfszs6I9SvXgH61+Ld9FB/YpY2zw/u0mAtr+6n2nTO2EKkBWa7IV0CxLThv1pU+lEFu/fbcPISOT3MzrrzR7zI90RgcPdJhFeyLHxNIktdks6wybsnaB1dgTjdEK6f0K9YgYptYoSg5ow2AfRqxZXvI3O45o1s6cqQ98i/46ozAxwddMd6Wkn6EgBHm1FGzEecLeq7YP2pklAvBcTkTctmcw6xzmlKv9ILJcuC1Bv06QJFdEZhSrQQV/oex02VKxGIXWmQz8Q769cM46IgqZXdyw3aKYGrQFFt2LyIikbWBNJ3ow55yhYvWVzfQXVjAHiuNDt/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JP34gkxPMMJ3taUGG5F0zZVDGtPB7KyWqytY20AULD8=;
- b=kp3DfspPssw15+fov/HVlgRLDq0WEVtXfwqV1q0NtmKhz5xMg+h8wFW394bjkhx/zsj2I4RSy2Un8iOoD6CDGO7ej1hqRjpnfldHazAxnOQWPw4RiIJ0yIlwvvPzTKjXtK1CCOpOMhR0pSFyXA9L7A7Bg7opAVkZ/OlNAhdPHUf2Ukr3jdfSaExiSFgYysmZldwCkCoHPYWo60Ldns+y6wZOZ4NuCqJ7oLBzDVkNIp8GkHvIplz0WJkDGxW8jVBIEI68jKCRQfEkBxTC2eYt9I20kRx8EgTdEGYszZanDguFaE/MjyF2cbsLM3dTprzQ2hm7hfSI9b4R/RGzrK9n/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JP34gkxPMMJ3taUGG5F0zZVDGtPB7KyWqytY20AULD8=;
- b=I21rTfnJYMzCjUm5QMo6YnYdkVne43VEIaYKtZOB2ZFUto5eg7T/ZGhQsXHmt/Oegz7qWYpw0rrpV2PYC3bPA/WT2DNQoy+oTEBlCnvlVdANVy6j0g2qlukIwjH2LNA+sFUZO5W7YZeabvBeQeFajkJtCeeO1lP4wSD8v8Ls74k6LOSqfnZYmmOhMSucdfm7fSIj/8fDA+0eSLGZZFPGJ+hdV8J07mCgJo4z4XJWZRZvumI4HN5hZHwFYja9TeqNKL/XYbAycDaHqSEpY60YKnB+zDHaVOMGvIDNldGaOX96vL76n+5TEilnGS5lL7o2GUhtgk+REOrGRmrhPOl3jQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB8509.namprd12.prod.outlook.com (2603:10b6:610:157::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
- 2024 15:34:40 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
- 15:34:40 +0000
-Date: Tue, 29 Oct 2024 12:34:38 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 09/13] iommufd/selftest: Add refcount to
- mock_iommu_device
-Message-ID: <20241029153438.GH209124@nvidia.com>
-References: <cover.1729897352.git.nicolinc@nvidia.com>
- <f91cc278a173a95969af16c46442f18b639d4ea9.1729897352.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f91cc278a173a95969af16c46442f18b639d4ea9.1729897352.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN9P223CA0024.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:408:10b::29) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8509:EE_
-X-MS-Office365-Filtering-Correlation-Id: 218ebc37-49e9-43c3-645b-08dcf82f33d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HInh4ZFHGgbEXbtQGUM3wNGtdqerpoGCbkXeBVqN0VOG708k4UL2Ve5Nm0dG?=
- =?us-ascii?Q?v6S0WZ6lMta8kWDWpxw7sy9vnLrGmYGFBIZoTbQ74vgEzHXSss9KQplW/X1N?=
- =?us-ascii?Q?VQgp+GETGSoX9wZHDEpWty49WI/eLE/H78sUX3uS+1lyQXI1URjPtwe9HWci?=
- =?us-ascii?Q?Q1W8bgNm9x8XUQ5G+6YeF4jF/fyDt6F91+V0oJ389lbaFrbalOFJHy40KzSo?=
- =?us-ascii?Q?RQS0zH2nRRUnEzJo1/5UXpD+EDFhQVxiiEmj6XtoqueRogU3jh1/4kcO2ZId?=
- =?us-ascii?Q?gh3skQFqLxMP4ni2bNbwrJGHnyr5MoROv0+MzNikXiDSpnmvl6K0vaav2Gm2?=
- =?us-ascii?Q?rRhYG7LIQgiD1pdMZ3WezaCc1gjxu+2yjF8J0upzulf0C/PN0DqDjzjAGyur?=
- =?us-ascii?Q?YmET/I6pmz/XpeCYW0RXsACthudWazpmwoRj4H8XOUMqoot77VJNaBkO/znT?=
- =?us-ascii?Q?Xpw2QHXDg8MOh2qIbK5v0t0va+OJF5ef4z1upQhRKjh51S3AtOnsG/2LBJ03?=
- =?us-ascii?Q?qA8xzDsJzdUel4MtIGAMNUPIbxwhwdZnCQuh+QkvulHEmPVDuUQsy9EWDeKK?=
- =?us-ascii?Q?vc2gi3sYlrDqCQTzGozBjigk0KgAwAI4joo+qPekV0FgyvcV+wBpo6KRFjHL?=
- =?us-ascii?Q?hvfgpYJHjO5RwqZL+QrUroyeBHRUFLWJ//sfBKyhbITaLr4gzHqnbT7MlR0u?=
- =?us-ascii?Q?f2iq4f3lSN5WGhDz50iJfNVLBa+272p++OT0ntrqEhPyIbQBnJYZ5RdRDniB?=
- =?us-ascii?Q?i2Rv62g1o7dMqLpb+eHTDHP6YeyVtwr8nHVRXaUdTdM8a9Ok691AlI/SuJfd?=
- =?us-ascii?Q?WeeJSx6EPRnNqbvL3+f3suDx0VNkFPiYzWv+opdIHIgdJSODimHzfamkywsh?=
- =?us-ascii?Q?lDoKjpNaUNBuhjkpeDbV4mPaei4F1zlAle0UOATDJIziWUmSvcOKRx/3ZiFx?=
- =?us-ascii?Q?/BVrOiPVz2hlKliNdGfmj13k5khDqMJIeIj+vurgzviR55nOy8KBqAwJ4KsA?=
- =?us-ascii?Q?SD56kUV5wNUSxkfcsSL5XXNPUf7E35smFgv2PjSq168YKJtVFkKnm/KPYR3F?=
- =?us-ascii?Q?gLHRaRxRmsi5cxSWeUEC6aiqaKYdGExMb+lzkWs4iPyoz0GHmRIAI1p5Ku2q?=
- =?us-ascii?Q?AAraiwbx/r/Vr6debdZyq6tWs30/HBPETQ27M6XbbCOpknqYD+g4LTQoyIVD?=
- =?us-ascii?Q?NjQxxDKgB2rxipCJKGqksNcz7rHWpmaHgdyuNhAo/Za90x/00HnFXDhQARaD?=
- =?us-ascii?Q?tmfL9RZsWO6RTNPCtayftyEB9Aq6jWC4599dDjogBnALHr95eGIPgCWWzKpL?=
- =?us-ascii?Q?X5jofE6wWRMttd1CrTrIYcQ5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?n0bjrD82VuSlzLliLaeiE6ywtnZ7n3x5MDoRASsQ6od0ciZxz9bHX14K7hG/?=
- =?us-ascii?Q?0YWB4x4jn05ajJVvQ/atJzyjlcWu2B5Atk7Uqx8O77rFq8Rj0Fy+iH1RKWnd?=
- =?us-ascii?Q?fFXT2SYHWYSGsBaCXhiQAGzfjKL36PLn29139MnxEAjXd8BZ5PlW4JvlQCVc?=
- =?us-ascii?Q?WfCN4zcR8CLbtfTC9On+BNmSMoIwDs9Iy2EzmU8ztvyc7VdB1OWIld4Ptfmh?=
- =?us-ascii?Q?Ar4fFTpMYEzf+Iqov/CdkmIcUUsRLKx3vnfEZYvpC9NP0r3YszStTFz60dgV?=
- =?us-ascii?Q?EaUyCsCJj/MtRAuCFUhRQZg7mV50lJobm374tATyXWE6pErrNd07dYz/1rsH?=
- =?us-ascii?Q?MxH/FtEOr3vjRA1RhqNiPOgbbV+wBZqhjUeaecUtMcHhhwPjhNcXWxVsSuPi?=
- =?us-ascii?Q?HldG7eiR8p7i+vmbwtMVTIAlbUI0DF4OlRdiyrbZJ0Uhl6Cp4j62TlBieYLO?=
- =?us-ascii?Q?qoiAVobfpKyu/SHjkTGiDTupvx+kKSphDtSliM1g0JpJl2Xj3KUvnY+nWTNS?=
- =?us-ascii?Q?6bG2VfoLBxOirpQiBUrU61m/nRRsy2GyG1vR60fIcZ4dxfmgUwGxAezXt6TE?=
- =?us-ascii?Q?+VKaXvQlTKDmJ0SOw+gAyOegsy1P6wbfFnO/Ia3MufPyGnp8715XR+t4YdiA?=
- =?us-ascii?Q?cFNxeijDDmSipGyMbLc0N5xJUvf+HxGayPPby8/tKcwvNJ+lWTdGslOMBVmT?=
- =?us-ascii?Q?nOHNyX2dO8mhUFxCErFujn8IE4c1wwt3Q7siOwflab+PnJ4Gbk+j44d/QKM/?=
- =?us-ascii?Q?IMAalI77kls6vs7CjFeFtknjsNAjVrFe5XB3xPOEDGjvLroMGusDpaaZP2Gi?=
- =?us-ascii?Q?3X419w2yBdctmDkifdw5g5Ve8cTn2yP38b236YlRD8SogCAw2EiwAZlBHTkO?=
- =?us-ascii?Q?5A8TjvgLK6tR9AICsZsRYpMEiMxQyr4yKRHkKljfKwrE1QuNXv2IpCjIRo73?=
- =?us-ascii?Q?G2RalM6/dMUP81CW91vrZNRzb4UexLvl5QIANHVO1Lf9DnWcr1skrXfBBg87?=
- =?us-ascii?Q?sbuULaRS6l5zk3Y+ylhlpXIiY2Q0MjEEBv6vUfpMiVbW8TtnjTdKWpTa5e4P?=
- =?us-ascii?Q?oSyHOhGZSCTjGLNRZFwgkMzOgLV/yZvsIpHc33ZFJgvpCWZei9I+QfXw0mA9?=
- =?us-ascii?Q?ngOKxoFveWq5F773o9ucFnfqTD4f+yq0ZQPITWLvyJiLAnvm8m71mSH2C6Dr?=
- =?us-ascii?Q?BI9BnnGlke4Eba0JD5v5k9KJsF9NegXdOuzIN+bkMdpZumpF3LSvJiOWS5YS?=
- =?us-ascii?Q?pyGrwmX8f7xATr7/psaRcOdYy0uvTQMs8Ghf0kwgNHYQZQjYtobZHeJXL4PK?=
- =?us-ascii?Q?m1Ld8O8BqjaC5DtbQGtc/7u072kbb46sROdkdqXBO2d44hbWsl9EAXYHaC7b?=
- =?us-ascii?Q?BbmXt34UN3WC6+Y6Mw/Z5dA4cPEThzfHX2cvz0QY1C1L7lSoEsEL0DAec/t3?=
- =?us-ascii?Q?R4IvSuu4H9WLXC+d8nRAwox6daLRRd7/XLTjMYwd43jGq+hwZmBtCNjVkD7N?=
- =?us-ascii?Q?aJHe3RUdCkt0R7Ml08k2QoSnYiAXrYil9FjZpy02eVIIFqVbpUesZy6gfido?=
- =?us-ascii?Q?gZUJZpJTtlFolhUt7/s=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 218ebc37-49e9-43c3-645b-08dcf82f33d7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 15:34:39.9819
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QGmEV/aawHLfpNvpqdFJT489aHFSVj9ktr4WzXu6r0qfGXH9GqftD7E7vAzXyjtm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8509
+	Tue, 29 Oct 2024 15:36:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5BE7AA42F09;
+	Tue, 29 Oct 2024 15:34:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8EAFC4CEED;
+	Tue, 29 Oct 2024 15:36:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730216164;
+	bh=u4B7caqf4bH9RcgIRvXgFiIuK4JMtpoAxmfZWBghb+A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DogrcRgc+kJY7DLNgDe5WLQ9m8eh1vlx9QExwfy7emgvXbKTnaa7jJ4ERvlwol8ti
+	 gwlblgJu/4t4/BJe3lGwD8UqfN0Ydul+iwcKQ/3zsya3jX/8YkJr3BuVwUvM3f8QiP
+	 y940Gv/y7bMdIi4SO/Bmyms4ctCg845FUL6dElY9PebiNuvCw/Ob1Cpvcuy3Px1iJJ
+	 Ttf/CVc2rUSxKcHy6EyWZNPej1UTUGfJUCQYqm2lPfmAY6WjllSRxAn+VH13SuZaC6
+	 ebd8gTCjcBrrUkB7So3txykL+sTXQTP+lUg9PYhjXA3aJK+WO4HtgR+kbbTZXlxRPr
+	 4ixNh9zfDqXjw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t5oGI-007yET-6C;
+	Tue, 29 Oct 2024 15:36:02 +0000
+Date: Tue, 29 Oct 2024 15:36:01 +0000
+Message-ID: <86a5em3ori.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,	puranjay@kernel.org,	Arnd Bergmann
+ <arnd@arndb.de>,	Arnd Bergmann <arnd@kernel.org>,	Alex =?UTF-8?B?QmVubsOp?=
+ =?UTF-8?B?ZQ==?= <alex.bennee@linaro.org>,	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,	Sumit Garg <sumit.garg@linaro.org>,
+	puranjay12@gmail.com,	Oliver Upton <oliver.upton@linux.dev>,	Suzuki K
+ Poulose <suzuki.poulose@arm.com>,	Joey Gouly <joey.gouly@arm.com>,	Zenghui
+ Yu <zenghui.yu@linux.dev>
+Subject: Re: Supporting KVM_GUESTDBG_BLOCKIRQ or something similar on ARM64
+In-Reply-To: <ZyDp2VLqjjzm47S3@J2N7QTR9R3.cambridge.arm.com>
+References: <mb61p4j4wwlap.fsf@kernel.org>
+	<86ed4031zh.wl-maz@kernel.org>
+	<CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com>
+	<86bjz32q2q.wl-maz@kernel.org>
+	<CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
+	<ZyDp2VLqjjzm47S3@J2N7QTR9R3.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, ardb@kernel.org, puranjay@kernel.org, arnd@arndb.de, arnd@kernel.org, alex.bennee@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, sumit.garg@linaro.org, puranjay12@gmail.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, joey.gouly@arm.com, zenghui.yu@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_083454_669892_AB304C58 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20241029_083606_973755_F4018DEA 
+X-CRM114-Status: GOOD (  45.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,25 +93,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 04:49:49PM -0700, Nicolin Chen wrote:
-> For an iommu_dev that can unplug (so far only this selftest does so), the
-> viommu->iommu_dev pointer has no guarantee of its life cycle after it is
-> copied from the idev->dev->iommu->iommu_dev.
+On Tue, 29 Oct 2024 13:57:53 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> Track the user count of the iommu_dev. Postpone the exit routine using a
-> completion, if refcount is unbalanced. The refcount inc/dec will be added
-> in the following patch.
+> On Tue, Oct 29, 2024 at 11:00:24AM +0100, Ard Biesheuvel wrote:
+> > On Tue, 29 Oct 2024 at 10:53, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Tue, 29 Oct 2024 08:52:41 +0000,
+> > > Ard Biesheuvel <ardb@kernel.org> wrote:
+> > > >
+> > > > On Mon, 28 Oct 2024 at 12:23, Marc Zyngier <maz@kernel.org> wrote:
+> > > > >
+> > > > > > Let's start a discussion about what needs to be done to support this on
+> > > > > > arm64.
+> > > > >
+> > > > > A good start would be to define the semantics of such a flag:
+> > > > >
+> > > > > - what should it affect? the vcpu you are single-stepping? all vcpu?
+> > > > >
+> > > > > - should userspace to know that interrupts are pending?
+> > > > >
+> > > > > - should this result in any effect on the guest's view of time?
+> > > > >
+> > > > > - what of interactions on the rest of the system (such as devices)?
+> > > > >
+> > > >
+> > > > Sorry to give a handwavy answer here, but approaching this from a
+> > > > usability PoV (like what Puranjay is doing), it is really about
+> > > > adhering to the principle of least surprise for the user.
+> > > >
+> > > > So in that sense, it is not really about blocking IRQs at all, as long
+> > > > as we step over them rather than into them. How that is achieved is
+> > > > not that relevant from the user PoV, and maybe KVM_GUESTDBG_BLOCKIRQ
+> > > > is not the right solution for ARM at all.
+> > >
+> > > I definitely sympathise with the goal, but there is no simple way to
+> > > let interrupts through while stepping (which is what your "step over"
+> > > implies):
+> > >
+> > > - the hypervisor (in general) doesn't interact with the guest delivery
+> > >   and handling of interrupts -- this is either very opaque (list
+> > >   registers) or completely invisible (direct injection)
+> > >
+> > > - replacing the step with a breakpoint after the stepped instruction
+> > >   requires us to decode the guest instructions to handle branching
+> > >   effects
+> > >
+> > 
+> > Yeah, and we still want to take non-IRQ/FIQ exceptions, so this does
+> > not seem feasible to me.
+> > 
+> > > One possible mechanism would be to:
+> > >
+> > > - while stepping, add breakpoints to the interrupt vectors for the EL
+> > >   we are stepping (3 breakpoints for any of the 4 possible exception
+> > >   groups),
+> > >
+> > > - when any interrupt breakpoint hits, clear all 3, place a breakpoint
+> > >   on the instruction that was about to be single-stepped (pointed to
+> > >   by SPSR)
+> > >
+> > > - run to completion, until the breakpoint hits
+> > >
+> > > - disable the breakpoint, reinstall the previous 3 interrupt
+> > >   breakpoints
+> > >
+> > > - single-step, rinse, repeat
+> > >
+> > > But then I'm asking myself the question: why is this KVM's job? It
+> > > seems to me that this is what an external debugger would do when
+> > > interacting with HW on bare metal.
+> > >
+> > > So can we implement this as part of the debugger's state machine?
+> > >
+> > 
+> > Which debugger is that? The GDB stub in QEMU?
+> > 
+> > Setting a one-shot breakpoint on the address in SPSR when taking an
+> > IRQ exception seems like a reasonable approach to me.
 > 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/selftest.c | 32 ++++++++++++++++++++++++--------
->  1 file changed, 24 insertions(+), 8 deletions(-)
+> That doesn't work; an IRQ could be taken in the middle of a common
+> helper that's also used in IRQ context, so you'd take the breakpoint
+> within the IRQ. You could try to match a bunch of things like the SP and
+> so on, but that boils to do a bunch of heuristics rather than something
+> that's guarnateed to work...
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Hmmm. Yes, that's a pretty pathological case.
 
-Since this is built into the iommufd module it can't be unloaded
-without also unloading iommufd, which is impossible as long as any
-iommufd FDs are open. So I expect that the WARN_ON can never happen.
+> 
+> More generally, the IRQ can preempt the running thread anyway, so:
+> 
+> * The user cannot use this to trace a kernel thread reliabl , since that
+>   can be switched out behind their back.
+> 
+> * The user cannot use this to trace a CPU regardless of the running
+>   thread, since they lose anything that happens under an IRQ.
 
-Jason
+These are understood limitations, I expect, and would be a part of the
+contract between the debugger and the user when deciding to hide
+asynchronous exceptions.
+
+But if those limitations are not deemed acceptable (or not easily
+implementable by the debugger), then the only option we have is to
+block IRQ/FIQ the hard way. In a way, this is what the architecture
+provides when entering Debug state, where all asynchronous exceptions
+are ignored (H2.4.1).
+
+And that brings me back to my earlier set of question...
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
