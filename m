@@ -4,103 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4FAD74940
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 21:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFBDD74941
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 21:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3ss9pag0NcR14RtAGsaKv3moDarLBu8u2f0bXVnm84=; b=AaWgScWjnm4mV38gmMUMOKIZv0
-	vjww0Yti3drvcEz+VcfPDEslogL9w67PRa5tfaHetkrArDrcfy4JnDotE1Jnl1c2KVTVjEss9ey/C
-	eIhJBs52yyij/PZtxXyXSdz5eMZUSTzpGGuThgZiS1DLp80w2C9ApZ2E+giLTLpqhu+S409tcLxfT
-	eF6Ksor0uU84YjuQ+fdlLgFjnQhCPGnksKXA/6enIwOib4WuH4Y79zjWbv59Itp3Y099Ahe2mWW0C
-	XKr8ubjoOXStwQs2TrfVivKGdCsOpBg7uxHzLimxkeyY00tWTQQw+G/b00s8GmPjLs+5ByVNrw32A
-	l6liZvOg==;
+	bh=TfD1DetZzLaBym84XosC3+P3GN+QnX7QF0+o66GGJ4Y=; b=ONxFIhgPHrfhhh5tU3s9q2PXr6
+	OoPXR4fe6Il8AVgoYPEA43tGcKDEweOqmOBuijnshuFq3uePen3Cuj335aOmHs9B8xVlnXKxXSlZ9
+	EBwkVa84k1qEGy8yhbfBE2GQny5lqLrpPM25tFvlJ1SE2opGWfhdchve/IGEZjWsq1mFqpeaNATOc
+	vn/vQXmCVCsBE/O0HW91rl6gKrXYkNMnsJ/fgGduBTR1SEX7QvqdF8QDO31z2mFY+lORPddq3o2BV
+	zaK73Cewxmj26aY0yPncLnUPEZQuTg5eBDlaLmLvTg9sL9usAr4itY9j5O7hOLciejFeIbabIbcl2
+	6+5mcfeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5tTl-0000000Fuwg-0XZt;
-	Tue, 29 Oct 2024 21:10:17 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1t5tVL-0000000Fv54-1JF2;
+	Tue, 29 Oct 2024 21:11:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5swf-0000000FoIU-3wN7
+	id 1t5tNk-0000000FuR8-1NfL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 20:36:12 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 957AF11401C4;
-	Tue, 29 Oct 2024 16:36:01 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 29 Oct 2024 16:36:01 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1730234161;
-	 x=1730320561; bh=B3ss9pag0NcR14RtAGsaKv3moDarLBu8u2f0bXVnm84=; b=
-	EkhttdXPjfFuPHBZgqjJmtmOB4B34IlLyudV6F3SejXggUVJKijTh2t0Y63hFteu
-	bcXjJC4azzOrnrNJsLW55wIYaygfrE3BBJq/IPpTP8SCwMC4N87c6/KsodCLqNsJ
-	rqNnGnw3iT9ya9OXvToYVc+PI5ejVKX4aLICrW6m0c3bmIDVn2Nq3IyUEZnRxBt7
-	gNv6zmp4AzPFatuokFeeAGs6x9r20yGSQ9CuuVBpHTf9d6DbxWmRP0hTDCNejRYL
-	pugd8UQRKUMXgWTcvXPo31ETesDRUlgN26Qm73X6dqVud2Hco5UxXcFqOHc91aY/
-	ULo60cqYT6rxVv+7cMTExw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730234161; x=
-	1730320561; bh=B3ss9pag0NcR14RtAGsaKv3moDarLBu8u2f0bXVnm84=; b=L
-	rNIW0IB5yPkOhDJiafrvgYNsrUAMrXQQlWzzm8aJJaQ+XLwzSTe4GRwrsVN0Udd2
-	w45zjIqS9rqTfzUMyQxDKR/kZ+lCgB1IXvbMV94PFA45oTwH6UEEJRZzhtXjolzG
-	zyAzVg1aZvOYWKAifP02ZGILQdRXL+kHP1PhtY6jTodHPsScE0rAXK/hNMpNDJOj
-	4t8Oy5uln/rg8ZwY5FfQD5/BFFktkpU7f734XD98G7mzWY6PGYDr4G0sz7ioQuEe
-	CVRf3leLBPWuBIi4qlGm9Oo6t7jOtF3i5HG7nIbvTfdLwLgXyBH1L1g2IULz8lw1
-	YQ9IdOjb4ItPp9tuNDBMQ==
-X-ME-Sender: <xms:L0chZ5xY42DFgD80WQXu2abmO7M1s2qWuciu6vdz8CkrZeGDRt2neg>
-    <xme:L0chZ5T-LsKjMPI9-uDJm05HdgApYIRdo7O2nCXrSJlyxiZMJp_eJkVVQi-asNvcO
-    zf70HEevVMHuY7RzV0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekuddgudeffecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddv
-    geejvdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeei
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehhuhgrnhhglhgvihekudegseduie
-    efrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtgho
-    mhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhhurg
-    hnghhlvghisehkhihlihhnohhsrdgtnhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhk
-    vghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlih
-    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:L0chZzW1i-YDtBE8u3OZgM4PAxiIaHiXN2Dyyn74p4Mb0t3hO7rvww>
-    <xmx:L0chZ7gxCfZZ5CY7qzCuiFkHTUENrxeXF-vvegxdwhSys8GC4NKJQQ>
-    <xmx:L0chZ7A_eaYeNJwcRFnNEBZe7GfBskC47Oyf28-BwMma5KxtxAEEnQ>
-    <xmx:L0chZ0La_qezE9NZqDCddESF4Pb12d53ZPuAKwQx1mJMzuOxWAVVxQ>
-    <xmx:MUchZ251_6kAYR8Y1iEIhk4m7oD84uorE2FmSRdzt3dz-H8bN4IIAShf>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 770492220071; Tue, 29 Oct 2024 16:35:59 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 29 Oct 2024 21:04:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1730235842;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TfD1DetZzLaBym84XosC3+P3GN+QnX7QF0+o66GGJ4Y=;
+	b=GRDHRXawJ6tFX0X21VKDW1mOWYD9OK2AtTfs8B1R/AGDONauSOZ4mZXDw0HT1LiwxuWRE4
+	KJOVJz931BCWmZxu7m70AgrITO023WnCoR//wD1XTqRSWm298Z73tRSimwjnbranEgdZRz
+	+vN2mfXpZT00cGbmjkS8AkszI8pGVLI=
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
+ [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-540-RqPBHrHDOhKUgQXNjQJnRA-1; Tue, 29 Oct 2024 17:04:00 -0400
+X-MC-Unique: RqPBHrHDOhKUgQXNjQJnRA-1
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-28c65d3a0e9so286396fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 14:04:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730235839; x=1730840639;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TfD1DetZzLaBym84XosC3+P3GN+QnX7QF0+o66GGJ4Y=;
+        b=TFqR0DJ4D0A5OW2OhSu+Pg90Ui9DuIiwQfmjjAVYXn/X6A4WWT6mL/MIVzhVFgCYkf
+         9VH3cCr5RQizezkGl5I/CJotbnWF9+jUpRVhFO4qKbb1mTMcWspwMOoTHPOV5LVLymsc
+         JmK2uwgvghqRmg1763e6D7dNnrudB+fO6/RVFT7AwjDsdhCCKaCrTWiXH/p+arqEXLYT
+         E6LSCYQHeLdbAPb5C8JuoJUJiv03Gx69L3kmNYQg08N7laAO+EG6oDRXx9w7d8e16frO
+         wd5ELPRq1Ubm7Zm6ZS/ZsMBEwiwe5xORaRdOvsQG+iCE+9fNLy6f6/abddf7gekaaq4R
+         upXA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5jRaDD/hy4F1V9nHdx5UBv8QgM726deMWkjx8fJs3NGUAujSYFTOkUzEjfi0EASPHe1x/yAlYmtxEk07QAEqr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbYeESzid+Co+j1MPVVNdZfKr8bRRloGPlDwxgIq3ZC1JDEyIB
+	qbKktSh3jWeyl1U1rREb6pvgEgSc2MJaL4gxyZRqWg5KDMFCD8VsHTZk8ZqPOMRcdUoKUci/lXV
+	sflnojl8u/yGM166Upt8YUuvGnxSjvrLyb5yf5SaUpvkOqgEIGtUMATzw6CV6Q1dOEkBeP6Wf5K
+	ZKEtsYKPDl6Lp2ZEITBqtkPW/+0RFRuwugiVZZKlcB7j0nTTA=
+X-Received: by 2002:a05:6870:170e:b0:254:b337:eeb5 with SMTP id 586e51a60fabf-291046e55e9mr2141490fac.18.1730235839604;
+        Tue, 29 Oct 2024 14:03:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF0FaW9744QqAdp6tEpgnXEx1lws0uvXXj2TggY33DwbU5PmIv1EIXwfn9y+mGEbsu/hkZQkYALRP7zpxZl5Xc=
+X-Received: by 2002:a05:6870:170e:b0:254:b337:eeb5 with SMTP id
+ 586e51a60fabf-291046e55e9mr2141481fac.18.1730235839304; Tue, 29 Oct 2024
+ 14:03:59 -0700 (PDT)
 MIME-Version: 1.0
-Date: Tue, 29 Oct 2024 20:35:39 +0000
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Will Deacon" <will@kernel.org>, huanglei <huanglei814@163.com>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- huanglei <huanglei@kylinos.cn>
-Message-Id: <5f93d7a3-082d-455c-b458-a9c2113eb512@app.fastmail.com>
-In-Reply-To: <20241029132042.GA4416@willie-the-truck>
-References: <20241025011641.4858-1-huanglei814@163.com>
- <20241028150544.GA2445@willie-the-truck>
- <26ed8fbb.1809.192d5ef13e5.Coremail.huanglei814@163.com>
- <20241029132042.GA4416@willie-the-truck>
-Subject: Re: [PATCH] arm64/Kconfig: introduce GENERIC_ISA_DMA
-Content-Type: text/plain; charset=utf-8
+References: <CAASaF6zxBr2J_-eESQQXCRxOgy4RsuxG0te7d-wOz9d2YXj5Fw@mail.gmail.com>
+ <525593F0-1AA8-4BCB-9B6D-630505C49F10@nvidia.com> <CAASaF6z7PtNFs1YwohT6N+AXdKx0+h87wiimx18Pod1vDfaBYQ@mail.gmail.com>
+ <ZyELRjoDLmHeVvSR@kernel.org>
+In-Reply-To: <ZyELRjoDLmHeVvSR@kernel.org>
+From: Jan Stancek <jstancek@redhat.com>
+Date: Tue, 29 Oct 2024 22:03:31 +0100
+Message-ID: <CAASaF6x8cMJUTYpm0dedkh9boXgVaL9WvxaG-r+aHY+6QOpw6Q@mail.gmail.com>
+Subject: Re: [bug] aarch64 host no longer boots after 767507654c22
+ ("arch_numa: switch over to numa_memblks")
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Zi Yan <ziy@nvidia.com>, linux-mm@kvack.org, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, Jonathan.Cameron@huawei.com, 
+	dan.j.williams@intel.com, David Hildenbrand <david@redhat.com>, linux-tegra@vger.kernel.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_133606_826509_255E22B5 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20241029_140404_475695_617ACE19 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,38 +103,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024, at 13:20, Will Deacon wrote:
-> On Tue, Oct 29, 2024 at 09:41:08AM +0800, huanglei wrote:
->>
->>     Even if MAX_SMA_CANNELS is not defined, as long as GENETIC-SIA_DM=
-A is
->>     enabled=EF=BC=8C request_rma/free_rma  function will also be expo=
-rted, and
->>     other modules using these two interfaces will not encounter link
->>     errors.
+On Tue, Oct 29, 2024 at 5:24=E2=80=AFPM Mike Rapoport <rppt@kernel.org> wro=
+te:
 >
-> Do the drivers do anything useful after they've linked? Can you please
-> provide some in-tree examples of drivers that can be used on arm64 only
-> once GENERIC_ISA_DMA is selected? If they just need some stubs for
-> request_dma() and free_dma(), then it feels to me like that should be
-> the default implementation, rather than having to select something to
-> get them.
+> On Tue, Oct 29, 2024 at 04:43:39PM +0100, Jan Stancek wrote:
+> > On Tue, Oct 29, 2024 at 4:07=E2=80=AFPM Zi Yan <ziy@nvidia.com> wrote:
+> > >
+> > > +tegra mailing list and maintainers
+> > >
+> > > On 29 Oct 2024, at 8:47, Jan Stancek wrote:
+> > >
+> > > > Hi,
+> > > >
+> > > > I'm seeing a regression on Nvidia IGX system, which no longer boots=
+.
+> > > >
+> > > > bisect points at commit 767507654c22 ("arch_numa: switch over to nu=
+ma_memblks").
+> > > > It hangs very early, with 4k or 64k pages, with no kernel messages =
+printed:
+> > > >
+> > > > EFI stub: Booting Linux Kernel...
+> > > > EFI stub: Using DTB from configuration table
+> > > > EFI stub: Exiting boot services...
+> > > > <hangs here>
+> > > >
+> > >
+> > > Is it possible to have earlycon output? It is hard to debug without a=
+ny
+> > > information except kernel fails to boot.
+> >
+> > I know it was a long shot, so far I haven't had luck getting it to work=
+.
+>
+> Does it boot with numa=3Doff and numa=3Dfake?
 
-GENERIC_ISA_DMA does nothing by iself, there also needs to
-be an iplementation of CONFIG_ISA_DMA_API in order to use
-DMA mode on floppy/parport/soundblaster.
+No, it doesn't.
 
-I think this should not be enabled by the architecture
-itself, but by the LPC host driver that provides the ISA
-style DMA. Most LPC implementations don't have this, and
-most arm64 machines have no LPC or PC104 at all.
+>
+> In the log from successful boot it seems there is no NUMA information in
+> the device tree, can you send the device tree as well please?
 
-Note that PCI-ISA bridges can sometimes provide ISA devices,
-but ISA DMA won't work behind a PCIe bridge.
+https://people.redhat.com/jstancek/aarch64_numa_boot/device_tree
 
-The patch also needs a better changelog text to explain
-specifically which arm64 platform has PC style DMA support,
-and what devices are connected to it.=20
+Regards,
+Jan
 
-     Arnd
+
+
+
+>
+> > > Since the previous commit boots and I assume both kernels are compile=
+d
+> > > with the same gcc toolchain, this should not be caused by the binuils
+> > > bug in 2.42[1]. Is your binutils version 2.42?
+> >
+> > Yes, both are compiled locally, with binutils 2.41
+> >
+> > >
+> > > Thanks.
+> > >
+> > >
+> > > [1] https://sourceware.org/bugzilla/show_bug.cgi?id=3D31924
+> > >
+> > > > Here's a log from successful boot with previous commit:
+> > > > https://people.redhat.com/jstancek/aarch64_numa_boot/console-log-go=
+od.txt
+> > > > and config: https://people.redhat.com/jstancek/aarch64_numa_boot/co=
+nfig
+> > > >
+> > > > # lscpu
+> > > > Architecture:             aarch64
+> > > >   CPU op-mode(s):         32-bit, 64-bit
+> > > >   Byte Order:             Little Endian
+> > > > CPU(s):                   12
+> > > >   On-line CPU(s) list:    0-11
+> > > > Vendor ID:                ARM
+> > > >   BIOS Vendor ID:         NVIDIA
+> > > >   Model name:             Cortex-A78AE
+> > > >     BIOS Model name:      Not Specified Not Specified CPU @ 0.0GHz
+> > > >     BIOS CPU family:      257
+> > > >     Model:                1
+> > > >     Thread(s) per core:   1
+> > > >     Core(s) per cluster:  12
+> > > >     Socket(s):            1
+> > > >     Cluster(s):           1
+> > > >     Stepping:             r0p1
+> > > >     CPU(s) scaling MHz:   100%
+> > > >     CPU max MHz:          1971.2000
+> > > >     CPU min MHz:          115.2000
+> > > >     BogoMIPS:             62.50
+> > > >     Flags:                fp asimd evtstrm aes pmull sha1 sha2 crc3=
+2
+> > > > atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp uscat ilrcp=
+c
+> > > > flagm paca pacg
+> > > > Caches (sum of all):
+> > > >   L1d:                    768 KiB (12 instances)
+> > > >   L1i:                    768 KiB (12 instances)
+> > > >   L2:                     3 MiB (12 instances)
+> > > >   L3:                     6 MiB (3 instances)
+> > > > NUMA:
+> > > >   NUMA node(s):           1
+> > > >   NUMA node0 CPU(s):      0-11
+> > > > Vulnerabilities:
+> > > >   Gather data sampling:   Not affected
+> > > >   Itlb multihit:          Not affected
+> > > >   L1tf:                   Not affected
+> > > >   Mds:                    Not affected
+> > > >   Meltdown:               Not affected
+> > > >   Mmio stale data:        Not affected
+> > > >   Reg file data sampling: Not affected
+> > > >   Retbleed:               Not affected
+> > > >   Spec rstack overflow:   Not affected
+> > > >   Spec store bypass:      Mitigation; Speculative Store Bypass
+> > > > disabled via prctl
+> > > >   Spectre v1:             Mitigation; __user pointer sanitization
+> > > >   Spectre v2:             Mitigation; CSV2, BHB
+> > > >   Srbds:                  Not affected
+> > > >   Tsx async abort:        Not affected
+> > > >
+> > > > Regards,
+> > > > Jan
+> > >
+> > >
+> > > Best Regards,
+> > > Yan, Zi
+> > >
+> >
+>
+> --
+> Sincerely yours,
+> Mike.
+>
+
 
