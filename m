@@ -4,64 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C283D3A679
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F0ABD3A678
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJ60iYYizLVnwfouw6y1QvHsSQJGFUgW6DG8wZvrPSM=; b=WyjKGf2E3C3cGtfxkSbN+l5YTv
-	i1O1B5pdmJ6ZhiRI7FVyeAYVt5Shdl6zr4B0CogIktLWOZaN53pblnCJeogwEg9vn4w1vANRn9RPb
-	oPGxQDUnU/VhlptC85KTYkTifmJsbreBIZeSPV83qm4kx+GT45Y5s9MdGmrKdFgIdEZoF/DjLn6Kr
-	IqUteRzUJdL3s1+933DVrzqYfStMjpnGda2YzIcl/4OArbbfEDJAfCyeZW0ecbmTmTbAW2+KdR+Qa
-	j+Ck8yqx9DW0zhHpc7nTkqHch5i3sO2iY39fz8LHVtwOzG+qmFtUVAu7yONJrsAYIURdYvgKdF9zG
-	w2siMbPg==;
+	bh=8EyVxNQmCcIBUWAKxjfOuWMPX3eMeadLo3eCcUN2GfA=; b=puD5bNnJ8ZSCBEYyrAaW9mL3Ls
+	d3KAe3WamqShKkYlDTnrCqqkqmqBLxb5xuzRVUUlBGHj97uWTBeItmx7yjdW4IQwb8Yl3f9Lkmv8l
+	E86dEx72wUPV+QCYxKpa/SMezt2ycWUDnPJsLkHHJGbjQM5Lr7LILwmkfJXKgfad4ThCRpPCnlhq0
+	HzZzdKeDio35pR6CQ84DQBZQjam1GW6nMJCGb7g9GqADxmEg1y6Rb9MNuPOxo5IqxcvEO6zy51SEO
+	t/M4yAgfMsP++rocmYjjJxSrMrGCuw8vMFAzKO05HC2Vj1a7gLQSqxBwBLhRXWr8yHGNewgx9pfw1
+	TwIyZ/1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q82-0000000FHau-1Vtk;
-	Tue, 29 Oct 2024 17:35:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5q7z-0000000FHY2-0V1J;
+	Tue, 29 Oct 2024 17:35:35 +0000
+Received: from mail-bn8nam04on20614.outbound.protection.outlook.com ([2a01:111:f403:2408::614] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oA4-0000000Evrg-1Ftn
+	id 1t5o92-0000000Evae-09fh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:29:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2852BA42E52;
-	Tue, 29 Oct 2024 15:27:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1175AC4CEE5;
-	Tue, 29 Oct 2024 15:29:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730215774;
-	bh=h6IT+RVIi2EiBIQas5qph1pu5nvBCYYWrS8/4i28TQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DD6+B/AauYc/wLBkQ+xNoFMHiwkWj6X5sIBzRMeHK1cnGNjaC47cdnFKua7OzUwiK
-	 EmgzTxh3Z5DXJO0Y5tz/201vinLaimuLmZjw+bM7DZVNKV/JKGvxfo1dE/5+5Wlxwy
-	 FitB71U8/f4JPApNeU4ER18SwcZiZq/aoSx+o5fUIpLQL/3Sw6rub3NHbv5dnxnt5N
-	 8JwwJbNJU6PuRYoRvQ1u4Dppn2EwipEtDXgn2m3krBqvbPXRe/bkxvCLz2zek4zpKo
-	 +Fg42a89YUu4ao/2ukuxp7jK9Q4WZkj4RtUnbjyCa/12JsTJeSWFKtXeHBpt95Czob
-	 TqyHhZa4BdZXw==
-Date: Tue, 29 Oct 2024 15:29:29 +0000
-From: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf/arm_pmuv3: fix building on 32-bit
-Message-ID: <20241029152928.GA4865@willie-the-truck>
-References: <20241029152420.3251097-1-arnd@kernel.org>
-MIME-Version: 1.0
+	Tue, 29 Oct 2024 15:28:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GaoYZaXuedOpX5sxTtdV4BwW1IhJ2vjywasWxU50mu1usYLqIPKSba97HV0yHlqbeR0e3OQ6WkuSE71wzrtNzL86uuEmS2CoK2uCtsbmZwRRBTNNDmTBV3MXVsxMk2CaH2abzL7Xcy6Fx2k6A90HqL+opYQ9wO5PkLz8u0DlcIrzN2IiES3vTzNGSPtcORirpOgs6kSC2PSm8PYdY7c+5BxwgWzhYVKXnJbnx0ftLoGwLb5Gmf8B8oX6zJH9UGHK29pfUL6bXjFHR8VHYF5slg6VBkGxtPizlUdyO63BSyMpYOHOGJ23iX0mD8PwrrWzRRbfL4OIwKym1M+Qj8jpJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8EyVxNQmCcIBUWAKxjfOuWMPX3eMeadLo3eCcUN2GfA=;
+ b=kOIVtqi5KNqe4RqbMyY9sEyxbV3uekQILJcDSJNOdrXpaCWREzuTmr1AD4kYZAX1GXE9BnibF+dl872yf8oH9rgsimRrQ4jINLfytLDGC3beTgFKCRiYmUvmMROGlpQA/Qrk3bd36PORIvl7WkQ8purliNTJMRxB4Qd6cH2mXYXo6htsOP0b1H0XvHrg2qQVfxXE0UpFuzfSR5HPLuJ+galXLhFKq2H22gFgnB0GAyvTGhA35GJ4nYAIaBqef+M0e+w2E8E6d49zwp8XgFK1uHBVczlUVoBm7r2lkf2iQrMdZ+juClzVcyFuSFaQQ4wmQh1alowI0+RPCF1qrU4lqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8EyVxNQmCcIBUWAKxjfOuWMPX3eMeadLo3eCcUN2GfA=;
+ b=gZw7Ib8RJFAxXjkEgGf/rhxnxlKLIhJ72YFrCBKAdLcGc/vgiKHvcsuyjWlZDIiskFO5tIT+5ProNZzKiDRdYnEGX+soF/8argaxTaSKEmMmLNidCdmUQ1bDovZjAvw/peWzJ8VS3WI6s8E+JuU4m+P1ZmKHT6Ac9PwXTN/WE1oQrp/znRgiPtXvErRvTIP7z8oEWe9AHkVzmwqDaw9jtr2uB8Ne+SzkXsGsX72BiyPz/2WCSMdhCQm6wujMcdKjVKqzmgxB0qxaR1qGxRTtttfqO4iA+kcmFNMqhc8GLF9SQu4LJxQmqnBBc76TDY3QzwNphflt4eeCeRUDKyr1Sw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB8305.namprd12.prod.outlook.com (2603:10b6:610:12e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Tue, 29 Oct
+ 2024 15:28:27 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
+ 15:28:27 +0000
+Date: Tue, 29 Oct 2024 12:28:26 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
+	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 07/13] iommufd/selftest: Add container_of helpers
+Message-ID: <20241029152826.GF209124@nvidia.com>
+References: <cover.1729897352.git.nicolinc@nvidia.com>
+ <53484f80a671edcf337e93b2e2292f318eefb540.1729897352.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241029152420.3251097-1-arnd@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <53484f80a671edcf337e93b2e2292f318eefb540.1729897352.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0108.namprd13.prod.outlook.com
+ (2603:10b6:208:2b9::23) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8305:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d1fa0f7-d167-4a3f-1143-08dcf82e55be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nD/YqisfSwFCY9pQv0EZmzhSdLhZ7cP4iM8P9Lng4iYzb8QosLdpNXdkEdPL?=
+ =?us-ascii?Q?vKr7Aogj4cmQB6X2UZ3zCgA5txJ3/B9DATDERPjU4mJtrCd9ynDoBuXMYRoZ?=
+ =?us-ascii?Q?MdhHJMH7RvDRp4AwpnZuJDYhnATY0z+IV1qg0OeWJ55Jrm7rhBQbv0hKn5RE?=
+ =?us-ascii?Q?uxD4CGGAWm2r+F/sL9iZ58dIAT86Sqs1GIaKQr8OovatG6Rf7EawaH/9WTgO?=
+ =?us-ascii?Q?n1rGkesgXkveK1SlZF3ibUcwhk4ZAkWY1wQK68zkI+I6HPltgJcWDpWtl8Bj?=
+ =?us-ascii?Q?HMuQD5EhNez9e1g2kxMp3g1Bmcn4GHxhV1tH0wItuffgn5JkfNpvy89qWI0G?=
+ =?us-ascii?Q?N7GN4a4v1WMB1rNZja/xfOdUWzY6DRgOMynN1EAZRhyXsvv/Wapv0RPOxUgP?=
+ =?us-ascii?Q?Iao+w/LJJtPQg/Y0eaSBRLGEdb3GaVuSAsV/LsVlXpN8p3FsM2vYN3zccGw3?=
+ =?us-ascii?Q?+i0xqDhf+F6acHpyrwWkGkVR6wTVY0ZsOXc0OkAAxpTxkiPNZ9Rhi46fjhEO?=
+ =?us-ascii?Q?Hz61g9/YxOMkNm3bSplvCk78lZLFqfmA6elhlxeqMxQKgUhOpTZCbsE8b1hz?=
+ =?us-ascii?Q?j17dyjEBVmce2DHh7q40+Jn8OBy9oQLrwwpqvXldh6ymD6T1eWnaSbw92tY4?=
+ =?us-ascii?Q?0TSVqpWvc5Zgw0q5kz+NoEQlCydOc+Lds6T6+hXFM0AyTnbXO2ky2Vx2J58R?=
+ =?us-ascii?Q?N/UjNnZTGwiE/8iIgaPLTaii3+A9602uHvjrA4pEKXHQqgJiOXWZgNZ4kpU9?=
+ =?us-ascii?Q?awgs6esMQqY+BdX/NKF5TGIyxVqbQqQ6yLhKmywMBXX7E/xGjW7Aym8rL+rM?=
+ =?us-ascii?Q?Pv+Z4p3hvS3dvp0+E0VgK9Q4zNXA8kXTH2bucyG6uLeMX++O+Is3oDuq3QeF?=
+ =?us-ascii?Q?F0jvZrF4uZOy5DU+TJjJ2EMxg4NiU/SlWory1mq+Z9jFlf1e1tQVFCfn272t?=
+ =?us-ascii?Q?FpJXli0MDMQ3+Kq3Di5Fk0WUc/b1vigGuSoslWlOjMDzxZxpnu7sUYkN611Q?=
+ =?us-ascii?Q?QCK3Bl9y91+iwyZ81c99yBWIQRn1Cw/YOhqHvNYJiXoUhiwMScCRkLI0RQl0?=
+ =?us-ascii?Q?cNCu0+LYsqpYNbc9IVvabU9xyybLb1k57kD4OrpXDNY2x0juJxV2t75DHCu1?=
+ =?us-ascii?Q?xXp0gdwVAviNjqGeZRNAUqtXm7tuBZXAYP7ErEEtIFxE0yZW/oi+t9HRYF89?=
+ =?us-ascii?Q?I3HAIXukNARLtCTAmM5HuN7b+0Wo7RK/dSg1pslhSGsg04376RUIAABCGEIQ?=
+ =?us-ascii?Q?ziAs0fAhqJyWWzcDpQYJzOijpRmruriN5enp0iuUNL4UCMVccR0mulMf9oo/?=
+ =?us-ascii?Q?8J9uvOQS6evlsyFetn/bOsb3?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EIxEbU01KliZ6Y3jfvVPqOGN40HfZ/CBzTufFZGfUDCU/nEPBso53wz/A1KS?=
+ =?us-ascii?Q?neraL971HJVJugxRwgNk/NyC6bu0JnYE0l2r2lpavOunw1oMbQKhoRvkK6EW?=
+ =?us-ascii?Q?ydR7TxHPlh09fUfNWnqsH3Ri8wVOfqgcX4nl29G0bfucWwnhPCe1sh5cdiYA?=
+ =?us-ascii?Q?w0bc+8AIe9a9NdqW23f6QKDUTGRyKpJyZ/NqLQs6Bl+yHhYHc0OJdWOMmIlx?=
+ =?us-ascii?Q?i4yW20im0CjwIw09DZQzcyzQHBudHWyPyeMwQN4X6yCxmKn6ylLIL9GZzHvg?=
+ =?us-ascii?Q?qNmTneY+rvdn/TN2lwj/9Qu4n+Dbc+EKD3G0t/2lI+7ASxMUYeCOPwO58xr0?=
+ =?us-ascii?Q?ZH7c2STCbUxcj6AcjPHE805j+DsBMHBq7MpwhJaqb/F4kSjbcgzkhkGvS+u8?=
+ =?us-ascii?Q?FFP1Fsr7qWZWDGzCEB8IOZN5Wu4dY8hzUVCSCHUJGlQNCOdv3zEtlU8N7mMt?=
+ =?us-ascii?Q?9Zhy1plLNynEBjeb+GLndG7jN5kkjvt4UyPzP4hP2O/+lRic9FEl5lJlI03X?=
+ =?us-ascii?Q?QEvwV9pN1Jjq9zoSn6klJ7d61skIdFHPfP8z/adgGa8E3H7CIFPm7+TOJvnL?=
+ =?us-ascii?Q?M60hMSHE13zODOIUCCkl3oU3TEPTTQ4twyl/KCbn+dxXOsV7HJ4z/4RdEWOr?=
+ =?us-ascii?Q?+xMfB9bj/g80+63Kkvcv0U1KAfsC8tbFy8h5TIiTI3vROfedf4jYP2cfV+oK?=
+ =?us-ascii?Q?F7M5lJi4a8j0pl8V0roABbMu1fi2xWUFIlTawqDGWYbwDoU35ooNOP/OnHV9?=
+ =?us-ascii?Q?PnuAtab7K7fVEuEpwbVsUQ5NzZw161VdE5nv1P9FWAZESd4nOCwZPFzsLv0Z?=
+ =?us-ascii?Q?mBCKJgi2mADENn5690BMkyEm3lyDnbKbqRcpRSsUrunwrLdbAyOreaDm/RdM?=
+ =?us-ascii?Q?vCHljGFjZmkj6x4NDXVe0gAJz9+Q608e/grJvboEE2RORS5DNYrWVyG4/xkz?=
+ =?us-ascii?Q?UpLd3BPtKTR6JSX0GSAIxWH7p4iN+nFgunK+bCKV2Z8IMuLtA1Kn8O+4J3w5?=
+ =?us-ascii?Q?Y1rzMQka6w0JsAy1JvgP0sJfJYWY8n5M4PCPcOmRNsyBNDvpTkNlINaWPwbp?=
+ =?us-ascii?Q?UNZURdMtY0lFJXFV9Liw4Q9+Y0XahIg+aDCNHPXieUB3inGJ6sKyU8dQdCvg?=
+ =?us-ascii?Q?MRqC8yk+5xznj3pKSiy7UQMEbMnkU6clESo1NG4stQZOwc8VaMbRzKDhr6J0?=
+ =?us-ascii?Q?LP7VdhlUrV/1paErrnvHzvgd/nAKOQsfwFXv1jxRb/tOglQKt3Qbf9L8eNAV?=
+ =?us-ascii?Q?eqNxDdqYkpbjZ72hS1ZsEQWQ4oqX5z2dH4pFi2xMCMmGSjakt+mTm5xhLKEJ?=
+ =?us-ascii?Q?LwsDw2d90Cjsl+PHyqs+q+izSCm+lqG2UdZbcjvKAOqxNTfsEylmoB0zJsIN?=
+ =?us-ascii?Q?oNntLspzkJnSBnq+Jha9npZoKpxv3t4xdLrAFWxbTEMtF1aU8+z7x8HnSpKB?=
+ =?us-ascii?Q?VGUTF74+yj9cssCHIb0J1AsD5/zBIBoMLwNxMeQZ1JOPXm3NbZXpxotJzZg2?=
+ =?us-ascii?Q?4OeyTohOp/WvWIj31CcVC7BYgq/5n7ok2PnXSOxxJcnYkdOVS78DGkua4naJ?=
+ =?us-ascii?Q?wLdWX5RvEQKnzknShSw=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d1fa0f7-d167-4a3f-1143-08dcf82e55be
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 15:28:27.4023
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xnXEk5PMVLnxRNemM8W210b76osCbDcMVRC9zvpKZyRlXXQ4vc2ODRbwm6sNHDmK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8305
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_082936_486436_E910C8D6 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20241029_082832_103181_99230EF8 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +164,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 03:24:10PM +0000, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Oct 25, 2024 at 04:49:47PM -0700, Nicolin Chen wrote:
+> Use these inline helpers to shorten those container_of lines.
 > 
-> The write_pmuacr() function is only defined on arm64, so building the
-> driver on 32-bit arm now fails:
+> Note that one of them goes back and forth between iommu_domain and
+> mock_iommu_domain, which isn't necessary. So drop its container_of.
 > 
-> drivers/perf/arm_pmuv3.c: In function 'armv8pmu_enable_user_access':
-> drivers/perf/arm_pmuv3.c:784:17: error: implicit declaration of function 'write_pmuacr'; did you mean 'write_pmcr'? [-Wimplicit-function-declaration]
-> 
-> Add a compile-time check around the newly added code, as it is never
-> needed on arm32.
-> 
-> Fixes: 0bbff9ed8165 ("perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  drivers/perf/arm_pmuv3.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  drivers/iommu/iommufd/selftest.c | 75 ++++++++++++++++++--------------
+>  1 file changed, 42 insertions(+), 33 deletions(-)
 
-Cheers, Arnd. Rob already sent a fix for this [1], which I'll push out
-shortly.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Will
-
-[1] https://lore.kernel.org/linux-arm-kernel/20241029120602.4061566-2-robh@kernel.org/
+Jason
 
