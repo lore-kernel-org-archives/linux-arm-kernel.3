@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EFAD74941
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 21:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFA6D74942
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 21:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXG3uAnR8xUGDWWZqqgTv3bWvp45oe+e7aGU+Lgvdes=; b=kY12oTKXBodlAct2+FSmgoAvoW
-	fK0nVj91V9b1OCb1iRNU7tcOd0EFHqB/uoolHdPBBrBLXGGjod/zBr82KXFc4Vi18xj5zw+hssnGq
-	JHFlIhSTKYHJeB5ccWwmpzY0V4GJqu5sUo+CHQhu7E/11fEOz2o1Md1yDEiIoQEXkaVE0/Qlcdc6Q
-	cGdUyhOfJHbS0IMc5+BRaqCCpNtLxJiWHbZL0YD8tCjTGv7DaUffkPmSEr+XCvcVICAQfsSkvlEed
-	Ya3mYgEVhu5MJnHwGCdc4tgvCCgqOgXjdHzGQIJqjkZ1ICHc//qVh4MnA1o252MLGwm2JOamdKfGI
-	qhkWrScg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q8g0feFRM/g+KnXJgAODk2AAUgWx4QsqawCDf5AlE04=; b=13cRDGYyG6ZfqcIATQjcGWW7Np
+	xSFylFXKz3VlcrJgiwn8DWginnM9nvDMawCqPABw3YfjVN9ZyXml7USWbL0iCG0Tu2xBKTsFUVsLe
+	qARaJd3SV7kAR1FpoTF6LkrKOj+M2mOTC+Cst2ipSqwZoa1ITPrnCzfMkYfkUmZmI1e1P5n7u1gV9
+	4KgCxu+9One6VDhUlpgNzEv1Mlf9jEJxKYNBI/TVs+K5YWSNkdn+Ep92ovpluUXhTRGIQwfiJDTeE
+	Ac1+6sVUROQDFL1WgIxsBCYl40E1gD69hVjGLFvDuE92PH++PGg0jCP/ZppfAQx6uhA2wUuVajz4J
+	ZLAJrkug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5thZ-0000000Fwf5-1pao;
-	Tue, 29 Oct 2024 21:24:33 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1t5trS-0000000Fxby-0bHn;
+	Tue, 29 Oct 2024 21:34:46 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5tfv-0000000FwWW-2RyO
+	id 1t5tpn-0000000FxMf-2eP6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 21:22:53 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7b13fe8f4d0so449170985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 14:22:50 -0700 (PDT)
+	Tue, 29 Oct 2024 21:33:04 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2fb3da341c9so58655111fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 14:33:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730236970; x=1730841770; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bXG3uAnR8xUGDWWZqqgTv3bWvp45oe+e7aGU+Lgvdes=;
-        b=BPEo001YqwMYZn633mJo6z4IAe/+EEAy80WZaWz7u16yK6RaOy3YcXPiPqZuWRtjqk
-         TwdSBRGaRvyo7aVDPtsFKNK+qmh3lJOzJXkp0drzs19tdGX626kI4ORxtRYA24A8FrbE
-         6al3LkoocGwV4qAg9pfgyCqSwI8DSymxDI16hvnpvivEOnoQkonDUN87RaAxRpVGKu0n
-         9NYKJb+BWVScgJ5otYoFqaumv+1xzZHafqS/D31MoW3sAKvFsO1EOIGfDcVG4O2HgEEF
-         4SLaNX8k0Zfh9JsjIL+WFmwpaIs6VKVVzu4M4DNz7snfWxaWQNSb9g2ySWEr7wQnsPpk
-         +1lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730236970; x=1730841770;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1730237581; x=1730842381; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bXG3uAnR8xUGDWWZqqgTv3bWvp45oe+e7aGU+Lgvdes=;
-        b=uzsnqIqvauniMKPOxkanfzGxap3yNMPyijuIhLCRk1N5fXrWrpSY8SSBeLPsYIKrxi
-         G3WK+2Sl3B9KV7iWLp1m17E3DjkRl8SGVoJidiSgrCGmBzwsNsQUQwnizcvYnyS1LiFI
-         hMHXiSDltNK1Ik6mzgrsEls1pAy6i2ZpHzJqJNzEkpnEylpC+6ezrAUs4fvZ2zHtTDQ7
-         vjyLWMQDOgQZS25tJf3FVvlKn5xDO2oakdR7LNJFoKmzapYvl/8XZO/JtVMGLHE4Woyg
-         Te62LeFyryhqdhZ0BywyhBZScFkJCMDhBXLq1UzUamOPYDb+kZ0tMI4n7mdrZ7IkEeXD
-         bzUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUiPlZLUB35qktTnhJXU1W647ILZqfYq33qQFOlh3GL6dCwQ0NohH9OxA87X2lhDHoJJGtKyqTsvzSa5N47gBDv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9eNzK+vobsnq5G3vsZlj4YtnY8tmYacam0529Y2Gpxoyxj/pF
-	csYY7gsRLwJ61YXRD4IOaM4tFDByERRWQ0qbkdMn8F0OYIiepaML
-X-Google-Smtp-Source: AGHT+IGvPaY6eHkYtHcRujijpGZOkw5olQHZ+nTec+dmVsgZDErM8pZ7dmQgEqITB0HkJ64Bv404AQ==
-X-Received: by 2002:a05:620a:4621:b0:7b1:49cb:5842 with SMTP id af79cd13be357-7b193eeb9d4mr2054633985a.15.1730236969778;
-        Tue, 29 Oct 2024 14:22:49 -0700 (PDT)
-Received: from localhost ([2607:fea8:52a3:d200::98bd])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b18d32b9a2sm454857185a.82.2024.10.29.14.22.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 14:22:49 -0700 (PDT)
-Date: Tue, 29 Oct 2024 17:22:46 -0400
-From: Richard Acayan <mailingradian@gmail.com>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Rob Clark <robdclark@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 0/2] iommu/arm-smmu-qcom: Add SDM670 SMMU v2
-Message-ID: <ZyFSJjO2fkqCwzWm@radian>
-References: <20240730013820.41702-4-mailingradian@gmail.com>
+        bh=q8g0feFRM/g+KnXJgAODk2AAUgWx4QsqawCDf5AlE04=;
+        b=kh7aI+0oN+BR1vDb3IIYGFBsagEogy5gWBQnYyNRXMzPOsbdkCsDoEfBVgUWojkfr/
+         xCo9YFGsbcs6XkyCv6Bhop6VntE1sy1BYna6Hx0FREiDOeLI6c9Fd82txd39Q7wY+Tyl
+         N75N50i3zSZBabHjMHyAyGawo+eXmnBzM9mK3c1su/Tgo6KqTuOghuE3LzeP3EB7ztXH
+         tcTHJogdJZOeevLRXvcu3kKmUZN/hqn/peNwkrKNAoN9BnPjSvxJJRSy/h5SmH3tU1au
+         18M+1AzitPCZX/O2b3Q5hbdgt08fmviRePVgoqiWCTc4FT4hVkV1gFDcVQ/Mfc8ejdT7
+         VF/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730237581; x=1730842381;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q8g0feFRM/g+KnXJgAODk2AAUgWx4QsqawCDf5AlE04=;
+        b=nS+EFFshmNORf7jthtXFABZpYigWuW1y8jjW7F/igliCTclqcsdzeYI+Hj3xcD0lYU
+         Ch5XS5JsEx7TJ5ntClwlp7Vng+v8EyPpcOu8TWzqlaCFZzmaffVnTL7RrRBQ0Djk3W7d
+         KsGfvPHKCn/mQM5UROgbYW5IIFTQA+DRvZWLeOCY9lgpkiHZukAmGPTDDTkJlHS311aH
+         NTKvo6c8rUPULQtrojVODpEA0W2IgUlvaCJvcARS+32lucbA8kwiLzEHQwFKuTV592IQ
+         FovoqsteyjnQv6IbcT2AtzhbTlN0Rd7DEHEC1e2Xi/SiiB6E052WQFkzGfNXSvPu6K0i
+         dRJw==
+X-Forwarded-Encrypted: i=1; AJvYcCXJZ2kqd6U7881P3MxqCM4ABPcEdxqf2BhAeTIhzlIdaVu4+hIeyoSQpc+ohHM8btHqhLrrM5pSKk5CSsfhQVMm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9pet+fReqvnI9m7j+mW6HiFNy+Qsl2eDN0mfVmzR0saxSX/23
+	y4JRrRkmyT70sSKt8GNg96p15AvDPX1IZmExYT7NEekr6pC3xD+HIRIZHRarjRnx53FRMzUrBUc
+	wyqjXq9NkUIZ+7gTnJErWTpPTYCz7H0PxN6grBg==
+X-Google-Smtp-Source: AGHT+IGz/3o5I5pu/IvRI0ZSy55BS620aj8UcTY9J52CZ6B8oesgnwPYNjKruN7W2FCVabsplBzN7qiPeSUE29LMc/w=
+X-Received: by 2002:a2e:be9f:0:b0:2fb:3bef:6233 with SMTP id
+ 38308e7fff4ca-2fcbe08cf3bmr60977061fa.33.1730237580772; Tue, 29 Oct 2024
+ 14:33:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240730013820.41702-4-mailingradian@gmail.com>
+References: <20241017-arm-kasan-vmalloc-crash-v3-0-d2a34cd5b663@linaro.org>
+ <20241017-arm-kasan-vmalloc-crash-v3-1-d2a34cd5b663@linaro.org>
+ <69f71ac8-4ba6-46ed-b2ab-e575dcada47b@foss.st.com> <CACRpkdYvgZj1R4gAmzFhf4GmFOxZXhpHVTOio+hVP52OBAJP0A@mail.gmail.com>
+ <46336aba-e7dd-49dd-aa1c-c5f765006e3c@foss.st.com> <CACRpkdY2=qdY_0GA1gB03yHODPEvxum+4YBjzsXRVnhLaf++6Q@mail.gmail.com>
+ <f3856158-10e6-4ee8-b4d5-b7f2fe6d1097@foss.st.com> <CACRpkdZa5x6NvUg0kU6F0+HaFhKhVswvK2WaaCSBx3-JCVFcag@mail.gmail.com>
+ <CACRpkdYtG3ObRCghte2D0UgeZxkOC6oEUg39uRs+Z0nXiPhUTA@mail.gmail.com> <aeef0000-2b08-4fd5-b834-0ead5c122223@foss.st.com>
+In-Reply-To: <aeef0000-2b08-4fd5-b834-0ead5c122223@foss.st.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 29 Oct 2024 22:32:49 +0100
+Message-ID: <CACRpkdbgZ2J_-9KLeRz2Y8G4+T2qPo5uax4-o=KZbVFRVEO4Hw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] ARM: ioremap: Sync PGDs for VMALLOC shadow
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	kasan-dev <kasan-dev@googlegroups.com>, Russell King <linux@armlinux.org.uk>, 
+	Kees Cook <kees@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mark Brown <broonie@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_142251_648097_5936EDD6 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20241029_143303_732844_8D445AA0 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 29, 2024 at 09:38:21PM -0400, Richard Acayan wrote:
-> This adds the SMMU v2 for the Snapdragon 670, used for the Adreno GPU.
-> 
-> Richard Acayan (2):
->   dt-bindings: iommu: arm,smmu: add sdm670 adreno iommu compatible
->   iommu/arm-smmu-qcom: add sdm670 adreno iommu compatible
-> 
->  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c            | 1 +
->  2 files changed, 2 insertions(+)
+On Tue, Oct 29, 2024 at 4:03=E2=80=AFPM Clement LE GOFFIC
+<clement.legoffic@foss.st.com> wrote:
 
-Hi, I'm wondering if this is still being considered.
+> I have tested your patches against few kernel versions without
+> reproducing the issue.
+> - b6506981f880^
+> - v6.6.48
+> - v6.12-rc4
+> I didn't touch to CONFIG_VMAP_STACK though.
+>
+> The main difference from my crash report is my test environment which
+> was a downstream one.
+>
+> So it seems related to ST downstream kernel version based on a v6.6.48.
+> Even though the backtrace was talking about unwinding and kasan.
+>
+> I will continue to investigate on my side in the next weeks but I don't
+> want to block the patch integration process if I was.
 
-The NAK doesn't really make sense here, as there's a warning/BUG at the
-bottom of the qcom SMMU driver that occurs when the compatible isn't
-added:
+I think we can assume that the patches we have queued in Russells
+patch tracker at least don't make things worse, so let's merge those
+and then see if there is more fallout we need to dig into as you test.
 
-	/*
-	 * If you hit this WARN_ON() you are missing an entry in the
-	 * qcom_smmu_impl_of_match[] table, and GPU per-process page-
-	 * tables will be broken.
-	 */
-	WARN(of_device_is_compatible(np, "qcom,adreno-smmu"),
-	     "Missing qcom_smmu_impl_of_match entry for: %s",
-	     dev_name(smmu->dev));
+Thanks Clement!
 
-DTS change for context (pending):
-https://lore.kernel.org/linux-arm-msm/20240806214452.16406-10-mailingradian@gmail.com
+Yours,
+Linus Walleij
 
