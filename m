@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D889D3A661
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3956AD3A66C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kfUygAy9nh51QZckgGNXpejnnKhJD7wqm16KtekAINI=; b=s08UfWaxiR2/bF/2jiSQIt/sxH
-	ghIrrxyIMvZZVSQIuRskhpBqHAR1ShTto9Ln3xnrbC9MLWAoUG7VeW2MV8Ao/ild1ad/PBwE1podS
-	bTo0Kfu9xjgIEMhRmukcZYlBk4Xr4IuNGnXhUyRGZIOxb1FxfXZY88Wdca8JrW/DPdelCKBOeTTUf
-	LHniz8QiDCGBu/Kx/TLdwl6T7a0ebbCItOvh7JYjSJAEj3qRY3HVrISBIl/1MkWUL3e4XZutRTPLS
-	bzHyfGnZUE3Sp4C4/94pjPCS4BRoIxX4wH8yJIA7PbCZwakt6inP4vVYAXN2Fa0pZ7wq7JZ0VuCbY
-	VtrFGsvA==;
+	bh=+FlNVllC/D5JV5n+6Shvus7HZtUjXDU01fqL2ePQhSc=; b=UquArycKirhoYUVi8/wCwlHwG3
+	mXoRpSaXMj6qfgNzNUf5gfIjbk7Hp1jZRUkmlQQCq054+2YLhbbL5z6S/tKbJhHB8NIFXh1X0nJpM
+	FrakgVQ39opgCiqLJPKYLk9QJSoOr96/S6wDqgfKpNSHlxgYNBtOi3QyDh8TWD1ujGFzeJ+qy5e+5
+	deszL0szOsxxGxQ+0DtZOxwO85JABXSpNK28+Uh4SORYD/mx19wSPLWoOlnyMKmzpGWAy6KnmaGSx
+	bL+IphnM8+A+k/cXk1SGpQ1+w5O24KVDG6gT2ke1cCcSMpcTI7kR93LlIx2mmfvHWCLyy7aAiQuh/
+	934nLzeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nnC-0000000EoiX-3aEC;
-	Tue, 29 Oct 2024 15:05:58 +0000
+	id 1t5nnH-0000000Eol0-32ct;
+	Tue, 29 Oct 2024 15:06:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nUA-0000000EltT-0Itc
+	id 1t5nXF-0000000EmDM-2aal
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Oct 2024 14:46:18 +0000
+	Tue, 29 Oct 2024 14:49:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=kfUygAy9nh51QZckgGNXpejnnKhJD7wqm16KtekAINI=; b=ciwAz2kE5A4NSRBAp+Yg2xl9cx
-	pvZvo42cnmBNms6OXDoCZtie5Jx9oYE7IFsyc8qg9E6LkIH8QbMab6RA62KJhKW6Y7XVl35jrb65l
-	NngMk7bvg4m9J6ML7baJ/wxPpxzhYmwLWynk+6hIbMXNrMuXgx2pMbuyK6mR3dDADHDAIQXm5hkvb
-	1R5GuDRimLKgXTR7BKvH7K3XWLOxdlQs03sjgQFX6H6Ez1d0owhXRn3rQy6bHFVnWGy0/4u43HLcG
-	J8FUy8eXtUP+Jd17Cr1FR6v73iA3oQbRpKDJDDldLe7lc0vdXAqQUQxGQxqGTIoe687nDjh3GAVO7
-	1QkcYlug==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nU5-00000009upm-1qwg
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+FlNVllC/D5JV5n+6Shvus7HZtUjXDU01fqL2ePQhSc=; b=RacmTBTyPrVT/eG2c6YY5F3x1p
+	h3hGxtVnI87ZBB1gsSryK6xR8jUUuz1pe/Jw1tDPbhIuuVe/R6IxUBKJ3cPjtIQZwR/pdMhn4k9gj
+	+F2jTFw4ASKHhKfLz/wdZ4iKeUMueV9JKePz2PRqQT4nca5mVsnYLPcW/IfyDQJaZWDhyz7jCbhWv
+	uSH810H3Qm5a9Ut1oNwfQaoPBQcwmjV08hg0T+z0pQSoURjltsGS0fQ8d1MwnpOy3EausVlBdT3xh
+	/Ulda9eRP5D0fhAiM+G/nCR91usRo99h5YwOuPAjEaLQXX6kBN8ANdVNsjHaZKBiq5FI5Nx3elGzz
+	4GHMUW0Q==;
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5nXB-00000009uzg-3qEk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:46:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00E161713;
-	Tue, 29 Oct 2024 07:46:42 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 780B43F528;
-	Tue, 29 Oct 2024 07:46:09 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	akpm@linux-foundation.org,
-	anshuman.khandual@arm.com,
-	aruna.ramakrishna@oracle.com,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com,
-	Dave.Martin@arm.com,
-	jeffxu@chromium.org,
-	joey.gouly@arm.com,
-	keith.lucas@oracle.com,
-	pierre.langlois@arm.com,
-	shuah@kernel.org,
-	sroettger@google.com,
-	tglx@linutronix.de,
-	will@kernel.org,
-	yury.khrustalev@arm.com,
-	linux-kselftest@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v3 5/5] selftests/mm: Enable pkey_sighandler_tests on arm64
-Date: Tue, 29 Oct 2024 14:45:39 +0000
-Message-ID: <20241029144539.111155-6-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241029144539.111155-1-kevin.brodsky@arm.com>
-References: <20241029144539.111155-1-kevin.brodsky@arm.com>
+	Tue, 29 Oct 2024 14:49:28 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8653460007;
+	Tue, 29 Oct 2024 14:49:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730213359;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+FlNVllC/D5JV5n+6Shvus7HZtUjXDU01fqL2ePQhSc=;
+	b=dICxjCjwm+um0i4q+atY1uQqjl32KNZ8qxO8kWbplQejYNtXxu2Wud+VHsz7+grDnoXcCJ
+	7jxD5wu28OEX6xHBVr+1da9zPR31VEYekHdCecOEpTbIROIeIv1aIjRg37KQ1KoOgYql5X
+	lAN0DUVLyiEO419475dlwSIsco1mpDnYWwgGMQ1ipBJq9Ov+TUD1i7u7OhOfCdGk9sU4sb
+	HoHlxgjZjsMKBjMvTTGJFeyaxogSzQyp4kcU75nCU3IQY3C0oKPOle0lGghCZYUVZeRpA1
+	fLSxDmPUhtlJ8Selj9r9QVHwoS8//S2pV+1tUEwtVpIdvyljnvDYwJGFs19m9w==
+Date: Tue, 29 Oct 2024 15:49:16 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexis =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 0/7] Support external snapshots on dwmac1000
+Message-ID: <20241029154916.50b5f188@fedora.home>
+In-Reply-To: <a905c45d-344b-49e9-a0c9-fb7b6445edad@bootlin.com>
+References: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+	<a905c45d-344b-49e9-a0c9-fb7b6445edad@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_144613_868608_FEAB0605 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20241029_144926_557675_6AABE6D1 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,139 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pkey_sighandler_tests.c makes raw syscalls using its own helper,
-syscall_raw(). One of those syscalls is clone, which is problematic
-as every architecture has a different opinion on the order of its
-arguments.
+Hi Alexis,
 
-To complete arm64 support, we therefore add an appropriate
-implementation in syscall_raw(), and introduce a clone_raw() helper
-that shuffles arguments as needed for each arch.
+On Tue, 29 Oct 2024 15:45:07 +0100
+Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com> wrote:
 
-Having done this, we enable building pkey_sighandler_tests for arm64
-in the Makefile.
+> Hello Maxime,
+>=20
+> On 10/29/24 12:54, Maxime Chevallier wrote:
+> > Hi,
+> >=20
+> > This series is another take on the pervious work [1] done by
+> > Alexis Lothor=C3=A9, that fixes the support for external snapshots
+> > timestamping in GMAC3-based devices.
+> >  =20
+>=20
+> [...]
+>=20
+> > [1]: https://lore.kernel.org/netdev/20230616100409.164583-1-alexis.loth=
+ore@bootlin.com/
+> >=20
+> > Thanks Alexis for laying the groundwork for this,
+> >=20
+> > Best regards,
+> >=20
+> > Maxime =20
+>=20
+> Thanks for making this topic move forward. I suspect the series to be mis=
+sing
+> some bits: in the initial series you mention in [1], I also reworked
+> stmmac_hwtstamp_set in stmmac_main.c, which is also currently assuming a =
+GMAC4
+> layout ([2]). I suspect that in your series current state, any new call to
+> stmmac_hwtstamp_set will overwrite any previously configured hardware tim=
+estamping.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- tools/testing/selftests/mm/Makefile           |  8 +--
- .../selftests/mm/pkey_sighandler_tests.c      | 62 ++++++++++++++-----
- 2 files changed, 50 insertions(+), 20 deletions(-)
+You are correct indeed, I missed this bit in the series. I'll update
+that for v2.=20
 
-diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-index 02e1204971b0..0f8c110e0805 100644
---- a/tools/testing/selftests/mm/Makefile
-+++ b/tools/testing/selftests/mm/Makefile
-@@ -105,12 +105,12 @@ endif
- ifeq ($(CAN_BUILD_X86_64),1)
- TEST_GEN_FILES += $(BINARIES_64)
- endif
--else
- 
--ifneq (,$(filter $(ARCH),arm64 powerpc))
-+else ifeq ($(ARCH),arm64)
-+TEST_GEN_FILES += protection_keys
-+TEST_GEN_FILES += pkey_sighandler_tests
-+else ifeq ($(ARCH),powerpc)
- TEST_GEN_FILES += protection_keys
--endif
--
- endif
- 
- ifneq (,$(filter $(ARCH),arm64 mips64 parisc64 powerpc riscv64 s390x sparc64 x86_64 s390))
-diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-index 501880dbdc37..c593a426341c 100644
---- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
-+++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-@@ -60,12 +60,44 @@ long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
- 		      : "=a"(ret)
- 		      : "a"(n), "b"(a1), "c"(a2), "d"(a3), "S"(a4), "D"(a5)
- 		      : "memory");
-+#elif defined __aarch64__
-+	register long x0 asm("x0") = a1;
-+	register long x1 asm("x1") = a2;
-+	register long x2 asm("x2") = a3;
-+	register long x3 asm("x3") = a4;
-+	register long x4 asm("x4") = a5;
-+	register long x5 asm("x5") = a6;
-+	register long x8 asm("x8") = n;
-+	asm volatile ("svc #0"
-+		      : "=r"(x0)
-+		      : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5), "r"(x8)
-+		      : "memory");
-+	ret = x0;
- #else
- # error syscall_raw() not implemented
- #endif
- 	return ret;
- }
- 
-+static inline long clone_raw(unsigned long flags, void *stack,
-+			     int *parent_tid, int *child_tid)
-+{
-+	long a1 = flags;
-+	long a2 = (long)stack;
-+	long a3 = (long)parent_tid;
-+#if defined(__x86_64__) || defined(__i386)
-+	long a4 = (long)child_tid;
-+	long a5 = 0;
-+#elif defined(__aarch64__)
-+	long a4 = 0;
-+	long a5 = (long)child_tid;
-+#else
-+# error clone_raw() not implemented
-+#endif
-+
-+	return syscall_raw(SYS_clone, a1, a2, a3, a4, a5, 0);
-+}
-+
- /*
-  * Returns the most restrictive pkey register value that can be used by the
-  * tests.
-@@ -294,14 +326,13 @@ static void test_sigsegv_handler_with_different_pkey_for_stack(void)
- 	memset(&siginfo, 0, sizeof(siginfo));
- 
- 	/* Use clone to avoid newer glibcs using rseq on new threads */
--	long ret = syscall_raw(SYS_clone,
--			       CLONE_VM | CLONE_FS | CLONE_FILES |
--			       CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
--			       CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
--			       CLONE_DETACHED,
--			       (long) ((char *)(stack) + STACK_SIZE),
--			       (long) &parent_pid,
--			       (long) &child_pid, 0, 0);
-+	long ret = clone_raw(CLONE_VM | CLONE_FS | CLONE_FILES |
-+			     CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
-+			     CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
-+			     CLONE_DETACHED,
-+			     stack + STACK_SIZE,
-+			     &parent_pid,
-+			     &child_pid);
- 
- 	if (ret < 0) {
- 		errno = -ret;
-@@ -466,14 +497,13 @@ static void test_pkru_sigreturn(void)
- 	sigstack.ss_size = STACK_SIZE;
- 
- 	/* Use clone to avoid newer glibcs using rseq on new threads */
--	long ret = syscall_raw(SYS_clone,
--			       CLONE_VM | CLONE_FS | CLONE_FILES |
--			       CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
--			       CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
--			       CLONE_DETACHED,
--			       (long) ((char *)(stack) + STACK_SIZE),
--			       (long) &parent_pid,
--			       (long) &child_pid, 0, 0);
-+	long ret = clone_raw(CLONE_VM | CLONE_FS | CLONE_FILES |
-+			     CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM |
-+			     CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
-+			     CLONE_DETACHED,
-+			     stack + STACK_SIZE,
-+			     &parent_pid,
-+			     &child_pid);
- 
- 	if (ret < 0) {
- 		errno = -ret;
--- 
-2.43.0
+Thanks,
 
+Maxime
 
