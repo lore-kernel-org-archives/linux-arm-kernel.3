@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC78D2AB20
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F305D2AB1F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhwutFaJAhBwzUvxWfpVZxdfXLNUR2eiL6c/Y41YU9M=; b=hBq7ng2ALEITTpHUSzldPQmOXE
-	W1oOXrzs0g0XMdoc3hoqVqoKXHVtpVdHGjwfhk6KEtejRcjfTnbFyoTXJVYb5jhVhowDsY5GOZ2Ei
-	FbTVKiAcLcO9a1jn3W7+L4BM8zA5S/brbrD7+SvWCJrxLy/S5dCJzeD91xpyhlfxpzmnM8S+V52KZ
-	IGUpFJ3hzZZQERnC+jLbdJrmFHSBmuVizzRtbxnBgWRUdV6bMi76Fdzi/+vaUj2lkKgsxaGbiZnG0
-	qVnENTT560YD9RpVwybFi6B4JUlqPf96j2WIQ4TFyQTBSLttl742IezLfSq/fTHZdO81DeEekT1PH
-	n1hDma6Q==;
+	bh=qPx4kMCDrheeY8xWYJ0qE47ahtpfJ0dLdCDyA5qyaAo=; b=y/3PGdCg76wGdmuD3N7zkHHhXR
+	i2QqZaxvndgMRPcLFX+276ZN90YJY7wRABTQDHGpIceD/22s/eGrNsDHhOsRFDIArJNKkMxDhCt0n
+	ou0VeZVqP9N8l0iUuRWleaPEmF8lHiX8rc6QXv7GQ1qvEp0pUPP/yjORe138vnj4EiVN6mRyk74+S
+	l7EnHJhJ5FQr9XdG/zcG0buZXkk8RMGrCNhyybwN8YNkJsgvLpZjQrwVGaqIP/oCwhU0f+EAeD3Vz
+	m7ih8IINMF8/pici7hsffWH8k3UGKVbecCW0m7xR6regTrUw9GFLg9uw+LAm5Lbi2j5ek+w8OfNuu
+	c+AU/O/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kLb-0000000EEKh-3jOO;
-	Tue, 29 Oct 2024 11:25:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t5kSE-0000000EF9i-3XHR;
+	Tue, 29 Oct 2024 11:32:07 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jqU-0000000E7JZ-11p6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Oct 2024 10:53:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FhwutFaJAhBwzUvxWfpVZxdfXLNUR2eiL6c/Y41YU9M=; b=nBIpKJdwp/gAe7GrGuPyEbykeN
-	L1dGjS/gL0nfI9ARO+pXy4UyKG7APVNAXekmgvD+eukNhSYRf6Xi1a3RUgulDi1BcoXGjSI/+JsoH
-	N66BYyf1A01jX1ZEmo9P8Rkz3FP6txT3xycnotwHczOL7Qrg3fgv823TpCOghrSjNPnIaWY260T1T
-	bN/DegM1lo2+4wkTRsfniVVF6TImfHBsp9nyXePVsl+ltcJiXT5zAUtoVgW3Y5dzWTj4yI6ooT2E/
-	rk1Xm45M+GcFyug8/cT+zJbmrdEz7MoQrQV+KKzIzFKY3q6PrKS27h8DN8cWh1Nui8xdd5v5oROQz
-	zjJ9p5ZA==;
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jqP-00000009sXZ-3L0G
+	id 1t5jqd-0000000E7NK-16bH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:53:05 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539f7606199so5690399e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:52:59 -0700 (PDT)
+	Tue, 29 Oct 2024 10:53:17 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso80044691fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:53:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730199175; x=1730803975; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730199193; x=1730803993; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FhwutFaJAhBwzUvxWfpVZxdfXLNUR2eiL6c/Y41YU9M=;
-        b=EdbC9vlAMk7qssyMhmnciTBXWZ9dsnrK9tCsg9DsNvprg10f3MnokN2NGvAUSDx6vw
-         8DvtRwuDQ/5XmpSSszMXT2HsKhKcZlrG+NbqyjjMqoh3UN7LNnVlML3VVSR1GYjF98UH
-         nhjxTDoAEU6ATPiPS182zVxNdlsJlTpGDcnUf4rHjBvdfY5jMSTvHSN1bxPzSuek9T2g
-         vzUUJWa+ryhQ/wAq8iuR1rI55faM+aan/uqBtqYS/1F6GmII+qcmraan2LWNQG2/E2vG
-         RDT1OSJ3NQbKwnxHy6GbXoSeBv0u6k7o9IpMPd6pJFzUZ527O8OvwPSaPtQGgjiooVL7
-         wKhA==
+        bh=qPx4kMCDrheeY8xWYJ0qE47ahtpfJ0dLdCDyA5qyaAo=;
+        b=HyPJumtxfxrAEnXUNvwegHoeH44nAc7EMwwDPveBMJ7bvIhKWQZPZw/aGKQf7yZXxG
+         oj2NThVNX51wEA4RrWYnTgzhda0IJ6CKi2qISfx2+3vNUgTjtFKVVnWdknue72EtG1Uv
+         1HedpX9HRq0ZCPa28IbktyGoN6XfSXygfPFhlzGdmJ06h9xNeguG+2+zI63OUb5mwDQq
+         yn+do2iC9LpeYrhaP9vGDR0rRJ7bRviAZHCPKZqqsSu/xxUiYiZDQq0rNq4y+lgMIpV2
+         CAYI9GpYpoyI6Y1/myQ6ZKMBWZrTCewiB7EItyvypA4kMAh7Q2K26LaFgLzmuvZI5Qbn
+         unrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730199175; x=1730803975;
+        d=1e100.net; s=20230601; t=1730199193; x=1730803993;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FhwutFaJAhBwzUvxWfpVZxdfXLNUR2eiL6c/Y41YU9M=;
-        b=C+GsCouuHyO+PmKTeeUyO00JNQQJyiPdLwICX/4Uk/M3Q6ZXAcC30Lc6AM/pz0C7yk
-         XKsC+h3XIS0CX5LBGkjE+yO3r3+Eb3gNr8Tqua3N/Egr6O9vCMj/L23PmqNMCR0UXPhE
-         uaSt+EnJRZ+mRNkbqY3AoGTnGgySzphR6KfxJFeMrOEHb1hYK77NmuSljXo2zCJo0rFL
-         1frM1GWuQoXAQEvYjjaqckdbKkjdw1R5GCGaOlGnTKlyyk/KWT+PbHzzsj9Nh6xDJu+h
-         tFIYjxnhn0t7YTaOwWLBago2cho2/k0L13wdH70KJTDqq45uX92TqIHgWdpyqqw+aVom
-         lBEg==
-X-Gm-Message-State: AOJu0YwNL1X5TtdPJ2En0CfxpWlEPRtT48tk9Nu+mixt2nACe0XG/JBE
-	HEW2ABrfZwlcH8eIMp9QhKDjnoweEYDGdzL3K5jyeYxLWzRBk+fBEk5/Xw7On2I=
-X-Google-Smtp-Source: AGHT+IE7TBLGcMxKsC7a30pUEcJoXeIzSiYTepdqh334Y6u9VYfbvLHbrLSewuIIAuux0bNQMqTTNA==
-X-Received: by 2002:a05:6512:3b2b:b0:539:e1ea:c298 with SMTP id 2adb3069b0e04-53b348cbb37mr5497449e87.22.1730199175441;
-        Tue, 29 Oct 2024 03:52:55 -0700 (PDT)
+        bh=qPx4kMCDrheeY8xWYJ0qE47ahtpfJ0dLdCDyA5qyaAo=;
+        b=USQVQs5fDFSiqaKIU8eW7G2Oc3XFuTKYLGWz4H/hUFAlISZihTsqJYzAGZIO5HO6c+
+         AE3fkZX+BTWxPcqdhEG01635aOSQx8Nvy91HS2lR8oJBoTbmip1H7o2RJeSLvEXbvuSW
+         xEXWLi+DywhymV6TepOQzx+0Kd5EgDGPAyBLP606HFKjrVx+xOmnCRVA6plUAY0EzBzw
+         Pi1srQj6gpu2KqKr1Rb1Wkn/70oXpFHftw9qlbNdO4HItaPGsyriwEI8EeWVe5j/xzud
+         zPB1L1/z2CkPN9ZkZU2c46SGKbTmPiZVLwubeeXAnppsAMApH1z3Wk0f6d4l4/IcjAL7
+         MAZw==
+X-Gm-Message-State: AOJu0Yzy3SU6tR9245/J7JU8FmEMul9HgyZFfl23JtQioy0DwRLyPnxG
+	6geqAXo2IpF/iSzDPIh7YP/0SYoCHSa/LpvcKqz1JAaX+qZW4prPIhqj2ccBTog=
+X-Google-Smtp-Source: AGHT+IHn5Jo6MxlNJU5iIOZUqab7EQOi+XN5sQRY1pjOsF1gVhbe2i3K7M96BCHGCpFL++J60EFYIg==
+X-Received: by 2002:a05:6512:a93:b0:535:6925:7a82 with SMTP id 2adb3069b0e04-53b3491e2c7mr8892647e87.41.1730199193203;
+        Tue, 29 Oct 2024 03:53:13 -0700 (PDT)
 Received: from lino.lan ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.52.53
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.53.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 03:52:54 -0700 (PDT)
+        Tue, 29 Oct 2024 03:53:12 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 29 Oct 2024 11:52:45 +0100
-Subject: [PATCH RFC v2 05/28] ARM: process: Remove local restart
+Date: Tue, 29 Oct 2024 11:52:55 +0100
+Subject: [PATCH RFC v2 15/28] ARM: entry: Separate call path for syscall
+ SWI entry
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-arm-generic-entry-v2-5-573519abef38@linaro.org>
+Message-Id: <20241029-arm-generic-entry-v2-15-573519abef38@linaro.org>
 References: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 In-Reply-To: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 To: Oleg Nesterov <oleg@redhat.com>, Russell King <linux@armlinux.org.uk>, 
@@ -96,8 +82,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_105302_130343_9D7F0250 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20241029_035315_444943_81DFEE2C 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,146 +98,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM kernel contains a quirk to handle syscall restarts
-inside the kernel without exiting to userspace. The generic
-entry cannot handle this.
+The syscalls (SWIs, software interrupts) are deviating from how
+any other interrupts are handled as they enable the IRQs again
+while processing the syscall, while "hard" IRQs disable all
+interrupts until they are handled.
 
-Rename do_signal() to arch_do_signal_or_restart() to fit
-with the upcoming generic entry conversion.
+Break out syscall_enter_from_user_mode() into its own function
+and call it instead of irqentry_enter_from_user_mode().
 
-This is essentially a revert of commit 81783786d5cf
-"ARM: 7473/1: deal with handlerless restarts without leaving the kernel"
-from 2012.
+As we are moving toward generic entry, we use the signature
+from the generic function.
 
-Other solutions may be possible, such as checking the PC after
-do_work_pending and assume it is a local restart if that address
-is inside the kernel, or modifying the generic entry code to
-track local restarts like ARM does and pass that information
-back.
+As the generic function requires the syscall number to be
+determined, we move the call down below the code that
+figures out the syscall number, the only practical effect
+should be that interrupts are re-enabled a few instructions
+later.
+
+As we move the trace_hardirqs_on/off() calls into C, we can
+just get rid of the helper macro usr_entry_enter again and
+call asm_irqentry_enter_from_user_mode directly.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/signal.h  |  3 +--
- arch/arm/kernel/entry-common.S |  9 +--------
- arch/arm/kernel/signal.c       | 28 +++++++++-------------------
- 3 files changed, 11 insertions(+), 29 deletions(-)
+ arch/arm/include/asm/entry.h   |  1 +
+ arch/arm/kernel/entry-armv.S   | 16 ++++------------
+ arch/arm/kernel/entry-common.S | 18 +++++++++++++-----
+ arch/arm/kernel/entry.c        | 14 ++++++++++++++
+ 4 files changed, 32 insertions(+), 17 deletions(-)
 
-diff --git a/arch/arm/include/asm/signal.h b/arch/arm/include/asm/signal.h
-index 8b84092d1518..7acccc96840c 100644
---- a/arch/arm/include/asm/signal.h
-+++ b/arch/arm/include/asm/signal.h
-@@ -24,7 +24,6 @@ typedef struct {
- #include <asm/sigcontext.h>
+diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
+index e26f369375ca..e259b074caef 100644
+--- a/arch/arm/include/asm/entry.h
++++ b/arch/arm/include/asm/entry.h
+@@ -8,6 +8,7 @@ struct pt_regs;
+  * These are copies of generic entry headers so we can transition
+  * to generic entry once they are semantically equivalent.
+  */
++long syscall_enter_from_user_mode(struct pt_regs *regs, long);
+ void irqentry_enter_from_user_mode(struct pt_regs *regs);
+ void irqentry_exit_to_user_mode(struct pt_regs *regs);
  
- void do_rseq_syscall(struct pt_regs *regs);
--int do_work_pending(struct pt_regs *regs, unsigned int thread_flags,
--		    int syscall);
-+void do_work_pending(struct pt_regs *regs, unsigned int thread_flags);
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index be2df297ec0a..0328860475e1 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -402,14 +402,6 @@ ENDPROC(__fiq_abt)
+ 	zero_fp
+ 	.endm
  
- #endif
+-	/* Called after usr_entry for everything except FIQ */
+-	.macro	usr_entry_enter
+-#ifdef CONFIG_TRACE_IRQFLAGS
+-	bl	trace_hardirqs_off
+-#endif
+-	asm_irqentry_enter_from_user_mode save = 0
+-	.endm
+-
+ 	.macro	kuser_cmpxchg_check
+ #if !defined(CONFIG_CPU_32v6K) && defined(CONFIG_KUSER_HELPERS)
+ #ifndef CONFIG_MMU
+@@ -429,7 +421,7 @@ ENDPROC(__fiq_abt)
+ 	.align	5
+ __dabt_usr:
+ 	usr_entry uaccess=0
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
+ 	kuser_cmpxchg_check
+ 	mov	r2, sp
+ 	dabt_helper
+@@ -440,7 +432,7 @@ ENDPROC(__dabt_usr)
+ 	.align	5
+ __irq_usr:
+ 	usr_entry
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
+ 	kuser_cmpxchg_check
+ 	irq_handler from_user=1
+ 	get_thread_info tsk
+@@ -454,7 +446,7 @@ ENDPROC(__irq_usr)
+ 	.align	5
+ __und_usr:
+ 	usr_entry uaccess=0
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
+ 
+ 	@ IRQs must be enabled before attempting to read the instruction from
+ 	@ user space since that could cause a page/translation fault if the
+@@ -479,7 +471,7 @@ ENDPROC(__und_usr)
+ 	.align	5
+ __pabt_usr:
+ 	usr_entry
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
+ 	mov	r2, sp				@ regs
+ 	pabt_helper
+  UNWIND(.fnend		)
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index df6961a1006b..da5c2d4b62e5 100644
+index ff1dd3169346..14b2495cae3c 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -86,14 +86,8 @@ ENDPROC(ret_fast_syscall)
- 	bne	__sys_trace_return_nosave
- slow_work_pending:
- 	mov	r0, sp				@ 'regs'
--	mov	r2, why				@ 'syscall'
- 	bl	do_work_pending
--	cmp	r0, #0
--	beq	no_work_pending
--	movlt	scno, #(__NR_restart_syscall - __NR_SYSCALL_BASE)
--	str	scno, [tsk, #TI_ABI_SYSCALL]	@ make sure tracers see update
--	ldmia	sp, {r0 - r6}			@ have to reload r0 - r6
--	b	local_restart			@ ... and off we go
-+	b	no_work_pending
- ENDPROC(ret_fast_syscall)
+@@ -109,8 +109,6 @@ ENTRY(ret_to_user_from_irq)
+ 	movs	r1, r1, lsl #16
+ 	bne	slow_work_pending
+ no_work_pending:
+-	asm_trace_hardirqs_on save = 0
+-
+ 	asm_irqentry_exit_to_user_mode save = 0
  
- /*
-@@ -266,7 +260,6 @@ ENTRY(vector_swi)
- 	 */
-  TRACE(	ldmia	sp, {r0 - r3}		)
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+@@ -189,9 +187,6 @@ ENTRY(vector_swi)
+ 	reload_current r10, ip
+ 	zero_fp
+ 	alignment_trap r10, ip, cr_alignment
+-	asm_trace_hardirqs_on save=0
+-	enable_irq_notrace
+-	asm_irqentry_enter_from_user_mode save = 0
  
--local_restart:
- 	ldr	r10, [tsk, #TI_FLAGS]		@ check for syscall tracing
- 	stmdb	sp!, {r4, r5}			@ push fifth and sixth args
- 
-diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
-index 79a6730fa0eb..7b1a16e86b23 100644
---- a/arch/arm/kernel/signal.c
-+++ b/arch/arm/kernel/signal.c
-@@ -18,6 +18,7 @@
- #include <asm/traps.h>
- #include <asm/unistd.h>
- #include <asm/vfp.h>
-+#include <asm/syscall.h>
- #include <asm/syscalls.h>
- 
- #include "signal.h"
-@@ -534,9 +535,10 @@ static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
-  * the kernel can handle, and then we build all the user-level signal handling
-  * stack-frames in one go after that.
-  */
--static int do_signal(struct pt_regs *regs, int syscall)
-+static void arch_do_signal_or_restart(struct pt_regs *regs)
- {
- 	unsigned int retval = 0, continue_addr = 0, restart_addr = 0;
-+	bool syscall = (syscall_get_nr(current, regs) != -1);
- 	struct ksignal ksig;
- 	int restart = 0;
- 
-@@ -590,16 +592,14 @@ static int do_signal(struct pt_regs *regs, int syscall)
- 	} else {
- 		/* no handler */
- 		restore_saved_sigmask();
--		if (unlikely(restart) && regs->ARM_pc == restart_addr) {
-+		if (unlikely(restart) && regs->ARM_pc == restart_addr)
- 			regs->ARM_pc = continue_addr;
--			return restart;
--		}
- 	}
--	return 0;
-+	return;
- }
- 
--asmlinkage int
--do_work_pending(struct pt_regs *regs, unsigned int thread_flags, int syscall)
-+asmlinkage void
-+do_work_pending(struct pt_regs *regs, unsigned int thread_flags)
- {
  	/*
- 	 * The assembly code enters us with IRQs off, but it hasn't
-@@ -612,19 +612,10 @@ do_work_pending(struct pt_regs *regs, unsigned int thread_flags, int syscall)
- 			schedule();
- 		} else {
- 			if (unlikely(!user_mode(regs)))
--				return 0;
-+				return;
- 			local_irq_enable();
- 			if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL)) {
--				int restart = do_signal(regs, syscall);
--				if (unlikely(restart)) {
--					/*
--					 * Restart without handlers.
--					 * Deal with it without leaving
--					 * the kernel space.
--					 */
--					return restart;
--				}
--				syscall = 0;
-+				arch_do_signal_or_restart(regs);
- 			} else if (thread_flags & _TIF_UPROBE) {
- 				uprobe_notify_resume(regs);
- 			} else {
-@@ -634,7 +625,6 @@ do_work_pending(struct pt_regs *regs, unsigned int thread_flags, int syscall)
- 		local_irq_disable();
- 		thread_flags = read_thread_flags();
- 	} while (thread_flags & _TIF_WORK_MASK);
--	return 0;
+ 	 * Get the system call number.
+@@ -256,6 +251,19 @@ ENTRY(vector_swi)
+ #else
+ 	str	scno, [tsk, #TI_ABI_SYSCALL]
+ #endif
++
++	/*
++	 * Calling out to C to be careful to save and restore registers.
++	 * This call could modify the syscall number. scno is r7 so we
++	 * do not save and restore r7.
++	 */
++	mov	r0, sp				@ regs
++	mov	r1, scno
++	push	{r4 - r6, r8 - r10, lr}
++	bl	syscall_enter_from_user_mode
++	pop	{r4 - r6, r8 - r10, lr}
++	mov	scno, r0
++
+ 	mov	r1, sp				@ put regs into r1
+ 	stmdb	sp!, {r4, r5}			@ push fifth and sixth args
+ 	mov	r0, tbl
+diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
+index 8b2e8ea66c13..1973947c7ad7 100644
+--- a/arch/arm/kernel/entry.c
++++ b/arch/arm/kernel/entry.c
+@@ -1,15 +1,29 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <asm/entry.h>
+ #include <linux/context_tracking.h>
++#include <linux/irqflags.h>
++
++long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
++{
++	trace_hardirqs_on();
++	local_irq_enable();
++	/* This context tracking call has inverse naming */
++	user_exit_callable();
++
++	/* This will optionally be modified later */
++	return syscall;
++}
+ 
+ noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
+ {
++	trace_hardirqs_off();
+ 	/* This context tracking call has inverse naming */
+ 	user_exit_callable();
  }
  
- struct page *get_signal_page(void)
+ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
+ {
++	trace_hardirqs_on();
+ 	/* This context tracking call has inverse naming */
+ 	user_enter_callable();
+ }
 
 -- 
 2.46.2
