@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CDDD2AB3D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F682D2AB3E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kc+sPvhpxWGb4gIvgo6LAbgFue53ghXxjMDcKimoeI4=; b=R6aEPa+qhWvkiYWc/Md4VIefI5
-	0oTHddo6BW/zImkLeZBeNeI8H5MbG6DrLrK/kgCGAWfhSPxPf0AYss8krbyJy/viPOsMQa/tR1Qoo
-	6A8Hap/Y0yawioO6z1qYLDbODw54PXGJr9QegVWOc77ECz3K6IIU7eakldsARhF6O4PwwewzfgqzE
-	9o6nZmGW5GIQsS5F01xslWSnmmF6WdBSGvV3Ud6akvcUbqyZkHT9YkT83uPZlc+Lxo+2IYnCKXH8A
-	Mc6fuCENtLEJDn5ZFQWdN1UcRFwTUURII0J3EpvO9r2/QovZv5AlpNN++LuJmFVpVHNOYCY4ny1Xq
-	IxbcGHyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xI8hlswPn+2rtuLbW59b6ml3Vaf2FAE8DLSW53b+mIU=; b=3oldVErS9tOm3v3DANiY4wd9Rl
+	fRqnjlW1yFfzOJoR3A4Wt6W+SOmuZuwOt6a68oLhrFk8fjXfojfpTKO1fakvAoJQrlRHZs7qTf+oV
+	pBFzzh9dw9NBXNFKoEJoqz8d8U9nOndMD4444dG1Q4o2uc8dvfEj4HgGypOY1eG+fbSdBvZUD+Jfe
+	lg4glCcsksTDZi4wR84cYZDBo7doAIEIwgdEc+EQRvEKUgUdK3eqZJB0/JJi4wEzkPyF6usbpmNJN
+	27m7fuZWffauW8LPqN0mNcbiPlr0ikjp83iaFV0h64Bf5tMXTNxWW/lRrxV/GozajNtWgl7xY2mA1
+	oduzrY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5m8V-0000000EYM1-1rB1;
-	Tue, 29 Oct 2024 13:19:51 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t5mBv-0000000EYxz-3qmr;
+	Tue, 29 Oct 2024 13:23:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ldA-0000000EScG-2Tp2;
-	Tue, 29 Oct 2024 12:48:05 +0000
-Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 228A8AF3;
-	Tue, 29 Oct 2024 13:47:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730206040;
-	bh=b7xJkOE//Vp3vaIQy1pLV0TNulURIj4a4ZlfWYe73S0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=TTmcaCekGbWbKFStwDNEeYBf9fe1HUg6S35qvpMI+ccJdyq775g1iakGJrZV/LJ43
-	 npZ7GC8ubBdTBk21gB9tpv/+cqr0FHQ08OeLeY1aN3E3tDaiCUy5rZX3Xx66YQbjDc
-	 xv6UxJTRc//zi/r1zzQZZPF83XcQJ5xBXS/+XrvA=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 29 Oct 2024 14:47:05 +0200
-Subject: [PATCH] media: raspberrypi: cfe: Fix min_reqbufs_allocation
+	id 1t5lkX-0000000ETgB-3FGH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 12:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF4485C5DAF;
+	Tue, 29 Oct 2024 12:54:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4371DC4CEE3;
+	Tue, 29 Oct 2024 12:55:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730206504;
+	bh=wsrgcgckUzKVDFRbi/YSgS+i6orOaA/wjwoY2un0FkI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UuPxIOvGybzKkys8k2LVtms50JndeSNUJ5GCHKY85ECulRtSECWCwMGoSvFakNOHX
+	 Bl4y/WCSgQPm5CN1AjONBxIK1zBBcpcyaqop4Dh2vN7swUrY70rjgC6vIuX8CjW1nk
+	 OTTTDoFCgrzF0/Jmuf/7j2dnWaF48voPhCQnaV2rWiKcw+SPxo9KH5wlbDcyYxz4lU
+	 sV2GoQ7PrSdAJ7QPfA4luNjfG/k2ChoDg1xqFRNH1kL9CZ1lc6kEaH/YiJbX5LTl6X
+	 2xmfbKFkop17dn4NUtLpin8u+JZ0HUMid6Y7h/YbYBgLea9fiSbdz56hKErDNGDyjS
+	 PDVRlx33siCaQ==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 04/10] ARM: smp_twd: Remove clockevents shutdown call on offlining
+Date: Tue, 29 Oct 2024 13:54:45 +0100
+Message-ID: <20241029125451.54574-5-frederic@kernel.org>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20241029125451.54574-1-frederic@kernel.org>
+References: <20241029125451.54574-1-frederic@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-rp1-cfe-fixes-v1-1-49f04cc271f5@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAEjZIGcC/x3LQQqAIBBA0avIrBvQSQi7SrQQG2s2JgoRiHdPW
- j4+v0HlIlxhVQ0KP1LlTgNmUhAun05GOYaBNFmjyWHJBkNkjPJyRU2LdjR7is7CeHLhP4xl23v
- /AHvacJJfAAAA
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Hans Verkuil <hverkuil@xs4all.nl>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1770;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=b7xJkOE//Vp3vaIQy1pLV0TNulURIj4a4ZlfWYe73S0=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnINlWrR/eAjTlsUaqmJrF5eKC6qW0AqzC/UCQg
- XmD+reWQYCJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZyDZVgAKCRD6PaqMvJYe
- 9eBaD/4gRy1ykIiT9zE7t8pxIgj3p9RbSB0kW7jYb8iqaG/Efv769oxRw0DUVOb3mz64oPU1I7s
- TT75twqZo3Bg+h80Pi97YSs7N8u8MMUL4zSvr814/ZHE44HWOfU6VnV1JI0JssBQTiZWt+Qwnsn
- HGry7e2vSMRP3JpYQYtS3QVhIp6xw7j7x7Rago8rBe0BEW7qoqqI2YdN2LM/7gtd81F/lcJLn8W
- rXH9EQfaUHj1QeW+aTDxAFTd6RRPg67QfPU3zNcZ5TWBRYN9JgC5PdcOo3DteFRayLh1M0YJAmv
- jQDnhSh5yGpfQj/RMW5CV/ZdPyuziLlLv0lS9KtXf4VhS5SXM5WDZqd6hWmlWxO7ETMLJ9z/7xj
- AuTeB+oQNDXq/75DUqNJfWLH7xIgPXvYYd5pdgVn4rQytg37jwIjjvGV4BXHikxuWIGNf5rn+7u
- 4lXFi9lEgMbykzCvLDxpAxyBPKVfb266IAgB3sKE8C/28D5HT9LaulvhL13X6YanuwQ7XfwVVvl
- qyHiHn8HAKvrlm10o5N1N79ZhnTL/x2+n6vCkc8DUbDNaSt1EqyUmR/KztM4VGe+P1bIY/JjgHR
- 4dSRAZjiqzV9NPQN5RL+6GMDW+mpMdXFMw9T4o28AphlZ/PkKFDQV0v/UMmfGJTsv6EODLktblg
- 3G4PmfCUk2d5cNA==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_054728_777550_28B8DF8B 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241029_055505_880071_82B60D79 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver checks if "vq->max_num_buffers + *nbuffers < 3", but
-vq->max_num_buffers is (by default) 32, so the check is never true. Nor
-does the check make sense.
+The clockevents core already detached and unregistered it at this stage.
 
-The original code in the BSP kernel was "vq->num_buffers + *nbuffers <
-3", but got mangled along the way to upstream. The intention was to make
-sure that at least 3 buffers are allocated.
-
-Fix this by removing the bad lines and setting q->min_reqbufs_allocation
-to three.
-
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/arm/kernel/smp_twd.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-index 045910de6c57..65e9c6d23416 100644
---- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-+++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-@@ -1025,9 +1025,6 @@ static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
- 	cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
- 		node->buffer_queue.type);
+diff --git a/arch/arm/kernel/smp_twd.c b/arch/arm/kernel/smp_twd.c
+index 9a14f721a2b0..42a3706e16a6 100644
+--- a/arch/arm/kernel/smp_twd.c
++++ b/arch/arm/kernel/smp_twd.c
+@@ -93,7 +93,6 @@ static void twd_timer_stop(void)
+ {
+ 	struct clock_event_device *clk = raw_cpu_ptr(twd_evt);
  
--	if (vq->max_num_buffers + *nbuffers < 3)
--		*nbuffers = 3 - vq->max_num_buffers;
--
- 	if (*nplanes) {
- 		if (sizes[0] < size) {
- 			cfe_err(cfe, "sizes[0] %i < size %u\n", sizes[0], size);
-@@ -1999,6 +1996,7 @@ static int cfe_register_node(struct cfe_device *cfe, int id)
- 	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
- 	q->lock = &node->lock;
- 	q->min_queued_buffers = 1;
-+	q->min_reqbufs_allocation = 3;
- 	q->dev = &cfe->pdev->dev;
+-	twd_shutdown(clk);
+ 	disable_percpu_irq(clk->irq);
+ }
  
- 	ret = vb2_queue_init(q);
-
----
-base-commit: 698b6e3163bafd61e1b7d13572e2c42974ac85ec
-change-id: 20241029-rp1-cfe-fixes-0270923a2f94
-
-Best regards,
 -- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+2.46.0
 
 
