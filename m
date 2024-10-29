@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C2AD5B87D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730CBD5B87E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ed+POvebM2MwbTHnqwj+uX67YnLp1RtiA5F0QoBNlMw=; b=0sJIyNcEHWcqsCkh3p2HNzaLya
-	rL2qYKCLnseWKfVmDywIhh6hN9qX4s7B1qoEf+nijaOrilGcUOGUlrb1JMTX8ArB8mzFjrw7G4chb
-	caj+KEuUV75ssI9m4xj9EbLeJRDdoqPJeQzWggbTodCJyviCL9HnTy+DJ+AGeu4ei00FVkcW/kPD+
-	nsnPFEcjqdsLxB7qZVKdmFHky9j934evtXX/U5rkX0cq+2zL6D79oSE2c3ovGlquPvvwycwvkzOoT
-	VhFIi9X/HELCl1mREblQYfjsdffBYeW1lUHIe8gOKdKubmAD1F5/2ErRPi74mEaN6IBKij/33yMLQ
-	+o62JLWg==;
+	bh=UsYTzojEX30wfMIaOpkwuYocqyIvlDaDd/JUKraXL+M=; b=jYhfUm7bKhW4Jao5lz2bjQ87la
+	d9bQW+AjC7kqV+ylR8GGpXAEAAuD8C/Z1cvVUnNcRYr93WoM1IoZvKb81QsFbybfAJNHjKuQ/EBSF
+	tAYpW3Zfww5xOLeZbe6Cx5Et5rAJFv/Uy4JgHl/6kHGJNfgbZIX2pMH0VYnES9DISO6b3qL8bfRDQ
+	/5v60aC49iuG8hz88BKAIWfuo8OVyUHfYv973Vsxa7dOZ3OdSqc2cXeJ04m0RPJIHG0vnZzhxCDc+
+	YjPO8zUA9nlxc5FccgMlhn9+/1n7R+0pWYtAnt1EkFj7EkpiwR+RMtE2UWbwMOvGNaN2L7JXWDH/4
+	VPeU7a1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5fim-0000000DMz4-49u3;
-	Tue, 29 Oct 2024 06:28:52 +0000
+	id 1t5foQ-0000000DNSL-34ev;
+	Tue, 29 Oct 2024 06:34:42 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5fgq-0000000DMhy-3fG5;
-	Tue, 29 Oct 2024 06:26:54 +0000
+	id 1t5fmo-0000000DNKQ-2vEQ;
+	Tue, 29 Oct 2024 06:33:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2B52A414DF;
-	Tue, 29 Oct 2024 06:24:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7A4C4CECD;
-	Tue, 29 Oct 2024 06:26:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 807A6A41384;
+	Tue, 29 Oct 2024 06:31:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57384C4CECD;
+	Tue, 29 Oct 2024 06:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730183211;
-	bh=IfNNGE41sAXqehyuYoE/cEw3HG+DgkTj+GhJu0Wj7gw=;
+	s=k20201202; t=1730183581;
+	bh=oi8HPczJPQ2s/SYDLMYe92wXwT9sG8C3R0uxFmB4LGo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I1wsk7hofiKEX3lmeXbG/Ml53ueyliw3uXt0HwTKekAoKM/pdshMmz+7/1/7XgGA0
-	 JkTOYJwoainHiCoQXXUofe7sGmjSEuZJ+xHeH8MpuD5v8p6qH4tmsyEO1O6hnj+H1+
-	 28emFmOis+9BY7SASlv6ivNU9ZRuwbIwIuHzavfg/cQesrnd8S9YaBBEn4RT5essU2
-	 btHSECArULcVC/sbznvmn2K0VPEB8aK3UWCLmlQOQjID9IZPOmAImeHKgxQmEWHiG1
-	 PGCelYQE2E3OzudL2TYZPGFyQl1ni1GK2roHz5mHbDinG2aXLKZsL+wax0F7Cvi4Ch
-	 B89d9igmVq13g==
-Message-ID: <913df216-d031-4681-957e-c9354da337ea@kernel.org>
-Date: Tue, 29 Oct 2024 07:26:44 +0100
+	b=uq48FAJZK+gt71hYrLRMptK9T/tbNaBTeS2ZV2wvv9W8CevFSIx+3x2/HW7wmmYgH
+	 7iweC+oDZeDrJm90FQYsgec3rSpPLgTwPxRy7ZwbDNLtYm6QVlC30NQHtb63K95W+0
+	 srf7nOenmF/nmnHRmFqK3HMmbnOSXYn8Mzic6JKSH6QmJN/+W9o92VRM1ofhNNB9kl
+	 hd/Ks0TLgo5X67os3D7Ct2j2E1jzwdAXZ9oTEYwG5laKSJZ0KNYZP0WycTMmSE47Hy
+	 5KtHAPzt20RNjKwRIlD4f0Rn+G04JMcFJ6BuiTUkOF09EweJuCMikvS28rUHFwokdN
+	 QIhXq5OYUOiNw==
+Message-ID: <dc8c3bb0-e462-4286-9060-c54fcc10c186@kernel.org>
+Date: Tue, 29 Oct 2024 07:32:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] ASoC: dt-bindings: mediatek,mt8188-mt6359: Update DAI
- link node pattern
-To: Fei Shao <fshao@chromium.org>
-Cc: Mark Brown <broonie@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
- Trevor Wu <trevor.wu@mediatek.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org
-References: <20241025104548.1220076-1-fshao@chromium.org>
- <20241025104548.1220076-3-fshao@chromium.org>
- <j5qw52grlce63mccduvryx467h4hvcnqrxrova74d52izq3g5r@wjiflssmq6a5>
- <CAC=S1ni-F_oudNyskSbxS1s2gZG7m4U4+nLxt0=dt5+DDkhV4Q@mail.gmail.com>
+Subject: Re: [PATCH 3/4] memory: mtk-smi: mt8188: Add SMI clamp function
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20240821082845.11792-1-friday.yang@mediatek.com>
+ <20240821082845.11792-4-friday.yang@mediatek.com>
+ <25b487b7-63e0-402d-a0a2-ed9d03e82630@kernel.org>
+ <cdbac20d7a49ff2fbd3e6d4f24ae441ffbe87f05.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <CAC=S1ni-F_oudNyskSbxS1s2gZG7m4U4+nLxt0=dt5+DDkhV4Q@mail.gmail.com>
+In-Reply-To: <cdbac20d7a49ff2fbd3e6d4f24ae441ffbe87f05.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_232653_071561_E2888EC2 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20241028_233302_887613_57E19A92 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,64 +128,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2024 12:12, Fei Shao wrote:
-> On Mon, Oct 28, 2024 at 4:56 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Fri, Oct 25, 2024 at 06:44:42PM +0800, Fei Shao wrote:
->>> The associated machine driver is not dependent on the format of DAI link
->>> node names. This means we are allowed to use more descriptive names
->>> instead of indices without impacting functionality.
+On 24/10/2024 03:29, Friday Yang (杨阳) wrote:
+> On Wed, 2024-08-21 at 11:00 +0200, Krzysztof Kozlowski wrote:
+>>  	 
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>  On 21/08/2024 10:26, friday.yang wrote:
+>>> In order to avoid handling glitch signal when MTCMOS on/off, SMI
+>> need
+>>> clamp and reset operation. Parse power reset settings for LARBs
+>> which
+>>> need to reset. Register genpd callback for SMI LARBs and apply
+>> reset
+>>> operations in the callback.
 >>>
->>> Update the binding to accept arbitrary DAI link names with a "-dai-link"
->>> suffix. This is the common pattern used by the target (MT8188) and other
->>> (MT8195, MT8186 etc.) MediaTek-based Chromebooks.
->>
->> We do not want arbitrary names. Why for example green-batman-dai-link
->> should be correct? The existing pattern looks wrong. Please read DT spec
->> and chapter about recommended names.
-> 
-> At first I was thinking about regex like
-> `^[a-z-]+(-[a-z]+)*-dai-link$` based on the DTS coding style guide,
-> but your example is not suggesting that.
-> and the name like "hs-capture-dai-link" was rejected, so it's not just
-> about enumerating the names either.
-> Or "^dai-link@[0-9a-f]+$"? But they don't tie to particular register
-> addresses... or just for some pseudo indices?
-> I could miss something about DAI links under the sound documentation.
-> Still trying to figure it out.
-
-You did not provide any reasoning why this has to be changed and why
-usually preferred generic dai-link is not correct. Names are not
-descriptive.
-
-
-> 
->>
->>>
->>> Signed-off-by: Fei Shao <fshao@chromium.org>
+>>> Signed-off-by: friday.yang <friday.yang@mediatek.com>
 >>> ---
+>>>  drivers/memory/mtk-smi.c | 148
+>> ++++++++++++++++++++++++++++++++++++++-
+>>>  1 file changed, 146 insertions(+), 2 deletions(-)
 >>>
->>>  .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml     | 4 ++--
->>>  1 file changed, 2 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
->>> index 701cedfa38d2..2da34b66818f 100644
->>> --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
->>> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
->>> @@ -40,7 +40,7 @@ properties:
->>>        name defined in the machine driver.
->>>
->>>  patternProperties:
->>> -  "^dai-link-[0-9]+$":
->>> +  ".*-dai-link$":
 >>
->> This breaks existing users.
+>> ...
+>>
+>>> +
+>>> +static int mtk_smi_larb_parse_reset_info(struct mtk_smi_larb
+>> *larb)
+>>> +{
+>>> +struct device_node *reset_node;
+>>> +struct device *dev = larb->dev;
+>>> +int ret;
+>>> +
+>>> +/* only larb with "resets" need to get reset setting */
+>>> +reset_node = of_parse_phandle(dev->of_node, "resets", 0);
+>>
+>> Nope, you do not parse rasets.
 > 
-> There's no existing users in upstream, and the only downstream user is
-> the MT8188 Chromebook DT that I'm trying to upstream, which I can fix.
-> This binding was upstreamed exclusively for that DT.
+> 1.If I need to use the Linux reset control framework, 'resets' is the
+> required property.
 
-So you have entire commit msg to explain impact.
+And you never parse it directly. Find me existing examples of this, if
+you disagree.
+
+> 2.'reset-names' give the list of reset signal name strings sorted in
+> the same order as the 'resets' property. SMI driver will use 'reset-
+> names' to match reset signal names with reset specifiers.
+
+?
+
+> 3.Not all SMI larbs need to apply reset operations, only SMI larbs
+> which may have bus glitch issues need this. Just to confirm if this
+> larb support reset function.
+
+?
+
+Really, read kernel API about reset framework first.
+
+> 
+>>
+>>> +if (!reset_node)
+>>> +return 0;
+>>> +of_node_put(reset_node);
+>>> +
+>>> +larb->rst_con = devm_reset_control_get(dev, "larb_rst");
+>>
+>> Where are the bindings? Why do you add undocumented properties? How
+>> possible this passes dtbs_check???
+>>
+> 
+> This is not the new added property in SMI larb DT node.
+> It is the reset signal name which is inclued in 'reset-names'.
+> Just like this:
+
+$ git grep larb_rst
+No such property, so how this could be "not the new added"?
+
+If you keep responding with some random or irrelevant responses, this
+won't work. This is really poor way to upstream. I suggest first perform
+extensive internal review which would point out all such trivial issues.
 
 
 
