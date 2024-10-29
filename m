@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932D9D2AB3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB74D5B176
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSMoTBUH9ZAGTBta9ZISlFsh4dK5o/uVfCGKvcTrA3Q=; b=gPCQJLzdLzUWPvJzws5RSO4xEa
-	uKGYWeN/OVnMqtZ8isP3g4r59/GiM6VypTcNmdrd3vvXFFyFViJDH0CZflGcfIMIm+9t/F2zb9CuW
-	/WhMyAO3yzIuOIva6eq1DcYLiWi2yLtpSWJ9WWwXH9FAyhXR+ckRnBv4Q+qjn00S+ihV9B9YdD1d/
-	H8e1Kai2ba0KKvx77QaGVFJLhc/bj8jgYoxLSgn+89bBCq+pIuGPh6jXJ2cScdTDA33Z/zNHtozTE
-	wkBWbkZvnDAWvpNqtHJZQEqVJIMxAwAnHp0PWzJC5oiscytORGcBfRtF2TIRmAkzBld7schlAd+VC
-	5B7Frqqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=REg/Oj52c9kZKJV/pwgLelrV8PvX2vAmUGCbYoUU3JE=; b=pQ0jg8zTTKP9IXzRNQOLWL4bEH
+	M2OpwBbBA1OTHFEcVc/cBAudc09PJQ0HMaibrTr1nw/30kGszD7KvoAUWH0VW+26nv3LlXc/2AYmo
+	A2ME1mz95cXmGOrneDPon2zYx4Uouhd8oBsnbzyts/kJZmNbHPkdHtK3+hay+kkMKfr+LeMVfbDkf
+	lREMpyCccSTkIcHDSGalir5zzzCLvCTKsVWs2iKhJBkvomvcYIurdPwsLmQ8QBMULrWndHX+yTsjC
+	gm+73Cpj0D8e7TAeIPSvMcC6no5AxKGFwsXfDiMgehRDVX991odDdWElV2o5xeB19bt1pQguWYGH+
+	zGMkTGHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mN4-0000000Eaal-0GQb;
-	Tue, 29 Oct 2024 13:34:54 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1t5mOf-0000000Ean3-3DA6;
+	Tue, 29 Oct 2024 13:36:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5m5m-0000000EXkB-26fe;
-	Tue, 29 Oct 2024 13:17:11 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so53994071fa.3;
-        Tue, 29 Oct 2024 06:17:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730207821; x=1730812621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MSMoTBUH9ZAGTBta9ZISlFsh4dK5o/uVfCGKvcTrA3Q=;
-        b=MdAbBX/2ib6LBGjkYPq+YiHmR3yhwLLoays2TihNWyzO8yq6kG840GZEGOs9lIxKzI
-         cgoM9le1pmM1HglRLAk3UdJug5UB2lMS5ihEK4y8uRWemzbeClLhaD6xEqQJCu90n/Ys
-         2EnBUR1TVKzUiVAqYOHAGxX/VXGRsMtaKiPhFjxLowoNaQqoWl/ZVX9M+DLFMd6uFg/K
-         B41Lz2IuXqsbtsVycLz0HYPCkSauBXTuPrBpnoyIy2BCU97UL2Klx7mtsu58iVZGD14x
-         khVhegpnv7wOtPf206ey+gUm7vLa7M/SYTQBmiXmUTdNFP4Z0rKLUsBQUNZ9OVJpvcXf
-         FmCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730207821; x=1730812621;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MSMoTBUH9ZAGTBta9ZISlFsh4dK5o/uVfCGKvcTrA3Q=;
-        b=Gk8INzTgu4Q6qDWSkyz/e3uktwFkKZvE72zWFlRpzQhZUVCaO+eI2Tx1Poe2RozhIY
-         PzYjog474pIxYktu6qx7KWF/8CpAGzPEC8+zylmU2PfhkZ1ikz0DQ1EELwvdIXRoixtq
-         G5x9GGvmmO18UsoWI6Ka9CUrRgzdMuJQVFZWhiU97m8GonfVDSJZx5YlNXyhLZdRvqTe
-         sElbuSJMDFg4KJ96r7Bt9XVbtK00EKVvbmHInx/rZPPxPeFpe1+Zyff2XCN9H/THjqMS
-         V2wlK/g+GDIr3oGM/CHa1xR11k81JPn15KbfrRVBw19z+E2lkRU4HvHJiXI/yJzBzT6u
-         jZoA==
-X-Forwarded-Encrypted: i=1; AJvYcCVXv6oSTLniA+QR5jr/Yfs17PGMKGoU2TJF7ZsY3flS9JQUxlKbtaf+LumydAE6zlLlGhE6NLeeVfw1@lists.infradead.org, AJvYcCW42zel2PVSZXrx1GEwBASFyPvLsqXxlm9In2Gh2hq33IkdGarDZflGeigVQH9V8HPqq7sWIouR+FX6rm1AS1Kz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjzZO9bnGmzdZh1/pPsC//Ln7vH6glCZp2/SSjmaSOCpZYd3Al
-	ABStD70fG8kbcct9ej2/v4e1Q49bslApkmdVZ4SFyjdWYjlNGsu8
-X-Google-Smtp-Source: AGHT+IGm3KQnRwYWnHaidTV7KPwOh6PY38rvbEADfr6oUwvsh931+CHkLC87MoQSMag+prkfjiZaDw==
-X-Received: by 2002:a05:651c:1508:b0:2fb:6465:3198 with SMTP id 38308e7fff4ca-2fcbdf60348mr55008411fa.5.1730207820291;
-        Tue, 29 Oct 2024 06:17:00 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb4519b3esm14729631fa.44.2024.10.29.06.16.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 06:16:59 -0700 (PDT)
-Date: Tue, 29 Oct 2024 14:16:57 +0100
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: Re: [PATCH v2] mtd: spi-nor: atmel: add at25sf321 entry
-Message-ID: <ZyDgSRcT79yksuG2@gmail.com>
-References: <20241029-spi-nor-v2-1-e166c3900e19@gmail.com>
- <0bbd2514-ff51-4b0c-b3ad-547e4937d9f4@linaro.org>
+	id 1t5m8M-0000000EYL9-11oj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 13:19:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02034A42B31;
+	Tue, 29 Oct 2024 13:17:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADA34C4CECD;
+	Tue, 29 Oct 2024 13:19:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730207980;
+	bh=yg/o1pe2Ydem/63Sibmmgle3CvzHEGCl6k/yPdISXbk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jupVmOOT8viCJlgqgUFEUb27OtVVigrZ2pJhd9iKCvB/10zyWTxrrzIb7njfq6/vf
+	 MQllhg/MbOysT8NMUtBOTqR/2Ek9G+MVnJEYWk/kpnr5soxAKqnskqAZGrxT1o39ew
+	 HY5urIBcjDWGtW0+mZ9Tkvwu3iJrf+l+kxt5McLseuj5Pc0OpSdOo4YAqB7xU4Cjsk
+	 lww0ry/GuIG7t7bp6z7pMeghTQ9KhXKt3usVje54KSXG6sbmK2TLj12eDOyMq5o+kF
+	 RNUVGU5Yva+wybnFnxXYd/1wUpugFZhfHVhpddH4UKJnz9pNkkXv6ypdT83PhmBS1h
+	 Tph6H33g14mMQ==
+Message-ID: <844798ab-2910-458e-a9c5-dc69f5c8e368@kernel.org>
+Date: Tue, 29 Oct 2024 14:19:34 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="EXAiSf3CKL2XB0RX"
-Content-Disposition: inline
-In-Reply-To: <0bbd2514-ff51-4b0c-b3ad-547e4937d9f4@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+To: Ming-Jen Chen <mjchen0829@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+ dmitry.torokhov@gmail.com
+References: <20241022063158.5910-1-mjchen0829@gmail.com>
+ <20241022063158.5910-2-mjchen0829@gmail.com>
+ <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
+ <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
+ <ef407e89-950f-4874-9dca-474d107f6a52@kernel.org>
+ <984781ba-9f4c-4179-84d5-4ab8bbe4c3c6@gmail.com>
+ <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
+ <5d9e89aa-db10-4367-8417-9fcc1a3bb37a@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <5d9e89aa-db10-4367-8417-9fcc1a3bb37a@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_061702_684000_F0256D93 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20241029_061942_459213_03C2C6C1 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +123,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Michael Walle <mwalle@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>, Pratyush Yadav <pratyush@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 29/10/2024 03:00, Ming-Jen Chen wrote:
+>>>>>>> +
+>>>>>>> +  per-scale:
+>>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
+>>>>>> Missing constraints
+>>>>>>
+>>>>>>> +
+>>>>>>> +  per-scalediv:
+>>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>>> +    description: Per-scale divider (1 to 256).
+>>>>>> Missing constraints
+>>>>>>
+>>>>>> Both properties are unexpected... aren't you duplicating existing
+>>>>>> properties?
+>>>>> pre-scale:
+>>>>> This value configures the IC register for the row scan cycle
+>>>>> pre-scaling, with valid values ranging from 1 to 256
+>>>>> per-scalediv:(I will change pre-scalediv to pre-scale-div)
+>>>> Please look for matching existing properties first.
+>>> I will change it to the following content:
+>>>
+>>> nuvoton,scan-time:
+>> Why? What about my request?
+> 
+> I utilized|grep|  to search for relevant properties in the|input/|  folder using keywords such as|scan|,|time|,|period|,|freq|, and|interval|.
+> While I found some similar properties, I did not locate any that completely meet my requirements.
+> 
+> For example, I found|"scanning_period"|, which is described as "Time between scans. Each step is 1024 us. Valid 1-256."
+> I would like to confirm if you are suggesting that I use|scanning_period|  and explain my specific use case in the description,
+> for example:
 
---EXAiSf3CKL2XB0RX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Description of these properties did not tell me much about their purpose
+and underlying hardware, so I don't know which fits here. It looks like
+you want to configure clock... but then wording confuses me -
+"per-scale". What is "per"? Isn't it usually "pre"?
 
-Hi Tudor,
+So in general I don't know what to recommend you because your patch is
+really unclear.
 
-On Tue, Oct 29, 2024 at 11:36:17AM +0000, Tudor Ambarus wrote:
->=20
->=20
-> On 10/29/24 11:23 AM, Marcus Folkesson wrote:
-> > Add entry for the at25sf321 32Mbit SPI flash.
-> >=20
-> > This flash is populated on a custom board and was tested at
-> > 10MHz frequency using the "ti,da830-spi" SPI controller.
-> >=20
->=20
-> no sfdp for this one?
+Please also wrap emails according to mailing lists standards. And use
+proper line separation of sentences. It's really hard to understand your
+email.
 
-No SFDP for this one!
->=20
-> > Link:
-> > https://www.renesas.com/en/document/dst/at25sf321-datasheet?r=3D1608801
-> >=20
-> > Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> > ---
+> 
+> nuvoton,scanning-period:
+>      type:  uint32
+>      description:  | Set the scan time for each key, specified in terms of keypad IP clock 
+> cycles. The valid range is from 1 to 256.      minimum:  1
+>      maximum:  256 Could you please confirm if this approach aligns with your suggestion,
+>   or if you have any other recommended existing properties?
 
-[...]
-
-> > diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
-> > index 45d1153a04a07b7c61f46b117311b24ab695038f..8285a16b253d54ae8c4a530=
-2850244d2248aa755 100644
-> > --- a/drivers/mtd/spi-nor/atmel.c
-> > +++ b/drivers/mtd/spi-nor/atmel.c
-> > @@ -238,6 +238,11 @@ static const struct flash_info atmel_nor_parts[] =
-=3D {
-> >  		.flags =3D SPI_NOR_HAS_LOCK,
-> >  		.no_sfdp_flags =3D SECT_4K,
-> >  		.fixups =3D &at25fs_nor_fixups
-> > +	}, {
-> > +		.id =3D SNOR_ID(0x1f, 0x87, 0x01),
-> > +		.name =3D "at25sf321",
-> > +		.size =3D SZ_4M,
-> > +		.no_sfdp_flags =3D SECT_4K,
->=20
-> it seems this flash supports dual and quad reads. Do you care to
-> add/test these modes?
->=20
-> you'll need mtd-utils
-
-Sure, not sure how I test it though.
-I've added mtd-utils but I do not see any good parameters to set mode?
-
->=20
-> >  	},
-> >  };
-> > =20
-> >=20
-> > ---
-> > base-commit: 200289db261f0c8131a5756133e9d30966289c3b
-> > change-id: 20241018-spi-nor-dc29698dea0f
-> >=20
-> > Best regards,
+Why this would be board dependent?
 
 Best regards,
-Marcus Folkesson
+Krzysztof
 
---EXAiSf3CKL2XB0RX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmcg4EMACgkQiIBOb1ld
-UjK7+xAAi3KDCD7dHqOtvAx0XfPRzW8vetxcvvhqy0rr9c53CgkPhge8+zhyPe1X
-deoFKEjIzv3K1Rhn3uDD/5JMgr/MoE6ZxRPWBBFyFXkl98QF+mS9aSAUySRqrvLI
-wXMa7Xt02jDF3hJGs9wqM8x9ShH1Eo1lEcIwe9nCOJNi/MmP/w07DFj976MrQB8D
-7bTjM4bTUgdcNJG+LkyfjQJN0kH7Ehx0bEo6AS86vr2jmPtbcV7NqcWTVyxBX7gJ
-2bjMFn+KNaHzQGxuKy2E1wgIdqQcCgLfaZV8+xzOKRaFfDwXZDw78zh4nk1F8Suf
-JposidYMwbkeW3nQM4bmOgfYHOFxwRelc0LJEGTfPBYNi2kpRhmFn/cE/KCAhYRH
-x9xATr8xvR2H6YcjD8hd7cdX2O5MFYAdJUKtfFJqKXS2Zj5fmNhwTOlfpnId62KO
-UzyffU/LuHgQaGhZtBzsPGQUvpzfArK37BuwDvPBkKXbk5t/JWxySMSOFC+rPdmr
-1QB9ovpCrl8He/quaLkJnizyoFWeQ9HeX9kOl7R5c77LtdvAnp6zWUJ0a6Qi8+c9
-JOj2zqr23JJmEL4UVbs/BDjMj9soxUMta8n/tt+yRL8wYWAY7pofaW8Wm778joI6
-2PdfBV8f0dbrRSoadg1QVbx39RZqFFIj1ZhHZ516N5nEpj2c6Z4=
-=Jra2
------END PGP SIGNATURE-----
-
---EXAiSf3CKL2XB0RX--
 
