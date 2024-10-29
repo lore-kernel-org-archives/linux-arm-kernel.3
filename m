@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3E8D2AB3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC78AD5B17B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWBqMCQ9m5dFkIDG+Fxd2ersqB659n0gBI8CFPt58gI=; b=Db2/oRFDhwiB8lfGjXy9GfKSeg
-	tSrB9l7qMe5DomniRcbLKTlGz0xI41ntf4BhNpzxxo4E7+asvSLuUPt6JDvHZWxkxBFWUMHtaovlm
-	f3xYNHZAhTvMVGkZUnEOrZywViKp2l9jok2qYW0159FHMzGTXSUpjJFoW0O96NW3zgwh7jRQD4lhh
-	zFGWQBmor1aYsLrWjVC+nph4qqiU3XchYpR7Mirk/URi2VMCZ1yUQusqji5b3N7Q7kUuMYEJrfdEo
-	+B4RmYev2Z+Qt67sRInCqRIenSsh+82uOlkcJbBihzJVFnWdmN7oTi7VRq1Zg81Rq0fnbgxdeAYz5
-	xetnAGSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ziFFKJSmFcB3C05sWZEvyCxC14a5MIVAY+Wqv2LIRoc=; b=LLorrgjNZrpzHXMF9RsK2vfItj
+	hejXX/dVP5UbaPo7S5sIb0t2C+D2ybc7XUFjjAgRuTeYtuskptBJxpdqp0kwhZeneEItOZ0DmSijW
+	iWChjvTGcfQemneCFApd5lfc5YutfuEQ7wyLCE923zIPlZkIaHN8RW0XqZZjjxdJNHSwxAv7Bqy+Y
+	zcD1foKwUkBVVTetDskOF2L0tSiMreAbs3kcKFUSleDEPqLp9V4hyEK+bsRH/26vTz3Rc9fsErfLe
+	4BaY3nq1gC2kJzUiZDopB8GfDF2h69riSuYJj/yCaf02Itba2pjZtI+rCzL+lvWId/ul+gVzuttls
+	VfSyQzOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5msy-0000000EgEK-1zuQ;
-	Tue, 29 Oct 2024 14:07:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5m9R-0000000EYeF-07kX
+	id 1t5muZ-0000000EgSS-2uk4;
+	Tue, 29 Oct 2024 14:09:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5mE2-0000000EZ8l-1cUW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 13:20:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68AD75C5E3E;
-	Tue, 29 Oct 2024 13:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC2F1C4CECD;
-	Tue, 29 Oct 2024 13:20:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730208048;
-	bh=atIdjrSoz8cQOo8Oh3x41BjnGBTqmvpWtHpYQOqBTIY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=maPSauNb/CNnnievFOAFYOU7f38+08j7hlhokWmUHB9io3DNtx2BMgx4rZ0txddjB
-	 GO8ZTV8Myxrx2wOfS6tluq1+dap7q3kdp9o7AzxslPu8PzWJnGuO7vErF09+/TEoo1
-	 XM23aIbOHbl66pxZKZGD46phpT/55IPOE5AbfNddUd7sWMd1Vf13R04tg2TjkwE9Yb
-	 X9nAvwaG0+niGCVERR8HS2UT9TMxZQLIL9oBm0k6cn4oKl8R0xerfhbm1u5/XPgjM2
-	 yAhn/JrOghfLEPizGb6UQ28HL7Ssbje5uHGypz186z62YAeTi3zJocUTxeNxv8zoXe
-	 Gah5N6nGQt5jg==
-Date: Tue, 29 Oct 2024 13:20:43 +0000
-From: Will Deacon <will@kernel.org>
-To: huanglei <huanglei814@163.com>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, huanglei <huanglei@kylinos.cn>,
-	arnd@arndb.de
-Subject: Re: Re: [PATCH] arm64/Kconfig: introduce GENERIC_ISA_DMA
-Message-ID: <20241029132042.GA4416@willie-the-truck>
-References: <20241025011641.4858-1-huanglei814@163.com>
- <20241028150544.GA2445@willie-the-truck>
- <26ed8fbb.1809.192d5ef13e5.Coremail.huanglei814@163.com>
+	Tue, 29 Oct 2024 13:25:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B296C13D5;
+	Tue, 29 Oct 2024 06:25:59 -0700 (PDT)
+Received: from [10.57.89.81] (unknown [10.57.89.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 715433F528;
+	Tue, 29 Oct 2024 06:25:27 -0700 (PDT)
+Message-ID: <f9a4ead4-b109-4c70-a08d-2e86cfb3fe11@arm.com>
+Date: Tue, 29 Oct 2024 13:25:17 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <26ed8fbb.1809.192d5ef13e5.Coremail.huanglei814@163.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in smmu
+ reset operation
+To: Will Deacon <will@kernel.org>,
+ Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+Cc: robdclark@gmail.com, joro@8bytes.org, jgg@ziepe.ca, jsnitsel@redhat.com,
+ robh@kernel.org, krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+ dmitry.baryshkov@linaro.org, iommu@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@linaro.org>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+ <20241024125241.GD30704@willie-the-truck>
+ <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
+ <20241029124708.GA4241@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241029124708.GA4241@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_062049_136318_5E97374B 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20241029_062534_623578_EBFF6AB6 
+X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +73,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 09:41:08AM +0800, huanglei wrote:
->     Even if MAX_SMA_CANNELS is not defined, as long as GENETIC-SIA_DMA is
->     enabled， request_rma/free_rma  function will also be exported, and
->     other modules using these two interfaces will not encounter link
->     errors.
+On 2024-10-29 12:47 pm, Will Deacon wrote:
+> On Fri, Oct 25, 2024 at 07:51:22PM +0530, Bibek Kumar Patro wrote:
+>>
+>>
+>> On 10/24/2024 6:22 PM, Will Deacon wrote:
+>>> On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
+>>>> Default MMU-500 reset operation disables context caching in
+>>>> prefetch buffer. It is however expected for context banks using
+>>>> the ACTLR register to retain their prefetch value during reset
+>>>> and runtime suspend.
+>>>>
+>>>> Replace default MMU-500 reset operation with Qualcomm specific reset
+>>>> operation which envelope the default reset operation and re-enables
+>>>> context caching in prefetch buffer for Qualcomm SoCs.
+>>>>
+>>>> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+>>>> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+>>>> ---
+>>>>    drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
+>>>>    1 file changed, 42 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>>> index 087fb4f6f4d3..0cb10b354802 100644
+>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>>> @@ -16,6 +16,16 @@
+>>>>
+>>>>    #define QCOM_DUMMY_VAL	-1
+>>>>
+>>>> +/*
+>>>> + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
+>>>> + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
+>>>> + * buffer). The remaining bits are implementation defined and vary across
+>>>> + * SoCs.
+>>>> + */
+>>>> +
+>>>> +#define CPRE			(1 << 1)
+>>>> +#define CMTLB			(1 << 0)
+>>>> +
+>>>>    static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>>>>    {
+>>>>    	return container_of(smmu, struct qcom_smmu, smmu);
+>>>> @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
+>>>>    	return match ? IOMMU_DOMAIN_IDENTITY : 0;
+>>>>    }
+>>>>
+>>>> +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
+>>>> +{
+>>>> +	int ret;
+>>>> +	u32 val;
+>>>> +	int i;
+>>>> +
+>>>> +	ret = arm_mmu500_reset(smmu);
+>>>> +	if (ret)
+>>>> +		return ret;
+>>>> +
+>>>> +	/*
+>>>> +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
+>>>> +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
+>>>> +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
+>>>> +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
+>>>> +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
+>>>> +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
+>>>> +	 * during reset and runtime suspend operations.
+>>>> +	 */
+>>>> +
+>>>> +	for (i = 0; i < smmu->num_context_banks; ++i) {
+>>>> +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
+>>>> +		val |= CPRE;
+>>>> +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
+>>>> +	}
+>>>
+>>> If CPRE only needs to be disabled prior to r2p2, then please teach the
+>>> MMU-500 code about that instead of adding qualcomm-specific logic here.
+>>>
+>>
+>> Doing this on MMU-500 code would make it generic and reflect for SoC of all
+>> the vendors on this platform.
+>> We can make sure that it won't cause any problems in Qualcomm SoCs as we
+>> have been enabling this since for some years now and could not
+>> observe/reproduce any issues around these errata.
 > 
->     I don't know why others haven't noticed, but I discovered it when
->     debugging pcie parallel port drivers.  And the arm/Kconfig  has been
->     around for a long time.
+> Unless you can explain definitively hy that's the case, I still don't
+> think we should be second-guessing the core SMMU driver code in the
+> Qualcomm backend.
 
-Please try to avoid top-posting in replies, as it makes the conversation
-very hard to follow.
+Of the still-open errata, #562869 could be safely mitigated by nobbling 
+ARM_SMMU_FEAT_FMT_AARCH32_S, but #1047329 is the one which worries me, 
+since even if we don't support nesting within Linux, I'm wary of the 
+firmware hypervisor sticking its own S2 under any S1 context we set up. 
+I guess we could try the alternate SMMU_ACR.IPA2PA_CEN workaround for 
+that, however it's not obvious that the performance impact in that case 
+wouldn't be worse than whatever benefit may be gained from keeping CPRE.
 
-> At 2024-10-28 22:05:45, "Will Deacon" <will@kernel.org> wrote:
-> >On Fri, Oct 25, 2024 at 09:16:41AM +0800, huanglei814 wrote:
-> >> From: huanglei <huanglei@kylinos.cn>
-> >> 
-> >> Enable GENERIC_ISA_DMA feature on arm64 platform,
-> >> thus, request_dma and free_dma interface can be export.
-> >> and driver modules can use the this interfaces on arm64
-> >> platform.
-> >> 
-> >> Currently, many pcie parallel port drivers still use these
-> >> interfaces when ported to arm64 platform.
-> >
-> >Why has it taken so long for anybody to notice?
-> >
-> >> Signed-off-by: huanglei <huanglei@kylinos.cn>
-> >> ---
-> >>  arch/arm64/Kconfig | 3 +++
-> >>  1 file changed, 3 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> >> index fd9df6dcc593..986eb251f68f 100644
-> >> --- a/arch/arm64/Kconfig
-> >> +++ b/arch/arm64/Kconfig
-> >> @@ -367,6 +367,9 @@ config GENERIC_CSUM
-> >>  config GENERIC_CALIBRATE_DELAY
-> >>  	def_bool y
-> >>  
-> >> +config GENERIC_ISA_DMA
-> >> +	def_bool y
-> >> +
-> >
-> > Does this actually do anything without MAX_DMA_CHANNELS defined?
->
->     Even if MAX_SMA_CANNELS is not defined, as long as GENETIC-SIA_DMA is
->     enabled， request_rma/free_rma  function will also be exported, and
->     other modules using these two interfaces will not encounter link
->     errors.
+Thanks,
+Robin.
 
-Do the drivers do anything useful after they've linked? Can you please
-provide some in-tree examples of drivers that can be used on arm64 only
-once GENERIC_ISA_DMA is selected? If they just need some stubs for
-request_dma() and free_dma(), then it feels to me like that should be
-the default implementation, rather than having to select something to
-get them.
+>> But we won't be able to guarantee the same behavior in SoC for other vendors
+>> where these errata might still be applicable as per [1] and [2].
+>> So as per my understanding it's safe to include in Qualcomm specific
+>> implementation and not changing the default behavior in all other vendors'
+>> SoC even if they are not prior to r2p2 revision [3].
+> 
+> If you want to gate the errata workarounds on policy, then please follow
+> what we do for the CPU: add a Kconfig option (e.g.
+> ARM_SMMU_WORKAROUND_BROKEN_CPRE) which defaults to "on" (assuming that
+> the relevant errata aren't all "rare") and update silicon-errata.rst
+> accordingly.
+> 
+> Then you can choose to disable them in your .config if you're happy to
+> pick up the pieces.
+> 
+> As an aside, I'm happy with the rest of the series now.
+> 
+> Will
 
-Will
 
