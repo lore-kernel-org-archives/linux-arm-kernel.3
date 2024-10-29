@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C89D2AB15
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B576CD2AB15
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UiZ7/G9UNkzspOjV6MuvUoqfRxBzDKu6uAviqklHEbU=; b=5FFBQZafMbGYnsFHGNKoXy0rxp
-	F9J1bBr49nHR+j3o9pwrC8g36cpI1JkpGsmSoa+FMQUf7lQ1wTl3suT1zIEaPhW3vV+rZbkNGJtb6
-	aRaVtKckSjAUGT+vUHRVvCC6PJNYZC9bAnMiserFeJj/btmBs7vGfP15Vawm/huV+MfSQibSG+D29
-	Ma7tAUS+Mq814vRUsgUJUvt9C7belWen7OGBcB8tOXFK9QWaHEb3P5G3SkOOqqaWz8w+luPMJj1MB
-	Bcknv5LB5iaAzdZusXbexZxCs4qMlpjpBPUNB7Ixv//L3jQ1L1y26JCqHVT8ZVAgGONnRZnY3aexe
-	dgEz9Azg==;
+	bh=qJYzgv7BpNS3X0anslX6neWR7MP+bzIdFazI1EGhk+Y=; b=sRDO8smZr8l4Fi1gADyDK1Pt7E
+	o9kuCFwvK04L67VqsxG1LNoI68Fh7dcxa2/czN7I0T8lZTMbOm2MoAnU6AgTVUzBZY+ggrYT0IPKT
+	/vgufx2l8nKjDebSRUyUyKaDIzbbex+bkhlPYO7zDMEQsEwuVidITleZdwVqwcv7DrZFSMq17b4eE
+	4Vb09wxdJjJpQ/FW4zxkZhCa6D6KFDW91YPRsjxLwfORHULE2Vle5Dc64+fGwo7/v68I2vVjimHH0
+	l3dEpLVWJ3xA9OOqm/p2AvNFJWA+paW4lgTdqxCiDlzCrSgJCO+9QBaI4L24SUl6lHi68OS5bIb2v
+	euMzqbhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5tGE-0000000FtH1-3dOU;
-	Tue, 29 Oct 2024 20:56:18 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1t5tHp-0000000FtVu-4BHD;
+	Tue, 29 Oct 2024 20:57:58 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5slN-0000000FlIb-0pqs
+	id 1t5slP-0000000FlJX-3mqy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 20:24:27 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-37d4ee8d15aso611396f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:24:25 -0700 (PDT)
+	Tue, 29 Oct 2024 20:24:29 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43155a6c3a6so7119055e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:24:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730233464; x=1730838264; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730233465; x=1730838265; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UiZ7/G9UNkzspOjV6MuvUoqfRxBzDKu6uAviqklHEbU=;
-        b=DOaLBoBqQDwm5zynJLjCBv25qRkZkgggixCqkqo5FiwUXX7qcbpqeZsqU4AoNvBwbo
-         UwkAzVEpBiDxlDDJltI8QIkzbO4Q4T510/o1Y6jKqJlNHor8pac3awytOx7KiTcJsLQ/
-         n0B9JP2W45KxAooHCB5S3ZoCrSU6J0YwPZm30AyTFo1eExVbLRuT8aHOMerX+vVDZyUE
-         yQ/twemOw/cuI6LHG5ewBQnRYoELAjpTEfcr+4ZXi07OPFLXv0KF6fdfYms14xIJNtWo
-         i8TayUAIboJ/oEIY7NbPhctCHSHWOKx9dyBHaecN2/3JGIee6j39Rq0ouOEJlSj9lzOq
-         fDmQ==
+        bh=qJYzgv7BpNS3X0anslX6neWR7MP+bzIdFazI1EGhk+Y=;
+        b=lKrkM9ZTUPivFhdAu1dvkZa18+v/zw3wDC30HeuVs5ew5uamobw+IQbKUUegPA/gDa
+         k9jFkds/VbSTUz/9Vg2qoHWZyCv7G5rzZhD1F+3XAVEWUSH4IT6GcBy+SHelqWSozMrB
+         K9QJIrQRjU2Usu+MoRu+/IJU9UWx+KtUaBWITInKSA4bWumQavegSgkehPX47UKyD73u
+         IseRjQELKEfov6L/bFfQlSoMFoUmIzo1CbVhatq/kZ+sIIWkSCzuRsp4S49Uw/Tcdw2a
+         dUQB+flpxOSNgTZyPtqqWkMCEsuJWxcvRNRggpslqDA85xWWydHtgTmJ75nEta6lWX5m
+         0tNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730233464; x=1730838264;
+        d=1e100.net; s=20230601; t=1730233465; x=1730838265;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UiZ7/G9UNkzspOjV6MuvUoqfRxBzDKu6uAviqklHEbU=;
-        b=pTQKPQMsmnGt6byu7w/QJPBJgBz/xEP6fhAQn28iwl4iyS/8/KB409uGBj6HhLm9vo
-         qRuDz+WlP0pP+zbGLrNV+S6N12p3eHzylw8zz7rM01E/e0ltiCx/KAiZcHNTFShRp3i1
-         duvKwI/0cn0ncGEoUgyLX1WybCwvB//VNTrEUxHh+QNgjIFniZ0OMYh2Z8GPVf19MApu
-         uVfs/4NePTSwv85vgqllACcsfS5olzTTA+iYePaDBLiz71wknbvg9ldn3n/miQy6BbaG
-         1eUQ8JgTs00bbkF3AgiO44tB060M1EUBnBVUZwvie4FNRuf+aLQ8xdmQaEGNKS0Iv/ik
-         0Z/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWvr3MB8j6oMno+GNgRZOySjJT0GvPSA3bRJOB1LcI0RCxRn43V+5NUMTL0/00KHOcstBE6Hj6eyiV14/KltnA6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJM1XD5c0TtA+ws2GT5UMSFBEJG95G/fXrYwx8jX6P5UL7ad85
-	e5dAkIl3SuDy4Mwb2CuxDH/VBtQgMYzPGCqPEAuv+mcARh3N7fBy
-X-Google-Smtp-Source: AGHT+IHyg5QfVoIB0g8cY8WdGJ+yLFIaLjBBCklyUO2y4aO27Z1LJKejcrpTkw72xrOIrnw0gtfwbg==
-X-Received: by 2002:a05:6000:184e:b0:37c:d0d6:ab1a with SMTP id ffacd0b85a97d-3806121f5ebmr4369116f8f.12.1730233463587;
-        Tue, 29 Oct 2024 13:24:23 -0700 (PDT)
+        bh=qJYzgv7BpNS3X0anslX6neWR7MP+bzIdFazI1EGhk+Y=;
+        b=EmYmWPUbswYyKymkiLL0ZCMeicTHSWM59xlCdrwO0WdYq9b98lHv6nL0TKLraBxieY
+         j1dICQm8KE1lH4o/UpFnEqUBC7/tlXXBj4HMS7T9jMXRNfUC61Rw4Wzpg3eRg2qxmLvK
+         /XtyNUVlZOIsFk72Ea5WBKdtyaDjRC4Q+xRLrrFJqPAmw91qoZYfqgP54v9LQajq+89G
+         ZAO7Gn1u9IuBs387UqAXfmgyDG72qqrFHpatniKYu/a+xUdaBMWq6e09qeCpsBXbpbJk
+         9ya7e8g1n7qi5WDMaEaA+t/s/fa1ShBCy8YQrzp9yjp8G7H8kWjf5+4c6kpym7w1you2
+         BMXg==
+X-Forwarded-Encrypted: i=1; AJvYcCVd6cNooqKFSLNbeEBkYDRlXxKSnaxg3i/Gbxto9p+fWjZfUjnFQzzH4pdhTOtvYygyeXtHvOFZxnNIXBWKoIg0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8KS3UuzetNhptqMcSPqZK2wNdqsM91ThtFHt0MPZChTXvMm/L
+	qgmej90oTNB8eCPlxYg7A3pzmZds+MXFqmgJQE9CnyM8yPUAXNvl
+X-Google-Smtp-Source: AGHT+IGRmWtXkT5jAPAXRCxV+0flfcZw0XykWsjSo1z4+Tq4K4M0238SRmf//mWNOkIOSWwEX17Vsg==
+X-Received: by 2002:a05:600c:190a:b0:431:4e73:a515 with SMTP id 5b1f17b1804b1-4319ac9ad38mr47697085e9.3.1730233465129;
+        Tue, 29 Oct 2024 13:24:25 -0700 (PDT)
 Received: from 6c1d2e1f4cf4.v.cablecom.net (84-72-156-211.dclient.hispeed.ch. [84.72.156.211])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bf85sm13619976f8f.42.2024.10.29.13.24.22
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bf85sm13619976f8f.42.2024.10.29.13.24.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 13:24:23 -0700 (PDT)
+        Tue, 29 Oct 2024 13:24:24 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -83,20 +83,18 @@ Cc: conor+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	l.rubusch@gmail.com,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 18/23] dt-bindings: altera: add binding for Mercury+ SA2
-Date: Tue, 29 Oct 2024 20:23:44 +0000
-Message-Id: <20241029202349.69442-19-l.rubusch@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 19/23] ARM: dts: socfpga: add Mercury AA1 combinations
+Date: Tue, 29 Oct 2024 20:23:45 +0000
+Message-Id: <20241029202349.69442-20-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241029202349.69442-1-l.rubusch@gmail.com>
 References: <20241029202349.69442-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_132425_285727_2B0C1C1B 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_132427_970062_4D970115 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,35 +109,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the device-tree binding for the Enclustra Mercury+ SA2 SoM.
+Introduce support for Enclustra's Mercury+ AA1 SoM, based on Intel
+Arria10. This is a flexible approach to allow for combining SoM
+with carrier board .dtsi and boot-mode .dtsi in a device-tree file.
 
+Signed-off-by: Andreas Buerkler <andreas.buerkler@enclustra.com>
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/arm/altera.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../socfpga/socfpga_arria10_mercury_aa1.dtsi  | 141 +++++++++++++++---
+ 1 file changed, 120 insertions(+), 21 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/altera.yaml b/Documentation/devicetree/bindings/arm/altera.yaml
-index 87a22d2a4..31af6859d 100644
---- a/Documentation/devicetree/bindings/arm/altera.yaml
-+++ b/Documentation/devicetree/bindings/arm/altera.yaml
-@@ -61,6 +61,16 @@ properties:
-           - const: altr,socfpga-cyclone5
-           - const: altr,socfpga
+diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1.dtsi b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1.dtsi
+index 41f865c8c..41351d58f 100644
+--- a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1.dtsi
++++ b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1.dtsi
+@@ -7,12 +7,14 @@
  
-+      - description: Mercury+ SA2 boards
-+        items:
-+          - enum:
-+              - enclustra,mercury-sa2-pe1
-+              - enclustra,mercury-sa2-pe3
-+              - enclustra,mercury-sa2-st1
-+          - const: enclustra,mercury-sa2
-+          - const: altr,socfpga-cyclone5
-+          - const: altr,socfpga
+ / {
+ 
+-	model = "Enclustra Mercury AA1";
+-	compatible = "enclustra,mercury-aa1", "altr,socfpga-arria10", "altr,socfpga";
++	model = "Enclustra Mercury+ AA1";
++	compatible = "enclustra,mercury-aa1",
++		     "altr,socfpga-arria10", "altr,socfpga";
+ 
+ 	aliases {
+ 		ethernet0 = &gmac0;
+ 		serial1 = &uart1;
++		spi0 = &qspi;
+ 	};
+ 
+ 	memory@0 {
+@@ -24,52 +26,102 @@ memory@0 {
+ 	chosen {
+ 		stdout-path = "serial1:115200n8";
+ 	};
 +
-       - description: Stratix 10 boards
-         items:
-           - enum:
++	/* Adjusted the i2c labels to use generic base-board dtsi files for
++	 * Enclustra Arria10 and Cyclone5 SoMs.
++	 *
++	 * The set of i2c0 and i2c1 labels defined in socfpga_cyclone5.dtsi and in
++	 * socfpga_arria10.dtsi do not allow for using the same base-board .dtsi
++	 * fragments. Thus define generic labels here to match the correct i2c
++	 * bus in a generic base-board .dtsi file.
++	 */
++	soc {
++		i2c_encl: i2c@ffc02300 {
++		};
++		i2c_encl_fpga: i2c@ffc02200 {
++		};
++	};
++};
++
++&i2c_encl {
++	status = "okay";
++	i2c-sda-hold-time-ns = <300>;
++	clock-frequency = <100000>;
++
++	atsha204a: crypto@64 {
++		compatible = "atmel,atsha204a";
++		reg = <0x64>;
++	};
++
++	isl12022: rtc@6f {
++		compatible = "isil,isl12022";
++		reg = <0x6f>;
++	};
++};
++
++&i2c_encl_fpga {
++	i2c-sda-hold-time-ns = <300>;
++	status = "disabled";
+ };
+ 
+ &gmac0 {
++	status = "okay";
+ 	phy-mode = "rgmii";
+ 	phy-addr = <0xffffffff>; /* probe for phy addr */
+-
+ 	max-frame-size = <3800>;
+-
+ 	phy-handle = <&phy3>;
+ 
++	/delete-property/ mac-address;
++
+ 	mdio {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 		compatible = "snps,dwmac-mdio";
+ 		phy3: ethernet-phy@3 {
+-			txd0-skew-ps = <0>; /* -420ps */
+-			txd1-skew-ps = <0>; /* -420ps */
+-			txd2-skew-ps = <0>; /* -420ps */
+-			txd3-skew-ps = <0>; /* -420ps */
++			reg = <3>;
++
++			/* Add 2ns RX clock delay (1.2ns + 0.78ns)*/
++			rxc-skew-ps = <1680>; /* 780ps */
+ 			rxd0-skew-ps = <420>; /* 0ps */
+ 			rxd1-skew-ps = <420>; /* 0ps */
+ 			rxd2-skew-ps = <420>; /* 0ps */
+ 			rxd3-skew-ps = <420>; /* 0ps */
+-			txen-skew-ps = <0>; /* -420ps */
+-			txc-skew-ps = <1860>; /* 960ps */
+ 			rxdv-skew-ps = <420>; /* 0ps */
+-			rxc-skew-ps = <1680>; /* 780ps */
+-			reg = <3>;
++
++			/* Add 1.38ns TX clock delay (0.96ns + 0.42ns)*/
++			txc-skew-ps = <1860>; /* 960ps */
++			txd0-skew-ps = <0>; /* -420ps */
++			txd1-skew-ps = <0>; /* -420ps */
++			txd2-skew-ps = <0>; /* -420ps */
++			txd3-skew-ps = <0>; /* -420ps */
++			txen-skew-ps = <0>; /* -420ps */
+ 		};
+ 	};
+ };
+ 
+-&i2c1 {
+-	atsha204a: crypto@64 {
+-		compatible = "atmel,atsha204a";
+-		reg = <0x64>;
+-	};
++&gpio0 {
++	status = "okay";
++};
+ 
+-	isl12022: isl12022@6f {
+-		compatible = "isil,isl12022";
+-		reg = <0x6f>;
+-	};
++&gpio1 {
++	status = "okay";
++};
++
++&gpio2 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "disabled";
++};
++
++&uart1 {
++	status = "okay";
+ };
+ 
+ /* Following mappings are taken from arria10 socdk dts */
+ &mmc {
++	status = "okay";
+ 	cap-sd-highspeed;
+ 	broken-cd;
+ 	bus-width = <4>;
+@@ -79,3 +131,50 @@ &mmc {
+ &osc1 {
+ 	clock-frequency = <33330000>;
+ };
++
++&eccmgr {
++	sdmmca-ecc@ff8c2c00 {
++		compatible = "altr,socfpga-sdmmc-ecc";
++		reg = <0xff8c2c00 0x400>;
++		altr,ecc-parent = <&mmc>;
++		interrupts = <15 IRQ_TYPE_LEVEL_HIGH>,
++					 <47 IRQ_TYPE_LEVEL_HIGH>,
++					 <16 IRQ_TYPE_LEVEL_HIGH>,
++					 <48 IRQ_TYPE_LEVEL_HIGH>;
++	};
++};
++
++&qspi {
++	status = "okay";
++	flash0: flash@0 {
++		u-boot,dm-pre-reloc;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "spansion,s25fl512s", "jedec,spi-nor";
++		reg = <0>;
++
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++		spi-max-frequency = <10000000>;
++
++		cdns,read-delay = <4>;
++		cdns,tshsl-ns = <50>;
++		cdns,tsd2d-ns = <50>;
++		cdns,tchsh-ns = <4>;
++		cdns,tslch-ns = <4>;
++
++		partition@raw {
++			label = "Flash Raw";
++			reg = <0x0 0x4000000>;
++		};
++	};
++};
++
++&watchdog1 {
++	status = "disabled";
++};
++
++&usb0 {
++	status = "okay";
++	dr_mode = "host";
++};
 -- 
 2.25.1
 
