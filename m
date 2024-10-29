@@ -4,166 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9B6D5B865
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527BCD5B861
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PSa54xpnJ+mlsnNpC5C5t5SM4FmtLBbdWL7coCbHYE=; b=AYnQ1ujQiHCirigARNT3+BDyuV
-	Yl3kaIP49rrxl/pmmYkMysIV2cu9Yas9KrTD0r5xmXmhg3KFvlKaj+PYk4hnTIfdX2PZXOGW8BKP8
-	kQ8wggAK8yiCIXJR4Ht7cmD/A1q8uQJ/ARQUXPGSk/TaOE8CNDxZJUQkNL1QrdlbnmFM9sb+DndRc
-	j8xigYfr6JMh9H7OuLN2utYkqSdrDGoXf18A8svpLLE7jkqAyXLknunJD2a1I0OO3ep0/Ih7ojNTU
-	N/hwnFz/UC/uhizU49hfCAofoQu0lPFBf1gCjRTgVc8PbZ6BWbX6x0V71xVTaZ9QOYiefkGUNSrer
-	iT/c3yaQ==;
+	bh=Qt53l+pja8ONBaITY56BmrjpC2bEhHrO+ohjtBHj8cQ=; b=yFdCTpkpOkc5j85fzeTPT1S9l3
+	sim+rM7ihxCfZDsI3eeWuGZ/KMxppdDSLA0HbWR6fYWuGkdWnZcXzrnOOgsOUpHoJ9yQDfs2hWR0s
+	/1C0wrPHXYNAn8Mnx3VeeF1RZJMl5x9tZYATlYntMNP5qiUwY0oSrMGCG9ZYeWeLA4aykc2S+v8yV
+	86/3SU4t6quys2qDLgOVHMfkKMqzQgwetnVDPT8Rujc5dDAXZf0b0+LGqOLg1PQPJmT7kdMyFTrS2
+	mAy5L8NXrmtzsiI6HQ4ADf3GNocdboRw2uZLzjEGXPghJOYql7w7+BSgEm+jgGVM1ybrYs+fKxP5I
+	ogwaZa8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5btN-0000000CxkX-2vKc;
-	Tue, 29 Oct 2024 02:23:33 +0000
-Received: from mail-vi1eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2613::630] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t5bzp-0000000CyVy-2378;
+	Tue, 29 Oct 2024 02:30:13 +0000
+Received: from mail-mw2nam10on20718.outbound.protection.outlook.com ([2a01:111:f403:2412::718] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5brl-0000000Cxc3-0fEh
+	id 1t5byC-0000000CyIY-0jx3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 02:21:54 +0000
+	Tue, 29 Oct 2024 02:28:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TcW7YBPcdqbeTB5+pBP3dZ428MaxjwdwWcbXEDj2VoViJ0LNAAVQY/gzKJpKMFi94BjsU+ai3elDgUBINgP/pbvN64cWuSo6QqDXv/uaXGaCUef4+rzlHB85gH4D/SODfzRrgLEZUOlX0enRvZuiwBL458NCljwmF8mKL4D8mohpqYNs9V193aGCcoSZgQXfurjOiqb43GEgPR/ByS2TF6T2R4G+4rfr/13E9OZmkcDAPwG/vIAbEYnGkVb1T85zCU5kJOa8543Q2HFz1iLF0wbYyfCSK1HpkmaC7LhLjp23s3S+Bt0oveHhfjA+gVrARs26v8nhn4i4mZGtp0wa9g==
+ b=okT5zM91ETUdO4NZQ181tSGzgwpZFitOk1NW4Dfja6gAgWocXm2Yifyovg2+U35OVbnAgqFmu9gx8h3lhrMKMv1WuvLQP9E17pIRpupP+5bbMiOk2N2lMVBxdLAc8ElLtIt/lCu6tnPFjXXHXHso2BgxPwRrkWLauhTG0GkaHJHecSppOEt6LW0eAjMyAu0C4Cw8VhM1O7MszeNPPW/Ke6FdxkTk/O6FBdh46TsndxzG3sa+NcU6JqSv/DEYDyqsJOj/z4yBshfEeq3eXmrfWO3HnjxjzQkZee3xOB/H/BrXbM27PguetPNcmGET7X7Qcumez6SCBMM0JYfYodR/eQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/PSa54xpnJ+mlsnNpC5C5t5SM4FmtLBbdWL7coCbHYE=;
- b=V/DO1rwBNtX5+k+SFj0kc4aiCf4K/aJwx7+z0Fc7OvbrNLi4HDg6mbkolGd3ALhLu+9jDw1hj84u3UsrlPRQlEnLNmjXVsMQK4qt/pgv6WdbLj1W11AtQ4Imt/Nwln1qtRS4lhyNJqCHK0E3Pa2lOPrWfDjEcrg6SJzXzU7XOLIOgRRdWd7aW/l+pb9mA4OMqhaRncqlHihhIGh5PuWKhrQ1xOSf1+427tcqXGfpTOc6BWWCEL71NXLceNSkyhCsbQE9ByNV+HtV81IlW0UjIO3YkxhBMCEXuoqhrlaWSn+cxCifdpMsYIIYOrRrqQzdyrQ6Dd/Y15kKLD69qdDqBQ==
+ bh=Qt53l+pja8ONBaITY56BmrjpC2bEhHrO+ohjtBHj8cQ=;
+ b=RsZ0LSMe5mNbudLT/YLX5QR8AHSFOUSxbYPeatv/i4lllBSNk9Sz5B/3DKxiF50X7B6XkuzyWg4yRfHy/3WJy2hCKy2IesC64GxrlMPj2o6qB800XlKkscirXs1EeDh4oK1znO2wtGcIxYJJ7mV1w94hwXVeQuZqeoCZSVXvygaBPRz9tgAbXj+oomVVGhNYWKfMjIxZ1uyycRTb+ZY6VkC5UaHbiZvaRweY3q0BvA1MWK9f8+xjT4n/j1rGhqJMS614U6Jv7diN5ZgHIsJ+CHVN97QkRIg/FYCjO4eY70MOXjTwaPltJxtWkE6DsHHEXyhWa8kNUT4s4AJ2pf0Dkw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/PSa54xpnJ+mlsnNpC5C5t5SM4FmtLBbdWL7coCbHYE=;
- b=wIFwkg/64XndegEIReX8CnKuFuqLxH/YislAsPj1hCXP7KoA+mHDc/1C4J+axE0lESHJAVH1Jj4NqArMkQn2EIz8yRvUb6HD3V7UPHsG29RyrwyDnM4zdB/0u8CzovmAaZczH5aGzlwjqdUgjRDTrEVFKaSeVbPoTcW3yzNq/ZYMXjFblT+nxMD2vre94qugAgi2cBTdo8A+Oo7lG7/eB0AvCf3wrxTrtvfM2fYHlvEsYzEmfyAQb6xI7sTEZFl5JD/+m6dzQPqQGHkkPvLo6F3S2F+tDcRg23e2d+n5I8EFDKqrAnMKAaOzwcoYXBT9xt/LikSwbJDp5MG9N7gDfg==
+ bh=Qt53l+pja8ONBaITY56BmrjpC2bEhHrO+ohjtBHj8cQ=;
+ b=LU6ilx61+vu+Hng6YzWO7FUwFulN4r6R41TPUEKBmjGwWjP9vLqSAgcEXM92QOv9bxkT8oFS2VJwXKyVruQkpPXUUXLX3tzCOfmSU6aUpzeVZEXX+5gHNl0xWuwJghIizep1K8HX6DGr/VNB03Z2IA6hFCYgZjpIM1qiCRc/Trs=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by GV1PR04MB10194.eurprd04.prod.outlook.com (2603:10a6:150:1ac::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
- 2024 02:21:39 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%3]) with mapi id 15.20.8093.024; Tue, 29 Oct 2024
- 02:21:39 +0000
-Message-ID: <61ee3f1a-640f-45e6-8c38-197d2234d7cb@oss.nxp.com>
-Date: Tue, 29 Oct 2024 10:21:28 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v3 0/4] Add video encoder ROI ctrls
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Ming Qian <ming.qian@nxp.com>,
- mchehab@kernel.org
-Cc: yunkec@google.com, nicolas@ndufresne.ca, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- xiahong.bao@nxp.com, ming.zhou@nxp.com, eagle.zhou@nxp.com,
- tao.jiang_2@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20241022084040.3390878-1-ming.qian@nxp.com>
- <6b8004e2-57df-4760-a59d-77a712e9ca4d@xs4all.nl>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <6b8004e2-57df-4760-a59d-77a712e9ca4d@xs4all.nl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0052.apcprd02.prod.outlook.com
- (2603:1096:4:196::18) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ LV3PR01MB8676.prod.exchangelabs.com (2603:10b6:408:1b4::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.15; Tue, 29 Oct 2024 02:28:25 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8114.015; Tue, 29 Oct 2024
+ 02:28:25 +0000
+Date: Mon, 28 Oct 2024 19:28:19 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Leo Yan <leo.yan@arm.com>
+cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
+    Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+    Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+    Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+    Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+    Adrian Hunter <adrian.hunter@intel.com>, 
+    "Liang, Kan" <kan.liang@linux.intel.com>, 
+    John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+    James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+    Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
+ AmpereOne
+In-Reply-To: <20241025144303.GC359792@e132581.arm.com>
+Message-ID: <5929238-399a-b4d-3b8a-2f5b8b7a473@os.amperecomputing.com>
+References: <20241024233035.7979-1-ilkka@os.amperecomputing.com> <20241025144303.GC359792@e132581.arm.com>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+X-ClientProxiedBy: CYZPR14CA0034.namprd14.prod.outlook.com
+ (2603:10b6:930:a0::19) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|GV1PR04MB10194:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24b05fca-fc82-4b38-a065-08dcf7c06bbc
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|LV3PR01MB8676:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d0423ad-4b35-4def-cf49-08dcf7c15da3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SE5uZkZhUHBXSFdqc3o4RXpZOHB2Z1FVZUdJL1dSd3ZaWHhXaFl1cjd5dVV5?=
- =?utf-8?B?M2dPZ1I0R280QUN5NU13RFhwSHRzeEY4ZzFxd0M4bW9DLzRLemdENVpLUzQ0?=
- =?utf-8?B?R2pqZzQ0Uk1XdGJCcEJFdW85TkpNRjFIdXpPR3EzSkJMcGlBeUdxbUJ2ZUhK?=
- =?utf-8?B?ZFNhakZKL1ZpK3Z5bzBHNWxOK2NLck1WRFNuUGQreTBMS2ZNcXVJaTBrTUQ4?=
- =?utf-8?B?MElDSXdBdU05NWszRjhRbE9sUzNnUFdmNXg5aERtMHhNSjdpWEZZWjNGZHQ0?=
- =?utf-8?B?SEdKUHNaYkhjMytHK3FkSDZ3ZzhRZW9PdG9FRmJ6T1hBeGhOSmcrOEllSjF2?=
- =?utf-8?B?NThONXJiaStnY0lxQnp2U2d5NGd1Q3JZZGJ1QlNGZGhzV3lrbHNMVVptSEJM?=
- =?utf-8?B?clJRUEFld0FudjBXMTA4Wk5wWFV4aWtUL1N5ZGJ6VzBRT1NXZkVoMTBTQ2JM?=
- =?utf-8?B?R05QTmk3NEpIRXBJQjhLbVk2VDNzY2NEOXA3R3BtVTFsZWxWRFYzTVE4eTZ5?=
- =?utf-8?B?MXpobkt2TjZlL00yQ0lTYmRIM2Y1RXNiMG9qNjFZM3BoRGx0SFZvei9qTy8w?=
- =?utf-8?B?Y1JBRkxQcG1FdElnNmwzQ2VnQUE4ZFZ5elZnS0VCVXRvK0RUZ2I5ZU9ZdGxR?=
- =?utf-8?B?c1BySjU0UkZ0WGVlOXErWTl2ckQrMWsxa3ZHa2dVOXBpUnJSS0xsRk1qZWhY?=
- =?utf-8?B?RnpOVGxuZVpLOTN1QmFKbmFNck9LZzZZUGZWNjJtTXJnQXB2ZXhhcGRYamdk?=
- =?utf-8?B?dTY1Z2RnK0JIaHFCVTBtVSt6MmlUd1R5ZUt2S2lseEZBV2xPeEt2NnQycFVU?=
- =?utf-8?B?NUN0Rlo4aFJlRDMrUHc2N1Bybmd4U01JNzBVdEFHTXVkSVpQeldCNHV5RTFj?=
- =?utf-8?B?V2JMZGJCMVBaeEFkZ3d5dk5CaHJ0Ykk1REt6cW9jb1ljVW4zYmswTGp1ZklZ?=
- =?utf-8?B?b0s4WnVsbzBMK2xMbWVTck9UQTZ0aGFxWllwelpGcnNqMEpUL0JrcGp1Y2c5?=
- =?utf-8?B?UUYwTVNmZ3lGK1dPRTZ6bGJXSEF6TDA2NDNtN05rWXVrbGt0Uld6VDNwV09p?=
- =?utf-8?B?eTF3K0J6cldmL2Nua1pWNkJpT3lLcDF4UkFjNUF1WkpnUUNMSlEwaHdMcy9q?=
- =?utf-8?B?LzRJdVVESTJkbmlHNnNnOGVXWnBONnd3YXA1OGNnOGdaK1R5M2FkekwrRXpv?=
- =?utf-8?B?R2lIaXc1Y2JBb3JQOGs0YkY2WFhSOFpwRTZoaTcrVkdOODIrWmF2dmtzYTRH?=
- =?utf-8?B?aEh3TWZkUzRtbDJCNEdJSy9Ha2MwYktJeVhPaFdVQjI2a21Jc29qYXByU044?=
- =?utf-8?B?RVZUUjNpc3FraStFd0Z3VWlLcHpocCt2aGdZUlhrVUVZTlBya0xRdGp4alFP?=
- =?utf-8?B?azExMmhYOWkvUk9sc3hHdk81UkJySGJWYklKVHIzdXo5VnBQUkxIUlJZaSsx?=
- =?utf-8?B?SFlUL3lwWlhtcFFMQlhtYjk4eGl1MkpydXJSTG8rMWJ5OTAvSFpmdXlmSUh2?=
- =?utf-8?B?dlpuN0k4bXJWOHNZV1grUGFRZ2R0YjFxc09EWmc0ZTRaVXRrRnlXOWM4ekZy?=
- =?utf-8?B?WCtURHhDVkVhZ3ZzOU5uUnRFemFNS2NNY3o3cjJTM1Jna3FYWWgxUHN6eHVW?=
- =?utf-8?B?RktuZEdRSWNkdGdrcEZPbkJYR2pQNjhQVHhwcnBwenZXUGgybS93aURsTlJ6?=
- =?utf-8?B?VHRQNE9ISTNhSkFZeTBPN1ZobHVxMUdxSEE4NEc3TGZIMk1oaGZqVGtWak5S?=
- =?utf-8?Q?cVmzEQPvNiFZ5X20Wy9v+MW8SNalnw7Xyt7AyMU?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qNQSNk3YydIw9GqPdCcwzW7TvpOcSl3LnE3yiqIAn8RXNVae0GXLJVaS5omX?=
+ =?us-ascii?Q?HgpTkB1VW7U1kJDqLvJmROpk5UCFevx8PpH1F9sFIhSpD4lJPZwbb9yeahOJ?=
+ =?us-ascii?Q?9NlG6jdwC1BnRT2JLfme35D7d/nxvfxfBzPJcCpKHju8kbLAXZy9OaaJSmvT?=
+ =?us-ascii?Q?cxxj7l2/18XqVtHcZ1yUShcPLcj4niT6UUfW7EhnVf/mnKW8/wU8x+blmvaS?=
+ =?us-ascii?Q?ieqiXEyyBUVNU5cv3ewBkZnwXYTKYsXcmSs5IZDZEA1vOUgUKxZkJFEJtcKT?=
+ =?us-ascii?Q?l6lkYkuVxDM+GXnTsGQyGQyF9Yom946GAKsytipwEMrU49TmEd1ECdVa0bBX?=
+ =?us-ascii?Q?RJrxHyq9kypwUjjQ9Ky87TFmEZRXxJ22N8QCjji52kbJ7U48sj3bmidtIM+T?=
+ =?us-ascii?Q?BnIS/pOduKYL9+JTOy6Av7iPK5KS7l6JFmlXA5dWUmCvw23aAwwCBmwUN4FZ?=
+ =?us-ascii?Q?gzmeHDj8VAk7zGzEymjzf99aMKIiTvax0j5xsnPPyflPZE4ItPTO+GVaGChn?=
+ =?us-ascii?Q?tBNH6NLRtavU+vXthXaAtkLYCtm67RBAKXmzmMraJatMJY/uczgUSFj9VddO?=
+ =?us-ascii?Q?B7aUt20otqjgcNnEs6Tu3xZgdfJ7GUGA1Z+DgRP2jc6Yxbqf9Fmqo7BLHe15?=
+ =?us-ascii?Q?Vx7KPUS5oYPWSXYYryuHN1ZaBNiaTFOywG/ImD9150hh4hf1spWXKpgg3wBq?=
+ =?us-ascii?Q?QJ+OhO7UP507ZwgkoOklNhM6ILHMz7wX1tgwCSEOmIE+y1lBdjCmhCvhAyQm?=
+ =?us-ascii?Q?cQ5aU8Wowp5m/42dNUuMdfFyNxisUK1bKl5WFVsh9ER9/6t24PrYy42a5rLL?=
+ =?us-ascii?Q?FlR1K9WqhzjKqqKUw0eThsz0G06yQXyCKz4l7TNklk3SvcDhNWscz+afrMaU?=
+ =?us-ascii?Q?NaZJkOQ8Co8QwgZiZ4i8pGWVLNG7qHCCzNY0735McKvWkQ43Y32CaT1Egaru?=
+ =?us-ascii?Q?TsluCig7W73wDfz8B/APaqjRGS3Pv+w7JYUwS2UogR8SaM5RqNvUS9jy+DI7?=
+ =?us-ascii?Q?WI9zJT9En+YAfF6alpyEC+I37vxcViTUplD3D+f9eey4f+xjF3QPqo88e0EM?=
+ =?us-ascii?Q?dEhJKR91DrJKcZxMzJH3xJ2nZG+KI9MSrs1QL/8RML/GI+nixfuSvt/LqG4J?=
+ =?us-ascii?Q?Uc5SbGwoSrjxYyR4ySHuxB1XO9vEP4HhZ0sfRZLSkG9zDUPR4Ai5gsR8haTz?=
+ =?us-ascii?Q?FeEiObUr04Uw1/UggPhm7aGkDaZLVZWrQ6bTq3R9EaFJUoUdpp8Q6U0JRsQJ?=
+ =?us-ascii?Q?4YdgNFob+Uuu/nCnrQ22RW3xAW343XOWr+E1e2M/Ldr6ktKj60zj/BmoIKBC?=
+ =?us-ascii?Q?aBdfoKdqD5A40Kfjr6kLxouj+Vzr34mZpZf9pwk2asvHW01eJodVJANb76M6?=
+ =?us-ascii?Q?nOgmusLwmFZ+wbDpmu2c4ByGSTU9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0YrRTVNUXFiUjFXK0l3aURmWTJwSjhBbThVUnFKdGZpUkJOK2E5Ly8vYTNG?=
- =?utf-8?B?T1ZSLzRQRFByQ1QrRms4T0dzUWRMMFIyczBiTzZhWU9zMnNVV1ViWEYySE5h?=
- =?utf-8?B?L0htRjdXZVZkdGtlOGtpVGVBd1I3emtKR3Z0QVBEQ2lkWWVvbW5RWlRaVVlu?=
- =?utf-8?B?aWVwVnd2MXR0OGhzZ3VlQVFKclQxaVVYWGZ2bW5jTlg3SXNpSmxUdHpEUk5R?=
- =?utf-8?B?a3BvZENiUkxVSExvZkFINWpJR1FZc2t4Q3FDYk1YQkxTU2hBdlRqYWFGa3Jy?=
- =?utf-8?B?clZwNmRBMllaWkY1RzU2YkJkU0NNSlJlZ1ZqVVFTRXlIVzgzL2d2dlVEMGZa?=
- =?utf-8?B?dEFvRGFSUTZZUFgvK3NjOWcwbVNKTmlhVEE5ZmJLZDgyeXpkYjB3d1FrMXJZ?=
- =?utf-8?B?TmJpWUFWWWpGcisyK0tubVBKaEFtYmFpQndiZll3dC8vcFNhLzFqQVlhcU9p?=
- =?utf-8?B?SFlvTndVdTQ3QXkzNXhoTVl2TGZpVG56VnZNMmYzSUdaejNLQ1NsUkQyUmVl?=
- =?utf-8?B?MjRGNmJvcnhCNHFXSWFxZ2hmN3NMR3RkNXgxY1ROTWd6LzVXQnhmYTJzcVZU?=
- =?utf-8?B?NUdUVjliRHRqNklYNUtCMzc3NjRtYk9HcmRRbDkrbjBsalYycHkrbGFTTVho?=
- =?utf-8?B?dWU5RERYWFg0d1dNSVV0NnRWeWZRV0dXQzdtYlBCYU5XT0h0SVIvZTZ4YUFo?=
- =?utf-8?B?TmM5Q1dDM1FoSG8xM2p5THo0NnBhK3MrQkxBSVQyWG5RUmhXcTc5cmc5bVBp?=
- =?utf-8?B?R0hWaUgzMGpublVMQjF5Tk1kUmVENHRtNGNCbDR4NmJHZ0tWSTJKRnF1bzNm?=
- =?utf-8?B?TXBxVDhnbld1aytRYzY4b2FJVGVjY3UyZFF2Z05xUThrVlZodHVGak5SV3J4?=
- =?utf-8?B?WmNEL3FibDZHdWtNZTJIV044bEdZUnhaSnN3K2tEU0lvNGFHL1ZsUjBKZW9o?=
- =?utf-8?B?d0pyak1DS1ZPWHlxbncxTHBRUGMrZXBkZ2VqNEhIcytBeUpNdjNDdytlc3la?=
- =?utf-8?B?bVBOQ0g1S2JTOW9OQzhRSjJncDVseHZocXJ2Mjg2SG11TjhiT3hVaGpZT3Vz?=
- =?utf-8?B?LzJQcWUvYzBzbHdrMWdKYXZMOUNqT3lYcFQwUTJ4MWZ0dU9wQ0t3QkxKejk0?=
- =?utf-8?B?a1diOHdkak1uaEU4R2JtZUNzcGUySFN3R3Q2bXlidGIwb3FZL0tmL3JCcGI5?=
- =?utf-8?B?V0JFOC9aUTQreXY5K3FNcTIwM3ZkVWNUNDQxWTUveUNFQXY1dEhnNVdqL25I?=
- =?utf-8?B?YmNZMlpDSzg4UEROTlFSb21qOEJ3aHNsVnJscFkvbGxGc2JBaDlNcm5BZmNr?=
- =?utf-8?B?cVBTZVhPMlZ4d0dIK2NybzRVNUdMVTFrY1JuM1VSOW5YNlJISTA2ZFdBRUNE?=
- =?utf-8?B?RGxWRlhVQVpCRG42NmFvbVdWY1NxNFdZTElKcW52SzVJTXdHQ0ZjYWpPTXZS?=
- =?utf-8?B?TDg0Z0E2dXBVdXJkWUZ4U3ZQWmRHWW01UTFIU2FwK1RRYUpNNHYybHBiL29R?=
- =?utf-8?B?akFVaUhvL3lncW9nZ3JWd1hKYWRJd0RUNGZzWnF5MU5uaTMwRzF5NGJjQzNU?=
- =?utf-8?B?TGxheG80NFg0Q05LVVJybWRUWjNQc2hLN2tFZGZrcWo3Y00rSXQzekwwa2pC?=
- =?utf-8?B?dHBLbkxGQnhQY2RmMkRtUTlJSnZhcDRrT3pQR0ljbWJ5b0RCNnc0aXlDd24z?=
- =?utf-8?B?dHNKQ1lZWVJUZzBkRzJYaUhkL0VEZmQ1RzdKMFFJZ3FER0FoK1dLN0kyQmVo?=
- =?utf-8?B?QlFqaXI0UkVLcFdvN1pmNU5SUDlCVjBVNzV4c21nUk5FN09rTzRkR2tDdlJO?=
- =?utf-8?B?SnpoQmZRUm1kR3ZoUUdVM01neUpmZkJpU1ZiS1lrVU4zRzAxY09KR200UVEz?=
- =?utf-8?B?eXJUT0d5M29zY0RKTWV6eFowdG9IUHdYUlR3RmJwbEowVUFGbDlGWnZpN0tG?=
- =?utf-8?B?b25XOEtNZW9ZSno0bFNudE02NkJOVE1vaEpTcVZRR2RSaW5Fa2tZSFZsZk5B?=
- =?utf-8?B?bnR1SnlBOU1UZXJIUG1aWlJtd2xXelhjTnZ1VnZyYkVRTzNCeGo1ZGVJMWdT?=
- =?utf-8?B?Z283V0xvd3RTTk9DUjEvaHNrMjVTN1pEVnZjNHVzZnlsd2YrYTQ1QnJqTzZ3?=
- =?utf-8?Q?t6atjHLLS9ixd6v4E0lyB7YJa?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24b05fca-fc82-4b38-a065-08dcf7c06bbc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sCT+NBBoSdZo7JKLbBjMW22+7J7bUAqxnJpLBRZPf+P32y4Z0n8mrtsGLMQe?=
+ =?us-ascii?Q?B83GzOzOFkvgW26mz0VTmfl0X2BAr8YDCCZEuUnwpdo4hBSwonA0WnbCNbX8?=
+ =?us-ascii?Q?6vyvTpL4FmUgRqemDqyqmdqYZxLDrp1A7TgowiGi5xizvQ9VXWE0OlLxdPu9?=
+ =?us-ascii?Q?ay3liQuvdYC0ChqP8veuaJT50UA/H/ZbbsnuEMD4LobBDFcbvnB0szsbleVb?=
+ =?us-ascii?Q?Enpxxx05VI8GYhpTTKAyWnrYkuFZV8R9uUD1fVdq0NXcH9/HofRzsjeypBl2?=
+ =?us-ascii?Q?YFmQu+sg7b5R6LT/LI+2AcpeLRvWeHBq1OOsXVxcW9hdw6NCDFNlbG7YQFFv?=
+ =?us-ascii?Q?9ZU2CQXmVCjAvnHQl0JmM8vzhRO3q8LrBL1K102tKLphBcFse9ToniqyEMv3?=
+ =?us-ascii?Q?5ma5h7DH9/t/YRja0W7j1ybW1hmen6MjKoYXD1+Z7UUI5yuCdrhap9Lmq43k?=
+ =?us-ascii?Q?h2cZ6qnCt20az613SEMsHlEkTqJYy2lqJq5qLCB6xmMeFvbd6W48oCVDV/xf?=
+ =?us-ascii?Q?mPuIDmzCV8tYHPmVCNAo4cjtTAassZFklr1wcXme2xQhTSQPSjYFUSavp3O+?=
+ =?us-ascii?Q?OH+R4L3M7mWbm3fseE9osFGjYOfJufSvGrcmyLtKahwuRT9xPJqQso+gc8zT?=
+ =?us-ascii?Q?Ih2fHNCAQ5Uu8+Li3SJq65MKHC3oiEhd2nb2aLzt+AFizSRxDDtomarQjMUC?=
+ =?us-ascii?Q?OhPK3YYi/YtaLXKIyZUgwv8Nr6mnWpQJdKbcCG4RVwBvGEFEmaGKfuAM322U?=
+ =?us-ascii?Q?mFE/im2lADNue2rZgNhLW+BTLO5lMX16HzXGAHToVqntdmdwH+uOhRn5c0Ci?=
+ =?us-ascii?Q?8aLd+c/89mQD7ocG7xVWbtW7CRAjcj5M2UTlAlKwhMV4330/3S2ZvIHcSjrI?=
+ =?us-ascii?Q?eQA9BqYK2zWcuJFWXjQpuuRQS7+TDCEgmGDR1vMBhAvo1ZW5fRaHw0omxMmq?=
+ =?us-ascii?Q?B61r5dT0PY2eqePSl4ihYyyNS9aGEVBPCs72RKG9Zky41xlyXS4UGcsIFOVV?=
+ =?us-ascii?Q?ocAe2oGNCVDS//vo8xmEj+8rrJDqLDE5Lem8TN1/ALCNwIc0WmCUXWvPQv5f?=
+ =?us-ascii?Q?7yFB/Rr46wfHts1TA8DGo3OAxfar0KQZMl+FvEdFn+evDgtzElkq+IZYhyq3?=
+ =?us-ascii?Q?CZc8vSaRDRJCFI28yR9IuNJ4DUW4lK5RwtfDEbPP2VnN7BiqNKF5VpsDAx07?=
+ =?us-ascii?Q?7AAAIhEUBprCKmCudFxFYOGPYoOHNKziMdSa06+9V7bBwpnObyJ+yJCy6Ofd?=
+ =?us-ascii?Q?Gqa7A5uT1iPxyAgKIfg8/29XhmnWcHkSzssSaOnR5qGRPB0AE1ACTKY5I5WN?=
+ =?us-ascii?Q?47eTU6fbruD92ZPNxOt8Y4Trz65TpNTW0tCTYMnsGbhHXWmngnzlfBsHe5u8?=
+ =?us-ascii?Q?CsngC3XZa1H0GmC6FiQpoieFMpWdic9zIPX6871aTZUPFiImg9TfTPQeaQ9W?=
+ =?us-ascii?Q?mpDfCS8kcnYHvSFbFXYjBItO7B1oidg4caBDuMa4Os3pDTWXi2CZZhTiw4MM?=
+ =?us-ascii?Q?dXBbGh9j7ZZ4bj5TXnAZgnTPSfx6d5Kl+if+6DO5Y1W01dnwwrs5V6elzj04?=
+ =?us-ascii?Q?teE9o+nKxT/EDlz2XZvjmqVPjaI6bhXLIN0vx9OPJAhF5cvtDLyrnlODsXNe?=
+ =?us-ascii?Q?Zrvm/3zQcVJwTQja9Fk/etk=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d0423ad-4b35-4def-cf49-08dcf7c15da3
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:21:39.7076
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:28:25.2717
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /+vGeFILU79ZSTpwhU/N8hD0YnI8NsZ28GZ8ENrVgIwnYWz8riN5jNYTkL+oCJb+vlnAUJYrPXSu/i7GDWI3Fg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10194
+X-MS-Exchange-CrossTenant-UserPrincipalName: m9K31VNbwrB0/6DE4cLw9dLcCJ9ZbM6rX1UhI7VmFdjEA1a7KlR+cGHr51+ZBiSAqUqvQyxkdA1CaOKYW11dsFaQ35aOWxy17anuPCYrjw+3Js3Eue1CXiMIzRoDBX8V
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR01MB8676
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_192153_216377_E80FA659 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20241028_192832_274974_70788678 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,90 +166,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hans,
 
+Hi Leo,
 
-On 2024/10/28 15:57, Hans Verkuil wrote:
-> On 22/10/2024 10:40, Ming Qian wrote:
->> Hi,
+On Fri, 25 Oct 2024, Leo Yan wrote:
+> On Thu, Oct 24, 2024 at 11:30:35PM +0000, Ilkka Koskinen wrote:
 >>
->> This patch set implements region of interest (ROI) ctrls for video
->> encoder.
+>> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
 >>
->> One video encoder IP may support the following two ROI configurations or
->> one of them:
->>      1. configure ROI as a rectangular region, and set a delta QP parameter.
->>      2. configure ROI as a rectangular region, and set a priority parameter.
->>      3. configure ROI as a QP map as an array. Each value represents the delta QP
->> of a block in raster scan order. The block size is determined by
->> the specific IP.
->>      4. configure ROI as a QP map as an array. Each value represents the absolute QP
->> of a block in raster scan order. The block size is determined by
->> the specific IP.
+>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+>> ---
+>>  .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
+>>  tools/perf/util/arm-spe.c                     | 61 +++++++++++++++++++
+>>  2 files changed, 70 insertions(+)
 >>
->> To achieve this, I made the following change:
->>      1. I reuse the type V4L2_CTRL_TYPE_RECT that is defined in the UVC ROI patchset
->>      2. Define a ctrl V4L2_CID_MPEG_VIDEO_ROI_MODE to choose ROI configuration
->>      3. Define some ctrl to configure ROI
->>      4. Define a ctrl V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE to query block size
+>> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> index 1443c28545a9..e4115b1e92b2 100644
+>> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> @@ -67,6 +67,15 @@ enum arm_spe_neoverse_data_source {
+>>         ARM_SPE_NV_DRAM          = 0xe,
+>>  };
 >>
->> I referred the patchset "Implement UVC v1.5 ROI" (https://lwn.net/Articles/953532/)
->> and pick some patches from it.
-> 
-> Please note that since this introduces the new TYPE_RECT and WHICH_MIN/MAX flags,
-> you also need to update v4l-utils.
-> 
-> This was done last year:
-> 
-> https://lore.kernel.org/linux-media/20230817072537.2837504-1-yunkec@google.com/
-> 
-> Can you pick this up and post a v2 for these v4l-utils changes? Note that I had some
-> comments at the time, so please fix those before posting v2.
+>> +enum arm_spe_ampereone_data_source {
+>> +       ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE    = 0x0,
+>> +       ARM_SPE_AMPEREONE_SLC                           = 0x3,
+>> +       ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE             = 0x5,
+>> +       ARM_SPE_AMPEREONE_DDR                           = 0x7,
+>> +       ARM_SPE_AMPEREONE_L1D                           = 0x8,
+>> +       ARM_SPE_AMPEREONE_L2D                           = 0x9,
+>> +};
+>> +
+>>  struct arm_spe_record {
+>>         enum arm_spe_sample_type type;
+>>         int err;
+>> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+>> index 138ffc71b32d..04bd21ad7ea8 100644
+>> --- a/tools/perf/util/arm-spe.c
+>> +++ b/tools/perf/util/arm-spe.c
+>> @@ -515,10 +515,69 @@ static void arm_spe__synth_data_source_generic(const struct arm_spe_record *reco
+>>                 data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
+>>  }
+>>
+>> +static const struct midr_range ampereone_source_spe[] = {
+>> +       MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+>> +       {},
+>> +};
+>> +
+>> +static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *record,
+>> +                                                union perf_mem_data_src *data_src,
+>> +                                                u64 midr)
+>> +{
+>> +       if (!is_midr_in_range_list(midr, ampereone_source_spe)) {
+>> +               arm_spe__synth_data_source_generic(record, data_src);
+>> +               return;
+>> +       }
+>
+> With James' suggestion, I don't think here need to check the CPU
+> variant again.  All generic data source generating should run in the
+> arm_spe__synth_data_source() function.
 
-I'll check the patch first, and pick it.
+Yep, checking the implementor ID was just wrong and unnecessary.
+I fix that.
 
-> 
-> Regards,
-> 
-> 	Hans
-> 
+>
+>> +
+>> +       if (record->op & ARM_SPE_OP_ST) {
+>> +               data_src->mem_lvl = PERF_MEM_LVL_NA;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
+>> +               data_src->mem_snoop = PERF_MEM_SNOOP_NA;
+>> +               return;
+>> +       }
+>> +
+>> +       switch (record->source) {
+>> +       case ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+>> +               data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>> +               break;
+>> +       case ARM_SPE_AMPEREONE_SLC:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>> +               data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
+>> +               break;
+>> +       case ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+>> +               data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+>> +               data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>> +               break;
+>> +       case ARM_SPE_AMPEREONE_DDR:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_LOC_RAM | PERF_MEM_LVL_HIT;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
+>> +               data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>> +               break;
+>> +       case ARM_SPE_AMPEREONE_L1D:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
+>> +               data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>> +               break;
+>> +       case ARM_SPE_AMPEREONE_L2D:
+>> +               data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+>> +               data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+>> +               data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>> +               break;
+>
+> We have another way to do this.  If convert the SoC specific data source
+> to common data source values, e.g.
+>
+>  ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE -> ARM_SPE_NV_PEER_CORE
+>  ARM_SPE_AMPEREONE_SLC -> ARM_SPE_NV_SYS_CACHE
+>  ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE -> ARM_SPE_NV_REMOTE
+>  ARM_SPE_AMPEREONE_DDR -> ARM_SPE_NV_DRAM
+>  ...
+>
+> Then we don't need to maintain two functions with almost same setting.
+>
+> I have no strong opinion for this. A dedicated function for Ampere CPU
+> might give a bit flexiblity for later tweaking. It is up to you.
+
+Let me think about it and see how it would look like.
+
+>
+> Last thing, please work on the the latest perf-tools-next branch:
+>
+>  https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git
+>  branch: perf-tools-next
+>
+> Recently we have Arm SPE data source refactoring, please rebase on it.
+
+Uh, for some reason I rebased it on top of Will's arm64 tree. Sorry about 
+that.
+
+Cheers, Ilkka
+
+>
+> Thanks,
+> Leo
+>
+>> +       default:
+>> +               break;
+>> +       }
+>> +}
+>> +
+>>  static u64 arm_spe__synth_data_source(const struct arm_spe_record *record, u64 midr)
+>>  {
+>>         union perf_mem_data_src data_src = { .mem_op = PERF_MEM_OP_NA };
+>>         bool is_neoverse = is_midr_in_range_list(midr, neoverse_spe);
+>> +       bool is_ampereone = (read_cpuid_implementor() == ARM_CPU_IMP_AMPERE);
 >>
->> changelog:
+>>         if (record->op & ARM_SPE_OP_LD)
+>>                 data_src.mem_op = PERF_MEM_OP_LOAD;
+>> @@ -529,6 +588,8 @@ static u64 arm_spe__synth_data_source(const struct arm_spe_record *record, u64 m
 >>
->> v3
->> - Drop the type V4L2_CTRL_TYPE_REGION
->> - Split the compound control into 2 ctrls
->> - Define 4 ROI mode
+>>         if (is_neoverse)
+>>                 arm_spe__synth_data_source_neoverse(record, &data_src);
+>> +       else if (is_ampereone)
+>> +               arm_spe__synth_data_source_ampereone(record, &data_src, midr);
+>>         else
+>>                 arm_spe__synth_data_source_generic(record, &data_src);
 >>
->> v2
->> - export symbol of v4l2_ctrl_type_op_minimum
->> - export symbol of v4l2_ctrl_type_op_maximum
+>> --
+>> 2.47.0
 >>
->> Hans Verkuil (1):
->>    media: v4l2-ctrls: add support for V4L2_CTRL_WHICH_MIN/MAX_VAL
 >>
->> Ming Qian (1):
->>    media: v4l2-ctrls: Add video encoder ROI ctrls
->>
->> Yunke Cao (2):
->>    media: v4l2_ctrl: Add V4L2_CTRL_TYPE_RECT
->>    media: vivid: Add an rectangle control
->>
->>   .../media/v4l/ext-ctrls-codec.rst             |  95 ++++++++++
->>   .../media/v4l/vidioc-g-ext-ctrls.rst          |  26 ++-
->>   .../media/v4l/vidioc-queryctrl.rst            |  14 ++
->>   .../media/videodev2.h.rst.exceptions          |   4 +
->>   drivers/media/i2c/imx214.c                    |   4 +-
->>   .../media/platform/qcom/venus/venc_ctrls.c    |   9 +-
->>   .../media/test-drivers/vivid/vivid-ctrls.c    |  34 ++++
->>   drivers/media/v4l2-core/v4l2-ctrls-api.c      |  54 ++++--
->>   drivers/media/v4l2-core/v4l2-ctrls-core.c     | 169 +++++++++++++++---
->>   drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  46 +++++
->>   drivers/media/v4l2-core/v4l2-ioctl.c          |   4 +-
->>   include/media/v4l2-ctrls.h                    |  62 ++++++-
->>   include/uapi/linux/v4l2-controls.h            |  16 ++
->>   include/uapi/linux/videodev2.h                |   5 +
->>   14 files changed, 493 insertions(+), 49 deletions(-)
->>
-> 
+>
 
