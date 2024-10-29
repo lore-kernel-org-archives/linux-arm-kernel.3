@@ -4,87 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E35D3A696
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1DBD3A696
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x0XI8AhmhnWxIwBb5nhzbNedpBYemfsEhJh3VU8fjT4=; b=Z77NwvC6GEyfkj+nONNhVRbwGP
-	h4LUKG361YX2Cg0ypOh/pVFd0mQyupPwG7MZ8Fs1fc0X7e6MrrzR0jb5rwEI7efnNqwAoyt7WC3TV
-	Q95Y/TcAXc8gN0xgU2CIW128CqEXjOPBMuihkrAgv2xEgu2jufGjgyr+m6aVX2eovQWo+SzB/Op5C
-	7vxjnllfYqaw3ESWQN1IQl7rMhlpAgaokvxKB9Iras3QE/93TiCqqSEZ7wRmCu0oHmXrVf06kGiQF
-	9t+k+cJbBRS8yZvaVZTWxVJXpTBoHuvMR5PGhNbGrPJitiNMpR8g+/RxUaYukqn88pLQmMqlVyGZT
-	izewbCAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gukfndwFmD9F+9DE6hGzZTWVgqXV8rnM9fr+XRV217A=; b=uw7BkQZUbHy45Y1R3B/2RFd7Yi
+	BX8gPC4giVy/2BJojLHDK2gie8y5znhCcorp78q/ANIivPZaWU9/0AgqYnrIcLP6lvVpkvbuc2V6Q
+	JHpetx1HzCHd1Jq7plXULnl3lEbF43R8+JYx48bXMBQtdvI7k8bc6XqzwCd+hou4/BXxFYY626IBy
+	yvgDTbTeqJyBplXX3HWfp4k3OyBFMEeB+J7cJraAqMam+ccfn+/FNml2ZQIc7Kp+N+EBHdynC4tyG
+	v7wFGwEkOe4YF/ihzg8uILRWg482/s7iPz8G5hmsm7+8WKi4vRDRS5D6lwrQF1r/gSFunm7WEEzlt
+	IbAdh4/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5roQ-0000000FelI-1QGc;
-	Tue, 29 Oct 2024 19:23:30 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1t5rws-0000000FfjY-0XtV;
+	Tue, 29 Oct 2024 19:32:14 +0000
+Received: from mail-dm6nam12on20624.outbound.protection.outlook.com ([2a01:111:f403:2417::624] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rmE-0000000FeNe-0u8G
+	id 1t5rvD-0000000FfRj-3EIk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:21:15 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4316a44d1bbso53063675e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730229672; x=1730834472; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=x0XI8AhmhnWxIwBb5nhzbNedpBYemfsEhJh3VU8fjT4=;
-        b=w0X0RTejWYm238lAxaUAH4W7OhJnPUCB/03LLdU8WfuBuVc0ePH2bvWu31l9lcqTVu
-         Z9t9remv7GSAZZmjw6HgooM59Nf1yeRsalzoJ59lnKuHFvjmYQq8EP9pK5T2Fr4Jo/JJ
-         ex2+nfApPgqxXOr40qP4Alq1t/vLCkYv8laY3cZ2256OuGu/NCg3IbEsWO5z5HOamXl7
-         mYkLLJaW5xvg9mqHMaPasEU4demZkN5Vaywnp6Y3IUcsldMmY8j9v+2bodW7tTztz7nU
-         xUgWdjNtH9x1TbSz4emBgJX25sSeTnCtAwZk8uRG3lekJFZ9EkhrI7rT9OptbHpViCnt
-         MYuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730229672; x=1730834472;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=x0XI8AhmhnWxIwBb5nhzbNedpBYemfsEhJh3VU8fjT4=;
-        b=RrIaKs+Lmtkyq9ffo/zD6yb9V/cpvrFHOAaJLkHOYydxnOovMEs7EKolka6yLfXtn+
-         DbhSNh1S/Bp3N5GMe6X/cATxGrlZzYqORRFj2/nOBt1QSkF/VV3dS2B+1dayReMI6zfq
-         6/3W2NqP8uevf8rb4FnTm/nvpfAx2+8TGWQWZRkcSu81jnXGGEaqsF0Qi0ZUr9xGb7xi
-         1GuItv8N7UTP4kA5rELJ1BpP8R3BRky5sclkjPStHwAHlt4g+BE8FPp+DnRDA9BG96I9
-         0D7AwUH651w+GdMvjBg4WHEkFzZCEXCG0EaNLxj7gDnIARHKI62hxCPX0HeVGT9bVBWq
-         YNMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMro4Rkqbv3WKiW5IJidtXx4hWfB9sMJ/JOyjWR1SP16GG+JclQsylf0rjYJHHMJkk9x6q2B2/FnlqZjmyfVEe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxezWBgZw8WP/0Wbojxgs6cYeX298s+ijdcqYt6mHAxggaC20WN
-	i8rJOwiVa64LAV1/FmOo0DkL8dUIV7dzRNE5hdEJ35aY4In4F9f1bvV9foj6KX8=
-X-Google-Smtp-Source: AGHT+IGHMHqNaQuwakaAsQmPTNJ5IJ7w2nk9odL/D7VFnJmp9SBayW4GuwAbU+nObFDT/w1xv3DyDA==
-X-Received: by 2002:adf:fcd1:0:b0:37d:4cd5:fff2 with SMTP id ffacd0b85a97d-380610f4961mr9250210f8f.6.1730229671917;
-        Tue, 29 Oct 2024 12:21:11 -0700 (PDT)
-Received: from gpeter-l.lan ([145.224.65.239])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058981ae4sm13436572f8f.0.2024.10.29.12.21.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 12:21:10 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	alim.akhtar@samsung.com
-Cc: tudor.ambarus@linaro.org,
-	andre.draszik@linaro.org,
-	kernel-team@android.com,
-	willmcvicker@google.com,
-	linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH] phy: samsung-ufs: switch back to syscon_regmap_lookup_by_phandle()
-Date: Tue, 29 Oct 2024 19:21:07 +0000
-Message-ID: <20241029192107.2344279-1-peter.griffin@linaro.org>
-X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+	Tue, 29 Oct 2024 19:30:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RZAxRPpSOfApRF13Lpotv75fFk6AoJaZ48k/uOu8G2ia6ucYN6NsGunUkY+neodCD0EyGQz8mWRtH423YnXfcpQeDffwf8yfi1gOUqeznN4PlrXIhLyfTskv/B8OzAZnrOumJauhhHiHEskfmbgRQ02462TVHcQzPrXOhEr5rvLhu0AhWogQ9rf1fm4GS2fAihUNArQC8jPagxdqh1TBrrz9mihNVS9HLdlMokdteDD97KfFO0M8sOvsAckpps/3l87uL4VR8l71zTuXC4ZeoNP2zIcN2omoXODEKSLqWNY4KkdYy+X/7dwCN5vlUs5nKod/2ndFxuQtBjherP/y0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gukfndwFmD9F+9DE6hGzZTWVgqXV8rnM9fr+XRV217A=;
+ b=YkVrTEUAgms2h1SmlUeKAQOVZhkBs1KBPfMsWse00GWW/YEriLVzTVmN37qIoMj47MQyRExDL7IognzNqRZs/RnaNhN0xlfrjhRzcpMdRvpCj1/PFR79zJ5kFXYd3yEaeOAldlDRnfUTPARTlDFlkpUNUqLHaQaYVA+AntQw7R42dEyw6JTduoa5DRMZhDESm/kU0uBw3GwVMngfZXZuU8mFIle7dyR6V1n4k+kHyHkP75MTHBPv2ly+8U9hg2XV10LRaTYED+0Am6hKysxxsnCP/yIfF8wQTRrC6JpYmaghsxzcgakCzPZIOPJCAS0aFJ5ihqwxMB8SUSFpAZ6ttw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gukfndwFmD9F+9DE6hGzZTWVgqXV8rnM9fr+XRV217A=;
+ b=q3uMw54C+jLWLjQ1RUVOEZPvgTl0ofrHA89MHk6ilzZlN2fYnkFvZOsoUiTb4sNOuQCZJPzZYh6XYAQJ36rZJ5w6UPIzEs2HFVQnGc5RNuj2NeV7nZOspAXT9LksKnpMHUii2j6nQMieKy4qYmd9ZORoJowtcz7TI8ni8Jo5NvVA0gS10NjrHJsrD15aLHyYA0/dTjyZhVSKdTF4SYxwJ82LK24xmcsVCESYNNomB5G9FDH9MkeKdXDaHDwxD3Fz1yS9ka6bM1zJt+udMJfQkrqNb2PSx89xq4vcTCJrOUgCi+u2wy0U1EI1b1CC5GQavsBILddKmOGkw3ONs50a9g==
+Received: from MW4PR04CA0126.namprd04.prod.outlook.com (2603:10b6:303:84::11)
+ by SJ2PR12MB8873.namprd12.prod.outlook.com (2603:10b6:a03:53d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Tue, 29 Oct
+ 2024 19:30:22 +0000
+Received: from MN1PEPF0000ECD5.namprd02.prod.outlook.com
+ (2603:10b6:303:84:cafe::99) by MW4PR04CA0126.outlook.office365.com
+ (2603:10b6:303:84::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.17 via Frontend
+ Transport; Tue, 29 Oct 2024 19:30:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MN1PEPF0000ECD5.mail.protection.outlook.com (10.167.242.133) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.16 via Frontend Transport; Tue, 29 Oct 2024 19:30:22 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Oct
+ 2024 12:30:03 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Tue, 29 Oct 2024 12:30:02 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Tue, 29 Oct 2024 12:30:01 -0700
+Date: Tue, 29 Oct 2024 12:30:00 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <will@kernel.org>, <joro@8bytes.org>,
+	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
+	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 01/13] iommufd/viommu: Add IOMMUFD_OBJ_VDEVICE and
+ IOMMU_VDEVICE_ALLOC ioctl
+Message-ID: <ZyE3uGyVx9ivJeHI@Asurada-Nvidia>
+References: <cover.1729897278.git.nicolinc@nvidia.com>
+ <53025c827c44d68edb6469bfd940a8e8bc6147a5.1729897278.git.nicolinc@nvidia.com>
+ <20241029155824.GJ209124@nvidia.com>
+ <ZyEblBMkvuq2rPAT@Asurada-Nvidia>
+ <20241029184801.GW6956@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241029184801.GW6956@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD5:EE_|SJ2PR12MB8873:EE_
+X-MS-Office365-Filtering-Correlation-Id: f80b0d6e-afe3-4b65-c77d-08dcf8502197
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?whUwxOhcZPicdokGI+8kTmsrsrQms1QWFUzUaiuQYWhYCtqg1QlH56u20T/n?=
+ =?us-ascii?Q?MEn8BIwM/+u6gNB333iDvQLv/PW8jsvfs02HvV6PbbJiSllPJLwcenK3AEeW?=
+ =?us-ascii?Q?dQbpv0TlempSh53yuBt1l+/70Mz6gU8GsUxQwlGg+3Y+Cp0ZT11MByOckg7S?=
+ =?us-ascii?Q?Fgc/iocTBURqM2S8lNpk0QsWFx6+ocLXsUdj7eFrxmgYku095xe3OOD1I2Xc?=
+ =?us-ascii?Q?SfdRycVqWV+ZK+uQ0Yld0a2Jyg4uzkEMHaQgSlEX8phY2cEvwcubN52IIXb2?=
+ =?us-ascii?Q?MbpT40TPty+rxzPOZ63jjTWUnCN1ZCrjQe/MymjYlAAbIseqOg5KJSLSYQ2H?=
+ =?us-ascii?Q?VyQceq/9dVSDHz7TOHkPdUFmUP19HVsCmpFaovB0+MbwPRm7Q6H0Oz2aPMkR?=
+ =?us-ascii?Q?ghIjiq/g2Vdiis7HZ3EgOezmpF9lIi84XQMe42nxSnqyzzOTmWDNGzuyH3AJ?=
+ =?us-ascii?Q?yZ00VWs9dJcwWZF2R/vE9sOIFx98GOCMyGW5rDo//xyLDRad2mlM/PZek6Dk?=
+ =?us-ascii?Q?+a7HUmPPeaKxkBZb4aZHI1j+ei2mk4wc5qc2DpY0frEFdDOuiy7fH+MgJeIz?=
+ =?us-ascii?Q?Os+JaMb8FhWLawcW0YdNmGmL2mMSCj1RJQinfjId/wn6mTn6OKOJrNnCPDP/?=
+ =?us-ascii?Q?VIKOhv8PnklkZEgZFuGSrAhWdssI1qoldtqcwj5KeAMGcl6iVT5BOkkUtd4J?=
+ =?us-ascii?Q?ZU/GH0ftTmoVlKxHLJjljtO9FzKMM7frcs5OsSGVpsKdx29R2XMNv+raFRyZ?=
+ =?us-ascii?Q?GZ89QczaAFLGhVJn/qdWSioLaLpH3LC3NnR8CeYjy8bjsP1FhqAkuzFQ+nRj?=
+ =?us-ascii?Q?geUJv8lR8ZSGcQbmspHYd01plkekt+PzoszAIaQ327aN5TO0EfYmtIjhd/Jc?=
+ =?us-ascii?Q?GguigWITx3oYvnxd5B/+VARCXfbfDhiZWopsERg0xIMstYXD3UtqPcK+sIyx?=
+ =?us-ascii?Q?bMIzqnXyrtEXO+VscXFs7gbu57q3/xU5T47pX61COypFHG6YaDdR7z33Km8r?=
+ =?us-ascii?Q?7EoxlFydFwTC5iz11wvVskBVS2YzcD90GhX+GteHHmO5qa/Efw++kupwDZyw?=
+ =?us-ascii?Q?xEeOepgEzzV0D6tAf1AYjTfI/Y4yezZzE4zdmxxLVdKO9CAbHCJvZcBFq4q9?=
+ =?us-ascii?Q?7r71nV+WrWLwvdnVpapR/11G6i/T9V0caDYEHFLcxubjyUh178ySHSdGsWeR?=
+ =?us-ascii?Q?b0z5nShweGiWwn79Ik65FWwGeuNBl7j//8A4jBGFytFUGA0TOLpMKvawBW8V?=
+ =?us-ascii?Q?Vx7YSQkdYp9/sjP5Gi6fzwKVcG+6CjrEHddcZ0kGyOF/+vEFbhCwdeHx+KMo?=
+ =?us-ascii?Q?x1odcj9gXezxADitTIt4y+s4YkexWitXd0TbuevYoPPdBq9QkWN0SNGsZrb1?=
+ =?us-ascii?Q?oXQU4Yt6wqyJdUZHo64mCjwRzGEWEF2hYyGfwCu1kMLQw37sPQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 19:30:22.2403
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f80b0d6e-afe3-4b65-c77d-08dcf8502197
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD5.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8873
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_122114_283439_51D4DAD5 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20241029_123031_852515_1BB65AD4 
+X-CRM114-Status: GOOD (  41.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +159,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now exynos-pmu can register its custom regmap for gs101 via
-of_syscon_register_regmap() we can switch back to the standard
-syscon_regmap_lookup_by_phandle() api for obtaining the regmap.
+On Tue, Oct 29, 2024 at 03:48:01PM -0300, Jason Gunthorpe wrote:
+> On Tue, Oct 29, 2024 at 10:29:56AM -0700, Nicolin Chen wrote:
+> > On Tue, Oct 29, 2024 at 12:58:24PM -0300, Jason Gunthorpe wrote:
+> > > On Fri, Oct 25, 2024 at 04:50:30PM -0700, Nicolin Chen wrote:
+> > > > diff --git a/drivers/iommu/iommufd/device.c b/drivers/iommu/iommufd/device.c
+> > > > index 5fd3dd420290..e50113305a9c 100644
+> > > > --- a/drivers/iommu/iommufd/device.c
+> > > > +++ b/drivers/iommu/iommufd/device.c
+> > > > @@ -277,6 +277,17 @@ EXPORT_SYMBOL_NS_GPL(iommufd_ctx_has_group, IOMMUFD);
+> > > >   */
+> > > >  void iommufd_device_unbind(struct iommufd_device *idev)
+> > > >  {
+> > > > +	u32 vdev_id = 0;
+> > > > +
+> > > > +	/* idev->vdev object should be destroyed prior, yet just in case.. */
+> > > > +	mutex_lock(&idev->igroup->lock);
+> > > > +	if (idev->vdev)
+> > > 
+> > > Then should it have a WARN_ON here?
+> > 
+> > It'd be a user space mistake that forgot to call the destroy ioctl
+> > to the object, in which case I recall kernel shouldn't WARN_ON?
+> 
+> But you can't get here because:
+> 
+>  	refcount_inc(&idev->obj.users);
+> 
+> And kernel doesn't destroy objects with elevated ref counts?
 
-Additionally add a Kconfig dependency for MFD_SYSCON.
+Hmm, this is not a ->destroy() but iommufd_device_unbind called
+by VFIO. And we actually ran into this routine when QEMU didn't
+destroy vdev. So, I added this chunk.
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
- drivers/phy/samsung/Kconfig           | 1 +
- drivers/phy/samsung/phy-samsung-ufs.c | 6 +++---
- 2 files changed, 4 insertions(+), 3 deletions(-)
+The iommufd_object_remove(vdev_id) here would destroy the vdev
+where its destroy() does refcount_dec(&idev->obj.users). Then,
+the following iommufd_object_destroy_user(.., &idev->obj) will
+succeed.
 
-diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
-index f10afa3d7ff5..e2330b0894d6 100644
---- a/drivers/phy/samsung/Kconfig
-+++ b/drivers/phy/samsung/Kconfig
-@@ -33,6 +33,7 @@ config PHY_SAMSUNG_UFS
- 	tristate "Exynos SoC series UFS PHY driver"
- 	depends on OF && (ARCH_EXYNOS || COMPILE_TEST)
- 	select GENERIC_PHY
-+	select MFD_SYSCON
- 	help
- 	  Enable this to support the Samsung Exynos SoC UFS PHY driver for
- 	  Samsung Exynos SoCs. This driver provides the interface for UFS host
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/phy-samsung-ufs.c
-index 6c5d41552649..8e9ccd39f97e 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.c
-+++ b/drivers/phy/samsung/phy-samsung-ufs.c
-@@ -13,11 +13,11 @@
- #include <linux/of.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
--#include <linux/soc/samsung/exynos-pmu.h>
- 
- #include "phy-samsung-ufs.h"
- 
-@@ -268,8 +268,8 @@ static int samsung_ufs_phy_probe(struct platform_device *pdev)
- 		goto out;
- 	}
- 
--	phy->reg_pmu = exynos_get_pmu_regmap_by_phandle(dev->of_node,
--							"samsung,pmu-syscon");
-+	phy->reg_pmu = syscon_regmap_lookup_by_phandle(dev->of_node,
-+						       "samsung,pmu-syscon");
- 	if (IS_ERR(phy->reg_pmu)) {
- 		err = PTR_ERR(phy->reg_pmu);
- 		dev_err(dev, "failed syscon remap for pmu\n");
--- 
-2.47.0.163.g1226f6d8fa-goog
+With that said, let's just mandate userspace to destroy vdev.
 
+> > > > +		vdev_id = idev->vdev->obj.id;
+> > > > +	mutex_unlock(&idev->igroup->lock);
+> > > > +	/* Relying on xa_lock against a race with iommufd_destroy() */
+> > > > +	if (vdev_id)
+> > > > +		iommufd_object_remove(idev->ictx, NULL, vdev_id, 0);
+> > > 
+> > > That doesn't seem right, iommufd_object_remove() should never be used
+> > > to destroy an object that userspace created with an IOCTL, in fact
+> > > that just isn't allowed.
+> > 
+> > It was for our auto destroy feature. 
+> 
+> auto domains are "hidden" hwpts that are kernel managed. They are not
+> "userspace created".
+> 
+> "Usespace created" objects are ones that userspace is expected to call
+> destroy on.
+
+OK. I misunderstood that.
+
+> If you destroy them behind the scenes in the kerenl then the objecd ID
+> can be reallocated for something else and when userspace does DESTROY
+> on the ID it thought was still allocated it will malfunction.
+> 
+> So, only userspace can destroy objects that userspace created.
+
+I see. That makes sense.
+
+> > If user space forgot to destroy the object while trying to unplug
+> > the device from VM. This saves the day.
+> 
+> No, it should/does fail destroy of the VIOMMU object because the users
+> refcount is elevated.
+
+The vIOMMU object is refcount_dec also from the unbind() calling
+remove(). But anyway, we aligned that userspace should destroy it
+explicitly.
+
+> > > Ugh, there is worse here, we can't hold a long term reference on a
+> > > kernel owned object:
+> > > 
+> > > 	idev->vdev = vdev;
+> > > 	refcount_inc(&idev->obj.users);
+> > > 
+> > > As it prevents the kernel from disconnecting it.
+> > 
+> > Hmm, mind elaborating? I think the iommufd_fops_release() would
+> > xa_for_each the object list that destroys the vdev object first
+> > then this idev (and viommu too)?
+> 
+> iommufd_device_unbind() can't fail, and if the object can't be
+> destroyed because it has an elevated long term refcount it WARN's:
+> 
+> 
+> 	ret = iommufd_object_remove(ictx, obj, obj->id, REMOVE_WAIT_SHORTTERM);
+> 
+> 	/*
+> 	 * If there is a bug and we couldn't destroy the object then we did put
+> 	 * back the caller's users refcount and will eventually try to free it
+> 	 * again during close.
+> 	 */
+> 	WARN_ON(ret);
+> 
+> So you cannot take long term references on kernel owned objects. Only
+> userspace owned objects.
+
+OK. I think I had got this part. Gao ran into this WARN_ON at v3,
+so I added iommufd_object_remove(vdev_id) in unbind() prior to
+this iommufd_object_destroy_user(idev->ictx, &idev->obj).
+
+> > OK. If user space forgot to destroy its vdev while unplugging the
+> > device, it would not be allowed to hotplug another device (or the
+> > same device) back to the same slot having the same RID, since the
+> > RID on the vIOMMU would be occupied by the undestroyed vdev.
+> 
+> Yes, that seems correct and obvious to me. Until the vdev is
+> explicitly destroyed the ID is in-use.
+> 
+> Good userspace should destroy the iommufd vDEVICE object before
+> closing the VFIO file descriptor.
+> 
+> If it doesn't, then the VDEVICE object remains even though the VFIO it
+> was linked to is gone.
+
+I see.
+
+Thanks
+Nicolin
 
