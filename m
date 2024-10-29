@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32977D3A67F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA75D3A67B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7mBby3UjMYegWNb8L+VEboqcA8KSaUyZJq/i3wPHB8=; b=jdmE3HLde6PRQULvM5CU+FHNnC
-	da8DwX/L0Avh6iFW6+TZjM1ym/HHitYvROARg1LNtiNjmQcg4G2k3nW4+HzPuxHVyMd04alIr0jWQ
-	tMb3UGPkGG8yfvaD7ZAXhdFtmWAYsqJptnz9X/iUQgEtEZ4qh5MIUz8SRY7xQuODFVfeg872j6uFQ
-	4DWxfBCm02c6yC/Orm6j5t+mjobnq265oBiKAOfkr+qIw6/kT/JkLrWc9FZXCBdCgwYmLbebP9P0K
-	lZCH6AReyWv8hYlpTPzhMdK/gZkyGAcMHBIrZVsSi5Kiyf0s5F5EbKwbqtvyl+Lv7/ujFnBZCrs1g
-	hRCPr5zw==;
+	bh=kl26WOdC+mDmLtRCsY1mpQj2hreo1lP49DeEz272vS0=; b=yWRmXFejXvDmubfKd9Ny7dThb6
+	CpMaMNBaBT7Z/fLrsbPnVlzxj1y3gvzpPXGgE4MoWRSM/tW13eIuS1XPj4dk7ZMyrXiZOEwnymfgO
+	Xf1cOrZHODafL/xz5qtetQAcOveRy9TeYDhXNp2pS44HU6eMAdkICjUrywcEI9wBVgZnCgM4N4yGR
+	nPczMkw/PKKXLVNr0UCwQ2LMmOEse+N41Qn+8JcLAY7MT71AonXmTg+e6AaqTSgyhVLT5tm2aAxL3
+	EvG8RF9ReUpnLo1qz0DY0Yg01pPud17z8lFK8xAtL8vlPIUxR2rj7wc9wBRyb/VvXQxSNpsNLKfYx
+	nDa6X3iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rDq-0000000FWlY-1TOx;
-	Tue, 29 Oct 2024 18:45:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oxp-0000000F6AH-0H3y
+	id 1t5rDr-0000000FWmv-3q46;
+	Tue, 29 Oct 2024 18:45:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5ozX-0000000F6Zb-46A7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 16:21:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 515E0497;
-	Tue, 29 Oct 2024 09:21:30 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94C793F73B;
-	Tue, 29 Oct 2024 09:20:58 -0700 (PDT)
-Date: Tue, 29 Oct 2024 16:20:56 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 3/3] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-Message-ID: <ZyELaIMQVRTULKXi@J2N7QTR9R3.cambridge.arm.com>
-References: <20241001043602.1116991-1-anshuman.khandual@arm.com>
- <20241001043602.1116991-4-anshuman.khandual@arm.com>
- <ZxfGAHAn6I41ZLZV@J2N7QTR9R3>
- <2310454a-99c6-4ff9-80f7-8707fbfaf5a6@arm.com>
- <Zx-H8IU2wZmyowGe@J2N7QTR9R3>
- <f65af1fe-b500-499e-84dd-954700583475@arm.com>
+	Tue, 29 Oct 2024 16:22:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4740FA42FAA;
+	Tue, 29 Oct 2024 16:20:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82843C4CECD;
+	Tue, 29 Oct 2024 16:22:44 +0000 (UTC)
+Date: Tue, 29 Oct 2024 16:22:42 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Brown <broonie@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
+ error path behaviour
+Message-ID: <ZyEL0s_qiyAYURR2@arm.com>
+References: <57mgmdx7wgfwci3yo3ggkmcnm3ujamgkwcccm77ypvmer5tegn@opiq3ceh2uvy>
+ <ykzmur56ms7fm4midi6tbncjvcvf7ue4lp7e4orblrmwnefw3e@oa3enlpdrcrr>
+ <bea02efe-a695-49e0-b15c-2270a82cadbf@lucifer.local>
+ <CAHk-=whpXVBNvd0NJpw9=FGcuTuThwtfcKeM3Ug=Uk6kpChCPA@mail.gmail.com>
+ <0b64edb9-491e-4dcd-8dc1-d3c8a336a49b@suse.cz>
+ <CAHk-=wgE8410gu3EabjNEHhOYh1dyYwt23J62S4a9SYcwZUFhw@mail.gmail.com>
+ <1608957a-d138-4401-98ef-7fbe5fb7c387@suse.cz>
+ <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
+ <ZyD5iXikMzotl9mU@arm.com>
+ <da15a72b-c1de-427b-a764-0ebbdd3f6a8e@lucifer.local>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f65af1fe-b500-499e-84dd-954700583475@arm.com>
+In-Reply-To: <da15a72b-c1de-427b-a764-0ebbdd3f6a8e@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_092101_212137_98BF7BB9 
-X-CRM114-Status: GOOD (  30.98  )
+X-CRM114-CacheID: sfid-20241029_092248_170997_8FE99000 
+X-CRM114-Status: GOOD (  33.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,105 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 01:06:38PM +0530, Anshuman Khandual wrote:
-> On 10/28/24 18:17, Mark Rutland wrote:
-> > On Wed, Oct 23, 2024 at 01:01:52PM +0530, Anshuman Khandual wrote:
-> >> On 10/22/24 21:04, Mark Rutland wrote:
-
-> >>> I assume this is intended to protect the bank in sequences like:
-> >>>
-> >>> 	MSR	MDSELR, <...>
-> >>> 	ISB
-> >>> 	MRS	<..._, BANKED_REGISTER
-> >>
-> >> Correct, it is protecting the above sequence.
-> >>
-> >>> ... but is theat suffucient for mutual exclusion against
-> >>> exception handlers, or does that come from somewhere else?
-> >>
-> >> Looking at all existing use cases for breakpoint/watchpoints, it should
-> >> be sufficient to protect against mutual exclusion. But thinking, do you
-> >> have a particular exception handler scenario in mind where this might
-> >> still be problematic ? Will keep looking into it.
-> > 
-> > Where does the mutual exclusion come from for the existing sequences?
+On Tue, Oct 29, 2024 at 03:16:00PM +0000, Lorenzo Stoakes wrote:
+> On Tue, Oct 29, 2024 at 03:04:41PM +0000, Catalin Marinas wrote:
+> > On Mon, Oct 28, 2024 at 10:14:50PM +0000, Lorenzo Stoakes wrote:
+> > > So continue to check VM_MTE_ALLOWED which arch_calc_vm_flag_bits() sets if
+> > > MAP_ANON.
+> > [...]
+> > > diff --git a/mm/shmem.c b/mm/shmem.c
+> > > index 4ba1d00fabda..e87f5d6799a7 100644
+> > > --- a/mm/shmem.c
+> > > +++ b/mm/shmem.c
+> > > @@ -2733,9 +2733,6 @@ static int shmem_mmap(struct file *file, struct vm_area_struct *vma)
+> > >  	if (ret)
+> > >  		return ret;
+> > >
+> > > -	/* arm64 - allow memory tagging on RAM-based files */
+> > > -	vm_flags_set(vma, VM_MTE_ALLOWED);
+> >
+> > This breaks arm64 KVM if the VMM uses shared mappings for the memory
+> > slots (which is possible). We have kvm_vma_mte_allowed() that checks for
+> > the VM_MTE_ALLOWED flag as the VMM may not use PROT_MTE/VM_MTE directly.
 > 
-> Bank selection followed by indexed read/write, inherently requires mutual
-> exclusion (ensuring that both these steps executed together) in order to
-> prevent read/write into wrong registers. That being said, HW breakpoints
-> get used in multiple different places such as perf, ptrace, debug monitor
-> based single stepping etc calling platform functions which operate on the
-> HW breakpoint registers here.
-
-Yes; that's *why* I'm asking. 
-
-> preempt_disable()/enable() sequence in the very last leaf level helpers
-> such as [read|write]_wb_reg(), will ensure required mutual exclusion.
-
-I do not believe that this assertion is correct.
-
-I specifically gave the example of mutual exclusion against exception
-handlers, and preempt_disable() ... preempt_disable() does not prevent
-exceptions being taken, so disabling preemption *cannot* be sufficient
-to provide mutual exclusion against exception handlers.
-
-What prevents a race with an exception handler? e.g. 
-
-* Does the structure of the code prevent that somehow?
-
-* What context(s) does this code execute in?
-  - Are debug exceptions always masked?
-  - Do we disable breakpoints/watchpoints around (some) manipulation of
-    the relevant registers?
-
-> > We should be able to descrive should be able to describe that in the
-> > commit message or in a comment somewhere (or better, with some
-> > assertions that get tested).
+> Ugh yup missed that thanks.
 > 
-> Planning to add a comment - something like this both for read and write
-> helpers.
->        /*
->         * Bank selection in MDSELR_EL1, followed by indexed read from
->         * [break|watch]point registers cannot be interrupted, as that
->         * might cause misread from wrong targets. Hence this requires
->         * mutual exclusion via preventing any preemption.
->         */
-
-As above, I do not believe this is correct. At minimum, disabling
-preemption is not the full story here.
-
-> But regarding adding assertions, could you give some more details and
-> it will be great to have some relevant examples as well.
-
-I've given some suggestions above. Please go and read the code and
-figure this out.
-
-> > For example, what prevents watchpoint_handler() from firing in the
-> > middle of arch_install_hw_breakpoint() or
-> > arch_uninstall_hw_breakpoint()?
+> > I need to read this thread properly but why not pass the file argument
+> > to arch_calc_vm_flag_bits() and set VM_MTE_ALLOWED in there?
 > 
-> If perf is the only user, watchpoint_handler() will not get triggered
-> without watchpoints being installed via arch_install_hw_breakpoint().
-> Similarly once they get uninstalled via arch_uninstall_hw_breakpoint()
-> there will not be active watchpoints to trigger the handler. Although
-> there are other users (ptrace, debug monitor etc) besides perf which
-> could also be active simultaneously and race with each other ? TBH, I
-> am not sure.
+> Can't really do that as it is entangled in a bunch of other stuff,
+> e.g. calc_vm_prot_bits() would have to pass file and that's used in a bunch
+> of places including arch code and... etc. etc.
 
-Please go and read the code and figure this out.
+Not calc_vm_prot_bits() but calc_vm_flag_bits().
+arch_calc_vm_flag_bits() is only implemented by two architectures -
+arm64 and parisc and calc_vm_flag_bits() is only called from do_mmap().
 
-> > Is the existing code correct?
+Basically we want to set VM_MTE_ALLOWED early during the mmap() call
+and, at the time, my thinking was to do it in calc_vm_flag_bits(). The
+calc_vm_prot_bits() OTOH is also called on the mprotect() path and is
+responsible for translating PROT_MTE into a VM_MTE flag without any
+checks. arch_validate_flags() would check if VM_MTE comes together with
+VM_MTE_ALLOWED. But, as in the KVM case, that's not the only function
+checking VM_MTE_ALLOWED.
+
+Since calc_vm_flag_bits() did not take a file argument, the lazy
+approach was to add the flag explicitly for shmem (and hugetlbfs in
+-next). But I think it would be easier to just add the file argument to
+calc_vm_flag_bits() and do the check in the arch code to return
+VM_MTE_ALLOWED. AFAICT, this is called before mmap_region() and
+arch_validate_flags() (unless I missed something in the recent
+reworking).
+
+> I suggest instead we instead don't drop the yucky shmem thing, which will
+> set VM_MTE_ALLOWED for shmem, with arch_calc_vm_flag_bits() still setting
+> it for MAP_ANON, but the other changes will mean the arch_validate_flags()
+> will be fixed too.
 > 
-> I have not tested the concurrency aspects of the HW breakpoints enough
-> to be able to answer that question. But if there is a particular concern
-> here, happy to look into that.
-> 
-> But wondering how does this new bank indexed read/write mechanism (after
-> taking care of the mutual exclusion in the leaf level helpers such as
-> [read| write]_wb_reg()) still makes the existing concurrency situation
-> worse off than earlier ?
+> So this just means not dropping the mm/shmem.c bit basically and everything
+> should 'just work'?
 
-Please go and read the code and figure this out.
+If we can't get the calc_vm_flag_bits() approach to work, I'm fine with
+this as a fix and we'll look to do it properly from 6.13.
 
-Mark.
+-- 
+Catalin
 
