@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F682D2AB3E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48E7D2AB3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xI8hlswPn+2rtuLbW59b6ml3Vaf2FAE8DLSW53b+mIU=; b=3oldVErS9tOm3v3DANiY4wd9Rl
-	fRqnjlW1yFfzOJoR3A4Wt6W+SOmuZuwOt6a68oLhrFk8fjXfojfpTKO1fakvAoJQrlRHZs7qTf+oV
-	pBFzzh9dw9NBXNFKoEJoqz8d8U9nOndMD4444dG1Q4o2uc8dvfEj4HgGypOY1eG+fbSdBvZUD+Jfe
-	lg4glCcsksTDZi4wR84cYZDBo7doAIEIwgdEc+EQRvEKUgUdK3eqZJB0/JJi4wEzkPyF6usbpmNJN
-	27m7fuZWffauW8LPqN0mNcbiPlr0ikjp83iaFV0h64Bf5tMXTNxWW/lRrxV/GozajNtWgl7xY2mA1
-	oduzrY8w==;
+	bh=1BFcJKbGb3E9mJ5EsFDLFnqr34Y42nTMqQdmb2h5i0Q=; b=cBX4DdmoovjpK/h0QNcZS7+q8Z
+	X1RSmcvnj1UOomTnOBRmAcvNUGJ/UoJJyWKENGhjjaPAz3ceExBLIKvUOL/QJgXoD6sCw0wvbexLE
+	LzLD8bobtXGfkFJgNU2OBjjSxqJUkBEVIyqL9xQ3vbQAzS9Tg/d4R2h0wdoBhDV8MyaGxDYctEzR8
+	ce/7SB5Hu+jgRsB3CWkUjS8IxR1wcZrBjCSzZcvY9ZPV4Bzp/9VugHk3S3sOwahrQxNauJDdHgcth
+	I2KRJO6uBfE6WZx77r0OLn4QPiU2mOH2jXngjWQWpXVl+dCWrwa2kBKVXmj6Slnsb4Fl0hyWCzOlt
+	IL0aHOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mBv-0000000EYxz-3qmr;
-	Tue, 29 Oct 2024 13:23:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5mDU-0000000EZ59-49bY;
+	Tue, 29 Oct 2024 13:25:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lkX-0000000ETgB-3FGH
+	id 1t5lkZ-0000000EThD-3Haw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 12:55:07 +0000
+	Tue, 29 Oct 2024 12:55:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EF4485C5DAF;
-	Tue, 29 Oct 2024 12:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4371DC4CEE3;
-	Tue, 29 Oct 2024 12:55:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 311C35C5DDB;
+	Tue, 29 Oct 2024 12:54:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3902BC4CEE9;
+	Tue, 29 Oct 2024 12:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730206504;
-	bh=wsrgcgckUzKVDFRbi/YSgS+i6orOaA/wjwoY2un0FkI=;
+	s=k20201202; t=1730206507;
+	bh=LSVbONdYSI3CZ/dJAq35R0rVW7RNPedEHyCHamPd/X4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UuPxIOvGybzKkys8k2LVtms50JndeSNUJ5GCHKY85ECulRtSECWCwMGoSvFakNOHX
-	 Bl4y/WCSgQPm5CN1AjONBxIK1zBBcpcyaqop4Dh2vN7swUrY70rjgC6vIuX8CjW1nk
-	 OTTTDoFCgrzF0/Jmuf/7j2dnWaF48voPhCQnaV2rWiKcw+SPxo9KH5wlbDcyYxz4lU
-	 sV2GoQ7PrSdAJ7QPfA4luNjfG/k2ChoDg1xqFRNH1kL9CZ1lc6kEaH/YiJbX5LTl6X
-	 2xmfbKFkop17dn4NUtLpin8u+JZ0HUMid6Y7h/YbYBgLea9fiSbdz56hKErDNGDyjS
-	 PDVRlx33siCaQ==
+	b=gkNRyVnGdgi/trV2bBALBw8EvREHuwKmyHGwmiZfq6dsPX+GtXYkMmsfew8d2qgp1
+	 RXB2xm1PxgCl9KHnApsQAPo2THazdRFMnjGoroATzRoIAMkrA5DlD3Tc5w18ni3+8h
+	 cGm+L7Whw+ySv93kBXMogr2wVP9nbCDXXy3eqqFsCnOfuwjdkYxV4dKubCawBrx7cM
+	 Dhv8k2HpEjvP10JWmErN19jCwNxV55pZv/8I53+BMUaorGpOOr4tKceamb1IOZg5lg
+	 g2XMhLwA8uI38/yWqt6fM2zd/BVsk2utUPoaFP/NhQ21ZcZhrS5cZ3tUowK6/uWUH5
+	 RvKRBB+AiujFg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 04/10] ARM: smp_twd: Remove clockevents shutdown call on offlining
-Date: Tue, 29 Oct 2024 13:54:45 +0100
-Message-ID: <20241029125451.54574-5-frederic@kernel.org>
+Subject: [PATCH 05/10] clocksource/drivers/arm_arch_timer: Remove clockevents shutdown call on offlining
+Date: Tue, 29 Oct 2024 13:54:46 +0100
+Message-ID: <20241029125451.54574-6-frederic@kernel.org>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20241029125451.54574-1-frederic@kernel.org>
 References: <20241029125451.54574-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_055505_880071_82B60D79 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20241029_055507_891758_AA7514E6 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +81,22 @@ The clockevents core already detached and unregistered it at this stage.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- arch/arm/kernel/smp_twd.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/clocksource/arm_arch_timer.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/arm/kernel/smp_twd.c b/arch/arm/kernel/smp_twd.c
-index 9a14f721a2b0..42a3706e16a6 100644
---- a/arch/arm/kernel/smp_twd.c
-+++ b/arch/arm/kernel/smp_twd.c
-@@ -93,7 +93,6 @@ static void twd_timer_stop(void)
- {
- 	struct clock_event_device *clk = raw_cpu_ptr(twd_evt);
- 
--	twd_shutdown(clk);
- 	disable_percpu_irq(clk->irq);
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 03733101e231..2bba81e25aa2 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -1179,8 +1179,6 @@ static void arch_timer_stop(struct clock_event_device *clk)
+ 	disable_percpu_irq(arch_timer_ppi[arch_timer_uses_ppi]);
+ 	if (arch_timer_has_nonsecure_ppi())
+ 		disable_percpu_irq(arch_timer_ppi[ARCH_TIMER_PHYS_NONSECURE_PPI]);
+-
+-	clk->set_state_shutdown(clk);
  }
  
+ static int arch_timer_dying_cpu(unsigned int cpu)
 -- 
 2.46.0
 
