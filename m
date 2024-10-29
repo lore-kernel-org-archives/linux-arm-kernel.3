@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B857FD3A69F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9962FD3A69D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=syqLQEEuQIy2cda968KqPmvPAkdMXpl9TyM7P/fgr+8=; b=eElfpJRisS5rFG3HJU11SbQ2UU
-	Lezuq7Q5nF5yGXUaGihBfi2Howverg3KJErQdWe8W3j3JhdV6/qHyWMYbM6RtoSxJguLjC1wmzrL/
-	XD0TrBdhZqLbABhb6IhMuZyJLMMmrpRs1tIosapKL1E34qCEJQn+5pycIvF3ruKYqxzfD3oJsUVD8
-	+uoHySpGTN5VGhPqukIu9b8L/khxQuvPHjKHXzy64cIUVz1YnMCDsDJCmrYH3ZQ57Wt8wGc6MzfPP
-	GT3cyqfNYARjLYUYoHo/oGewUHvWBdWeJytJy19TpgfCAu4L5yhtHizxgtjiLLaxt55W0w+ed6236
-	XyNYv8+g==;
+	bh=QbnDXxocaCyheHFI8hTECOWKPKoXgfCmEGz3dctI1es=; b=PxRO+WP9mubgCsFwF0L06+MfOt
+	TdmfUjobZrtkJBIHig0txiBSS77oZJwdMB77R3TtK1CQYl5/7Wkz4UoAg7dHwh6xVNdoOj+uPH5Fm
+	iNmCeTX13iy/sJFN0eaNjEYgKaO5pnbuwpIItZjr0i7DpyW+xpxsQOebzlx4bqfrwFV6KGfJ4V/YX
+	0DFIGRDJf4tlvbFFhvUkS5g+dHjBQxvsjIvGKqpHEU+WgAi8fk4g708FngN6qfNXQ8fq1kp6H7L4f
+	poqsofjZpckGUVJHFu6e2SNWgbUePx4OdeMWDDC1jJbUZdhhWwS3VR4nZH1i8UB06A9PyC6VTS+W7
+	/zxh0VSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sy5-0000000Foq0-3BSO;
-	Tue, 29 Oct 2024 20:37:33 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1t5szn-0000000FpRj-0F8r;
+	Tue, 29 Oct 2024 20:39:19 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sl4-0000000Fl7a-0WIE
+	id 1t5sl6-0000000Fl8a-0BLy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 20:24:07 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-37d432f9f5aso549004f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:24:05 -0700 (PDT)
+	Tue, 29 Oct 2024 20:24:09 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d5231f71cso685491f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:24:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730233444; x=1730838244; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730233446; x=1730838246; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=syqLQEEuQIy2cda968KqPmvPAkdMXpl9TyM7P/fgr+8=;
-        b=VyPZOf1uc0olVsRqHfHymmlaHClkWWOTrhrOqm95wOQVu/4ODyiS3i/X0osgWtXCJP
-         4WIjI04hy2Bj49e0oJE1R1ckFU/Ixe+sx9jLcoqYdO8MseLaFkU+oROvqzP/a/8Jn16z
-         ghqC+fEFbPlFy9NNAXulHpGk9M3EjWDcm5zGJ53y+oQjihUgJtHV+G6vmLdmdKl5/AQM
-         jT2nPso0h5WijUfDc/AdL4SBgMDmLK9P3FWovN02dk8YCVnfpRsUcAzyyYHJx/J5VY2t
-         sFtlllrPdOYiGTQmYXxeM+W40OKgOKZ/oX+LHXvLvPadJN7oRkazWdxxo/Vut3e77Bng
-         a6NA==
+        bh=QbnDXxocaCyheHFI8hTECOWKPKoXgfCmEGz3dctI1es=;
+        b=eeht5xLixBXhyCN5zVlcdJGi7SznogpzAyP2TxTBWOoeyZPMDiuNIn3mQFDPr57ani
+         +z+VRVrAeJtCEKU4KPMLlpZFTMXv9tMM8qXKsjW46/lN43ou1q8DiEXYyj957V43q9yM
+         flh+yqPN7mEEkp4eshbA7WGnB85HdKco8tKZJbVnJhyYM6Hsf9GTSz5nLrn6FHqgyM4A
+         jmsN2kruXIB61uz+NW3LpS9mhFI64MclGz7U8ADVobBinmW0Rhi8LiS2WgzMWTK7wgz3
+         1FrIQHMhUGlQH2UFBpa8wgMd9tjSjX+PWSj20kgphqK3rysijLjUeF9a2KG4VU8Pv8Ub
+         sPuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730233444; x=1730838244;
+        d=1e100.net; s=20230601; t=1730233446; x=1730838246;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=syqLQEEuQIy2cda968KqPmvPAkdMXpl9TyM7P/fgr+8=;
-        b=R2WyTR7TnmCWI+budeVIId3rFPhhj7Mk8szvGxg758AoBVKeZOOf7Coj1DeeJlpNqt
-         8fxX7V1f+otsu+brhD4JXUDur1dMRKJKntGrsxIZMECei+11WfKqSn7oOQOv5I+HSeeX
-         RgGcpquITsblpPcGYcCOMu+A0RuenwsXu/OmP2WDYRU1LuB1g5oPaZ7E5HKK+yhTTdXM
-         u+t2F6XgBGWQfHPQVWQxtoMiXeTtAWwqRroT1da6D49XrvJ0xItVVic9QveT4gVp30/D
-         nDLnVcWQdRC154vvRUkZ+SxvjnYEWJ2fjmxUSpXuZv/hwHiWDYhDAMvimOdT2JrJJD9A
-         Y99Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXgalpeKoBDe/AAVt4abxfFR3A/MnuMB7cnHmMLNYpzfekHL8ky177VZK8ooWFSmHXMZY2UdHwPYymVGapdaHgf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD17iZRE4yyoldA5JVxv3vq2qW2H/dknX20FgSFt0V87lcd8F9
-	fcBRZTc4SkoPFfuQcPJ2NgPpsfd+D2oa//eJcvf2y6hvLCNSMi+3
-X-Google-Smtp-Source: AGHT+IHGVFfyqJqlmqeKRFFKcmhj1OyaAu/znhSmRzQJTc6ZYgh+32XL3bPFTzuO8uUces3IhKZcmQ==
-X-Received: by 2002:a05:6000:1446:b0:37d:54d0:1f15 with SMTP id ffacd0b85a97d-38061231c59mr4689734f8f.7.1730233443892;
-        Tue, 29 Oct 2024 13:24:03 -0700 (PDT)
+        bh=QbnDXxocaCyheHFI8hTECOWKPKoXgfCmEGz3dctI1es=;
+        b=ByxF8jCIfni23uxaHNzcjO6VTQsEtFdB2BYjWaUVdu1pJuo2DTbe8yalQGnMc3C6Hf
+         e/mzg12JFatqYoBkSz2tAOwlELOln6+9MFs0ElyEJmQk7BecOreWZdvHEjdWaqhsDict
+         +EbLh1PoL0qX7UPW2rf0v8mRyjSn2jGCsdEiQRoavV168iN7J5HAXrG/GsJJcy96pJ9g
+         slJyS0TsRnzbntl5c6Jjo6JVurgwqqV/Do6STZJLgCf5khzYTRqdvUIfK0A908c23KED
+         PfGuTLCUb37Dj0vEE5ZoVF/urS8OOGGI93j5UtU6xrC3TiFuE9/+aM1zrVwrgPOqn9/T
+         z1lg==
+X-Forwarded-Encrypted: i=1; AJvYcCUW/3RjLpbkt8YFKUuTCk+f8XI7jzCOf9fTrAZXZteEkETxfbVISZqy+WcI14xoosLxx651cVM6woLHelU1hgZY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPnqcb+KHARA0rc9DcGKEdGpWiK6HCBkbC+FyVinL/N5hp1/Za
+	wms3/7hE6wICghnx8AufWafaZERiw5AC0MxhoD4FfoRkoha9dEaPTJ9yHw==
+X-Google-Smtp-Source: AGHT+IETpjLLRg+7eXu2VyfPEE1vigfdrCP6sTkEwWApr6Df5/fyHL5jVC/64h7dxa0Nz1OLwcuYIA==
+X-Received: by 2002:a05:600c:511b:b0:431:558c:d9e9 with SMTP id 5b1f17b1804b1-4319ad24126mr50500115e9.5.1730233446109;
+        Tue, 29 Oct 2024 13:24:06 -0700 (PDT)
 Received: from 6c1d2e1f4cf4.v.cablecom.net (84-72-156-211.dclient.hispeed.ch. [84.72.156.211])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bf85sm13619976f8f.42.2024.10.29.13.24.02
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bf85sm13619976f8f.42.2024.10.29.13.24.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 13:24:03 -0700 (PDT)
+        Tue, 29 Oct 2024 13:24:05 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -84,17 +84,18 @@ Cc: conor+dt@kernel.org,
 	l.rubusch@gmail.com,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 07/23] ARM: dts: socfpga: fix missing ranges
-Date: Tue, 29 Oct 2024 20:23:33 +0000
-Message-Id: <20241029202349.69442-8-l.rubusch@gmail.com>
+Subject: [PATCH v4 08/23] ARM: dts: socfpga: add clock-frequency property
+Date: Tue, 29 Oct 2024 20:23:34 +0000
+Message-Id: <20241029202349.69442-9-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241029202349.69442-1-l.rubusch@gmail.com>
 References: <20241029202349.69442-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_132406_197115_DE35A650 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20241029_132408_115007_21E42D76 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +110,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add reanges, since by dtschema 'ranges' is a required property here.
+Add 'clock-frequency' is a required property by dtschema. Initialization
+is open, similar to agilex devices.
 
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi
-index 4b19fad1e..65d04339f 100644
+index 65d04339f..5f4bed187 100644
 --- a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi
 +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi
-@@ -81,10 +81,10 @@ pdma: dma-controller@ffda1000 {
- 		};
+@@ -99,21 +99,25 @@ clocks {
+ 					cb_intosc_hs_div2_clk: cb_intosc_hs_div2_clk {
+ 						#clock-cells = <0>;
+ 						compatible = "fixed-clock";
++						clock-frequency = <0>;
+ 					};
  
- 		fpga-region {
-+			compatible = "fpga-region";
- 			#address-cells = <0x1>;
- 			#size-cells = <0x1>;
--
--			compatible = "fpga-region";
-+			ranges;
- 			fpga-mgr = <&fpga_mgr>;
- 		};
+ 					cb_intosc_ls_clk: cb_intosc_ls_clk {
+ 						#clock-cells = <0>;
+ 						compatible = "fixed-clock";
++						clock-frequency = <0>;
+ 					};
  
+ 					f2s_free_clk: f2s_free_clk {
+ 						#clock-cells = <0>;
+ 						compatible = "fixed-clock";
++						clock-frequency = <0>;
+ 					};
+ 
+ 					osc1: osc1 {
+ 						#clock-cells = <0>;
+ 						compatible = "fixed-clock";
++						clock-frequency = <0>;
+ 					};
+ 
+ 					main_pll: main_pll@40 {
 -- 
 2.25.1
 
