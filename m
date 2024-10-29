@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BD6D2AB20
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DEED2AB20
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ECqHBAN3rDV9yo1zqeLO+ji9lVIoh6IkMKI7b6YgP4=; b=l5wRA8faf4QX3vL7qOiDtI9X0l
-	gxvvldn00fFanqTbBwkPPprC1shE3UMWYgTIQN0ANlLyiEo6zHcbN32Mks7JspjSkhh36xO24n9xZ
-	ELwVYyZAGHCeNEgxiwSecKzp+11nu6nbVBkXA2XEdGLYRRVKRg2MEBoXw1S5y6ADkuhzzp6wLuuW3
-	zhswGeMd9BmMOrF0eZE0rBTcCioSOzLxeWWkRLmVEAmaAOHOsfhwtQnmLGnJ6aFFSUSQ/uz0yivXV
-	fhPPIJrQ0FsxUsTKPgAMhvNqBJHYg7DYlIi0GHVeO82bQllo4ThorPlghJP5Uin3mbEAXT/7e6ND9
-	5pqRSSgw==;
+	bh=R4LTFu04v+ewJrCMf1qStO/yKKemj/dlkSOHqQ2h8u0=; b=QLoKd9l3N9iEldnfE5jc3EbIYf
+	jgxHxomQk8SEdY1oV7WWLao6LAqyktIBAwk0FntHCLaGRqn9zVSQzDp2QeS3yuZnCM80HutPE1BCY
+	GYzdSV7a1xlXh6DMjvfngZBJ3oG8E0XAeyUWOPBCH+4SLOC4gLIc0PV73HBKPd1S1VjwPxLJR8RE0
+	ENGJPaUCb/Hx/NNLREPC8OwyF51XWgZpDLSOGfO2t80m1qZTzDL2z9UOr44ekoeyzakjPEDgwcGgg
+	HrCYryHX0TnX3QFcOiNb24/d8ct8orbqIfRKXLzCdltrzfFiYyirT3q8PqA/whp2DKMmD/EoJszK0
+	RLF1s8eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5k8s-0000000ECPC-05mk;
-	Tue, 29 Oct 2024 11:12:06 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t5kAU-0000000ECnU-3JfO;
+	Tue, 29 Oct 2024 11:13:46 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jqC-0000000E7CL-4Bae
+	id 1t5jqE-0000000E7DM-3DcE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:52:50 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539fb49c64aso8787724e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:52:48 -0700 (PDT)
+	Tue, 29 Oct 2024 10:52:51 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-539f1292a9bso6177866e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:52:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730199167; x=1730803967; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730199169; x=1730803969; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2ECqHBAN3rDV9yo1zqeLO+ji9lVIoh6IkMKI7b6YgP4=;
-        b=wdpZ/a5/uj46bApvahjqVx6S2CHPRzkV6bbWLHQDadKVOJZSR2MXR3tfVLOVHsmM0O
-         Am4e0eXFL+0nhVMzJzFOAywJ0xc7p0q10qASkaYa2eOhl5Z2PcEyH6eVPdW1tp7KProE
-         51dA/nNrZTzn1BRnDMUaJBRofPAofQZ5LjX7OAf2BwpdIFVULz2dBL4g1QxtJfHTXUU/
-         6txcAzz09BwZOzvBBrRlCyqJ40PC7+tQYgOAbTf9sj7/AgkO8oljGUFPuo911ezi6d3O
-         8N315OXqyuAxCd8RLkNpZrl4EsGBSr4lFpPw76Kz7J4hiRzvqP5u9S54hQWFkaTWouax
-         DqIw==
+        bh=R4LTFu04v+ewJrCMf1qStO/yKKemj/dlkSOHqQ2h8u0=;
+        b=qPlP35wx81RVgKN5Sz9ibIEeAJDn1dC9DZc98YtPLfwNUEVSIKl6BTjzGMudxFtFT2
+         OrTa0O/qvZZ8I5nXzqWaC4/qIgH0Wr5IdqZVuQRs4UeGMkVkc5rKThZ2aoP77dyvdXyt
+         mCWWea0pUs/4EwhQjP4iJj8BS3hxDSwS7rbcAXX8Xh+PhEorYhVhyaX5kxXhlF0Ci2D5
+         h70o4jly/WMwIlI1NAHThNDgqsb3riV+4gaPEyQyfu29+01exsHYzlJtg9C/ThsRK5Ai
+         sLrvmLi/qwg4cy3SPuhymM+ySHsYF1/rfRZSavYGrJDMT7sWq1vNMtqgiEJVd1u5iRP4
+         J5OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730199167; x=1730803967;
+        d=1e100.net; s=20230601; t=1730199169; x=1730803969;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2ECqHBAN3rDV9yo1zqeLO+ji9lVIoh6IkMKI7b6YgP4=;
-        b=mlkudchoc0MkGoxlJOW+ZU86Kl7UiJE2VfaZAQ2c0v6gXNBSRatexMYMK5C+nxF5hH
-         iG56gldWxzbzevqdATVHQ9Si2d70+SiICWJehqdK3lfFHyIAXbU6lmtS+oXYCzptNPbd
-         onsoMervwGQz6Jq3sNcRkNKAsAphJjQdCeHHq+Qh4DlNyzhhee+YlLXKLveczRCgtd8y
-         o4VmjVdHQG8cV5Pz6ve7lvbShdtW0a3+09A3JAgU+hidTQb5NL3Z7Sj2wglQFp1NfJGb
-         G1aUde3lTrYUeYLIbcIXfqk+xgEyE5Zhve9A5S5sKdpjeP/htNVk3T9edFR+hQQrI93d
-         7K6g==
-X-Gm-Message-State: AOJu0Yyinx6/SchekF+qcZoIb0VqDGXiVNyzLmFMoluGkBQHA0Woon+J
-	qK/0bYhkOEL7nD+izH6ZCkMY/UNm5tHw7tF8U0MQVBLX3C9/wBSuFC/7TWj7yKE=
-X-Google-Smtp-Source: AGHT+IFxU85skQ0lHgZfBxehiTWY20leong2ojbAy2znYbSLCYYbTDr3GHQiZv+4b0NSU1Ui/HoHTQ==
-X-Received: by 2002:a05:6512:3d8d:b0:536:54ff:51c8 with SMTP id 2adb3069b0e04-53b348cc6e0mr8922755e87.17.1730199167001;
-        Tue, 29 Oct 2024 03:52:47 -0700 (PDT)
+        bh=R4LTFu04v+ewJrCMf1qStO/yKKemj/dlkSOHqQ2h8u0=;
+        b=uFR3U2BjTaF8NjD7Ra+3LHjPpISyo4Rx0SGKm7tbiijHpd2tSCXVp4HpHmKDL9s+LP
+         15pIW+pheskhuPdAy3wyhcjYAx0Pyy+uAXH1dMmeayBkzL4tJQ7EwAglcz4zRg5Ns6ky
+         h8A65QOrOVi5cWJ5UJtwwj614vbN7sey6ARjv5t2/Rz85XYwSjEOl+OXLGNCQceb8Xg/
+         Pmef2LOQqSj4jOHSy6K1/6vWi40qszxDE4nYpvvoWAMFeeOw37Fo6VwXs4pt9oZ2BNMA
+         pItUD9uCOgGsSMKH2DpIQnWRPg6Y1pvuTuVantpbrHe16vlGFP0nVNIvhXjS06GLskqM
+         VpDQ==
+X-Gm-Message-State: AOJu0Yw1qq4CyGs/+v/g8GIjPGmi4tClWxKyDsIJtYKlWgPVpkoJKC8l
+	9MAQigxyyVNpfrZKuZtI4/SA6rzgpxAARpch9IjOFtHlQ7lev94llTMADuHDxUM=
+X-Google-Smtp-Source: AGHT+IHzdoIpnm1raIIfmAFKx69MVi8OCs2VC2TJN21ljNCIN9pZ7ToE5AMSUbLLmWlJJIXJdiGYpg==
+X-Received: by 2002:ac2:4e06:0:b0:52c:fd46:bf07 with SMTP id 2adb3069b0e04-53b34a2e4d0mr4368775e87.49.1730199169220;
+        Tue, 29 Oct 2024 03:52:49 -0700 (PDT)
 Received: from lino.lan ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.52.46
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.52.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 03:52:46 -0700 (PDT)
+        Tue, 29 Oct 2024 03:52:47 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 29 Oct 2024 11:52:41 +0100
-Subject: [PATCH RFC v2 01/28] ARM: Prepare includes for generic entry
+Date: Tue, 29 Oct 2024 11:52:42 +0100
+Subject: [PATCH RFC v2 02/28] ARM: ptrace: Split report_syscall()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-arm-generic-entry-v2-1-573519abef38@linaro.org>
+Message-Id: <20241029-arm-generic-entry-v2-2-573519abef38@linaro.org>
 References: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 In-Reply-To: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 To: Oleg Nesterov <oleg@redhat.com>, Russell King <linux@armlinux.org.uk>, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_035249_085590_1FFFAF38 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20241029_035250_845185_A09BE5B2 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +97,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic entry code needs a static inline function for
-regs_irq_disabled() so add this, in further requires the signature
-of on_thread_stack() to be __always_inline so add this as
-well.
+The generic entry code requires that report_syscall() be provided
+in two parts: report_syscall_enter() and report_syscall_exit()
+so split the combined function in two.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/ptrace.h     | 5 +++++
- arch/arm/include/asm/stacktrace.h | 2 +-
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ arch/arm/kernel/ptrace.c | 30 ++++++++++++++++++++++--------
+ 1 file changed, 22 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm/include/asm/ptrace.h b/arch/arm/include/asm/ptrace.h
-index 6eb311fb2da0..a01c66f0ad90 100644
---- a/arch/arm/include/asm/ptrace.h
-+++ b/arch/arm/include/asm/ptrace.h
-@@ -52,6 +52,11 @@ struct svc_pt_regs {
- #define fast_interrupts_enabled(regs) \
- 	(!((regs)->ARM_cpsr & PSR_F_BIT))
- 
-+static inline int regs_irqs_disabled(struct pt_regs *regs)
-+{
-+	return !interrupts_enabled(regs);
-+}
-+
- /* Are the current registers suitable for user mode?
-  * (used to maintain security in signal handlers)
-  */
-diff --git a/arch/arm/include/asm/stacktrace.h b/arch/arm/include/asm/stacktrace.h
-index f80a85b091d6..815b5f256af1 100644
---- a/arch/arm/include/asm/stacktrace.h
-+++ b/arch/arm/include/asm/stacktrace.h
-@@ -26,7 +26,7 @@ struct stackframe {
- #endif
+diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
+index c421a899fc84..07b0daf47441 100644
+--- a/arch/arm/kernel/ptrace.c
++++ b/arch/arm/kernel/ptrace.c
+@@ -827,31 +827,45 @@ enum ptrace_syscall_dir {
+ 	PTRACE_SYSCALL_EXIT,
  };
  
--static inline bool on_thread_stack(void)
-+static __always_inline bool on_thread_stack(void)
+-static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
++static void report_syscall_enter(struct pt_regs *regs)
  {
- 	unsigned long delta = current_stack_pointer ^ (unsigned long)current->stack;
+ 	unsigned long ip;
  
+ 	/*
+ 	 * IP is used to denote syscall entry/exit:
+-	 * IP = 0 -> entry, =1 -> exit
++	 * IP = 0 -> entry
+ 	 */
+ 	ip = regs->ARM_ip;
+-	regs->ARM_ip = dir;
++	regs->ARM_ip = PTRACE_SYSCALL_ENTER;
+ 
+-	if (dir == PTRACE_SYSCALL_EXIT)
+-		ptrace_report_syscall_exit(regs, 0);
+-	else if (ptrace_report_syscall_entry(regs))
++	if (ptrace_report_syscall_entry(regs))
+ 		current_thread_info()->abi_syscall = -1;
+ 
+ 	regs->ARM_ip = ip;
+ }
+ 
++static void report_syscall_exit(struct pt_regs *regs)
++{
++	unsigned long ip;
++
++	/*
++	 * IP is used to denote syscall entry/exit:
++	 * IP = 1 -> exit
++	 */
++	ip = regs->ARM_ip;
++	regs->ARM_ip = PTRACE_SYSCALL_EXIT;
++
++	ptrace_report_syscall_exit(regs, 0);
++
++	regs->ARM_ip = ip;
++}
++
+ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
+ {
+ 	int scno;
+ 
+ 	if (test_thread_flag(TIF_SYSCALL_TRACE))
+-		report_syscall(regs, PTRACE_SYSCALL_ENTER);
++		report_syscall_enter(regs);
+ 
+ 	/* Do seccomp after ptrace; syscall may have changed. */
+ #ifdef CONFIG_HAVE_ARCH_SECCOMP_FILTER
+@@ -892,5 +906,5 @@ asmlinkage void syscall_trace_exit(struct pt_regs *regs)
+ 		trace_sys_exit(regs, regs_return_value(regs));
+ 
+ 	if (test_thread_flag(TIF_SYSCALL_TRACE))
+-		report_syscall(regs, PTRACE_SYSCALL_EXIT);
++		report_syscall_exit(regs);
+ }
 
 -- 
 2.46.2
