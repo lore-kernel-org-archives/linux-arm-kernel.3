@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30610D2AB1C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3A5D2AB1C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=; b=NTTYGCSfRnS8SjI/G00ePNlQ3n
-	hh9DG1AxS5O+jVL723SSzMKx1CBl9XqHpr/UnA0DvWP0JRJ74DaS+56t4FuCsDwLHk0DR6RznL+19
-	X4wsrGyel/IDCb/fZ6NMnjHCdxtShca3b+ZBOHPrmLQFhwVbRVBxCsw+K70M8VA/ajsCDS/lDtMQf
-	mlx24Vkb38s64Co9xs57IGmXdgSaAb3mo8uBwZOr0ngwYY7YeIEenmOCrybN8ku786SgeN0OCJeuZ
-	BvTqxdHdtR39bEZunYwjH2E6Bce3Mq5H3SB2HqY7V4qnmP7JHcoZ8x4tYsEXV9+hVHGuraC9ZhZvM
-	awfkQrzA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iku2aazVoaifn2qwZ8do62mCbu6cZo7YQepKnixIbc4=; b=FHol3VeCNn7ePylNpFRvJFlIiz
+	kSB9RNyF3g3y2MscHOXSBDxnseLpAAuXtaENHTScyXwFtZSgeuyUch82zW8PVAj0cmuayxWokTQh2
+	p1ZQWFBVyog8qG0X0dcdCEL+w1mxFGw99iXCFl1kNU+1yJmfRKxTMNUb447mYABB0un0mji1jz6lx
+	i7SdfmZhXk/nVhJiFYWNZRuICYjyp1hi7ExGkyQXjBHu9D3IDmemlxQILoS8SV/zRXLKhvR7Z2FcD
+	HTaGA9ht78weOxpActbVhqHm6vD32Ks/VfPy2eUTDMD7Bk02q6NZKT4gvgNnMdFZA26W8H958eaUI
+	Hv+0mwLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jZ1-0000000E3N7-312Y;
-	Tue, 29 Oct 2024 10:35:03 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1t5jab-0000000E3bD-26XS;
+	Tue, 29 Oct 2024 10:36:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5j6I-0000000Dyhf-2krR
+	id 1t5jN5-0000000E11C-3Bd7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:05:24 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539983beb19so6213404e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:05:22 -0700 (PDT)
+	Tue, 29 Oct 2024 10:22:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43161c0068bso50422705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:22:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730196320; x=1730801120; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=;
-        b=t7UH5NcP3dMxFsEjM54+Q7jHgAhw6CT+gmtYJyAZ5wjnOzheCThrNwkp54vj4UW7kX
-         nK5eRJQSXtyvc/C10JHT7EsdeFZYDL6nCUvMl4XywCY6H/tMicN7Wxq+fuVpEE+76rdk
-         vGwoQdGIT5bwMPLYuM/LY7Q/HTaTDi/rFJMLcgrxB4jHqoTpQMkyKYHLbVqpmB8ey6Qb
-         hVM3IWUugbUybMrxIhjQ+5hi1SJJm7NIRVbpBLE/muQTZBjjUBGRqSx8NOypf7hAr+rj
-         0PPUAHrTepSAfSh89cOMEEx5LTQXX283dGVn33VOn9d6XUqBX8i25NBQZwtmwrUUMVWJ
-         GW4g==
+        d=linaro.org; s=google; t=1730197362; x=1730802162; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iku2aazVoaifn2qwZ8do62mCbu6cZo7YQepKnixIbc4=;
+        b=mK2QsuJd1oMgViBNvhGnYwEjbD6WESnkZFvQ2vXgItWYJGkIepipRuoYEhY45epAZJ
+         VoomZu8bsdZOKh6Lk3auHykLML7KBCKRHOzAx5t7gzVOkcQNY5u41R52lBmvnJ2tEOcG
+         pM6nW3Mr6/8K0lFyX1WxRhi8OF8uTs/3ppwJBs7ZGSmGGxpbVFu4/f+5TpWyFVInR6jE
+         qNqCVxLYeZwRIe5SzVV8dbQ7bT10XbCqs3zMm3FLGsVD8SjeFqvd3XlJwYYvRyX9BZXt
+         T3mnMw7pM6mRhGlHPnvbnffuJP9iqvQHKm5k/0NO5TEj3eGnC20JFNjKb54bnAZyEjfq
+         B34w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730196320; x=1730801120;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=;
-        b=fz4D/3ARLBOLA67QaJsuThhbz3rlaJtRVfsMtjGOqXAo7IeJGLIWXEhuZ8TWuEEzuJ
-         +ZQA8AV1NX2mwc+UUReckAB4e4ZWIGEl6dbU+BVOArvB5WspXRr4UpSx9PDKkBMsxUWF
-         fRHb2BFmRKRBnNUY/RwqCmqKZCrZ54qUzcFRkUzn6Kr+9qZOfWblZW9JAO0Mncy3FlR5
-         ObakufhTiT1BrDH6fAGaAO10QAlkDIq/NtiBZlahWCuqlwkktFyiLWDbgAjPfw+78QLQ
-         sab6f5IP6rjaknJeC5NZ857+rIzBl6MHkAPLLmwbYcWkdwzc5j/Ie5qGh+2NHoJKni5W
-         +MPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVuMKBviMg9/nFvo2ek5dAjb7tg+HrQ7rSrHJ0D93T4pMI4ubAbqu/5n9/ni/Pv5MwJKmLvi/XinOjI1NV4TRrP@lists.infradead.org
-X-Gm-Message-State: AOJu0YznmnXm9qxeSXZce0QKG+tWSbZ8g+cVKCTShS8k5MuM2z85z8jZ
-	gQPNw0650BuAoGjJ6KppbCL91QmiIhGIgRHT4RbV1IbViJpcmY3P7IgCjItyJOh10SfiWkWRATo
-	nONLrRqJMfpqspbGd8hzll9DL5ZF9yQPz6TS4/zZmL9v7zxK1
-X-Google-Smtp-Source: AGHT+IHRjlZ5hUDjfU+PhK/6e3oqa7R+fo3XhjKnYIjv7VyxU8Q5LEQEqbHbzMAmS4KxgFa0+3jWkOmL3SAGQgEfxvY=
-X-Received: by 2002:a05:6512:3c98:b0:536:54e9:3a63 with SMTP id
- 2adb3069b0e04-53b34a19727mr5084956e87.49.1730196320370; Tue, 29 Oct 2024
- 03:05:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730197362; x=1730802162;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iku2aazVoaifn2qwZ8do62mCbu6cZo7YQepKnixIbc4=;
+        b=ZGNICIvs5r+d8FXd0YlMcBBCX4nogu05t5kTOVgmtLodYmfoVud4FRxlDX/5jeUCy2
+         GUZ4Qz4UmRFosXg+ZRJ10qGNEjD1zP4VprmAr27S+1yMjsEkIyZIa8slXM3ee/alZAea
+         MaH4Lf0Bd42pjE3LyaKVbRsmYORRPAG/PyhDG8NDFp9eBz2bJ7BsdSmNfk0lYFKoq8yp
+         Xgpxb5Lo1t4dTeQUBnbkU+jJCKNCGPIR0fVF1dQ2jkPPVxaFuiZF98eAGISNbC1MH85a
+         vi27LpS2XFibIEkiApjkUuk15TTfA2Y++6EX4YlbOVARy9GVo7PXRjo9ib02XQ94Ni7W
+         DUjA==
+X-Forwarded-Encrypted: i=1; AJvYcCWR5W8sxzpPnoCMh7OC9wmRNapmK9vpt4Gh8oP0csYhLvhd5Ke83NIMKs8dYbSgV0gOtQZtSuBKfFHiCk1SDf7W@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIEQUot2z2pQgw3iNMHNMgGD4+C7mXhXUlj3d59xZIBLpS8VR8
+	Ph1qnJWPUXdXhcXa9Aamit58sY702ay9opAMfT3Hz7sdJ+eJTpdWVE9/+cx7XcY=
+X-Google-Smtp-Source: AGHT+IFJA0rf9yL1/4hL0/WSC0JKP3mxHD/OdeY53wfOUkq+NYJEyeFtfI5Od5uPy5TfvM1U2qN/+g==
+X-Received: by 2002:adf:e38c:0:b0:37d:47e2:5e30 with SMTP id ffacd0b85a97d-380611e715dmr8476087f8f.42.1730197362162;
+        Tue, 29 Oct 2024 03:22:42 -0700 (PDT)
+Received: from tudordana.roam.corp.google.com ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b47a86sm12084498f8f.53.2024.10.29.03.22.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 03:22:41 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: peng.fan@oss.nxp.com,
+	m.felsch@pengutronix.de
+Cc: pratyush@kernel.org,
+	mwalle@kernel.org,
+	miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-mtd@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [RESEND PATCH v4 1/2] dt-bindings: mtd: jedec,spi-nor: add optional vcc-supply
+Date: Tue, 29 Oct 2024 10:22:37 +0000
+Message-ID: <20241029102238.44673-1-tudor.ambarus@linaro.org>
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 MIME-Version: 1.0
-References: <20241029074901.18977-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20241029074901.18977-1-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 29 Oct 2024 11:05:07 +0100
-Message-ID: <CACRpkdZCeQFzqbSN_=jX-_406OyxOoLb3b0R5NX3SjacE5JZSQ@mail.gmail.com>
-Subject: Re: [GIT PULL] pinctrl: samsung: drivers for v6.13
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_030522_722683_445BA8D3 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20241029_032243_843107_8122B224 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,29 +108,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 8:49=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+From: Peng Fan <peng.fan@nxp.com>
 
-> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
-dc:
->
->   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
->
-> are available in the Git repository at:
->
->   https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tag=
-s/samsung-pinctrl-6.13
->
-> for you to fetch changes up to 6d2dbd4cec8939ad2b813b8052eb12406db528d7:
->
->   pinctrl: samsung: Add Exynos9810 SoC specific data (2024-10-27 21:02:08=
- +0100)
+Introduce optional vcc-supply property, SPI NOR flashes needs power supply
+to work properly. The power supply maybe software controlable per board
+design.
 
-Pulled into the pinctrl tree for v6.13.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+v4: no changes
 
-Thanks for sorting out the Exynos drivers, excellent work as always Krzyszt=
-of!
+ Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Yours,
-Linus Walleij
+diff --git a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+index 6e3afb42926e..335f8204aa1e 100644
+--- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
++++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+@@ -96,6 +96,10 @@ properties:
+       If "broken-flash-reset" is present then having this property does not
+       make any difference.
+ 
++  vcc-supply:
++    description:
++      Supply for the SPI NOR power.
++
+   spi-cpol: true
+   spi-cpha: true
+ 
+-- 
+2.47.0.163.g1226f6d8fa-goog
+
 
