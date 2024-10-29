@@ -4,76 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FEED3A67B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FE1D3A67B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDxtU9YNz9xnWBQRtb5L5rJFy6fv+lmyeyTlVJB9PJw=; b=i3j9TpdUNhlrF6D7bQ7s1mvOe9
-	IOaSuYXLtMEEgWKN76MeruXP2OG8onWo4CizvSmyaSQyKttD+GhE/E1GBxqgxlw0MVNKG/A4/8EsZ
-	8g0EMpSBtlDJ6PrYI2JUMyhMw+Ju23MkStUUmLXD2OuuZ7Mrvvh5mYvSRT6HMezz1SBDgStnuBAls
-	Qt02GrWcEowpfqFd/WU6Sf7dDLdsFIKyVvaOHiqEMJNBixiEqMkAObSakxxge/Zl1liaABHz/tYpz
-	uEg/zq7bIwFJUL4kDMj7bnCh8OoWsdxlPziTc7hXo2O4TAOklcnflESKDoSQxCY4L03QkwQSBtFEd
-	lTTpP/pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RjB4Ch/Cad8OWIISs22V/yaCSO1WcXAZCu3R7vlETfY=; b=ZTmnJvkeX6pBOICjLsGbjdWgLf
+	HxmddCqv3bQFYnHAWVX/sMsIU+dZR1sn23SIEcedjaddtPeQXQ3Ix10OdovjjCOrkxlFjI2jW3M4o
+	qiJLkT3AGHDpOS64OQRVOHjElosxe/ydpzk7KtiGcvvIQO+tRKjHrfIn5GMu89eEjIzOjPq8zlcfo
+	DFuqYuOX1HxY2XvJ8qKrJxjSM8BKOR6qOGDgZMt2AYgLAk2sTP5KgYEmWENdikbZkdGbxuOEuiVDt
+	Ee0RixUNoHT4FFnzxhKmIExzTj9W/Ox1mikJ50+KWwsHZAADDmjyz+8EPZjg6MKRfUcEUyEQLjRN5
+	uCvTTvdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rDz-0000000FWuJ-3Dpq;
-	Tue, 29 Oct 2024 18:45:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5rEJ-0000000FXE3-3gf3;
+	Tue, 29 Oct 2024 18:46:11 +0000
+Received: from mail-am6eur05on20624.outbound.protection.outlook.com ([2a01:111:f403:2612::624] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5p4B-0000000F74h-1SUF
+	id 1t5p88-0000000F7OW-0L4B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 16:27:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A0199A4300A;
-	Tue, 29 Oct 2024 16:25:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF11EC4CEE4;
-	Tue, 29 Oct 2024 16:27:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730219253;
-	bh=Z3N4p1dwXhBN00KOleOrbra5ELWKA6izVcLKfEwUA6c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=urbEN6hNzPqi50TUyCRNw61epjyTQT3YPQmW5yrOe5jO+DwS/+lgpRI2cqFKO9aG6
-	 Tpj1T/xg6ZozpcDEl7bBQMK2X7sOdaEBneyvCIyXryQOP++9U80LeA7l42oOj+pkT8
-	 6cE/IqUz/1R4Ag4cqlzcMruzENyFyNbd7MfJscoCVnAKwYUVB84oKPPa7Ql16tXKUK
-	 z9Y+Bri390dmftkG15PvWU+h0y9tA1SDDv09NpRhzJigMSUi0Lmz8GfSzztArAJAa3
-	 1DhC4k7vUUVWQEbnEA5YIMAoS1pM04G/7l5OlC8meIxRBb4YcnT/VAZUnRNMueaHZ+
-	 GKfjubpSsnUfw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t5p47-007z9Y-LO;
-	Tue, 29 Oct 2024 16:27:31 +0000
-Date: Tue, 29 Oct 2024 16:27:31 +0000
-Message-ID: <868qu63mdo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Tue, 29 Oct 2024 16:31:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UqmtNknw9jX1JDtxaxjDIqt3kEUwyQ+vtRysqdCorBkc/sd36YERzqByD4y2a2wVgLnhbnGk0KaRleLERpxyHMvmPJPMiYnRprn6f/JBpIkPbVjNkYA8clOGvh6Iki+yfGBNcpBF8smdZYD5eROXlgxfvpptmYwAUVfgj+ce1Ak/H8fa08FC3OSrHJi/xah8MGTA3a0p0R5d9IVWM5vy9Shxtu95CeMDkj7KuZFQQnfjlcMy8yVux4zzToaGtT4/r8Y8Xjo39N9e8ms6mRpERVDfqSVuLYrrFmYHRbLSWamRdX9Yed+Zz3s+e3ll5CbhWwIJdt+zuvtUL/zpGZ5Dsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RjB4Ch/Cad8OWIISs22V/yaCSO1WcXAZCu3R7vlETfY=;
+ b=J27/y0TOyVKBFklFMRwupvHpOhor8AnRcnp907/rYhhTJKnygyAJhfe5Zmd0BGtnIMZxNAjP6goFkPoIkFZccJTro6AqHjJ5rlFq74vIo0JVNfG9Wk68WzKQDgXgP3JSpbeOKbCSQAQeusWsfPA9yNLtSYxdlSWPkc9Z/OrBBlLl7iw4yBIFg2qNg5tzXpbYIXO33si8Uqpf51CONQYzuwXXyTlbN6XCQKlfjO2JwGk9iS4n2B9HvhptenYqhci8UJTkzzyxrL3wo27+UxMh59usvU1mfA58G0luSpleYwDgZJgA30I+SHl3a2Jzh62OqrDEZLoeykTOzab9u3ZQrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RjB4Ch/Cad8OWIISs22V/yaCSO1WcXAZCu3R7vlETfY=;
+ b=ghUsIUbWIE/8yZNRZMM6qfWOoR1GT9CXa7oK8vcKM/r5WPMlYm8UsUOfOidvs4vS5/SOe4Pk9sX383FhtiXLJ0MXm66GufgNtcE8EQPb7N8SpKoPrMGYyFdaR8vpHekpYfTJwpbnJhXBH7TZB2ejBhZlCMF6o3DtuxgpTu++oY3zjY1u+KW5B1lSOhYPiiPnonWYjb/4d7xz7JhlSguZlPAMvn6qyQhDGwwpgC5u/KhP+LOWC3HBtAwp+uXfrP1kqWBEwx6nCpK+l9CNCp8oURConuBvE2d9UJnGk46B//zta/FPUP1D7zDrXwbUQyd/muqbjWG8C0+SMJzCaLOKaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by AM7PR04MB6791.eurprd04.prod.outlook.com (2603:10a6:20b:103::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Tue, 29 Oct
+ 2024 16:31:29 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%3]) with mapi id 15.20.8093.027; Tue, 29 Oct 2024
+ 16:31:28 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: netdev@vger.kernel.org,
+	Radu Bulie <radu-andrei.bulie@nxp.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Breno Leitao <leitao@debian.org>,
+	Madalin Bucur <madalin.bucur@nxp.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Sean Anderson <sean.anderson@linux.dev>,
 	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	stable@vger.kernel.org,
-	syzbot <syzkaller@googlegroups.com>
-Subject: Re: [PATCH v2] KVM: arm64: Get rid of userspace_irqchip_in_use
-In-Reply-To: <20241028234533.942542-1-rananta@google.com>
-References: <20241028234533.942542-1-rananta@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, stable@vger.kernel.org, syzkaller@googlegroups.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net] net: dpaa_eth: print FD status in CPU endianness in dpaa_eth_fd tracepoint
+Date: Tue, 29 Oct 2024 18:31:05 +0200
+Message-Id: <20241029163105.44135-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4PR10CA0013.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dc::20) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AM7PR04MB6791:EE_
+X-MS-Office365-Filtering-Correlation-Id: e11a0056-7d9f-4c9f-c9fb-08dcf837235f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KuXckMEpku2gDh2YXNwkKVQZsdy8y0N152Sf5doMFC4P+WQyrWar3uocfFKE?=
+ =?us-ascii?Q?6OoXifhRwmp7vMppwdEGeF5m6lyJcNSGCSyO6kUHzuIsBovf2aIUBmSFMg8+?=
+ =?us-ascii?Q?vgfApjE/hSVXLxTcjI0vItHJl7xkwJQQClDh3+KE98vQVfRsLALTFUtRbJBP?=
+ =?us-ascii?Q?Dvjrot6zckLUfyHlXy1ihHAeoz+5wP/AjPXMmGeCTOddWab7cojn4adEZ7JJ?=
+ =?us-ascii?Q?qKUEmFLV/iHGTw3OTCv6fZcSkTb8KRHq4TRhEbTKVf/SLukaFIyr3PmiXD+f?=
+ =?us-ascii?Q?ClRgpM7/8UGyE06sLybdQncd6oNP2+qtjBS9A6zFxcONNxep9qC38qpxhS8k?=
+ =?us-ascii?Q?Kst5XYVgRWc8zfzELHPcw9mUKj117aafQ1SaOzpU72sXihlSRITJiWu7PDfU?=
+ =?us-ascii?Q?HbOe0lLGHBUWefoJdLGkIZBYCFc4hTteSDyKNLJR8bVhh1fUNEI2J6h2h4N9?=
+ =?us-ascii?Q?S12zQYDDk9pMXt4LDQe1UTNKQ8Rptg02JD2jBNKBtW2I2JfjDZF4aaAiKed0?=
+ =?us-ascii?Q?gayQ/X6nxYIcPBrFxKbpXYvZ6fpEIkBOP19ko1CmcwuE9XZV97Kq+DQR8zPK?=
+ =?us-ascii?Q?oFLOdsIyjLebAOTdtJyFoiYfL1U/4B0eksaQzf+JQ3ZP1SclKg3zdxWepvbI?=
+ =?us-ascii?Q?VnYLQjm/Rxqf2a0zB0XHcx6j8WN5fw4RIc7u21r+Ue/gvxa3cT7Nvp1swP9k?=
+ =?us-ascii?Q?6YGygKt40nwlkHuha1BEyMNM4hwCm5krE1+s09l2+T0ymjeoBqvIWH133253?=
+ =?us-ascii?Q?CsWCj3Reds+HR6qgE8RZaptbQrpkSteJZp/IU/rJMSkkEbqTfGirL9pFCrxD?=
+ =?us-ascii?Q?oJecIvaPrciKshWTLUEkkqxGDmEwuTW+W4YMAL/mVAX9Y237kaysOrp4uw6y?=
+ =?us-ascii?Q?lUNiPkl3VXSfLlRhyJEIok++jRO8BtlJC7eb9Nta1b1zOkr+w244SEDryokZ?=
+ =?us-ascii?Q?tA4ME0ErvhSAZyjbKe1Jeq6Ks/wmPs891u/21onZFGtCrRsR+rw4ZX5+hKq1?=
+ =?us-ascii?Q?SrjfUBqamzXbA1oQbElW9qZ8bDSXG4Ux5kn77BGmlEdvWKxSBzYTcOC7ucQ1?=
+ =?us-ascii?Q?R7KCmp/ZN3L6fk6FH31LnUCHj5/8iKpe+VLYpWbh+DrGwUa+OIrEg76x6Wsf?=
+ =?us-ascii?Q?HuCWw/ub4WnRnr1sJEyGwfQdtmTOyDDbdjeJyHiSEIl5b7kKx+3kR8PmHDKW?=
+ =?us-ascii?Q?/vpjuXW4cqkTBGn0+HHfzXayFF/H4njIvBZDgd5IciaZboKgISHW9apfbRjX?=
+ =?us-ascii?Q?tFYtEsIg+Q1/CmKXHjfwmNT+B87rFezgqLH4u9u1ztFWjRk0QWSx9RBljezy?=
+ =?us-ascii?Q?bnWZD48crdl9xii7JvqnJrVgvUPyosBdi+zETGsRmnxGCdyvA5Gp9BjV4hVg?=
+ =?us-ascii?Q?7FspWYDx2RdaNyxtK9A8rfx+Sp93?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1jpRBRxL8mCjqTJTBgzL+HyxtyLH9Wd0U1F5gVhd3o0tiqapRfv8mEalVnyD?=
+ =?us-ascii?Q?hBz1xBJEx7K19ntgjFDo5xqNv7uTn3xXQsAFh3Pi7n+CAR+9sFg9Kpfld6pl?=
+ =?us-ascii?Q?o06PWyGd397bcy941lnMgOBrNi2IwrV8PrwdF0riNAq2A56oZBh1wqtSKb4m?=
+ =?us-ascii?Q?tn9Jt9BgBHIZqn7q+/dI4e9yxhyR93q7BHt0Vfks1mPQp06exuC8F2fXPjtE?=
+ =?us-ascii?Q?AsDL3dT5o2DONY42u9S1z+XL5ozBMcNqrCAwvW9XRvlk56ktMaALvZAzbHGZ?=
+ =?us-ascii?Q?iND+JtUxlNsv+byIvtVIzFibyEv2DOpK3GRV6hRVpeMxtjQGlgi8QHKgme6m?=
+ =?us-ascii?Q?WIYaJeX3M2s+bynTO1DoK+ydoVhW0e/NTDe4CQs50zIsXDG3Qph9uJIHUFOI?=
+ =?us-ascii?Q?fv20HIrsk1FU9q+4msOqiuh4oC/C3Rpbl/6R+MozdjfqIALxB2k5a+uyI0No?=
+ =?us-ascii?Q?IgZGqV0sOSIyfPHcghK7GmDrbwxnKNoqIWW0ImiFgriHE03sSuMznfLW/Bdv?=
+ =?us-ascii?Q?rwm8JD9Vj/I1KOLuIm9IbcgeTjTytiL+r5/rdLtwyYennNklyaupTA5EaSr5?=
+ =?us-ascii?Q?q3XV55qKVaYFF/0oiPhdO7tas7waQjdqsEw0pd4EwHq2Dy8NB9Swc0nXGqfv?=
+ =?us-ascii?Q?P0symhdUr4c3bQ9bWNdGa5fPdI3j5A8xkuWtj1GSD1oRrXy0bnSeJzKvczuQ?=
+ =?us-ascii?Q?uieNPF5Ks3O+aXy1i73DeIJTPwoy5N0/EXUCIRtN3ymCmW7UipNoJyUMIZB8?=
+ =?us-ascii?Q?JFTSjaOedsGcgVNWzfqpc1CvcDmQz6n8F5qmCjpgd5OhaubAFzPns/gSWLPL?=
+ =?us-ascii?Q?NpDgGFx/vnzX0jJOFVTTt8DdFvaPll0ZLPjPkHtgpAgzWxcPpqq4na5dEsZO?=
+ =?us-ascii?Q?jY/3t2fxhpQMf+Df0ucUO7wiID1eKbC+YB0er5RewMM1Oj8MnLtJeJQZS6iH?=
+ =?us-ascii?Q?KByM3XEiZQ6Dd1sR9Y+R3CrNtSkbtq15y8gGxhMoMqfFKcChXnlUOqI3qORe?=
+ =?us-ascii?Q?zaeZEjHJPiZIL/nitxuW2JGyH708+ehepoYIa5Js6fbjO9JxuGAOrJHEbjBL?=
+ =?us-ascii?Q?0E2uXTTmnXT9bsYgIZ22QnWBUxebxqgkkTRy0uRhbRlqwxnUWQVnhbJa05sb?=
+ =?us-ascii?Q?FluIXL8SeT849KeRj+kcAq9qougQADNQ/P2Syfu5y9pFNP7+maE1EckVQ1Ru?=
+ =?us-ascii?Q?6UUO1aWyJLVeHFyN0/AKAwrRS7lShVFo7n2qME6fWjb5QhPjYK7mpaCzMwLN?=
+ =?us-ascii?Q?HeR0tEu0w+6OFzFjBi+tMRXSiKqDgiiYrR3IFBXWQU8q/Yy/mtX0XkgzJkB8?=
+ =?us-ascii?Q?Nz1Xt+0MUh27ar5zsojIeCwGdhnPykNojt/MT+t+x2Z58SU4l07LGmRAp1Ax?=
+ =?us-ascii?Q?tpxnIDvhtD3TFDomPqCrd/hSd4HoISj1KBoy+FTNbmY6TTIC3rxeIxIBH0PT?=
+ =?us-ascii?Q?7fNH1VyLEP3qcn2HdTp864nnoNy3r+hJVGiUtaDnD7S393PkZFmycCtNBeoB?=
+ =?us-ascii?Q?PFCT3Cg2kVtn8me9u8bTovwATKDjLNHtaS1smHojby1exEcm+IWgOzdYooFO?=
+ =?us-ascii?Q?o+IBet1MqpQ/49LDuAr78mEhfRuDYYpywFqhu+5PWsB1kSK/j02Xh13lBbAT?=
+ =?us-ascii?Q?Iw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e11a0056-7d9f-4c9f-c9fb-08dcf837235f
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 16:31:28.8355
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: o8fSlAuYImo37C2NE1uRbRmFFVL2YQ4xqijlhfwW44C2mzXPMoAIw8OGSTm8uTkjVCW0lb3v9AC56Eh8w3DY2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6791
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_092735_536505_2DB1EF4F 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20241029_093140_169658_2EE62F18 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,86 +165,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 23:45:33 +0000,
-Raghavendra Rao Ananta <rananta@google.com> wrote:
-> 
-> Improper use of userspace_irqchip_in_use led to syzbot hitting the
-> following WARN_ON() in kvm_timer_update_irq():
-> 
-> WARNING: CPU: 0 PID: 3281 at arch/arm64/kvm/arch_timer.c:459
-> kvm_timer_update_irq+0x21c/0x394
-> Call trace:
->   kvm_timer_update_irq+0x21c/0x394 arch/arm64/kvm/arch_timer.c:459
->   kvm_timer_vcpu_reset+0x158/0x684 arch/arm64/kvm/arch_timer.c:968
->   kvm_reset_vcpu+0x3b4/0x560 arch/arm64/kvm/reset.c:264
->   kvm_vcpu_set_target arch/arm64/kvm/arm.c:1553 [inline]
->   kvm_arch_vcpu_ioctl_vcpu_init arch/arm64/kvm/arm.c:1573 [inline]
->   kvm_arch_vcpu_ioctl+0x112c/0x1b3c arch/arm64/kvm/arm.c:1695
->   kvm_vcpu_ioctl+0x4ec/0xf74 virt/kvm/kvm_main.c:4658
->   vfs_ioctl fs/ioctl.c:51 [inline]
->   __do_sys_ioctl fs/ioctl.c:907 [inline]
->   __se_sys_ioctl fs/ioctl.c:893 [inline]
->   __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
->   __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
->   invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
->   el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
->   do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
->   el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
->   el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
->   el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
-> 
-> The following sequence led to the scenario:
->  - Userspace creates a VM and a vCPU.
->  - The vCPU is initialized with KVM_ARM_VCPU_PMU_V3 during
->    KVM_ARM_VCPU_INIT.
->  - Without any other setup, such as vGIC or vPMU, userspace issues
->    KVM_RUN on the vCPU. Since the vPMU is requested, but not setup,
->    kvm_arm_pmu_v3_enable() fails in kvm_arch_vcpu_run_pid_change().
->    As a result, KVM_RUN returns after enabling the timer, but before
->    incrementing 'userspace_irqchip_in_use':
->    kvm_arch_vcpu_run_pid_change()
->        ret = kvm_arm_pmu_v3_enable()
->            if (!vcpu->arch.pmu.created)
->                return -EINVAL;
->        if (ret)
->            return ret;
->        [...]
->        if (!irqchip_in_kernel(kvm))
->            static_branch_inc(&userspace_irqchip_in_use);
->  - Userspace ignores the error and issues KVM_ARM_VCPU_INIT again.
->    Since the timer is already enabled, control moves through the
->    following flow, ultimately hitting the WARN_ON():
->    kvm_timer_vcpu_reset()
->        if (timer->enabled)
->           kvm_timer_update_irq()
->               if (!userspace_irqchip())
->                   ret = kvm_vgic_inject_irq()
->                       ret = vgic_lazy_init()
->                           if (unlikely(!vgic_initialized(kvm)))
->                               if (kvm->arch.vgic.vgic_model !=
->                                   KVM_DEV_TYPE_ARM_VGIC_V2)
->                                       return -EBUSY;
->                   WARN_ON(ret);
-> 
-> Theoretically, since userspace_irqchip_in_use's functionality can be
+Sparse warns:
 
-nit: this isn't theoretical at all.
+note: in included file (through ../include/trace/trace_events.h,
+../include/trace/define_trace.h,
+../drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h):
+warning: incorrect type in assignment (different base types)
+   expected unsigned int [usertype] fd_status
+   got restricted __be32 const [usertype] status
 
-> simply replaced by '!irqchip_in_kernel()', get rid of the static key
-> to avoid the mismanagement, which also helps with the syzbot issue.
+We take struct qm_fd :: status, store it and print it as an u32,
+though it is a big endian field. We should print the FD status in
+CPU endianness for ease of debug and consistency between PowerPC and
+Arm systems.
 
-Did you have a chance to check whether this had any negative impact on
-actual workloads? Since the entry/exit code is a bit of a hot spot,
-I'd like to make sure we're not penalising the common case (I only
-wrote this patch while waiting in an airport, and didn't test it at
-all).
+Though it is a not often used debug feature, it is best to treat it as
+a bug and backport the format change to all supported stable kernels,
+for consistency.
 
-Any such data about it would be very welcome in the commit message.
+Fixes: eb11ddf36eb8 ("dpaa_eth: add trace points")
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+---
+Context: https://lore.kernel.org/oe-kbuild-all/20241028-sticky-refined-lionfish-b06c0c@leitao/
 
-Thanks,
+ drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-	M.
-
+diff --git a/drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h b/drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h
+index 6f0e58a2a58a..9e1d44ae92cc 100644
+--- a/drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h
++++ b/drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h
+@@ -56,7 +56,7 @@ DECLARE_EVENT_CLASS(dpaa_eth_fd,
+ 		__entry->fd_format = qm_fd_get_format(fd);
+ 		__entry->fd_offset = qm_fd_get_offset(fd);
+ 		__entry->fd_length = qm_fd_get_length(fd);
+-		__entry->fd_status = fd->status;
++		__entry->fd_status = __be32_to_cpu(fd->status);
+ 		__assign_str(name);
+ 	),
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
