@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6993DD3A678
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9755D3A679
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzkkuHcJAdCarQ1DZBUjrbYTIlPteyvNO1MGL5JwwK0=; b=oi8Qfm97A4q2zMFpzwl5Px/oNG
-	7rnNXHLb5zBnMoG7qeUlbTqLmnI9rkg2RungAUzWoMvEXHg82XdW3mbolHkLlsGxE0iXECw58PvbF
-	EudDuYrZOIxds8g+3Ztz5wZgd1ypE/Ht7PqZg5kR1k5K+GU8kiA9zmnI58BWbt0Wjyp/eZwmB5DLR
-	MI95q1/ce42EQvonIfDlQb/3aSZ69K3h7QbX5WU/s4J4MXljxS792t4edF+5mWULCd72PYBu5/39T
-	ymjlrRrKaqO1JR7TfJ3a7VNmPBQeDDN/IXdq2hfvgTnSF2XpSwA8xS8WbcTjav2EPXtvku8scWL08
-	XSOHo6bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Bao06MeG32QWrNrzTrhj2Y8BYcOMesi/pUr+Al/NrcA=; b=QobgEGElCRYslx/Y+IhSBU/8xL
+	YdD08Ld/fXqyThAjRPo6M7ZeGf8EVZY3w6hZv91+D+4ll1aCrI7sYcKqHV3W8a8UQtwrrWYqGElMw
+	OsvbGQ969FkO8VN4obJAfqLwd2NEoGXFVBceKcLwLyrru3Ygh91Pg13sDcqDBeAOhxA7Fr598pEHS
+	X7UI0+ebP9BvBZ9e6vG4F2vzRuP4hwrvhdKIRzBwU68n9kATi2jX0V14hD6C5rtRBlDVuRLitcW70
+	IAzcXYpna6le7AoIcCz/jt8fTfpRDzNYyBVkWFZUf3OW1GKAZ+5W33Lvbpa5cqcDTzDMF2s0Qyg69
+	rhKSmM8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q88-0000000FHhM-3F0e;
-	Tue, 29 Oct 2024 17:35:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5q8A-0000000FHiy-2KjW;
+	Tue, 29 Oct 2024 17:35:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oGM-0000000EwmZ-3AVj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:36:08 +0000
+	id 1t5oKf-0000000ExQC-1EYo;
+	Tue, 29 Oct 2024 15:40:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5BE7AA42F09;
-	Tue, 29 Oct 2024 15:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8EAFC4CEED;
-	Tue, 29 Oct 2024 15:36:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7B8255C561A;
+	Tue, 29 Oct 2024 15:39:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 025A7C4CECD;
+	Tue, 29 Oct 2024 15:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730216164;
-	bh=u4B7caqf4bH9RcgIRvXgFiIuK4JMtpoAxmfZWBghb+A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DogrcRgc+kJY7DLNgDe5WLQ9m8eh1vlx9QExwfy7emgvXbKTnaa7jJ4ERvlwol8ti
-	 gwlblgJu/4t4/BJe3lGwD8UqfN0Ydul+iwcKQ/3zsya3jX/8YkJr3BuVwUvM3f8QiP
-	 y940Gv/y7bMdIi4SO/Bmyms4ctCg845FUL6dElY9PebiNuvCw/Ob1Cpvcuy3Px1iJJ
-	 Ttf/CVc2rUSxKcHy6EyWZNPej1UTUGfJUCQYqm2lPfmAY6WjllSRxAn+VH13SuZaC6
-	 ebd8gTCjcBrrUkB7So3txykL+sTXQTP+lUg9PYhjXA3aJK+WO4HtgR+kbbTZXlxRPr
-	 4ixNh9zfDqXjw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t5oGI-007yET-6C;
-	Tue, 29 Oct 2024 15:36:02 +0000
-Date: Tue, 29 Oct 2024 15:36:01 +0000
-Message-ID: <86a5em3ori.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>,	puranjay@kernel.org,	Arnd Bergmann
- <arnd@arndb.de>,	Arnd Bergmann <arnd@kernel.org>,	Alex =?UTF-8?B?QmVubsOp?=
- =?UTF-8?B?ZQ==?= <alex.bennee@linaro.org>,	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,	Sumit Garg <sumit.garg@linaro.org>,
-	puranjay12@gmail.com,	Oliver Upton <oliver.upton@linux.dev>,	Suzuki K
- Poulose <suzuki.poulose@arm.com>,	Joey Gouly <joey.gouly@arm.com>,	Zenghui
- Yu <zenghui.yu@linux.dev>
-Subject: Re: Supporting KVM_GUESTDBG_BLOCKIRQ or something similar on ARM64
-In-Reply-To: <ZyDp2VLqjjzm47S3@J2N7QTR9R3.cambridge.arm.com>
-References: <mb61p4j4wwlap.fsf@kernel.org>
-	<86ed4031zh.wl-maz@kernel.org>
-	<CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com>
-	<86bjz32q2q.wl-maz@kernel.org>
-	<CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
-	<ZyDp2VLqjjzm47S3@J2N7QTR9R3.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, ardb@kernel.org, puranjay@kernel.org, arnd@arndb.de, arnd@kernel.org, alex.bennee@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, sumit.garg@linaro.org, puranjay12@gmail.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, joey.gouly@arm.com, zenghui.yu@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1730216432;
+	bh=z8kE0zz8IskfM8xgxZLCRvPQ6P7D3DW1E454Ru1T4h8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=EXNWH8lPvmk6wDf7i/EWjdwYtMKTLjKFLxvK4MQMzKiLuVurCLm7OddASuJzDegpr
+	 Gzj5X7uiv9vf0ntBg/YEAk4IwleCeZjFmFIJ1dBucC1s2tWYX90zeh1iLzVvV8b37R
+	 ItmC0hVKUf5dMaGilwe2zvygQRlKryIt4sw2yX/hUb9XvgibBqceM1J4kyNA3wJI+/
+	 QSaKGhPkXUqCaaqr8E8EEtJtOOHx4Qz08dxtOOiaEBfrYVu1imr/IMPZgoIYXOGcIb
+	 vjDVc9dcbhL/6DXuw+wC7CWh+1qYhryJvhyzhpbWN5EwTZ6fiwlmDd55BwWD+filrw
+	 tBz/Ur+SjZzjA==
+Date: Tue, 29 Oct 2024 10:40:30 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
+Cc: Jim Quinlan <james.quinlan@broadcom.com>, Rob Herring <robh@kernel.org>,
+	linux-pci@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	Veerabhadrarao Badiganti <quic_vbadigan@quicinc.com>,
+	Mayank Rana <quic_mrana@quicinc.com>
+Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
+Message-ID: <20241029154030.GA1157452@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <648d12f6-85d4-971a-b46d-d0e8f9db9091@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_083606_973755_F4018DEA 
-X-CRM114-Status: GOOD (  45.20  )
+X-CRM114-CacheID: sfid-20241029_084033_447354_3E90055E 
+X-CRM114-Status: GOOD (  52.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,118 +86,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Oct 2024 13:57:53 +0000,
-Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> On Tue, Oct 29, 2024 at 11:00:24AM +0100, Ard Biesheuvel wrote:
-> > On Tue, 29 Oct 2024 at 10:53, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Tue, 29 Oct 2024 08:52:41 +0000,
-> > > Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > >
-> > > > On Mon, 28 Oct 2024 at 12:23, Marc Zyngier <maz@kernel.org> wrote:
-> > > > >
-> > > > > > Let's start a discussion about what needs to be done to support this on
-> > > > > > arm64.
-> > > > >
-> > > > > A good start would be to define the semantics of such a flag:
-> > > > >
-> > > > > - what should it affect? the vcpu you are single-stepping? all vcpu?
-> > > > >
-> > > > > - should userspace to know that interrupts are pending?
-> > > > >
-> > > > > - should this result in any effect on the guest's view of time?
-> > > > >
-> > > > > - what of interactions on the rest of the system (such as devices)?
-> > > > >
-> > > >
-> > > > Sorry to give a handwavy answer here, but approaching this from a
-> > > > usability PoV (like what Puranjay is doing), it is really about
-> > > > adhering to the principle of least surprise for the user.
-> > > >
-> > > > So in that sense, it is not really about blocking IRQs at all, as long
-> > > > as we step over them rather than into them. How that is achieved is
-> > > > not that relevant from the user PoV, and maybe KVM_GUESTDBG_BLOCKIRQ
-> > > > is not the right solution for ARM at all.
-> > >
-> > > I definitely sympathise with the goal, but there is no simple way to
-> > > let interrupts through while stepping (which is what your "step over"
-> > > implies):
-> > >
-> > > - the hypervisor (in general) doesn't interact with the guest delivery
-> > >   and handling of interrupts -- this is either very opaque (list
-> > >   registers) or completely invisible (direct injection)
-> > >
-> > > - replacing the step with a breakpoint after the stepped instruction
-> > >   requires us to decode the guest instructions to handle branching
-> > >   effects
-> > >
+On Tue, Oct 29, 2024 at 08:52:15PM +0530, Krishna Chaitanya Chundru wrote:
+> On 10/29/2024 8:18 PM, Bjorn Helgaas wrote:
+> > On Tue, Oct 29, 2024 at 10:22:36AM -0400, Jim Quinlan wrote:
+> > > On Tue, Oct 29, 2024 at 1:17 AM Krishna Chaitanya Chundru
+> > > <quic_krichai@quicinc.com> wrote:
+> > > > On 10/29/2024 12:21 AM, James Quinlan wrote:
+> > > > > On 10/24/24 21:08, Krishna Chaitanya Chundru wrote:
+> > > > > > On 10/22/2024 12:33 AM, Rob Herring wrote:
+> > > > > > > On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
+> > > > > > > > Support configuration of the GEN3 preset equalization settings, aka the
+> > > > > > > > Lane Equalization Control Register(s) of the Secondary PCI Express
+> > > > > > > > Extended Capability.  These registers are of type HwInit/RsvdP and
+> > > > > > > > typically set by FW.  In our case they are set by our RC host bridge
+> > > > > > > > driver using internal registers.
+> > > > > > > > 
+> > > > > > > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> > > > > > > > ---
+> > > > > > > >    .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12
+> > > > > > > > ++++++++++++
+> > > > > > > >    1 file changed, 12 insertions(+)
+> > > > > > > > 
+> > > > > > > > diff --git
+> > > > > > > > a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > > > > > > b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > > > > > > index 0925c520195a..f965ad57f32f 100644
+> > > > > > > > --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > > > > > > +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > > > > > > @@ -104,6 +104,18 @@ properties:
+> > > > > > > >        minItems: 1
+> > > > > > > >        maxItems: 3
+> > > > > > > >    +  brcm,gen3-eq-presets:
+> > > > > > > > +    description: |
+> > > > > > > > +      A u16 array giving the GEN3 equilization presets, one for
+> > > > > > > > each lane.
+> > > > > > > > +      These values are destined for the 16bit registers known as the
+> > > > > > > > +      Lane Equalization Control Register(s) of the Secondary PCI
+> > > > > > > > Express
+> > > > > > > > +      Extended Capability.  In the array, lane 0 is first term,
+> > > > > > > > lane 1 next,
+> > > > > > > > +      etc. The contents of the entries reflect what is necessary for
+> > > > > > > > +      the current board and SoC, and the details of each preset are
+> > > > > > > > +      described in Section 7.27.4 of the PCI base spec, Revision 3.0.
+> > > > > > > 
+> > > > > > > If these are defined by the PCIe spec, then why is it Broadcom specific
+> > > > > > > property?
+> > > > > Yes, I will remove the "brcm," prefix.
+> > > > > > > 
+> > > > > > Hi Rob,
+> > > > > > 
+> > > > > > qcom pcie driver also needs to program these presets as you suggested
+> > > > > > this can go to common pci bridge binding.
+> > > > > > 
+> > > > > > from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
+> > > > > > of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
+> > > > > > through P10) and where as data rates of 64.0 GT/s use different class of
+> > > > > > presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
+> > > > > > have optional preset hints (Table 4-24).
+> > > > > > 
+> > > > > > And there is possibility that for each data rate we may require
+> > > > > > different preset configuration.
+> > > > > > 
+> > > > > > Can we have a dt binding for each data rate of 16 byte array.
+> > > > > > like gen3-eq-preset array, gen4-eq-preset array etc.
+> > > > > 
+> > > > > Yes, that was the idea when using "genX-eq-preset", for X in {3,4...}.
+> > > > > 
+> > > > > Keep in mind that this is an RFC; I have a backlog of commit submissions
+> > > > > before I can submit the code that uses this DT property.  If you
+> > > > > (Krishna) want to submit something now I'd be quite happy to go with
+> > > > > that.  I don't believe it is acceptable to submit a bindings commit w/o
+> > > > > code that uses it (if I'm incorrect I'll be glad to do a V2).
+> > > > > 
+> > > > I submitted a pull request for this. if you have any other suggestions
+> > > > or if we need to have any other details we can update this pull request.
+> > > > https://github.com/devicetree-org/dt-schema/pull/146
+> > > 
+> > > Thanks for doing this.   However, why a u8 array?  The registers are
+> > > defined as u16 so it would be more natural to use a u16 array, each
+> > > entry giving
+> > > all of the data for a single lane.  In our implementation we read a
+> > > u16 and we write it to the register -- what advantage is there by
+> > > using a u8 array?
+> > > 
+> > > Also if there are 16 lanes, you will need 32 maxItems, correct?
 > > 
-> > Yeah, and we still want to take non-IRQ/FIQ exceptions, so this does
-> > not seem feasible to me.
+> > I added these questions to the github PR.
 > > 
-> > > One possible mechanism would be to:
-> > >
-> > > - while stepping, add breakpoints to the interrupt vectors for the EL
-> > >   we are stepping (3 breakpoints for any of the 4 possible exception
-> > >   groups),
-> > >
-> > > - when any interrupt breakpoint hits, clear all 3, place a breakpoint
-> > >   on the instruction that was about to be single-stepped (pointed to
-> > >   by SPSR)
-> > >
-> > > - run to completion, until the breakpoint hits
-> > >
-> > > - disable the breakpoint, reinstall the previous 3 interrupt
-> > >   breakpoints
-> > >
-> > > - single-step, rinse, repeat
-> > >
-> > > But then I'm asking myself the question: why is this KVM's job? It
-> > > seems to me that this is what an external debugger would do when
-> > > interacting with HW on bare metal.
-> > >
-> > > So can we implement this as part of the debugger's state machine?
-> > >
-> > 
-> > Which debugger is that? The GDB stub in QEMU?
-> > 
-> > Setting a one-shot breakpoint on the address in SPSR when taking an
-> > IRQ exception seems like a reasonable approach to me.
+> > Also, why does it define gen3-eq-presets, gen4-eq-presets,
+> > gen5-eq-presets, and gen6-eq-presets?  I think there's only a single
+> > place to write these values (the Lane Equalization Control registers,
+> > PCIe r6.0, sec 7.7.3.4), isn't here?  How would software choose the
+> > correct values to use?
 > 
-> That doesn't work; an IRQ could be taken in the middle of a common
-> helper that's also used in IRQ context, so you'd take the breakpoint
-> within the IRQ. You could try to match a bunch of things like the SP and
-> so on, but that boils to do a bunch of heuristics rather than something
-> that's guarnateed to work...
+> 7.7.3.4 Lane Equalization Control Register is for gen3 speed, for gen4
+> we had a new capability register 7.7.5.9 16.0 GT/s Lane Equalization Control
+> Register for gen5 we have 7.7.6.9 32.0 GT/s Lane Equalization Control
+> Register.
 
-Hmmm. Yes, that's a pretty pathological case.
+Oh, thank you!  I completely missed those new registers.
 
+> for gen3 we should not use uint8 as gen3 as transmitter preset and
+> receiver preset hint thus for each lane we need to have uint16 instead
+> of uint8 as we are defining per lane property in driver where we use
+> each uint16 value of array needs to be mapped correctly in the register.
+> If we have only support for single lane then last 16 bits becomes
+> invalid. so for 16 lanes we need to uint16 array each of uint16 instead
+> of uint8. ( I will modify it to uint16 instead of uint16)
 > 
-> More generally, the IRQ can preempt the running thread anyway, so:
+> for remaining gen speeds we don't have receiver preset hint, and it
+> requires only 8 bits to represent a lane only. so i will use only uint8
+> for remaining gen speeds.
 > 
-> * The user cannot use this to trace a kernel thread reliabl , since that
->   can be switched out behind their back.
+> Bjorn,
 > 
-> * The user cannot use this to trace a CPU regardless of the running
->   thread, since they lose anything that happens under an IRQ.
+> from PCIe spec 8.3.3.3 Tx Equalization Presets for 8.0, 16.0, 32.0, and
+> 64.0 GT/ tells which preset value we neeed to use based upon different
+> parameters. Based upon the type of the board hardware one has to
+> calculate the preset value and provide them using these properties.
 
-These are understood limitations, I expect, and would be a part of the
-contract between the debugger and the user when deciding to hide
-asynchronous exceptions.
+Thanks, I had looked at 8.3.3.3, but missed the extra 16, 32, and 64
+GT/s registers because 8.3.3.3 looks more like guidance for hardware
+design and firmware to calculate the values, and it doesn't mention
+the registers the OS would program.
 
-But if those limitations are not deemed acceptable (or not easily
-implementable by the debugger), then the only option we have is to
-block IRQ/FIQ the hard way. In a way, this is what the architecture
-provides when entering Debug state, where all asynchronous exceptions
-are ignored (H2.4.1).
+Sorry for confusing things!
 
-And that brings me back to my earlier set of question...
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Bjorn
 
