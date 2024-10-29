@@ -4,103 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0C6D2AB3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A96D2AB3F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjNHLSsUGuFmGlERPGDh+LCYmNQGD33Ek78v1YDjssc=; b=KQWqxM/6/3qavPH9i0ad8IsV8Y
-	Hg44VlT6Dr1b89n1QFhZwyvE47Rz89yZFewnCNo7ER+EW+wsgPpBeY2bhDYdzDEFlr6x3+/1G6c+R
-	RZdbaLJD+2t4CigEqdwh3ILH8/knxy12BH3NIxP5lY7KSgaDMbtn1H3Ud3GSjLywee0npsjSeUxzY
-	KbhMqBKa2zd4Bcbjaj0B/e5L8OhtGm81Cy8xDEh5Qsu8dCY+jd2Z/PYrMwbaMwg0QQ/0NrZ3xeHKy
-	W5b3Elu13fkvgRmkH2AbDIYByPL/7VSoiWQsYrKoMD0eBkUovKHhoIZrsv/LdePnj2X+2FRceAolf
-	dnKK9c1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5cqqrov4AdwCYPpG1iaZ3hsr3yIYdVKOBo5HLsmX948=; b=ebh3lSsqi/qihl0t2oTMCXvRWJ
+	3sYCTrfl0GNWBWKVu5PE+fH5tfgffIU3iN1QsLcyhJR9lrsew64q85eOOn9ssN/4PooC40J2G+492
+	OMBu4Ig4zf/2KZGJNMxnZKGnIAgeiA+KmPsXDneLgOEYbqnBb7Ast8fxlQ4FbbqSBtdz9D+QbJjGB
+	k8XlhIV5ycp7lpvsX/JS7AOCbRYIKhZzZ/Dn9fX1zYViSPeHxe4xOIoDBuolJR+mEHoSAA5oxb168
+	AimygACip+SiP/+WAy7dTtwOrPyayscoZJWlVrMGITmFIsO6EvRj3TK+noKSG4Vpto1PWyqnceXE6
+	3ce4vGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mgA-0000000EdvU-0kuq;
-	Tue, 29 Oct 2024 13:54:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t5mhm-0000000Ee9T-1Wu6;
+	Tue, 29 Oct 2024 13:56:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mJf-0000000Ea40-0JWj
+	id 1t5mKy-0000000EaKt-0BIL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 13:31:24 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49T9PT2s007682;
-	Tue, 29 Oct 2024 13:31:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TjNHLSsUGuFmGlERPGDh+LCYmNQGD33Ek78v1YDjssc=; b=mAt5fIy0NEQ9tWLk
-	sY8gQ2lZ1Bm9KGukV6aBh2zEo/BWcYTkqbV7yIPSHv6OByrEdQXu72tkqSO5YxLm
-	FfVe0cdjlTUbteSWQoahuOXPjpnF2i59xOo+DhxB4v2DZgkYXzbPZomGSeo8LH+4
-	wIYCuqBjYpz0ONvp9Ok1oLc4bs5aJ1flx3Ghr3SmqiOVcKntc/6oBLoFmqNee5nt
-	HNmDh/LfEO1SShbAq6eMDj8vyzqSWZHfIadDM9vK03FDgKvWRjvfKaNhoinate9E
-	zHaxRPZhqo7ZMfOekQo57cjHADfaH/Y6g54vAdUNrOjtmlIwznsCDnaL1tF3PyN3
-	i7+8+w==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42grt70f8v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Oct 2024 13:31:15 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49TDVEHD014690
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Oct 2024 13:31:14 GMT
-Received: from [10.253.37.153] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 29 Oct
- 2024 06:31:08 -0700
-Message-ID: <b5e6e81e-dab2-43d8-b52e-85b6cb0d0209@quicinc.com>
-Date: Tue, 29 Oct 2024 21:31:05 +0800
+	Tue, 29 Oct 2024 13:32:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3774BA42E20;
+	Tue, 29 Oct 2024 13:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026C3C4CECD;
+	Tue, 29 Oct 2024 13:32:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730208762;
+	bh=jrHqPfbGs6UW1a1ejxLnOehibvcOx7U9XWxUoCxSwoQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jms2n7NkBUVyQyQ53pgWikeOEV2u54BzjjJIJ6usO3A/ERN/LVwKbKwBfuEETMW8/
+	 Kn3ye63OUcssw5Ffbt+czxNdWd1DoonvF94ojADw8LzpMOCLvgtv4n5DMAUwvKG5YS
+	 ZbZEdctq05uBBNHEHJIq4zGCQS2XEG+p+GmS475vC8i1+/VbXj9qTbpmGES7iI9zm5
+	 JZrJX5f0Hp4QOSPHjmc5Hl2i4yBMMXFs8pC4UEsisFiBXl3RckPrGAGqM5576KAgVt
+	 X5qLXxx1TeDNz3m4eBfya1MaC19xq0mVmXqYOc0VRALTg7c79Fz7EhkeUJeQHphXOS
+	 NeTcb+Eo5K+GQ==
+Date: Tue, 29 Oct 2024 13:32:38 +0000
+From: Will Deacon <will@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf: Switch back to struct platform_driver::remove()
+Message-ID: <20241029133237.GC4416@willie-the-truck>
+References: <20241027180313.410964-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/4] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
-References: <20241028-qcom_ipq_cmnpll-v5-0-339994b0388d@quicinc.com>
- <20241028-qcom_ipq_cmnpll-v5-4-339994b0388d@quicinc.com>
- <crcbzpxjnbceilqccbwr7uyak6z6zdwr7mhfcyaw6vvpcce6ko@zrojbtqi4st4>
-Content-Language: en-US
-From: Jie Luo <quic_luoj@quicinc.com>
-In-Reply-To: <crcbzpxjnbceilqccbwr7uyak6z6zdwr7mhfcyaw6vvpcce6ko@zrojbtqi4st4>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: nWv7Wst7ajudcR5l84aK1YXFfY-RmoFz
-X-Proofpoint-GUID: nWv7Wst7ajudcR5l84aK1YXFfY-RmoFz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 bulkscore=0
- adultscore=0 clxscore=1015 impostorscore=0 malwarescore=0
- priorityscore=1501 phishscore=0 mlxscore=0 suspectscore=0 mlxlogscore=999
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410290103
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241027180313.410964-2-u.kleine-koenig@baylibre.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_063123_270241_696B1870 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20241029_063244_163802_0970C2C9 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,124 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/28/2024 11:39 PM, Dmitry Baryshkov wrote:
-> On Mon, Oct 28, 2024 at 10:04:11PM +0800, Luo Jie wrote:
->> The CMN PLL clock controller allows selection of an input clock rate
->> from a defined set of input clock rates. It in-turn supplies fixed
->> rate output clocks to the hardware blocks that provide the ethernet
->> functions such as PPE (Packet Process Engine) and connected switch or
->> PHY, and to GCC.
->>
->> The reference clock of CMN PLL is routed from XO to the CMN PLL through
->> the internal WiFi block.
->> .XO (48 MHZ or 96 MHZ)-->WiFi (multiplier/divider)-->48 MHZ to CMN PLL.
->>
->> The reference input clock from WiFi to CMN PLL is fully controlled by
->> the bootstrap pins which select the XO frequency (48 MHZ or 96 MHZ).
->> Based on this frequency, the divider in the internal Wi-Fi block is
->> automatically configured by hardware (1 for 48 MHZ, 2 for 96 MHZ), to
->> ensure output clock to CMN PLL is 48 MHZ.
->>
->> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 16 ++++++++++++++-
->>   arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 26 +++++++++++++++++++++++-
->>   2 files changed, 40 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->> index 91e104b0f865..f026c2a9d0c0 100644
->> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->> @@ -3,7 +3,7 @@
->>    * IPQ9574 RDP board common device tree source
->>    *
->>    * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
->> - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
->> + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
->>    */
->>   
->>   /dts-v1/;
->> @@ -164,6 +164,20 @@ &usb3 {
->>   	status = "okay";
->>   };
->>   
->> +/*
->> + * The bootstrap pins for the board select the XO clock frequency,
->> + * which automatically enables the right dividers to ensure the
->> + * reference clock output to CMNPLL is 48 MHZ.
->> + */
->> +&cmn_pll_ref_clk {
->> +	clock-div = <1>;
->> +	clock-mult = <1>;
->> +};
->> +
->>   &xo_board_clk {
->>   	clock-frequency = <24000000>;
->>   };
->> +
->> +&xo_clk {
->> +	clock-frequency = <48000000>;
->> +};
->> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> index 14c7b3a78442..ad9cdb1f76db 100644
->> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> @@ -3,10 +3,11 @@
->>    * IPQ9574 SoC device tree source
->>    *
->>    * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
->> - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
->> + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
->>    */
->>   
->>   #include <dt-bindings/clock/qcom,apss-ipq.h>
->> +#include <dt-bindings/clock/qcom,ipq-cmn-pll.h>
->>   #include <dt-bindings/clock/qcom,ipq9574-gcc.h>
->>   #include <dt-bindings/interconnect/qcom,ipq9574.h>
->>   #include <dt-bindings/interrupt-controller/arm-gic.h>
->> @@ -19,6 +20,12 @@ / {
->>   	#size-cells = <2>;
->>   
->>   	clocks {
->> +		cmn_pll_ref_clk: cmn-pll-ref-clk {
->> +			compatible = "fixed-factor-clock";
->> +			clocks = <&xo_clk>;
->> +			#clock-cells = <0>;
->> +		};
->> +
->>   		sleep_clk: sleep-clk {
->>   			compatible = "fixed-clock";
->>   			#clock-cells = <0>;
->> @@ -28,6 +35,11 @@ xo_board_clk: xo-board-clk {
->>   			compatible = "fixed-clock";
->>   			#clock-cells = <0>;
->>   		};
->> +
->> +		xo_clk: xo-clk {
->> +			compatible = "fixed-clock";
->> +			#clock-cells = <0>;
->> +		};
+On Sun, Oct 27, 2024 at 07:03:14PM +0100, Uwe Kleine-König wrote:
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
 > 
-> What is the difference between xo_clk and xo_board_clk? Are there two
-> different crystals?
-
-The xo_board_clk of 24 MHZ is generated by applying another divider in
-HW (by 2), on top of the same 48 MHZ clock output from internal Wi-Fi.
-
-XO (48 MHZ or 96 MHZ)-->WiFi (mul/div)-->48 MHZ-->fixed factor divider 2 
-by HW ---> xo_board_clk (24 MHZ)
-
-We may need to correct its clock chain representation. We will update
-xo_board_clk as a fixed factor (div by 2) clock, and refer to the 48 MHZ
-input clock, using a separate patch after the CMN PLL patch series
-review is concluded. Hope this approach is fine.
-
+> Convert all platform drivers below drivers/perf to use .remove(), with
+> the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
 > 
->>   	};
->>   
->>   	cpus {
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
+> Hello
 > 
+> I did a single patch for all of drivers/perf. While I usually prefer to
+> do one logical change per patch, this seems to be overengineering here
+> as the individual changes are really trivial and shouldn't be much in
+> the way for stable backports. But I'll happily split the patch if you
+> prefer it split.
+> 
+> Note I didn't Cc: the maintainers of each driver as this would hit
+> sending limits.
+> 
+> This is based on Friday's next, if conflicts arise when you apply it at
+> some later time and don't want to resolve them, feel free to just drop
+> the changes to the conflicting files. I'll notice and followup at a
+> later time then. Or ask me for a fixed resend.
 
+Alternatively, if you share whatever script you used to generate the
+diff (did you use coccinelle?) I can just run it right before I tag the
+branch for 6.13 and use your commit message.
+
+Will
 
