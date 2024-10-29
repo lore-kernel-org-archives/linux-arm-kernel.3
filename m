@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B6AD2AB20
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A0BD2AB1F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 11:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kAN7grhcUpbCDFoKucfYZVBg7IClr2vppXay/MPoLQ=; b=hYuw2HeAAQXRYLKMU+qu/0B12f
-	3MDQ/Ew1Im6cDI1J8bTeTOy3r8FkFsVafoKybNOF34VEQPM+93SOqsfsVVMqqHO3C4LVJfrpPv30Q
-	NHyEPNIN5iAaCXv5yVMlUpGPfM+f5SZYpJ7mAGdx6nU9w11VM4SRDNaoG7fG35TNb6u/+Nd/AfyF5
-	L9n5bQT9iyU0ElkrQ/pAi0+6Ss/vhLHJ3DfoJjGXW1fIDuXCuw5w+n5wdta/cEoAQkWrJpKUYl3tl
-	NeCujAnCLebRDrWRBjoiuu90JreTmfR/ce4zlSRUqt4Yvhbgs2zjwM/iIjzPe89UCtWZ0OaUrkIgo
-	ShPKvEJg==;
+	bh=TDl9iLJ9IcIQCUiDPdY7G7jOst94Sq4L5J+um8W/x4k=; b=sQLxQujrjpCPbjy++0VymxTlKU
+	mXNJipT9s66vl2lJ8Z+3uN6nLbCYkLaW4dCO8sizQZHH0mB4z8LbAjutnh+0wAmzuthTP8b5Wbuxt
+	lbnVRN4pg+ToXRjsdv7j77rd+7br5b4M4giFBG3ODaaN6/1C7ULwDMZB2uRLOn1ikwVcpPLdeplMF
+	jEjEzj+sMiohkOsECltvhHwEN+dADcJ5d+51ZmRFlHaemFqanGj+Ia8cwmumUlvuz878RddXy2AsX
+	4xbf+oXTQN9gplQFMv6JFlxn6WyxDnu5UnxDRksZY8aImnjUBBCFVL3AiKzSTtoeWfIKTBydkIGND
+	enWUiPfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kGq-0000000EDcg-1y3Q;
-	Tue, 29 Oct 2024 11:20:20 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1t5kIP-0000000EDo4-3874;
+	Tue, 29 Oct 2024 11:21:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jqP-0000000E7Hp-3Zzh
+	id 1t5jqT-0000000E7JB-166N
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Oct 2024 10:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TDl9iLJ9IcIQCUiDPdY7G7jOst94Sq4L5J+um8W/x4k=; b=TcImbAd94WcaFyjyZoS8uXHqSE
+	sbtjcmx5IMJ44OvKbjU2oUdt39iwGtUTSy7UzA6JMSELY3XBfGLDfWrOeC+QLXbAdLBq69wbgiR0P
+	1Ry8fF1S1XpwW8gEsAeh1H5dMxQk7QzHXlY19dG3N/OI+WJb/RbmWo+w6EY6qjEzqaU3F5ObaLwEe
+	F7O1sGxE4HBDgJZBO6z/j4VJhYr6+RBv/IfrrJZQeu8FQ9DGGOtvGi/TCB2rpku332PByeLwNzlOr
+	asLwu2GS70Bq1kNl44Keh3kQj1eIIU+kvoEM0AoqzruCUL8cj7cZyd0+IjaUOvwLliF7t+dLuRN4J
+	o9ssxDaw==;
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5jqP-00000009sXY-2FEQ
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 29 Oct 2024 10:53:03 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb470a8b27so56722481fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:53:01 -0700 (PDT)
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539fe02c386so5766361e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:52:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730199180; x=1730803980; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730199174; x=1730803974; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8kAN7grhcUpbCDFoKucfYZVBg7IClr2vppXay/MPoLQ=;
-        b=zEPZpwrAoEIdW7rjRu57gRW1GFTO56dsWoVWIwlhQgUySkM20SffmIH8r0HdM/umbw
-         hNAKs6RZz+pnhc+Su4t/MnZCKIhgcosKNonOD0oEmqVdGg5I60AikaGl0TeYs0Rjra2z
-         ISSpqRcFbMl6B4jy+dA3015jWdY0wOmxiPlwMv/JQN90N/Pq9yVDmcAL8C/xIqDOK6jO
-         B/xl5UCAJti7Z0rFvT6h1J1MXFXAoDfWryK9nTbV7gDpJnxw+7ZCO393FTb6YyFrS2pS
-         hTw29JZUBzKoEpLPLl+80rgIlUsQndNrm9kNEPYBgCrDW0WRXQeBtl4RjZQ4mXGnHjBF
-         ogjg==
+        bh=TDl9iLJ9IcIQCUiDPdY7G7jOst94Sq4L5J+um8W/x4k=;
+        b=HS81v0x3E04bR41TYaIjqtYuPmX6ucDAYoDWUwWJu/2lBmn8/ZLJCF7HL7e8h1mjp+
+         3T/57nNnuTZ+M/s5NmKbKWiojupxuWPwJFrRFoAv6EcOqSt27Sw9Rf2h0NzFCzMYb70d
+         RdvVKApmhx4JzSIqGHV3p3Xu1r52WFkrO7WsENSJR8PegcY2lhX0D23UKtlfOs8Ylj90
+         SynHFkue9HqnWyBHvwJDlMDe1U7+pJae/jbqoOMFTIp4VOgAtLaHV8VbHE3FZigdXhGo
+         anC95HjoZT8WYhl9nX10eQ4ec0bqG1f9uH4e8zu/9K3ARUUY0ECbb02+fMXSz7DbqIYe
+         SULg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730199180; x=1730803980;
+        d=1e100.net; s=20230601; t=1730199174; x=1730803974;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8kAN7grhcUpbCDFoKucfYZVBg7IClr2vppXay/MPoLQ=;
-        b=I3Xsn1DbXrliSuCVRoqQq8OS9JtdwLX7XH0IGo0f67rWWffMUnwajccry8i95kkKpT
-         cvCTs+bR15wUy1daSdh1hoDxHT6MXmLZNXXvUt2byGF7bSUwQibv2b4BgeIjfBqaMcF6
-         c7hC3OxthChjxYTLtdGjnu5c2KykNsPpLxje8iZctyP/Zq4DcctqyTH4sVDkqHbEEnpi
-         j1KgFmecxrHuVC/VZkuPfTOXS4xA8Q5nRWzdhRauQsc9lps+6zo8EG30EQsa91wKbork
-         zZk+7ZD4w+aEe1A/QErCe/FY9In0CLXNgjj7jSOI85o3LogxYAl37x4+dZ6+X8SInIFl
-         Yf7Q==
-X-Gm-Message-State: AOJu0Yw/phFX2A+ODozVkGT6tvyRLNq1qLj7WIaSL7I34Df+XSmAl6Bx
-	DdA0g1TlQRS0Cr8rRPmGAGQkZ0KAKHaFD0QM7imwm8mhnZCoBw7MYPlTiCUtS74=
-X-Google-Smtp-Source: AGHT+IE+BAtVqBrWdYhrt5vvhzxjJUA1tOK/oyMlifKXwIMsOAQXf/e2P1Qd8xMaKhzFGR4sJKMkaA==
-X-Received: by 2002:a05:6512:4012:b0:539:e263:331c with SMTP id 2adb3069b0e04-53b4944ffd6mr614860e87.17.1730199180265;
-        Tue, 29 Oct 2024 03:53:00 -0700 (PDT)
+        bh=TDl9iLJ9IcIQCUiDPdY7G7jOst94Sq4L5J+um8W/x4k=;
+        b=Kcd5Etw4ugzvqzhKxbinKSAwOj1yj2FsWTgziaG+CrPjeBho5wQfTA3xYvsNXY88qN
+         XqlJPNx4l2hgJs1FikEEO5Q+MujUGxFG+L1JIo1ObiqvgoSfPtUU/UA7gdbJ4h6ZkA9T
+         nBTwnEEJv0yYqlnPQQ7Y7pgo7l5Z9NfKgU35Tp2Xwtjx3Il/tRN91md6w0aQRzpFdvcR
+         hU+wnesMeKTUx2lkxpuULYo1vgUfZ/Qa0/OgzsZAP/5AZy1JZIoTSrsk8OHhsyZeU9xS
+         arcTj3OP27US9MX/poecyYmi7+TGZEzRM+HhI5nYzIw3tIomwoa6cyClftH9Hi4YTXlK
+         2MFA==
+X-Gm-Message-State: AOJu0Yw+DXjqEbrQlvBAIC8ihpDWGTw+85qST/TIvmvaY6cY0m5m0IFi
+	4vrJT8zSq8MKEbaY5BytZn12IO+p74rHRB4jy665uIs2K2KUeE/O87WcUqUalKc=
+X-Google-Smtp-Source: AGHT+IGfHm6faFqK8jdHk5n5plXPyzGC/TcHbEJEFWbtB3+ViWXDca9EpWy+Qw2QzBfYVVQTkU/ogQ==
+X-Received: by 2002:a05:6512:2346:b0:539:e873:6d4 with SMTP id 2adb3069b0e04-53b4947e476mr663973e87.22.1730199173807;
+        Tue, 29 Oct 2024 03:52:53 -0700 (PDT)
 Received: from lino.lan ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.52.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.52.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 03:52:59 -0700 (PDT)
+        Tue, 29 Oct 2024 03:52:51 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 29 Oct 2024 11:52:48 +0100
-Subject: [PATCH RFC v2 08/28] ARM: entry: Move trace entry to C function
+Date: Tue, 29 Oct 2024 11:52:44 +0100
+Subject: [PATCH RFC v2 04/28] ARM: process: Rewrite ret_from_fork i C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-arm-generic-entry-v2-8-573519abef38@linaro.org>
+Message-Id: <20241029-arm-generic-entry-v2-4-573519abef38@linaro.org>
 References: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 In-Reply-To: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 To: Oleg Nesterov <oleg@redhat.com>, Russell King <linux@armlinux.org.uk>, 
@@ -81,8 +96,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_035302_041455_AE97FF78 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20241029_105302_095538_F154EB53 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +112,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This moves over the code entering into tracing into the
-C syscall invocation code. As syscall_trace_enter() will
-provide the current syscall number from the regs we need
-not provide the syscall number to the invocation function
-any more.
+Move the direct assembly call to schedule_tail() and the
+call starting a kernel thread into a C version of ret_from_fork()
+in process.c and rename the old ret_from_fork to ret_from_fork_asm
+following the pattern in x86.
+
+Leave a comment on what we will do when we get to switching to
+generic entry with this as a base.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/syscall.h | 2 +-
- arch/arm/kernel/entry-common.S | 6 +-----
- arch/arm/kernel/syscall.c      | 5 ++++-
- 3 files changed, 6 insertions(+), 7 deletions(-)
+ arch/arm/include/asm/switch_to.h |  4 ++++
+ arch/arm/kernel/entry-common.S   | 22 +++++++++++++++-------
+ arch/arm/kernel/process.c        | 24 ++++++++++++++++++++++--
+ 3 files changed, 41 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
-index 1d21f26ecf51..66067d165ba3 100644
---- a/arch/arm/include/asm/syscall.h
-+++ b/arch/arm/include/asm/syscall.h
-@@ -20,7 +20,7 @@
- extern const unsigned long sys_call_table[];
+diff --git a/arch/arm/include/asm/switch_to.h b/arch/arm/include/asm/switch_to.h
+index 9372348516ce..18d084aff5a4 100644
+--- a/arch/arm/include/asm/switch_to.h
++++ b/arch/arm/include/asm/switch_to.h
+@@ -17,6 +17,10 @@
+ #define __complete_pending_tlbi()
+ #endif
  
- int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *retp);
--int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp);
-+int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp);
- 
- static inline int syscall_get_nr(struct task_struct *task,
- 				 struct pt_regs *regs)
++asmlinkage void ret_from_fork_asm(void);
++__visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
++			     int (*fn)(void *), void *fn_arg);
++
+ /*
+  * switch_to(prev, next) should switch from task `prev' to `next'
+  * `prev' will never be the same as `next'.  schedule() itself
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 77801d039b5f..3cfc6d952ff9 100644
+index 2f93c2f6d5b8..df6961a1006b 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -292,13 +292,9 @@ ENDPROC(vector_swi)
- 	 * context switches, and waiting for our parent to respond.
- 	 */
- __sys_trace:
--	add	r0, sp, #S_OFF
--	bl	syscall_trace_enter
--	mov	scno, r0
--	mov	r2, r0				@ scno into r2
- 	add	r1, sp, #S_R0 + S_OFF		@ pointer to regs
- 	mov	r0, tbl
--	badr	r3, __sys_trace_return
-+	badr	r2, __sys_trace_return
- 	bl	invoke_syscall_trace
- 	cmp	r0, #-1
- 	bne	__sys_trace_return
-diff --git a/arch/arm/kernel/syscall.c b/arch/arm/kernel/syscall.c
-index d1259c6d2805..815312f7b254 100644
---- a/arch/arm/kernel/syscall.c
-+++ b/arch/arm/kernel/syscall.c
-@@ -19,8 +19,11 @@ __visible int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *
+@@ -5,6 +5,7 @@
+  *  Copyright (C) 2000 Russell King
+  */
  
- int invoke_syscall_trace_asm(void *table, struct pt_regs *regs, int scno, void *retp);
++#include <linux/cfi_types.h>
+ #include <asm/assembler.h>
+ #include <asm/unistd.h>
+ #include <asm/ftrace.h>
+@@ -128,15 +129,22 @@ ENDPROC(ret_to_user)
+ /*
+  * This is how we return from a fork.
+  */
+-ENTRY(ret_from_fork)
+-	bl	schedule_tail
+-	cmp	r5, #0
+-	movne	r0, r4
+-	badrne	lr, 1f
+-	retne	r5
++SYM_TYPED_FUNC_START(ret_from_fork_asm)
++	/*
++	 * ret_from_fork() expects:
++	 * r0: prev
++	 * r1: regs
++	 * r2: fn() for kernel process or NULL
++	 * r3: fn_arg for kernel process or N/A
++	 */
++	mov	r1, sp
++	mov	r2, r5
++	mov	r3, r4
++	bl	ret_from_fork
++	mov	r0, #0
+ 1:	get_thread_info tsk
+ 	b	ret_to_user
+-ENDPROC(ret_from_fork)
++SYM_FUNC_END(ret_from_fork_asm)
  
--__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp)
-+__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp)
- {
-+	int scno;
+ /*=============================================================================
+  * SWI handler
+diff --git a/arch/arm/kernel/process.c b/arch/arm/kernel/process.c
+index e16ed102960c..81c1c3f98834 100644
+--- a/arch/arm/kernel/process.c
++++ b/arch/arm/kernel/process.c
+@@ -29,6 +29,7 @@
+ #include <asm/processor.h>
+ #include <asm/thread_notify.h>
+ #include <asm/stacktrace.h>
++#include <asm/switch_to.h>
+ #include <asm/system_misc.h>
+ #include <asm/mach/time.h>
+ #include <asm/tls.h>
+@@ -230,7 +231,26 @@ void flush_thread(void)
+ 	thread_notify(THREAD_NOTIFY_FLUSH, thread);
+ }
+ 
+-asmlinkage void ret_from_fork(void) __asm__("ret_from_fork");
++/* The assembly stub sets up the parameters and calls ret_from_fork() */
++asmlinkage void ret_from_fork_asm(void) __asm__("ret_from_fork_asm");
 +
-+	scno = syscall_trace_enter(regs);
- 	if (scno == -1)
- 		return -1;
++__visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
++				     int (*fn)(void *), void *fn_arg)
++{
++	schedule_tail(prev);
++
++	/* Is this a kernel thread? */
++	if (unlikely(fn)) {
++		fn(fn_arg);
++		/*
++		 * A kernel thread is allowed to return here after successfully
++		 * calling kernel_execve().  Exit to userspace to complete the
++		 * execve() syscall.
++		 */
++	}
++
++	/* syscall_exit_to_user_mode(regs); here once we switch to generic entry */
++}
  
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+@@ -263,7 +283,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		thread->cpu_context.r5 = (unsigned long)args->fn;
+ 		childregs->ARM_cpsr = SVC_MODE;
+ 	}
+-	thread->cpu_context.pc = (unsigned long)ret_from_fork;
++	thread->cpu_context.pc = (unsigned long)ret_from_fork_asm;
+ 	thread->cpu_context.sp = (unsigned long)childregs;
+ 
+ 	clear_ptrace_hw_breakpoint(p);
 
 -- 
 2.46.2
