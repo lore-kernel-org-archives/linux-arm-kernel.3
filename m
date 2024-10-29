@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4652AD3A661
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4858DD3A660
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBBr9PVNtdgQsTniZ2+GcCDI9QqqpSb+yyyMoN//IIw=; b=0etXifWgqXdciHwuQah+xOlXNm
-	+Wiazxa4HbJLB2u3UpJ5urdc/D3AJPfrDjSO8/vh+A9ZOqEl3ETxO7V39I3CmPHspV/7XvGpZtpfC
-	r37+HYuVB8IkEQ5bTK7eBjhBgEiTS0/cQoGbmtIyLPLWlK41IrBXy2+AArNVJPquygVs93KO/bORU
-	szraT6PpHWFew/eM1afrH3Kwr+3gya6by9S6UVebQyL6tPcZKIbP3ve0OMqbEXld60Qk5z5t4WHqF
-	laSemfbMC0gM5OpFrVIhueCvUTfQJ7GSTbPYcmJqSJkY6Qias+Do2vbkhqbfzBy0xYjxTSNgMt+yJ
-	X+vEuStQ==;
+	bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=; b=RRiexhBeSddMHjZ6pKnNUGk4ft
+	0HDVKXl1OwF4kkpUHwqfp2N+rzXlXHqYJZwrxkFZfqjxOYkVWjdNHl5l2sDpNQqUkK5YU+RasPlm9
+	N1OhshvwQO5SA01mWgzfVNkr83Bi9Kj+5vdXg308cSFAg2gF7TU1l0EtgvixVuj+g5Q34ryzKEn9q
+	RN4ONvaqmLMz6pPhJqwbEsLhovNQlQm32zAn854Gn4EE8rV5Tw0XhO78luHlhAlGeDSgcXoDatylx
+	eZ96Kqlgjobpf3yemh613wHf5fQZwEBYGl8oMbrPZgSPE83XWW80wILjRTIvSlGTZp+ZhHhf2xLtj
+	UjqaEhCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5n5N-0000000EiPX-2ziO;
-	Tue, 29 Oct 2024 14:20:41 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1t5n96-0000000EirZ-1LCS;
+	Tue, 29 Oct 2024 14:24:32 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5n3j-0000000Ei74-3HQk
+	id 1t5n7T-0000000Eihs-1IcB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:19:01 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e290222fdd0so4893463276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 07:18:58 -0700 (PDT)
+	Tue, 29 Oct 2024 14:22:53 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-539983beb19so6533274e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 07:22:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730211538; x=1730816338; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1730211769; x=1730816569; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=QBBr9PVNtdgQsTniZ2+GcCDI9QqqpSb+yyyMoN//IIw=;
-        b=IO4JaoMD40Wr69wqFIIg870gi4atvwPrjKgKPfPgIcrpe60u412uQL9b4/PUff1ExM
-         CYJiQpVPHE8xZBR6gnHBEqefQJv7ccBOIaHVzzb4/CD0CFFFOuKrgVxo+mI0Lk8Du3ce
-         y0xP6CvycZWbpWB70qz9F1wLMG+C1Vh7QrxaGyu/HKlbpF04oBEvuJRdlPh050/0Lcvb
-         4oVbh/mp0bKtwULWDx7zbeFpayHDSuWG8yoNvhTQzjsEruR2w2X/DPd8+WPTrvnulDbI
-         WOi9nPgJ5QO4RjV8w50MRvTxxb+RS7MEFvQhW4ue/d1ULjTXSRKvNtAPv+gbKPwPu4rA
-         jpZw==
+        bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=;
+        b=cNGBuCT8uj7e4GvRiD96egH1z9ToMYexn0Xt6ILOBnf7PaxliqU0BEgHZ2kjMjXH3f
+         AwQe5+Rp/KMSxdzV3q/wNyGWZJoqrWpDeVLhW7yLfA22TcMrDxCKlJ27SgK+1twbxWrE
+         rUdLOp9f0oD6NaBevqd6VkcEnDIY/vZ3tRcKA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730211538; x=1730816338;
+        d=1e100.net; s=20230601; t=1730211769; x=1730816569;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QBBr9PVNtdgQsTniZ2+GcCDI9QqqpSb+yyyMoN//IIw=;
-        b=DtBMrdOXaBX7vh1tA5jz4vYRYtorMChCLxtifd8uZyGPqtHXodoR3W0kzw/xis4G2N
-         kfk1sVysJPtdUkIDo8ouDFxSQ6gxt7txmg/P4iyZ2qtmtJdE3v+SwSvY68oe3tbvab5I
-         2/NKvDAnTttaATili1QITw5LjV1XJgkNo9/UwsHKDfGZsXjZA8+G9KCHqZSl26AlpnGB
-         TichrNKxgkD8yN9QFRfFA2HHPmq/CMSEiIr15CEvb3aMnq2H2NMhhCpAgJQevo5maaOd
-         TsFdqmp4Itmvd1hqyD8SfpM82YcwCAY9Qko8K6QpVRsxjipAVR5p16qTQ8yhMQAHAZxg
-         lVBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUJTO06ln/4BkrGhH3OV1qGbuW29sd62g3n3ADq7/JA0kXK0EDe9kDw+pvQcsrg6iW5ik/UAyJoGdiI5PFd53lt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCA8eT+nOg50Fmss10E4d5uME2XWB3FG+CgPLILEIklxJO8p4Y
-	dWk+ij+8OQiS5ifEnHjamLUOygMpjCryzCNPBD6rR4nK7x8Wvjguzzpy1JSRgzpqPIGFLTVk+sm
-	mA85hRAwYKkx0y1AAKSUlSEIUK+ccoQZVuaAYlA==
-X-Google-Smtp-Source: AGHT+IF2dDM+2wHeikQnbusjP6tus4NSSa9hS97g++mzsFrCKMa6E+sBpWqeOs0vHXBac6MRluw4GV/WHJm4d3jAe9g=
-X-Received: by 2002:a05:690c:4886:b0:6e3:3326:91e6 with SMTP id
- 00721157ae682-6e9d8ad527bmr128784717b3.44.1730211537715; Tue, 29 Oct 2024
- 07:18:57 -0700 (PDT)
+        bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=;
+        b=GFSTeS7gsvvKcWxrcoEriZvmgz2258TbdNDLvhyapoqBJFCqSkwGNvdCIR6Ix/BziB
+         pvn4pFsxE4YPg2yO9VqZve697vNKbdYG0iEbwXGH4eqVbAJfWIXlYRPzW+oiKpKOsqKj
+         tFrKZO25NyAEjoCNk9rWY36zTv/K4bbCJgmE87QXS8GKI6bqOdc7BKUqqPYYcVnVvKth
+         9jluzYQ/Pwl8iJjnQxRqbo9znzrjUW9YSXFW25Jx2QYpked5Pb51cSC8twZ/THBkHvai
+         U7H7Tu5kEQzz5fnBXNO83O6axAJQ7F4a++1CzL46TCAGKNdlwDUoMT95iMB3eQQgP8jj
+         7bAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUMnK1IfqHEURyJ71PEeKa6eI/urCkvtUezUek+ac9L/CRjfZH8cpMbMc1JalVql3/mYJuJTK18jjN1FgX3qsQI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCLlOJrrnK/3wVJPZEGRKjncPhDrEVhXQQ+0mC3NeFnXGA1Kqd
+	JSDDrLrlX+0A04f85tl1doGt+837h8HfVC13l7FUeZiCLS3cZdLKvixk8a2PNFXHlIkIDdHSGmw
+	nxFIpzO40puqfnEDX/ovoxILmyz+Jumq95jpB
+X-Google-Smtp-Source: AGHT+IGkr8MjB0w2FKKulsb1mbM3Z3Ctxudp06iI9MsvkQnaBAbWdHvXahix1vs8y2CGjUjC7Y54/ZyntYRHfUgLtp4=
+X-Received: by 2002:a05:6512:3baa:b0:53a:a26:5690 with SMTP id
+ 2adb3069b0e04-53b348e57d1mr5026278e87.34.1730211769047; Tue, 29 Oct 2024
+ 07:22:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241028-qcom_ipq_cmnpll-v5-0-339994b0388d@quicinc.com>
- <20241028-qcom_ipq_cmnpll-v5-4-339994b0388d@quicinc.com> <crcbzpxjnbceilqccbwr7uyak6z6zdwr7mhfcyaw6vvpcce6ko@zrojbtqi4st4>
- <b5e6e81e-dab2-43d8-b52e-85b6cb0d0209@quicinc.com>
-In-Reply-To: <b5e6e81e-dab2-43d8-b52e-85b6cb0d0209@quicinc.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Tue, 29 Oct 2024 16:18:44 +0200
-Message-ID: <CAA8EJpoQO7=v8QWeH8MAgX4uU=m4VJqfC3J5PKyySM2TBcHWiw@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
-To: Jie Luo <quic_luoj@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	quic_kkumarcs@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com, 
-	quic_linchen@quicinc.com, quic_leiwei@quicinc.com, 
-	bartosz.golaszewski@linaro.org, srinivas.kandagatla@linaro.org
-Content-Type: text/plain; charset="UTF-8"
+References: <20241018182247.41130-1-james.quinlan@broadcom.com>
+ <20241018182247.41130-2-james.quinlan@broadcom.com> <20241021190334.GA953710-robh@kernel.org>
+ <77d3a1a9-c22d-0fd3-5942-91b9a3d74a43@quicinc.com> <954d6c11-ab4e-485f-8152-94bf38625f9c@broadcom.com>
+ <36ec01f4-c0fb-188e-06e9-10c7360a8ef0@quicinc.com>
+In-Reply-To: <36ec01f4-c0fb-188e-06e9-10c7360a8ef0@quicinc.com>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Tue, 29 Oct 2024 10:22:36 -0400
+Message-ID: <CA+-6iNx1SA9iiECS1O=cwkcu2KWcPvvB7Zvm7=SR3F5m9nv+fg@mail.gmail.com>
+Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
+To: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
+Cc: Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org, 
+	Nicolas Saenz Julienne <nsaenz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, bcm-kernel-feedback-list@broadcom.com, 
+	jim2101024@gmail.com, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000e817b106259e51bb"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_071859_851205_F162585F 
-X-CRM114-Status: GOOD (  31.67  )
+X-CRM114-CacheID: sfid-20241029_072251_410359_D9514F45 
+X-CRM114-Status: GOOD (  37.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,126 +97,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Oct 2024 at 15:31, Jie Luo <quic_luoj@quicinc.com> wrote:
+--000000000000e817b106259e51bb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Oct 29, 2024 at 1:17=E2=80=AFAM Krishna Chaitanya Chundru
+<quic_krichai@quicinc.com> wrote:
 >
 >
 >
-> On 10/28/2024 11:39 PM, Dmitry Baryshkov wrote:
-> > On Mon, Oct 28, 2024 at 10:04:11PM +0800, Luo Jie wrote:
-> >> The CMN PLL clock controller allows selection of an input clock rate
-> >> from a defined set of input clock rates. It in-turn supplies fixed
-> >> rate output clocks to the hardware blocks that provide the ethernet
-> >> functions such as PPE (Packet Process Engine) and connected switch or
-> >> PHY, and to GCC.
+> On 10/29/2024 12:21 AM, James Quinlan wrote:
+> > On 10/24/24 21:08, Krishna Chaitanya Chundru wrote:
 > >>
-> >> The reference clock of CMN PLL is routed from XO to the CMN PLL through
-> >> the internal WiFi block.
-> >> .XO (48 MHZ or 96 MHZ)-->WiFi (multiplier/divider)-->48 MHZ to CMN PLL.
 > >>
-> >> The reference input clock from WiFi to CMN PLL is fully controlled by
-> >> the bootstrap pins which select the XO frequency (48 MHZ or 96 MHZ).
-> >> Based on this frequency, the divider in the internal Wi-Fi block is
-> >> automatically configured by hardware (1 for 48 MHZ, 2 for 96 MHZ), to
-> >> ensure output clock to CMN PLL is 48 MHZ.
+> >> On 10/22/2024 12:33 AM, Rob Herring wrote:
+> >>> On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
+> >>>> Support configuration of the GEN3 preset equalization settings, aka =
+the
+> >>>> Lane Equalization Control Register(s) of the Secondary PCI Express
+> >>>> Extended Capability.  These registers are of type HwInit/RsvdP and
+> >>>> typically set by FW.  In our case they are set by our RC host bridge
+> >>>> driver using internal registers.
+> >>>>
+> >>>> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> >>>> ---
+> >>>>   .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12
+> >>>> ++++++++++++
+> >>>>   1 file changed, 12 insertions(+)
+> >>>>
+> >>>> diff --git
+> >>>> a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> >>>> b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> >>>> index 0925c520195a..f965ad57f32f 100644
+> >>>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> >>>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> >>>> @@ -104,6 +104,18 @@ properties:
+> >>>>       minItems: 1
+> >>>>       maxItems: 3
+> >>>>   +  brcm,gen3-eq-presets:
+> >>>> +    description: |
+> >>>> +      A u16 array giving the GEN3 equilization presets, one for
+> >>>> each lane.
+> >>>> +      These values are destined for the 16bit registers known as th=
+e
+> >>>> +      Lane Equalization Control Register(s) of the Secondary PCI
+> >>>> Express
+> >>>> +      Extended Capability.  In the array, lane 0 is first term,
+> >>>> lane 1 next,
+> >>>> +      etc. The contents of the entries reflect what is necessary fo=
+r
+> >>>> +      the current board and SoC, and the details of each preset are
+> >>>> +      described in Section 7.27.4 of the PCI base spec, Revision 3.=
+0.
+> >>>
+> >>> If these are defined by the PCIe spec, then why is it Broadcom specif=
+ic
+> >>> property?
+> > Yes, I will remove the "brcm," prefix.
+> >>>
+> >> Hi Rob,
 > >>
-> >> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> >> ---
-> >>   arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 16 ++++++++++++++-
-> >>   arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 26 +++++++++++++++++++++++-
-> >>   2 files changed, 40 insertions(+), 2 deletions(-)
+> >> qcom pcie driver also needs to program these presets as you suggested
+> >> this can go to common pci bridge binding.
 > >>
-> >> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> >> index 91e104b0f865..f026c2a9d0c0 100644
-> >> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> >> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-> >> @@ -3,7 +3,7 @@
-> >>    * IPQ9574 RDP board common device tree source
-> >>    *
-> >>    * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-> >> - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-> >> + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> >>    */
+> >> from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
+> >> of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
+> >> through P10) and where as data rates of 64.0 GT/s use different class =
+of
+> >> presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
+> >> have optional preset hints (Table 4-24).
 > >>
-> >>   /dts-v1/;
-> >> @@ -164,6 +164,20 @@ &usb3 {
-> >>      status = "okay";
-> >>   };
+> >> And there is possibility that for each data rate we may require
+> >> different preset configuration.
 > >>
-> >> +/*
-> >> + * The bootstrap pins for the board select the XO clock frequency,
-> >> + * which automatically enables the right dividers to ensure the
-> >> + * reference clock output to CMNPLL is 48 MHZ.
-> >> + */
-> >> +&cmn_pll_ref_clk {
-> >> +    clock-div = <1>;
-> >> +    clock-mult = <1>;
-> >> +};
-> >> +
-> >>   &xo_board_clk {
-> >>      clock-frequency = <24000000>;
-> >>   };
-> >> +
-> >> +&xo_clk {
-> >> +    clock-frequency = <48000000>;
-> >> +};
-> >> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> >> index 14c7b3a78442..ad9cdb1f76db 100644
-> >> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> >> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-> >> @@ -3,10 +3,11 @@
-> >>    * IPQ9574 SoC device tree source
-> >>    *
-> >>    * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-> >> - * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-> >> + * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> >>    */
-> >>
-> >>   #include <dt-bindings/clock/qcom,apss-ipq.h>
-> >> +#include <dt-bindings/clock/qcom,ipq-cmn-pll.h>
-> >>   #include <dt-bindings/clock/qcom,ipq9574-gcc.h>
-> >>   #include <dt-bindings/interconnect/qcom,ipq9574.h>
-> >>   #include <dt-bindings/interrupt-controller/arm-gic.h>
-> >> @@ -19,6 +20,12 @@ / {
-> >>      #size-cells = <2>;
-> >>
-> >>      clocks {
-> >> +            cmn_pll_ref_clk: cmn-pll-ref-clk {
-> >> +                    compatible = "fixed-factor-clock";
-> >> +                    clocks = <&xo_clk>;
-> >> +                    #clock-cells = <0>;
-> >> +            };
-> >> +
-> >>              sleep_clk: sleep-clk {
-> >>                      compatible = "fixed-clock";
-> >>                      #clock-cells = <0>;
-> >> @@ -28,6 +35,11 @@ xo_board_clk: xo-board-clk {
-> >>                      compatible = "fixed-clock";
-> >>                      #clock-cells = <0>;
-> >>              };
-> >> +
-> >> +            xo_clk: xo-clk {
-> >> +                    compatible = "fixed-clock";
-> >> +                    #clock-cells = <0>;
-> >> +            };
+> >> Can we have a dt binding for each data rate of 16 byte array.
+> >> like gen3-eq-preset array, gen4-eq-preset array etc.
 > >
-> > What is the difference between xo_clk and xo_board_clk? Are there two
-> > different crystals?
+> > Yes, that was the idea when using "genX-eq-preset", for X in {3,4...}.
+> >
+> > Keep in mind that this is an RFC; I have a backlog of commit submission=
+s
+> > before I can submit the code that uses this DT property.  If you
+> > (Krishna) want to submit something now I'd be quite happy to go with
+> > that.  I don't believe it is acceptable to submit a bindings commit w/o
+> > code that uses it (if I'm incorrect I'll be glad to do a V2).
+> >
+> Hi Jim,
 >
-> The xo_board_clk of 24 MHZ is generated by applying another divider in
-> HW (by 2), on top of the same 48 MHZ clock output from internal Wi-Fi.
->
-> XO (48 MHZ or 96 MHZ)-->WiFi (mul/div)-->48 MHZ-->fixed factor divider 2
-> by HW ---> xo_board_clk (24 MHZ)
->
-> We may need to correct its clock chain representation. We will update
-> xo_board_clk as a fixed factor (div by 2) clock, and refer to the 48 MHZ
-> input clock, using a separate patch after the CMN PLL patch series
-> review is concluded. Hope this approach is fine.
+> I submitted a pull request for this. if you have any other suggestions
+> or if we need to have any other details we can update this pull request.
+> https://github.com/devicetree-org/dt-schema/pull/146
 
-Yes, please. Don't try to 'shortcut' the hardware description.
-Describing the actual hardware is the best way to work.
 
--- 
-With best wishes
-Dmitry
+Hi Krishna,
+Thanks for doing this.   However, why a u8 array?  The registers are
+defined as u16 so it would be more natural to use a u16 array, each
+entry giving
+all of the data for a single lane.  In our implementation we read a
+u16 and we write it to the register -- what advantage is there by
+using a u8 array?
+
+Also if there are 16 lanes, you will need 32 maxItems, correct?
+
+Regards,
+Jim Quinlan
+Broadcom STB/CM
+>
+>
+>
+> - Krishna Chaitanya.
+> > Regards,
+> >
+> > Jim Quinlan
+> > Broadcom STB/CM
+> >
+> >>
+> >> - Krishna Chaitanya
+> >>>> +
+> >>>> +    $ref: /schemas/types.yaml#/definitions/uint16-array
+> >>>
+> >>> minItems: 1
+> >>> maxItems: 16
+> >>>
+> >>> Last I saw, you can only have up to 16 lanes.
+> >>>
+> >>> Rob
+> >>>
+> >
+
+--000000000000e817b106259e51bb
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+MIIQbgYJKoZIhvcNAQcCoIIQXzCCEFsCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
+gg3FMIIFDTCCA/WgAwIBAgIQeEqpED+lv77edQixNJMdADANBgkqhkiG9w0BAQsFADBMMSAwHgYD
+VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
+AxMKR2xvYmFsU2lnbjAeFw0yMDA5MTYwMDAwMDBaFw0yODA5MTYwMDAwMDBaMFsxCzAJBgNVBAYT
+AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhHbG9iYWxTaWduIEdDQyBS
+MyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+vbCmXCcsbZ/a0fRIQMBxp4gJnnyeneFYpEtNydrZZ+GeKSMdHiDgXD1UnRSIudKo+moQ6YlCOu4t
+rVWO/EiXfYnK7zeop26ry1RpKtogB7/O115zultAz64ydQYLe+a1e/czkALg3sgTcOOcFZTXk38e
+aqsXsipoX1vsNurqPtnC27TWsA7pk4uKXscFjkeUE8JZu9BDKaswZygxBOPBQBwrA5+20Wxlk6k1
+e6EKaaNaNZUy30q3ArEf30ZDpXyfCtiXnupjSK8WU2cK4qsEtj09JS4+mhi0CTCrCnXAzum3tgcH
+cHRg0prcSzzEUDQWoFxyuqwiwhHu3sPQNmFOMwIDAQABo4IB2jCCAdYwDgYDVR0PAQH/BAQDAgGG
+MGAGA1UdJQRZMFcGCCsGAQUFBwMCBggrBgEFBQcDBAYKKwYBBAGCNxQCAgYKKwYBBAGCNwoDBAYJ
+KwYBBAGCNxUGBgorBgEEAYI3CgMMBggrBgEFBQcDBwYIKwYBBQUHAxEwEgYDVR0TAQH/BAgwBgEB
+/wIBADAdBgNVHQ4EFgQUljPR5lgXWzR1ioFWZNW+SN6hj88wHwYDVR0jBBgwFoAUj/BLf6guRSSu
+TVD6Y5qL3uLdG7wwegYIKwYBBQUHAQEEbjBsMC0GCCsGAQUFBzABhiFodHRwOi8vb2NzcC5nbG9i
+YWxzaWduLmNvbS9yb290cjMwOwYIKwYBBQUHMAKGL2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5j
+b20vY2FjZXJ0L3Jvb3QtcjMuY3J0MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuZ2xvYmFs
+c2lnbi5jb20vcm9vdC1yMy5jcmwwWgYDVR0gBFMwUTALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgEo
+CjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAN
+BgkqhkiG9w0BAQsFAAOCAQEAdAXk/XCnDeAOd9nNEUvWPxblOQ/5o/q6OIeTYvoEvUUi2qHUOtbf
+jBGdTptFsXXe4RgjVF9b6DuizgYfy+cILmvi5hfk3Iq8MAZsgtW+A/otQsJvK2wRatLE61RbzkX8
+9/OXEZ1zT7t/q2RiJqzpvV8NChxIj+P7WTtepPm9AIj0Keue+gS2qvzAZAY34ZZeRHgA7g5O4TPJ
+/oTd+4rgiU++wLDlcZYd/slFkaT3xg4qWDepEMjT4T1qFOQIL+ijUArYS4owpPg9NISTKa1qqKWJ
+jFoyms0d0GwOniIIbBvhI2MJ7BSY9MYtWVT5jJO3tsVHwj4cp92CSFuGwunFMzCCA18wggJHoAMC
+AQICCwQAAAAAASFYUwiiMA0GCSqGSIb3DQEBCwUAMEwxIDAeBgNVBAsTF0dsb2JhbFNpZ24gUm9v
+dCBDQSAtIFIzMRMwEQYDVQQKEwpHbG9iYWxTaWduMRMwEQYDVQQDEwpHbG9iYWxTaWduMB4XDTA5
+MDMxODEwMDAwMFoXDTI5MDMxODEwMDAwMFowTDEgMB4GA1UECxMXR2xvYmFsU2lnbiBSb290IENB
+IC0gUjMxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMTCkdsb2JhbFNpZ24wggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMJXaQeQZ4Ihb1wIO2hMoonv0FdhHFrYhy/EYCQ8eyip0E
+XyTLLkvhYIJG4VKrDIFHcGzdZNHr9SyjD4I9DCuul9e2FIYQebs7E4B3jAjhSdJqYi8fXvqWaN+J
+J5U4nwbXPsnLJlkNc96wyOkmDoMVxu9bi9IEYMpJpij2aTv2y8gokeWdimFXN6x0FNx04Druci8u
+nPvQu7/1PQDhBjPogiuuU6Y6FnOM3UEOIDrAtKeh6bJPkC4yYOlXy7kEkmho5TgmYHWyn3f/kRTv
+riBJ/K1AFUjRAjFhGV64l++td7dkmnq/X8ET75ti+w1s4FRpFqkD2m7pg5NxdsZphYIXAgMBAAGj
+QjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSP8Et/qC5FJK5N
+UPpjmove4t0bvDANBgkqhkiG9w0BAQsFAAOCAQEAS0DbwFCq/sgM7/eWVEVJu5YACUGssxOGhigH
+M8pr5nS5ugAtrqQK0/Xx8Q+Kv3NnSoPHRHt44K9ubG8DKY4zOUXDjuS5V2yq/BKW7FPGLeQkbLmU
+Y/vcU2hnVj6DuM81IcPJaP7O2sJTqsyQiunwXUaMld16WCgaLx3ezQA3QY/tRG3XUyiXfvNnBB4V
+14qWtNPeTCekTBtzc3b0F5nCH3oO4y0IrQocLP88q1UOD5F+NuvDV0m+4S4tfGCLw0FREyOdzvcy
+a5QBqJnnLDMfOjsl0oZAzjsshnjJYS8Uuu7bVW/fhO4FCU29KNhyztNiUGUe65KXgzHZs7XKR1g/
+XzCCBU0wggQ1oAMCAQICDEjuN1Vuw+TT9V/ygzANBgkqhkiG9w0BAQsFADBbMQswCQYDVQQGEwJC
+RTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UEAxMoR2xvYmFsU2lnbiBHQ0MgUjMg
+UGVyc29uYWxTaWduIDIgQ0EgMjAyMDAeFw0yMjA5MTAxMjE3MTNaFw0yNTA5MTAxMjE3MTNaMIGO
+MQswCQYDVQQGEwJJTjESMBAGA1UECBMJS2FybmF0YWthMRIwEAYDVQQHEwlCYW5nYWxvcmUxFjAU
+BgNVBAoTDUJyb2FkY29tIEluYy4xFDASBgNVBAMTC0ppbSBRdWlubGFuMSkwJwYJKoZIhvcNAQkB
+FhpqYW1lcy5xdWlubGFuQGJyb2FkY29tLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+ggEBAKtQZbH0dDsCEixB9shqHxmN7R0Tywh2HUGagri/LzbKgXsvGH/LjKUjwFOQwFe4EIVds/0S
+hNqJNn6Z/DzcMdIAfbMJ7juijAJCzZSg8m164K+7ipfhk7SFmnv71spEVlo7tr41/DT2HvUCo93M
+7Hu+D3IWHBqIg9YYs3tZzxhxXKtJW6SH7jKRz1Y94pEYplGQLM+uuPCZaARbh+i0auVCQNnxgfQ/
+mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
+uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
+AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
+c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
+AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
+TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
+bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
+L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
+BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
+VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
+z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
+b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
++R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
+AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
+75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICbTCC
+AmkCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
+AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
+MA0GCWCGSAFlAwQCAQUAoIHUMC8GCSqGSIb3DQEJBDEiBCAuKOXNiFPpiYE8WQxF3MbvATJhip8A
+4L6vprYRsg9/rDAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNDEw
+MjkxNDIyNDlaMGkGCSqGSIb3DQEJDzFcMFowCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
+hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEKMAsGCSqGSIb3DQEBBzALBglghkgBZQME
+AgEwDQYJKoZIhvcNAQEBBQAEggEAfrhkbo3z47nJej8jCc0NqUGg4Xt/Ie8nqehSx9Nvvdg3ckNB
+HemT8TY0zTrR/sX2NkoL3NaeCkkJzyewA90oWijlqrblPKsANP5T1sdQQUBqzX/bSH+8VHVGjQlb
+CHMoogCPykZnAVNCyQUyBAvY3Ep+FE84PkEmvBvoi+KJUUgaSNmObeYng6GS4/1yyXH/5zwAosIc
+PhFRyNOmuTAv8TX+yx44zKE4QyN3NEdqSD5NtB0VwdmSCZfi1Oa0aIna0QnkXd1cfi/al7nlnVMm
+zLEncaWs3Sn1rikoC02PRYcup548pEGkaWRWf0142v7HXoQjHLZoQVBTkbjhF5b/kA==
+--000000000000e817b106259e51bb--
 
