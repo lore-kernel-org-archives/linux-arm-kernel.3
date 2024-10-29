@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B012D2AB2D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53450D2AB2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Y3lWwBLaNSuSrYHVXg8RSL1GdlpeH3OKXRkXftMX10=; b=MvvyII4lu3G+cnSNjKKxectjpd
-	gp8G6egetkJM7TQwFCzfslvgFkX67HT5l54UnqYRnr2nFoxjHcDuNAe3EIKf0hqX4Q1zdX4k9gfIt
-	VohAY9mJfaDeUjG63SDrUR+JUSOMweQda85L8H+/+G8G6VXGF9MqB/AvTz9O3zE8p6PMNv+C66CBt
-	V/n8P8FUwtbGwFEUeIKI+/FG5OC6IWiOGazmKNK0r1HP87pq2KYZ4CNWETX88bS3AqXUZfqFKvywT
-	SI2nyw31xkuMpJRJp5A7q5zm+T92K4Rk0VI8jP2BnYjDd0hVUbXITpfj+b4evUmZGUBWnsQUb4KUO
-	mBbze8og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=; b=DqBWyWGth32K+gDtUm8j9aV+pN
+	eWku9+157V9ZftDTQrtWVltjz//u+stczS0gozw2YQfTzP6XJjgqSGOYUvjtIFcCbiwgimSPP/CLA
+	ghFHurQUyDg++V4+WVentirraTcqaqGpj68Yrg7P2GUt8kXlvTh1Nhx7rvIHvSTiVwQVi+Dz0zi7U
+	xVZjPOYb+8LPHoUz5QKa3UaVjdXjcEM8Mv9MbaoLtBmUQVDSSUvfXnE/dXf/tXqg22KqQ+UoBBGMr
+	a5jrOKAISFeeVt0isLbraxPKPDXBrKHAu+dlKNH2ApJ1mCH9sjOExUxxNzsKmzuoDwK1E+siKOmgf
+	Zr3kKrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5l1T-0000000ELmv-3Hsj;
-	Tue, 29 Oct 2024 12:08:31 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1t5l36-0000000EM4q-2UPc;
+	Tue, 29 Oct 2024 12:10:12 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kE2-0000000EDIg-0LgB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 11:17:27 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2fb6110c8faso48632761fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 04:17:25 -0700 (PDT)
+	id 1t5kKS-0000000EE6Q-0REU;
+	Tue, 29 Oct 2024 11:24:05 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb5743074bso43586101fa.1;
+        Tue, 29 Oct 2024 04:24:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730200644; x=1730805444; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0Y3lWwBLaNSuSrYHVXg8RSL1GdlpeH3OKXRkXftMX10=;
-        b=eSAvrjOhnUIc+aVRSHcdR+bzXJCGaGM7AW2PlxWpn65olJsTOyhiz1Zw81l7/kw6up
-         ldCAu9mAqbBfMERdACCAiew4i/GwPg/MhULv4FUY1igQsVoaSnJ3F4WY4B6lQPNJ59a7
-         WzP5dxDW7RR5bLO7SSEM+oPV8nbrhZbXV2EA2q13g0CxidjJNVRpDg8F945mlq30JTht
-         8/kWWczCkBxU3GmpawGnsHnC/UJJ4oIZYfbIyOL7LyF7H/gkLEt0dd1mEGgCcLRVzJbm
-         4T1hUuJEiIIj2iId6Rjloqk0+Q/BI11BwLt+Gm2RswB0+nzyTmchxmUEjxmOC4acxIOF
-         53EQ==
+        d=gmail.com; s=20230601; t=1730201042; x=1730805842; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=;
+        b=IZJYtmVF1fuj0rTJ702t+9XnPkespKcLqw+eOQtQr5FMfa9URB2bJUSAmC47G7nLwO
+         Hmd/RKhU3G+mdW3MjWwyNv0MC0BwiZAhrhqqyGGFHg7QMUfh052VJ96WRPQOz+EGnzvX
+         YsREqTVIeSJiaP9Vc15Lr+9z3Co6kem+s5TVVm0osswfLqhRCfV0HByQ1AATkWtAbFQq
+         JodNNFMnJoZ45NflPeZisOfTQQDUH00683qLO5WuZgQQglEH9ma2u46A/bOSm//oIDS/
+         hGHjReRt1sIHF0uNSgYqdoF2V7av52IFKqtxvv5DYWvo40sCyDgbJO07oNoO7yfbkkeb
+         xgOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730200644; x=1730805444;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0Y3lWwBLaNSuSrYHVXg8RSL1GdlpeH3OKXRkXftMX10=;
-        b=c2iHR8CK1nWK4RNuMUTKPGevbzXpHCa2Qg+ezw6PZNBM5cbXK0wHBItxQKX/d8KASu
-         5SAfV40+xQ91RcSiqM6uZNecIdAbCLT15pJ4nsR0UBPm9qgKfaPV+W37KlVai8CQpF/k
-         y5QpgQbbZXqsdfYHR1E0Ub8NKtrJTLgZOjGmrZ5J71QdQ9JFmnyfz48YR87Z0fNdBl9t
-         A36C5rGBq58abP+DXfeZ9m35IEeSadYmrC/X1Q79JRiplOt4AnvEE+EdmKU8hXVcWOmu
-         bic+7PzZrGmlveRcWiHp8WvG+dUPkTSCJVqSMwY6coOREEJu5vn/lIXQSODGBPwkVMt9
-         9iIg==
-X-Forwarded-Encrypted: i=1; AJvYcCXCvf1E54yAxiS4qNUada0FvqaojqzOK9P7vNUIPxYeufHPuv0JwM/BqNsAL5wTiCb0cmrm52gf7AgneSWKhAt8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9ZcZViw9oScX+4JgEJQiwqVOM3OsetJohkfdJTURbS0yjNNJs
-	POfGtoOihjEv/BplbIUxZsMLYpfIH9A5C8d+wmM7zZQONBGChn1gdCRch1aaaiP081ds5uwkmqM
-	gIiyUwvwig4wqXv7529fkTnv88Kw=
-X-Google-Smtp-Source: AGHT+IGsU6uHMBv+O6e4BbQ7UJDSfYHHZAkZqCwn67mMrBXMiocwqn/285jyQOio3gIiF1T/G3/0V4DT4isdy5AAHHY=
-X-Received: by 2002:a2e:f12:0:b0:2fa:dc24:a346 with SMTP id
- 38308e7fff4ca-2fcbdfbab66mr39852531fa.21.1730200643976; Tue, 29 Oct 2024
- 04:17:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730201042; x=1730805842;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/RlZ1TnHpvCKbzlvSM/hs6o2BD2pnpvAtKzCAXeYDfw=;
+        b=uR7z54FD7RHpSXYAsCXH+T1tAMTCCzjLWBwxp0bv5650Q2Z9Epti7bdJ9WK0Y6vzvL
+         p8ygT7ExJSSPu99DOO0GQ3SEzZIhBusNWPZMht3feDN4uEKSeYV+L5tQf79TGqeP2xWh
+         Q1xqtZicrA+okvc/wPwmu+Pls0dtYep9Rav6SlkKQHuW8ZoQD7U81jDi1VrC4tcO/rT/
+         rNdTppZxYHiYYJFVaPScJbRMrmNUDLdH7aqZZCTkOynZEKI3DjFL3jBkpYeW6RuxanRA
+         qLuz8E1wJTT6U/a7eAYlNUOTjDRtm0Bpel2aLnPeKPFiikfar6fqbIaL+/UZe+Bz/NMW
+         QUpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWXrgDlWXuPStG5jM9XVI5ExOsXuKlDA7Grfrc3EkwkODH5Z+jXX9XGz7WZWLF4Hu3KJ1+UrbKqkIdUjDi+C4XQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yww6YwR8BwjTyDT4J+4EidrbL//SGPnJpUAA0oj/5vMp8gyVEwI
+	F47gR/iNxHk0XY2rqwB3zJ1co+Sw1yX2c5URTtdMJb0sAiEyybWX
+X-Google-Smtp-Source: AGHT+IEHQFQWslu58ODNcgJ0kA7mcOUn92YiGRqwT9IXE64HXJya3wT0vI60FTSmoh816Nm6CnQPvA==
+X-Received: by 2002:a2e:be09:0:b0:2fb:50e9:34cc with SMTP id 38308e7fff4ca-2fcdc7f6a51mr5886061fa.17.1730201042130;
+        Tue, 29 Oct 2024 04:24:02 -0700 (PDT)
+Received: from [192.168.1.11] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fcb45d20dfsm14691601fa.80.2024.10.29.04.24.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 04:24:00 -0700 (PDT)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Date: Tue, 29 Oct 2024 12:23:30 +0100
+Subject: [PATCH v2] mtd: spi-nor: atmel: add at25sf321 entry
 MIME-Version: 1.0
-References: <20241028180844.154349-1-festevam@gmail.com> <20241028180844.154349-2-festevam@gmail.com>
- <20241028194728.0655edd3@akair> <CAOMZO5APJM57_ixBiRFZSZex3AiawA=mtqMszdGezVoajaXYhA@mail.gmail.com>
- <4addc413-dd13-4867-8c49-45539af7b45b@pengutronix.de>
-In-Reply-To: <4addc413-dd13-4867-8c49-45539af7b45b@pengutronix.de>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 29 Oct 2024 08:17:11 -0300
-Message-ID: <CAOMZO5Bu5U=MGq3gzOjaeWuhnowJ-TN=ktCtw_eXDO2Q6Kxbmw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: dts: imx6sx: Remove fsl,imx6sx-lcdif fallback
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Andreas Kemnade <andreas@kemnade.info>, shawnguo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Fabio Estevam <festevam@denx.de>, Marek Vasut <marex@denx.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241029-spi-nor-v2-1-e166c3900e19@gmail.com>
+X-B4-Tracking: v=1; b=H4sIALHFIGcC/2XMQQ7CIBCF4as0sxbDELWtq97DdEFhaCex0IAhm
+ oa7i926/F9evh0SRaYE92aHSJkTB19DnRowi/YzCba1QUl1QYmdSBsLH6KwRvW3vrOkpYP63iI
+ 5fh/SY6y9cHqF+DngjL/138goUNhWXSc3tRLJDPOq+Xk2YYWxlPIFZ9O5Hp4AAAA=
+X-Change-ID: 20241018-spi-nor-dc29698dea0f
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Marcus Folkesson <marcus.folkesson@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2442;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=Bh/pCGhgwpeso/ZlnFF+4oo3hRtxyJ4ukGqD9q6lDhw=;
+ b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnIMXLk1V2su/q8mCIPTOsrJENpDhv/6uVHZuvj
+ k1jAj4sLd2JAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZyDFywAKCRCIgE5vWV1S
+ MtE6D/0dhDciMdCaBBKUIEVGnm65MDeeHCj5uxDQhy5EdwWO/LIrD/paTeTRKOizfdjddOCX/Yx
+ nB1kBZHlvWeoTNkarX3fENeCca2t7fI4BFSG7Jq5MnhQAion0YxLsczQa73jv+WFlD3q3QN0fHo
+ asVkPagkJsiIM1YHpbfPuU2mxe3jFujXT2Wg5+5zsqa5eIuH+ybMgGE+rU6nsw2KI+8eFtuOUbM
+ GCss0zZqQmrQ+ASg/BwEaa9lKKprmbqzOOL3ykEopy87gXtrQgwoVXulm8qbNm7Ugf6efqRTRAm
+ +0hri72DrCgi7Im5IAxGVzfG75FEDQKC7bj2xwEPbm7mG3373qWxpvqx3QNPR+wAi23hR1j+sn0
+ CqonFM0Hdr7uH7pNNAf6r3AMCE0XQM+35Z5e2gO8NitmxpFt+Ep5ciHHVJ23W2gKZrbe/+1sT6G
+ ZSPnr7dAu5yskxZhzV3yab+fMBrpOVNyd1FpvELpBr74tVQO1EVpNkYALlDTwLQz1Z3GGiw+8WW
+ uGQr0ExilGiMuaFf2GWp18S1xOOPZjU+9GlYnfzWlQoAOVR3RY9KYN5tggIogxWv7T3fqvDI3m0
+ UB6Fs9CpQCW0ACwziipYqlpbJsueJsCyRKIU7vPvCSu8f8OpzApGkwACBvJaAlcX9zBnSc+nL4A
+ 6q1AR+CdoauNAtg==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_041726_144706_4377C90C 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_042404_187958_A6FAD634 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,15 +116,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ahmad,
+Add entry for the at25sf321 32Mbit SPI flash.
 
-On Tue, Oct 29, 2024 at 6:50=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix.=
-de> wrote:
+This flash is populated on a custom board and was tested at
+10MHz frequency using the "ti,da830-spi" SPI controller.
 
-> With an eye towards improving device tree stability, I think it's more
-> appropriate to adjust the binding to have three compatibles instead.
+Link:
+https://www.renesas.com/en/document/dst/at25sf321-datasheet?r=1608801
 
-Yes, this makes sense. I will adjust the bindings accordingly.
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/partname
+at25sf321
 
-Thanks
+root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/jedec_id
+1f8701
+
+root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/manufacturer
+atmel
+
+root# cat /sys/kernel/debug/spi-nor/spi1.1/capabilities
+Supported read modes by the flash
+ 1S-1S-1S
+  opcode        0x03
+  mode cycles   0
+  dummy cycles  0
+ 1S-1S-1S (fast read)
+  opcode        0x0b
+  mode cycles   0
+  dummy cycles  8
+
+Supported page program modes by the flash
+ 1S-1S-1S
+  opcode        0x0
+
+root# cat /sys/kernel/debug/spi-nor/spi1.1/params
+name            at25sf321
+id              1f 87 01
+size            4.00 MiB
+write size      1
+page size       256
+address nbytes  3
+flags           HAS_16BIT_SR
+
+opcodes
+ read           0x0b
+  dummy cycles  8
+ erase          0x20
+ program        0x02
+ 8D extension   none
+
+protocols
+ read           1S-1S-1S
+ write          1S-1S-1S
+ register       1S-1S-1S
+
+erase commands
+ 20 (4.00 KiB) [0]
+ d8 (64.0 KiB) [1]
+ c7 (4.00 MiB)
+
+sector map
+ region (in hex)   | erase mask | flags
+ ------------------+------------+----------
+ 00000000-003fffff |     [01  ] |
+---
+Changes in v2:
+- Change from at25sf321b to at25sf321
+- Link to v1: https://lore.kernel.org/r/20241018-spi-nor-v1-1-d725bfb701ec@gmail.com
+---
+ drivers/mtd/spi-nor/atmel.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
+index 45d1153a04a07b7c61f46b117311b24ab695038f..8285a16b253d54ae8c4a5302850244d2248aa755 100644
+--- a/drivers/mtd/spi-nor/atmel.c
++++ b/drivers/mtd/spi-nor/atmel.c
+@@ -238,6 +238,11 @@ static const struct flash_info atmel_nor_parts[] = {
+ 		.flags = SPI_NOR_HAS_LOCK,
+ 		.no_sfdp_flags = SECT_4K,
+ 		.fixups = &at25fs_nor_fixups
++	}, {
++		.id = SNOR_ID(0x1f, 0x87, 0x01),
++		.name = "at25sf321",
++		.size = SZ_4M,
++		.no_sfdp_flags = SECT_4K,
+ 	},
+ };
+ 
+
+---
+base-commit: 200289db261f0c8131a5756133e9d30966289c3b
+change-id: 20241018-spi-nor-dc29698dea0f
+
+Best regards,
+-- 
+Marcus Folkesson <marcus.folkesson@gmail.com>
+
 
