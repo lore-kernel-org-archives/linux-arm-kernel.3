@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75022D3A690
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AAAD3A690
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMZ5PK6nHavpzvrlDGaPVOAewZtUCMGts1ESYOM+TpE=; b=ekWGFtRKNmlF1/yOmi2F5K1IJq
-	WhYI2oXS7N9DKHqhKxFh1+aP4w8hzq7NGTAngxTMAy7hX4+Uh63u/r99W6zJtC7lNyVxMKrfnsgce
-	Wvzj9YXP1KCBWo7jW7sP+e2w6Sd1qBAtgWsmt2yJtI/1sih09Di20YNrWEvrq6pjBA/c+L6yN/Gon
-	LnaeCKDk0ESsm8pAU4/danuqMuTvFS2Cn8LCStjvcDgx79PGEI9zxhOQLC5Tym/IUku8qE2eso+ry
-	joJ2bZZiquEsySD/jE58wc7BkS4V7eYxZCRY8roVcE53DgC5I9u5TLeqr5BythDgWqVGuPT9dKrJ+
-	ahApwn3Q==;
+	bh=EMsmKbaTSbCtvLlgYo2qZSTGcrEE2vsw4c80qevMoSw=; b=144f8QqGHfA89Ggy2xh8QEwZrt
+	gNIJVHQq1NNNleHI29NQOLSphZcMmBnMhN7tpT317nbX8fmhfLR6eNr7wl50gnZQ5+1kW5x2zyYE6
+	w4IeyRPfKXWJ2rORqpgtk36PfZOjtxdsrHkDnJVPEA7Q4jtaVam4bBhANnkQTBdxOuBHNnaMpiRHX
+	/gGGcckeh01OQT6+5t8LQUFReUAQyVL9vwDgQPiY9+Q7nDDCulhtwkAQQTsqP7iMjKzHF/mL3u73q
+	bEhq1Oq1FXq7VQziAhkTFUp1reYP/rIzx0YkC0AgfIrx97Q/Gq9Vg3bkEyOGzAzAsOUrbzmvlIC9d
+	U4PTzUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rVb-0000000FcFa-3DQ0;
-	Tue, 29 Oct 2024 19:04:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5rXB-0000000FcNt-35DR;
+	Tue, 29 Oct 2024 19:05:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rTH-0000000Fbg3-2cVj
+	id 1t5rU1-0000000Fbwf-3Xko
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:01:40 +0000
+	Tue, 29 Oct 2024 19:02:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D8B89A432A6;
-	Tue, 29 Oct 2024 18:59:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEBD4C4CEE4;
-	Tue, 29 Oct 2024 19:01:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 000BC5C5846;
+	Tue, 29 Oct 2024 19:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C982CC4CECD;
+	Tue, 29 Oct 2024 19:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730228498;
-	bh=Vh6G+8uwL9uUOhvODAwVdWDZL/F4D+Frm1lZVOFHCHs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p4vSj3Oov1VK0ycqbj88Tprzv8GWpeSYgx4q3BPI73sQDVdT0D4NCWH4rS0FlShxU
-	 OnwHuLhX95JSvX7+SbZmrPQBcGynkzjdOpIej32blGefWmR0IXdg3SiVKvCRaM8I2U
-	 ZVC3ZKe/ukljcJWgtVyK5b1r3odbMv1nvyGGsubFSyl51D0CVbzv7h3V/tpG8BjPh/
-	 +U7yuGclZV8lHd7IMKpfhEXv0CawSsmMkMCGXpNoT0+itAsW9N9qEcFDPsxUpOs1uN
-	 mmhDMKKj7HjeAUcy3biVkq9yZopZGuGrDbtJI2dP8HgTx2xadQZf3HamPiDp3R/5ZP
-	 8yYvihQKxgYTg==
-Date: Tue, 29 Oct 2024 19:01:33 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 8/9] KVM: arm64: Allow control of dpISA extensions in
- ID_AA64ISAR3_EL1
-Message-ID: <bc0998d2-fc06-41e5-87aa-25a963947800@sirena.org.uk>
-References: <20241028-arm64-2024-dpisa-v1-0-a38d08b008a8@kernel.org>
- <20241028-arm64-2024-dpisa-v1-8-a38d08b008a8@kernel.org>
- <867c9q3lkj.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4Vm6UmZvhyOSk+XV"
-Content-Disposition: inline
-In-Reply-To: <867c9q3lkj.wl-maz@kernel.org>
-X-Cookie: May be too intense for some viewers.
+	s=k20201202; t=1730228544;
+	bh=c3B6zM0g76ktl69lbL9/91FTBSkAtle6ro7RJaPmxWY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WzubmDqOVvPIBDYTPKHnrbCuEngf55eh4KgIMF7AzODVZnGA9G3qv7CutXGTGPFDh
+	 Y3Xgo9b8ryQSaeDVbedWE0IY5mb54FNHd8Y/23J+WxqbhW9N4GpQFyaW8Y6UbCNSI1
+	 GpyGgSH1fhyiGFd/K5dhdImQbZCRePwY5fZyT5yA5YurAl4lkPfc2iTeqy3q6RBSUf
+	 9ZtVkKTF6/4MPKHOqsRAVMnwUDHZzIW70vVHhWERB8oDKx6WHHvrdvqtyEIjFlwgsE
+	 Qu2w98WUF+iz6cVlwLSsutRUrtRlyTw3f5PNtLgXwn8ACG1326UI/ikDEzOJYo2WZu
+	 5JYXxP0zh4cfw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t5rTy-0081t7-Pc;
+	Tue, 29 Oct 2024 19:02:22 +0000
+Date: Tue, 29 Oct 2024 19:02:22 +0000
+Message-ID: <864j4u3f7l.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yu Zhao <yuzhao@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v1 3/6] irqchip/gic-v3: support SGI broadcast
+In-Reply-To: <CAOUHufbEadyAn0WVdJqYKkUjvMfGXXiLjaApjhaHKg93P8Rymg@mail.gmail.com>
+References: <20241021042218.746659-1-yuzhao@google.com>
+	<20241021042218.746659-4-yuzhao@google.com>
+	<86a5ew41tp.wl-maz@kernel.org>
+	<CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
+	<86h6902m7y.wl-maz@kernel.org>
+	<CAOUHufbEadyAn0WVdJqYKkUjvMfGXXiLjaApjhaHKg93P8Rymg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yuzhao@google.com, akpm@linux-foundation.org, catalin.marinas@arm.com, muchun.song@linux.dev, tglx@linutronix.de, will@kernel.org, dianders@chromium.org, mark.rutland@arm.com, sunnanyong@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_120139_762790_27614882 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20241029_120226_037485_3082F37C 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +98,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 25 Oct 2024 18:31:01 +0100,
+Yu Zhao <yuzhao@google.com> wrote:
+>=20
+> On Fri, Oct 25, 2024 at 10:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> wr=
+ote:
+> >
+> > On Fri, 25 Oct 2024 06:07:45 +0100,
+> > Yu Zhao <yuzhao@google.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On Tue, Oct 22, 2024 at 9:03=E2=80=AFAM Marc Zyngier <maz@kernel.org>=
+ wrote:
+> > > >
+> > > > On Mon, 21 Oct 2024 05:22:15 +0100,
+> > > > Yu Zhao <yuzhao@google.com> wrote:
+> > > > >
+> > > > > @@ -1407,6 +1418,13 @@ static void gic_ipi_send_mask(struct irq_d=
+ata *d, const struct cpumask *mask)
+> > > > >        */
+> > > > >       dsb(ishst);
+> > > > >
+> > > > > +     cpumask_copy(&broadcast, cpu_present_mask);
+> > > >
+> > > > Why cpu_present_mask? I'd expect that cpu_online_mask should be the
+> > > > correct mask to use -- we don't IPI offline CPUs, in general.
+> > >
+> > > This is exactly because "we don't IPI offline CPUs, in general",
+> > > assuming "we" means the kernel, not GIC.
+> > >
+> > > My interpretation of what the GIC spec says ("0b1: Interrupts routed
+> > > to all PEs in the system, excluding self") is that it broadcasts IPIs=
+ to
+> > > "cpu_present_mask" (minus the local one). So if the kernel uses
+> > > "cpu_online_mask" here, GIC would send IPIs to offline CPUs
+> > > (cpu_present_mask ^ cpu_online_mask), which I don't know whether it's
+> > > a defined behavior.
+>=20
+> Thanks for clarifying.
+>=20
+> > Offline CPUs are not known to the kernel.
+>=20
+> I assume it wouldn't matter to firmware either, correct? IOW, we
 
---4Vm6UmZvhyOSk+XV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Firmware is on the secure side of the stack.
 
-On Tue, Oct 29, 2024 at 04:45:00PM +0000, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+> wouldn't cause firmware any trouble by letting GIC send IPIs to
+> (cpu_present_mask ^ cpu_online_mask), assuming those two masks can be
+> different on arm64 when hotplug is enabled?
 
-> > +	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
-> > +				       ID_AA64ISAR3_EL1_FAMINMAX)),
+You can't send SGIs from non-secure to secure using ICC_SGI1R_EL1. You
+would need to use ICC_ASGI1R_EL1, and have secure to allow such
+brokenness via a configuration of GICR_NSACR. Linux doesn't use the
+former, and no sane software touches the latter.
 
-> Please add the required sanitisation of the register so that we do not
-> get any surprise exposure of unhandled features when someone changes
-> ftr_id_aa64isar3[].
+	M.
 
-Hrm, right - sorry I missed that.  The other registers I was looking at
-don't do any filtering.  This feels like something the helpers should do
-but that's simply not how things are structured right now.
-
---4Vm6UmZvhyOSk+XV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmchMQwACgkQJNaLcl1U
-h9BBIQf/fJ4ZRG5K2io8YpnuhLePrlnfVtSz0vdMqL26hdM384DyHOtHBnj7tobz
-wcMxqJtvV/+nwxaKpTfaJwtriyBqlYLexywJpttHwplCdDoS6DKLAssSkoE5Dlge
-RqqtygC4CbFgdwJ54vFke5Ku97EJLhKvEWCMGPKgM7KWXR56f5FyipMzhJDDGkRd
-ZP5cCMs0b0vocUbd9URiNhDL28tVUIWLOFarxRwFnlbIDiuedEvyrtaBKh30Mw6o
-nb5KPJ8r5N8V8ylHTrFlGmIWrpMTFVLqhYrdc1SBr2wL/fZ8xAO3UkAL8AraIbMC
-i9whjaoox3OTBniFy9I7+95eM3Z/lg==
-=y7Ds
------END PGP SIGNATURE-----
-
---4Vm6UmZvhyOSk+XV--
+--=20
+Without deviation from the norm, progress is not possible.
 
