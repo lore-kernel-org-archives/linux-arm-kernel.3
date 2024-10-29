@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C11D3A67C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6712D3A67B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gU+A3vZeuAqIH7gthqJEyKYJuMsoDymMbrRMU4WfFVQ=; b=sWVPkI7cXY4/sEP9l3Oq3LQMJL
-	te4+18GqD6eQ64AcZZ0mPGvV7aXm9NsLvTKKJy5n7Uajwtr6CqbxAa0BM2sVSmlEa59d/jO9OJgjV
-	pVdZfGIpelC8aZ8jNpvzD2Y0W1ccqhIhAWuR01KcMdouiUm8Sd5QsUS1evASynJO8GVHK0Pf9e43z
-	YWqcuW5tOpxZmDigSofqijnyQFDDMZ/GR4H4wyt+nWnGbX/F6cR8luQUd4bzfVIWvCnCb/YVW6xGY
-	Z0lbgvD0EeMXoqxJaI4FwSgr1epTUkHIwERY2iNOx6KyM9AP7L6tR8lBkMIXf2eesYfEXAOiq2Ymx
-	pHWh/V9Q==;
+	bh=UlX4tvx4PX6V1MC1MexVEXQxjIgRjTUSiiDURBbT6pc=; b=K3DMTCg6gZTfqxh7kBShQEO4h2
+	2A7MZrJ2z20BgvPKEJM6reQLDmWpb+A8n8qs1sW87nAS35h678EffStjoc1P+P4OIj4nXiv864Nhg
+	Vx8oU8zIpa+tYbSnnXaPXW3IqlqQ0pDJis+a//QdCTATJ/5VQzx+mho5OwEAw3gPoRLzcJ4v3MsoA
+	EfWGIF7V3fAU3ZvwjINHy77m6dzozKg4jicpitZSjxE/EOGzl5ykL+zfIGYno2mzXmAFbYgdQBMS0
+	X255cFitXWysPikWaG4W7ohgvUGoHoKDI+EBXdNUyfk88kc1qzLSuM6LSe7r4uLaGc3zsnxUb2RHA
+	m0OzhO9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rFa-0000000FYLG-3hUV;
-	Tue, 29 Oct 2024 18:47:30 +0000
+	id 1t5rFg-0000000FYQX-3gC3;
+	Tue, 29 Oct 2024 18:47:36 +0000
 Received: from mail-am0eur02on2060f.outbound.protection.outlook.com ([2a01:111:f403:2606::60f] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5pJi-0000000F9r9-0HOo
+	id 1t5pJj-0000000F9r9-3yUT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 16:43:39 +0000
+	Tue, 29 Oct 2024 16:43:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NOxzMl+kxnh0NcFlrSRewKZmHH7YgEAUNEplN8y889cdpKwdRPapaQbRzx+8YelMYkFCYSBYAYxSneSO3/VdIiKcPQ7xmqnt190DcUqYaW36bYqK3vTH5PWVUt6jjjL0tzlxDN9m/1VVxMeCax/hFUCEY+ripBDOTcnlbyqycGakIDaT4TMqG29PzE+0kUBCxIza8sH8zMwVb6za5DjYSdolCi2eh6DYRKzhZJipM4qYbM3KRe9kQb1icw1nIRFlPxvp8pZNvvGd6B0OXLjNuki9JRr/Y9dTgZlFkzUwf9+2f/4//o0YW/AOBwJ8r6sekR8Ij8scNMhNN3TD+/2JmA==
+ b=aTJTdkRUqe2mC5wY15sC+e4tLrLdWTwwy7eOidfeocEJDvdV1ry6Ae7afERh3VdRmCesnxcxJNjBhQYTcF4IKJ9pxEwBn09/XGwFQhAu8o5NA7AIs4Tk5FaJKSmvug3rHNhLx6dorCnscDJu5WrYwRqaMxqKdEtd6p89RQWhMhpjgKRwXnHafP6M8GE/giYcNA0Od8F5jJ3HMMqd2viRPIUqZW1EWzUQ1Fd6PQnPKd/SHxbn7zOy+1x5/TGZEW1Bf4HgrTHRvlepk8ght0kmmRTljrPlcPBcE9QfsZDzmI9tGI9zRsZXomu5ufnQ2tV1O0ThgNWLi9vGvuYOi2lB9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gU+A3vZeuAqIH7gthqJEyKYJuMsoDymMbrRMU4WfFVQ=;
- b=BTlJfaeycnPkFYiunDix6IVx3ziCu/nbWXn5hefvasvEek4lOFU336lt0Xm/dphKbGMddDLSHDcnNm5eODbQNNXwQvJdfj7qPdYTG4RjpO/5ZGHxGRYE+yquMsu6KSjSOsV6SCIW72EjaxXEDHEg9+KeK62FZz6hOZ/K8FK8HQFs9nC85Q7l/D4D7OoJk6rU9/m6pnH5V1cevBo1hAXQFLJuTJ3qTb4BpC2gl8f4dKh2xQThzFkvtW4k1qkYuwsuxe0utueOfZnkPFt3DyfQIeTqloaIrpYslNy8eUf5yrk65i8kAZJp6fY4NhlcBShzcMXB2IwH4tFIZuTE35h4CQ==
+ bh=UlX4tvx4PX6V1MC1MexVEXQxjIgRjTUSiiDURBbT6pc=;
+ b=olt/jf3x1wL5eJfdDkZSSwAOPOUzytQINjIiqZY/6NMR4sACqn4Rgp3m/XtpbCE9Oh6IgxJCweYRH5vSVBcaw5rdAHHP0OwYE1Yl5sx0SfQVoVIF4VkaDZiCA+awh0l1A0of3UzryqfdgOvg/QdltDwP1WtF82BdY7PRe6pb999ftcBJwmoHfxxVGESpclEku7fAZ9FxpRpeb/lCegDd6VARyAoK3VdrJ/iSkeHSuVJJ9f8/eNpMnrM7GAnIBlleoqWSmJ/Gn3O77HDOuLmH2C4o1slcXkSLIHIO0F7mKp9q6sOiZbYKsFxM4FLe7vX6iHv5F03dS+tdCI5x5L88Sg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gU+A3vZeuAqIH7gthqJEyKYJuMsoDymMbrRMU4WfFVQ=;
- b=bElhZhDPwTctpc9OmUxi+0SK/hq9JEgVy80qi1hJl6Nn6GcxKY/or6Mxs3A8F+QRmlkNVeKJRU70qIZlojCvOw19HPjjVg7fi39AbNNVTm/krF+oxQECHVkQIal4FribvLY/Qk2rpB7/RfnYXNsdWEynEdkE1og4qC3xNVUGb/n+z2IGCeLQQUth81WzOuGrLpiWzUqSuwFAam5SbyLZsNMiKsMFO4/oliG1a0RqVSi5EnZPbqcz3CNIFds/3A18cRUN/aEHVXPBtsEvTepdf34khFSZoR0bVhhJmT9n2EwiY7cO6xnPwasjQG29gUOVxvMZjC679JiySI0rK2tc9w==
+ bh=UlX4tvx4PX6V1MC1MexVEXQxjIgRjTUSiiDURBbT6pc=;
+ b=ay2QwBnzl8+Fj7g/37bBoKz8vTE9oOzF4YLFv3pAiFVNoil3GJcr87Y97r8Tq+nnxfhyHg9SmlfKbQvh4J3TuUxCgIeLmEGwbOSBbtTQEPOc9qp0EvwtZwX6EB+1B2P1to1Grt/Ker19Rpyfpr6fuO7Gr/1P1RXn0FZMHitDqAtixVrUDR+HCHv2p1uFI0iMtHxVeflXiJoV+pDxNSMs/cMW68f3ucW4HPUx0JmF9MBovMrltN1SLW0quc5uKySZQsdZ2I5BbCHnkxZNJkpsG+H4hKgutlCLrKP7pl1hC/WosDKJlUJmu7WSMSVsOwZ6qvtbzJ7ZW54u9JOf/kqgyQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
  by DUZPR04MB9871.eurprd04.prod.outlook.com (2603:10a6:10:4b1::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.24; Tue, 29 Oct
- 2024 16:43:31 +0000
+ 2024 16:43:33 +0000
 Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
  ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
  ([fe80::7417:d17f:8d97:44d2%3]) with mapi id 15.20.8093.027; Tue, 29 Oct 2024
- 16:43:31 +0000
+ 16:43:33 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: netdev@vger.kernel.org
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -67,9 +67,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 2/3] net: dpaa_eth: add assertions about SGT entry offsets in sg_fd_to_skb()
-Date: Tue, 29 Oct 2024 18:43:16 +0200
-Message-Id: <20241029164317.50182-3-vladimir.oltean@nxp.com>
+Subject: [PATCH net-next 3/3] net: dpaa_eth: extract hash using __be32 pointer in rx_default_dqrr()
+Date: Tue, 29 Oct 2024 18:43:17 +0200
+Message-Id: <20241029164317.50182-4-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241029164317.50182-1-vladimir.oltean@nxp.com>
 References: <20241029164317.50182-1-vladimir.oltean@nxp.com>
@@ -81,78 +81,78 @@ X-ClientProxiedBy: AS4PR09CA0010.eurprd09.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DUZPR04MB9871:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62df47c5-94fd-40cc-e72f-08dcf838d27b
+X-MS-Office365-Filtering-Correlation-Id: c3a3d34d-d44c-4574-862c-08dcf838d341
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RpCZhjFdga1MOQ4ByjJhqawS1l0Urj2Y9Q94/u40nyWqK7H3zuX7trofIXL2?=
- =?us-ascii?Q?XGMExGfA9Yqmva/xAdMrjADhzTS498cgP/ujvx3cIrF8oqNCMsFdWiLbHrC/?=
- =?us-ascii?Q?F8zU6H0tF6WD0eTqGbZniIz6kTgUy1twOLyNPfphAJnsMPfCBoujTfGFCLm9?=
- =?us-ascii?Q?9yzH/G0hWUQ1rqGO6K7XkughiwBNvr7cf292Jh4IzkLuv/HJVM9k7/9BzJSw?=
- =?us-ascii?Q?0TP45IiNI/9BcDWnf75B9Up6DW5esK+ZC/ptK6Yf9EgjV3V6yTR/W+rWljtJ?=
- =?us-ascii?Q?QI2v8tkHCrxVKtLaEe+28u/l+fRejBoqb6yaEeUC/xVnyCbY76REmKT+l656?=
- =?us-ascii?Q?qNkVlV5gCI2Fg90OMuT93dAIGXWfR8+O6TNP3DvnjsNUKT4ptzZ7bfz3cfl+?=
- =?us-ascii?Q?iceGwVJA+9TKuHj4qh4m891fxrxSFdn+TC3QzvS3LYqXC1Au7UgZLFwT/NQb?=
- =?us-ascii?Q?8CsV3+wfSfi8rv2NVgfVFvhO/Z5hpBcrYrH0cQGG1JMmTt70qf6ZdUVM2BIm?=
- =?us-ascii?Q?FAD2s/CJxZ1vJ8bgn6x6ivy9VZ4LePb477CoOfj9BYAv39yKYxVAnSYbAa7T?=
- =?us-ascii?Q?PxG6gIL7l8E4tYbBIIfRbkriHoYIrsrK2sHTQhMRTgBnpfQxQKeCI9P/tD8f?=
- =?us-ascii?Q?99hvROHVVNcwoaMUdd3nGknQA2jEvrFh5p1l5PG/IKpdHAqz2bq/NoSXV/up?=
- =?us-ascii?Q?S2fFzYzpoTlpxYJ4yg9SmOQdFM8lh2Dk//Ojg6lSIYWmxiSr4UOUXDgcVx15?=
- =?us-ascii?Q?GVSoPBKEvsCkvBes7OV5uZ6O1nXexXTF4xNV+JesroiPJSUWZuLqGBSeBlg4?=
- =?us-ascii?Q?wP3nAGogH0jV0q9oQDmLAZH9j1gaAsRZNfBnTtHTxfwnYaCHydnIsxKjiB0l?=
- =?us-ascii?Q?6LJjXPTExR96NTLZE041F1z5TzTNfP0EQLziFD3e84uxzrNzlaht6pxLNr9e?=
- =?us-ascii?Q?38GTKHfunux8nlAcsieuGGWXCxvrbmNI6mxfdB5lIKiL+/bGL4x/zNp1kLq1?=
- =?us-ascii?Q?0sXL/Gon3agxKXGlazVzcJduRki0E9fvXFMimLSp8MydCBS7119YTey96Pkt?=
- =?us-ascii?Q?l39QDizXj8vAV8vpPgXjtiDd4VDiHsLWeay0HuOndYQ5C9l2YzxLdVXQgGMk?=
- =?us-ascii?Q?+WuxEM03yUmMUEVZHLxK0/P9DQqIWevQN+4iexlAy2i68AO+PsqMOlZ4EHP8?=
- =?us-ascii?Q?8/LoZbnpA4e1Sbp4pyIHuTW0cV2+DA1aqVLFF2sdjuzZMqre1V28UIoiu1cE?=
- =?us-ascii?Q?wlgdPoy834GG1ZPoofLiqz3r2xxThPGsEbn7UjL/3il2DMX1fAuySV6EaKBy?=
- =?us-ascii?Q?gHnFZecoejJDGGENCSmDJU3C1yGbZlXsDX3gs5V7gbiN6tZ/yaYO8JOTTCcW?=
- =?us-ascii?Q?FzVJjB0=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UZ/yN0JVvZX13KsGOwJEeWXkbnGSY4wpBaA/cfCNl4NINaEOtV9uvl4Ona21?=
+ =?us-ascii?Q?bfjNY3WS2JXu/M7bHBxFlOKeNAjsRnGPX/qs/ubWWI8NLoeYB+BONqoLA8d4?=
+ =?us-ascii?Q?/rCvTdhgoovsDdi/ezt83Pw1GfsdB93/1eySWN8RUcX6Pm+R9LEjbmLLgUiq?=
+ =?us-ascii?Q?0hBVTO7L9eJmGEC3RImQ1JhFWlqJXoamAoBJZ6qODFbaHNoYw0dB8gind2kb?=
+ =?us-ascii?Q?P3PTYA3VzX1UliTqLbVF2i2FZN2Jqq+D24JBDcjRxsF0/aaCFT6Ku6G7uzVv?=
+ =?us-ascii?Q?cBptBq0yiPBAYC9f46NzDJFbaWBXPst931ed/Gau/e2zOmcT/86hYkibM1Em?=
+ =?us-ascii?Q?yYuMJl4Z+1CtYA5Qxr9KkqNetrmDpmCrRqXQ/thg+TwRpqxpBqEiqaPgsEFs?=
+ =?us-ascii?Q?YRXf1nU9TfMj9k095to1Dnd0sOOZpyAXulSUYuxjPmoZIJEoD462dN+rOX1W?=
+ =?us-ascii?Q?zU2/QUSsMWdiDPm1vhba0qXzSHjtcSuzPECe5Beyk3g6q1l6cHIeRHzVVYQi?=
+ =?us-ascii?Q?99NdmDgMgyQ2jY/o8N2W79598IKIQsYsZFeYleqawR2A8vezQSCYnKp5g896?=
+ =?us-ascii?Q?1uJ/9fRloiqvAVY8VzlmHpmTL5ybo6udPfGKixtZA6vvX9Y1cPFpFXB29ucf?=
+ =?us-ascii?Q?gvJKd71BEnNJBd/4I+wGJXnBz1MIY9kAuuqruqj2iVm5iafIc/gaBF9PYhcZ?=
+ =?us-ascii?Q?8JdgzL7iz8LFHvKrSo4ZegegAJCNLe9ajQ3/a2oyA78ueZbALe3xMoIS8+Vp?=
+ =?us-ascii?Q?FYOXiq31folp2a/weXAkbeSdzMthG/7SiLdBwFJAKblpgaSbEbIIPLJdSPFF?=
+ =?us-ascii?Q?/2UKvI5Ei6rCqYibiRlHQM7aniBB7Zb1CuSKSyBYk4h7KEmY6AUfUVEIS4TA?=
+ =?us-ascii?Q?YrwAf6z3bgyItoR6H54qNYdm7+2yA2KCwWc0vaZWjZVWZ7JUwfzyFdJazUUt?=
+ =?us-ascii?Q?TK/LYycCXhWqYou/O8waWaFHoD+vz3ZH4bCoyJOlsb4WnYzuxD6Fy315eDDR?=
+ =?us-ascii?Q?ZM5GJ8Bg5o9c1Cbk/JkoqXdxoNvxcq9fiSjYlI27Zcjet4Wd0cq4mSvEFh71?=
+ =?us-ascii?Q?xG0vMqTa+OqP6UKD5cJxW9xqyqFw1dqGnE+0wMVstOmpFfcR3vc5vdVt0uR+?=
+ =?us-ascii?Q?N0IxhcD7Y+4XzsNCCjIjn7g8Ge9sZdQGR8eQAD2yMUA2i2LH4cg5SRA/J1in?=
+ =?us-ascii?Q?6JN0KgvK8lI1Lvs5aH4iCvpVrwwm78vqF4ZlezagZokaaB+XPs6Lw7cAF2JC?=
+ =?us-ascii?Q?nNsh4NUD2BAKUOqCnJhJGK/NFzBaJmS6bIVdr8A7r4REGlbZuPBNPS+5CD9n?=
+ =?us-ascii?Q?uYmPXwK5u9jDeE8eJKnCZkrtx0WRWInfwrvcft3i3y95bSpv/QiE2NgYPKLb?=
+ =?us-ascii?Q?oJPcfj4=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z1+pMNd573o8DyGqsjYHzuAnIwoBFnA4Sb0rACkaAIVaJY3XomlvsBexjDdD?=
- =?us-ascii?Q?C9m17zdwG77sg9WvDF9s0KrZXv+AYBj+svRP+z2T4PDR33wTuzIJsC7APOtV?=
- =?us-ascii?Q?fAXZxncZ2I0rrheuKKXKSddtesN/FK305DBAT1slTvc3ht+oLxIDiSz0lnfA?=
- =?us-ascii?Q?gSfxWJyLvSCM6GCQAmO8FZIu93Oe9+dj26n+XBbOJXjzRlKfHHS14wCZKfds?=
- =?us-ascii?Q?J/9Dmvb6qNXXWj6QNSODmpLRm97AxAYStQisnefdMNfYzi605fWWMVJteGkH?=
- =?us-ascii?Q?K0YjGdhDvTC0jv554NJzCyvuXzCyctL77Jr6s2CLame184zWn2uldtUG15Ih?=
- =?us-ascii?Q?qUUYx6NP28mmiraLzj/K0L4L/dtXF6O8hYpeXFCS5C/0nKCbFr9dCa7qlYBY?=
- =?us-ascii?Q?AYVdP6sbMrTNizUM/HKmbTc1qpjVn0fsv1SwGyOZBNdwe4ngmPNZW+2f1wSD?=
- =?us-ascii?Q?2CxOw1cY1UAs/BtQNCAqupwULn7MLnjHYauU5B0H0kXCzv17Ip9kT3GUaoRI?=
- =?us-ascii?Q?B0yI0Ax2FqO4mFNUjNRj9+eJ00SxT+mYIMiMUkbNx4yLhdSgjEqlJTrhbv7/?=
- =?us-ascii?Q?iaGP5XHE0CWNzi3f/J5/BjbV6sNWlST2VCk7K7K3hW9SzqAJsRFYTYHwPiyB?=
- =?us-ascii?Q?bu5YB3sg50dh5pLDvORsqrVS6Tbri/eE6QdvdNnn2qxMPvCWjQTjoUSoGh68?=
- =?us-ascii?Q?QqHmUnBEtrhJhCEZDCYBLZFMUz2AIIKDJRBkoM+Ydxl6ZJtbnHnbLS1azPrL?=
- =?us-ascii?Q?dNqwt1aBungbYRvheXEyPVWqk3kWwE5G/jjJpWFmdh0jUDvq9WPcSBQXHGKk?=
- =?us-ascii?Q?j9Hq08DMnOK2h/tSi712RCtl0kGBwJ/WVuRBTKcrkniJT/oeUmVEO5oGrVSF?=
- =?us-ascii?Q?Dkdybd+onooXUOvzgqx40o+zSxWNeF5t8Qsv7Wgfxd/fZSyznmFJ9p1K4rm9?=
- =?us-ascii?Q?Pxy+NZgV/Aq+RKKKsI7N08ecZ1Fu435N00NTSJe+9Y9+Te0QLYE5Hjc1J2lG?=
- =?us-ascii?Q?tU9kA83NjgpwBKKWVGCSfBVHCLTyXGTEJFU7aoD95f4Q8/dfkeOLOXQQkTTd?=
- =?us-ascii?Q?lsMkM1UTcoKaWL+QnLhrqreg/2ReUw8kFpZ0PAvPwFuLGv0L5BbFkZ7RIHmg?=
- =?us-ascii?Q?77N/FiCPWm9qzcBrlstqG3QYcfE9qfwNLiRNycv1WH78U2yN5DnJn1IufNX1?=
- =?us-ascii?Q?6ZqZ50jLDQ74Ql3N8RuUKlEs5pJA3OolKhv61+DousKjOCvy+aQU4YLWenqb?=
- =?us-ascii?Q?iF8D5TnYEpM/ewu1nvKsGlqE/uLo5Td8WwzwUwYNsWFdiaZkueyd1e7jE9iO?=
- =?us-ascii?Q?/rebFbXgUDIz+wwRj2dd+qMc6BlfpcR6qB7JdVYjiZciN2okE5fZQchCwY7w?=
- =?us-ascii?Q?pfATTJzh7gdXHt2vQtF5sWahKdy2XFg0A/nfXkHRDdURcpZwrTjbKpU6BXkD?=
- =?us-ascii?Q?UBWf8ACSlQt40CNXVnaW8ZPE4eScL2yYiJlAysPhaXjftn2ZnRpRWmpESvIl?=
- =?us-ascii?Q?KWcI7NaD1Xws7QGZHiiWfwiIkUHGoWtxtGcxwlQvBSmradOQQ+7uOGFa5pxO?=
- =?us-ascii?Q?bkSqfG434XlbrlWHUn8GzuHCnueoN2mLpeusO1ZGGTOKbPE0TicEi/XlNBF4?=
- =?us-ascii?Q?Yw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?V/P1oTBXVOMphf3eI3UPuyJVkv+2ohljAcMVb5NOMn9jR1j1V/nuAcwd43JP?=
+ =?us-ascii?Q?S5DHyzkw4d0Fo7ux+dlXYmR5E6ilWKiXYIeXm8oibmvUPy0aY2PmOiYgkADP?=
+ =?us-ascii?Q?8Ag1wSpFJEUbEmGjIto0LGCaClHXVFr/cpHlr/gBfsmPPrVfhu19nsGiDfeg?=
+ =?us-ascii?Q?EU4VbL2nFWV1hkn6CoTni9tVACCci+qnYig0DyygasC339gNnZpueLT3cRE9?=
+ =?us-ascii?Q?qRyvZlAcTASqeaYVTZzIWfa1gvJuSTBeWM0AZz9YxoAZuV3L6vfyveJTbp3G?=
+ =?us-ascii?Q?MUe3u84V14GsAF5CewW9aM62NOc1YcgGFWjf80/t/qBV1PAtLCXZIfvVphCY?=
+ =?us-ascii?Q?cA/durxWhDM/h6cmqGuC1f52EBM0Oz8Iru9Ang8QXMGeZdITlUX2ZeDZ5/+u?=
+ =?us-ascii?Q?T8HfJsUr7pjh3BD39XJSjM6qNfZFiKaKh3GPNqNR9dS4jqJb4q0yBrFGxes0?=
+ =?us-ascii?Q?D9uLf/LIfYr57/mPtrJU2wU/dnmuUrkrspP9o8YPAKw0rfIK7Zk1avAiTR1c?=
+ =?us-ascii?Q?AvMQ1267x8Qc6rZpgJv0AAfByUJFkUSdFJdd9tfp3qo9zfupjNQs70tXpMSq?=
+ =?us-ascii?Q?1MhSHVs83GP4AEGlozIxtE9MZNtJOCjGpQ8eQxUaCZguAesoRzks3kY2T2vL?=
+ =?us-ascii?Q?nspUq3t07ax5tbfFFXlDcZUi7AskYMfAqpoM/llBegQkBWwNqQcukjs++9mF?=
+ =?us-ascii?Q?gw8brnlLVNUDa2SWyOC1sFX4qMX20bKw2qE0CCsYL35ag9wGYbnrCWy2W67T?=
+ =?us-ascii?Q?MW7s2b4xTytn+OCgydXXSt3Lh25edZxMg0B/FTiiCKsgKODyaPwY765FNNoI?=
+ =?us-ascii?Q?DinVXtQC7lbTi+emvjmcPQGA+D1PZhHsE2fM5LeDVxnTfXUIhN/6iehXkEVn?=
+ =?us-ascii?Q?VtPXZ6fe1klzi2hwjdFB+BT7SgMdVjWr5x+/yRv4T2qBfmlL325EbVw1mkfq?=
+ =?us-ascii?Q?YYRmMQN/14sHZ2Kb7OckTnHN0K03Xl+v5AG+jSIGNZcC5ZAABfJSwepXrZDq?=
+ =?us-ascii?Q?tmdskp35oJOxWwaqlU3A7GSDn6NsiTqEPJBGCc+HIkbtEhSPccoFn16kXYIp?=
+ =?us-ascii?Q?3yzuaJC7iw/h8Te6FzDClyc39UvXbrGq9Z7ZpnHcY99mHwpJ9W3N+f1/dn4v?=
+ =?us-ascii?Q?oLQdgzpj9JrOuLfMxYAT0yBzkcuq+XYc6p76nheB9QyIIjk8bB3mz7CqgXFl?=
+ =?us-ascii?Q?gjPvapgEW47aXljoXx3TCftToUN1Y9l0oR5bjZnjaDCdDyikEUCSjrrIJiwr?=
+ =?us-ascii?Q?Zl0aQ/aCPjDXOUEj+cWnLG3o79e9rW4o/HLsFwWCQeMZUNEdQKhHHEegGUvv?=
+ =?us-ascii?Q?+3TVhbuT8APMA0PO3lbEreRD9ivsMEwlPxZlqmlrGYZFiRQm1Xz2S9Mb+iBZ?=
+ =?us-ascii?Q?bjitBgt/+NLrYtp5cYALzXvk6bJrxq6ths4KDAELX1KaTpTo830bMDKX4/AQ?=
+ =?us-ascii?Q?65kAl7DbEQ09QIcb+siZhUO0gIPPKWY2445pz1RlqdnUY+LK39H2BTC+h9+3?=
+ =?us-ascii?Q?8eNUvNi5iyU4Q/2j3WmzQ9EPSOV3tZ9lfYM+oT522PmrIATaDsGe8rkKMrb4?=
+ =?us-ascii?Q?LA8TCeVr0SmboV2yEbrcUenGxkwS6DvlZLoR2R3f96mjovKpsWvus6FMpA2I?=
+ =?us-ascii?Q?hA=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62df47c5-94fd-40cc-e72f-08dcf838d27b
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3a3d34d-d44c-4574-862c-08dcf838d341
 X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 16:43:31.6016
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 16:43:32.9899
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xminaAuOe/XnaYsUGatFEUHloyICglhK2NbfzZO7THzhc0IUJjKm039HxmILIAtkRE4ZKc+ci9bIYLZjhqVfcg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: xwx3zVYtpcLVaQjU8lO2kz3576C2gXphFgZfWkCPo98zoEPuNO793D3zxvWOgIKt1d23Srvddbgklmqw9SgCjw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9871
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_094338_262295_A2C7D7CE 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20241029_094340_014623_1E556388 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,137 +167,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Multi-buffer frame descriptors (FDs) point to a buffer holding a
-scatter/gather table (SGT), which is a finite array of fixed-size
-entries, the last of which has qm_sg_entry_is_final(&sgt[i]) == true.
+Sparse provides the following output:
 
-Each SGT entry points to a buffer holding pieces of the frame.
-DPAARM.pdf explains in the figure called "Internal and External Margins,
-Scatter/Gather Frame Format" that the SGT table is located within its
-buffer at the same offset as the frame data start is located within the
-first packet buffer.
+warning: cast to restricted __be32
 
-                                 +------------------------+
-    Scatter/Gather Buffer        |        First Buffer    |   Last Buffer
-      ^ +------------+ ^       +-|---->^ +------------+   +->+------------+
-      | |            | | ICEOF | |     | |            |      |////////////|
-      | +------------+ v       | |     | |            |      |////////////|
- BSM  | |/ part of //|         | |BSM  | |            |      |////////////|
-      | |/ Internal /|         | |     | |            |      |////////////|
-      | |/ Context //|         | |     | |            |      |// Frame ///|
-      | +------------+         | |     | |            | ...  |/ content //|
-      | |            |         | |     | |            |      |////////////|
-      | |            |         | |     | |            |      |////////////|
-      v +------------+         | |     v +------------+      |////////////|
-        | Scatter/ //| sgt[0]--+ |       |// Frame ///|      |////////////|
-        | Gather List| ...       |       |/ content //|      +------------+ ^
-        |////////////| sgt[N]----+       |////////////|      |            | | BEM
-        |////////////|                   |////////////|      |            | |
-        +------------+                   +------------+      +------------+ v
-
-BSM = Buffer Start Margin, BEM = Buffer End Margin, both are configured
-by dpaa_eth_init_rx_port() for the RX FMan port relevant here.
-
-sg_fd_to_skb() runs in the calling context of rx_default_dqrr() -
-the NAPI receive callback - which only expects to receive contiguous
-(qm_fd_contig) or scatter/gather (qm_fd_sg) frame descriptors.
-Everything else is irrelevant codewise.
-
-The processing done by sg_fd_to_skb() is weird because it does not
-conform to the expectations laid out by the aforementioned figure.
-Namely, it parses the OFFSET field only for SGT entries with i != 0
-(codewise, skb != NULL). In those cases, OFFSET should always be 0.
-Also, it does not parse the OFFSET field for the sgt[0] case, the only
-case where the buffer offset is meaningful in this context. There, it
-uses the fd_off, aka the offset to the Scatter/Gather List in the
-Scatter/Gather Buffer from the figure. By equivalence, they should both
-be equal to the BSM (in turn, equal to priv->rx_headroom).
-
-This can actually be explained due to the bug which we had in
-qm_sg_entry_get_off() until the previous change:
-
-- qm_sg_entry_get_off() did not actually _work_ for sgt[0]. It returned
-  zero even with a non-zero offset, so fd_off had to be used as a fill-in.
-
-- qm_sg_entry_get_off() always returned zero for sgt[i>0], and that
-  resulted in no user-visible bug, because the buffer offset _was
-  supposed_ to be zero for those buffers. So remove it from calculations.
-
-Add assertions about the OFFSET field in both cases (first or subsequent
-SGT entries) to make it absolutely obvious when something is not well
-handled.
-
-Similar logic can be seen in the driver for the architecturally similar
-DPAA2, where dpaa2_eth_build_frag_skb() calls dpaa2_sg_get_offset() only
-for i == 0. For the rest, there is even a comment stating the same thing:
-
-	 * Data in subsequent SG entries is stored from the
-	 * beginning of the buffer, so we don't need to add the
-	 * sg_offset.
-
-Tested on LS1046A.
+This is a harmless warning due to the fact that we dereference the hash
+stored in the FD using an incorrect type annotation. Suppress the
+warning by using the correct __be32 type instead of u32. No functional
+change.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
- .../net/ethernet/freescale/dpaa/dpaa_eth.c    | 24 ++++++++++++-------
- 1 file changed, 15 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/freescale/dpaa/dpaa_eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-index ac06b01fe934..e280013afa63 100644
+index e280013afa63..bf5baef5c3e0 100644
 --- a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
 +++ b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-@@ -1820,7 +1820,6 @@ static struct sk_buff *sg_fd_to_skb(const struct dpaa_priv *priv,
- 	struct page *page, *head_page;
- 	struct dpaa_bp *dpaa_bp;
- 	void *vaddr, *sg_vaddr;
--	int frag_off, frag_len;
- 	struct sk_buff *skb;
- 	dma_addr_t sg_addr;
- 	int page_offset;
-@@ -1863,6 +1862,11 @@ static struct sk_buff *sg_fd_to_skb(const struct dpaa_priv *priv,
- 			 * on Tx, if extra headers are added.
- 			 */
- 			WARN_ON(fd_off != priv->rx_headroom);
-+			/* The offset to data start within the buffer holding
-+			 * the SGT should always be equal to the offset to data
-+			 * start within the first buffer holding the frame.
-+			 */
-+			WARN_ON_ONCE(fd_off != qm_sg_entry_get_off(&sgt[i]));
- 			skb_reserve(skb, fd_off);
- 			skb_put(skb, qm_sg_entry_get_len(&sgt[i]));
- 		} else {
-@@ -1876,21 +1880,23 @@ static struct sk_buff *sg_fd_to_skb(const struct dpaa_priv *priv,
- 			page = virt_to_page(sg_vaddr);
- 			head_page = virt_to_head_page(sg_vaddr);
+@@ -2772,7 +2772,7 @@ static enum qman_cb_dqrr_result rx_default_dqrr(struct qman_portal *portal,
+ 	if (net_dev->features & NETIF_F_RXHASH && priv->keygen_in_use &&
+ 	    !fman_port_get_hash_result_offset(priv->mac_dev->port[RX],
+ 					      &hash_offset)) {
+-		hash = be32_to_cpu(*(u32 *)(vaddr + hash_offset));
++		hash = be32_to_cpu(*(__be32 *)(vaddr + hash_offset));
+ 		hash_valid = true;
+ 	}
  
--			/* Compute offset in (possibly tail) page */
-+			/* Compute offset of sg_vaddr in (possibly tail) page */
- 			page_offset = ((unsigned long)sg_vaddr &
- 					(PAGE_SIZE - 1)) +
- 				(page_address(page) - page_address(head_page));
--			/* page_offset only refers to the beginning of sgt[i];
--			 * but the buffer itself may have an internal offset.
-+
-+			/* Non-initial SGT entries should not have a buffer
-+			 * offset.
- 			 */
--			frag_off = qm_sg_entry_get_off(&sgt[i]) + page_offset;
--			frag_len = qm_sg_entry_get_len(&sgt[i]);
-+			WARN_ON_ONCE(qm_sg_entry_get_off(&sgt[i]));
-+
- 			/* skb_add_rx_frag() does no checking on the page; if
- 			 * we pass it a tail page, we'll end up with
--			 * bad page accounting and eventually with segafults.
-+			 * bad page accounting and eventually with segfaults.
- 			 */
--			skb_add_rx_frag(skb, i - 1, head_page, frag_off,
--					frag_len, dpaa_bp->size);
-+			skb_add_rx_frag(skb, i - 1, head_page, page_offset,
-+					qm_sg_entry_get_len(&sgt[i]),
-+					dpaa_bp->size);
- 		}
- 
- 		/* Update the pool count for the current {cpu x bpool} */
 -- 
 2.34.1
 
