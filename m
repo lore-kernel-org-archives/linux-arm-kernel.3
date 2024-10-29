@@ -4,98 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C9AD3A66F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 16:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62F8D3A66F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 16:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=; b=RgE1a1VST5YIFUqak84LJX6W5c
-	9WY6ugXNshg1t/8o+uQA2njEsgPs0JywwUtm5petoDy6N03WI3Hawt5OS0qkjCTjn0CAyZZLU2Fox
-	q2mzJpbZZB/v0hmiZUP3Ml7EjVwUC/sm7ot1RaLic46X+JWM4M6TrVj+S0J/+lzdguV30Y3ueRzcf
-	B4f+F0VaCXfLtn9mhcpIaipslnb3lZjl+5M73uX3LJslpF9EPcV6HvUyexVcFRI+yJ0Vi6k+QLDOG
-	xJAflC+/OEKRKIj4Vq+4+RPMzYwz4bGUE/rpGjUb8mO8kn/5KQBv8Wo9CrNiG5zOyGIlooYaNOmia
-	yYlOIHxQ==;
+	bh=ZFCEJ4g+q7FVoJLDbzrDAqZ6+sS4Dyw5icfXHcV/0Cw=; b=H4XrJjsMHAhh8SfVxCp/RhDXHs
+	beaFvS5VmvwEvdNFtwwGxYxR8mdRBFhKCeMDsN7vlFX/HXtcB007wWrU8zCN2UzUUoUejyr3aFSyA
+	o1K5nYM91140bnYcjNGbTq0Gitk8A5x9qFeDAyjbkYs9Av8KumK2zVbEaGoGStbCwcwP2DVdFthUN
+	nGkUVJ/RGH1XRYRTTHwok9wH6UrfmSdjo/BMwCgqg7d0xZlrPZ/sM0bULSMAqtekF+l4yDUr2Agbt
+	+ynDGIxSK6Kjq/bvfosr17c9LGvLPepQnz99GSn9zBFeimWxf86VRoJ3nus+e3dOHGzV9IrGTFTv+
+	Ltz8d6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5osT-0000000F5CB-07B9;
-	Tue, 29 Oct 2024 16:15:29 +0000
+	id 1t5ou6-0000000F5f8-1zcR;
+	Tue, 29 Oct 2024 16:17:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oRV-0000000Ezy1-1zti
+	id 1t5oRm-0000000F070-3JcM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Oct 2024 15:47:37 +0000
+	Tue, 29 Oct 2024 15:47:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=; b=mhtk71SiWTXqEXx1xHNpLc562K
-	4vRbSIflbWE4gTu2tzXVOpbStUamVkLGg3kzfvTOxbDlMU0OXbHCRHgOimwwv1HX2OXe02sZyH5tj
-	nToE0r1hOBs3nph5ezeVZMY30vYNoyKlWcOX3c1ZiqUM0Z26ZbQep/fvnP0yBQSZG5w0Wn15nI8Wc
-	iu8yygWwmmVcqRP0RLWVWQBC6Re2C1QHJLASOtZ1aCjAecrIElZNlAYw1fX9oCoVptIjjceB9f313
-	ZtJO/Qq3n8t2tnT3AKTOP9RgQvVKFaAYJ6fc2HhwCTyhXxIpib44UrfADAffzaUa1pRQ3I26dzpe2
-	plwOQzEQ==;
+	bh=ZFCEJ4g+q7FVoJLDbzrDAqZ6+sS4Dyw5icfXHcV/0Cw=; b=kzcz+mjnevvOjfTqAQ7GyarJ9v
+	lzfz57FbgVo0x6eY+VYGZcFyROcwwhyQRtQYsk5QLOa0LnR+T9dqthfEt/ChcohUGVbHqwwxYRCj/
+	bEbsEFBxVRziOUSdrumZBzJZCq9A550Jp1TKKZaUsCVv18G7XLRdRZ/M6dmAYZH8U+f0PD86im6jW
+	jy8mEPITJD+99mewBn+DAKVFQkXhPrefNPtSVos7HIEN7+H0yhtH4PpoRhtC6AsNU8/Ne/fBdauYE
+	727/z7KAzdYNfGmnzUvruBAvHnrtIje67IiMC0jC3XZVcA/8BjJTqMWcPBqF9mnpcUd9mmVhPCRMu
+	/RmP1yQA==;
 Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oRR-00000009vul-3ci6
+	id 1t5oRj-00000009vyi-0XkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:47:36 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlSn3017443;
-	Tue, 29 Oct 2024 10:47:28 -0500
+	Tue, 29 Oct 2024 15:47:53 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlkPw017478;
+	Tue, 29 Oct 2024 10:47:47 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730216848;
-	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=;
+	s=ti-com-17Q1; t=1730216867;
+	bh=ZFCEJ4g+q7FVoJLDbzrDAqZ6+sS4Dyw5icfXHcV/0Cw=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=AEFOVmUcKQGazhaNrxs1IP+Dp4izBj4Ac0XDnDHza307aHm2DrLVssyk0b5K1SvQv
-	 MbvnpQhoYdcSC4s3I9NmfZfEGqFbB40zAJMV4hCHPtz2+VmfPB5zuSJFVt5KZXUOCm
-	 moeTiOrKVgl6W7n40r9epXgrqmJ+4Pjla4iPIl3U=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49TFlSbg010235
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 29 Oct 2024 10:47:28 -0500
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Oct 2024 10:47:28 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+	b=eW8/+zltOf6AUZmJdCcZcmXWRgxGDmUcS07w1c8oOMjOmA8xuJWYFNWv3SIfu1pK0
+	 bZy9J39TEUw16AfvV4XhGyhqet27z2cq8GPmO6LI+SEdD310qssMnmamFaNMYL2IJL
+	 PJ8UF71jEHBEYSaK892yvzUDQsKLHgrORGFMN1c0=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlkLX007276;
+	Tue, 29 Oct 2024 10:47:46 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE100.ent.ti.com
  (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Oct 2024 10:47:46 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Oct 2024 10:47:28 -0500
+ Frontend Transport; Tue, 29 Oct 2024 10:47:46 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlNKE083333;
-	Tue, 29 Oct 2024 10:47:24 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlgsq083593;
+	Tue, 29 Oct 2024 10:47:43 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Manorit Chawdhry <m-chawdhry@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <d.schultz@phytec.de>, <w.egorov@phytec.de>,
+        John Ma
+	<jma@phytec.com>
 CC: Vignesh Raghavendra <vigneshr@ti.com>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Neha Malcom Francis <n-francis@ti.com>,
-        Aniket Limaye <a-limaye@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-        Beleswar Padhi
-	<b-padhi@ti.com>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>, Andrew Davis
-	<afd@ti.com>
-Subject: Re: [PATCH v6 00/12] Add bootph-all property for J7 boards
-Date: Tue, 29 Oct 2024 21:17:21 +0530
-Message-ID: <173021674661.3859929.13298221281337904627.b4-ty@ti.com>
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62x-phyboard-lyra: Fix indentation in audio-card
+Date: Tue, 29 Oct 2024 21:17:40 +0530
+Message-ID: <173021674668.3859929.14447889402443380777.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
-References: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
+In-Reply-To: <20240926184849.3341986-1-jma@phytec.com>
+References: <20240926184849.3341986-1-jma@phytec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_154734_268637_6182D67A 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20241029_154751_664276_D256FA2C 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,43 +101,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manorit Chawdhry,
+Hi John Ma,
 
-On Thu, 24 Oct 2024 10:50:57 +0530, Manorit Chawdhry wrote:
-> The idea of this series is to add bootph-all and bootph-pre-ram property
-> in all the leaf nodes wherever required and cleanup any other places where
-> bootph-all/bootph-pre-ram exist in the parent nodes as well since now
-> the bootloaders can handle it.
+On Thu, 26 Sep 2024 11:48:49 -0700, John Ma wrote:
+> Corrected the indentation for the audio card node in the phyBOARD-Lyra.
 > 
 > 
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[01/12] arm64: dts: ti: k3-j784s4-j742s2-mcu-wakeup: Move bootph from mcu_timer1 to mcu_timer0
-        commit: 1d381865ad86b05328a3c4d841d2f0d2c07a8b6b
-[02/12] arm64: dts: ti: k3-j784s4-j742s2-mcu-wakeup: Remove parent nodes bootph-*
-        commit: c4fbee5eb6fa5212e9e6285b9116e0e2fae42c52
-[03/12] arm64: dts: ti: k3-j784s4: Add bootph-* properties
-        commit: f54d577df4a06c8e075ba9c1bd8fd6c18167d47e
-[04/12] arm64: dts: ti: k3-j721s2: Add bootph-* properties
-        commit: 83ab86a4412f6143acdf75fd315c196d255a0089
-[05/12] arm64: dts: ti: k3-j721e: Add bootph-* properties
-        commit: dd2c7aeca3ece4ab78a9d87fe2dcce365b5ce87d
-[06/12] arm64: dts: ti: k3-j7200: Add bootph-* properties
-        commit: b903ab269e67ce5788b0b2a39db4bd11fd19359b
-[07/12] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Remove parent nodes bootph-*
-        commit: 49b0b706af963424decf4b6c67b09a83af91a067
-[08/12] arm64: dts: ti: k3-j721s2-evm*: Add bootph-* properties
-        commit: 15a432a4a0d2a6b79fdb798539e6fdbc87ed526c
-[09/12] arm64: dts: ti: k3-am68-sk*: Add bootph-* properties
-        commit: 781cb8f1ad769c7999ef3b35f216ff150130f3ee
-[10/12] arm64: dts: ti: k3-j721e-evm*: Add bootph-* properties
-        commit: fbdb8aa4eab8405c8709aab9e3bba48b5a955cbc
-[11/12] arm64: dts: ti: k3-j721e-sk*: Add bootph-* properties
-        commit: e45355835c40eb96fe92ec98cc9a9e9e60df0845
-[12/12] arm64: dts: ti: k3-j7200-evm*: Add bootph-* properties
-        commit: bdb543b1664bb4a54edf6ab651a36915d037220b
+[1/1] arm64: dts: ti: k3-am62x-phyboard-lyra: Fix indentation in audio-card
+      commit: 9130fc1b124cbcebeb11e3f7cf420a30fe545d26
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
