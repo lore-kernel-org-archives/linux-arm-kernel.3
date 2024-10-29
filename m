@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1456DD3A694
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D2CD3A696
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=; b=ylSx5ioDn5CT/7JJ+HCzjc+Nsc
-	0/BqJfWtLtNi0nf4sS/eEEjlDc8QGu1gM2ac62lhQ3jl2IH6HaaDDj0DVCwW4NZoT6AROejMvnfGf
-	PRcAKgLxvHoTFb6BCJY6RugznXcGvJPV5LKwB7Fxhc05o5TsSfgHK0+nSptj6SjnHnV1jo4mc30oM
-	/vdlH1vlJzyFfKJ2jtkU2g0NbAL8RdhsVECJU7jalmD1qeFcf5HV0MWWE2qgZBTrHdieG/PawbIwm
-	Lz5E/Lfea0VWSnuOcCb1Se0XMRvx9ImgdCgXvH8icZ4tJTk42qH+3wgXwNWMSfvIOmTZ2+Lfn4JmK
-	S6SIgyEA==;
+	bh=HYm6/tVCLa0IRn8QK44VqcJkbGs60MVOw3b3ZJUZb70=; b=VcLTNG0fRerfs9iMik21QlqG3H
+	ejwkqxK4l8gzDdqulA42/amPrimcPwNKx3ZvUGxk4D+J0MalQOMftXH8tYHlGE1uvPjJMhbm6yDe5
+	cAGkazh0aliCD59HSIshhsTHtSaIFq8zeSri1rmg6RoflsuLW+TYo+MB5cIWiyL7cqhS6LEmrJ466
+	6VChNQqPFv57i+PpEeoA++P3hIRVInb2j+WUuZJz9IKA2YwWBbBlk1d767oiQeCPinTPUXMokB6Qv
+	snjLGLLg/dap/0QXKYa1F/jWvYM1gaMUjO0QR7JH3RxgkVVVIwulxFajlYXAAmm9TwokWuZPqHBhe
+	ML6IcYaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rec-0000000FdI7-3NMf;
-	Tue, 29 Oct 2024 19:13:22 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1t5rja-0000000FdtZ-3DYD;
+	Tue, 29 Oct 2024 19:18:30 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rcv-0000000FcwZ-2WQf
+	id 1t5rhx-0000000FdcN-1Pmr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:11:39 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so57019905e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:11:36 -0700 (PDT)
+	Tue, 29 Oct 2024 19:16:50 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-20c693b68f5so63411625ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:16:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730229095; x=1730833895; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730229407; x=1730834207; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=;
-        b=Tl4jHymAxGFYO9SdAjTQwf2pIZ+TozSBR9QxICDzhELgMN/TyLlwibkcaOza191Zm5
-         KuNd47v5XDjRpEvNPE1nMM1o23DhFdA2dxBqb3rlwZhMVEBAP6CgKf2G5wc7H9B8IvE0
-         fRMOnjYCgU+4ubNVMcuUeLIAz3eaE4XGQZScUpIK9P7X/LlmLGumEvguA8g8w13lS7Xi
-         qPkVWyD9u6nu+zTwmmbALaj+casfNDCC0XREkwn+pemhcGmpbSgiceDGD3XdWfuCzs0h
-         w86+OYJBKhM0SJ3u9mVFwd/UWZJHb1I0v+d54KQaA/wAAzG1+UHyM+cndFJNK5wU/cOe
-         SKxg==
+        bh=HYm6/tVCLa0IRn8QK44VqcJkbGs60MVOw3b3ZJUZb70=;
+        b=YqFlUvxUt0cDPymzBGvybniXiycHhBdywTTcohyjVFcIWwyImlsF/UUrE/Lpo9u7bI
+         Ht7AP3Ecq2slY76BJJBdHpT/FUm14piRFpsPlB8zsrTXSHUhYCIgV4ydxinefdAF9dgu
+         5gySM/3EDbXVgg50PhVg9DBpx1D9NdP/7/bLMDIpf7H7tGfAYmdBMJ6ozIVQ3MXWQVCx
+         Bd/nbtgiut6E/v9d0k5d86kOFDf1I26vDwk4ohFAoKZlwd7eu1D79VoibzXIK6ckgJtB
+         HWA24x4LZNPIMCLTobuMFMztj+C3IyQXZ2Yo5wlaZh6C6eHT92YhnXT1e2iP3MKHK9AS
+         aD6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730229095; x=1730833895;
+        d=1e100.net; s=20230601; t=1730229407; x=1730834207;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=;
-        b=RP40kZ/hqnOgmljiiHOcWP556sjlJ17902cQznLSTszLtMcP2XLeqeWdFq0RPFjcrE
-         Ld1R/DxI/hDV4pE4HXVVw1dx9HOB6xbhGdMeB2Hx/+B4lz9CLckOm7IdBFz0NybKLvQ4
-         7F3XsLNiA0e+/Et3dT0XAt0HRpK3szJ/C8xdmhPJhYrUqWaag3obyJu0SdW+KNxUlAay
-         EMz+ZvYv9dyeVFlZ7GzQMwr/rvwFUbZpHx0DsyQ9DP79GPn6DEFPnWH+s6q40q2R9y8J
-         9MPtD/UcvpZizR2Rym6jNualzuf5kvIRl0HSgfFHkXzCpve4baQNsEgzTLzZQtELeeVY
-         DC+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVQwovctCSciGhw01wOwqA+sahq7vIAyZdEAXukngYkSPUXhmrUrg31r6vZgqzGxlqy9Yd2VODZ7OrzQjSiwkAM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfoews87rwl3C+BDMM+GqAcnZTFwFOuAvkk37kjhVhmQLmJlRO
-	NaljTmGMx4NznuAKIEmq9zuBB+VzchumBtg1rfHzCZeyRQoeK45JEZlpzSHiysY=
-X-Google-Smtp-Source: AGHT+IFp4YehJs7QQecchQgE7zUujr1IPc5oNzBTFVOT84j09Z72l+JK7DtHPQFmUWtHpLEwEKBdQw==
-X-Received: by 2002:a05:600c:4f85:b0:42c:de34:34c1 with SMTP id 5b1f17b1804b1-4319ac7408dmr115069765e9.2.1730229094979;
-        Tue, 29 Oct 2024 12:11:34 -0700 (PDT)
-Received: from gpeter-l.lan ([145.224.65.239])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058bb4724sm13318763f8f.115.2024.10.29.12.11.33
+        bh=HYm6/tVCLa0IRn8QK44VqcJkbGs60MVOw3b3ZJUZb70=;
+        b=NTViqa/oS+IuyhVW0mGe4kQTzh4iPYpTdC+ukfbaX882jIy82YRRsFeaAAkvzZXBJQ
+         wfti3a79OE7WsnBTV75Vf/qAO7KQLCe1t6q+C7QBGPfJ61DQV91n2AQwkcvdgzRjRbqD
+         Xtxt5QJl2M7x4djJco1HxgXEFpdkRcOH7XvUUQk14i1DVS6qo3F8UHCxHaKUoPAneO5i
+         Aibl6tWIY6K/EnrZWm8S9//CqRqAZCF1iWZFs2KWUQle0xNiuLgNUF3PFCoxZ0t+S3fJ
+         ahPWKg+5Gvw62ko6jizgzRGxSmZJdIqmpr+CLyb0Vi8T4vWCFt2bGiroJ6fkdNs6dsvs
+         RF2A==
+X-Forwarded-Encrypted: i=1; AJvYcCXj/MEZo/tgqnI8zwuhV5O/o9a/TmNilMM4Yl+/C32O7u76xufO5cF/r4olHUTbOZzdnpdcQHZFBAIr0QtA9pGF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8ydbg9afr2zLyuhT306aQEXxl2ZON9v0npIxe37mdHol9p8+K
+	HipR4mYnluDEuC7q4YihxVl4uXwKfrhWme9StXa4S2LnCjNUPoy0
+X-Google-Smtp-Source: AGHT+IFflxdhOOdhlw0WMMCci3BlMlyqQZ2ZA9xv59ogXANUwG9RzYtz7JlPEFXLPDfj8fEW5WQ+0w==
+X-Received: by 2002:a17:902:f686:b0:20b:8ef3:67a with SMTP id d9443c01a7336-210c68744a1mr195187515ad.7.1730229407280;
+        Tue, 29 Oct 2024 12:16:47 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:190a:1425:254d:1e7a])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8661061sm7842346a12.17.2024.10.29.12.16.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 12:11:34 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-To: wim@linux-watchdog.org,
-	linux@roeck-us.net,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com
-Cc: linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+        Tue, 29 Oct 2024 12:16:46 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: marex@denx.de,
+	a.fatoum@pengutronix.de,
+	andreas@kemnade.info,
+	kernel@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	tudor.ambarus@linaro.org,
-	andre.draszik@linaro.org,
-	kernel-team@android.com,
-	willmcvicker@google.com,
-	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH] Revert "watchdog: s3c2410_wdt: use exynos_get_pmu_regmap_by_phandle() for PMU regs"
-Date: Tue, 29 Oct 2024 19:11:31 +0000
-Message-ID: <20241029191131.2329414-1-peter.griffin@linaro.org>
-X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+	dri-devel@lists.freedesktop.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH v3 1/3] dt-bindings: lcdif: Document a imx6sx-lcdif fallback
+Date: Tue, 29 Oct 2024 16:16:38 -0300
+Message-Id: <20241029191640.379315-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_121137_709794_9C95AFA0 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20241029_121649_413421_CF0AE9C3 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 746f0770f916e6c48e422d6a34e67eae16707f0e.
+From: Fabio Estevam <festevam@denx.de>
 
-Now that we can register a SoC specific regmap with syscon using
-of_syscon_register_regmap() api we can switch back to using
-syscon_regmap_lookup_by_phandle() in the client drivers.
+imx6sx.dtsi has the following lcdif entries:
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+compatible = "fsl,imx6sx-lcdif", "fsl,imx28-lcdif";
+
+This causes the following dt-schema warning:
+
+['fsl,imx6sx-lcdif', 'fsl,imx28-lcdif'] is too long
+
+To keep DT compatibility, document 'fsl,imx28-lcdif' as a possible
+'fsl,imx6sx-lcdif' fallback.
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
- drivers/watchdog/Kconfig       | 1 +
- drivers/watchdog/s3c2410_wdt.c | 8 ++++----
- 2 files changed, 5 insertions(+), 4 deletions(-)
+Changes since v2:
+- Only document fsl,imx6sx-lcdif with a fallback.
 
-diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-index 684b9fe84fff..f3cd402e5795 100644
---- a/drivers/watchdog/Kconfig
-+++ b/drivers/watchdog/Kconfig
-@@ -549,6 +549,7 @@ config S3C2410_WATCHDOG
- 	tristate "S3C6410/S5Pv210/Exynos Watchdog"
- 	depends on ARCH_S3C64XX || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
- 	select WATCHDOG_CORE
-+	select MFD_SYSCON if ARCH_EXYNOS
- 	help
- 	  Watchdog timer block in the Samsung S3C64xx, S5Pv210 and Exynos
- 	  SoCs. This will reboot the system when the timer expires with
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 686cf544d0ae..349d30462c8c 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -24,9 +24,9 @@
- #include <linux/slab.h>
- #include <linux/err.h>
- #include <linux/of.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/regmap.h>
- #include <linux/delay.h>
--#include <linux/soc/samsung/exynos-pmu.h>
+ Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+index 8e3a98aeec32..ad0cca562463 100644
+--- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
++++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+@@ -19,7 +19,6 @@ properties:
+       - enum:
+           - fsl,imx23-lcdif
+           - fsl,imx28-lcdif
+-          - fsl,imx6sx-lcdif
+           - fsl,imx8mp-lcdif
+           - fsl,imx93-lcdif
+       - items:
+@@ -32,6 +31,10 @@ properties:
+               - fsl,imx8mn-lcdif
+               - fsl,imx8mq-lcdif
+           - const: fsl,imx6sx-lcdif
++      - items:
++          - enum:
++              - fsl,imx6sx-lcdif
++          - const: fsl,imx28-lcdif
  
- #define S3C2410_WTCON		0x00
- #define S3C2410_WTDAT		0x04
-@@ -699,11 +699,11 @@ static int s3c2410wdt_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	if (wdt->drv_data->quirks & QUIRKS_HAVE_PMUREG) {
--		wdt->pmureg = exynos_get_pmu_regmap_by_phandle(dev->of_node,
--						 "samsung,syscon-phandle");
-+		wdt->pmureg = syscon_regmap_lookup_by_phandle(dev->of_node,
-+						"samsung,syscon-phandle");
- 		if (IS_ERR(wdt->pmureg))
- 			return dev_err_probe(dev, PTR_ERR(wdt->pmureg),
--					     "PMU regmap lookup failed.\n");
-+					     "syscon regmap lookup failed.\n");
- 	}
- 
- 	wdt_irq = platform_get_irq(pdev, 0);
+   reg:
+     maxItems: 1
 -- 
-2.47.0.163.g1226f6d8fa-goog
+2.34.1
 
 
