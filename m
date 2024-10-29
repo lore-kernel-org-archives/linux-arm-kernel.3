@@ -4,152 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A38D3A662
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FFBD3A661
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6h5vQxCJeDzyRwVKNHxGKWLM4F24idCZCnk5/EbgZp4=; b=kdYzz6wXdZnxESDDnL14f4DrR8
-	awKWhlHn5AZICKMBaNE6dl/gToptJhp1pcI6vgXF1fTJbYwM4Oa+WK/QCut0y/YR+xMuMxkmXWgo4
-	8HOtapoy3zxxLScmrz4ZmLTBG6J8STUUOyvQcn5hmNYPWbOqS/Bmxq+vdrgq9ku3CVY29UFW6+hrX
-	siTHZ85eBiE6HK1QEMpZjlyiDWs9VfYl9jJ8CN+7zeJb6mIvLuzbkbcHT4wM2mEIPdbSCmsl9y8xf
-	/zrzrbKIcIqxeHlo5//y7f1kiX8rg6O7b2GDW47W1NMni2WAfdPuKgxRsF3A9JKkh+Ag6obrvUzkL
-	GmO47Gcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fJ+dC1+4ZiHEQDgeU3fYeNHYmT0utELbJCQ8uYRI6pg=; b=N9DteeTkDJmFJokYT/QHNNxBMA
+	rNiTsjhAvGXtn0RZvOJTdWJgQfoblP5pNytPEM69W0bEPfhTHvKgE4PU/WI3jrk67rmCP89u4cjZO
+	FhMW4l2s7mTbN7qmdyHciRU5dfyYu7/mcNPUv/tbVv07z29AoGcHONdVNE9nuezI2ZggnAHzX85Hl
+	XuM1O5e6xWKn/dRJEYY2Q2QnMe9jaTtERLEXjkj+gumvgtb2pt6BI+xjoSE2XesuYYlkzFM3ITgap
+	pWSnd3j0F+N1y6SR5JF+CVJsj6wvf+BZl3kS9xWlbKNROb1BRHCuBRRJXU9T6HYpjhlPpFMceXsVN
+	P4UQIxBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nTB-0000000Elgk-0M3f;
-	Tue, 29 Oct 2024 14:45:17 +0000
-Received: from mail-bn8nam12on20618.outbound.protection.outlook.com ([2a01:111:f403:2418::618] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1t5nVK-0000000Elzk-3LCF;
+	Tue, 29 Oct 2024 14:47:30 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nR0-0000000ElDp-3EOd
+	id 1t5nT5-0000000ElgJ-2Uue
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:43:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kyqMpZKjf3bsssewNegdX5bad9mBNiXeAJdxDlQXs3fN6fvZe15/OtHGzTRDxPMsZHF3VOr6MD4akKjkD2AS7WjvbL9WkCJvYrjtXouJoapDwyzPYHjq/0EYrMKeNycV95Kfv6xvJtsmLBvW2XXeFo8hADGHqoLuSOIe1uDa7vlsoWOa3Fzh2p2N9KvRPy5MDuIue9xPh5l2HTLYjqJdvCLJ0/XH0fCmE78ONmk4ZFWs1IfdFnsxFo+dwN9/1erx7QX34YhomZOsa8UEKJDQtYCDbISaiTKye1wXopY1Mwir3JOU/iVSVDL/xp66rfhW8OZsz3ZI3DOaFBWtpnq6Jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6h5vQxCJeDzyRwVKNHxGKWLM4F24idCZCnk5/EbgZp4=;
- b=C65BstvbRzFJTaxOOLFnrm+YGpj87aUHB0a04ojOKf21wrz34dWDOU2TYwHlOuRvRU658KZOSL1O4wznicr5XU9WiXH3wxkMyYiaUqun6wsdbxYiCj7NnW6Qz7kw6IinH9ZclGgp4xuhbc29NgbYS61cZ56rznnUD4qC3GXVTD9Q8r4TWv9uZI4BHtkP2SVknwG8wQLaAvODSD+lfl9D1ZbTRMwH5zjbRdDLYACzUYpvItw0FwGkaJ1cS2VJBILPwDOQnGdrW8m7FTXje4q9KGmIWsk4So2xIHjoTD98IVO1rKUTWz16DMZgmJk5LhFRaLJx9+hExEb2X0rU9X8nww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6h5vQxCJeDzyRwVKNHxGKWLM4F24idCZCnk5/EbgZp4=;
- b=XoV1iF7XoDUIsWrzZWyxZkP014oVamJcP+g3UqVdlX7huuWNqT/h2K3ur5HmlfQtJeTyolsFnvVFpqNKvG0TIKc6wrdv20F91Z0Gr6wR/rigF9asxrzJm7g4SW3S0fvS6+61wSmIW6t+3Q7UGxgqI9hCbQeXCzSj8uVJlMLf/Lpowbr+kqQTkJ9MlcVjc0XnLylev+b3akAFkrmNhz5jz/kZOkc0nNcVfWGxryfG6P9YvO8dCSv6TifuY6wsq2GiAhT+8kgQis5rf47pA1BDKcTtBQZUTn0oXrh0gCRQtLZFIxGFlYBOh1a21MpFM2ATL0s8z5aauaiMVlBEYuVwEg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA1PR12MB8221.namprd12.prod.outlook.com (2603:10b6:208:3f0::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Tue, 29 Oct
- 2024 14:42:48 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
- 14:42:48 +0000
-Date: Tue, 29 Oct 2024 11:42:47 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 02/13] iommufd: Introduce IOMMUFD_OBJ_VIOMMU and its
- related struct
-Message-ID: <20241029144247.GA209124@nvidia.com>
-References: <cover.1729897352.git.nicolinc@nvidia.com>
- <e172d2370223a5a012a70aea76175b71a95964f0.1729897352.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e172d2370223a5a012a70aea76175b71a95964f0.1729897352.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0115.namprd03.prod.outlook.com
- (2603:10b6:408:fd::30) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Tue, 29 Oct 2024 14:45:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9C8B31C0003;
+	Tue, 29 Oct 2024 14:45:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730213109;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fJ+dC1+4ZiHEQDgeU3fYeNHYmT0utELbJCQ8uYRI6pg=;
+	b=iDH/SeYmV60b+LV3bzsR3t53id4bQ/Vw04kE/AfHvXUuPZY02OK6qS18rcqRh1aw7V7b8q
+	LPkhLTlg0Toz050MWeyG6jGFg0x246Bj7eadjEf01JrkXzkQlmCmXPhWx7P/z/TzJOlF2R
+	BZ/iFu7PoNC62kEp3xJWauHlhmj/cZX8C3MwoT8G0fJxHiGvQgra78MRZ9hBSLgouHSv3o
+	NqVNkGnbHtVO5DHSOynyOKClVNLSzaZSvoXYy31oXv+PuNNglNZ0K/C49Gtd2qqCrMnOrm
+	jbG5IR/0ZRCbSUbnxkpXzCfh8sjkZjOZ0fNEey+O2qgq/MEO9gy+ucGeJwVjCQ==
+Message-ID: <a905c45d-344b-49e9-a0c9-fb7b6445edad@bootlin.com>
+Date: Tue, 29 Oct 2024 15:45:07 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB8221:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28cb35d3-f43c-46c6-db7c-08dcf827f52d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PQQVEpzsLkpnVjjiE1/fYaQGcYVag8aZX+iwSbZuNnKkQm7PLX+Z0ieWht7E?=
- =?us-ascii?Q?yQp0TKulp8EBeHVC1j/DlGycXsvejzxjiI2Zof0zTLUR9SNS7mBfU6dbS+EA?=
- =?us-ascii?Q?FEGEickezvCkOwDBAar0rCri/mc1ZCSU193f012YVnOat0M53QrMIZRYpLy9?=
- =?us-ascii?Q?pVremj5E51RxknciLx8MRJKafSgwmdyf23GVoY7cG0BkAVe3QcUaWkZZoPe1?=
- =?us-ascii?Q?/GCtJ/wB0nm0SmGvPyFt+D1tzgeNuXMdLWq5yCNExvJIWNqoobY4Ops9+RKt?=
- =?us-ascii?Q?6XY9jaUJ2Ua6yspjTYsH/lrVP0wIXm9afArktZq27hhztkPct0MBq1AXYMVl?=
- =?us-ascii?Q?lgOf/9RDTkQFFJ3csSUfCBEX4XI6iywsJvTDOhF6O6hzMqt5NIf1Uh3mzWVc?=
- =?us-ascii?Q?mnt5mUs9AYkI3niYQ/RsGKBNo0AVCNEOVpRznQvpZIIoNN2L7MNB3G9a0eZm?=
- =?us-ascii?Q?5xNS3xJjbfxY83Gzvr1qpBo7ELCdbKJFclJ3/mVYKUpzitm3tV3Xt/3C+td3?=
- =?us-ascii?Q?94GT3Py6x62T4wxCJUIrfpwKAnflkHwDguIgATPufYOHRVv5wIdIEGOJkSrG?=
- =?us-ascii?Q?aXgBNi6X1L5bkDehWOQ0F/hDuBC27aQIJHgmyvpCA3QVW2UWJpb+A+pmcbkC?=
- =?us-ascii?Q?L1FAQt+yrB5JcGdeMW4kzcSH05u5C2ODXQUisFAuzSpCb733jA1/sWF14/yB?=
- =?us-ascii?Q?nVvkqqb9h4ouzU6IBSFW3M+bka3GbP4Y3s201DbporTq1NTqwWDd23oR5IBn?=
- =?us-ascii?Q?LwyZvGWdhcBllfDgue+QDNX4M4zrrqNydTURKCEIPJnT+7j74CREBfZHICe7?=
- =?us-ascii?Q?ZBIR/Iq0rGOffyytkmB/8keXVF0N8a8MNdotSh2TjtLdE5DQ9u1ee93EViFv?=
- =?us-ascii?Q?UcS1kZEX3/S0Xp7pqZZb1SQKhulKVP45mF8BT9M7lwp20aMcrHMn8hHjJjwz?=
- =?us-ascii?Q?OftziGLQZjF2v0mlqPctTPF7bvfNOmKwfZq5uJ8+zflPi25NMvGzbx51khlb?=
- =?us-ascii?Q?KLTz8MrkVkM0RUYHZiUUy6eEIYi8wQmapVzPKRc07InD4CpDrc6uDDyV34z4?=
- =?us-ascii?Q?Q7KRJUtnCLb2XROAIBVt1w888bqOOetalhmHbVWhyuz7OgOx7frab11GJkbS?=
- =?us-ascii?Q?iouDLJmG6ThySIAFXxzE7lrM27wYyVWjJtdeJe7L+XDfqmNagyTCfIjRuwLY?=
- =?us-ascii?Q?ZWHSLEoy5yGw8GAsNc/1qFGofzyZMR0Qw1vJOLTCNnVcCetq8okOKRWM/Py2?=
- =?us-ascii?Q?P84/Pg/EwenSvBqBIcZTc7DpxUIqlwWv0R1KWHfIQYYl2N08XsiSQZlHskmf?=
- =?us-ascii?Q?pdzAl+zd77KtV9VUMFXvbYX3?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?b/hIRD13EX0KjXxuzk81QxwvJaChd89+bwZUOcLTljBEhqIaAc3SIfhFOJUB?=
- =?us-ascii?Q?1PWzrt/qMs2O4kAQWgRUGEDtAUta8mDDhs8X0eBwM0xKJqYxfmEQ2uXMJICv?=
- =?us-ascii?Q?j06AVG3tj/C5a7sDz02of2EBIi8I62KntUAjgmsWmtD9Fi08G+gtbaO0+aLp?=
- =?us-ascii?Q?YmPotfVmla6ERHBwmL5WspVP86zlTT8f4cGG3Z1a9z59dbM7js83HPcPZFfb?=
- =?us-ascii?Q?ytEyvl8PZqStCPcrustj75O6gXdy6Zle0TtgXsOGaYRkGk/TH/bE+S1Fz5EN?=
- =?us-ascii?Q?1PFcJyKDwDYV+3385mMgJ0B+s7TEe1AvJDzoxLAc2AyIQG8PeOj2x1koVw/j?=
- =?us-ascii?Q?cyy59y/O4do6BpwoVpT+8VXwkuLYvyh0Rco/4szmNs2MBuX5EwpPM0MqQkoY?=
- =?us-ascii?Q?SEL4lCmKiFBMdeSliq4aSsmQ+h6FPLM0MwqLAhzC2S/PPrUS7AsIDXbniR/p?=
- =?us-ascii?Q?ip42zIlZKVaKMjD63MtbLNSDoSfQjpMnPRDdEJGrsn0I1mjhwqpRm+z+bu3x?=
- =?us-ascii?Q?AcrQGriYdmeANpvgXz4NovztpvnrATx29u40KRCy29sATBbZ8hvQDFz91XNf?=
- =?us-ascii?Q?A1DRKdcTR3fQRTzicPSYcotdONc+FJ5OM7XSjIaXQnSXxgFvMNLPG6P40rMy?=
- =?us-ascii?Q?0lUsjpatsAAvOAFMhgChdhgqpLrSjoYYCJ/Dcc+icc74p62ZSkMruj7mder0?=
- =?us-ascii?Q?HnqdMjWv/G639e1jY1aTQrhnhQD6MRQmL6ujj6DxXGwWgx+OxCAZ6rfiPDpC?=
- =?us-ascii?Q?VgtoZkrpCDEA3/TYLjaF8jjjw/hGXnkb+1aiK7cMRZCzj169H3M8TwuN+gSw?=
- =?us-ascii?Q?xflL7Zdc7JRZsYsil40ZTA+vZq+y27GqQImZ2K/LeDHjV9doAV5+28myGnKX?=
- =?us-ascii?Q?16aCObGS+dbSLUM0GE6ITDjWQyCRRcMaT1mLAmyzq4AFu+IbGzQqK1dCcE0d?=
- =?us-ascii?Q?KMO3MLGFMc1VkuMJMiYO00AlTgHWWbmfYNvqrzGip3RjpyOJ0pgpOu535YBc?=
- =?us-ascii?Q?M7WGzp/aonQWDpCPnarIJqcDLP3GWTW8FE9MVac3bAmacTNFPrCtEa840Oyl?=
- =?us-ascii?Q?RlOkZQqdfZWmmwAP7EJnzoyr+id1d0yPUa3nrOOT1GC82DvnSP+5WfVlfJ+d?=
- =?us-ascii?Q?tr3ojewCBOesnQ/5MhC2D8LC+2gTaLcxzedanZqBSQbWvtXefg2yQa5O/X1k?=
- =?us-ascii?Q?LmhntKiFObWQ9vI/7vYPs2Dp715wKh0p7eyku0QpwdwD1jqNALn8XuySuN5w?=
- =?us-ascii?Q?0SN9INVL32WfMf+EBh+wlKOJ27cLkIA1AJXwqoxQCZU4i4fPd2wAclPyaYoS?=
- =?us-ascii?Q?DBCFCoYleW8a5fqK1xFwlqR+i1MNMGfXVernZel38iAxsljjBj/d+yVo7ZuI?=
- =?us-ascii?Q?+W2jvErBeiWz68c5DQsVzCcuYda4w78M3n8JUy7x0p/KE/K3FGQgwYKtCO9X?=
- =?us-ascii?Q?zC74BiD9S4RyJFUQazwBpsZkasuX8p/pTZ4PR2173X1AGZXsGvuBce37Y3O/?=
- =?us-ascii?Q?3cmaX+q4u7TTsM95DyPAyupBhRkOPDku5Cm1kEtSCcW/z9q8ao1ciaxXJoAg?=
- =?us-ascii?Q?fHjgbDpf1q6cyfOClDc=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28cb35d3-f43c-46c6-db7c-08dcf827f52d
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 14:42:48.2585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2ID8Ju49NMB3z/NXKM/iSB5xZutpz3hOK933nw8H+Fugw/ron3y+WezUOmj1BGiy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8221
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 0/7] Support external snapshots on dwmac1000
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_074302_838279_38C798C0 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20241029_074512_024248_DCEA94C6 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,71 +80,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 04:49:42PM -0700, Nicolin Chen wrote:
-> Add a new IOMMUFD_OBJ_VIOMMU with an iommufd_viommu structure to represent
-> a slice of physical IOMMU device passed to or shared with a user space VM.
-> This slice, now a vIOMMU object, is a group of virtualization resources of
-> a physical IOMMU's, such as:
->  - Security namespace for guest owned ID, e.g. guest-controlled cache tags
->  - Access to a sharable nesting parent pagetable across physical IOMMUs
->  - Virtualization of various platforms IDs, e.g. RIDs and others
->  - Delivery of paravirtualized invalidation
->  - Direct assigned invalidation queues
->  - Direct assigned interrupts
->  - Non-affiliated event reporting
-> 
-> Add a new viommu_alloc op in iommu_ops, for drivers to allocate their own
-> vIOMMU structures. And this allocation also needs a free(), so add struct
-> iommufd_viommu_ops.
-> 
-> To simplify a vIOMMU allocation, provide a iommufd_viommu_alloc() helper.
-> It's suggested that a driver should embed a core-level viommu structure in
-> its driver-level viommu struct and call the iommufd_viommu_alloc() helper,
-> meanwhile the driver can also implement a viommu ops:
->     struct my_driver_viommu {
->         struct iommufd_viommu core;
->         /* driver-owned properties/features */
->         ....
->     };
-> 
->     static const struct iommufd_viommu_ops my_driver_viommu_ops = {
->         .free = my_driver_viommu_free,
->         /* future ops for virtualization features */
->         ....
->     };
-> 
->     static struct iommufd_viommu my_driver_viommu_alloc(...)
->     {
->         struct my_driver_viommu *my_viommu =
->                 iommufd_viommu_alloc(ictx, my_driver_viommu, core,
->                                      my_driver_viommu_ops);
->         /* Init my_viommu and related HW feature */
->         ....
->         return &my_viommu->core;
->     }
-> 
->     static struct iommu_domain_ops my_driver_domain_ops = {
->         ....
->         .viommu_alloc = my_driver_viommu_alloc,
->     };
-> 
-> To make the Kernel config work between a driver and the iommufd core, move
-> the _iommufd_object_alloc helper into a new driver.c file that builds with
-> CONFIG_IOMMUFD_DRIVER.
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/Makefile          |  2 +-
->  drivers/iommu/iommufd/iommufd_private.h |  4 --
->  include/linux/iommu.h                   | 14 +++++++
->  include/linux/iommufd.h                 | 53 +++++++++++++++++++++++++
->  drivers/iommu/iommufd/driver.c          | 38 ++++++++++++++++++
->  drivers/iommu/iommufd/main.c            | 32 ---------------
->  6 files changed, 106 insertions(+), 37 deletions(-)
->  create mode 100644 drivers/iommu/iommufd/driver.c
+Hello Maxime,
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+On 10/29/24 12:54, Maxime Chevallier wrote:
+> Hi,
+> 
+> This series is another take on the pervious work [1] done by
+> Alexis Lothoré, that fixes the support for external snapshots
+> timestamping in GMAC3-based devices.
+> 
 
-Jason
+[...]
+
+> [1]: https://lore.kernel.org/netdev/20230616100409.164583-1-alexis.lothore@bootlin.com/
+> 
+> Thanks Alexis for laying the groundwork for this,
+> 
+> Best regards,
+> 
+> Maxime
+
+Thanks for making this topic move forward. I suspect the series to be missing
+some bits: in the initial series you mention in [1], I also reworked
+stmmac_hwtstamp_set in stmmac_main.c, which is also currently assuming a GMAC4
+layout ([2]). I suspect that in your series current state, any new call to
+stmmac_hwtstamp_set will overwrite any previously configured hardware timestamping.
+
+[2]
+https://lore.kernel.org/netdev/20230616100409.164583-8-alexis.lothore@bootlin.com/
+> 
+> Maxime Chevallier (7):
+>   net: stmmac: Don't modify the global ptp ops directly
+>   net: stmmac: Use per-hw ptp clock ops
+>   net: stmmac: Only update the auto-discovered PTP clock features
+>   net: stmmac: Introduce dwmac1000 ptp_clock_info and operations
+>   net: stmmac: Introduce dwmac1000 timestamping operations
+>   net: stmmac: Enable timestamping interrupt on dwmac1000
+>   net: stmmac: Don't include dwmac4 definitions in stmmac_ptp
+> 
+>  drivers/net/ethernet/stmicro/stmmac/common.h  |  4 +
+>  .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 15 +++-
+>  .../ethernet/stmicro/stmmac/dwmac1000_core.c  | 85 +++++++++++++++++++
+>  drivers/net/ethernet/stmicro/stmmac/hwif.c    | 14 ++-
+>  .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 11 +++
+>  .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 38 +++++++--
+>  .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  | 10 +++
+>  7 files changed, 165 insertions(+), 12 deletions(-)
+> 
+
+
+-- 
+Alexis Lothoré, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
