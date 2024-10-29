@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B82D3A676
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94226D3A679
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlpdC8mFCPwe2o0w0fb76h8sou5C6CVNydIQ0/PBzC0=; b=A9djLh7e0wBVbQN9iltn/c5gU+
-	3Nn0dCwx+AGxmhu9rKgXoZErBrDaZO0WDEi1daRNvvdLnqXJ0cHZeLREm+8BgwJt5QCzzfatn3vGF
-	hQas1jasAOl6dbDd1aLCqbvwuRKPyAeOeKw3X73Et4f3xrm1vA22wUB6IvVJFImxR6Cbdgh6FzT7f
-	kfnWevS3VJUVMP2/EWbYqDl4Jr5Nr4kompVtU8Rjeb07MZJmCgXr3loDq6gyTZlTec1jQ8DAqhEQF
-	znQfk15UKRKzpMp7BOYYI8CEbECDbDYkOqXtFDr0mKtt3zUEE4p0IEojTHtwHm3IZAX1hqnILcZfk
-	Zoevnueg==;
+	bh=MkDktSYrjXNPZMAtxoSkcXW+d4aBH8F1X5a432npQX8=; b=bN+omuIRE57QTqqoD0U+VNFCQd
+	2u1TJ5IW5b8uT1hBCAVnP5s0SWWQOStuP4ZZho5cHBDOSvOmmyH1wxzYdwn4IVP0tudCB9LkuWHgu
+	LGiUi1Mx2jLqe2gMLtZhMLEeI6LLMUNCcO5ZU746BDSBswq+/m9SYMCt386HweZnWzqFa0ENZdnX4
+	VBbz0b6PqZUNSy5ygzoQbcOY3TnQub8XXfyVIHF527ePRbK55BEVVsLRJR1Qj88CeWb7bIW3U5wTg
+	BjZgKhYJscp5Wjk/G3kTEnS4PVGICOeBlTmb3HIqf52myUxOFYL+SDfv+ERSDPs+2U8TZF7bRkeob
+	cocHuzaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q9e-0000000FJ01-22bg;
-	Tue, 29 Oct 2024 17:37:18 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1t5q9k-0000000FJ5H-2Aa1;
+	Tue, 29 Oct 2024 17:37:24 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5on0-0000000F4Uw-00jP
+	id 1t5ooR-0000000F4gB-1kun
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 16:09:51 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49TCNSpI003954;
-	Tue, 29 Oct 2024 17:09:35 +0100
+	Tue, 29 Oct 2024 16:11:21 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49TCDCcJ003448;
+	Tue, 29 Oct 2024 17:11:06 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	mlpdC8mFCPwe2o0w0fb76h8sou5C6CVNydIQ0/PBzC0=; b=Y9E/AM1WSAbbk9Dw
-	BabgcvIpY+DAMb7QjytTXHzEJSngXLt+/i5D0W1Pj9JvPBOcCF4qIcm8789qOlTE
-	w/B2ukCqqVfzG2W1puXme/Q1EkfJW4mwzP2ewVC1jKfc+lFvA1m/OU5hwblDe+v0
-	IPh4bjUpfpGxYkdbrTpLLXfKk3h8WCB7JKYquxNmVwpWKHTpVb2kh78enIUPr1kS
-	LlM36U1MIE8/ZsQhhECjBsdGfLxX2X1peION1pi0+ABd0PVzT5IQPx+Jotc0hnim
-	u8mUNpSeHsTvlbnWLZK1oy3ehLto6VHA5RUoRlMGwdDXtTfsF2gZtKn3uZ3TP5Nd
-	3hwE6g==
+	MkDktSYrjXNPZMAtxoSkcXW+d4aBH8F1X5a432npQX8=; b=V3PYjkVLwMqzXB4l
+	CS/mON3AaOAapVnS8zQmnPVjM8PM41HaPZhQEr/F7k/lLm57SdoOUf2BS4lN3PRc
+	Iu/owBTh0qL7ljgwinFl3hWtRdX7v/3ezMfe3HA9n008mD6Z1NkWHAvxSs0OiZ5a
+	aWW/usqEB9fVMehHEZ9UUY+NFXzjAuGjN5io+tTzFBH9nqkCGw/oVoPTTOM2jqzw
+	ZfPxcJ0VEEMY77vT3ONE7V7yQdszow1ZvxpaF0pxfZwWBw5Nj/amT/PTuUko4xWT
+	kDJbaftv2kJFX24ob+StWReNIA3aMx4wkBPSjQhnri8o4MklCG0eczaO/K1zOsS/
+	O8MLyg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42gqacqhhr-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42ha00w283-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Oct 2024 17:09:35 +0100 (CET)
+	Tue, 29 Oct 2024 17:11:06 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 439A140073;
-	Tue, 29 Oct 2024 17:08:19 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B122B40049;
+	Tue, 29 Oct 2024 17:10:06 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A8284268985;
-	Tue, 29 Oct 2024 17:05:25 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 061332649E7;
+	Tue, 29 Oct 2024 17:09:26 +0100 (CET)
 Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 29 Oct
- 2024 17:05:24 +0100
-Message-ID: <ecf451d3-8f9a-4e60-a36c-baa9a270f0c8@foss.st.com>
-Date: Tue, 29 Oct 2024 17:05:24 +0100
+ 2024 17:09:25 +0100
+Message-ID: <f091f532-f6b0-429c-9fde-c952c9c26382@foss.st.com>
+Date: Tue, 29 Oct 2024 17:09:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] arm64: dts: st: add RNG node on stm32mp251
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
-        Olivia Mackall
-	<olivia@selenic.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Lionel
- Debieve <lionel.debieve@foss.st.com>, <marex@denx.de>
-CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241016-rng-mp25-v2-v4-0-5dca590cb092@foss.st.com>
- <20241016-rng-mp25-v2-v4-4-5dca590cb092@foss.st.com>
+Subject: Re: [PATCH v3 0/9] STM32 DMA3 updates for STM32MP25
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>,
+        Vinod Koul
+	<vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>
+CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20241016-dma3-mp25-updates-v3-0-8311fe6f228d@foss.st.com>
 Content-Language: en-US
 From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20241016-rng-mp25-v2-v4-4-5dca590cb092@foss.st.com>
+In-Reply-To: <20241016-dma3-mp25-updates-v3-0-8311fe6f228d@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.48.86.79]
@@ -88,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_090950_373437_649326A5 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20241029_091119_793430_F5DFA76A 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +99,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Gatien
+Hi
 
-On 10/16/24 10:04, Gatien Chevallier wrote:
-> Update the device-tree stm32mp251.dtsi by adding the Random Number
-> Generator(RNG) node.
+On 10/16/24 14:39, Amelie Delaunay wrote:
+> The HW version of STM32 DMA3 inside STM32MP25 requires some tunings to
+> meet the needs of the interconnect. This series adds the linked list
+> refactoring feature to have optimal performance when addressing the
+> memory, and it adds the use of two new bits in the third cell specifying
+> the DMA transfer requirements:
+> - bit[16] to prevent packing/unpacking mode to avoid bytes loss in case
+> of interrupting an ongoing transfer (e.g. UART RX),
+> - bit[17] to prevent linked-list refactoring because some peripherals
+> (e.g. FMC ECC) require a one-shot transfer, they trigger the DMA only
+> once.
+> It also adds platform data to clamp the burst length on AXI port,
+> especially when it is interconnected to AXI3 bus, such as on STM32MP25.
+> Finally this series also contains STM32MP25 device tree updates, to add
+> DMA support on SPI, I2C, UART and apply the tunings introduced.
 > 
-> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-> Reviewed-by: Marek Vasut <marex@denx.de>
+> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 > ---
-> Changes in V3
-> 	-Applied Marek tag
+> Changes in v3:
+> - Refine commit description of patch 4 about preventing
+>    additionnal transfers, as per Rob's suggestion.
+> - Link to v2: https://lore.kernel.org/r/20241015-dma3-mp25-updates-v2-0-b63e21556ec8@foss.st.com
 > 
-> Changes in V2
-> 	-Renamed RNG clocks to "core" and "bus"
+> Changes in v2:
+> - Reword commit title/message/content of patch 4 about preventing
+>    additionnal transfers, as per Rob's suggestion
+> - Rework AXI maximum burst length management using SoC specific
+>    compatible, as pointed out by Rob
+> - Drop former patches 6 and 8, which are no longer relevant
+> - Link to v1: https://lore.kernel.org/r/20241010-dma3-mp25-updates-v1-0-adf0633981ea@foss.st.com
+> 
 > ---
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 10 ++++++++++
->   1 file changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index 1167cf63d7e87aaa15c5c1ed70a9f6511fd818d4..273da5f62294422b587b13404b499b5ffe6c148e 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -493,6 +493,16 @@ uart8: serial@40380000 {
->   				status = "disabled";
->   			};
->   
-> +			rng: rng@42020000 {
-> +				compatible = "st,stm32mp25-rng";
-> +				reg = <0x42020000 0x400>;
-> +				clocks = <&clk_rcbsec>, <&rcc CK_BUS_RNG>;
-> +				clock-names = "core", "bus";
-> +				resets = <&rcc RNG_R>;
-> +				access-controllers = <&rifsc 92>;
-> +				status = "disabled";
-> +			};
-> +
->   			spi8: spi@46020000 {
->   				#address-cells = <1>;
->   				#size-cells = <0>;
+> Amelie Delaunay (9):
+>        dt-bindings: dma: stm32-dma3: prevent packing/unpacking mode
+>        dmaengine: stm32-dma3: prevent pack/unpack thanks to DT configuration
+>        dmaengine: stm32-dma3: refactor HW linked-list to optimize memory accesses
+>        dt-bindings: dma: stm32-dma3: prevent additional transfers
+>        dmaengine: stm32-dma3: prevent LL refactoring thanks to DT configuration
+>        dmaengine: stm32-dma3: clamp AXI burst using match data
+>        arm64: dts: st: add DMA support on U(S)ART instances of stm32mp25
+>        arm64: dts: st: add DMA support on I2C instances of stm32mp25
+>        arm64: dts: st: add DMA support on SPI instances of stm32mp25
 > 
 
-Applied on stm32-next.
+Patches [7], [8], and [9] applied on stm32-next.
 
-regards
+Thanks
 Alex
+
+
+
+>   .../bindings/dma/stm32/st,stm32-dma3.yaml          |   6 ++
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi             |  75 +++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |   2 +
+>   drivers/dma/stm32/stm32-dma3.c                     | 119 +++++++++++++++++----
+>   4 files changed, 182 insertions(+), 20 deletions(-)
+> ---
+> base-commit: 76355c25e4f71ee4667ebaadd9faf8ec29d18f23
+> change-id: 20241015-dma3-mp25-updates-d7f26753b0dd
+> 
+> Best regards,
 
