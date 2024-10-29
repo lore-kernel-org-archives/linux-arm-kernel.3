@@ -4,146 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89A5D3A66B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FF5D3A66C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ckAycHEDNfh7LheqzAXSHeNiEiPu7NfS3ugPk89zpAQ=; b=M97BPCz2L6dsd5EEp7D9SzMtX1
-	v11XMBdjjUCEQLxqbKwPdsZK2OwI4sdovCxoGsp8f+TpPXw+rKkPK5jf/WpJrD1exx0dGokd/VzvC
-	6xt5d447d7JMHCuQrKtlSsD3RDZ4yfVOcyiqjZ2B2ALqqyxl3LBPCdOyPkXdKvFJs+58ZgZ2V7kaa
-	FkKoCHsab6m4OR5KTLXTcEnX2Rxwhp3YfBWu9H/WMHZgk8hc4ttDddFKthzvw658MaU6mnsvld/Hj
-	nJJ/UxD/nRssA5H3270aEqKyGFCkmc1yy3xRmm4mmFHC6q24cpvENFbHr9/LE5EN6oy5MjIZ32zKZ
-	nPGXjo4w==;
+	bh=L7tZlOg0pwjRx/deBLM4U47RySvmObKDNAr57zEyDXU=; b=v9Q23xGBRm+BVRBxLiFmUBrYvP
+	BxQeCQtmQ1fmM4BNIs7bqF5K8qDspBfdv+Oj1JfUkECHaWmkcnUuTX5fTOGv0Mw7aQeQnXB+SxtXE
+	JLGp+oEZh4YkWUaGUJbXkHHf7/ysKFwRTQm0cV/+/LWuD8+l6uvPgWT1xiJVh/uClxSKHtmWKLfc0
+	qIKiMxepje02irf/6wu8OfmDjnHBG5u31wmEEKu6/ASB2pk56lyMmbuiDUL1Ry40CgpUCIcuzIEYJ
+	qJxVyIOw4dVceTSPiArC0rVoRUn9lyK5ChTHp7krwFYPYPvuW6va31g/p0b4H/58uczjKCm/RZw5Y
+	3+KOlXlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nwy-0000000Ery7-2AgG;
-	Tue, 29 Oct 2024 15:16:04 +0000
-Received: from mail-dm6nam11on20630.outbound.protection.outlook.com ([2a01:111:f403:2415::630] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1t5nya-0000000EsFl-0oQ7;
+	Tue, 29 Oct 2024 15:17:44 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5nol-0000000Epgc-2CQQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:07:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZaLkrOkAg3kMz1n9NQs+O+HGUsZRrjUPz0YgEUftXx5Ev8JMbBhzzVB0SznCTzeTwhw5Ym3dpkFk3/wZCW4YPaohJXcDzL8luOJ7ki3Hr2TSf1f/SKyLbe2Zl09zPX5win/FZDvAS5PiYpj+d3SFuy8tCYaJUc5Eeq5k+YtgOZStt28KmnLg4FUhePPo9666yrFXQLUVV1cC4Nmg2hY6n6628YChwlqxGa8FHxoOE1+Fki0aPYwRWn7fV9oyMG+tTjzOFA2A+2Pxzla5M0iuXaeDyiOv67lZNGrDI5XEM7Y4wC83JyhUIcgwbfpdK2sf8gAzWPFzf52RyFnzf5G8dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ckAycHEDNfh7LheqzAXSHeNiEiPu7NfS3ugPk89zpAQ=;
- b=kqoHKZMwh0A1d7gWxM+2qTKmZAAWJFJv9ciOb3nvsSyFmlk915ubm7S5edp0mkqWryeDUonTegj+IAlJi2nLYCvlAeE0yvMw1DBPcbKxn7hIQiXmvVE+6EjXeX16A2Rg05cfv0/mYd6fWr08HM8F4it8G4FDwHnm6whHOC2Mn296K3h3CfVmOBl8I42wMhBqMYow3II5LK1ceF9ajMXqimQwFnlcoJs/7rf2W4UnYczQSyFtYhyEdskhYlTaBtHRAZJI1pOO5IHELa2v17zaaseWHBY7CgN3q6DzZUKhOI9AB3Fa01gSYoXokD89wLWMGXgPnxzwr++NMyEvu74rDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ckAycHEDNfh7LheqzAXSHeNiEiPu7NfS3ugPk89zpAQ=;
- b=tBFE7o4hr1dzMsvE1Wuthmic5rmNpJhlgXftaF2cYbu8Wlu6kFw2La063Gy5ry6iLiUAXHeb/6oz3AjTwFNbb8IWEeTWvSST014709mSBRtFO+c/9Zn2IJUQ6XrNYVpjdWp+T5bSKAjDl9gUoKoFeUul4S03EfPmi9XUaEqYfQzwzvnRuJkzGA9vI3hQtas8KWcCtlLeGqcwgrf6PosEwdCYwdPJpV6w+WwOUwb4My2JqGw/X/xK79ezNXy+q+IMvMe+nV41RFf/x6gqI7ljFGhKHKSNLwr2t/F8r9D/i3KmH6akMRXhAgtZfHUr4blYfwo4/yoK2eY6Bmvxdo8QOw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
- DS7PR12MB5887.namprd12.prod.outlook.com (2603:10b6:8:7a::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8093.25; Tue, 29 Oct 2024 15:07:24 +0000
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a%7]) with mapi id 15.20.8093.021; Tue, 29 Oct 2024
- 15:07:24 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: Jan Stancek <jstancek@redhat.com>
-Cc: rppt@kernel.org, linux-mm@kvack.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Jonathan.Cameron@huawei.com, dan.j.williams@intel.com,
- David Hildenbrand <david@redhat.com>, linux-tegra@vger.kernel.org,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>
-Subject: Re: [bug] aarch64 host no longer boots after 767507654c22
- ("arch_numa: switch over to numa_memblks")
-Date: Tue, 29 Oct 2024 11:07:21 -0400
-X-Mailer: MailMate (1.14r6065)
-Message-ID: <525593F0-1AA8-4BCB-9B6D-630505C49F10@nvidia.com>
-In-Reply-To: <CAASaF6zxBr2J_-eESQQXCRxOgy4RsuxG0te7d-wOz9d2YXj5Fw@mail.gmail.com>
-References: <CAASaF6zxBr2J_-eESQQXCRxOgy4RsuxG0te7d-wOz9d2YXj5Fw@mail.gmail.com>
-Content-Type: text/plain
-X-ClientProxiedBy: BL6PEPF00013DFB.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1001:0:1f) To DS7PR12MB9473.namprd12.prod.outlook.com
- (2603:10b6:8:252::5)
+	id 1t5nsd-0000000EqiN-2jGy;
+	Tue, 29 Oct 2024 15:11:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730214696; x=1761750696;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2q5KKYy4yeTF3GakiePokmKgbkxH6oTt+zSdu1gzpXg=;
+  b=kmP88U1v2b4/12KwJ97fB2yRhKt0poHrnHRq+0TxXxiBCoq6QhGXKQ8M
+   F5uV01zecvducd8JtcZSAFWf9DAbGEuaGkf9ttOeIUJjSy2Ng4L5h8b1+
+   U6d8+2JInu3RCvzgMqmHLmKLgeqcx7L/H3QtW+Vf3ESY4X/8aj7PulYgr
+   9D2B6sdgvkySolESiy8dLN1SnpXprwb6cyNsUicB6Q0jwGYJ6ynMOMkwh
+   Eqqgr7xiqVlaL1i+ViqNp5TziYiPeEjYvmbhF+swvLSIJYna02Kcu3nIV
+   GhcUfL9/Rks3BX9JzbaYJidVMpGGL06/+b0yu9+a7rUFUER/dGtjdcdYZ
+   A==;
+X-CSE-ConnectionGUID: RK2IBQwbSSyw1fa3EX9XQg==
+X-CSE-MsgGUID: rwMswBQ7SXOykNkeuPGV0A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30000430"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="30000430"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 08:11:34 -0700
+X-CSE-ConnectionGUID: MT3LfDL/SCukJ7cmlaApYQ==
+X-CSE-MsgGUID: pXGasDdnRNiq0RtrfeDzng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="82058303"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa009.fm.intel.com with ESMTP; 29 Oct 2024 08:11:27 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 22FF526B; Tue, 29 Oct 2024 17:11:26 +0200 (EET)
+Date: Tue, 29 Oct 2024 17:11:26 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCHv2 0/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <j54jizfjzubkejbkobyryl33i4ejhoek4ynshtethkiidkx7le@2p22g3fxxedz>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|DS7PR12MB5887:EE_
-X-MS-Office365-Filtering-Correlation-Id: d86c5cd4-8b93-4558-bb4f-08dcf82b64d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?35jaaQu+k28C6fZ9nH34CBVNEiK5oOC+5j7/RUC92Dy9wFsSKUID2i/XuOZy?=
- =?us-ascii?Q?esAZByR+5nTSAmXl7rxUCRWVkC+sRiffa2Z18RpWYqZ1YK1WNd6m+sNPbZMn?=
- =?us-ascii?Q?iN6ms9g7z2KWJxWtmcmARqf0ZK2nP7kS2QIWhIATF+N9dXdXXvr2JDEjvNpG?=
- =?us-ascii?Q?ehy1OAdtu3YhKayZGFsUqi95U7oojZh5+JZuh8AIYAtfZmeULJ27vZ/UdWIJ?=
- =?us-ascii?Q?e412XBNy482EB1kHnPvBMXPpBkB85sJFFbpTXGAbGmuHI62EWEri8/qHluhQ?=
- =?us-ascii?Q?KZE/ZqgYqMqNN6Oob4+31w55a4kdhhF/iyLu2Kx3D1V/LOgu/KNC7jRqU/El?=
- =?us-ascii?Q?vOYakveEiMDwO0u+McIQK+Kzvx6eIQjRb3CTzxZdeFGLMK9P4kfvOFeabe5B?=
- =?us-ascii?Q?eybvk6phfVBTfUqzveKyp7fKNpUYsiTXro7nXXnBJHNhQRzNOd5Do6qqJ7az?=
- =?us-ascii?Q?CYdXU5V3/1y0InarCcAVSdpy95kZjeeFkjgoESKaYxuKPrGde16ucmee+kZm?=
- =?us-ascii?Q?DDUYnlL3TyEJF75zbvkR8ZYGknkINg4XSQLaASETf5kH/5TEL5Dpr6t2H/Zo?=
- =?us-ascii?Q?b+Bmx4KNBkIJNmHnFThvNC4r1XIxow/F+w5S+bJI9a4MwZF4oyRGggXVlRHs?=
- =?us-ascii?Q?vq7aZlORQ63B042hbeilZUfeMi8KdtQ6xWhaBqJREEWMXWkoszzo/dTAZSwb?=
- =?us-ascii?Q?6sLyk+DE1V4sNgeVHk2e0YiQHhJIezl3YmXySaeo7LSVzG4VT4hLbXZ4t5Vm?=
- =?us-ascii?Q?ifofixAm0DKRvMWFR/xJugtgt00GBWjQ50knJt/fSKo+TfZFWHL5fTfxHCbl?=
- =?us-ascii?Q?XScLPuHDBjokTyvYdz2jA4a0nX+awXl9lMToju7v9BSnR+pGIn3wC9JX8JjM?=
- =?us-ascii?Q?KbFtKtC8LLKdI4A2im6/xs3w4c6TFfVXML+KW2GqxzDBxPVtJM1t5w80iujj?=
- =?us-ascii?Q?cbCk84oSwztQBtH9LHsy25XUBCtmDxSa3Q5NC4miBpuxnX+LO1XYWM6f95Ph?=
- =?us-ascii?Q?7/+j1m2vW52S5GAJIge6YD+uK7+Nlx8YDDrfgbclK3aE30e7zAhp5G6oDRwB?=
- =?us-ascii?Q?DaV2sgwmzDHEpK/U4FVKc8Xh6xwRHDvaeYIAwYEbWG1CliRbkKCVNYpO8wO4?=
- =?us-ascii?Q?A22QdebAFeNKkqRBK98NzcZxyT/IrrxlBS37DcaOYJ7YrBQaB9gtKRfq7/hQ?=
- =?us-ascii?Q?w3wubnXAAkGDJpOg/EcCWRIhNYalLdLQilHBikq5vuXkW+CMdDAWxbl6JoYO?=
- =?us-ascii?Q?i2lkZVSISI+Fi1bPdr4r2bE/e2D6iiqWUlXSHqdkGz3Fuvej9e/OYBooIOv6?=
- =?us-ascii?Q?7mkZ8us+c33IPKAcOa8op93P?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1zZPfgmFkPxomGKJ0ii0jSnaUfmR/kR+n+RuvsHEQlpDILsYCHkiTiGF0fPa?=
- =?us-ascii?Q?YzVXfjny5pQmXC7Ynx38Q4fbYDXxIM/bWGDOoBbRI0W+efYBfskn5PlTWymc?=
- =?us-ascii?Q?/ERoIO+lkbADuTGriCIyvjZUW+uzrg36YtHtU7TS3W96rLKKUqBASwuMSQhe?=
- =?us-ascii?Q?osaGQS6DpzEpT491uv6eqEYaEdDPRnJuGi6HO7D98e6mHOyFIZw40Cp1BSe/?=
- =?us-ascii?Q?xVwKBlPNFzcpjKTaE7+WHSIduNnoXesOKmHQTMK+1aNKpiQomxVQH0+Zo9Si?=
- =?us-ascii?Q?4pLv3n9nD1K2vh95zihZBI+hBuXglaEhvfPmW7u4vvmYcZlFkRB7PU8Sb0xT?=
- =?us-ascii?Q?JOhDVIVC56KfA1j3VAcozV2ZYYbhypQblLr/WcPAP+UPkb06ukGSk6AhHJk+?=
- =?us-ascii?Q?1ONrc6/aL2vL14p2R1i9Bvq5LXaNp8NPRgnqmthYJ4LDPGuhq8lu+TOsU84F?=
- =?us-ascii?Q?k/dCJVcRMtdOPkQ0/54K60xWa765cglryDVJATPdTCsZcpSjv34JX+KuXF2S?=
- =?us-ascii?Q?wY44lhrQedWoiEkrzcj5YxEwYvcURx5rMEYzFpJvT2xF7M/c+HiN03YoGu3Y?=
- =?us-ascii?Q?+A4E7jLy4ej5gs29e6rfWA50+J5RAQeg//gep+7djaCa1v4Evp15Wb0uOvMW?=
- =?us-ascii?Q?RJTWMr3tgt0fXoeUzVtkX/zseT2WcZrcXN9DFbP1aov5fokK7hfyiT5X0sl6?=
- =?us-ascii?Q?BwBSC8Ll4saQ/JEtoruOK2zbPjAKFhYQ7UHYiWCJph4wETn67r/u9M4ctVvF?=
- =?us-ascii?Q?ZxhKq0xM7+4P5M0KYnUVp4jY4bEhmIaKpKnC0Nld7tZkJlOvTMd/Uv4ttfom?=
- =?us-ascii?Q?evFeCdFPug0fuJG2kS6nCSiXcS2f06KvERYNkTqsncDQbdn0qxFoDnRB89ep?=
- =?us-ascii?Q?IPHWTK3InWvGHktpf7rr5HYrQ1agXodwfShLPEM2C31eUumzmyq9SFKdUWiK?=
- =?us-ascii?Q?u6XF3RtKj5oPsRQn0FoOd1N92rjZHZY4+uZKtCZZ/lj4iGpRVBMMqS7WUygr?=
- =?us-ascii?Q?urgt63uPyI5Pr0GRoLzw2BDoxPLghprqaIER4+Hiq2bQOZXlp2KETpkmruXJ?=
- =?us-ascii?Q?BaWhhq/UwgqT9YSKZDXd+wCvoSurTP20bvE+uaR+CbRNlEuCqF3nPsmsqXH9?=
- =?us-ascii?Q?qXIYzSSPsH80oad0OlE0I/o102fx30u/mOqz0/xKSylNFdUajRZ631kmoiHz?=
- =?us-ascii?Q?YEDfv6GrftFd99rEOKZx7AVLqsheVAu4ziWSfg6o7fe6/rlt2JVInk4rE+sB?=
- =?us-ascii?Q?tY0h6saBSZu7tKbda/QKrtZ+gdMwh5Zy+WdAzUxnZnHwWLSYPtXr3fmJBFOC?=
- =?us-ascii?Q?jZNmQ1Pg38FSJ3Hz8hOmMlwpqgcWWB4OYMeIx0VceNs779E6lI3VPKJwBkJu?=
- =?us-ascii?Q?Mt0xWgztixxdB484nQRyg5nbMu+uXrlosYIsJIjqIhQ8UUv96U5iwSrb7p07?=
- =?us-ascii?Q?5U8hHorp3X29ZRZnLu5lc1dEXP9CrVSt0Eq1ybZND4cMGdxlrtZT+Vtobde3?=
- =?us-ascii?Q?N0zSpsbj/DhMyIYTGQVVhpt4Ars+DWiEMZJYQs2CBG9y2SoKiZIpnMkjHb5x?=
- =?us-ascii?Q?RhqqpiW17mqVCC9lbepoxfr4yxf/2UPfgrx3A1uQ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d86c5cd4-8b93-4558-bb4f-08dcf82b64d6
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 15:07:24.0002
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: meZ5ZiYFMNNLgnrAuSVfTbYMGNP21Mn9Bo6C1M8HPvTd380zRAp71vXVrvlDkwNx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5887
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_080735_671943_40B72454 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20241029_081135_797426_9AB9A748 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,92 +95,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+tegra mailing list and maintainers
+On Mon, Oct 21, 2024 at 01:57:21PM +0300, Kirill A. Shutemov wrote:
+> Make memremap(MEMREMAP_WB) produce encrypted/private mapping by default
+> unless MEMREMAP_DEC is specified.
+> 
+> It fixes crash on kexec in TDX guests if CONFIG_EISA is enabled.
 
-On 29 Oct 2024, at 8:47, Jan Stancek wrote:
+Ping? Any feedback is welcome.
 
-> Hi,
->
-> I'm seeing a regression on Nvidia IGX system, which no longer boots.
->
-> bisect points at commit 767507654c22 ("arch_numa: switch over to numa_memblks").
-> It hangs very early, with 4k or 64k pages, with no kernel messages printed:
->
-> EFI stub: Booting Linux Kernel...
-> EFI stub: Using DTB from configuration table
-> EFI stub: Exiting boot services...
-> <hangs here>
->
-
-Is it possible to have earlycon output? It is hard to debug without any
-information except kernel fails to boot.
-
-Since the previous commit boots and I assume both kernels are compiled
-with the same gcc toolchain, this should not be caused by the binuils
-bug in 2.42[1]. Is your binutils version 2.42?
-
-Thanks.
-
-
-[1] https://sourceware.org/bugzilla/show_bug.cgi?id=31924
-
-> Here's a log from successful boot with previous commit:
-> https://people.redhat.com/jstancek/aarch64_numa_boot/console-log-good.txt
-> and config: https://people.redhat.com/jstancek/aarch64_numa_boot/config
->
-> # lscpu
-> Architecture:             aarch64
->   CPU op-mode(s):         32-bit, 64-bit
->   Byte Order:             Little Endian
-> CPU(s):                   12
->   On-line CPU(s) list:    0-11
-> Vendor ID:                ARM
->   BIOS Vendor ID:         NVIDIA
->   Model name:             Cortex-A78AE
->     BIOS Model name:      Not Specified Not Specified CPU @ 0.0GHz
->     BIOS CPU family:      257
->     Model:                1
->     Thread(s) per core:   1
->     Core(s) per cluster:  12
->     Socket(s):            1
->     Cluster(s):           1
->     Stepping:             r0p1
->     CPU(s) scaling MHz:   100%
->     CPU max MHz:          1971.2000
->     CPU min MHz:          115.2000
->     BogoMIPS:             62.50
->     Flags:                fp asimd evtstrm aes pmull sha1 sha2 crc32
-> atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp uscat ilrcpc
-> flagm paca pacg
-> Caches (sum of all):
->   L1d:                    768 KiB (12 instances)
->   L1i:                    768 KiB (12 instances)
->   L2:                     3 MiB (12 instances)
->   L3:                     6 MiB (3 instances)
-> NUMA:
->   NUMA node(s):           1
->   NUMA node0 CPU(s):      0-11
-> Vulnerabilities:
->   Gather data sampling:   Not affected
->   Itlb multihit:          Not affected
->   L1tf:                   Not affected
->   Mds:                    Not affected
->   Meltdown:               Not affected
->   Mmio stale data:        Not affected
->   Reg file data sampling: Not affected
->   Retbleed:               Not affected
->   Spec rstack overflow:   Not affected
->   Spec store bypass:      Mitigation; Speculative Store Bypass
-> disabled via prctl
->   Spectre v1:             Mitigation; __user pointer sanitization
->   Spectre v2:             Mitigation; CSV2, BHB
->   Srbds:                  Not affected
->   Tsx async abort:        Not affected
->
-> Regards,
-> Jan
-
-
-Best Regards,
-Yan, Zi
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
