@@ -4,127 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5CFD2AB0D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5EDD2AB0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0axVOqoMls//Wk+pvC5XHfu4g+8K4S/uESA90ZpiSro=; b=114GOvxxeD0yh4vj+OXF52a+Cd
-	DnbY1tIyPG5y/0u84+7SI/XeVRpMjbL1qa8qH5inFmeGX6uCL6ehAf16MHN4Dsmwbw4Q1DCTBJe6k
-	SQUOWxXWJSOtNPC2Ybk0MiHfcGnVcShOhfoABbD+kcaMs1+gDypxBNNjMQA/2yXBJj1WKvOY2YCr6
-	JuIO/3UJRtHb4qKmF1zcMHKzb9EPQ7vsLhP5AvdPMEwnRQM8/+BgcrHnKLKwoERtEsdwpPDWJW6mS
-	UfMLKS5puibRqt5jsfhGev8xLrgBvn5UgYBOOKxbrgmkVSryAo0dRXqxL5kyKifTbut0nTxQq/gcy
-	JbDmHLbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DlLCuXhRDLIckFG+1uvlZDttUywThvQZ7Xu2LWa1Rbo=; b=R/ICM1Yut2XPvndpF37Vcpckkl
+	eC3E+k92vbukHMK/NF1NlehR4SsaA9f7eZ+sBHXcUqbTY9nhWcsXXpny28xx6Fy3BOtaqlQQyAu0e
+	vggG04PQrbuHAFM53VTiSKXYLUUdBz4JU6n86polSjrfWIt9LqVXG/4wOj14LlOvUuYJmLYdUMNFW
+	py6Oo1ub/tK2fD9xzshYjslnbHxVDEGo2MPECkMUcV+CooUVm6KaYbOdD86iFGJbyyQOlekFnvT+8
+	Qll5bk32gy3xMbimKfGSdBy/oXV2qVAgomMYcLRBMrTKWFWlyr4nv+NholI6O+yaFpaMB7VqYqxPh
+	SKPBsm/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ihF-0000000DtmT-0I6S;
-	Tue, 29 Oct 2024 09:39:29 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ifb-0000000DteO-1GB3
+	id 1t5ipH-0000000DusQ-2O8Q;
+	Tue, 29 Oct 2024 09:47:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5ind-0000000Duh4-3jNm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 09:37:50 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 04DC821CB5;
-	Tue, 29 Oct 2024 09:37:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730194664; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0axVOqoMls//Wk+pvC5XHfu4g+8K4S/uESA90ZpiSro=;
-	b=MFpph/jBB1J/ISr6NeT9WLZmTaOCpka/EFPFi79RpcQDXvUb6gXFq2uiaw9Znyk9eyFz3H
-	ReVfuHyJDoUtN4FNxVwYSXTY9xburM0eD3Qxpfz59mKLKgamQMVHy7RqBu1hs5/SFFJPLw
-	DRRSdlBNDz7zfFGhJ+J9+C59ZyUJtp0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730194664;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0axVOqoMls//Wk+pvC5XHfu4g+8K4S/uESA90ZpiSro=;
-	b=Aq9To5J4OyWv9MZ1wXaqA99S23W+n2hHs6LsWZOc48A04RFALqgDjs6OHKARjcxMxsOhZx
-	5NEMh2sW95cAg9CQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730194664; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0axVOqoMls//Wk+pvC5XHfu4g+8K4S/uESA90ZpiSro=;
-	b=MFpph/jBB1J/ISr6NeT9WLZmTaOCpka/EFPFi79RpcQDXvUb6gXFq2uiaw9Znyk9eyFz3H
-	ReVfuHyJDoUtN4FNxVwYSXTY9xburM0eD3Qxpfz59mKLKgamQMVHy7RqBu1hs5/SFFJPLw
-	DRRSdlBNDz7zfFGhJ+J9+C59ZyUJtp0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730194664;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0axVOqoMls//Wk+pvC5XHfu4g+8K4S/uESA90ZpiSro=;
-	b=Aq9To5J4OyWv9MZ1wXaqA99S23W+n2hHs6LsWZOc48A04RFALqgDjs6OHKARjcxMxsOhZx
-	5NEMh2sW95cAg9CQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D170C136A5;
-	Tue, 29 Oct 2024 09:37:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id JKDMMuesIGc+HwAAD6G6ig
-	(envelope-from <iivanov@suse.de>); Tue, 29 Oct 2024 09:37:43 +0000
-Date: Tue, 29 Oct 2024 11:44:45 +0200
-From: "Ivan T . Ivanov" <iivanov@suse.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Vinod Koul <vkoul@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Minas Harutyunyan <hminas@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Lukas Wunner <lukas@wunner.de>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-list@raspberrypi.com,
-	bcm-kernel-feedback-list@broadcom.com, dmaengine@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH V5 1/9] Revert "usb: dwc2: Skip clock gating on Broadcom
- SoCs"
-Message-ID: <20241029094445.hsporitxkv2q45c5@localhost.localdomain>
-References: <20241025103621.4780-1-wahrenst@gmx.net>
- <20241025103621.4780-2-wahrenst@gmx.net>
+	Tue, 29 Oct 2024 09:46:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1422497;
+	Tue, 29 Oct 2024 02:46:33 -0700 (PDT)
+Received: from [10.163.43.192] (unknown [10.163.43.192])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F8283F528;
+	Tue, 29 Oct 2024 02:46:00 -0700 (PDT)
+Message-ID: <b85dcdc2-d56d-4bf7-9fa9-222a6f057674@arm.com>
+Date: Tue, 29 Oct 2024 15:15:59 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241025103621.4780-2-wahrenst@gmx.net>
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	MISSING_XM_UA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[gmx.net];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[armlinux.org.uk,broadcom.com,kernel.org,linaro.org,synopsys.com,linuxfoundation.org,wunner.de,gmail.com,lists.infradead.org,raspberrypi.com,vger.kernel.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/18] KVM: arm64: nv: Reinject traps that take effect
+ in Host EL0
+To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
+ <20241025182354.3364124-9-oliver.upton@linux.dev>
+ <87r083th7m.wl-maz@kernel.org> <Zxz-LocgUKuzE3t0@linux.dev>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Zxz-LocgUKuzE3t0@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_023747_512863_80906018 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20241029_024606_057664_65304AFA 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,37 +70,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
 
-On 10-25 12:36, Stefan Wahren wrote:
+
+On 10/26/24 20:05, Oliver Upton wrote:
+> Hey,
 > 
-> The commit d483f034f032 ("usb: dwc2: Skip clock gating on Broadcom SoCs")
-> introduced a regression on Raspberry Pi 3 B Plus, which prevents
-> enumeration of the onboard Microchip LAN7800 in case no external USB device
-> is connected during boot.
+> On Sat, Oct 26, 2024 at 09:13:17AM +0100, Marc Zyngier wrote:
+>> On Fri, 25 Oct 2024 19:23:43 +0100,
+>> Oliver Upton <oliver.upton@linux.dev> wrote:
+>>>
+>>> Wire up the other end of traps that affect host EL0 by actually
+>>> injecting them into the guest hypervisor. Skip over FGT entirely, as a
+>>> cursory glance suggests no FGT is effective in host EL0.
+>>
+>> Yes, and this (thankfully) is by design! :-)
+>>
+>>>
+>>> Note that kvm_inject_nested() is already equipped for handling
+>>> exceptions while the VM is already in a host context.
+>>>
+>>> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+>>> ---
+>>>  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
+>>>  arch/arm64/kvm/emulate-nested.c      | 29 ++++++++++++++++++++++++----
+>>>  2 files changed, 30 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+>>> index a601a9305b10..bf0c48403f59 100644
+>>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>>> @@ -225,6 +225,11 @@ static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
+>>>  	return vcpu_has_nv(vcpu) && __is_hyp_ctxt(&vcpu->arch.ctxt);
+>>>  }
+>>>  
+>>> +static inline bool vcpu_is_host_el0(const struct kvm_vcpu *vcpu)
+>>> +{
+>>> +	return is_hyp_ctxt(vcpu) && !vcpu_is_el2(vcpu);
+>>> +}
+>>> +
+>>>  /*
+>>>   * The layout of SPSR for an AArch32 state is different when observed from an
+>>>   * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
+>>> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+>>> index e1a30d1bcd06..db3149379a4d 100644
+>>> --- a/arch/arm64/kvm/emulate-nested.c
+>>> +++ b/arch/arm64/kvm/emulate-nested.c
+>>> @@ -20,6 +20,9 @@ enum trap_behaviour {
+>>>  	BEHAVE_FORWARD_READ	= BIT(0),
+>>>  	BEHAVE_FORWARD_WRITE	= BIT(1),
+>>>  	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
+>>> +
+>>> +	/* Traps that take effect in Host EL0, this is rare! */
+>>> +	BEHAVE_IN_HOST_EL0	= BIT(2),
+>>
+>> nit: BEHAVE_IN_HOST_EL0 lacks an action verb (forward?).
 > 
-> Fixes: d483f034f032 ("usb: dwc2: Skip clock gating on Broadcom SoCs")
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->  drivers/usb/dwc2/params.c | 1 -
->  1 file changed, 1 deletion(-)
+> Thinking I'll squash this in (plus renaming in later patches):
+
+Right, the following additional replacements are required for build.
+
+
+@@ -307,14 +307,14 @@ static const struct trap_bits coarse_trap_bits[] = {
+                .value          = MDCR_EL2_TPMCR,
+                .mask           = MDCR_EL2_TPMCR,
+                .behaviour      = BEHAVE_FORWARD_RW |
+-                                 BEHAVE_IN_HOST_EL0,
++                                 BEHAVE_FORWARD_IN_HOST_EL0,
+        },
+        [CGT_MDCR_TPM] = {
+                .index          = MDCR_EL2,
+                .value          = MDCR_EL2_TPM,
+                .mask           = MDCR_EL2_TPM,
+                .behaviour      = BEHAVE_FORWARD_RW |
+-                                 BEHAVE_IN_HOST_EL0,
++                                 BEHAVE_FORWARD_IN_HOST_EL0,
+        },
+        [CGT_MDCR_TDE] = {
+                .index          = MDCR_EL2,
+@@ -530,7 +530,7 @@ static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+        }
+ 
+        if (kvm_pmu_counter_is_hyp(vcpu, idx))
+-               return BEHAVE_FORWARD_RW | BEHAVE_IN_HOST_EL0;
++               return BEHAVE_FORWARD_RW | BEHAVE_FORWARD_IN_HOST_EL0;
+ 
+        return BEHAVE_HANDLE_LOCALLY;
+ }
+
 > 
-> diff --git a/drivers/usb/dwc2/params.c b/drivers/usb/dwc2/params.c
-> index 68226defdc60..4d73fae80b12 100644
-> --- a/drivers/usb/dwc2/params.c
-> +++ b/drivers/usb/dwc2/params.c
-> @@ -23,7 +23,6 @@ static void dwc2_set_bcm_params(struct dwc2_hsotg *hsotg)
->  	p->max_transfer_size = 65535;
->  	p->max_packet_count = 511;
->  	p->ahbcfg = 0x10;
-> -	p->no_clock_gating = true;
->  }
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index db3149379a4d..b072098ee44e 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -22,7 +22,7 @@ enum trap_behaviour {
+>  	BEHAVE_FORWARD_RW	= BEHAVE_FORWARD_READ | BEHAVE_FORWARD_WRITE,
+>  
+>  	/* Traps that take effect in Host EL0, this is rare! */
+> -	BEHAVE_IN_HOST_EL0	= BIT(2),
+> +	BEHAVE_FORWARD_IN_HOST_EL0	= BIT(2),
+>  };
+>  
+>  struct trap_bits {
+> @@ -2279,7 +2279,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
+>  
+>  	b = compute_trap_behaviour(vcpu, tc);
+>  
+> -	if (!(b & BEHAVE_IN_HOST_EL0) && vcpu_is_host_el0(vcpu))
+> +	if (!(b & BEHAVE_FORWARD_IN_HOST_EL0) && vcpu_is_host_el0(vcpu))
+>  		goto local;
+>  
+>  	if (((b & BEHAVE_FORWARD_READ) && is_read) ||
 > 
-
-Thanks, this makes RPi3 Ethernet operational again.
-
-Tested-by: Ivan T. Ivanov <iivanov@suse.de>
-
-Regards.
-
 
