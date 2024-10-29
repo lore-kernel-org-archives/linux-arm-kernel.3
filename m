@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577CBD5B16B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8683FD5B164
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OPZzHAKFTbBUqwWZwSz4J5o61KYu2jk2avgvf8ydp0A=; b=o7MScCH8u+//HqdZqHvIBNWE9l
-	ldLilG+QDBvKJT+TVfyP6PESrhMm/Bz+ldnNSb2PyWnFoQ8SSYCFf/YFz+uRsD7Gd7AqxJN15X7sW
-	yjAL1o52gOvHnTmEOyIxPKqUXViRGHae8OxMT6Fnrxr0VhNl3B5VkBOmREgzPETUJQ6ZFPPsYPHPq
-	OgmiEw6PfbPaK1wqkZgNEFkrfopjEEE8tdikdnTv+ma9G/SnsK+H/j2mpsfhDp5xQlAeboezTa2+I
-	y+W8fPQJnl+GZoolLIgxIIutJEC4nyuKbBuJD6udNUFxrfVLiT3P9Q0Y+xxkf6WFcwnUzeS/oFhqo
-	U2gkr/+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5yCNlJ9ztY15N574mAywpyckzNZfRi4M01xksMSVnh0=; b=B6DDP6T8koAZQx3jVez+OF0lul
+	lF9ZF9uQWSLNgMN9lP6rLrC5GSRekA2/HKiKXAhuYnOOuxr1r451OA3gV4MgT4eLUXkArZaXpUDAl
+	rCgaksIMIlup1/cA/7pOQueOLr6Q4w+SaUVjYxRFRpmeNQ4XoXiYXIwKO4vjwXusGD+UBwu77BPcT
+	1j6UzZjQ2I2a56M6q99TH/uKQx4xYrIejtdHOw/Q6AL0AWAXgGlNF9VdphvBhtFWLA470MtNntxnQ
+	D1/J8KZOJRCiFM3ufpO4LHseGpN4aBwAzWX5MXZ6tM2Cf2/YBjWTUwu9OmA+TZY+0HMTZLWA4OYxI
+	lIyQYUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hnt-0000000Dibv-1tOT;
-	Tue, 29 Oct 2024 08:42:17 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1t5hpY-0000000DjCf-3P5J;
+	Tue, 29 Oct 2024 08:44:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5haH-0000000DgaU-1d4w
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:28:14 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49T7uXPU028936;
-	Tue, 29 Oct 2024 01:28:05 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=OPZzHAKFTbBUqwWZwSz4J5o61
-	KYu2jk2avgvf8ydp0A=; b=JEhTKv5R0Ay8+7SjRWcvpnH9Q+i2CGzSpjREXW0FW
-	cvaMXjP7ywUO3DuJAhzemmRK/nzWdifXXvhjOXvC8aBtlFjk2hDjOa6rHD0U0eTQ
-	mUA+phiNPeSrLrIv3IveLaT7r0attLB9s7lqEIPHL33h09Nbx9pSskPVjwciAXl9
-	tFuCzNqKr0w4uuTTaDDIBB1Vwx6pkGAraPGmfnR11wVqxkDxK6fB6l5VRUjYoQsG
-	E7IjcAWCtPf9/9FtA/eFfV82PLchcoVntCye3Mb/yvLaW80I7wkqYnIhJ06/h6NY
-	bi/UXL1eVr+iubJF4A1sIZ8vyld8pqUqf0P8/mgwmNB+w==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 42gyxf5ub2-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Oct 2024 01:28:05 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Tue, 29 Oct 2024 01:28:04 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Tue, 29 Oct 2024 01:28:04 -0700
-Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
-	by maili.marvell.com (Postfix) with SMTP id DEE205E6861;
-	Tue, 29 Oct 2024 01:27:59 -0700 (PDT)
-Date: Tue, 29 Oct 2024 13:57:58 +0530
-From: Linu Cherian <lcherian@marvell.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-CC: <mike.leach@linaro.org>, <james.clark@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>
-Subject: Re: [PATCH v10 4/8] coresight: tmc: Enable panic sync handling
-Message-ID: <20241029082758.GA980241@hyd1403.caveonetworks.com>
-References: <20240916103437.226816-1-lcherian@marvell.com>
- <20240916103437.226816-5-lcherian@marvell.com>
- <6b405b22-9b1e-487b-9b9c-5944358488e2@arm.com>
- <20241017121221.GA901001@hyd1403.caveonetworks.com>
- <20241029062441.GB978396@hyd1403.caveonetworks.com>
+	id 1t5hVv-0000000DfTw-0vxD;
+	Tue, 29 Oct 2024 08:23:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C25FA4188F;
+	Tue, 29 Oct 2024 08:21:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB63FC4CEE6;
+	Tue, 29 Oct 2024 08:23:36 +0000 (UTC)
+Message-ID: <3f48495c-77bb-4f26-b51f-8b2d44a4ec96@xs4all.nl>
+Date: Tue, 29 Oct 2024 09:23:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241029062441.GB978396@hyd1403.caveonetworks.com>
-X-Proofpoint-ORIG-GUID: KYL87BR2vYBrt0iLzdiCQi1Isd-zg969
-X-Proofpoint-GUID: KYL87BR2vYBrt0iLzdiCQi1Isd-zg969
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] media: raspberrypi: Add support for RP1-CFE
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Naushir Patuck
+ <naush@raspberrypi.com>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+References: <20241003-rp1-cfe-v6-3-d6762edd98a8@ideasonboard.com>
+ <4d9e340e-2ae7-495b-8623-0d10398e1c3d@xs4all.nl>
+ <02f05b61-08e7-45f8-8d59-f79bc20d076f@ideasonboard.com>
+ <74286a86-51b9-4742-bb0c-583d70b1b0a7@xs4all.nl>
+ <505c502e-b67a-4dca-8420-eb87eae4e170@ideasonboard.com>
+ <59cf95be-fb53-4a94-bc6e-f9dca322749d@xs4all.nl>
+ <5832a2f9-c908-4f5a-a3ee-9cb7d23ddab4@ideasonboard.com>
+ <563347aa-4155-47e1-b71a-0107aed83eb6@xs4all.nl>
+ <20241028151713.GI24052@pendragon.ideasonboard.com>
+ <62073d7a-0a4b-4440-90e5-dcce0dec72d7@ideasonboard.com>
+ <20241028163243.GB26852@pendragon.ideasonboard.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Autocrypt: addr=hverkuil@xs4all.nl; keydata=
+ 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
+In-Reply-To: <20241028163243.GB26852@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_012813_583132_1D9C257C 
-X-CRM114-Status: GOOD (  41.81  )
+X-CRM114-CacheID: sfid-20241029_012343_565640_DBF1E6D4 
+X-CRM114-Status: GOOD (  41.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,195 +129,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 28/10/2024 17:32, Laurent Pinchart wrote:
+> On Mon, Oct 28, 2024 at 05:32:27PM +0200, Tomi Valkeinen wrote:
+>> On 28/10/2024 17:17, Laurent Pinchart wrote:
+>>> On Mon, Oct 28, 2024 at 12:30:45PM +0100, Hans Verkuil wrote:
+>>>> On 28/10/2024 12:25, Tomi Valkeinen wrote:
+>>>>> On 28/10/2024 13:13, Hans Verkuil wrote:
+>>>>>> On 28/10/2024 12:05, Tomi Valkeinen wrote:
+>>>>>>> On 28/10/2024 12:11, Hans Verkuil wrote:
+>>>>>>>> On 28/10/2024 10:21, Tomi Valkeinen wrote:
+>>>>>>>>> On 24/10/2024 11:20, Hans Verkuil wrote:
+>>>>>>>>>> Hi Tomi,
+>>>>>>>>>>
+>>>>>>>>>> I know this driver is already merged, but while checking for drivers that use
+>>>>>>>>>> q->max_num_buffers I stumbled on this cfe code:
+>>>>>>>>>>
+>>>>>>>>>> <snip>
+>>>>>>>>>>
+>>>>>>>>>>> +/*
+>>>>>>>>>>> + * vb2 ops
+>>>>>>>>>>> + */
+>>>>>>>>>>> +
+>>>>>>>>>>> +static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
+>>>>>>>>>>> +               unsigned int *nplanes, unsigned int sizes[],
+>>>>>>>>>>> +               struct device *alloc_devs[])
+>>>>>>>>>>> +{
+>>>>>>>>>>> +    struct cfe_node *node = vb2_get_drv_priv(vq);
+>>>>>>>>>>> +    struct cfe_device *cfe = node->cfe;
+>>>>>>>>>>> +    unsigned int size = is_image_node(node) ?
+>>>>>>>>>>> +                    node->vid_fmt.fmt.pix.sizeimage :
+>>>>>>>>>>> +                    node->meta_fmt.fmt.meta.buffersize;
+>>>>>>>>>>> +
+>>>>>>>>>>> +    cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
+>>>>>>>>>>> +        node->buffer_queue.type);
+>>>>>>>>>>> +
+>>>>>>>>>>> +    if (vq->max_num_buffers + *nbuffers < 3)
+>>>>>>>>>>> +        *nbuffers = 3 - vq->max_num_buffers;
+>>>>>>>>>>
+>>>>>>>>>> This makes no sense: max_num_buffers is 32, unless explicitly set when vb2_queue_init
+>>>>>>>>>> is called. So 32 + *nbuffers is never < 3.
+>>>>>>>>>>
+>>>>>>>>>> If the idea is that at least 3 buffers should be allocated by REQBUFS, then set
+>>>>>>>>>> q->min_reqbufs_allocation = 3; before calling vb2_queue_init and vb2 will handle this
+>>>>>>>>>> for you.
+>>>>>>>>>>
+>>>>>>>>>> Drivers shouldn't modify *nbuffers, except in very rare circumstances, especially
+>>>>>>>>>> since the code is almost always wrong.
+>>>>>>>>>
+>>>>>>>>> Looking at this, the original code in the old BSP tree was, which somehow, along the long way, got turned into the above:
+>>>>>>>>>
+>>>>>>>>> if (vq->num_buffers + *nbuffers < 3)
+>>>>>>>>>            *nbuffers = 3 - vq->num_buffers;
+>>>>>>>>>
+>>>>>>>>> So... I think that is the same as "q->min_reqbufs_allocation = 3"?
+>>>>>>>>>
+>>>>>>>>> The distinction between min_queued_buffers and
+>>>>>>>>> min_reqbufs_allocation, or rather the need for the latter, still
+>>>>>>>>> escapes me. If the HW/SW requires N buffers to be queued, why
+>>>>>>>>> would we require allocating more than N buffers?
+>>>>>>>>
+>>>>>>>> min_queued_buffers is easiest to explain: that represents the requirements of the DMA
+>>>>>>>> engine, i.e. how many buffers much be queued before the DMA engine can be started.
+>>>>>>>> Typically it is 0, 1 or 2.
+>>>
+>>> That's partly true only. Even if the hardware requires 2 buffers, a
+>>> driver can allocate scratch buffers to lower the requirement for
+>>> userspace. Setting min_queued_buffers to 1 is usually fine, as there are
+>>> few use cases for userspace to start the hardware before a buffer is
+>>> available to capture a frame to. A value of 2 is much more problematic,
+>>> as it prevents operating with a single buffer. I know using a single
+>>> buffer results in frame drops, but there are resource-constrained
+>>> systems where application don't always need all the frames (such as the
+>>> Raspberry Pi Zero for instance). I very strongly encourage drivers to
+>>> never set a min_queued_buffers value higher than 1.
+>>>
+>>>>>>>>
+>>>>>>>> min_reqbufs_allocation is the minimum number of buffers that will be allocated when
+>>>>>>>> calling VIDIOC_REQBUFS in order for userspace to be able to stream without blocking
+>>>>>>>> or dropping frames.
+>>>>>>>>
+>>>>>>>> Typically this is 3 for video capture: one buffer is being DMAed, another is queued up
+>>>>>>>> and the third is being processed by userspace. But sometimes drivers have other
+>>>>>>>> requirements.
+>>>
+>>> This is exactly why I dislike min_reqbufs_allocation when set based on
+>>> this logic, it encodes assumption on userspace use cases that a capture
+>>> driver really shouldn't make.
+>>>
+>>>>>>>>
+>>>>>>>> The reason is that some applications will just call VIDIOC_REQBUFS with count=1 and
+>>>>>>>> expect it to be rounded up to whatever makes sense. See the VIDIOC_REQBUFS doc in
+>>>>>>>> https://hverkuil.home.xs4all.nl/spec/userspace-api/v4l/vidioc-reqbufs.html
+>>>>>>>>
+>>>>>>>> "It can be smaller than the number requested, even zero, when the driver runs out of
+>>>>>>>>     free memory. A larger number is also possible when the driver requires more buffers
+>>>>>>>>     to function correctly."
+>>>>>>>>
+>>>>>>>> How drivers implement this is a mess, and usually the code in the driver is wrong as
+>>>>>>>> well. In particular they often did not take VIDIOC_CREATE_BUFS into account, i.e.
+>>>>>>>> instead of 'if (vq->num_buffers + *nbuffers < 3)' they would do 'if (*nbuffers < 3)'.
+>>>>>>>
+>>>>>>> Thanks, this was educational!
+>>>>>>>
+>>>>>>> So. If I have a driver that has min_queued_buffers = 1, I can use
+>>>>>>> VIDIOC_CREATE_BUFS to allocate a single buffer, and then capture
+>>>>>>> just one buffer, right? Whereas VIDIOC_REQBUFS would give me
+>>>>>>> (probably) three (or two, if the driver does not set
+>>>>>>> min_reqbufs_allocation). Three buffers makes sense for full
+>>>>>>> streaming, of course.
+>>>>>>>
+>>>>>>>> When we worked on the support for more than 32 buffers we added min_reqbufs_allocation
+>>>>>>>> to let the core take care of this. In addition, this only applies to VIDIOC_REQBUFS,
+>>>
+>>> I agree it's better to handle it in the core than in drivers, even if I
+>>> dislike the feature in the first place.
+>>>
+>>>>>>>> if you want full control over the number of allocated buffers, then use VIDIOC_CREATE_BUFS,
+>>>>>>>> with this ioctl the number of buffers will never be more than requested, although it
+>>>>>>>> may be less if you run out of memory.
+>>>
+>>> On a side note, we should transition libcamera to use VIDIOC_CREATE_BUFS
+>>> unconditionally.
+>>>
+>>>>>>>>
+>>>>>>>> I really should go through all existing drivers and fix them up if they try to
+>>>>>>>> handle this in the queue_setup function, I suspect a lot of them are quite messy.
+>>>>>>>>
+>>>>>>>> One thing that is missing in the V4L2 uAPI is a way to report the minimum number of
+>>>>>>>> buffers that need to be allocated, i.e. min_queued_buffers + 1. Since if you want
+>>>>>>>
+>>>>>>> Hmm, so what I wrote above is not correct? One needs min_queued_buffers + 1? Why is that?
+>>>>>>
+>>>>>> The DMA engine always uses min_queued_buffers, so if there are only that many buffers,
+>>>>>> then it can never return a buffer to userspace! So you need one more. That's the absolute
+>>>>>> minimum. For smooth capture you need two more to allow time for userspace to process the
+>>>>>> buffer.
+>>>>>
+>>>>> Hmm, ok, I see. Well, I guess my "I want to capture just a single frame" is not a very common case.
+>>>
+>>> It's not that uncommon, see above.
+>>>
+>>>>>
+>>>>> Can I queue one buffer, start streaming, stop streaming, and get the
+>>>>> filled buffer? But then I guess I don't when the buffer has been
+>>>>> filled, i.e. when to call stop streaming.
+>>>>
+>>>> Exactly. If you really want that, then the driver has to be adapted in the way that Laurent
+>>>> suggested, i.e. with one or more scratch buffers. But that is not always possible, esp. with
+>>>> older hardware without an IOMMU.
+>>>
+>>> Drivers can always allocate a full-frame scratch buffer in the worst
+>>> case. That can waste memory though, which is less than ideal.
+>>>
+>>>>> So, never mind, I don't actually have any use case for this, just wondering.
+>>>>>
+>>>>>>>
+>>>>>>>> to use CREATE_BUFS you need that information so you know that you have to create
+>>>>>>>> at least that number of buffers. We have the V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control,
+>>>>>>>> but it is effectively codec specific. This probably should be clarified.
+>>>>>>>>
+>>>>>>>> I wonder if it wouldn't be better to add a min_num_buffers field to
+>>>>>>>> struct v4l2_create_buffers and set it to min_queued_buffers + 1.
+>>>
+>>> Don't add the +1. We should give userspace the information it needs to
+>>> make informed decisions, not make decisions on its behalf.
+>>>
+>>>>>>>
+>>>>>>> I think this makes sense (although I still don't get the +1).
+>>>>>>>
+>>>>>>> However, based on the experiences from adding the streams features
+>>>>>>> to various ioctls, let's be very careful =). The new
+>>>>>>> 'min_num_buffers' can be filled with garbage by the userspace. If
+>>>>>>> we define the 'min_num_buffers' field to be always filled by the
+>>>>>>> kernel, and any value provided from the userspace to be ignored, I
+>>>>>>> think it should work.
+>>>>>>
+>>>>>> I've posted an RFC for this.
+>>>>>
+>>>>> Thanks, I'll check it out.
+>>>>>
+>>>>> For the original issue in this thread, I think the correct fix is to
+>>>>> remove the lines from cfe_queue_setup(), and add
+>>>>> "q->min_reqbufs_allocation = 3".
+>>>
+>>> Or just don't set min_reqbufs_allocation ? This is a new driver, and it
+>>> requires a device-specific userspace to operate the ISP. I don't think
+>>> we need to care about applications blindly calling VIDIOC_REQBUFS(1) and
+>>> expecting to get more buffers.
+>>
+>> It doesn't require a device-specific userspace for plain CSI-2 capture.
+>>
+>> If I understood right, the expected behavior for VIDIOC_REQBUFS is to 
+>> return enough buffers for "smooth streaming". So even if device-specific 
+>> userspace would be required, doesn't it still make sense to have 
+>> min_reqbufs_allocation = 3?
+> 
+> "Smooth streaming" is use case-dependent, you will need different number
+> of buffers for different use cases. That's why I don't like hardcoding
+> this in a video capture driver. I'd rather expose information about the
+> driver behaviour (in particular, how many buffers it will hold on
+> without returning anything to userspace until a new buffer gets queued)
+> and let applications make a decision. I don't expect applications
+> relying on VIDIOC_REQBUFS(1) to work out-of-the-box on Pi 5 anyway, as
+> the media graph needs to be configured.
+> 
+>> Or is your point that even a device-specific userspace, which knows 
+>> exactly what it's doing, would use VIDIOC_REQBUFS, instead of 
+>> VIDIOC_CREATE_BUFS?
+> 
+> I expect a device-specific userspace not to require drivers to make
+> policy decisions on its behalf.
 
-Please ignore this message, was sent by mistake.
-Atually a repetition of message sent earlier.
+Remember that libcamera is a specialized library that indeed wants to
+make policy decisions itself. But many other drivers for much simpler
+pipelines (typically for video receivers) don't need this and can use
+the standard V4L2 API.
 
-Thanks.
+My goal is to have the standard V4L2 API behave in a well-defined manner,
+while giving enough information to specialized userspace code like libcamera
+to do their own thing.
 
-On 2024-10-29 at 11:54:41, Linu Cherian (lcherian@marvell.com) wrote:
-> Hi Suzuki,
+Regards,
+
+	Hans
+
 > 
-> On 2024-10-17 at 17:42:21, Linu Cherian (lcherian@marvell.com) wrote:
-> > Hi Suzuki,
-> > 
-> > On 2024-10-01 at 22:13:12, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
-> > > Hi Linu
-> > > 
-> > > On 16/09/2024 11:34, Linu Cherian wrote:
-> > > > - Get reserved region from device tree node for metadata
-> > > > - Define metadata format for TMC
-> > > > - Add TMC ETR panic sync handler that syncs register snapshot
-> > > >    to metadata region
-> > > > - Add TMC ETF panic sync handler that syncs register snapshot
-> > > >    to metadata region and internal SRAM to reserved trace buffer
-> > > >    region.
-> > > 
-> > > The patch looks good overall. Some minor comments below.
-> > > 
-> > > > 
-> > > > Signed-off-by: Linu Cherian <lcherian@marvell.com>
-> > > > ---
-> > > > Changelog from v9:
-> > > > - Add common helper function of_tmc_get_reserved_resource_by_name
-> > > >    for better code reuse
-> > > > - Inorder to keep the reserved buffer validity and crashdata validity
-> > > >    independent, is_tmc_reserved_region_valid renamed to tmc_has_reserved_buffer
-> > > > - drvdata->crash_tbuf renamed to drvdata->resrv_buf
-> > > > - New fields added to crash metadata: version, ffcr, ffsr, mode
-> > > > - Defined crashdata version with Major version 1, Minor version 0
-> > > > - Set version while creating crashdata record
-> > > > - Removed Reviewed-by tag due to the above changes
-> > > >   .../hwtracing/coresight/coresight-tmc-core.c  | 14 ++++
-> > > >   .../hwtracing/coresight/coresight-tmc-etf.c   | 77 ++++++++++++++++++
-> > > >   .../hwtracing/coresight/coresight-tmc-etr.c   | 78 +++++++++++++++++++
-> > > >   drivers/hwtracing/coresight/coresight-tmc.h   | 66 ++++++++++++++++
-> > > >   4 files changed, 235 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > > index 0764c21aba0f..54bf8ae2bff8 100644
-> > > > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > > > @@ -445,6 +445,20 @@ static void tmc_get_reserved_region(struct device *parent)
-> > > >   	drvdata->resrv_buf.paddr = res.start;
-> > > >   	drvdata->resrv_buf.size  = resource_size(&res);
-> > > > +
-> > > > +	if (of_tmc_get_reserved_resource_by_name(parent, "metadata", &res))
-> > > > +		return;
-> > > > +
-> > > > +	drvdata->crash_mdata.vaddr = memremap(res.start,
-> > > > +					       resource_size(&res),
-> > > > +					       MEMREMAP_WC);
-> > > > +	if (IS_ERR_OR_NULL(drvdata->crash_mdata.vaddr)) {
-> > > > +		dev_err(parent, "Metadata memory mapping failed\n");
-> > > > +		return;
-> > > > +	}
-> > > > +
-> > > > +	drvdata->crash_mdata.paddr = res.start;
-> > > > +	drvdata->crash_mdata.size  = resource_size(&res);
-> > > >   }
-> > > >   /* Detect and initialise the capabilities of a TMC ETR */
-> > > > diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > > index d4f641cd9de6..d77ec9307e98 100644
-> > > > --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > > +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> > > > @@ -590,6 +590,78 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
-> > > >   	return to_read;
-> > > >   }
-> > > > +static int tmc_panic_sync_etf(struct coresight_device *csdev)
-> > > > +{
-> > > > +	u32 val;
-> > > > +	struct csdev_access *csa;
-> > > > +	struct tmc_crash_metadata *mdata;
-> > > > +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > > > +
-> > > > +	csa = &drvdata->csdev->access;
-> > > > +	mdata = (struct tmc_crash_metadata *)drvdata->crash_mdata.vaddr;
-> > > > +
-> > > > +	/* Make sure we have valid reserved memory */
-> > > > +	if (!tmc_has_reserved_buffer(drvdata) ||
-> > > > +	    !tmc_has_crash_mdata_buffer(drvdata))
-> > > > +		return 0;
-> > > > +
-> > > > +	tmc_crashdata_set_invalid(drvdata);
-> > > > +
-> > > > +	CS_UNLOCK(drvdata->base);
-> > > > +
-> > > > +	/* Proceed only if ETF is enabled or configured as sink */
-> > > > +	val = readl(drvdata->base + TMC_CTL);
-> > > > +	if (!(val & TMC_CTL_CAPT_EN))
-> > > > +		goto out;
-> > > > +
-> > > 
-> > > minor nit : Since the check below is "covered" by the same comment
-> > > above, please drop the extra line here to make it clear that "we check
-> > > for sink" by checking the "MODE == CIRCULAR_BUFFER".
-> > 
-> > Ack.
-> > 
-> > > 
-> > > > +	val = readl(drvdata->base + TMC_MODE);
-> > > > +	if (val != TMC_MODE_CIRCULAR_BUFFER)
-> > > > +		goto out;
-> > > > +
-> > > > +	val = readl(drvdata->base + TMC_FFSR);
-> > > > +	/* Do manual flush and stop only if its not auto-stopped */
-> > > > +	if (!(val & TMC_FFSR_FT_STOPPED)) {
-> > > > +		dev_info(&csdev->dev,
-> > > > +			 "%s: Triggering manual flush\n", __func__);
-> > > 
-> > > Please drop the ^^^ line. We don't want to do anything like that from a
-> > > panic callback.
-> > 
-> > Ack.
+>> Also, if I don't set min_reqbufs_allocation, VIDIOC_REQBUFS(1) would 
+>> still allocate two buffers, not one.
 > 
-> Are we okay with converting this to dev_dbg, as this could be quite
-> helpful to understand if the CTI trigger has occured or not.
-> 
-> 
-> > 
-> > > 
-> > > > +		tmc_flush_and_stop(drvdata);
-> > > > +	} else
-> > > > +		tmc_wait_for_tmcready(drvdata);
-> > > > +
-> > > > +	/* Sync registers from hardware to metadata region */
-> > > > +	mdata->sts = csdev_access_relaxed_read32(csa, TMC_STS);
-> > > 
-> > > Why are we using "csa" here and not for TMC_CTL etc ? Simply drop the "csa"
-> > > and use the raw reads like above. TMC doesn't have anyother modes
-> > > of access.
-> > > 
-> > 
-> > Okay.
-> > 
-> > > > +	mdata->mode = csdev_access_relaxed_read32(csa, TMC_MODE);
-> > > > +	mdata->ffcr = csdev_access_relaxed_read32(csa, TMC_FFCR);
-> > > > +	mdata->ffsr = csdev_access_relaxed_read32(csa, TMC_FFSR);
-> > > > +	mdata->trace_paddr = drvdata->resrv_buf.paddr;
-> > > > +
-> > > > +	/* Sync Internal SRAM to reserved trace buffer region */
-> > > > +	drvdata->buf = drvdata->resrv_buf.vaddr;
-> > > > +	tmc_etb_dump_hw(drvdata);
-> > > > +	/* Store as per RSZ register convention */
-> > > > +	mdata->size = drvdata->len >> 2;
-> > > > +	mdata->version = CS_CRASHDATA_VERSION;
-> > > > +
-> > > > +	/*
-> > > > +	 * Make sure all previous writes are completed,
-> > > > +	 * before we mark valid
-> > > > +	 */
-> > > > +	dsb(sy);
-> > > 
-> > > I don't think this matters much, as this would only be read by a
-> > > secondary kernel. In the worst case, you only need `dmb(ish)` to make
-> > > sure the writes are visible before valid is set to true.
-> > 
-> > Ack. Will change that.
-> > 
-> > > 
-> > > > +	mdata->valid = true;
-> > > > +	/*
-> > > > +	 * Below order need to maintained, since crc of metadata
-> > > > +	 * is dependent on first
-> > > > +	 */
-> > > > +	mdata->crc32_tdata = find_crash_tracedata_crc(drvdata, mdata);
-> > > > +	mdata->crc32_mdata = find_crash_metadata_crc(mdata);
-> > > > +
-> > > > +	tmc_disable_hw(drvdata);
-> > > > +
-> > > > +	dev_info(&csdev->dev, "%s: success\n", __func__);
-> > > 
-> > > Please no "prints" from a panic call back, unless it absolutely CRITICAL.
-> > 
-> > Ack.
-> 
-> Are we okay with converting this to dev_dbg, as this could aid in
-> debugging to understand if kernel has populated valid metadata.
-> 
-> Thanks.
-> Linu Cherian.
->  
-> 
+
 
