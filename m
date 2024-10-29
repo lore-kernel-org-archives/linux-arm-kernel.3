@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35894D2AB1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B06D2AB1C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DN7KbVPzR0Ss7/4UGrf+xZAi7oyW24SdUifFCTdR8uM=; b=m4p/9hRcZ7YCO+B6rOdTb6eWDU
-	rMQUUq/DkS+vlxH4l5TCdtAKQmtM6/omaKAl1bY5TqLiW6AD5yJx1LM8LDKCbCP5CLVq50QKhPSfU
-	g6sTbaGidMgZ1NUZN2Pn/KFeQU+Z6FTkuq22b8szo6Jw/HZXlXnVzZT3M7DqRAE7oy+L/AzxJCCav
-	qVQ0qOFHtxQ+X8ZcOjgTyKp0mDvdjHfVYqg4YZXYDRYNTfC4H7ANqjnUb0VKOHTddDmf427TxfJU0
-	JK12UBZ6CJ06M2t6HTGHjayk2nPVNxhQuU/hqOGI4NHLAtlXjVV01bnWguII6dia6lwutPhYG1JSf
-	i23nbA7w==;
+	bh=yxux1By2rnGvzR/PFyyiJzKm2Pk7omvqYG5lZ9tl4rk=; b=1iJna9PQV2DCYQOQcIkeP580aO
+	n3B1HB6MYkefudzrFraE+WU9dvOoDcoc7HOmSOrh4LLaC6F9t73GGBMmE5RMvlNbG4aRi/jxITqsh
+	i0gbSgCSHN+SbwImoLAooG3pXOp7zxvJX6BqUiG/z61XGGSjKDl3xbUu7rQn2x9d1DanY1IIFVCl+
+	XNSxB8rOF/eGrQc42UWPG8jMdpVUz+TEg3CwgvWQaRhFlHE9SEcE4T+c8/EWxGPsHCG94Wbg7aaAV
+	pGWrdztOZY6uHxlQF9WI7XUVG3erO/EGbkP2IpuRwKaJ59fTzpjrY9ABd2N61brr0/aoKhMu085Rt
+	ZaVBXP9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jPM-0000000E1bc-3Xme;
-	Tue, 29 Oct 2024 10:25:04 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5iyl-0000000Dwmr-0M6X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 09:57:36 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d538fe5f2so3939617f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 02:57:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730195853; x=1730800653; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DN7KbVPzR0Ss7/4UGrf+xZAi7oyW24SdUifFCTdR8uM=;
-        b=YI2+Ge3BGlGPXEroEROUfjmUkYb7KHpWbiLB7ygP87rXqwWAaf/Xtv00/EG1GxIP0j
-         uKeQO8uUxfqT4I/sl65rATZl5nVUJZdZRbUk6lUDR0N4UD5ThojQkhpPoXA8No+p9Utc
-         25ZWCIURqYhGzRO3GvIOhnKv6QKbUSPvhLFFwMBNKvETlBtB1G2LohheBqrdw0+3bUcx
-         lE1koo6fRdRy6c7k6f1An7dnH+ycJwXplahkj91XgAVd/FL6nOGpKU1qcgZHEoaB8Q21
-         DXYv3P0shGiys8EkesVuIA8Prk8yN1/KQm3j8Q8HB+lzyTsVI8PZfmuoOGpJgwaKJBGh
-         5xzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730195853; x=1730800653;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DN7KbVPzR0Ss7/4UGrf+xZAi7oyW24SdUifFCTdR8uM=;
-        b=CqZLzSGLqrrYtJfAeMMyAMweis3sT9++oOr3SZEP5aXMe6dr0utcc8wN2re+q3InZm
-         Y4b4barpMmOR6BcuPJIoGLQqi9FNZOzh5Pn8rGBfmkxrKztqKTk1X1djDiZUdVg964zn
-         enU3+d4SAg9JJg9TJ8fFwgbwq0gTKYOAzunA7adKITc0fRmgjtzirjSMY7+KkCQ7crp1
-         9FV2HFIsZ59bQ4fUU83kUAiyauRVY6cLtQ1g4WOCAMYs4iT0vqE/mBo7j+V5du6F+qe/
-         XPNxP6mRzf2GjQZnXMyHtJ5uDxCZs9rbtOF4Uwe1PvG84dsXBaZhq+CJP54e9our9Jzl
-         /ZjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoCIJUMW3qf+iRjYcP8GyJ4XxM09ewnJcZo5xodX98TgKxW7SPrW/hlZUENfqrwroeiaNonaqPbIVx+QvznFmo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlKk81UvH/VuCPcEynQF4497p3CZGWkb+KUsurh2nvTmWG4lz1
-	mYNQSnYkOONaBkyjTKw0WEcZ7tCfp3pNcBynhLIC24klwn9ouMIZJJVA/j6urZQ=
-X-Google-Smtp-Source: AGHT+IHhmgSstrKyHX2Iwez/d7VdkcjXlscKVW8yRli6oSKJ8qbcBw12V0iO42/emHYeLXIDzokkEw==
-X-Received: by 2002:a05:6000:bd0:b0:368:37ac:3f95 with SMTP id ffacd0b85a97d-380611850a0mr8235479f8f.31.1730195853404;
-        Tue, 29 Oct 2024 02:57:33 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bde6sm12026123f8f.40.2024.10.29.02.57.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Oct 2024 02:57:33 -0700 (PDT)
-Message-ID: <470c0b52-17d1-44e4-9a70-5b410ead9500@linaro.org>
-Date: Tue, 29 Oct 2024 09:57:31 +0000
+	id 1t5jR1-0000000E1yx-0Mxn;
+	Tue, 29 Oct 2024 10:26:47 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5iz9-0000000Dwxa-3ycm;
+	Tue, 29 Oct 2024 09:58:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=yxux1
+	By2rnGvzR/PFyyiJzKm2Pk7omvqYG5lZ9tl4rk=; b=DSpswal2Zm/aheRuKJx2V
+	fS5U4Lryow77QLGUaBTOAcI1SHQp6riOHVMLGgrN8osMeNTcNMaBwWwq7T9Nq/G2
+	EyMAgoR+c65Ip0C86iOfkU+wW4r7wGuvbHmmWjUfzAwgnHNe+ux3BUGBrSL+qk+N
+	h69hCruroxFw6KM2BtVfgA=
+Received: from ProDesk.. (unknown [58.22.7.114])
+	by gzsmtp1 (Coremail) with SMTP id PCgvCgBn7OKZsSBncgm2Bg--.53474S2;
+	Tue, 29 Oct 2024 17:57:49 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	minhuadotchen@gmail.com,
+	detlev.casanova@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v4 13/14] dt-bindings: display: vop2: Add rk3576 support
+Date: Tue, 29 Oct 2024 17:57:42 +0800
+Message-ID: <20241029095744.391134-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241029095513.391006-1-andyshrk@163.com>
+References: <20241029095513.391006-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] mtd: spi-nor: support vcc-supply regulator
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Marco Felsch <m.felsch@pengutronix.de>
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-References: <20241027-spi-v3-0-42e81723bbcc@nxp.com>
- <20241027-spi-v3-2-42e81723bbcc@nxp.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241027-spi-v3-2-42e81723bbcc@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PCgvCgBn7OKZsSBncgm2Bg--.53474S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WrWrKFW5try7CFWkWw17Wrg_yoW8WF4Upa
+	93CF9rXry8GF17X34kGF1rCrs8XF97Aa13GF4ktw1xtrsxKrsYgw4agrn8Zr45GFyxZaya
+	9F4ak34UJ392vrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UBMKtUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQqHXmcgr44lkQAAso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_025735_170161_1A54CA4C 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20241029_025800_375759_CFDB842B 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +83,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
+Add vop found on rk3576, the main difference between rk3576 and the
+previous vop is that each VP has its own interrupt line.
 
-On 10/27/24 12:16 PM, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> SPI NOR flashes needs power supply to work properly. The power supply
-> maybe software controllable per board design. So add the support
-> for an vcc-supply regulator.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/mtd/spi-nor/core.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-> index b6f374ded390a0c0429a61dd0579204e0e98bfa1..d95427c4f4d0839c5df348eeddea59582ef99d9d 100644
-> --- a/drivers/mtd/spi-nor/core.c
-> +++ b/drivers/mtd/spi-nor/core.c
-> @@ -17,6 +17,7 @@
->  #include <linux/mtd/spi-nor.h>
->  #include <linux/mutex.h>
->  #include <linux/of_platform.h>
-> +#include <linux/regulator/consumer.h>
->  #include <linux/sched/task_stack.h>
->  #include <linux/sizes.h>
->  #include <linux/slab.h>
-> @@ -3465,6 +3466,10 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
->  	if (!nor->bouncebuf)
->  		return -ENOMEM;
->  
-> +	ret = devm_regulator_get_enable(dev, "vcc");
-> +	if (ret)
-> +		return ret;
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-This is all looking good, but please move it to spi_nor_probe().
+---
 
-All the SPI NOR controllers need to move to spi/. We stopped adding
-support for the SPI NOR controllers few years ago.
+(no changes since v3)
 
-> +
->  	ret = spi_nor_hw_reset(nor);
->  	if (ret)
->  		return ret;
-> 
+Changes in v3:
+- ordered by soc name
+- Add description for newly added interrupt
+
+Changes in v2:
+- Add dt bindings
+
+ .../bindings/display/rockchip/rockchip-vop2.yaml    | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 2531726af306b..a44964b6c36a0 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -20,6 +20,7 @@ properties:
+     enum:
+       - rockchip,rk3566-vop
+       - rockchip,rk3568-vop
++      - rockchip,rk3576-vop
+       - rockchip,rk3588-vop
+ 
+   reg:
+@@ -37,10 +38,14 @@ properties:
+       - const: gamma-lut
+ 
+   interrupts:
+-    maxItems: 1
+-    description:
+-      The VOP interrupt is shared by several interrupt sources, such as
+-      frame start (VSYNC), line flag and other status interrupts.
++    minItems: 1
++    items:
++      - description:
++          vop system interrupt, such as bus error, and vsync for vop version under
++          rk3576.
++      - description:
++          independent interrupts for each video port, such as vsync and other video
++          port related error interrupts.
+ 
+   # See compatible-specific constraints below.
+   clocks:
+-- 
+2.34.1
+
 
