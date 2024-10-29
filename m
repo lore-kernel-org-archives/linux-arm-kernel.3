@@ -4,127 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825B5D3A67F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B68CD3A67B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVarP6PjU9eb6xoU6oTub3mnCxBAu8wX1kKk0MQH4yQ=; b=BBb9ihZfRNXcii/wZ5GGXusLz6
-	XKYckUgWPiGcPzgpCruW007D6NiLS20ybQZ2guzDv3CXQ5AwL9wvrybc2EGlfsyBSUyY+1+RqTUML
-	/MjztKzWXIcYsFYOSwijQNxJgzyjrZEpfeR5JZug6VjZFyOP4FvE+1ccX5ut/pGkGw4D7BsHBg5zN
-	6+5gKRCyM4Opb9RtxoZpChgFqgnTwKQ40LDOiIVpfmsBL9rfu/w87r3Ve0vSOGeSrR6pLzv+VEMKX
-	GyHwTDgoL2Erylwd/sVR7Kcmv0eq/vjoRlr8id/Ah8yWzQi/7dIyQRo9zKdrKvzCgXcZf6vqsgXVk
-	bH4yQKvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LqW3jaG/bt4ycnq/0fpYN97zEHChSP+Wv6VyTR7B5Y0=; b=HReCA9kLeSiaWcIBv61zEDlSEy
+	5GcsDNg0rONxavcai8ahdLQM1L/uV1HcHl/5h6nzvBDflPSrp5+aWucyldBE9IlRYkJQlRA/YzZ4q
+	YhrhpsoS33LA5mEJcD7TJNHKMFfHfs/6a5K6qHW1tWL7kZOlnYUkn3nRtwynCUocZgsrqhKAcGyXR
+	KjbLrRDVLra/EGwLPPjQOsp1Kmq/E3uNJfFiE34Bs7ba7D96brMngnYX3fQyWzZKFOwRITV+ZRiuJ
+	2cpPS139O7iDIYklOysX5YMEyiwqpEzMfO+17W/evltYVnlipfv02qIpPKtzkXtPfqnKBiRZVF+04
+	e7OyR2GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rDh-0000000FWhH-3X7g;
-	Tue, 29 Oct 2024 18:45:33 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1t5rDu-0000000FWpV-33H9;
+	Tue, 29 Oct 2024 18:45:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ohO-0000000F3HH-3E0N
+	id 1t5p12-0000000F6mf-0cpI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 16:04:04 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3e5f9712991so2952319b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 09:04:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1730217841; x=1730822641; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=NVarP6PjU9eb6xoU6oTub3mnCxBAu8wX1kKk0MQH4yQ=;
-        b=R92fGy3pm/JglxfOz50OsAWpYJ+zMM+LTM52UHTYLuFBHrBVXhapuB6gHAzGWKyFza
-         7OSJgTWo35yfFvBu87HShMY43OmtWZllfocvvWjx4drgoI+Sy0mFgqQUctfLPpbstMmg
-         edFEnY9U123kFFV5zPtXClY6d4S3mqX3N2tb8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730217841; x=1730822641;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NVarP6PjU9eb6xoU6oTub3mnCxBAu8wX1kKk0MQH4yQ=;
-        b=e7DRo3Wkm+tI3AkWT+pUXHJf9+qqIoEAEDrXKjHWMECuhlvru+YWrMpCB9KFNab0vS
-         sB1SsISOmWf61e8SczFOZMiEt5dJAIBgF3HDc1iJq+HxiDDjoA8gj54l1W/oOkZN2MVG
-         RgjygyLUyZyPy4vuz6pi36zIkp0GMwzSIVQB22haP+NA1wXUJJc2kkUiLjCLZdN+rhw+
-         tNtf0lDGkhk9KfzNLTSs9Ky1w+rhPFfAF6W+jc2wqoZx4nSgOt4CWMivS1U7aIfWZ0yd
-         p18rwMan18EsYals9eZYDDBGYdvW+ORp2EvN0u0tkd0ysiBrtpCFZA1S5EfDOjhI7bTT
-         0egw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzzD2dcFT57SxC/RoLBPrtxp90F192j1NTaUanMSKBPySmLM+TqaMLhSWoBskICJCekhEBd0X8eyDqnCPqPj5o@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUSzW2pe2x0oS6lz1nBm97zIQrQwWj2IQs/ICp58B92qHWLot7
-	9v6gfLd8oOu3qsHCBDIJc/g0WwpVwfNr5dWh0ZKJwdBZ2u0poeODtGmoUcqhIg==
-X-Google-Smtp-Source: AGHT+IHDW02jORThNkphPVR5nYXaCzOIi29r7kEzU4Ib558j11YspqnCbtEZ+pfyDZ8Qps0FYb9L7A==
-X-Received: by 2002:a05:6358:3997:b0:1c3:d00f:fffb with SMTP id e5c5f4694b2df-1c3f9f8173fmr492234355d.27.1730217840455;
-        Tue, 29 Oct 2024 09:04:00 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d179a5660asm42888206d6.140.2024.10.29.09.03.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Oct 2024 09:03:59 -0700 (PDT)
-Message-ID: <c623075c-fd80-4312-90ba-4f8a3c3f56f9@broadcom.com>
-Date: Tue, 29 Oct 2024 09:03:57 -0700
+	Tue, 29 Oct 2024 16:24:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C4442A42E7B;
+	Tue, 29 Oct 2024 16:22:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB128C4CECD;
+	Tue, 29 Oct 2024 16:24:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730219058;
+	bh=NOaPvxkToVhU79onE/sW9k0JS2iIC2jJuOMIw51wRx8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s9/1Oxfn14anXZ89hpcXZKgHXYYEUz+zOs6G3JukRct4h9UUAAeHvuqCn2wcU6xQO
+	 /p9IMc4V4mxQFujNSk6RKXn81xudvQDuyQn6u8V2TY/G4ecSFJUACMAUqrPotEmLGi
+	 vhHrURVNY6XRelm/0OaJMAuC5TdJgeZiiMBNWdM6TKEezYODxnh0c4k0n4jvJOyred
+	 /YK6+zhm8BjAYC8ZkZqWcG2p2p5nWHt18sxfI0330+OuAIiNPAbRQ5MU+adiQ0wnY0
+	 935VVRbOXo6IbMnVXXmjJTe8AS7StekkfYConmC3zBoEDTXa9IXaGaoNIGjUxAZHTB
+	 vAn0KPxx9ElRA==
+Date: Tue, 29 Oct 2024 18:20:22 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Jan Stancek <jstancek@redhat.com>
+Cc: Zi Yan <ziy@nvidia.com>, linux-mm@kvack.org,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Jonathan.Cameron@huawei.com, dan.j.williams@intel.com,
+	David Hildenbrand <david@redhat.com>, linux-tegra@vger.kernel.org,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Subject: Re: [bug] aarch64 host no longer boots after 767507654c22
+ ("arch_numa: switch over to numa_memblks")
+Message-ID: <ZyELRjoDLmHeVvSR@kernel.org>
+References: <CAASaF6zxBr2J_-eESQQXCRxOgy4RsuxG0te7d-wOz9d2YXj5Fw@mail.gmail.com>
+ <525593F0-1AA8-4BCB-9B6D-630505C49F10@nvidia.com>
+ <CAASaF6z7PtNFs1YwohT6N+AXdKx0+h87wiimx18Pod1vDfaBYQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: pwm: brcm,bcm7038: Document the
- 'open-drain' property
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <f.fainelli@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- "open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>, justin.chen@broadcom.com
-References: <20241012025603.1644451-1-florian.fainelli@broadcom.com>
- <20241012025603.1644451-2-florian.fainelli@broadcom.com>
- <20241015163200.GA1220909-robh@kernel.org>
- <252b6f39-3b06-43b7-b227-1c29c1c12bd5@gmail.com>
- <7aok7zs7whxfg3bhv7koxfxq6qhgv34b7kg3mh526z2cf7e23l@ffbsxqdqjis3>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <7aok7zs7whxfg3bhv7koxfxq6qhgv34b7kg3mh526z2cf7e23l@ffbsxqdqjis3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAASaF6z7PtNFs1YwohT6N+AXdKx0+h87wiimx18Pod1vDfaBYQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_090402_902177_C55B1E30 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20241029_092420_346019_F35BD17E 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,41 +79,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/29/24 03:44, Uwe Kleine-König wrote:
-> Hello,
+On Tue, Oct 29, 2024 at 04:43:39PM +0100, Jan Stancek wrote:
+> On Tue, Oct 29, 2024 at 4:07 PM Zi Yan <ziy@nvidia.com> wrote:
+> >
+> > +tegra mailing list and maintainers
+> >
+> > On 29 Oct 2024, at 8:47, Jan Stancek wrote:
+> >
+> > > Hi,
+> > >
+> > > I'm seeing a regression on Nvidia IGX system, which no longer boots.
+> > >
+> > > bisect points at commit 767507654c22 ("arch_numa: switch over to numa_memblks").
+> > > It hangs very early, with 4k or 64k pages, with no kernel messages printed:
+> > >
+> > > EFI stub: Booting Linux Kernel...
+> > > EFI stub: Using DTB from configuration table
+> > > EFI stub: Exiting boot services...
+> > > <hangs here>
+> > >
+> >
+> > Is it possible to have earlycon output? It is hard to debug without any
+> > information except kernel fails to boot.
 > 
-> On Tue, Oct 15, 2024 at 10:07:10AM -0700, Florian Fainelli wrote:
->> On 10/15/24 09:32, Rob Herring wrote:
->>> Another thing to consider is for any PWM controller with more than
->>> 1 output, you might want this to be per output and therefore should be
->>> a flag in the cells.
->>
->> Yes, that is a good point, this controller has two channels, so it seems
->> like increasing the #pwm-cells might be the way to go.
-> 
-> So the idea is something like:
-> 
-> diff --git a/include/dt-bindings/pwm/pwm.h b/include/dt-bindings/pwm/pwm.h
-> index ab9a077e3c7d..d18b006a7399 100644
-> --- a/include/dt-bindings/pwm/pwm.h
-> +++ b/include/dt-bindings/pwm/pwm.h
-> @@ -11,5 +11,6 @@
->   #define _DT_BINDINGS_PWM_PWM_H
->   
->   #define PWM_POLARITY_INVERTED			(1 << 0)
-> +#define PWM_OUTPUT_OPEN_DRAIN			(1 << 1)
->   
->   #endif
-> 
-> and then add support for that to the core and drivers? There is some
-> intersection with pinctrl (depending on hardware). I wonder if
-> abstracting this somehow using the typical pinctrl properties would be a
-> saner option??
+> I know it was a long shot, so far I haven't had luck getting it to work.
 
-But what if the pin is not managed by a pinctrl provider? I have started 
-going the route of implementing the PWM_OUTPUT_OPEN_DRAIN bit as an 
-additional specifier in the #pwm-cells, but I am not sure to what extent 
-this should be allowed to be changed at runtime.
+Does it boot with numa=off and numa=fake?
+
+In the log from successful boot it seems there is no NUMA information in
+the device tree, can you send the device tree as well please?
+
+> > Since the previous commit boots and I assume both kernels are compiled
+> > with the same gcc toolchain, this should not be caused by the binuils
+> > bug in 2.42[1]. Is your binutils version 2.42?
+> 
+> Yes, both are compiled locally, with binutils 2.41
+> 
+> >
+> > Thanks.
+> >
+> >
+> > [1] https://sourceware.org/bugzilla/show_bug.cgi?id=31924
+> >
+> > > Here's a log from successful boot with previous commit:
+> > > https://people.redhat.com/jstancek/aarch64_numa_boot/console-log-good.txt
+> > > and config: https://people.redhat.com/jstancek/aarch64_numa_boot/config
+> > >
+> > > # lscpu
+> > > Architecture:             aarch64
+> > >   CPU op-mode(s):         32-bit, 64-bit
+> > >   Byte Order:             Little Endian
+> > > CPU(s):                   12
+> > >   On-line CPU(s) list:    0-11
+> > > Vendor ID:                ARM
+> > >   BIOS Vendor ID:         NVIDIA
+> > >   Model name:             Cortex-A78AE
+> > >     BIOS Model name:      Not Specified Not Specified CPU @ 0.0GHz
+> > >     BIOS CPU family:      257
+> > >     Model:                1
+> > >     Thread(s) per core:   1
+> > >     Core(s) per cluster:  12
+> > >     Socket(s):            1
+> > >     Cluster(s):           1
+> > >     Stepping:             r0p1
+> > >     CPU(s) scaling MHz:   100%
+> > >     CPU max MHz:          1971.2000
+> > >     CPU min MHz:          115.2000
+> > >     BogoMIPS:             62.50
+> > >     Flags:                fp asimd evtstrm aes pmull sha1 sha2 crc32
+> > > atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp uscat ilrcpc
+> > > flagm paca pacg
+> > > Caches (sum of all):
+> > >   L1d:                    768 KiB (12 instances)
+> > >   L1i:                    768 KiB (12 instances)
+> > >   L2:                     3 MiB (12 instances)
+> > >   L3:                     6 MiB (3 instances)
+> > > NUMA:
+> > >   NUMA node(s):           1
+> > >   NUMA node0 CPU(s):      0-11
+> > > Vulnerabilities:
+> > >   Gather data sampling:   Not affected
+> > >   Itlb multihit:          Not affected
+> > >   L1tf:                   Not affected
+> > >   Mds:                    Not affected
+> > >   Meltdown:               Not affected
+> > >   Mmio stale data:        Not affected
+> > >   Reg file data sampling: Not affected
+> > >   Retbleed:               Not affected
+> > >   Spec rstack overflow:   Not affected
+> > >   Spec store bypass:      Mitigation; Speculative Store Bypass
+> > > disabled via prctl
+> > >   Spectre v1:             Mitigation; __user pointer sanitization
+> > >   Spectre v2:             Mitigation; CSV2, BHB
+> > >   Srbds:                  Not affected
+> > >   Tsx async abort:        Not affected
+> > >
+> > > Regards,
+> > > Jan
+> >
+> >
+> > Best Regards,
+> > Yan, Zi
+> >
+> 
+
 -- 
-Florian
+Sincerely yours,
+Mike.
 
