@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E113D2AB37
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB35D2AB37
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tS5coFjCL1GpMVLn+Jt4VDJfqi7WRWtEsSocGUBw08=; b=gr82+cCVZ8Ry2LRpD6S/6xv8MA
-	ZVqnbR6JFkoSxnIX2/7CPGb40P5d2Z5TdhPJlsDXz2WrSexe3wqCTeSqHa4zr7s+Td+UWN62wp0SR
-	buZHQ56EH8+ZsfGck/k74rPbZ0VMGo8KVA9x+Cb5q79kPnH5OEE+wehKvNbvmu18DTqQ0PSHxrcT+
-	Tj4PymN06y0jb8hqSqMqiCzICW085rIUVeNYVYWk4J9q1VWmNoV2q3vDW9TQWXmjdFOgAphVcP7LY
-	XZ1gZZ/Lztr3lj/1EovzQaAGNblwpNInFFMpIo46YZigTxABX56/naYQjJWBUtPG7cb46CC+Hfybx
-	U8Biq//w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MSSENdvMyuzo91ZSJkXGlvut0qguBDSstRfo6W1iEF0=; b=UeujvMgLxSM3nADl9rzXyEEXgL
+	ZTmjZ/YPq5Q3lZi7lnWJ6C3hnZ2OBTiUM9xUmvE5ux1JVwMsmNzT0VK/1YXQ1nEaczDpU2gCZmZI7
+	nER51GiWKfzdiEVrxA9FARfAuBcsuZQ44m1oecFd2KLYlN+2cBnWx2sTbvsulZfnO2FmUjOa2pdHI
+	oy7HtSUPN906y/COih68GlWLrPRe+a6h9iFmKgGAyGT4fdDDbMfS8AJb9swHNPgkYIcEHLjM8cCz3
+	tRFuRbpFMsZXJKKHBrEnJjFt3Qm29RRd9CcJKcRP6ut8LtvDkDvggbOAWMDe6jh5c9slMPmn/dciq
+	+0VlyHDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lNq-0000000EPcL-156o;
-	Tue, 29 Oct 2024 12:31:38 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1t5lPP-0000000EPlD-1RAC;
+	Tue, 29 Oct 2024 12:33:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5knu-0000000EIqG-44gE
+	id 1t5kvs-0000000EKHw-2dQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 11:54:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id ABEE71C000F;
-	Tue, 29 Oct 2024 11:54:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730202869;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+tS5coFjCL1GpMVLn+Jt4VDJfqi7WRWtEsSocGUBw08=;
-	b=huzUNewiNqRNpYVxzTQz2brPQBEvqJ336v2olcaL11JZm6/5Fv4aL5763Yhrc8kFLuC/TV
-	ZPwh6Ha646K5kOCSinR1GdTqimRx6oiEr+rvXtFIDx0vr8XNq9B106KDfjbbAoEsb4ZBv/
-	Vdr9j9WDpHWWFT7FO+QrHOZsGomBO5uurm5r50HLfeBlny1ATcMK6MEyecw8dqVBQJ6ZbJ
-	CcS8SoHfGm0/j51F26uWN9Naou2W4aPojedCDaVyyEYOy/NWvnoRvbA4CrVq2H3OoUG4Qm
-	BNKCsvWzLUJfhr+bIAQbybLsE96hJaOUrPQ9Y+8pAEmcJ9ECWPS+1mUaktiutA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 7/7] net: stmmac: Don't include dwmac4 definitions in stmmac_ptp
-Date: Tue, 29 Oct 2024 12:54:15 +0100
-Message-ID: <20241029115419.1160201-8-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
-References: <20241029115419.1160201-1-maxime.chevallier@bootlin.com>
+	Tue, 29 Oct 2024 12:02:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=MSSENdvMyuzo91ZSJkXGlvut0qguBDSstRfo6W1iEF0=; b=vs8YLYaTD7EC7DDmaI+9D04Lry
+	WDkFRZQrLIEyJjIyx5G9C8b09fOunqRWJxscl30npec/cQWx10fqwvAssc7Lreg/wOCs5p2xRFPUn
+	jfES/jYg44wJP1yZMqcQMs3UZiY6JKNr4NPLzw3bBBJeSOilfPa+pCyc99OTft5ALLG8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t5kvL-00BZ9M-Rt; Tue, 29 Oct 2024 13:02:11 +0100
+Date: Tue, 29 Oct 2024 13:02:11 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: jan.petrous@oss.nxp.com
+Subject: Re: [PATCH v4 04/16] net: phy: Add helper for mapping RGMII link
+ speed to clock rate
+Message-ID: <cf51e433-4622-498a-8754-60b220cb6aab@lunn.ch>
+References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
+ <20241028-upstream_s32cc_gmac-v4-4-03618f10e3e2@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028-upstream_s32cc_gmac-v4-4-03618f10e3e2@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_045431_170204_06FC48AB 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20241029_050244_685506_66A6DFD9 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,30 +65,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, "Russell King \(Oracle\)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmmac_ptp code doesn't need the dwmac4 register definitions, remove
-the inclusion.
+On Mon, Oct 28, 2024 at 09:24:46PM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> 
+> The RGMII interface supports three data rates: 10/100 Mbps
+> and 1 Gbps. These speeds correspond to clock frequencies
+> of 2.5/25 MHz and 125 MHz, respectively.
+> 
+> Many Ethernet drivers, including glues in stmmac, follow
+> a similar pattern of converting RGMII speed to clock frequency.
+> 
+> To simplify code, define the helper rgmii_clock(speed)
+> to convert connection speed to clock frequency.
+> 
+> Suggested-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 1 -
- 1 file changed, 1 deletion(-)
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 430905f591b2..429b2d357813 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -9,7 +9,6 @@
- *******************************************************************************/
- #include "stmmac.h"
- #include "stmmac_ptp.h"
--#include "dwmac4.h"
- 
- /**
-  * stmmac_adjust_freq
--- 
-2.47.0
-
+    Andrew
 
