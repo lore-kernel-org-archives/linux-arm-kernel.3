@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963F2D2AB11
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E023D2AB11
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0Jn+m07xtUdX4LrdEUa9cQnczW6HMipQ/zu88pmCus=; b=uCnvROAWUZTq67/+gmEcCLQzxp
-	RXqu8VFqWRl9OShFYs2t7jkU8HVZhblQ58gC2fbGCJ1rW16WmY7ozaq3KDIHHJBgISiqrV3YvvqX3
-	79c2G5EpigC7/oM6zv3YLKWN+mzTJ0krh+DBcNaAoZGjVvDAlKikQ932V5BuCGYoBJpr+cxKqBS59
-	hKt6vyrzfAj1/pHvhbmEieA3lj/1tW+2x10GR91hA5Mxy+kTc+AxA4sfN3Q2d6BkAUNVk6vh1y+n8
-	1mPqqOgkj7S+Z8eiKqkpnHhxCYQBy5fjRh/91msHRGvndewv2j6X9fHeyI+DFZ57jb09EwDfEDMVd
-	YHFQM9eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g6mNmnA+3zD3VXgcXa2JPYzkgBJlVylyUbwO1GM9Tpk=; b=3UWNuitdiRoyjVsBBBgz2rCj07
+	Qf66VBPuJtf4MwlXdr3gIoPk7qqKSxtYzVfOvUhHGUCeklW5c7vMSMx/6QYT7JVPzeNbBzULyAQfk
+	6rHY7VyZWwrjVlVsKuNQ+NiEA3VkyZbhHu2LBb0J/Xpqv5mR2WWRPtQXtIej7SvOjS5pTUfxyeO1D
+	qI0Ts/CmkqHxkpt1zhfV09OGEWFuzIv0J0K3aXxfcrPw2cEzuNwkvMnMXhF9cX+Z4AZUGnXk4/zwa
+	Bhy6V9JL4HbmiSp83on2A+QJFynT/bFlJlPvxEdOKPN6j6sFXwTrRJ+KdD7+eEtX2v7NWaIajbCQF
+	ZVwNSxFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ivd-0000000Dvto-3zaS;
-	Tue, 29 Oct 2024 09:54:21 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1t5ixK-0000000DwPB-2uth;
+	Tue, 29 Oct 2024 09:56:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5isU-0000000DvRe-2SVI
+	id 1t5iuP-0000000Dvmm-3i4Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 09:51:08 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPV6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1t5isG-0007ky-Lq; Tue, 29 Oct 2024 10:50:52 +0100
-Message-ID: <4addc413-dd13-4867-8c49-45539af7b45b@pengutronix.de>
-Date: Tue, 29 Oct 2024 10:50:51 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: imx6sx: Remove fsl,imx6sx-lcdif fallback
-To: Fabio Estevam <festevam@gmail.com>, Andreas Kemnade <andreas@kemnade.info>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>,
- Marek Vasut <marex@denx.de>, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20241028180844.154349-1-festevam@gmail.com>
- <20241028180844.154349-2-festevam@gmail.com> <20241028194728.0655edd3@akair>
- <CAOMZO5APJM57_ixBiRFZSZex3AiawA=mtqMszdGezVoajaXYhA@mail.gmail.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <CAOMZO5APJM57_ixBiRFZSZex3AiawA=mtqMszdGezVoajaXYhA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Tue, 29 Oct 2024 09:53:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 125B1A426D3;
+	Tue, 29 Oct 2024 09:51:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87334C4CEE5;
+	Tue, 29 Oct 2024 09:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730195584;
+	bh=vZu3Y+gm5F+VIBw03jQztcvHM7LiYqKFizTqxU955Xk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=VPxWaef+pybwWPn7XQV30Ri/u7eMwapwXD7qC3Ef8V+QVWg8hdhf12LXLS9bE/Y20
+	 E5TtYHnDCUDNmANzk5lwU+dP3e/rpuwbZKnH+aSY+kV61blqTKkYmDtiDjOdmn2pTb
+	 v32vHWSFOqjiQaE8XpZcbKm3Mss/SqTHR5LD1LXS1Dze66MxrXqwHQDYpnaSrfEPd9
+	 zTF85rMJ5VY2S6cB1Na4u0GGQvUK7yoTNK1NADrLg2Sf9yK+2duhmp6jlK8pn/1qn0
+	 lGo4KfnuwvQa16Ix8WvHEz6SporVDb0Iou/G9FqGhDIIiqsb4cPlfV6iqVzQR8kBLV
+	 H+ORQ769SXJ2Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t5iuM-007rjq-6S;
+	Tue, 29 Oct 2024 09:53:02 +0000
+Date: Tue, 29 Oct 2024 09:53:01 +0000
+Message-ID: <86bjz32q2q.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: puranjay@kernel.org,	Arnd Bergmann <arnd@arndb.de>,	Arnd Bergmann
+ <arnd@kernel.org>,	Alex =?UTF-8?B?QmVubsOpZQ==?= <alex.bennee@linaro.org>,
+	kvmarm@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,	Sumit Garg
+ <sumit.garg@linaro.org>,	puranjay12@gmail.com,	Oliver Upton
+ <oliver.upton@linux.dev>,	Suzuki K Poulose <suzuki.poulose@arm.com>,	Joey
+ Gouly <joey.gouly@arm.com>,	Zenghui Yu <zenghui.yu@linux.dev>
+Subject: Re: Supporting KVM_GUESTDBG_BLOCKIRQ or something similar on ARM64
+In-Reply-To: <CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com>
+References: <mb61p4j4wwlap.fsf@kernel.org>
+	<86ed4031zh.wl-maz@kernel.org>
+	<CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ardb@kernel.org, puranjay@kernel.org, arnd@arndb.de, arnd@kernel.org, alex.bennee@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, sumit.garg@linaro.org, puranjay12@gmail.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, joey.gouly@arm.com, zenghui.yu@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_025106_649988_5B73D743 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20241029_025306_071982_79C888D1 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,56 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-[Cc += Marek, who maintains the Linux driver]
-
-On 28.10.24 20:48, Fabio Estevam wrote:
-> Hi Andreas,
+On Tue, 29 Oct 2024 08:52:41 +0000,
+Ard Biesheuvel <ardb@kernel.org> wrote:
 > 
-> On Mon, Oct 28, 2024 at 3:47 PM Andreas Kemnade <andreas@kemnade.info> wrote:
+> On Mon, 28 Oct 2024 at 12:23, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > > Let's start a discussion about what needs to be done to support this on
+> > > arm64.
+> >
+> > A good start would be to define the semantics of such a flag:
+> >
+> > - what should it affect? the vcpu you are single-stepping? all vcpu?
+> >
+> > - should userspace to know that interrupts are pending?
+> >
+> > - should this result in any effect on the guest's view of time?
+> >
+> > - what of interactions on the rest of the system (such as devices)?
+> >
 > 
->> As the devicetree might also be used with other software (e.g. u-boot),
->> this might break something.  So if u-boot (or any other software) does
->> work with fsl,imx28-lcdif because it only uses a subset of features of
->> fsl,imx6sx, it might be worth changing the binding instead.
-
-Thanks for raising this point, Andreas. I think it's important to adjust
-the binding's compatible list binding if need be to avoid breaking DT
-consumers.
-
->> Same for Patch 1. But I cannot test that and do not have a strong
->> opinion here.
+> Sorry to give a handwavy answer here, but approaching this from a
+> usability PoV (like what Puranjay is doing), it is really about
+> adhering to the principle of least surprise for the user.
 > 
-> U-Boot would not be broken after these series:
-> 
-> https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/video/mxsfb.c?ref_type=heads#L388
+> So in that sense, it is not really about blocking IRQs at all, as long
+> as we step over them rather than into them. How that is achieved is
+> not that relevant from the user PoV, and maybe KVM_GUESTDBG_BLOCKIRQ
+> is not the right solution for ARM at all.
 
-The barebox driver only matches against fsl,imx23-lcdif and fsl,imx28-lcdif:
-https://elixir.bootlin.com/barebox/v2024.10.0/source/drivers/video/stm.c#L579
+I definitely sympathise with the goal, but there is no simple way to
+let interrupts through while stepping (which is what your "step over"
+implies):
 
-The MXSFB IP appears to be completely backwards compatible. Otherwise the
-i.MX6SL/i.MX6SLL integration of it wouldn't have worked as it used to match
-against imx28-lcdif so far. Checking the Linux driver, the differences to
-the i.MX6SX also look like they are not backwards incompatible.
+- the hypervisor (in general) doesn't interact with the guest delivery
+  and handling of interrupts -- this is either very opaque (list
+  registers) or completely invisible (direct injection)
 
-On the other hand, Linux users may start to make use of the new features
-that aren't available without having imx6sx-lcdif in the compatible list,
-like the overlay plane and the CRC32 functionality.
+- replacing the step with a breakpoint after the stepped instruction
+  requires us to decode the guest instructions to handle branching
+  effects
 
-With an eye towards improving device tree stability, I think it's more
-appropriate to adjust the binding to have three compatibles instead.
+One possible mechanism would be to:
+
+- while stepping, add breakpoints to the interrupt vectors for the EL
+  we are stepping (3 breakpoints for any of the 4 possible exception
+  groups),
+
+- when any interrupt breakpoint hits, clear all 3, place a breakpoint
+  on the instruction that was about to be single-stepped (pointed to
+  by SPSR)
+
+- run to completion, until the breakpoint hits
+
+- disable the breakpoint, reinstall the previous 3 interrupt
+  breakpoints
+
+- single-step, rinse, repeat
+
+But then I'm asking myself the question: why is this KVM's job? It
+seems to me that this is what an external debugger would do when
+interacting with HW on bare metal.
+
+So can we implement this as part of the debugger's state machine?
 
 Thanks,
-Ahmad
 
-> 
-> 
-
+	M.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Without deviation from the norm, progress is not possible.
 
