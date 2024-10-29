@@ -4,200 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D67ED5B166
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A2FD5B166
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELoQ5y4zSAyA6qHpg7Zmc39dkMS/Bde1hDvCJIWYP3I=; b=LAV0EqoWDKpZtOTMCyAsInUOi1
-	kwwDFwRbhUk7Z2zYpVgEPvgfrRHwXKffyQ6DWSIQk48o18SjQatWeHaan9pw4zOcVswC2DY7XZ1hj
-	2k5+X9Gh76OobRjo49GAhOGQSnQliRtips5wCy1lCZvvCr55CqHaInmVjNwTZOG1FrS7iiTpUr9xQ
-	Y9OzigM+eMWfP7OX0G57A1lboWdt9fy6UnjxBkIdDshFEXE0oa9kDqQ7BmbKOCQO2xuq/qvHBU+gK
-	db1zVL6jVyKX3KQZr8lygLdJNGcRi8iTGCxCqeQ+5MhZrvBpErNXKexZP7Ow1wa6wES3oqliWUkBE
-	RGibtWFw==;
+	bh=f2zXkB1k96f0cFV7oh8D3tIGindJppO8RN6kzrT2aOQ=; b=1CDi7nIS278i/YzsjicdpYxwQj
+	eCzW64qpqxnXoNcaHdoG4v2dg1F/uKbMHZIVm3AljSwuuuqC31tG27j+OkkPBVnu7SJ4jvodh5Gpi
+	iBT2p2AfM409ePeD52Wa7J1cMqtBjygoQfOUZBPIG9sNB/lsqM4vMJeSkVgRTGKkRmTDZ8wx5MEvi
+	1AoAyWXm6El3QR6RIPdIot2xwpdTbwNFK3PL/le5CPfqaCCGYQU2+7wIzB2GID/STtQWdlxsthtTt
+	7bw0pQ2TKPcT1VYVT8apBoGsWEgf2WfbEMPnp8RR2mlPB7VN/xNGBXW3fmyk4p/9NYaMgc/F1XA3/
+	h7ekIl2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hUz-0000000Df4M-40Es;
-	Tue, 29 Oct 2024 08:22:45 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1t5hXG-0000000Dfks-3dsa;
+	Tue, 29 Oct 2024 08:25:06 +0000
+Received: from mail-sg2apc01on20729.outbound.protection.outlook.com ([2a01:111:f403:200f::729] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hS8-0000000DeZ7-2gzZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:19:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730189989; x=1761725989;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=ELoQ5y4zSAyA6qHpg7Zmc39dkMS/Bde1hDvCJIWYP3I=;
-  b=Bbp6LdlYHSWTXEw+NICFajOFgI9bNUUy0FdzY2Df9Coz5wMG5h5BFIwf
-   TKbbqYHZ2J/wkT5vvJnXyPMWiJtNKufzuGeAgsbxkCzLwarB1BWxP/mIP
-   M6Ei20lSm+1nX3PBSae8/rLJRWM+1jni/ZcsyHO5ZWiphLJ/29kzCaQ1o
-   KS10WJltIObJYapE7C/PrcWJ5UzbFVbfFghJDWiTRa1KEvXzk7gMbyAJQ
-   G5YN1VE6rcmV+E98nY6jp5czGUmKE658/uNkhQVHL0ZDPFwnvi8nvCcSk
-   Pce//wur72kYjK8jp42ntUPUs1H7vPkculIkMdPcjb3MckKujjqIbGWL+
-   g==;
-X-CSE-ConnectionGUID: bW+iyd4tQS6luFZ9rfCEFA==
-X-CSE-MsgGUID: lQ5iKnFHTgW4dMU8oCAfSw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11239"; a="29244910"
-X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
-   d="scan'208";a="29244910"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 01:19:47 -0700
-X-CSE-ConnectionGUID: DbcTJLMyT5igZHdi5r+2Uw==
-X-CSE-MsgGUID: UbgvhlBAT5anFQzi1UlZ2w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
-   d="scan'208";a="81813710"
-Received: from fmsmsx603.amr.corp.intel.com ([10.18.126.83])
-  by orviesa009.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 29 Oct 2024 01:19:46 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 29 Oct 2024 01:19:45 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Tue, 29 Oct 2024 01:19:45 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.42) by
- edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 29 Oct 2024 01:19:45 -0700
+	id 1t5hV4-0000000Df4N-0QcP;
+	Tue, 29 Oct 2024 08:22:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gBzFIWti2dVNWwiItJ8dg7wTVRz0z+KK17VuSR+gMI+PW5WEi3GkNH3j6E5MRJ3A4p9atqF4uOanfR5qw6qKUiPAn2b/knJPffLSxVqiV5Eqj/bSZEiKarVsUcnblVHGFQt4jLzcNiZHIeBv0Lg/569PxlqTmvHT+4GVviqHPodPZFCwaSbzody2Sl17P491X6UgLVLFHKgPadce4BD5KktX/vRc1dpQZm/fcnER5WAk0Bys4PGFOiAv+mV0zHGabqI1CkRr5Unw59KlXmxEGrnc+2olbWFmW9KV+lBIjArKCZjDKBPRjMa1x3RiAOkPWctX7TK7a1DUGujU/dfAoA==
+ b=mfwgKJk7kRKGUUrGwIUabPgeGPKrl8RjkHlvGbsSZ81R/hhBO6Q3BBlJXHDEN0nwLGTj2gGO8PTSAhw+ZHS4sEBc/VQ8c3jZCc50sPZUq+y01OeVm/4QRJB7AsTbgdHf7zDqePxa5qQt2MbDjgMSP9R7n1CGpItp9fwjYSXNevAHt22aMtLpTaBdy6IrwxhKb9q2P14OvTJEYc4D8tIwBgQbhO4YaDVQnN1CI3Df1MjS20p8i3yjxkjBN7MC+QaqvtwIl/s/DtvLGCl846x4PT7HruAAdizPPL8zeYMvn+Jqkpw6PTd207NJAJIAH0uvAm+0+QfpnIIFMs9bxb031Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ELoQ5y4zSAyA6qHpg7Zmc39dkMS/Bde1hDvCJIWYP3I=;
- b=MIb9r7Mf+bk0TXHv9GuifKQwW1NqWjO8h5SC8PCs7zpW9+V1Soa7Q2w5AXlYa1jDcBy+aPXhEqlu8anssqyiji1dJs1ZqIQrxWL76AxoJeV76basYYjzjGrEVzejBGpUak9mMOmW3RkmHGMBw5yzpyvApkxKLE0Fepfo6C6gAnzswL9kDW9yRLUV0+jD3kLXOQq5OrpLuJ+wrvM+And/3IHLRv2cwGIKmu57cZw7mUHJx9yTpx35YSFalM/EIfgOpvCnrWNpsxacRxnixamZFagOHJTgeYdlNkxGXB8z2RPL4XFhx+VmcnD7frmiyxcqWfm21ehHypRQINlHNIM29A==
+ bh=f2zXkB1k96f0cFV7oh8D3tIGindJppO8RN6kzrT2aOQ=;
+ b=vDnn9aYNRcE81y/KCrJauEgWCErnoQQrDuo1CmUae0tS9ncOdWx24Qn8XL/NHaE8gmfCv7Ozxf1XuKeGk7bAtqDOxSmIQifEbA2dn3I676UgF9lXxEYFwMHZkULcqrsUM55QzAiRlPZBg7u8sGwCh/nx5uMAAmPzHD5kIg+3NBpb8E4Tp4TIzk6zj8B1JAEGOxr9+1PpVTq48UeGG4Rkq1b3v5F+/pcpzMHgHoIjfAjg5Q9ex4+i+NseogfrckHVqks+AbbNO6L4TxmzAehOyzTvN65SeEqIS4/5Lms/Gpfnd70DZZv6TouOToSg0A7WmGox5Mpz9y+fRFy2eYaBHA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by MW5PR11MB5785.namprd11.prod.outlook.com (2603:10b6:303:197::11) with
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f2zXkB1k96f0cFV7oh8D3tIGindJppO8RN6kzrT2aOQ=;
+ b=U1T6X1Yxswd/4a9x0FSCFcaJoc+jlaFPKBZEDg8bikYR66vqyzZZlsDh2M5A2zTmNwiJUen2T4yldarEFW0mYZQB393gUrjQ5swOBTBNQhdhYYmjSANnVLqxPskQqxM049ehkxzllJjrLwGqrhWPAoflQMKPZDjpWQk5ewVGMoQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from SEZPR02MB5782.apcprd02.prod.outlook.com (2603:1096:101:4f::8)
+ by TYZPR02MB7008.apcprd02.prod.outlook.com (2603:1096:405:2f::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.27; Tue, 29 Oct
- 2024 08:19:43 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8093.025; Tue, 29 Oct 2024
- 08:19:43 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
-	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
-	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
-	<eric.auger@redhat.com>, "jean-philippe@linaro.org"
-	<jean-philippe@linaro.org>, "mdf@kernel.org" <mdf@kernel.org>,
-	"mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>, "aik@amd.com"
-	<aik@amd.com>, "zhangfei.gao@linaro.org" <zhangfei.gao@linaro.org>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: RE: [PATCH v5 03/13] iommu/viommu: Add cache_invalidate to
- iommufd_viommu_ops
-Thread-Topic: [PATCH v5 03/13] iommu/viommu: Add cache_invalidate to
- iommufd_viommu_ops
-Thread-Index: AQHbJzjNsYUVPikDxkCKKz8wZdt0lbKdaBMA
-Date: Tue, 29 Oct 2024 08:19:43 +0000
-Message-ID: <BN9PR11MB527636EB86B125CDFAD11AF88C4B2@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1729897278.git.nicolinc@nvidia.com>
- <e4817b7c2aa58b010a1453a3db9e9804b3acf5dc.1729897278.git.nicolinc@nvidia.com>
-In-Reply-To: <e4817b7c2aa58b010a1453a3db9e9804b3acf5dc.1729897278.git.nicolinc@nvidia.com>
-Accept-Language: en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
+ 2024 08:22:36 +0000
+Received: from SEZPR02MB5782.apcprd02.prod.outlook.com
+ ([fe80::4843:bf84:bd17:827e]) by SEZPR02MB5782.apcprd02.prod.outlook.com
+ ([fe80::4843:bf84:bd17:827e%5]) with mapi id 15.20.8093.024; Tue, 29 Oct 2024
+ 08:22:35 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: ryazanov.s.a@gmail.com,
+	Jinjian Song <jinjian.song@fibocom.com>
+Cc: andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com,
+	chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	corbet@lwn.net,
+	danielwinkler@google.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	haijun.liu@mediatek.com,
+	helgaas@kernel.org,
+	horms@kernel.org,
+	johannes@sipsolutions.net,
+	korneld@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	loic.poulain@linaro.org,
+	matthias.bgg@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	ricardo.martinez@linux.intel.com
+Subject: Re: [net-next v7 2/2] net: wwan: t7xx: Add debug port
+Date: Tue, 29 Oct 2024 16:22:18 +0800
+Message-Id: <20241029082218.10820-1-jinjian.song@fibocom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <b3aab30d-7c9a-451a-aea9-6bba72fe986d@gmail.com>
+References: <20241026090921.8008-1-jinjian.song@fibocom.com> <20241026090921.8008-3-jinjian.song@fibocom.com>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|MW5PR11MB5785:EE_
-x-ms-office365-filtering-correlation-id: 042e1beb-aa6c-404c-35f0-08dcf7f27111
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?0PXTA7zFtBG1J3SmZ9fWyyYvCA8oP/YDf2hM6Fa1y3tADcZasak8ZLZk4vIJ?=
- =?us-ascii?Q?uyKf76YzCUiQw3o4Vt/bM2PcFaZ7fiFvL6YH6IRim6XefFt/D+uzZNS9WYo4?=
- =?us-ascii?Q?x0VNzWs/XgSjtqSBOVaBgp142fMQxOLkDDBtwZE934l6RC27LvUDZ6UTHrUR?=
- =?us-ascii?Q?0bb3S+vJ3LsIwgZWrc3JSmBp3tuewjcn3u1bJBfCPBjSP+KYxl2wIIACLdud?=
- =?us-ascii?Q?YwGL/AU0BF8XRnPf9T9wtKSO/yL+lmecTNFb2Y9n2APXgH9n+bpGXVgHHwGd?=
- =?us-ascii?Q?n9ONWl74Y0JrSTeH/nwK1V621KyphqpxdEJngGvQNB7OdrP+scAypVmBwdBo?=
- =?us-ascii?Q?a9TSqdm7xDnoNkuRKltIjCSaa7UW/Yr9mCfsraEA1hZ/5vQzDtAidf/f0ZOD?=
- =?us-ascii?Q?MZhqZMS19guzQU9beQbQ9K31fzu5pvLgJ/qB4mJg70HGSoVimyGrSSo5Lx3G?=
- =?us-ascii?Q?spXT1yxIGMQfII0RxMRf1QlGN15vuoNAJwnILlOK75o11cOMKHPG3kPCGwUR?=
- =?us-ascii?Q?7JOdi2In+zvhlNLs9JKGai7jg1bSKXpxxZucl0QwPvsIpl6YFwu/tkyeVIxF?=
- =?us-ascii?Q?m/4d6A4Kh5ELVwLQfIwjUjGXTptv9kltskaQ1434vycdamRZTBRvTSSXgnp8?=
- =?us-ascii?Q?P74YcvJaw/aPS4AZlFQ4TJCrbh1uyBa0OeLrjoYLy4pNO2L3ea/crLJQB46P?=
- =?us-ascii?Q?I3YrU1xMg8z82MLUHmjZCRgFrKSKgPxNuGSsar1/y95HNgwiHxwFNZ91jxIs?=
- =?us-ascii?Q?IVssoDhOsioFvSzisd1RlEGUCg9v/DDU4+qmiCS8tl1RFN+4dsT1Qb9pCG11?=
- =?us-ascii?Q?GXs0Sv+S52LzxXZaywXC642fQyNLFASL7TjruRS9FlVWRJncrA/+7jXKYA6h?=
- =?us-ascii?Q?3r88rLsqcmmJCoC51/iXDB5T4lPWu1kAHgoBbHjj2ELfTGvuk428jQUM0hDp?=
- =?us-ascii?Q?CFGuYy//fcXrJhbJXR9ZNXGlqbMjD0fGSBzjrY875/xPxGrd129QGVqyjTNf?=
- =?us-ascii?Q?vo4f1X6YdHAWZr7+CqJufmGZRN5t4Hw7ZN1tgm9qqmyxauwTZGKDuq2qw+XD?=
- =?us-ascii?Q?F47EBuhALyubiGmhDEXTE0afubap++AE+9RYJjopUov0b7Yy4iYG0fb3iB0k?=
- =?us-ascii?Q?C9VYOQ6A79PBUwuCRz/ojQJhJDef3hk16jF0uWNeO9jFwFuMlnmkFq6FyEnG?=
- =?us-ascii?Q?TPao7oorovHodxF4p6+V1NQjXHY4Td/4ZGkczQkpSU9OrssHt3Rd66RxK4TV?=
- =?us-ascii?Q?r9liHYqp5+YM2iHqfWcPuQm9vH6v3kg4WywOMbc9LBWqs02GJyRh74aeTnDy?=
- =?us-ascii?Q?C8X8y/Ymc0gzeQzvbHEQdkS6mORZZFON1dmUNFx1E4zZKyg/fBfXlZCx3pT5?=
- =?us-ascii?Q?/n7U4eQ=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?nExIxtx78luvOYP+I88IWBx7nO2t7AUG/uCp7QU9c7J3oRlgRtsv+HKtW9xY?=
- =?us-ascii?Q?/AJczlr56sEloJrWzgDerLQLG43hs7bW8XAhF2Bb/0AjfGGl1TkICSYytgj5?=
- =?us-ascii?Q?kMZncZTJ31ib6MRnu4NHanFSMkJeSrk4We41MG4IWQg3BCoPX/T3OnLevsy0?=
- =?us-ascii?Q?wb1Q+5I9I3DvSem+K3zFDA1JeDQcnZREl9GqED03kDwXcw8eoEvb6FXVK98d?=
- =?us-ascii?Q?yg71uPdmlf16pHszaW7gdZML/A4jlmBNR5htNOEQ8k5UxSrba5/jgffN62+t?=
- =?us-ascii?Q?MJFKEGlgiPjQ4tb8ljjeXjPySk3cSfU9DegXPnghvqihkz+DfPoU1ouaUk20?=
- =?us-ascii?Q?jbF8HNrlhCINWeuAyOypgsZdfPz9a/YOEJdbWOaMp/rhYPVzZRUs7Wjcz6UO?=
- =?us-ascii?Q?hVCqdc/yd8Hu3VU747o03HbvB/Gm6eIu+YEpDY9sPAe880WQj+Y+IDJBzXY5?=
- =?us-ascii?Q?oRKfqLqObFhCQlxJ2vm6KCFPHX/O+g7Noe/3HXMLXZ4mxNLiHxzMcdqYXbAz?=
- =?us-ascii?Q?+sDSM1986VcIiPgoj3GbuPOPce/Xbnayy5hEbRrPdXJVXVYTzFnDpk9idxEo?=
- =?us-ascii?Q?Myj0YQtSBOrLz+UrJJv5jf8inlgp72CC6mRcDBRNljlrB7QzzM6K/QR1dUM5?=
- =?us-ascii?Q?UB+CQFlzYI8aeGR+3F94R6vHgoOJtPThp501ezttLh8FZ7e+IY6vD0FAW4AY?=
- =?us-ascii?Q?tsUvtgepKXmFfsIYIH44C/YRbopOW5yOGxD7bywDcaRnTALY67YIb2mV4L/h?=
- =?us-ascii?Q?MrKW/e0caqP3JS+mqRIWxYzQ4PibzXNKvBazWKUY0PwA84qjt/JWLooxyM73?=
- =?us-ascii?Q?p1Poxv1EPZis4TaQTBU6yc8/EoDUHDnQf5l6icavtRXApF0TnHSSAzxJZ9wa?=
- =?us-ascii?Q?LUiTMATzZ05LHWtvfXnRjiXbl6WEMEbGYOOCxjnzFR2MhSHfRL+xJps1t9WV?=
- =?us-ascii?Q?CDtKSU9R49/MOjuP1fUnT5sgMcv+N3OPEE8oV7f2RUZO+C0wnOX3ON7bWYR0?=
- =?us-ascii?Q?p3harnjTN/ZJwP0R3GuC5WvLnFuWUX7huvHhBWRlhh6B1gUMaMvgHggbJDt3?=
- =?us-ascii?Q?XGt31IqXKd2ZZFVqwyAy7DNjqtI3XN4Hm8eYiKVC726YCltnQZi+o/6eB2Jt?=
- =?us-ascii?Q?MXjvoU/T6OPEirkUa72NMOQY9s2O5su/h6PgpWM0jFCkqMQjJZ+wmG8RBYjj?=
- =?us-ascii?Q?DvklwhbAGOuYrGEvm6ZeorhPa/vsqOLUFelUXha5HRK2gFi4tkNmCSs0mnMX?=
- =?us-ascii?Q?TrkqwuqCF3OMvqubpyhm7xHI3mdNNzQO4Vh5etAQzq7EgKCfsaRBbAkCv03F?=
- =?us-ascii?Q?9oMY46rowLJh90jLPU26kOyKOXVJzeXrA1wRmwY7LbLdsAiEAMoTvXy/3ulA?=
- =?us-ascii?Q?bKEaSS0s1iFQPjbRgJLMX23uLYXKL36WUI3Xkec3Jggvg8tZYrWL37adXALs?=
- =?us-ascii?Q?7sVmYfuLqL4nXMJFw+bhdO4eviNqYOuRURPpW0YhIo1qiyub2I+ILlaKpbQ0?=
- =?us-ascii?Q?ncvSdwIGF8v0jE4rzBx7kH5qnZoDfEnEtGdfgxniKPXtHYSas4Ywh4tYf6aV?=
- =?us-ascii?Q?NbCtiGePc1R9iqrMwgXdLOphpl3reJ0dzYFV5olf?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR01CA0121.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::25) To SEZPR02MB5782.apcprd02.prod.outlook.com
+ (2603:1096:101:4f::8)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR02MB5782:EE_|TYZPR02MB7008:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a52585a-7e8f-4160-e9ea-08dcf7f2d7b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?a0V5MmQ0eTgwd0NINzBjRldRZlQzL2g1a2k1dTd5WmQ1aFV4ZVJLZ2Z5MDZv?=
+ =?utf-8?B?QjNxNWhBU2tnSzRkTFJLeGlKUTdJeFBMMTZHQ0JNZWlnUnhndTF1cGUvVUlU?=
+ =?utf-8?B?N3JMbmU4Z3V4TnVqMnFXeEdXcW5LaDhjaUNKNmZTWFNnZnpHbDdQMWsvV0dz?=
+ =?utf-8?B?SElaLytBeWpabXA3Q3U0alVOMklwVURpajlOYnFFZGV6Z3dIUHFnQW1vTHFT?=
+ =?utf-8?B?U1hwK2VGREZuSUlLd1JZRDVtbFQzb29FT2JSQ3V0NDFhdjkxNEY3VG5STXhU?=
+ =?utf-8?B?a3F4T0NtTmh0MDVOQWFpNVJWVTFrbFFodnhlVE05Wk1icEk4TE1NVHlzcTdM?=
+ =?utf-8?B?cDZGN3dVWk1YYndyS2hVRHdPZ2NWa1hOLytqQmRjRGVrYXBZUURpNk1rbzZV?=
+ =?utf-8?B?bDAzaSt1S1lZWlpWRzIvVHd6NkF1ejlFaVZHcW5EVkJHZTZIQ2c5T24rbjVj?=
+ =?utf-8?B?TWNvZEgwZE95OU5VYk9TeDU5dWVIYUJBMHhuUERGbFZEdU5jTTUwUkZ1SXZa?=
+ =?utf-8?B?S3BEcE5xNVBBZjQwcDlzRkdLNG1FNWdWckFCc0VXQmF1VFl5WS90bkVZb0o1?=
+ =?utf-8?B?WHBsYUpJc0paWUVQejdVdFB1RXVxbEptL2srNDgvNVhRZ3l0NFFhZTRoQzkz?=
+ =?utf-8?B?aHFCUXB6QlNldW5RbTNKMTQwaGdHYWpzK2Y5ZjlHVmlpcyt6ellpVjJKQkg4?=
+ =?utf-8?B?OEFZaEU5OEt6TGlyWWQxdlhDazJabHpEN3lsdFF3UjBocTBkWSt5ZlhoUElW?=
+ =?utf-8?B?WnVzS1JhT1Y5a29pWFJzK0JGdjhiNCtaS1BtWG1YUlkyKzN0UmlreEdib1I0?=
+ =?utf-8?B?b2g2YTdkNDVlSDN5M2IzSHZrTDJkUjVMWkwxdWpseVZXMHZaTitqT1ExQzJi?=
+ =?utf-8?B?bUEyZzQ0cnNVVUVIMDVBb1I1U1FmbVI3WjB2dFhhT3BpSVdFSHVCcnV6dzhH?=
+ =?utf-8?B?Z0oyZDllZFg5WVZjeVM4ZFJqOFRnbHM0eEZnZXIrWlJqdzVDdUZ2SE1XUlpM?=
+ =?utf-8?B?blk1aUxQWWlOSUxWVDEyY21OcXh1RUZGSUtGV1hDSkZsTG5CcmFIN3A4citq?=
+ =?utf-8?B?ZGptVmZGVm9FaWVPUVA0NmdZbmcwdDVjSFhyTk5icjAwTjZwNWt0REcvN2lR?=
+ =?utf-8?B?WnFOWVkrK21ZeXNJUWhCeFBzZFFQMkFiMzh3R2Q4QVY2dzZqQ2VnSHFmeFN6?=
+ =?utf-8?B?S2o4ZUM4S1BpRVNPSnhZMXVPWUFwa2tCNitKS3hySmJwQXFwcWRvTjJnRGs2?=
+ =?utf-8?B?S1UvZjVqRmwxTXMyRXlFR0YyYkowY2wvbTVOanFaZFpaV3FWUWxRSWJmalhZ?=
+ =?utf-8?B?QWYxUldnVTVYQ0lQMitxZ3VEUFdNWWVuMWdOSE43QkhnclMxbXZ3MUlNWWhR?=
+ =?utf-8?B?UVdsZHZrdmIwN3NHTlpIVFRmVjZUTHBoK2hPamZ0VmcremhFTXFLb2xXVU1C?=
+ =?utf-8?B?VW1hWXBaOTFjREs5U3dnVnc0bmdQVEVXcjJWNSs0VGsrUzBwanVyMTByNUwx?=
+ =?utf-8?B?SlY1dFpNZnJ0TU5wMFFwRWxzTFJkRmRkQStjMUlvS3czRG5HSUprTWNIWDkr?=
+ =?utf-8?B?QkRSZzd5YkllMjg2bkJZOWIyMWNWWnJtdmZQOFlHbXFsNTliR2dmdk5sZXd1?=
+ =?utf-8?B?cnVIcVQ4b09XOXEyeWJSenVzSGxMZEREZjF1VlpuSnpkR1lPS1Z1V09yVWZF?=
+ =?utf-8?B?M1JBNVI1bTZ5T1oyMVI1R1R6bkdWUzVzREtIaFdsQmJ1elRCNzI3OTFIeEdH?=
+ =?utf-8?B?ZEYwT1gvVXZ6dVVseDV2OTlSWkRSUHdITVBoMitBeEt5VDZDd2dBeE9rVnVS?=
+ =?utf-8?Q?InkDYq4ee7AngyqlYffK+DoeBSyHMTbGaDXoA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR02MB5782.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V0N5TzBaTFlXVG5NeDlHQUpRem5tYnRjT0xVZ1RCc1hUeElCN3lMRTBvM05W?=
+ =?utf-8?B?SSsxb0dYUE5oT3FNWGhsS002eUg3djdUa2w5SmZKMnc5RFJNK3B1bHpGMnJD?=
+ =?utf-8?B?Qm13R3crRUcyN1UzY0FBQ2J6WnVvWm1Dbzl6REVobkk4alFiUmtpdzBOWWtG?=
+ =?utf-8?B?VUpsVEZpV2JINHg4cGQ3dnhuYlNWVVJLQ2pJYjI0YlE1M1RTaFdsZGdxM2dB?=
+ =?utf-8?B?WXV5WUw5YkhXdTdwdC90c21DeGRNOEZxL1dYazhaamtJa2xONS9rb2EyN2VX?=
+ =?utf-8?B?TWQ1a2lGcE5JaWVUUm9yMy81UnA2NWtLaTVBejJoblFRTG9LNDRyelRYZzBo?=
+ =?utf-8?B?b1o5aE5FSTgxL1pWSnZXdlp6eHI4NEZtdUpkMTR4aVBjbDhYSmJuQTZzclFU?=
+ =?utf-8?B?NC9HRTVqOWVTUTB2eFkxeFZvbThBQnZZNjZ2aDJNVDd6RGhtYjRmdkFiNGtZ?=
+ =?utf-8?B?WXNjSytjN2tYSmlheU9haHJCV28yK09RbWhYUTNpMi93RUgxRnh4bmhOOFkv?=
+ =?utf-8?B?aWs2UGRFcmZ0VkY4eHl6K0tPREJhQkVjUGhRQjJiMlY3cFVmNjJzdlRmSnBZ?=
+ =?utf-8?B?bFFnVW10M3ppQjdkNEtKcWVTQUx0Mm5zeWNsdGVFZHgzWkNMVmk5NUdwazdn?=
+ =?utf-8?B?L0lOWlVsUWRtNUlaV2NoT2tXVWM0NXU1ZUlNSjlRTU1lS3lCbnozQWZFV245?=
+ =?utf-8?B?N0JoWTM4cjg0MG5ZVHFLamUyT0tEVENUWldLN2VydTE0OHRjSzUxdEFwaHRM?=
+ =?utf-8?B?UU9iendDOUJIOWNBSUxGOFhoWXk2WktwQTRUYzQxZ1B4ZkNEVUh4c29zQldi?=
+ =?utf-8?B?NWY1Ukh1eUZlZ1JjYk9vbjZkRTB4TU9Fa3gxY2JGd1R2U2c1ckQ0Z3F2b1E0?=
+ =?utf-8?B?eW04MWtNaTZkUDcra1ZjVENHTjdsZTFlV2R0alVHODNaVVNyWTdHU3AxZ1F4?=
+ =?utf-8?B?ZXFQZkNGeTkxTC9VZjFtdFNXcmpQUXR5U0NrNzhueEVKSE4vMGl5TkF2ZGNF?=
+ =?utf-8?B?OEhUK3JIS3RtVFZoWDN5TTVTNzM0Y1kxUEdkbVh1bllBT25VK21jVjRBN2dI?=
+ =?utf-8?B?M2RwcUx4TUxqcEhWd0RYR0tNVlBvNGdobnNjTURKaFV5VEliVElpcUFwNVZs?=
+ =?utf-8?B?dm9nRVRuOWc0QkZKRkFDOXArVHM5ZzZSblAyTUlZaHl2T1NYdHhXcFlFVUZz?=
+ =?utf-8?B?UTV4emNVWHVlM0lkMG1qS3lsblpwaVpGY3ZyQVowcER6YlEwUklSTmVuOWhh?=
+ =?utf-8?B?dDRmcHNCS0ptbnJHNkFIay9IWEhGRXF0UVFrL2k2N1hLZHVRUmZHckNoSHVG?=
+ =?utf-8?B?WHBYQlhNdFlDTHVMbkFxTkVGWEI3SWdDM2dEVFhSMTVFYUdYVzdIbGJSdFhE?=
+ =?utf-8?B?TkFPcnU5QU9PS1hqM2JkeFIyanRkV1FkS0N6ekV1K0w3UFhjOEFIOTZ2VHMr?=
+ =?utf-8?B?WitpNW9LN2N4elFyUzJyQzNlZm1GRDNuUWpueWNYTnhNMTJyaStFSXVSSE9T?=
+ =?utf-8?B?OEdsT0x0Q05JTnUweUVhdEx2T01MWGl6ODliRWd2REZLQU5SSk5jQnB2VEZM?=
+ =?utf-8?B?UXBua3NqLytXdVltUjdlMW9MekZVZU1qSzNMb0lzMmR1ZHdwZnpQWE1sRmJw?=
+ =?utf-8?B?Z2oyeE5lWGlPM3NZQy9IbTM5WUdVdzNOVGZNRXpFbDFFTmxWZDFqamxvRFcy?=
+ =?utf-8?B?empjdHhna3FLelQ4L2V3eHZQMGJpUG5HVXhzc1Ywd1ZUcWVPOG9IdlZyK0Ew?=
+ =?utf-8?B?dTBNNk9jUlQ0S0gxZGFaamw4bk9HTVZVODl5MzBFMVA2WFZsNmdpVGFBTWY2?=
+ =?utf-8?B?cnFCaTdCQVU5M2VGL1NkOXlBeXlKUm1TSG1NNGh3R2p4Tk9IVDZ2eFFSZDBx?=
+ =?utf-8?B?TjJ3aTZYS2xZa09NR0FrTHNLV1BjVC84cnZUbFpVSVZsbTVHZ2gzak50WFhp?=
+ =?utf-8?B?bE03S1hFelBkR1I3V0F5MnN5a2Y1RXNneWxIWGRIb3NGMmlVUnJoY0hkeFVG?=
+ =?utf-8?B?RkJLWnNlOG1HYjIxM1MwZWRQTnBMUjk3dFpFSk9YVHVFZlFXanBwSE40MnVS?=
+ =?utf-8?B?VkNlUFVEWnA2TVNTd0ZsNXNtSGhwQllhNFk0em1Nd2NVeUdURE1tNmFRaWhn?=
+ =?utf-8?B?eXR0MHRHeFVqMm4xZExYcU9SbHFwMjBXZzljM1dTSjVMeHJsU2w3MmVmdW1S?=
+ =?utf-8?B?UlE9PQ==?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a52585a-7e8f-4160-e9ea-08dcf7f2d7b4
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR02MB5782.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 042e1beb-aa6c-404c-35f0-08dcf7f27111
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2024 08:19:43.0312
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 08:22:35.6529
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Z5+ykaFf+hXbhYfBt+m36kx2PcMXYj1mvfNKspW9rVG1gY6t61JZ5nQHlHhCdPcjSix67MhryaNlqU4N19+v9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR11MB5785
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c/AbBLtrzOSXqp5UtIVN6jSFTYFwL1yEVJLlxrUVdvkOup03yq4QeFIURvLIu/0UbJEN5M7ba8O5AQ0A1y7qd3ypL1o+NRWnQcgRJtV/apI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR02MB7008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_011948_733079_81C4D172 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_012250_371677_F651E5D9 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,15 +195,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Saturday, October 26, 2024 7:51 AM
->=20
-> This per-vIOMMU cache_invalidate op is like the cache_invalidate_user op
-> in struct iommu_domain_ops, but wider, supporting device cache (e.g. PCI
-> ATC invaldiations).
->=20
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Hi Sergey,
+ 
+>Hello Jinjian,
+>
+>On 26.10.2024 12:09, Jinjian Song wrote:
+>[skiped]
+>> Application can use MIPC (Modem Information Process Center) port
+>> to debug antenna tuner or noise profiling through this MTK modem
+>> diagnostic interface.
+>> 
+>> By default, debug ports are not exposed, so using the command
+>> to enable or disable debug ports.
+>> 
+>> Switch on debug port:
+>>   - debug: 'echo debug > /sys/bus/pci/devices/${bdf}/t7xx_mode
+>> 
+>> Switch off debug port:
+>>   - normal: 'echo normal > /sys/bus/pci/devices/${bdf}/t7xx_mode
+>
+>Looks like this part of the message needs an update. Now driver uses a 
+>dedicated file for this operation.
+>
+
+Yes, please let me update it, thanks.
+
+>> diff --git a/Documentation/networking/device_drivers/wwan/t7xx.rst b/Documentation/networking/device_drivers/wwan/t7xx.rst
+>> index f346f5f85f15..6071dee8c186 100644
+>> --- a/Documentation/networking/device_drivers/wwan/t7xx.rst
+>> +++ b/Documentation/networking/device_drivers/wwan/t7xx.rst
+>> @@ -7,12 +7,13 @@
+>>   ============================================
+>>   t7xx driver for MTK PCIe based T700 5G modem
+>>   ============================================
+>> -The t7xx driver is a WWAN PCIe host driver developed for linux or Chrome OS platforms
+>> -for data exchange over PCIe interface between Host platform & MediaTek's T700 5G modem.
+>> -The driver exposes an interface conforming to the MBIM protocol [1]. Any front end
+>> -application (e.g. Modem Manager) could easily manage the MBIM interface to enable
+>> -data communication towards WWAN. The driver also provides an interface to interact
+>> -with the MediaTek's modem via AT commands.
+>> +The t7xx driver is a WWAN PCIe host driver developed for linux or Chrome OS
+>> +platforms for data exchange over PCIe interface between Host platform &
+>> +MediaTek's T700 5G modem.
+>> +The driver exposes an interface conforming to the MBIM protocol [1]. Any front
+>> +end application (e.g. Modem Manager) could easily manage the MBIM interface to
+>> +enable data communication towards WWAN. The driver also provides an interface
+>> +to interact with the MediaTek's modem via AT commands.
+>
+>Thank you for taking care and unifying documentation, still, I believe, 
+>this change doesn't belong to this specific patch, what introduced debug 
+>ports toggling knob. Could you factor our these formating updating 
+>changes into a dedicated patch? E.g. add a new patch "2/3: unify 
+>documentation" and make this patch third in the series.
+>
+
+Got it, please let me do it.
+
+>> @@ -67,6 +68,28 @@ Write from userspace to set the device mode.
+>>   ::
+>>     $ echo fastboot_switching > /sys/bus/pci/devices/${bdf}/t7xx_mode
+>>   
+>> +t7xx_port_mode
+>
+>I believe we should use the plural form - portS, since this knob 
+>controls behaviour of the group of ports.
+
+Fastboot switching is a bit special, this will trigger the WWAN device
+reboot to fastboot mode and only a fastboot port in this mode, How about keep it
+as before?
+
+>
+>And I have one more suggestion. "mode" sounds too generic, can we 
+>consider renaming this option to something, what includes more details 
+>about the mode. E.g. can we rename this knob to 't7xx_debug_ports' and 
+>make it simple boolean (on/off) option?
+
+Yes, rename to 't7xx_debug_ports' and make it boolean is reasonablei, please let
+me change it.
+
+>>
+>> -static struct attribute *t7xx_mode_attr[] = {
+>> +static ssize_t t7xx_port_mode_store(struct device *dev,
+>> +				    struct device_attribute *attr,
+>> +				    const char *buf, size_t count)
+>> +{
+>> +	struct t7xx_pci_dev *t7xx_dev;
+>> +	struct pci_dev *pdev;
+>> +	int index = 0;
+>> +
+>> +	pdev = to_pci_dev(dev);
+>
+>This assignment should be done along the variable declaration to make 
+>code shorter:
+
+Yes, please let me modify it.
+
+>>
+>struct pci_dev *pdev = to_pci_dev(dev);
+>
+>> +	t7xx_dev = pci_get_drvdata(pdev);
+>> +	if (!t7xx_dev)
+>> +		return -ENODEV;
+>> +
+>> +	index = sysfs_match_string(t7xx_port_mode_names, buf);
+>> +	if (index == T7XX_DEBUG) {
+>> +		t7xx_proxy_port_debug(t7xx_dev, true);
+>
+>Another one nit picking question. It is unclear what is going to happen 
+>after this call. Can we rename this function to something what clearly 
+>indicates the desired reaction? E.g. t7xx_proxy_debug_ports_show(...).
+
+After t7xx_proxy_port_debug(t7xx_dev, true) the adb and mipc port will be
+shown directly, let me rename to t7xx_proxy_debug_ports_show more clearly.
+
+>> +static ssize_t t7xx_port_mode_show(struct device *dev,
+>> +				   struct device_attribute *attr,
+>> +				   char *buf)
+>> +{
+>> +	enum t7xx_port_mode port_mode = T7XX_NORMAL;
+>> +	struct t7xx_pci_dev *t7xx_dev;
+>> +	struct pci_dev *pdev;
+>> +
+>> +	pdev = to_pci_dev(dev);
+>
+>Also should be assigned on declaration.
+
+Yes, please let me modify it.
+
+>>
+>> +enum t7xx_port_mode {
+>> +	T7XX_NORMAL,
+>> +	T7XX_DEBUG,
+>> +	T7XX_PORT_MODE_LAST, /* must always be last */
+>> +};
+>> +
+>>   /* struct t7xx_pci_dev - MTK device context structure
+>>    * @intr_handler: array of handler function for request_threaded_irq
+>>    * @intr_thread: array of thread_fn for request_threaded_irq
+>> @@ -94,6 +100,7 @@ struct t7xx_pci_dev {
+>>   	struct dentry		*debugfs_dir;
+>>   #endif
+>>   	u32			mode;
+>> +	u32			port_mode;
+>
+>If we agree to rename the sysfs file to 't7xx_debug_ports', this field 
+>can be renamed to something more specific like 'debug_ports_show'.
+
+Yes, let me rename sysfs file to 't7xx_debug_ports' and rename this feild
+to 'debug_ports_show'.
+
+>>   
+>>   struct t7xx_port {
+>> diff --git a/drivers/net/wwan/t7xx/t7xx_port_proxy.c b/drivers/net/wwan/t7xx/t7xx_port_proxy.c
+>> index 35743e7de0c3..26d3f57732cc 100644
+>> --- a/drivers/net/wwan/t7xx/t7xx_port_proxy.c
+>> +++ b/drivers/net/wwan/t7xx/t7xx_port_proxy.c
+>> @@ -39,6 +39,8 @@
+>>   
+>>   #define Q_IDX_CTRL			0
+>>   #define Q_IDX_MBIM			2
+>> +#define Q_IDX_MIPC			2
+>
+>Are you sure that we should define a new name for the same queue id? Can 
+>we just specify Q_IDX_MBIM in the port description or rename Q_IDX_MBIM 
+>to Q_IDX_MBIM_MIPC to avoid id names duplication?
+
+Since MBIM and MIPC use the same queue id, please let me rename to Q_IDX_MBIM_MIPC.
+
+>>   
+>> +void t7xx_proxy_port_debug(struct t7xx_pci_dev *t7xx_dev, bool show)
+>> +{
+>> +	struct port_proxy *port_prox = t7xx_dev->md->port_prox;
+>> +	struct t7xx_port *port;
+>> +	int i;
+>> +
+>> +	for_each_proxy_port(i, port, port_prox) {
+>> +		const struct t7xx_port_conf *port_conf = port->port_conf;
+>> +
+>> +		if (port_conf->debug && port_conf->ops && port_conf->ops->init) {
+>> +			if (show)
+>> +				port_conf->ops->init(port);
+>> +			else
+>> +				port_conf->ops->uninit(port);
+>
+>I still do not like the assumption that if .init method is defined then 
+>the .uninit method is defined too. Is it make sense to compose these 
+>checks like below. Mmove the check for .init/.uninit inside and add a 
+>comment justifying absense of a check of a current port state.
+>
+>/* NB: it is safe to call init/uninit multiple times */
+>if (port_conf->debug && port_conf->ops) {
+>	if (show && port_conf->ops->init)
+>		port_conf->ops->init(port);
+>	else if (!show && port_conf->ops->uninit)
+>		port_conf->ops->uninit(port);
+>}
+
+
+Yes, please let me modify it.
+
+
+Best Regards,
+Jinjian.
 
