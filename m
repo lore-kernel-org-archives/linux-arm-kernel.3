@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A328D3A679
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D98D3A676
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rU23DnpS7egSAjyGmotSTJgLzYO4Gk0aHvc/vBUkXk=; b=Vk50NUAanZpLHEpps9jLXMwcAY
-	7/Iryt3pLlZDN1MT9jBMg4xIHctRrQOBwjWgFLSnmxsiXjF5REyPe95g6ZL2kRpC/OO8z4CtWLC7j
-	eFkhIo+vUy88lELoOle5VZZMzNmFRbUtRFaLOl+JumbkeY32argyItFAW2mpbICDg12686lZSoljT
-	+AoHOSPoQwVKYWkSWTxbxhR7FZ0otQZPxfngp2n6NpQKwgzy9qmvpntw9asHylZzC/vzian2jgHaK
-	X4+GSncy7UYC6Dlxr7EvYKRw75N6sI3LVKXTKPJVdA1g1J/yo5F1jPMnDFx5q9DPgoKONtRUiC6xB
-	riLoyZjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PhdK9ezas0S0NFnJggffQ4CRKeGgUUyrmk9Z9lDDPeM=; b=UNPeyf0ueaR6fkLzT/Te/gm6WR
+	xcqRjwrh4NkA9+hLV6YLwUG5tQyJnmdFaoX4GmTMBan+d866aB4MXoCE+AadSrPbea0Noz74SM2Zc
+	+LnDrJX1/yxX0gRlrEQIy7T8BPH8rmdHKLvqSgwshNVm/rzUB7yYQmKVzUxxI4Zbxi2Gp8K06HEgN
+	HzZkU7bGnbcyFNDL2Zx6rOW0I9LbTgludGOVedgbkA84FWpHklgygwu98F2lw5UkNW8/HJRijUfJn
+	S1wScGS9uBWAPmEbFeI7oUDgNY36We/1SCagt/2ANWuMZpfmyLUmz5zN4c22Cel0hMibzIE0qrFkH
+	0+jXvRCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q8k-0000000FIDj-29pm;
-	Tue, 29 Oct 2024 17:36:22 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1t5q8p-0000000FIHM-01O7;
+	Tue, 29 Oct 2024 17:36:27 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5odE-0000000F2Vn-18WC
+	id 1t5oeE-0000000F2lr-3hFn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:59:45 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7180d9d0dcbso2535815a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 08:59:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730217583; x=1730822383; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2rU23DnpS7egSAjyGmotSTJgLzYO4Gk0aHvc/vBUkXk=;
-        b=HlU9Sjm9cQix15Pm53KXRCe7DiJYgWnRkWjRpQIUPwtzvzj1f7EHIFoLRglM17i8AX
-         YSX4sKEQi+Hpa67aN82kGmMXBIq1WNAOx/6fya8qwN2e7o5mUfJA3utm5qjRN5b4Lfl3
-         hoZGWBqI8mPMrgtDAhjaMtvLZWsHc4BLkL7SzvWU6GiHq74YspWrLCOCNxIbUMCi8Kff
-         rS4t3uQsvNzdZoK81RPDISz4pWie/IwC69ec1ZoXoBSf7DBeXJRBkHmPJZuuh8Aq7vF0
-         evJ0ysH3AooF5SEpPubqBZZrS6prOtMx+4/fqUyuKXzr7Hs4pXeAxXupcZMXtPKVnwGm
-         j9Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730217583; x=1730822383;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2rU23DnpS7egSAjyGmotSTJgLzYO4Gk0aHvc/vBUkXk=;
-        b=EmVj7ZZfCG62d96iRGe71WI4j58l1x2QDe+NxsWsNh5JYu9DAqeQ3A77wxalnIMHeG
-         AeLonbTgWGDDcMUtzexv1EYDYFA1LAmIcIOLX7ur9XsUUSpxT3KKQ0TT2xM0jiy1QQv4
-         kwX/KGVSE/jl2drRQmM6gDbCGe5hOKNxw7VEqgB0rwjAEDVuXb1LtSbE2HlSSsjHYFGe
-         ob2tjPBYNo/AA5c/hLc+lHAMl+QRyY7ZbQfo1ukXhX6RHK6qFp/6VHkOMm50KPYlqU3Z
-         ms0XQ7Iqkj71+oprbbwN1nrLh2JwYgCkAvFBqsmR/FLjDW3PLfu5C3ZgB2DvSZIOamIz
-         YBxA==
-X-Forwarded-Encrypted: i=1; AJvYcCVuZfBflgPHzMgSrBYSI0a4sGyOj8gjei6E5skZQsisuJlOc0EZK3MNcRidWEor2GK0FMyhTloKcuJ8xDajz8Bp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqIFYFZJN2nLpIruZsaRyQixXGb20WgLgQci7pOZaKEcf/ZMLw
-	uVFRltBpbC7nHs4gtJ8jure0tsPsL6A3Ll31ZLfJ8mhhyTocW9uxtaolXnQ1MZIyDsmbrV/08k8
-	azkvqSajDzEYynHxrMC70udIh0uU=
-X-Google-Smtp-Source: AGHT+IGrFikjWleemKqitIlf+M4yGGhL6cvYtCx7nBR0Dx05kZCRYNyMQCXsbwX2qBk2pQ45VX137daajj0x5aYk36w=
-X-Received: by 2002:a05:6830:412a:b0:70c:9c66:af53 with SMTP id
- 46e09a7af769-718682c9593mr12658822a34.25.1730217582632; Tue, 29 Oct 2024
- 08:59:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <20241017163649.3007062-1-tudor.ambarus@linaro.org>
- <20241017163649.3007062-2-tudor.ambarus@linaro.org> <CABb+yY0_NSLAs-mP=vHeNsfKRcS2hcFWmWfcvsr=nFcXQOi5uA@mail.gmail.com>
- <a7274a6e-1da3-47f2-8725-b0c534bf6608@linaro.org> <1df84f83-40d7-4719-a9f9-dfa10d25c667@linaro.org>
- <CABb+yY0H4cATB9Gz2EitnR6R179aKDzR1N87fz7Hq9Hm-_8Rmw@mail.gmail.com>
- <779fc372-a4d9-4425-a580-2173a0f6a945@linaro.org> <CABb+yY0bhjRYLwyo-t6djttP2bq_irX+Rad71wDX++nQV69cAw@mail.gmail.com>
- <a2065dc8-10da-42e9-b093-b0b541ca2305@linaro.org>
-In-Reply-To: <a2065dc8-10da-42e9-b093-b0b541ca2305@linaro.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Tue, 29 Oct 2024 10:59:31 -0500
-Message-ID: <CABb+yY3W3Cv7a6wZhvJe80xn5sp1Y_A_nbY_=cj0U4Z1YC61vw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] mailbox: add async request mechanism to empower
- controllers w/ hw queues
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, mst@redhat.com, 
-	javierm@redhat.com, tzimmermann@suse.de, bartosz.golaszewski@linaro.org, 
-	luzmaximilian@gmail.com, sudeep.holla@arm.com, conor.dooley@microchip.com, 
-	bjorn@rivosinc.com, ulf.hansson@linaro.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	marcan@marcan.st, neal@gompa.dev, alyssa@rosenzweig.io, broonie@kernel.org, 
-	andre.draszik@linaro.org, willmcvicker@google.com, peter.griffin@linaro.org, 
-	kernel-team@android.com, vincent.guittot@linaro.org, 
-	daniel.lezcano@linaro.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 29 Oct 2024 16:00:49 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4XdFKP4VLZz6J6cC;
+	Tue, 29 Oct 2024 23:58:17 +0800 (CST)
+Received: from frapeml100007.china.huawei.com (unknown [7.182.85.133])
+	by mail.maildlp.com (Postfix) with ESMTPS id DCE6B140A70;
+	Wed, 30 Oct 2024 00:00:39 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (7.182.85.71) by
+ frapeml100007.china.huawei.com (7.182.85.133) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 29 Oct 2024 17:00:39 +0100
+Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
+ frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
+ Tue, 29 Oct 2024 17:00:39 +0100
+From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "maz@kernel.org"
+	<maz@kernel.org>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "cohuck@redhat.com" <cohuck@redhat.com>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>, yuzenghui
+	<yuzenghui@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, jiangkunkun
+	<jiangkunkun@huawei.com>, Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Anthony Jebson <anthony.jebson@huawei.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Linuxarm <linuxarm@huawei.com>
+Subject: RE: [RFC PATCH v2 1/3] KVM: arm64: Add hypercall support for
+ retrieving migration targets
+Thread-Topic: [RFC PATCH v2 1/3] KVM: arm64: Add hypercall support for
+ retrieving migration targets
+Thread-Index: AQHbJfsMQIYzvPBXn023xrhJm/PdPbKWjAoAgAdcePA=
+Date: Tue, 29 Oct 2024 16:00:39 +0000
+Message-ID: <d97cd23a1962460990a642ee8a653d2f@huawei.com>
+References: <20241024094012.29452-1-shameerali.kolothum.thodi@huawei.com>
+ <20241024094012.29452-2-shameerali.kolothum.thodi@huawei.com>
+ <ZxrzhAh3qE9hLV-U@linux.dev>
+In-Reply-To: <ZxrzhAh3qE9hLV-U@linux.dev>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.203.177.241]
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_085944_335834_D37B3C20 
-X-CRM114-Status: GOOD (  58.85  )
+X-CRM114-CacheID: sfid-20241029_090047_231203_23CEDB90 
+X-CRM114-Status: GOOD (  32.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,171 +88,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 5:45=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
-.org> wrote:
->
->
->
-> On 10/24/24 2:27 AM, Jassi Brar wrote:
-> > Hi Tudor,
-> >
->
-> Hi, Jassi!
->
-> I appreciate that you respond quickly on my emails, thanks!
->
-> > On Tue, Oct 22, 2024 at 8:27=E2=80=AFAM Tudor Ambarus <tudor.ambarus@li=
-naro.org> wrote:
-> >>
-> >> Hi, Jassi,
-> >>
-> >> On 10/21/24 5:32 PM, Jassi Brar wrote:
-> >>>> On 10/18/24 8:49 AM, Tudor Ambarus wrote:
-> >>>
-> >>>> The active request is considered completed when TX completes. But it=
- seems
-> >>>> that TX is not in direct relation with RX,
-> >>>
-> >>> TX and RX are assumed independent operations (which they are).
-> >>> TX is sending a message/request to the remote successfully. 'Success'
-> >>> can be indicated by any of the three methods  TXDONE_BY_{POLLING, IRQ=
-,
-> >>> ACK}.
-> >>> You seem to assume it should always be an ACK where we receive an
-> >>> acknowledgment/response packet, which is not the case.
-> >>
-> >> My controller driver indeed ties TX to RX and considers the request
-> >> completed when the RX completes.
-> >>
-> > Does your controller require RX or the protocol? I suspect the latter.
->
-> The response from remote always happens for the acpm protocol. Same for
-> the plain (no acpm or SRAM involved) mailbox controller that I see in
-> downstream.
->
-> While the response from remote always happens, the RX data is optional.
-> Clients can choose whether they want the data from the RX ring or not
-> (see `struct exynos_acpm_rx_data`).
->
-> For each message that is sent on the TX ring, it is expected that the
-> remote consumes it. The remote gets the message from the TX queue,
-> advances the rear index of the TX ring, processes the request, writes
-> the response message (if any) on the linux RX ring and advances the
-> front index of the linux RX ring.
->
-> > Anyway, the former is also supported by TXDONE_BY_ACK already.
->
-> If we want to focus on when TX is done and really be strict about it,
-> then for my case TX can be considered done when the remote consumes it.
-> I need to poll and check when the linux TX ring rear index is moved by
-> the remote. Other option is to poll the IRQ status register of the
-> remote to see when the request was consumed. So maybe TXDONE_BY_POLL is
-> more accurate?
-> TX can also be considered done after what we write to TX ring hits the
-> endpoint-SRAM, thus neither of these flags needed.
->
-> As a side nodeto IRQs, the acpm protocol allows channels to work either
-> in polling or in IRQ mode. I expect in the future we'll need to specify
-> the done method per channel and not per controller. IRQs are not used in
-> the downstream, thus I didn't touch them in this proposal.
->
-> >
-> >>>
-> >>>> Is there a specific driver that I can look at in order to understand=
- the
-> >>>> case where RX is not tied to TX?
-> >>>
-> >>>  Many...
-> >>>  * The remote end owns sensors and can asynchronously send, say
-> >>> thermal, notifications to Linux.
-> >>>  * On some platform the RX may be asynchronous, that is sent later
-> >>> with some identifying tag of the past TX.
-> >>>  * Just reverse the roles of local and remote - remote sends us a
-> >>> request (RX for us) and we are supposed to send a response (TX).
-> >>
-> >> I was hoping for a name of a driver, but I guess I can find them out
-> >> eventually.
-> >>
-> > Do these usecases seem impossible to you? Many users are not upstream
->
-> They seem fine, I just wanted to see the implementation and decide
-> whether the request approach can be applied to them or not. I think it ca=
-n.
->
-> > that we care
-> > about as long as we are not making some corrective change.>
-> >
-> >>>
-> >>>> Also, if you think there's a better way to enable controllers to man=
-age
-> >>>> their hardware queues, please say.
-> >>>>
-> >>> Tying RX to TX has nothing to do with hardware queues. There can be a
-> >>
-> >> Right, I agree.
-> >>
-> >>> hardware queue and the protocol can still be
-> >>> "local-to-remote-broadcast".
-> >>>
-> >>> While I don't think we need the "Rx is in relation to some past Tx"
-> >>> api, I am open to ideas to better utilize h/w queues.
-> >>>
-> >>> The h/w TX queue/fifo may hold, say, 8 messages while the controller
-> >>> transmits them to the remote. Currently it is implemented by
-> >>> .last_tx_done() returning true as long as fifo is not full.
-> >>> The other option, to have more than one TX in-flight, only complicate=
-s
-> >>> the mailbox api without fetching any real benefits because the
-> >>> protocol would still need to handle cases like Tx was successful but
-> >>> the remote rejected the request or the Rx failed on the h/w fifo
-> >>> (there could be rx-fifo too, right). Is where I am at right now.
-> >>>
-> >> No worries, I'm confident we'll reach a conclusion.
-> >>
-> >> It's true I implemented just my use case, but that doesn't mean that t=
-he
-> >> "request" approach can't be extended for current users.
-> >>
-> > Sorry, I am not sure we should make the api dance around your usecase.
->
-> No worries, it's fine to disagree.
->
-> > If your usecase is not currently handled, please let me know. We can
-> > discuss that.
->
-> It's not handled. I have a list of requirements I have to fulfill which
-> are not covered by the mailbox core:
->
-> 1/ allow multiple TX in-flight. We need to let the controller handle its
-> hardware queue, otherwise the hardware queue has no sense at all.
->
-As I said this one is currently handled by assuming TX-done by
-depositing in the h/w queue/fifo.
-You will have the same perf as with your attempt to have "multiple
-in-flight" while neither of these approaches handles in-flight
-failures. We can discuss this.
+Hi Oliver,
 
-> 2/ allow to tie a TX to a RX. I need to know to what TX the response
-> corresponds to.
-> 3/ allow multiple clients to the same channel. ACPM allows this. Support
-> would have come as an extra patch.
->
-These are nothing new. A few other platforms too have shared channels
-and that is implemented above the mailbox.
+> -----Original Message-----
+> From: Oliver Upton <oliver.upton@linux.dev>
+> Sent: Friday, October 25, 2024 2:25 AM
+> To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+> Cc: kvmarm@lists.linux.dev; maz@kernel.org; catalin.marinas@arm.com;
+> will@kernel.org; mark.rutland@arm.com; cohuck@redhat.com;
+> eric.auger@redhat.com; yuzenghui <yuzenghui@huawei.com>; Wangzhou
+> (B) <wangzhou1@hisilicon.com>; jiangkunkun <jiangkunkun@huawei.com>;
+> Jonathan Cameron <jonathan.cameron@huawei.com>; Anthony Jebson
+> <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
+> Linuxarm <linuxarm@huawei.com>
+> Subject: Re: [RFC PATCH v2 1/3] KVM: arm64: Add hypercall support for
+> retrieving migration targets
+>=20
+> Hi,
+>=20
+> On Thu, Oct 24, 2024 at 10:40:10AM +0100, Shameer Kolothum wrote:
+> > +``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_NUM_FUNC_ID``
+> > +------------------------------------------------------
+> > +
+> > +Query total number of migration target CPUs the Guest VM will be
+> running during its
+> > +lifetime and version information applicable to the data format used fo=
+r
+> > +``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_CPUS_FUNC_ID``.
+> The maximum number of targets
+> > +supported is 64. Also the version number supported currently is 1.0. T=
+his
+> hypercall
+> > +must be handled by the userspace VMM.
+> > +
+> > ++---------------------+-----------------------------------------------=
+--------------+
+> > +| Presence:           | Optional; KVM/ARM64 Guests only               =
+              |
+> > ++---------------------+-----------------------------------------------=
+--------------+
+> > +| Calling convention: | HVC64                                         =
+              |
+> > ++---------------------+----------+------------------------------------=
+--------------+
+> > +| Function ID:        | (uint32) | 0xC600007D                         =
+              |
+> > ++---------------------+----------+------------------------------------=
+--------------+
+> > +| Arguments:          | None                                          =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+> > +| Return Values:      | (int64)  | R0 | ``NOT_SUPPORTED (-1)`` on erro=
+r,
+> else       |
+> > +|                     |          |    | [0-31] total migration targets=
+              |
+> > +|                     |          |    | [32-63] version number        =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+>=20
+> We can't treat a single register as both a signed quantity *and* a full
+> 64 bits of bitfields. Maybe just scrap the version and have this thing
+> either return a negative error or positive quantity of implementations.
 
-> 4/ allow polling and IRQ channels for the same mailbox controller (not
-> urgent).
->
-It is very easy to populate them as separate controllers.
+Ok. I had  a look at PV_TIME_ST/ARM_SMCCC_VENDOR_HYP_KVM_PTP_FUNC_ID
+and got that idea. Separate registers make sense though.
 
-> I guess that we agree that in order to allow multiple TX in-flight we
-> need a completion struct per message/request and not per channel. But we
-> disagree on the ability to tie a TX to a RX.
->
-> How can I move forward with this?
->
-As I already explained, to tie RX to a TX is very protocol specific
-and should be done in the layer above the mailbox api.
+Do we really need to skip the version number? The idea was to use that as a
+future proof for data format in case we realize that MIDR/REVIDR is not goo=
+d
+enough for errata later.
 
-Thanks.
+>=20
+> > +``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_CPUS_FUNC_ID``
+> > +-------------------------------------------------------
+> > +
+> > +Request migration target CPU information for the Guest VM. The
+> information must be
+> > +provided as per the format described by the version info in
+> > +``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_NUM_FUNC_ID``.
+> At present, we only support
+> > +the below format which corresponds to version 1.0. This hypercall will
+> always be
+> > +preceded by
+> ``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_NUM_FUNC_ID`` and
+> may be
+> > +invoked multiple times to retrieve the total number of target CPUs
+> information
+> > +advertised. This hypercall must be handled by the userspace VMM.
+> > +
+> > +A typical userspace usage scenario will be like below:
+> > +
+> > +1. Receives
+> ``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_NUM_FUNC_ID``
+> > +
+> > +   * Returns total number of migration targets and version number
+> > +   * Reset current target index to zero
+> > +2. Receives
+> ``ARM_SMCCC_VENDOR_HYP_KVM_MIGRN_TARGET_CPUS_FUNC_ID``
+> > +
+> > +   * Returns MIDR/REVIDR info in return register fields. Can return up=
+ to
+> 4
+> > +   * Update current target index based on returned target info
+> > +   * If there are remaining register fields, return zero to indicate t=
+he end
+> > +   * Repeat step 2 until current target index =3D=3D total number of m=
+igration
+> targets
+>=20
+> Hmm... I'd rather we make the guest supply the target index of the
+> implementation it wants to discover. Otherwise, the VMM implementation
+> of this hypercall interface is *stateful* and needs to remember to
+> migrate that...
+
+Ok. I had the same feedback from Jonathan in an internal discussion as well
+and on re-reading Marc's comments on v1, he also had the same suggestion
+that I missed. Will change that.
+=20
+> > ++---------------------+-----------------------------------------------=
+--------------+
+> > +| Presence:           | Optional; KVM/ARM64 Guests only               =
+              |
+> > ++---------------------+-----------------------------------------------=
+--------------+
+> > +| Calling convention: | HVC64                                         =
+              |
+> > ++---------------------+----------+------------------------------------=
+--------------+
+> > +| Function ID:        | (uint32) | 0xC600007E                         =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+> > +| Arguments:          | None                                          =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+> > +| Return Values:      | (int64)  | R0 | ``NOT_SUPPORTED (-1)`` on erro=
+r,
+> else       |
+> > +|                     |          |    | [0-31] MIDR, [31-63] REVIDR, e=
+lse           |
+> > +|                     |          |    | [0-63] Zero to mark end.      =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+>=20
+> Same deal here, x0 needs to always be treated as a signed quantity.
+>=20
+> How about -1 on error, 0 on success?
+>=20
+> Then, in the remaining registers:
+>=20
+> > +|                     | (uint64) | R1 | [0-31] MIDR, [32-63] REVIDR, e=
+lse           |
+> > +|                     |          |    | [0-63] Zero to mark end.      =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+>=20
+> Both MIDR_EL1 and REVIDR_EL1 are 64 bit registers in AArch64. So we need
+> to transfer a full 64 bits, even if the top half is _presently_ RES0 in
+> MIDR_EL1.
+
+Ok.
+
+>=20
+> > +|                     | (uint64) | R2 | [0-31] MIDR, [32-63] REVIDR, e=
+lse           |
+> > +|                     |          |    | [0-63] Zero to mark end.      =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+> > +|                     | (uint64) | R3 | [0-31] MIDR, [32-63] REVIDR, e=
+lse           |
+> > +|                     |          |    | [0-63] Zero to mark end.      =
+              |
+> > ++---------------------+----------+----+-------------------------------=
+--------------+
+>=20
+> I think it's fine to have this hypercall return a single MIDR/REVIDR
+> pair at a time. This is not a performance sensitive interface and will
+> only be called a few times at boot.
+>=20
+> Actually -- what if we crammed everything into a single hypercall?
+>=20
+> DISCOVER_IMPLEMENTATION_FUNC_ID
+>=20
+>  - Arguments:
+>    - arg0: selected implementation index
+>=20
+>  - Return value:
+>    - r0: -1 on error, otherwise the maximum possible implementation index
+>    - r1: MIDR_EL1 of the selected implementation
+>    - r2: REVIDR_EL1 of the selected implementation
+>=20
+> We're guaranteed at least one CPU implementation of course, so the guest
+> can just start w/ index 0 and iterate from there.
+
+Ok. I will rework based on these and will sent out something soon.
+
+Thanks,
+Shameer
 
