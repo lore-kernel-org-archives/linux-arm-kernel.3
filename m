@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D02CD3A67F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B275D3A67B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,58 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MOYJZ53wlDHsMXrUL6JL+woPcSF3sMjGPkxfoE18bw=; b=1fVYixmZthLVFNKbQ34+SD6ruw
-	HOVx9VSEelgJhFQl8yFoPQg0lQlzAIKXeTRmBlSnfidoYtdSY2FHzg6/Ow3UY10nsrLxearhY85eS
-	xaS6Tn8Hvc7KtbehNJ4LxGpGc8hVxaYJJBxzPHAqfr2JDqcF5Egg7B7KkCtb/mep70d9+/QWmBjni
-	o05MgBkHdsSPPTV0YR1lPYAbpvZB59lQAIHs6KavlKI209xQltt+uMfXrKIqvMxGhdjO3Xju1Pb8t
-	aCJ9AxFhhhG4QxDibpqIeUJL+HcEGkgI10+GlKOyP3Yihn55EZGyQ9Fj3p3js+2Vfzer+wDzmXIWS
-	Vvep2jaA==;
+	bh=t6XhsNOq3Xb6DlFbdh+eqFWbKB2WPUnNMo5K0T4jrL4=; b=1PzlTxi2ayQxSueIQRw7yxd/L2
+	jCygC8PRXBw+ajAbKhEgBI1gh8UCfRwzyZQnDsj80PE5D5uxdBV8yqdid1vu/WEHMz+z9UVLoL5g1
+	AJIO1i876ONhZw22XtCaoNxtJ7pcPF1vK2M6x5+1+M2Fp/h6b1pHNbC1a7+/8PwFO1zYHrGkg20Ip
+	e2hHe1zOaueVBsqGX/q5TI13KlBDACJgNYDk9MSAuGeTEH2xuubNm567XCwEKORVlYIx/3mLRib+5
+	raDGPRVqbIRWflvACRNb0mx4gWsKSY8sksofzVXDxqdWSlqcsGM4kPX30t8o+b0t1u+yfA48x+VKT
+	EjD179rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rDk-0000000FWhq-06wd;
+	id 1t5rDk-0000000FWi0-2axV;
 	Tue, 29 Oct 2024 18:45:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5osa-0000000F5FN-43tl
+	id 1t5osd-0000000F5GD-3MdF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Oct 2024 16:15:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=t6XhsNOq3Xb6DlFbdh+eqFWbKB2WPUnNMo5K0T4jrL4=; b=RLEqRuxTWMZLBRpDArDctw2aB8
+	24PiCPg7c9CImQU5/U+yVJAFb1cUt56FXgzT0ChzyfBkrZMO1/a87FtY/CCuFHS6T4ZTzUjQdbc2v
+	ijRLprQJX1KSlDb2wEQr+NE4+Vrpke5NgOvRKKL9wyvUR8ZjAtXJHKpBDIOq2raz/K9I67EyaAjDb
+	MgkcP1ZE896p7vQ+YxR4V7PWuNQfsR7qf04U50DL2/VqX2SLR7dfuZ86DjzwBGXB6JerDAP4aFYTs
+	WHAVYV46JOZwJvdcQhafw5yai36bLohEJMPcKktGkyLR5F+5tr7r2EpKwDteITHwTCTI+0yc+mSYA
+	uAmGCWhg==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5osa-00000009wu8-2DVZ
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 29 Oct 2024 16:15:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 07F59A42FFA;
-	Tue, 29 Oct 2024 16:13:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7530C4CECD;
-	Tue, 29 Oct 2024 16:15:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4D968A42FF2;
+	Tue, 29 Oct 2024 16:13:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D75B2C4CEEB;
+	Tue, 29 Oct 2024 16:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730218535;
-	bh=bZ3umWUB2daTUxDUPol2jd5kvJm+C26sRYBZhWz/XMo=;
+	s=k20201202; t=1730218533;
+	bh=vsyWoTwbsiRwsb9EYXxM+GmOQGioC2wxUoNjmlnpZ7I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qxS/G3K5GcU+Td77rJL/3ypn1M8aqJ1u6PegKPGZzC06zh7nvomc1EQ74nMC2xEzo
-	 3T+Tw6sI0lqTLQlRKgPEaMg0GLW+72rncLuw6wDKsqeKA7xe9EaExYg1SnoItTTJM7
-	 UD4OmU9BNzcmcnxnWhq/wEku7RqJsrxTn3stYsV9NXe7x8HN3SiVCsRL6vul0uPviw
-	 lvewBpnjhs4t4BIN3MBkg02HM6d9kZ3kbKM5TKyy+HCmTmxa06cwvUwuz7elqzSqVK
-	 pQj1Qgl3DHHczqAoutBh1qhjk+pMOyKj3km+HHxGqYlar+Dqn4iJTmNDrITZ9JB6rP
-	 qE/8LLXao9m5g==
+	b=k3aZv97JusL09VW1UTsVJVdg/QpFlLRqjHiiIveXEkXQrrF4LPp7Z/2ZLuMcumsh3
+	 3Ve1OTTJYhmlHYWtxSKUUmD/+vgRwp14hnO5EpcfH4D39sWfkxGZVAx/U7oxljWtlc
+	 8hwT8NsIFNpOH0N0MzmcJrMEHjjLLJqv7LywZZHiLxlApI4h1L3WjDFaA4cxZaeWef
+	 uYBsFbusOxn83i2oE5Sk3mon2C51Mdkdet7xIGx4DkYCaKhWWKssFZsU+YE10i9zpF
+	 KY0tEfiUxi/p/92rZs06NsFxFpiioW/WaaJm0tUoiSf8i75HhNij9oHoRTXnR2bsoo
+	 NjtXqopSboMWg==
 From: Will Deacon <will@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Mostafa Saleh <smostafa@google.com>
+To: Russell King <linux@armlinux.org.uk>,
+	"Rob Herring (Arm)" <robh@kernel.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	robin.murphy@arm.com,
-	joro@8bytes.org
-Subject: Re: [PATCH 0/2] iommu/io-pgtable-arm: Fix for stage-2 map/unmap
-Date: Tue, 29 Oct 2024 16:15:16 +0000
-Message-Id: <173021209382.4087086.8047959157749601171.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: pmuv3: Add missing write_pmuacr()
+Date: Tue, 29 Oct 2024 16:15:15 +0000
+Message-Id: <173020672798.2294098.11077870064387450759.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241024162516.2005652-1-smostafa@google.com>
-References: <20241024162516.2005652-1-smostafa@google.com>
+In-Reply-To: <20241029120602.4061566-2-robh@kernel.org>
+References: <20241029120602.4061566-2-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_091537_097189_D2F0B959 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20241029_161536_949801_896E3411 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +92,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Oct 2024 16:25:14 +0000, Mostafa Saleh wrote:
-> The first patch is a bug fix for stage-2 handling of concatenated pgds
-> that can break map/unmap for some cases.
+On Tue, 29 Oct 2024 07:06:02 -0500, Rob Herring (Arm) wrote:
+> Fix compilation on Arm by adding missing static inline write_pmuacr()
+> declaration.
 > 
-> The second patch is adding these cases to selfs tests.
 > 
-> While looking at that, I also noticed that the concated page tables support
-> is minimal and not supported for many cases (level = 0, 2, 3), I wrote some
-> code to support that so I can test further, I can send it later in another
-> patch.
-> 
-> [...]
 
-Applied to will (for-joerg/arm-smmu/updates), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/2] iommu/io-pgtable-arm: Fix stage-2 map/unmap for concatenated tables
-      https://git.kernel.org/will/c/d71fa842d33c
-[2/2] iommu/io-pgtable-arm: Add self test for the last page in the IAS
-      https://git.kernel.org/will/c/d64c8053378e
+[1/1] ARM: pmuv3: Add missing write_pmuacr()
+      https://git.kernel.org/will/c/bdc9a64c8b20
 
 Cheers,
 -- 
