@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A71D3A696
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98232D3A697
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=; b=B+Qr2afzLjeUTnoepjdlCQ7DN3
-	I4/tPAL7LmpEVfimy3tpWJiKj0Wqs/a7afaEOmj5yxNsoKL30PNvxGwmGKYvNQDdAx5tTebh1NLDR
-	pmTVsHpYekvADRLgEKUWMgBhxJ/erbKoxwVjjcmUb/fGYUzdDVkWk3jE/I1iII4oClgnpURadCqxx
-	9o1A7dECoBU0Z3eUSKkJeiK8WU8e7B7b8hn6udvtIvLbBBSvVPzs90nag89bZ21iFsXUmo/lEtDtM
-	5JKXQdg7U1bhEQoVUJ1PaPXASunQ/ECuOVBUA8qNpwXuNmb3kicOG44hNwmLFYhLwfdlePgkahGr6
-	YtYz6W8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=; b=VPFbkERMljvY/NTXn+W4d1ZYeO
+	8yq5nn2uQuCduK6Frs9Fq+bm+y30+oiCvk+HQPVQQrQj4gVPowe17+ci6hVZeDCY5BlK7Ng2aIo6z
+	TqiMVZsV8M1EzhOxRi1IQ+gEgEaMM8V9vnsgNwQ891MZf8gOxWEWPxSo/I/KmnTB371taqPGT/CjD
+	bkgo9mRvvgoRk3UvBy4BKtUElG6L7xeuusGaZyoQ8HjoazIlgcisIDozqs/JhmaP8tuVISWlMEbo5
+	QJzk03qxQHXfNRv5T5vVlStSKnKmV/ilVnQJvpY2QrvpjHUiSNp+I8eZw2zmR2ITbCaBzuFecoJn5
+	OE8ArrgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sOJ-0000000FiGO-13e1;
-	Tue, 29 Oct 2024 20:00:35 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1t5sVl-0000000Five-3eRJ;
+	Tue, 29 Oct 2024 20:08:17 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rKX-0000000Fa7l-3s8z
+	id 1t5sU7-0000000Fijy-3Jta
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 18:52:48 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d450de14fso518095f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 11:52:36 -0700 (PDT)
+	Tue, 29 Oct 2024 20:06:37 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6e3a97a6010so67167497b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:06:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730227955; x=1730832755; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=;
-        b=DJ6TrXk1TP0GJ2XNyGoffFgVg/TGpdE2YXOdNVk96f689YmIns7cMdunK/s/rNfayY
-         LTw2XHor5uZqEtlBSKDaXEHCm4P3pLOY10qgoyroxHZ+SaDQl+gy8RSaRV6k6itL962y
-         vm8qNddXZYL5O1cWZByafStcFJMgb8nTHQonVUNEVC0bQxyV7DuJl5P/lXYGJQc8Ue+F
-         jCmQ0AyX1OeB2WzmMLpsp/K+nFcnniFAGN7IUSJI5eOwxCnQbLC2SYsdmDgjSt5VBHBt
-         vheq4FjHGGux8Y1O3MCVjXxk5QrFDBKqAB3MtWe5DqA2zxhPs+vzm0h6Y1EmljzanTlS
-         qp/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730227955; x=1730832755;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1730232394; x=1730837194; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=;
-        b=A2kYHKsM2C1Ror4LaMpEppcPsIFw+I+jOZ+Q+lnDPWg4y00J2X+xAzc+HWKrR8D2co
-         CxHmTwwiVv4pRmGSqIE/9e0fCzuHMzteZJuh2afzkQkCsHXxvGCwpU+KEHZskOc3DZPr
-         WhtVrD5Pdo8MJmz9S/iaQIAOS0ffst8pFdM2v8JTokpNYldY9t/AJvrIjUu5wJ9GC7LC
-         a1heKgWee5e6fsLKCoNVe/tLyiTIwMreWwwEPUBGxpsnowRtW4433uwNYq43+uf0TSSi
-         jqmXXOd+F2CACXeuZqHxobze5lxIMBMzagz9HVWgSYUXUrrxR/AjT2IM1wvrDqhDmcyP
-         Ff1A==
-X-Forwarded-Encrypted: i=1; AJvYcCU1HQZvnqWSOstw6qyQiFAIb3zCy+vC4uNYNixWddzyH40Yu3CTIhTWheVFk4cxwiF4dExnhlaQVas1IIfBjtVN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4DfCCq95fQix/vPKFQyKJTX7xvdrV1Svlpbbu4GElq95RhyXc
-	68d+BpUCXzadeS7BmmKngfBzzOcC6YRN2yuuNDWwnX3Oldlh/BMw
-X-Google-Smtp-Source: AGHT+IF1JuH5GETYzM48l9lfnZfPVRTjPuBUwhpTxF2mnfjmnhq15lSAoKb5oQuP+txb+/2Ssczf8A==
-X-Received: by 2002:a05:600c:1c29:b0:431:50b9:fa81 with SMTP id 5b1f17b1804b1-4319ad368f4mr46064815e9.7.1730227955179;
-        Tue, 29 Oct 2024 11:52:35 -0700 (PDT)
-Received: from skbuf ([188.25.134.29])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43193573e47sm154555825e9.8.2024.10.29.11.52.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 11:52:34 -0700 (PDT)
-Date: Tue, 29 Oct 2024 20:52:31 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v5 3/6] net: stmmac: Refactor FPE functions to
- generic version
-Message-ID: <20241029185231.fgy6tofi2uoslp3l@skbuf>
-References: <cover.1730084449.git.0x1207@gmail.com>
- <0f13217c5f7a543121286f13b389b5800bde1730.1730084449.git.0x1207@gmail.com>
+        bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=;
+        b=nwaq8GEPjzK8xGggG/uA8qwKU6mmeZFXvmsr3rEnyF6YkcJRYHYHgD+XErvrwMI+l5
+         7Wa86N/HO3ERHmdDSbO9EeMfMUoquF5KO8clfBHKOgyd/9IKaRx3rsarPQynjEXfyPtO
+         D5YUJoQTRbCQu8EGj9NxYHOqf9c2GklZupmhO+hpZqZRavFhuNF8D/MO+lmOovI0TXeQ
+         QZtrtqrUtjSuaT72EeH+pSpi9K25m6pXUrfoNUHTdC0M3DZ7wq5njqH9blz5N1ECzD51
+         RO8PMJtbYJhm87zj7fBUO4vGnfx/Xp7mF0akZc37GtNHSmFwjG1zNPaOCPhTVNZ8/2cF
+         /JQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730232394; x=1730837194;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=;
+        b=KUB4kTrSabyVk9VKxkQkGrPRZFvtus7frJqpgh7QItvQsHNd8IecWxRXxwrwPRURaK
+         Xr+LLnqFWN273Jn41jz4UlYrC1SGNWyoHVqhDTGxI8wiKI1HrC1jVTH9c1e5w69Czvqv
+         eudaDrDfPXYFlsQAyru781zFjOEZpSUDciWr9vkwXnFGyU6px8ghWPCDGTxz9I8kJuFF
+         atqKesnLzlUwnod1MWTcuaDLIqyUEkDKF2nBL+DDPwLU+CHEtTTM0MJLLdg3T/wIC1y0
+         C1gErT4PiKSmLWB/SUBsggryvkt2+Pc2K7RyBpA2OMFtho65JAqbepZKlr6rOcsaG/5q
+         Ie8g==
+X-Forwarded-Encrypted: i=1; AJvYcCWhl3ridUf4SoAc3HcnQm30M4oZ+vLMNyeg+7q4wYoJhV9rTcVve82klh+OSJVEUV4lZLODUQ+yRzUNn5l9EU4E@lists.infradead.org
+X-Gm-Message-State: AOJu0YzloYL+Dh1PxyXWBep9XhroNkVdQPfswAkA5SMYFCBwubzxrulb
+	MQ8WlRHQvi0Rip4hRG8LsShr4bJ/+fnVl01EXwoM3tpkaABIiBhpqfsvdJStsXDi8DMQKAJwT5d
+	EOTJeTZ6UoTKhPBEwjyiMAl5RVQ3nHfAxc102RA==
+X-Google-Smtp-Source: AGHT+IHJIZjJm0+Hsxf3gPKdK8yBtqrSRKRjmh10LGyKq5VrJEw8ofGWS0qIV7jYqKH4wMYRbrhheBmDRAEt5XkqPpk=
+X-Received: by 2002:a05:6902:1109:b0:e30:6dea:3ab4 with SMTP id
+ 3f1490d57ef6-e3087a6060fmr12587842276.23.1730232393985; Tue, 29 Oct 2024
+ 13:06:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0f13217c5f7a543121286f13b389b5800bde1730.1730084449.git.0x1207@gmail.com>
+References: <20241029192107.2344279-1-peter.griffin@linaro.org>
+In-Reply-To: <20241029192107.2344279-1-peter.griffin@linaro.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Tue, 29 Oct 2024 15:06:23 -0500
+Message-ID: <CAPLW+4k7wd4Wix8xEB8+Aeb10_D9XU9jbxhCZ_OMn1fW5OOAtg@mail.gmail.com>
+Subject: Re: [PATCH] phy: samsung-ufs: switch back to syscon_regmap_lookup_by_phandle()
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: vkoul@kernel.org, kishon@kernel.org, krzysztof.kozlowski@linaro.org, 
+	alim.akhtar@samsung.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org, 
+	kernel-team@android.com, willmcvicker@google.com, 
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_115237_986877_836314C5 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20241029_130635_857189_DC97C381 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,73 +93,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 11:07:26AM +0800, Furong Xu wrote:
->  void stmmac_fpe_link_state_handle(struct stmmac_priv *priv, bool is_up)
->  {
->  	struct stmmac_fpe_cfg *fpe_cfg = &priv->fpe_cfg;
->  	unsigned long flags;
->  
-> +	if (!priv->dma_cap.fpesel)
-> +		return;
-> +
+On Tue, Oct 29, 2024 at 2:21=E2=80=AFPM Peter Griffin <peter.griffin@linaro=
+.org> wrote:
+>
+> Now exynos-pmu can register its custom regmap for gs101 via
+> of_syscon_register_regmap() we can switch back to the standard
+> syscon_regmap_lookup_by_phandle() api for obtaining the regmap.
+>
+> Additionally add a Kconfig dependency for MFD_SYSCON.
+>
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> ---
 
-Minor nitpick: all call sites also have this test already.
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
->  	timer_shutdown_sync(&fpe_cfg->verify_timer);
->  
->  	spin_lock_irqsave(&fpe_cfg->lock, flags);
->  
->  	if (is_up && fpe_cfg->pmac_enabled) {
->  		/* VERIFY process requires pmac enabled when NIC comes up */
-> -		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
-> -				     priv->plat->tx_queues_to_use,
-> +		stmmac_fpe_configure(priv, priv->plat->tx_queues_to_use,
->  				     priv->plat->rx_queues_to_use,
->  				     false, true);
->  
-> @@ -154,6 +161,11 @@ void stmmac_fpe_init(struct stmmac_priv *priv)
->  	priv->fpe_cfg.status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
->  	timer_setup(&priv->fpe_cfg.verify_timer, stmmac_fpe_verify_timer, 0);
->  	spin_lock_init(&priv->fpe_cfg.lock);
-> +
-> +	if (priv->dma_cap.fpesel && !priv->fpe_cfg.reg) {
-> +		dev_warn(priv->device, "FPE on this MAC is not supported by driver, force disable it.\n");
-> +		priv->dma_cap.fpesel = 0;
-> +	}
-
-Let's not change the output of stmmac_dma_cap_show() sysfs attribute if
-we don't have to. Who knows what depends on that. It's better to
-introduce stmmac_fpe_supported(), which tests for both conditions,
-and use it throughout (except, of course, for the sysfs, which should
-still print the raw DMA capability).
-
-Which devices would those even be, which support FPE but the driver
-doesn't deal with them (after your XGMAC addition), do you have any idea?
-
->  }
->  
->  void stmmac_fpe_apply(struct stmmac_priv *priv)
-> @@ -164,8 +176,7 @@ void stmmac_fpe_apply(struct stmmac_priv *priv)
->  	 * Otherwise let the timer code do it.
->  	 */
->  	if (!fpe_cfg->verify_enabled) {
-> -		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
-> -				     priv->plat->tx_queues_to_use,
-> +		stmmac_fpe_configure(priv, priv->plat->tx_queues_to_use,
->  				     priv->plat->rx_queues_to_use,
->  				     fpe_cfg->tx_enabled,
->  				     fpe_cfg->pmac_enabled);
-> @@ -178,50 +189,54 @@ void stmmac_fpe_apply(struct stmmac_priv *priv)
->  	}
->  }
->  
-> -void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
-> -			  u32 num_txq, u32 num_rxq,
-> +void stmmac_fpe_configure(struct stmmac_priv *priv, u32 num_txq, u32 num_rxq,
->  			  bool tx_enable, bool pmac_enable)
-
-num_txq? not used anywhere. num_rxq? can be retrieved from the "priv"
-pointer already provided.
-
-The rest of the series looks good, I have no other comments.
+>  drivers/phy/samsung/Kconfig           | 1 +
+>  drivers/phy/samsung/phy-samsung-ufs.c | 6 +++---
+>  2 files changed, 4 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+> index f10afa3d7ff5..e2330b0894d6 100644
+> --- a/drivers/phy/samsung/Kconfig
+> +++ b/drivers/phy/samsung/Kconfig
+> @@ -33,6 +33,7 @@ config PHY_SAMSUNG_UFS
+>         tristate "Exynos SoC series UFS PHY driver"
+>         depends on OF && (ARCH_EXYNOS || COMPILE_TEST)
+>         select GENERIC_PHY
+> +       select MFD_SYSCON
+>         help
+>           Enable this to support the Samsung Exynos SoC UFS PHY driver fo=
+r
+>           Samsung Exynos SoCs. This driver provides the interface for UFS=
+ host
+> diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/=
+phy-samsung-ufs.c
+> index 6c5d41552649..8e9ccd39f97e 100644
+> --- a/drivers/phy/samsung/phy-samsung-ufs.c
+> +++ b/drivers/phy/samsung/phy-samsung-ufs.c
+> @@ -13,11 +13,11 @@
+>  #include <linux/of.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+> -#include <linux/soc/samsung/exynos-pmu.h>
+>
+>  #include "phy-samsung-ufs.h"
+>
+> @@ -268,8 +268,8 @@ static int samsung_ufs_phy_probe(struct platform_devi=
+ce *pdev)
+>                 goto out;
+>         }
+>
+> -       phy->reg_pmu =3D exynos_get_pmu_regmap_by_phandle(dev->of_node,
+> -                                                       "samsung,pmu-sysc=
+on");
+> +       phy->reg_pmu =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+> +                                                      "samsung,pmu-sysco=
+n");
+>         if (IS_ERR(phy->reg_pmu)) {
+>                 err =3D PTR_ERR(phy->reg_pmu);
+>                 dev_err(dev, "failed syscon remap for pmu\n");
+> --
+> 2.47.0.163.g1226f6d8fa-goog
+>
+>
 
