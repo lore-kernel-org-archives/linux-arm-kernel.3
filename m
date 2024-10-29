@@ -4,54 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B62D5B17D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFC7D5B87C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=84weadUU+C6THnPjEye+1jz++CMiGXqxDbtNCXSzIE8=; b=yBhPIY8DFxR4J+RK4g4auC6O8N
-	vLU/gcYO9csmFbHDw0m06xCEeey6VfBknLnUY9XOVQ0MP3fixuaeu+ycolRC4Crnv6/h3iGhEY/Z4
-	lFjgiKs/eyERaDzuXsWA2RP2IcG0SJnJ2jEqex9lSMH3hhTal0QveqS5f5KE9e/LwLE0Blq1D4CKa
-	jodTjbT+3XxXTAI/Z1h6osraYm969MoK36MMxNKxAm9EBdTGQMiF7kXEQpfcZL/FvyRBDT726reeJ
-	KyVxg5eCivjuk14jV5vGG2vZI4EpXwpZw25nAsb6l0GuxQ5u2eSJMgYdJxYjNcQofoYpZc5eYEUed
-	/7hIZd2A==;
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xZLXW3TH4fcm9KE+FjIOZQPmKBurAbTddrIKq6UPknc=; b=iKZL6iz/1/2VGqlVXZgTqoyblW
+	ltBmlr6gKtj4VwX6hj2C3Js9hlHQrWdmVd1WKaeISVMgpqs4BhY6t0Ptr6hrrO/wfYPrXeagx3Hzb
+	392ebgOkqTc69Ia5+3WOmXBWF73y7SA2FekgJ40F1579umjcTKrU+Ej/bf06mGIcGwReipIqdt8Np
+	vvrOh/uF9O8IkL9l8HpgNqfMVO8hxVIEiDMDVrzgF2QSiyj0x7YTjxcmIYWFfcYR9iVODw/OPH3j4
+	vOQygJwO9C5InV8LnmuRYT5dUlastc+ehJLIvecoyKtheqSUUXIXl3/6ZxUr5WLtsyX1OxJLWGFsQ
+	52q8aBKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5n1Q-0000000EheK-053w;
-	Tue, 29 Oct 2024 14:16:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mwP-0000000Eggi-03yf
+	id 1t5n3P-0000000Ei4P-3uj8;
+	Tue, 29 Oct 2024 14:18:39 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5n1k-0000000Ehgv-1XWT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:11:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30A48113E;
-	Tue, 29 Oct 2024 07:11:52 -0700 (PDT)
-Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BF393F528;
-	Tue, 29 Oct 2024 07:11:22 -0700 (PDT)
-From: Jeremy Linton <jeremy.linton@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: steven.price@arm.com,
-	suzuki.poulose@arm.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	gshan@redhat.com,
-	sami.mujawar@arm.com,
-	linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
-Date: Tue, 29 Oct 2024 09:11:14 -0500
-Message-ID: <20241029141114.7207-1-jeremy.linton@arm.com>
-X-Mailer: git-send-email 2.46.2
+	Tue, 29 Oct 2024 14:16:58 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4XdC343RtGzQsBc;
+	Tue, 29 Oct 2024 22:15:44 +0800 (CST)
+Received: from kwepemd200010.china.huawei.com (unknown [7.221.188.124])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1CCAF140157;
+	Tue, 29 Oct 2024 22:16:43 +0800 (CST)
+Received: from [10.174.162.134] (10.174.162.134) by
+ kwepemd200010.china.huawei.com (7.221.188.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 29 Oct 2024 22:16:42 +0800
+Subject: Re: [PATCH v4] ACPI: GTDT: Tighten the check for the array of
+ platform timer structures
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: <guohanjun@huawei.com>, <sudeep.holla@arm.com>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<daniel.lezcano@linaro.org>, <tglx@linutronix.de>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20241016095458.34126-1-zhengzengkai@huawei.com>
+ <Zw+O4nZisbkdvNtz@lpieralisi>
+From: Zheng Zengkai <zhengzengkai@huawei.com>
+Message-ID: <3bf1fe29-e135-c1ba-2774-d1e98c8b92b3@huawei.com>
+Date: Tue, 29 Oct 2024 22:16:41 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
+In-Reply-To: <Zw+O4nZisbkdvNtz@lpieralisi>
+Content-Type: text/plain; charset="gbk"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.162.134]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200010.china.huawei.com (7.221.188.124)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_071125_121625_E0D0E1D4 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20241029_071656_931669_895662B6 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,88 +76,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TSM module provides both guest identification as well as
-attestation when a guest is run in CCA mode. Lets assure by creating a
-dummy platform device that the module is automatically loaded during
-boot. Once it is in place it can be used earlier in the boot process
-to say decrypt a LUKS rootfs.
 
-Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
----
- arch/arm64/include/asm/rsi.h                    |  2 ++
- arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
- drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  7 +++++++
- 3 files changed, 24 insertions(+)
+Gentle ping.
 
-diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-index 188cbb9b23f5..1b14a4c4257a 100644
---- a/arch/arm64/include/asm/rsi.h
-+++ b/arch/arm64/include/asm/rsi.h
-@@ -10,6 +10,8 @@
- #include <linux/jump_label.h>
- #include <asm/rsi_cmds.h>
- 
-+#define ARMV9_RSI_PDEV_NAME "arm-cca-dev"
-+
- DECLARE_STATIC_KEY_FALSE(rsi_present);
- 
- void __init arm64_rsi_init(void);
-diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-index 3031f25c32ef..ad963eb12921 100644
---- a/arch/arm64/kernel/rsi.c
-+++ b/arch/arm64/kernel/rsi.c
-@@ -8,6 +8,7 @@
- #include <linux/psci.h>
- #include <linux/swiotlb.h>
- #include <linux/cc_platform.h>
-+#include <linux/platform_device.h>
- 
- #include <asm/io.h>
- #include <asm/mem_encrypt.h>
-@@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
- 	static_branch_enable(&rsi_present);
- }
- 
-+static struct platform_device rsi_dev = {
-+	.name = ARMV9_RSI_PDEV_NAME,
-+	.id = -1
-+};
-+
-+static int __init rsi_init(void)
-+{
-+	if (is_realm_world())
-+		if (platform_device_register(&rsi_dev))
-+			pr_err("failed to register rsi platform device");
-+	return 0;
-+}
-+
-+arch_initcall(rsi_init)
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-index 488153879ec9..e7ef3b83d5d9 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-@@ -6,6 +6,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/cc_platform.h>
- #include <linux/kernel.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/module.h>
- #include <linux/smp.h>
- #include <linux/tsm.h>
-@@ -219,6 +220,12 @@ static void __exit arm_cca_guest_exit(void)
- }
- module_exit(arm_cca_guest_exit);
- 
-+static const struct platform_device_id arm_cca_match[] = {
-+	{ ARMV9_RSI_PDEV_NAME, 0},
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(platform, arm_cca_match);
- MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
- MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
- MODULE_LICENSE("GPL");
--- 
-2.46.0
+This patch still can be applied to upstream now.
 
+Thanks!
+
+
+ÔÚ 2024/10/16 18:01, Lorenzo Pieralisi Ð´µÀ:
+> On Wed, Oct 16, 2024 at 05:54:58PM +0800, Zheng Zengkai wrote:
+>> As suggested by Marc and Lorenzo, first we need to check whether the
+>> platform_timer entry pointer is within gtdt bounds (< gtdt_end) before
+>> de-referencing what it points at to detect the length of the platform
+>> timer struct and then check that the length of current platform_timer
+>> struct is also valid, i.e. the length is not zero and within gtdt_end.
+>> Now next_platform_timer() only checks against gtdt_end for the entry of
+>> subsequent platform timer without checking the length of it and will
+>> not report error if the check failed and the existing check in function
+>> acpi_gtdt_init() is also not enough.
+>>
+>> Modify the for_each_platform_timer() iterator and use it combined with
+>> a dedicated check function platform_timer_valid() to do the check
+>> against table length (gtdt_end) for each element of platform timer
+>> array in function acpi_gtdt_init(), making sure that both their entry
+>> and length actually fit in the table.
+>>
+>> Suggested-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Co-developed-by: Marc Zyngier <maz@kernel.org>
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> Signed-off-by: Zheng Zengkai <zhengzengkai@huawei.com>
+>> ---
+>> Changes in v4:
+>> - remove the tmp pointer to make the code more concise.
+>>
+>> Changes in v3:
+>> - based on Marc's patch and reuse the for_each_platform_timer() loop
+>> Link to v3: https://lore.kernel.org/linux-arm-kernel/20241015152602.184108-1-zhengzengkai@huawei.com/
+>>
+>> Changes in v2:
+>> - Check against gtdt_end for both entry and len of each array element
+>> Link to v2: https://lore.kernel.org/linux-arm-kernel/20241012085343.6594-1-zhengzengkai@huawei.com/
+>>
+>> Link to v1: https://lore.kernel.org/all/20241010144703.113728-1-zhengzengkai@huawei.com/
+>>
+>> Link to previous related patches:
+>> https://lore.kernel.org/all/20241008082429.33646-1-zhengzengkai@huawei.com/
+>> https://lore.kernel.org/all/20240930030716.179992-1-zhengzengkai@huawei.com/
+>> ---
+>>   drivers/acpi/arm64/gtdt.c | 29 ++++++++++++++++++++---------
+>>   1 file changed, 20 insertions(+), 9 deletions(-)
+> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>
+>> diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+>> index c0e77c1c8e09..d7c4e1b9915b 100644
+>> --- a/drivers/acpi/arm64/gtdt.c
+>> +++ b/drivers/acpi/arm64/gtdt.c
+>> @@ -36,19 +36,25 @@ struct acpi_gtdt_descriptor {
+>>   
+>>   static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+>>   
+>> -static inline __init void *next_platform_timer(void *platform_timer)
+>> +static __init bool platform_timer_valid(void *platform_timer)
+>>   {
+>>   	struct acpi_gtdt_header *gh = platform_timer;
+>>   
+>> -	platform_timer += gh->length;
+>> -	if (platform_timer < acpi_gtdt_desc.gtdt_end)
+>> -		return platform_timer;
+>> +	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
+>> +		platform_timer < acpi_gtdt_desc.gtdt_end &&
+>> +		gh->length != 0 &&
+>> +		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
+>> +}
+>> +
+>> +static __init void *next_platform_timer(void *platform_timer)
+>> +{
+>> +	struct acpi_gtdt_header *gh = platform_timer;
+>>   
+>> -	return NULL;
+>> +	return platform_timer + gh->length;
+>>   }
+>>   
+>>   #define for_each_platform_timer(_g)				\
+>> -	for (_g = acpi_gtdt_desc.platform_timer; _g;	\
+>> +	for (_g = acpi_gtdt_desc.platform_timer; platform_timer_valid(_g);\
+>>   	     _g = next_platform_timer(_g))
+>>   
+>>   static inline bool is_timer_block(void *platform_timer)
+>> @@ -157,6 +163,7 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+>>   {
+>>   	void *platform_timer;
+>>   	struct acpi_table_gtdt *gtdt;
+>> +	int cnt = 0;
+>>   
+>>   	gtdt = container_of(table, struct acpi_table_gtdt, header);
+>>   	acpi_gtdt_desc.gtdt = gtdt;
+>> @@ -176,12 +183,16 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+>>   		return 0;
+>>   	}
+>>   
+>> -	platform_timer = (void *)gtdt + gtdt->platform_timer_offset;
+>> -	if (platform_timer < (void *)table + sizeof(struct acpi_table_gtdt)) {
+>> +	acpi_gtdt_desc.platform_timer = (void *)gtdt + gtdt->platform_timer_offset;
+>> +	for_each_platform_timer(platform_timer)
+>> +		cnt++;
+>> +
+>> +	if (cnt != gtdt->platform_timer_count) {
+>> +		acpi_gtdt_desc.platform_timer = NULL;
+>>   		pr_err(FW_BUG "invalid timer data.\n");
+>>   		return -EINVAL;
+>>   	}
+>> -	acpi_gtdt_desc.platform_timer = platform_timer;
+>> +
+>>   	if (platform_timer_count)
+>>   		*platform_timer_count = gtdt->platform_timer_count;
+>>   
+>> -- 
+>> 2.20.1
+>>
+> .
+>
 
