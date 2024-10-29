@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966BFD3A697
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A9BD3A696
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Go75F5WGin7Ix/MZ1KEJuNCfk0dx2TFxpmOXy5zXdWs=; b=umZZzx2SYOxhCnbyExeK3q9agC
-	G0gLty5l8XNMqJjEGQDIfjQ3Wj5yfhoO9cJwsB5fUHDVcTBbB68Qf+qp10EbXZlZUF0SpGQQSgRvz
-	thWujJARMo/U/WvRVk1KLtxVgYQWJbxvT2tZdDtBsbKd9rPD6otWIBKftqQud/InRxyCRkdTD1dsc
-	iaS3g65U39ALeGf+rZoYIpbh24zfuXbc95hkzddSOj+DO+tt0ZU+2nk0oLtXpaYlcMprQ9s5jJ4gq
-	HIcqJfzYCap0yH4IEXLj93mHo3xg8DEW0Q12pNiK77EX/KUpzsJmXCN6q1ucae0fYBcxlkf+BtXJe
-	53+xITew==;
+	bh=zYKmKtE2fVCas74ElHJ9fhZLrtmW93dELAHBPhCA8b0=; b=PNedMqk8pDy6nozkZR/9F5G19b
+	nTZmkUgZt1pg11HT373Piq1xjcUqL1JOouraJ0BPVjVZWw5k7a8sP1VCt5LD9MkidXZGx7h7/32D1
+	gnP1veze0Yz0CJyIDPzQe4xTtvw6UxMOswsgn5nsdh7s2hBVWWd3AOco5eqp1pjgMQ5KGwnRRSToE
+	lLr8VQ4eXe1NGkxhHKGC7/MVAxJn5lIoQuZmiR7HQ0VTcg3pLBj2ucVqMFn42w53C9Yk+3C9eusfa
+	u7bT4Abn5gCSgT02Hk6OTha3w68CYint0dgjp0aTG92jAbqerAJQgRm5ATU2dbtX+bryDE17Uzwqp
+	weBuHq4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rlC-0000000Fe6m-086y;
-	Tue, 29 Oct 2024 19:20:10 +0000
+	id 1t5rmn-0000000FeRa-1a4Z;
+	Tue, 29 Oct 2024 19:21:49 +0000
 Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ri0-0000000FdeE-2qRl
+	id 1t5ri3-0000000Fdfw-40Ju
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:16:53 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7db54269325so4358476a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:16:51 -0700 (PDT)
+	Tue, 29 Oct 2024 19:16:57 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-656d8b346d2so3968507a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:16:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730229411; x=1730834211; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730229415; x=1730834215; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Go75F5WGin7Ix/MZ1KEJuNCfk0dx2TFxpmOXy5zXdWs=;
-        b=MfEB2lVcxxRhSJn7TiKx08lvhnheE11gKf/lQkyupOY7HI/PgZyJs0YZGV4ZgVB23m
-         04dPCtyU045A8rZjNhgLGFmzsr+V9bOjxvUmAbS1rfE3CHiU0DvFn602PZ3ihJ3ovI9Z
-         eGK2/1Tg8N4oZtVsr8nsnTT/HkEIjJuziRYLq97shlPiTaAkQPi5VIpggDnmJO/24TfX
-         BF12EjZ1+ejF5ZReaUAZw4OBtpDgYjKyCaJw5oNPaE6tjUfrIjoSTLZwf/VS4zUOpUlm
-         ZRFRHQm7u0oPjWyX4RXVGP+Kn4yfumuou1r0iTjc8vhmAxtzVAOXOTio6WCu3tvHyveb
-         UFhw==
+        bh=zYKmKtE2fVCas74ElHJ9fhZLrtmW93dELAHBPhCA8b0=;
+        b=lxflkdyWdhnL/DGAquIfxWHxwWc3yG4snckGuBxI+FHuXGsYgzGcCE2Tu2HfECoj5L
+         FdxJThmOo9+szL/wdM7Dh5gU6+S47aMt4spDsbzwWephHgouPDz5XBd/qxy9738Qkp8S
+         G8mY1heEh2jDuhms24NyWh49D+LhuwPP0WttEg2CCZY0aluNe8b5CNE8U3qcMqZbj7oT
+         gZuIKJswhyIMcO4XI2MjIe2ceR3mSy74YScFRrr9p5eEDiGjmDyg6Nho7IQSvYZFhON0
+         AuWvyIBvbA9euyHfqUot8gnLsb4EjfOivEe7DWLcJDxupxHQmU/FElpPpY03cqlHhN85
+         NSsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730229411; x=1730834211;
+        d=1e100.net; s=20230601; t=1730229415; x=1730834215;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Go75F5WGin7Ix/MZ1KEJuNCfk0dx2TFxpmOXy5zXdWs=;
-        b=lZrKqy7J9eHcxK3wuETIPvCSGhPlJZHs9HZn9VOnJYpobg4Dyx6fxN3oaX8N3AOVpu
-         /09AfZIPc4RwjvAyy7Ny8ZyXvMahhSbOO5Twf66VFN5ZPzh+b/S6JmQbJy4jyFMa4IoY
-         cRamYXJLIghamh0TmQhaKSFyEophG0muhDe8QxQJjzvliotoKULgfng/EA/aatSlV0B5
-         uSbPNTeIvzcYCZkIL/bgGSXYKMMiCyviX+mcHeQxB5mz20EFADzO3JczA2q5yCkvgL8P
-         +wGw9xZ6z/Te38PjhfrrBnuw+MWwLMINRjb7CZcYhteTxNMVtFhTYt4uxtblETLUdgm8
-         ZLyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNe0Pzw72qQqVmusmzumwnYmvzhBohr0ve3ZZeFxfuoP+hbGweYXYE/cKdsD5dY3fzhbiw1SEqs/3WhFEdiV6Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc2hhgUyPokvjuN9JVdY9SPIGjFP9TzEOtf5518WvISBpCgmCE
-	q+WZwVKq47bQBe6fSe+jTNf+sQM/8Em0CPeu5wXnuUFlR0ymVlHW
-X-Google-Smtp-Source: AGHT+IFenngeaT6t8iIEBhKoMZoPByKBmWfPEehMYTOwuzAHWbQ1Z6ZF1XwcmALtKo2mLUrDVAj/Zw==
-X-Received: by 2002:a05:6a21:3a41:b0:1d9:237a:2d56 with SMTP id adf61e73a8af0-1d9a8512cedmr15070567637.48.1730229411268;
-        Tue, 29 Oct 2024 12:16:51 -0700 (PDT)
+        bh=zYKmKtE2fVCas74ElHJ9fhZLrtmW93dELAHBPhCA8b0=;
+        b=WHF9ZCGGrxfDMdhxdohyYnS2lpnORVy6MAjFwQai8d5nzRHzYS7IslwxnVMspkZoFP
+         NtqflSCVHxVbg0tYuGprQHK/f2vl81LgwWRZxUVuCvoJAQresT4+GAs6TvmLaUU+qVWo
+         P4SX0dFWyq+PBoWnrY40iFl/ztueqgdr464KmoPGDIgD9bMFe8KZTDiQlCqlhJQVsPmR
+         /Nsy6RZyXDhTQvZ2GcurofP+Yoc/ORxmLTOxsT3JOCRTvYEO6nes896uOyHue3i4775g
+         TMhHUr+nhlgfEZTvma1mtq91CQDIVJeCbIY9fNguhCeAS7ebf8wrZBVUxmv/aR7SsucJ
+         OsBw==
+X-Forwarded-Encrypted: i=1; AJvYcCWqiO0MgjzmCFyYrBlOMADSSrK4Q4vX0ccO+4nZzzoTNVysdyy6lAkMVdfCg8Y/bTJwOjuTlVfb/HozrQ7bVUPD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAt10Ye3EyvQILi20+7eqSZCQFIracWArYztBNBvzX5I0jGZ7i
+	ZKpyuUevMm/U87DldzyS1/yfXqHdWvnzJJwCnix6wILzQYAVBG4k
+X-Google-Smtp-Source: AGHT+IFTWq5E2+C67K9DtUnmc5ZutA88kE0YA5e/SigUzJXK7DIsERXz99OcPpiFqA+Gv4FpUe17bA==
+X-Received: by 2002:a05:6a21:58b:b0:1d9:762a:98ba with SMTP id adf61e73a8af0-1d9a83c9c31mr17108740637.16.1730229415320;
+        Tue, 29 Oct 2024 12:16:55 -0700 (PDT)
 Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:190a:1425:254d:1e7a])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8661061sm7842346a12.17.2024.10.29.12.16.47
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7edc8661061sm7842346a12.17.2024.10.29.12.16.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 12:16:50 -0700 (PDT)
+        Tue, 29 Oct 2024 12:16:54 -0700 (PDT)
 From: Fabio Estevam <festevam@gmail.com>
 To: shawnguo@kernel.org
 Cc: marex@denx.de,
@@ -77,17 +77,17 @@ Cc: marex@denx.de,
 	linux-arm-kernel@lists.infradead.org,
 	dri-devel@lists.freedesktop.org,
 	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH v3 2/3] dt-bindings: lcdif: Expand the imx6sl/imx6sll fallbacks
-Date: Tue, 29 Oct 2024 16:16:39 -0300
-Message-Id: <20241029191640.379315-2-festevam@gmail.com>
+Subject: [PATCH v3 3/3] ARM: dts: imx6sl: Provide a more specific lcdif compatible
+Date: Tue, 29 Oct 2024 16:16:40 -0300
+Message-Id: <20241029191640.379315-3-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241029191640.379315-1-festevam@gmail.com>
 References: <20241029191640.379315-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_121652_746701_5BCC2D25 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20241029_121656_018454_E7703F02 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,61 +104,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fabio Estevam <festevam@denx.de>
 
-mx6sl.dtsi and imx6sll.dtsi have the following lcdif entries:
+The LCDIF IP on i.MX6SL and i.MX6SLL is compatible with i.MX6SX.
 
-compatible = "fsl,imx6sl-lcdif", "fsl,imx28-lcdif";
-
-This causes dt-schema warnings as the current binding only
-allow 'fsl,imx6sx-lcdif' as fallback.
-
-['fsl,imx6sl-lcdif', 'fsl,imx28-lcdif'] is too long
-['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
-
-The imx6sx-lcdif programming model has more advanced features, such
-as overlay plane and the CRC32 support than the imx28-lcdif IP.
-
-Expand the imx6sl/imx6sll lcdif fallbacks to accept a less specific
-fsl,imx28-lcdif fallback:
-
-compatible = "fsl,imx6sl-lcdif", "fsl,imx6sx-lcdif", "fsl,imx28-lcdif";
-
-This helps keeping DT compatibility as well as using the more advanced
-lcdif features found on imx6sl and imx6sll.
+Provide a more specific "fsl,imx6sx-lcdif" compatible and still keep
+"fsl,imx28-lcdif" for DT compatibility.
 
 Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
 Changes since v2:
-- Make the three compatible entres the only valid combination
-for imx6sl and imx6sll (Andreas).
+- None.
 
- Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6sl.dtsi  | 3 ++-
+ arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-index ad0cca562463..72e509bc975b 100644
---- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-+++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-@@ -23,14 +23,18 @@ properties:
-           - fsl,imx93-lcdif
-       - items:
-           - enum:
--              - fsl,imx6sl-lcdif
--              - fsl,imx6sll-lcdif
-               - fsl,imx6ul-lcdif
-               - fsl,imx7d-lcdif
-               - fsl,imx8mm-lcdif
-               - fsl,imx8mn-lcdif
-               - fsl,imx8mq-lcdif
-           - const: fsl,imx6sx-lcdif
-+      - items:
-+          - enum:
-+              - fsl,imx6sl-lcdif
-+              - fsl,imx6sll-lcdif
-+          - const: fsl,imx6sx-lcdif
-+          - const: fsl,imx28-lcdif
-       - items:
-           - enum:
-               - fsl,imx6sx-lcdif
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
+index 6aa61235e39e..840e19b2ca0f 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
+@@ -773,7 +773,8 @@ epdc: epdc@20f4000 {
+ 			};
+ 
+ 			lcdif: lcdif@20f8000 {
+-				compatible = "fsl,imx6sl-lcdif", "fsl,imx28-lcdif";
++				compatible = "fsl,imx6sl-lcdif", "fsl,imx6sx-lcdif",
++					     "fsl,imx28-lcdif";
+ 				reg = <0x020f8000 0x4000>;
+ 				interrupts = <0 39 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&clks IMX6SL_CLK_LCDIF_PIX>,
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+index 85fe2a4ab97a..eff83f5e5535 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+@@ -648,7 +648,8 @@ pxp: pxp@20f0000 {
+ 			};
+ 
+ 			lcdif: lcd-controller@20f8000 {
+-				compatible = "fsl,imx6sll-lcdif", "fsl,imx28-lcdif";
++				compatible = "fsl,imx6sll-lcdif", "fsl,imx6sx-lcdif",
++					     "fsl,imx28-lcdif";
+ 				reg = <0x020f8000 0x4000>;
+ 				interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&clks IMX6SLL_CLK_LCDIF_PIX>,
 -- 
 2.34.1
 
