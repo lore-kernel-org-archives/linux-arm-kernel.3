@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D02D2AB3B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942FED2AB3B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oz5OCzkZXQC+rHxhytPMECDTe+7K0m2PqLGlcDUmM4=; b=l8qeHoF8Voo1bL8XmvEUJ+EV4G
-	Rh+NV5kUKkT+m3kv7A9eS364Hzkr1WFYZAKl8XM+WRaH1gv7DFA0YQ3h/49eKvn016IrNXqRlu+3s
-	R3ZX05JKk1+9fr9PBQOhCrP+nifJgFHTi5Zpgl3B72+gDwElyRHZepbRhejFN5K9xTvW7brnFx7s6
-	SCMkb3eMXoOHPgkN1pvEDmSrvUotneNKMbJYHSjyKBS78IUkFKudDT9NxV7rbwzfTFuUGA+coqvIp
-	qBpxvIMdulU18zYss4J6sfL6ZFXZn+AgNFjbb+eShMJC8ue3fV3znaTXMxwodEZtnrNtdyoDrekEN
-	kzxrpCRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=APZ+d7DtCbOZ/x97G/K7xIXwlzjArQhESKrrcwnYTos=; b=4wk7hvtk1YN6/S6zsJLIF0CU2c
+	8Qs87+7NuVCu3R3sY7A6w8/wGcTy+lWZwtiAGbu9iqYOm+yR6QmaydV150lewzWN+SuE1PaU4MeUt
+	3B6kwXZFlRwaebdRmVtcm2JxjCc/OO5IK6KYyD0Monxc5wlFQ98E1t6p9T//yZ3vmrHrDvDNdruqK
+	Gep1JYI2z73gNaoBCPD1BUyWL6O/mn25k9ltXTkjCGY/pB1omSBFW6lTJHF1uygIGp9gXF0iOB4ZQ
+	eVsMVxvv2p8y052+yTR1OQLWlQZIbLPxvOt8Pn36dGQnFAni1+1RMlUeV2k1I8F5DR6M6davOO/R1
+	V1ZhZVyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lxB-0000000EWc9-1q57;
-	Tue, 29 Oct 2024 13:08:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t5lyl-0000000EWot-2cdb;
+	Tue, 29 Oct 2024 13:09:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lPV-0000000EPmI-1bYX
+	id 1t5lR0-0000000EPyn-2F7G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 12:33:22 +0000
+	Tue, 29 Oct 2024 12:34:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F4F3A42D6B;
-	Tue, 29 Oct 2024 12:31:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DFC6C4CECD;
-	Tue, 29 Oct 2024 12:33:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58E805C5C8A;
+	Tue, 29 Oct 2024 12:34:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E1B4C4CEE5;
+	Tue, 29 Oct 2024 12:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730205199;
-	bh=3oz5OCzkZXQC+rHxhytPMECDTe+7K0m2PqLGlcDUmM4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R0XX2WtU/ewSgT3aG9pTCgLn1bK2naVRGOXUb693RM18Kb7jctHhyUlvBnyB2nnHt
-	 CTt3ZJq25U3qXw1GaLP6EDei2p75AXW2w8yVNkhfKLOewbUXPHcO3R7CGVH6OJgeO8
-	 /2RC4LYcJHjIE3IA8RC6lvrwsorrQZFIAYJ561d8iavr9YpagDZvZRHVu1fGKbW7+c
-	 K61XRF9dakPBbBM4zKIdK6J+JO/sRjupd5/S2KBsBi2iN12ZhBm8Utxr5v9E03e38B
-	 BV4ZXyX872RuAkn907OrS5jfHek8XkOMf867Nfo75U/m+j0gCBDgy5f7E/SDg/Ch8h
-	 ghk3yU46ByPlQ==
-Date: Tue, 29 Oct 2024 12:33:13 +0000
+	s=k20201202; t=1730205293;
+	bh=NKB+ZlfQbziBfBlBBE+pn9QCIwaJEp2jfmcr+pSmHHU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=G1Jtlj2+iEWXgFhBGPfX/lZkjwFEOgefkDVxSasALFxpq0w7oqt+hds0bC9j9jcsx
+	 giOZnmlQyG4OU1rOIPLvvgvviBBdlj1oiw7Bkg3uA4Fu4LyuxWkFyhginYCKA0Xa8V
+	 KEW3ppILHI58LyZWFdQhgk+UPbUjcG+COD+g0zDofP5el3N2bOEYbbAHob8z/r61Jk
+	 U8rTmedmJVuDOElbKN2epYacYIf41FGejXJQwGyq3DSgIOx4EVELqx4blotDW/ptIi
+	 eSoxfudlFsxmek9wr7NDv9TDIOKRM7EHEM7xn2O/iDnZ7Ts7E8cTrvgvTLJ0B0AeyA
+	 mKC1Hpm+F1TJQ==
 From: Mark Brown <broonie@kernel.org>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
- error path behaviour
-Message-ID: <0d3237d7-cb70-4979-b262-29ffe7d7a608@sirena.org.uk>
-References: <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
+Date: Tue, 29 Oct 2024 12:34:21 +0000
+Subject: [PATCH] kselftest/arm64: Use ksft_perror() to log MTE failures
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+c7bJTQfcONVyaEN"
-Content-Disposition: inline
-In-Reply-To: <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
-X-Cookie: May be too intense for some viewers.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241029-arm64-mte-test-logging-v1-1-a128e732e36e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEzWIGcC/x3MQQqAIBBA0avErBtQC42uEi3MJhsoC5UIorsnL
+ d/i/wcSRaYEffVApIsTH6FA1hW41QZPyHMxKKFaKVSHNu66xT0TZkoZt8N7Dh6102QaM0mnFZT
+ 4jLTw/Y+H8X0/O5kx4GgAAAA=
+X-Change-ID: 20241028-arm64-mte-test-logging-6c6e737b1c62
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3172; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=NKB+ZlfQbziBfBlBBE+pn9QCIwaJEp2jfmcr+pSmHHU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnINZqe5cVqcCpYPiyBK8ItAMmvUBl5Iw5X8JLachm
+ pABLYb2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyDWagAKCRAk1otyXVSH0D4hB/
+ 9SchFIzWN+pwAmX2R7lHgOrGmnmXGeAShMsi+Hr1lqx75nOab+CMZByKfL3iOU9k40/YeQrLUekB+k
+ 3KincABA0I/WKqTDckghBVrRVPJgC++SE48S8Ian8d5Ke0lbtokDyV6m4xYCVYw0HZis84r6fp4D4R
+ G/qoOk7BLHTGW6S6b3wCXsgFbiPFuTt/K7FIDjRzP0evqhMO/aNe63vAX/g5MSNkwE1gpj6muJfY28
+ lm14hCSaW+RNx8YKJR63IyV85MuQvL9vcCxB7aV2twKi6OMS7srzpAEjCsQaTrhKYlh2EXUkbgAYkM
+ 6iMCZVlbdQ0WDPeg+DQHDmYUy2tolX
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_053321_518706_71FB162B 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241029_053454_697729_07B4BD95 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +87,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The logging in the allocation helpers variously uses ksft_print_msg() with
+very intermittent logging of errno and perror() (which won't produce KTAP
+conformant output) when logging the result of API calls that set errno.
+Standardise on using the ksft_perror() helper in these cases so that more
+information is available should the tests fail.
 
---+c7bJTQfcONVyaEN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/mte/mte_common_util.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-On Mon, Oct 28, 2024 at 10:14:50PM +0000, Lorenzo Stoakes wrote:
+diff --git a/tools/testing/selftests/arm64/mte/mte_common_util.c b/tools/testing/selftests/arm64/mte/mte_common_util.c
+index 00ffd34c66d301ee7d5c99e6b8d9d5d944520b7f..46958b58801e90ceb79be76f57c7f72b50d43b3c 100644
+--- a/tools/testing/selftests/arm64/mte/mte_common_util.c
++++ b/tools/testing/selftests/arm64/mte/mte_common_util.c
+@@ -150,13 +150,13 @@ static void *__mte_allocate_memory_range(size_t size, int mem_type, int mapping,
+ 		map_flag |= MAP_PRIVATE;
+ 	ptr = mmap(NULL, entire_size, prot_flag, map_flag, fd, 0);
+ 	if (ptr == MAP_FAILED) {
+-		ksft_print_msg("FAIL: mmap allocation\n");
++		ksft_perror("mmap()");
+ 		return NULL;
+ 	}
+ 	if (mem_type == USE_MPROTECT) {
+ 		if (mprotect(ptr, entire_size, prot_flag | PROT_MTE)) {
++			ksft_perror("mprotect(PROT_MTE)");
+ 			munmap(ptr, size);
+-			ksft_print_msg("FAIL: mprotect PROT_MTE property\n");
+ 			return NULL;
+ 		}
+ 	}
+@@ -190,13 +190,13 @@ void *mte_allocate_file_memory(size_t size, int mem_type, int mapping, bool tags
+ 	lseek(fd, 0, SEEK_SET);
+ 	for (index = INIT_BUFFER_SIZE; index < size; index += INIT_BUFFER_SIZE) {
+ 		if (write(fd, buffer, INIT_BUFFER_SIZE) != INIT_BUFFER_SIZE) {
+-			perror("initialising buffer");
++			ksft_perror("initialising buffer");
+ 			return NULL;
+ 		}
+ 	}
+ 	index -= INIT_BUFFER_SIZE;
+ 	if (write(fd, buffer, size - index) != size - index) {
+-		perror("initialising buffer");
++		ksft_perror("initialising buffer");
+ 		return NULL;
+ 	}
+ 	return __mte_allocate_memory_range(size, mem_type, mapping, 0, 0, tags, fd);
+@@ -217,12 +217,12 @@ void *mte_allocate_file_memory_tag_range(size_t size, int mem_type, int mapping,
+ 	lseek(fd, 0, SEEK_SET);
+ 	for (index = INIT_BUFFER_SIZE; index < map_size; index += INIT_BUFFER_SIZE)
+ 		if (write(fd, buffer, INIT_BUFFER_SIZE) != INIT_BUFFER_SIZE) {
+-			perror("initialising buffer");
++			ksft_perror("initialising buffer");
+ 			return NULL;
+ 		}
+ 	index -= INIT_BUFFER_SIZE;
+ 	if (write(fd, buffer, map_size - index) != map_size - index) {
+-		perror("initialising buffer");
++		ksft_perror("initialising buffer");
+ 		return NULL;
+ 	}
+ 	return __mte_allocate_memory_range(size, mem_type, mapping, range_before,
+@@ -359,7 +359,7 @@ int create_temp_file(void)
+ 	/* Create a file in the tmpfs filesystem */
+ 	fd = mkstemp(&filename[0]);
+ 	if (fd == -1) {
+-		perror(filename);
++		ksft_perror(filename);
+ 		ksft_print_msg("FAIL: Unable to open temporary file\n");
+ 		return 0;
+ 	}
 
-> It doesn't make sense to have shmem explicitly check this one arch-specif=
-ic
-> case, it is arch-specific, so the arch should handle it. We know shmem is=
- a
-> case in which we want to permit MTE, so simply check for this directly.
->=20
-> This also fixes the issue with checking arch_validate_flags() early, which
-> would otherwise break mmap_region().
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241028-arm64-mte-test-logging-6c6e737b1c62
 
-The relevant tests all pass with this on today's pending-fixes.
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
-Tested-by: Mark Brown <broonie@kernel.org>
-
---+c7bJTQfcONVyaEN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcg1ggACgkQJNaLcl1U
-h9DLswf+MdDUA6uK1U8jVbIG476TdL1quD1o3LXC15bDaBLUC8cZL7UsJWh1t203
-yMbqza4KA6GjA5Rbbcvy/07Y5fvtHMmkHkQ7gHt7zgAmY8jBFYeQUueJzMpy23Jx
-MRYiKblk+Ezh6SRMBHJy09dB2yCorGmPJ/uXfUo4tZ5lvffqPd7CkULu4DWZGbcT
-YHrLZQmXKOZbSTOxSQHxehCoOOFevRgW3qQgTjUiFXb7+Oi0ztZO1Z9Aptcrnfnb
-0/kCRUZ0eRLwCkZao+cMo7rW5fTv8a4EcU0H4SzO84KD8ode1ZLnZkbpEbEt6eAe
-9hLCdN4QURUV//NVaY6j/dvu2GzYyQ==
-=OcfD
------END PGP SIGNATURE-----
-
---+c7bJTQfcONVyaEN--
 
