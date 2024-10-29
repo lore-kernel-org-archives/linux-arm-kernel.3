@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7495D5B840
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 01:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2E6D5B840
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mgbkhyg9SzRwO328g2sh8WEP0WZ2JpVb/UKnB5toi5U=; b=RJu5ItBog4/aMFnylelNbjciD0
-	BPCQfZev1j3j/1NzGibba4kD9IbL7ZehvC+7hsqK+JLlf0F5k8QROt0jwqzClLHTRH3KDBqh28Ea6
-	T07ImWNJN7+pAoop1uY0ZW0C08ijqLQMuvCMmuD4epsbI9JRkF5oc+he3GlpOnMXuF15HdYHp/vwT
-	TTczU/tbEj5HheONP/v0NGeaofSPtiUNQnQTk9UoegPgZ0HMc9O5VN9hUiVS2fXuz4wkYRzdS67y0
-	UXktaB6WNI6cMxNHoNqo1A5gOQgXk6fhqz4y2C1C40YbJS/PYM3pXHb21vXEvq+ShgW2KyK/2PIyo
-	0kHKBy4g==;
+	bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=; b=CbDA/3zfU3bMSGMLRvUpH0NWjQ
+	qUEmodtR8yhlKNZfXQCL/+oqmW9QfMAPPHgi5Vimpd6knw1yzEufs606X/7GQbSu8G3Upr8JV6wSe
+	U4YTUY4hvg2u2hvm8KhRTksrbxV7aZ2JcFh6le3Xf5cuvU9j148VBLvf2SBrQwQxFqCa1wspYshc1
+	6so5tTZQw13vkWyWftePMr4eB781EQIV+BqUYwyYwqxIzU1M40/EB2/pBEhcfqEXwCm+wqNFKyEa+
+	84a8OOGFZLuDuXgGPeZrcU0SMFTCQcPgSJHbX8NtKRMmwbnYSWNxsBFHaKozktyEMWT/0ZFoOzj+J
+	wjj7CKmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bWL-0000000Cuji-2b1W;
-	Tue, 29 Oct 2024 01:59:45 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bUj-0000000CuXS-2pvo
+	id 1t5bYv-0000000Cv8S-3SED;
+	Tue, 29 Oct 2024 02:02:26 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5bXI-0000000Cuv6-2P4s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 01:58:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=RnxTHzDdk8US5iJPkSYszsHCdC7XWQuzUMfU45N1Fgo=; b=W
-	O/nQmSlz6xXHvDCXVH4ta3teWIECLq8aJB3BjMdplaRQ2cS1cqAH6UOLEK/qr8Qy
-	pQlSDafCrbglLN9jSlX2dHoLOC91xE93X0LgPB3usWNnd2ivFKka+GCnpz/BS59H
-	wXkgMIhbzoLOXtTVEwB0pLT5JTBMytjOJOi/cHsqT4=
-Received: from huanglei814$163.com ( [111.48.58.10] ) by
- ajax-webmail-wmsvr-40-136 (Coremail) ; Tue, 29 Oct 2024 09:57:51 +0800
- (CST)
-X-Originating-IP: [111.48.58.10]
-Date: Tue, 29 Oct 2024 09:57:51 +0800 (CST)
-From: huanglei  <huanglei814@163.com>
-To: "Will Deacon" <will@kernel.org>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, huanglei <huanglei@kylinos.cn>
-Subject: Re:Re:Re: [PATCH] arm64/Kconfig: introduce GENERIC_ISA_DMA
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2024 www.mailtech.cn 163com
-In-Reply-To: <26ed8fbb.1809.192d5ef13e5.Coremail.huanglei814@163.com>
-References: <20241025011641.4858-1-huanglei814@163.com>
- <20241028150544.GA2445@willie-the-truck>
- <26ed8fbb.1809.192d5ef13e5.Coremail.huanglei814@163.com>
-X-NTES-SC: AL_Qu2YAv2duEgs5yKRbOkfm0cTguY+X8W4uv0h2IVSPJ5+jCnr6A8xUXBMM3bR2dCOEA2RrheYWxxjz/ZzRpRxWJIZl2Em6cGsLGHMIofV+9aZzQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Tue, 29 Oct 2024 02:00:45 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20cdb889222so46457465ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 19:00:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730167243; x=1730772043; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=;
+        b=NhXQUeFuU4GvoNGQXGv1Lo0utrE3NOhJ9r44RGMIXAygVS2r74a/g8LB8/YLsFtm6u
+         Z8SzXSLUwOqddNaXz8cWOt5szvvO+IFvLU4aeJbYruqiEEXXcC5zlBqB6rx7la4FIIKa
+         PgluQ9sU+wSaHOuABazTwZmqbAB97hFVzRovAN6BPc5qcMdWbxbRH53xA5qARVAByuTA
+         j+kaNafnjjweFYfsnjlym7dGVrcgKcdSI/ZF47dRdgIFD+DY39xLnhkYcSwQ66uQgQ4r
+         NgMRPVuLxeawynD1MQ82MTFB2pDvQEsm2FtWrPtLquJG25dji94UG2d0zE+bW238lsxU
+         jKnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730167243; x=1730772043;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=;
+        b=VofnU1Qc9DgATj/KH89E0KtK8cK1qSOXXPhwUppmp9U5OalK5SXDnjxR/u1WK1JKf4
+         WgP78Z7nni1Cis4pLMx9/PhCuhiWKnlyjbWBEY8sT5FVAj4IjGkZM7sltOqR9HNMwJR9
+         bOo4jpCpu8Z6j9ozfavMEwiUhDMMf4jMvJ7F7EJfVU7ZYYNThvA9f4xI2zq/3Il482FX
+         gfgic08mygv68yfP/V9aHBAQM0jDQvOEC67fhZXgi8easM+cSXerzgUe7sgsNt9hucoJ
+         d7+6b/AR0VTmhgquaGym7zqdCkOoLVBMKgfjBcfzcCwhFZ/SeqzKzmhKSvPklCgPiegL
+         SCiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXdqv2rHNfpSYm+duSw6M5iedNgxQ279QVTMoe1BA2ieTxjLU0bp/vF57Erb5mhQh1M7v9/T3/K51432Ug7ROFW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywr1Qfldk7hTMota4AyYVCnh46b4iwJ90OF6zVzfnzJWzfF/pn5
+	xf9iUpqid/ePTmP9qqbgznm68MyrJkfr5am/lRRMLTdRNhWn9EDj
+X-Google-Smtp-Source: AGHT+IHMp3p4tpfyLl4RBnJLnYbIe3AX6KVzvQAl8IiivMOzrOseT29gVE2QoPoZ7v8iAA8jRIZnvA==
+X-Received: by 2002:a17:903:2343:b0:20c:675d:923d with SMTP id d9443c01a7336-210c6c6f732mr150637715ad.39.1730167243375;
+        Mon, 28 Oct 2024 19:00:43 -0700 (PDT)
+Received: from [172.19.1.43] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc044a4csm56476155ad.248.2024.10.28.19.00.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 19:00:42 -0700 (PDT)
+Message-ID: <5d9e89aa-db10-4367-8417-9fcc1a3bb37a@gmail.com>
+Date: Tue, 29 Oct 2024 10:00:39 +0800
 MIME-Version: 1.0
-Message-ID: <7f60ff1f.1d51.192d5fe6248.Coremail.huanglei814@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: iCgvCgDXHyMfQSBnoqMZAA--.60957W
-X-CM-SenderInfo: xkxd0wxohlmiqu6rljoofrz/1tbiLBSG9mcfmUrE3QAGs8
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+ dmitry.torokhov@gmail.com
+References: <20241022063158.5910-1-mjchen0829@gmail.com>
+ <20241022063158.5910-2-mjchen0829@gmail.com>
+ <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
+ <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
+ <ef407e89-950f-4874-9dca-474d107f6a52@kernel.org>
+ <984781ba-9f4c-4179-84d5-4ab8bbe4c3c6@gmail.com>
+ <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
+Content-Language: en-US
+From: Ming-Jen Chen <mjchen0829@gmail.com>
+In-Reply-To: <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_185806_056391_EB788BC0 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241028_190044_620318_3A8DCACD 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +103,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ICAgVGhlcmUgd2FzIGEgc2xpZ2h0IHdvcmQgc3BlbGxpbmcgZXJyb3IgaW4gdGhlIHByZXZpb3Vz
-IHJlcGx5o6wgTm93IGNvcnJlY3QgaXQuCgogRXZlbiBpZiBNQVhfRE1BX0NIQU5ORUxTIGlzIG5v
-dCBkZWZpbmVkLCBhcyBsb25nIGFzIEdFTkVSSUNfSVNBX0RNQSBpcyBlbmFibGVko6wgcmVxdWVz
-dF9kbWEvZnJlZV9kbWEgIGZ1bmN0aW9uIHdpbGwgYWxzbyBiZSBleHBvcnRlZCwgYW5kIG90aGVy
-IG1vZHVsZXMgdXNpbmcgdGhlc2UgdHdvIGludGVyZmFjZXMgd2lsbCBub3QgZW5jb3VudGVyIGxp
-bmsgZXJyb3JzLgpJIGRvbid0IGtub3cgd2h5IG90aGVycyBoYXZlbid0IG5vdGljZWQsIGJ1dCBJ
-IGRpc2NvdmVyZWQgaXQgd2hlbiBkZWJ1Z2dpbmcgcGNpZSBwYXJhbGxlbCBwb3J0IGRyaXZlcnMu
-ICBBbmQgdGhlIGFybS9LY29uZmlnICBoYXMgYmVlbiBhcm91bmQgZm9yIGEgbG9uZyB0aW1lLgoK
-QmVzdCByZWdhcmRzIQoKPkF0IDIwMjQtMTAtMjggMjI6MDU6NDUsICJXaWxsIERlYWNvbiIgPHdp
-bGxAa2VybmVsLm9yZz4gd3JvdGU6Cj4+T24gRnJpLCBPY3QgMjUsIDIwMjQgYXQgMDk6MTY6NDFB
-TSArMDgwMCwgaHVhbmdsZWk4MTQgd3JvdGU6Cj4+PiBGcm9tOiBodWFuZ2xlaSA8aHVhbmdsZWlA
-a3lsaW5vcy5jbj4KPj4+IAo+Pj4gRW5hYmxlIEdFTkVSSUNfSVNBX0RNQSBmZWF0dXJlIG9uIGFy
-bTY0IHBsYXRmb3JtLAo+Pj4gdGh1cywgcmVxdWVzdF9kbWEgYW5kIGZyZWVfZG1hIGludGVyZmFj
-ZSBjYW4gYmUgZXhwb3J0Lgo+Pj4gYW5kIGRyaXZlciBtb2R1bGVzIGNhbiB1c2UgdGhlIHRoaXMg
-aW50ZXJmYWNlcyBvbiBhcm02NAo+Pj4gcGxhdGZvcm0uCj4+PiAKPj4+IEN1cnJlbnRseSwgbWFu
-eSBwY2llIHBhcmFsbGVsIHBvcnQgZHJpdmVycyBzdGlsbCB1c2UgdGhlc2UKPj4+IGludGVyZmFj
-ZXMgd2hlbiBwb3J0ZWQgdG8gYXJtNjQgcGxhdGZvcm0uCj4+Cj4+V2h5IGhhcyBpdCB0YWtlbiBz
-byBsb25nIGZvciBhbnlib2R5IHRvIG5vdGljZT8KPj4KPj4+IFNpZ25lZC1vZmYtYnk6IGh1YW5n
-bGVpIDxodWFuZ2xlaUBreWxpbm9zLmNuPgo+Pj4gLS0tCj4+PiAgYXJjaC9hcm02NC9LY29uZmln
-IHwgMyArKysKPj4+ICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4+PiAKPj4+IGRp
-ZmYgLS1naXQgYS9hcmNoL2FybTY0L0tjb25maWcgYi9hcmNoL2FybTY0L0tjb25maWcKPj4+IGlu
-ZGV4IGZkOWRmNmRjYzU5My4uOTg2ZWIyNTFmNjhmIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9hcm02
-NC9LY29uZmlnCj4+PiArKysgYi9hcmNoL2FybTY0L0tjb25maWcKPj4+IEBAIC0zNjcsNiArMzY3
-LDkgQEAgY29uZmlnIEdFTkVSSUNfQ1NVTQo+Pj4gIGNvbmZpZyBHRU5FUklDX0NBTElCUkFURV9E
-RUxBWQo+Pj4gIAlkZWZfYm9vbCB5Cj4+PiAgCj4+PiArY29uZmlnIEdFTkVSSUNfSVNBX0RNQQo+
-Pj4gKwlkZWZfYm9vbCB5Cj4+PiArCj4+Cj4+RG9lcyB0aGlzIGFjdHVhbGx5IGRvIGFueXRoaW5n
-IHdpdGhvdXQgTUFYX0RNQV9DSEFOTkVMUyBkZWZpbmVkPwo+Pgo+PldpbGwK
+On 2024/10/28 下午 03:04, Krzysztof Kozlowski wrote:
+
+> On 28/10/2024 02:15, Ming-Jen Chen wrote:
+>> On 2024/10/25 下午 07:42, Krzysztof Kozlowski wrote:
+>>> On 25/10/2024 07:36, Ming-Jen Chen wrote:
+>>>>>> +      0  = 0 clock
+>>>>>> +      1  = 0 clock
+>>>>>> +      2  = 0 clock
+>>>>> Heh? So this is just 0
+>>>>>
+>>>>>> +      3  = 8 clocks
+>>>>> This is 8
+>>>>>
+>>>>>> +      4  = 16 clocks
+>>>>> 16, not 4
+>>>>>
+>>>>>> +      5  = 32 clocks
+>>>>>> +      6  = 64 clocks
+>>>>>> +      7  = 128 clocks
+>>>>>> +      8  = 256 clocks
+>>>>>> +      9  = 512 clocks
+>>>>>> +      10 = 1024 clocks
+>>>>>> +      11 = 2048 clocks
+>>>>>> +      12 = 4096 clocks
+>>>>>> +      13 = 8192 clocks
+>>>>> Use proper enum
+>>>> I will update the definition to specify the debounce period in terms of
+>>>> keypad IP clock cycles, as follow:
+>>>>
+>>>> nuvoton,debounce-period:
+>>>>        type: integer
+>>>>        enum: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+>>>>        description: |
+>>>>            Key debounce period select, specified in terms of keypad IP
+>>>> clock cycles.
+>>>>            This value corresponds to the register setting for the keypad
+>>>> interface.
+>>>>            The following values indicate the debounce time:
+>>>>            - 0 = 0 clock cycles (no debounce)
+>>>>            - 3 = 8 clock cycles
+>>>>            - 4 = 16 clock cycles
+>>>>            - 5 = 32 clock cycles
+>>>>            - 6 = 64 clock cycles
+>>>>            - 7 = 128 clock cycles
+>>>>            - 8 = 256 clock cycles
+>>>>            - 9 = 512 clock cycles
+>>>>            - 10 = 1024 clock cycles
+>>>>            - 11 = 2048 clock cycles
+>>>>            - 12 = 4096 clock cycles
+>>>>            - 13 = 8192 clock cycles
+>>> No. 0, 8, 16, 32 , 64 etc.
+>> I will change it to the following content:
+>>
+>> nuvoton,debounce-period:
+>>     type:  integer
+>>     enum:  [0,8,16,32,64,128,256,512,1024,2048,4096,8192]
+>>     description:  | Key debounce period select, specified in terms of keypad IP clock
+>> cycles. Valid values include 0 (no debounce) and specific clock cycle
+>> values: 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, and 8192.
+>>
+>>>>>> +
+>>>>>> +  per-scale:
+>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
+>>>>> Missing constraints
+>>>>>
+>>>>>> +
+>>>>>> +  per-scalediv:
+>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>> +    description: Per-scale divider (1 to 256).
+>>>>> Missing constraints
+>>>>>
+>>>>> Both properties are unexpected... aren't you duplicating existing
+>>>>> properties?
+>>>> pre-scale:
+>>>> This value configures the IC register for the row scan cycle
+>>>> pre-scaling, with valid values ranging from 1 to 256
+>>>> per-scalediv:(I will change pre-scalediv to pre-scale-div)
+>>> Please look for matching existing properties first.
+>> I will change it to the following content:
+>>
+>> nuvoton,scan-time:
+> Why? What about my request?
+
+I utilized|grep|  to search for relevant properties in the|input/|  folder using keywords such as|scan|,|time|,|period|,|freq|, and|interval|.
+While I found some similar properties, I did not locate any that completely meet my requirements.
+
+For example, I found|"scanning_period"|, which is described as "Time between scans. Each step is 1024 us. Valid 1-256."
+I would like to confirm if you are suggesting that I use|scanning_period|  and explain my specific use case in the description,
+for example:
+
+nuvoton,scanning-period:
+     type:  uint32
+     description:  | Set the scan time for each key, specified in terms of keypad IP clock 
+cycles. The valid range is from 1 to 256.      minimum:  1
+     maximum:  256 Could you please confirm if this approach aligns with your suggestion,
+  or if you have any other recommended existing properties?
+
+Thank you for your assistance!
+
+>
+>
+> Best regards,
+> Krzysztof
+
+Best regards,
+Ming-Jen Chen
+
 
