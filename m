@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4183D2AB3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D02D2AB3B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6jVzrS/dv8I737x17bUvfsxtTXmLoqjV6On8HBWDM70=; b=ZEVg9uh53rODeQLnDEepsa77Ib
-	QxkV/91qd0tIvsb3b8U+4ZAvgBj+KIg4N0J7lSyUaR/QAuuSIkAMAzHqp8sD6pSal+jOzDR9yz+BT
-	jrr9EuB+XTrFMSsCJEWx9kwbLoMWGRRMpD7iqKvGfRr261J9LUKdIy746dcz7CIoFXK79dzZv6F/W
-	CIsHTv3eFKye/cs/dYGGVFcboJGydWOPitDy7bW0lpTuDz2cAsbl6kY3hOtwIv+hd1KdVx1L/S04R
-	E0uqBNQNTWl7p7JAoJclAkwcnPSF3MrVKxaHg2UlWfQuC7lWKTT6mRI1ENYDHQEPFy0TkgntmHBxM
-	ur1drOJg==;
+	bh=3oz5OCzkZXQC+rHxhytPMECDTe+7K0m2PqLGlcDUmM4=; b=l8qeHoF8Voo1bL8XmvEUJ+EV4G
+	Rh+NV5kUKkT+m3kv7A9eS364Hzkr1WFYZAKl8XM+WRaH1gv7DFA0YQ3h/49eKvn016IrNXqRlu+3s
+	R3ZX05JKk1+9fr9PBQOhCrP+nifJgFHTi5Zpgl3B72+gDwElyRHZepbRhejFN5K9xTvW7brnFx7s6
+	SCMkb3eMXoOHPgkN1pvEDmSrvUotneNKMbJYHSjyKBS78IUkFKudDT9NxV7rbwzfTFuUGA+coqvIp
+	qBpxvIMdulU18zYss4J6sfL6ZFXZn+AgNFjbb+eShMJC8ue3fV3znaTXMxwodEZtnrNtdyoDrekEN
+	kzxrpCRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lvX-0000000EWIx-0Drv;
-	Tue, 29 Oct 2024 13:06:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t5lxB-0000000EWc9-1q57;
+	Tue, 29 Oct 2024 13:08:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lBg-0000000ENrC-1btb
+	id 1t5lPV-0000000EPmI-1bYX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 12:19:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=6jVzrS/dv8I737x17bUvfsxtTXmLoqjV6On8HBWDM70=; b=hgnZALp1rshuOUnKj9DMO1vbGc
-	X7BAH5/T9P0tgk5BXqbHmpQ0KDFVgI94gf74+iYr4PcgfrXdRz4AtwH8kUce84V0KbqwA7Lrx4gHc
-	lynpQoYesEIit/bM+G8CldhXzpd8zoDn4VvmmlCccLeP/a+mQnG8fRBaThxNaBqagxb8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t5lBL-00BZUT-Hm; Tue, 29 Oct 2024 13:18:43 +0100
-Date: Tue, 29 Oct 2024 13:18:43 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: jan.petrous@oss.nxp.com
-Subject: Re: [PATCH v4 16/16] net: stmmac: dwmac-s32: Read PTP clock rate
- when ready
-Message-ID: <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
-References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
- <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
+	Tue, 29 Oct 2024 12:33:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2F4F3A42D6B;
+	Tue, 29 Oct 2024 12:31:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DFC6C4CECD;
+	Tue, 29 Oct 2024 12:33:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730205199;
+	bh=3oz5OCzkZXQC+rHxhytPMECDTe+7K0m2PqLGlcDUmM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R0XX2WtU/ewSgT3aG9pTCgLn1bK2naVRGOXUb693RM18Kb7jctHhyUlvBnyB2nnHt
+	 CTt3ZJq25U3qXw1GaLP6EDei2p75AXW2w8yVNkhfKLOewbUXPHcO3R7CGVH6OJgeO8
+	 /2RC4LYcJHjIE3IA8RC6lvrwsorrQZFIAYJ561d8iavr9YpagDZvZRHVu1fGKbW7+c
+	 K61XRF9dakPBbBM4zKIdK6J+JO/sRjupd5/S2KBsBi2iN12ZhBm8Utxr5v9E03e38B
+	 BV4ZXyX872RuAkn907OrS5jfHek8XkOMf867Nfo75U/m+j0gCBDgy5f7E/SDg/Ch8h
+	 ghk3yU46ByPlQ==
+Date: Tue, 29 Oct 2024 12:33:13 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, Peter Xu <peterx@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: [PATCH hotfix 6.12 v2 4/8] mm: resolve faulty mmap_region()
+ error path behaviour
+Message-ID: <0d3237d7-cb70-4979-b262-29ffe7d7a608@sirena.org.uk>
+References: <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+c7bJTQfcONVyaEN"
 Content-Disposition: inline
-In-Reply-To: <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
+In-Reply-To: <cf1deb9b-c5c4-4e85-891d-62ecf9a04e0f@lucifer.local>
+X-Cookie: May be too intense for some viewers.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_051904_458207_4DAA0CD5 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_053321_518706_71FB162B 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,19 +79,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Andrei Botila <andrei.botila@nxp.org>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 09:24:58PM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> 
-> The PTP clock is read by stmmac_platform during DT parse.
-> On S32G/R the clock is not ready and returns 0. Postpone
-> reading of the clock on PTP init.
 
-This needs more explanation as to why this is a feature, not a bug,
-for the PTP clock.
+--+c7bJTQfcONVyaEN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-	Andrew
+On Mon, Oct 28, 2024 at 10:14:50PM +0000, Lorenzo Stoakes wrote:
+
+> It doesn't make sense to have shmem explicitly check this one arch-specif=
+ic
+> case, it is arch-specific, so the arch should handle it. We know shmem is=
+ a
+> case in which we want to permit MTE, so simply check for this directly.
+>=20
+> This also fixes the issue with checking arch_validate_flags() early, which
+> would otherwise break mmap_region().
+
+The relevant tests all pass with this on today's pending-fixes.
+
+Tested-by: Mark Brown <broonie@kernel.org>
+
+--+c7bJTQfcONVyaEN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcg1ggACgkQJNaLcl1U
+h9DLswf+MdDUA6uK1U8jVbIG476TdL1quD1o3LXC15bDaBLUC8cZL7UsJWh1t203
+yMbqza4KA6GjA5Rbbcvy/07Y5fvtHMmkHkQ7gHt7zgAmY8jBFYeQUueJzMpy23Jx
+MRYiKblk+Ezh6SRMBHJy09dB2yCorGmPJ/uXfUo4tZ5lvffqPd7CkULu4DWZGbcT
+YHrLZQmXKOZbSTOxSQHxehCoOOFevRgW3qQgTjUiFXb7+Oi0ztZO1Z9Aptcrnfnb
+0/kCRUZ0eRLwCkZao+cMo7rW5fTv8a4EcU0H4SzO84KD8ode1ZLnZkbpEbEt6eAe
+9hLCdN4QURUV//NVaY6j/dvu2GzYyQ==
+=OcfD
+-----END PGP SIGNATURE-----
+
+--+c7bJTQfcONVyaEN--
 
