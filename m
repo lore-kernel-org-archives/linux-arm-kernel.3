@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35632D5B16F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C84D5B16F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9tbeX7y+zJgZuAb/cGAaZ6MuCs4CQFq8FQvgssvj5E=; b=uaMD+CazC2037ngfuMW8kH6CmE
-	P9TjwOxSBK1DOtd7S5XsH3D9dZ70wF4bK0Ftp+YbK72lFGYAZgGmAiHBqoR6qprUoYFaysvYGOlGE
-	BlkJRFF1ssKFVcWUpplp6+Ra45RAP2c3CyuQI0xTT5E8GzREn7WXIMkiTHhu5UKFp3fjE8uGVBSQ9
-	LmIXn4gAWCk3MJnBJ9MY3pR3QiuMkoCOnSzINhbQ/ra4tMkip+fS/nrYyvyZzbtvRqqo9WClT7oCy
-	aRH4c+BI5lAY346V+ESiXV5LYedeS6OA/YRigg0XwnhLtU3PYeWD7DHFMg/Cwx8Usu3jA1tzc0KYg
-	20ZRxfIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4pyXqryZnQWJUHD0P+wYFIgTVSYyxdvqqM4xw2mTbhw=; b=A6t+bJqshvgoN9I9yMAzoQQFsl
+	786413TfQcI4FAruAg8pmjMCf/o8hXrX7HJdlFu9n2UJ2p1py7aBlfxBXDYQ8YWrQRCf7D6LsrgcI
+	+SCuEgdh/7i72lEnEAyr4F1wWRCaCLulJF9NrNbecvr8x1hWj03ITCi/aOI/hsN670jzkD6NdK4Nv
+	5/zpjYiYRGciRPctS04RKNol6qCVQaX77h6iojOt/Ryw4d62lQ3dCbn6IMh6eAA6/HEro/Z/Zzza5
+	cpPXngDYXDaimQk4MOScqXeDRn6JErvEqJIXg/tFGI1JD5EVTXXBU8MZMxg8xm+pJ070qMoYkLoiJ
+	tSf0wiMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5i5G-0000000Dnrv-1GTm;
-	Tue, 29 Oct 2024 09:00:14 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hpd-0000000DjG6-2Nop
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:44:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=q9tbeX7y+zJgZuAb/cGAaZ6MuCs4CQFq8FQvgssvj5E=; b=C8PH7V936k7jSRlqWNh/9IP9kq
-	2lMBc9oVA6BILyiZI4TvY/qs23GQNfOWpQipGokmPTcvgTR+8AsdYx/mQol5PQ4B9Q3BXKcA5vwL0
-	qaWWQBolR7aLKV1lPlDpe5qo7inNYIGy9fBvYgJYW28sCoV0QHkz/H9sBYaDd6geVj06rE866fs0k
-	9UGEXv8I8JgXoDP8Bf/Zrom5MoisZ/iRJSIfZoFwauhEu2WhjwMcdPpDRhJu/D0pWBQAcH+Kqw8RX
-	8FaYwoKRFjv4uv4cIaJd4NoZ2rZD6+W6BKaJdpB5qf6LUGoYxilHQ2YT+yj+/Ga7ZYy4IJ77fJWEx
-	lRU3k4KQ==;
-Date: Tue, 29 Oct 2024 09:44:02 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- linux-kernel@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, Sascha Hauer
- <s.hauer@pengutronix.de>, Alexander Stein
- <alexander.stein@ew.tq-group.com>, imx@lists.linux.dev, sre@kernel.org
-Subject: Re: [PATCH v2 2/3] ARM: dts: imx: Add devicetree for Kobo Clara 2E
-Message-ID: <20241029094402.382594c5@akair>
-In-Reply-To: <f2bb661d-8ef5-43d4-aece-c7fec01ff9fe@gmail.com>
-References: <20241024142206.411336-1-andreas@kemnade.info>
- <20241024142206.411336-3-andreas@kemnade.info>
- <f2bb661d-8ef5-43d4-aece-c7fec01ff9fe@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	id 1t5i6q-0000000Do5j-0sMz;
+	Tue, 29 Oct 2024 09:01:52 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5hv0-0000000DlM6-3tnI;
+	Tue, 29 Oct 2024 08:50:10 +0000
+Received: from 8bytes.org (p549219d2.dip0.t-ipconnect.de [84.146.25.210])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id D77FF2A8D41;
+	Tue, 29 Oct 2024 09:49:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1730191778;
+	bh=t4F6EkQzc+Tx2dGrpH/0oshPhSFvIj0HR4NfuwzqRJ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aUQ6xfw4G2fAmph3fMFdnFmV5d7IVswiGPxXeaXX/I9SmikyU2MAAf+y4Isth8Y5K
+	 p21a5tZ9rsQN0CxRZso6IVwby5zEOcH2BVQpWpR9rDow9TEbXHCS92Z+0aheRh471F
+	 xHWeF+1O85Qp+VWsrNNEHC2kW6wmlznAOKjfdfyX494GntCf2fDENFo2kxeRU2udOd
+	 zTifyhsLLwcopsEVsl7OaOng1N2eL6IcVYq8qymV4U36kJb5amFqmOiZ4p0BD607Hm
+	 qoqV9iL1vxQfocKm3vi1TXeIE060idIsNLCclyrLXHabpebwZBZ1UagunS4H0Aie/g
+	 uuXtwG4E1t3hw==
+Date: Tue, 29 Oct 2024 09:49:36 +0100
+From: Joerg Roedel <joro@8bytes.org>
+To: Konrad Adamczyk <konrada@google.com>
+Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	iommu@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Wojciech Macek <wmacek@google.com>
+Subject: Re: [PATCH] iommu/mediatek: Add PGTABLE_PA_35_EN to mt8186 platform
+ data
+Message-ID: <ZyChoFmaID6aGQT1@8bytes.org>
+References: <20241017112036.368772-1-konrada@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241017112036.368772-1-konrada@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_014405_622446_E460D500 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20241029_014939_134239_EA8A1E64 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,121 +78,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Tue, 29 Oct 2024 09:53:33 +0200
-schrieb Matti Vaittinen <mazziesaccount@gmail.com>:
+On Thu, Oct 17, 2024 at 11:20:36AM +0000, Konrad Adamczyk wrote:
+>  drivers/iommu/mtk_iommu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-> On 24/10/2024 17:22, Andreas Kemnade wrote:
-> > Adds a devicetree for the Kobo Clara 2E Ebook reader. It is based
-> > on boards marked with "37NB-E60K2M+4A2" or "37NB-E60K2M+4B0". It is
-> > equipped with an i.MX6SLL SoC.
-> > 
-> > Expected to work:
-> >    - Buttons
-> >    - Wifi
-> >    - Bluetooth
-> >      (if Wifi is initialized first, driver does not handle
-> > regulators yet)
-> >    - LED
-> >    - uSD
-> >    - USB
-> >    - RTC
-> >    - Touchscreen
-> > 
-> > Add human-readable comments for devices without mainlined driver and
-> > binding. Such comments can e.g. be help to find testers if someone
-> > starts to work on the missing drivers.
-> > 
-> > Signed-off-by: Andreas Kemnade <andreas@kemnade.info>  
-> 
-> ...
-> 
-> > +
-> > +	pmic@4b {
-> > +		compatible = "rohm,bd71879", "rohm,bd71828";
-> > +		reg = <0x4b>;
-> > +		pinctrl-names = "default";
-> > +		pinctrl-0 = <&pinctrl_bd71828>;
-> > +
-> > +		interrupt-parent = <&gpio4>;
-> > +		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
-> > +		system-power-controller;
-> > +
-> > +		clocks = <&clks 0>;
-> > +		#clock-cells = <0>;
-> > +		clock-output-names = "bd71828-32k-out";
-> > +
-> > +		gpio-controller;
-> > +		#gpio-cells = <2>;
-> > +		gpio-reserved-ranges = <0 1>, <2 1>;
-> > +
-> > +		rohm,charger-sense-resistor-ohms = <30000000>;  
-> 
-> I am afraid that this one is _my_ very much terrible brainfart. Yeah, 
-> pile up the stones and start casting ;)
->
-... at everyone who had looked at this and did not question it ;-)
- 
-> I am fairly sure the sense resistor is 30 mOhm (0,030 Ohm), not 30
-> MOhm (30 000 000 Ohm). (And I am the one who misinterpreted the M in
-> some email/data-sheet in the past - and never questioned the sanity).
-> 
-Well, I did question it, but then thought, ok there might be some
-current mirror to scale things down so that the massive rsense might
-make sense. Well, no schematics here.
-
-> In short, AFAICS the sense resistor is added "in series" to the
-> system load. Eg:
-> 
->            --------
->        ---| Rsense |-----
->       |    --------      |
->   ---------           -------
-> | VSupply |         | Rload |
->   ---------           -------
->       |                  |
->        ------------------
-> 
-> Hence, by measuring the voltage drop on the Rsense gives us the
-> current flowing through the system ( good old U = RI ).
-> 
-Yes, that is the way I did know how these things are usually done.
-So I am still on track.
-
-> I believe having 30 Mohm (30 000 000 Ohm) resistor there would not
-> make much of sense... With a Fermi estimate that the system works
-> with voltage magnitude of 1V and current magnitude of 1A and then
-> applying good old P = UI and U = RI would give us wonderful results
-> :) Quite a battery on poor Kobo, right? You'd better to not touch the
-> battery termninals ;) Oh, and looking the driver code I've written
-> for handling this property... Sometimes I really don't like mirrors :)
-> 
-
-> Well, now that I got this out - I suppose this could be
-> rohm,charger-sense-resistor-milli-ohms = <30>;
-> or
-> rohm,charger-sense-resistor-micro-ohms = <30000>;
-> 
-> I further guess there is no upstreamn binding doc for this property.
-
-The binding doc is upstream. So an impressive amount of maintainers
-had a look at it...
-
-Well, everyone seem to entrust Rohm Semiconductors to do magic...
-wonderful reputation.
-
-So how to proceed? As this property is not required, I can simply
-remove it and add a comment.
-
-> I think there is also no upstream charger driver for the
-> BD71828/BD71879 - only an early RFC and some downstream mess - but
-> stil it'd be nice to have the property in place as the size of the
-> sense resistor is needed when converting coulomb counter register
-> values to current.
-> 
-What are you upstreaming plans here? For all:
-I rebased the charger stuff to v6.11 on
-https://github.com/akemnade/linux branch kobo/power-6.11
-
-Regards,
-Andreas
+Applied, thanks.
 
