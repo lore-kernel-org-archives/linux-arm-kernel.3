@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50569D3E2D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71CCD339A3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HqHX2a3dY8KOKxZ1wgGcPDfkJ8CiIOlDJDy5Efa1LFU=; b=aUpVfsOu369an7hkkNR1exLGeL
-	K8XzAuML3qy2YXB3e3OhPcWaN3C1U3FPGc4pWy+w4LIkTs7KUYI7Bj3U4XvjmmVoyEwIHdKX50nBN
-	UMu8bae1zPY8IBBKTOftRoe/1/trZa5w6GafTE2OFulAXKRETFGCa8XnB4folNaz3/SjdbbViREZW
-	sdRPejTzxR6+8kMgszs8WEefdodCZpqPxCsr7/mBTq3Df9pETb7aW7J/fC8fIo8aFu8y6IS8p6zfX
-	kGU40WuyoZ2v/OyU2653Ku4dsVSHcGn5CQCSuupchfBIPZLurrRwfsL+5ttqgyO6wUnJcpIg+lU/X
-	gPrI8juA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kRBCS21xbUg+ZtyrX+0216a9IgyvQrvSGGoh4bdg5Wo=; b=LYY5T4P6jLQtG+
+	OgDbS5q6FjzeA8HREl9Z3gIMX4W4OxO94+m3J2LkYldl/SHhWTJ5g//LvLxZFr0fuwULD6j3gpPu6
+	d4fnLCqxRGNsNRQqmDsaKpteZIBb6BIO2OSHaxkFsLQCJP6Mhi+EI8Bv5/CvVmAH09AdEaBIs0cMy
+	8/4V4ksFi/6uWhXfAZl+0nfPO8IEtP8nPr1kFyOcf/9cufM3y+nWhvor5Yi0QRRoXcEqACsH8lTQO
+	Ic8b6v2rbLuZZ34FwB/uiy+rx6MEgvDOMBAKagEd+nmGP3CMv2SVmzaFGBijfzUE8kgCd5Ul2pQ2u
+	5MgR2fHNAp2UNUufelFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5gqr-0000000DXYb-0SBf;
-	Tue, 29 Oct 2024 07:41:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5gmV-0000000DWf2-2fl7
+	id 1t5gsR-0000000DXrS-20iA;
+	Tue, 29 Oct 2024 07:42:55 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5gno-0000000DWx9-2W8E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 07:36:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 124F813D5;
-	Tue, 29 Oct 2024 00:37:14 -0700 (PDT)
-Received: from [10.163.43.192] (unknown [10.163.43.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC0EB3F66E;
-	Tue, 29 Oct 2024 00:36:40 -0700 (PDT)
-Message-ID: <f65af1fe-b500-499e-84dd-954700583475@arm.com>
-Date: Tue, 29 Oct 2024 13:06:38 +0530
+	Tue, 29 Oct 2024 07:38:10 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-431688d5127so50031625e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 00:38:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730187486; x=1730792286; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kRBCS21xbUg+ZtyrX+0216a9IgyvQrvSGGoh4bdg5Wo=;
+        b=cQerlPn/LEUJRbRTJIphISl8ZFEGZtcFhheBAqJ22yqoLWqwzRfOHVhH+zxo8tfJlm
+         a+fLwxQvsJ7v7nE6tNz0Yy1g+Gtm4pttbq92dfDu8wPEpyzb7LcMlNQH5Jgxo8CfQtiC
+         gGH614ltheVQUHUj5Oqg1O74o+TIWjl6wc4+MwSC1jcQlhAfAyg8wB5GHXnFvvYzhaP7
+         gNIe6G4jQYkKe3w1kGYCP2Z0GfVmY+JRCdXyyi8/AJ+i7MnpVqB/8YoRaWijoqzimbYR
+         gVNguE/o+jLH4wXTFl/qScPR35nnFY270JlSDUiws1rnKurPXauLkfMhZbFRUMlC/f+d
+         UtfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730187486; x=1730792286;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kRBCS21xbUg+ZtyrX+0216a9IgyvQrvSGGoh4bdg5Wo=;
+        b=m1DVwy36N9QdEFFg4hE3OglARxzNR7P1ta8LF15KC3CS6/uKUb4UR0bbOPcT1F2t3o
+         4H8y6dftm7sxTAt36TpNP8APccJOC3+FusiqHRAGSjBKQaOMnuigOtunVsPYTdHd8UDx
+         4rNvOKp4V9JvSVuia8/PXbkMO+37a8VOpQqDKGQrB4MT9/ct6LjLz+i3KtHoRHOxImKB
+         lEL9DTyggu5IEwGx3TG0AD8Oczs+8osk2UQgMwwxVWLMzKYlxjLDAWkA3xWZyquqKUqj
+         lyNx2MYkk1WlQ/Mb93Idk4DcGcdtgVHKrVpi0U/y3qAEN8sdp4mMC3i6CCHWZB9PbLGs
+         JQWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUuolSpHEIdzgWRhzQ+aI26qbgfiHs30SClcLC+Icl2awISLr8nQeZbwgwT/+uMV4qHQTNWoSWeWFkxYRKvfCLE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvbJmxa2aWnmIFf1yVBzKAxgCzgCs6O/5IpaA3z0/EDoFUExTL
+	Gc+8P0bWhuU3bCBUQEUtFz3K0qv+VQkp4s/+wxuQ1MaktOEqEWs6nwJt05iCTMk=
+X-Google-Smtp-Source: AGHT+IE/QTlrTfqOXWM8zSxaY+sQmjccOShgerlk9HjJclBzVZ62XYIIe6dba6vKrd4PnXhBaOl1zQ==
+X-Received: by 2002:a05:600c:4e0f:b0:431:12d0:746b with SMTP id 5b1f17b1804b1-4319ad294a4mr81325345e9.35.1730187484985;
+        Tue, 29 Oct 2024 00:38:04 -0700 (PDT)
+Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b5706c3sm164752335e9.34.2024.10.29.00.38.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 00:38:04 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Subject: [PATCH] sound: Switch back to struct platform_driver::remove()
+Date: Tue, 29 Oct 2024 08:37:47 +0100
+Message-ID: <20241029073748.508077-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-References: <20241001043602.1116991-1-anshuman.khandual@arm.com>
- <20241001043602.1116991-4-anshuman.khandual@arm.com>
- <ZxfGAHAn6I41ZLZV@J2N7QTR9R3> <2310454a-99c6-4ff9-80f7-8707fbfaf5a6@arm.com>
- <Zx-H8IU2wZmyowGe@J2N7QTR9R3>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Zx-H8IU2wZmyowGe@J2N7QTR9R3>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8427; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=bofb0GXHAy72+VfSg4Mly92y7jtyu1u1iViJjOuNI8o=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnIJDMDMnZBV7DocFNxEnCFbvqTaMWTOgrRJ9/c IbcL2jDvQmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZyCQzAAKCRCPgPtYfRL+ Tu98B/4gJo9q/Fgct6hluhXw8q+tQ5dF1BSpJ6nHeqplYujtgo382D7jTSdgvdP966ghu0jLNZW 3YS2mOsukJil3wG1Lz0PhuS+BlSNQKUB+fPty+hhAZIABLcgmmvrUDP0iM2slhEO32pKl6qcEXV fikATTb1hjzZTvc18EECgkaxjM+ZDES2vxXFQlXkph0b4WYlvgZPOvvAGrpDfgE6UXIIPbb05Iz 7D8QaBk5d0/dVI01H0vTnV8EBiwSVCF+KtehiUNLAXm82iqpENvT2DocfWKmPcFk0czA+osxSpe VsHmtxbe1pesSbw3cJrdPFf+3SdmUdnOCeXOtRUck/Bxz30j
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_003647_800988_99E402AF 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20241029_003808_674777_7D66B722 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,88 +88,245 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Ivan Orlov <ivan.orlov0322@gmail.com>, Naveen N Rao <naveen@kernel.org>, Christophe Leroy <christophe.leroy@csgroup.eu>, Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, linux-sound@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Haojian Zhuang <haojian.zhuang@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, Nicholas Piggin <npiggin@gmail.com>, linux-tegra@vger.kernel.org, Jonathan Hunter <jonathanh@nvidia.com>, Robert Jarzmik <robert.jarzmik@free.fr>, Daniel Mack <daniel@zonque.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
+Convert all platform drivers below sound to use .remove(), with
+the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
-On 10/28/24 18:17, Mark Rutland wrote:
-> On Wed, Oct 23, 2024 at 01:01:52PM +0530, Anshuman Khandual wrote:
->>
->>
->> On 10/22/24 21:04, Mark Rutland wrote:
->>> On Tue, Oct 01, 2024 at 10:06:02AM +0530, Anshuman Khandual wrote:
-> 
-> [...]
-> 
->>> Wherever this lives it needs a comment explaining what it is doing and
->>> why. I assume this is intended to protect the bank in sequences like:
->>>
->>> 	MSR	MDSELR, <...>
->>> 	ISB
->>> 	MRS	<..._, BANKED_REGISTER
->>
->> Correct, it is protecting the above sequence.
->>
->>>
->>> ... but is theat suffucient for mutual exclusion against
->>> exception handlers, or does that come from somewhere else?
->>
->> Looking at all existing use cases for breakpoint/watchpoints, it should
->> be sufficient to protect against mutual exclusion. But thinking, do you
->> have a particular exception handler scenario in mind where this might
->> still be problematic ? Will keep looking into it.
-> 
-> Where does the mutual exclusion come from for the existing sequences?
+On the way do a few whitespace changes to make indention consistent.
 
-Bank selection followed by indexed read/write, inherently requires mutual
-exclusion (ensuring that both these steps executed together) in order to
-prevent read/write into wrong registers. That being said, HW breakpoints
-get used in multiple different places such as perf, ptrace, debug monitor
-based single stepping etc calling platform functions which operate on the
-HW breakpoint registers here.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-preempt_disable()/enable() sequence in the very last leaf level helpers
-such as [read|write]_wb_reg(), will ensure required mutual exclusion.
+I did a single patch for all of sound. sound/soc was already converted
+separately, so isn't mixed in here. While I usually prefer to do one
+logical change per patch, this seems to be overengineering here as the
+individual changes are really trivial and shouldn't be much in the way
+for stable backports. But I'll happily split the patch if you prefer it
+split.
 
-> We should be able to descrive should be able to describe that in the
-> commit message or in a comment somewhere (or better, with some
-> assertions that get tested).
+This is based on today's next, if conflicts arise when you apply it at
+some later time and don't want to resolve them, feel free to just drop
+the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend. (Having said that, I
+recommend b4 am -3 + git am -3 which should resolve most conflicts just
+fine.)
 
-Planning to add a comment - something like this both for read and write
-helpers.
-       /*
-        * Bank selection in MDSELR_EL1, followed by indexed read from
-        * [break|watch]point registers cannot be interrupted, as that
-        * might cause misread from wrong targets. Hence this requires
-        * mutual exclusion via preventing any preemption.
-        */
+Best regards
+Uwe
 
-But regarding adding assertions, could you give some more details and
-it will be great to have some relevant examples as well.
+ sound/arm/pxa2xx-ac97.c             | 2 +-
+ sound/atmel/ac97c.c                 | 2 +-
+ sound/drivers/mts64.c               | 2 +-
+ sound/drivers/pcmtest.c             | 2 +-
+ sound/drivers/portman2x4.c          | 2 +-
+ sound/mips/hal2.c                   | 2 +-
+ sound/mips/sgio2audio.c             | 4 ++--
+ sound/oss/dmasound/dmasound_paula.c | 2 +-
+ sound/pci/hda/hda_tegra.c           | 2 +-
+ sound/ppc/powermac.c                | 2 +-
+ sound/sh/aica.c                     | 2 +-
+ sound/sh/sh_dac_audio.c             | 2 +-
+ sound/sparc/cs4231.c                | 2 +-
+ sound/sparc/dbri.c                  | 2 +-
+ 14 files changed, 15 insertions(+), 15 deletions(-)
 
-> 
-> For example, what prevents watchpoint_handler() from firing in the
-> middle of arch_install_hw_breakpoint() or
-> arch_uninstall_hw_breakpoint()?
+diff --git a/sound/arm/pxa2xx-ac97.c b/sound/arm/pxa2xx-ac97.c
+index 4c367e73b2c9..77b11616a7ee 100644
+--- a/sound/arm/pxa2xx-ac97.c
++++ b/sound/arm/pxa2xx-ac97.c
+@@ -271,7 +271,7 @@ static void pxa2xx_ac97_remove(struct platform_device *dev)
+ 
+ static struct platform_driver pxa2xx_ac97_driver = {
+ 	.probe		= pxa2xx_ac97_probe,
+-	.remove_new	= pxa2xx_ac97_remove,
++	.remove		= pxa2xx_ac97_remove,
+ 	.driver		= {
+ 		.name	= "pxa2xx-ac97",
+ 		.pm	= &pxa2xx_ac97_pm_ops,
+diff --git a/sound/atmel/ac97c.c b/sound/atmel/ac97c.c
+index 402b5f66dcc3..d8f8e08f1bb7 100644
+--- a/sound/atmel/ac97c.c
++++ b/sound/atmel/ac97c.c
+@@ -861,7 +861,7 @@ static void atmel_ac97c_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver atmel_ac97c_driver = {
+ 	.probe		= atmel_ac97c_probe,
+-	.remove_new	= atmel_ac97c_remove,
++	.remove		= atmel_ac97c_remove,
+ 	.driver		= {
+ 		.name	= "atmel_ac97c",
+ 		.pm	= ATMEL_AC97C_PM_OPS,
+diff --git a/sound/drivers/mts64.c b/sound/drivers/mts64.c
+index 6fc255a6754d..17f215bad0ec 100644
+--- a/sound/drivers/mts64.c
++++ b/sound/drivers/mts64.c
+@@ -1008,7 +1008,7 @@ static void snd_mts64_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver snd_mts64_driver = {
+ 	.probe  = snd_mts64_probe,
+-	.remove_new = snd_mts64_remove,
++	.remove = snd_mts64_remove,
+ 	.driver = {
+ 		.name = PLATFORM_DRIVER,
+ 	}
+diff --git a/sound/drivers/pcmtest.c b/sound/drivers/pcmtest.c
+index 21cefaf5419a..72378f354fd0 100644
+--- a/sound/drivers/pcmtest.c
++++ b/sound/drivers/pcmtest.c
+@@ -640,7 +640,7 @@ static struct platform_device pcmtst_pdev = {
+ 
+ static struct platform_driver pcmtst_pdrv = {
+ 	.probe =	pcmtst_probe,
+-	.remove_new =	pdev_remove,
++	.remove =	pdev_remove,
+ 	.driver =	{
+ 		.name = "pcmtest",
+ 	},
+diff --git a/sound/drivers/portman2x4.c b/sound/drivers/portman2x4.c
+index 54d818d2f53d..5e4ef25a83a4 100644
+--- a/sound/drivers/portman2x4.c
++++ b/sound/drivers/portman2x4.c
+@@ -794,7 +794,7 @@ static void snd_portman_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver snd_portman_driver = {
+ 	.probe  = snd_portman_probe,
+-	.remove_new = snd_portman_remove,
++	.remove = snd_portman_remove,
+ 	.driver = {
+ 		.name = PLATFORM_DRIVER,
+ 	}
+diff --git a/sound/mips/hal2.c b/sound/mips/hal2.c
+index 3c26334227bb..991793e6bda9 100644
+--- a/sound/mips/hal2.c
++++ b/sound/mips/hal2.c
+@@ -886,7 +886,7 @@ static void hal2_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver hal2_driver = {
+ 	.probe	= hal2_probe,
+-	.remove_new = hal2_remove,
++	.remove = hal2_remove,
+ 	.driver = {
+ 		.name	= "sgihal2",
+ 	}
+diff --git a/sound/mips/sgio2audio.c b/sound/mips/sgio2audio.c
+index a8551ccdd1bf..4e2ff954ff59 100644
+--- a/sound/mips/sgio2audio.c
++++ b/sound/mips/sgio2audio.c
+@@ -917,8 +917,8 @@ static void snd_sgio2audio_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver sgio2audio_driver = {
+ 	.probe	= snd_sgio2audio_probe,
+-	.remove_new = snd_sgio2audio_remove,
+-	.driver = {
++	.remove	= snd_sgio2audio_remove,
++	.driver	= {
+ 		.name	= "sgio2audio",
+ 	}
+ };
+diff --git a/sound/oss/dmasound/dmasound_paula.c b/sound/oss/dmasound/dmasound_paula.c
+index b8fad12f9e5f..8d443a3663d3 100644
+--- a/sound/oss/dmasound/dmasound_paula.c
++++ b/sound/oss/dmasound/dmasound_paula.c
+@@ -732,7 +732,7 @@ static void __exit amiga_audio_remove(struct platform_device *pdev)
+  * triggering a section mismatch warning.
+  */
+ static struct platform_driver amiga_audio_driver __refdata = {
+-	.remove_new = __exit_p(amiga_audio_remove),
++	.remove = __exit_p(amiga_audio_remove),
+ 	.driver = {
+ 		.name	= "amiga-audio",
+ 	},
+diff --git a/sound/pci/hda/hda_tegra.c b/sound/pci/hda/hda_tegra.c
+index d967e70a7058..b1e30a83dfb0 100644
+--- a/sound/pci/hda/hda_tegra.c
++++ b/sound/pci/hda/hda_tegra.c
+@@ -606,7 +606,7 @@ static struct platform_driver tegra_platform_hda = {
+ 		.of_match_table = hda_tegra_match,
+ 	},
+ 	.probe = hda_tegra_probe,
+-	.remove_new = hda_tegra_remove,
++	.remove = hda_tegra_remove,
+ 	.shutdown = hda_tegra_shutdown,
+ };
+ module_platform_driver(tegra_platform_hda);
+diff --git a/sound/ppc/powermac.c b/sound/ppc/powermac.c
+index 8e29c92830ad..f1b0cf9ea555 100644
+--- a/sound/ppc/powermac.c
++++ b/sound/ppc/powermac.c
+@@ -160,7 +160,7 @@ static SIMPLE_DEV_PM_OPS(snd_pmac_pm, snd_pmac_driver_suspend, snd_pmac_driver_r
+ 
+ static struct platform_driver snd_pmac_driver = {
+ 	.probe		= snd_pmac_probe,
+-	.remove_new	= snd_pmac_remove,
++	.remove		= snd_pmac_remove,
+ 	.driver		= {
+ 		.name	= SND_PMAC_DRIVER,
+ 		.pm	= SND_PMAC_PM_OPS,
+diff --git a/sound/sh/aica.c b/sound/sh/aica.c
+index 66b33623549f..39bf51ff43a1 100644
+--- a/sound/sh/aica.c
++++ b/sound/sh/aica.c
+@@ -599,7 +599,7 @@ static int snd_aica_probe(struct platform_device *devptr)
+ 
+ static struct platform_driver snd_aica_driver = {
+ 	.probe = snd_aica_probe,
+-	.remove_new = snd_aica_remove,
++	.remove = snd_aica_remove,
+ 	.driver = {
+ 		.name = SND_AICA_DRIVER,
+ 	},
+diff --git a/sound/sh/sh_dac_audio.c b/sound/sh/sh_dac_audio.c
+index e7b6ce7bd086..e7b80328f0ef 100644
+--- a/sound/sh/sh_dac_audio.c
++++ b/sound/sh/sh_dac_audio.c
+@@ -383,7 +383,7 @@ static int snd_sh_dac_probe(struct platform_device *devptr)
+  */
+ static struct platform_driver sh_dac_driver = {
+ 	.probe	= snd_sh_dac_probe,
+-	.remove_new = snd_sh_dac_remove,
++	.remove = snd_sh_dac_remove,
+ 	.driver = {
+ 		.name = "dac_audio",
+ 	},
+diff --git a/sound/sparc/cs4231.c b/sound/sparc/cs4231.c
+index a1339f9ef12a..1b44119edfbc 100644
+--- a/sound/sparc/cs4231.c
++++ b/sound/sparc/cs4231.c
+@@ -2107,7 +2107,7 @@ static struct platform_driver cs4231_driver = {
+ 		.of_match_table = cs4231_match,
+ 	},
+ 	.probe		= cs4231_probe,
+-	.remove_new	= cs4231_remove,
++	.remove		= cs4231_remove,
+ };
+ 
+ module_platform_driver(cs4231_driver);
+diff --git a/sound/sparc/dbri.c b/sound/sparc/dbri.c
+index b5d53c5550d3..69f1c9e37f4b 100644
+--- a/sound/sparc/dbri.c
++++ b/sound/sparc/dbri.c
+@@ -2682,7 +2682,7 @@ static struct platform_driver dbri_sbus_driver = {
+ 		.of_match_table = dbri_match,
+ 	},
+ 	.probe		= dbri_probe,
+-	.remove_new	= dbri_remove,
++	.remove		= dbri_remove,
+ };
+ 
+ module_platform_driver(dbri_sbus_driver);
 
-If perf is the only user, watchpoint_handler() will not get triggered
-without watchpoints being installed via arch_install_hw_breakpoint().
-Similarly once they get uninstalled via arch_uninstall_hw_breakpoint()
-there will not be active watchpoints to trigger the handler. Although
-there are other users (ptrace, debug monitor etc) besides perf which
-could also be active simultaneously and race with each other ? TBH, I
-am not sure.
+base-commit: 6fb2fa9805c501d9ade047fc511961f3273cdcb5
+-- 
+2.45.2
 
-> 
-> Is the existing code correct?
-
-I have not tested the concurrency aspects of the HW breakpoints enough
-to be able to answer that question. But if there is a particular concern
-here, happy to look into that.
-
-But wondering how does this new bank indexed read/write mechanism (after
-taking care of the mutual exclusion in the leaf level helpers such as
-[read| write]_wb_reg()) still makes the existing concurrency situation
-worse off than earlier ?
 
