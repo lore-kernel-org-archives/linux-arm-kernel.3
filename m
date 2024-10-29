@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD150D3A679
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10287D3A678
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynacYz6swHjZ02f11a+UlbsVE/1P3vOR86gVEDQ9s+8=; b=Rxgx2DXktuKT6W1N2Pg4viCArf
-	aWNgCxl6tAY+vSk8/AKRoOMWPfPi2bmsSyHWuMF+0MCeuQ0i7TxEEEGy6dwDFd5x1TcP8HgfHdqvR
-	nIghdzsD6/L0hVMujlEZqqHQ/+KyHmFYoX/hs1xy5/cLccxvA29qLKQtayv2laAFpN7xzqziEv3l7
-	WZ6kRDaELJC8H+HizUsqMtYkXargsif8LMTE9Q5X+BRanWymYvf20nGGl5twlvMlAhUKCfbC+gUKl
-	iBYryFWfVLwUm1mY5iY0Z1zKtbYRaJNtNGg1tTXE96d2HfDMuMPB6/Y/I9t+04d5oVzGgs9lrKAmU
-	U955OR2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y/cUNwC67vgWzQkYljMcwOebS3TfT5/smv/VO0xYuUs=; b=RjG9w0Pe1RsgnTEFzAKqscrJXs
+	gWnpFDRwVSINUOBh8SbVaX3S6vX3HmbqzQALw5hggIryr2GMPy1BxGB8YCOIJP8/rSOa4Hc8s1EKS
+	EfEdSzViiW5rDOtPoFoxYXVqVNuGuUFJzkmVK1Q6F5DYjQX1H2r/yXpwePNnC7Or76+f1o0HRS5ry
+	OvfEfUA64PzVUY2smL8/vI3xHsmlv4hfUmskcq396amcK23eIPQ5YZ6747zm4ZBSws/SDW0CM5Ai7
+	e5VFqxHI+zGceE1WGVqaTYI9mnCsadVDdrwD3w/7GKDS83/dwHWZDivJg5pDJQRP3xaQFsWcVpeRL
+	iVTtAoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qJN-0000000FNRj-3ivh;
-	Tue, 29 Oct 2024 17:47:21 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1t5qKy-0000000FNYW-00MV;
+	Tue, 29 Oct 2024 17:49:00 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5pfj-0000000FD1m-1i1d
+	id 1t5pfp-0000000FD45-2CsN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 17:06:24 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-460a8d1a9b7so10111cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 10:06:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730221581; x=1730826381; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ynacYz6swHjZ02f11a+UlbsVE/1P3vOR86gVEDQ9s+8=;
-        b=0c+Soq2ahnIcPQc4cl5SDbPj+9CsP7t6LwwnWYuzKYWjnQDAFBomxohoCArEdyH8Sf
-         DYQEYM9g1GdPZQkv73IZo0l9rDjW7ltk6csx6cM7lgh29RAQOzsHlZ5/MaAfkG5IR/0y
-         5y58UQ6ITIm0S6GEObNWkbCFSvqkoLOjFhgHNc2ajr9i2fvRKDLW4jjzHbU3Qx6A7u/K
-         N1Ejkydzy2ZNQcNiQMgQfPgWeT/JZg7mHqZCBjBmaKe4G6zJ7t3WfCqzD47wn32nZeVk
-         ChhxOSNjTicQxVbX9xOVYeKTItvtKo1vF1J5Wg4/A9R2Y7esGT2LzccvC/WFjjwBk8xk
-         Jt8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730221581; x=1730826381;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ynacYz6swHjZ02f11a+UlbsVE/1P3vOR86gVEDQ9s+8=;
-        b=fcyLXlQscoqawmyn2RYKrDHaGXHKNrhGUYB+bHSed+eBkJq190TM8ZXBLE5aM4rIO2
-         szwBDDQXxg2vb5mIxPC6/vQ0FYz8T6KY4gsFfKGBPi4JzrFVZkW/B2W0dQqbMuP2MWDm
-         gaif03W3hzUGe//Fs99KdXdIqLd1jpeskhfmIwHxa+P1r4dmvAAZueln20sSVzalMey0
-         T1cF6kaNXYEamD7+FsPgzH+rhnOUNETTrR4uHkiCrhHyMzcotzLua9NK6gTmGWu6Z3Pu
-         DhgXJEhH4aSObHEQ0uh2WPxKPWOXXLanaGd3seigEZh9FAmxX2Xzb3/r5CQs9PsK49zR
-         JbkA==
-X-Forwarded-Encrypted: i=1; AJvYcCUy+Q6PZTdL0zT1wp3Bfcs2gX0+2oycDdh7ectkvuwm7+PBv0y7gK4dZoFaSUOvRAFg6wMJm0mdUZwQNGjG+YTj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6IEzJhY+zLKzicHeipJs+3+X1mR8MLGcWF+ASG1ju/4W2hjNv
-	l3aUntzmUtSQ45KS+w2GmSR3vl3uLlns+CvM3/a2GacMwXsbw6znX2A6C4Obv6H40x6kA+juyjL
-	RBnkDIKFAb7D4Vy9tzWrkMwR1jqE9OPSihcni
-X-Gm-Gg: ASbGncvQkbAMmuXbdeg1VFg+1T+FTbb8xuRoaervfy5GqYQ/FkZunn2yBSSnaMjYouW
-	sDIr/fxThZl4NyiFkykgGCSvnBqc06nHe/fOVY7RRHV0Y/nIGTRRH9K3qZlPvK+vf
-X-Google-Smtp-Source: AGHT+IERQ2wd6YprqS4eYvnnD7z6rw6ImUej3A/vL1S07gFistJ64iydzViz9z7fnItMS60psPXdYpEjxesagiZuwK8=
-X-Received: by 2002:ac8:5dc8:0:b0:461:43d4:fcb5 with SMTP id
- d75a77b69052e-46164eaa58fmr4706231cf.2.1730221580720; Tue, 29 Oct 2024
- 10:06:20 -0700 (PDT)
+	Tue, 29 Oct 2024 17:06:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730221590; x=1761757590;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GFsoyu+gSq/aSU9jlBlwuMAGi0F5EJzjk+vasvk+KMY=;
+  b=B8Y3NT4iINKxNrf9x9gPnCZsPd5MLkpTSGIf8ZXmru3Lr+v/9l+oN3Q/
+   4hCgfiOdUjlFZm/uJOCHTnaRvEvToHwFmpv+aZnldYYdVgJPH5CM7TGQu
+   yEc3xg5GnbxV0ZuNIfFlQn/NV0OSoFWm4swfJir2gQ3n8VK8ut0ejaCXb
+   nSyjwK3nXGL9G+Y9BGzp6RXlglVToQhkemVXUFos8ASOPGwRmm+mCTNkB
+   ADsSAbpQWZnNRKvt6Dj+8fVEhTait4JptuKboXf2p5VzZyGikyaO2WScK
+   zXF+DF4ROBxhZA5kHud867CdF0OHulYa/0EjKir2bObLl2QhilrwCw5kP
+   A==;
+X-CSE-ConnectionGUID: 9hNuGqKLQIWm6NhuZywXWg==
+X-CSE-MsgGUID: AX32xCkNQUmXJ9RwTwKy5w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52435493"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52435493"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 10:06:23 -0700
+X-CSE-ConnectionGUID: 7q9ZxRnpTnuEDnhZdkCFQg==
+X-CSE-MsgGUID: WNsgyM8oS1ez1aK6WXHuiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="81945398"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 29 Oct 2024 10:06:17 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t5pfc-000dvO-0Q;
+	Tue, 29 Oct 2024 17:06:16 +0000
+Date: Wed, 30 Oct 2024 01:05:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: alice.guo@oss.nxp.com, wahrenst@gmx.net, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	"alice.guo" <alice.guo@nxp.com>
+Subject: Re: [PATCH v2] soc: imx: Add SoC device register for i.MX9
+Message-ID: <202410300019.uWGJaR4m-lkp@intel.com>
+References: <20241029083406.3888861-1-alice.guo@oss.nxp.com>
 MIME-Version: 1.0
-References: <20241028234533.942542-1-rananta@google.com> <868qu63mdo.wl-maz@kernel.org>
-In-Reply-To: <868qu63mdo.wl-maz@kernel.org>
-From: Raghavendra Rao Ananta <rananta@google.com>
-Date: Tue, 29 Oct 2024 10:06:09 -0700
-Message-ID: <CAJHc60x3sGdi2_mg_9uxecPYwZMBR11m1oEKPEH4RTYaF8eHdQ@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: Get rid of userspace_irqchip_in_use
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	stable@vger.kernel.org, syzbot <syzkaller@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241029083406.3888861-1-alice.guo@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_100623_483198_453519AC 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20241029_100629_650743_BC6D616C 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +89,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 9:27=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> On Mon, 28 Oct 2024 23:45:33 +0000,
-> Raghavendra Rao Ananta <rananta@google.com> wrote:
-> >
-> Did you have a chance to check whether this had any negative impact on
-> actual workloads? Since the entry/exit code is a bit of a hot spot,
-> I'd like to make sure we're not penalising the common case (I only
-> wrote this patch while waiting in an airport, and didn't test it at
-> all).
->
-I ran the kvm selftests, kvm-unit-tests and booted a linux guest to
-test the change and noticed no failures.
-Any specific test you want to try out?
+Hi,
 
-> Any such data about it would be very welcome in the commit message.
->
-Sure, I'll include it if we have a v3.
+kernel test robot noticed the following build warnings:
 
-Thank you.
-Raghavendra
+[auto build test WARNING on shawnguo/for-next]
+[also build test WARNING on linus/master v6.12-rc5 next-20241029]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/alice-guo-oss-nxp-com/soc-imx-Add-SoC-device-register-for-i-MX9/20241029-163718
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241029083406.3888861-1-alice.guo%40oss.nxp.com
+patch subject: [PATCH v2] soc: imx: Add SoC device register for i.MX9
+config: arm-randconfig-002-20241029 (https://download.01.org/0day-ci/archive/20241030/202410300019.uWGJaR4m-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241030/202410300019.uWGJaR4m-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410300019.uWGJaR4m-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/asm-generic/bug.h:22,
+                    from arch/arm/include/asm/bug.h:60,
+                    from include/linux/bug.h:5,
+                    from include/linux/thread_info.h:13,
+                    from include/asm-generic/preempt.h:5,
+                    from ./arch/arm/include/generated/asm/preempt.h:1,
+                    from include/linux/preempt.h:79,
+                    from include/linux/spinlock.h:56,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/umh.h:4,
+                    from include/linux/kmod.h:9,
+                    from include/linux/module.h:17,
+                    from drivers/soc/imx/soc-imx9.c:8:
+   drivers/soc/imx/soc-imx9.c: In function 'imx9_soc_device_register':
+>> include/linux/kern_levels.h:5:25: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long unsigned int' [-Wformat=]
+       5 | #define KERN_SOH        "\001"          /* ASCII Start Of Header */
+         |                         ^~~~~~
+   include/linux/printk.h:462:25: note: in definition of macro 'printk_index_wrap'
+     462 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
+         |                         ^~~~
+   include/linux/printk.h:533:9: note: in expansion of macro 'printk'
+     533 |         printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~
+   include/linux/kern_levels.h:11:25: note: in expansion of macro 'KERN_SOH'
+      11 | #define KERN_ERR        KERN_SOH "3"    /* error conditions */
+         |                         ^~~~~~~~
+   include/linux/printk.h:533:16: note: in expansion of macro 'KERN_ERR'
+     533 |         printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+         |                ^~~~~~~~
+   drivers/soc/imx/soc-imx9.c:48:17: note: in expansion of macro 'pr_err'
+      48 |                 pr_err("%s: SMC failed: %d\n", __func__, res.a0);
+         |                 ^~~~~~
+
+
+vim +5 include/linux/kern_levels.h
+
+314ba3520e513a7 Joe Perches 2012-07-30  4  
+04d2c8c83d0e3ac Joe Perches 2012-07-30 @5  #define KERN_SOH	"\001"		/* ASCII Start Of Header */
+04d2c8c83d0e3ac Joe Perches 2012-07-30  6  #define KERN_SOH_ASCII	'\001'
+04d2c8c83d0e3ac Joe Perches 2012-07-30  7  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
