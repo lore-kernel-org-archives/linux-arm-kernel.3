@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B384DD2AB1C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30610D2AB1C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 10:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtRHRHZJbxkUHwLfJyAruL0+r7u3eJytHHCH6YWzdlk=; b=uuzxnm0dHG576CP7V06Hf9U8i3
-	C8XAxl2NxPtbT6FD7CAkDPPbyRj7+xQvex5+sbQyJox6IvYjvLqulmq148lqWAcHUQN8DK3tAql7p
-	PBlzbj8zLi5KsrCiFyXX0DxxgDrvqYA7i2YkRvhVdZxdE1QgDwFNBmDx5i2k9p9pDeUYIBqgcc6T7
-	++4/jWQLL409DXTAABHmjNnyFS+hQS7FSK4GZOADtRBwF65GuO/LooPJNBHBMcqT0sWKN8hT4v4Jp
-	ikk2zt8SRtjQgR7Ml1dDf6icZ/etdNrpkxWsdNOqsKxX3D7OgwH51zrDIHRxVQW1royMiW1dM5viG
-	xwcKyUFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=; b=NTTYGCSfRnS8SjI/G00ePNlQ3n
+	hh9DG1AxS5O+jVL723SSzMKx1CBl9XqHpr/UnA0DvWP0JRJ74DaS+56t4FuCsDwLHk0DR6RznL+19
+	X4wsrGyel/IDCb/fZ6NMnjHCdxtShca3b+ZBOHPrmLQFhwVbRVBxCsw+K70M8VA/ajsCDS/lDtMQf
+	mlx24Vkb38s64Co9xs57IGmXdgSaAb3mo8uBwZOr0ngwYY7YeIEenmOCrybN8ku786SgeN0OCJeuZ
+	BvTqxdHdtR39bEZunYwjH2E6Bce3Mq5H3SB2HqY7V4qnmP7JHcoZ8x4tYsEXV9+hVHGuraC9ZhZvM
+	awfkQrzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jXR-0000000E342-02uD;
-	Tue, 29 Oct 2024 10:33:25 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1t5jZ1-0000000E3N7-312Y;
+	Tue, 29 Oct 2024 10:35:03 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5j3l-0000000DyFK-3qg0
+	id 1t5j6I-0000000Dyhf-2krR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:02:48 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-53a0c160b94so5830594e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:02:44 -0700 (PDT)
+	Tue, 29 Oct 2024 10:05:24 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539983beb19so6213404e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:05:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730196163; x=1730800963; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MtRHRHZJbxkUHwLfJyAruL0+r7u3eJytHHCH6YWzdlk=;
-        b=cPmfJja1/gEAWUgTwCsCDSu7H8ygm4AgHnJ5cfQy0pV62RnY304JlpFkLLcRrQP0HS
-         3jZN1MkQniacz6OIXZbrhDzoAZdZQPkFQeVIJboKkI/iIJzcEhupBkfJy+NiqYVuMboA
-         h5vP9Ks3PQVqsB2FNN/Gz+gGU+iZhIS0XxBN6EdUB7CqQEoGoOrWPT4Xc44NB7Oeg73q
-         0p7jpm4I+jtjDlLQ+EvRxwzchvrKHU6PlmREN5lUI6/K5B3PPKEsXWBvP+9Zbl0s/049
-         w23VypglzbKR2rt9oKUUlCv8SgYBsEV3/QMx/XjoCgDZAsXAaz/KYrZFnMazrWQxTsP6
-         iqFg==
+        d=linaro.org; s=google; t=1730196320; x=1730801120; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=;
+        b=t7UH5NcP3dMxFsEjM54+Q7jHgAhw6CT+gmtYJyAZ5wjnOzheCThrNwkp54vj4UW7kX
+         nK5eRJQSXtyvc/C10JHT7EsdeFZYDL6nCUvMl4XywCY6H/tMicN7Wxq+fuVpEE+76rdk
+         vGwoQdGIT5bwMPLYuM/LY7Q/HTaTDi/rFJMLcgrxB4jHqoTpQMkyKYHLbVqpmB8ey6Qb
+         hVM3IWUugbUybMrxIhjQ+5hi1SJJm7NIRVbpBLE/muQTZBjjUBGRqSx8NOypf7hAr+rj
+         0PPUAHrTepSAfSh89cOMEEx5LTQXX283dGVn33VOn9d6XUqBX8i25NBQZwtmwrUUMVWJ
+         GW4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730196163; x=1730800963;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MtRHRHZJbxkUHwLfJyAruL0+r7u3eJytHHCH6YWzdlk=;
-        b=kWL/lwcBz/9c9pDwynkB9Jt0S8I680YwvvGBgo3sh9e5OySFV7YIYnHh92UWEli4vB
-         H9zjU1yI0++MLImEuw24hih2/fpmhAhCYsYeAcNJvtkB2DYR83cK9CiiZm5YHtXwWKkX
-         nxhgfFWnizbYohzLFbwwTbf9R5nlTAXRm1OekJJo0NUVZVjlumO9j6HRdRAMA5YZUGkL
-         hNhJBlmEq4Ggm56wgjiunu3mq7fABozJsRYyD3KfZo/N/gYlKwwz2l5sYhgqlTBh6hhM
-         iRdCVWb7uZI30EQ81z0aYaL7GcLUeAH6c6uKiUxM8Heup8hPWssyYyTfx0oU4yt50VM9
-         /4fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBn0rub0qfmLFFvWbLcbQACznYv/SXxs4ndc15HlEPiHVNciypQg6nZHSb7stKIpHs5u8oHAif2yjaITQRgn7R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRhI0bnXWmEAWWmbWgSq7KBQCbnHVUDKnxyKjPq8Ru/GoJBqEB
-	sMkwUeaqqux+pZkvdJclfyBuu34yLuslnZv9evmdjSOVhP9adhWnCfT1i1pm4sA=
-X-Google-Smtp-Source: AGHT+IGEwILz2Lx4Ssp9GAJRdhmg/Oj6nSmHRAC4gShR5qbr4sklCtvT1n0f4SFTSdo1a1GofvMf/A==
-X-Received: by 2002:a05:6512:b22:b0:539:a2f5:2f1d with SMTP id 2adb3069b0e04-53b34c364fdmr4152665e87.61.1730196162581;
-        Tue, 29 Oct 2024 03:02:42 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:f65b:b446:12e7:273])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b712d6sm12023826f8f.78.2024.10.29.03.02.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 03:02:41 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Zicheng Qu <quzicheng@huawei.com>
-Cc: <neil.armstrong@linaro.org>,  <mturquette@baylibre.com>,
-  <sboyd@kernel.org>,  <khilman@baylibre.com>,
-  <martin.blumenstingl@googlemail.com>,
-  <linux-amlogic@lists.infradead.org>,  <linux-clk@vger.kernel.org>,
-  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
-  <tanghui20@huawei.com>,  <zhangqiao22@huawei.com>,
-  <judy.chenhui@huawei.com>
-Subject: Re: [PATCH] clk: meson clk-phase: fix division by zero in
- meson_clk_degrees_to_val()
-In-Reply-To: <20241026072624.976199-1-quzicheng@huawei.com> (Zicheng Qu's
-	message of "Sat, 26 Oct 2024 07:26:24 +0000")
-References: <20241026072624.976199-1-quzicheng@huawei.com>
-Date: Tue, 29 Oct 2024 11:02:41 +0100
-Message-ID: <1j34kfuszi.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1730196320; x=1730801120;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U4RV5zlTOUYZMKhmx1UYpbwnBm/HWX3vXyjwC0A2b/s=;
+        b=fz4D/3ARLBOLA67QaJsuThhbz3rlaJtRVfsMtjGOqXAo7IeJGLIWXEhuZ8TWuEEzuJ
+         +ZQA8AV1NX2mwc+UUReckAB4e4ZWIGEl6dbU+BVOArvB5WspXRr4UpSx9PDKkBMsxUWF
+         fRHb2BFmRKRBnNUY/RwqCmqKZCrZ54qUzcFRkUzn6Kr+9qZOfWblZW9JAO0Mncy3FlR5
+         ObakufhTiT1BrDH6fAGaAO10QAlkDIq/NtiBZlahWCuqlwkktFyiLWDbgAjPfw+78QLQ
+         sab6f5IP6rjaknJeC5NZ857+rIzBl6MHkAPLLmwbYcWkdwzc5j/Ie5qGh+2NHoJKni5W
+         +MPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVuMKBviMg9/nFvo2ek5dAjb7tg+HrQ7rSrHJ0D93T4pMI4ubAbqu/5n9/ni/Pv5MwJKmLvi/XinOjI1NV4TRrP@lists.infradead.org
+X-Gm-Message-State: AOJu0YznmnXm9qxeSXZce0QKG+tWSbZ8g+cVKCTShS8k5MuM2z85z8jZ
+	gQPNw0650BuAoGjJ6KppbCL91QmiIhGIgRHT4RbV1IbViJpcmY3P7IgCjItyJOh10SfiWkWRATo
+	nONLrRqJMfpqspbGd8hzll9DL5ZF9yQPz6TS4/zZmL9v7zxK1
+X-Google-Smtp-Source: AGHT+IHRjlZ5hUDjfU+PhK/6e3oqa7R+fo3XhjKnYIjv7VyxU8Q5LEQEqbHbzMAmS4KxgFa0+3jWkOmL3SAGQgEfxvY=
+X-Received: by 2002:a05:6512:3c98:b0:536:54e9:3a63 with SMTP id
+ 2adb3069b0e04-53b34a19727mr5084956e87.49.1730196320370; Tue, 29 Oct 2024
+ 03:05:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20241029074901.18977-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20241029074901.18977-1-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 29 Oct 2024 11:05:07 +0100
+Message-ID: <CACRpkdZCeQFzqbSN_=jX-_406OyxOoLb3b0R5NX3SjacE5JZSQ@mail.gmail.com>
+Subject: Re: [GIT PULL] pinctrl: samsung: drivers for v6.13
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_030246_373384_E85BCAFB 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20241029_030522_722683_445BA8D3 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 26 Oct 2024 at 07:26, Zicheng Qu <quzicheng@huawei.com> wrote:
+On Tue, Oct 29, 2024 at 8:49=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 
-> In the meson_clk_phase_set_phase() function, the variable phase->ph.width
-> is of type u8, with a range of 0 to 255. When calling
-
-Thanks for noticing this. Some remarks though ...
-
-> meson_clk_degrees_to_val with width as an argument, if width > 8,
-> phase_step(width) will return 0. Lead to a division by zero error in
-> DIV_ROUND_CLOSEST(). The same issue exists in the
-> meson_clk_triphase_set_phase() and meson_sclk_ws_inv_set_phase().
-
-It would have been worth noting that the issue is hypothetical given
-that all existing instance of the mentioned drivers have a phase width of 1.
-
+> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
+dc:
 >
-> Fixes: 7b70689b07c1 ("clk: meson: add sclk-ws driver")
-
-The "problem" did not appear with this commit.
-
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Zicheng Qu <quzicheng@huawei.com>
-> ---
->  drivers/clk/meson/clk-phase.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 >
-> diff --git a/drivers/clk/meson/clk-phase.c b/drivers/clk/meson/clk-phase.c
-> index c1526fbfb6c4..b88d59b7a90d 100644
-> --- a/drivers/clk/meson/clk-phase.c
-> +++ b/drivers/clk/meson/clk-phase.c
-> @@ -51,6 +51,9 @@ static int meson_clk_phase_set_phase(struct clk_hw *hw, int degrees)
->  	struct meson_clk_phase_data *phase = meson_clk_phase_data(clk);
->  	unsigned int val;
->  
-> +	if (phase->ph.width > 8)
-> +		return -EINVAL;
-> +
+> are available in the Git repository at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tag=
+s/samsung-pinctrl-6.13
+>
+> for you to fetch changes up to 6d2dbd4cec8939ad2b813b8052eb12406db528d7:
+>
+>   pinctrl: samsung: Add Exynos9810 SoC specific data (2024-10-27 21:02:08=
+ +0100)
 
-I don't think erroring out on this condition is correct.
-A phase encoded on more than 8 bit is valid.
+Pulled into the pinctrl tree for v6.13.
 
-I think casting width to 'unsigned int' in phase_step() would be better.
+Thanks for sorting out the Exynos drivers, excellent work as always Krzyszt=
+of!
 
->  	val = meson_clk_degrees_to_val(degrees, phase->ph.width);
->  	meson_parm_write(clk->map, &phase->ph, val);
->  
-> @@ -110,6 +113,9 @@ static int meson_clk_triphase_set_phase(struct clk_hw *hw, int degrees)
->  	struct meson_clk_triphase_data *tph = meson_clk_triphase_data(clk);
->  	unsigned int val;
->  
-> +	if (tph->ph0.width > 8)
-> +		return -EINVAL;
-> +
->  	val = meson_clk_degrees_to_val(degrees, tph->ph0.width);
->  	meson_parm_write(clk->map, &tph->ph0, val);
->  	meson_parm_write(clk->map, &tph->ph1, val);
-> @@ -167,6 +173,9 @@ static int meson_sclk_ws_inv_set_phase(struct clk_hw *hw, int degrees)
->  	struct meson_sclk_ws_inv_data *tph = meson_sclk_ws_inv_data(clk);
->  	unsigned int val;
->  
-> +	if (tph->ph.width > 8)
-> +		return -EINVAL;
-> +
->  	val = meson_clk_degrees_to_val(degrees, tph->ph.width);
->  	meson_parm_write(clk->map, &tph->ph, val);
->  	meson_parm_write(clk->map, &tph->ws, val ? 0 : 1);
-
--- 
-Jerome
+Yours,
+Linus Walleij
 
