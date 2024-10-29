@@ -4,160 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4D1D3A661
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 16:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C9AD3A66F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 16:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kY8dXfOk2i7Aq5vjRp9CMJia3+ZImRjfZVh8pntbPI=; b=241eMOwFo30Ib4+gwOdtpQtoxM
-	k4a5moqA1Nw1Hr0Zq8GaT+pmeA55VvLdcU/ZdpspaQFd7PaYqdXQFkNO+yLMk0AYcw/+cO/niDiwt
-	45fXCSmKR2ukPXYOu7wLynC6mst94fVD8327glAyhtCQ9F03F5z5OL75Xs+kG/M+9U568EgvebQcQ
-	rZiQIIgiZa74llST7OTJQ4zPyiSaoF/btCFmCe3ZB5PTDZsxKZf4mqpCOXipNgC1BUOjS1YyV+qVY
-	QBHsLwO4vbfEDOeGr8gW1bRuDnb924LgjKJmsZfxfONEWz0P69A7DWCLAZAphZh9OEtUhtB1TUgPf
-	yEuzE33w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=; b=RgE1a1VST5YIFUqak84LJX6W5c
+	9WY6ugXNshg1t/8o+uQA2njEsgPs0JywwUtm5petoDy6N03WI3Hawt5OS0qkjCTjn0CAyZZLU2Fox
+	q2mzJpbZZB/v0hmiZUP3Ml7EjVwUC/sm7ot1RaLic46X+JWM4M6TrVj+S0J/+lzdguV30Y3ueRzcf
+	B4f+F0VaCXfLtn9mhcpIaipslnb3lZjl+5M73uX3LJslpF9EPcV6HvUyexVcFRI+yJ0Vi6k+QLDOG
+	xJAflC+/OEKRKIj4Vq+4+RPMzYwz4bGUE/rpGjUb8mO8kn/5KQBv8Wo9CrNiG5zOyGIlooYaNOmia
+	yYlOIHxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5opJ-0000000F4q4-0pjs;
-	Tue, 29 Oct 2024 16:12:13 +0000
+	id 1t5osT-0000000F5CB-07B9;
+	Tue, 29 Oct 2024 16:15:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oRF-0000000Ezl8-3kc5
+	id 1t5oRV-0000000Ezy1-1zti
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Oct 2024 15:47:22 +0000
+	Tue, 29 Oct 2024 15:47:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2kY8dXfOk2i7Aq5vjRp9CMJia3+ZImRjfZVh8pntbPI=; b=bANQI27Qsg7+6FY0cGHrZi9gPq
-	xY0K+Tyjk5DrgmamahndVPegtkFYc1tCgnE7Q5E+jkzHEfE4PEkK2zjLsG2NIVVOyimAlOkiKXXyE
-	uENOSQGJ06xQG5xyWZayEOmK22Myw9CpXoiVqDqUgXa6SZHs52jGIeoBxQRne9E5FUDoaZj8I/chK
-	dXZ3SLRggzbnYWNgCbugoh7edV1GF9Fni6KWzFrNb5cuk73JDJsbrLmVn0TdZOiv2lPgdRbOeUhrM
-	XyNjN55/wHMhxtW/nsRp0RPUf7pIcIdCcGNskkYanQUerLBt5GenTu5PHnzDNElGawnL3GjC3t/MP
-	ajfkuFIQ==;
-Received: from mail-bn7nam10on20619.outbound.protection.outlook.com ([2a01:111:f403:2009::619] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=; b=mhtk71SiWTXqEXx1xHNpLc562K
+	4vRbSIflbWE4gTu2tzXVOpbStUamVkLGg3kzfvTOxbDlMU0OXbHCRHgOimwwv1HX2OXe02sZyH5tj
+	nToE0r1hOBs3nph5ezeVZMY30vYNoyKlWcOX3c1ZiqUM0Z26ZbQep/fvnP0yBQSZG5w0Wn15nI8Wc
+	iu8yygWwmmVcqRP0RLWVWQBC6Re2C1QHJLASOtZ1aCjAecrIElZNlAYw1fX9oCoVptIjjceB9f313
+	ZtJO/Qq3n8t2tnT3AKTOP9RgQvVKFaAYJ6fc2HhwCTyhXxIpib44UrfADAffzaUa1pRQ3I26dzpe2
+	plwOQzEQ==;
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oRB-00000009vpp-3Muv
+	id 1t5oRR-00000009vul-3ci6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:47:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PgKOibPj691D7LKb512qCpE32ruQn7WAuG6SdLaT99DZBv46rl3GABuKlDxg07xJz0jwhALVccKdmGFbXI0XQn61riGBZaBQFuzEJhalbUZBA9tMeFRe9+qPCk6dkJIDR0DiymkSlxHCKVVjYAhBPwipJITESaGfxuuhSBhUooJKZPvD7A/pGfWmRSasrfkcoOx6j24px+wzydRelpa1HzaBti6yI/9d0jiHV+OyjusN6z2U4LWQKL6aYYxUGmbyKB+5kRO3MQ6dZcPyeeHyi/gHYNeBVDQcFCHSd5L3Q6XHpdfd5Ua4MYSIYT1ErUMP0Gq+XIpou/y7rSlU9jdeQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2kY8dXfOk2i7Aq5vjRp9CMJia3+ZImRjfZVh8pntbPI=;
- b=pPnT/zH/9yktaP8lJgAwCpQpwNM1DJxgqxOlyagxsh2QGFewAuw4mZvg4c4Uq2NrjDUZtR3fF/RucyS8UL/5wLZfFN7CmiFEIM4WJM8nObbrM2VcrGqSQmbIBLA+HEPp9sx6f17wrw87bJUdJJt0BuzPg5IL1Knezp9BMuusTu7HSvPbdMe2TnITzn1NQnzX919dJXcvfTlOmWrbP6+vLRDSPLNLAMG9ksHRX1p0QMk7NtA91f+FBfn9KihZb06tOL9n0iFfOgH+bb8T43MuM0FaM2UzIeTdGiM/JHTeR+q0JlKJ1P6JgsFMyrJahQZRrL3VMrt++G4r2Ujab6OQ1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2kY8dXfOk2i7Aq5vjRp9CMJia3+ZImRjfZVh8pntbPI=;
- b=MQquxlg7bepYG0K7ai2Xfjctvp2GLJMA45EMtS19xbMwhy3z+v3Ro4L+8J9fuOCME0E4dXq2GZDOHUMnz7qCTEyL1aW/LHB/FtRWllY47uIRxbV3n3sfGhD1FojKuNw+OenTaUahT+XTju08fmOBFW7mLcGVgHDfdiHbI/Ra1DsIbUSScVLbUrYZLDWenll+THf8BtH90DeHuCW9aDEN9boktG/WjuqSoCvAt3pQBYyKkjfQB0xbsLPkY5Bj/4keyyHVRWPJYcn/wArzHA0ZY2morXBmKqmnsI7KNb6UL7XN3pG8GE8OYkgZwlA4aBQlIQpBan+/S+0d3i2T08cjow==
-Received: from MN0PR02CA0013.namprd02.prod.outlook.com (2603:10b6:208:530::27)
- by SA0PR12MB4446.namprd12.prod.outlook.com (2603:10b6:806:71::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Tue, 29 Oct
- 2024 15:47:05 +0000
-Received: from BL6PEPF0001AB4B.namprd04.prod.outlook.com
- (2603:10b6:208:530:cafe::14) by MN0PR02CA0013.outlook.office365.com
- (2603:10b6:208:530::27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.24 via Frontend
- Transport; Tue, 29 Oct 2024 15:47:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BL6PEPF0001AB4B.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.16 via Frontend Transport; Tue, 29 Oct 2024 15:47:04 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Oct
- 2024 08:46:43 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Tue, 29 Oct 2024 08:46:43 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Tue, 29 Oct 2024 08:46:42 -0700
-Date: Tue, 29 Oct 2024 08:46:40 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
-	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v5 04/13] iommufd/viommu: Add IOMMU_VIOMMU_ALLOC ioctl
-Message-ID: <ZyEDYFxHZ3XkwTfh@Asurada-Nvidia>
-References: <cover.1729897352.git.nicolinc@nvidia.com>
- <f24628d774181da6df6e62bfa3376fbcacef8906.1729897352.git.nicolinc@nvidia.com>
- <20241029145436.GC209124@nvidia.com>
- <20241029153624.GA210796@nvidia.com>
+	Tue, 29 Oct 2024 15:47:36 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlSn3017443;
+	Tue, 29 Oct 2024 10:47:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730216848;
+	bh=GLjfUODQODOaRX/d1s4wSCIi5iG+h1DU0f5TSsQNgoo=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=AEFOVmUcKQGazhaNrxs1IP+Dp4izBj4Ac0XDnDHza307aHm2DrLVssyk0b5K1SvQv
+	 MbvnpQhoYdcSC4s3I9NmfZfEGqFbB40zAJMV4hCHPtz2+VmfPB5zuSJFVt5KZXUOCm
+	 moeTiOrKVgl6W7n40r9epXgrqmJ+4Pjla4iPIl3U=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49TFlSbg010235
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Oct 2024 10:47:28 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Oct 2024 10:47:28 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Oct 2024 10:47:28 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFlNKE083333;
+	Tue, 29 Oct 2024 10:47:24 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Manorit Chawdhry <m-chawdhry@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Neha Malcom Francis <n-francis@ti.com>,
+        Aniket Limaye <a-limaye@ti.com>, Udit Kumar <u-kumar1@ti.com>,
+        Beleswar Padhi
+	<b-padhi@ti.com>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>, Andrew Davis
+	<afd@ti.com>
+Subject: Re: [PATCH v6 00/12] Add bootph-all property for J7 boards
+Date: Tue, 29 Oct 2024 21:17:21 +0530
+Message-ID: <173021674661.3859929.13298221281337904627.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
+References: <20241024-b4-upstream-bootph-all-v6-0-2af90e3a4fe7@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241029153624.GA210796@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4B:EE_|SA0PR12MB4446:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8507415c-4b76-4e59-4fd1-08dcf830f02d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wUJ/9TrquIEQouw81TZlVZ9hY12ptGBjYIlXmar51tDGTZq64PbrhfKzFG4B?=
- =?us-ascii?Q?Taqp2zzjKyx3v2s9vzq2QfzQ7MRQhGb0Z0XJXiN1H+N3KGwNc5HkaQJJLLc8?=
- =?us-ascii?Q?raZyRu5AThwpmp6iHXbPnLIfEv2ANxs5RfZKPJTyxg+Y1mSWFjDQtDUcSLi2?=
- =?us-ascii?Q?F2gsalf+wR0eZmzUbhPnIGxdXpx9wtY/UUVQLky2BaMt2xyOPPVt/hR8kch6?=
- =?us-ascii?Q?AJDFjsoE1BlH2GJ2LT/WvUOyiR0Mocnuep7JY1yzWh6rPzntilLDg92Ys4Su?=
- =?us-ascii?Q?NKcDhYGWWpedys7hy9MwZ5JYBLxEY0Do5PIqU0bDcFYTfTxTaT1OWU2C48tW?=
- =?us-ascii?Q?u9ueSlh61kYXYFtj0OozZuqg22msWdMX1is2LRKqLy4I2WYx4d3n2tXtfQjo?=
- =?us-ascii?Q?3VUhgXBUWIi39GjodJtAIR+EOxJbHjvyuWIscmpkYiRP8Yi4zZwafeya7JeB?=
- =?us-ascii?Q?eVtOr4opsoPiUGAGEk/ivW2FF2f9aoKLt+iaTqU88LXZOzRQM5QxXLbisFLc?=
- =?us-ascii?Q?wpgqS/VbPMsdCWn3Yo36iLMYmhbtKZrl1lHeOsRR6boujoP5Cmpciidpp4Gn?=
- =?us-ascii?Q?2C6eJ5q+mRwtK5csbdriAILcM2fYSKkTCci8hrIpwrh+mzUlvn1GU6oHU2Gx?=
- =?us-ascii?Q?eAGyHjK6Jr3T3HbG1yABeAvE6YV2KZXqbacYGUavOPutBAuR41wzZgs4qRD8?=
- =?us-ascii?Q?URT/Waz5ow9bF39q2qUXKDUrY6ezoSrV+Nu9AL8tv8rM5pwUZKt0UIAkqACx?=
- =?us-ascii?Q?w7g95S6uuuwPtx8+g7aEy84gw56fZjDsN6PRZ5LvujAV87fOdpf2cROZmZ4B?=
- =?us-ascii?Q?L2Zb63mInHxMex/ayeF3XY1zxrU/vJCClPRAQEA7CSvyjo+aAPeHGJa8GQOS?=
- =?us-ascii?Q?N6+2YzmGVher/V1LHnY08FpCjbtpyyuSWILL6+68KGFI//vhxajijyomZVxi?=
- =?us-ascii?Q?osfwKFDsUbee9QGm7UrctTOMKES6d5ia+q86IuwNFJXjMkLwVPywn9Z77gMQ?=
- =?us-ascii?Q?acfC4epQK3f3SagjBEj0/0dMAnoFfokAQRS8Uk+j6+9s4NuQCEf1OEfJN1xR?=
- =?us-ascii?Q?E30J1oxF8XlwmSLeyQTOauUb+1zjWPwYuNXN9x3Xkup3mseEaVw57FKB70Zt?=
- =?us-ascii?Q?3z23X0yieuwyqW7/TxWgrkqgLLa9yNkhTfllSPGpIY8PHwg47X9MZ7HIhIAz?=
- =?us-ascii?Q?SEvKqyookXvPkSxduw7TSBmNl/0yoac6DD/qLxzWKzzR4Q7DEQHVmivpWCtJ?=
- =?us-ascii?Q?/m9jDVq425hVIx258bN6Jms3tyt9buVJ20/2JMYN/KkNl14Shz17oK+ENQ46?=
- =?us-ascii?Q?kOpiYGhkImKiZ5OebQroQbV7mb40JiQsL9+MGkQtMiTPcmNqUwf+aCwy6yLB?=
- =?us-ascii?Q?geWFy23bF25M1uAILCinz2iedNiEqIg+0fSQN8ey5fPR4uz2Gw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 15:47:04.9512
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8507415c-4b76-4e59-4fd1-08dcf830f02d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4446
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_154718_000993_F5238AF0 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20241029_154734_268637_6182D67A 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,27 +110,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 12:36:24PM -0300, Jason Gunthorpe wrote:
-> On Tue, Oct 29, 2024 at 11:54:36AM -0300, Jason Gunthorpe wrote:
-> > On Fri, Oct 25, 2024 at 04:49:44PM -0700, Nicolin Chen wrote:
-> > > +void iommufd_viommu_destroy(struct iommufd_object *obj)
-> > > +{
-> > > +	struct iommufd_viommu *viommu =
-> > > +		container_of(obj, struct iommufd_viommu, obj);
-> > > +
-> > > +	if (viommu->ops && viommu->ops->free)
-> > > +		viommu->ops->free(viommu);
-> > 
-> > Ops can't be null and free can't be null, that would mean there is a
-> > memory leak.
+Hi Manorit Chawdhry,
+
+On Thu, 24 Oct 2024 10:50:57 +0530, Manorit Chawdhry wrote:
+> The idea of this series is to add bootph-all and bootph-pre-ram property
+> in all the leaf nodes wherever required and cleanup any other places where
+> bootph-all/bootph-pre-ram exist in the parent nodes as well since now
+> the bootloaders can handle it.
 > 
-> Actually, it is just named wrong, it should be called destroy like
-> this op, it doesn't free any memory..
+> 
 
-Well, it frees if driver allocated something in its top structure.
-Yet, "destroy" does sound less confusing. Let's rename it, assuming
-it can still remain to be optional as we have here.
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-Thanks
-Nicolin
+[01/12] arm64: dts: ti: k3-j784s4-j742s2-mcu-wakeup: Move bootph from mcu_timer1 to mcu_timer0
+        commit: 1d381865ad86b05328a3c4d841d2f0d2c07a8b6b
+[02/12] arm64: dts: ti: k3-j784s4-j742s2-mcu-wakeup: Remove parent nodes bootph-*
+        commit: c4fbee5eb6fa5212e9e6285b9116e0e2fae42c52
+[03/12] arm64: dts: ti: k3-j784s4: Add bootph-* properties
+        commit: f54d577df4a06c8e075ba9c1bd8fd6c18167d47e
+[04/12] arm64: dts: ti: k3-j721s2: Add bootph-* properties
+        commit: 83ab86a4412f6143acdf75fd315c196d255a0089
+[05/12] arm64: dts: ti: k3-j721e: Add bootph-* properties
+        commit: dd2c7aeca3ece4ab78a9d87fe2dcce365b5ce87d
+[06/12] arm64: dts: ti: k3-j7200: Add bootph-* properties
+        commit: b903ab269e67ce5788b0b2a39db4bd11fd19359b
+[07/12] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Remove parent nodes bootph-*
+        commit: 49b0b706af963424decf4b6c67b09a83af91a067
+[08/12] arm64: dts: ti: k3-j721s2-evm*: Add bootph-* properties
+        commit: 15a432a4a0d2a6b79fdb798539e6fdbc87ed526c
+[09/12] arm64: dts: ti: k3-am68-sk*: Add bootph-* properties
+        commit: 781cb8f1ad769c7999ef3b35f216ff150130f3ee
+[10/12] arm64: dts: ti: k3-j721e-evm*: Add bootph-* properties
+        commit: fbdb8aa4eab8405c8709aab9e3bba48b5a955cbc
+[11/12] arm64: dts: ti: k3-j721e-sk*: Add bootph-* properties
+        commit: e45355835c40eb96fe92ec98cc9a9e9e60df0845
+[12/12] arm64: dts: ti: k3-j7200-evm*: Add bootph-* properties
+        commit: bdb543b1664bb4a54edf6ab651a36915d037220b
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
+
 
