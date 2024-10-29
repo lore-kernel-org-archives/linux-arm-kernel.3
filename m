@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAB3D2AB3B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4183D2AB3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGBrW6s1iDZGgAw1vKKsS6IoQiQB5AZQ9VznYANSAto=; b=e3w+RgzPBUtqoIGxgcPm5TF5mw
-	3YGPhjyYzPW244guFfg4hz4tGioSd/UaIdsrbODOv7yNJR/m61LS5q/EWwitjlcTDty6fGjw9IepR
-	JXi26ULZ3IupVvfLNr+id4wcCD4LnxWoWalZrle2EPVWQzXldDzIi6IiGKTo+FC+CaUfo7u3fOp3n
-	bgH9fPAA8q9IlZusT2SqMVbBEgbNrB61L245azrWBT7U0a19keP2QDpwpg91XeAIJEwp6RnDsiy67
-	/e5N1j8SWvvJgoPR66gLwWh3lPTBJy38qDsY9l242Jk0nMPCQpDIkoY8W1pzCT1TXAF+t9J8kHbmN
-	aQynW2+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6jVzrS/dv8I737x17bUvfsxtTXmLoqjV6On8HBWDM70=; b=ZEVg9uh53rODeQLnDEepsa77Ib
+	QxkV/91qd0tIvsb3b8U+4ZAvgBj+KIg4N0J7lSyUaR/QAuuSIkAMAzHqp8sD6pSal+jOzDR9yz+BT
+	jrr9EuB+XTrFMSsCJEWx9kwbLoMWGRRMpD7iqKvGfRr261J9LUKdIy746dcz7CIoFXK79dzZv6F/W
+	CIsHTv3eFKye/cs/dYGGVFcboJGydWOPitDy7bW0lpTuDz2cAsbl6kY3hOtwIv+hd1KdVx1L/S04R
+	E0uqBNQNTWl7p7JAoJclAkwcnPSF3MrVKxaHg2UlWfQuC7lWKTT6mRI1ENYDHQEPFy0TkgntmHBxM
+	ur1drOJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ltu-0000000EVxH-0d08;
-	Tue, 29 Oct 2024 13:04:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5lvX-0000000EWIx-0Drv;
+	Tue, 29 Oct 2024 13:06:27 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5lAN-0000000ENeI-1zty;
-	Tue, 29 Oct 2024 12:17:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E56125C5C81;
-	Tue, 29 Oct 2024 12:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FA1DC4CECD;
-	Tue, 29 Oct 2024 12:17:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730204262;
-	bh=tDkCaSGHNwLmvBZ1sIOYlpYZET0YJNWlUhpzReHjttw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Ce2LSR3SW+LRk8THt1OeL4bpr+mNwqDl0mPzdmsISqGfIPtUBe83bur1Ygs9dJ35w
-	 gx7NWDaEaKeESZzZkQ6ceNbW8LH4F7CM8EVuuvqXEg8mYx56v7TyktNXWbNA+RNJD+
-	 UCbD7hvACBiZs/27X7JKPOnKPmlK4Fo4HWGoMmV88DbK0vkfGhLU6XmMIjh9ugU1Y2
-	 UOjHMRMTrHnj0cK8pmjYH+jO2UK+iSQRor3dhhpeG7TRcLCwIeXsSUEL2bcHOZlIMB
-	 JidWfF7VevZwn89oYrl0wFKIeuWx740m7iSZOUlq0c7Bjyd3SSfuMUc3dgqfkCUIWH
-	 CcjSTnP6TlpWw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 29 Oct 2024 13:17:10 +0100
-Subject: [PATCH net-next 2/2] net: airoha: Simplify Tx napi logic
+	id 1t5lBg-0000000ENrC-1btb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 12:19:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=6jVzrS/dv8I737x17bUvfsxtTXmLoqjV6On8HBWDM70=; b=hgnZALp1rshuOUnKj9DMO1vbGc
+	X7BAH5/T9P0tgk5BXqbHmpQ0KDFVgI94gf74+iYr4PcgfrXdRz4AtwH8kUce84V0KbqwA7Lrx4gHc
+	lynpQoYesEIit/bM+G8CldhXzpd8zoDn4VvmmlCccLeP/a+mQnG8fRBaThxNaBqagxb8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t5lBL-00BZUT-Hm; Tue, 29 Oct 2024 13:18:43 +0100
+Date: Tue, 29 Oct 2024 13:18:43 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: jan.petrous@oss.nxp.com
+Subject: Re: [PATCH v4 16/16] net: stmmac: dwmac-s32: Read PTP clock rate
+ when ready
+Message-ID: <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
+References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
+ <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-airoha-en7581-tx-napi-work-v1-2-96ad1686b946@kernel.org>
-References: <20241029-airoha-en7581-tx-napi-work-v1-0-96ad1686b946@kernel.org>
-In-Reply-To: <20241029-airoha-en7581-tx-napi-work-v1-0-96ad1686b946@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Mark Lee <Mark-MC.Lee@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_051743_638148_B6EE01FD 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20241029_051904_458207_4DAA0CD5 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,132 +65,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Andrei Botila <andrei.botila@nxp.org>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplify Tx napi logic relying just on the packet index provided by
-completion queue indicating the completed packet that can be removed
-from the Tx DMA ring.
-This is a preliminary patch to add Qdisc offload for airoha_eth driver.
+On Mon, Oct 28, 2024 at 09:24:58PM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> 
+> The PTP clock is read by stmmac_platform during DT parse.
+> On S32G/R the clock is not ready and returns 0. Postpone
+> reading of the clock on PTP init.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/mediatek/airoha_eth.c | 73 +++++++++++++++++-------------
- 1 file changed, 41 insertions(+), 32 deletions(-)
+This needs more explanation as to why this is a feature, not a bug,
+for the PTP clock.
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index 6cd8901ed38f0640a8a8f72174c120668b364045..6c683a12d5aa52dd9d966df123509075a989c0b3 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -1670,8 +1670,12 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 	irq_queued = FIELD_GET(IRQ_ENTRY_LEN_MASK, status);
- 
- 	while (irq_queued > 0 && done < budget) {
--		u32 qid, last, val = irq_q->q[head];
-+		u32 qid, val = irq_q->q[head];
-+		struct airoha_qdma_desc *desc;
-+		struct airoha_queue_entry *e;
- 		struct airoha_queue *q;
-+		u32 index, desc_ctrl;
-+		struct sk_buff *skb;
- 
- 		if (val == 0xff)
- 			break;
-@@ -1681,9 +1685,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 		irq_queued--;
- 		done++;
- 
--		last = FIELD_GET(IRQ_DESC_IDX_MASK, val);
- 		qid = FIELD_GET(IRQ_RING_IDX_MASK, val);
--
- 		if (qid >= ARRAY_SIZE(qdma->q_tx))
- 			continue;
- 
-@@ -1691,46 +1693,53 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 		if (!q->ndesc)
- 			continue;
- 
-+		index = FIELD_GET(IRQ_DESC_IDX_MASK, val);
-+		if (index >= q->ndesc)
-+			continue;
-+
- 		spin_lock_bh(&q->lock);
- 
--		while (q->queued > 0) {
--			struct airoha_qdma_desc *desc = &q->desc[q->tail];
--			struct airoha_queue_entry *e = &q->entry[q->tail];
--			u32 desc_ctrl = le32_to_cpu(desc->ctrl);
--			struct sk_buff *skb = e->skb;
--			u16 index = q->tail;
-+		if (!q->queued)
-+			goto unlock;
- 
--			if (!(desc_ctrl & QDMA_DESC_DONE_MASK) &&
--			    !(desc_ctrl & QDMA_DESC_DROP_MASK))
--				break;
-+		desc = &q->desc[index];
-+		desc_ctrl = le32_to_cpu(desc->ctrl);
- 
--			q->tail = (q->tail + 1) % q->ndesc;
--			q->queued--;
-+		if (!(desc_ctrl & QDMA_DESC_DONE_MASK) &&
-+		    !(desc_ctrl & QDMA_DESC_DROP_MASK))
-+			goto unlock;
- 
--			dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
--					 DMA_TO_DEVICE);
-+		e = &q->entry[index];
-+		skb = e->skb;
- 
--			WRITE_ONCE(desc->msg0, 0);
--			WRITE_ONCE(desc->msg1, 0);
-+		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
-+				 DMA_TO_DEVICE);
-+		memset(e, 0, sizeof(*e));
-+		WRITE_ONCE(desc->msg0, 0);
-+		WRITE_ONCE(desc->msg1, 0);
-+		q->queued--;
- 
--			if (skb) {
--				u16 queue = skb_get_queue_mapping(skb);
--				struct netdev_queue *txq;
-+		/* completion ring can report out-of-order indexes if hw QoS
-+		 * is enabled and packets with different priority are queued
-+		 * to same DMA ring. Take into account possible out-of-order
-+		 * reports incrementing DMA ring tail pointer
-+		 */
-+		while (q->tail != q->head && !q->entry[q->tail].dma_addr)
-+			q->tail = (q->tail + 1) % q->ndesc;
- 
--				txq = netdev_get_tx_queue(skb->dev, queue);
--				netdev_tx_completed_queue(txq, 1, skb->len);
--				if (netif_tx_queue_stopped(txq) &&
--				    q->ndesc - q->queued >= q->free_thr)
--					netif_tx_wake_queue(txq);
-+		if (skb) {
-+			u16 queue = skb_get_queue_mapping(skb);
-+			struct netdev_queue *txq;
- 
--				dev_kfree_skb_any(skb);
--				e->skb = NULL;
--			}
-+			txq = netdev_get_tx_queue(skb->dev, queue);
-+			netdev_tx_completed_queue(txq, 1, skb->len);
-+			if (netif_tx_queue_stopped(txq) &&
-+			    q->ndesc - q->queued >= q->free_thr)
-+				netif_tx_wake_queue(txq);
- 
--			if (index == last)
--				break;
-+			dev_kfree_skb_any(skb);
- 		}
--
-+unlock:
- 		spin_unlock_bh(&q->lock);
- 	}
- 
-
--- 
-2.47.0
-
+	Andrew
 
