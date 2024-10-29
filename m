@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC49D5B17D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D048D5B84B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDzktzQGRyQtdnWxsMQ1utTlJvqYcvWig6bJDXjHxAw=; b=4Ng2jhT71GXlm7anRzCOXPf3rd
-	lQ7jDJJh9jA92RVIOfL7QcjDbK52DIDpCrJLzMPVCn8moZttsi8qVrgwcmwFRpkIa0zlXZfi3DXvp
-	VhIzcIjm6oXOdLoELmIiXJLlaiHkuCwi+UaUopZCfN8Ga9TtHQhW74sJjAJo12sHWBwd06xDxyDtE
-	qcZnQVBS3GyYzPoGzxTOvRyW55T7aRFGO14eXtynG9TE78AidC0wCY9ToWduDsX+99xrfiYAvlMuG
-	5RPaHZLZ5NScitkIm8kr7RcFpVu0wuqkvUzuOEtTbJjecMSRTZlmH/Ui2pa0tVVpAXQWd865tHASw
-	/BRTYCeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uR2QnOB4FjsWmv6ZTuBOqwwcWWeLGPQ3m1e3eLUEECw=; b=JYQYAQIDqdEzb2kMOt2l4HsDIw
+	YinsS2P4W+S8if334rETNjv34EsvgpfL5wAwb6aUywaBZFYKISjya1tDvesupZXhyU/Xt0/88Pbmj
+	6FHJfD0AQRY/qVaXLaCYTinbTrw8EUegceiQR13H+/SFx5NLrOB8DbbKXqWVf2Q8a3I+kF9Bp/xR0
+	eR8aX7eqly4SezIF6akphvYvUoH+e2lGYmD+Ejrs1YCs3Md7ge83sGGeB+WdWT123LbN/35Vkq6RW
+	oN/wS97GbtpAokXQWLLfXJQotBBnuqWWQiZoifp/XzHg34a43qDdVR5jzLX0IyZkuQO0/QQDE1E8a
+	Wf0YeM6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mwA-0000000Egez-0AWb;
-	Tue, 29 Oct 2024 14:11:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mjW-0000000Eed9-3hXY
+	id 1t5n0L-0000000EhPA-3aMH;
+	Tue, 29 Oct 2024 14:15:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5lWr-0000000ER3Q-07iD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 13:58:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AB39113E;
-	Tue, 29 Oct 2024 06:58:34 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A4E13F528;
-	Tue, 29 Oct 2024 06:58:02 -0700 (PDT)
-Date: Tue, 29 Oct 2024 13:57:53 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, puranjay@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>,
-	Alex =?utf-8?Q?Benn=C3=A9e?= <alex.bennee@linaro.org>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Sumit Garg <sumit.garg@linaro.org>, puranjay12@gmail.com,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <zenghui.yu@linux.dev>
-Subject: Re: Supporting KVM_GUESTDBG_BLOCKIRQ or something similar on ARM64
-Message-ID: <ZyDp2VLqjjzm47S3@J2N7QTR9R3.cambridge.arm.com>
-References: <mb61p4j4wwlap.fsf@kernel.org>
- <86ed4031zh.wl-maz@kernel.org>
- <CAMj1kXEX2TLdYCn3C-AXhfhjOe6cuzOmd0h5MbgXnzi7Q94T3w@mail.gmail.com>
- <86bjz32q2q.wl-maz@kernel.org>
- <CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
+	Tue, 29 Oct 2024 12:40:58 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49TAB1o6027417;
+	Tue, 29 Oct 2024 12:40:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	uR2QnOB4FjsWmv6ZTuBOqwwcWWeLGPQ3m1e3eLUEECw=; b=UvdtcJjUFPJmnOBs
+	DXcG3e5Z6VBw64zqbB6BQCstf9DENnEGkElNpDRfA1/PaPNN6gpNMvO0x1Lky4rj
+	TZb00AwUx9Z/fXTRRQ/gPLPNG6XnwLqPzfJeMwR2cRIYc2WgBNBQXY/9DwfWv7sZ
+	siKtZukBOjbGuqDGrvXdLh5cSGwnFqGSAYYqZeizFjAtjHPMP65xNUYs7soJBuhl
+	kRxCFLhxNllDYMchgZ02BTOx0cnXUh+Nk7P7PVQHhrqnj23LSifxjqs61HCCZBxF
+	TZkmAszBSGS/2cfkOtVnqenM2yRA4OpCm9G8EhbMYZZNZlilrNmifTpuVdeoDtY4
+	+DLyOQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gr0x8cjx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Oct 2024 12:40:46 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49TCei0a008098
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Oct 2024 12:40:44 GMT
+Received: from [10.214.227.50] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 29 Oct
+ 2024 05:40:39 -0700
+Message-ID: <1e495126-e398-42fb-b53c-99a07a0e8320@quicinc.com>
+Date: Tue, 29 Oct 2024 18:10:30 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXFLRruq1gv+oiSz_LrfCt3j5ftv78prkxKV62tCXe0KVg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 5/5] iommu/arm-smmu: add ACTLR data and support for
+ qcom_smmu_500
+To: Rob Clark <robdclark@gmail.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+        <jgg@ziepe.ca>, <jsnitsel@redhat.com>, <robh@kernel.org>,
+        <krzysztof.kozlowski@linaro.org>, <quic_c_gdjako@quicinc.com>,
+        <dmitry.baryshkov@linaro.org>, <iommu@lists.linux.dev>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-6-quic_bibekkum@quicinc.com>
+ <CAF6AEGtOn3+99KMVRvpH=8Qs-g52ajVQyeBkxThSES_dEdVH+Q@mail.gmail.com>
+Content-Language: en-US
+From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+In-Reply-To: <CAF6AEGtOn3+99KMVRvpH=8Qs-g52ajVQyeBkxThSES_dEdVH+Q@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: OUA74DkuIRlYApguRMjf4zSgb0mtrHmy
+X-Proofpoint-GUID: OUA74DkuIRlYApguRMjf4zSgb0mtrHmy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
+ clxscore=1015 bulkscore=0 adultscore=0 impostorscore=0 mlxscore=0
+ malwarescore=0 mlxlogscore=999 priorityscore=1501 spamscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410290097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_065807_128135_5CB7C268 
-X-CRM114-Status: GOOD (  37.21  )
+X-CRM114-CacheID: sfid-20241029_054057_234560_AEF5F874 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,95 +105,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 11:00:24AM +0100, Ard Biesheuvel wrote:
-> On Tue, 29 Oct 2024 at 10:53, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Tue, 29 Oct 2024 08:52:41 +0000,
-> > Ard Biesheuvel <ardb@kernel.org> wrote:
-> > >
-> > > On Mon, 28 Oct 2024 at 12:23, Marc Zyngier <maz@kernel.org> wrote:
-> > > >
-> > > > > Let's start a discussion about what needs to be done to support this on
-> > > > > arm64.
-> > > >
-> > > > A good start would be to define the semantics of such a flag:
-> > > >
-> > > > - what should it affect? the vcpu you are single-stepping? all vcpu?
-> > > >
-> > > > - should userspace to know that interrupts are pending?
-> > > >
-> > > > - should this result in any effect on the guest's view of time?
-> > > >
-> > > > - what of interactions on the rest of the system (such as devices)?
-> > > >
-> > >
-> > > Sorry to give a handwavy answer here, but approaching this from a
-> > > usability PoV (like what Puranjay is doing), it is really about
-> > > adhering to the principle of least surprise for the user.
-> > >
-> > > So in that sense, it is not really about blocking IRQs at all, as long
-> > > as we step over them rather than into them. How that is achieved is
-> > > not that relevant from the user PoV, and maybe KVM_GUESTDBG_BLOCKIRQ
-> > > is not the right solution for ARM at all.
-> >
-> > I definitely sympathise with the goal, but there is no simple way to
-> > let interrupts through while stepping (which is what your "step over"
-> > implies):
-> >
-> > - the hypervisor (in general) doesn't interact with the guest delivery
-> >   and handling of interrupts -- this is either very opaque (list
-> >   registers) or completely invisible (direct injection)
-> >
-> > - replacing the step with a breakpoint after the stepped instruction
-> >   requires us to decode the guest instructions to handle branching
-> >   effects
-> >
+
+
+On 10/29/2024 2:46 AM, Rob Clark wrote:
+> On Tue, Oct 8, 2024 at 5:55 AM Bibek Kumar Patro
+> <quic_bibekkum@quicinc.com> wrote:
+>>
+>> Add ACTLR data table for qcom_smmu_500 including
+>> corresponding data entry and set prefetch value by
+>> way of a list of compatible strings.
+>>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+>> ---
+>>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 24 ++++++++++++++++++++++
+>>   1 file changed, 24 insertions(+)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> index 2d2c1e75632c..dd4fb883ebcd 100644
+>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> @@ -25,8 +25,31 @@
+>>
+>>   #define CPRE                   (1 << 1)
+>>   #define CMTLB                  (1 << 0)
+>> +#define PREFETCH_SHIFT         8
+>> +#define PREFETCH_DEFAULT       0
+>> +#define PREFETCH_SHALLOW       (1 << PREFETCH_SHIFT)
+>> +#define PREFETCH_MODERATE      (2 << PREFETCH_SHIFT)
+>> +#define PREFETCH_DEEP          (3 << PREFETCH_SHIFT)
+>>   #define GFX_ACTLR_PRR          (1 << 5)
+>>
+>> +static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+>> +       { .compatible = "qcom,adreno",
+>> +                       .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,adreno-gmu",
+>> +                       .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,adreno-smmu",
+>> +                       .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,fastrpc",
+>> +                       .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,sc7280-mdss",
+>> +                       .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,sc7280-venus",
+>> +                       .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+>> +       { .compatible = "qcom,sm8550-mdss",
+>> +                       .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+>> +       { }
+>> +};
 > 
-> Yeah, and we still want to take non-IRQ/FIQ exceptions, so this does
-> not seem feasible to me.
+> I guess by now there are some more entries to add
+> ("qcom,x1e80100-mdss", for example), but I guess those could be
+> followup patches
 > 
-> > One possible mechanism would be to:
-> >
-> > - while stepping, add breakpoints to the interrupt vectors for the EL
-> >   we are stepping (3 breakpoints for any of the 4 possible exception
-> >   groups),
-> >
-> > - when any interrupt breakpoint hits, clear all 3, place a breakpoint
-> >   on the instruction that was about to be single-stepped (pointed to
-> >   by SPSR)
-> >
-> > - run to completion, until the breakpoint hits
-> >
-> > - disable the breakpoint, reinstall the previous 3 interrupt
-> >   breakpoints
-> >
-> > - single-step, rinse, repeat
-> >
-> > But then I'm asking myself the question: why is this KVM's job? It
-> > seems to me that this is what an external debugger would do when
-> > interacting with HW on bare metal.
-> >
-> > So can we implement this as part of the debugger's state machine?
-> >
+> Reviewed-by: Rob Clark <robdclark@gmail.com>
 > 
-> Which debugger is that? The GDB stub in QEMU?
-> 
-> Setting a one-shot breakpoint on the address in SPSR when taking an
-> IRQ exception seems like a reasonable approach to me.
 
-That doesn't work; an IRQ could be taken in the middle of a common
-helper that's also used in IRQ context, so you'd take the breakpoint
-within the IRQ. You could try to match a bunch of things like the SP and
-so on, but that boils to do a bunch of heuristics rather than something
-that's guarnateed to work...
+Thanks everyone for valuable inputs, reviews and ack.
 
-More generally, the IRQ can preempt the running thread anyway, so:
+regards,
+Bibek
 
-* The user cannot use this to trace a kernel thread reliabl , since that
-  can be switched out behind their back.
-
-* The user cannot use this to trace a CPU regardless of the running
-  thread, since they lose anything that happens under an IRQ.
-
-Mark.
+>> +
+>>   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>>   {
+>>          return container_of(smmu, struct qcom_smmu, smmu);
+>> @@ -640,6 +663,7 @@ static const struct qcom_smmu_match_data qcom_smmu_500_impl0_data = {
+>>          .impl = &qcom_smmu_500_impl,
+>>          .adreno_impl = &qcom_adreno_smmu_500_impl,
+>>          .cfg = &qcom_smmu_impl0_cfg,
+>> +       .client_match = qcom_smmu_actlr_client_of_match,
+>>   };
+>>
+>>   /*
+>> --
+>> 2.34.1
+>>
 
