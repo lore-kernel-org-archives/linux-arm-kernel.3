@@ -4,85 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4858DD3A660
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B40D3A661
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 14:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=; b=RRiexhBeSddMHjZ6pKnNUGk4ft
-	0HDVKXl1OwF4kkpUHwqfp2N+rzXlXHqYJZwrxkFZfqjxOYkVWjdNHl5l2sDpNQqUkK5YU+RasPlm9
-	N1OhshvwQO5SA01mWgzfVNkr83Bi9Kj+5vdXg308cSFAg2gF7TU1l0EtgvixVuj+g5Q34ryzKEn9q
-	RN4ONvaqmLMz6pPhJqwbEsLhovNQlQm32zAn854Gn4EE8rV5Tw0XhO78luHlhAlGeDSgcXoDatylx
-	eZ96Kqlgjobpf3yemh613wHf5fQZwEBYGl8oMbrPZgSPE83XWW80wILjRTIvSlGTZp+ZhHhf2xLtj
-	UjqaEhCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fU7cyGBfooFNsBX8MqWStdGjWRAG+XFOSb3+XeN3B2Q=; b=dNBZL4W65eXSUls24W7I5n94ET
+	G5nr1DEVRKjkpJdxLGlKJS3zGMiyJ3dz0Q1/48879imWeZnGFfnTKGCABKkxDQv7NWAXmr98fbLLX
+	8zjdmsaIMYKenNoqnBiU9dtTNq4bv7keu8qWJG3KttSMY878y79XYkkLntARz5JIKDRYphJlB+3jp
+	WJFiUZbVpkSkghtrwui29ZbfI74O3QFTp03UTCrRCBeH1yT4Lq/zDD9hV0A7eC88XVwEfLhyCmBCU
+	UQC/XYadhbqpZ57TtUW5M7eegLX33yUB4reAfpVaZ6Iuiq0Dy5pQmvfWVe783hXfIuqXrbGb6lBj7
+	y8O6ohtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5n96-0000000EirZ-1LCS;
-	Tue, 29 Oct 2024 14:24:32 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1t5nNj-0000000EkXT-1ZCW;
+	Tue, 29 Oct 2024 14:39:39 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5n7T-0000000Eihs-1IcB
+	id 1t5nM5-0000000EkI8-3PGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 14:22:53 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-539983beb19so6533274e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 07:22:50 -0700 (PDT)
+	Tue, 29 Oct 2024 14:37:59 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539e5c15fd3so4860670e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 07:37:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1730211769; x=1730816569; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=;
-        b=cNGBuCT8uj7e4GvRiD96egH1z9ToMYexn0Xt6ILOBnf7PaxliqU0BEgHZ2kjMjXH3f
-         AwQe5+Rp/KMSxdzV3q/wNyGWZJoqrWpDeVLhW7yLfA22TcMrDxCKlJ27SgK+1twbxWrE
-         rUdLOp9f0oD6NaBevqd6VkcEnDIY/vZ3tRcKA=
+        d=linaro.org; s=google; t=1730212675; x=1730817475; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fU7cyGBfooFNsBX8MqWStdGjWRAG+XFOSb3+XeN3B2Q=;
+        b=aMhYm9eZX3dZuuo+txC1wd+QJe4ZITHTxZDzDyCDE3zVuitx58TGn0/VXP7EQkLGqR
+         lBnniemvr3f1hdJ2y6T2uMu945+lxfEv8muPe8Djw2dG53hXupbbGqdmqJfTKIOnuFC4
+         RxY3clFzuYJZeoALBZI24rvh5gKzNxge0IVe4gxUJHTQpdEJWWDf8IcxJJxU9FlMv+et
+         E16zbZEc+dAQWlCniXcCxFPwnZFEVYYv/Kv/PX0v9h4s489tJqkhlhWBm7hIRcTIhz7W
+         HH6wnjL/g1j38w+N7Beoyuc5F1ypWzDmnPutzTuehJfQXmMN2lNeJ78l/S8N6fOcyWbU
+         2GZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730211769; x=1730816569;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1730212675; x=1730817475;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ee5pCMFzjLQEI6UHAoWc3zl46DOOuxuI9S0OAzUVZKs=;
-        b=GFSTeS7gsvvKcWxrcoEriZvmgz2258TbdNDLvhyapoqBJFCqSkwGNvdCIR6Ix/BziB
-         pvn4pFsxE4YPg2yO9VqZve697vNKbdYG0iEbwXGH4eqVbAJfWIXlYRPzW+oiKpKOsqKj
-         tFrKZO25NyAEjoCNk9rWY36zTv/K4bbCJgmE87QXS8GKI6bqOdc7BKUqqPYYcVnVvKth
-         9jluzYQ/Pwl8iJjnQxRqbo9znzrjUW9YSXFW25Jx2QYpked5Pb51cSC8twZ/THBkHvai
-         U7H7Tu5kEQzz5fnBXNO83O6axAJQ7F4a++1CzL46TCAGKNdlwDUoMT95iMB3eQQgP8jj
-         7bAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMnK1IfqHEURyJ71PEeKa6eI/urCkvtUezUek+ac9L/CRjfZH8cpMbMc1JalVql3/mYJuJTK18jjN1FgX3qsQI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCLlOJrrnK/3wVJPZEGRKjncPhDrEVhXQQ+0mC3NeFnXGA1Kqd
-	JSDDrLrlX+0A04f85tl1doGt+837h8HfVC13l7FUeZiCLS3cZdLKvixk8a2PNFXHlIkIDdHSGmw
-	nxFIpzO40puqfnEDX/ovoxILmyz+Jumq95jpB
-X-Google-Smtp-Source: AGHT+IGkr8MjB0w2FKKulsb1mbM3Z3Ctxudp06iI9MsvkQnaBAbWdHvXahix1vs8y2CGjUjC7Y54/ZyntYRHfUgLtp4=
-X-Received: by 2002:a05:6512:3baa:b0:53a:a26:5690 with SMTP id
- 2adb3069b0e04-53b348e57d1mr5026278e87.34.1730211769047; Tue, 29 Oct 2024
- 07:22:49 -0700 (PDT)
+        bh=fU7cyGBfooFNsBX8MqWStdGjWRAG+XFOSb3+XeN3B2Q=;
+        b=qwRx3qfFbrHoQaN1/2OZ2p39jtNVVgSahTPsGKW9v+SW/qMj7lo8rZXM1X2o0YHlUM
+         w/NNiSyH2Hve7JSsecZIt/Qs0BeVT53FsHoc388nXFBkoLoTqzUEjYWcAYK0sXHX5JIO
+         bAuL6J3eLH55PCt0Lh8bfLcyNJh75cNCGISaZDOS7eJhsY1jlfuUX1pN3zHBnX9GRToH
+         IG6AGLyfQK0UlkMRkEID7lt5WdCziu2MFULjQpRx2PoQVZUj/R2AKt89w5ddoqWaTPWU
+         F+z7WsFZ5ymM/cUd8p+u0+XpouSGraz3M5qAw0Vo/9X4OA6WSw3WbK/Ffw8r0VsUYtLJ
+         MzQw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6GHlqVKLdn0Tb1jpWYz3uooOGmN63qyk7EJInrDgDwKum3dBsQZztj7gsX6wbKunsipwux/86gzggPkIaoOis@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZfs8qOjVClGeIHDUqgV+5QBPRjEj7OJEhAMqCWl14kpcetK3N
+	5Xq3EgTh1o2onuw1RkxRVgGfa6Wo6RFRYKPU8iujGSAS5Yd08wOWF75fJ+EsPJcujMjGLIufh94
+	G/mU=
+X-Google-Smtp-Source: AGHT+IGcubgmYg8gT6lXgSEjMqbjB74jbZ3p18R/hr4YQBD8lqBWu95UmeIvYZfd9U8KseVfDpuE2w==
+X-Received: by 2002:a05:6512:3e1f:b0:539:eb82:d45b with SMTP id 2adb3069b0e04-53b34c41d5amr4316658e87.56.1730212674909;
+        Tue, 29 Oct 2024 07:37:54 -0700 (PDT)
+Received: from pop-os.. ([145.224.65.153])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431b437d362sm27554455e9.0.2024.10.29.07.37.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 07:37:54 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+To: linux-perf-users@vger.kernel.org,
+	leo.yan@arm.com
+Cc: Ryan.Roberts@arm.com,
+	Kiel.Friedt@arm.com,
+	Julio.Suarez@arm.com,
+	James Clark <james.clark@linaro.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] perf arm-spe: Use old behavior when opening old SPE files
+Date: Tue, 29 Oct 2024 14:37:33 +0000
+Message-Id: <20241029143734.291638-1-james.clark@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241018182247.41130-1-james.quinlan@broadcom.com>
- <20241018182247.41130-2-james.quinlan@broadcom.com> <20241021190334.GA953710-robh@kernel.org>
- <77d3a1a9-c22d-0fd3-5942-91b9a3d74a43@quicinc.com> <954d6c11-ab4e-485f-8152-94bf38625f9c@broadcom.com>
- <36ec01f4-c0fb-188e-06e9-10c7360a8ef0@quicinc.com>
-In-Reply-To: <36ec01f4-c0fb-188e-06e9-10c7360a8ef0@quicinc.com>
-From: Jim Quinlan <james.quinlan@broadcom.com>
-Date: Tue, 29 Oct 2024 10:22:36 -0400
-Message-ID: <CA+-6iNx1SA9iiECS1O=cwkcu2KWcPvvB7Zvm7=SR3F5m9nv+fg@mail.gmail.com>
-Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
-To: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
-Cc: Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org, 
-	Nicolas Saenz Julienne <nsaenz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, bcm-kernel-feedback-list@broadcom.com, 
-	jim2101024@gmail.com, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, 
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000e817b106259e51bb"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_072251_410359_D9514F45 
-X-CRM114-Status: GOOD (  37.48  )
+X-CRM114-CacheID: sfid-20241029_073757_876815_E6C83C35 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,213 +110,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---000000000000e817b106259e51bb
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Since the linked commit, we stopped interpreting data source if the
+perf.data file doesn't have the new metadata version. This means that
+perf c2c will show no samples in this case.
 
-On Tue, Oct 29, 2024 at 1:17=E2=80=AFAM Krishna Chaitanya Chundru
-<quic_krichai@quicinc.com> wrote:
->
->
->
-> On 10/29/2024 12:21 AM, James Quinlan wrote:
-> > On 10/24/24 21:08, Krishna Chaitanya Chundru wrote:
-> >>
-> >>
-> >> On 10/22/2024 12:33 AM, Rob Herring wrote:
-> >>> On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
-> >>>> Support configuration of the GEN3 preset equalization settings, aka =
-the
-> >>>> Lane Equalization Control Register(s) of the Secondary PCI Express
-> >>>> Extended Capability.  These registers are of type HwInit/RsvdP and
-> >>>> typically set by FW.  In our case they are set by our RC host bridge
-> >>>> driver using internal registers.
-> >>>>
-> >>>> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> >>>> ---
-> >>>>   .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12
-> >>>> ++++++++++++
-> >>>>   1 file changed, 12 insertions(+)
-> >>>>
-> >>>> diff --git
-> >>>> a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> >>>> b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> >>>> index 0925c520195a..f965ad57f32f 100644
-> >>>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> >>>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> >>>> @@ -104,6 +104,18 @@ properties:
-> >>>>       minItems: 1
-> >>>>       maxItems: 3
-> >>>>   +  brcm,gen3-eq-presets:
-> >>>> +    description: |
-> >>>> +      A u16 array giving the GEN3 equilization presets, one for
-> >>>> each lane.
-> >>>> +      These values are destined for the 16bit registers known as th=
-e
-> >>>> +      Lane Equalization Control Register(s) of the Secondary PCI
-> >>>> Express
-> >>>> +      Extended Capability.  In the array, lane 0 is first term,
-> >>>> lane 1 next,
-> >>>> +      etc. The contents of the entries reflect what is necessary fo=
-r
-> >>>> +      the current board and SoC, and the details of each preset are
-> >>>> +      described in Section 7.27.4 of the PCI base spec, Revision 3.=
-0.
-> >>>
-> >>> If these are defined by the PCIe spec, then why is it Broadcom specif=
-ic
-> >>> property?
-> > Yes, I will remove the "brcm," prefix.
-> >>>
-> >> Hi Rob,
-> >>
-> >> qcom pcie driver also needs to program these presets as you suggested
-> >> this can go to common pci bridge binding.
-> >>
-> >> from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
-> >> of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
-> >> through P10) and where as data rates of 64.0 GT/s use different class =
-of
-> >> presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
-> >> have optional preset hints (Table 4-24).
-> >>
-> >> And there is possibility that for each data rate we may require
-> >> different preset configuration.
-> >>
-> >> Can we have a dt binding for each data rate of 16 byte array.
-> >> like gen3-eq-preset array, gen4-eq-preset array etc.
-> >
-> > Yes, that was the idea when using "genX-eq-preset", for X in {3,4...}.
-> >
-> > Keep in mind that this is an RFC; I have a backlog of commit submission=
-s
-> > before I can submit the code that uses this DT property.  If you
-> > (Krishna) want to submit something now I'd be quite happy to go with
-> > that.  I don't believe it is acceptable to submit a bindings commit w/o
-> > code that uses it (if I'm incorrect I'll be glad to do a V2).
-> >
-> Hi Jim,
->
-> I submitted a pull request for this. if you have any other suggestions
-> or if we need to have any other details we can update this pull request.
-> https://github.com/devicetree-org/dt-schema/pull/146
+Keep the old behavior so old files can be opened, but also still show
+the new warning that updating might improve the decoding.
 
+Also re-write the warning to be more concise and specific to a user.
 
-Hi Krishna,
-Thanks for doing this.   However, why a u8 array?  The registers are
-defined as u16 so it would be more natural to use a u16 array, each
-entry giving
-all of the data for a single lane.  In our implementation we read a
-u16 and we write it to the register -- what advantage is there by
-using a u8 array?
+Fixes: ba5e7169e548 ("perf arm-spe: Use metadata to decide the data source feature")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/util/arm-spe.c | 50 +++++++++++++++++++--------------------
+ 1 file changed, 24 insertions(+), 26 deletions(-)
 
-Also if there are 16 lanes, you will need 32 maxItems, correct?
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index 856cc36f33d7..fb5ab8607b64 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -546,37 +546,35 @@ static bool arm_spe__is_common_ds_encoding(struct arm_spe_queue *speq)
+ 	u64 *metadata = NULL;
+ 	u64 midr = 0;
+ 
+-	/*
+-	 * Metadata version 1 doesn't contain any info for MIDR.
+-	 * Simply return false in this case.
+-	 */
++	/* Metadata version 1 assumes all CPUs are the same (old behavior) */
+ 	if (spe->metadata_ver == 1) {
+-		pr_warning_once("The data file contains metadata version 1, "
+-				"which is absent the info for data source. "
+-				"Please upgrade the tool to record data.\n");
+-		return false;
+-	}
+-
+-	/* CPU ID is -1 for per-thread mode */
+-	if (speq->cpu < 0) {
+-		/*
+-		 * On the heterogeneous system, due to CPU ID is -1,
+-		 * cannot confirm the data source packet is supported.
+-		 */
+-		if (!spe->is_homogeneous)
+-			return false;
++		const char *cpuid;
+ 
+-		/* In homogeneous system, simply use CPU0's metadata */
+-		if (spe->metadata)
+-			metadata = spe->metadata[0];
++		pr_warning_once("Old SPE metadata, re-record to improve decode accuracy\n");
++		cpuid = perf_env__cpuid(spe->session->evlist->env);
++		midr = strtol(cpuid, NULL, 16);
+ 	} else {
+-		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
+-	}
++		/* CPU ID is -1 for per-thread mode */
++		if (speq->cpu < 0) {
++			/*
++			 * On the heterogeneous system, due to CPU ID is -1,
++			 * cannot confirm the data source packet is supported.
++			 */
++			if (!spe->is_homogeneous)
++				return false;
++
++			/* In homogeneous system, simply use CPU0's metadata */
++			if (spe->metadata)
++				metadata = spe->metadata[0];
++		} else {
++			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
++		}
+ 
+-	if (!metadata)
+-		return false;
++		if (!metadata)
++			return false;
+ 
+-	midr = metadata[ARM_SPE_CPU_MIDR];
++		midr = metadata[ARM_SPE_CPU_MIDR];
++	}
+ 
+ 	is_in_cpu_list = is_midr_in_range_list(midr, common_ds_encoding_cpus);
+ 	if (is_in_cpu_list)
+-- 
+2.34.1
 
-Regards,
-Jim Quinlan
-Broadcom STB/CM
->
->
->
-> - Krishna Chaitanya.
-> > Regards,
-> >
-> > Jim Quinlan
-> > Broadcom STB/CM
-> >
-> >>
-> >> - Krishna Chaitanya
-> >>>> +
-> >>>> +    $ref: /schemas/types.yaml#/definitions/uint16-array
-> >>>
-> >>> minItems: 1
-> >>> maxItems: 16
-> >>>
-> >>> Last I saw, you can only have up to 16 lanes.
-> >>>
-> >>> Rob
-> >>>
-> >
-
---000000000000e817b106259e51bb
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
-
-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
-mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
-uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
-AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
-c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
-AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
-TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
-bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
-L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
-BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
-VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
-z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
-b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
-+R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
-AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
-75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICbTCC
-AmkCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
-AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
-MA0GCWCGSAFlAwQCAQUAoIHUMC8GCSqGSIb3DQEJBDEiBCAuKOXNiFPpiYE8WQxF3MbvATJhip8A
-4L6vprYRsg9/rDAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNDEw
-MjkxNDIyNDlaMGkGCSqGSIb3DQEJDzFcMFowCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
-hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEKMAsGCSqGSIb3DQEBBzALBglghkgBZQME
-AgEwDQYJKoZIhvcNAQEBBQAEggEAfrhkbo3z47nJej8jCc0NqUGg4Xt/Ie8nqehSx9Nvvdg3ckNB
-HemT8TY0zTrR/sX2NkoL3NaeCkkJzyewA90oWijlqrblPKsANP5T1sdQQUBqzX/bSH+8VHVGjQlb
-CHMoogCPykZnAVNCyQUyBAvY3Ep+FE84PkEmvBvoi+KJUUgaSNmObeYng6GS4/1yyXH/5zwAosIc
-PhFRyNOmuTAv8TX+yx44zKE4QyN3NEdqSD5NtB0VwdmSCZfi1Oa0aIna0QnkXd1cfi/al7nlnVMm
-zLEncaWs3Sn1rikoC02PRYcup548pEGkaWRWf0142v7HXoQjHLZoQVBTkbjhF5b/kA==
---000000000000e817b106259e51bb--
 
