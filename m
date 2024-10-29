@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7FDD5B879
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 04:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6226D5B874
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 05:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ntpMF8cty6KXv6czYD94o7yS9fFXOq372wYY/vJCZ3A=; b=yeeVSmsqcWwlbifA7Cr8+e18V9
-	6h/7p5XBp2icj2gHml/9UGynzecWrHTxMP9EDev6upwV0X+1GHZrpp08w09hMTBE6ZYRGeV8yvt88
-	6stByf3c0o9yCRBZA121z7wwFTUajaHHw0ygC+yDLYAZNDM+/zDoIa6JyVtNxeUoGa24M1WvsvyjB
-	XnYlS2xmoLe3BCqIpEJXjO9lgRd1GQyCBKOGEpHPsaAfdKAFvCLXOwtg6vpx+GTNOCLeX+/ymz/Ux
-	vdu61+Spx3Hmqk2aQhs7cqTzNB4QEJsG78vlqhSuJ5JGOYqognG+w1JTkElpCPgnVNs/3gRjAH0Us
-	pHZhEcOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kGxrzEKbAFqR/0z9ua6srjnJwz1K5VrV6j+QKOXBSA=; b=XTaQzz5D8B4Iy5yj2W8C/xIJ8g
+	x5V+2unp1AOhbd88Y25lcqQwtG8tfCBAeCGIf9ezs273t3sShtYKenkaYdnqpuRbayWbkCmZA7u2L
+	fOLAto99roF5AyEYfYhMAbENWpygEeYHstdDBzGzcWbO0QEY9niex7mUv40iMs2pTkHkdxrKG/LwJ
+	MYEwfuLS5A6BieniM9DHpMGncl3LVy0Dl4lpVX5O31EU4/RHwq/VwNlR9TTH/XsFh8EVkPeVJQ/U6
+	apHJJBqJsuQFkXlLvOSOWZrGgafNP93/v4v71P9VZxj9Dl/ZRd/zPOlLnmYWquMrYfQhsXGNCwiR/
+	fl7oauNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5e8V-0000000DCbY-3u3D;
-	Tue, 29 Oct 2024 04:47:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5e6t-0000000DCJd-45JI
+	id 1t5eKn-0000000DDYQ-3vQQ;
+	Tue, 29 Oct 2024 05:00:01 +0000
+Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5eJA-0000000DDQG-2z8B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 04:45:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A90013D5;
-	Mon, 28 Oct 2024 21:46:07 -0700 (PDT)
-Received: from a077893.arm.com (unknown [10.163.43.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 23BCA3F66E;
-	Mon, 28 Oct 2024 21:45:34 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/mm: Re-organize arch_make_huge_pte()
-Date: Tue, 29 Oct 2024 10:15:29 +0530
-Message-Id: <20241029044529.2624785-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 29 Oct 2024 04:58:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1730177901; x=1761713901;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=3kGxrzEKbAFqR/0z9ua6srjnJwz1K5VrV6j+QKOXBSA=;
+  b=vDfw5zguR5MdEU8D6HOSOFN91nI/QBiXg/WM/6loMEFcbV/zT06ElSOv
+   KpwW6XI+Vc60Lmka4zHJINCBuXvMP38uXHjQmeonbH1Ha0gojkBH3GR8c
+   e+1dHwphMI4KBFzwol1M/dSURkS1FncvxX3xdGAmK98AXQzojfmvdIf+f
+   A=;
+X-IronPort-AV: E=Sophos;i="6.11,241,1725321600"; 
+   d="scan'208";a="691275556"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 04:58:17 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [10.0.38.20:56547]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.34.72:2525] with esmtp (Farcaster)
+ id 55ba7e0a-c931-44cc-8af9-06a2c5330a90; Tue, 29 Oct 2024 04:58:15 +0000 (UTC)
+X-Farcaster-Flow-ID: 55ba7e0a-c931-44cc-8af9-06a2c5330a90
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Tue, 29 Oct 2024 04:58:12 +0000
+Received: from 88665a51a6b2.amazon.com (10.106.179.51) by
+ EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Tue, 29 Oct 2024 04:58:10 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: "Gautham R. Shenoy" <gautham.shenoy@amd.com>
+CC: <linux-tip-commits@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	"Peter Zijlstra" <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>, Bjoern Doebel
+	<doebel@amazon.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>, "Geoff
+ Blake" <blakgeof@amazon.com>, Ali Saidi <alisaidi@amazon.com>, Csaba Csoma
+	<csabac@amazon.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, "K
+ Prateek Nayak" <kprateek.nayak@amd.com>
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and RUN_TO_PARITY and move them to sysctl
+Date: Mon, 28 Oct 2024 23:57:49 -0500
+Message-ID: <20241029045749.37257-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.46.2
+In-Reply-To: <ZxuujhhrJcoYOdMJ@BLRRASHENOY1.amd.com>
+References: <ZxuujhhrJcoYOdMJ@BLRRASHENOY1.amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.179.51]
+X-ClientProxiedBy: EX19D042UWA001.ant.amazon.com (10.13.139.92) To
+ EX19D016UWA004.ant.amazon.com (10.13.139.119)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_214540_082303_61B421C3 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20241028_215821_011444_7BE9E15D 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,88 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Core HugeTLB defines a fallback definition for arch_make_huge_pte(), which
-calls platform provided pte_mkhuge(). But if any platform already provides
-an override for arch_make_huge_pte(), then it does not need to provide the
-helper pte_mkhuge().
+Hi Gautham,
 
-arm64 override for arch_make_huge_pte() calls pte_mkhuge() internally, thus
-creating an impression, that both of these callbacks are being used in core
-HugeTLB and hence required to be defined. This drops off pte_mkhuge() which
-was never required to begin with as there could not be any section mappings
-at the PTE level. Re-organize arch_make_huge_pte() based on requested page
-size and create the entry for the applicable page table level as needed. It
-also removes a redundancy of clearing PTE_TABLE_BIT bit followed by setting
-both PTE_TABLE_BIT and PTE_VALID bits (via PTE_TYPE_MASK) in the pte, while
-creating CONT_PTE_SIZE size entries.
+On 2024-10-25, 09:44, "Gautham R. Shenoy" <gautham.shenoy@amd.com <mailto:gautham.shenoy@amd.com>> wrote:
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This applies on v6.12-rc5
+> On Thu, Oct 24, 2024 at 07:12:49PM +1100, Benjamin Herrenschmidt wrote:
+> > On Sat, 2024-10-19 at 02:30 +0000, Prundeanu, Cristian wrote:
+> > > 
+> > > The hammerdb test is a bit more complex than sysbench. It uses two
+> > > independent physical machines to perform a TPC-C derived test [1], aiming
+> > > to simulate a real-world database workload. The machines are allocated as
+> > > an AWS EC2 instance pair on the same cluster placement group [2], to avoid
+> > > measuring network bottlenecks instead of server performance. The SUT
+> > > instance runs mysql configured to use 2 worker threads per vCPU (32
+> > > total); the load generator instance runs hammerdb configured with 64
+> > > virtual users and 24 warehouses [3]. Each test consists of multiple
+> > > 20-minute rounds, run consecutively on multiple independent instance
+> > > pairs.
+> > 
+> > Would it be possible to produce something that Prateek and Gautham
+> > (Hi Gautham btw !) can easily consume to reproduce ?
+> > 
+> > Maybe a container image or a pair of container images hammering each
+> > other ? (the simpler the better).
+> 
+> Yes, that would be useful. Please share your recipe. We will try and
+> reproduce it at our end. In our testing from a few months ago (some of
+> which was presented at OSPM 2024), most of the database related
+> regressions that we observed with EEVDF went away after running these
+> the server threads under SCHED_BATCH.
 
- arch/arm64/include/asm/pgtable.h |  5 -----
- arch/arm64/mm/hugetlbpage.c      | 21 ++++++++++++++++-----
- 2 files changed, 16 insertions(+), 10 deletions(-)
+I am working on a repro package that is self contained and as simple to 
+share as possible.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index c329ea061dc9..fa4c32a9f572 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -438,11 +438,6 @@ static inline void __set_ptes(struct mm_struct *mm,
- 	}
- }
- 
--/*
-- * Huge pte definitions.
-- */
--#define pte_mkhuge(pte)		(__pte(pte_val(pte) & ~PTE_TABLE_BIT))
--
- /*
-  * Hugetlb definitions.
-  */
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 5f1e2103888b..3215adf48a1b 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -361,14 +361,25 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- {
- 	size_t pagesize = 1UL << shift;
- 
--	entry = pte_mkhuge(entry);
--	if (pagesize == CONT_PTE_SIZE) {
--		entry = pte_mkcont(entry);
--	} else if (pagesize == CONT_PMD_SIZE) {
-+	switch (pagesize) {
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	case PUD_SIZE:
-+		entry = pud_pte(pud_mkhuge(pte_pud(entry)));
-+		break;
-+#endif
-+	case CONT_PMD_SIZE:
- 		entry = pmd_pte(pmd_mkcont(pte_pmd(entry)));
--	} else if (pagesize != PUD_SIZE && pagesize != PMD_SIZE) {
-+		fallthrough;
-+	case PMD_SIZE:
-+		entry = pmd_pte(pmd_mkhuge(pte_pmd(entry)));
-+		break;
-+	case CONT_PTE_SIZE:
-+		entry = pte_mkcont(entry);
-+		break;
-+	default:
- 		pr_warn("%s: unrecognized huge page size 0x%lx\n",
- 			__func__, pagesize);
-+		break;
- 	}
- 	return entry;
- }
--- 
-2.30.2
+My testing with SCHED_BATCH is meanwhile concluded. It did reduce the 
+regression to less than half - but only with WAKEUP_PREEMPTION enabled. 
+When using NO_WAKEUP_PREEMPTION, there was no performance change compared 
+to SCHED_OTHER.
 
+(At the risk of stating the obvious, using SCHED_BATCH only to get back to 
+the default CFS performance is still only a workaround, just as disabling 
+PLACE_LAG+RUN_TO_PARITY is; these give us more room to investigate the 
+root cause in EEVDF, but shouldn't be seen as viable alternate solutions.)
+
+Do you have more detail on the database regressions you saw a few months 
+ago? What was the magnitude, and which workloads did it manifest on?
+
+-Cristian
 
