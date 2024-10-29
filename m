@@ -4,152 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458CDD3A694
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1456DD3A694
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufp3cKoOlmKKk3qRTJMzofx3iQLtff2yrTyTdBMKcII=; b=KpQJ8GZXXsS+ihhBbB2ywQ7SEH
-	W5ovWRKfvcmQNlmsQiQab7KOgjDUdf5XyAfe1ss4slqGslp1pwrsuBBCB1Ugg5GDgkerqPVTHX4xT
-	OfxEKNAlo8aPX8hAezYgCas1dDaDhd23mMyhEz7+122am53POJQxqWlQIHZsUZdxg5+lzVbsE+7lR
-	WKZoLdFT8o2sQ49JQ2MxTxInj7bYvLQA0TolPcQZqdgfsriDTp6Zj5loSpcQUvOh4STK6p8PbwVow
-	G1/6qFgJYVujXIiVvBCVA9uKatZSyysSiJgaR9MBYoGB+dK9PBKmxzOMxs9CUF2XRh39j3AWWdv69
-	c33BZ90A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=; b=ylSx5ioDn5CT/7JJ+HCzjc+Nsc
+	0/BqJfWtLtNi0nf4sS/eEEjlDc8QGu1gM2ac62lhQ3jl2IH6HaaDDj0DVCwW4NZoT6AROejMvnfGf
+	PRcAKgLxvHoTFb6BCJY6RugznXcGvJPV5LKwB7Fxhc05o5TsSfgHK0+nSptj6SjnHnV1jo4mc30oM
+	/vdlH1vlJzyFfKJ2jtkU2g0NbAL8RdhsVECJU7jalmD1qeFcf5HV0MWWE2qgZBTrHdieG/PawbIwm
+	Lz5E/Lfea0VWSnuOcCb1Se0XMRvx9ImgdCgXvH8icZ4tJTk42qH+3wgXwNWMSfvIOmTZ2+Lfn4JmK
+	S6SIgyEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rcn-0000000Fcw5-46xD;
-	Tue, 29 Oct 2024 19:11:29 +0000
-Received: from mail-bn7nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2009::612] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1t5rec-0000000FdI7-3NMf;
+	Tue, 29 Oct 2024 19:13:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5rbB-0000000Fcj2-2Jng
+	id 1t5rcv-0000000FcwZ-2WQf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:09:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dngUXxqcynJPU+HCL/JJGKFXsapJuxpaX2lk8gM0Xt6meL1q/1DdjgHbMUSyWu/pYnEFQAwxPMrJZ7SQ/zymE2CirU2wtwlo+cji/HswsYVugWsaTcuuaF2icowCSuh/oXTHgV+E4chj4xT5+mcH8qYxKhkR34hg7t/HhIwQLYFPQHDk/0+ECKzzfdweLNwd7X9VkN+MNRTKnv4S/4YN4nZWFzqjWyxVGFsaSh/brj4eONc5wyplnkq1WSCdUL4O1EtiPTiAJ2GYsSghaAjcmSuqHNsPkvlqGu6tPGmvUP6MLIhwUZsrHEtHE7hhp03m3PjypoGfVSv2f86u4jIDeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ufp3cKoOlmKKk3qRTJMzofx3iQLtff2yrTyTdBMKcII=;
- b=fcN2Ny7EfmwsUw2rETwfxpCZbZr+gMIFFhcSX6ugRbtKWxn9QKvRZd0ssfVucIT94Tal5kXkODTKnGGLYaqBe9RJYYQvxT1FG+/27xa/iUIKMlw0Bl9RDLwzGGKcj1d3AYqPD/c75ZYURo2kLuDBVwuJ3jvY6nQlacSgiP2sCkl3CzIuwPaf/4z4BIRmcY+FyLzAjGc7l1tv0xGuEp7hs21AqZOnRUoxtSPNWXoTcjEMSynJGXpvC6ab2PhBiGaHjbVjGL8OnVPPD2hpGRJSqi58H0MmY6wga29IU+C5vY4a2AuHyYVwg8HCk6qnKIZApIVRanfTw4CEci9ewgVrLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ufp3cKoOlmKKk3qRTJMzofx3iQLtff2yrTyTdBMKcII=;
- b=gvJQg/ZCMzjBp38hMtY5lNtzZBU4hKFqrNFFXW7aya5qPY8DhB8PPXkimXrY9xk1cl49I+ovJHoYB2+rgPlWo2h+G6JJOfn2fqEXmKo5IGR0WYhN3JjxXCX1DCctpNwhVIvOHYoV/+z8gKG5Hd+6aHZrwJnn0Wv9okEFDXgi25kmO6zRpIvKKADEn7jgumeC+ozGIOAqZdRyUOyjLvlrOP54iAGk34m6Cnqe9nV30nftd89nwGkv3FN5rNQUTrLeQZDKMNyB6dmcStU5bjZxmxmdmIvi7O6DJY1dLNIN2xnX531gpkzJvyETjC7aGtaJ/ckohOmzN2xUtUOgqaWD9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Tue, 29 Oct
- 2024 19:09:43 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
- 19:09:42 +0000
-Date: Tue, 29 Oct 2024 16:09:41 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Tue, 29 Oct 2024 19:11:39 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so57019905e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:11:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730229095; x=1730833895; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=;
+        b=Tl4jHymAxGFYO9SdAjTQwf2pIZ+TozSBR9QxICDzhELgMN/TyLlwibkcaOza191Zm5
+         KuNd47v5XDjRpEvNPE1nMM1o23DhFdA2dxBqb3rlwZhMVEBAP6CgKf2G5wc7H9B8IvE0
+         fRMOnjYCgU+4ubNVMcuUeLIAz3eaE4XGQZScUpIK9P7X/LlmLGumEvguA8g8w13lS7Xi
+         qPkVWyD9u6nu+zTwmmbALaj+casfNDCC0XREkwn+pemhcGmpbSgiceDGD3XdWfuCzs0h
+         w86+OYJBKhM0SJ3u9mVFwd/UWZJHb1I0v+d54KQaA/wAAzG1+UHyM+cndFJNK5wU/cOe
+         SKxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730229095; x=1730833895;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Qg+9BLrsm9SBOJJP8ytNsGKOTVgu1Tvrspr3N36bIrM=;
+        b=RP40kZ/hqnOgmljiiHOcWP556sjlJ17902cQznLSTszLtMcP2XLeqeWdFq0RPFjcrE
+         Ld1R/DxI/hDV4pE4HXVVw1dx9HOB6xbhGdMeB2Hx/+B4lz9CLckOm7IdBFz0NybKLvQ4
+         7F3XsLNiA0e+/Et3dT0XAt0HRpK3szJ/C8xdmhPJhYrUqWaag3obyJu0SdW+KNxUlAay
+         EMz+ZvYv9dyeVFlZ7GzQMwr/rvwFUbZpHx0DsyQ9DP79GPn6DEFPnWH+s6q40q2R9y8J
+         9MPtD/UcvpZizR2Rym6jNualzuf5kvIRl0HSgfFHkXzCpve4baQNsEgzTLzZQtELeeVY
+         DC+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVQwovctCSciGhw01wOwqA+sahq7vIAyZdEAXukngYkSPUXhmrUrg31r6vZgqzGxlqy9Yd2VODZ7OrzQjSiwkAM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyfoews87rwl3C+BDMM+GqAcnZTFwFOuAvkk37kjhVhmQLmJlRO
+	NaljTmGMx4NznuAKIEmq9zuBB+VzchumBtg1rfHzCZeyRQoeK45JEZlpzSHiysY=
+X-Google-Smtp-Source: AGHT+IFp4YehJs7QQecchQgE7zUujr1IPc5oNzBTFVOT84j09Z72l+JK7DtHPQFmUWtHpLEwEKBdQw==
+X-Received: by 2002:a05:600c:4f85:b0:42c:de34:34c1 with SMTP id 5b1f17b1804b1-4319ac7408dmr115069765e9.2.1730229094979;
+        Tue, 29 Oct 2024 12:11:34 -0700 (PDT)
+Received: from gpeter-l.lan ([145.224.65.239])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058bb4724sm13318763f8f.115.2024.10.29.12.11.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 12:11:34 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+To: wim@linux-watchdog.org,
+	linux@roeck-us.net,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com
+Cc: linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 05/13] iommufd: Allow hwpt_id to carry viommu_id for
- IOMMU_HWPT_INVALIDATE
-Message-ID: <20241029190941.GN209124@nvidia.com>
-References: <cover.1729897278.git.nicolinc@nvidia.com>
- <6b8bb8f2319bf26ead928321f609105e4e5eecf4.1729897278.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6b8bb8f2319bf26ead928321f609105e4e5eecf4.1729897278.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN8PR07CA0005.namprd07.prod.outlook.com
- (2603:10b6:408:ac::18) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	linux-samsung-soc@vger.kernel.org,
+	tudor.ambarus@linaro.org,
+	andre.draszik@linaro.org,
+	kernel-team@android.com,
+	willmcvicker@google.com,
+	Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH] Revert "watchdog: s3c2410_wdt: use exynos_get_pmu_regmap_by_phandle() for PMU regs"
+Date: Tue, 29 Oct 2024 19:11:31 +0000
+Message-ID: <20241029191131.2329414-1-peter.griffin@linaro.org>
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB7685:EE_
-X-MS-Office365-Filtering-Correlation-Id: aafdd428-0243-41dc-fe7a-08dcf84d3ea2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UrAiVoyOSTNPUU5+PmYr0LhLAXML4eN7QL2PsrTLqh1Ntg/NVOjxoeGvQtZu?=
- =?us-ascii?Q?t/dGo91r3ZEsW3v22otWtOyZrHcjznEo0T2YVQxT14axNjKMU0R3qevEwxee?=
- =?us-ascii?Q?sLwM5FEJUWPGGwHmKgDN/mIwRBeJ6/iD2VmPcedAsDabFXVJs87SGTwuDniH?=
- =?us-ascii?Q?Gcd7eUeZCsMYT+wDY2YABzSfAl1Y46EZv3/qPNIgcOLj6gDp46jEJvHvYJB7?=
- =?us-ascii?Q?4b3JKJUxFQ2AUFwB3qFZavMMCEvow7BBGWOe7ceiCmNfwycJVRJDBMS3W+u3?=
- =?us-ascii?Q?Ghea65ZZa3uzmbzWZCQl0fLT6gj/XYNziE+NFABenCmso56dHY011lPR+cTA?=
- =?us-ascii?Q?kmlNE7mYuNSqOtjbf7eqQp3V1Cik9Mzfv2kgk5BjAtSF+0g3zm6+A64SFYMt?=
- =?us-ascii?Q?mMfmb7ORSnREPZ2CgI2wEPx7e4il0ImdTMWzQEJKruBDfguUajXjkECvwIIn?=
- =?us-ascii?Q?H38YE87I1IxfZfmpxmULym1V6h+8yTWedYmL4FdJMuCMJtRmxD/w+kyxa07D?=
- =?us-ascii?Q?of5TpwxJt87bVHThgUDcFUJD5E1+fmapJjWQSlbL29epWWjtefbekPwij2Jj?=
- =?us-ascii?Q?+iNEYe9bQ+oK01qwTz7zM2eVq6rujtmzH1uf54Mi/zGld7POn6lz5nT+8ClP?=
- =?us-ascii?Q?l4C06U3toUdm8Fnk5qNMSm28/kQ1+qwSfZFrvDbSp7oQWn58NknNKV3fxAxF?=
- =?us-ascii?Q?r0iDY0wXuyTHrlkIthhThe9bTGh21CFz2m7TSQ/uqIOvaEwU+QGxvjxM1zvY?=
- =?us-ascii?Q?5DR/JGqB9UebX6H9l4LOhTdu96fU7+h+Q/X03itzD2DwymVigrkqy988cc4E?=
- =?us-ascii?Q?gSEiv2ED1tg7ocI6yVYjY7J2Z55s6nPcCpqV97pBNTz67WQ12NaYFab4fkLX?=
- =?us-ascii?Q?JhexFKZsZTBHzb+Pa3YpqyW963/cbcRYv409Wj3qGsZs+evU1RZ4TdjGXQJF?=
- =?us-ascii?Q?c9qkP/YwP/oicdN/Sx97lREAbVD6crCJl7yMaqWAWB4gq+JtvLIywxKCy9E2?=
- =?us-ascii?Q?ptJ66B4DkV1hED2eqsouxGC8737CU9hSOanAABLhQtcjgcf8L+daxqEIy6tf?=
- =?us-ascii?Q?krLu6rYFoOFVtaa1jvmFDfNf18w7U/Dzmo0UgaYHQ9K27iCdXWhDHKllRiAz?=
- =?us-ascii?Q?9P2OPM+kx7zwPGxCMXPZDWBW+LSf1cQSHTvAxluMaPeU2YIDYoww1S50zmi9?=
- =?us-ascii?Q?B1iip7yCOvf1HiVyxdoWQCaN2550APxtqkgLvUJKb2ltNe5supMOgDRj6Ru4?=
- =?us-ascii?Q?78Sg3AoptgsWOlql8h4rtGoI2JWolFTs87eNNWvkwGMB9RHgtJPofnpA5oAb?=
- =?us-ascii?Q?3pOPX1qjpihd/JvmWe6e9+wD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6TW/LVxrS2hn6hVm4MhfxuCeyynORVPy0kK+sreCxGxElFtdkX+AJyRpWJ7n?=
- =?us-ascii?Q?9xs41/3Kn8douTSMZmXRjLYzWOCcMlr/vs8Dj5J9cm7rs+8vFf58FWNwHAkj?=
- =?us-ascii?Q?bRhe8WQ9CdighYsF8Gsu28VwPGcjw3u7Zt3lH/g3lkMrbYOlWYPgOSdT0CRE?=
- =?us-ascii?Q?Z+Xfn5XDwaUYWosxI7lig1bFBXCIi+naTs3TkSTZ8KmwgW8IEKicHp3K64Eh?=
- =?us-ascii?Q?d5onzX2rCv+HRJ5vBK4c7jEPfCC9WcIahYWwe9tLSQuZa4Hx1V/sYrnFQCl6?=
- =?us-ascii?Q?O8KwPk0r7BrtZW1XJsdfXK5FIVUllLHXubq4ujRaDNgxo7czFi66MrVshe51?=
- =?us-ascii?Q?BYO1h7T6fq/jZ+fiM+6zfNj72g1FqMLBxhhsTNso45GzJ7/JKpjzBAp5RiXp?=
- =?us-ascii?Q?eB4dg+XjwAc4bl+ePnsFYe1dXYnE/5efYkuA4zS2HQflLGiAvv72Jn/hJGPu?=
- =?us-ascii?Q?6cgkSRTZ9IUIX/2vNKy5Fgvaioner5RRTrL+54e54ERJN8csQn76L7/XPX05?=
- =?us-ascii?Q?WNcIrlt7Yp5FZb3ctGX21O+oB4XLRfUGNPSaEHZVyUexmhsn3fYid8YGs7an?=
- =?us-ascii?Q?DRLT91uetlFkuK/SxBcU3Th3frITV5VuQ19dDTygu9PNu6Fz1+MYt4a1Pzcc?=
- =?us-ascii?Q?Lk2yolxfqzwVR0OIgyeNsSv6AexJ5ewTonh2VMADe/U7mQjmHokt+bAt3gw6?=
- =?us-ascii?Q?SovVxdNazs3pvzJfKvMk/Mf7PFlZQl3Zg4tBjTA1kpcIuvpaRd/1SQfsV8Kn?=
- =?us-ascii?Q?p6ngSHuCS1wHujmfcV2pHotIErBFcg5R1mCY+45lmkTbgt15vwG5nYZNRVoL?=
- =?us-ascii?Q?wvcBLYTfXH25uZKAk7qoV7ZNP4pWSRp1nYFbABTh/z+z0ugzajwoqZQA0rkM?=
- =?us-ascii?Q?4UHgTHhyt+D4CBmQ762fKKW6x/fTZuGRdUwz70Ee1H0UGKgTm1gErLO0r521?=
- =?us-ascii?Q?TrlRdroCAmlPy+K6XegNQgURje+fFOReHp5inrphWy7MaF/IVgK83nDUuTIJ?=
- =?us-ascii?Q?trUj1Y5A+w4bdNMAvL7wjx4FdOzIsa8nOlAmRP1UTZmBCTE/INqIZjJ0e4xy?=
- =?us-ascii?Q?O3tO0XLOAO3OTvJZdApQH8nysrigo4YHUcH+XCphhGNZtIFHyAQ3RqmxNjtH?=
- =?us-ascii?Q?EztWMbiabgx0upAxwcM5BKVw1pfroyZ2rJ5dACTs2CRQ9SXLD6eNt5MmAeUa?=
- =?us-ascii?Q?8TxazEDIxRYbRW8/lnWYVYyU2lMK0SsWRu4/STZXZRepgKvOvR+2uj685qwb?=
- =?us-ascii?Q?/6ODiCUPxPXA024sFHVFRyJXkZRSBcK65flL7eMt5Kh/0ysx3JVvoFLbvGwu?=
- =?us-ascii?Q?KgPNleAO0Slckmm96w1PeW5vnFa8zvxtr4aLzHb65m7uPzcRpnkIy01+QUsS?=
- =?us-ascii?Q?0llZeB4BdxMnE7Q9Jwl3zO0s/ty1UPZnybJP/mgKszXyQ+DAWrkDo12oDrFY?=
- =?us-ascii?Q?u5ir4WhTxaEvf3/FTBAQpSh9mmaX3Id10GT7CCPdoUmvruhHGNxRGCjl4htU?=
- =?us-ascii?Q?rS76IkcK4ucdqgolQHhTysVx5VlP9/tzlee95Jtw7G8z4XXRFGnwyWa8sA4X?=
- =?us-ascii?Q?UB/Bbn+3LE7HcbkrV30=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aafdd428-0243-41dc-fe7a-08dcf84d3ea2
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 19:09:42.8250
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m0fFCeA9TJQVlguIyMBClEna99y//oLPgClmLV1i6N78kLJ0tI9VNhuH79giELcV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_120949_615915_16A2E9CD 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20241029_121137_709794_9C95AFA0 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,51 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 04:50:34PM -0700, Nicolin Chen wrote:
-> @@ -497,17 +497,35 @@ int iommufd_hwpt_invalidate(struct iommufd_ucmd *ucmd)
->  		goto out;
->  	}
->  
-> -	hwpt = iommufd_get_hwpt_nested(ucmd, cmd->hwpt_id);
-> -	if (IS_ERR(hwpt)) {
-> -		rc = PTR_ERR(hwpt);
-> +	pt_obj = iommufd_get_object(ucmd->ictx, cmd->hwpt_id, IOMMUFD_OBJ_ANY);
-> +	if (IS_ERR(pt_obj)) {
-> +		rc = PTR_ERR(pt_obj);
->  		goto out;
->  	}
-> +	if (pt_obj->type == IOMMUFD_OBJ_HWPT_NESTED) {
-> +		struct iommufd_hw_pagetable *hwpt =
-> +			container_of(pt_obj, struct iommufd_hw_pagetable, obj);
-> +
-> +		rc = hwpt->domain->ops->cache_invalidate_user(hwpt->domain,
-> +							      &data_array);
-> +	} else if (pt_obj->type == IOMMUFD_OBJ_VIOMMU) {
-> +		struct iommufd_viommu *viommu =
-> +			container_of(pt_obj, struct iommufd_viommu, obj);
-> +
-> +		if (!viommu->ops || !viommu->ops->cache_invalidate) {
-> +			rc = -EOPNOTSUPP;
-> +			goto out_put_pt;
-> +		}
-> +		rc = viommu->ops->cache_invalidate(viommu, &data_array);
-> +	} else {
-> +		rc = -EINVAL;
-> +		goto out_put_pt;
-> +	}
+This reverts commit 746f0770f916e6c48e422d6a34e67eae16707f0e.
 
-Given the test in iommufd_viommu_alloc_hwpt_nested() is:
+Now that we can register a SoC specific regmap with syscon using
+of_syscon_register_regmap() api we can switch back to using
+syscon_regmap_lookup_by_phandle() in the client drivers.
 
-	if (WARN_ON_ONCE(hwpt->domain->type != IOMMU_DOMAIN_NESTED ||
-			 (!viommu->ops->cache_invalidate &&
-			  !hwpt->domain->ops->cache_invalidate_user)))
-			  {
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+ drivers/watchdog/Kconfig       | 1 +
+ drivers/watchdog/s3c2410_wdt.c | 8 ++++----
+ 2 files changed, 5 insertions(+), 4 deletions(-)
 
-We will crash if the user passes a viommu allocated domain as
-IOMMUFD_OBJ_HWPT_NESTED since the above doesn't check it.
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index 684b9fe84fff..f3cd402e5795 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -549,6 +549,7 @@ config S3C2410_WATCHDOG
+ 	tristate "S3C6410/S5Pv210/Exynos Watchdog"
+ 	depends on ARCH_S3C64XX || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
+ 	select WATCHDOG_CORE
++	select MFD_SYSCON if ARCH_EXYNOS
+ 	help
+ 	  Watchdog timer block in the Samsung S3C64xx, S5Pv210 and Exynos
+ 	  SoCs. This will reboot the system when the timer expires with
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index 686cf544d0ae..349d30462c8c 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -24,9 +24,9 @@
+ #include <linux/slab.h>
+ #include <linux/err.h>
+ #include <linux/of.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/regmap.h>
+ #include <linux/delay.h>
+-#include <linux/soc/samsung/exynos-pmu.h>
+ 
+ #define S3C2410_WTCON		0x00
+ #define S3C2410_WTDAT		0x04
+@@ -699,11 +699,11 @@ static int s3c2410wdt_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	if (wdt->drv_data->quirks & QUIRKS_HAVE_PMUREG) {
+-		wdt->pmureg = exynos_get_pmu_regmap_by_phandle(dev->of_node,
+-						 "samsung,syscon-phandle");
++		wdt->pmureg = syscon_regmap_lookup_by_phandle(dev->of_node,
++						"samsung,syscon-phandle");
+ 		if (IS_ERR(wdt->pmureg))
+ 			return dev_err_probe(dev, PTR_ERR(wdt->pmureg),
+-					     "PMU regmap lookup failed.\n");
++					     "syscon regmap lookup failed.\n");
+ 	}
+ 
+ 	wdt_irq = platform_get_irq(pdev, 0);
+-- 
+2.47.0.163.g1226f6d8fa-goog
 
-I suggest we put the required if (ops..) -EOPNOTSUPP above and remove
-the ops->cache_invalidate checks from both WARN_ONs.
-
-Jason
 
