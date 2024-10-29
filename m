@@ -4,200 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1652D5B861
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F74FD5B865
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOdocT1R2XfgY9DZnwaYMBkbJ9xg8OX1UxqIbZBAYrM=; b=xZmgyVy1kh6ZUKXU8O/VmYa6uf
-	9KZzKq7Tza7LNN/26jz/Vpy6Vnq25eQZKCk864zFYF73vCZ+iaxpvpBK0ZCziGa8Kv9meNDNqWszH
-	JxEQ/zevO0n+ihhbBFUnVn3PexZa++Qit7alUaewQTwES0xn+BEFCY4LFe6RG5Tl20gEy7qBDem/P
-	7bhjUn2pYOLsxxQf4DAhDs76KX/BoFHzKv2Y0yZzcL5rDYugrfnb3KlE6xDH+cwBky6p8xdgIzM8v
-	lPebifqsJ3DuFCBLmkpukmhn4DAMcW0RxrTvxPuByDGJNoOULYP9LUhejRv3N4g5pSya3mXHyvJSl
-	sPIiOSqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Szb7B8TO5BGzKFYFcIcb5ldGoTFYeX87cqmy6dilJ0s=; b=TYJ4qiXTgLJfL5XVoSQycbFp3A
+	eHHOi3ED3JohBOqay1glRhXSqjL/KKFiEBCOvJob/8yJgEAZ0Ok4i4gkPf1xNMteiw3JXeFcVU1Oi
+	HFnGNRBb+Upc8kQSo3HHG77j6aRGUE/mY2ikLpfND9/SvuNg/zIwn9ORjQBjmUsT6ydMOP45nsbYD
+	gXNpqn36kbVD3iIdiDOaqUnz5Y4kVVJSS6K9Gr/Cz0XPbGl1N4XzbSAd3l4rvnBl05oWA917PIxgj
+	fLVdyqOyhp2kdCLh5kKpTDZRBbD3LWH+V50P4QWyCm+gSW0A3dwx5yKLxZfVgHuiXPGsPCzH8ctJ9
+	2YB/DndQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5cCM-0000000D0Ku-0Vuq;
-	Tue, 29 Oct 2024 02:43:10 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1t5cDv-0000000D0cY-0HKO;
+	Tue, 29 Oct 2024 02:44:47 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5cAi-0000000CzyI-1CwV
+	id 1t5cBo-0000000D0B2-0nbu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 02:41:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JOix60elxsAajZ22QtNUVUzKzbpnSbSyfZpoQ6Qb9USk3gB+IVLRk2bHjhTfmXmGcm7EgLp/kht3wDEtsynlF+CW1e+aKDvsESqvtuaWR6e/c5XtReu2M3MgZesokKH1EwY9vneiUHeKqQFDJGe/XULjXSDtL6dwvWLeUIx/Vmg1+LrIi/6kRyDygsjvsUMsGot9RmGkFn5Hi415EclAEMMsRUxkznJlQRJIsKW+wXDogfHOK4Nu56eEVfLpkW52DT29GjOv+jbtVa336JTJ+4DDM50/kfQZ5WbCrCNhZCRnUgMDtsxGEt69zepjo1Y58RI6he+CLmJS+mUdpAklKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tOdocT1R2XfgY9DZnwaYMBkbJ9xg8OX1UxqIbZBAYrM=;
- b=MV62alGjKnIWmiRGkADKq6WVsgSr2EyC8UtCiu6qeD4a5VSJ0wq0hOr8WoXq6DoBnjAUU6vl3/Y9TDkgVKO9cgFI54xI8k+qWtZHBLvcpwKkWVgnpwuX4+3+6vB8ByDvL/+uUcNF2j2asDeK1Sjy5KdCdFW4FgZApo1u6Xb2abDKygbPNT5ruJUDoiMx32rAG9RcicphA2a1N+BbJnBzWnOLWAyZ01B/hhdJXy4U7vmZDqUfV0B3c+7gQb4w/rXzv5OQCGx3zINLvsqmIxoIFqaZN2SAOh4iDyArnQtTw3ofNDvqgUptUFEinHDFbs05GrNpsdzSyTu98E67jlRvlg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tOdocT1R2XfgY9DZnwaYMBkbJ9xg8OX1UxqIbZBAYrM=;
- b=E9SSj9clFYZiRSc8A6nMjdTOm3/VQEJvh7JQVqA6nYBZU18pz8o7hgmxRhF57zcoT84P6PkpWdpBUtRH3lAUaVzkvMa7f5SX0XobXp04i8kYwrlrXMIdkoyC9PpLAjk4+tmcmvVXsIz5+GDMNv4cp4bwBqY+DHh1jKFQe0zidBf49owdhkyJWBhuWANfzy1MJ9kIPKVKIWMUYBFJh3ae4MeLqO6/i+Bk444Bynt7FpYe465/KPEZwLmHZbQ0u8u1/+HgSx7WDftjlBKeHiNsm/jBTIjKuqhcOrMmKzh8KJeFKh544QMqDrpKxI55TSUiBYWIgB6tfv6bxCNObfhY0Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU2PR04MB8855.eurprd04.prod.outlook.com (2603:10a6:10:2e2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Tue, 29 Oct
- 2024 02:41:22 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.023; Tue, 29 Oct 2024
- 02:41:21 +0000
-Message-ID: <1e8526e5-d9b7-42ac-9db3-13b42ccc4fbe@nxp.com>
-Date: Tue, 29 Oct 2024 10:41:43 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/13] Add ITE IT6263 LVDS to HDMI converter support
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Biju Das <biju.das.jz@bp.renesas.com>
-Cc: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "rfoss@kernel.org" <rfoss@kernel.org>,
- "laurent.pinchart" <laurent.pinchart@ideasonboard.com>,
- "jonas@kwiboo.se" <jonas@kwiboo.se>,
- "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "mripard@kernel.org" <mripard@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
- <simona@ffwll.ch>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "quic_jesszhan@quicinc.com" <quic_jesszhan@quicinc.com>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>,
- "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
- "tomi.valkeinen@ideasonboard.com" <tomi.valkeinen@ideasonboard.com>,
- "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
- Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "sam@ravnborg.org" <sam@ravnborg.org>, "marex@denx.de" <marex@denx.de>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <CAA8EJprFBbC_=kBHi86j-nE_K68QeG+c2OBzJCbUyNWs5zQK0Q@mail.gmail.com>
- <TY3PR01MB11346F956733032EC10E997AF864A2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <5ycxltnw3vhik3iype6ncuh4nelwwtom745o5dlf32qyiqh5bv@yjj5l6kb2psm>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <5ycxltnw3vhik3iype6ncuh4nelwwtom745o5dlf32qyiqh5bv@yjj5l6kb2psm>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0006.apcprd02.prod.outlook.com
- (2603:1096:4:194::8) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 29 Oct 2024 02:42:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4XcvcZ4Y88z1T8fp;
+	Tue, 29 Oct 2024 10:40:14 +0800 (CST)
+Received: from kwepemd200013.china.huawei.com (unknown [7.221.188.133])
+	by mail.maildlp.com (Postfix) with ESMTPS id AD9201402CC;
+	Tue, 29 Oct 2024 10:42:23 +0800 (CST)
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemd200013.china.huawei.com (7.221.188.133) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 29 Oct 2024 10:42:22 +0800
+Message-ID: <908316ff-75b3-498a-86f8-1cdf1419800c@huawei.com>
+Date: Tue, 29 Oct 2024 10:42:22 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66ebeb32-305e-47a1-5cc9-08dcf7c32c80
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QkMrbWFZdmZFYmRUZU0xVGZyY1NGR3ZrY09sa0ZRYjFTYlhVRy81eEhPRVB1?=
- =?utf-8?B?WXp0eGplVU5Kek5tS09QTEU4RHYrQjExb2xKeUtKczBTaVBrY01SSVNrVXA3?=
- =?utf-8?B?UWNTcjQvR3JGdlU3c2NpTlRyZjdQSUkvZk9OdmhyY01PVU0yeXNTaWp1MXhM?=
- =?utf-8?B?ekRJNlJSWk5MMDdrMzBVU3J3S1hLMFJzWmFLYThxbHVYRHcyZU9sT0FXczA2?=
- =?utf-8?B?VXRyaklMQVpRTHZFT3hFektJQmZTZWh5WTRXVExEb1V5YjJhUmtScE5TY2U0?=
- =?utf-8?B?NXlaZTZqa040Ym1zOWJrdUNTS0FLRmEycjIxNy9ndTVXbm9kS3hHTFR0NmYr?=
- =?utf-8?B?L2FUeWRMdjNkOE02T3JzRjNQVVJiQ2s4L1pBQTlHbGE4UkUvR28vcy9qemVp?=
- =?utf-8?B?OVM0OFpJeHA3U3RURDNrUmlrQ1ZlbW5kUDNEc1FOdjh0eU1GMUVqaFBwYnc5?=
- =?utf-8?B?aTVhbmhDMkp0WUthYStkWGtmYlU2d1QwQmlSbHJLTnZYV2xuTTJBU3orUTdJ?=
- =?utf-8?B?Y2haNTE1dC9NQ0RVNFh0V2lsbGIvR1kwaTRxa2lMZm8yekZ2dkY2NktnaDJK?=
- =?utf-8?B?enliSWF0Ui9YYU81U0JDK0lXQ0dwZDlYQy95RlN6SFB1bWRZOEk2QXdrVXZo?=
- =?utf-8?B?Y0Rnb243OHB5aGVON0FtaWY2ZCtMWVlIcExIZ0pSOUNyYjZHNkg1Y0sybVNs?=
- =?utf-8?B?SWlKRnNybVp4OUowTUdXeDRwNC9MZkJicllFanhZbWNCTzZRbk92ZGlTQWc5?=
- =?utf-8?B?Q1IxaFZjcWtqR2F0TjZTODhrdXVIMFlUTGpmWExPSTZwOHd3S1hDNkF6ZHhE?=
- =?utf-8?B?MStkaXRNL2ljcUw5dE1IeVRQTGpUYXhTRXZXYVNUYmNKTGovWHpyR1dUV1J3?=
- =?utf-8?B?Ui9FRTkrZ3dJcWhDNC9oejZ0a00xVERxRWJqS3oyRk5ZUXJURS80QmEvUDhq?=
- =?utf-8?B?bnVKeXhUK3JPVHFKZmVsVWwxYVRFM3RHU2JTNDJkbkUxbUJ0NGJDSGg3bWZo?=
- =?utf-8?B?MzRxaTgzdHZHalVzNDEzclNzUXIySytHWDFnYys1K2d6OW5aYTVzK3NHYThq?=
- =?utf-8?B?bVFyYXE0OGcvcXZoUU5SVWUxc2FDR3RWS0dhdnN1MzNWVlNxeGtNZVZBWHd5?=
- =?utf-8?B?eC9pZGZvTGJFcGdqS242dkhVcDUzM1FUbmpsVTFtMEtCaVRYbDJlbTlOMWNW?=
- =?utf-8?B?UEdka0RRT1NiZE1FK001MG95cjRnMG1XdlJWOEtFb1EzNkFBVW14M09NOFlC?=
- =?utf-8?B?ZitUMWlOSW5RQmVLZjdHdWRpZStFZ21Kd0F1eWVBZkU3UTRJNzdSZitXMWxX?=
- =?utf-8?B?Z0RjQlFMNHZDeWZNdXNjSjhGRzllTTVLVVI5WlhTdnZoVHdFWFEzSEhxcmty?=
- =?utf-8?B?U3IvTjlCYXZNWTJrVHIxa3pCSnJzdGtoVUZPaWxVelJQYWJjYWpFOW84eHpM?=
- =?utf-8?B?REVYeDBHK2NGTnRYUVQ1aGhXWE1NWWVXbmYzbEVHa21OVllVc0NhdFRYRTZX?=
- =?utf-8?B?TFRrUmJFVURQcFEzZ2N5emF3WlpYbTFnck1XNEgrMzR3RFUzQnVNZGE2elZY?=
- =?utf-8?B?SmxINGRRSklWcE1ISFpRcEZhRXl4UUFlUExGcVdVc3ZiZGx0RmVPWUpaK1B2?=
- =?utf-8?B?a2FyTUtwWm55WlpDTmNMY05RMWdQOXdhY2xTWkhjdHJjOXBvUWFXOG05andx?=
- =?utf-8?B?dEFxd29CVFQvanhPWGNYSmkyMzQrRFV0enpmY1hYN1BuTm5jSlJLdC9ld3M4?=
- =?utf-8?Q?kyKeP1DYawZsLVu8g6oZp8rL3X9BZquvV4u1yjv?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UlFhaTUxY0d1eTNsVi9waVdFQkZWMitkQytLMWZuQ3lZUTBXTmVZcWozeHpH?=
- =?utf-8?B?RWwwa3dtWm9VZmVRNWNDSHBFRmUxaVVxTTN4bjFSSGV4UXpCRm9yQVlLTGR0?=
- =?utf-8?B?WWsyMUlYZlBxZnEvSG9DVk5jeVlMd1Ntd2F5VURGYVFuV1loUkNSb01EZVRJ?=
- =?utf-8?B?anY3T0xqaklaMlJPVG0rWG8yTEN2Vk9wSWFySG5hVzVBVGN3Rko5RXF6eDVy?=
- =?utf-8?B?RlgvUktvWWMzTUpvcU5tdHY3d1VHeEtTcWVQcVZFYmNsL2V2WmIzMm1heEk5?=
- =?utf-8?B?d09PVXQ1R3pVOUh5Q29ON1VXOGxXMmNpRlVJZnZYZjlSZnNqcklyYnZ2SDF3?=
- =?utf-8?B?WUtYTTBvdkVlZG9LWEllT2piK1BqcXNneldORDZIazNQR1pkNFIwcHRSVWhl?=
- =?utf-8?B?VXpNaUZOZU53V282cHA1UldVMU1MRXBTWlRrWmFKUWxzT3NwMFJ5Um55OWlp?=
- =?utf-8?B?UEU4Y3N0SndIdldrVnNpeWlDbGhHSVVua2IwdGJER1lZK2thbXU2eWRNVUps?=
- =?utf-8?B?Yzd5TkwxTmdwOU1DUVJrUTNGVmxFOG5DMmpMYTNzd0ZSbEREUG9LK2puaTFo?=
- =?utf-8?B?RWx2eTY1L2Y1RWllaGJTN084RVBUemVKQTRZMjd2eHVKWDhoUlA1RnROWTl2?=
- =?utf-8?B?WFBjaGF2dk1KZUFRV3J0NXV6QkNGZ2hHSG5lZENoR2JDaG5md1ZCaWlsSVJ1?=
- =?utf-8?B?dDF3NE9QSmZ4ZWY2UEZXWTVSM0dxaXFJQ0cwOUI1WjB4MGo0WlU2TWE4UmVn?=
- =?utf-8?B?UG9uczJjWC9VTW14NjZMK096STJJdkZoc1BybTIxUXhQaXBtdlZKcVo1Z2VN?=
- =?utf-8?B?cXE5UFlKQnZETWRqSEgrRVBZZk5sYkEwZXdYc3NSM3c2Zkt1TjJvd3N0Y3Ix?=
- =?utf-8?B?MjR0SmxaNWZVSFk1S2w2ZUF6aEFnYUx3STdCMUh2THdqenZaaHlkTWdRM0d5?=
- =?utf-8?B?ZHdhTm11L2VUU1ZXQWoyVzNpTndjTGxJK09FOUJ6LzFUQm9OaUk2WEkvSXhX?=
- =?utf-8?B?K2t5aDZseXFueHhCeWVycDVlc1BRR2piUjR3blR4WUJLL28xdkhUT0U3SUc2?=
- =?utf-8?B?K3RNRkdJUmIySlc2OHp5RDRxdElZNUwvT3d3SzBaNXJ4WTQyY01QcVNzWFBR?=
- =?utf-8?B?TUJCM1FZT0ViSHVOVUpnRjhGRk8rK280T1Nnbno3WW9GUFRrR0Jpc1hrdmNh?=
- =?utf-8?B?RkNTeWFVYjg0ZVJMRXZNWndjOUs3RlBUL0RRRFNwWklGQ1M5akV3RUNHL2Ur?=
- =?utf-8?B?UURXNEM0dXZ2M2lXVWo0bFZaZnMvMFJoWmgrZE44ZU51UWdhU1Z1OHBxWklL?=
- =?utf-8?B?djdZdVNaN1hlN3RvaUU0cGpOYm1VejRFYjk4MElHR3hmNGErejZOZ2w1K3Zn?=
- =?utf-8?B?aUNMOXVFRisxclhIdk1xUU9lN2JaVjh1UlRUTEVwc0tSaVgrZHJQNVI5Z1BX?=
- =?utf-8?B?cXo5SWVwb1puV1p5Uk9nWlhtQkc4cC9VUDNuSWFlaGttQmU0T0NEN0UvSzlz?=
- =?utf-8?B?US9DRVpqaUxnOWQ1VklRb3VPdlRoMTBPcjcvc3dtK1JOYXdZTTVaQzhBRUd1?=
- =?utf-8?B?SXFsQkErNW1QNElWa2RqVDhubDVPQ2hCQW5TeTFPaS9RYW8xZDFIUFVubExr?=
- =?utf-8?B?czNkTHJCZEUxYWlHMFpRNm90TjhQWU1hYzNHdEpDellPNzhNRkE4Z3pDczQ1?=
- =?utf-8?B?R0tGclA5MU52VzBQL016VUg5aS85VEJQdlk4ME9HNVdBZEo1cHgvVGlYbnJy?=
- =?utf-8?B?ZnhnV21HdUpsSTBqQ3YyMWpyL1ZaY1pUdWVrSXI1MW56SlRNSERFQmt6YUtp?=
- =?utf-8?B?blEyZktoTFIvNks3bGRQRFppaHIvd2ZVdVkrTlU5MmRTYmE2SXRrUDJ4Ri8v?=
- =?utf-8?B?TWVHVmVsREFDcVdXZkQ4ZVY4WHJ4alJFQ080MkpCTDBSc1owRU9USmFoQnc4?=
- =?utf-8?B?K0NRc0FOVStLNllCbTJncjZicG5qRDJjSkRKbmxUdWV4Y0dtSkhDclAxL3c5?=
- =?utf-8?B?bzg5di9MVmxnTzE5Z25jVWRUQVBvKzhZQjUvWHVGRWZJQm5RZFFpdTFmNlY0?=
- =?utf-8?B?Y0NJRXFYZkNRaTk3ZTMvRWdpQXM5azRKZkZNSW5LNWYzeFp2NTQ1SVhVTHJo?=
- =?utf-8?Q?+39wGgLQJDtjs6MrsW4+kaedl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66ebeb32-305e-47a1-5cc9-08dcf7c32c80
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:41:21.8568
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1CctNe64JDTZBmFhJOYQ+dxmNPRJWP4f+vmy2IcMPDPU107dhK7RyPCOt2/t9xtW+SuyUjn4+lF/2Aisjn9JFw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8855
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: uprobes: Simulate STP for pushing fp/lr into user
+ stack
+To: Mark Rutland <mark.rutland@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mhiramat@kernel.org>,
+	<oleg@redhat.com>, <peterz@infradead.org>, <ast@kernel.org>,
+	<puranjay@kernel.org>, <andrii@kernel.org>, <andrii.nakryiko@gmail.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <bpf@vger.kernel.org>
+References: <20240910060407.1427716-1-liaochang1@huawei.com>
+ <ZxpUX1rbppLqS0bD@J2N7QTR9R3.cambridge.arm.com>
+From: "Liao, Chang" <liaochang1@huawei.com>
+In-Reply-To: <ZxpUX1rbppLqS0bD@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemd200013.china.huawei.com (7.221.188.133)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_194128_515728_15C1EC4F 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20241028_194236_589844_B13403F8 
+X-CRM114-Status: GOOD (  42.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,99 +75,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/2024, Dmitry Baryshkov wrote:
-> On Mon, Oct 28, 2024 at 11:12:00AM +0000, Biju Das wrote:
->> Hi Dmitry, Liu,
->>
->>> -----Original Message-----
->>> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>> Sent: 28 October 2024 10:20
->>> Subject: Re: [PATCH v4 00/13] Add ITE IT6263 LVDS to HDMI converter support
->>>
->>> Hi,
->>>
->>> On Mon, 28 Oct 2024 at 04:37, Liu Ying <victor.liu@nxp.com> wrote:
->>>>
->>>> Hi,
->>>>
->>>> This patch series aims to add ITE IT6263 LVDS to HDMI converter on
->>>> i.MX8MP EVK.  Combined with LVDS receiver and HDMI 1.4a transmitter,
->>>> the IT6263 supports LVDS input and HDMI 1.4 output by conversion
->>>> function.  IT6263 product link can be found at [1].
->>>>
->>>> Patch 1 is a preparation patch to allow display mode of an existing
->>>> panel to pass the added mode validation logic in patch 3.
->>>>
->>>> Patch 2 allows i.MX8MP LVDS Display Bridge(LDB) bridge driver to find
->>>> the next non-panel bridge, that is the IT6263 in this case.
->>>>
->>>> Patch 3 adds mode validation logic to i.MX8MP LDB bridge driver
->>>> against "ldb" clock so that it can filter out unsupported display
->>>> modes read from EDID.
->>>>
->>>> Patch 4 adds MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG,JEIDA} support, as
->>>> they are supported by IT6263(with LVDS data bit reversed order).
->>>>
->>>> Patch 5 makes drm_of.c use MEDIA_BUS_FMT_RGB101010_1X7X5_{JEIDA,SPWG}.
->>>>
->>>> Patch 6 supports getting dual-link LVDS pixel order for the sink side
->>>> as needed by IT6263 driver.
->>>>
->>>> Patch 7 documents jeida-30 and vesa-30 data mappings in
->>>> lvds-data-mapping.yaml, as needed by IT6263 DT binding.
->>>>
->>>> Patch 8 extracts common dual-link LVDS display properties into new
->>>> lvds-dual-ports.yaml so that IT6263 DT binding can reference it.
->>>>
->>>> Patch 9 adds DT binding for IT6263.
->>>>
->>>> Patch 10 adds IT6263 bridge driver.  Only video output is supported.
->>>>
->>>> Patch 11 adds DT overlays to support NXP adapter cards[2][3] with
->>>> IT6263 populated.
->>>>
->>>> Patch 12 enables the IT6263 bridge driver in defconfig.
->>>>
->>>> Patch 13 updates MAINTAINERS to add maintainer for IT6263 driver.
->>>
->>> This has pretty complicated structure from the merging point of view.
->>>
->>> I propose we take patches 6, 8, 9 (without 30-bit formats, they can be dropped while applying), 11, 12
->>> (?) and 13 through drm-misc in one batch (once DT maintainers review the binding parts). This looks
->>> like a minimal set, having no extra dependencies.
->>
->>>
->>> The second set might be 4, 5 + new patch, re-adding 30-bit formats to
->>> IT6263 binding (no driver changes are necessary). This can go in separately, after an Ack from media
->>> maintainers.
->>>
->>> Of course both sets can go together if linux-media maintainers reacts quickly and ack merging media-
->>> formats patch through drm-misc tree.
 
-I'm fine with merging the two sets through drm-misc tree as long
-as linux-media and dri-devel maintainers accept this.  Up to them.
 
->>>
->>> The rest of the patches don't have such strong dependencies and go in once ready / reviewed.
->>>
->>> WDYT?
+在 2024/10/24 22:06, Mark Rutland 写道:
+> On Tue, Sep 10, 2024 at 06:04:07AM +0000, Liao Chang wrote:
+>> This patch is the second part of a series to improve the selftest bench
+>> of uprobe/uretprobe [0]. The lack of simulating 'stp fp, lr, [sp, #imm]'
+>> significantly impact uprobe/uretprobe performance at function entry in
+>> most user cases. Profiling results below reveals the STP that executes
+>> in the xol slot and trap back to kernel, reduce redis RPS and increase
+>> the time of string grep obviously.
 >>
->> I guess, 6,8,9(without 30-bit formats), 10, 12 and 13.
+>> On Kunpeng916 (Hi1616), 4 NUMA nodes, 64 Arm64 cores@2.4GHz.
 >>
->> 11 may have dependency on 1, 2 and 3 as it is SoC specific.
+>> Redis GET (higher is better)
+>> ----------------------------
+>> No uprobe: 49149.71 RPS
+>> Single-stepped STP: 46750.82 RPS
+>> Emulated STP: 48981.19 RPS
+>>
+>> Redis SET (larger is better)
+>> ----------------------------
+>> No uprobe: 49761.14 RPS
+>> Single-stepped STP: 45255.01 RPS
+>> Emulated stp: 48619.21 RPS
+>>
+>> Grep (lower is better)
+>> ----------------------
+>> No uprobe: 2.165s
+>> Single-stepped STP: 15.314s
+>> Emualted STP: 2.216s
 > 
-> Yes, of course, 10, not 11.
+> The results for grep are concerning.
 > 
->> Then 4, 5 + new patch, re-adding 30-bit formats to IT6263 binding.
+> In theory, the overhead for stepping should be roughly double the
+> overhead for emulating, assuming the exception-entry and
+> exception-return are the dominant cost. The cost of stepping should be
+> trivial.
+> 
+> Those results show emulating adds 0.051s (for a ~2.4% overhead), while
+> stepping adds 13.149s (for a ~607% overhead), meaning stepping is 250x
+> more expensive.
 
-I think it would be good to directly support 30-bit formats in
-IT6263 DT binding, not re-add them to it.  This way, we'll have one
-version of the binding, not two.  So, a better first set would
-contain patch 6, 7(one existing A-b from Krzysztof), 8, 9, 10, 12
-and 13. 
+To provide more context, I set an uprobe at the grep_file() function from
+the grep source code [1], which is likely on very hot path. I suspect that
+the high frequency of uprobe traps contribute to the signficant overhead.
+I'm not entirely certain about this, and I'll need to investigate further
+to pinpoint the source of 13.149s.
+
+https://github.com/brgl/busybox/blob/master/findutils/grep.c#L302
+
+> 
+> Was this tested bare-metal, or in a VM?
+
+bare-metal.
+
+> 
+> AFAICT either:
+> 
+> * Single-stepping is unexpectedly expensive.
+>  
+>   Historically we had performance issues with hypervisor trapping of
+>   debug features, and there are things we might be able to improve in
+>   the hypervisor and kernel, which would improve stepping *all*
+>   instructions.
+>   
+>   If stepping is the big problem, we could move uprobes over to a BRK
+>   rather than a single-step. That would require require updating and
+>   fixing the logic to decide which instructions are steppable, but
+>   that's necessary anyway given it has extant soundness issues.
+
+That's a very helpful input. I'll rerun the profiling in a VM.
+
+> 
+> * XOL management is absurdly expensive.
+>  
+>   Does uprobes keep the XOL slot around (like krpobes does), or does it
+>   create the slot afresh for each trap?
+
+As I know, it doesn't create a new slot for each trap. Instead, it grabs
+an slot from a pre-allocated pool. I believe the cost of acquring a slot
+from this pool is relatively low compared to creating a new one.
+
+> 
+>   If that's trying to create a slot afresh for each trap, there are
+>   several opportunities for improvement, e.g. keep the slot around for
+>   as long as the uprobe exists, or pre-allocate shared slots for common
+>   instructions and use those.
+
+I have sent a patch [2] that aimed to improve scalability of uprobe handling.
+While that patch focuses on reduing the cacheline bouncing caused by atomic
+operations when grabbing and releasing slot from a pool, I wouldn't say
+this has a impact on grep, as it typically use a single thread for pattern
+matching on my sytem.
+
+[2] https://lore.kernel.org/all/20240927094549.3382916-1-liaochang1@huawei.com/
+
+> 
+> Mark.
+> 
+>>
+>> Additionally, a profiling of the entry instruction for all leaf and
+>> non-leaf function, the ratio of 'stp fp, lr, [sp, #imm]' is larger than
+>> 50%. So simulting the STP on the function entry is a more viable option
+>> for uprobe.
+>>
+>> In the first version [1], it used a uaccess routine to simulate the STP
+>> that push fp/lr into stack, which use double STTR instructions for
+>> memory store. But as Mark pointed out, this approach can't simulate the
+>> correct single-atomicity and ordering properties of STP, especiallly
+>> when it interacts with MTE, POE, etc. So this patch uses a more complex
+>> and inefficient approach that acquires user stack pages, maps them to
+>> kernel address space, and allows kernel to use STP directly push fp/lr
+>> into the stack pages.
+>>
+>> xol-stp
+>> -------
+>> uprobe-nop      ( 1 cpus):    1.566 ± 0.006M/s  (  1.566M/s/cpu)
+>> uprobe-push     ( 1 cpus):    0.868 ± 0.001M/s  (  0.868M/s/cpu)
+>> uprobe-ret      ( 1 cpus):    1.629 ± 0.001M/s  (  1.629M/s/cpu)
+>> uretprobe-nop   ( 1 cpus):    0.871 ± 0.001M/s  (  0.871M/s/cpu)
+>> uretprobe-push  ( 1 cpus):    0.616 ± 0.001M/s  (  0.616M/s/cpu)
+>> uretprobe-ret   ( 1 cpus):    0.878 ± 0.002M/s  (  0.878M/s/cpu)
+>>
+>> simulated-stp
+>> -------------
+>> uprobe-nop      ( 1 cpus):    1.544 ± 0.001M/s  (  1.544M/s/cpu)
+>> uprobe-push     ( 1 cpus):    1.128 ± 0.002M/s  (  1.128M/s/cpu)
+>> uprobe-ret      ( 1 cpus):    1.550 ± 0.005M/s  (  1.550M/s/cpu)
+>> uretprobe-nop   ( 1 cpus):    0.872 ± 0.004M/s  (  0.872M/s/cpu)
+>> uretprobe-push  ( 1 cpus):    0.714 ± 0.001M/s  (  0.714M/s/cpu)
+>> uretprobe-ret   ( 1 cpus):    0.896 ± 0.001M/s  (  0.896M/s/cpu)
+>>
+>> The profiling results based on the upstream kernel with spinlock
+>> optimization patches [2] reveals the simulation of STP increase the
+>> uprobe-push throughput by 29.3% (from 0.868M/s/cpu to 1.1238M/s/cpu) and
+>> uretprobe-push by 15.9% (from 0.616M/s/cpu to 0.714M/s/cpu).
+>>
+>> [0] https://lore.kernel.org/all/CAEf4BzaO4eG6hr2hzXYpn+7Uer4chS0R99zLn02ezZ5YruVuQw@mail.gmail.com/
+>> [1] https://lore.kernel.org/all/Zr3RN4zxF5XPgjEB@J2N7QTR9R3/
+>> [2] https://lore.kernel.org/all/20240815014629.2685155-1-liaochang1@huawei.com/
+>>
+>> Signed-off-by: Liao Chang <liaochang1@huawei.com>
+>> ---
+>>  arch/arm64/include/asm/insn.h            |  1 +
+>>  arch/arm64/kernel/probes/decode-insn.c   | 16 +++++
+>>  arch/arm64/kernel/probes/decode-insn.h   |  1 +
+>>  arch/arm64/kernel/probes/simulate-insn.c | 89 ++++++++++++++++++++++++
+>>  arch/arm64/kernel/probes/simulate-insn.h |  1 +
+>>  arch/arm64/kernel/probes/uprobes.c       | 21 ++++++
+>>  arch/arm64/lib/insn.c                    |  5 ++
+>>  7 files changed, 134 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+>> index dd530d5c3d67..74e25debfa75 100644
+>> --- a/arch/arm64/include/asm/insn.h
+>> +++ b/arch/arm64/include/asm/insn.h
+>> @@ -561,6 +561,7 @@ u32 aarch64_insn_encode_immediate(enum aarch64_insn_imm_type type,
+>>  				  u32 insn, u64 imm);
+>>  u32 aarch64_insn_decode_register(enum aarch64_insn_register_type type,
+>>  					 u32 insn);
+>> +u32 aarch64_insn_decode_ldst_size(u32 insn);
+>>  u32 aarch64_insn_gen_branch_imm(unsigned long pc, unsigned long addr,
+>>  				enum aarch64_insn_branch_type type);
+>>  u32 aarch64_insn_gen_comp_branch_imm(unsigned long pc, unsigned long addr,
+>> diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+>> index be54539e309e..847a7a61ff6d 100644
+>> --- a/arch/arm64/kernel/probes/decode-insn.c
+>> +++ b/arch/arm64/kernel/probes/decode-insn.c
+>> @@ -67,6 +67,22 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
+>>  	return true;
+>>  }
+>>  
+>> +bool aarch64_insn_is_stp_fp_lr_sp_64b(probe_opcode_t insn)
+>> +{
+>> +	/*
+>> +	 * The 1st instruction on function entry often follows the
+>> +	 * patten 'stp x29, x30, [sp, #imm]!' that pushing fp and lr
+>> +	 * into stack.
+>> +	 */
+>> +	u32 opc = aarch64_insn_decode_ldst_size(insn);
+>> +	u32 rt2 = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RT2, insn);
+>> +	u32 rn = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RN, insn);
+>> +	u32 rt = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RT, insn);
+>> +
+>> +	return aarch64_insn_is_stp_pre(insn) &&
+>> +	       (opc == 2) && (rt2 == 30) && (rn == 31) && (rt == 29);
+>> +}
+>> +
+>>  /* Return:
+>>   *   INSN_REJECTED     If instruction is one not allowed to kprobe,
+>>   *   INSN_GOOD         If instruction is supported and uses instruction slot,
+>> diff --git a/arch/arm64/kernel/probes/decode-insn.h b/arch/arm64/kernel/probes/decode-insn.h
+>> index 8b758c5a2062..033ccab73da6 100644
+>> --- a/arch/arm64/kernel/probes/decode-insn.h
+>> +++ b/arch/arm64/kernel/probes/decode-insn.h
+>> @@ -29,5 +29,6 @@ arm_kprobe_decode_insn(kprobe_opcode_t *addr, struct arch_specific_insn *asi);
+>>  #endif
+>>  enum probe_insn __kprobes
+>>  arm_probe_decode_insn(probe_opcode_t insn, struct arch_probe_insn *asi);
+>> +bool aarch64_insn_is_stp_fp_lr_sp_64b(probe_opcode_t insn);
+>>  
+>>  #endif /* _ARM_KERNEL_KPROBES_ARM64_H */
+>> diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
+>> index 5e4f887a074c..3906851c07b2 100644
+>> --- a/arch/arm64/kernel/probes/simulate-insn.c
+>> +++ b/arch/arm64/kernel/probes/simulate-insn.c
+>> @@ -8,6 +8,9 @@
+>>  #include <linux/bitops.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/kprobes.h>
+>> +#include <linux/highmem.h>
+>> +#include <linux/vmalloc.h>
+>> +#include <linux/mm.h>
+>>  
+>>  #include <asm/ptrace.h>
+>>  #include <asm/traps.h>
+>> @@ -211,3 +214,89 @@ simulate_nop(u32 opcode, long addr, struct pt_regs *regs)
+>>  	 */
+>>  	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+>>  }
+>> +
+>> +static inline
+>> +bool stack_align_check(unsigned long sp)
+>> +{
+>> +	return (IS_ALIGNED(sp, 16) ||
+>> +		!(read_sysreg(sctlr_el1) & SCTLR_EL1_SA0_MASK));
+>> +}
+>> +
+>> +static inline
+>> +void put_user_stack_pages(struct page **pages, int nr_pages)
+>> +{
+>> +	int i;
+>> +
+>> +	for (i = 0; i < nr_pages; i++)
+>> +		put_page(pages[i]);
+>> +}
+>> +
+>> +static inline
+>> +int get_user_stack_pages(long start, long end, struct page **pages)
+>> +{
+>> +	int ret;
+>> +	int nr_pages = (end >> PAGE_SHIFT) - (start >> PAGE_SHIFT) + 1;
+>> +
+>> +	ret = get_user_pages_fast(start, nr_pages,
+>> +				  FOLL_WRITE | FOLL_FORCE, pages);
+>> +	if (unlikely(ret != nr_pages)) {
+>> +		if (ret > 0)
+>> +			put_user_stack_pages(pages, ret);
+>> +		return 0;
+>> +	}
+>> +
+>> +	return nr_pages;
+>> +}
+>> +
+>> +static inline
+>> +void *map_user_stack_pages(struct page **pages, int nr_pages)
+>> +{
+>> +	if (likely(nr_pages == 1))
+>> +		return kmap_local_page(pages[0]);
+>> +	else
+>> +		return vmap(pages, nr_pages, VM_MAP, PAGE_KERNEL);
+>> +}
+>> +
+>> +static inline
+>> +void unmap_user_stack_pages(void *kaddr, int nr_pages)
+>> +{
+>> +	if (likely(nr_pages == 1))
+>> +		kunmap_local(kaddr);
+>> +	else
+>> +		vunmap(kaddr);
+>> +}
+>> +
+>> +void __kprobes
+>> +simulate_stp_fp_lr_sp_64b(u32 opcode, long addr, struct pt_regs *regs)
+>> +{
+>> +	long imm7;
+>> +	long new_sp;
+>> +	int nr_pages;
+>> +	void *kaddr, *dst;
+>> +	struct page *pages[2] = { NULL };
+>> +
+>> +	imm7 = aarch64_insn_decode_immediate(AARCH64_INSN_IMM_7, opcode);
+>> +	new_sp = regs->sp + (sign_extend64(imm7, 6) << 3);
+>> +	if (!stack_align_check(new_sp)) {
+>> +		force_sig(SIGSEGV);
+>> +		goto done;
+>> +	}
+>> +
+>> +	nr_pages = get_user_stack_pages(new_sp, regs->sp, pages);
+>> +	if (!nr_pages) {
+>> +		force_sig(SIGSEGV);
+>> +		goto done;
+>> +	}
+>> +
+>> +	kaddr = map_user_stack_pages(pages, nr_pages);
+>> +	dst = kaddr + (new_sp & ~PAGE_MASK);
+>> +	asm volatile("stp %0, %1, [%2]"
+>> +		     : : "r"(regs->regs[29]), "r"(regs->regs[30]), "r"(dst));
+>> +
+>> +	unmap_user_stack_pages(kaddr, nr_pages);
+>> +	put_user_stack_pages(pages, nr_pages);
+>> +
+>> +done:
+>> +	regs->sp = new_sp;
+>> +	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+>> +}
+>> diff --git a/arch/arm64/kernel/probes/simulate-insn.h b/arch/arm64/kernel/probes/simulate-insn.h
+>> index efb2803ec943..733a47ffa2e5 100644
+>> --- a/arch/arm64/kernel/probes/simulate-insn.h
+>> +++ b/arch/arm64/kernel/probes/simulate-insn.h
+>> @@ -17,5 +17,6 @@ void simulate_tbz_tbnz(u32 opcode, long addr, struct pt_regs *regs);
+>>  void simulate_ldr_literal(u32 opcode, long addr, struct pt_regs *regs);
+>>  void simulate_ldrsw_literal(u32 opcode, long addr, struct pt_regs *regs);
+>>  void simulate_nop(u32 opcode, long addr, struct pt_regs *regs);
+>> +void simulate_stp_fp_lr_sp_64b(u32 opcode, long addr, struct pt_regs *regs);
+>>  
+>>  #endif /* _ARM_KERNEL_KPROBES_SIMULATE_INSN_H */
+>> diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+>> index d49aef2657cd..c70862314fde 100644
+>> --- a/arch/arm64/kernel/probes/uprobes.c
+>> +++ b/arch/arm64/kernel/probes/uprobes.c
+>> @@ -8,6 +8,7 @@
+>>  #include <asm/cacheflush.h>
+>>  
+>>  #include "decode-insn.h"
+>> +#include "simulate-insn.h"
+>>  
+>>  #define UPROBE_INV_FAULT_CODE	UINT_MAX
+>>  
+>> @@ -31,6 +32,21 @@ unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
+>>  	return instruction_pointer(regs);
+>>  }
+>>  
+>> +static enum probe_insn
+>> +arm_uprobe_decode_special_insn(probe_opcode_t insn, struct arch_probe_insn *api)
+>> +{
+>> +	/*
+>> +	 * When uprobe interact with VMSA features, such as MTE, POE, etc, it
+>> +	 * give up the simulation of memory access related instructions.
+>> +	 */
+>> +	if (!system_supports_mte() && aarch64_insn_is_stp_fp_lr_sp_64b(insn)) {
+>> +		api->handler = simulate_stp_fp_lr_sp_64b;
+>> +		return INSN_GOOD_NO_SLOT;
+>> +	}
+>> +
+>> +	return INSN_REJECTED;
+>> +}
+>> +
+>>  int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
+>>  		unsigned long addr)
+>>  {
+>> @@ -44,6 +60,11 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
+>>  
+>>  	insn = *(probe_opcode_t *)(&auprobe->insn[0]);
+>>  
+>> +	if (arm_uprobe_decode_special_insn(insn, &auprobe->api)) {
+>> +		auprobe->simulate = true;
+>> +		return 0;
+>> +	}
+>> +
+>>  	switch (arm_probe_decode_insn(insn, &auprobe->api)) {
+>>  	case INSN_REJECTED:
+>>  		return -EINVAL;
+>> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+>> index b008a9b46a7f..0635219d2196 100644
+>> --- a/arch/arm64/lib/insn.c
+>> +++ b/arch/arm64/lib/insn.c
+>> @@ -238,6 +238,11 @@ static u32 aarch64_insn_encode_ldst_size(enum aarch64_insn_size_type type,
+>>  	return insn;
+>>  }
+>>  
+>> +u32 aarch64_insn_decode_ldst_size(u32 insn)
+>> +{
+>> +	return (insn & GENMASK(31, 30)) >> 30;
+>> +}
+>> +
+>>  static inline long label_imm_common(unsigned long pc, unsigned long addr,
+>>  				     long range)
+>>  {
+>> -- 
+>> 2.34.1
+>>
+> 
 
 -- 
-Regards,
-Liu Ying
+BR
+Liao, Chang
 
 
