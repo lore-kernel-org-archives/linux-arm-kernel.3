@@ -4,90 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04295D13594
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5FFD13594
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYSGvK0oJrlvmEk8QfC1VznkZaq1rer8FyHTom9lBBM=; b=tP+i8Gq6x1isu32A4faTpHGfcn
-	/nInprG09tbYMocHlYGUgdclGoD2iXpsZqeu3e5OKkXtGNxW+v2jjNQonKXCyZ93reyz5yEmVVuWI
-	k3Gib/fKcqiJGlDrIfG+7CnBquBJyx91ZgLPCXSBIQ1vtAuZdK7ukSMVviQ6hjkGPln/aJ9WkjtiK
-	/pGFTdsxQk04NP7azTUx6niApPhR3RdqSUHW6umfVQfdATysUN4hDhpfq+KK3EARFZ0dcLa1DnuFS
-	yyhM8I/PuXQlVuDS0gw42u015FlHfO8rzTAd3eWKXc1M7yXiHQ7PNUP6rH/nyO3+fPu9QS0BLKso3
-	2aw0Ni0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5rdYaoJWhv9lSLdyhM9JutiIap6bmtJIlC+SZ/i4Iro=; b=wGPkAjokJZOPsExgBsUyeL9gnF
+	t0bY5/z2Ojk5ouzAcKWDjq0Ym433GiUko+imclOpyYUkMj87ryNRuqIF59eDJ5FPtiJxS59BrEDMJ
+	oHxvlDYH9WJ6moIC96UjATm5/YdvEWTRC3WWZ+jqW6G3YEXhsU6dxTHpB5njsSU+U5ZvOvwuA5NtU
+	HxaRviwwqOWlGHIcJSk208wcbdwc1K4ZLWowJvS3l2mpN41GybgrAGwEP542V9g5/sng8WSlSSg4q
+	mnVMWluOtorOeL0lDprwNK/EAIUj+8h5Qcnr57MblhNoZTygXy6jOr0kVe156n9SYM7yZSaTNBD0X
+	qd8vN66A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ged-0000000DVJ7-3ZdA;
-	Tue, 29 Oct 2024 07:28:40 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1t5ggD-0000000DVWJ-3bb2;
+	Tue, 29 Oct 2024 07:30:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5gVA-0000000DTqI-0p8o
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 07:18:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730186333; x=1761722333;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BdYcTmAXb1SfXEeowtRZE7Rf2n06MdmrBquWG32nqao=;
-  b=XDD2zK2y3X8oWGvs67rmpMvz0e4WxNU0+5inf4mNT79cFRA96fOsgmZa
-   M4e6ICC8m8Y/aj2VYR3FmDqTGGCBFFmwLPHlx5KPOFMq4w6s/QPw9tGQ0
-   Gss58xxPFYqg4qas2Cy1Z5td+CTKxrtsWAQ/xAeUDaShnBuubDfdJyuG/
-   0k45CQe7mQ4kNVh73YJTxdSGBqYEya0HmD6qgN6n2TTg0cOzDq7SbasPM
-   4rAOnyJYJOMSpAOx6ZQnZkbC80fQ7iGFJmKJ2tJ5EhdhYfhL2Yeo9QbKl
-   9ZuLan8m20vrLpexLGL3qy0qtcdB4g/yRdk7DdGs4k2zsGPZb4T3C4ZvR
-   g==;
-X-CSE-ConnectionGUID: kkXfEZMfRHKs9RkhOXIL3w==
-X-CSE-MsgGUID: W4lELkg3R56fNxNaEmxjrA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="29774258"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="29774258"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 00:18:52 -0700
-X-CSE-ConnectionGUID: ifNbUCZ6QHay4UdqM/kgoQ==
-X-CSE-MsgGUID: qNn49BT5RyqWAcTYDzsScw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
-   d="scan'208";a="81430699"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 29 Oct 2024 00:18:46 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t5gV2-000dN8-1u;
-	Tue, 29 Oct 2024 07:18:44 +0000
-Date: Tue, 29 Oct 2024 15:18:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v6 2/7] PCI: dwc: Using parent_bus_addr in of_range to
- eliminate cpu_addr_fixup()
-Message-ID: <202410291546.kvgEWJv7-lkp@intel.com>
-References: <20241028-pci_fixup_addr-v6-2-ebebcd8fd4ff@nxp.com>
+	id 1t5gXV-0000000DUD4-23b6;
+	Tue, 29 Oct 2024 07:21:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6CCEDA417B4;
+	Tue, 29 Oct 2024 07:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B7BAC4CECD;
+	Tue, 29 Oct 2024 07:21:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730186475;
+	bh=7uzAarjS0Dn2DTyPSovradqYE05Wen8ZCSz2SsXfBQQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j6sItWqcq7R2uMjcS2UsufpkCMJ93wg2aHHyGFhhwjZDG+xnjnxe4w0W8Y65RYtw9
+	 nvr1alvwGsKwhbEkukGtRL1QyBZX94ljUIFrxlqv3Xzm9KhDLCc8Usm53tj8lcgrMV
+	 yzs7O0AJeicdZU4QSQmY09H8DU9u/bCA23BwtCc6dub7OtIz7cvYsROrjM2BI2BoxJ
+	 Qi5kwbdF8r0WC9jssuNOUTMPDAsgXvI9nD/fAdPyNkKL1LNB4SOZ7dXX2I/BttWR8+
+	 GFPAQ78ah7ZErZk3LrLUYrouBpkTE9HHxLKvR2DiWBa2Qf4eg6k3IqyizHi5/0CXeb
+	 Lkttqj5aE2/4Q==
+Message-ID: <c0b9157c-48cd-41a7-ab38-c0334f1e5af7@kernel.org>
+Date: Tue, 29 Oct 2024 08:21:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241028-pci_fixup_addr-v6-2-ebebcd8fd4ff@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXT] Re: [PATCH v18 3/8] dt-bindings: display: bridge: Add
+ Cadence MHDP8501
+To: Sandor Yu <sandor.yu@nxp.com>
+Cc: "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "jonas@kwiboo.se" <jonas@kwiboo.se>,
+ "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
+ "airlied@gmail.com" <airlied@gmail.com>, "daniel@ffwll.ch"
+ <daniel@ffwll.ch>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
+ "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ dl-linux-imx <linux-imx@nxp.com>, Oliver Brown <oliver.brown@nxp.com>,
+ "alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>,
+ "sam@ravnborg.org" <sam@ravnborg.org>
+References: <cover.1730172244.git.Sandor.yu@nxp.com>
+ <e11ba0cf836d6f27935f58b7987e792026ab0233.1730172244.git.Sandor.yu@nxp.com>
+ <c664wq5wzzvivvkpedkicz6ku55epoa75oyycm3hohoms46yi5@myn542dqlpmu>
+ <PAXPR04MB9448D20D5EDE86DEF060222CF44B2@PAXPR04MB9448.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <PAXPR04MB9448D20D5EDE86DEF060222CF44B2@PAXPR04MB9448.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_001852_312508_AEF1DAFB 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20241029_002117_699241_82448755 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,146 +141,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On 29/10/2024 08:17, Sandor Yu wrote:
+>>
+>> On Tue, Oct 29, 2024 at 02:02:11PM +0800, Sandor Yu wrote:
+>>> +  interrupts:
+>>> +    items:
+>>> +      - description: Hotplug cable plugin.
+>>> +      - description: Hotplug cable plugout.
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: plug_in
+>>> +      - const: plug_out
+>>> +
+>>> +  data-lanes:
+>>> +    $ref: /schemas/media/video-interfaces.yaml#/properties/data-lanes
+>>> +    minItems: 4
+>>> +    maxItems: 4
+>>> +    description: Lane reordering for HDMI or DisplayPort interface.
+>>
+>> Please look how existing bindings do it. data-lanes is a property of port.
+>> Otherwise why would you like this to be applied to the input?
+> 
+> 'lane reordering' is a feature of the MHDP IP, and different boards have different mappings. 
 
-kernel test robot noticed the following build errors:
+Yeah, and?
 
-[auto build test ERROR on 9852d85ec9d492ebef56dc5f229416c925758edc]
+> 
+> Benjamin comments in v16, the imx8mq-zii-ultra board's lane mapping differs from the default in my driver, 
+> so we need to treat it as an input.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/of-address-Add-parent_bus_addr-to-struct-of_pci_range/20241029-030935
-base:   9852d85ec9d492ebef56dc5f229416c925758edc
-patch link:    https://lore.kernel.org/r/20241028-pci_fixup_addr-v6-2-ebebcd8fd4ff%40nxp.com
-patch subject: [PATCH v6 2/7] PCI: dwc: Using parent_bus_addr in of_range to eliminate cpu_addr_fixup()
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20241029/202410291546.kvgEWJv7-lkp@intel.com/config)
-compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project f28c006a5895fc0e329fe15fead81e37457cb1d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241029/202410291546.kvgEWJv7-lkp@intel.com/reproduce)
+But HDMI is not your input port. At least that's what few lines below!
+This is confusing.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410291546.kvgEWJv7-lkp@intel.com/
+> 
+> As data-lanes is a property of port, so there is no exist property could be reused,
 
-All errors (new ones prefixed by >>):
+data-lanes, really, what is the problem here?
 
->> drivers/pci/controller/dwc/pcie-designware-host.c:782:55: error: incompatible pointer types passing 'u64 *' (aka 'unsigned long long *') to parameter of type 'resource_size_t *' (aka 'unsigned int *') [-Werror,-Wincompatible-pointer-types]
-                   if (dw_pcie_get_untranslate_addr(pci, atu.pci_addr, &atu.cpu_addr))
-                                                                       ^~~~~~~~~~~~~
-   drivers/pci/controller/dwc/pcie-designware-host.c:422:23: note: passing argument to parameter 'i_addr' here
-                                           resource_size_t *i_addr)
-                                                            ^
-   1 error generated.
+> How about revert 'data-lanes' back to my previous implementation of 'lane-mapping'?
 
+No.
 
-vim +782 drivers/pci/controller/dwc/pcie-designware-host.c
+Best regards,
+Krzysztof
 
-   745	
-   746	static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
-   747	{
-   748		struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-   749		struct dw_pcie_ob_atu_cfg atu = { 0 };
-   750		struct resource_entry *entry;
-   751		int i, ret;
-   752	
-   753		/* Note the very first outbound ATU is used for CFG IOs */
-   754		if (!pci->num_ob_windows) {
-   755			dev_err(pci->dev, "No outbound iATU found\n");
-   756			return -EINVAL;
-   757		}
-   758	
-   759		/*
-   760		 * Ensure all out/inbound windows are disabled before proceeding with
-   761		 * the MEM/IO (dma-)ranges setups.
-   762		 */
-   763		for (i = 0; i < pci->num_ob_windows; i++)
-   764			dw_pcie_disable_atu(pci, PCIE_ATU_REGION_DIR_OB, i);
-   765	
-   766		for (i = 0; i < pci->num_ib_windows; i++)
-   767			dw_pcie_disable_atu(pci, PCIE_ATU_REGION_DIR_IB, i);
-   768	
-   769		i = 0;
-   770		resource_list_for_each_entry(entry, &pp->bridge->windows) {
-   771			if (resource_type(entry->res) != IORESOURCE_MEM)
-   772				continue;
-   773	
-   774			if (pci->num_ob_windows <= ++i)
-   775				break;
-   776	
-   777			atu.index = i;
-   778			atu.type = PCIE_ATU_TYPE_MEM;
-   779			atu.cpu_addr = entry->res->start;
-   780			atu.pci_addr = entry->res->start - entry->offset;
-   781	
- > 782			if (dw_pcie_get_untranslate_addr(pci, atu.pci_addr, &atu.cpu_addr))
-   783				return -EINVAL;
-   784	
-   785			/* Adjust iATU size if MSG TLP region was allocated before */
-   786			if (pp->msg_res && pp->msg_res->parent == entry->res)
-   787				atu.size = resource_size(entry->res) -
-   788						resource_size(pp->msg_res);
-   789			else
-   790				atu.size = resource_size(entry->res);
-   791	
-   792			ret = dw_pcie_prog_outbound_atu(pci, &atu);
-   793			if (ret) {
-   794				dev_err(pci->dev, "Failed to set MEM range %pr\n",
-   795					entry->res);
-   796				return ret;
-   797			}
-   798		}
-   799	
-   800		if (pp->io_size) {
-   801			if (pci->num_ob_windows > ++i) {
-   802				atu.index = i;
-   803				atu.type = PCIE_ATU_TYPE_IO;
-   804				atu.cpu_addr = pp->io_base;
-   805				atu.pci_addr = pp->io_bus_addr;
-   806				atu.size = pp->io_size;
-   807	
-   808				ret = dw_pcie_prog_outbound_atu(pci, &atu);
-   809				if (ret) {
-   810					dev_err(pci->dev, "Failed to set IO range %pr\n",
-   811						entry->res);
-   812					return ret;
-   813				}
-   814			} else {
-   815				pp->cfg0_io_shared = true;
-   816			}
-   817		}
-   818	
-   819		if (pci->num_ob_windows <= i)
-   820			dev_warn(pci->dev, "Ranges exceed outbound iATU size (%d)\n",
-   821				 pci->num_ob_windows);
-   822	
-   823		pp->msg_atu_index = i;
-   824	
-   825		i = 0;
-   826		resource_list_for_each_entry(entry, &pp->bridge->dma_ranges) {
-   827			if (resource_type(entry->res) != IORESOURCE_MEM)
-   828				continue;
-   829	
-   830			if (pci->num_ib_windows <= i)
-   831				break;
-   832	
-   833			ret = dw_pcie_prog_inbound_atu(pci, i++, PCIE_ATU_TYPE_MEM,
-   834						       entry->res->start,
-   835						       entry->res->start - entry->offset,
-   836						       resource_size(entry->res));
-   837			if (ret) {
-   838				dev_err(pci->dev, "Failed to set DMA range %pr\n",
-   839					entry->res);
-   840				return ret;
-   841			}
-   842		}
-   843	
-   844		if (pci->num_ib_windows <= i)
-   845			dev_warn(pci->dev, "Dma-ranges exceed inbound iATU size (%u)\n",
-   846				 pci->num_ib_windows);
-   847	
-   848		return 0;
-   849	}
-   850	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
