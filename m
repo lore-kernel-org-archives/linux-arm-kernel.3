@@ -4,74 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9755D3A679
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA606D3A678
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 17:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Bao06MeG32QWrNrzTrhj2Y8BYcOMesi/pUr+Al/NrcA=; b=QobgEGElCRYslx/Y+IhSBU/8xL
-	YdD08Ld/fXqyThAjRPo6M7ZeGf8EVZY3w6hZv91+D+4ll1aCrI7sYcKqHV3W8a8UQtwrrWYqGElMw
-	OsvbGQ969FkO8VN4obJAfqLwd2NEoGXFVBceKcLwLyrru3Ygh91Pg13sDcqDBeAOhxA7Fr598pEHS
-	X7UI0+ebP9BvBZ9e6vG4F2vzRuP4hwrvhdKIRzBwU68n9kATi2jX0V14hD6C5rtRBlDVuRLitcW70
-	IAzcXYpna6le7AoIcCz/jt8fTfpRDzNYyBVkWFZUf3OW1GKAZ+5W33Lvbpa5cqcDTzDMF2s0Qyg69
-	rhKSmM8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ySy25yEF1QePV2PXsDPvovvaxSjHhUOK5RABr0FMdbc=; b=2IRIv6mkioOcd7K0a4nev3kAjg
+	HRU6x+IciddvZaBnomPRAUQqiaR7A8d3WLv48O3pBMuFKWetSQwWoAxRGrgBr0+4+fhvz9v3t/RND
+	HGndr/qjLd+QegswpyqHRWmKcoz70pkz0MJb7nTCNltJ5q0eN9pUCV3s2B/ejGH8JKLs6FIEuLAOa
+	TFaGg1ErsbhPLHp+onD0rSl5bao0hrnq2P88oJWwNNDPTa9uRtsz0n00A2/h/eOGD/dTmHfPl3SyL
+	7DeOLgxpXCk41svoGFuYs3f2ku7ZQSZhDlVjJrVcdYfpe4Pb7WDs0eQpS5RzBZCkG5GoDX7KlYAT6
+	NGZMjqRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5q8A-0000000FHiy-2KjW;
-	Tue, 29 Oct 2024 17:35:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oKf-0000000ExQC-1EYo;
-	Tue, 29 Oct 2024 15:40:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B8255C561A;
-	Tue, 29 Oct 2024 15:39:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 025A7C4CECD;
-	Tue, 29 Oct 2024 15:40:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730216432;
-	bh=z8kE0zz8IskfM8xgxZLCRvPQ6P7D3DW1E454Ru1T4h8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=EXNWH8lPvmk6wDf7i/EWjdwYtMKTLjKFLxvK4MQMzKiLuVurCLm7OddASuJzDegpr
-	 Gzj5X7uiv9vf0ntBg/YEAk4IwleCeZjFmFIJ1dBucC1s2tWYX90zeh1iLzVvV8b37R
-	 ItmC0hVKUf5dMaGilwe2zvygQRlKryIt4sw2yX/hUb9XvgibBqceM1J4kyNA3wJI+/
-	 QSaKGhPkXUqCaaqr8E8EEtJtOOHx4Qz08dxtOOiaEBfrYVu1imr/IMPZgoIYXOGcIb
-	 vjDVc9dcbhL/6DXuw+wC7CWh+1qYhryJvhyzhpbWN5EwTZ6fiwlmDd55BwWD+filrw
-	 tBz/Ur+SjZzjA==
-Date: Tue, 29 Oct 2024 10:40:30 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <quic_krichai@quicinc.com>
-Cc: Jim Quinlan <james.quinlan@broadcom.com>, Rob Herring <robh@kernel.org>,
-	linux-pci@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Veerabhadrarao Badiganti <quic_vbadigan@quicinc.com>,
-	Mayank Rana <quic_mrana@quicinc.com>
-Subject: Re: [PATCH 1/1] RFC: dt bindings: Add property "brcm,gen3-eq-presets"
-Message-ID: <20241029154030.GA1157452@bhelgaas>
+	id 1t5q8H-0000000FHpB-2H2Q;
+	Tue, 29 Oct 2024 17:35:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5oRG-0000000Ezm8-29IU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 15:47:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E631497;
+	Tue, 29 Oct 2024 08:47:51 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D1E93F73B;
+	Tue, 29 Oct 2024 08:47:20 -0700 (PDT)
+Date: Tue, 29 Oct 2024 15:47:18 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] kselftest/arm64: Lower poll interval while waiting
+ for fp-stress children
+Message-ID: <ZyEDhuX3dDPxJ8a-@J2N7QTR9R3.cambridge.arm.com>
+References: <20241029-arm64-fp-stress-interval-v1-0-db540abf6dd5@kernel.org>
+ <20241029-arm64-fp-stress-interval-v1-2-db540abf6dd5@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <648d12f6-85d4-971a-b46d-d0e8f9db9091@quicinc.com>
+In-Reply-To: <20241029-arm64-fp-stress-interval-v1-2-db540abf6dd5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_084033_447354_3E90055E 
-X-CRM114-Status: GOOD (  52.85  )
+X-CRM114-CacheID: sfid-20241029_084722_913786_38EA0330 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,131 +66,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 08:52:15PM +0530, Krishna Chaitanya Chundru wrote:
-> On 10/29/2024 8:18 PM, Bjorn Helgaas wrote:
-> > On Tue, Oct 29, 2024 at 10:22:36AM -0400, Jim Quinlan wrote:
-> > > On Tue, Oct 29, 2024 at 1:17 AM Krishna Chaitanya Chundru
-> > > <quic_krichai@quicinc.com> wrote:
-> > > > On 10/29/2024 12:21 AM, James Quinlan wrote:
-> > > > > On 10/24/24 21:08, Krishna Chaitanya Chundru wrote:
-> > > > > > On 10/22/2024 12:33 AM, Rob Herring wrote:
-> > > > > > > On Fri, Oct 18, 2024 at 02:22:45PM -0400, Jim Quinlan wrote:
-> > > > > > > > Support configuration of the GEN3 preset equalization settings, aka the
-> > > > > > > > Lane Equalization Control Register(s) of the Secondary PCI Express
-> > > > > > > > Extended Capability.  These registers are of type HwInit/RsvdP and
-> > > > > > > > typically set by FW.  In our case they are set by our RC host bridge
-> > > > > > > > driver using internal registers.
-> > > > > > > > 
-> > > > > > > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> > > > > > > > ---
-> > > > > > > >    .../devicetree/bindings/pci/brcm,stb-pcie.yaml       | 12
-> > > > > > > > ++++++++++++
-> > > > > > > >    1 file changed, 12 insertions(+)
-> > > > > > > > 
-> > > > > > > > diff --git
-> > > > > > > > a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > > > > b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > > > > index 0925c520195a..f965ad57f32f 100644
-> > > > > > > > --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > > > > +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > > > > @@ -104,6 +104,18 @@ properties:
-> > > > > > > >        minItems: 1
-> > > > > > > >        maxItems: 3
-> > > > > > > >    +  brcm,gen3-eq-presets:
-> > > > > > > > +    description: |
-> > > > > > > > +      A u16 array giving the GEN3 equilization presets, one for
-> > > > > > > > each lane.
-> > > > > > > > +      These values are destined for the 16bit registers known as the
-> > > > > > > > +      Lane Equalization Control Register(s) of the Secondary PCI
-> > > > > > > > Express
-> > > > > > > > +      Extended Capability.  In the array, lane 0 is first term,
-> > > > > > > > lane 1 next,
-> > > > > > > > +      etc. The contents of the entries reflect what is necessary for
-> > > > > > > > +      the current board and SoC, and the details of each preset are
-> > > > > > > > +      described in Section 7.27.4 of the PCI base spec, Revision 3.0.
-> > > > > > > 
-> > > > > > > If these are defined by the PCIe spec, then why is it Broadcom specific
-> > > > > > > property?
-> > > > > Yes, I will remove the "brcm," prefix.
-> > > > > > > 
-> > > > > > Hi Rob,
-> > > > > > 
-> > > > > > qcom pcie driver also needs to program these presets as you suggested
-> > > > > > this can go to common pci bridge binding.
-> > > > > > 
-> > > > > > from PCIe spec 6.0.1 revision section 8.3.3.3 & 4.2.4.2 for data rates
-> > > > > > of  8.0 GT/s, 16.0 GT/s, and 32.0 GT/s uses one class of preset (P0
-> > > > > > through P10) and where as data rates of 64.0 GT/s use different class of
-> > > > > > presets (Q0 through Q10) (Table 4-23). And data rates of 8.0 GT/s also
-> > > > > > have optional preset hints (Table 4-24).
-> > > > > > 
-> > > > > > And there is possibility that for each data rate we may require
-> > > > > > different preset configuration.
-> > > > > > 
-> > > > > > Can we have a dt binding for each data rate of 16 byte array.
-> > > > > > like gen3-eq-preset array, gen4-eq-preset array etc.
-> > > > > 
-> > > > > Yes, that was the idea when using "genX-eq-preset", for X in {3,4...}.
-> > > > > 
-> > > > > Keep in mind that this is an RFC; I have a backlog of commit submissions
-> > > > > before I can submit the code that uses this DT property.  If you
-> > > > > (Krishna) want to submit something now I'd be quite happy to go with
-> > > > > that.  I don't believe it is acceptable to submit a bindings commit w/o
-> > > > > code that uses it (if I'm incorrect I'll be glad to do a V2).
-> > > > > 
-> > > > I submitted a pull request for this. if you have any other suggestions
-> > > > or if we need to have any other details we can update this pull request.
-> > > > https://github.com/devicetree-org/dt-schema/pull/146
-> > > 
-> > > Thanks for doing this.   However, why a u8 array?  The registers are
-> > > defined as u16 so it would be more natural to use a u16 array, each
-> > > entry giving
-> > > all of the data for a single lane.  In our implementation we read a
-> > > u16 and we write it to the register -- what advantage is there by
-> > > using a u8 array?
-> > > 
-> > > Also if there are 16 lanes, you will need 32 maxItems, correct?
-> > 
-> > I added these questions to the github PR.
-> > 
-> > Also, why does it define gen3-eq-presets, gen4-eq-presets,
-> > gen5-eq-presets, and gen6-eq-presets?  I think there's only a single
-> > place to write these values (the Lane Equalization Control registers,
-> > PCIe r6.0, sec 7.7.3.4), isn't here?  How would software choose the
-> > correct values to use?
+Nit: the title says we lower the poll interval, while we actually raise
+it. Maybe that'd be clearer as:
+
+	kselftest/arm64: Raise poll timeout while waiting for fp-stress children
+
+... or:
+
+	kselftest/arm64: Poll less frequently while waiting for fp-stress children
+
+That aside, this looks fine.
+
+Mark.
+
+On Tue, Oct 29, 2024 at 12:10:40AM +0000, Mark Brown wrote:
+> While fp-stress is waiting for children to start it doesn't send any
+> signals to them so there is no need for it to have as short an epoll()
+> timeout as it does when the children are all running. We do still want to
+> have some timeout so that we can log diagnostics about missing children but
+> this can be relatively large. On emulated platforms the overhead of running
+> the supervisor process is quite high, especially during the process of
+> execing the test binaries.
 > 
-> 7.7.3.4 Lane Equalization Control Register is for gen3 speed, for gen4
-> we had a new capability register 7.7.5.9 16.0 GT/s Lane Equalization Control
-> Register for gen5 we have 7.7.6.9 32.0 GT/s Lane Equalization Control
-> Register.
-
-Oh, thank you!  I completely missed those new registers.
-
-> for gen3 we should not use uint8 as gen3 as transmitter preset and
-> receiver preset hint thus for each lane we need to have uint16 instead
-> of uint8 as we are defining per lane property in driver where we use
-> each uint16 value of array needs to be mapped correctly in the register.
-> If we have only support for single lane then last 16 bits becomes
-> invalid. so for 16 lanes we need to uint16 array each of uint16 instead
-> of uint8. ( I will modify it to uint16 instead of uint16)
+> Implement a longer epoll() timeout during the setup phase, using a 5s
+> timeout while waiting for children and switching  to the signal raise
+> interval when all the children are started and we start sending signals.
 > 
-> for remaining gen speeds we don't have receiver preset hint, and it
-> requires only 8 bits to represent a lane only. so i will use only uint8
-> for remaining gen speeds.
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/testing/selftests/arm64/fp/fp-stress.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> Bjorn,
+> diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
+> index c986c68fbcacdd295f4db57277075209193cb943..963e2d891ced72fb8d6eff4fdb5c7df0724b14f1 100644
+> --- a/tools/testing/selftests/arm64/fp/fp-stress.c
+> +++ b/tools/testing/selftests/arm64/fp/fp-stress.c
+> @@ -453,6 +453,7 @@ int main(int argc, char **argv)
+>  {
+>  	int ret;
+>  	int timeout = 10 * (1000 / SIGNAL_INTERVAL_MS);
+> +	int poll_interval = 5000;
+>  	int cpus, i, j, c;
+>  	int sve_vl_count, sme_vl_count;
+>  	bool all_children_started = false;
+> @@ -588,7 +589,7 @@ int main(int argc, char **argv)
+>  		 * especially useful in emulation where we will both
+>  		 * be slow and likely to have a large set of VLs.
+>  		 */
+> -		ret = epoll_wait(epoll_fd, evs, tests, SIGNAL_INTERVAL_MS);
+> +		ret = epoll_wait(epoll_fd, evs, tests, poll_interval);
+>  		if (ret < 0) {
+>  			if (errno == EINTR)
+>  				continue;
+> @@ -626,6 +627,7 @@ int main(int argc, char **argv)
+>  			}
+>  
+>  			all_children_started = true;
+> +			poll_interval = SIGNAL_INTERVAL_MS;
+>  		}
+>  
+>  		if ((timeout % LOG_INTERVALS) == 0)
 > 
-> from PCIe spec 8.3.3.3 Tx Equalization Presets for 8.0, 16.0, 32.0, and
-> 64.0 GT/ tells which preset value we neeed to use based upon different
-> parameters. Based upon the type of the board hardware one has to
-> calculate the preset value and provide them using these properties.
-
-Thanks, I had looked at 8.3.3.3, but missed the extra 16, 32, and 64
-GT/s registers because 8.3.3.3 looks more like guidance for hardware
-design and firmware to calculate the values, and it doesn't mention
-the registers the OS would program.
-
-Sorry for confusing things!
-
-Bjorn
+> -- 
+> 2.39.2
+> 
 
