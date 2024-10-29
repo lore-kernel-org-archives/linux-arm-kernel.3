@@ -4,91 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2E6D5B840
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD0AD5B840
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=; b=CbDA/3zfU3bMSGMLRvUpH0NWjQ
-	qUEmodtR8yhlKNZfXQCL/+oqmW9QfMAPPHgi5Vimpd6knw1yzEufs606X/7GQbSu8G3Upr8JV6wSe
-	U4YTUY4hvg2u2hvm8KhRTksrbxV7aZ2JcFh6le3Xf5cuvU9j148VBLvf2SBrQwQxFqCa1wspYshc1
-	6so5tTZQw13vkWyWftePMr4eB781EQIV+BqUYwyYwqxIzU1M40/EB2/pBEhcfqEXwCm+wqNFKyEa+
-	84a8OOGFZLuDuXgGPeZrcU0SMFTCQcPgSJHbX8NtKRMmwbnYSWNxsBFHaKozktyEMWT/0ZFoOzj+J
-	wjj7CKmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ipd3R0XPPqBvXqkhdKucx+TiJlGjpp7/oLrHqojklQM=; b=4lHz9O3Up/NTkZPGb24XZllkrQ
+	OVKogccUKkN+lQ4oUU9MmCdpQj73AzhAyZ0n2AZRGStINwLjUSI/bzeWfH4uGhApnYR3JsrDNJamy
+	9ycoqPK0FUwFK8IHEtizIC73Tdow+HxYg0IMy8dh0vwNhMMV11Fjrwb+/IF1MACWbF2K+/MQT5bOi
+	sC52R4wA+cpdoumL1IX/qN1VvnUJXCSyyl/EnwMro5dXEwZl0KqUNdbbMfrS2fxQXAbiDk01v4hP2
+	YWN6/NCqPNQKcNrjc/F0sYgwiK1HX0UI4lnsXY/d23m2a8gdzRmVaR1IBjPb0s+y8vI/Wujuh/l5o
+	ChpTJm7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bYv-0000000Cv8S-3SED;
-	Tue, 29 Oct 2024 02:02:26 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1t5bch-0000000CvdP-0XuF;
+	Tue, 29 Oct 2024 02:06:19 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bXI-0000000Cuv6-2P4s
+	id 1t5bb1-0000000CvO0-0A7D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 02:00:45 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20cdb889222so46457465ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 19:00:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730167243; x=1730772043; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=;
-        b=NhXQUeFuU4GvoNGQXGv1Lo0utrE3NOhJ9r44RGMIXAygVS2r74a/g8LB8/YLsFtm6u
-         Z8SzXSLUwOqddNaXz8cWOt5szvvO+IFvLU4aeJbYruqiEEXXcC5zlBqB6rx7la4FIIKa
-         PgluQ9sU+wSaHOuABazTwZmqbAB97hFVzRovAN6BPc5qcMdWbxbRH53xA5qARVAByuTA
-         j+kaNafnjjweFYfsnjlym7dGVrcgKcdSI/ZF47dRdgIFD+DY39xLnhkYcSwQ66uQgQ4r
-         NgMRPVuLxeawynD1MQ82MTFB2pDvQEsm2FtWrPtLquJG25dji94UG2d0zE+bW238lsxU
-         jKnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730167243; x=1730772043;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H8hQc1q0c7ydkzj5XJQv8spb+cOnEwBuYMtKquh67M4=;
-        b=VofnU1Qc9DgATj/KH89E0KtK8cK1qSOXXPhwUppmp9U5OalK5SXDnjxR/u1WK1JKf4
-         WgP78Z7nni1Cis4pLMx9/PhCuhiWKnlyjbWBEY8sT5FVAj4IjGkZM7sltOqR9HNMwJR9
-         bOo4jpCpu8Z6j9ozfavMEwiUhDMMf4jMvJ7F7EJfVU7ZYYNThvA9f4xI2zq/3Il482FX
-         gfgic08mygv68yfP/V9aHBAQM0jDQvOEC67fhZXgi8easM+cSXerzgUe7sgsNt9hucoJ
-         d7+6b/AR0VTmhgquaGym7zqdCkOoLVBMKgfjBcfzcCwhFZ/SeqzKzmhKSvPklCgPiegL
-         SCiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdqv2rHNfpSYm+duSw6M5iedNgxQ279QVTMoe1BA2ieTxjLU0bp/vF57Erb5mhQh1M7v9/T3/K51432Ug7ROFW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr1Qfldk7hTMota4AyYVCnh46b4iwJ90OF6zVzfnzJWzfF/pn5
-	xf9iUpqid/ePTmP9qqbgznm68MyrJkfr5am/lRRMLTdRNhWn9EDj
-X-Google-Smtp-Source: AGHT+IHMp3p4tpfyLl4RBnJLnYbIe3AX6KVzvQAl8IiivMOzrOseT29gVE2QoPoZ7v8iAA8jRIZnvA==
-X-Received: by 2002:a17:903:2343:b0:20c:675d:923d with SMTP id d9443c01a7336-210c6c6f732mr150637715ad.39.1730167243375;
-        Mon, 28 Oct 2024 19:00:43 -0700 (PDT)
-Received: from [172.19.1.43] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc044a4csm56476155ad.248.2024.10.28.19.00.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Oct 2024 19:00:42 -0700 (PDT)
-Message-ID: <5d9e89aa-db10-4367-8417-9fcc1a3bb37a@gmail.com>
-Date: Tue, 29 Oct 2024 10:00:39 +0800
+	Tue, 29 Oct 2024 02:04:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730167475; x=1761703475;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=K2ZfybCrzkAsLmHDYJyV5b0HEEp9lIXG/MjUcI04DEI=;
+  b=WhLp2y5nhOCxyrKV6LDBgVbQ0pqFdfqpfgVuCSRXTazRYTWqgxn+QS+8
+   An/7Fs+UwUZ8wNdTVBBhRU2WVhEXKonhACgoHXuh45zcvArK9cZBbPxwQ
+   b4c2BLg80FCkbBgb/04muArwL7Yj25pVLQcqHg0ftwEbh3zfT/e0/GyRi
+   0sFU49DFF9LmwEskYtBTHxj+jveNrALboAcoOPY7KfjUOcAjDkt5txbz5
+   OgiaEOtzt9pZLeIE3eF60auPS6keeEmYQXbw8X19TO30Tk883dbDwR3mt
+   1ERvdrxNFJkgwt/onpKyY7stb42k+iRPeuJhWRDQH6pU7Zaa7qVC/9fXG
+   Q==;
+X-CSE-ConnectionGUID: UVXNvtGeTX6pUsrNoFEBKA==
+X-CSE-MsgGUID: xQDXvp4wRbWs5gHzbw4QSQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11239"; a="29220019"
+X-IronPort-AV: E=Sophos;i="6.11,240,1725346800"; 
+   d="scan'208";a="29220019"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2024 19:04:32 -0700
+X-CSE-ConnectionGUID: 8fka4D9mS7uhPL7WEThPgw==
+X-CSE-MsgGUID: Wg/BnqAfSemgywnvb42oxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,240,1725346800"; 
+   d="scan'208";a="81898620"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 28 Oct 2024 19:04:09 -0700
+Received: from orsmsx602.amr.corp.intel.com (10.22.229.15) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Mon, 28 Oct 2024 19:04:08 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Mon, 28 Oct 2024 19:04:08 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.168)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 28 Oct 2024 19:04:08 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v+dQ4OPlkUcQ7/V/jCOFGCpCDO928lfVZB7jLfpmav7c4Kd/SBtzWyyB0Abn4bJH4ymwxC6EdOJ1ecSiuu3vfMIrWQyop0/A4r/KDaK7FNqxos+Hjd3hVF17mLTr1cj67lEEU63lZ577z6DwHef3SXe9EEMZfP5z9SadgYqT+Jm6dRfKAyDA62yDoN6m2oBNGSmlfH96iDGkPug95ocWjQFJ3cWu+tA6/cmRZhOTsPmrwBB6QhPpSdxuLaj8/x2Nm+rxUfAovYyOzwSHqubPXtuQkWrz6y8MLjuydKosNqMWq7e02liEnsEvZ/ntcpViYqySiwUzJ9lKgAxpjOzNpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ipd3R0XPPqBvXqkhdKucx+TiJlGjpp7/oLrHqojklQM=;
+ b=Fm9PmP8OVWwDS2Q5WyBFHM3wWnQWmc9EGOHoCscPA/DxaFGx63+1Jj6jMvFWxsiVhONUl2oaodBvcQfPscC9PC/AafAcYXHbRSI3Cy1RoPMJB0VAe8Wa/0EQgDhB31VAOlIlYV7/yhJa/z2lCgLGCkX0cFU8iMxigvB/VPuzJZQKk3KSxgWx+YeYGwF+t/t1THZvOmlfiruANZgI1FCWtgy/NoDe8vFJrVtFN2zEutef65ybPzRZULaQuXvyHBoly/d31YnRMxpIfeg0oyZh86syr0ps/+yBJf+tOsnXYqjAw/u6YPgQxHfQwTrvW5n9NpN3XNuQBe1IeF4UlN2Bqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by DS7PR11MB6223.namprd11.prod.outlook.com (2603:10b6:8:98::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Tue, 29 Oct
+ 2024 02:04:00 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8093.018; Tue, 29 Oct 2024
+ 02:04:00 +0000
+Date: Mon, 28 Oct 2024 19:03:54 -0700
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, Dan Williams
+	<dan.j.williams@intel.com>
+CC: <linux-mm@kvack.org>, <vishal.l.verma@intel.com>, <dave.jiang@intel.com>,
+	<logang@deltatee.com>, <bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
+	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
+	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
+	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
+	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
+	<david@fromorbit.com>
+Subject: Re: [PATCH 10/12] fs/dax: Properly refcount fs dax pages
+Message-ID: <6720428aa1fcc_bc6a929439@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.9f0e45d52f5cff58807831b6b867084d0b14b61c.1725941415.git-series.apopple@nvidia.com>
+ <9f4ef8eaba4c80230904da893018ce615b5c24b2.1725941415.git-series.apopple@nvidia.com>
+ <66f665d084aab_964f22948c@dwillia2-xfh.jf.intel.com.notmuch>
+ <871q06c4z7.fsf@nvdebian.thelocal>
+ <671addd27198f_10e5929472@dwillia2-xfh.jf.intel.com.notmuch>
+ <87seskvqt2.fsf@nvdebian.thelocal>
+ <671b1ff62c64d_10e5929465@dwillia2-xfh.jf.intel.com.notmuch>
+ <87a5eon8v3.fsf@nvdebian.thelocal>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <87a5eon8v3.fsf@nvdebian.thelocal>
+X-ClientProxiedBy: MW4PR04CA0032.namprd04.prod.outlook.com
+ (2603:10b6:303:6a::7) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- mjchen@nuvoton.com, peng.fan@nxp.com, sudeep.holla@arm.com, arnd@arndb.de,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
- dmitry.torokhov@gmail.com
-References: <20241022063158.5910-1-mjchen0829@gmail.com>
- <20241022063158.5910-2-mjchen0829@gmail.com>
- <csbechg6iarxx52z2gqidszhvgjdvaraoumpfcsozelhuuhmtb@ec7es3txuzxc>
- <871e9a4c-7a3c-4a24-8829-a079983033da@gmail.com>
- <ef407e89-950f-4874-9dca-474d107f6a52@kernel.org>
- <984781ba-9f4c-4179-84d5-4ab8bbe4c3c6@gmail.com>
- <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
-Content-Language: en-US
-From: Ming-Jen Chen <mjchen0829@gmail.com>
-In-Reply-To: <9b0a508e-d9ae-45ab-882f-5bc1f03e13db@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DS7PR11MB6223:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5fb67051-17bd-4e5c-4cac-08dcf7bdf382
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?S/LeL2+Ae4N5LRTUvNDLwuOUHIMLEQ8iHGzDfPrnKZMNAW+FUJO95Rt5iiZg?=
+ =?us-ascii?Q?zfBdVj/gHywFtrJUg3ZnwAqMBxgBWu05ysK40M9nOeKEGkZE7hPgrYPl6f41?=
+ =?us-ascii?Q?meZ7H7U/9UtZOJCNNR3LdXwkq/yImpaBX/XPg9JXSjwYXyPtJleTdk4WWOsN?=
+ =?us-ascii?Q?Ex83PdkY+i4MoB7RdVk1i2D4B7C01falR9kuzKSEaYlG/9Un6JxqkZueRhFU?=
+ =?us-ascii?Q?AQDQ0cunAbZhV94yCOvNiQG+8Y5ibA/W0VQf8q4jSnZt2P0wqpVnJT0P7YQm?=
+ =?us-ascii?Q?fnhlq1JTYuLcxwPNmygy1LkgV0vETfKb0AB8IchAJUXQhTTEFXxFo7Rs3eBM?=
+ =?us-ascii?Q?x4bEOV02okrBoRUVcBTX67WD8M+uMOOGTunu7qQn1J/INNKEL9vRYX87ksMn?=
+ =?us-ascii?Q?EV453R8tgzM0NCBXkkR8cIHP7ydSTJY+wFpe8IYB1+WU3tE3fClXXy2u63Hi?=
+ =?us-ascii?Q?TzZgnPlFtBOMMHIKV8LqaUXJA4bMoC/H1vUgOerTFyQoyOmuOk2VGKSwyrg4?=
+ =?us-ascii?Q?n8TTDbDdmPIDb/jtxGdIzMjYG9fCHXjcw0gyaLcpdQNQJ43JHwPUYo9+pQgg?=
+ =?us-ascii?Q?WLTIm6REVv/OE0q1/CurmbzvaVfNmT05aUTcyTVRKhKgto/6jcUV+Jubtq1l?=
+ =?us-ascii?Q?kVOB8w0QwI93nlTk8v3S4ySm8gxECXjp60S9ESpPMeXxktCXhM9YhftspPVt?=
+ =?us-ascii?Q?hnqkXucZ/dPNjPT5ddlA20kNdKkVxqAwapo2LH592GOfIbPxWdukWIPd/gxk?=
+ =?us-ascii?Q?lUzzpnioe0w2tbYrWcRmWFG07vimOKsukCimjWu/aYekIDbJ/e66rpgQRuiy?=
+ =?us-ascii?Q?925N2Uws+O9RX32hMRK4YdhSdGjy2cX1o1//+oLcMmz9FuUSUzek/EJGSvsi?=
+ =?us-ascii?Q?XrQGqoQz92Sy3/YxF7vQkBsTAvM3rHeeK2P1VdcET7IqdnUyz+LOMw1KVaTe?=
+ =?us-ascii?Q?k5BEweY8dNP3UDCVC+4O3dns3/Lkik37xa+uRCf8GN/x0LAOUFKBWJdU8zbY?=
+ =?us-ascii?Q?Oi3cod1mRZ4l/LR2ooqDTcerIOo+CLkizSjRdnLORYJ/zqIGGd3i8HczbpsZ?=
+ =?us-ascii?Q?vmzgTYyY3XXQB1yUDO5YFaWVvRSuI3k8oEGujMsbtrQhnavtGPspACN0aQ+3?=
+ =?us-ascii?Q?XW/zUSb2euvwYNVrJpkO0ZOFZU9u0VB7zZMDXrE95OrYZgWCVN8HNjKC1qXD?=
+ =?us-ascii?Q?dTzy0REhZnIAGTWA3sQj/uAZKlow2vdF4Ap6wm6ysh8Vr5005NCYA8om8ZJw?=
+ =?us-ascii?Q?S1WFBTdsJiQUjKuJURxyYHo3LO4/whJFfYegQvVuNW61ZV7EVxiwK54vqxOF?=
+ =?us-ascii?Q?jA19VJY2goOLXezInfJLW5V/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tFId78MkabJ3o5Yezskz9rIFEZB5ZIyxPzfu93B1EmjzixYKXDkT26NIbN/W?=
+ =?us-ascii?Q?gUYQ4auvdVq6TZjt8WXtbjU4RGTr/+HmJGjmWbgwL8kDT66LpYiCAN7jSrx0?=
+ =?us-ascii?Q?3Yg9ik7nble2lOg4SNCOA7ZcQFZHg/HLrc+l0WAXJgNneN3gYRfE8d89niuG?=
+ =?us-ascii?Q?qtEYOYQnkpXuNi8+qxsxCBtDYAMPaHExeL/dD/BIWyqg1YEx1wmsAVlELxdo?=
+ =?us-ascii?Q?Rb3qhsi+Bwi68fjmzQ2DSm6oHSaijBqQSgdh7Av+85MKRN/ev2HSAP8ZeINk?=
+ =?us-ascii?Q?JGGG4ActNgybldEcAEFtAht1OiR0B5O57/S1R8YFjPi5sPI30ZJoSdGHE7WD?=
+ =?us-ascii?Q?3I6pxgfQZtC/2c15UNvrjRbvg+Nd10bMYO29Xg2wRfVRHbzzg4vbJB3cd31c?=
+ =?us-ascii?Q?50JpxTencmaOxjy1yMFaVpj3F2qU7co0FDjUjmwYJIngXDPt0xVzL7l3UMrj?=
+ =?us-ascii?Q?dTeOy4owdg6sTxTuNAvFRkBrjbpQoZSdkm2vngRH+h0pG1O15hSPTtEUn2ie?=
+ =?us-ascii?Q?8h3kWToJB8//vT0I7oPWmDQ2/xyMKYjbYNDbKmReh7SwB/UOHy8MYl1bYYWd?=
+ =?us-ascii?Q?cRlOS2yQT8Q4gHnsqBBrP+6frIHMWr5GE7UG5V9DjoUUCd1ihdKgrV9YGB+p?=
+ =?us-ascii?Q?xPVGHAmMZvVZtOHMZQczDYRq5sL543HW/iJmpGMK95bCvwphHsq/wol/2+2F?=
+ =?us-ascii?Q?ptKnHjkHY2e2agydNQNLwoRr83ox3JiJmUpRfff9nPrUPyVF7k+D6ANqZq/Q?=
+ =?us-ascii?Q?wFISAOmLwPbU2blG7qs5V3zXpSJZ6TouV7/OJ9Jcmd8+9EYAmpeE2DgQGzbx?=
+ =?us-ascii?Q?BF9Pn+fTd2eZ1BZXLogRb3l2i3tLaYVt1rV4gUjoQ5AGEOMGP+FaJU0aovfe?=
+ =?us-ascii?Q?ZfUyZIc7/sQ+LCBR2v1KlxQLKQC0PzxYC02NvP7ccSVfGwXD1QvCbDZd1P10?=
+ =?us-ascii?Q?o/3FTSq9turAkkvaHfwnvKcyDAVbF8nbb4PQ7QU4JiSixKX4DxSIr/wuW/Db?=
+ =?us-ascii?Q?JaNy4C75Z3/B26B1zgTPeksl1h7PkDGTBhm/PsYhuvDrlam/xZBCDewRjdwy?=
+ =?us-ascii?Q?WOx1l1gkxlcYgTFB5Js6YM4o1F9+JzcmkbRPLDAvG41WFAtUZuhufH0/A0bn?=
+ =?us-ascii?Q?F+ZtIXJASaXoRljMY0qrZnocA+k0VM46MA5OleQ9EVPwfd1eW+XQ5r7/o4KU?=
+ =?us-ascii?Q?HzCBOqxRT4PIvaqdxlAzyEIrXDsFFOmFAtqYvwVKKzhAchk0CzbKxWFMglDQ?=
+ =?us-ascii?Q?DabsESpCTnpTGeSUDjD5VwW8cfIlVzdXscpqNyiK5zP2qaJo5M5sE8GY+Q7N?=
+ =?us-ascii?Q?eEHTYjN1WU2RZkrZ9hM+MF54cf5LtYn+eaUQp5QaJEhv6a8YPo2FthT4I+tJ?=
+ =?us-ascii?Q?o0PCLxOhCIRZdYAtnPfulsBPiBWnEBTQw3NCwf+ib1LOJHhz3imZA5dLzsyu?=
+ =?us-ascii?Q?M+tiTuHcEx8CrfZ+GuO7pQiYRTnKPOKf7V+ROEi5qS4pr/XTRLK+rLt3/PZT?=
+ =?us-ascii?Q?1g8xWeJJbjmwhZY9ejJyHT6d2EzCXhPgDzIyaftpClUmu1VU1atNvNT/yDKP?=
+ =?us-ascii?Q?m+KQAPrc+LFeWEUtCI+IN2haqrEKIohxzR0k4vhlxvieSkRzu0czUGiCCHwr?=
+ =?us-ascii?Q?9g=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5fb67051-17bd-4e5c-4cac-08dcf7bdf382
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:04:00.6704
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fB+OmcDZMgJ0kthijVpM0QQhxb8QAcAct2PA9o2lL6+66IMjprEtw/FfcS2b07zsi7so+vi2M/3PPIXriyfjxkdhHa3RyECs5gX+R5xa0bk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB6223
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_190044_620318_3A8DCACD 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241028_190435_124115_8DF508A8 
+X-CRM114-Status: GOOD (  34.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,112 +207,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/10/28 下午 03:04, Krzysztof Kozlowski wrote:
+Alistair Popple wrote:
+[..]
 
-> On 28/10/2024 02:15, Ming-Jen Chen wrote:
->> On 2024/10/25 下午 07:42, Krzysztof Kozlowski wrote:
->>> On 25/10/2024 07:36, Ming-Jen Chen wrote:
->>>>>> +      0  = 0 clock
->>>>>> +      1  = 0 clock
->>>>>> +      2  = 0 clock
->>>>> Heh? So this is just 0
->>>>>
->>>>>> +      3  = 8 clocks
->>>>> This is 8
->>>>>
->>>>>> +      4  = 16 clocks
->>>>> 16, not 4
->>>>>
->>>>>> +      5  = 32 clocks
->>>>>> +      6  = 64 clocks
->>>>>> +      7  = 128 clocks
->>>>>> +      8  = 256 clocks
->>>>>> +      9  = 512 clocks
->>>>>> +      10 = 1024 clocks
->>>>>> +      11 = 2048 clocks
->>>>>> +      12 = 4096 clocks
->>>>>> +      13 = 8192 clocks
->>>>> Use proper enum
->>>> I will update the definition to specify the debounce period in terms of
->>>> keypad IP clock cycles, as follow:
->>>>
->>>> nuvoton,debounce-period:
->>>>        type: integer
->>>>        enum: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
->>>>        description: |
->>>>            Key debounce period select, specified in terms of keypad IP
->>>> clock cycles.
->>>>            This value corresponds to the register setting for the keypad
->>>> interface.
->>>>            The following values indicate the debounce time:
->>>>            - 0 = 0 clock cycles (no debounce)
->>>>            - 3 = 8 clock cycles
->>>>            - 4 = 16 clock cycles
->>>>            - 5 = 32 clock cycles
->>>>            - 6 = 64 clock cycles
->>>>            - 7 = 128 clock cycles
->>>>            - 8 = 256 clock cycles
->>>>            - 9 = 512 clock cycles
->>>>            - 10 = 1024 clock cycles
->>>>            - 11 = 2048 clock cycles
->>>>            - 12 = 4096 clock cycles
->>>>            - 13 = 8192 clock cycles
->>> No. 0, 8, 16, 32 , 64 etc.
->> I will change it to the following content:
->>
->> nuvoton,debounce-period:
->>     type:  integer
->>     enum:  [0,8,16,32,64,128,256,512,1024,2048,4096,8192]
->>     description:  | Key debounce period select, specified in terms of keypad IP clock
->> cycles. Valid values include 0 (no debounce) and specific clock cycle
->> values: 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, and 8192.
->>
->>>>>> +
->>>>>> +  per-scale:
->>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>>> +    description: Row Scan Cycle Pre-scale Value (1 to 256).
->>>>> Missing constraints
->>>>>
->>>>>> +
->>>>>> +  per-scalediv:
->>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>>> +    description: Per-scale divider (1 to 256).
->>>>> Missing constraints
->>>>>
->>>>> Both properties are unexpected... aren't you duplicating existing
->>>>> properties?
->>>> pre-scale:
->>>> This value configures the IC register for the row scan cycle
->>>> pre-scaling, with valid values ranging from 1 to 256
->>>> per-scalediv:(I will change pre-scalediv to pre-scale-div)
->>> Please look for matching existing properties first.
->> I will change it to the following content:
->>
->> nuvoton,scan-time:
-> Why? What about my request?
+> >> > It follows that that the DMA-idle condition still needs to look for the
+> >> > case where the refcount is > 1 rather than 0 since refcount == 1 is the
+> >> > page-mapped-but-DMA-idle condition.
+> 
+> Because if the DAX page-cache holds a reference the refcount won't go to
+> zero until dax_delete_mapping_entry() is called. However this interface
+> seems really strange to me - filesystems call
+> dax_layout_busy_page()/dax_wait_page_idle() to make sure both user-space
+> and DMA[1] have finished with the page, but not the DAX code which still
+> has references in it's page-cache.
 
-I utilized|grep|  to search for relevant properties in the|input/|  folder using keywords such as|scan|,|time|,|period|,|freq|, and|interval|.
-While I found some similar properties, I did not locate any that completely meet my requirements.
+First, I appreciate the clarification that I was mixing up "mapped"
+(elevated map count) with, for lack of a better term, "tracked" (mapping
+entry valid).
 
-For example, I found|"scanning_period"|, which is described as "Time between scans. Each step is 1024 us. Valid 1-256."
-I would like to confirm if you are suggesting that I use|scanning_period|  and explain my specific use case in the description,
-for example:
+So, to repeat back to you what I understand now, the proposal is to
+attempt to allow _count==0 as the DMA idle condition, but still have the
+final return of the block to the allocator (fs allocator) occur after
+dax_delete_mapping_entry().
 
-nuvoton,scanning-period:
-     type:  uint32
-     description:  | Set the scan time for each key, specified in terms of keypad IP clock 
-cycles. The valid range is from 1 to 256.      minimum:  1
-     maximum:  256 Could you please confirm if this approach aligns with your suggestion,
-  or if you have any other recommended existing properties?
+> Is there some reason for this? In order words why can't the interface to
+> the filesystem be something like calling dax_break_layouts() which
+> ensures everything, including core FS DAX code, has finished with the
+> page(s) in question? I don't see why that wouldn't work for at least
+> EXT4 and XFS (FUSE seemed a bit different but I haven't dug too deeply).
+> 
+> If we could do that dax_break_layouts() would essentially:
+> 1. unmap userspace via eg. unmap_mapping_pages() to drive the refcount
+>    down.
 
-Thank you for your assistance!
+Am I missing where unmap_mapping_pages() drops the _count? I can see
+where it drops _mapcount. I don't think that matters for the proposal,
+but that's my last gap in tracking the proposed refcount model.
 
->
->
-> Best regards,
-> Krzysztof
+> 2. delete the DAX page-cache entry to remove its refcount.
+> 3. wait for DMA to complete by waiting for the refcount to hit zero.
+> 
+> The problem with the filesystem truncate code at the moment is steps 2
+> and 3 are reversed so step 3 has to wait for a refcount of 1 as you
+> pointed out previously. But does that matter? Are there ever cases when
+> a filesystem needs to wait for the page to be idle but maintain it's DAX
+> page-cache entry?
 
-Best regards,
-Ming-Jen Chen
+No, not that I can think of. The filesystem just cares that the page was
+seen as part of the file at some point and that it is holding locks to
+keep the block associated with that page allocated to the file until it
+can complete its operation.
 
+I think what we are talking about is a pfn-state not a page state. If
+the block-pfn-page lifecycle from allocation to free is deconstructed as:
+
+    block free
+    block allocated
+    pfn untracked
+    pfn tracked
+    page free
+    page busy
+    page free
+    pfn untracked
+    block free
+
+...then I can indeed see cases where there is pfn metadata live even
+though the page is free.
+
+So I think I was playing victim to the current implementation that
+assumes that "pfn tracked" means the page is allocated and that
+pfn_to_folio(pfn)->mapping is valid and not NULL.
+
+All this to say I am at least on the same page as you that _count == 0
+can be used as the page free state even if the pfn tracking goes through
+delayed cleanup.
+
+However, if vmf_insert_XXX is increasing _count then, per my
+unmap_mapping_pages() question above, I think dax_wait_page_idle() needs
+to call try_to_unmap() to drop that _count, right? Similar observation
+for the memory_failure_dev_pagemap() path, I think that path only calls
+unmap_mapping_range() not try_to_unmap() and leaves _count elevated.
+
+Lastly walking through the code again I think this fix is valid today:
+
+diff --git a/fs/dax.c b/fs/dax.c
+index fcbe62bde685..48f2c85690e1 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -660,7 +660,7 @@ struct page *dax_layout_busy_page_range(struct address_space *mapping,
+        pgoff_t end_idx;
+        XA_STATE(xas, &mapping->i_pages, start_idx);
+ 
+-       if (!dax_mapping(mapping) || !mapping_mapped(mapping))
++       if (!dax_mapping(mapping))
+                return NULL;
+ 
+        /* If end == LLONG_MAX, all pages from start to till end of file */
+
+
+...because unmap_mapping_pages() will mark the mapping as unmapped even
+though there are "pfn tracked + page busy" entries to clean up.
+
+Appreciate you grappling this with me!
 
