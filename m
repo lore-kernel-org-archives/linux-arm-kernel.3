@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF777D3A66E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED963D3A66D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 15:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hnu8v/e4ESPVmYtqBP16EFcx6hEDQoX5gemrthw7OXs=; b=SMHQ14YFOCLFaePhQWKmsb1SN9
-	NFwY1zFYwM8bkFvZRxBXglLjwx0W/DyUl6wjnfeSlA3cxJVO3JMrIoopQN/OkaUCGRJi9G388nYRr
-	rdCUcdevAkVJEY91hmUuAr/vLgFwqc4Z2Wv6I7vQPLGs0XZfR7IrtKpSXIdIENh9mvDLSKa0iGR0Q
-	E1//+6igRxDnoIcV68pGnzC5qzkAbDKCZIQclpRh+wBpf5JVKC2IQpBmDJowaYadSZF5b4ALXLz+3
-	18WB0IxD/hsQxLjH3GsC4aYGRo+SSg38FazVvalqoPsTmhG3vxYIZWwSmudj9/RoPwY0qmFq1n8Rw
-	RzrD7JYA==;
+	bh=tfxRcEl6yujaoJeBe/6KC02FQAg8zOwmpFzGDqZ1dbc=; b=PhG0Oq/XHklqZW1ZckoTNcm1uE
+	Blo1KO9ZMYsl//fEiZ+AKoQMKtJND15ssaMqQPC3xN9/Ld2lXQPSfxWRrMtzL/Tf9CDTXU+hohnbO
+	Ft0MEgR0eFLZX0uvmWzKRXIzv1RPnefNjBLzItAcF+oEK+yl24SVvqm02tlK7ZcAwhyct/qDtyUKA
+	MWSjZ0Zbs7kXzdoR+46e2PqCbIqlOv4YYlG6Wz7IbD0QuoOi2ffCJHsbM3FkpZeLKnykzwK04agVo
+	QHPgqnBNa4SsXZcSieewXHeOBz4k5II82Y0bqKpa3lI/unI9oTXelcLim8cGpXSCEcANCKRtSgVrR
+	zv8IPWgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oZG-0000000F1mt-0rZX;
-	Tue, 29 Oct 2024 15:55:38 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1t5oas-0000000F29m-0QvD;
+	Tue, 29 Oct 2024 15:57:18 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5oK1-0000000ExJL-0XV5
+	id 1t5oK1-0000000ExJZ-2RCV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 15:39:54 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4XdDtR2nVrz6D8YT;
-	Tue, 29 Oct 2024 23:38:23 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 078B7140393;
-	Tue, 29 Oct 2024 23:39:39 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 29 Oct
- 2024 16:39:38 +0100
-Date: Tue, 29 Oct 2024 15:39:36 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Will Deacon <will@kernel.org>
-CC: Ilkka Koskinen <ilkka@os.amperecomputing.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>, Jing Zhang <renyu.zj@linux.alibaba.com>, "Mark
- Rutland" <mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] perf/dwc_pcie: Load DesignWare PCIe PMU driver
- automatically on Ampere SoCs
-Message-ID: <20241029153936.00004d59@Huawei.com>
-In-Reply-To: <20241029130014.GC4241@willie-the-truck>
-References: <20241008231824.5102-1-ilkka@os.amperecomputing.com>
-	<20241008231824.5102-3-ilkka@os.amperecomputing.com>
-	<20241024113201.GA30270@willie-the-truck>
-	<617bffb7-9dee-6139-53d5-524ba03197f6@os.amperecomputing.com>
-	<20241028173132.GC2871@willie-the-truck>
-	<722266ba-1572-2c2b-87d6-dc4f8ec9a274@os.amperecomputing.com>
-	<20241029130014.GC4241@willie-the-truck>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	Tue, 29 Oct 2024 15:39:55 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49TFdbqb015864;
+	Tue, 29 Oct 2024 10:39:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730216377;
+	bh=tfxRcEl6yujaoJeBe/6KC02FQAg8zOwmpFzGDqZ1dbc=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=tGJEk60nkEi1Xj5urMOa2cgwRrLMH45WFwXUx/n0DjvqjZMoKUD9B67maQJE+c3FJ
+	 zATcVg2BigwW8JmWnIKYeRJ6VuEiBD/i73ZoNXO/XIHYGuvxa1zeFgCtmyuczNg9bp
+	 IafzDaTljI5dG0NCYLMo+JDRVfigX+T01/LtTLLw=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFdbkd001965;
+	Tue, 29 Oct 2024 10:39:37 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Oct 2024 10:39:36 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Oct 2024 10:39:36 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49TFdWIu073456;
+	Tue, 29 Oct 2024 10:39:33 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>,
+        Wadim Egorov
+	<w.egorov@phytec.de>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <quic_bjorande@quicinc.com>,
+        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
+        <krzysztof.kozlowski@linaro.org>, <neil.armstrong@linaro.org>,
+        <arnd@arndb.de>, <nfraprado@collabora.com>, <nm@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <upstream@lists.phytec.de>
+Subject: Re: [PATCH v2] arm64: defconfig: Enable PCF857X GPIO expander
+Date: Tue, 29 Oct 2024 21:09:30 +0530
+Message-ID: <173021636094.3847953.6331486710052708801.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241003063642.2710384-1-w.egorov@phytec.de>
+References: <20241003063642.2710384-1-w.egorov@phytec.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_083953_462666_95E8412A 
-X-CRM114-Status: GOOD (  33.56  )
+X-CRM114-CacheID: sfid-20241029_083953_768411_8E24A7CC 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Oct 2024 13:00:15 +0000
-Will Deacon <will@kernel.org> wrote:
+Hi Wadim Egorov,
 
-> On Mon, Oct 28, 2024 at 08:27:27PM -0700, Ilkka Koskinen wrote:
-> > 
-> > On Mon, 28 Oct 2024, Will Deacon wrote:  
-> > > On Thu, Oct 24, 2024 at 03:19:17PM -0700, Ilkka Koskinen wrote:  
-> > > > 
-> > > > Hi Will,
-> > > > 
-> > > > On Thu, 24 Oct 2024, Will Deacon wrote:  
-> > > > > On Tue, Oct 08, 2024 at 11:18:23PM +0000, Ilkka Koskinen wrote:  
-> > > > > > Load DesignWare PCIe PMU driver automatically if the system has a PCI
-> > > > > > bridge by Ampere.
-> > > > > > 
-> > > > > > Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> > > > > > ---
-> > > > > >  drivers/perf/dwc_pcie_pmu.c | 10 ++++++++++
-> > > > > >  1 file changed, 10 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> > > > > > index 3581d916d851..d752168733cf 100644
-> > > > > > --- a/drivers/perf/dwc_pcie_pmu.c
-> > > > > > +++ b/drivers/perf/dwc_pcie_pmu.c
-> > > > > > @@ -782,6 +782,16 @@ static void __exit dwc_pcie_pmu_exit(void)
-> > > > > >  module_init(dwc_pcie_pmu_init);
-> > > > > >  module_exit(dwc_pcie_pmu_exit);
-> > > > > > 
-> > > > > > +static const struct pci_device_id dwc_pcie_pmu_table[] = {
-> > > > > > +	{
-> > > > > > +		PCI_DEVICE(PCI_VENDOR_ID_AMPERE, PCI_ANY_ID),
-> > > > > > +		.class		= PCI_CLASS_BRIDGE_PCI_NORMAL,
-> > > > > > +		.class_mask	= ~0,
-> > > > > > +	},
-> > > > > > +	{ }
-> > > > > > +};
-> > > > > > +MODULE_DEVICE_TABLE(pci, dwc_pcie_pmu_table);  
-> > > > > 
-> > > > > Hmm, won't this only work if the driver is modular? Should we be calling
-> > > > > pci_register_driver() for the builtin case?  
-> > > > 
-> > > > That would be the normal case indeed. However, this driver is quite
-> > > > different: dwc_pcie_pmu_init() goes through all the pci devices looking for
-> > > > root ports with the pmu capabilities. Moreover, the probe function isn't
-> > > > bound to any specific vendor/class/device IDs. This patch simply makes sure
-> > > > the driver is loaded and the init function gets called, if the driver was
-> > > > built as module and ran on Ampere system.  
-> > > 
-> > > Ok, but that seems like the wrong approach, no? We end up with a weird
-> > > list of vendors who want the thing to probe on their SoCs and, by
-> > > omission, everybody not on the list doesn't want that behaviour.  
-> > 
-> > Ideally, dwc pmu driver would claim the supported root ports but I think the
-> > PCIe driver is doing that. How about if we simply drop the auto loading
-> > patch and let users to manually load the driver as they have been doing so
-> > far?  
-
-Yup. The PCIe portdrv binds to the port.  Lots of work needed to clean that
-up and make it extensible. Maybe we can then kick this PMU driver off from
-there once it's done.
-
-Jonathan
-
+On Thu, 03 Oct 2024 08:36:42 +0200, Wadim Egorov wrote:
+> Enable the PCF857X GPIO expander which is equipped on
+> the PHYTEC phyBOARD-Lyra AM625.
 > 
-> Sure, I'll pick the other two up. Thanks!
 > 
-> Will
-> 
+
+I have applied the following to branch ti-k3-config-next on [1].
+Thank you!
+
+[1/1] arm64: defconfig: Enable PCF857X GPIO expander
+      commit: 8461bcf0a3d9d39ff9d858c06c2c820f711a8182
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
 
