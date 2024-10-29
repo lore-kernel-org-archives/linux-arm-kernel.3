@@ -4,131 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B711D74945
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 22:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7E4D7494D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 23:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3amIaBqxn/MRk2a7GLzyv4HMPzhNOSMDMorth6/EHs=; b=fWNqNRzjSGTdynf5vi3RbfQKIl
-	rA7B/oiPQzN7Qy3ndGuz3R5A8FX0SyVEH1qa//rwpM/UWvEDtXjousPwcQsCWVFg6StMEfD1HyITv
-	d3ST8FOe2msmfPa0y5JAvGiN1UL8cmzuqD5rpNBDucOjheAXaccTfLBgxicF9s26vLxKpC1B2X/Wh
-	mT8cQ05chEeJbZSHp/8BqRRndeM4DShrpXcq08p5i9b3Tsys9kilgTgKe98zS7YZKFt+VP1W5cSEK
-	lhGEac0n8AvYDwdQS37tPF7O4GnbvpBZMXTeNEjTd0RPaxXEjs2AtU/F8WxXKU2O2M2X1SA5iUhz9
-	FiwnPUiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9mM2+t26yi1lNLcTeoYH6Trl38RhTdZUs6NLhgQOqrw=; b=ljTzAtUbdssMtbOmN46rWuDGsz
+	C7TUzaoKS3cKBi6a07EGp6Kei/hEpSNkkVyXrdw2+24B7Zd7iiHLOk4XiF42byKsFVG6BetK1OF1z
+	uDeHMY1SJpQp6gRG4D1jMOW3Uf1ezldFaVQz7wXoqRYPjskRUmwKqRuq3EeOZVrdrMUnOh4gh+m3P
+	ntYMHVwGdIC8bAJ92c7hpiNMLW9xrnXN8HgQoihOQw31UnOI5qYny6KlzaeFPRFvQS4+U59vF/Q6Y
+	XUQISpYTeSflIfPLwPbGwLKl/6dCjSGajHAu/v2ZULHDeWGr1vsvaud190McL7AtgTjy2BN7WiNK1
+	B3/gFTMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5ueT-0000000G2q4-0Crr;
-	Tue, 29 Oct 2024 22:25:25 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1t5vN7-0000000G87a-3k3h;
+	Tue, 29 Oct 2024 23:11:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5uco-0000000G2cY-2HE4
+	id 1t5vLS-0000000G81I-00Ck
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 22:23:43 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-20c6f492d2dso67557535ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 15:23:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730240621; x=1730845421; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=S3amIaBqxn/MRk2a7GLzyv4HMPzhNOSMDMorth6/EHs=;
-        b=JlGcXYYroImkkI2P//4li5PWmzt+Ej6Mx3k6cDG/6NtDubELuWIbccRTWFjKbGYnCS
-         17h244uKAzBO9stduhaBdYVgW0Fk8i3tqUXFRTH9QAUQMwKWhLkJ33yW8wb4k+vpnEXl
-         +MaaVrJnGE+JMe8JGwEh2X6hW9YkL9QsGRAHMPcHSeWKe3dSAM45R+K+bagCAjsmo67N
-         Ga871EX+FlRCOTeFpMdJriXBrSNwxnSGds0oBXvg/nJMTcYqFNAqrktPETRcj9ir1dF7
-         NO00IY9L6haf3ITDw3IDw+Jp8GyquLcWkktfDo3Wdv1cVujVQ2ASqsUTnUiWcU9ShcNp
-         EuGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730240621; x=1730845421;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S3amIaBqxn/MRk2a7GLzyv4HMPzhNOSMDMorth6/EHs=;
-        b=bPp6ui7ppAnWo1NLSNRoee3aJ/prUKPwZiTlbsufIq/BA/qA3gc+mXSeD8lBeWSA87
-         ETzcQB7kwduuo0POlCtKx799WhjmD6Gi1uZ7aaEG8t6x05fYdsP9LkAb/LUW4MAkpw/P
-         fNklQVFKKA3ZFdU2/jHY1chFH/0zsrXvVUdzXnzvL9IIbN34ZyYU6xWYjFnlHPi/9jPp
-         SaPVS/d+fLuKf/KOpo7HTNqB1xrUM9gydU/qXANPnv31q5Hmfb9KTCPhE6lPDucPGR3a
-         dmWdiiRGMGk5ZDITEcsK2JOTMVNWsyfFLjLp/G0NnmCwwJ0ep52mbwehGJyDouRgbT0/
-         8Vfg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJbHVh4ePfVemny3PK4/B910YkB9+WlB02JZFSHM2YqKigTg1J82Sa0yAdVC6+M4cyvczRWEb6mqlAhHEK0Rqe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhLIcirox2BGthbLQMEnXpwjsDWQFCjIEMLi9wU46hMlKmZCfd
-	ytWEd9g9kcjQORSb+FKbqLjXQrCQjgQrZcNZ+76fI1zj3LCmNa7V
-X-Google-Smtp-Source: AGHT+IG2OJ1VL8fU2/dXLJtV/JilmSF/qgLlzh7YDYRMAY3fyaGBjvcMUfU2RkOk3ukVkrg9Pj8vqA==
-X-Received: by 2002:a17:902:db0f:b0:20c:92ce:359d with SMTP id d9443c01a7336-210c6c6d8bamr214657625ad.45.1730240620917;
-        Tue, 29 Oct 2024 15:23:40 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc082bb5sm71477175ad.295.2024.10.29.15.23.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Oct 2024 15:23:39 -0700 (PDT)
-Message-ID: <58e98acc-d7b7-4160-9504-e5a7201f25e7@roeck-us.net>
-Date: Tue, 29 Oct 2024 15:23:38 -0700
+	Tue, 29 Oct 2024 23:09:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2A6A5A40902;
+	Tue, 29 Oct 2024 23:07:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05CEEC4CEE3;
+	Tue, 29 Oct 2024 23:09:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730243388;
+	bh=zye+wNRL8G23aZqii/unX0c97dPTkeNuEax9eXdHRRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W0udmcPM0lt/uRUN2hO5OXCF8Jqu411MxWWC3X7r1XUA6LfxlfzVFSzNvdZLV8N/1
+	 wUhYdMJz9JIGQ1dqfBANpSp75LnewD2GmrWH4PKmj7d6HbP0G6dt9+s/z8viCGDTP+
+	 6aYMleLjU51Oqx/rQRoaRpq8s77wCpxwOo38sPc1xQfvmCGbZV9R5Oc8EG8snOBJ2U
+	 ZlTtbtUYql4DUl3XQq6SHH6MbBh0KSapV9uTSsR5e1JvW+1D5Pq2u3iFDuLGC4PBuv
+	 HU1lSV0BEo5pDzA+sCV8w8HWTXZIg++UlbFhoz65QhRoSqy6DHRLDF8NRT2vFX8Ys0
+	 qdMxwJ20oXUgg==
+Date: Tue, 29 Oct 2024 16:09:46 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Graham Woodward <graham.woodward@arm.com>, acme@kernel.org,
+	mark.rutland@arm.com, jolsa@kernel.org, irogers@google.com,
+	james.clark@linaro.org, mike.leach@linaro.org, leo.yan@linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, nd@arm.com
+Subject: Re: [PATCH v1 0/4] perf arm-spe: Allow synthesizing of branch
+Message-ID: <ZyFrOo7K1qmjtaV5@google.com>
+References: <20241025143009.25419-1-graham.woodward@arm.com>
+ <Zx--dTqaZPjeWA2I@google.com>
+ <20241029170346.GB24446@e132581.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Revert "watchdog: s3c2410_wdt: use
- exynos_get_pmu_regmap_by_phandle() for PMU regs"
-To: Peter Griffin <peter.griffin@linaro.org>, wim@linux-watchdog.org,
- krzk@kernel.org, alim.akhtar@samsung.com
-Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- tudor.ambarus@linaro.org, andre.draszik@linaro.org, kernel-team@android.com,
- willmcvicker@google.com
-References: <20241029191131.2329414-1-peter.griffin@linaro.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241029191131.2329414-1-peter.griffin@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241029170346.GB24446@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_152342_618796_9EEE4653 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_160953_399638_424C8C43 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,19 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/29/24 12:11, Peter Griffin wrote:
-> This reverts commit 746f0770f916e6c48e422d6a34e67eae16707f0e.
+Hi Leo,
+
+On Tue, Oct 29, 2024 at 05:03:46PM +0000, Leo Yan wrote:
+> Hi Namhyung,
 > 
-> Now that we can register a SoC specific regmap with syscon using
-> of_syscon_register_regmap() api we can switch back to using
-> syscon_regmap_lookup_by_phandle() in the client drivers.
+> On Mon, Oct 28, 2024 at 09:40:21AM -0700, Namhyung Kim wrote:
+> > 
+> > Hello,
+> > 
+> > On Fri, Oct 25, 2024 at 03:30:05PM +0100, Graham Woodward wrote:
+> > > Currently the --itrace=b will only show branch-misses but this change
+> > > allows perf to synthesize branches as well.
+> > >
+> > > The change also incorporates the ability to display the target
+> > > addresses when specifying the addr field if the instruction is a branch.
+> > >
+> > > Graham Woodward (4):
+> > >   perf arm-spe: Set sample.addr to target address for instruction sample
+> > >   perf arm-spe: Use ARM_SPE_OP_BRANCH_ERET when synthesizing branches
+> > >   perf arm-spe: Correctly set sample flags
+> > >   perf arm-spe: Update --itrace help text
+> > 
+> > It doesn't apply to perf-tools-next cleanly.  Can you please rebase?
 > 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> I confirmed this series can apply cleanly on the branch [1] with the
+> latest commit 150dab31d560 ("perf disasm: Fix not cleaning up
+> disasm_line in symbol__disassemble_raw()"):
+> 
+>   [1] https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git
+>       branch: perf-tools-next
+> 
+> If you are suggesting for the branch:
+> 
+>   [2] https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools.git
+>       branch: perf-tools
+> 
+> You can see it misses some Arm SPE patches which have been picked up
+> in the repo [1].
+> 
+> Please kindly suggest what is right thing to do.
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Sorry, my bad.  It works ok.  I'll add it to tmp.perf-tools-next branch
+and run some tests.
 
-I hope this won't get auto-backported.
-
-Guenter
+Thanks,
+Namhyung
 
 
