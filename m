@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA45D3A696
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A71D3A696
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wF8AVBE566042dEisFc0/QOULIDtd917EPRX8LpaS4Q=; b=ytBP3GaXpE80N2zdXzOS/V4e6L
-	FDMpPLgMRbd9ntR4Y/terBhxhfJVLP4ic8fhheEAnxktOE0Obl2HDQReBBDMtpl+6yaQ4P5JHXy/4
-	E8SatO9vQqDQ4dTovZg637u2b8/2+bxtFRNiQIgNd8bNXC+l8Y1+GaBZ6lQAN1joPp3ww7uuz8ZTK
-	wk1S/dTiSNPmshvvWHfpuTFdVd9guThgGorBzd5N29ePo2l4ih7Vuz4/bT33JqC86apMXTDZQMeeo
-	yMgUMKFPhpvv9978oaVIJ6DkmsmD+UoeZh45+3KlMmewK6t+PY0SdFTwmaakbOpDkSTDxJREPmyAJ
-	M/neM5uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=; b=B+Qr2afzLjeUTnoepjdlCQ7DN3
+	I4/tPAL7LmpEVfimy3tpWJiKj0Wqs/a7afaEOmj5yxNsoKL30PNvxGwmGKYvNQDdAx5tTebh1NLDR
+	pmTVsHpYekvADRLgEKUWMgBhxJ/erbKoxwVjjcmUb/fGYUzdDVkWk3jE/I1iII4oClgnpURadCqxx
+	9o1A7dECoBU0Z3eUSKkJeiK8WU8e7B7b8hn6udvtIvLbBBSvVPzs90nag89bZ21iFsXUmo/lEtDtM
+	5JKXQdg7U1bhEQoVUJ1PaPXASunQ/ECuOVBUA8qNpwXuNmb3kicOG44hNwmLFYhLwfdlePgkahGr6
+	YtYz6W8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sJY-0000000FhzW-2mII;
-	Tue, 29 Oct 2024 19:55:40 +0000
-Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
+	id 1t5sOJ-0000000FiGO-13e1;
+	Tue, 29 Oct 2024 20:00:35 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sHt-0000000FhoX-2Amk
+	id 1t5rKX-0000000Fa7l-3s8z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:53:58 +0000
-Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-4a46fee3b16so96625137.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 12:53:56 -0700 (PDT)
+	Tue, 29 Oct 2024 18:52:48 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d450de14fso518095f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 11:52:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730231636; x=1730836436; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wF8AVBE566042dEisFc0/QOULIDtd917EPRX8LpaS4Q=;
-        b=rVRzMwP/fo/ICiI7eWY+hq6BVWmZBas+Wspi80zJCnaxyEWcCmRpOhy6J4Q6F9I0R/
-         Rmo9Qb7ibL8L9avU/o5GqiVfJFFK0iiRj8SgzoTy+vULg64hjJMQ/M5YS7Aad+uMV0zn
-         JbxFB8Uk0YOXoIk6WHqq0E8D4NXKIiVIhFaYh93HtlKicLhGrxIaBoibdTLmRBX35b0a
-         LScyV1SGfO9mnS7Wzk2vmEWO1QiBAMgJK+Hne7TFDsso6oJDOtedLlNbPg7laeK3M7pa
-         r7VlN6WXujrsuXRyPsaya715ifTion4MAtktu/pOSWiMwqb8CDtZXQO/vVU1rUmZ83kB
-         Fawg==
+        d=gmail.com; s=20230601; t=1730227955; x=1730832755; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=;
+        b=DJ6TrXk1TP0GJ2XNyGoffFgVg/TGpdE2YXOdNVk96f689YmIns7cMdunK/s/rNfayY
+         LTw2XHor5uZqEtlBSKDaXEHCm4P3pLOY10qgoyroxHZ+SaDQl+gy8RSaRV6k6itL962y
+         vm8qNddXZYL5O1cWZByafStcFJMgb8nTHQonVUNEVC0bQxyV7DuJl5P/lXYGJQc8Ue+F
+         jCmQ0AyX1OeB2WzmMLpsp/K+nFcnniFAGN7IUSJI5eOwxCnQbLC2SYsdmDgjSt5VBHBt
+         vheq4FjHGGux8Y1O3MCVjXxk5QrFDBKqAB3MtWe5DqA2zxhPs+vzm0h6Y1EmljzanTlS
+         qp/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730231636; x=1730836436;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wF8AVBE566042dEisFc0/QOULIDtd917EPRX8LpaS4Q=;
-        b=U0kTSpDQNnATu5H8mm0L1dVyvHCMZVozqTQHbRrS/mjG5x8Ch/Y9hB5R+6LTJNGg8Y
-         8po0bERzJNNP3W51fbeea+5mSZ2D4EpMoaH7b6UZZig6ZdRSITsbQAKPcgreZLoR5ysb
-         fxMij7sc2ZKM5/8KhnqqVGr0YptNBixA972H2Zuc8/9HFuFdPKo2nwe1j0j0Oa46C3bS
-         K3beAe2oinj4wLEsfqWC4La4vQH9LUlUUDdhp9ZLs9cYE2I6kY9LTyTLujj85gVoyXAg
-         xc6L7w/ZSdPNr4lpFuWVpKlze7jeUPeQKAUEa+bepW2fonBMDRb627eFhmdUGcPpKoUJ
-         KywQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEmMAEmGOsIZrZmPxoNoCYiku7pYBXCEx3bw7poXQSKn3292qq2T6Yz2T6RFG6fvFCyEqc6IEhPGFT/mzRKK7F@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrlvkjocPDuODTe3/3XsI6x1YzBOTl+9YgXfLUVnk4LZFzkKhj
-	RxHguUf8L/XFSi0YpDsSBUkxgo4DxSh6xfowyNUqyygzWszVmK1nisRlg42tiCmJ20fquyoe764
-	C1v9ebkYbi51KmCB0Mg2zvf3ZAP2SJuLX4tJpc9zWYLTEIyla8Q==
-X-Google-Smtp-Source: AGHT+IGiqS8zkowA0hhH1G9zpWHqiGgjCkwEqm4HQq3vuHcJXKhYb0OieWP/5MMHrb/rtD2no9MHT8oFzOwREShVmNE=
-X-Received: by 2002:a05:6102:a52:b0:4a4:77c7:9471 with SMTP id
- ada2fe7eead31-4a8f67c4340mr2620516137.5.1730231635771; Tue, 29 Oct 2024
- 12:53:55 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730227955; x=1730832755;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cQbHGrEqsKD5aF1OKVKnRulxpzJaf4NY46AhJlO9sJg=;
+        b=A2kYHKsM2C1Ror4LaMpEppcPsIFw+I+jOZ+Q+lnDPWg4y00J2X+xAzc+HWKrR8D2co
+         CxHmTwwiVv4pRmGSqIE/9e0fCzuHMzteZJuh2afzkQkCsHXxvGCwpU+KEHZskOc3DZPr
+         WhtVrD5Pdo8MJmz9S/iaQIAOS0ffst8pFdM2v8JTokpNYldY9t/AJvrIjUu5wJ9GC7LC
+         a1heKgWee5e6fsLKCoNVe/tLyiTIwMreWwwEPUBGxpsnowRtW4433uwNYq43+uf0TSSi
+         jqmXXOd+F2CACXeuZqHxobze5lxIMBMzagz9HVWgSYUXUrrxR/AjT2IM1wvrDqhDmcyP
+         Ff1A==
+X-Forwarded-Encrypted: i=1; AJvYcCU1HQZvnqWSOstw6qyQiFAIb3zCy+vC4uNYNixWddzyH40Yu3CTIhTWheVFk4cxwiF4dExnhlaQVas1IIfBjtVN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4DfCCq95fQix/vPKFQyKJTX7xvdrV1Svlpbbu4GElq95RhyXc
+	68d+BpUCXzadeS7BmmKngfBzzOcC6YRN2yuuNDWwnX3Oldlh/BMw
+X-Google-Smtp-Source: AGHT+IF1JuH5GETYzM48l9lfnZfPVRTjPuBUwhpTxF2mnfjmnhq15lSAoKb5oQuP+txb+/2Ssczf8A==
+X-Received: by 2002:a05:600c:1c29:b0:431:50b9:fa81 with SMTP id 5b1f17b1804b1-4319ad368f4mr46064815e9.7.1730227955179;
+        Tue, 29 Oct 2024 11:52:35 -0700 (PDT)
+Received: from skbuf ([188.25.134.29])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43193573e47sm154555825e9.8.2024.10.29.11.52.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 11:52:34 -0700 (PDT)
+Date: Tue, 29 Oct 2024 20:52:31 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
+	andrew+netdev@lunn.ch,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net-next v5 3/6] net: stmmac: Refactor FPE functions to
+ generic version
+Message-ID: <20241029185231.fgy6tofi2uoslp3l@skbuf>
+References: <cover.1730084449.git.0x1207@gmail.com>
+ <0f13217c5f7a543121286f13b389b5800bde1730.1730084449.git.0x1207@gmail.com>
 MIME-Version: 1.0
-References: <20241021042218.746659-1-yuzhao@google.com> <20241021042218.746659-4-yuzhao@google.com>
- <86a5ew41tp.wl-maz@kernel.org> <CAOUHufanq2_nbNiU_=mCgWufoSGDOS3EpAz+4xB5kB=PV2ECVA@mail.gmail.com>
- <86h6902m7y.wl-maz@kernel.org> <CAOUHufbEadyAn0WVdJqYKkUjvMfGXXiLjaApjhaHKg93P8Rymg@mail.gmail.com>
- <864j4u3f7l.wl-maz@kernel.org>
-In-Reply-To: <864j4u3f7l.wl-maz@kernel.org>
-From: Yu Zhao <yuzhao@google.com>
-Date: Tue, 29 Oct 2024 13:53:17 -0600
-Message-ID: <CAOUHufZFQ+RrSRiSw00Gv8bjn04hAg92eAbdp-tRoKM36R7uVQ@mail.gmail.com>
-Subject: Re: [PATCH v1 3/6] irqchip/gic-v3: support SGI broadcast
-To: Marc Zyngier <maz@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Muchun Song <muchun.song@linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
-	Will Deacon <will@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0f13217c5f7a543121286f13b389b5800bde1730.1730084449.git.0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_125357_580197_AD4228E2 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20241029_115237_986877_836314C5 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,73 +101,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 1:02=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> On Fri, 25 Oct 2024 18:31:01 +0100,
-> Yu Zhao <yuzhao@google.com> wrote:
-> >
-> > On Fri, Oct 25, 2024 at 10:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> =
-wrote:
-> > >
-> > > On Fri, 25 Oct 2024 06:07:45 +0100,
-> > > Yu Zhao <yuzhao@google.com> wrote:
-> > > >
-> > > > Hi Marc,
-> > > >
-> > > > On Tue, Oct 22, 2024 at 9:03=E2=80=AFAM Marc Zyngier <maz@kernel.or=
-g> wrote:
-> > > > >
-> > > > > On Mon, 21 Oct 2024 05:22:15 +0100,
-> > > > > Yu Zhao <yuzhao@google.com> wrote:
-> > > > > >
-> > > > > > @@ -1407,6 +1418,13 @@ static void gic_ipi_send_mask(struct irq=
-_data *d, const struct cpumask *mask)
-> > > > > >        */
-> > > > > >       dsb(ishst);
-> > > > > >
-> > > > > > +     cpumask_copy(&broadcast, cpu_present_mask);
-> > > > >
-> > > > > Why cpu_present_mask? I'd expect that cpu_online_mask should be t=
-he
-> > > > > correct mask to use -- we don't IPI offline CPUs, in general.
-> > > >
-> > > > This is exactly because "we don't IPI offline CPUs, in general",
-> > > > assuming "we" means the kernel, not GIC.
-> > > >
-> > > > My interpretation of what the GIC spec says ("0b1: Interrupts route=
-d
-> > > > to all PEs in the system, excluding self") is that it broadcasts IP=
-Is to
-> > > > "cpu_present_mask" (minus the local one). So if the kernel uses
-> > > > "cpu_online_mask" here, GIC would send IPIs to offline CPUs
-> > > > (cpu_present_mask ^ cpu_online_mask), which I don't know whether it=
-'s
-> > > > a defined behavior.
-> >
-> > Thanks for clarifying.
-> >
-> > > Offline CPUs are not known to the kernel.
-> >
-> > I assume it wouldn't matter to firmware either, correct? IOW, we
->
-> Firmware is on the secure side of the stack.
->
-> > wouldn't cause firmware any trouble by letting GIC send IPIs to
-> > (cpu_present_mask ^ cpu_online_mask), assuming those two masks can be
-> > different on arm64 when hotplug is enabled?
->
-> You can't send SGIs from non-secure to secure using ICC_SGI1R_EL1.
+On Mon, Oct 28, 2024 at 11:07:26AM +0800, Furong Xu wrote:
+>  void stmmac_fpe_link_state_handle(struct stmmac_priv *priv, bool is_up)
+>  {
+>  	struct stmmac_fpe_cfg *fpe_cfg = &priv->fpe_cfg;
+>  	unsigned long flags;
+>  
+> +	if (!priv->dma_cap.fpesel)
+> +		return;
+> +
 
-Right, this makes sense now.
+Minor nitpick: all call sites also have this test already.
 
-> You
-> would need to use ICC_ASGI1R_EL1, and have secure to allow such
-> brokenness via a configuration of GICR_NSACR. Linux doesn't use the
-> former, and no sane software touches the latter.
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+>  	timer_shutdown_sync(&fpe_cfg->verify_timer);
+>  
+>  	spin_lock_irqsave(&fpe_cfg->lock, flags);
+>  
+>  	if (is_up && fpe_cfg->pmac_enabled) {
+>  		/* VERIFY process requires pmac enabled when NIC comes up */
+> -		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
+> -				     priv->plat->tx_queues_to_use,
+> +		stmmac_fpe_configure(priv, priv->plat->tx_queues_to_use,
+>  				     priv->plat->rx_queues_to_use,
+>  				     false, true);
+>  
+> @@ -154,6 +161,11 @@ void stmmac_fpe_init(struct stmmac_priv *priv)
+>  	priv->fpe_cfg.status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
+>  	timer_setup(&priv->fpe_cfg.verify_timer, stmmac_fpe_verify_timer, 0);
+>  	spin_lock_init(&priv->fpe_cfg.lock);
+> +
+> +	if (priv->dma_cap.fpesel && !priv->fpe_cfg.reg) {
+> +		dev_warn(priv->device, "FPE on this MAC is not supported by driver, force disable it.\n");
+> +		priv->dma_cap.fpesel = 0;
+> +	}
+
+Let's not change the output of stmmac_dma_cap_show() sysfs attribute if
+we don't have to. Who knows what depends on that. It's better to
+introduce stmmac_fpe_supported(), which tests for both conditions,
+and use it throughout (except, of course, for the sysfs, which should
+still print the raw DMA capability).
+
+Which devices would those even be, which support FPE but the driver
+doesn't deal with them (after your XGMAC addition), do you have any idea?
+
+>  }
+>  
+>  void stmmac_fpe_apply(struct stmmac_priv *priv)
+> @@ -164,8 +176,7 @@ void stmmac_fpe_apply(struct stmmac_priv *priv)
+>  	 * Otherwise let the timer code do it.
+>  	 */
+>  	if (!fpe_cfg->verify_enabled) {
+> -		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
+> -				     priv->plat->tx_queues_to_use,
+> +		stmmac_fpe_configure(priv, priv->plat->tx_queues_to_use,
+>  				     priv->plat->rx_queues_to_use,
+>  				     fpe_cfg->tx_enabled,
+>  				     fpe_cfg->pmac_enabled);
+> @@ -178,50 +189,54 @@ void stmmac_fpe_apply(struct stmmac_priv *priv)
+>  	}
+>  }
+>  
+> -void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
+> -			  u32 num_txq, u32 num_rxq,
+> +void stmmac_fpe_configure(struct stmmac_priv *priv, u32 num_txq, u32 num_rxq,
+>  			  bool tx_enable, bool pmac_enable)
+
+num_txq? not used anywhere. num_rxq? can be retrieved from the "priv"
+pointer already provided.
+
+The rest of the series looks good, I have no other comments.
 
