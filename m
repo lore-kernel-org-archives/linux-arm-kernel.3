@@ -4,116 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730CBD5B87E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4D9D1356B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 06:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsYTzojEX30wfMIaOpkwuYocqyIvlDaDd/JUKraXL+M=; b=jYhfUm7bKhW4Jao5lz2bjQ87la
-	d9bQW+AjC7kqV+ylR8GGpXAEAAuD8C/Z1cvVUnNcRYr93WoM1IoZvKb81QsFbybfAJNHjKuQ/EBSF
-	tAYpW3Zfww5xOLeZbe6Cx5Et5rAJFv/Uy4JgHl/6kHGJNfgbZIX2pMH0VYnES9DISO6b3qL8bfRDQ
-	/5v60aC49iuG8hz88BKAIWfuo8OVyUHfYv973Vsxa7dOZ3OdSqc2cXeJ04m0RPJIHG0vnZzhxCDc+
-	YjPO8zUA9nlxc5FccgMlhn9+/1n7R+0pWYtAnt1EkFj7EkpiwR+RMtE2UWbwMOvGNaN2L7JXWDH/4
-	VPeU7a1w==;
+	bh=oGmWguF7wto3ubSTB9eGE9Fa2Zb2k0XycKxxaDv+zCk=; b=rql6NTCjgCRdN1EyaPtHt/g/2H
+	7AEemj8faF/i5pUgfHpMjPJgN7aJ63ZuCfFg5dzfWkTBkATAk3oUrky1659IphcHOw6CjnT4qrssn
+	OLkbVydHzXvJFfiq5DPZMut/hEzGifYCRj9RvRy8y1/uHGMluUwisCSP2XpxIJMqgOJ+284qn1JKB
+	Z+J8LYGpl7iBNgWvnjfopymloI6oW2fd6pBZ2tk+qDrXAlC4AUPcliYCIHjPcEcZvJXm9SubFov8p
+	+q1rltevpCgZRbdgrlizuozDZd+SBE3iNJZCRYR+KoLE1LGtYxvVIPWLJD0uKrhI/KUeURslJgMOz
+	cr+nsBMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5foQ-0000000DNSL-34ev;
-	Tue, 29 Oct 2024 06:34:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t5fqZ-0000000DNo9-2BEr;
+	Tue, 29 Oct 2024 06:36:55 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5fmo-0000000DNKQ-2vEQ;
-	Tue, 29 Oct 2024 06:33:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 807A6A41384;
-	Tue, 29 Oct 2024 06:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57384C4CECD;
-	Tue, 29 Oct 2024 06:32:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730183581;
-	bh=oi8HPczJPQ2s/SYDLMYe92wXwT9sG8C3R0uxFmB4LGo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uq48FAJZK+gt71hYrLRMptK9T/tbNaBTeS2ZV2wvv9W8CevFSIx+3x2/HW7wmmYgH
-	 7iweC+oDZeDrJm90FQYsgec3rSpPLgTwPxRy7ZwbDNLtYm6QVlC30NQHtb63K95W+0
-	 srf7nOenmF/nmnHRmFqK3HMmbnOSXYn8Mzic6JKSH6QmJN/+W9o92VRM1ofhNNB9kl
-	 hd/Ks0TLgo5X67os3D7Ct2j2E1jzwdAXZ9oTEYwG5laKSJZ0KNYZP0WycTMmSE47Hy
-	 5KtHAPzt20RNjKwRIlD4f0Rn+G04JMcFJ6BuiTUkOF09EweJuCMikvS28rUHFwokdN
-	 QIhXq5OYUOiNw==
-Message-ID: <dc8c3bb0-e462-4286-9060-c54fcc10c186@kernel.org>
-Date: Tue, 29 Oct 2024 07:32:53 +0100
+	id 1t5fow-0000000DNZq-3FVj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Oct 2024 06:35:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d462c91a9so3682081f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Oct 2024 23:35:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730183712; x=1730788512; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oGmWguF7wto3ubSTB9eGE9Fa2Zb2k0XycKxxaDv+zCk=;
+        b=wfP3PRxQ1abdjKygaNGJ9md2/wZhjUBsUerCRFxhbQMwKfHAr81AqgDJz+XuG8yFSD
+         LZ2ama6EF+blUuV545U9npbdgccaJM1schmlXu9/65sYNnJ2kCROpFL4q2kvxeYGFub6
+         LzyVS4O5hAY49Go/xheqG3Lt0bx6oPRHhPELlfbW3NhONsLcFXATWutXYNuq+QKLXaik
+         SXN4PwhMXuPUmtY4liR3TiZ63wP2FdV3YdOaN39Y0vvuw8gZGBbsYf6gv1CnadqvBU9A
+         8+ybEGpyf505sDj6yJPuEwk+ffreT5WZ3H21MEMOQ+Xmu7HR2mtOZJuPQVUcejh+nZqr
+         3ltA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730183712; x=1730788512;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oGmWguF7wto3ubSTB9eGE9Fa2Zb2k0XycKxxaDv+zCk=;
+        b=TNIqLjFyLTX3q66W8BgBszV3SS6jHBLdSmO8l9WlYWVL7V4X+Nu8ybVVZiF7+WfXWR
+         bla/7DvluGmgxAVFkMXxBzg6IMuDeLas0W9uwD+EgMFmAea7A9AjkBcLL2Qy/dlKsrUL
+         TeKF82Cms0GK3rEMOSywErDMgXwyorE+zj6Ewn9qK5tdYp7s64CZ5leB6CC6hWtGtqTb
+         McwqPPTwxeYso0oWJy5uyFz2rZV12M4E4LmUJrWmi8Eyy1nWGcO3wZWDZYvONHr/27Kz
+         g3v+U+qKIWtoeo7qkGIfvCtlUNzmGr1eepebGCLlIry1MyhHKHLosAkMbNP8yN3KWFNq
+         uWaw==
+X-Forwarded-Encrypted: i=1; AJvYcCVcfQbkQ5DsVmASCN8huAoKyg2LnhCxA6vvLZAyfqlC8A8PLpl0UKSn0EM5+YCJsDZfby+v49S3gY54e7bKDDXr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8Df7D0H9dGaYKZxiJdY/fLWzmG5Vl/qARHEMGFqhMvNiTNiL3
+	Io+HU9YLDCtX+eZj7RROiP+M8Pp2oW7cqF/wy4pvnL/4YBkgnx6JE/hBQHRKp+8=
+X-Google-Smtp-Source: AGHT+IGxj96uvuoQOa/k6xLtZvRpxvyjCrAdeB52b2mJkIZWiWOsgfuAxw3Jj1MvCjKhES6LQdaIEQ==
+X-Received: by 2002:a05:6000:a90:b0:37d:3eec:6214 with SMTP id ffacd0b85a97d-380611f579dmr7898417f8f.50.1730183712539;
+        Mon, 28 Oct 2024 23:35:12 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b4e56csm11540408f8f.65.2024.10.28.23.35.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 23:35:12 -0700 (PDT)
+Message-ID: <bbb8f8c0-3676-4846-b4d3-70e1c533b66d@linaro.org>
+Date: Tue, 29 Oct 2024 06:35:10 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] memory: mtk-smi: mt8188: Add SMI clamp function
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20240821082845.11792-1-friday.yang@mediatek.com>
- <20240821082845.11792-4-friday.yang@mediatek.com>
- <25b487b7-63e0-402d-a0a2-ed9d03e82630@kernel.org>
- <cdbac20d7a49ff2fbd3e6d4f24ae441ffbe87f05.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] mtd: spi-nor: atmel: provide .size to the at25ff321a
+ entry
+To: Marcus Folkesson <marcus.folkesson@gmail.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241018-at25ff321a-v1-1-c8380f80c289@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <cdbac20d7a49ff2fbd3e6d4f24ae441ffbe87f05.camel@mediatek.com>
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241018-at25ff321a-v1-1-c8380f80c289@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_233302_887613_57E19A92 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20241028_233514_858476_4B9AB685 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,88 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2024 03:29, Friday Yang (杨阳) wrote:
-> On Wed, 2024-08-21 at 11:00 +0200, Krzysztof Kozlowski wrote:
->>  	 
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>  On 21/08/2024 10:26, friday.yang wrote:
->>> In order to avoid handling glitch signal when MTCMOS on/off, SMI
->> need
->>> clamp and reset operation. Parse power reset settings for LARBs
->> which
->>> need to reset. Register genpd callback for SMI LARBs and apply
->> reset
->>> operations in the callback.
->>>
->>> Signed-off-by: friday.yang <friday.yang@mediatek.com>
->>> ---
->>>  drivers/memory/mtk-smi.c | 148
->> ++++++++++++++++++++++++++++++++++++++-
->>>  1 file changed, 146 insertions(+), 2 deletions(-)
->>>
->>
->> ...
->>
->>> +
->>> +static int mtk_smi_larb_parse_reset_info(struct mtk_smi_larb
->> *larb)
->>> +{
->>> +struct device_node *reset_node;
->>> +struct device *dev = larb->dev;
->>> +int ret;
->>> +
->>> +/* only larb with "resets" need to get reset setting */
->>> +reset_node = of_parse_phandle(dev->of_node, "resets", 0);
->>
->> Nope, you do not parse rasets.
+
+
+On 10/18/24 10:57 AM, Marcus Folkesson wrote:
+> Set size of the flash for the at25ff321a entry.
 > 
-> 1.If I need to use the Linux reset control framework, 'resets' is the
-> required property.
-
-And you never parse it directly. Find me existing examples of this, if
-you disagree.
-
-> 2.'reset-names' give the list of reset signal name strings sorted in
-> the same order as the 'resets' property. SMI driver will use 'reset-
-> names' to match reset signal names with reset specifiers.
-
-?
-
-> 3.Not all SMI larbs need to apply reset operations, only SMI larbs
-> which may have bus glitch issues need this. Just to confirm if this
-> larb support reset function.
-
-?
-
-Really, read kernel API about reset framework first.
-
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
+>  drivers/mtd/spi-nor/atmel.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
->>
->>> +if (!reset_node)
->>> +return 0;
->>> +of_node_put(reset_node);
->>> +
->>> +larb->rst_con = devm_reset_control_get(dev, "larb_rst");
->>
->> Where are the bindings? Why do you add undocumented properties? How
->> possible this passes dtbs_check???
->>
-> 
-> This is not the new added property in SMI larb DT node.
-> It is the reset signal name which is inclued in 'reset-names'.
-> Just like this:
+> diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
+> index 45d1153a04a07b7c61f46b117311b24ab695038f..cc7217e96d0139a06d46f10e35c545f604464b3c 100644
+> --- a/drivers/mtd/spi-nor/atmel.c
+> +++ b/drivers/mtd/spi-nor/atmel.c
+> @@ -214,6 +214,7 @@ static const struct flash_info atmel_nor_parts[] = {
+>  	}, {
+>  		.id = SNOR_ID(0x1f, 0x47, 0x08),
+>  		.name = "at25ff321a",
+> +		.size = SZ_4M,
 
-$ git grep larb_rst
-No such property, so how this could be "not the new added"?
-
-If you keep responding with some random or irrelevant responses, this
-won't work. This is really poor way to upstream. I suggest first perform
-extensive internal review which would point out all such trivial issues.
-
-
-
-Best regards,
-Krzysztof
-
+The flash size is retrieved from SFDP. BTW size of zero triggers SFDP
+parsing, see spi_nor_needs_sfdp().
 
