@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE28D13594
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46413D13594
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 07:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8PjK7JrwvWuHjH+qvYyQR84YqEMaoAAfaI/fV+EMY8=; b=LmQC0xHjtIy3fRhVAMvcVU6t2e
-	NFKFys6LgmwfgtBc+v967rtMSRy6QthIRaxbaFgh1gSGzPvsZxMP2efAy2uYEK5CZj/GR5V54Y+Xw
-	lmK0vHthJuKMqqLZ/xd85dNuDvtCyqB3ML1+7m4uHsFOwoUjV8NczUfcKHgiH0S9bKOHTGsJLNYPK
-	cs+oDdRS4Ug5pnnQQuODALlMsQRVjgJyffhXxobn940P9kGRHacWEUb6mE//gQ6WkHjd5X3XIGSto
-	m/HkDqpt+nkAQCoglBM4f9i26Kq0ntuy/ig9YRZJy/3udxeeucgbXPrg9K34RhUAjQBoxCookBPiG
-	YWkP4V0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NcDAqbWqsvymz4STwgK63u6lc06fHWC6bKwW46nTONk=; b=ilmbtWTV+lYeteabSaTaIQtJEG
+	Da8HRIVNHVHo1POwc3J8eneRVwGOEzwHYAnmbZH88UxrU1y1ErJhLQXoiGEMPKH/NegHwuU1uSEAj
+	PyymIM7b4IUALQvMhm0bXuRmKK2+yOT5IPaqdwllZLyaEjVljyl6TbmuSc8Sq8ZRzb7HyEDKkb9iY
+	oi+g+U40VBkGzHlR0heZ7l5VyKQbmzm8hvm4/XdcT1qW55PynRkkzlKikVyoZa8+8WaAcx6ygSHO9
+	+msLiPwrdhpSoCDm+kw/qa7ULe3xlx6C/C1Xd526IYmO9uxnBH7bMXesBVLl/8s7S3K720RpzaYZj
+	W8QPNgSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5gYI-0000000DUIr-3abT;
-	Tue, 29 Oct 2024 07:22:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5gZu-0000000DUbu-2BHw;
+	Tue, 29 Oct 2024 07:23:46 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5gQD-0000000DSea-2pVk
+	id 1t5gSa-0000000DT4G-2zsD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 07:13:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D3CEC5C402B;
-	Tue, 29 Oct 2024 07:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFBFC4CECD;
-	Tue, 29 Oct 2024 07:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730186024;
-	bh=yZacnLzwlmMaPMgCQVc6Cs2tFUW+rgsYqgTbJRGZhDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TL+Et39/oJkVZmxXRlBodyw+QeDCk90Ru9GXqsC/xpE7MVBpuY+PMpG9PzSBo1Hd4
-	 EOX0DUAVQLaPlWzjdih9SCrNDmIdPIEEzPdHTHgop5Y/Ph7fMv5YJnAbDiRTtcL8WC
-	 7rUEO2X/zMYuDueryjDhWYjFclRxCx+QUUlyjHyGcIo+ViuHQZZORr8b7ZMKysZ65/
-	 aEeBErGoi/NhPwpJPTD0a7ZVPezKt4R4eilcO+qbNAzblgQDi9tKHPI/Y2pM6UpiTl
-	 0mcIG6XlpW/yyFMOGTJyMZV+r1mbN7tVEMn/P6wMjlyPnRxdeA8ZzICum+/SlfGDWz
-	 XcKZfURViRwsQ==
-Date: Tue, 29 Oct 2024 08:13:40 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-Subject: Re: [PATCH v4 14/16] net: stmmac: dwmac-s32: add basic NXP S32G/S32R
- glue driver
-Message-ID: <xanb4j56u2rjwpkyj5gwh6y6t36gpvawph62jw72ksh7jximhr@cjwlp7wsxgp6>
-References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
- <20241028-upstream_s32cc_gmac-v4-14-03618f10e3e2@oss.nxp.com>
+	Tue, 29 Oct 2024 07:16:14 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-431695fa98bso49690455e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 00:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730186171; x=1730790971; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NcDAqbWqsvymz4STwgK63u6lc06fHWC6bKwW46nTONk=;
+        b=HsS9lF1wtfKHYz+FIPGyQtyaU7s46CxlM9BulthWR3h3cv3J2DQO2x5K99gc96NcKw
+         EU5vu8eDxVFkqjEdymZekEa/L9Wh1isFXrPLA6XkfYMHNyC5qE1ZHIQXZaNqZD5LOoiF
+         7trSQZ30tpxT92dPh4/skfG/UC39o7Pr0Q7VbQOypEhah9KZpXlzs7xp2TN2OpuWfrxW
+         Zg2HswGTF33o/uDJf6EcGi0O6H7v4DAPpzPB5NiOxkafB1amNRzCp52OA8daJYMCHvKP
+         F9GHdUwsFiEjlII9QlNlkRNaeX3VsruvxDVhqq7K9X/C4nzZmz8+XsjWVxH9GGv61QgS
+         CMQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730186171; x=1730790971;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NcDAqbWqsvymz4STwgK63u6lc06fHWC6bKwW46nTONk=;
+        b=WVfJjPrqgo6qIPeBtLovaTmMn2xCCESX0ZkHHKauICA6uIBNrw+QMLIJC6NQ4iyUEM
+         /2f6OTvgQbPQDg0h06q/23Q6fA/iQb7Vce7oJV1o6L94C4wZfRjFfsuwm98v+BeoyggP
+         JimXBM7hRN8XAUIXBaMQCFBd42lI5G5AVphL4tzIa1mDUAwf++23qzbceuRETKoYND3V
+         k2kgwPxTcFvkE4xkngNKyUC9bbynyDx13bJjgOt/GsWhZ1rOGqWhvrye6psIs3jr/W8R
+         sSjbOO5aBXMXJUkqeqfMIUUsfDlzmSRyn4R/2oAei8KTpz3o/WDIZQOvBiSGBu+5XVes
+         rxuA==
+X-Forwarded-Encrypted: i=1; AJvYcCXcqvi+9pHB+9dtfUUB0dlLRBaFzYHJh7O2RcSxr+NjOH3heFC6MM1QJJ6xktgWNyaclYw6dy4HZs83eZ+z6CaC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOCqHx97LCmqGvTdT+kHzHeJnat5brq0C5t4OSkgKyQ995ItDt
+	/EDPpF8JN0lrbPH8M25w02DzVlun+cGFbmQAjMfgLR3VgwSVaduWnMfzMJipPFo=
+X-Google-Smtp-Source: AGHT+IGyPTVVmj2DPxCz2CTebpQz3Rt+6BKUInDdlX4vKTXedS2U3OsrdThrefTQ1j8XH9/JSVrTRg==
+X-Received: by 2002:a5d:5711:0:b0:37d:47b0:6adc with SMTP id ffacd0b85a97d-380610f8251mr7858179f8f.4.1730186170958;
+        Tue, 29 Oct 2024 00:16:10 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b1c69esm11636277f8f.13.2024.10.29.00.16.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Oct 2024 00:16:10 -0700 (PDT)
+Message-ID: <239d2425-52f6-4deb-964e-e22d1a1f6637@linaro.org>
+Date: Tue, 29 Oct 2024 07:16:08 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241028-upstream_s32cc_gmac-v4-14-03618f10e3e2@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mtd: spi-nor: atmel: add at25sf321b entry
+To: Marcus Folkesson <marcus.folkesson@gmail.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241018-spi-nor-v1-1-d725bfb701ec@gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241018-spi-nor-v1-1-d725bfb701ec@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_001345_778551_B66479F4 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_001612_814165_E8C98774 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,28 +97,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 09:24:56PM +0100, Jan Petrous (OSS) wrote:
-> +	plat->init = s32_gmac_init;
-> +	plat->exit = s32_gmac_exit;
-> +	plat->fix_mac_speed = s32_fix_mac_speed;
-> +
-> +	plat->bsp_priv = gmac;
-> +
-> +	return stmmac_pltfr_probe(pdev, plat, &res);
-> +}
-> +
-> +static const struct of_device_id s32_dwmac_match[] = {
-> +	{ .compatible = "nxp,s32g2-dwmac" },
-> +	{ .compatible = "nxp,s32g3-dwmac" },
-> +	{ .compatible = "nxp,s32r-dwmac" },
 
-Why do you need three same entries?
 
-Best regards,
-Krzysztof
+On 10/18/24 10:51 AM, Marcus Folkesson wrote:
+> Add entry for the at25sf321b 32Mbit SPI flash which is able to provide
+> SFDP information.
 
+then we could initialize the flash based on SFDP. If you don't need
+locking then probably you won't need a flash entry at all. See
+https://docs.kernel.org/driver-api/mtd/spi-nor.html
+
+> 
+> Link:
+> https://www.renesas.com/en/document/dst/at25sf321b-datasheet?r=1608806
+> 
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
+>  drivers/mtd/spi-nor/atmel.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
+> index 45d1153a04a07b7c61f46b117311b24ab695038f..e635559711a4b402d23d49da93efc15e6be571dd 100644
+> --- a/drivers/mtd/spi-nor/atmel.c
+> +++ b/drivers/mtd/spi-nor/atmel.c
+> @@ -238,6 +238,12 @@ static const struct flash_info atmel_nor_parts[] = {
+>  		.flags = SPI_NOR_HAS_LOCK,
+>  		.no_sfdp_flags = SECT_4K,
+>  		.fixups = &at25fs_nor_fixups
+> +	}, {
+> +		.id = SNOR_ID(0x1f, 0x87, 0x01),
+> +		.name = "at25sf321b",
+> +		.size = SZ_4M,
+> +		.flags = SPI_NOR_HAS_LOCK,
+> +		.no_sfdp_flags = SECT_4K,
+>  	},
+>  };
+>  
+> 
+> ---
+> base-commit: 200289db261f0c8131a5756133e9d30966289c3b
+> change-id: 20241018-spi-nor-dc29698dea0f
+> 
+> Best regards,
 
