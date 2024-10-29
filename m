@@ -4,84 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BBBD3A697
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E2DD3A697
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 19:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6biqN+uJ+lBNtFoctKpP201tUUMI/Om2Kyar9fSooU=; b=IhoOe/bbyBBNh0X69ghOET2ikF
-	A9buXJkkBNZuxfjKk3LLj992UQy8/eG9HglgnhWDEG9ygIMEDKS0qnKKx5xQByngKC0KDW+ayR9kR
-	BnooeZx7qQrbgl71WCXZTfIhPQ7+w4oSvlsl0oJ2MV6471p4M2D1brGZJ+PnFP/5CsyCQtCRg5lNj
-	zBvKl6m8aejNIUuctcfoHrvDWSlXskvvAj/W9Bxs5KnxC8eJY9rgRIve3uq3T58Ze48Rzed1XxS8F
-	ZLtj/+utj836s2CKYbornmPWARaAv4Tr7xqLpw/Wa2IJWQ5ac45z5U4bKigA21LFh1wV/BKmqL6HC
-	/FQsbFOw==;
+	bh=HTNfiLPPcdrO+70VKB6ARFDh1FK4P0rcLaNpBMXz0rI=; b=2Xh6e1Buqe7/itwRFuubYOPlGP
+	bqL+ZTKSsRvA5L0k2KM2ctQZ/RKfBhnlBGg5jYc9yzSnxorvNfhOiuQEPBLYG334EoBZL1gG3kkKn
+	XaLjFTMwMMltcFboJUPYxw3blt5kGVo7u/q0VQIwNPUFzTg4LgmwUiBVzyCtGvoF2+bUPK9YKHgyT
+	lTJ6XcWGWdm76NxSV/QZolkoP6Gb0ofoqUbNPN4VxB+8dYCoGMpgbSMSAl5mltOpD8s5FNbu5WjfF
+	TOscbcivo8nxNz1XsCV9L5mbzp2VDbE12Lovb36Qnn256yB/Sj+MYnAKtPdxvYkDZpziC/teYEkgj
+	2ShDxYPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5s2T-0000000FgEd-1Lot;
-	Tue, 29 Oct 2024 19:38:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5sBG-0000000FhB4-1Jhf;
+	Tue, 29 Oct 2024 19:47:06 +0000
+Received: from mail-dm6nam11on2062a.outbound.protection.outlook.com ([2a01:111:f403:2415::62a] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5s0p-0000000Fg6j-0elT
+	id 1t5s9c-0000000FgtA-2QXC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 19:36:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 41E5E5C5903;
-	Tue, 29 Oct 2024 19:35:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE91BC4CECD;
-	Tue, 29 Oct 2024 19:36:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730230578;
-	bh=3uwQfVKC86zJomr8pFUiO9oxtyj0KvgRZsMsu10Gehw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IGsT8o8eqRIdZE1aUDWQPOT9yVTu5HoYduq0zrnkDYFUyzuMoAp+yjOqC1KnOrl7T
-	 2BEoI74bOJfH1isOh6IwBOarF7c+g5K1AeuQKSAvzzk9rjMKayZfzV+z4TrqbMqbBl
-	 yspmOHcLDEdY7OYIHnvYtWDi1jd3/JZJVFXWTq24EooNJAHKhFvaNqtsTAB6XeSxAr
-	 isHTsUT0QpEU9GmVzQGfVkHwUlxTP7YcD/cI2goJTYGgHfa+G/60jqeDgBqLoSi2eW
-	 px4GD+dJcq5d/S2PXiWz07SzpeJk/ovGHfUUgaZMsqUAOzWVI8loe7lbB+/ggjL/tY
-	 hW1E/YIoMbf3g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t5s0l-0082UH-FW;
-	Tue, 29 Oct 2024 19:36:15 +0000
-Date: Tue, 29 Oct 2024 19:36:15 +0000
-Message-ID: <8634ke3dn4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yu Zhao <yuzhao@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nanyong Sun <sunnanyong@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v1 4/6] arm64: broadcast IPIs to pause remote CPUs
-In-Reply-To: <CAOUHufabSWTZ+cBjXEDTRh61GeALL5b6uh0M76=2ninZP3KAzQ@mail.gmail.com>
-References: <20241021042218.746659-1-yuzhao@google.com>
-	<20241021042218.746659-5-yuzhao@google.com>
-	<868qug3yig.wl-maz@kernel.org>
-	<CAOUHufabSWTZ+cBjXEDTRh61GeALL5b6uh0M76=2ninZP3KAzQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yuzhao@google.com, akpm@linux-foundation.org, catalin.marinas@arm.com, muchun.song@linux.dev, tglx@linutronix.de, will@kernel.org, dianders@chromium.org, mark.rutland@arm.com, sunnanyong@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 29 Oct 2024 19:45:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SbnNNbjHP8q/8xqIj9YN/QPmdFKJxj93hu0yxb1EdRI+18J5SAzwYD0TBh9Vk7jWRTSUM54KrSyogZQerADqYgJOS579VLfb2MwyDeFFAjUWoG7L4IRVFX6G0lu509Wscic5M9ha/H7yd3XOy5JKGke2niEBS808FkaYMkGUSnk4ZEODiucccCU6R1Cvk43n6MpwC92uoEygHQfzavR21C//pf7LCol95BKefSJb/I++SwpmArr4TdCZItjkdM+uGv+m0GkjjF9vsi097DnUfWsmpW5TFxFlNUroZWLQPYDoUFu1j5KJjzDh9vYp9mpJlYhErzR8l6BkSOsqgHQsGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HTNfiLPPcdrO+70VKB6ARFDh1FK4P0rcLaNpBMXz0rI=;
+ b=SqaGZOptr1f+lLxndWMItwuj0IoBz6Nrsl2RlCvfiDVpSOMajeoK8wHN1XhV3/+8yazaHtsENBm4ZRwvc1LHdpxJQoB7s1MGDmvkHfsYHii6rtKapJYpgjxcs3PyH1P6CSOqE5oMuViVme9lp/RNZqTk2uwrryMsx5jqzJmyigCsqxrQkH6nJqWJLhpiR5ddOBxYb0ahVwLAtgtKVbeuqlzdPBiwgWZpngmdQSxCcfu0wY5k0py0Mht51jl/6AaVHgBJK99TMQ45g3kS9PDtYiD83hcFHSEpbuUm2YIGv3BXHSXRDCHQO3rMSKF7aMIntgJ7Jf9dBPsV9i8jAMtyxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HTNfiLPPcdrO+70VKB6ARFDh1FK4P0rcLaNpBMXz0rI=;
+ b=G5SH8D/RQfig/reyK1CealhAK6Xm917yA6xmSWYaeo7WwAeG1Vp+yUraFbPiFkzRUHFy6taaP/3I78t9cxrwFmGdWvxjseojUDXjny1o7w118pAgm751jFZpe4UpxVj5waT0jQ+EMIt1b5CAnbK9AoAenI8QgUmVyfXzRZD+GEgt+fh8oQonePxymxTKTy+WFe1iExE3vhVdIrTAlrMG3fKQ4TE8RTomx2IZQ3TerWJPKVDMDV0ZbipKpCyuPLTYtuEd9+JGuXE/Yy9GVas3y3jsjXjWS3E+VUhk0JzJS/mBnY9k7PnbCr7Vdexsh6HLdSi1i4iVplToXTMkzNv1lw==
+Received: from CH5P223CA0022.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:1f3::12)
+ by PH7PR12MB6443.namprd12.prod.outlook.com (2603:10b6:510:1f9::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.22; Tue, 29 Oct
+ 2024 19:45:17 +0000
+Received: from CH3PEPF00000009.namprd04.prod.outlook.com
+ (2603:10b6:610:1f3:cafe::4d) by CH5P223CA0022.outlook.office365.com
+ (2603:10b6:610:1f3::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.17 via Frontend
+ Transport; Tue, 29 Oct 2024 19:45:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CH3PEPF00000009.mail.protection.outlook.com (10.167.244.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.16 via Frontend Transport; Tue, 29 Oct 2024 19:45:16 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Oct
+ 2024 12:45:04 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Tue, 29 Oct 2024 12:45:03 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Tue, 29 Oct 2024 12:45:02 -0700
+Date: Tue, 29 Oct 2024 12:45:01 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <will@kernel.org>, <joro@8bytes.org>,
+	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>, <aik@amd.com>,
+	<zhangfei.gao@linaro.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 05/13] iommufd: Allow hwpt_id to carry viommu_id for
+ IOMMU_HWPT_INVALIDATE
+Message-ID: <ZyE7PUFGfnMOfMVe@Asurada-Nvidia>
+References: <cover.1729897278.git.nicolinc@nvidia.com>
+ <6b8bb8f2319bf26ead928321f609105e4e5eecf4.1729897278.git.nicolinc@nvidia.com>
+ <20241029190941.GN209124@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241029190941.GN209124@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000009:EE_|PH7PR12MB6443:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ab79341-3fb3-462f-0da4-08dcf85236df
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xY8BZvy7+sy6MD0J1Rut+tUkY92+ovjS5HMbIcEkgjp37AxKGnN1phPKn7Pg?=
+ =?us-ascii?Q?ErpEF2KK/wn1vC1g9t5WFadWntTWQhqzwdpWZCS/CoGT+ZZFj2NnMs9A84fS?=
+ =?us-ascii?Q?STKsXyjOFEG6iYLwIo5cXUGe2F2OQYcbi4u3HO11hxKfqLdx/lqroByrmbSV?=
+ =?us-ascii?Q?xiRXbR5MHUQpVLQRW2dbBDwIrF7Bn0F/EuvtrmUmRSmsPZ11AwhR9lrKXrYP?=
+ =?us-ascii?Q?5UlQxxstiQXXOH0hyCsyooP1tkAjw80oNj9P42kvyGBPm53np/ZtLOe3/gu4?=
+ =?us-ascii?Q?7+9jP1lG49GLLjr7IrTIVu4EHycYH77KXSCEv/VU1OHOlVrN4Mcj9Yb5m1JG?=
+ =?us-ascii?Q?Foys4wVWpV1dSgHQ6AlkrV98Y/ke9wH99vS6aRp5VredmIpTLBoIigrsjKz2?=
+ =?us-ascii?Q?zxh/rNGMpqif8rG6HtupufYgVtLqgEdU0drnEsTsKKlPeq3ThhZg8dNov1uw?=
+ =?us-ascii?Q?G5k3djL2r6piPw5h42Gphzemey8tavNQaN5B0o7URSCiwH84Yol8dVgjZQFW?=
+ =?us-ascii?Q?mV4wjZYAfoh3X72hkSpifPDjEADW3an+/1ONQRWzD9zvatEMPJzlKNAk8/cq?=
+ =?us-ascii?Q?XMvXyHLONv66UxeHACfy8nHV15IY2ZFa/rUjiAiEZWcSrYyk9z0GS2BZ0F4h?=
+ =?us-ascii?Q?TXcH8WDYX4Iy1Xpt4Qx0LUf6dvr8aKSbtCPIAaSaW+hBAK6/FRxc40qpvWan?=
+ =?us-ascii?Q?LtnECzBQtxLCAl69Wh6diEWd5Xf1muK4NHcT/su7MY3mu1mFGkyXgWFJTHFd?=
+ =?us-ascii?Q?aoJYtqsQ6ZWEiA34I572co8HNQDsBfJlrN/uF9hnWnro81Nqrmwbzqa+venR?=
+ =?us-ascii?Q?TG3YUU7p0KbyXHQRFgmss1JyiIf4QfQDZH0QXmqaS0aideYwhBPMtAL5+sX8?=
+ =?us-ascii?Q?MXumUF5ppXYagf08/PX558F2TjwUvhjN4yNYTs1wWrSfYvAPbtr4A8A9dDGq?=
+ =?us-ascii?Q?PRzBW7tMtlj2dLMXKhqFLtuiYaNanpCXkp64qNLg+VWdw2dhHx05uv3PY/hi?=
+ =?us-ascii?Q?MBSPNuRfHvgcuNsPvey+WyDFvmNY+kMSSzGpHwvQ9jwMhsUp/5PL2n8L71y/?=
+ =?us-ascii?Q?4USYkT598zTiiTjIp8rSOEf3cSVmKgNNAhwo2hcxDuuWVUazdeevg7/hX/bP?=
+ =?us-ascii?Q?woIrmZGwWaruxo3vBhuZYpkdb7LcsJENnBXdDpL+qrq6zo2GA5dGSRzHjHVc?=
+ =?us-ascii?Q?AEoXSoLYeE9B0LN/yUNSaTSIdv9LrbFeRM237eyZ0OLubiPxr5QjIyCU1Tk5?=
+ =?us-ascii?Q?UPN61NvRLTAjSi+6w/bcoR45wfYcjcbPOxY2geokyK0WuXkuh1tXf+T9G2q0?=
+ =?us-ascii?Q?P6EVtfrx35FgAnx2EQ5EFEjGnR9W73eHhuLGlihsNtA+iePcRBh0kGEhUfWD?=
+ =?us-ascii?Q?q3dg+ktImeW5cmx3UR7dGKrUQXzpBbhLwmYqjZBbFpBA47CRrQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 19:45:16.9955
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ab79341-3fb3-462f-0da4-08dcf85236df
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000009.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6443
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_123619_315373_7E384763 
-X-CRM114-Status: GOOD (  62.70  )
+X-CRM114-CacheID: sfid-20241029_124524_647752_282D4E98 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,255 +157,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 22:11:52 +0000,
-Yu Zhao <yuzhao@google.com> wrote:
->=20
-> On Tue, Oct 22, 2024 at 10:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> wr=
-ote:
-> >
-> > On Mon, 21 Oct 2024 05:22:16 +0100,
-> > Yu Zhao <yuzhao@google.com> wrote:
-> > >
-> > > Broadcast pseudo-NMI IPIs to pause remote CPUs for a short period of
-> > > time, and then reliably resume them when the local CPU exits critical
-> > > sections that preclude the execution of remote CPUs.
-> > >
-> > > A typical example of such critical sections is BBM on kernel PTEs.
-> > > HugeTLB Vmemmap Optimization (HVO) on arm64 was disabled by
-> > > commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
-> > > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the folllowing reason:
-> > >
-> > >   This is deemed UNPREDICTABLE by the Arm architecture without a
-> > >   break-before-make sequence (make the PTE invalid, TLBI, write the
-> > >   new valid PTE). However, such sequence is not possible since the
-> > >   vmemmap may be concurrently accessed by the kernel.
-> > >
-> > > Supporting BBM on kernel PTEs is one of the approaches that can make
-> > > HVO theoretically safe on arm64.
-> >
-> > Is the safety only theoretical? I would have expected that we'd use an
-> > approach that is absolutely rock-solid.
->=20
-> We've been trying to construct a repro against the original HVO
-> (missing BBM), but so far no success. Hopefully a repro does exist,
-> and then we'd be able to demonstrate the effectiveness of this series,
-> which is only theoretical at the moment.
+On Tue, Oct 29, 2024 at 04:09:41PM -0300, Jason Gunthorpe wrote:
+> On Fri, Oct 25, 2024 at 04:50:34PM -0700, Nicolin Chen wrote:
+> > @@ -497,17 +497,35 @@ int iommufd_hwpt_invalidate(struct iommufd_ucmd *ucmd)
+> >  		goto out;
+> >  	}
+> >  
+> > -	hwpt = iommufd_get_hwpt_nested(ucmd, cmd->hwpt_id);
+> > -	if (IS_ERR(hwpt)) {
+> > -		rc = PTR_ERR(hwpt);
+> > +	pt_obj = iommufd_get_object(ucmd->ictx, cmd->hwpt_id, IOMMUFD_OBJ_ANY);
+> > +	if (IS_ERR(pt_obj)) {
+> > +		rc = PTR_ERR(pt_obj);
+> >  		goto out;
+> >  	}
+> > +	if (pt_obj->type == IOMMUFD_OBJ_HWPT_NESTED) {
+> > +		struct iommufd_hw_pagetable *hwpt =
+> > +			container_of(pt_obj, struct iommufd_hw_pagetable, obj);
+> > +
+> > +		rc = hwpt->domain->ops->cache_invalidate_user(hwpt->domain,
+> > +							      &data_array);
+> > +	} else if (pt_obj->type == IOMMUFD_OBJ_VIOMMU) {
+> > +		struct iommufd_viommu *viommu =
+> > +			container_of(pt_obj, struct iommufd_viommu, obj);
+> > +
+> > +		if (!viommu->ops || !viommu->ops->cache_invalidate) {
+> > +			rc = -EOPNOTSUPP;
+> > +			goto out_put_pt;
+> > +		}
+> > +		rc = viommu->ops->cache_invalidate(viommu, &data_array);
+> > +	} else {
+> > +		rc = -EINVAL;
+> > +		goto out_put_pt;
+> > +	}
+> 
+> Given the test in iommufd_viommu_alloc_hwpt_nested() is:
+> 
+> 	if (WARN_ON_ONCE(hwpt->domain->type != IOMMU_DOMAIN_NESTED ||
+> 			 (!viommu->ops->cache_invalidate &&
+> 			  !hwpt->domain->ops->cache_invalidate_user)))
+> 			  {
+> 
+> We will crash if the user passes a viommu allocated domain as
+> IOMMUFD_OBJ_HWPT_NESTED since the above doesn't check it.
 
-That wasn't my question.
+Ah, that was missed.
 
-Just because your HW doesn't show you a failure mode doesn't mean the
-issue doesn't exist. Or that someone will eventually make use of the
-relaxed aspects of the architecture and turn the behaviour you are
-relying on into the perfect memory corruption  You absolutely cannot
-rely on an implementation-defined behaviour for this stuff.
+> I suggest we put the required if (ops..) -EOPNOTSUPP above and remove
+> the ops->cache_invalidate checks from both WARN_ONs.
 
-Hence my question: is your current approach actually safe? In a
-non-theoretical manner?
+Ack. I will add hwpt->domain->ops check:
+---------------------------------------------------------------------
+	if (pt_obj->type == IOMMUFD_OBJ_HWPT_NESTED) {
+		struct iommufd_hw_pagetable *hwpt =
+			container_of(pt_obj, struct iommufd_hw_pagetable, obj);
+	
+		if (!hwpt->domain->ops ||
+		    !hwpt->domain->ops->cache_invalidate_user) {
+			rc = -EOPNOTSUPP;
+			goto out_put_pt;
+		}
+		rc = hwpt->domain->ops->cache_invalidate_user(hwpt->domain,
+							      &data_array);
+	} else if (pt_obj->type == IOMMUFD_OBJ_VIOMMU) {
+		struct iommufd_viommu *viommu =
+			container_of(pt_obj, struct iommufd_viommu, obj);
+	
+		if (!viommu->ops || !viommu->ops->cache_invalidate) {
+			rc = -EOPNOTSUPP;
+			goto out_put_pt;
+		}
+		rc = viommu->ops->cache_invalidate(viommu, &data_array);
+	} else {
+---------------------------------------------------------------------
 
->=20
-> > > Note that it is still possible for the paused CPUs to perform
-> > > speculative translations. Such translations would cause spurious
-> > > kernel PFs, which should be properly handled by
-> > > is_spurious_el1_translation_fault().
-> >
-> > Speculative translation faults are never reported, that'd be a CPU
-> > bug.
->=20
-> Right, I meant to say "speculative accesses that cause translations".
->=20
-> > *Spurious* translation faults can be reported if the CPU doesn't
-> > implement FEAT_ETS2, for example, and that has to do with the ordering
-> > of memory access wrt page-table walking for the purpose of translations.
->=20
-> Just want to make sure I fully understand: after the local CPU sends
-> TLBI (followed by DSB & ISB), FEAT_ETS2 would act like DSB & ISB on
-> remote CPUs when they perform the invalidation, and therefore
-> speculative accesses are ordered as well on remote CPUs.
-
-ETS2 has nothing to do with TLBI. It has to do with non-cacheable
-(translation, access and address size) faults, and whether an older
-update to a translation is visible to a younger memory access without
-extra synchronisation. It definitely has nothing to do with remote
-CPUs (and the idea of a remote ISB, while cute, doesn't exist).
-
-> Also I'm assuming IPIs on remote CPUs don't act like a full barrier,
-> and whatever they interrupt still can be speculatively executed even
-> though the IPI hander itself doesn't access the vmemmap area
-> undergoing BBM. Is this correct?
-
-Full barrier *for what*? An interrupt is a CSE, which has the effects
-described in the ARM ARM, but that's about it.
-
->=20
-> > > Signed-off-by: Yu Zhao <yuzhao@google.com>
-> > > ---
-> > >  arch/arm64/include/asm/smp.h |  3 ++
-> > >  arch/arm64/kernel/smp.c      | 92 +++++++++++++++++++++++++++++++++-=
---
-> > >  2 files changed, 88 insertions(+), 7 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/sm=
-p.h
-> > > index 2510eec026f7..cffb0cfed961 100644
-> > > --- a/arch/arm64/include/asm/smp.h
-> > > +++ b/arch/arm64/include/asm/smp.h
-> > > @@ -133,6 +133,9 @@ bool cpus_are_stuck_in_kernel(void);
-> > >  extern void crash_smp_send_stop(void);
-> > >  extern bool smp_crash_stop_failed(void);
-> > >
-> > > +void pause_remote_cpus(void);
-> > > +void resume_remote_cpus(void);
-> > > +
-> > >  #endif /* ifndef __ASSEMBLY__ */
-> > >
-> > >  #endif /* ifndef __ASM_SMP_H */
-> > > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > > index 3b3f6b56e733..68829c6de1b1 100644
-> > > --- a/arch/arm64/kernel/smp.c
-> > > +++ b/arch/arm64/kernel/smp.c
-> > > @@ -85,7 +85,12 @@ static int ipi_irq_base __ro_after_init;
-> > >  static int nr_ipi __ro_after_init =3D NR_IPI;
-> > >  static struct irq_desc *ipi_desc[MAX_IPI] __ro_after_init;
-> > >
-> > > -static bool crash_stop;
-> > > +enum {
-> > > +     SEND_STOP =3D BIT(0),
-> > > +     CRASH_STOP =3D BIT(1),
-> > > +};
-> > > +
-> > > +static unsigned long stop_in_progress;
-> > >
-> > >  static void ipi_setup(int cpu);
-> > >
-> > > @@ -917,6 +922,79 @@ static void __noreturn ipi_cpu_crash_stop(unsign=
-ed int cpu, struct pt_regs *regs
-> > >  #endif
-> > >  }
-> > >
-> > > +static DEFINE_SPINLOCK(cpu_pause_lock);
-> >
-> > PREEMPT_RT will turn this into a sleeping lock. Is it safe to sleep as
-> > you are dealing with kernel mappings?
->=20
-> Right, it should be a raw spinlock -- the caller disabled preemption,
-> which as you said is required when dealing with the kernel mappings.
->=20
-> > > +static cpumask_t paused_cpus;
-> > > +static cpumask_t resumed_cpus;
-> > > +
-> > > +static void pause_local_cpu(void)
-> > > +{
-> > > +     int cpu =3D smp_processor_id();
-> > > +
-> > > +     cpumask_clear_cpu(cpu, &resumed_cpus);
-> > > +     /*
-> > > +      * Paired with pause_remote_cpus() to confirm that this CPU not=
- only
-> > > +      * will be paused but also can be reliably resumed.
-> > > +      */
-> > > +     smp_wmb();
-> > > +     cpumask_set_cpu(cpu, &paused_cpus);
-> > > +     /* paused_cpus must be set before waiting on resumed_cpus. */
-> > > +     barrier();
-> >
-> > I'm not sure what this is trying to enforce. Yes, the compiler won't
-> > reorder the set and the test.
->=20
-> Sorry I don't follow: does cpumask_set_cpu(), i.e., set_bit(), already
-> contain a compiler barrier?
->=20
-> My understanding is that the compiler is free to reorder the set and
-> test on those two independent variables, and make it like this:
->=20
->   while (!cpumask_test_cpu(cpu, &resumed_cpus))
->       cpu_relax();
->   cpumask_set_cpu(cpu, &paused_cpus);
->=20
-> So the CPU sent the IPI would keep waiting on paused_cpus being set,
-> and this CPU would keep waiting on resumed_cpus being set, which would
-> end up with a deadlock.
->=20
-> > But your comment seems to indicate that
-> > also need to make sure the CPU preserves that ordering
-> > and short of a
-> > DMB, the test below could be reordered.
->=20
-> If this CPU reorders the set and test like above, it wouldn't be a
-> problem because the set would eventually appear on the other CPU that
-> sent the IPI.
-
-I don't get it. You are requiring that the compiler doesn't reorder
-things, but you're happy that the CPU reorders the same things. Surely
-this leads to the same outcome...
-
->=20
-> > > +     while (!cpumask_test_cpu(cpu, &resumed_cpus))
-> > > +             cpu_relax();
-> > > +     /* A typical example for sleep and wake-up functions. */
-> >
-> > I'm not sure this is "typical",...
->=20
-> Sorry, this full barrier isn't needed. Apparently I didn't properly
-> fix this from the previous attempt to use wfe()/sev() to make this
-> function the sleeper for resume_remote_cpus() to wake up.
->
-> > > +     smp_mb();
-> > > +     cpumask_clear_cpu(cpu, &paused_cpus);
-> > > +}
-> > > +
-> > > +void pause_remote_cpus(void)
-> > > +{
-> > > +     cpumask_t cpus_to_pause;
-> > > +
-> > > +     lockdep_assert_cpus_held();
-> > > +     lockdep_assert_preemption_disabled();
-> > > +
-> > > +     cpumask_copy(&cpus_to_pause, cpu_online_mask);
-> > > +     cpumask_clear_cpu(smp_processor_id(), &cpus_to_pause);
-> >
-> > This bitmap is manipulated outside of your cpu_pause_lock. What
-> > guarantees you can't have two CPUs stepping on each other here?
->=20
-> Do you mean cpus_to_pause? If so, that's a local bitmap.
-
-Ah yes, sorry.
-
->=20
-> > > +
-> > > +     spin_lock(&cpu_pause_lock);
-> > > +
-> > > +     WARN_ON_ONCE(!cpumask_empty(&paused_cpus));
-> > > +
-> > > +     smp_cross_call(&cpus_to_pause, IPI_CPU_STOP_NMI);
-> > > +
-> > > +     while (!cpumask_equal(&cpus_to_pause, &paused_cpus))
-> > > +             cpu_relax();
-> >
-> > This can be a lot of things to compare, specially that you are
-> > explicitly mentioning large systems. Why can't this be implemented as
-> > a counter instead?
->=20
-> Agreed - that'd be sufficient and simpler.
->=20
-> > Overall, this looks like stop_machine() in disguise. Why can't this
-> > use the existing infrastructure?
->=20
-> This came up during the previous discussion [1]. There are
-> similarities. The main concern with reusing stop_machine() (or part of
-> its current implementation) is that it may not meet the performance
-> requirements. Refactoring might be possible, however, it seems to me
-> (after checking the code again) that such a refactoring unlikely ends
-> up cleaner or simpler codebase, especially after I got rid of CPU
-> masks, as you suggested.
-
-I would have expected to see an implementation handling faults during
-the break window. IPIs are slow, virtualised extremely badly, and
-pNMIs are rarely enabled, due to the long history of issues with it.
-At this stage, I'm not sure what you have here is any better than
-stop_machine(). On the other hand, faults should be the rarest thing,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Thanks
+Nicolin
 
