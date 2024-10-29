@@ -4,88 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D22BD5B164
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2CED5B164
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TdLVHEgAnDeeZJpgt9lNzYa9R3kdXRO8iLaUE20D1e4=; b=1JLe42I2txgyQ/mnL+RGRxLmcE
-	ReP2eJnL2yOdo9Q8tV2VboQ9gEFU4fpyZvLsgRrHh4p2AMm1vucUpjHZKj93rjqhQxWXWepkiVyuh
-	AhBHoBs0Qt/ZYONA12WjZV2FfC9VK/rVSBry5fpsSm7r8qYqazds2e3JLbkeWwdhuvv1ptzvovVgO
-	2Yt41H/FVsh+pcgiHiKMONiDheRUB5ZehAX0+GpKdi5jTENcxCWVZwYC3SMOKF/zSjqecK2IaSQkV
-	HWPdq5vvoEzu2cHfOpTwXpEo1kYeTOb9OnugzfPphLMKh77jcuCzEgij0uU7wZ4E775zOoUDmj2bb
-	fiNeLTWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zsKvR2wu6K64D4KhxP/42myAxogUujW50MePOsPJA+A=; b=WbhgEX92R/ma/mw3JF5d+Ki1ol
+	OWcxRpP6v7nX9SuqRq2zioVXsnTNN4Gxd28m6V8jZlk1ttIDKZdX4XhU4aPyXAK2w8wiTaqdTY5KO
+	Lr/a4X0EM3M2WTfnaKPHyipKYDB9+Rpb1cCtphISj2+n9ag8/HS/1rW0J9nzLbRTvFTuUgipI09MJ
+	hGoJxGgh2CWJ+fiYNSGPTk1MofWv86yoJw5jPnXhhUMghTia/xdlTUSokQHwCuxkII3M/yWge5I+V
+	qVF7ywBiqd4GBZzgEqhGh6LJH+ORj+3QwH9JDuSjA5No6aR/b2Inp+o0Q8Y/70F5s6NxH+2SopraC
+	d5LOCynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hO4-0000000DdtV-1jvs;
-	Tue, 29 Oct 2024 08:15:36 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1t5hTP-0000000Derw-26OO;
+	Tue, 29 Oct 2024 08:21:07 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hIn-0000000DdFJ-2uGW
+	id 1t5hRl-0000000DeU4-2Sqe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:10:11 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4315ce4d250so6349845e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 01:10:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730189408; x=1730794208; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TdLVHEgAnDeeZJpgt9lNzYa9R3kdXRO8iLaUE20D1e4=;
-        b=OOaU47vElsx6jOEK/HspKyiqST304+oxn2RwndoWwORmsPtga5MgEPE9PVmnZITmkh
-         5cfjeSYZN35XDjyBarexQQ9+uRT/2S6nHRZeWh4liB9QifkRDn/3YcotsmgESp2MoI1V
-         T9aTEmfvvANqD4ZYTSDA4/1+SHhodkxoFmfW0vQo/2RDsQ0sdk+VFwqB08SfOka8/bUE
-         uLxVD6ugBA8sHSxrVX0p35M0SWKwJvSipaq64xBx8K5GWyF7H3SR5YKPSmy97cxSiT8y
-         mfMXYaUDghcy2THyQbPj7BQfvVaqga8hKgRTa/Xm8ScxgV45B3ZLCUVTC8+rEsDdPl27
-         1xcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730189408; x=1730794208;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TdLVHEgAnDeeZJpgt9lNzYa9R3kdXRO8iLaUE20D1e4=;
-        b=jeziIDDw6rQi2WkCgJtUT0Cw5d/mzR4ew6YDbXkiEER331JhKbaQF+5YbmVtbyaHyD
-         Dv5bNib6PAQl/821c5UulWTMq42IFSl+om7YnUxG0ADu7zDchYOtWqDtAmZR0LBYYAZO
-         /7jfj41rGrtTbN/UGX4HSeFvYFuzsTSNQoy34KreTIa/qHyMwQAopvDhBNSXXDS2RDyT
-         iJ3/lLK8LO3R9ZQJHDJsjo9Jg4BHx+7vYfUYogt2iyBQ/BEMJiiGNeA1VUlNYrNQ8ZX2
-         ZMVfSE2U144hK2rWmnpoICshj+S83OsEqmbhXCHYwXCFAEOmCF8Xy6qTxEQLE8kiO8UV
-         GlOA==
-X-Forwarded-Encrypted: i=1; AJvYcCWyyToGSSfTyVSplz08V0iHj9uJcO7bSAJSIWLbpV6eI0/Te9xw84ksgylnwzJrt56ncjRfQrK6NhVSmMTtwJxS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHGNgzMRhI6w93im6toNnDKSjeU51fKeZm5bZ6AbiEU1TW7hLY
-	hecz1B297fGU4z8Aj2GGz4jeMELV7zGPjBHiH+kO81CwieR0c6UWQE8iN9dLK8M=
-X-Google-Smtp-Source: AGHT+IFPu2wMrS/euT8irH3OgZ7YJEZf2yrxBrSR6HBa5Xa5vaMAfjGfZ6Uj/qbvaqrEJ8cQwUIugg==
-X-Received: by 2002:a05:600c:1c91:b0:42c:b9c8:2ba9 with SMTP id 5b1f17b1804b1-4319ad2b318mr37979105e9.6.1730189407813;
-        Tue, 29 Oct 2024 01:10:07 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.211.167])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4318b55f784sm165467485e9.19.2024.10.29.01.10.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 01:10:07 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Olof Johansson <olof@lixom.net>,
-	Arnd Bergmann <arnd@arndb.de>,
-	arm@kernel.org,
-	soc@kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 2/3] arm64: dts: samsung: DTS for v6.13
-Date: Tue, 29 Oct 2024 09:10:00 +0100
-Message-ID: <20241029081002.21106-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241029081002.21106-1-krzysztof.kozlowski@linaro.org>
-References: <20241029081002.21106-1-krzysztof.kozlowski@linaro.org>
+	Tue, 29 Oct 2024 08:19:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730189966; x=1761725966;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=zsKvR2wu6K64D4KhxP/42myAxogUujW50MePOsPJA+A=;
+  b=bz+dscIrhI5LE0Q5fdjwZtKgYJcnRN48AekKaKZCvpGECNpWjoBvvnnb
+   ija/N7NZdIPvCfVtRxlQ4E+2ZR08l60fRo42Xjuj+kxTLyxwGjjJnHW6e
+   H8UfoUsHAQhCfcqBlXFNQHNTkcyujn9QFDFGqHdVtMBGF6vL450/GC2PU
+   vf7nOoNCXJoEsEviNdSddnxAW8kZFN39pdf1rTXWTmXCvORn7GCPM6bZC
+   Gye4SXG6KJm2JThjCwwriFB3r/PiIHMhFZv+yMGWXXpdnNUgTGBo3jNnQ
+   0IteNch52YhJe/48bmQPVbWSpZyOaYeS25IKIpwuF6x5mugFqlnyYJUEo
+   Q==;
+X-CSE-ConnectionGUID: wuhEfCyHQHaAS5jnGByT1A==
+X-CSE-MsgGUID: 6muk9TasSPK/iCT/1/HrPw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11239"; a="41212471"
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="41212471"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 01:19:24 -0700
+X-CSE-ConnectionGUID: irouw2GrRRGuERDhYiOjfA==
+X-CSE-MsgGUID: V2C3XqsqRiazSk1x7WvT2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
+   d="scan'208";a="82211387"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 29 Oct 2024 01:19:24 -0700
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 29 Oct 2024 01:19:22 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Tue, 29 Oct 2024 01:19:22 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.170)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 29 Oct 2024 01:19:22 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=thaNdBK7fiWJo03pvB91Gvm3EProG4Ngysx0i5jaXuX3s8IHSkH98JhBsGSxerLCw0LNTx7XHPqeRFexXpbWv99u5e+LiJMebMoQPTBqypVzKuWnXcgY1CufZAiLHXWL09mFXYsw7u4pWs3/Vu7AY5EXtYyCFbNP3fNtzEFI9ObM2IfSQrQXr9Oq5BD3F3W+2IbyUAPo53e4TuNl3HHN5ThLsjehxYGp0vINumA2OO/CGIhu83AOaFtrVV7b9jm1F8mw7EONnhhJKsSuUBRs/llobJ8z3mUQN6MCJFQ6OUt+w3+ehtYbt1QvBgjLXJncd7Eoazsl6Qlm4UwsJko2dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zsKvR2wu6K64D4KhxP/42myAxogUujW50MePOsPJA+A=;
+ b=XeX94zX/1SeepxNgEtldAcLOnxf5oAPYh6xnTSYYvkBqLe6uy59/I7hZ/p6L1yEDYbcfPPt/8Y+yU1UB/Zz0WXyMmuBq6YPEoBNOhnfFza9PpgCyWpEPZ1s2CkKDvRzlgbPTjNiAh8QFoy54HRgZ5iZ78vA6eSXKiz1aXwuwnaeqVls0UAKRjrFklJVwpYSZD+jqE1uD7lgG3bX6Na0QbpBMcauaYcriSIatbi+9PqH0fRBPRQ9IJpqs2ftWRW6sLMjns2ZTNKLIM5lq5ktyI92C+0yY/HkGmypMKGCagQXt0r1uwBISHaXw7wllAQ0G11sZ6huvfpyzAoqj2kuwtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by MW5PR11MB5785.namprd11.prod.outlook.com (2603:10b6:303:197::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.27; Tue, 29 Oct
+ 2024 08:19:19 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8093.025; Tue, 29 Oct 2024
+ 08:19:17 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
+	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
+	<eric.auger@redhat.com>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, "mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>, "aik@amd.com"
+	<aik@amd.com>, "zhangfei.gao@linaro.org" <zhangfei.gao@linaro.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH v5 02/13] iommufd/selftest: Add IOMMU_VDEVICE_ALLOC test
+ coverage
+Thread-Topic: [PATCH v5 02/13] iommufd/selftest: Add IOMMU_VDEVICE_ALLOC test
+ coverage
+Thread-Index: AQHbJzjJGHWG+R1oR0eGJ7dvq1rna7KdZ/jg
+Date: Tue, 29 Oct 2024 08:19:17 +0000
+Message-ID: <BN9PR11MB5276AF3CE6E70F13C7BBF0968C4B2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1729897278.git.nicolinc@nvidia.com>
+ <fab524b7054fc38d71b6d7a46f90e1f97538d2eb.1729897278.git.nicolinc@nvidia.com>
+In-Reply-To: <fab524b7054fc38d71b6d7a46f90e1f97538d2eb.1729897278.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|MW5PR11MB5785:EE_
+x-ms-office365-filtering-correlation-id: ee4e2d40-27d6-4ffa-71c8-08dcf7f261f8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?5B/ZKMYhxMrnLrDcjyutXG9Z0WSNjxQNnronoKoz+gSA/JvoeGQ4Af13Jb/9?=
+ =?us-ascii?Q?7nlCYnw8TmvujMVvvQa5stFgR6Lof74GGjrmSV3m8SN6EVYX1/NYjSyUlIJm?=
+ =?us-ascii?Q?ojQAJ4Uy79mVd9CBPa4iv/IWerdAMaYj5OlG9/g6mMu5jI7OHn6SkA2dCMxT?=
+ =?us-ascii?Q?5aQiD1GTeOBKgZhqoRFMNIpOx8gh/tWtA80qwr8r35xg5bMSRd4f5kLc3+mu?=
+ =?us-ascii?Q?DVJCXJC0SLrd7ZLomSkFDTF6oJ0gLmwUBhUqzF7etr5GAy++UPrtODVns3xJ?=
+ =?us-ascii?Q?FcNNQOvpONGQ1Mz6AQ9Bmv7Gkgc+VUEI5fLrhk5ltKpqzTF3kI14LhboXj3y?=
+ =?us-ascii?Q?z55g07JPB04v/Q8FH5oSO2v1BTF26slozs1UTGlKmY/zUvJCnYFILckhhoLc?=
+ =?us-ascii?Q?giNuB0f8848n6vv4VsmHPKTavJH2eJFBVmwQBIBLYe7CEW4i9d41/vY8s25N?=
+ =?us-ascii?Q?D5RvqCO/FyohcuYj83i3x1hbhUS54L7K0UjcoX/A8LCP23Iqk+tMtd7CWp9F?=
+ =?us-ascii?Q?GEl5A+G5INsIBxEMeikSI9FWOk06A+AfMZweATmepydMPrxMUthigwgks1En?=
+ =?us-ascii?Q?fPBSKlbIe1e/KNLXwIoZ9pBiNMgovwjSpJQczSMd3juZo3QhIaM/O5zP6spJ?=
+ =?us-ascii?Q?iDnil+52Uo8h5yUo6X9TYugXsOEHTXOUOLRWIz7fecUp+ySkLJOabYJmzRIZ?=
+ =?us-ascii?Q?ZZ24b74ZJQ24F9RBt2PkcvhZuULMeRF88Ac+ezAr2p3/cpog/rvTL3bIkaJo?=
+ =?us-ascii?Q?4Imj82OMLBphVcpO41nzNVECZx6k9ynXaGvOClTe6ZD95vmM6X8mA6bura1e?=
+ =?us-ascii?Q?FbVj1aB/HpTL+7FH+LsAEnZ+OqxmcIASzTZHJE8xVXhIeQD3cFbtihTTK8be?=
+ =?us-ascii?Q?hDR6e5lwbnxHzhIEr4XC45QhiB6sK5c0Jex/FfsmjzSKF+9KZfbab/a11CW3?=
+ =?us-ascii?Q?Ml5BEujHV/iHNLurTa55gXv8VYpd2w2KZpJfo92H9dfM8ngEZ3vZfS5+ww3r?=
+ =?us-ascii?Q?UVv0q5cfOnW7SxInyjWZ6l1AG0jo1eFjVHJMNvWD8gB0ZXP/1c9ZMr2wcGhP?=
+ =?us-ascii?Q?iUnn674FTdgEf80UhG1eC1VEpDJGahnXoOpJst1RBeZc0Drt4WCByJhHULtC?=
+ =?us-ascii?Q?MH1yVXIJ6iy4pZU7Bo7/2f0+SqN4TF2PlIJZiuRciWqp+PKRF4Az5vk0vl5d?=
+ =?us-ascii?Q?ZjonuRb6B30Eta8YbBNVrQaMWorkmM/1MhhyN6Ua/B1h0/Pbf/ECmzsp4nDs?=
+ =?us-ascii?Q?orAs2USuYM+uM5UNHGS58/k59eNI396z9G6BA55aQHrSkEHXy3vJuZaw9qFE?=
+ =?us-ascii?Q?i9t+k0ci6ymbj9/xsJ2VdItEKVvKeOdVrYnoNjhUt3XIx9oCTVO6pmH9KY1c?=
+ =?us-ascii?Q?7lg2iUs=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9crFKV3kN2pagA51T0drG4QVnjsMAPfFr8GqLUjeZAOtN1Tkv7ULwMirOuBy?=
+ =?us-ascii?Q?m1E1+7fNlrX8Gbzqk7WhDqDGhQQU3KpoIbyWpEry7XwFUDI4yHTjrIFBRh8K?=
+ =?us-ascii?Q?/cwn1m1Gu5fi1yx/hoprE4y5PDLDB8pECufFIYD0x1apv22TE4tAc2BPZhst?=
+ =?us-ascii?Q?3rDFg8WsZi2i/jjVSZfx1LRJY6pLxdFstrbRJlmMDKq5IULF4qhs62oZ+Uxy?=
+ =?us-ascii?Q?C0XkO/mqgX7X+t14wuARkyB52SkoHVMKx9ae/eSwimPiK9GD6H1M4JlHexlU?=
+ =?us-ascii?Q?hBH2cwyXhJ6oPPSMwR/tevVlI90vvwr/tDnv0aw3rA2kJKCE2W0sG0OG6qcS?=
+ =?us-ascii?Q?j8/YjbY4IVg4LkrvOe5joSn4diq5aaLwq5Ruamuqhg8zSBP2swblanim6TBD?=
+ =?us-ascii?Q?VreCWj931P3FmdJ3b9K2rGcG9HIFPstLl++9Rwr0wQoSMBE6X3HjvVQ7tJ+j?=
+ =?us-ascii?Q?/8Wj6aLecGek5JvV7ySSRkdHyAwFlt1HJoQUDlmA9vh8OnpsU6HyDo5C14hA?=
+ =?us-ascii?Q?rTMFaiJpSrfs1VWq3mSVipjNwOPkcVjz3M2esvPMjUr5rd1yePQLF0l2/xW+?=
+ =?us-ascii?Q?tL473q0D/Bf+nYN2zxbW/3lZMyjlVVjd1EDIRziWbBukcH44ySKhSSmjVOZ2?=
+ =?us-ascii?Q?1C0JqaVM4J/qFQmsZQ25ZVhC0AwbTan3gc7y6OvsXkfR/XIPCIUBkSjVbB08?=
+ =?us-ascii?Q?ThaeilnrpYRpZUShDxVw9C4P66l03LXmwV+Au3e7C35SQaT9HXjIYJTQsjT4?=
+ =?us-ascii?Q?s4z/lC6FCIvoE7PRJKUOYELS+MEBvRLOqUUOeGsBvbX9j/O63vL1HuGBR/2v?=
+ =?us-ascii?Q?fAzB30fFB1ZB4ZLUqwKPokzYM7qJ68FFnH5dGp563UvzWv89SJkKnm6fe6Wz?=
+ =?us-ascii?Q?H8DNc/NaaQkKd286XN3zJgCUVkmVimA0AdSVA93qrBreyRt0FSgrxrxrEaUk?=
+ =?us-ascii?Q?A8/3IKpxn35E51DSck55jYr5yu3ha5l2CFbqncDxEp7UA9OcviJ8UV7j+uEu?=
+ =?us-ascii?Q?nPZHKvOW0KvXdzD6/BSSZ/8ax8AVEWBUdzECEwhEgb7JuPyH0PuzJ6WW7FOM?=
+ =?us-ascii?Q?I0Ng57lvnUovJzb0mv8E2xfDgfWYUNnydwkwlSR7FIt7VAHAeHUiEn5Ys49H?=
+ =?us-ascii?Q?fz5RVeOo3JSVBiEoCj2hxeCYn/nXmwuvz7vhCoN5OX4ijsIsZ/IbDe5KSZGl?=
+ =?us-ascii?Q?chcYQjQjqrQTE+lpqo9tTLzoXto3x7VZUQrBib0aImcIySR5bSzEY2y4XZc2?=
+ =?us-ascii?Q?UDKf14/Lk0ZItjJ5Ubdap4U25lACTeD6ZNJRApqxuOxpCdaS1fxd2LKgRenr?=
+ =?us-ascii?Q?5nF+83DUOSGeb48eFiSFEe7Xpw0KukTv92QZ+dGXkMavcjwgzjZebkZLvD2M?=
+ =?us-ascii?Q?8YGkev03bJfY3o0HdysRYVJYPDqygsuV7lsJUz3x19n/3rQKFS3T/xOZiitX?=
+ =?us-ascii?Q?RgXyx2jePXrhb+M73XL4ggEECaAYZs/xQwFXpuYg2VXlvTb5e5hMwDcJoGer?=
+ =?us-ascii?Q?wQezXJBPYV5uvIx/vncgHC4xNWq9/JvFHA6W+MaEa8IDy/YCgYARsfLIGDqk?=
+ =?us-ascii?Q?7Z7x3hJJs8O0vPgdb7O1lMn0fdyXPodKRO+bW4T5?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee4e2d40-27d6-4ffa-71c8-08dcf7f261f8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2024 08:19:17.7051
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ZGfoHosDkPuLR8Q6zQzFX9XvQLBIWNuLlVeR1Y1EDrZuSodnSc1vRDm3ItuC6XdW46TWHVVEfOe6QY3n4mey1Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR11MB5785
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_011009_757423_6AEB3AC7 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20241029_011925_731864_2686ECC8 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +212,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, October 26, 2024 7:51 AM
+>=20
+> Add a vdevice_alloc op to the viommu mock_viommu_ops for the coverage
+> of
+> IOMMU_VIOMMU_TYPE_SELFTEST allocations. Then, add a vdevice_alloc
+> TEST_F
+> to cover the IOMMU_VDEVICE_ALLOC ioctl.
+>=20
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.13
-
-for you to fetch changes up to 0a4907eea61d1b7d602a817f6c1de31609c48367:
-
-  dt-bindings: arm: samsung: Document Exynos9810 and starlte board binding (2024-10-27 20:58:44 +0100)
-
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v6.13
-
-1. Add new SoC Samsung Exynos8895 and new board using it: Samsung
-   Galaxy S8 (SM-G950F) mobile phone.  Only small support so far:
-   CPUs (Samsung Mongoose M2), main clock controllers (FSYS, PERIC,
-   TOP), pin controllers, SPI for cameras, timers.
-
-2. Add new SoC Samsung Exynos990 and new board using it: Samsung
-   Galaxy Note20 5G (c1s/SM-N981B) mobile phone.  Only minimal support
-   so far: CPUs (Samsung Mongoose M5), pin controllers, timers.
-
-3. Prepare for adding new SoC Samsung Exynos9810 - add bindings.  The
-   SoC DTSI was not yet ready, but it is posted on the mailing lists so
-   should come soon.
-
-4. ExynosAutov920: Add several clock controllers.
-
-----------------------------------------------------------------
-Igor Belwon (4):
-      dt-bindings: arm: cpus: Add Samsung Mongoose M5
-      dt-bindings: arm: samsung: samsung-boards: Add bindings for Exynos 990 boards
-      arm64: dts: exynos: Add initial support for the Exynos 990 SoC
-      arm64: dts: exynos: Add initial support for Samsung Galaxy Note20 5G (c1s)
-
-Ivaylo Ivanov (10):
-      dt-bindings: arm: cpus: Add Samsung Mongoose M2
-      dt-bindings: arm: samsung: Document dreamlte board binding
-      dt-bindings: soc: samsung: exynos-pmu: Add exynos8895 compatible
-      arm64: dts: exynos: Add initial support for exynos8895 SoC
-      arm64: dts: exynos: Add initial support for Samsung Galaxy S8
-      dt-bindings: clock: samsung: Add Exynos8895 SoC
-      dt-bindings: timer: exynos4210-mct: Add samsung,exynos8895-mct compatible
-      arm64: dts: exynos8895: Add clock management unit nodes
-      arm64: dts: exynos8895: Add Multi Core Timer (MCT) node
-      arm64: dts: exynos8895: Add spi_0/1 nodes
-
-Krzysztof Kozlowski (2):
-      Merge branch 'for-v6.13/clk-dt-bindings' into next/dt64
-      Merge branch 'for-v6.13/clk-dt-bindings' into next/dt64
-
-Markuss Broks (3):
-      dt-bindings: arm: cpus: Add Samsung Mongoose M3
-      dt-bindings: soc: samsung: exynos-pmu: Add exynos9810 compatible
-      dt-bindings: arm: samsung: Document Exynos9810 and starlte board binding
-
-Sunyeal Hong (2):
-      dt-bindings: clock: exynosautov920: add peric1, misc and hsi0/1 clock definitions
-      arm64: dts: exynosautov920: add peric1, misc and hsi0/1 clock DT nodes
-
- Documentation/devicetree/bindings/arm/cpus.yaml    |    3 +
- .../bindings/arm/samsung/samsung-boards.yaml       |   18 +
- .../bindings/clock/samsung,exynos8895-clock.yaml   |  239 +++
- .../bindings/soc/samsung/exynos-pmu.yaml           |    2 +
- .../bindings/timer/samsung,exynos4210-mct.yaml     |    2 +
- arch/arm64/boot/dts/exynos/Makefile                |    2 +
- arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts |  126 ++
- arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi | 1094 ++++++++++
- arch/arm64/boot/dts/exynos/exynos8895.dtsi         |  386 ++++
- arch/arm64/boot/dts/exynos/exynos990-c1s.dts       |  115 +
- arch/arm64/boot/dts/exynos/exynos990-pinctrl.dtsi  | 2195 ++++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos990.dtsi          |  251 +++
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |   50 +
- include/dt-bindings/clock/samsung,exynos8895.h     |  453 ++++
- include/dt-bindings/clock/samsung,exynosautov920.h |   47 +
- 15 files changed, 4983 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos8895-clock.yaml
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8895.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-c1s.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-pinctrl.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990.dtsi
- create mode 100644 include/dt-bindings/clock/samsung,exynos8895.h
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
