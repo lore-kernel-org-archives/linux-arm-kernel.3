@@ -4,154 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DCAD5B854
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA41D5B840
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 02:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=; b=s8IPvnz0EbWm3/V1mgNnlw3yBM
-	PGRJdTCJb1acntK6eI6RluZmqR3baYlhC4pnxdQZHGaoPq2XlLssrC26++M79J7MMfNF9QqNzAkRc
-	hCvb3x3LKhagLUbA2mY/AUQj/c1xQNBNZiocqhbcSeo06QqASsyaLpJhwieDHxiNNnX/HC1WZhWHp
-	rpI4cva/z3knXMM6vDOAFWVpNMRZE/WEYwSQcl+8dFz5wH5Pn9rKwYSpgPgzyp0aH7aFQyUbitXYD
-	bQb7TOSdetu8uVO9qhQnoc+GSB9UPDTp5mbaIyu6kvv4EFxx0UZXB3YEcDQZQa4SqxOX+v9uwWjeO
-	uW0/mO2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9zxNMXwPCBjYW69Zb32ChS7Lih5KnlHYyLjDjWcKxkQ=; b=Dn/+6hJQrBmzoOiPmfcKIb7/Qv
+	Ywc4ojY3ONZGsmnx7jQQblyJt6CPNAAWOXA6Aybz1Y/gz7JPKKrnrG6/PUQ0uaXnY62OpJNWTK4Ly
+	QdwVjkMRI/QIUeMmOIZDj+2eC3OMk7JdoucTucwMSWdt9tbTg2tElTHny/u4kd0LZ2wIbMHjEjtmL
+	+UXczobcGzkxyOYQJ+2ngGremE8eQ/QrTagD0bfT1eggaGaKdrvuLv78/+4X5ezSnwT00J2+oTx7y
+	WDHNoLINo535O2RHfgc8tjLow7fKiJjL55wd3uRNc6RFKQBgdXd9qHlr92/NEUip40aq+ttll6InG
+	rprHiO6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5beh-0000000Cvw3-1y81;
-	Tue, 29 Oct 2024 02:08:23 +0000
-Received: from mail-eastusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c101::] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1t5bic-0000000Cwj2-13cs;
+	Tue, 29 Oct 2024 02:12:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5bd5-0000000CvhP-1Bw7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 02:06:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c5QJGpRAR/Zf7kYqawr/x327FC5vLQMNJ7aLXk/jCT38Jph2IAZtnCt8flQuEUZCdV6B9mmgNgKvT8EBh2xc/9c1x3Y07KgmCesUmg3fZaa7CCmfiqaNsePXcE8qbk9YEXaeEngpJZre6e0BE2Kb5q9F4YsBGThWGOi+jpVoSSC3H3wELPa+4fFqBNDvFmVZA3hUpItnv3igzuEetny4UdFrxixzcAQmkAPqJkVGAOXZW8kc0cI8Wcyzu8/dg/PNvUC9XJlasH9sF44FvwPZZRCh3f/k+L6zn30WnebQL4fHZ1eek8UB86ULqOs6LY8ccHpiGDrsn3LhR7qqPFis+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=;
- b=MoFtuWUBPCKIrRFdJOQvh+i7PoTlMSR3QKX8UTH0UESV/7JhqOu8Oea2fbbUcMTVHSAsXkv7IE9fgVnUTLqOyZZHYhtKYi63yMfWUfoMxyLyAHw1inZ28xUl3pyR9KUtrXiOpdHlnBKA+wi/T3vZ35sh72/bbm6nO2svMQwfBbydDXjrUWCBtUKd+sjunTzgHyK1VfsSJH2DAffdGJ0seaxHfMOkoL+icf52VlxHXt1QvVVeZRqHFQwZznabxtcuIvPfDo5FRtdLvXlPGTKnlyZH1VtE8vgs4bHNRM2c8TgRLhhe8lqzGDkLoUv0hE1TAklMhZfwhSLYLAaduEROwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GohEJTe/VaXsTQ/cdqizfcGlHjb+s8TSaZHmf74By5E=;
- b=FKw8OPhwC4PsaAbnV4bK6qfKPPILgZxz4bm2dmT2hz7853LzwGoBhFkad3c9hSo4dwNvMtg7FwDjf/Awr7YQlLixFCt/dks2yAwP+j4pfyodiqUhp3JIX8UO7wyY3Fi3hU6H8A9btZ+tnvi8jVik2shNh2tUbkrkH/vyQsv91EI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- CO1PR01MB8841.prod.exchangelabs.com (2603:10b6:303:26d::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.12; Tue, 29 Oct 2024 02:06:37 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8114.015; Tue, 29 Oct 2024
- 02:06:37 +0000
-Date: Mon, 28 Oct 2024 19:06:26 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: James Clark <james.clark@linaro.org>
-cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
-    linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, 
-    Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-    Arnaldo Carvalho de Melo <acme@kernel.org>, 
-    Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-    Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-    Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
-    Adrian Hunter <adrian.hunter@intel.com>, 
-    "Liang, Kan" <kan.liang@linux.intel.com>, 
-    John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-    Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>
-Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
- AmpereOne
-In-Reply-To: <963d58e4-c00e-40b5-bb64-97476807ed61@linaro.org>
-Message-ID: <86abfa22-4d2e-2a4-7365-571a69e8a233@os.amperecomputing.com>
-References: <20241024233035.7979-1-ilkka@os.amperecomputing.com> <963d58e4-c00e-40b5-bb64-97476807ed61@linaro.org>
-Content-Type: text/plain; charset=US-ASCII; format=flowed
-X-ClientProxiedBy: CH2PR15CA0018.namprd15.prod.outlook.com
- (2603:10b6:610:51::28) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	id 1t5bgt-0000000CwCU-3dSM;
+	Tue, 29 Oct 2024 02:10:41 +0000
+X-UUID: f9439e9e959a11ef9048ed6ed365623b-20241028
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=9zxNMXwPCBjYW69Zb32ChS7Lih5KnlHYyLjDjWcKxkQ=;
+	b=QEaj7KydGUhLAKlkeeb1fbsfSA3lBfm6BfmCH/sp8PpzkR+FR3vR8Et9DqlIBq18YzI7vdiybWL1fMi6FtfaSHhxsR7kJu1fMZ44XC/YZXhPHhrmeXgGd/nYhYTucPlaqAWaL7g04ahVMne3Tj6iumjCX4L+GOhXqTJY9TOIgew=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:55f55fb6-9703-40cd-a3b6-d36e9342fc1a,IP:0,U
+	RL:0,TC:0,Content:-20,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-20
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:29d95548-ca13-40ea-8070-fa012edab362,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:1,EDM:-3,IP:nil,U
+	RL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: f9439e9e959a11ef9048ed6ed365623b-20241028
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <defa.li@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 433074756; Mon, 28 Oct 2024 19:10:31 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Mon, 28 Oct 2024 19:10:28 -0700
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Tue, 29 Oct 2024 10:10:27 +0800
+From: mtk25126 <defa.li@mediatek.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-i3c@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<wsd_upstream@mediatek.com>, <mingchang.jia@mediatek.com>,
+	<yuhan.wei@mediatek.com>, <hao.lin@mediatek.com>, mtk25126
+	<defa.li@mediatek.com>
+Subject: [PATCH] i3c: Remove redundant lock in i3c_device_uevent
+Date: Tue, 29 Oct 2024 10:09:40 +0800
+Message-ID: <20241029020950.31053-1-defa.li@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB8841:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3439dca-8b1f-40d8-0c26-08dcf7be51bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PrsAlP7h55hbnjWCQhwWCW6cYtsP8Iqmz2ZTqd6McNTS/NhRGeUvniiFwxNE?=
- =?us-ascii?Q?sm4+kRbY7vTT23pLlO+PYr/fgxOpLZQyZw7VciGniMYDIJKzf9SUCbAjXjBw?=
- =?us-ascii?Q?0rVtDYg6ND4ED4xOhYowTxxen+PBXMxOZ+mtfNlHsB5hduOh5erXfM/o/UlE?=
- =?us-ascii?Q?rG8kRaMH30C4J5zWBv+sWm9plWjH26xMM2Eg//ZbcBU4K/axw2eGLmzh+Dyx?=
- =?us-ascii?Q?FT8JO5IToH+wrhF96gQGEcrHFH9Dhv3o7y+LvQIkUcHNvRS57lLyXN+/EBP5?=
- =?us-ascii?Q?6bT0U+psp3b/gsSypDlDxf5rkXMHO2dW0x5Mb0QqhSA0bZE+9nAvrcgR0lsx?=
- =?us-ascii?Q?JEfCmjRLaK/6xvZicndGM3zXXh8Li8YAuGaeJeyjEAay3Qg90kcMKSEexLPX?=
- =?us-ascii?Q?un90BpN0UIa8bgCV/RObZhzd2RgU5wbDsQXdv6ZSxpwhcSroIYtWU2sddRaa?=
- =?us-ascii?Q?wA42MzpXoyNueJMoivVDoVgltrPGeDlL+s4QevMVwLZBif2qj8Gd3RprZpQL?=
- =?us-ascii?Q?c7yelr0f5gU8NJ+vZ94xaaaKDp2PtiGPWJmCsTQtLhaYYO2qmkBQGAGnzQgg?=
- =?us-ascii?Q?rzXNILISPmDM3N4etzyRlEZgPM463eZeG+dVJX8pThat73KI4QgHrZwllgBK?=
- =?us-ascii?Q?rdZGV7XqhCLgOws7E7NW0xQ7eT4+PbWQ6tZvo9Dbr+wqLsOw0WACz/gQRifr?=
- =?us-ascii?Q?Q3oJwPu3VuRpnF0z7tsf/i+8iJQmEA4TEGV/mtoP5mKJB5LKUN7s76YqOWyH?=
- =?us-ascii?Q?u7tPh6pWiZZKRZNp7pKBzVXWpYbIUGEaIIif/tzqRHfOdhLfM79w+8wDbB08?=
- =?us-ascii?Q?nUUlL8DbnJTnZV/2/9vwsK0RFcRpOFe7wb/LvFbpkwzSEVgjgii7igLAp6cv?=
- =?us-ascii?Q?kkHBPlkjs7zOp+A5DreHvx7MnMmhjwiXKraL4aHJw8jOdk72ir+nfB7yaPl8?=
- =?us-ascii?Q?UA7KdOFUmLCBGO6QJFGCj6rJfmnISJ2EGkbElPcNMGIU5M0R1frwFDRU1Kyo?=
- =?us-ascii?Q?cDGoN1gXUIb0kBEVbYm6wGJ9gKF53CkXlaTWyzgqXYBal1SBL0HygHDM73ld?=
- =?us-ascii?Q?L9F5sD8Qgja8lNTlw1+gkteQYqSWHJBp0dxv8YzZowg3rXX8UwfbupehfwGo?=
- =?us-ascii?Q?y+liV1CFb4U/NvoKV6PwPuPy4pCwsq4bxff9SVho12vXuq84hwwdwk/oY029?=
- =?us-ascii?Q?m++zbF18/NihNljKGop20lcvMmvSucfZm5v7Nx/rydnldy7T6LXjdABLimnx?=
- =?us-ascii?Q?d0kSb7hIsJ6SEyQFccg3I4pH/iN4FJZR9r2soUvtQsgjRxNC0w16fnnFnQQ0?=
- =?us-ascii?Q?mXmZCwJsdpNdz7MumV2WJK2XvoJa3ryRlEcuA0lKy4c0xSdxHaN8XybrtyQA?=
- =?us-ascii?Q?0oRejSc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1C6oq3UGNScsVPpDRa+bADZfzTFiI7R6oVHmluAqax+szvvIs0Pzn2KpzuOl?=
- =?us-ascii?Q?M3s7eAjPkZgHQXO2ywzLfcuOui1QV8HwDjC71CUtGkZ4rX8uucykXWgidBjr?=
- =?us-ascii?Q?d+LCEQXjyg2VsrVGW+AE0+MtUQ7OUfw7tql/Oo4Mf3ivTi5jD7w0YU1lmLPA?=
- =?us-ascii?Q?WWp1OCf9amljjn4onTDjm07t+QCSf8SFW7G7YlO9yTCRZZ1QG8Qasnldqo/J?=
- =?us-ascii?Q?XcFTUdSkYbtADGggLviNg5keioudOO42RMmlom79KIu5s4AGTTNa/Ta08aN5?=
- =?us-ascii?Q?mXN35vbn12g0Vi8C8MxI/+4TDNIKXpYEKMmWkEuVUyiaB50/RoLCDIRgmZLL?=
- =?us-ascii?Q?MVst/iPNC6dM+eW61bRh7OeEY97MN9GT39xK25cmNpd9tp76kL8gh47BbR0Q?=
- =?us-ascii?Q?aNyn/mPdyBlYOAZ3fbSsKra2r3SeMO8jEX9fxbhpFwtvLf7/llWtuwdGDdxv?=
- =?us-ascii?Q?jMSg5l2XM+LdQReEeq/kh5/tfz/5dFuI7H6GOAWV2f+F0KJqcXus/1gnD/UJ?=
- =?us-ascii?Q?ZIy9y2QRndDUDk28sSPaEoREugHHb090soZMNk5BFGQd6bXeFXtYE4K8+nr6?=
- =?us-ascii?Q?NYSD4Apobt1SKOiUOEWeTYCPIAdCr2vTiwHTjoEM0/HPf5aBEvfYDvR3v7gz?=
- =?us-ascii?Q?q2kmGh84FyG40eAgBP0ekxF1EZKHO3L3nOz2cWh4lfjROaQOZaKL6Xmos7l8?=
- =?us-ascii?Q?0gwFqtrk9rQBVrss6iq3MF8aNWJjcGvoLBvtev8pJrAnjnjGOYZ5s4WfBI4I?=
- =?us-ascii?Q?tEXM8cAlsg9xKyxE6THN/RuYIhNW/kouOyhX37qqrJNjnLmpmDr/RP5NDrHx?=
- =?us-ascii?Q?rEx8kUu3H8YLbefNbaRBVPemWRlJ6fXkanEQnKDBN/u1K8LeqmsYBbeO3AzD?=
- =?us-ascii?Q?c8pmhAX4ATyFRrQvf7FtR9QK9uSVhDdnYMfK3St8dSKSJdSlcBKbkgtZquFk?=
- =?us-ascii?Q?8I+QnaPnA6okP0QtsU3FHhoz6HEfRFYLxjrV+YKCudNDID4cehXFPwQ2iW5N?=
- =?us-ascii?Q?Zs2QVucQBs4x/C7L4ICYUo+6++/3GeW05GEygc4RwcLT45e2Lckc2z9cZmAb?=
- =?us-ascii?Q?DP7UKRE+pOnbWB19Na9wgsiXcdMl6hAnGILjdRGq5hLxDWV8+qrxsm/97qI8?=
- =?us-ascii?Q?Tjd4tF7fw7p+r30BKz1ttiQq/FC0czfJEiG2uvUWAi5iHMRYPtyWoXjZWLV3?=
- =?us-ascii?Q?MRkAQzhf8VWuO9ihJZMpklbPrpowQDB+UUjjVINMfhAN0puvLEdi9UTjZRLy?=
- =?us-ascii?Q?seLlRfs+kw0aK2QmI78YNXSjEGaB6yCvNsAOLICHRzCqXHvIOrkzF9iob2Gn?=
- =?us-ascii?Q?3rZu3CXUi3tApjM2ALafQqasd0C/VC4k03lAvubzqTnyjPTjJnyB7psE4nhP?=
- =?us-ascii?Q?th0iiqfONZAdxac5L2aZGYBvELI4wGHO4fS1DjtalKS/fOhdWP6sLFAFBh+6?=
- =?us-ascii?Q?f0EyHNTE4MSaAtaprfdapYeVzR6OKTfpjLsYW8X9QOauBisYiKnbQhbUf/Q0?=
- =?us-ascii?Q?pafW3DMGy+tqdwtJKeE3QmqxaIXT8UlfAIv72n99n3fOunx/AnmDjO1Faufm?=
- =?us-ascii?Q?eRJbjOAEp6IJr0Tbvg1wUT8iKByl+5wk0MKYZQYXId5BJCPCWhlRnRpdFYh2?=
- =?us-ascii?Q?Jx+g7UDJXPfTJlXiiuJzw/A=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3439dca-8b1f-40d8-0c26-08dcf7be51bf
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2024 02:06:37.1304
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8PNO2RnW7EtKuxmHMunYB9Ja1wDQMLuA5oKVwX7km6KyHkqeEXdLDadNeZGRJiXaxsLD3Z2mLyEWJln50G9T0uQjXGpggNYKGZz50ohCWk7lA0ZzjJrwhIBxONNfPHvF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8841
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_190643_365060_DD5B426C 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20241028_191039_978655_12EA3514 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,94 +86,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+We encountered the following lockdep warning.
+The i3c_master_register function recursively acquires &i3cbus->lock twice,
+which may cause a deadlock. 
 
+Remove the logic of obtaining i3cbus->lock when using the i3c_device_uevent
+function to obtain the i3c_device_info structure.
 
-Hi James,
+============================================
+WARNING: possible recursive locking detected
+6.11.0-mainline
+--------------------------------------------
+init/1 is trying to acquire lock:
+f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_bus_normaluse_lock
 
-On Fri, 25 Oct 2024, James Clark wrote:
-> On 25/10/2024 12:30 am, Ilkka Koskinen wrote:
->> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
->> 
->> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->> ---
->>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
->>   tools/perf/util/arm-spe.c                     | 61 +++++++++++++++++++
->>   2 files changed, 70 insertions(+)
->> 
->> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h 
->> b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> index 1443c28545a9..e4115b1e92b2 100644
->> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> @@ -67,6 +67,15 @@ enum arm_spe_neoverse_data_source {
->>   	ARM_SPE_NV_DRAM		 = 0xe,
->>   };
->>   +enum arm_spe_ampereone_data_source {
->> +	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE	= 0x0,
->> +	ARM_SPE_AMPEREONE_SLC				= 0x3,
->> +	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE		= 0x5,
->> +	ARM_SPE_AMPEREONE_DDR				= 0x7,
->> +	ARM_SPE_AMPEREONE_L1D				= 0x8,
->> +	ARM_SPE_AMPEREONE_L2D				= 0x9,
->> +};
->> +
->>   struct arm_spe_record {
->>   	enum arm_spe_sample_type type;
->>   	int err;
->> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
->> index 138ffc71b32d..04bd21ad7ea8 100644
->> --- a/tools/perf/util/arm-spe.c
->> +++ b/tools/perf/util/arm-spe.c
->> @@ -515,10 +515,69 @@ static void arm_spe__synth_data_source_generic(const 
->> struct arm_spe_record *reco
->>   		data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
->>   }
->>   +static const struct midr_range ampereone_source_spe[] = {
->> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->> +	{},
->> +};
->> +
->> +static void arm_spe__synth_data_source_ampereone(const struct 
->> arm_spe_record *record,
->> +						 union perf_mem_data_src 
->> *data_src,
->> +						 u64 midr)
->> +{
->> +	if (!is_midr_in_range_list(midr, ampereone_source_spe)) {
->> +		arm_spe__synth_data_source_generic(record, data_src);
->> +		return;
->> +	}
-> [...]
->>   static u64 arm_spe__synth_data_source(const struct arm_spe_record 
->> *record, u64 midr)
->>   {
->>   	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
->>   	bool is_neoverse = is_midr_in_range_list(midr, neoverse_spe);
->> +	bool is_ampereone = (read_cpuid_implementor() == ARM_CPU_IMP_AMPERE);
->> 
->
-> Hi Ilkka,
->
-> I think this read_cpuid_implementor() is for the device that's running 
-> report, rather than record. You need to use the midr that's saved into the 
-> file.
+but task is already holding lock:
+f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_master_register
 
-Uh, that didn't come to my mind at all.
+other info that might help us debug this:
+ Possible unsafe locking scenario:
 
-> But it looks like you've done that for is_midr_in_range_list(midr, 
-> ampereone_source_spe) above. Is it possible to just do that and not 
-> read_cpuid_implementor() and then it's done the same way as neoverse and also 
-> works off target?
+       CPU0
+       ----
+  lock(&i3cbus->lock);
+  lock(&i3cbus->lock);
 
-You're right, it's wrong and there's no even need for separate implementor 
-id check. I fix it.
+ *** DEADLOCK ***
 
-Cheers, Ilkka
+ May be due to missing lock nesting notation
 
->
-> Thanks
->
-> James
->
->
+2 locks held by init/1:
+ #0: fcffff809b6798f8 (&dev->mutex){....}-{3:3}, at: __driver_attach
+ #1: f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_master_register
+
+stack backtrace:
+CPU: 6 UID: 0 PID: 1 Comm: init
+Call trace:
+ dump_backtrace+0xfc/0x17c
+ show_stack+0x18/0x28
+ dump_stack_lvl+0x40/0xc0
+ dump_stack+0x18/0x24
+ print_deadlock_bug+0x388/0x390
+ __lock_acquire+0x18bc/0x32ec
+ lock_acquire+0x134/0x2b0
+ down_read+0x50/0x19c
+ i3c_bus_normaluse_lock+0x14/0x24
+ i3c_device_get_info+0x24/0x58
+ i3c_device_uevent+0x34/0xa4
+ dev_uevent+0x310/0x384
+ kobject_uevent_env+0x244/0x414
+ kobject_uevent+0x14/0x20
+ device_add+0x278/0x460
+ device_register+0x20/0x34
+ i3c_master_register_new_i3c_devs+0x78/0x154
+ i3c_master_register+0x6a0/0x6d4
+ mtk_i3c_master_probe+0x3b8/0x4d8
+ platform_probe+0xa0/0xe0
+ really_probe+0x114/0x454
+ __driver_probe_device+0xa0/0x15c
+ driver_probe_device+0x3c/0x1ac
+ __driver_attach+0xc4/0x1f0
+ bus_for_each_dev+0x104/0x160
+ driver_attach+0x24/0x34
+ bus_add_driver+0x14c/0x294
+ driver_register+0x68/0x104
+ __platform_driver_register+0x20/0x30
+ init_module+0x20/0xfe4
+ do_one_initcall+0x184/0x464
+ do_init_module+0x58/0x1ec
+ load_module+0xefc/0x10c8
+ __arm64_sys_finit_module+0x238/0x33c
+ invoke_syscall+0x58/0x10c
+ el0_svc_common+0xa8/0xdc
+ do_el0_svc+0x1c/0x28
+ el0_svc+0x50/0xac
+ el0t_64_sync_handler+0x70/0xbc
+ el0t_64_sync+0x1a8/0x1ac
+
+Signed-off-by: mtk25126 <defa.li@mediatek.com>
+---
+ drivers/i3c/master.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
+index 6f3eb710a75d..bb8a8bf0c4c7 100644
+--- a/drivers/i3c/master.c
++++ b/drivers/i3c/master.c
+@@ -282,7 +282,8 @@ static int i3c_device_uevent(const struct device *dev, struct kobj_uevent_env *e
+ 	struct i3c_device_info devinfo;
+ 	u16 manuf, part, ext;
+ 
+-	i3c_device_get_info(i3cdev, &devinfo);
++	if (i3cdev->desc)
++		devinfo = i3cdev->desc->info;
+ 	manuf = I3C_PID_MANUF_ID(devinfo.pid);
+ 	part = I3C_PID_PART_ID(devinfo.pid);
+ 	ext = I3C_PID_EXTRA_INFO(devinfo.pid);
+-- 
+2.46.0
+
 
