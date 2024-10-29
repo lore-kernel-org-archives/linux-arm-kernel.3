@@ -4,124 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A49D3A67A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1964D3A67A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 18:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tVrEJ1QNXdtH3y40AB7vBywBTEg17KKKxypS7mV5zI=; b=uwQWSDYPFx1DO3Nfj5CxqX+i90
-	n89D/IVU18YNBfGDlzkxKCorOU9vcG2Ft33O4IecXEDreBk0c+uUJrIxOd+7pgq4VB4h1o1VyzkfB
-	0w4oDCAhl0iIt8EFYePiPIPjdZhecrLKFmhB9fwpRUTFeWNDhLEeWk6HaGIg9w3fXhCpJv2/tFCON
-	NEH/A9SA/RLLsDmCoi8PHhlXlqI2qc329uO9EU3bviCZgieSVHpwIAFn6wia9yyJH3EdkySQ49loh
-	yDur6Ko6WTkF14rWFEsh676/batlTvU+Wt4lO1PvVZwFHRHlE63SFM/jrJkM+hcarbKMdbyyGaEa0
-	AoARN8pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ZZSj0sidP0doxQJ63u9wBiHBhXTLkCydj7TCioxbN0=; b=BORwV8+floRb9xeG2TjQewhvZv
+	AmnoQeqOpCnewaAjNk/OFIqWkj/uN77MRWeJqYKIqIuhzV1otrzFJj6QQJUpRiAXtebzgG2ujfNJ3
+	gcv5T1UZCeHoZruXsomerLEImEC6lzXGKbkdca83bNv0nz3jzZzSIVBrDFjFSf1FX8zf5CMMkR3rC
+	BRtoTnfNajkUnucn/nsMVpeTVPj+zkBwKlUHBdYKiwCstcEwnr1jMuxMU9Ews4m4UtRR5UR+lIh99
+	zVQ3cIM5WWNC24nVWgNax2yN5if+UJSG6ZJLQEgL37tJ5c3//E1vIVdgg/5djVh7Ja0NmK0jnKCPV
+	YN0QMMpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qrR-0000000FTSf-0IdN;
-	Tue, 29 Oct 2024 18:22:33 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1t5qrS-0000000FTSm-065x;
+	Tue, 29 Oct 2024 18:22:34 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5qEm-0000000FMtu-3dLl
+	id 1t5qU2-0000000FQeF-4AIb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 17:42:39 +0000
+	Tue, 29 Oct 2024 17:58:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730223757; x=1761759757;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=3tVrEJ1QNXdtH3y40AB7vBywBTEg17KKKxypS7mV5zI=;
-  b=mLW0N8RHgv001TWb2V9PaWRXkd8hCmCWYmpoH4Jw9a0pedflU3l7KHM8
-   jcdMQIxpYKwvVBGpmB9h8SoZP2ia/9n5LBL7KPf1yYhqCDuIcjznFhqCb
-   1cNO2vC0R9apJeTvEFjATDZUPjMkais6TdhlqI0DzRmcAAqkQIkAdu6n8
-   armYj7GqR6xsa3F+vAmBXa5T2mx5RSRioN7gHV/HdELVCbv0HLF1mHA++
-   tgr7IBfeWzCw10rx3xNW3u9jWuuRIfnZoIZc0XsSlk0PkhhZIDVoQPiot
-   p3tSS7CvnShgzGxl05hz2Jsdlgb4zRTe+4Pq5jhZwv+g4tZw9KzFhz0DN
-   w==;
-X-CSE-ConnectionGUID: Bwc9LGeXRCW65DIpFvpFow==
-X-CSE-MsgGUID: y7QRM6MXQWKZMpiIRx4QCg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11240"; a="40501282"
+  t=1730224703; x=1761760703;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=uVw5VKSy48THoYBNFE7eeeSMqsWNoLuz0zk0O2YvdHA=;
+  b=I1SVEy9ZO0Sl2R4Ut7hdyJwCl8e0oiD3UG/v1wu9JpjVqigM5H1MbV9J
+   CFbpLCxqt0JyrhcwMJAE01hU3QOQPpnpQgvz3Jof37iym7Q+HR6ohpsIH
+   N/jpzGif9N9qbXJxzh0RInet6tCB5VwIlgD8lKvixX8m70WeZdQYThaeQ
+   3bxK3spryFiHEwfx7EXLEQEvdydFiJVHSF4pEcVIaOtQGVzWAnR/jDvUv
+   una1bzGZoprupLlHNpeldOZU3Zv1beicH2kPBryXm9e6IgfAgqqjDwBK0
+   JHG2HS4/Nh80F3M3r2Ejac3j0adG/HMBqGyY/+leE971pDHKsl6lWVh3Z
+   g==;
+X-CSE-ConnectionGUID: OZedST4GTEyTLdlvrmQ0KA==
+X-CSE-MsgGUID: UMJMDPezS86oNazWAWnyDA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11240"; a="17520528"
 X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
-   d="scan'208";a="40501282"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 10:42:37 -0700
-X-CSE-ConnectionGUID: AmLIJXqQS2ePpa6Za4gwkA==
-X-CSE-MsgGUID: JlxIK0aJTzet1FOjP35DLA==
+   d="scan'208";a="17520528"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 10:58:22 -0700
+X-CSE-ConnectionGUID: V5K9RZxpTKa1S1OMid/bhQ==
+X-CSE-MsgGUID: H3WnrZOzRsOktKUWL/yrQA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,241,1725346800"; 
-   d="scan'208";a="119518847"
-Received: from ccbilbre-mobl3.amr.corp.intel.com (HELO [10.124.223.38]) ([10.124.223.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 10:42:35 -0700
-Message-ID: <1703ed36-a6e0-47ef-adcd-93696f5434c7@intel.com>
-Date: Tue, 29 Oct 2024 10:42:34 -0700
+   d="scan'208";a="82466420"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 29 Oct 2024 10:58:19 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t5qTx-000dxi-0q;
+	Tue, 29 Oct 2024 17:58:17 +0000
+Date: Wed, 30 Oct 2024 01:57:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: alice.guo@oss.nxp.com, wahrenst@gmx.net, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
+Subject: Re: [PATCH v2] soc: imx: Add SoC device register for i.MX9
+Message-ID: <202410300140.9q3lC7M2-lkp@intel.com>
+References: <20241029083406.3888861-1-alice.guo@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] selftests/mm: Use generic pkey register
- manipulation
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: akpm@linux-foundation.org, anshuman.khandual@arm.com,
- aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, Dave.Martin@arm.com, jeffxu@chromium.org,
- joey.gouly@arm.com, keith.lucas@oracle.com, pierre.langlois@arm.com,
- shuah@kernel.org, sroettger@google.com, tglx@linutronix.de, will@kernel.org,
- yury.khrustalev@arm.com, linux-kselftest@vger.kernel.org, x86@kernel.org
-References: <20241029144539.111155-1-kevin.brodsky@arm.com>
- <20241029144539.111155-5-kevin.brodsky@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20241029144539.111155-5-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241029083406.3888861-1-alice.guo@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_104236_973276_B6254D69 
-X-CRM114-Status: UNSURE (   3.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_105823_095236_E60D91E7 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,7 +89,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The test changes look good to me:
+Hi,
 
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on shawnguo/for-next]
+[also build test WARNING on linus/master v6.12-rc5 next-20241029]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/alice-guo-oss-nxp-com/soc-imx-Add-SoC-device-register-for-i-MX9/20241029-163718
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241029083406.3888861-1-alice.guo%40oss.nxp.com
+patch subject: [PATCH v2] soc: imx: Add SoC device register for i.MX9
+config: i386-buildonly-randconfig-003-20241029 (https://download.01.org/0day-ci/archive/20241030/202410300140.9q3lC7M2-lkp@intel.com/config)
+compiler: clang version 19.1.2 (https://github.com/llvm/llvm-project 7ba7d8e2f7b6445b60679da826210cdde29eaf8b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241030/202410300140.9q3lC7M2-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410300140.9q3lC7M2-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/soc/imx/soc-imx9.c:48:44: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+      48 |                 pr_err("%s: SMC failed: %d\n", __func__, res.a0);
+         |                                         ~~               ^~~~~~
+         |                                         %lu
+   include/linux/printk.h:533:33: note: expanded from macro 'pr_err'
+     533 |         printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+         |                                ~~~     ^~~~~~~~~~~
+   include/linux/printk.h:490:60: note: expanded from macro 'printk'
+     490 | #define printk(fmt, ...) printk_index_wrap(_printk, fmt, ##__VA_ARGS__)
+         |                                                     ~~~    ^~~~~~~~~~~
+   include/linux/printk.h:462:19: note: expanded from macro 'printk_index_wrap'
+     462 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
+         |                         ~~~~    ^~~~~~~~~~~
+   1 warning generated.
+
+
+vim +48 drivers/soc/imx/soc-imx9.c
+
+    17	
+    18	static int imx9_soc_device_register(void)
+    19	{
+    20		struct soc_device_attribute *attr;
+    21		struct arm_smccc_res res;
+    22		struct soc_device *sdev;
+    23		u32 soc_id, rev_major, rev_minor;
+    24		u64 uid127_64, uid63_0;
+    25		int err;
+    26	
+    27		attr = kzalloc(sizeof(*attr), GFP_KERNEL);
+    28		if (!attr)
+    29			return -ENOMEM;
+    30	
+    31		err = of_property_read_string(of_root, "model", &attr->machine);
+    32		if (err) {
+    33			pr_err("%s: missing model property: %d\n", __func__, err);
+    34			goto attr;
+    35		}
+    36	
+    37		attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
+    38	
+    39		/*
+    40		 * Retrieve the soc id, rev & uid info:
+    41		 * res.a1[31:16]: soc revision;
+    42		 * res.a1[15:0]: soc id;
+    43		 * res.a2: uid[127:64];
+    44		 * res.a3: uid[63:0];
+    45		 */
+    46		arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
+    47		if (res.a0 != SMCCC_RET_SUCCESS) {
+  > 48			pr_err("%s: SMC failed: %d\n", __func__, res.a0);
+    49			err = res.a0;
+    50			goto family;
+    51		}
+    52	
+    53		soc_id = SOC_ID(res.a1);
+    54		rev_major = SOC_REV_MAJOR(res.a1);
+    55		rev_minor = SOC_REV_MINOR(res.a1);
+    56	
+    57		attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
+    58		attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
+    59	
+    60		uid127_64 = res.a2;
+    61		uid63_0 = res.a3;
+    62		attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
+    63	
+    64		sdev = soc_device_register(attr);
+    65		if (IS_ERR(sdev)) {
+    66			err = PTR_ERR(sdev);
+    67			goto soc_id;
+    68		}
+    69	
+    70		return 0;
+    71	
+    72	soc_id:
+    73		kfree(attr->soc_id);
+    74		kfree(attr->serial_number);
+    75		kfree(attr->revision);
+    76	family:
+    77		kfree(attr->family);
+    78	attr:
+    79		kfree(attr);
+    80		return err;
+    81	}
+    82	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
