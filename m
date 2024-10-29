@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3223DD2AB3F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F77D2AB3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 13:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HWmK7YloyVlCj4Foi80Ia9qm3R2ho4wUBh0Xk5h0sdA=; b=sOwmiD+Q+ZmNDIwxRLBOPK7xPZ
-	QZFIu8+z6etEu6vrMVUj8RfwsqeZMKEzSY1asXbHfxnG2x5m9QTjt4yPAatYtCiiAUvFMwVgk1LLJ
-	I/LVO4rtECQ8/1lwoPAhj5oRfEVNWlITO3tY/4vOId1e1yBGWf/WG57ETuKWfynbjIl7GAdXzvKy9
-	pjFhrUs0GHQEnJhWvPQgZkK6IqgQ9RFQcN5fIZD245tvXG2TucOl3sNwQ0Ga8yBhsHs89SCDZ8+hH
-	WHdP1c+3dc8qso6M2uXGWJINggKXGB6tGBAyiT3ZqBX164QXMMmp14ePlzz6esQ9j/LANLk0ABSCp
-	vO/LI5yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pJ6bUzuR65fMvIFtzmc9otobuBuLdlZn3GvPHCYJ5As=; b=SJWJdd87nerf6+0ESewRq986p6
+	PEcaB7sxQpjC1fK1hqoGewU/jVluNHxQIVqa8Mzu6J6yvnVgOKFUj0HzRaZmmkqyvehQTM44XBrTk
+	lqrF23k4ScOUYCNez+kagDtX5ZJPYzTitZXZ+FjH/gJE5Bc6ocgb3//w+99a0NBPPUMmpcwM6gMGC
+	5Of2H8UceBi0wCl4Xi3LQbNl9mhN1gYlrxxfo/gWi9mPUX2+I5pmUqaZu1xzjqcOZEJ8jN9/tgCSn
+	TTMJVNQ7Us5iXyV59SRRu0BN8ag9eRW+ziBwW7t3XXzkB+bQkr9qsHey7qle8ioKUX1gkpkTDmLwi
+	F8KvHFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mcx-0000000EdO7-3Kum;
-	Tue, 29 Oct 2024 13:51:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5mGv-0000000EZez-2CjN
+	id 1t5meZ-0000000EdgP-07Sk;
+	Tue, 29 Oct 2024 13:52:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t5mI0-0000000EZlM-1V2B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 13:28:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D1DBB5C5B4F;
-	Tue, 29 Oct 2024 13:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DDDC4CECD;
-	Tue, 29 Oct 2024 13:28:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730208512;
-	bh=e3K2C4d64w5q8jBy694LKako+mbAAHduLlAX9nGbCBg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DZBInWnKyg47BWassEMuKEkFeDKyUsu3KZnmvTDI6PvnDPQ6gfvyWimtguDiDq1Ye
-	 IsVnsxYXy+aSlmxnvcWJ9rytD/P8vEva3xJ4lpTrvvZY492pK+CYi9xHUIgwfieKBj
-	 UNh2kb1ggtPHvrIhOCTzMKx/lEF3ywoFxfmsZw5C5HJyUyPlbTjQiHET+aonv89AIG
-	 xEY9f8JX89gt4XfbMqi/4WcjpYivKD8fWVumQZFnjGtd7rgVMAfuvtLwt9uIp0yaYl
-	 Z0LHqsiv1b9/ldDq5wyXGuvQoyciXYp0tXESX+7PIfMxTTVAZcEa0mfXg1djdGaNUe
-	 ObI3ftv/wsevA==
-Date: Tue, 29 Oct 2024 13:28:27 +0000
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: jonathan.cameron@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, yangyicong@hisilicon.com,
-	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
-	prime.zeng@hisilicon.com
-Subject: Re: [PATCH v3 2/8] drivers/perf: hisi: Improve the detection of
- associated CPUs
-Message-ID: <20241029132826.GB4416@willie-the-truck>
-References: <20241026072424.29887-1-yangyicong@huawei.com>
- <20241026072424.29887-3-yangyicong@huawei.com>
+	Tue, 29 Oct 2024 13:29:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0AA3113E;
+	Tue, 29 Oct 2024 06:30:07 -0700 (PDT)
+Received: from [10.57.89.81] (unknown [10.57.89.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1430F3F528;
+	Tue, 29 Oct 2024 06:29:35 -0700 (PDT)
+Message-ID: <2d651f1b-4f51-4984-903f-7f5a14151f84@arm.com>
+Date: Tue, 29 Oct 2024 13:29:35 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241026072424.29887-3-yangyicong@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 3/5] iommu/arm-smmu: add support for PRR bit setup
+To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com,
+ will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, jsnitsel@redhat.com,
+ robh@kernel.org, krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+ dmitry.baryshkov@linaro.org
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-4-quic_bibekkum@quicinc.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241008125410.3422512-4-quic_bibekkum@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_062833_675511_52E05D7C 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20241029_062940_537394_BA696A66 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +68,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26, 2024 at 03:24:18PM +0800, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On 2024-10-08 1:54 pm, Bibek Kumar Patro wrote:
+> Add an adreno-smmu-priv interface for drm/msm to call
+> into arm-smmu-qcom and initiate the PRR bit setup or reset
+> sequence as per request.
 > 
-> Currently the associated CPUs are detected in the cpuhp online
-> callback. If the CPU's sccl_id or the ccl_id matches the PMU's,
-> they're associated. There's an exception that some PMUs locate
-> on the SICL and will match no CPUs. The events of these PMUs
-> can be opened on any online CPUs. To handle this we just check
-> whether the PMU's sccl_id is -1, if so we know it locates on
-> SICL and make any CPU associated to it.
+> This will be used by GPU to setup the PRR bit and related
+> configuration registers through adreno-smmu private
+> interface instead of directly poking the smmu hardware.
 > 
-> This can be tweaked so in this patch just do the below changes:
-> - If the PMU doesn't match any CPU then associated it to online CPUs
-> - Choose the target CPU according to the NUMA affinity for opening
->   events
-> 
-> The function is implemented by hisi_pmu_init_associated_cpus() and
-> invoked in hisi_pmu_init().
-> 
-> Also the associated_cpus are maintained with all the online CPUs. This
-> is redundant since we'll always schedule the events on the online CPUs.
-> Get rid of this and make associated_cpus contain offline CPUs as well.
-
-I don't really understand the rationale for this change. Why is the new
-behaviour better than the old one?
-
-> 
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Suggested-by: Rob Clark <robdclark@gmail.com>
+> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
 > ---
->  drivers/perf/hisilicon/hisi_uncore_pmu.c | 56 +++++++++++++++++++-----
->  drivers/perf/hisilicon/hisi_uncore_pmu.h |  5 +++
->  2 files changed, 49 insertions(+), 12 deletions(-)
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 37 ++++++++++++++++++++++
+>   drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
+>   include/linux/adreno-smmu-priv.h           | 10 +++++-
+>   3 files changed, 48 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> index 416f72a813fc..c3549e16e0c3 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> @@ -399,6 +399,27 @@ void hisi_uncore_pmu_disable(struct pmu *pmu)
->  }
->  EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_disable, HISI_PMU);
->  
-> +static void hisi_pmu_init_associated_cpus(struct hisi_pmu *hisi_pmu)
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 6e0a2a43e45a..38ac9cab763b 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -25,6 +25,7 @@
+> 
+>   #define CPRE			(1 << 1)
+>   #define CMTLB			(1 << 0)
+> +#define GFX_ACTLR_PRR		(1 << 5)
+> 
+>   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>   {
+> @@ -109,6 +110,40 @@ static void qcom_adreno_smmu_resume_translation(const void *cookie, bool termina
+>   	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
+>   }
+> 
+> +static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
 > +{
-> +	/*
-> +	 * If the associated_cpus has already been initialized, for example
-> +	 * determined by comparing the sccl_id and ccl_id with the CPU's
-> +	 * mpidr_el1, then do nothing here. Otherwise the PMU has no affinity
-> +	 * and could be opened on any online CPU.
-> +	 */
-> +	if (!cpumask_empty(&hisi_pmu->associated_cpus))
-> +		return;
+> +	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+> +	struct arm_smmu_device *smmu = smmu_domain->smmu;
+> +	const struct device_node *np = smmu->dev->of_node;
+> +	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+> +	u32 reg = 0;
 > +
-> +	cpumask_copy(&hisi_pmu->associated_cpus, cpu_online_mask);
+> +	if (of_device_is_compatible(np, "qcom,smmu-500") &&
+> +			of_device_is_compatible(np, "qcom,adreno-smmu")) {
 
-Is it always safe to access 'cpu_online_mask' here?
+These conditions aren't going to change between calls - wouldn't it make 
+more sense to conditionally assign the callbacks in the first place? Not 
+the biggest deal if this is a one-off context-setup type thing, just 
+that it looks a little funky.
 
-Will
+Thanks,
+Robin.
+
+> +		reg =  arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR);
+> +		reg &= ~GFX_ACTLR_PRR;
+> +		if (set)
+> +			reg |= FIELD_PREP(GFX_ACTLR_PRR, 1);
+> +		arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR, reg);
+> +	}
+> +}
+> +
+> +static void qcom_adreno_smmu_set_prr_addr(const void *cookie, phys_addr_t page_addr)
+> +{
+> +	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+> +	struct arm_smmu_device *smmu = smmu_domain->smmu;
+> +	const struct device_node *np = smmu->dev->of_node;
+> +
+> +	if (of_device_is_compatible(np, "qcom,smmu-500") &&
+> +			of_device_is_compatible(np, "qcom,adreno-smmu")) {
+> +		writel_relaxed(lower_32_bits(page_addr),
+> +					smmu->base + ARM_SMMU_GFX_PRR_CFG_LADDR);
+> +
+> +		writel_relaxed(upper_32_bits(page_addr),
+> +					smmu->base + ARM_SMMU_GFX_PRR_CFG_UADDR);
+> +	}
+> +}
+> +
+>   #define QCOM_ADRENO_SMMU_GPU_SID 0
+> 
+>   static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
+> @@ -249,6 +284,8 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>   	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
+>   	priv->set_stall = qcom_adreno_smmu_set_stall;
+>   	priv->resume_translation = qcom_adreno_smmu_resume_translation;
+> +	priv->set_prr_bit = qcom_adreno_smmu_set_prr_bit;
+> +	priv->set_prr_addr = qcom_adreno_smmu_set_prr_addr;
+> 
+>   	return 0;
+>   }
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> index e2aeb511ae90..2dbf3243b5ad 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> @@ -154,6 +154,8 @@ enum arm_smmu_cbar_type {
+>   #define ARM_SMMU_SCTLR_M		BIT(0)
+> 
+>   #define ARM_SMMU_CB_ACTLR		0x4
+> +#define ARM_SMMU_GFX_PRR_CFG_LADDR	0x6008
+> +#define ARM_SMMU_GFX_PRR_CFG_UADDR	0x600C
+> 
+>   #define ARM_SMMU_CB_RESUME		0x8
+>   #define ARM_SMMU_RESUME_TERMINATE	BIT(0)
+> diff --git a/include/linux/adreno-smmu-priv.h b/include/linux/adreno-smmu-priv.h
+> index c637e0997f6d..03466eb16933 100644
+> --- a/include/linux/adreno-smmu-priv.h
+> +++ b/include/linux/adreno-smmu-priv.h
+> @@ -49,7 +49,13 @@ struct adreno_smmu_fault_info {
+>    *                 before set_ttbr0_cfg().  If stalling on fault is enabled,
+>    *                 the GPU driver must call resume_translation()
+>    * @resume_translation: Resume translation after a fault
+> - *
+> + * @set_prr_bit:   Extendible interface to be used by GPU to modify the
+> + *		   ACTLR register bits, currently used to configure
+> + *		   Partially-Resident-Region (PRR) bit for feature's
+> + *		   setup and reset sequence as requested.
+> + * @set_prr_addr:  Configure the PRR_CFG_*ADDR register with the
+> + *		   physical address of PRR page passed from
+> + *		   GPU driver.
+>    *
+>    * The GPU driver (drm/msm) and adreno-smmu work together for controlling
+>    * the GPU's SMMU instance.  This is by necessity, as the GPU is directly
+> @@ -67,6 +73,8 @@ struct adreno_smmu_priv {
+>       void (*get_fault_info)(const void *cookie, struct adreno_smmu_fault_info *info);
+>       void (*set_stall)(const void *cookie, bool enabled);
+>       void (*resume_translation)(const void *cookie, bool terminate);
+> +    void (*set_prr_bit)(const void *cookie, bool set);
+> +    void (*set_prr_addr)(const void *cookie, phys_addr_t page_addr);
+>   };
+> 
+>   #endif /* __ADRENO_SMMU_PRIV_H */
+> --
+> 2.34.1
+> 
+
 
