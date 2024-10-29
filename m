@@ -4,90 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B964BD5B176
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4247D5B16F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+tIuf+pw7VgqaoFXTVPLLVE0V3c5Y1bGL0baofA3s8=; b=g0Qjg4vfe9qqz1JBqOBHDaU2ET
-	QkCQL2kyGYJu50HWA5JZnl50hk77vJ+iD3EvdvnzD7E4jGHShURufqLy38TYqbF3ZEqLQZSGJ9JTh
-	gmPDF70IcKBmxL17B28SlwjBqiApNVFtrE5Gc0UPT7lUYeuK+azI0Nd/fEeTZzyyqoB84xhqdPKdY
-	IgI9+uCXWDiu2++0g3wQ8AAc3SQAh5atmvZ9ll49WEBlsDlYrwqLqJRz8+lr65RBpSVtQsg9GaTrz
-	xjRH4n4fmqZvomrzLC7Vih8DuIUTQCN6kXVgv/b+urIvR/9UAeCnQLS05xhouMJ8s46A/YDHwh90Z
-	xx9qzw0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4ku1JDYDBZT1obUivRyskSGSTDf0mktYxN5N3bIXkWQ=; b=n8km3dAnCM+BBv
+	hU+czXvtBh53bPMrYY6N5PnNxxkIEQnO4oQT0W56rB3NCW6t3gMQIkUwbB229WbI+qHeavjpHL4OA
+	J4Ao1d19QYSeU3+P9vYSonY6e7XTC5YMfagXCYcuvhWVnuVqctfBouJ5cAfhZdCGR6uxAMjdc9Nun
+	ToM4moX0MO1aQirj07h8/1oLHQKgdmqYXS2O5Vk8uRjOIWnxyEB7BBx6rIoaftY/tuR/GhNhmTiAb
+	JRLEKkocmZZVRQRgh2UQI5XHOBZXVfe4HzJX38HfRmyKlVIkZfLri801tC94Sr0rO8Om/xFHxDHFz
+	mbPNnPrzBkTnbAj4WYrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5iEr-0000000DpUu-13EX;
-	Tue, 29 Oct 2024 09:10:09 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1t5iGT-0000000Dprl-2NOG;
+	Tue, 29 Oct 2024 09:11:49 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5i1M-0000000DmF6-1pxq
+	id 1t5i9F-0000000DoXw-3UnU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:56:14 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d4c482844so3487238f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 01:56:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730192170; x=1730796970; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=q+tIuf+pw7VgqaoFXTVPLLVE0V3c5Y1bGL0baofA3s8=;
-        b=U0/jA7OzWXpuXZrAGVwiqj5vkYQitd1RgN3soTSM5wruRiEuJE7db1a8frx6VCidVE
-         yx2EcwQAx16mkxFk8paHzppWk2y/pFtSSpmfW6MEzD84cycjlhO1qwmqb1JtVhmWFuLA
-         PX5l4EAnnnxvtyhNEkMskbjuFc8Wgaj+TKhGe4dSUASGrl4VPlDxFFgPKKGrWnlqLPyq
-         mOAwx1Qc5rnc9BYSscnGxfepH8oPFy7IgFEnDPt/0IIuFAI9D2pbACKrSYfE65Ld4YaQ
-         KQzFDJjx1ITPZ5t3HL8H9KtWAWsIciT00d1XuvXHqp3PCyiFZj0lyxgw6Xj4BtHtQE8O
-         cwsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730192170; x=1730796970;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q+tIuf+pw7VgqaoFXTVPLLVE0V3c5Y1bGL0baofA3s8=;
-        b=KA1v5lsFAF/F7Oj7i9n7J1pOVjxokOgwUwnl0Xh39Y25aGqu07FTjnAMvIPjwHcdFC
-         B8nOZ2qVrxVsErZOJlyRLocIP1zQUcP/gT5l9D7trkH7tkpwuRodYP1nQDrlp7rQXC0o
-         bmxi4NgkB0BYlKdS1BzX7BcQkQNYXOz9E5sbTEN5RX/XIYALxTh6I1BMlrfeg3KyKJzO
-         nm/edOjev0bYJ9I8s9a0xI3XcZgFnAT8P51xnm1AQ6RptN92d6eTA2qDuXNRDepaPreh
-         7AK88LxGuyJ4vc/Jt8aFOck0fgj2MAmbBUTNkGUfoMRiMVeBF9kxVmYyEAvtoPNoeMwW
-         xyQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWW8Pz+33VDTj5RBYL8s+szT/KeRwU+hHbmC6FedvBihmpvX81zBUlCiZwXlvjACxbihNuAEZ/YwlH1uQtDV+wF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzom8iewP3L9g+/M73YPJon02Rx1LpHIoS67tIa8RWRHYWYgS0P
-	LRInoHKxpv1jyi+tuQ/56hQEO8kBCaVQSMjHcF7SYfAcnzEsauqq5ouyzTP43Dp1reIFQ/9vFLQ
-	E
-X-Google-Smtp-Source: AGHT+IEA5JJWXtQoHZ0PdS/MJdUSxxPT9oA+1aQ+m1nReUn2taETur8wxSZ4YWpYW5tyNcpUGNlwNg==
-X-Received: by 2002:a05:6000:1f11:b0:37d:52d0:a59d with SMTP id ffacd0b85a97d-380610f2bd6mr7564818f8f.10.1730192170391;
-        Tue, 29 Oct 2024 01:56:10 -0700 (PDT)
-Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b132fbsm11900069f8f.4.2024.10.29.01.56.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 01:56:09 -0700 (PDT)
-Date: Tue, 29 Oct 2024 09:56:08 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Conor Dooley <conor.dooley@microchip.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Aleksandr Shubin <privatesub2@gmail.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <4ioz6f6efs2uhf5mitb4xhebqeryyz5ukple4fkn54wpqep3c4@4ktefld35c3s>
-References: <20241011102751.153248-1-privatesub2@gmail.com>
- <20241011102751.153248-2-privatesub2@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ulmatopmaqdyrkp3"
-Content-Disposition: inline
-In-Reply-To: <20241011102751.153248-2-privatesub2@gmail.com>
+	Tue, 29 Oct 2024 09:04:26 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5DB1B21F9D;
+	Tue, 29 Oct 2024 09:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1730192658; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4ku1JDYDBZT1obUivRyskSGSTDf0mktYxN5N3bIXkWQ=;
+	b=o7QAkV3OXmTT4WcSZ+R25zlyM1IeRZveLYKgyLF1hV5HQ0vtI6NOGIWp9C75NbmNewNnWD
+	WoMolsPR3gXdD0PXa0IeOJ+R7EHEWAXS/x7pJ4ogoqxZbm/FbvtcXOkhnkcJmEAy3PLiqC
+	oU3RM11Dp2TSyEk6tHT6yaLppx+oaX8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1730192658;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4ku1JDYDBZT1obUivRyskSGSTDf0mktYxN5N3bIXkWQ=;
+	b=Ip+QCFtcCOSAqB3TcPjiOdaFnve+Diu6aAPyR06YsHf0Rl2vbV7/0QSSrmrbuY+EYEnvKB
+	ENZQeSyGpWp41rAA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1730192658; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4ku1JDYDBZT1obUivRyskSGSTDf0mktYxN5N3bIXkWQ=;
+	b=o7QAkV3OXmTT4WcSZ+R25zlyM1IeRZveLYKgyLF1hV5HQ0vtI6NOGIWp9C75NbmNewNnWD
+	WoMolsPR3gXdD0PXa0IeOJ+R7EHEWAXS/x7pJ4ogoqxZbm/FbvtcXOkhnkcJmEAy3PLiqC
+	oU3RM11Dp2TSyEk6tHT6yaLppx+oaX8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1730192658;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4ku1JDYDBZT1obUivRyskSGSTDf0mktYxN5N3bIXkWQ=;
+	b=Ip+QCFtcCOSAqB3TcPjiOdaFnve+Diu6aAPyR06YsHf0Rl2vbV7/0QSSrmrbuY+EYEnvKB
+	ENZQeSyGpWp41rAA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CE9BA136A5;
+	Tue, 29 Oct 2024 09:04:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id htNSMRGlIGf3FAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Tue, 29 Oct 2024 09:04:17 +0000
+Date: Tue, 29 Oct 2024 10:05:21 +0100
+Message-ID: <8734kf2sa6.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH] sound: Switch back to struct platform_driver::remove()
+In-Reply-To: <20241029073748.508077-2-u.kleine-koenig@baylibre.com>
+References: <20241029073748.508077-2-u.kleine-koenig@baylibre.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-5.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_ENVRCPT(0.00)[free.fr,gmail.com];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	FREEMAIL_CC(0.00)[perex.cz,suse.com,zonque.org,gmail.com,free.fr,microchip.com,bootlin.com,tuxon.dev,nvidia.com,ellerman.id.au,csgroup.eu,kernel.org,linux.ibm.com,lists.infradead.org,vger.kernel.org,lists.ozlabs.org];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_015612_516107_1549CFBF 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20241029_020422_286354_7796CA88 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +130,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Jonathan Hunter <jonathanh@nvidia.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Ivan Orlov <ivan.orlov0322@gmail.com>, Naveen N Rao <naveen@kernel.org>, Christophe Leroy <christophe.leroy@csgroup.eu>, Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, linux-sound@vger.kernel.org, Haojian Zhuang <haojian.zhuang@gmail.com>, Takashi Iwai <tiwai@suse.com>, Thierry Reding <thierry.reding@gmail.com>, Nicholas Piggin <npiggin@gmail.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-tegra@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>, Robert Jarzmik <robert.jarzmik@free.fr>, Daniel Mack <daniel@zonque.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 29 Oct 2024 08:37:47 +0100,
+Uwe Kleine-König wrote:
+> 
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
+> 
+> Convert all platform drivers below sound to use .remove(), with
+> the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
+> 
+> On the way do a few whitespace changes to make indention consistent.
+> 
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
+> Hello,
+> 
+> I did a single patch for all of sound. sound/soc was already converted
+> separately, so isn't mixed in here. While I usually prefer to do one
+> logical change per patch, this seems to be overengineering here as the
+> individual changes are really trivial and shouldn't be much in the way
+> for stable backports. But I'll happily split the patch if you prefer it
+> split.
 
---ulmatopmaqdyrkp3
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v10 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-MIME-Version: 1.0
+It's fine to do this in a single shot.
 
-Hello,
+I suppose this can be applied for 6.13, not necessarily to be merged
+for 6.12-rc?
 
-On Fri, Oct 11, 2024 at 01:27:32PM +0300, Aleksandr Shubin wrote:
-> +  allwinner,pwm-channels:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +    enum: [6, 9]
 
-I wonder if the number of channels is a property common enough that we
-can use "num-pwm-channels" here instead of a vendor specific property.
-Or would you suggest a different name? gpio-controller nodes have
-"ngpios", so maybe "npwms"?
+thanks,
 
-A quick grep suggests we already have:
-
-	fsl,pwm-number in mxs-pwm.yaml
-	st,pwm-num-chan in pwm-st.txt
-	snps,pwm-number in snps,dw-apb-timers-pwm2.yaml
-
-As a follow up this could then be used by pwmchip_alloc() to determine
-the number of channels if the passed npwm value is 0.
-
-Best regards
-Uwe
-
---ulmatopmaqdyrkp3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcgoyUACgkQj4D7WH0S
-/k4BJwf8DvGu76czyjVYmp+JyjZGGyzYFVym3ObWj8LAQZ7pr5F6O61BxMrIC/a4
-RWe9joUnrwLy+UJgxerMNtgS1TgnCgb2r8VzdheUJcDwTjPBAPvaa8eOpybmRtSq
-TxJcKF0qlT8bGtWZjRsx/UYKWLZUrrhgOt7CM0LY4kubCeDEwruXHZSy/FtuPvlM
-STFxNDN8fT7KuaqVY7HYvYZw6tOROAwFaxQhMWUIWQIruQyF4+WJ2bVgBQM77bxK
-OgE8BcqpFcCB2NU0qnyDXMqalDPYeh9necn8LrbQ0qXtE11vn5+bOlJvOHQhet8x
-DYJfsCSOcurHrnvmYo50GYpNdoJUrA==
-=2jh3
------END PGP SIGNATURE-----
-
---ulmatopmaqdyrkp3--
+Takashi
 
