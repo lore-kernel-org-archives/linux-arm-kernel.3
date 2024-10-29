@@ -4,54 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC72D5B164
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 08:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35632D5B16F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 09:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZhumA9H/VCLyAE6Xlv51DL95rNbHDjZYgCI0sDtictk=; b=C2AahIsGl8B9Hz5Prtda0KJh0B
-	FTn2iFqayxt82kwuXwEs58vdrESZ2/EuO91COR/wxTvd+WuDX2dZjXFEMW/cZ9rcObHI/GrbTMsdP
-	ttNrFEhDmG7cmmU53LVwdS+JBLY3OUhSnrRyv52140y3mVtlMthb6jSN+CStY7P1gl4gps0Zp35Pu
-	MLe2zx4WuFU5KOeDVqG9w5JaGVWqJtp+FzXfEv3elvOyx/Yo7AA9J6ZuVHhfkyRMLwPxhblvTT+HZ
-	76OKFdOdWaLjXtQPVzYh4/V71dDnqM6BweRAmlhyquYFtgivXR1KwQu1mnuuldX9WuFtYQ4m4efdt
-	cSSYthyw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q9tbeX7y+zJgZuAb/cGAaZ6MuCs4CQFq8FQvgssvj5E=; b=uaMD+CazC2037ngfuMW8kH6CmE
+	P9TjwOxSBK1DOtd7S5XsH3D9dZ70wF4bK0Ftp+YbK72lFGYAZgGmAiHBqoR6qprUoYFaysvYGOlGE
+	BlkJRFF1ssKFVcWUpplp6+Ra45RAP2c3CyuQI0xTT5E8GzREn7WXIMkiTHhu5UKFp3fjE8uGVBSQ9
+	LmIXn4gAWCk3MJnBJ9MY3pR3QiuMkoCOnSzINhbQ/ra4tMkip+fS/nrYyvyZzbtvRqqo9WClT7oCy
+	aRH4c+BI5lAY346V+ESiXV5LYedeS6OA/YRigg0XwnhLtU3PYeWD7DHFMg/Cwx8Usu3jA1tzc0KYg
+	20ZRxfIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5i3e-0000000DnXt-23L7;
-	Tue, 29 Oct 2024 08:58:34 +0000
-Received: from mail.quikbyte.pl ([91.134.88.136])
+	id 1t5i5G-0000000Dnrv-1GTm;
+	Tue, 29 Oct 2024 09:00:14 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5hpF-0000000Dj58-0EqC
+	id 1t5hpd-0000000DjG6-2Nop
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 08:43:43 +0000
-Received: by mail.quikbyte.pl (Postfix, from userid 1002)
-	id 715C824D10; Tue, 29 Oct 2024 08:41:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=quikbyte.pl; s=mail;
-	t=1730191321; bh=ZhumA9H/VCLyAE6Xlv51DL95rNbHDjZYgCI0sDtictk=;
-	h=Date:From:To:Subject:From;
-	b=RKMjt5ricOTqdpSYX/F0aXz/m9BT7bRAS9nw3zDrS70Z5j8lpiOVaYsPsI2EBJ/Wa
-	 JDws3Bs6DNS2M8cfDO9BoH8uFZwkatlqNuRs8IxYdK3C1qWxG0n7x6SiIjBeENIhf2
-	 UyZ5TNOPfjB/ZbA1mSyTCP4hsfoV38DHBNRwNlLrjZwBUl8bfBqbQe1d/a6w2pWy0/
-	 eHwGAHQ+kZu0kt1E86m7LKhNP5cnOXXhJvOAHF6a4XKW65qyOSF37sX2Kmaq2Bqn9u
-	 ZdD3EVaZ0ODv8idfjoSiT8wNXweWrx1Iu3kN2RbmIbvoZ7TBKJ1/4DxJZ6L3tl+k9p
-	 owED1ICLHl9Ww==
-Received: by mail.quikbyte.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 08:40:49 GMT
-Message-ID: <20241029074500-0.1.3b.q2az.0.pvngwe9zm3@quikbyte.pl>
-Date: Tue, 29 Oct 2024 08:40:49 GMT
-From: "Piotr Firek" <piotr.firek@quikbyte.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.quikbyte.pl
+	Tue, 29 Oct 2024 08:44:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=q9tbeX7y+zJgZuAb/cGAaZ6MuCs4CQFq8FQvgssvj5E=; b=C8PH7V936k7jSRlqWNh/9IP9kq
+	2lMBc9oVA6BILyiZI4TvY/qs23GQNfOWpQipGokmPTcvgTR+8AsdYx/mQol5PQ4B9Q3BXKcA5vwL0
+	qaWWQBolR7aLKV1lPlDpe5qo7inNYIGy9fBvYgJYW28sCoV0QHkz/H9sBYaDd6geVj06rE866fs0k
+	9UGEXv8I8JgXoDP8Bf/Zrom5MoisZ/iRJSIfZoFwauhEu2WhjwMcdPpDRhJu/D0pWBQAcH+Kqw8RX
+	8FaYwoKRFjv4uv4cIaJd4NoZ2rZD6+W6BKaJdpB5qf6LUGoYxilHQ2YT+yj+/Ga7ZYy4IJ77fJWEx
+	lRU3k4KQ==;
+Date: Tue, 29 Oct 2024 09:44:02 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ linux-kernel@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, Sascha Hauer
+ <s.hauer@pengutronix.de>, Alexander Stein
+ <alexander.stein@ew.tq-group.com>, imx@lists.linux.dev, sre@kernel.org
+Subject: Re: [PATCH v2 2/3] ARM: dts: imx: Add devicetree for Kobo Clara 2E
+Message-ID: <20241029094402.382594c5@akair>
+In-Reply-To: <f2bb661d-8ef5-43d4-aece-c7fec01ff9fe@gmail.com>
+References: <20241024142206.411336-1-andreas@kemnade.info>
+ <20241024142206.411336-3-andreas@kemnade.info>
+ <f2bb661d-8ef5-43d4-aece-c7fec01ff9fe@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_014341_790626_E23546AB 
-X-CRM114-Status: UNSURE (   2.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_014405_622446_E460D500 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,19 +74,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+Am Tue, 29 Oct 2024 09:53:33 +0200
+schrieb Matti Vaittinen <mazziesaccount@gmail.com>:
 
-Czy jest mo=C5=BCliwo=C5=9B=C4=87 nawi=C4=85zania wsp=C3=B3=C5=82pracy z =
-Pa=C5=84stwem?
+> On 24/10/2024 17:22, Andreas Kemnade wrote:
+> > Adds a devicetree for the Kobo Clara 2E Ebook reader. It is based
+> > on boards marked with "37NB-E60K2M+4A2" or "37NB-E60K2M+4B0". It is
+> > equipped with an i.MX6SLL SoC.
+> > 
+> > Expected to work:
+> >    - Buttons
+> >    - Wifi
+> >    - Bluetooth
+> >      (if Wifi is initialized first, driver does not handle
+> > regulators yet)
+> >    - LED
+> >    - uSD
+> >    - USB
+> >    - RTC
+> >    - Touchscreen
+> > 
+> > Add human-readable comments for devices without mainlined driver and
+> > binding. Such comments can e.g. be help to find testers if someone
+> > starts to work on the missing drivers.
+> > 
+> > Signed-off-by: Andreas Kemnade <andreas@kemnade.info>  
+> 
+> ...
+> 
+> > +
+> > +	pmic@4b {
+> > +		compatible = "rohm,bd71879", "rohm,bd71828";
+> > +		reg = <0x4b>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_bd71828>;
+> > +
+> > +		interrupt-parent = <&gpio4>;
+> > +		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
+> > +		system-power-controller;
+> > +
+> > +		clocks = <&clks 0>;
+> > +		#clock-cells = <0>;
+> > +		clock-output-names = "bd71828-32k-out";
+> > +
+> > +		gpio-controller;
+> > +		#gpio-cells = <2>;
+> > +		gpio-reserved-ranges = <0 1>, <2 1>;
+> > +
+> > +		rohm,charger-sense-resistor-ohms = <30000000>;  
+> 
+> I am afraid that this one is _my_ very much terrible brainfart. Yeah, 
+> pile up the stones and start casting ;)
+>
+... at everyone who had looked at this and did not question it ;-)
+ 
+> I am fairly sure the sense resistor is 30 mOhm (0,030 Ohm), not 30
+> MOhm (30 000 000 Ohm). (And I am the one who misinterpreted the M in
+> some email/data-sheet in the past - and never questioned the sanity).
+> 
+Well, I did question it, but then thought, ok there might be some
+current mirror to scale things down so that the massive rsense might
+make sense. Well, no schematics here.
 
-Z ch=C4=99ci=C4=85 porozmawiam z osob=C4=85 zajmuj=C4=85c=C4=85 si=C4=99 =
-dzia=C5=82aniami zwi=C4=85zanymi ze sprzeda=C5=BC=C4=85.
+> In short, AFAICS the sense resistor is added "in series" to the
+> system load. Eg:
+> 
+>            --------
+>        ---| Rsense |-----
+>       |    --------      |
+>   ---------           -------
+> | VSupply |         | Rload |
+>   ---------           -------
+>       |                  |
+>        ------------------
+> 
+> Hence, by measuring the voltage drop on the Rsense gives us the
+> current flowing through the system ( good old U = RI ).
+> 
+Yes, that is the way I did know how these things are usually done.
+So I am still on track.
 
-Pomagamy skutecznie pozyskiwa=C4=87 nowych klient=C3=B3w.
+> I believe having 30 Mohm (30 000 000 Ohm) resistor there would not
+> make much of sense... With a Fermi estimate that the system works
+> with voltage magnitude of 1V and current magnitude of 1A and then
+> applying good old P = UI and U = RI would give us wonderful results
+> :) Quite a battery on poor Kobo, right? You'd better to not touch the
+> battery termninals ;) Oh, and looking the driver code I've written
+> for handling this property... Sometimes I really don't like mirrors :)
+> 
 
-Zapraszam do kontaktu.
+> Well, now that I got this out - I suppose this could be
+> rohm,charger-sense-resistor-milli-ohms = <30>;
+> or
+> rohm,charger-sense-resistor-micro-ohms = <30000>;
+> 
+> I further guess there is no upstreamn binding doc for this property.
 
+The binding doc is upstream. So an impressive amount of maintainers
+had a look at it...
 
-Z pozdrowieniami
-Piotr Firek
+Well, everyone seem to entrust Rohm Semiconductors to do magic...
+wonderful reputation.
+
+So how to proceed? As this property is not required, I can simply
+remove it and add a comment.
+
+> I think there is also no upstream charger driver for the
+> BD71828/BD71879 - only an early RFC and some downstream mess - but
+> stil it'd be nice to have the property in place as the size of the
+> sense resistor is needed when converting coulomb counter register
+> values to current.
+> 
+What are you upstreaming plans here? For all:
+I rebased the charger stuff to v6.11 on
+https://github.com/akemnade/linux branch kobo/power-6.11
+
+Regards,
+Andreas
 
