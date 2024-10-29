@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63588D5B854
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 00:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B05BD5B85D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 00:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvFsvX0rHGBLFa1u5QrWeJBF1jVoKrO4qBm0xESFTeQ=; b=0VbIybmZORjIvt2lebbqRK+ZpK
-	hfE8h4iLDPnuEb0dFy67dZGX2TjqQG5XWWH5e8mozZAzln77LW7yAVNukCtSFBgCMhaRaZ5rTT+HU
-	nMqKdjjjJ/6ODgozC8zdutz09KHll7H/fVYt5nUQttiJYWzbN3GqQ0WfW9MuNl6+LB7sJltgMJj71
-	Iq5ne1fFuVczgfI53iCwNuHXk7XF9oqGHoRjw+rjxSshACFop7wc6z3VekhdYOvxqTnS2wPEtBklY
-	sYVnHqtKc14XncuTlhrrQh4WFD1mLW8X+urVUuy4sREIqY6HxFpGs3vWXonIAMhhJu/oilXdZhU9+
-	qo4H6kbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=18M5G6gmC2uJZssfsnK5gMVxO3whYHwKOs0IPtJ1EAc=; b=U3FO6GL2D3F9+Q2ZWpfqTz0fy9
+	88B8IRDAZJhD7y9zULxDi9scSXvG1bkD5Diir9uLWpIkCFjVcIRL5LHjgNlXm6abRnES6/atgp/0O
+	4euWT/2j5Vha54r6k53VhxZrTUTLrsDPalq3/66JC+FcyHg6JOtuI/eOLYStmE65CGpvHSBNMSON8
+	ed+ejElOCIHLMIc5nY9PFcBWIButHqudPuwhBa5mqWR4/dytZTbfByRskcDeptWiENVvbjP/dUIdk
+	OhAPPpzKRR5S5vXC+QtBJcm6pnz0SiPsRfuDSzmMzsGXB/+CN9jjTxAVm7mQgQgMlqb1vszPCu1JJ
+	EQLrHmAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5aCK-0000000ClaN-1vIX;
-	Tue, 29 Oct 2024 00:35:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t5aa7-0000000Cnq8-3jhd;
+	Tue, 29 Oct 2024 00:59:35 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5aAP-0000000ClGa-2tZO;
-	Tue, 29 Oct 2024 00:33:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F8945C5AC6;
-	Tue, 29 Oct 2024 00:32:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15FD9C4CEC3;
-	Tue, 29 Oct 2024 00:33:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1730161980;
-	bh=h6uTVq+hv9WhN1djveiVDbjzfvV7PyEB+OO+feAAn98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=1fWOv+Xz4YoVnyfxnShxDcmk+XGg2cxeGv/lJbGGmZOc9bq79BG9xUrfeHzwcoLFZ
-	 Rv5MyOoqKTRjEE47xrnZDVU5/Iqkuyel1uikjJooEeWSjZ7dLpwoDnpOJtTA1MD5yS
-	 vy8b8S696klE0nThRykPJYyXlZUiSbepqDCCk4tk=
-Date: Tue, 29 Oct 2024 01:32:48 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Steffen Persvold <spersvold@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	"Borislav Petkov (AMD)" <bp@alien8.de>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Tony Luck <tony.luck@intel.com>, Yury Norov <yury.norov@gmail.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] ACPI: CPPC: Make rmw_lock a raw_spin_lock
-Message-ID: <2024102934-bankroll-strongbox-8074@gregkh>
-References: <20241028105200.1205509-1-pierre.gondois@arm.com>
+	id 1t5aYU-0000000Cndc-3t7W;
+	Tue, 29 Oct 2024 00:57:56 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4316e9f4a40so50292965e9.2;
+        Mon, 28 Oct 2024 17:57:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730163473; x=1730768273; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=18M5G6gmC2uJZssfsnK5gMVxO3whYHwKOs0IPtJ1EAc=;
+        b=bS4t37cHc6mrOzr7ncN4OXDmoIQxakzJZiLzHzbgbxrYAPjLtIyfO9VEAHRqk1lY0g
+         fyy9qmhlj0FObC1dIhhyk98lGQSoBi5mNEVl2B2A//GAUBGIbnY+IE0uodZ7KhRH4cfz
+         gJjWMqjKvVUWDumtwg5a8ZGM0G5EHX34jlbhxWSt5yAbYOo9CRiIVPZDiRo4MdXXMPs2
+         kVKgK367ES69BvuLVZG/xcY9huBfNIHNnBMvdlsoqGMAEvAlmZ4QdBhJRkywI7xcaKUU
+         soYBhKsaZPOQicw6aUBS+PsQ5Rp83Nvoj4zhGtiX6WR8YlY/FBqJ1/ZYTlAy7GPc+S4p
+         FsCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730163473; x=1730768273;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=18M5G6gmC2uJZssfsnK5gMVxO3whYHwKOs0IPtJ1EAc=;
+        b=bGVSXqR5dswL3Q5wcMmOd6pm0dDq0OG779MU9OWUF3+9jWQmJgo7K8UtEI1CJbRRoI
+         nGAODLR8HNfR0gDN4xt/OxpjmavNrxOMBaFPal0JIeT2Hw00OUb/9EXCiRul8rkhezYs
+         /Wg3ADWU6xHzExlSOcPuYX2Whd+RmZuIf56bmoqrln0xVvaF5VfhTuF4ebGuvh77Om1u
+         BOrVctKsFzepbZNvF9uSIx2nhXzHA2hR/MelXda8RM4Zecq6IqLiBN1+S25i7aa6S602
+         mxrZ60QNhP/Ljv42WbxsooLnYyFuIRMqEswQkFixbMD4se0csbLU0OjrO+EtTeelCPyW
+         1d7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVmjlJw/GsCkQVTrlmZdfeS1flVn1oi1sA6G0YI0swhGnQAAnHrDjNOdnPbyrR6bsIjGGA9lcWi9ByJXxIz41Kw@lists.infradead.org, AJvYcCWo10Sz61tyW11zEfKCBoczVyWqX/d1i6I8mHpRumlXTF2QZ6xHJ8tAWjF6PDIaKbBMzIt2nFPPjIEhvodbb7A=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcviCdrFs2fNooN2ZoVfF4sv/cW+qCA4K4LwMSY9fzsw0jnoyH
+	EfrZXAezMHf1o8/pbb2/67PYfmnF+VEjRVis3c0jHg8P2/UdIUz5
+X-Google-Smtp-Source: AGHT+IEDznCPCf6wq2CmGJYXSoKXPyBjdKEg5qpjuhcayRcrcniC1z1J2mBHun/cnOqlR0goHC+pPw==
+X-Received: by 2002:a5d:5cce:0:b0:37d:446a:9e60 with SMTP id ffacd0b85a97d-38060ffe8cbmr7494789f8f.0.1730163473057;
+        Mon, 28 Oct 2024 17:57:53 -0700 (PDT)
+Received: from [192.168.0.2] ([69.6.8.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b70d50sm10974443f8f.76.2024.10.28.17.57.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2024 17:57:51 -0700 (PDT)
+Message-ID: <11e25027-6987-4c88-ac06-c1ba60c0d113@gmail.com>
+Date: Tue, 29 Oct 2024 02:58:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241028105200.1205509-1-pierre.gondois@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
+To: Jinjian Song <jinjian.song@fibocom.com>,
+ chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
+ ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
+ johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-doc@vger.kernel.org, angelogioacchino.delregno@collabora.com,
+ linux-arm-kernel@lists.infradead.org, matthias.bgg@gmail.com,
+ corbet@lwn.net, linux-mediatek@lists.infradead.org, helgaas@kernel.org,
+ danielwinkler@google.com, korneld@google.com
+References: <20241022084348.4571-1-jinjian.song@fibocom.com>
+Content-Language: en-US
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+In-Reply-To: <20241022084348.4571-1-jinjian.song@fibocom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241028_173301_843634_DF80A8A8 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20241028_175755_002402_C20B45C8 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +101,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 11:51:49AM +0100, Pierre Gondois wrote:
-> The following BUG was triggered. sugov_update_shared() locks a
-> raw_spinlock while cpc_write() locks a spinlock. To have a correct
-> wait-type order, update rmw_lock to a raw_spinlock.
-> 
-> Also save irq state.
-> 
-> =============================
-> [ BUG: Invalid wait context ]
-> 6.12.0-rc2-XXX #406 Not tainted
-> -----------------------------
-> kworker/1:1/62 is trying to lock:
-> ffffff8801593030 (&cpc_ptr->rmw_lock){+.+.}-{3:3}, at: cpc_write+0xcc/0x370
-> other info that might help us debug this:
-> context-{5:5}
-> 2 locks held by kworker/1:1/62:
->   #0: ffffff897ef5ec98 (&rq->__lock){-.-.}-{2:2}, at: raw_spin_rq_lock_nested+0x2c/0x50
->   #1: ffffff880154e238 (&sg_policy->update_lock){....}-{2:2}, at: sugov_update_shared+0x3c/0x280
-> stack backtrace:
-> CPU: 1 UID: 0 PID: 62 Comm: kworker/1:1 Not tainted 6.12.0-rc2-g9654bd3e8806 #406
-> Workqueue:  0x0 (events)
-> Call trace:
->   dump_backtrace+0xa4/0x130
->   show_stack+0x20/0x38
->   dump_stack_lvl+0x90/0xd0
->   dump_stack+0x18/0x28
->   __lock_acquire+0x480/0x1ad8
->   lock_acquire+0x114/0x310
->   _raw_spin_lock+0x50/0x70
->   cpc_write+0xcc/0x370
->   cppc_set_perf+0xa0/0x3a8
->   cppc_cpufreq_fast_switch+0x40/0xc0
->   cpufreq_driver_fast_switch+0x4c/0x218
->   sugov_update_shared+0x234/0x280
->   update_load_avg+0x6ec/0x7b8
->   dequeue_entities+0x108/0x830
->   dequeue_task_fair+0x58/0x408
->   __schedule+0x4f0/0x1070
->   schedule+0x54/0x130
->   worker_thread+0xc0/0x2e8
->   kthread+0x130/0x148
->   ret_from_fork+0x10/0x20
-> 
-> Fixes: 60949b7b8054 ("ACPI: CPPC: Fix MASK_VAL() usage")
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+Hello Jinjian,
+
+On 22.10.2024 11:43, Jinjian Song wrote:
+> If driver fails to set the device to suspend, it means that the
+> device is abnormal. In this case, reset the device to recover
+> when PCIe device is offline.
+
+Is it a reproducible or a speculative issue? Does the fix recover modem 
+from a problematic state?
+
+Anyway we need someone more familiar with this hardware (Intel or 
+MediaTek engineer) to Ack the change to make sure we are not going to 
+put a system in a more complicated state.
+
+> Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
 > ---
->  drivers/acpi/cppc_acpi.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> V2:
+>   * Add judgment, reset when device is offline
+> ---
+>   drivers/net/wwan/t7xx/t7xx_pci.c | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/t7xx/t7xx_pci.c
+> index e556e5bd49ab..4f89a353588b 100644
+> --- a/drivers/net/wwan/t7xx/t7xx_pci.c
+> +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
+> @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct pci_dev *pdev)
+>   	iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) + ENABLE_ASPM_LOWPWR);
+>   	atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
+>   	t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
+> +	if (pci_channel_offline(pdev)) {
+> +		dev_err(&pdev->dev, "Device offline, reset to recover\n");
+> +		t7xx_reset_device(t7xx_dev, PLDR);
+> +	}
+>   	return ret;
+>   }
 
-Hi,
-
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
-
-You are receiving this message because of the following common error(s)
-as indicated below:
-
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
+--
+Sergey
 
