@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98232D3A697
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD52DD3A697
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 20:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=; b=VPFbkERMljvY/NTXn+W4d1ZYeO
-	8yq5nn2uQuCduK6Frs9Fq+bm+y30+oiCvk+HQPVQQrQj4gVPowe17+ci6hVZeDCY5BlK7Ng2aIo6z
-	TqiMVZsV8M1EzhOxRi1IQ+gEgEaMM8V9vnsgNwQ891MZf8gOxWEWPxSo/I/KmnTB371taqPGT/CjD
-	bkgo9mRvvgoRk3UvBy4BKtUElG6L7xeuusGaZyoQ8HjoazIlgcisIDozqs/JhmaP8tuVISWlMEbo5
-	QJzk03qxQHXfNRv5T5vVlStSKnKmV/ilVnQJvpY2QrvpjHUiSNp+I8eZw2zmR2ITbCaBzuFecoJn5
-	OE8ArrgQ==;
+	bh=02fVgYCHwHYWz9XJLOuShixyFS6jMl+g475mqm/khNw=; b=G3t7WTUGcTCat+1QyU0rNDE+Rv
+	20M/0LkP2hxhz/CCrZgZzNFj9VUCwFtVG/CMoTz5ylj6JhiVrqtodDBRLxWOSANU1WXo9nZPnEzfv
+	8zASfhsc+2/676JiURc7jTy/K3lnhKzgdLow4jI8en7WvTtuPEhMOhcFJCk2DuaVd3JVl2+JcqxB8
+	XbzumD3ebPgjZEJGxpV/+R6gp2RMn69G/qtN5z6297vz0dDqsiCQzio87CBC9MTVPH1B5SNUoi3Is
+	83CLD3EfOn2unYRX3SbHTgAf+pmWesj0bJ4DtUmDnoYE+G8H1JiKUHKbp6czlw1F2wX4gQnRcfWZL
+	GNNpvDnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sVl-0000000Five-3eRJ;
-	Tue, 29 Oct 2024 20:08:17 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1t5sXM-0000000Fj78-0FXv;
+	Tue, 29 Oct 2024 20:09:56 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5sU7-0000000Fijy-3Jta
+	id 1t5sV5-0000000Fiq7-1Znm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 20:06:37 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6e3a97a6010so67167497b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:06:34 -0700 (PDT)
+	Tue, 29 Oct 2024 20:07:36 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6e377e4aea3so53492167b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 13:07:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730232394; x=1730837194; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730232454; x=1730837254; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=;
-        b=nwaq8GEPjzK8xGggG/uA8qwKU6mmeZFXvmsr3rEnyF6YkcJRYHYHgD+XErvrwMI+l5
-         7Wa86N/HO3ERHmdDSbO9EeMfMUoquF5KO8clfBHKOgyd/9IKaRx3rsarPQynjEXfyPtO
-         D5YUJoQTRbCQu8EGj9NxYHOqf9c2GklZupmhO+hpZqZRavFhuNF8D/MO+lmOovI0TXeQ
-         QZtrtqrUtjSuaT72EeH+pSpi9K25m6pXUrfoNUHTdC0M3DZ7wq5njqH9blz5N1ECzD51
-         RO8PMJtbYJhm87zj7fBUO4vGnfx/Xp7mF0akZc37GtNHSmFwjG1zNPaOCPhTVNZ8/2cF
-         /JQA==
+        bh=02fVgYCHwHYWz9XJLOuShixyFS6jMl+g475mqm/khNw=;
+        b=sCAx2CZ3/Zx8LQYGMmYbE7V7B8Yv9MeJUzW85KOaqKjuHqucqezk81ODkF0kzRv0cE
+         QTkRb/7EHKFDpvpHXeQS1JN6wlcR/d8fSXaR53rC6DOgRHEzadX8tEXSCRtW+opugDkh
+         h322tSpFbmFBmqoF9ju8fL8CdDZqY95vfyQqQ3FY3HDTP1WaA0nSozxtV3P6z/jECQcl
+         F2O/j33zhIn67XD2iElUJqq4I2SHnvF+3CrZqSjB0V/x2LgpFSpdkQuzuuHo3+XqCfcH
+         DtK6XYgyqxutYET91nr80h2VuDz+1J4V7IvIh63dUqzLxiAhAdItXhXOpw/ROhPT3n6p
+         2mLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730232394; x=1730837194;
+        d=1e100.net; s=20230601; t=1730232454; x=1730837254;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H3NttoA5WxBHMHxzBK9jMzti32CvvOP6K0PZcY+FhbE=;
-        b=KUB4kTrSabyVk9VKxkQkGrPRZFvtus7frJqpgh7QItvQsHNd8IecWxRXxwrwPRURaK
-         Xr+LLnqFWN273Jn41jz4UlYrC1SGNWyoHVqhDTGxI8wiKI1HrC1jVTH9c1e5w69Czvqv
-         eudaDrDfPXYFlsQAyru781zFjOEZpSUDciWr9vkwXnFGyU6px8ghWPCDGTxz9I8kJuFF
-         atqKesnLzlUwnod1MWTcuaDLIqyUEkDKF2nBL+DDPwLU+CHEtTTM0MJLLdg3T/wIC1y0
-         C1gErT4PiKSmLWB/SUBsggryvkt2+Pc2K7RyBpA2OMFtho65JAqbepZKlr6rOcsaG/5q
-         Ie8g==
-X-Forwarded-Encrypted: i=1; AJvYcCWhl3ridUf4SoAc3HcnQm30M4oZ+vLMNyeg+7q4wYoJhV9rTcVve82klh+OSJVEUV4lZLODUQ+yRzUNn5l9EU4E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzloYL+Dh1PxyXWBep9XhroNkVdQPfswAkA5SMYFCBwubzxrulb
-	MQ8WlRHQvi0Rip4hRG8LsShr4bJ/+fnVl01EXwoM3tpkaABIiBhpqfsvdJStsXDi8DMQKAJwT5d
-	EOTJeTZ6UoTKhPBEwjyiMAl5RVQ3nHfAxc102RA==
-X-Google-Smtp-Source: AGHT+IHJIZjJm0+Hsxf3gPKdK8yBtqrSRKRjmh10LGyKq5VrJEw8ofGWS0qIV7jYqKH4wMYRbrhheBmDRAEt5XkqPpk=
-X-Received: by 2002:a05:6902:1109:b0:e30:6dea:3ab4 with SMTP id
- 3f1490d57ef6-e3087a6060fmr12587842276.23.1730232393985; Tue, 29 Oct 2024
- 13:06:33 -0700 (PDT)
+        bh=02fVgYCHwHYWz9XJLOuShixyFS6jMl+g475mqm/khNw=;
+        b=agiMpkxIQVZjimSIPo6KBoe4mV95Do7krJturRrEG8EugXaqiilLsmi2kvhnM75ZKU
+         4BvFHcP52AkUbzIJlNLHfirLprl0+hCO4Ada3W3ZTYAUu+ExC9FeDgeGmOMjxpPbbLNY
+         PyutYa3LpD1Cap4vO8WGE56kcGCt+A76N+iuc/cfA3oFHl8irdYToEqVzTHNKlzIyuDi
+         9BT05iCEKtWZhSs1VNDYyppfFkIDgS92Umlxgfi+XfiDn+zVUNQEnJzY0eZ1BIhBMQlC
+         +mw6G5GcLK/iX7v3YkQjWT3zBSlTm4XGt/wCyJ+ZRO6rkQuzLVspKAGlv6vxJ7JpnKR9
+         jDew==
+X-Forwarded-Encrypted: i=1; AJvYcCVth0rBhNZRYbOdYVJJGHrPTTYSMlWRP8mB+wkw8iUxCAacaGLTSUQzvNBCgv06TjVsOv8pNpK/NnLgIAnP8pJ5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzExIGb12pTqqt5ae1oL1nz/BgqDTmzWrhr4h0fcQ7T6j1wxBD
+	CbhWM1BZBtGFl8djp3o7SpR5cG+3xS/Ze0MTxsAHYtW0mqrdYXIB+6eGw1Lt5VtYzdRU8JPSiLy
+	KUH36/eA+u/+pMWJT4youD61c++D/If1D/z5/GQ==
+X-Google-Smtp-Source: AGHT+IE6yjevMKWWK5dEWcL+udZz549JMdzzGNgSsO5RyF7/i8ZbdZi84RS0NDlaugK3ZRmt6j5woCgLHpdcq7icNZM=
+X-Received: by 2002:a05:6902:161d:b0:e29:c45:9272 with SMTP id
+ 3f1490d57ef6-e3087a4ca3fmr11835983276.9.1730232453728; Tue, 29 Oct 2024
+ 13:07:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241029192107.2344279-1-peter.griffin@linaro.org>
-In-Reply-To: <20241029192107.2344279-1-peter.griffin@linaro.org>
+References: <20241029191131.2329414-1-peter.griffin@linaro.org>
+In-Reply-To: <20241029191131.2329414-1-peter.griffin@linaro.org>
 From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Tue, 29 Oct 2024 15:06:23 -0500
-Message-ID: <CAPLW+4k7wd4Wix8xEB8+Aeb10_D9XU9jbxhCZ_OMn1fW5OOAtg@mail.gmail.com>
-Subject: Re: [PATCH] phy: samsung-ufs: switch back to syscon_regmap_lookup_by_phandle()
+Date: Tue, 29 Oct 2024 15:07:23 -0500
+Message-ID: <CAPLW+4=jK63MFCRuhDkT2RH-J6dYsd0qHf_f1EeWTdrGqGLn=A@mail.gmail.com>
+Subject: Re: [PATCH] Revert "watchdog: s3c2410_wdt: use exynos_get_pmu_regmap_by_phandle()
+ for PMU regs"
 To: Peter Griffin <peter.griffin@linaro.org>
-Cc: vkoul@kernel.org, kishon@kernel.org, krzysztof.kozlowski@linaro.org, 
-	alim.akhtar@samsung.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org, 
-	kernel-team@android.com, willmcvicker@google.com, 
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Cc: wim@linux-watchdog.org, linux@roeck-us.net, krzk@kernel.org, 
+	alim.akhtar@samsung.com, linux-watchdog@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, tudor.ambarus@linaro.org, 
+	andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_130635_857189_DC97C381 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20241029_130735_446030_66063335 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +94,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 2:21=E2=80=AFPM Peter Griffin <peter.griffin@linaro=
+On Tue, Oct 29, 2024 at 2:11=E2=80=AFPM Peter Griffin <peter.griffin@linaro=
 .org> wrote:
 >
-> Now exynos-pmu can register its custom regmap for gs101 via
-> of_syscon_register_regmap() we can switch back to the standard
-> syscon_regmap_lookup_by_phandle() api for obtaining the regmap.
+> This reverts commit 746f0770f916e6c48e422d6a34e67eae16707f0e.
 >
-> Additionally add a Kconfig dependency for MFD_SYSCON.
+> Now that we can register a SoC specific regmap with syscon using
+> of_syscon_register_regmap() api we can switch back to using
+> syscon_regmap_lookup_by_phandle() in the client drivers.
 >
 > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 > ---
 
 Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
->  drivers/phy/samsung/Kconfig           | 1 +
->  drivers/phy/samsung/phy-samsung-ufs.c | 6 +++---
->  2 files changed, 4 insertions(+), 3 deletions(-)
+>  drivers/watchdog/Kconfig       | 1 +
+>  drivers/watchdog/s3c2410_wdt.c | 8 ++++----
+>  2 files changed, 5 insertions(+), 4 deletions(-)
 >
-> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
-> index f10afa3d7ff5..e2330b0894d6 100644
-> --- a/drivers/phy/samsung/Kconfig
-> +++ b/drivers/phy/samsung/Kconfig
-> @@ -33,6 +33,7 @@ config PHY_SAMSUNG_UFS
->         tristate "Exynos SoC series UFS PHY driver"
->         depends on OF && (ARCH_EXYNOS || COMPILE_TEST)
->         select GENERIC_PHY
-> +       select MFD_SYSCON
+> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> index 684b9fe84fff..f3cd402e5795 100644
+> --- a/drivers/watchdog/Kconfig
+> +++ b/drivers/watchdog/Kconfig
+> @@ -549,6 +549,7 @@ config S3C2410_WATCHDOG
+>         tristate "S3C6410/S5Pv210/Exynos Watchdog"
+>         depends on ARCH_S3C64XX || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE=
+_TEST
+>         select WATCHDOG_CORE
+> +       select MFD_SYSCON if ARCH_EXYNOS
 >         help
->           Enable this to support the Samsung Exynos SoC UFS PHY driver fo=
-r
->           Samsung Exynos SoCs. This driver provides the interface for UFS=
- host
-> diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/=
-phy-samsung-ufs.c
-> index 6c5d41552649..8e9ccd39f97e 100644
-> --- a/drivers/phy/samsung/phy-samsung-ufs.c
-> +++ b/drivers/phy/samsung/phy-samsung-ufs.c
-> @@ -13,11 +13,11 @@
+>           Watchdog timer block in the Samsung S3C64xx, S5Pv210 and Exynos
+>           SoCs. This will reboot the system when the timer expires with
+> diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wd=
+t.c
+> index 686cf544d0ae..349d30462c8c 100644
+> --- a/drivers/watchdog/s3c2410_wdt.c
+> +++ b/drivers/watchdog/s3c2410_wdt.c
+> @@ -24,9 +24,9 @@
+>  #include <linux/slab.h>
+>  #include <linux/err.h>
 >  #include <linux/of.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
 > +#include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
 >  #include <linux/regmap.h>
+>  #include <linux/delay.h>
 > -#include <linux/soc/samsung/exynos-pmu.h>
 >
->  #include "phy-samsung-ufs.h"
+>  #define S3C2410_WTCON          0x00
+>  #define S3C2410_WTDAT          0x04
+> @@ -699,11 +699,11 @@ static int s3c2410wdt_probe(struct platform_device =
+*pdev)
+>                 return ret;
 >
-> @@ -268,8 +268,8 @@ static int samsung_ufs_phy_probe(struct platform_devi=
-ce *pdev)
->                 goto out;
+>         if (wdt->drv_data->quirks & QUIRKS_HAVE_PMUREG) {
+> -               wdt->pmureg =3D exynos_get_pmu_regmap_by_phandle(dev->of_=
+node,
+> -                                                "samsung,syscon-phandle"=
+);
+> +               wdt->pmureg =3D syscon_regmap_lookup_by_phandle(dev->of_n=
+ode,
+> +                                               "samsung,syscon-phandle")=
+;
+>                 if (IS_ERR(wdt->pmureg))
+>                         return dev_err_probe(dev, PTR_ERR(wdt->pmureg),
+> -                                            "PMU regmap lookup failed.\n=
+");
+> +                                            "syscon regmap lookup failed=
+.\n");
 >         }
 >
-> -       phy->reg_pmu =3D exynos_get_pmu_regmap_by_phandle(dev->of_node,
-> -                                                       "samsung,pmu-sysc=
-on");
-> +       phy->reg_pmu =3D syscon_regmap_lookup_by_phandle(dev->of_node,
-> +                                                      "samsung,pmu-sysco=
-n");
->         if (IS_ERR(phy->reg_pmu)) {
->                 err =3D PTR_ERR(phy->reg_pmu);
->                 dev_err(dev, "failed syscon remap for pmu\n");
+>         wdt_irq =3D platform_get_irq(pdev, 0);
 > --
 > 2.47.0.163.g1226f6d8fa-goog
 >
