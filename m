@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC793D2AB29
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F277DD2AB29
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Oct 2024 12:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZScZ0+O1z+KD5ly1wGwp6XJNh1QIX+DiUm/Qzjn1DDQ=; b=aghFBhwda4E4F1Y4kxhcp4i4Bt
-	5GVmdFI+FwLBBGRTcgSAFQyKLDLFKnFeZvOVrPsBQx3r0LT/OW+SVEES4A0+uRaTGvrglmU1AbT7g
-	9oQOQ2BBgqCF5BYjeNUxYfoUanr9YNxXPCyIuApS96BDBnzJAwTwUAi1ZUQs5JpPly4tEaY2j+EZB
-	AUxuL6uVnzNVWRKRB8B3uQCOQJJWDBqbyiIhjUFFeorO4aaN2D/xxYq/59q8VPTIkz4/7Asf0vY3h
-	+pOOd5dR2ESC2r1z7DWsKdMPQk5MdQC7OXK3bbJhg28LVDv+FReXTuLhbiUQnC7yhpFliE9LMQOsV
-	8kpHza/Q==;
+	bh=/aytaH1oLbxE7oXL5Lh1BICkPib3Ft7vQWy4tTKokWI=; b=oUagOdCkWu4eziRmJDSLh8gx2Y
+	KTZGZvKxU++fdP+z+CcZmr8HcvQ1431jA+5eCkp9F8fgX3pFXgkMpOmAEK7adCtnA2KxDNgN0E7su
+	80EeCGdLKwWJGV85LH42lbIevYHWcwCfKwu500n5r4Ht0GNo03dN/OHL17WPgTvm24ygXhCtWpq/L
+	YEkdO/Z8iU7gqppU0w8+bPOOTShGeRkLWJUp6QRkHxnTMT3bpvqI60K7hmq/PsLRbehar8dKInKj1
+	tCJlrMTnF19peGEKQmpDY/odOMkNI3bFqG3HvSZan2Uv1rgnPIISXdbfFG3M58aBNj9WK7yUZZfR0
+	QG7Z2vGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5kwe-0000000EKWr-0d3I;
-	Tue, 29 Oct 2024 12:03:32 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1t5kyF-0000000EKwO-1kPT;
+	Tue, 29 Oct 2024 12:05:11 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5jqy-0000000E7XJ-3ARD
+	id 1t5jr0-0000000E7Xo-0voh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Oct 2024 10:53:38 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539f72c913aso6808096e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:53:36 -0700 (PDT)
+	Tue, 29 Oct 2024 10:53:39 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f72c8fc1so6476856e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 03:53:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730199215; x=1730804015; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730199217; x=1730804017; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZScZ0+O1z+KD5ly1wGwp6XJNh1QIX+DiUm/Qzjn1DDQ=;
-        b=H4Amsxa054rWEs19mf/EyC+1bVRRBOxwhHOpRYMchL1WNnPQcOLmHCzHmQUchrlhMG
-         RWN95Y5NvTVJBUshyfN6vZnos/07mtqFbOaHE3JELKj68j7B/tkzJMjvXSGIm9p7kncC
-         DWJ/1yrMBOfvgKdBGfHW8JHvsh2MuVEHEITza3sS8uOgD7rhL6Gj6LN8BhJ94s2K0CVB
-         O0mb2QSuUrwzel/Sotj3C9wwIVf3QEdL7qJbJazxHxaZBYCGL78kKiWIlRmt3RLQsLom
-         jncbj0G0rXPho0cTAqTPlRmN/zgKYclVXpEiXtt3Wny5LJwRkgD0xJxR1V0Os4w4jNzS
-         7Pbw==
+        bh=/aytaH1oLbxE7oXL5Lh1BICkPib3Ft7vQWy4tTKokWI=;
+        b=WHHg6DHzbAjRHBRKKONy7gPdWxbar0Yao58TVM22uQm2YongJ60V/ddZpgYA1/aDkR
+         9ullBO3Qy0Uo3dhBdVG+7osyaObwgAuT6MBdP5dkiYJITN5+SzADEu9ocv4j3EgUDX+S
+         aObf2uVgTSqTJRfjpTMUSNn3EXE3OFt7TyWlVX6VljEBJr9E1uKfe9276yAWBuy67xbK
+         JilqdHnzwj93UVQCfEj7nt7QGvz+F61yp9jd/HRHBT7wFEuGWIpZKNgakTaeUTiLYzqj
+         KJG4vuRzJe0l2TeNgYN733fqaH36YUmxtBVBCXz/K9Ulmcu0UGv6LZere5hmf0RxM+ln
+         Mxcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730199215; x=1730804015;
+        d=1e100.net; s=20230601; t=1730199217; x=1730804017;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZScZ0+O1z+KD5ly1wGwp6XJNh1QIX+DiUm/Qzjn1DDQ=;
-        b=SupHQtKGpBoVUeBtRPtyQIYkOpg550E8bg2ydAj6LZ4B/C6SBCu/hisrArga1b2UWe
-         pY8TDC6jVwU/uuCUFpPygUbAIo6Qf1gUT1BbXn6j6MtcUHCoPZ1zb6N+Py7GXkWb94jx
-         EkEJf32nx+ZE3kOHHcJBv4AnMg7RFfz80s6XD6Hk0w4CM4q8HUeUGNMbPBZFiaYRb7Hn
-         153wcP3/55OBWRHifYHQvF99TdoMF2mNCta30Ohhknqdh3NgL4sPSiUT6s2vFjVRJ1XH
-         F/TRBU0T6+m2re+aB059grHHNYD1uCtDiU1R9zw0R/2nYwBeN1Rd8UjB9P/IaMFdQ4sM
-         yeMA==
-X-Gm-Message-State: AOJu0YxaFxoGgIMPp3/BpJ2CVaACutEvN0OXkUKj/Gsrf2PBpOit/aeZ
-	/eGDD6Limn3L4VG+t1KYHmkckr+NuQL8+yFWY2hzyg3N562tFz/c6ryJcIvxayk=
-X-Google-Smtp-Source: AGHT+IFuQtccSquVaHeIkt6pIsoMJv+xdK5WssF0bBYkK4KjihYMKnkM5Ythh/2t9kCbB2W6mYSllQ==
-X-Received: by 2002:a05:6512:a92:b0:539:fd10:f07b with SMTP id 2adb3069b0e04-53b34b39774mr5544494e87.55.1730199215170;
-        Tue, 29 Oct 2024 03:53:35 -0700 (PDT)
+        bh=/aytaH1oLbxE7oXL5Lh1BICkPib3Ft7vQWy4tTKokWI=;
+        b=t00rXVU8FAdjLpkFUaDH9F7j05JFU3Re4IHMy6M/6tKWnGcYsHwaE5lGFIGexGCghD
+         sfCT22lDKyfj/L8VgtanUONFhmzZna4g8hIqiHv+z+jfD+0fYxUiIJ3a3NMA8QMd9QYP
+         c1Xs1aK7sGl54uTfMgLgwJFSAbvkhZ4hyE2EQyu77XDCjRPhi9M1lzSaHADewr8J3PeJ
+         P9/izrXJHJAmWxNM/W6v3nO2XY5CZxMern+tLcmt77D/D6EMLCJBFMpW7Gl1FtIKZrSE
+         e2FXarsHdCmrKbPRNTFzgod9+phy3hzVeAC8LKrvRUGgapqIv0ubYiBssUvZrKdDmbVl
+         YfuA==
+X-Gm-Message-State: AOJu0YyhJNQ0K98ihT3qxe+lSHwUKpbGEuwskzMRPQHmG48moV3grAUO
+	DeHkJuY5oxuV/yX5gLu2ZXb7NHK8XXg6azk2CPk1RUWf9NAWEMb+cXBEWG4aaFM=
+X-Google-Smtp-Source: AGHT+IGR4YQInxFI66N5j0WfMdCdeF355iwdhYBDKEXmAVJwY1SO6OvLh/7PzjphT8TgoLwPMIQX0Q==
+X-Received: by 2002:a05:6512:10d6:b0:539:f7de:df6a with SMTP id 2adb3069b0e04-53b34a3208dmr5334035e87.52.1730199216687;
+        Tue, 29 Oct 2024 03:53:36 -0700 (PDT)
 Received: from lino.lan ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.53.33
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53b2e12452fsm1351307e87.73.2024.10.29.03.53.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Oct 2024 03:53:34 -0700 (PDT)
+        Tue, 29 Oct 2024 03:53:35 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 29 Oct 2024 11:53:06 +0100
-Subject: [PATCH RFC v2 26/28] ARM: entry: Move in-kernel hardirq tracing to
- C
+Date: Tue, 29 Oct 2024 11:53:07 +0100
+Subject: [PATCH RFC v2 27/28] ARM: entry: Add FIQ/NMI C callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241029-arm-generic-entry-v2-26-573519abef38@linaro.org>
+Message-Id: <20241029-arm-generic-entry-v2-27-573519abef38@linaro.org>
 References: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 In-Reply-To: <20241029-arm-generic-entry-v2-0-573519abef38@linaro.org>
 To: Oleg Nesterov <oleg@redhat.com>, Russell King <linux@armlinux.org.uk>, 
@@ -82,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_035336_840424_DC9DE154 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20241029_035338_302018_35A1A3AE 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,127 +97,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the code tracing hardirqs on/off into the C callbacks
-for irqentry_enter_from_kernel_mode() and
-irqentry_exit_to_kernel_mode().
-
-The semantic difference occurred is that we alsways check
-the PSR_I_BIT to determine if (hard) interrupts were enabled
-or not. The assembly has a tweak to avoid this if we are
-exiting an IRQ since it is obvious that IRQs must have been
-enabled to get there, but for simplicity we just check it
-for all exceptions.
+These NMI (FIQ) callbacks are added to complete the calls expected
+by the generic entry. They are perfectly fine to add code to
+but are left empty for now.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-armv.S   | 13 ++++---------
- arch/arm/kernel/entry-header.S | 19 ++-----------------
- arch/arm/kernel/entry.c        |  5 +++++
- 3 files changed, 11 insertions(+), 26 deletions(-)
+ arch/arm/include/asm/entry.h   |  4 ++++
+ arch/arm/kernel/entry-armv.S   | 14 +++++++++++---
+ arch/arm/kernel/entry-header.S |  2 ++
+ arch/arm/kernel/entry.c        | 16 ++++++++++++++++
+ 4 files changed, 33 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
+index a78bc5054b09..2e7ccd87f0eb 100644
+--- a/arch/arm/include/asm/entry.h
++++ b/arch/arm/include/asm/entry.h
+@@ -14,5 +14,9 @@ void irqentry_enter_from_user_mode(struct pt_regs *regs);
+ void irqentry_exit_to_user_mode(struct pt_regs *regs);
+ void irqentry_enter_from_kernel_mode(struct pt_regs *regs);
+ void irqentry_exit_to_kernel_mode(struct pt_regs *regs);
++void irqentry_nmi_enter_from_user_mode(struct pt_regs *regs);
++void irqentry_nmi_exit_to_user_mode(struct pt_regs *regs);
++void irqentry_nmi_enter_from_kernel_mode(struct pt_regs *regs);
++void irqentry_nmi_exit_to_kernel_mode(struct pt_regs *regs);
+ 
+ #endif /* __ASM_ENTRY_H__ */
 diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index 21b11fe199cb..600375f6f5d8 100644
+index 600375f6f5d8..839f3ebe7228 100644
 --- a/arch/arm/kernel/entry-armv.S
 +++ b/arch/arm/kernel/entry-armv.S
 @@ -157,7 +157,7 @@ ENDPROC(__und_invalid)
  #define SPFIX(code...)
  #endif
  
--	.macro	svc_entry, stack_hole=0, trace=1, uaccess=1, overflow_check=1
-+	.macro	svc_entry, stack_hole=0 uaccess=1, overflow_check=1
+-	.macro	svc_entry, stack_hole=0 uaccess=1, overflow_check=1
++	.macro	svc_entry, stack_hole=0 uaccess=1, overflow_check=1, nmi=0
   UNWIND(.fnstart		)
  	sub	sp, sp, #(SVC_REGS_SIZE + \stack_hole)
   THUMB(	add	sp, r1		)	@ get SP in a GPR without
-@@ -207,11 +207,6 @@ ENDPROC(__und_invalid)
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_enter_from_kernel_mode
+@@ -205,7 +205,11 @@ ENDPROC(__und_invalid)
+ 	uaccess_entry tsk, r0, r1, r2, \uaccess
  
--	.if \trace
--#ifdef CONFIG_TRACE_IRQFLAGS
--	bl	trace_hardirqs_off
--#endif
--	.endif
+ 	mov	r0, sp				@ 'regs'
++	.if \nmi
++	bl	irqentry_nmi_enter_from_kernel_mode
++	.else
+ 	bl	irqentry_enter_from_kernel_mode
++	.endif
+ 
  	.endm
  
- 	.align	5
-@@ -238,7 +233,7 @@ __irq_svc:
- 	blne	svc_preempt
- #endif
- 
--	svc_exit r5, irq = 1			@ return from exception
-+	svc_exit r5				@ return from exception
-  UNWIND(.fnend		)
- ENDPROC(__irq_svc)
- 
-@@ -302,7 +297,7 @@ ENDPROC(__pabt_svc)
+@@ -297,7 +301,7 @@ ENDPROC(__pabt_svc)
  
  	.align	5
  __fiq_svc:
--	svc_entry trace=0
-+	svc_entry
+-	svc_entry
++	svc_entry nmi=1
  	mov	r0, sp				@ struct pt_regs *regs
  	bl	handle_fiq_as_nmi
  	svc_exit_via_fiq
-@@ -320,7 +315,7 @@ ENDPROC(__fiq_svc)
+@@ -315,7 +319,7 @@ ENDPROC(__fiq_svc)
  @
  	.align 5
  __fiq_abt:
--	svc_entry trace=0
-+	svc_entry
+-	svc_entry
++	svc_entry nmi=1
  
   ARM(	msr	cpsr_c, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
   THUMB( mov	r0, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
+@@ -490,9 +494,13 @@ ENDPROC(ret_from_exception)
+ 	.align	5
+ __fiq_usr:
+ 	usr_entry
++	mov	r0, sp
++	bl	irqentry_nmi_enter_from_user_mode
+ 	kuser_cmpxchg_check
+ 	mov	r0, sp				@ struct pt_regs *regs
+ 	bl	handle_fiq_as_nmi
++	mov	r0, sp
++	bl	irqentry_nmi_exit_to_user_mode
+ 	get_thread_info tsk
+ 	restore_user_regs
+  UNWIND(.fnend		)
 diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
-index 49a9c5cf6fd5..cfaf14d71378 100644
+index cfaf14d71378..ec8a6e193802 100644
 --- a/arch/arm/kernel/entry-header.S
 +++ b/arch/arm/kernel/entry-header.S
-@@ -199,26 +199,11 @@
- 	.endm
- 
- 
--	.macro	svc_exit, rpsr, irq = 0
--	.if	\irq != 0
--	@ IRQs already off
--#ifdef CONFIG_TRACE_IRQFLAGS
--	@ The parent context IRQs must have been enabled to get here in
--	@ the first place, so there's no point checking the PSR I bit.
--	bl	trace_hardirqs_on
--#endif
--	.else
-+	.macro	svc_exit, rpsr
-+
- 	@ IRQs off again before pulling preserved data off the stack
- 	disable_irq_notrace
- 
--#ifdef CONFIG_TRACE_IRQFLAGS
--	tst	\rpsr, #PSR_I_BIT
--	bleq	trace_hardirqs_on
--	tst	\rpsr, #PSR_I_BIT
--	blne	trace_hardirqs_off
--#endif
--	.endif
--
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_exit_to_kernel_mode
- 
+@@ -252,6 +252,8 @@
+ 	@
+ 	.macro  svc_exit_via_fiq
+ 	uaccess_exit tsk, r0, r1
++	mov	r0, sp
++	bl	irqentry_nmi_exit_to_kernel_mode
+ #ifndef CONFIG_THUMB2_KERNEL
+ 	@ ARM mode restore
+ 	mov	r0, sp
 diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 674b5adcec00..1e1284cc4cae 100644
+index 1e1284cc4cae..09109215dfdf 100644
 --- a/arch/arm/kernel/entry.c
 +++ b/arch/arm/kernel/entry.c
-@@ -59,8 +59,13 @@ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
- 
- noinstr void irqentry_enter_from_kernel_mode(struct pt_regs *regs)
- {
-+	trace_hardirqs_off();
+@@ -69,3 +69,19 @@ noinstr void irqentry_exit_to_kernel_mode(struct pt_regs *regs)
+ 	else
+ 		trace_hardirqs_off();
  }
- 
- noinstr void irqentry_exit_to_kernel_mode(struct pt_regs *regs)
- {
-+	if (interrupts_enabled(regs))
-+		trace_hardirqs_on();
-+	else
-+		trace_hardirqs_off();
- }
++
++noinstr void irqentry_nmi_enter_from_user_mode(struct pt_regs *regs)
++{
++}
++
++noinstr void irqentry_nmi_exit_to_user_mode(struct pt_regs *regs)
++{
++}
++
++noinstr void irqentry_nmi_enter_from_kernel_mode(struct pt_regs *regs)
++{
++}
++
++noinstr void irqentry_nmi_exit_to_kernel_mode(struct pt_regs *regs)
++{
++}
 
 -- 
 2.46.2
