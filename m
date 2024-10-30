@@ -4,173 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C17D5CCAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36705D5CCA9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWAFO7fbjN7xzWUn0Sx4mabGaeqYLWcNmDix+94pB7U=; b=DOjx9RonOjGJRq6mBELS3xrX+w
-	ETcPTTC9qV31p1ktmJhe9woO2ja4rVyjlwGyjKOi281dsCVcrVWHo8actsgN30mLZ7k4Hg0EIkUf1
-	MGDEdmqt/wzch5NlicyKjmrVo+3WXr/Hpv4nJeALSKcsPUS1sDXZCIYd0jmh6KTnXPus7Zr56Gyzy
-	OJLPHyBFMSPPDQJfdiR9kv6p7eNSULiyJjNKvQ2+vyjdIgXv8jJGs7YgtLoIP3qlzlT9rcoxz0wUY
-	TFXsDDn6MorxnwNwPaL4rJOZ9t9ndCy3qC2owJWS2eWLt1R+km+elZUBspEWWS/rQfUbefGDzz/ex
-	r3mfidQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=prTPttchUlpGkP7UAB50xhgfWGiRC+/YJDC2qUgSn60=; b=c/HHPubQ5vFIIn6ITRjRul2JbM
+	msYTE2RYF7gYUecbVI8j0FU4LIh3TiKMeg1vwHnEclpuwUArGtGfd5D2H2AODDNFUbKZP2v8dbS2H
+	uNf0CsXUB0wMNKvxwKf91Y48TQWlbIjXno3DW2Gv3tL1kqAkCI+YNAbhGE8IRblq+iEkdHboSpgC5
+	Aoh6ygE0daFRNtLz1yQppDh9xUOf1lrIGw4uscGg5MbNPIA0gaBBOSpps8Ul/20rZ9VwTIvIdM20r
+	UHm2H0KTtXOSWuE/nmDVQeuG3VBifEPFHoSPKVuxSoHODW8sTg+DExk8vHro0RF0CJW0X0mS3PhFQ
+	ZkgkE+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68c0-00000000Rkf-37EC;
-	Wed, 30 Oct 2024 13:19:48 +0000
-Received: from mail-am0eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2606::61f] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1t68gw-00000000SiC-2fn8;
+	Wed, 30 Oct 2024 13:24:54 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68GY-00000000Od4-057a
+	id 1t68Ya-00000000RBR-2A2B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 12:57:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hRNIlof+wFrNgdMlB6VWAq3TATXT1ipdHZAVZhpz0KwqnKqYOtuXn38Sak7Cdfvzk281GUr32SsdhIFbeKPesMaCBSYaJIAJIzbm9AvsqqePlSYCdpCv2TJS3yO8ZCzy0bSEtTlMmz3HL9CZ+/K7gvgPLOu1PbS62QEbgll/LIKirWJR8FBL+274mVi/Srguf8KbfhHkpqBjFB/y0cNpXTG9kL5ll52rfN/PWSw/JqVHyRToNIX8ySes4W/lhYEKZzwDaYslz10yOCLq9vd/iAPzyr4uZNYlg06AxamN+NzS7GMwVD3lqYFbf9wxfS8tsyryOsSAK7X7Z1z3lxC8ZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QWAFO7fbjN7xzWUn0Sx4mabGaeqYLWcNmDix+94pB7U=;
- b=ZwYIRUCf9BaQiSsWCC/lYNLnp0+oWXYi1ixS1ti4Wy7cEeofCZ8649BA27n44GCz3wvrQ9MuUKZv4dV+GmySemM7vtqGjxBQCZMkM11O6QTC7o0atAA98ndjGCpPKtqkuRmAbnARoLSEswIHqDJhgEvxlsjFWE2gxAPU6lTp20jGoPxhElhXqJgPWcOPNnr7XFrSiefKLlzp/Y/dKHGC6mnZ3ty2L9Z0jWQXAvOxxFQQEMR0ty5HG1QsmLpBdOC6pq0sy7E8lU/uZ5/fJBh1pyxyaaYodoF0+pjZFwajKLx+eBE/WtTPqK+qpQKBHMMJB6nCdFKTKDdx+zzdX+cSpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QWAFO7fbjN7xzWUn0Sx4mabGaeqYLWcNmDix+94pB7U=;
- b=fBxGRPJZB7HN9ZpsD5I7aF3yGUQaMjTUFcsYpVaQ8ZTIru5lQ7wM0grI8xR8EJTJjt9nh/ScktdPVzrwBJFSm+ZAY3Chfe1yloOykpSP/1kHX2L3y3xNrUqHeOwqLj9+9NUnQ0F5Vfk7pTwy3SOpan4C8O66gD8w9j+ecDDoS72iCEvavXYMLYGlx8q++rwIlBb7wI8vlYSdc9z1txD92b3I1xH7IgoBjBxpjBX6T9AXMpDk9e22RY427WB0MLOPefHzPRgUw/WAWIyKDc9tXCLUYhjPk12pOvmSlaA/xgDEIhwX4xE3cLkO4TCbysEdUyswL0+K8vtcDpsRnq+xyw==
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by AS4PR04MB9692.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Wed, 30 Oct
- 2024 12:57:32 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49%5]) with mapi id 15.20.8093.027; Wed, 30 Oct 2024
- 12:57:31 +0000
-From: "Alice Guo (OSS)" <alice.guo@oss.nxp.com>
-To: Stefan Wahren <wahrenst@gmx.net>, "Alice Guo (OSS)"
-	<alice.guo@oss.nxp.com>, "alexander.stein@ew.tq-group.com"
-	<alexander.stein@ew.tq-group.com>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Alice Guo <alice.guo@nxp.com>
-Subject: =?utf-8?B?5Zue5aSNOiBbRVhUXSBSZTogW1BBVENIIHYzXSBzb2M6IGlteDogQWRkIFNv?=
- =?utf-8?Q?C_device_register_for_i.MX9?=
-Thread-Topic: [EXT] Re: [PATCH v3] soc: imx: Add SoC device register for i.MX9
-Thread-Index: AQHbKqwqz+kk7bvHZEGUqeAMoxlRu7KfL14AgAAQS+A=
-Date: Wed, 30 Oct 2024 12:57:31 +0000
-Message-ID: <PAXPR04MB9644C990417C75755334BD61E2542@PAXPR04MB9644.eurprd04.prod.outlook.com>
-References: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
- <9e239176-b1f2-45ef-a731-636f5a78aaa2@gmx.net>
-In-Reply-To: <9e239176-b1f2-45ef-a731-636f5a78aaa2@gmx.net>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9644:EE_|AS4PR04MB9692:EE_
-x-ms-office365-filtering-correlation-id: 83477363-8045-40be-9db0-08dcf8e26ac3
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?R0hiTE1HMXp2UVdSeUNLN1R0N0tseGNXSTF5bnVuNC9qUjBheGVxQmJmRXpN?=
- =?utf-8?B?SXc1RjlMM1NiVERyb0hJbTd2NWxvdGhyZ3drcDNMVXVmUnBSSUYzWVJXUzRN?=
- =?utf-8?B?ajE0SGZBR2E2aDMyVzFCUCtzVmlEa0dGTXYzRlV2Q2hEcjJLaUJuaWxsZ1F6?=
- =?utf-8?B?T1puS0J0RkIvcWlwelgveDlMdEdkSnpQRXgzL3NqMUhWajdxQXltRWYzMWxQ?=
- =?utf-8?B?SDZONmpxZ211eHhIQmVNTW1UYk5GSjhxcUhZN0xTT2pSaVZNb0RocXpNVlZr?=
- =?utf-8?B?YmgvZ0NjQSt0N3hDb2h6S0lqbEc5NnhhRUI3d3B1TmZOVUVQVGhLYUtPUjRT?=
- =?utf-8?B?bElnZWk4MnhHSExUUEIydElpVE4rWW91ZVdPR0t6d3lNWFVNV2lybm9VRWxI?=
- =?utf-8?B?dExnUkxob2VGK2ZkT0ZnU0FkUVR1TEF4dzZ2QXBZdk1PcFpQS2dSQjMzdktO?=
- =?utf-8?B?bldaUnNNVjVjaXRaVFlqT3RLdGFXZ0NaaFdaVUlEbFVaUFlMcnRiUW1aMnVq?=
- =?utf-8?B?RjZYT3o3VkoweHZURlF2bnZwK1NDY2pWd0Q4azF0SXNEcHhSMEhHa2lKWCti?=
- =?utf-8?B?dHAvTjk4dloxZ2dvdDNYRmpDbjY5S21nSDN5cVdqRGw4dyt6Qy9Jd3NNQVpH?=
- =?utf-8?B?Z1RJV3VTUUg2L0JZeWcwcFZGOUdiV2owRktIUGtWOEZXcXNvSXNKazdoYUoz?=
- =?utf-8?B?ckpZS3FOUEhuV0Uwa1NIK0JHRjVZNlU4dENKZnVZODRhcjk4RTJqRzJXL0tw?=
- =?utf-8?B?Q1R0UWJyNzc3eVd6NmIwcm52STU3a2pBMmpzOHN1eHFKcmNLejB1YmRZSXVr?=
- =?utf-8?B?ZTFxcWdVWHBFeXpnMzNnc2RjMmp2bTRMekZralBZUUY0UmlXd1BCQlB6RnB4?=
- =?utf-8?B?UkZWV1ozT3NLd0Q0WWcrTmQ1MEs5M1JtRVppSFV1Rm1qdXlROTNpYkhPb0xM?=
- =?utf-8?B?T1lEN3ZGLzliQWJWTllERkg3UlpIQk81NUozWW9yOVVmOFcvTzMvZVJtVVpJ?=
- =?utf-8?B?RURhb0ptekZ6dVdJMzlIUExvWGZlaXVXVEhRTE1KMmNQcWhOZURydXo2bWty?=
- =?utf-8?B?bG0zbGYwQ3dSSlBnazdLV2s0a0ZBWmFJL29remN2VjBFR3FzaUY4ZWJVT1Zv?=
- =?utf-8?B?UGZuYWFqcUFEMm0yeWZQV0szVWozeHhFYW5tb2ZLd1R5ZThicnVHWVZQNEJ6?=
- =?utf-8?B?anZoZGhJY1dYdENINEJvWUdiMmtmL3RMeFhyaER1REQxTXVYM1dGM2N6Vngv?=
- =?utf-8?B?YWNyeTZpK0J5QU0vQnYzY0cxOHJleTZiZlc4MS9RaWptTUpWMGZ1QWdqM2dW?=
- =?utf-8?B?dXc0TnNYdFNVcnVaR0Q2K1duMVQ3Vm1LM240U09JR1VaT05LZUg5NzlyUFJJ?=
- =?utf-8?B?Uld0Nnh0NmZsanFDam1teVFFeWptQnV6dFNrQ1VVd01LN0dKMGp5MzNSUkFC?=
- =?utf-8?B?cnNjVWhLbEdJNHUwZjZhaDlhV2YvaGM1eTRkbUNYTElGb3J6eW9aNmhINzla?=
- =?utf-8?B?NVZKRVQxVk9rTnVFMjBQb1JuS3VSTG9RS1kwNVduSTBiRnZCa0RQUEFzbGNL?=
- =?utf-8?B?b2ZJK0h2UVNteXdIOXNtYUxBQzA2UWdSVUxaMzdpRXJudXd1cUlxcnEvY3Ar?=
- =?utf-8?B?SkFFZm8rdTRqNVU2dU00K3pacUpCUHFsbFBrTG13bzY0eXVac3FGRkRjMGkr?=
- =?utf-8?B?MTZBOWpsVEJVWS9jWDFwaTJFb0s0WTRFdktkTTUxMkpRZThzMDkvanJVSFhn?=
- =?utf-8?B?eUl3SVM5TGZvNkZvZE93cTVOYnZkaFQzL1BscnVLa3dsRXNpWXZ3S2pIdlJO?=
- =?utf-8?Q?n9Lukaw1qECQFuCatI9oeCaBdPB/GsTrLY7bo=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UkYvNk1jWjk0dkl4MkY3eDMvQm5POWdqTTJtdFJRY284bVVQaG4xZkhPYTZn?=
- =?utf-8?B?eERxTmhVYzNhc3RJcVZLVzZ2MUFheWxEYnRpS09wYXZTTlNnclBNSXM0QUZy?=
- =?utf-8?B?dE1iR3ZlbHIyM3BCR2FYdytHaitVK29hU2hZVFNNcHZwMkNWU1VzQmo3MUo4?=
- =?utf-8?B?cnJwdVlCSzNnRVRrcnVJL2tUbS9abnVkZWpvdmtlb3lzTysvazRLd01wMHRQ?=
- =?utf-8?B?T1FtMDZpZ3U0SytLYUI4cE1kb2VVakRHNXFSWlNzSWwyaEJJVkNOc014L2dI?=
- =?utf-8?B?ZWxXaW1pMEJCY2I0ZmJZL2J1dzhvaUJmQng5enl1TlpLSERiMWY4REcvWUc1?=
- =?utf-8?B?YVpBMndIS3BvY3cwTlJuZENmdTZTcksxb2tldUVva1VCd2I1dGRnUEFkRGlK?=
- =?utf-8?B?VEVRY0FSek9Vc05tbmxrdGxmOXdhbStFRDNORkwxczRQSWRpNjRtY3ZZL1M3?=
- =?utf-8?B?emVhVkVadDZwdzRUY1VCWVZSRkpzZ2UwcERwMG80c2xha3NTZjEwcmhZcjg3?=
- =?utf-8?B?VlAvRnFPV2VLcDBxSFRweXl4MzVETkduSnBjMXNMMk9XbHlvdlNXQzVmMFFV?=
- =?utf-8?B?bzBkVzZmeVRiL1ByQ2VzVE9rcU5EdVVhTzJpYWlabENpSXg0U3J6c1ZZNUU4?=
- =?utf-8?B?VjEwQ3V2NEdZNFVka0hlQmNSU1FOL0Y1ZFd5MkR3dzdoQ05mRXZ6OXFKQ1k3?=
- =?utf-8?B?WHE0ZFVURWJCbTNlb3NTd0VrV3RIVnUvQkloWnBLTFIrRmZiaHVyTHZubGky?=
- =?utf-8?B?bjBYUGVaWVBLdVVUOUM0MmdmMUNFRVh1eDZuOG5hV0hDQU10YkY5NFRubzMz?=
- =?utf-8?B?WEpNdFd0NHF0czlIU2NWczZpSUsvTmg4R2V6ZHlPR3RjQ001NEVUT2E3b0Z1?=
- =?utf-8?B?cHIySGNJekVVaUtEZlRBL1pjTi8zQ3ZMSzhVMmtlODhHMzAwc2JmeHpGU2Zu?=
- =?utf-8?B?NUpWQXVLRXFZUFgwc0tnWTNRTkdDK2lMRzVvL0NDRlFLL2x1SWIwSTNZOVU0?=
- =?utf-8?B?ZmFOV21OTzBjY3NMYndsVktTdmFEOEpuRFJoTUJYL2MwMHRySE5JV3B3WVoy?=
- =?utf-8?B?aHpBK1BUUW80U1V2cW0zV2dNQU4zNzFjakk0eHNidWloVVFKeFVpb3JxL09S?=
- =?utf-8?B?V3FXMzhZQkFTSEZQczI4QS9HVC9TOEhkOHZTMzBNcHRXc1dUNUMxSFBWSk1z?=
- =?utf-8?B?b0M1M2NudjdiampjQXlWb1VCTEZzRENsU2s2VS9OUTBwaFJEclhkRlFZV1pU?=
- =?utf-8?B?cUxrdytlTjdjc2FqMTZINFBUMW8zdUg2anUxRE5JVFVER2lxN0JPYkd3dE9a?=
- =?utf-8?B?OC9PbUtLQTRZdk5abkFId1lIR2RLNHFzYnBHSUlUVE4xSW1UUG5BdlhtOUdE?=
- =?utf-8?B?c0xxanRwNkhjWjlaNzRIMm1aVVAzNzBiYUM0b3lXdkhDdVNRaG0zN3hoK2Ez?=
- =?utf-8?B?WVJ6SG9zanhvcElKazl6OFg4RU9ubFQ3VDNhQ0NMUXRpaDliQytmYzB4TDlU?=
- =?utf-8?B?RFlrT3o5M1ovZjF0c3g5ajRTVUE2OVlhLzRvek44VmNvengzWTFVZUw4c3JX?=
- =?utf-8?B?VVhNTGVFVjdmNDlZaHkyWXF0VDZjcmkxdkJwZ0h2K2tvS3lPMnQ4ZXd4NUJQ?=
- =?utf-8?B?azUvNEVER2ViMDVOYXNwSUFSWHJGNlZycXZMaW5QS1FXTnl0U0hsc1h6U0ty?=
- =?utf-8?B?S0xEUC9WT29UTVFPUm9rTi9ianJaaitFWVh3QlE3SkhXMy9iY1ArQitMQkht?=
- =?utf-8?B?N204QUpDcWtCK3lBcDI0YXVQM2p4cDJ2MU1EZ3pCSmxmRDk5eFRzcFFLRnpM?=
- =?utf-8?B?RVdyaFVacHg5czBLY2JHU2lXbVlxdG9zNVFUbkFnUzJia0NKNEhrUG10TGgy?=
- =?utf-8?B?cFhRNXI2QzJFRnVOVjRxUWVKU2VCQWUxMnhTSEZYNUtLTmNiU3dTNUVtUVVk?=
- =?utf-8?B?RkxPMTNRdEo4akhPd1E0QThVR2JGUFZ6VEUvYkZtNHpnZktISGV3ZUpwOUxt?=
- =?utf-8?B?RGdleWpuakF3UDFmSEhOc0IzbHNLbUIvMUdtczBHdC9yRG0vQ1VEMUpXd0VX?=
- =?utf-8?B?bzhqK3FHbkF2bnpGaldIRFluSXcxakM4blZHakRsUkNKeUgreDgxTHRHTGpl?=
- =?utf-8?Q?9V/w=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 30 Oct 2024 13:16:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730294176; x=1761830176;
+  h=message-id:date:mime-version:subject:from:to:cc:
+   references:in-reply-to:content-transfer-encoding;
+  bh=7g6BTcK3PoloLvKu3Y8DZJxEbWWg9te/C2/EFD5AjeI=;
+  b=ewoU8PSd1aWKfwDPVqDJoR7MM53q/MRTSSXUrJqNeTnyPgvUBg8lJVxD
+   d1AeaND2d8L/uQv2ary9KxvaxEDlRRcCKMkyaeRizeGhavDD8r9BoQHan
+   6T3kj/9lloPaE8dUT9eGnktUFRuaCrrEqjOeneSbiOhnrIcw5Q6wIY7XM
+   VWXL/ZTNkPOnD8YB7+GQ69Ve5wiBVpX+sZpnJS6Ha0b61FCqWe5K4LERI
+   A0zNp1H5bj/cQOX50MV8sQXm6ZGF1IskSXtJ2TFuMf6SwIn9ARvxeAVhZ
+   wQTWzfJQ1rXqdjt8Cf5E8wAKaRvOvWmBPcKq5HoSGFIpSBWz66pP7XuFM
+   Q==;
+X-CSE-ConnectionGUID: Yt33bqYwSySViqHJPzO6aQ==
+X-CSE-MsgGUID: q0b+k8b5RdaiwDrXaYop4Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11241"; a="40600286"
+X-IronPort-AV: E=Sophos;i="6.11,245,1725346800"; 
+   d="scan'208";a="40600286"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 06:16:15 -0700
+X-CSE-ConnectionGUID: eIQ0vLyOSf+/ryrVmuucxQ==
+X-CSE-MsgGUID: PB5SoMk1SGS1rKirHLZUYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,245,1725346800"; 
+   d="scan'208";a="82728993"
+Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.115.59])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 06:16:06 -0700
+Message-ID: <7bacbe72-c283-453b-bf1f-6ba05b68cac8@intel.com>
+Date: Wed, 30 Oct 2024 15:16:00 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83477363-8045-40be-9db0-08dcf8e26ac3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2024 12:57:31.6747
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YygARM6icfQ/43Sry452iThqw1I/fE/xoPHFr2Gq++l0/jSxpSquB0dZAN3f0EhHAovxhDNo0BpsGJpSsdqpZw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9692
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V14 00/11] perf/core: Add ability for an event to "pause"
+ or "resume" AUX area tracing
+From: Adrian Hunter <adrian.hunter@intel.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>,
+ Hendrik Brueckner <brueckner@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Yicong Yang <yangyicong@hisilicon.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
+ <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>, Andi Kleen <ak@linux.intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ H Peter Anvin <hpa@zytor.com>, Kan Liang <kan.liang@linux.intel.com>,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20241022155920.17511-1-adrian.hunter@intel.com>
+Content-Language: en-US
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20241022155920.17511-1-adrian.hunter@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_055738_238630_6A28217E 
-X-CRM114-Status: GOOD (  29.54  )
+X-CRM114-CacheID: sfid-20241030_061616_638699_36194361 
+X-CRM114-Status: GOOD (  51.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,101 +102,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgU3RlZmFuLA0KDQo+IC0tLS0t6YKu5Lu25Y6f5Lu2LS0tLS0NCj4g5Y+R5Lu25Lq6OiBTdGVm
-YW4gV2FocmVuIDx3YWhyZW5zdEBnbXgubmV0Pg0KPiDlj5HpgIHml7bpl7Q6IDIwMjTlubQxMOac
-iDMw5pelIDE5OjU0DQo+IOaUtuS7tuS6ujogQWxpY2UgR3VvIChPU1MpIDxhbGljZS5ndW9Ab3Nz
-Lm54cC5jb20+Ow0KPiBhbGV4YW5kZXIuc3RlaW5AZXcudHEtZ3JvdXAuY29tOyBzaGF3bmd1b0Br
-ZXJuZWwub3JnOw0KPiBzLmhhdWVyQHBlbmd1dHJvbml4LmRlOyBrZXJuZWxAcGVuZ3V0cm9uaXgu
-ZGU7IGZlc3RldmFtQGdtYWlsLmNvbQ0KPiDmioTpgIE6IGlteEBsaXN0cy5saW51eC5kZXY7IGxp
-bnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsNCj4gbGludXgta2VybmVsQHZnZXIu
-a2VybmVsLm9yZzsgQWxpY2UgR3VvIDxhbGljZS5ndW9AbnhwLmNvbT4NCj4g5Li76aKYOiBbRVhU
-XSBSZTogW1BBVENIIHYzXSBzb2M6IGlteDogQWRkIFNvQyBkZXZpY2UgcmVnaXN0ZXIgZm9yIGku
-TVg5DQo+IA0KPiBDYXV0aW9uOiBUaGlzIGlzIGFuIGV4dGVybmFsIGVtYWlsLiBQbGVhc2UgdGFr
-ZSBjYXJlIHdoZW4gY2xpY2tpbmcgbGlua3Mgb3INCj4gb3BlbmluZyBhdHRhY2htZW50cy4gV2hl
-biBpbiBkb3VidCwgcmVwb3J0IHRoZSBtZXNzYWdlIHVzaW5nIHRoZSAnUmVwb3J0DQo+IHRoaXMg
-ZW1haWwnIGJ1dHRvbg0KPiANCj4gDQo+IEhpIEFsaWNlLA0KPiANCj4gQW0gMzAuMTAuMjQgdW0g
-MTA6MTMgc2NocmllYiBhbGljZS5ndW9Ab3NzLm54cC5jb206DQo+ID4gRnJvbTogImFsaWNlLmd1
-byIgPGFsaWNlLmd1b0BueHAuY29tPg0KPiA+DQo+ID4gaS5NWDkgU29DcyBoYXZlIFNvQyBJRCwg
-U29DIHJldmlzaW9uIG51bWJlciBhbmQgY2hpcCB1bmlxdWUgaWRlbnRpZmllcg0KPiA+IHdoaWNo
-IGFyZSBwcm92aWRlZCBieSB0aGUgY29ycmVzcG9uZGluZyBBUk0gdHJ1c3RlZCBmaXJtd2FyZSBB
-UEkuIFRoaXMNCj4gPiBwYXRjaCBpbnRlbmRzIHRvIHVzZSBTTUMgY2FsbCB0byBvYnRhaW4gdGhl
-c2UgaW5mb3JtYXRpb24gYW5kIHRoZW4NCj4gPiByZWdpc3RlciBpLk1YOSBTb0MgYXMgYSBkZXZp
-Y2UuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBhbGljZS5ndW8gPGFsaWNlLmd1b0BueHAuY29t
-Pg0KPiA+IC0tLQ0KPiA+DQo+ID4gQ2hhbmdlcyBmb3IgdjI6DQo+ID4gICAtIHJlZmluZSBlcnJv
-ciBsb2cgcHJpbnQNCj4gPiBDaGFuZ2VzIGZvciB2MzoNCj4gPiAgIC0gcmV0dXJuIC1FSU5WQUwg
-d2hlbiBhcm1fc21jY2Nfc21jIGZhaWxlZA0KPiA+ICAgLSBmaXggdGhlIGJ1aWxkIHdhcm5pbmcg
-Y2F1c2VkIGJ5IHByX2VycigiJXM6IFNNQyBmYWlsZWQ6ICVkXG4iLCBfX2Z1bmNfXywNCj4gcmVz
-LmEwKTsNCj4gPiAgIC0gZHJvcCB0aGUgcHJfZXJyIGluIGlteDlfc29jX2luaXQNCj4gPiAgIC0g
-ZnJlZSB0aGUgbWVtb3J5IGluIHRoZSByZXZlcnNlIG9yZGVyIG9mIGFsbG9jYXRpb24NCj4gPiAg
-IC0gdXNlIG9mX21hdGNoX25vZGUgaW5zdGVhZCBvZiBvZl9tYWNoaW5lX2lzX2NvbXBhdGlibGUN
-Cj4gPg0KPiA+ICAgZHJpdmVycy9zb2MvaW14L01ha2VmaWxlICAgfCAgIDIgKy0NCj4gPiAgIGRy
-aXZlcnMvc29jL2lteC9zb2MtaW14OS5jIHwgMTA2DQo+ICsrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysNCj4gPiAgIDIgZmlsZXMgY2hhbmdlZCwgMTA3IGluc2VydGlvbnMoKyks
-IDEgZGVsZXRpb24oLSkNCj4gPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3NvYy9pbXgv
-c29jLWlteDkuYw0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvc29jL2lteC9NYWtlZmls
-ZSBiL2RyaXZlcnMvc29jL2lteC9NYWtlZmlsZSBpbmRleA0KPiA+IDNhZDMyMWNhNjA4YS4uY2E2
-YTVmYTE2MThmIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvc29jL2lteC9NYWtlZmlsZQ0KPiA+
-ICsrKyBiL2RyaXZlcnMvc29jL2lteC9NYWtlZmlsZQ0KPiA+IEBAIC0zLDQgKzMsNCBAQCBpZmVx
-ICgkKENPTkZJR19BUk0pLHkpDQo+ID4gICBvYmotJChDT05GSUdfQVJDSF9NWEMpICs9IHNvYy1p
-bXgubw0KPiA+ICAgZW5kaWYNCj4gPiAgIG9iai0kKENPTkZJR19TT0NfSU1YOE0pICs9IHNvYy1p
-bXg4bS5vDQo+ID4gLW9iai0kKENPTkZJR19TT0NfSU1YOSkgKz0gaW14OTMtc3JjLm8NCj4gPiAr
-b2JqLSQoQ09ORklHX1NPQ19JTVg5KSArPSBpbXg5My1zcmMubyBzb2MtaW14OS5vDQo+ID4gZGlm
-ZiAtLWdpdCBhL2RyaXZlcnMvc29jL2lteC9zb2MtaW14OS5jIGIvZHJpdmVycy9zb2MvaW14L3Nv
-Yy1pbXg5LmMNCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NCBpbmRleCAwMDAwMDAwMDAwMDAuLjgy
-MzM5NTU4NDUzMw0KPiA+IC0tLSAvZGV2L251bGwNCj4gPiArKysgYi9kcml2ZXJzL3NvYy9pbXgv
-c29jLWlteDkuYw0KPiA+IEBAIC0wLDAgKzEsMTA2IEBADQo+ID4gKy8vIFNQRFgtTGljZW5zZS1J
-ZGVudGlmaWVyOiBHUEwtMi4wKw0KPiA+ICsvKg0KPiA+ICsgKiBDb3B5cmlnaHQgMjAyNCBOWFAN
-Cj4gPiArICovDQo+ID4gKw0KPiA+ICsjaW5jbHVkZSA8bGludXgvYXJtLXNtY2NjLmg+DQo+ID4g
-KyNpbmNsdWRlIDxsaW51eC9pbml0Lmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4N
-Cj4gPiArI2luY2x1ZGUgPGxpbnV4L29mLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9zbGFiLmg+
-DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9zeXNfc29jLmg+DQo+ID4gKw0KPiA+ICsjZGVmaW5lIElN
-WF9TSVBfR0VUX1NPQ19JTkZPIDB4YzIwMDAwMDYNCj4gPiArI2RlZmluZSBTT0NfSUQoeCkgICAg
-ICAgICAgICAoKCh4KSAmIDB4RkZGRikgPj4gOCkNCj4gPiArI2RlZmluZSBTT0NfUkVWX01BSk9S
-KHgpICAgICAoKCgoeCkgPj4gMjgpICYgMHhGKSAtIDB4OSkNCj4gPiArI2RlZmluZSBTT0NfUkVW
-X01JTk9SKHgpICAgICAoKCh4KSA+PiAyNCkgJiAweEYpDQo+ID4gKw0KPiA+ICtzdGF0aWMgaW50
-IGlteDlfc29jX2RldmljZV9yZWdpc3Rlcih2b2lkKSB7DQo+ID4gKyAgICAgc3RydWN0IHNvY19k
-ZXZpY2VfYXR0cmlidXRlICphdHRyOw0KPiA+ICsgICAgIHN0cnVjdCBhcm1fc21jY2NfcmVzIHJl
-czsNCj4gPiArICAgICBzdHJ1Y3Qgc29jX2RldmljZSAqc2RldjsNCj4gPiArICAgICB1MzIgc29j
-X2lkLCByZXZfbWFqb3IsIHJldl9taW5vcjsNCj4gPiArICAgICB1NjQgdWlkMTI3XzY0LCB1aWQ2
-M18wOw0KPiA+ICsgICAgIGludCBlcnI7DQo+ID4gKw0KPiA+ICsgICAgIGF0dHIgPSBremFsbG9j
-KHNpemVvZigqYXR0ciksIEdGUF9LRVJORUwpOw0KPiA+ICsgICAgIGlmICghYXR0cikNCj4gPiAr
-ICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOw0KPiA+ICsNCj4gPiArICAgICBlcnIgPSBvZl9w
-cm9wZXJ0eV9yZWFkX3N0cmluZyhvZl9yb290LCAibW9kZWwiLCAmYXR0ci0+bWFjaGluZSk7DQo+
-ID4gKyAgICAgaWYgKGVycikgew0KPiA+ICsgICAgICAgICAgICAgcHJfZXJyKCIlczogbWlzc2lu
-ZyBtb2RlbCBwcm9wZXJ0eTogJWRcbiIsIF9fZnVuY19fLCBlcnIpOw0KPiA+ICsgICAgICAgICAg
-ICAgZ290byBhdHRyOw0KPiA+ICsgICAgIH0NCj4gPiArDQo+ID4gKyAgICAgYXR0ci0+ZmFtaWx5
-ID0ga2FzcHJpbnRmKEdGUF9LRVJORUwsICJGcmVlc2NhbGUgaS5NWCIpOw0KPiA+ICsNCj4gPiAr
-ICAgICAvKg0KPiA+ICsgICAgICAqIFJldHJpZXZlIHRoZSBzb2MgaWQsIHJldiAmIHVpZCBpbmZv
-Og0KPiA+ICsgICAgICAqIHJlcy5hMVszMToxNl06IHNvYyByZXZpc2lvbjsNCj4gPiArICAgICAg
-KiByZXMuYTFbMTU6MF06IHNvYyBpZDsNCj4gPiArICAgICAgKiByZXMuYTI6IHVpZFsxMjc6NjRd
-Ow0KPiA+ICsgICAgICAqIHJlcy5hMzogdWlkWzYzOjBdOw0KPiA+ICsgICAgICAqLw0KPiA+ICsg
-ICAgIGFybV9zbWNjY19zbWMoSU1YX1NJUF9HRVRfU09DX0lORk8sIDAsIDAsIDAsIDAsIDAsIDAs
-IDAsICZyZXMpOw0KPiA+ICsgICAgIGlmIChyZXMuYTAgIT0gU01DQ0NfUkVUX1NVQ0NFU1MpIHsN
-Cj4gPiArICAgICAgICAgICAgIHByX2VycigiJXM6IFNNQyBmYWlsZWQ6IDB4JWx4XG4iLCBfX2Z1
-bmNfXywgcmVzLmEwKTsNCj4gPiArICAgICAgICAgICAgIGVyciA9IC1FSU5WQUw7DQo+ID4gKyAg
-ICAgICAgICAgICBnb3RvIGZhbWlseTsNCj4gPiArICAgICB9DQo+ID4gKw0KPiA+ICsgICAgIHNv
-Y19pZCA9IFNPQ19JRChyZXMuYTEpOw0KPiA+ICsgICAgIHJldl9tYWpvciA9IFNPQ19SRVZfTUFK
-T1IocmVzLmExKTsNCj4gPiArICAgICByZXZfbWlub3IgPSBTT0NfUkVWX01JTk9SKHJlcy5hMSk7
-DQo+ID4gKw0KPiA+ICsgICAgIGF0dHItPnNvY19pZCA9IGthc3ByaW50ZihHRlBfS0VSTkVMLCAi
-aS5NWCUyeCIsIHNvY19pZCk7DQo+ID4gKyAgICAgYXR0ci0+cmV2aXNpb24gPSBrYXNwcmludGYo
-R0ZQX0tFUk5FTCwgIiVkLiVkIiwgcmV2X21ham9yLA0KPiA+ICsgcmV2X21pbm9yKTsNCj4gPiAr
-DQo+ID4gKyAgICAgdWlkMTI3XzY0ID0gcmVzLmEyOw0KPiA+ICsgICAgIHVpZDYzXzAgPSByZXMu
-YTM7DQo+ID4gKyAgICAgYXR0ci0+c2VyaWFsX251bWJlciA9IGthc3ByaW50ZihHRlBfS0VSTkVM
-LCAiJTAxNmxseCUwMTZsbHgiLA0KPiA+ICsgdWlkMTI3XzY0LCB1aWQ2M18wKTsNCj4gPiArDQo+
-ID4gKyAgICAgc2RldiA9IHNvY19kZXZpY2VfcmVnaXN0ZXIoYXR0cik7DQo+ID4gKyAgICAgaWYg
-KElTX0VSUihzZGV2KSkgew0KPiA+ICsgICAgICAgICAgICAgZXJyID0gUFRSX0VSUihzZGV2KTsN
-Cj4gPiArICAgICAgICAgICAgIHByX2VycigiJXMgZmFpbGVkIHRvIHJlZ2lzdGVyIFNvQyBhcyBh
-IGRldmljZTogJWRcbiIsIF9fZnVuY19fLA0KPiBlcnIpOw0KPiA+ICsgICAgICAgICAgICAgZ290
-byBzZXJpYWxfbnVtYmVyOw0KPiA+ICsgICAgIH0NCj4gPiArDQo+ID4gKyAgICAgcmV0dXJuIDA7
-DQo+ID4gKw0KPiA+ICtzZXJpYWxfbnVtYmVyOg0KPiA+ICsgICAgIGtmcmVlKGF0dHItPnNlcmlh
-bF9udW1iZXIpOw0KPiA+ICsgICAgIGtmcmVlKGF0dHItPnJldmlzaW9uKTsNCj4gPiArICAgICBr
-ZnJlZShhdHRyLT5zb2NfaWQpOw0KPiA+ICtmYW1pbHk6DQo+ID4gKyAgICAga2ZyZWUoYXR0ci0+
-ZmFtaWx5KTsNCj4gPiArYXR0cjoNCj4gPiArICAgICBrZnJlZShhdHRyKTsNCj4gPiArICAgICBy
-ZXR1cm4gZXJyOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2Rl
-dmljZV9pZCBpbXg5X3NvY19tYXRjaFtdID0gew0KPiA+ICsgICAgIHsgLmNvbXBhdGlibGUgPSAi
-ZnNsLGlteDkzIiwgfSwNCj4gPiArICAgICB7IC5jb21wYXRpYmxlID0gImZzbCxpbXg5NSIsIH0s
-DQo+IFdoYXQgaGFwcGVuZCB0byBmc2wsaW14OTEgPw0KDQpJIGZvcmdvdCB0byBtZW50aW9uIHRo
-aXMgY2hhbmdlIGluIGNoYW5nZSBsb2cuIFRoZSBjb2RlIGFib3V0IGkuTVg5MSB3aWxsIGJlIHB1
-YmxpYyBsYXRlci4NCg0KQmVzdCBSZWdhcmRzLA0KQWxpY2UgR3VvDQoNCj4gQmVzdCByZWdhcmRz
-DQo=
+On 22/10/24 18:59, Adrian Hunter wrote:
+> Hi
+> 
+> Note for V14:
+> 	KVM patches dropped.
+
+ping
+
+> 
+> Note for V12:
+> 	There was a small conflict between the Intel PT changes in
+> 	"KVM: x86: Fix Intel PT Host/Guest mode when host tracing" and the
+> 	changes in this patch set, so I have put the patch sets together,
+> 	along with outstanding fix "perf/x86/intel/pt: Fix buffer full but
+> 	size is 0 case"
+> 
+> 	Cover letter for KVM changes (patches 2 to 4):
+> 
+> 	There is a long-standing problem whereby running Intel PT on host and guest
+> 	in Host/Guest mode, causes VM-Entry failure.
+> 
+> 	The motivation for this patch set is to provide a fix for stable kernels
+> 	prior to the advent of the "Mediated Passthrough vPMU" patch set:
+> 
+> 		https://lore.kernel.org/kvm/20240801045907.4010984-1-mizhang@google.com/
+> 
+> 	which would render a large part of the fix unnecessary but likely not be
+> 	suitable for backport to stable due to its size and complexity.
+> 
+> 	Ideally, this patch set would be applied before "Mediated Passthrough vPMU"
+> 
+> 	Note that the fix does not conflict with "Mediated Passthrough vPMU", it
+> 	is just that "Mediated Passthrough vPMU" will make the code to stop and
+> 	restart Intel PT unnecessary.
+> 
+> Note for V11:
+> 	Moving aux_paused into a union within struct hw_perf_event caused
+> 	a regression because aux_paused was being written unconditionally
+> 	even though it is valid only for AUX (e.g. Intel PT) PMUs.
+> 	That is fixed in V11.
+> 
+> Hardware traces, such as instruction traces, can produce a vast amount of
+> trace data, so being able to reduce tracing to more specific circumstances
+> can be useful.
+> 
+> The ability to pause or resume tracing when another event happens, can do
+> that.
+> 
+> These patches add such a facilty and show how it would work for Intel
+> Processor Trace.
+> 
+> Maintainers of other AUX area tracing implementations are requested to
+> consider if this is something they might employ and then whether or not
+> the ABI would work for them.  Note, thank you to James Clark (ARM) for
+> evaluating the API for Coresight.  Suzuki K Poulose (ARM) also responded
+> positively to the RFC.
+> 
+> Changes to perf tools are now (since V4) fleshed out.
+> 
+> Please note, Intel® Architecture Instruction Set Extensions and Future
+> Features Programming Reference March 2024 319433-052, currently:
+> 
+> 	https://cdrdv2.intel.com/v1/dl/getContent/671368
+> 
+> introduces hardware pause / resume for Intel PT in a feature named
+> Intel PT Trigger Tracing.
+> 
+> For that more fields in perf_event_attr will be necessary.  The main
+> differences are:
+> 	- it can be applied not just to overflows, but optionally to
+> 	every event
+> 	- a packet is emitted into the trace, optionally with IP
+> 	information
+> 	- no PMI
+> 	- works with PMC and DR (breakpoint) events only
+> 
+> Here are the proposed additions to perf_event_attr, please comment:
+> 
+> diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
+> index 0c557f0a17b3..05dcc43f11bb 100644
+> --- a/tools/include/uapi/linux/perf_event.h
+> +++ b/tools/include/uapi/linux/perf_event.h
+> @@ -369,6 +369,22 @@ enum perf_event_read_format {
+>  	PERF_FORMAT_MAX = 1U << 5,		/* non-ABI */
+>  };
+>  
+> +enum {
+> +	PERF_AUX_ACTION_START_PAUSED		=   1U << 0,
+> +	PERF_AUX_ACTION_PAUSE			=   1U << 1,
+> +	PERF_AUX_ACTION_RESUME			=   1U << 2,
+> +	PERF_AUX_ACTION_EMIT			=   1U << 3,
+> +	PERF_AUX_ACTION_NR			= 0x1f << 4,
+> +	PERF_AUX_ACTION_NO_IP			=   1U << 9,
+> +	PERF_AUX_ACTION_PAUSE_ON_EVT		=   1U << 10,
+> +	PERF_AUX_ACTION_RESUME_ON_EVT		=   1U << 11,
+> +	PERF_AUX_ACTION_EMIT_ON_EVT		=   1U << 12,
+> +	PERF_AUX_ACTION_NR_ON_EVT		= 0x1f << 13,
+> +	PERF_AUX_ACTION_NO_IP_ON_EVT		=   1U << 18,
+> +	PERF_AUX_ACTION_MASK			= ~PERF_AUX_ACTION_START_PAUSED,
+> +	PERF_AUX_PAUSE_RESUME_MASK		= PERF_AUX_ACTION_PAUSE | PERF_AUX_ACTION_RESUME,
+> +};
+> +
+>  #define PERF_ATTR_SIZE_VER0	64	/* sizeof first published struct */
+>  #define PERF_ATTR_SIZE_VER1	72	/* add: config2 */
+>  #define PERF_ATTR_SIZE_VER2	80	/* add: branch_sample_type */
+> @@ -515,10 +531,19 @@ struct perf_event_attr {
+>  	union {
+>  		__u32	aux_action;
+>  		struct {
+> -			__u32	aux_start_paused :  1, /* start AUX area tracing paused */
+> -				aux_pause        :  1, /* on overflow, pause AUX area tracing */
+> -				aux_resume       :  1, /* on overflow, resume AUX area tracing */
+> -				__reserved_3     : 29;
+> +			__u32	aux_start_paused  :  1, /* start AUX area tracing paused */
+> +				aux_pause         :  1, /* on overflow, pause AUX area tracing */
+> +				aux_resume        :  1, /* on overflow, resume AUX area tracing */
+> +				aux_emit          :  1, /* generate AUX records instead of events */
+> +				aux_nr            :  5, /* AUX area tracing reference number */
+> +				aux_no_ip         :  1, /* suppress IP in AUX records */
+> +				/* Following apply to event occurrence not overflows */
+> +				aux_pause_on_evt  :  1, /* on event, pause AUX area tracing */
+> +				aux_resume_on_evt :  1, /* on event, resume AUX area tracing */
+> +				aux_emit_on_evt   :  1, /* generate AUX records instead of events */
+> +				aux_nr_on_evt     :  5, /* AUX area tracing reference number */
+> +				aux_no_ip_on_evt  :  1, /* suppress IP in AUX records */
+> +				__reserved_3      : 13;
+>  		};
+>  	};
+> 
+> 
+> Changes in V14:
+>       Dropped KVM patches
+> 
+>       perf/x86/intel/pt: Add support for pause / resume
+> 	Set pt->handle_nmi after configuration is completed instead of during
+> 
+> Changes in V13:
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Do aux_resume at the end of __perf_event_overflow() so as to trace
+> 	less of perf itself
+> 
+>       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
+> 	Add error message also in EOPNOTSUPP case (Leo)
+> 
+> Changes in V12:
+> 	Add previously sent patch "perf/x86/intel/pt: Fix buffer full
+> 	but size is 0 case"
+> 
+> 	Add previously sent patch set "KVM: x86: Fix Intel PT Host/Guest
+> 	mode when host tracing"
+> 
+> 	Rebase on current tip plus patch set "KVM: x86: Fix Intel PT Host/Guest
+> 	mode when host tracing"
+> 
+> Changes in V11:
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Make assignment to event->hw.aux_paused conditional on
+> 	(pmu->capabilities & PERF_PMU_CAP_AUX_PAUSE).
+> 
+>       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
+> 	Remove definition of has_aux_action() because it has
+> 	already been added as an inline function.
+> 
+>       perf/x86/intel/pt: Fix sampling synchronization
+>       perf tools: Enable evsel__is_aux_event() to work for ARM/ARM64
+>       perf tools: Enable evsel__is_aux_event() to work for S390_CPUMSF
+> 	Dropped because they have already been applied
+> 
+> Changes in V10:
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Move aux_paused into a union within struct hw_perf_event.
+> 	Additional comment wrt PERF_EF_PAUSE/PERF_EF_RESUME.
+> 	Factor out has_aux_action() as an inline function.
+> 	Use scoped_guard for irqsave.
+> 	Move calls of perf_event_aux_pause() from __perf_event_output()
+> 	to __perf_event_overflow().
+> 
+> Changes in V9:
+>       perf/x86/intel/pt: Fix sampling synchronization
+> 	New patch
+> 
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Move aux_paused to struct hw_perf_event
+> 
+>       perf/x86/intel/pt: Add support for pause / resume
+> 	Add more comments and barriers for resume_allowed and
+> 	pause_allowed
+> 	Always use WRITE_ONCE with resume_allowed
+> 
+> 
+> Changes in V8:
+> 
+>       perf tools: Parse aux-action
+> 	Fix clang warning:
+> 	     util/auxtrace.c:821:7: error: missing field 'aux_action' initializer [-Werror,-Wmissing-field-initializers]
+> 	     821 |         {NULL},
+> 	         |              ^
+> 
+> Changes in V7:
+> 
+> 	Add Andi's Reviewed-by for patches 2-12
+> 	Re-base
+> 
+> Changes in V6:
+> 
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Removed READ/WRITE_ONCE from __perf_event_aux_pause()
+> 	Expanded comment about guarding against NMI
+> 
+> Changes in V5:
+> 
+>     perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Added James' Ack
+> 
+>     perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
+> 	New patch
+> 
+>     perf tools
+> 	Added Ian's Ack
+> 
+> Changes in V4:
+> 
+>     perf/core: Add aux_pause, aux_resume, aux_start_paused
+> 	Rename aux_output_cfg -> aux_action
+> 	Reorder aux_action bits from:
+> 		aux_pause, aux_resume, aux_start_paused
+> 	to:
+> 		aux_start_paused, aux_pause, aux_resume
+> 	Fix aux_action bits __u64 -> __u32
+> 
+>     coresight: Have a stab at support for pause / resume
+> 	Dropped
+> 
+>     perf tools
+> 	All new patches
+> 
+> Changes in RFC V3:
+> 
+>     coresight: Have a stab at support for pause / resume
+> 	'mode' -> 'flags' so it at least compiles
+> 
+> Changes in RFC V2:
+> 
+> 	Use ->stop() / ->start() instead of ->pause_resume()
+> 	Move aux_start_paused bit into aux_output_cfg
+> 	Tighten up when Intel PT pause / resume is allowed
+> 	Add an example of how it might work for CoreSight
+> 
+> 
+> Adrian Hunter (11):
+>       perf/x86/intel/pt: Fix buffer full but size is 0 case
+>       perf/core: Add aux_pause, aux_resume, aux_start_paused
+>       perf/x86/intel/pt: Add support for pause / resume
+>       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
+>       perf tools: Add aux_start_paused, aux_pause and aux_resume
+>       perf tools: Add aux-action config term
+>       perf tools: Parse aux-action
+>       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
+>       perf intel-pt: Improve man page format
+>       perf intel-pt: Add documentation for pause / resume
+>       perf intel-pt: Add a test for pause / resume
+> 
+>  arch/x86/events/intel/core.c               |   4 +-
+>  arch/x86/events/intel/pt.c                 |  84 +++-
+>  arch/x86/events/intel/pt.h                 |   6 +
+>  include/linux/perf_event.h                 |  28 ++
+>  include/uapi/linux/perf_event.h            |  11 +-
+>  kernel/events/core.c                       |  75 +++-
+>  kernel/events/internal.h                   |   1 +
+>  tools/include/uapi/linux/perf_event.h      |  11 +-
+>  tools/perf/Documentation/perf-intel-pt.txt | 596 ++++++++++++++++++-----------
+>  tools/perf/Documentation/perf-record.txt   |   4 +
+>  tools/perf/builtin-record.c                |   4 +-
+>  tools/perf/tests/shell/test_intel_pt.sh    |  28 ++
+>  tools/perf/util/auxtrace.c                 |  67 +++-
+>  tools/perf/util/auxtrace.h                 |   6 +-
+>  tools/perf/util/evsel.c                    |  15 +
+>  tools/perf/util/evsel.h                    |   1 +
+>  tools/perf/util/evsel_config.h             |   1 +
+>  tools/perf/util/parse-events.c             |  10 +
+>  tools/perf/util/parse-events.h             |   1 +
+>  tools/perf/util/parse-events.l             |   1 +
+>  tools/perf/util/perf_event_attr_fprintf.c  |   3 +
+>  tools/perf/util/pmu.c                      |   1 +
+>  22 files changed, 716 insertions(+), 242 deletions(-)
+> 
+> 
+> Regards
+> Adrian
+
 
