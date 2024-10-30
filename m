@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89760D74957
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 02:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6001D74957
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 02:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sP5xpZduj43TYHlaBf4CywJfHfvvBC3OdWLfWrB8Hpw=; b=aPWhQuLbc/XF/k
-	tkO2MdfW3QwCSlZrMftRw2f45+aima1+Z9ZdO2KA3SXkgWBEhai3lZxRC3jrG7p2bVs7lDEF/RF7l
-	gioLHGxYXeIAkQ60S+kIzoARbncqfyxhM3QohUSkvy20GJftnMq/gV7Huyga+JwdmRp58TAT7S/Uo
-	iTJuVSHem+G2GSY+vShp81U2IQqHTKCUOgz0gx+2cxkR2oDgnob0YlxaMbsKN4zZXvyj3q8n4puIF
-	DgZKSR6p9MzOW3slbRBRYi7lUDzwZN2UaueIoIg/3Qq0WLWzuSEFIB1r2QGTQVVqkHxxzpA7O6BjT
-	7klu6Cq3ZRdNdLhv5FCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+/o5XK5OJrkzuHt0jaoQyx3CwN+lOhE6gCV0XZuBDN8=; b=PTHTATCQRJOCfXT+SHd2/CiI29
+	am5VOb6aORx4wBCXXpD9DrSBNRHT2dmC0nllxfgjo27BlI7W8Nt2NnAG1sg7ipWbFHCQsR9Hy34rH
+	gKfOsNwJ0/ZpGVYeNRbr6DUIRS7V/TDLL16PFcLkxZlfoWB3QWbkXk3N+7ZKHSF1stKklaLb7KjGk
+	gA3HvgnGzjxD3TtZL92ur8M4xzX1vOAY86DxYzC2NGa43R6Px3wDTrxw1aLg5DIccVDwItZ0x6UOJ
+	gmJejERCQaJPliGZKsnHOsMenJ7o9yPCQ/oloF8ToWz5MWvVbQCXHAa9bh7YPlsfVLySNaaYArsdg
+	/cbzpCgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5yTq-0000000GWXf-2I4W;
-	Wed, 30 Oct 2024 02:30:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t5yVJ-0000000GWkO-2LlE;
+	Wed, 30 Oct 2024 02:32:13 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5wAD-0000000GI5V-2ym9
+	id 1t5yT0-0000000GWPI-3geX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 00:02:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1E4065C4BBE;
-	Wed, 30 Oct 2024 00:01:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42770C4CEE3;
-	Wed, 30 Oct 2024 00:02:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730246536;
-	bh=vfX4nbW4kowy7IUtSJ8IaSqrtLKsP7rLoMKjBgXuBGg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=mGabhJiWp2yr+cfAuEkEMIOVXMD5r3xovvjDIeNhn2eh4AAkJ+KYxmHZyWeACZht5
-	 Ifa9eu7Upu+sKHSZZuWA61YaufGHR6uQNQUS0kyV3ZfHSYxlrvL3Ap29Q4+3krw5MT
-	 9RRYadhEJN5Np2L/AwPGTxgSWzdbNChzWY6UriSLzKyccTll2qblJINT5Hn4Ut3qxG
-	 000XFXC6Tq9wKElRGX3Yv9xxHtW8cJb/gjHXAA+xsAg+P3FsxN8QXdNx0yyNw/h6ez
-	 tN8Ly/AFCV3Y0PsJi3JVov580ZoWc1oxA1S2zdnT6R2ko+X9+GGTWh9Ui1CX9X7wpt
-	 G0QzO27WicusQ==
-From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 0/2] kselftest/arm64: fp-stress signal delivery interval
- improvements
-Date: Wed, 30 Oct 2024 00:02:01 +0000
-Message-Id: <20241030-arm64-fp-stress-interval-v2-0-bd3cef48c22c@kernel.org>
+	Wed, 30 Oct 2024 02:29:52 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2e59746062fso4963418a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 19:29:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730255390; x=1730860190; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+/o5XK5OJrkzuHt0jaoQyx3CwN+lOhE6gCV0XZuBDN8=;
+        b=WvIOX4i/AV4NEHI3H645M61+YwT8Ybvg4Q356WeaLrlKiAXKPWKJHe0ts8R0EM7Aif
+         Vm37svlC2GmyImn5HPNXShvRRfV8PSkxF32v4CzpNJBIcDwBMMvhjTKoaFjahllrPpGm
+         3iiFnEl4Fk+GQgdLOGyMmCNKRz6S/0xBhsEWQIP/Lnep4Va7d8UNJp91Mp10i64C3NYX
+         QFETGWXsbQuXBdbdv70CGaN/rrV1oj/Hn74u01vWHCHKaog4YzFJtfgFVzIerYPGGa4/
+         oCfZHD8K9pYZATgAJ2zpHRJeQPT0feNYAXScOzZH3/c803Jyluvr28EIZoUiqCaL5UlO
+         q+lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730255390; x=1730860190;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+/o5XK5OJrkzuHt0jaoQyx3CwN+lOhE6gCV0XZuBDN8=;
+        b=ADRtIiHB88FQGEWomi3aXkZEs2TeQZi28CARZaldfZkMcKUWcuTE4X4YhSrIRydPg7
+         g7B8/DpHcqBihVm9HsMGk2vHAzTUAomnYl73TW7kQAkB25uSn1JS60zQg++lotSU/And
+         xWbZUVsTv9ZUrBOIL4PJlyHAtksSikF1oz03fQ8UrdjS6kdakmFIdj4qj7Hzlkmh+G8W
+         sc499myGX/BhWe2OX9Uj/MBID1qvQ0EFzSlRVCB9vaBdI+uLJqh6vUls95Eb/mevG+6w
+         EK0LMBodG5VFdQSo6arfZhkZPYdMc2r8mA80bRwvwHw/jXFAz7PlDRgIavBAlTZsby/+
+         ZjCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVWfmzIJoUVgR3rLGGKDBbTuYWnjtDQP+kOkE9+SHbwFcyy5e4HfEBpeNjmCJ79gRYBGl5eirc5bBqDz8L17v30@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs0+w8CC1PIfclwRcr+ibwNbUckitWa5TV5vcuz+c6DMr4fJrO
+	fyXQp4lwbIbS3968ETUAxldCXCXcT3p/ogD8rPqeCsn5O7cST/bO
+X-Google-Smtp-Source: AGHT+IFijIy1xOySQ/m5xGQRS6VrQCf5Idul7+RyGkBFMYnlMj95XQcicMtXJGIScuTdNjzKS8VqNw==
+X-Received: by 2002:a17:90a:c703:b0:2d8:7561:db71 with SMTP id 98e67ed59e1d1-2e8f10a6eadmr14210471a91.25.1730255389397;
+        Tue, 29 Oct 2024 19:29:49 -0700 (PDT)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fa0ed8fsm431801a91.3.2024.10.29.19.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 19:29:49 -0700 (PDT)
+Date: Wed, 30 Oct 2024 10:29:35 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Andrew
+ Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
+ andrew+netdev@lunn.ch, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ xfr@outlook.com
+Subject: Re: [PATCH net-next v5 3/6] net: stmmac: Refactor FPE functions to
+ generic version
+Message-ID: <20241030102935.00005ad5@gmail.com>
+In-Reply-To: <20241029185231.fgy6tofi2uoslp3l@skbuf>
+References: <cover.1730084449.git.0x1207@gmail.com>
+	<0f13217c5f7a543121286f13b389b5800bde1730.1730084449.git.0x1207@gmail.com>
+	<20241029185231.fgy6tofi2uoslp3l@skbuf>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHl3IWcC/3WNQQqDMBBFryJZd0oSNNiueo/iIpqJDrVRJiG0i
- HdvKnTZ5Xvw399ERCaM4lptgjFTpCUU0KdKDJMNIwK5wkJLXSupW7D8NDX4FWJijBEoJORsZ2h
- 9g0YP0qDSosxXRk+vI33vCk8U08Lv4ymrr/1FL/+jWYEE1ze1tL03zjW3B3LA+bzwKLp93z/OA
- AytwQAAAA==
-X-Change-ID: 20241028-arm64-fp-stress-interval-8f5e62c06e12
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1244; i=broonie@kernel.org;
- h=from:subject:message-id; bh=vfX4nbW4kowy7IUtSJ8IaSqrtLKsP7rLoMKjBgXuBGg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIXeEQX3ZnpyxHhcbEA+5T7ZncKjnsWPSGQng27oY
- QhNxq8yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyF3hAAKCRAk1otyXVSH0JTxB/
- 9GTxbnEKrWGh2epcF+v4WIllG00TQeqlIs6DOZ7YsmXiF6C2wQ8+A11TnS+xsQin8dNyb4Dy5dhAc9
- HTq0yXhY9o96J4qY6cZ7EojkCXuPp5j0V8c1BfbV9hp/pfH6RFkpEev5//vbh+1uqpU2ANqV627Byv
- xIcQ9Q69xjWf+y9SXduHqnVRRZmejm54CAaSY15zgZfQejQDaGDeeqLrTtk5vawxvWZca4NvtoydFM
- 1UD6Zwcr+Fa1dQuzkywYFK4ONqDJ7Z5/AihGQbRIRqE4YbY4zjrrSpoBuM/+08UYanz9b4zAt5ud/2
- EOKnq45ZKuAuirtIG9bsRMiKhG8I4/
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_170217_829370_7F226772 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_192950_955789_432E1258 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +102,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One of the things that fp-stress does to stress the floating point
-context switching is send signals to the test threads it spawns.
-Currently we do this once per second but as suggested by Mark Rutland if
-we increase this we can improve the chances of triggering any issues
-with context switching the signal handling code.  Do a quick change to 
-increase the rate of signal delivery, trying to avoid excessive impact
-on emulated platforms, and a further change to mitigate the impact that
-this creates during startup.
+Hi Vladimir,
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
-Changes in v2:
-- Minor clarifications in commit message and log output.
-- Link to v1: https://lore.kernel.org/r/20241029-arm64-fp-stress-interval-v1-0-db540abf6dd5@kernel.org
+On Tue, 29 Oct 2024 20:52:31 +0200, Vladimir Oltean <olteanv@gmail.com> wrote:
+> Let's not change the output of stmmac_dma_cap_show() sysfs attribute if
+> we don't have to. Who knows what depends on that. It's better to
+> introduce stmmac_fpe_supported(), which tests for both conditions,
+> and use it throughout (except, of course, for the sysfs, which should
+> still print the raw DMA capability).
 
----
-Mark Brown (2):
-      kselftest/arm64: Increase frequency of signal delivery in fp-stress
-      kselftest/arm64: Poll less often while waiting for fp-stress children
+stmmac_fpe_supported() is a better option, thanks.
 
- tools/testing/selftests/arm64/fp/fp-stress.c | 28 +++++++++++++++++-----------
- 1 file changed, 17 insertions(+), 11 deletions(-)
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241028-arm64-fp-stress-interval-8f5e62c06e12
+> 
+> Which devices would those even be, which support FPE but the driver
+> doesn't deal with them (after your XGMAC addition), do you have any idea?
+> 
 
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
+Well, nobody can tell that but only Synopsys, as you can see that
+stmmac_hwif_entry in hwif.c defines quite a few MAC cores.
 
+Since FPE have been an optional implementation for MAC cores, so I think
+we should not convert FPE implementation from optional to mandatory for
+new MAC cores, for example, a new MAC support is pending for merge:
+https://lore.kernel.org/netdev/20240904054815.1341712-1-jitendra.vegiraju@broadcom.com/
+
+stmmac_fpe_supported() is a perfect option to handle these concerns.
 
