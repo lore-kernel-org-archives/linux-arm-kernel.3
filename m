@@ -4,155 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45568D6B6DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 22:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195C4D6B6DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 22:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtPTYxvC7BuGJZY5vvCQzfbMSJ6fkdtN4y+g9738k1k=; b=eIgGSQI3GmK2q5p+2CEniTEHHY
-	3ktXDc2sjV0kBRJbbUykSo2CBnFrEwPwzTSBXqgvj2RxQaB+5rf/XTRffn9GO1pHrW8GT0Wy4/KNE
-	u3Z7ULn5oVM6q21FJvrYH7d7ev5x2XNNxEJO3xA809afJ/6RsVPhouLir4eJ+D8sbhtQCsCiqQ0yg
-	HONYVeD8yhnmLEB21Ok6+6Dp4MQXZ9pMPK7bpV9hZELE0w85du9nCpTztwLFaVCWgazd8TYcrWf91
-	EA5IJcRYHJewdlad9ZLJS+YCOOXBMyw5ljL9Y/4TuG5Kk0VJXPbBR9RrrfiY+S7mnHZQSKm+tIc/m
-	Z79+wrog==;
+	bh=FSTwWvPDbKEnyoJdhYuAUAC8p/hvR5Suw9BWaRelTHc=; b=bTlmyMw1jjnN0l4GiCogam1dVy
+	LzRtevgZR3WFkBnC+pbXY53JzK98crs/ysb6b/U9B8rkX2vHECqhE2eG4d8npy2XN3W6JPwk0UzSt
+	bzJwhKLw4RrSvIvfUk8glYnXYffQyWqz96TWza7url++VzNtDTZzXveLthZX83MU8ugR52iRwEWHa
+	KD138Z+V3JxsEHSfenVyczLqYcv52OhL4QxXIuke3mFDUYzTlnto/zamXh/wgbMuXQmUx3eom1wMg
+	gXEJWyrANVP3E851+uEZvDh/gWKQvjCXEKGjUuCGwUYcaID0yfeO5A2/ACgcD10+Ex7bE+aoAt+Ls
+	DrizT0RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Gwq-00000001xLG-1soj;
-	Wed, 30 Oct 2024 22:13:52 +0000
-Received: from mail-dm6nam12on20606.outbound.protection.outlook.com ([2a01:111:f403:2417::606] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1t6HVm-00000001zxn-1WeO;
+	Wed, 30 Oct 2024 22:49:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6GvC-00000001xCi-03hB
+	id 1t6HU7-00000001zqJ-0LOq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 22:12:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QqgwlRcYyhMsG1PietpfjB2juE4CBVGI8VWRZ90W6JM6pTvh6m+VeV1kRyXqYScJFdOdRVppMoJVvMwPn2A5uEzwgXm1phjv58KuKpoCmPmZ/Dsi/u7E4Jox8znurz2e7GNyBJbPk5LAtr5MuifmF0FUx2G40+AoHSKuq3UCoeJm9hcNv7zCmnQ0EbxhKC9OwQEptIvW1wCLY4edYQu8rA8GMuazQlK4cpbEv9dwvPqcik4y+uTBbk1RdsDg88QYDHO2B36r+d7zaWMHgt/Qts3wXVRLvMd7mIE0ANebWnWCzyrWz24MlrF4ampDYtXESRt524t8F1CPzu3gWPPQWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HtPTYxvC7BuGJZY5vvCQzfbMSJ6fkdtN4y+g9738k1k=;
- b=aOk6cybQ66xS03EQIRY9OXvVjGjnBu4tLNTBIOuhCDiU+C4uDB0IZax02NXPLl+tvIq70UnsJgqw8V3Cl1vfG0WJ5RP70S5E86Ak5gspJYho2+Gq0J5qZXk1cz6m65eqRkPQ4hAyPiBc/v68+IIScDKnecNx5kEm5yFoLhp/liNBb4HccjkiVLAlBNUFTgWc7qFhvxwPCLsPPDu/jTyHI7iPkvF/Gop1V5RGdd75WJtmK0gitHMg0bAqsSzIdThtMRNiD4U6JRJVt5t2GtrVfPMHIt1jN15R3zZwEPgiH6SP4K+dBg0wwVJ6xEfkbRQuJhlC1oTtF0y1ArIjE/7+kg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HtPTYxvC7BuGJZY5vvCQzfbMSJ6fkdtN4y+g9738k1k=;
- b=Rnbjzbzfe7ZFgtCwJGTvHwh+2XBNeOt46FuV+HtZ3VOQGhJTc3qC6/knF/4H5hCp2S1jb0lcq+XQKoYnZFRekcJtICImNlXLkPYtJeP321nwA8JVCT1svLBF0pkcHBTxgsAFq7DrN9YKkPoG1+ydI574NeC0W1jlNyzm9HKxXhjTJ+2G3ZW6l3JvTrGrjgqwHohD1m57iSPuK24rjFqMBGH1kWVUtBvgXwoecqtknZAYqeuIA2BrZ0g8Op2pdbBsdYw9wWxNhyc8Be8PTh+ZxlC41oiQdsQqu75SrqIHd9gzYmCO/lCpSgByhuBEc07aHOOOeaC1jnF17VQIk4SLEA==
-Received: from CH0PR03CA0109.namprd03.prod.outlook.com (2603:10b6:610:cd::24)
- by DS7PR12MB6239.namprd12.prod.outlook.com (2603:10b6:8:95::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Wed, 30 Oct
- 2024 22:12:02 +0000
-Received: from CH2PEPF0000014A.namprd02.prod.outlook.com
- (2603:10b6:610:cd:cafe::8f) by CH0PR03CA0109.outlook.office365.com
- (2603:10b6:610:cd::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.17 via Frontend
- Transport; Wed, 30 Oct 2024 22:12:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF0000014A.mail.protection.outlook.com (10.167.244.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.16 via Frontend Transport; Wed, 30 Oct 2024 22:12:02 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
- 2024 15:11:48 -0700
-Received: from [10.41.21.79] (10.126.230.35) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
- 2024 15:11:42 -0700
-Message-ID: <f8fb4eb7-22ec-43a4-b3a9-ad84ca822664@nvidia.com>
-Date: Thu, 31 Oct 2024 03:41:38 +0530
+	Wed, 30 Oct 2024 22:48:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1730328493;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FSTwWvPDbKEnyoJdhYuAUAC8p/hvR5Suw9BWaRelTHc=;
+	b=QaOOsH0eqioygXd8jg0Q69sXehApauzID6U8PXzoK6L9daO4tWA4m0VdH6u0JFTiBe0WJs
+	4KaRK2L3cfABprGtSHHkuYH3syvZ9NHgamh5CqlDsMPJergmpOX/kz8YfvE5T6QsWOwPHQ
+	UP4Ee9zfTDTtxMDqQbNWlkM9PKt/rKE=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-556-KzoCIjkiNlOVhW_zqoid_Q-1; Wed, 30 Oct 2024 18:48:12 -0400
+X-MC-Unique: KzoCIjkiNlOVhW_zqoid_Q-1
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2e5c75bee71so331134a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 15:48:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730328491; x=1730933291;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FSTwWvPDbKEnyoJdhYuAUAC8p/hvR5Suw9BWaRelTHc=;
+        b=F3Ly8muCZyzX8xuWQYmcSq20AzscG5asvLDdeRDGktWT1umKTWBAOn9QRKg+HvwWW6
+         hSSBBtL0A8Dsbd5mg6BpYEfl3kq/UFu3XxgIXkFGMCg9jymKg1ZPqQVoYJFAW69DDcHM
+         n0w3A0vPBr0QQm/o+J8kkhky6//n8FtT2IL8ZdiKFEJkXNUFLQUES4qGFqZ9ZH/sLN8q
+         ZfE9OvFxE1XfUyoChu5XXZWW0Fy2Yj5wtRb2OS5C11YL/iYCBRuJK9Y4iXJNGFfuyhyy
+         xEafcEHNSD4Pex8WgwNX8/MVbRxpdSJP1cWb+yqpjMKgX276Q8kowe5X5Wa8yjezttZh
+         /ZfA==
+X-Forwarded-Encrypted: i=1; AJvYcCX0vDeisuEfrEFMC7Zo/GFeDf3/KB7GpvVcuHwl4xnuKoveCSo3ZIBUvBm54c15APGn6L00lSSTuA7jiIKhIg+t@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWs3x8FU4UccSae/OflJGZqBT8RzU59mGsUJv3WdVRkLNN2Rg4
+	MxcaspvhYUQn4E8HfExz6qUaYCWSd9BGYd/xR5a3kHNcDTmqz3xulxTav2OFdGYJD/TR+7qQbtP
+	IssyOYnRpAkAd9EKf9Q8P2kCyjr/WDxOG1bwMGsjatSvmyh5gXPgYwJpBQocnDtluWSRWbZgK
+X-Received: by 2002:a17:90a:8d05:b0:2e2:b204:90c8 with SMTP id 98e67ed59e1d1-2e8f11bf7d2mr18512079a91.34.1730328491275;
+        Wed, 30 Oct 2024 15:48:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEk33fvhx7J/zOySil7LvSFSpwzEwNmUlqs+yh90jXmneYSsyy4+TZp43m6T36UsLv0fd+DpA==
+X-Received: by 2002:a17:90a:8d05:b0:2e2:b204:90c8 with SMTP id 98e67ed59e1d1-2e8f11bf7d2mr18512066a91.34.1730328490930;
+        Wed, 30 Oct 2024 15:48:10 -0700 (PDT)
+Received: from [192.168.68.55] ([180.233.125.129])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92fbfa8a4sm2434748a91.53.2024.10.30.15.48.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 15:48:10 -0700 (PDT)
+Message-ID: <98b47e47-9014-45d1-86c7-4b78ff36bf54@redhat.com>
+Date: Thu, 31 Oct 2024 08:48:05 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
-To: Ryan Roberts <ryan.roberts@arm.com>, Thomas Tai <thomas.tai@oracle.com>,
-	Petr Tesarik <ptesarik@suse.com>
-CC: Andrew Morton <akpm@linux-foundation.org>, Anshuman Khandual
-	<anshuman.khandual@arm.com>, Ard Biesheuvel <ardb@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, David Hildenbrand <david@redhat.com>,
-	"Greg Marsden" <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
-	"Kalesh Singh" <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
-	Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, linux-tegra <linux-tegra@vger.kernel.org>
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241017142752.17f2c816@mordecai.tesarici.cz>
- <aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
- <fed3b427-a600-4ce5-afef-4ccbfff64931@oracle.com>
- <df753b4a-0cf1-4544-b073-0ebf2bb71ef2@arm.com>
+Subject: Re: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
+To: Jeremy Linton <jeremy.linton@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: steven.price@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com,
+ will@kernel.org, sami.mujawar@arm.com, linux-kernel@vger.kernel.org
+References: <20241029141114.7207-1-jeremy.linton@arm.com>
+ <32211eb5-eed5-4c71-b62a-362d32e1af47@redhat.com>
+ <b62b9ba4-eaf9-4533-9a97-7d5e2929b1e8@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <b62b9ba4-eaf9-4533-9a97-7d5e2929b1e8@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <df753b4a-0cf1-4544-b073-0ebf2bb71ef2@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.126.230.35]
-X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000014A:EE_|DS7PR12MB6239:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5040dd4-6294-4842-0ddc-08dcf92fe1a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2ZyS016b0dIZlRCRnlHZ013YjlrYjhtV2ppMmxIamRNTlhTYUcvdWgyZzJ0?=
- =?utf-8?B?VWd4WHljd1Vyc3NkaDJ4ZTJ4S0JFZUQ0NkR1eEtFRDFWNEtxeUhsL1FLU1Zi?=
- =?utf-8?B?N3M0TXVkaEtvR2k5SWEvUWJ2dW5uUEhINThlZWZFbUJRV1F2eDh4MFNtVTQw?=
- =?utf-8?B?SFRGRCtqYUhXNGg4T3lObGJkQmZBUzZXdjc5TEJUWEl1TEorOUZmaFJaWG43?=
- =?utf-8?B?ZHcvMHUrN0RqSlpoQ3NUQzhVN2RZNkNaRGNuTkZjL0FiNGZBeTRqVVd6bDZP?=
- =?utf-8?B?c1ZmbXlnOFdDS2NDcmxROWcwaEsxNmh4Z3dRK0NsVkdyL3V1UDJRaFJRcUo3?=
- =?utf-8?B?NFZrUjFmdzBEcVYzbHF2TkplZ3BhSEFrb09FQmduUGFxLzUycHJvSVorYmpo?=
- =?utf-8?B?Qmp3blNsRzhXTFZXMFlCTTRCVkw5YkhjSVJPM1NRTFNicUtFeWY5UXZwYTFN?=
- =?utf-8?B?L0NYV0FYYSt4UXhrV0kvQlpPVVNXc2JYTTFnMmpPVVJpRmQzbzBtaVZJM25V?=
- =?utf-8?B?NlptdFNDRFpNeGU1dWNERkVQOGhXTGZyK2xtSWV1Z0lXbGx2TTY4dEJEeFdr?=
- =?utf-8?B?NHFaQTVQcWNERmNsWnZrayt0T2VDOG5oWGpJbHlBc0tZQ2s4a0E4MktOZU4v?=
- =?utf-8?B?WjFHUUYzcmxjck8xMVMyeFBzV2pTSDBOdkFUd3JVd05MOTRCU2RUc2Jqd0M5?=
- =?utf-8?B?WnRiYzFiMkVML1kyblZkWnV6dUNTU3JXRTFJNWIxSHRFOTZNU0g5N2U3ZUhV?=
- =?utf-8?B?cTBlWUVsU3JkTW9OTzhScGNZeGFZZ1JPK2VTSnQ3dXZWSnZmSVBmcUJaNlpu?=
- =?utf-8?B?S2lJU0R4Q0JleTl4UFduUFgweDdsRFBMNWdEdXlvRk1SdGdQZm15N2ZOTU9I?=
- =?utf-8?B?dCtjNU9ZTmRFd25DcHVHQnZ3OVdJY1Y4Tm5xenErakxkcFRycEQvaUhHeDdT?=
- =?utf-8?B?QWpuYW5aMFpWRkNrbE53R3UwTXdYRVFKR3F0SzhlaUZid1FrS2hvS0JhWVZ0?=
- =?utf-8?B?ajB6OUNOS3c5RVFDWGhoQ3lTaW9BVVg5TGNkTWZTRGF0a3FFQ2ZVQkplVHdz?=
- =?utf-8?B?cStQbTNITVIzK2hRN2laM3FLbUFCL2RMWXFBR2F6QU0zeUt2b244VE1xYlJU?=
- =?utf-8?B?TW5JbXBldUpWSTRFZmc4LzlxU1JiNnQ2YzVueVhBNzhqYmJ5OGtyQ1l4blkw?=
- =?utf-8?B?MmdQcXVBSnh5VllIR3IwMHFXbWUxV0NEWWhIWnBRWFA3Q3pvUDRmWXBYZTVB?=
- =?utf-8?B?L0llSkhNZDYveDJvbFlMSXRoQ2toYWJNKzM3eGxjTW9jaC9ZRHZSb1N3bzVC?=
- =?utf-8?B?dHdvR2l4bVN1N3R4Wi85R2ZnSzV0dzVlRmU3NjFXT1g0cEY5UDMvYTFzWkhY?=
- =?utf-8?B?R0Y5WGRvakFXQVhocVMvenhPK3JMeGtnU1RmblQrNWo5Und4K0hZM2I0aFBa?=
- =?utf-8?B?QmFpTmdHSXVNTmJLam01aDI3ZjR2R1I1aXhBNTgvOUpZb2RTNkF5b2twSnow?=
- =?utf-8?B?b0M4b3ZpRTU2ZnhRdlFZbys3ZjY5alllaThuTlpQcUhhaWZlNVZoNm1GVDl3?=
- =?utf-8?B?V3A1Qk54T21qY01wMXdqWnZZbUpIZnRyUG45eGM1S3JLdUxjZm0rS0xHbGdh?=
- =?utf-8?B?cDBwcmxPNHZZc2I5SmFQM0hqOGtOYXZmQVFDNndleGthNTNma3d2dDZRay81?=
- =?utf-8?B?eUN4TWxjYmpHU0pnY0s3TkR2SG9HQ3hXOEwreG14VEIzamU1cklaQkEzbnNo?=
- =?utf-8?B?YWh5TDN0SXRlM2g3b21FeXRraDN4Y3NudWdGakhoWDliQmYxemVtbVdvSFZv?=
- =?utf-8?B?ek8rWDFEcXpXZnlJZi9YcXFUTWFIWWFWU0RCQllDcWFGWHFMdUlvNURkVDhy?=
- =?utf-8?B?MDMvaVVVb2VvQUZzbUdxV3ovL3JjZlVtSi96cGJwbk14SXc9PQ==?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 22:12:02.2453
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5040dd4-6294-4842-0ddc-08dcf92fe1a4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000014A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_151210_084587_9303C05F 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20241030_154815_216062_0C1EECE1 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,127 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jeremy,
 
-
-On 24/10/24 16:18, Ryan Roberts wrote:
-> External email: Use caution opening links or attachments
-> 
-> 
-> On 23/10/2024 22:00, Thomas Tai wrote:
+On 10/31/24 1:16 AM, Jeremy Linton wrote:
+> On 10/29/24 7:23 PM, Gavin Shan wrote:
+>> On 10/30/24 12:11 AM, Jeremy Linton wrote:
+>>> The TSM module provides both guest identification as well as
+>>> attestation when a guest is run in CCA mode. Lets assure by creating a
+>>> dummy platform device that the module is automatically loaded during
+>>> boot. Once it is in place it can be used earlier in the boot process
+>>> to say decrypt a LUKS rootfs.
+>>>
+>>> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+>>> ---
+>>>   arch/arm64/include/asm/rsi.h                    |  2 ++
+>>>   arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
+>>>   drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  7 +++++++
+>>>   3 files changed, 24 insertions(+)
+>>>
 >>
->> On 10/17/2024 8:32 AM, Ryan Roberts wrote:
->>> On 17/10/2024 13:27, Petr Tesarik wrote:
->>>> On Mon, 14 Oct 2024 11:55:11 +0100
->>>> Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>
->>>>> [...]
->>>>> The series is arranged as follows:
->>>>>
->>>>>     - patch 1:       Add macros required for converting non-arch code to support
->>>>>                boot-time page size selection
->>>>>     - patches 2-36:  Remove PAGE_SIZE compile-time constant assumption from all
->>>>>                non-arch code
->>>> I have just tried to recompile the openSUSE kernel with these patches
->>>> applied, and I'm running into this:
->>>>
->>>>     CC      arch/arm64/hyperv/hv_core.o
->>>> In file included from ../arch/arm64/hyperv/hv_core.c:14:0:
->>>> ../include/linux/hyperv.h:158:5: error: variably modified ‘reserved2’ at file
->>>> scope
->>>>     u8 reserved2[PAGE_SIZE - 68];
->>>>        ^~~~~~~~~
->>>>
->>>> It looks like one more place which needs a patch, right?
->>> As mentioned in the cover letter, so far I've only converted enough to get the
->>> defconfig *image* building (i.e. no modules). If you are compiling a different
->>> config or compiling the modules for defconfig, you will likely run into these
->>> types of issues.
->>
->> It would be nice if you could provide the defconfig you are using; I also ran
->> into build issues when using the arch/arm64/configs/defconfig.
+>> I don't understand how the TSM module is automatically loaded and arm_cca_guest_init()
+>> is triggered because of the newly introduced platform device. Could you please provide
+>> more details? Apart from it, some nick-picks as below.
 > 
-> git clean -xdfq
-> make defconfig
+> I think your asking how the module boilerplate here works, AKA how the standard uevent/udev/modalias/kmod stuff works? The short version is that the platform bus uevents an add device with a modalias and userspace udev + kmod finds matching modules, and their dependencies, and loads them which triggers the module_init() calls.
 > 
-> # Set CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
-> ./scripts/config --disable CONFIG_ARM64_4K_PAGES
-> ./scripts/config --disable CONFIG_ARM64_16K_PAGES
-> ./scripts/config --disable CONFIG_ARM64_64K_PAGES
-> ./scripts/config --disable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
-> ./scripts/config --enable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE
+> The suse folks have a detailed description of how this works:
+> https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-udev.html#sec-udev-kernel
 > 
-> # Set ARM64_VA_BITS_48
-> ./scripts/config --disable ARM64_VA_BITS_36
-> ./scripts/config --disable ARM64_VA_BITS_39
-> ./scripts/config --disable ARM64_VA_BITS_42
-> ./scripts/config --disable ARM64_VA_BITS_47
-> ./scripts/config --disable ARM64_VA_BITS_48
-> ./scripts/config --disable ARM64_VA_BITS_52
-> ./scripts/config --enable ARM64_VA_BITS_48
+> So, this is a fairly common misuse of the platform bus, in this case to avoid needing a HWCAP. Assuring the module exists in the initrd will then result in it being loaded along any other modules required for the rootfs pivot.
 > 
-> # Optional: filesystems known to compile with boot-time page size
-> ./scripts/config --enable CONFIG_SQUASHFS_LZ4
-> ./scripts/config --enable CONFIG_SQUASHFS_LZO
-> ./scripts/config --enable CONFIG_SQUASHFS_XZ
-> ./scripts/config --enable CONFIG_SQUASHFS_ZSTD
-> ./scripts/config --enable CONFIG_XFS_FS
-> 
-> # Optional: trace stuff known to compile with boot-time page size
-> ./scripts/config --enable CONFIG_FTRACE
-> ./scripts/config --enable CONFIG_FUNCTION_TRACER
-> ./scripts/config --enable CONFIG_KPROBES
-> ./scripts/config --enable CONFIG_HIST_TRIGGERS
-> ./scripts/config --enable CONFIG_FTRACE_SYSCALLS
-> 
-> # Optional: misc mm stuff known to compile with boot-time page size
-> ./scripts/config --enable CONFIG_PTDUMP_DEBUGFS
-> ./scripts/config --enable CONFIG_READ_ONLY_THP_FOR_FS
-> ./scripts/config --enable CONFIG_USERFAULTFD
-> 
-> # Optional: mm debug stuff known compile with boot-time page size
-> ./scripts/config --enable CONFIG_DEBUG_VM
-> ./scripts/config --enable CONFIG_DEBUG_VM_MAPLE_TREE
-> ./scripts/config --enable CONFIG_DEBUG_VM_RB
-> ./scripts/config --enable CONFIG_DEBUG_VM_PGFLAGS
-> ./scripts/config --enable CONFIG_DEBUG_VM_PGTABLE
-> ./scripts/config --enable CONFIG_PAGE_TABLE_CHECK
-> ./scripts/config --enable CONFIG_PAGE_TABLE_CHECK_ENFORCED
-> 
-> make olddefconfig
-> make -s -j`nproc` Image
-> 
-> So I'm explicitly only building and booting the kernel image, not the modules.
-> The kernel image contains all the drivers needed to get a VM up and running
-> under QEMU/KVM.
-> 
-> Thanks,
-> Ryan
 > 
 
-Thank you for this patch set.
-I was able to boot with minimal configs on Tegra234 board. Will enable 
-more configs and discuss.
+Thanks for the explanation and details. The module won't be automatically loaded if
+udev daemon isn't in place or the DEV_ADD event is ignored for whatever reasons. For
+example the corresponding ACTION for DEV_ADD of this particular device is null in the
+udev rules. So it's not guranteed that the module can be automatically loaded until udev
+is in place and udev rules have been configured properly. It's a best-effort attempt
+if I don't miss anything.
 
-Thank you,
-Sumit Gupta
+Could you please update the change log to mention the automatic module loading depends
+on udev and its rules? In this way, readers will know it's a best-effort attempt at least.
 
->>
->> Thank you,
->> Thomas
->>
->>>
->>> That said, I do have some patches to fix Hyper-V, which Michael Kelley was kind
->>> enough to send me.
->>>
->>> I understand that Suse might be able to help with wider performance testing - if
->>> that's the reason you are trying to compile, you could send me your config and
->>> I'll start working on fixing up other drivers?
->>>
->>> Thanks,
->>> Ryan
->>>
->>>> Petr T
->>>
-> 
-> 
+Thanks,
+Gavin
+
 
