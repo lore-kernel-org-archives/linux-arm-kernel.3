@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4A6D5CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5778D5CCB0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=; b=JZ3iDO9QQdIyMq3KQdXZONtAFn
-	47ciuB0WhekUksF+udKHFbt6jiUvLH92BdR4XUmqu+gQ90N8RETQvoqhGuiB1nMgx9wcbBjFd1J5K
-	gamNYrecPNe9Wm9wgm/WOxfQeJYnq8SSjevAbnHI6valn+LS4IKI0gH5myZvWnKYN6L8hd3YviqsK
-	JIZl0sxksQ23GWbtU7BynOhFajF0MbpQNyi7ktciZMmSWZwImBiRztKhj4hg1RPk2degcv5Ief2vO
-	TbZ9JK2AERy3PgpILxStBZZ4g135p7+hlYndwh396kYr/09Pyu/z5HATjdbMlQvjXEVD7lCBjwMEl
-	ZnMB6gYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mHQ+Gg6V2ei7AXCu6cKzXPNkuQvbXoSycYg1KOBw+f0=; b=lvprtu78QmYkv5O7aAn/X3PadM
+	E6p1H0QYzmTxEA+10t88y6z9Vh/rBU+fJDZhUrE0A9+NLWXR8Y+D++in4PQ+xXN9wmQm1OYS5u7sN
+	1nLSEK2nHLsFf84YOBmSLx0IYglOlfbzumEjlJxsxPH7cS5YpGsQOvRJwYNhZcfdd8GYkn/qofj9Q
+	QFM3euuZVxY6+6R5zjO4V4iRwqXF5364TIuraMeOd/PaoxwUbywQjcJ/d/gyjBFb1zgLeVnk2xqp8
+	QahHlma1rUK+glcFjESU6XZviwJaZhERKGDlhB3c7JfQ4teoqNgDX/lziGSSyT7Y2h33iM12bMWcy
+	N9GNZJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68xA-00000000VqI-3pvp;
-	Wed, 30 Oct 2024 13:41:40 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1t68yp-00000000WCL-1P9z;
+	Wed, 30 Oct 2024 13:43:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68lC-00000000TWk-0PN4
+	id 1t68nz-00000000U58-2Ywj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:29:19 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4316e9f4a40so64630325e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:29:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730294956; x=1730899756; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=;
-        b=mzL7A/CtFCh69oNvE7GK9QAs5xTM2l1joicHs12j3sDsYn6V77lo2iThDzyumseFEt
-         GI+N+gUk8EJSe7PExNn1X70bR3TjxUCDFNO7rWKY5RR8isMRKkiCBwdGG0k9K2Bg4MU4
-         iyDuMzr615TsitNjNc2H+T//DRB/03bz+WLNmTG4qHcbUikDSuAF0pm9/w9vdDl9Sjjj
-         i8WyNgVAtmZl29L/sGtlDAnx5ceWW+MxG4qJoMSwaIGbcAtB0G7Qjp8OTRca5Jxt0v6D
-         g0X12IqYgV8MMgJyaEOu4K3VAeCrTWIgtHkbY2Uq2a5jEHd1pdLwu1WT9tuH4b89QT4B
-         O9/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730294956; x=1730899756;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=;
-        b=i0Xwu8Cvu8Epce+wKJikRfBm1yrQJD2zlOcU7Dg4hGtCDOVPd8k9+w0FFoRsg8RdaD
-         zhzoW1G1ScI0iPjVTAfuvRN2az97Rhthi8YlBDDjUDGzjYtIrsElqve39pCidLGXHAO7
-         xeBnmbDl2WGF8t9hUGtLMvlaY1bqGmsQ6RiL4iKos0yemrRXjiebrmL5wTYENJdXgMhX
-         ubAPQCF2ABbIkaQScQukv1v435eql8TPdbhcB4V+85GGCjkn8XFpsce/UN4uGnWjPAe1
-         GANMuVVnxFtDx+Wuheggjwo3Kb3FBML+XMUM/arXoIt3Jep7H730XOyzO3pDDwV+cIJ5
-         JaGA==
-X-Forwarded-Encrypted: i=1; AJvYcCXoOcue86HFtZ0VT83Q2CT8Qd+nSPs+7rV6oNfnDMG352gdByedbwg81opCFIll2fTU0KCyS+Fi40jJYHoKnq1f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxnblcd/beJCpWlXrg8ft2K/vSP84yBd02znP3gDvKdtEjJqLQl
-	9ZfqnHLWfr4Pa55ZX5wi6LU4mMWFjU8L4UBeYwj49TnDdxJh5tTAClVthRXGYyc=
-X-Google-Smtp-Source: AGHT+IHp5AbAqgjQIgwYYwcTFJhtpBHYbLWugEe1xzPeyU3dGtA9O/+opSkEXa/XOrO9WuCxMOGUqw==
-X-Received: by 2002:adf:ea43:0:b0:37d:633a:b361 with SMTP id ffacd0b85a97d-38061206c0cmr11906179f8f.51.1730294956053;
-        Wed, 30 Oct 2024 06:29:16 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9a9a53sm21657955e9.30.2024.10.30.06.29.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 06:29:14 -0700 (PDT)
-Message-ID: <8e2a327a-5efc-4ba3-afa2-387099967468@linaro.org>
-Date: Wed, 30 Oct 2024 13:29:13 +0000
+	Wed, 30 Oct 2024 13:32:13 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U9x5OJ012773;
+	Wed, 30 Oct 2024 13:32:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mHQ+Gg6V2ei7AXCu6cKzXPNkuQvbXoSycYg1KOBw+f0=; b=mKsRhVIHXPT4/6OL
+	I7p0NBMHPbrMXFFGwBKseePx36kpeqLmlj1qDyEnpQAF15WBDGuJ9bZ5kXDhD9zB
+	e5AdsHKZbTHS4ZFfkMmVlbb9UcNHWWNMCy8inKHOvAn2yVax/aUAr/WRSUn+3pU9
+	CO2oD7+7s5iXWXMJAWdcmapuAeuHSNfWx/ziCHEY93K/KmcqGqE0GLOKsRzKfPFG
+	SSo718CEl0DWcW/rQaRITAIHTzNmBYp2OoTNbQ9aRIvKhLcYvYzof49m2CzTlNN6
+	oa2b8TSO/eZdKvz7uMmap6CQzNOAD+YgGMIR9fAfRdyqxMoAK03cFiJUWY9JgsJj
+	797/vw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42grgum6jq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Oct 2024 13:32:04 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UDW3A7024757
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Oct 2024 13:32:03 GMT
+Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 30 Oct 2024 06:31:58 -0700
+From: Sibi Sankar <quic_sibis@quicinc.com>
+To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
+        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
+        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
+        <pierre.gondois@arm.com>, <vincent.guittot@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <quic_mdtipton@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, Sibi Sankar <quic_sibis@quicinc.com>
+Subject: [PATCH V6 1/1] cpufreq: scmi: Register for limit change notifications
+Date: Wed, 30 Oct 2024 19:01:33 +0530
+Message-ID: <20241030133133.2932722-2-quic_sibis@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241030133133.2932722-1-quic_sibis@quicinc.com>
+References: <20241030133133.2932722-1-quic_sibis@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/11] scsi: ufs: exynos: Add
- EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
- James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
- avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
-Cc: andre.draszik@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- ebiggers@kernel.org
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-5-peter.griffin@linaro.org>
- <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
-Content-Language: en-US
-In-Reply-To: <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: SHu6vOOkDMECajIkn3n51HKE80Eadjy6
+X-Proofpoint-GUID: SHu6vOOkDMECajIkn3n51HKE80Eadjy6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1015
+ lowpriorityscore=0 adultscore=0 mlxscore=0 bulkscore=0 suspectscore=0
+ phishscore=0 spamscore=0 malwarescore=0 mlxlogscore=999 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2410300106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_062918_180881_7861AD95 
-X-CRM114-Status: UNSURE (   7.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_063211_799442_BC3D9673 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,13 +101,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Register for limit change notifications if supported and use the throttled
+frequency from the notification to apply HW pressure.
 
+Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+---
 
-On 10/30/24 8:56 AM, Tudor Ambarus wrote:
-> tx_linereset_n, rx_hibern8_wait is set but not used anywhere. Can we
-> remove it? Not related to this patch though.
+v6:
+* Unregister the notifier in the exit path to make sure
+  the cpus work across suspend/resume cycles.
 
-Sent patches to remove these fields at:
+ drivers/cpufreq/scmi-cpufreq.c | 38 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-https://lore.kernel.org/linux-scsi/20241030132649.3575865-1-tudor.ambarus@linaro.org/
+diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+index 5892c73e129d..fb3534eae722 100644
+--- a/drivers/cpufreq/scmi-cpufreq.c
++++ b/drivers/cpufreq/scmi-cpufreq.c
+@@ -16,6 +16,7 @@
+ #include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/pm_opp.h>
++#include <linux/pm_qos.h>
+ #include <linux/slab.h>
+ #include <linux/scmi_protocol.h>
+ #include <linux/types.h>
+@@ -25,7 +26,9 @@ struct scmi_data {
+ 	int domain_id;
+ 	int nr_opp;
+ 	struct device *cpu_dev;
++	struct cpufreq_policy *policy;
+ 	cpumask_var_t opp_shared_cpus;
++	struct notifier_block limit_notify_nb;
+ };
+ 
+ static struct scmi_protocol_handle *ph;
+@@ -174,6 +177,25 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
+ 	NULL,
+ };
+ 
++static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
++{
++	struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
++	struct scmi_perf_limits_report *limit_notify = data;
++	struct cpufreq_policy *policy = priv->policy;
++	unsigned int limit_freq_khz;
++	int ret;
++
++	limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
++
++	policy->max = clamp(limit_freq_khz, policy->cpuinfo.min_freq, policy->cpuinfo.max_freq);
++
++	ret = freq_qos_update_request(policy->max_freq_req, policy->max);
++	if (ret < 0)
++		pr_warn("failed to update freq constraint: %d\n", ret);
++
++	return NOTIFY_OK;
++}
++
+ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+ {
+ 	int ret, nr_opp, domain;
+@@ -181,6 +203,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+ 	struct device *cpu_dev;
+ 	struct scmi_data *priv;
+ 	struct cpufreq_frequency_table *freq_table;
++	struct scmi_device *sdev = cpufreq_get_driver_data();
+ 
+ 	cpu_dev = get_cpu_device(policy->cpu);
+ 	if (!cpu_dev) {
+@@ -294,6 +317,17 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+ 		}
+ 	}
+ 
++	priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
++	ret = sdev->handle->notify_ops->devm_event_notifier_register(sdev, SCMI_PROTOCOL_PERF,
++							SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
++							&domain,
++							&priv->limit_notify_nb);
++	if (ret)
++		dev_warn(&sdev->dev,
++			 "failed to register for limits change notifier for domain %d\n", domain);
++
++	priv->policy = policy;
++
+ 	return 0;
+ 
+ out_free_opp:
+@@ -310,8 +344,10 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+ 
+ static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
+ {
++	struct scmi_device *sdev = cpufreq_get_driver_data();
+ 	struct scmi_data *priv = policy->driver_data;
+ 
++	sdev->handle->notify_ops->devm_event_notifier_unregister(sdev, &priv->limit_notify_nb);
+ 	dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
+ 	dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
+ 	free_cpumask_var(priv->opp_shared_cpus);
+@@ -370,6 +406,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
+ 	if (!handle)
+ 		return -ENODEV;
+ 
++	scmi_cpufreq_driver.driver_data = sdev;
++
+ 	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
+ 	if (IS_ERR(perf_ops))
+ 		return PTR_ERR(perf_ops);
+-- 
+2.34.1
+
 
