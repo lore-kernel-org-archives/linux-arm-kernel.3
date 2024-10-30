@@ -4,156 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86055D5CCA6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D78FD5CCA9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7jMS/Sye2J6foGcBIQ+sMuHOn11xR2LQVxRHlUx4PE=; b=nmDiEMqWdfHNt842GghqaDJccB
-	PWL1BdolIOMm9mZkLlxeZ7SDwSzh7B0As+MdpPECT5PdkZl0XH6FV2ur5RBIICiaeufH7VZ7XwoD0
-	QIcLFAjHuEOOSq4vFKhFG77J5vOYZJsWg98dtHuBTcEZWKo7o9DQFDzaFTBkyliSPVQ+1gQKLOLt8
-	7BXqmsZwjbz5sdAEHzdUlt2s0pOlJjClK/HctJGyL3CGPH0/iTUHMAOL8WnyFxj1P4DELsH6A2iyj
-	IcY9BYpqah98BprnWunMxoZ9L2aZoBQuAOsSKdPpVlpcAjNBh/QcXifwgcPuLILa1PYv2mVh/0+sh
-	zx04A0+A==;
+	bh=gaJyc33YpasxmzVq2msy7/YeZGB80Mh1Vt6dUG0iHBU=; b=VDXX2QDOTWinAtYbfLpKOCnjrX
+	IB1AtOMKBlwWT/w7HqnlSIyHNm+wayhdyk8JleqXCLsGJWNA1roQJpMs/eXm3QglOAqS/bN19Nf8Z
+	/iL+fwMGzkthXKQ6RzDvu9ivBEAreadHJu7YdrV0HmU2tze7VUV7RWJS4L2b2pX01pg+J7iEPktVf
+	CYqDzVo7rONDavr3crHzuzRarC8WmQYfUs3IxdZsBC3sh2JfJytytljoXBayMelThhaIueb2QNlG2
+	78Mm/ktLsinPQC19pEbWHlXAMpOMpx3dapuDfHeUSTIFPzBc6HBBjj/ZTlw4+AzknlcFOmktiOlGz
+	jaGDLyPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68H2-00000000OiI-27xz;
-	Wed, 30 Oct 2024 12:58:08 +0000
-Received: from mail-dm6nam12on2060c.outbound.protection.outlook.com ([2a01:111:f403:2417::60c] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1t68Ie-00000000Oyk-2wUi;
+	Wed, 30 Oct 2024 12:59:48 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68D1-00000000Ng3-2ROe
+	id 1t68Dr-00000000Nnv-0GT9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 12:54:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bPjxDcD4Z12YZhqpKV2feghEiFIT6Asql1v/v4FuG+PyI0D7cGDblLvHcanhFIoYPs4h2sxGxJ/utIugOab2Q9F5kEHc0FNfmBD2LbM+ADvpNdvD4khQGKAp9yacQpemtLQvujfMAIcbhfbZ2M2SAWCXevNia2wIgLc59HuAXHVPpawPwJlBFp0CHr1axuiuIsdHKfaM0Gx5SLqEt9hyHki1pek/jOWslOt6OBUX2s1xrtCm8iwHkeQ4192FL19SUFzcryLzNbp6T9rQyeOb077qzIR2q0jVasj62d388gll1eYJzSeXmTPTDg1w1/vIcJMQHi0VP2I1DvvN6LSH5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z7jMS/Sye2J6foGcBIQ+sMuHOn11xR2LQVxRHlUx4PE=;
- b=xaRDnoKqCmkSgF06OqHwpwSi43iNuQblVBmuJPTEHvFgJZ3k4CBUZglfhDqrAd/lAQXnqp6a1/XXGdajg2BPsbL08EqTl5y2mDVo03PUXRBbYyOw+0yji+6pIIP/epN9aElKb40vRbmiFPgf1j2sWhV/E6+8LYpeCZvOHuEa1S/OLZdrfTQvEIig+AaK/uqWrcYtUpOdKYEwxdI9oo6T0wrAlh/oC8mLYzqJA4VQ7s4W7f6CEVaSxxW5RF23/vbIdoMpGOQWeTfzlSOoqrKjGJT5GdK3XUSYk2yGypxrWtMPhtU8umDD+t+xQKcbrhVlhzuWvut5f+Ab6cv1eVgB0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z7jMS/Sye2J6foGcBIQ+sMuHOn11xR2LQVxRHlUx4PE=;
- b=VfHs1BcU8xut1LBxioNdeRZJw6/89C1t33E3zZYost0FGMv7KrYFkesLNYiLGs+8hlQe2b82uVHjmq5ADom48jrhTLBDrurvLcLOkcwsaeT3Hs1TD930cLA04ZpOvm47tktF5I1CoPN7pPN5xLnDPpqqH3eygfqm3QfSzLsODfkaaEEoetq4DXDnbWF+NhK7Ddlc0FXqpoNxTeYJfGz3yUUn8cmIAcN/UpsH+PtwUYj0G97Ylas/WN+vznnWne3ZcZKgIJ16LeXe01YEWbz9e8gNW0A6EC+9VRpOvsDhe0Rx9Ueo58cGLzSheH6gBDpo+lI6GwV88BYCNEByhKkQ4w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM4PR12MB5939.namprd12.prod.outlook.com (2603:10b6:8:6a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Wed, 30 Oct
- 2024 12:53:50 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Wed, 30 Oct 2024
- 12:53:50 +0000
-Date: Wed, 30 Oct 2024 09:53:49 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com, aik@amd.com, zhangfei.gao@linaro.org,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 03/13] iommufd: Add iommufd_verify_unfinalized_object
-Message-ID: <20241030125349.GE6956@nvidia.com>
-References: <cover.1729897352.git.nicolinc@nvidia.com>
- <e99946ea0128370349373c94339d465397946137.1729897352.git.nicolinc@nvidia.com>
- <20241029144907.GB209124@nvidia.com>
- <ZyEKvcpgUsS1nCEg@Asurada-Nvidia>
- <20241029185558.GZ6956@nvidia.com>
- <ZyGwemWwixBA+VIh@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyGwemWwixBA+VIh@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0688.namprd03.prod.outlook.com
- (2603:10b6:408:10e::33) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 30 Oct 2024 12:54:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xdn9Q5cSfz2Df7S;
+	Wed, 30 Oct 2024 20:53:14 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0603A1A0188;
+	Wed, 30 Oct 2024 20:54:47 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Wed, 30 Oct 2024 20:54:46 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>
+Subject: [PATCH v7 3/4] arm64: topology: Support SMT control on ACPI based system
+Date: Wed, 30 Oct 2024 20:54:14 +0800
+Message-ID: <20241030125415.18994-4-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241030125415.18994-1-yangyicong@huawei.com>
+References: <20241030125415.18994-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB5939:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd187a9b-7c16-4479-98cd-08dcf8e1e6dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xBh4nWzVJp+WwOZDSWroGb9TvPGFUuBr2qHrjXjL/UR4iSaTEv96eregCza7?=
- =?us-ascii?Q?5EasNADPcgwnHezZCpI6CYv8q/sPTSr1a+u80RS96bApu8TFVh0+DD1aQXIO?=
- =?us-ascii?Q?cE75yVixq6l5a6haDajR9db8cIJDPWoY6Tct1Ok4WObh7H6zxpiURZw9xgeh?=
- =?us-ascii?Q?1az9TTJPEOz/nNi6O302pNQBoMfs/3FJWkdcgooD39Fg5HXe6KBTymzFqdK9?=
- =?us-ascii?Q?D5Q8CF4s1n73miE6692fqLGTxiY+t53tdyZ930J4nKq7QVW7VSiomF6gqPuL?=
- =?us-ascii?Q?uaOgLw3HFwwfCN9JE7n2WrjTyTtteUTJ1o7636JUv7kkPr+SWH6D7Kr6DSxA?=
- =?us-ascii?Q?HG/GRObGFKjUBNlHmCZDvk+9Kzvn8QomyBvh8CwEv6yQQr6/1dI5GtCJ8YPL?=
- =?us-ascii?Q?VOUqt588BbtpuUHrBLmysNPFkTWgB8QdqeDxKh//VgLIyqDbRAS7EgWIPrrO?=
- =?us-ascii?Q?2QzZE47XGuUyJRJttfBjYQ+2zK0e4cFn8ax4M272T3jLQzgDUL8fVonQUspX?=
- =?us-ascii?Q?qogSFeP8kF6UQD0c2ktbhsCkLTvBoOyD1oFWpQCUtMiHiKsKHkgkiPlhpD/D?=
- =?us-ascii?Q?qlcFpIPEiSpzNqRUpYU64ImfJxVw6GYcwjadEXjinQXKTMitziGfCJgo2uDl?=
- =?us-ascii?Q?jf28fDGHJCf5yrYsLeXtKXRNORBM52wor62KYSv70ogpo1mu3Xs5c5JdTvX+?=
- =?us-ascii?Q?SpaYezLvop7D6TpjbtKrRaZkDij0bv0+bFf4Q+kpcIjKSIUTdi95csmfOdCs?=
- =?us-ascii?Q?ISNR0KhTbBOvuhAEIiFw1Dwm05HltW5QmtQS/FDSY7C7rnML6r34thcVqU3Q?=
- =?us-ascii?Q?K0JFicRL81ncJIczP7hO2MKYyUbPHqMVnHxR05XQSeD0IdTYPvBMQORiSkXv?=
- =?us-ascii?Q?6vFTqhepF4Aap6k2vo8gH90Vv/jmffo8AuR87WJuTUTndgG3cqvmh8MtXbgH?=
- =?us-ascii?Q?D1FibdxRzWSsmY+khlsRUgjUxOoK+zkB/uPlgBxR92m77bJ1hfROVbb6aX3g?=
- =?us-ascii?Q?ziYr/xTnPCVaCq5uYibk++HvYSOrZk419zGGLNpBKYY6o9+ukeuop7dETePf?=
- =?us-ascii?Q?X4H7G4L4nuiVAoPmP1ObhvyF1V8mXNojNQC6aGs+dyC65wCxbK11iaQ+j+Ya?=
- =?us-ascii?Q?oUhChjEOYL7OlMoRFEI/NfykUpX7muAV3JzQtOrbgIuhuvmUloKLgZts4Agx?=
- =?us-ascii?Q?BXq2cq907HlrclvC7NJeGwGrvDM0ZE798OcOD//amoK27EKJAnJrXa3ydM2Q?=
- =?us-ascii?Q?NMrKL5elAf1nvT0EUO8C4dGRdhcJf4JZV9tuaQSyEFCjEA9MtZN/xmgInI/W?=
- =?us-ascii?Q?rAcOk7NOdeovf/q+PySQDoPn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z2oRU32Qrsg+jRUquULAjhUSU5zC80L6UaYcRxQVZvcfiFWaQij0Ni6mbm4e?=
- =?us-ascii?Q?ckK2dnlKvRdto2oZgkBZUtzd1w25C6+dJWJEeOZbFq4aXw4L1ptFp726Pl81?=
- =?us-ascii?Q?fmI8oMp3mmE/coMSoMTMNpXwUJbDFwWSUmRzbgSK8STaHpj3riDo/10ZPVUv?=
- =?us-ascii?Q?TlnGdoey2KOFWXLSRPnL14Bj0M814aSAOFc673xCDAhqkYpY9dbAr/8uZr71?=
- =?us-ascii?Q?AyTyXkqYo8DeZriTa+H/l2iVEXQQobgkCdP0RsXJj4+SMmbTpwPeSYC3tTuP?=
- =?us-ascii?Q?mz5dKnjqMpTLwIUf4fH7fH5SXTcwj4+bvVqwvni5WbmkleZjjC4BJM14qsoH?=
- =?us-ascii?Q?07nZnc1GCLASFS0cCsWBk2gOnkVlyzm0Te0XIOcC/h3YMgehPVeSx1ugqWnB?=
- =?us-ascii?Q?XDtzjLNsc6mQyIM14lsJijQHmOH3iNUMOuAoPLgrt2PvUKKUXtUFji52aR6f?=
- =?us-ascii?Q?JDAoaXPYYH3ao9+UEjcQEtPcvm+6rs2a7DoSuuWTF9EPmqXwQW5tPHntLcp4?=
- =?us-ascii?Q?/pO9ReO0oMDf6UTgixaiUd3b0zRRYSxJPZJB3rr/BpoksIxAMou8xfftbdPk?=
- =?us-ascii?Q?2QbRdyJWy2UYWeSTByFUDxlSYlJf3ojZriO27XQ/ILOvwBCplmQvJn/VRITB?=
- =?us-ascii?Q?3hhr9A8/xzelzjcOel2dbkfb2Wb/IvPhNApujJFlAOc2Ac456oIsMFWffPo+?=
- =?us-ascii?Q?vrNr+0KivtciM/m3WU25aEqpsoyxuJzDvNPNshvRyR+S+8ebYBsJNOhJziwj?=
- =?us-ascii?Q?/2DWwLF/wW0/gbxZhKPiMLApfaXHcKPIkijbvDRlgJVbT0Ap+s6icwdcFLMD?=
- =?us-ascii?Q?UUd+OAX3CNWRemISDlJAk9dd+T6KcdW5E432UByiyR2sJ70c/4V7kYPownws?=
- =?us-ascii?Q?DVG2ZzBQtJl48dWKqmy0igh9b/KUFNUm2ovVAahiDIH68JAOYwlKTEsL0v06?=
- =?us-ascii?Q?PiiOz44tZk5KK7AQWRzuqYK4Llth7IlccRVDoYS4H7iBdEYEgJwIyDJTozow?=
- =?us-ascii?Q?62ssz2a+itxzGUN/8DSsBFkdOZEtZ5E6sgfkgulj8CNkdGw2VYvrPOtp/o4P?=
- =?us-ascii?Q?+Y3G+xeTyMiAd79KLVGHRkDG0/gmSYT1wmn1Q+E2v4rWppNMx/QCa4it8tRs?=
- =?us-ascii?Q?RslL2VSHBAAci8bU1WODUkbeiy6C2uY1t6wF+IyabQGBRSLP6O3R2wKmw0/J?=
- =?us-ascii?Q?qiA/XsnI7nOUMlGg585s99lSgAs3fFA66G0hu4RkFZfm3YOAlYEnWU+NmCTk?=
- =?us-ascii?Q?Ms/QMKL/w8Vqevsirwg9srhnPELhKDeDvKLaQ4LWjVPBpFZq97SfF+r70W3E?=
- =?us-ascii?Q?xaIgzSjzeTmHnh9Wz/uXpG1Al6nlSfB8Esh3hOmurwukW9li8ICuChXOv45N?=
- =?us-ascii?Q?hvAaMGIVohbXgrSehTCpUoq4898JZxnDDic8uEz+Bh7KCt1T8sP0111fppAJ?=
- =?us-ascii?Q?1qgCgfVTr87/WnWwdt3wLVm7I4rN8akM8EbEpUWfnUTOiZ5llO0nR4tmhzTq?=
- =?us-ascii?Q?2NMDE8CfEagZmGODUJDnOd7fbB4V9UEQfWYoOZ+zJVNDpjXrTBTDh6thSaIb?=
- =?us-ascii?Q?SgAgaCkTBzAwQ/c2CJD+rHY6qGe/7d2Zwv4ohwSg?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd187a9b-7c16-4479-98cd-08dcf8e1e6dd
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 12:53:50.6159
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: M+rIB0nIXIdG0L0Q4CT/TmXJMAbzddawMBdpkMD8+ig2kwKmCVjXR0GDJOi6PgN8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5939
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_055359_644310_CB23D08B 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_055451_447503_87167245 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,21 +78,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 09:05:14PM -0700, Nicolin Chen wrote:
-> On Tue, Oct 29, 2024 at 03:55:58PM -0300, Jason Gunthorpe wrote:
-> > On Tue, Oct 29, 2024 at 09:18:05AM -0700, Nicolin Chen wrote:
-> > > I think we'd need the same change in iommufd_object_abort() too.
-> > 
-> > Makes sense
-> 
-> I found xa_cmpxchg() does xas_result to its returning value, which
-> turns XA_ZERO_ENTRY into NULL failing our intended verifications.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Oh.. that is annoying, you can't actually tell if cmpxchg failed :\
-NULL means success if it was XA_ZERO_ENTRY and failure of it was not
-populated! Hmm, I might ask Matthew about this
+For ACPI we'll build the topology from PPTT and we cannot directly
+get the SMT number of each core. Instead using a temporary xarray
+to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+and SMT information of the first core in its heterogeneous CPU cluster
+when building the topology. Then we can know the largest SMT number
+in the system. If a homogeneous system's using ACPI 6.2 or later,
+all the CPUs should be under the root node of PPTT. There'll be
+only one entry in the xarray and all the CPUs in the system will
+be assumed identical.
 
-Your version looks OK
+The core's SMT control provides two interface to the users [1]:
+1) enable/disable SMT by writing on/off
+2) enable/disable SMT by writing thread number 1/max_thread_number
 
-Jason
+If a system have more than one SMT thread number the 2) may
+not handle it well, since there're multiple thread numbers in the
+system and 2) only accept 1/max_thread_number. So issue a warning
+to notify the users if such system detected.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/kernel/topology.c | 57 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
+
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 1a2c72f3e7f8..47f838d6e823 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -15,8 +15,10 @@
+ #include <linux/arch_topology.h>
+ #include <linux/cacheinfo.h>
+ #include <linux/cpufreq.h>
++#include <linux/cpu_smt.h>
+ #include <linux/init.h>
+ #include <linux/percpu.h>
++#include <linux/xarray.h>
+ 
+ #include <asm/cpu.h>
+ #include <asm/cputype.h>
+@@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+ 	return !!is_threaded;
+ }
+ 
++struct cpu_smt_info {
++	int thread_num;
++	int core_id;
++};
++
+ /*
+  * Propagate the topology information of the processor_topology_node tree to the
+  * cpu_topology array.
+  */
+ int __init parse_acpi_topology(void)
+ {
++	int max_smt_thread_num = 0;
++	struct cpu_smt_info *entry;
++	struct xarray hetero_cpu;
++	unsigned long hetero_id;
+ 	int cpu, topology_id;
+ 
+ 	if (acpi_disabled)
+ 		return 0;
+ 
++	xa_init(&hetero_cpu);
++
+ 	for_each_possible_cpu(cpu) {
+ 		topology_id = find_acpi_cpu_topology(cpu, 0);
+ 		if (topology_id < 0)
+@@ -57,6 +70,32 @@ int __init parse_acpi_topology(void)
+ 			cpu_topology[cpu].thread_id = topology_id;
+ 			topology_id = find_acpi_cpu_topology(cpu, 1);
+ 			cpu_topology[cpu].core_id   = topology_id;
++
++			/*
++			 * In the PPTT, CPUs below a node with the 'identical
++			 * implementation' flag have the same number of threads.
++			 * Count the number of threads for only one CPU (i.e.
++			 * one core_id) among those with the same hetero_id.
++			 * See the comment of find_acpi_cpu_topology_hetero_id()
++			 * for more details.
++			 *
++			 * One entry is created for each node having:
++			 * - the 'identical implementation' flag
++			 * - its parent not having the flag
++			 */
++			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
++			entry = (struct cpu_smt_info *)xa_load(&hetero_cpu, hetero_id);
++			if (!entry) {
++				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
++				WARN_ON(!entry);
++
++				entry->core_id = topology_id;
++				entry->thread_num = 1;
++				xa_store(&hetero_cpu, hetero_id,
++					 entry, GFP_KERNEL);
++			} else if (entry->core_id == topology_id) {
++				entry->thread_num++;
++			}
+ 		} else {
+ 			cpu_topology[cpu].thread_id  = -1;
+ 			cpu_topology[cpu].core_id    = topology_id;
+@@ -67,6 +106,24 @@ int __init parse_acpi_topology(void)
+ 		cpu_topology[cpu].package_id = topology_id;
+ 	}
+ 
++	/*
++	 * This should be a short loop depending on the number of heterogeneous
++	 * CPU clusters. Typically on a homogeneous system there's only one
++	 * entry in the XArray.
++	 */
++	xa_for_each(&hetero_cpu, hetero_id, entry) {
++		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
++			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
++
++		if (entry->thread_num > max_smt_thread_num)
++			max_smt_thread_num = entry->thread_num;
++
++		xa_erase(&hetero_cpu, hetero_id);
++		kfree(entry);
++	}
++
++	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++	xa_destroy(&hetero_cpu);
+ 	return 0;
+ }
+ #endif
+-- 
+2.24.0
+
 
