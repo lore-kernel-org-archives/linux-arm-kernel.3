@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3BED7495F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CAED74961
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxzHXqeDqY9t/11gtGEbdQsLaIrr3yeQ/mgrsLtUM+A=; b=liwT6w5MOSYjzypjjoSP+K12/B
-	le+FmLNHYghdyhjAhrt0SNa+O5IzjyR4MLrWNGUbZ5Zvkq9WLeR9EZ824On7eBahCnVWkaMXHme0E
-	4Sa1Q5AWOMYJHPXBB5SLXwbRZBcLevL02vSplFJPD5ReYPGEnJekA6zVv/XAbtiCaVmhk8DU1HTXD
-	+a78CT1KhloYjZjIXvRx/E/azzC3hI/HIXKcE3IWuSMEWY7S2UK70Zic8+ULiVqDD+UXkON4194jv
-	4XlNduWN8DwccPYxdJGjfnonWA1Vsq3nH/b7SzS6TZNzya5Jajxnys5Gvp+793YibEFl8pHAeyPxq
-	QtlmTUmA==;
+	bh=HK17fGQ2oo+4WccuuyYvH3DB2Pgjd3sTERJ+pLTzVa4=; b=RkNKE9nOYsr0g2p+WChIsFxRB7
+	cAMyUMXqaMPzM9ilCilQrfLf9ISl7UWN1zHQtuQCxs/xIBcKHWV64D9oOzzUOcQBHg+mMd/oOlP4N
+	Ie7Dv03rbImgoAU7jcxn/H4TFWfAOUJCfsIF3rrJ/18PBfi5iCu21BptX2Pen2oXwYupL1iQzvSGQ
+	rsiyjALoMl8dIzJVHVnC9d5gYVaiXcNIktSOKdYtBfzRo5+YL343NaKVwbUwUFjhLNRRaQiMTpXtf
+	p3YPNUUo74DoElk7Cyl8g5qEvo4mVWKx8OB+AevjESS385VrCHPpS2czJP9XvAfjQ3zumTvBK4z42
+	w5FV/rNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60MB-0000000Gfj7-3gl2;
-	Wed, 30 Oct 2024 04:30:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t60Og-0000000Gg1j-1PGE;
+	Wed, 30 Oct 2024 04:33:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60KY-0000000GfcV-3bqU
+	id 1t60N3-0000000GfuP-0edS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 04:29:16 +0000
+	Wed, 30 Oct 2024 04:31:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 089D5A43328;
-	Wed, 30 Oct 2024 04:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DDE5C4CEE4;
-	Wed, 30 Oct 2024 04:29:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C8B2A43328;
+	Wed, 30 Oct 2024 04:29:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F7BCC4CEE4;
+	Wed, 30 Oct 2024 04:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730262553;
-	bh=I5QSLHyldsBrSOgK2QeLUkpFngdmQHYOQ/3tNOCCEdw=;
+	s=k20201202; t=1730262707;
+	bh=36OA5GmB8F/k+0bQ7m27Dl7eZE0oZCVspueUWP6QG2c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BW66w1duAm8oxkGdkhZpeNU+ZyojHVFYlN8GfVwTBksZtjDeYKErxw75+UqfdQmfK
-	 Ge2HAgPzVpQFtJJb23p/Dto/krsNrDPl1Ynp0wCA5t92GaoifQ3HbPFJk3VxZawdbh
-	 mrSXU35bGOqA3/uImI5xCVB5bBRQ2TNzUxp4x3ycu8CGDk8O7+4G9yRVuZfwKreOei
-	 7jnhxqrwvOkLPWPmblySSjmZYdHZEGJBF3Wt+TlknV5nXFYqah9OScRMgSWEzeRPOV
-	 4ovvIFlts9F/lJj3hdL/EgtKi4UIPC7eP73yCvowpPpwOTHs0BQ18OmPSYpLACOG0l
-	 bwVk37jhyKVsw==
-Date: Tue, 29 Oct 2024 21:29:11 -0700
+	b=WNdsR/K4U7mt9oDNuH/6biL7Gpa0DlpEw2h0eNlWDChA5NDvGXSP4OzEflxy3m4h2
+	 uTPhelDc+HtsTMZBP/B/vK8GN6xuyCpOeDm5Ti6z5189dE1bF3xmpt6mKMiQMLFm+7
+	 fnk9e7hrxAQyOPal7AbR4zsJnGZAGyDdBc5wcaw3tECEZPGeD/5X7oEiO+DsO3/H8u
+	 0yEvRol7IgUxeGkkJfNkbVDgAg/5AiZmrYZxiY/8VA9BuLVDbTd+aZy1C3uq8bkx9P
+	 rPCmyVcybfM+CBDTyxKXv3HCMGezi4xUKh5E42MKV9zppBZhbdhrT3zVu2uTHVnrK8
+	 21dep+cQcZNYw==
+Date: Tue, 29 Oct 2024 21:31:46 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Ard Biesheuvel <ardb+git@google.com>
 Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	herbert@gondor.apana.org.au, keescook@chromium.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 4/6] crypto: arm/crct10dif - Use existing mov_l macro
- instead of __adrl
-Message-ID: <20241030042911.GD1489@sol.localdomain>
+Subject: Re: [PATCH 5/6] crypto: arm/crct10dif - Macroify PMULL asm code
+Message-ID: <20241030043146.GE1489@sol.localdomain>
 References: <20241028190207.1394367-8-ardb+git@google.com>
- <20241028190207.1394367-12-ardb+git@google.com>
+ <20241028190207.1394367-13-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241028190207.1394367-12-ardb+git@google.com>
+In-Reply-To: <20241028190207.1394367-13-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_212914_986785_81048B1C 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241029_213149_278381_9759AD1B 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,13 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 08:02:12PM +0100, Ard Biesheuvel wrote:
+On Mon, Oct 28, 2024 at 08:02:13PM +0100, Ard Biesheuvel wrote:
 > From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> To allow an alternative version to be created of the PMULL based
+> CRC-T10DIF algorithm, turn the bulk of it into a macro, except for the
+> final reduction, which will only be used by the existing version.
 > 
 > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
->  arch/arm/crypto/crct10dif-ce-core.S | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
+>  arch/arm/crypto/crct10dif-ce-core.S | 154 ++++++++++----------
+>  arch/arm/crypto/crct10dif-ce-glue.c |  10 +-
+>  2 files changed, 83 insertions(+), 81 deletions(-)
 
 Reviewed-by: Eric Biggers <ebiggers@google.com>
 
