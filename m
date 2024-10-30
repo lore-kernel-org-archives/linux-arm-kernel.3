@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE619D74961
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8672FD74961
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EtDw6vWJIIC3gJtRYGxss7dFOHsmI80k8IdsIMFE7QA=; b=CvXSE7+AwuiCO2p0XhSq5XpwsL
-	j7biyJEFq5fpOj/Qqo0yRaNJ/UswIlc9KZLZz/TSGEtthQ/IF1Q057TEgp0p84hgglbTCVDiw2loY
-	ilKtLmX5xia2ynErg2Y44JrGFBD3WYXrbUlhUeqOn2Xdat4nrPh8g/RNQOS8RKD02cgKsq1lC0Arx
-	PKOkqIJ/jmxSrH2iwucr8YudDiKouCwhKsUHZIjGf2wgjA6nYgH9U5YZHFoUnJkimj6onu6BEwp7M
-	6qjHFju9U13H3cowWd7a0ahx2NXfy3pZ6CfIBHeijgvpNLFA20oxyrkuBACv+mhMadkBhdxwOPgn2
-	BceGyI6w==;
+	bh=sp/Joqr6Fg+CbM6kllKhe4k7VezD6hpv2eBeT+NpJcM=; b=Z/eL9xS5B77tVbH248dpNs/W7w
+	6A55TXRubS2U0lpwfc0CKYoADloCn+cpdNaN4NZuFxUWSsPlSF8Cw6jGuuqJMyCmUgTAUpZFqM4gK
+	IcxWlCFSMq9lf7IqU0FivjNwCauGy3W15NkH2bXGsj9yud8OZRyJ6sggM4kLS2rth8tqiNJVGUXBz
+	VHdUs/d0TAg000lSgUBz3DtETpUvEOwb7CZYQdOIKPnur14TRGsD5WNOED/5IH+i+RqhDDSGknk9z
+	JdGUALScKq7JhpyrMIDm8lZXpa6f/szPFfFksmQpwJyA5Am+l5SKH6PB9qc10a8pL93FFPA50h8Dn
+	ysn9zNCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60Rt-0000000GgSV-26tu;
-	Wed, 30 Oct 2024 04:36:49 +0000
+	id 1t60W2-0000000Ggti-1zTk;
+	Wed, 30 Oct 2024 04:41:06 +0000
 Received: from out-176.mta0.migadu.com ([2001:41d0:1004:224b::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60Oq-0000000Gg2V-12g4
+	id 1t60UO-0000000GgkC-0lvJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 04:33:42 +0000
-Date: Tue, 29 Oct 2024 21:33:26 -0700
+	Wed, 30 Oct 2024 04:39:25 +0000
+Date: Tue, 29 Oct 2024 21:39:14 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1730262814;
+	t=1730263162;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=EtDw6vWJIIC3gJtRYGxss7dFOHsmI80k8IdsIMFE7QA=;
-	b=I0Kvuc9+ckIDmK+mwbhgcipc+bnKkkO7Hjh0aDrfZHMDtSzAg1EJwnzXJ740zoLli84GEo
-	hGJgagWNyszpE1TZS+XUSQuq33DAMIurCnnxbniJx8d/0tOBiJkhI+wNHSpVkqx4559v69
-	n8Qr42y/l61lHHbUECsQqtKXRzdQxyE=
+	bh=sp/Joqr6Fg+CbM6kllKhe4k7VezD6hpv2eBeT+NpJcM=;
+	b=PoMWjfHlTy7H6Q3L8P7djXveyvh0HGtnyk/fdVX3t5Pr3Kp2rNPy1w8a5UNt0sUPepSSq4
+	+O8NZl5UbPoxtVfPZnQgBadyXzdKzIDT+f4n2hZ0etV8o24RHVM6WBDO9nAO+MWMhzpAlD
+	+zggZT7wSclLJEi+pg2CAIbdT5Mv0iI=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
@@ -54,21 +54,21 @@ Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
 	Anthony Jebson <anthony.jebson@huawei.com>,
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
 	Linuxarm <linuxarm@huawei.com>
-Subject: Re: [RFC PATCH v2 3/3] KVM: arm64: Enable errata based on migration
- target CPUs
-Message-ID: <ZyG3FiUiyOi4t3rQ@linux.dev>
+Subject: Re: [RFC PATCH v2 1/3] KVM: arm64: Add hypercall support for
+ retrieving migration targets
+Message-ID: <ZyG4cjIscLqCT7Dx@linux.dev>
 References: <20241024094012.29452-1-shameerali.kolothum.thodi@huawei.com>
- <20241024094012.29452-4-shameerali.kolothum.thodi@huawei.com>
- <Zxr2JMNzOWT3zPWH@linux.dev>
- <0a23971725644a9bbfe7ec60b5e05033@huawei.com>
+ <20241024094012.29452-2-shameerali.kolothum.thodi@huawei.com>
+ <ZxrzhAh3qE9hLV-U@linux.dev>
+ <d97cd23a1962460990a642ee8a653d2f@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0a23971725644a9bbfe7ec60b5e05033@huawei.com>
+In-Reply-To: <d97cd23a1962460990a642ee8a653d2f@huawei.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_213340_964663_0D91A843 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20241029_213924_555596_79D60F2D 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +83,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Shameer,
-
-On Mon, Oct 28, 2024 at 05:29:14PM +0000, Shameerali Kolothum Thodi wrote:
-> > I don't know if you saw my suggestion on v1 [*], but it'd be great if we
-> > can hide the array of implementations from users of is_midr_in_range()
-> > and friends.
+On Tue, Oct 29, 2024 at 04:00:39PM +0000, Shameerali Kolothum Thodi wrote:
+> > We can't treat a single register as both a signed quantity *and* a full
+> > 64 bits of bitfields. Maybe just scrap the version and have this thing
+> > either return a negative error or positive quantity of implementations.
 > 
-> I did see your suggestion but my bad,  misunderstood it and thought that you are
-> referring to _midr_range() functions in cpu_errata.c only.
-
-Ah, no worries. And yeah, for this to be a general solution we're going
-to need to cover all our bases where MIDR checks are used.
-
-> > There's other junk keyed off MIDR (e.g. Spectre) that also needs to be
-> > aware of all the implementations where the VM might run. The easiest way
-> > to do that is to stop using a caller-provided MIDR and have
-> > is_midr_in_range() either walk the array of implementations or read
-> > MIDR_EL1.
+> Ok. I had  a look at PV_TIME_ST/ARM_SMCCC_VENDOR_HYP_KVM_PTP_FUNC_ID
+> and got that idea. Separate registers make sense though.
 > 
-> So the suggestion is to use something like this?
-> 
-> bool is_midr_in_range(struct midr_range const *range)
-> {
->         int i;
-> 
->         for (i = 0; i < errata_migrn_target_num; i++) {
->                 if (midr_is_cpu_model_range(errata_migrn_target_cpus[i].midr,
->                                             range->model,
->                                             range->rv_min, range->rv_max))
->                         return true;
->         }
-> 
->         return midr_is_cpu_model_range(read_cpuid_id(), range->model,
->                                        range->rv_min, range->rv_max);
-> }
+> Do we really need to skip the version number? The idea was to use that as a
+> future proof for data format in case we realize that MIDR/REVIDR is not good
+> enough for errata later.
 
-Yep, pretty much like that. Except that the guest should either use the
-values from the hypercall *or* the value of MIDR_EL1, not both.
-
-> Or do we need some kind of hint to these functions to specify which 
-> MIDR to use? I think there are at least couple of places where it looks like
-> it make sense to do the checking against MIDR_EL1 only.
-> (eg: has_neoverse_n1_erratum_1542419().
-
-I don't think we need a hint or anything. The fact that the hypervisor
-is exposing this hypercall interface indicates the MIDR of the
-implementation the vCPU currently runs on is subject to change.
-
-So the concept of a per-CPU erratum is completely out of the window, and
-every CPU is subject to the errata of every implementation advertised by
-the hypervisor.
+That is definitely an approach we can take. The alternative I had in
+mind was that we'd allocate a new function ID if we needed to break ABI
+to correct shortcomings of the original interface.
 
 -- 
 Thanks,
