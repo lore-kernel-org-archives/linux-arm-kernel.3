@@ -4,89 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4A0D3A667
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 08:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12182D3A667
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 09:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwQhJkDhRGyNYzUhzrUe8VLzlsZC7UDKp+wauW+M1cA=; b=w4SVKHP5y+YbOTEnCe7kgaVIta
-	TdNeoerSz53YVr6HKOpa0KJTG5nPRBJ4GDwE8sscKUM8ZbCMgo7mPwgRX5GYW8CFck411necD/wVO
-	bgJkIRLAzLaTIAT01N+w/tEgfDjFj/8QF0uK4+Nn9RuN1+tMzP1oGCvUaOKzGT1exuSssU7kCJOP9
-	chFlUjGMaZJXXOI2ZJJu99/ePUvkek4THzlFbB1ljdSGnugvyW3H+ZRa2cpjod+Tfv7kaMPEBIZEP
-	yrsq2GSh2oOcvlPXooiG8Mn0W5krZ3kGQoTYl1cOTf1maELM8WnRoHsD2Orwy++I89Gh+KpUGd5h6
-	xl5rk7ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwcCvq+S43YBIJqgdnluBIAC9E3eUJMtuYC0vOKJwbY=; b=VnRbDUwuLXcJ9hvZiKhP0+lCsK
+	yrFxO3vReJVgv6Egpil0wkiQKUVgTwq1PzArYeiXgMIHKAlbk/VTWihg+ro9BJILAWI1D4XJRx1oh
+	J2tZmSgvUPI48kJ6C34x/vjOqibs2+WBNjBCxu2R74wUwQzqcEOEzjCStBenudXz3CXso3VX2jTvw
+	Fn7uXoUCgkhg9BfomEgCQObG1nDseqY1TecHK68LLqNBCJU83xJClYu/9timYzGDVyErHe3Al4ocF
+	rdixUC/EaIRgk5IZDKAfirjqStIscoNRTXmX0sHGx6+kbxMpMU2nGsBoqRxdNP5zy18LZcuRKJ4Fc
+	W6RbQvkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64Wc-0000000HLEt-3WuZ;
-	Wed, 30 Oct 2024 08:57:58 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1t64bo-0000000HLsl-05UX;
+	Wed, 30 Oct 2024 09:03:20 +0000
+Received: from mail-am6eur05on2070b.outbound.protection.outlook.com ([2a01:111:f403:2612::70b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64Uz-0000000HL5F-32BT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 08:56:18 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4315c1c7392so62007175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 01:56:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730278576; x=1730883376; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vwQhJkDhRGyNYzUhzrUe8VLzlsZC7UDKp+wauW+M1cA=;
-        b=MSbiQ92PJGqgYtDHIM399WwE6+zCVeeUd+S0c3UDnj/jRfE8ed1w/ScFRd6fqji85X
-         ErcjFvWfgxvhPn6I6ZPpMAnJwlJzJFF2lhIGUrm5HOHZQko4NSEvxh23D8NtG7zuEtNd
-         zKpOmWXY7tTlhT5L8bQzwsS1mQW7PbFM7HYSQRcUe3OenDUiMxp3sf16+1rLqRHjot86
-         QgLfCJ7ejp6Vng2A4c309acD7vvtDGJkGO8J8Y7UrFJRjD32mxBLrTUifa4mgfNd9N+0
-         NOZkwLEON+DXmSC0H46iy77I06WfuefiRiBWyyL4e8TKOezXoLN0BGVrNIt7zmlMOco2
-         /F/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730278576; x=1730883376;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vwQhJkDhRGyNYzUhzrUe8VLzlsZC7UDKp+wauW+M1cA=;
-        b=u1X7PbovFK21UD4LtKFIwWgHf8S31IELJCgwmZVFoPoNr2zlS50QlsFvxKfoIGztw9
-         5A7LydfBqtx3z1hSOIieTnWNPPDiczCqGoeSI9EuRt3z0JJMoshm/da1VMxfrM7FrJ7Z
-         d2KB5zkQxRTE8o29Mg6HNWFNRiPSkZ+LZEpvLVsr9v2xZj+5j2yCu60I1aWb4p4kaCCV
-         78z0SF15WTZ04SdsfCsX+eTDrko90A5K6DBI+T6v7w1acadinE7a3WQ/oDLAVwi+3VYM
-         QhA2UT5HS6wKxvcAXrrDq8K+lIdSNTVIoQxVg1D2tvLVKlkp2Uvjqfvit58lD4elhzg9
-         N9Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCWzgwNLRox3bX9jrz2jrMMoipaY27NXRDlEDLO1dKVNSCPXYNN0OSQUYGzMdBsGoNijjoZWT3nfzNVCqaSP7pik@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfZTOwT90wM/uOWy17sQWuCl7h2jjECHZ6fvtm/c6TdLbsi4JG
-	2+m2p5d0ByDdLrpCccPURKM96Wl+r7Do8JJaNNkGKL0zs+sfCcrDhGQF/40oWio=
-X-Google-Smtp-Source: AGHT+IHMAWPWqhusmSGEG8xKoTYKcseUAUiA+2AO0mWI+eaxCx/6d+Nl2JonxwY2qbCw2Xe3p7M++g==
-X-Received: by 2002:a05:600c:3d05:b0:42a:a6d2:3270 with SMTP id 5b1f17b1804b1-4319acb8f59mr131260055e9.21.1730278575803;
-        Wed, 30 Oct 2024 01:56:15 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b132fbsm14824903f8f.4.2024.10.30.01.56.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 01:56:15 -0700 (PDT)
-Message-ID: <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
-Date: Wed, 30 Oct 2024 08:56:13 +0000
-MIME-Version: 1.0
+	id 1t64a6-0000000HLY9-3elj;
+	Wed, 30 Oct 2024 09:01:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CJhpQE5ITtJm8EkQcAz6tPVvyg9HcPYafcvoNWVb6HoT+DSRdtTpLHZtcjlr+8wZsCZjjDN/F5OQ82vHvXX3ZaEzRGxK4aCMG8YNWuUdvnNNxLjZ1y9gmWo4Y+OOBuXyJvGsSuqUEHTHBHJnu2rMgK+6R87ZTnFkHpmFbdwdIKpQSm1SMoAXwPIvNum1Uc9ujysBoOXNrHztb9mTtxW5RerSLO/Pk07l+zeJwX3/iTvDxFy9qR7RMFALd2/5XHS6FsvEY7F67nPd89Cib7NNIhYphAaQH4QGyB8shCbBxZDmGPtEecz5CaXTLwdjFaUF9uln9vdxmwQnyf+W4TZTJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pwcCvq+S43YBIJqgdnluBIAC9E3eUJMtuYC0vOKJwbY=;
+ b=jF9F8ly+i0pLNXYkjERM8aSkC1mTT1rP3GdGo5EAgxaz4j+yhAjwoiUMwfi66iuObf7qwAiPHMjh5Gx9xIKD0BZarNdpoxXgIkMUyOac/bHztDp5J4K54gKsKGHnRwkAOcO6eZY0yiKrH0Nc9skl0seoL0tMfFl6Ab5RUGeMgZol8hwBMzWGiTEkXDw+aNZgfGpCWbEg/fBvRyts3NGqAYDAImpzzXpgDmWszTzMHrsbscnRGdX/2AY58uYQ2bTRrEx74irxGi/sXID5KAITD8LsUL5KQXzttAiQx4EytcNkPvEg61cxcVNXpEigju8VUIFRRKm98/qsT/usCp2JSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mysnt.onmicrosoft.com;
+ s=selector2-mysnt-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pwcCvq+S43YBIJqgdnluBIAC9E3eUJMtuYC0vOKJwbY=;
+ b=SKvlRAGJGZce/6qJgA1ygRCtZbrXMpgDGy9EXOj0Mk7pT6SpC52aLoRklSIr5ChTxuKF6N21Ofw4fud2tclZxFBjh2X+/dQFg/03PxAZZqwFAHMu9ntfQ/sVfCO0a0tS8ifVQR2KkDpfNXZTsP/msKQqJXuaEo0kaz75J61aXH8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
+ by AS8PR10MB7475.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5ae::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.16; Wed, 30 Oct
+ 2024 09:01:27 +0000
+Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::b854:7611:1533:2a19%4]) with mapi id 15.20.8114.007; Wed, 30 Oct 2024
+ 09:01:26 +0000
+Message-ID: <6d039ecf-0e48-415a-afd8-6bfce60081ae@kontron.de>
+Date: Wed, 30 Oct 2024 10:01:24 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/11] scsi: ufs: exynos: Add
- EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
-To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
- James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
- avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
-Cc: andre.draszik@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- ebiggers@kernel.org
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-5-peter.griffin@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241025131442.112862-5-peter.griffin@linaro.org>
+Subject: Re: imx8mp: HDMI display blank/black problems
+To: mailinglist1@johanneskirchmair.de, aford173@gmail.com
+Cc: johannes.kirchmair@skidata.com, Laurent.pinchart@ideasonboard.com,
+ airlied@gmail.com, alexander.stein@ew.tq-group.com, andrzej.hajda@intel.com,
+ catalin.marinas@arm.com, conor+dt@kernel.org, daniel@ffwll.ch,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ festevam@gmail.com, jernej.skrabec@gmail.com, jonas@kwiboo.se,
+ kernel@pengutronix.de, kishon@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ l.stach@pengutronix.de, linux-arm-kernel@lists.infradead.org,
+ linux-imx@nxp.com, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-pm@vger.kernel.org,
+ maarten.lankhorst@linux.intel.com, marex@denx.de, mripard@kernel.org,
+ neil.armstrong@linaro.org, p.zabel@pengutronix.de, rfoss@kernel.org,
+ robh+dt@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org,
+ tzimmermann@suse.de, ulf.hansson@linaro.org, victor.liu@nxp.com,
+ vkoul@kernel.org, will@kernel.org, Saravana Kannan <saravanak@google.com>
+References: <20240203165307.7806-1-aford173@gmail.com>
+ <20241025080544.136280-1-mailinglist1@johanneskirchmair.de>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20241025080544.136280-1-mailinglist1@johanneskirchmair.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0222.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e4::8) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:102:263::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|AS8PR10MB7475:EE_
+X-MS-Office365-Filtering-Correlation-Id: 05d9c429-2e83-4871-7da8-08dcf8c16f9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dVdVTDlhVXR4UnpNS3hYOXJDODJNUExsRnFqcXlOdk1VOERWRWNqaWQyVW1F?=
+ =?utf-8?B?eCtjV2RHNm5UakdkSnRaUGJBcnlzVGdCTnlyb0RjTkp1SHRHQkIrMFNlL1lx?=
+ =?utf-8?B?SzUxblQ1d0hHSXdYaHRwMkMwMUNXUkViV29mTFJQWlV3Zm02U0VQWTZDeUsv?=
+ =?utf-8?B?Tm9BS2s0M2xXMUxaQWRtZXcwd3ZGOGVrQm1BTFdRbEhjQ1pEY3M5WTdyUWgx?=
+ =?utf-8?B?ZVBjVG1xRXBkZjRGenVITlg0UllhV0o0TEFNcUowZDRSSmhmN2FIZVJtdW16?=
+ =?utf-8?B?YzA1TUprVU8wL2tIRjZSMDlCYmhJZnc1MkdFOFR6QlQwWWxTWjVJQ1RlVWlW?=
+ =?utf-8?B?UEZ3RE9UdmtLMXlOUU9vcVBKSjFvRU1jNVA1ZXJEcVJ2dzdHRW9MMGEvTUtP?=
+ =?utf-8?B?dXc4ZXpXaUtQUmovckVhMjAwd0toR3FFUnFla3dpMFdCNzV6QnNMb3JTUVEx?=
+ =?utf-8?B?aGlnWlYxdXdoV2ZHQ1Rka2M5NW5HYi8wSXM1ekg1a0Q0Ri9lNklnYXFmaTFN?=
+ =?utf-8?B?RlQyV3l5RVNyOWw1VHhUWUFKRGRnOXIzd0R5SURhY2lMTFB5OHo4RFMzYXZS?=
+ =?utf-8?B?MFBiRU1SSU1WZU5xSFRsa3dTcGJCRGNzRG12OTI0MUJzRkdZMmNuTlZtekli?=
+ =?utf-8?B?UUR1SnF3YTJLeG5TN3YwNFlid0tBdHpncXNtZWc2aWlmK3hrZ2I4SnBHV1oz?=
+ =?utf-8?B?aDlmZ1hGUytqdi80LzdqeTFqUDJNVy81QUM0cGQzMnlsdllpRHAvYmFFVzVy?=
+ =?utf-8?B?Mnp0L2ZBWmFjSDB0Q1hpVEdobHY2TmVpcDN6cERIblJCK0tLU1NlbDdadlB5?=
+ =?utf-8?B?V2FhZ3JzTlZEQzlhMDY3SXFnYzFrQ2U5dG5FcmlOMDVEZWtBblVUZXR5Rkhn?=
+ =?utf-8?B?dUJHNFVvQUs4Y2NEcWNBVFZicVVmaXI3djZRUU8vSlRTSFU3enJDRTI5VXJ3?=
+ =?utf-8?B?Umc4S3BpVE9PcW9vQ0hkMEVEV2o1MllYZHkrR2FWM0d4L2NtL0xzKzdjM05o?=
+ =?utf-8?B?UG1xcCtnemtBRW84K0xza0ZZQ3lKM0RZRDU2MHZtZVk1UkdoSW1OT1Z1SFQ1?=
+ =?utf-8?B?VG04RW5DeVRFbTd2WktjV3ZtcmJFTEM1Y0MwNzRmVDRTNzZ0L2ZjSnQxT0VB?=
+ =?utf-8?B?b1pRMEpCUjB4WlpKTCtDeEZTWW9NbHdQTUh1M2NjdkZoRytCMEFjSjR4TGps?=
+ =?utf-8?B?QmVPOHdkc3AxLzNYOEl0djZWeVhNM1JqMDBOUUxHS29lWUdBczQ3ZlRTbTFX?=
+ =?utf-8?B?SkphV1h0VU5LQklLTFAvWjQxaGx3MlA4ckw2OHRzOFdmWmdWaEM0ek5wMlBE?=
+ =?utf-8?B?TmxHM3ZZWUtTOVMveCtCZEZnWmdDSzU2MGlKZVZhaWs5TG03cHFHczdLakUv?=
+ =?utf-8?B?NkNLYWhYU1puaTJIQ25QcTMwLzVhWEJNZXR5aEZtVXZWR3VxVk8zNHgyOWJB?=
+ =?utf-8?B?VkJ2MWFubVU4RFVUeXZaejNvdEJkTmZyVDRLdGp4ZEpqNGdQNkRWaWl0d0Zn?=
+ =?utf-8?B?WStjcDV4V2RlRG5LN0lhZFJGUFA5bjZBYXUvU3dBN213WU05R1dQUnByMS8r?=
+ =?utf-8?B?ellCRUJoZ1M5RHNsL1R3RGZVakxuaVJ6T29vbklrYXF0bUVBbnVldVArMk8x?=
+ =?utf-8?B?U3grQm1PTGIzZVhpaGpINVl4dlVHaGVzNE4vUE1peUlpUUZUTW8xZDN4RDFR?=
+ =?utf-8?Q?zzbVtcfuuATlsohRxhck?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KzFZRDYxYmpNdm95bmJtZHFkNmR2Q216c01wem41bDA3OTVBWHBUQ2FaTXMy?=
+ =?utf-8?B?VDlRMEdJTHZHYnh1ZWFYV0M2dU93Y2cycmVGQzd3VnJIQndpZWhmcXZuU0hR?=
+ =?utf-8?B?Nmt0QmdPVXdjWjY0aUMvcEcvYU5PaGR2dCtCUWd6eDg3UlYwYXlzZ3h5VkFl?=
+ =?utf-8?B?cWg4eGY5ODJPRDRqdHpqKzBJbUQrVzdONmtYY3MzZ1p4UXFMZFFRaHkwY2kz?=
+ =?utf-8?B?RjlGc0dsZTlHdFBmMjNuYVpyRkh0dVBxR3BNb3Zha25yR215dUN1cDkzYUtn?=
+ =?utf-8?B?bC96MDVHZnBrbktRbWY1WXFMK1VITmFRS3J4Q2xSSi93WFpGeVZTenVSQ1Vt?=
+ =?utf-8?B?emJoQWZ0cERpdXhPaU5WQzVRNHJuNkVnR3VwaVViOU13WC82ODJMaHc4bkZS?=
+ =?utf-8?B?clBHWmlpNy91bElKNkxzeTNibEpqMkJNWndQU0NhelRmdmVJQzkrcUFqdFdW?=
+ =?utf-8?B?OEp3dTVodHVLR3FaYzV2bFIyRktjRmE0clhQclV6NlpjYytyMFNYNi8wRDYr?=
+ =?utf-8?B?VUV2bmYyODVUWW5oeHVmUWNpWUppc3hESStoUG85NmhKYUw5ME9Iei9CSUR4?=
+ =?utf-8?B?RXdHZjlPdHBiaTFJOGp0eUJoN2wwTU14bTBTOWYxYm84UXlrYmxBakRJR3Zz?=
+ =?utf-8?B?OVJ5d3FxRlZrTmUzWEJUeXlQRHh4ZTM1bCtsa2V4ZnloR0l6MEdwL1pWTnYz?=
+ =?utf-8?B?UWNIeXArdXdQelBuSEM5NmFoaW10bVExWWpoZ2QzSmtCTU50THhPaGx4b1Az?=
+ =?utf-8?B?KzB3MGlEK2lIaEFTS1ovTjhCNU5XWDRtNUdXNC92d3ZmYlNITVNWMmVBNmRi?=
+ =?utf-8?B?eEJiWkFRUHA2Vml3bWE1VkNGUFpOZlpRa0hlNW5MSEVNclo1b2hTNGorUGIw?=
+ =?utf-8?B?L0Ivbm9oYUNYNUFqMVJSZVhzVS90RThYd2s0elRVcWhGRk82OGU3QUdZQVAv?=
+ =?utf-8?B?KzFoTzlFa05aVkpiUG40Nm8xTERWelR2MzMrN25BcGY2N1NQLzJ1ZmI2VUYw?=
+ =?utf-8?B?ZXNiUEIxbWoweUp2V1MybFIxSHYrSHdDaFVaYlBDUjNvQmptMXRIVkdzRmV3?=
+ =?utf-8?B?V3NnQmVwR0VCMUVmOEpXSk0wb1pNSHRQbkN2K05iMmtqZ0R3MG1mbGZFbXBk?=
+ =?utf-8?B?QnZtRW90WThCZ2NqMmE2MTMvLzVPZUZCb1pSSkxYbHJvQjBoVmZ2dUwrUndL?=
+ =?utf-8?B?d2FJRUtLWDBtREVDK05Bdzh5SUUzdnV5L21JRWxvSGJlR3Rud2htdmVKOWhT?=
+ =?utf-8?B?TTNZOWFCdURJOE9Fa3ZacVYvYWQvVFlMb0JVMlJHb3NTTG92bVhGN3JNcHVC?=
+ =?utf-8?B?a2wxUDF1Q1czQW52SGlaZkJJMjhwRSt1UEFWTHpIUVlVb3lhbmZNWDFFUHpP?=
+ =?utf-8?B?WFJUODZyTkpKbmxKakZrYXhuYUU4U3dFL0JtOFhNWWtJREw5R2FJNkg0LzF4?=
+ =?utf-8?B?YXg0N1N4MTRLZmc2dFY2U2RXdmV2UjlJWlVZY29IeVp5RFNVWjNrQVQvWnNP?=
+ =?utf-8?B?RjVid2pMNHpkYzFDSUw5OTJwcG9Eb3p0Yi9nbTU3WURSdFZWbzR4WjVmbW1u?=
+ =?utf-8?B?T2N6UTFURXI2cEM2SHZjMzJ4dklFNXBKTHkvbGkvYmNMdWxrb2puYkEzemNR?=
+ =?utf-8?B?M2k5SFp2MlQvblVYNXdFTEFEalA4eGtSK2ViUDZQNHJCQi9uWDRuUVJhT2s3?=
+ =?utf-8?B?bkxuS1U1ZFJMSmI0S0VmN09yN2pSUmU3d2FrRkNGcUZFTzJtOWhlYTg3NlRD?=
+ =?utf-8?B?TFlVSXBoU1Z0bUgvam4wcTdHS3dUMTB4OVJsWWhjeVROZTR4L211Tmp3T3hT?=
+ =?utf-8?B?bXdZR0JPT25rS2hLTlRwV2I3LzIxY0JobHBwcVVHOFNlVGREdGMyTFV4M0dT?=
+ =?utf-8?B?VGhmRGZXRzZ5MVIxUEp6eUtreGNvWElqbnQxUlQzRWsvaWozWnZTSzZCbWNL?=
+ =?utf-8?B?Mzl3RTA0UlNXWVNqamk5R1dPNDFCU2szRzBwNnpKMlk5aElXeEFBTEtjeHZu?=
+ =?utf-8?B?U1FoNmVpRW9PWVppSkFMendFaVJxaEt5Ri9UVVdORUZIVUNKK2JScGs3WWdh?=
+ =?utf-8?B?U1c3bGd5TkdDTkxiQytPZWZyTTM2N2pBMGVreDlJejJzemdvZlJmOGM3a2dV?=
+ =?utf-8?B?TUdQdTlWNm9mTWpHbnJ6MDN1ZGxYUWxhNkNhWHZsN00yZ3g4MS9ZSzN0c0gr?=
+ =?utf-8?B?amc9PQ==?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 05d9c429-2e83-4871-7da8-08dcf8c16f9b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 09:01:26.6521
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GpvenMy/dLQOI8ijDo59915Y5BcScOKFvb9t+DXsBqaC9PHqg7uFL6acbTzuU4ziSOpXc5HOe8w9Qv6cEcAynOQq8Nzymi8SvF3IJyL0MWE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7475
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_015617_811424_C4E023BF 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20241030_020134_945496_CDDBD4E5 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +184,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Johannes,
 
-
-On 10/25/24 2:14 PM, Peter Griffin wrote:
-> The values calculated in exynos_ufs_specify_phy_time_attr() are only used
-> in exynos_ufs_config_phy_time_attr() and exynos_ufs_config_phy_cap_attr()
-
-all values set in exynos_ufs_specify_phy_time_attr() are used *only* in
-exynos_ufs_config_phy_time_attr(). Or did I miss something?
-
-> if EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag is not set.
-
-yep, wonderful.
-
+On 25.10.24 10:05 AM, mailinglist1@johanneskirchmair.de wrote:
+> [Sie erhalten nicht häufig E-Mails von mailinglist1@johanneskirchmair.de. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> Add a check for this flag to exynos_ufs_specify_phy_time_attr() and
-> return for platforms that don't set it.
+> Hey,
+> We had some problems with the hdmi on the imx8mp and wanted to leave, what we found out about it, somewhere for others to find it.
 > 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
->  drivers/ufs/host/ufs-exynos.c | 3 +++
->  1 file changed, 3 insertions(+)
+> The problem was that our hdmi display sometimes stayed blank after hot plugging and sometimes at startup. On older kernel versions 6.6 we did not have the problem with the not mainlined hdmi patches.
+> We tracked the commit down that introduced the problem for us. It was the following “driver core: Enable fw_devlink=rpm by default”  https://lore.kernel.org/lkml/20231113220948.80089-1-saravanak@google.com/
+> So we switched back to FW_DEVLINK_FLAGS_ON via kernel parameter. Don’t really understand what the problem with RPM is.
 > 
-> diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-> index d685d3e93ea1..a1a2fdcb8a40 100644
-> --- a/drivers/ufs/host/ufs-exynos.c
-> +++ b/drivers/ufs/host/ufs-exynos.c
-> @@ -546,6 +546,9 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
->  	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
->  	struct ufs_phy_time_cfg *t_cfg = &ufs->t_cfg;
->  
-> +	if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)
-> +		return;
-> +
->  	t_cfg->tx_linereset_p =
->  		exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
->  	t_cfg->tx_linereset_n =
+> So, this information is just for reference. Maybe someone has an idea what is going on here. And how to fix the problem in a more proper way.
 
-tx_linereset_n, rx_hibern8_wait is set but not used anywhere. Can we
-remove it? Not related to this patch though.
+Thanks for investigating and sharing your results!
+
+I'm seeing the same symptoms and previously found out that this is
+related to LCDIF underrun errors. See [1] for more information.
+
+Adam has also started this thread: [2].
+
+Anyway, knowing that this is related to fw_devlink=rpm is really
+helpful. I just tried with fw_devlink=on and wasn't able to see any
+issues anymore. So this confirms your findings.
+
+I hope that some of the driver framework and runtime PM experts can help
+to find out what is actually wrong and how the correct fix might look like.
+
+I'm also CC-ing Saravana who authored the change from fw_devlink=on to
+fw_devlink=rpm to see if they have anything to add.
+
+Thanks
+Frieder
+
+[1]
+https://patchwork.kernel.org/project/linux-phy/cover/20240904233100.114611-1-aford173@gmail.com/#26014057
+[2]
+https://lore.kernel.org/imx/8cfd3052-c85a-4235-b9b8-6d2929e9e455@kontron.de/T/
 
