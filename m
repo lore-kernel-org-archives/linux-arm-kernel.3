@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B19D5CC95
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C685D5CC95
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=; b=JuX5wgyzbve9qOF0ioGzqvEKDo
-	h3709tcxDn7sqbGCrZf0s2UKbIWdEiWhpPH86qbS/Ud3kIbgu86Aba/aCrBK5JJtLydLRhKrrfBD0
-	RRyyQllv/pIuCEXzZxtM4hSi8jRHEdZJT6lFa3KqA3Az6nARkCW6PWtC4hCpH6Cmm+qCPs+pbZCZJ
-	NK63KvFZ+kFGoXlIGB8/HrRlg+sjUzM60KAuzySXXcmiApfaSzsFh1+gVqi7k/ZKm2vMBHOnKPe4q
-	o322iZ+12ZpKs1sbZMOww3AsvqQPLC46xICBY+Yp6Vf6KOJwvDRR4Crc18J8ZOeQOmSkBiih/oLo8
-	jUHU+TFw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VPAY99/b86NU6xxyFr+lv4xE3Qrx/qwWg87o/3GcG2k=; b=rD3uZ9ELzIgY/1yiRy5/UuPc16
+	WG7HltI9vIqwPQUPdcNR11161ybH3HJxbttqugTtem2rFP6vFua00Fkz/QDu4bVrG3oC2ESNdqSFC
+	41DRb6DWuKISR09Gp1kBPq2LRUcBfJ06BV60pGZXhiy+3J2AzJwgJF+rqoveRO+tahQnaCjuXKk2s
+	yz/iAoMe9D3jkKPE/iBZGO/BTqOoCf6tX/pYtbOz7x83OQmAFuYHw54ncYH0BcPVZdQekmw7C8rl+
+	lDZv8oIEy+Yb6DuOHwyAhc+WaTsubmgNLkwbybe0+6dMr61BhVvZNdW2s7AoqH9Zb3kFOqze4I+vY
+	7W85SDJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66gb-000000006EP-3Cbk;
-	Wed, 30 Oct 2024 11:16:25 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1t66iE-000000006ZD-0tOA;
+	Wed, 30 Oct 2024 11:18:06 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66SJ-000000003eo-2WCg
+	id 1t66SK-000000003ex-3CYa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:01:41 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43159c9f617so60613255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:38 -0700 (PDT)
+	Wed, 30 Oct 2024 11:01:42 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4314c452180so4707165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1730286097; x=1730890897; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=;
-        b=jWOiba4zFV64NwjvnCqrUez/j7zdCUXjCy2gKKOWUf5i+KlwsW+aqJkdbYfGPRd2Hj
-         qrxqMzdQM3S86519HQRHRGXU268Ve7FU6tTgwMYF9AyJvJtQKDLe5vKyyMnUvI6EtE5z
-         hPFZ0CaJYL3tTxrGLYSCragBJloWhD2JXVfZH2hpoDPiXguNLgMfdCK+0TzN9SZJww1y
-         qSOineBWXqtbsa+kM+7BFFukhdC7s6jAxCjyoPC0sJm5UGuzcni/xivuolKeXPvf7LkF
-         yyHH/kTu4ZNbELapXK82R86uWBT0rBU0hgiqm/EFvmmqgUoaDrJFhazx655uWKT8Zd3b
-         k7RQ==
+        d=tuxon.dev; s=google; t=1730286099; x=1730890899; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VPAY99/b86NU6xxyFr+lv4xE3Qrx/qwWg87o/3GcG2k=;
+        b=jOwxh193JY9thzHXHti9BWsEafjzMR3l4qnc6fXn04QlC55Dv/FyJbbYHL9stSLOh4
+         zEG/lljQpDE+ykWgRS+lNAEoSFjdJhPlpUgAtkpu8BYuG8ZJKKnnUOoVxbQlD2YLrCSY
+         /iwPBP28S0Frm/hixsxR5pYuAgsAi09bRO7IomHpFRP+x4yXYwBDIqdqC21N+/blnYev
+         MHUU7f3iEj4/89asjZrep5tznmF0b1C52tTy5wJrAB8n6bnC7FOa0W+SXkFHNmblLDOy
+         SO48D8p5ReomUQLr8uAIn4zCS3Gyd2J9GnSPdOBUu+XhhESOIJY5V4ZsfhIERlC1zFGQ
+         6BPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730286097; x=1730890897;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=;
-        b=shKGACtsOP7vmiuPVIixW5OuS/Um3X5WZCLY9EvM9teiaP2PLbsPnrPRn4PKJNc73y
-         X6nfSgirpDN9E4LtVf3By7cYorfoa+RvsIe2pAjzFDuy/dDnslgrPjgghXSWptSwcJr0
-         m5rhalhMH1i2mZIxUb+MXo3nJMo4dioq6wSWG7ZITjNEJx2eBZlIBkqO+fNBxJKOqJch
-         AOiJwghmjGmi+nCqsJJTx/8KXju+pob9TFM4ihbB+DeCXYd+MdgrlN6Q9xg1ZC5R8/CS
-         SUXzIrlPyM0nIZRo8CLoKTA3tpuMgceXvMW9i7eUpk+Jf0ny2SyqiAvNA1cIufopKSnD
-         PYdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWCV1vPfRCu30E4U9YWfTasBYu+F3TtXpmSZLPHP4NgH7CJNhfpUNUIBkRP6qBkoi4CthnPEEn8U6SjUfDwA7Fu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9xc+KiNIuU0DB7Kv71wx+IKfTf6Ul7O4YlSvnvpgXPXgSfrd/
-	nZTAMLonDnPMYe1Gb8iTs36Pf0dfVlTt32oCoUn0OeidkIubRScdV6YD6EukXyotI2EoGMzKyxt
-	1
-X-Google-Smtp-Source: AGHT+IHiBr5VSVHKI/wJl7b1DUkZ2teiuj8d/e6AL9/92akooeT1FxovY4Chln4pchEghqU1vcv7kQ==
-X-Received: by 2002:a7b:c5cc:0:b0:428:1310:b6b5 with SMTP id 5b1f17b1804b1-431aa802774mr100247035e9.34.1730286097169;
-        Wed, 30 Oct 2024 04:01:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730286099; x=1730890899;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VPAY99/b86NU6xxyFr+lv4xE3Qrx/qwWg87o/3GcG2k=;
+        b=K5MA9UPjx6GmC8khtzRBEdGFEZZPhnd578RrSfR5/rmzpr1kMcM8hjoncXnhuPWaa/
+         0vUEqeRnZB2LfLDXsLCTsJw41dI4RVrG1wgurLjlNbDvNZ+zGqOeUle0S2fvHQ4kIeM4
+         0MnyJ2uvhiwIXXb3/bpms6GZvMlVdQNyebUSxrjMidF76vKoMR1A5jbB1Ck5npKQS5j6
+         4EESR+//3iX+0vpJCB+I3Evco6SgIBrsPBlJ3Xuk0r0pucPhKWZwtMA84RaguJ2yRvM+
+         NY8hH8pxFT4ifCDGxYLpsP1NPWStbU0rJb228ZgrIM/Nv1U5Poe+mih7bfDCK9rKQbBB
+         v/BA==
+X-Forwarded-Encrypted: i=1; AJvYcCWA/FFryqn7vU8wWHMVQIzKo2HvOVKTFeQZ4l3DQrN/UGAYqVylOkwOT+WXZ33T2zKaxDa3TAWqrwHdG/BEYAUv@lists.infradead.org
+X-Gm-Message-State: AOJu0YygJ9mBOKZ/ltuat7b5HZz93G1wUXi0GG03+r4YFsbSwX/io3lF
+	w3F9UEp6ezbGqrI4wXA3cQNkHiMcYNWwvYpFDa1AVFfPjq67lYE1G6eP11YXcOQ=
+X-Google-Smtp-Source: AGHT+IEHPgxDfD5Fa5a5J0wxXIUzXwZQ07u3mw8zxEnQypPfCK1PseGSZb+5VYyckxdfvK6nA0eerQ==
+X-Received: by 2002:a05:600c:314e:b0:431:47e7:9f45 with SMTP id 5b1f17b1804b1-431bd8a09aamr15476845e9.11.1730286098704;
+        Wed, 30 Oct 2024 04:01:38 -0700 (PDT)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.190])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 04:01:36 -0700 (PDT)
+        Wed, 30 Oct 2024 04:01:38 -0700 (PDT)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -82,15 +82,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH v5 00/10] Add RTC support for the Renesas RZ/G3S SoC
-Date: Wed, 30 Oct 2024 13:01:10 +0200
-Message-Id: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH v5 01/10] dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB
+Date: Wed, 30 Oct 2024 13:01:11 +0200
+Message-Id: <20241030110120.332802-2-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_040139_827288_26A365D3 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20241030_040140_921600_D7B2D13C 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,125 +109,211 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Hi,
+The VBATTB IP of the Renesas RZ/G3S SoC controls the clock for RTC,
+the tamper detector and a small general usage memory of 128B.
 
-On the Renesas RZ/G3S SoC the RTC clock is provided by the VBATTB
-IP. A 32 KHz crystall oscillator could be connected to the VBATTB
-input pins. The logic to control this clock (and pass it to RTC)
-is inside the VBATTB IP. For this, the clk-vbattb driver was added
-(patches 01-03/12).
+The VBATTB controller controls the clock for the RTC on the Renesas
+RZ/G3S. The HW block diagram for the clock logic is as follows:
 
-Patches:
-- 01-03/10: add VBATTB support that provides the RTC clock
-- 04-05/10: add the RTC driver
-- 06-09/10: update the device trees with proper nodes to enable RTC
--    10/10: enable proper config flags for RTC to work on RZ/G3S SoC
+           +----------+ XC   `\
+RTXIN  --->|          |----->| \       +----+  VBATTCLK
+           | 32K clock|      |  |----->|gate|----------->
+           | osc      | XBYP |  |      +----+
+RTXOUT --->|          |----->| /
+           +----------+      ,/
 
-Merge strategy, if any:
-- clock patches (01-03/10) need to go though the same tree because of
-  patch 03/10 using the devm_clk_hw_register_gate_parent_hw() introduced
-  in patch 02/12
-- RTC patches (04-05/10) can go though RTC tree
-- DTS and defconfig patches can go though Renesas tree
+One could connect as input to this HW block either a crystal or
+an external clock device. This is board specific.
 
-Thank you,
-Claudiu Beznea
+After discussions w/ Stephen Boyd the clock tree associated with this
+hardware block was exported in Linux as:
+
+input-xtal
+  xbyp
+  xc
+     mux
+        vbattclk
+
+where:
+- input-xtal is the input clock (connected to RTXIN, RTXOUT pins)
+- xc, xbyp are mux inputs
+- mux is the internal mux
+- vbattclk is the gate clock that feeds in the end the RTC
+
+to allow selecting the input of the MUX though assigned-clock DT
+properties, using the already existing clock drivers and avoid adding
+other DT properties.
+
+This allows select the input of the mux based on the type of the
+connected input clock:
+- if the 32768 crystal is connected as input for the VBATTB,
+  the input of the mux should be xc
+- if an external clock device is connected as input for the VBATTB the
+  input of the mux should be xbyp
+
+Add bindings for the VBATTB controller.
+
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+---
 
 Changes in v5:
-- dropped patches already applied
-- fixed build on rtc yaml file
-- fixed indentation in patch 01/10 description
+- used spaces in the diagram from the patch description
+- added "This is board specific" in the board description to emphasize
+  the usage of the assigned-clocks in the example
+- added default for quartz-load-femtofarads
 - collected tags
-- per patch changes are listed in individual patches
 
 Changes in v4:
-- added patches
-  "dt-bindings: clock: r9a08g045-cpg: Add power domain ID for RTC"
-  "clk: renesas: r9a08g045: Add power domain for RTC"
-- squashed the following patches from v3:
-  "Add clock IDs for the VBATTB controller"
-  "dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB"
-- fixed typos in commit description
-- moved assigned-clocks, assigned-clock-parents from the RTC
-  documentation to the VBATTB documentation; same adjustment has been
-  done on the device tree patches
+- squashed with patch "Add clock IDs for the VBATTB controller" from v3
+- removed "oscillator" word from commit description
+- added assigned-clocks, assigned-clock-parents to the documentation example
+- used clock-controller for the node name
+- used "quartz-load-femtofarads" property for the load capacitance
 - renamed include/dt-bindings/clock/r9a08g045-vbattb.h to
   include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
-- used quartz-load-femtofarads
-- used RTC_TIMESTAMP_BEGIN_2000 and RTC_TIMESTAMP_BEGIN_2099 in the RTC
-  driver and added a comment in remove API to mention RTC cannot power
-  on the system
-- squashed defconfig patches
-- collected tags
-- per patch changes are listed in individual patches
 
 Changes in v3:
-- dropped patches "mfd: renesas-vbattb: Add a MFD driver for the Renesas
-  VBATTB IP"
-- added patches:
--- dt-bindings: clock: r9a08g045-vbattb: Add clock IDs for
-   the VBATTB controller
--- clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
-- moved Documentation/devicetree/bindings/mfd/renesas,r9a08g045-vbattb.yaml
-  to Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
-- addressed review comments
-- per patch changes are listed in individual patches
+- moved the file to clock dt bindings directory as it is the
+  only functionality supported at the moment; the other functionalities
+  (tamper detector, SRAM) are offered though register spreaded
+  though the address space of the VBATTB IP and not actually
+  individual devices; the other functionalities are not
+  planned to be supported soon and if they will be I think they
+  fit better on auxiliary bus than MFD
+- dropped interrupt names as requested in the review process
+- dropped the inner node for clock controller
+- added #clock-cells
+- added rtx clock
+- updated description for renesas,vbattb-load-nanofarads
+- included dt-bindings/interrupt-controller/irq.h in examples section
 
 Changes in v2:
-- dropped patch "clk: renesas: r9a08g045: Add clock, reset and power domain
-  support for the VBATTB IP" as it was already integrated
-- kept only a documentation file for both VBATT MFD and clock drivers as
-  suggested
-- addressed review comments
-- used cleanup.h lock helpers
-- update startup sequence for the RTC driver
-- switch to 24 hours mode on the RTC driver
-- fixed range for the RTC driver
-- added a generic compatible for the RTC driver as this will also be
-  used by RZ/V2H
-- used clkin/xin clock names for the VBATTB clock driver to determine
-  if bypass should be configured on registers instead of having
-  dedicated DT property
-- added mfd driver for VBATTB
-- updated Kconfig flag names to include vendor name
-- removed DT node labels from Documentation files
-- used items to describe the interrupts and clocks
+- changed file name and compatible
+- updated title, description sections
+- added clock controller part documentation and drop dedicated file
+  for it included in v1
+- used items to describe interrupts, interrupt-names, clocks, clock-names,
+  resets
+- dropped node labels and status
+- updated clock-names for clock controller to cope with the new
+  logic on detecting the necessity to setup bypass
 
-
-Claudiu Beznea (10):
-  dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB
-  clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
-  clk: renesas: clk-vbattb: Add VBATTB clock driver
-  dt-bindings: rtc: renesas,rzg3s-rtc: Document the Renesas RTCA-3 IP
-  rtc: renesas-rtca3: Add driver for RTCA-3 available on Renesas RZ/G3S
-    SoC
-  arm64: dts: renesas: r9a08g045: Add VBATTB node
-  arm64: dts: renesas: r9a08g045: Add RTC node
-  arm64: dts: renesas: rzg3s-smarc-som: Enable VBATTB
-  arm64: dts: renesas: rzg3s-smarc-som: Enable RTC
-  arm64: defconfig: Enable VBATTB clock and Renesas RTCA-3 flags
-
- .../clock/renesas,r9a08g045-vbattb.yaml       |  84 ++
- .../bindings/rtc/renesas,rz-rtca3.yaml        |  84 ++
- MAINTAINERS                                   |   8 +
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi    |  34 +
- .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |  16 +
- arch/arm64/configs/defconfig                  |   2 +
- drivers/clk/renesas/Kconfig                   |   4 +
- drivers/clk/renesas/Makefile                  |   1 +
- drivers/clk/renesas/clk-vbattb.c              | 205 ++++
- drivers/rtc/Kconfig                           |  10 +
- drivers/rtc/Makefile                          |   1 +
- drivers/rtc/rtc-renesas-rtca3.c               | 899 ++++++++++++++++++
- .../clock/renesas,r9a08g045-vbattb.h          |  13 +
- include/linux/clk-provider.h                  |  18 +
- 14 files changed, 1379 insertions(+)
+ .../clock/renesas,r9a08g045-vbattb.yaml       | 84 +++++++++++++++++++
+ .../clock/renesas,r9a08g045-vbattb.h          | 13 +++
+ 2 files changed, 97 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
- create mode 100644 Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml
- create mode 100644 drivers/clk/renesas/clk-vbattb.c
- create mode 100644 drivers/rtc/rtc-renesas-rtca3.c
  create mode 100644 include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
 
+diff --git a/Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml b/Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
+new file mode 100644
+index 000000000000..3707e4118949
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/renesas,r9a08g045-vbattb.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Renesas Battery Backup Function (VBATTB)
++
++description:
++  Renesas VBATTB is an always on powered module (backed by battery) which
++  controls the RTC clock (VBATTCLK), tamper detection logic and a small
++  general usage memory (128B).
++
++maintainers:
++  - Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
++
++properties:
++  compatible:
++    const: renesas,r9a08g045-vbattb
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: tamper detector interrupt
++
++  clocks:
++    items:
++      - description: VBATTB module clock
++      - description: RTC input clock (crystal or external clock device)
++
++  clock-names:
++    items:
++      - const: bclk
++      - const: rtx
++
++  '#clock-cells':
++    const: 1
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    items:
++      - description: VBATTB module reset
++
++  quartz-load-femtofarads:
++    description: load capacitance of the on board crystal
++    enum: [ 4000, 7000, 9000, 12500 ]
++    default: 4000
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - power-domains
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/r9a08g045-cpg.h>
++    #include <dt-bindings/clock/renesas,r9a08g045-vbattb.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    clock-controller@1005c000 {
++        compatible = "renesas,r9a08g045-vbattb";
++        reg = <0x1005c000 0x1000>;
++        interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&cpg CPG_MOD R9A08G045_VBAT_BCLK>, <&vbattb_xtal>;
++        clock-names = "bclk", "rtx";
++        assigned-clocks = <&vbattb VBATTB_MUX>;
++        assigned-clock-parents = <&vbattb VBATTB_XC>;
++        #clock-cells = <1>;
++        power-domains = <&cpg>;
++        resets = <&cpg R9A08G045_VBAT_BRESETN>;
++        quartz-load-femtofarads = <12500>;
++    };
+diff --git a/include/dt-bindings/clock/renesas,r9a08g045-vbattb.h b/include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
+new file mode 100644
+index 000000000000..67774eafad06
+--- /dev/null
++++ b/include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++ *
++ * Copyright (C) 2024 Renesas Electronics Corp.
++ */
++#ifndef __DT_BINDINGS_CLOCK_R9A08G045_VBATTB_H__
++#define __DT_BINDINGS_CLOCK_R9A08G045_VBATTB_H__
++
++#define VBATTB_XC		0
++#define VBATTB_XBYP		1
++#define VBATTB_MUX		2
++#define VBATTB_VBATTCLK		3
++
++#endif /* __DT_BINDINGS_CLOCK_R9A08G045_VBATTB_H__ */
 -- 
 2.39.2
 
