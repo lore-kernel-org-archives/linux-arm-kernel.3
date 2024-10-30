@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA800D5CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4A6D5CCAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=; b=LiYydHUklNg5WvnjyunPXC9zoN
-	/EudH6NtkNp04EYAmZcQ24alCiFeM4yqV8GbQh3WsNNmuHS5swarm92R9yq0XeUQ3KMCvj8G0mxzK
-	AUUpOIs2ECCmyEEub4Fdmh20f1X0pjGKChd3UZ5AVEj7v1jQ9ddRzvEYLsz0vK5ef5+cbhn1t6buO
-	xxOtdsrmKdT/Y7XzY29bFtAWulCMt5K/6vqk5aA3b2J/gUIiNlb4JraqUHf3DjbwlEtmHmADpsL+n
-	bo1cxe9fJS5txTGdo5ByoFPRpm0InR23EGimcV5MZd3lX9S5C70tE3F0I0/Rit9iXJZ2obzL+BTlL
-	gBgorkMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=; b=JZ3iDO9QQdIyMq3KQdXZONtAFn
+	47ciuB0WhekUksF+udKHFbt6jiUvLH92BdR4XUmqu+gQ90N8RETQvoqhGuiB1nMgx9wcbBjFd1J5K
+	gamNYrecPNe9Wm9wgm/WOxfQeJYnq8SSjevAbnHI6valn+LS4IKI0gH5myZvWnKYN6L8hd3YviqsK
+	JIZl0sxksQ23GWbtU7BynOhFajF0MbpQNyi7ktciZMmSWZwImBiRztKhj4hg1RPk2degcv5Ief2vO
+	TbZ9JK2AERy3PgpILxStBZZ4g135p7+hlYndwh396kYr/09Pyu/z5HATjdbMlQvjXEVD7lCBjwMEl
+	ZnMB6gYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68vW-00000000VX4-45co;
-	Wed, 30 Oct 2024 13:39:59 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1t68xA-00000000VqI-3pvp;
+	Wed, 30 Oct 2024 13:41:40 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68kJ-00000000TLG-1F76
+	id 1t68lC-00000000TWk-0PN4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:28:24 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d4d1b48f3so4774925f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:28:22 -0700 (PDT)
+	Wed, 30 Oct 2024 13:29:19 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4316e9f4a40so64630325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:29:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730294901; x=1730899701; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=;
-        b=kC/cI2zHYiuTjF9nv9VBH2MJlW/Xl1rMBUN2MR04KnY8c/f8G6LyitHIEiv5odRsxB
-         zDcJIbI4MiQtcbol5wLWg44AwjUBY4ymoHhZN/4jYU3lK84OxjBfIDfRktM+kcRp/aJ4
-         18gr2ix/oFhfOdX5ojI/QljnbSg86ak1QoQcNahRyu/vhnRdY8cHNuIbFr1g1xRO+7mh
-         WYObTJeMBZ2i8CdFQd/cv9lx1nDDOLubVphkmj4lh+uqVO5CzApwRwk8Kxa3xvJypM9g
-         H+erw6LS2KsjOc00BIgK5QJsoBs9+C0KEZCpU5i1VU0mvRnfczz6hnV56resze3wNEK/
-         yhJA==
+        d=linaro.org; s=google; t=1730294956; x=1730899756; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=;
+        b=mzL7A/CtFCh69oNvE7GK9QAs5xTM2l1joicHs12j3sDsYn6V77lo2iThDzyumseFEt
+         GI+N+gUk8EJSe7PExNn1X70bR3TjxUCDFNO7rWKY5RR8isMRKkiCBwdGG0k9K2Bg4MU4
+         iyDuMzr615TsitNjNc2H+T//DRB/03bz+WLNmTG4qHcbUikDSuAF0pm9/w9vdDl9Sjjj
+         i8WyNgVAtmZl29L/sGtlDAnx5ceWW+MxG4qJoMSwaIGbcAtB0G7Qjp8OTRca5Jxt0v6D
+         g0X12IqYgV8MMgJyaEOu4K3VAeCrTWIgtHkbY2Uq2a5jEHd1pdLwu1WT9tuH4b89QT4B
+         O9/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730294901; x=1730899701;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=;
-        b=rg3Rsisv+s/RaTEicwWfPYwRqMz/f1b8bLM2Xk5jfA6yRADnMVnBEL+Gm0RoZYmmRw
-         lPcrIrVXAEzExhepKY3prP78r3+M6zM0CuzgynvslNSB9Od4SyFbzAoQ3FpB9EB1frf8
-         /vuf+gTDH17zHB70BK7CAzgL5zs+wc2yojcxuvy85VsvSMW3KXqY9vGfmYvVAkefzmFg
-         914OuULmcbqiO1G/QExL7Bp2jU0T/O7WSO581Fq8ytltvnwwUmnDofIl+m/eacm5k5yg
-         /P8yiFT2zOyB5Gb8bQ9j5SdHVhhqrVBG+JAHnGLYWeWTH6rgptLE6OX+jrHk+FyVQBmb
-         3ktQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHX0J6kegR8I6anfJFwlc2CerHu3pRMqoi4HmOuBoAygUsJs4jjV/NAyimgwl1gNsVRwmFFVgX6sS4tJSUsy77@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiPsCngVhZfDKYk+XSbqZbTSSHwsJIyNCBIyWKs7h70sR1Omii
-	6fbYqn/LFmkXi51iQRH0BM3BXmSzjmW5uBz+u6ttxCgsB8BjEe9t
-X-Google-Smtp-Source: AGHT+IF/oVv8150+7ro6yu0YdcKzcFPQ8lbfxvxtxQ1j2qTb6UYENnsCgQU3QxkyOYC63S92RRMIAg==
-X-Received: by 2002:adf:ec8f:0:b0:374:b35e:ea6c with SMTP id ffacd0b85a97d-381b70ed1c3mr2289041f8f.40.1730294901291;
-        Wed, 30 Oct 2024 06:28:21 -0700 (PDT)
-Received: from tp440p.steeds.sam ([69.63.64.50])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b9294dsm15353345f8f.105.2024.10.30.06.28.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 06:28:20 -0700 (PDT)
-Date: Wed, 30 Oct 2024 15:28:13 +0200
-From: Sicelo <absicsz@gmail.com>
-To: Joerg Roedel <joro@8bytes.org>
-Cc: "H. Nikolaus Schaller" <hns@goldelico.com>,
-	Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	mchehab@kernel.org, andersson@kernel.org,
-	mathieu.poirier@linaro.org, Beleswar Padhi <b-padhi@ti.com>,
-	Andreas Kemnade <andreas@kemnade.info>, iommu@lists.linux.dev,
-	arm-soc <linux-arm-kernel@lists.infradead.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	linux-media@vger.kernel.org, linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
-Message-ID: <ZyI0baBMPHVZ29-k@tp440p.steeds.sam>
-References: <cover.1730136799.git.robin.murphy@arm.com>
- <ZyIClriScBy4s6LX@8bytes.org>
- <515D7932-3939-4C3E-BA3E-CC3152E64749@goldelico.com>
- <ZyIos2Gm1nf5rejI@8bytes.org>
+        d=1e100.net; s=20230601; t=1730294956; x=1730899756;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rcLE83f8I5rl8ZtZIrZgOnTLuwTtp/g9tS9d1ZU8SuI=;
+        b=i0Xwu8Cvu8Epce+wKJikRfBm1yrQJD2zlOcU7Dg4hGtCDOVPd8k9+w0FFoRsg8RdaD
+         zhzoW1G1ScI0iPjVTAfuvRN2az97Rhthi8YlBDDjUDGzjYtIrsElqve39pCidLGXHAO7
+         xeBnmbDl2WGF8t9hUGtLMvlaY1bqGmsQ6RiL4iKos0yemrRXjiebrmL5wTYENJdXgMhX
+         ubAPQCF2ABbIkaQScQukv1v435eql8TPdbhcB4V+85GGCjkn8XFpsce/UN4uGnWjPAe1
+         GANMuVVnxFtDx+Wuheggjwo3Kb3FBML+XMUM/arXoIt3Jep7H730XOyzO3pDDwV+cIJ5
+         JaGA==
+X-Forwarded-Encrypted: i=1; AJvYcCXoOcue86HFtZ0VT83Q2CT8Qd+nSPs+7rV6oNfnDMG352gdByedbwg81opCFIll2fTU0KCyS+Fi40jJYHoKnq1f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnblcd/beJCpWlXrg8ft2K/vSP84yBd02znP3gDvKdtEjJqLQl
+	9ZfqnHLWfr4Pa55ZX5wi6LU4mMWFjU8L4UBeYwj49TnDdxJh5tTAClVthRXGYyc=
+X-Google-Smtp-Source: AGHT+IHp5AbAqgjQIgwYYwcTFJhtpBHYbLWugEe1xzPeyU3dGtA9O/+opSkEXa/XOrO9WuCxMOGUqw==
+X-Received: by 2002:adf:ea43:0:b0:37d:633a:b361 with SMTP id ffacd0b85a97d-38061206c0cmr11906179f8f.51.1730294956053;
+        Wed, 30 Oct 2024 06:29:16 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9a9a53sm21657955e9.30.2024.10.30.06.29.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 06:29:14 -0700 (PDT)
+Message-ID: <8e2a327a-5efc-4ba3-afa2-387099967468@linaro.org>
+Date: Wed, 30 Oct 2024 13:29:13 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyIos2Gm1nf5rejI@8bytes.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/11] scsi: ufs: exynos: Add
+ EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
+Cc: andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-5-peter.griffin@linaro.org>
+ <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
+Content-Language: en-US
+In-Reply-To: <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_062823_359053_08545E4C 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20241030_062918_180881_7861AD95 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +103,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
 
-On Wed, Oct 30, 2024 at 01:38:11PM +0100, Joerg Roedel wrote:
-> On Wed, Oct 30, 2024 at 12:20:31PM +0100, H. Nikolaus Schaller wrote:
-> > Why that? There was a discussion and everyone agreed to remove omap2,
-> > but not omap3 and later.
-> 
-> I raised this question to make sure the things we maintain are still
-> relevant. Developer and maintainers time is limited and we should not
-> spend it on stuff that nobody uses.
-> 
-> > There are some devices besides the PandaBoard. I am aware of these where
-> > this is relevant: Epson BT200, Samsung Galaxy Tab 2, Pyra Handheld
-> > (in production) and we are currently thinking about producing a tiny series
-> > of the DM3730 based GTA04A5 with spare parts.
-> > 
-> > And of course we want to participate from the latest and greatest upstream changes.
-> 
-> Okay, if there are still real users for latest mainline kernels on this
-> hardware, then the effort is justified.
-> 
-> Regards,
-> 
-> 	Joerg
 
-There is also the Nokia N900 phone (OMAP3) still seeing mainline
-activity, as well as the Motorola Droid 4 (OMAP4), to name a few. I will
-also be testing on the N900 around the weekend.
+On 10/30/24 8:56 AM, Tudor Ambarus wrote:
+> tx_linereset_n, rx_hibern8_wait is set but not used anywhere. Can we
+> remove it? Not related to this patch though.
 
-Thanks to everyone for the amazing work.
+Sent patches to remove these fields at:
 
-Sincerely
-Sicelo
+https://lore.kernel.org/linux-scsi/20241030132649.3575865-1-tudor.ambarus@linaro.org/
 
