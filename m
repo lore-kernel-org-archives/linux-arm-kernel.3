@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF00D6B6DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D46DD6B6DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ITqiCo6Oy9VyIO08ktrefacPN0wP55EvXmHcJds/A58=; b=hVgMg4C+yZjL/INmmybgIONpit
-	+9xYjuUwCFyA8qrng3XZdY2Qd9zj5ULJJZqMyjKFrG/CiNoRCb8lxU3Z4GzRtyoEisurMrc3CBymy
-	fISpJFDhYHILLC5pO0OCZ7qxtVeJeBYAWo4BhQhniYi265+w3zvBen6iGbRY5bH0BJHveQ9GI5rGa
-	n5RatxNJJp1Aa43PKq9UibIJIQwODZlAuHFE/sg6cNt/A/9XO9cb59xW9X5bm/at5H3kNPH9bW+rm
-	xOiD+S/ItctHyJtKPhMK6X1Er4AFtPWis31PN+leFbBbrAhOJ5nQWnud4RwqL2/l7nyTCBO4cIJuK
-	YvEzUR+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=FxiQnQV6VZvYSukv2iEO9D8jhWmua4bLFQ+celF+iIA=; b=lUU8yM+eK4FrwC4+kXYSUpeOtW
+	xx4f9trIxzh00O2UL99LzzswYHJc/E/x8sgIpVFbLLktHqHKMXVvJMwNWK2piOYAfH4rWwC6kGlLM
+	BdlpthGzL0wGRTYgqwx9VzWzSUNaYjA0ANnJPZRIBh+4SFLzaO7OWJGfmXYYC4uPi1kkFnBFEoHOc
+	wPweKnwut25Gqltx2JFE84qKP5NU1fPkwrR8JX+4e7ts+Km7P8IRXkMvJPJ7hFF3zz4itDQcs7doV
+	MZgOLx9Cb6AKlWCePYw2HTBzJuPRnyjef1r0qrQetOhGjM9J7nIztr8ENoiVn0Fg/JSfmXZQrUUyO
+	Jli/Cx2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6FiL-00000001kL0-1rUc;
-	Wed, 30 Oct 2024 20:54:49 +0000
+	id 1t6FmG-00000001lAI-0grJ;
+	Wed, 30 Oct 2024 20:58:52 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6FdW-00000001jRo-14mJ
+	id 1t6FkZ-00000001kkh-1Xhl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 20:49:51 +0000
+	Wed, 30 Oct 2024 20:57:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B1AF65C568E;
-	Wed, 30 Oct 2024 20:49:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2757FC4CED3;
-	Wed, 30 Oct 2024 20:49:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CC315C55BB;
+	Wed, 30 Oct 2024 20:56:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9470BC4CECE;
+	Wed, 30 Oct 2024 20:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730321389;
-	bh=qJdTcgpxMWoOYJiUsP4GiG9tUqa01DGZ7YOgoBaVGYE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MOoVF7LLTAGPZR8k2y9yUPTSo3ePcHSsIQKKysT8QUfGtY3lQVdYZqVM+iITuloim
-	 E7+DHneXNINFM3j7VlFWRmnGc3PyugIbOXZn3HOW5OuZ+JTup64mFLx/RYvpVC3tYd
-	 46qFpapz61zxbnJQTiIH6BJB/ix0X5AZ2cd0ZR6SruXvngyNixxOHkgHgN2JDjbyQf
-	 40BTfLzImQ7zA6ViT1dH8CjN8RBP++xbxwf/3fDZv7B7xB5oWn9brXkpUrV9lo91xN
-	 QODVwZPQJYvp165YgXvA8QAIdZ2SQlJXRTlygDB0e7HeyskrYT+kV6ScZTOyMBtuid
-	 Y6zZhINpalTnw==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Oct 2024 20:23:51 +0000
-Subject: [PATCH 2/2] arm64/sme: Flush foreign register state in
- do_sme_acc()
+	s=k20201202; t=1730321825;
+	bh=XPLETH6IvogiR50LRg6ev0FzS09rdHbQJGqQIAlUxgM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=k3JtQJaxR5Yk2wmxCZsDMiosrnNJmzWeCK7TqABeoRViZBcgxSR/Aj8Vb7FWRk1zG
+	 lxwqpBuqAYnnxDiaM8rCrhtZGb86GXYELynmh4xutm0dndQ3iBvycoAJw4+H8e6V7F
+	 ZRjtU1j9MqXPqxAykncoxHfLxYdv5OQipURElOwL2mjO21q2ICwVnTavLIx37ISErZ
+	 4jtVLwQDzAmKCx6DpFF94BwdToPDVGrzRJvelwX7Q8+aMM6PzysovbUrD5Osg01YO+
+	 Zs56hWd5drU+1q7H46BkMxfUq5qfTrQMwPgGFb6nUsfBrS8BK3Fpyd6wWrsHobhiYF
+	 F0BMRSSiCRMgw==
+Date: Wed, 30 Oct 2024 15:57:03 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jan Kiszka <jan.kiszka@siemens.com>
+Cc: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org, Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Bao Cheng Su <baocheng.su@siemens.com>,
+	Hua Qian Li <huaqian.li@siemens.com>,
+	Diogo Ivo <diogo.ivo@siemens.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v6 0/7] soc: ti: Add and use PVU on K3-AM65 for DMA
+ isolation
+Message-ID: <20241030205703.GA1219329@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241030-arm64-fpsimd-foreign-flush-v1-2-bd7bd66905a2@kernel.org>
-References: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
-In-Reply-To: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1522; i=broonie@kernel.org;
- h=from:subject:message-id; bh=qJdTcgpxMWoOYJiUsP4GiG9tUqa01DGZ7YOgoBaVGYE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIpvnUTblL/oeizk6bN46HjZA0iw8vzEUtYmdpw9l
- fgVjsx+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyKb5wAKCRAk1otyXVSH0O0ZB/
- 9Y9TutGjpVTwnaB7MGwyaYlS45T1zetmUTPlUgk5Bzrrtxnik4kWCWtMbUweX/06JhukK8Mo25LHu+
- IWlwyj0MO9SREDJUnqgGsAeJwCLx+Zg1mduJpZynDnFSwuCdEPM2cWtUu+LMvmG5MM05wquiL96F6Y
- EoQ50JgPqJV3ssrk+StMixv8AsUsRJ3EcECzuWQF34WlHFILUocL7cTz1i1yP5T3ykAQy0dy/knPu3
- wg1GhMzCp7m1ouVUHjLlJOSHBZjzO7KwS+fjTjDJU3zO5K/oSwd70BUm/CVBykNnZDDaafQnleB30X
- pMa33MLb0Sh+c5uvS/mgWDsXmFUW/H
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cover.1725901439.git.jan.kiszka@siemens.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_134950_383227_24788F4C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20241030_135707_737529_4C24C02C 
+X-CRM114-Status: GOOD (  32.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When do_sme_acc() runs with foreign FP state it does not do any updates of
-the task structure, relying on the next return to userspace to reload the
-register state appropriately, but leaves the task's last loaded CPU
-untouched. This means that if the task returns to userspace on the last
-CPU it ran on then the checks in fpsimd_bind_task_to_cpu() will incorrectly
-determine that the register state on the CPU is current and suppress reload
-of the floating point register state before returning to userspace. This
-will result in spurious warnings due to SME access traps occuring for the
-task after TIF_SME is set.
+On Mon, Sep 09, 2024 at 07:03:53PM +0200, Jan Kiszka wrote:
+> Changes in v6:
+>  - make restricted DMA memory-region available to all pci-keystone
+>    devices, moving property to unconditional section (patch 2)
+> 
+> Changes in v5:
+>  - resolve review comments on pci-host bindings
+>  - reduce DMA memory regions to 1 - swiotlb does not support more
+>  - move activation into overlay (controlled via firmware)
+>  - use ks_init_vmap helper instead of loop in
+>    rework ks_init_restricted_dma
+>  - add more comments to pci-keystone
+>  - use 2 chained TLBs of PVU to support maximum of swiotlb (320 MB)
+> 
+> Changes in v4:
+>  - reorder patch queue, moving all DTS changes to the back
+>  - limit activation to IOT2050 Advanced variants
+>  - move DMA pool to allow firmware-based expansion it up to 512M
+> 
+> Changes in v3:
+>  - fix ti,am654-pvu.yaml according to review comments
+>  - address review comments on ti,am65-pci-host.yaml
+>  - differentiate between different compatibles in ti,am65-pci-host.yaml
+>  - move pvu nodes to k3-am65-main.dtsi
+>  - reorder patch series, pulling bindings and generic DT bits to the front
+> 
+> Changes in v2:
+>  - fix dt_bindings_check issues (patch 1)
+>  - address first review comments (patch 2)
+>  - extend ti,am65-pci-host bindings for PVU (new patch 3)
+> 
+> Only few of the K3 SoCs have an IOMMU and, thus, can isolate the system
+> against DMA-based attacks of external PCI devices. The AM65 is without
+> an IOMMU, but it comes with something close to it: the Peripheral
+> Virtualization Unit (PVU).
+> 
+> The PVU was originally designed to establish static compartments via a
+> hypervisor, isolate those DMA-wise against each other and the host and
+> even allow remapping of guest-physical addresses. But it only provides
+> a static translation region, not page-granular mappings. Thus, it cannot
+> be handled transparently like an IOMMU.
+> 
+> Now, to use the PVU for the purpose of isolated PCI devices from the
+> Linux host, this series takes a different approach. It defines a
+> restricted-dma-pool for the PCI host, using swiotlb to map all DMA
+> buffers from a static memory carve-out. And to enforce that the devices
+> actually follow this, a special PVU soc driver is introduced. The driver
+> permits access to the GIC ITS and otherwise waits for other drivers that
+> detect devices with constrained DMA to register pools with the PVU.
+> 
+> For the AM65, the first (and possibly only) driver where this is
+> introduced is the pci-keystone host controller. Finally, this series
+> provides a DT overlay for the IOT2050 Advanced devices (all have
+> MiniPCIe or M.2 extension slots) to make use of this protection scheme.
+> Application of this overlay will be handled by firmware.
+> 
+> Due to the cross-cutting nature of these changes, multiple subsystems
+> are affected. However, I wanted to present the whole thing in one series
+> to allow everyone to review with the complete picture in hands. If
+> preferred, I can also split the series up, of course.
 
-Call fpsimd_flush_task_state() to invalidate the last loaded CPU
-recorded in the task, forcing detection of the task as foreign.
+I'm not sure where this ended up.
 
-Fixes: 8bd7f91c03d8 ("arm64/sme: Implement traps and syscall handling for SME")Reported-by: Mark Rutlamd <mark.rutland@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: stable@vger.kernel.org
----
- arch/arm64/kernel/fpsimd.c | 2 ++
- 1 file changed, 2 insertions(+)
+The pci-keystone.c patch looks OK to me, and I don't see any comments
+from the PCI folks who normally take care of host controller drivers.
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 6d21971ae5594f32947480cfa168db400a69a283..1eaa670cbffa448c1aced8c8b37040492e18a21f 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1460,6 +1460,8 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
- 		sme_set_vq(vq_minus_one);
- 
- 		fpsimd_bind_task_to_cpu();
-+	} else {
-+		fpsimd_flush_task_state(current);
- 	}
- 
- 	put_cpu_fpsimd_context();
+I guess it depends on the soc PVU driver, so I'll ack the keystone
+part and whoever takes the soc part can include it.
 
--- 
-2.39.2
-
+> CC: Bjorn Helgaas <bhelgaas@google.com>
+> CC: "Krzysztof Wilczyński" <kw@linux.com>
+> CC: linux-pci@vger.kernel.org
+> CC: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> 
+> Jan Kiszka (7):
+>   dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
+>   dt-bindings: PCI: ti,am65: Extend for use with PVU
+>   soc: ti: Add IOMMU-like PVU driver
+>   PCI: keystone: Add support for PVU-based DMA isolation on AM654
+>   arm64: dts: ti: k3-am65-main: Add PVU nodes
+>   arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+>   arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices
+>     behind PCI RC
+> 
+>  .../bindings/pci/ti,am65-pci-host.yaml        |  28 +-
+>  .../bindings/soc/ti/ti,am654-pvu.yaml         |  51 ++
+>  arch/arm64/boot/dts/ti/Makefile               |   5 +
+>  arch/arm64/boot/dts/ti/k3-am65-main.dtsi      |  38 +-
+>  ...am6548-iot2050-advanced-dma-isolation.dtso |  33 ++
+>  drivers/pci/controller/dwc/pci-keystone.c     | 108 ++++
+>  drivers/soc/ti/Kconfig                        |   4 +
+>  drivers/soc/ti/Makefile                       |   1 +
+>  drivers/soc/ti/ti-pvu.c                       | 500 ++++++++++++++++++
+>  include/linux/ti-pvu.h                        |  16 +
+>  10 files changed, 777 insertions(+), 7 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+>  create mode 100644 drivers/soc/ti/ti-pvu.c
+>  create mode 100644 include/linux/ti-pvu.h
+> 
+> -- 
+> 2.43.0
+> 
 
