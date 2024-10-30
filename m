@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B263D5CC8E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDEFD5CC90
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJcJmoaUxY7nJ4Q2S1uk/s9xXqHeIao8IpYsxybz3hU=; b=Bd01MtvLzTeTVZ2w93ko05udXa
-	W7XA47DSUjBAoV2ZDRDo1JUP4pgbwi/K5+CHhX2q6ZZq4nxOFPENZ7ubgHl42XiFe+9vqRe8m4dZ2
-	0AuR5/uVhwc4QjbIHGEBVY0uZKWPwImVMikZFROpHMAOMo9nydaB2n78XB7CiaEP9pWxTKyGejZWM
-	0MV6G8mRNpLoFw3QhowADjgocn4VxJooV1RwOvjHVa6OwgSk4XaE5rZnNtaq3COaNrKo68m/6TUnD
-	KqUgyuhoATw5CfM/t6KeBUtMcHj2wLnipgItgzGDNNZjv0BsnFjCi9VGlyoWLkuquJO+nSCWM77Ns
-	FEjDbNvw==;
+	bh=Z5zeClzjkLB2fwj5NuKVJcICjOwHMYB7WeUASTb/YtI=; b=coJnFWxQHFjm/hmtl0S49S8/DL
+	vqNaQQ5BkQD5n/tJWGrr9NOJ4MIR6yEpP0OCsrY+YAiLkFdfNXXoo8IzG7N9egSZD0QWeBskDJAKW
+	i/PNpwTEBGC4eAfqhVkci7Bkvwu1EXA/atUUZbVWi4VlzMp7KDp0VJzZSjUZYazaWB5fLe8mRs1tB
+	xtQhB9fNqkuTPceTLIXICzoTp9tAUk38obCIUaemJiVhmaJT9ya+VYQrbuaNASUnEYK6gam+G5msd
+	CLYccqvQqMc6ZcKtg0yq8yuDkrG7slLNtYvzQ1Fek4UcjP5fSeJe2iz2En2INwags3VVRS6RPqzA9
+	QzHwwX3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66M9-000000001vZ-3IHk;
-	Wed, 30 Oct 2024 10:55:17 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t66Nm-000000002Hz-10oY;
+	Wed, 30 Oct 2024 10:56:58 +0000
+Received: from mail-lj1-f171.google.com ([209.85.208.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t666t-0000000HaHp-1Ly3;
-	Wed, 30 Oct 2024 10:39:33 +0000
-X-UUID: 3d70c68096ab11ef82ff63e91e7eb18c-20241030
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=HJcJmoaUxY7nJ4Q2S1uk/s9xXqHeIao8IpYsxybz3hU=;
-	b=IWvqmxhQzC+cPhkgxsXcY9IsN5vQynQr8jpxXjVMvuiVDDanIOh90HJGZv//bNcn6lU7P6Q6xDXGeyyX8S6vyM+JTg38tMDK8O01lL3H77cLJKGt1GhTw+IXaX4OWWWF05p0tiHcPpvlwAtqs9XaE962uq6n6y2qeppJ5IZsp+s=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:9c763f1e-7811-4c43-99c8-587be1619119,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:a0436d48-ca13-40ea-8070-fa012edab362,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 3d70c68096ab11ef82ff63e91e7eb18c-20241030
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 282088779; Wed, 30 Oct 2024 03:39:28 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 30 Oct 2024 18:39:25 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 30 Oct 2024 18:39:25 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
- Horman <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, SkyLake.Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH net-next 5/5] net: phy: mediatek: add MT7530 & MT7531's PHY ID macros
-Date: Wed, 30 Oct 2024 18:35:54 +0800
-Message-ID: <20241030103554.29218-6-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241030103554.29218-1-SkyLake.Huang@mediatek.com>
-References: <20241030103554.29218-1-SkyLake.Huang@mediatek.com>
+	id 1t667Q-0000000HaNU-0QmU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Oct 2024 10:40:05 +0000
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso99526331fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 03:40:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730284802; x=1730889602;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z5zeClzjkLB2fwj5NuKVJcICjOwHMYB7WeUASTb/YtI=;
+        b=jqFjAJuMFHYmGtsq+T0zanpGe6B05CzKhA5jeH+3BSUEVRMD7GEv2NEv174xLhasE6
+         YY67Vm2hAaEp6lphCISXcJqJFBZS1nqZ9RgfcP/apt37ZxrJhXU+wIiV2aNxeG2tP4ml
+         D8aWXiQmZXChmvKvjAPHLbZBln92eGHFcW6ow546KsxxaY5EmAqI8vM49LL5cgk11z1+
+         CkHSsrOu92yK96CIvgZcolgGqtKC4I9kW/QMpYPQOnGlXUye1rxajNOUEgTlcAEo1JUT
+         z5/pdJQPnxotIVi4MvI/We0cjrlE+qvrMICBh2M5S+MLPWjrd0PdW2FXTkFRFPer+p6P
+         yfVw==
+X-Forwarded-Encrypted: i=1; AJvYcCU4KcMWi3LDMgYyITxQfM9y+Rj8SxAupunzHMgMCaDFKZAQbu11/HtQcccky5AIy49A8ibu6V4iDePWpwYABIUj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR+9W+gNNopkh0ux879qJwgOzXREBmXSoRZJlmucJ6/fd97maL
+	IQV5xohEJvj4hwfCswWchtblTbBYEn6LTURt9+NSO+WtnUs8Du2z
+X-Google-Smtp-Source: AGHT+IF1BeMOioe7t/P4H3j1JzkGprhgTWXKnwqJJVpJqtv4+UpyysQM6plM71Gz04mozafT9jF6YA==
+X-Received: by 2002:a05:651c:211c:b0:2fb:63b5:c0bc with SMTP id 38308e7fff4ca-2fcbdf60dfdmr108666691fa.3.1730284801674;
+        Wed, 30 Oct 2024 03:40:01 -0700 (PDT)
+Received: from gmail.com (fwdproxy-lla-115.fbsv.net. [2a03:2880:30ff:73::face:b00c])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9b3a0887besm558559566b.207.2024.10.30.03.40.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Oct 2024 03:40:01 -0700 (PDT)
+Date: Wed, 30 Oct 2024 03:39:58 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Madalin Bucur <madalin.bucur@nxp.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Radu Bulie <radu-andrei.bulie@nxp.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next 1/3] soc: fsl_qbman: use be16_to_cpu() in
+ qm_sg_entry_get_off()
+Message-ID: <20241030-enigmatic-mayfly-of-triumph-d571bb@leitao>
+References: <20241029164317.50182-1-vladimir.oltean@nxp.com>
+ <20241029164317.50182-2-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241029164317.50182-2-vladimir.oltean@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_033931_394020_EAB8A404 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20241030_034004_166899_8680CD78 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "SkyLake.Huang" <skylake.huang@mediatek.com>
+On Tue, Oct 29, 2024 at 06:43:15PM +0200, Vladimir Oltean wrote:
+> struct qm_sg_entry :: offset is a 13-bit field, declared as __be16.
+> 
+> When using be32_to_cpu(), a wrong value will be calculated on little
+> endian systems (Arm), because type promotion from 16-bit to 32-bit,
+> which is done before the byte swap and always in the CPU native
+> endianness, changes the value of the scatter/gather list entry offset in
+> big-endian interpretation (adds two zero bytes in the LSB interpretation).
+> The result of the byte swap is ANDed with GENMASK(12, 0), so the result
+> is always zero, because only those bytes added by type promotion remain
+> after the application of the bit mask.
+> 
+> The impact of the bug is that scatter/gather frames with a non-zero
+> offset into the buffer are treated by the driver as if they had a zero
+> offset. This is all in theory, because in practice, qm_sg_entry_get_off()
+> has a single caller, where the bug is inconsequential, because at that
+> call site the buffer offset will always be zero, as will be explained in
+> the subsequent change.
+> 
+> Flagged by sparse:
+> 
+> warning: cast to restricted __be32
+> warning: cast from restricted __be16
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
-This patch adds MT7530 & MT7531's PHY ID macros in mtk-ge.c so that
-it follows the same rule of mtk-ge-soc.c.
-
-Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
----
-No change since commit:
-https://lore.kernel.org/netdev/20241004102413.5838-8-SkyLake.Huang@mediatek.com/
-
-Andrew Lunn has already reviewed this.
----
- drivers/net/phy/mediatek/mtk-ge.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-index 9122899..ed2617b 100644
---- a/drivers/net/phy/mediatek/mtk-ge.c
-+++ b/drivers/net/phy/mediatek/mtk-ge.c
-@@ -5,6 +5,9 @@
- 
- #include "mtk.h"
- 
-+#define MTK_GPHY_ID_MT7530		0x03a29412
-+#define MTK_GPHY_ID_MT7531		0x03a29441
-+
- #define MTK_EXT_PAGE_ACCESS		0x1f
- #define MTK_PHY_PAGE_STANDARD		0x0000
- #define MTK_PHY_PAGE_EXTENDED		0x0001
-@@ -59,7 +62,7 @@ static int mt7531_phy_config_init(struct phy_device *phydev)
- 
- static struct phy_driver mtk_gephy_driver[] = {
- 	{
--		PHY_ID_MATCH_EXACT(0x03a29412),
-+		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
- 		.name		= "MediaTek MT7530 PHY",
- 		.config_init	= mt7530_phy_config_init,
- 		/* Interrupts are handled by the switch, not the PHY
-@@ -73,7 +76,7 @@ static struct phy_driver mtk_gephy_driver[] = {
- 		.write_page	= mtk_phy_write_page,
- 	},
- 	{
--		PHY_ID_MATCH_EXACT(0x03a29441),
-+		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7531),
- 		.name		= "MediaTek MT7531 PHY",
- 		.config_init	= mt7531_phy_config_init,
- 		/* Interrupts are handled by the switch, not the PHY
-@@ -91,8 +94,8 @@ static struct phy_driver mtk_gephy_driver[] = {
- module_phy_driver(mtk_gephy_driver);
- 
- static struct mdio_device_id __maybe_unused mtk_gephy_tbl[] = {
--	{ PHY_ID_MATCH_EXACT(0x03a29441) },
--	{ PHY_ID_MATCH_EXACT(0x03a29412) },
-+	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530) },
-+	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7531) },
- 	{ }
- };
- 
--- 
-2.45.2
-
+Reviewed-by: Breno Leitao <leitao@debian.org>
 
