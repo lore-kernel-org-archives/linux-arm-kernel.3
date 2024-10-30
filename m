@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762B3D74963
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 06:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3B7D74963
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 06:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAfvRsyhNQJwfN6uS2obFxaNXvTC0I+ID34wyMDnLu4=; b=2JWv3BhTTikiNhdQoEHHowFtes
-	xKF7vTJPxm69ZVuyYCxAxLYegfg2RbQdQmt62Rgg8iOm5+t7EyuRQUxTQ75a+Ww/AqeY40lNU1kog
-	rpFxwSJZSI45nbnrc5L9kkIsfSNZSy31+mRL6edJFCbB8o+03y8o3aeCpKLLwCBd9tRV++0LAm0Wb
-	QP3DysbSvcEwPitRQtwDVnBsK1ldZwSF9vBnNrWil8Z6+FPoHrnEWcWCs1a9DhN/g5QmwQc9drkrs
-	YYdUZW/iNQDWYKkAcVPoviqJBPDIs9o6JKuCOHEYaIKRJVjHGlhfZ9SKrBT/YTPaGjsbSQhXy7ZN+
-	we8vgg/Q==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KM9EiVroMALcUxodR2rRdxFvVaaT3eOp/EHuyeyuut0=; b=Hi4MV9oSY6pumXKrlVittTrxWR
+	n8WXST0pL4G6+0g+P1A1DI3+/ccpFrmc1uA8zKrsHFxNBqCaBHDD7sCrr5AuFlVM1aqnHU36rEOJ6
+	Mnmb5ujgwzGy9GweRNh3/110MZtesJ51aGIDZTQNqMKHM0A5RjyQGSU0we/9Jmvnq1vsQC4/Cf3ZI
+	asAGwHaZWNl6p72rhcsYIs+A3fi1fYECHop1kAKLbTioBKdziTscunGTjX7f7TtuoC/57PtF0MW6R
+	QKb7cRTOh0/uMuJhi+52CmQnn/HHPKJkIu663QWN4S5xGIzvOEemOlBp0dQEN3TwuCIJffJWvHimJ
+	shiGfs1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t62BA-0000000GwJh-02u7;
-	Wed, 30 Oct 2024 06:27:40 +0000
-Received: from mail-dm3nam02on2061e.outbound.protection.outlook.com ([2a01:111:f403:2405::61e] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1t62Cl-0000000Gwl6-1Aea;
+	Wed, 30 Oct 2024 06:29:19 +0000
+Received: from mail-dm6nam11on20603.outbound.protection.outlook.com ([2a01:111:f403:2415::603] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t629U-0000000GvmD-030B
+	id 1t629W-0000000Gvn1-16WP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 06:25:57 +0000
+	Wed, 30 Oct 2024 06:25:59 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LdcIJ5ii9zYQEQcI/ovIS14ijJLMpkgVNDBkVVVoKK2CbLstxTURTf8wAnBlDBXdTUuNT+n0OU4bBCaOo8VTr2E4n0zxIVPlPt5hhPjuzYG2BOayYw4ZF0mN+zG1y7X5TsQl6PMk9HzhEtJMseM8IfT3NAOun7yMROiiwc6RX8bugCqizw8COGKxcUm8twbV1Mc4QavobeD+HlNAshXIh4asGTO9uDKTjW+qiaJFb6Nc+EmRN8ihp/ryFHCSBALXW4asR+3wg9Lq/I3pB5cEmmTmEa2Rm298R5c2r2KHBtoatZ92eDtrLd6rrmyiiI3bBtj15prLkxD3QRYkFzLryQ==
+ b=mr04A0cxI/qO1IYQTWvqhew3Q8u2r06X7Q6sxgVkMIobNiCTpocKlLjyLXQR0H6W+L8oaVa3xa8nEEHlfFUiRmoqsCtqeyEM+6NZ/lIjRQWRiFZOI6rW72wm6cUu/6n1HEx/V8Wo1gFfg4tdkHS4U2DEvGImyiPfka9YySDXDhsqpbA/Bi/vVPPdcxeFIsL7D0WLIgTisVIFPl2TNpFnSrvO/5jGmQGygf5BGMgEsgHFoN/2EK/eOHv/4gtrUaJLa5aYrnZtDXDuyXljEixp8efGTPovNQr0cL+5z1qOG45zBbZQST2YihLm4rLhNRVKyYUgHTElcg5tQTUfx1OfhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dAfvRsyhNQJwfN6uS2obFxaNXvTC0I+ID34wyMDnLu4=;
- b=CwfQOjpRmZPyi7zB8EjvwQ9WiskpG9vKQT7k1Bn/+emQmC3+JpdYF7uxV0S/JrDE4kP7UVN3BAG1S27C2rmSDMheE6Z4UorMgrrS75UYzUe9dexWw+/0PLeKTZPobS20V/JNLymxG3kNqocls+sXUrJXC+RfyPL/sajaE9qMqY9NFulXtiV7U/GhbQje2gW/3scgdTqFfnHQQQ7186smDcSgQLAZOOJdeOGEmrmvtTfSgEfiIyZrGt6X6LAijWzvEx+JpxvtBzLHSDlIpwbI3TlP/kJ08Bvy+PDHyb6s5pMolgcS4N3DeeRdiwVfaMbyO50IAMXRMN/syUTq0o4BqQ==
+ bh=KM9EiVroMALcUxodR2rRdxFvVaaT3eOp/EHuyeyuut0=;
+ b=U/n+Emjz2SCn6ATDhbkNwbdea8Gd26u3JtrgK6BqNyoUcezXhW/Jc8KxFTglyVL5+LSGjf+I+zF/QkOCBO8OQrMVAVXoZiEnXMXA5+QK16nsLfkMAPlyTEj/535Rt8xt422qYYDPXAStnEZEIOja83pWwSgOHM6XM/ekgIAw9+K+nPdouH4zGp+fo7KsaFzaCekldYc1mHzxnF+d+vmDCZxClKkbZkJp+TEpjyGgok0G4aY1wfv7wV1o+6ZTs3nKhz+6A8iaDCJbAEgIRSTlv3HfPIEaqAu8kkwbEJcN9NC2ytogPYL/+kMP66OSB99gWYtbJhFtvockQFBnhkeKAA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dAfvRsyhNQJwfN6uS2obFxaNXvTC0I+ID34wyMDnLu4=;
- b=otEsNYD/tJZNpicI/iqWK9S5Y71gKSLLJfVqBqIVVCV93bWNhvWUgGb9IZgRLWKx2eV7FvjItvNG4uGYBDwRBlNAQvwlFmgN38HNtS+6M3LuFDMovfr05RuqoU9ptXavVeA0UAtZJ6IkYIJUL9UD3yO/djDqyme8HQ/79p8v8jA=
-Received: from BN9PR03CA0463.namprd03.prod.outlook.com (2603:10b6:408:139::18)
- by PH7PR12MB8154.namprd12.prod.outlook.com (2603:10b6:510:2b9::14) with
+ bh=KM9EiVroMALcUxodR2rRdxFvVaaT3eOp/EHuyeyuut0=;
+ b=MkQ4HCbxH/HbywLMj9t3XKr1AGgRyDNHZyrmB/+BFXjR6+jVuoBN88R1mS16XUwjL6R2/bUo+koQp7i90aeObsD9BCqKAbFt5hHoshNVGGy92JusAcEqcHWhw8uS51WP+eXQp4+BINZn/O/bhhHqYb/pSWLOvl5wRa66QVDsocY=
+Received: from BL0PR02CA0060.namprd02.prod.outlook.com (2603:10b6:207:3d::37)
+ by SJ0PR12MB5675.namprd12.prod.outlook.com (2603:10b6:a03:42d::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.21; Wed, 30 Oct
- 2024 06:25:43 +0000
-Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
- (2603:10b6:408:139:cafe::48) by BN9PR03CA0463.outlook.office365.com
- (2603:10b6:408:139::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Wed, 30 Oct
+ 2024 06:25:39 +0000
+Received: from BL6PEPF0001AB4F.namprd04.prod.outlook.com
+ (2603:10b6:207:3d:cafe::59) by BL0PR02CA0060.outlook.office365.com
+ (2603:10b6:207:3d::37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.17 via Frontend
- Transport; Wed, 30 Oct 2024 06:25:42 +0000
+ Transport; Wed, 30 Oct 2024 06:25:39 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,28 +59,26 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
 Received: from SATLEXMB03.amd.com (165.204.84.17) by
- BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ BL6PEPF0001AB4F.mail.protection.outlook.com (10.167.242.73) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8114.16 via Frontend Transport; Wed, 30 Oct 2024 06:25:42 +0000
+ 15.20.8114.16 via Frontend Transport; Wed, 30 Oct 2024 06:25:39 +0000
 Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB03.amd.com
  (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Oct
- 2024 01:25:40 -0500
+ 2024 01:25:37 -0500
 Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
  (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 30 Oct 2024 01:25:37 -0500
+ Transport; Wed, 30 Oct 2024 01:25:34 -0500
 From: Suraj Gupta <suraj.gupta2@amd.com>
 To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
 	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
 	<pabeni@redhat.com>, <michal.simek@amd.com>, <netdev@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <git@amd.com>, <harini.katakam@amd.com>
-Subject: [PATCH net 1/2] net: xilinx: axienet: Enqueue Tx packets in dql before dmaengine starts
-Date: Wed, 30 Oct 2024 11:55:32 +0530
-Message-ID: <20241030062533.2527042-2-suraj.gupta2@amd.com>
+Subject: [PATCH net 0/2] net: xilinx: axienet: Fix kernel crash in dmaengine transmit path
+Date: Wed, 30 Oct 2024 11:55:31 +0530
+Message-ID: <20241030062533.2527042-1-suraj.gupta2@amd.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241030062533.2527042-1-suraj.gupta2@amd.com>
-References: <20241030062533.2527042-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -88,50 +86,51 @@ Received-SPF: None (SATLEXMB03.amd.com: suraj.gupta2@amd.com does not
  designate permitted sender hosts)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|PH7PR12MB8154:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ebd5506-3204-463e-0122-08dcf8abae31
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4F:EE_|SJ0PR12MB5675:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6c3b840f-2d39-4dba-9f4f-08dcf8abac68
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j+UEB0qqHmilLMqrpk7S/oJvwa19cS4mFmNjksr58xFq3NM2RqNQ9AUdraWD?=
- =?us-ascii?Q?Drom8YVnQR7FRsfJlPOUN/ohSeLi6/oGyDmoEZNBY/7fVkG15i16TKduI6s+?=
- =?us-ascii?Q?p+f+QMdXud7n2E9IThoSppP20IbzWv+CDICbcoLpkMaPXyamFi8onZsyIz6y?=
- =?us-ascii?Q?fHDRbOTt7XNAI4gs9QbABF9cWsn4NploqPFF177dgspyOCxZR8NZE7rVhdKA?=
- =?us-ascii?Q?mQogtceAFMhMzAgr5gYb+myEY4fBzThqaf4DYz33JGtDjGrm2OHO+erBdGM6?=
- =?us-ascii?Q?51t7i5tQIfdLb5E72d6agJ6q8lf1PzvAVD4k7kE0jYgrKTEe+asVSkm7nvjV?=
- =?us-ascii?Q?BnqAPFR4r+7gcxmFhNqA7RVw7rYGOxWzf6lM+zXECAGy3H/j0SfSCqxR4WjH?=
- =?us-ascii?Q?yC6H8/sotn/wBUlsEGv5iyigt/dYT0V7XEsA/Lru+WFWH4lfNH9OAtkKof6a?=
- =?us-ascii?Q?Ox76EgMiCQa8PRENiBqzhgSLkx4/G0TWNlBVnsJFnITYWovDfwHWRvET9BvR?=
- =?us-ascii?Q?nc5NLQOs0Yg4ao0Ip7qWbW7J1U6fwbsF/We/4spA4i3JVlZxJuXieuySZG2f?=
- =?us-ascii?Q?xDnGsVOcssBRy+VsKzkbiTPOS2ZSunsx1KQqCQXhnlZUyXws7a4aBoqJ3nSt?=
- =?us-ascii?Q?F+bQGy/9LIQ/x8ffXIUI6MXj3xaPLsnY/T2452fqg+hMhocaZi4zg1A1Zbnx?=
- =?us-ascii?Q?55hjAdJL5sikLsQOG/nLH8zxM4r9eIH0m0/4qsHGekdAdKAvUtjGaHebnqa1?=
- =?us-ascii?Q?ZAnXyKwSdb+n8gBEge5/Q5OwJbcYDGIt2WhaIv2nqFKg1iVy0Smm6MntoWDS?=
- =?us-ascii?Q?lB7Uly8XxkFzQsmBbAiFG87DiIJKLQZvUClr1EurxReuj1UY6e0fehRzEzl/?=
- =?us-ascii?Q?KYMnKlQbYGj2uTcl0POswOrMWVCEy+/sthOIwdA9pTCH2DuV+E7DDfwN0kze?=
- =?us-ascii?Q?62eN7CC0i+1fD1YRUPt40N/xjJnFOoVKLW0BE0rdfoFD9qNZDrOpuhzLEf+r?=
- =?us-ascii?Q?kUHgruuRSfZEmNY8Az84Np+FHM2gp9fQpMEqGGWsMsd/7/cWQmIMmISHtrM8?=
- =?us-ascii?Q?b08NY/Yz8+K1Jd6FE+u9As6drHM1Q2ZxCPnq28Yxw0VI/UFRGAm/FwpHy5v4?=
- =?us-ascii?Q?+4XkeiAafUyyJz2tj9tYXNkjYiLde9RYSMFd3aMYsuaoqKVdJ7e0WDblc0Js?=
- =?us-ascii?Q?K34qe9eM6tUw7knYd8z4p0OM/m5ruIF0SFoFQNPhp10H9m7p0Cxr3nmhOTdD?=
- =?us-ascii?Q?h2DHT8YMGyx/h33HfLt+mPx4zVg/VRIqABi6WBGn8Ktdb7tYVjpCe2DrPrhI?=
- =?us-ascii?Q?0UWxkWyowGk27ID6YkqwWErmpidug3Gj+AjM3zSfsD4pOewOiZZC344HXlvO?=
- =?us-ascii?Q?ZwdxRKEhI7YvVzHSpooTYP7dcfsr6NLNAiB6MHAB4RuDigh+6p0MTWsH+yqw?=
- =?us-ascii?Q?BwDNuiB06+c=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i2Wt5b9+6krWJhWl8bAP49uof6FCh5+Z5IqM2Dwot91ppaYulEvwklMhvrx1?=
+ =?us-ascii?Q?UrX91wyeCal/OTL7rnk71RPfoPLOHjraa/RUjSUHG2SXDMXcaIeMJ4vY11sE?=
+ =?us-ascii?Q?SQlwNQuFxy8FuCLgQ0fwsN40YBM4mksI5/gP1lTZaQ450UjXDWuWNcosQQNL?=
+ =?us-ascii?Q?LX1vHb/mrWvpDKd0Xi/EzNF11I21sYy9LZjLZlwzBiaNd+CJXH5nn37ig3ZA?=
+ =?us-ascii?Q?dd/v7A60wUvXGD3oXq/SKjffveKXt7U+PhG9INHO3ouR3Y/52Q10cK3qA83Q?=
+ =?us-ascii?Q?EgtEiAlXiZF2UHAHUP5yOwlirJOdDJCOLTPFhajxAcs0zFn4uVXCLnTrS+Qm?=
+ =?us-ascii?Q?wVFlKRU4AP73wwxC0VQz0Xb3ASmA5u6e1BUC40nE8cmL0rcPa1/45xz2BPo6?=
+ =?us-ascii?Q?vDjvxzgg+5YpqEyM+VxN+GmLKm6RQcSQRzEnlnMYxp+DkJctWXwakVvxC6Zl?=
+ =?us-ascii?Q?uuP7kLtRZaTIwBnOpqCDEBWBk+Qr+BF0b1X9mSRBfOb/zuT9OQWRlogu4dII?=
+ =?us-ascii?Q?b88Q4UYdO3iuP9Q99ZeHbNDjf/FeYJzHX6xycrepu5OwGf496jgferuhtHmO?=
+ =?us-ascii?Q?T0Tc77/q5RPpV5pntBs9Xwlt+fexJzgjUrDMa2QhTORQ/ME2NUwN00mEUwKF?=
+ =?us-ascii?Q?y7Du9/p3BdgAsj+dGfY3jqK6YVWv5Vq73IiDKFplfiHsk1pKsa6xoeU1ZHI2?=
+ =?us-ascii?Q?dU318x9X1X74Mo0HfKGMNG2we7QLFPMDZa+++0c4U1oZy6xE9pZRTP0bgkG8?=
+ =?us-ascii?Q?d/TVLx4BKcWhMLRTngpy3IaQLMxvHdSdIP/oCFViMQKM/61rkYXZieBsc087?=
+ =?us-ascii?Q?cQB4oW6YQEed9KEpnq/pF2mfUAJhhPop/+ye5kTwgxjkPEhhZN1Q7rNdKrYC?=
+ =?us-ascii?Q?c7YmffemgGaw7SeauBuCGWLAMh9IkdYorQB4Rzf/cMRQyjAS6Insal+vzeB7?=
+ =?us-ascii?Q?oUxJ+K2OIPgKQQZ8a7quJsuQ8oi2Oq5PRSqG3Q/Qp+7BAT9pk7WarD6qvfyh?=
+ =?us-ascii?Q?kUmPjVf7psMg5J48/yRiczwgfZeE2xAEbOzTdXgPLJLOR6LgT3+NwuNSJoSD?=
+ =?us-ascii?Q?i/Q2ulXtiSkaGy012bEDGyiXeRHHCbEA2jz4TPJnVUbSbVdY2N/YZ3hfqbuk?=
+ =?us-ascii?Q?Aeh4BNzHpUF+BYRygLU5IEugAYX28eF/Q76G/3k2iC6QzBmQPsvr1QzGtB1p?=
+ =?us-ascii?Q?Yt/rJMjR03xIt0MPJy4Ucc4snftHlp3pVCWJPzu9Sml3ywXP5KzHXauNqkeQ?=
+ =?us-ascii?Q?6OdEuDctRta8JqkOmQvbxtimU7fXf9vBmf3OPphe2O3LNnx0LKjEaLCLJptu?=
+ =?us-ascii?Q?cZjGq5hv5flVRxBv8y/Ygpid9kI0j82tLaHdkf5PrnSsax4JlMV7zOs2xkP5?=
+ =?us-ascii?Q?vhNKkcA0z4YYmJz3VvawyIJLi828B/D4naulQw7YcjQJyNP9HWO6fRCU9qfN?=
+ =?us-ascii?Q?MoRUUU8F0tE=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013)(921020);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 06:25:42.4686
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 06:25:39.4776
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ebd5506-3204-463e-0122-08dcf8abae31
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c3b840f-2d39-4dba-9f4f-08dcf8abac68
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4F.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8154
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5675
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_232556_079730_86238A2A 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20241029_232558_345850_77449E54 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,54 +145,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enqueue packets in dql after dma engine starts causes race condition.
-Tx transfer starts once dma engine is started and may execute dql dequeue
-in completion before it gets queued. It results in following kernel crash
-while running iperf stress test:
+This series fixes kernel crash in dmaengine transmit path. To fix it,
+enqueue Tx packets in dql before starting dmaengine and check if queue is
+not stopped.
 
-kernel BUG at lib/dynamic_queue_limits.c:99!
-<snip>
-Internal error: Oops - BUG: 00000000f2000800 [#1] SMP
-pc : dql_completed+0x238/0x248
-lr : dql_completed+0x3c/0x248
+Suraj Gupta (2):
+  net: xilinx: axienet: Enqueue Tx packets in dql before dmaengine
+    starts
+  net: xilinx: axienet: Check if Tx queue enabled
 
-Call trace:
-  dql_completed+0x238/0x248
-  axienet_dma_tx_cb+0xa0/0x170
-  xilinx_dma_do_tasklet+0xdc/0x290
-  tasklet_action_common+0xf8/0x11c
-  tasklet_action+0x30/0x3c
-  handle_softirqs+0xf8/0x230
-<snip>
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-Start dmaengine after enqueue in dql fixes the crash.
-
-Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 273ec5f70005..0f4b02fe6f85 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -924,13 +924,13 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
- 	skbuf_dma->sg_len = sg_len;
- 	dma_tx_desc->callback_param = lp;
- 	dma_tx_desc->callback_result = axienet_dma_tx_cb;
--	dmaengine_submit(dma_tx_desc);
--	dma_async_issue_pending(lp->tx_chan);
- 	txq = skb_get_tx_queue(lp->ndev, skb);
- 	netdev_tx_sent_queue(txq, skb->len);
- 	netif_txq_maybe_stop(txq, CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
- 			     MAX_SKB_FRAGS + 1, 2 * MAX_SKB_FRAGS);
- 
-+	dmaengine_submit(dma_tx_desc);
-+	dma_async_issue_pending(lp->tx_chan);
- 	return NETDEV_TX_OK;
- 
- xmit_error_unmap_sg:
 -- 
 2.25.1
 
