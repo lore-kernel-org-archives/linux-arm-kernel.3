@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFCDD7495C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370FCD74949
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYO2T+OQI2pW4WXksFSofah53bAh2nrMVfqpclHqiT0=; b=x9RLOcN8K+kyEKOqT9CDKNbN5p
-	jS7pvegSQKOIthUkL+L/meXnNHaDHUqkfsqR0L0A9G16eBPqNxiqd8Db6bKKJFJfAa5hNoN/X0vNW
-	7WiVllI5ZVnJkVxELjZy06ZiF6CGa2zYWHSIKWJiilZ974fnYQgX1c8k0J+eKLSF7B9Wg7uO33Wxp
-	GVNDkdrF9+DMzwbIrhBCZOCBn+kcJZMhxp7m+xRo9DMjkpyn9cxuLTRDmAYpp3z3uUBNPrDAyd2+O
-	HyPaqhMSqcX8CeHg5uuwk081tWISIm9sMPDBebfVmx74VB/UIaZj8piI/Ft4IUVq4WajRHzSecl6g
-	KUbB/5zg==;
+	bh=uOkAHQrRWR68mUWgK22Q1GiCQ9kh+zI0wkYMgC8eCUQ=; b=nLyguUFZxOksdW77krER4h8itJ
+	xV8kQ/MProhzYRbsiHwvJ3tQFi5rrP4XqfIDzEXIyBobvdTv+BvMh4jKTERh4gAu44yG3NaEfSPM6
+	LIG6mieRb/8w7ZOpqCur3Y0V3Mr5xokvLMnXcobCGat/Q6WdY6ofjGdkBDYsJfc36x8OjMMQHDGWh
+	yNjlu3hobuNRPAUEzDWx/9P/1w6Xdt0zDlNQqEdyn1tLeR88mkppfA6BVAl4cufGo+7qY9ep9IXGb
+	3McMRRMq9ZKcMvnLfWNv5M7Yl2KX6zqBSAtlVGdx3M0KvHr6f8HPDSOpEha7F2YKnvTGddQhp8KG5
+	4jcOFjKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t609L-0000000Gesg-3UAc;
-	Wed, 30 Oct 2024 04:17:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t60Ly-0000000GfhX-3Cq4;
+	Wed, 30 Oct 2024 04:30:42 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t607j-0000000GenW-3Tur
+	id 1t5zCc-0000000GaO0-2xjg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 04:16:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 375A45C5983;
-	Wed, 30 Oct 2024 04:15:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6C33C4CEC7;
-	Wed, 30 Oct 2024 04:15:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730261758;
-	bh=o4QMNINshMdeE54Ikmn/fVeslMwC6VMHBKeT0bsQGQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UrT04QnjqJdWe6taNkLHz5sNSOMujexhTn9lrkSvnhsF6R8TI9GMu2VY9M67YaTOu
-	 jBgY63OMgmEX9eh7gJylEdWF/gtuEs2jGOdt/zLmsMwb7I9e7bkbKVwk73wCgB9RhP
-	 AJuXyz/XMDhhEop/5cQuVtaCJpbwG1jRBBZqWlbGersh/HLGCpI3AX/N/ESsPLEoqI
-	 43itpkwhBUM0dilJSLg455zH68bHSlRYhL831nRPNPjqCMUz37TzMcX5+ADrfKB4ur
-	 xs0dB3j5hX+8y3CKZlEbzDYbhaYE1xYenJdOdYBLhohQ2XsnwbfzCm+bbEDeXhUZO/
-	 rc4bhJCb1vEXQ==
-Date: Tue, 29 Oct 2024 21:15:57 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	herbert@gondor.apana.org.au, keescook@chromium.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 3/6] crypto: arm64/crct10dif - Remove remaining 64x64
- PMULL fallback code
-Message-ID: <20241030041557.GC1489@sol.localdomain>
-References: <20241028190207.1394367-8-ardb+git@google.com>
- <20241028190207.1394367-11-ardb+git@google.com>
+	Wed, 30 Oct 2024 03:16:59 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2e2e6a1042dso4769475a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Oct 2024 20:16:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730258217; x=1730863017; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uOkAHQrRWR68mUWgK22Q1GiCQ9kh+zI0wkYMgC8eCUQ=;
+        b=im5coxMdnNplbCZhQGgo+QgnMu2Zqm4Wt6n6V7VYqg/R3cz1lUf9Kbb9gNgv2MNJEv
+         8nap0XZOT/joBjveX4ehlJo3RLdQI6Cf/wQLFLPTtcqJwEyKxV31vQsIcN5x8VAu7qIX
+         yGcFwerqNuE67uI1ZicgVTfi5li1iKe73jFRR3iem8kWJhZfVzVCJ7lF+L44XHNEgSuR
+         0Y8wiaiqNQa8yK/4Feg+1ewu46ATLu2YsMODA4TlXk7+ci44TwqiJdmTo7XzRugzBi8l
+         6S8uA4SFeVPoLxtcM6zLvFREGBy5byMx0T1NpFkUcSO393OicCl9FbKNG4s1N8JdgWNb
+         lPLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730258217; x=1730863017;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uOkAHQrRWR68mUWgK22Q1GiCQ9kh+zI0wkYMgC8eCUQ=;
+        b=B0QmIgGym2QxBWBg5oAkqAh/uhjG5Dfjew1K+tnvU0BEaNYC3CfMqWSoglZkwvZoII
+         EXRQd78f/rnxFdO6+ADIauF9YicX87ZoQrWZejv0474iov//987IrYjNWbDZtg8Rg/4y
+         U0TJvXCjw/VQpQ6DsJOGjXeUkQ/GhUcdRMPq/k0CFCOs4eS45bEaF8mM8u50oBE3dymH
+         vLxRVibiLUlYgeTsG59w87ZeOBO0O9AyTuEY3Ccm96GY/5q5X81SzWBwg0gOwWvzBPiP
+         n6Luf/WqsDcNEUod/Un7zchz2ThH2VC+/hdOBeKSWs/tvppovRaJXd2pODqnhHMOK6ke
+         IF5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWDb/Cq4fSC/J7n5tZ2rFjHCPhvtNldzVL0fxx3EEwwNPHllPJMBJG3Z+5dB+NPkX3B5+WZ8+N85vMyvJrETGQQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEENTEvN4Xepg9lsl6DAvMvSTubiDQB5rm9h+fK89dA1Og8ZvP
+	wicsKKuO81TpWVfLDC2gahVVCYkvdQb/JNZk6sJuth5B7Qa7u7uVxWHRaSUBlOM=
+X-Google-Smtp-Source: AGHT+IHCWZPqicu+zBEO5ISCpJXDjDagWTSuQ1d4uht5fImHKQzKKPSKGEOWL+8DYHlMq7FTvt4Kxg==
+X-Received: by 2002:a17:90b:50e:b0:2e2:e6bf:cd64 with SMTP id 98e67ed59e1d1-2e8f104a4d1mr15472363a91.5.1730258217352;
+        Tue, 29 Oct 2024 20:16:57 -0700 (PDT)
+Received: from localhost ([122.172.85.97])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bc013378sm72539135ad.171.2024.10.29.20.16.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Oct 2024 20:16:56 -0700 (PDT)
+Date: Wed, 30 Oct 2024 08:46:54 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Colin Ian King <colin.i.king@gmail.com>,
+	Markus Mayer <mmayer@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	"Rafael J . Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] Revert "cpufreq: brcmstb-avs-cpufreq: Fix initial
+ command check"
+Message-ID: <20241030031654.yfksespjetnirecb@vireshk-i7>
+References: <20241029152227.3037833-1-colin.i.king@gmail.com>
+ <51b6692c-4e71-4f4e-ac73-fc87b9f2ac5b@broadcom.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241028190207.1394367-11-ardb+git@google.com>
+In-Reply-To: <51b6692c-4e71-4f4e-ac73-fc87b9f2ac5b@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_211559_941102_475BF2BE 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20241029_201658_797999_4FF4FF74 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +97,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 08:02:11PM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+On 29-10-24, 10:06, Florian Fainelli wrote:
+> On 10/29/24 08:22, Colin Ian King wrote:
+> > Currently the condition ((rc != -ENOTSUPP) || (rc != -EINVAL)) is always
+> > true because rc cannot be equal to two different values at the same time,
+> > so it must be not equal to at least one of them. Fix the original commit
+> > that introduced the issue.
+> > 
+> > This reverts commit 22a26cc6a51ef73dcfeb64c50513903f6b2d53d8.
+> > 
+> > Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
 > 
-> The only remaining user of the fallback implementation of 64x64
-> polynomial multiplication using 8x8 PMULL instructions is the final
-> reduction from a 16 byte vector to a 16-bit CRC.
-> 
-> The fallback code is complicated and messy, and this reduction has very
-> little impact on the overall performance, so instead, let's calculate
-> the final CRC by passing the 16 byte vector to the generic CRC-T10DIF
-> implementation.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/crypto/crct10dif-ce-core.S | 237 +++++---------------
->  arch/arm64/crypto/crct10dif-ce-glue.c |  15 +-
->  2 files changed, 64 insertions(+), 188 deletions(-)
+> Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-For CRCs of short messages, doing a fast reduction from 128 bits can be quite
-important.  But I agree that when only a 8x8 => 16 carryless multiplication is
-available, it can't really be optimized, and just falling back to the generic
-implementation is the right approach in that case.
+Applied. Thanks.
 
-> diff --git a/arch/arm64/crypto/crct10dif-ce-core.S b/arch/arm64/crypto/crct10dif-ce-core.S
-> index 8d99ccf61f16..1db5d1d1e2b7 100644
-[...]
->  	ad		.req	v14
-> -
-> -	k00_16		.req	v15
-> -	k32_48		.req	v16
-> +	bd		.req	v15
->  
->  	t3		.req	v17
->  	t4		.req	v18
-> @@ -91,117 +89,7 @@
->  	t8		.req	v22
->  	t9		.req	v23
-
-ad, bd, and t9 are no longer used.
-
-> +	// Use Barrett reduction to compute the final CRC value.
-> +	pmull2		v1.1q, v1.2d, fold_consts.2d	// high 32 bits * floor(x^48 / G(x))
-
-v0.2d was accidentally replaced with v1.2d above, which is causing a self-test
-failure in crct10dif-arm64-ce.
-
-Otherwise this patch looks good; thanks!
-
-- Eric
+-- 
+viresh
 
