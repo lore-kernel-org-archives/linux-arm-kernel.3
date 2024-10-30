@@ -4,78 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2405D5CCB8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 15:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB9AD5CCBC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 15:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwJLsP/X3bIPlA750OvhbizLaCKZ63BQRtUHuQ3kd0c=; b=rEWyOOk8lEiBR5Fou3huxYRBQM
-	9KcVxO+8rHfoqhFMCW6ATN2OgGf3uSePl6m6DFuhobenVdLwWzAgJxEFEvg9oXP3FZaqfRWVFFU+N
-	Bi65p8fYmdg66o7wLNB8JbXBCV54qM1PRZCARL/ykwzkSNWX8BKb2EP3POLxAN7fHBxyTbQOiBeDr
-	NchqUovEbUMmfLj7h3u66sJyOK6dKXS8ByjOC7j0JCrIgX/AIrcY6JsjDRMmO6Ye6uh/apPpv4cDd
-	1ZySY88Xv3MuTDVx0za3mNYmqyku46UQdlwNJI3sZIIPGuJ1UNhIfNb+cXEM3WhcE0eFilfS9lHKc
-	fgxp9Ukg==;
+	bh=neq3xz566B3S1oQsZnbDCq4KXTbI5MRw/rrr6tIudvQ=; b=ifAIUddxMtWMJV5hfVNf400GCh
+	1nyY1CD4sFnrZIS1EelhcCpl9Qw4zdirq1pv3B008FzBaPR/CMyEhPgyZOnh2Zk0QcDhxBun/KMDm
+	e5olLfP2FeazOCV4wgQ7lpwIrCsdmGUfgfjgJ7ADIS0X43R0ZxqeTA0so9vx8txPc16DNob83qwQU
+	GDw+YGvB5sIM7ennYZFtyNhiOtQ92F64HJSXezJTh7WvRRQvk7Xscb22ZRzHJ6VtRgyu+ft11Zx8s
+	e/65ATz69eQtGrvCPujyzcbcyjykP20X1eGTKfQjPD3hXfuphBIj5GZShSi9KBHWlPR7AteTnv5Lc
+	B6WKApaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ALG-00000000mxv-1l6d;
-	Wed, 30 Oct 2024 15:10:38 +0000
-Received: from mail-yw1-f180.google.com ([209.85.128.180])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6AJY-00000000miX-3PYk
+	id 1t6AT4-00000000pzX-15TX;
+	Wed, 30 Oct 2024 15:18:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6ARG-00000000pMn-0E9u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 15:08:54 +0000
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-6e35bf59cf6so10127847b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 08:08:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730300930; x=1730905730;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fwJLsP/X3bIPlA750OvhbizLaCKZ63BQRtUHuQ3kd0c=;
-        b=pLbWacqDhpxs5W8FGQQu8+GfF26e3Z35g+gqD/k42MYF8oyIivAb0roGsdPpgd1SXT
-         Opk4P1QOuFRrXAwIJx5VrkIauVKfHCN2lfaCV0d0CUFEcvuNJfIqe9AJnsL5Gn6t7Lo5
-         axPdlPLnNIwZ9z8mY4jz6aaqIgY8Bx1FL2JEhaex96dNEiIBwO7k1Hqzjaa/Hut0PvvR
-         DG/xwaJhurATZqOjspYND2BGQ2e6y7KNdc1XPr9atf2IiwpUUjB4spIAC+z8GhEBKui4
-         PY7gsqdsItwbYy7wSbQQXtr3Xvd6dim7GeIBG5Ggvmw5PD9r7MYcZhguOQzUHT018X/a
-         lU4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVR5LKzaPM+u0afgLWeNMQrDWei8sETjOQ6Tov1RwGkyuGpSjr/ZOQL/XrYBMXVNWlObyTQXbBxKOOqmRwrCM4a@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlbOpxTtDzHw7pAzWnfzNrLOA815jTbrQxf6MbVN+Czo+k5F/+
-	FJQ2XRxV2+GlVqoWt5LGvQf00CUmpeJUwQhelrgyy3NY5+ggIf0zfgE8wwr8
-X-Google-Smtp-Source: AGHT+IHYDkyANVvSqaDCI3BVRdPo1VHfOl1civ24oBKLCeJDxfKVWAgmb8U+C7kfobzEjOmT3a55UA==
-X-Received: by 2002:a05:690c:c84:b0:6e2:611:7abd with SMTP id 00721157ae682-6ea2c218013mr54484797b3.20.1730300930137;
-        Wed, 30 Oct 2024 08:08:50 -0700 (PDT)
-Received: from mail-yb1-f178.google.com (mail-yb1-f178.google.com. [209.85.219.178])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6e9c6c95280sm24150857b3.104.2024.10.30.08.08.49
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 08:08:49 -0700 (PDT)
-Received: by mail-yb1-f178.google.com with SMTP id 3f1490d57ef6-e2e444e355fso876170276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 08:08:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWQKuidm6NNc7TamOCzevqLW2CTi9X2zWAH+ETdsAK7+AoUcR4ckTFeA1y2Cdk3KIPETo79cUXv90c53qZbFmO4@lists.infradead.org
-X-Received: by 2002:a05:690c:e07:b0:6db:dee9:f6fb with SMTP id
- 00721157ae682-6ea3e8fbba7mr22563157b3.11.1730300929652; Wed, 30 Oct 2024
- 08:08:49 -0700 (PDT)
+	Wed, 30 Oct 2024 15:16:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5462113E;
+	Wed, 30 Oct 2024 08:17:16 -0700 (PDT)
+Received: from [192.168.20.57] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 247943F66E;
+	Wed, 30 Oct 2024 08:16:44 -0700 (PDT)
+Message-ID: <b62b9ba4-eaf9-4533-9a97-7d5e2929b1e8@arm.com>
+Date: Wed, 30 Oct 2024 10:16:43 -0500
 MIME-Version: 1.0
-References: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
- <1f927944-30aa-4298-9bd0-d9d3ace3fc78@kernel.org>
-In-Reply-To: <1f927944-30aa-4298-9bd0-d9d3ace3fc78@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 30 Oct 2024 16:08:37 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVN_xNLTvy9u6FvK=agSAUzSHxEuyBS37sOA7jpGLwddw@mail.gmail.com>
-Message-ID: <CAMuHMdVN_xNLTvy9u6FvK=agSAUzSHxEuyBS37sOA7jpGLwddw@mail.gmail.com>
-Subject: Re: BeagleBone Black Ethernet PHY issues
-To: Roger Quadros <rogerq@kernel.org>
-Cc: ext Tony Lindgren <tony@atomide.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	"open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>, netdev <netdev@vger.kernel.org>, 
-	Matti Vaittinen <mazziesaccount@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
+To: Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org
+Cc: steven.price@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com,
+ will@kernel.org, sami.mujawar@arm.com, linux-kernel@vger.kernel.org
+References: <20241029141114.7207-1-jeremy.linton@arm.com>
+ <32211eb5-eed5-4c71-b62a-362d32e1af47@redhat.com>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <32211eb5-eed5-4c71-b62a-362d32e1af47@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_080852_879902_A489A2C0 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20241030_081650_297334_92C5917F 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,94 +65,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roger,
+Hi Gavin,
 
-On Wed, Oct 30, 2024 at 1:58=E2=80=AFPM Roger Quadros <rogerq@kernel.org> w=
-rote:
-> On 29/10/2024 19:18, Geert Uytterhoeven wrote:
-> > During the last few months, booting kernels on BeagleBone Black
-> > sometimes fails with:
-> >
-> >     +SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
-> > LAN8710/LAN8720 failed with error -5
+Thanks for looking at this!
 
-[...]
+On 10/29/24 7:23 PM, Gavin Shan wrote:
+> Hi Jeremy,
+> 
+> On 10/30/24 12:11 AM, Jeremy Linton wrote:
+>> The TSM module provides both guest identification as well as
+>> attestation when a guest is run in CCA mode. Lets assure by creating a
+>> dummy platform device that the module is automatically loaded during
+>> boot. Once it is in place it can be used earlier in the boot process
+>> to say decrypt a LUKS rootfs.
+>>
+>> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+>> ---
+>>   arch/arm64/include/asm/rsi.h                    |  2 ++
+>>   arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
+>>   drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  7 +++++++
+>>   3 files changed, 24 insertions(+)
+>>
+> 
+> I don't understand how the TSM module is automatically loaded and 
+> arm_cca_guest_init()
+> is triggered because of the newly introduced platform device. Could you 
+> please provide
+> more details? Apart from it, some nick-picks as below.
 
-> Just wondering if the Reset is happening correctly and it has settled
-> before PHY access.
->
-> From arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
->
-> &davinci_mdio_sw {
->         pinctrl-names =3D "default", "sleep";
->         pinctrl-0 =3D <&davinci_mdio_default>;
->         pinctrl-1 =3D <&davinci_mdio_sleep>;
->
->         ethphy0: ethernet-phy@0 {
->                 reg =3D <0>;
->                 /* Support GPIO reset on revision C3 boards */
->                 reset-gpios =3D <&gpio1 8 GPIO_ACTIVE_LOW>;
->                 reset-assert-us =3D <300>;
->                 reset-deassert-us =3D <13000>;
->         };
+I think your asking how the module boilerplate here works, AKA how the 
+standard uevent/udev/modalias/kmod stuff works? The short version is 
+that the platform bus uevents an add device with a modalias and 
+userspace udev + kmod finds matching modules, and their dependencies, 
+and loads them which triggers the module_init() calls.
+
+The suse folks have a detailed description of how this works:
+https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-udev.html#sec-udev-kernel
+
+So, this is a fairly common misuse of the platform bus, in this case to 
+avoid needing a HWCAP. Assuring the module exists in the initrd will 
+then result in it being loaded along any other modules required for the 
+rootfs pivot.
+
+
+> 
+>> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+>> index 188cbb9b23f5..1b14a4c4257a 100644
+>> --- a/arch/arm64/include/asm/rsi.h
+>> +++ b/arch/arm64/include/asm/rsi.h
+>> @@ -10,6 +10,8 @@
+>>   #include <linux/jump_label.h>
+>>   #include <asm/rsi_cmds.h>
+>> +#define ARMV9_RSI_PDEV_NAME "arm-cca-dev"
+>> +
+> 
+> Maybe 'ARMV9' can be avoided since RSI is the specific feature to ARMv9.
+> Besides, we already had @rsi_present there. So I would suggest to rename
+> it to RSI_PDEV_NAME
+
+This and the remainder of the comments below look reasonable to me, thanks!
+> 
+>>   DECLARE_STATIC_KEY_FALSE(rsi_present);
+>>   void __init arm64_rsi_init(void);
+>> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+>> index 3031f25c32ef..ad963eb12921 100644
+>> --- a/arch/arm64/kernel/rsi.c
+>> +++ b/arch/arm64/kernel/rsi.c
+>> @@ -8,6 +8,7 @@
+>>   #include <linux/psci.h>
+>>   #include <linux/swiotlb.h>
+>>   #include <linux/cc_platform.h>
+>> +#include <linux/platform_device.h>
+>>   #include <asm/io.h>
+>>   #include <asm/mem_encrypt.h>
+>> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
+>>       static_branch_enable(&rsi_present);
+>>   }
+>> +static struct platform_device rsi_dev = {
+>> +    .name = ARMV9_RSI_PDEV_NAME,
+>> +    .id = -1
+>> +};
+>> +
+> 
+>          .id = PLATFORM_DEVID_NONE,
+> 
+>> +static int __init rsi_init(void)
+>> +{
+>> +    if (is_realm_world())
+>> +        if (platform_device_register(&rsi_dev))
+>> +            pr_err("failed to register rsi platform device");
+>> +    return 0;
+>> +}
+>> +
+> 
+> Those two checks can be connected with '&&' and '\n' seems missed in the
+> error message.
+> 
+>          if (is_realm_world() && platform_device_register(&rsi_dev))
+>              pr_err("Failed to register RSI platform device\n");
+> 
+>> +arch_initcall(rsi_init)
+>> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/ 
+>> drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+>> index 488153879ec9..e7ef3b83d5d9 100644
+>> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+>> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+>> @@ -6,6 +6,7 @@
+>>   #include <linux/arm-smccc.h>
+>>   #include <linux/cc_platform.h>
+>>   #include <linux/kernel.h>
+>> +#include <linux/mod_devicetable.h>
+>>   #include <linux/module.h>
+>>   #include <linux/smp.h>
+>>   #include <linux/tsm.h>
+>> @@ -219,6 +220,12 @@ static void __exit arm_cca_guest_exit(void)
+>>   }
+>>   module_exit(arm_cca_guest_exit);
+>> +static const struct platform_device_id arm_cca_match[] = {
+>> +    { ARMV9_RSI_PDEV_NAME, 0},
+>> +    { }
+>> +};
+>> +
+>> +MODULE_DEVICE_TABLE(platform, arm_cca_match);
+> 
+> 
+> /* Comments here to explain why @arm_cca_dev_ids[] is needed */
+> static const struct platform_device_id arm_cca_dev_ids[] = {
+>         ...
 > };
->
-> Do we need to increase reset-deassert-us for some reason?
+> 
+> MODULE_DEVICE_TABLE(platform, arm_cca_dev_ids);
+> 
+>>   MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
+>>   MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
+>>   MODULE_LICENSE("GPL");
+> 
+> Thanks,
+> Gavin
+> 
 
-Thanks for the hint!
-
-This is indeed on Rev. C3 (my other boards are Rev. A5C or C, but
-I don't test boot recent kernels on them, as they are in active use).
-
-Multiplying reset-deassert-us by 10 gives me a booting board.
-More experiments reveal that I need a delay of 14 ms to boot
-successfully, and 15 ms to avoid the early __mdiobus_read()
-failure, too.
-
-> I couldn't find MII ready time after reset de-assert information form the
-> PHY datasheet. except the following line [1].
-> "For the first 16us after coming out of reset, the MII/RMII interface wil=
-l run at 2.5 MHz. After this time, it will
-> switch to 25 MHz if auto-negotiation is enabled"
->
-> [1] 3.8.5 RESETS
-> https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDoc=
-uments/DataSheets/LAN8710A-LAN8710Ai-Data-Sheet-DS00002164.pdf
-
-3.8.5.1 Hardware Reset
-"A Hardware reset is asserted by driving the nRST input pin low. When
- driven, nRST should be held low for the minimum time detailed in
- Section 5.6.3, "Power-On nRST & Configuration Strap Timing," on page
- 60 to ensure a proper transceiver reset."
-
-5.6.3 POWER-ON NRST & CONFIGURATION STRAP TIMING
-"For proper operation, nRST must be asserted for no less than trstia."
-
-TABLE 5-8: POWER-ON NRST & CONFIGURATION STRAP TIMING VALUES
-"trstia nRST input assertion time min. 100 =C2=B5S"
-
-On Rev. C3, ETH_RESETn is controlled by an open-drain AND gate.
-It is pulled high by a 10K resistor, and has a 4.7=C2=B5F capacitor to
-ground.  That gives an RC constant of 47ms.  As you need 0.7RC to charge
-the capacitor above the threshold voltage of a CMOS input (VDD/2),
-reset-deassert-us should be at least 33ms. Considering the typical
-tolerance of 20% on capacitors, 40ms would be safer. Or perhaps
-even 50ms?
-
-If you agree, I can send a patch.
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
