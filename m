@@ -4,150 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F5AD6B6BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66CED6B6BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=; b=TnR7/R2gBY42mdS5JyLLUVbvI3
-	uRNjPJOPlDC2fVvScNySh+L/aSyOk56a9/wBf0rPpLvpOwUPKTkh/n1eHUX4yQr2GC1pcFVhfBODl
-	BQVv6ZuM93SCIjhYUJl9e1BWsa0cYJ+yP5WqpFIuZnlnPasnwVwYNCb0Ev84V3PZ7NGMycBQ+frEN
-	jzSR8si/nNrE6XAvWsx8518EAMRubEzD7sOQBDADCRaNYdED5PWoPCxm6Gc12YNl5L02gFNnTKemi
-	rjNEdbdIQu4NhcZu7W4U2joEFRPezqS1DUcT8+7Kk6ZPmppux0dDNs/vRMNI1L5dxtPdrBEYMatwX
-	4x6gM1Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=; b=sLERZ6KxvPaLvTaxwlaDAph47L
+	Ow+WMeUA6wQctvctqyzztNtYv+N8QAQtbnmOe46KQvibmgGf4uugerSCfMk0SwZu+ylPt/BQKsVDK
+	XiuNxEMNCH8XKGLpn6t8bRLGOiAgvlaMo5ZTzDMZTfNy1iwd4jTOsXGw37fsE+VgMTzN01qwOMJ85
+	hmZ4VG9I20vIiwR8liWf39Xc+OX35h3WE87xIzKQiOmffTEwQ7vE1dTpVfTIEDb0mEW9zevh0Pzd/
+	2lDVe64rSNpssUT8hhvpUieDrPUT8WJB6OzhqhaNO4R0TEDupSxXWyQ6cuE85LCCcvUXd12MwKXZE
+	ei/3DnsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DGd-00000001PwI-3gUf;
-	Wed, 30 Oct 2024 18:18:03 +0000
-Received: from mail-bn8nam11on20612.outbound.protection.outlook.com ([2a01:111:f403:2414::612] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1t6DWp-00000001RWz-3epO;
+	Wed, 30 Oct 2024 18:34:47 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DDu-00000001Pe8-41VA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 18:15:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j2nubCJBbd/HE9LGKD0fuwApPNylo5Y6+5I75YIfi0+G6sMWfAe4OoLNhWr6VSoc8GFTFTHJsvf0ECQ8tB5BZH1KHnqCsbeX9BotcjRrZtBj3DsyD9Zbu16OQ14z5Soxvylfnn7eo6kdbIyEj/uM4HvbfTO8kJc2eEzdv1PIWpx/PNozHwgD7Lf+OlGdXVzA9/sXZq5EYELzF8klkF7MTNKah9s0J71y4w4Q8acNAOlSwnka+LlfcAML56276mnBI467FJ4fjpByDH1pO2lBFfNZjc+yORryf0ECxjXYrtjJ4xfd27roBC5sIKH6NeGdEaE1w8Dnk60LOFFiZICJAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=;
- b=l04F6ueVL5GZUvwpszeH42+iNY5FzrGUmWJx6m31ytv7JlpfOkwEYdOXNAoSGhIv+Uw6wopgxKW/JKemjVMXHi2J2c6bZprTRdHTOFdm+o42+NscyYG7+Fw+uofBpCCdp3xF4S/6ja6oMcdoAgvBjPlpvPjRRZj58ZAto3KmIRdkjyv79N+uvLDfK3/VTEhoMeQqIb9tjLFiCv7bJKyM8CjkyQQBhGwEXmBQb9Usu8LhNVRc49IDULtkGObDXC5YoSG7l+XrCGJdYM/NbufhBZV776jOnN1cBTK55urnLG2hyRQ+PRVhw76dkyBtWSm5BhrSui3f07zBXYV2NaUb/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=;
- b=HT7DGIhVIg+WazqeFLpiq5+Jrlb7B7G17cct3oU7yaQW0jXjTkes1j1nRTzUZira9WsM2YVgdq/uNe1IcSJaWwUkJJg+IcONKSnX9rjAz9THX90SAWEnv39FPZXB9UDRrgm2XZ3kqn5aoUso0xaAFKTU45ZlY6/haHVEwDnmY05pBiOESwRyUds+vtzKvJLPXWI71diCnWdE6R36p0ja2D0rqEvKtBX2zFNBpe4wSpqO08vn/TOBfMiyathXkLPEadyrzEowpcGmgLHfmewW3E2tbH05Q0qin2Immp78HZ2TKvsnxcB4Q0CajHCcDi5ba0GkG7Q5A9BsUgScBMmLnQ==
-Received: from DM6PR10CA0024.namprd10.prod.outlook.com (2603:10b6:5:60::37) by
- PH7PR12MB5878.namprd12.prod.outlook.com (2603:10b6:510:1d6::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Wed, 30 Oct
- 2024 18:15:09 +0000
-Received: from DS3PEPF000099D6.namprd04.prod.outlook.com
- (2603:10b6:5:60:cafe::5) by DM6PR10CA0024.outlook.office365.com
- (2603:10b6:5:60::37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20 via Frontend
- Transport; Wed, 30 Oct 2024 18:15:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS3PEPF000099D6.mail.protection.outlook.com (10.167.17.7) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8114.16 via Frontend Transport; Wed, 30 Oct 2024 18:15:09 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
- 2024 11:14:50 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
- 2024 11:14:50 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Wed, 30 Oct 2024 11:14:48 -0700
-Date: Wed, 30 Oct 2024 11:14:47 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Mostafa Saleh <smostafa@google.com>, <acpica-devel@lists.linux.dev>,
-	Hanjun Guo <guohanjun@huawei.com>, <iommu@lists.linux.dev>, Joerg Roedel
-	<joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>, <kvm@vger.kernel.org>,
-	Len Brown <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Robert
- Moore" <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, "Sudeep
- Holla" <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, Alex Williamson
-	<alex.williamson@redhat.com>, Eric Auger <eric.auger@redhat.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, Moritz Fischer
-	<mdf@kernel.org>, Michael Shavit <mshavit@google.com>,
-	<patches@lists.linux.dev>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-Subject: Re: [PATCH v3 5/9] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via
- struct arm_smmu_hw_info
-Message-ID: <ZyJ3l02hiHDgPZWQ@Asurada-Nvidia>
-References: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
- <5-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
- <ZyJdzBgiP70MOtcP@google.com>
- <20241030175615.GJ6956@nvidia.com>
+	id 1t6DVA-00000001RHH-2H5i;
+	Wed, 30 Oct 2024 18:33:05 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d3ecad390so816431f8f.1;
+        Wed, 30 Oct 2024 11:33:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730313182; x=1730917982; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=;
+        b=bHrQR3571Mj32cviLZCYfBd7LIbN4RiAGt2K4M4pusf+eD5Fs92H+rUYvHM659d3aN
+         ON0kj5s+BFV26msEw83CNvKljUDrPoKACrl/2tyvSZ8bQoZtos5U4j5uxr9UsEebDPkt
+         86+g88c2A6p03lAB6Gn2pd4oQkbAL9l5+M3uMNVwj4If4XXC5Tw50j44s+PI2+zHL2Fh
+         dxq7KUPfRHKcI4UU3mLU0g6nK3BWpgHxMfj6WY6OYlQ0Pn0y5Axk0tvtH+e/XGknfWJ5
+         E67lkCSlWdREchUHdCvcUxXS7qT+xEXQy3mxbPIO5Di/3niWFkWLxmfc/lKA5jGl3qKE
+         Ho5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730313182; x=1730917982;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=;
+        b=G73evvH5UiYuAP1UBaKtHj+LcKWaPz5MpYJsODm1f8OnyA+eWay41uVee5TfmQz4kV
+         vBB2ZNeuIAvIUXN2jCkBStiZwdnD27ytpj3N88fagiemtVAIY9hUzBdC1HEttvBjuzLJ
+         4a4a8GkYUHCPXIdkMttsIW2ajljaFn1e20N+2yVhOvKYG8uP9j3W79lQoExvHgRIEtjK
+         UDn+CgxmpuHf+/KNuEyYdY9ZYwyWuB2Mk1cZ9jVNVfrGMVo8f9X0DoRtakv/O0pGJxy2
+         OWvfODjokbOWK0CgZ9rxs7du/k6NpVWDDIPnWIuzfJJOhidZTulahQlXWAbLkSN1qIPe
+         FyWw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9HQQ+5WRrqhx9Ig2f2SXUUAzmBortanUFYTf3y/i9G4LADKvzqovsvauMvLp1LFMfk5h8HdSN97jS6Dcm1KtS@lists.infradead.org, AJvYcCXOkAVvlya/IDc39OfHyrBwoEe5T1hdQK0L/J6zSdSnW77WEgXnLONAsvu9Hn+TcLu2+jEURbY0F2etcWmezwQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPAl/EfP6bWmXFi1NtzZJ+4CTTveXzOejLf1xWtJmLoR7yIf5v
+	kv0TXp/8Wqo2bQHGfL6h3+vSe7fSX8ANbjOmqg+CC4AJ+TAWl50Y
+X-Google-Smtp-Source: AGHT+IGUMEiJ5yqJQbqO4xA7/aA59KAvngIQZIC7OTI5GXqXyrK5y8mDR/1ooulIWDi8IfTeYR0uyA==
+X-Received: by 2002:a5d:688b:0:b0:374:c613:7c58 with SMTP id ffacd0b85a97d-381b97c08fbmr2847327f8f.29.1730313181936;
+        Wed, 30 Oct 2024 11:33:01 -0700 (PDT)
+Received: from [192.168.0.2] ([69.6.8.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b71221sm15888748f8f.68.2024.10.30.11.32.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 11:33:01 -0700 (PDT)
+Message-ID: <e37b9baa-51e5-48f9-a15d-521f29ce5f9c@gmail.com>
+Date: Wed, 30 Oct 2024 20:33:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241030175615.GJ6956@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099D6:EE_|PH7PR12MB5878:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4af331e6-41ec-48f0-03ce-08dcf90eca1e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mrTgAMmGDI8UCOv7xe+khNjL0oGVU51Q7MUk7suN289hI8nFrTwkyVr0q3uu?=
- =?us-ascii?Q?/mVMLsVxF6yrhJAWxfw1OGoE9tHT3RRfQL7ZppekvjczD2hwG+cO7GueLvFo?=
- =?us-ascii?Q?XFonV9bMb8ayADl5k19iyK+jD/YKde9tsDz7XDYyZUSEyqZpU0pSzxnFS/NY?=
- =?us-ascii?Q?tZkAM6xQUzMqf8lnF7QPQ20BjmVKDQNkZfwk/eYgQXgKXJRHGJYFIGf4VHFc?=
- =?us-ascii?Q?4N18PwdJ2oiKeO+EFGmuH0VWbdZrwicCZsz1YezJJtAn//jhaUedBe/ia5UT?=
- =?us-ascii?Q?OBgy45Za5ZMsuliEIxwR5aiZKvXVtDPJ6M01fQHo3dZKZPT6hRb4lkum8t+Q?=
- =?us-ascii?Q?X32y1S9L3wHZW0pchHOO2qRsStMlV8KWHDXWBDReodo8ZWsAG7Kf6tEO0qfl?=
- =?us-ascii?Q?PDzDiq6gMIVlDyNNDtJCLko2cF/03/Bny/C1jHHTaLx6eQoYk431E4/32Mtx?=
- =?us-ascii?Q?Pbko/YwUGeZiK5FqsLdDmeN4TsfPHoQJAc8tcTsKn5PA1dMc06IMahGJ+tTx?=
- =?us-ascii?Q?XJKYiKnTb3asxdOr2I3i6yMVL4oVoKkDKR8ibTC2mefG6MeATdWrgc1yl9GA?=
- =?us-ascii?Q?UjqiYChDkpuanr7axQLNCvxSovzz+DXQRYm7qLdeGcOGSreof8l376yO0eMi?=
- =?us-ascii?Q?acdroBGEsJQIGhdNhG5VbmQvAr13kTtA16TRDWm3UuDp9jv+l//Mzk4ZdtZx?=
- =?us-ascii?Q?Q3CCzBzBU8tMuS09VTadNPXOW9fXYd1wb74HkrZhMWPkuZ12m/Aa27TgEnkY?=
- =?us-ascii?Q?ZI5SQlX5O2QyYuAjJt+vkaTubf818QTF7UhifwbPbZvZ7ROs0Q3eWHOyNRcG?=
- =?us-ascii?Q?3QCfXNENiQ/UTCKxIXVXFVTlRtaxFoazG//r8JaGCdZDvhLN4n07x6IcMKB9?=
- =?us-ascii?Q?76yNKuK1o/Po/lTm1LZxAY0JMpyabGaUTBqoNoN8vyrWE9cC5mzfpWrZlyUU?=
- =?us-ascii?Q?w4Dum31adX7DH8wnsv4/2S0Iq2drkEHWvyKs1gjYY4rjM7Gqzhg93ILUBSQq?=
- =?us-ascii?Q?GoGZjjLNjACDexJCWN3MhoPWsp8DWMVWlg7HRFDlmhNZH+v0fSFnHbXnt6xg?=
- =?us-ascii?Q?03O80IueV+vmjO6oSIjPlMjdvpI1LswKuFIlmjAQid2DrqV4VhsXwioZhsgP?=
- =?us-ascii?Q?SyDbaU8KJkcH/6mG01OZZItCAeJe9I7iYy977S3T9Kqjhqa+sPXLCyz0NkKL?=
- =?us-ascii?Q?5+hV9pafNDsL0kwwXkTqbmlpvAsVSITJEsEj1llyZbIvVu9ljvUOzwhNCwum?=
- =?us-ascii?Q?bG4NheUmEtReIe5B3r7I1wSiwWoWIRKpIc9XEwbWMWzKSCcy+xbLCI/uKIrs?=
- =?us-ascii?Q?y53Vn8BTO6EzUEcQNxA8Ix1XhEnqB+lkOfV/Xnf5v7q5ugVI0OW+jumw4C1a?=
- =?us-ascii?Q?YdR9x5fP3EPGIIgP2Qb6lAzOt2R5uOjQUx+yEj34IgwYTT2+tg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 18:15:09.4342
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4af331e6-41ec-48f0-03ce-08dcf90eca1e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D6.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5878
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
+To: Jinjian Song <jinjian.song@fibocom.com>,
+ chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
+ ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
+ johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com
+Cc: angelogioacchino.delregno@collabora.com, corbet@lwn.net,
+ danielwinkler@google.com, helgaas@kernel.org, korneld@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com, netdev@vger.kernel.org,
+ Linas Vepstas <linasvepstas@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>
+References: <20241022084348.4571-1-jinjian.song@fibocom.com>
+ <20241029034657.6937-1-jinjian.song@fibocom.com>
+Content-Language: en-US
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+In-Reply-To: <20241029034657.6937-1-jinjian.song@fibocom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_111515_028890_A3F904B7 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20241030_113304_628263_E84F72E1 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,59 +103,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 02:56:15PM -0300, Jason Gunthorpe wrote:
-> On Wed, Oct 30, 2024 at 04:24:44PM +0000, Mostafa Saleh wrote:
-> > > +void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
-> > > +{
-> > > +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> > > +	struct iommu_hw_info_arm_smmuv3 *info;
-> > > +	u32 __iomem *base_idr;
-> > > +	unsigned int i;
-> > > +
-> > > +	info = kzalloc(sizeof(*info), GFP_KERNEL);
-> > > +	if (!info)
-> > > +		return ERR_PTR(-ENOMEM);
-> > > +
-> > > +	base_idr = master->smmu->base + ARM_SMMU_IDR0;
-> > > +	for (i = 0; i <= 5; i++)
-> > > +		info->idr[i] = readl_relaxed(base_idr + i);
-> > > +	info->iidr = readl_relaxed(master->smmu->base + ARM_SMMU_IIDR);
-> > > +	info->aidr = readl_relaxed(master->smmu->base + ARM_SMMU_AIDR);
-> > 
-> > I wonder if passing the IDRs is enough for the VMM, for example in some
-> > cases, firmware can override the coherency, also the IIDR can override
-> > some features (as MMU700 and BTM), although, the VMM can deal with.
-> 
-> I'm confident it is not enough
-> 
-> BTM support requires special kernel vBTM support which will need a
-> dedicated flag someday
-> 
-> ATS is linked to the kernel per-device enable_ats, that will have to
-> flow to ACPI/etc tables on a per-device basis
-> 
-> PRI is linked to the ability to attach a fault capable domain..
-> 
-> And so on.
-> 
-> Nicolin, what do your qemu patches even use IIDR for today?
+Hi Jinjian,
 
-Not yet.
-
-I think this is a very good point. Checking IIDR in VMM as the
-kernel driver does is doable with the iommu_hw_info_arm_smmuv3
-while a firmware override like IORT might not..
-
-Thanks
-Nicolin
-
-> It wouldn't surprise me if we end up only using a few bits of the raw
-> physical information.
+On 29.10.2024 05:46, Jinjian Song wrote:
+> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+>> On 22.10.2024 11:43, Jinjian Song wrote:
+>>> If driver fails to set the device to suspend, it means that the
+>>> device is abnormal. In this case, reset the device to recover
+>>> when PCIe device is offline.
+>>
+>> Is it a reproducible or a speculative issue? Does the fix recover 
+>> modem from a problematic state?
+>>
+>> Anyway we need someone more familiar with this hardware (Intel or 
+>> MediaTek engineer) to Ack the change to make sure we are not going to 
+>> put a system in a more complicated state.
 > 
-> > Maybe for those(coherency, ATS, PRI) we would need to keep the VMM view and
-> > the kernel in sync?
+> Hi Sergey,
 > 
-> Definately
+> This is a very difficult issue to replicate onece occured and fixed.
 > 
-> Jason
+> The issue occured when driver and device lost the connection. I have
+> encountered this problem twice so far:
+> 1. During suspend/resume stress test, there was a probabilistic D3L2
+> time sequence issue with the BIOS, result in PCIe link down, driver
+> read and write the register of device invalid, so suspend failed.
+> This issue was eventually fixed in the BIOS and I was able to restore
+> it through the reset module after reproducing the problem.
+> 
+> 2. During idle test, the modem probabilistic hang up, result in PCIe
+> link down, driver read and write the register of device invalid, so
+> suspend failed. This issue was eventually fiex in device modem firmware
+> by adjust a certain power supply voltage, and reset modem as a workround
+> to restore when the MBIM port command timeout in userspace applycations.
+> 
+> Hardware reset modem to recover was discussed with MTK, and they said
+> that if we don't want to keep the on-site problem location in case of
+> suspend failure, we can use the recover solution.
+> Both the ocurred issues result in the PCIe link issue, driver can't read 
+> and writer the register of WWAN device, so I want to add this path
+> to restore, hardware reset modem can recover modem, but using the 
+> pci_channle_offline() as the judgment is my inference.
+
+Thank you for the clarification. Let me summarize what I've understood 
+from the explanation:
+a) there were hardware (firmware) issues,
+b) issues already were solved,
+c) issues were not directly related to the device suspension procedure,
+d) you want to implement a backup plan to make the modem support robust.
+
+If got it right, then I would like to recommend to implement a generic 
+error handling solution for the PCIe interface. You can check this 
+document: Documentation/PCI/pci-error-recovery.rst
+
+Suddenly, I am not an expert in the PCIe link recovery procedure, so 
+I've CCed this message to PCI subsystem maintainers. I hope they can 
+suggest a conceptually correct way to handle these cases.
+
+>>> Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
+>>> ---
+>>> V2:
+>>>   * Add judgment, reset when device is offline
+>>> ---
+>>>   drivers/net/wwan/t7xx/t7xx_pci.c | 4 ++++
+>>>   1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/ 
+>>> t7xx/t7xx_pci.c
+>>> index e556e5bd49ab..4f89a353588b 100644
+>>> --- a/drivers/net/wwan/t7xx/t7xx_pci.c
+>>> +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
+>>> @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct pci_dev 
+>>> *pdev)
+>>>       iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) + 
+>>> ENABLE_ASPM_LOWPWR);
+>>>       atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
+>>>       t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
+>>> +    if (pci_channel_offline(pdev)) {
+>>> +        dev_err(&pdev->dev, "Device offline, reset to recover\n");
+>>> +        t7xx_reset_device(t7xx_dev, PLDR);
+>>> +    }
+>>>       return ret;
+>>>   }
+
+--
+Sergey
 
