@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8DCD5CC8A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CD0D5CC8A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/tzjbhXfaCqhSMKgESsJft8b8FSTl1t1gy6bCBE87w=; b=K9oG367bho5IX7Z1eF1jwKCVC2
-	W88S7AAHl1L/7lvQkORVqLrbWUiwVWhZxuzoasd2bBqJctjIYNL+gz3aiAjGIy/9isetuJiIymm4v
-	unHG3ELN+jy4u4mBxiEyx5aP4exVuRwabqgeyFme0gYE4dFyt2JazkQUsEzGTX9oxou7MDBQ5HEqz
-	LMkzLsPxxRbnBW8ojQascwBrHMWjo97V28U4KP5N225s3y+M/TE9eYbfV626GFa+CWRItkXt0pDjz
-	q8HIB4zf/0855zKfzoQezA7VpD93AyuKYP9a4KVOtIJzmIQpWyo/qIC6hflaLQgqAciuDvBOaKDJF
-	prQErOrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6e62zABhJgu0xsmWlRUsEgJ/DIZADPy+MDY7G9xqvTM=; b=0lUE9XzpXa6t7IUNCvfMjdzxJ2
+	McOz/Uv7Mgo6modUGi8pc8/8/+SQKAn15bKUYdXLdkDgvJoYsKhPm7KWfwKTuj2NZ144WifRxvubz
+	PhBi4jHJ91VktUeqRh0CaB2Mk8jgWBHNRuLpPSac3kwzJ4j81YID/xsTldqKKcs4GPb/ay1rKRwv6
+	P6T9nXhNLd6e8VkFZg7+ymntss++8QKqx4DXiqprSR2QRu6F7P/KvwAXDOQdjdhIHWMrNglt2+E4m
+	XENeLR4BvzRAUW0BXya0iUwiwjQyIcePXTSvHQgVmzFVpCcn9aa+kxTTFeg8XVslRkkONzySxQcRe
+	2ZmN9JgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t667a-0000000HaQd-1cDt;
-	Wed, 30 Oct 2024 10:40:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t669C-0000000Hahl-2tqM;
+	Wed, 30 Oct 2024 10:41:54 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t65xs-0000000HYRE-2aBn
+	id 1t65zn-0000000HYhy-0sW3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:30:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA55A5C3178;
-	Wed, 30 Oct 2024 10:29:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27E7CC4CEE3;
-	Wed, 30 Oct 2024 10:30:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730284211;
-	bh=fEyGQG5p+/Axzk94LPtg9MyYLs8WiA+7sDPOBdC8nuY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iPBom++Ip3zXbNr4S9qX5JpImsDxqHoTocohiCaoOx5wNTJbiARb4bC/qMG+xkcKl
-	 4bo9Z5yrvUKpiXeTjblCmlZFumY+okw/Vt7mCFA55EdghPH5Za2gM3Pd4VOqUoihoM
-	 RC1xYCQrttOvZlsb/YnO8yx8rwmJMkz4dkArPco2y1Naytv1uKPyxf+rLmFiNnWqL4
-	 hLvcUJg2ZZj271QMiXn3eMmS3Gk3eUI74tYuVqsgFHmT1D26eR4bwwRZoXeSi29m2C
-	 o24VUlOK0cedEcwP3X/B28lsMehPiZZsJvfrGYvPA5SwkdJ/67vIoYA0QMo/YjPKne
-	 u3uClG+jbjG3A==
-Date: Wed, 30 Oct 2024 11:30:09 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
-	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, quic_jesszhan@quicinc.com, mchehab@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	sakari.ailus@linux.intel.com, hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com, 
-	quic_bjorande@quicinc.com, geert+renesas@glider.be, dmitry.baryshkov@linaro.org, 
-	arnd@arndb.de, nfraprado@collabora.com, thierry.reding@gmail.com, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de, biju.das.jz@bp.renesas.com
-Subject: Re: [PATCH v4 03/13] drm/bridge: fsl-ldb: Use clk_round_rate() to
- validate "ldb" clock rate
-Message-ID: <20241030-hypersonic-tremendous-tuatara-2bbeb0@houat>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <20241028023740.19732-4-victor.liu@nxp.com>
+	Wed, 30 Oct 2024 10:32:13 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2fb5740a03bso63234751fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 03:32:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730284329; x=1730889129; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6e62zABhJgu0xsmWlRUsEgJ/DIZADPy+MDY7G9xqvTM=;
+        b=pxyUMXeW7JeYQKzaH43+uuTjmf3qoKNJCfVPJ4mKTzPXhUb4cdWTIrcYL7LFpvOSnU
+         YbPyZhcrkYZwrIw+w2Eq9Gxxr6m37+ZZpO9V+HFLK8d/i2FkAe6nREMS0DZYO0j6JlbC
+         UrooG9Y/gOVCn7qKTjKmXiCEz6IznpZxbYXlNhJOs55hdzRoMJBarlJYCZWin1eFluXW
+         U5rEpYkB15UfYh2s8E9kioJjreoZbs1DvejWcFyEVysjUT+7pwGte51Mjssjl02Z5h9v
+         alraWJHmMCUQWhIXJZGkXSlEhjbfiA9MDQ+Rr8/m+dpY0OOlA3IHSZLg7rRKXbwgHV+V
+         IzxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730284329; x=1730889129;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6e62zABhJgu0xsmWlRUsEgJ/DIZADPy+MDY7G9xqvTM=;
+        b=GSGLIa2PuanoFQ5ZW8jl1Bev/vf9lUbhxJOA6ZCWYNBRvZ75sYmlzCVfe/k0JPnGZN
+         ylrqNM/G0ZYQezv3v4NecA62T00s1Mzjy2pV0yMEN7rmmwQVrPY2El749x0AadnMxgWc
+         0kOipgS4zqUronJ6NCPUkaizJWlQwHN5uwa8FNqoqgHj3h8nHO4nGWXTmd6gw3HSHl+4
+         iOLk9FstyD7WEtAzT0XggSkgjG0wE9W2SwqxTTJesVdQ8Vtz3IqkAwvXA7rSseLrYnCz
+         2VMFDudJhVQch9T2fyWpa6PxPmm88+DeeLYm4Oh/r84km+rXu0GNreJfM7fWUY0dshYu
+         mM1g==
+X-Forwarded-Encrypted: i=1; AJvYcCXSCE/vuNQF+AS68zQ50xxf+pZiD9YLaibvCo4uSq/QyBLr8uDvzR8X3+6Ret4//B9FeWIJtPTd442bHi7ehryS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqViIDIMDD1Df0855dT4tWkB97oHhqV8KIBz/Q5tJR67BRYDe1
+	PDzcn+UMS2vXNiSrL1qZgy650eu5V77oKKsz6TExUwToOFDO3+nh6mgWZmLyPMQ=
+X-Google-Smtp-Source: AGHT+IHN0Q+Mdq7fYa0Zn8cYYpDEzpyE0X1QlkitrR+30fjLy2hEruXPOPZRkaCk7IohqcOaFpkJEA==
+X-Received: by 2002:a2e:bea5:0:b0:2fa:dcb6:fa7a with SMTP id 38308e7fff4ca-2fd0590bdc8mr13523571fa.11.1730284327314;
+        Wed, 30 Oct 2024 03:32:07 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9ca747sm17059915e9.45.2024.10.30.03.32.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 03:32:06 -0700 (PDT)
+Message-ID: <c553db69-6bb8-44f8-b571-21c631fcaee8@linaro.org>
+Date: Wed, 30 Oct 2024 10:32:05 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="jdfa4z4pqzuvoooj"
-Content-Disposition: inline
-In-Reply-To: <20241028023740.19732-4-victor.liu@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/11] scsi: ufs: exynos: add gs101_ufs_drv_init() hook
+ and enable WriteBooster
+To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
+Cc: andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-8-peter.griffin@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241025131442.112862-8-peter.griffin@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_033012_766463_DAAABC83 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20241030_033211_295929_F4659F5E 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +102,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---jdfa4z4pqzuvoooj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 03/13] drm/bridge: fsl-ldb: Use clk_round_rate() to
- validate "ldb" clock rate
-MIME-Version: 1.0
 
-On Mon, Oct 28, 2024 at 10:37:30AM +0800, Liu Ying wrote:
-> Multiple display modes could be read from a display device's EDID.
-> Use clk_round_rate() to validate the "ldb" clock rate for each mode
-> in drm_bridge_funcs::mode_valid() to filter unsupported modes out.
->=20
-> Also, since this driver doesn't directly reference pixel clock, use
-> clk_round_rate() to validate the pixel clock rate against the "ldb"
-> clock if the "ldb" clock and the pixel clock are sibling in clock
-> tree.  This is not done in display controller driver because
-> drm_crtc_helper_funcs::mode_valid() may not decide to do the
-> validation or not if multiple encoders are connected to the CRTC,
-> e.g., i.MX93 LCDIF may connect with MIPI DSI controller, LDB and
-> parallel display output simultaneously.
->=20
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
-> Note that this patch depends on a patch in shawnguo/imx/fixes:
-> https://patchwork.kernel.org/project/linux-arm-kernel/patch/2024101703114=
-6.157996-1-marex@denx.de/
+On 10/25/24 2:14 PM, Peter Griffin wrote:
+> Factor out the common code into a new exynos_ufs_shareability() function
+> and provide a dedicated gs101_drv_init() hook.
+> 
+> This allows us to enable WriteBooster capability (UFSHCD_CAP_WB_EN) in a
+> way that doesn't effect other SoCs supported in this driver.
+> 
+> WriteBooster improves write speeds by enabling a pseudo SLC cache. Using
+> the `fio seqwrite` test we can achieve speeds of 945MB/s with this feature
+> enabled (until the cache is exhausted) before dropping back to ~260MB/s
+> (which are the speeds we see without the WriteBooster feature enabled).
+> 
+> Assuming the UFSHCD_CAP_WB_EN capability is set by the host then
+> WriteBooster can also be enabled and disabled via sysfs so it is possible
+> for the system to only enable it when extra write performance is required.
+> 
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 
-I still believe that the root cause of this issue is your clock tree and
-driver setup, and since I've asked for explanations and didn't get any,
-I don't really see how we can move forward here.
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
-Maxime
+While reviewing this patch I noticed few cleanups can be made. I sent
+them here:
+https://lore.kernel.org/linux-scsi/20241030102715.3312308-1-tudor.ambarus@linaro.org/
 
---jdfa4z4pqzuvoooj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZyIKrAAKCRAnX84Zoj2+
-dk5eAYDDyKjKmenLlLXrE7PF5+02MCRjxjyPZUPeFcxn9WqZwrqLx6hAeRNfTD1I
-fBz39NEBgPedANzTVocrGaKTqjaLuKN1UWpfFGVqf9OjORjTtsRTq+Rg7VBMH8ER
-7Vm4WtqjxQ==
-=QcTM
------END PGP SIGNATURE-----
-
---jdfa4z4pqzuvoooj--
+Feel free to include them in your set if you're going to respin. Or not,
+if you don't want to tie your head with cleanup patches. I can respin
+them on top of yours later on.
 
