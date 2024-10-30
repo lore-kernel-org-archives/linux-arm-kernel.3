@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3FFD5CC9A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9B0D5CC9C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=; b=x2Bv2RYWfMguFRf784adA44n/y
-	2c68U5ZGsnsxlIRuGDL21mcu2+DvtRwloab8FCVAkx8M30F23lJj7qDssY2R95yCAODLsA1tHrUkL
-	K/hdZyi7PogQCILq4vtVcgnSgsMM8PgzCxB8mQEN8ET5yIT8DMx8l4cKVv+iKexC5ixer55UDX/Bp
-	bo1/9sFN7Cgrz8XqxnS8scgaLIENnfg98d1cj0en52DUD5zzbdCrUG47ossqVAs/W+Od+M/JMsN0P
-	Innocr7q150Rudj+F6r9SOVU1Gtu6TPLhTVBQPeU8l/74+wGLarSDewIEd0ezPYaFe4wL4KxqOj1z
-	roYHn3YA==;
+	bh=kOujfd/jy87aIKSPb/EWr7De3J+KJ9M7N5naEu8TlmM=; b=LHEmG6PPhv6MJ45jt3Uirl6HF9
+	rjbmaDC86GMc4CM+olUIcfagk0Mpe7QQzPq7Kch1iW10OLVUPDEenpQogkaiTNuEm/MHXu6IFoCF7
+	69KS3ADR2keSQPhW3OSz87HBhjIvXJBO8nMATamVkpOlLJGp6CtMBsQTSiJzYfTAHGaAd0S4tqImL
+	YY2/Kfu9RtXEsS58g3pZ6RFIQyUqf3C1cFJDpF60zIPWgWM0BLbIA+EeaVdFN/A+XDKQmDi61Trqu
+	y0y0i2fdeljKFKGYEHnF07nLFax2mgJ70hNs0UyDqUciKNfs0cvpCO09ypvuz7Q7iIKJWI6YwEizP
+	fX25N0mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t678Q-00000000C7q-44BN;
-	Wed, 30 Oct 2024 11:45:10 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1t67A6-00000000CWL-0ei1;
+	Wed, 30 Oct 2024 11:46:54 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66pk-000000007j4-0XR3
+	id 1t66t1-000000008Q7-2IZy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:25:53 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so64364171fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:25:51 -0700 (PDT)
+	Wed, 30 Oct 2024 11:29:17 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-539e58878f2so754433e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:29:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730287550; x=1730892350; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=linaro.org; s=google; t=1730287754; x=1730892554; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=;
-        b=hGD7PeKodscfoxprlRtIveAO1uknHuPdzwFzvPEHErVQLiPsGdMf3sdtyBftnTiSmM
-         emGriDA/wwOh4ClJyVCYgANz0fB6xzmWefjiq6BjDW75dyH+bcZCTPLHno3ZuJJLp4Rz
-         7dAIOm38YYDsA5nmaAu9hTGQNHkQJTF43rqVAhbE5ehko7Dcs07OeLezeIC9nweBS5BT
-         1iXmRFWVFjFTZQf+D+GNyF9+xuhr6h/AEuhaWhCcraRBUaPfoNXVB/AMqgd01wkTBEHU
-         InhrzKBbBvmgdAbVPwbGZqfjb8RqIx+Fu3yOCTv1EgMkjBiEBJJfgf5Dr1agruRzbZGb
-         4BEQ==
+        bh=kOujfd/jy87aIKSPb/EWr7De3J+KJ9M7N5naEu8TlmM=;
+        b=X5AYS0feuJTs8DbmND9rm6cVVH93Otq50s7YX1al2isXmCRFtLUfCoFb0leAbn0Ja+
+         zWqxB46yvISwANFJoQiz/HgjAT3T7WlCuZxyy64+31fh3c1LtBHg3c7jBCsefVZ6VdbL
+         Vbg38U31XwNOMLNCsdXdmMjT538YqH3xtmQE+bVWwvKUSPFzSe450k4xNxl5u8zqTJeN
+         JEMo7/cUMILi8ybg7YjirCQdW6jEJASCN+KkqDoi3eEgrJefU5dxzCHh4VGTSaUQ0JYW
+         63kfkY8VXaHs1BeY6e9fZM+0rbvBOT3jlLwK2R13mw+wdom6WssHIIHsmWXzmqaHGufx
+         HgCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730287550; x=1730892350;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1730287754; x=1730892554;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=;
-        b=QEk9DwVf8tmEwuoDUnEbN/X6kzmBXI7RPhrcSYDMguPE/g0KoqPla1mZXNtiOu8rvw
-         FNgqBBCZ5WnPt+hUQGDnxN6Ou3aLHZK7WgrZ6HsXwMcfMY8zgHX4mRHGaHigKmkINfKR
-         EKKjcEU1yfG9x/5SxADGQq8uIw7RQVKEm93RcARv4D2uiAxwDsK9RsrFWp0FD9mqKHQG
-         L1TEnEt8pahyHmmZIT7w36k1gpPspCfXoK1yYypNcnu++OK7MIMfx0EtgQc2Ydd6UdZg
-         61IK528n5z9KksA5uou/Ilv7JiDhUg53txEsuY2bVnCYyZsXJU+LYMTk+YgWNtbSNhov
-         XoNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxw/tqOw2XSmJo7i6zcjkENTebRV3ymNBSiqiBQQZ87ko4cjpYYCG1QYyx2uZLQQUs0stlGuazGfqZTkLkSCpW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJMH6EbwNVPcww024n+hXXhnlXA4U5Us8vZxhTO996pLb71xLb
-	h98nEGy8LiXzs7437a3HhQ8XgFm0NBcrUHgmcftI3TZgqOr59v3xg0Yt0lEL0RE=
-X-Google-Smtp-Source: AGHT+IGY4OdrV2g1gR/OZMrvjE/lAI6jJHYq/NY61VEtXYCuq6a/kfZIDfbwe86CLVK3+WjNbtSP5w==
-X-Received: by 2002:a05:651c:1508:b0:2fb:6465:3198 with SMTP id 38308e7fff4ca-2fcbdf60348mr75079871fa.5.1730287550241;
-        Wed, 30 Oct 2024 04:25:50 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9207d4sm18412585e9.20.2024.10.30.04.25.48
+        bh=kOujfd/jy87aIKSPb/EWr7De3J+KJ9M7N5naEu8TlmM=;
+        b=QC04Eg86tp7qXzjZa2JIi/OQVpCY5dUO6X8IhrlveHqKKSRkUCuDn9SdKbJI33s7jE
+         cEDukhmWDusGLgu0SC8gUmxRvA/qGNhKHb+qxLWVmmEqxnYm59yPc5DxmnvDYvObDW27
+         HDwXaEMIiqDm0oPBGVEH1TcmGD4Kt1Re4dhjWOXOwA4QgcEe/UtFYav7NxuENrZIRkdF
+         677PLDC014L03cXRi0wGLQ1dNhxOqOE7HgfHIGcFq8tZveGbKTfdC5jMOdWy5yvKnb8Q
+         9BIcsf/dXji8tkho/6qfaU9MsfxgS/XdaVqeVMLjPhIyHbScrSTT//beHAwIOp98VKvM
+         aOEQ==
+X-Gm-Message-State: AOJu0YweUb+aKp+bh7Y2sV0IEWLcTx2vWswqO3rZb3+HXca7Q5Z/lQac
+	T5MxnSI1QuFqAItdtZLW0WZIXFwhM6ubU+AXlY5dOci7YU0vubfyR0Qm1IvEgCg=
+X-Google-Smtp-Source: AGHT+IEs+M3/oYcPjpUBi7NneafgUbQNOPFL1rEspdaMuGFpvZkF8vlz4NG+YG9NTMCNUDafH8g+Sw==
+X-Received: by 2002:a05:6512:3b85:b0:539:e0e6:cf4d with SMTP id 2adb3069b0e04-53b34b3c2fbmr2092672e87.11.1730287753768;
+        Wed, 30 Oct 2024 04:29:13 -0700 (PDT)
+Received: from [192.168.1.4] (88-112-131-206.elisa-laajakaista.fi. [88.112.131.206])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53bc0d52e61sm224296e87.120.2024.10.30.04.29.11
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 04:25:49 -0700 (PDT)
-Message-ID: <436b02c6-a262-4015-92e3-454d444e877f@linaro.org>
-Date: Wed, 30 Oct 2024 11:25:48 +0000
+        Wed, 30 Oct 2024 04:29:13 -0700 (PDT)
+Message-ID: <cce5f27d-912c-4386-babe-b963aa65deda@linaro.org>
+Date: Wed, 30 Oct 2024 13:29:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/11] scsi: ufs: exynos: enable write line unique
- transactions on gs101
-To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
- James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
- avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
-Cc: andre.draszik@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- ebiggers@kernel.org
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-9-peter.griffin@linaro.org>
+Subject: Re: [PATCH v4 6/6] arm64: dts: qcom:
+ qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241025131442.112862-9-peter.griffin@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
+ todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@quicinc.com
+References: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
+ <20241030105347.2117034-7-quic_vikramsa@quicinc.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20241030105347.2117034-7-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_042552_222106_355A1751 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_042915_638259_397F10D5 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,20 +101,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/25/24 2:14 PM, Peter Griffin wrote:
-> Previously just AXIDMA_RWDATA_BURST_LEN[3:0] field was set to 8.
-
-where was this set?
-
+On 10/30/24 12:53, Vikram Sharma wrote:
+> The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
+> Enable the IMX577 on the vision mezzanine.
 > 
-> To enable WLU transaction additionally we need to set Write Line
-> Unique enable [31], Write Line Unique Burst Length [30:27] and
-> AXIDMA_RWDATA_BURST_LEN[3:0].
+> An example media-ctl pipeline for the imx577 is:
 > 
-> To support WLU transaction, both burth length fields need to be 0x3.
+> media-ctl --reset
+> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
+> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
 > 
+> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+> 
+> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+> ---
+>   arch/arm64/boot/dts/qcom/Makefile             |  4 +
+>   .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 73 +++++++++++++++++++
+>   arch/arm64/boot/dts/qcom/sc7280.dtsi          | 33 +++++++++
+>   3 files changed, 110 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+> index ac199f809b0d..186768f7c696 100644
+> --- a/arch/arm64/boot/dts/qcom/Makefile
+> +++ b/arch/arm64/boot/dts/qcom/Makefile
+> @@ -111,6 +111,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
+> +
+> +qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
+> +
+> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= qrb2210-rb1.dtb
+> diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+> new file mode 100644
+> index 000000000000..cd3fe65fa971
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+> @@ -0,0 +1,73 @@
+> +// SPDX-License-Identifier: BSD-3-Clause
+> +/*
+> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +/*
+> + * Camera Sensor overlay on top of rb3gen2 core kit.
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/clock/qcom,camcc-sc7280.h>
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&camcc {
+> +	status = "okay";
+> +};
+> +
+> +&camss {
+> +	vdda-phy-supply = <&vreg_l10c_0p88>;
+> +	vdda-pll-supply = <&vreg_l6b_1p2>;
+> +	status = "okay";
+> +
+> +	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		/* The port index denotes CSIPHY id i.e. csiphy3 */
+> +		port@3 {
+> +			reg = <3>;
+> +			csiphy3_ep: endpoint {
+> +				clock-lanes = <7>;
+> +				data-lanes = <0 1 2 3>;
+> +				remote-endpoint = <&imx577_ep>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&cci1 {
+> +	status = "okay";
+> +};
+> +
+> +&cci1_i2c1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	camera@1a {
+> +		compatible = "sony,imx577";
+> +		reg = <0x1a>;
+> +
+> +		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
+> +		pinctrl-names = "default", "suspend";
+> +		pinctrl-0 = <&cam2_default>;
+> +		pinctrl-1 = <&cam2_suspend>;
+> +
+> +		clocks = <&camcc CAM_CC_MCLK3_CLK>;
+> +		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
+> +		assigned-clock-rates = <24000000>;
+> +
+> +		dovdd-supply  = <&vreg_l18b_1p8>;
+> +
+> +		port {
+> +			imx577_ep: endpoint {
+> +				clock-lanes = <7>;
+> +				link-frequencies = /bits/ 64 <600000000>;
+> +				data-lanes = <0 1 2 3>;
+> +				remote-endpoint = <&csiphy3_ep>;
+> +			};
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> index 690051708dec..8130c1374722 100644
+> --- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> @@ -5115,6 +5115,39 @@ tlmm: pinctrl@f100000 {
+>   			gpio-ranges = <&tlmm 0 0 175>;
+>   			wakeup-parent = <&pdc>;
+>   
+> +			cam2_default: cam2-default-state {
+> +				rst-pins {
+> +					pins = "gpio78";
+> +					function = "gpio";
+> +					drive-strength = <2>;
+> +					bias-disable;
+> +				};
+> +
+> +				mclk-pins {
+> +					pins = "gpio67";
+> +					function = "cam_mclk";
+> +					drive-strength = <2>;
+> +					bias-disable;
+> +				};
+> +			};
 
-typo, s/burth/burst
+SoC-specific change of adding new pin functions into the platform dtsi
+file shall be separated from the rest of the mezzanine board change,
+send it as its own change, you may wish add all MCLK pins at once.
+
+And the camera sensor reset "gpio" pin goes into the mezzanine specific
+change.
+
+> +
+> +			cam2_suspend: cam2-suspend-state {
+> +				rst-pins {
+> +					pins = "gpio78";
+> +					function = "gpio";
+> +					drive-strength = <2>;
+> +					bias-pull-down;
+> +					output-low;
+> +				};
+> +
+> +				mclk-pins {
+> +					pins = "gpio67";
+> +					function = "cam_mclk";
+> +					drive-strength = <2>;
+> +					bias-pull-down;
+> +				};
+> +			};
+> +
+
+Same as above.
+
+>   			cci0_default: cci0-default-state {
+>   				pins = "gpio69", "gpio70";
+>   				function = "cci_i2c";
+
+--
+Best wishes,
+Vladimir
 
