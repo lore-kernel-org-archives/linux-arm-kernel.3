@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D17D6B6D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60E8D6B6D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9lNt4LfOCgp3nDnbJMhrOMducTMBgRYFbVqS645kX4Q=; b=kPrKYJ9euGLTSX
-	rSu/BZU7+7TdqDKZzsDlu7u/Ured1QkdOo4gGWl7XfYCwLh4cJbg948JHVMy+Fu2FLkNX0VniKsnl
-	SGtv16tcJF2Z5U8/CPtIlOveieLyvdI5yxFt3S25R2ivdfuKfSfvnwxfA4OsKaq+o6KV8RcEch5R/
-	749V2jM/LEOnzxFc4YUQET8AcVcUzHFMgidPk3xXqGCdsqHg7zvF+yWKDu9J8HtYQjUHNBsjygaOa
-	EbLiB8acQH4E/ebIho848Wc8cXN5PDO6AvT5H1S3uNyvuTUg6Nytr+apz143fq2dxLS6XQZsA8Nr/
-	GgEhQuROP5C9NBaZXP2g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YAY5Pf9wgYGGJGg21s8WFusTUh1ZWAb1XgWfjBzX/eU=; b=OmRF8tpEMMiImD0kcj6PyVl6Z1
+	y1rYzp9XahF9vRL2t0NcF9DVozR856vzv7vrd301k4ipGvY5FLPtTMF7QBfgmFbVvhePqDq3e9I1n
+	IO0xZnVutj6BjH1ZYD41EpGG5NqnNILWvJbwv53ZQVd2KcQA9BtK35aHbqkAo3voqzgmsTkXlXCss
+	XLoVHn9ypHmL+Sr/hTtCvPOsLxbC2IU3233IqouFxyZuycVgl/cmh0da5Wwt/A1pGnHLUND3ThFcF
+	vo3l71wBAq6YMWaMIuPwI7tmrkGdoeZPr0vOuv1eaCOY+mg9hZsk8hU3wedDNKuM4WbUiIUnOxOk7
+	qpk/lp7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Ff7-00000001jqT-3oXf;
-	Wed, 30 Oct 2024 20:51:29 +0000
+	id 1t6Fgk-00000001kAP-0fAO;
+	Wed, 30 Oct 2024 20:53:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6FdT-00000001jR7-04I8
+	id 1t6FdU-00000001jRN-2FAp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 20:49:48 +0000
+	Wed, 30 Oct 2024 20:49:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3F4525C54BC;
-	Wed, 30 Oct 2024 20:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804A3C4CECE;
-	Wed, 30 Oct 2024 20:49:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0ACD85C5489;
+	Wed, 30 Oct 2024 20:49:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58F76C4CED1;
+	Wed, 30 Oct 2024 20:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730321385;
-	bh=+yvwE337Qdag2rGuNvdsfIda3dNqnIov5peBktID6b0=;
-	h=From:Subject:Date:To:Cc:From;
-	b=n/1jmtKzwNjxrgBgr0XHhgb5joWzPDKskC4fLKe8EGDkTBSzI/HcVjnV0CDBIxCtl
-	 B+9fZMh4aMIaW6aHFZPAcBqfGLorbZmaAD60I3yJPVQ0Fi8MRqDz9w9UEK4iI7eqBY
-	 X7Bf36R90rtMJVzm1LXgDWU8DxSXHENUszkIF0CEnf/1MXrGrk4TiD9Fx0VfKlJXb9
-	 hOAOoy2mhUuTflyScniRBSJu3Lx0/QosykyAgjDEHQH2KDJJhnNm6tckVDim2UYTBq
-	 CUn/R91nby6UcRpNXcub5SHAqgKJmGpzdfrpcaDyRBndP2ODXxulftFVazu/r2DTnv
-	 fOXpyYsn1vDog==
+	s=k20201202; t=1730321387;
+	bh=dLqAw4xy5/KKmZNX6yrvJQT14/QmwjMru+J+jwCboHM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=L3liUFqPA1FyGPmrsabDM7RM3yowwAs/TK5/9jJzyFy28OJVRxyIUqjPYZKPn4ZUz
+	 3RUExHjQimbeOiymBXIpzpXPql8nYLS4cyZqcuiMdUJ09q0i20Q4j0X5d2KorWC6S4
+	 cNkb1sT4Vr3OJStwGC7HQr48rWrj4Jbd1Ui3QbzTg2xH7VQBzM35KTVCZAVRd3DeNP
+	 PhNMYGGIJXhsH8I75Jits6FqjnwrHcOppfVuP7mTGRmWlvY7Q+QTa2UCU4SF53Idlr
+	 mZbNq/SXiVs+lYKImCLH9f8PBHrsyXS1s6MzHGX4qrI6UuWUtcWm6hd+zsuQwLJQ0f
+	 JOE9Xl6P8csOA==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 0/2] arm64/fp: Fix missing invalidation when working with
- in memory FP state
-Date: Wed, 30 Oct 2024 20:23:49 +0000
-Message-Id: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
+Date: Wed, 30 Oct 2024 20:23:50 +0000
+Subject: [PATCH 1/2] arm64/sve: Flush foreign register state in
+ sve_init_regs()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANaVImcC/x3MQQqEMAwAwK9IzgbaWgT9injo2lQDWiVBWZD+f
- cse5zIvKAmTwti8IPSw8pkrbNvAsoW8EnKsBmect6YzGOToPaZL+YiYTiFeM6b91g37wXYhOL/
- E4QM1uIQSf//5NJfyA/2/8d5sAAAA
-X-Change-ID: 20241030-arm64-fpsimd-foreign-flush-6913aa24cd9b
+Message-Id: <20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org>
+References: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
+In-Reply-To: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=978; i=broonie@kernel.org;
- h=from:subject:message-id; bh=+yvwE337Qdag2rGuNvdsfIda3dNqnIov5peBktID6b0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIpvlHIiKxtAocRm8OBK6Yaj+uT1brtqrjz3czmlG
- kLb0yaGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyKb5QAKCRAk1otyXVSH0E5RB/
- 4s5DbIvSqJpDZMrMzsulo88M4R3g/tC8Nk8ioDiV9SYLMmPwAIr4PYSvIxaIga3ck4r80tFkT/bOqb
- LpEP72Ya7iAsBesvmh6McFvsRdqZ4rXzvlGOIIi7vjdmDU0NaqmPAp0m2MMkEa0U1BfzPYSkEQCQRr
- Who3UZks5d0DNAaDLUhP0rkTzrk9Mwz752Ut1Ngku9AtrRkQS32mjdw6ECjfIDM/LzsqkmleCrmp59
- LLc+z7IaJxSNnSZF7opBj++RRFKN8SdJHjwi6hCzgObDSerHDWbDXfkQvVVW6MkpRNKFsO6TtH+d4a
- JLZ6ytDa3w9bcJnTFUmO/79Tdkq3IY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1381; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dLqAw4xy5/KKmZNX6yrvJQT14/QmwjMru+J+jwCboHM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIpvmTGqCbde0j16dyrk16BYTp5wddvqHWezRdera
+ 9Vfb+FyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyKb5gAKCRAk1otyXVSH0H4qB/
+ 9Yz+KS9YtbwvLFuU9RqjekMoIrPAkbHkjkUJCp/j9ZaBAf+7EZSNJogZcZXCuf2qUF7O1aV2sjaJ0j
+ C5Pt+hdLBwe5keWkhhyfktLONox4y/Lxg6/6r4lr+mdLXXpl4Nd8mfPjxlvR/ZRXz7y8SVBKtEktXY
+ nGjhnyAtXdxTLQJXaC/sEB67h0JSYbY0Tb0oul/FlC6ApE/qPfnPBmXaE8lLjCnHbkY8TJm6gjnsiO
+ J+T336OyWGJxiNLiJhCT4U2MwGvi4JZm+aBKoP4c2wD+zmKP5F+d+dSw6j+q8pUaXGjyn5qGN20kzN
+ 0csdyvYKeag2vaLE4eZ6AeWKXTnlj9
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_134947_138114_726C78D5 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_134948_660778_4291BFB1 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,30 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark Rutland identified a repeated pattern where we update the in memory
-floating point state for tasks but do not invalidate the tracking of the
-last CPU that the task's state was loaded on, meaning that we can
-incorrectly fail to load the state from memory due to the checking in
-fpsimd_thread_switch().  When we change the in-memory state we need to
-also invalidate the last CPU information so that the state is corretly
-identified as needing to be reloaded from memory.
+When we update the in memory register state in sve_init_regs() we neglect
+to flush the task's CPU binding, meaning if the task is rescheduled to
+the last CPU it ran on it is possible for the check for current state in
+fpsimd_thread_switch() to falsely determine that up to date register
+state is present on the CPU.  This results in it incorrectly clearing
+TIF_FOREIGN_FPSTATE and suppress reloading.
 
-This series adds the missing invalidations.
+This will also suppress the sve_user_enable() done in
+fpsimd_bind_task_to_cpu() as part of return to userspace, causing
+spurious SVE access traps.
 
+Call fpsimd_flush_task_state() to invalidate the last loaded CPU
+recorded in the task.
+
+Fixes: cccb78ce89c4 ("arm64/sve: Rework SVE access trap to convert state in registers")
+Reported-by: Mark Rutlamd <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
+Cc: stable@vger.kernel.org
 ---
-Mark Brown (2):
-      arm64/sve: Flush foreign register state in sve_init_regs()
-      arm64/sme: Flush foreign register state in do_sme_acc()
+ arch/arm64/kernel/fpsimd.c | 1 +
+ 1 file changed, 1 insertion(+)
 
- arch/arm64/kernel/fpsimd.c | 3 +++
- 1 file changed, 3 insertions(+)
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241030-arm64-fpsimd-foreign-flush-6913aa24cd9b
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 77006df20a75aee7c991cf116b6d06bfe953d1a4..6d21971ae5594f32947480cfa168db400a69a283 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1367,6 +1367,7 @@ static void sve_init_regs(void)
+ 	} else {
+ 		fpsimd_to_sve(current);
+ 		current->thread.fp_type = FP_STATE_SVE;
++		fpsimd_flush_task_state(current);
+ 	}
+ }
+ 
 
-Best regards,
 -- 
-Mark Brown <broonie@kernel.org>
+2.39.2
 
 
