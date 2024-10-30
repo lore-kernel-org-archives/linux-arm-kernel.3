@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C739CD7497D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 08:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E8CD7497F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 08:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pCTs7xE1RNDjOAhXIwJf35Ye4AhjEVbQRROagoMzs9M=; b=gWnlNpZgApp/gA
-	Z24K/F7c6+nGZRSxIEqy0oUKAxkuaQVfX9SQ5ywmGwPaICL9I4b7QKIUbKLg2NqCEKq29Azf+nhV+
-	FcssROMru3cVD5WlEGiL/Zqz+fsy3g5fnW8+8K12C6G1TNLC+VWhUab8GEF8sctANbAfQTuJRPN45
-	743HDGXtH0E1EFqsO6BIwJbB67SHJ9/RwPb0Mpc1jVoYRsb54zhnv33RxZfJibfMSmNr1AqtHCnzA
-	dkXnDKCMZGanaoKnNFSgjZjP8nzwnc+X/RR1A3Kcp/+ZDnPhtPSX4AXyvaL79SAR5VbzGBDMAM1aw
-	70XfAGRVSq1GXYUfqDmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5XJnF2pEzC8pq0SIBgfSpD68nTtnNN0BM6rn5x3FyFo=; b=WZp2epCAGL1qWnlbPG9h8g2F2h
+	WLAHKLE2RL5fUk9HycZqfpGUZmhw05vXY7ZMTeaimYwylzJwcgsiZCuhrGrHATfBhEcUE7XngJwq3
+	QPQy8HVkm7tYub9lx3otVKJTYQY5B5ULtIef8pelVj0nWQj5U68Ob1Qk8U0D6ePHcMWtbcoPyyQf/
+	7seacK9R+2UIaRJNJy+vAmIf0lWSR1qRZmdJcFhTvEDoX6wZ/TeZbOFVa/KAahjIlq1/dZMIePDxg
+	I1qKC8Phrd08NUNl1xSz96dQQ5gPuGP8iixh4abnPYYVn6x9dUCelYe+a+1ZkcjrI7u8GSjAROPXU
+	2gBpLibA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64MC-0000000HJhl-0vog;
-	Wed, 30 Oct 2024 08:47:12 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1t64O1-0000000HKBK-2PPz;
+	Wed, 30 Oct 2024 08:49:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64KX-0000000HJRn-2FXX
+	id 1t64Ky-0000000HJWm-3q8x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 08:45:31 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id BD22FA11B6;
-	Wed, 30 Oct 2024 09:45:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=pCTs7xE1RNDjOAhXIwJf35Ye4AhjEVbQRROagoMzs9M=; b=
-	hKbnog0k6h+HIXxGMurg+nml0X6WXIn5lG2XxzpBOxmO9phmczQsE0Ls7CoIkhCF
-	h4tf10MLv1VQSp/STabqL6oOywt/sdbVRp3nu2cU6drXIq8rHBUlFz+QAUokHp9j
-	vWLzsLP00CqjMFhCIv9DqQU6xapuFhYyfXCXOFbcTU5gFNAt5JpnPzkNsgpU9y3E
-	yzzBR8TP2O2VjmErg4EMsx3n6AuLfIZfYbsNEVItEqXUdF5+yiHL1k3fhS8+n7Oq
-	TQLZBb/xNULYZK8g3ohtmsv8aBjFZrPbrMfssnKUCk1733DDURhQzYlj284ulbbo
-	RfVB5kxbkpQykVu5jsLPsW0k3iE0xWZ3EeSHjqaJkoALEugCRbszR+MANLCn8ejk
-	ToFwZ5v03vbNPc8lOdxcGYjvIqUDUfjG/xDbAgH1HKpnEiwiO8amJBthOR9UuArg
-	uC+4R2Ym9Y+anBkywKz1Jd/Y/pJJicL11y6i7c6Nsxt8DkV0MuE+9X4Ps0D4uSyu
-	eE1CL3lH3DHcBetJO1c/IxFz0DcXaV7ApzvxjDpFW8J49uxQ0XF4hfggGGawtMgk
-	OTYm51/Bqmo59x2NXBhoMyiuBkT5mB0xNftFUghNNHQaSxfwqm+6nUIpNRFFxMMv
-	/JNmrSHtg5shKP7Kwp80DeD1F+BguUJGBV3sDksZLjo=
-From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] spi: atmel-quadspi: Create `atmel_qspi_ops` to support newer SoC families
-Date: Wed, 30 Oct 2024 09:44:46 +0100
-Message-ID: <20241030084445.2438750-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730277917;VERSION=7979;MC=2867805427;ID=197345;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855667763
+	Wed, 30 Oct 2024 08:45:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4293A5C5E9D;
+	Wed, 30 Oct 2024 08:45:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF328C4CEE4;
+	Wed, 30 Oct 2024 08:45:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730277956;
+	bh=CzuTjol1M/5TrcpkB5m8SbtfrpBFFBCk7QxVqElMmys=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tlt7LfJgaLJPvhpd1YVkn0jAkECODxD8MsC3Wku64Pm5RufbxQaNvzysMUX9emP+j
+	 rg6NYzhsYGfxCPYwSfquIRCY9W7dFnFjG2D+N2k6mAT+UJIVPSXcvQEvoocehqIJky
+	 tcCkQlBwPUBmfC+Icxg9GVOoE/fg1+e5YTIZAvoWR91n1/gEHaGyVte8D5YKYQ3bD+
+	 xpP16AZEFWK1J9naWH03oRUllEaAKyWry8bVHElO1pIqGa+Uj5A/hCVHoaEUlMTG/h
+	 mUqEIN5RUcJQlUpCOQ72ee9vvkOaJrsmIYbxQ3GKpTdMCF21NPaFB/Esaz17DklXZa
+	 LwseeOx6oEjvQ==
+Received: from 82-132-233-180.dab.02.net ([82.132.233.180] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t64Kv-008C77-4A;
+	Wed, 30 Oct 2024 08:45:53 +0000
+Date: Wed, 30 Oct 2024 08:45:48 +0000
+Message-ID: <87h68ut1vn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/18] KVM: arm64: nv: Support for EL2 PMU controls
+In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
+References: <20241025182354.3364124-1-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.233.180
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_014530_220093_968B23C6 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20241030_014557_074078_782A5008 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,215 +87,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor
- Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the code to introduce an ops struct, to prepare for merging
-support for later SoCs, such as SAMA7G5. This code was based on the
-vendor's kernel (linux4microchip). Cc'ing original contributors.
+On Fri, 25 Oct 2024 19:23:35 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> v3 -> v4:
+>  - Align sysreg definitions with DDI0601 2024-09
+>  - Fix 'accessible' counter mask construction
+>  - Fix MDCR_EL2.MTPME RES0 logic
+> 
+> v3: https://lore.kernel.org/kvmarm/20241007174559.1830205-1-oliver.upton@linux.dev/
+> 
+> Marc Zyngier (1):
+>   KVM: arm64: Extend masking facility to arbitrary registers
+> 
+> Oliver Upton (17):
+>   arm64: sysreg: Describe ID_AA64DFR2_EL1 fields
+>   arm64: sysreg: Migrate MDCR_EL2 definition to table
+>   arm64: sysreg: Add new definitions for ID_AA64DFR0_EL1
+>   KVM: arm64: Describe RES0/RES1 bits of MDCR_EL2
+>   KVM: arm64: nv: Allow coarse-grained trap combos to use complex traps
+>   KVM: arm64: nv: Rename BEHAVE_FORWARD_ANY
+>   KVM: arm64: nv: Reinject traps that take effect in Host EL0
+>   KVM: arm64: nv: Honor MDCR_EL2.{TPM, TPMCR} in Host EL0
+>   KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
+>   KVM: arm64: nv: Advertise support for FEAT_HPMN0
+>   KVM: arm64: Rename kvm_pmu_valid_counter_mask()
+>   KVM: arm64: nv: Adjust range of accessible PMCs according to HPMN
+>   KVM: arm64: Add helpers to determine if PMC counts at a given EL
+>   KVM: arm64: nv: Honor MDCR_EL2.HPME
+>   KVM: arm64: nv: Honor MDCR_EL2.HLP
+>   KVM: arm64: nv: Apply EL2 event filtering when in hyp context
+>   KVM: arm64: nv: Reprogram PMU events affected by nested transition
+> 
+>  arch/arm64/include/asm/kvm_arm.h     |  29 ---
+>  arch/arm64/include/asm/kvm_emulate.h |   5 +
+>  arch/arm64/include/asm/kvm_host.h    |  21 +-
+>  arch/arm64/kvm/emulate-nested.c      | 291 ++++++++++++++++-----------
+>  arch/arm64/kvm/nested.c              |  54 ++++-
+>  arch/arm64/kvm/pmu-emul.c            | 143 +++++++++++--
+>  arch/arm64/kvm/sys_regs.c            |  15 +-
+>  arch/arm64/tools/sysreg              |  76 ++++++-
+>  include/kvm/arm_pmu.h                |  18 +-
+>  9 files changed, 465 insertions(+), 187 deletions(-)
+> 
+> 
+> base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
 
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Varshini Rajendran <varshini.rajendran@microchip.com>
+I think this is pretty much good to go, and with the couple of nits
+mentioned before fixed:
 
-Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
----
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Notes:
-    Changes in v2:
-    * Remove obsolete SPI naming
+	M.
 
- drivers/spi/atmel-quadspi.c | 111 +++++++++++++++++++++++++-----------
- 1 file changed, 77 insertions(+), 34 deletions(-)
-
-diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-index 95cdfc28361e..1d256ab3f7f2 100644
---- a/drivers/spi/atmel-quadspi.c
-+++ b/drivers/spi/atmel-quadspi.c
-@@ -138,11 +138,15 @@
- #define QSPI_WPSR_WPVSRC_MASK           GENMASK(15, 8)
- #define QSPI_WPSR_WPVSRC(src)           (((src) << 8) & QSPI_WPSR_WPVSRC)
- 
-+#define ATMEL_QSPI_TIMEOUT		1000	/* ms */
-+
- struct atmel_qspi_caps {
- 	bool has_qspick;
- 	bool has_ricr;
- };
- 
-+struct atmel_qspi_ops;
-+
- struct atmel_qspi {
- 	void __iomem		*regs;
- 	void __iomem		*mem;
-@@ -150,13 +154,22 @@ struct atmel_qspi {
- 	struct clk		*qspick;
- 	struct platform_device	*pdev;
- 	const struct atmel_qspi_caps *caps;
-+	const struct atmel_qspi_ops *ops;
- 	resource_size_t		mmap_size;
- 	u32			pending;
-+	u32			irq_mask;
- 	u32			mr;
- 	u32			scr;
- 	struct completion	cmd_completion;
- };
- 
-+struct atmel_qspi_ops {
-+	int (*set_cfg)(struct atmel_qspi *aq, const struct spi_mem_op *op,
-+		       u32 *offset);
-+	int (*transfer)(struct spi_mem *mem, const struct spi_mem_op *op,
-+			u32 offset);
-+};
-+
- struct atmel_qspi_mode {
- 	u8 cmd_buswidth;
- 	u8 addr_buswidth;
-@@ -404,10 +417,60 @@ static int atmel_qspi_set_cfg(struct atmel_qspi *aq,
- 	return 0;
- }
- 
-+static int atmel_qspi_wait_for_completion(struct atmel_qspi *aq, u32 irq_mask)
-+{
-+	int err = 0;
-+	u32 sr;
-+
-+	/* Poll INSTRuction End status */
-+	sr = atmel_qspi_read(aq, QSPI_SR);
-+	if ((sr & irq_mask) == irq_mask)
-+		return 0;
-+
-+	/* Wait for INSTRuction End interrupt */
-+	reinit_completion(&aq->cmd_completion);
-+	aq->pending = sr & irq_mask;
-+	aq->irq_mask = irq_mask;
-+	atmel_qspi_write(irq_mask, aq, QSPI_IER);
-+	if (!wait_for_completion_timeout(&aq->cmd_completion,
-+					 msecs_to_jiffies(ATMEL_QSPI_TIMEOUT)))
-+		err = -ETIMEDOUT;
-+	atmel_qspi_write(irq_mask, aq, QSPI_IDR);
-+
-+	return err;
-+}
-+
-+static int atmel_qspi_transfer(struct spi_mem *mem,
-+			       const struct spi_mem_op *op, u32 offset)
-+{
-+	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
-+
-+	/* Skip to the final steps if there is no data */
-+	if (!op->data.nbytes)
-+		return atmel_qspi_wait_for_completion(aq,
-+						      QSPI_SR_CMD_COMPLETED);
-+
-+	/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
-+	(void)atmel_qspi_read(aq, QSPI_IFR);
-+
-+	/* Send/Receive data */
-+	if (op->data.dir == SPI_MEM_DATA_IN)
-+		memcpy_fromio(op->data.buf.in, aq->mem + offset,
-+			      op->data.nbytes);
-+	else
-+		memcpy_toio(aq->mem + offset, op->data.buf.out,
-+			    op->data.nbytes);
-+
-+	/* Release the chip-select */
-+	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
-+
-+	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
-+}
-+
- static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
- {
- 	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
--	u32 sr, offset;
-+	u32 offset;
- 	int err;
- 
- 	/*
-@@ -416,46 +479,20 @@ static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
- 	 * when the flash memories overrun the controller's memory space.
- 	 */
- 	if (op->addr.val + op->data.nbytes > aq->mmap_size)
--		return -ENOTSUPP;
-+		return -EOPNOTSUPP;
-+
-+	if (op->addr.nbytes > 4)
-+		return -EOPNOTSUPP;
- 
- 	err = pm_runtime_resume_and_get(&aq->pdev->dev);
- 	if (err < 0)
- 		return err;
- 
--	err = atmel_qspi_set_cfg(aq, op, &offset);
-+	err = aq->ops->set_cfg(aq, op, &offset);
- 	if (err)
- 		goto pm_runtime_put;
- 
--	/* Skip to the final steps if there is no data */
--	if (op->data.nbytes) {
--		/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
--		(void)atmel_qspi_read(aq, QSPI_IFR);
--
--		/* Send/Receive data */
--		if (op->data.dir == SPI_MEM_DATA_IN)
--			memcpy_fromio(op->data.buf.in, aq->mem + offset,
--				      op->data.nbytes);
--		else
--			memcpy_toio(aq->mem + offset, op->data.buf.out,
--				    op->data.nbytes);
--
--		/* Release the chip-select */
--		atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
--	}
--
--	/* Poll INSTRuction End status */
--	sr = atmel_qspi_read(aq, QSPI_SR);
--	if ((sr & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
--		goto pm_runtime_put;
--
--	/* Wait for INSTRuction End interrupt */
--	reinit_completion(&aq->cmd_completion);
--	aq->pending = sr & QSPI_SR_CMD_COMPLETED;
--	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IER);
--	if (!wait_for_completion_timeout(&aq->cmd_completion,
--					 msecs_to_jiffies(1000)))
--		err = -ETIMEDOUT;
--	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IDR);
-+	err = aq->ops->transfer(mem, op, offset);
- 
- pm_runtime_put:
- 	pm_runtime_mark_last_busy(&aq->pdev->dev);
-@@ -571,12 +608,17 @@ static irqreturn_t atmel_qspi_interrupt(int irq, void *dev_id)
- 		return IRQ_NONE;
- 
- 	aq->pending |= pending;
--	if ((aq->pending & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
-+	if ((aq->pending & aq->irq_mask) == aq->irq_mask)
- 		complete(&aq->cmd_completion);
- 
- 	return IRQ_HANDLED;
- }
- 
-+static const struct atmel_qspi_ops atmel_qspi_ops = {
-+	.set_cfg = atmel_qspi_set_cfg,
-+	.transfer = atmel_qspi_transfer,
-+};
-+
- static int atmel_qspi_probe(struct platform_device *pdev)
- {
- 	struct spi_controller *ctrl;
-@@ -601,6 +643,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
- 
- 	init_completion(&aq->cmd_completion);
- 	aq->pdev = pdev;
-+	aq->ops = &atmel_qspi_ops;
- 
- 	/* Map the registers */
- 	aq->regs = devm_platform_ioremap_resource_byname(pdev, "qspi_base");
 -- 
-2.34.1
-
-
+Without deviation from the norm, progress is not possible.
 
