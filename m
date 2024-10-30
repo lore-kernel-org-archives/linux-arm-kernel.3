@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24992D74961
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2230D74961
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jzLNZuN60N9bR5+YQqu9raEKZmtLRlqAM+KawBR1f0g=; b=YxHyCFjOyl6TAgplNPGy4Gu7Gv
-	VtK6gKMLzTLtIO3tE70u9KrgmTICsmRnBDOyLXnl6DtyTgn1LMhvevHTtmKr4ZOJp9b38Wa9sjxLf
-	91DbgG6Ez+zcV9VZxm2tA4VcvS1kE5RVNNZjQrNvhNLQGzP9g9xuJJgxE267Ys6vb9i42Be2DIz3Y
-	lN1nWEmdn+z9IOXsEoJe2CepbliI8AFwPKNWSb3WUYouvA3HAlg/SqeDh3dIOHt1f9zN+c9QWNqqb
-	kAbk3QQdjdDZaY0YnReLgB57mNSRlZ9eqekeqWw0lc6KT/VR7+B3JxH4VoyZ4jUn6DzNv3CRihCt7
-	8vPkb4pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YmeylMQuOayChRfW0IDabRowok9NC3hm9gjKzsrLg44=; b=KSYcO/ANSgOWwDrADLJ0/kS5sF
+	lvz0PHfzkww0JyzwW4kyeYF/hCZ8xeV9vlQ6i/8prWIG9zHRiVlR2F2NdUogzNUJXYJfZ6k2h1jk7
+	/xttNnkcBL5SUZ/wmiaOpiirR/Sj90P4U9MlAfSTHPD6FdZQ2P9Gt0yaCzyEG9g8D1hOGlu2yYLrX
+	/EjPQKy4gK+6AUWmwiXr/6CCKZuSHBox+ngJHOOV+4vopzty5CXRQ4npmar+T0yzH0AdjjGk1G7GJ
+	NSdzWYx/tsenw0Q8hOw43WnhQrrwIwss8ODGEOHvPARXxRmRaUnRB1d4kWz4dVR7Epxmq0OL1eoq4
+	wGGbgwgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60cl-0000000Ghvx-0qVA;
-	Wed, 30 Oct 2024 04:48:03 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t60gi-0000000GiSc-1cz9;
+	Wed, 30 Oct 2024 04:52:08 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60b5-0000000GhSA-1eW0
+	id 1t60f4-0000000GiCJ-3cRl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 04:46:21 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49U4kEUp089459;
-	Tue, 29 Oct 2024 23:46:14 -0500
+	Wed, 30 Oct 2024 04:50:28 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49U4oLXR059213;
+	Tue, 29 Oct 2024 23:50:21 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730263574;
-	bh=jzLNZuN60N9bR5+YQqu9raEKZmtLRlqAM+KawBR1f0g=;
-	h=From:To:CC:Subject:Date;
-	b=n+hIZAP+oZABrfGZj8BsJHTYQdG4S0tReAJsZgI7RrslhlR8BWxVRUtNiQj8YGPk/
-	 Ig4BH/OFoVu9dDjX2yL0CFDWBLyZKWkjryODb8Ldu5n4FeylMUabLTQdsnMmXC3hz1
-	 Squ/7Xx0HkYLsqWQTmb7x7qYeT2mw0+fMaWYzLiw=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49U4kEcT011362
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 29 Oct 2024 23:46:14 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Oct 2024 23:46:14 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
+	s=ti-com-17Q1; t=1730263821;
+	bh=YmeylMQuOayChRfW0IDabRowok9NC3hm9gjKzsrLg44=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=iKKFJFPKNgg+ClxApux7NwKL2cElGwNjvGliBMUhs98FRnCEXGes1SfXe2lrEuo03
+	 QL5Yn+tnZOCPTdnpTwwYxD6/RtJnooE9WaJBJUR1itZZ9Z1o1vpe67kjPuwcA0PYjr
+	 vZE0+BnULwDQilzi90P3hRxr6pb8yRCwKK4r89gw=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4oLEH084473;
+	Tue, 29 Oct 2024 23:50:21 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE105.ent.ti.com
  (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Oct 2024 23:50:20 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Oct 2024 23:46:14 -0500
-Received: from lcpd911.dhcp.ti.com (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4kAHe056490;
-	Tue, 29 Oct 2024 23:46:11 -0500
-From: Dhruva Gole <d-gole@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Dhruva Gole <d-gole@ti.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Bryan Brattlof <bb@ti.com>,
+ Frontend Transport; Tue, 29 Oct 2024 23:50:20 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4oG3q002974;
+	Tue, 29 Oct 2024 23:50:17 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>,
         Wadim Egorov
 	<w.egorov@phytec.de>
-Subject: [PATCH v2] arm64: dts: ti: k3-am62: use opp_efuse_table for opp-table syscon
-Date: Wed, 30 Oct 2024 10:15:53 +0530
-Message-ID: <20241030044553.3225383-1-d-gole@ti.com>
-X-Mailer: git-send-email 2.34.1
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <d.schultz@phytec.de>, <nm@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am62-phycore-som: Add M4F remoteproc nodes
+Date: Wed, 30 Oct 2024 10:20:13 +0530
+Message-ID: <173021674669.3859929.16997677774746918158.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20240911124251.702590-1-w.egorov@phytec.de>
+References: <20240911124251.702590-1-w.egorov@phytec.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_214619_614603_82B9564F 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20241029_215027_010943_19CD1DC4 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,78 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add another entry in the wkup_conf for the syscon node, and then use
-that for the syscon in opp-table.
+Hi Wadim Egorov,
 
-Marking entire wkup_conf as "syscon", "simple-mfd" is wrong and needs to
-be addressed similar to how other child-nodes in wkup_conf are implemented
-in the same file.
+On Wed, 11 Sep 2024 14:42:49 +0200, Wadim Egorov wrote:
+> The AM62x SoCs of the TI K3 family have a Cortex M4F core in the MCU
+> domain. This core can be used by non safety applications as a remote
+> processor. When used as a remote processor with virtio/rpmessage IPC,
+> two carveout reserved memory nodes are needed. The first region is used
+> as a DMA pool for the rproc device, and the second region will furnish
+> the static carveout regions for the firmware memory.
+> 
+> [...]
 
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
----
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-Since the driver fixes for ti-cpufreq.c have made it in -next [1],
-The DT fixes for SK-AM62x can be supported with support for legacy
-style DT as well. This has been tested on SK-AM62x [2]
+[1/3] arm64: dts: ti: k3-am62-phycore-som: Add M4F remoteproc nodes
+      commit: 703545f04465134e41654dd32c583af424c0ba54
+[2/3] arm64: dts: ti: k3-am64-phycore-som: Add M4F remoteproc nodes
+      commit: a13f11477e5bf249e67b9a147a6ec88667ab459a
+[3/3] arm: arm64: dts: ti: k3-am642-phyboard-electra-rdk: Enable trickle charger
+      commit: 62898d47a6265b5e37a7e253067230f05c0a3165
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/drivers/cpufreq/ti-cpufreq.c?id=1724ae88efcbcd0daeb203ffeb4a2c0e59f2ddf7
-[2] https://gist.github.com/DhruvaG2000/40b80cc04a9ac90c86445d6e67ece4cb
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Changelog:
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Changes in v2:
-- Deleted PATCH to Make the AM625 efuse_offset 0, because with [1] we no
-  longer break backward compatibility and hence need to preserve the old
-  offset.
-- Link to v1:
-  https://lore.kernel.org/linux-arm-kernel/20240902093222.2828345-3-d-gole@ti.com/
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
----
- arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 7 ++++++-
- arch/arm64/boot/dts/ti/k3-am625.dtsi       | 2 +-
- 2 files changed, 7 insertions(+), 2 deletions(-)
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-index e0afafd532a5..b2b65e31c7cf 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-@@ -10,7 +10,7 @@
- &cbass_wakeup {
- 	wkup_conf: syscon@43000000 {
- 		bootph-all;
--		compatible = "syscon", "simple-mfd";
-+		compatible = "simple-bus";
- 		reg = <0x00 0x43000000 0x00 0x20000>;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
-@@ -22,6 +22,11 @@ chipid: chipid@14 {
- 			reg = <0x14 0x4>;
- 		};
- 
-+		opp_efuse_table: syscon@18 {
-+			compatible = "ti,am62-opp-efuse-table", "syscon";
-+			reg = <0x18 0x4>;
-+		};
-+
- 		cpsw_mac_syscon: ethernet-mac-syscon@200 {
- 			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
- 			reg = <0x200 0x8>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am625.dtsi b/arch/arm64/boot/dts/ti/k3-am625.dtsi
-index c3d1db47dc9f..c249883a8a8d 100644
---- a/arch/arm64/boot/dts/ti/k3-am625.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am625.dtsi
-@@ -108,7 +108,7 @@ cpu3: cpu@3 {
- 	a53_opp_table: opp-table {
- 		compatible = "operating-points-v2-ti-cpu";
- 		opp-shared;
--		syscon = <&wkup_conf>;
-+		syscon = <&opp_efuse_table>;
- 
- 		opp-200000000 {
- 			opp-hz = /bits/ 64 <200000000>;
-
-base-commit: dec9255a128e19c5fcc3bdb18175d78094cc624d
--- 
-2.34.1
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
 
