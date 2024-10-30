@@ -4,97 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBDBD6B6B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F5AD6B6BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzL62SVyIjejPV0WK5Icvrl5yXIEFUYP1mc1b47FbtQ=; b=LhiJfWP1CVvqZYL07XaTHi2hew
-	WbEYR9lbKBsupNWBNi+Ba5kt/ZmqSiRk8YkRl5ZmJlGRYra0LCMq3qXoHbzMzzK4/VnQ4kR8F3WZJ
-	5LOSCl4RGMUJ6WAse6wFiZb8Iu/fg26Xkiop5huY+pivPvIZ8/aoKe/g/C6lPQ5GYvSuXA2xsu97O
-	5FOg7mP3QqLMUx18JrpGg/3r95QnvgIoG9qpLXToqLFye7AJDbpl6SHnKI0BjhvU8XH/Iko+lWTay
-	sXoJBGlAdXyJ1IEZrx/4qKD0T97Sgo8pPRyg5GBImGSeyTwkmZiKSWymcF2AbysYYTuNOnsvEIoKO
-	/IlSR49w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=; b=TnR7/R2gBY42mdS5JyLLUVbvI3
+	uRNjPJOPlDC2fVvScNySh+L/aSyOk56a9/wBf0rPpLvpOwUPKTkh/n1eHUX4yQr2GC1pcFVhfBODl
+	BQVv6ZuM93SCIjhYUJl9e1BWsa0cYJ+yP5WqpFIuZnlnPasnwVwYNCb0Ev84V3PZ7NGMycBQ+frEN
+	jzSR8si/nNrE6XAvWsx8518EAMRubEzD7sOQBDADCRaNYdED5PWoPCxm6Gc12YNl5L02gFNnTKemi
+	rjNEdbdIQu4NhcZu7W4U2joEFRPezqS1DUcT8+7Kk6ZPmppux0dDNs/vRMNI1L5dxtPdrBEYMatwX
+	4x6gM1Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DEW-00000001PjY-2pBQ;
-	Wed, 30 Oct 2024 18:15:52 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1t6DGd-00000001PwI-3gUf;
+	Wed, 30 Oct 2024 18:18:03 +0000
+Received: from mail-bn8nam11on20612.outbound.protection.outlook.com ([2a01:111:f403:2414::612] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6C19-000000019F4-43St
+	id 1t6DDu-00000001Pe8-41VA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 16:58:03 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-7ae3d7222d4so90237a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 09:57:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1730307479; x=1730912279; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pzL62SVyIjejPV0WK5Icvrl5yXIEFUYP1mc1b47FbtQ=;
-        b=YA6qxldzjOOnXm3wa+DSumWLpP995LxmFVwXL0/9L1QMH09Aq/KychI6s5VJRhspYz
-         B1CotZZ4/UGWuX62SojA4kPehcMLPIovNf9wrBirZPOHyQH3Urmt3l4mbdPxWcUZI4hf
-         9IoCjSGReE5wDt5LtZsAt5cNbk8fIbFBO+w3IM/mmnnJfQ15GCirM4JmRfQLlzeapgGN
-         88cKkRiYzAlVOPgt7VnYICe80BokDH1KxkjJRcyx7+gyzduZGpUD6XK4qiM852vTi6+a
-         uLhF/MWVtN+9YkrceL+1cKk1LuUpNoBCASSQWt/3kqW2aO+0IsEs51bPeP+c3sTib7PX
-         7hhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730307479; x=1730912279;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pzL62SVyIjejPV0WK5Icvrl5yXIEFUYP1mc1b47FbtQ=;
-        b=Yh49AHCKgZzbW/orLR57gDCQeVbWgk95DVVB2pH+NrhJ3zHP+RQAcEteBCfHCn2/70
-         KlXHtjQR/TiAHA2pzyAnIMkEEMLx9zKVMLf900+e9RZwpVIQ1aH7T/ceWyrvWLnsOPuh
-         LrP4i2CfS+4SsrBVFlaxNc5zGs9PZGiojB1bywdTsQ06k8u99uFnVpkoq/fgi5gkRGy+
-         kgBR2eIuQP00ba0YQ9RzzeUykecGJA3PzVU8TyE3weP040AtkME5hs9QrO+xZO25R57/
-         1E5s5GCUrd1BiPsvbhEuNyJsf9C0HXHf+HTTL4mvzQW2lvvlVw8s257/WPo8RFWUMc7H
-         fsqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURFtNTZNYjcu7tvF4gvv1DgFjNA1Z1uadb1oyssrQ4sMgUEShlbaaJnDmy7JpzLoz47DbzBlB6HdIua78Qu/Dg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDxb82mKt7lLUyMTD3HzaAMMeh4yseRgLCmz5eX0vLM+gQ1EBi
-	LtjpJJ+6RFbJ8JoBdi01ju2MtQXuyoBoYay72gtW4DtcYH8/Ai0ccQalGwI92Wk=
-X-Google-Smtp-Source: AGHT+IE8bL+epQxJK6CXce+NuA003s35k7m7I3D6tHPjdUbTchJcFFfnxiHRxOXvx11kN2Kqf0lARg==
-X-Received: by 2002:a05:6a21:6e41:b0:1d9:175a:c2ba with SMTP id adf61e73a8af0-1db91d8b4b5mr85520637.20.1730307478935;
-        Wed, 30 Oct 2024 09:57:58 -0700 (PDT)
-Received: from [127.0.1.1] (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72057a1f1ddsm9810776b3a.149.2024.10.30.09.57.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 09:57:58 -0700 (PDT)
-From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Wed, 30 Oct 2024 09:57:44 -0700
-Subject: [PATCH net-next v6 1/2] dt-bindings: net: Add T-HEAD dwmac support
+	Wed, 30 Oct 2024 18:15:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j2nubCJBbd/HE9LGKD0fuwApPNylo5Y6+5I75YIfi0+G6sMWfAe4OoLNhWr6VSoc8GFTFTHJsvf0ECQ8tB5BZH1KHnqCsbeX9BotcjRrZtBj3DsyD9Zbu16OQ14z5Soxvylfnn7eo6kdbIyEj/uM4HvbfTO8kJc2eEzdv1PIWpx/PNozHwgD7Lf+OlGdXVzA9/sXZq5EYELzF8klkF7MTNKah9s0J71y4w4Q8acNAOlSwnka+LlfcAML56276mnBI467FJ4fjpByDH1pO2lBFfNZjc+yORryf0ECxjXYrtjJ4xfd27roBC5sIKH6NeGdEaE1w8Dnk60LOFFiZICJAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=;
+ b=l04F6ueVL5GZUvwpszeH42+iNY5FzrGUmWJx6m31ytv7JlpfOkwEYdOXNAoSGhIv+Uw6wopgxKW/JKemjVMXHi2J2c6bZprTRdHTOFdm+o42+NscyYG7+Fw+uofBpCCdp3xF4S/6ja6oMcdoAgvBjPlpvPjRRZj58ZAto3KmIRdkjyv79N+uvLDfK3/VTEhoMeQqIb9tjLFiCv7bJKyM8CjkyQQBhGwEXmBQb9Usu8LhNVRc49IDULtkGObDXC5YoSG7l+XrCGJdYM/NbufhBZV776jOnN1cBTK55urnLG2hyRQ+PRVhw76dkyBtWSm5BhrSui3f07zBXYV2NaUb/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HO28bZ5Gg2rFGrwI//R4BquO0jRfn9h2OpIHOAgeWdw=;
+ b=HT7DGIhVIg+WazqeFLpiq5+Jrlb7B7G17cct3oU7yaQW0jXjTkes1j1nRTzUZira9WsM2YVgdq/uNe1IcSJaWwUkJJg+IcONKSnX9rjAz9THX90SAWEnv39FPZXB9UDRrgm2XZ3kqn5aoUso0xaAFKTU45ZlY6/haHVEwDnmY05pBiOESwRyUds+vtzKvJLPXWI71diCnWdE6R36p0ja2D0rqEvKtBX2zFNBpe4wSpqO08vn/TOBfMiyathXkLPEadyrzEowpcGmgLHfmewW3E2tbH05Q0qin2Immp78HZ2TKvsnxcB4Q0CajHCcDi5ba0GkG7Q5A9BsUgScBMmLnQ==
+Received: from DM6PR10CA0024.namprd10.prod.outlook.com (2603:10b6:5:60::37) by
+ PH7PR12MB5878.namprd12.prod.outlook.com (2603:10b6:510:1d6::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Wed, 30 Oct
+ 2024 18:15:09 +0000
+Received: from DS3PEPF000099D6.namprd04.prod.outlook.com
+ (2603:10b6:5:60:cafe::5) by DM6PR10CA0024.outlook.office365.com
+ (2603:10b6:5:60::37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20 via Frontend
+ Transport; Wed, 30 Oct 2024 18:15:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF000099D6.mail.protection.outlook.com (10.167.17.7) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.16 via Frontend Transport; Wed, 30 Oct 2024 18:15:09 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
+ 2024 11:14:50 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Oct
+ 2024 11:14:50 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Wed, 30 Oct 2024 11:14:48 -0700
+Date: Wed, 30 Oct 2024 11:14:47 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Mostafa Saleh <smostafa@google.com>, <acpica-devel@lists.linux.dev>,
+	Hanjun Guo <guohanjun@huawei.com>, <iommu@lists.linux.dev>, Joerg Roedel
+	<joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>, <kvm@vger.kernel.org>,
+	Len Brown <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Robert
+ Moore" <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, "Sudeep
+ Holla" <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, Alex Williamson
+	<alex.williamson@redhat.com>, Eric Auger <eric.auger@redhat.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Moritz Fischer
+	<mdf@kernel.org>, Michael Shavit <mshavit@google.com>,
+	<patches@lists.linux.dev>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH v3 5/9] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via
+ struct arm_smmu_hw_info
+Message-ID: <ZyJ3l02hiHDgPZWQ@Asurada-Nvidia>
+References: <0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+ <5-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com>
+ <ZyJdzBgiP70MOtcP@google.com>
+ <20241030175615.GJ6956@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241030-th1520-gmac-v6-1-e48176d45116@tenstorrent.com>
-References: <20241030-th1520-gmac-v6-0-e48176d45116@tenstorrent.com>
-In-Reply-To: <20241030-th1520-gmac-v6-0-e48176d45116@tenstorrent.com>
-To: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241030175615.GJ6956@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099D6:EE_|PH7PR12MB5878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4af331e6-41ec-48f0-03ce-08dcf90eca1e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mrTgAMmGDI8UCOv7xe+khNjL0oGVU51Q7MUk7suN289hI8nFrTwkyVr0q3uu?=
+ =?us-ascii?Q?/mVMLsVxF6yrhJAWxfw1OGoE9tHT3RRfQL7ZppekvjczD2hwG+cO7GueLvFo?=
+ =?us-ascii?Q?XFonV9bMb8ayADl5k19iyK+jD/YKde9tsDz7XDYyZUSEyqZpU0pSzxnFS/NY?=
+ =?us-ascii?Q?tZkAM6xQUzMqf8lnF7QPQ20BjmVKDQNkZfwk/eYgQXgKXJRHGJYFIGf4VHFc?=
+ =?us-ascii?Q?4N18PwdJ2oiKeO+EFGmuH0VWbdZrwicCZsz1YezJJtAn//jhaUedBe/ia5UT?=
+ =?us-ascii?Q?OBgy45Za5ZMsuliEIxwR5aiZKvXVtDPJ6M01fQHo3dZKZPT6hRb4lkum8t+Q?=
+ =?us-ascii?Q?X32y1S9L3wHZW0pchHOO2qRsStMlV8KWHDXWBDReodo8ZWsAG7Kf6tEO0qfl?=
+ =?us-ascii?Q?PDzDiq6gMIVlDyNNDtJCLko2cF/03/Bny/C1jHHTaLx6eQoYk431E4/32Mtx?=
+ =?us-ascii?Q?Pbko/YwUGeZiK5FqsLdDmeN4TsfPHoQJAc8tcTsKn5PA1dMc06IMahGJ+tTx?=
+ =?us-ascii?Q?XJKYiKnTb3asxdOr2I3i6yMVL4oVoKkDKR8ibTC2mefG6MeATdWrgc1yl9GA?=
+ =?us-ascii?Q?UjqiYChDkpuanr7axQLNCvxSovzz+DXQRYm7qLdeGcOGSreof8l376yO0eMi?=
+ =?us-ascii?Q?acdroBGEsJQIGhdNhG5VbmQvAr13kTtA16TRDWm3UuDp9jv+l//Mzk4ZdtZx?=
+ =?us-ascii?Q?Q3CCzBzBU8tMuS09VTadNPXOW9fXYd1wb74HkrZhMWPkuZ12m/Aa27TgEnkY?=
+ =?us-ascii?Q?ZI5SQlX5O2QyYuAjJt+vkaTubf818QTF7UhifwbPbZvZ7ROs0Q3eWHOyNRcG?=
+ =?us-ascii?Q?3QCfXNENiQ/UTCKxIXVXFVTlRtaxFoazG//r8JaGCdZDvhLN4n07x6IcMKB9?=
+ =?us-ascii?Q?76yNKuK1o/Po/lTm1LZxAY0JMpyabGaUTBqoNoN8vyrWE9cC5mzfpWrZlyUU?=
+ =?us-ascii?Q?w4Dum31adX7DH8wnsv4/2S0Iq2drkEHWvyKs1gjYY4rjM7Gqzhg93ILUBSQq?=
+ =?us-ascii?Q?GoGZjjLNjACDexJCWN3MhoPWsp8DWMVWlg7HRFDlmhNZH+v0fSFnHbXnt6xg?=
+ =?us-ascii?Q?03O80IueV+vmjO6oSIjPlMjdvpI1LswKuFIlmjAQid2DrqV4VhsXwioZhsgP?=
+ =?us-ascii?Q?SyDbaU8KJkcH/6mG01OZZItCAeJe9I7iYy977S3T9Kqjhqa+sPXLCyz0NkKL?=
+ =?us-ascii?Q?5+hV9pafNDsL0kwwXkTqbmlpvAsVSITJEsEj1llyZbIvVu9ljvUOzwhNCwum?=
+ =?us-ascii?Q?bG4NheUmEtReIe5B3r7I1wSiwWoWIRKpIc9XEwbWMWzKSCcy+xbLCI/uKIrs?=
+ =?us-ascii?Q?y53Vn8BTO6EzUEcQNxA8Ix1XhEnqB+lkOfV/Xnf5v7q5ugVI0OW+jumw4C1a?=
+ =?us-ascii?Q?YdR9x5fP3EPGIIgP2Qb6lAzOt2R5uOjQUx+yEj34IgwYTT2+tg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 18:15:09.4342
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4af331e6-41ec-48f0-03ce-08dcf90eca1e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D6.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5878
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_095800_821039_11BC5CBB 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20241030_111515_028890_A3F904B7 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,166 +162,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+On Wed, Oct 30, 2024 at 02:56:15PM -0300, Jason Gunthorpe wrote:
+> On Wed, Oct 30, 2024 at 04:24:44PM +0000, Mostafa Saleh wrote:
+> > > +void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
+> > > +{
+> > > +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+> > > +	struct iommu_hw_info_arm_smmuv3 *info;
+> > > +	u32 __iomem *base_idr;
+> > > +	unsigned int i;
+> > > +
+> > > +	info = kzalloc(sizeof(*info), GFP_KERNEL);
+> > > +	if (!info)
+> > > +		return ERR_PTR(-ENOMEM);
+> > > +
+> > > +	base_idr = master->smmu->base + ARM_SMMU_IDR0;
+> > > +	for (i = 0; i <= 5; i++)
+> > > +		info->idr[i] = readl_relaxed(base_idr + i);
+> > > +	info->iidr = readl_relaxed(master->smmu->base + ARM_SMMU_IIDR);
+> > > +	info->aidr = readl_relaxed(master->smmu->base + ARM_SMMU_AIDR);
+> > 
+> > I wonder if passing the IDRs is enough for the VMM, for example in some
+> > cases, firmware can override the coherency, also the IIDR can override
+> > some features (as MMU700 and BTM), although, the VMM can deal with.
+> 
+> I'm confident it is not enough
+> 
+> BTM support requires special kernel vBTM support which will need a
+> dedicated flag someday
+> 
+> ATS is linked to the kernel per-device enable_ats, that will have to
+> flow to ACPI/etc tables on a per-device basis
+> 
+> PRI is linked to the ability to attach a fault capable domain..
+> 
+> And so on.
+> 
+> Nicolin, what do your qemu patches even use IIDR for today?
 
-Add documentation to describe the DesginWare-based GMAC controllers in
-the T-HEAD TH1520 SoC.
+Not yet.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-[drew: rename compatible, add apb registers as second reg of gmac node,
-       add clocks and interrupts poroperties]
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
- .../devicetree/bindings/net/thead,th1520-gmac.yaml | 110 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 3 files changed, 112 insertions(+)
+I think this is a very good point. Checking IIDR in VMM as the
+kernel driver does is doable with the iommu_hw_info_arm_smmuv3
+while a firmware override like IORT might not..
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 4e2ba1bf788c..474ade185033 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -99,6 +99,7 @@ properties:
-         - snps,dwxgmac-2.10
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-+        - thead,th1520-gmac
- 
-   reg:
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-new file mode 100644
-index 000000000000..6d9de3303762
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-@@ -0,0 +1,110 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/thead,th1520-gmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD TH1520 GMAC Ethernet controller
-+
-+maintainers:
-+  - Drew Fustini <dfustini@tenstorrent.com>
-+
-+description: |
-+  The TH1520 GMAC is described in the TH1520 Peripheral Interface User Manual
-+  https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
-+
-+  Features include
-+    - Compliant with IEEE802.3 Specification
-+    - IEEE 1588-2008 standard for precision networked clock synchronization
-+    - Supports 10/100/1000Mbps data transfer rate
-+    - Supports RGMII/MII interface
-+    - Preamble and start of frame data (SFD) insertion in Transmit path
-+    - Preamble and SFD deletion in the Receive path
-+    - Automatic CRC and pad generation options for receive frames
-+    - MDIO master interface for PHY device configuration and management
-+
-+  The GMAC Registers consists of two parts
-+    - APB registers are used to configure clock frequency/clock enable/clock
-+      direction/PHY interface type.
-+    - AHB registers are use to configure GMAC core (DesignWare Core part).
-+      GMAC core register consists of DMA registers and GMAC registers.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - thead,th1520-gmac
-+  required:
-+    - compatible
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - thead,th1520-gmac
-+      - const: snps,dwmac-3.70a
-+
-+  reg:
-+    items:
-+      - description: DesignWare GMAC IP core registers
-+      - description: GMAC APB registers
-+
-+  reg-names:
-+    items:
-+      - const: dwmac
-+      - const: apb
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: Peripheral registers interface clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: pclk
-+
-+  interrupts:
-+    items:
-+      - description: Combined signal for various interrupt events
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+
-+required:
-+  - clocks
-+  - clock-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    gmac0: ethernet@e7070000 {
-+        compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-+        reg = <0xe7070000 0x2000>, <0xec003000 0x1000>;
-+        reg-names = "dwmac", "apb";
-+        clocks = <&clk 1>, <&clk 2>;
-+        clock-names = "stmmaceth", "pclk";
-+        interrupts = <66>;
-+        interrupt-names = "macirq";
-+        phy-mode = "rgmii-id";
-+        snps,fixed-burst;
-+        snps,axi-config = <&stmmac_axi_setup>;
-+        snps,pbl = <32>;
-+        phy-handle = <&phy0>;
-+
-+        mdio {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            compatible = "snps,dwmac-mdio";
-+
-+            phy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f39ab140710f..72dee6d07ced 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19827,6 +19827,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://github.com/pdp7/linux.git
- F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
- F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+Thanks
+Nicolin
 
--- 
-2.34.1
-
+> It wouldn't surprise me if we end up only using a few bits of the raw
+> physical information.
+> 
+> > Maybe for those(coherency, ATS, PRI) we would need to keep the VMM view and
+> > the kernel in sync?
+> 
+> Definately
+> 
+> Jason
 
