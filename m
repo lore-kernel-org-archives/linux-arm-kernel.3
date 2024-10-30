@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C195D5CCA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437F0D5CC9F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWgQKaEJsBWQZzZRi7igT98SmnXpUOoVlYgKJAFqdSY=; b=IjFqYRvvVxQkITI7fYemV7s6S2
-	J1/SKwyjlpowWzD72smMxs8jElo0OrpXOTDPNBBx6awcX0/+YGLQ9wS8Tob5PsXuR1j+sSOPnsE5e
-	GD2kk5wW0pUH5qnz1RWZh3O6T+PLHW0bp1pscTC1jT2xv8o+KtyVVoHRTkmnDfTQbAHl4vE4u3yaJ
-	1lVjNo5x5rKhy1rcek1o05SFFYZ5tpyf/1sUnivJgztZ3npQ8DvDIsB4pk2UyqtOCI8N+CZvTJNgX
-	M4menzkOaAO+Mmg+fy/I4KzmOt+v1qXdWyk08Ug1tb0zFZEPTCQnYkTbYwyfb5ZzQq3VC+q7yld4r
-	PCoMIWzw==;
+	bh=heM+XH6baATko105nYV8E2040lmy0LhxFZdot+CyuRw=; b=wfZK95Hvtx7rM3sD4OF4Md5W6a
+	b9HDkvrubeSfwvJGy0CdCWj4AT7D80yNCeJnTcgxfwiMDuYSuNdt4j/ALzAEx5IQUJeyPLF34KNxs
+	4DMKeKBaJUfjXHgihTRo3hT6xskwvimSLBWRkV+uTwF3QtfX2Y2B1UqhGY3FAtXIGHkhOY4Ja+jMN
+	3h2Lp/5V/ipN7iW8aYGzy0cG/3JXcymFLIQZZnZwZYoII4bTER3fjda8jvnJtZcged1edwLkLgRcU
+	D86q9kgApIpECOfmyAj+8ZvON73hc8LEIb+3eCQ4hlifcaboa7IDfijHCkqaTIUb9Z6ugo0HAzQ0t
+	BcvCOrSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67PI-00000000FgA-2sa0;
-	Wed, 30 Oct 2024 12:02:36 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1t67Qu-00000000G0B-2I5T;
+	Wed, 30 Oct 2024 12:04:16 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67Gn-00000000EEL-3yLA
+	id 1t67NC-00000000FUO-1sba
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:53:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730289219; x=1730894019; i=wahrenst@gmx.net;
-	bh=MWgQKaEJsBWQZzZRi7igT98SmnXpUOoVlYgKJAFqdSY=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=cSmHCIOUCj++5LC7QhLejuOpztGP6jWT/gxtBDFUumvabHlm/Y2gG+Hd2jd4/Q62
-	 qxVsIyOj3++GVRcY9V2sDz6ym16Vr9wgLUt/QTvuIEuTGXSVjs6LzAJSQjxBElRKI
-	 THUuTv4B5ZPER87my1uGE9U8vuCc1y3LEY3HrMG/iMCE4tFFSuoZS24pwJfZNfguI
-	 AYyh2af6sgy+LhKtkxZI9WwTFRYs1HWwURffRMUbLiRbrSAkdXvG8IOTk0XMKmnIZ
-	 rFEyTcxBiAFWFSzndp9KfqIc76gvSNPo1BegWudSLbGTNxeLK3Pv5+vPnD55Ezzg1
-	 gMf285AT9i4RsM8kGg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MLi8m-1tNmdv1jhg-00RLek; Wed, 30
- Oct 2024 12:53:39 +0100
-Message-ID: <9e239176-b1f2-45ef-a731-636f5a78aaa2@gmx.net>
-Date: Wed, 30 Oct 2024 12:53:38 +0100
+	Wed, 30 Oct 2024 12:00:28 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4316f3d3c21so60698295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 05:00:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730289624; x=1730894424; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=heM+XH6baATko105nYV8E2040lmy0LhxFZdot+CyuRw=;
+        b=XIKT+pY4yikhNKmLXwuoaYy102y5nInN3IoRBusSsKqowJ8PQUsaCmhT0aIwAWRWVo
+         dU9dW8akI0Sc0TJoWx2+tfnZvKFVLpSiEv8oqKcuf1Gym8e1pOwLGHzJ+km8NPFdag9/
+         YnAEcrZj8arHVVz0gLeTZ86alooyJ7DO2xEO+lIJFtcU1f3sRCliRblYas38YVm6g6a9
+         apZCL9ihfnwxIyz4WxVQ8ooO2a9HGjjBSA9ZmDssgZBScVjc2ojMzbl0k9is+9oLqvZD
+         PxnvvWl09smHFb6CbHjGUof7lqOv5R2YCVrPh9jIrK9FnFjamm0rd5kiuY+luPqccj4D
+         Lo5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730289624; x=1730894424;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=heM+XH6baATko105nYV8E2040lmy0LhxFZdot+CyuRw=;
+        b=vdvbSwW7yE7Ssv/dDY7HxfVDYQRaEEWmgZd1zHVOUP9OctXcrtBq4e5bqUPFAaKJ4C
+         Eii7mqJbCkxvLEUQQ38m1HDKa1FpKgZCH4NbOjGjuzQ21Ba2U5SYBhiKu77hK0ZqjmO6
+         jCdkpMH5JE9e2MquwvVTQr5T4YNnGau/zu0VTdUacqwZuG1pmPumd5olmU9LueX0KGwK
+         fqIoI5cx99YipRVLKWQzksN34ffveARUVf/uNLydr++L5f/eclyWqZrbLLzCp5Wx3y7h
+         5PyAN3rceamdBavpH27lnucnK4klqcFsm4IXHDXjluBMqHGQtmBcfZDLoJUPdDB+yq4F
+         +B3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUU3AtzsPKaLi+9TSGCRVNhhCiRV0QQJ0tZIApJwc8vl3FaunvHk1W7mHzmXJyEYZTNR6mQGfduWiiqfbA2z3RU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxp2Qu5Cst2HXI2e45munGqQtTzslaAkYl1uBpuw+6zpoyXde0M
+	nf+Q2KI995Zx+LjxpYg2CZOyr/mrBFwnMHsfqsTXtgt68yxneF/CJDATab0FKi4=
+X-Google-Smtp-Source: AGHT+IHdqyep7BVt0uyn5JbTz0KBCY80ohOEAxNDfe2YT8nR9HTsXFBe91fCaeMmIZfL9ezJQQxpbg==
+X-Received: by 2002:adf:ec8f:0:b0:374:b35e:ea6c with SMTP id ffacd0b85a97d-381b70ed1c3mr2049217f8f.40.1730289624347;
+        Wed, 30 Oct 2024 05:00:24 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9480e5sm19330995e9.16.2024.10.30.05.00.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 05:00:23 -0700 (PDT)
+Message-ID: <b5dcd5df-7215-4679-a6be-c45d525e8051@linaro.org>
+Date: Wed, 30 Oct 2024 12:00:22 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] soc: imx: Add SoC device register for i.MX9
-To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
-References: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
+Subject: Re: [PATCH v2 10/11] scsi: ufs: exynos: fix hibern8 notify callbacks
+To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
+Cc: andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-11-peter.griffin@linaro.org>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241025131442.112862-11-peter.griffin@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:nAU/v9tnjeYaZL9gXJfznUoO/fGQeGzQLDk/lF7wlo2mLonJGd8
- t3ckT9k1biAyNLgNra5/5wtPNnTm8gyTPWUlP7Ch7cDp8P8SqYKy8/yDlque1t9yHCjuimA
- mDINeeHSDyJB/T+4wYW0W1jwaILpOEXXwa9oe2rFXysQ6er7tNs081a3dq4Dyn4ZpdhX6O0
- kMbDQz2zLUXbM9lel5hHQ==
-UI-OutboundReport: notjunk:1;M01:P0:BkUbYhaiXek=;btPbuJ7l9uQvmb9M0f39zfxZrgj
- DEofWF3td4ONEWcaus8DgpUWv9xtX+VFnPbjEWUIpyfHrPfG6GBLM7SFgVsUzikqpNmmpvWIx
- 6phsJqVAU7VL1kvP+XwW4eIczmx7PDLRBcEv7bHAzgDZktQGcWMQWf66fZqbFJKnDT5RN46hV
- 9MyJ6vbd1GV3LOZJDTqhyq4j1SCYJZn9FnBa9AhJ3f+eDBEDNxnx3wnLuttf2aiRaDoam0/Vy
- jT4YEgb9TkFfdgNPM6NA2sEirS/czPjXWzV6Rk+G4n/KuUkfbpMGKp47w/KYc9nmQ8UTpD1Ma
- SJyQ8VjFdwiWYX0KvDt0QFKent+De1GoP3fLZE0ttEAd2/d/ztamJqe5FSFnK69zXQCpFMeam
- Ezv4tzeFTQfhSmDXf52Ybtshl9grM31NURhHGDkVe2AyxKLAfvzE9mGmiSNLmw26Q99/FphPx
- pJGS+AXQYeDyG4I5nKPTFfWoEwwaa/PYi7kiizBKKvgc3wFD1YgZyJl82PCoSO7U36UrO5dyU
- DplX1exVT/pmjh3KnyTRnopz57985EMzO/5AmHkoApLIthcQtJpsNvi1vww8qvisOwmMq0JMB
- 8wkPAQ3cWqGbjWqhzqX0GUgXW7O9lxhPKytMg07x1Jj0NVn3WrGK8l6hMZ9n+F3VaDPHxdSXB
- aao65i4aR/ftTarXObooCyodMK6XK8/TEEmGGbvbpTQElzjRO4ScRZRZKzda3fFlXUYLLBdc8
- SbyEvINex49v3VS5LEo7zHeNLRwYvhwx6TG1TGX3kvxHSTY3R7GAS2EH9iYHqecxOSQMp6AF4
- tPp2NFpcJ/SMHzKq4Hq//Vsg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_045350_325677_1A4FB0DB 
-X-CRM114-Status: GOOD (  25.88  )
+X-CRM114-CacheID: sfid-20241030_050026_864631_1C56A431 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,136 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alice,
 
-Am 30.10.24 um 10:13 schrieb alice.guo@oss.nxp.com:
-> From: "alice.guo" <alice.guo@nxp.com>
->
-> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-> which are provided by the corresponding ARM trusted firmware API. This
-> patch intends to use SMC call to obtain these information and then
-> register i.MX9 SoC as a device.
->
-> Signed-off-by: alice.guo <alice.guo@nxp.com>
-> ---
->
-> Changes for v2:
->   - refine error log print
-> Changes for v3:
->   - return -EINVAL when arm_smccc_smc failed
->   - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __func__, res.a0);
->   - drop the pr_err in imx9_soc_init
->   - free the memory in the reverse order of allocation
->   - use of_match_node instead of of_machine_is_compatible
->
->   drivers/soc/imx/Makefile   |   2 +-
->   drivers/soc/imx/soc-imx9.c | 106 +++++++++++++++++++++++++++++++++++++
->   2 files changed, 107 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/soc/imx/soc-imx9.c
->
-> diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-> index 3ad321ca608a..ca6a5fa1618f 100644
-> --- a/drivers/soc/imx/Makefile
-> +++ b/drivers/soc/imx/Makefile
-> @@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
->   obj-$(CONFIG_ARCH_MXC) += soc-imx.o
->   endif
->   obj-$(CONFIG_SOC_IMX8M) += soc-imx8m.o
-> -obj-$(CONFIG_SOC_IMX9) += imx93-src.o
-> +obj-$(CONFIG_SOC_IMX9) += imx93-src.o soc-imx9.o
-> diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-> new file mode 100644
-> index 000000000000..823395584533
-> --- /dev/null
-> +++ b/drivers/soc/imx/soc-imx9.c
-> @@ -0,0 +1,106 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright 2024 NXP
-> + */
-> +
-> +#include <linux/arm-smccc.h>
-> +#include <linux/init.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/slab.h>
-> +#include <linux/sys_soc.h>
-> +
-> +#define IMX_SIP_GET_SOC_INFO	0xc2000006
-> +#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-> +#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-> +#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-> +
-> +static int imx9_soc_device_register(void)
-> +{
-> +	struct soc_device_attribute *attr;
-> +	struct arm_smccc_res res;
-> +	struct soc_device *sdev;
-> +	u32 soc_id, rev_major, rev_minor;
-> +	u64 uid127_64, uid63_0;
-> +	int err;
-> +
-> +	attr = kzalloc(sizeof(*attr), GFP_KERNEL);
-> +	if (!attr)
-> +		return -ENOMEM;
-> +
-> +	err = of_property_read_string(of_root, "model", &attr->machine);
-> +	if (err) {
-> +		pr_err("%s: missing model property: %d\n", __func__, err);
-> +		goto attr;
-> +	}
-> +
-> +	attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
-> +
-> +	/*
-> +	 * Retrieve the soc id, rev & uid info:
-> +	 * res.a1[31:16]: soc revision;
-> +	 * res.a1[15:0]: soc id;
-> +	 * res.a2: uid[127:64];
-> +	 * res.a3: uid[63:0];
-> +	 */
-> +	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-> +	if (res.a0 != SMCCC_RET_SUCCESS) {
-> +		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-> +		err = -EINVAL;
-> +		goto family;
-> +	}
-> +
-> +	soc_id = SOC_ID(res.a1);
-> +	rev_major = SOC_REV_MAJOR(res.a1);
-> +	rev_minor = SOC_REV_MINOR(res.a1);
-> +
-> +	attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-> +	attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
-> +
-> +	uid127_64 = res.a2;
-> +	uid63_0 = res.a3;
-> +	attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
-> +
-> +	sdev = soc_device_register(attr);
-> +	if (IS_ERR(sdev)) {
-> +		err = PTR_ERR(sdev);
-> +		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-> +		goto serial_number;
-> +	}
-> +
-> +	return 0;
-> +
-> +serial_number:
-> +	kfree(attr->serial_number);
-> +	kfree(attr->revision);
-> +	kfree(attr->soc_id);
-> +family:
-> +	kfree(attr->family);
-> +attr:
-> +	kfree(attr);
-> +	return err;
-> +}
-> +
-> +static const struct of_device_id imx9_soc_match[] = {
-> +	{ .compatible = "fsl,imx93", },
-> +	{ .compatible = "fsl,imx95", },
-What happend to fsl,imx91 ?
 
-Best regards
+On 10/25/24 2:14 PM, Peter Griffin wrote:
+> v1 of the patch which introduced the ufshcd_vops_hibern8_notify() callback
+> used a bool instead of an enum. In v2 this was updated to an enum based on
+> the review feedback in [1].
+> 
+> ufs-exynos hibernate calls have always been broken upstream as it follows
+> the v1 bool implementation.
+> 
+> [1] https://patchwork.kernel.org/project/linux-scsi/patch/001f01d23994$719997c0$54ccc740$@samsung.com/
+
+you can use the Link tag, Link: blabla [1]
+
+A Fixes tag and maybe Cc to stable? Or maybe you chose to not backport
+it intentionally, in which case you have to add:
+Cc: <stable+noautosel@kernel.org> # reason goes here, and must be present
+
+In order to avoid scripts queuing your patch. It contains "fix" in the
+subject, there's a high probability to be queued to stable.
+
+With these addressed:
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
