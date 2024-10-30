@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D370D6B6D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D17D6B6D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 20:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kr3pdSxJAC17iJeJYanChxc13xKqGSdNWwjLg2lSZvQ=; b=zbezPBaqvykXY4dKldlUMMBYmb
-	XbrGN+3VF2ElCZztlU7iqBdyJRqpvT1k4JoBsEhzyqpn/HrJz8iHwWvDJB/8V5QBU2Ip/pwZBr6oB
-	pMX68PwnNfbkEo7nAjdwUzaOrU0XmYF+lfr8tkBj7mjGihEOZZfDvKfu4fx/Yog8n9rqNFltmYvKD
-	f8PaH79RwWsRQtO2Vt5RaI+hmCu+JdGodyrB8zj0Pkn3XfhgeNGpWrJqvqscr8VL8k6QKsfTwEJsX
-	nHCMIuHinoMCpIw4BE6mpOBH7FS7d8n+XAkWV7uj+87tDEkGLzbqM6ZGYX6/9Q4AQaMwt5+prBvwO
-	0p4bqDlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9lNt4LfOCgp3nDnbJMhrOMducTMBgRYFbVqS645kX4Q=; b=kPrKYJ9euGLTSX
+	rSu/BZU7+7TdqDKZzsDlu7u/Ured1QkdOo4gGWl7XfYCwLh4cJbg948JHVMy+Fu2FLkNX0VniKsnl
+	SGtv16tcJF2Z5U8/CPtIlOveieLyvdI5yxFt3S25R2ivdfuKfSfvnwxfA4OsKaq+o6KV8RcEch5R/
+	749V2jM/LEOnzxFc4YUQET8AcVcUzHFMgidPk3xXqGCdsqHg7zvF+yWKDu9J8HtYQjUHNBsjygaOa
+	EbLiB8acQH4E/ebIho848Wc8cXN5PDO6AvT5H1S3uNyvuTUg6Nytr+apz143fq2dxLS6XQZsA8Nr/
+	GgEhQuROP5C9NBaZXP2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6FMV-00000001g5D-3YDC;
-	Wed, 30 Oct 2024 20:32:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t6Ff7-00000001jqT-3oXf;
+	Wed, 30 Oct 2024 20:51:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6FJK-00000001fR0-1Hw2
+	id 1t6FdT-00000001jR7-04I8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 20:28:59 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U9NqxQ030781;
-	Wed, 30 Oct 2024 20:28:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	kr3pdSxJAC17iJeJYanChxc13xKqGSdNWwjLg2lSZvQ=; b=YSlotxyym6FVmk/V
-	SnXHsMD0n13gRWDZmsK3trIxBa4OvVGcSkaIMGMUd29nkmJXfQyfj+qy1eDM5ioC
-	UiNK3viw0QAQ1mM18CSaTXOfqPI2bximPf5mAYVObmYwDa7Ko571LlUJalLgbsaW
-	xqvWer8e4GhKSfNg4HXtc1PpUXl4NPR3SlRq3NmYYnLznX8aGxMrqvPOUtA3M0gN
-	xwEM1xMzDUQfmppV851r4nuq39PoVuW59tSCQI72e5SrUupedsqWVSJ4ctnBO2PC
-	5wVBfd3CLSARyd0oSQ+KS3/nWtnjsSfr6sQIk9rJnRXi4HVYATU446oxd5yjrYEa
-	lRwvCw==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gqcqwa0f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 20:28:46 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UKSktF031408
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 20:28:46 GMT
-Received: from [10.216.13.3] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 30 Oct
- 2024 13:28:40 -0700
-Message-ID: <92f0df16-c755-49c2-8356-0b7b94754390@quicinc.com>
-Date: Thu, 31 Oct 2024 01:57:47 +0530
+	Wed, 30 Oct 2024 20:49:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F4525C54BC;
+	Wed, 30 Oct 2024 20:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804A3C4CECE;
+	Wed, 30 Oct 2024 20:49:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730321385;
+	bh=+yvwE337Qdag2rGuNvdsfIda3dNqnIov5peBktID6b0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=n/1jmtKzwNjxrgBgr0XHhgb5joWzPDKskC4fLKe8EGDkTBSzI/HcVjnV0CDBIxCtl
+	 B+9fZMh4aMIaW6aHFZPAcBqfGLorbZmaAD60I3yJPVQ0Fi8MRqDz9w9UEK4iI7eqBY
+	 X7Bf36R90rtMJVzm1LXgDWU8DxSXHENUszkIF0CEnf/1MXrGrk4TiD9Fx0VfKlJXb9
+	 hOAOoy2mhUuTflyScniRBSJu3Lx0/QosykyAgjDEHQH2KDJJhnNm6tckVDim2UYTBq
+	 CUn/R91nby6UcRpNXcub5SHAqgKJmGpzdfrpcaDyRBndP2ODXxulftFVazu/r2DTnv
+	 fOXpyYsn1vDog==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/2] arm64/fp: Fix missing invalidation when working with
+ in memory FP state
+Date: Wed, 30 Oct 2024 20:23:49 +0000
+Message-Id: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 3/5] iommu/arm-smmu: add support for PRR bit setup
-To: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>
-CC: <will@kernel.org>, <joro@8bytes.org>, <jgg@ziepe.ca>,
-        <jsnitsel@redhat.com>, <robh@kernel.org>,
-        <krzysztof.kozlowski@linaro.org>, <quic_c_gdjako@quicinc.com>,
-        <dmitry.baryshkov@linaro.org>, <iommu@lists.linux.dev>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
- <20241008125410.3422512-4-quic_bibekkum@quicinc.com>
- <2d651f1b-4f51-4984-903f-7f5a14151f84@arm.com>
- <531d0144-e027-4589-b4ef-79f02583df8b@quicinc.com>
- <65132b36-49f6-4b08-8e7d-6d6cb8da5960@arm.com>
- <CAF6AEGvAYeY-fuk1Dg-0gsrod7Dy91qifKvChCd03=bs_zfs-g@mail.gmail.com>
-Content-Language: en-US
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-In-Reply-To: <CAF6AEGvAYeY-fuk1Dg-0gsrod7Dy91qifKvChCd03=bs_zfs-g@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 0DRIBPD_QtZswvcDiJ6fI5Eu4JlMrROk
-X-Proofpoint-GUID: 0DRIBPD_QtZswvcDiJ6fI5Eu4JlMrROk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- malwarescore=0 suspectscore=0 bulkscore=0 adultscore=0 spamscore=0
- phishscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 mlxscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410300160
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANaVImcC/x3MQQqEMAwAwK9IzgbaWgT9injo2lQDWiVBWZD+f
+ cse5zIvKAmTwti8IPSw8pkrbNvAsoW8EnKsBmect6YzGOToPaZL+YiYTiFeM6b91g37wXYhOL/
+ E4QM1uIQSf//5NJfyA/2/8d5sAAAA
+X-Change-ID: 20241030-arm64-fpsimd-foreign-flush-6913aa24cd9b
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=978; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=+yvwE337Qdag2rGuNvdsfIda3dNqnIov5peBktID6b0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIpvlHIiKxtAocRm8OBK6Yaj+uT1brtqrjz3czmlG
+ kLb0yaGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyKb5QAKCRAk1otyXVSH0E5RB/
+ 4s5DbIvSqJpDZMrMzsulo88M4R3g/tC8Nk8ioDiV9SYLMmPwAIr4PYSvIxaIga3ck4r80tFkT/bOqb
+ LpEP72Ya7iAsBesvmh6McFvsRdqZ4rXzvlGOIIi7vjdmDU0NaqmPAp0m2MMkEa0U1BfzPYSkEQCQRr
+ Who3UZks5d0DNAaDLUhP0rkTzrk9Mwz752Ut1Ngku9AtrRkQS32mjdw6ECjfIDM/LzsqkmleCrmp59
+ LLc+z7IaJxSNnSZF7opBj++RRFKN8SdJHjwi6hCzgObDSerHDWbDXfkQvVVW6MkpRNKFsO6TtH+d4a
+ JLZ6ytDa3w9bcJnTFUmO/79Tdkq3IY
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_132858_421343_3A9075D7 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20241030_134947_138114_726C78D5 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +89,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mark Rutland identified a repeated pattern where we update the in memory
+floating point state for tasks but do not invalidate the tracking of the
+last CPU that the task's state was loaded on, meaning that we can
+incorrectly fail to load the state from memory due to the checking in
+fpsimd_thread_switch().  When we change the in-memory state we need to
+also invalidate the last CPU information so that the state is corretly
+identified as needing to be reloaded from memory.
 
+This series adds the missing invalidations.
 
-On 10/30/2024 10:28 PM, Rob Clark wrote:
-> On Wed, Oct 30, 2024 at 8:23 AM Robin Murphy <robin.murphy@arm.com> wrote:
->>
->> On 30/10/2024 1:14 pm, Bibek Kumar Patro wrote:
->>>
->>>
->>> On 10/29/2024 6:59 PM, Robin Murphy wrote:
->>>> On 2024-10-08 1:54 pm, Bibek Kumar Patro wrote:
->>>>> Add an adreno-smmu-priv interface for drm/msm to call
->>>>> into arm-smmu-qcom and initiate the PRR bit setup or reset
->>>>> sequence as per request.
->>>>>
->>>>> This will be used by GPU to setup the PRR bit and related
->>>>> configuration registers through adreno-smmu private
->>>>> interface instead of directly poking the smmu hardware.
->>>>>
->>>>> Suggested-by: Rob Clark <robdclark@gmail.com>
->>>>> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
->>>>> ---
->>>>>    drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 37 ++++++++++++++++++++++
->>>>>    drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
->>>>>    include/linux/adreno-smmu-priv.h           | 10 +++++-
->>>>>    3 files changed, 48 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/
->>>>> iommu/arm/arm-smmu/arm-smmu-qcom.c
->>>>> index 6e0a2a43e45a..38ac9cab763b 100644
->>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->>>>> @@ -25,6 +25,7 @@
->>>>>
->>>>>    #define CPRE            (1 << 1)
->>>>>    #define CMTLB            (1 << 0)
->>>>> +#define GFX_ACTLR_PRR        (1 << 5)
->>>>>
->>>>>    static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
->>>>>    {
->>>>> @@ -109,6 +110,40 @@ static void
->>>>> qcom_adreno_smmu_resume_translation(const void *cookie, bool termina
->>>>>        arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
->>>>>    }
->>>>>
->>>>> +static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
->>>>> +{
->>>>> +    struct arm_smmu_domain *smmu_domain = (void *)cookie;
->>>>> +    struct arm_smmu_device *smmu = smmu_domain->smmu;
->>>>> +    const struct device_node *np = smmu->dev->of_node;
->>>>> +    struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
->>>>> +    u32 reg = 0;
->>>>> +
->>>>> +    if (of_device_is_compatible(np, "qcom,smmu-500") &&
->>>>> +            of_device_is_compatible(np, "qcom,adreno-smmu")) {
->>>>
->>>> These conditions aren't going to change between calls - wouldn't it
->>>> make more sense to conditionally assign the callbacks in the first
->>>> place? Not the biggest deal if this is a one-off context-setup type
->>>> thing, just that it looks a little funky.
->>>>
->>>
->>> Let me know if you want to pursue this still.
->>>   From the current PRR implementation in the graphics
->>> vendor layer, this seems to be just setup kind-of thing.
->>> Also if we keep this conditional check before assigning callbacks,
->>> and vendor layer caller won't be having any such check,
->>> wouldn't it be an issue in unsupported platforms (!qcom,smmu-500 or
->>> !qcom,adreno-smmu)
->>> as the callbacks won't be assigned?
->>> So as per my understanding I think it would be safe to keep the
->>> condition check here?
->>
->> Like I say, it makes more sense to me personally if SMMUs which don't
->> have a PRR don't offer a callback for setting the PRR which they don't
->> have, and for it to be the caller's responsibility not to call a NULL
->> callback where they wouldn't need to call one anyway. But the
->> adreno_priv interface is kind of Rob's thing, so I'll leave it to his
->> preference.
-> 
-> We can go the route of NULL cb if it is not supported (but should make
-> note of that in the adreno-smmu-priv.h header comment)
-> 
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Mark Brown (2):
+      arm64/sve: Flush foreign register state in sve_init_regs()
+      arm64/sme: Flush foreign register state in do_sme_acc()
 
-Actually I liked Robin's suggestion to use the compatible check before 
-assignment in the sense that there won't be repeated compatible checks
-for each call. My only concern was how to handle the non PRR supported 
-targets incase vendors called it.
-Thanks for clarifying the same, we can use null callbacks for non-PRR 
-supported targets with a note in adreno-smmu-priv.h header, so that
-caller could take care while implementing the same.
-I'll incorporate these changes in next patch along with the CPRE workaround.
+ arch/arm64/kernel/fpsimd.c | 3 +++
+ 1 file changed, 3 insertions(+)
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241030-arm64-fpsimd-foreign-flush-6913aa24cd9b
 
-Thanks & regards,
-Bibek
-
-
-> BR,
-> -R
-> 
->> Thanks,
->> Robin.
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
 
