@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F90FD6B6CE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 19:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCFCD6B6CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 19:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7nZyeOT+wnKPsXEpGH2Hj04pEnZpEJwO4AgsBqz0YpE=; b=e23U+mWpkLTKPf/NV6ygDMdgfh
-	FjGPXwgtzYE4jw5NCJ4hRVoYMGBEThDfu+/LEcvkhOnbDbJEklPUBf3IpTiKmyXAHsONNhAVlQISf
-	z+WbBRktisWyvL68UZf/uFQ43P5iGWTm+aZOiBGGZHeZSJ5eQZfjajSxYx7Lyv5tsHBHg7dLghmLS
-	bkjEDJ13Egd9o2eydBEvQHn5+DXeE48VjdLz6Sucli4csb1QVGIV/vtsNRsEGRO9cITVlsViZxtaN
-	jZD7Fxfsh0pWAz61avLEK9CVJsPuVqXGRyUgGi3f51B5Xyv+qPU1PEA7vnWrP/5a1ctRN/uO2eXgm
-	6N3NbTjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3le7Y0Gii5QDreHgxxhBrDb8aLPtkqMWBJFzizIbbqs=; b=Y6c0oC2YdQY2h3L3JoR/U9f64h
+	q+JIbIqgOHJwxZdUza7yT8kz2tv9XmoTEFs1PZNu3P3Zl2xsMqT+HV/ghDo9c3OUQLJ6MFYij3arD
+	CL2U5j8qp6HVxeFQI2W1nBavgKBrBFHEqZe1Q7zkjOkUROVrlkkBnyvTDXaD3d9fc9/hiHzUpW7Vy
+	YoUGt+KXIKye4tMIwJgnBIYwjNj582GkKfCB/f0GwY238UW84UpytXptIPHww3KRxbieIdhdq+bmJ
+	vOFfozRexdUBGS2wejr6jpMKb0RgaHK/smd0QcrE7vzaub+qyZTmR4nvlJq+LsltJ+4z0qXF87ky2
+	QYciMLsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6EQN-00000001Xyd-0lZN;
-	Wed, 30 Oct 2024 19:32:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t6Eca-00000001ZLT-2j4A;
+	Wed, 30 Oct 2024 19:44:48 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6EOj-00000001Xsm-0lPq;
-	Wed, 30 Oct 2024 19:30:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 040065C4A69;
-	Wed, 30 Oct 2024 19:29:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB77C4CECE;
-	Wed, 30 Oct 2024 19:30:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730316626;
-	bh=CoYyKlKmOSKxrPKi0zvjVFMgQHG2rxkSbzEovk3fD3k=;
-	h=From:Date:Subject:To:Cc:From;
-	b=j+kSn8N8k3flee47m87qzOJaPDUCR9IfqmjO9FEAy/f27KSHYnbdC7ggeRRYypUKM
-	 +HBafMda4IfNG63cAttYics2sYs75QKFq8FnVod2yIeH5PnPXxvwmAavtidx+i7/IF
-	 1S2LlVmUmpADapAoy1QWkNWFHLGeMjz1Xgor3FP2JtGvVgeodI8QKJHf36GBy7sjav
-	 Oh7SVqWovdKCFJgMm/dxKXjg7d3X9Vg9u2V2MiqJPilnGos/BU2xM+Qr2/o7lBUxib
-	 aLYdF2ls1Y6537wEnR/hl2Z3+9NVqE5dWNkzl2ISt5aBtz+OnUn6bNQKHlyJcbIthS
-	 o8BNqF092VAiw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 30 Oct 2024 20:29:55 +0100
-Subject: [PATCH net-next] net: dsa: mt7530: Add TBF qdisc offload support
+	id 1t6Eau-00000001Z8V-3dt1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Oct 2024 19:43:07 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-207115e3056so2453045ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 12:43:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730317383; x=1730922183; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3le7Y0Gii5QDreHgxxhBrDb8aLPtkqMWBJFzizIbbqs=;
+        b=ivdmMoyyKK7PrHwMxq9izlRo13owIyI9dXAuwpiGw9StUnp3igw1lyNz1J5Db5z3kp
+         597kq9/M2fPHsCegGYhYNyeqpEvzSdgBvRK0p7skB/j1urifhGNl69N2kETemGG9NCeS
+         x5hTxpreXXnH7nx6HA1WZKDZMQImGy+jeFE/gVzRNybzkVHRIonvfZXrMnAGzbiJ8LzN
+         mtlYoFwH0d6Om2SKxrmhlYzin9IzVRa4yNFCp1i/2xYdiYvP8ThgD00AM2vxA/fHiKKf
+         /oq5gjAWlcKdG9dMz92YKHcG1IdcXXZ6J96o74BHfGW7ewXs6lEwmzO97srdhrG9xQk8
+         BOoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730317383; x=1730922183;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3le7Y0Gii5QDreHgxxhBrDb8aLPtkqMWBJFzizIbbqs=;
+        b=qfrcNlh1IvWIXG9y007/cfPrHmSQuQAao3Ogl+2h10mAByE3s2XVXbdfyS9/zgHQNY
+         NB2FpQF5vIsTLOSz839iLGdjvQv3eDhRBwB6x8AEon6WW5UwSZ6mlwJy9A1I4tk2pmSh
+         ngNTy7nTpVsCVDToWKcm0Wuusz2dieTmS//23eGtP2FohwA61vYKDq+hHixXINxNEYa6
+         MOEq9yqj2KOWJKLyWFCOJnNATtJgqSVavPk9zccIFbx2KPyeEjTAVgsIbSMIYPzjVnOx
+         RSgKBhHp9dACaSG+bA3L1z6JXQrvNEs4xnxw7tIo8cXcK3oYXz3e7qp4Ke6xj9qeoV6z
+         1jMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWTxc8AL0J24gV8BIBUCa3BwYmKPBKUzA0B3X/Rk+2OfB4RodRl5boV9p6zo0/TY0PwmUujdn0Lj8QPRqe0bPAV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBctGh7MfAL+abLOLpYaSwZBEmSJl2p6AGBXXTvt8q57FysROI
+	Zs9RddibDgZTd5ND0lJWVn3er6b89FsQ2/d6lvk4VcsRpfugOFFnNUwhmVpdE9E=
+X-Google-Smtp-Source: AGHT+IHk8AZ9wf3uzoDfMby1k5RqREUDlcflFSi9zNXpPdV/uu6krYbXl92mEIypZxjKId/zeo/NXw==
+X-Received: by 2002:a17:902:d4ca:b0:20c:a387:7dc9 with SMTP id d9443c01a7336-210c69e32dfmr232900685ad.29.1730317383199;
+        Wed, 30 Oct 2024 12:43:03 -0700 (PDT)
+Received: from localhost ([97.126.177.194])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-210bbf4332fsm85099085ad.16.2024.10.30.12.43.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Oct 2024 12:43:02 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Nishanth Menon <nm@ti.com>
+Cc: linux-pm@vger.kernel.org, Vibhore Vardhan <vibhore@ti.com>, Dhruva Gole
+ <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Sebin Francis
+ <sebin.francis@ti.com>, Markus Schneider-Pargmann <msp@baylibre.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] pmdomain: ti_sci: collect and send low-power
+ mode constraints
+In-Reply-To: <CAPDyKFptHq6xkKSAmeHsEuhBoEhzvudcMf2+nG08MFPwnMi+ew@mail.gmail.com>
+References: <20240906-lpm-v6-10-constraints-pmdomain-v4-0-4055557fafbc@baylibre.com>
+ <173029317079.2440963.17313738472826934777.b4-ty@ti.com>
+ <CAPDyKFptHq6xkKSAmeHsEuhBoEhzvudcMf2+nG08MFPwnMi+ew@mail.gmail.com>
+Date: Wed, 30 Oct 2024 12:43:02 -0700
+Message-ID: <7hv7x9qsvt.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241030-mt7530-tc-offload-v1-1-f7eeffaf3d9e@kernel.org>
-X-B4-Tracking: v=1; b=H4sIADKJImcC/x2MQQqAIBAAvxJ7TlhNCfpKdAhba6EyNCIQ/97Sa
- ZjDTIFMiSnD0BRI9HDmeIrotgG/zedKihdxMGisxg7VcfdOcHsVQ9jjvCh0ZNBaqx0iSHclCvz
- +z3Gq9QM2CB49YwAAAA==
-X-Change-ID: 20241030-mt7530-tc-offload-05e204441500
-To: =?utf-8?q?Ar=C4=B1n=C3=A7_=C3=9CNAL?= <arinc.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>, 
- Florian Fainelli <f.fainelli@gmail.com>, 
- Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_123029_687726_C1D9B2C0 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20241030_124305_196571_02144098 
+X-CRM114-Status: GOOD (  25.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,125 +94,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce port_setup_tc callback in mt7530 dsa driver in order to enable
-dsa ports rate shaping via hw Token Bucket Filter (TBF) for hw switched
-traffic. Enable hw TBF just for EN7581 SoC for the moment.
+Ulf Hansson <ulf.hansson@linaro.org> writes:
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/dsa/mt7530.c | 54 ++++++++++++++++++++++++++++++++++++++++++++++++
- drivers/net/dsa/mt7530.h | 12 +++++++++++
- 2 files changed, 66 insertions(+)
+> On Wed, 30 Oct 2024 at 14:01, Nishanth Menon <nm@ti.com> wrote:
+>>
+>> Hi Kevin Hilman,
+>>
+>> On Fri, 06 Sep 2024 09:14:48 -0700, Kevin Hilman wrote:
+>> > The latest (10.x) version of the firmware for the PM co-processor (aka
+>> > device manager, or DM) adds support for a "managed" mode, where the DM
+>> > firmware will select the specific low power state which is entered
+>> > when Linux requests a system-wide suspend.
+>> >
+>> > In this mode, the DM will always attempt the deepest low-power state
+>> > available for the SoC.
+>> >
+>> > [...]
+>>
+>> I have applied the following to branch ti-drivers-soc-next on [1].
+>> Thank you!
+>>
+>> Ulf, based on your ack[2], I have assumed that you want me to pick
+>> this series up. Let me know if that is not the case and I can drop the
+>> series.
+>
+> Well, that was a while ago. The reason was because there was a
+> dependency to another series [2], when this was posted.
+>
+> If that's not the case anymore, I think it's better to funnel this via
+> my pmdomain tree. Please let me know how to proceed.
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index d84ee1b419a614dda5f440e6571cff5f4f27bf21..0adf69ac8827cd66cdc44f9bc43d27ab8acb785c 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -21,6 +21,7 @@
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <net/dsa.h>
-+#include <net/pkt_cls.h>
- 
- #include "mt7530.h"
- 
-@@ -3146,6 +3147,58 @@ mt753x_conduit_state_change(struct dsa_switch *ds,
- 	mt7530_rmw(priv, MT753X_MFC, MT7530_CPU_EN | MT7530_CPU_PORT_MASK, val);
- }
- 
-+static int mt753x_tc_setup_qdisc_tbf(struct mt7530_priv *priv, int port,
-+				     struct tc_tbf_qopt_offload *qopt)
-+{
-+	struct tc_tbf_qopt_offload_replace_params *p = &qopt->replace_params;
-+	u32 rate = 0;
-+
-+	switch (qopt->command) {
-+	case TC_TBF_REPLACE:
-+		rate = div_u64(p->rate.rate_bytes_ps, 1000) << 3; /* kbps */
-+		fallthrough;
-+	case TC_TBF_DESTROY: {
-+		u32 val, tick;
-+
-+		mt7530_rmw(priv, MT7530_GERLCR, EGR_BC_MASK,
-+			   EGR_BC_CRC_IPG_PREAMBLE);
-+
-+		/* if rate is greater than 10Mbps tick is 1/32 ms,
-+		 * 1ms otherwise
-+		 */
-+		tick = rate > 10000 ? 2 : 7;
-+		val = FIELD_PREP(ERLCR_CIR_MASK, (rate >> 5)) |
-+		      FIELD_PREP(ERLCR_EXP_MASK, tick) |
-+		      ERLCR_TBF_MODE_MASK |
-+		      FIELD_PREP(ERLCR_MANT_MASK, 0xf);
-+		if (rate)
-+			val |= ERLCR_EN_MASK;
-+		mt7530_write(priv, MT7530_ERLCR_P(port), val);
-+		break;
-+	}
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt753x_setup_tc(struct dsa_switch *ds, int port,
-+			   enum tc_setup_type type, void *type_data)
-+{
-+	struct mt7530_priv *priv = ds->priv;
-+
-+	if (priv->id != ID_EN7581)
-+		return -EOPNOTSUPP;
-+
-+	switch (type) {
-+	case TC_SETUP_QDISC_TBF:
-+		return mt753x_tc_setup_qdisc_tbf(priv, port, type_data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
- static int mt7988_setup(struct dsa_switch *ds)
- {
- 	struct mt7530_priv *priv = ds->priv;
-@@ -3193,6 +3246,7 @@ const struct dsa_switch_ops mt7530_switch_ops = {
- 	.get_mac_eee		= mt753x_get_mac_eee,
- 	.set_mac_eee		= mt753x_set_mac_eee,
- 	.conduit_state_change	= mt753x_conduit_state_change,
-+	.port_setup_tc		= mt753x_setup_tc,
- };
- EXPORT_SYMBOL_GPL(mt7530_switch_ops);
- 
-diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
-index 6ad33a9f6b1dff3a423baa668a8a2ca158f72b91..9467f2a3f2bca45b3fce3bace2b3b3205158c4bd 100644
---- a/drivers/net/dsa/mt7530.h
-+++ b/drivers/net/dsa/mt7530.h
-@@ -248,6 +248,18 @@ enum mt7530_vlan_egress_attr {
- #define  AGE_UNIT_MAX			0xfff
- #define  AGE_UNIT(x)			(AGE_UNIT_MASK & (x))
- 
-+#define MT7530_ERLCR_P(x)		(0x1040 + ((x) * 0x100))
-+#define  ERLCR_CIR_MASK			GENMASK(31, 16)
-+#define  ERLCR_EN_MASK			BIT(15)
-+#define  ERLCR_EXP_MASK			GENMASK(11, 8)
-+#define  ERLCR_TBF_MODE_MASK		BIT(7)
-+#define  ERLCR_MANT_MASK		GENMASK(6, 0)
-+
-+#define MT7530_GERLCR			0x10e0
-+#define  EGR_BC_MASK			GENMASK(7, 0)
-+#define  EGR_BC_CRC			0x4	/* crc */
-+#define  EGR_BC_CRC_IPG_PREAMBLE	0x18	/* crc + ipg + preamble */
-+
- /* Register for port STP state control */
- #define MT7530_SSP_P(x)			(0x2000 + ((x) * 0x100))
- #define  FID_PST(fid, state)		(((state) & 0x3) << ((fid) * 2))
+The build-time dependency on [2] still exists, and since that was just
+queued up by Nishanth, I think this series should (still) go along with
+it to keep things simple.
 
----
-base-commit: 668d663989c77fcb2a92748645e4c394b03d5988
-change-id: 20241030-mt7530-tc-offload-05e204441500
+Kevin
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+> Kind regards
+> Uffe
+>
+>>
+>> [1/3] pmdomain: ti_sci: add per-device latency constraint management
+>>       commit: 7c2c8d2651b5ffaffb2d5f723bd5b0493bd66f36
+>> [2/3] pmdomain: ti_sci: add wakeup constraint management
+>>       commit: 5a2d997b1bf8b05379309270063d7b9bd3767dd2
+>> [3/3] pmdomain: ti_sci: handle wake IRQs for IO daisy chain wakeups
+>>       commit: e8f35dc8de8c3216d28dab51b962bb31f20934c8
+>>
+>> All being well this means that it will be integrated into the linux-next
+>> tree (usually sometime in the next 24 hours) and sent up the chain during
+>> the next merge window (or sooner if it is a relevant bug fix), however if
+>> problems are discovered then the patch may be dropped or reverted.
+>>
+>> You may get further e-mails resulting from automated or manual testing
+>> and review of the tree, please engage with people reporting problems and
+>> send followup patches addressing any issues that are reported if needed.
+>>
+>> If any updates are required or you are submitting further changes they
+>> should be sent as incremental updates against current git, existing
+>> patches will not be replaced.
+>>
+>> Please add any relevant lists and maintainers to the CCs when replying
+>> to this mail.
+>>
+>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+>> [2] https://lore.kernel.org/all/CAPDyKFr9isnz66B+n5y3=QO-ndB05JKZN3kgXO+kXBn7ofcwMw@mail.gmail.com/
+>> --
+>> Regards,
+>> Nishanth Menon
+>> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+>>
 
