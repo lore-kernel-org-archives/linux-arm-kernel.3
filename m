@@ -4,87 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6802D5CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93B8D5CCB0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vyOiJymB0nnDRku/t4g1pcFvAC1IuzmaO9Rq+PhkWF0=; b=i31bX0nSXXaC2N9FbsxVZsbVi9
-	dosY/8n4iKn2bMV8BhMBLLA/rT3cXVI73nUlPB7VVoGj+CNy4CPLFam0bMiKG2I2JR3Hix8bQj0e5
-	zRFF6gM/Mq99ML61vRQtE5Qn3RJAjPg5059PA+nrsq/tku/nV75qJuL/ltmAIgngCf6kuO1aMkYrJ
-	PTUzdSy/6pF4RhnvpVAfCXsJEO0B23my7rNq2xrqkxdjnqr6XBFC5s/3IjewDhSnr99+JIQKSrKNT
-	c7ZCHvFiBdlODAKa4buIA9ne7FL79UytJ8C5DdjZTZ0beDD2pnzC4JaE3Xai9WnNMRFAAHGB3Ym/h
-	+UKkrZ1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oLDpA0ePaKEkMnyQAEM9AXgIX6ys6pBISYzlVP6v0Wc=; b=3yx6SAHP/DU2Y+Qsqd33n4PdWE
+	RzII7QkIJ/mJj77qGXS/dRBiFfgRAglNUpmTjXGX2VeB7VSrR63nogrpa8g/qes3mupT1SvM+6s8N
+	qgzZeu7Tw74jAJoi5PYYIcQ0n30VRGnBQEgXnJLLDIXFiuR9OiRML3024Y+O8bRoGwGsoEXGv3i8T
+	zuC55f9bXtbYfxJOB/UBTWuHuJUht/RSYMiII0LkyaIA9H0rRemrw+kLKtWBSSppSFHPgfcWOE/8o
+	wUlRvan7UmixmBgiOr+PGWuBAASLBeJU9vP9kIacNh4hGwcuyUvYScC+88qS4VJi3mPLmJsG5yh9O
+	XytDpFgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t690Q-00000000WRR-1xsI;
-	Wed, 30 Oct 2024 13:45:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t6925-00000000Wxs-498E;
+	Wed, 30 Oct 2024 13:46:46 +0000
+Received: from mail-am6eur05on2060e.outbound.protection.outlook.com ([2a01:111:f403:2612::60e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68o0-00000000U5T-1oru
+	id 1t68px-00000000UU6-1i8m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:32:14 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U9ZbpQ012778;
-	Wed, 30 Oct 2024 13:31:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=vyOiJymB0nnDRku/t4g1pc
-	FvAC1IuzmaO9Rq+PhkWF0=; b=YFyqHMYqsy32ma3bzD6CprZA/SAH1Cmd8qLTvj
-	hlb0GqfJ3ghxdn3dkRzhFCwN0XM5kpUHAieYdu+FfENrhC0jX5iX7kl853RP/IcL
-	3QuvRFbtZINuiNIl4/vdqSNEdm1skMRj1RlL3BZO/M5aZCSP38SorpRfbmA7A90j
-	EJQo7Bmsxgi0x/0+7Ql4AelcaTf+zVoouZLQg+D//7RGgBh1rQMKr41qsIGUAv1f
-	TRfFnHoigMhMG8flqnN6rWQkoJAJruFt1WxOksUdiYCe88hz6jSHT5+ae+w3jh25
-	OzrOfYWuOm5Fog7ItpZyGWQXe7SPwSoIgWAY9qtT2VFjIl5w==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42k6rpjf9a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 13:31:59 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UDVwZi006387
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 13:31:58 GMT
-Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 30 Oct 2024 06:31:53 -0700
-From: Sibi Sankar <quic_sibis@quicinc.com>
-To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
-        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
-        <pierre.gondois@arm.com>, <vincent.guittot@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <quic_mdtipton@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, Sibi Sankar <quic_sibis@quicinc.com>
-Subject: [PATCH V6 0/1] firmware: arm_scmi: Register and handle limits change notification
-Date: Wed, 30 Oct 2024 19:01:32 +0530
-Message-ID: <20241030133133.2932722-1-quic_sibis@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 30 Oct 2024 13:34:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wChiyd34kcKKoGDRmgKDxrGqcYIfS9CD1XVzA8vPitI2rvGyFFY/b0dgOFlg3N/KAIPJdePwO9ukkOexQI9Mv6fP9B50hzxwuWl+x6hlm2z4m6MSPasRMjX6+1SuinTiIYrx6CP1qiixTlpmoibvGCwcrf9pqAdEISLn0duPw9b8K7Rrf83GPNFM4YzbKrMxsOWzwXrTFVw3GB4+lwLt6KLlhXbD51VW53OBfMAjK/wPXLxlTgYDYKPAdnu2zWpX1bxu3kPTrcpHal0J+FlrgBfPdUfAZkOItt/H5etsJQ3Miih1uc5b+g6ZyNCasC8MvRenl+VzeE/BTS8UNMAIaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oLDpA0ePaKEkMnyQAEM9AXgIX6ys6pBISYzlVP6v0Wc=;
+ b=JhPCBDM7lD33gAuoagN56RmTmWFhYD5ykrnQiRr61gSHoT1cJmPgZCNVwBcKa5mUJiwNCOdThWHKNJAFiXf7jM2tBrgGakLSk0DrulNOD1l9D+cOyeG/cvCwZIcAm8EojphhnUamhGDytPVvVi/ixNo1xkut7TKyZxqXIX4R3Rgylz0NeDUyt2jq4MY8OfQoKQ5uGfkeLJf1USv0/OEyhwMmo70k3Sw0YhSzhacQpqnqCuH7xCmaz8vrfbUoD5B9ySVt8jMbHiVICKRLgm3rVSTCh0uV1AfhwhdajurmNOlym+be0fvhZMoFePtP2BV9e9NIknqx9Oo9DPTx6wK8fQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oLDpA0ePaKEkMnyQAEM9AXgIX6ys6pBISYzlVP6v0Wc=;
+ b=q14eZd7KyPT8wMIc5OmPPnYDQFtxJDdNv0mcmb/j3TsCmFc/BUBTn3Xf77ewvtkES9pMNyq93/x8DU7pHa1BgxrZaM49G6OZL5D4zFMM4Ms02YKjxQb7qncUrHoo/7Dl91nDSCmnlwqjwMmxOTNfd4cVorO3l8KFZnAFSFsuhsjRDcAnllk8Qmw+JmJGWUs3eC9sovT+pl6TzjGRVujIvCteVG8rbX+RULmjRrmfCWfpHihYsVDOJZQbWtzECqHWQPLy9Nqe5ZqGCr4nfoWb/MsXTMpQL2Rjw1Is+JpkY7AufI9CxGPbWt6RrTyzQ6xz/7hSD/cU+9zSQxVcBlbErA==
+Received: from DB9PR04MB8185.eurprd04.prod.outlook.com (2603:10a6:10:240::22)
+ by PA2PR04MB10088.eurprd04.prod.outlook.com (2603:10a6:102:40e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Wed, 30 Oct
+ 2024 13:34:04 +0000
+Received: from DB9PR04MB8185.eurprd04.prod.outlook.com
+ ([fe80::7cbd:347b:1bfd:fb35]) by DB9PR04MB8185.eurprd04.prod.outlook.com
+ ([fe80::7cbd:347b:1bfd:fb35%5]) with mapi id 15.20.8093.025; Wed, 30 Oct 2024
+ 13:34:04 +0000
+From: "Madalin Bucur (OSS)" <madalin.bucur@oss.nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, Radu-Andrei Bulie <radu-andrei.bulie@nxp.com>
+CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Breno Leitao <leitao@debian.org>, Ioana Ciornei
+	<ioana.ciornei@nxp.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Sean
+ Anderson <sean.anderson@linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH net] net: dpaa_eth: print FD status in CPU endianness in
+ dpaa_eth_fd tracepoint
+Thread-Topic: [PATCH net] net: dpaa_eth: print FD status in CPU endianness in
+ dpaa_eth_fd tracepoint
+Thread-Index: AQHbKiACIOYFGw8GfUul9ckDno7PtbKfTBxA
+Date: Wed, 30 Oct 2024 13:34:04 +0000
+Message-ID: <DB9PR04MB8185A67AF6393BD2992818DFEC542@DB9PR04MB8185.eurprd04.prod.outlook.com>
+References: <20241029163105.44135-1-vladimir.oltean@nxp.com>
+In-Reply-To: <20241029163105.44135-1-vladimir.oltean@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB9PR04MB8185:EE_|PA2PR04MB10088:EE_
+x-ms-office365-filtering-correlation-id: 189141c2-3667-462b-0e77-08dcf8e78592
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?HXs2j8gsCPGDzrBOpDzc5fKbTSgoGea+7kwGy8+I6SogkgQYfl97WrxMmguR?=
+ =?us-ascii?Q?HTsnOVDrmNoUNo5/Kf7XFU0lzGLKoX9sHKrKFEwvMPlS9NRuvI64fL5PpFGF?=
+ =?us-ascii?Q?ziojuFryV77IGtFAwv9A1OqBgfKlC0BO/WbyUy7Z2/AEGtiLgnzT1FcxAX/7?=
+ =?us-ascii?Q?l55JX28CfUUdI+ULKJ5obVw4XgUe3Vl8mh2PJGvqHeN1QAIpTapR77nAEjZc?=
+ =?us-ascii?Q?VVunYl07sXSkjEJiCaBejiYmR2DkHodsx6By7+lMP9M4u7YyGl8chqvrzf63?=
+ =?us-ascii?Q?5ValCXGgG0jtzLz0dORz+b01qIMa3+Zohgbes0pab0sa46TcxsRzxcRFLrrn?=
+ =?us-ascii?Q?uzwGxZk16K84wso5YgtDqGjYEkRzXIfo5wwWQFV2FsYynCOzUN17RB3K4jIO?=
+ =?us-ascii?Q?yJ1hsNaXDwFtdVMt7scm55MOUp9O9fxb6faQExm0slr/JoNI5a+BAlm0rPvT?=
+ =?us-ascii?Q?iFKZsHnb4Gu4KLz9oQll9bvIEeIkamZwcwo9PN/fBgzYb+deUBaunufD7Xzt?=
+ =?us-ascii?Q?QKSWpS8yvRyexFVmlecMdi0lCxokHj5SQjuceUmjAeNHkstjDNmdQTPsJZtm?=
+ =?us-ascii?Q?VUxoCuFWMS2LH1CzdIgh3UBLRvvKXXQZK37tUYT1wsCaS/eiLjZKnLQyaE2s?=
+ =?us-ascii?Q?N9JrnjVyKbdKY8TzuUDKxylAhGuQGW4dRGSB98JZB7s5yhApiBS3obxzt8KD?=
+ =?us-ascii?Q?wTA+TnBratLvwsFmcopTETqXOIrZ9SCZG0tLJx4BljAOJtwLi+QwmzR2vbLn?=
+ =?us-ascii?Q?3WJ77uNjKCmkraT0QOHTTOXaIJgSRpq7hSa9Lh7lb6Q7x0kcoC6B7JDMgTX3?=
+ =?us-ascii?Q?S57JVwUftPQdRiOtj5Nx9TibtWqmsx83LvLEG3s8PKAPYPmhWuxTVQjQzwrq?=
+ =?us-ascii?Q?jQGmWHCHQzE/AELTGLJtY5/2D5oFFG6QAe4zQJBHdgyTWGpYIlgxotdWHc8K?=
+ =?us-ascii?Q?Ntjp2TNB4IAc8ajvUEffuxo1/vyTaDso7hPKTHjGTb+1V/UBbfGGLh10IWkF?=
+ =?us-ascii?Q?07NTErTwTInQMnrRSOgwsoYaAbwDYgtJdMO7djYDETc80t9/qUwWz9Qlrz1r?=
+ =?us-ascii?Q?OreQ4g632orhfoal5azMsD67ZhWRkaKTZjXHvJqtZXp6jIV1c40z/JV26FGX?=
+ =?us-ascii?Q?C+04ctxtordaIy5sjRLX0p3FaadVYe8syQC/5Tevm8oESug4ymxHzqSudHMN?=
+ =?us-ascii?Q?O4/7Uu1ZMIj/w7zXdSMjCm++o9aEPWZrATkIgJeYsP9OFBlfNvqDPGHcFY4i?=
+ =?us-ascii?Q?sHDeaRW6HvAvH/0/fPPNvTss+MV4/oCqqnOyf+k0ZURGdz3F2ifdn/06i39Q?=
+ =?us-ascii?Q?F9W3L1LMnAHV9sEsNrP/3UDj+tXBMu+8Wjln6vbu/6DVlBnCmVmUv9hf5tPP?=
+ =?us-ascii?Q?btWcio2FNTSDQh0+sUyGW9I7RSeV?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?koWfCS87svAYmVDFnNW1csaVDZj5q0/cfKnfRsK85sepRUDx7hRwc6Pof2mp?=
+ =?us-ascii?Q?6wHVdDfFJr6ASn959eBP8X3rRckz0vppzHXzEVjxIEfbNS8U9OUppYQNJRuU?=
+ =?us-ascii?Q?jmo5grb6PhzzrR96rtvCXFCEMkoeaUnuXaKJIiNOo9J/KfJh0HCRKPvBBejH?=
+ =?us-ascii?Q?zKhJPchnLLuCGrXJF8DExcerSb9YB15WkCao/WwDpPpZLXxvyNtf5BY+pBvs?=
+ =?us-ascii?Q?lXg5hrIruZlxzaWvTyXD80AXLkeB72SijL8NPd/7nB+fTKH303//Q8nx6aI7?=
+ =?us-ascii?Q?ZpLklqodwBmocEU+ngD0xWBGB/qAAjzZYBRRKZD5xloTMZxI2tVs9pMtHrQP?=
+ =?us-ascii?Q?qdc8Y++aauCxuUt08GDKcVJZOfruDAMbopG2VJZrtEiCt/BmIUF0pJVZkwzI?=
+ =?us-ascii?Q?ocwVi9ixT47gif6uQQbfcCCcY9YfVqt3JyqJx0bnihZHlM7vOq5xPOMCuzlO?=
+ =?us-ascii?Q?kbrXBhFpEKOhwwmORcr/8PhRTWoIpW/YejcwFql+i2YJLNvJCyPdrBHqzb5E?=
+ =?us-ascii?Q?WXyO1JxG0JW9cHdBBsk/ZVU2XLmO4pQID/d+Oh4Ot9T+O/RNOjtuhJ6sRlP4?=
+ =?us-ascii?Q?VRu6uiSexK0268g934Olp+zFdpByI0Nv8+/IPfydN4RLJ99s5NynJPUd3ciM?=
+ =?us-ascii?Q?4TReSSOf9639i63S3CHtlHB+sfDvW/BtJJG5B6qeUUPoqfPp8y/R1oGVuQg1?=
+ =?us-ascii?Q?QIBxPQh7qTb6MAGW8vPw8k2YhgLEHLaOfv7PwvhHypdI66mM3Fmde+IQfRpa?=
+ =?us-ascii?Q?u8BX5O8X/FG0rqACdqKeuSiOCYg89G0zD0YoXCV2xxsevFZzjSJxohn6ke4Q?=
+ =?us-ascii?Q?Rk9/tyiX6ddEwuzntN/l3um/km+mvv1wu+jKlLS+MGwF7QwqVXi8/UZzRZlZ?=
+ =?us-ascii?Q?U3ECRql4eiNmX4ZhkCtO9YOVRsF0nX6KGuU5hyBCzrCdP/549u+SrguMsDMF?=
+ =?us-ascii?Q?MknVojcf4QrbAZezKoXGslLbwK9FXLwF3vgFWAQ89Txw84K/cGsU6xb/vR0e?=
+ =?us-ascii?Q?iCbgY84mnWMSCZ5yzK+Hy6gkT3nD/rdChncnWI/jMlSRrmZqyuGHGM/ZR3kn?=
+ =?us-ascii?Q?DvA4/DK+qxRMciRNzTBhEsG4m2RAbBpeJrZV4h0y172uWPKhU5SwHGuN+SlA?=
+ =?us-ascii?Q?j+eQ727g2+5ELQzjKr0ID4DSchyknSsaafNwgqWwSt77t5koJvRHkOEpkVAt?=
+ =?us-ascii?Q?dc3/+q99vdSWZ4zKqpaBo62bjq0hKQryPf8tm8pViqu4fkj+MfN7Kdl7N3hm?=
+ =?us-ascii?Q?8fD92ixEkFYToCano5oCNqG0+UMdO2dElFSFKGBpVtbpe6IfQ8EmPSuu4qnq?=
+ =?us-ascii?Q?VAuyzg467r5oYQxTynQGRPI9PzfiMyEHqYnilrU72DLgLnZQlNCX4PaRSPfK?=
+ =?us-ascii?Q?3w4ziLtj7ToRpcUbXcgybUJd1zEFGx43hwNvJfPrXLLblrKyFd0MWpzFw++T?=
+ =?us-ascii?Q?UwB/bsf/e1IGkKQ7u/q6X13Z+Uq6/AJFccMUHZGD3DfOiT9171L3bS6NP9Mq?=
+ =?us-ascii?Q?JYRk/c3XTfgMLe12miVwPl4+VFQpAjDAZbaaCc5J4n4FfWNcFpYdpi8lOMg/?=
+ =?us-ascii?Q?gDOHldWHmozOt/l07l50jP+8FSMyFktv1T3k7IHe?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: usyqeks7XHTCpeLJzJIGkPIOknqe9vir
-X-Proofpoint-GUID: usyqeks7XHTCpeLJzJIGkPIOknqe9vir
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
- clxscore=1011 mlxlogscore=875 priorityscore=1501 spamscore=0
- malwarescore=0 impostorscore=0 mlxscore=0 lowpriorityscore=0
- suspectscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2409260000 definitions=main-2410300106
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 189141c2-3667-462b-0e77-08dcf8e78592
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2024 13:34:04.1663
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wCDCTQ3fDW+cSiYLq4ve+b07lcKXDolxQzW0vb+pA4Z4hfH2aN0Vrw5yqRx+zYR5yzexeS5HwCJ+yLkbKlj7TQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_063212_561998_4A5AB649 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_063413_478730_B9F1C5BF 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +169,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series registers for scmi limits change notifications to determine
-the throttled frequency and apply HW pressure.
+> -----Original Message-----
+> From: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Sent: Tuesday, October 29, 2024 6:31 PM
+> To: netdev@vger.kernel.org; Radu-Andrei Bulie <radu-andrei.bulie@nxp.com>
+> Cc: David S. Miller <davem@davemloft.net>; Eric Dumazet
+> <edumazet@google.com>; Jakub Kicinski <kuba@kernel.org>; Paolo Abeni
+> <pabeni@redhat.com>; Breno Leitao <leitao@debian.org>; Madalin Bucur
+> <madalin.bucur@nxp.com>; Ioana Ciornei <ioana.ciornei@nxp.com>; Christoph=
+e
+> Leroy <christophe.leroy@csgroup.eu>; Sean Anderson
+> <sean.anderson@linux.dev>; linux-kernel@vger.kernel.org; linuxppc-
+> dev@lists.ozlabs.org; linux-arm-kernel@lists.infradead.org
+> Subject: [PATCH net] net: dpaa_eth: print FD status in CPU endianness in
+> dpaa_eth_fd tracepoint
+>=20
+> Sparse warns:
+>=20
+> note: in included file (through ../include/trace/trace_events.h,
+> ../include/trace/define_trace.h,
+> ../drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h):
+> warning: incorrect type in assignment (different base types)
+>    expected unsigned int [usertype] fd_status
+>    got restricted __be32 const [usertype] status
+>=20
+> We take struct qm_fd :: status, store it and print it as an u32,
+> though it is a big endian field. We should print the FD status in
+> CPU endianness for ease of debug and consistency between PowerPC and
+> Arm systems.
+>=20
+> Though it is a not often used debug feature, it is best to treat it as
+> a bug and backport the format change to all supported stable kernels,
+> for consistency.
+>=20
+> Fixes: eb11ddf36eb8 ("dpaa_eth: add trace points")
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> ---
+> Context: https://lore.kernel.org/oe-kbuild-all/20241028-sticky-refined-li=
+onfish-
+> b06c0c@leitao/
 
-V6:
-* Unregister the notifier in the exit path to make sure
-  the cpus work across suspend/resume cycles.
-
-V5:
-* Drop patch 1 and use pm_qos to update constraints. [Vincent]
-* Use sdev instead of cpu_dev in dev_warn. [Christian]
-* Pass sdev directly through private data. [Christian]
-* Dropping Rb's for now.
-
-V4:
-* Use EXPORT_SYMBOL_GPL instead. [Trilok]
-* Use a interim variable to show the khz calc. [Lukasz]
-* Use driver_data to pass on the handle and scmi_dev instead of using
-  global variables. Dropped Lukasz's Rb due to adding these minor
-  changes.
-
-V3:
-* Sanitize range_max received from the notifier. [Pierre]
-* Drop patches 1/2 from v2. [Cristian]
-* Update commit message in patch 2.
-
-V2:
-* Rename opp_xlate -> freq_xlate [Viresh]
-* Export cpufreq_update_pressure and use it directly [Lukasz]
-
-base: next-20241029
-
-Sibi Sankar (1):
-  cpufreq: scmi: Register for limit change notifications
-
- drivers/cpufreq/scmi-cpufreq.c | 38 ++++++++++++++++++++++++++++++++++
- 1 file changed, 38 insertions(+)
-
--- 
-2.34.1
-
+Acked-by: Madalin Bucur <madalin.bucur@oss.nxp.com>
 
