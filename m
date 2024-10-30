@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A97D5CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA800D5CCAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=; b=jtaLb75giufnfgdXOaCU1WOhye
-	Awxj1k4gb6qGME3cnQMmqcN1jBPw+zOisYBg8zWmoMSX/LCds/A/NOfIC9GlZblz3vdRBjAoHsblj
-	ydhCsmey9RgUcRUmRpl/XXh+k77+cB+w4vlux68Z4oq+RSXCtVg9YnF0WZ0N0tyFzbaY7Aq+lyRr8
-	slZ9TuWuxWq1uGRpwY2KrkRQ8xccUlxY7vZmNrtMmLv18GbthGFCjARyiW5EA9ydomt9sZ5TfsWf9
-	Cindo6FWNDoiBW9WG+k/Hhw2J3Mz1FiNjHcqmqyKFLfYv4iQaGMOgytq2vLPLUzw4ZuB53Kl42qM1
-	3j4djnOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=; b=LiYydHUklNg5WvnjyunPXC9zoN
+	/EudH6NtkNp04EYAmZcQ24alCiFeM4yqV8GbQh3WsNNmuHS5swarm92R9yq0XeUQ3KMCvj8G0mxzK
+	AUUpOIs2ECCmyEEub4Fdmh20f1X0pjGKChd3UZ5AVEj7v1jQ9ddRzvEYLsz0vK5ef5+cbhn1t6buO
+	xxOtdsrmKdT/Y7XzY29bFtAWulCMt5K/6vqk5aA3b2J/gUIiNlb4JraqUHf3DjbwlEtmHmADpsL+n
+	bo1cxe9fJS5txTGdo5ByoFPRpm0InR23EGimcV5MZd3lX9S5C70tE3F0I0/Rit9iXJZ2obzL+BTlL
+	gBgorkMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68tu-00000000VE9-2I19;
-	Wed, 30 Oct 2024 13:38:18 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1t68vW-00000000VX4-45co;
+	Wed, 30 Oct 2024 13:39:59 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68is-00000000T5k-2ZnB
+	id 1t68kJ-00000000TLG-1F76
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:26:56 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4314c4cb752so63389385e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:26:54 -0700 (PDT)
+	Wed, 30 Oct 2024 13:28:24 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d4d1b48f3so4774925f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:28:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730294813; x=1730899613; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=;
-        b=fggoQ1E33nW7JS+QVSTt5fjFmsluDgW+UcpgPYlcEgQidOFBWUvHIZD3rXKbZdXDMt
-         GCD/ADrnqjKFbtcArAlwqFsWtcKLgsSejnd48YFPvS8FPGbEAmXnrDn+rYRFsqdhAiVQ
-         OVvd0IlB7f5yxcM/Yt9u3aGjw5BNHQBH84l+6pHUt2QNH6vkXmJfCW/in8A6NIhXM73w
-         zQbwJiCpL5UmIxsp0Zg2GLgaBgsFuqsoP7QaEu0coGK/JNIsuGP4KuHnVD3uLCZkp8Hn
-         4DoA6zqvGvIF/lSSrg0rqmNu3rC6cU2ydbchbD0B1cfiJhO2RSDSWel7Ge2FLexAzzO7
-         S8Rg==
+        d=gmail.com; s=20230601; t=1730294901; x=1730899701; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=;
+        b=kC/cI2zHYiuTjF9nv9VBH2MJlW/Xl1rMBUN2MR04KnY8c/f8G6LyitHIEiv5odRsxB
+         zDcJIbI4MiQtcbol5wLWg44AwjUBY4ymoHhZN/4jYU3lK84OxjBfIDfRktM+kcRp/aJ4
+         18gr2ix/oFhfOdX5ojI/QljnbSg86ak1QoQcNahRyu/vhnRdY8cHNuIbFr1g1xRO+7mh
+         WYObTJeMBZ2i8CdFQd/cv9lx1nDDOLubVphkmj4lh+uqVO5CzApwRwk8Kxa3xvJypM9g
+         H+erw6LS2KsjOc00BIgK5QJsoBs9+C0KEZCpU5i1VU0mvRnfczz6hnV56resze3wNEK/
+         yhJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730294813; x=1730899613;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=;
-        b=Z59He3lLGvp4P05nj6TFmNheqv7oFiQXORjYDg5+ygG/fixyjRIG8oxcLiFsYeHv/k
-         xaI5ns+pkFYQp3MUt2WI5EmNCs0lqm0O4Il0p06zZHT/bqY2cdpVl/25UXSDHxdDDNFs
-         YsRLeNThHOj8HCsbbtZadAw9QGuZNg268h36x3Lq9XC5Hm6ECz3uiYrbGI6DmdD8w5My
-         uS08svvPm3lkgDSm+dAKlnfQ0Yr1+b7eE6J7n1p790GZIR7oaVd7p3uJi/N07b7a7xTP
-         mPFciHERBvD25aqq9mH4l7uA3ZPA0UW33gaXd4gpUxoDPvmHNQTQ19vGcgptCsV9K+Rg
-         +4yA==
-X-Forwarded-Encrypted: i=1; AJvYcCVPoN3g0svrIZkhijAGNAPaMiD7OsF/+XtEBWdufVAe9ZnkDhL1yLC+P2Pc8YBqvgG6LENTVxYPFK9TcOJslcwN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDV/hiwvmkY31lB3K7tvoW1ZPSzDWkx7BXsKTh84QLLv3AXWzj
-	n7WYQAs8Ot2fTk8qpAjbGxIe1AGcjFe/gxpFK8ntRZTLqlRTcHragivdWcY/uw8=
-X-Google-Smtp-Source: AGHT+IHvCVDH97OPRIU78dk2sv1dUkZXYpRkqnVZcPXDtJpr/JmOXd9IkvC3KGa6t702TR8hj0iMNQ==
-X-Received: by 2002:a05:600c:4f06:b0:431:5021:32 with SMTP id 5b1f17b1804b1-4319ac74308mr110456545e9.6.1730294813080;
-        Wed, 30 Oct 2024 06:26:53 -0700 (PDT)
-Received: from ta2.c.googlers.com.com (32.134.38.34.bc.googleusercontent.com. [34.38.134.32])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bdafsm15356836f8f.30.2024.10.30.06.26.52
+        d=1e100.net; s=20230601; t=1730294901; x=1730899701;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5bRYMDo31wli1+F5XqLgDNYu5RKLrQYurcKRy2ybtgM=;
+        b=rg3Rsisv+s/RaTEicwWfPYwRqMz/f1b8bLM2Xk5jfA6yRADnMVnBEL+Gm0RoZYmmRw
+         lPcrIrVXAEzExhepKY3prP78r3+M6zM0CuzgynvslNSB9Od4SyFbzAoQ3FpB9EB1frf8
+         /vuf+gTDH17zHB70BK7CAzgL5zs+wc2yojcxuvy85VsvSMW3KXqY9vGfmYvVAkefzmFg
+         914OuULmcbqiO1G/QExL7Bp2jU0T/O7WSO581Fq8ytltvnwwUmnDofIl+m/eacm5k5yg
+         /P8yiFT2zOyB5Gb8bQ9j5SdHVhhqrVBG+JAHnGLYWeWTH6rgptLE6OX+jrHk+FyVQBmb
+         3ktQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXHX0J6kegR8I6anfJFwlc2CerHu3pRMqoi4HmOuBoAygUsJs4jjV/NAyimgwl1gNsVRwmFFVgX6sS4tJSUsy77@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiPsCngVhZfDKYk+XSbqZbTSSHwsJIyNCBIyWKs7h70sR1Omii
+	6fbYqn/LFmkXi51iQRH0BM3BXmSzjmW5uBz+u6ttxCgsB8BjEe9t
+X-Google-Smtp-Source: AGHT+IF/oVv8150+7ro6yu0YdcKzcFPQ8lbfxvxtxQ1j2qTb6UYENnsCgQU3QxkyOYC63S92RRMIAg==
+X-Received: by 2002:adf:ec8f:0:b0:374:b35e:ea6c with SMTP id ffacd0b85a97d-381b70ed1c3mr2289041f8f.40.1730294901291;
+        Wed, 30 Oct 2024 06:28:21 -0700 (PDT)
+Received: from tp440p.steeds.sam ([69.63.64.50])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b9294dsm15353345f8f.105.2024.10.30.06.28.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 06:26:52 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: alim.akhtar@samsung.com,
-	James.Bottomley@HansenPartnership.com,
-	martin.petersen@oracle.com
-Cc: krzk@kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	andre.draszik@linaro.org,
-	kernel-team@android.com,
-	willmcvicker@google.com,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH 2/2] scsi: ufs: exynos: remove unused rx_hibern8_wait(_nsec) fields
-Date: Wed, 30 Oct 2024 13:26:49 +0000
-Message-ID: <20241030132649.3575865-2-tudor.ambarus@linaro.org>
-X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-In-Reply-To: <20241030132649.3575865-1-tudor.ambarus@linaro.org>
-References: <20241030132649.3575865-1-tudor.ambarus@linaro.org>
+        Wed, 30 Oct 2024 06:28:20 -0700 (PDT)
+Date: Wed, 30 Oct 2024 15:28:13 +0200
+From: Sicelo <absicsz@gmail.com>
+To: Joerg Roedel <joro@8bytes.org>
+Cc: "H. Nikolaus Schaller" <hns@goldelico.com>,
+	Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	mchehab@kernel.org, andersson@kernel.org,
+	mathieu.poirier@linaro.org, Beleswar Padhi <b-padhi@ti.com>,
+	Andreas Kemnade <andreas@kemnade.info>, iommu@lists.linux.dev,
+	arm-soc <linux-arm-kernel@lists.infradead.org>,
+	Linux-OMAP <linux-omap@vger.kernel.org>,
+	linux-media@vger.kernel.org, linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
+Message-ID: <ZyI0baBMPHVZ29-k@tp440p.steeds.sam>
+References: <cover.1730136799.git.robin.murphy@arm.com>
+ <ZyIClriScBy4s6LX@8bytes.org>
+ <515D7932-3939-4C3E-BA3E-CC3152E64749@goldelico.com>
+ <ZyIos2Gm1nf5rejI@8bytes.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ZyIos2Gm1nf5rejI@8bytes.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_062654_709596_F3D2AF07 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241030_062823_359053_08545E4C 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,73 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rx_hibern8_wait_nsec was used to compute rx_hibern8_wait, but the later
-is not used afterwards. Remove both.
+Hi
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/ufs/host/ufs-exynos.c | 5 -----
- drivers/ufs/host/ufs-exynos.h | 2 --
- 2 files changed, 7 deletions(-)
+On Wed, Oct 30, 2024 at 01:38:11PM +0100, Joerg Roedel wrote:
+> On Wed, Oct 30, 2024 at 12:20:31PM +0100, H. Nikolaus Schaller wrote:
+> > Why that? There was a discussion and everyone agreed to remove omap2,
+> > but not omap3 and later.
+> 
+> I raised this question to make sure the things we maintain are still
+> relevant. Developer and maintainers time is limited and we should not
+> spend it on stuff that nobody uses.
+> 
+> > There are some devices besides the PandaBoard. I am aware of these where
+> > this is relevant: Epson BT200, Samsung Galaxy Tab 2, Pyra Handheld
+> > (in production) and we are currently thinking about producing a tiny series
+> > of the DM3730 based GTA04A5 with spare parts.
+> > 
+> > And of course we want to participate from the latest and greatest upstream changes.
+> 
+> Okay, if there are still real users for latest mainline kernels on this
+> hardware, then the effort is justified.
+> 
+> Regards,
+> 
+> 	Joerg
 
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 91c09309c1c1..fd86252ab2ba 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -559,8 +559,6 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
- 
- 	t_cfg->rx_linereset =
- 		exynos_ufs_calc_time_cntr(ufs, attr->rx_dif_p_nsec);
--	t_cfg->rx_hibern8_wait =
--		exynos_ufs_calc_time_cntr(ufs, attr->rx_hibern8_wait_nsec);
- 	t_cfg->rx_base_n_val =
- 		exynos_ufs_calc_time_cntr(ufs, attr->rx_base_unit_nsec);
- 	t_cfg->rx_gran_n_val =
-@@ -1975,7 +1973,6 @@ static struct exynos_ufs_uic_attr exynos7_uic_attr = {
- 	.tx_min_activatetime		= 0xa,
- 	.rx_filler_enable		= 0x2,
- 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
--	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
- 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
- 	.rx_sleep_cnt			= 1280,		/* unit: ns */
-@@ -2050,7 +2047,6 @@ static struct exynos_ufs_uic_attr gs101_uic_attr = {
- 	.tx_min_activatetime		= 0xa,
- 	.rx_filler_enable		= 0x2,
- 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
--	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
- 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
- 	.rx_sleep_cnt			= 1280,		/* unit: ns */
-@@ -2077,7 +2073,6 @@ static struct exynos_ufs_uic_attr fsd_uic_attr = {
- 	.tx_min_activatetime		= 0xa,
- 	.rx_filler_enable		= 0x2,
- 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
--	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
- 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
- 	.rx_sleep_cnt			= 1280,		/* unit: ns */
-diff --git a/drivers/ufs/host/ufs-exynos.h b/drivers/ufs/host/ufs-exynos.h
-index e64fe20d50c1..b7fe725c7f8e 100644
---- a/drivers/ufs/host/ufs-exynos.h
-+++ b/drivers/ufs/host/ufs-exynos.h
-@@ -144,7 +144,6 @@ struct exynos_ufs_uic_attr {
- 	/* RX Attributes */
- 	unsigned int rx_filler_enable;
- 	unsigned int rx_dif_p_nsec;
--	unsigned int rx_hibern8_wait_nsec;
- 	unsigned int rx_base_unit_nsec;
- 	unsigned int rx_gran_unit_nsec;
- 	unsigned int rx_sleep_cnt;
-@@ -199,7 +198,6 @@ struct ufs_phy_time_cfg {
- 	u32 tx_gran_n_val;
- 	u32 tx_sleep_cnt;
- 	u32 rx_linereset;
--	u32 rx_hibern8_wait;
- 	u32 rx_base_n_val;
- 	u32 rx_gran_n_val;
- 	u32 rx_sleep_cnt;
--- 
-2.47.0.199.ga7371fff76-goog
+There is also the Nokia N900 phone (OMAP3) still seeing mainline
+activity, as well as the Motorola Droid 4 (OMAP4), to name a few. I will
+also be testing on the N900 around the weekend.
 
+Thanks to everyone for the amazing work.
+
+Sincerely
+Sicelo
 
