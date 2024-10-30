@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB6FD5B86D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 09:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14FFD5CC81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 09:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWI6K/rf7yyzgkMjRv3kNpqClOPrOQ72cfml1iwnTbs=; b=mIMHj/uF7LDca3C5oRvcPcFH+B
-	yUFVRSkNe68z47D6LwLE7Bg1jiIYjTc5sAw7xUAaeVDu/z5QmCbl8JsjotW2bBAub2b6aksYFwmtY
-	NIsCWIwjfOB3Rg7NqAf3XXiKDoLFtHlUchkO3R2X+JlwEFUHkMAUlNGyCN9/7xuvvtqewrw+2vYUm
-	QK66mmowo54qrfcjS+0deABsNvlbM40QWWFYca16N0ByN8tZx61YVnimqeQ2t8N9rdP62tCkEvwRe
-	U5evslszqwBGHvLYMzsKhiOxvycbFmmFi2CILKAUb6gwgozZPTyy4m/GpcXste0Tg009HeT2+5d2J
-	GzRCNVMw==;
+	bh=ag3qMEuX6Cc3v4bkPrSJRzpYF1kUzoXfTNF3zWq3sa4=; b=e3Zc7NMZMH4AHcrPs8gu0ascUT
+	5KQjJAODDfYjBlxDYdam9hrGjflekYed3ygHstoanCypzVOfFTGcK4ZrzSwUuuVZAajCfL+0vCQon
+	RUiQW17oflqNKW31h+1L4AdBs8PIYgH6sgv6hLP4Is2HP5NZPqedcTtZzooqc5+a3DJlJEePJHNhW
+	Fhng6BODg2iJL96IeDsst/wvPkYbUk7jBuzAhIrblbq/DjUOEMhFr31/Fi16Lh1xegUbkWs7LQyDQ
+	FBDPMYe2tSq72MM8dZwO43489Gz8K7xXlu1vi0o3DUuiHTOCfV4AT+dlWedw2mrxGc/ttyZCJ41KJ
+	SofKje7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t65IW-0000000HR6z-0H6A;
-	Wed, 30 Oct 2024 09:47:28 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1t65M8-0000000HRx6-3Rv7;
+	Wed, 30 Oct 2024 09:51:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t65Df-0000000HQDJ-0Rqp
+	id 1t65KM-0000000HRWv-1qnd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 09:42:28 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-37d4c482844so4281708f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 02:42:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730281345; x=1730886145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uWI6K/rf7yyzgkMjRv3kNpqClOPrOQ72cfml1iwnTbs=;
-        b=XiGaVtv4mBSWm1RPdvi7/FaWHeXZmt04daf/UcWKWLtpt35jmK2xEvLjUb6/YqIYXj
-         b/zeeup1Gy/QNLFPP2ukgSnLNyzwO+xQag63XAp8ajcGD149G+7ABqG+aTJcO5UgQ8Q6
-         uXt1izN6mYfcG62SZKsbnPrX8t/xYn0zNYFkRxrd02beEnyBITLD1MwfrQfv7ReXS/Ib
-         Rbr/BNc5ggggu3A4G/2o+oiXCf+Kf2gMlNPpLBRsMGy3VUnR1SJ5tCW2hdzbiIGZAiTs
-         WJNgN17lRa7qmUYnS4qdZ1f3O6P7m1m0gqpgvkAR0Gn9Fd6PYKpqeHwvPUQYRZkbpbXi
-         ZWlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730281345; x=1730886145;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uWI6K/rf7yyzgkMjRv3kNpqClOPrOQ72cfml1iwnTbs=;
-        b=uyVca56hQ8FdWT61ku67tTSGlNSBwj8FkOoM7PKVVCyfXpqjgPQQ5jdRQcWwHnJSsa
-         urSx4v+Fa1sjc87vpzbPsKwiQf0iU4jtxSNcP/h8n3Raq0s4WF7FJgAeus+EJzTKar2B
-         UjpXKq3caHhOAUPSpfj2XNAI64hP0b+zxWLCe5/ooChlS6NZjjgopXzB3ReZvtpvgoqD
-         wjm36/xM3YB8LcT0P9jwcYNrjbgPWBDTzG9NI9+ZnCzqZUXKffQd2bj9sbp6ie4LTE+e
-         QuS20OyHskVvGsAQJ6t8YZ1iPaQlKIXZz0xaXC9RpXedcAy9JZLiY5QgaHv2yxxShBGU
-         WEAw==
-X-Forwarded-Encrypted: i=1; AJvYcCUPjsNvY9e2URiiGc0LJad2rZutwKNMJCjCl/8ivUVf8GZTy9VH4H6smTQXl8VdJ2hwDSb/KQmcg6zgp3y3yrep@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0Fjyyk/ZaaSgItcP3YNQrhaHDEAGdKJ5cxCjkChTf3UunfYow
-	rrJNjk5fEKukt5IWrORVAp9n4jYnRKGHixwMgkahbywuuaFqdTBE
-X-Google-Smtp-Source: AGHT+IGgxkYq0IK3fxqLi8TOsD2onQa9lxKRAUf/ZEnDRqoOPLnaHRe93zTXDeoP87QjxNur8CC1qw==
-X-Received: by 2002:adf:e28a:0:b0:37d:45f0:dd0a with SMTP id ffacd0b85a97d-380610f2a9emr11076817f8f.1.1730281344449;
-        Wed, 30 Oct 2024 02:42:24 -0700 (PDT)
-Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058bb4461sm14802711f8f.113.2024.10.30.02.42.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 02:42:24 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Wed, 30 Oct 2024 10:42:21 +0100
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Ingo Molnar <mingo@kernel.org>
-Cc: Peter Ziljstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linux trace kernel <linux-trace-kernel@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, Oleg Nesterov <oleg@redhat.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Liao Chang <liaochang1@huawei.com>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"linux-perf-use." <linux-perf-users@vger.kernel.org>,
-	Kernel Team <kernel-team@meta.com>
-Subject: Re: The state of uprobes work and logistics
-Message-ID: <ZyH_fWNeL3XYNEH1@krava>
-References: <CAEf4BzarhiBHAQXECJzP5e-z0fbSaTpfQNPaSXwdgErz2f0vUA@mail.gmail.com>
+	Wed, 30 Oct 2024 09:49:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5BA00A433CE;
+	Wed, 30 Oct 2024 09:47:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C323FC4CEE5;
+	Wed, 30 Oct 2024 09:49:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730281758;
+	bh=NDw0InURcJy7Z0GoHumZQCjg5VAENS9N1S5pr0z2yb8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j0DJmS1zCBPUEjiPHvT4etc+FpuqaQI/KH7l25dsJAYubGrzFCR0ZoQlAvYpYgKOn
+	 cOVUEMwVPVsgYdwl46rgLrJi4L0wXh4qorl48s4x2C/7i2rjtnNrgxlRteFOPPnHNw
+	 UqCDsVbUlr3jNbnmcba08gJ37c51+ZdkNU/qp4Ajfx0oSmp2ak3jzb6gyOml17iNXs
+	 FQBFj/i6whwIfTCKB3N/6Kqa8rpeD47HaH0rhzjwA1pCQoAmOG9afgtj/FE9C+C5cX
+	 v72xlIfJDYcNroim9cDUyQb3k4HQ0hL19/9Z6FBE2wF81fDBmwao/3Nm7msjEKPWDh
+	 43x9XTHhi+p+g==
+Date: Wed, 30 Oct 2024 10:49:13 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Zheng Zengkai <zhengzengkai@huawei.com>, will@kernel.org,
+	catalin.marinas@arm.com
+Cc: guohanjun@huawei.com, sudeep.holla@arm.com, mark.rutland@arm.com,
+	maz@kernel.org, rafael@kernel.org, lenb@kernel.org,
+	daniel.lezcano@linaro.org, tglx@linutronix.de,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] ACPI: GTDT: Tighten the check for the array of
+ platform timer structures
+Message-ID: <ZyIBGRv/10kpOcOl@lpieralisi>
+References: <20241016095458.34126-1-zhengzengkai@huawei.com>
+ <Zw+O4nZisbkdvNtz@lpieralisi>
+ <3bf1fe29-e135-c1ba-2774-d1e98c8b92b3@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAEf4BzarhiBHAQXECJzP5e-z0fbSaTpfQNPaSXwdgErz2f0vUA@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3bf1fe29-e135-c1ba-2774-d1e98c8b92b3@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_024227_185930_596F77A7 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241030_024922_687519_5A3F09D6 
+X-CRM114-Status: GOOD (  38.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +79,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 12:35:21PM -0700, Andrii Nakryiko wrote:
+[+Catalin/Will]
 
-SNIP
-
->   - Jiri Olsa's uprobe "session" support ([5]). This is less
-> performance focused, but important functionality by itself. But I'm
-> calling this out here because the first two patches are pure uprobe
-> internal changes, and I believe they should go into tip/perf/core to
-> avoid conflicts with the rest of pending uprobe changes.
+On Tue, Oct 29, 2024 at 10:16:41PM +0800, Zheng Zengkai wrote:
 > 
-> Peter, do you mind applying those two and creating a stable tag for
-> bpf-next to pull? We'll apply the rest of Jiri's series to
-> bpf-next/master.
+> Gentle ping.
+> 
+> This patch still can be applied to upstream now.
 
+Hi Catalin, Will,
 
-Hi Ingo,
-there's uprobe session support change that already landed in tip tree,
-but we have bpf related changes that need to go in through bpf-next tree
+this patch is a clean-up - not a fix, it could be merged
+for v6.13, please consider it if there is still time.
 
-could you please create the stable tag that we could pull to bpf-next/master
-and apply the rest of the uprobe session changes in there?
+Thanks,
+Lorenzo
 
-thanks,
-jirka
+> 
+> Thanks!
+> 
+> 
+> 在 2024/10/16 18:01, Lorenzo Pieralisi 写道:
+> > On Wed, Oct 16, 2024 at 05:54:58PM +0800, Zheng Zengkai wrote:
+> > > As suggested by Marc and Lorenzo, first we need to check whether the
+> > > platform_timer entry pointer is within gtdt bounds (< gtdt_end) before
+> > > de-referencing what it points at to detect the length of the platform
+> > > timer struct and then check that the length of current platform_timer
+> > > struct is also valid, i.e. the length is not zero and within gtdt_end.
+> > > Now next_platform_timer() only checks against gtdt_end for the entry of
+> > > subsequent platform timer without checking the length of it and will
+> > > not report error if the check failed and the existing check in function
+> > > acpi_gtdt_init() is also not enough.
+> > > 
+> > > Modify the for_each_platform_timer() iterator and use it combined with
+> > > a dedicated check function platform_timer_valid() to do the check
+> > > against table length (gtdt_end) for each element of platform timer
+> > > array in function acpi_gtdt_init(), making sure that both their entry
+> > > and length actually fit in the table.
+> > > 
+> > > Suggested-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > > Co-developed-by: Marc Zyngier <maz@kernel.org>
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > Signed-off-by: Zheng Zengkai <zhengzengkai@huawei.com>
+> > > ---
+> > > Changes in v4:
+> > > - remove the tmp pointer to make the code more concise.
+> > > 
+> > > Changes in v3:
+> > > - based on Marc's patch and reuse the for_each_platform_timer() loop
+> > > Link to v3: https://lore.kernel.org/linux-arm-kernel/20241015152602.184108-1-zhengzengkai@huawei.com/
+> > > 
+> > > Changes in v2:
+> > > - Check against gtdt_end for both entry and len of each array element
+> > > Link to v2: https://lore.kernel.org/linux-arm-kernel/20241012085343.6594-1-zhengzengkai@huawei.com/
+> > > 
+> > > Link to v1: https://lore.kernel.org/all/20241010144703.113728-1-zhengzengkai@huawei.com/
+> > > 
+> > > Link to previous related patches:
+> > > https://lore.kernel.org/all/20241008082429.33646-1-zhengzengkai@huawei.com/
+> > > https://lore.kernel.org/all/20240930030716.179992-1-zhengzengkai@huawei.com/
+> > > ---
+> > >   drivers/acpi/arm64/gtdt.c | 29 ++++++++++++++++++++---------
+> > >   1 file changed, 20 insertions(+), 9 deletions(-)
+> > Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > 
+> > > diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+> > > index c0e77c1c8e09..d7c4e1b9915b 100644
+> > > --- a/drivers/acpi/arm64/gtdt.c
+> > > +++ b/drivers/acpi/arm64/gtdt.c
+> > > @@ -36,19 +36,25 @@ struct acpi_gtdt_descriptor {
+> > >   static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+> > > -static inline __init void *next_platform_timer(void *platform_timer)
+> > > +static __init bool platform_timer_valid(void *platform_timer)
+> > >   {
+> > >   	struct acpi_gtdt_header *gh = platform_timer;
+> > > -	platform_timer += gh->length;
+> > > -	if (platform_timer < acpi_gtdt_desc.gtdt_end)
+> > > -		return platform_timer;
+> > > +	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
+> > > +		platform_timer < acpi_gtdt_desc.gtdt_end &&
+> > > +		gh->length != 0 &&
+> > > +		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
+> > > +}
+> > > +
+> > > +static __init void *next_platform_timer(void *platform_timer)
+> > > +{
+> > > +	struct acpi_gtdt_header *gh = platform_timer;
+> > > -	return NULL;
+> > > +	return platform_timer + gh->length;
+> > >   }
+> > >   #define for_each_platform_timer(_g)				\
+> > > -	for (_g = acpi_gtdt_desc.platform_timer; _g;	\
+> > > +	for (_g = acpi_gtdt_desc.platform_timer; platform_timer_valid(_g);\
+> > >   	     _g = next_platform_timer(_g))
+> > >   static inline bool is_timer_block(void *platform_timer)
+> > > @@ -157,6 +163,7 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+> > >   {
+> > >   	void *platform_timer;
+> > >   	struct acpi_table_gtdt *gtdt;
+> > > +	int cnt = 0;
+> > >   	gtdt = container_of(table, struct acpi_table_gtdt, header);
+> > >   	acpi_gtdt_desc.gtdt = gtdt;
+> > > @@ -176,12 +183,16 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+> > >   		return 0;
+> > >   	}
+> > > -	platform_timer = (void *)gtdt + gtdt->platform_timer_offset;
+> > > -	if (platform_timer < (void *)table + sizeof(struct acpi_table_gtdt)) {
+> > > +	acpi_gtdt_desc.platform_timer = (void *)gtdt + gtdt->platform_timer_offset;
+> > > +	for_each_platform_timer(platform_timer)
+> > > +		cnt++;
+> > > +
+> > > +	if (cnt != gtdt->platform_timer_count) {
+> > > +		acpi_gtdt_desc.platform_timer = NULL;
+> > >   		pr_err(FW_BUG "invalid timer data.\n");
+> > >   		return -EINVAL;
+> > >   	}
+> > > -	acpi_gtdt_desc.platform_timer = platform_timer;
+> > > +
+> > >   	if (platform_timer_count)
+> > >   		*platform_timer_count = gtdt->platform_timer_count;
+> > > -- 
+> > > 2.20.1
+> > > 
+> > .
+> > 
 
