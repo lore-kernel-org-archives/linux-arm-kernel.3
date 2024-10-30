@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E708CD5CCB4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 14:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390CFD5CCB3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 14:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A66QRbAmerrW6V7sGjQr/c1N9bxUtMh8x/uKuirbyvM=; b=X4xM8kSE+gbOq2sgYRDlL5BwNT
-	mgsHPwzmi4cWkKos33FRKwsJci2aNrP4pdvoFUVFBegFjzhiu4imIq4s1x9KHvXHOruu6CtlfTYF9
-	ng4SHLG4936uv8PyreHiq17TFS3yvre5peLx5NqpQeIe4dY0tmhqNsAdLNUEHAs5s24Jf4OlWrDSD
-	ZO/T33Y9QVK7QWAkE5CGGKabcXCxICOZbo8DBstnuh+GVHGelXGhwcHBdZZLFtQcHQsjqGUkbxw1S
-	S7Wb5oNlLR2UqWW0+yhEHf8ftk3UGIWktD/QGNwJ/UXqDFpfU4gaxPv2/xLdLnymVoZM07TUoEJaB
-	OJsQt3dg==;
+	bh=CMLlcuyrBExBFQ7cARmq4EKvLPPMbZK83A9cofBFpAU=; b=C+dyJV1u0NGK36OXBrs4T+jSh8
+	eNT9uxybwZeJ4va0tf+U20AbDyuombg6CLyNd0O2BzLt49MU5624clP28LpJARZagvZTQAizPG04+
+	TwsKYh6cVaw8XZ2r7YCNXSWNknNaGZPqoSav2SJkkyg3znsnMxPgxD4HStrNoDAgIjRaXt2waNyFq
+	WV8ZtkqRAE/zh+LczGQBjKDD2Atep4wIBHAeQLkRuo7+BAhByJnfWyAisTEpC/CvkZ7F+JvFTH0Td
+	o0It6iDCSCuU1RvaC+ulEIHMW+Df1CAGNKfsxQlcrUxVS/2ddxhrLqnU4/hUtPuOZkDMwUwgtofaA
+	8hbOFWTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6A0u-00000000iS1-2mwV;
-	Wed, 30 Oct 2024 14:49:36 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1t6A8B-00000000k4y-26if;
+	Wed, 30 Oct 2024 14:57:07 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t69zA-00000000i38-2Dhr
+	id 1t6A6S-00000000jet-256b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 14:47:53 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-71e681bc315so778576b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 07:47:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730299667; x=1730904467; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=A66QRbAmerrW6V7sGjQr/c1N9bxUtMh8x/uKuirbyvM=;
-        b=T1DUtsPLAlxAT2KdKrk6QZgqjKuh/jsBz/jlpDZJ5n291vI/QEXJKT2ChVsd0x7v0n
-         0YQ5Yw6jlwLZinrC0NuWNThc/uC1w9RygwrLxaEF0yc0T3rC8JT2IzLzmJ+/HOcxC4FF
-         xN6tC+/p56StLKmv051kLOEFcHdvsgVFcuP2DAIemXmpAd8wWSACxwXqzZ1bVeeaEXFJ
-         IfCMbKTjvOAOE3TSt4csQiA809Mg22sWd8YY8smN+hPIFaNPoyFjlggOQXRN3BbJEVp2
-         cLR60rUrGi0h62/BpX1I7TTtTbKpkHMKiY7wHsMopPEcepokTh+CRqzwlaQlDrXWF/4e
-         nwKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730299667; x=1730904467;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A66QRbAmerrW6V7sGjQr/c1N9bxUtMh8x/uKuirbyvM=;
-        b=RF5DRgqAgZFexh1enmrOxzzUFLrjYlkJ0oldEVc/kwt0A+AIafPYoKQk1g8G8EVB0n
-         g/u8TCNjVb7+Kc5FztEdSAlsFRrkimD9AOX+R0j8htYIkqBYChaU6H8VKT4xFhW9NS0M
-         hRrDH/CFccxC2OMJlaI7pqa4BzcdsxwfVzopo+Qhjo0/kX3yT98wpKSkTqW/VcEU3ICC
-         pTm8BiclIFrstZCZSLBiL3ZfQfgBc//jZayNKH/mX7GgCO34vsYlyXewyYV0XYHpmB5m
-         uu5UXOJpO2JkRx97Fnuct8bCWuRNEvr3ODv9e2W2MR37kJrvzL4k64oZC77BtvhJGj3p
-         dvrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWAg/FqTAZnZ+O0cfKXaZ3tjM58qwUrqALcopcgcu+1CEdimsXV3P4qkKkt57clS2DJMyWdxPs8ApGfExIVn85F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5aMIiNKi7cskih/345xhSbmFGxRmYsHZ6MyMT7DC/su0fI+2L
-	26iBSU6Z6ZzUK7/7KVB/QSNrlemxu58G3m9jjzKP/SxwCWeFUJOvpkIFkj07RFrcHg4BfW6w7kK
-	NiLT0qlE0KoAZtEEiCrkds6msQdOec/0h+XljzA==
-X-Google-Smtp-Source: AGHT+IGE7SsUIQK43Z4vZS5EhJTyoCpTtVo7W6Nv8yrAqHUH5kel+pZdVCezqU0Hw/lsMKcRpIyDLKIrU3G5mxocaNI=
-X-Received: by 2002:a05:6a00:3c85:b0:71e:5252:2412 with SMTP id
- d2e1a72fcca58-720ad14b1cdmr4375376b3a.2.1730299666657; Wed, 30 Oct 2024
- 07:47:46 -0700 (PDT)
+	Wed, 30 Oct 2024 14:55:23 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1730300117;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMLlcuyrBExBFQ7cARmq4EKvLPPMbZK83A9cofBFpAU=;
+	b=rNKB143K8Ctczk3QICRDrjfntQZPdO2TZ1f0bQAU/xyc6baIqN5IkK9Z1iloHVIxUm4eL1
+	DTVv8Fa2zQg7+4CZn8EqI2YxizzNT94IXwGJldgfESCpFi6tePC7ZXoOvt4WTbdXbhNgsq
+	1sT6qx//LyoEXjk+Aun+OKMoPlBU4KnBmGMKRt4xsjZgQAyu/XFDtMSRHOd40hHQX9Fo2n
+	4/W7322h5dgZu3XjP0zpmdf4ZW0uFTLVzALlgwMozRxJJo5igweVCQUhEX2JHXJ6Rz8QLP
+	2fsyjfqPZS9d4ZOG8O6oLnV0CtqmcDSqZcWxXIHUaPt9YqxHPn4NTUd8w/mAQw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1730300117;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMLlcuyrBExBFQ7cARmq4EKvLPPMbZK83A9cofBFpAU=;
+	b=sXqooMKj4WSJGhKapgzAlZ6y8k02GuQUsISSgkOq1Val6CrIZxncFkQriu8lZfjdEsOgzR
+	Xb0yWorE+ouD/cDA==
+To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, sudeep.holla@arm.com, peterz@infradead.org,
+ mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ pierre.gondois@arm.com, dietmar.eggemann@arm.com
+Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+ linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
+ gregkh@linuxfoundation.org, rafael@kernel.org,
+ jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ linuxarm@huawei.com, yangyicong@hisilicon.com, xuwei5@huawei.com,
+ guohanjun@huawei.com
+Subject: Re: [PATCH v7 1/4] cpu/SMT: Provide a default
+ topology_is_primary_thread()
+In-Reply-To: <20241030125415.18994-2-yangyicong@huawei.com>
+References: <20241030125415.18994-1-yangyicong@huawei.com>
+ <20241030125415.18994-2-yangyicong@huawei.com>
+Date: Wed, 30 Oct 2024 15:55:17 +0100
+Message-ID: <87ttcty71m.ffs@tglx>
 MIME-Version: 1.0
-References: <20241030133133.2932722-1-quic_sibis@quicinc.com> <20241030133133.2932722-2-quic_sibis@quicinc.com>
-In-Reply-To: <20241030133133.2932722-2-quic_sibis@quicinc.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Wed, 30 Oct 2024 15:47:35 +0100
-Message-ID: <CAKfTPtDY965+8wbF-fgFyD4Br-2obQQjJTONwJoPpyYBrdN_VA@mail.gmail.com>
-Subject: Re: [PATCH V6 1/1] cpufreq: scmi: Register for limit change notifications
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org, 
-	viresh.kumar@linaro.org, morten.rasmussen@arm.com, dietmar.eggemann@arm.com, 
-	lukasz.luba@arm.com, pierre.gondois@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, quic_mdtipton@quicinc.com, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_074748_620301_64E71E3B 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20241030_075520_700748_F303DEB7 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,132 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Oct 2024 at 14:32, Sibi Sankar <quic_sibis@quicinc.com> wrote:
->
-> Register for limit change notifications if supported and use the throttled
-> frequency from the notification to apply HW pressure.
->
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-> ---
->
-> v6:
-> * Unregister the notifier in the exit path to make sure
->   the cpus work across suspend/resume cycles.
->
->  drivers/cpufreq/scmi-cpufreq.c | 38 ++++++++++++++++++++++++++++++++++
->  1 file changed, 38 insertions(+)
->
-> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> index 5892c73e129d..fb3534eae722 100644
-> --- a/drivers/cpufreq/scmi-cpufreq.c
-> +++ b/drivers/cpufreq/scmi-cpufreq.c
-> @@ -16,6 +16,7 @@
->  #include <linux/export.h>
->  #include <linux/module.h>
->  #include <linux/pm_opp.h>
-> +#include <linux/pm_qos.h>
->  #include <linux/slab.h>
->  #include <linux/scmi_protocol.h>
->  #include <linux/types.h>
-> @@ -25,7 +26,9 @@ struct scmi_data {
->         int domain_id;
->         int nr_opp;
->         struct device *cpu_dev;
-> +       struct cpufreq_policy *policy;
->         cpumask_var_t opp_shared_cpus;
-> +       struct notifier_block limit_notify_nb;
->  };
->
->  static struct scmi_protocol_handle *ph;
-> @@ -174,6 +177,25 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
->         NULL,
->  };
->
-> +static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
+On Wed, Oct 30 2024 at 20:54, Yicong Yang wrote:
+>  
+> +#ifndef topology_is_primary_thread
+> +#define topology_is_primary_thread topology_is_primary_thread
+
+Please do not glue defines and functions together w/o a newline in between.
+
+> +static inline bool topology_is_primary_thread(unsigned int cpu)
 > +{
-> +       struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
-> +       struct scmi_perf_limits_report *limit_notify = data;
-> +       struct cpufreq_policy *policy = priv->policy;
-> +       unsigned int limit_freq_khz;
-> +       int ret;
-> +
-> +       limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
-> +
-> +       policy->max = clamp(limit_freq_khz, policy->cpuinfo.min_freq, policy->cpuinfo.max_freq);
-> +
-> +       ret = freq_qos_update_request(policy->max_freq_req, policy->max);
+> +	/*
+> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
+> +	 * Architectures do have a special primary thread (e.g. x86) need
+> +	 * to override this function. Otherwise just make the first thread
+> +	 * in the SMT as the primary thread.
+> +	 */
+> +	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
 
-If I don't get it wrong, you are using policy->max_freq_req which is
-also used by the sysfs scaling_max_freq
+How is that supposed to work? Assume both siblings are offline, then the
+sibling mask is empty and you can't boot the CPU anymore.
 
-This means that your request will be overwritten by the next write
-into scaling_max_freq and/or you will overwrite a constraint set by
-userspace.
+Thanks,
 
-You have to create your own freq_qos_request and add it to the list of
-cpufreq qos request
-
-
-
-> +       if (ret < 0)
-> +               pr_warn("failed to update freq constraint: %d\n", ret);
-> +
-> +       return NOTIFY_OK;
-> +}
-> +
->  static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->  {
->         int ret, nr_opp, domain;
-> @@ -181,6 +203,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->         struct device *cpu_dev;
->         struct scmi_data *priv;
->         struct cpufreq_frequency_table *freq_table;
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->
->         cpu_dev = get_cpu_device(policy->cpu);
->         if (!cpu_dev) {
-> @@ -294,6 +317,17 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->                 }
->         }
->
-> +       priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
-> +       ret = sdev->handle->notify_ops->devm_event_notifier_register(sdev, SCMI_PROTOCOL_PERF,
-> +                                                       SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-> +                                                       &domain,
-> +                                                       &priv->limit_notify_nb);
-> +       if (ret)
-> +               dev_warn(&sdev->dev,
-> +                        "failed to register for limits change notifier for domain %d\n", domain);
-> +
-> +       priv->policy = policy;
-> +
->         return 0;
->
->  out_free_opp:
-> @@ -310,8 +344,10 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->
->  static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
->  {
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->         struct scmi_data *priv = policy->driver_data;
->
-> +       sdev->handle->notify_ops->devm_event_notifier_unregister(sdev, &priv->limit_notify_nb);
->         dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
->         dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
->         free_cpumask_var(priv->opp_shared_cpus);
-> @@ -370,6 +406,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
->         if (!handle)
->                 return -ENODEV;
->
-> +       scmi_cpufreq_driver.driver_data = sdev;
-> +
->         perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
->         if (IS_ERR(perf_ops))
->                 return PTR_ERR(perf_ops);
-> --
-> 2.34.1
->
+        tglx
 
