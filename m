@@ -4,151 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCA4D2AB2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 09:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BFFD3A67D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 09:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XV72DHgs8T/L6w8FCEEKiJy9I1sRnA8ztHbCci/nsvg=; b=q1uqVXthaXNN0Xp+5+l+wTjuHP
-	AiLl7lmHuU6yw+9GNO0W0WNH3rOfnbgHhvwZlyAvNnELBFnymH034X1WNh48kdPJTybYjVmbjsKH0
-	j69BfGX/b03HnLEfMA6KdnXHwZ+DfJEOGAYiaYqQEnsSH/QNN0V5g5aSPz8sFtQN7OR2aObPgQi7j
-	QvAl7U41gO8TPx03xDJTcU+DyvyLjyu3vh3vI0evyTOxr5BTlczC9wY2ovSpR5PrqVcpTkJFgdhFZ
-	aSv7AZatWW40j4IvS3zI+E2Tb5Z+QTfaOD2yhc5t+YKtz+nH1OWndyB7Op86BaHeh24LsZKYpu87j
-	ufmSqhXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uu3ZQracmyXKjnGtslK36vhe3Y/Ue/aAIyzqKHVzdsY=; b=Ux+xx2YDDnAKc4b+J1oNZGLmh/
+	usIPR8IqXiPmWiekSdve4+9Jr0IngxKLKEWyIOcD3EZr44adjkDycvHMgTmvxAIarB6pLn27tcP8t
+	MQYDBUZU94dw+GMUpQtAuBVemQ75TYTsaOd20Dhk3Lh3cH1P2YwV37rv13wLXgsuj9zuSPGna+9BO
+	t880q8f5iV9ma64LRqwZwB9sSQzFwLruPfp/beI+YnvJLhg/KGHUTc6E6iMfevsCVT7kF2YMGBPQC
+	jwqIkRepWuvq/9UotbXU/PJnse6eVVMv/ps5uBjzicpSStPQLlEzRCV8nn5OJLYw+zpfIld6xx+bK
+	tFMP8ihg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64pe-0000000HN8D-2PWg;
-	Wed, 30 Oct 2024 09:17:38 +0000
-Received: from mail-db8eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2614::60f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t64wr-0000000HO28-40xP;
+	Wed, 30 Oct 2024 09:25:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64n0-0000000HMuN-2B9Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 09:14:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q5MawZ1qO1+8+pj9Mynzlx5cuJYDsjA9TGgftM/m4UWnPkg6fCRSWK3klD9q+m35MW5+U2wJoPKIp6RZJrnDjQe87WM1Nnw3i8zLcvwTy7H0HsdSvZ2iPVy+Kg7HNvCVBoWJJds7JlIxOxWzxYHLteIVMsoPJEwQ0Sj5sOqXdCtE5AHRuC6QD2t/baLobQp6LvOtNv0DhpJoUVWRzKf8wwy56ZFyt7EztFxfCQhcU78mqXXwpTZq+BaNHTSuc+1f42+rdqQenat7TgbgiWeHi/wNl27xw/MaR/HrKi215BynVRLUuE8FnFIiXDNA4anLjrtBVjEVT8r4s3g61t/BrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XV72DHgs8T/L6w8FCEEKiJy9I1sRnA8ztHbCci/nsvg=;
- b=M16kmMJJurhsJU5qamdq+vWwGBDdro2V8Elk9Vr0B7Srnl/5v5XbzRhCQS97iqPNnFyNj+L9jZkmYjJl8wmzQqeHpvy5yeE57GZD2ddL58tmVm2/MRaHnnUkdjZDz449CvpvbUK39UoTnYO39/crqy50F09uD1lM8Bj9eOTcRuju6NeiRNPVYSrkH+uloO9/ULHCVxfW2w1vf2Xy2CYglbYoQRrsnCBFwFF8JYZBzVZiVHzlZI3GiK/4OCfudWxN7p8jif3rl+AYmrPRF/uToTtxyO9hjUXFS0Z/vkdNTCu/HE1bhyVOF+ifbXz0o1WgEv9bLvuSCnkwE7wKePT6mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XV72DHgs8T/L6w8FCEEKiJy9I1sRnA8ztHbCci/nsvg=;
- b=LmE0fSpepImb+vo/EAxQFcu/SeQWGtg75pfy4AuBE4RDEXhbOu3OhunXiyl9EBHnrY+ZslzG8qQhuCjmyJp0Vk6RnAZEe12k1ZBYup3x06i+kDwwICymh+rAUWohw7Ijz8of3uYZ8Xlf2/abnYKqhIHX13HtQDjO86SmdXBdmru0/jJVThZDQk0B6iNf+OsUzWcFEjzAB/ysD0+P+zkGat5va6q/MRiutYyu8fGYfXrxJpaoklwWtnaeNR3otwxYXLTysImpbQU7aw6ePyHEnI16cQvYANWUkIjSUJysllkF7Qy6ZRIohrHhkXFMYINuRu7m2ro4DFoqT79qOemJ3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by AS5PR04MB9854.eurprd04.prod.outlook.com (2603:10a6:20b:673::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Wed, 30 Oct
- 2024 09:14:47 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49%5]) with mapi id 15.20.8093.027; Wed, 30 Oct 2024
- 09:14:47 +0000
-From: alice.guo@oss.nxp.com
-To: alexander.stein@ew.tq-group.com,
-	wahrenst@gmx.net,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"alice.guo" <alice.guo@nxp.com>
-Subject: [PATCH v3] soc: imx: Add SoC device register for i.MX9
-Date: Wed, 30 Oct 2024 17:13:36 +0800
-Message-Id: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0019.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::12) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	id 1t64vD-0000000HNnq-3ZJp;
+	Wed, 30 Oct 2024 09:23:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uu3ZQracmyXKjnGtslK36vhe3Y/Ue/aAIyzqKHVzdsY=; b=BXxPM5+jpoGcUKORcsXdRBepu3
+	VsUAQjfYp6DpRGj3Nx+fwQFDWv2PNrqy2ScIOylM0xnjKlIBMfrgMyurwgcGuHat1nlK1sWmYs/Qb
+	c5/mTSVE+ejo8LcoAvtaVz+bLKWq7YLFJUmwP/fDqML7UN8qE6SB2MtwEwtal3N6+Y5AQJsraYNG8
+	DzqxIiRP0DHGTtfh7IwjRynpeR7Ql42eBdF62DbSJr85SLfraKNqSKq7MMuk7qNlEmIQa79tdQ5Hy
+	YCSPoEdazmCmq/7WDLWpq2oSPefi/Cg+o1sYAlWetjVyssCK1IGIw+zVLaUs9oRVsbL/85ruRGy5F
+	uhuwlb7Q==;
+Received: from [185.156.123.69] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t64v9-0000kI-Mz; Wed, 30 Oct 2024 10:23:19 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts64 changes for 6.13 #1
+Date: Wed, 30 Oct 2024 10:23:18 +0100
+Message-ID: <12542111.O9o76ZdvQC@phil>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|AS5PR04MB9854:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99228ab5-1e50-4135-aad1-08dcf8c34ce6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WmppfJxU16UG9aqCbRl99CuOOgsIAIGw1ohYjQFrjXZNINN2OKhlsT8v6LLV?=
- =?us-ascii?Q?qfrphvH2FrEQHIb9j0z7O4wUogsCKf7Tjchi8KR2XBKnjWZXBR7OTnYqXSKi?=
- =?us-ascii?Q?5SAocldvXWIG4AwUKO7Zpt7Wi1g6MJN6A5C8kSpoiLEfjaa+0ekwGgAOQ8Lm?=
- =?us-ascii?Q?53fjJ+c+seksSDz8BM9aPDhW/LIVRFCT3Axu7pS52rsaCp3b9j/ya40utZhA?=
- =?us-ascii?Q?7hswifLEOhoxE5CRGXQe/cN55yAcVENB5AlG+kn+m1djOYa6DQZBGg0EYlJe?=
- =?us-ascii?Q?tgIhGBsHI8V1R4UsPHncUrfmvBuMKzu1EXfkDusGxjd+Rd3jKk65sfc5YEed?=
- =?us-ascii?Q?JoMi3NweTS7ViiJo6wUGODVl97TkCtDyCkvLTvkEvk0Ip1bj9vUtVrtIqUqW?=
- =?us-ascii?Q?hLRvlWN3bR3yWt4BD9wbMzgdr4KPSy10SlG9L8VGwHLu9OtLyod2dMOcTVCi?=
- =?us-ascii?Q?a3fcJio05R57aBw6OjnLjrpLqFlzOr4yF8/SSZ4HyGXLdEUy55QxyiFONwxR?=
- =?us-ascii?Q?kJ++yciQNWD/kkgsgCwn+mO9xgfXgFVxh1Xp1WORV6Qy5jzNKC2Kc3yfwdWT?=
- =?us-ascii?Q?OzRNgNtDiDBXs//yrDbsTHW4rjDqEbCFvuaikEQBHwPZ/l981a3WNqskbCxY?=
- =?us-ascii?Q?sVMqYSIphDKCvBtADFIlffEHkMg4FzQ+DeU1DnkeOkN3ik/QHUIYsb+fe6nK?=
- =?us-ascii?Q?WbzQBcs3jekafOexo5JgxjzHXwP+B89DATZwx2aXT1iuQBa60wRHuj9iBIHV?=
- =?us-ascii?Q?6KVJeRApfmTnp/C6kodRVvv6zRUgG4y61tJzWDx8vt+NidcYikjdyxZbmzBC?=
- =?us-ascii?Q?KXXhwOLmqe4NDKp6YY8dKLkglQgVLP6LeKA9430bRcgUuGv/DWMLVnQOQfr5?=
- =?us-ascii?Q?JkzCr/xK8NtVI7CXITYna05iZWovb8prGEfthp6gz/seZmSwOsuU6C1H3dZX?=
- =?us-ascii?Q?ek/IzqbIxDEeGOTvL+zb2wsGP5RMCpFf9HZ9oYFT6bGtYrXnjRd2Hz7AL7C6?=
- =?us-ascii?Q?64K3VOD12ZF6SWsm1y/ff0Vq0plToGAaLNVB9GY4Fca5ay+9fYZoMUZuJa6X?=
- =?us-ascii?Q?WkNU4GTo4THm/C1nmCMGuQKVoD2IJE7ad5Y88+eS6ZuldfME5Po8vkLaoBm5?=
- =?us-ascii?Q?1HbVMUF/DiPe0WLs0SaX6WWgdCqJa6tfFk4/z9jc7DA/pJMtD8dbH2ol9760?=
- =?us-ascii?Q?5YxeQpIKyqe7hqK2abuY/qRKWaktt57GYEVhewsCDBMS9RZgsEPDzA8PBqzs?=
- =?us-ascii?Q?+QzrFdX8H+KRuX6U2kBAM6s0bU/VUAgj8XHoPeHXpGFhk3qtmPtJFxZB8Vq9?=
- =?us-ascii?Q?D+0BL+VVBSD7mhiSnrSsYxR5ptC1MYkbIp8xrDWVcWjqUYbbtYF/aI3RILL8?=
- =?us-ascii?Q?NTHalQk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mpR1oTFXLqBwcjOyQYgI/rob8dreTpHXoagTLVl67ZoNXs+em1rtjZNYTtr2?=
- =?us-ascii?Q?FiEg1l6lg15X/J5kq01Fbjxu67l/oqnXuUo3KdSgsNo/ZMUJt48VnABDcXWs?=
- =?us-ascii?Q?3Ycqg61AB6kxqqCoWoNOEZ6sx0anBGtxmlaRo7KKW1+K8ZubPJJM4048dPMz?=
- =?us-ascii?Q?fdAyYYzSRJ6vfi3wt51/4Yv81Dp3LELP1m0c+ZvqtL5sMLZ93AUItMbR1BQL?=
- =?us-ascii?Q?vBspsLc7KFS0p2/tTCmrQr/GDGFpAWN6pFzOdedqdxM4PBNVuEld2t1P7d0u?=
- =?us-ascii?Q?0XQS8rC4bHTxul4CnFDWp8N1RQ1RysebRnc6bgZ7PFEgOGeC3GqyCmW5txvV?=
- =?us-ascii?Q?fUO6MNjgqla8Oxyw98awf6R4lD06D2jWAWkIVdz5cthXdeH/REbCx4PiA6YV?=
- =?us-ascii?Q?2+so5RxNGYiAAS8hPlXOqUgtj1S/pwPi+dU0PDPNMBXEGutR/Jt6pIe+30+r?=
- =?us-ascii?Q?vrX+hS1jkAFUwPJA9ynRQZkvjy6F+XPR02tWJVeEDaPW0nKbmTD3FKj0eP4h?=
- =?us-ascii?Q?VbaIyK8lDNoWYk0Sw1eC5vTBpKVw05vlLjAx74Wh+2yEKXuSl2KK6NBfwRNW?=
- =?us-ascii?Q?O7qWYQzHWpOd1kueobTyeixfI92QtoMwb1hJ54yK96tBGaquHT6eyU/xrTnm?=
- =?us-ascii?Q?bIunNOSTRWJp52JrVIbgqKbslO4VNMH5tG1U/O6VCiIHM2GTc5Db3Q4WsGCR?=
- =?us-ascii?Q?SS6KO0fAsDdgunDW5U2z3iGnxhpqK0op3tkSXcx5nlEivJF3I9QP3jTF4U47?=
- =?us-ascii?Q?IP1s3x15+pPMSUsaio8Nk83AmuxweBzTHqJDVHcc1SiPsqczfcd08hnzq+ge?=
- =?us-ascii?Q?QrQr5G/cyBUxemtvqOm20/pvWOqFycetHTVSkRfnDxDhZvGDusLAZjf31LVK?=
- =?us-ascii?Q?CLAFBek3ea7R0MiJyzuCXbpuqLl0JCzENXENxfmozGb/wz8irJrpSnBSg9cZ?=
- =?us-ascii?Q?7m3e3kDAyAmMVmm1qugFLJ0qq+5SQuySMRIm/xz9wHW2Msv7Oxrjs2geG0+f?=
- =?us-ascii?Q?i6LDD5iXnckmYkB/FegRP+2hfuRtV9Kxk6VfM3P1wtcX0VywcZVZ0C5sHjLa?=
- =?us-ascii?Q?R+yhPsYigUIepqAPJGPOlzB9o/5meKmp0CATbANzbrwzFaKnu1+t6cKBC6y9?=
- =?us-ascii?Q?t5Vzm8UskuHbiTTJtbbOVGXtU3gD5nndUoe2kB17aopmmsYf4o0DRLs32grv?=
- =?us-ascii?Q?wi79IGG2jZTBHAmFbZInFmSBukfMf8LsUFAA97kkcXCdbClFUuFDrOA2nYNh?=
- =?us-ascii?Q?jFOYglitABYiyaxtzcxRRMntB0E16cuiTRKM+PWcWth8BX4s3gaJVFKSlPWO?=
- =?us-ascii?Q?ugkT+eYenXvbL5KhTQ26J/p0pn2AiqBNlHnfXAV2ON1+kvq6HaIOmTidizyV?=
- =?us-ascii?Q?ghGAPl6h7ugPcbKXlSnuqgA0E01+D9ATQX4qKle5oPaANtlwLaTjE4PGjqMI?=
- =?us-ascii?Q?WIayOV/Rw3E3gwx+siWzBtfVBpt+LM2BNI798T+OI5O3kZ2LqKdvijn9PhYO?=
- =?us-ascii?Q?lLfU/wsZiLipJrgPz5v0a/ytEchRuHDO7yT0WIUKKM+jRmx+p6L+zoSWnj4w?=
- =?us-ascii?Q?Z3I3q7HIVjD8amU0e9h2A7maQmLMnN46ZBqchEZL?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99228ab5-1e50-4135-aad1-08dcf8c34ce6
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2024 09:14:47.6316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XfVPUf2to0LvMXhHwqBFf9tCfBV1Tn6VDPe5bNlMr6mLdpE7NZFL+NwJUC5zXl3kWENbL4ThgN9LnqqscL2s9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9854
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_021454_593932_76DB478A 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20241030_022324_253116_350A66F6 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,153 +70,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "alice.guo" <alice.guo@nxp.com>
+Hi Arnd, Kevin, Olof,
 
-i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-which are provided by the corresponding ARM trusted firmware API. This
-patch intends to use SMC call to obtain these information and then
-register i.MX9 SoC as a device.
+please find below and in a subsequent pull-requests
+Rockchip changes for for 6.13 .
 
-Signed-off-by: alice.guo <alice.guo@nxp.com>
----
+Some new boards, some new peripherals and the rk3588 hdmi support
+as the really notable thing, now people can see all the fancy
+panthor (mali) results using the mainline kernel without needing
+additional patches.
 
-Changes for v2:
- - refine error log print
-Changes for v3:
- - return -EINVAL when arm_smccc_smc failed
- - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __func__, res.a0);
- - drop the pr_err in imx9_soc_init
- - free the memory in the reverse order of allocation
- - use of_match_node instead of of_machine_is_compatible
 
- drivers/soc/imx/Makefile   |   2 +-
- drivers/soc/imx/soc-imx9.c | 106 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 107 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/imx/soc-imx9.c
+Please pull.
+Thanks
+Heiko
 
-diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-index 3ad321ca608a..ca6a5fa1618f 100644
---- a/drivers/soc/imx/Makefile
-+++ b/drivers/soc/imx/Makefile
-@@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
- obj-$(CONFIG_ARCH_MXC) += soc-imx.o
- endif
- obj-$(CONFIG_SOC_IMX8M) += soc-imx8m.o
--obj-$(CONFIG_SOC_IMX9) += imx93-src.o
-+obj-$(CONFIG_SOC_IMX9) += imx93-src.o soc-imx9.o
-diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-new file mode 100644
-index 000000000000..823395584533
---- /dev/null
-+++ b/drivers/soc/imx/soc-imx9.c
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <linux/arm-smccc.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/sys_soc.h>
-+
-+#define IMX_SIP_GET_SOC_INFO	0xc2000006
-+#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-+#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-+#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-+
-+static int imx9_soc_device_register(void)
-+{
-+	struct soc_device_attribute *attr;
-+	struct arm_smccc_res res;
-+	struct soc_device *sdev;
-+	u32 soc_id, rev_major, rev_minor;
-+	u64 uid127_64, uid63_0;
-+	int err;
-+
-+	attr = kzalloc(sizeof(*attr), GFP_KERNEL);
-+	if (!attr)
-+		return -ENOMEM;
-+
-+	err = of_property_read_string(of_root, "model", &attr->machine);
-+	if (err) {
-+		pr_err("%s: missing model property: %d\n", __func__, err);
-+		goto attr;
-+	}
-+
-+	attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
-+
-+	/*
-+	 * Retrieve the soc id, rev & uid info:
-+	 * res.a1[31:16]: soc revision;
-+	 * res.a1[15:0]: soc id;
-+	 * res.a2: uid[127:64];
-+	 * res.a3: uid[63:0];
-+	 */
-+	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-+	if (res.a0 != SMCCC_RET_SUCCESS) {
-+		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-+		err = -EINVAL;
-+		goto family;
-+	}
-+
-+	soc_id = SOC_ID(res.a1);
-+	rev_major = SOC_REV_MAJOR(res.a1);
-+	rev_minor = SOC_REV_MINOR(res.a1);
-+
-+	attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-+	attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
-+
-+	uid127_64 = res.a2;
-+	uid63_0 = res.a3;
-+	attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
-+
-+	sdev = soc_device_register(attr);
-+	if (IS_ERR(sdev)) {
-+		err = PTR_ERR(sdev);
-+		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-+		goto serial_number;
-+	}
-+
-+	return 0;
-+
-+serial_number:
-+	kfree(attr->serial_number);
-+	kfree(attr->revision);
-+	kfree(attr->soc_id);
-+family:
-+	kfree(attr->family);
-+attr:
-+	kfree(attr);
-+	return err;
-+}
-+
-+static const struct of_device_id imx9_soc_match[] = {
-+	{ .compatible = "fsl,imx93", },
-+	{ .compatible = "fsl,imx95", },
-+	{ }
-+};
-+
-+static int __init imx9_soc_init(void)
-+{
-+	int ret;
-+
-+	/* No match means it is not an i.MX 9 series SoC, do nothing. */
-+	if (!of_match_node(imx9_soc_match, of_root))
-+		return 0;
-+
-+	ret = imx9_soc_device_register();
-+
-+	return ret;
-+}
-+device_initcall(imx9_soc_init);
-+
-+MODULE_AUTHOR("NXP");
-+MODULE_DESCRIPTION("NXP i.MX9 SoC");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
+
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.13-armsoc/dts64-1
+
+for you to fetch changes up to 46fa3fee0b1c027862b04717b51630195c253a30:
+
+  arm64: dts: rockchip: Add rk3588-orangepi-5b device tree (2024-10-25 08:48:01 +0200)
+
+----------------------------------------------------------------
+New SoCs: basic RK3528 support, RK3399S - a variant made specifically
+for the Pinephone Pro and for consistencies sake it gets its own SoC
+dtsi to not hide the specifics in the Pinephone Pro devicetree.
+
+New boards: OrangePi-5b, NanoPi R3S, ArmSom Sige 5 (first rk3576 board),
+Radxa e20c (first rk3528 board), Powkiddy RGB20SX, RK3588S-EVB1 and
+the ArmSoM LM7 SoM with W3 carrier board.
+
+HDMI support for rk3588 brings the first graphical output capability
+there. This includes of course needed changes to a number of boards.
+
+And finally a bunch of newly enabled peripherals on different boards,
+as well as changes to adhere better to bindings and removal/change of
+deprecated properties.
+
+----------------------------------------------------------------
+Cenk Uluisik (3):
+      arm64: dts: rockchip: refactor common Orange Pi 5 board
+      dt-bindings: arm: rockchip: Add Orange Pi 5b enum to Orange Pi 5 entry
+      arm64: dts: rockchip: Add rk3588-orangepi-5b device tree
+
+Chris Morgan (2):
+      dt-bindings: arm: rockchip: Add Powkiddy RGB20SX
+      arm64: dts: rockchip: Add Powkiddy RGB20SX
+
+Cristian Ciocaltea (5):
+      arm64: dts: rockchip: Add HDMI0 node to rk3588
+      arm64: dts: rockchip: Enable HDMI0 on rock-5b
+      arm64: dts: rockchip: Enable HDMI0 on rk3588-evb1
+      arm64: dts: rockchip: Enable HDMI0 on orangepi-5-plus
+      arm64: dts: rockchip: Enable HDMI0 on rock-5a
+
+Damon Ding (2):
+      dt-bindings: arm: rockchip: Add RK3588S EVB1 board
+      arm64: dts: rockchip: Add RK3588S EVB1 board
+
+Daniel Semkowicz (1):
+      arm64: dts: rockchip: Add power button for puma-haikou
+
+Detlev Casanova (3):
+      dt-bindings: arm: rockchip: Add ArmSoM Sige 5
+      arm64: dts: rockchip: Add rk3576 SoC base DT
+      arm64: dts: rockchip: Add rk3576-armsom-sige5 board
+
+Diederik de Haas (5):
+      arm64: dts: rockchip: Drop rockchip prefix of s-p-c PMIC prop from px30
+      arm64: dts: rockchip: Drop rockchip prefix of s-p-c PMIC prop from rk3328
+      arm64: dts: rockchip: Drop rockchip prefix of s-p-c PMIC prop from rk3368
+      arm64: dts: rockchip: Drop rockchip prefix of s-p-c PMIC prop from rk3399
+      arm64: dts: rockchip: Drop rockchip prefix of s-p-c PMIC prop from rk356x
+
+Dragan Simic (2):
+      arm64: dts: rockchip: Convert dts files used as parents to dtsi files
+      arm64: dts: rockchip: Add dtsi file for RK3399S SoC variant
+
+FUKAUMI Naoki (2):
+      arm64: dts: rockchip: add LED_FUNCTION_STATUS for RGB LEDs on Radxa E25
+      arm64: dts: rockchip: add and enable gpu node for Radxa ROCK 5A
+
+Farouk Bouabid (4):
+      arm64: dts: rockchip: add tsd,mule-i2c-mux on rk3588-jaguar
+      arm64: dts: rockchip: add tsd,mule-i2c-mux on rk3399-puma
+      arm64: dts: rockchip: add tsd,mule-i2c-mux on rk3588-tiger
+      arm64: dts: rockchip: add tsd,mule-i2c-mux on px30-ringneck
+
+Florian Klink (1):
+      arm64: dts: rockchip: enable automatic fan control on Orange Pi 5+
+
+Geert Uytterhoeven (2):
+      arm64: dts: rockchip: Switch to simple-audio-card,hp-det-gpios
+      arm64: dts: rockchip: Switch to hp-det-gpios
+
+Heiko Stuebner (5):
+      arm64: dts: rockchip: fix the pcie refclock oscillator on Rock 5 ITX
+      arm64: dts: rockchip: add HDMI pinctrl to rk3588-tiger SoM
+      arm64: dts: rockchip: add HDMI support to rk3588-tiger-haikou
+      arm64: dts: rockchip: add HDMI support to rk3588-jaguar
+      arm64: dts: rockchip: Remove 'enable-active-low' from two boards
+
+Jacobe Zang (1):
+      arm64: dts: rockchip: Add AP6275P wireless support to Khadas Edge 2
+
+Jakob Unterwurzacher (1):
+      arm64: dts: rockchip: add attiny_rst_gate to Ringneck
+
+Jianfeng Liu (3):
+      dt-bindings: arm: rockchip: Add ArmSoM LM7 SoM
+      arm64: dts: rockchip: Add ArmSoM LM7 SoM
+      arm64: dts: rockchip: Add ArmSoM W3 board
+
+Jimmy Hon (4):
+      arm64: dts: rockchip: Enable HDMI0 on Orange Pi 5
+      arm64: dts: rockchip: analog audio on Orange Pi 5
+      arm64: dts: rockchip: reorder audio/hdmi nodes in Orange Pi 5
+      arm64: dts: rockchip: pwm-leds for Orange Pi 5
+
+Johan Jonker (2):
+      arm64: dts: rockchip: fix compatible string rk3328 cru node
+      arm64: rockchip: add clocks property to cru node rk3328
+
+Marcin Juszkiewicz (1):
+      arm64: dts: rockchip: Enable HDMI0 on rk3588-nanopc-t6
+
+Sam Edwards (5):
+      arm64: dts: rockchip: Split up RK3588's PCIe pinctrls
+      arm64: dts: rockchip: Fix Turing RK1 PCIe3 hang
+      arm64: dts: rockchip: Enable automatic fan control on Turing RK1
+      arm64: dts: rockchip: Enable GPU on Turing RK1
+      arm64: dts: rockchip: Enable all 3 USBs on Turing RK1
+
+Tianling Shen (7):
+      dt-bindings: arm: rockchip: Add FriendlyARM NanoPi R3S
+      arm64: dts: rockchip: Add FriendlyARM NanoPi R3S board
+      arm64: dts: rockchip: fix model name for FriendlyElec NanoPi R3S
+      arm64: dts: rockchip: replace deprecated snps,reset props for NanoPi R3S
+      arm64: dts: rockchip: sort props in pmu_io_domains node for NanoPi R3S
+      arm64: dts: rockchip: enable eMMC HS200 mode for NanoPi R3S
+      arm64: dts: rockchip: reorder mmc aliases for NanoPi R3S
+
+Yao Zi (3):
+      dt-bindings: arm: rockchip: Add Radxa E20C board
+      arm64: dts: rockchip: Add base DT for rk3528 SoC
+      arm64: dts: rockchip: Add Radxa e20c board
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   32 +-
+ arch/arm64/boot/dts/rockchip/Makefile              |    7 +
+ .../boot/dts/rockchip/px30-engicam-px30-core.dtsi  |    2 +-
+ arch/arm64/boot/dts/rockchip/px30-evb.dts          |    2 +-
+ .../boot/dts/rockchip/px30-firefly-jd4-core.dtsi   |    2 +-
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |   37 +-
+ .../boot/dts/rockchip/rk3326-anbernic-rg351m.dtsi  |    2 +-
+ .../boot/dts/rockchip/rk3326-gameforce-chi.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3326-odroid-go.dtsi |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3328-a1.dts         |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3328-evb.dts        |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2.dtsi |  394 ++
+ .../boot/dts/rockchip/rk3328-nanopi-r2c-plus.dts   |    3 +-
+ arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dts |   28 +-
+ .../arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtsi |   35 +
+ .../boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts   |   20 +-
+ arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dts |  399 +-
+ .../arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtsi |   29 +
+ .../dts/rockchip/rk3328-orangepi-r1-plus-lts.dts   |    6 +-
+ .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dts  |  346 +-
+ .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi |  358 ++
+ arch/arm64/boot/dts/rockchip/rk3328-roc-cc.dts     |  379 +-
+ arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts     |    3 +-
+ arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi       |  377 ++
+ arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dts  |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3328-rock64.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi           |    4 +-
+ arch/arm64/boot/dts/rockchip/rk3368-geekbox.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi      |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-eaidk-610.dts  |    4 +-
+ arch/arm64/boot/dts/rockchip/rk3399-evb.dts        |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-firefly.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts |    2 +-
+ .../boot/dts/rockchip/rk3399-khadas-edge.dtsi      |    2 +-
+ .../boot/dts/rockchip/rk3399-kobol-helios64.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-leez-p710.dts  |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi-m4.dts  |   47 +-
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi-m4.dtsi |   60 +
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi-m4b.dts |    3 +-
+ .../dts/rockchip/rk3399-nanopi-r4s-enterprise.dts  |    3 +-
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dts |  124 +-
+ .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |  131 +
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi   |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts   |    2 +-
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |    4 +-
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |   25 +-
+ .../arm64/boot/dts/rockchip/rk3399-puma-haikou.dts |    8 +
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi      |   26 +-
+ .../arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi    |    2 +-
+ .../boot/dts/rockchip/rk3399-rock-4c-plus.dts      |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi |    2 +-
+ .../boot/dts/rockchip/rk3399-rock-pi-4a-plus.dts   |    2 +-
+ .../boot/dts/rockchip/rk3399-rock-pi-4b-plus.dts   |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4c.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rock960.dtsi   |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-s.dtsi         |  123 +
+ .../dts/rockchip/rk3399-sapphire-excavator.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi  |    2 +-
+ .../boot/dts/rockchip/rk3399pro-vmarc-som.dtsi     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts |   22 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  189 +
+ .../boot/dts/rockchip/rk3566-anbernic-rg-arc.dtsi  |    2 +-
+ .../boot/dts/rockchip/rk3566-anbernic-rg353p.dts   |    2 +-
+ .../boot/dts/rockchip/rk3566-anbernic-rg353ps.dts  |    2 +-
+ .../boot/dts/rockchip/rk3566-anbernic-rg353v.dts   |    2 +-
+ .../boot/dts/rockchip/rk3566-anbernic-rg353vs.dts  |    2 +-
+ .../boot/dts/rockchip/rk3566-anbernic-rg503.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-nanopi-r3s.dts |  554 ++
+ arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi  |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi  |    4 +-
+ .../boot/dts/rockchip/rk3566-powkiddy-rgb20sx.dts  |   89 +
+ .../boot/dts/rockchip/rk3566-powkiddy-x55.dts      |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-b.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-radxa-cm3.dtsi |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-roc-pc.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-soquartz.dtsi  |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts   |    2 +-
+ .../boot/dts/rockchip/rk3568-fastrhino-r66s.dtsi   |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dts |    2 +-
+ .../arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts  |    4 +-
+ .../arm64/boot/dts/rockchip/rk3568-radxa-cm3i.dtsi |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts  |    1 +
+ arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts    |    2 +-
+ .../rk3568-wolfvision-pf5-io-expander.dtso         |    1 -
+ .../boot/dts/rockchip/rk3568-wolfvision-pf5.dts    |    2 +-
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  659 +++
+ arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi   | 5775 ++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 1678 ++++++
+ .../arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi |  455 ++
+ .../boot/dts/rockchip/rk3588-armsom-sige7.dts      |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts  |  408 ++
+ .../boot/dts/rockchip/rk3588-base-pinctrl.dtsi     |  271 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   41 +
+ arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts   |   49 +-
+ .../rockchip/rk3588-friendlyelec-cm3588-nas.dts    |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |   75 +-
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi |   49 +-
+ arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dts   |    2 +-
+ .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   |   79 +-
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts |   40 +-
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |   49 +-
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |   53 +
+ arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |   29 +-
+ .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi |  138 +-
+ arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts  | 1170 ++++
+ .../boot/dts/rockchip/rk3588s-gameforce-ace.dts    |    2 +-
+ .../boot/dts/rockchip/rk3588s-khadas-edge2.dts     |   16 +
+ .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi |  760 +++
+ .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts |    2 +-
+ .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dts |  756 +--
+ .../arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts |  736 +--
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      |  866 +++
+ .../boot/dts/rockchip/rk3588s-orangepi-5b.dts      |   19 +
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts   |   63 +-
+ 125 files changed, 15260 insertions(+), 2981 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-nanopi-m4.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-s.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-nanopi-r3s.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-powkiddy-rgb20sx.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dts
+
+
 
 
