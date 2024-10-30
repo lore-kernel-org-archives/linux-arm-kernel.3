@@ -4,106 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A7CD5CC9A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3FFD5CC9A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqlPk3VbpPRo0CwoqYeA+mkYbzA2YumBxWU5LsG9F6I=; b=bfx3gw9blsudyl4yDscRbpu+hy
-	/0dXqDuaTwjD4S2TqjeYOLl2uZt5bIrP3sEgfjGeQwkJzjYs4HmA69yfY2j0UW3EQJ9THc7n58axr
-	uBfPgygdQM4fjN4mIalHm+7nnCaRFxMbGb7baT+50Zu3P0koEIpFLOlA97D1xDL6Vi6mQ2BjoLTah
-	SK3WiZOiDkSzrPri+Wjd60gX+nUN5Jfhko7zrsu+unnIoMgF2ZwDj37fRSp0ENDVtwffMbBtkoXPf
-	irTocBGIwJx/OE7dfhfbcFs8Huwu425UUbWwjKgPOcIgpQYKyYvlxpJdi7nnDnlrkJIBj9qf+D2IX
-	qefhViLg==;
+	bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=; b=x2Bv2RYWfMguFRf784adA44n/y
+	2c68U5ZGsnsxlIRuGDL21mcu2+DvtRwloab8FCVAkx8M30F23lJj7qDssY2R95yCAODLsA1tHrUkL
+	K/hdZyi7PogQCILq4vtVcgnSgsMM8PgzCxB8mQEN8ET5yIT8DMx8l4cKVv+iKexC5ixer55UDX/Bp
+	bo1/9sFN7Cgrz8XqxnS8scgaLIENnfg98d1cj0en52DUD5zzbdCrUG47ossqVAs/W+Od+M/JMsN0P
+	Innocr7q150Rudj+F6r9SOVU1Gtu6TPLhTVBQPeU8l/74+wGLarSDewIEd0ezPYaFe4wL4KxqOj1z
+	roYHn3YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t676p-00000000Bt7-25fs;
-	Wed, 30 Oct 2024 11:43:31 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
+	id 1t678Q-00000000C7q-44BN;
+	Wed, 30 Oct 2024 11:45:10 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66lH-0000000074Y-0SPS
+	id 1t66pk-000000007j4-0XR3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:21:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1730287242; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=LmkKYPnwFayGvNkyNGGwfTRPC30WQtV7XVBUPB46vNmTh2YUIvWSJJ3KTu2oXkPWg9
-    TQbPRw+CLNAPa0Z7npruX/zRsusDgjrQcxVYqaXL1tWDY0p0sPl4NanMz6fAvfJwXe0C
-    KUTGNayfcIHxeQdwzQQNOgzJeYObE27j9ZsBWz+uD6Y2Y1SXVK6poG3pWVPb9UBS+Lpq
-    ZY6FWCXj8CRkxAPQ0hy9izvHRDQHsAbqV0qN42ks+wvHybgBmSqh/AeZMoWYtCI9Gz6G
-    1y4yrzpMopQETTqMY0Mxiz11hVl9yX1KHPVKmF5HDZjGUjVIXHIMb9XdRO9VyX2FtZiz
-    t+4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1730287242;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=eqlPk3VbpPRo0CwoqYeA+mkYbzA2YumBxWU5LsG9F6I=;
-    b=NBtam4dkLBq0eRjr70Gb2zRoQxURDptQp8EQT8w2lNfmJwaBkuPlKa3n7hWODPdPbZ
-    FnqxBLOVgQ3ShuH1k2YPGkCtQLYByn2RTQtK7jD4INLIv8sW2nZ/o3NeifENIlDSaMMx
-    d82ZPsfucbBpQqv4zpUQ1+mdVvj5fU6bzSo8QLJDeqSabiZE5eaOXZra5VEXX/o5Kyq5
-    YrYYJClbQ7ogLI90U5CJ+rv+EFiuG0n7HKNxb01XNoLtaoR3cnQmZYnsr619eMSG1xfF
-    JEUXjSPkNi2sZogTYpzoSgq2vsP57WccPFgOjkVlq3suIrdqAN9M3f5uH8pgwaBH4y2v
-    UJ6g==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1730287242;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=eqlPk3VbpPRo0CwoqYeA+mkYbzA2YumBxWU5LsG9F6I=;
-    b=Qn5HcpE+a9FbmOVJItB3kUbL0rgA+G2bddmVOCUSfLabE3qcPoE/Gr1J9tmmmwkpXP
-    v+o/GQkMBWuT8Wfq7YnXCqz4rQVVRL3f9l37pJCIvRpztlo/onzPjuxFWry40nFSRjwB
-    MhWu9ocxBgpDeJumK6dRUxer6tRSKk+W7tRKKChQahmiAp5hSGZUbTxtvmcyNzFFsmZ6
-    utC+bVhy3TrZDGsq6ycE56w+vq2vOQiD2DM4LuU3HQGsD71FT1ynBj5tOEnhe5UyM0K9
-    3x2IYcBYfJPW5VkHrWzEHhcXtB09Px13+ndbiChmRWnbGZTGHkGYV01z+qlHnRV4sbK2
-    1vyA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1730287242;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=eqlPk3VbpPRo0CwoqYeA+mkYbzA2YumBxWU5LsG9F6I=;
-    b=6UZADULYg4bR6wpt3xghzPOnsSR2uVqfNG6++6FbYSlefN4k43O5NvtlftKYmzEquZ
-    b3Mh5+sSFIUqA5xMIgBg==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrSiJpeyMiNH8TaiW2pBcBKxu1ib9gQlpMMsbZm"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 51.2.11 AUTH)
-    with ESMTPSA id Qb7e4009UBKgS5B
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Wed, 30 Oct 2024 12:20:42 +0100 (CET)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51.11.1\))
-Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <ZyIClriScBy4s6LX@8bytes.org>
-Date: Wed, 30 Oct 2024 12:20:31 +0100
-Cc: Robin Murphy <robin.murphy@arm.com>,
- will@kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- mchehab@kernel.org,
- andersson@kernel.org,
- mathieu.poirier@linaro.org,
- Beleswar Padhi <b-padhi@ti.com>,
- Andreas Kemnade <andreas@kemnade.info>,
- iommu@lists.linux.dev,
- arm-soc <linux-arm-kernel@lists.infradead.org>,
- Linux-OMAP <linux-omap@vger.kernel.org>,
- linux-media@vger.kernel.org,
- linux-remoteproc@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <515D7932-3939-4C3E-BA3E-CC3152E64749@goldelico.com>
-References: <cover.1730136799.git.robin.murphy@arm.com>
- <ZyIClriScBy4s6LX@8bytes.org>
-To: Joerg Roedel <joro@8bytes.org>
-X-Mailer: Apple Mail (2.3776.700.51.11.1)
+	Wed, 30 Oct 2024 11:25:53 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so64364171fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:25:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730287550; x=1730892350; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=;
+        b=hGD7PeKodscfoxprlRtIveAO1uknHuPdzwFzvPEHErVQLiPsGdMf3sdtyBftnTiSmM
+         emGriDA/wwOh4ClJyVCYgANz0fB6xzmWefjiq6BjDW75dyH+bcZCTPLHno3ZuJJLp4Rz
+         7dAIOm38YYDsA5nmaAu9hTGQNHkQJTF43rqVAhbE5ehko7Dcs07OeLezeIC9nweBS5BT
+         1iXmRFWVFjFTZQf+D+GNyF9+xuhr6h/AEuhaWhCcraRBUaPfoNXVB/AMqgd01wkTBEHU
+         InhrzKBbBvmgdAbVPwbGZqfjb8RqIx+Fu3yOCTv1EgMkjBiEBJJfgf5Dr1agruRzbZGb
+         4BEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730287550; x=1730892350;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bMES1QAhfgu7bIQDYk1EUlu+RGSHNt1/K65I4mR80e4=;
+        b=QEk9DwVf8tmEwuoDUnEbN/X6kzmBXI7RPhrcSYDMguPE/g0KoqPla1mZXNtiOu8rvw
+         FNgqBBCZ5WnPt+hUQGDnxN6Ou3aLHZK7WgrZ6HsXwMcfMY8zgHX4mRHGaHigKmkINfKR
+         EKKjcEU1yfG9x/5SxADGQq8uIw7RQVKEm93RcARv4D2uiAxwDsK9RsrFWp0FD9mqKHQG
+         L1TEnEt8pahyHmmZIT7w36k1gpPspCfXoK1yYypNcnu++OK7MIMfx0EtgQc2Ydd6UdZg
+         61IK528n5z9KksA5uou/Ilv7JiDhUg53txEsuY2bVnCYyZsXJU+LYMTk+YgWNtbSNhov
+         XoNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxw/tqOw2XSmJo7i6zcjkENTebRV3ymNBSiqiBQQZ87ko4cjpYYCG1QYyx2uZLQQUs0stlGuazGfqZTkLkSCpW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJMH6EbwNVPcww024n+hXXhnlXA4U5Us8vZxhTO996pLb71xLb
+	h98nEGy8LiXzs7437a3HhQ8XgFm0NBcrUHgmcftI3TZgqOr59v3xg0Yt0lEL0RE=
+X-Google-Smtp-Source: AGHT+IGY4OdrV2g1gR/OZMrvjE/lAI6jJHYq/NY61VEtXYCuq6a/kfZIDfbwe86CLVK3+WjNbtSP5w==
+X-Received: by 2002:a05:651c:1508:b0:2fb:6465:3198 with SMTP id 38308e7fff4ca-2fcbdf60348mr75079871fa.5.1730287550241;
+        Wed, 30 Oct 2024 04:25:50 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9207d4sm18412585e9.20.2024.10.30.04.25.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 04:25:49 -0700 (PDT)
+Message-ID: <436b02c6-a262-4015-92e3-454d444e877f@linaro.org>
+Date: Wed, 30 Oct 2024 11:25:48 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 08/11] scsi: ufs: exynos: enable write line unique
+ transactions on gs101
+To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
+Cc: andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-9-peter.griffin@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241025131442.112862-9-peter.griffin@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_042115_631406_73D40392 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20241030_042552_222106_355A1751 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +104,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> Am 30.10.2024 um 10:55 schrieb Joerg Roedel <joro@8bytes.org>:
->=20
-> On Mon, Oct 28, 2024 at 05:58:34PM +0000, Robin Murphy wrote:
->> It seems omap-iommu hasn't had enough mainline users to avoid =
-bitrotting
->> through the more recent evolution of the IOMMU API internals. These
->> patches attempt to bring it and its consumers sufficiently up-to-date
->> to work again, in a manner that's hopefully backportable. This is
->> largely all written by inspection, but I have managed to lightly boot
->> test patch #3 on an OMAP4 Pandaboard to confirm iommu_probe_device()
->> working again.
->=20
-> My initial reflex would have been to just wipe the omap drivers,
+On 10/25/24 2:14 PM, Peter Griffin wrote:
+> Previously just AXIDMA_RWDATA_BURST_LEN[3:0] field was set to 8.
 
-Why that? There was a discussion and everyone agreed to remove omap2,
-but not omap3 and later.
+where was this set?
 
-> hardware is 10+ years out of production, no? So who is still using =
-this
-> hardware with recent kernels for other purposes than kernel testing?
+> 
+> To enable WLU transaction additionally we need to set Write Line
+> Unique enable [31], Write Line Unique Burst Length [30:27] and
+> AXIDMA_RWDATA_BURST_LEN[3:0].
+> 
+> To support WLU transaction, both burth length fields need to be 0x3.
+> 
 
-There are some devices besides the PandaBoard. I am aware of these where
-this is relevant: Epson BT200, Samsung Galaxy Tab 2, Pyra Handheld
-(in production) and we are currently thinking about producing a tiny =
-series
-of the DM3730 based GTA04A5 with spare parts.
-
-And of course we want to participate from the latest and greatest =
-upstream changes.
-
->=20
->> This supersedes my previous patch[1]. Patches #1 and #2 are =
-functionally
->> independent, and can be applied directly to their respective trees if
->> preferred.
->=20
-> I applied patches 3 and 4 to the ti/omap branch.
-
-Thanks,
-Nikolaus
-
+typo, s/burth/burst
 
