@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87463D7497D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 08:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C739CD7497D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 08:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kv28fZyUnvSoy7xLNeLLk5bmzedyTwjko9yL0PpBFlA=; b=UyLvtEEedLTsOjs3+qRpgKD7HJ
-	EHrmwaFfJ58ReDLdhk5w8NXZbY3c/IfGM1u8zQMhAeIf8+yIGPIuGGB5EfbWOwPQs7HAPqx4M0ZKR
-	F44VUVvIsHgFshFveZB4X0Yk5H08fTu32q80ZRZIL9wYXOMrZA3LlxAQ3FhnWjXgRFAP36hNtoRxJ
-	X4xZoZjCXewfYplYRptzBAPJezBZl7nB2fAfsW5Ibwno10GA07jj4WUMl8n9gy97feH2C2I3xv/qy
-	3ewkDMwtD7tMYpXUMH/kZomt3cZ74D3Q6Dzu/0xe+ZYtLJz+Hl9RkUCM1VDCS3nsLwPKZHsQd6ClW
-	EmZS28Xw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pCTs7xE1RNDjOAhXIwJf35Ye4AhjEVbQRROagoMzs9M=; b=gWnlNpZgApp/gA
+	Z24K/F7c6+nGZRSxIEqy0oUKAxkuaQVfX9SQ5ywmGwPaICL9I4b7QKIUbKLg2NqCEKq29Azf+nhV+
+	FcssROMru3cVD5WlEGiL/Zqz+fsy3g5fnW8+8K12C6G1TNLC+VWhUab8GEF8sctANbAfQTuJRPN45
+	743HDGXtH0E1EFqsO6BIwJbB67SHJ9/RwPb0Mpc1jVoYRsb54zhnv33RxZfJibfMSmNr1AqtHCnzA
+	dkXnDKCMZGanaoKnNFSgjZjP8nzwnc+X/RR1A3Kcp/+ZDnPhtPSX4AXyvaL79SAR5VbzGBDMAM1aw
+	70XfAGRVSq1GXYUfqDmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64Id-0000000HJ5X-3XIG;
-	Wed, 30 Oct 2024 08:43:31 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1t64MC-0000000HJhl-0vog;
+	Wed, 30 Oct 2024 08:47:12 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t64H0-0000000HIq6-1Fl7
+	id 1t64KX-0000000HJRn-2FXX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 08:41:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1730277710; x=1761813710;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=kv28fZyUnvSoy7xLNeLLk5bmzedyTwjko9yL0PpBFlA=;
-  b=bP5Oi7nid7EWgS1fppf4+ZPISjQ1xYAuIJu+SP+EjC3IUvmB3uhHCbNl
-   +9Z8pOwbuC82gJo0BJ2nR/HhUz0vIveV7+uQpLeGPuwlKctWcHCcCVlkz
-   4H38Mya61e4QzCr1sStuW0ij7ntFbmoZJGYrHdEaGVVpQ+luvngtDuKWc
-   lRrge0T1d/XQ3bsaqwSdMx9gyaBtlOWVENyRFKJLml2j2nksP12Cc9Ldr
-   zWVlQaohKdYWl/ShLVM2Ws9hSoRGgxG705hVbFQf/1y+16X1CUAG+T0Pi
-   u/9qrp6IellfoEHxITklGXhMqT6cEhkS1kKvDowUxlwTqm9tnewN0hUDC
-   Q==;
-X-CSE-ConnectionGUID: v0LiVWSLR7yMTkEUEYUWFw==
-X-CSE-MsgGUID: NUhZCbb9SeCskmtMKAn52Q==
-X-IronPort-AV: E=Sophos;i="6.11,244,1725314400"; 
-   d="scan'208";a="39755780"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 30 Oct 2024 09:41:48 +0100
-X-CheckPoint: {6721F14C-4-D31EDE1A-D52D6119}
-X-MAIL-CPID: 61672B9E44BD23F5585782F3A78BAD14_5
-X-Control-Analysis: str=0001.0A682F23.6721F14C.0071,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C7994160F31;
-	Wed, 30 Oct 2024 09:41:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1730277703; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=kv28fZyUnvSoy7xLNeLLk5bmzedyTwjko9yL0PpBFlA=;
-	b=rlKazrdMT7vl6dJMxpzGapJMT+rlSAnKUilGsMOxmFzH0t7ZtG/KUemS2lOgfRmA0MolXM
-	BUF1eGSg+peSa/i0hbN81YtmkBZrYF0GEMBY+hwCZjGUzjrD2n3dRsRC6RQiUoVFu6vxo6
-	Sinp8fEXV4uNSLuphCGplmxHCKuPwwx/9nS2HclaL7SJVj3j2IrzborRoRUhx1fJpK5tNp
-	hfWYB/AyVrQew2D8KsAo9mHU+7ZpvP6xLpvhtGL2UmA24DYWFccpvP9KYdbEJDouPn0NK8
-	5R2Wd0aPSc8QD3Ham80vFRXsDU/m5tjxayN3meO9TwT6V7J6UD1CxPQuztFTwA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] dt-bindings: firmware: imx95-scmi: Allow linux,code for protocol@81
-Date: Wed, 30 Oct 2024 09:41:40 +0100
-Message-Id: <20241030084140.9704-1-alexander.stein@ew.tq-group.com>
+	Wed, 30 Oct 2024 08:45:31 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id BD22FA11B6;
+	Wed, 30 Oct 2024 09:45:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=pCTs7xE1RNDjOAhXIwJf35Ye4AhjEVbQRROagoMzs9M=; b=
+	hKbnog0k6h+HIXxGMurg+nml0X6WXIn5lG2XxzpBOxmO9phmczQsE0Ls7CoIkhCF
+	h4tf10MLv1VQSp/STabqL6oOywt/sdbVRp3nu2cU6drXIq8rHBUlFz+QAUokHp9j
+	vWLzsLP00CqjMFhCIv9DqQU6xapuFhYyfXCXOFbcTU5gFNAt5JpnPzkNsgpU9y3E
+	yzzBR8TP2O2VjmErg4EMsx3n6AuLfIZfYbsNEVItEqXUdF5+yiHL1k3fhS8+n7Oq
+	TQLZBb/xNULYZK8g3ohtmsv8aBjFZrPbrMfssnKUCk1733DDURhQzYlj284ulbbo
+	RfVB5kxbkpQykVu5jsLPsW0k3iE0xWZ3EeSHjqaJkoALEugCRbszR+MANLCn8ejk
+	ToFwZ5v03vbNPc8lOdxcGYjvIqUDUfjG/xDbAgH1HKpnEiwiO8amJBthOR9UuArg
+	uC+4R2Ym9Y+anBkywKz1Jd/Y/pJJicL11y6i7c6Nsxt8DkV0MuE+9X4Ps0D4uSyu
+	eE1CL3lH3DHcBetJO1c/IxFz0DcXaV7ApzvxjDpFW8J49uxQ0XF4hfggGGawtMgk
+	OTYm51/Bqmo59x2NXBhoMyiuBkT5mB0xNftFUghNNHQaSxfwqm+6nUIpNRFFxMMv
+	/JNmrSHtg5shKP7Kwp80DeD1F+BguUJGBV3sDksZLjo=
+From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] spi: atmel-quadspi: Create `atmel_qspi_ops` to support newer SoC families
+Date: Wed, 30 Oct 2024 09:44:46 +0100
+Message-ID: <20241030084445.2438750-1-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730277917;VERSION=7979;MC=2867805427;ID=197345;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855667763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_014150_855887_304ECF5B 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20241030_014530_220093_968B23C6 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +73,215 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor
+ Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BBM protocol supports a single power button, supported by driver
-imx-sm-bbm-key.c. By default this is KEY_POWER, but can also be overwritten
-using linux,code. Add a reference to this schema and add linux,code as a
-supported property.
+Refactor the code to introduce an ops struct, to prepare for merging
+support for later SoCs, such as SAMA7G5. This code was based on the
+vendor's kernel (linux4microchip). Cc'ing original contributors.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Varshini Rajendran <varshini.rajendran@microchip.com>
+
+Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
 ---
-Admittedly, I'm not sure if this is the correct way of referencing the
-linux,code from input.yaml.
 
- .../devicetree/bindings/firmware/nxp,imx95-scmi.yaml     | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Notes:
+    Changes in v2:
+    * Remove obsolete SPI naming
 
-diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-index 1a95010a546b1..112c3a3eb1980 100644
---- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-@@ -12,13 +12,18 @@ maintainers:
+ drivers/spi/atmel-quadspi.c | 111 +++++++++++++++++++++++++-----------
+ 1 file changed, 77 insertions(+), 34 deletions(-)
+
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index 95cdfc28361e..1d256ab3f7f2 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -138,11 +138,15 @@
+ #define QSPI_WPSR_WPVSRC_MASK           GENMASK(15, 8)
+ #define QSPI_WPSR_WPVSRC(src)           (((src) << 8) & QSPI_WPSR_WPVSRC)
  
- properties:
-   protocol@81:
--    $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
--    unevaluatedProperties: false
-+    type: object
-+    allOf:
-+      - $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
-+      - $ref: /schemas/input/input.yaml#
-+    additionalProperties: false
- 
-     properties:
-       reg:
-         const: 0x81
- 
-+      linux,code: true
++#define ATMEL_QSPI_TIMEOUT		1000	/* ms */
 +
-   protocol@84:
-     $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
-     unevaluatedProperties: false
+ struct atmel_qspi_caps {
+ 	bool has_qspick;
+ 	bool has_ricr;
+ };
+ 
++struct atmel_qspi_ops;
++
+ struct atmel_qspi {
+ 	void __iomem		*regs;
+ 	void __iomem		*mem;
+@@ -150,13 +154,22 @@ struct atmel_qspi {
+ 	struct clk		*qspick;
+ 	struct platform_device	*pdev;
+ 	const struct atmel_qspi_caps *caps;
++	const struct atmel_qspi_ops *ops;
+ 	resource_size_t		mmap_size;
+ 	u32			pending;
++	u32			irq_mask;
+ 	u32			mr;
+ 	u32			scr;
+ 	struct completion	cmd_completion;
+ };
+ 
++struct atmel_qspi_ops {
++	int (*set_cfg)(struct atmel_qspi *aq, const struct spi_mem_op *op,
++		       u32 *offset);
++	int (*transfer)(struct spi_mem *mem, const struct spi_mem_op *op,
++			u32 offset);
++};
++
+ struct atmel_qspi_mode {
+ 	u8 cmd_buswidth;
+ 	u8 addr_buswidth;
+@@ -404,10 +417,60 @@ static int atmel_qspi_set_cfg(struct atmel_qspi *aq,
+ 	return 0;
+ }
+ 
++static int atmel_qspi_wait_for_completion(struct atmel_qspi *aq, u32 irq_mask)
++{
++	int err = 0;
++	u32 sr;
++
++	/* Poll INSTRuction End status */
++	sr = atmel_qspi_read(aq, QSPI_SR);
++	if ((sr & irq_mask) == irq_mask)
++		return 0;
++
++	/* Wait for INSTRuction End interrupt */
++	reinit_completion(&aq->cmd_completion);
++	aq->pending = sr & irq_mask;
++	aq->irq_mask = irq_mask;
++	atmel_qspi_write(irq_mask, aq, QSPI_IER);
++	if (!wait_for_completion_timeout(&aq->cmd_completion,
++					 msecs_to_jiffies(ATMEL_QSPI_TIMEOUT)))
++		err = -ETIMEDOUT;
++	atmel_qspi_write(irq_mask, aq, QSPI_IDR);
++
++	return err;
++}
++
++static int atmel_qspi_transfer(struct spi_mem *mem,
++			       const struct spi_mem_op *op, u32 offset)
++{
++	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
++
++	/* Skip to the final steps if there is no data */
++	if (!op->data.nbytes)
++		return atmel_qspi_wait_for_completion(aq,
++						      QSPI_SR_CMD_COMPLETED);
++
++	/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
++	(void)atmel_qspi_read(aq, QSPI_IFR);
++
++	/* Send/Receive data */
++	if (op->data.dir == SPI_MEM_DATA_IN)
++		memcpy_fromio(op->data.buf.in, aq->mem + offset,
++			      op->data.nbytes);
++	else
++		memcpy_toio(aq->mem + offset, op->data.buf.out,
++			    op->data.nbytes);
++
++	/* Release the chip-select */
++	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
++
++	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
++}
++
+ static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ {
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
+-	u32 sr, offset;
++	u32 offset;
+ 	int err;
+ 
+ 	/*
+@@ -416,46 +479,20 @@ static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ 	 * when the flash memories overrun the controller's memory space.
+ 	 */
+ 	if (op->addr.val + op->data.nbytes > aq->mmap_size)
+-		return -ENOTSUPP;
++		return -EOPNOTSUPP;
++
++	if (op->addr.nbytes > 4)
++		return -EOPNOTSUPP;
+ 
+ 	err = pm_runtime_resume_and_get(&aq->pdev->dev);
+ 	if (err < 0)
+ 		return err;
+ 
+-	err = atmel_qspi_set_cfg(aq, op, &offset);
++	err = aq->ops->set_cfg(aq, op, &offset);
+ 	if (err)
+ 		goto pm_runtime_put;
+ 
+-	/* Skip to the final steps if there is no data */
+-	if (op->data.nbytes) {
+-		/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
+-		(void)atmel_qspi_read(aq, QSPI_IFR);
+-
+-		/* Send/Receive data */
+-		if (op->data.dir == SPI_MEM_DATA_IN)
+-			memcpy_fromio(op->data.buf.in, aq->mem + offset,
+-				      op->data.nbytes);
+-		else
+-			memcpy_toio(aq->mem + offset, op->data.buf.out,
+-				    op->data.nbytes);
+-
+-		/* Release the chip-select */
+-		atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
+-	}
+-
+-	/* Poll INSTRuction End status */
+-	sr = atmel_qspi_read(aq, QSPI_SR);
+-	if ((sr & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
+-		goto pm_runtime_put;
+-
+-	/* Wait for INSTRuction End interrupt */
+-	reinit_completion(&aq->cmd_completion);
+-	aq->pending = sr & QSPI_SR_CMD_COMPLETED;
+-	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IER);
+-	if (!wait_for_completion_timeout(&aq->cmd_completion,
+-					 msecs_to_jiffies(1000)))
+-		err = -ETIMEDOUT;
+-	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IDR);
++	err = aq->ops->transfer(mem, op, offset);
+ 
+ pm_runtime_put:
+ 	pm_runtime_mark_last_busy(&aq->pdev->dev);
+@@ -571,12 +608,17 @@ static irqreturn_t atmel_qspi_interrupt(int irq, void *dev_id)
+ 		return IRQ_NONE;
+ 
+ 	aq->pending |= pending;
+-	if ((aq->pending & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
++	if ((aq->pending & aq->irq_mask) == aq->irq_mask)
+ 		complete(&aq->cmd_completion);
+ 
+ 	return IRQ_HANDLED;
+ }
+ 
++static const struct atmel_qspi_ops atmel_qspi_ops = {
++	.set_cfg = atmel_qspi_set_cfg,
++	.transfer = atmel_qspi_transfer,
++};
++
+ static int atmel_qspi_probe(struct platform_device *pdev)
+ {
+ 	struct spi_controller *ctrl;
+@@ -601,6 +643,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	init_completion(&aq->cmd_completion);
+ 	aq->pdev = pdev;
++	aq->ops = &atmel_qspi_ops;
+ 
+ 	/* Map the registers */
+ 	aq->regs = devm_platform_ioremap_resource_byname(pdev, "qspi_base");
 -- 
 2.34.1
+
 
 
