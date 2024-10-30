@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCDAD5CC9A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFA9D5CC9C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ZnP8od1AoS68OxrD2EKkqTHcwqcNcZbwTyrj6OQuRU=; b=UgIGb1+HnMV4HHmMMbLDUigYZ/
-	Rw39Gzv1gpodk39WtPYargDkpSPv5aNzQVueni//t5bBydECMl3Yq9nL/YWR5SrCdysdsgFtTpKLA
-	O8GvXVb4dBhpkRdMKz/FKxIywr365JiwCWE2K1xnViapaUxlgfBNtoYxdbFgRaL2dd4Wv/foPf8MO
-	zxGtcT2gbtpzCzTAblhkZya6Fa7BakKDk3te6yWHE/3m0otg6C8aOpIEXmhMOa0ajfBpovwq+AwrO
-	dFGGQd7AvFSsRvqplsLhTsZyC6vX+2FWp1kZTZWEQw7/V8nERVevn619YKTea/5vhuaADsc7Lwtq8
-	3SFejyug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=; b=HEjWCbKD68BOzi/qMclxlFsAsz
+	YgM+rTZ/s+rWrFIvpWMe+mX9zzykEhuRQNmGL5w6ixR9/tQpTHN2SwYiZbcuhyCGjnky09zRhWhfj
+	sO+cWz18CE4JdIEAPR0P5JnZl1wHWi7cfkHDKDxFbCmoDJEBWpsiDQ69JL1L4f1cATl+Gr4lIkEUP
+	B1ECarH5XGOj0Ag6MlQ3rJq4eTagOJvuJN7fGIR+0zFFs79Im3fHVfavzs7Tlwj4wG4KSoC5jImAH
+	PCmmOCMeS/ADDLrEBL0glZfemYUnheuShLIjYYtl6no6bWEL7TWE+RJUQeyElSVa4KuRN2xtAiWZz
+	/NxYm7RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67DS-00000000DT8-2i3G;
-	Wed, 30 Oct 2024 11:50:22 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1t67F3-00000000DmS-3olS;
+	Wed, 30 Oct 2024 11:52:01 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66vs-000000009JN-3qBn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:32:14 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5ebc22e6362so3128641eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:32:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730287932; x=1730892732; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+ZnP8od1AoS68OxrD2EKkqTHcwqcNcZbwTyrj6OQuRU=;
-        b=x/nDP1TE/uwoCtdypb+jaCwZ4ERpX1KSAvzHY4c/rWyhgLXXZAbCnL5kufS8WO+P5D
-         jmckf+cJaOKcAiAOvdtYTCCtVWsmrHm8Z0bxDJKN1gpB2yOwUIo2p0KlK/gb9Uklv31f
-         f7Kg3EQPMNOTe/6FnByZseewpEsGb+1yOcQ49vWJKX7eFMMWKBOwwwINI4DWrnmqUnO+
-         bTLKUH2E44r/VDWjhyEEisIyL1hWX17gukipj3Y4yjgZ/O6dYkHQ7sDxR7M9IzQ/GSDU
-         dlPUb5ZcR6BFO/c2c3ZnBTAoQr3D31D8Pe0ExHTMIBRktXwr/SDP5i+RjdecHhBU353H
-         QA4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730287932; x=1730892732;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+ZnP8od1AoS68OxrD2EKkqTHcwqcNcZbwTyrj6OQuRU=;
-        b=qZqKefjLlWuoS5Etlg40IfY/R0amou4gypbFXCdFddicf0kYkR80qIxJWioMLOspnP
-         pqtc8OhMqKU8IDjaGa8lBlnWDlRKmC6u1lEbtZNoAiAt/qVrGL0iDQUls+VLqOP1uil5
-         xQYdI/mJQo2+1mllfl8VzlMs2E/CYMsVRN5d7gBWiSE2R+DWXeoCKeTYvzjP9z8cTH7L
-         AxUUHVlQno9dJAbYr4Y6vH1zQwefTkb+vhWdE4lc0iradlEPZNFfWF7LDROjiw5+K0iT
-         G6hIMVeWJ9tzdol2oUOHieqytkhEmcBxO/zjohkbSUGBoiXHiPa4gBVUY/RVNH+Xhk0Z
-         R7Iw==
-X-Forwarded-Encrypted: i=1; AJvYcCWOu6otVmkhNL256+zNnPU4rjCA4jeYVeB0CFIzR1iTSucdSJvcxG1UatIbI5rfyCKhKUOmno+BJIsE/6jlybfR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw7+PRvexHaPYeOhP5yqh9KrqB27Ii3TwvU8EzpXHW8coQK/If
-	6gM3qXyxCRAzUApVfZc34Vxr8PWHWG4mUwN1R61zjA0fs35QpUNVHpTuxXpAisDM8SGh30/Jtqc
-	yKTrRDvl6mIAWskl0NvrZ6CSm7hF3rdzd88+3tw==
-X-Google-Smtp-Source: AGHT+IH5be5Mr1er2W4DdwEw1rjAXcGrKtgAvcc+9eVHVJEX4M1n7mMvnvbRCoX7iQbyEopTs/p0KKfykVLViPIPPBE=
-X-Received: by 2002:a05:6820:229c:b0:5eb:fc8c:46ad with SMTP id
- 006d021491bc7-5ec23612f9amr11574862eaf.0.1730287931746; Wed, 30 Oct 2024
- 04:32:11 -0700 (PDT)
+	id 1t673E-00000000Ark-2oQ4;
+	Wed, 30 Oct 2024 11:39:59 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1730288386;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=;
+	b=rhEg0d1z87PUbjnSMEsHa2ZTMjm4V7As2oyILf5i4K2VK/32cI0L1o8550RHGdp6sqGjh3
+	ErfD1VAW2o++iRalLhw8wi1ciSvnXToQPU/7Dqz5Wlnc51fuF7yZtMempbYTt2HzLBGqx0
+	Y9YSzHbUO+IR24Yjq+Ny338RBqa0jzNLUw2m9Vrr52kzfVeGJB4+uj1JaJRYCIo3DE6Lly
+	bobxafA+CuOfJYFL3jZUIAtXVESnMTctTppzVthR6fn1ijnvzGIvSfDwZ8yFMWE8zMh75v
+	CjtAzrsY5JQC46+IYsUu5faYS3U6XCuR8hSr6G0+pno9IQ0T9vFbLX0np3OHDQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1730288386;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=;
+	b=Sf9t6VjHntegt94+/ZST48Lk206fyTt9ZFie/7zblKXgaCtLwerDU5H5dAAiGuPUAe0Y5b
+	9F1eFOTF9JGc5hBw==
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Guo
+ Ren
+ <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Russell
+ King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, WANG
+ Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>, "Jason A.
+ Donenfeld" <Jason@zx2c4.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, Thomas
+ =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Nam Cao
+ <namcao@linutronix.de>
+Subject: Re: [PATCH 00/28] vdso: Preparations for generic data storage
+In-Reply-To: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+Date: Wed, 30 Oct 2024 12:39:45 +0100
+Message-ID: <871pzxzuny.ffs@tglx>
 MIME-Version: 1.0
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-9-peter.griffin@linaro.org> <436b02c6-a262-4015-92e3-454d444e877f@linaro.org>
-In-Reply-To: <436b02c6-a262-4015-92e3-454d444e877f@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 30 Oct 2024 11:32:00 +0000
-Message-ID: <CADrjBPoq2jbrMC7wBrjGxMwQ1ebTtBNRQzQ7NfE9=Gw9_4LQ6A@mail.gmail.com>
-Subject: Re: [PATCH v2 08/11] scsi: ufs: exynos: enable write line unique
- transactions on gs101
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com, 
-	martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org, 
-	krzk@kernel.org, andre.draszik@linaro.org, kernel-team@android.com, 
-	willmcvicker@google.com, linux-scsi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ebiggers@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_043212_998967_CBC0FE65 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20241030_043948_900220_D570B883 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+Folks!
 
-On Wed, 30 Oct 2024 at 11:25, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+On Thu, Oct 10 2024 at 09:01, Thomas Wei=C3=9Fschuh wrote:
+> Historically each architecture defined their own datapage to store the
+> VDSO data. This stands in contrast to the generic nature of the VDSO
+> code itself.
+> We plan to introduce a generic framework for the management of the VDSO
+> data storage that can be used by all architectures and which works
+> together with the existing generic VDSO code.
 >
+> Before that is possible align the different architectures by
+> standardizing on the existing generic infrastructure and moving things
+> out of the VDSO data page which does not belong there.
 >
->
-> On 10/25/24 2:14 PM, Peter Griffin wrote:
-> > Previously just AXIDMA_RWDATA_BURST_LEN[3:0] field was set to 8.
->
-> where was this set?
+> Patches	 1- 2:	csky
+> Patch	    3:	s390
+> Patches	 4- 5:	arm64
+> Patch	    6:	riscv
+> Patch	    7:	arm
+> Patch	    8:	LoongArch
+> Patch	    9:	MIPS
+> Patches 10-20:	x86
+> Patches 21-27:	powerpc
+> Patch      28: 	Renamings to avoid a name clash with the new code.
 
-It is set to 0xf in exynos_ufs_post_link() function, see the following line
-hci_writel(ufs, 0xf, HCI_AXIDMA_RWDATA_BURST_LEN);
+As this has been sitting for two weeks now without major comments, I'm
+planning to merge that through the tip tree tomorrow.
 
-As all other SoCs expect the current value, I've left that assignment
-in the common function, and we update it in the  gs101_ufs_post_link()
-specific hook.
+Thanks,
 
->
-> >
-> > To enable WLU transaction additionally we need to set Write Line
-> > Unique enable [31], Write Line Unique Burst Length [30:27] and
-> > AXIDMA_RWDATA_BURST_LEN[3:0].
-> >
-> > To support WLU transaction, both burth length fields need to be 0x3.
-> >
->
-> typo, s/burth/burst
-
-Will fix.
-
-Peter
+        tglx
 
