@@ -4,84 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1CAD6B6AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 16:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5460FD6B6AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 16:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ohhnavrPr5+YUgso4iG8u5sjXey4qTkemT4mrkrez4=; b=s0CCItnW3Sz1onKd3rN//PmANi
-	TIowS7Nsa7L2QB8wCnmRL4KyDDNtkkGuUfpDE/lwKXWJ8afIi/nC82QMJ9Pfq4uTBzshFQrOrC5+6
-	g9nsUJgVDE4mu14D8jHqb8qntKFiQDGLZqFd3xOhBKO8iXzDC9+V232VvLTxv6kXBHo9YYeHHG3z8
-	oc/cmXQ0F5AbdPypqAzTb0jlnzIbBgoI3iuNPqLOU5rWw0GQDiAMi563a0vS2vqGmBCRvX/VhZet1
-	Oa/tdlgvqdRxwEFs6Li8VSDwsIK1/c5KKRmWHSwPcWap5FoxSFfbjmm34KStVbKyYpJk7aKjwKZq3
-	8SBLHi/A==;
+	bh=upSDuC1ThIa1MLUW5v1BgSDrV6IlSUCAGHtCh8ZshGc=; b=RP8KfsGje/GBGUzHxCyhk7ZGFk
+	F3MHGNHIzd6YEcALxcoXYChinSIsbL3kL2Ixpd4BKety9FWZ2oWVKxlkMnbXgsj5O4pRRyXDN4VyL
+	UCBL/Lo/kS69MjpXeBOZ+rMmA3af7/nGqescYv9yrnVFTAXTpOfhb+JVxqArYfyRf73hu4m/w1D33
+	AOHYIbfiWDZofagRMwd5SRnoT5q0tZQDe6FafEhpH7uExghb7BE7p1t8OwdIfxj47VfjGyyOGKvPZ
+	W/XWcEiET9v+O8NMK1rvQgW6lE2RN4xwDZo9x0qNrurGrBqOfG0l4vo3RYpfsx2lnHf5qRXm/tm32
+	u4H4NB/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Bi2-0000000169i-3KUy;
-	Wed, 30 Oct 2024 16:38:14 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1t6Bo9-000000016sT-1qvy;
+	Wed, 30 Oct 2024 16:44:33 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6BgO-000000015vD-2S8N
+	id 1t6BmV-000000016fm-10MI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 16:36:33 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-460a8d1a9b7so338551cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 09:36:31 -0700 (PDT)
+	Wed, 30 Oct 2024 16:42:52 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3e606cba08eso47369b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 09:42:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730306191; x=1730910991; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9ohhnavrPr5+YUgso4iG8u5sjXey4qTkemT4mrkrez4=;
-        b=Z+2qMKzt9eZlFiX6oohEf74uzSGlHFoCuRfytYlH3U1gzMurdFdb/DOqqBq+DC+Nnx
-         iL9wKKXo9eBTfW5lKUcvVsypZHUpg9TM5+wH6KNx4EiF4gAOcK+Q/y8F3ADfymgtz6Gv
-         Mkyg+6jop98LeGupOq6VI3opid0Pw92eJYou5WCRynY45EElWiHu17rMVmMB7ja/WOsp
-         0FY5IHBnE0RB0nRkSyydEtyF6jG1vx8TQelinFLOeMzt8ZSwjCwIdllqLwDxfWAw1nOl
-         bEvFvW7hb0Shcz2/VE+xzHYsRA2dtK/XNLZr/4iB7rSNXn2JREoSDfW7ra6fKHCTqrkS
-         yfFg==
+        d=gmail.com; s=20230601; t=1730306569; x=1730911369; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=upSDuC1ThIa1MLUW5v1BgSDrV6IlSUCAGHtCh8ZshGc=;
+        b=DWzZx/OkKiKCgpde+lLoIg9fdiqjNk7LP2+Ker0N1maL+8jEsvkgoP+FmxBW93XGV2
+         ZoecCbHo9gcB8GHDtgR9A1KKUpwxaDQJ/0KXEruJbiQ/uMIb2AHU8c7G6IsX9l8kgBo7
+         gWRzF7I2drwFzBv/uR5ut6jCcuY7taQ+RA1UdcU2qWjZ8CuLHLa0ppYOqY8ZJ87OKT5r
+         UjjJbzEsn+XpwK/XC0JPRWY8biYJELc4l1F/wFSdGILLbcbzgqYQ+ZrvooIpHZqz16Q7
+         3xDQGNLCp0rTCnWZ/A07CHRml67yumTP9MLWxC4/Jt7KOag1KncckzZMMxgqpr7MiPMx
+         1fqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730306191; x=1730910991;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9ohhnavrPr5+YUgso4iG8u5sjXey4qTkemT4mrkrez4=;
-        b=EN9pGbSpjlNev/IMGLlKAuMeWl44Bb7gmYwkEeFkMRQwhdhQQxqLUGgQzygynfs/VJ
-         zIptch04MfP/Zos/6LNCB9FFVJoM2t9tJy30nsXivJRARXLFazDU5C/ArrRrkpz5tJ3r
-         n5GD3V6iT6kcF68Y+p6T3JE3L6pFfanSeR+0bCtOzg2hHrn+1hty8aDnI/BNRsRU0H2o
-         Qkqg2PWgjvbDgKyM99z9blH8k/xzMkb0l0Ifud4RKCw4HaqHoxBY5OGgTv2eS8YqUy6Q
-         mqg5wzKZqKILVBTsJv1N/yhoEwacq7yOhQy69I8+XByNDtVwBcu3tXOpmasQ3UpOWYII
-         5sRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWiz/acTfHA75O9CQrPOALeeoWV9AGBjqLNzYmTkIOeZobDCsmXzK3kFQAY+qK39dWqpDAURha/6N55M8b+7jl5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ/P5Vtz1wNGhrHWo4svpOu1WyG1MILzQUIuYDuUMn9znnv4qe
-	QU8l6o995RKNShreHFpvts57u8FbO+wom2/m0FHXg0vCeePBZ7KbnIqpF9QKL+PnecR8H3Uo3Mx
-	HfEQ47taWka6Hn8GZOMitkOvkZQrRwMBcvpaO
-X-Gm-Gg: ASbGncvrMQFW03jVi8oWAQ8LkS4jOYoDJ+Ix990Bp1mZfapjhNxzMEWUyCAHLIAZ7dj
-	XOuzovsNbZW+gAm3FXX+/+EFEmL5WELPHmCBtT4QL1a7xJ/SFRU0PPdh7ygHEpA==
-X-Google-Smtp-Source: AGHT+IFBqNAhnZpINWYimOajsOUR5Hu7mWheBmruaCmzYI1pEkwMAvJVmKH+JkRRcQ8aMk7aGSnF9I1hvN2lZQ7/bOk=
-X-Received: by 2002:a05:622a:cb:b0:461:3083:dbac with SMTP id
- d75a77b69052e-46166cf428fmr8624631cf.5.1730306190820; Wed, 30 Oct 2024
- 09:36:30 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730306569; x=1730911369;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=upSDuC1ThIa1MLUW5v1BgSDrV6IlSUCAGHtCh8ZshGc=;
+        b=iqf0RevGIIe2vNB/rXojnG0x0dOikKOiHlFVwVR0bRkUWn6auMnIgJ8z/Oj5IsMfXQ
+         v+Q8x6V4yTrSiVo0xfxctns0wRmeHacrL0A0XHIOxSCbXjpqScflhCg7Lgyp2VAV3h58
+         H6ExnjPaduFWz+M3oRepaDUMKDCcq2+zUCJWKiIOkTMFGju04BF+wV7++89yhdPj8QHj
+         upI9PlLpC8m1RX03Ai/ggcuxzpZAv/URsiEHID6Uq+5TXt1ELTeqWDMpx+3r9HjKYnX6
+         BWJTTgfIHj4F6KGxTp+LGvky4qa0d3xsgOyq2F9Lh36ht1cxKJYkAZ5JWrAMp3gaFIoS
+         l53w==
+X-Forwarded-Encrypted: i=1; AJvYcCVWPZsh3DfFrYTfxbZf03hyBQMETxIquCXgvGV0iRE1QKzR1tcuKMjmyx7eJqcfLyk30q+r4rn+k4eKUgdaQotj@lists.infradead.org
+X-Gm-Message-State: AOJu0YztqPQuVIpco2OZnVqVuz99Q1JouNYtQK7wsvhmz5vWOPYt7tsf
+	uVL5KEdWB/3EEYfNvL7seMxOHKC4aELQjswbe1AtBj/aLkH3Eeuk
+X-Google-Smtp-Source: AGHT+IHL1aIqEXulP9B4SfFxolZuQqmmUNNlYSLSaXx4g8iw5vjflDUjFis9TIxnhkRmWiBuQlo1PA==
+X-Received: by 2002:a05:6808:30a9:b0:3e6:1473:19d6 with SMTP id 5614622812f47-3e6583bdbcemr4558447b6e.29.1730306569452;
+        Wed, 30 Oct 2024 09:42:49 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d1798a84absm53560346d6.39.2024.10.30.09.42.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 09:42:47 -0700 (PDT)
+Message-ID: <f4142cda-c8e0-48c8-aff3-4dfa942b37fa@gmail.com>
+Date: Wed, 30 Oct 2024 09:42:44 -0700
 MIME-Version: 1.0
-References: <20241028234533.942542-1-rananta@google.com> <868qu63mdo.wl-maz@kernel.org>
- <CAJHc60x3sGdi2_mg_9uxecPYwZMBR11m1oEKPEH4RTYaF8eHdQ@mail.gmail.com>
- <865xpa3fwe.wl-maz@kernel.org> <CAJHc60xQNeTwSBuPhrKO_JBuikqZ7R=BM5rkWht3YwieVXwkHg@mail.gmail.com>
- <87iktat2y8.wl-maz@kernel.org>
-In-Reply-To: <87iktat2y8.wl-maz@kernel.org>
-From: Raghavendra Rao Ananta <rananta@google.com>
-Date: Wed, 30 Oct 2024 09:36:19 -0700
-Message-ID: <CAJHc60w7edpTSG2VA52m96BP6Eayg2jEc=9nt_b_kJFnOoQxfw@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: Get rid of userspace_irqchip_in_use
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	stable@vger.kernel.org, syzbot <syzkaller@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V5 3/6] firmware: arm_scmi: Report duplicate opps as
+ firmware bugs
+To: Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
+ cristian.marussi@arm.com, johan@kernel.org, ulf.hansson@linaro.org,
+ jassisinghbrar@gmail.com, dmitry.baryshkov@linaro.org
+Cc: linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ konradybcio@kernel.org, linux-pm@vger.kernel.org, tstrudel@google.com,
+ rafael@kernel.org, Johan Hovold <johan+linaro@kernel.org>
+References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
+ <20241030125512.2884761-4-quic_sibis@quicinc.com>
+Content-Language: en-US
+From: Florian Fainelli <f.fainelli@gmail.com>
+Autocrypt: addr=f.fainelli@gmail.com; keydata=
+ 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
+ HGuUuzv+GKZ6nsysJw==
+In-Reply-To: <20241030125512.2884761-4-quic_sibis@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_093632_648289_E42854DD 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20241030_094251_318899_E041649F 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,101 +135,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 1:22=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> On Wed, 30 Oct 2024 00:16:48 +0000,
-> Raghavendra Rao Ananta <rananta@google.com> wrote:
-> >
-> > On Tue, Oct 29, 2024 at 11:47=E2=80=AFAM Marc Zyngier <maz@kernel.org> =
-wrote:
-> > >
-> > > On Tue, 29 Oct 2024 17:06:09 +0000,
-> > > Raghavendra Rao Ananta <rananta@google.com> wrote:
-> > > >
-> > > > On Tue, Oct 29, 2024 at 9:27=E2=80=AFAM Marc Zyngier <maz@kernel.or=
-g> wrote:
-> > > > >
-> > > > > On Mon, 28 Oct 2024 23:45:33 +0000,
-> > > > > Raghavendra Rao Ananta <rananta@google.com> wrote:
-> > > > > >
-> > > > > Did you have a chance to check whether this had any negative impa=
-ct on
-> > > > > actual workloads? Since the entry/exit code is a bit of a hot spo=
-t,
-> > > > > I'd like to make sure we're not penalising the common case (I onl=
-y
-> > > > > wrote this patch while waiting in an airport, and didn't test it =
-at
-> > > > > all).
-> > > > >
-> > > > I ran the kvm selftests, kvm-unit-tests and booted a linux guest to
-> > > > test the change and noticed no failures.
-> > > > Any specific test you want to try out?
-> > >
-> > > My question is not about failures (I didn't expect any), but
-> > > specifically about *performance*, and whether checking the flag
-> > > without a static key can lead to any performance drop on the hot path=
-.
-> > >
-> > > Can you please run an exit-heavy workload (such as hackbench, for
-> > > example), and report any significant delta you could measure?
-> >
-> > Oh, I see. I ran hackbench and micro-bench from kvm-unit-tests (which
-> > also causes a lot of entry/exits), on Ampere Altra with kernel at
-> > v6.12-rc1, and see no significant difference in perf.
->
-> Thanks for running this stuff.
->
-> > timer_10ms                          231040.0                          9=
-02.0
-> > timer_10ms                         234120.0                            =
-914.0
->
-> This seems to be the only case were we are adversely affected by this
-> change.
-Hmm, I'm not sure how much we want to trust this comparison. For
-instance, I just ran micro-bench again a few more times and here are
-the outcomes of timer_10ms for each try with the patch:
+On 10/30/24 05:55, Sibi Sankar wrote:
+> Duplicate opps reported by buggy SCP firmware currently show up
+> as warnings even though the only functional impact is that the
+> level/index remain inaccessible. Make it less scary for the end
+> user by using dev_info instead, along with FW_BUG tag.
+> 
+> Suggested-by: Johan Hovold <johan+linaro@kernel.org>
+> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
 
-Tries                                             total ns
-               avg ns
----------------------------------------------------------------------------=
---------
-1_timer_10ms                             231840.0                          =
-905.0
-2_timer_10ms                             234560.0                          =
-916.0
-3_timer_10ms                             227440.0                          =
-888.0
-4_timer_10ms                             236640.0                          =
-924.0
-5_timer_10ms                             231200.0                          =
-903.0
-
-Here's a few on the baseline:
-
-Tries                                             total ns
-               avg ns
----------------------------------------------------------------------------=
---------
-1_timer_10ms                             231080.0                          =
-902.0
-2_timer_10ms                             238040.0                          =
-929.0
-3_timer_10ms                             231680.0                          =
-905.0
-4_timer_10ms                             229280.0                          =
-895.0
-5_timer_10ms                             228520.0                          =
-892.0
-
-
-> In the grand scheme of thins, that's noise. But this gives us
-> a clear line of sight for the removal of the in-kernel interrupts back
-> to userspace.
-Sorry, I didn't follow you completely on this part.
-
-Thank you.
-Raghavendra
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
