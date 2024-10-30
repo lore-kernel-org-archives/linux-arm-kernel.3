@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EADD5CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A97D5CCAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YUH2BZzthzEXo7hEUioBbWsSt3qoc+SC22xhMIafrmU=; b=2dyMzO/5YKYL83E8Dc3wRKNss6
-	oSXWI9t9qbDQbH6CxSw52loEJZqOAk3tRmB3kapgXyEPr5w5fdVTqc4cm9XyMBw/KWqZXokgi/MX9
-	AhCsfEF0vuTCJI/oOh7gFiwgAhd2EiDH2KYApjrDsQHTrAIT6dWnKXOKqWICNTGgJ+czSAECvhBLo
-	6ObLhxzjSgEnqPAkV4mud2ATIf4Be9yPz0oikdUjTgy/h/GvcarVy0B87DAEP4dBhUuuLazEnGR8N
-	Wx19zCB1B3W1oG09Tdai7RFV34WsK6LHJBDj7Z0B47xTFI0SJ0C9t0QHjQ5QkWxK26+IjK02sXaxX
-	4fkltElA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=; b=jtaLb75giufnfgdXOaCU1WOhye
+	Awxj1k4gb6qGME3cnQMmqcN1jBPw+zOisYBg8zWmoMSX/LCds/A/NOfIC9GlZblz3vdRBjAoHsblj
+	ydhCsmey9RgUcRUmRpl/XXh+k77+cB+w4vlux68Z4oq+RSXCtVg9YnF0WZ0N0tyFzbaY7Aq+lyRr8
+	slZ9TuWuxWq1uGRpwY2KrkRQ8xccUlxY7vZmNrtMmLv18GbthGFCjARyiW5EA9ydomt9sZ5TfsWf9
+	Cindo6FWNDoiBW9WG+k/Hhw2J3Mz1FiNjHcqmqyKFLfYv4iQaGMOgytq2vLPLUzw4ZuB53Kl42qM1
+	3j4djnOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68sH-00000000UtG-2xoH;
-	Wed, 30 Oct 2024 13:36:38 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1t68tu-00000000VE9-2I19;
+	Wed, 30 Oct 2024 13:38:18 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68is-00000000T5e-1ukI
+	id 1t68is-00000000T5k-2ZnB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 30 Oct 2024 13:26:56 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d4d1b48f3so4773844f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:26:53 -0700 (PDT)
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4314c4cb752so63389385e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 06:26:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730294812; x=1730899612; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YUH2BZzthzEXo7hEUioBbWsSt3qoc+SC22xhMIafrmU=;
-        b=EVYGi8bzSwhHzmuguLkvYdZqnTIeRdrRdJf0rWmXJg8C/RplBlf0NO1yG9K8+12dwq
-         bUuKqN7LkIsMD1ZfMjomAOUrYUtYE5XuVEEbxfimmjs7WoUaZjlEcuFql2D7ARpWKnK/
-         EBJntbq0kKvRH4gZXDohNHJAVN3PQdvM4gE3Ss9lVPwwyoR96Qd63ZNLGL5S4vbmXsao
-         swNhs/MWinJobUgfATgItYzC9QmLXYjMigeCkq+AAESlBHlu/Dwj8Om09utOHhgS5qX4
-         5pawYZn2LhyKKRJDS6OYG6tDHp/towV4oBq8EcFLDAWauCQWjG3vTWUlvjE8+SdmnEfJ
-         4bSA==
+        d=linaro.org; s=google; t=1730294813; x=1730899613; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=;
+        b=fggoQ1E33nW7JS+QVSTt5fjFmsluDgW+UcpgPYlcEgQidOFBWUvHIZD3rXKbZdXDMt
+         GCD/ADrnqjKFbtcArAlwqFsWtcKLgsSejnd48YFPvS8FPGbEAmXnrDn+rYRFsqdhAiVQ
+         OVvd0IlB7f5yxcM/Yt9u3aGjw5BNHQBH84l+6pHUt2QNH6vkXmJfCW/in8A6NIhXM73w
+         zQbwJiCpL5UmIxsp0Zg2GLgaBgsFuqsoP7QaEu0coGK/JNIsuGP4KuHnVD3uLCZkp8Hn
+         4DoA6zqvGvIF/lSSrg0rqmNu3rC6cU2ydbchbD0B1cfiJhO2RSDSWel7Ge2FLexAzzO7
+         S8Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730294812; x=1730899612;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YUH2BZzthzEXo7hEUioBbWsSt3qoc+SC22xhMIafrmU=;
-        b=YElx7ffkUscHt93IzW4fJjDkUmwx+fuDJQrpMzrcOpwruJjJchBnYL3rEV/MU/eIgE
-         yyr1drgGQesKeG64YGXqJ5nYKujlOzaJwhQn/bBZ1/kE+4ziXlH2tbbA0p6ImCJ/WDNG
-         XAlDeoodlsOlyT4otI+bTsZWrhICuCOY6DZokfy19ITtQcyShbHUsJ21psXO4TMB3o0C
-         okwYy6eeJ5LLdirxuxj3FhQoW1estcSX3SAJPlEW+h5e++gyQwWId59Pk689f4g5uLha
-         vIW4+LsL5lINHTsR2R5mrbVoPIHVaE4vjKVsFrMoPQzAGH64a6ZQbZzLadvWGoWWaTbd
-         zu+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXPZixN23h1ozqP8sfkIDZrcmP6U5J0JZ2B7WeyBR/uueXhAkVqihZXpfvxpFes+PesSEcm3skUZk71pDd/78fV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKPLgTrukn5fOTg04N6juKac0M414Q5H+rKiQ7jEue0dHccTqw
-	ToEYnmRRndbb4sRC1xtpGP2EaRFE6cSFdDME/C3TID0sKp6/qMgDMjY/ioHqOaw=
-X-Google-Smtp-Source: AGHT+IHIMdJDEaCeqIXymbskBOdadZaANy4sAJ7qeopzQzAgJpTpoJyPxtp9v9pMK+6XU1FesTsuxQ==
-X-Received: by 2002:a5d:4602:0:b0:374:baeb:2ec with SMTP id ffacd0b85a97d-381b7076530mr2335207f8f.19.1730294812459;
-        Wed, 30 Oct 2024 06:26:52 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730294813; x=1730899613;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bzoMFJwewUJr88TLCzmafGB2re8jMyauaVwVQzw6WY0=;
+        b=Z59He3lLGvp4P05nj6TFmNheqv7oFiQXORjYDg5+ygG/fixyjRIG8oxcLiFsYeHv/k
+         xaI5ns+pkFYQp3MUt2WI5EmNCs0lqm0O4Il0p06zZHT/bqY2cdpVl/25UXSDHxdDDNFs
+         YsRLeNThHOj8HCsbbtZadAw9QGuZNg268h36x3Lq9XC5Hm6ECz3uiYrbGI6DmdD8w5My
+         uS08svvPm3lkgDSm+dAKlnfQ0Yr1+b7eE6J7n1p790GZIR7oaVd7p3uJi/N07b7a7xTP
+         mPFciHERBvD25aqq9mH4l7uA3ZPA0UW33gaXd4gpUxoDPvmHNQTQ19vGcgptCsV9K+Rg
+         +4yA==
+X-Forwarded-Encrypted: i=1; AJvYcCVPoN3g0svrIZkhijAGNAPaMiD7OsF/+XtEBWdufVAe9ZnkDhL1yLC+P2Pc8YBqvgG6LENTVxYPFK9TcOJslcwN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDV/hiwvmkY31lB3K7tvoW1ZPSzDWkx7BXsKTh84QLLv3AXWzj
+	n7WYQAs8Ot2fTk8qpAjbGxIe1AGcjFe/gxpFK8ntRZTLqlRTcHragivdWcY/uw8=
+X-Google-Smtp-Source: AGHT+IHvCVDH97OPRIU78dk2sv1dUkZXYpRkqnVZcPXDtJpr/JmOXd9IkvC3KGa6t702TR8hj0iMNQ==
+X-Received: by 2002:a05:600c:4f06:b0:431:5021:32 with SMTP id 5b1f17b1804b1-4319ac74308mr110456545e9.6.1730294813080;
+        Wed, 30 Oct 2024 06:26:53 -0700 (PDT)
 Received: from ta2.c.googlers.com.com (32.134.38.34.bc.googleusercontent.com. [34.38.134.32])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bdafsm15356836f8f.30.2024.10.30.06.26.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b3bdafsm15356836f8f.30.2024.10.30.06.26.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 06:26:51 -0700 (PDT)
+        Wed, 30 Oct 2024 06:26:52 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -75,15 +76,17 @@ Cc: krzk@kernel.org,
 	kernel-team@android.com,
 	willmcvicker@google.com,
 	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH 1/2] scsi: ufs: exynos: remove unused tx_linereset_n/tx_dif_n_nsec fields
-Date: Wed, 30 Oct 2024 13:26:48 +0000
-Message-ID: <20241030132649.3575865-1-tudor.ambarus@linaro.org>
+Subject: [PATCH 2/2] scsi: ufs: exynos: remove unused rx_hibern8_wait(_nsec) fields
+Date: Wed, 30 Oct 2024 13:26:49 +0000
+Message-ID: <20241030132649.3575865-2-tudor.ambarus@linaro.org>
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
+In-Reply-To: <20241030132649.3575865-1-tudor.ambarus@linaro.org>
+References: <20241030132649.3575865-1-tudor.ambarus@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_062654_521112_479D3F61 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20241030_062654_709596_F3D2AF07 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,8 +101,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tx_dif_n_nsec was used to compute tx_linereset_n, but the later is not
-used afterwards. Remove both.
+rx_hibern8_wait_nsec was used to compute rx_hibern8_wait, but the later
+is not used afterwards. Remove both.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
@@ -108,62 +111,62 @@ Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
  2 files changed, 7 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 9ec318ef52bf..91c09309c1c1 100644
+index 91c09309c1c1..fd86252ab2ba 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -548,8 +548,6 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
+@@ -559,8 +559,6 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
  
- 	t_cfg->tx_linereset_p =
- 		exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
--	t_cfg->tx_linereset_n =
--		exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_n_nsec);
- 	t_cfg->tx_high_z_cnt =
- 		exynos_ufs_calc_time_cntr(ufs, attr->tx_high_z_cnt_nsec);
- 	t_cfg->tx_base_n_val =
-@@ -1970,7 +1968,6 @@ static void exynos_ufs_remove(struct platform_device *pdev)
- static struct exynos_ufs_uic_attr exynos7_uic_attr = {
- 	.tx_trailingclks		= 0x10,
- 	.tx_dif_p_nsec			= 3000000,	/* unit: ns */
--	.tx_dif_n_nsec			= 1000000,	/* unit: ns */
- 	.tx_high_z_cnt_nsec		= 20000,	/* unit: ns */
- 	.tx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.tx_gran_unit_nsec		= 4000,		/* unit: ns */
-@@ -2046,7 +2043,6 @@ static const struct exynos_ufs_drv_data exynos_ufs_drvs = {
- static struct exynos_ufs_uic_attr gs101_uic_attr = {
- 	.tx_trailingclks		= 0xff,
- 	.tx_dif_p_nsec			= 3000000,	/* unit: ns */
--	.tx_dif_n_nsec			= 1000000,	/* unit: ns */
- 	.tx_high_z_cnt_nsec		= 20000,	/* unit: ns */
- 	.tx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.tx_gran_unit_nsec		= 4000,		/* unit: ns */
-@@ -2074,7 +2070,6 @@ static struct exynos_ufs_uic_attr gs101_uic_attr = {
- static struct exynos_ufs_uic_attr fsd_uic_attr = {
- 	.tx_trailingclks		= 0x10,
- 	.tx_dif_p_nsec			= 3000000,	/* unit: ns */
--	.tx_dif_n_nsec			= 1000000,	/* unit: ns */
- 	.tx_high_z_cnt_nsec		= 20000,	/* unit: ns */
- 	.tx_base_unit_nsec		= 100000,	/* unit: ns */
- 	.tx_gran_unit_nsec		= 4000,		/* unit: ns */
+ 	t_cfg->rx_linereset =
+ 		exynos_ufs_calc_time_cntr(ufs, attr->rx_dif_p_nsec);
+-	t_cfg->rx_hibern8_wait =
+-		exynos_ufs_calc_time_cntr(ufs, attr->rx_hibern8_wait_nsec);
+ 	t_cfg->rx_base_n_val =
+ 		exynos_ufs_calc_time_cntr(ufs, attr->rx_base_unit_nsec);
+ 	t_cfg->rx_gran_n_val =
+@@ -1975,7 +1973,6 @@ static struct exynos_ufs_uic_attr exynos7_uic_attr = {
+ 	.tx_min_activatetime		= 0xa,
+ 	.rx_filler_enable		= 0x2,
+ 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
+-	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
+ 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
+ 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
+ 	.rx_sleep_cnt			= 1280,		/* unit: ns */
+@@ -2050,7 +2047,6 @@ static struct exynos_ufs_uic_attr gs101_uic_attr = {
+ 	.tx_min_activatetime		= 0xa,
+ 	.rx_filler_enable		= 0x2,
+ 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
+-	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
+ 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
+ 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
+ 	.rx_sleep_cnt			= 1280,		/* unit: ns */
+@@ -2077,7 +2073,6 @@ static struct exynos_ufs_uic_attr fsd_uic_attr = {
+ 	.tx_min_activatetime		= 0xa,
+ 	.rx_filler_enable		= 0x2,
+ 	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
+-	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
+ 	.rx_base_unit_nsec		= 100000,	/* unit: ns */
+ 	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
+ 	.rx_sleep_cnt			= 1280,		/* unit: ns */
 diff --git a/drivers/ufs/host/ufs-exynos.h b/drivers/ufs/host/ufs-exynos.h
-index 1646c4a9bb08..e64fe20d50c1 100644
+index e64fe20d50c1..b7fe725c7f8e 100644
 --- a/drivers/ufs/host/ufs-exynos.h
 +++ b/drivers/ufs/host/ufs-exynos.h
-@@ -136,7 +136,6 @@ struct exynos_ufs_uic_attr {
- 	/* TX Attributes */
- 	unsigned int tx_trailingclks;
- 	unsigned int tx_dif_p_nsec;
--	unsigned int tx_dif_n_nsec;
- 	unsigned int tx_high_z_cnt_nsec;
- 	unsigned int tx_base_unit_nsec;
- 	unsigned int tx_gran_unit_nsec;
-@@ -195,7 +194,6 @@ struct exynos_ufs_drv_data {
- 
- struct ufs_phy_time_cfg {
- 	u32 tx_linereset_p;
--	u32 tx_linereset_n;
- 	u32 tx_high_z_cnt;
- 	u32 tx_base_n_val;
+@@ -144,7 +144,6 @@ struct exynos_ufs_uic_attr {
+ 	/* RX Attributes */
+ 	unsigned int rx_filler_enable;
+ 	unsigned int rx_dif_p_nsec;
+-	unsigned int rx_hibern8_wait_nsec;
+ 	unsigned int rx_base_unit_nsec;
+ 	unsigned int rx_gran_unit_nsec;
+ 	unsigned int rx_sleep_cnt;
+@@ -199,7 +198,6 @@ struct ufs_phy_time_cfg {
  	u32 tx_gran_n_val;
+ 	u32 tx_sleep_cnt;
+ 	u32 rx_linereset;
+-	u32 rx_hibern8_wait;
+ 	u32 rx_base_n_val;
+ 	u32 rx_gran_n_val;
+ 	u32 rx_sleep_cnt;
 -- 
 2.47.0.199.ga7371fff76-goog
 
