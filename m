@@ -4,110 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E435ED5CCA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9580D5CCA1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jsXrG2RjOgCBX1hLA2rQsHuqa3hTF23LM0NWgRNHvKQ=; b=JawxIFRgs8yAv+U9DH88x4z9so
-	AgE+LDCkFnSdJ3KjHT6HJCwdPgeS47rPG+yhBxH/bZORUutrc4WRVeCaJZm55+27Tg8geuouTQNdD
-	yV6W8j1XrfGJRfVx3PpAzhklX/UqAef3gEiSkWZlAiQPQs07+A/mMM6c/XECLcTfJ0QXXNROUsci2
-	X6RpMrgtvLU7x5au/Mj+Y8FQ/L0KwVn64Zyhh+vyYZ0g6gx+FOqYEQ1TJl18iyvehy0upVWsUhMmy
-	TMpzI2cLk9g8JdWtXDktRnpjNH/FCkXbNfOWxujHPh7Td39sxRkksqwOy5KO1qb/glpI+9FtSxnrw
-	tePP2KaQ==;
+	bh=Dz8ORMovlm8PCaRFyxkHztKoIVxbuXiuAHwjiXhbYNM=; b=CaN/4UJO/Cmxah8jq/UxqmGcyh
+	WBhjDQGbFlTEOZ99+90RiPiOanjlDEnjuBkQkLU44NoLLdUGlntE/OnR6Zq/8Baa6T+oBiuWzvTiU
+	17ISVk/Bg/wkCm583XRdNmH8eq8FFNDmAmTJqjvbu3WpopdR6VqtKBzcHjpDbv5XQ18lIOJBBu/Zj
+	y/6V2+j/DUpNqsoac+R3cC9/2go0jOWiz2uzBbS3LYjRgyP0gKcN8yAvU9xJdu7kskB5ASA6Pj7J3
+	eiw62N6+Mr5gJd1wtnje3i2SWkXJCpWyh2N2aZ31DVRlQgAqcGsHfDkw5TsCqdJQSJMCjyB73wkfN
+	jh5mcxMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67tW-00000000Kxj-2dTt;
-	Wed, 30 Oct 2024 12:33:50 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t67xh-00000000LUm-1qKN;
+	Wed, 30 Oct 2024 12:38:09 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67qB-00000000KQa-3KXW
+	id 1t67w2-00000000LG7-0onY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 12:30:26 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8AA051083;
-	Wed, 30 Oct 2024 13:30:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730291419;
-	bh=ax3BM6l4Yla/lY9UnazzdU5p6XWuA40aFii9GjRu8y8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=pa/qy1E4vKkbbGvYtMImDrKVGofB8eGlhpMwHcWI7kkk5QsheeV8FPh5XlbeuzOAD
-	 +TPmUySO6ai5clZ0vvCaX5ZDbKOZ5W/me8LIQsKdb4zoFvzDPTRnUbFgel09cLg5G/
-	 hy51lBz5lWwsNhSGTW1bA35WHy9y/21dbPzpGMJo=
-Message-ID: <ba1eb42c-118f-4afb-bf14-befad68a5945@ideasonboard.com>
-Date: Wed, 30 Oct 2024 14:30:18 +0200
+	Wed, 30 Oct 2024 12:36:27 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-37d41894a32so553664f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 05:36:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730291784; x=1730896584; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Dz8ORMovlm8PCaRFyxkHztKoIVxbuXiuAHwjiXhbYNM=;
+        b=Z5XgSmS2OhUFci7Iqa2f85evc6+RqeClsO/Usmet+sYkAQdFYMifDTC4Sym6GGbgVI
+         CQAThFqnJAKSAhQfVKJlCv6sNuzSgEbQahKlXkhTVp4/QbzJedIn7/lANduQTkHi4slT
+         efCdYHnjMJ/xMSHpjLuXva/VV45ED69p24GrMhkfA6kcILJ1h62Q+9sKaiqm2K3Kjy1k
+         z7/2INjvzTvlxjOOk/gbpMqTLUPYBkOyN8scWGV68uHuw4/Zb3C+kjLnvFU4xVJvXD82
+         rlMP/JSoeI/DaXSAo3WhIqRSfl5mHyrAbLtz9NNMYiNnMOGMI3EfA2nrdkPq1fGg1Smm
+         V5qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730291784; x=1730896584;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Dz8ORMovlm8PCaRFyxkHztKoIVxbuXiuAHwjiXhbYNM=;
+        b=leHpdUuRgu0FDvxwSHIOGDzT8r5oTQl8xxebpLEEO0NtiEKhW9jLyP1gVh+sBjdmDI
+         GmKyt4Kzdia0DRoSkdhV4YFtPsIJa6zqmvgC94bmj+alG0ieaaVoRJ9pRkNQ1s54pXzZ
+         53le6j20bmLUwKJIuBoxVl4NNakK87roY6WTpVAKp4r51/NkZ+0IZgcwDsrVoyhFP+PB
+         YrmsFHD+ZQJ5Xi7NibwXEFOFGQsLXIYStscB06YcL/w/WDWelFmfJ3fwCk6H3cthU6ps
+         gavxEgrMcAlzVFRJFLgL83Is3O0gOsFwhDtWCt25tUkFzh1ypdps8KPAFSYeb5rCUl+9
+         QeOg==
+X-Forwarded-Encrypted: i=1; AJvYcCVMnSYopV+DgA+Zmli8KvPgMEaqoU/lb/fGZseSqS4I8bQ9G4344lRt0lAVQO7B2wUjbqjgFa6hHUcBbq1XPVod@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkgN+darOxL2V88jxl8pznAih2O13t+O0Aa2e9n0vB3CeOHGJC
+	BmV59yOZkWhZ0+nh6Wfgqunfa1lDKzMSw8ef5kMMmzpTrKMvT21WYfikh7DfbVg=
+X-Google-Smtp-Source: AGHT+IH4FRnmdK9aLuDppBh7wG3Y7nEnBh681TyLIF03sNmMciY0XgRonlSoema7XbLW/dKKGVBRtA==
+X-Received: by 2002:a05:6000:504:b0:37c:fbb7:5082 with SMTP id ffacd0b85a97d-3817d649f89mr4690368f8f.25.1730291784286;
+        Wed, 30 Oct 2024 05:36:24 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b47952sm15159285f8f.48.2024.10.30.05.36.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 05:36:23 -0700 (PDT)
+Message-ID: <8dfeb9bf-3326-4d04-8dfb-fea9dad85864@linaro.org>
+Date: Wed, 30 Oct 2024 12:36:21 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/8] drm: zynqmp_dp: IRQ cleanups and debugfs support
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- David Airlie <airlied@gmail.com>, Michal Simek <michal.simek@amd.com>,
- Daniel Vetter <daniel@ffwll.ch>, "Sagar, Vishal" <vishal.sagar@amd.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org
-References: <20240809193600.3360015-1-sean.anderson@linux.dev>
- <5e9769dd-459a-4ff3-aebb-bb7057192733@linux.dev>
- <a023bd66-8f42-4f27-9aa2-5097b2574562@ideasonboard.com>
- <e959a01f-b466-4076-8219-a6c83a7194c0@linux.dev>
- <07766e5e-6009-4b8e-8a50-30ba0fe763f5@linux.dev>
- <20cf573c-d05f-444c-9463-f342a750f6cb@ideasonboard.com>
+Subject: Re: [PATCH v2 08/11] scsi: ufs: exynos: enable write line unique
+ transactions on gs101
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com,
+ martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org,
+ krzk@kernel.org, andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-9-peter.griffin@linaro.org>
+ <436b02c6-a262-4015-92e3-454d444e877f@linaro.org>
+ <CADrjBPoq2jbrMC7wBrjGxMwQ1ebTtBNRQzQ7NfE9=Gw9_4LQ6A@mail.gmail.com>
 Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20cf573c-d05f-444c-9463-f342a750f6cb@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <CADrjBPoq2jbrMC7wBrjGxMwQ1ebTtBNRQzQ7NfE9=Gw9_4LQ6A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_053024_003296_68064683 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20241030_053626_281860_04D0B748 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,96 +103,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
 
-On 28/10/2024 17:04, Tomi Valkeinen wrote:
-> Hi,
-> 
-> On 25/10/2024 17:58, Sean Anderson wrote:
->> Hi Tomi,
->>
->> On 10/3/24 10:53, Sean Anderson wrote:
->>> On 10/2/24 10:50, Tomi Valkeinen wrote:
->>>> Hi,
->>>>
->>>> On 01/10/2024 21:31, Sean Anderson wrote:
->>>>> On 8/9/24 15:35, Sean Anderson wrote:
->>>>>> This series cleans up the zyqnmp_dp IRQ and locking situation. Once
->>>>>> that's done, it adds debugfs support. The intent is to enable 
->>>>>> compliance
->>>>>> testing or to help debug signal-integrity issues.
->>>>
->>>> I think the patches 1-7 look fine, and I think I can pick those 
->>>> already to drm-misc if you're ok with that.
->>>>
->>>> I'm a bit unsure about patch 8, probably mainly because I don't have 
->>>> experience with the compliance testing.
->>>>
->>>> How have you tested this? With some DP analyzer/tester, I presume?
->>>
->>> For my test setup I used an oscilloscope hooked up to the displayport
->>> output using a fixture that broke the signals out to SMA. Since the
->>> oscilloscope cannot emulate a sink, I first had the output connected to
->>> a monitor. Then I disabled HPD and reconnected the output to my fixture.
->>> This process is described in more detail in the documentation.
->>>
->>>> I think none of this (patch 8) is needed by almost anybody.
->>>
->>> Well, I found it very useful for debugging a signal integrity issue I
->>> was having. Once I could have a look at the signals it was very clear
->>> what the problem was.
->>>
->>>> Even among zynqmp_dp developers I assume it's very rare to have the
->>>> hardware for this. I wonder if it would make sense to have the debugfs
->>>> and related code behind a compile option (which would be nice as the
->>>> code wouldn't even compiled in), or maybe a module parameter (which
->>>> would be nice as then "anyone" can easily enable it for compliance
->>>> testing). What do you think?
->>>
->>> Other drivers with these features just enabled it unconditionally, so I
->>> didn't bother with any special config.
->>>
->>>> I also somehow recall that there was some discussion earlier about
->>>> how/if other drivers support compliance testing. But I can't find the
->>>> discussion. Do you remember if there was such discussion, and what was
->>>> the conclusion? With a quick look, everything in the debugfs looks
->>>> generic, not xilinx specific.
->>>
->>> The last it got discussed was back in [1], but I never got any further
->>> response. I agree that some of this is generic, and could probably be
->>> reworked into some internal helpers. But I don't have the bandwidth at
->>> the moment to do that work.
->>>
->>> --Sean
->>>
->>> [1] http://lore.kernel.org/dri-devel/ 
->>> cda22b0c-8d7c-4ce2-9a7c-3b5ab540fa1f@linux.dev
->>
->> Does this all make sense to you? At the moment I don't believe I have any
->> changes I need to resend for (although this series is archived in 
->> patchwork [1]
->> for some reason).
->>
->> --Sean
->>
->> [1] https://patchwork.kernel.org/project/dri-devel/list/? 
->> series=878338&archive=both
-> 
-> I was hoping to get tested-by from amd, as I can't test this properly, 
-> but it's probably pointless to wait.
-> 
-> The biggest hesitation I have is what I mentioned earlier: this adds a 
-> lot of code which is not for normal use. It would be nice to split this 
-> into a separate file, maybe behind a compile option, but I fear that'll 
-> require a more restructuring of the driver.
-> 
-> So, I think it's fine, I'll apply this tomorrow.
-> 
->   Tomi
-> 
 
-Thanks, pushed.
-
-  Tomi
-
+On 10/30/24 11:32 AM, Peter Griffin wrote:
+>>> Previously just AXIDMA_RWDATA_BURST_LEN[3:0] field was set to 8.
+>> where was this set?
+> It is set to 0xf in exynos_ufs_post_link() function, see the following line
+> hci_writel(ufs, 0xf, HCI_AXIDMA_RWDATA_BURST_LEN);
+> 
+> As all other SoCs expect the current value, I've left that assignment
+> in the common function, and we update it in the  gs101_ufs_post_link()
+> specific hook.
+> 
+oh yes, as a driver quirk.
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
