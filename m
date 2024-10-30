@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223C4D74962
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7046FD74963
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 04:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8tXovtfoixcxi7B8JqfwoOyVvh02/h3f6Kwr8P3V4g=; b=PUZBSysgtlIjL2GW1FJ6MKWxZE
-	FnAS/bTkepUCo5GktjKQBdz26AfYQvZq34V/u6xh0RRZNr44nDMjO06OwEwZUH3o8RyXRUt/FxMnh
-	Hs9+V14ZcIa8TxWWYmOu7QxnNLGO5BMPPdhYxWC9/wzhFjG4dyr6OItPmENn3b/GxfHwN354Y3w3n
-	4GZBKjhmND0EIm9+fGhPUIm2XTbbh+e0sbZAKeAmOuudYGcJUOgOAwkmGRdQMdQwGpB+Br2bfv9GP
-	aCUfx2joEYbdl46tpb+nd8kjN8UeN87xTG6YS8U5H8x/TN+MR5lNrzH9K33UVkC4TBON6zFygjnoC
-	liVgDOtw==;
+	bh=P5xWe2qGp1zJi1HAfyqxvR6bkfEvGyVfKesTdiBP3t0=; b=n5mpXd4H8n4PfYMEdulyvPFoTA
+	tLxLnRObxaSZchFFBsNTE61dl/wOAskVWytyaDQAZv1DxbIB7F6ITzNgtZO9J5Xsruv4MAPBEd8Wr
+	uJvdcNaoMO5waWapwv1+b6RT6lKmtl62G/k6e3c4ArUnyKy6r5yX9Cyrefba7yECxHyVAIuswdvru
+	HUi9cagJnkSI1SKaiBVjvalY+SwIFW2mUaQ495yXF3p43A696AGj8HlWKlpjvcJMmAhCW2Rn7nRh6
+	Qoo9BRb36EISKFjuSoU3UogK80sS+MbhEuEag8VbGf3lURzsbAzxekeskax8TppkRwodnYhSdkcBS
+	u5Y3Z/EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60ju-0000000GirR-3LoC;
-	Wed, 30 Oct 2024 04:55:26 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t60lV-0000000Gj4T-36e9;
+	Wed, 30 Oct 2024 04:57:05 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t60fj-0000000GiIq-3MKR
+	id 1t60fv-0000000GiKI-3Q5C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 04:51:09 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49U4p4Jm090231;
-	Tue, 29 Oct 2024 23:51:04 -0500
+	Wed, 30 Oct 2024 04:51:21 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49U4pH9Z059807;
+	Tue, 29 Oct 2024 23:51:17 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730263864;
-	bh=E8tXovtfoixcxi7B8JqfwoOyVvh02/h3f6Kwr8P3V4g=;
+	s=ti-com-17Q1; t=1730263877;
+	bh=P5xWe2qGp1zJi1HAfyqxvR6bkfEvGyVfKesTdiBP3t0=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Yb8vUdjr7376F9jAQjJMzL6GX+gq4XhQVVcQNsRrCV7ipeQWfHG+xy8A4GX16pVDQ
-	 cdBcLFZFBQp1DKJrTqftyhP75UX0QMZzb2riG/WFprmf3tE1bMgtOpY26TyVmR8Odw
-	 ieTbAlcHCw3Y1pYD4nYbrt5PI62B/NGNXECeU0lc=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4p4eF085037;
-	Tue, 29 Oct 2024 23:51:04 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+	b=ZC3PKORlKHfu1h8XTdkSxGBrAUkESiJAXDh6dCOddrH5ncsjXCQnNfFGTaK179FaE
+	 DCf6VO1XpjnlP8BLu5ethmzgKfvGQr+xL5+8Ml9oR5zOeC48TmDAOodHE7daBAxHji
+	 n7C9IK29xxDMvGxy6OFyp2q4nBxigdL2l+WTP9kI=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49U4pHZf117694
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Oct 2024 23:51:17 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Oct 2024 23:51:04 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ Oct 2024 23:51:16 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Oct 2024 23:51:04 -0500
+ Frontend Transport; Tue, 29 Oct 2024 23:51:16 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.94])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4p0BO061271;
-	Tue, 29 Oct 2024 23:51:01 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49U4pC3U061595;
+	Tue, 29 Oct 2024 23:51:13 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>
 CC: Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <srk@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am642-evm: Add overlay for PCIe0 EP mode
-Date: Wed, 30 Oct 2024 10:20:58 +0530
-Message-ID: <173021674667.3859929.9064799464954390534.b4-ty@ti.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-j7200-evm: Add overlay for PCIE1 Endpoint Mode
+Date: Wed, 30 Oct 2024 10:21:10 +0530
+Message-ID: <173021674667.3859929.7376219255805790509.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20240930103413.3085689-1-s-vadapalli@ti.com>
-References: <20240930103413.3085689-1-s-vadapalli@ti.com>
+In-Reply-To: <20241001093426.3401765-1-s-vadapalli@ti.com>
+References: <20241001093426.3401765-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_215107_974794_83189A8F 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20241029_215119_963325_4EDCD476 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,8 +87,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Siddharth Vadapalli,
 
-On Mon, 30 Sep 2024 16:04:13 +0530, Siddharth Vadapalli wrote:
-> Add overlay to enable the PCIe0 instance of PCIe on AM642-EVM in
+On Tue, 01 Oct 2024 15:04:26 +0530, Siddharth Vadapalli wrote:
+> Add overlay to enable the PCIE1 instance of PCIe on J7200-EVM in
 > Endpoint mode of operation.
 > 
 > 
@@ -95,8 +96,8 @@ On Mon, 30 Sep 2024 16:04:13 +0530, Siddharth Vadapalli wrote:
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am642-evm: Add overlay for PCIe0 EP mode
-      commit: 34d7b8419323f6e35cecb445ec39ba5fd30a2d27
+[1/1] arm64: dts: ti: k3-j7200-evm: Add overlay for PCIE1 Endpoint Mode
+      commit: f43ec89bbc83813efa1d33215ab920e66fcc9471
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
