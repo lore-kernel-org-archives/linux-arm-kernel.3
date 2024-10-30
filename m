@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CE7D6B6B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3ABD6B6B7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LF9noeTji2b7N8JqoErVzO0xyU0Yhb3GiDpnpvg1GoY=; b=eAaQh0UGElbmz6HKOCvEQFLH5W
-	+C9u7kK9gKQnsdvl/yUe4AuUYBCOi4nmx8wmNXi/dU0fHm9n9uKRVRZWmgxGW+6SIFXfQO94FuPH+
-	VOBmRhmgFubkjZ0y6vE4iEhwWF4jf9GnZ1qnIKR6fiEEMGH+Ut4tv6tQ93V1gbrkAWBazyyNJ8vmo
-	V+l2gEGHe1fQ6mxz9YGI0ePopvOoleKbN/BEKTSoJAaOgpdy/3Ay+k59j9b/RLi0Zs8HWsyRHFw1a
-	uAS7n7Li7Lhwx6zk3zXvmBOvGBpqZkGayHRo01EBlKPQZpb0qNLfLgoOSW/iYTba57R4yjHkZGPmx
-	dYkRXXBg==;
+	bh=dzCjBAxUY2pK1bJOtgQKzITvTFuPan828m+br/F97IU=; b=XyfYRzShFIqAhUzjdl0OR56CIT
+	iFnfsIyEpmHdNwBiruqvxkZXo1SVcSM5IyaqQTFE4no3BpT/1mvOy+M9GnxTfvw+kULHRJBBj5Au8
+	V/5wxA/DzRRlNElwkfwmKFrgIaqYolzjGtithkscRNUJul+RhUMTpYfvCOKdZh3CpKlFI2LYsyLDy
+	Qx85+27WIf87SsMcVCpVPiZuxa02kQuuEdRF3xpjpB7IOhqxacXQYdX670p+pTJL76qONZng1bNms
+	DRK12B05zYPhx/DH8CcVZ2u/7PYI6CGz+cK1395t3S0OYEeCDQT17xwwNJTTM/FJKQ1nRMZYqZY3H
+	PFvV/RWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DAZ-00000001O6q-3tKK;
-	Wed, 30 Oct 2024 18:11:48 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1t6DDb-00000001PWw-0uJD;
+	Wed, 30 Oct 2024 18:14:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6D5D-00000001Mvm-0wmz
+	id 1t6D9O-00000001Ng9-2ZnP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 18:06:16 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so496641fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 11:06:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730311572; x=1730916372; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LF9noeTji2b7N8JqoErVzO0xyU0Yhb3GiDpnpvg1GoY=;
-        b=Max8l+QtQQ2r9IVOuPyYNEy7czGAPfNDNm7/AYDEIpVpXPw73kWlsKpwyt1loVMerG
-         ZOcsIFtDdqPuyPn3TtPGibeOendsnTj6HVXmIiFTcle7TT2xgNEMtLPhf4z1oASztY+a
-         KnZAJAKOm/feEgpOja00DvRMvk0obbuATTeoOwr9qldUMxw/vTn/xBRdsHOnoQdyXr9O
-         HaKw8T/0QHaTqE5NRNPG+hF9dy2nhn6gtWAkvvGmRTRBj3DMn7Fhec8RDppb6e6DU0gE
-         FpB58FdQL6rCcF9Gsh/UZoRLExN0bbQedwhU3JSPjAPkOHI+spzwH/57avda1O7GdZjl
-         OCDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730311572; x=1730916372;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LF9noeTji2b7N8JqoErVzO0xyU0Yhb3GiDpnpvg1GoY=;
-        b=gd2sXWoxTtrIFpK1aiLQ8bWCn02bfiXAzYb/nYpTxRuTnaDX9VhT3EQTVj+QnEzX0A
-         kVs0Oyy9GE8nX4G7eXg9+Zk+hAw0cGVBLf+BE8BbHXJgod79dBIz8ZuSa5kr7/joinFF
-         9fPwtVtIPu09sP65daXzbCoHwcCe2EP7I5bg6BcOA1/IXSJQ6/CqTRS9dYGEGs8nsTio
-         5r+3igoKgDNHoNWO9j1KprcenYI3PErf7YqDTgUQBviiNoCw9HxjHwNtNsZVsP+Zxuxg
-         paxk7piGsvSW8Qj/ih/5WMyocygHGiT5c/PjsRSWyJAlBV/hnt8dVVI2h6i16Th2niyy
-         38aA==
-X-Forwarded-Encrypted: i=1; AJvYcCXA9qJnuchl4t5BVxloPaBrBsjLBttdXN6id3v2LvIJEQc2Cd6W6pAN5KCM5zsEM+leVI8QDLBDkx+0j8nokcYx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyjx7gROc05ZiRSEQUkhxZEaqBKNi4Ft/U3rfTkQbHx01DRbaZz
-	fpSOa034my6Q2OwSchE6LeuL8RLn+tIlfUoS0YUlj6YAETwlg1I7
-X-Google-Smtp-Source: AGHT+IHayk77MRC4z7nR2NME3N5ImHKRJYje2Pp2ODSwtTF/mqu+oMiZahVSN8lWYtzUTFV/l8joWQ==
-X-Received: by 2002:a2e:743:0:b0:2fb:587d:310 with SMTP id 38308e7fff4ca-2fdecbf82eemr2635661fa.30.1730311572328;
-        Wed, 30 Oct 2024 11:06:12 -0700 (PDT)
-Received: from standask-GA-A55M-S2HP (lu-nat-113-247.ehs.sk. [188.123.113.247])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb629d8c2sm4901115a12.29.2024.10.30.11.06.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 11:06:11 -0700 (PDT)
-Date: Wed, 30 Oct 2024 19:06:09 +0100
-From: Stanislav Jakubek <stano.jakubek@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] Cleanup Spreadtrum/Unisoc ARM64 DT (part 2)
-Message-ID: <ZyJ1keHD-neTNZ2J@standask-GA-A55M-S2HP>
-References: <cover.1723716331.git.stano.jakubek@gmail.com>
+	Wed, 30 Oct 2024 18:10:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E8A6AA42FB5;
+	Wed, 30 Oct 2024 18:08:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C10ABC4CED1;
+	Wed, 30 Oct 2024 18:10:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730311833;
+	bh=PUSWypS9RPlliztjPuKrypjSxl4XFZNOoSoJofJ+sX0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gZFKIJMnYVyNIvUEnvLYifNu+y+jzl1Wz0YI1ofnDId92z1griWtJC43eteIaDLVd
+	 maGJzQud9s7pIMOyLHkWMJWebPOlHO8TVSbKBIv9Wm4LUHy+JHMeBcDwruRzJzPZor
+	 OrEJ2wIdc7W2NJ1zxf6TQycLUvScYtXwMrUzxK3SBi+GZV//1iWVjzECrK9C46xoDK
+	 /yaamwjW+q0JnuCZU9YbYLoJzZdBueCTrN3FGhPVHDSDNMfZ9zB3yPSA8xnw1xw5yr
+	 iYvtoh0fpbEKrCqLF1SRBRD5FcrUl5eYP0VHLmw4935aPBOE3RH+juVn4iDuQt1FTp
+	 7hu8QbRH1Lhxg==
+Date: Wed, 30 Oct 2024 18:10:28 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Andre.Przywara@arm.com
+Subject: Re: [PATCH] arm64/signal: Avoid corruption of SME state when
+ entering signal handler
+Message-ID: <618074b8-c685-40bb-b7d3-f309b30cd25a@sirena.org.uk>
+References: <20241023-arm64-fp-sme-sigentry-v1-1-249ff7ec3ad0@kernel.org>
+ <ZyJuEBC1wFPrTLAS@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tzY2Rc5DUyHGb0DA"
 Content-Disposition: inline
-In-Reply-To: <cover.1723716331.git.stano.jakubek@gmail.com>
+In-Reply-To: <ZyJuEBC1wFPrTLAS@J2N7QTR9R3>
+X-Cookie: I feel partially hydrogenated!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_110615_282342_7B27C3B7 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241030_111034_845194_186BBDAE 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,11 +77,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
 
-not sure which tree this should go through, but could someone pick this up?
-It's been sitting for ~2.5 months.
+--tzY2Rc5DUyHGb0DA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Stanislav
+On Wed, Oct 30, 2024 at 05:34:16PM +0000, Mark Rutland wrote:
+
+> I originally just had a few comments on the commit message, but I
+> believe I've found a logic issue in this patch, and more general issue
+> throughout our FPSIMD/SVE/SME manipulation -- more details below.
+
+I'm fairly sure there's at least one other issue lurking somewhere with
+TIF_SVE tearing, yes.  I've not been able to get that to reproduce, and
+I've probably stared at this code too much to see it by pure inspection
+however it looks like you might've spotted the issue here.
+
+> On Wed, Oct 23, 2024 at 10:31:24PM +0100, Mark Brown wrote:
+
+> It would be nice to have the signature of the failure as well, e.g.
+
+> | This is intermittently detected by the fp-stress test, which
+> | intermittently reports "ZA-VL-*-*: Bad SVCR: 0".
+
+That's a common one for timing reasons, but it does also manifest with
+other outputs (eg, if we turn off ZA while trying to execute
+instructions that access ZA).
+
+> I don't think this is correct in the TIF_FOREIGN_FPSTATE case. We don't
+> unbind the saved state from another CPU it might still be resident on,
+> and so IIUC there's a race whereby the updates to the saved state can
+> end up discarded:
+
+=2E..
+
+> ... and either:
+
+> * A subsequent return to userspace will see TIF_FOREIGN_FPSTATE is
+>   clear and not restore the in-memory state.
+
+> * A subsequent context-switch will see TIF_FOREIGN_FPSTATE is clear an=20
+>   save the (stale) HW state again.
+
+> It looks like we have a similar pattern all over the place, e.g.  in
+> do_sve_acc():
+
+Yes, indeed - I think that's a separate bug caused by the recalcuation
+of TIF_FOREIGN_FPSTATE.
+
+> This is going to need a careful audit and a proper series of
+> fixes that can be backported to stable.
+
+It feels like a separate thing at any rate.  We can do a simple and
+robust but performance impacting fix by having fpsimd_thread_switch()
+only ever set TIF_FOREIGN_FPSTATE, never clear it.  That'd cause extra
+reloads in the case where we switch to a thread but stay in kernel mode
+which probably happens often enough to be palatable.
+
+Otherwise I'm not sure it's *too* hard, TIF_FOREIGN_FPSTATE is a bit of
+a giveaway for places that could have issues.
+
+--tzY2Rc5DUyHGb0DA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcidpQACgkQJNaLcl1U
+h9DgCQf/aKq9znkcNdaaX99tyQKmAGH0Ab+cyf8R0/hXJzUa13y5F+gTf+/NDjYO
+Z94a5ttBE5fllSBD/GpqF3OOGXqKlfW4BBVLEU1LCgpprvXfb9TtUna6gIxIQKwE
+78yNEk7yd08AKgvUbAoUsUsG/L+0tSB4PMcAE9KisCueQAsikV/zMenetiwOQ4MS
+XdsJ0VYLpFarFB2wie+UTaMeuwtNCWlWzrkO9oL0YTbiUB8OWXgSuzhsRXNY+aKq
+b1hHEifXqMThHgXH8napkaDP95yRHV+97X+pgZjPyOnZnvBXs9cxepoKbFo+ZLJ0
+JMf0C4jXPRlsMcyLz238xdpuE1XJow==
+=mZzF
+-----END PGP SIGNATURE-----
+
+--tzY2Rc5DUyHGb0DA--
 
