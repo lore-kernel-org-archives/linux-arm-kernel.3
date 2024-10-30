@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC518D5CC8A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA3AD5CC8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHG105nKKu9zhe+4omRvO+guYK8TNS9YBYr3J/Yd0Ss=; b=FuF5yaavdoLiA+ZWUxszNRDZ3M
-	OJxY7eZvZvUlJcvKNmYqqLzd/ez3kOtpQUDprPZuk85UTf4mHbq2qmGEtX9TJywlTtgyXisPQMR54
-	vS2nS+qw9omOgbQW9gdwvLMr4pcvXdTc2Q7pGnrzL2WGFnJ5MTXPCnweiWiKKwdrUl/okszEvcNI6
-	c0L689h90/+4ya7cXSphBQfIE9vI4h4okFktLKIt/rxbFQwhXiSWEhCils7Tv8lvo/AG6uveA2NFI
-	bO1d9Zp7iNeDn1cD3GoFWJUrTT8Ds3yFEGqRGCzD0ru0OkIpy7hh8PrxRomhzbgDrpXHjfe35sFzi
-	Eletp1Dg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XbYElkal5d6+0YzyWk0lUEIt8HVlxkiQ8cX9u9pIHz4=; b=qUTMU9xAP6NF8F1VJ9T2x3KvSv
+	zISQeHNYaJ87UT9/yPXQh3jANIb3IDi7NW+agflH7BRUH6NXJHB9I/KgAIeU/PLRDyY9HDG/uFMOK
+	7lXPahf/0oiQzRN4ad+wzpFTPdrxMRsNZrgN/nB4BKV6Y0gaxwYmcS7SvWpgmX6fJHt/9TdJxCjq5
+	m+5/fdrMukLUg98N0g2YE+jTOzBDP1Nqo8o3qPw4WULtJdxBdy0YmcM4r+J0uRyhIzV5bjoTey7qQ
+	jtSx/gI1rialiHUoQLWRTItuWgI7fpjey+3KdDaFyvzmCdfuMvJwI4vQ7TNxb23MPgegVcCYYBuXR
+	ZyYQcIqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t662k-0000000HZRN-01w7;
-	Wed, 30 Oct 2024 10:35:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t65pB-0000000HX5o-06Zh
+	id 1t664N-0000000HZr3-36kr;
+	Wed, 30 Oct 2024 10:36:55 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t65v7-0000000HY5r-0zJ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:21:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DD0A113E;
-	Wed, 30 Oct 2024 03:21:40 -0700 (PDT)
-Received: from [192.168.178.6] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF2DA3F73B;
-	Wed, 30 Oct 2024 03:21:07 -0700 (PDT)
-Message-ID: <570e25e1-03c2-4ae1-8e4c-447a453a9d34@arm.com>
-Date: Wed, 30 Oct 2024 11:21:06 +0100
+	Wed, 30 Oct 2024 10:27:23 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso63209205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 03:27:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730284039; x=1730888839; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XbYElkal5d6+0YzyWk0lUEIt8HVlxkiQ8cX9u9pIHz4=;
+        b=E71DSD3X0Okevp3ldKFBX4XGJWMAaFgTB1ND+Kfv8O2o8tILAgOvO9XyEvQJzsb9pU
+         0RsOKIgMJoyhoqXLDp/M8o8SUdFKqM7pVl0H345Mwk0wY5QmZYfEc+6RV9hFAev+clKU
+         22k0+rMwKgqB7jpic7eCD3x+O0SGJorb3HPWiam0EfAk/O48N0ks361l820pNyDY3tia
+         SBqf/r97DIBS6+kPtVtSSpRFMvzyQzVrQmz+pleKMCbJndMxLMn4wM+dS6XcpXMuvAJE
+         6DmabSPi5MOE1FiQ60VMM81YAebjG0iFZcpIoXJip5/C8a3gCh+8le1owqD2LQlCzNYM
+         oPGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730284039; x=1730888839;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XbYElkal5d6+0YzyWk0lUEIt8HVlxkiQ8cX9u9pIHz4=;
+        b=nMYeFD6mm+jZqCR1rC2PsZ8dk1m5j2RffzWcA+mZV2C0XcTH9kc8ifuDEZWRmhgVaq
+         FpP/Lz9PRM/r3BOXJMiX5g7b20KPdtLTxVrSNYs4/uOoVD+zg427mi+Y/GPGd9kNSe5G
+         WHRwKvcCwBBDqp+cNSdR2GiJNvFtBdXRu9Mod/1fxDGNKmjRQU+DfBybRo0NRdch2yJO
+         tC49MX04NQPhKvJBXE9oB2S4KasuzBr9ug3hysQjbCvEBNS72p5zhGBcQN710QG6j8gv
+         turMvSbREMHrxidPp2fL2B707n9oJxbDQF6Ngf/nMUWBVdYyOh07NiEnk3eaEU8Z+pl9
+         3FoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWn4kRBA4WQeqG8OOvykefD1T6xStuVF8cgYKUMcr1exkNM3RZsrlTj96q5GEYJU5+ibpn3qv6GWFVgN7wVW7wt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy5rm4f5xeQejmlAtxRFtj790F55QO/K5nb9ZEks1gHa34selX
+	8wzodGCMSs/ej+jXpt0mmiILgAhBPM4dkhMOzxdnwin55OmDvD/fSi5011ZZ1xs=
+X-Google-Smtp-Source: AGHT+IEBXlayGHv2GLllRn++oS/33OaG/rbc8trQcavkqXJ8lRHX4Tn/XZiU8Jv9/cKndo3pJPqlbA==
+X-Received: by 2002:a05:600c:1390:b0:431:5d4f:73a3 with SMTP id 5b1f17b1804b1-4319acb226amr104551115e9.18.1730284039298;
+        Wed, 30 Oct 2024 03:27:19 -0700 (PDT)
+Received: from ta2.c.googlers.com.com (32.134.38.34.bc.googleusercontent.com. [34.38.134.32])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd947b2bsm17074345e9.25.2024.10.30.03.27.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Oct 2024 03:27:18 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: alim.akhtar@samsung.com,
+	James.Bottomley@HansenPartnership.com,
+	martin.petersen@oracle.com
+Cc: krzk@kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	andre.draszik@linaro.org,
+	kernel-team@android.com,
+	willmcvicker@google.com,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH 1/2] scsi: ufs: exynos: remove empty drv_init method
+Date: Wed, 30 Oct 2024 10:27:14 +0000
+Message-ID: <20241030102715.3312308-1-tudor.ambarus@linaro.org>
+X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
- RUN_TO_PARITY and move them to sysctl
-To: Cristian Prundeanu <cpru@amazon.com>,
- "Gautham R. Shenoy" <gautham.shenoy@amd.com>
-Cc: linux-tip-commits@vger.kernel.org, linux-kernel@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- Bjoern Doebel <doebel@amazon.com>,
- Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
- Geoff Blake <blakgeof@amazon.com>, Ali Saidi <alisaidi@amazon.com>,
- Csaba Csoma <csabac@amazon.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- K Prateek Nayak <kprateek.nayak@amd.com>
-References: <ZxuujhhrJcoYOdMJ@BLRRASHENOY1.amd.com>
- <20241029045749.37257-1-cpru@amazon.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Content-Language: en-US
-In-Reply-To: <20241029045749.37257-1-cpru@amazon.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_032113_186984_988859A3 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20241030_032721_329725_DA182880 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,78 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Remove empty method. When the method is not set, the call is not made,
+saving a few cycles.
 
-On 29/10/2024 05:57, Cristian Prundeanu wrote:
-> Hi Gautham,
-> 
-> On 2024-10-25, 09:44, "Gautham R. Shenoy" <gautham.shenoy@amd.com <mailto:gautham.shenoy@amd.com>> wrote:
-> 
->> On Thu, Oct 24, 2024 at 07:12:49PM +1100, Benjamin Herrenschmidt wrote:
->>> On Sat, 2024-10-19 at 02:30 +0000, Prundeanu, Cristian wrote:
->>>>
->>>> The hammerdb test is a bit more complex than sysbench. It uses two
->>>> independent physical machines to perform a TPC-C derived test [1], aiming
->>>> to simulate a real-world database workload. The machines are allocated as
->>>> an AWS EC2 instance pair on the same cluster placement group [2], to avoid
->>>> measuring network bottlenecks instead of server performance. The SUT
->>>> instance runs mysql configured to use 2 worker threads per vCPU (32
->>>> total); the load generator instance runs hammerdb configured with 64
->>>> virtual users and 24 warehouses [3]. Each test consists of multiple
->>>> 20-minute rounds, run consecutively on multiple independent instance
->>>> pairs.
->>>
->>> Would it be possible to produce something that Prateek and Gautham
->>> (Hi Gautham btw !) can easily consume to reproduce ?
->>>
->>> Maybe a container image or a pair of container images hammering each
->>> other ? (the simpler the better).
->>
->> Yes, that would be useful. Please share your recipe. We will try and
->> reproduce it at our end. In our testing from a few months ago (some of
->> which was presented at OSPM 2024), most of the database related
->> regressions that we observed with EEVDF went away after running these
->> the server threads under SCHED_BATCH.
-> 
-> I am working on a repro package that is self contained and as simple to 
-> share as possible.
-> 
-> My testing with SCHED_BATCH is meanwhile concluded. It did reduce the 
-> regression to less than half - but only with WAKEUP_PREEMPTION enabled. 
-> When using NO_WAKEUP_PREEMPTION, there was no performance change compared 
-> to SCHED_OTHER.
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+ drivers/ufs/host/ufs-exynos.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-Which tasks did you set SCHED_BATCH here? I'm assuming the mysql
-'connection' tasks on the SUT (1 task for each virtual user I guess).
-
-I did this and see that the regression goes away. I'm using a similar
-test setup (hammerdb - mysql on AWS EC2 instances).
-
-I'm not sure yet how reliable my results are. The big unknown is the
-host system when I use AWS EC2 instances for hammerdb (Load Gen) and
-mysql (server). In case I gather test results over multiple days, the
-host system might have changed?
-
-I also tried the (not-mainlined) RESPECT_SLICE (NO_RUN_TO_PARITY)
-features which shows similar results compared to SCHED_BATCH for those
-threads.
-
-IIRC, RESPECT_SLICE was also helping Gautham to get the performance back
-for his 'sysbench + mysql' workload:
-
-OSPM 24 link to his presentation:
-
-https://youtu.be/jrEN4pJiRWU?t=1115
-
-> (At the risk of stating the obvious, using SCHED_BATCH only to get back to 
-> the default CFS performance is still only a workaround, just as disabling 
-> PLACE_LAG+RUN_TO_PARITY is; these give us more room to investigate the 
-> root cause in EEVDF, but shouldn't be seen as viable alternate solutions.)
-> 
-> Do you have more detail on the database regressions you saw a few months 
-> ago? What was the magnitude, and which workloads did it manifest on?
-> 
-> -Cristian
-> 
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index 9ec318ef52bf..db89ebe48bcd 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -198,11 +198,6 @@ static inline void exynos_ufs_ungate_clks(struct exynos_ufs *ufs)
+ 	exynos_ufs_ctrl_clkstop(ufs, false);
+ }
+ 
+-static int exynos7_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
+-{
+-	return 0;
+-}
+-
+ static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
+ {
+ 	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
+@@ -2036,7 +2031,6 @@ static const struct exynos_ufs_drv_data exynos_ufs_drvs = {
+ 				  EXYNOS_UFS_OPT_BROKEN_RX_SEL_IDX |
+ 				  EXYNOS_UFS_OPT_SKIP_CONNECTION_ESTAB |
+ 				  EXYNOS_UFS_OPT_USE_SW_HIBERN8_TIMER,
+-	.drv_init		= exynos7_ufs_drv_init,
+ 	.pre_link		= exynos7_ufs_pre_link,
+ 	.post_link		= exynos7_ufs_post_link,
+ 	.pre_pwr_change		= exynos7_ufs_pre_pwr_change,
+-- 
+2.47.0.199.ga7371fff76-goog
 
 
