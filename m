@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80911D5CCAE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2745D5CCAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6O7DRUlTOQ1uVBZyn2qb6McuWmIQQJwh05TiRUoOhj0=; b=33y7kUY4asqEVO98r8Mybr4HCm
-	0Ut6uw3QP1GioVHLh46FQxJ5n8sV9xcLFxbNtA4cbjnn2wfl5oSrruGqOuf1c8ujjGe8bwZ5zVsBY
-	MS1HHsHxdKiBBL0TYDzQZoPAy8v1bBj2+DGHHlVUAPS+WbOibId1x7Gg4kHEmqjxlX9Di/PrMzjdX
-	GkcoUFnAlo/NXJEe53IogxeZcJxuY34cdmTnRydLrBOPdGWHjAVhf5l1h9sc86GeP2Rlf3gwUfrZ4
-	/t71hyr7AG4L/rfoHFY9Yk1ywQyLVYoqnYYw4no/IpKH8+OktKV3iu/JOA9nZrCeJPHf3wmnnbThW
-	bWbipwPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2KbX+q+X+LXVY3VJiR6PrFdQFYF2fDOFxzJ5zzS8bHY=; b=fVLa3cLMbdFAwu5UAxrrTeeGME
+	dCmt8licukZWZNDayCqLO8a7PrpRNT62eosUB+RsYWj9NAdsSumnqGY1eeN+lIGHqchnPoWjD1Uwp
+	41mcteIiJ+TRquk2kDiLbJfc30W3cQSS0zYt49P+kL2LDjFfwwBDQYyJjw8DrGMXEdjclfObtUIG2
+	h43TI0w8tuActt5tOV+1+ehAYgsh2w4IuLqxip6OPPqzVo5BCrd0fZt40ZWQYWVimLuqDtdbZAxA6
+	5E6QMU2DBz11V9JfcyHY1evHIB7iVoEgvRL0N57CFh13ThP/ZphZHhPRNDLUclMhYXIyL+k6VAQJb
+	XtdIsvTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68k9-00000000TKE-38rO;
-	Wed, 30 Oct 2024 13:28:13 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t68ll-00000000TfV-40WQ;
+	Wed, 30 Oct 2024 13:29:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68KN-00000000P6Q-2zEi
+	id 1t68Um-00000000Qj3-3r1m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:01:37 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49UD1Uvi086261;
-	Wed, 30 Oct 2024 08:01:30 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730293290;
-	bh=6O7DRUlTOQ1uVBZyn2qb6McuWmIQQJwh05TiRUoOhj0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=yO8XwNtwScSRXieQQ2kgpH00CwE3gHz7yY0MVpb7WBsoZaF10+m8u9ciqQ061Jyl+
-	 UjNAZsgPBK4a6165zvxcAPJ18T1ruSTyLCauMcI6OA0dVkvvD1/4heFq0zLeghHmgI
-	 v+LPTD6ipkiMNwmnBoemRsQciy7MoB8AZgLCAR7s=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49UD1UMe023548
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 30 Oct 2024 08:01:30 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 30
- Oct 2024 08:01:29 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 30 Oct 2024 08:01:29 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49UD1T4a079000;
-	Wed, 30 Oct 2024 08:01:29 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, <linux-pm@vger.kernel.org>,
-        Kevin
- Hilman <khilman@baylibre.com>
-CC: Nishanth Menon <nm@ti.com>, Vibhore Vardhan <vibhore@ti.com>,
-        Dhruva Gole
-	<d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-        Sebin Francis
-	<sebin.francis@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 0/3] pmdomain: ti_sci: collect and send low-power mode constraints
-Date: Wed, 30 Oct 2024 08:01:27 -0500
-Message-ID: <173029317079.2440963.17313738472826934777.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20240906-lpm-v6-10-constraints-pmdomain-v4-0-4055557fafbc@baylibre.com>
-References: <20240906-lpm-v6-10-constraints-pmdomain-v4-0-4055557fafbc@baylibre.com>
+	Wed, 30 Oct 2024 13:12:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 627565C4963;
+	Wed, 30 Oct 2024 13:11:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6775CC4CEE3;
+	Wed, 30 Oct 2024 13:12:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730293939;
+	bh=GLmPCKsnRLp7UWJOxMGhqO1S7eCnzR3rTDZxud4PtPI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y0z2elTryGCHcp4StLsu0v6v2EG6rRWLcgnCznBeAokuG9sJvzNvhqsdwPCjFmFFU
+	 +R9fIB0gN0UtDK9XSOMmFNb5ybrIddRZ1OhA9gZTByt3rAw/UHMGJ3HHkOgdDfh/To
+	 UtR3I//yn80X5mvmimjHxbkYwMdf2qO1tTf7APCxYf6oSH+4lQbsNGibWoAgHUVTiL
+	 fccYDnjRCueV2zbW2u2c1su37tWg8zINUJzluecCa9JsmZr+ycspbBZWfC9akFsxmT
+	 tIazd/GnZ2ZWCN5c/fAC/kJcUmlC7kBXOvnq1++KnrQEW8An+XTBiPMn62w+nIC31H
+	 621pjlrukQ22w==
+Date: Wed, 30 Oct 2024 15:08:21 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Jan Stancek <jstancek@redhat.com>
+Cc: Zi Yan <ziy@nvidia.com>, linux-mm@kvack.org,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Jonathan.Cameron@huawei.com, dan.j.williams@intel.com,
+	David Hildenbrand <david@redhat.com>, linux-tegra@vger.kernel.org,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Subject: Re: [bug] aarch64 host no longer boots after 767507654c22
+ ("arch_numa: switch over to numa_memblks")
+Message-ID: <ZyIvxWghfaK81I4d@kernel.org>
+References: <CAASaF6zxBr2J_-eESQQXCRxOgy4RsuxG0te7d-wOz9d2YXj5Fw@mail.gmail.com>
+ <525593F0-1AA8-4BCB-9B6D-630505C49F10@nvidia.com>
+ <CAASaF6z7PtNFs1YwohT6N+AXdKx0+h87wiimx18Pod1vDfaBYQ@mail.gmail.com>
+ <ZyELRjoDLmHeVvSR@kernel.org>
+ <CAASaF6x8cMJUTYpm0dedkh9boXgVaL9WvxaG-r+aHY+6QOpw6Q@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <CAASaF6x8cMJUTYpm0dedkh9boXgVaL9WvxaG-r+aHY+6QOpw6Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_060135_868936_06E56F13 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20241030_061221_022984_9747DA1B 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin Hilman,
-
-On Fri, 06 Sep 2024 09:14:48 -0700, Kevin Hilman wrote:
-> The latest (10.x) version of the firmware for the PM co-processor (aka
-> device manager, or DM) adds support for a "managed" mode, where the DM
-> firmware will select the specific low power state which is entered
-> when Linux requests a system-wide suspend.
+On Tue, Oct 29, 2024 at 10:03:31PM +0100, Jan Stancek wrote:
+> On Tue, Oct 29, 2024 at 5:24 PM Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > On Tue, Oct 29, 2024 at 04:43:39PM +0100, Jan Stancek wrote:
+> > > On Tue, Oct 29, 2024 at 4:07 PM Zi Yan <ziy@nvidia.com> wrote:
+> > > >
+> > > > +tegra mailing list and maintainers
+> > > >
+> > > > On 29 Oct 2024, at 8:47, Jan Stancek wrote:
+> > > >
+> > > > > Hi,
+> > > > >
+> > > > > I'm seeing a regression on Nvidia IGX system, which no longer boots.
+> > > > >
+> > > > > bisect points at commit 767507654c22 ("arch_numa: switch over to numa_memblks").
+> > > > > It hangs very early, with 4k or 64k pages, with no kernel messages printed:
+> > > > >
+> > > > > EFI stub: Booting Linux Kernel...
+> > > > > EFI stub: Using DTB from configuration table
+> > > > > EFI stub: Exiting boot services...
+> > > > > <hangs here>
+> > > > >
+> > > >
+> > > > Is it possible to have earlycon output? It is hard to debug without any
+> > > > information except kernel fails to boot.
+> > >
+> > > I know it was a long shot, so far I haven't had luck getting it to work.
+> >
+> > Does it boot with numa=off and numa=fake?
 > 
-> In this mode, the DM will always attempt the deepest low-power state
-> available for the SoC.
+> No, it doesn't.
+ 
+No ideas without the logs, sorry.
+
+> > In the log from successful boot it seems there is no NUMA information in
+> > the device tree, can you send the device tree as well please?
 > 
-> [...]
+> https://people.redhat.com/jstancek/aarch64_numa_boot/device_tree
+> 
+> Regards,
+> Jan
 
-I have applied the following to branch ti-drivers-soc-next on [1].
-Thank you!
-
-Ulf, based on your ack[2], I have assumed that you want me to pick
-this series up. Let me know if that is not the case and I can drop the
-series.
-
-[1/3] pmdomain: ti_sci: add per-device latency constraint management
-      commit: 7c2c8d2651b5ffaffb2d5f723bd5b0493bd66f36
-[2/3] pmdomain: ti_sci: add wakeup constraint management
-      commit: 5a2d997b1bf8b05379309270063d7b9bd3767dd2
-[3/3] pmdomain: ti_sci: handle wake IRQs for IO daisy chain wakeups
-      commit: e8f35dc8de8c3216d28dab51b962bb31f20934c8
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
-[2] https://lore.kernel.org/all/CAPDyKFr9isnz66B+n5y3=QO-ndB05JKZN3kgXO+kXBn7ofcwMw@mail.gmail.com/
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-
+Sincerely yours,
+Mike.
 
