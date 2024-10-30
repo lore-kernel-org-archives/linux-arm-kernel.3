@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18971D74957
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 02:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89760D74957
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 02:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+28YvtVmu9Bo1lOAdMG6/JFKoHne9xXaAx6/btcFDwU=; b=yOD1gujq947fPBHvb/MJeVHtXP
-	IXEuRMFst+RkgR3q4MVnlT5OdgwKH9LncWIaCiH3edljf7SpQHyX0nav6I0RmR/V1XsRkoyjfFfw7
-	iSsSBYYd6BAoTZ1of/EPCHXyqkhL+4z42UGhCfA1uQt2Meja/89oSx+AbE1IQHkfD8gUb/u2LyyLI
-	JPw9tlNc58uZnPTubBPLCyFRFm/x8jubdh0b9NdVKRttvrp9EdNXH8vZdyuqzFpe8KSZIoQLJCe6o
-	86hvMRtGp7R24HEJzSlV+38N1GOIt6OJlSDvHriP225+28UsjUy1dKuUcrdyqgq3TjX+ZMF+S6VO0
-	29UgW8EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sP5xpZduj43TYHlaBf4CywJfHfvvBC3OdWLfWrB8Hpw=; b=aPWhQuLbc/XF/k
+	tkO2MdfW3QwCSlZrMftRw2f45+aima1+Z9ZdO2KA3SXkgWBEhai3lZxRC3jrG7p2bVs7lDEF/RF7l
+	gioLHGxYXeIAkQ60S+kIzoARbncqfyxhM3QohUSkvy20GJftnMq/gV7Huyga+JwdmRp58TAT7S/Uo
+	iTJuVSHem+G2GSY+vShp81U2IQqHTKCUOgz0gx+2cxkR2oDgnob0YlxaMbsKN4zZXvyj3q8n4puIF
+	DgZKSR6p9MzOW3slbRBRYi7lUDzwZN2UaueIoIg/3Qq0WLWzuSEFIB1r2QGTQVVqkHxxzpA7O6BjT
+	7klu6Cq3ZRdNdLhv5FCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5yTr-0000000GWXp-0rZF;
-	Wed, 30 Oct 2024 02:30:43 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1t5yTq-0000000GWXf-2I4W;
+	Wed, 30 Oct 2024 02:30:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t5xOB-0000000GPHJ-289e
+	id 1t5wAD-0000000GI5V-2ym9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 01:20:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730251247; x=1761787247;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wZDiMAaOhKiJUYkYEtwy19sskMyJZD0MGmAeOQbFpJU=;
-  b=UG8ZgJswOBuZF3H5UvVKTGoel2ebvrRgbPaZGy9XPMi6r5XvnktRTKJc
-   txZ6Nu2b18NEiJfvjxte2aZg+4vh/DBDGo7a2WOixYGhPTGcHDhR9ODun
-   VRmXlnJocdAhK/hDGfbcl1RsL72XwSW0krZDG0LPj3C+u/pRENfaV56pL
-   fZfjW9arqEHkB1r1zOINKFzQx2OTX9arLJauhDe9iCBGKXoQ1Qlo83/Lq
-   6uQm1sl4GmCy++uYVhBd2Qngpy4Yhu8uegzH94AxgCZJm7qJGLmphFR9W
-   Q4XLOCJg85aLYelybEw4hpBi4RG4D/werwF2o9uVLPGn9jVBTxAbGzg2z
-   A==;
-X-CSE-ConnectionGUID: 30i/525JT+OzLqVKmTsMeg==
-X-CSE-MsgGUID: ju6xIu/HTzeq8jGMzHY56g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11240"; a="32776932"
-X-IronPort-AV: E=Sophos;i="6.11,243,1725346800"; 
-   d="scan'208";a="32776932"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2024 18:20:42 -0700
-X-CSE-ConnectionGUID: 7w0w8aZDTJqMuAYRh5XFng==
-X-CSE-MsgGUID: XTZgTvcVS7SeqeGzux2ZdA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,243,1725346800"; 
-   d="scan'208";a="82062035"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 29 Oct 2024 18:20:39 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t5xO0-000eMm-33;
-	Wed, 30 Oct 2024 01:20:36 +0000
-Date: Wed, 30 Oct 2024 09:20:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] spi: atmel-quadspi: Create `atmel_qspi_ops` to support
- newer SoC families
-Message-ID: <202410300915.VPL8EQQu-lkp@intel.com>
-References: <20241029125843.2384307-1-csokas.bence@prolan.hu>
+	Wed, 30 Oct 2024 00:02:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1E4065C4BBE;
+	Wed, 30 Oct 2024 00:01:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42770C4CEE3;
+	Wed, 30 Oct 2024 00:02:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730246536;
+	bh=vfX4nbW4kowy7IUtSJ8IaSqrtLKsP7rLoMKjBgXuBGg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=mGabhJiWp2yr+cfAuEkEMIOVXMD5r3xovvjDIeNhn2eh4AAkJ+KYxmHZyWeACZht5
+	 Ifa9eu7Upu+sKHSZZuWA61YaufGHR6uQNQUS0kyV3ZfHSYxlrvL3Ap29Q4+3krw5MT
+	 9RRYadhEJN5Np2L/AwPGTxgSWzdbNChzWY6UriSLzKyccTll2qblJINT5Hn4Ut3qxG
+	 000XFXC6Tq9wKElRGX3Yv9xxHtW8cJb/gjHXAA+xsAg+P3FsxN8QXdNx0yyNw/h6ez
+	 tN8Ly/AFCV3Y0PsJi3JVov580ZoWc1oxA1S2zdnT6R2ko+X9+GGTWh9Ui1CX9X7wpt
+	 G0QzO27WicusQ==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v2 0/2] kselftest/arm64: fp-stress signal delivery interval
+ improvements
+Date: Wed, 30 Oct 2024 00:02:01 +0000
+Message-Id: <20241030-arm64-fp-stress-interval-v2-0-bd3cef48c22c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241029125843.2384307-1-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHl3IWcC/3WNQQqDMBBFryJZd0oSNNiueo/iIpqJDrVRJiG0i
+ HdvKnTZ5Xvw399ERCaM4lptgjFTpCUU0KdKDJMNIwK5wkJLXSupW7D8NDX4FWJijBEoJORsZ2h
+ 9g0YP0qDSosxXRk+vI33vCk8U08Lv4ymrr/1FL/+jWYEE1ze1tL03zjW3B3LA+bzwKLp93z/OA
+ AytwQAAAA==
+X-Change-ID: 20241028-arm64-fp-stress-interval-8f5e62c06e12
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1244; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vfX4nbW4kowy7IUtSJ8IaSqrtLKsP7rLoMKjBgXuBGg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnIXeEQX3ZnpyxHhcbEA+5T7ZncKjnsWPSGQng27oY
+ QhNxq8yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZyF3hAAKCRAk1otyXVSH0JTxB/
+ 9GTxbnEKrWGh2epcF+v4WIllG00TQeqlIs6DOZ7YsmXiF6C2wQ8+A11TnS+xsQin8dNyb4Dy5dhAc9
+ HTq0yXhY9o96J4qY6cZ7EojkCXuPp5j0V8c1BfbV9hp/pfH6RFkpEev5//vbh+1uqpU2ANqV627Byv
+ xIcQ9Q69xjWf+y9SXduHqnVRRZmejm54CAaSY15zgZfQejQDaGDeeqLrTtk5vawxvWZca4NvtoydFM
+ 1UD6Zwcr+Fa1dQuzkywYFK4ONqDJ7Z5/AihGQbRIRqE4YbY4zjrrSpoBuM/+08UYanz9b4zAt5ud/2
+ EOKnq45ZKuAuirtIG9bsRMiKhG8I4/
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241029_182047_663484_AF39C439 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20241029_170217_829370_7F226772 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,73 +87,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, oe-kbuild-all@lists.linux.dev, Varshini Rajendran <varshini.rajendran@microchip.com>, =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bence,
+One of the things that fp-stress does to stress the floating point
+context switching is send signals to the test threads it spawns.
+Currently we do this once per second but as suggested by Mark Rutland if
+we increase this we can improve the chances of triggering any issues
+with context switching the signal handling code.  Do a quick change to 
+increase the rate of signal delivery, trying to avoid excessive impact
+on emulated platforms, and a further change to mitigate the impact that
+this creates during startup.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v2:
+- Minor clarifications in commit message and log output.
+- Link to v1: https://lore.kernel.org/r/20241029-arm64-fp-stress-interval-v1-0-db540abf6dd5@kernel.org
 
-[auto build test ERROR on broonie-spi/for-next]
-[also build test ERROR on soc/for-next linus/master v6.12-rc5 next-20241029]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+---
+Mark Brown (2):
+      kselftest/arm64: Increase frequency of signal delivery in fp-stress
+      kselftest/arm64: Poll less often while waiting for fp-stress children
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Cs-k-s-Bence/spi-atmel-quadspi-Create-atmel_qspi_ops-to-support-newer-SoC-families/20241029-210231
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-patch link:    https://lore.kernel.org/r/20241029125843.2384307-1-csokas.bence%40prolan.hu
-patch subject: [PATCH] spi: atmel-quadspi: Create `atmel_qspi_ops` to support newer SoC families
-config: s390-allyesconfig (https://download.01.org/0day-ci/archive/20241030/202410300915.VPL8EQQu-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241030/202410300915.VPL8EQQu-lkp@intel.com/reproduce)
+ tools/testing/selftests/arm64/fp/fp-stress.c | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241028-arm64-fp-stress-interval-8f5e62c06e12
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410300915.VPL8EQQu-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/spi/atmel-quadspi.c: In function 'atmel_qspi_transfer':
->> drivers/spi/atmel-quadspi.c:446:68: error: 'struct spi_device' has no member named 'master'
-     446 |         struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->master);
-         |                                                                    ^~
-
-
-vim +446 drivers/spi/atmel-quadspi.c
-
-   442	
-   443	static int atmel_qspi_transfer(struct spi_mem *mem,
-   444				       const struct spi_mem_op *op, u32 offset)
-   445	{
- > 446		struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->master);
-   447	
-   448		/* Skip to the final steps if there is no data */
-   449		if (!op->data.nbytes)
-   450			return atmel_qspi_wait_for_completion(aq,
-   451							      QSPI_SR_CMD_COMPLETED);
-   452	
-   453		/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
-   454		(void)atmel_qspi_read(aq, QSPI_IFR);
-   455	
-   456		/* Send/Receive data */
-   457		if (op->data.dir == SPI_MEM_DATA_IN)
-   458			memcpy_fromio(op->data.buf.in, aq->mem + offset,
-   459				      op->data.nbytes);
-   460		else
-   461			memcpy_toio(aq->mem + offset, op->data.buf.out,
-   462				    op->data.nbytes);
-   463	
-   464		/* Release the chip-select */
-   465		atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
-   466	
-   467		return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
-   468	}
-   469	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Mark Brown <broonie@kernel.org>
+
 
