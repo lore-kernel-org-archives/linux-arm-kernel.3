@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175A7D5CCA0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC6DD5CC9F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=; b=vY4PBSePbKE1hdKWzGKIutEFE8
-	Sdg+CgDqElalm7B9TAgYxY5blcWvTfDmrsMygCwCmXrvt4F6HBjtc41qr46Sl/KP/H2IVfBSqyZTb
-	0WRWiOKu4aQVJaUvI88YOkLNvki+t5cVN4PmMbK9X7qm4w44LC+IoviFZzfRnLQEaO3z5ZdNb/CTU
-	/1S0kQ6waN0v631k3o4d29r2n9rMJnZdyRMbun8qaGXGhMquTHt+4VY8DQddFVZrFebNHeGyz7ySn
-	oGUBKVmmchJp0F2+Wegt6PjD/nF2Q+/50aFnwc0aU0rSUApkXrNEGn0pwsN/mLn1CSINSJbFo1T1i
-	9ctMDJCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v6koZlLfiM2wPFeyFxSJklnjDBVuQcqo4Tb2erh4niE=; b=eSXozStv8nSX1t8lgFvzRmMtnr
+	odhNFRgzyVoegBkkNPYv3B3X30dm7ExwBmvBPz3/wHZMzQdI4PnFwEu3ZipgNJy6Bu3HABYWE27wA
+	AVuPsGsVwZYrxcfidsS2Or0efZbwLgB+nw6AMbe+/59+mIY3Q8Fc6QTOMuCUgtgdtZVnDlWqDEUfq
+	jZpQefh+tHitRxo6Cr/5rF2oU2H1yycDS8zyoMIqr9UfmkzbbdsLDo/Qpoisi8eR2IXoupyA6wBq6
+	DvoCaSsgavPA4tJDqcRRqtHIz/hqr8p/B/kllmLCTEoCHqFg80FSuW70zjk4rwnw+TUE05jFcY4Z6
+	HSl0d1qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67Gk-00000000EEK-14Ir;
-	Wed, 30 Oct 2024 11:53:46 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1t67IN-00000000EdP-1rSx;
+	Wed, 30 Oct 2024 11:55:27 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t678Z-00000000C9r-18Ph
+	id 1t678b-00000000C9w-0SpI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:45:20 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-431548bd1b4so60221395e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:45:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730288717; x=1730893517; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=;
-        b=I3DVCwUmLe0CdaqFiMyqv/zqyvE5yvMmSkDaoBd7r7mjs70E5ZjxNTC8o4AtcwVS0E
-         f64tog9NUAHiNy93wcRdWs1cjoAzyjjzlV7wJdXTnValspKqIoTItOmO71Ur3hYch7rD
-         p7OM1AHJRSw0U8SbnPIzb0HnJvnR7IrHki2Ci3lDnfWxfwz5bQhI3hSsTVv3dEgJNCJk
-         RhlhpYVR+O5l/2FW0xPtCFbrI3LiqlOeh+S54mxI8h8CcKQwigt0C89VxtRgHuK/8E0B
-         +XvtGmUTZ6n3T7foANMqAdc3RMgXpWTZgW01rllDNUG/MccoUBauWZV030lJrKx1SqKn
-         ZQvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730288717; x=1730893517;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=;
-        b=Fbk5ER2RqWUAfyTLLU7c0XF09sKx7YRB6geG/sxmE94sobPRjQee7XdFEeF31Tg2MS
-         l/UFFU6Lain4m2Jq6XZWqsDXJQT6uo/rbnzIuYqqzFmSu/5klVqMb5PU71o9Tqpc8zgf
-         r22uq1il0g4IYQiXLHSsGW1p0wDeoIMJ9yKM0NaHNCGihPUKEqwDKmMnOjMwSC3SWXBM
-         ww5VZIjYUVlu/YbSbIM815Zn0Yfvd5+H73n2U/XotB0Cz6PjrozItFcU3dANQtvaom2R
-         b1KKvwTb9kgf8YRDXgvf5+2AcLl0fGimjfZVItB3pYyOQor9ydVN00+cEB125mDoFAQO
-         t9Gg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwo+C6KGCE4dTBk6uiMgS5NWwDY/btVwOM4KHxuG7AzNxXnRx2/i4+yRtmVNFeper9eQxifmC8Za9BA/AILePw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyI8AOhUFUepuQ4czX9OhRioYPkoCNL7qIkK8MIGmfA1J2EQT/7
-	1/Y8YY1c5JZ1BjofZPIQKR+LWdvuG6LeilfuDQrDIFZiO7SsAt8NlCHPHMyUGfM=
-X-Google-Smtp-Source: AGHT+IFhRIh+9dGeOayOm15oZMXod/rBU6ExE23pj44w94j9FntXD8S6utlDgPeArlr6epPz1dO7fQ==
-X-Received: by 2002:a05:600c:35d3:b0:42c:c401:6d8b with SMTP id 5b1f17b1804b1-4319ac7832dmr132578255e9.7.1730288717449;
-        Wed, 30 Oct 2024 04:45:17 -0700 (PDT)
-Received: from [192.168.0.157] ([79.115.63.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd97d5edsm19091545e9.26.2024.10.30.04.45.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 04:45:17 -0700 (PDT)
-Message-ID: <f9cb758d-28a5-44bd-9cb5-d7ac5108db1b@linaro.org>
-Date: Wed, 30 Oct 2024 11:45:15 +0000
+	Wed, 30 Oct 2024 11:45:22 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 49UBjFcx070698;
+	Wed, 30 Oct 2024 06:45:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730288715;
+	bh=v6koZlLfiM2wPFeyFxSJklnjDBVuQcqo4Tb2erh4niE=;
+	h=From:To:CC:Subject:Date;
+	b=VbesGsbNfDOJlzPbOAms9yUJ1aog0/6vg/8OIEJ52pYB1MPF57F/hNmLdm4O0WcN5
+	 McGORCVhwJA7CLovKTvpXv38F4oDUNGUrRjYqIz4+8Bs8U88ceJ5SxQSNzH4KIZjBl
+	 E2aCD2yhTIpXulTk+9emmZe/MpGBlBQHH8DEQN98=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 49UBjF8d007881
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 30 Oct 2024 06:45:15 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 30
+ Oct 2024 06:45:14 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 30 Oct 2024 06:45:14 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 49UBjEnq048831;
+	Wed, 30 Oct 2024 06:45:14 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 49UBjDa8025747;
+	Wed, 30 Oct 2024 06:45:14 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: <vigneshr@ti.com>, <nm@ti.com>
+CC: <conor+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+        <robh+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kristo@kernel.org>, <srk@ti.com>, Roger Quadros <rogerq@kernel.org>,
+        <danishanwar@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-am642-evm: Add dt overlay to disable icssg for Linux
+Date: Wed, 30 Oct 2024 17:14:58 +0530
+Message-ID: <20241030114458.1358800-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/11] scsi: ufs: exynos: set ACG to be controlled by
- UFS_ACG_DISABLE
-To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
- James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
- avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
-Cc: andre.draszik@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- ebiggers@kernel.org
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-10-peter.griffin@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241025131442.112862-10-peter.griffin@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_044519_356870_162AC171 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20241030_044521_259763_26274EC4 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,58 +87,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add k3-am642-evm-icssg1-disable.dtso overlay file that disables
+icssg1-eth from Linux so that icssg peripherals can be used by
+RTOS or some other OS running on R5 core.
 
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+ arch/arm64/boot/dts/ti/Makefile               |  7 +--
+ .../dts/ti/k3-am642-evm-icssg1-disable.dtso   | 49 +++++++++++++++++++
+ 2 files changed, 53 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
 
-On 10/25/24 2:14 PM, Peter Griffin wrote:
-> HCI_IOP_ACG_DISABLE is an undocumented register in the TRM but the
-> downstream driver sets this register so we follow suit here.
-> 
-> The register is already 0 presumed to be set by the bootloader as
-> the comment downstream implies the reset state is 1. So whilst this
-> is a nop currently, it should help with suspend/resume.
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 6bd06bd76b68..0fd95b7df5a8 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -76,6 +76,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-nand.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac-mii.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-disable.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-pcie0-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-rdk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-sk.dtb
+@@ -235,8 +236,8 @@ k3-am62p5-sk-microtips-mf103hie-lcd2-dtbs := k3-am62p5-sk.dtb \
+ 	k3-am62p5-sk-microtips-mf103hie-lcd2.dtbo
+ k3-am642-evm-icssg1-dualemac-dtbs := \
+ 	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac.dtbo
+-k3-am642-evm-icssg1-dualemac-mii-dtbs := \
+-	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac-mii.dtbo
++k3-am642-evm-icssg1-disable-dtbs := \
++	k3-am642-evm.dtb k3-am642-evm-icssg1-disable.dtbo
+ k3-am642-evm-pcie0-ep-dtbs := \
+ 	k3-am642-evm.dtb k3-am642-evm-pcie0-ep.dtbo
+ k3-am642-tqma64xxl-mbax4xxl-sdcard-dtbs := \
+@@ -323,7 +324,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am62p5-sk-microtips-mf101hie-panel.dtb \
+ 	k3-am62p5-sk-microtips-mf103hie-lcd2.dtb \
+ 	k3-am642-evm-icssg1-dualemac.dtb \
+-	k3-am642-evm-icssg1-dualemac-mii.dtb \
++	k3-am642-evm-icssg1-disable.dtb \
+ 	k3-am642-evm-pcie0-ep.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-sdcard.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
+new file mode 100644
+index 000000000000..dc04e2999e97
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
+@@ -0,0 +1,49 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/**
++ * DT overlay for enabling 2nd ICSSG1 port on AM642 EVM
++ *
++ * Copyright (C) 2020-2024 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include "k3-pinctrl.h"
++
++&oc_sram {
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	r5f0_0_sram: r5f0_0_sram@0 {
++		reg = <0x0 0x180000>;
++	};
++};
++
++&main_r5fss0_core0 {
++	sram = <&r5f0_0_sram>;
++};
++
++&cpsw_port2 {
++	status = "disabled";
++};
++
++&icssg0 {
++	status = "disabled";
++};
++
++&icssg1 {
++	status = "disabled";
++};
++
++&ospi0 {
++	status = "disabled";
++};
++
++&mdio_mux_1 {
++	status = "disabled";
++};
++
++&icssg1_eth {
++	status = "disabled";
++};
+-- 
+2.34.1
 
-It should help in case the bootloader changes I assume. I see
-gs101_ufs_drv_init() gets called only at probe time, via
-ufshcd_pltfrm_init().
-
-> 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-
-> ---
->  drivers/ufs/host/ufs-exynos.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-> index b0cbb147c7a1..fa4e61f152c4 100644
-> --- a/drivers/ufs/host/ufs-exynos.c
-> +++ b/drivers/ufs/host/ufs-exynos.c
-> @@ -76,6 +76,10 @@
->  #define CLK_CTRL_EN_MASK	(REFCLK_CTRL_EN |\
->  				 UNIPRO_PCLK_CTRL_EN |\
->  				 UNIPRO_MCLK_CTRL_EN)
-> +
-> +#define HCI_IOP_ACG_DISABLE	0x100
-> +#define HCI_IOP_ACG_DISABLE_EN	BIT(0)
-> +
->  /* Device fatal error */
->  #define DFES_ERR_EN		BIT(31)
->  #define DFES_DEF_L2_ERRS	(UIC_DATA_LINK_LAYER_ERROR_RX_BUF_OF |\
-> @@ -220,10 +224,15 @@ static int exynos_ufs_shareability(struct exynos_ufs *ufs)
->  static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
->  {
->  	struct ufs_hba *hba = ufs->hba;
-> +	u32 reg;
->  
->  	/* Enable WriteBooster */
->  	hba->caps |= UFSHCD_CAP_WB_EN;
->  
-> +	/* set ACG to be controlled by UFS_ACG_DISABLE */
-> +	reg = hci_readl(ufs, HCI_IOP_ACG_DISABLE);
-> +	hci_writel(ufs, reg & (~HCI_IOP_ACG_DISABLE_EN), HCI_IOP_ACG_DISABLE);
-> +
->  	return exynos_ufs_shareability(ufs);
->  }
->  
 
