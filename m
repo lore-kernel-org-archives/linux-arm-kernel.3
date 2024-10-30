@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D8FD5CC94
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DA4D5CC94
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhaOSwgRgWw/5HeQA5POnyczQGuHVdALfWX/DT2LBos=; b=F/+z3q/oDwNA+71kvQyhsDQYG1
-	alYWdDwXXFpdajx3OIvSrYIaUvpcpck2zZdj5mGqtftndXdtovg2AlbCraYvouEMdHVS+pvPfCbh2
-	3spyUqc+OoAAsUBstcHBzy1I1HiApnr98kam2BcHqR8o8DINif4/BkqnzCKWJWHxq+C37UjRWLiYm
-	R6VyyputsaUk4QdTRqHA3/TiQXd17oLl3g4EZ0ahl3e4neDu6tLTbU6U9AkkJ1WfoCcqnXAbl/cKr
-	1fxsHuavNeSixLmVVO0GWgjVPdgp2EXf+IJD2ELd6jhI1IX1ofghwLt+pVX/k4XRgnm1clYRH8uQ0
-	3MoCQPxQ==;
+	bh=AHsXIlovFdhS9IXQtuxtH5HCunRGdtFKg5ndk+ClhbU=; b=puSd3qUgRKzurlk7bXd2fJ9uKu
+	Mzbs0xeD9AudhbccjcyY7L2gf2JZk/DSAuJbO3UG5koPfgJLZll4Lei2YOT931LIdULY3cQrXhM1z
+	G4TeX5MrY7CI0c+hseXMZ/ASh6VpRiKxrsmN45uo7Tb+z+tH34M9E9h/A3V6LUPCzhAM1HPCrLWYL
+	a47YqYcI7LRjgZKmwH23okH8KOZqPjxDeXgeKGffT1ih0ysxTtPC8MREHUPPvKef0DdgYqJicZttw
+	oCqemBdWnLtLdKYTcMBNYLxI18uacuEd9bYEMJj6MRghAJXE8mSF79wb6Zx1rtiCjClrnHb+woKD0
+	e3xhO6Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66dP-000000005oj-2yfg;
-	Wed, 30 Oct 2024 11:13:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t66f1-0000000061J-0kZC;
+	Wed, 30 Oct 2024 11:14:47 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66Ly-000000001rV-1RPH
+	id 1t66Ly-000000001rE-2gkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:55:08 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U9i7iS006853;
-	Wed, 30 Oct 2024 10:54:57 GMT
+	Wed, 30 Oct 2024 10:55:09 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U8tGkq007057;
+	Wed, 30 Oct 2024 10:54:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bhaOSwgRgWw/5HeQA5POnyczQGuHVdALfWX/DT2LBos=; b=BOh6tNfhTmkOCgZj
-	HJjlkwUj5SlzncvvW+zdsTuvlyoOk2b4UGXIueTyR4A/ADMbJyOOCKE6vOnAnc8t
-	1YnUYY431CiRiSWjjgbgGs8UiM0gsmRR9TL05FaZJ+cnW0615XauHdROyAF+mFbM
-	ZUNNRNKIaBHLLs3O240XoB1ygo/JwGono8tcQfZrFJCYy0RAOkiTlHgJUw1I+y+S
-	BncW25eoIc2eSCEUEVNPkJFTbcsUmlSW9e1YMmSwSQi5AaMOcGd4nUEkPYX+p5wN
-	g7w+YIa3LU82fkVfWPapuT2SKhCqkQ1gj4DTEOrT8/KGLCZl3fuLfJSbvHlD6YxD
-	J8jGrA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42gp4e3wd1-1
+	AHsXIlovFdhS9IXQtuxtH5HCunRGdtFKg5ndk+ClhbU=; b=WxCgFdtXY9iXWDwa
+	v/RqGYeUSN1OzOoSEDAtb/uMSTwH7x3Oo+b1NCvEhEeMZPqukRlSYmjLSVjHDBSt
+	TCkTKC8JSO386KjpvH2uEIl501zh6a5PK9nv3jEOP0GxdYM63PqnW5QoVIWVkoFZ
+	Ut3xpoUIuA9MqQAmivhPqw9a0Loq18eatFo9SIZ7rQzD51IQmsWB03px0+1uJ+ig
+	Odp+7M37mmVufnbIJouEmtKy4e/Y4YgRTmu7whLp4ZC2FSzRWJlX7O8nrLIq7v2j
+	fd/12jIWm/WvU7ZrZzRpodMJ8K/Y1UiEKM5cBif1IxsgvrhmrfFBJHfmTCiKmTQp
+	Y6PWQw==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42khqbrbew-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 10:54:57 +0000 (GMT)
+	Wed, 30 Oct 2024 10:54:58 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UAsuhW003588
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UAsh1H017410
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 10:54:56 GMT
+	Wed, 30 Oct 2024 10:54:43 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 30 Oct 2024 03:54:47 -0700
+ 15.2.1544.9; Wed, 30 Oct 2024 03:54:34 -0700
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -63,9 +63,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <kernel@quicinc.com>
-Subject: [PATCH v4 6/6] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Date: Wed, 30 Oct 2024 16:23:47 +0530
-Message-ID: <20241030105347.2117034-7-quic_vikramsa@quicinc.com>
+Subject: [PATCH v4 4/6] media: qcom: camss: Restructure camss_link_entities
+Date: Wed, 30 Oct 2024 16:23:45 +0530
+Message-ID: <20241030105347.2117034-5-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
 References: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
@@ -77,19 +77,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: jkHdlLkamE_XYFNLy1D-NFBsklaaUkQH
-X-Proofpoint-GUID: jkHdlLkamE_XYFNLy1D-NFBsklaaUkQH
+X-Proofpoint-GUID: Nw-zYhQzI6OalN1uwBK3DACL5E2k2FeU
+X-Proofpoint-ORIG-GUID: Nw-zYhQzI6OalN1uwBK3DACL5E2k2FeU
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 mlxlogscore=999 clxscore=1015 spamscore=0
- lowpriorityscore=0 malwarescore=0 bulkscore=0 adultscore=0 phishscore=0
- mlxscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=944
+ lowpriorityscore=0 bulkscore=0 adultscore=0 mlxscore=0 suspectscore=0
+ malwarescore=0 spamscore=0 impostorscore=0 clxscore=1015
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2409260000 definitions=main-2410300085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_035506_456903_E1420BD9 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20241030_035506_826563_FD1976B5 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,169 +104,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-Enable the IMX577 on the vision mezzanine.
+Refactor the camss_link_entities function by breaking it down into
+three distinct functions. Each function will handle the linking of
+a specific entity separately, enhancing readability.
 
-An example media-ctl pipeline for the imx577 is:
-
-media-ctl --reset
-media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-
-Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
 Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 ---
- arch/arm64/boot/dts/qcom/Makefile             |  4 +
- .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 73 +++++++++++++++++++
- arch/arm64/boot/dts/qcom/sc7280.dtsi          | 33 +++++++++
- 3 files changed, 110 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+ drivers/media/platform/qcom/camss/camss.c | 159 ++++++++++++++--------
+ 1 file changed, 105 insertions(+), 54 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index ac199f809b0d..186768f7c696 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -111,6 +111,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-+
-+qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-+
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qrb2210-rb1.dtb
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-new file mode 100644
-index 000000000000..cd3fe65fa971
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+/*
-+ * Camera Sensor overlay on top of rb3gen2 core kit.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&camcc {
-+	status = "okay";
-+};
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l10c_0p88>;
-+	vdda-pll-supply = <&vreg_l6b_1p2>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* The port index denotes CSIPHY id i.e. csiphy3 */
-+		port@3 {
-+			reg = <3>;
-+			csiphy3_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-1 = <&cam2_suspend>;
-+
-+		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		dovdd-supply  = <&vreg_l18b_1p8>;
-+
-+		port {
-+			imx577_ep: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy3_ep>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-index 690051708dec..8130c1374722 100644
---- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-@@ -5115,6 +5115,39 @@ tlmm: pinctrl@f100000 {
- 			gpio-ranges = <&tlmm 0 0 175>;
- 			wakeup-parent = <&pdc>;
+diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+index addaed8f77cb..e4579ce80572 100644
+--- a/drivers/media/platform/qcom/camss/camss.c
++++ b/drivers/media/platform/qcom/camss/camss.c
+@@ -2164,14 +2164,66 @@ static int camss_init_subdevices(struct camss *camss)
+ }
  
-+			cam2_default: cam2-default-state {
-+				rst-pins {
-+					pins = "gpio78";
-+					function = "gpio";
-+					drive-strength = <2>;
-+					bias-disable;
-+				};
+ /*
+- * camss_link_entities - Register subdev nodes and create links
++ * camss_link_entities_csid - Register subdev nodes and create links
+  * @camss: CAMSS device
+  *
+  * Return 0 on success or a negative error code on failure
+  */
+-static int camss_link_entities(struct camss *camss)
++static int camss_link_entities_csid(struct camss *camss)
+ {
+-	int i, j, k;
++	int i, j;
++	int ret, line_num;
++	u16 src_pad;
++	u16 sink_pad;
++	struct media_entity *src_entity;
++	struct media_entity *sink_entity;
 +
-+				mclk-pins {
-+					pins = "gpio67";
-+					function = "cam_mclk";
-+					drive-strength = <2>;
-+					bias-disable;
-+				};
-+			};
++	for (i = 0; i < camss->res->csid_num; i++) {
++		if (camss->ispif)
++			line_num = camss->ispif->line_num;
++		else
++			line_num = camss->vfe[i].res->line_num;
 +
-+			cam2_suspend: cam2-suspend-state {
-+				rst-pins {
-+					pins = "gpio78";
-+					function = "gpio";
-+					drive-strength = <2>;
-+					bias-pull-down;
-+					output-low;
-+				};
++		src_entity = &camss->csid[i].subdev.entity;
++		for (j = 0; j < line_num; j++) {
++			if (camss->ispif) {
++				sink_entity = &camss->ispif->line[j].subdev.entity;
++				src_pad = MSM_CSID_PAD_SRC;
++				sink_pad = MSM_ISPIF_PAD_SINK;
++			} else {
++				sink_entity = &camss->vfe[i].line[j].subdev.entity;
++				src_pad = MSM_CSID_PAD_FIRST_SRC + j;
++				sink_pad = MSM_VFE_PAD_SINK;
++			}
 +
-+				mclk-pins {
-+					pins = "gpio67";
-+					function = "cam_mclk";
-+					drive-strength = <2>;
-+					bias-pull-down;
-+				};
-+			};
++			ret = media_create_pad_link(src_entity,
++						    src_pad,
++						    sink_entity,
++						    sink_pad,
++						    0);
++			if (ret < 0) {
++				dev_err(camss->dev,
++					"Failed to link %s->%s entities: %d\n",
++					src_entity->name,
++					sink_entity->name,
++					ret);
++				return ret;
++			}
++		}
++	}
 +
- 			cci0_default: cci0-default-state {
- 				pins = "gpio69", "gpio70";
- 				function = "cci_i2c";
++	return 0;
++}
++
++/*
++ * camss_link_entities_csiphy - Register subdev nodes and create links
++ * @camss: CAMSS device
++ *
++ * Return 0 on success or a negative error code on failure
++ */
++static int camss_link_entities_csiphy(struct camss *camss)
++{
++	int i, j;
+ 	int ret;
+ 
+ 	for (i = 0; i < camss->res->csiphy_num; i++) {
+@@ -2192,71 +2244,70 @@ static int camss_link_entities(struct camss *camss)
+ 		}
+ 	}
+ 
+-	if (camss->ispif) {
+-		for (i = 0; i < camss->res->csid_num; i++) {
+-			for (j = 0; j < camss->ispif->line_num; j++) {
+-				ret = media_create_pad_link(&camss->csid[i].subdev.entity,
+-							    MSM_CSID_PAD_SRC,
+-							    &camss->ispif->line[j].subdev.entity,
+-							    MSM_ISPIF_PAD_SINK,
++	return 0;
++}
++
++/*
++ * camss_link_entities_ispif - Register subdev nodes and create links
++ * @camss: CAMSS device
++ *
++ * Return 0 on success or a negative error code on failure
++ */
++static int camss_link_entities_ispif(struct camss *camss)
++{
++	int i, j, k;
++	int ret;
++
++	for (i = 0; i < camss->ispif->line_num; i++) {
++		for (k = 0; k < camss->res->vfe_num; k++) {
++			for (j = 0; j < camss->vfe[k].res->line_num; j++) {
++				struct v4l2_subdev *ispif = &camss->ispif->line[i].subdev;
++				struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
++
++				ret = media_create_pad_link(&ispif->entity,
++							    MSM_ISPIF_PAD_SRC,
++							    &vfe->entity,
++							    MSM_VFE_PAD_SINK,
+ 							    0);
+ 				if (ret < 0) {
+ 					dev_err(camss->dev,
+ 						"Failed to link %s->%s entities: %d\n",
+-						camss->csid[i].subdev.entity.name,
+-						camss->ispif->line[j].subdev.entity.name,
++						ispif->entity.name,
++						vfe->entity.name,
+ 						ret);
+ 					return ret;
+ 				}
+ 			}
+ 		}
+-
+-		for (i = 0; i < camss->ispif->line_num; i++)
+-			for (k = 0; k < camss->res->vfe_num; k++)
+-				for (j = 0; j < camss->vfe[k].res->line_num; j++) {
+-					struct v4l2_subdev *ispif = &camss->ispif->line[i].subdev;
+-					struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
+-
+-					ret = media_create_pad_link(&ispif->entity,
+-								    MSM_ISPIF_PAD_SRC,
+-								    &vfe->entity,
+-								    MSM_VFE_PAD_SINK,
+-								    0);
+-					if (ret < 0) {
+-						dev_err(camss->dev,
+-							"Failed to link %s->%s entities: %d\n",
+-							ispif->entity.name,
+-							vfe->entity.name,
+-							ret);
+-						return ret;
+-					}
+-				}
+-	} else {
+-		for (i = 0; i < camss->res->csid_num; i++)
+-			for (k = 0; k < camss->res->vfe_num; k++)
+-				for (j = 0; j < camss->vfe[k].res->line_num; j++) {
+-					struct v4l2_subdev *csid = &camss->csid[i].subdev;
+-					struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
+-
+-					ret = media_create_pad_link(&csid->entity,
+-								    MSM_CSID_PAD_FIRST_SRC + j,
+-								    &vfe->entity,
+-								    MSM_VFE_PAD_SINK,
+-								    0);
+-					if (ret < 0) {
+-						dev_err(camss->dev,
+-							"Failed to link %s->%s entities: %d\n",
+-							csid->entity.name,
+-							vfe->entity.name,
+-							ret);
+-						return ret;
+-					}
+-				}
+ 	}
+ 
+ 	return 0;
+ }
+ 
++/*
++ * camss_link_entities - Register subdev nodes and create links
++ * @camss: CAMSS device
++ *
++ * Return 0 on success or a negative error code on failure
++ */
++static int camss_link_entities(struct camss *camss)
++{
++	int ret;
++
++	ret = camss_link_entities_csiphy(camss);
++	if (ret < 0)
++		return ret;
++
++	ret = camss_link_entities_csid(camss);
++	if (ret < 0)
++		return ret;
++
++	if (camss->ispif)
++		ret = camss_link_entities_ispif(camss);
++
++	return ret;
++}
++
+ /*
+  * camss_register_entities - Register subdev nodes and create links
+  * @camss: CAMSS device
 -- 
 2.25.1
 
