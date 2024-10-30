@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC35AD5CC96
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9F7D5CC9A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4QBNlB+d2PHxk6dWy4yzXj/lD/DoVJIDKguatDDGb4=; b=vAXm4GP6Qve5+SjJAQ5YTr9LFL
-	6+gY+3hzrLTemE/tq5t/NtAporkb563fAOWCnL2dcre7Fg/9oxhiFWk+PKc46L3AL2KeeKyJfDN+n
-	C/0n5AvkAmlwlNNfh1gGzpAA0BPemiZzYxjnKXQreolk4GoQYpGKMycRo0LCz8xhCflgruSQekXXa
-	ADJefqQyfmsHqaX9fyzuHBXaOKnh2F7MUee5dfvA2ySnwjAIMIDpAmL4CGFnBSeZd6sFyg94SbsSl
-	L2W7YajEVaIs6/yITWdC1dVoHE/xNs331glnuEDo/S/bFcUdjwFgl+z51ET4KwK/QCoBWdsHPR4la
-	+G8A6nsg==;
+	bh=EJGzqHo9qrTCAAwlf27yjT302x4NzmzPRcOQ+gtBk24=; b=bjCKHlH5vdNt/ernmObhWhwsHG
+	twntXpykJqo00w4jIJwJg4ZqJgUx59Z9dwPaXrW8k//AXYHH5FtXAkuLvMbmv7sHkfWVadaldQBP+
+	lGJBVhnwt5YTQ5/OKGN6BjjvQkPQAyAhkNCpONHDonQzLJRD36blPopapUK0D+B8uTZIYqgxMETNH
+	hKqWXeHNHPgF37ZvhW+HQDHysIxieExYnETM74TiRd8UF6Uu7S35MUwf/e53SA/vbW8teYsjS3SBu
+	RULj+Q+Uo0+RbVqzbXPFb0oincQkVV1S89Mh33DNEttpwJZSoFPkBMdHtlDItOhM5qyGHy9nlKJwG
+	ZhWfzC0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66n2-000000007PO-3NjZ;
-	Wed, 30 Oct 2024 11:23:04 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1t66oe-000000007dU-07yM;
+	Wed, 30 Oct 2024 11:24:44 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66SP-000000003gV-35XB
+	id 1t66ST-000000003hD-0IA8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:01:47 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-431481433bdso62047935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:45 -0700 (PDT)
+	Wed, 30 Oct 2024 11:01:51 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4315eac969aso4810965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1730286104; x=1730890904; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1730286107; x=1730890907; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=C4QBNlB+d2PHxk6dWy4yzXj/lD/DoVJIDKguatDDGb4=;
-        b=JsCBn2rrhK8QV/48at/9AnnuxCjskVdzqvO08e09CoNV4oLKAOL/V3PCsxZnD1PIUi
-         su+ZrbWGPNtKX/HGgY177nR5cWJmtEC+dYpbJkZZ/XcugNpVhr8zebILjfv+L/8XoWTp
-         Ipi60sKvYaqGQ51TI+s7dEBy4MlKAN+NKTmHwf4CwxzSnI/W+AdKBF3WVKnM1k5whX9E
-         T7SBVQ2xKty6FxzdUSW3nCm2NZQ7nPenRpxUN1MjYdS7wgfgLFXLNVjSZakqb4fyMQA0
-         8j+xya1GbxbhWR2sHRr8mbuYKggK2qAvyS4Bld5oN9gyjrVjgj1WJ9FOs5mLnDxk1bE9
-         lKtA==
+        bh=EJGzqHo9qrTCAAwlf27yjT302x4NzmzPRcOQ+gtBk24=;
+        b=BFf3X/RF6VQR31rrBbO9pKs2GMPAEDKjmd4HfqvR4178zRQQf9mGIdu9gOhzUKJfv7
+         Gzt2osv4tdqOJrqawkfLfcl8ULqPYa8gdg3BNvk+3QLRvIgZY7Ex7dJ9F6qHZjMsBSr0
+         kSockfzbACRXO7fS0xufX5668X2x1AtVRL6gTxeeTKjMNu98n9z+/f08T/P8a2cj9Ury
+         zQRXZr5NDkebMmGKBu/K0g3ucONqomOS0ctQ1Hd4coUTDcxX+wmNNdDxTV+pGGVJHjBa
+         xrSKqFSk8R1OBCsKFnDH9afH2mTMp5S6h+xmgB/Mcp1SdTkd9GC3SHKH/hw0Mb8RgzVw
+         9lCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730286104; x=1730890904;
+        d=1e100.net; s=20230601; t=1730286107; x=1730890907;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=C4QBNlB+d2PHxk6dWy4yzXj/lD/DoVJIDKguatDDGb4=;
-        b=Uz3QJyRlEXN42ynEQ83aXvRJq+wYs+aVH2M+13rk/1gHNDmBjnBtuOs6IluMY7/wwD
-         RFAPbUBYCbSyfT5LAcrgj3fAqLiemVGjHOPVw00kD8O4SYoqlr313hZX193118/LsxPJ
-         B3rRWl/EW1O+s8XdJQBZS1K/SlzezApBh6d8Xt1DO7VfvJfCb6URxBVdq2oDeUq5+rQi
-         gTj3N2D4FkreZaXBOLN63rLcdPv+XTrjhYViJ8dzu+vfLTLtrKcUeR+1fsGMZdUSRoMk
-         cTZ75FbkufJJXgjjwaCmxyR4uIRlxyCbXqj4RZqq3WBlF/G9TvW1L1cEREoIUd5EoKO/
-         RNjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVDAQHTKkM2Pfpj7ADW4LchvkG4U9RRZTM7ylkINuliU6Sgyvbdmb4HBEQmkZPKs4a1MZYrw9peYTqq6z/IGo2i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwWMqqoFf0WqAhpCX7z357Yvihr206U/UWKkPmpb9N3Crfknfs
-	br7749n4Qf9TlsDrrMgux2qYb4R69ItG/Wuhcjq9y7BrBpq0woBNQODFAf12VNY=
-X-Google-Smtp-Source: AGHT+IH0M773hGU4oya6J/fuA+HUQZaFJdAlea6vN77xZ1FRNiRTnlZxHceEr+4/h6lEyss2Uuvwjw==
-X-Received: by 2002:a05:600c:1ca6:b0:431:52da:9d67 with SMTP id 5b1f17b1804b1-4319ac7435bmr135949865e9.3.1730286103671;
-        Wed, 30 Oct 2024 04:01:43 -0700 (PDT)
+        bh=EJGzqHo9qrTCAAwlf27yjT302x4NzmzPRcOQ+gtBk24=;
+        b=E3Wgd8jFa0eqRJfXy1mELHcbTe+FIxRBnnvwfvjc/ovHhE+eiysslt8IqMgyyhQ7fe
+         VRPRnHldlpDmvA6f8KlJ3otrfgNx8kGsV+W3hfRNsotv16g6xpxqsVW4iUYQ45RH/LEs
+         COeiyZFW8+lOgcjdxif6WJuOPJw6Nz3XhOzmAtkHdv63+NuPwNByVQBSCjrD3ysJ9D/7
+         QTQhUJPU79DLOMpfkZE5XGvOs10XXwwx8u1IomayR3ztWCV6BvgfPpYY4Bvo9gayOTGO
+         N4KVTY5DGcOnC7ALztmOSN3pDCwUb1dA1KXqXSo8P+tyoCHOeKzx1oHd0zathsATxzCL
+         EhrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXMJswVOEE56V4xfLd4l646jzjS8Ex8/0/nc4ueLUm7Aco879owemS5m1nz9Ec4H9JBhiF5qPFIgA0XAdsFvsPy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSIwqb9zz2ETGN9CzHg4RbK8FA02rHSdO4ELp2wjvZrhJXC4v1
+	s/khLHBAgkN3jRmzCd0ljzrT/TF3WCZocYS9k1votWTAqEmDeLIkUp7Q6ben+Bw=
+X-Google-Smtp-Source: AGHT+IE5VulypisySsncZjnqUpvTj2AV1Yc80jON0brb1Iv05v/0FIWD5VcuOaypPQ/AlZFz+rbyng==
+X-Received: by 2002:a05:600c:5253:b0:431:55f3:d34e with SMTP id 5b1f17b1804b1-431b5739d3amr42501345e9.15.1730286107092;
+        Wed, 30 Oct 2024 04:01:47 -0700 (PDT)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.190])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.42
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 04:01:43 -0700 (PDT)
+        Wed, 30 Oct 2024 04:01:46 -0700 (PDT)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -82,17 +82,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH v5 04/10] dt-bindings: rtc: renesas,rzg3s-rtc: Document the Renesas RTCA-3 IP
-Date: Wed, 30 Oct 2024 13:01:14 +0200
-Message-Id: <20241030110120.332802-5-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH v5 06/10] arm64: dts: renesas: r9a08g045: Add VBATTB node
+Date: Wed, 30 Oct 2024 13:01:16 +0200
+Message-Id: <20241030110120.332802-7-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_040145_808107_C23DEC04 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20241030_040149_138166_8873ACE2 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,146 +109,72 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Document the RTC IP (RTCA-3) available on the Renesas RZ/G3S SoC.
-The RTC IP available on Renesas RZ/V2H is almost identical with the
-one found on Renesas RZ/G3S (it misses the time capture functionality
-which is not yet implemented on proposed driver). For this, added also a
-generic compatible that will be used at the moment as fallback for both
-RZ/G3S and RZ/V2H.
+Add the DT node for the VBATTB IP along with DT bindings for the clock
+it provides.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
 
 Changes in v5:
-- added back the #include <dt-bindings/clock/renesas,r9a08g045-vbattb.h>
-  in example section to fix the build error
-- kept the Rb tag from Rob; Rob, please let me know if you consider it
-  otherwise
+- dropped the status = "disabled"; for the vbattb-xtal node
 
 Changes in v4:
+- used clock-controller for the vbattb node name
+- move the node near scif0 for ordering
+- set the vbattb_xtal status as disabled to avoid having it exported
+  in linux with frequency = 0 in boards that don't use it
 - collected tags
-- dropped the assigned-clocks, assigned-clock-parents properties from the
-  example, along with r9a08g045-vbattb.h inclusion; these were moved
-  to the VBATTB example as it fits better in there since these are
-  related to the VBATTB but not to the RTC;
-
-  Rob, I haven't dropped your Rb tag for this; please let me know if you
-  consider it otherwise.
 
 Changes in v3:
-- added RTC bus clock, reset and power-domain; it has been detected
-  by reverse engineering that RTC and VBATTB clock, reset and power
-  domain are shared; HW manual doesn't mention it
-- updated example with these and with assigned-clock properties
-  needed to configure the VBATTCLK MUX with proper parent
-- updated example section with dt-bindings/clock/r9a08g045-cpg.h
-  and dt-bindings/clock/r9a08g045-vbattb.h includes
-- for all these, dropped Conor's Rb tag
+- dropped the child nodes of vbattb; along with this dropped ranges,
+  interrupt-names, #address-cells, #size-cells
+- added vbattb_xtal as input clock for vbattb
 
 Changes in v2:
-- updated patch description and title
-- included reference to rtc.yaml
-- updated compatible list with a generic compatible as explained in
-  patch description; with this the node in examples section has also been
-  updated
-- used items to describe interrupts, interrupt-names, clock, clock-names
-- updated title section
+- update compatibles
+- updated clocks and clock-names for clock-controller node
+- removed the power domain from the clock-controller as this is
+  controlled by parent node in v2
 
- .../bindings/rtc/renesas,rz-rtca3.yaml        | 84 +++++++++++++++++++
- 1 file changed, 84 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml
+ arch/arm64/boot/dts/renesas/r9a08g045.dtsi | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml b/Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml
-new file mode 100644
-index 000000000000..e70eeb66aa64
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/renesas,rz-rtca3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/renesas/r9a08g045.dtsi b/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
+index 067a26a66c24..a1d5084b074a 100644
+--- a/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
+@@ -72,6 +72,18 @@ scif0: serial@1004b800 {
+ 			status = "disabled";
+ 		};
+ 
++		vbattb: clock-controller@1005c000 {
++			compatible = "renesas,r9a08g045-vbattb";
++			reg = <0 0x1005c000 0 0x1000>;
++			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD R9A08G045_VBAT_BCLK>, <&vbattb_xtal>;
++			clock-names = "bclk", "rtx";
++			#clock-cells = <1>;
++			power-domains = <&cpg>;
++			resets = <&cpg R9A08G045_VBAT_BRESETN>;
++			status = "disabled";
++		};
 +
-+title: Renesas RTCA-3 Real Time Clock
+ 		i2c0: i2c@10090000 {
+ 			compatible = "renesas,riic-r9a08g045", "renesas,riic-r9a09g057";
+ 			reg = <0 0x10090000 0 0x400>;
+@@ -425,4 +437,11 @@ timer {
+ 		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys",
+ 				  "hyp-virt";
+ 	};
 +
-+maintainers:
-+  - Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-+
-+allOf:
-+  - $ref: rtc.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - renesas,r9a08g045-rtca3 # RZ/G3S
-+      - const: renesas,rz-rtca3
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    items:
-+      - description: Alarm interrupt
-+      - description: Periodic interrupt
-+      - description: Carry interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: alarm
-+      - const: period
-+      - const: carry
-+
-+  clocks:
-+    items:
-+      - description: RTC bus clock
-+      - description: RTC counter clock
-+
-+  clock-names:
-+    items:
-+      - const: bus
-+      - const: counter
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  resets:
-+    items:
-+      - description: VBATTB module reset
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - resets
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/r9a08g045-cpg.h>
-+    #include <dt-bindings/clock/renesas,r9a08g045-vbattb.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    rtc@1004ec00 {
-+        compatible = "renesas,r9a08g045-rtca3", "renesas,rz-rtca3";
-+        reg = <0x1004ec00 0x400>;
-+        interrupts = <GIC_SPI 315 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 317 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "alarm", "period", "carry";
-+        clocks = <&cpg CPG_MOD R9A08G045_VBAT_BCLK>, <&vbattclk VBATTB_VBATTCLK>;
-+        clock-names = "bus", "counter";
-+        power-domains = <&cpg>;
-+        resets = <&cpg R9A08G045_VBAT_BRESETN>;
-+    };
++	vbattb_xtal: vbattb-xtal {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		/* This value must be overridden by the board. */
++		clock-frequency = <0>;
++	};
+ };
 -- 
 2.39.2
 
