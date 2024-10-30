@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36705D5CCA9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730CBD5CCAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 13:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prTPttchUlpGkP7UAB50xhgfWGiRC+/YJDC2qUgSn60=; b=c/HHPubQ5vFIIn6ITRjRul2JbM
-	msYTE2RYF7gYUecbVI8j0FU4LIh3TiKMeg1vwHnEclpuwUArGtGfd5D2H2AODDNFUbKZP2v8dbS2H
-	uNf0CsXUB0wMNKvxwKf91Y48TQWlbIjXno3DW2Gv3tL1kqAkCI+YNAbhGE8IRblq+iEkdHboSpgC5
-	Aoh6ygE0daFRNtLz1yQppDh9xUOf1lrIGw4uscGg5MbNPIA0gaBBOSpps8Ul/20rZ9VwTIvIdM20r
-	UHm2H0KTtXOSWuE/nmDVQeuG3VBifEPFHoSPKVuxSoHODW8sTg+DExk8vHro0RF0CJW0X0mS3PhFQ
-	ZkgkE+mw==;
+	bh=5F2bodyq3WqN46I00wqbCPbZo5zj0seOtWxBAFBvNcU=; b=BH4BuEP2uqVWDeL0gR28bwiW6w
+	u47BYzt2Gr1sxD420eIwYunHKGreMi4cQM9VosOXAPxWBEe+brQH2y5wBOgUZc/pzniLv9RqhDOc+
+	S35nHbn1ptrADJKn4nh8n1ZonwgGyMJY/1mcC1iuQLgNwP0FstGchVSxn3yRVmZuqIiEV+ift1Dei
+	U9wrQKMHlKzLko7nZQaEjWFf2tuo4DOAwkY+VzOKguiY540P4T21RUpabb3/LSnhJoYtZ6Qu/sEUA
+	Wo0cN35x8Yv/Ql+lXAvhzOMhVcRW6C0atK8zF8JcokJh2+lit5Ff6rXNhKfAEq1TqMedfLXIMSidD
+	+AZtOmHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68gw-00000000SiC-2fn8;
-	Wed, 30 Oct 2024 13:24:54 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1t68iY-00000000T3G-3QZn;
+	Wed, 30 Oct 2024 13:26:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t68Ya-00000000RBR-2A2B
+	id 1t68HJ-00000000On6-2s8I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 13:16:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730294176; x=1761830176;
-  h=message-id:date:mime-version:subject:from:to:cc:
-   references:in-reply-to:content-transfer-encoding;
-  bh=7g6BTcK3PoloLvKu3Y8DZJxEbWWg9te/C2/EFD5AjeI=;
-  b=ewoU8PSd1aWKfwDPVqDJoR7MM53q/MRTSSXUrJqNeTnyPgvUBg8lJVxD
-   d1AeaND2d8L/uQv2ary9KxvaxEDlRRcCKMkyaeRizeGhavDD8r9BoQHan
-   6T3kj/9lloPaE8dUT9eGnktUFRuaCrrEqjOeneSbiOhnrIcw5Q6wIY7XM
-   VWXL/ZTNkPOnD8YB7+GQ69Ve5wiBVpX+sZpnJS6Ha0b61FCqWe5K4LERI
-   A0zNp1H5bj/cQOX50MV8sQXm6ZGF1IskSXtJ2TFuMf6SwIn9ARvxeAVhZ
-   wQTWzfJQ1rXqdjt8Cf5E8wAKaRvOvWmBPcKq5HoSGFIpSBWz66pP7XuFM
-   Q==;
-X-CSE-ConnectionGUID: Yt33bqYwSySViqHJPzO6aQ==
-X-CSE-MsgGUID: q0b+k8b5RdaiwDrXaYop4Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11241"; a="40600286"
-X-IronPort-AV: E=Sophos;i="6.11,245,1725346800"; 
-   d="scan'208";a="40600286"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 06:16:15 -0700
-X-CSE-ConnectionGUID: eIQ0vLyOSf+/ryrVmuucxQ==
-X-CSE-MsgGUID: PB5SoMk1SGS1rKirHLZUYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,245,1725346800"; 
-   d="scan'208";a="82728993"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.115.59])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 06:16:06 -0700
-Message-ID: <7bacbe72-c283-453b-bf1f-6ba05b68cac8@intel.com>
-Date: Wed, 30 Oct 2024 15:16:00 +0200
+	Wed, 30 Oct 2024 12:58:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E11EA5C0316;
+	Wed, 30 Oct 2024 12:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00FCDC4CEE5;
+	Wed, 30 Oct 2024 12:58:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730293104;
+	bh=fy/EhC/8o0exDek8z8nglJ/dyarxYaGCj12JxahYLIc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RA+8LOEfYcDTvk69kaJ9WPB9j4Gn0OEMDR+/ituO+ibkq3Jq+zUqw22oXelG3siFc
+	 Cm7SbDXYTpdhqxzNRwB4hmf9G5QyK+dOhE8/cidm74X6KYi1kTJEJG7EnPCxG9VVjj
+	 SGR2Qn04t0NBr2ELbKrbrYOQHvTT42XpNdc4kXpVWdAp91g2Znxa8pjrJBLNVbzjm/
+	 hZeSrYD4uHi1vPXOwPsqT3hwk2AoPUJtu/yFGaVRWIF8LvMc25MQSyWb9zkbjb6Bsy
+	 sd8PrU6930icLBk7vMK+ybLhhD+iRBzSWTsc/2gFARmMyNPODjSb2aLvDjBawZoIj1
+	 0l4/gAZPPBAoA==
+Message-ID: <1f927944-30aa-4298-9bd0-d9d3ace3fc78@kernel.org>
+Date: Wed, 30 Oct 2024 14:58:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V14 00/11] perf/core: Add ability for an event to "pause"
- or "resume" AUX area tracing
-From: Adrian Hunter <adrian.hunter@intel.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Heiko Carstens <hca@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>,
- Hendrik Brueckner <brueckner@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Yicong Yang <yangyicong@hisilicon.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
- <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
- Ian Rogers <irogers@google.com>, Andi Kleen <ak@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- H Peter Anvin <hpa@zytor.com>, Kan Liang <kan.liang@linux.intel.com>,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20241022155920.17511-1-adrian.hunter@intel.com>
+Subject: Re: BeagleBone Black Ethernet PHY issues
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ ext Tony Lindgren <tony@atomide.com>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: "open list:TI ETHERNET SWITCH DRIVER (CPSW)"
+ <linux-omap@vger.kernel.org>, netdev <netdev@vger.kernel.org>,
+ Matti Vaittinen <mazziesaccount@gmail.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+References: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
 Content-Language: en-US
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <20241022155920.17511-1-adrian.hunter@intel.com>
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_061616_638699_36194361 
-X-CRM114-Status: GOOD (  51.62  )
+X-CRM114-CacheID: sfid-20241030_055825_865309_25F539E0 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,294 +77,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/24 18:59, Adrian Hunter wrote:
-> Hi
-> 
-> Note for V14:
-> 	KVM patches dropped.
+Hi Geert,
 
-ping
+On 29/10/2024 19:18, Geert Uytterhoeven wrote:
+> Hi all,
+> 
+> During the last few months, booting kernels on BeagleBone Black
+> sometimes fails with:
+> 
+>     +SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
+> LAN8710/LAN8720 failed with error -5
+>      davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00,
+> driver SMSC LAN8710/LAN8720
+>      soc_device_match(cpsw_soc_devices): no match
+>      cpsw-switch 4a100000.switch: initialized cpsw ale version 1.4
+>      ...
+>      am335x-phy-driver 47401300.usb-phy: dummy supplies not allowed
+> for exclusive requests (id=vbus)
+>     +cpsw-125mhz-clkctrl:0014:0: failed to disable
+>      am335x-phy-driver 47401b00.usb-phy: using DT
+> '/ocp/target-module@47400000/usb-phy@1b00' for 'reset' GPIO lookup
+>      ...
+>      cpsw-switch 4a100000.switch: starting ndev. mode: dual_mac
+>     -SMSC LAN8710/LAN8720 4a101000.mdio:00: attached PHY driver
+> (mii_bus:phy_addr=4a101000.mdio:00, irq=POLL)
+>     -cpsw-switch 4a100000.switch eth0: Link is Up - 100Mbps/Full -
+> flow control off
+>     -Sending DHCP requests ., OK
+>     -IP-Config: Complete:
+>     -[...]
+>     +cpsw-switch 4a100000.switch: phy
+> "/ocp/interconnect@4a000000/segment@0/target-module@100000/switch@0/mdio@1000/ethernet-phy@0"
+> not found on slave 0
+>     +[HANG]
+> 
+> Adding debug prints to smsc_phy_probe() makes the issue go away, so it
+> must be timing related.
+> 
+> Adding specific debug prints in the failure case gives:
+> 
+>     SMSC LAN8710/LAN8720 4a101000.mdio:00: genphy_read_abilities:2859:
+> phy_read(MII_BMSR) failed -EIO
+>     SMSC LAN8710/LAN8720 4a101000.mdio:00: phy_probe:3613:
+> genphy_read_abilities() failed -EIO
+>     SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
+> LAN8710/LAN8720 failed with error -5
+> 
+> and later:
+> 
+>     Generic PHY 4a101000.mdio:00: genphy_read_abilities:2859:
+> phy_read(MII_BMSR) failed -EIO
+>     Generic PHY 4a101000.mdio:00: phy_probe:3609:
+> genphy_read_abilities failed -EIO
+>     cpsw-switch 4a100000.switch: phy
+> "/ocp/interconnect@4a000000/segment@0/target-module@100000/switch@0/mdio@1000/ethernet-phy@0"
+> not found on slave 0
+> 
+> Adding debug prints to __mdiobus_read() and davinci_mdio_read() gives:
+> 
+>     mdio_bus 4a101000.mdio: davinci_mdio_read:444:
+> readl(&data->regs->user[0].access) = 0x3a0ffff
+>     mdio_bus 4a101000.mdio: __mdiobus_read:900: davinci_mdio_read failed -EIO
+> 
+> but this is a different (and unimportant?) early failure from
+> smsc_phy_config_intr(), and that debug print actually makes the issue go
+> away, too.
+> 
+> Ignoring the early failure reveals that phy_read(MII_BMSR) failed due
+> to:
+> 
+>     mdio_bus 4a101000.mdio: davinci_mdio_read:446:
+> readl(&data->regs->user[0].access) = 0x20ffff
+> 
+> Anyone with a clue?
 
-> 
-> Note for V12:
-> 	There was a small conflict between the Intel PT changes in
-> 	"KVM: x86: Fix Intel PT Host/Guest mode when host tracing" and the
-> 	changes in this patch set, so I have put the patch sets together,
-> 	along with outstanding fix "perf/x86/intel/pt: Fix buffer full but
-> 	size is 0 case"
-> 
-> 	Cover letter for KVM changes (patches 2 to 4):
-> 
-> 	There is a long-standing problem whereby running Intel PT on host and guest
-> 	in Host/Guest mode, causes VM-Entry failure.
-> 
-> 	The motivation for this patch set is to provide a fix for stable kernels
-> 	prior to the advent of the "Mediated Passthrough vPMU" patch set:
-> 
-> 		https://lore.kernel.org/kvm/20240801045907.4010984-1-mizhang@google.com/
-> 
-> 	which would render a large part of the fix unnecessary but likely not be
-> 	suitable for backport to stable due to its size and complexity.
-> 
-> 	Ideally, this patch set would be applied before "Mediated Passthrough vPMU"
-> 
-> 	Note that the fix does not conflict with "Mediated Passthrough vPMU", it
-> 	is just that "Mediated Passthrough vPMU" will make the code to stop and
-> 	restart Intel PT unnecessary.
-> 
-> Note for V11:
-> 	Moving aux_paused into a union within struct hw_perf_event caused
-> 	a regression because aux_paused was being written unconditionally
-> 	even though it is valid only for AUX (e.g. Intel PT) PMUs.
-> 	That is fixed in V11.
-> 
-> Hardware traces, such as instruction traces, can produce a vast amount of
-> trace data, so being able to reduce tracing to more specific circumstances
-> can be useful.
-> 
-> The ability to pause or resume tracing when another event happens, can do
-> that.
-> 
-> These patches add such a facilty and show how it would work for Intel
-> Processor Trace.
-> 
-> Maintainers of other AUX area tracing implementations are requested to
-> consider if this is something they might employ and then whether or not
-> the ABI would work for them.  Note, thank you to James Clark (ARM) for
-> evaluating the API for Coresight.  Suzuki K Poulose (ARM) also responded
-> positively to the RFC.
-> 
-> Changes to perf tools are now (since V4) fleshed out.
-> 
-> Please note, Intel® Architecture Instruction Set Extensions and Future
-> Features Programming Reference March 2024 319433-052, currently:
-> 
-> 	https://cdrdv2.intel.com/v1/dl/getContent/671368
-> 
-> introduces hardware pause / resume for Intel PT in a feature named
-> Intel PT Trigger Tracing.
-> 
-> For that more fields in perf_event_attr will be necessary.  The main
-> differences are:
-> 	- it can be applied not just to overflows, but optionally to
-> 	every event
-> 	- a packet is emitted into the trace, optionally with IP
-> 	information
-> 	- no PMI
-> 	- works with PMC and DR (breakpoint) events only
-> 
-> Here are the proposed additions to perf_event_attr, please comment:
-> 
-> diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-> index 0c557f0a17b3..05dcc43f11bb 100644
-> --- a/tools/include/uapi/linux/perf_event.h
-> +++ b/tools/include/uapi/linux/perf_event.h
-> @@ -369,6 +369,22 @@ enum perf_event_read_format {
->  	PERF_FORMAT_MAX = 1U << 5,		/* non-ABI */
->  };
->  
-> +enum {
-> +	PERF_AUX_ACTION_START_PAUSED		=   1U << 0,
-> +	PERF_AUX_ACTION_PAUSE			=   1U << 1,
-> +	PERF_AUX_ACTION_RESUME			=   1U << 2,
-> +	PERF_AUX_ACTION_EMIT			=   1U << 3,
-> +	PERF_AUX_ACTION_NR			= 0x1f << 4,
-> +	PERF_AUX_ACTION_NO_IP			=   1U << 9,
-> +	PERF_AUX_ACTION_PAUSE_ON_EVT		=   1U << 10,
-> +	PERF_AUX_ACTION_RESUME_ON_EVT		=   1U << 11,
-> +	PERF_AUX_ACTION_EMIT_ON_EVT		=   1U << 12,
-> +	PERF_AUX_ACTION_NR_ON_EVT		= 0x1f << 13,
-> +	PERF_AUX_ACTION_NO_IP_ON_EVT		=   1U << 18,
-> +	PERF_AUX_ACTION_MASK			= ~PERF_AUX_ACTION_START_PAUSED,
-> +	PERF_AUX_PAUSE_RESUME_MASK		= PERF_AUX_ACTION_PAUSE | PERF_AUX_ACTION_RESUME,
-> +};
-> +
->  #define PERF_ATTR_SIZE_VER0	64	/* sizeof first published struct */
->  #define PERF_ATTR_SIZE_VER1	72	/* add: config2 */
->  #define PERF_ATTR_SIZE_VER2	80	/* add: branch_sample_type */
-> @@ -515,10 +531,19 @@ struct perf_event_attr {
->  	union {
->  		__u32	aux_action;
->  		struct {
-> -			__u32	aux_start_paused :  1, /* start AUX area tracing paused */
-> -				aux_pause        :  1, /* on overflow, pause AUX area tracing */
-> -				aux_resume       :  1, /* on overflow, resume AUX area tracing */
-> -				__reserved_3     : 29;
-> +			__u32	aux_start_paused  :  1, /* start AUX area tracing paused */
-> +				aux_pause         :  1, /* on overflow, pause AUX area tracing */
-> +				aux_resume        :  1, /* on overflow, resume AUX area tracing */
-> +				aux_emit          :  1, /* generate AUX records instead of events */
-> +				aux_nr            :  5, /* AUX area tracing reference number */
-> +				aux_no_ip         :  1, /* suppress IP in AUX records */
-> +				/* Following apply to event occurrence not overflows */
-> +				aux_pause_on_evt  :  1, /* on event, pause AUX area tracing */
-> +				aux_resume_on_evt :  1, /* on event, resume AUX area tracing */
-> +				aux_emit_on_evt   :  1, /* generate AUX records instead of events */
-> +				aux_nr_on_evt     :  5, /* AUX area tracing reference number */
-> +				aux_no_ip_on_evt  :  1, /* suppress IP in AUX records */
-> +				__reserved_3      : 13;
->  		};
->  	};
-> 
-> 
-> Changes in V14:
->       Dropped KVM patches
-> 
->       perf/x86/intel/pt: Add support for pause / resume
-> 	Set pt->handle_nmi after configuration is completed instead of during
-> 
-> Changes in V13:
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Do aux_resume at the end of __perf_event_overflow() so as to trace
-> 	less of perf itself
-> 
->       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
-> 	Add error message also in EOPNOTSUPP case (Leo)
-> 
-> Changes in V12:
-> 	Add previously sent patch "perf/x86/intel/pt: Fix buffer full
-> 	but size is 0 case"
-> 
-> 	Add previously sent patch set "KVM: x86: Fix Intel PT Host/Guest
-> 	mode when host tracing"
-> 
-> 	Rebase on current tip plus patch set "KVM: x86: Fix Intel PT Host/Guest
-> 	mode when host tracing"
-> 
-> Changes in V11:
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Make assignment to event->hw.aux_paused conditional on
-> 	(pmu->capabilities & PERF_PMU_CAP_AUX_PAUSE).
-> 
->       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
-> 	Remove definition of has_aux_action() because it has
-> 	already been added as an inline function.
-> 
->       perf/x86/intel/pt: Fix sampling synchronization
->       perf tools: Enable evsel__is_aux_event() to work for ARM/ARM64
->       perf tools: Enable evsel__is_aux_event() to work for S390_CPUMSF
-> 	Dropped because they have already been applied
-> 
-> Changes in V10:
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Move aux_paused into a union within struct hw_perf_event.
-> 	Additional comment wrt PERF_EF_PAUSE/PERF_EF_RESUME.
-> 	Factor out has_aux_action() as an inline function.
-> 	Use scoped_guard for irqsave.
-> 	Move calls of perf_event_aux_pause() from __perf_event_output()
-> 	to __perf_event_overflow().
-> 
-> Changes in V9:
->       perf/x86/intel/pt: Fix sampling synchronization
-> 	New patch
-> 
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Move aux_paused to struct hw_perf_event
-> 
->       perf/x86/intel/pt: Add support for pause / resume
-> 	Add more comments and barriers for resume_allowed and
-> 	pause_allowed
-> 	Always use WRITE_ONCE with resume_allowed
-> 
-> 
-> Changes in V8:
-> 
->       perf tools: Parse aux-action
-> 	Fix clang warning:
-> 	     util/auxtrace.c:821:7: error: missing field 'aux_action' initializer [-Werror,-Wmissing-field-initializers]
-> 	     821 |         {NULL},
-> 	         |              ^
-> 
-> Changes in V7:
-> 
-> 	Add Andi's Reviewed-by for patches 2-12
-> 	Re-base
-> 
-> Changes in V6:
-> 
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Removed READ/WRITE_ONCE from __perf_event_aux_pause()
-> 	Expanded comment about guarding against NMI
-> 
-> Changes in V5:
-> 
->     perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Added James' Ack
-> 
->     perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
-> 	New patch
-> 
->     perf tools
-> 	Added Ian's Ack
-> 
-> Changes in V4:
-> 
->     perf/core: Add aux_pause, aux_resume, aux_start_paused
-> 	Rename aux_output_cfg -> aux_action
-> 	Reorder aux_action bits from:
-> 		aux_pause, aux_resume, aux_start_paused
-> 	to:
-> 		aux_start_paused, aux_pause, aux_resume
-> 	Fix aux_action bits __u64 -> __u32
-> 
->     coresight: Have a stab at support for pause / resume
-> 	Dropped
-> 
->     perf tools
-> 	All new patches
-> 
-> Changes in RFC V3:
-> 
->     coresight: Have a stab at support for pause / resume
-> 	'mode' -> 'flags' so it at least compiles
-> 
-> Changes in RFC V2:
-> 
-> 	Use ->stop() / ->start() instead of ->pause_resume()
-> 	Move aux_start_paused bit into aux_output_cfg
-> 	Tighten up when Intel PT pause / resume is allowed
-> 	Add an example of how it might work for CoreSight
-> 
-> 
-> Adrian Hunter (11):
->       perf/x86/intel/pt: Fix buffer full but size is 0 case
->       perf/core: Add aux_pause, aux_resume, aux_start_paused
->       perf/x86/intel/pt: Add support for pause / resume
->       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
->       perf tools: Add aux_start_paused, aux_pause and aux_resume
->       perf tools: Add aux-action config term
->       perf tools: Parse aux-action
->       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
->       perf intel-pt: Improve man page format
->       perf intel-pt: Add documentation for pause / resume
->       perf intel-pt: Add a test for pause / resume
-> 
->  arch/x86/events/intel/core.c               |   4 +-
->  arch/x86/events/intel/pt.c                 |  84 +++-
->  arch/x86/events/intel/pt.h                 |   6 +
->  include/linux/perf_event.h                 |  28 ++
->  include/uapi/linux/perf_event.h            |  11 +-
->  kernel/events/core.c                       |  75 +++-
->  kernel/events/internal.h                   |   1 +
->  tools/include/uapi/linux/perf_event.h      |  11 +-
->  tools/perf/Documentation/perf-intel-pt.txt | 596 ++++++++++++++++++-----------
->  tools/perf/Documentation/perf-record.txt   |   4 +
->  tools/perf/builtin-record.c                |   4 +-
->  tools/perf/tests/shell/test_intel_pt.sh    |  28 ++
->  tools/perf/util/auxtrace.c                 |  67 +++-
->  tools/perf/util/auxtrace.h                 |   6 +-
->  tools/perf/util/evsel.c                    |  15 +
->  tools/perf/util/evsel.h                    |   1 +
->  tools/perf/util/evsel_config.h             |   1 +
->  tools/perf/util/parse-events.c             |  10 +
->  tools/perf/util/parse-events.h             |   1 +
->  tools/perf/util/parse-events.l             |   1 +
->  tools/perf/util/perf_event_attr_fprintf.c  |   3 +
->  tools/perf/util/pmu.c                      |   1 +
->  22 files changed, 716 insertions(+), 242 deletions(-)
-> 
-> 
-> Regards
-> Adrian
+Just wondering if the Reset is happening correctly and it has settled
+before PHY access.
 
+From arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
+
+&davinci_mdio_sw {
+        pinctrl-names = "default", "sleep";
+        pinctrl-0 = <&davinci_mdio_default>;
+        pinctrl-1 = <&davinci_mdio_sleep>;
+
+        ethphy0: ethernet-phy@0 {
+                reg = <0>;
+                /* Support GPIO reset on revision C3 boards */
+                reset-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
+                reset-assert-us = <300>;
+                reset-deassert-us = <13000>;
+        };
+};
+
+Do we need to increase reset-deassert-us for some reason?
+
+I couldn't find MII ready time after reset de-assert information form the
+PHY datasheet. except the following line [1].
+"For the first 16us after coming out of reset, the MII/RMII interface will run at 2.5 MHz. After this time, it will
+switch to 25 MHz if auto-negotiation is enabled"
+
+[1] 3.8.5 RESETS
+https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/LAN8710A-LAN8710Ai-Data-Sheet-DS00002164.pdf
+ 
+> Thanks!
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+
+-- 
+cheers,
+-roger
 
