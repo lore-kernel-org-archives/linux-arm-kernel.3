@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F1ED5CC8A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD13D5CC8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 10:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GifnlPtN7NiyeZMSkjEx+dbPyN49ofS66QMTyEeTgtw=; b=krj1QWqYxBu6JK5f1WO6jk+3oA
-	8t7k1GUYABHmLfXDDD57xaMGfvmno6zujAH0RmrnACdE/vQ8R16+MM6S1eNSTvkQ5nwZLKLT0+JBC
-	w1Dp6FFdLdj7dT7dTPJV34Zz8SKmN47dYJTCKQ2pd9kn74dnS9tR3SeWBiY8XOnhIm4um02lCohon
-	Sg7R9JSIpCGgn/DKHrh9Wz9N+wuQeWSlBRj+DHhd5YvoHJPk2P5JYH+rdAcJAIukQez1tS4D6aHQI
-	A6tIMCNIXmC2pY4wwEzWXKJ7wCf0/ZQN0a/faHTbPSG+smcf8suE+5c89J+WkawqF5ho+oeK8j7xQ
-	2ixmCU3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PMCqO+Kb6KUAaZnkRTfDMbBZG7qEWSk59mysfqC4sPA=; b=RCfHVqixADLsT+by9+HsxawAX+
+	B86LyVd9v0uP06gFmRw1qPvV/j5cDGfWBGG42YRsN7Voq4SmVCCQ23rUbmsGBhek/82ZY/gKdGGDi
+	bDX7D4pGDJrYCGZZ5FD6T3Kir44qNZefCheFHaPWk0Vr6avibBrgibaW4SrwHL/TuJ4m67RC9hUvf
+	aRrL6SFpUl+oNeStnn1tE/pcBHUm0tfhC5ag+ftbpD0VIaQy7i/TfUowIx0N40W8g/nc/zV7JTvJ/
+	FuGjHFwP1ATnr0Es778ZB7dY3zH59Fk8xpixXyHkNmM1iWBNVhlDVMrADX4lrSl+dIjSSuD8UvGhs
+	VSRlXr/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66CO-000000000B0-1G6m;
-	Wed, 30 Oct 2024 10:45:12 +0000
-Received: from mail-ed1-f49.google.com ([209.85.208.49])
+	id 1t66Dy-000000000Kz-2fR4;
+	Wed, 30 Oct 2024 10:46:50 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t662g-0000000HZQm-1hgW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:35:11 +0000
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5c99be0a4bbso8703791a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 03:35:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730284508; x=1730889308;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GifnlPtN7NiyeZMSkjEx+dbPyN49ofS66QMTyEeTgtw=;
-        b=qOnPzhACHHas9NRpmtPhT1v4XJPSEIi2Bo6BiVLdyektq1B899xKTFQp9XDHxxPswh
-         vVQc3JK1rAKVq5GhvpekWcz+O3ZzhCtAvtzdRIxt1Ocn9VtnZ1ZU5RycXWZlp9YnGlSF
-         Dnwc0PtMrS0IXNwE8/efoO77KlMsJ6eFY5WVRMvgiIYpcZCN7t6KkifJ/HG8MiKuxgfK
-         PBoCEfJkIhjAVXGhe2kwSAD3nDK1U1WM7lagqQijl2K5nTQ/L6UxTstFBNcrjlxhKHdo
-         ZqknSNmpzNOXwtEvsOwFYmoL/EIzst5vO9GDWzm+CQg+9DPNC//ubd9zs3JYuw1cseMU
-         x/Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCXqwKaL/QXHdFQ7BjX7rtE6lCUyo1/0wC9GEonP3UErEO3zDHNttqqkQAB1D53bl9piHnLnmS1vElGxR61SFCJe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFgFvxritmilPKz7ByV3VR5zTkeH374OfM6CP0vvU5WxI26svb
-	dvv8UJ48FZtqC7Qfmfz8xe4+LKc4R+a+r+zWYrEEhZLnJL4lF8g1
-X-Google-Smtp-Source: AGHT+IF71lZKKH1Wi7ha9ca6zPk452ASkUG+FwwI2pKLbi61y6FlJ0tkir1WgK+psYexHGdJGCQKxg==
-X-Received: by 2002:a05:6402:4403:b0:5c9:584d:17e2 with SMTP id 4fb4d7f45d1cf-5cd54a7718fmr1809727a12.3.1730284507741;
-        Wed, 30 Oct 2024 03:35:07 -0700 (PDT)
-Received: from gmail.com (fwdproxy-lla-113.fbsv.net. [2a03:2880:30ff:71::face:b00c])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cbb629f338sm4590147a12.35.2024.10.30.03.35.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 03:35:07 -0700 (PDT)
-Date: Wed, 30 Oct 2024 03:35:04 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Madalin Bucur <madalin.bucur@nxp.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Radu Bulie <radu-andrei.bulie@nxp.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next 3/3] net: dpaa_eth: extract hash using __be32
- pointer in rx_default_dqrr()
-Message-ID: <20241030-lemon-flamingo-from-uranus-35f6db@leitao>
-References: <20241029164317.50182-1-vladimir.oltean@nxp.com>
- <20241029164317.50182-4-vladimir.oltean@nxp.com>
+	id 1t663Y-0000000HZcx-1U8Y;
+	Wed, 30 Oct 2024 10:36:08 +0000
+X-UUID: c104ab9896aa11ef9048ed6ed365623b-20241030
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=PMCqO+Kb6KUAaZnkRTfDMbBZG7qEWSk59mysfqC4sPA=;
+	b=KBWd1fxikSDUho47LLeCjSPvZrin22+5dJPBlNON2gd2JbbR6x1bY8uF1793FgAao5cRg/ViFcg1W3//s7lxJFFV7HgfDii4rof1gpZh/8gxUroNQuTUY2M7rgUokWucDHdhkS8Wwqs95eJq9gf3iypDl/bVtV//CpDN+88N4KY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:a453f868-1639-41fb-b813-28db2a1e6d7f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:56054807-7990-429c-b1a0-768435f03014,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: c104ab9896aa11ef9048ed6ed365623b-20241030
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1213536664; Wed, 30 Oct 2024 03:35:59 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Wed, 30 Oct 2024 03:35:57 -0700
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Wed, 30 Oct 2024 18:35:56 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Steven Liu <Steven.Liu@mediatek.com>, SkyLake.Huang
+	<skylake.huang@mediatek.com>
+Subject: [PATCH net-next 0/5] Re-organize MediaTek ethernet phy drivers and propose mtk-phy-lib
+Date: Wed, 30 Oct 2024 18:35:49 +0800
+Message-ID: <20241030103554.29218-1-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241029164317.50182-4-vladimir.oltean@nxp.com>
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_033510_469523_35BEB5B6 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20241030_033604_433896_07319867 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,17 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 06:43:17PM +0200, Vladimir Oltean wrote:
-> Sparse provides the following output:
-> 
-> warning: cast to restricted __be32
-> 
-> This is a harmless warning due to the fact that we dereference the hash
-> stored in the FD using an incorrect type annotation. Suppress the
-> warning by using the correct __be32 type instead of u32. No functional
-> change.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+From: "SkyLake.Huang" <skylake.huang@mediatek.com>
 
-Reviewed-by: Breno Leitao <leitao@debian.org>
+This patchset comes from patch 1/9, 3/9, 4/9, 5/9 and 7/9 of:
+https://lore.kernel.org/netdev/20241004102413.5838-1-SkyLake.Huang@mediatek.com/
+
+This patchset changes MediaTek's ethernet phy's folder structure and
+integrates helper functions, including LED & token ring manipulation,
+into mtk-phy-lib.
+
+SkyLake.Huang (5):
+  net: phy: mediatek: Re-organize MediaTek ethernet phy drivers
+  net: phy: mediatek: Move LED helper functions into mtk phy lib
+  net: phy: mediatek: Improve readability of mtk-phy-lib.c's
+    mtk_phy_led_hw_ctrl_set()
+  net: phy: mediatek: Integrate read/write page helper functions
+  net: phy: mediatek: add MT7530 & MT7531's PHY ID macros
+
+ MAINTAINERS                                   |   6 +-
+ drivers/net/phy/Kconfig                       |  17 +-
+ drivers/net/phy/Makefile                      |   3 +-
+ drivers/net/phy/mediatek/Kconfig              |  26 ++
+ drivers/net/phy/mediatek/Makefile             |   4 +
+ .../mtk-ge-soc.c}                             | 298 ++----------------
+ .../phy/{mediatek-ge.c => mediatek/mtk-ge.c}  |  31 +-
+ drivers/net/phy/mediatek/mtk-phy-lib.c        | 270 ++++++++++++++++
+ drivers/net/phy/mediatek/mtk.h                |  89 ++++++
+ 9 files changed, 437 insertions(+), 307 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/Kconfig
+ create mode 100644 drivers/net/phy/mediatek/Makefile
+ rename drivers/net/phy/{mediatek-ge-soc.c => mediatek/mtk-ge-soc.c} (83%)
+ rename drivers/net/phy/{mediatek-ge.c => mediatek/mtk-ge.c} (82%)
+ create mode 100644 drivers/net/phy/mediatek/mtk-phy-lib.c
+ create mode 100644 drivers/net/phy/mediatek/mtk.h
+
+-- 
+2.45.2
+
 
