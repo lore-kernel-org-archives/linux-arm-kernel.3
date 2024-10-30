@@ -4,91 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343ADD6B6B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 17:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF09D6B6B3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 17:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnkN8ptr3KGmpx2Uv+pp+uUkuHBCH11BckHc8GqWeDg=; b=aqbZsdsvr4qQfB3kwrivf6lauh
-	leP4/jYYup3/nGf4ADnvXs0uVjsQ8JHJtp4D8Gi3X8Df33t7KUu7hVrDs5j8HpcZUoiikqor3qBiz
-	8Rnx4KumbFlRuFf5QyhznVulEPO7StgnW7TdVE8RkIlUWzL4sM/PwdNg0oE2t3jZ3/vdFTYpJ2aHS
-	KOWLhSmuizgDj0G7wlgae1uykIZikag9aCyKktv3XqJzSqoZmN9XuQivNtxumSR3xewfl/JEAXr4A
-	EHzOpmFU1lfYkg4iTVW6ifUa/+VqkW+XJVQ+yGmYadQjZxU8TwnF9tT/Oq1RYbUh0KoP8FQBRuL2a
-	pmInyI7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8f8IqHQYz2WNl7AwR9iJ6gjv2owKRSvK1tOgfD5n5Y=; b=sZR22PQ/rtcrL3v4BmgfE9Bldq
+	kv4WTlHjWHnTq94PSn14yKd8MXqr8Eh+yenJgtmcGjz6XyerUo74F4LkBoJGI0R7EurLzFDz6ijo0
+	WCnV/oeB7vyKyY0CDtrBYBlJRst00TqUdsxkxFtbxK5TlSstD+yxZTYtAYJCLBvAsbZ7t1l3HrP3W
+	+RqkRh5nJ7/zEU7QROrJ7EKi4XK67NS7veINeqM8Rjg/o31YRQGDjLNbR7Xe1MUKNlO1TODaw7a+5
+	2C6ALif4nm2KTKd2wdzeyW7dtOp3Yx4NGTZRungAKznXG4mGXBF9B4T7CBXhVXyi1dEU11n3ECVGr
+	DEmmGfJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6CWx-00000001HjG-1uI4;
-	Wed, 30 Oct 2024 17:30:51 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6CUb-00000001HTY-3hqu;
-	Wed, 30 Oct 2024 17:28:27 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-71e983487a1so39132b3a.2;
-        Wed, 30 Oct 2024 10:28:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730309304; x=1730914104; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MnkN8ptr3KGmpx2Uv+pp+uUkuHBCH11BckHc8GqWeDg=;
-        b=CYnYsjdEwm8vLAOwuiHYObpL/fN48iQAUnEJ/3p4CG2OT3NNcVMwPIeQDTYGiU1xRk
-         6PBbVj51sRcXqRoSeM26R+iwaOqYgJATEQVFY0X0H6OJaOoGJoguhjA1+XFbIA41UxGT
-         r+bAQJqUKfHTFc9Wf8hhgx27qc98LcyQGD6HJjHmR4BMD4VjIs/7DbVsMtOyT1zzo9wY
-         05g1HkfTz+oAWdzEEYMqk5atv5pyea2S7hcoiULlcDJ5xo0WnnIRIib6hNHKmshMat5V
-         mvrcMIntUXx8txLv26A8dI5WgTg6h0krMR0PYS+UHoHxH+70B5SSKDFB1xd1ZSPrvI25
-         6zxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730309304; x=1730914104;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MnkN8ptr3KGmpx2Uv+pp+uUkuHBCH11BckHc8GqWeDg=;
-        b=edjNnitZ2zXscrW3sfiFu/qGgZFecvqsrFo8jMk1EWQAOeFg1/CYDkrWh3kasRK4Zc
-         dicPYeXV/sni8xUAUyfh2pldiygrM6PVyE9zpfOQ4NyGOTDI91tzWDQtBlCI53V/Cg4C
-         YiZAbDpqRyUfJpS/7+Lxa1QKjesB+symNPi57Ffnyz7UYqPz4e2qFPk4EV/wneF08Yrv
-         AjXbJfvVspYHAXapfZ04qCxOLjjU4xWd8lYYt1pMjmQVuanIMH/QIoTwZI1rBt3hTVsm
-         E8f0trF0K9cMRDTe15EZcZ59Yv+p9SJlaGCHw5FvVpFWHnKNzWpwGV1h/Ini6sL7tMJd
-         HX0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWUuVz2xDsoJNapdwaj2Ie4tHBNZJTeN9XgO/jkoNe5LjeQJtyZ0QcN8pTFmm7b7u1wk37l6gGhqxd4DgAeXLWB@lists.infradead.org, AJvYcCXTM9vbi1J1ZapaGeONy5X7tSBx8iCc4v14hVZuN/C/Cyh1jw7zDXn4SJkRMA+sD7h6szV+yNknPinA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIWDkz7alNODQNL1d8lkXMvulPFKs7Y8aoCVEg2wypBT9/j/1j
-	gD09unsX7PXfffhnkNXlETC8dB7c8RrOC5t5s/UUAAghod1ENb4EVWu2U5Rud9YDDiSFnnebgrx
-	rnrBCDWzaPhwqM3tRyePLZxRVTkc=
-X-Google-Smtp-Source: AGHT+IHW4Ei/MHebO474qYJ4FnNy3KOOcESKnX+HK1imXciZaQOAIYn479DmypH3MHAeRnnMNdgGnRLoV9bhVu1WXCI=
-X-Received: by 2002:a05:6a00:3c96:b0:71d:f4ef:6b3a with SMTP id
- d2e1a72fcca58-720b9db22bfmr624360b3a.21.1730309303938; Wed, 30 Oct 2024
- 10:28:23 -0700 (PDT)
+	id 1t6CcA-00000001Icu-3iEC;
+	Wed, 30 Oct 2024 17:36:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6CaU-00000001IHF-0cIY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Oct 2024 17:34:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51713113E;
+	Wed, 30 Oct 2024 10:34:57 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0B983F66E;
+	Wed, 30 Oct 2024 10:34:25 -0700 (PDT)
+Date: Wed, 30 Oct 2024 17:34:16 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Andre.Przywara@arm.com
+Subject: Re: [PATCH] arm64/signal: Avoid corruption of SME state when
+ entering signal handler
+Message-ID: <ZyJuEBC1wFPrTLAS@J2N7QTR9R3>
+References: <20241023-arm64-fp-sme-sigentry-v1-1-249ff7ec3ad0@kernel.org>
 MIME-Version: 1.0
-References: <20240203165307.7806-1-aford173@gmail.com> <20241025080544.136280-1-mailinglist1@johanneskirchmair.de>
- <6d039ecf-0e48-415a-afd8-6bfce60081ae@kontron.de>
-In-Reply-To: <6d039ecf-0e48-415a-afd8-6bfce60081ae@kontron.de>
-From: Adam Ford <aford173@gmail.com>
-Date: Wed, 30 Oct 2024 12:28:12 -0500
-Message-ID: <CAHCN7xKevGWipBSch6gKVeJRT9Zb8QTchhxg3c=96XhnAvnjZw@mail.gmail.com>
-Subject: Re: imx8mp: HDMI display blank/black problems
-To: Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: mailinglist1@johanneskirchmair.de, johannes.kirchmair@skidata.com, 
-	Laurent.pinchart@ideasonboard.com, airlied@gmail.com, 
-	alexander.stein@ew.tq-group.com, andrzej.hajda@intel.com, 
-	catalin.marinas@arm.com, conor+dt@kernel.org, daniel@ffwll.ch, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	festevam@gmail.com, jernej.skrabec@gmail.com, jonas@kwiboo.se, 
-	kernel@pengutronix.de, kishon@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	l.stach@pengutronix.de, linux-arm-kernel@lists.infradead.org, 
-	linux-imx@nxp.com, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-pm@vger.kernel.org, 
-	maarten.lankhorst@linux.intel.com, marex@denx.de, mripard@kernel.org, 
-	neil.armstrong@linaro.org, p.zabel@pengutronix.de, rfoss@kernel.org, 
-	robh+dt@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org, 
-	tzimmermann@suse.de, ulf.hansson@linaro.org, victor.liu@nxp.com, 
-	vkoul@kernel.org, will@kernel.org, Saravana Kannan <saravanak@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023-arm64-fp-sme-sigentry-v1-1-249ff7ec3ad0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_102825_976230_67699404 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20241030_103430_297305_7A07E88E 
+X-CRM114-Status: GOOD (  46.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +65,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 4:01=E2=80=AFAM Frieder Schrempf
-<frieder.schrempf@kontron.de> wrote:
->
-> Hi Johannes,
->
-> On 25.10.24 10:05 AM, mailinglist1@johanneskirchmair.de wrote:
-> > [Sie erhalten nicht h=C3=A4ufig E-Mails von mailinglist1@johanneskirchm=
-air.de. Weitere Informationen, warum dies wichtig ist, finden Sie unter htt=
-ps://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > Hey,
-> > We had some problems with the hdmi on the imx8mp and wanted to leave, w=
-hat we found out about it, somewhere for others to find it.
-> >
-> > The problem was that our hdmi display sometimes stayed blank after hot =
-plugging and sometimes at startup. On older kernel versions 6.6 we did not =
-have the problem with the not mainlined hdmi patches.
-> > We tracked the commit down that introduced the problem for us. It was t=
-he following =E2=80=9Cdriver core: Enable fw_devlink=3Drpm by default=E2=80=
-=9D  https://lore.kernel.org/lkml/20231113220948.80089-1-saravanak@google.c=
-om/
-> > So we switched back to FW_DEVLINK_FLAGS_ON via kernel parameter. Don=E2=
-=80=99t really understand what the problem with RPM is.
-> >
-> > So, this information is just for reference. Maybe someone has an idea w=
-hat is going on here. And how to fix the problem in a more proper way.
->
-> Thanks for investigating and sharing your results!
->
-> I'm seeing the same symptoms and previously found out that this is
-> related to LCDIF underrun errors. See [1] for more information.
->
-> Adam has also started this thread: [2].
->
-> Anyway, knowing that this is related to fw_devlink=3Drpm is really
-> helpful. I just tried with fw_devlink=3Don and wasn't able to see any
-> issues anymore. So this confirms your findings.
+Hi Mark,
 
-I was off in the weeds thinking there was something wrong in timing
-and/or a race condition around the PLL or something.  This is good
-news.
-Please forgive my ignorance, what does fw_devlink do?  Is there
-something we can do in the driver itself to force its behavior?
+Thanks for this.
 
-adam
->
-> I hope that some of the driver framework and runtime PM experts can help
-> to find out what is actually wrong and how the correct fix might look lik=
-e.
->
-> I'm also CC-ing Saravana who authored the change from fw_devlink=3Don to
-> fw_devlink=3Drpm to see if they have anything to add.
->
-> Thanks
-> Frieder
->
-> [1]
-> https://patchwork.kernel.org/project/linux-phy/cover/20240904233100.11461=
-1-1-aford173@gmail.com/#26014057
-> [2]
-> https://lore.kernel.org/imx/8cfd3052-c85a-4235-b9b8-6d2929e9e455@kontron.=
-de/T/
+I originally just had a few comments on the commit message, but I
+believe I've found a logic issue in this patch, and more general issue
+throughout our FPSIMD/SVE/SME manipulation -- more details below.
+
+On Wed, Oct 23, 2024 at 10:31:24PM +0100, Mark Brown wrote:
+> When we enter a signal handler we exit streaming mode in order to ensure
+> that signal handlers can run normal FPSIMD code, and while we're at it we
+> also clear PSTATE.ZA. Currently the code in setup_return() updates both the
+> in memory copy of the state and the register state. Not only is this
+> redundant it can also lead to corruption if we are preempted.
+
+It would be nice if we could be clearer regarding the implications, e.g.
+that this has no effect on tasks which only use plain FPSIMD or SVE.
+
+How about:
+
+| We intend that signal handlers are entered with PSTATE.{SM,ZA}={0,0}.
+| The logic for this in setup_return() manipulates the saved state and
+| live CPU state in an unsafe manner, and consequently, when a task enters
+| a signal handler:
+| 
+| * The task entering the signal handler might not have its PSTATE.{SM,ZA}
+|   bits cleared, and other register state that is affected by changes to
+|   PSTATE.{SM,ZA} might not be zeroed as expected.
+| 
+| * An unrelated task might have its PSTATE.{SM,ZA} bits cleared
+|   unexpectedly, potentially zeroing other register state that is
+|   affected by changes to PSTATE.{SM,ZA}.
+| 
+|   Tasks which do not set PSTATE.{SM,ZA} (i.e. those only using plain
+|   FPSIMD or non-streaming SVE) are not affected, as there is no
+|   resulting change to PSTATE.{SM,ZA}.
+
+> Consider two tasks on one CPU:
+
+Minor nit, but can we say:
+
+| For example, consider two tasks on one CPU:
+
+... since there are other races possible.
+
+>  A: Begins signal entry in kernel mode, is preempted prior to SMSTOP.
+>  B: Using SM and/or ZA in userspace with register state current on the
+>     CPU, is preempted.
+>  A: Scheduled in, no register state changes made as in kernel mode.
+>  A: Executes SMSTOP, modifying live register state.
+>  A: Scheduled out.
+>  B: Scheduled in, fpsimd_thread_switch() sees the register state on the
+>     CPU is tracked as being that for task B so the state is not reloaded
+>     prior to returning to userspace.
+> 
+> Task B is now running with SM and ZA incorrectly cleared.
+
+[ moving the "Fix ..." later ]
+
+> This race has been observed intermittently with fp-stress, especially
+> with preempt disabled.
+
+It would be nice to have the signature of the failure as well, e.g.
+
+| This is intermittently detected by the fp-stress test, which
+| intermittently reports "ZA-VL-*-*: Bad SVCR: 0".
+
+> Fix this by check TIF_FOREIGN_FPSTATE and only updating one of the live
+> register context or the in memory copy when entering a signal handler.
+> Since this needs to happen atomically and all code that atomically
+> accesses FP state is in fpsimd.c also move the code there to ensure
+> consistency.
+
+How about:
+
+| Fix this by:
+| 
+| * Checking TIF_FOREIGN_FPSTATE, and only updating the saved or live
+|   state as appropriate.
+| 
+| * Using {get,put}_cpu_fpsimd_context() to ensure mutual exclusion
+|   against other code which manipulates this state. To allow their use,
+|   the logic is moved into a new fpsimd_enter_sighandler() helper in
+|   fpsimd.c.
+
+> Fixes: 40a8e87bb3285 ("arm64/sme: Disable ZA and streaming mode when handling signals")
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/fpsimd.h |  1 +
+>  arch/arm64/kernel/fpsimd.c      | 30 ++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/signal.c      | 19 +------------------
+>  3 files changed, 32 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index f2a84efc361858d4deda99faf1967cc7cac386c1..09af7cfd9f6c2cec26332caa4c254976e117b1bf 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -76,6 +76,7 @@ extern void fpsimd_load_state(struct user_fpsimd_state *state);
+>  extern void fpsimd_thread_switch(struct task_struct *next);
+>  extern void fpsimd_flush_thread(void);
+>  
+> +extern void fpsimd_enter_sighandler(void);
+>  extern void fpsimd_signal_preserve_current_state(void);
+>  extern void fpsimd_preserve_current_state(void);
+>  extern void fpsimd_restore_current_state(void);
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 77006df20a75aee7c991cf116b6d06bfe953d1a4..e6b086dc09f21e7f30df32ab4f6875b53c4228fd 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1693,6 +1693,36 @@ void fpsimd_signal_preserve_current_state(void)
+>  		sve_to_fpsimd(current);
+>  }
+>  
+> +/*
+> + * Called by the signal handling code when preparing current to enter
+> + * a signal handler. Currently this only needs to take care of exiting
+> + * streaming mode and clearing ZA on SME systems.
+> + */
+> +void fpsimd_enter_sighandler(void)
+> +{
+> +	if (!system_supports_sme())
+> +		return;
+> +
+> +	get_cpu_fpsimd_context();
+> +
+> +	if (test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+> +		/* Exiting streaming mode zeros the FPSIMD state */
+> +		if (current->thread.svcr & SVCR_SM_MASK) {
+> +			memset(&current->thread.uw.fpsimd_state, 0,
+> +			       sizeof(current->thread.uw.fpsimd_state));
+> +			current->thread.fp_type = FP_STATE_FPSIMD;
+> +		}
+> +
+> +		current->thread.svcr &= ~(SVCR_ZA_MASK |
+> +					  SVCR_SM_MASK);
+> +	} else {
+> +		/* The register state is current, just update it. */
+> +		sme_smstop();
+> +	}
+> +
+> +	put_cpu_fpsimd_context();
+> +}
+
+I don't think this is correct in the TIF_FOREIGN_FPSTATE case. We don't
+unbind the saved state from another CPU it might still be resident on,
+and so IIUC there's a race whereby the updates to the saved state can
+end up discarded:
+
+	CPU 0				CPU 1
+
+	1. trap from user->kernel
+	   with live state.
+	2. context-switch out
+	   - fpsimd_thread_switch()
+	     saves the HW state
+					3. context-switch in.
+					   - fpsimd_thread_switch()
+					     sets TIF_FOREIGN_FPSTATE
+
+					4. fpsimd_enter_sighandler()
+					5. context-switch out
+					   - fpsimd_thread_switch() sees
+					     TIF_FOREIGN_FPSTATE, saves
+					     nothing
+
+	6. context-switch in
+	   - fpsimd_last_state.st is
+	     this task's state
+	   - this task's fpsimd_cIpu
+	     is CPU 0
+	   ... so fpsimd_thread_switch()
+	   clears TIF_FOREIGN_FPSTATE
+	
+	7. running with stale live
+	   state from step 1.
+
+... and either:
+
+* A subsequent return to userspace will see TIF_FOREIGN_FPSTATE is
+  clear and not restore the in-memory state.
+
+* A subsequent context-switch will see TIF_FOREIGN_FPSTATE is clear an 
+  save the (stale) HW state again.
+
+It looks like we have a similar pattern all over the place, e.g.  in
+do_sve_acc():
+
+void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+{
+	...
+
+	<< preempt; migrate from CPU 0 to CPU 1 >>
+        
+        get_cpu_fpsimd_context();
+
+        if (test_and_set_thread_flag(TIF_SVE))
+                WARN_ON(1); /* SVE access shouldn't have trapped */
+
+        /*
+         * Even if the task can have used streaming mode we can only
+         * generate SVE access traps in normal SVE mode and
+         * transitioning out of streaming mode may discard any
+         * streaming mode state.  Always clear the high bits to avoid
+         * any potential errors tracking what is properly initialised.
+         */
+        sve_init_regs();
+
+        put_cpu_fpsimd_context();
+	
+	<< preempt; migrate from CPU 1 to CPU 0 >>
+
+	<< TIF_SVE is set, as above >>
+	<< TIF_FOREIGN_FPSTATE clear due to reusing old HW state >>
+	<< Old HW state has CPACR_EL1.ZEN set to trap SVE >>
+	<< Return to userapce won't reload HW state because >>
+}
+
+... which would explain the do_sve_acc() issue, and why it's so rare.
+
+This is going to need a careful audit and a proper series of
+fixes that can be backported to stable.
+
+Mark.
 
