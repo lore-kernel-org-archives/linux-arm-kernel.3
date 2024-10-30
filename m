@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66CED6B6BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3225FD6B6C0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 18:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=; b=sLERZ6KxvPaLvTaxwlaDAph47L
-	Ow+WMeUA6wQctvctqyzztNtYv+N8QAQtbnmOe46KQvibmgGf4uugerSCfMk0SwZu+ylPt/BQKsVDK
-	XiuNxEMNCH8XKGLpn6t8bRLGOiAgvlaMo5ZTzDMZTfNy1iwd4jTOsXGw37fsE+VgMTzN01qwOMJ85
-	hmZ4VG9I20vIiwR8liWf39Xc+OX35h3WE87xIzKQiOmffTEwQ7vE1dTpVfTIEDb0mEW9zevh0Pzd/
-	2lDVe64rSNpssUT8hhvpUieDrPUT8WJB6OzhqhaNO4R0TEDupSxXWyQ6cuE85LCCcvUXd12MwKXZE
-	ei/3DnsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FzkcjRxagUY36d1VDj7H15a6opD55PTVefEIMiGCuaU=; b=tnrmydeef2pyJqF95a+eSYMwr+
+	gmCybdfSq3qbZG0iGKmVRa2/O38SwwFz2k3e0QydLRMOQ+UBVBNx+lH2UXsDi/hxPt3P8MOF8ts1A
+	QH5OB5qnC7yp+Gquy6cs8q1CtDFTzhC6gcShMMntVGJuAnpduIa2u6t0qb33QnI6toUYFWwu1eBuc
+	juHlkOcLAG0s1PZiAJkUNmE7FtzcTsKaDcD0dygl+5ryxZDHsl2GCtsG/f0SKAS0fVrf/m8oOvxbu
+	XyOKOxieMoZvDdhljuqDwg8jr5O3xY4XlX900CphzFIdKRtTPfXaWc7rI2Poy/u841tHsL5dmpfKd
+	geIJjN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DWp-00000001RWz-3epO;
-	Wed, 30 Oct 2024 18:34:47 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1t6Dtz-00000001TyV-2cAH;
+	Wed, 30 Oct 2024 18:58:43 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6DVA-00000001RHH-2H5i;
-	Wed, 30 Oct 2024 18:33:05 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d3ecad390so816431f8f.1;
-        Wed, 30 Oct 2024 11:33:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730313182; x=1730917982; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=;
-        b=bHrQR3571Mj32cviLZCYfBd7LIbN4RiAGt2K4M4pusf+eD5Fs92H+rUYvHM659d3aN
-         ON0kj5s+BFV26msEw83CNvKljUDrPoKACrl/2tyvSZ8bQoZtos5U4j5uxr9UsEebDPkt
-         86+g88c2A6p03lAB6Gn2pd4oQkbAL9l5+M3uMNVwj4If4XXC5Tw50j44s+PI2+zHL2Fh
-         dxq7KUPfRHKcI4UU3mLU0g6nK3BWpgHxMfj6WY6OYlQ0Pn0y5Axk0tvtH+e/XGknfWJ5
-         E67lkCSlWdREchUHdCvcUxXS7qT+xEXQy3mxbPIO5Di/3niWFkWLxmfc/lKA5jGl3qKE
-         Ho5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730313182; x=1730917982;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UpRP2MsIVMkQvKjqAp60xM5OFj18JwlP60eDqeYPxhc=;
-        b=G73evvH5UiYuAP1UBaKtHj+LcKWaPz5MpYJsODm1f8OnyA+eWay41uVee5TfmQz4kV
-         vBB2ZNeuIAvIUXN2jCkBStiZwdnD27ytpj3N88fagiemtVAIY9hUzBdC1HEttvBjuzLJ
-         4a4a8GkYUHCPXIdkMttsIW2ajljaFn1e20N+2yVhOvKYG8uP9j3W79lQoExvHgRIEtjK
-         UDn+CgxmpuHf+/KNuEyYdY9ZYwyWuB2Mk1cZ9jVNVfrGMVo8f9X0DoRtakv/O0pGJxy2
-         OWvfODjokbOWK0CgZ9rxs7du/k6NpVWDDIPnWIuzfJJOhidZTulahQlXWAbLkSN1qIPe
-         FyWw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9HQQ+5WRrqhx9Ig2f2SXUUAzmBortanUFYTf3y/i9G4LADKvzqovsvauMvLp1LFMfk5h8HdSN97jS6Dcm1KtS@lists.infradead.org, AJvYcCXOkAVvlya/IDc39OfHyrBwoEe5T1hdQK0L/J6zSdSnW77WEgXnLONAsvu9Hn+TcLu2+jEURbY0F2etcWmezwQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPAl/EfP6bWmXFi1NtzZJ+4CTTveXzOejLf1xWtJmLoR7yIf5v
-	kv0TXp/8Wqo2bQHGfL6h3+vSe7fSX8ANbjOmqg+CC4AJ+TAWl50Y
-X-Google-Smtp-Source: AGHT+IGUMEiJ5yqJQbqO4xA7/aA59KAvngIQZIC7OTI5GXqXyrK5y8mDR/1ooulIWDi8IfTeYR0uyA==
-X-Received: by 2002:a5d:688b:0:b0:374:c613:7c58 with SMTP id ffacd0b85a97d-381b97c08fbmr2847327f8f.29.1730313181936;
-        Wed, 30 Oct 2024 11:33:01 -0700 (PDT)
-Received: from [192.168.0.2] ([69.6.8.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b71221sm15888748f8f.68.2024.10.30.11.32.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2024 11:33:01 -0700 (PDT)
-Message-ID: <e37b9baa-51e5-48f9-a15d-521f29ce5f9c@gmail.com>
-Date: Wed, 30 Oct 2024 20:33:26 +0200
+	id 1t6DsL-00000001TlF-2xZk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Oct 2024 18:57:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 13520C0006;
+	Wed, 30 Oct 2024 18:56:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730314617;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FzkcjRxagUY36d1VDj7H15a6opD55PTVefEIMiGCuaU=;
+	b=lUebFpWwx1tewUnpH2diNVSx+7wBPUQD5JnQhUsryh4AKx7xfoLVUZUvG54jmuF71U8P7W
+	C/Kyzn4GgW7cSpODleV0fKNh1/czzOwAH6XMC3Kmp03nS5dsOZ2ffhsc+MNpeJe/k2/Ozc
+	g+Z6C/BVZe4hUsg5W42CdU3uVG9QGOjr7mcV3YWn2o3I67YyYAe8yjQRmJh6V8tnNv2SR1
+	G/zNZ1ZOUq/oZrqgoAro60YpBuqspb4nLwt6uUUME3hO+vPeO2stab7xN7jMxURRlRBk3J
+	eijp4Tnz4BDf1xkgXVtJCx+1GLwybFyx3QKw/iLTHYJsyQMY9NCzrsYXfYO47g==
+Date: Wed, 30 Oct 2024 19:56:55 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: mturquette@baylibre.com, sboyd@kernel.org,
+	Claudiu <claudiu.beznea@tuxon.dev>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, magnus.damm@gmail.com,
+	p.zabel@pengutronix.de, linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v5 00/10] Add RTC support for the Renesas RZ/G3S SoC
+Message-ID: <20241030185655bfd883a8@mail.local>
+References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+ <CAMuHMdUwW98riCJ0VfZMzf59Lb4-gRm740z7mnSDQDTfQSJzWw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
-To: Jinjian Song <jinjian.song@fibocom.com>,
- chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
- haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
- ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
- johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com
-Cc: angelogioacchino.delregno@collabora.com, corbet@lwn.net,
- danielwinkler@google.com, helgaas@kernel.org, korneld@google.com,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com, netdev@vger.kernel.org,
- Linas Vepstas <linasvepstas@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>
-References: <20241022084348.4571-1-jinjian.song@fibocom.com>
- <20241029034657.6937-1-jinjian.song@fibocom.com>
-Content-Language: en-US
-From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-In-Reply-To: <20241029034657.6937-1-jinjian.song@fibocom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdUwW98riCJ0VfZMzf59Lb4-gRm740z7mnSDQDTfQSJzWw@mail.gmail.com>
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_113304_628263_E84F72E1 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20241030_115701_907764_94083992 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjian,
-
-On 29.10.2024 05:46, Jinjian Song wrote:
-> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
->> On 22.10.2024 11:43, Jinjian Song wrote:
->>> If driver fails to set the device to suspend, it means that the
->>> device is abnormal. In this case, reset the device to recover
->>> when PCIe device is offline.
->>
->> Is it a reproducible or a speculative issue? Does the fix recover 
->> modem from a problematic state?
->>
->> Anyway we need someone more familiar with this hardware (Intel or 
->> MediaTek engineer) to Ack the change to make sure we are not going to 
->> put a system in a more complicated state.
+On 30/10/2024 16:50:43+0100, Geert Uytterhoeven wrote:
+> Hi Mike, Stephen, Alexander,
 > 
-> Hi Sergey,
+> On Wed, Oct 30, 2024 at 12:01 PM Claudiu <claudiu.beznea@tuxon.dev> wrote:
+> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> > On the Renesas RZ/G3S SoC the RTC clock is provided by the VBATTB
+> > IP. A 32 KHz crystall oscillator could be connected to the VBATTB
+> > input pins. The logic to control this clock (and pass it to RTC)
+> > is inside the VBATTB IP. For this, the clk-vbattb driver was added
+> > (patches 01-03/12).
+> >
+> > Patches:
+> > - 01-03/10: add VBATTB support that provides the RTC clock
+> > - 04-05/10: add the RTC driver
+> > - 06-09/10: update the device trees with proper nodes to enable RTC
+> > -    10/10: enable proper config flags for RTC to work on RZ/G3S SoC
+> >
+> > Merge strategy, if any:
+> > - clock patches (01-03/10) need to go though the same tree because of
+> >   patch 03/10 using the devm_clk_hw_register_gate_parent_hw() introduced
+> >   in patch 02/12
 > 
-> This is a very difficult issue to replicate onece occured and fixed.
+> Once Mike/Stephen are happy with 02, I can queue patches 01-03 in
+> renesas-clk.
 > 
-> The issue occured when driver and device lost the connection. I have
-> encountered this problem twice so far:
-> 1. During suspend/resume stress test, there was a probabilistic D3L2
-> time sequence issue with the BIOS, result in PCIe link down, driver
-> read and write the register of device invalid, so suspend failed.
-> This issue was eventually fixed in the BIOS and I was able to restore
-> it through the reset module after reproducing the problem.
+> > - RTC patches (04-05/10) can go though RTC tree
+> > - DTS and defconfig patches can go though Renesas tree
 > 
-> 2. During idle test, the modem probabilistic hang up, result in PCIe
-> link down, driver read and write the register of device invalid, so
-> suspend failed. This issue was eventually fiex in device modem firmware
-> by adjust a certain power supply voltage, and reset modem as a workround
-> to restore when the MBIM port command timeout in userspace applycations.
+> Patches 06 and 08 I can queue in renesas-devel soon.
+> For 07 and 09, I am waiting for feedback from Alexandre on the RTC
+> DT bindings.
+
+I'll take 4 and 5 this cycle.
+
 > 
-> Hardware reset modem to recover was discussed with MTK, and they said
-> that if we don't want to keep the on-site problem location in case of
-> suspend failure, we can use the recover solution.
-> Both the ocurred issues result in the PCIe link issue, driver can't read 
-> and writer the register of WWAN device, so I want to add this path
-> to restore, hardware reset modem can recover modem, but using the 
-> pci_channle_offline() as the judgment is my inference.
+> Thanks!
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
-Thank you for the clarification. Let me summarize what I've understood 
-from the explanation:
-a) there were hardware (firmware) issues,
-b) issues already were solved,
-c) issues were not directly related to the device suspension procedure,
-d) you want to implement a backup plan to make the modem support robust.
-
-If got it right, then I would like to recommend to implement a generic 
-error handling solution for the PCIe interface. You can check this 
-document: Documentation/PCI/pci-error-recovery.rst
-
-Suddenly, I am not an expert in the PCIe link recovery procedure, so 
-I've CCed this message to PCI subsystem maintainers. I hope they can 
-suggest a conceptually correct way to handle these cases.
-
->>> Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
->>> ---
->>> V2:
->>>   * Add judgment, reset when device is offline
->>> ---
->>>   drivers/net/wwan/t7xx/t7xx_pci.c | 4 ++++
->>>   1 file changed, 4 insertions(+)
->>>
->>> diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/ 
->>> t7xx/t7xx_pci.c
->>> index e556e5bd49ab..4f89a353588b 100644
->>> --- a/drivers/net/wwan/t7xx/t7xx_pci.c
->>> +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
->>> @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct pci_dev 
->>> *pdev)
->>>       iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) + 
->>> ENABLE_ASPM_LOWPWR);
->>>       atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
->>>       t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
->>> +    if (pci_channel_offline(pdev)) {
->>> +        dev_err(&pdev->dev, "Device offline, reset to recover\n");
->>> +        t7xx_reset_device(t7xx_dev, PLDR);
->>> +    }
->>>       return ret;
->>>   }
-
---
-Sergey
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
