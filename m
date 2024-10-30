@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DA4D5CC94
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B19D5CC95
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AHsXIlovFdhS9IXQtuxtH5HCunRGdtFKg5ndk+ClhbU=; b=puSd3qUgRKzurlk7bXd2fJ9uKu
-	Mzbs0xeD9AudhbccjcyY7L2gf2JZk/DSAuJbO3UG5koPfgJLZll4Lei2YOT931LIdULY3cQrXhM1z
-	G4TeX5MrY7CI0c+hseXMZ/ASh6VpRiKxrsmN45uo7Tb+z+tH34M9E9h/A3V6LUPCzhAM1HPCrLWYL
-	a47YqYcI7LRjgZKmwH23okH8KOZqPjxDeXgeKGffT1ih0ysxTtPC8MREHUPPvKef0DdgYqJicZttw
-	oCqemBdWnLtLdKYTcMBNYLxI18uacuEd9bYEMJj6MRghAJXE8mSF79wb6Zx1rtiCjClrnHb+woKD0
-	e3xhO6Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=; b=JuX5wgyzbve9qOF0ioGzqvEKDo
+	h3709tcxDn7sqbGCrZf0s2UKbIWdEiWhpPH86qbS/Ud3kIbgu86Aba/aCrBK5JJtLydLRhKrrfBD0
+	RRyyQllv/pIuCEXzZxtM4hSi8jRHEdZJT6lFa3KqA3Az6nARkCW6PWtC4hCpH6Cmm+qCPs+pbZCZJ
+	NK63KvFZ+kFGoXlIGB8/HrRlg+sjUzM60KAuzySXXcmiApfaSzsFh1+gVqi7k/ZKm2vMBHOnKPe4q
+	o322iZ+12ZpKs1sbZMOww3AsvqQPLC46xICBY+Yp6Vf6KOJwvDRR4Crc18J8ZOeQOmSkBiih/oLo8
+	jUHU+TFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66f1-0000000061J-0kZC;
-	Wed, 30 Oct 2024 11:14:47 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t66gb-000000006EP-3Cbk;
+	Wed, 30 Oct 2024 11:16:25 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66Ly-000000001rE-2gkJ
+	id 1t66SJ-000000003eo-2WCg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:55:09 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49U8tGkq007057;
-	Wed, 30 Oct 2024 10:54:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AHsXIlovFdhS9IXQtuxtH5HCunRGdtFKg5ndk+ClhbU=; b=WxCgFdtXY9iXWDwa
-	v/RqGYeUSN1OzOoSEDAtb/uMSTwH7x3Oo+b1NCvEhEeMZPqukRlSYmjLSVjHDBSt
-	TCkTKC8JSO386KjpvH2uEIl501zh6a5PK9nv3jEOP0GxdYM63PqnW5QoVIWVkoFZ
-	Ut3xpoUIuA9MqQAmivhPqw9a0Loq18eatFo9SIZ7rQzD51IQmsWB03px0+1uJ+ig
-	Odp+7M37mmVufnbIJouEmtKy4e/Y4YgRTmu7whLp4ZC2FSzRWJlX7O8nrLIq7v2j
-	fd/12jIWm/WvU7ZrZzRpodMJ8K/Y1UiEKM5cBif1IxsgvrhmrfFBJHfmTCiKmTQp
-	Y6PWQw==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42khqbrbew-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 10:54:58 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UAsh1H017410
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Oct 2024 10:54:43 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 30 Oct 2024 03:54:34 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>
-Subject: [PATCH v4 4/6] media: qcom: camss: Restructure camss_link_entities
-Date: Wed, 30 Oct 2024 16:23:45 +0530
-Message-ID: <20241030105347.2117034-5-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
-References: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
+	Wed, 30 Oct 2024 11:01:41 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43159c9f617so60613255e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1730286097; x=1730890897; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=;
+        b=jWOiba4zFV64NwjvnCqrUez/j7zdCUXjCy2gKKOWUf5i+KlwsW+aqJkdbYfGPRd2Hj
+         qrxqMzdQM3S86519HQRHRGXU268Ve7FU6tTgwMYF9AyJvJtQKDLe5vKyyMnUvI6EtE5z
+         hPFZ0CaJYL3tTxrGLYSCragBJloWhD2JXVfZH2hpoDPiXguNLgMfdCK+0TzN9SZJww1y
+         qSOineBWXqtbsa+kM+7BFFukhdC7s6jAxCjyoPC0sJm5UGuzcni/xivuolKeXPvf7LkF
+         yyHH/kTu4ZNbELapXK82R86uWBT0rBU0hgiqm/EFvmmqgUoaDrJFhazx655uWKT8Zd3b
+         k7RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730286097; x=1730890897;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q4baBbCVw8LJX8VUsNI0iSX+HaRxJY9Q26lFxilz6/c=;
+        b=shKGACtsOP7vmiuPVIixW5OuS/Um3X5WZCLY9EvM9teiaP2PLbsPnrPRn4PKJNc73y
+         X6nfSgirpDN9E4LtVf3By7cYorfoa+RvsIe2pAjzFDuy/dDnslgrPjgghXSWptSwcJr0
+         m5rhalhMH1i2mZIxUb+MXo3nJMo4dioq6wSWG7ZITjNEJx2eBZlIBkqO+fNBxJKOqJch
+         AOiJwghmjGmi+nCqsJJTx/8KXju+pob9TFM4ihbB+DeCXYd+MdgrlN6Q9xg1ZC5R8/CS
+         SUXzIrlPyM0nIZRo8CLoKTA3tpuMgceXvMW9i7eUpk+Jf0ny2SyqiAvNA1cIufopKSnD
+         PYdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCV1vPfRCu30E4U9YWfTasBYu+F3TtXpmSZLPHP4NgH7CJNhfpUNUIBkRP6qBkoi4CthnPEEn8U6SjUfDwA7Fu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9xc+KiNIuU0DB7Kv71wx+IKfTf6Ul7O4YlSvnvpgXPXgSfrd/
+	nZTAMLonDnPMYe1Gb8iTs36Pf0dfVlTt32oCoUn0OeidkIubRScdV6YD6EukXyotI2EoGMzKyxt
+	1
+X-Google-Smtp-Source: AGHT+IHiBr5VSVHKI/wJl7b1DUkZ2teiuj8d/e6AL9/92akooeT1FxovY4Chln4pchEghqU1vcv7kQ==
+X-Received: by 2002:a7b:c5cc:0:b0:428:1310:b6b5 with SMTP id 5b1f17b1804b1-431aa802774mr100247035e9.34.1730286097169;
+        Wed, 30 Oct 2024 04:01:37 -0700 (PDT)
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.190])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Oct 2024 04:01:36 -0700 (PDT)
+From: Claudiu <claudiu.beznea@tuxon.dev>
+X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
+To: geert+renesas@glider.be,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	alexandre.belloni@bootlin.com,
+	magnus.damm@gmail.com,
+	p.zabel@pengutronix.de
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	claudiu.beznea@tuxon.dev,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH v5 00/10] Add RTC support for the Renesas RZ/G3S SoC
+Date: Wed, 30 Oct 2024 13:01:10 +0200
+Message-Id: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Nw-zYhQzI6OalN1uwBK3DACL5E2k2FeU
-X-Proofpoint-ORIG-GUID: Nw-zYhQzI6OalN1uwBK3DACL5E2k2FeU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=944
- lowpriorityscore=0 bulkscore=0 adultscore=0 mlxscore=0 suspectscore=0
- malwarescore=0 spamscore=0 impostorscore=0 clxscore=1015
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410300085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_035506_826563_FD1976B5 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20241030_040139_827288_26A365D3 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,214 +105,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the camss_link_entities function by breaking it down into
-three distinct functions. Each function will handle the linking of
-a specific entity separately, enhancing readability.
+From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
----
- drivers/media/platform/qcom/camss/camss.c | 159 ++++++++++++++--------
- 1 file changed, 105 insertions(+), 54 deletions(-)
+Hi,
 
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index addaed8f77cb..e4579ce80572 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2164,14 +2164,66 @@ static int camss_init_subdevices(struct camss *camss)
- }
- 
- /*
-- * camss_link_entities - Register subdev nodes and create links
-+ * camss_link_entities_csid - Register subdev nodes and create links
-  * @camss: CAMSS device
-  *
-  * Return 0 on success or a negative error code on failure
-  */
--static int camss_link_entities(struct camss *camss)
-+static int camss_link_entities_csid(struct camss *camss)
- {
--	int i, j, k;
-+	int i, j;
-+	int ret, line_num;
-+	u16 src_pad;
-+	u16 sink_pad;
-+	struct media_entity *src_entity;
-+	struct media_entity *sink_entity;
-+
-+	for (i = 0; i < camss->res->csid_num; i++) {
-+		if (camss->ispif)
-+			line_num = camss->ispif->line_num;
-+		else
-+			line_num = camss->vfe[i].res->line_num;
-+
-+		src_entity = &camss->csid[i].subdev.entity;
-+		for (j = 0; j < line_num; j++) {
-+			if (camss->ispif) {
-+				sink_entity = &camss->ispif->line[j].subdev.entity;
-+				src_pad = MSM_CSID_PAD_SRC;
-+				sink_pad = MSM_ISPIF_PAD_SINK;
-+			} else {
-+				sink_entity = &camss->vfe[i].line[j].subdev.entity;
-+				src_pad = MSM_CSID_PAD_FIRST_SRC + j;
-+				sink_pad = MSM_VFE_PAD_SINK;
-+			}
-+
-+			ret = media_create_pad_link(src_entity,
-+						    src_pad,
-+						    sink_entity,
-+						    sink_pad,
-+						    0);
-+			if (ret < 0) {
-+				dev_err(camss->dev,
-+					"Failed to link %s->%s entities: %d\n",
-+					src_entity->name,
-+					sink_entity->name,
-+					ret);
-+				return ret;
-+			}
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * camss_link_entities_csiphy - Register subdev nodes and create links
-+ * @camss: CAMSS device
-+ *
-+ * Return 0 on success or a negative error code on failure
-+ */
-+static int camss_link_entities_csiphy(struct camss *camss)
-+{
-+	int i, j;
- 	int ret;
- 
- 	for (i = 0; i < camss->res->csiphy_num; i++) {
-@@ -2192,71 +2244,70 @@ static int camss_link_entities(struct camss *camss)
- 		}
- 	}
- 
--	if (camss->ispif) {
--		for (i = 0; i < camss->res->csid_num; i++) {
--			for (j = 0; j < camss->ispif->line_num; j++) {
--				ret = media_create_pad_link(&camss->csid[i].subdev.entity,
--							    MSM_CSID_PAD_SRC,
--							    &camss->ispif->line[j].subdev.entity,
--							    MSM_ISPIF_PAD_SINK,
-+	return 0;
-+}
-+
-+/*
-+ * camss_link_entities_ispif - Register subdev nodes and create links
-+ * @camss: CAMSS device
-+ *
-+ * Return 0 on success or a negative error code on failure
-+ */
-+static int camss_link_entities_ispif(struct camss *camss)
-+{
-+	int i, j, k;
-+	int ret;
-+
-+	for (i = 0; i < camss->ispif->line_num; i++) {
-+		for (k = 0; k < camss->res->vfe_num; k++) {
-+			for (j = 0; j < camss->vfe[k].res->line_num; j++) {
-+				struct v4l2_subdev *ispif = &camss->ispif->line[i].subdev;
-+				struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
-+
-+				ret = media_create_pad_link(&ispif->entity,
-+							    MSM_ISPIF_PAD_SRC,
-+							    &vfe->entity,
-+							    MSM_VFE_PAD_SINK,
- 							    0);
- 				if (ret < 0) {
- 					dev_err(camss->dev,
- 						"Failed to link %s->%s entities: %d\n",
--						camss->csid[i].subdev.entity.name,
--						camss->ispif->line[j].subdev.entity.name,
-+						ispif->entity.name,
-+						vfe->entity.name,
- 						ret);
- 					return ret;
- 				}
- 			}
- 		}
--
--		for (i = 0; i < camss->ispif->line_num; i++)
--			for (k = 0; k < camss->res->vfe_num; k++)
--				for (j = 0; j < camss->vfe[k].res->line_num; j++) {
--					struct v4l2_subdev *ispif = &camss->ispif->line[i].subdev;
--					struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
--
--					ret = media_create_pad_link(&ispif->entity,
--								    MSM_ISPIF_PAD_SRC,
--								    &vfe->entity,
--								    MSM_VFE_PAD_SINK,
--								    0);
--					if (ret < 0) {
--						dev_err(camss->dev,
--							"Failed to link %s->%s entities: %d\n",
--							ispif->entity.name,
--							vfe->entity.name,
--							ret);
--						return ret;
--					}
--				}
--	} else {
--		for (i = 0; i < camss->res->csid_num; i++)
--			for (k = 0; k < camss->res->vfe_num; k++)
--				for (j = 0; j < camss->vfe[k].res->line_num; j++) {
--					struct v4l2_subdev *csid = &camss->csid[i].subdev;
--					struct v4l2_subdev *vfe = &camss->vfe[k].line[j].subdev;
--
--					ret = media_create_pad_link(&csid->entity,
--								    MSM_CSID_PAD_FIRST_SRC + j,
--								    &vfe->entity,
--								    MSM_VFE_PAD_SINK,
--								    0);
--					if (ret < 0) {
--						dev_err(camss->dev,
--							"Failed to link %s->%s entities: %d\n",
--							csid->entity.name,
--							vfe->entity.name,
--							ret);
--						return ret;
--					}
--				}
- 	}
- 
- 	return 0;
- }
- 
-+/*
-+ * camss_link_entities - Register subdev nodes and create links
-+ * @camss: CAMSS device
-+ *
-+ * Return 0 on success or a negative error code on failure
-+ */
-+static int camss_link_entities(struct camss *camss)
-+{
-+	int ret;
-+
-+	ret = camss_link_entities_csiphy(camss);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = camss_link_entities_csid(camss);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (camss->ispif)
-+		ret = camss_link_entities_ispif(camss);
-+
-+	return ret;
-+}
-+
- /*
-  * camss_register_entities - Register subdev nodes and create links
-  * @camss: CAMSS device
+On the Renesas RZ/G3S SoC the RTC clock is provided by the VBATTB
+IP. A 32 KHz crystall oscillator could be connected to the VBATTB
+input pins. The logic to control this clock (and pass it to RTC)
+is inside the VBATTB IP. For this, the clk-vbattb driver was added
+(patches 01-03/12).
+
+Patches:
+- 01-03/10: add VBATTB support that provides the RTC clock
+- 04-05/10: add the RTC driver
+- 06-09/10: update the device trees with proper nodes to enable RTC
+-    10/10: enable proper config flags for RTC to work on RZ/G3S SoC
+
+Merge strategy, if any:
+- clock patches (01-03/10) need to go though the same tree because of
+  patch 03/10 using the devm_clk_hw_register_gate_parent_hw() introduced
+  in patch 02/12
+- RTC patches (04-05/10) can go though RTC tree
+- DTS and defconfig patches can go though Renesas tree
+
+Thank you,
+Claudiu Beznea
+
+Changes in v5:
+- dropped patches already applied
+- fixed build on rtc yaml file
+- fixed indentation in patch 01/10 description
+- collected tags
+- per patch changes are listed in individual patches
+
+Changes in v4:
+- added patches
+  "dt-bindings: clock: r9a08g045-cpg: Add power domain ID for RTC"
+  "clk: renesas: r9a08g045: Add power domain for RTC"
+- squashed the following patches from v3:
+  "Add clock IDs for the VBATTB controller"
+  "dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB"
+- fixed typos in commit description
+- moved assigned-clocks, assigned-clock-parents from the RTC
+  documentation to the VBATTB documentation; same adjustment has been
+  done on the device tree patches
+- renamed include/dt-bindings/clock/r9a08g045-vbattb.h to
+  include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
+- used quartz-load-femtofarads
+- used RTC_TIMESTAMP_BEGIN_2000 and RTC_TIMESTAMP_BEGIN_2099 in the RTC
+  driver and added a comment in remove API to mention RTC cannot power
+  on the system
+- squashed defconfig patches
+- collected tags
+- per patch changes are listed in individual patches
+
+Changes in v3:
+- dropped patches "mfd: renesas-vbattb: Add a MFD driver for the Renesas
+  VBATTB IP"
+- added patches:
+-- dt-bindings: clock: r9a08g045-vbattb: Add clock IDs for
+   the VBATTB controller
+-- clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
+- moved Documentation/devicetree/bindings/mfd/renesas,r9a08g045-vbattb.yaml
+  to Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
+- addressed review comments
+- per patch changes are listed in individual patches
+
+Changes in v2:
+- dropped patch "clk: renesas: r9a08g045: Add clock, reset and power domain
+  support for the VBATTB IP" as it was already integrated
+- kept only a documentation file for both VBATT MFD and clock drivers as
+  suggested
+- addressed review comments
+- used cleanup.h lock helpers
+- update startup sequence for the RTC driver
+- switch to 24 hours mode on the RTC driver
+- fixed range for the RTC driver
+- added a generic compatible for the RTC driver as this will also be
+  used by RZ/V2H
+- used clkin/xin clock names for the VBATTB clock driver to determine
+  if bypass should be configured on registers instead of having
+  dedicated DT property
+- added mfd driver for VBATTB
+- updated Kconfig flag names to include vendor name
+- removed DT node labels from Documentation files
+- used items to describe the interrupts and clocks
+
+
+Claudiu Beznea (10):
+  dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB
+  clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
+  clk: renesas: clk-vbattb: Add VBATTB clock driver
+  dt-bindings: rtc: renesas,rzg3s-rtc: Document the Renesas RTCA-3 IP
+  rtc: renesas-rtca3: Add driver for RTCA-3 available on Renesas RZ/G3S
+    SoC
+  arm64: dts: renesas: r9a08g045: Add VBATTB node
+  arm64: dts: renesas: r9a08g045: Add RTC node
+  arm64: dts: renesas: rzg3s-smarc-som: Enable VBATTB
+  arm64: dts: renesas: rzg3s-smarc-som: Enable RTC
+  arm64: defconfig: Enable VBATTB clock and Renesas RTCA-3 flags
+
+ .../clock/renesas,r9a08g045-vbattb.yaml       |  84 ++
+ .../bindings/rtc/renesas,rz-rtca3.yaml        |  84 ++
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/renesas/r9a08g045.dtsi    |  34 +
+ .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |  16 +
+ arch/arm64/configs/defconfig                  |   2 +
+ drivers/clk/renesas/Kconfig                   |   4 +
+ drivers/clk/renesas/Makefile                  |   1 +
+ drivers/clk/renesas/clk-vbattb.c              | 205 ++++
+ drivers/rtc/Kconfig                           |  10 +
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-renesas-rtca3.c               | 899 ++++++++++++++++++
+ .../clock/renesas,r9a08g045-vbattb.h          |  13 +
+ include/linux/clk-provider.h                  |  18 +
+ 14 files changed, 1379 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
+ create mode 100644 Documentation/devicetree/bindings/rtc/renesas,rz-rtca3.yaml
+ create mode 100644 drivers/clk/renesas/clk-vbattb.c
+ create mode 100644 drivers/rtc/rtc-renesas-rtca3.c
+ create mode 100644 include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
+
 -- 
-2.25.1
+2.39.2
 
 
