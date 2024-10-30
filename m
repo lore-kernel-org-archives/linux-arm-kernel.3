@@ -4,87 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7511D7495E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 07:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F3BD7497D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 07:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HFItFkm7xxlGReyd+CKxgiNteBFqPMNGPEXfruG+1LA=; b=HLbm/CvXm8twHLb0F9PS9DdY4O
-	t/vE6pb6kwhkOj08ixFHAtwMjd96rDnQNmeDZ0pCEfkJbgRMpm1lxVQ0zKTJbHAonkQMdI8wsCT+M
-	ylf8WTQFAT22Mj0VdlhZtx4B2C9o1VOiLlnk/MKv4dJmnkWp944KifTdhGhb+HLgGWyx/9yf6HumE
-	fRnArGOOj5MQzBphCO9IG3HMSt1U0kEwJ7VY7VfswXHUOEt9EWtr45lDMjFj3Gug8eiyuBvAmRf+v
-	rcV/h/wMMskG6KOd67pzLAwcFYr0d8AMH+0LAfFcXE8rNvN2VgIQFYSz1oTpM8F7RbJ3DzUXg7UKH
-	RNxuGZHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yhy5fzAVX8uW/HwAXrDK7wlGAaBjRgEdv83x8HjWjIc=; b=UvBjQL0ZAmrYSFcfThLFhoUDLq
+	Cx4B/9kccyDuMDmSm7hPuXDvA9NuuXV8A7r4cEQe+g9CxbXgG4PfNLkaG6bj4OeucRdd1B4WfAT/j
+	euK+f5lQVWuBsgmsbSAF5J+ulqyTLfO0cweqZ3/4dTXNTPPD1Gr5GVflamB+loLaPBc2xfHG4Fzgd
+	QvrSBsf8pZNRRybaM/ZGTJzAFR1ZreZ9WtrSg7YiIIDkWMJtib17Aq5cN6EXxMEjpJ4jBK8CjcozU
+	1OkY9/UUF5V81GDNMApHLpuSOLqQnYJprlnp9NNK3sVx5JRgFloQ/Wvc48zfD0npgLDUls3twXeoe
+	KUkaTMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t63I1-0000000HARZ-3Szr;
-	Wed, 30 Oct 2024 07:38:49 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1t63Jc-0000000HAfK-3DJ5;
+	Wed, 30 Oct 2024 07:40:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t63Bd-0000000H9NP-0Mtw
+	id 1t63CJ-0000000H9T3-2aUf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 07:32:15 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-37d8901cb98so360717f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 00:32:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730273531; x=1730878331; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HFItFkm7xxlGReyd+CKxgiNteBFqPMNGPEXfruG+1LA=;
-        b=C9nWL8j6MKjgUf8yssI7QUBauRHy0XcVCciu6aX370TrVfauABWQRLGa8VYQq1ly77
-         55ppwyCMmwI9ayMchm+ibrEcoLNmLbQPXMYS4aBnGagSCo12T1h207TAE5r1lHWu9gDN
-         H97CLGvQ8LfYXTGmMmDJMMFE1m0Awy7g4TjZAbrPBV4tBhRG+MovaZoXeP0uHmzs54Ma
-         ZaJ9WanlupgrxYQZfE31FEOAECLphtYhtdLTUHzRtH82m1r8DKXEs8644blxIsdeIBKT
-         LkMpOJdNNGzD9cKYAl+djlR8yFI61aqdnKryS9BMAAaITGuprGlvIgm+gUmY9BNmtj6r
-         p/jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730273531; x=1730878331;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HFItFkm7xxlGReyd+CKxgiNteBFqPMNGPEXfruG+1LA=;
-        b=SX7kxx30FfVCvftjMRb+6HXAAZ4E7ZgJZZWjd71Izd7O9QI/e43N0hhJ+/wU+2j+Ml
-         J6mjIwENqDU5kJCbELw4pasHdfftDsQl4O38ZByo+jsH72bzqeNzZNKZScjkczmA2pC4
-         lJsUpVsOxE/Xz2n08Yl8KgwE9oZGZ89if2qNi1DDaAsiWgNpjgrH6f6FqcujmHbM8/5G
-         x1FyF2AxUKO0+CHCFkKkLFdBp0LZzDAgrqeMsOU1vu7n7vACgp2aU1RgKQOHtADyz9Oa
-         lVY7yfYPABTsYC/t8SYjhHogsPSMybzdR73vKgnD65TTo1YMfK+wtlkZFIVm+fg5LFv3
-         T5lw==
-X-Forwarded-Encrypted: i=1; AJvYcCU5n/Z+dlWFui2pVA7je/PE40/nFgVr83bRnvx9cm9eNwL/dLRYLaB8sQATuyy2gc3UHm77KPcGe04Ph095LR2z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/R3I9vwFfFdzD6uaavLVT6lXUpwGZCETxPPz+eb40JE3e8I7w
-	Gm8HPLQko//eKL6r9OrlIfZR582QpexTwNsWhg1oIJWWc0LapseLXQT+UW7w1do=
-X-Google-Smtp-Source: AGHT+IE6ED3eAQ5A9DCGC3XuLYb92IN+MGup7zF2u95nFYke47sqJfEa/gMWC7gX4SrjKhKfIq9wmA==
-X-Received: by 2002:a5d:5e05:0:b0:37d:3f81:153f with SMTP id ffacd0b85a97d-3817d622612mr3826629f8f.17.1730273530893;
-        Wed, 30 Oct 2024 00:32:10 -0700 (PDT)
-Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38058b9294dsm14542597f8f.105.2024.10.30.00.32.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 00:32:10 -0700 (PDT)
-Date: Wed, 30 Oct 2024 08:32:09 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee Jones <lee@kernel.org>, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	upstream@airoha.com, benjamin.larsson@genexis.eu, ansuelsmth@gmail.com, 
-	linux-pwm@vger.kernel.org
-Subject: Re: [PATCH v9 6/6] pwm: airoha: Add support for EN7581 SoC
-Message-ID: <bf5lpb3dwfywzgnbcel6de57ick7hfzxfaovyqrt7juif6tgp7@sdmugrua6t3c>
-References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
- <20241023-en7581-pinctrl-v9-6-afb0cbcab0ec@kernel.org>
+	Wed, 30 Oct 2024 07:32:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4F707A410E1;
+	Wed, 30 Oct 2024 07:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A5FC4CEE6;
+	Wed, 30 Oct 2024 07:32:50 +0000 (UTC)
+Message-ID: <6b38f07f-f992-4b25-af09-4e106e875994@xs4all.nl>
+Date: Wed, 30 Oct 2024 08:32:48 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zrrgadsxh7nw5d7s"
-Content-Disposition: inline
-In-Reply-To: <20241023-en7581-pinctrl-v9-6-afb0cbcab0ec@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v4 4/4] media: v4l2-ctrls: Add video encoder ROI ctrls
+To: ming.qian@oss.nxp.com, mchehab@kernel.org
+Cc: yunkec@google.com, nicolas@ndufresne.ca, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+ xiahong.bao@nxp.com, ming.zhou@nxp.com, eagle.zhou@nxp.com,
+ tao.jiang_2@nxp.com, ming.qian@nxp.com, imx@lists.linux.dev,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241030022134.1098589-1-ming.qian@oss.nxp.com>
+ <20241030022134.1098589-5-ming.qian@oss.nxp.com>
+Content-Language: en-US, nl
+From: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+In-Reply-To: <20241030022134.1098589-5-ming.qian@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_003213_150201_EDBCB3CE 
-X-CRM114-Status: GOOD (  48.53  )
+X-CRM114-CacheID: sfid-20241030_003255_831930_6F754ED6 
+X-CRM114-Status: GOOD (  41.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,542 +68,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ming Qian,
 
---zrrgadsxh7nw5d7s
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 6/6] pwm: airoha: Add support for EN7581 SoC
-MIME-Version: 1.0
+Thank you for this, these descriptions are much better!
 
-Hello,
+I still have a few comments, though. See below.
 
-On Wed, Oct 23, 2024 at 01:20:06AM +0200, Lorenzo Bianconi wrote:
-> From: Benjamin Larsson <benjamin.larsson@genexis.eu>
->=20
-> Introduce driver for PWM module available on EN7581 SoC.
->=20
-> Signed-off-by: Benjamin Larsson <benjamin.larsson@genexis.eu>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On 30/10/2024 03:21, ming.qian@oss.nxp.com wrote:
+> From: Ming Qian <ming.qian@nxp.com>
+> 
+> Add some ctrls to support the video encoder region-of-interest(ROI)
+> feature. The ROI QP Map and rectangular configuration are supported.
+> 
+> Signed-off-by: Ming Qian <ming.qian@nxp.com>
+> Signed-off-by: TaoJiang <tao.jiang_2@nxp.com>
 > ---
->  drivers/pwm/Kconfig      |  11 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-airoha.c | 386 +++++++++++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 398 insertions(+)
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 0915c1e7df16d451e987dcc5f10e0b57edc32ee1..99aa87136c272555c10102590=
-fcf9f911161c3d3 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -54,6 +54,17 @@ config PWM_ADP5585
->  	  This option enables support for the PWM function found in the Analog
->  	  Devices ADP5585.
-> =20
-> +config PWM_AIROHA
-> +	tristate "Airoha PWM support"
-> +	depends on ARCH_AIROHA || COMPILE_TEST
-> +	depends on OF
-> +	select REGMAP_MMIO
-> +	help
-> +	  Generic PWM framework driver for Airoha SoC.
+>  .../media/v4l/ext-ctrls-codec.rst             | 131 ++++++++++++++++++
+>  drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  46 ++++++
+>  include/uapi/linux/v4l2-controls.h            |  16 +++
+>  3 files changed, 193 insertions(+)
+> 
+> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> index 4a379bd9e3fb..7b4327c4a14e 100644
+> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
+> @@ -1667,6 +1667,137 @@ enum v4l2_mpeg_video_h264_hierarchical_coding_type -
+>      Codecs need to always use the specified range, rather then a HW custom range.
+>      Applicable to encoders
+>  
+> +``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    (enum)
 > +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-airoha.
+> +enum v4l2_mpeg_video_roi_mode -
+> +    Indicates Video Encoding region-of-interest (ROI) Mode, enable different
+> +    encoding strategies based on selected areas within a frame. Choosing a
+> +    specific mode activates corresponding control or combinations of controls
+> +    to configure the ROI, e.g. for rectangle delta QP mode, you need to provide
+> +    V4L2_CID_MPEG_VIDEO_ROI_RECT and V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP.
+> +    Applicable to encoders.
 > +
->  config PWM_APPLE
->  	tristate "Apple SoC PWM support"
->  	depends on ARCH_APPLE || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 9081e0c0e9e09713fe05479c257eebe5f02b91e9..fbf7723d845807fd1e2893c6e=
-a4f736785841b0d 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -2,6 +2,7 @@
->  obj-$(CONFIG_PWM)		+=3D core.o
->  obj-$(CONFIG_PWM_AB8500)	+=3D pwm-ab8500.o
->  obj-$(CONFIG_PWM_ADP5585)	+=3D pwm-adp5585.o
-> +obj-$(CONFIG_PWM_AIROHA)	+=3D pwm-airoha.o
->  obj-$(CONFIG_PWM_APPLE)		+=3D pwm-apple.o
->  obj-$(CONFIG_PWM_ATMEL)		+=3D pwm-atmel.o
->  obj-$(CONFIG_PWM_ATMEL_HLCDC_PWM)	+=3D pwm-atmel-hlcdc.o
-> diff --git a/drivers/pwm/pwm-airoha.c b/drivers/pwm/pwm-airoha.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..658884852e7ad7a76ff499879=
-eda9c50dfc5f745
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-airoha.c
-> @@ -0,0 +1,386 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2022 Markus Gothe <markus.gothe@genexis.eu>
-> + *
-> + *  Limitations:
-> + *  - No disable bit, so a disabled PWM is simulated by setting duty_cyc=
-le to 0
-> + *  - Only 8 concurrent waveform generators are available for 8 combinat=
-ions of
-> + *    duty_cycle and period. Waveform generators are shared between 16 G=
-PIO
-> + *    pins and 17 SIPO GPIO pins.
-> + *  - Supports only normal polarity.
-> + *  - On configuration the currently running period is completed.
+> +    Possible values are:
+> +
+> +
+> +.. flat-table::
+> +    :header-rows:  0
+> +    :stub-columns: 0
+> +
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_NONE``
+> +      - No ROI in the MPEG stream. Default mode.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``
+> +      - Rectangle ROI mode and specifies ROI delta QP.
+> +        When enabled, define one or more rectangular ROI areas
+> +        where QP delta is applied. The control
+> +        V4L2_CID_MPEG_VIDEO_ROI_RECT is used to set ROI areas
+> +        and V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP is used to
+> +        set QP delta value.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``
+> +      - Rectangle ROI mode and specifies ROI priority.
+> +        When enabled, define one or more rectangular ROI areas
+> +        where priority is applied. The control
+> +        V4L2_CID_MPEG_VIDEO_ROI_RECT is used to set ROI areas
+> +        and V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY is used to
+> +        set priority.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP``
+> +      - Map ROI mode and specifies ROI delta QP.
+> +        When enabled, the whole frame is configured into a grid map
+> +        according to the ROI block region size in raster scan order,
+> +        and each region can have a QP delta applied.
+> +        The control V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP
+> +        is used to configure the ROI Map with QP delta values.
+> +    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP``
+> +      - Map ROI mode and specifies ROI absolute QP value.
+> +        When enabled, configure a grid ROI map where each region
+> +        has an absolute QP value assigned. The control
+> +        V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP is used to
+> +        configure the ROI Map with absolute QP values.
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE (struct)``
+> +    This read-only control returns the ROI block size in pixels. The struct
+> +    :c:type:`v4l2_area` provides the width and height in separate
+> +    fields. The resolution of the frame will be rounded up to be
+> +    aligned to this value when it's partitioned in blocks for QP
+> +    maps and the number of QP values in those maps will be the
+> +    number of blocks of these indicated pixel size that comprise
+> +    a full frame. This control depends on the encoding format,
+> +    and the detailed encoder hardware.
+> +    Applicable to encoders.
+> +
+> +``V4L2_CID_MPEG_VIDEO_ROI_RECT (struct)``
+> +    A struct :c:type:`v4l2_rect` provides the rectangular region
+> +    described by the position of its top-left corner, the width
+> +    and the height. The unit is in pixels. And it should be aligned
+> +    to the ROI block size, which can be queried from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. If it is not aligned to
+> +    the ROI block size, then X,Y gets rounded down, and width/height up.
+> +    The maximum number of rectangular regions depends on the hardware.
 
-Maybe I already asked before: Is there a public manual? If so, please
-add a link here.
+What happens with rectangles that are completely outside the frame?
+I assume those will be ignored?
 
-> + */
+> +    This control is a dynamically sized array.
+> +    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP`` or
+> +    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``. For overlapping
+> +    regions, the value that is first in the ROI array will have priority.
+> +    Applicable to encoders.
 > +
-> +#include <linux/bitfield.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/gpio.h>
-> +#include <linux/bitops.h>
-> +#include <linux/regmap.h>
-> +#include <asm/div64.h>
+> +``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP (integer)``
+> +    Specifies the ROI delta QP of a rectangular region. The delta QP
+> +    is the value that will be added on top of the frame level QP.
+> +    It can be positive (more distortion) or negative (less distortion)
+> +    values. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``, and must be used
+> +    in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+> +    This control is a dynamically sized array, and the array size
+> +    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``. If not match,
+> +    the number of configured regions is the minimum value.
+
+I'd rephrase this:
+
+"If the array sizes do not match, then use the smallest size for
+both controls and ignore the remaining elements in the larger array."
+
+> +    Applicable to encoders.
 > +
-> +#define REG_SGPIO_LED_DATA		0x0024
-> +#define SGPIO_LED_DATA_SHIFT_FLAG	BIT(31)
-> +#define SGPIO_LED_DATA_DATA		GENMASK(16, 0)
+> +``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY (integer)``
+> +    Specifies the ROI priority of a rectangular region. it can
+> +    be positive (more important) or negative (less important)
+> +    values and is compared with non-ROI region (taken as value 0).
+> +    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
+> +    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``, and must
+> +    be used in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
+> +    This control is a dynamically sized array, and the array size
+> +    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``. If not match,
+> +    the number of configured regions is the minimum value.
+
+Same here.
+
+> +    Applicable to encoders.
 > +
-> +#define REG_SGPIO_CLK_DIVR		0x0028
-> +#define REG_SGPIO_CLK_DIVR_MASK		GENMASK(1, 0)
-> +#define REG_SGPIO_CLK_DLY		0x002c
+> +``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP (integer)``
+> +    Configure a frame-wide grid map that divides the entire
+> +    frame into blocks of the ROI block size, where each
+> +    region will have a QP delta applied. The ROI map is
+> +    arranged in raster scan order, and it's configured
+> +    as an integer array. The block size can be got from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
+> +    dynamically sized array, the array size can be calculated
+> +    from video resolution and the ROI block size, and the
+> +    width and height should be rounded up to be aligned to
+> +    the block size. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP``.
+> +    If the array size is too small, the control should
+> +    return error. Applicable to encoders.
+
+"If the array size is too small, the control should return error."
+
+That doesn't really work. You can set the control, then change the
+video format causing the control array size to be too small, but
+that won't return an error.
+
+I think you should either ignore the control completely in case
+of a mismatch, or assume that the remainder of the grid map will
+use a delta QP of 0. The latter would be my preference.
+
 > +
-> +#define REG_SIPO_FLASH_MODE_CFG		0x0030
-> +#define SERIAL_GPIO_FLASH_MODE		BIT(1)
-> +#define SERIAL_GPIO_MODE_74HC164	BIT(0)
+> +``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP (integer)``
+> +    Configure a frame-wide grid map that divides the entire
+> +    frame into blocks of the ROI block size, where each
+> +    region will have an absolute QP applied. The ROI map is
+> +    arranged in raster scan order, and it's configured
+> +    as an integer array. The block size can be got from
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
+> +    dynamically sized array, the array size can be calculated
+> +    from video resolution and the ROI block size, and the
+> +    width and height should be rounded up to be aligned to
+> +    the block size. This control is applicable when
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
+> +    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP``.
+> +    If the array size is too small, the control should
+> +    return error. Applicable to encoders.
+
+You have the same problem here. Except that you can't use a QP
+value of 0 if the array is too short, but you can probably substitute
+the value from one of the existing codec-specific QP controls.
+
+If that doesn't work, then ignoring arrays that are too short
+is probably the better approach.
+
+Regards,
+
+	Hans
+
 > +
-> +#define REG_GPIO_FLASH_PRD_SET(_n)	(0x003c + ((_n) << 2))
-> +#define GPIO_FLASH_PRD_MASK(_n)		GENMASK(15 + ((_n) << 4), ((_n) << 4))
+>  .. raw:: latex
+>  
+>      \normalsize
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> index 1ea52011247a..4d89309bf8d0 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> @@ -612,6 +612,15 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
+>  		NULL,
+>  	};
+>  
+> +	static const char * const mpeg_video_roi_mode[] = {
+> +		"None",
+> +		"Rectangle Delta QP",
+> +		"Rectangle Priority",
+> +		"Map Delta QP",
+> +		"Map Absolute QP",
+> +		NULL,
+> +	};
 > +
-> +#define REG_GPIO_FLASH_MAP(_n)		(0x004c + ((_n) << 2))
-> +#define GPIO_FLASH_SETID_MASK(_n)	GENMASK(2 + ((_n) << 2), ((_n) << 2))
-> +#define GPIO_FLASH_EN(_n)		BIT(3 + ((_n) << 2))
-> +
-> +#define REG_SIPO_FLASH_MAP(_n)		(0x0054 + ((_n) << 2))
-> +
-> +#define REG_CYCLE_CFG_VALUE(_n)		(0x0098 + ((_n) << 2))
-> +#define WAVE_GEN_CYCLE_MASK(_n)		GENMASK(7 + ((_n) << 3), ((_n) << 3))
-> +
-> +#define PWM_NUM_BUCKETS			8
-> +
-> +struct airoha_pwm_bucket {
-> +	/* Bitmask of PWM channels using this bucket */
-> +	u64 used;
-> +	u64 period_ns;
-> +	u64 duty_ns;
+>  	switch (id) {
+>  	case V4L2_CID_MPEG_AUDIO_SAMPLING_FREQ:
+>  		return mpeg_audio_sampling_freq;
+> @@ -750,6 +759,8 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
+>  		return camera_orientation;
+>  	case V4L2_CID_MPEG_VIDEO_INTRA_REFRESH_PERIOD_TYPE:
+>  		return intra_refresh_period_type;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
+> +		return mpeg_video_roi_mode;
+>  	default:
+>  		return NULL;
+>  	}
+> @@ -971,6 +982,13 @@ const char *v4l2_ctrl_get_name(u32 id)
+>  	case V4L2_CID_MPEG_VIDEO_FRAME_LTR_INDEX:		return "Frame LTR Index";
+>  	case V4L2_CID_MPEG_VIDEO_USE_LTR_FRAMES:		return "Use LTR Frames";
+>  	case V4L2_CID_MPEG_VIDEO_AVERAGE_QP:			return "Average QP Value";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:		return "Video ROI Mode";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:	return "Video ROI Block Size";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT:		return "Video ROI Rectangle Region";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:	return "Video ROI Rectangle Delta QP";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:	return "Video ROI Rectangle Priority";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:	return "Video ROI Delta QP Map";
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:	return "Video ROI Absolute QP Map";
+>  	case V4L2_CID_FWHT_I_FRAME_QP:				return "FWHT I-Frame QP Value";
+>  	case V4L2_CID_FWHT_P_FRAME_QP:				return "FWHT P-Frame QP Value";
+>  
+> @@ -1512,6 +1530,34 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
+>  		*type = V4L2_CTRL_TYPE_INTEGER;
+>  		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+>  		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
+> +		*type = V4L2_CTRL_TYPE_MENU;
+> +		*flags |= V4L2_CTRL_FLAG_UPDATE;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:
+> +		*type = V4L2_CTRL_TYPE_AREA;
+> +		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT:
+> +		*type = V4L2_CTRL_TYPE_RECT;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+> +	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:
+> +		*type = V4L2_CTRL_TYPE_INTEGER;
+> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
+> +		break;
+>  	case V4L2_CID_PIXEL_RATE:
+>  		*type = V4L2_CTRL_TYPE_INTEGER64;
+>  		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+> index 974fd254e573..bf67d53af737 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -900,6 +900,22 @@ enum v4l2_mpeg_video_av1_level {
+>  
+>  #define V4L2_CID_MPEG_VIDEO_AVERAGE_QP  (V4L2_CID_CODEC_BASE + 657)
+>  
+> +enum v4l2_mpeg_video_roi_mode {
+> +	V4L2_MPEG_VIDEO_ROI_MODE_NONE,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP,
+> +	V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP
 > +};
 > +
-> +struct airoha_pwm {
-> +	struct regmap *regmap;
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MODE			(V4L2_CID_CODEC_BASE + 658)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE		(V4L2_CID_CODEC_BASE + 659)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT			(V4L2_CID_CODEC_BASE + 660)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP		(V4L2_CID_CODEC_BASE + 661)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY		(V4L2_CID_CODEC_BASE + 662)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP		(V4L2_CID_CODEC_BASE + 663)
+> +#define V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP		(V4L2_CID_CODEC_BASE + 664)
 > +
-> +	struct device_node *np;
-> +	u64 initialized;
-> +
-> +	struct airoha_pwm_bucket bucket[PWM_NUM_BUCKETS];
-> +};
-> +
-> +/*
-> + * The first 16 GPIO pins, GPIO0-GPIO15, are mapped into 16 PWM channels=
-, 0-15.
-> + * The SIPO GPIO pins are 17 pins which are mapped into 17 PWM channels,=
- 16-32.
-> + * However, we've only got 8 concurrent waveform generators and can ther=
-efore
-> + * only use up to 8 different combinations of duty cycle and period at a=
- time.
-> + */
-> +#define PWM_NUM_GPIO	16
-> +#define PWM_NUM_SIPO	17
-> +
-> +/* The PWM hardware supports periods between 4 ms and 1 s */
-> +#define PERIOD_MIN_NS	(4 * NSEC_PER_MSEC)
-> +#define PERIOD_MAX_NS	(1 * NSEC_PER_SEC)
-> +/* It is represented internally as 1/250 s between 1 and 250 */
-> +#define PERIOD_MIN	1
-> +#define PERIOD_MAX	250
-> +/* Duty cycle is relative with 255 corresponding to 100% */
-> +#define DUTY_FULL	255
+>  /*  MPEG-class control IDs specific to the CX2341x driver as defined by V4L2 */
+>  #define V4L2_CID_CODEC_CX2341X_BASE				(V4L2_CTRL_CLASS_CODEC | 0x1000)
+>  #define V4L2_CID_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE		(V4L2_CID_CODEC_CX2341X_BASE+0)
 
-Please add proper namespacing to these constants, some of these make a
-more generic impression than justified. (i.e. add a common prefix like
-"AIROHA_PWM_")
-
-> +static int airoha_pwm_get_generator(struct airoha_pwm *pc, u64 duty_ns,
-> +				    u64 period_ns)
-> +{
-> +	int i;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(pc->bucket); i++) {
-> +		if (!pc->bucket[i].used)
-> +			continue;
-> +
-> +		if (duty_ns =3D=3D pc->bucket[i].duty_ns &&
-> +		    period_ns =3D=3D pc->bucket[i].period_ns)
-> +			return i;
-> +
-> +		/*
-> +		 * Unlike duty cycle zero, which can be handled by
-> +		 * disabling PWM, a generator is needed for full duty
-> +		 * cycle but it can be reused regardless of period
-> +		 */
-> +		if (duty_ns =3D=3D DUTY_FULL && pc->bucket[i].duty_ns =3D=3D DUTY_FULL)
-
-I wonder: The PWM supports periods starting at 4ms, but 255 is the
-maximal value for duty_ns? Isn't that a misnomer and is about
-duty_ticks?
-
-> +			return i;
-> +	}
-> +
-> +	return -1;
-> +}
-> +
-> +static void airoha_pwm_release_bucket_config(struct airoha_pwm *pc,
-> +					     unsigned int hwpwm)
-> +{
-> +	int i;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(pc->bucket); i++)
-> +		pc->bucket[i].used &=3D ~BIT_ULL(hwpwm);
-> +}
-> +
-> +static int airoha_pwm_consume_generator(struct airoha_pwm *pc,
-> +					u64 duty_ns, u64 period_ns,
-> +					unsigned int hwpwm)
-> +{
-> +	int id =3D airoha_pwm_get_generator(pc, duty_ns, period_ns);
-> +
-> +	if (id < 0) {
-> +		int i;
-> +
-> +		/* find an unused waveform generator */
-> +		for (i =3D 0; i < ARRAY_SIZE(pc->bucket); i++) {
-> +			if (!(pc->bucket[i].used & ~BIT_ULL(hwpwm))) {
-> +				id =3D i;
-> +				break;
-> +			}
-> +		}
-> +	}
-
-I think airoha_pwm_get_generator could return an unused generator, then
-you don't need to loop twice over all buckets. Just an idea, not sure
-this becomes considerably faster or easier to understand.
-
-> +	if (id >=3D 0) {
-> +		airoha_pwm_release_bucket_config(pc, hwpwm);
-> +		pc->bucket[id].used |=3D BIT_ULL(hwpwm);
-> +		pc->bucket[id].period_ns =3D period_ns;
-> +		pc->bucket[id].duty_ns =3D duty_ns;
-> +	}
-> +
-> +	return id;
-> +}
-> +
-> +static int airoha_pwm_sipo_init(struct airoha_pwm *pc)
-> +{
-> +	u32 val;
-> +
-> +	if (!(pc->initialized >> PWM_NUM_GPIO))
-> +		return 0;
-> +
-> +	regmap_clear_bits(pc->regmap, REG_SIPO_FLASH_MODE_CFG,
-> +			  SERIAL_GPIO_MODE_74HC164);
-> +
-> +	/* Configure shift register timings, use 32x divisor */
-> +	regmap_write(pc->regmap, REG_SGPIO_CLK_DIVR,
-> +		     FIELD_PREP(REG_SGPIO_CLK_DIVR_MASK, 0x3));
-> +
-> +	/*
-> +	 * The actual delay is clock + 1.
-> +	 * Notice that clock delay should not be greater
-> +	 * than (divisor / 2) - 1.
-> +	 * Set to 0 by default. (aka 1)
-> +	 */
-> +	regmap_write(pc->regmap, REG_SGPIO_CLK_DLY, 0x0);
-> +
-> +	/*
-> +	 * It it necessary to after muxing explicitly shift out all
-> +	 * zeroes to initialize the shift register before enabling PWM
-> +	 * mode because in PWM mode SIPO will not start shifting until
-> +	 * it needs to output a non-zero value (bit 31 of led_data
-> +	 * indicates shifting in progress and it must return to zero
-> +	 * before led_data can be written or PWM mode can be set)
-> +	 */
-> +	if (regmap_read_poll_timeout(pc->regmap, REG_SGPIO_LED_DATA, val,
-> +				     !(val & SGPIO_LED_DATA_SHIFT_FLAG), 10,
-> +				     200 * USEC_PER_MSEC))
-> +		return -ETIMEDOUT;
-> +
-> +	regmap_clear_bits(pc->regmap, REG_SGPIO_LED_DATA, SGPIO_LED_DATA_DATA);
-> +	if (regmap_read_poll_timeout(pc->regmap, REG_SGPIO_LED_DATA, val,
-> +				     !(val & SGPIO_LED_DATA_SHIFT_FLAG), 10,
-> +				     200 * USEC_PER_MSEC))
-> +		return -ETIMEDOUT;
-> +
-> +	/* Set SIPO in PWM mode */
-> +	regmap_set_bits(pc->regmap, REG_SIPO_FLASH_MODE_CFG,
-> +			SERIAL_GPIO_FLASH_MODE);
-> +
-> +	return 0;
-> +}
-> +
-> +static void airoha_pwm_calc_bucket_config(struct airoha_pwm *pc, int ind=
-ex,
-> +					  u64 duty_ns, u64 period_ns)
-> +{
-> +	u32 period, duty, mask, val;
-
-Please use duty_ns for values in nanoseconds and duty_ticks (or
-something similar) for values in clock ticks consistently.
-
-> +	u64 tmp;
-> +
-> +	tmp =3D duty_ns * DUTY_FULL;
-
-This might overflow. =3D> Use mul_u64_u64_div_u64() or a suitable cousin
-of it.
-
-> +	duty =3D clamp_val(div64_u64(tmp, period_ns), 0, DUTY_FULL);
-> +	tmp =3D period_ns * 25;
-> +	period =3D clamp_val(div64_u64(tmp, 100000000), PERIOD_MIN, PERIOD_MAX);
-
-Huh, we already know that period_ns >=3D PERIOD_MIN_NS =3D 4000000, so
-period is >=3D PERIOD_MIN =3D 1 already. So the lower bound part of that
-clamping is not needed. (And it looks wrong because you're not supposed
-to round up.) Ditto for the duty_clamp, tmp/period_ns will never be less
-than 0.
-
-> +	/* Configure frequency divisor */
-> +	mask =3D WAVE_GEN_CYCLE_MASK(index % 4);
-> +	val =3D (period << __ffs(mask)) & mask;
-
-FIELD_PREP please.
-
-> +	regmap_update_bits(pc->regmap, REG_CYCLE_CFG_VALUE(index / 4),
-> +			   mask, val);
-> +
-> +	/* Configure duty cycle */
-> +	duty =3D ((DUTY_FULL - duty) << 8) | duty;
-
-Please use proper defines for the bit fields and then use FIELD_PREP
-here instead of shifts with an explicit number as RHS.
-
-> +	mask =3D GPIO_FLASH_PRD_MASK(index % 2);
-> +	val =3D (duty << __ffs(mask)) & mask;
-> +	regmap_update_bits(pc->regmap, REG_GPIO_FLASH_PRD_SET(index / 2),
-> +			   mask, val);
-> +}
-> +
-> +static void airoha_pwm_config_flash_map(struct airoha_pwm *pc,
-> +					unsigned int hwpwm, int index)
-> +{
-> +	u32 addr, mask, val;
-> +
-> +	if (hwpwm < PWM_NUM_GPIO) {
-> +		addr =3D REG_GPIO_FLASH_MAP(hwpwm / 8);
-> +	} else {
-> +		addr =3D REG_SIPO_FLASH_MAP(hwpwm / 8);
-> +		hwpwm -=3D PWM_NUM_GPIO;
-> +	}
-> +
-> +	if (index < 0) {
-> +		/*
-> +		 * Change of waveform takes effect immediately but
-> +		 * disabling has some delay so to prevent glitching
-> +		 * only the enable bit is touched when disabling
-
-Together with "No disable bit, so a disabled PWM is simulated by setting
-duty_cycle to 0" from the Limitations paragraph above I don't understand
-that. And if disabling has some delay but reconfiguration doesn't, it
-would give a more consistent behaviour to configure a duty_cycle =3D 0
-here?
-
-> +		 */
-> +		regmap_clear_bits(pc->regmap, addr, GPIO_FLASH_EN(hwpwm % 8));
-> +		return;
-> +	}
-> +
-> +	mask =3D GPIO_FLASH_SETID_MASK(hwpwm % 8);
-> +	val =3D ((index & 7) << __ffs(mask)) & mask;
-> +	regmap_update_bits(pc->regmap, addr, mask, val);
-> +	regmap_set_bits(pc->regmap, addr, GPIO_FLASH_EN(hwpwm % 8));
-> +}
-> +
-> +static int airoha_pwm_config(struct airoha_pwm *pc, struct pwm_device *p=
-wm,
-> +			     u64 duty_ns, u64 period_ns)
-> +{
-> +	int index =3D -1;
-
-This initialisation isn't needed.
-
-> +	index =3D airoha_pwm_consume_generator(pc, duty_ns, period_ns,
-> +					     pwm->hwpwm);
-> +	if (index < 0)
-> +		return -EBUSY;
-> +
-> +	if (!(pc->initialized & BIT_ULL(pwm->hwpwm)) &&
-> +	    pwm->hwpwm >=3D PWM_NUM_GPIO)
-> +		airoha_pwm_sipo_init(pc);
-> +
-> +	if (index >=3D 0) {
-
-After the return above index >=3D 0 is always true.
-
-> +		airoha_pwm_calc_bucket_config(pc, index, duty_ns, period_ns);
-> +		airoha_pwm_config_flash_map(pc, pwm->hwpwm, index);
-> +	} else {
-> +		airoha_pwm_config_flash_map(pc, pwm->hwpwm, index);
-> +		airoha_pwm_release_bucket_config(pc, pwm->hwpwm);
-> +	}
-> +
-> +	pc->initialized |=3D BIT_ULL(pwm->hwpwm);
-> +
-> +	return 0;
-> +}
-> +
-> +static void airoha_pwm_disable(struct pwm_chip *chip, struct pwm_device =
-*pwm)
-> +{
-> +	struct airoha_pwm *pc =3D pwmchip_get_drvdata(chip);
-> +
-> +	/* Disable PWM and release the waveform */
-
-s/waveform/bucket/ ?
-
-> +	airoha_pwm_config_flash_map(pc, pwm->hwpwm, -1);
-> +	airoha_pwm_release_bucket_config(pc, pwm->hwpwm);
-> +
-> +	pc->initialized &=3D ~BIT_ULL(pwm->hwpwm);
-> +	if (!(pc->initialized >> PWM_NUM_GPIO))
-> +		regmap_clear_bits(pc->regmap, REG_SIPO_FLASH_MODE_CFG,
-> +				  SERIAL_GPIO_FLASH_MODE);
-> +}
-> +
-> +static int airoha_pwm_apply(struct pwm_chip *chip, struct pwm_device *pw=
-m,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct airoha_pwm *pc =3D pwmchip_get_drvdata(chip);
-> +	u64 duty =3D state->enabled ? state->duty_cycle : 0;
-> +	u64 period =3D state->period;
-> +
-> +	/* Only normal polarity is supported */
-> +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED)
-> +		return -EINVAL;
-> +
-> +	if (!state->enabled) {
-> +		airoha_pwm_disable(chip, pwm);
-> +		return 0;
-> +	}
-> +
-> +	if (period < PERIOD_MIN_NS)
-> +		return -EINVAL;
-> +
-> +	if (period > PERIOD_MAX_NS)
-> +		period =3D PERIOD_MAX_NS;
-
-If you ask me, don't check the nanosecond values, but convert them to
-ticks and check only then. That feels more natural.
-
-> +	return airoha_pwm_config(pc, pwm, duty, period);
-> +}
-> +
-> +static int airoha_pwm_get_state(struct pwm_chip *chip, struct pwm_device=
- *pwm,
-> +				struct pwm_state *state)
-> +{
-> +	struct airoha_pwm *pc =3D pwmchip_get_drvdata(chip);
-> +	int i;
-> +
-> +	/* find hwpwm in waveform generator bucket */
-> +	for (i =3D 0; i < ARRAY_SIZE(pc->bucket); i++) {
-> +		if (pc->bucket[i].used & BIT_ULL(pwm->hwpwm)) {
-> +			state->enabled =3D pc->initialized & BIT_ULL(pwm->hwpwm);
-> +			state->polarity =3D PWM_POLARITY_NORMAL;
-> +			state->period =3D pc->bucket[i].period_ns;
-> +			state->duty_cycle =3D pc->bucket[i].duty_ns;
-> +			break;
-> +		}
-> +	}
-
-Is it worth to maintain the information about index of the used bucket
-for a given pwm_device in airoha_pwm to save a few loops?
-
-> +	if (i =3D=3D ARRAY_SIZE(pc->bucket))
-> +		state->enabled =3D false;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops airoha_pwm_ops =3D {
-> +	.get_state =3D airoha_pwm_get_state,
-> +	.apply =3D airoha_pwm_apply,
-
-I'm a big fan of consistency, so you can make me a bit more happy if you
-define airoha_pwm_get_state() before airoha_pwm_apply() or switch the
-order here. (The latter is slightly preferred as this matches the order
-of their definition in struct pwm_ops.)
-
-> +};
-> +
-> +static int airoha_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct airoha_pwm *pc;
-> +	struct pwm_chip *chip;
-> +
-> +	chip =3D devm_pwmchip_alloc(dev, PWM_NUM_GPIO + PWM_NUM_SIPO,
-> +				  sizeof(*pc));
-> +	if (IS_ERR(chip))
-> +		return PTR_ERR(chip);
-> +
-> +	chip->ops =3D &airoha_pwm_ops;
-> +	pc =3D pwmchip_get_drvdata(chip);
-> +	pc->np =3D dev->of_node;
-
-=2Enp is a write only struct member and so can be dropped.
-
-> +
-> +	pc->regmap =3D device_node_to_regmap(dev->parent->of_node);
-> +	if (IS_ERR(pc->regmap))
-> +		return PTR_ERR(pc->regmap);
-> +
-> +	return devm_pwmchip_add(&pdev->dev, chip);
-
-Please add error messages to .probe() using dev_err_probe().
-
-> +}
-
-Best regards
-Uwe
-
---zrrgadsxh7nw5d7s
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmch4PYACgkQj4D7WH0S
-/k7LbAf9Fo37Np82ysJ0fxX1NWb/5j2EmlCbY9Z3gbto0DZ7lEu0U8zlhXFtSjV9
-Y3da4yz/a0Sz0lTUE3CIsjs4O/ipnIII7cILDB7phRlZhjNt+YxOeRUdX3A6yZdG
-RN01b19OdC214Sa2zk+or4Kvfutw+bz+ZaOVKZJ+D7l+y0TWGsKCmg4a9zspo6kh
-wfucvuCo8ZBpeWVlJDy6FDSqqylmASlWu1t54LIpUdQowI2M8NwmUvpR6N5azlsO
-wycrSRPbptc1MYx3jTGjPxkJTHqZc1zOJFxucvHiU8zLl+v0qMmOkf6bhgPh0AKT
-SBfBCwKSLbGcD3L8IlVlOTwFCoKfBw==
-=hKzh
------END PGP SIGNATURE-----
-
---zrrgadsxh7nw5d7s--
 
