@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E032D5CCA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF4BD5CCA8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 12:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEGSTrpN+iMtwXkQVwK3QYVbYkCWhZ2oikXxGrF/JAQ=; b=gYs+8G29bj0fAHiMmWI+wGf8xw
-	X6u/E2tU9eufGYZ469bOzAW5oijIGYIi5S9LE0EmRtvCFrhZdy+sFan1etHz/syDByql0oKjDPiKU
-	fbTxroqKDHVQ0Pa0JpjNpyYeA9VevEbNxaOTDNYPdVf4J3fV2C7vQBrBSOt34FZoOIwUNxuegl3su
-	9je6uI1ePcpY5RDNNfac3FGattRjSXKnoICOeNai4dumRxONoZevr/Zoc9nAmqhvnH0kA8Wo1Ilvf
-	6DwagHaQjUH1XI/WEZrC728v9MA3rbyVW34WIfrG8BD0CcvjVyn6yxPFYi25GSklax8LajZHxBx9e
-	XUGW6VAg==;
+	bh=6qPk2B8mwKY/gFGvOPi2nZZgxhNuR/ffuLFd2QK/XAE=; b=FnjCkWgUz77gv9su3q4RdvbfDQ
+	Rzp2AA0CQ0hEyifQrvMYDQbZ3EaS5bYZMED8RMgh1G6PdAyjWSX944KdckD2+a25B9YgyY6OXZrwS
+	QjBOwJZqtEXYG6CxYRHEQ6YbxGWOgWt/f0SiL5oFNuKf26636S+LK5ybs/nCJDZ6xVd0yTF+BJOxL
+	chYWNs1BEjdUKcouXObY7cIsbl54BLxxv+IVBVdpIaKfMEGYqVe9QYyXU+3T4k2iChX6xmOAO5RI4
+	pMu9keKU7XTGUE3wCr+2YzpX42gbiFB/vQCa2eN2cZ3gsGHEh+EXgW0iIjeQINcQcbUP2feM9iouA
+	77WiVOYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t680t-00000000LvS-2ACG;
-	Wed, 30 Oct 2024 12:41:27 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67xn-00000000LWY-2sim
+	id 1t685h-00000000Ml4-1nPi;
+	Wed, 30 Oct 2024 12:46:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6842-00000000MP9-2bxh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 12:38:17 +0000
-Received: from 8bytes.org (p549219d2.dip0.t-ipconnect.de [84.146.25.210])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 198532A83AF;
-	Wed, 30 Oct 2024 13:38:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1730291893;
-	bh=J7nmzRywj0qaO/1WPiCgBt1ut1D+D819BCVlsTvDaw8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Da0ZS4pWlvbjgdzVD+fdk8Jzd/jG1ijiGPVkptR5cSluYwQ3JTkOqLI4YvaPI2weg
-	 D0hPr37s26QLkDzN+GaObVj5QgjnldMcaKj+8wamC1UCOcSpDYLxZARhb67DxO7sPE
-	 1/JxKf89DReDfxm/Zg/ccTAR/+92MHey6IDPKX2qjJts9WZZul9wkKmITAmc5HfBpd
-	 rDGHBeXeqeGJAzLgr3I7VdBfEgNdNzjMHi3I5zFOnLSUWIpZX1rsHD5vXUhpUwcaBs
-	 dT3ywAnZM9T7FeymcLPcixf3mpaG+cnx2bNEZpynXwmGeN8OyheysJ4J3CZm2Opwum
-	 ncCrvoMn1T87g==
-Date: Wed, 30 Oct 2024 13:38:11 +0100
-From: Joerg Roedel <joro@8bytes.org>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	mchehab@kernel.org, andersson@kernel.org,
-	mathieu.poirier@linaro.org, Beleswar Padhi <b-padhi@ti.com>,
-	Andreas Kemnade <andreas@kemnade.info>, iommu@lists.linux.dev,
-	arm-soc <linux-arm-kernel@lists.infradead.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	linux-media@vger.kernel.org, linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH 0/4] Fix omap-iommu bitrot
-Message-ID: <ZyIos2Gm1nf5rejI@8bytes.org>
-References: <cover.1730136799.git.robin.murphy@arm.com>
- <ZyIClriScBy4s6LX@8bytes.org>
- <515D7932-3939-4C3E-BA3E-CC3152E64749@goldelico.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <515D7932-3939-4C3E-BA3E-CC3152E64749@goldelico.com>
+	Wed, 30 Oct 2024 12:44:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D7FB15C5807;
+	Wed, 30 Oct 2024 12:43:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84078C4CEE3;
+	Wed, 30 Oct 2024 12:44:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730292281;
+	bh=H++HmjKhebRVlkZRER4SxkpjW88SChOmMzndhY5L/0c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gknwLCtlhLnlXcVLYVnDtLlIhsEf0wPARZxOPwtwk85boWzajhf7BTjlbi4Q5Yc9I
+	 YoX3pFZC8DDUvXAEp6YJUA3eO2TYAfF8GLERArTGDvm8NZaSqn2gU7zqGVpcF9lCjQ
+	 vfEMPZWIukGVxRJpExzaue6W8gS94I7AbcO5ZC1ifGFIdTH7VepE5TvmsveAM/Qxof
+	 pRFmregQiI4OVlGMVRaEsXPWVEHb4iOydbS71amkgEutZQoTJnt5YqC2/GsU43a2v9
+	 qifg32sVM2et671WD8qlFX07qWFQ/zwiAQNDnrjcr5rgRNDDlUtU+u2mDHeZV3qB87
+	 4hm8V0J386vlw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t683z-008Fqw-8b;
+	Wed, 30 Oct 2024 12:44:39 +0000
+Date: Wed, 30 Oct 2024 12:44:38 +0000
+Message-ID: <861pzx3gll.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: [RFC PATCH 7/8] arm64/mm: Use reduced VA sizes (36/39/42 bits) only for user space
+In-Reply-To: <20241030101803.2037606-17-ardb+git@google.com>
+References: <20241030101803.2037606-10-ardb+git@google.com>
+	<20241030101803.2037606-17-ardb+git@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ardb+git@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, ardb@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, keescook@chromium.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_053815_979863_6C273B85 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20241030_054442_728321_F4A08D73 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 12:20:31PM +0100, H. Nikolaus Schaller wrote:
-> Why that? There was a discussion and everyone agreed to remove omap2,
-> but not omap3 and later.
-
-I raised this question to make sure the things we maintain are still
-relevant. Developer and maintainers time is limited and we should not
-spend it on stuff that nobody uses.
-
-> There are some devices besides the PandaBoard. I am aware of these where
-> this is relevant: Epson BT200, Samsung Galaxy Tab 2, Pyra Handheld
-> (in production) and we are currently thinking about producing a tiny series
-> of the DM3730 based GTA04A5 with spare parts.
+On Wed, 30 Oct 2024 10:18:11 +0000,
+Ard Biesheuvel <ardb+git@google.com> wrote:
 > 
-> And of course we want to participate from the latest and greatest upstream changes.
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The advantage of a reduced virtual address space size is its impact on
+> the number of translation levels, which affects TLB pressure. The
+> working set of translations covering the kernel side is negligible
+> compared to user space, where each process has its own set of page
+> tables, and so most of the same benefit can be obtained by reducing the
+> VA size only for user space.
+> 
+> As a preparatory step towards implementing this, drop all the reduced VA
+> space sizes in Kconfig, and replace it with a configurable userland VA
+> space size that is reflected in TASK_SIZE. This will be taken advantage
+> of in a subsequent patch to actually reduce the number of translations
+> used by the MMU for translating user space virtual addresses.
 
-Okay, if there are still real users for latest mainline kernels on this
-hardware, then the effort is justified.
+I think this may have an impact on KVM's walking of the userspace page
+tables to determine whether we are trying to install a block mapping,
+which assumes that the start level and the number of VA bits are the
+same as the kernel (see get_user_mapping_size()).
 
-Regards,
+Probably nothing too complicated, but something to look into.
 
-	Joerg
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
