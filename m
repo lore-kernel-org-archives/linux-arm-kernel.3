@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5517CD6B6B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 17:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DFBD6B6B7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 17:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJvO6m6VfJq7jLiXQGCAJ+rgJ6VzC5FKvl/I4BvuxQc=; b=h9oZEi2Nh3hJ6Ds+luv2q9kr1j
-	pCiezT0Cr7c86nmFkLyBWoYrM92SZiexrLUEXevsJcP9UfgXyHxHZjzwd+GhMJKBGKEJUwJHTdjah
-	S04SNpe7W8nISbYUQEIizp5NgR16Cnh+zNYDWb2+SpVLEQSjGLcbvxYhDFhZ2mK8xWgBRuJa9WE5x
-	eqgs/4BGK9ZwF/t/RgK7K6YprLchOMQrrkFyjz2rklhR5Sn8kjxhpSsNhM3aF19em21d57YXiS5pA
-	tPUlUmeOtxqLs0qPiZ4OCghNz+0XyoYNu6pXl00FHwxK3//y6HbYdqqh88AZr9qEK77AFGTfs7z4i
-	iUvUCvAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qr685FyY23v068XsVaeWaoBAPQAIxLMw4ZAGV7hVQrg=; b=HpTfPfXrGEdxGQM3CLUANseD/1
+	gNFx+0hSvUmLkZau3VQXnnDyU8lVxVCdVD4/AOALpDE3OrtQ3BicQS8ovHVUSopL69R+T2mSt8+Xt
+	mnNp6t0qgZgCikvUyGnVMIiPvi6W1ks6APOuQc5H7MKVDrxaob3FgPfrT+66ei9uKxWSC1XQMKf9U
+	1PlAREohsZ/Kan45EqyEDRyXGRIEALOWJH8KwL5MBtEnN1vNoW68cVwIaXYkO+KXdQ/H52HUzmyOY
+	/lpApkDRa1cgRhDsRK4/+nPrbdA/lt9p+ju0QxkY3COcxOxyWfcToOyCy6cIR87Umi4onGI1u/Skz
+	W5g1zuRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6CIj-00000001EQI-1Qf7;
-	Wed, 30 Oct 2024 17:16:09 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1t6CLe-00000001Fdf-3x6Z;
+	Wed, 30 Oct 2024 17:19:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6CDl-00000001D1i-23c5
+	id 1t6CJy-00000001Esz-3V9U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 17:11:04 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2fb51e00c05so256111fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 10:11:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730308259; x=1730913059; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pJvO6m6VfJq7jLiXQGCAJ+rgJ6VzC5FKvl/I4BvuxQc=;
-        b=SFvu5Dw7LbAZRBRrqT1yRTEe58tVkAQB4M+aqCXA3ahA9LslY3fvBn8x2AtQItEjZw
-         gW8kvh96mmHsZnFmp60kOEhs2jiVhnnSrRZm6g+ZvpNdlOZzA40Up35kMzGvt90DAMna
-         U0qqYSGqxeZyFBQEY1JGQ2T1zbZaZmJIQQZcijUIIORsCEOOM9czsna1n7bTs8/pErFz
-         oyztYaSc75gfuKQ18p63xw4XAe1dwIV3U1eKqS1pT3p6Qa85I3yDx0e5brdq5I9266Hy
-         BV+VpV/WZxOmFgC+fAdf69YvJ8bKRoaey8sIQoxDsf3YKrcyUDr4XT19UhsYCZNYwPS7
-         IrNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730308259; x=1730913059;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pJvO6m6VfJq7jLiXQGCAJ+rgJ6VzC5FKvl/I4BvuxQc=;
-        b=fh3H/441+cRm0VemT4x/W4XgBdMIuxbbSOm7TEUgP3oFgWmZ3kslA7VWQFAeEW8LpS
-         aoLjDFqkNS2PiAdVPBZ5qa9az6g/9a2UQTepoMCd7DfIDbVuYWw43Te3kRmp2FNgs9jQ
-         kUYuYp4hP4cZPCsrjZ4LqUbk5pXiM9tTpjSch1q9sV/3H+i7w3+0a1Dlw4XAhMO2Dy70
-         30UhirL/oSpcaALNlp78iAzWj7/Ln2tRu9CaWiAotZa9fUVFWpAaobbLFSOAxQFS4Twu
-         /6foX633nCTd9wiuHicAUy9m+iWhyN3AeE7a2yVgl2ZgS0b0dh/JzIGdbZS9bR2NGrUz
-         nDUA==
-X-Gm-Message-State: AOJu0Yxos5UsEp6WAgLUJA6XQ4kcEeaFVtJEiguduGRCwOY09nljMhaC
-	0wbjYB9qFAr5zhzIrqNIlXg7BrbHM/QJ3i9t3a9YcHWYyP5bWOhhxFBqgg==
-X-Google-Smtp-Source: AGHT+IE9t0eBimyH7UiH84hK6DgH1SFcaijILVkX0wzzcYM83S6LqN3c4d1isUuteAfU8x3BfYI/tg==
-X-Received: by 2002:a05:651c:514:b0:2fb:5206:1675 with SMTP id 38308e7fff4ca-2fcbdff1ffdmr135616061fa.27.1730308258955;
-        Wed, 30 Oct 2024 10:10:58 -0700 (PDT)
-Received: from [127.0.1.1] (2a02-8389-41cf-e200-fbf3-0656-23c1-5ba1.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:fbf3:656:23c1:5ba1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9a9faesm26828985e9.35.2024.10.30.10.10.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 10:10:58 -0700 (PDT)
-From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
-Date: Wed, 30 Oct 2024 18:10:45 +0100
-Subject: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
- device_node in atmel_soc_device_init()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
-References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
-In-Reply-To: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Javier Carrasco <javier.carrasco.cruz@gmail.com>
-X-Mailer: b4 0.14-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730308255; l=989;
- i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
- bh=OndDXqKtEJ3cA9GTwb1q2oE8eowa7SIjG7xCrUy6/yc=;
- b=4PSAgRDXw7LxIptekOdlnHv1UbgiZ5LgxiPU3wDfeyUAV/VockQb3gdRTkZabAt/nKdictWHL
- ZmQj0gg9UejBJkOLxrq5kpZ/MLBrGlreE1U+n05iRMIZ+vjHKy76MjC
-X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
- pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
+	Wed, 30 Oct 2024 17:17:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA3475C4963;
+	Wed, 30 Oct 2024 17:16:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C97C4CECE;
+	Wed, 30 Oct 2024 17:17:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730308645;
+	bh=R0lo9oWGVBLN0YXsMNqJOsG7ZWORWoqF08fNhhQfIGs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GjEHV8hEc8KHnMa/pGa3h/xakH8Pv+dc1H9VSd+iTVBm61SjjJrHcCN/DyDuci4J7
+	 fCrK75OPZCwDRmaicsOSD43NmHE/wS20kdldoQ3w8Mj/n2OSt/4x2gMFjgjgreIdaC
+	 vl09obqk9MRFLS10KAf2a3vTCWzCuaWT4fYCm50iKlVx0ZY6gNW8ZC3nIoN2GYJz+m
+	 yVkjjUk9zXt5aZpD+/dvF7ZeQeQUrQRLUVJBHbSgyM5w306u/hrc+u+tjyWJ9zk4sR
+	 BF85UqcAc6Eb/siuw3Cr3pz+bVoSigpGVTxCdSIklnXn/bDBkESJ8PQMSqI3CUr3UE
+	 C2Qq7aYb1Iqcw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t6CJv-008LDX-Dr;
+	Wed, 30 Oct 2024 17:17:23 +0000
+Date: Wed, 30 Oct 2024 17:17:23 +0000
+Message-ID: <86wmhp1pek.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	stable@vger.kernel.org,
+	syzbot <syzkaller@googlegroups.com>
+Subject: Re: [PATCH v2] KVM: arm64: Get rid of userspace_irqchip_in_use
+In-Reply-To: <CAJHc60w7edpTSG2VA52m96BP6Eayg2jEc=9nt_b_kJFnOoQxfw@mail.gmail.com>
+References: <20241028234533.942542-1-rananta@google.com>
+	<868qu63mdo.wl-maz@kernel.org>
+	<CAJHc60x3sGdi2_mg_9uxecPYwZMBR11m1oEKPEH4RTYaF8eHdQ@mail.gmail.com>
+	<865xpa3fwe.wl-maz@kernel.org>
+	<CAJHc60xQNeTwSBuPhrKO_JBuikqZ7R=BM5rkWht3YwieVXwkHg@mail.gmail.com>
+	<87iktat2y8.wl-maz@kernel.org>
+	<CAJHc60w7edpTSG2VA52m96BP6Eayg2jEc=9nt_b_kJFnOoQxfw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, stable@vger.kernel.org, syzkaller@googlegroups.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_101101_565203_EDFBEBF6 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20241030_101726_986432_4819F5C4 
+X-CRM114-Status: GOOD (  33.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +95,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to a more robust approach to automatically release the node when
-it goes out of scope, dropping the need for explicit calls to
-of_node_put().
+On Wed, 30 Oct 2024 16:36:19 +0000,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+>=20
+> On Wed, Oct 30, 2024 at 1:22=E2=80=AFAM Marc Zyngier <maz@kernel.org> wro=
+te:
+> >
+> > On Wed, 30 Oct 2024 00:16:48 +0000,
+> > Raghavendra Rao Ananta <rananta@google.com> wrote:
+> > >
+> > > On Tue, Oct 29, 2024 at 11:47=E2=80=AFAM Marc Zyngier <maz@kernel.org=
+> wrote:
+> > > >
+> > > > On Tue, 29 Oct 2024 17:06:09 +0000,
+> > > > Raghavendra Rao Ananta <rananta@google.com> wrote:
+> > > > >
+> > > > > On Tue, Oct 29, 2024 at 9:27=E2=80=AFAM Marc Zyngier <maz@kernel.=
+org> wrote:
+> > > > > >
+> > > > > > On Mon, 28 Oct 2024 23:45:33 +0000,
+> > > > > > Raghavendra Rao Ananta <rananta@google.com> wrote:
+> > > > > > >
+> > > > > > Did you have a chance to check whether this had any negative im=
+pact on
+> > > > > > actual workloads? Since the entry/exit code is a bit of a hot s=
+pot,
+> > > > > > I'd like to make sure we're not penalising the common case (I o=
+nly
+> > > > > > wrote this patch while waiting in an airport, and didn't test i=
+t at
+> > > > > > all).
+> > > > > >
+> > > > > I ran the kvm selftests, kvm-unit-tests and booted a linux guest =
+to
+> > > > > test the change and noticed no failures.
+> > > > > Any specific test you want to try out?
+> > > >
+> > > > My question is not about failures (I didn't expect any), but
+> > > > specifically about *performance*, and whether checking the flag
+> > > > without a static key can lead to any performance drop on the hot pa=
+th.
+> > > >
+> > > > Can you please run an exit-heavy workload (such as hackbench, for
+> > > > example), and report any significant delta you could measure?
+> > >
+> > > Oh, I see. I ran hackbench and micro-bench from kvm-unit-tests (which
+> > > also causes a lot of entry/exits), on Ampere Altra with kernel at
+> > > v6.12-rc1, and see no significant difference in perf.
+> >
+> > Thanks for running this stuff.
+> >
+> > > timer_10ms                          231040.0                         =
+ 902.0
+> > > timer_10ms                         234120.0                          =
+  914.0
+> >
+> > This seems to be the only case were we are adversely affected by this
+> > change.
+> Hmm, I'm not sure how much we want to trust this comparison. For
+> instance, I just ran micro-bench again a few more times and here are
+> the outcomes of timer_10ms for each try with the patch:
+>=20
+> Tries                                             total ns
+>                avg ns
+> -------------------------------------------------------------------------=
+----------
+> 1_timer_10ms                             231840.0                        =
+  905.0
+> 2_timer_10ms                             234560.0                        =
+  916.0
+> 3_timer_10ms                             227440.0                        =
+  888.0
+> 4_timer_10ms                             236640.0                        =
+  924.0
+> 5_timer_10ms                             231200.0                        =
+  903.0
+>=20
+> Here's a few on the baseline:
+>=20
+> Tries                                             total ns
+>                avg ns
+> -------------------------------------------------------------------------=
+----------
+> 1_timer_10ms                             231080.0                        =
+  902.0
+> 2_timer_10ms                             238040.0                        =
+  929.0
+> 3_timer_10ms                             231680.0                        =
+  905.0
+> 4_timer_10ms                             229280.0                        =
+  895.0
+> 5_timer_10ms                             228520.0                        =
+  892.0
 
-Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
----
- drivers/soc/atmel/soc.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+OK, so this benchmark is all over the place, and we can't derive
+much from it.
 
-diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
-index 64b1ad063073..298b542dd1c0 100644
---- a/drivers/soc/atmel/soc.c
-+++ b/drivers/soc/atmel/soc.c
-@@ -399,15 +399,12 @@ static const struct of_device_id at91_soc_allowed_list[] __initconst = {
- 
- static int __init atmel_soc_device_init(void)
- {
--	struct device_node *np = of_find_node_by_path("/");
-+	struct device_node *np __free(device_node) = of_find_node_by_path("/");
- 
--	if (!of_match_node(at91_soc_allowed_list, np)) {
--		of_node_put(np);
-+	if (!of_match_node(at91_soc_allowed_list, np))
- 		return 0;
--	}
- 
- 	at91_soc_init(socs);
--	of_node_put(np);
- 
- 	return 0;
- }
+> > In the grand scheme of thins, that's noise. But this gives us
+> > a clear line of sight for the removal of the in-kernel interrupts back
+> > to userspace.
+> Sorry, I didn't follow you completely on this part.
 
--- 
-2.43.0
+Just me moaning. The code that was gated by the static key that you
+just removed is used to signal interrupts from the kernel back to
+userspace, and I'm resisting the urge to remove it altogether now.
 
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
