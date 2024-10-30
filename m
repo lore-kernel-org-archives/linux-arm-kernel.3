@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFA9D5CC9C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175A7D5CCA0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=; b=HEjWCbKD68BOzi/qMclxlFsAsz
-	YgM+rTZ/s+rWrFIvpWMe+mX9zzykEhuRQNmGL5w6ixR9/tQpTHN2SwYiZbcuhyCGjnky09zRhWhfj
-	sO+cWz18CE4JdIEAPR0P5JnZl1wHWi7cfkHDKDxFbCmoDJEBWpsiDQ69JL1L4f1cATl+Gr4lIkEUP
-	B1ECarH5XGOj0Ag6MlQ3rJq4eTagOJvuJN7fGIR+0zFFs79Im3fHVfavzs7Tlwj4wG4KSoC5jImAH
-	PCmmOCMeS/ADDLrEBL0glZfemYUnheuShLIjYYtl6no6bWEL7TWE+RJUQeyElSVa4KuRN2xtAiWZz
-	/NxYm7RQ==;
+	bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=; b=vY4PBSePbKE1hdKWzGKIutEFE8
+	Sdg+CgDqElalm7B9TAgYxY5blcWvTfDmrsMygCwCmXrvt4F6HBjtc41qr46Sl/KP/H2IVfBSqyZTb
+	0WRWiOKu4aQVJaUvI88YOkLNvki+t5cVN4PmMbK9X7qm4w44LC+IoviFZzfRnLQEaO3z5ZdNb/CTU
+	/1S0kQ6waN0v631k3o4d29r2n9rMJnZdyRMbun8qaGXGhMquTHt+4VY8DQddFVZrFebNHeGyz7ySn
+	oGUBKVmmchJp0F2+Wegt6PjD/nF2Q+/50aFnwc0aU0rSUApkXrNEGn0pwsN/mLn1CSINSJbFo1T1i
+	9ctMDJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t67F3-00000000DmS-3olS;
-	Wed, 30 Oct 2024 11:52:01 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1t67Gk-00000000EEK-14Ir;
+	Wed, 30 Oct 2024 11:53:46 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t673E-00000000Ark-2oQ4;
-	Wed, 30 Oct 2024 11:39:59 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1730288386;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=;
-	b=rhEg0d1z87PUbjnSMEsHa2ZTMjm4V7As2oyILf5i4K2VK/32cI0L1o8550RHGdp6sqGjh3
-	ErfD1VAW2o++iRalLhw8wi1ciSvnXToQPU/7Dqz5Wlnc51fuF7yZtMempbYTt2HzLBGqx0
-	Y9YSzHbUO+IR24Yjq+Ny338RBqa0jzNLUw2m9Vrr52kzfVeGJB4+uj1JaJRYCIo3DE6Lly
-	bobxafA+CuOfJYFL3jZUIAtXVESnMTctTppzVthR6fn1ijnvzGIvSfDwZ8yFMWE8zMh75v
-	CjtAzrsY5JQC46+IYsUu5faYS3U6XCuR8hSr6G0+pno9IQ0T9vFbLX0np3OHDQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1730288386;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VeIG/ZcqI3p+nLl4RvpoP3/dtuBOLvCoB03RCodl0P0=;
-	b=Sf9t6VjHntegt94+/ZST48Lk206fyTt9ZFie/7zblKXgaCtLwerDU5H5dAAiGuPUAe0Y5b
-	9F1eFOTF9JGc5hBw==
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Guo
- Ren
- <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Russell
- King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, WANG
- Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>, "Jason A.
- Donenfeld" <Jason@zx2c4.com>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, Thomas
- =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Nam Cao
- <namcao@linutronix.de>
-Subject: Re: [PATCH 00/28] vdso: Preparations for generic data storage
-In-Reply-To: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
-References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
-Date: Wed, 30 Oct 2024 12:39:45 +0100
-Message-ID: <871pzxzuny.ffs@tglx>
+	id 1t678Z-00000000C9r-18Ph
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Oct 2024 11:45:20 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-431548bd1b4so60221395e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:45:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730288717; x=1730893517; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=;
+        b=I3DVCwUmLe0CdaqFiMyqv/zqyvE5yvMmSkDaoBd7r7mjs70E5ZjxNTC8o4AtcwVS0E
+         f64tog9NUAHiNy93wcRdWs1cjoAzyjjzlV7wJdXTnValspKqIoTItOmO71Ur3hYch7rD
+         p7OM1AHJRSw0U8SbnPIzb0HnJvnR7IrHki2Ci3lDnfWxfwz5bQhI3hSsTVv3dEgJNCJk
+         RhlhpYVR+O5l/2FW0xPtCFbrI3LiqlOeh+S54mxI8h8CcKQwigt0C89VxtRgHuK/8E0B
+         +XvtGmUTZ6n3T7foANMqAdc3RMgXpWTZgW01rllDNUG/MccoUBauWZV030lJrKx1SqKn
+         ZQvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730288717; x=1730893517;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hRTlMMdulNS4t7Utn/teiYYlIAHmyGJd+rw2+dNOPT8=;
+        b=Fbk5ER2RqWUAfyTLLU7c0XF09sKx7YRB6geG/sxmE94sobPRjQee7XdFEeF31Tg2MS
+         l/UFFU6Lain4m2Jq6XZWqsDXJQT6uo/rbnzIuYqqzFmSu/5klVqMb5PU71o9Tqpc8zgf
+         r22uq1il0g4IYQiXLHSsGW1p0wDeoIMJ9yKM0NaHNCGihPUKEqwDKmMnOjMwSC3SWXBM
+         ww5VZIjYUVlu/YbSbIM815Zn0Yfvd5+H73n2U/XotB0Cz6PjrozItFcU3dANQtvaom2R
+         b1KKvwTb9kgf8YRDXgvf5+2AcLl0fGimjfZVItB3pYyOQor9ydVN00+cEB125mDoFAQO
+         t9Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCXwo+C6KGCE4dTBk6uiMgS5NWwDY/btVwOM4KHxuG7AzNxXnRx2/i4+yRtmVNFeper9eQxifmC8Za9BA/AILePw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI8AOhUFUepuQ4czX9OhRioYPkoCNL7qIkK8MIGmfA1J2EQT/7
+	1/Y8YY1c5JZ1BjofZPIQKR+LWdvuG6LeilfuDQrDIFZiO7SsAt8NlCHPHMyUGfM=
+X-Google-Smtp-Source: AGHT+IFhRIh+9dGeOayOm15oZMXod/rBU6ExE23pj44w94j9FntXD8S6utlDgPeArlr6epPz1dO7fQ==
+X-Received: by 2002:a05:600c:35d3:b0:42c:c401:6d8b with SMTP id 5b1f17b1804b1-4319ac7832dmr132578255e9.7.1730288717449;
+        Wed, 30 Oct 2024 04:45:17 -0700 (PDT)
+Received: from [192.168.0.157] ([79.115.63.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd97d5edsm19091545e9.26.2024.10.30.04.45.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2024 04:45:17 -0700 (PDT)
+Message-ID: <f9cb758d-28a5-44bd-9cb5-d7ac5108db1b@linaro.org>
+Date: Wed, 30 Oct 2024 11:45:15 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/11] scsi: ufs: exynos: set ACG to be controlled by
+ UFS_ACG_DISABLE
+To: Peter Griffin <peter.griffin@linaro.org>, alim.akhtar@samsung.com,
+ James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+ avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org
+Cc: andre.draszik@linaro.org, kernel-team@android.com,
+ willmcvicker@google.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ ebiggers@kernel.org
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-10-peter.griffin@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241025131442.112862-10-peter.griffin@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_043948_900220_D570B883 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20241030_044519_356870_162AC171 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +101,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Folks!
 
-On Thu, Oct 10 2024 at 09:01, Thomas Wei=C3=9Fschuh wrote:
-> Historically each architecture defined their own datapage to store the
-> VDSO data. This stands in contrast to the generic nature of the VDSO
-> code itself.
-> We plan to introduce a generic framework for the management of the VDSO
-> data storage that can be used by all architectures and which works
-> together with the existing generic VDSO code.
->
-> Before that is possible align the different architectures by
-> standardizing on the existing generic infrastructure and moving things
-> out of the VDSO data page which does not belong there.
->
-> Patches	 1- 2:	csky
-> Patch	    3:	s390
-> Patches	 4- 5:	arm64
-> Patch	    6:	riscv
-> Patch	    7:	arm
-> Patch	    8:	LoongArch
-> Patch	    9:	MIPS
-> Patches 10-20:	x86
-> Patches 21-27:	powerpc
-> Patch      28: 	Renamings to avoid a name clash with the new code.
 
-As this has been sitting for two weeks now without major comments, I'm
-planning to merge that through the tip tree tomorrow.
+On 10/25/24 2:14 PM, Peter Griffin wrote:
+> HCI_IOP_ACG_DISABLE is an undocumented register in the TRM but the
+> downstream driver sets this register so we follow suit here.
+> 
+> The register is already 0 presumed to be set by the bootloader as
+> the comment downstream implies the reset state is 1. So whilst this
+> is a nop currently, it should help with suspend/resume.
 
-Thanks,
+It should help in case the bootloader changes I assume. I see
+gs101_ufs_drv_init() gets called only at probe time, via
+ufshcd_pltfrm_init().
 
-        tglx
+> 
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+
+> ---
+>  drivers/ufs/host/ufs-exynos.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+> index b0cbb147c7a1..fa4e61f152c4 100644
+> --- a/drivers/ufs/host/ufs-exynos.c
+> +++ b/drivers/ufs/host/ufs-exynos.c
+> @@ -76,6 +76,10 @@
+>  #define CLK_CTRL_EN_MASK	(REFCLK_CTRL_EN |\
+>  				 UNIPRO_PCLK_CTRL_EN |\
+>  				 UNIPRO_MCLK_CTRL_EN)
+> +
+> +#define HCI_IOP_ACG_DISABLE	0x100
+> +#define HCI_IOP_ACG_DISABLE_EN	BIT(0)
+> +
+>  /* Device fatal error */
+>  #define DFES_ERR_EN		BIT(31)
+>  #define DFES_DEF_L2_ERRS	(UIC_DATA_LINK_LAYER_ERROR_RX_BUF_OF |\
+> @@ -220,10 +224,15 @@ static int exynos_ufs_shareability(struct exynos_ufs *ufs)
+>  static int gs101_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
+>  {
+>  	struct ufs_hba *hba = ufs->hba;
+> +	u32 reg;
+>  
+>  	/* Enable WriteBooster */
+>  	hba->caps |= UFSHCD_CAP_WB_EN;
+>  
+> +	/* set ACG to be controlled by UFS_ACG_DISABLE */
+> +	reg = hci_readl(ufs, HCI_IOP_ACG_DISABLE);
+> +	hci_writel(ufs, reg & (~HCI_IOP_ACG_DISABLE_EN), HCI_IOP_ACG_DISABLE);
+> +
+>  	return exynos_ufs_shareability(ufs);
+>  }
+>  
 
