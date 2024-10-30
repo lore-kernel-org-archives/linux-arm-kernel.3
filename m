@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96785D5CC93
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79FFAD5CC94
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSHpbM2Z1HYlPFgEFRspbMk/VvL1t/dwky1104jIunE=; b=FPfgRKnMvPCwSIDlm1pVYwCQ2o
-	9J0jkJj8KXHWPCwm6Nigjt6UaiyrjVLWTajZo2kZJvXktUnIEIlH4iQYkiVm0SzziuOx3AhISdsiE
-	NAVSAEs/3V/Amm0PqS0S90SZOIMN78b79FNM0LdY0NEaXDQLvVVw0us+IGcFDApP/8nPHL9lcNjHM
-	gT/0hf/GazNr8oaB4JnyT3NawJV3f7Aoo1vl32YWQcXbLBtO2aQoElR32Um/NjFK6gVq+mb0uuSe4
-	PZFT1Q0d5V3G2Z5Xga2uaGde667yyI0wist3wYp1jC7txX8iyKy5NFVr8YlOwwYSV+CLG8LfuNhC9
-	i3uqE9Cg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4nneJZ/tkv5Wps64EEwbucC9EgRrZX1VyDoag3u69ow=; b=BHd0JzJ8et4I90nk50+wDrbh9s
+	v2VjZ67mlGkuPeovy8YwY1OYwG/vZ0t4HWm3cDmRpSGx7qCHzPb2ZmnyBX/282ScZhLbtrcRDrJVu
+	kTmscWy5/L/hnnaNWzyEbGO/byXn6N4ir6KYqwEm1N6llORGKwOFkQWQN3UgX7oRrE1ubteF4FcER
+	PTUiabwGZA9kIYZy9Zejkr8Bc9cT+eKoVr2hlCuQv6KF6yPjm3igRSbECRkLuuvQQq+2hPo/G/1fy
+	nPWC+eoLs5miwM9yHfPhT+CSsxkouKdBAs5vTPi7PqG0FZrSMvVvksgc7SUIEsWPTMM3E7ugmHctL
+	TrCaS/IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66Te-0000000040K-1Kkt;
-	Wed, 30 Oct 2024 11:03:02 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1t66VI-000000004TU-34nN;
+	Wed, 30 Oct 2024 11:04:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66Eg-000000000Ol-1XOz
+	id 1t66LM-000000001gy-3mKQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 10:47:35 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Wed, 30 Oct
- 2024 18:47:18 +0800
-Received: from aspeedtech.com (192.168.10.152) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
- Transport; Wed, 30 Oct 2024 18:47:18 +0800
-From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-To: <patrick@stwcx.xyz>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<wim@linux-watchdog.org>, <linux@roeck-us.net>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <linux-watchdog@vger.kernel.org>
-CC: <Peter.Yin@quantatw.com>, <Patrick_NC_Lin@wiwynn.com>,
-	<Bonnie_Lo@wiwynn.com>, <DELPHINE_CHIU@wiwynn.com>, <bmc-sw@aspeedtech.com>,
-	<chnguyen@amperecomputing.com>
-Subject: [PATCH v3 2/2] watchdog: aspeed: Add support for SW restart
-Date: Wed, 30 Oct 2024 18:47:17 +0800
-Message-ID: <20241030104717.168324-3-chin-ting_kuo@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241030104717.168324-1-chin-ting_kuo@aspeedtech.com>
-References: <20241030104717.168324-1-chin-ting_kuo@aspeedtech.com>
+	Wed, 30 Oct 2024 10:54:30 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49UATGCj028362;
+	Wed, 30 Oct 2024 10:54:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=4nneJZ/tkv5Wps64EEwbuc
+	C9EgRrZX1VyDoag3u69ow=; b=LdXOC2cY5DeZ4pF7eapKIG3AT6rcs++nKdfP29
+	OxDz1w7t/TdHHIvos/wAedDdQSHQMEmpI0M8V7Uucnb0e6MHGFEFgDSjT+uv5pgs
+	F4uJmn3x5IUoPwK3Suv5wp0YdwCMUl5YzZkqwPEZBrhvvvJ3hHJ6XqgDCKVntqHq
+	h4UKYoxJ/0061dvsGX6kDQrb8p6B0dt8qC/rJVkWrqhw106JQEo7NcwLjWMCV8Hk
+	rmT6qf/lAzeeznnA4d+/+WfxFEImqTFndesUHYBPzEW+4lwE3zuc6KGdI9mkJqrp
+	+NDdtHfoO6nq+LD28KJX79N7VkNZH6g5Tf8KCkkyH3GYzIRQ==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42grt73k97-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Oct 2024 10:54:19 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49UAsIET015340
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Oct 2024 10:54:18 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 30 Oct 2024 03:54:08 -0700
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>,
+        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
+        <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@quicinc.com>
+Subject: [PATCH v4 0/6] media: qcom: camss: Add sc7280 support
+Date: Wed, 30 Oct 2024 16:23:41 +0530
+Message-ID: <20241030105347.2117034-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: fp7mfYV_mEXXm3OuCViUAq4uXaITKw0E
+X-Proofpoint-GUID: fp7mfYV_mEXXm3OuCViUAq4uXaITKw0E
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 bulkscore=0
+ adultscore=0 clxscore=1015 impostorscore=0 malwarescore=0
+ priorityscore=1501 phishscore=0 mlxscore=0 suspectscore=0 mlxlogscore=999
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2410300084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_034734_429194_B278E056 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20241030_035429_089809_96E47D29 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,129 +101,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since AST2600, except for HW WDT counter timeout, HW WDT
-reset can also be triggered by just cinfiguring some
-HW registers by SW directly. We named it "SW restart".
-Although it is "SW" restart, its mechanism is implemented
-by HW.
+SC7280 is a Qualcomm SoC. This series adds support to bring up the CSIPHY,
+CSID, VFE/RDI interfaces in SC7280.
 
-Originally, system can only know it is reset by WDT
-through a reset flag. However, since AST2600, SW can
-trigger the reset event consciously and directly without
-wait for WDT timeout. WDT counter is not enabled when
-SW restart is adopted. After that, an independent reset
-event flag will be set after systemis reset by SW.
+SC7280 provides
 
-Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
----
- drivers/watchdog/aspeed_wdt.c | 40 +++++++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+- 3 x VFE, 3 RDI per VFE
+- 2 x VFE Lite, 4 RDI per VFE
+- 3 x CSID
+- 2 x CSID Lite
+- 5 x CSI PHY
 
-diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-index add76be3ee42..1e9808d42023 100644
---- a/drivers/watchdog/aspeed_wdt.c
-+++ b/drivers/watchdog/aspeed_wdt.c
-@@ -42,6 +42,9 @@ MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
- 
- #define WDT_REG_OFFSET_MASK		0x00000fff
- 
-+/* WDT behavior control flag */
-+#define WDT_RESTART_SYSTEM_SW_SUPPORT	0x00000001
-+
- struct aspeed_wdt_scu {
- 	const char *compatible;
- 	u32 reset_status_reg;
-@@ -55,6 +58,7 @@ struct aspeed_wdt_config {
- 	u32 irq_shift;
- 	u32 irq_mask;
- 	u32 reg_size;
-+	u32 flags;
- 	struct aspeed_wdt_scu scu;
- };
- 
-@@ -71,6 +75,7 @@ static const struct aspeed_wdt_config ast2400_config = {
- 	.irq_shift = 0,
- 	.irq_mask = 0,
- 	.reg_size = 0x20,
-+	.flags = 0,
- 	.scu = {
- 		.compatible = "aspeed,ast2400-scu",
- 		.reset_status_reg = AST2400_SCU_SYS_RESET_STATUS,
-@@ -85,6 +90,7 @@ static const struct aspeed_wdt_config ast2500_config = {
- 	.irq_shift = 12,
- 	.irq_mask = GENMASK(31, 12),
- 	.reg_size = 0x20,
-+	.flags = 0,
- 	.scu = {
- 		.compatible = "aspeed,ast2500-scu",
- 		.reset_status_reg = AST2400_SCU_SYS_RESET_STATUS,
-@@ -99,6 +105,7 @@ static const struct aspeed_wdt_config ast2600_config = {
- 	.irq_shift = 0,
- 	.irq_mask = GENMASK(31, 10),
- 	.reg_size = 0x40,
-+	.flags = WDT_RESTART_SYSTEM_SW_SUPPORT,
- 	.scu = {
- 		.compatible = "aspeed,ast2600-scu",
- 		.reset_status_reg = AST2600_SCU_SYS_RESET_STATUS,
-@@ -136,6 +143,11 @@ MODULE_DEVICE_TABLE(of, aspeed_wdt_of_table);
- #define   WDT_CLEAR_TIMEOUT_AND_BOOT_CODE_SELECTION	BIT(0)
- #define WDT_RESET_MASK1		0x1c
- #define WDT_RESET_MASK2		0x20
-+#define WDT_SW_RESET_CTRL	0x24
-+#define   WDT_SW_RESET_COUNT_CLEAR	0xDEADDEAD
-+#define   WDT_SW_RESET_ENABLE	0xAEEDF123
-+#define WDT_SW_RESET_MASK1	0x28
-+#define WDT_SW_RESET_MASK2	0x2c
- 
- /*
-  * WDT_RESET_WIDTH controls the characteristics of the external pulse (if
-@@ -255,10 +267,31 @@ static int aspeed_wdt_set_pretimeout(struct watchdog_device *wdd,
- 	return 0;
- }
- 
-+static void aspeed_wdt_sw_reset(struct watchdog_device *wdd)
-+{
-+	struct aspeed_wdt *wdt = to_aspeed_wdt(wdd);
-+	u32 ctrl = WDT_CTRL_RESET_MODE_SOC |
-+		   WDT_CTRL_RESET_SYSTEM;
-+
-+	writel(ctrl, wdt->base + WDT_CTRL);
-+	writel(WDT_SW_RESET_COUNT_CLEAR,
-+	       wdt->base + WDT_SW_RESET_CTRL);
-+	writel(WDT_SW_RESET_ENABLE, wdt->base + WDT_SW_RESET_CTRL);
-+
-+	/* system must be reset immediately */
-+	mdelay(1000);
-+}
-+
- static int aspeed_wdt_restart(struct watchdog_device *wdd,
- 			      unsigned long action, void *data)
- {
- 	struct aspeed_wdt *wdt = to_aspeed_wdt(wdd);
-+	const struct aspeed_wdt_config *cfg = wdt->cfg;
-+
-+	if (cfg->flags & WDT_RESTART_SYSTEM_SW_SUPPORT) {
-+		aspeed_wdt_sw_reset(wdd);
-+		return 0;
-+	}
- 
- 	wdt->ctrl &= ~WDT_CTRL_BOOT_SECONDARY;
- 	aspeed_wdt_enable(wdt, 128 * WDT_RATE_1MHZ / 1000);
-@@ -529,6 +562,13 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
- 			if (nrstmask > 1)
- 				writel(reset_mask[1], wdt->base + WDT_RESET_MASK2);
- 		}
-+
-+		if (wdt->cfg->flags & WDT_RESTART_SYSTEM_SW_SUPPORT) {
-+			reg = readl(wdt->base + WDT_RESET_MASK1);
-+			writel(reg, wdt->base + WDT_SW_RESET_MASK1);
-+			reg = readl(wdt->base + WDT_RESET_MASK2);
-+			writel(reg, wdt->base + WDT_SW_RESET_MASK2);
-+		}
- 	}
- 
- 	if (!of_property_read_u32(np, "aspeed,ext-pulse-duration", &duration)) {
+The changes are verified on SC7280 qcs6490-rb3gen2 board, with attached vision mezzanine
+the base dts for qcs6490-rb3gen2 is:
+https://lore.kernel.org/all/20231103184655.23555-1-quic_kbajaj@quicinc.com/
+
+Changes in V4:
+- V3 had 8 patches and V4 is reduced to 6.
+- Removed [Patch v3 2/8] as binding change is not required for dtso.
+- Removed [Patch v3 3/8] as the fix is already taken care in latest
+  kernel tip. 
+- Updated alignment for dtsi and dt-bindings.
+- Adding qcs6490-rb3gen2-vision-mezzanine as overlay. 
+- Link to v3: https://lore.kernel.org/linux-arm-msm/20241011140932.1744124-1-quic_vikramsa@quicinc.com/
+
+Changes in V3:
+- Added missed subject line for cover letter of V2.
+- Updated Alignment, indentation and properties order.
+- edit commit text for [PATCH 02/10] and [PATCH 03/10].
+- Refactor camss_link_entities.
+- Removed camcc enablement changes as it already done.
+- Link to v2: https://lore.kernel.org/linux-arm-msm/20240904-camss_on_sc7280_rb3gen2_vision_v2_patches-v1-0-b18ddcd7d9df@quicinc.com/
+
+Changes in V2:
+- Improved indentation/formatting.
+- Removed _src clocks and misleading code comments.
+- Added name fields for power domains and csid register offset in DTSI.
+- Dropped minItems field from YAML file.
+- Listed changes in alphabetical order.
+- Updated description and commit text to reflect changes
+- Changed the compatible string from imx412 to imx577.
+- Added board-specific enablement changes in the newly created vision
+  board DTSI file.
+- Fixed bug encountered during testing.
+- Moved logically independent changes to a new/seprate patch.
+- Removed cci0 as no sensor is on this port and MCLK2, which was a
+  copy-paste error from the RB5 board reference.
+- Added power rails, referencing the RB5 board.
+- Discarded Patch 5/6 completely (not required).
+- Removed unused enums.
+- Link to v1: https://lore.kernel.org/linux-arm-msm/20240629-camss_first_post_linux_next-v1-0-bc798edabc3a@quicinc.com/
+
+Suresh Vankadara (1):
+  media: qcom: camss: Add support for camss driver on SC7280
+
+Vikram Sharma (5):
+  media: dt-bindings: media: camss: Add qcom,sc7280-camss binding
+  media: qcom: camss: Sort CAMSS version enums and compatible strings
+  media: qcom: camss: Restructure camss_link_entities
+  arm64: dts: qcom: sc7280: Add support for camss
+  arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision
+    mezzanine
+
+ .../bindings/media/qcom,sc7280-camss.yaml     | 439 +++++++++++++++
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../qcs6490-rb3gen2-vision-mezzanine.dtso     |  73 +++
+ arch/arm64/boot/dts/qcom/sc7280.dtsi          | 208 ++++++++
+ .../media/platform/qcom/camss/camss-csid.c    |   1 -
+ .../qcom/camss/camss-csiphy-3ph-1-0.c         |  13 +-
+ .../media/platform/qcom/camss/camss-csiphy.c  |   5 +
+ .../media/platform/qcom/camss/camss-csiphy.h  |   1 +
+ drivers/media/platform/qcom/camss/camss-vfe.c |   8 +-
+ drivers/media/platform/qcom/camss/camss.c     | 500 ++++++++++++++++--
+ drivers/media/platform/qcom/camss/camss.h     |   1 +
+ 11 files changed, 1190 insertions(+), 63 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+
 -- 
-2.34.1
+2.25.1
 
 
