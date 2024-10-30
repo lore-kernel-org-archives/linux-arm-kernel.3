@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E82ED6B6DB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 21:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08426D6B6DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 21:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dV0CJUVYk+pJK8bM5R2R8JIpg8iSnCYQ7BBihu9uQzg=; b=z2IBRCLEyI/tIKoq1e2t+EEYw9
-	fxy3qlQfSLwpLWvs+1KI2oTfZEe0hG6zhO++Pft7Xi5w74R62cLlgxMl/IBvscgokMo8MbyFPleV4
-	jHjG+xvph//4Uzz3iNiN0YTF+wwRhil2FjxjZpPFzCxlkblJVp5mW0xJ2eSZ4t/3qj5Id15YCEJNa
-	NO9UyNrjyszJBxpAp7acCTTulnJ079BqJzr67kiKQkYyQ1yecj9+XcDgxvP8NLKVsVTV42M0OJ2kv
-	T+2mhUyalI8sHf3/3TeYibbio4MzMbioTX3OO213jUla68ce6Eqningy7kuWzjJ7rHALgyP5NulZz
-	a+BLH7kQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zUsYVPdjKGafzb6OVe0jWh+nVCSpJ7+Nf5HD5KIu3fY=; b=SawQay3XyUbEuv2tgjyxMCoshE
+	Q7w1JOQmB2AiItMBlmzskrF2U7nhSwp2fLhHpz+y4u+oh0uXALpyNc9Hx+8fq0TfoFg9gV/rxBICc
+	BON1lbWkmHZz+W83dPPGRT6qIWki8K7KB0/RbvlENKHN9tIN7VzUJeQ1jAPixHC1ZidbCxJFxeF8k
+	hvFti7alm/DK2XkXQdeFW3EScJlYY6X9NhII7lZ/3NVaVXJ/crXF6Nqh31w7vqh4S/ahrzUR6nElG
+	8g+q2DklVnKilzk9U5R2rjgSp22mNCV1Qb8iT9EDr25WkgvbM/GSgvdlkA3rCBcMFtAlq9AbCzbPm
+	fOr0ndHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Ft9-00000001mNi-3wZ1;
-	Wed, 30 Oct 2024 21:06:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6GIs-00000001qdu-1PQv;
+	Wed, 30 Oct 2024 21:32:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Fpb-00000001lvt-4AaM
+	id 1t6GHB-00000001qDf-24gr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 21:02:21 +0000
+	Wed, 30 Oct 2024 21:30:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67159A4334C;
-	Wed, 30 Oct 2024 21:00:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB83FC4CECE;
-	Wed, 30 Oct 2024 21:02:18 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6322DA435D6;
+	Wed, 30 Oct 2024 21:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F986C4CECE;
+	Wed, 30 Oct 2024 21:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730322138;
-	bh=dV0CJUVYk+pJK8bM5R2R8JIpg8iSnCYQ7BBihu9uQzg=;
-	h=In-Reply-To:References:Subject:From:To:Date:From;
-	b=tcPLhnp5GzJZQ2VpKma7dkoBKrGxTJLc4urxLyX2ZX2D+mCJMmZ5A/5k/eY+Kjs23
-	 +i3Ap3fcbmnmY5KdVDasrOjRZefl56qhuvJ0JHp2SSOucvfzDTpuLvwQhI/8Uo1FYg
-	 rmzmL5HDTNHsAgB/jCDwSjju4+HqSuEQhAZU1TYuNyFIrKRK+1SRxbmSaCqjrwKHwC
-	 5JL1tKZIYwWJ1zsu1x4LbTAagHgvaNFiZHNoowfDBa6tLhVjgPWPjhkEUK4kWaBfLP
-	 iefzW0+e4peqz6SR7V8ullh4BlBJUY/5nPrnpV7U6Mu/DkorDlj/cCS6kLGltbgXjk
-	 Og0oNm4t49KWg==
-Message-ID: <9d9e16d140e50b9c16ae6d3f58de719a.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1730323847;
+	bh=Ez0u9KTu4Fk9iohQ1J7Ru8euvaEcmW1vF6+OLTjqlzI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=lDOByLr2z55hpCBv7hg++3LKpkYVCh8mR8tK6ZfOtsZL5HCbR/Pgd1wNYS700B97i
+	 I4CdcF1q/PrHA+hwiQ9t30nLymE9TBgCoxLUbd5Gfj76LPjcW1l4VhA0s7Ljoq05aa
+	 XQq4c90++hHu2UM5/LqJvEr9Qu4R8dqoS3437nJpmF5ygyNWIntcjPB/EQvhoIquo3
+	 XFe5OopBJ1k1gfdt83KCqh+V/iM462Rw7BWb22vXjlIJiK+qIJHUumHkIVchQfAFbR
+	 6mwxt+MTMulKhGE+7caAvtfGPB1utNcVJ0IwaiwpxtikMCyJt5NVaDii7Zz3ticc43
+	 /Kq0AGMi5NNuw==
+From: Namhyung Kim <namhyung@kernel.org>
+To: acme@kernel.org, mark.rutland@arm.com, jolsa@kernel.org, 
+ irogers@google.com, james.clark@linaro.org, mike.leach@linaro.org, 
+ leo.yan@linux.dev, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Graham Woodward <graham.woodward@arm.com>
+Cc: nd@arm.com
+In-Reply-To: <20241025143009.25419-1-graham.woodward@arm.com>
+References: <20241025143009.25419-1-graham.woodward@arm.com>
+Subject: Re: [PATCH v1 0/4] perf arm-spe: Allow synthesizing of branch
+Message-Id: <173032384741.1221980.12077485873903328897.b4-ty@kernel.org>
+Date: Wed, 30 Oct 2024 14:30:47 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241028053018.2579200-4-ryan_chen@aspeedtech.com>
-References: <20241028053018.2579200-1-ryan_chen@aspeedtech.com> <20241028053018.2579200-4-ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v7 3/3] clk: aspeed: add AST2700 clock driver.
-From: Stephen Boyd <sboyd@kernel.org>
-To: andrew@codeconstruct.com.au, conor+dt@kernel.org, devicetree@vger.kernel.org, dmitry.baryshkov@linaro.org, joel@jms.id.au, krzk+dt@kernel.org, lee@kernel.org, linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, mturquette@baylibre.com, p.zabel@pengutronix.de, robh@kernel.org, ryan_chen@aspeedtech.com
-Date: Wed, 30 Oct 2024 14:02:16 -0700
-User-Agent: alot/0.10
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_140220_112731_5D06215A 
-X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-CacheID: sfid-20241030_143049_631290_01E1F8A0 
+X-CRM114-Status: UNSURE (   7.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,6 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One more thing. Please remove the period from the subject. No other
-patch in this series has a period at the end.
+On Fri, 25 Oct 2024 15:30:05 +0100, Graham Woodward wrote:
+
+> Currently the --itrace=b will only show branch-misses but this change
+> allows perf to synthesize branches as well.
+> 
+> The change also incorporates the ability to display the target
+> addresses when specifying the addr field if the instruction is a branch.
+> 
+> Graham Woodward (4):
+>   perf arm-spe: Set sample.addr to target address for instruction sample
+>   perf arm-spe: Use ARM_SPE_OP_BRANCH_ERET when synthesizing branches
+>   perf arm-spe: Correctly set sample flags
+>   perf arm-spe: Update --itrace help text
+> 
+> [...]
+
+Applied to perf-tools-next, thanks!
+
+Best regards,
+Namhyung
+
 
