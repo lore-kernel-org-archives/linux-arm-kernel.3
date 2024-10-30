@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EAED5CC9A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22734D5CC96
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Oct 2024 11:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RaA8Oq2TnPgWUFVlg85ZPuyptoCXBTMqrBfg+ChE0c=; b=VugT+t4qqzHFWcVmWTr4PuJsnn
-	bgUQNmN5SXGrxNIFJkRNH3uOGTS4mv1hX4pu9Q5k7cN3edOjqGl+G6uAhM+m5DdfmWvyPudi51/S9
-	9/L9nAiY6qD6CybLPmwkSPnd4gFVhhVLAEfVUERuVY6rfWNwnsSJwDzEkv5YVyfpxCQECv3zwkDIw
-	qRzuWtPLTQq3pihlM4m1Z5HKqRUJoce5DH0u4aRfwn4scgYqFI4zlMMseICepyEL335fzzh9tbHZE
-	8mJI5XxfSGqmRctP3qYDLZ+yrWf1QKvObi0TIO4INm8pPLeZKAplsdfAqslPa3NTREzb1PCNmRMtk
-	/mh/e0qA==;
+	bh=LfEYLhjMDeZH0WbYlTTTFbhTtromhzFBfjXyLFGdvks=; b=rXjve3j/fkvikMazAAK7PJutEk
+	C4xXSzk9cT6sL+M0EGCdmfjJ+DkbVPkBTzbJBo9ho3lN62AEfCBvphMLAkBnQ2SU15AVehgEZEcSb
+	ituLZ4bAnxfC3s2JxU+UKQewf3My3dIPuituEBsbnr/j3tJ+WfARsAcJa5TWqjGL9hOPlRjcoCPLy
+	XOmsADRQKfOg9dH2Ug5QT6XVEb1t7SA9l+ZrI/XQPSgUpG5bs7eCIXRK/zZSrShjxQvmG/K6LwNSN
+	t7fiaoUxyDmCabkIp0oIP3ZyqbuYchYnMx6U/efUGaz+aPUVnfg/zGFqApgw6M7ALUTQ+DLiiva9j
+	KCIL2lig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66rq-0000000085d-3Z2l;
-	Wed, 30 Oct 2024 11:28:02 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1t66tT-000000008YA-0zZC;
+	Wed, 30 Oct 2024 11:29:43 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t66SV-000000003i5-10AW
+	id 1t66SV-000000003iK-3h3Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Oct 2024 11:01:52 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539eb97f26aso6759655e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:50 -0700 (PDT)
+	Wed, 30 Oct 2024 11:01:53 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4314b316495so58078915e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 04:01:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1730286109; x=1730890909; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1730286110; x=1730890910; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0RaA8Oq2TnPgWUFVlg85ZPuyptoCXBTMqrBfg+ChE0c=;
-        b=npLDnfqq2/CJ77mHhdExaNSR9ssJW82s4mrP5u2xXztnxl4NtH1uZQjSQMTSthchMa
-         R6s/zvSwLSgJzGyDJeiWoV4evWmPTG6cvTc8ZjFx8C839bR0AaCFf+zNbTM/BoYIB2SF
-         cwI/PAyOpEU0cWB4TkGXy1GMVbdu8ooCK13aKqeMEM69S+frWtXDmzD9k8eJ6v+Pwdg+
-         mneEK9YFbKpdVibn3lu9C2Ezb0DvI3yhK85CNcviDlC0SEZwYkWG8sF5UQsVHXAkBYZ4
-         Kc5hoj0e7SbxTklxNc2N5GwSU6lDQvTCVuTTyAvmQ9TkNbsr+vEn4KggeJeLdo5Cyyby
-         WOIw==
+        bh=LfEYLhjMDeZH0WbYlTTTFbhTtromhzFBfjXyLFGdvks=;
+        b=pUwqoSHDlGiwmvlCjTVNsn/1n7OPRSu7/2jKOKjjjqzWWdqJ/fIfVkM0ho4mV7BelN
+         y9RJ39mL8ZY1Cg3G+y+C1UBfI6h+4c9/nOtuARKzAWRr3ggqkTdVkCfdNxvbQIWc9Q7U
+         gm8DvU/SgdoppCIfTi8ELZg6fjytMOlHRRMPEuC5k7nK6eHZX4hJBtl+lP5o0tAqBHRL
+         sNDBVct5y2o1Q42ID0mvdpPooF45r/HN/lcoGgqWuDXFjZYU7cojLrv5/dGxb78MVs6k
+         3xUp1KIr3IWMNGYSUW26Hj/65JpZE8nz5kFClzIXPNlQYL8yeXHUvf4TBuq6MEhgMbsr
+         gCPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730286109; x=1730890909;
+        d=1e100.net; s=20230601; t=1730286110; x=1730890910;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0RaA8Oq2TnPgWUFVlg85ZPuyptoCXBTMqrBfg+ChE0c=;
-        b=sf9VkkTGp5EuAE1Jy/a0kogqz/e2FwGfpb7A0MlRqCvz0Kb8fNBTuIMpDLfn+0DPqz
-         IWmOT+mn8dJmOK1eCRE9BIg1BQ9nHQdkYE/Uu0WISnmb+2+hewgZr4TQ2tyRiOgDKOuB
-         wGfoyRkOmtMYoswI4BlqMRQZMSQbSWlv7kPYko6du7sJ21Ku7rq4mPuczzCaa6tI0/NV
-         bLXOnG3JoiiW0bvFrPB3XvlnXuuXBtBvszp0bvgxHIaiBitjukeUeVclDqkO2zBwU7tY
-         QffGKuD5XOf9arHEcScNAkwgtXIfJZllCriVQQWz4896E6zdLf6XAwusDD0MksKMOHXi
-         bQhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUI/pFl7z0IvZe66QLOxE2urngpStP58Upe/KgLIGbprghdEkr2WH/+iu78rdOll1xwiq6+KaGq2AlKu+tmvRgd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGRuNFga2LyuvkeWrgsehL5/hxO/W2nZSSlauPzvGRZRfbxTbI
-	xIOMyPP1vQqLO61EM0zEPSqxV706IwZbCD5nhvo2I2gUbmF3fn2CmCuV1IA5W7g=
-X-Google-Smtp-Source: AGHT+IGLcUn8UrUCFSXa2wdI7F5DblgU1h3Tlqu+CabGKPz2NXZLaP7HRpfptZfpKopeGY3o0sPrRg==
-X-Received: by 2002:ac2:4c4b:0:b0:52f:ca2b:1d33 with SMTP id 2adb3069b0e04-53b7ece170dmr1555512e87.20.1730286108705;
-        Wed, 30 Oct 2024 04:01:48 -0700 (PDT)
+        bh=LfEYLhjMDeZH0WbYlTTTFbhTtromhzFBfjXyLFGdvks=;
+        b=v7xBG1Nrsxqdvze3pJ33gpAMi1/7brbGVs7rqzmLDWPmG3cIEQzDL0QDj4C4xPY7Na
+         3VAPjkKicvlgxeVkPEkSxA854i0d0QYnM3Qcooe3braq3Bx0jazx454TDhPD4L57fCWX
+         vggz9Dqts7914AC+/yHC4wXteWwNfLeIl01abu0u+5NqSGtNM9A29OrKTMyhbyDTOXqj
+         eTx/GWJbtWnD5/pHt6shOHcXQfRtsIOdvjj/0jLX391N0v0XJyG+Fur6Asn3RJ8Yh7pm
+         xdsyXKAj6s4nATSDw9gvMrS/saqKtuP1gnl0ImvWS0XrXwXo/SzzUnPFRubum5D5aR03
+         /7BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVwN56Mbfu3+oN+gVRxaIoB0DJ0wAjTUnlAHbXSEVFtlaB0Yv7XaJ8hmTm0iULPnFJJHaOrQKvOCYhZ2ldPwU+b@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXEEfGnMJtYRQuuxA6k4M7ySu8lXANxHrLrxy/JBQUxAV25YAM
+	nFSERMFcpsh/z3XZrxB1Po2FqgC1ay8c/7P8YK5BUG2fyrA0JJFgMra2q+KiWWA=
+X-Google-Smtp-Source: AGHT+IFSBbnTsjzeDFuXW2ohx80Zl9EjjF5HTT3F6o10bua6BUx513xSS7WM3daoN9qpwdEzGQrg/Q==
+X-Received: by 2002:a05:600c:3ca3:b0:42c:bb96:340e with SMTP id 5b1f17b1804b1-4319ad317e5mr121837365e9.31.1730286110454;
+        Wed, 30 Oct 2024 04:01:50 -0700 (PDT)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.190])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd99edebsm17956935e9.45.2024.10.30.04.01.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 04:01:48 -0700 (PDT)
+        Wed, 30 Oct 2024 04:01:49 -0700 (PDT)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -82,17 +82,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH v5 07/10] arm64: dts: renesas: r9a08g045: Add RTC node
-Date: Wed, 30 Oct 2024 13:01:17 +0200
-Message-Id: <20241030110120.332802-8-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH v5 08/10] arm64: dts: renesas: rzg3s-smarc-som: Enable VBATTB
+Date: Wed, 30 Oct 2024 13:01:18 +0200
+Message-Id: <20241030110120.332802-9-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_040151_331071_FB38A8E0 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20241030_040151_947599_05A73544 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +109,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Add the DT node for the RTC IP available on the Renesas RZ/G3S SoC.
+Enable the VBATTB controller. It provides the clock for RTC.
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
 
 Changes in v5:
-- collected tags
+- dropped the status = "okay"; from vbattb_xtal node
 
 Changes in v4:
-- dropped the assigned-clocks, assigned-clock-parents properties as they
-  fit better on vbattb node
-- moved the RTC close to serial node for ordering
+- added assigned-clocks, assigned-clock-parents properties
+- set vbattb_xtal status = "okay"
+- collected tags
 
 Changes in v3:
-- added CPG clock, power domain, reset
-- and assigned-clocks, assigned-clock-parents to configure the
-  VBATTCLK
-- included dt-bindings/clock/r9a08g045-vbattb.h
+- updated patch description
+- dropped vbattclk
+- added renesas,vbattb-load-nanofarads on vbattb
+- moved vbattb before vbattb_xtal
 
 Changes in v2:
-- updated compatibles
+- none
 
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/r9a08g045.dtsi b/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
-index a1d5084b074a..be8a0a768c65 100644
---- a/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r9a08g045.dtsi
-@@ -7,6 +7,7 @@
+diff --git a/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi
+index 71424e69939e..30bb4f5a7dfd 100644
+--- a/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi
++++ b/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2023 Renesas Electronics Corp.
+  */
  
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/r9a08g045-cpg.h>
 +#include <dt-bindings/clock/renesas,r9a08g045-vbattb.h>
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/pinctrl/rzg2l-pinctrl.h>
  
- / {
- 	compatible = "renesas,r9a08g045";
-@@ -72,6 +73,20 @@ scif0: serial@1004b800 {
- 			status = "disabled";
- 		};
+@@ -344,6 +345,17 @@ mux {
+ 	};
+ };
  
-+		rtc: rtc@1004ec00 {
-+			compatible = "renesas,r9a08g045-rtca3", "renesas,rz-rtca3";
-+			reg = <0 0x1004ec00 0 0x400>;
-+			interrupts = <GIC_SPI 315 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 317 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "alarm", "period", "carry";
-+			clocks = <&cpg CPG_MOD R9A08G045_VBAT_BCLK>, <&vbattb VBATTB_VBATTCLK>;
-+			clock-names = "bus", "counter";
-+			power-domains = <&cpg>;
-+			resets = <&cpg R9A08G045_VBAT_BRESETN>;
-+			status = "disabled";
-+		};
++&vbattb {
++	assigned-clocks = <&vbattb VBATTB_MUX>;
++	assigned-clock-parents = <&vbattb VBATTB_XC>;
++	quartz-load-femtofarads = <12500>;
++	status = "okay";
++};
 +
- 		vbattb: clock-controller@1005c000 {
- 			compatible = "renesas,r9a08g045-vbattb";
- 			reg = <0 0x1005c000 0 0x1000>;
++&vbattb_xtal {
++	clock-frequency = <32768>;
++};
++
+ &wdt0 {
+ 	timeout-sec = <60>;
+ 	status = "okay";
 -- 
 2.39.2
 
