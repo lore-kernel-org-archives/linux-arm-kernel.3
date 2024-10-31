@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C50D767E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C32D767E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkFPawwcRg5GSgp9WdxrzMZlnBm9Dg61a2aGFLkwaJ8=; b=PDfcTCKqMs3kNl08B2wr6bKXOq
-	T+iEpmHvl5v803Wr3LF91NJBeaZ6HqPOwVuU0kC3v2+XuAghQNfO74cT5U+/QLd3flYSH42pp5Ovw
-	5pd3SFA7wvVegiTBoDTNIzADDECE3xnJ8ZRKxvFGga51wtRJDLTYu4L0xvQRoCgJKd0Wkx6XGHOtt
-	xAIzrk0dZM6tPKmcpcFJLpeYrqAiYyO9ygBT0cFP73QOCl9s+91W8rWCgYzFwJhjiJrn327sWcE5N
-	T1gjGcl6ITaoa9EdOJu68K/Oh8HG+tYQPOwH/C7zNwHqLicAFmJLzc4srE+uf5WeuNCJiDkeybY27
-	DqQWes1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x/u1Gt2whgOVbx/LktGC3AB+dIbrRNmjgv7TWTEG+lY=; b=r8+OKAhnRRsGxl
+	2Ilf1w5X6GLR+luXZYlSKY2jvvd/5lLI8AgCl7jM1V47edD1hk/6emTOqkXg6gN3NMs7PudnL8Dq8
+	ZaEweI+azvUUvDcoBsPw14hcwy69qJCGcta21uGreFGxzzSecySKW4FBT0z4nPC2FB/Cthp+6ikm9
+	HXX/5N8jJsoXvOpeQdYg/j/FSK8Im0C8ytSpuZedRgrmLT/CuS6Q9cYc/lGsC1rSzHOqtc2OntaKp
+	RtznZWWkBM5sNMhn7rEDuqx7de7XdHkG1axBMgH8ZuCBq4gMF1A8pySllko/sYo4G5eIsOUtfYsuU
+	BQ4PyzRL5JhKa2P8E1Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YDF-00000004DDQ-2O5T;
-	Thu, 31 Oct 2024 16:39:57 +0000
+	id 1t6YDC-00000004DBM-1tYV;
+	Thu, 31 Oct 2024 16:39:54 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6XfX-0000000482d-20Sq;
-	Thu, 31 Oct 2024 16:05:09 +0000
+	id 1t6XTP-0000000462E-0KIg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Oct 2024 15:52:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 081D2A443DC;
-	Thu, 31 Oct 2024 16:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E234CC4FE02;
-	Thu, 31 Oct 2024 16:05:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AA723A44475;
+	Thu, 31 Oct 2024 15:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA274C4DE00;
+	Thu, 31 Oct 2024 15:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730390706;
-	bh=XZEoXzA1M9g86+Qwwo2lTq21wWrFX0+0bgaivnD+Vng=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=GBad8XR9wxry2CtvD64myDV8B/ncb+q4qPrDGre5P/JHWwfJRiz/FUkOuT9/PB8jN
-	 KnnutZYMXo5p9k9iS6MVnVPdt2kqGdxCBOq02nqCml/z4MBJt6Xk1GnLJ4g9y8wb9j
-	 sVI7ShjLxBrvnhb5i5PFmhYQbRNEABp1ICxmPNZk4q9en6HL37N+7S1jaSepThK3EX
-	 jq2oV3DjLb5jtXvOuaEhTY/3YjElOaZbXZth6QtjIZGZIxGF7Bp+ikwRoUv3DeOPQW
-	 jqTXSMtAH7eS2urygvYFp2WXgcV+kQKSVgKjois0FAWGZb5v9+nsWS39mMQdDMWI2J
-	 Z0BfkqIz7T5Ww==
-Message-ID: <754e12d4-6bfa-4417-afbf-8d1353ea3ade@kernel.org>
-Date: Thu, 31 Oct 2024 17:05:00 +0100
+	s=k20201202; t=1730389416;
+	bh=xSVSfWvupjWY+ia/O4hK4dAwK9UhjBvlZUksqXpgdlA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IUgafuayS19RYU6XbsKzq2l1iax8zc0B9iFDAzRwHKHTxXJ3g0wQegaYmNxiD774b
+	 C/Gm+WQEp3x8N6+toYU6dkYrk8XdjNGaaKaS+kU+Jqmbit3ObSJC3KQeOe4vks3pqC
+	 nCek6wa0KAx8VMf1oDGxj0HmrIM0Q6Io026f9njTmXeHVCN94d6c/AVPbwexWggLMm
+	 SFVteHXjfdEuhlrBCddcc7XdOHmHLvvfsLiVEXQv0mQ4Se1D8Q8kCou+HYSnmfWL75
+	 t8q34N80IRvlycQ15CzH4+BRrwFNC4ooNZg+rBgAFA/ojoHnXi8tz8qWHEwlgbkRhX
+	 MrNYhpRD5ABuQ==
+Message-ID: <c89d51a7-0477-471c-b4e9-0623e7b7ad67@kernel.org>
+Date: Thu, 31 Oct 2024 16:43:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] rtc: mediatek: Add mt6685 RTC driver
+Subject: Re: [PATCH v4 13/16] dt-bindings: net: Add DT bindings for DWMAC on
+ NXP S32G/R SoCs
+To: Jan Petrous <jan.petrous@oss.nxp.com>
+References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
+ <20241028-upstream_s32cc_gmac-v4-13-03618f10e3e2@oss.nxp.com>
+ <erg5zzxgy45ucqv2nq3fkcv4sr7cxqzxz6ejdikafwfpgkkmse@7eigsyq245lu>
+ <ZyOUSgMo0chsGnCa@lsv051416.swis.nl-cdc01.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: shunxi zhang <ot_shunxi.zhang@mediatek.com>,
- alexandre.belloni@bootlin.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, lee@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241031135807.31605-1-ot_shunxi.zhang@mediatek.com>
- <2ad5ebf6-fb64-4647-b9c9-c274e59fa49f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -98,12 +98,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <2ad5ebf6-fb64-4647-b9c9-c274e59fa49f@kernel.org>
+In-Reply-To: <ZyOUSgMo0chsGnCa@lsv051416.swis.nl-cdc01.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_090507_681786_88D78CDD 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20241031_085235_258477_DA53DFD0 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,37 +115,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2024 16:58, Krzysztof Kozlowski wrote:
->> +	regmap_write(rtc->regmap, RG_RTC_32K_CK_PDN_CLR, RG_RTC_32K_CK_PDN_MASK);
->> +	regmap_write(rtc->regmap, RG_RTC_MCLK_PDN_CLR, RG_RTC_MCLK_PDN_MASK);
->> +	counter++;
->> +	mdelay(1);
->> +	mutex_unlock(&rtc->clk_lock);
->> +}
->> +
->> +static void power_down_mclk(struct mt6685_rtc *rtc)
->> +{
->> +	mutex_lock(&rtc->clk_lock);
->> +	counter--;
->> +	if (counter < 0) {
->> +		//dump_stack();
->> +		pr_info("mclk_counter[%d]\n", counter);
+On 31/10/2024 15:29, Jan Petrous wrote:
+> On Tue, Oct 29, 2024 at 08:12:37AM +0100, Krzysztof Kozlowski wrote:
+>> On Mon, Oct 28, 2024 at 09:24:55PM +0100, Jan Petrous (OSS) wrote:
+>>> Add basic description for DWMAC ethernet IP on NXP S32G2xx, S32G3xx
+>>> and S32R45 automotive series SoCs.
+>>>
+>>> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+>>> ---
+>>>  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 98 ++++++++++++++++++++++
+>>>  .../devicetree/bindings/net/snps,dwmac.yaml        |  3 +
+>>>  2 files changed, 101 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+>>> new file mode 100644
+>>> index 000000000000..b11ba3bc4c52
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+>>> @@ -0,0 +1,98 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +# Copyright 2021-2024 NXP
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: NXP S32G2xx/S32G3xx/S32R45 GMAC ethernet controller
+>>> +
+>>> +maintainers:
+>>> +  - Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+>>> +
+>>> +description:
+>>> +  This device is a Synopsys DWC IP, integrated on NXP S32G/R SoCs.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - nxp,s32g2-dwmac
+>>> +      - nxp,s32g3-dwmac
+>>> +      - nxp,s32r-dwmac
+>>
+>> Your driver says these are fully compatible, why this is not expressed
+>> here?
+>>
 > 
-> Oh man... So many wrong things. This applies to entire code:
-> 1. Drop dead code. All dead code.
+> They are compatible on current stage of driver implementation, the
+> RGMII interface has no any difference. But later there shall be
+> added SGMII and this provides some level of difference, at least
+> from max-speed POV.
 > 
-> 2. Do not use pr_xxx but dev_xxx
-> 
-> 3. Drop all such useless printks because your driver is supposed to be
-> silent.
-> 
-> 4. Implement proper clock handling instead of reimplementing it yourself
-> with some counters.
+> The S32R allows higher speed (2G5) on SGMII, but S32G2/S32G3 has
+> 1G as maximum.
 
-... clock handling or runtime PM, depending what this thing here really is.
+So G2/G3 will work just fine but with lower speeds? That's the meaning
+of compatibility.
 
 Best regards,
 Krzysztof
