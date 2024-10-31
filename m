@@ -4,148 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC938D767E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4852D767E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oeKBCN/45BxnysnhokossFSswfD/fEosSM0dVwovrYQ=; b=Ih62AnPiitLN0lFhBBGTZuRAm1
-	J6W9pu1m8qcIlSvbJP1yt3t/VW8dDAwwDRVjMxQ836DXX0AAAuPlAwHntX7Z6jmL43SphI+TDLQQE
-	2ZnAsM5YKzh/D8oCf18k2yuWPI7M6AZ8J1TcRZtEkcZ3lsfqdEu3DKozx0M2xuBE/mTf7UdnQTaAq
-	BBqiJU0AEkn4UhFMOM/JlnM0+9Y2itgThAxcX1+04IBY/h3BWPJqZBURfJqSUu0trk1xhXyY6lmpJ
-	YzJEbd5WURNYlmewxjJSfcBqIKTJldZx8DgBLxMyXob/q0VRQNug9n81SwEuwh+t0GTvDShLPkWBa
-	ox8hawOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i2lBwl4/XXmgOH6ofAeHZFABbN1yV8hWssMxpGDvQuA=; b=V2XFxlFlTq1Dso9/L8eYcElWDj
+	KCBOB+Rq+sUU9njYsa5pLflXn3H2dDX2dEN5wCh1vW0zMypnXAmtseCVv8PfFe2+knO23r7isLPAk
+	8oC//QYmNpT9d6tGG9ZzT5hzyWRzrG7jB8vOUP14il0IZtBi74u/TPNZ5i3gBWlXj/3F/T0NkVdoU
+	4wCfNBbJu3HM6psBCz0oHqhWQXJNq6Kiwtx+vhB0kKt1V1bIe70/zE1DwuDgXV13EsaN5dLm47/Ao
+	R+yJHl8VQWHqVRR3ysEsCShOuqBJCBalCpA+FYOFH0njW013jqaEsmIP45m7kDXUlkZ3n5rRW+k3c
+	WhVzedfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YDL-00000004DHm-2q27;
-	Thu, 31 Oct 2024 16:40:03 +0000
-Received: from mail-vi1eur02on20621.outbound.protection.outlook.com ([2a01:111:f403:2607::621] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1t6YDD-00000004DBu-2ocx;
+	Thu, 31 Oct 2024 16:39:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Xvg-00000004AVO-0gv5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 16:21:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=If4RTAvExUzLE1rF7BNAiAfK/1eFgtvb7nAUUrOx91HpfWy+wfQTOH9/FZ+AAkn9O8a7+5FEQREulAHrNG93oQmFXs0uoaONbUDuiFDqEwm/Y46y7da9jcp+jbZwl9YOC0+T6T+2YASYrfC9hjwTUkMbArin5DPKSadaGkkLlXl2Up/N1/a0Q+7VwmtfIqrXtOCrA0OPJ7E1R8rfz2zo6Kjyoj+DYPmdu6ZOl3/u74ZkLDo2Na2Z/YjFXoBujdHxcImzolqJgCRbszeOTyWkx8FMBbR90fgmCg7EIFSpMEHYo15Vs6lkCGHAEFNPnM+wLqA2pMD48YWhx/gJqSmxag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oeKBCN/45BxnysnhokossFSswfD/fEosSM0dVwovrYQ=;
- b=QcGYAkaMyGNPliyi9u5Rh1w2lB3OWBqMvPDgfkxC9rwC3bspbcFkE5wTsO2CJS4dhor6OOUGbQdW8ZMBAeoFn25Rq9WBE6aA9itnNLNKIsXFWk7NehmuPt/dkoQaCmRFyZaQUo1LVDTXHazwZISEr2amrEdLHOKUojCdVv6cT15pbBnhjvzXbn/qGUuHa6Dieaz+7UkpGz8bHhHgmBdIaAlAr4vgEPpP3yJCwPyrZ273qi7hYCI9XHaRShfxh34/ukkFLQCdgfSCOaZtkyhGCt+DUan6hp1YTkn88S+J/nxcngH27TplY3JvhUpnw/C7kMhVz9M00DGXnz/RpDfAEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oeKBCN/45BxnysnhokossFSswfD/fEosSM0dVwovrYQ=;
- b=HI7OVqUqDoLywAO4Tq7k9wtz1x15bwmx7a+swOysZdc0HP3Cwb3k0KcLbsx00OBez4iDwMa9lfKBpXtYxbe9dhRBKHSEsrTugxout77w3kvcnECkP6P86DX7xct3ohpHu/bgh0HjpMCYh6itQU/GkXbgFICirksycgWCR6UwzCIpWT3ikxGGZUHAjR9Ut0V0ErZTZnxti/ROlPEwH1XrHjTtRThrrOEudJj3WOr/X0ea1bINId++kgAcaB3wd+zvyjkSNpZs14NvJNe1TrfYM43i/AG+uGQsfn58SFTYED5K0zG/AzPpFe5tFR+betXPdm8jbD/ymVwZL84gLMigng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA1PR04MB10321.eurprd04.prod.outlook.com (2603:10a6:102:44f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Thu, 31 Oct
- 2024 16:21:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Thu, 31 Oct 2024
- 16:21:43 +0000
-Date: Thu, 31 Oct 2024 12:21:34 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
-	kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	kernel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 08/10] PCI: imx6: Use dwc common suspend resume method
-Message-ID: <ZyOujhheoeMxKxSv@lizhi-Precision-Tower-5810>
-References: <20241031080655.3879139-1-hongxing.zhu@nxp.com>
- <20241031080655.3879139-9-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241031080655.3879139-9-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0294.namprd03.prod.outlook.com
- (2603:10b6:a03:39e::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1t6XZE-0000000470r-06uI;
+	Thu, 31 Oct 2024 15:58:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=i2lBwl4/XXmgOH6ofAeHZFABbN1yV8hWssMxpGDvQuA=; b=qdyXmtNLcA8XMnwk9DFHrs0ruj
+	Y5pkY0Alpp3wOY9kaeQ5Um4Xb8MsLNmHfoNbeqZpkddm8WgF6TznVO8TH9RJlNp32JR4bKnEy3zec
+	gqe2PJMZSW4t5sbYmuao5ai3pw7Hwi0mWRud6eAA17CbrDNnKZslBXLzeZyNLoO0uPWF21pDMSPS0
+	SKmpcF3YtBUoGO3048UGber/Lpbsk1EYEzn/CC9VzEz4gYBppOebNTVcIX+oW7rJxdAGqMrEnvSFC
+	AwJnPdhthDRcUcTWoQmF5pLsmKfo34IlvGwI/NqKIoWXgi4dZ2Ht3jpvFvDs2poS3/uYwbBTWqAwV
+	4SqOmn+g==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6XZB-0000000AV9m-0OO6;
+	Thu, 31 Oct 2024 15:58:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47EB8A444D5;
+	Thu, 31 Oct 2024 15:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF91CC4CEF9;
+	Thu, 31 Oct 2024 15:58:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730390309;
+	bh=hDIwEa742MdQHfSf5wcI1TMMVURVXiGDqoTb/7vyb+w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BVbC5+QqhYdtLCOW2PwGD4wxZ6TCD27j4M/2+HoQsDdcGDl2uJQrtZ2l1wh9151Vb
+	 /GlpbkqTRf8ldWRRckABZT7fThB7PjRKVBsvTWq/8WnSF70PXcSmvPaP+CRIKBcviZ
+	 H3DE1GPLfPMuwiK8tZyluo2mgGKE2ORPE/DIdReUrV9sptB8kCuWyl2CnuAqEj8glS
+	 vTmZOWzfcu7dSBFuJ8gDX+cJyVWlUoTjpEfjVX0kRzbwBl/SXmWIOo1oe1c1tbXkkj
+	 6JIgTYfBZNktXEZ/voCqaEELqm1qiqJa68Od88cUrLntBmuBXUwwq0iUOYmA2epBBn
+	 Lhc6jzWzvSsFg==
+Message-ID: <2ad5ebf6-fb64-4647-b9c9-c274e59fa49f@kernel.org>
+Date: Thu, 31 Oct 2024 16:58:23 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10321:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86947187-a4e5-4d37-cfc6-08dcf9c81bcc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?l0rg79vI1T2jNq5h7Gb64JH71cF0g4mr8K5RxzsaxaVvKxXir6eu/q7TCpTw?=
- =?us-ascii?Q?jtdxTg7ThnEZ0uINLZyVw8/9OPNJDe0OkkyymorcelgUJMny6tsx0rjlnv9g?=
- =?us-ascii?Q?rE8ZfxKd/xegjq3nrRC7+I90ukjyTspvOg+MlB54xhequGAvoaRDX6wyzzzA?=
- =?us-ascii?Q?ATRFjUdguov0G7sSUgkjqcAcMVkfA6qdIjgXxAgSSc1a/+HyHtePur/zNadp?=
- =?us-ascii?Q?QzwMXWfdj/rW83S+5r9ZsTBmauvSQsLeBJMINzBcCT4RKnD3uNRfmeSqhETA?=
- =?us-ascii?Q?Y+REzlqDOmmbTffWqb0iNvDSf33p9T5lzrueckCzr6wOQddhL2QlQkfMSOkU?=
- =?us-ascii?Q?dwAIm5QsGtjiE/I1iNbf6LkuXP23+4RVkhi54YW74Ktul4nD8nm7gG0a8qE2?=
- =?us-ascii?Q?2GiEhDx/X7Dm+dyAI9DbAMMrn7HFGCD1USteaIQQ/2UaJbp48zdhf2gNVklF?=
- =?us-ascii?Q?5H9cTy2+foWnxRO07x9tePLtLpiVZBU0CNO3PY5hMMd+xmhTLOOeUIuB4NO4?=
- =?us-ascii?Q?tti0kjXo8gsNJBAXRPCYlfyxdx/f6tWY3YuwCt0tJ2CxO/W4PrpPVLwOobdh?=
- =?us-ascii?Q?3AEeBuQ7k0EUUEjY0ThZfbyKwW7ES9qYNzcBT+0DJtjC+vqP6ZM/+nTvHArZ?=
- =?us-ascii?Q?xJbYrh+K3IIrGleAYdqJvMAgr+rJnQ3TgZFlNCC4kgCXfnhxGfANBJ8UZ7De?=
- =?us-ascii?Q?aKnTgPXi2RV8s/SCvLDm3kPa26FD/MgbhUmja8FGumqhE/muZ9hIBDYFh8YI?=
- =?us-ascii?Q?0/DrbVXjPpfspZw7D/44I8yE7PMsqiOnb0rpAKL3cCy0MRbw0vSQoqIm89w6?=
- =?us-ascii?Q?zOj4mdTN2/TbqUAnpVjlKuKmCoKtgi1YU44m7KYyjY2m4sECmcAxGT4eaz1f?=
- =?us-ascii?Q?ZYP3tyiqRaLdFr24nmaI+hKXQzQdLyFsHqhjGbcxFMmpybIExYUpdYLm06QC?=
- =?us-ascii?Q?i0cHZwy4/fwghQvFQ8ZPg4EeWqYfeTcYTLTBcuhCURwZjRJXcwf8nknaKkiy?=
- =?us-ascii?Q?cUjT+RuePltK2vFAK53MZVNGFfIDUTsdpObAc06Oy17sbuBj+i6UcY4AryIc?=
- =?us-ascii?Q?cvqJkEtjI5WIaWv0lVJYWw1gqEkSBHlJ9Kp3J2WS6WlDiE6UsfIbtpshrOIt?=
- =?us-ascii?Q?n55KFQyOgYn0a560ATarW+604Bzy+RYJH7rJqXdNez4ZTMU828/cnLgYeRA6?=
- =?us-ascii?Q?XorzoxlvN/hngPv3DNH0bEsAWsNMao1T7b2BIu7jP1cCz6hVqURVBJ+1gb6u?=
- =?us-ascii?Q?Z4rttr9cpZlDD/XCi5XPUEtZ6aoB9q1BWg3iTOivEdbck2MMW0lo5tyg4OVH?=
- =?us-ascii?Q?bjE5+wAXWz/rXDXOHl5eIF/B8Aub2ORZgt21X7iGNI6HlJeJLmcRMFCncNep?=
- =?us-ascii?Q?S1eevxs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sy8AY2vem2voC5fuzUxuzftUvSzJ2bJSFdauTHGY3e/l5QATa4rcBfhjnLKS?=
- =?us-ascii?Q?ykH23xtskOKTyTjzZV/vtDwghOoldycJb6PjgfrrS6TNT/0cUTK2QuRZmKW0?=
- =?us-ascii?Q?Qjoz60YItvs13l+YHwGWz7FYfBX00yddXoPe/JOnogUyQBGgxmjkgi89VQ6m?=
- =?us-ascii?Q?x9c5RNYsFNsGz++jic+d2FpLJNa3njJWvn0A3+cswBZz29vqUQmyCAYNuLd3?=
- =?us-ascii?Q?BGEXK80ib7yfTqOyCUxxj6qwQHBSpWCUUL6no2FzhRGBBoyxhu392GMAnz4s?=
- =?us-ascii?Q?ku6A5xn/d1Ttf7dOdKahoFg1UK/29Xo/bT/WXZ7YsQKBGq27KNoTSewQrMD5?=
- =?us-ascii?Q?1TPdUfNX9mm8BZ543aAU+OF4XaxHLzjBy5z3WKiC5lZSXhHApZ0xhXBlk2CZ?=
- =?us-ascii?Q?P0hPCJoiabswC5nKvN7hMZ2mIaI866o08LjAlCXYj8BsXE5Eh1XSx+7QaSLt?=
- =?us-ascii?Q?Er+DFCUdnLpwU9L4EExo7Xvsx2HH0ZzOBGkJX71OTgSys11pG7R8gN9stWin?=
- =?us-ascii?Q?BOA2VDO1Sq6HrkR96lA0XmYumwttVPXidXq8LqxNOIJLs/ABeWKu3La1fCUw?=
- =?us-ascii?Q?hI5EmLHaO0FzNfwMdxvD+8v97o22QMCg3xPDIyU6fmAn9rhNLROOPmhv4UeJ?=
- =?us-ascii?Q?xEjazz+AOKmVc4KY7hnw94xxkwKPRgHsBH8YgXBnY4teiGVCIsforvWUVxR9?=
- =?us-ascii?Q?/CQrqQXv0kMDp2OeTBeAb2SvnpDRWkGjS9SSyFjMnvkhFbR1wJNrapAqOymh?=
- =?us-ascii?Q?sbcpvgVvOd4CQsPDc2k0gasumSVInV1KtHWMEHruMk3/ts8CGmjWRpAMZ3nX?=
- =?us-ascii?Q?2eXyl0wTCLdJirJ92uI4DiHR4BcNI65ZAkd1qB2wwreJJrlt+C0Ia2zDgSKe?=
- =?us-ascii?Q?F2oueV1MJKlSDWu1lYo123i0c2KcP8xRCnHQDhGJQY9nFoAwQxeMkDpdZacK?=
- =?us-ascii?Q?kgc8cTduTV1GxucBWeDpy0QO37nVy7jlIBP1CgzznkM76TluCaLw5qcJvU3v?=
- =?us-ascii?Q?COX4FMuZRwUzwo3u14nZvboit+vw6e4oHwuBZe8gK0D30utIy1OTVMWfCx7n?=
- =?us-ascii?Q?3fBuj6Kn3jW95DYxllazbP+N0tvZoxYqJk3h+c06Fh0BOFaHX4ZXLA/NUrjJ?=
- =?us-ascii?Q?RdNKsWdikO+UOPfmV0AeSt08IlXGVYZpGaDsL6YuNhD6pcy5akVmAgM9NyR9?=
- =?us-ascii?Q?O3bec0FcPSu3XPsRqBYTSgFk5tGRxQDZ/jRbVzLGawuRH8ugQGM64V5VxjXq?=
- =?us-ascii?Q?nDu6c//hTosOM96uxgTxUU+PaXBdDEeyUS94bVKDlbbw/+1A6Pg7I1iOcrWB?=
- =?us-ascii?Q?gfC3nubfS0u363hZDyUcYTkTv6fzWQiXB5vTt+lnF3733gd7X1lC+otoJOvv?=
- =?us-ascii?Q?z+Q3fhMeHxGm8euuZCIMlspFcomPp893rEveLnORdW2MWYeUcWsS3Ufz+NKZ?=
- =?us-ascii?Q?8GWN8rnK6lLA0Rq1XJ/PyZbuXaXcvwN1t9tamiqTWlg6G1aI5tUWx7iU3CNP?=
- =?us-ascii?Q?eWZqjPLr3v34/3xe0Iw0O1RitOvOYo03GyOwbo83E8HLRDw0KEjO3oASdw9K?=
- =?us-ascii?Q?ycoaNwS1o6GGSs5nZFz3qWI2QhAnqUHzN6OZkua/?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86947187-a4e5-4d37-cfc6-08dcf9c81bcc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 16:21:43.7642
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2qWnO68KzysLRRg5eUp7XgsplOEcMvIz29j/1xLiItLiJGNBW+IafGA8J9a5rIAclnYLawi4N/VO9cC+OO9YhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10321
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] rtc: mediatek: Add mt6685 RTC driver
+To: shunxi zhang <ot_shunxi.zhang@mediatek.com>,
+ alexandre.belloni@bootlin.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, lee@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241031135807.31605-1-ot_shunxi.zhang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241031135807.31605-1-ot_shunxi.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_092148_849544_9CAAA5A8 
-X-CRM114-Status: GOOD (  29.53  )
+X-CRM114-CacheID: sfid-20241031_155833_427898_2A6CD65C 
+X-CRM114-Status: GOOD (  30.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,272 +131,875 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 04:06:53PM +0800, Richard Zhu wrote:
-> From: Frank Li <Frank.Li@nxp.com>
->
-> Call common dwc suspend/resume function. Use dwc common iATU method to
-> send out PME_TURN_OFF message. In Old DWC implementations,
-> PCIE_ATU_INHIBIT_PAYLOAD bit in iATU Ctrl2 register is reserved. So the
-> generic DWC implementation of sending the PME_Turn_Off message using a
-> dummy MMIO write cannot be used. Use previouse method to kick off
-> PME_TURN_OFF MSG for these platforms.
->
-> Replace the imx_pcie_stop_link() and imx_pcie_host_exit() by
-> dw_pcie_suspend_noirq() in imx_pcie_suspend_noirq().
+On 31/10/2024 14:58, shunxi zhang wrote:
+> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
+> 
 
-because dw_pcie_suspend_noirq() already do these, see below call stack:
->
-> dw_pcie_suspend_noirq()
->   dw_pcie_stop_link();
->   pci->pp.ops->deinit();
->     imx_pcie_host_exit();
->
-> Replace the imx_pcie_host_init(), dw_pcie_setup_rc() and
-> imx_pcie_start_link() by dw_pcie_resume_noirq() in
-> imx_pcie_resume_noirq().
+Missing commit msg.
 
-because it dw_pcie_resume_noirq() already do these, see below call stack:
-
->
-> dw_pcie_resume_noirq()
->   pci->pp.ops->init();
->     imx_pcie_host_init();
->   dw_pcie_setup_rc();
->   dw_pcie_start_link();
->     imx_pcie_start_link();
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Signed-off-by: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 96 ++++++++++-----------------
->  1 file changed, 35 insertions(+), 61 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index dbcf22e440e2..410a31e5f82a 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -33,6 +33,7 @@
->  #include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
->
-> +#include "../../pci.h"
->  #include "pcie-designware.h"
->
->  #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
-> @@ -83,6 +84,7 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
->  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
->  #define IMX_PCIE_FLAG_CLOCKS_OPTIONAL		BIT(9)
-> +#define IMX_PCIE_FLAG_CUSTOM_PME_TURNOFF	BIT(10)
->
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->
-> @@ -107,19 +109,18 @@ struct imx_pcie_drvdata {
->  	int (*init_phy)(struct imx_pcie *pcie);
->  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
->  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
-> +	const struct dw_pcie_host_ops *ops;
->  };
->
->  struct imx_pcie {
->  	struct dw_pcie		*pci;
->  	struct gpio_desc	*reset_gpiod;
-> -	bool			link_is_up;
->  	struct clk_bulk_data	clks[IMX_PCIE_MAX_CLKS];
->  	struct regmap		*iomuxc_gpr;
->  	u16			msi_ctrl;
->  	u32			controller_id;
->  	struct reset_control	*pciephy_reset;
->  	struct reset_control	*apps_reset;
-> -	struct reset_control	*turnoff_reset;
->  	u32			tx_deemph_gen1;
->  	u32			tx_deemph_gen2_3p5db;
->  	u32			tx_deemph_gen2_6db;
-> @@ -898,13 +899,11 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  		dev_info(dev, "Link: Only Gen1 is enabled\n");
->  	}
->
-> -	imx_pcie->link_is_up = true;
->  	tmp = dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKSTA);
->  	dev_info(dev, "Link up, Gen%i\n", tmp & PCI_EXP_LNKSTA_CLS);
->  	return 0;
->
->  err_reset_phy:
-> -	imx_pcie->link_is_up = false;
->  	dev_dbg(dev, "PHY DEBUG_R0=0x%08x DEBUG_R1=0x%08x\n",
->  		dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG0),
->  		dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG1));
-> @@ -1023,9 +1022,32 @@ static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
->  	return cpu_addr - entry->offset;
->  }
->
+>  drivers/rtc/Kconfig                  |   10 +
+>  drivers/rtc/Makefile                 |    1 +
+>  drivers/rtc/rtc-mt6685.c             | 1456 ++++++++++++++++++++++++++
+>  include/linux/mfd/mt6685-audclk.h    |   11 +
+>  include/linux/mfd/mt6685/core.h      |   22 +
+>  include/linux/mfd/mt6685/registers.h |  921 ++++++++++++++++
+>  include/linux/mfd/mt6685/rtc.h       |  318 ++++++
+
+Two separate drivers should not be in one commit.
+
+>  7 files changed, 2739 insertions(+)
+>  create mode 100644 drivers/rtc/rtc-mt6685.c
+>  create mode 100644 include/linux/mfd/mt6685-audclk.h
+>  create mode 100644 include/linux/mfd/mt6685/core.h
+>  create mode 100644 include/linux/mfd/mt6685/registers.h
+>  create mode 100644 include/linux/mfd/mt6685/rtc.h
+> 
+> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+> index 66eb1122248b..7af04dfac978 100644
+> --- a/drivers/rtc/Kconfig
+> +++ b/drivers/rtc/Kconfig
+> @@ -1898,6 +1898,16 @@ config RTC_DRV_MT6397
+>  
+>  	  If you want to use MediaTek(R) RTC interface, select Y or M here.
+>  
+> +config RTC_DRV_MT6685
+> +	tristate "Mediatek Real Time Clock driver"
+> +	depends on MFD_MT6685 || (COMPILE_TEST && IRQ_DOMAIN)
+> +	help
+> +	  This selects the Mediatek(R) RTC driver. RTC is part of Mediatek
+> +	  MT6685. You should enable MT6685 MFD before select
+> +	  Mediatek(R) RTC driver.
+> +
+> +	  If you want to use Mediatek(R) RTC interface, select Y or M here.
+> +
+>  config RTC_DRV_MT7622
+>  	tristate "MediaTek SoC based RTC"
+>  	depends on ARCH_MEDIATEK || COMPILE_TEST
+> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+> index f62340ecc534..ec982192526d 100644
+> --- a/drivers/rtc/Makefile
+> +++ b/drivers/rtc/Makefile
+> @@ -110,6 +110,7 @@ obj-$(CONFIG_RTC_DRV_SSD202D)	+= rtc-ssd202d.o
+>  obj-$(CONFIG_RTC_DRV_MSM6242)	+= rtc-msm6242.o
+>  obj-$(CONFIG_RTC_DRV_MT2712)	+= rtc-mt2712.o
+>  obj-$(CONFIG_RTC_DRV_MT6397)	+= rtc-mt6397.o
+> +obj-$(CONFIG_RTC_DRV_MT6685)	+= rtc-mt6685.o
+>  obj-$(CONFIG_RTC_DRV_MT7622)	+= rtc-mt7622.o
+>  obj-$(CONFIG_RTC_DRV_MV)	+= rtc-mv.o
+>  obj-$(CONFIG_RTC_DRV_MXC)	+= rtc-mxc.o
+> diff --git a/drivers/rtc/rtc-mt6685.c b/drivers/rtc/rtc-mt6685.c
+
+Why this cannot be part of existing MT drivers?
+
+> new file mode 100644
+> index 000000000000..a3aa747a788a
+> --- /dev/null
+> +++ b/drivers/rtc/rtc-mt6685.c
+> @@ -0,0 +1,1456 @@
+> +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * In Old DWC implementations, PCIE_ATU_INHIBIT_PAYLOAD bit in iATU Ctrl2
-> + * register is reserved. So the generic DWC implementation of sending the
-> + * PME_Turn_Off message using a dummy MMIO write cannot be used.
+> + * Copyright (C) 2020 MediaTek Inc.
+> + * Author: Amber Lin <Mw.lin@mediatek.com>
 > + */
-> +static void imx_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+> +
+> +#include <linux/err.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/rtc.h>
+> +#include <linux/mfd/mt6685/rtc.h>
+> +#include <linux/mfd/mt6685/core.h>
+> +#include <linux/mfd/mt6685/registers.h>
+> +#include <linux/nvmem-provider.h>
+> +#include <linux/sched/clock.h>
+> +#include <linux/spmi.h>
+> +
+> +#if IS_ENABLED(CONFIG_MTK_AEE_FEATURE)
+
+There is no such stuff. Don't send us downstream code.
+
+> +#include <mt-plat/aee.h>
+> +#endif
+> +
+> +#ifdef SUPPORT_PWR_OFF_ALARM
+
+???
+
+> +#include <linux/notifier.h>
+> +#include <linux/suspend.h>
+> +#include <linux/completion.h>
+> +#include <linux/workqueue.h>
+> +#include <linux/jiffies.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/reboot.h>
+
+Drop all unrelated, unused headers.
+
+> +#endif
+> +
+> +/*debug information*/
+> +static int rtc_show_time;
+> +static int rtc_show_alarm;
+> +
+> +module_param(rtc_show_time, int, 0644);
+> +module_param(rtc_show_alarm, int, 0644);
+
+Drop all four. What's the purpose?
+
+> +
+> +static int mtk_rtc_write_trigger(struct mt6685_rtc *rtc);
+> +
+> +static int counter;
+
+Drop.
+
+
+> +
+> +static void power_on_mclk(struct mt6685_rtc *rtc)
 > +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
-> +
-> +	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12, IMX6SX_GPR12_PCIE_PM_TURN_OFF);
-> +	regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12, IMX6SX_GPR12_PCIE_PM_TURN_OFF);
-> +
-> +	usleep_range(PCIE_PME_TO_L2_TIMEOUT_US/10, PCIE_PME_TO_L2_TIMEOUT_US);
+> +	mutex_lock(&rtc->clk_lock);
+> +	/*Power on RTC MCLK and 32k clk before write RTC register*/
+
+This code has quite poor quality. I think you just send whatever you had
+downstream. Code has multiple trivial issues which should be easily
+pointed out by your internal review. Also multiple issues which we
+already fixed in upstream and you are supposed to take *upstream*
+driver, not downstream, and customize it. Please clean it up and consult
+internal review before sending such stuff upstream.
+
+
+> +	regmap_write(rtc->regmap, RG_RTC_32K_CK_PDN_CLR, RG_RTC_32K_CK_PDN_MASK);
+> +	regmap_write(rtc->regmap, RG_RTC_MCLK_PDN_CLR, RG_RTC_MCLK_PDN_MASK);
+> +	counter++;
+> +	mdelay(1);
+> +	mutex_unlock(&rtc->clk_lock);
 > +}
 > +
+> +static void power_down_mclk(struct mt6685_rtc *rtc)
+> +{
+> +	mutex_lock(&rtc->clk_lock);
+> +	counter--;
+> +	if (counter < 0) {
+> +		//dump_stack();
+> +		pr_info("mclk_counter[%d]\n", counter);
+
+Oh man... So many wrong things. This applies to entire code:
+1. Drop dead code. All dead code.
+
+2. Do not use pr_xxx but dev_xxx
+
+3. Drop all such useless printks because your driver is supposed to be
+silent.
+
+4. Implement proper clock handling instead of reimplementing it yourself
+with some counters.
+
+...
+
 > +
->  static const struct dw_pcie_host_ops imx_pcie_host_ops = {
->  	.init = imx_pcie_host_init,
->  	.deinit = imx_pcie_host_exit,
-> +	.pme_turn_off = imx_pcie_pme_turn_off,
+> +static const struct reg_field mt6685_cali_reg_fields[CALI_FILED_MAX] = {
+> +	[EOSC_CALI_TD]		= REG_FIELD(EOSC_CALI_TD_MT6685, 0, 2),
 > +};
 > +
-> +static const struct dw_pcie_host_ops imx_pcie_host_dw_pme_ops = {
-> +	.init = imx_pcie_host_init,
-> +	.deinit = imx_pcie_host_exit,
->  };
->
->  static const struct dw_pcie_ops dw_pcie_ops = {
-> @@ -1146,43 +1168,6 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
->  	return 0;
->  }
->
-> -static void imx_pcie_pm_turnoff(struct imx_pcie *imx_pcie)
-> -{
-> -	struct device *dev = imx_pcie->pci->dev;
-> -
-> -	/* Some variants have a turnoff reset in DT */
-> -	if (imx_pcie->turnoff_reset) {
-> -		reset_control_assert(imx_pcie->turnoff_reset);
-> -		reset_control_deassert(imx_pcie->turnoff_reset);
-> -		goto pm_turnoff_sleep;
-> -	}
-> -
-> -	/* Others poke directly at IOMUXC registers */
-> -	switch (imx_pcie->drvdata->variant) {
-> -	case IMX6SX:
-> -	case IMX6QP:
-> -		regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
-> -				IMX6SX_GPR12_PCIE_PM_TURN_OFF,
-> -				IMX6SX_GPR12_PCIE_PM_TURN_OFF);
-> -		regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
-> -				IMX6SX_GPR12_PCIE_PM_TURN_OFF, 0);
-> -		break;
-> -	default:
-> -		dev_err(dev, "PME_Turn_Off not implemented\n");
-> -		return;
-> -	}
-> -
-> -	/*
-> -	 * Components with an upstream port must respond to
-> -	 * PME_Turn_Off with PME_TO_Ack but we can't check.
-> -	 *
-> -	 * The standard recommends a 1-10ms timeout after which to
-> -	 * proceed anyway as if acks were received.
-> -	 */
-> -pm_turnoff_sleep:
-> -	usleep_range(1000, 10000);
-> -}
-> -
->  static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
->  {
->  	u8 offset;
-> @@ -1206,36 +1191,26 @@ static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
->  static int imx_pcie_suspend_noirq(struct device *dev)
->  {
->  	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
-> -	struct dw_pcie_rp *pp = &imx_pcie->pci->pp;
->
->  	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
->  		return 0;
->
->  	imx_pcie_msi_save_restore(imx_pcie, true);
-> -	imx_pcie_pm_turnoff(imx_pcie);
-> -	imx_pcie_stop_link(imx_pcie->pci);
-> -	imx_pcie_host_exit(pp);
-> -
-> -	return 0;
-> +	return dw_pcie_suspend_noirq(imx_pcie->pci);
->  }
->
->  static int imx_pcie_resume_noirq(struct device *dev)
->  {
->  	int ret;
->  	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
-> -	struct dw_pcie_rp *pp = &imx_pcie->pci->pp;
->
->  	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
->  		return 0;
->
-> -	ret = imx_pcie_host_init(pp);
-> +	ret = dw_pcie_resume_noirq(imx_pcie->pci);
->  	if (ret)
->  		return ret;
->  	imx_pcie_msi_save_restore(imx_pcie, false);
-> -	dw_pcie_setup_rc(pp);
-> -
-> -	if (imx_pcie->link_is_up)
-> -		imx_pcie_start_link(imx_pcie->pci);
->
->  	return 0;
->  }
-> @@ -1267,11 +1242,14 @@ static int imx_pcie_probe(struct platform_device *pdev)
->
->  	pci->dev = dev;
->  	pci->ops = &dw_pcie_ops;
-> -	pci->pp.ops = &imx_pcie_host_ops;
->
->  	imx_pcie->pci = pci;
->  	imx_pcie->drvdata = of_device_get_match_data(dev);
->
-> +	pci->pp.ops = &imx_pcie_host_dw_pme_ops;
-> +	if (imx_pcie->drvdata->ops)
-> +		pci->pp.ops = imx_pcie->drvdata->ops;
+> +static int rtc_eosc_cali_td;
+> +module_param(rtc_eosc_cali_td, int, 0644);
+
+Why do you put module params in multiple places? This is supposed to be
+in one, top level place, so we see all such interfaces.
+
+Anyway, drop.
+
+
 > +
->  	/* Find the PHY if one is defined, only imx7d uses it */
->  	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
->  	if (np) {
-> @@ -1345,13 +1323,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		break;
->  	}
->
-> -	/* Grab turnoff reset */
-> -	imx_pcie->turnoff_reset = devm_reset_control_get_optional_exclusive(dev, "turnoff");
-> -	if (IS_ERR(imx_pcie->turnoff_reset)) {
-> -		dev_err(dev, "Failed to get TURNOFF reset control\n");
-> -		return PTR_ERR(imx_pcie->turnoff_reset);
-> -	}
-> -
->  	if (imx_pcie->drvdata->gpr) {
->  	/* Grab GPR config register range */
->  		imx_pcie->iomuxc_gpr =
-> @@ -1430,6 +1401,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		if (ret < 0)
->  			return ret;
->  	} else {
-> +		pci->pp.use_atu_msg = true;
->  		ret = dw_pcie_host_init(&pci->pp);
->  		if (ret < 0)
->  			return ret;
-> @@ -1494,6 +1466,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.init_phy = imx6sx_pcie_init_phy,
->  		.enable_ref_clk = imx6sx_pcie_enable_ref_clk,
->  		.core_reset = imx6sx_pcie_core_reset,
-> +		.ops = &imx_pcie_host_ops,
->  	},
->  	[IMX6QP] = {
->  		.variant = IMX6QP,
-> @@ -1511,6 +1484,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.init_phy = imx_pcie_init_phy,
->  		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
->  		.core_reset = imx6qp_pcie_core_reset,
-> +		.ops = &imx_pcie_host_ops,
->  	},
->  	[IMX7D] = {
->  		.variant = IMX7D,
-> --
-> 2.37.1
->
+> +static void mtk_rtc_enable_k_eosc(struct device *dev)
+> +{
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
+> +	u32 td;
+> +
+> +	power_on_mclk(rtc);
+
+This code is really suspicious.
+
+> +
+> +	if (!rtc->cali_is_supported) {
+> +		power_down_mclk(rtc);
+> +		return;
+> +	}
+> +
+> +	if (rtc_eosc_cali_td) {
+> +		dev_notice(dev, "%s: rtc_eosc_cali_td = %d\n",
+> +			   __func__, rtc_eosc_cali_td);
+
+No, drop.
+
+> +		switch (rtc_eosc_cali_td) {
+> +		case 1:
+> +			td = EOSC_CALI_TD_01_SEC;
+> +			break;
+> +		case 2:
+> +			td = EOSC_CALI_TD_02_SEC;
+> +			break;
+> +		case 4:
+> +			td = EOSC_CALI_TD_04_SEC;
+> +			break;
+> +		case 16:
+> +			td = EOSC_CALI_TD_16_SEC;
+> +			break;
+> +		default:
+> +			td = EOSC_CALI_TD_08_SEC;
+> +			break;
+> +		}
+> +
+> +		rtc_field_write(rtc, &rtc->data->cali_reg_fields[EOSC_CALI_TD], td);
+> +	}
+> +	power_down_mclk(rtc);
+> +}
+> +
+> +#ifdef SUPPORT_PWR_OFF_ALARM
+
+Is this some sort of joke? There is no such thing.
+
+
+> +
+> +static u32 bootmode = NORMAL_BOOT;
+> +static struct wakeup_source *mt6685_rtc_suspend_lock;
+> +#if IS_ENABLED(CONFIG_PM)
+> +static bool rtc_pm_notifier_registered;
+> +static unsigned long rtc_pm_status;
+> +#endif
+> +static bool kpoc_alarm;
+> +
+> +#if IS_ENABLED(CONFIG_PM)
+> +
+> +#define PM_DUMMY 0xFFFF
+
+NAK to all above.
+
+> +
+> +static int rtc_pm_event(struct notifier_block *notifier, unsigned long pm_event,
+> +			void *unused)
+> +{
+> +	struct mt6685_rtc *rtc = container_of(notifier,
+> +		struct mt6685_rtc, pm_nb);
+> +
+> +	switch (pm_event) {
+> +	case PM_SUSPEND_PREPARE:
+> +		rtc_pm_status = PM_SUSPEND_PREPARE;
+> +		return NOTIFY_DONE;
+> +	case PM_POST_SUSPEND:
+> +		rtc_pm_status = PM_POST_SUSPEND;
+> +		break;
+> +	default:
+> +		rtc_pm_status = PM_DUMMY;
+> +		break;
+> +	}
+> +
+> +	if (kpoc_alarm) {
+> +		dev_notice(rtc->rtc_dev->dev.parent,
+> +			   "%s trigger reboot\n", __func__);
+> +		complete(&rtc->comp);
+> +		kpoc_alarm = false;
+> +	}
+> +	return NOTIFY_DONE;
+> +}
+> +#endif /* CONFIG_PM */
+> +
+> +static void rtc_mark_kpoc(struct mt6685_rtc *rtc)
+> +{
+> +	power_on_mclk(rtc);
+> +	mutex_lock(&rtc->lock);
+> +	rtc_field_write(rtc, &rtc->data->spare_reg_fields[SPARE_KPOC], 1);
+> +	mutex_unlock(&rtc->lock);
+> +	power_down_mclk(rtc);
+> +}
+> +
+> +static void mtk_rtc_work_queue(struct work_struct *work)
+> +{
+> +	struct mt6685_rtc *rtc = container_of(work, struct mt6685_rtc, work);
+> +	unsigned long ret;
+> +	unsigned int msecs;
+> +
+> +	ret = wait_for_completion_timeout(&rtc->comp, msecs_to_jiffies(30000));
+> +	if (!ret) {
+> +		dev_notice(rtc->rtc_dev->dev.parent, "%s timeout\n", __func__);
+> +		WARN_ON(1);
+> +	} else {
+> +		msecs = jiffies_to_msecs(ret);
+> +		dev_notice(rtc->rtc_dev->dev.parent,
+> +			   "%s timeleft= %d\n", __func__, msecs);
+> +		rtc_mark_kpoc(rtc);
+> +		kernel_restart("kpoc");
+> +	}
+> +}
+> +
+> +static void mtk_rtc_reboot(struct mt6685_rtc *rtc)
+> +{
+> +	__pm_stay_awake(mt6685_rtc_suspend_lock);
+> +
+> +	init_completion(&rtc->comp);
+> +	schedule_work_on(cpumask_first(cpu_online_mask), &rtc->work);
+> +
+> +#if IS_ENABLED(CONFIG_PM)
+> +	if (!rtc_pm_notifier_registered)
+> +		goto reboot;
+> +
+> +	if (rtc_pm_status != PM_SUSPEND_PREPARE)
+> +		goto reboot;
+> +#endif
+> +
+> +	kpoc_alarm = true;
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent, "%s:wait\n", __func__);
+> +	return;
+> +
+> +#if IS_ENABLED(CONFIG_PM)
+> +reboot:
+> +	dev_notice(rtc->rtc_dev->dev.parent, "%s:trigger\n", __func__);
+> +	complete(&rtc->comp);
+> +#endif
+> +}
+> +
+> +static void mtk_rtc_update_pwron_alarm_flag(struct mt6685_rtc *rtc)
+> +{
+> +	int ret;
+> +
+> +	power_on_mclk(rtc);
+> +
+> +	ret = rtc_update_bits(rtc,
+> +			      rtc->addr_base + RTC_PDN1,
+> +			      RTC_PDN1_PWRON_TIME, 0);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	ret =  rtc_update_bits(rtc,
+> +			       rtc->addr_base + RTC_PDN2,
+> +			       RTC_PDN2_PWRON_ALARM, RTC_PDN2_PWRON_ALARM);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	mtk_rtc_write_trigger(rtc);
+> +	power_down_mclk(rtc);
+> +	dev_notice(rtc->rtc_dev->dev.parent, "%s info\n", __func__);
+
+NAK
+
+> +	return;
+> +
+> +exit:
+> +	power_down_mclk(rtc);
+> +	dev_err(rtc->rtc_dev->dev.parent, "%s error\n", __func__);
+
+NAK, what error? Be descriptive.
+
+
+> +}
+> +
+> +static int mtk_rtc_restore_alarm(struct mt6685_rtc *rtc, struct rtc_time *tm)
+> +{
+> +	int ret;
+> +	u16 data[RTC_OFFSET_COUNT] = { 0 };
+> +
+> +	power_on_mclk(rtc);
+> +
+> +	ret = rtc_bulk_read(rtc, rtc->addr_base + RTC_AL_SEC,
+> +			    data, RTC_OFFSET_COUNT * 2);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	data[RTC_OFFSET_SEC] = ((data[RTC_OFFSET_SEC] & ~(RTC_AL_SEC_MASK)) |
+> +				(tm->tm_sec & RTC_AL_SEC_MASK));
+> +	data[RTC_OFFSET_MIN] = ((data[RTC_OFFSET_MIN] & ~(RTC_AL_MIN_MASK)) |
+> +				(tm->tm_min & RTC_AL_MIN_MASK));
+> +	data[RTC_OFFSET_HOUR] = ((data[RTC_OFFSET_HOUR] & ~(RTC_AL_HOU_MASK)) |
+> +				(tm->tm_hour & RTC_AL_HOU_MASK));
+> +	data[RTC_OFFSET_DOM] = ((data[RTC_OFFSET_DOM] & ~(RTC_AL_DOM_MASK)) |
+> +				(tm->tm_mday & RTC_AL_DOM_MASK));
+> +	data[RTC_OFFSET_MTH] = ((data[RTC_OFFSET_MTH] & ~(RTC_AL_MTH_MASK)) |
+> +				(tm->tm_mon & RTC_AL_MTH_MASK));
+> +	data[RTC_OFFSET_YEAR] = ((data[RTC_OFFSET_YEAR] & ~(RTC_AL_YEA_MASK)) |
+> +				(tm->tm_year & RTC_AL_YEA_MASK));
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent,
+> +		   "restore al time = %04d/%02d/%02d %02d:%02d:%02d\n",
+> +		   tm->tm_year + RTC_MIN_YEAR, tm->tm_mon, tm->tm_mday,
+> +		   tm->tm_hour, tm->tm_min, tm->tm_sec);
+> +
+> +	ret = rtc_bulk_write(rtc, rtc->addr_base + RTC_AL_SEC,
+> +			     data, RTC_OFFSET_COUNT * 2);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	ret = rtc_write(rtc, rtc->addr_base + RTC_AL_MASK,
+> +			RTC_AL_MASK_DOW);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	ret =  rtc_update_bits(rtc,
+> +			       rtc->addr_base + RTC_IRQ_EN,
+> +			       RTC_IRQ_EN_AL, RTC_IRQ_EN_AL);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	mtk_rtc_write_trigger(rtc);
+> +	power_down_mclk(rtc);
+> +	return ret;
+> +
+> +exit:
+> +	power_down_mclk(rtc);
+> +	dev_err(rtc->rtc_dev->dev.parent, "%s error\n", __func__);
+
+Again, be descriptive.
+
+> +	return ret;
+> +}
+> +
+> +static bool mtk_rtc_is_pwron_alarm(struct mt6685_rtc *rtc,
+> +				   struct rtc_time *nowtm, struct rtc_time *tm)
+> +{
+> +	u32 pdn1 = 0, spar1 = 0, pdn2 = 0, spar0 = 0;
+> +	int ret, sec = 0;
+> +	u16 data[RTC_OFFSET_COUNT] = { 0 };
+> +
+> +	ret = rtc_read(rtc, rtc->addr_base + RTC_PDN1, &pdn1);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent, "pdn1 = 0x%x\n", pdn1);
+
+NAK
+
+
+...
+
+
+> +
+> +				dev_info(rtc->rtc_dev->dev.parent,
+> +					 "[HWID 0x%x, MCLK 0x%x, prot key 0x%x] %s write %d, latest %d\n",
+> +					 hwid, mclk, prot_key, rtc_time_reg_name[i],
+> +					 data[i], latest[i]);
+> +			}
+
+NAK
+
+> +		}
+> +
+> +		if (write_fail > 0)
+> +			mdelay(2);
+> +		else
+> +			break;
+> +	}
+> +
+> +	if (write_fail > 0)
+> +		return false;
+> +
+> +	return true;
+> +}
+> +
+> +static int mtk_rtc_set_time(struct device *dev, struct rtc_time *tm)
+> +{
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
+> +	int ret, result = 0;
+> +	u16 data[RTC_OFFSET_COUNT];
+> +
+> +	power_on_mclk(rtc);
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent,
+> +		   "set tc time = %04d/%02d/%02d %02d:%02d:%02d\n",
+> +		   tm->tm_year + RTC_BASE_YEAR, tm->tm_mon + 1, tm->tm_mday,
+> +		   tm->tm_hour, tm->tm_min, tm->tm_sec);
+> +
+> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
+> +	tm->tm_mon++;
+> +
+> +	data[RTC_OFFSET_SEC] = tm->tm_sec;
+> +	data[RTC_OFFSET_MIN] = tm->tm_min;
+> +	data[RTC_OFFSET_HOUR] = tm->tm_hour;
+> +	data[RTC_OFFSET_DOM] = tm->tm_mday;
+> +	data[RTC_OFFSET_MTH] = tm->tm_mon;
+> +	data[RTC_OFFSET_YEAR] = tm->tm_year;
+> +
+> +	mutex_lock(&rtc->lock);
+> +	ret = rtc_bulk_write(rtc, rtc->addr_base + RTC_TC_SEC,
+> +			     data, RTC_OFFSET_COUNT * 2);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	/* Time register write to hardware after call trigger function */
+> +	ret = mtk_rtc_write_trigger(rtc);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	result = mtk_rtc_check_set_time(rtc, tm, 2, RTC_TC_SEC);
+> +
+> +	if (!result) {
+> +		dev_info(rtc->rtc_dev->dev.parent, "check rtc set time\n");
+> +#if IS_ENABLED(CONFIG_MTK_AEE_FEATURE)
+> +		aee_kernel_warning("mt6685-rtc", "mt6685-rtc: set tick time failed\n");
+> +#endif
+
+NAK
+
+> +	}
+> +
+> +exit:
+> +	mutex_unlock(&rtc->lock);
+> +	power_down_mclk(rtc);
+
+I did not investigate locking but it feels like you lock everything
+everywhere.
+
+Considering how poor code is this, I suspect that locking is totally
+bogus. Provide extensive description of locking in comment section in
+the top.
+
+
+> +	return ret;
+> +}
+> +
+> +static int mtk_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
+> +{
+> +	struct rtc_time *tm = &alm->time;
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
+> +	u32 irqen = 0, pdn2 = 0;
+> +	int ret;
+> +	u16 data[RTC_OFFSET_COUNT] = { 0 };
+> +
+> +	mutex_lock(&rtc->lock);
+> +	ret = rtc_read(rtc, rtc->addr_base + RTC_IRQ_EN, &irqen);
+> +	if (ret < 0)
+> +		goto err_exit;
+> +	ret = rtc_read(rtc, rtc->addr_base + RTC_PDN2, &pdn2);
+> +	if (ret < 0)
+> +		goto err_exit;
+> +
+> +	ret = rtc_bulk_read(rtc, rtc->addr_base + RTC_AL_SEC,
+> +			    data, RTC_OFFSET_COUNT * 2);
+> +	if (ret < 0)
+> +		goto err_exit;
+> +
+> +	alm->enabled = !!(irqen & RTC_IRQ_EN_AL);
+> +	alm->pending = !!(pdn2 & RTC_PDN2_PWRON_ALARM);
+> +	mutex_unlock(&rtc->lock);
+> +
+> +	tm->tm_sec = data[RTC_OFFSET_SEC] & RTC_AL_SEC_MASK;
+> +	tm->tm_min = data[RTC_OFFSET_MIN] & RTC_AL_MIN_MASK;
+> +	tm->tm_hour = data[RTC_OFFSET_HOUR] & RTC_AL_HOU_MASK;
+> +	tm->tm_mday = data[RTC_OFFSET_DOM] & RTC_AL_DOM_MASK;
+> +	tm->tm_mon = data[RTC_OFFSET_MTH] & RTC_AL_MTH_MASK;
+> +	tm->tm_year = data[RTC_OFFSET_YEAR] & RTC_AL_YEA_MASK;
+> +
+> +	tm->tm_year += RTC_MIN_YEAR_OFFSET;
+> +	tm->tm_mon--;
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent,
+> +		   "read al time = %04d/%02d/%02d %02d:%02d:%02d (%d)\n",
+> +		   tm->tm_year + RTC_BASE_YEAR, tm->tm_mon + 1, tm->tm_mday,
+> +		   tm->tm_hour, tm->tm_min, tm->tm_sec, alm->enabled);
+> +
+> +	return 0;
+> +err_exit:
+> +	mutex_unlock(&rtc->lock);
+> +	return ret;
+> +}
+> +
+> +static int mtk_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
+> +{
+> +	struct rtc_time *tm = &alm->time;
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
+> +	int ret, result = 0;
+> +	u16 data[RTC_OFFSET_COUNT];
+> +	ktime_t target;
+> +
+> +	power_on_mclk(rtc);
+> +
+> +	if (alm->enabled == 1) {
+> +		/* Add one more second to postpone wake time. */
+> +		target = rtc_tm_to_ktime(*tm);
+> +		target = ktime_add_ns(target, NSEC_PER_SEC);
+> +		*tm = rtc_ktime_to_tm(target);
+> +	}
+> +
+> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
+> +	tm->tm_mon++;
+> +
+> +	dev_notice(rtc->rtc_dev->dev.parent,
+> +		   "set al time = %04d/%02d/%02d %02d:%02d:%02d (%d)\n",
+> +		   tm->tm_year + RTC_MIN_YEAR, tm->tm_mon, tm->tm_mday,
+> +		   tm->tm_hour, tm->tm_min, tm->tm_sec, alm->enabled);
+> +
+> +	mutex_lock(&rtc->lock);
+> +
+> +	switch (alm->enabled) {
+> +	case 3:
+> +		/* enable power-on alarm with logo */
+> +		mtk_rtc_save_pwron_time(rtc, true, tm);
+> +		break;
+> +	case 4:
+> +		/* disable power-on alarm */
+> +		mtk_rtc_save_pwron_time(rtc, false, tm);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	ret = rtc_update_bits(rtc,
+> +			      rtc->addr_base + RTC_PDN2,
+> +			      RTC_PDN2_PWRON_ALARM, 0);
+> +	if (ret < 0)
+> +		goto exit;
+> +	mtk_rtc_write_trigger(rtc);
+> +
+> +	ret = rtc_bulk_read(rtc, rtc->addr_base + RTC_AL_SEC,
+> +			    data, RTC_OFFSET_COUNT * 2);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	data[RTC_OFFSET_SEC] = ((data[RTC_OFFSET_SEC] & ~(RTC_AL_SEC_MASK)) |
+> +				(tm->tm_sec & RTC_AL_SEC_MASK));
+> +	data[RTC_OFFSET_MIN] = ((data[RTC_OFFSET_MIN] & ~(RTC_AL_MIN_MASK)) |
+> +				(tm->tm_min & RTC_AL_MIN_MASK));
+> +	data[RTC_OFFSET_HOUR] = ((data[RTC_OFFSET_HOUR] & ~(RTC_AL_HOU_MASK)) |
+> +				(tm->tm_hour & RTC_AL_HOU_MASK));
+> +	data[RTC_OFFSET_DOM] = ((data[RTC_OFFSET_DOM] & ~(RTC_AL_DOM_MASK)) |
+> +				(tm->tm_mday & RTC_AL_DOM_MASK));
+> +	data[RTC_OFFSET_MTH] = ((data[RTC_OFFSET_MTH] & ~(RTC_AL_MTH_MASK)) |
+> +				(tm->tm_mon & RTC_AL_MTH_MASK));
+> +	data[RTC_OFFSET_YEAR] = ((data[RTC_OFFSET_YEAR] & ~(RTC_AL_YEA_MASK)) |
+> +				(tm->tm_year & RTC_AL_YEA_MASK));
+> +
+> +	if (alm->enabled) {
+> +		ret = rtc_bulk_write(rtc,
+> +				     rtc->addr_base + RTC_AL_SEC,
+> +				     data, RTC_OFFSET_COUNT * 2);
+> +		if (ret < 0)
+> +			goto exit;
+> +		ret = rtc_write(rtc, rtc->addr_base + RTC_AL_MASK,
+> +				RTC_AL_MASK_DOW);
+> +		if (ret < 0)
+> +			goto exit;
+> +
+> +		ret =  rtc_update_bits(rtc,
+> +				       rtc->addr_base + RTC_IRQ_EN,
+> +				       RTC_IRQ_EN_AL, RTC_IRQ_EN_AL);
+> +		if (ret < 0)
+> +			goto exit;
+> +		} else {
+> +			ret =  rtc_update_bits(rtc,
+> +					       rtc->addr_base + RTC_IRQ_EN,
+> +					       RTC_IRQ_EN_AL, 0);
+> +			if (ret < 0)
+> +				goto exit;
+> +		}
+> +
+> +	/* All alarm time register write to hardware after calling
+> +	 * mtk_rtc_write_trigger. This can avoid race condition if alarm
+> +	 * occur happen during writing alarm time register.
+> +	 */
+> +	ret = mtk_rtc_write_trigger(rtc);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	result = mtk_rtc_check_set_time(rtc, tm, 2, RTC_AL_SEC);
+> +
+> +	if (!result) {
+> +		dev_info(rtc->rtc_dev->dev.parent, "check rtc set alarm\n");
+> +#if IS_ENABLED(CONFIG_MTK_AEE_FEATURE)
+> +		aee_kernel_warning("mt6685-rtc", "mt6685-rtc: set alarm time failed\n");
+> +#endif
+> +	}
+> +exit:
+> +	mutex_unlock(&rtc->lock);
+> +	power_down_mclk(rtc);
+> +	return ret;
+> +}
+> +
+> +static int rtc_alarm_set_power_on(struct device *dev, struct rtc_wkalrm *alm)
+> +{
+> +	int err = 0;
+> +	struct rtc_time tm;
+> +	time64_t now, scheduled;
+> +
+> +	err = rtc_valid_tm(&alm->time);
+> +	if (err != 0)
+> +		return err;
+> +	scheduled = rtc_tm_to_time64(&alm->time);
+> +
+> +	err = mtk_rtc_read_time(dev, &tm);
+> +	if (err != 0)
+> +		return err;
+> +	now = rtc_tm_to_time64(&tm);
+> +
+> +	if (scheduled <= now)
+> +		alm->enabled = 4;
+> +	else
+> +		alm->enabled = 3;
+> +
+> +	mtk_rtc_set_alarm(dev, alm);
+> +
+> +	return err;
+> +}
+> +
+> +static int mtk_rtc_ioctl(struct device *dev, unsigned int cmd, unsigned long arg)
+> +{
+> +	void __user *uarg = (void __user *)arg;
+> +	int err = 0;
+> +	struct rtc_wkalrm alm;
+> +
+> +	switch (cmd) {
+> +	case RTC_POFF_ALM_SET:
+> +		if (copy_from_user(&alm.time, uarg, sizeof(alm.time)))
+> +			return -EFAULT;
+> +		err = rtc_alarm_set_power_on(dev, &alm);
+> +		break;
+> +	default:
+> +		err = -EINVAL;
+> +		break;
+> +	}
+> +
+> +	return err;
+> +}
+> +
+> +static const struct rtc_class_ops mtk_rtc_ops = {
+> +	.ioctl      = mtk_rtc_ioctl,
+> +	.read_time  = mtk_rtc_read_time,
+> +	.set_time   = mtk_rtc_set_time,
+> +	.read_alarm = mtk_rtc_read_alarm,
+> +	.set_alarm  = mtk_rtc_set_alarm,
+> +};
+> +
+> +static int rtc_nvram_read(void *priv, unsigned int offset, void *val,
+> +			  size_t bytes)
+> +{
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(priv);
+> +	unsigned int ival;
+> +	int ret;
+> +	u8 *buf = val;
+> +
+> +	mutex_lock(&rtc->lock);
+> +
+> +	for (; bytes; bytes--) {
+> +		ret = rtc_field_read(rtc,
+> +				     &rtc->data->spare_reg_fields[offset++],
+> +				     &ival);
+> +
+> +		if (ret)
+> +			goto out;
+> +
+> +		*buf++ = (u8)ival;
+> +	}
+> +
+> +out:
+> +	mutex_unlock(&rtc->lock);
+> +	return ret;
+> +}
+> +
+> +static int rtc_nvram_write(void *priv, unsigned int offset, void *val,
+> +			   size_t bytes)
+> +{
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(priv);
+> +	unsigned int ival;
+> +	int ret;
+> +	u8 *buf = val;
+> +
+> +	power_on_mclk(rtc);
+> +
+> +	mutex_lock(&rtc->lock);
+> +
+> +	for (; bytes; bytes--) {
+> +		ival = *buf++;
+> +		ret = rtc_field_write(rtc,
+> +				      &rtc->data->spare_reg_fields[offset++],
+> +				      ival);
+> +
+> +		if (ret)
+> +			goto out;
+> +	}
+> +
+> +out:
+> +	mutex_unlock(&rtc->lock);
+> +	power_down_mclk(rtc);
+> +	return ret;
+> +}
+> +
+> +static int mtk_rtc_set_spare(struct device *dev)
+> +{
+> +	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
+> +	int ret;
+> +	struct nvmem_config nvmem_cfg = {
+> +		.name = "mtk_rtc_nvmem",
+> +		.word_size = SPARE_REG_WIDTH,
+> +		.stride = 1,
+> +		.size = SPARE_RG_MAX * SPARE_REG_WIDTH,
+> +		.reg_read = rtc_nvram_read,
+> +		.reg_write = rtc_nvram_write,
+> +		.priv = dev,
+> +	};
+> +
+> +	ret = devm_rtc_nvmem_register(rtc->rtc_dev, &nvmem_cfg);
+> +	if (ret)
+> +		dev_err(rtc->rtc_dev->dev.parent, "nvmem register failed\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static int mtk_rtc_probe(struct platform_device *pdev)
+> +{
+> +	struct mt6685_rtc *rtc;
+> +	struct device_node *np = pdev->dev.of_node;
+> +	int ret;
+> +#ifdef SUPPORT_PWR_OFF_ALARM
+> +	struct device_node *of_chosen = NULL;
+> +	struct tag_bootmode *tag = NULL;
+> +#endif
+> +	if (!of_device_is_available(np)) {
+> +		dev_err(&pdev->dev, "rtc disabled\n");
+
+NAK, this code is a disaster.
+
+> +		return -1;
+> +	}
+> +
+> +	rtc = devm_kzalloc(&pdev->dev, sizeof(struct mt6685_rtc), GFP_KERNEL);
+> +	if (!rtc) {
+> +		//dev_err(&pdev->dev, "devm_kzalloc failed\n");
+
+NAK
+
+
+> +		return -ENOMEM;
+> +	}
+> +
+> +	rtc->data = of_device_get_match_data(&pdev->dev);
+> +	if (!rtc->data) {
+> +		dev_err(&pdev->dev, "of_device_get_match_data failed\n");
+
+NAK
+
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (of_property_read_u32(pdev->dev.of_node, "base", &rtc->addr_base))
+> +		rtc->addr_base = RTC_DSN_ID;
+> +
+> +	pr_notice("%s: rtc->addr_base =0x%x\n", __func__, rtc->addr_base);
+
+NAK
+
+I finished here. The code is terrible and not suitable for mainline.
+It's probably overcomplicated for something like RTC, but that's not yet
+the main problem and I did not get there yet.
+
+Drop all this code. Sorry, it's just not started correctly. Instead take
+RECENT mainline driver and customize it using upstream, not downstream,
+patterns and coding style.
+
+Best regards,
+Krzysztof
+
 
