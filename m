@@ -4,107 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE77E68976
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A90E68955
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=; b=ugJZBwmaGBjwmvdOl0W5EMWw0u
-	mDynM1zqnyz6ikZnFH9OzXSdDcNAUeMVf00NGNZeyfm7XwXmPXJI64vp7zdvmwuoHEhIV/JsV8vMp
-	EOe20wdCv+i4v5O7zHJucnJye6MZ2MYH860DcM/4JXudbuD24it+ziT0KTKzMQn8qCWU0vCxfKNpQ
-	tnTorvQaDlffVJeOHWOqLPPY6HHRoohFQMJyXQsR6tFJ8PUMHNgPTjvrWA0h5Jq55rsyqlctsIpGI
-	mLhSf9w3VG46ztmA/wfQc4/VpFydc0i94uZSDsTOUBl9vOXhJEmHzW8FvnFTTuPC8ZNCYwyuDCgpM
-	kD9FFR/w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HpDEFb/b2aBSAKaChmlY1F4rNIuVfJRVe42EEqr5rQU=; b=sWOF6A8QxyP70ZdWbmaGwIxP0L
+	t928jOTgAgU9BRvCAFIn0vwItvqKor3NW5oqOdrPMK0Mjq8SGL3l1YNQi11SLXHovRjbyRBVX6Npt
+	9TOjW1e9K5eZkVX2Q0WF+QWWpxxby9ymH9F/ECJAFZ1tjg+j/UQSdgEBh9a1A0PYSWYx+bCPx6qTM
+	+I19RhH/0aurPbNpbovVMhlcamWZ1N9HyHEu6/bQoAVWtv9IZCnBrPGWhzRonTL3Mg9XcNPZxKJ29
+	rEQSyug64lJ4ef1s89+XZ9BSDkhlbwxVU6vqYKVIiZKvGigzvbEEwqtHCos7326jzgpZ+Sgxf6m09
+	tpPkLHBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TGK-00000003NpM-0GEB;
-	Thu, 31 Oct 2024 11:22:48 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1t6TMd-00000003Odz-0dFr;
+	Thu, 31 Oct 2024 11:29:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TEe-00000003NbD-173f
+	id 1t6TKx-00000003ORZ-24RX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 11:21:07 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-207115e3056so7348305ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:21:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1730373663; x=1730978463; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=;
-        b=lbtkfcIzhckBs6Q6Yl7C/Y6z+14gxxy73vQIk2xUqSblvbvNNxTcpxJPyycYClFtq5
-         efPTuNeKtzWIF7iuAX4DOsbJRM1VBN3Mi41xnDdR1akMxQx8SrzRRzViTVhc26jUJkcN
-         isQ+Z0tmoWuwUPipYayQsUnLknA/GKv9yzeG7ymZaWocDVdYX3DDrQAhryoZWNsv+7+S
-         i1WXgZ3zHRHCIb2knUq5G1chwxE7bq94k64KX6wX8ac3uRNQkUWH0/617vckg+CL/yDP
-         okmFaUMFr83pxEGWbuEBPtSsmc8JVXmzl8J8vYVWzODXEXYNrS0mmGSYyJbEPxZukP4+
-         hozQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730373663; x=1730978463;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=;
-        b=AdcCzTiUHAOjVDhpD4fuOkLcnxEX8B0OJQKfXtBLI/+HwqfUTpU6mAWRyp+wA3fO5X
-         uSJy7JV2P9FP8LwxfYxfXm+agFi22T07r/iU5DIbRj1BqdsyFD1+HpqNrnEyfzGdtQiY
-         rXX2a9CZPWH9L/qe1yEM6TA2dlpejOIxQ0r/gmuyO+PgAACKP5RkkwNCWlfatn/YulIO
-         4VVOxWVEwPqwvO49endcdVSWYKpKcmU4L4puQnkir2Lslg22OeyrcHvErIBp4Yn6HctA
-         hTqYT6w8Z9IHAjf9GZM+BNqu1T5mJHUT05WGbtIVd1dF03G9yk+BK0kPhi2XcGHEL7EQ
-         RhPA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDOdoshM8lwGehVgXbIrT/NxTX1D4bRU2mhgtPRer11F1RU8ns75xiN4i7JuyL94rEj+DT4+7eltEbuFDszJOb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTviog2PGADAjYRyELKIlUobUQ5F0WenO5BaF8RXD/d6kJvAsT
-	gCB8QyKuTQPTbkI5k9jefFHU0tqi5HBAaQaJf3/HHUUWHjRImcVytOm2rWVJQ9U=
-X-Google-Smtp-Source: AGHT+IF6rCp8uA7CIfzXSTYHLrzQK+lu+COWzmT52riKYUQh7Yt9+TYvl4AYGhI2GgQcWukgSatRcQ==
-X-Received: by 2002:a17:902:da82:b0:20c:cccd:17a3 with SMTP id d9443c01a7336-210c6c346a9mr224734955ad.46.1730373662606;
-        Thu, 31 Oct 2024 04:21:02 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.227])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056efd01sm7513455ad.52.2024.10.31.04.20.52
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 31 Oct 2024 04:21:02 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: punit.agrawal@bytedance.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	rafael@kernel.org,
-	lenb@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	sudeep.holla@arm.com,
-	guohanjun@huawei.com,
-	prarit@redhat.com,
-	gshan@redhat.com,
-	cuiyunhui@bytedance.com,
-	dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com,
-	liuwei09@cestc.cn,
-	maobibo@loongson.cn,
-	sunilvl@ventanamicro.com,
-	alexghiti@rivosinc.com,
-	haibo1.xu@intel.com,
-	jeeheng.sia@starfivetech.com,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Subject: [PATCH] ACPI: fix the warning reported by the sparse
-Date: Thu, 31 Oct 2024 19:20:30 +0800
-Message-Id: <20241031112030.72647-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Thu, 31 Oct 2024 11:27:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CA0DFA44121;
+	Thu, 31 Oct 2024 11:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B97C4CEFC;
+	Thu, 31 Oct 2024 11:17:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730373470;
+	bh=8qknxn41wZoCsTggYSe2Lp0RhYFWnrMqzr0ogn95w1k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=opxZOszcxk8pH+PeHnyEDyLZUKEDxFspaSCn+eDBAl/QBJeG44cvhG/oAk4x8yZ9E
+	 OCkCSKtg3ar8FRYPblBv9u9ySP2LFPPwBI2wkAcHdZdaUp/7wOaGeAfofbiRK/Y+HZ
+	 60NkVjD17TLRF1GgoKqkhjmVTXCedhQhMz+JAJ9wRCDeTyq4w1h/Zs9PGaLkvV9+Jt
+	 icV+xMuYFMv1Edie0DRq4itYAJr7SNSaqamggxdmKaeRNlk23ddpD/CjZ4LyWk72Qr
+	 q3TT6j+f88BqAg71vEhitDMBMpNnCobPcjbKBuHSlC17ZYR9GP7SBm02m6ek8tXRxT
+	 TPqsaUkX/mZow==
+Message-ID: <ac01fa3e-1d68-419f-8afc-f3ecf3f25b68@kernel.org>
+Date: Thu, 31 Oct 2024 12:17:44 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
+ device_node in atmel_soc_device_init()
+To: Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
+ <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
+ <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
+ <99b12dee-43c3-4007-9c55-e2a884fc662b@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <99b12dee-43c3-4007-9c55-e2a884fc662b@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_042104_337231_7EB9E230 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241031_042735_666098_A9B01B35 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,115 +123,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All architectures use early_memremap() instead of early_ioremap().
-Therefore, to solve the warning detected by sparse:
-../arch/riscv/kernel/acpi.c:213:30: warning: incorrect type in return expression (different address spaces)
-../arch/riscv/kernel/acpi.c:213:30:    expected void [noderef] __iomem *
-../arch/riscv/kernel/acpi.c:213:30:    got void *
-../arch/riscv/kernel/acpi.c:221:24: warning: incorrect type in argument 1 (different address spaces)
-../arch/riscv/kernel/acpi.c:221:24:    expected void *addr
-../arch/riscv/kernel/acpi.c:221:24:    got void [noderef] __iomem *map
-The __iomem attribute of __acpi_map_table() is removed.
+On 31/10/2024 12:14, Javier Carrasco wrote:
+> On 31/10/2024 12:07, Krzysztof Kozlowski wrote:
+>> On 30/10/2024 18:10, Javier Carrasco wrote:
+>>> Switch to a more robust approach to automatically release the node when
+>>> it goes out of scope, dropping the need for explicit calls to
+>>> of_node_put().
+>>
+>> Please use subject prefixes matching the subsystem. You can get them for
+>> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+>> your patch is touching. For bindings, the preferred subjects are
+>> explained here:
+>> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+>>
+>> There is never a "drivers" prefix. Especially not first (because as
+>> middle appears for FEW subsystems, not for SoC though).
+>>
+> 
+> Thanks, I added that by mistake. I will fix that for v2.
+> 
+>>>
+>>> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+>>> ---
+>>>  drivers/soc/atmel/soc.c | 7 ++-----
+>>>  1 file changed, 2 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
+>>> index 64b1ad063073..298b542dd1c0 100644
+>>> --- a/drivers/soc/atmel/soc.c
+>>> +++ b/drivers/soc/atmel/soc.c
+>>> @@ -399,15 +399,12 @@ static const struct of_device_id at91_soc_allowed_list[] __initconst = {
+>>>  
+>>>  static int __init atmel_soc_device_init(void)
+>>>  {
+>>> -	struct device_node *np = of_find_node_by_path("/");
+>>> +	struct device_node *np __free(device_node) = of_find_node_by_path("/");
+>>>  
+>>> -	if (!of_match_node(at91_soc_allowed_list, np)) {
+>>> -		of_node_put(np);
+>>
+>> You just added this code. Don't add code which immediately you remove.
+>> Squash two patches.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> 
+> 
+> As I said in another thread, I split the solution into a first one to be
+> applied to stable kernels, and a second one that uses a more robust
+> approach that is not supported by all stable kernels.
+> 
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/arm64/kernel/acpi.c     | 6 +++---
- arch/loongarch/kernel/acpi.c | 2 +-
- arch/riscv/kernel/acpi.c     | 6 +++---
- arch/x86/kernel/acpi/boot.c  | 2 +-
- drivers/acpi/osl.c           | 2 +-
- include/linux/acpi.h         | 2 +-
- 6 files changed, 10 insertions(+), 10 deletions(-)
+Same response as in other thread:
 
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index e6f66491fbe9..69017dadb82d 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -88,10 +88,10 @@ static bool __init dt_is_stub(void)
- }
- 
- /*
-- * __acpi_map_table() will be called before page_init(), so early_ioremap()
-- * or early_memremap() should be called here to for ACPI table mapping.
-+ * __acpi_map_table() will be called before page_init(), so early_memremap()
-+ * should be called here to for ACPI table mapping.
-  */
--void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
-+void __init *__acpi_map_table(unsigned long phys, unsigned long size)
- {
- 	if (!size)
- 		return NULL;
-diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
-index f1a74b80f22c..a29c1d86e274 100644
---- a/arch/loongarch/kernel/acpi.c
-+++ b/arch/loongarch/kernel/acpi.c
-@@ -34,7 +34,7 @@ u64 acpi_saved_sp;
- 
- struct acpi_madt_core_pic acpi_core_pic[MAX_CORE_PIC];
- 
--void __init __iomem * __acpi_map_table(unsigned long phys, unsigned long size)
-+void __init *__acpi_map_table(unsigned long phys, unsigned long size)
- {
- 
- 	if (!phys || !size)
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-index 2fd29695a788..861ab56962a2 100644
---- a/arch/riscv/kernel/acpi.c
-+++ b/arch/riscv/kernel/acpi.c
-@@ -202,10 +202,10 @@ struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
- }
- 
- /*
-- * __acpi_map_table() will be called before paging_init(), so early_ioremap()
-- * or early_memremap() should be called here to for ACPI table mapping.
-+ * __acpi_map_table() will be called before paging_init(), so early_memremap()
-+ * should be called here to for ACPI table mapping.
-  */
--void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
-+void __init *__acpi_map_table(unsigned long phys, unsigned long size)
- {
- 	if (!size)
- 		return NULL;
-diff --git a/arch/x86/kernel/acpi/boot.c b/arch/x86/kernel/acpi/boot.c
-index 3a44a9dc3fb7..e1ed297552e7 100644
---- a/arch/x86/kernel/acpi/boot.c
-+++ b/arch/x86/kernel/acpi/boot.c
-@@ -105,7 +105,7 @@ static u32 isa_irq_to_gsi[NR_IRQS_LEGACY] __read_mostly = {
-  * This is just a simple wrapper around early_memremap(),
-  * with sanity checks for phys == 0 and size == 0.
-  */
--void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
-+void __init *__acpi_map_table(unsigned long phys, unsigned long size)
- {
- 
- 	if (!phys || !size)
-diff --git a/drivers/acpi/osl.c b/drivers/acpi/osl.c
-index 70af3fbbebe5..a36486b59bca 100644
---- a/drivers/acpi/osl.c
-+++ b/drivers/acpi/osl.c
-@@ -334,7 +334,7 @@ void __iomem __ref
- 	}
- 
- 	if (!acpi_permanent_mmap)
--		return __acpi_map_table((unsigned long)phys, size);
-+		return (void __iomem __force *)__acpi_map_table((unsigned long)phys, size);
- 
- 	mutex_lock(&acpi_ioremap_lock);
- 	/* Check if there's a suitable mapping already. */
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 4d5ee84c468b..d4627d96c13b 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -207,7 +207,7 @@ static inline int acpi_debugger_notify_command_complete(void)
- 		(!entry) || (unsigned long)entry + sizeof(*entry) > end ||  \
- 		((struct acpi_subtable_header *)entry)->length < sizeof(*entry))
- 
--void __iomem *__acpi_map_table(unsigned long phys, unsigned long size);
-+void *__acpi_map_table(unsigned long phys, unsigned long size);
- void __acpi_unmap_table(void __iomem *map, unsigned long size);
- int early_acpi_boot_init(void);
- int acpi_boot_init (void);
--- 
-2.39.2
+1. Then send backport for stable, if you care about stable. You inflate
+history with irrational commits just instead of doing proper stable
+backport.
+
+2. Creating some commits purely for stable in the mainline kernel is not
+a correct approach. We work here on mainline and in mainline this is one
+logical change: fixing issue. Whether you fix issue with of_node_put or
+cleanup or by removing of_find_node_by_path() call, it does not matter.
+All of these are fixing the same, one issue.
+
+If you think about stable kernels, then work on backports, not inflate
+mainline kernel with multiple commits doing the same, creating
+artificial history.
+
+Best regards,
+Krzysztof
 
 
