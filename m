@@ -4,94 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F99D767F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A1AD767F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nff/hc36DIoTlMOGJ09z8nvWVNZRYH5gfv3Ti6i/dfw=; b=Srt18mIu3T3CYGI7Thoq8bnlpu
-	/3hQUuZiksW+JssnJe4tpvf3yAExGk5YoPZuS+wKlI6Tne2ZYy6uVBmESsN45myO2XZPFBWxC7LYc
-	4m2LQ4cQiaf93GSu+imjMQ2OKL4oXPF6tbDflwvcWhjsVOTSD+6iYp1GGrGpa6xoxHebpXTyEK7Z+
-	R1dVWWL/iufTbcJDYzGeBJ0lBpf+ozStS5Q5ln7LzZUioB6laBvL1TWpiVvZWQfdkcUFCeB0P2JqP
-	g3ni/4yMNynCBdgaMmJIxXwNPWIXtD1l7kgA+QtqMuG0CqhN+A5navMQ6rW/gTbspDRQJZyCnXMOM
-	GGNyKcdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=; b=L+ENcEl1tNX5Ae42mX8oxWs1yX
+	ANtjtzYitoCPK68z5mnCVaw3omhO0RhJpIgQzZNqfEVCw11SQi5RRV5FnpcliClONA9a53+Li3Wx7
+	xCSN4nQDoAWj+svFf/tt3UZKev4XgphMn2ZPcBAa+VI7cs/G4R7rBT/66ry4vi4WJaeKMMz3iWWjT
+	CVc87QtWOXzq5211x8FTn9YJU0C0lX62iCLKYEJKANtdZxRDdNvDLUTZ0fItKXW23pn+Fgpvu+lQD
+	jGXU7qA5GmStcnPF4wtOQ/EP+IvvwS+7/QglbXc+ZgJPwGrFPqkasf7CuO+huVakWUFkcKChrGhcF
+	29/oPqLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aEQ-00000004YII-2VVE;
-	Thu, 31 Oct 2024 18:49:18 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aCk-00000004Xgc-0EQO
+	id 1t6aTR-00000004a10-09g4;
+	Thu, 31 Oct 2024 19:04:49 +0000
+Received: from mail-am7eur03on2060e.outbound.protection.outlook.com ([2a01:111:f403:260e::60e] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6aRm-00000004ZnY-09ua
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 18:47:36 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B32BE20C5D6F;
-	Thu, 31 Oct 2024 11:47:30 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B32BE20C5D6F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1730400451;
-	bh=nff/hc36DIoTlMOGJ09z8nvWVNZRYH5gfv3Ti6i/dfw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eC1OCMqT39nv4qeMrmizrUxVULbAWTY3YorJekiK1jSbbjQdno99pAOLs96SQ5QX4
-	 KUeN6CwYJHVOkiCVev37eGfclzakwJpvbR/7WUMc2+5sLmJpwU7b5N8wnYgzwyfk1v
-	 425UI9/AN5eE4TYcNONqfQr5yQ9dYLkgir2QvEYE=
-Message-ID: <90364f44-98e7-4a9a-af57-881cae8e81a7@linux.microsoft.com>
-Date: Thu, 31 Oct 2024 11:47:30 -0700
+	Thu, 31 Oct 2024 19:03:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OfInTj48WfZtnipDF5aUeyHe2SU82ytJ6FZnsuEt/lsnaSYMSLFtOi6NEUuVHUIkEDbpyEujMcs8QX/jSykcfpWdBTEn3ItYYfqmjWyS038UKbonmjv+KedLFwPk2iJqYtDi0WHh/GpGNEVfctR+gsJdZqYhc8awf+XW+lXhyKnu2xFyAmj6VFeeHRiSSbGPUfHW8n7FPlIOJvFGm5Enq7smDnI20CQ4VkFwq4o8sh434KQUB1c8EFjW3h4VBTLHnjRzZGkGgqpnl7RGdHjW9UqoltA79DbkOkH6lnf/L6gscm3SGm8YvNhIwA0yhO4yqrymwRWpqa8U/EtrUL0aAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=;
+ b=yT6jwVr1j0DwUYrth2JSAS2tA/XnB8YULfjwUIcikvPYf5dkwWZBWnED6McCzODM3MhUyy4A7vIDwY/i9wARBsaYc2BYx1WV3DrSNslRuRgMpJmU1YgLN0JKrFW5GKI6ZGrfFN9vUV/LLr80S1suYZlm8sEGzM/KOaJ3VFzqMYVocOIC9UMFYPsowE6XKQlclVm7oy/DCrIcGg20c3KraWy3xMcXjlwhT9TjBIspyTWfr+1gD0rSODboagohVszLeeOLO61zGl7rYh1rQqsgGFMsTVT/zjhk45X5PswMtcrtv3ONVJbg7xeRgOVrt/eMH3Ncwr1FJqA7kNo969o1IQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=;
+ b=UWPD2vE8kmFVIh00swXwa8xzLGs9EnGjGX5hVXplLhehXlgTVE/1od0BaaioBdh6IOQQFPbIuQ9DsTQdfgwOjBMk3chSLRTwAPhGNAhENJd496U7LKl5JACl9kvCnBc7O55ZMyDwTq8JHhUFjHwcWoYKEDKqJvE+k5a5GEpdGYN5wpFhiKrdd7hmpht947GcJJjOWgtQbdx1IcehbFlAI21cBmD4DYjIt/O/KZCPtmDRhrKPWz21x3kJBgsVrlZIG1fhvGCsobI4zkS0bW7RcYbjBdLyEaiXGZfaP8hwPw3N/SVnNtCkYEDr5CURB6PEXfGC4ihKRfXIoHfa+nmxtQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9475.eurprd04.prod.outlook.com (2603:10a6:10:367::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.29; Thu, 31 Oct
+ 2024 19:02:59 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Thu, 31 Oct 2024
+ 19:02:59 +0000
+Date: Thu, 31 Oct 2024 15:02:49 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx-wdt: Add missing
+ 'big-endian' property
+Message-ID: <ZyPUWaINgupm7dZ3@lizhi-Precision-Tower-5810>
+References: <20241007212434.895521-1-Frank.Li@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241007212434.895521-1-Frank.Li@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0357.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] hyperv: Remove unnecessary #includes
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
- <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
-References: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1727985064-18362-3-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB41576686E491F8EEA9FDB5F3D4782@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB41576686E491F8EEA9FDB5F3D4782@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9475:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8be4432-7d86-4059-e4cc-08dcf9dea2c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aDMaxoXx3aFwlC6T+x4Wendc9MJ8kgi1NZXIdPgU662nqrPpNwgHayXodHMd?=
+ =?us-ascii?Q?nptBb/IVDS+IuLDauLBt+PurT9vuFhRKouZLEe0/5fupQGRhJ4EyEPTll8eO?=
+ =?us-ascii?Q?xOYADFHc2XpA6YoFqNSsmA/inI+Lcnr4bLi88VKoalL98dUvk5xFNG2fsSt3?=
+ =?us-ascii?Q?yp5RpUbYmMeKVhxL5C240UyW6LYuSMcxEwBYnmUf94clN4LKxttEKO5sKNfU?=
+ =?us-ascii?Q?mvQGYJJnHUVe90c6g/PwYk4lu+UJVNFbCYolrj7Mu7LaFXhZx/KipSBgUNbK?=
+ =?us-ascii?Q?SvVBAuH5Ck1h5nnb6GSDQLk8KxpV9JQcKqaNDeNKwATbe9uBevCi45LUST9d?=
+ =?us-ascii?Q?ucURc0QcAljmN2P3UjglehGACsMxHmrsFRlPyo58tntS+p7s2DU2ypLMX8Fk?=
+ =?us-ascii?Q?vMaEQf+iEJqgPaRSd7M9mC29S+1pw0p9OdYs0i7VJXBWRDieuhgI2s7Tllqq?=
+ =?us-ascii?Q?auL3UCklXlA6Arb7VLC2ZkVMVyeuYrDctYfhZj+Hzn5wRhpqyAHQgLfo0uiO?=
+ =?us-ascii?Q?nQsAW+y3Z5WEga/9yK6cUv5knrJyPaUJtjR/sf2hQ5VmaH9oVjdODqD/gyXZ?=
+ =?us-ascii?Q?fq9EMSxcJO8DsvKQaRWIFjPArLhpTmllFspGttdbQFNa2WjTevGBrHoyH+d+?=
+ =?us-ascii?Q?d71kbLBwqCXzRuaf9LZx4TyxIImMZgKlh4jEoRe/V8Q5ez8SWlopygwU5C/j?=
+ =?us-ascii?Q?SGgLThu1kO808rl8xVKDOMP/wetQ6Isb73kd9K9CWjve4BmGpTXmjZyEfujt?=
+ =?us-ascii?Q?2jv3zgOuxgHjBGeEGZrEz00EBOtnVaVCXdpvqHtjc7z41S22Vc7WXxvWPYAu?=
+ =?us-ascii?Q?Lq90hQrbfbt1Ma7JRH1YwaftLnmzkqFc9Z712yiYQ6ZRpK0a8xEfMgjpvS+L?=
+ =?us-ascii?Q?124t+pGhn1gtNgHLoP6lxG9EDc6qwW0mTdvtc2Vcpnh/fj77EvemridaLFH6?=
+ =?us-ascii?Q?KHBFOjIM9eTY7sgtejZRBnXI84aSCEOxO6AeSdxg9/TtXKW8ie4j0VItYNIP?=
+ =?us-ascii?Q?1e2c+aXvyaDR9/DURfcFbp8+OUsQIpbIvcxGUOqq7NAcQ8fUbHM96Xs2U3YE?=
+ =?us-ascii?Q?8+EXaKZjmSXUrgdgYybsgH5Qb7kqzVDwQioQULV4x+h3jGhvE5s6Hnp5OZJh?=
+ =?us-ascii?Q?8bzOGpM6tKZFC8pSTFlE7KvT0qUjUfLd5ffVIROo6x9KErHuxbkNQh6h0mrh?=
+ =?us-ascii?Q?+2qdnvbMiXdBQ3oX394PcEPm10DL2kJRH53zwjnYZew2OosVs3q69Z1HfSoA?=
+ =?us-ascii?Q?gqa9qCKtSUF25gV+6WM5MXR6BlKyadoUisKEbJ8s8rVIQHit2J8oUaoozh2/?=
+ =?us-ascii?Q?t8JYCIDlzN/wqxbZRIvci88oRKkF4015USZkkJfIX8V3FrzXUq3Yvp5VybD9?=
+ =?us-ascii?Q?l8gR/xAL3RoTQbfB/Qku61bZCmPXNFFWR6Q9jKtiKonJ4Gjduw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sVl5Q40X4NHKbj63XJrnjRgZ3Z5Dxc67IDxWJwMVlo19LSeu3LaQ0Ufi5Xye?=
+ =?us-ascii?Q?jeNKN7ujFOvAmzHxG2n31ydZoJqkJNbsaAo3KstRr5JUaql2TG8dd7+L960m?=
+ =?us-ascii?Q?GRpEkP3N4UvVBtLdFQUnbt/IFTcPgn9mITpgS2zjCEW1LxpTaC8gNRNBZRIo?=
+ =?us-ascii?Q?OjkfChzWWeY+P7tXkBW2k8U9WGucLT7C3hsZVkaiDXuR/MO5AdsPmpHg2EaF?=
+ =?us-ascii?Q?AnWz31nJ3q5rEbjUXtY9H9EwJHWEc2wnAnOqcIDNUx+75+TH9Fab11dQaAMa?=
+ =?us-ascii?Q?NY7F+VMPc1mhe6beErJa6f7dWs5GC7pXnY4yorOjr+qvRPjPwN+G4CYVEvPn?=
+ =?us-ascii?Q?3hWhKAiTQl9Q60/VALhq1wXs3Vk/sF5M/hoY6cJm5UKzUzdM4wqdmnvxEPdd?=
+ =?us-ascii?Q?2VdggDwz5/Mcy478r1qLxi/NUy7oUtquMpBdnCO+icHh/oeoSdoxq7N2/1o2?=
+ =?us-ascii?Q?a4kGDZ/hHZWLQ0hD/zRmcxsetp8qOfuBP3kR/VQPlDXEyeL0xrNmbBGl9jcP?=
+ =?us-ascii?Q?adJy6VEOJWoC9TlunS3O3KsLe5tmP/gdHfSiEuzHTrcBGcN8D57bVdBXqdid?=
+ =?us-ascii?Q?TRkkkQgT0jG5NWbvUimDHkkCJ9W9pBfs/zMLFp/I44ygMJjenIDYWzMXViZ7?=
+ =?us-ascii?Q?vJipWz4Y+oVQ2IDhS+fn3DIu5U5Zzj2rmSwcszhkLishtAyFIOTuyw+C+Yjs?=
+ =?us-ascii?Q?5NMnNxUBmSw5Ng97lAKdpHXIzmEmSGr239BuGOf0SEN07nD4p8pjKTdLBgw6?=
+ =?us-ascii?Q?21H7k4fwseieuW4ldPjXYOjIxtWR7ssUQiyA2/Nmq5f/Tu4ciZSscY483YVE?=
+ =?us-ascii?Q?dg5xdeR8bjHYba/uXPRIstyJdHxIW05q7JewTT7uTdNNd+2HiqS9/vIP0eRB?=
+ =?us-ascii?Q?4ghEFpecl8t93unIdUrXoTM+BdFGIaC9dUJXIZ3VdyVxeRPzZ3IEPE+cN7a6?=
+ =?us-ascii?Q?355zOrPlZ+yH+olH/wmf64IVzt38aedqFrQSY4pC1GBzaP0hHGWckmmDhY+l?=
+ =?us-ascii?Q?CjuGoAZw/BFuNxR0kQpHbx7/z07ihluYD8S1+zDsQzHZPesdjYskW6cwNEN0?=
+ =?us-ascii?Q?/GIYSnbwV1H4fVamKav7tIqRKoJeox07l9ZBR3T/iYZANyRI4IAkRkrleYAX?=
+ =?us-ascii?Q?5I41dZ15cFlpUObYkTHuTKB4Io1XVIFzSNgD6B6LwAcFl+jqwZVJ8mXLwW8a?=
+ =?us-ascii?Q?ZNgfcOatT6ohMA1xXgfp/lqB+7p9AaBHQFOBBGi3y19VN0406nyWfskXU4Db?=
+ =?us-ascii?Q?ftDMBUQDN6dksV2HfJY/P8XBbTE4ivWS6iD0uC9gIzk8b9qZQ/iAKd91uKXs?=
+ =?us-ascii?Q?SgVu/f12K9lvINFfnLFH7IQ/Jk5nvnn/FayO0Cv+Tvsb05oDo6Inpt4cRQws?=
+ =?us-ascii?Q?sUISyUcH+8YCTQ0at2dZnzQHfrZOK2swqRvonWZDDdATQ6lYs1eh07x5vVTZ?=
+ =?us-ascii?Q?8qgrsej8W65aF93Gw9nEo+6OeRbP5m6mlVkuQFp8F1vOx8bBeP1sPmr4S5ms?=
+ =?us-ascii?Q?dhnxei0j0ttJY3kk4XeQiKrHRGsDEVrbt/q1Dg/5/WiXJI3MdgEfuNbgOMKp?=
+ =?us-ascii?Q?izdcaimJuYSkQ2JWsQk=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8be4432-7d86-4059-e4cc-08dcf9dea2c8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 19:02:59.0182
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w5ylSS8m+Ga1iasC6O67givPs6+UCN1gZkTQR+Ft2gcQo+MuB3QdthY4+FiizggShnmTGr/SjhfyUDLOooz+2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9475
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_114734_193058_4220F4FC 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20241031_120306_127381_D64B9696 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,318 +164,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2024 11:21 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, October 3, 2024 12:51 PM
->>
->> asm/hyperv-tlfs.h is already included implicitly wherever mshyperv.h
->> or linux/hyperv.h is included. Remove those redundancies.
-> 
-> I've been under the impression that it is preferable to directly include
-> .h files for all definitions that a source code file uses, even if the
-> needed .h file is indirectly included by some other .h file. I looked through
+On Mon, Oct 07, 2024 at 05:24:33PM -0400, Frank Li wrote:
+> From: Animesh Agarwal <animeshagarwal28@gmail.com>
+>
+> Add missing big-endian property in watchdog/fsl-imx-wdt.yaml schema. Only
+> allow big-endian property for ls1012a and ls1043a.
+>
+> Fix dtbs_check errors.
+> arch/arm64/boot/dts/freescale/fsl-ls1012a-frwy.dtb: watchdog@2ad0000:
+>     Unevaluated properties are not allowed ('big-endian' was unexpected)
+>
+> Cc: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Animesh Agarwal <animeshagarwal28@gmail.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
 
-I've also heard this idea, and generally try to stick to it. I myself
-haven't yet encountered a situation where doing this or not has greatly
-impacted the readability of the code.
+Wim Van Sebroeck:
 
-> the coding style documentation, and didn't find anything addressing
-> this topic, so maybe I'm wrong. But I know I've seen patches to other
-> parts of the kernel that were changes to follow the direct inclusion
-> approach.  Direct inclusion is less fragile if the #include file nesting
-> structure changes (and perhaps removes the indirect inclusion).
-> 
-> The mshyperv.h and linux/hyperv.h dependency on hyperv-tlfs.h is
-> highly unlikely to change, so the chance of breakage is minimal. But
+	Any update this patch? Kyzy already acked.
 
-You probably already understood this after seeing the later patches, but
-it's worth pointing out that the goal of this series is to change that
-dependency (situationally), which is exactly why I created this precursor
-patch.
 
-> I wonder if your approach is going the wrong direction vs. preferred
-> kernel practices.
-> 
+Frank
 
-I could replace <asm/hyperv-tlfs.h> with <hyperv/hvhdk.h> in most of these
-cases (in v2), to preserve the explicit include of the definitions before
-mshyperv.h or linux/hyperv.h. I will give it a try in v2.
 
-Thanks,
-Nuno
-
-> Michael
-> 
->>
->> Remove includes of linux/hyperv.h and mshyperv.h where they are not
->> needed.
->>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> ---
->>  arch/arm64/hyperv/hv_core.c        | 2 --
->>  arch/x86/hyperv/hv_apic.c          | 1 -
->>  arch/x86/hyperv/hv_init.c          | 2 --
->>  arch/x86/hyperv/hv_proc.c          | 1 -
->>  arch/x86/hyperv/ivm.c              | 1 -
->>  arch/x86/hyperv/mmu.c              | 1 -
->>  arch/x86/hyperv/nested.c           | 1 -
->>  arch/x86/include/asm/kvm_host.h    | 1 -
->>  arch/x86/include/asm/mshyperv.h    | 1 -
->>  arch/x86/kernel/cpu/mshyperv.c     | 1 -
->>  arch/x86/kvm/vmx/vmx_onhyperv.h    | 1 -
->>  arch/x86/mm/pat/set_memory.c       | 2 --
->>  drivers/clocksource/hyperv_timer.c | 1 -
->>  drivers/hv/hv_balloon.c            | 2 --
->>  drivers/hv/hv_common.c             | 1 -
->>  drivers/hv/hv_kvp.c                | 1 -
->>  drivers/hv/hv_snapshot.c           | 1 -
->>  drivers/hv/hyperv_vmbus.h          | 1 -
->>  net/vmw_vsock/hyperv_transport.c   | 1 -
->>  19 files changed, 23 deletions(-)
->>
->> diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
->> index f1ebc025e1df..9d1969b875e9 100644
->> --- a/arch/arm64/hyperv/hv_core.c
->> +++ b/arch/arm64/hyperv/hv_core.c
->> @@ -11,11 +11,9 @@
->>  #include <linux/types.h>
->>  #include <linux/export.h>
->>  #include <linux/mm.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/arm-smccc.h>
->>  #include <linux/module.h>
->>  #include <asm-generic/bug.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>
->>  /*
->> diff --git a/arch/x86/hyperv/hv_apic.c b/arch/x86/hyperv/hv_apic.c
->> index 0569f579338b..f022d5f64fb6 100644
->> --- a/arch/x86/hyperv/hv_apic.c
->> +++ b/arch/x86/hyperv/hv_apic.c
->> @@ -23,7 +23,6 @@
->>  #include <linux/vmalloc.h>
->>  #include <linux/mm.h>
->>  #include <linux/clockchips.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/slab.h>
->>  #include <linux/cpuhotplug.h>
->>  #include <asm/hypervisor.h>
->> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
->> index 17a71e92a343..fc3c3d76c181 100644
->> --- a/arch/x86/hyperv/hv_init.c
->> +++ b/arch/x86/hyperv/hv_init.c
->> @@ -19,7 +19,6 @@
->>  #include <asm/sev.h>
->>  #include <asm/ibt.h>
->>  #include <asm/hypervisor.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>  #include <asm/idtentry.h>
->>  #include <asm/set_memory.h>
->> @@ -27,7 +26,6 @@
->>  #include <linux/version.h>
->>  #include <linux/vmalloc.h>
->>  #include <linux/mm.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/slab.h>
->>  #include <linux/kernel.h>
->>  #include <linux/cpuhotplug.h>
->> diff --git a/arch/x86/hyperv/hv_proc.c b/arch/x86/hyperv/hv_proc.c
->> index 3fa1f2ee7b0d..b74c06c04ff1 100644
->> --- a/arch/x86/hyperv/hv_proc.c
->> +++ b/arch/x86/hyperv/hv_proc.c
->> @@ -3,7 +3,6 @@
->>  #include <linux/vmalloc.h>
->>  #include <linux/mm.h>
->>  #include <linux/clockchips.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/slab.h>
->>  #include <linux/cpuhotplug.h>
->>  #include <linux/minmax.h>
->> diff --git a/arch/x86/hyperv/ivm.c b/arch/x86/hyperv/ivm.c
->> index 60fc3ed72830..b56d70612734 100644
->> --- a/arch/x86/hyperv/ivm.c
->> +++ b/arch/x86/hyperv/ivm.c
->> @@ -7,7 +7,6 @@
->>   */
->>
->>  #include <linux/bitfield.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/types.h>
->>  #include <linux/slab.h>
->>  #include <asm/svm.h>
->> diff --git a/arch/x86/hyperv/mmu.c b/arch/x86/hyperv/mmu.c
->> index 1cc113200ff5..cc8c3bd0e7c2 100644
->> --- a/arch/x86/hyperv/mmu.c
->> +++ b/arch/x86/hyperv/mmu.c
->> @@ -1,6 +1,5 @@
->>  #define pr_fmt(fmt)  "Hyper-V: " fmt
->>
->> -#include <linux/hyperv.h>
->>  #include <linux/log2.h>
->>  #include <linux/slab.h>
->>  #include <linux/types.h>
->> diff --git a/arch/x86/hyperv/nested.c b/arch/x86/hyperv/nested.c
->> index 9dc259fa322e..ee06d0315c24 100644
->> --- a/arch/x86/hyperv/nested.c
->> +++ b/arch/x86/hyperv/nested.c
->> @@ -11,7 +11,6 @@
->>
->>
->>  #include <linux/types.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>  #include <asm/tlbflush.h>
->>
->> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
->> index 4a68cb3eba78..3627eab994a3 100644
->> --- a/arch/x86/include/asm/kvm_host.h
->> +++ b/arch/x86/include/asm/kvm_host.h
->> @@ -24,7 +24,6 @@
->>  #include <linux/pvclock_gtod.h>
->>  #include <linux/clocksource.h>
->>  #include <linux/irqbypass.h>
->> -#include <linux/hyperv.h>
->>  #include <linux/kfifo.h>
->>
->>  #include <asm/apic.h>
->> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
->> index 390c4d13956d..47ca48062547 100644
->> --- a/arch/x86/include/asm/mshyperv.h
->> +++ b/arch/x86/include/asm/mshyperv.h
->> @@ -9,7 +9,6 @@
->>  #include <asm/hyperv-tlfs.h>
->>  #include <asm/nospec-branch.h>
->>  #include <asm/paravirt.h>
->> -#include <asm/mshyperv.h>
->>
->>  /*
->>   * Hyper-V always provides a single IO-APIC at this MMIO address.
->> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
->> index e0fd57a8ba84..8e8fd23b1439 100644
->> --- a/arch/x86/kernel/cpu/mshyperv.c
->> +++ b/arch/x86/kernel/cpu/mshyperv.c
->> @@ -20,7 +20,6 @@
->>  #include <linux/random.h>
->>  #include <asm/processor.h>
->>  #include <asm/hypervisor.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>  #include <asm/desc.h>
->>  #include <asm/idtentry.h>
->> diff --git a/arch/x86/kvm/vmx/vmx_onhyperv.h
->> b/arch/x86/kvm/vmx/vmx_onhyperv.h
->> index eb48153bfd73..f4b081eb6521 100644
->> --- a/arch/x86/kvm/vmx/vmx_onhyperv.h
->> +++ b/arch/x86/kvm/vmx/vmx_onhyperv.h
->> @@ -3,7 +3,6 @@
->>  #ifndef __ARCH_X86_KVM_VMX_ONHYPERV_H__
->>  #define __ARCH_X86_KVM_VMX_ONHYPERV_H__
->>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>
->>  #include <linux/jump_label.h>
->> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
->> index 44f7b2ea6a07..85fa0d4509f0 100644
->> --- a/arch/x86/mm/pat/set_memory.c
->> +++ b/arch/x86/mm/pat/set_memory.c
->> @@ -32,8 +32,6 @@
->>  #include <asm/pgalloc.h>
->>  #include <asm/proto.h>
->>  #include <asm/memtype.h>
->> -#include <asm/hyperv-tlfs.h>
->> -#include <asm/mshyperv.h>
->>
->>  #include "../mm_internal.h"
->>
->> diff --git a/drivers/clocksource/hyperv_timer.c b/drivers/clocksource/hyperv_timer.c
->> index b2a080647e41..1b7de45a7185 100644
->> --- a/drivers/clocksource/hyperv_timer.c
->> +++ b/drivers/clocksource/hyperv_timer.c
->> @@ -23,7 +23,6 @@
->>  #include <linux/acpi.h>
->>  #include <linux/hyperv.h>
->>  #include <clocksource/hyperv_timer.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>
->>  static struct clock_event_device __percpu *hv_clock_event;
->> diff --git a/drivers/hv/hv_balloon.c b/drivers/hv/hv_balloon.c
->> index c38dcdfcb914..a120e9b80ded 100644
->> --- a/drivers/hv/hv_balloon.c
->> +++ b/drivers/hv/hv_balloon.c
->> @@ -28,8 +28,6 @@
->>  #include <linux/sizes.h>
->>
->>  #include <linux/hyperv.h>
->> -#include <asm/hyperv-tlfs.h>
->> -
->>  #include <asm/mshyperv.h>
->>
->>  #define CREATE_TRACE_POINTS
->> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->> index 9c452bfbd571..a5217f837237 100644
->> --- a/drivers/hv/hv_common.c
->> +++ b/drivers/hv/hv_common.c
->> @@ -28,7 +28,6 @@
->>  #include <linux/slab.h>
->>  #include <linux/dma-map-ops.h>
->>  #include <linux/set_memory.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <asm/mshyperv.h>
->>
->>  /*
->> diff --git a/drivers/hv/hv_kvp.c b/drivers/hv/hv_kvp.c
->> index d35b60c06114..68e73ec7ab28 100644
->> --- a/drivers/hv/hv_kvp.c
->> +++ b/drivers/hv/hv_kvp.c
->> @@ -27,7 +27,6 @@
->>  #include <linux/connector.h>
->>  #include <linux/workqueue.h>
->>  #include <linux/hyperv.h>
->> -#include <asm/hyperv-tlfs.h>
->>
->>  #include "hyperv_vmbus.h"
->>  #include "hv_utils_transport.h"
->> diff --git a/drivers/hv/hv_snapshot.c b/drivers/hv/hv_snapshot.c
->> index 0d2184be1691..90fc935e89bd 100644
->> --- a/drivers/hv/hv_snapshot.c
->> +++ b/drivers/hv/hv_snapshot.c
->> @@ -12,7 +12,6 @@
->>  #include <linux/connector.h>
->>  #include <linux/workqueue.h>
->>  #include <linux/hyperv.h>
->> -#include <asm/hyperv-tlfs.h>
->>
->>  #include "hyperv_vmbus.h"
->>  #include "hv_utils_transport.h"
->> diff --git a/drivers/hv/hyperv_vmbus.h b/drivers/hv/hyperv_vmbus.h
->> index 76ac5185a01a..321770d7ce25 100644
->> --- a/drivers/hv/hyperv_vmbus.h
->> +++ b/drivers/hv/hyperv_vmbus.h
->> @@ -15,7 +15,6 @@
->>  #include <linux/list.h>
->>  #include <linux/bitops.h>
->>  #include <asm/sync_bitops.h>
->> -#include <asm/hyperv-tlfs.h>
->>  #include <linux/atomic.h>
->>  #include <linux/hyperv.h>
->>  #include <linux/interrupt.h>
->> diff --git a/net/vmw_vsock/hyperv_transport.c b/net/vmw_vsock/hyperv_transport.c
->> index e2157e387217..f77f0ea1ddad 100644
->> --- a/net/vmw_vsock/hyperv_transport.c
->> +++ b/net/vmw_vsock/hyperv_transport.c
->> @@ -13,7 +13,6 @@
->>  #include <linux/hyperv.h>
->>  #include <net/sock.h>
->>  #include <net/af_vsock.h>
->> -#include <asm/hyperv-tlfs.h>
->>
->>  /* Older (VMBUS version 'VERSION_WIN10' or before) Windows hosts have some
->>   * stricter requirements on the hv_sock ring buffer size of six 4K pages.
->> --
->> 2.34.1
->>
-
+>
+> Change from v1 to v2:
+>   only allow big endian for layerscape platform.
+>
+> previous post at:
+> https://lore.kernel.org/imx/20240806103819.10890-1-animeshagarwal28@gmail.com/
+>
+> check spec, and dump watch dog reset value
+> at ls1043a platform.
+>
+> 0x02A80000:  00 30 00 00 00 10 00 04 00 01 00 00 00 00 00 0
+>
+> It is big-endian. imx2_wdt.c use regmap which call regmap_get_val_endian()
+> to handle endian.
+>
+> So this change is corret.
+>
+> big-endian for wdt is necessary
+> ---
+>  .../devicetree/bindings/watchdog/fsl-imx-wdt.yaml  | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> index 36b836d0620c9..0da953cb71272 100644
+> --- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> @@ -48,6 +48,8 @@ properties:
+>    clocks:
+>      maxItems: 1
+>
+> +  big-endian: true
+> +
+>    fsl,ext-reset-output:
+>      $ref: /schemas/types.yaml#/definitions/flag
+>      description: |
+> @@ -93,6 +95,18 @@ allOf:
+>        properties:
+>          fsl,suspend-in-wait: false
+>
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              enum:
+> +                - fsl,ls1012a-wdt
+> +                - fsl,ls1043a-wdt
+> +    then:
+> +      properties:
+> +        big-endian: false
+> +
+>  unevaluatedProperties: false
+>
+>  examples:
+> --
+> 2.34.1
+>
 
