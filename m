@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4931E6895E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 08:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A991E6895E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 09:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FUDcheiK8JhqH6/QyyEKBcuyjmkqcu9I4AhzOv/eO7M=; b=Q6Ivioz8F5hkU/B4kfWZt5c1fD
-	ecvqbzUIzQS787nOyzBX4cYzaCZv8OiALdNtDg3O88nTkrktr0nER8LhS9f46xNcB/WTPIdiL2vcl
-	FeOGLaG/qb1NuYwPJVkND23ZzwscI+xGq8EHw0bmd/22YTM71hlzt0HwMVwWFXL2p7ZX1rDWJBBtv
-	cWoCZBqY8eqSNhzZPK0b18E+XTTZuVtHVUotG5kfuxqRTJn4kleLnjUmrpPm0AnXugecEZEnTFjM2
-	7sA+x8gpCT9FQk5QmwaNQcWj5rpJKFiMEk19vfcl7xJtPbUjjB+bloZL9o5eWasirWwZysXCdJrzf
-	Veti5imw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ey3Nir80ipbi6aEqJTmKEXKmtI3cKgTNpdgc0Wv4xOA=; b=05FlAZbQq9jVoERqz5obxdjFFP
+	XiXFn+CROZGyebxX2ToshhlT2kFqnWwuoWSMklPA57XzYhsFruxrdO+2VdlrW2sXF+uJhQDl3aAYY
+	0sbaiBHWlFNZSgsLcZuTttUdHGBUkPP5qpBEhM4SilPnXF65OSpTJ6DUfTxrSMFL0Ui7hggUYN+YG
+	kI3ZkAHDJNbsp1Rqde1jeKBXsr6k+qSDHLsduecHkiW3LZpWOzPuok2/pGkD/rI3ogfO8KTzfC+eZ
+	OZA4D+YUBcQ5LEeuclBCLSVQdx1PoLhsnp6v43ayip3IHqJysiA0BM3lJDdM/czH7RbgVl9IVXOS9
+	nzg4uXtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Qz8-000000030eY-21SV;
-	Thu, 31 Oct 2024 08:56:54 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1t6R8T-000000031Vw-2cLH;
+	Thu, 31 Oct 2024 09:06:33 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6QxU-000000030Xs-0Uj7
+	id 1t6R6p-000000031Gc-1MNj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 08:55:13 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fabb837ddbso9090931fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 01:55:11 -0700 (PDT)
+	Thu, 31 Oct 2024 09:04:52 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e30cf3ef571so107733276.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 02:04:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730364909; x=1730969709; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FUDcheiK8JhqH6/QyyEKBcuyjmkqcu9I4AhzOv/eO7M=;
-        b=NFI/LzW6qm4y6TVDpEcGWPaJdnWpOzkrMdUwI16nqV2WxsJk3pQSryKcwNOdYxk31N
-         pg8T8z4u1ES1roZEJ2W2D7EJq8hHYcK8E0g0AuwvpUrjqd6w8F3VtJXSg1MqFpEmpBuc
-         3O04FjdMltOGraRohXAULF7RsdBaUw01iJ+3t0Ze25/PyJe5wdKpEnGnf0i+nNETovgN
-         2OIqxR5KyUV9FU0yZEcpIOxE5wwnh6FgUspWR08/4pLYQ4n5vXjHBbSD9jpRd/z0yW9e
-         ecNBL9P5elR09ikb9N8HcKn0XbRN8LQu4yUpftCS2/rtDFspGsVStwAF8GfJQqRCd0jG
-         AP7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730364909; x=1730969709;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1730365489; x=1730970289; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FUDcheiK8JhqH6/QyyEKBcuyjmkqcu9I4AhzOv/eO7M=;
-        b=fYZFcR8zsrJA0ICvIxiE8AOszpLbSrcl/Ga9i3e5D5+lNvr1FtYMaajFFDRgA0SuOu
-         0lGomI9p/ru2BIRPeyOhlkGw8FzlGl1KtCDElx1m0IoRVdbp2mkE2o0knWYNdnE1FOZ8
-         eZ+rYkxb4WBKJdYa59pZ0Kj6f0yPoICzHz0n5IxuN0EIAdsTpaEKGeW3f8kv551jPgI+
-         tTQSXNIaHYYACuVSZKxoSylM2XxrqKOq/uBH7pkI5gWgZWZJ5itPpGo7yjOBfQJlTLox
-         2PeyvKv4Me16x/PzdgkvCpfOX62LnShzxC9egBNA6GiN1MffioNQrMMgfQRejadXgTcD
-         Gr/A==
-X-Gm-Message-State: AOJu0Yx8Ue2RzRbtJkHpMeNUvEcKsanciKNeWJ0gv4Krj/R2V8Yp/89J
-	pn+sjkPXRNalKrdSWCqMW4HN0hXfmP7JJVgwkyVzAvQDJqltFH4GrtEXo5O52DA=
-X-Google-Smtp-Source: AGHT+IFBFiCfVxYlwTElhQ9iaN5niEh2RqNjHdUElsmI/f4MFMMrn30OPEc0CN4b5u1SgxFe8qNHmw==
-X-Received: by 2002:a2e:a984:0:b0:2f7:7be8:fd89 with SMTP id 38308e7fff4ca-2fcbdf61db9mr168289041fa.6.1730364909453;
-        Thu, 31 Oct 2024 01:55:09 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c1189123sm1440859f8f.115.2024.10.31.01.55.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 01:55:09 -0700 (PDT)
-Date: Thu, 31 Oct 2024 11:55:05 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Linux Regressions <regressions@lists.linux.dev>,
-	lkft-triage@lists.linaro.org, Arnd Bergmann <arnd@arndb.de>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Linux Media Mailing List <linux-media@vger.kernel.org>
-Subject: Re: next-20241028: gcc-8-defconfig : ERROR: modpost:
- "__aeabi_uldivmod" [drivers/media/dvb-frontends/cxd2841er.ko] undefined!
-Message-ID: <456c79d2-5041-47c4-bed2-44d257524ddd@stanley.mountain>
-References: <CA+G9fYvvNm-aYodLaAwwTjEGtX0YxR-1R14FOA5aHKt0sSVsYg@mail.gmail.com>
+        bh=Ey3Nir80ipbi6aEqJTmKEXKmtI3cKgTNpdgc0Wv4xOA=;
+        b=jKeOpiiSg75HlE+1HBBR2zKSc9yCase+RRpOlGlL63mnz5xkinjDolGaVvVhD570ho
+         tlqQUmkZSpl9v6mnNf9Lwuk9Pg0VsOyO7zMsN6aNncEjSSAvoQFrU88W3KczqCE4ixm6
+         9Nt430OOdBA+UP94YQeYhlZqD+B03V5njtaJA4RrDXqhKC7Gz+LDBRzcSmcCOg5lUTRE
+         gpLWkDHNDrP2KRVZQGkk7K9YqyKgiu+i3y3D59b9TuTZHWtYULYpmctESITMbxT3N7YK
+         UA5B5TOO6NYA5/q9YPXH5cQ+eT+ZHXcdh8G3qvf666MOBLwjlmSnHRS606blthGrutWl
+         VKyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730365489; x=1730970289;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ey3Nir80ipbi6aEqJTmKEXKmtI3cKgTNpdgc0Wv4xOA=;
+        b=p/pATSAV4XJggs6OoMPNbT+hnRQ++l7gDCKwdI/ImkT3Kor+y8BSMBULxNLQJVy8Wt
+         5KuSM++3J3jQ+UQ1WGQPpIX6W8CnVGwKAABzywaRNCU5PX/hNvVq+J061TCbzztyJSn1
+         IJ4M73O2y2DcJwQvwxn3nagH0GjzaLfwzCWvAeNRLOuSFRPubKCkUMUPa/13Zw4X54NG
+         OW+lgmfmVVRBzCPkp/24cWYAY1DFpWei5+FrJfc9+2jFnCmVahC2FNot/eXb3ltxWaCF
+         WkV8IMSeetJEmrxYxXKNSp7f/AjqjByFOkCMoJAxnlBGJfnOiaadEGlbsFwYiU58Hw9P
+         FsgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXiFIAueZHkF+Sv5rfCeu+N6vbzuzuCbHPEW2RAYMUEjrZsdOLCXyshSpvoYnzdsH798zQq4x3mLD1Qzf9QMW5g@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd0QY/hTGcmVPufnDgXDlURCrdyomcuCbkpZY0UkKFYPq4mpyJ
+	YNhXbO01xrpRRIWFWX9HByfcxrIVJrmFaIbcnY5hpdQQYGhfFmhoc5I2lzNimJpijbdRSzV1gJR
+	lyFLcDLNm+KE/cwJbOGH60CD+7q4=
+X-Google-Smtp-Source: AGHT+IHZguKS/F1V9AJj+A9lEBmF80qUzVmVIz8k06olAGMVP1Gm5twS6Ahy8M35orW4qXtccoTRMk9rczRRsmL94jQ=
+X-Received: by 2002:a05:690c:ed4:b0:627:a25d:6e76 with SMTP id
+ 00721157ae682-6e9d88e7719mr79156307b3.2.1730365489324; Thu, 31 Oct 2024
+ 02:04:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYvvNm-aYodLaAwwTjEGtX0YxR-1R14FOA5aHKt0sSVsYg@mail.gmail.com>
+References: <20241029202349.69442-1-l.rubusch@gmail.com> <173030774932.1269076.14582772234717243392.robh@kernel.org>
+In-Reply-To: <173030774932.1269076.14582772234717243392.robh@kernel.org>
+From: Lothar Rubusch <l.rubusch@gmail.com>
+Date: Thu, 31 Oct 2024 10:04:12 +0100
+Message-ID: <CAFXKEHaUO=Xo9iGYfUbadQPbi1Sepv=GODoRabQ9qP5PC-MRpw@mail.gmail.com>
+Subject: Re: [PATCH v4 00/23] Add Enclustra Arria10 and Cyclone5 SoMs
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: s.trumtrar@pengutronix.de, joabreu@synopsys.com, conor+dt@kernel.org, 
+	linux-kernel@vger.kernel.org, marex@denx.de, krzk+dt@kernel.org, 
+	pabeni@redhat.com, edumazet@google.com, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	alexandre.torgue@foss.st.com, davem@davemloft.net, mcoquelin.stm32@gmail.com, 
+	kuba@kernel.org, netdev@vger.kernel.org, a.fatoum@pengutronix.de, 
+	dinguyen@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_015512_190692_8DB4AEA4 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20241031_020451_387058_938030D8 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,66 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Is it possible to tie this to a commit?
+On Wed, Oct 30, 2024 at 6:04=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
+ wrote:
+>
+>
+> On Tue, 29 Oct 2024 20:23:26 +0000, Lothar Rubusch wrote:
+> > Add device-tree support for the following SoMs:
+> >
+> > - Mercury SA1 (cyclone5)
+> > - Mercury+ SA2 (cyclone5)
+> > - Mercury+ AA1 (arria10)
+> >
+[...]
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+>
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
 
-This is a u64 variable getting divided somewhere or maybe the divisor is a u64?
-But there haven't been any recent changes to the driver so probably the change
-happened in a header file?  I looked the differences between the preprocessed
-.i files from before and after and nothing jumped out at me.
+[answering to this bot]
+None of the "platform maintainers" gave me feedback so far. My
+intention is just to upstream the mentioned .dts and .dtsi files. I
+checked my files and fixed my obvious bindings mistakes.
 
-I don't have a copy of gcc-8...
+But, bindings for platform socfpga are still described in (old) TXT
+files, not in YAML. So, do you want me to write the .yaml files, too?
+Or, are my files acceptable by "the platform maintainer"? What is
+missing here? Should I try to fix every error of Rob's bot? Are the
+boards / is the platform too old and you don't want them anymore? I'm
+not complaining here, I may try, but I would like to know what's
+missing.
 
-regards,
-dan carpenter
+Please, - Rob, Connor or Krzysztof - can you give me feedback and tell
+me what you guys expect me to do now here? Thanks in advance!
 
-On Wed, Oct 30, 2024 at 06:53:01PM +0530, Naresh Kamboju wrote:
-> The arm builds failed with gcc-8 on Linux next-20241028
-> and builds pass with gcc-13.
-> 
-> First seen on Linux next-20241028 tag.
->   Good: next-20241025
->   Bad:  next-20241028
-> 
-> arm:
->   build:
->     * gcc-8-imx_v6_v7_defconfig
->     * gcc-8-defconfig
->     * gcc-8-omap2plus_defconfig
->     * gcc-8-davinci_all_defconfig
-> 
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> 
-> Build log:
-> ---------
-> ERROR: modpost: "__aeabi_uldivmod"
-> [drivers/media/dvb-frontends/cxd2841er.ko] undefined!
-> make[3]: *** [/builds/linux/scripts/Makefile.modpost:145:
-> Module.symvers] Error 1
-> make[3]: Target '__modpost' not remade because of errors.
-> 
-> Build image:
-> -----------
-> - https://storage.tuxsuite.com/public/linaro/lkft/builds/2o9bKKvq45ZlybLVnQ1Bl0hEVA5/
-> - https://storage.tuxsuite.com/public/linaro/lkft/builds/2o9bKKvq45ZlybLVnQ1Bl0hEVA5/build.log
-> 
-> Steps to reproduce:
-> ------------
->    - tuxmake --runtime podman --target-arch arm --toolchain gcc-8
-> --kconfig defconfig
-> 
-> metadata:
-> ----
->   git describe: next-20241030
->   git repo: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->   git sha: 86e3904dcdc7e70e3257fc1de294a1b75f3d8d04
->   kernel config:
-> https://storage.tuxsuite.com/public/linaro/lkft/builds/2o9bKKvq45ZlybLVnQ1Bl0hEVA5/config
->   build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2o9bKKvq45ZlybLVnQ1Bl0hEVA5/
->   toolchain: gcc-8
->   config: defconfig
->   arch: arm
-> 
-> --
-> Linaro LKFT
-> https://lkft.linaro.org
+> If you already ran DT checks and didn't see these error(s), then
+[...]
 
