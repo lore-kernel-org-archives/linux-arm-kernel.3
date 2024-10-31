@@ -4,103 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC144D767EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F7ED767EA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nfayXnl3KgVE68uldd/53FtSQhtptu319uaFu0iSbt8=; b=pyfTL10hOpkEI0+pFbvc2vI9SF
-	b0yjt4g6iBXiJgBgDxwNjOb55sbxmJ1qUvhEJn5v0h/pogTdnoCWsfA0kjlF8P5J4r24YPgSLvZrk
-	pJ+2H8RDPswUraIL1DaOEaqXIQd7L1Dd+P1MhP+61+yO+yMOmcUWBGUVJWPEapHlXzr1NlDPdYwne
-	eUH3r97EtWkf59k7tYilOdy//B03JQcBA6dpwf/CxBlc8IsKUFSjwNqm3XNrXoj0fjMkxEwrO4doc
-	JARbvNU8zeUXJbFQsicIZQwAXgpFJaWXPog5G7pFxh3KP6tndorHhRsenFmbMALFYGRL2bYRFkJeb
-	GHiuMAXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=92Sy6UDwL/ps4AVz4KDD4tlQVW8dKGo+enny9ATdi/Y=; b=jv8JHZ9O6oIyBeZjP4UUmNrGQ5
+	M3eX40eZiowTxqhZBDtlq573P2fGirNDR7ygefkkdAyQexiepprR7u5q+oCFWribY8kZLuSK4vgmY
+	UaLWTafVK3TMgYpMFpbkDa621HQG+3UxkJ5weDLHsj+oJP93jkqlsRqO7f2ZNhQLOfrUqfn1dUePf
+	ttYHrlNyNabUyL5nHF0A9s7nMzbQKfU5fG01feJzun9kNw9AIooq+77Yg+9uf26FPBOYaBVQpq8Qw
+	QYkWe3Oy8szeqTOacN7VYjr53dGNvPp0ElxlY6y8G7nYRrWYvG0iih0AMHtX7J71bEjD45t1cqQj8
+	FkoAr2Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YXl-00000004HKO-0fkN;
-	Thu, 31 Oct 2024 17:01:09 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1t6YYr-00000004Has-3wvM;
+	Thu, 31 Oct 2024 17:02:17 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6X4r-00000003zFL-1VkJ
+	id 1t6YX8-00000004HCb-2Sc9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 15:27:14 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-539f1292a9bso1350726e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:27:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730388431; x=1730993231; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nfayXnl3KgVE68uldd/53FtSQhtptu319uaFu0iSbt8=;
-        b=J9LNiMDfHaIIPIku+5T5dtljZavF08EN7oyz2fewKpTeKBFRhfbLrH4IlJ3EzaWGw+
-         Jssf1qzgaQKK40MQ/uwqFMV+xfsP6hDj5u1i5g14iGmiVNkm+31d7fumx2/EiwuaqNo+
-         IPC+BAo/UBvn9NmR7wbQz7Amjr46C+veVy5kbPbQKSTkttCyj4kKWZk+aQNyV9bx8ZTM
-         PrVIfnPaLhmuzmMlzrn47OveyKz3GZK4Ku1liyLx8Y0rz+/BXp5AD5ON+qiyzOjMuiK4
-         WOl/IG++h+JdpmYChaCRrs9bpm5XcgFb0oiGPQdRq07dkj6moxIvpzCdWH8BQMa3mKHI
-         GVKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730388431; x=1730993231;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nfayXnl3KgVE68uldd/53FtSQhtptu319uaFu0iSbt8=;
-        b=jj2MvwzqKc1iNqp17vKYvsrn2LJGfUeo5yxoB+0Fv18w+OOzUSAPn16YS8PmdqbQxD
-         0GJCIh8GNNzIMSTfPXfpFyzBIrJiPKCb7/mvdXu9pBKJ+t5gF/AujrS8rmaIW+mh/nqf
-         yoe0Hmf2W2V0qaCnJmSyxdlZqQjI0fjTqg0LDVqUS3WLebA/YlxRj2ytCZSFPCHwxAoC
-         LndyxC4dgStraJD1BdnA46TdTU5pKH3l6suwH9H1+jbMNDCOd6hZM3I7ud/de9Z3SuVb
-         o9CK+RYZla7NkER9NwNHFsmZ5cMVh0XpHosr3XhDmkdhqFcRjYzXpdNcLjzdt+kTP+ll
-         JIpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUD1V491AfZ+Fbzok/8zB3v/jCTwV5OBPkHGPGHuvJWvnwRVBmHGXM3I6LVOGzQCL/xa4jSLdnJk8+3A9vROyYw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyn+uH8UmSt2VQAo96Fa8TB4CrdGcTUOMjtvpC0STKC+wv5WoxH
-	oduAbZb/Fch87NHaarDkfiMjoCXHTe3HT0vtnY5Ipf6xmbBOAbM+SGyxdw0L7oQ=
-X-Google-Smtp-Source: AGHT+IGh99tSGgSkk7UO/iFz05CAdTlnzxIFxRiRB1z7ObMWAVrMO/9RIhKBJVpF/cTnncS5M8FTQA==
-X-Received: by 2002:a05:6512:2341:b0:536:554a:24c2 with SMTP id 2adb3069b0e04-53b348c8978mr10449686e87.13.1730388430582;
-        Thu, 31 Oct 2024 08:27:10 -0700 (PDT)
-Received: from [192.168.1.64] (2a02-8428-e55b-1101-1e41-304e-170b-482f.rev.sfr.net. [2a02:8428:e55b:1101:1e41:304e:170b:482f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf429sm29399475e9.12.2024.10.31.08.27.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 08:27:10 -0700 (PDT)
-From: Julien Stephan <jstephan@baylibre.com>
-Date: Thu, 31 Oct 2024 16:26:58 +0100
-Subject: [PATCH v2 03/15] iio: light: tsl2772: simplify code in
- write_event_config callback
+	Thu, 31 Oct 2024 17:00:31 +0000
+Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id F077C892B4;
+	Thu, 31 Oct 2024 18:00:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1730394029;
+	bh=92Sy6UDwL/ps4AVz4KDD4tlQVW8dKGo+enny9ATdi/Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rn8W7ok+xoK/3atYWX260xLtWpY/OFjHeu/yW3HPUiFltXynjdWPNf/Rg9h+vsvav
+	 xfc2acyIVryKtFo1x5VRFubzNzIyhS5WvDcu39HMjJbHd66Ml0vEZs4aGYB/tknE8P
+	 kOrZ/deOA6DZcwNOW/haFyf+0JjGCnvMJdEYvKBUEu1KDl6VLYAQXXp266dweOZlcx
+	 1wNbiFp6NP2RJZSfL6pfFcT8SoAEppYFMytU3O1UzZLq1PN4Yv1Dr8wF1Gf4ji9V5C
+	 ks3SjAyULhhP++L3DvYeTC60xGfn0T2OLlnBK35kKJdOepu1vTGmkWfQqa+N76JDfq
+	 lZdkMjKp8B+sw==
+From: Marek Vasut <marex@denx.de>
+To: linux-clk@vger.kernel.org
+Cc: Marek Vasut <marex@denx.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] clk: zynqmp: Work around broken DT GPU node
+Date: Thu, 31 Oct 2024 17:59:33 +0100
+Message-ID: <20241031170015.55243-1-marex@denx.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241031-iio-fix-write-event-config-signature-v2-3-2bcacbb517a2@baylibre.com>
-References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
-In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
-To: Mudit Sharma <muditsharma.info@gmail.com>, 
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
- Anshul Dalal <anshulusr@gmail.com>, 
- Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
- Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Cosmin Tanislav <cosmin.tanislav@analog.com>, 
- Ramona Gradinariu <ramona.gradinariu@analog.com>, 
- Antoniu Miclaus <antoniu.miclaus@analog.com>, 
- Dan Robertson <dan@dlrobertson.com>, 
- Marcelo Schmitt <marcelo.schmitt@analog.com>, 
- Matteo Martelli <matteomartelli3@gmail.com>, 
- Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, 
- Michal Simek <michal.simek@amd.com>, 
- Mariel Tinaco <Mariel.Tinaco@analog.com>, 
- Jagath Jog J <jagathjog1996@gmail.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, 
- Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
- Kevin Tsai <ktsai@capellamicro.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
- Julien Stephan <jstephan@baylibre.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_082713_503935_7CE613C5 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20241031_100030_794392_7AF7AED6 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,35 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-iio_ev_state_store is actually using kstrtobool to check user
-input, then gives the converted boolean value to the write_event_config
-callback.
+The ZynqMP DT GPU node clock description is wrong and does not represent
+the hardware correctly, it only describes BUS and PP0 clock, while it is
+missing PP1 clock. That means PP1 clock can never be enabled when the GPU
+should be used, which leads to expected GPU hang even with simple basic
+tests like kmscube.
 
-Remove useless code in write_event_config callback.
+Since Xilinx does use generated DTs on ZynqMP, the current broken DT
+implementation has to be supported. Add a workaround for this breakage
+into the clock driver, in case of PP0 enablement attempt, enable PP1
+as well and vice versa. This way, the GPU does work and does not hang
+because one of its pixel pipeline clock are not enabled.
 
-Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+Signed-off-by: Marek Vasut <marex@denx.de>
 ---
- drivers/iio/light/tsl2772.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Cc: Michael Turquette <mturquette@baylibre.com>
+Cc: Michal Simek <michal.simek@amd.com>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+---
+ drivers/clk/zynqmp/clk-gate-zynqmp.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/light/tsl2772.c b/drivers/iio/light/tsl2772.c
-index cab468a82b616a23394977da1d8822d29d8941d3..26082f239c4c3aeabfe73ed100d6e885f5266329 100644
---- a/drivers/iio/light/tsl2772.c
-+++ b/drivers/iio/light/tsl2772.c
-@@ -1086,9 +1086,9 @@ static int tsl2772_write_interrupt_config(struct iio_dev *indio_dev,
- 	struct tsl2772_chip *chip = iio_priv(indio_dev);
+diff --git a/drivers/clk/zynqmp/clk-gate-zynqmp.c b/drivers/clk/zynqmp/clk-gate-zynqmp.c
+index b89e557371984..b013aa33e7abb 100644
+--- a/drivers/clk/zynqmp/clk-gate-zynqmp.c
++++ b/drivers/clk/zynqmp/clk-gate-zynqmp.c
+@@ -7,6 +7,7 @@
+  * Gated clock implementation
+  */
  
- 	if (chan->type == IIO_INTENSITY)
--		chip->settings.als_interrupt_en = val ? true : false;
-+		chip->settings.als_interrupt_en = val;
- 	else
--		chip->settings.prox_interrupt_en = val ? true : false;
-+		chip->settings.prox_interrupt_en = val;
++#include <dt-bindings/clock/xlnx-zynqmp-clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/slab.h>
+ #include "clk-zynqmp.h"
+@@ -38,7 +39,13 @@ static int zynqmp_clk_gate_enable(struct clk_hw *hw)
+ 	u32 clk_id = gate->clk_id;
+ 	int ret;
  
- 	return tsl2772_invoke_change(indio_dev);
- }
-
+-	ret = zynqmp_pm_clock_enable(clk_id);
++	if (clk_id == GPU_PP0_REF || clk_id == GPU_PP1_REF) {
++		ret = zynqmp_pm_clock_enable(GPU_PP0_REF);
++		if (!ret)
++			ret = zynqmp_pm_clock_enable(GPU_PP1_REF);
++	} else {
++		ret = zynqmp_pm_clock_enable(clk_id);
++	}
+ 
+ 	if (ret)
+ 		pr_debug("%s() clock enable failed for %s (id %d), ret = %d\n",
+@@ -58,7 +65,13 @@ static void zynqmp_clk_gate_disable(struct clk_hw *hw)
+ 	u32 clk_id = gate->clk_id;
+ 	int ret;
+ 
+-	ret = zynqmp_pm_clock_disable(clk_id);
++	if (clk_id == GPU_PP0_REF || clk_id == GPU_PP1_REF) {
++		ret = zynqmp_pm_clock_disable(GPU_PP1_REF);
++		if (!ret)
++			ret = zynqmp_pm_clock_disable(GPU_PP0_REF);
++	} else {
++		ret = zynqmp_pm_clock_disable(clk_id);
++	}
+ 
+ 	if (ret)
+ 		pr_debug("%s() clock disable failed for %s (id %d), ret = %d\n",
 -- 
-2.47.0
+2.45.2
 
 
