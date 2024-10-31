@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70BAE68974
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B56E68973
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzAbhMEAZUfyoIVXCjByodeIayg7CrWmA3iwH6kSxRM=; b=fXPPkZuZ6c0vx+o+8hHQXuk7WV
-	gltVnY8EEwjCpYr3SHT8coi4mncab3ACcWm72M9EftQLuQg52xr2KzhIWPZN2DaiTBx2h1ICFeiKy
-	tEiChIkZiI5UbwW2iXuWcduevWxxxJnZHg90BpembMfO2Gvk9cy2aJLDnIQlAGg98of8KJH8QXwwn
-	CNfWy/GUOTwpoA39AdDb9LANJ8btLXWYPIUgnblAkCfN/gRxqFzKMxCohyKfChj5rlf/30rZOFHaH
-	a5sGk5odZ5jnKPFU1NBTQUUKnIIHAuafsYZ6bbcNW2H7vPoCahTWxF6Q6SnHUIDzhkucCnYQlHwH6
-	S+sREKug==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kjh8SiPUu4PmLO15+iW0bRPvjaig76ze1QNKz75olMg=; b=oL69g9EFum9xJHFh5XXf/onMO7
+	GAkgGgbPCzx6NjZks1STA8dvAeGmWLrz939ApNYGjQDEul3VzHqSITGEjEpPEO6YR8q06U4Wr3jqW
+	mi6/Lt9zZnyJsTteH1dcmXoZ6UR5oydUL2LFCzLUoMx9zO6D3g1ofxETU/2DnpxGy4K3l6e3FFX+p
+	LqciT6XmRVU1sFB3TZmiZyIWNxj928ghgXF5kScgszevFUAowMsX43IzQCZnc75Cb5Dc5vzJlw2Gd
+	twKFsxSFWUj3yMVvxwsL+zUWy4ch+MYECN+eGIkPrbOF50xe4H6BAKOl/1lLmKEF44IB8N7U8zxO5
+	T5CZuFFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6SiN-00000003Ipz-3kQ4;
-	Thu, 31 Oct 2024 10:47:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6Sjz-00000003Ixp-1UF3;
+	Thu, 31 Oct 2024 10:49:23 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6SfH-00000003IBZ-2gSr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 10:44:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1FB98A43DA3;
-	Thu, 31 Oct 2024 10:42:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4667C4CED2;
-	Thu, 31 Oct 2024 10:44:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730371470;
-	bh=6CrcuhJVpVyzZYHnkIztljkwHxS2uMuZoIvXqVnHZpE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F8k8MLWVVB2n8i2EG2GeD1q+KWJwfLHhbG0e11wMe08iNRpuDg7SqA2SmaHnsfytc
-	 Y0/G0ulePUpwG12ZAV2lBwUnzzBBq1QMPcOIr+FXxs22uwSWVh8jy1uNrbe6Cp26qj
-	 d6iBikK07CNDrAr5YFGkTvx2S1Nn2q6UutnkBw2THlEGzlys4as0FlRXXtePdg7h2X
-	 keQ8lP7E2ScoAtDCmUtp7aH0nZnv9xbbVoal4QXMfW0V/aGqfC2KBmlz7LYxJUCkOk
-	 OBWxcKVI/r0Bd6bc+EECIQg+BwariS53hciZ5HxN34pTH+TYPG6S1DwemPPrCixx7g
-	 wBovvT29LEr2w==
-Message-ID: <c3c60bcb-186e-462d-aedb-ab90d52a58bd@kernel.org>
-Date: Thu, 31 Oct 2024 12:44:26 +0200
+	id 1t6ShI-00000003Idm-1zqF;
+	Thu, 31 Oct 2024 10:46:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730371596; x=1761907596;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6PfFS6UMQ7cHAb8+W0ohRERtD1jmi9haCx++tPkMiPo=;
+  b=ZXI3izTCQowZc57qEr+3mTRHjgTvnAtg+fX/yyVFleIOlP3TnGnQ1hnf
+   gPKmKL8QRR3q2zBX1SReybCmLumdrpZlSkY4TZGpXya+S/qCMzUYJu7fq
+   7VR3aOWa+Bycah0vdTccJksFkVYL60v5bv1t4htD1kH3dG+gH5c0EjdGN
+   FxkQfXhCcbPmwjZOry57KXDhuvVpufr18w5WFJ1fa4BOlJPrbm4L61opg
+   KUrIv1N3AzAG8LIbd845od3Cd6cHYrPHMAISCUseuquCdutRu9T2sNRfS
+   +RgkFsRwj2ZeJJUFKU8kkKUi3QZdrOehV9bK0VItD/z4l7o8IgEZjera0
+   w==;
+X-CSE-ConnectionGUID: KxyX2V1YQaWuI48WW+YziQ==
+X-CSE-MsgGUID: /yA1gmbHQmC2BNJDQloGJg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11241"; a="34032580"
+X-IronPort-AV: E=Sophos;i="6.11,247,1725346800"; 
+   d="scan'208";a="34032580"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 03:46:36 -0700
+X-CSE-ConnectionGUID: wS9ww3noQ76p2kiP9/Y0Uw==
+X-CSE-MsgGUID: d7gYKt+VTIKQBMX8fjg2Zw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,247,1725346800"; 
+   d="scan'208";a="113442251"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa001.fm.intel.com with ESMTP; 31 Oct 2024 03:46:33 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 281A317D; Thu, 31 Oct 2024 12:46:31 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 1/1] phy: sun4i-usb: Remove unused of_gpio.h
+Date: Thu, 31 Oct 2024 12:46:31 +0200
+Message-ID: <20241031104631.2454581-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: am335x-bone-common: Increase MDIO reset
- deassert delay to 50ms
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
- Robert Nelson <robertcnelson@gmail.com>,
- Colin Foster <colin.foster@in-advantage.com>
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <9002a58daa1b2983f39815b748ee9d2f8dcc4829.1730366936.git.geert+renesas@glider.be>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <9002a58daa1b2983f39815b748ee9d2f8dcc4829.1730366936.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_034431_766550_36CECBAF 
-X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-CacheID: sfid-20241031_034636_543093_C74FCDB4 
+X-CRM114-Status: UNSURE (   8.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,24 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+of_gpio.h is deprecated and subject to remove. The drivers in question
+don't use it, simply remove the unused header.
 
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/phy/allwinner/phy-sun4i-usb.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-On 31/10/2024 11:29, Geert Uytterhoeven wrote:
-> Commit b9bf5612610aa7e3 ("ARM: dts: am335x-bone-common: Increase MDIO
-> reset deassert time") already increased the MDIO reset deassert delay
-> from 6.5 to 13 ms, but this may still cause Ethernet PHY probe failures:
-> 
->     SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC LAN8710/LAN8720 failed with error -5
-> 
-> On BeagleBone Black Rev. C3, ETH_RESETn is controlled by an open-drain
-> AND gate.  It is pulled high by a 10K resistor, and has a 4.7µF
-> capacitor to ground, giving an RC time constant of 47ms.  As it takes
-> 0.7RC to charge the capacitor above the threshold voltage of a CMOS
-> input (VDD/2), the delay should be at least 33ms.  Considering the
-> typical tolerance of 20% on capacitors, 40ms would be safer.  Add an
-> additional safety margin and settle for 50ms.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index cd159a71b23c..29b8fd4b9351 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -23,7 +23,6 @@
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
+-#include <linux/of_gpio.h>
+ #include <linux/phy/phy.h>
+ #include <linux/phy/phy-sun4i-usb.h>
+ #include <linux/platform_device.h>
+-- 
+2.43.0.rc1.1336.g36b5255a03ac
 
-Reviewed-by: Roger Quadros <rogerq@kernel.org>
 
