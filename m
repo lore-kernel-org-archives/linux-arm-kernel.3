@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD001E68979
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79988E6897C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJBDcQs/kcps8BhKxMUwfSsDRoa+vONC40odWj8nSqo=; b=G5DjtROZi/XfHOgP3dGTsgIBx7
-	+4Yo1D7QXDgRPU36s5TJx1ArOeju1VpVfcfpF1wEbagktJQsC8ahxO/pNj7NzvO8YauJZCV//DyXi
-	im/gOWJhBXCJq4IVm+nvilMpUdWInj337MWTFe9+2kw9g+t4/R5rI+kWcjzZ8L395XNbV4q8MEtDa
-	h9LGE0HrAydeP9pQn0vJ+O9tRwv0lhEi7ubw5/gxiE9WSog9pCTnlp5sY/Uu5g4rna895NX6/ayrE
-	mHx3rF22koAoZQjMFIL7E67LeE6XDhZxsZNoF/2yC/lIKksL58o+oyGKRIVEIJ9puSRPB39JG32xn
-	0FW4lqVA==;
+	bh=Ygt+6jsBRDhjxME8hFA++MkWwLJLxiUed5K8glrgWvg=; b=wJrFo3BMG1LJ5/hTBIT+XG54RH
+	NxzuQ8U+GpQ56kREO07WUGA4f6J6OkJSWzRBh2m6CihhqPqT+7GnVKtU+4ZxYpKTsBxB73hs9V+n6
+	rcg3Hj+5VDf/9Enxd8tRChTqP0ans+Dtyjjr9pkCqDC5RwpyHbQefwf03Zo/M9x2E0HtWWw2KUkZy
+	BU2EHhVYbHBFnsd7MHb7F+5MMEjeH8+BHvJlKFIW5/PI3NfJDZw2bLuD2cfcw5GhM3F/pBZMwd2sZ
+	Rj7FnTAzgJC/4bTaplABX5LSsWrMFppmJMahPsFZIHo8GammqJwTtBPrstfnppmY+jox0oijiwB5t
+	AjKSqPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Tpk-00000003T4U-0a8u;
-	Thu, 31 Oct 2024 11:59:24 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t6TzJ-00000003UGT-3Us9;
+	Thu, 31 Oct 2024 12:09:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6To5-00000003SuG-0pjM
+	id 1t6Txf-00000003U6n-1yKh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 11:57:42 +0000
+	Thu, 31 Oct 2024 12:07:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C3BA5A43EF7;
-	Thu, 31 Oct 2024 11:55:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13940C4CEE0;
-	Thu, 31 Oct 2024 11:49:40 +0000 (UTC)
-Date: Thu, 31 Oct 2024 11:49:38 +0000
+	by nyc.source.kernel.org (Postfix) with ESMTP id CFE55A44119;
+	Thu, 31 Oct 2024 12:05:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6D23C4CECF;
+	Thu, 31 Oct 2024 11:49:08 +0000 (UTC)
+Date: Thu, 31 Oct 2024 11:49:06 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Joey Gouly <joey.gouly@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
@@ -42,18 +42,19 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Jing Zhang <jingzhangos@google.com>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v6 2/7] arm64: head.S: Initialise MPAM EL2 registers and
- disable traps
-Message-ID: <ZyNu0mDR0aicfPrS@arm.com>
+Subject: Re: [PATCH v6 1/7] arm64/sysreg: Convert existing MPAM sysregs and
+ add the remaining entries
+Message-ID: <ZyNusiQFI9Kh-Zqx@arm.com>
 References: <20241030160317.2528209-1-joey.gouly@arm.com>
- <20241030160317.2528209-3-joey.gouly@arm.com>
+ <20241030160317.2528209-2-joey.gouly@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241030160317.2528209-3-joey.gouly@arm.com>
+In-Reply-To: <20241030160317.2528209-2-joey.gouly@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_045741_357500_59C16F5B 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20241031_050735_591593_75CBF34D 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,21 +69,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 04:03:12PM +0000, Joey Gouly wrote:
+On Wed, Oct 30, 2024 at 04:03:11PM +0000, Joey Gouly wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> Add code to head.S's el2_setup to detect MPAM and disable any EL2 traps.
-> This register resets to an unknown value, setting it to the default
-> parititons/pmg before we enable the MMU is the best thing to do.
-> 
-> Kexec/kdump will depend on this if the previous kernel left the CPU
-> configured with a restrictive configuration.
-> 
-> If linux is booted at the highest implemented exception level el2_setup
-> will clear the enable bit, disabling MPAM.
-> 
-> This code can't be enabled until a subsequent patch adds the Kconfig
-> and cpufeature boiler plate.
+> Move the existing MPAM system register defines from sysreg.h to
+> tools/sysreg and add the remaining system registers.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
