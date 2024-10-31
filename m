@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386B0D6B6A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B896D5CCAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O9PP7SOh+ShQMVJSREjqhktD1dlC8Yd29xfB6FbB4eE=; b=fn0LwlEh+wAaGIhLgBxIztq3oG
-	k33eO7z8AXIHIU98hELGiwV8Y/JBSZf6k0yJ7N56KKTy2PLwLkRoePzxa8+2QZnRYs9Mz9iOBPJzA
-	bcHGXfBQBsDGvYjvRGSGpWdDp46nMyjdYt5ZkEwxFbOAA2VPzAfenbJmCDP7hrby8tCYhDJbMK6MB
-	1g0hn1q4b79sMDOusYYhOpjzGAKgYhNYS679tdV1X913zzrkGAXgolNtTW+7/CBQvEHC9yGKDKz7M
-	5UUxGn4Xc1Qat/L4IORtn/cy+d2bZ4g7mdfO5W5MnCW8FBo27i1ug2OwAZjuFcRXPxBVnQ96/T+Wj
-	I9OxwxcQ==;
+	bh=ZJDEPXTChMKrpdGhvAdJvqibkp4cmd3gs/U830lsVoU=; b=aMSkTdy8DZ585B0kSxWRdSY1x5
+	UyW56CIl65xFLgIB52KMrUOrJ9MZSVewDIYX3a3M8iGVaXmHZ/2qekkVdpko77vl00a3TaPA7Myxx
+	emSD88nepmeDb7qBkWr+N/t4bFdDpmLQSI3pW/TRJkLglAbD7T3wcMq3PKcjLipDvEgjiqqQR+jwP
+	P2G4WIp788Ml0ak5LYgngAh2honN0hthVG/90/HDOVD6jqox1J+JyshJbkxEwwyrgjxOaLC1DlVIb
+	lxZBXHpbdBfXm4sZYljb9CcT6klxEsFpy+AnPnxRFtCYVCFZW1cwtgD28vq5XD4p7GafYF7mulemc
+	69IDESTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6U7Q-00000003VGj-0Yfi;
-	Thu, 31 Oct 2024 12:17:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t6U92-00000003VWC-1DeU;
+	Thu, 31 Oct 2024 12:19:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6U5k-00000003UzK-1Ug2
+	id 1t6U6B-00000003V5t-2nOt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 12:15:57 +0000
+	Thu, 31 Oct 2024 12:16:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C65E3A440CE;
-	Thu, 31 Oct 2024 12:13:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E468AC4CEDC;
-	Thu, 31 Oct 2024 12:15:50 +0000 (UTC)
-Date: Thu, 31 Oct 2024 12:15:48 +0000
+	by nyc.source.kernel.org (Postfix) with ESMTP id 37B8CA44131;
+	Thu, 31 Oct 2024 12:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 573A1C4CEF5;
+	Thu, 31 Oct 2024 12:16:18 +0000 (UTC)
+Date: Thu, 31 Oct 2024 12:16:16 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Zenghui Yu <yuzenghui@huawei.com>, James Morse <james.morse@arm.com>,
-	linux-doc@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
-	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	kvmarm@lists.linux.dev, Len Brown <len.brown@intel.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	Pavel Machek <pavel@ucw.cz>, Shuah Khan <shuah@kernel.org>,
-	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Miguel Luis <miguel.luis@oracle.com>, Will Deacon <will@kernel.org>,
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
+	Pavel Machek <pavel@ucw.cz>, Len Brown <len.brown@intel.com>,
+	Shuah Khan <shuah@kernel.org>, David Woodhouse <dwmw@amazon.co.uk>,
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-pm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Francesco Lavra <francescolavra.fl@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH v6 0/6] Add PSCI v1.3 SYSTEM_OFF2 support for
- hibernation
-Message-ID: <ZyN09BSZqKLXLi6_@arm.com>
+	Miguel Luis <miguel.luis@oracle.com>
+Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for
+ hibernate
+Message-ID: <ZyN1EMPCjdX7zZSB@arm.com>
 References: <20241019172459.2241939-1-dwmw2@infradead.org>
- <172989416837.3684225.4795897590830335669.b4-ty@linux.dev>
+ <20241019172459.2241939-7-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <172989416837.3684225.4795897590830335669.b4-ty@linux.dev>
+In-Reply-To: <20241019172459.2241939-7-dwmw2@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_051556_489418_56D8AD73 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20241031_051623_789551_56713F4E 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 10:12:41PM +0000, Oliver Upton wrote:
-> On Sat, 19 Oct 2024 18:15:41 +0100, David Woodhouse wrote:
-> > The PSCI v1.3 spec (https://developer.arm.com/documentation/den0022)
-> > adds support for a SYSTEM_OFF2 function enabling a HIBERNATE_OFF state
-> > which is analogous to ACPI S4. This will allow hosting environments to
-> > determine that a guest is hibernated rather than just powered off, and
-> > ensure that they preserve the virtual environment appropriately to
-> > allow the guest to resume safely (or bump the hardware_signature in the
-> > FACS to trigger a clean reboot instead).
-> > 
-> > [...]
+On Sat, Oct 19, 2024 at 06:15:47PM +0100, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> I grabbed the KVM portions of this series, as they look ready to go. Happy
-> to take the last one through kvmarm tree w/ acks, and can toss it on top.
+> The PSCI v1.3 specification adds support for a SYSTEM_OFF2 function
+> which is analogous to ACPI S4 state. This will allow hosting
+> environments to determine that a guest is hibernated rather than just
+> powered off, and handle that state appropriately on subsequent launches.
+> 
+> Since commit 60c0d45a7f7a ("efi/arm64: use UEFI for system reset and
+> poweroff") the EFI shutdown method is deliberately preferred over PSCI
+> or other methods. So register a SYS_OFF_MODE_POWER_OFF handler which
+> *only* handles the hibernation, leaving the original PSCI SYSTEM_OFF as
+> a last resort via the legacy pm_power_off function pointer.
+> 
+> The hibernation code already exports a system_entering_hibernation()
+> function which is be used by the higher-priority handler to check for
+> hibernation. That existing function just returns the value of a static
+> boolean variable from hibernate.c, which was previously only set in the
+> hibernation_platform_enter() code path. Set the same flag in the simpler
+> code path around the call to kernel_power_off() too.
+> 
+> An alternative way to hook SYSTEM_OFF2 into the hibernation code would
+> be to register a platform_hibernation_ops structure with an ->enter()
+> method which makes the new SYSTEM_OFF2 call. But that would have the
+> unwanted side-effect of making hibernation take a completely different
+> code path in hibernation_platform_enter(), invoking a lot of special dpm
+> callbacks.
+> 
+> Another option might be to add a new SYS_OFF_MODE_HIBERNATE mode, with
+> fallback to SYS_OFF_MODE_POWER_OFF. Or to use the sys_off_data to
+> indicate whether the power off is for hibernation.
+> 
+> But this version works and is relatively simple.
+> 
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+> Acked-by: Rafael J. Wysocki <rafael@kernel.org>
 
-Happy for you to take the last patch as well through the KVM tree. Feel
-free to adjust the code comment as you see fit.
-
--- 
-Catalin
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
