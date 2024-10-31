@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43FED767E9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC124D767EA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rNPcUKdGGxyVAjLTUAVNJvowXUyU1UZgOz+u8/qucgg=; b=VhSXyhQ+DRO6XEUbWZbmXbbeqA
-	2pb12KJmqetzKGSPbWZmNj1WRC253zdVAPMDzNC+mH6c68ZPBRYnGFYz5HQxL3KfQFpBXN/V+OXAa
-	WiOmuI0Npff7SQF/DM0uMwt2xCZ1Dnt+Wx+D6SxI/pTR2uiB+hJn9nA/2R2XwbKHW6iDGVbU/5dOA
-	f4P4c7TzYAtBKCnPEoJHKztKA+EVicqJ+ixTDDBpVsQx/LkLPW5kMZ5sEbMenbpA/Q/spQ3/tyVQS
-	1smZ/MnMfkV2tnjEHbK61JCit+LZqylXbPWSUHj2+cdGy4qeliPYj1KCZjKFwpdhYAro0NhcRKNXb
-	zdAp3E8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6eDKpTruMZP+IxXjbPpb2d8Qn7H2+5jIQszhP7gdxmg=; b=kpTcgvAGP8ztOJQH+/Ah00D5MP
+	loiqHpynjMxIp4xcijuWQxxnsveupx0ZtYlf3eKNnY16ejiiqGgPjsIx8sOKgsMWidtUrxkA2DQIi
+	cwe4f5pWedoeSmORgUJDqvyNxZk/5g/bBe5xGYuqpphYBaEQeJ72mGbRRBzgUuLblQyBUzxcAqpJs
+	gSvl9a73HkbiOmm3A71Qi35+6ENk3oP/qo7qFhZ8hgMHRnh9WMu/7LznM7hqkmfVJs8stUNn4mXz8
+	02ux6IJlVz/fekpVeWZ52T4WefYiKVJcdAmN5jk8i3oqbVKVQtAXYKGdjUB9dPh2wYWn36HLPcVHO
+	CsRPPueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YXD-00000004HD8-0CeU;
-	Thu, 31 Oct 2024 17:00:35 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1t6YXk-00000004HK4-2Ap8;
+	Thu, 31 Oct 2024 17:01:08 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YVX-00000004H0t-1lNg
+	id 1t6X4r-00000003zEu-0JkN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 16:58:52 +0000
-Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 5A7CE892B5;
-	Thu, 31 Oct 2024 17:58:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1730393928;
-	bh=rNPcUKdGGxyVAjLTUAVNJvowXUyU1UZgOz+u8/qucgg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=e/KVZ0d5hriqIOOnMRtFr+JjxtQMCsMib6CaeN8DeHUAt0tBFrgLJqcTZgQI9txxv
-	 NgkDS8PY1emtfD885Ya51vF//LwD5DO6iA8o311SOEpOSloZ8ttWrmoWwhdq+a8qH1
-	 Dtb7VyuZfQiWArb1ABVg4cEymhZPMO8bdq4vSHm+1AxggXh+ZIVG4cQVnhxi9Dy7UD
-	 IjwJt7BG691JTgO1xQUMT7KtC8RlW+Lq9wcFawDA58p46FCTvMFXaPAr+MaLnzz/1z
-	 w51rFbjbOCE4b6MNuDwrL76l0PZH+PCufIVlHKMU7jOMOaInl9ZvB1qpiz8oHzAmrR
-	 oPo2el9xfsp1g==
-From: Marek Vasut <marex@denx.de>
-To: dmaengine@vger.kernel.org
-Cc: Marek Vasut <marex@denx.de>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Peter Korsgaard <peter@korsgaard.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dmaengine: xilinx_dma: Fix freeup active list based on descriptor completion bit
-Date: Thu, 31 Oct 2024 17:58:20 +0100
-Message-ID: <20241031165835.55065-1-marex@denx.de>
-X-Mailer: git-send-email 2.45.2
+	Thu, 31 Oct 2024 15:27:14 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-53b34ed38easo984744e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:27:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730388430; x=1730993230; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6eDKpTruMZP+IxXjbPpb2d8Qn7H2+5jIQszhP7gdxmg=;
+        b=iZEDOvznGuVSsUD7X982+ibb9MBfT6BYt8CBD0ci2M8RouLPD49PSfcICmSM8rfKnm
+         0evj6zvY+izmrNAoLbQSwiY2qOJ2Qve1hyyu/eTwHrDMLDAPLXnc5v5cwI0qVVggJKx/
+         q2IMq+Uhox7Dwpae93Ap7b3nfiO5x2/lS56ePWGdqw5seOHhrFnIVqCz3pq+hM54sd7C
+         hZkiRHcrJgkEjxDUO0ge98GIeMypH/n8y//cnBbmi31ufF+oVdC7Z0t55O/qBNjL9Ei/
+         H97DNmYWnfLLFKC4IqD3zaMpLVpVJztsfZIKYd4R+C+1ylhHfmHvYLPtiCmZ6n83l17f
+         PuMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730388430; x=1730993230;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6eDKpTruMZP+IxXjbPpb2d8Qn7H2+5jIQszhP7gdxmg=;
+        b=KpL4v1Vbn0YZDbhEZWX5s34gL/drVv29gCSgAzESkUXPOeQJHbiRo5mT9D3krSsUa2
+         AE7hMUPCvOvnYJdiKiBfZMag+9Ig6t6fJf8QJNdSUwjyrfxql1MFm7pIpSr1asKJRQ6B
+         8CZnDQMCk2X/W7VvxezwTLQAt2Epge2yb1SoAQdpuIqQ4CXJ7M49lT1YfcG0P3MO9KnO
+         WOMueqSXAReo/MklMQMtRVzuyvOEA1XtqAaJq6LMsJeFhA3cIVOWEGuqQgmYbiMUNmQ7
+         Dl2esa95zQ6N0+9Mpv/4i2QEvXz3+KOdMpcPvYEnPCXaBxEy0WSTpXdbq+zdbJgdq6/i
+         UXpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUgQpZk8QGuhv6+EAmpCXT1tVAH1Tzbpd0DP4KSNbXnSB7P8TgsjdHM+yL06AyXU1JlyUrsZI47vwy0YpbKXWC6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWTR5+mDpM6PCGW/UwmOt4SSGAnQfz9G5CdhBCjDcRKWWGPrto
+	yvWb/GWfLKyVkKmxnKkXYh+QmrBI1e/yH+0elB2E9QbJAT4meYvC7ePJht8s/qs=
+X-Google-Smtp-Source: AGHT+IGjr93P1e7lz+9DxAcqNxw0ZM4hWmcWRfsYdyiLlzZAFmm8L5DUz7on0ZrmWR0iZ8h9Nc8dCg==
+X-Received: by 2002:a05:6512:3ca2:b0:539:f699:bb29 with SMTP id 2adb3069b0e04-53b348c8d6fmr8574506e87.15.1730388429624;
+        Thu, 31 Oct 2024 08:27:09 -0700 (PDT)
+Received: from [192.168.1.64] (2a02-8428-e55b-1101-1e41-304e-170b-482f.rev.sfr.net. [2a02:8428:e55b:1101:1e41:304e:170b:482f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf429sm29399475e9.12.2024.10.31.08.27.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 08:27:09 -0700 (PDT)
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Thu, 31 Oct 2024 16:26:57 +0100
+Subject: [PATCH v2 02/15] iio: proximity: hx9023s: simplify code in
+ write_event_config callback
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241031-iio-fix-write-event-config-signature-v2-2-2bcacbb517a2@baylibre.com>
+References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+To: Mudit Sharma <muditsharma.info@gmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Anshul Dalal <anshulusr@gmail.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Ramona Gradinariu <ramona.gradinariu@analog.com>, 
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+ Dan Robertson <dan@dlrobertson.com>, 
+ Marcelo Schmitt <marcelo.schmitt@analog.com>, 
+ Matteo Martelli <matteomartelli3@gmail.com>, 
+ Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, 
+ Jagath Jog J <jagathjog1996@gmail.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
+ Kevin Tsai <ktsai@capellamicro.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
+ Julien Stephan <jstephan@baylibre.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_095851_629158_EC69AB0B 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20241031_082713_153231_E17AE627 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The xilinx_dma is completely broken since the referenced commit,
-because if the (seg->hw.status & XILINX_DMA_BD_COMP_MASK) is not
-set for whatever reason, the current descriptor is never moved to
-the done list, and the DMA stops moving data.
+iio_ev_state_store is actually using kstrtobool to check user
+input, then gives the converted boolean value to the write_event_config
+callback.
 
-Isolate the newly added check to DMA which does implement irq_delay,
-that way the new check is matching what is likely some new bit in a
-new core, without breaking the DMA for older versions of the same
-core.
+Remove useless code in write_event_config callback.
 
-Fixes: 7bcdaa658102 ("dmaengine: xilinx_dma: Freeup active list based on descriptor completion bit")
-Signed-off-by: Marek Vasut <marex@denx.de>
+Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 ---
-Cc: "Uwe Kleine-König" <u.kleine-koenig@baylibre.com>
-Cc: Michal Simek <michal.simek@amd.com>
-Cc: Peter Korsgaard <peter@korsgaard.com>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>
-Cc: dmaengine@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/dma/xilinx/xilinx_dma.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/iio/proximity/hx9023s.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 1bdd57de87a6e..48647c8a64a5b 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -1718,7 +1718,8 @@ static void xilinx_dma_complete_descriptor(struct xilinx_dma_chan *chan)
- 		return;
+diff --git a/drivers/iio/proximity/hx9023s.c b/drivers/iio/proximity/hx9023s.c
+index d8fb34060d3db88a3ba5ecdc209b14be8e42e8b9..38441b1ee040c7c26047b0cb2ac443ecb8396df3 100644
+--- a/drivers/iio/proximity/hx9023s.c
++++ b/drivers/iio/proximity/hx9023s.c
+@@ -879,7 +879,7 @@ static int hx9023s_write_event_config(struct iio_dev *indio_dev,
+ 	struct hx9023s_data *data = iio_priv(indio_dev);
  
- 	list_for_each_entry_safe(desc, next, &chan->active_list, node) {
--		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
-+		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA &&
-+		    chan->irq_delay) {
- 			struct xilinx_axidma_tx_segment *seg;
- 
- 			seg = list_last_entry(&desc->segments,
+ 	if (test_bit(chan->channel, &data->chan_in_use)) {
+-		hx9023s_ch_en(data, chan->channel, !!state);
++		hx9023s_ch_en(data, chan->channel, state);
+ 		__assign_bit(chan->channel, &data->chan_event,
+ 			     data->ch_data[chan->channel].enable);
+ 	}
+
 -- 
-2.45.2
+2.47.0
 
 
