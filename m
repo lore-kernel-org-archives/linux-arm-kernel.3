@@ -4,165 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C0AE68941
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 00:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEB8E68940
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 00:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ApablPWdZRedlpNbUkrkPL4rex9wYFi3vjncKGpG+IA=; b=UjzXFHFO4GzqcEx/KVofkG5sTY
-	SIpb0Y4jxVkWb/LAP5pHuQJjOuT75YIqqC7oy5ejAkbLgMyIPRgMJCsGh15WA+AzTkYCCxFNR7upW
-	E/9jrVadEtiNe/PlxL0LdyuItZ3Pl5nXq+PJWjHKQMyXqM0SiRWKsGDGSSZF10RRIyiDezS40UZkX
-	B3zB1MCqCwDHcgVe1ytzpdziS974ewG1Jk33pm/jAdcuaHhuy5etvPf6Fos5uR1nHoDjPIqn4F6Lw
-	YE6/40sEqj46jECoBFntgPZu7kwpyQnT67VRN6LaLxUdnGPXW3eEXD+0OeE0rP5kZdHiDjRy0mHP7
-	7uUbWkJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iHOBCHB+gSLuGflh6eXYwG7TlTFnET6Zkxlwir5NgSs=; b=lOuKhJz495KD00HD9j2nWm76gM
+	/xY1MrzS6rGOJMpx54WLFn82+NLrnW8kXjHjIFU0v3H9dFPMpVwr33c2ti8jkEQSUwxvxe5qOGsoQ
+	rrgI9jQieAPrdxRq7llZnC1Fco5I5WYgl9nQeMbYe9nNMy8Ynr2fgtMpx9X8Gf8ZUlPt40DrEj/Mh
+	NHAX+5WjCAuO+sVAT4hGMHIJdMERqWTcbgbK73elKPJEpS+11NM/QkueeJjpT+DcEdJFvr7k9ykp9
+	dvqn0fpviMMn0KHDbbGECnZA4qUOc3PA0t5Ykmzk7DoEDkFiwntfI8JEMvvvuTpurPV7we9MMpqva
+	XPyWpegA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6JIz-00000002Azy-0GDy;
-	Thu, 31 Oct 2024 00:44:53 +0000
-Received: from mail-dm3nam02on2060b.outbound.protection.outlook.com ([2a01:111:f403:2405::60b] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1t6JLa-00000002Bun-0yNT;
+	Thu, 31 Oct 2024 00:47:34 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6IwC-000000028U2-0mgn
+	id 1t6JJr-00000002BXs-1f7O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 00:21:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u8xt6hXIl2VQlpJSXPWYPKXRYOY1cs/RNFaLVezylBamCl5V7rZ1j9ND9rknDfpd8vP48JyFnCghuK4Mv5zabcWwTwq+9SuiSTT8orJvJ3p464l6C4HoVCvtBXGypg9N+9FCx4AkKtOpbjxOGfqB6LIdorkfQMODlhi/Z1A5SjYnAY6nxvihRRBAItAK4XMZ296wfPQskeJm1lUiqcs9pYNJLR7mWwEjcJePdtDirXQBNdJstOBdF3OqrzKP2fBPWA4wEwHlIqidMx7zwH8yrESQjcTAAk9BUmC2b8TatTKI9dcnL7TqWDTddxGjvBYlEh07m0Jjbq/4kkperyryBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ApablPWdZRedlpNbUkrkPL4rex9wYFi3vjncKGpG+IA=;
- b=BaCwYCDoMdoU4VeK5kKEPYp26RRTR174AwdFZPS0SuqOsXq5ENVxTUzWZHYVxuBY0iPtqnb/PJTqcf3OCLUwH5ElnOLCEfd/4LPjcdXN/JpqJk9uXcyZaIQWwBTa03CJdg5Z1f249if1WpXgyaouGSB2l+9ZdBhzqDWDopbkTbbvuTuoMmElPEKwaY7U79P5QFztcNv2mrKE2EbpKSoPta9OVAqOdhJPEud10FfobgQcPuaLUd8vVyy/Xp6cqBB6Zp9FEveSEwhAwDJq05HEfVW5OQriYJppOkRkaJQkuIjs6YzTRyS6OYBnSRNFQIs7ep9QiHwaYQGfJ/65Al7NDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ApablPWdZRedlpNbUkrkPL4rex9wYFi3vjncKGpG+IA=;
- b=sWDqy9nCMhkZRlGVI99ykwxJE+QXlaOokw8yIGaben83rhn6HVOpRpqFQVTIeKw3fDvpPPyWlV5yTk9WcDRzDAaWi381ZUICQqobfbXfzpmS9hkNvo6HqFM0IOW+hrX4kiRfuO55QhBZdnf+Jf5rMaNEChK3KS6F6vwh3jFBtW/F32NKNuDlXxQ7nt8TPEtRWOLYm2wPn1mnca4/buLiWFHql8oflQ1M1NMpPiCSHA6esGeC5HUsMrEN/fKHTke4UHzDdXyqnoVWL3Em+9PMSD2voPl4a4DFCBGGzJTq7SDZ+R5tK7D1NTEabTfG4SeuKnuPfdJacdN1G6ro+30ZLQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM4PR12MB7573.namprd12.prod.outlook.com (2603:10b6:8:10f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Thu, 31 Oct
- 2024 00:21:01 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Thu, 31 Oct 2024
- 00:21:01 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: acpica-devel@lists.linux.dev,
-	iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	Kevin Tian <kevin.tian@intel.com>,
-	kvm@vger.kernel.org,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-Date: Wed, 30 Oct 2024 21:20:44 -0300
-Message-ID: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BL0PR02CA0069.namprd02.prod.outlook.com
- (2603:10b6:207:3d::46) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Thu, 31 Oct 2024 00:45:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730335547; x=1761871547;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oAA+9OSWf2l09wWMiiddhw7UfO+O2McyY//3wWYPwBo=;
+  b=Bn9KjBJj3LLeQKI1xmsyT+kH1pUgXXw5NLFa407ZHJI20WCDmSvjGIrd
+   luMdD0ZzEhi1FEnsMEbSAv6T6sNt0wn05Z/HZJ6UXcMdUI/9711KqsrYE
+   XPFOa22vawXiOHiFwKaSOXVMR7U6xFbPVm/mKggq/AoP+N+IJUCN6vqIU
+   EzoI6GYnnHAlA++Hr0fAU9uAbEDchtE6ea3ImglmT5uZiAupyNxX8tvro
+   ZdKGXX786QczL+bTpLqwmuoCnkTdv1eKPO3Pfp1fPrJez4YJo/JK2s8bC
+   1vhwsYvzUF7PoiWIcG9atWYm1lqUmUYm/paP7S+PuTZLe6vzpEIy10gLl
+   A==;
+X-CSE-ConnectionGUID: bMR2Zv8ITbGGGqPu4myzag==
+X-CSE-MsgGUID: T1OXKev0RI+SyOmkkBVijA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11241"; a="40637958"
+X-IronPort-AV: E=Sophos;i="6.11,246,1725346800"; 
+   d="scan'208";a="40637958"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 17:45:47 -0700
+X-CSE-ConnectionGUID: X4k+Gr8wTfSo4COVZJWTZg==
+X-CSE-MsgGUID: bS1Vd3qcQn2WxqGo5GafTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,246,1725346800"; 
+   d="scan'208";a="82790697"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 30 Oct 2024 17:45:43 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t6JJk-000fSq-2D;
+	Thu, 31 Oct 2024 00:45:40 +0000
+Date: Thu, 31 Oct 2024 08:44:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+	andrew@codeconstruct.com.au, mturquette@baylibre.com,
+	sboyd@kernel.org, p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, dmitry.baryshkov@linaro.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v7 3/3] clk: aspeed: add AST2700 clock driver.
+Message-ID: <202410310827.OOitgPg0-lkp@intel.com>
+References: <20241028053018.2579200-4-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB7573:EE_
-X-MS-Office365-Filtering-Correlation-Id: 588937fa-3544-424c-024d-08dcf941e49c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nHilo8lClFrHwtyuuCx/cAd9JaxF0e2o4teiB5G9X8brS9JSFnowL21IV9F2?=
- =?us-ascii?Q?Evvq+xEUgbesxtybqKsNoSJl5VBJVnSaBLVT3Bal/s7TU1hddMcMTA1gEjHi?=
- =?us-ascii?Q?DbNwhrQqoSrAETuyNukt5DPgCd/bHczLESV7ziDptEjtTyOa/AjAJYjKT/Em?=
- =?us-ascii?Q?yoplGDkzsCfBPGcoCMawq2WSXj7LD6YlliFtqSI/fjp2W+01B4Pl0h82NRwe?=
- =?us-ascii?Q?mI3liTON2VTuM1PXG1J8V/49z40PQIX7omZqJJWOEEX3I+MPaH1ZfLthRpBn?=
- =?us-ascii?Q?R04RXZh+CU70eSlnB7vj7Fo9+ROzgviid8PD5ccRd6IT3uTzdqUsmxbN8bZE?=
- =?us-ascii?Q?wQM2zN2JAuwAFPbExsDQmjNQWqBuodGzaCuU/a2QFVBjIRKQ3/emaV2iiD8b?=
- =?us-ascii?Q?6cFadnXQCt9EZ0vEwcNuUL9EBLBPp9OHrQd2x/4lZtONS8imJfAS47h7JL3A?=
- =?us-ascii?Q?vEhuDueo2A41+XGlvx7IF33oKXv+YTFcOVouJH7tEtNeriCsLzjugKqeLJiQ?=
- =?us-ascii?Q?OjdXNmYIHRedVd7IWm9gb1Hji2rwyvLQvZx1N0WyQtQT33FpiGAC8gzFAnCt?=
- =?us-ascii?Q?CaB+2pNH3XArIOSYYarZjL6qQc0nqerfExDi31Sz/GgqQ9HKof660fWbGtHZ?=
- =?us-ascii?Q?FWKE7PTb3iVDwAMIU5NCH7IvAVqJAAvjnQEFvO9ny+YIRBdDw3sU/hyMConS?=
- =?us-ascii?Q?iXiX5xOtuChjNBbwjdj2FOza/HFftOayKjkzwuB1yo+pRGzjn4Z5up/5nrf6?=
- =?us-ascii?Q?1tdRzycA/2AnZjPJeEmMKOhFkHMGE77ZUqFhVlsT3RVgfNt18qsL5vviwOEt?=
- =?us-ascii?Q?OW3HpbTHrfr+IQ++YUg4kzb8+50rVvn0z9AE0vMlx8o88U4L/w2axf2H8wkW?=
- =?us-ascii?Q?V9WQkU2bhOY7S7P3N0/S7ZEddnNx9HCSn2iHwHKLFVAgVdOkyT2UYibxGysr?=
- =?us-ascii?Q?GOb2WSUli4i6AgKZrxDcRV2Vz+QC+dkqXOhdDZRn59LuxUywgJ6vbUH4sbw/?=
- =?us-ascii?Q?kxGP8ZJcGq6LUpaw8y0j3NpnF06uJ6g4ZAYHw9gMAZAPw8pbSZKyuw/nFf5G?=
- =?us-ascii?Q?kxmGZ6g0B+otHpssWV6KWLrjNK28ss6Tdqhs2GVLTnydnE286rU8fow9bZI1?=
- =?us-ascii?Q?GyrGDXhLnJLfrPtsk2OE7BudEglITidi438LSi4rD9vaumHv+6PRkwnj0GkS?=
- =?us-ascii?Q?Ojzj5mVtqk+kI1IFz0QE4Q7mPST5+2a3rbiqFmc5f3sKE6kuQy6UeuMDoLGU?=
- =?us-ascii?Q?w19VMxVtEjy2hhp50FJ3aZHvptnvL4382faG576+V/7ikWm8o/D2ZJQp3HHc?=
- =?us-ascii?Q?+pXKhFkBCqGVngE6UlHwDj+h/Bb1jGOVO+2dA3TD5UbiJvjgh69pVCTkQ2Jf?=
- =?us-ascii?Q?CoHeHCg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JkGYOOOD08SQGErbeK4VNEKnXj89+XtSY4DhwSMze7C/jnjhrzmuCsA1gIxF?=
- =?us-ascii?Q?A5yKZ2OD8oSibiaBBpUtebOxf6EcDo1C50houPeyiRZM8lw8o1SEW7S/ZjMv?=
- =?us-ascii?Q?09AOCjCBOtjIvW4mwkWfnvbAyIigSHT7y42kwvFnGE7lksW1IB/Sth7nZS7j?=
- =?us-ascii?Q?9WIRIF/4aIi+XUXLRfQOKNuy165FMKZfwKf5SjOLVCjpnpmRJDxwWPREK7Ln?=
- =?us-ascii?Q?p16/LbkkB52bn0gdcuv8tCv12ClNs8M+RFZDyMTL52nXnMjpRMIK1YMKZ952?=
- =?us-ascii?Q?wMGMhHsjNSFEj0R+KKfCeHqj61CxV+Gd9/OUqMnkwi21K83qS6FQky4smPkI?=
- =?us-ascii?Q?holYDFn2UbZvsvu+ksLE2wLw5EwXAeEBSgQgA9nybigNtk5VcisxmYpipgiz?=
- =?us-ascii?Q?uAOvwAjpy8wBVTQpzNaVlzCOvJtva7GqcimegFSYxldbET5GI0Wg3AZTFrfi?=
- =?us-ascii?Q?OG6DmFgCXd9tLgrZi3NgIol+tCjb0aO4G/UdHqITO2hRczG9qGQ+mXKarpan?=
- =?us-ascii?Q?NCz3W9xuxsIcc/T1jXcY+kRn8NRyuWZgAA69UYXRWSV1sHtbdRCvviWPCti7?=
- =?us-ascii?Q?6QUOjYLTQc6V+ELytB1SXr6V9YDo7ivpYPAshN6Mo78FiB4i78nGQCBh5/7G?=
- =?us-ascii?Q?wiPVvglaCbNYJAj0q2I1C0wgE56kvaoVoeqb/5PhCMS2lrZ6wQWA7PbVSQ0/?=
- =?us-ascii?Q?VPeXrR6IDPgUNsLWK5GbOnECzbWoeB4LPBPmTlyj5GvCP9QR9vrQCrSDw4NK?=
- =?us-ascii?Q?ilAv0XbgVh9KpPFqgCs3Bg5mh66SZ4OZsDIHUZEUvDmgtDQbGta1RTvm4gK5?=
- =?us-ascii?Q?OdmSEsFngWEPkLH1qJZE1y5fpLkZg3/3WbIOycAtyMkvgLo7CHBSyOcbbeWU?=
- =?us-ascii?Q?6Ju2uRo/5Xjhzu120Jhz6WHWD/sukpq4fqCczPk+rAlzDpko/9jgU+NyspjN?=
- =?us-ascii?Q?/rfsCoOlGUFtkFcgFq3rcGj1xpTc9+SpsNQRwcUM0ikSd7TXw5F2caZTFf2j?=
- =?us-ascii?Q?PVrsptyS1jzEw8Fd7PbWQ/y5rjr1JQMxM0NW0ShWYo64vPeTHWaUYBd6Sx/i?=
- =?us-ascii?Q?Lf6B4cYWhkm4Xbte3JEvbyAJmgP2jJ2o9l0Jw4twCWLLigl5piFp00dNkpCo?=
- =?us-ascii?Q?4XsEzwVxnpD0NMxkr3pn59LAiW1XcrbjtQvdvmzeq//p+fVdQAqXj4ZXZraC?=
- =?us-ascii?Q?qtC2ZHCtcLzSv0oV+YHQvaKw2VK/N7qoyJd7Bq6YeDD0ylFL5s3qv0eNKPBw?=
- =?us-ascii?Q?tgxKCg1fXsdRq/S9iNmm1ZfD2akvDOSuSV3nEXtnMc1Q1fjuhCbmmbopUZef?=
- =?us-ascii?Q?mUclHIg601shO6EP00UxM9ezyJkVK1H3xkcaseG/YaAXvea9XwnsIF93hicQ?=
- =?us-ascii?Q?sOTT9dZZpptBmYUarPz1MJFhkrHkrPnUre/OWO+N45ajIsElerylYgYJm0Al?=
- =?us-ascii?Q?MCGccepIIv6rNB42HYhKTc1KMz17H+280CfwUqUOvj5V6dRzX8k8QxoHlxzf?=
- =?us-ascii?Q?JVQqQ3PZ4VDEg3xFfUD+BIEdf7x98IJy5AMbUdWFJRUR6bUA21sTEBOAL/Tc?=
- =?us-ascii?Q?pZQ5CkgrX7O3krG4jaA=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 588937fa-3544-424c-024d-08dcf941e49c
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 00:20:58.4586
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GtVWlhbDf9K+nv9ZAHozbKvB85jhrGf7wdfSOMEX/PJj3rwSNH2UJWwI/scDM0OF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7573
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028053018.2579200-4-ryan_chen@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_172120_279095_787350AC 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20241030_174547_473495_A73A6558 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,143 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[This is now based on Nicolin's iommufd patches for vIOMMU and will need
-to go through the iommufd tree, please ack]
+Hi Ryan,
 
-This brings support for the IOMMFD ioctls:
+kernel test robot noticed the following build errors:
 
- - IOMMU_GET_HW_INFO
- - IOMMU_HWPT_ALLOC_NEST_PARENT
- - IOMMU_VIOMMU_ALLOC
- - IOMMU_DOMAIN_NESTED
- - IOMMU_HWPT_INVALIDATE
- - ops->enforce_cache_coherency()
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on pza/reset/next lee-mfd/for-mfd-next lee-leds/for-leds-next linus/master lee-mfd/for-mfd-fixes v6.12-rc5 next-20241030]
+[cannot apply to pza/imx-drm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-This is quite straightforward as the nested STE can just be built in the
-special NESTED domain op and fed through the generic update machinery.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-mfd-aspeed-support-for-AST2700/20241028-133255
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20241028053018.2579200-4-ryan_chen%40aspeedtech.com
+patch subject: [PATCH v7 3/3] clk: aspeed: add AST2700 clock driver.
+config: csky-randconfig-001-20241031 (https://download.01.org/0day-ci/archive/20241031/202410310827.OOitgPg0-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241031/202410310827.OOitgPg0-lkp@intel.com/reproduce)
 
-The design allows the user provided STE fragment to control several
-aspects of the translation, including putting the STE into a "virtual
-bypass" or a aborting state. This duplicates functionality available by
-other means, but it allows trivially preserving the VMID in the STE as we
-eventually move towards the vIOMMU owning the VMID.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410310827.OOitgPg0-lkp@intel.com/
 
-Nesting support requires the system to either support S2FWB or the
-stronger CANWBS ACPI flag. This is to ensure the VM cannot bypass the
-cache and view incoherent data, currently VFIO lacks any cache flushing
-that would make this safe.
+All errors (new ones prefixed by >>):
 
-Yan has a series to add some of the needed infrastructure for VFIO cache
-flushing here:
+   csky-linux-ld: drivers/clk/clk-ast2700.o: in function `ast2700_soc_clk_probe':
+   clk-ast2700.c:(.text+0x530): undefined reference to `aspeed_reset_controller_register'
+>> csky-linux-ld: clk-ast2700.c:(.text+0x558): undefined reference to `aspeed_reset_controller_register'
 
- https://lore.kernel.org/linux-iommu/20240507061802.20184-1-yan.y.zhao@intel.com/
-
-Which may someday allow relaxing this further.
-
-The VIOMMU object provides the framework to allow the invalidation path to
-translate the vSID to a pSID and then issue the correct physical
-invalidation. This is all done in the kernel as pSID has to
-limited. Future patches will extend VIOMMU to handle specific HW features
-like vMPAM and NVIDIA's vCMDQ.
-
-Remove VFIO_TYPE1_NESTING_IOMMU since it was never used and superseded by
-this.
-
-This is the first series in what will be several to complete nesting
-support. At least:
- - IOMMU_RESV_SW_MSI related fixups
-    https://lore.kernel.org/linux-iommu/cover.1722644866.git.nicolinc@nvidia.com/
- - vCMDQ hypervisor support for direct invalidation queue assignment
-    https://lore.kernel.org/linux-iommu/cover.1712978212.git.nicolinc@nvidia.com/
- - KVM pinned VMID using vIOMMU for vBTM
-    https://lore.kernel.org/linux-iommu/20240208151837.35068-1-shameerali.kolothum.thodi@huawei.com/
- - Cross instance S2 sharing
- - Virtual Machine Structure using vIOMMU (for vMPAM?)
- - Fault forwarding support through IOMMUFD's fault fd for vSVA
-
-The vIOMMU series is essential to allow the invalidations to be processed
-for the CD as well.
-
-It is enough to allow qemu work to progress.
-
-This is on github: https://github.com/jgunthorpe/linux/commits/smmuv3_nesting
-
-v4:
- - Rebase on Nicolin's patches
- - Add user_pasid_table=1 to support fault reporting on NESTED domains
- - Reorder STRTAB constants
- - Fix whitespace
- - Roll in the patches Nicolin had and merge together into a logical order
-   Includes vIOMMU, ATS and invalidation patches
-v3: https://patch.msgid.link/r/0-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com
- - Rebase on v6.12-rc2
- - Revise commit messages
- - Consolidate CANWB checks into arm_smmu_master_canwbs()
- - Add CONFIG_ARM_SMMU_V3_IOMMUFD to compile out iommufd only features
-   like nesting
- - Shift code into arm-smmu-v3-iommufd.c
- - Add missed IS_ERR check
- - Add S2FWB to arm_smmu_get_ste_used()
- - Fixup quirks checks
- - Drop ARM_SMMU_FEAT_COHERENCY checks for S2FWB
- - Limit S2FWB to S2 Nesting Parent domains "just in case"
-v2: https://patch.msgid.link/r/0-v2-621370057090+91fec-smmuv3_nesting_jgg@nvidia.com
- - Revise commit messages
- - Guard S2FWB support with ARM_SMMU_FEAT_COHERENCY, since it doesn't make
-   sense to use S2FWB to enforce coherency on inherently non-coherent hardware.
- - Add missing IO_PGTABLE_QUIRK_ARM_S2FWB validation
- - Include formal ACPIA commit for IORT built using
-   generate/linux/gen-patch.sh
- - Use FEAT_NESTING to block creating a NESTING_PARENT
- - Use an abort STE instead of non-valid if the user requests a non-valid
-   vSTE
- - Consistently use 'nest_parent' for naming variables
- - Use the right domain for arm_smmu_remove_master_domain() when it
-   removes the master
- - Join bitfields together
- - Drop arm_smmu_cache_invalidate_user patch, invalidation will
-   exclusively go via viommu
-v1: https://patch.msgid.link/r/0-v1-54e734311a7f+14f72-smmuv3_nesting_jgg@nvidia.com
-
-Jason Gunthorpe (7):
-  vfio: Remove VFIO_TYPE1_NESTING_IOMMU
-  iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
-  iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
-  iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
-  iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED
-  iommu/arm-smmu-v3: Use S2FWB for NESTED domains
-  iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED
-
-Nicolin Chen (5):
-  ACPICA: IORT: Update for revision E.f
-  ACPI/IORT: Support CANWBS memory access flag
-  iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct
-    arm_smmu_hw_info
-  iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC
-  iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object
-
- drivers/acpi/arm64/iort.c                     |  13 +
- drivers/iommu/Kconfig                         |   9 +
- drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 393 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 139 +++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  92 +++-
- drivers/iommu/arm/arm-smmu/arm-smmu.c         |  16 -
- drivers/iommu/io-pgtable-arm.c                |  27 +-
- drivers/iommu/iommu.c                         |  10 -
- drivers/iommu/iommufd/vfio_compat.c           |   7 +-
- drivers/vfio/vfio_iommu_type1.c               |  12 +-
- include/acpi/actbl2.h                         |   3 +-
- include/linux/io-pgtable.h                    |   2 +
- include/linux/iommu.h                         |   5 +-
- include/uapi/linux/iommufd.h                  |  83 ++++
- include/uapi/linux/vfio.h                     |   2 +-
- 16 files changed, 712 insertions(+), 102 deletions(-)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-
-
-base-commit: 9ffbeb478d44c57b9b2e263750b1056e5faebc9b
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
