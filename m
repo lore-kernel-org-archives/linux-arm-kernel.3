@@ -4,86 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A6AD767DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0705D767D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsNfyZkAbUdRy3BMPYsQyztzSUGdi05Vyd/UT3Z4MOk=; b=pTC0Asgv9JEDEohQ/rcr7I4vOK
-	7aM+yprCFZIi5IwOcnVgIO86KdjsZpyD50+x4RcJKjeXzGQcluOeDKllpRZNTno7ev1usiRsByRz7
-	cgEToYeHkVi7bxcKGginHqYxU7onKjy6shigb6bl5nG7j2ll/WLRc4EekQ34/D8kkMOm6HlXE667Z
-	+Q5it/QWBh9yt9srKRfrOyyKkgOukdboWVIY+PFjgZV4ydJOOku0jEEuYmWMbSgr5gzrgM0v1e3jR
-	QyeIl8Iz1VLm5gn5ek2qhpEJq1uJBj0sMXJUGX6Z0BuSDheu5x4NsM6cbiaJ4KuLriRMBPHNDtChy
-	0eghGEmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5q6n3vif9yRqdpFEirWIbpqWZyq5PPsTaLuK/TXVuwM=; b=Q/2L7AeSbkapNqlWHVzTdTLB7M
+	tpR0SuFXGhytCJAHPp+RehoRLfv0ZoknOuITcI64ZOyGYUovPp5/tH5aiGxXcuu+BN2Gp14B+JXzM
+	BRHprv+/1OBoGezY86PMXr621uO5CBi38rNjkomPux6Um3daFXzfO2mCHB/bGC7wBRxfwoWDA30DE
+	eehTzUOvQG4/+5UJZB6QV2rRFKmvtk8i4fNMpTJj3AjxA7+emKaNyUzqdGMSY/+FE0huwx2/pjTEp
+	qgWDxCg3vLXar0lZSgv48Iry3QpM8d4AloWCEoTvO++JLuB8VGrEQxfWPFDvLBeEd6bZ7jln0OLmq
+	9DhZYcyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6XSa-000000045qm-2MI4;
-	Thu, 31 Oct 2024 15:51:44 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1t6XUD-000000046Ck-3VtX;
+	Thu, 31 Oct 2024 15:53:25 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Wt5-00000003wbG-29vO
+	id 1t6X4o-00000003zEp-2mPy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 15:15:05 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-6ea4add8a5fso10109157b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:15:03 -0700 (PDT)
+	Thu, 31 Oct 2024 15:27:12 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d49a7207cso770160f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:27:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730387702; x=1730992502; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PsNfyZkAbUdRy3BMPYsQyztzSUGdi05Vyd/UT3Z4MOk=;
-        b=dWVPOfC5XNibTAE01XMyALD8c486v8UDrc/Y+2SOVagu0FZXYE7nde7QpA4k+Gp2YT
-         iqZ2d4NfkwDrQUkLO5fSkf38P85MtgfZaYomU50esFCkm+2XtkWsU5sqIDKtacywaRl6
-         Hzl8zHAJdTSocxpN1ZEfpKjWdMU5x2UY1sxGMP1wdiTX3MC7MfUULZ4pQML41ZR+XMQl
-         VQNVglqwDvY/9Fg3zIUa3joE5Y2LvFbEwDv8vZzE6Yh+KK5xt3kRpoqAmqVC/yHRQlhP
-         ZAsfv8ltR6iUCG43kHJyYK55dbfYTGnIJoGgxCDjN6UPgAK+bS7hyu03aAA/xButg8Tq
-         Wq5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730387702; x=1730992502;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730388429; x=1730993229; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PsNfyZkAbUdRy3BMPYsQyztzSUGdi05Vyd/UT3Z4MOk=;
-        b=pIyy9nbaGKq+8kcMY/c8HfUwQayOmYjcrhAxTGXZl8i9eSeuon4WjMH0X1Ibc+q1R0
-         qhW6kh6yWSOCEbLqvQ6ED3SHJubmXxC/HSAPhjSJaJ8yFiF8Z0XZfpyTyAxoRmY/uIHM
-         Y6xTww2n/UnRCT7j+H9KBHr8m2bavc1xj3BWFuCNhubFC3wb0ZJR1GvXvujGUklSbV8u
-         hLZoY7ehvBAaIwlL8+XxgheaHWPfDz+M0hZeDF4QTjQEDMQWaGg8oDKckUWGe86wavY2
-         N2D26l9OUUsQXR4nDVHKoz87AaQ4Dk4fkbNXWoa/xbpmZSUzLCAJnIKnliYfRSDC7OnI
-         PRdA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcaxGfWA3TfvfQotSDBlWeUdh0ldCw14PpzZuJVgxym2ylKfbygB5dkqELhn0NyA6Es2AfsKRyrpRMVQDUhsHG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVAVTeuAe8DVnOihKgGrfaKPVPcH1krDPh2VszrEvP7+REev0Q
-	XRseav7jdChXOSyLK1vuflYQcGn/5GFyAw+md/93FwP/POYzlfUjYWfBGP6EBpqTnoClHbS/lqp
-	9k0Ekbg5vwpDl/D7gFuO33HmC0Oj0LhStZTHTcQ==
-X-Google-Smtp-Source: AGHT+IEzbgAkvn+Kbd1W59aqNXrS5kqasKo2UcyReXDn6RNKVnLzNobyJmTaqWwwzBvxE1e6RcSS33ZES6nefnm8xiY=
-X-Received: by 2002:a05:690c:3803:b0:6e5:625c:5ad8 with SMTP id
- 00721157ae682-6ea52542f0dmr43442727b3.37.1730387701805; Thu, 31 Oct 2024
- 08:15:01 -0700 (PDT)
+        bh=5q6n3vif9yRqdpFEirWIbpqWZyq5PPsTaLuK/TXVuwM=;
+        b=e+pa94E1BhHFScB06mycl3RmH8GJu73jdM6AC2oLGolER7legHlDE0DHXSo65qc2+U
+         nn43ujFJoX9ZWDX0tUvMJb/7XI7yFaCuulhF0cPWVRjj4nTzoPvzgR62QqnpGGcFy9Jc
+         dCbTN6R5I27wq7bK8jVMGjY12Pk3kl+PO/i3QxVIdkwTh8Isjni4iT/aY5CyB3lcfU6c
+         gdlbQ48iI0vFXOTc0/QwvCXpUoqpXTameviCvKqnTAC7oueQrIt6yEUyZEEuwW5HzuPi
+         MK6FzL5OYxBXnJgepIb5x7m1mSZzvnTnrqeGveb/o5vfp6X/YLAajwG77CotzoOLcLaK
+         lkNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730388429; x=1730993229;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5q6n3vif9yRqdpFEirWIbpqWZyq5PPsTaLuK/TXVuwM=;
+        b=DBsAQbM9xlK180U6jQJkSs4SdKFPgNtWGyFDjM0qboEJgtcKwjxZ3WjebDCMmsOAub
+         dR7gL14gr2oKaayHr/UzWdepVIKS+1Bevxe4WJcW8Ff3dNn2zcBaUGdjdFQ7j/FPC7Dh
+         kLskT+y0kmK7OoAwif5CIbqp59gAvRWORoT6hCx2lDMwDdqe9HHQ3+wCMnjl7l+y8mIE
+         9G2WyFAaJaJbDMdxVOMkhOQsAY3ZWkOb5D9B44moW7U8669beD7cfVds8OEFxG/5c1xz
+         eBYvGQp4pxs8Vsw8hWlbYu7h/MZDJvT1PkY/2DUsdHVAAQKm4Kl5Gz3AAfQBj4BHOboV
+         Glow==
+X-Forwarded-Encrypted: i=1; AJvYcCXx4U4ztKPRSP6+Yde62aVOROQJkeuUfMjSUBVWi2IJmJA/g1sLonDSKmJ3GDC4BISmqTaOvV8Zf36yNCtZQmAj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVOqEglKBnsUC/mRuGyyl2wngeVKHWCMW/Tl2V7A7pbEhUHcLW
+	k6xnGADX/TBnflA9LcQkqtSY5j7lYFUlBe7jpdbQDdIq+0jEW1V1yNB/JvyvZ54=
+X-Google-Smtp-Source: AGHT+IGaw7tHL795rWp+9Pukkty49eWxvccjSs+5mhazyr072wPwTV8LiZfSVUziuIlxxgcHMJ0lWw==
+X-Received: by 2002:a05:6000:1569:b0:37d:5103:8894 with SMTP id ffacd0b85a97d-381c7aa4a56mr334756f8f.42.1730388428718;
+        Thu, 31 Oct 2024 08:27:08 -0700 (PDT)
+Received: from [192.168.1.64] (2a02-8428-e55b-1101-1e41-304e-170b-482f.rev.sfr.net. [2a02:8428:e55b:1101:1e41:304e:170b:482f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf429sm29399475e9.12.2024.10.31.08.27.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 08:27:08 -0700 (PDT)
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Thu, 31 Oct 2024 16:26:56 +0100
+Subject: [PATCH v2 01/15] iio: light: ltr390: simplify code in
+ write_event_config callback
 MIME-Version: 1.0
-References: <20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com>
- <20241019-qcs615-mm-clockcontroller-v1-8-4cfb96d779ae@quicinc.com>
- <omn34rwurlxrjckb5d6xb2brg6zwcizonmqyfckvngk5msrfav@b3i2bdjk5vw7> <2aa768a4-b0e9-4b2f-8d74-736a88cf81cd@quicinc.com>
-In-Reply-To: <2aa768a4-b0e9-4b2f-8d74-736a88cf81cd@quicinc.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Thu, 31 Oct 2024 17:14:57 +0200
-Message-ID: <CAA8EJppZyJt_MWrafSKReuCXy0RtEAQ6VE-kt_Fp41eFpsW2SA@mail.gmail.com>
-Subject: Re: [PATCH 08/11] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock
- controller driver
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Abhishek Sahu <absahu@codeaurora.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ajit Pandey <quic_ajipan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, 
-	Jagadeesh Kona <quic_jkona@quicinc.com>, Stephen Boyd <sboyd@codeaurora.org>, 
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241031-iio-fix-write-event-config-signature-v2-1-2bcacbb517a2@baylibre.com>
+References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+To: Mudit Sharma <muditsharma.info@gmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Anshul Dalal <anshulusr@gmail.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Ramona Gradinariu <ramona.gradinariu@analog.com>, 
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+ Dan Robertson <dan@dlrobertson.com>, 
+ Marcelo Schmitt <marcelo.schmitt@analog.com>, 
+ Matteo Martelli <matteomartelli3@gmail.com>, 
+ Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, 
+ Jagath Jog J <jagathjog1996@gmail.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
+ Kevin Tsai <ktsai@capellamicro.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
+ Julien Stephan <jstephan@baylibre.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_081503_600633_8A84E74F 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20241031_082710_735889_563DD87E 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +115,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Oct 2024 at 20:04, Taniya Das <quic_tdas@quicinc.com> wrote:
->
->
->
-> On 10/19/2024 1:58 AM, Dmitry Baryshkov wrote:
-> >> +static struct gdsc gx_gdsc = {
-> >> +    .gdscr = 0x100c,
-> >> +    .en_rest_wait_val = 0x2,
-> >> +    .en_few_wait_val = 0x2,
-> >> +    .clk_dis_wait_val = 0x2,
-> >> +    .pd = {
-> >> +            .name = "gx_gdsc",
-> > .power_on = gdsc_gx_do_nothing_enable ? Or is it controlled directly on
-> > this platform?
-> >
->
-> On QCS615 the GPU clocks are directly controlled by high level OS.
+iio_ev_state_store is actually using kstrtobool to check user
+input, then gives the converted boolean value to the write_event_config
+callback.
 
-Is it one of the gmu-wrapper platforms?
+Remove useless code in write_event_config callback.
 
->
-> >> +    },
-> >> +    .pwrsts = PWRSTS_OFF_ON,
-> >> +    .flags = POLL_CFG_GDSCR,
-> >> +};
-> >> +
->
-> --
-> Thanks & Regards,
-> Taniya Das.
+Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+---
+ drivers/iio/light/ltr390.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-
+diff --git a/drivers/iio/light/ltr390.c b/drivers/iio/light/ltr390.c
+index 8e0a3fc3d923a6f65d2a629c87e7bfd35d82a507..3bdffb6360bcbaab4df1a2d39c8ea3813b5d6bd3 100644
+--- a/drivers/iio/light/ltr390.c
++++ b/drivers/iio/light/ltr390.c
+@@ -558,10 +558,7 @@ static int ltr390_write_event_config(struct iio_dev *indio_dev,
+ 	struct ltr390_data *data = iio_priv(indio_dev);
+ 	int ret;
+ 
+-	if (state != 1  && state != 0)
+-		return -EINVAL;
+-
+-	if (state == 0)
++	if (!state)
+ 		return regmap_clear_bits(data->regmap, LTR390_INT_CFG, LTR390_LS_INT_EN);
+ 
+ 	guard(mutex)(&data->lock);
 
 -- 
-With best wishes
-Dmitry
+2.47.0
+
 
