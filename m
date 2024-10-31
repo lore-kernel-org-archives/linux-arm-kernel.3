@@ -4,90 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A98AE68974
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39AAE68974
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6RrESpk4DuiFuA8FQu7bFWYRqaOtox3Ncu15dz32HM=; b=S9Da3D/Dp9HraZO3LfzpwFxg6S
-	UuXByEVaiwqcs8YwefdgqEBRJuTlyUtGCC7w/2ko24UqRH4Hzyg4RGTdLwYgFXy3QYUWL4h84XLOQ
-	AVjUyDCHXIOIRFn/YNQw47PNdwQBqt4ZXHUoNjOKE7RXa7+H4WdJTxPO+nxkWkL6KgOpi0Yq+5Ok8
-	sz7mzAVewqMJNQ7Bz9IwBcz7tERuxI70M09uWkyZ3tFmEZVUBrM/rkdq5T+yfoBkrDqK3dGvq99Gl
-	zQSJ+TlooHap2pn/GxZyrZAn0L+y6WVeNxdYqj2dXn0sbBkKOVRmMbdX7UF5Qynsp3mpW3fhcrtds
-	OteEylPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HxLI9quSH53A4li6xKQuQ1r9cfD9mX26xVy57Qx50vA=; b=XJ4j38EUjslmV9dftC+imDsFu0
+	bNeZoO39OV7tddfIcjfNN+Yh99MdkCtfTep3xKAsYm1hIwBfOV1WOCqHobdl3tXOFmgDDQnQjaWn+
+	v0ULndgwOKU7VMp4mLNzjPwmTqCADgSVRvsJPldAvwDWtLrpIMcvpvmdGshWn+vX2yIjlwKW565HF
+	AS4bkCoObGwLl1592zWDP1g5j24VA8Zv9L5MKcHpSBIJsEJltb8r7Bvsy+K/YfFf3ITiRuF6eOFzc
+	PMwnEYgWxEtvJud7x/eDs7ViCDdVj7CLRUwvM2ZYuyHGH/I+hCiO9Rb922YIs0V1JwPBTUX0As0Kc
+	vBBFEHiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6SvE-00000003Kim-0MZp;
-	Thu, 31 Oct 2024 11:01:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Rvu-00000003A52-0cPR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 31 Oct 2024 09:57:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=l6RrESpk4DuiFuA8FQu7bFWYRqaOtox3Ncu15dz32HM=; b=pdejbnPNd+ry1fv2Q+mbQJyLa/
-	Ajj7nYjSdxivFn7ecgv6ZUWhGFUwZuLXz+90cv3EXki8VF2livu6KZeJKOS9F9sgiaIwtBrphhHa9
-	kS8AZfzz5zwLtCOgdGgF0OzdaC6Cocya8B8np46GgM8IcmwnjLebabpP6cQC9OAwqacfTujd+LYtQ
-	H9PVYUdlctreW3xaz5kuP5nwWShecK7rzImGPDzo1KMpivr2MsDgqhA/LdCIH61f1QbXkK3PSl5qu
-	5Ja25sX4o9OR1AHo4hIsPeB77RNxuJ9VsLJlKzvTJHGXdnbhbVbhF79sQp+gfYVcb7v/FLThX7FOE
-	DC3O+KvA==;
+	id 1t6T87-00000003MSj-1L36;
+	Thu, 31 Oct 2024 11:14:19 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Rvr-0000000AQoy-1GEk
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6T6Q-00000003MG9-3q7n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 09:57:37 +0000
+	Thu, 31 Oct 2024 11:12:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A248A43E7B;
-	Thu, 31 Oct 2024 09:55:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983B5C4CED5;
-	Thu, 31 Oct 2024 09:57:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5AC83A43FC9;
+	Thu, 31 Oct 2024 11:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2A66C4CEDE;
+	Thu, 31 Oct 2024 11:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730368653;
-	bh=Y/ZKdGs9HB+eMN46LQEMN2crILjud+xOTPZjCMfvnbc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G58e/nrB469sgVmF0ZG3dxQLcv+W1uDFu/FILhXfCLoJCoj/5k4VoyFTbNpZaA6uf
-	 i+B4YT0rcIjWmzT/+f1HVjm+iwSZNelh/bgrflRm4IBECGl9hN2odDSmu792hsR7Z8
-	 bY7jzfHc3H6ZhAlNdXLEimDrPw86vil0VEndvwRCPVvnygr7DN6Mq9+9KD8rSk+Zir
-	 0c7TnXcYAX3tKBKOqlJJGuoAYYu9GC075Ki4VpLu4BRSGf4Ua0VjatKXc8ldILkPF1
-	 5OSIdvCI9y6kbLKpZE6XIMron+uMCYRUWz0GkX5st4dnKSgs3SOWVeTndhpslO+/de
-	 3Z8LVQ3W2uU1w==
-Date: Thu, 31 Oct 2024 10:57:31 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	rcu <rcu@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Mark Brown <broonie@kernel.org>,
-	Alex =?iso-8859-1?Q?Benn=E9e?= <alex.bennee@linaro.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Aishwarya TCV <aishwarya.tcv@arm.com>
-Subject: Re: next-20241031: kernel/time/clockevents.c:455
- clockevents_register_device
-Message-ID: <ZyNUi/DmVi8P21TA@lothringen>
-References: <CA+G9fYtb5vAnEiHupwsnaeZ7uzdko_WAcjw9ZAFkHNXBVhi1EA@mail.gmail.com>
- <87zfmkwqui.ffs@tglx>
+	s=k20201202; t=1730372832;
+	bh=4e+Wi0j9naHLWMxp+Bav6sEs2lWny5KlXbe2JMoj9ws=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lT0qMJi+mJqxdLxcviE+dWHqcsIhe1c5TjzrpmbRqgQoHahFcVdo8Iv400j5KQ28A
+	 PXl//qVgXCkJXhEOYV5teH6lzyLGpFbAPRYTj0Pe49BWox0Nq8S4YngFJRYmt/8+2X
+	 vpOfFwHCnnXyBfyqB6kHISUUuqgkfziTh/AoD67Lg5K62/MLqsZA8KQ+5WBKK3K8iz
+	 RUvh1s3GzD7rqLv6OHSsuhIHwtU3yE7qrvyXqWD6ifb+A5Hg/SGdwslZeOHEvbTKZr
+	 1rNAgO+Qc2bvDhVlwHBo4PvTVL0La8i0G4EWzczjGWKF/rPdP+AEHQfx6M9Zt7upEI
+	 W3OCP31+M3QNQ==
+Message-ID: <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
+Date: Thu, 31 Oct 2024 12:07:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87zfmkwqui.ffs@tglx>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
+ device_node in atmel_soc_device_init()
+To: Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
+ <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_095735_621091_A7F31AD0 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20241031_041235_098527_9841847F 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +121,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 10:42:45AM +0100, Thomas Gleixner wrote:
-> On Thu, Oct 31 2024 at 14:10, Naresh Kamboju wrote:
-> > The QEMU-ARM64 boot has failed with the Linux next-20241031 tag.
-> > The boot log shows warnings at clockevents_register_device and followed
-> > by rcu_preempt detected stalls.
-> >
-> > However, the system did not proceed far enough to reach the login prompt.
-> > The fvp-aemva, Qemu-arm64, Qemu-armv7 and Qemu-riscv64 boot failed.
-> >
-> > Please find the incomplete boot log links below for your reference.
-> > The Qemu version is 9.0.2.
-> > <4>[ 0.220657] WARNING: CPU: 1 PID: 0 at kernel/time/clockevents.c:455
-> > clockevents_register_device (kernel/time/clockevents.c:455
-> > <4>[ 0.225218] clockevents_register_device+0x170/0x188 P
-> > <4>[ 0.225367] clockevents_config_and_register+0x34/0x50 L
-> > <4>[ 0.225487] clockevents_config_and_register (kernel/time/clockevents.c:523)
-> > <4>[ 0.225553] arch_timer_starting_cpu
-> > (drivers/clocksource/arm_arch_timer.c:1034)
-> > <4>[ 0.225602] cpuhp_invoke_callback (kernel/cpu.c:194)
-> > <4>[ 0.225649] __cpuhp_invoke_callback_range (kernel/cpu.c:965)
-> > <4>[ 0.225691] notify_cpu_starting (kernel/cpu.c:1604)
-> 
-> That's obvious what happens here. notify_cpu_starting() is invoked
-> before the CPU is marked online, which triggers the new check in
-> clockevents_register_device().
-> 
-> I removed the warning and force pushed the fixed up branch, so that
-> should be gone by tomorrow.
+On 30/10/2024 18:10, Javier Carrasco wrote:
+> Switch to a more robust approach to automatically release the node when
+> it goes out of scope, dropping the need for explicit calls to
+> of_node_put().
 
-Ah, phew!
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-Thanks.
+There is never a "drivers" prefix. Especially not first (because as
+middle appears for FEW subsystems, not for SoC though).
 
 > 
-> Thanks,
+> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+> ---
+>  drivers/soc/atmel/soc.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
 > 
->         tglx
-> 
+> diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
+> index 64b1ad063073..298b542dd1c0 100644
+> --- a/drivers/soc/atmel/soc.c
+> +++ b/drivers/soc/atmel/soc.c
+> @@ -399,15 +399,12 @@ static const struct of_device_id at91_soc_allowed_list[] __initconst = {
+>  
+>  static int __init atmel_soc_device_init(void)
+>  {
+> -	struct device_node *np = of_find_node_by_path("/");
+> +	struct device_node *np __free(device_node) = of_find_node_by_path("/");
+>  
+> -	if (!of_match_node(at91_soc_allowed_list, np)) {
+> -		of_node_put(np);
+
+You just added this code. Don't add code which immediately you remove.
+Squash two patches.
+
+Best regards,
+Krzysztof
+
 
