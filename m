@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F53BE68958
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD21E68956
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FL4j/CYIrubAPxbVw7pG9+khVDUDAsvQ9VUk/zRyv4=; b=MP1xYY9zZ49Q6cfYt1zigQKzof
-	fuoyfyf3PWYSy8Yu5UEgy98gc07ob+Z9AloJwIckSF0u8Hv3IHyE6/xEtKoW3VKKKI0WwlSsm02cN
-	U8G72/dy8RCq79q+hp/R1z1R/EIt5XS44AKF2wVBX0vuIrgrtml/Lb1saqS00lFbtsA8v52y2z3+/
-	9xGgQ9BPWFeZaNQSdX/AusmTOXo4Dmm9xuiT+Befn1S1Ci91jI3mj+UJ5VIOfs+Y1QLHjNFl57c3E
-	yMyFZd/bU2zBOIG4By2eszI6L4kQq6ryC7S77/TtsOoXN8uNOhSCv+vSSZoeFTvmzOf2vW5aouAqO
-	HCyY6CPg==;
+	bh=dLOZ4tebHtRtPz3pKOvZ/jJ9j2z40yEgxHTKKYGN5fQ=; b=b1sAyq2zQMr1LhA8uhlRj0BKV+
+	wdA78/hb1aFw+2SQAH5RU4yxR6aSGntGFF2Ighttfx9LyvOyPhzEkpMEhFWjjvCfmWbBH9PKdrMUS
+	ye9iiLmcKGxJdLnUG5TpH6rXfvFKwc0bewTUPSR4uGE9J68a0oWCITRkLDJg23f0qGd+gmAOR9upl
+	fAphOiI7mM+azl/m8i7tA2DGM7cx4caGjJwjBBr1FDK05zpgJfqD5KSL+sJAaBGradGDGkn4Jizis
+	A8XSYYGNKJWmVAvHgHvHNp0wby18GzQ29J9ODcCMxDXAXCZZXUnbKtuEFVWyOGLJvLLSZiH2jWvgG
+	I060rSfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PX0-00000002ndV-0e5H;
-	Thu, 31 Oct 2024 07:23:46 +0000
+	id 1t6PYc-00000002nt3-1sUO;
+	Thu, 31 Oct 2024 07:25:26 +0000
 Received: from thales.epochal.quest ([51.222.15.28])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PDP-00000002kWG-0j6U
+	id 1t6PDO-00000002kVo-2BZp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 07:03:32 +0000
+	Thu, 31 Oct 2024 07:03:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
 	s=default; t=1730358206;
-	bh=wUIk/mmpLDWeouMgYhaf2tgEePqBaUSdmwuO0VnKGzM=;
+	bh=nnLK7vdS2Jw3tJYIfQcazeyvsSONfvWoJ57ZBLGoLRs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jskWGbQg985yW0BZQQi3CQ6hHJO7+HaROsZ9qZhwlh0HMYwlM2bxzF4bNP3vOOeAj
-	 nPp/7UkifmYOJwkcAWsDz8hbJ/yFPkodWVwzlipNZymcQFY+V8p5J8HQN1ZPvpd9Kt
-	 fzgk1sBLInXwNycHN2ctK5f11Z6Uq0qrWGaEM5DB9khCN6b9pW1PMaUEt0Vpmfd2cb
-	 VKFbEu/ezqvXUNON81kfrJ30xwXHzGq/crovPoVgLSUQ/+xkzC46tvCmjeLY9SFsww
-	 TdO8cRGL4ZJGYxB19YcSHlpj4xj7iaTpwJo/8CM4n/DWCzuDzceuHmoqMm1mhs1wTN
-	 LyEwBimJgmc9Q==
+	b=f5aonTIPZ3ov2mqf1MwtR3Qr76H/P4hBfDCBhiFGIGCsImTtOkadF8sG5nshiBAgy
+	 B6UVyG9+LxOyfUTB4HB0hcoKh/DzxpMoLt6feRx0Q4hAB+34m2oAQVrbxVJprDK+VO
+	 4wRk0PDmR8S5GozMQblFlj72xT3f/642Q00Uqja+mraD8wtr5eXEzmy4qkACkRe8a4
+	 T3I30aeN5eQ2C7fagPFslHgg+kANBhOaOQ2F3AgWChoYOz8IMHV5jqWMxeYzL11+Pa
+	 tNdJ+imtc2baPScXVlYR5AJp00NHn5rKQhNz9J/RLnajsFwUqy9PPo8s6ZiPL5dKrX
+	 vuALB5l9Hw/qQ==
 X-Virus-Scanned: by epochal.quest
 From: Cody Eksal <masterr3c0rd@epochal.quest>
-To: Yangtao Li <tiny.windzz@gmail.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
 	Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Vinod Koul <vkoul@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
+	Viresh Kumar <vireshk@kernel.org>,
 	Parthiban <parthiban@linumiz.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Cody Eksal <masterr3c0rd@epochal.quest>,
 	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 11/13] dt-bindings: opp: h6: Add A100 operating points
-Date: Thu, 31 Oct 2024 04:02:24 -0300
-Message-ID: <20241031070232.1793078-12-masterr3c0rd@epochal.quest>
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v2 12/13] cpufreq: sun50i: add a100 cpufreq support
+Date: Thu, 31 Oct 2024 04:02:25 -0300
+Message-ID: <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
 References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_000331_390140_363BCA7C 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_000330_778003_1F3F6985 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +88,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A100, similar to the H6 and H616, use an NVMEM value to determine
-speed binnings. The method used is similar to that of the H6. However,
-the information is stored at a slightly different bit offset.
+From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
 
-Add a new compatible for the A100.
+Let's add cpufreq nvmem based for allwinner a100 soc. It's similar to h6,
+let us use efuse_xlate to extract the differentiated part.
 
+Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+[masterr3c0rd@epochal.quest: add A100 to opp_match_list]
 Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
 ---
 Changes in V2:
- - Fix ordering of compatibles
+ - Add the A100 to the cpufreq-dt-platdev blacklist.
 
- .../bindings/opp/allwinner,sun50i-h6-operating-points.yaml       | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/cpufreq/cpufreq-dt-platdev.c   |  1 +
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c | 28 ++++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-index ec5e424bb3c8..75ab552f6ecd 100644
---- a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-+++ b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-@@ -22,6 +22,7 @@ allOf:
- properties:
-   compatible:
-     enum:
-+      - allwinner,sun50i-a100-operating-points
-       - allwinner,sun50i-h6-operating-points
-       - allwinner,sun50i-h616-operating-points
+diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+index 18942bfe9c95..2a3e8bd317c9 100644
+--- a/drivers/cpufreq/cpufreq-dt-platdev.c
++++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+@@ -103,6 +103,7 @@ static const struct of_device_id allowlist[] __initconst = {
+  * platforms using "operating-points-v2" property.
+  */
+ static const struct of_device_id blocklist[] __initconst = {
++	{ .compatible = "allwinner,sun50i-a100" },
+ 	{ .compatible = "allwinner,sun50i-h6", },
+ 	{ .compatible = "allwinner,sun50i-h616", },
+ 	{ .compatible = "allwinner,sun50i-h618", },
+diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+index 293921acec93..3a29c026d364 100644
+--- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
++++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+@@ -22,6 +22,9 @@
+ #define NVMEM_MASK	0x7
+ #define NVMEM_SHIFT	5
  
++#define SUN50I_A100_NVMEM_MASK	0xf
++#define SUN50I_A100_NVMEM_SHIFT	12
++
+ static struct platform_device *cpufreq_dt_pdev, *sun50i_cpufreq_pdev;
+ 
+ struct sunxi_cpufreq_data {
+@@ -45,6 +48,23 @@ static u32 sun50i_h6_efuse_xlate(u32 speedbin)
+ 		return 0;
+ }
+ 
++static u32 sun50i_a100_efuse_xlate(u32 speedbin)
++{
++	u32 efuse_value;
++
++	efuse_value = (speedbin >> SUN50I_A100_NVMEM_SHIFT) &
++		      SUN50I_A100_NVMEM_MASK;
++
++	switch (efuse_value) {
++	case 0b100:
++		return 2;
++	case 0b010:
++		return 1;
++	default:
++		return 0;
++	}
++}
++
+ static int get_soc_id_revision(void)
+ {
+ #ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+@@ -108,6 +128,10 @@ static struct sunxi_cpufreq_data sun50i_h6_cpufreq_data = {
+ 	.efuse_xlate = sun50i_h6_efuse_xlate,
+ };
+ 
++static struct sunxi_cpufreq_data sun50i_a100_cpufreq_data = {
++	.efuse_xlate = sun50i_a100_efuse_xlate,
++};
++
+ static struct sunxi_cpufreq_data sun50i_h616_cpufreq_data = {
+ 	.efuse_xlate = sun50i_h616_efuse_xlate,
+ };
+@@ -116,6 +140,9 @@ static const struct of_device_id cpu_opp_match_list[] = {
+ 	{ .compatible = "allwinner,sun50i-h6-operating-points",
+ 	  .data = &sun50i_h6_cpufreq_data,
+ 	},
++	{ .compatible = "allwinner,sun50i-a100-operating-points",
++	  .data = &sun50i_a100_cpufreq_data,
++	},
+ 	{ .compatible = "allwinner,sun50i-h616-operating-points",
+ 	  .data = &sun50i_h616_cpufreq_data,
+ 	},
+@@ -291,6 +318,7 @@ static struct platform_driver sun50i_cpufreq_driver = {
+ 
+ static const struct of_device_id sun50i_cpufreq_match_list[] = {
+ 	{ .compatible = "allwinner,sun50i-h6" },
++	{ .compatible = "allwinner,sun50i-a100" },
+ 	{ .compatible = "allwinner,sun50i-h616" },
+ 	{ .compatible = "allwinner,sun50i-h618" },
+ 	{ .compatible = "allwinner,sun50i-h700" },
 -- 
 2.47.0
 
