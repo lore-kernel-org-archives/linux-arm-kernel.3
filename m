@@ -4,176 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8ECEE68946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06B5E68949
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 03:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=; b=zkF2EwAG7Q2OGEM4b72iaZMApB
-	dKl//9x28dXFxr4gUfNBlxUlsHq8JhBipz6HAxCbqnphxkFORsKck2YHzxR3Ry5w4peVhjB879mhs
-	K+Z5q0VxFUMRLkmMG7rrnXIED7xKcTZBJTrRZ/FlIB3ukeiO/+MFQe85wP3QVQ5FniGBu9bpS1xzV
-	9WNMNfaCSXZSuudefsizWpVuWQICeZEJ4qrm+K3alGZQDri+708EOBEwMmd0uVDTHKaCwNMuLsPYJ
-	QmVMPO81vD1BFXl4YkhPMbSFmGJB/fHayOuWK9yKNNvdp5arbRKYP+BAOvdyg3z9N7JzYktmXJWX8
-	g2QM1GKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JU5mWi+4xOc6kAhkGMfdVmB9NWczUXuOyU69dRDI3rw=; b=o+lETtVO+D8xcwMkiqjpGhCoIz
+	Rw4EqUrf6FndeKZ4Z9GnGsCVdTGdsdiHr77OONwjgqSfr1RQJk3ROOcDKq/lkg/vroT1KV9omY2CO
+	saMZZP2pj9uv0cDKKHWFt9U7aQ5EMCt7oqA9lAZH3SUvXqoP23El1gDPQVe+saxJTMjVc+0AC/JLl
+	/OKo+odJ3+ZKHrkzULQUBOjr/q/uJLR9Hj7mdZBNrP07+KSAABZHi3+zlv61eHd91x/gQ9P1i+1FU
+	QAcTa0NqJ1gMFAB0/RoQXsRmaueaK2OimdyQ+7NeifHIR0Zc/Ppo/q2+e19FgrbwT8hL0fTJo3taB
+	TVvOAQyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6L93-00000002N87-0GdH;
-	Thu, 31 Oct 2024 02:42:45 +0000
-Received: from mail-am6eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2612::61b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1t6LVk-00000002Ow7-3HsR;
+	Thu, 31 Oct 2024 03:06:12 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6L73-00000002Mv9-0UgE
+	id 1t6LU6-00000002OqX-3Jme
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 02:40:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uUpmfia7Hgs5hB09/GIVq/1aloUXGXOqgbXfJh/Lf9MVttogAWuI6lGhMW/3i9K6VoSojiqWnIzFJVXmTFQ7spzUDqOx7wdG1rueVPExyulSat4rB5gVNeCuWeajv802aQ2jwU1fb2LEb+98C5HArU0eVPUTryryzlv3YabBxWo5HMnH1nPKqNRNFcP4486cWfPF/Rt77REN50PIw8lce0WcmkByi1LX2oUL5vIPMk1VAk50UZI9FNUg14KGwH1sH/P+TAnrgs3kJhXcgKZ75ePskogQVErXCz42whQz0ALMN/1K6LXQ71nvINHP5T0jwq2iiGnWFyhO6z0FDWcUAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=;
- b=eYX32wxigGS0V3tKi3a0+K+IjdQI1kMqj9/+0EoPgAaMmfCUPz4xPB28ZqgkjgimisyO3Ga/eA0UTLV2y7aUDYCyRrhGidZiiWgrHz1yeXtZJwfrKoMjiyreeeWiCwQZKx9ZnpoSgF7Qz5M1if3O9XabaACA/WDZ1XkSggBdT5qyIgGibgEdcQi7Njb3TiZY+BsFw8Mgfhj6O8hjerzOd346zS10wvdExESpGq4EdopRUo+IooWSqliIOyNzfTq7Jc9IKAW38yoLX100to9CUvy9hlt2R6SrzJy1LJgZK4HHFKcLRwAONzFxvfmv4Yrrts8MpwGQNUvl2Jo+zN+47A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=;
- b=klxOd0xtOnXxMsXMPQGJbhxVcdj2eurF/bV2fhNpbHjInRw3eWvVAZpinG2qEtf+4zHQATvR4A9y1dcPoER+Z7XV7f+PKMJcj7ZHD8A0zrgMWpSRYVVMkwWOPApG4R458s8O8UYfOLFdg6zDde1rzROnJTfM07S15sjy9g83SQAtMj7oowYmXlo23oge+XQfMFA1zxkjVIuBCGhuQsGTVnpzEsXgCwAR5JTRKUaGCRB54Rc2vZ8ROSNvtreBBKb4slmCuAMEONRXJt5Mg82BA+DYpRUyE9pAJLi4zK8uvWnNzlVLL8Apvga8fF6Lg+Ca89CVtPwXP8LKSO8xfEEsVw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU4PR04MB10459.eurprd04.prod.outlook.com (2603:10a6:10:56b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Thu, 31 Oct
- 2024 02:40:37 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.023; Thu, 31 Oct 2024
- 02:40:37 +0000
-Message-ID: <9a438c25-5d37-444b-b3aa-9a081eaf30df@nxp.com>
-Date: Thu, 31 Oct 2024 10:40:58 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/13] drm/bridge: fsl-ldb: Use clk_round_rate() to
- validate "ldb" clock rate
-To: Maxime Ripard <mripard@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, quic_jesszhan@quicinc.com,
- mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, catalin.marinas@arm.com,
- will@kernel.org, sakari.ailus@linux.intel.com, hverkuil@xs4all.nl,
- tomi.valkeinen@ideasonboard.com, quic_bjorande@quicinc.com,
- geert+renesas@glider.be, dmitry.baryshkov@linaro.org, arnd@arndb.de,
- nfraprado@collabora.com, thierry.reding@gmail.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de,
- biju.das.jz@bp.renesas.com
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <20241028023740.19732-4-victor.liu@nxp.com>
- <20241030-hypersonic-tremendous-tuatara-2bbeb0@houat>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20241030-hypersonic-tremendous-tuatara-2bbeb0@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG3P274CA0015.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::27)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Thu, 31 Oct 2024 03:04:32 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1730343866;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JU5mWi+4xOc6kAhkGMfdVmB9NWczUXuOyU69dRDI3rw=;
+	b=RFgN+t8nlHdRDO7Tq3qufprYhgnhMTvP9uJxwNm982IprAiC5GQlbWBWkl4BP25LdZV/iq
+	LNOFM4AAk3zcPkoKmyt5ymCo3aSylAhV2tGm+t1uuouHD+/jpAYrJjP10pV9NUhgpfqSXI
+	tYCMRquzrIudpNJ6x+v9PpPbzwCWJys=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v5 00/37] KVM: arm64: Add EL2 support to FEAT_S1PIE/S1POE
+Date: Thu, 31 Oct 2024 03:04:14 +0000
+Message-ID: <173034380993.2566795.1591637584460232637.b4-ty@linux.dev>
+In-Reply-To: <20241023145345.1613824-1-maz@kernel.org>
+References: <20241023145345.1613824-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU4PR04MB10459:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c9eb4bc-e245-4c17-ed05-08dcf95566e4
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VG9KYVRYK2lyb3VobXlpaU1BbGcwNVdyQWd2MnMyQnZwb2VvZUI1dFNCZ29D?=
- =?utf-8?B?RktZRndmaHRrZW1zWW9MYlhSelp0Ulk5Z3RFd0syWW9RYWl4bm1tMUdwY2wz?=
- =?utf-8?B?ZWZZcjNkVWlTcU9EZ2ZZcS8rampFQXRzUHc2ZGlKZDRLSFlHb2l6b1VHVGRT?=
- =?utf-8?B?QmdpbnJXd0dxZWlvajQ3MGl5TnhIQUtpTzMzdHJJTmFmU3ZCZHZ4cWVyZGVn?=
- =?utf-8?B?dFNaYlBKTXE1TVFFdW13S0FrT1JyQ3NHZVQ2aitEdE83TmsweVpCM1JVZzFo?=
- =?utf-8?B?aEdkeFhPQy9WT0o2ZHpGYW5KRUNDK0Q0MGppTkI5WnZDWXZ0NktXWHRWVVpI?=
- =?utf-8?B?dnRZRGhSRWJ0aC84OFJHTkdwVXBqWlNPYndES1BmUTdvRWxWb3RBTUo4TSsv?=
- =?utf-8?B?TEZCWklxem45RHNhMndYN2JyVUFSbkdoSWVadDJmMmFCR2tkMEJ2TmU5Rzdq?=
- =?utf-8?B?eEJBWmRjdGUwOWVyM0c1eG81Z3ZkbVc2QzQxaUVtdjRDWDhFdk11eW5HRU1u?=
- =?utf-8?B?U3RRdFVHT05mWjZ1OFVYV3RLZlFSYURNTkR5RHYvZkhsZVZYQ2NacnROTG1i?=
- =?utf-8?B?aWlublFEWTBEVXpwWXZzd0grcmtJV0svQUpwMXgvbWx3Q3FrQkJwRzc4aVFZ?=
- =?utf-8?B?TmR3UE1UcWYyRitFRFEraHpiVURtVzZVbExwYWxaRXZWckZwaDdWNlJleGh2?=
- =?utf-8?B?c1F6YXJYQmFZUVJRdTRkZWVwbzlaZkpSKzlURkdkcFhrT3hNcjV0UXFtQWVr?=
- =?utf-8?B?SHlNS3dsK21TZVVmUW5NdVRsZXByRUJkeEhuS0xSaWtWMjgyUXUzb1doL3hx?=
- =?utf-8?B?czUrM0ozMEIvNWFIcVNwNzFBY0ZwT3cyQ0FBNWxHM1dEbHpQMm1xWjFoWVdY?=
- =?utf-8?B?Z0JEVEUvRVpoWTFwcXM2RG1rYTZKU2VNS3VzZkt3QnZMY1VwMy85dXFUYkp0?=
- =?utf-8?B?Z0E3eWdTb1hNTE1CUExQd1ovRDcxODBWYzhwRXc2L25GVWcrTm9yK01qdUhz?=
- =?utf-8?B?TlY0T3dObk9icEdoVlF5WE82Y0p0Y1NydWdyT2wyaW82YlZFVHlkWWZwSWlI?=
- =?utf-8?B?QU54bjlWaFk4SFA3KzdFemJxM1UvVjgwQUV5dWtqZlh4NytmbisxZkk5YTBv?=
- =?utf-8?B?K0p4YklqZklRODBrZ2hvaW1mcG95L3lZQnV5b1RzVk5mMUVMUmlPY2hpcEpu?=
- =?utf-8?B?WHhobm0xWk95YlZpL2I3SXdBZ3RyZnUyTXYxbDBrM3JTYkFrdXBmd1BUSjRp?=
- =?utf-8?B?cXA4WThuMGFSOWExV2syWVRpWEJCQUlpbEdsWkJ0TFc2VzJDbjhlKysyZm80?=
- =?utf-8?B?bUlzdWdPNlpMYmx2N3h3bEZ6cm1MeWpydGFRd3IyakxwejJjc3JrbXkydlBi?=
- =?utf-8?B?L0FjQUJCNEJFRXFDVVdJSFBZeW1OOUpvS2xVK3h3M0RYZCtoV2J3eGhiSXd6?=
- =?utf-8?B?OWl4U2thYXBiRjBKejhKU0lPTlZiZVhxSXZid21URk9WRUhwRCtycUgwTTdn?=
- =?utf-8?B?QnJ5MjhVUkpRZW91YVZ5ZDdWSTEzM01pRWNPMHB6Mm9XMC9mQW1OZTNSRXF5?=
- =?utf-8?B?WklFV0xVbUQ5UVhJZndNSkJsbHFiUEh5cnkzZ2gwTEVqQnVTK2JZclV5dnhE?=
- =?utf-8?B?OXFZRFVYZ2JJcUh3OE4vZHArM09KOUF3WnVaUFNianNPSzkzNW1FSUtJNDlQ?=
- =?utf-8?B?WFdMZXQ3bXp1QlJWS3pzNHR1SFdhYVluZFNGSGFVdjV4cjlqSTlrTnkrUTRC?=
- =?utf-8?Q?qyZ6q68werXxEI81whmymhECESLOIv5NFEjs86K?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SjJpR2NDb054UlhwdWovblRyRVk1NzF3czRWeE5IeWY2cnpNOGJIRzY3UnNz?=
- =?utf-8?B?Yk1QcFZoUkU2QVR2WitxZ0oyNzUxZ2lwaWZxZ2JScDdrUndDVWcyQXVoYzUv?=
- =?utf-8?B?Vm04d3VmQlBEUE82TWpLYzV0UWhCTnJ1YWVpbGJNaEdTcmovM3dlMnR1U09u?=
- =?utf-8?B?bWlkVGtoN29MaFNEOEE1RldXeWVIYW96bVAvTXpCNTZHcklwZFZ2QXI1SE84?=
- =?utf-8?B?UVVINEs2ZmViM2k4dlFUVHQ4RHJrYS9nSXU2ZWRHaDBNUEloQ3ZDMThvRUZF?=
- =?utf-8?B?YXpRTEFvaXRXVW5rNFh4WDVhbkY1YjhJOW8rMWRrSUF3ejE1UFlGT0tSMGRy?=
- =?utf-8?B?aG5XZWpNU0diZFo0MDZ6Y1Z5S01kWEhwM1JWODQ3eXo2S1VmdXc5YVQ4Z2Jm?=
- =?utf-8?B?R0s4R2l3TGliTVZQZC9uRDNGOVhnbXVrZlZUTXh2bDl3U1JuZzFsWW1BakhX?=
- =?utf-8?B?WTRtd2ZxbGpoUGxPRk9reUJ2U3lQRnlmNE5hcUU2aEttbzluWWZ2MVdOME85?=
- =?utf-8?B?cFJsdi9VSFpIR1FsQUxIRnoydFA0SmhqZEZhZG9ra0ZnNzlUQ3ZnbndiNEI2?=
- =?utf-8?B?N0lqTHdtTTlyK2x4QWdoc0Nxb0ZuZHBnTHJ5RGlLamU0V3oyTmNUU0d1MXpZ?=
- =?utf-8?B?MERmMDBBRkdqTUtwdHc1cVNiVWpIRWtrWlR3U01jZ0g1K1dUdkFiaWRncit0?=
- =?utf-8?B?WU9zQWJmSUJSbURJWCsvZXRGTXN0a3pjemNTRVE2S0h1N2J1TnErMmVYdUY4?=
- =?utf-8?B?VFRXUDArU0JjQktRUzYvaDhSeXoxVFh3MEpUNzRSWkdrQXcrQlhJTUJORko3?=
- =?utf-8?B?d3ppWERpODVlN0R4bUJITEE0bVUvWHZCWkpRU3FYSkRTS1h2YzF2NEJBMHA2?=
- =?utf-8?B?NWZ0a0k3V0h4SWpZZDMvWDNkNkphazY5ZGpLSklUd0h1cEhHU3NtVjYrbmtk?=
- =?utf-8?B?NW42Y3lLSmlwUVNrWWE2cmJ2Q2g2MHp6VFhyMDZONFZ3UkhUUjZLYUtPMXpR?=
- =?utf-8?B?d2FESjRQLy85dlpwU3NVbWIvZEVuWDVwUkRJaTBZN2xzUUpKdlFHNU01ZFpk?=
- =?utf-8?B?WEgyVllpK05LcHZjblpVNWZkdkhKMlBjMEUvNmNwc201WGlVc2FEL0V2Tzky?=
- =?utf-8?B?NWNpa1E3Ykd3aGhUeDVwQkF0dUNnY05Ibi84bFB4Ymp0eHg1ZS9rd3ZwbjJh?=
- =?utf-8?B?dHlQVXA0U2dYRHc2bFBLN2tBa2pyaThMTGVkemFickJsTk9rd0ZHTUdWK0xR?=
- =?utf-8?B?UjBQSVJWNFYvajc4V3NLMldSTVdWSlZMN09PUi9Hb1F5aitXWEpUajA5Y29P?=
- =?utf-8?B?MlBwWDFIbGJ5L1pUUzl6Uzd2dzNUcll0MzVBcVdVR3BKQXF5WUxJYVpBSUFz?=
- =?utf-8?B?RnJoWGxVaDRBcVNzNnIzVGUvUGEwa1lqSU1naTRNN3F3Ymk1ZTBSVU15RDFK?=
- =?utf-8?B?d3Q0djUyWU5IT0FKYXZpMUtvNU1hcVZCcm9Pc2daUG5OWVA3RFNRSmhyeGJj?=
- =?utf-8?B?YXBQemppR0RVcGkzeGJhcitZNExjY2lrNUZ0K1hvbVl0OFF5VjJYWDd5ZURa?=
- =?utf-8?B?R2c3UEtQYzljeGdxS1NFM1F4c3duZTM5QWdROFZNQVl6NE1IQkdLbkdJcHQr?=
- =?utf-8?B?bWRLWjlFR0dVdis3WEF5U3d6Y0xVVXdjOEZYV0FHS2hONjNndlQwN0kwWXNh?=
- =?utf-8?B?VHUzN0tNSCtYRHk5UmtDay9DTXViU3prT0R4VjNwejBrOEFOUEpTeTJPYnl0?=
- =?utf-8?B?MW1RTnlBNnVoZzBaSVoxZkltNG94MUphYXJGZFBOWnhWd0NpelRTMHRFWU95?=
- =?utf-8?B?YmNrUE9sSDIxQXJCOTJ6U3hXbTc5RG50N1pZbXhBWGJXTjB5OXRhN0pMSW1W?=
- =?utf-8?B?MnV4cDBuV1IxcEFhQ3RROEZZdVVGaFJ3VW94S3pyTHl3cnAxR3lIRVhZL3A3?=
- =?utf-8?B?M0F0Y2xRQkRDN016TThQMmwvZ2V6bnlTNFNCOE0rSXgxTVU1aVFpSitMNzgr?=
- =?utf-8?B?ek5rNWM5SndRekowcDBodTd1eWRCZU0zLzhYUDJTMDRCVC9UdDRBSU13K0wv?=
- =?utf-8?B?dDh0bjdidnBKK2tKd1A2dEZnL1RneXNQZDhvQWlncTNzdGJFQisvNjZVT01q?=
- =?utf-8?Q?olnYe0WWG8VVoZKlp3DCcW8Qk?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c9eb4bc-e245-4c17-ed05-08dcf95566e4
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 02:40:37.5328
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F7YtU9/APqoxHDlg4Gq574kaFJExaxDDidmpLZwKHiBsVdmqK6nBV7mtnZRuZWx2MmnEqGOnu8DVKsMMAD3XNw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10459
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_194041_200269_6C089178 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20241030_200431_200269_E6EC71E3 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,41 +76,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
-
-On 10/30/2024, Maxime Ripard wrote:
-> On Mon, Oct 28, 2024 at 10:37:30AM +0800, Liu Ying wrote:
->> Multiple display modes could be read from a display device's EDID.
->> Use clk_round_rate() to validate the "ldb" clock rate for each mode
->> in drm_bridge_funcs::mode_valid() to filter unsupported modes out.
->>
->> Also, since this driver doesn't directly reference pixel clock, use
->> clk_round_rate() to validate the pixel clock rate against the "ldb"
->> clock if the "ldb" clock and the pixel clock are sibling in clock
->> tree.  This is not done in display controller driver because
->> drm_crtc_helper_funcs::mode_valid() may not decide to do the
->> validation or not if multiple encoders are connected to the CRTC,
->> e.g., i.MX93 LCDIF may connect with MIPI DSI controller, LDB and
->> parallel display output simultaneously.
->>
->> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->> ---
->> Note that this patch depends on a patch in shawnguo/imx/fixes:
->> https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241017031146.157996-1-marex@denx.de/
+On Wed, 23 Oct 2024 15:53:08 +0100, Marc Zyngier wrote:
+> This series serves a few purposes:
 > 
-> I still believe that the root cause of this issue is your clock tree and
-> driver setup, and since I've asked for explanations and didn't get any,
-> I don't really see how we can move forward here.
-
-Since you asked for a description at *somewhere* in another thread[1],
-can you please suggest a place where this could happen?
-
-[1] https://lore.kernel.org/imx/47d92ae0-c71a-4c18-9ad7-432c0f70a31f@nxp.com/T/#m587e6a25bdab542d5d99abbf01caaca89495b1d5
-
+> - Complete the S1PIE/S1POE support to include EL2
+> - Sneak in the EL2 system register world switch
 > 
-> Maxime
+> As mentioned in few of the patches, this implementation relies on a
+> very recent fix to the architecture (D22677 in [0]).
+> 
+> [...]
 
--- 
-Regards,
-Liu Ying
+Applied to kvmarm/next, thanks!
+
+[01/37] arm64: Drop SKL0/SKL1 from TCR2_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/d41571c7097a
+[02/37] arm64: Remove VNCR definition for PIRE0_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/5792349d0cce
+[03/37] arm64: Add encoding for PIRE0_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/4ecda4c67961
+[04/37] KVM: arm64: Drop useless struct s2_mmu in __kvm_at_s1e2()
+        https://git.kernel.org/kvmarm/kvmarm/c/a5c870d0939b
+[05/37] KVM: arm64: nv: Add missing EL2->EL1 mappings in get_el2_to_el1_mapping()
+        https://git.kernel.org/kvmarm/kvmarm/c/dfeb91686992
+[06/37] KVM: arm64: nv: Handle CNTHCTL_EL2 specially
+        https://git.kernel.org/kvmarm/kvmarm/c/164b5e20cdf6
+[07/37] KVM: arm64: nv: Save/Restore vEL2 sysregs
+        https://git.kernel.org/kvmarm/kvmarm/c/b9527b38c667
+[08/37] KVM: arm64: Correctly access TCR2_EL1, PIR_EL1, PIRE0_EL1 with VHE
+        https://git.kernel.org/kvmarm/kvmarm/c/14ca930d828b
+[09/37] KVM: arm64: Extend masking facility to arbitrary registers
+        https://git.kernel.org/kvmarm/kvmarm/c/a0162020095e
+[10/37] arm64: Define ID_AA64MMFR1_EL1.HAFDBS advertising FEAT_HAFT
+        https://git.kernel.org/kvmarm/kvmarm/c/9ae424d2a1ae
+[11/37] KVM: arm64: Add TCR2_EL2 to the sysreg arrays
+        https://git.kernel.org/kvmarm/kvmarm/c/69c19e047dfe
+[12/37] KVM: arm64: Sanitise TCR2_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/ad4f6ef0fa19
+[13/37] KVM: arm64: Add save/restore for TCR2_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/5055938452ed
+[14/37] KVM: arm64: Add PIR{,E0}_EL2 to the sysreg arrays
+        https://git.kernel.org/kvmarm/kvmarm/c/5f8d5a15ef5a
+[15/37] KVM: arm64: Add save/restore for PIR{,E0}_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/b3ad940a0887
+[16/37] KVM: arm64: Handle PIR{,E0}_EL2 traps
+        https://git.kernel.org/kvmarm/kvmarm/c/874ae1d48e60
+[17/37] KVM: arm64: Sanitise ID_AA64MMFR3_EL1
+        (no commit info)
+[18/37] KVM: arm64: Add AT fast-path support for S1PIE
+        https://git.kernel.org/kvmarm/kvmarm/c/23e7a34c8397
+[19/37] KVM: arm64: Split S1 permission evaluation into direct and hierarchical parts
+        https://git.kernel.org/kvmarm/kvmarm/c/4967b87a9ff7
+[20/37] KVM: arm64: Disable hierarchical permissions when S1PIE is enabled
+        https://git.kernel.org/kvmarm/kvmarm/c/5e21b2978722
+[21/37] KVM: arm64: Implement AT S1PIE support
+        https://git.kernel.org/kvmarm/kvmarm/c/364c081029a6
+[22/37] KVM: arm64: Add a composite EL2 visibility helper
+        https://git.kernel.org/kvmarm/kvmarm/c/ee3a9a0643c5
+[23/37] KVM: arm64: Define helper for EL2 registers with custom visibility
+        https://git.kernel.org/kvmarm/kvmarm/c/997eeecafeba
+[24/37] KVM: arm64: Hide TCR2_EL1 from userspace when disabled for guests
+        https://git.kernel.org/kvmarm/kvmarm/c/0fcb4eea5345
+[25/37] KVM: arm64: Hide S1PIE registers from userspace when disabled for guests
+        https://git.kernel.org/kvmarm/kvmarm/c/a68cddbe47ef
+[26/37] KVM: arm64: Rely on visibility to let PIR*_ELx/TCR2_ELx UNDEF
+        https://git.kernel.org/kvmarm/kvmarm/c/b4824120303f
+[27/37] arm64: Add encoding for POR_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/b9ed7e5dfbe9
+[28/37] KVM: arm64: Drop bogus CPTR_EL2.E0POE trap routing
+        https://git.kernel.org/kvmarm/kvmarm/c/b17d8aa20126
+[29/37] KVM: arm64: Subject S1PIE/S1POE registers to HCR_EL2.{TVM,TRVM}
+        https://git.kernel.org/kvmarm/kvmarm/c/f7575530df43
+[30/37] KVM: arm64: Add kvm_has_s1poe() helper
+        https://git.kernel.org/kvmarm/kvmarm/c/26e89dccdf63
+[31/37] KVM: arm64: Add basic support for POR_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/5970e9903f03
+[32/37] KVM: arm64: Add save/restore support for POR_EL2
+        https://git.kernel.org/kvmarm/kvmarm/c/de5c2827fb44
+[33/37] KVM: arm64: Add POE save/restore for AT emulation fast-path
+        https://git.kernel.org/kvmarm/kvmarm/c/846c993df982
+[34/37] KVM: arm64: Disable hierarchical permissions when POE is enabled
+        https://git.kernel.org/kvmarm/kvmarm/c/8a9b304d7e22
+[35/37] KVM: arm64: Make PAN conditions part of the S1 walk context
+        https://git.kernel.org/kvmarm/kvmarm/c/7cd5c2796cb0
+[36/37] KVM: arm64: Handle stage-1 permission overlays
+        https://git.kernel.org/kvmarm/kvmarm/c/e39ce7033c70
+[37/37] KVM: arm64: Handle WXN attribute
+        https://git.kernel.org/kvmarm/kvmarm/c/1c6801d565ec
+
+--
+Best,
+Oliver
 
