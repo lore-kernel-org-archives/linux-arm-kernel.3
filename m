@@ -4,71 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB7D767F9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DECD767FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cN8Xg10U0hJwzdbYn0VLyyefwmZ46aiJ79KkG/dl5eA=; b=hbzx9LoIk7YRR7Uno64/Wwh1Yb
-	jSKZxoiQsUGUd9FP/hC4qJwGQLrfy7aS4/EYx1Y9N2BWdfOYqbmzbJx6TUTMc9Dh+Nns4uYNhPSds
-	hkqXgpfVpKkn0YGL+0NtiSPfFPO3il0oVhc+0Hn9l2GAo2+JYI7/DP/Ahg1PfdVGE25sEkkjd9bs5
-	PtDvKxBIk+lAirhQV3Ek5KfSSOyhO7Vg27pA96K9wHFrUCHvvZjwKIZ2Cv6enwhSWMxO0jXtUn3mN
-	tyJQaj1tpr7ew/1eFmUCDcBYacgVQ3bBmSbzCa5rBMcDMQQegMru9NF1jdncxb3R2XYyVovYB5hdr
-	/6Rzx6DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DhrHkzQK0PoDwRjYdSOWc5Wlv8mufoOff5OG3NGfKOc=; b=MRq2FcaNsLUQG4WcdW2xESv4P8
+	8Z5m2zSrHTC5yzyV5FUXmx7EwimPk+g4MMrk60PEgmIFrO4G29MuFIHohyyOqgyBSIQRKyp10POjk
+	ddeNYPgfKowxTUUdbfa4lcuLP492oCzh8J5Mk3I/e7232gezEenMo68tViXzKjpi2oSsjQ0k6bhaJ
+	eFApALHNH/JdzmYB8CO53GYxNaY+QQMVWdMj7GWbqSDfeALIci3zl6avO+HwHxM8+rfGBtKVcz937
+	AWzHYyvC++sp5oH4cJi0AOogaYG81QcXI1+O+Z0+D+zm7aaAwxnxADC7E1F25c7GVmV84D7FZZLOG
+	szeqM+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aW0-00000004aOu-3vGf;
-	Thu, 31 Oct 2024 19:07:28 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aUK-00000004a6H-2Bpe
+	id 1t6aXd-00000004ag4-0bG8;
+	Thu, 31 Oct 2024 19:09:09 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6aUM-00000004a6g-1GfE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 19:05:45 +0000
-Received: from [192.168.35.166] (c-73-118-245-227.hsd1.wa.comcast.net [73.118.245.227])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 88002206941B;
-	Thu, 31 Oct 2024 12:05:41 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 88002206941B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1730401542;
-	bh=cN8Xg10U0hJwzdbYn0VLyyefwmZ46aiJ79KkG/dl5eA=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=hpo6SU0afc10BLlq+7xOtaqNTlNryyZQ1hVTr2+F0JZkMwx6tqTL8xrReF0N6K2rS
-	 vHSMJHOSxp9ExDGq/GZb95dKbKIUW276jmEdymGvMLyCodqFAUiZhHl17EitlPUL5+
-	 XN7PgRReK+aW6PF7Bcp7ugC2kCaxM5XtYbtJB7r4=
-Message-ID: <fc47d535-ed52-4ca5-80cc-30003efdd464@linux.microsoft.com>
-Date: Thu, 31 Oct 2024 12:05:39 -0700
-MIME-Version: 1.0
+	Thu, 31 Oct 2024 19:05:47 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49VALrWJ020980;
+	Thu, 31 Oct 2024 12:05:39 -0700
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2045.outbound.protection.outlook.com [104.47.70.45])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42m4931jhc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Oct 2024 12:05:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VGzYvn2ERfBzEA5Ti8GAP/67FceuXriTCbanuaOX+qruSE6y2o5p0KRFcsrnAMTtMTq8biV5ERlICuGIsyp+bQ4+tZyaUaefaGKeMFNoeY3lcOwgtB98rCcn5EmyFbwm6ncQf0fyHxfG9JqTMy3hc5RqorxrXbxKBN5agDccUzlt68itsHA3r/TA2ZWeH+NOQ/3sE8HlFdqtISSReBN41psBM4pHESeYgGJh8o6AXIfze51nQnBbxh1onAYFdNivzOR2CBQQJ2hITAEF0JPLFDbL3iBKeTLf71nce2N1F3Gq7xo/c18FaaLdeoMAgpgC/CHMCm+5HxuKKut+HX0iGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DhrHkzQK0PoDwRjYdSOWc5Wlv8mufoOff5OG3NGfKOc=;
+ b=uUFzxefIKk5/EuTn0+JeTVoLlX1bcJqtWIczqgwsZBHxd42vaFYacQA8xY+NkrBkrDiXZtKqbRIRMhqLOWfY1UW81vgzS35nTvaZGRrbtZj8NGdnDzB96/TlhQXlxitnP5InRY5ePzJCxstxU50A+QPh8MHm9nCxN2Xlp7Tgq2UlOMZzcPqOCSx0jpUVbcyjLNllf3Cr6TZRpgXIhsmEoygF9iQMzMa6dm6ooelaY9f5ScbylEG3u8Ye76LQ3EQpUwpgT3bWwyOk9/qgCsh3OOFH7E1wchLF+USz1AmnEAOo7ckKbh7U1qS4rI3ySf8t3i5Nr0tAhETGUq8JLZy4SA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DhrHkzQK0PoDwRjYdSOWc5Wlv8mufoOff5OG3NGfKOc=;
+ b=CoyWAodxv9SdpfZd/RdEbOzvxwPPIhrMZUmtYJ+MW5YXOr0BtYAUU64st/Ns5VBANhjCSdpkG3ANBxi3tzDE3jNzePQJA94O69cWBEM+O+t5tNA5fMOrKbNIFvV1AjfYYa7SDp7O1UVQhZGcTZ0wJkqZ495WdVrQMm5GRh//bwY=
+Received: from MW4PR18MB5084.namprd18.prod.outlook.com (2603:10b6:303:1a7::8)
+ by SJ2PR18MB5561.namprd18.prod.outlook.com (2603:10b6:a03:560::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.24; Thu, 31 Oct
+ 2024 19:05:36 +0000
+Received: from MW4PR18MB5084.namprd18.prod.outlook.com
+ ([fe80::1fe2:3c84:eebf:a905]) by MW4PR18MB5084.namprd18.prod.outlook.com
+ ([fe80::1fe2:3c84:eebf:a905%6]) with mapi id 15.20.8114.015; Thu, 31 Oct 2024
+ 19:05:36 +0000
+Message-ID: <53df7ebb-d6bf-4b34-98b6-442fdbd5d348@marvell.com>
+Date: Fri, 1 Nov 2024 00:35:46 +0530
 User-Agent: Mozilla Thunderbird
-From: Easwar Hariharan <eahariha@linux.microsoft.com>
-Subject: Re: [PATCH 0/5] Add new headers for Hyper-V Dom0
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, iommu@lists.linux.dev,
- netdev@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-arch@vger.kernel.org, virtualization@lists.linux.dev
-Cc: eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
- wei.liu@kernel.org, decui@microsoft.com, catalin.marinas@arm.com,
- will@kernel.org, luto@kernel.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- seanjc@google.com, pbonzini@redhat.com, peterz@infradead.org,
- daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
- bhelgaas@google.com, arnd@arndb.de, sgarzare@redhat.com,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com,
- tyhicks@linux.microsoft.com
-References: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v4 04/10] dma-engine: sun4i: Add support for Allwinner suniv
+ F1C100s
+To: =?UTF-8?B?Q3PDs2vDoXMsIEJlbmNl?= <csokas.bence@prolan.hu>,
+        dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Cc: Mesih Kilinc <mesihkilinc@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+        Chen-Yu Tsai <wens@csie.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>
+References: <20241031123538.2582675-1-csokas.bence@prolan.hu>
+ <20241031123538.2582675-4-csokas.bence@prolan.hu>
 Content-Language: en-US
-In-Reply-To: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Amit Singh Tomar <amitsinght@marvell.com>
+In-Reply-To: <20241031123538.2582675-4-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BM1PR01CA0150.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:68::20) To MW4PR18MB5084.namprd18.prod.outlook.com
+ (2603:10b6:303:1a7::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR18MB5084:EE_|SJ2PR18MB5561:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44ea70d9-20b3-49f0-ebca-08dcf9df004b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dGIwN29ISGdXWFFSTjU1ZGJBcWU3ZklDdU90UVdwQ3FuVnh1em4rb25tenlj?=
+ =?utf-8?B?VlFsclBkTEJyV3RsMXNYLzR0czNhTXVVSWo0ZitXMnhtdDc4SmduaUtLT0hM?=
+ =?utf-8?B?dTh6REoyT3NSQmhoL2FQSlZPZUpuVUw2T2NrNERoaEF5K0JxcmdWNlYxMFo3?=
+ =?utf-8?B?Vm9IYWhGVW5XRGlMWkNaNlROcHFVV1RrUTF3T2RFN2MwZExvMnJwdWtSQXJV?=
+ =?utf-8?B?bmJ0OHArdzU1ZGJBeEViVVhYZ0duQkxWb1lodkVobzVpamt0WXhuWUMwemlN?=
+ =?utf-8?B?NHN1cUo1ZmFWOFYzSm5ubUtIN3JRL0tiWDV5cWVrQjVENDdOa0g0L0ZtK2Zi?=
+ =?utf-8?B?QXV0SXBUQU1IOHJQTGdaUFdlcHhhZU5CK0tybWEwaWcvYVBFZTVxZm9QTit4?=
+ =?utf-8?B?NGlwS0V4bDNFdlpPTFVyZ2FVcDlXeGlEOU9LUVVvdTBVa3Y3Yisrc2lwTEdy?=
+ =?utf-8?B?UUgya3dMbXh2MFJMQkM2c1V6a0dpL3p0cTVYS1lvR0RhZEhmVzJESzNzYXJX?=
+ =?utf-8?B?MVYrNWZpQUk5ZTk2NmdDblNKSy9BODZtWXhxSGc1WWE5VnkxOXN0WUVkQU94?=
+ =?utf-8?B?WEN2OGJmOCsyN0t2MExPdHFBZGVVT1NZVHY1c0kvVVZtejlXbnZYc2hJb1VK?=
+ =?utf-8?B?OS9vS21kdmUvaFBUMXJRb1RyYy9LVVFKSnBRYmh1MkpWL0xRdzlwMW1jeUY4?=
+ =?utf-8?B?WHlpdm1qaVNpU1dHWWFIVWRoUVlkUnUwVFhGdE9HZTlybm1mMnd5VFh6cmZt?=
+ =?utf-8?B?QjBHNndiRnk3TFJTMEZWcjVPM2lJWWVIYzBOQW5kS1c3SWtaeHVxUHlhQWlC?=
+ =?utf-8?B?eXpyWXVidXUvUmxNNEVRWXczakkxVzBWQWdhbFdrT29CTjJVOTlsU1lSU29o?=
+ =?utf-8?B?YkJmcXcwdjdsNlQ1WHZXSGxYdmFOZ3UzTU96cjYzM29Tb0EyL3NoZlVXdEZI?=
+ =?utf-8?B?Y3dVc0NCMnM0OUx1eG5ndy9tazVsNmN5VFpzZ245ZWlrWHJOcmZxR3luTTJk?=
+ =?utf-8?B?cGltMXR2bjRnL0xjbUlCMDRRcUFicTJaK21KU3U2L3dud1JOT1NBNzBZUjc0?=
+ =?utf-8?B?aEM3YWhRWXpZbW5TbjJTYUVoTXBFczQremJ5WHljMHNyb2hZTDRaM1FabDhq?=
+ =?utf-8?B?bllLY1hScWxSUHVHMGVBSlBvVktlRzVmTUNXZlcxTEl6KzdKUjROYkNreUtI?=
+ =?utf-8?B?QzBKbXRnaDVWbzVGNit5MmVYNHJDQmg2VnlXWFpqaTgwRmc0ZEJqdHFqVTVj?=
+ =?utf-8?B?bHRQS1hZaVE2Nm9wcFZ1WTM2eS8rRmVyeWNXTlJTUThPbWhQNVp5ekI1em95?=
+ =?utf-8?B?VHVBNzNuRkhDTTNrZFp0Q2ZsQjV5aXg4emNXZERNNWkvOWZkZWdib3AzN1Iv?=
+ =?utf-8?B?Rjc4QVlVcTRKYkxXM0s2YmdkYTB6ZmsxME9OODEzVllWblNjdENubkxvNVlH?=
+ =?utf-8?B?NmZlWERDaDJhYUZhd1JwS1B0RlNIT1E4YzkwZGNoQlozUnBvaGY2aGYrU01n?=
+ =?utf-8?B?T1JaZDRUVGo5MndHTVhLd1oya3ZXcU04UG12VWVyN3FYd0MzcGtrV2JKbDQx?=
+ =?utf-8?B?VVMwNmZsc2ZVZVdhNFQ5c0k3QTRVakhGYTVKZHBWRi9hV2E2V1pLMTdPc2FC?=
+ =?utf-8?B?cERhRkJjV2RFUXlSVHl3c3hTckp5VFdjUVlDY2ZQK3dqQXY2SXMwczVQbDBD?=
+ =?utf-8?B?Rk9iNzFQVlg3QXFTTUNZMytUcmdKeWtMMkR0Zmg3YTh3dFU3eklwa3hEVER0?=
+ =?utf-8?Q?wErGw8WpkexPgPVsvhPLTAVgxmNsHGdCuzZnlpl?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR18MB5084.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkMyNTV0b1dOMEM3blgzOE9LNnJZYlhtK01Bdit0ckltQkdqL1ZEQTdFb3Iv?=
+ =?utf-8?B?Nk1mMU82RVg2aVJYV2N1U2dzS0NRVjVqRzNMTUo3Q1cyZUk3OHlnS2FSdUJy?=
+ =?utf-8?B?R0JWRk9XSTk3enhYUWFhbGw3WDU3Wk1IekZ1Q29jMGFoSjdIdmx1Q2oxVEdB?=
+ =?utf-8?B?cTdTK2RPYldCZmxBU3NQVVVheHpFaVZXbTVKOWJwMythMTk1MVA4dFdCZ2RY?=
+ =?utf-8?B?cVErYWZyTERVVU9ZZE42T09jYnlXaEI2aTZBZjNRaml4dElyc1RTN2dJLzIv?=
+ =?utf-8?B?dUtPWTVtMXhPM0dNNzVxY2wxcyttWHEvR3hrNGFDK2xYSzF3WFVMd0YvMzRR?=
+ =?utf-8?B?VDBPYk9oU2VIT1QwaXgzbTdYYUxycXhIcUFTZDVwakEzY2MxRWVPclVxd2hx?=
+ =?utf-8?B?Q1FBRmRON2hKdnlIVjY3bERNcHFkTFgyR3dROW5XL0pSYTVQaW8xMDF5QWpx?=
+ =?utf-8?B?L0R2OXc4ZnlyVVBDcjIxVGRCcW80cXQ4Y25PMzc3azBXYllNV1FYNU9UcElR?=
+ =?utf-8?B?UXFPT1ZobnZUYXVNV0hNbzNnS0oxaDVrK0YwSW0rMHgyZFJKQXppM3IvRkw0?=
+ =?utf-8?B?UE9tNHpuWmdLbnVmdEs4cEFYNEgvSXhadFBhbVpST0JzOGgxYkd2MEtsaDFV?=
+ =?utf-8?B?d2RHNm5RV1h1RmQ2VG9RTlM0Rmo2YWlPbHV4d2drb0cwTkd3TFFzZ0RzNlkr?=
+ =?utf-8?B?SUdjUytUd1lBeVY3VDBGcU9HTnBYR0xlVkdUQ0pZRE5rV2g5OTk1SWllYVl1?=
+ =?utf-8?B?a25kbks2MGplbk56VHEwNnNhcHRvOUNQL090cWhSUUNFU2ExdG9DOWhwdWNP?=
+ =?utf-8?B?WlFoclFUTjUyd0Q5eDJacXlHendFTTZva0VOaUd1Q25WZUpCdkhvMUNjZWhq?=
+ =?utf-8?B?d1J4RG5WM1doMnZVSDczV3dTUE9Pa2NYMWdKSU9YYzUwaGVhVDJXZ2VKQ0E0?=
+ =?utf-8?B?QlNDWVZNbml6Q3hHWHFvSDBaclZaL25mOEcrSkMvTFBnY1RuL2FXd2p4ODNr?=
+ =?utf-8?B?T1c5SnYvbThRdVZRM0hOSDhBcWFZaGRnelFpenVCNmtxdzBRY08vU3lhMEpH?=
+ =?utf-8?B?M2FHQzR5OTgwTDQzU2JiZHNRczlkd0ViTHo3dnFhbmxaS1M1QVpqQThUaU15?=
+ =?utf-8?B?VXoxMkdGeGVnWWRaeWZpS0tYZmVzcjVUWVVjWTM3cVQzbDFObEpyRUk0a2c4?=
+ =?utf-8?B?YlFQa3Z0L2RtVzBYSVd2Zk1lWFBYTkpKVEo0MG5ueHVYcTAyYVZxdXVncTVE?=
+ =?utf-8?B?L2pmcEFodnRQS1ptektjQkVkNmpka3oxQ25kb3Rqai9mcXZ1dUJnR2E0U2pP?=
+ =?utf-8?B?bnRyZW5KbnRyejdESmR0RTNmYStNUVYwMklIa013UXY1S3crTHhvRVJ6d3pL?=
+ =?utf-8?B?ZFJjbUh6amZVYXlhWmg2MVN6N05INXl6QzdMb1ZEZ2phNHFHMURIYUxuekl5?=
+ =?utf-8?B?ZkpvWkVoOGM4L0xHeitOelJHOFdFMm9MNHJXV3VQSEE4bnBzdFNPNG9qMFBj?=
+ =?utf-8?B?bGh2c2QxeUFQZTVVVUtSR1FkY1o1MUtVY1FIcFdVUzFveENQaU9IQ1h1S2Zh?=
+ =?utf-8?B?bjVZZ0hGRGlva0xRRWlrWXkwUUcvNGMyTW5VWWdlSmEyZDhlUGk4K3UyN1RU?=
+ =?utf-8?B?b285SlZ3UWhId21iOENmKzhiUnNITFlUeEVWTndScUNqL2wxVi9pR09VZHpw?=
+ =?utf-8?B?MmFOcjZpNDlTUE9Bbk9XU1lBcE5UYlZsWlYxMTF5bEpNM2dXM2VFNmJVMDlP?=
+ =?utf-8?B?UVFUK01hK3VQYjJsTXo4NnkyQUNjaXZ2eWR2bm1VRU1lajlpdkpBVVlyOC9R?=
+ =?utf-8?B?aFBKTlhyOWFqSUk2NzZZTXF6cFBaY1JWV1RkeFk1TlQ0Y2ZiekYybkV6dzZP?=
+ =?utf-8?B?K1YxWUl2SWF2eVhDR1E2ZjZYcGhUNXlJeGhpVjBjZ2VKaDI2RFFya0pBMUNw?=
+ =?utf-8?B?M2VkbVE4WWhjMzltZWJHMVhvRlFlWFJIZFYzZDZrZ0dSQ1VZNXVMZWhUSW01?=
+ =?utf-8?B?ekpPTjREREhpdG0xdXFVOHRHdk1LZk9uaEhnRU9DbGlXeURDa3ptRmV1c1ls?=
+ =?utf-8?B?UE9ENDVHODRRYlVUL21BV0FuSXJPQ1IyRUJkUlRySTMvRXhZYkpDQW4rc1E0?=
+ =?utf-8?Q?ZC4cSas2mTGr6VVrDd85v9Ggw?=
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44ea70d9-20b3-49f0-ebca-08dcf9df004b
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR18MB5084.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 19:05:36.1322
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l5ZEmDg8cQoTstpWimqkIDcGDRU3dttvpecUJinPMcvJZ3+MHL/dn53fg/N4JzYDevBToxr8qREVuAYaITz95A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR18MB5561
+X-Proofpoint-ORIG-GUID: vrPd_fzcBu1rxRCqGuTgFjLlNjdRrtTe
+X-Proofpoint-GUID: vrPd_fzcBu1rxRCqGuTgFjLlNjdRrtTe
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_120544_648480_8C753C11 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20241031_120546_374669_169781C8 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +188,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/3/2024 12:50 PM, Nuno Das Neves wrote:
-> To support Hyper-V Dom0 (aka Linux as root partition), many new
-> definitions are required.
-> 
-> The plan going forward is to directly import headers from
-> Hyper-V. This is a more maintainable way to import definitions
-> rather than via the TLFS doc. This patch series introduces
-> new headers (hvhdk.h, hvgdk.h, etc, see patch #3) directly
-> derived from Hyper-V code.
-> 
-> This patch series replaces hyperv-tlfs.h with hvhdk.h, but only
-> in Microsoft-maintained Hyper-V code where they are needed. This
-> leaves the existing hyperv-tlfs.h in use elsewhere - notably for
-> Hyper-V enlightenments on KVM guests.
-> 
-> An intermediary header "hv_defs.h" is introduced to conditionally
-> include either hyperv-tlfs.h or hvhdk.h. This is required because
-> several headers which today include hyperv-tlfs.h, are shared
-> between Hyper-V and KVM code (e.g. mshyperv.h).
-> 
-> Summary:
-> Patch 1-2: Cleanup patches
-> Patch 3: Add the new headers (hvhdk.h, etc..) in include/hyperv/
-> Patch 4: Add hv_defs.h and use it in mshyperv.h, svm.h,
->          hyperv_timer.h
-> Patch 5: Switch to the new headers, only in Hyper-V code
-> 
-> Nuno Das Neves (5):
->   hyperv: Move hv_connection_id to hyperv-tlfs.h
->   hyperv: Remove unnecessary #includes
->   hyperv: Add new Hyper-V headers
->   hyperv: Add hv_defs.h to conditionally include hyperv-tlfs.h or
->     hvhdk.h
->   hyperv: Use hvhdk.h instead of hyperv-tlfs.h in Hyper-V code
->
+Hi,
 
-What is the model for Hyper-V code that has both guest and host roles
-where the corresponding hypercalls are available for both? As I
-understand it, those are supposed to be in hvgdk*.h.
+> 
+> From: Mesih Kilinc <mesihkilinc@gmail.com>
+> 
+> DMA of Allwinner suniv F1C100s is similar to sun4i. It has 4 NDMA, 4
+> DDMA channels and endpoints are different. Also F1C100s has reset bit
+> for DMA in CCU. Add support for it.
+> 
+> Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+> [ csokas.bence: Rebased on current master ]
+> Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+> ---
+>    drivers/dma/Kconfig     |  4 +--
+>    drivers/dma/sun4i-dma.c | 60 +++++++++++++++++++++++++++++++++++++++++
+>    2 files changed, 62 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
+> index d9ec1e69e428..fc25bfc356f3 100644
+> --- a/drivers/dma/Kconfig
+> +++ b/drivers/dma/Kconfig
+> @@ -162,8 +162,8 @@ config DMA_SA11X0
+>    
+>    config DMA_SUN4I
+>    	tristate "Allwinner A10 DMA SoCs support"
+> -	depends on MACH_SUN4I || MACH_SUN5I || MACH_SUN7I
+> -	default (MACH_SUN4I || MACH_SUN5I || MACH_SUN7I)
+> +	depends on MACH_SUN4I || MACH_SUN5I || MACH_SUN7I || MACH_SUNIV
+> +	default (MACH_SUN4I || MACH_SUN5I || MACH_SUN7I || MACH_SUNIV)
+>    	select DMA_ENGINE
+>    	select DMA_VIRTUAL_CHANNELS
+>    	help
+> diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+> index 4626cc8ad114..c0a4e40134dc 100644
+> --- a/drivers/dma/sun4i-dma.c
+> +++ b/drivers/dma/sun4i-dma.c
+> @@ -33,7 +33,11 @@
+>    #define SUN4I_DMA_CFG_SRC_ADDR_MODE(mode)	((mode) << 5)
+>    #define SUN4I_DMA_CFG_SRC_DRQ_TYPE(type)	(type)
+>    
+> +#define SUNIV_DMA_CFG_DST_DATA_WIDTH(width)	((width) << 24)
+> +#define SUNIV_DMA_CFG_SRC_DATA_WIDTH(width)	((width) << 8)
 
-For a specific example, IOMMU hypercalls can operate on stage 2 or stage
-1 translations depending on the role of the (hyper) caller and the input
-values provided. Should a driver using these hypercalls import both
-hvhdk* and hvgdk*? What about hyperv-tlfs?
+nit: Are the extra parentheses around width truly necessary? They seem 
+to be used throughout the file.
 
-Patches 4 and 5 seem to draw a bright line between host and guest roles
-while the reality is more gray. Please do correct me if I'm wrong here,
-perhaps the picture would be clearer if Stas' suggestion of a new header
-file is implemented.
+> +
+>    #define SUN4I_MAX_BURST	8
+> +#define SUNIV_MAX_BURST	4
+>    
+>    /** Normal DMA register values **/
+>    
+> @@ -41,6 +45,9 @@
+>    #define SUN4I_NDMA_DRQ_TYPE_SDRAM		0x16
+>    #define SUN4I_NDMA_DRQ_TYPE_LIMIT		(0x1F + 1)
+>    
+> +#define SUNIV_NDMA_DRQ_TYPE_SDRAM		0x11
+> +#define SUNIV_NDMA_DRQ_TYPE_LIMIT		(0x17 + 1)
+> +
+>    /** Normal DMA register layout **/
+>    
+>    /* Dedicated DMA source/destination address mode values */
+> @@ -54,6 +61,9 @@
+>    #define SUN4I_NDMA_CFG_BYTE_COUNT_MODE_REMAIN	BIT(15)
+>    #define SUN4I_NDMA_CFG_SRC_NON_SECURE		BIT(6)
+>    
+> +#define SUNIV_NDMA_CFG_CONT_MODE		BIT(29)
+> +#define SUNIV_NDMA_CFG_WAIT_STATE(n)		((n) << 26)
+> +
+>    /** Dedicated DMA register values **/
+>    
+>    /* Dedicated DMA source/destination address mode values */
+> @@ -66,6 +76,9 @@
+>    #define SUN4I_DDMA_DRQ_TYPE_SDRAM		0x1
+>    #define SUN4I_DDMA_DRQ_TYPE_LIMIT		(0x1F + 1)
+>    
+> +#define SUNIV_DDMA_DRQ_TYPE_SDRAM		0x1
+> +#define SUNIV_DDMA_DRQ_TYPE_LIMIT		(0x9 + 1)
+> +
+>    /** Dedicated DMA register layout **/
+>    
+>    /* Dedicated DMA configuration register layout */
+> @@ -119,6 +132,11 @@
+>    #define SUN4I_DMA_NR_MAX_VCHANS						\
+>    	(SUN4I_NDMA_NR_MAX_VCHANS + SUN4I_DDMA_NR_MAX_VCHANS)
+>    
+> +#define SUNIV_NDMA_NR_MAX_CHANNELS	4
+> +#define SUNIV_DDMA_NR_MAX_CHANNELS	4
+> +#define SUNIV_NDMA_NR_MAX_VCHANS	(24 * 2 - 1)
+> +#define SUNIV_DDMA_NR_MAX_VCHANS	10
+> +
+>    /* This set of SUN4I_DDMA timing parameters were found experimentally while
+>     * working with the SPI driver and seem to make it behave correctly */
+>    #define SUN4I_DDMA_MAGIC_SPI_PARAMETERS \
+> @@ -243,6 +261,16 @@ static void set_src_data_width_a10(u32 *p_cfg, s8 data_width)
+>    	*p_cfg |= SUN4I_DMA_CFG_SRC_DATA_WIDTH(data_width);
+>    }
+>    
+> +static void set_dst_data_width_f1c100s(u32 *p_cfg, s8 data_width)
+> +{
+> +	*p_cfg |= SUNIV_DMA_CFG_DST_DATA_WIDTH(data_width);
+> +}
+> +
+> +static void set_src_data_width_f1c100s(u32 *p_cfg, s8 data_width)
+> +{
+> +	*p_cfg |= SUNIV_DMA_CFG_SRC_DATA_WIDTH(data_width);
+> +}
+> +
+>    static int convert_burst_a10(u32 maxburst)
+>    {
+>    	if (maxburst > 8)
+> @@ -252,6 +280,15 @@ static int convert_burst_a10(u32 maxburst)
+>    	return (maxburst >> 2);
+>    }
+>    
+> +static int convert_burst_f1c100s(u32 maxburst)
+> +{
+> +	if (maxburst > 4)
+> +		return -EINVAL;
+> +
+> +	/* 1 -> 0, 4 -> 1 */
+> +	return (maxburst >> 2);
+> +}
+> +
+>    static int convert_buswidth(enum dma_slave_buswidth addr_width)
+>    {
+>    	if (addr_width > DMA_SLAVE_BUSWIDTH_4_BYTES)
+> @@ -1379,8 +1416,31 @@ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+>    	.has_reset		= false,
+>    };
+>    
+> +static struct sun4i_dma_config suniv_f1c100s_dma_cfg = {
+> +	.ndma_nr_max_channels	= SUNIV_NDMA_NR_MAX_CHANNELS,
+> +	.ndma_nr_max_vchans	= SUNIV_NDMA_NR_MAX_VCHANS,
+> +
+> +	.ddma_nr_max_channels	= SUNIV_DDMA_NR_MAX_CHANNELS,
+> +	.ddma_nr_max_vchans	= SUNIV_DDMA_NR_MAX_VCHANS,
+> +
+> +	.dma_nr_max_channels	= SUNIV_NDMA_NR_MAX_CHANNELS +
+> +		SUNIV_DDMA_NR_MAX_CHANNELS,
+> +
+> +	.set_dst_data_width	= set_dst_data_width_f1c100s,
+> +	.set_src_data_width	= set_src_data_width_f1c100s,
+> +	.convert_burst		= convert_burst_f1c100s,
+> +
+> +	.ndma_drq_sdram		= SUNIV_NDMA_DRQ_TYPE_SDRAM,
+> +	.ddma_drq_sdram		= SUNIV_DDMA_DRQ_TYPE_SDRAM,
+> +
+> +	.max_burst		= SUNIV_MAX_BURST,
+> +	.has_reset		= true,
+> +};
+> +
+>    static const struct of_device_id sun4i_dma_match[] = {
+>    	{ .compatible = "allwinner,sun4i-a10-dma", .data = &sun4i_a10_dma_cfg },
+> +	{ .compatible = "allwinner,suniv-f1c100s-dma",
+> +		.data = &suniv_f1c100s_dma_cfg },
+>    	{ /* sentinel */ },
+>    };
+>    MODULE_DEVICE_TABLE(of, sun4i_dma_match);
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
-Thanks,
-Easwar
 
