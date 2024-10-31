@@ -4,59 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE4AD74958
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EFBD74959
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rEZ3WAdK/kOGgzHGx9bh509zo56x8Bp/oGEk2s9V5Io=; b=t3EndFzXKs9uHDmn1bavsdPTlU
-	qViqwWnpVbED6R6NaPLlnABX3QzmhtugdjK9Wq3JjXHOeyMkr4JUH/EHar4Z6EEjrHrw0HjksQoun
-	C1EwX7VGJCKchDYi0P+vXg44/MDlbtcx6PaSyRTlPPH+x5EKd2uAi+Y5sQtWvPoEu1H5A7Zg/MgUt
-	wC+SHkHsIBgryhDs2irVBmkf5856hgsq7Fd0efBCvmfOM8aAav30Xtb6wvoJ6lAoXsXQspFOcwRPv
-	Wi0/sEZgRLVCMPi6e9BEmn6s2wOHEdj78oyA8x8MBIpvfh/QYKV91H7noiDeOoFdqoTtxMhZ0sHoC
-	8HJ+PtZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aZYlpQTCTa8nV6TQLlq7S+sdt2aCdcEeGA6qU1KAn/o=; b=dXeeNk+s/P1pqibHrB2n45S/jq
+	yLqtPXaFrI/NOOSNKWDkrjljgQwXmWdiIQMGcoU6o7KAO+Wm1gCwCiQTPhUM9zfMJhMhJa01Cw6JM
+	B9y9RtJjXs+cPID9BH3BqptMcCo2qw277Td+Rniwz3FmxMwCeDv7LR9TlCK5Hgy0PcDFAL+Uu9y1+
+	VB1z2gek0LH1gNuqMuFZLT5gXCM/n+cU8vDKosnydi+zMyC1DJ46v2Vsv2mVHdskm0opkwlkqkPVN
+	D7F+/f7DELD1GvnoMzexoX9mrafy08UVXGcwJbUcE5TZQxO230hRtYpydrM7OrgxFz1+MrHKCkLyp
+	ZCFFfITA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Ux7-00000003e6b-2jR6;
-	Thu, 31 Oct 2024 13:11:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Uma-00000003cFe-2i1n
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 13:00:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 771CA1063;
-	Thu, 31 Oct 2024 06:00:41 -0700 (PDT)
-Received: from [10.44.160.105] (e126510-lin.lund.arm.com [10.44.160.105])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98ACC3F528;
-	Thu, 31 Oct 2024 06:00:06 -0700 (PDT)
-Message-ID: <8dcc7e49-ec95-4d7d-8ded-d4f7202d623d@arm.com>
-Date: Thu, 31 Oct 2024 14:00:04 +0100
+	id 1t6Uyo-00000003eWW-47Dn;
+	Thu, 31 Oct 2024 13:12:50 +0000
+Received: from mail-sg2apc01on2070c.outbound.protection.outlook.com ([2a01:111:f403:200f::70c] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6Uw2-00000003diu-3o0i;
+	Thu, 31 Oct 2024 13:10:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nqSlOjpjffkiElb1Q+oecdnw/uoWdbFX5Y2BL88uqnm4uM2IDXNhyE/1F6SHU+C1/McnxLj8WbRiZj0SUYdS7kmvOz1Rn4y93ndVvgQyy6l5dnD42dZnf9cpZYF2mTP+5NESZx//8mOFwUoiEEC5HnSgYQBZsr71I0G2dBTw605v/6xZ6DuYEaki28FQ08r85lBnvL/jtY0Q1P7tdFg22GtGSDV/khB7IjKYDeWlOtDFt1CL9AsksYONfhs4/LNjZivf06FIHQRl9h2xDCls4+T+GFN6QIeFl0eedcwTzryVhdaqGwnjUSVpPgHw9CVUklXxhC/asILqqGI1Z7Gk3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aZYlpQTCTa8nV6TQLlq7S+sdt2aCdcEeGA6qU1KAn/o=;
+ b=AtLB0lxzL9K1lVgGfglhsJ+hJWeAnYgTnkFWKZBCjvsEhCCFi0lWRhRDUAGRlRY+zFIDnYohzSP0DEghtfGd3QuHY2+cfInf67cuws5mkwttLUKy0DlRkYjklArm11MUCpqwp023wJqkooTtiAuPepooFkRFoM/xdg06nluses+tBaDX3UT1Cm+v1o1YARHFVNm6+uhRrBbd//Co/wCoBR2bdpWonUTuEptyLA9SssDXaMOaLmIcJ/hXFHyMJzUfA89osE5oeFW0VDlWf0nZgK2clEsctcDH4ysyAYTeOGRVJ3K+I+zt8xoRp1DP4f3hr1gxwzueqvrS0okb4sbl3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aZYlpQTCTa8nV6TQLlq7S+sdt2aCdcEeGA6qU1KAn/o=;
+ b=F2RdWql09cEEgJULpD+0+05PHj7g4ZBhUe9zexEJczGoYKr6KrQk1Onr1qE4TcDJskI5Mklpd+MgPrirzv9ntBUlebUvHfCnsyhDAsS7+Uz/Y4MVEV+Ukvu2egMELU+aPCvTUXzn1C/3F8bfq0BWJfuanSRJiCjqJF3n7b9t8u0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
+ by TYZPR02MB6294.apcprd02.prod.outlook.com (2603:1096:400:287::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Thu, 31 Oct
+ 2024 13:09:47 +0000
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b%4]) with mapi id 15.20.8114.015; Thu, 31 Oct 2024
+ 13:09:47 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: ryazanov.s.a@gmail.com,
+	Jinjian Song <jinjian.song@fibocom.com>,
+	chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	haijun.liu@mediatek.com,
+	m.chetan.kumar@linux.intel.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@linaro.org,
+	johannes@sipsolutions.net,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: angelogioacchino.delregno@collabora.com,
+	bhelgaas@google.com,
+	corbet@lwn.net,
+	danielwinkler@google.com,
+	helgaas@kernel.org,
+	korneld@google.com,
+	linasvepstas@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	netdev@vger.kernel.org
+Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
+Date: Thu, 31 Oct 2024 21:09:30 +0800
+Message-Id: <20241031130930.5583-1-jinjian.song@fibocom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <e37b9baa-51e5-48f9-a15d-521f29ce5f9c@gmail.com>
+References: <20241022084348.4571-1-jinjian.song@fibocom.com> <20241029034657.6937-1-jinjian.song@fibocom.com>
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TYAPR01CA0167.jpnprd01.prod.outlook.com
+ (2603:1096:404:7e::35) To TY0PR02MB5766.apcprd02.prod.outlook.com
+ (2603:1096:400:1b5::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] Improve arm64 pkeys handling in signal delivery
-To: Jeff Xu <jeffxu@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
- anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org,
- catalin.marinas@arm.com, dave.hansen@linux.intel.com, Dave.Martin@arm.com,
- joey.gouly@arm.com, keith.lucas@oracle.com, pierre.langlois@arm.com,
- shuah@kernel.org, sroettger@google.com, tglx@linutronix.de, will@kernel.org,
- yury.khrustalev@arm.com, linux-kselftest@vger.kernel.org, x86@kernel.org,
- Kees Cook <keescook@chromium.org>,
- Jorge Lucangeli Obes <jorgelo@chromium.org>, Jann Horn <jannh@google.com>
-References: <20241029144539.111155-1-kevin.brodsky@arm.com>
- <CABi2SkW4Utuo3qGKodTQn7VuFrRa4hpwrik7WaorS4=wm_cS2g@mail.gmail.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <CABi2SkW4Utuo3qGKodTQn7VuFrRa4hpwrik7WaorS4=wm_cS2g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|TYZPR02MB6294:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4bd1cf01-6e63-4f22-3279-08dcf9ad4b59
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|376014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bkZyZmxlZGM5ZnhoMHVTTVNYcWpZME9GNU1kamRaK1FtTEFCSGJmY0VhMEVN?=
+ =?utf-8?B?L0xESHlMS05BYys2aHRJUFpsa1dKYWtNaXJncFpMY1dwR283V3hYY1VRcnhV?=
+ =?utf-8?B?eHo4Y1RSZGFxY3o5dmViVnRKaFd5YUl5OWIwQm5WQkUzWXF6ZENqaWR2NFI5?=
+ =?utf-8?B?YUpVeDgrazZyU3ZFU2RvOVZyOHdMRDQxN0xzNGtOWUFDdFB3THZQVlZsajNB?=
+ =?utf-8?B?eWx2YTdxRklxN3dUMUZ3WHhBWWdFeFZvcWFTRjBCdzNLeFV6UXNLeTBVMk1s?=
+ =?utf-8?B?aWdYa0o1MHZ2cXRBZnp0Z2crdkpBZVEwMHZWb1BzcGhpVllvQUtiVStMMll4?=
+ =?utf-8?B?WWM0eDErTFhHUkNzRnE5aUpnVzlnV0t0M0hVVW9iL3hDaGZDbFd5MW9CREx4?=
+ =?utf-8?B?TngySWtUbVVzc3ozYlhzQWVtd24rYjJFYklkRVJzQUN1cFRFV082TUZQVzVT?=
+ =?utf-8?B?K1RmZXd1YURhNWRqcUN5R1NySXdtR25XZUpMTHlYSXlOSXdOU3VMVDhlb0lO?=
+ =?utf-8?B?Qm9PMXhCbHlmVWthdWRvZ1JiU3FHaVVjSGt1Y2hHREV3K3lPdWYraUpmRWlY?=
+ =?utf-8?B?MmJ3cGVNbm9uMTNSemJGc0w2UG9Jb21lYldHd2FNRGIxZmxIQTBvTDZXVk1v?=
+ =?utf-8?B?TkdsSDdveFk0SmxIZG5teURjdFRjRXNRNE9Ic1lIbjhlQkc2Z1VkUXRhWk9H?=
+ =?utf-8?B?VW4yWXlvV21Qcjc2dzd0ZEtCbnJHK093QTloVXJ0c0FWSXZqZFJBbVEwMjlp?=
+ =?utf-8?B?c3FvYk42RFNLMDJWZk81L3FkMVl3c3V5ZlYzbmFsSE9scjJTdnc1T284R2Qz?=
+ =?utf-8?B?YkRSanJyd1drTlBuVFZYTjFpaG9tQVlpeDZzK3VLWnRCZUpCR2xUa1E1M1Bj?=
+ =?utf-8?B?ZjRPOWV5eXBLMXNoakh0dTNYOXI0bVdQWURiWmNyc1plNDloRC80OWl1T3J6?=
+ =?utf-8?B?cHZ3aTU0aEt3d2gxU2FvMFlVMHRBNncvTHhUaFlnd1J0TFAyMjlwSThlT1p3?=
+ =?utf-8?B?QTNPcmlBc3E1TnZ2SHBReG1ncGRJMmRSdWovd004WW5wV2ZNTm9mOVBYNXMv?=
+ =?utf-8?B?RUdVVWdQUmJGdnlCd3kyc1BGT29VdjBMdTNHdGcrZkZycC96cXRuUHZBWm9y?=
+ =?utf-8?B?WDZDTFU4Um90dDZBL3l0OHBPQ0xtYlVXRnVzVldhOFlwZHVoZXFXSlQ1V0ln?=
+ =?utf-8?B?OTRGL1d3VHA3d2xZQWZ0VzQyNThxVEpqUGExWjhTUlFuYjArZEdiMW44QW9L?=
+ =?utf-8?B?RzdXZ3g3Z1FXK0tQN3FnSVRrZS9sWHI4aCtCVFFyb0QybkdaTWZMMm1FTUVw?=
+ =?utf-8?B?dlltMDZueFQxTGRmWTdPZ1Bpa2s3WVFFVWtMT09BU3VuTEd0NFlITlY5c2Vw?=
+ =?utf-8?B?WDBmZGxzNXpNUkc0Vks0aG1xM2UySVMwOVhydExQbkVCRlUwRjhXenp0TnpS?=
+ =?utf-8?B?cFRXVkRQYzZia1gvNVlNR3BISGpmVmU5K2FjeVN1TGw4bUpRMGw2N2VoYytC?=
+ =?utf-8?B?eW8yRGY2TDJOc3JqSDdnTi9Za09Va083ZFk0TzNYbTFWOGtVWnYvTWZSRGZ0?=
+ =?utf-8?B?MHdwdVVCZ3daRlpVMVFsZElwaXV1N2JMbUk5ektOemg0VUZTUkprd05sVWZu?=
+ =?utf-8?B?eEE1NUdxK0NxeHc2Y0x5K0txVk05YkhScFJKN2E1aGI3UE82L0dKM1kvTnU1?=
+ =?utf-8?B?Q2ZrOEgrTUxVK0NFaVpNMURGeVp0MTEzd05uRDY0VC9RTnpEOEx0VE8wZFg4?=
+ =?utf-8?B?d3grbHBhZ3ZHbVlIYnFVMjZBdVVITlY5dXZ6ZjNkQ1VaS0tZVHU2YklSUTkv?=
+ =?utf-8?B?YUxsR21ySzFVWm1nNFFyUkFUV0RWZVIyZEpPWmM5VEtqMlBnYStFdnk3Z24x?=
+ =?utf-8?Q?No8Z87wbMYmPb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWJDZ0lhdDBvZHoyazZNcXp4L3FFRHM3RUU2RU80VllEUzVWT3RxbDE4L2xu?=
+ =?utf-8?B?eE5kazI2TnpoQVU3RUd0L0F3T0VGZkMyUWw5MHpabkJWTi93cEFkc0tHQnZB?=
+ =?utf-8?B?QXNlUDhrU3FKbHpVS1VJSGlBMm4xRWNhWTR5UFhXRDh1TW5SaG9UaisyTjBa?=
+ =?utf-8?B?SllzOWlVQ0ZxVXhPKzhPeXlmeFpVczMvVTdZOFNjZjN3V0ZUejYvZWYxYURt?=
+ =?utf-8?B?S2dRMkNqZkFqZWYvLzlseWhXTnpOdGlGdmZwUVQyL3hGRFphNWFvdkpjZ05F?=
+ =?utf-8?B?YXovRG95dll6aDJFU3B1cGJ6Mi96UU1kdUwvL2MwMDJKNkQxQlpJWWtMeGNk?=
+ =?utf-8?B?bnEvbjhjcWJ3b2tSaGt0VW8wSEdNU25SeDVsZWRTdmcwV0lGTnFLOFlVeUhN?=
+ =?utf-8?B?dUIxNjRhYXEveWt6TU5Mb1JZY0lSUXZUU3c0bWZCZE5YWlp4VDQxM0RXZkJi?=
+ =?utf-8?B?RkRsVCtPNXNPVVVIMmlKMmtBbG5oajdadDdQdk01YzlZYWNCODVWMGhleVBJ?=
+ =?utf-8?B?UytmWmx2dTRsWVNFRDVSK1F3Q0dkeTdvQVJsb2pnWHM5WE1jNDVxSnorQ1hr?=
+ =?utf-8?B?bDg5MlA3S0plUlBSdGJZS1VKdk1sN2g4TkdRM1oxNDBCR0hvaEwyRjF6bmJE?=
+ =?utf-8?B?cUU5QTJKR3hnMlVieGdRN241QkU1R0VTcjByZzVJVi8zTURwbDJMTG01ank3?=
+ =?utf-8?B?Z3p1U1dTU3VCZUFyT01VRVkyYlBudnl0WVpPWTNVZFlwVTFUTVRVWkV3RXRV?=
+ =?utf-8?B?MW5FNGdhWFJOVE5vZS9seUxJVFQ3V0RaRnJOM2tNazRrUmZ6bEdJdGVvTFZ4?=
+ =?utf-8?B?UUZVYm9CR01UdGJtZnpGcXVZSm1SSVhIQ0M2czQxdy8zbXZMQmxRSTkyayta?=
+ =?utf-8?B?TDNiWnE2b21jcy9Fdzc4aG1md1VYTlhIbFlPVG80TjR1Y2RmU3BuTTlkcC9i?=
+ =?utf-8?B?NzlIaWhKeEFxc2NiaHYzZDd0WXZ5NVE3d29GVFBEa0ZPbVoyUnNCUit2L2hM?=
+ =?utf-8?B?aHNlTm9Dd0tqbjQvN25DRDI1TXVqRkoybHdmRUlubTdPeFhka0pXR2ZaL3Bo?=
+ =?utf-8?B?Y0pIMXBEWHRXdjZpRjB3YU16TDZTc3FZWlJEMlN5aEJMWG9JV1ZEZFE2cnhn?=
+ =?utf-8?B?MXJEajltOEV0SndJbWRnWHZHMU4wdjIxZEtnanVQcG4ra2JXRzhudjV0NTl2?=
+ =?utf-8?B?eHlsUVdlSGFnK2VtMzRXNFUzTWswR2lpQnNaaDBzb3N3VE9oUGExNmZ5NHJC?=
+ =?utf-8?B?RnBZS0ovaHhYYTYvNkpzZTQ1RFVGQXRiYTZ1L3pkaUR0WmoyN2ZSTlBZR1Bl?=
+ =?utf-8?B?MXdsY1FTOGpET1NuR0JBcWdibkNzVENSRXRZUUNQUFk3NWwyb2tHanhqRlZB?=
+ =?utf-8?B?Mm1iMWFwRHJqN0JYQ2VMOE02RU1JWEE3RmdudkVwUnBKN21zYjhUaldCa3Ni?=
+ =?utf-8?B?dkcrMFpES1duSG1nQXpFdGtSamVqUjk4SmFFMFNmbVAyeDl5Y0FLRnF4UkhX?=
+ =?utf-8?B?VmJZN0V4QmJsOFlTdzA5WERRTWR1a3dsVkpxakpwTWJTRkpDMlNxV21jWmNr?=
+ =?utf-8?B?YlBQRy9UWmdSQWJaUThwVkdacDl4L0Z5Z3FPc0RxNGNXUE5NVzdrQk4xeUw1?=
+ =?utf-8?B?eFA5QVhmYzdvQTNoMFRFeFZEMEUrTHdzc29zdGM1MnU2ZWlVL2czSmQ4VDRO?=
+ =?utf-8?B?MmQzQmlPbEd2cGM3VXE2cFhMSVdPNFZkL2JiZ1pLWW9nVndHUnR4Z2s4bHFo?=
+ =?utf-8?B?QXBnQjNnWXBpZkpndVRTMnBVVjZsbTJ4cWFFYThoWm1NUFd1QncxWFZLYXhL?=
+ =?utf-8?B?QWZkZTNWWmlhZ2hqZXlHNEVTVmxWU3lnU1kvWmdRRXNRQmdQSlNYNzJManli?=
+ =?utf-8?B?NWkzcE1KN1cxenhNanA2QS9ZK3E3TzJFVjRHTzllQUZlQ2NaSzBDelp4QVMy?=
+ =?utf-8?B?dkRXRFM3T1ZWSkN4ZW9ZWkRyVW5tTXk1QkZ1dmJnWi9QSlROaEgwQWowaERN?=
+ =?utf-8?B?L29yRkg4MEJSRUQ0RDlpbGYzWFN1aGlYTUZwWk41Z3VpenRQSWNoYmNQZXQy?=
+ =?utf-8?B?NEg5d0lSTDdOeEk5RnM2ODdYdDBjTGI1M2FiSmdNOXZGeHQ3ZlFtK1BGR0Jm?=
+ =?utf-8?B?aHZldnRHbmR5anlpL25XODRFR1c5K2I1d0JTQXZYQXI5UytsWVpiL0F6cTFH?=
+ =?utf-8?B?aFE9PQ==?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bd1cf01-6e63-4f22-3279-08dcf9ad4b59
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 13:09:47.2400
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zLgpRfjTMmiueSuCkZxlajCnm0CKazX7dwtAK/mDMPTdfOzDFaomrM167hv94lpR/oM5MDSFHKXAOFhmzQ85h247HF7XuRXgAp9jcB86l3A=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR02MB6294
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_060012_882234_87AF2C01 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20241031_060959_088236_9B876051 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,56 +197,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2024 22:59, Jeff Xu wrote:
-> Apologize in advance that I'm unfamiliar with ARM's POR, up to review
-> this patch series, so I might ask silly questions or based on wrong
-> understanding.
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
 
-That's no problem, your input is very welcome! There is no fundamental
-difference between POR and PKRU AFAIK - the encoding is different, but
-the principle is the same. The main thing to keep in mind is that POE
-(the arm64 extension) allows restricting execution in addition to
-read/write.
+>Hi Jinjian,
+>
+>On 29.10.2024 05:46, Jinjian Song wrote:
+>> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+>>> On 22.10.2024 11:43, Jinjian Song wrote:
+>>>> If driver fails to set the device to suspend, it means that the
+>>>> device is abnormal. In this case, reset the device to recover
+>>>> when PCIe device is offline.
+>>>
+>>> Is it a reproducible or a speculative issue? Does the fix recover 
+>>> modem from a problematic state?
+>>>
+>>> Anyway we need someone more familiar with this hardware (Intel or 
+>>> MediaTek engineer) to Ack the change to make sure we are not going to 
+>>> put a system in a more complicated state.
+>> 
+>> Hi Sergey,
+>> 
+>> This is a very difficult issue to replicate onece occured and fixed.
+>> 
+>> The issue occured when driver and device lost the connection. I have
+>> encountered this problem twice so far:
+>> 1. During suspend/resume stress test, there was a probabilistic D3L2
+>> time sequence issue with the BIOS, result in PCIe link down, driver
+>> read and write the register of device invalid, so suspend failed.
+>> This issue was eventually fixed in the BIOS and I was able to restore
+>> it through the reset module after reproducing the problem.
+>> 
+>> 2. During idle test, the modem probabilistic hang up, result in PCIe
+>> link down, driver read and write the register of device invalid, so
+>> suspend failed. This issue was eventually fiex in device modem firmware
+>> by adjust a certain power supply voltage, and reset modem as a workround
+>> to restore when the MBIM port command timeout in userspace applycations.
+>> 
+>> Hardware reset modem to recover was discussed with MTK, and they said
+>> that if we don't want to keep the on-site problem location in case of
+>> suspend failure, we can use the recover solution.
+>> Both the ocurred issues result in the PCIe link issue, driver can't read 
+>> and writer the register of WWAN device, so I want to add this path
+>> to restore, hardware reset modem can recover modem, but using the 
+>> pci_channle_offline() as the judgment is my inference.
+>
+>Thank you for the clarification. Let me summarize what I've understood 
+>from the explanation:
+>a) there were hardware (firmware) issues,
+>b) issues already were solved,
+>c) issues were not directly related to the device suspension procedure,
+>d) you want to implement a backup plan to make the modem support robust.
+>
+>If got it right, then I would like to recommend to implement a generic 
+>error handling solution for the PCIe interface. You can check this 
+>document: Documentation/PCI/pci-error-recovery.rst
+Hi Sergey,
 
-> It seems that the patch has the same logic as Aruna Ramakrishna
-> proposed for X86, is this correct ?
+Yes, got it right.
+I want to identify the scenario and then recover by reset device,
+otherwise suspend failure will aways prevent the system from suspending
+if it occurs.
 
-Yes, patch 1 aims at aligning arm64 with x86 (same behaviour). Going
-forward I think we should try and keep the arm64 and x86 handling of
-pkeys as consistent as possible.
+>Suddenly, I am not an expert in the PCIe link recovery procedure, so 
+>I've CCed this message to PCI subsystem maintainers. I hope they can 
+>suggest a conceptually correct way to handle these cases.
 
-> In the latest version of x86 change [1], I have a comment if we want
-> to consider adding a new flag SS_PKEYALTSTACK (see SS_AUTODISARM as an
-> example) in sigaltstack, and restrict this mechanism (overwriting
-> PKRU/POR_EL0 and sigframe)  to sigaltstack() with SS_PKEYALTSTACK.
-> There is a subtle difference if we do that, i.e. the existing
-> signaling handling user might not care or do not use PKEY/POE, and
-> overwriting PKRU/POR_EL0 and  sigframe every time will add extra CPU
-> time on the signaling delivery, which could be real-time sensitive.
+Thanks.
 
-From a purely functional perspective, resetting POR to allow access to
-all pkeys before writing the signal frame should be safe in any context,
-and allows keeping the handling simple (no conditional code). The
-performance aspect is a fair point though, as we are adding an ISB
-(synchronisation barrier) on the signal delivery path if POE is supported.
+>>>> Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
+>>>> ---
+>>>> V2:
+>>>>   * Add judgment, reset when device is offline
+>>>> ---
+>>>>   drivers/net/wwan/t7xx/t7xx_pci.c | 4 ++++
+>>>>   1 file changed, 4 insertions(+)
+>>>>
+>>>> diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/ 
+>>>> t7xx/t7xx_pci.c
+>>>> index e556e5bd49ab..4f89a353588b 100644
+>>>> --- a/drivers/net/wwan/t7xx/t7xx_pci.c
+>>>> +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
+>>>> @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct pci_dev 
+>>>> *pdev)
+>>>>       iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) + 
+>>>> ENABLE_ASPM_LOWPWR);
+>>>>       atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
+>>>>       t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
+>>>> +    if (pci_channel_offline(pdev)) {
+>>>> +        dev_err(&pdev->dev, "Device offline, reset to recover\n");
+>>>> +        t7xx_reset_device(t7xx_dev, PLDR);
+>>>> +    }
+>>>>       return ret;
+>>>>   }
+>
+>--
+>Sergey
+>
 
-> Since I raised this comment on X86, I think raising it for ARM for
-> discussion would be ok,
-> it might make sense to have consistent API experience for arm/x86 here.
-
-And indeed this is what I think is most important at this point.
-Considering that Aruna's series resets PKRU unconditionally (sigaltstack
-or not) and has already been pulled into mainline during 6.12-rc1 [2], I
-still believe that patch 1 is doing the right thing, i.e. aligning arm64
-with x86. If the concern with performance is confirmed, and there is an
-agreement to reset POR/PKRU less eagerly on both architectures, this
-could potentially be revisited.
-
-- Kevin
-
-[2]
-https://lore.kernel.org/lkml/172656199227.2471820.13578261908219597067.tglx@xen13/
-
-> [1] https://lore.kernel.org/lkml/CABi2SkWjF2Sicrr71=a6H8XJyf9q9L_Nd5FPp0CJ2mvB46Rrrg@mail.gmail.com/
-
+Best Regards,
+Jinjian
 
