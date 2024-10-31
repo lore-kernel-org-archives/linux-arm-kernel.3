@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B5AD6B6A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B68DD6B6A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//sF470+Tkq6k0wKRFler8mAmUf59mCiwnt3NwRL9+U=; b=TC+/n1LOGSySlojc0brwoUkkoH
-	jIp6nt3oLZnO/N3Dx8loq6eXU00MfUTOMicHwlWXvxH/OpUXTuKxC8oAhZyKBtIrRS81oTRcf/zkM
-	ucxEWrQ7O7mlVQ1J9BROzXr23526vH8Fr3umQUVHxkITNONeeUzpEnSeoVPdTNMwuevHbPqJauP7M
-	UaISHMs8+1jAXSAoAWz4oceUW+ygRHgwEZwXsgwx+/T7tX6SJRVn79E1gYbiSjr/gvv5uE0zm3zyJ
-	NUd9xPEhvVNZszXJ55QAHtIP4iRu/+2ze/0TLvBv/q/7E/oxfUPcnh8GE9mYDeig8vW1Cn1aME5cT
-	radS62TA==;
+	bh=ByTCYd14UYri5hhBpfCXYZOyOvDgKqhahBNXgoUgOVc=; b=vTRMdvQOheTmitnyGAWoXRp2vi
+	UxJ0fEeWtw+RTrA2WwoQon2DuoI8L35iNuJicmoukzs12odmOnWPODN8RFR1tT1Z8eHFICks3XUdl
+	ShuK5iSc6d7/Zjm10Yrx+XBi1VTtB2Jc+qT4ObsSapo60j240VdbGxB5RdkC5G8M92jG8VJMEPeP9
+	zV2iKMDA+QrGUVZUl9czhOoP6q18SzwDvdU5Elv7E0ZyMfD3lyqhaNxlH/4gpBEwz8W+8JOx9Or1C
+	y++xejYxKKp1zNJJg+22ZDhaBcupz7kkfn9jr5sWADlj5JMAaBjyJZ+E5Eo/jx6F8zeBWiECl66Hp
+	ECTCtWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6UCI-00000003VqQ-3Ezu;
-	Thu, 31 Oct 2024 12:22:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6U8r-00000003VV6-27Fc
+	id 1t6UIH-00000003Wdx-1I1h;
+	Thu, 31 Oct 2024 12:28:53 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6UGc-00000003WT7-3mWz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 12:19:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 865261063;
-	Thu, 31 Oct 2024 05:19:38 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70F783F66E;
-	Thu, 31 Oct 2024 05:19:05 -0700 (PDT)
-Date: Thu, 31 Oct 2024 12:18:55 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Cody Eksal <masterr3c0rd@epochal.quest>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
- <viresh.kumar@linaro.org>, Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Conor Dooley <conor+dt@kernel.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime
- Ripard <mripard@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, Stephen Boyd
- <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>, Viresh Kumar
- <vireshk@kernel.org>, Parthiban <parthiban@linumiz.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 12/13] cpufreq: sun50i: add a100 cpufreq support
-Message-ID: <20241031121855.179b44a0@donnerap.manchester.arm.com>
-In-Reply-To: <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
-References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
-	<20241031070232.1793078-13-masterr3c0rd@epochal.quest>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Thu, 31 Oct 2024 12:27:12 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-37ed7eb07a4so679389f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 05:27:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730377629; x=1730982429; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ByTCYd14UYri5hhBpfCXYZOyOvDgKqhahBNXgoUgOVc=;
+        b=GOug1d5h1GlbE5pBEM2DqRRA6o26gFyxzg3oPXWu91gQNF0MPnBOnZRWByFoKDP3gQ
+         1HJcDWZ1Cr/ATEpN00nAfuUCTsz+h8xThbkVM3bnhEvkW1Qmrg9DJsuN1hyWGobSQE/H
+         IX5RaN/RsYwR1PgH+LWsS2bKzjxTz3vUAyZPreX11e2xnTKqBcK2KMVaVYhh086mBX+l
+         M3rxd/GnuO3AWXbKtFkdGSbc6cTR0pjGdJ9YV19qmk6tP9nZMEFuIy64uiaiJjZWSZjG
+         bQNtm1VRM7urvgYYmBl04QpdAQ3E5qkQS4S9KyorTcvxFjoUDTAFnep8tyCsG5nnVybT
+         VsqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730377629; x=1730982429;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ByTCYd14UYri5hhBpfCXYZOyOvDgKqhahBNXgoUgOVc=;
+        b=Pql3V+e3ulPCBy4GbpwL+0D/gsYjgqNj7+8g+uDg+4HVkTpnPf7FGXYdgafX7gn6oX
+         +mvLIoIqUqDyUBtk2vmYrdWmTHB+rAums6uUos2dNQTuTNtY7pkafaDU6U78IrsmVMTE
+         +LMqlbfb2xSSNc0cY++nucLuYtG4b7kRQ9+7tiwopvQfNQNyU0VQXg4RnhqdLJOV61Fc
+         xN67+Tyg/CCdCnw5Unt+wdt1jSZ2PX4y6PguLX2X7c/P53+uQ3auc1L9i9B+ztTy3mHt
+         E1Qw2sVQgQpgLYKOKoS1yRGGhqZi9MMssNJT5CtRzPKhqUp4XvcDJpzwpkGR0PuIYOYM
+         Gicg==
+X-Gm-Message-State: AOJu0Yy02IORYqObOKH1CJuF5RRMr4EcL2kso1lPBN1CKh8Wu3q/hyF1
+	xEwjmbta/OI3HDrWWd2E7yYpVAZDazO7gzuFfxQB9XBNsiuycDTC
+X-Google-Smtp-Source: AGHT+IGNej0joknwPsbYKOTEUixvGOjU0e5Z1XjBTjKkSw6IjWk9zeeBnOp4KqqlhyMlQQW7srqsDQ==
+X-Received: by 2002:a5d:5847:0:b0:37d:4e74:67f with SMTP id ffacd0b85a97d-381be907c52mr2539991f8f.37.1730377628990;
+        Thu, 31 Oct 2024 05:27:08 -0700 (PDT)
+Received: from ?IPV6:2a02:8389:41cf:e200:d7b9:afdb:c541:d023? (2a02-8389-41cf-e200-d7b9-afdb-c541-d023.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:d7b9:afdb:c541:d023])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10eaafdsm1977568f8f.63.2024.10.31.05.27.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 31 Oct 2024 05:27:08 -0700 (PDT)
+Message-ID: <984e5b55-edf6-4f1b-910f-8064b30d1c72@gmail.com>
+Date: Thu, 31 Oct 2024 13:27:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
+ device_node in atmel_soc_device_init()
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
+ <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
+ <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
+Content-Language: en-US, de-AT
+From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+In-Reply-To: <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_051909_671464_3F9E5457 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20241031_052710_977300_EFE14291 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,112 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 04:02:25 -0300
-Cody Eksal <masterr3c0rd@epochal.quest> wrote:
-
-> From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+On 31/10/2024 12:07, Krzysztof Kozlowski wrote:
+> On 30/10/2024 18:10, Javier Carrasco wrote:
+>> Switch to a more robust approach to automatically release the node when
+>> it goes out of scope, dropping the need for explicit calls to
+>> of_node_put().
 > 
-> Let's add cpufreq nvmem based for allwinner a100 soc. It's similar to h6,
-> let us use efuse_xlate to extract the differentiated part.
+> Please use subject prefixes matching the subsystem. You can get them for
+> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+> your patch is touching. For bindings, the preferred subjects are
+> explained here:
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 > 
-> Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-> [masterr3c0rd@epochal.quest: add A100 to opp_match_list]
-> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
-
-Looks good to me, and seems to work on my Teclast P80 tablet, so:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Andre Przywara <andre.przywara@arm.com>
-
-Thanks,
-Andre
-
-> ---
-> Changes in V2:
->  - Add the A100 to the cpufreq-dt-platdev blacklist.
+> There is never a "drivers" prefix. Especially not first (because as
+> middle appears for FEW subsystems, not for SoC though).
 > 
->  drivers/cpufreq/cpufreq-dt-platdev.c   |  1 +
->  drivers/cpufreq/sun50i-cpufreq-nvmem.c | 28 ++++++++++++++++++++++++++
->  2 files changed, 29 insertions(+)
+
+Interestingly, 10 out of 20 patches for this file use the "drivers"
+prefix first, so I guess it was an error that propagated for some time.
+I will stick to soc: atmel: for v2.
+
 > 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index 18942bfe9c95..2a3e8bd317c9 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -103,6 +103,7 @@ static const struct of_device_id allowlist[] __initconst = {
->   * platforms using "operating-points-v2" property.
->   */
->  static const struct of_device_id blocklist[] __initconst = {
-> +	{ .compatible = "allwinner,sun50i-a100" },
->  	{ .compatible = "allwinner,sun50i-h6", },
->  	{ .compatible = "allwinner,sun50i-h616", },
->  	{ .compatible = "allwinner,sun50i-h618", },
-> diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> index 293921acec93..3a29c026d364 100644
-> --- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> +++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> @@ -22,6 +22,9 @@
->  #define NVMEM_MASK	0x7
->  #define NVMEM_SHIFT	5
->  
-> +#define SUN50I_A100_NVMEM_MASK	0xf
-> +#define SUN50I_A100_NVMEM_SHIFT	12
-> +
->  static struct platform_device *cpufreq_dt_pdev, *sun50i_cpufreq_pdev;
->  
->  struct sunxi_cpufreq_data {
-> @@ -45,6 +48,23 @@ static u32 sun50i_h6_efuse_xlate(u32 speedbin)
->  		return 0;
->  }
->  
-> +static u32 sun50i_a100_efuse_xlate(u32 speedbin)
-> +{
-> +	u32 efuse_value;
-> +
-> +	efuse_value = (speedbin >> SUN50I_A100_NVMEM_SHIFT) &
-> +		      SUN50I_A100_NVMEM_MASK;
-> +
-> +	switch (efuse_value) {
-> +	case 0b100:
-> +		return 2;
-> +	case 0b010:
-> +		return 1;
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
->  static int get_soc_id_revision(void)
->  {
->  #ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
-> @@ -108,6 +128,10 @@ static struct sunxi_cpufreq_data sun50i_h6_cpufreq_data = {
->  	.efuse_xlate = sun50i_h6_efuse_xlate,
->  };
->  
-> +static struct sunxi_cpufreq_data sun50i_a100_cpufreq_data = {
-> +	.efuse_xlate = sun50i_a100_efuse_xlate,
-> +};
-> +
->  static struct sunxi_cpufreq_data sun50i_h616_cpufreq_data = {
->  	.efuse_xlate = sun50i_h616_efuse_xlate,
->  };
-> @@ -116,6 +140,9 @@ static const struct of_device_id cpu_opp_match_list[] = {
->  	{ .compatible = "allwinner,sun50i-h6-operating-points",
->  	  .data = &sun50i_h6_cpufreq_data,
->  	},
-> +	{ .compatible = "allwinner,sun50i-a100-operating-points",
-> +	  .data = &sun50i_a100_cpufreq_data,
-> +	},
->  	{ .compatible = "allwinner,sun50i-h616-operating-points",
->  	  .data = &sun50i_h616_cpufreq_data,
->  	},
-> @@ -291,6 +318,7 @@ static struct platform_driver sun50i_cpufreq_driver = {
->  
->  static const struct of_device_id sun50i_cpufreq_match_list[] = {
->  	{ .compatible = "allwinner,sun50i-h6" },
-> +	{ .compatible = "allwinner,sun50i-a100" },
->  	{ .compatible = "allwinner,sun50i-h616" },
->  	{ .compatible = "allwinner,sun50i-h618" },
->  	{ .compatible = "allwinner,sun50i-h700" },
+> Best regards,
+> Krzysztof
+> 
 
 
