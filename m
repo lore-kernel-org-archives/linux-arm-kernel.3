@@ -4,53 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B907D767F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B66D767F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9E8U5MzcZGR3giVp+xiRgBKX1lANXLsIHfeh1N4U8MI=; b=GabYvtfNpYwrHwAlHLQ3rrsOno
-	WzbiAIGq1aceL4Q0FcJM+JsmWmKqpISoB0RDD/njjBMkKu/0FXkGjilQcV50TNWh5uUX+lbwlOQiw
-	0usrytLviDwHFccVBcaYopZ0SHhTCzXHaW+KMVLYmZF0ScgPxDFFM0vC+3ElpYQUQ7xv52+844MSi
-	/AvuQf7e8jiPioSoqga5GW0PO0aP6vZhp5TDd5/krxEhDSwUJKLckcVmb0Inal4HrZAActvloV1P4
-	zlwlnB84VPZsHq49FvTbjdqvqTtDgM+gc8qmCYWmLgCZd3rF8tVEVDuRiqb9dkZzR2mk5Fr7KZaTu
-	7MLfeVCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y2c2+8hCBcHHsv3z7ugoMx+aG94aS+LJBUKz0Fv+Ygw=; b=fbg9QE4HBrlIqvdeM9jL92WcW7
+	i/Wdu+WTR9npqIbtIabBSvxYdsW9yn53cMaAzJlIHxyQzkkNwPOBMAOF9Iq34gwWDD9PfsMdoXA/Q
+	zx8dxSOyZVLqHAGKs14jayawIWmQUZFofWBsMm1/8kZMukkqho4+kZ9k0QNYK2jlONZypsP6TvyMk
+	X0s20pO/PpR9gkvX05TyZgO5aUeWqvrw2X2F8QlQpR0bA5vRfMIlq/Uf1XnYCbeZNNjC1nWsFO21X
+	r1FAOCAudngLZgrkpibEkwka5ruu7iOG2PGOn4Zz3K9WlNHNpIUyUbAMShDsp+z+iNCQnd7mf8tvb
+	l7mnlGNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Z0r-00000004Lw3-2DbS;
-	Thu, 31 Oct 2024 17:31:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6YxQ-00000004LOC-05US
+	id 1t6Z2U-00000004MKX-47jc;
+	Thu, 31 Oct 2024 17:32:54 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6YzW-00000004Lar-1wjb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 17:27:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 39CD41063;
-	Thu, 31 Oct 2024 10:28:08 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 521D83F73B;
-	Thu, 31 Oct 2024 10:27:37 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: ARM SoC Team <arm@kernel.org>,
-	SoC Team <soc@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Olof Johansson <olof@lixom.net>
-Subject: [GIT PULL] firmware: arm_scmi: Fixes for v6.12(Round 2)
-Date: Thu, 31 Oct 2024 17:27:34 +0000
-Message-Id: <20241031172734.3109140-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 31 Oct 2024 17:29:51 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43158124a54so1622895e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 10:29:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730395789; x=1731000589; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y2c2+8hCBcHHsv3z7ugoMx+aG94aS+LJBUKz0Fv+Ygw=;
+        b=AarT2fkQyILtVYRQoCdQf9Jpf6EXzWdANctZQFZJsSiz//XE0NjxRNtDS/S/SELeRr
+         59yy+fQv9D+hNXLZhXItD62OWRA5jGXJEUbJ8h0zWYB+lvrkSrHCkT2xQE4zdaKFHqf3
+         g56t1ou3TtG8/NK969lOMo33jl5xRUdUeRB3dW+Df4/7D4q+/Ures+rlopOK9YxfaHZT
+         4c8efxN0f1fwhSBfSWByWrFucZBiGiEhve0O2XTLK5b4xV87f/ykrXt6PtsJpvL4x1kq
+         7X5P+QgC9TTKgB9umP0AhpEg/TgUbZc6zqraiLejD4B4MT/F22ASvK3nWHVJMbldLqqJ
+         t1bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730395789; x=1731000589;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y2c2+8hCBcHHsv3z7ugoMx+aG94aS+LJBUKz0Fv+Ygw=;
+        b=roFkBmq/vJQBYTZvwv9UqqT5wnf//UGUO3vXkROEkcMms+i6acd59SDAmO1TOXVAbU
+         NsVc5QWaZXxF8yR5PmALxeG9yuPWA8d9JTLVF7NMKiMHZCnfgvQIGrRb9HEyBj5u4xHw
+         mmo0mp+0LFnbxX6eKth6jrs0LZTrTkGs/zBvtk4C6aw6UF/zJW97jOUje1Gsx1v8XXny
+         XiGls9AHjyC7b7DI2NwJPud+RnmRYudzAW3uEoSyu2T61qQ4aav3Hj29GqQmRlknGx+H
+         mIdUTeGaXD5DVQ7kSz0p+ZM9k7ExQi2ycn9j3q87FduC0KTa4VqKkxLwFzgFWJp4QuFk
+         Fhfw==
+X-Forwarded-Encrypted: i=1; AJvYcCVZcNtROV8eodVczZ3bKIUTLH5Fwvo7FKd9oY4QCzIHJxYIqRdEpgKCVE2nxr6gvoy5HVdd0O8XSTRDhxC5zZYO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqwLmEx0KQRPeB/Ue2lAtv/xjZLpvzszYGwraQfMyNYng/hI5l
+	yCdsGO9qKNgtk0DOwcJSfnOYuJexA/e87UEDPnIs2j4y8iEG30q7
+X-Google-Smtp-Source: AGHT+IHakfGneSPWq42iuCut70oQ1E9rhNIoV1udWPYkJZcYcJIwtNnTlcAC2SE6lmct2XjYknh6Xg==
+X-Received: by 2002:a05:600c:1c91:b0:42c:b9c8:2ba9 with SMTP id 5b1f17b1804b1-4319ad2b318mr76969105e9.6.1730395788864;
+        Thu, 31 Oct 2024 10:29:48 -0700 (PDT)
+Received: from skbuf ([188.25.134.29])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5ab305sm33621135e9.7.2024.10.31.10.29.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 10:29:47 -0700 (PDT)
+Date: Thu, 31 Oct 2024 19:29:44 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
+	andrew+netdev@lunn.ch,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net-next v7 1/8] net: stmmac: Introduce separate files
+ for FPE implementation
+Message-ID: <20241031172944.ykgvlsysz5srxyr4@skbuf>
+References: <cover.1730376866.git.0x1207@gmail.com>
+ <9876134957283296792864da97eab60328f8d478.1730376866.git.0x1207@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9876134957283296792864da97eab60328f8d478.1730376866.git.0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_102740_172533_5D67EAB6 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_102950_525544_59D8237E 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,55 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC Team,
+On Thu, Oct 31, 2024 at 08:37:55PM +0800, Furong Xu wrote:
+> +void stmmac_fpe_link_state_handle(struct stmmac_priv *priv, bool is_up)
+> +{
+> +	struct stmmac_fpe_cfg *fpe_cfg = &priv->fpe_cfg;
+> +	unsigned long flags;
+> +
+> +	timer_shutdown_sync(&fpe_cfg->verify_timer);
+> +
+> +	spin_lock_irqsave(&fpe_cfg->lock, flags);
+> +
+> +	if (is_up && fpe_cfg->pmac_enabled) {
+> +		/* VERIFY process requires pmac enabled when NIC comes up */
+> +		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
+> +				     priv->plat->tx_queues_to_use,
+> +				     priv->plat->rx_queues_to_use,
+> +				     false, true);
+> +
+> +		/* New link => maybe new partner => new verification process */
+> +		stmmac_fpe_apply(priv);
+> +	} else {
+> +		/* No link => turn off EFPE */
+> +		stmmac_fpe_configure(priv, priv->ioaddr, fpe_cfg,
+> +				     priv->plat->tx_queues_to_use,
+> +				     priv->plat->rx_queues_to_use,
+> +				     false, false);
+> +	}
+> +
+> +	spin_unlock_irqrestore(&fpe_cfg->lock, flags);
+> +}
+> +
+> +void stmmac_fpe_apply(struct stmmac_priv *priv)
 
-Please pull ! Sorry for the late pull request. The ones that need to go
-for v6.12 stable carry fixes tags, so it is ok if you pull it for v6.13
-if its too late.
-
-Regards,
-Sudeep
-
--->8
-
-The following changes since commit da1642bc97c4ef67f347edcd493bd0a52f88777b:
-
-  firmware: arm_scmi: Queue in scmi layer for mailbox implementation (2024-10-14 21:36:46 +0100)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-fixes-6.12-2
-
-for you to fetch changes up to 54962707f8b8b53812d3d7fca279a68c6e18faae:
-
-  firmware: arm_scmi: Use vendor string in max-rx-timeout-ms (2024-10-28 14:49:27 +0000)
-
-----------------------------------------------------------------
-Arm SCMI fixes for v6.12(part 2)
-
-Couple of fixes to address slab-use-after-free in scmi_bus_notifier()
-via scmi_dev->name and possible incorrect clear channel transport
-operation on A2P channel if some sort of P2A only messages are initiated
-on A2P channel(occurs when stress tested passing /dev/random to the
-channel).
-
-Apart from this, there are fixes to address missing "arm" prefix in the
-recently added property max-rx-timeout-ms which was missed in the review
-but was identified when further additions to the same binding were
-getting reviewed.
-
-----------------------------------------------------------------
-Cristian Marussi (3):
-      firmware: arm_scmi: Reject clear channel request on A2P
-      dt-bindings: firmware: arm,scmi: Add missing vendor string
-      firmware: arm_scmi: Use vendor string in max-rx-timeout-ms
-
-Xinqi Zhang (1):
-      firmware: arm_scmi: Fix slab-use-after-free in scmi_bus_notifier()
-
- Documentation/devicetree/bindings/firmware/arm,scmi.yaml |  2 +-
- drivers/firmware/arm_scmi/bus.c                          |  7 ++++---
- drivers/firmware/arm_scmi/common.h                       |  2 ++
- drivers/firmware/arm_scmi/driver.c                       | 10 ++++++++--
- 4 files changed, 15 insertions(+), 6 deletions(-)
+This is absolutely minor, but could you please sort the functions in
+their natural calling order (callee first, caller second)? It's fine now
+that stmmac_fpe_apply() has its function prototype exported, and that
+works as a forward declaration because we also include stmmac_fpe.h.
+But if somebody were to unexport stmmac_fpe_apply() in the future, they
+would also have to move it too.
 
