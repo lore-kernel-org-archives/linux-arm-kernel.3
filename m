@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743ABE68973
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29226E68973
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMjYvi/k0LQv3mvZTRUW98lV/FQ3V/2XaFC77x3qp1Q=; b=1Nq7v7Gx3BZ4k0S2bXGXA7nOXP
-	PZjE39BoXuSItokJrLGvp1QGpmdRRyELwYhIDS/VSYIPpH54XlUlANbbOaJIURAkM9CJTxd76wcr5
-	9oz4iohjIMjiobPg6+v32SFR1jvwLaon1ij/lNgSo17gr+fXNLpWhy8y535NvqRBUR+6vSbK0UfWP
-	WGNY2AS2w22Lzmbyi6FNVLrTwbg2bwNxu76tjYu8rUFVxtAw2au+xDSoS9VYSi8ZfEX5biobkITDz
-	JK+gvcM2T+PVa9K1p9m1NMou7FjFGWI3Zf1Cq/f2TvEXE3HwT1dkmiZ0GE1fhI3wL0/MCthAGRrz3
-	+PDul8Jg==;
+	bh=uQ2852SIBLZ55jYpM8pe/ulD60t0c9GE/dvFw1Spiq0=; b=4lBwvSYuagPcRpLlu3lzKqrsjd
+	hUtFT3PhXjKSbPBMU4uwDJ5r35Uyw2iptBrLegCCwb+w8eY7kgvTodO371BaHb7QDcfRC71prqPGM
+	12HHXfhY7YTq7hhOnYhuHiZZ+hrSvX40swOJG8VZpPPgYkmNh8U7CYgyqCkOVcSsTpZmnO6dEwKOD
+	aXKCmHLD2ISNMUDjMD/aLQhQO+d06NF9A7zfpTEOryTVlv7pOBd1lI+2Hzr0bSbWZiXHi74Vf4Vf2
+	V2NEMvbPbM48rbZf0Er/cnrkFd5n4R08slO/bi1I35yxsUtfR1M03y+CalnAUH6nzqDrS264mcG0O
+	phVd5Dpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6SXR-00000003Fng-3b72;
-	Thu, 31 Oct 2024 10:36:26 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1t6Sf6-00000003I8I-2PZU;
+	Thu, 31 Oct 2024 10:44:20 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6SVY-00000003FGF-31GO
+	id 1t6SdM-00000003HbM-1OAm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 10:34:30 +0000
-Received: from wsk (85-222-111-42.dynamic.chello.pl [85.222.111.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: lukma@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id C286989285;
-	Thu, 31 Oct 2024 11:34:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1730370867;
-	bh=xMjYvi/k0LQv3mvZTRUW98lV/FQ3V/2XaFC77x3qp1Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=R4DHCx5y1WLPTmrQgUeiNT6q3Bn6qZiHbfVy1ehcrKerMsp7P+SUnLS0pozgzOPEO
-	 kwgnuv6a61i3Dm+t+OvvD22xMAErsoInObWnEPfvAA8jybfRkteO3QxnFRAt/OeNgM
-	 MoxHxi38Bt/0U2XnfgVEP3Bj+03bJYDY8TQQzGWn8DhvAcnznVXQAT3eJPUvFCPn//
-	 pQfTEjQHSr0rSIfcrOi+2EDXasBluWymdqPk9XPs8skGxvOgoeapD4WQ1oLywpfmO5
-	 Jbx+6iLWJwYhirI8XINXT4olddEyZrSN328ulmFYI1T6lTRVUjGnkRRn4p71+Hc2wW
-	 +Fzheen24Xqmg==
-Date: Thu, 31 Oct 2024 11:34:25 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 4/4] ARM: dts: mxs: Add descriptions for imx287
- based btt3-[012] devices
-Message-ID: <20241031113425.1e3d1da5@wsk>
-In-Reply-To: <806770fc-3830-4e89-a3ee-487b662685ed@gmx.net>
-References: <20241022133040.686562-1-lukma@denx.de>
-	<20241022133040.686562-4-lukma@denx.de>
-	<20241031094236.17ed927d@wsk>
-	<806770fc-3830-4e89-a3ee-487b662685ed@gmx.net>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 31 Oct 2024 10:42:36 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1730371350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uQ2852SIBLZ55jYpM8pe/ulD60t0c9GE/dvFw1Spiq0=;
+	b=cFRIpANtDdtqy4wVeyUftYfX+3K6iAeHLYHbrhbjQDewDLfFxiTRAWBpLABLpSV/D1nKoX
+	Wk+NfWIT0Th1PtumMMsKOGceAYI86AU0/eVQLUo/JdueUDK6mTO8gndDcQDwWpAlcdvlKx
+	3zlURNVKNzYwkTYSrZRVKvVgFFut9pePG7Yi5sFUHmPtz3zgeow/cfVwkC8cRC0tvK2N9z
+	ZsOM8KSjcuq8lrbqaUoAOLSAuiq9ZYBNBlgIDzTTV0RHjTq4n0OgJF3AWotNwFtUwQt0x/
+	TtHrpm1PFM2JE0s/CeuRo8/9ib3uTQh9uz5XOUAcz8j8fO7LVAj3x7+k91hMLA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1730371350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uQ2852SIBLZ55jYpM8pe/ulD60t0c9GE/dvFw1Spiq0=;
+	b=PrbjYQaHayM1BR2KDeqfwmwwH+YaLRQVslv5TNNxy548ptz/ne1W/M0I8ZbloOONg2kQs5
+	KJsCwHYidFFwoQCw==
+To: Frederic Weisbecker <frederic@kernel.org>, Naresh Kamboju
+ <naresh.kamboju@linaro.org>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, open list
+ <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, Linux
+ Regressions <regressions@lists.linux.dev>, rcu <rcu@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, Dan
+ Carpenter <dan.carpenter@linaro.org>, Anna-Maria Behnsen
+ <anna-maria@linutronix.de>, Mark Brown <broonie@kernel.org>, Alex
+ =?utf-8?Q?Benn=C3=A9e?=
+ <alex.bennee@linaro.org>, Peter Maydell <peter.maydell@linaro.org>, "Paul
+ E. McKenney" <paulmck@kernel.org>, Vincent Guittot
+ <vincent.guittot@linaro.org>, Anders Roxell <anders.roxell@linaro.org>,
+ Aishwarya TCV <aishwarya.tcv@arm.com>
+Subject: Re: next-20241031: kernel/time/clockevents.c:455
+ clockevents_register_device
+In-Reply-To: <ZyNUR4oi8TXeEpYi@lothringen>
+References: <CA+G9fYtb5vAnEiHupwsnaeZ7uzdko_WAcjw9ZAFkHNXBVhi1EA@mail.gmail.com>
+ <ZyNUR4oi8TXeEpYi@lothringen>
+Date: Thu, 31 Oct 2024 11:42:30 +0100
+Message-ID: <87r07wwo2x.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/FD/wYCUhTrUoXhAbjXcXHQB";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_033429_093605_AB0BC704 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20241031_034232_534772_4FD1F39B 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,100 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/FD/wYCUhTrUoXhAbjXcXHQB
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Thu, Oct 31 2024 at 10:56, Frederic Weisbecker wrote:
+> On Thu, Oct 31, 2024 at 02:10:14PM +0530, Naresh Kamboju wrote:
+>> <4>[ 0.220657] WARNING: CPU: 1 PID: 0 at kernel/time/clockevents.c:455
+>> clockevents_register_device (kernel/time/clockevents.c:455
+>
+> It's possible that I messed up something with clockevents.
 
-Hi Stefan,
+Yes. You added the warning :)
 
-> Am 31.10.24 um 09:42 schrieb Lukasz Majewski:
-> > Dear Community,
-> > =20
-> >> The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
-> >> some extend similar to already upstreamed XEA devices, hence are
-> >> using common imx28-lwe.dtsi file.
-> >>
-> >> New, imx28-btt3.dtsi has been added to embrace common DTS
-> >> properties for different HW revisions for this device.
-> >>
-> >> As a result - changes introduced in imx28-btt3-[012].dts are
-> >> minimal.
-> >>
-> >> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> >>
-> >> ---
-> >> Changes for v2:
-> >> - Rename dts file from btt3-[012] to imx28-btt3-[012] to match
-> >> current linux kernel naming convention
-> >> - Remove 'wlf,wm8974' from compatible for codec@1a
-> >>
-> >> Changes for v3:
-> >> - Keep alphabethical order for Makefile entries
-> >>
-> >> Changes for v4:
-> >> - Change compatible for btt3 board (to 'lwn,imx28-btt3')
-> >>
-> >> Changes for v5:
-> >> - Combine patch, which adds btt3-[012] with one adding board entry
-> >> to fsl.yaml
-> >>
-> >> Changes for v6:
-> >> - Make the patch series for adding entry in fsl.yaml and btt3
-> >>
-> >> Changes for v7:
-> >> - Use "panel" property as suggested by the community
-> >> - Use panel-timing to specify the display parameters
-> >> - Update subject line with correct tags
-> >>
-> >> Changes for v8:
-> >> - Use GPIO_ACTIVE_HIGH instead of '0'
-> >> - Add the comment regarding mac address specification
-> >> - Remove superfluous comment
-> >> - Change wifi-en-pin node name
-> >>
-> >> Changes for v9:
-> >> - Remove not used 'pm-ignore-notify'
-> >> - Add display names for 'panel-dpi' compatible to avoid Schema
-> >> warnings
-> >>
-> >> Changes for v10:
-> >> - Drop new line with panel-timing definitions
-> >> - Add new lines with 'sound' node
-> >> - Change 'codec' to 'audio-codec'
-> >> - Change order of properties for saif1 node =20
-> > Are there any more comments regarding this patch? =20
-> Sorry, i wasn't aware that you are waiting for reviews after Rob's
-> request.
+> Can you try to reproduce with:
+>
+> git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git
+> 	timers/core
 
-I did not received any mail from Rob's automated DTS test script, so
-this is a good thing :-).
+I force pushed the branch with the warning removed.
+
+> I wish I could reproduce on my own but I don't have easy
+> access to such hardware.
+
+apt-get install qemu-system
+
+gives you access to all supported architectures :)
 
 
-Best regards,
 
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/FD/wYCUhTrUoXhAbjXcXHQB
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmcjXTEACgkQAR8vZIA0
-zr2R0gf/dn+dA46KkhqB5cnCwM/Du4YuF84nm95iXMGzE3j0nrAz35xAEt4kbQWT
-AeHvQn13mHETK44MBDyVCmwJsx/UIWNCPRdpFRyN1b7cVLqxQu2ktw3k2roMChbS
-Xy4aOQY4GcAf+OPczECtsV/sXrCAbZlOILrtEP0qBxREDWbLy6J+7fWL8UZ6VXbM
-fCBTG/iu4bJRUpQG4gX8w2G2WW4Su487RJqbun0Wj0r+/ED4tQqzmye5wZapZNhJ
-CO8rqfo9o6qQZzW+ppECs3DC4vRVLeMYbsNhyKhTrM8igjjAnutyabSHzw5R3Jh1
-5D8uiUHD+Y/NfIWkM/tJFFnS1iGreA==
-=8/4m
------END PGP SIGNATURE-----
-
---Sig_/FD/wYCUhTrUoXhAbjXcXHQB--
 
