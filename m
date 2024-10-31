@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270A7E68948
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8978AE68946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKXp0moqgamIP7R29DMbOfl9IdZ2pJ/b7R2GlsuQTL0=; b=BoNUCOuykjuGSX5O+T8UTxqLYZ
-	YNCOF/jkteU5CNzpjwzdL3Bu9MisWR6jFR+9ci5Kryv8rocQUW2WAmiZmuom8ehoSXFGM8atfQSZR
-	XVmDdN1u6pSePtjBnF/Oqbu7pYdK4+xy53QObsTNodVe0IcqHU/VdMxg3HmJBIxW3W2hcq9VwELXC
-	scnnk9+lMtHLsfMXyhGn1nmgMPKvcQxDlAu4r5EOvsLtoLsE4vhP/dxZEEd/a48LjbYSRX/gmyGM3
-	JVGJC8Ms6T//S8mi6sKk2VQa9oQuN7WL9AG0pTZC54LcK+mNnGyKwvgTa0kEis72MHh6Bl6BhcYWN
-	jGiF9mUw==;
+	bh=512vM9eEPojhDbBC2R+UB6fp2hTFX8GZ6IpU19z7uHo=; b=USOlBy4eEyc/46FU494mHOFF5M
+	yKCrXOjSFVFHsMUZymU8v/BN8RBWwdw4tmo4tYyR1IFmM0fxWUBbKA3zspgsnM0PujTdvfSpSA56C
+	K9qysGDfQcaTbc9dDmeh9jBLp/znA8Siq4d+Kz7eslt2TGomYt4GtdUQnhjEYk7XKHfjbTxVwAiNF
+	o3ET3X/y1plC8I3ZvR2MYFWVFQ1wLcky6YmqjDDMl9DjPWDzgEhXfKieaJmUJ8Y742/OTUnZniDzW
+	oxzquMx191/2j/2eh4UAJdG+n3Zu3QbDH1/+An4Fbl5rTbCWrbvS4uoRKp1k//s8IVUY3cGtZRkiG
+	lDwWE/Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6KfZ-00000002KXS-13on;
-	Thu, 31 Oct 2024 02:12:17 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1t6Kod-00000002LHo-1SGD;
+	Thu, 31 Oct 2024 02:21:39 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6KcT-00000002KGf-0SLR
+	id 1t6Kmy-00000002L4g-1PTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 02:09:06 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7181b86a749so172638a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Oct 2024 19:09:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730340543; x=1730945343; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=WKXp0moqgamIP7R29DMbOfl9IdZ2pJ/b7R2GlsuQTL0=;
-        b=PVBbgrwpSJTo6cb8F8z+7X3ED001Vn2hbjyqJt5yvlMPj5ikXvdIkQqD76PPLxayur
-         MlByO8/ap2ILgvvUcI0VYHaDgEwVar83RCRfHfw4UH82fbvdCY2ljPPz0Um/5mRn4axp
-         3r0ZCwgtIRu/xDkA58stV3k/TKjs8bFGrnmuR6UVCtEWNVpu3EPbwB6ryZDUAaIPisY1
-         K150m9xYlCABbGTpE6lT0u5Zj4mWpBIR3LAS++ql+R6GgW1ia/sdXc6pFmvgk3LEiYKo
-         cRG0bcwKc5HdmttuxYIJ9xn4u4a9CGaESQK3XGNbMLsM7L5xgW7FePg6dMgeSN3wPIyS
-         mpXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730340543; x=1730945343;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WKXp0moqgamIP7R29DMbOfl9IdZ2pJ/b7R2GlsuQTL0=;
-        b=Av0Y/rNEQrH5eAS6atWYPg5P7SfbBlaIsMB8TieaqaRWMGjFGeSNsawEyiNDq2gcXB
-         nbjWoJ7Uo9jHPWl0m6sorCQmmeJOS7nTqZIWvlvHq2t++wrcbRkm2XG5L77ZS9j1Y8Yt
-         ZuLDUmkUTfNVWo/FpDhod+BXjCWO87gAv77k8dSiaUz3NgTBq64hQk7/49/hhTCulvAO
-         gq7iMkk+6gvt9qhs4jSf0MLuMZkJut9dsWRU4McM07c5UDm39n7hMQifgJDBsN0+Y1EJ
-         i+VqI2s8/DVAJ+La54tqQrLIztq3UwxzKatkCZaWRP6c2SReFT22krVkNGx6D3vG3oWh
-         xmtg==
-X-Forwarded-Encrypted: i=1; AJvYcCW957MDPeEc1W+m3HHQVam+J2EwYv+PIGwDXWh7iYyQYeqCZ+APN3fPPKp1QSF/NSA/qrwjY70SUyJwGr5dovBB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGtqDz/1PnCdQxLZRFWFRJX/2lzE0KmJyq3NSEo9OvhfvfEFTI
-	WPIRAgxl6PpxkzooTGM1pBDvxk9AI74JrHu+Gx6Lb+r93+nPDA4Sm9mqcwT90a2JYBA12sTnTPl
-	F49LEXCOeGqzMP4GYhZU9zpv8D8I=
-X-Google-Smtp-Source: AGHT+IH+yrLiJjq+i5ie1WCex04mIWFRLsmq3qV+TlaiiaefPBEphpMHstKWEPeLMuwYfiGYCJ48xmfkRcN6cpgnW5k=
-X-Received: by 2002:a05:6830:6a97:b0:718:240:42d5 with SMTP id
- 46e09a7af769-71868299585mr18071136a34.32.1730340543144; Wed, 30 Oct 2024
- 19:09:03 -0700 (PDT)
+	Thu, 31 Oct 2024 02:19:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730341197; x=1761877197;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YH+r+Dbnbl3Hh+y/hm/qgXZvFD8Qdh/Re1nEgUi7fU8=;
+  b=CQwDDjPRaWKF3jXvI2r7DRKdvi54tmzHXY7IS+LSn9NAYP5Y4RuSUd38
+   TR5FvIIc1o/BE0JGNLouX59/QRFoaUZHxA2ViktxejvujrKRQOEXPt0GB
+   8+Ptj31nHRn4AgkLvV3dN58fPgyfnvAPyvR63axLpJEcWHKFmEs6pgl+0
+   lcftHsjw2V5F+4KgwQPL2ds/NHO/8Ss6n31AvBCbqIk1niasvOiayK97W
+   DSx7oj4C8sX6TswepLPWIQjHUXOYyfled79GbeIYzwr/m0YS8+L2HhWbx
+   BmIR2bf8O38Bc5wwZF7nNc/DnPS95E2CzGoJotgZTAbgO4OIP4wW/DNaC
+   A==;
+X-CSE-ConnectionGUID: rVfvk25ZRvCvZbw/7TTGEg==
+X-CSE-MsgGUID: NoIpkGCRSIuVztJarjKC9A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="47528335"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="47528335"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 19:19:50 -0700
+X-CSE-ConnectionGUID: mI53XOwBRq+BGEaUiyP8pg==
+X-CSE-MsgGUID: Ce3NF40AQsq8i8qE4BOJKA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,246,1725346800"; 
+   d="scan'208";a="82039774"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 30 Oct 2024 19:19:47 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t6Kmm-000fY8-1k;
+	Thu, 31 Oct 2024 02:19:44 +0000
+Date: Thu, 31 Oct 2024 10:19:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
+	wahrenst@gmx.net, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
+Subject: Re: [PATCH v3] soc: imx: Add SoC device register for i.MX9
+Message-ID: <202410311056.PBPPOYmg-lkp@intel.com>
+References: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
 MIME-Version: 1.0
-References: <cover.1723716331.git.stano.jakubek@gmail.com> <ZyJ1keHD-neTNZ2J@standask-GA-A55M-S2HP>
-In-Reply-To: <ZyJ1keHD-neTNZ2J@standask-GA-A55M-S2HP>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Thu, 31 Oct 2024 10:08:27 +0800
-Message-ID: <CAAfSe-uZ5KWfnZ=DqAy=4fJp0TrTimdEs0Vy57CYcsK06Ev_UQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] Cleanup Spreadtrum/Unisoc ARM64 DT (part 2)
-To: Stanislav Jakubek <stano.jakubek@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_190905_195024_B22B631E 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20241030_191956_479739_A5E11112 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,18 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stanislav,
+Hi,
 
-On Thu, 31 Oct 2024 at 02:06, Stanislav Jakubek <stano.jakubek@gmail.com> wrote:
->
-> Hi all,
->
-> not sure which tree this should go through, but could someone pick this up?
-> It's been sitting for ~2.5 months.
+kernel test robot noticed the following build warnings:
 
-One question is what do we do about those warnings reported by Rob's bot?
-Apart from that I suggest you send a pull request to soc@kernel.org directly.
+[auto build test WARNING on shawnguo/for-next]
+[also build test WARNING on linus/master v6.12-rc5 next-20241030]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Thanks,
-Chunyan
+url:    https://github.com/intel-lab-lkp/linux/commits/alice-guo-oss-nxp-com/soc-imx-Add-SoC-device-register-for-i-MX9/20241030-171525
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241030091336.3901440-1-alice.guo%40oss.nxp.com
+patch subject: [PATCH v3] soc: imx: Add SoC device register for i.MX9
+config: hexagon-randconfig-001-20241031 (https://download.01.org/0day-ci/archive/20241031/202410311056.PBPPOYmg-lkp@intel.com/config)
+compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project f28c006a5895fc0e329fe15fead81e37457cb1d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241031/202410311056.PBPPOYmg-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410311056.PBPPOYmg-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/soc/imx/soc-imx9.c:84:34: warning: unused variable 'imx9_soc_match' [-Wunused-const-variable]
+   static const struct of_device_id imx9_soc_match[] = {
+                                    ^
+   1 warning generated.
+
+
+vim +/imx9_soc_match +84 drivers/soc/imx/soc-imx9.c
+
+    83	
+  > 84	static const struct of_device_id imx9_soc_match[] = {
+    85		{ .compatible = "fsl,imx93", },
+    86		{ .compatible = "fsl,imx95", },
+    87		{ }
+    88	};
+    89	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
