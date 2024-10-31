@@ -4,65 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D2EE68958
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD7BE68958
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNBdPAsrnOmqWK0U0TBcMn9TQ3qUMjxBB0WNgwsZ1F4=; b=frsHLLp6wimTEx+ZqNPbgnSQUQ
-	9qgmJfMB5h8HzijCkr0A391MavsUTAPTEsOhK2M74BnLZeK0S4uiXVgqu+K+ImQ9PSR2M8/TW+E/F
-	fThLmAvJHPvgzEAQ5/yE4lDo5YFPT2iDcnTDa4UvvHqmE7gx7NQvlmztuowKbXOxijGIMpVSEZP2O
-	GEHjro3uetv/+E4uMxgr8csL9MN1UCe6k0Y0QbZ6zr9wv2xhEafjFdXOCx47lXv/km11mlatfwxTx
-	4ppfl4z0YZAXPIiC6a4OV8V/4zkrMxfiYWTPuVXoOnQkKOsRFpmvSy8/+PPewcQ3uxgWHRpfIbeg5
-	Pr1h4SvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dam89QmvakeaUAPIUndfpOFHWi/Ev7M3/3Knm7kg2J0=; b=XG55Bk/tjmMI7nxsLCXNQZkd+6
+	xGTM19dBYRponAPqJdjqS9FE65dBcIGtq5pbhZheTnGray5goRovGZ0odhzui5T9LovKGxQpLSpmg
+	mZCAXwjbK0P8lbbJNRNW2uUFf0erRylw4XW9tisFzgzj6JEtuxR0QMuxZg+AZZWUmJhJe66xLtw0R
+	lvy5HOMN7IR9VBzXKy6FizlLvlz8WwqnW7ycpXIntu8Zlrk5Q/8C0HWq3/xTdfUTYNdxd1nE9TQey
+	J4gkSoADs3t7pGHvR2OKSd1RBtOMecjUWEPwnpslVDxpBy/HuvTF0h4wjuYAy+7/1hFQykBrkidyK
+	4VLDO7Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PwD-00000002r17-4BCx;
-	Thu, 31 Oct 2024 07:49:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6Q4s-00000002sDs-3cMd;
+	Thu, 31 Oct 2024 07:58:46 +0000
+Received: from mail-db5eur02on20627.outbound.protection.outlook.com ([2a01:111:f403:2608::627] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PuX-00000002qb6-3QFy
+	id 1t6Q3C-00000002rlU-0Smg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 07:48:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2A84EA43654;
-	Thu, 31 Oct 2024 07:46:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2353C4CEC3;
-	Thu, 31 Oct 2024 07:48:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730360884;
-	bh=xVfQPG7c9kz2nTYeQBPjigzco5tjWo7NDZm98MMLSNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e+MBvecD+FNfmK+aw5GkA3e30OejL8ZM3OYiPmWZ3pF4mJM2HJLFHXDYDY4iBnYkg
-	 LAH/qR22Ld4W1tqLKcw2/YPC2s1AVhElL4CjIyWaR1+52Fy/1zSoGGKs0ZxkyL8AAS
-	 Uh7jWbyN0uy8BHEK7l1vFZNtw6Y2i0A5xj3qU6K0tuBuGHFpMv9NhsQelcsGmTv0ps
-	 YdnI5t9aWT8NBrDs2FpVCVYUNcWGVPwhL8EMldtY9V8CcIK9w359aeL/nrQdh8GiRL
-	 VepR8v0WqozJaxqKJTgG8gKW8MC1Pw3kF1tibaQoIx2MPGudNRRW/2Rk8IsfL/oIbN
-	 jVtSa8QKKXY5g==
-Date: Thu, 31 Oct 2024 08:48:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: geert+renesas@glider.be, mturquette@baylibre.com, sboyd@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alexandre.belloni@bootlin.com, magnus.damm@gmail.com, p.zabel@pengutronix.de, 
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH v5 03/10] clk: renesas: clk-vbattb: Add VBATTB clock
- driver
-Message-ID: <mg2ugyg65ke3tngzqyyixfkawf4iop4o373dc6fosy7bfydbe5@pm43dhkd7asu>
-References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
- <20241030110120.332802-4-claudiu.beznea.uj@bp.renesas.com>
+	Thu, 31 Oct 2024 07:57:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mH8fEyBRDurRn+77l8Ve/QU0b5g1k2cs+DbToY1uwcVbBloCArxNuRillgNbWF8e47AfOk9+I+MWQ84wpKvPEMieTb5DMivQskNd2sPiS1f/nq0s+CqFPRGd4pQO2KuNOUHQEfQa1D/NKJSC2A2ibTohx4/ruLeanRIBhmzeewOle7zHZwHYlAOWpedU9OoIm0vC7ZBZLSk0QMEeKlIIPFXW5xwZFkGG+Mz1Z0Ae05jpfH1Bgxf0XmBYXoIF/YoONvLJnJ/ruNtL4PUFtzWTgwQaisFGfQkkurFVDXYQuFWezzyCZobkuvLooJgldfbzxYNfqrnwpcPa3JgRGXGnaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dam89QmvakeaUAPIUndfpOFHWi/Ev7M3/3Knm7kg2J0=;
+ b=aP6SSo/ga5bGWGHRGTBzywPG2zegGXRtrQqIXyHCwk+1EAJodIhuc2XFC7O+O2Zqg4iaw0gJTcniq8Np86hzs8VzpySHgSEUK3ixUQvwziD5Jd2K52A53kSXHM/P7PGDYH1AExmZsjf0fsi6yf6HO7zfPuwHlc6SYiGWVF0v0+DGSCciPHPtcK2GfpWcVblSrC3JfasmD3mb3zLJnv2gz33vt0fXrksplEeiD/xMRWg+LO3S1GIGyqQCqT+BofloAy+dx8UCmZ/1i/f6FRpxuC//+OsZuQI35hdTY5Ir5a1G2V9T3OX1BaQJtpMUqx1dQAgl4jVlpkj65Zctq0F2LQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dam89QmvakeaUAPIUndfpOFHWi/Ev7M3/3Knm7kg2J0=;
+ b=akIsEDW7I/4GgRItopU3lKfrr0galxUV2QlLmIb3lSWRrkt0XwsLIBMwXdPGuc3523Q7jvGjumiPSaEcqNLs2m4wo4SM8r9zkC+UuiRYGt+zW+sBuOjNAcY91o3UYiXOrO1DLibT1+YM4CcrRJgJH/YIR5F97LNRDo/qSmkJs8onBHygiAgOj2rmk1Jm/38XBZ98VNjCN97cx2Go7QVFQYJ8da8C0JkGbR5TdxVJZS9f/nHDXCTfdnj1axf7qAZ/aGp9Gsiz0XYrp7gLKH8wM7nGa52dNwZXXbc2nw50Z4fJSc5nwePzGhnjYT5DFksAOa3MWx+E32dzrQ6BleEolg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by DB9PR04MB8139.eurprd04.prod.outlook.com (2603:10a6:10:248::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Thu, 31 Oct
+ 2024 07:56:54 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.015; Thu, 31 Oct 2024
+ 07:56:54 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: l.stach@pengutronix.de,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/10] A bunch of changes to refine i.MX PCIe driver
+Date: Thu, 31 Oct 2024 16:06:45 +0800
+Message-Id: <20241031080655.3879139-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR04CA0184.apcprd04.prod.outlook.com
+ (2603:1096:4:14::22) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241030110120.332802-4-claudiu.beznea.uj@bp.renesas.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|DB9PR04MB8139:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4b6f965-5c86-405a-4243-08dcf9819610
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x3pVXA21CNNL4Hqn0vpGwtgc1grZrgVXPOEaikAJ2tnDz9I+UIDig6Rdj9zo?=
+ =?us-ascii?Q?si+czcyVqVIFElo/bIjBgtxh8ilk0OBYUt8Bm7fXOQzVLKLm0TGWDogknnrL?=
+ =?us-ascii?Q?d1Bn6q/V7zQ0K1s5qz1ho1z3kOJ4GRH+DJ2r2/tW/sx+twVZLQsATDIQPDNr?=
+ =?us-ascii?Q?Ra9YHQBotiCB3bPx9cd3/pCtZ0NTbYmxoHcVT1bi9CMSCSsl6dDqBKA6K5dI?=
+ =?us-ascii?Q?BFswZ3nGj5i+wnak6Z6P8cX16rybNRI3n0SBMIVUW7CLXSNFOPW8rjrgRdwj?=
+ =?us-ascii?Q?h6tgkkLw6MJ/6b5ueMjQutXdcidtg93HP3+5vsqYfWmN1jXXt1nHX6X4OwpT?=
+ =?us-ascii?Q?Mcb/D1M3/OZljKuO1IpPi/I29poOnk9NXuIYcz8JmMMn8ZLeAXFIKnrWt3gm?=
+ =?us-ascii?Q?7Fe6gPqeH90nbfSTV8pNBcowSQtwZLZ9aa3qRab9bycJXI2PXJnDVjQhdzz4?=
+ =?us-ascii?Q?pGeXERxafCYUL9311MrC/ZId1Ysc0jK9U67lp64pXwKUsXs73NqaWtPnz5ER?=
+ =?us-ascii?Q?bAJXIaW9+kjZpw2eKYwz7r8yZSOpV0qdPjY6F/p/dbE+e8XzuylsyvMTHe7d?=
+ =?us-ascii?Q?71FJWCvFiEHm/0Wyu+xwH2R8T95Nk9nBvSauMyp/4gKcIvev/cu2y4vWjUsU?=
+ =?us-ascii?Q?A48z1VZaEnsvtu0PL1SpsRr+vECNZjTmTIal+C6JSx+35zfwn+IVisqUZxbi?=
+ =?us-ascii?Q?9kPzKdLcgH15zJ8YXaD6DVuAFVO1DCU2xH5q8FRZl66+NgqFPBHowZGyd/dJ?=
+ =?us-ascii?Q?k5XY4rJtJ2MkKOZ6d1rjuEszQycT50FvVQ4DFEfuxqVeJEzTunmbpaCgmH3D?=
+ =?us-ascii?Q?Uf00jIUKdzSy3TjGMrTr146FEDx6OpByE+6bxdFtbsJqSd5H8u6bZgRkcOJz?=
+ =?us-ascii?Q?SpNjlD++kjMWqZh2K0kz8V2enf3YfqBCq/uZJlEA1PQUTkAwa4/gXbQhJAW0?=
+ =?us-ascii?Q?j+7pGZBziDmOoxTddEEBv6Juvsc/RnfjgkCJqRVuUE9O2HYyqgbiG2aXwNR5?=
+ =?us-ascii?Q?hBmmWsYfF9OHU2KQtABz9EErb0sRUNXWINb6O05iDGbkCfNcIrFGxRO0d7TT?=
+ =?us-ascii?Q?JiuhEWI/IK275qSJlcAzL1gITYSae4hAiJB7wGpG5UsgJzR5iY7TdVad2yjE?=
+ =?us-ascii?Q?aZSoijnfHHRVNklqemhYSbTG7eE3+HLCgkKPb5vdJmhQ8/TeauS+7YMjCesa?=
+ =?us-ascii?Q?CpZguj5CsaA9AtbF2616+KQqi9mRGNDcRNnGrexGq3laeKs7DGatlCzH+Ux1?=
+ =?us-ascii?Q?F922F+x91xuh6o9YXWIBgjkH4ByEgpyLAgHyaMDxEIkiukyUUv2XnGhFsrsD?=
+ =?us-ascii?Q?4/di37o+U1nGktYduN3jG5CLQ8s1c3THw+NWei1PYOoXnJHNcaOFUEbzaRoU?=
+ =?us-ascii?Q?N5vFG/IyRpDUexxm4Qc1XCRImhQD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uTygge5OU/4YEM3TwoOmN0VURKbOyYAk4UkRMKSa/kaeKee1Gbsfk3UNpIQm?=
+ =?us-ascii?Q?hT+xw6EN9fhwBJnh6dFFk4dgPCCS7S7/kbYaiit6qQGYuZoTZvaJ5r3cV8yq?=
+ =?us-ascii?Q?VWAXPJfKlguxU3sUrvHHDniAIQe+3IE7kQAIWMXJi2bL6K34Yv7MWDhdnXbk?=
+ =?us-ascii?Q?KYylkUbuiGPRU90eoet0vDHQfB9NYYnIdCiv0NI23WWwQBPa9vpnXPHl/puP?=
+ =?us-ascii?Q?UsXjGjAPWK19YOdRxhHzuHeUoKA9GG/K9YRmR8oa/gWDXdCfcpsUJU7Voe2w?=
+ =?us-ascii?Q?AO1aSyGmhe4Q8ZrU6tyed0yFx5ZkfOLNUWDYgriv9mIT2XTgeuV0B1JvpFG4?=
+ =?us-ascii?Q?kdFrAPt2uQKpDkWrsoxd3WsjIKTIXW5sFfMh4wFON2qAtyMfrHbE3Xwav7hb?=
+ =?us-ascii?Q?P0MebwjZNu1Gw3Q3IN6gwb5J4Zm6Bzil0hRGEkXnof+nXjVfuCRMjsaW87Gf?=
+ =?us-ascii?Q?sb1bYIiZuy/dJ6UlnwHMwxCwrH9PZZ0zHSETtHxLVF1zbnn8yd1GnEcW5xiW?=
+ =?us-ascii?Q?dr0RoSEBeE8lxi0FK6n5lKjsK5+Y64sbnx0rjJfovabRHP0m5IHfvP4mwoZe?=
+ =?us-ascii?Q?HtfqZpZ4OwneW4IrfC+Z2Grxivyc5TqSMrsZNlRjYCR4/qY5Mqs4BKrYW+Za?=
+ =?us-ascii?Q?pu3wMsbs0dwmjZJRtQfWat2OX8mZ86MaXq/PUScXK9zrJp7EwVrflxvJVOaQ?=
+ =?us-ascii?Q?N+YcnL1MpNRHWUWDutP+nOtuR9TxJ/eskhs9HNkvaPPBvQthqgGUYmTz0n95?=
+ =?us-ascii?Q?NQvvMhWbnI+PIloRTGY2QpdG3HY7D5czg8AEFJAv+0QqT9pzsSF53HKwc8yI?=
+ =?us-ascii?Q?ZPSQLaNLp6gC/+3CHt9rdLZGKS3CmV7uiY15RVjhlnYHaF/tC5lx+MPdbori?=
+ =?us-ascii?Q?bfYzXQ5R484snDvRcDELXtdDPd+vM/C/bsIeScDTlhXRHFJJMXI1UhgEnvjo?=
+ =?us-ascii?Q?bTfJkoPknPoCtV6jPVOzdMJUlFbmyt2E9wP56t4T3lpxELGwpJL+TqAAqFzZ?=
+ =?us-ascii?Q?qocACL3/0xkwpDRwBbrmpXdk1hF+Zhq82RBezDDdJaGD8mJw7ijVZqbxDiIl?=
+ =?us-ascii?Q?3fnUnBAio49Yb5lZeOFXoymrpdp2lOKKEzcF4bUYPht/dlnr3aU6jCwacILw?=
+ =?us-ascii?Q?k6Phxgo802Ryi0bxzFD3gtYGINLnclIFXkqOJJCtLKg0MUSEkPpuWIR9/VfH?=
+ =?us-ascii?Q?F6uKkX8AVYXeTPYKyxq+2obgty2QsgE5e95ovygOQlfMWM155bYNOmjvRcRK?=
+ =?us-ascii?Q?ihoE5ywE53IiUrxpNcIn6EvdENUXWvn+pX+EbYzQ/xB2XYiKD8s9iSeZJUaV?=
+ =?us-ascii?Q?tmJkma4ZuMEzx3KTof7aC9p7Uo1g5wGDnBpencrpo5Wdzi3HdAJvSYMlNAuk?=
+ =?us-ascii?Q?L6O8k5N9tIxe96vNXiOVlQi/dDSO7zeuaXvtD72s2V/BShqI2lsl6AkDvWEH?=
+ =?us-ascii?Q?pcEKkYU0sFSpkS7x+ytRi320w6LYJX5pNxnTDJjOBe+wrl8oqUIeE14pO4U6?=
+ =?us-ascii?Q?uPoxwlbzp9X2jGpU3BEGhJKnxCPI3F3W7AEdriUjSx3b60iGq17F8TBgqHt5?=
+ =?us-ascii?Q?SqlFrkZZXxKIUVnLJIY2cKjKyynkIKHoB2dd9l3E?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4b6f965-5c86-405a-4243-08dcf9819610
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 07:56:54.6508
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2o8RQwxJJJ31x8q6JpKkOayYXZRPLWPsHhcZ2928Eqa+0fXCr8V2k9HKa5UfFxwEw34mw5PfS5U/8a5aPXuZWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_004806_003485_5384EAD7 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20241031_005702_223149_10632188 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,134 +168,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 01:01:13PM +0200, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The VBATTB IP of the Renesas RZ/G3S SoC controls the clock that is used
-> by the RTC. The input to the VBATTB could be a 32KHz crystal
-> or an external clock device.
-> 
-> The HW block diagram for the clock generator is as follows:
-> 
->            +----------+ XC   `\
-> RTXIN  --->|          |----->| \       +----+  VBATTCLK
->            | 32K clock|      |  |----->|gate|----------->
->            | osc      | XBYP |  |      +----+
-> RTXOUT --->|          |----->| /
->            +----------+      ,
-> 
-> After discussions w/ Stephen Boyd the clock tree associated with this
-> hardware block was exported in Linux as:
-> 
-> vbattb-xtal
->    xbyp
->    xc
->       mux
->          vbattbclk
-> 
-> where:
-> - input-xtal is the input clock (connected to RTXIN, RTXOUT pins)
-> - xc, xbyp are mux inputs
-> - mux is the internal mux
-> - vbattclk is the gate clock that feeds in the end the RTC
-> 
-> to allow selecting the input of the MUX though assigned-clock DT
-> properties, using the already existing clock drivers and avoid adding
-> other DT properties. If the crystal is connected on RTXIN,
-> RTXOUT pins the XC will be selected as mux input. If an external clock
-> device is connected on RTXIN, RTXOUT pins the XBYP will be selected as
-> mux input.
-> 
-> The load capacitance of the internal crystal can be configured
-> with renesas,vbattb-load-nanofarads DT property.
-> 
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
-> 
-> Changes in v5:
-> - collected tags
-> 
-> Changes in v4:
-> - dropped oscillator from patch description
-> - s/on-board/internal in patch description
-> - updated dt-binding included file name in the driver as it has been
->   renamed to include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
-> - dropped the "_BIT" from driver macros
-> - used "quartz-load-femtofarads" dt property instead of adding a new one
-> - register the "vbattclk" as critical clock as this feeds the RTC counter
->   logic and it needs to stay on from the moment the RTC is configured;
->   along with it, added a comment to express this.
-> 
-> Changes in v3:
-> - updated patch description
-> - dropped dependency on MFD_RENESAS_VBATTB as now there is no
->   driver built under this flag
-> - dropped include/clk.h
-> - added pm_runtime and reset control support
-> - updated register offsets
-> - registered 4 clocks: xc, xbyp, mux, vbattclk using generic
->   clock drivers
-> - added MODULE_DEVICE_TABLE()
-> 
-> Changes in v2:
-> - updated patch description
-> - added vendor name in Kconfig flag
-> - used cleanup.h lock helpers
-> - dropped the MFD code
-> - updated registers offsets
-> - added vbattb_clk_update_bits() and used it where possible
-> - added vbattb_clk_need_bypass() to detect the bypass setup necessity
-> - changed the compatible and driver names
-> 
-> 
->  drivers/clk/renesas/Kconfig      |   4 +
->  drivers/clk/renesas/Makefile     |   1 +
->  drivers/clk/renesas/clk-vbattb.c | 205 +++++++++++++++++++++++++++++++
->  3 files changed, 210 insertions(+)
->  create mode 100644 drivers/clk/renesas/clk-vbattb.c
-> 
-> diff --git a/drivers/clk/renesas/Kconfig b/drivers/clk/renesas/Kconfig
-> index 76791a1c50ac..4e835a3f1ab4 100644
-> --- a/drivers/clk/renesas/Kconfig
-> +++ b/drivers/clk/renesas/Kconfig
-> @@ -237,6 +237,10 @@ config CLK_RZV2H
->  	bool "RZ/V2H(P) family clock support" if COMPILE_TEST
->  	select RESET_CONTROLLER
->  
-> +config CLK_RENESAS_VBATTB
-> +	bool "Renesas VBATTB clock controller"
+A bunch of changes to refine i.MX PCIe driver.
+- Add ref clock gate for i.MX95 PCIe.
+  The changes of clock part are here [1], and had been applied by Abel.
+  [1] https://lkml.org/lkml/2024/10/15/390
+- Clean i.MX PCIe driver by removing useless codes.
+  Patch #3 depends on dts changes. And the dts changes had been applied
+  by Shawn, there is no dependecy now.
+- Make core reset and enable_ref_clk symmetric for i.MX PCIe driver.
+- Use dwc common suspend resume method, and enable i.MX8MQ, i.MX8Q and
+  i.MX95 PCIe PM supports.
 
-tristate
+v5 changes:
+Thanks for Manivannan's review.
+- To avoid the DT compatibility on i.MX95, let to fetch i.MX95 PCIe clocks be
+  optinal in driver.
+- Add Fixes tags into #5 and #6 patches.
+- Split the clean up codes into #7.
+- Update the commit message in #10, and #8
+  "PCI: imx6: Use dwc common suspend resume method" patches.
 
-> +	select RESET_CONTROLLER
-> +
+v4 changes:
+It's my fault that I missing Manivannan in the reviewer list.
+I'm sorry about that.
+- Rebase to v6.12-rc3, and resolve the dtsi conflictions.
+  Add Manivannan into reviewer list.
 
-...
+v3 changes:
+- Update EP binding refer to comments provided by Krzysztof Kozlowski.
+  Thanks.
 
-> +
-> +static const struct of_device_id vbattb_clk_match[] = {
-> +	{ .compatible = "renesas,r9a08g045-vbattb" },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, vbattb_clk_match);
-> +
-> +static struct platform_driver vbattb_clk_driver = {
-> +	.driver		= {
-> +		.name	= "renesas-vbattb-clk",
-> +		.of_match_table = vbattb_clk_match,
-> +	},
-> +	.probe = vbattb_clk_probe,
-> +};
-> +module_platform_driver(vbattb_clk_driver);
+v2 changes:
+- Add the reasons why one more clock is added for i.MX95 PCIe in patch #1.
+- Add the "Reviewed-by: Frank Li <Frank.Li@nxp.com>" into patch #2, #4, #5,
+  #6, #8 and #9.
 
-That's a module, isn't it?
+[PATCH v5 01/10] dt-bindings: imx6q-pcie: Add ref clock for i.MX95
+[PATCH v5 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
+[PATCH v5 03/10] PCI: imx6: Fetch dbi2 and iATU base addesses from DT
+[PATCH v5 04/10] PCI: imx6: Correct controller_id generation logic
+[PATCH v5 05/10] PCI: imx6: Make core reset assertion deassertion
+[PATCH v5 06/10] PCI: imx6: Fix the missing reference clock disable
+[PATCH v5 07/10] PCI: imx6: Clean up codes by removing
+[PATCH v5 08/10] PCI: imx6: Use dwc common suspend resume method
+[PATCH v5 09/10] PCI: imx6: Add i.MX8MQ i.MX8Q and i.MX95 PCIe PM
+[PATCH v5 10/10] arm64: dts: imx95: Add ref clock for i.MX95 PCIe
 
-> +
-> +MODULE_DESCRIPTION("Renesas VBATTB Clock Driver");
-> +MODULE_AUTHOR("Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.39.2
-> 
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml |   4 +-
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml     |   1 +
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml        |  25 +++++++++--
+arch/arm64/boot/dts/freescale/imx95.dtsi                         |  18 ++++++--
+drivers/pci/controller/dwc/pci-imx6.c                            | 174 +++++++++++++++++++++++++++++-----------------------------------------------
+5 files changed, 104 insertions(+), 118 deletions(-)
+
 
