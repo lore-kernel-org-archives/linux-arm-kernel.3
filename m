@@ -4,72 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E3CD7495C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCB3D74959
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26Hc5JbZE9H+bruksdDbu2UeUsWpWpzQwfy9DOEAULY=; b=DEpIg4nrZTGoJlB4ei674uVaP+
-	wDXmZ9TZ+oEN38Rd6yRQdiufZhlrv35n0DbK60cX3Alvmz0TPLQ/Q+i6AcQp5A9qnVB/lae1p0KC9
-	PJjDbHfnGNmcNZYS2V52JIMbG8KnnBZ9FGwbtKndgZedKF0PN+v4KiAJ/APwmLfIpFF/AbSZfi0JD
-	udvNPnsrDLIW14WosMOsbV7bDf6f4VYOGUJwXs3i4HqVCY/jZeoBLUP6JTT8vT8rhfo2uwghMxlMR
-	Gio/fEZ72V+mF4ykkJtl0s+zihLtCl10N50yQkUujRGmMI1py8VbWUgn5W37Lg+WXJL0ay9ilOs5F
-	cUjDP+2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=; b=SG+GaIUu3KZN4L
+	QvAUgz/ecdFCjbF6eEr5NK9x2nzCuHao2uM3ZAmsC06DO+4ECbZ3+7Apv3gLW7RoYd3LoOGv+hJ6E
+	sU4yBt8od1Am6jceZ+bXlOdA1VTUCINBRa2+iEaw2zepfIHEap80rrtcsN/1PFy2tkT+pwhTWkTZL
+	nI7xABIGAXSU97cCkFIzFLoocyF3ARpcP5SyeF+1kbNmXGiP9xfEFkz/urec3gkY9hOEusIby2bZq
+	Q1SGleRgcwqgw/PYdoV3sZ7XOX6o46G1NaR5d+r89DLK6KymzbM/YZCY97wd27vjp4kLRRL6cZiuZ
+	yN8p7UjvvsCfKV5yWprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6VLO-00000003hA4-1ccN;
-	Thu, 31 Oct 2024 13:36:10 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1t6VN0-00000003hPS-2A8x;
+	Thu, 31 Oct 2024 13:37:50 +0000
+Received: from cheetah.ash.relay.mailchannels.net ([23.83.222.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6VIj-00000003gkV-1wek
+	id 1t6VL0-00000003h71-3Yr6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 13:33:29 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1730381603;
+	Thu, 31 Oct 2024 13:35:48 +0000
+X-Sender-Id: hostingeremail|x-authuser|arinc.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 6D89982EA9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 13:35:44 +0000 (UTC)
+Received: from uk-fast-smtpout9.hostinger.io (trex-13.trex.outbound.svc.cluster.local [100.103.175.141])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id A74A982C00
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 13:35:43 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1730381743; a=rsa-sha256;
+	cv=none;
+	b=miTxGnrZ9Jvp8YxNgAOtAiwYNRzqfUhHuc1jF0s1FXA3xAFYBK1310neFMjxhokazG9fxs
+	1lLrSSkIoIP1VLoCQXyMVKcO/VRUXrEyg+V90vHAiTNV+1rkYNmyS5T3FxdLFXdIpMBWI0
+	ypcFJ2VPbgln8L2FfnKjbraE2XxvZ6kSeq+tJ1km7ag1gQyT14Fw1KmLxZJEYxVJgJqd28
+	STDMwAkMAkGdNiW9pdyaJO0fH/DuuiGj/TDrV07VhPrpDl8IuELoY1/s0s17r30ry9hzmw
+	HafN03AaQ36rm9I3g3oOYmNxUBhZr1n9yVMT7XPQpXY5RhHuaPVVCBES4M48jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1730381743;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=26Hc5JbZE9H+bruksdDbu2UeUsWpWpzQwfy9DOEAULY=;
-	b=gagkVmBl6WnQSFOD69Xb95l+H7UmNHpjjkTYe6X/DWIDEh0GjAMD8+vmk0wUpfeDt8O2X1
-	CNA9S2Iv7ftRB/v4mTD6XiFPHvKIRx1ts35Dvt+P9eY67JNkhcFQZ5DXQvtYEg9IvGCpI7
-	a/0C2D0B6aFNWSo+gX/VichuLWITHmmbZrqy8LCFk+8dSe7HdrcpAXm07hPpl02NyGVtSB
-	yu4cSWIV57zaOxhosEs23HTdt2nPHkGUGxMsIiL4erY0LsD2WVrA5dzHE+DoQWnYDMM9xf
-	jq+1iL8avH7blQ39B7u5lOKChCBlbLUiNGUdImnUWh45ZCEF9bHLP9Go+o2+Rg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1730381603;
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=;
+	b=Xm9oiRyWzzju5a3XgqtIELxw0cwjqKIgMb5D9BJmEkHWFXxyyEMfPH/hlLLCNTZ6Kz1wzw
+	amhkdaFkR4an6VUpxxz9qmtq4LxCXgjymMgic+3T8cQVMK3KoVeZO4ZEfgoy742K6zDJwN
+	KjMCgzy95XDqrkOmwJejXX9nczQ9YjblAlOsiJbBxFDpdYfqhzrsKiBcVLviaBoCAiEJm2
+	09zCrUtWp6q4SZMW94JQqj1xzRW7TqmbcRhU2NbbfVyaSPf9aHFxkC66xTA/6NUy7iREMU
+	taRdsBNxuGTPn4B5gqYJ+VvxWEP8GTk4rjFdgbKtbITnTC2FC849+J8dFVaKpg==
+ARC-Authentication-Results: i=1;
+	rspamd-77cfccfb8-2nmmb;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=arinc.unal@arinc9.com
+X-Sender-Id: hostingeremail|x-authuser|arinc.unal@arinc9.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|arinc.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Sponge-Illegal: 56a423e32c90bee5_1730381744171_3147655827
+X-MC-Loop-Signature: 1730381744171:1689136246
+X-MC-Ingress-Time: 1730381744171
+Received: from uk-fast-smtpout9.hostinger.io (uk-fast-smtpout9.hostinger.io
+ [31.220.23.89])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.103.175.141 (trex/7.0.2);
+	Thu, 31 Oct 2024 13:35:44 +0000
+Message-ID: <d2776a19-5176-4ce4-9306-273ec7cda0a6@arinc9.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1730381741;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=26Hc5JbZE9H+bruksdDbu2UeUsWpWpzQwfy9DOEAULY=;
-	b=gv9/SICB709Be4Ze+KmpFVPyPGNclfHrUo9edWFPCMcONde8dWy5Dl1l4sJaeLKcfstvyH
-	5+/U5qFxfh6KU+Cg==
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, sudeep.holla@arm.com, peterz@infradead.org,
- mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- pierre.gondois@arm.com, dietmar.eggemann@arm.com
-Cc: yangyicong@hisilicon.com, linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
- gregkh@linuxfoundation.org, rafael@kernel.org,
- jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
- linuxarm@huawei.com, xuwei5@huawei.com, guohanjun@huawei.com
-Subject: Re: [PATCH v7 1/4] cpu/SMT: Provide a default
- topology_is_primary_thread()
-In-Reply-To: <488d8289-b538-01cb-5de7-d691f49c0d7b@huawei.com>
-References: <20241030125415.18994-1-yangyicong@huawei.com>
- <20241030125415.18994-2-yangyicong@huawei.com> <87ttcty71m.ffs@tglx>
- <488d8289-b538-01cb-5de7-d691f49c0d7b@huawei.com>
-Date: Thu, 31 Oct 2024 14:33:23 +0100
-Message-ID: <87frocwg64.ffs@tglx>
+	bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=;
+	b=XZ93d0EpvzYzHqsXjJbn3ujqnNXJ6i58bnSgHu+5Vj7mGJdKWQxTLBlxpOs+cHwM2O/Q9v
+	GcaVm8Ha71r5FMWxOUY13wv3gKPvU7eeGaSKfCmNZA9CT6PfodxwJoJryqNRu+eSwXld8e
+	naB/9gn4qYMM4MqG6oYcZBEuxVVIJvWpZ3rAI6LXHHCG3EmPMxYkUqT8cISnd4z1E2ynMI
+	R367UCo5Y0YcG2k+KtUa4K5dslTBvxIZpbjk7HzRAIVIl1YxHKgmPBDchgwnJKHGcUyk/2
+	+yWH3IjIhcuHu/8+/OAxAZBQEvg3ml71p3YbcKHVqNsjSsq3JvICJC85i/SBRw==
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: dsa: mt7530: Add TBF qdisc offload support
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20241030-mt7530-tc-offload-v1-1-f7eeffaf3d9e@kernel.org>
+ <a66528bd-37cb-46b2-90e5-37b10dfa9c78@arinc9.com>
+ <ZyM5CPfQYHc_Eolh@lore-desk>
+Content-Language: en-US
+From: =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>
+In-Reply-To: <ZyM5CPfQYHc_Eolh@lore-desk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Date: Thu, 31 Oct 2024 13:35:39 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=ZLWFmm7b c=1 sm=1 tr=0 ts=672387ad a=aGj/nXfi4qz2iMxz7h0kJQ==:117 a=aGj/nXfi4qz2iMxz7h0kJQ==:17 a=IkcTkHD0fZMA:10 a=M51BFTxLslgA:10 a=LYXDv5rQIZ189asnIbQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-CM-Envelope: MS4xfCfguuhZl9jj8TTlQ0BBGoVE4NCQHUKSMlnIjPUdQpeXnVRPJJIzY/PL1QnOcPwa9fEB9GoRLsmv6tlPeU1OUnQUyhOnssZj8K/3Jqf/y8j6GvIWThU9 6tNuW6h+uxTgOqQnS9GrVdB0FQUTsyIRpdf9//BYkD3Y1DubfPHmlWJBH+B9NeMUgXZdGlyryRWRtK1p2x2iUK/NRGLEK3MVHixjsSzi6BVTJ9oFC7Bymcnp jRStttJLp7W4KlV1OGSmqHM1vr5MxOGbxKKPaTQ7ErI60Tv2+vEYZDk+QXMAqzZs3VFeUUNxuydKwCv98dbMhdFdFr7Qv1xXDWlP/oncRWURJrBh7vhy77Qy 64jbcJph/3Lypl+8Y3Xh4pQE2igSoIQyyK3m6f18gUb1g/ReIlLXMvh59y8cXe6NYCgAnoALEgrX9Z0x5cYvsdqifryrK9jYPjYHJJud/dLJWyb2YnqswX8a SJD4+BitVvWpeMuzq+P3wQzAZMmFAHvJVGHmRb+QsSXW5re1D7GbTgoX3vvXBSnprKM5RQf8iSZBFbQPFN6OAHRH7vnkTf9C7mCu3gm7sNL9QlR8z6HEsCFV PwZ8JaOcXr/qVujUKBsqlZI5sl8aAwyrPfdJ99rCtAqMY5hU7GYRzGotqr6ZPHh7a0AWjGSpWfuVNJpPRRLjEcqRusArVz2Tj5uRtSBdqZP4ecpV96ueywVV 0zhzQK/Uzk8=
+X-AuthUser: arinc.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_063325_662746_6EFF4910 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20241031_063547_268893_0D71ACC4 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +125,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31 2024 at 20:17, Yicong Yang wrote:
-> On 2024/10/30 22:55, Thomas Gleixner wrote:
->>> +static inline bool topology_is_primary_thread(unsigned int cpu)
->>> +{
->>> +	/*
->>> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
->>> +	 * Architectures do have a special primary thread (e.g. x86) need
->>> +	 * to override this function. Otherwise just make the first thread
->>> +	 * in the SMT as the primary thread.
->>> +	 */
->>> +	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
->> 
->> How is that supposed to work? Assume both siblings are offline, then the
->> sibling mask is empty and you can't boot the CPU anymore.
->> 
->
-> For architectures' using arch_topology, topology_sibling_cpumask() will at least
-> contain the tested CPU itself. This is initialized in
-> drivers/base/arch_topology.c:reset_cpu_topology(). So it won't be
-> empty here.
+On 31/10/2024 11:00, Lorenzo Bianconi wrote:
+>> On 30/10/2024 22:29, Lorenzo Bianconi wrote:
+>>> Introduce port_setup_tc callback in mt7530 dsa driver in order to enable
+>>> dsa ports rate shaping via hw Token Bucket Filter (TBF) for hw switched
+>>> traffic. Enable hw TBF just for EN7581 SoC for the moment.
+>>
+>> Is this because you didn't test it on the other models? Let me know if
+>> that's the case and I'll test it.
+> 
+> yep, exactly. I have tested it just on EN7581 since I do not have any other
+> boards for testing at the moment. If you confirm it works on other SoCs too,
+> I can remove the limitation.
 
-Fair enough. Can you please expand the comment and say:
+Seems to be working fine on MT7530. As we have tested this on the oldest
+and newest models that use this switching IP, I'm going to assume it will
+work on the other models as well. You can remove the limitation. Also,
+please change MT7530_ERLCR_P and MT7530_GERLCR to MT753X_ERLCR_P and
+MT753X_GERLCR.
 
-     The sibling cpumask of a offline CPU contains always the CPU
-     itself.
+tc qdisc add dev lan4 root tbf rate 10mbit burst 10kb latency 50ms
 
-> Besides we don't need to check topology_is_primary_thread() at boot time:
-> -> cpu_up(cpu)
->      cpu_bootable()
->        if (cpu_smt_control == CPU_SMT_ENABLED &&
->            cpu_smt_thread_allowed(cpu)) // will always return true if !CONFIG_SMT_NUM_THREADS_DYNAMIC
->          return true; // we'll always return here and @cpu is always bootable
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec  5.88 MBytes  9.85 Mbits/sec    4             sender
+[  5]   0.00-5.00   sec  5.50 MBytes  9.23 Mbits/sec                  receiver
 
-cpu_smt_control is not guaranteed to have CPU_SMT_ENABLED state, so this
-argument is bogus.
+tc qdisc del dev lan4 root
 
-> Also tested fine in practice.
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec   469 MBytes   786 Mbits/sec    0             sender
+[  5]   0.00-5.00   sec   468 MBytes   785 Mbits/sec                  receiver
 
-I've heard that song before.
+tc qdisc add dev lan4 root tbf rate 11mbit burst 10kb latency 50ms
 
-What matters is not what you tested. What matters is whether the code is
-correct _and_ understandable.
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec  6.38 MBytes  10.7 Mbits/sec    6             sender
+[  5]   0.00-5.00   sec  6.00 MBytes  10.1 Mbits/sec                  receiver
 
-Thanks,
+tc qdisc del dev lan4 root
 
-        tglx
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec   467 MBytes   783 Mbits/sec    0             sender
+[  5]   0.00-5.00   sec   466 MBytes   783 Mbits/sec                  receiver
+
+tc qdisc add dev lan4 root tbf rate 11mbit burst 10kb latency 50ms
+tc qdisc replace dev lan4 root tbf rate 10mbit burst 10kb latency 50ms
+
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec  5.88 MBytes  9.85 Mbits/sec    4             sender
+[  5]   0.00-5.00   sec  5.50 MBytes  9.23 Mbits/sec                  receiver
+
+Arınç
 
