@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88172D767CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45ED4D767C8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEGfHgtlfX7KJ8goCZZIWVQ2MO0hMqzb+0kc1/rtAds=; b=I4FyQbFHscq/T4gzwuru5wQyJC
-	9jWgKvvJaJXsj/Wrk3g4zkXcUozDDZQcBUd2V1rujyvG7NwxVQ3DU79iytfuhjoMsb23Lxc6WCAyc
-	AA8TwJlqSLYIuqRIIMfMRaXUdZJpcSG6yGBi6Gws6g7VAZpOCzzGSYuTG93DvNevDsQbgdtWCXo5S
-	8OiG9dfBizmFw36170NWAqtJBQCkEJXGcrUh+IpO0dV0nEF/qDKKoCOCbKkzidyI9OFnlTjln94nz
-	ko2J26SqbM4XuoSH4o5EbsSGtvX6HaGTtH7pbLPlkDhDmTD1P9tMHLKZhC3XsfNj6vjSoqwrMpEuC
-	zuYOkiyQ==;
+	bh=0uE91EvADFs3gwphzm5NV4HUPWyqES8AFEI+rsFLeuQ=; b=HfwQiYLQucc+ve+6+dC6v1EghX
+	tVEYkNFPGXraTZNiA0SlWM1XJaF4tNUSduLjGTwMKU2xGANAJTSDC6/UJhGZorn1nRY2qdmxLT8zI
+	4QIgh8fr+GD34UqYYK7ox2jaiw/PflWNYojoKb2IfZ8Tm6oz5GNFVQswXd3+74bzCyGjEhqKptGav
+	6oT9oY7q9kVqPDfuXfM7Az0GcZUFQH8P0jfa4iK/KMcat5M7qpko0SSnRLBsmS/tNbRjC0OidYVGI
+	9Pl5NphenzvHPuN8/efLDpLQBai9oEKppe+9bL5CxsUI7AtgrsPgItqIyyUFcPS/EtWFvGfFw1m2Z
+	gxvZiWjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Vr0-00000003lLw-1c5R;
-	Thu, 31 Oct 2024 14:08:50 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
+	id 1t6VwH-00000003m1f-48iP;
+	Thu, 31 Oct 2024 14:14:17 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6VpJ-00000003l5s-0rWZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 14:07:06 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-a99ebb390a5so372663266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 07:07:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730383623; x=1730988423; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JEGfHgtlfX7KJ8goCZZIWVQ2MO0hMqzb+0kc1/rtAds=;
-        b=UHChBI7e19HsCwkk0Af87b8bRecA/RsAAX4/8uHXfttlIwW+K1UGNLCbFGcZ5rNfOM
-         49+P7mVJCJhMfCrMdtKKc0lAnL33pWMTDxazmRDcPTHNCFTBczC0iSORga5D0y6pO5ze
-         41rDvDNdFcz+d8u6G7cOWJmNsin5pT84op6Qtqk1ceZGuCNlm0G0/y8mt8Jntw2Efn3U
-         WY2If+YqOpjllPtLgU39+WqJ4c2fLh5e4/jsSufYFZjP0WSQt0JcjnDs+0xdWObyEmXB
-         9KvTRcThU+WW0lRYL1RweqZmHrqdNfEuVWnQCmtsqREcuPt+UyJz1d/ueSdbRiwYlVyo
-         o7gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730383623; x=1730988423;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JEGfHgtlfX7KJ8goCZZIWVQ2MO0hMqzb+0kc1/rtAds=;
-        b=w4bGQ6+iT2O0nWiNSvvTojDALdibu3EiPly+4HJtX3ee18zM3qinclfkizfXFtkGER
-         r9o2Qsf9K0y899CihSQJUEhtAw6N9VjxX6KGA6L9DcsH2YV1nhvxhRz9HfJ+Je7L8V55
-         MuTzjWKPcpFRvzzutqyb/qE3WCFzPrGiZRLflWtvF2HLV9nuJtVpYtjh09cB1IyQkepD
-         8il0bG5NModWhNUWG8uOLmBVqvzCpKlRSA2/sk9LMDUT1GstypURmAvIqC+eV+BgVAd0
-         yzEBTkK3Nr9LTcnpyLPd6r8n1pzPT1iIB06Qf0iUGGuLUFlhfYPI8EyaYtwn3bmqZf0D
-         bNTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXOdJ3RPC3hPObz+uPxxO3zjS34FYij6fdf9abYhMV/tZXLXeOEt7C2fs3uDqC8QKjmmBgZfr+pnj4Mp8/FMtXM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWc9YwgHrYiMpGGdBmi9RlD+u3JfrVBmCzcZpSsWrDzY97MBn0
-	7b5zszmcai3ygT2YWFdMG52lT15lldj3SUq12AL9UzodhXYCPzjTFOmAuSjAGEQ=
-X-Google-Smtp-Source: AGHT+IHIQ0tbBiD4S9T+SeWA7RT+bD93Ja4MEmDsZzDyFDQ+3MuTwIXh7kQIQRv4IgnjZ0byYOCkag==
-X-Received: by 2002:a17:907:3f87:b0:a9a:cea7:1294 with SMTP id a640c23a62f3a-a9e65436316mr9805566b.21.1730383622809;
-        Thu, 31 Oct 2024 07:07:02 -0700 (PDT)
-Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e564c5327sm72556866b.56.2024.10.31.07.07.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 07:07:02 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 31 Oct 2024 15:07:26 +0100
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
+	id 1t6Vub-00000003lli-0lzc;
+	Thu, 31 Oct 2024 14:12:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730383954; x=1761919954;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A3ycCJbTERSDiBEUqrjApoZ6yv8BBa5XIMOLrpaNGik=;
+  b=jFfjndfMKBcaoyEZdHQgqkeLNvMp8sHFDpuzo5t2eFntA5bAMkvCYaOk
+   6oBKjpdwd7jXPKGtQNARsYnNwLtA84vS09FlyM05V7ZigAbMysx3mPyDo
+   W01NAoWccKHGfjUH+YXfK5QGggJpgg9NvTa4MbTDJyX9pN/1y8n1YqHxR
+   4Y059WMJDUX/ajRHAb8/mIXTLnhHeY3R74AJeXLdkVAsInSUXnuBz/0GZ
+   hh3If0AO1uG8hznDxEnd916YqP8tlq0fak4aIKHlzJZT/ULz5sWxYREvl
+   yskV6B9xo0tbkSbBPxJpCohOVRF6Vcs/KCTarO7BPsDNF3K0g+a1wQaIo
+   g==;
+X-CSE-ConnectionGUID: j/2eGNKKRwCU+ZEOJ2gcDQ==
+X-CSE-MsgGUID: oMxC+wHuSE6tQkCkPCzhww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="52679359"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="52679359"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 07:12:32 -0700
+X-CSE-ConnectionGUID: CkchJSSSRamoQEo9lN09jQ==
+X-CSE-MsgGUID: OdlONHy/Q9mJuz9JbSaeHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,247,1725346800"; 
+   d="scan'208";a="86560456"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 31 Oct 2024 07:12:25 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t6VuR-000gH7-13;
+	Thu, 31 Oct 2024 14:12:23 +0000
+Date: Thu, 31 Oct 2024 22:12:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof Wilczynski <kw@linux.com>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
+	Bjorn Helgaas <helgaas@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -89,24 +82,18 @@ Cc: Andrea della Porta <andrea.porta@suse.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
 	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v3 02/12] dt-bindings: pinctrl: Add RaspberryPi RP1
- gpio/pinctrl/pinmux bindings
-Message-ID: <ZyOPHm7fl_vW7mAJ@apocalypse>
-References: <cover.1730123575.git.andrea.porta@suse.com>
- <9a02498e0fbc135dcbe94adc7fc2d743cf190fac.1730123575.git.andrea.porta@suse.com>
- <mjhopgkrjahaxydn3ckianqnvjn55kxrldulvjkpqivlz72uyi@57l5vhydpzc2>
+	Stefan Wahren <wahrenst@gmx.net>
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v3 07/12] clk: rp1: Add support for clocks provided by RP1
+Message-ID: <202410312134.vf7iY2Sz-lkp@intel.com>
+References: <c20e3d6d87c71691b149cdeeafc94009953346b2.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mjhopgkrjahaxydn3ckianqnvjn55kxrldulvjkpqivlz72uyi@57l5vhydpzc2>
+In-Reply-To: <c20e3d6d87c71691b149cdeeafc94009953346b2.1730123575.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_070705_274626_7456D165 
-X-CRM114-Status: GOOD (  32.78  )
+X-CRM114-CacheID: sfid-20241031_071233_315523_AA094DB0 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,154 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Andrea,
 
-On 08:26 Tue 29 Oct     , Krzysztof Kozlowski wrote:
-> On Mon, Oct 28, 2024 at 03:07:19PM +0100, Andrea della Porta wrote:
-> > Add device tree bindings for the gpio/pin/mux controller that is part of
-> > the RP1 multi function device, and relative entries in MAINTAINERS file.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  .../pinctrl/raspberrypi,rp1-gpio.yaml         | 163 ++++++++++++++++++
-> >  MAINTAINERS                                   |   2 +
-> >  2 files changed, 165 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > new file mode 100644
-> > index 000000000000..465a53a6d84f
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > @@ -0,0 +1,163 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pinctrl/raspberrypi,rp1-gpio.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: RaspberryPi RP1 GPIO/Pinconf/Pinmux Controller submodule
-> > +
-> > +maintainers:
-> > +  - Andrea della Porta <andrea.porta@suse.com>
-> > +
-> > +description:
-> > +  The RP1 chipset is a Multi Function Device containing, among other sub-peripherals,
-> > +  a gpio/pinconf/mux controller whose 54 pins are grouped into 3 banks. It works also
-> 
-> Please wrap code according to coding style (checkpatch is not a coding
-> style description but only a tool).
+kernel test robot noticed the following build errors:
 
-Ack.
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on char-misc/char-misc-testing char-misc/char-misc-next char-misc/char-misc-linus robh/for-next linus/master v6.12-rc5]
+[cannot apply to next-20241031]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> 
-> > +  as an interrupt controller for those gpios.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: raspberrypi,rp1-gpio
-> > +
-> > +  reg:
-> > +    maxItems: 3
-> > +    description: One reg specifier for each one of the 3 pin banks.
-> > +
-> > +  '#gpio-cells':
-> > +    description: The first cell is the pin number and the second cell is used
-> > +      to specify the flags (see include/dt-bindings/gpio/gpio.h).
-> > +    const: 2
-> > +
-> > +  gpio-controller: true
-> > +
-> > +  gpio-ranges:
-> > +    maxItems: 1
-> > +
-> > +  gpio-line-names:
-> > +    maxItems: 54
-> > +
-> > +  interrupts:
-> > +    maxItems: 3
-> > +    description: One interrupt specifier for each one of the 3 pin banks.
-> > +
-> > +  '#interrupt-cells':
-> > +    description:
-> > +      Specifies the Bank number [0, 1, 2] and Flags as defined in
-> > +      include/dt-bindings/interrupt-controller/irq.h.
-> > +    const: 2
-> > +
-> > +  interrupt-controller: true
-> > +
-> > +additionalProperties:
-> 
-> Not much improved. You are supposed to have here pattern, just like
-> other bindings. I asked for this last time.
-> 
-> And there are examples using it - almost all or most of pinctrl
-> bindings, including bindings having subnodes (but you do not use such
-> case here).
+url:    https://github.com/intel-lab-lkp/linux/commits/Andrea-della-Porta/dt-bindings-clock-Add-RaspberryPi-RP1-clock-bindings/20241028-221122
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/c20e3d6d87c71691b149cdeeafc94009953346b2.1730123575.git.andrea.porta%40suse.com
+patch subject: [PATCH v3 07/12] clk: rp1: Add support for clocks provided by RP1
+config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20241031/202410312134.vf7iY2Sz-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241031/202410312134.vf7iY2Sz-lkp@intel.com/reproduce)
 
-This is the same approach used in [1], which seems quite recent. I did't
-use pattern because I wouldn't really want to enforce a particular naming
-scheme. Subnodes are used, please see below. Since pinctrl.yaml explicitly
-says that there is no common binding but each device has its own, I
-thought that was reasonable choice. Should I enforce some common pattern,
-then?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410312134.vf7iY2Sz-lkp@intel.com/
 
-> 
-> > +  anyOf:
-> > +    - type: object
-> > +      additionalProperties: false
-> > +      allOf:
-> > +        - $ref: pincfg-node.yaml#
-> > +        - $ref: pinmux-node.yaml#
-> > +
-> > +      description:
-> > +        Pin controller client devices use pin configuration subnodes (children
-> > +        and grandchildren) for desired pin configuration.
-> > +        Client device subnodes use below standard properties.
-> > +
-> > +      properties:
-> > +        pins:
-> > +          description:
-> > +            A string (or list of strings) adhering to the pattern 'gpio[0-5][0-9]'
-> > +        function: true
-> > +        bias-disable: true
-> > +        bias-pull-down: true
-> > +        bias-pull-up: true
-> > +        slew-rate:
-> > +          description: 0 is slow slew rate, 1 is fast slew rate
-> > +          enum: [ 0, 1 ]
-> > +        drive-strength:
-> > +          enum: [ 2, 4, 8, 12 ]
-> > +
-> > +    - type: object
-> > +      additionalProperties:
-> > +        $ref: "#/additionalProperties/anyOf/0"
-> 
-> Your example does not use any subnodes, so this looks not needed.
+All errors (new ones prefixed by >>):
 
-The example has subnodes, as in the following excerpt from the example:
+   drivers/clk/clk-rp1.c: In function 'rp1_pll_set_rate':
+>> drivers/clk/clk-rp1.c:399:19: error: implicit declaration of function 'FIELD_PREP'; did you mean 'FIELD_SET'? [-Wimplicit-function-declaration]
+     399 |         (_reg) |= FIELD_PREP(mask, (_val));     \
+         |                   ^~~~~~~~~~
+   drivers/clk/clk-rp1.c:621:9: note: in expansion of macro 'FIELD_SET'
+     621 |         FIELD_SET(prim, PLL_PRIM_DIV1_MASK, prim_div1);
+         |         ^~~~~~~~~
 
-            rp1-uart0-14-15 {
-                pin_txd {
-                    function = "uart0";
-                    pins = "gpio14";
-                    bias-disable;
-                };
 
-                pin_rxd {
-                    function = "uart0";
-                    pins = "gpio15";
-                    bias-pull-up;
-                };
-            };
+vim +399 drivers/clk/clk-rp1.c
 
-Many thanks,
-Andrea
+   394	
+   395	#define FIELD_SET(_reg, _mask, _val)		\
+   396	do {						\
+   397		u32 mask = (_mask);			\
+   398		(_reg) &= ~mask;			\
+ > 399		(_reg) |= FIELD_PREP(mask, (_val));	\
+   400	} while (0)
+   401	
 
-[1] - Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-
-> 
-> Best regards,
-> Krzysztof
-> 
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
