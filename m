@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19617D767F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70709D767F4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqvY1FdkPNuOeLMP1wREhSeYVKoRbaudNYxdHd3X7Lw=; b=DDe6Y30slzWYeOaq7ghl8IUo8l
-	IFU/3Lr/OJ8Ssjso+IaaSQUo9RuDUlSblZNNfya9C7Wm0/sN0y6100wiLlZrNEnefHuP8w6+qCgZh
-	7sCXymrPpP+T/n259NkQ2L6o8452hEPZ/0T/Ek7XJ96BijaJSkjG3xeHG9mtXFwc47DSkh1IZbV+t
-	nFkY0Mzm9OjK0shjGOnGFE/ebY19sFQEJCP/dSQ9eAiyvgnfSsIWHFXY85JVQwkEqLEgJn0oZBMrw
-	s7/LCCojENVnBpfZWP3jXrZwekVrl/XtmsUH79nuG+ESfvvjA/1YUTHW571YbDPk3OhRGJqG0aN/G
-	TyBTxXPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EsWxAPwzhm+kE3jyBcpSUlB88WUSWYtu8shw9eN3f+I=; b=W1AvwTBxAS//R4pT258pAZ+76L
+	GpjQh3TFcfPaljzKWMVKbDNgtRGxAOWMQ3X4fWpkVexMB5D2ybissL17fLvw0GQC0J500SkkOgFYm
+	6a2j9WXlPzqSDQ19u7nbgod77K8HebXMFuvjQYUiDnIRrw8NrKByQLcqZb9GUP8xjgmqUtvp4e95t
+	6K4VQAR0Q0UxL0ipvjrmOpyktGhLfSLWBcfKQGuecDQBWIjFBl2rmId5r1SxHjL2vVK4JQcpoInDf
+	XoYd/aoFL/4kO2BFmPdsDCkawYDWR08HCb37BXSU71RkS4a0LzldnWX+jHggR/PPfKVFIlc/Ye0Gd
+	TLQ6Uorw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZAs-00000004NNc-2kOp;
-	Thu, 31 Oct 2024 17:41:34 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1t6ZFH-00000004OJV-25iJ;
+	Thu, 31 Oct 2024 17:46:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Z9D-00000004NCl-0x3P
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 17:39:52 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-37d58a51fa5so69372f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 10:39:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730396389; x=1731001189; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uqvY1FdkPNuOeLMP1wREhSeYVKoRbaudNYxdHd3X7Lw=;
-        b=Zfr73Es9/bfgnMWqbNJsuGTDesyKeLfZkp+jqtoeoOCJ1KUeyQf+UQH2S26tCYlvSF
-         rtrLs8G1pSBqr9ec8aoYTpd1kiQrKSRuE/NMn9gQRzhIL3Z7pTlcHUN5z8lXdW5Xc10I
-         FDZKdBiocbdPqdGBbWUdPxBaV/dqn7NOKLV16BwR5v9BqYPwmIZf6RYFEoklq+qgDtM2
-         E1fM5Si4pC37ueo22hIc3HvZjoof/JILMIXTiJjRbPmaeBjYFKtX4vCZrFwMWoUKBAHr
-         NPgUvv66CP6RQaMclk3MbyjXLAUWzOiRR5YnNdJV1xtO7S3V/1H1HVI2KbtNeWzRUHEP
-         w5Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730396389; x=1731001189;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uqvY1FdkPNuOeLMP1wREhSeYVKoRbaudNYxdHd3X7Lw=;
-        b=W57M3ZE3lIguRrWGG3OP6yP2b9ipxw5nG54YvE/kteQx/5q6GOZKas7h5gnt23M1Fo
-         l9u3I/XcFjaF5Y9SrS8ouTfGeS0xuFGELyUivUzTQm5+4TajG/m6u18mScwV+3NqlbtC
-         OMvxzmiA7M8Ha3hRwuMK4pi4cC/c+XEGQXoO4b79j54iFpMsI3Eo5qoBTJp0BpnuqOmx
-         CjEx2vUWIyfqncH0oKHCDhdoDuhi3+jAXDQKUkfGB4/HagCgdks/bDCUNgvWpguEDBt4
-         R/2jeH81rcHfsfFpx8lWaPc9zoh7QSoKZUxFjLVNft5r5W4SeUCmYe7Pwlmh865vGfWE
-         Lt0g==
-X-Forwarded-Encrypted: i=1; AJvYcCW1WPLpJEWFpEEVqyC7svUZFhXcv8zFAewlLfVmOmjALepdy61usXACunHL2b8TjUHkfKGAuXfEnZ+w4OD6zUo9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCiqMCqHHFWRvEehbq9d+Idw7Ks/bQS+jXc+sib7/SiUabaXH3
-	Dz1oJINxFMWehrAh+6mS8I46pXrXtEmEHKbhMs6D5pwQdMZ6ulh7EWrUfriV
-X-Google-Smtp-Source: AGHT+IHznYfg7XnUHFbFmXkwCN88TMBnRAuRY9xjBHvTnqdJucFrQwoWQFJgSXdcQGNoUalg4yBOhw==
-X-Received: by 2002:a05:600c:1c29:b0:431:50b9:fa81 with SMTP id 5b1f17b1804b1-4319ad368f4mr76025085e9.7.1730396389495;
-        Thu, 31 Oct 2024 10:39:49 -0700 (PDT)
-Received: from skbuf ([188.25.134.29])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d6983ddsm34746115e9.44.2024.10.31.10.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 10:39:48 -0700 (PDT)
-Date: Thu, 31 Oct 2024 19:39:46 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v7 4/8] net: stmmac: Introduce
- stmmac_fpe_supported()
-Message-ID: <20241031173946.53ydl7v7gihtdkx5@skbuf>
-References: <cover.1730376866.git.0x1207@gmail.com>
- <917f3868cdaf8ce1d45239117c3ea1c8c45ba56c.1730376866.git.0x1207@gmail.com>
+	id 1t6Y68-00000004C8v-2i8B;
+	Thu, 31 Oct 2024 16:32:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0789EA445D7;
+	Thu, 31 Oct 2024 16:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1296CC4AF64;
+	Thu, 31 Oct 2024 16:25:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730391916;
+	bh=kOzU4sWaB8Z+MTN4eCgKLw2cHRT9ijWtixUXAnUmrkU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=t32C6N4seQsMZw8/8OYb3lpIsZd1hFHGoeWntGbPiFss9dtTp1gVTsiP2D265EW4Y
+	 pFUaQMb9ggqGzl/Hj+1bAwpkBO0TnOgmmaolQCghuoQCKUEbDTLHdj1CaXIIYgeE9T
+	 QDN7L6PxJcU6+pYftOuAo6hyt/GPVMe8tquGeGMpEexn8WDeY9/+ciL3RK5gAJwNYw
+	 gc7g+Y+RfM/ogalnMFkaLs4INKpK0ECG97OL0ATNRKacfbPor71kKWEu5FYgGd7sHM
+	 y1td18RUcsJgC9kzu3t/lABQPwEuFGYMH6kVYMLITxCYJznPIrk8jhzGcQf8/gG1SJ
+	 WIayZYm7etZJg==
+From: Lee Jones <lee@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+ Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ jason-ch chen <Jason-ch.Chen@mediatek.com>, 
+ Chen Zhong <chen.zhong@mediatek.com>, Flora Fu <flora.fu@mediatek.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Yassine Oudjana <yassine.oudjana@gmail.com>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>, linux-input@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20241018081050.23592-5-y.oudjana@protonmail.com>
+References: <20241018081050.23592-1-y.oudjana@protonmail.com>
+ <20241018081050.23592-5-y.oudjana@protonmail.com>
+Subject: Re: (subset) [PATCH 4/6] mfd: mt6397: Add initial support for
+ MT6328
+Message-Id: <173039191181.1807167.5693334391101093863.b4-ty@kernel.org>
+Date: Thu, 31 Oct 2024 16:25:11 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <917f3868cdaf8ce1d45239117c3ea1c8c45ba56c.1730376866.git.0x1207@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_103951_290290_1EF7F5C2 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20241031_093236_754691_597AB80F 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 08:37:58PM +0800, Furong Xu wrote:
-> Call stmmac_fpe_supported() to check both HW capability and
-> driver capability to keep FPE as an optional implementation
-> for current and new MAC cores.
+On Fri, 18 Oct 2024 11:10:46 +0300, Yassine Oudjana wrote:
+> The MT6328 PMIC is commonly used with the MT6735 SoC. Add initial
+> support for this PMIC.
 > 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> ---
+> 
 
-Doesn't this commit actually fix a bug which patch 3/8 introduced?
-If priv->fpe_cfg.reg is NULL, we will dereference that after just
-patch 3/8 has been applied. During e.g. a git bisect landing in between,
-that crash might be seen by users.
+Applied, thanks!
 
-Thus, please reorder these 2 patches to prevent the bug from existing in
-the first place, and say in the commit message that the reason for the
-introduction of stmmac_fpe_supported() - initially simply implemented as
-a single "priv->dma_cap.fpesel" check - is to prevent unexpected
-behavior on unsupported FPE MACs during further refactoring.
+[4/6] mfd: mt6397: Add initial support for MT6328
+      commit: 6e31bb8d3a63bb2c3efab2fb6bcfccac677a4581
 
-Then, the patch "net: stmmac: Refactor FPE functions to generic version"
-should be the one which also reimplements stmmac_fpe_supported() to
-check for the presence of the newly added primitives.
+--
+Lee Jones [李琼斯]
+
 
