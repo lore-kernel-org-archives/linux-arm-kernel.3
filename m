@@ -4,151 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1DFE68956
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 06:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9E0E68958
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4hDM8/lJ8rslfz5ctGZSvNTS5su6yZOHQ3L+ShCrRjs=; b=o5cNIlbjhXp7xkeEEHimjvszFu
-	mnYgYxFdj0cbBbTlhqSntyHP9mmQxxaS7KxHSfwpKeRVi8lHbqSiqnnd9/DkqsOUKTVC92cmTGroe
-	9WggFoWorcjT5Z6zo2XTKolE3N3bUP8ThWMhal3GwpDuCcSPSECtbZ4kJj14EltSFC9G/sRGfVSIa
-	w4NX6hdGNPV5Dd2sbZ4hX8Z/907t6wl2/018mjqR/veMGGGIzYtESdA/W3EPfcQ73apt1JD+74Itk
-	HaplvJAuUDmrmWG8i9SBuduFUGQthPYKhm/dPWrtWMb5j3a9X4rgnEU3Vy3AsnO3tPe4H4zdiwJUj
-	Qq83QS5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zQ/ptAux2C1Ckr1rD4QjN4VarsdBjNZAcL2h8MuBPUM=; b=0W8uD9XHgf+ojT+8SmvFT8n9eE
+	25fCava7gQG4cTBV3IcUB6uxkW0U6qAWWDoGUXnJ275kSbOkgXA7X6Cy6jYQGs9+BuDAcgV4mgqb/
+	WEOTqH/KpeJQIZEXx4KMBgs/7os31i+t8J+Be1RS9YzigGpQPnd4oqiBH1mjy2sBEc7UriFaCqswR
+	XAGdsbl5W+5GvMHpn8Hv8GlzRLh+1NCQw2EpgXywDBsXxoRUQR61Ax6vlBOhvemI37LNP+StlQ0w3
+	/lQDqXSnESZ1M6NW4lHkgchdUKKg9ZlvCzcH5ZXERPe5+gOkeLqCeJ81I1h65T92yI1T3q1HxTUqD
+	9PBL38eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6P7o-00000002jhX-1ZEf;
-	Thu, 31 Oct 2024 06:57:44 +0000
-Received: from mail-am6eur05on20612.outbound.protection.outlook.com ([2a01:111:f403:2612::612] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1t6PF9-00000002l3A-2xlP;
+	Thu, 31 Oct 2024 07:05:19 +0000
+Received: from thales.epochal.quest ([51.222.15.28])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6P63-00000002jIL-32xY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 06:55:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i7oSshkPdIonnY/Taqs/Knrqt2ApQ6nIrxHNYrkxOgVfel6dUHerjKkZHyRYv2i1XDlahJ6iBwnhnB3d51zzHny5BEhoOT+3j+DcMdzsYp1Qt4v4W8obtdgPduV8YYQrL2kYNZ7gjqEUjT/bSd2yvqR7f+cbqAKlBkss6P0iCMIY7yNw0K8K5JAtgAuCsc76Rg67EJwc0A23Wami+FiyukT4ekfO6ToMaVEJi8uCsUC9UdVwi8XZQQpM99/MuqZu0yAh2DMijdKzd4qQrERVibVllGJvGFK4jA7xUTCe0BA05ONZfQ5HK/AKk7YaOJlXFETp909YGgQZ35jP0miMOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4hDM8/lJ8rslfz5ctGZSvNTS5su6yZOHQ3L+ShCrRjs=;
- b=uX3XKzGTtNiQ/lSNm2/F9KuUVNYitYuf5SRRKR8lwG6jdUGDbFOPkaw6YRegP/Cq0HxWZFjgJvut6nOgM63xoRsxfGsxGtF9aJ8IK7nGCjEEkL+qIbTu5lXJE7LEljvQbNrLPkypkoNdPdPPbv+kPbgkrn0ExE65NCCmmMQ/Kq/b8LN13nCS3SjZMM3kgH+uMvfFl2n6Dzv4R3zKeWNqMxWvDOgZdOMXIDbDR6Lpe2pu4qDkjZ8gkVPujK8x2/FiPo4SdNpApgF/g4AzRKS/B/esIRNb4t07Q4gaH9ncUnVZq4Ri0la+4EkFCfb5sSHBu4/MbRoBfdlmvQbSO/udIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4hDM8/lJ8rslfz5ctGZSvNTS5su6yZOHQ3L+ShCrRjs=;
- b=OS/QHxWbPOSNtcUUaQdPDg2qm+ReHFdtVnrk0cKRU/a3vgK8EVVA/UWS+ncCPPZdPu4Rrx2ahfDLzOsLEp+7jyuiLoXTcadRRMdsrPL5XmCaCaVNHBxKRNDvpQEIKv+mQFTgMyHdZfFL/flHCCAYjZ5sWAK8yJFMWrx30AP+aA5SIvDZrciOb/1JU0un58Qnyvwrk26hH2pWG0CiOp1H1oemmZeExhzdYdT8zuj052MLhavHc5RQQGpBhHg0CZHDI28QOtgszrL/XoQzDsu0m4hBeAcSwJmMxvDTXSRcU0jccaP4U9EAFXav/ExdvlEpZAV1qhJd7z2zgNxfG41hvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by AM9PR04MB8383.eurprd04.prod.outlook.com (2603:10a6:20b:3ed::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Thu, 31 Oct
- 2024 06:55:49 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49%5]) with mapi id 15.20.8093.027; Thu, 31 Oct 2024
- 06:55:48 +0000
-From: alice.guo@oss.nxp.com
-To: alexander.stein@ew.tq-group.com,
-	wahrenst@gmx.net,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
+	id 1t6PDK-00000002kSK-1I45;
+	Thu, 31 Oct 2024 07:03:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
+	s=default; t=1730358202;
+	bh=Os/2HAMdT7ukejERWbP8Yp9xeT6KhRyx6c3PHQ0aWEI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gFcok4reqrQOlsc4g8NJc8TQjsUCpiSjgreTa+ZqAuh+0YrcGbuXQKhT3igIykUz0
+	 Eyaa7RaLFbO0d3M+cyLw0koMvJB65WLf7zAAvvn9na/OckpChpJ+yOT5jPyZtL81V3
+	 6QCSsmeaxE3NGWGBTWEFz58w0JZ4oA8D/I6FVgL8fUuCDC7WuCwq2NNj1lQVcQWTa1
+	 B7GD6TnS7r9rR1d0QZpjI+WHNZ9zqPDWo/lXTdQqqNUpsRZZnu5R3vRhAEPt8PceTi
+	 zwPr9MSiYwBDoKZcXhm2geD6AYvXk67+k6b48fNrlTmFnRMgziER6z8+Q6qFzwpae8
+	 UtXapdSmZABlA==
+X-Virus-Scanned: by epochal.quest
+From: Cody Eksal <masterr3c0rd@epochal.quest>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Nishanth Menon <nm@ti.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	Parthiban <parthiban@linumiz.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Cody Eksal <masterr3c0rd@epochal.quest>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"alice.guo" <alice.guo@nxp.com>
-Subject: [PATCH v4] soc: imx: Add SoC device register for i.MX9
-Date: Thu, 31 Oct 2024 14:54:38 +0800
-Message-Id: <20241031065438.3912960-1-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0050.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::21) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 03/13] dt-bindings: phy: sun50i-a64: add a100 compatible
+Date: Thu, 31 Oct 2024 04:02:16 -0300
+Message-ID: <20241031070232.1793078-4-masterr3c0rd@epochal.quest>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|AM9PR04MB8383:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68e1421d-7cd1-4570-91a2-08dcf9790d13
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VBgBsx8IX1QAsSXVcfRTs6GU3EXMM05sF0wQf2Sloy1LklRrckEyz2ozL0ag?=
- =?us-ascii?Q?8uEDG3Jk7iP8nPRmx5smYejl1aJ/LwDs+1PIgt1Nn8tOP2OpbjMyvmmkWEZI?=
- =?us-ascii?Q?UcLw2r8JzG2o/GDvxZ+YIsv/5fjZl8ztqiExnp9DQ9dlNVjg39beVMLIxJ8X?=
- =?us-ascii?Q?CDNYoUqzyE/0m9LN5pwzb438GctJPiYa7fTXsT7oNmq6SFeHvnSbo0P6cL6h?=
- =?us-ascii?Q?pKiFsI1l7RBVU5Kr/ujJmYNUdp4oxwRvpQOdTMdaIlBuf9aedzoMetmIQRmf?=
- =?us-ascii?Q?kEApJrH60/e0WsvA1zW+4B7u5tHcg0p0rW8D6saIb1I1muaZTK3LqWSJS2dY?=
- =?us-ascii?Q?RcPwb7dBZ/pMulyODHb/xr8CTuksJQktmm7DlcmKpT66Ib0Pv0a7QauokiB8?=
- =?us-ascii?Q?70+qtJok2zzimHyIlIpntvPcs1HHzJQcJ6/2xsysvxFD9+6oPrjHtHPaVMjm?=
- =?us-ascii?Q?WqYX+bjjJgPss+DC9AeVG3+5HSJJcf5Wo0rqfRGM1oVQBbx7h2FkK+9mi2Cg?=
- =?us-ascii?Q?zlOwv/0ShMRGo7SB5qaJ0yKDExvouWA/+X2XzgEMAtzh3MJujlW8Dg7iNJ0y?=
- =?us-ascii?Q?WeQQpyfXWWSnGDgwmEwBMiTyWy1oH4bIicJ82ic38EkbEBquFdc6iX9dza0X?=
- =?us-ascii?Q?cRbhxlWl2KkmR+mpSnswe5j8Md+K4Hpddx5odRT+u0YmXoQzkZub2IEoAYwj?=
- =?us-ascii?Q?mAQFiRsttoay8C3vHsAxSfBUeelc0enYPo4SHiCOwJV3hcYhj1pmU3TYYfgV?=
- =?us-ascii?Q?O1KgUtj68hOCqTAgZyel9WyOrEs8ZFAbcsdCS5BwXW3W4Qosn0rwKotnuGvm?=
- =?us-ascii?Q?DRMyq9tSytQaRYLHpUb/4AB/K5pCTSCieBLuA1C6YfG9UVWAzjzH8ra/5GG3?=
- =?us-ascii?Q?ymQjvSccGxxBV3DdfrcogBQ/LsHmDt28ukxMor7wkI7L5YPR9iR7etOdJjHm?=
- =?us-ascii?Q?iimGvhNG53snpNBbCmz8wOHioSN4IpBljhPH7/LHmfZA+mKv4sMLOMorYz4f?=
- =?us-ascii?Q?orUEkK1o/atAicnNypnRto/gAh3NRBezrZZ0mouYfiKT5u/F/rHMNTj4mMgP?=
- =?us-ascii?Q?bPhKFNJMmok+7oAcHMQ1+ZtahIX9Wbfg7DeAXw8qPCYaIXNvRRLJvA3S0/To?=
- =?us-ascii?Q?/1DD/ViiV3AVpW1Wzd3nYhBKlnJ92700gDZxUTKol5AlGFv+MbreXQrlNzdF?=
- =?us-ascii?Q?+xqUQ3CxX1l9kiIqdM1FHSAljJGUW8O+KWo+7+qGPUMbUVt+6w6273MiPbUG?=
- =?us-ascii?Q?fSW30cxORe4t3SLhIEjQFjpgW+F04BuUwe82lcGUoL0tTSaI80F2AFzZVOCq?=
- =?us-ascii?Q?uxuHapa+rm36gFd6/oyEOwm8W+yBxqsWV3IfCPU7/hcKPwtZSKrLpvv6nNqv?=
- =?us-ascii?Q?CTDwU/o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rx1/1nc2xS71rl6hGZm9AzgLT8CkQw2LGk9MfZME7zRJIFIVf3lwQryjJVXM?=
- =?us-ascii?Q?tUF+wrtK2tBY+weaRNjBjvngeFO/chYpTDtFPpvAAk2w3gRAgqrxCPEObb1l?=
- =?us-ascii?Q?/mMsFbVePnNyxwBxSDJTFtrpsIi8ZoFeW49levXkw2SXZwiEhmRqXeZ6eBWB?=
- =?us-ascii?Q?X8MmfLscdu2k4iS/Epplmus6gb3EYy9/dhQEQIIis5VXgZIrp7t3d9HpmluY?=
- =?us-ascii?Q?esGygPJ5MOF00QCelmqYd/S3eSTUwkA4zG94gRH2RRDxo0k9qoWWh3gXHCl9?=
- =?us-ascii?Q?qpkcDPheZoBTljt8AjrkbvBV9Qf3C/v8YqMNrf5A40fSUu2B9nAVZdNlERFF?=
- =?us-ascii?Q?jgdeiVN4vEPHKCDPAr9xLZoyP2usbgpVuPXgGih6ymAI6T3+xBtn+cb3qHQL?=
- =?us-ascii?Q?faf3mjfa6tle9wvNzyrltqm/EFXYMDy/1F6xc23JLD1sf6PWuuLcTWNuIi7Q?=
- =?us-ascii?Q?QMWYjwy46FMJOzjfTz0hXKcQeZRfYUL3GImEl2CgeA34pnionxfWVKr+C/J6?=
- =?us-ascii?Q?M15ZmS6bm/BFCfE+XGdMz9qg2tmknSNZjY9lBwPto9yk8uHZkq1sr7X7JTR3?=
- =?us-ascii?Q?qrb9SfxRbEh3KYXMDw3MykPdBKD+r40RZpcKaiu61zUTiKtumTQUxoRPIQDk?=
- =?us-ascii?Q?s2IMxWgOw5tphT2O+0goeRy0RwiBAoCy/rAbN+kWRgEwgcQCOx90p+E2/3ko?=
- =?us-ascii?Q?Y2YY8DUjH6VltqtqNdg0CzFenSsuKrejPkBwcskxEnrENlKgQ57yXb44qPCt?=
- =?us-ascii?Q?WuigUPNph9hR02A44/YkDqumRU3DNoxLovloEtpOplrChQRgt6fZzgXaDeMX?=
- =?us-ascii?Q?VvwKNNqJJG8bhck4HI3WqwK3V+dhjQ7uacvhfuz9I5YcCYd30gokksuv87ME?=
- =?us-ascii?Q?c4LeRC0NAeBAy+kMW2c1jDcFYXNhrjPa4eSr3ZpXHzEzA/KQEK/spZVvAph6?=
- =?us-ascii?Q?Ah6MeDKhpaKuZjhteO/CclhJHy7drCcJUZaMF4aXG/uJvjBnrVjE1iyCo31N?=
- =?us-ascii?Q?NaXFK9OULoY7mm5D6NRTMgFUb3lkwmqO1GJnZeG6JX8UfOSKip7FtL99rFKT?=
- =?us-ascii?Q?BFjHcpp85zdy/1DlUmT4aIjR5zCVvJi9ofEvRaPZ+A2fEY2Fv1YkCZxzmt4D?=
- =?us-ascii?Q?R2N80Qm1AJyriwZ1Vq9qqqx+j914/X5NgIWOId4ljxWAw0kRwKAqLJNvd0/F?=
- =?us-ascii?Q?W9SSGPD6ZzG0oasK39pMNii/0s0yrMdJ2h4avIQpj2gLvnvxq3LJB3SQAvnB?=
- =?us-ascii?Q?fiLYvbHIOJRV09q/ie5oA9UbSARwTZiqNzpniltJMi3C76OoU62etM8DR9hk?=
- =?us-ascii?Q?phGezyv/v1l4KePaUzT2jeZuHqqegDWNC9WGG6EPFa+QCaKmLDiQ40xu6hYF?=
- =?us-ascii?Q?DAvMWfTzGxnAijMUfP+S72bAuL8QV2vaJahyXoSoHl8ck1qQ+3ChrgrxvctL?=
- =?us-ascii?Q?q9ZjFh5/1OyirtFXgAgF98rmng72o5ZrXGVGFiqd62Lk+IIlx/X/YWPHGJJW?=
- =?us-ascii?Q?cntbe17yA4uFT+kZoBn09MCAH3VT7cF9p4aB3hax4uKGb7gM2fWsCOz6OrlO?=
- =?us-ascii?Q?/3vNAGlTPfLhr4K8s+JSzrQartCpwrgtwLSB/cn2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68e1421d-7cd1-4570-91a2-08dcf9790d13
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 06:55:48.8776
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rgFOLBmlEviPFiUICwvr4t/kzWDbdk7Z9tYu18NCWVXggag8VU2PP0/WHUw3e1pu8N3OHxNXrRpTYVj48+Yw6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8383
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_235555_811803_8731448A 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20241031_000326_473148_4837102A 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,158 +89,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "alice.guo" <alice.guo@nxp.com>
+The USB PHY found in the A100 is similar to that found in the D1. Add a
+compatible for the A100.
 
-i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-which are provided by the corresponding ARM trusted firmware API. This
-patch intends to use SMC call to obtain these information and then
-register i.MX9 SoC as a device.
-
-Signed-off-by: alice.guo <alice.guo@nxp.com>
-Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
+Changes in V2:
+ - Update binding to allow using the D1 as a compatible.
 
-Changes for v2:
- - refine error log print
-Changes for v3:
- - return -EINVAL when arm_smccc_smc failed
- - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __func__, res.a0);
- - drop the pr_err in imx9_soc_init
- - free the memory in the reverse order of allocation
- - use of_match_node instead of of_machine_is_compatible
-Changes for v4:
- - fix the build warning: 'imx9_soc_match' defined but not used [-Wunused-const-variable=]
- - add Tested-by and Reviewed-by
+ .../bindings/phy/allwinner,sun50i-a64-usb-phy.yaml     | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
- drivers/soc/imx/Makefile   |   2 +-
- drivers/soc/imx/soc-imx9.c | 106 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 107 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/imx/soc-imx9.c
-
-diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-index 3ad321ca608a..ca6a5fa1618f 100644
---- a/drivers/soc/imx/Makefile
-+++ b/drivers/soc/imx/Makefile
-@@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
- obj-$(CONFIG_ARCH_MXC) += soc-imx.o
- endif
- obj-$(CONFIG_SOC_IMX8M) += soc-imx8m.o
--obj-$(CONFIG_SOC_IMX9) += imx93-src.o
-+obj-$(CONFIG_SOC_IMX9) += imx93-src.o soc-imx9.o
-diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-new file mode 100644
-index 000000000000..3d5df479d8c0
---- /dev/null
-+++ b/drivers/soc/imx/soc-imx9.c
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <linux/arm-smccc.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/sys_soc.h>
-+
-+#define IMX_SIP_GET_SOC_INFO	0xc2000006
-+#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-+#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-+#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-+
-+static int imx9_soc_device_register(void)
-+{
-+	struct soc_device_attribute *attr;
-+	struct arm_smccc_res res;
-+	struct soc_device *sdev;
-+	u32 soc_id, rev_major, rev_minor;
-+	u64 uid127_64, uid63_0;
-+	int err;
-+
-+	attr = kzalloc(sizeof(*attr), GFP_KERNEL);
-+	if (!attr)
-+		return -ENOMEM;
-+
-+	err = of_property_read_string(of_root, "model", &attr->machine);
-+	if (err) {
-+		pr_err("%s: missing model property: %d\n", __func__, err);
-+		goto attr;
-+	}
-+
-+	attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
-+
-+	/*
-+	 * Retrieve the soc id, rev & uid info:
-+	 * res.a1[31:16]: soc revision;
-+	 * res.a1[15:0]: soc id;
-+	 * res.a2: uid[127:64];
-+	 * res.a3: uid[63:0];
-+	 */
-+	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-+	if (res.a0 != SMCCC_RET_SUCCESS) {
-+		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-+		err = -EINVAL;
-+		goto family;
-+	}
-+
-+	soc_id = SOC_ID(res.a1);
-+	rev_major = SOC_REV_MAJOR(res.a1);
-+	rev_minor = SOC_REV_MINOR(res.a1);
-+
-+	attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-+	attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
-+
-+	uid127_64 = res.a2;
-+	uid63_0 = res.a3;
-+	attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
-+
-+	sdev = soc_device_register(attr);
-+	if (IS_ERR(sdev)) {
-+		err = PTR_ERR(sdev);
-+		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-+		goto serial_number;
-+	}
-+
-+	return 0;
-+
-+serial_number:
-+	kfree(attr->serial_number);
-+	kfree(attr->revision);
-+	kfree(attr->soc_id);
-+family:
-+	kfree(attr->family);
-+attr:
-+	kfree(attr);
-+	return err;
-+}
-+
-+static __maybe_unused const struct of_device_id imx9_soc_match[] = {
-+	{ .compatible = "fsl,imx93", },
-+	{ .compatible = "fsl,imx95", },
-+	{ }
-+};
-+
-+static int __init imx9_soc_init(void)
-+{
-+	int ret;
-+
-+	/* No match means it is not an i.MX 9 series SoC, do nothing. */
-+	if (!of_match_node(imx9_soc_match, of_root))
-+		return 0;
-+
-+	ret = imx9_soc_device_register();
-+
-+	return ret;
-+}
-+device_initcall(imx9_soc_init);
-+
-+MODULE_AUTHOR("NXP");
-+MODULE_DESCRIPTION("NXP i.MX9 SoC");
-+MODULE_LICENSE("GPL");
+diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+index f557feca9763..21209126ed00 100644
+--- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+@@ -15,9 +15,13 @@ properties:
+     const: 1
+ 
+   compatible:
+-    enum:
+-      - allwinner,sun20i-d1-usb-phy
+-      - allwinner,sun50i-a64-usb-phy
++    oneOf:
++      - enum:
++          - allwinner,sun20i-d1-usb-phy
++          - allwinner,sun50i-a64-usb-phy
++      - items:
++          - const: allwinner,sun50i-a100-usb-phy
++          - const: allwinner,sun20i-d1-usb-phy
+ 
+   reg:
+     items:
 -- 
-2.34.1
+2.47.0
 
 
