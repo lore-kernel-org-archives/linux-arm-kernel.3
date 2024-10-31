@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBF9D767DF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F675D767D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 16:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeXr3qZeoMT4Q41ImmT91MFFoZboqwE1uhQTfbeavwY=; b=TsIyGtTvW8+EhnWIC69w8mM4Fs
-	EM2Tl8i+4YOoPvdgeW6bInUr6X+SPe84fzWQEwSg32DcTNr6sAEsz4r1Oz8vny074TO/vBGdBJkle
-	exvUNxm5fwLPYxWqMZ9FMVEAlTIncXrAQ7s3ghzKBek0H/Cy7lUvGWii36GsjLdLx7dN0aGthp69H
-	edohkkRod+gv4aHup5jp0d9m+WezF6IEOCr/GMuvBI0a0jIxYX9X0wMmNbW1XC5RzD/i4hjzHHDuW
-	S8yIvGdVLWWSsDM6ISEL99XndyLjS8kmic2Zobzo0gsYyIDZwH7NZZrD7gnTnZCGOwIYVZM8fCzJ1
-	mS+wv4+w==;
+	bh=ynbTz0mAIREWX9DSd8GtfjNx2HTiawNK3KErRQuBlPE=; b=0YZI2dXCNO+2dS8z4YpZkqQDUK
+	GTEvPPXpczvPXIFSlnkWsN2IqOA1NfTaRaDBHz+odDD2d8ONcqhVNrbohUv/a38Uupz4GEr2PtO8g
+	T5ahdvFNbjOkgsBlbap+Lod5U/Eot/K/Xz6pGOmtwfwNNKZt0glEJTLOLsT8MzIzcFne9qIa0etP2
+	wRgenUFNNS0aO+1vM3ZWXy2qCzdKNulvof6z9M6axr19k/UxU5lwteyGr9M8tjWwBU05pf7vOYDDN
+	5ljjFqQx/f2KpvLHFEdslfFzMpz3RK7nA5w/IMEzVazlTT+SQPYzKp3X3CUXUdSfUurWjzp2SF+Xk
+	wV0bSJcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6XcP-000000047XA-2Z7q;
-	Thu, 31 Oct 2024 16:01:53 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1t6Xe2-000000047kJ-18ng;
+	Thu, 31 Oct 2024 16:03:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6X4t-00000003zGL-176Z
+	id 1t6X4t-00000003zFk-2ESp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 15:27:16 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43162cf1eaaso11531555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:27:14 -0700 (PDT)
+	Thu, 31 Oct 2024 15:27:17 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so9521465e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:27:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730388433; x=1730993233; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JeXr3qZeoMT4Q41ImmT91MFFoZboqwE1uhQTfbeavwY=;
-        b=cphGEWICxlV76pV+QgcnxfQU+KVkz/UZI/DW372IHNDGQmmHgoJ01Ldko7MO8tG0z2
-         DW11sHnRfI720Gco/eK9LW9W+Et1lEghz/Bac2bG+sQJ9G2IdfFaCjteq+pv/vNxTTHz
-         Or4Ib8WZso3bmZEInsZuqpyf5VYWerIbkR9siWYi6WOnb0/4j6CD5jVAA+ozZkG7lOnn
-         NUguNAexOUcnNC6n+T3E4xYweVN+7pPQCyynct8GPIUVJMGAkBWgfzI5u1IUH2+U9TTr
-         q72YcLv6iQbLvx22uM1u0qP/gbSHDdB7yTH2J7wxFZgGayQNXr+8+yADcLjpdcjGcul2
-         eCmA==
+        bh=ynbTz0mAIREWX9DSd8GtfjNx2HTiawNK3KErRQuBlPE=;
+        b=qiNNVRMMpPpwtWaIXsTP0lgr39RJ6YjpOo4m7crYNb5+Zd4rCX1pI+maUr3UirWiCC
+         8dj9hro5NLG0fO/vqh+VZeSmMtytB9FQ/wFNFV+VktnJ6dN3cmMXg4NH0NsoXCq59e0U
+         H9WccerEekUzAkSS3jct2i88D7hS592lRGT8TL3xlIvGbQO4ebpg1QTiVmzhco7fJKJs
+         8FCt88m9KxL2gUfORDdZDqkOEfcYJ1MS5ubyckds4ZI+mAZ5zl32dsXbnzN2ogaHvpTk
+         CX75m1vAuhJijeYtC4Ls0hpMQoaam/BQd/IeLCMgsBvMoCq8gPLTXZtShyGwBjZ1VWts
+         0Dtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1730388433; x=1730993233;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JeXr3qZeoMT4Q41ImmT91MFFoZboqwE1uhQTfbeavwY=;
-        b=SyoKRRAvqmMhoJrexKbJA+gbw7gg/wQOW3Ya/1UToJJ53U4tOpnR5AR/XKaF0ULVwt
-         KbK4TWvntsFYOpBpVIefKWQB9YNY+1ckBKc77RvQiT710vXHlJeBejxMEFyLuIyTOvvK
-         MapoGe1SrYiYF5KUeMXKniIjUliJ7A/czdov1+5dyQhRJxwVmsYQiUP7COCnfw2dvoxy
-         C33RguDTydY/8FhOuzuJNLdOm1QfVF4TgrjORNJ03lTRqDtuTav4BDt4Z4etoHBM/nts
-         6ML5gBONWqCzqRDWeoVOSgN2uTnYYjBLOM7hiPb8hO2mFdbrAEkuz3Jc/I+wRqJjedAP
-         bGjA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8NkjvgS5jlMRLXC7JSQ5EHWXfHLSo/2i9J3s2FVUqHXd4eKo7q8mSAjwEmazu9alT7hYhu89UiihO5koyAhKL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoUNx3onNkeQ7EmZQu/x32zV6Q4Lu21+/NHutBjCceep0R75hu
-	1RQm2cF9ivEo7HP/qBKxYQ4BMBBo2NOruGvG4jC/uo6KlTDQGlmG9a3lmrs2lxM=
-X-Google-Smtp-Source: AGHT+IHhKXOtU6WrItuY3dPBqGFS+YCmx9LFZrBINQBT3KJgqU4GZtX+T26R8f/M/h9JuV4y1clo3w==
-X-Received: by 2002:a05:600c:5486:b0:431:52cc:877a with SMTP id 5b1f17b1804b1-43283296066mr2433515e9.34.1730388433589;
-        Thu, 31 Oct 2024 08:27:13 -0700 (PDT)
+        bh=ynbTz0mAIREWX9DSd8GtfjNx2HTiawNK3KErRQuBlPE=;
+        b=ILqG3lYeTiVw5AgMCWuP2Pl/gRHjYHyvlznSuGvlT3fB3GQAx72qPxU97PSrxLwxqV
+         rg+JAuORPe2ow58NmTj7W0RKMwKJkR3OIvyRHxtr7t+mMT26CmIAJkz7zxyHHh0jMrhU
+         bOlO48wuuXp7GD5wZ91eUY2makrfaaccbvFUwIxSL0uqMR52yd2HTMgtUkj8TYwhAzwF
+         arkOZb1cCx5oKB8ouo/BVnFJycAiY2DnWQZFOnY1sEplbhaxBnHOck4tpjmPprusmgdU
+         a9qGJxbUzGqrSzM1wPTBU5K92nSlDjIvhw1V3X8f4PYjrjw31u0434qB1FTaWpY8NgUi
+         MtQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwZ+wf8l/D6mzF8NN+kG7uOYty1avUQrXkzggBSkfbNVU+F6Dt11Oxt46KkLY9ghDda4hYsiZxiSPMtCcpt+Ox@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkC3X5uKPWsAwfn5j71OgD7dpY6PYGmSeoku7uBmODtbfJ0DPw
+	03VHQ+KeWRKV/GlrVmk/74WHoVX5iXtHczhbB53q8iQhUcUHpSZu1kPey8OUsPI=
+X-Google-Smtp-Source: AGHT+IFcDhwM/WUu2euAD7a6xckHNF1ZKNFT/G1Ed5VwyVng6DCbMufZzTDi7LNt16ADIplrfYs/Hg==
+X-Received: by 2002:a05:600c:4f04:b0:42c:acb0:dda5 with SMTP id 5b1f17b1804b1-4327b6f9574mr33906995e9.1.1730388432612;
+        Thu, 31 Oct 2024 08:27:12 -0700 (PDT)
 Received: from [192.168.1.64] (2a02-8428-e55b-1101-1e41-304e-170b-482f.rev.sfr.net. [2a02:8428:e55b:1101:1e41:304e:170b:482f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf429sm29399475e9.12.2024.10.31.08.27.12
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf429sm29399475e9.12.2024.10.31.08.27.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 08:27:13 -0700 (PDT)
+        Thu, 31 Oct 2024 08:27:12 -0700 (PDT)
 From: Julien Stephan <jstephan@baylibre.com>
-Date: Thu, 31 Oct 2024 16:27:01 +0100
-Subject: [PATCH v2 06/15] iio: light: adux1020: write_event_config: use
- local variable for interrupt value
+Date: Thu, 31 Oct 2024 16:27:00 +0100
+Subject: [PATCH v2 05/15] iio: proximity: sx9500: simplify code in
+ write_event_config callback
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241031-iio-fix-write-event-config-signature-v2-6-2bcacbb517a2@baylibre.com>
+Message-Id: <20241031-iio-fix-write-event-config-signature-v2-5-2bcacbb517a2@baylibre.com>
 References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
 In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
 To: Mudit Sharma <muditsharma.info@gmail.com>, 
@@ -99,8 +99,8 @@ Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  Julien Stephan <jstephan@baylibre.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_082715_341780_36351642 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20241031_082715_618471_79B1866B 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,47 +115,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-state parameter is currently an int, but it is actually a boolean.
-iio_ev_state_store is actually using kstrtobool to check user input,
-then gives the converted boolean value to write_event_config.  The code
-in adux1020_write_event_config re-uses state parameter to store an
-integer value. To prepare for updating the write_event_config signature
-to use a boolean for state, introduce a new local int variable.
+iio_ev_state_store is actually using kstrtobool to check user
+input, then gives the converted boolean value to the write_event_config
+callback.
+
+Remove useless code in write_event_config callback.
 
 Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 ---
- drivers/iio/light/adux1020.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/iio/proximity/sx9500.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
-index 2e0170be077aef9aa194fab51afbb33aec02e513..db57d84da616b91add8c5d1aba08a73ce18c367e 100644
---- a/drivers/iio/light/adux1020.c
-+++ b/drivers/iio/light/adux1020.c
-@@ -505,7 +505,7 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
- 				       enum iio_event_direction dir, int state)
- {
- 	struct adux1020_data *data = iio_priv(indio_dev);
--	int ret, mask;
-+	int ret, mask, val;
+diff --git a/drivers/iio/proximity/sx9500.c b/drivers/iio/proximity/sx9500.c
+index 3f4eace05cfc6a4679fe82854dc059aa4a710d6d..e3da709424d5b2bd4e746df7adc4a4969e62f2a6 100644
+--- a/drivers/iio/proximity/sx9500.c
++++ b/drivers/iio/proximity/sx9500.c
+@@ -551,7 +551,7 @@ static int sx9500_write_event_config(struct iio_dev *indio_dev,
  
- 	mutex_lock(&data->lock);
+ 	mutex_lock(&data->mutex);
  
-@@ -526,12 +526,12 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
- 			mask = ADUX1020_PROX_OFF1_INT;
- 
- 		if (state)
--			state = 0;
-+			val = 0;
- 		else
--			state = mask;
-+			val = mask;
- 
- 		ret = regmap_update_bits(data->regmap, ADUX1020_REG_INT_MASK,
--					 mask, state);
-+					 mask, val);
+-	if (state == 1) {
++	if (state) {
+ 		ret = sx9500_inc_chan_users(data, chan->channel);
  		if (ret < 0)
- 			goto fail;
+ 			goto out_unlock;
+@@ -571,7 +571,7 @@ static int sx9500_write_event_config(struct iio_dev *indio_dev,
+ 	goto out_unlock;
  
+ out_undo_chan:
+-	if (state == 1)
++	if (state)
+ 		sx9500_dec_chan_users(data, chan->channel);
+ 	else
+ 		sx9500_inc_chan_users(data, chan->channel);
 
 -- 
 2.47.0
