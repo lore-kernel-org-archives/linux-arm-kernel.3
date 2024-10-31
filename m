@@ -4,85 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBBFDD767F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B0DD767F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqFVHirLhrZ+YFiVZAcY6QE2WmjZdVsPtC7OHYHxAto=; b=VDLIiz+fbFAAxbCzdG58FMoMvz
-	CbEUvYTgA6j+J8vtTqDbgDMD1jpDIvHgjzuxPVBOfEfO1Bc2kFRrNk3ItUnDpE8P5h0yn7Qyk4Gj6
-	6BO8hOKlvqbB0myYI1jzXnNPKrFvvWv+mPk7lCPbK+uLSm+ghp5gASNmaGu8ICRH4dg6Dfwxc8wnq
-	e0BcJbU0ECYwSp/Vxl9UfjVIIEj5tYsKIvX4xq7hnADPmE/TMSQMk33P2OyPR/BoB6EJUOM+40xor
-	G7Bi0JSuYV8kGDAtoVAq+Q1vX/a3b9tLY8Nzt8pHIpGfSiIQhrbTxxnyEGs3g1kn+ybtbQNeLIHQn
-	+kJbfqiw==;
+	bh=/oD+AKJlyJEVCLZ51S7bLcjJAoAwDqWXUZQpyydJTgM=; b=ajIUyHzorqpYiO3idSHfc/mNkC
+	5JsFfEnJA0Z4ImL9ZzaDcKHtQD7cF79EVC5OmN2l9BSVbmAtzzq0F+tFW1oPFFCvoOpx7qHeQdI+G
+	2INraZZXLU9AurgKpNpL3z5WEuRREuCMSJC8QL8j52MzPnE1/WWtl6LwGynXHJPPX/yzQSpr1JuoA
+	ph7YDFgNrXXs6VXDnfdaJ6flLM5dgBAYTomXo2kJV5+MiNkKPch7wzbpagLXfXZNf+aJDmXaFzZR+
+	6IP0TiYVMokErz83C0yKRA0aJcVtMJTngDGQuLqPe0uyrUzpFM7gEIr1RNtd7WNHvvIMuQWyUOCl8
+	ThLUKa5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZYu-00000004Roc-0qex;
-	Thu, 31 Oct 2024 18:06:24 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1t6ZcI-00000004Sdz-1pui;
+	Thu, 31 Oct 2024 18:09:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZVz-00000004RNa-2o7V
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 18:03:24 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-83ab21c26e5so46195439f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 11:03:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1730397802; x=1731002602; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AqFVHirLhrZ+YFiVZAcY6QE2WmjZdVsPtC7OHYHxAto=;
-        b=VZ2klssaY9QWJfxgAp2HD1fQ3khRJs/KHqKc5ZI6cB5964nAGUUs1mGH8/jK1hcNG0
-         nM6f6FyHhkJh8MhHu08gzaLSPFJFma7b671Rm8+rofD05AUcPaQvVH1oX9dJ8IgStRay
-         rLkyKwjrrGCR1HlUIvahkeEttMk4aMWnhHtz4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730397802; x=1731002602;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AqFVHirLhrZ+YFiVZAcY6QE2WmjZdVsPtC7OHYHxAto=;
-        b=uy0cESwePb+1Ub5M/TkL77gqbAk/jCRYkrSbsGL7n4/1XoUsXIZ4ucRfMI9XhrM5cc
-         SRbdf52qmEbga5PSheU3dUPDWzpMK2TgG8nccUtUj99NAR+cdiuSdeQOxpy9Y+91SimY
-         ggimQgYsk3+F3pUVSDqILKvw/ejak95Hul19/t+h/Zo1aqdb/UUNd/Z5n00gpdNNZTkK
-         vSH6uxxoFaHA6wue3kj64BoklUKlaA27YhDIvvg0F29W43WMo3XsgIIJTRn3UwcdFeBI
-         UU9FW3nukE8C8WqO753iIL0dfZ6vzOW7r8Rhx4Agr2rXejqclraklEn+M3+kINWysPqU
-         vyDA==
-X-Gm-Message-State: AOJu0YzsTlXagVdMTJZVVAs/22WGXYew5KXKNuijxAvtqTZPa2MzL3Fp
-	bgg/1Oc2Zxmrm5l/HnR67yjYVAzv4ZYnCj6UIYTPMmylJkT/nhGTprclKdSfMI4=
-X-Google-Smtp-Source: AGHT+IE/2tMHtynRkwFoEe4g15eKesbze+UUZeNHxyrhBMlrKzOpbj1uiD8+ldwsn9EFl+/fSR/Tfw==
-X-Received: by 2002:a05:6602:3fc5:b0:83a:db84:41a8 with SMTP id ca18e2360f4ac-83b1c4b4febmr2360267439f.10.1730397801962;
-        Thu, 31 Oct 2024 11:03:21 -0700 (PDT)
-Received: from [192.168.1.128] ([38.175.170.29])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4de0497785esm380041173.89.2024.10.31.11.03.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 31 Oct 2024 11:03:21 -0700 (PDT)
-Message-ID: <4703b646-3df4-43d3-ad75-92a38f5574c3@linuxfoundation.org>
-Date: Thu, 31 Oct 2024 12:03:20 -0600
+	id 1t6ZZN-00000004S2o-2sZ0;
+	Thu, 31 Oct 2024 18:06:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 188125C6804;
+	Thu, 31 Oct 2024 18:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0543C4CEC3;
+	Thu, 31 Oct 2024 18:06:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730398003;
+	bh=YkqIfnPERjVeH87UZlXaT+hldz57EXPt5sjBOEZ5BXU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FOEUJVJLUu6H2xlON07EWbFSB0wfhN+LW4nBPcjoTnjogS+0iruhEg6/6p3mpnKUP
+	 GvWzVNJTmMPgssV+2aVw07LlAPR+K0iXo4N1wBmByy5m9jaUo1aTGeUHdJd1gJBMMn
+	 AYAKWyOq75bLr3htU7bltxKRYMuF7E1L2aOvUGi7SRUuyk54vccgPKssqvXmgP+FLT
+	 cHElgWNiZ1PPHIp/v9qZzZrV97Wago/qGMD+92gdK8nRxK8VobXRBWtYJ8cEe2kklI
+	 8icE+fe84qrjpc8AECZjdlmbQFdZbPdWhMB3lZNAIBdY2fw701JOo0VILonbVz9Adh
+	 eiwhUo6kf4C8A==
+Message-ID: <e2ce5f7a-6ef5-45e0-9868-11eb9106ace8@kernel.org>
+Date: Thu, 31 Oct 2024 19:06:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 9/9] kselftest/arm64: Add 2024 dpISA extensions to
- hwcap test
-To: Mark Brown <broonie@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-kselftest@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>
-References: <20241030-arm64-2024-dpisa-v2-0-b6601a15d2a5@kernel.org>
- <20241030-arm64-2024-dpisa-v2-9-b6601a15d2a5@kernel.org>
+Subject: Re: [PATCH v3 03/12] dt-bindings: pci: Add common schema for devices
+ accessible through PCI BARs
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+ <2948fdf8ccf8d83f59814d0b2a85ce8dac938764.1730123575.git.andrea.porta@suse.com>
+ <fwqcbnub36fk4abmhbtuwsoxdlf64mx4v65mxahsxmiv2sz6er@bfjddapvb75v>
+ <ZyOSGgJ4zb31Posb@apocalypse>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20241030-arm64-2024-dpisa-v2-9-b6601a15d2a5@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <ZyOSGgJ4zb31Posb@apocalypse>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_110323_759682_14E9BD58 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20241031_110653_851969_8418C66D 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +140,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/30/24 09:34, Mark Brown wrote:
-> We don't actually test SIGILL generation for CMPBR since the need to
-> branch makes it a pain to generate and the SIGILL detection would be
-> unreliable anyway. Since this should be very unusual we provide a stub
-> function rather than supporting a missing function.
+On 31/10/2024 15:20, Andrea della Porta wrote:
+> Hi Krzysztof,
 > 
-> The sigill functions aren't well sorted in the file so the ordering is a
-> bit random.
-This is talking about the one that isn't implemented. Can you add
-a sentence or two about the ones that this patch adds?
-
+> On 08:28 Tue 29 Oct     , Krzysztof Kozlowski wrote:
+>> On Mon, Oct 28, 2024 at 03:07:20PM +0100, Andrea della Porta wrote:
+>>> Common YAML schema for devices that exports internal peripherals through
+>>> PCI BARs. The BARs are exposed as simple-buses through which the
+>>> peripherals can be accessed.
+>>>
+>>> This is not intended to be used as a standalone binding, but should be
+>>> included by device specific bindings.
+>>>
+>>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+>>> ---
+>>>  .../devicetree/bindings/pci/pci-ep-bus.yaml   | 58 +++++++++++++++++++
+>>>  MAINTAINERS                                   |  1 +
+>>>  2 files changed, 59 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml b/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+>>> new file mode 100644
+>>> index 000000000000..e532621f226b
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+>>> @@ -0,0 +1,58 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/pci/pci-ep-bus.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Common Properties for PCI MFD Endpoints with Peripherals Addressable from BARs
+>>> +
+>>> +maintainers:
+>>> +  - Andrea della Porta  <andrea.porta@suse.com>
+>>> +
+>>> +description:
+>>> +  Define a generic node representing a PCI endpoint which contains several sub-
+>>> +  peripherals. The peripherals can be accessed through one or more BARs.
+>>> +  This common schema is intended to be referenced from device tree bindings, and
+>>
+>> Please wrap code according to coding style (checkpatch is not a coding
+>> style description but only a tool).
+>>
+>> Above applies to all places here and other bindings.
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->   tools/testing/selftests/arm64/abi/hwcap.c | 273 +++++++++++++++++++++++++++++-
->   1 file changed, 271 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-> index f2d6007a2b983eba77a880ec7e614396a6cb1377..beb380bc09b0d07269a85a60e5d2977367740473 100644
-> --- a/tools/testing/selftests/arm64/abi/hwcap.c
-> +++ b/tools/testing/selftests/arm64/abi/hwcap.c
-> @@ -46,6 +46,12 @@ static void atomics_sigill(void)
->   	asm volatile(".inst 0xb82003ff" : : : );
->   }
->   
-> +static void cmpbr_sigill(void)
-> +{
-> +	/* Not implemented, too complicated and unreliable anyway */
-> +}
-> +
+> Are you referring to the title being longer than 80 column here, right?
+> Because the description seems correctly wrapped... or should I add a
+> newline for each paragraph?
 
-You anticpated "not used" messages looks like. I see that
-this gets called - thanks.
+Hmm, I might commented on wrong description. I just looked at patch #2
+and there it's passed 80.
 
-Looks good to me. With the change to change log
+Here the title is not wrapped.
 
-Reviewed-by: Shuah Khan <skhan@linuxfoundation.org>
+Best regards,
+Krzysztof
 
-thanks,
--- Shuah
 
