@@ -4,55 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A1FD767D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F08D767D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fr+EOZK/x0+/oHbug9qtyJ7kXfBPzyIO/cOV92KsetM=; b=GJ1f8hanxKcMvBA4eumn9RQIQM
-	wUJtg4xex9NprCxo2hbbUo2PVk4ir6guJVgWubH4ROYyts5RTbhy4QnPijZOXrbZVbVJxqBMnHzcv
-	z1wR4MJL1KMoo+tbxLzjM1ysikqJWcQDQJzkJHZqSP4vsBPHbUJSvwBvOjnsgknRg52bUQCoUi1Vn
-	hOHrbmDDK9FcbhOMmc9xqNuPS+tcKBzjDcYN2oonrjbdQz4FntP0MMQW9UAf1TISU87XnKhrOYDHT
-	jvBS1InfSF1ssTEzr169zEvRmvBJGmL6YWHDfIdgB1UgkovB3QecD9f49Apa8QCn/lFwDtctGIL6j
-	J5lWZ7Ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HYPyEheVCd3/44Em1ccl4AsWHUWbv3/V1AL6z17MpJI=; b=d3t/GQUOeekrQ/ThfFWm1G7Z4X
+	sl5ndn0csgir3gUyXn8L0ZfNGSnYBhgDNB3/kH3RAeGyVf+bvGNFM+2xFiJ3w5v22X/2ScUU1Rpra
+	/klcsAaxOThQyV92GDX97funhlLKZVeYt6/Sn+2jvx8OOu1n6vTiNcFISOdBAUcQMYsqShR/JZD5Q
+	iaGl0/hlD4kwRPSwbp9B64iYhs1bOEtgXRMrRAvQv6z1G9eXBL7VkqK71TKKYeNGeSbwq+OytRKQV
+	51fXmMToGhbYrLgB+mCm6irmXbGMw4lQ/7qEEZZAyOHqHF+GnQJRQSY0XA85+MoM/75JtKncUb0DF
+	4w2Lvi9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6WJr-00000003q46-2e4M;
-	Thu, 31 Oct 2024 14:38:42 +0000
-Received: from inva021.nxp.com ([92.121.34.21])
+	id 1t6WRy-00000003rR0-1Ag8;
+	Thu, 31 Oct 2024 14:47:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6WB8-00000003oNh-3Yiv
+	id 1t6VDf-00000003g5z-28dy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 14:29:41 +0000
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 28DF8201059;
-	Thu, 31 Oct 2024 15:29:30 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 10B5320102E;
-	Thu, 31 Oct 2024 15:29:30 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 719D52033F;
-	Thu, 31 Oct 2024 15:29:29 +0100 (CET)
-Date: Thu, 31 Oct 2024 15:29:30 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v4 13/16] dt-bindings: net: Add DT bindings for DWMAC on
- NXP S32G/R SoCs
-Message-ID: <ZyOUSgMo0chsGnCa@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
- <20241028-upstream_s32cc_gmac-v4-13-03618f10e3e2@oss.nxp.com>
- <erg5zzxgy45ucqv2nq3fkcv4sr7cxqzxz6ejdikafwfpgkkmse@7eigsyq245lu>
+	Thu, 31 Oct 2024 13:28:13 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49V8wa8n012693;
+	Thu, 31 Oct 2024 13:28:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=HYPyEheVCd3/44Em1ccl4A
+	sWHUWbv3/V1AL6z17MpJI=; b=ShC/Oru3nCGgfjLl8XxG+5AKJtYOQebn1H1mj/
+	IcniMz3v6H8gVq+Y7aQiRCc3Cay3HGR2VzGDq5iHDHSv26aDlmdutMdZstWjZdRQ
+	asLNMJ4+LJm9IHe+/nR7XtZU/vp5RZvbWLW8g0QmkJbI5T3UqCGywTAAHF5P9w4/
+	r+54pbqccwgjH1PN+GVTNG9c5ktgICZgMB/SPY7DqSrN0dowfh/zt8kavQwO0qo3
+	66RNLEQz5PsygPXt3TIAlSGNZToC452JfWp4BodxEMHbV0T+5aa6z1d8qcj3350K
+	2vADsbmdeFbBR87Ltxd7x//dE/Fn4X9CfCIV++ATnhWJ/ftQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42k6rpp2s7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Oct 2024 13:28:03 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49VDS2bd011463
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Oct 2024 13:28:02 GMT
+Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 31 Oct 2024 06:27:58 -0700
+From: Sibi Sankar <quic_sibis@quicinc.com>
+To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
+        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
+        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
+        <pierre.gondois@arm.com>, <vincent.guittot@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <quic_mdtipton@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, Sibi Sankar <quic_sibis@quicinc.com>
+Subject: [PATCH V7 0/2] firmware: arm_scmi: Register and handle limits change notification
+Date: Thu, 31 Oct 2024 18:57:43 +0530
+Message-ID: <20241031132745.3765612-1-quic_sibis@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <erg5zzxgy45ucqv2nq3fkcv4sr7cxqzxz6ejdikafwfpgkkmse@7eigsyq245lu>
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 4kRobGDffxY4F2YTXoJC1AdPEKLQ7cca
+X-Proofpoint-GUID: 4kRobGDffxY4F2YTXoJC1AdPEKLQ7cca
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
+ clxscore=1015 mlxlogscore=930 priorityscore=1501 spamscore=0
+ malwarescore=0 impostorscore=0 mlxscore=0 lowpriorityscore=0
+ suspectscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2409260000 definitions=main-2410310102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_072939_175301_63CE2C65 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20241031_062811_644076_532BB445 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,84 +95,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 08:12:37AM +0100, Krzysztof Kozlowski wrote:
-> On Mon, Oct 28, 2024 at 09:24:55PM +0100, Jan Petrous (OSS) wrote:
-> > Add basic description for DWMAC ethernet IP on NXP S32G2xx, S32G3xx
-> > and S32R45 automotive series SoCs.
-> > 
-> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> > ---
-> >  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 98 ++++++++++++++++++++++
-> >  .../devicetree/bindings/net/snps,dwmac.yaml        |  3 +
-> >  2 files changed, 101 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> > new file mode 100644
-> > index 000000000000..b11ba3bc4c52
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-> > @@ -0,0 +1,98 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +# Copyright 2021-2024 NXP
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP S32G2xx/S32G3xx/S32R45 GMAC ethernet controller
-> > +
-> > +maintainers:
-> > +  - Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> > +
-> > +description:
-> > +  This device is a Synopsys DWC IP, integrated on NXP S32G/R SoCs.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - nxp,s32g2-dwmac
-> > +      - nxp,s32g3-dwmac
-> > +      - nxp,s32r-dwmac
-> 
-> Your driver says these are fully compatible, why this is not expressed
-> here?
-> 
+This series registers for scmi limits change notifications to determine
+the throttled frequency and apply HW pressure.
 
-They are compatible on current stage of driver implementation, the
-RGMII interface has no any difference. But later there shall be
-added SGMII and this provides some level of difference, at least
-from max-speed POV.
+V7:
+* Add a new request instead of reusing the max_freq_req [Vincent]
+* Use the non-devm versions of register/unregister of event notifier
+  since we have to remove them when the cpus get removed anyway.
+* Add new patch to fix cleanup path on boost enablement failure.
 
-The S32R allows higher speed (2G5) on SGMII, but S32G2/S32G3 has
-1G as maximum.
+V6:
+* Unregister the notifier in the exit path to make sure
+  the cpus work across suspend/resume cycles.
 
-> > +
-> > +  reg:
-> > +    items:
-> > +      - description: Main GMAC registers
-> > +      - description: GMAC PHY mode control register
-> >
-> 
-> ...
-> 
-> > +        mdio {
-> > +          #address-cells = <1>;
-> > +          #size-cells = <0>;
-> > +          compatible = "snps,dwmac-mdio";
-> > +
-> > +          phy0: ethernet-phy@0 {
-> > +              reg = <0>;
-> 
-> Messed indentation. Keep it consistent.
-> 
+V5:
+* Drop patch 1 and use pm_qos to update constraints. [Vincent]
+* Use sdev instead of cpu_dev in dev_warn. [Christian]
+* Pass sdev directly through private data. [Christian]
+* Dropping Rb's for now.
 
-Thanks. I will fix it in v5.
+V4:
+* Use EXPORT_SYMBOL_GPL instead. [Trilok]
+* Use a interim variable to show the khz calc. [Lukasz]
+* Use driver_data to pass on the handle and scmi_dev instead of using
+  global variables. Dropped Lukasz's Rb due to adding these minor
+  changes.
 
-> Best regards,
-> Krzysztof
-> 
+V3:
+* Sanitize range_max received from the notifier. [Pierre]
+* Drop patches 1/2 from v2. [Cristian]
+* Update commit message in patch 2.
+
+V2:
+* Rename opp_xlate -> freq_xlate [Viresh]
+* Export cpufreq_update_pressure and use it directly [Lukasz]
+
+Sibi Sankar (2):
+  cpufreq: scmi: Fix cleanup path when boost enablement fails
+  cpufreq: scmi: Register for limit change notifications
+
+ drivers/cpufreq/scmi-cpufreq.c | 55 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+
+-- 
+2.34.1
+
 
