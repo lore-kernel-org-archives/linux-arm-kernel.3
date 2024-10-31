@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70709D767F4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C023D767F4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 17:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsWxAPwzhm+kE3jyBcpSUlB88WUSWYtu8shw9eN3f+I=; b=W1AvwTBxAS//R4pT258pAZ+76L
-	GpjQh3TFcfPaljzKWMVKbDNgtRGxAOWMQ3X4fWpkVexMB5D2ybissL17fLvw0GQC0J500SkkOgFYm
-	6a2j9WXlPzqSDQ19u7nbgod77K8HebXMFuvjQYUiDnIRrw8NrKByQLcqZb9GUP8xjgmqUtvp4e95t
-	6K4VQAR0Q0UxL0ipvjrmOpyktGhLfSLWBcfKQGuecDQBWIjFBl2rmId5r1SxHjL2vVK4JQcpoInDf
-	XoYd/aoFL/4kO2BFmPdsDCkawYDWR08HCb37BXSU71RkS4a0LzldnWX+jHggR/PPfKVFIlc/Ye0Gd
-	TLQ6Uorw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlScI6BMj9v+ZYOlhvuhIGYwM4dh8cs8g3LQKzCL/0o=; b=GWEhJDUk/E+u/GdxI1kTE4dhII
+	/eawmzpghRHFBbB8ZTyyHQ+RfL66rphqZ6W0xpt23KFRNnCimly+S+qxviOP+PrJnnp+n7PGzpRTB
+	j67MNqlNUsy0soY4LI4pHaeCbzQZH5YshZ8ubPrjbhiSQFgGibo2WaI5/+9WewsaRdgiGwBfTd+W6
+	OwYmezw+v4g2BsLMieSuJie4JUwiDSZBPYrzVvCeNJb3J8K/vqYLzAvwis60Isf7AjmRHEH8KD+oV
+	Agmnv8MGltFNuqNkXSQgck8Nlvv5wPK7h/bCRKF4L8eYSDJPtW1RV8BvcZV0fEQR+ovN033VpPFRx
+	Y8Uj1akw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZFH-00000004OJV-25iJ;
-	Thu, 31 Oct 2024 17:46:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6ZQi-00000004QKk-3c5W;
+	Thu, 31 Oct 2024 17:57:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Y68-00000004C8v-2i8B;
-	Thu, 31 Oct 2024 16:32:38 +0000
+	id 1t6ZP0-00000004PsY-0BpU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Oct 2024 17:56:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0789EA445D7;
-	Thu, 31 Oct 2024 16:30:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1296CC4AF64;
-	Thu, 31 Oct 2024 16:25:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA64C5C6523;
+	Thu, 31 Oct 2024 17:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44559C4CECF;
+	Thu, 31 Oct 2024 17:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730391916;
-	bh=kOzU4sWaB8Z+MTN4eCgKLw2cHRT9ijWtixUXAnUmrkU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=t32C6N4seQsMZw8/8OYb3lpIsZd1hFHGoeWntGbPiFss9dtTp1gVTsiP2D265EW4Y
-	 pFUaQMb9ggqGzl/Hj+1bAwpkBO0TnOgmmaolQCghuoQCKUEbDTLHdj1CaXIIYgeE9T
-	 QDN7L6PxJcU6+pYftOuAo6hyt/GPVMe8tquGeGMpEexn8WDeY9/+ciL3RK5gAJwNYw
-	 gc7g+Y+RfM/ogalnMFkaLs4INKpK0ECG97OL0ATNRKacfbPor71kKWEu5FYgGd7sHM
-	 y1td18RUcsJgC9kzu3t/lABQPwEuFGYMH6kVYMLITxCYJznPIrk8jhzGcQf8/gG1SJ
-	 WIayZYm7etZJg==
-From: Lee Jones <lee@kernel.org>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
- Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- jason-ch chen <Jason-ch.Chen@mediatek.com>, 
- Chen Zhong <chen.zhong@mediatek.com>, Flora Fu <flora.fu@mediatek.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Yassine Oudjana <yassine.oudjana@gmail.com>
-Cc: Yassine Oudjana <y.oudjana@protonmail.com>, linux-input@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20241018081050.23592-5-y.oudjana@protonmail.com>
-References: <20241018081050.23592-1-y.oudjana@protonmail.com>
- <20241018081050.23592-5-y.oudjana@protonmail.com>
-Subject: Re: (subset) [PATCH 4/6] mfd: mt6397: Add initial support for
- MT6328
-Message-Id: <173039191181.1807167.5693334391101093863.b4-ty@kernel.org>
-Date: Thu, 31 Oct 2024 16:25:11 +0000
+	s=k20201202; t=1730397351;
+	bh=8V6WjMhYQJzxJvg3MLaPnkfaVd6CgTlD3ZztDnYEu9o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CxtrIMd6GFd5JCnKFrOG0o96UCIqyBOjIWTKEsP07bxOm6iGUOD2J9FTAMRqzbhX2
+	 3DfjU6PUIr7BmaiNIjuAXM7vpuKhyCUUaRoP+hcKy147qnuAgh9OQhj3ehKNJAQlXh
+	 6mioUzvUYm+O56TEaHCP8kq+RlC9kvL1Hf3mpDNE5rjwlw6Ex4kRhhuH34GBvsBri9
+	 OdROmHap8VNYG9QHigfFciOFzgse+iy54UOlv0CeUOVawSbEtshyAEmTb3FH2VvDAR
+	 uvP+RacWFQbU0av2qHBrNXjtiVEqtzxGEtyqR/mcR6rLNyap7ehYSNj331qUWj5iiq
+	 r2qaA9ni5LMfQ==
+Date: Thu, 31 Oct 2024 18:55:43 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Pavel Machek <pavel@ucw.cz>, Len Brown <len.brown@intel.com>,
+	Shuah Khan <shuah@kernel.org>, David Woodhouse <dwmw@amazon.co.uk>,
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Francesco Lavra <francescolavra.fl@gmail.com>,
+	Miguel Luis <miguel.luis@oracle.com>
+Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for
+ hibernate
+Message-ID: <ZyPEn4qhaYyYqrzk@lpieralisi>
+References: <20241019172459.2241939-1-dwmw2@infradead.org>
+ <20241019172459.2241939-7-dwmw2@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241019172459.2241939-7-dwmw2@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_093236_754691_597AB80F 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_105610_192348_A212A95D 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +88,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Oct 2024 11:10:46 +0300, Yassine Oudjana wrote:
-> The MT6328 PMIC is commonly used with the MT6735 SoC. Add initial
-> support for this PMIC.
+On Sat, Oct 19, 2024 at 06:15:47PM +0100, David Woodhouse wrote:
+
+[...]
+
+> +#ifdef CONFIG_HIBERNATION
+> +static int psci_sys_hibernate(struct sys_off_data *data)
+> +{
+> +	/*
+> +	 * Zero is an acceptable alternative to PSCI_1_3_OFF_TYPE_HIBERNATE_OFF
+> +	 * and is supported by hypervisors implementing an earlier version
+> +	 * of the pSCI v1.3 spec.
+> +	 */
+
+It is obvious but with this patch applied a host kernel would start executing
+SYSTEM_OFF2 too if supported in firmware to hibernate, it is not a hypervisor
+only code path.
+
+Related to that: is it now always safe to override
+
+commit 60c0d45a7f7a ("efi/arm64: use UEFI for system reset and poweroff")
+
+for hibernation ? It is not very clear to me why overriding PSCI for
+poweroff was the right thing to do - tried to follow that patch history but
+the question remains (it is related to UpdateCapsule() but I don't know
+how that applies to the hibernation use case).
+
+As far as type == 0 is concerned:
+
+I don't think the issue here is really PSCI 1.3 ALP1 vs PSCI 1.3 Issue
+F.b, by reading the PSCI 1.3 Issue F.b specs (note (e) page 96) it looks
+like there was a (superseded) PSCI 1.3 Issue F (september 2024 -
+superseded in October 2024 - just reading the specs timeline) that allowed an
+implementation to return INVALID_PARAMETERS if type == 0 - there should
+be no firwmare out there that followed it - it was short lived.
+
+Lorenzo
+
+> +	if (system_entering_hibernation())
+> +		invoke_psci_fn(PSCI_FN_NATIVE(1_3, SYSTEM_OFF2),
+> +			       0 /*PSCI_1_3_OFF_TYPE_HIBERNATE_OFF*/, 0, 0);
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static int __init psci_hibernate_init(void)
+> +{
+> +	if (psci_system_off2_hibernate_supported) {
+> +		/* Higher priority than EFI shutdown, but only for hibernate */
+> +		register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
+> +					 SYS_OFF_PRIO_FIRMWARE + 2,
+> +					 psci_sys_hibernate, NULL);
+> +	}
+> +	return 0;
+> +}
+> +subsys_initcall(psci_hibernate_init);
+> +#endif
+> +
+>  static int psci_features(u32 psci_func_id)
+>  {
+>  	return invoke_psci_fn(PSCI_1_0_FN_PSCI_FEATURES,
+> @@ -364,6 +392,7 @@ static const struct {
+>  	PSCI_ID_NATIVE(1_1, SYSTEM_RESET2),
+>  	PSCI_ID(1_1, MEM_PROTECT),
+>  	PSCI_ID_NATIVE(1_1, MEM_PROTECT_CHECK_RANGE),
+> +	PSCI_ID_NATIVE(1_3, SYSTEM_OFF2),
+>  };
+>  
+>  static int psci_debugfs_read(struct seq_file *s, void *data)
+> @@ -525,6 +554,18 @@ static void __init psci_init_system_reset2(void)
+>  		psci_system_reset2_supported = true;
+>  }
+>  
+> +static void __init psci_init_system_off2(void)
+> +{
+> +	int ret;
+> +
+> +	ret = psci_features(PSCI_FN_NATIVE(1_3, SYSTEM_OFF2));
+> +	if (ret < 0)
+> +		return;
+> +
+> +	if (ret & PSCI_1_3_OFF_TYPE_HIBERNATE_OFF)
+> +		psci_system_off2_hibernate_supported = true;
+> +}
+> +
+>  static void __init psci_init_system_suspend(void)
+>  {
+>  	int ret;
+> @@ -655,6 +696,7 @@ static int __init psci_probe(void)
+>  		psci_init_cpu_suspend();
+>  		psci_init_system_suspend();
+>  		psci_init_system_reset2();
+> +		psci_init_system_off2();
+>  		kvm_init_hyp_services();
+>  	}
+>  
+> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
+> index e35829d36039..1f87aa01ba44 100644
+> --- a/kernel/power/hibernate.c
+> +++ b/kernel/power/hibernate.c
+> @@ -685,8 +685,11 @@ static void power_down(void)
+>  		}
+>  		fallthrough;
+>  	case HIBERNATION_SHUTDOWN:
+> -		if (kernel_can_power_off())
+> +		if (kernel_can_power_off()) {
+> +			entering_platform_hibernation = true;
+>  			kernel_power_off();
+> +			entering_platform_hibernation = false;
+> +		}
+>  		break;
+>  	}
+>  	kernel_halt();
+> -- 
+> 2.44.0
 > 
-> 
-
-Applied, thanks!
-
-[4/6] mfd: mt6397: Add initial support for MT6328
-      commit: 6e31bb8d3a63bb2c3efab2fb6bcfccac677a4581
-
---
-Lee Jones [李琼斯]
-
 
