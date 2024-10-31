@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B5CD767D8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5C1D767DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDFhDh5Dsbm8CIbr2G+SLWNj/UFzwMVxtyg6fSq7G5I=; b=iC9YCy0vXkQyJU1csKvgpc0X52
-	IgyZmiB9KYkMwsNrNyxxzXr4jCYvvnTUY0Sw/Sp7hc6uASLkXsnSUcmjhA/r72hcjGWETiHdgawvZ
-	2FWmH9644X1/LbVzvMaRQVTcaN9VsQ9GSeGMgQBBmhLnw8j6H5MJQXBnU/cyALb1PEjrNCxWdLjd9
-	HMqgBy0EhSidunRYXUttdxaTNuSOAspHMRn+HLPxftNoFPLAoQ/V1MN2GdzihGY9TT/MMoO8bdaS6
-	YbWgIkqYBQrZTdCBGXYzooxD89fevk3OQErcBgdyElvRYGd/DGvJ+3Br/NY47hUNkwUI5TgKBNsVi
-	aiShEMdA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iCEaeDborMpChWpG+09oPpilTDmpwNme21uFJErGw+s=; b=ipeZyGf5XzA5E7WSGvQfoubwsj
+	jMzrOiUQ7zL+X26h42A2zSalaBBDOmHYuUbAWZ7KovK+eBG7S+wwXuDwDOyr5cAYYAOUbjxh1j7ek
+	Ub23bFPCURkcUpieA02GOL2+VlxbduBC+SMfTotoqoG4EP55l4Lbw9wvvzQqkOlH7iQdasYqL3Mh4
+	B4jY31yUCVStA7S+da0i2anaommnMMBryHb0o8ounwa7HZhvZ3v+t89yfYiyuljMZuz+B1ZhvPgax
+	4teZxoN2EfK0PYmLi7x/ufJ2TGr7U3aOGzHdE1kveuU87Ey1q9nJ66+DTmAfKluL7HBm3jx6cK6E2
+	t5sKt7Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Wgt-00000003u52-19Hn;
-	Thu, 31 Oct 2024 15:02:27 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1t6WiV-00000003uXa-2y0y;
+	Thu, 31 Oct 2024 15:04:07 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6WfA-00000003tav-18t7
+	id 1t6Wf9-00000003tag-2srz
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 31 Oct 2024 15:00:42 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4316cce103dso10967535e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:00:39 -0700 (PDT)
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4315c1c7392so8601475e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:00:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730386838; x=1730991638; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EDFhDh5Dsbm8CIbr2G+SLWNj/UFzwMVxtyg6fSq7G5I=;
-        b=r9JJJ6HQ7wMbETuuON352p9mb6aatVwu+emmzEgfG8CpCM0T4PLlpFhzeBK3Jt3JvK
-         Rus8N/P1ttRelwwNx6c8uPRKLa5VDGNm3c7kJX4b6wrGOj4nanSLFKgSk6hJCV8cZjrz
-         R9cgizk6lw9+o6KakPjO6W+CWe2Y/F5fIksr+PCixUyhSyKBafUVK+uwI3ATZkKgy8X5
-         r6zPJXsyAqB6SKqERHjTMOKQklqTFKDcmmvCi6aRtIEuJNj0ChzBTYQ1NUX45omS48pK
-         aHhE3wCKMc/pJmwgVkWu+nfSAFFM9/LO+Q2sAKLucuyFEEBIMG9hmo2y/mb5dc3vzmK8
-         A9mQ==
+        d=linaro.org; s=google; t=1730386837; x=1730991637; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iCEaeDborMpChWpG+09oPpilTDmpwNme21uFJErGw+s=;
+        b=vfU5KNjFAs/iKEzVzbJIy00NTd6KrIF4DRNq7L6F2doEuUGuTpmdWAXFuDk0M8vwoC
+         cpHoVRK5dyZoT4+UeRn7/tv02caYyip9V883OKwT+/0y7tlEm63wLgNH8qUvfx8anu/C
+         ChjG2Sc4AQKDPIH+iG9rWPFTB4bGS642X7ZH79rUCSym3nY7Lxx7KeH67UD3knrDTYdX
+         wkR0Ztx5Q58iy4f0Q5CcfTlD5bIjAL6vPKFhEuucr2xuVKKspaGvez9l90XgBauNAmw+
+         d2zOtj/4chSi11hI7IMD/yxQv/hZlcscQxq4EUC3BeTKADjFiwJ+lNXxrl4iKKIVlIQ0
+         JTOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730386838; x=1730991638;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EDFhDh5Dsbm8CIbr2G+SLWNj/UFzwMVxtyg6fSq7G5I=;
-        b=Pa4eR9YntKwAZkC3UE7WTv0ncXMek95baAqB/aDw3zoIMhMJaRJPoNtw2GHb6MDMP0
-         WBdQ8qVvN/5iDWwzQA/SEXEEDQs+At5Xr5YKOouBAZrBRqFGwhWr/VOg6kYwkUlx4rTp
-         9r6D7l8SbU29HGWFUDhbyxKwt44gsN6FD/y+fxqNsKt/oOTqfX88A7uqV3yvg4Tjqxf7
-         XvPVvgks6WevCLkg9/CKQ3kJThjAW+ZIowi84NjCCVpxETextStlYDG7LyG7REfoPG/y
-         ec6XOFQb4njy7gzTYT0Lsy7kSoe7EIEAsQC1gD2Dl/K2PzSg2cAsSivVmW3kaEd7GqSG
-         w54Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVhEpp4KiKwjyuw/1WZxHWqgUzl3tCI98vRbBRDiB3upXbHEaQ8yLXQiJRLoXPQ2iLBSs+cb2zCH6rr5dZ3JGcV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg3q8hecJ13s0YrqJWInpI4ZRmA/p+iqJJcya37BXZjPmwr92X
-	H3d29BEAnegjduMDAXpd0rXXCgCxobXb7I0Y+BRcfwJA1Kp+o5pn21Cp6rFq+9I=
-X-Google-Smtp-Source: AGHT+IGql7rcBkBJZy/lkpZXVd8eJAHNb/N13bQ4wyVM/GFRhvhCqwbQi4nJvY1Ydgt8QtXoBjQJgQ==
-X-Received: by 2002:a7b:c459:0:b0:431:5f8c:ccb9 with SMTP id 5b1f17b1804b1-43283255a2cmr1881175e9.17.1730386837895;
-        Thu, 31 Oct 2024 08:00:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730386837; x=1730991637;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iCEaeDborMpChWpG+09oPpilTDmpwNme21uFJErGw+s=;
+        b=GX0LUHVP64a+wZ/xb8+U8yMuPFhm6jkENWjuN4stn2lJngi9W5SMZ3/pgf7nHYuSVg
+         ER9cUhKm3dtaCcwuAb8GqGQW2syfIL1EEJxt1rZJQ6Q5vNGcchVvlOS9swgV1dj6D0Vv
+         xksGMUZmo2ubtQSJMqMh8TBIA+xcm5BObgwyh/HIgCD6HF9woJ6/y6i5FPULj7gV/iEB
+         YUv4kfwg0dJL6K1K+QqjmOR7xcBGKUu9Gsv4CkJQT9WA1N7heMKV79cW7pkHWQHxvmqf
+         eQnhAV17lTEXlb06KYT8176lUr93qI/Kubj2vaFKdeSK1CrrVM0wauGtP9UhpqkHlowK
+         gIGg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWYNxY83iwkHXgi+S21wZSjAvegXTb7AEH4KEc8JXzKQdxOrUQz+yqRq7ggPTD1hSIQXnnwabCaZ+zR1+/YECr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNynGY+tkiW9+M19XaSJ0+KZiX1uoC+hZGhlC0FUf95Vk7r+Ic
+	LiMdRBribil77iUpsRUfV1OgIq4hYfNiJcOUN/hRRzdedDyof+p4/2eGg7ih+HM=
+X-Google-Smtp-Source: AGHT+IH+HfNSNGik5mKCBBG/5S6M1R2AxyBfXCc47oa7MI7ol35//vP5TNbBTsLrmHg9i1EHWx9Okw==
+X-Received: by 2002:a05:600c:4f14:b0:42b:a7c7:5667 with SMTP id 5b1f17b1804b1-4328327ec52mr1208565e9.25.1730386836669;
+        Thu, 31 Oct 2024 08:00:36 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.65.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd8e8524sm59163225e9.5.2024.10.31.08.00.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd8e8524sm59163225e9.5.2024.10.31.08.00.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 08:00:37 -0700 (PDT)
+        Thu, 31 Oct 2024 08:00:36 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -78,18 +77,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-scsi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 01/14] scsi: ufs: exynos: remove empty drv_init method
-Date: Thu, 31 Oct 2024 15:00:20 +0000
-Message-ID: <20241031150033.3440894-2-peter.griffin@linaro.org>
+	linux-kernel@vger.kernel.org,
+	Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH v3 00/14] UFS cleanups and enhancements to ufs-exynos for gs101
+Date: Thu, 31 Oct 2024 15:00:19 +0000
+Message-ID: <20241031150033.3440894-1-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
-In-Reply-To: <20241031150033.3440894-1-peter.griffin@linaro.org>
-References: <20241031150033.3440894-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_080040_335203_E5391CCE 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20241031_080039_758373_87FDCCCB 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +102,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Hi folks,
 
-Remove empty method. When the method is not set, the call is not made,
-saving a few cycles.
+This series provides a few cleanups, bug fixes and feature enhancements for
+the ufs-exynos driver, particularly for gs101 SoC.
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/ufs/host/ufs-exynos.c | 6 ------
- 1 file changed, 6 deletions(-)
+Regarding cleanup we remove some unused phy attribute data that isn't
+required when EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR is not set.
 
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 9ec318ef52bf..db89ebe48bcd 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -198,11 +198,6 @@ static inline void exynos_ufs_ungate_clks(struct exynos_ufs *ufs)
- 	exynos_ufs_ctrl_clkstop(ufs, false);
- }
- 
--static int exynos7_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
--{
--	return 0;
--}
--
- static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
- {
- 	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
-@@ -2036,7 +2031,6 @@ static const struct exynos_ufs_drv_data exynos_ufs_drvs = {
- 				  EXYNOS_UFS_OPT_BROKEN_RX_SEL_IDX |
- 				  EXYNOS_UFS_OPT_SKIP_CONNECTION_ESTAB |
- 				  EXYNOS_UFS_OPT_USE_SW_HIBERN8_TIMER,
--	.drv_init		= exynos7_ufs_drv_init,
- 	.pre_link		= exynos7_ufs_pre_link,
- 	.post_link		= exynos7_ufs_post_link,
- 	.pre_pwr_change		= exynos7_ufs_pre_pwr_change,
+Regarding bug fixes the check for EXYNOS_UFS_OPT_UFSPR_SECURE is moved
+inside exynos_ufs_config_smu() which fixes a Serror in the resume path
+for gs101.
+
+Regarding feature enhancements:
+* Gear 4 is enabled which has higher speeds and better power management.
+* WriteBooster capability is enabled for gs101 which increases write
+  performance.
+* Clock gating and hibern8 capabilities are enabled for gs101. This leads
+  to a significantly cooler phone when running the upstream kernel on
+  Pixel 6. Approximately 10 degrees cooler after 20 minutes at a shell
+  prompt.
+* AXI bus on gs101 is correctly configured for write line unique transactions
+* ACG is set to be controlled by UFS_ACG_DISABLE for gs101
+
+Additionally in v3 I've added 2 minor cleanup patches from Tudor and also
+an update to MAINTAINERS to add myself as a reviewer and the linux-samsung-soc
+list.
+
+Note: In v1 I mentioned the phy hibern8 series in [1] that is still under
+discussion however further testing reveals hibern8 feature still works without
+the additional UFS phy register writes done in [1]. So this series can be merged
+as is and has no runtime dependencies on [1] to be functional.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20241002201555.3332138-3-peter.griffin@linaro.org/T/
+
+regards,
+
+Peter
+
+Changes since v1:
+ - Remove superfluous struct device parameter to exynos_ufs_shareability() (Peter)
+ - Add patches 8-11 (hibern8 fixes, WLU support etc)
+
+Changes since v2:
+ - Add 2 cleanup patches from Tudor to the series and rebase (Tudor)
+ - Fixup various commit messages as per Tudors review feedback (Tudor)
+ - Collect up reviewed-by tags, and CC stable where appropriate (Peter)
+ - Add myself as a reviewer in MAINTAINERS for ufs-exynos driver
+   and add linux-samsung-soc list. (Peter)
+ - Added blank line and split hs_tx_gear/hs_rx_gear into separate lines (Tudor)
+
+Peter Griffin (12):
+  scsi: ufs: exynos: Allow UFS Gear 4
+  scsi: ufs: exynos: add check inside exynos_ufs_config_smu()
+  scsi: ufs: exynos: gs101: remove EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL
+  scsi: ufs: exynos: Add EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
+  scsi: ufs: exynos: gs101: remove unused phy attribute fields
+  scsi: ufs: exynos: remove tx_dif_p_nsec from exynosauto_ufs_drv_init()
+  scsi: ufs: exynos: add gs101_ufs_drv_init() hook and enable
+    WriteBooster
+  scsi: ufs: exynos: enable write line unique transactions on gs101
+  scsi: ufs: exynos: set ACG to be controlled by UFS_ACG_DISABLE
+  scsi: ufs: exynos: fix hibern8 notify callbacks
+  scsi: ufs: exynos: gs101: enable clock gating with hibern8
+  MAINTAINERS: Update UFS Exynos entry
+
+Tudor Ambarus (2):
+  scsi: ufs: exynos: remove empty drv_init method
+  scsi: ufs: exynos: remove superfluous function parameter
+
+ MAINTAINERS                   |   2 +
+ drivers/ufs/host/ufs-exynos.c | 136 ++++++++++++++++++----------------
+ drivers/ufs/host/ufs-exynos.h |   2 +-
+ 3 files changed, 76 insertions(+), 64 deletions(-)
+
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
