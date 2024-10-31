@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6639FE6F062
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20792E6F060
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Al96Dn/z8MFMVLMBbPFat+xydaqk+LhwUB5E4L6jZVA=; b=KWw02XL8r0TtcKpVtc1QDwD86+
-	xlCPKYALcH/HvQMbf4+thoHKueR9lli9kgRReGAwAOZkrfYQrVmSfjN3P+rJg6kxEc5JzELdRLO7l
-	ZrJjic34llJSIbZDsZWX2dRkgwXQKku2Q2oG3YIRdE898GOFvfnX84rfYg78JmbXqPYo0tH+4xktK
-	r+TW9QmVN31T3jbRJ67z4GYsr81ixeajvyXYE3CZqUR4ACeLd6/W5dfSvIZXljaWDeDceu+s4n9Xx
-	9h8XongLj7eM0Ty39XT3OfdJlRyHxHYFV4mJ4AyxxvuwYhFVwgcqpaBT/vrTri8ExF+QD2OC0T378
-	L+WUBI+Q==;
+	bh=kQWckLG9l5qxClEqevSWSdLNc74FRIdwG7wPBnwLtfo=; b=v55OTfd4tk7lQJzSDfJnvjc2HX
+	Z2w+515RnTA/DyhmKpdgXr3oDguWX/XA/4jPbJLZXbybsMX3NYG/mu8dc/xRLCBS7IOqCBXiUl0ZI
+	x4r3WwwFcwdOoJO5YmVupvrjF8dZJt4cAku45F2v0rA0OJ0Q3BL6j78Ebv0uGHJw5N3mU7gX0J32n
+	toSI8IzBU9G0PhXQlmEP4CKIZbMejANlKE5LxkZdWV0u50lAYNQXMqQWFzlIDGa+SlN3iMP266/yC
+	OIzA6eBe23Zdker/ARB26lUGnkip/HyRTfMmRIGgc3y+Yp9Mri9jg/2w/GR2Arwo6sWm7Oz4W24A8
+	wXCodf8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6sWW-00000007JDB-3YOV;
-	Fri, 01 Nov 2024 14:21:12 +0000
+	id 1t6sYO-00000007JzO-40Nn;
+	Fri, 01 Nov 2024 14:23:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s85-00000007FaG-11lF;
-	Fri, 01 Nov 2024 13:55:57 +0000
+	id 1t6s96-00000007FnW-2ebE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 01 Nov 2024 13:57:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Al96Dn/z8MFMVLMBbPFat+xydaqk+LhwUB5E4L6jZVA=; b=GeVuOpPvVdMAH+v/cEyPXPViTU
-	k+/bUFnp4yPfGNR5mUp2D43Z5+4vb0/i+opDAfUERTr60l8MpcexS6g/IB4ai43TP8XBRxataEIBU
-	s+NGWblPTKoqOoCUNYKFT2EiPIP6YvuT7HEHpHYX6paJ8MyyeZC/A2DDTwK2ZQ/7Dt7KAf+Vtjvrx
-	QK43rr687/K+C7RCCFEjXSCAowYz3/aMmJ8+5EeCHCxzvccnX+tqZup8JUDXeSb4hAu85aD3tfAk6
-	KmkM1XKi0tX/IhQA0fuIq7NUbs5okMwt3EOS29T+GdLgbkZd6IAS2xd5EpEj9GBWsmzralpo1nmtu
-	eYsvZF9w==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=kQWckLG9l5qxClEqevSWSdLNc74FRIdwG7wPBnwLtfo=; b=D44c8kXPOKS5VALd4l7rOvBABJ
+	piykZjPKOUexQ1bkMCm1bc1C3H6b//FNM8qNCRJHahnxYu/MdwoGc7ffEQIdyEqP/2g7PFbiRmusk
+	7nSBohTrMoRc/EKvafTj61OXZ3cq08v0KsE3yBQfPObRa07SpRsz2t2EJs0QI0X+/v2srxZBCXkhj
+	9DVzDQYcHfGmbmdmcWgs4QUvkSWNQKwi/CNQp/Bdb6aT5p/WvMBrvpGuYXicIuG71Pg7Gzm+7sVwd
+	z6r79u/i+Y6x1wgKr1Elf/S5175mCxpZGx83x7GwvxPshA1BDFIsh9xfZT9O49EGZzIxXb/uUrDnd
+	d7BFOQHw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s82-0000000AiZS-05fd;
-	Fri, 01 Nov 2024 13:55:56 +0000
+	id 1t6s93-0000000Aj0U-180P
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Nov 2024 13:56:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 878F05CD57C;
-	Fri,  1 Nov 2024 13:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24B02C4CECD;
-	Fri,  1 Nov 2024 13:07:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A2BDD5C8845;
+	Thu, 31 Oct 2024 07:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D52BC4CED3;
+	Thu, 31 Oct 2024 07:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730466484;
-	bh=2SzPN9eZ9YXTCtIfY58EFEEvjtP/SDawY1JwxmDF++I=;
+	s=k20201202; t=1730360794;
+	bh=5AqQVqv7cgLso2HdKLdGQKCHtmDv0AGSPgURJ2Jfg1w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ylc6i+PXadApsTrC1+EHUyKZIZnnbtk5yPisr6xCT1pFwE9gK/CLFWiHQNRuQI799
-	 kCBO4RxaczMABJO8tQBCqq3YL0ahawM9dTOEu4HAWN5LKPmb7YR2IWZ0jwQk1pw0XW
-	 fSuGXY62Kc12y34/wRKzjUhAHqaGgwCWSHv+8qZG7DO6PHZgTUO6TJQ1XH+Lfb6uQx
-	 iZteyzfKIG8FHUKZz8O690Vi+yn0jR1aQChsU5dqlPHjGkdNYRiCEYHrqO4V6wlO2c
-	 1G7j9vKxDIIR23W/3UhX4PfTe8XXv/4M+wNQtB9QHIteKOd8v86sXg2riL9PpYdU82
-	 Fa14lZg2mx2/w==
-Date: Fri, 1 Nov 2024 13:07:57 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Jones <ajones@ventanamicro.com>,
-	James Houghton <jthoughton@google.com>,
-	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
-Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
- vcpu_get_reg() instead of using an out-param
-Message-ID: <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk>
-References: <20241009154953.1073471-1-seanjc@google.com>
- <20241009154953.1073471-4-seanjc@google.com>
+	b=HET2Wo/YxxVBW6EePmT6fedO9UFXcAxmiSSpwHlxZymOhlqDpCE1L2GjyDiDxbPzN
+	 R73fq9sjS7xM5ReBmdnyUVZGxEe3xSOCMERv4kmXvD6Nr6XUMKr7LeWT4ZZSVgamvg
+	 /ZvdCKsYljXR7htrFv7vpdA+lcDJTikN9Gsb2liYGF/m9/ypln7425q8GD2armUQD9
+	 QrvwXahuLe12l2H92j9c8CXsxJUBlQS7JRia8wY3UmxQvQev7LV5Z0gXuJbkyls9M+
+	 8ZbT6Wb1g6RQ6Eo1bWzrr0g0a8zPF2ULPWMrCkJWHUkcXUF0u7w2KpXxhc8M5ShJVn
+	 W5FJMcMEmgx4w==
+Date: Thu, 31 Oct 2024 08:46:30 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: geert+renesas@glider.be, mturquette@baylibre.com, sboyd@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	alexandre.belloni@bootlin.com, magnus.damm@gmail.com, p.zabel@pengutronix.de, 
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v5 01/10] dt-bindings: clock: renesas,r9a08g045-vbattb:
+ Document VBATTB
+Message-ID: <bt7kgzreebwyeyfsii2q6fci34vfqst6hrxk6anp6tzthlmc5o@t2ifzexazta7>
+References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+ <20241030110120.332802-2-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YtZ2j2bWyKb0/r3q"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241009154953.1073471-4-seanjc@google.com>
-X-Cookie: Sales tax applies.
+In-Reply-To: <20241030110120.332802-2-claudiu.beznea.uj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_135554_618316_8C712CB7 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20241101_135657_760127_80233ADC 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,58 +92,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 30, 2024 at 01:01:11PM +0200, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> The VBATTB IP of the Renesas RZ/G3S SoC controls the clock for RTC,
+> the tamper detector and a small general usage memory of 128B.
+> 
+> The VBATTB controller controls the clock for the RTC on the Renesas
+> RZ/G3S. The HW block diagram for the clock logic is as follows:
+> 
+>            +----------+ XC   `\
+> RTXIN  --->|          |----->| \       +----+  VBATTCLK
+>            | 32K clock|      |  |----->|gate|----------->
+>            | osc      | XBYP |  |      +----+
+> RTXOUT --->|          |----->| /
+>            +----------+      ,/
+> 
+> One could connect as input to this HW block either a crystal or
+> an external clock device. This is board specific.
+> 
+> After discussions w/ Stephen Boyd the clock tree associated with this
+> hardware block was exported in Linux as:
+> 
+> input-xtal
+>   xbyp
+>   xc
+>      mux
+>         vbattclk
+> 
+> where:
+> - input-xtal is the input clock (connected to RTXIN, RTXOUT pins)
+> - xc, xbyp are mux inputs
+> - mux is the internal mux
+> - vbattclk is the gate clock that feeds in the end the RTC
+> 
+> to allow selecting the input of the MUX though assigned-clock DT
+> properties, using the already existing clock drivers and avoid adding
+> other DT properties.
+> 
+> This allows select the input of the mux based on the type of the
+> connected input clock:
+> - if the 32768 crystal is connected as input for the VBATTB,
+>   the input of the mux should be xc
+> - if an external clock device is connected as input for the VBATTB the
+>   input of the mux should be xbyp
+> 
+> Add bindings for the VBATTB controller.
+> 
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+> 
+> Changes in v5:
+> - used spaces in the diagram from the patch description
+> - added "This is board specific" in the board description to emphasize
+>   the usage of the assigned-clocks in the example
+> - added default for quartz-load-femtofarads
+> - collected tags
 
---YtZ2j2bWyKb0/r3q
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-On Wed, Oct 09, 2024 at 08:49:42AM -0700, Sean Christopherson wrote:
-> Return a uint64_t from vcpu_get_reg() instead of having the caller provide
-> a pointer to storage, as none of the vcpu_get_reg() usage in KVM selftests
-> accesses a register larger than 64 bits, and vcpu_set_reg() only accepts a
-> 64-bit value.  If a use case comes along that needs to get a register that
-> is larger than 64 bits, then a utility can be added to assert success and
-> take a void pointer, but until then, forcing an out param yields ugly code
-> and prevents feeding the output of vcpu_get_reg() into vcpu_set_reg().
+Best regards,
+Krzysztof
 
-This commit, which is in today's -next as 5c6c7b71a45c9c, breaks the
-build on arm64:
-
-aarch64/psci_test.c: In function =E2=80=98host_test_system_off2=E2=80=99:
-aarch64/psci_test.c:247:9: error: too many arguments to function =E2=80=98v=
-cpu_get_reg=E2=80=99
-  247 |         vcpu_get_reg(target, KVM_REG_ARM_PSCI_VERSION, &psci_versio=
-n);
-      |         ^~~~~~~~~~~~
-In file included from aarch64/psci_test.c:18:
-include/kvm_util.h:705:24: note: declared here
-  705 | static inline uint64_t vcpu_get_reg(struct kvm_vcpu *vcpu, uint64_t=
- id)
-      |                        ^~~~~~~~~~~~
-At top level:
-cc1: note: unrecognized command-line option =E2=80=98-Wno-gnu-variable-size=
-d-type-not-at
--end=E2=80=99 may have been intended to silence earlier diagnostics
-
-since the updates done to that file did not take account of 72be5aa6be4
-("KVM: selftests: Add test for PSCI SYSTEM_OFF2") which has been merged
-in the kvm-arm64 tree.
-
---YtZ2j2bWyKb0/r3q
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmck0qwACgkQJNaLcl1U
-h9DFvAf+NFZ+z1aCylPPLFa+zTDz5MmqEcjVpfhQkyHhNKHUjHoiGTKMUmWyQMUR
-zuLXQxeTLLfX2TUAY8iDXERwVa3DJcXBSA8OkTxEQ8duTVgasxJrEH5e9hapL4yw
-qi35won+snSoVC5aal8C4cR5rAV8QUTyUdDDLCrdVGOdxfeeRc2oXXDUgy25kAO4
-qC9GygserSiAkTN4RndpjwI1P1izwqrfOByxZ5gCJhTcODN24/DiVMd5ilqSvEBg
-r0nYU+tZo+ELvY6B+hRDZVbLnfRK15iiJrig9duhfHWMiApgcOywYRahbDV+p6ph
-UabPeoJZ1JqGF4etWEfaIQLkyg6QTg==
-=5qTN
------END PGP SIGNATURE-----
-
---YtZ2j2bWyKb0/r3q--
 
