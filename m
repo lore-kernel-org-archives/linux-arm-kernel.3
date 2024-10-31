@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EB3D767FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DEDD767FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7k0lhlqVUH2PRuKZimC+zuSQ9tywYvWdXQj8NJnprjw=; b=vldM4evOAUKeoiRdcWzbS+ddzt
-	elLF1S/dg/WrN/NVH32LrQRmfN3DCYE6bvnxgv/emzlm0E7JkfbCOX0kXwcaGlK/uJQIZOW37w0TK
-	J40u8RtQWOlmv+YJdAU7m8NMrSiwCjiZtuzc9Cvxx9nJTl+E0f3bUc24KCpxSMIuaYME4zHTZHfzb
-	UsG7F1ZJGV3oC7Mck+CuD07FyUk3L+f85SCkh3eQWFI0eaSt4Kl0VDsJ1ZyFLki5PLXd1JZwn7Qd0
-	3K+9xlxpbcLgqtaXUSsQLUpBj9f075EzCSHuhiU6IgG4rQ5GjK05FQ8z4cssy4JTbk8vXZZK1F6a2
-	0UQ6kxcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xY8BKpUlX8dbSzUZiaXQFiaPQ0R16ABPPrXeZ4QjIzY=; b=YS1WWkr5gY4oPMConOCqMmv4hH
+	vpSpwT1hOmB4QO8dfIhV4DVH4sfzqcgRZS5f00JjEOHAY47I1bG8Qi1MnJJDrGp4KiH+6tSOr3cZf
+	AuVj0Lz9pjWgkEHhxtA6ZPlcEm4BLp+eMttqTbuCVIOKTWvBv16DF9wyscRpy4F8/Rqv6ysWzD9tm
+	/CAnMc9iGQNAv4HN4aJfogiHmG+PLQfuXYEWE2TFpti/wICQ7rIts4ZFTW9pE4sPJuL2GgmkZ0qVg
+	NGgkJ/tl6ofz0Y611ycckwezRSppyOgGMBP/tpAu/7wahrpq5cSYINLBxbPhlSLFpNsyvRj5nPAyT
+	EizGxcrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ayb-00000004eqd-3wtP;
-	Thu, 31 Oct 2024 19:37:01 +0000
-Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
+	id 1t6b19-00000004fHy-0Xpu;
+	Thu, 31 Oct 2024 19:39:39 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6awu-00000004ecZ-2uoV
+	id 1t6azS-00000004f1z-0qCx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 19:35:19 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1730403310;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7k0lhlqVUH2PRuKZimC+zuSQ9tywYvWdXQj8NJnprjw=;
-	b=I6gpoXGk4WpkxHpqqw7B0hi70vPzUkPh1qxplJi+Yww9CwVFeFqJQDR4mycBdi0D6ZBbqu
-	ccQdynerUPnHzj3IKoShuccqmsyFi7CDokBvhRmxXrKiG2UzT7r4Oxfb+qZt3C3IOqrA9h
-	y9e1FBHwej5C57edUWznZzAULvg9XNc=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v4 00/18] KVM: arm64: nv: Support for EL2 PMU controls
-Date: Thu, 31 Oct 2024 19:34:55 +0000
-Message-ID: <173040329116.3311297.4818685036404939787.b4-ty@linux.dev>
-In-Reply-To: <20241025182354.3364124-1-oliver.upton@linux.dev>
-References: <20241025182354.3364124-1-oliver.upton@linux.dev>
+	Thu, 31 Oct 2024 19:37:56 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2fb49510250so14144481fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 12:37:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730403472; x=1731008272; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xY8BKpUlX8dbSzUZiaXQFiaPQ0R16ABPPrXeZ4QjIzY=;
+        b=w3QaxocnQlH5m4rpR4EHmKNwh6yj2RtOCMAsWRrCNM/6P0oQV/yp3kwFVRV8xKjonS
+         TMvZwmF5mZ56wPzkRn3BqAmVnf0lHIOk2JAw2DZ2NqyeJotOJKTW2otghPiNOW2sD/hJ
+         6OMcxOXaLtEsyicb6PJJs/ox6gqX6tBZI7cDEv5eHYTQ9rDL5sBYfdLeE7oMOyVJ8y9O
+         zVkSYA0HPLyTCkG2GClim5hQXHtV7wwizceEWNm6ZpSnaa+G+rM0RrTo2wPuTQ9lFQgG
+         24ORt/7Gi10kwnU4uX8FUc9Xmd0o11YrbPc63MKy25SFNHXgPrvuDniCu54lcPWwXQEG
+         ReUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730403472; x=1731008272;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xY8BKpUlX8dbSzUZiaXQFiaPQ0R16ABPPrXeZ4QjIzY=;
+        b=b6wruSv8fcLyNorXyKrXLTuV32UX/N7X8cYoj//Yf8Rd3I3QLRaXBVc8RCJdLpo2dp
+         C5syx0AtPysRs64HLF1yHZ7QXsHrIstExBYC6PXlYM5rjZuyBagvq0a+7GLDPu174q8w
+         m36gOL6YvooiLu7yu2NfxONlTCVl0pM0N9RK9AGvfCKgaLyYRdIYbzMNyo4r/JgobMcA
+         CApY0xoDa7NbUDumxoJtoB7WJ2Ni7ZUG7AyG6VYSTIEivDqYBCOZo6bDC1+6mYCGu6Pj
+         111OO6bBs2Mb+0tnSf/P7WjzuSafQ6q0EwNsuEGxfDpIF9jBUf1azcPLh7T22J5Zg8/Y
+         DdpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKhN5hOBLowLhr7ckRx+0VGXuFVB6Ud96kuUFPqeBegJ8/xmoNxiW7AEOF0/UBZ4+CeFfxQ2IJNNor8d0mcKsm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy04WWQahr3cy3BEjH7JqW1QEqFL8V2jGh9hnX+Alil55bU9FqN
+	hXcSv8HhlUZFzItvQ7C9NzxZ4w1xOjQ5wg8+WMML56rA/nEwX77b0xoiee6quSU=
+X-Google-Smtp-Source: AGHT+IEEfUmTLPeg9xVuEZGEbyZoSx7BjCxMcZYz1YD+L+1zvJUGzjkwJa62fHfBLyTlAdyjmcsXwg==
+X-Received: by 2002:a05:651c:2229:b0:2fb:6027:7c0a with SMTP id 38308e7fff4ca-2fdec4ca559mr25802861fa.8.1730403471954;
+        Thu, 31 Oct 2024 12:37:51 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2fdef8c390csm3099771fa.112.2024.10.31.12.37.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 12:37:50 -0700 (PDT)
+Date: Thu, 31 Oct 2024 21:37:48 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] drm/bridge: it6505: Fix inverted reset polarity
+Message-ID: <5eic3qpeocp54my5clu3umigog6fe5zs5drpbyzpholmalcmcw@mh25vgvxd5tx>
+References: <20241029095411.657616-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241029095411.657616-1-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_123518_028859_6F6FE004 
-X-CRM114-Status: UNSURE (   5.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_123754_276950_65284049 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,56 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 18:23:35 +0000, Oliver Upton wrote:
-> v3 -> v4:
->  - Align sysreg definitions with DDI0601 2024-09
->  - Fix 'accessible' counter mask construction
->  - Fix MDCR_EL2.MTPME RES0 logic
+On Tue, Oct 29, 2024 at 05:54:10PM +0800, Chen-Yu Tsai wrote:
+> The IT6505 bridge chip has a active low reset line. Since it is a
+> "reset" and not an "enable" line, the GPIO should be asserted to
+> put it in reset and deasserted to bring it out of reset during
+> the power on sequence.
 > 
-> v3: https://lore.kernel.org/kvmarm/20241007174559.1830205-1-oliver.upton@linux.dev/
+> The polarity was inverted when the driver was first introduced, likely
+> because the device family that was targeted had an inverting level
+> shifter on the reset line.
 > 
-> [...]
+> The MT8186 Corsola devices already have the IT6505 in their device tree,
+> but the whole display pipeline is actually disabled and won't be enabled
+> until some remaining issues are sorted out. The other known user is
+> the MT8183 Kukui / Jacuzzi family; their device trees currently do not
+> have the IT6505 included.
+> 
+> Fix the polarity in the driver while there are no actual users.
+> 
+> Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  drivers/gpu/drm/bridge/ite-it6505.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 
-Applied to kvmarm/next, thanks!
+The datasheet describes the pin as Active LOW, so the change seems to be
+correct.
 
-[01/18] KVM: arm64: Extend masking facility to arbitrary registers
-        https://git.kernel.org/kvmarm/kvmarm/c/a0162020095e
-[02/18] arm64: sysreg: Describe ID_AA64DFR2_EL1 fields
-        https://git.kernel.org/kvmarm/kvmarm/c/93d7356e4b30
-[03/18] arm64: sysreg: Migrate MDCR_EL2 definition to table
-        https://git.kernel.org/kvmarm/kvmarm/c/641630313e9c
-[04/18] arm64: sysreg: Add new definitions for ID_AA64DFR0_EL1
-        https://git.kernel.org/kvmarm/kvmarm/c/3ecb1fe3842c
-[05/18] KVM: arm64: Describe RES0/RES1 bits of MDCR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/eb609638da55
-[06/18] KVM: arm64: nv: Allow coarse-grained trap combos to use complex traps
-        https://git.kernel.org/kvmarm/kvmarm/c/18aeeeb57b93
-[07/18] KVM: arm64: nv: Rename BEHAVE_FORWARD_ANY
-        https://git.kernel.org/kvmarm/kvmarm/c/a4063b5aa0bd
-[08/18] KVM: arm64: nv: Reinject traps that take effect in Host EL0
-        https://git.kernel.org/kvmarm/kvmarm/c/d97e66fbcba7
-[09/18] KVM: arm64: nv: Honor MDCR_EL2.{TPM, TPMCR} in Host EL0
-        https://git.kernel.org/kvmarm/kvmarm/c/4ee5d5ff4b4d
-[10/18] KVM: arm64: nv: Describe trap behaviour of MDCR_EL2.HPMN
-        https://git.kernel.org/kvmarm/kvmarm/c/336afe0c832d
-[11/18] KVM: arm64: nv: Advertise support for FEAT_HPMN0
-        https://git.kernel.org/kvmarm/kvmarm/c/166b77a2f423
-[12/18] KVM: arm64: Rename kvm_pmu_valid_counter_mask()
-        https://git.kernel.org/kvmarm/kvmarm/c/a3034dab74fc
-[13/18] KVM: arm64: nv: Adjust range of accessible PMCs according to HPMN
-        https://git.kernel.org/kvmarm/kvmarm/c/9a1c58cfefb0
-[14/18] KVM: arm64: Add helpers to determine if PMC counts at a given EL
-        https://git.kernel.org/kvmarm/kvmarm/c/9d15f8290a22
-[15/18] KVM: arm64: nv: Honor MDCR_EL2.HPME
-        https://git.kernel.org/kvmarm/kvmarm/c/fe827f916662
-[16/18] KVM: arm64: nv: Honor MDCR_EL2.HLP
-        https://git.kernel.org/kvmarm/kvmarm/c/16535d55e91f
-[17/18] KVM: arm64: nv: Apply EL2 event filtering when in hyp context
-        https://git.kernel.org/kvmarm/kvmarm/c/8a34979030f6
-[18/18] KVM: arm64: nv: Reprogram PMU events affected by nested transition
-        https://git.kernel.org/kvmarm/kvmarm/c/ae323e035801
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
---
-Best,
-Oliver
+-- 
+With best wishes
+Dmitry
 
