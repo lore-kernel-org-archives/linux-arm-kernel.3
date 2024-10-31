@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11890D767F4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757D0D767F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KlAngUykLMfXVYOuJaV+mmwB1Ihy6Bodnml8Q8++RPg=; b=bhd+S3Pu/mq9A5fu6+7KGeSaNu
-	bufAiSrdCOdWQcw+eDu4cz/DjQ9Xq67XFPxBNRMp1xMJd5LkTvJTGy8lDez4Juv+JeQDUA/W66Sq/
-	4OM7w5kb9BQ9XtN1dhe2Gvi01H7XLVMCp/YpPewYTh6U60yvS3DvLlYPrLNVpukeFTxGyX7YYPCH3
-	+jG65X6ujvVu4yfyUw4YmEri0PxW7Lks8EL8Pqc2NSNixICLarCTx4ZPnTCNj7PoNayb5hBJighis
-	o8oPsmpAHENhKI5UYsoNwhFerqIdTEVPuI6vcn9/2o/nNhGzLMPbuoG4TxkAhTZMlSQbXdCPvzheE
-	R8hKljcg==;
+	bh=9t5fTfp/R9ZA2okp7DGqxNoTJ8U06v8BtQwbekJ8OLY=; b=wY93TwZUyNI6206ae4XSb2i4/e
+	Mwn00x4NBVbY0oWpy9v2SABBpWHRnpKzdNhYJdnJfRa0uGoAseh0etIzgb0iJsqodWiMdUyHGjf2q
+	lnOwNljb4isuEajZ+l/wKQBLeT9TE1A8SMkRHa3qcmeCcyCY3xwTM0IL5DebwNpqn6lXXe9NueOXg
+	uzNy4fMCE31rNfUT0UQR4TrGYh/cFlPO19Kb+978AqmQ9+aPIET8FdDOOxNZ5VPFkfpPb8HLBfEgC
+	ojlU+InZzNvm60rD6UwNN/ARqGu0eP48GpoSP3c7ZNhq/804jMZIfpAU+iEs3DPkCko8E55t9VFYY
+	8KHiw9oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZVe-00000004RIl-1qD5;
-	Thu, 31 Oct 2024 18:03:02 +0000
+	id 1t6ZXI-00000004Rbs-03pn;
+	Thu, 31 Oct 2024 18:04:44 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZTD-00000004Qoz-2DVC
+	id 1t6ZU4-00000004R0E-2gNF
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 31 Oct 2024 18:00:31 +0000
+	Thu, 31 Oct 2024 18:01:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KlAngUykLMfXVYOuJaV+mmwB1Ihy6Bodnml8Q8++RPg=; b=Gz2nlJHFq9lBA9q9TtGOlmQWww
-	JRnUeoKo1tvHgncLpRxkM7mqmkVNr5bHBAhhCiF5QnfTHRirXRie2uPoILDb7ebSsqkfmJ+oVre8L
-	nMAIXk5NYTQFhShpg88DJMYtWwEYh9PaiiOJyPO3zbTZkkupB6sbgrjAGcCX6ofMB9ymD7KGqdnsO
-	88gSR6MkCdby0QUXneGtgCgqKbNgMlt2dETO7Af911YCoVWVSkWDZRdtenc6pmHQXVo9CRk3o5kBB
-	g3DM/pGAgV0LMZ0zZ0ZMXCBoybcG2iujW/f7FeaUlvApIVkvb8aSdxXOKqxCej1aQ0ub4epxd+vns
-	5j+5U8GA==;
+	bh=9t5fTfp/R9ZA2okp7DGqxNoTJ8U06v8BtQwbekJ8OLY=; b=kT+grvxVFgFvvoXbjzAKvWofT0
+	4wMuhu15Vi31Nt+15gf5iXVg61bJ/tMrTOPwO+ihA+DWIEQIbSoOluMOAA4eLkv8I4cMP2xVf9HRQ
+	m5xnRDSHFK1UrioyE/EcPr26Qa4qRhSYF1whXjCXcVOOii1M7zj8YcOxk3mqDMgdg1nKlqtYKKf/d
+	X/IusVEvYA66aEaVYmeVL9l4G4btKPAg3oerpLxlV7kDffcCwiQWIbsjQFrcK08P927W4aNsWC/x4
+	Uucwmo6oJpxsnScuJySi49n6pfye1w+B3ArIIMfJg9B5/k/CH5j+LiDfaexVvVubA1ujHKT+J6A7v
+	Mpnp3Cww==;
 Received: from [2605:ed00:430b:e0:59ee:279e:5c98:9214] (helo=syn-2605-ed00-430b-00e0-59ee-279e-5c98-9214.inf6.spectrum.com)
 	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ZT6-0000000EzOo-3d67;
-	Thu, 31 Oct 2024 18:00:26 +0000
-Message-ID: <d0f29ed7c2e05d18e8f627fa4fa0e210445fb885.camel@infradead.org>
-Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off
- for hibernate
+	id 1t6ZU1-0000000EzRm-1jDz;
+	Thu, 31 Oct 2024 18:01:22 +0000
+Message-ID: <85e4cb39459c883c1075c90e1f53c63129256e21.camel@infradead.org>
+Subject: Re: (subset) [PATCH v6 0/6] Add PSCI v1.3 SYSTEM_OFF2 support for
+ hibernation
 From: David Woodhouse <dwmw2@infradead.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Miguel Luis <miguel.luis@oracle.com>, Paolo Bonzini
- <pbonzini@redhat.com>,  Jonathan Corbet <corbet@lwn.net>, Marc Zyngier
- <maz@kernel.org>, James Morse <james.morse@arm.com>,  Suzuki K Poulose
- <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@ucw.cz>, Len
- Brown <len.brown@intel.com>, Shuah Khan <shuah@kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,  "linux-doc@vger.kernel.org"
- <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
- <kvmarm@lists.linux.dev>, "linux-pm@vger.kernel.org"
- <linux-pm@vger.kernel.org>,  "linux-kselftest@vger.kernel.org"
- <linux-kselftest@vger.kernel.org>, Francesco Lavra
- <francescolavra.fl@gmail.com>
-Date: Thu, 31 Oct 2024 13:00:20 -0500
-In-Reply-To: <ZxwCOHd-DbUT8dsT@linux.dev>
+To: Oliver Upton <oliver.upton@linux.dev>, 
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>,  Pavel Machek <pavel@ucw.cz>, Paolo Bonzini
+ <pbonzini@redhat.com>, Will Deacon <will@kernel.org>,  Len Brown
+ <len.brown@intel.com>, Shuah Khan <shuah@kernel.org>,
+ linux-kselftest@vger.kernel.org,  kvmarm@lists.linux.dev, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Francesco
+ Lavra <francescolavra.fl@gmail.com>,  linux-pm@vger.kernel.org, Jonathan
+ Corbet <corbet@lwn.net>, kvm@vger.kernel.org,  "Rafael J. Wysocki"
+ <rafael@kernel.org>, Miguel Luis <miguel.luis@oracle.com>, 
+ linux-kernel@vger.kernel.org, James Morse <james.morse@arm.com>, Marc
+ Zyngier <maz@kernel.org>, linux-doc@vger.kernel.org, Zenghui Yu
+ <yuzenghui@huawei.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>
+Date: Thu, 31 Oct 2024 13:01:17 -0500
+In-Reply-To: <173039739006.2928363.16193131105108954688.b4-ty@linux.dev>
 References: <20241019172459.2241939-1-dwmw2@infradead.org>
-	 <20241019172459.2241939-7-dwmw2@infradead.org>
-	 <23C91005-7304-4312-A5E0-F5E6C05B3209@oracle.com>
-	 <ECD0CA58-2C3B-48F3-AF12-95E37CB0FC48@infradead.org>
-	 <ZxprcWDe2AXuLhD_@linux.dev>
-	 <691447A1-8F3F-4890-B00F-8068A14CA126@infradead.org>
-	 <ZxqmsiXV6ZYTANKY@linux.dev>
-	 <627769A8-AF84-47A1-B4F9-5F44C75A8058@infradead.org>
-	 <ZxwCOHd-DbUT8dsT@linux.dev>
+	 <173039739006.2928363.16193131105108954688.b4-ty@linux.dev>
 Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-Bl3n6cZWD1HaUxjvHpLd"
+	boundary="=-6gI9KPsLUV2sE/qVjwYs"
 User-Agent: Evolution 3.44.4-0ubuntu2 
 MIME-Version: 1.0
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
@@ -93,62 +82,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-Bl3n6cZWD1HaUxjvHpLd
+--=-6gI9KPsLUV2sE/qVjwYs
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, 2024-10-25 at 13:40 -0700, Oliver Upton wrote:
+On Thu, 2024-10-31 at 17:56 +0000, Oliver Upton wrote:
+> On Sat, 19 Oct 2024 18:15:41 +0100, David Woodhouse wrote:
+> > The PSCI v1.3 spec (https://developer.arm.com/documentation/den0022)
+> > adds support for a SYSTEM_OFF2 function enabling a HIBERNATE_OFF state
+> > which is analogous to ACPI S4. This will allow hosting environments to
+> > determine that a guest is hibernated rather than just powered off, and
+> > ensure that they preserve the virtual environment appropriately to
+> > allow the guest to resume safely (or bump the hardware_signature in the
+> > FACS to trigger a clean reboot instead).
+> >=20
+> > [...]
 >=20
-> No. You're leaving the work for the reader to:
+> Thanks Catalin for the ack, as promised:
 >=20
-> =C2=A0(1) Figure out what you're talking about
-> =C2=A0(2) Go dig up an "earlier version" of the spec
-> =C2=A0(3) Realise that it means certain hypervisors only take 0x0 as an
-> =C2=A0=C2=A0=C2=A0=C2=A0 argument
+> Applied to kvmarm/next, thanks!
+>=20
+> [6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for hibernate
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 https://git.kernel.org/kvmarm/kvmarm/c/3e2=
+51afaec9a
 
-No. There's no need to dig up an 'earlier version' of the spec. The
-current F.b release says, "if the value of this parameter is 0x0, the
-implementation defaults to selecting HIBERNATE_OFF". That's what makes
-it an acceptable alternative.
+Thank you.
 
-> If you speak *directly* about the problem you're trying to address then
-> reviewers are less likely to get hung up on what you're trying to do.
-
-The "problem" this comment addresses is a reader who looks at this code
-and wonders why it uses zero instead of HIBERNATE_OFF.
-
-Firstly, that reader needs to spot the text, in the *current* version
-of the spec as cited above, which makes it clear that it's a perfectly
-acceptable alternative.
-
-Secondly, that reader needs to know why we chose zero over
-HIBERNATE_OFF, which is also explained fairly succinctly: because it's
-compatible with hypervisors implementing an earlier version of the
-spec.
-
-> I'm genuinely at a loss for why you would want to present this as an
-> "acceptable alterantive" rather than a functional requirement for this
-> driver to run on your hypervisor.
-
-Because "my" hypervisor is a live product which actually gets security
-fixes and updates. If it wasn't for the silly season of "thou shalt not
-ship *anything* except security fixes and stuff that's going to be
-announced at a big conference at the end of the month", the change to
-make it accept the new value of HIBERNATE_OFF would already have been
-deployed.
-
-And *even* with the silly season delaying non-critical hypervisor
-changes, your suggested wording will *still* probably not be true by
-the time the comment is included in an actual release of the Linux
-kernel.
-
-But honestly, it isn't a hill I'm prepared to die on. If you insist on
-changing the comment to your 'There are hypervisors in the wile that
-violate the spec...' version, by all means go ahead and do so. I'll
-follow up with a patch to correct it in a few weeks when it becomes
-obsolete.
-
---=-Bl3n6cZWD1HaUxjvHpLd
+--=-6gI9KPsLUV2sE/qVjwYs
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Disposition: attachment; filename="smime.p7s"
 Content-Transfer-Encoding: base64
@@ -240,25 +200,25 @@ IzGCBMcwggTDAgEBMIGsMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVz
 dGVyMRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMT
 NVNlY3RpZ28gUlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEA
 xr4ZlmdAxAMdKFES+jupfjANBglghkgBZQMEAgEFAKCCAeswGAYJKoZIhvcNAQkDMQsGCSqGSIb3
-DQEHATAcBgkqhkiG9w0BCQUxDxcNMjQxMDMxMTgwMDIwWjAvBgkqhkiG9w0BCQQxIgQgIwbgeGEz
-EjdYFLFjbKwZbFs07mHQIxgftxocwyZ7KnUwgb0GCSsGAQQBgjcQBDGBrzCBrDCBljELMAkGA1UE
+DQEHATAcBgkqhkiG9w0BCQUxDxcNMjQxMDMxMTgwMTE3WjAvBgkqhkiG9w0BCQQxIgQgYLfybi6x
+Np71PM63rFGt1l4vqksdAg4H77Xw1mciGIMwgb0GCSsGAQQBgjcQBDGBrzCBrDCBljELMAkGA1UE
 BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEYMBYG
 A1UEChMPU2VjdGlnbyBMaW1pdGVkMT4wPAYDVQQDEzVTZWN0aWdvIFJTQSBDbGllbnQgQXV0aGVu
 dGljYXRpb24gYW5kIFNlY3VyZSBFbWFpbCBDQQIRAMa+GZZnQMQDHShREvo7qX4wgb8GCyqGSIb3
 DQEJEAILMYGvoIGsMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVy
 MRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMTNVNl
 Y3RpZ28gUlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEAxr4Z
-lmdAxAMdKFES+jupfjANBgkqhkiG9w0BAQEFAASCAgAspe3lsoJJLlY366wn6x+bLucnLMIXfcfj
-FhxuDV0SjCQ/D9rnJ1OB6Msl+I4RuoYiIczLMcwz+vK2cigxwM8c7nCQ62Ed2CCLNVX9C95N++it
-ZxXeogesIHWVKXLks8l+W203m5E/NDj+3thcfM0aFNYPVTcLgbifnC4QLajvIW6TSpQzDYEdjTn/
-EtWzsX6sm9PLLMt4plPgVTZN1em3Br2MMpqSZyITAx0gT5o/83ZQFwR/EQNg5GDxiy6dQ7sDxyN/
-8U53GKzja5VSoncpqw4rvv5UsA3p0yFoW3YlIzJ4eY+gemhYjAEFPG1qXb8K3S3RkSz0QCBXGks7
-/fDad6Xv3O6YZM9844q56oDFz4qJZy2kdsNjnZtXxmTsBfml9rUzuWfrYLaKQF79MCbwf/ZidgaR
-cnFxH8dYJk/Fl6GjEBYEoSsUcSiLv4GV8KOOPhv29GZomBI9LbPPBuLKaWuCGIQINwS/2zgNcfIO
-3pGdaOzApxWmejXS53+qrG+v6A3RWSJdsvlAT8LX2yv1efRKGcm96rOr7jjAc6HyZTuTzucuGIdO
-kPdGfmJrgHU3ZiFXTEo5MfctWMJqk1aKGKZuu48/8fynajJ1n5keLsZ3UXekX5tTJgpg30z0Wquf
-asTtFYOlnKKopW16Ip6jnwMG6ZESW1asf4ODDKfYDQAAAAAAAA==
+lmdAxAMdKFES+jupfjANBgkqhkiG9w0BAQEFAASCAgBiM9gUSxyrF6VSRgWM587M7rJO4VNwXVs8
+5t87Aop3SUKqtktQJzoHlrPW7Alo5FMv9TnbznH/9G2fAKD6fc7AZ5po9z7nKbfuGaw2uxdx2psm
+6xhzqAv2h2TVp/1qlip0molXdOcR/RVbXvsrJ/RhElHg5rAcHVv6xsX9OLulyaEzBTwviNBuerzj
+8/yAMXDVNu3rvVwhzTbHJZBxO1k9tV4pG8ntphuzNZkXKWDZZafyRAP5r9PCWbGd2ulaTw8KMtQD
++jhjavfclg+uAaWrWO4gLn+1iA1i7p7+xLHDxCRohxYmVNSO1ekUEuG6zsLvIn5LNPRmEXxG1PqT
+qf1GzaSLNCxvTgaMU2WDW+oaU3YvalVwP1gdAQNd/sv/J93Is/jmrwmbv2uqJ0A6Pt3A6KYzPt0G
+TjkwzGhyM4m3qPR2u/0YbwtNt3fJne0sSogVR7oyDtFOPcmExr+fsg/5Mmix/lgw126ME3hZs7b+
+hbC+eCilycVZVZSPhaL2HQ83FjJqURyTyXBJK+IIrVv8z9ggUMw7qVaZFyTJbug9NAnWRorQgof0
+q1sx6kwU2zV6MrB9kqLcbkE3Kbiok9K01E/jEQMJFykMGDCGLca/cEiDseLGMbEpvPExdv57vGcr
+oBpzG1Gi6uoKk1Fb5xx+M79xnFJ1OWVg+Hn/ALdXPwAAAAAAAA==
 
 
---=-Bl3n6cZWD1HaUxjvHpLd--
+--=-6gI9KPsLUV2sE/qVjwYs--
 
