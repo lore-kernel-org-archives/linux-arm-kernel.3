@@ -4,109 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63B2D767D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44AFD767D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jxM7lRle7VcSb1cHFDpbe2ijsT2r/j9mqp7JE6/0QY=; b=EaJ8qgS14dPVaNBtxB0ntXmHwb
-	YuypyRAPa1UkIO00eqK8j85f45Mbz0C/c1T0uHRLVIuvK0gv348zmJBcmY6cVz90QyJN9/lGsoDid
-	2skypwtiMpsdaBiIorEoh0eRCagQULN69z2fGisTecKPs/CDkYiE1MR935I8SrbECg8wXSwsDEPqL
-	0K6idTEnRhtyWEsZHuG+Ot6XGo4ZIbmUN+NcTRIF0lpDxpoAEb8IbnagRtzBg+kEnBxSmbUUEHBOj
-	5DXQbPiabV34prThu8Wlk9kKUSf4YZI0Mb01vw8yTMaOh1t85lP2SJ2JyeGlRBESbQVCeUDSf8amq
-	KzCrS2Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cL53IueEP6hvRhpDtpjzOr68xizZVzXf2tQAV4NvcsM=; b=UDtSrsB9gS86YsfTISm4OK2POb
+	/wm4vvdZNrjcZASN1OR3ASJ79p63dvgJaFXx7JosoVyzVhbFIFP95oG0/hxxmI7wHRsbcXrowrOM4
+	1BViBycf2nfNN4wS6eNMcHPJsVuam2QfRK3dkkycXD/f6xk8zoqRbrHMgX/UiTgTuWjmcTyW8s7cF
+	NvMtbz8rcmO047tTJJEPOCJPm0RVk6TmDqk3D89gvR2fyMxtoLKakPDtKl8e1PD5Qq71RvKpOn71d
+	vNoxgEtHz2FThDd82v8cmUG3quzpI2iQM81rrTDXAc3hRRDhHcRYfqZhEZGOlPJeevW2hqG0WGPuM
+	mGv74R/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6W5C-00000003nZN-1SyZ;
-	Thu, 31 Oct 2024 14:23:30 +0000
-Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
+	id 1t6W6o-00000003nkI-3YYG;
+	Thu, 31 Oct 2024 14:25:10 +0000
+Received: from mail-mw2nam10on20601.outbound.protection.outlook.com ([2a01:111:f403:2412::601] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6W1z-00000003mmH-1LFi
+	id 1t6W3Y-00000003n5v-1feY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 14:20:12 +0000
-Received: from eig-obgw-5001a.ext.cloudfilter.net ([10.0.29.139])
-	by cmsmtp with ESMTPS
-	id 6MqftlidwvH7l6W1ytndnN; Thu, 31 Oct 2024 14:20:10 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id 6W1wtKj9MmNYj6W1xtTyrX; Thu, 31 Oct 2024 14:20:10 +0000
-X-Authority-Analysis: v=2.4 cv=fb9myFQF c=1 sm=1 tr=0 ts=6723921a
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=DAUX931o1VcA:10 a=-pn6D5nKLtMA:10 a=6Ujbnq6iAAAA:8
- a=vU9dKmh3AAAA:8 a=UQ0gWoj1K6JKIvSkpFIA:9 a=QEXdDO2ut3YA:10
- a=-sNzveBoo8RYOSiOai2t:22 a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+jxM7lRle7VcSb1cHFDpbe2ijsT2r/j9mqp7JE6/0QY=; b=MElCisaXm1Z0+gopzkxIofO/XC
-	+bkgABtUvhl7xIE1PLBpyq9jFI7iHPGc6lOLzoTPbeRP4d6rtjGAq1K0QB83bWCnZR/sInsKWQnl4
-	ip/MD9ihA/DsKWRDpRSau8c3zk5rcrL4ZIVZBDAPWdXPfkf5CLNimFRm80eEOEyoPbto/+ZDoOp5t
-	OO5nny7KBgSUcN526T+uBC716GoaxD0A+Gv0RJdwTKaEq5N800HkDG/rpNqez1wRabx+h3MX+MeAp
-	QGDtNqgxeyeKKUXiiBuh+89gz2WYaPxPACvKWio8Wx+H1AoG45aWwWzCRNN7kcakWMWSk7zFfrAuK
-	io09hJAg==;
-Received: from [122.165.245.213] (port=32784 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1t6W1o-003EHK-1D;
-	Thu, 31 Oct 2024 19:50:00 +0530
-Message-ID: <4c2afef1-dd0d-48e8-a9bc-650edf44b399@linumiz.com>
-Date: Thu, 31 Oct 2024 19:49:55 +0530
+	Thu, 31 Oct 2024 14:21:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GXuKCLRZD+dcUMCIrlbAPvm6qiBXK4sANXFce570Y7yLM6VCwzXiBA1dsdxoS2OECKMdR4o55BJ+UQ7HkpbHKhFPxgsxtfzx0dpMikTCaPhcAmqR0cIYBQyln1uiC7VbVHYMHLOu1NQ48IZGMaiBvFcBkMa6XOQgImQVVPjYhZ7fFygZFc//IVPLPsLbIuG5qjGDzGqSEgon5wurdrCva3KaEVytaLt89HCoEj2mgTHFsuegTIESuBnpt2kWDPdjA8IYNLXDQb8a7CST53C2Ms1OzI6vtrzbdtQe6+hkn2/eFWn9Mwm4pkGi6PrkYJ9H98dGmZUc6An6JAVhxdUHAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cL53IueEP6hvRhpDtpjzOr68xizZVzXf2tQAV4NvcsM=;
+ b=Oifc9CSZs5yCijihDGUphhX9IDgKmJScdkEQcyrdg7iRjfAM25B6Qkj080xXoT2jzAmFkmupsNQIaWoFiLkCI80KvOG81fmh1UeK/5v8JWE05bJM94JQFjfy6nt2pTcsNUKM25S9bGE645EAJiMgbG6uVLIW21YQHMgjw6WKdCOpWmyLklj95ZtCljoUKT1rs+WkNkRbB80HfCzqB9T28cFI0OXfI3scgHK1QGOFkrwe136dj08Cycfq6iSOyNeL+WdHyOw3JYeajRzJ8rHXcMk+7bK3hUtU++uW0jKgEP9bOttS/aqHv2miOYDh35z/O5EQjZUcxoytmj0bInKErQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cL53IueEP6hvRhpDtpjzOr68xizZVzXf2tQAV4NvcsM=;
+ b=HKnksQ480q6dSCfKx7EQnW9XEMXJscAa6zr5GevNJpFdv/XXlO4iFi0nEzYqV4ak4YRox3awAhJjS3t5XFnCLrCMRZxwlv8i81xZt534lvIhZ9fkSghWHGQrtOsP0zNCm2YeGNmLfU/M6YgeydK0eU5H86dSwNg45WtQHA9BP4UYFIyNgeiVayyI4A9CD3JZbqV7YhpT/c4tgiq999v4bwfi2I5YcqpFBn5Sn0jgVK1VnUp0Bs5qL9sHFsJVvSc61bR9CLDtPDLuD5hubL6/Rh06lzOl02xz4vfREnD5PSaZ1y/fGKp4ruMPQ12Ag6u5FMPj6KbhfNd7ivoq6pmzGA==
+Received: from DM6PR02CA0154.namprd02.prod.outlook.com (2603:10b6:5:332::21)
+ by CY8PR12MB8242.namprd12.prod.outlook.com (2603:10b6:930:77::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Thu, 31 Oct
+ 2024 14:21:40 +0000
+Received: from DS3PEPF000099DE.namprd04.prod.outlook.com
+ (2603:10b6:5:332:cafe::4c) by DM6PR02CA0154.outlook.office365.com
+ (2603:10b6:5:332::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20 via Frontend
+ Transport; Thu, 31 Oct 2024 14:21:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS3PEPF000099DE.mail.protection.outlook.com (10.167.17.200) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8114.16 via Frontend Transport; Thu, 31 Oct 2024 14:21:40 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 31 Oct
+ 2024 07:21:25 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 31 Oct
+ 2024 07:21:24 -0700
+Received: from build-bwicaksono-20240327T112120892.internal (10.127.8.12) by
+ mail.nvidia.com (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.4 via
+ Frontend Transport; Thu, 31 Oct 2024 07:21:24 -0700
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <rknight@nvidia.com>,
+	<ywan@nvidia.com>, Besar Wicaksono <bwicaksono@nvidia.com>
+Subject: [PATCH v2 0/4] perf: arm_cspmu: nvidia: update event list and filter
+Date: Thu, 31 Oct 2024 14:21:14 +0000
+Message-ID: <20241031142118.1865965-1-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.46.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard
- <mripard@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Viresh Kumar <vireshk@kernel.org>, Andre Przywara <andre.przywara@arm.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 12/13] cpufreq: sun50i: add a100 cpufreq support
-To: Cody Eksal <masterr3c0rd@epochal.quest>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>, Yangtao Li <tiny.windzz@gmail.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
- <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1t6W1o-003EHK-1D
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:32784
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 25
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfEfy3sxAoDArhMG0gkOyYNaybkh7xCW0M7302f3808xXs9IT8fX8g2pZCUujmC3E5vqddkkp8r7uYyY8XADyuXBsJguWTjtw8WAUfgY+ATEaayxwHKay
- PinQk00duvg4aZ1urNv9QtzwXPIw8snB0BS2NGIq+DpzLIIXOC+2wV5jiDIfsbq5BPTUregd6QdiMwAQIxLbj/3jAZNmheXMahQZYkJF5YCsGNSVErZFwQto
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099DE:EE_|CY8PR12MB8242:EE_
+X-MS-Office365-Filtering-Correlation-Id: d44a89ee-728d-4ab5-8091-08dcf9b75671
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?g4xXOgDzWrs4Qu1ev4AvfxbQESr6d5w0G9Tp9hb6nk1RWozDRn/v8+1HT7J6?=
+ =?us-ascii?Q?Jyw3DVEPoCG0o0Jw/acvxR6fMZZIvV5oLG4NL8t5UIPddxWL5KCUvcxGbh41?=
+ =?us-ascii?Q?YcW5Jr8Iw+cIpXrnoHLSJ8/lJkOood/uV0DNiaUtD2cSM5d283DXZzZ0zJAO?=
+ =?us-ascii?Q?J/RU/qyO3J2qLql3uERpAEsmglI4PmtNWQex7gfUESkg0cZGWdiiCFrBL707?=
+ =?us-ascii?Q?47Jsd0gkDX0oF9g+mrMwv4hW53w/NP9AcH88apL6oeBpyuQzURtigdy+jVnW?=
+ =?us-ascii?Q?vvSUr8u1sUjL061GKvOQp+p0DPq5BEE//EnIP+Wdw9gRYOlXm+3BxcSghTCT?=
+ =?us-ascii?Q?ZEDCB8yu/cyNJbLcsoFAphCTAROqu0Fjci0OucPUlXArhBMKOGgdNVJ40DcO?=
+ =?us-ascii?Q?lPujNONeEiX9e1xV0twQOLKQrE4b1Jnef8nfpwOVSKCyHYNJyxygg3eo6OS8?=
+ =?us-ascii?Q?D+/v/xNYZMfwkTdSL5/zLA2rcG7qju2qE7WealRjEcLIFw8IeRfNDVjyBekS?=
+ =?us-ascii?Q?JUoP3BuhBn21eT8BfoZWOX8Bkj5SaXA6ZTGykiQyYY3PR+4OQQwPzJE0IgJO?=
+ =?us-ascii?Q?gRW6hdsDSCgdMFb/iBQJw+GnOUsBR4yC0lt7yobF8mJWJb8AttUFVCJTbM4Y?=
+ =?us-ascii?Q?WpYmv+TAhBegd7XGZpEe/5MQ5b5YMc4u9yRWjkkz9QfhAVAWzcFnWKept3UC?=
+ =?us-ascii?Q?IhIWV5/roK4O8vEr3mv4oZUHJSmSdOmPpbwRaHe6t0W0L7/sWhuRFiOPANkv?=
+ =?us-ascii?Q?ofF5IsvU4cWYoxd8oxAYx0X6GfGyjp0xpkB5JGnZWYWYFrKqeSCqSkPi2R0x?=
+ =?us-ascii?Q?14PN7TDRssQs4f49JGAzUbWbonz9+CtD1vP+94B+krnX9FU6jwG5VFWSHz/I?=
+ =?us-ascii?Q?HnQgwThjrM9jOXICZHNF5I+1GDKp3AHOFSjZGv+QoCaxfRPi0j3CpqSWeSam?=
+ =?us-ascii?Q?o1+3h8uFPOl7G5GnFeFFwN7qzvNq1V84JNhyVeptXNfcl7x40c7EcS5+PJNe?=
+ =?us-ascii?Q?u2V5i4nk9bOgP+SDoWmGQva8FKfZv7DVL/k3jnbl5s+NLCH+LxIS72oYokMV?=
+ =?us-ascii?Q?461riBKwrlyUqx3XkpFD3RFjEWsvSL01vhxcOqFuUpou6lCfHi+dPFKgoD8O?=
+ =?us-ascii?Q?WB7prv4Hn7pPbsGRSzwkoyAN4kUi+XZ81uj49ozl/cYHtHuPyX8XLk6EqWQd?=
+ =?us-ascii?Q?dDAvICqEaCZeD9CUj2CkWBN4K56J0iua335K+hBxSTXYgmMe/CBrHgVA05iH?=
+ =?us-ascii?Q?9+RGZCm2sZkIAFlq02b7AZ1D/s8ollkstj0obRx6hP8SMxLQ49I+7syRa5I2?=
+ =?us-ascii?Q?Uo/1g0vpyeiJDBflclXAoFp9d84i5ifIoEIj5Arw6tilw0KQiVs+HFjx1V8z?=
+ =?us-ascii?Q?04pb155r/YZbCewwLAd1gPWP7IDphdzO02YXjo8BQcC+aJt83Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 14:21:40.2034
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d44a89ee-728d-4ab5-8091-08dcf9b75671
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DE.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8242
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_072011_419859_F0DA6738 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20241031_072148_475468_EB132B61 
+X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,110 +149,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/31/24 12:32 PM, Cody Eksal wrote:
-> From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-> 
-> Let's add cpufreq nvmem based for allwinner a100 soc. It's similar to h6,
-> let us use efuse_xlate to extract the differentiated part.
-> 
-> Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
-> [masterr3c0rd@epochal.quest: add A100 to opp_match_list]
-> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+This series update the list of supported events and filters in NVIDIA Grace
+CoreSight PMUs.
 
-Although I couldn't get the secondary CPU's running because of missing BL31 support,
-it works fine in CPU0.
+Changes from v1:
+ * Split the change for setting default filter value.
+ * Add new patch to fix NVIDIA PMU sysfs path in kernel doc.
+ * Drop the patch for CNVLINK PMU events renaming from this series.
+v1: https://lore.kernel.org/linux-arm-kernel/20240918215846.1424282-1-bwicaksono@nvidia.com/T/
 
-Tested-by: Parthiban Nallathambi <parthiban@linumiz.com>
+Besar Wicaksono (4):
+  perf: arm_cspmu: nvidia: remove unsupported SCF events
+  perf: arm_cspmu: nvidia: fix sysfs path in the kernel doc
+  perf: arm_cspmu: nvidia: enable NVLINK-C2C port filtering
+  perf: arm_cspmu: nvidia: monitor all ports by default
 
-Thanks,
-Parthiban
+ Documentation/admin-guide/perf/nvidia-pmu.rst | 52 ++++++++++---
+ drivers/perf/arm_cspmu/nvidia_cspmu.c         | 75 ++-----------------
+ 2 files changed, 50 insertions(+), 77 deletions(-)
 
-> ---
-> Changes in V2:
->  - Add the A100 to the cpufreq-dt-platdev blacklist.
-> 
->  drivers/cpufreq/cpufreq-dt-platdev.c   |  1 +
->  drivers/cpufreq/sun50i-cpufreq-nvmem.c | 28 ++++++++++++++++++++++++++
->  2 files changed, 29 insertions(+)
-> 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index 18942bfe9c95..2a3e8bd317c9 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -103,6 +103,7 @@ static const struct of_device_id allowlist[] __initconst = {
->   * platforms using "operating-points-v2" property.
->   */
->  static const struct of_device_id blocklist[] __initconst = {
-> +	{ .compatible = "allwinner,sun50i-a100" },
->  	{ .compatible = "allwinner,sun50i-h6", },
->  	{ .compatible = "allwinner,sun50i-h616", },
->  	{ .compatible = "allwinner,sun50i-h618", },
-> diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> index 293921acec93..3a29c026d364 100644
-> --- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> +++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-> @@ -22,6 +22,9 @@
->  #define NVMEM_MASK	0x7
->  #define NVMEM_SHIFT	5
->  
-> +#define SUN50I_A100_NVMEM_MASK	0xf
-> +#define SUN50I_A100_NVMEM_SHIFT	12
-> +
->  static struct platform_device *cpufreq_dt_pdev, *sun50i_cpufreq_pdev;
->  
->  struct sunxi_cpufreq_data {
-> @@ -45,6 +48,23 @@ static u32 sun50i_h6_efuse_xlate(u32 speedbin)
->  		return 0;
->  }
->  
-> +static u32 sun50i_a100_efuse_xlate(u32 speedbin)
-> +{
-> +	u32 efuse_value;
-> +
-> +	efuse_value = (speedbin >> SUN50I_A100_NVMEM_SHIFT) &
-> +		      SUN50I_A100_NVMEM_MASK;
-> +
-> +	switch (efuse_value) {
-> +	case 0b100:
-> +		return 2;
-> +	case 0b010:
-> +		return 1;
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
->  static int get_soc_id_revision(void)
->  {
->  #ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
-> @@ -108,6 +128,10 @@ static struct sunxi_cpufreq_data sun50i_h6_cpufreq_data = {
->  	.efuse_xlate = sun50i_h6_efuse_xlate,
->  };
->  
-> +static struct sunxi_cpufreq_data sun50i_a100_cpufreq_data = {
-> +	.efuse_xlate = sun50i_a100_efuse_xlate,
-> +};
-> +
->  static struct sunxi_cpufreq_data sun50i_h616_cpufreq_data = {
->  	.efuse_xlate = sun50i_h616_efuse_xlate,
->  };
-> @@ -116,6 +140,9 @@ static const struct of_device_id cpu_opp_match_list[] = {
->  	{ .compatible = "allwinner,sun50i-h6-operating-points",
->  	  .data = &sun50i_h6_cpufreq_data,
->  	},
-> +	{ .compatible = "allwinner,sun50i-a100-operating-points",
-> +	  .data = &sun50i_a100_cpufreq_data,
-> +	},
->  	{ .compatible = "allwinner,sun50i-h616-operating-points",
->  	  .data = &sun50i_h616_cpufreq_data,
->  	},
-> @@ -291,6 +318,7 @@ static struct platform_driver sun50i_cpufreq_driver = {
->  
->  static const struct of_device_id sun50i_cpufreq_match_list[] = {
->  	{ .compatible = "allwinner,sun50i-h6" },
-> +	{ .compatible = "allwinner,sun50i-a100" },
->  	{ .compatible = "allwinner,sun50i-h616" },
->  	{ .compatible = "allwinner,sun50i-h618" },
->  	{ .compatible = "allwinner,sun50i-h700" },
+
+base-commit: ad618736883b8970f66af799e34007475fe33a68
+-- 
+2.34.1
 
 
