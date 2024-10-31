@@ -4,111 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A90E68955
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC3CE68955
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HpDEFb/b2aBSAKaChmlY1F4rNIuVfJRVe42EEqr5rQU=; b=sWOF6A8QxyP70ZdWbmaGwIxP0L
-	t928jOTgAgU9BRvCAFIn0vwItvqKor3NW5oqOdrPMK0Mjq8SGL3l1YNQi11SLXHovRjbyRBVX6Npt
-	9TOjW1e9K5eZkVX2Q0WF+QWWpxxby9ymH9F/ECJAFZ1tjg+j/UQSdgEBh9a1A0PYSWYx+bCPx6qTM
-	+I19RhH/0aurPbNpbovVMhlcamWZ1N9HyHEu6/bQoAVWtv9IZCnBrPGWhzRonTL3Mg9XcNPZxKJ29
-	rEQSyug64lJ4ef1s89+XZ9BSDkhlbwxVU6vqYKVIiZKvGigzvbEEwqtHCos7326jzgpZ+Sgxf6m09
-	tpPkLHBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Qinma5kqYmuHBjZm6H5Vna/9c51/QTVcMYek7K4+Gg=; b=Waj1tHU3aRgOFUlYQEseD8NMmx
+	wB+5rFh729S+grfRi+MoVteB7t/+XO82VTmzayNvBXGVTMkUxskDXPvysuFCdE4GP1sjJueIk9Kau
+	xxnnBqPsp1iwKZPNws1ichTbC8pTXHlJhI2/b1984sFlKyMm287ehyaCb+UMl+9SEeXoowDUlKdiu
+	wq7edIClKhLxMax1BBjsM6DuXldLZ6eFstkNbbg9iG4gZBHR6YIz+KMjLCdhOVq2Z5RZ7MBNK0TvT
+	bf8Tped2qtn0+JsC5Bwi9eiEbWZOyjUEI2Hkh3WYIoIzg+8RQXeFF/6LFynoGL6DM1LzOtcidQd49
+	1S0sthjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TMd-00000003Odz-0dFr;
-	Thu, 31 Oct 2024 11:29:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6TOE-00000003OsK-32Gv;
+	Thu, 31 Oct 2024 11:30:58 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TKx-00000003ORZ-24RX
+	id 1t6TLB-00000003OTN-3Jal
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 11:27:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CA0DFA44121;
-	Thu, 31 Oct 2024 11:25:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B97C4CEFC;
-	Thu, 31 Oct 2024 11:17:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730373470;
-	bh=8qknxn41wZoCsTggYSe2Lp0RhYFWnrMqzr0ogn95w1k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=opxZOszcxk8pH+PeHnyEDyLZUKEDxFspaSCn+eDBAl/QBJeG44cvhG/oAk4x8yZ9E
-	 OCkCSKtg3ar8FRYPblBv9u9ySP2LFPPwBI2wkAcHdZdaUp/7wOaGeAfofbiRK/Y+HZ
-	 60NkVjD17TLRF1GgoKqkhjmVTXCedhQhMz+JAJ9wRCDeTyq4w1h/Zs9PGaLkvV9+Jt
-	 icV+xMuYFMv1Edie0DRq4itYAJr7SNSaqamggxdmKaeRNlk23ddpD/CjZ4LyWk72Qr
-	 q3TT6j+f88BqAg71vEhitDMBMpNnCobPcjbKBuHSlC17ZYR9GP7SBm02m6ek8tXRxT
-	 TPqsaUkX/mZow==
-Message-ID: <ac01fa3e-1d68-419f-8afc-f3ecf3f25b68@kernel.org>
-Date: Thu, 31 Oct 2024 12:17:44 +0100
+	Thu, 31 Oct 2024 11:27:50 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-37d5689eea8so525430f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:27:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730374067; x=1730978867; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Qinma5kqYmuHBjZm6H5Vna/9c51/QTVcMYek7K4+Gg=;
+        b=nypQuMv6Et1/unFkkEAfig3kRfR/O1yKAKuodHBNTKhOM5wYmavmAEKuEcAupYACDu
+         X9VqsmniZFTss9VLu/dBRlMpXXkzIewEuKZwjo6cFJTNXgHrKoMifMIHsH2xnD7LhnuJ
+         6eyUckU0p5uN4AS9Wjsz9VNioTzSvOEbnHl4ItYzJQgA+suFsZhK4zum3wKDuJlB89HB
+         nqGuLitzA6FybeB95Vv9HbBOnMAH1Vr5bZJBGFxdXIlamOb7tXa3GOnPYCjlNxwabJZ/
+         QznAR6eqXqpD1wS4JCPI3R5g96cVRMdmeYC7o7sg6VqwAAFZsMT4r0w5YxzMCHRhhG2R
+         kJtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730374067; x=1730978867;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2Qinma5kqYmuHBjZm6H5Vna/9c51/QTVcMYek7K4+Gg=;
+        b=kmvxdPPx4iQEJ9+QE2VmctNnf6/7BNjBqqg2WV9Shu9CO3CdU921dHrCNyDtH/Pb0r
+         xUwhE+jMIhXhlIs2bcUDSEGDUV2nTjya3tfU6a90E8Nbc9X3NxQJtzyK2E07EB41VZsm
+         HvcqiRrdS7nWQ/jtaZxv598nXTXe0WNuodRFCSJg6g+7o8fTaMB8/k5UW3OYK2lMADzr
+         VhLJO0Qp73cCDEE15pwl65Y4QIEnVla8MYCoxKPMQtbDo+1i5OlqDKQD/R+eOEw/ZCf8
+         4zx4VQjHTZ/P/m2itDGm6ScxPazon/mNsS3nAYRGNNnRT9Ay4jAeF//STEEmVjgoqTj/
+         rxoA==
+X-Gm-Message-State: AOJu0YzyXn5+NrmqAV22Vf42f2YtTHVSmulhQ4c4KLAnaR2an1Hz+F7H
+	62PMVcs7UxzEn1lzaCktHoRCGggXcZKMZktDWDqasW8f9REKceUai0SxGuXlFevK58Ci5vJ5FBg
+	x
+X-Google-Smtp-Source: AGHT+IHMzU32/E5p1uwxhDrq7bFwkszQjYOIXlfcx9OzbVpxpXnCoF3yBkBjLJDocKcQhGQ24Jv1YQ==
+X-Received: by 2002:adf:9793:0:b0:367:9881:7d66 with SMTP id ffacd0b85a97d-380612008e6mr13984567f8f.41.1730374067469;
+        Thu, 31 Oct 2024 04:27:47 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c113e6b5sm1847280f8f.88.2024.10.31.04.27.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 04:27:46 -0700 (PDT)
+Date: Thu, 31 Oct 2024 14:27:43 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	Linux Regressions <regressions@lists.linux.dev>,
+	lkft-triage@lists.linaro.org,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Linux Media Mailing List <linux-media@vger.kernel.org>
+Subject: Re: next-20241028: gcc-8-defconfig : ERROR: modpost:
+ "__aeabi_uldivmod" [drivers/media/dvb-frontends/cxd2841er.ko] undefined!
+Message-ID: <d3903c31-21ae-4ffe-9969-6faa7e430cb5@stanley.mountain>
+References: <CA+G9fYvvNm-aYodLaAwwTjEGtX0YxR-1R14FOA5aHKt0sSVsYg@mail.gmail.com>
+ <456c79d2-5041-47c4-bed2-44d257524ddd@stanley.mountain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
- device_node in atmel_soc_device_init()
-To: Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
- <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
- <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
- <99b12dee-43c3-4007-9c55-e2a884fc662b@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <99b12dee-43c3-4007-9c55-e2a884fc662b@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <456c79d2-5041-47c4-bed2-44d257524ddd@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_042735_666098_A9B01B35 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241031_042749_848087_D20AB4ED 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,75 +99,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2024 12:14, Javier Carrasco wrote:
-> On 31/10/2024 12:07, Krzysztof Kozlowski wrote:
->> On 30/10/2024 18:10, Javier Carrasco wrote:
->>> Switch to a more robust approach to automatically release the node when
->>> it goes out of scope, dropping the need for explicit calls to
->>> of_node_put().
->>
->> Please use subject prefixes matching the subsystem. You can get them for
->> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
->> your patch is touching. For bindings, the preferred subjects are
->> explained here:
->> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
->>
->> There is never a "drivers" prefix. Especially not first (because as
->> middle appears for FEW subsystems, not for SoC though).
->>
-> 
-> Thanks, I added that by mistake. I will fix that for v2.
-> 
->>>
->>> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
->>> ---
->>>  drivers/soc/atmel/soc.c | 7 ++-----
->>>  1 file changed, 2 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
->>> index 64b1ad063073..298b542dd1c0 100644
->>> --- a/drivers/soc/atmel/soc.c
->>> +++ b/drivers/soc/atmel/soc.c
->>> @@ -399,15 +399,12 @@ static const struct of_device_id at91_soc_allowed_list[] __initconst = {
->>>  
->>>  static int __init atmel_soc_device_init(void)
->>>  {
->>> -	struct device_node *np = of_find_node_by_path("/");
->>> +	struct device_node *np __free(device_node) = of_find_node_by_path("/");
->>>  
->>> -	if (!of_match_node(at91_soc_allowed_list, np)) {
->>> -		of_node_put(np);
->>
->> You just added this code. Don't add code which immediately you remove.
->> Squash two patches.
->>
->> Best regards,
->> Krzysztof
->>
-> 
-> 
-> As I said in another thread, I split the solution into a first one to be
-> applied to stable kernels, and a second one that uses a more robust
-> approach that is not supported by all stable kernels.
-> 
+Arnd, can you take a look at this?
 
-Same response as in other thread:
+This patch fixes the build, but obviously breaks the kernel so don't apply it.
+I don't know how do_div() works or what changed though.  All this code looks
+ancient.
 
-1. Then send backport for stable, if you care about stable. You inflate
-history with irrational commits just instead of doing proper stable
-backport.
+regards,
+dan carpenter
 
-2. Creating some commits purely for stable in the mainline kernel is not
-a correct approach. We work here on mainline and in mainline this is one
-logical change: fixing issue. Whether you fix issue with of_node_put or
-cleanup or by removing of_find_node_by_path() call, it does not matter.
-All of these are fixing the same, one issue.
-
-If you think about stable kernels, then work on backports, not inflate
-mainline kernel with multiple commits doing the same, creating
-artificial history.
-
-Best regards,
-Krzysztof
-
+diff --git a/drivers/media/dvb-frontends/cxd2841er.c b/drivers/media/dvb-frontends/cxd2841er.c
+index d925ca24183b..e3131f5c6708 100644
+--- a/drivers/media/dvb-frontends/cxd2841er.c
++++ b/drivers/media/dvb-frontends/cxd2841er.c
+@@ -314,7 +314,7 @@ static u32 cxd2841er_calc_iffreq_xtal(enum cxd2841er_xtal xtal, u32 ifhz)
+ 	u64 tmp;
+ 
+ 	tmp = (u64) ifhz * 16777216;
+-	do_div(tmp, ((xtal == SONY_XTAL_24000) ? 48000000 : 41000000));
++//	do_div(tmp, ((xtal == SONY_XTAL_24000) ? 48000000 : 41000000));
+ 
+ 	return (u32) tmp;
+ }
 
