@@ -4,162 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E84DE67485
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 21:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31171E67488
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 21:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBibkdyjZV/1/ppByaipvOqsJDfDzCiJZNCKX7z2dUI=; b=e3bD7X2yHM0Yo0/31zZr1jYBz1
-	pDe7CvZYxH215BPsFnzpktysIoNHrSV9TY44bVMWo+cWJNyhmsL8Qiss+ldGKa7phrCEC3lCW9uDT
-	/MfpOJ6DN1guuZAO+Uk89Z2BgqulxxD9YrOUU9vfj48KmJt2CAVPxw0EHR87qQC6fbK1Shf6KAvzj
-	u5gIDaJFK+z0RHzL/Hum6Ia/0PTI6QSysBBPQYBtsiNaorJbEnajsg0/EOi1MlwSK3oXTv8P1M934
-	hGls1iS29rQmax06N8EIr5+WoYld5aPSDfVa4JfcDj7UETP7nu9UhY+jMgYAETKrPZ/ZoHWKxAUxq
-	YYxzpdaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qKFJMALNUJxy+K52N5OoWGpav88DkFPxeSQGU+lIc8I=; b=cSnJFfRXQUQmvmDmYB58rqZkxG
+	KjlNwKwczIZcjJjpHTpBQ0zoQ8DxdAVFljCC/Tf+68iDK3ki+x2CSFPODUv7qFhfja3VZ1uzh3PTe
+	8vlCj4FdDj5b0R388dCOTZEfxWpgDK4j2RHQbdCxGjkWlJxhwuVzzBb+VOIqleGCpJqsA7uAj26tB
+	w73Uj8Ex/7jYXLugBmTg5jkfBhO8U+c2VptDAisZU0r7Fj0aKF6eW0kaLTYizTofWkAr1XXzeN0He
+	wwa6A3vm7xiK4vniSPIl2x330yeCKG5a0ELOoJlMlwniVU/A5uMWQxD4UDLrYC/ciP3OeiqqWJy2d
+	gwrFPuSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6cu4-00000004xge-1hGh;
-	Thu, 31 Oct 2024 21:40:28 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1t6d1v-00000004zLG-0g7f;
+	Thu, 31 Oct 2024 21:48:35 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6cpK-00000004wnz-04ae
+	id 1t6d0F-00000004z9E-2pn0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 21:35:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZqOIuPwqj0YAxl+Lxuj4TOer2yRLpmi9osaL5ioz9rdWCwSXDWWe1KNglc5UV4Zi1pb5o5GL/0DsZdv0E949fX6ToZtHTSweDIaIkSPFbLiOGSgHPPcAynFur1WYZhr+yUi/U8tvcsNWVwTLBOcnQRNOj4+ZKt15Qe+4IonqiEhEwgRKlGD7YkLbjslpArZTKnu/k0wlYqhEFzopNctdIgR+amhWRVurrFO1j4Tp015LHt2K1+hxIYO1n2W4849uLZV2nvT8IHGhvfIvmYhYkGy3ZlpxZDChf3jx3gTpduGUWtL6N7dDb8fT5BQ6q4d7xHtQXN2tmZo/o4iY34QO+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mBibkdyjZV/1/ppByaipvOqsJDfDzCiJZNCKX7z2dUI=;
- b=s3o9FfZkbbO4vwkIrLf/A4tJcmxs2NDDPDesrP5XLsdvrAsWRAhrHDpJ6w+bXkcT1phvR7sr55R7kgjYydZzUwzcgv63YEmxwLghtwEtEEOy++dNaRFaGX4DgQxtBDAPBn4sIB9dnhUt6ZtG6DzGkVlzeK/uvSsOQUQcwmIzHrfE6Op5vU3LG/JASChw2bSPJqQAqmojS1WRTwRIjx8ohxz/JjoTdSfsqfK33plRa0CSucpBo3R9xuCugkhBEB/AJO+DGfB7dx9he68mZApT94rLfo13JpGUFKInOmeFXHKS1RaMg4LNKgzvEDY4Whttyvg6sEYpyzHcVtrX77r+Sg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mBibkdyjZV/1/ppByaipvOqsJDfDzCiJZNCKX7z2dUI=;
- b=W5cGWHUt8QQMjfEJy8vBHSAE9zGyC/5UhgepceVl2WeKv/N1Wq/nwa2GvBIefK+J6VvWmnSopf24nbj0wJvWVSwqdWHgSIIB3Yaap4keQYOpIuYIgDxrYWct4xSKiduDCyu3bZfWDgPNziegw+JiySy5m7HElCKVNcrxwsB2Iek=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- PH7PR01MB7871.prod.exchangelabs.com (2603:10b6:510:1de::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8137.7; Thu, 31 Oct 2024 21:35:24 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba%3]) with mapi id 15.20.8137.008; Thu, 31 Oct 2024
- 21:35:21 +0000
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Graham Woodward <graham.woodward@arm.com>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] perf arm-spe: Add support for SPE Data Source packet on AmpereOne
-Date: Thu, 31 Oct 2024 21:35:33 +0000
-Message-ID: <20241031213533.11148-3-ilkka@os.amperecomputing.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241031213533.11148-1-ilkka@os.amperecomputing.com>
-References: <20241031213533.11148-1-ilkka@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CH5P222CA0013.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:610:1ee::14) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Thu, 31 Oct 2024 21:46:53 +0000
+Date: Thu, 31 Oct 2024 21:46:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1730411207;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qKFJMALNUJxy+K52N5OoWGpav88DkFPxeSQGU+lIc8I=;
+	b=iQvPfPlRSmHoLgWtQ4dqbKGiyqPjjygOZ0vhrb5q6vMCULJZOJ3neinrycnRGcQj7QYJz3
+	MsQ0fceu5GLOLWz02s2otVx9So1/4Ppbpz0K4KTI58SWO6DI0EfFBI9Ye9S0hHVjFqJCRM
+	1CrjS6CT2UnxJWEoChZ4DA+kWlNeuXU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, duenwen@google.com,
+	rananta@google.com
+Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
+Message-ID: <ZyP6whdv4bmsI13x@linux.dev>
+References: <20241031212104.1429609-1-jiaqiyan@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|PH7PR01MB7871:EE_
-X-MS-Office365-Filtering-Correlation-Id: efe4b449-e20b-41ec-c074-08dcf9f3ec1a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jtTDmf6299F/q9xikAip3HnVb8EAKm08OiruNzWoj5U8o/jiwOoh6JfqCrSg?=
- =?us-ascii?Q?0JPJNgMXwVuWb2BYilmGVwUmAV9Wxmu4TxzCHeuf6Vj89S42pTcoqoBMq7Ki?=
- =?us-ascii?Q?2lzCTenuaFRYv9LliE9hhIlSlhYPdxVS/qKpbQZ0VYmxQZAFChPoE3sZlHVa?=
- =?us-ascii?Q?PRAVVW1mh//wNxS/NIWazaC7jVb4Cdp8pBytHEj7QRJuwnW847yMBejgjVT/?=
- =?us-ascii?Q?drDqO90B3bJVPLpJEGf/Sq0LlLfOFh80UaEmzQVduY3lADlBVk6/QL/MbPG+?=
- =?us-ascii?Q?2uW3dywa1tADWUoALQbIbPyXzBzbmpyeKXfPPX7FVWuHScwIlZkw588iMacH?=
- =?us-ascii?Q?lznL6iL22ylmp4nzPOvZmxZLvhSkIbCQbb7qS5+Bsu06Zeuv5O72wC2u1vEG?=
- =?us-ascii?Q?ZePARe+x8WI2dE5K4N3U4WtIXLy/OZBQ+7i0DCttX5xXl/mf4YHJUQVdfuPH?=
- =?us-ascii?Q?ZliabKKFoZ4KFPN0W+QEX1ar+rfK1La2IvENfbHlwvBP+lEZKjEMyIgngurU?=
- =?us-ascii?Q?p7WvdzNfjsJBI1p0TBuA/Va8LP4gzgbhutqsLsHCYSigX0NekZzNYXNV3SS/?=
- =?us-ascii?Q?NbThRobJaE4bb07+uFaPxOW7rr2SFZ5qIluu2LTv2N8pFQL7jui8KUvZmKUC?=
- =?us-ascii?Q?0ih1pD6qQK93RJ0cAF4isiAzgti8v7+uczBxNdr5YqD2fwunR8rLxzWtLdsu?=
- =?us-ascii?Q?inpfJ2AiJJ0YYZCLaTumNvMDalMDGLvHM3vSl/w5kjK5RzXeDQxTmUD0TClR?=
- =?us-ascii?Q?NXhw8pa/PX2chkUUK/P2c51y1Vs3XaQHuWb60Hpz6dx1YTw9oxD265fRaIxU?=
- =?us-ascii?Q?98lK9H6HMGlqDcKchNTJCjHsp1IrDX6z6EqolqXMtAXXp0FroPen9j7WRsVs?=
- =?us-ascii?Q?AjEpD9Z8XBvNZJ/wa/jwYszGQ5uZl5l/H9vXVm8hZXN8orZW3s1YLjYlWVtg?=
- =?us-ascii?Q?yyo+hTAkyuNqbaARLcRpKTRiK0fUDr4/YSIT2CpfNABu1+npLBEROi3bVvP6?=
- =?us-ascii?Q?J9sl6ET64gR3Xsx42hNzUTpSIhyhhOQWyMhysgw9c1IOLZ65+6n9TKZAoJ6C?=
- =?us-ascii?Q?vRy4od8qxZ9fcx9bWEbUBVacyMbVkk4LW9SsNi1bqg11bAviAbMzDrx9ebVe?=
- =?us-ascii?Q?G2xDuGwoCGFq+Y6yeZcoYBqi8gibfSkTICsIBfNrGfZjrd3cC1eW7ok7qKDN?=
- =?us-ascii?Q?kTb1pIKpdbPq2yKxCAE2Y/HjClv9MPTs0stnNOuWQQYdUaINIboSEbWiqB+d?=
- =?us-ascii?Q?myFCVROGocJnjDDO6G566/N4Qhpd7rT6jGsNFcgNfDzNBs0SdxVjbEzl3TF+?=
- =?us-ascii?Q?nCXZe3YC3kOPDL6MZqgKuKwp1gmlPPoJA99egQgTYAo88USyN+XaPcO0IX1E?=
- =?us-ascii?Q?bHaBtlyYABKWlZyNQfHHqTO2/pfF?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NSdyNIcHf73k4zoXPwnggE/bd7EsxVpep91U3KNHbQqL+uKo5YsZ/YZqNHK1?=
- =?us-ascii?Q?0OnnKu7WB3+C/ytc3Na+lsuMV9hy3JGtM5/atQyf6wlnyZvUumbYS2gwaNS6?=
- =?us-ascii?Q?k/9JgP2r8JgcJjy+PD1xd7vYvzMLdftAYKl0jEguVrVe1EXzNFW/eD8f8TpH?=
- =?us-ascii?Q?1uXoISOA+654/4iRi+dDtw4tCbLJ4usMGz+Uqf4KJXo9D+hqEGxz5Cfto2hb?=
- =?us-ascii?Q?wpuVjWljivHbFpLYDy/T8L8WTC4/UKydNOufLfHfSAyUJYzhYnkU8iYEsM9T?=
- =?us-ascii?Q?8/nG96nIsr61qWdtLCFNO/s22vRrk5zIybm/CDe/oXYepYYgEpLcdzKbYgKS?=
- =?us-ascii?Q?pvUS1kmGY+IBA7cDDky1gJarBhOr153+8NCul2uDGMz6vQ71yJfcmVtep9Gm?=
- =?us-ascii?Q?XHjslxfbhcfWL37C55IkYWT4lm7nCn5FJqBzEFQ0fKzA3vNrzX9asCEnOBNs?=
- =?us-ascii?Q?0uovVc8f4V8JkvOCkZ3O5PMyABf9JgHsDNWdEZBGO8xCDY1Jc/7lB3dIMif6?=
- =?us-ascii?Q?htiHwzySPlJakwbK2IkrV9Mxh03tyS/jAAO9NmZHTzC5pz8lSU1g9wdZqNrg?=
- =?us-ascii?Q?3lXQVwk5BIdCvvukxSI0x7hd8SzpogZAK/YDMBYfovfjG2HQhtI+3UEMaY8W?=
- =?us-ascii?Q?BPCWgjzC0KQjw8NSPqPAZyO+5tqE9NiVwSWz3ybjLF/i452ljU0Zu6620UTK?=
- =?us-ascii?Q?Jw2FeH38InpIddYlkMpTEqnD5fWGRk9dKru3yr1ducF5kENWzszVniIn7Qvh?=
- =?us-ascii?Q?k0EQlrEfLYcgvtP4yWcl3c9kXuW/8+44pUcKvbovNnOtfsnsayh0O1iZiVWy?=
- =?us-ascii?Q?ntbLYJcn+M7lqxQMLqmIB/IGvt7xJGC3Rc1hp08lPAvJmjgZk1oJlIl7N4Nu?=
- =?us-ascii?Q?YY6dPhm8U/0bFj3U3Eh/agvftjCH4L82fXNGO2kTR9OKXmK5RH7937EDYNIt?=
- =?us-ascii?Q?HEB2Nv/o7Qs6BOpkKZMEyMgJod8Gh1R9FQcmgY+2Hug1NI40vhY6MX78f2pu?=
- =?us-ascii?Q?aTQa9BYW/FD7Z52ikxzww5chgTH7ycdf/CCaxkoIVRp0+Hx5yFyvfVbERO8r?=
- =?us-ascii?Q?tOn+UPTUNUAMgOatD7bV2Dm4JCLNKOI61viXGGXHK2n4qODzji8TGTyNMehs?=
- =?us-ascii?Q?cOe6iC/R5NQH+dlz4DiOWErlaitCDorwjPaadeqs+Vnn2n/gtwvySf5awpC5?=
- =?us-ascii?Q?naMpPl0crkoLCHEJWxRP1BKdt+1w8+Aw806HSlC7dMHmKtHfM36VNYGR9Vkq?=
- =?us-ascii?Q?W11gb5xLM8IDbsIlgnCE9IeChTCZZY0E6EsRYAZeich1VXfWsFfbR8Z96+ha?=
- =?us-ascii?Q?4fkyIpnX5rUVr39BlZTW1PNriR7XKwOziouhCFN/Hzpbe4vAaagwvZRYq/w+?=
- =?us-ascii?Q?SZ3HMhn09Rhk3pmWlTdG1DxzrfM+naqgbEJXQhyYI9F2SHMB+wq6lM3xekwR?=
- =?us-ascii?Q?ZjV6/g6t4NUaqmoDT67hxg+6SLsc8l48ZbVIdSYQulOv1Eiitvcd5IMjc9vO?=
- =?us-ascii?Q?DMAkFLpuGQbuSrY5A32Xq5V57MToBNQCVhoujbOLPb8IkFPFrmzQYc2+rGR6?=
- =?us-ascii?Q?0YI8SmUZlN+4AjahZAi8C5+prkXdsJldPGeJzP42CP2KxbgQh4dYDDzIuQ5F?=
- =?us-ascii?Q?hvOHqDWw0eMHiL3pBip8dQ8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: efe4b449-e20b-41ec-c074-08dcf9f3ec1a
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 21:35:21.4605
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: k3NSLxWXMFLtYsalpVv6y8dFJXOMMJA6R4YgQe3odnM5A2vBMWSC/Ql30d6NYU8BYVdvEUQR0qS1girSWivh1e3GtVdw9lpffPJJm4+So7B3qd2g4ME0PM7Z7oQwN/lq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB7871
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241031212104.1429609-1-jiaqiyan@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_143534_229138_755DA36B 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20241031_144652_023603_BF3A08B7 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,139 +70,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
+Hi Jiaqi,
 
-Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
----
- .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
- tools/perf/util/arm-spe.c                     | 65 +++++++++++++++++++
- 2 files changed, 74 insertions(+)
+Thank you for sending this out.
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 358c611eeddb..4bcd627e859f 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -67,6 +67,15 @@ enum arm_spe_common_data_source {
- 	ARM_SPE_COMMON_DS_DRAM		= 0xe,
- };
- 
-+enum arm_spe_ampereone_data_source {
-+	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE    = 0x0,
-+	ARM_SPE_AMPEREONE_SLC                           = 0x3,
-+	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE             = 0x5,
-+	ARM_SPE_AMPEREONE_DDR                           = 0x7,
-+	ARM_SPE_AMPEREONE_L1D                           = 0x8,
-+	ARM_SPE_AMPEREONE_L2D                           = 0x9,
-+};
-+
- struct arm_spe_record {
- 	enum arm_spe_sample_type type;
- 	int err;
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 9586416be30a..700d4bc8d8ec 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -103,6 +103,30 @@ struct arm_spe_queue {
- 	u32				flags;
- };
- 
-+struct arm_spe_source_mapping {
-+	u16 source;
-+	enum arm_spe_common_data_source common_src;
-+};
-+
-+#define MAP_SOURCE(src, common)				\
-+	{						\
-+		.source = ARM_SPE_##src,		\
-+		.common_src = ARM_SPE_COMMON_##common,  \
-+	}
-+
-+static int arm_spe__map_to_common_source(u16 source,
-+					 struct arm_spe_source_mapping *tbl,
-+					 int nr_sources)
-+{
-+	while (nr_sources--) {
-+		if (tbl->source == source)
-+			return tbl->common_src;
-+		tbl++;
-+	}
-+
-+	return -1;
-+}
-+
- static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
- 			 unsigned char *buf, size_t len)
- {
-@@ -443,6 +467,11 @@ static const struct midr_range common_ds_encoding_cpus[] = {
- 	{},
- };
- 
-+static const struct midr_range ampereone_ds_encoding_cpus[] = {
-+	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-+	{},
-+};
-+
- static void arm_spe__sample_flags(struct arm_spe_queue *speq)
- {
- 	const struct arm_spe_record *record = &speq->decoder->record;
-@@ -532,6 +561,38 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
- 	}
- }
- 
-+static struct arm_spe_source_mapping ampereone_sources[] = {
-+	MAP_SOURCE(AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE, DS_PEER_CORE),
-+	MAP_SOURCE(AMPEREONE_SLC, DS_SYS_CACHE),
-+	MAP_SOURCE(AMPEREONE_REMOTE_CHIP_CACHE, DS_REMOTE),
-+	MAP_SOURCE(AMPEREONE_DDR, DS_DRAM),
-+	MAP_SOURCE(AMPEREONE_L1D, DS_L1D),
-+	MAP_SOURCE(AMPEREONE_L2D, DS_L2),
-+};
-+
-+/*
-+ * Source is IMPDEF. Here we convert the source code used on AmpereOne cores
-+ * to the common (Neoverse, Cortex) to avoid duplicating the decoding code.
-+ */
-+static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *record,
-+						 union perf_mem_data_src *data_src)
-+{
-+	int common_src;
-+	struct arm_spe_record common_record;
-+
-+	common_src = arm_spe__map_to_common_source(record->source,
-+						   ampereone_sources,
-+						   ARRAY_SIZE(ampereone_sources));
-+	if (common_src < 0)
-+		 /* Assign a bogus value that's not used for common coding */
-+		common_record.source = 0xfff;
-+	else
-+		common_record.source = common_src;
-+
-+	common_record.op = record->op;
-+	arm_spe__synth_data_source_common(&common_record, data_src);
-+}
-+
- static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
- 					union perf_mem_data_src *data_src)
- {
-@@ -606,6 +667,8 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
- 	bool is_common = arm_spe__is_ds_encoding_supported(speq,
- 						common_ds_encoding_cpus);
-+	bool is_ampereone = arm_spe__is_ds_encoding_supported(speq,
-+						ampereone_ds_encoding_cpus);
- 
- 	if (record->op & ARM_SPE_OP_LD)
- 		data_src.mem_op = PERF_MEM_OP_LOAD;
-@@ -616,6 +679,8 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 
- 	if (is_common)
- 		arm_spe__synth_data_source_common(record, &data_src);
-+	else if (is_ampereone)
-+		arm_spe__synth_data_source_ampereone(record, &data_src);
- 	else
- 		arm_spe__synth_memory_level(record, &data_src);
- 
+On Thu, Oct 31, 2024 at 09:21:04PM +0000, Jiaqi Yan wrote:
+> Currently KVM handles SEA in guest by injecting async SError into
+> guest directly, bypassing VMM, usually results in guest kernel panic.
+> 
+> One major situation of guest SEA is when vCPU consumes uncorrectable
+> memory error on the physical memory. Although SError and guest kernel
+> panic effectively stops the propagation of corrupted memory, it is not
+> easy for VMM and guest to recover from memory error in a more graceful
+> manner.
+> 
+> Alternatively KVM can send a SIGBUS BUS_OBJERR to VMM/vCPU, just like
+> how core kernel signals SIGBUS BUS_OBJERR to the poison consuming
+> thread.
+> In addition to the benifit that KVM's handling for SEA becomes aligned
+> with core kernel behavior
+> - The blast radius in VM can be limited to only the consuming thread
+>   in guest, instead of entire guest kernel, unless the consumption is
+>   from guest kernel.
+> - VMM now has the chance to do its duties to stop the VM from repeatedly
+>   consuming corrupted data. For example, VMM can unmap the guest page
+>   from stage-2 table to intercept forseen memory poison consumption,
+>   and for every consumption injects SEA to EL1 with synthetic memory
+>   error CPER.
+> 
+> Introduce a new KVM ARM capability KVM_CAP_ARM_SIGBUS_ON_SEA. VMM
+> can opt in this new capability if it prefers SIGBUS than SError
+> injection during VM init. Now SEA handling in KVM works as follows:
+
+I'm somewhat tempted to force the new behavior on userspace
+unconditionally. Working back from an unexpected SError in the VM to the
+KVM SEA handler is a bit of a mess, and can be annoying if the operator
+can't access console logs of the VM.
+
+As it stands today, UAPI expectations around SEAs are platform
+dependent. If APEI claims the SEA and decides to offline a page, the
+user will get a SIGBUS.
+
+So sending a SIGBUS for the case that firmware _doesn't_ claim the SEA
+seems like a good move from a consistency PoV. But it is a decently-sized
+change to do without explicit buy-in from userspace so let's see what
+others think.
+
+> 1. Delegate to APEI/GHES to see if SEA can be claimed by them.
+> 2. If APEI failed to claim the SEA and KVM_CAP_ARM_SIGBUS_ON_SEA is
+>    enabled for the VM, and the SEA is NOT about translation table,
+>    send SIGBUS BUS_OBJERR signal with host virtual address.
+> 3. Otherwise directly inject async SError to guest.
+
+The other reason I'm a bit lukewarm on user buy in is the UAPI suffers
+from the same issue we do today: it depends on the platform. If the SEA
+is claimed by APEI/GHES then the cap does nothing.
+
+> +static int kvm_delegate_guest_sea(phys_addr_t addr, u64 esr)
+> +{
+> +	/* apei_claim_sea(NULL) expects to mask interrupts itself */
+> +	lockdep_assert_irqs_enabled();
+> +	return apei_claim_sea(NULL);
+> +}
+
+Consider dropping parameters from this since they're unused.
+
+> +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+> +{
+> +	bool sigbus_on_sea;
+> +	int idx;
+> +	u64 vcpu_esr = kvm_vcpu_get_esr(vcpu);
+> +	u8 fsc = kvm_vcpu_trap_get_fault(vcpu);
+> +	phys_addr_t fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+> +	gfn_t gfn = fault_ipa >> PAGE_SHIFT;
+> +	/* When FnV is set, send 0 as si_addr like what do_sea() does. */
+> +	unsigned long hva = 0UL;
+> +
+> +	/*
+> +	 * For RAS the host kernel may handle this abort.
+> +	 * There is no need to SIGBUS VMM, or pass the error into the guest.
+> +	 */
+> +	if (kvm_delegate_guest_sea(fault_ipa, vcpu_esr) == 0)
+> +		return;
+> +
+> +	sigbus_on_sea = test_bit(KVM_ARCH_FLAG_SIGBUS_ON_SEA,
+> +				 &(vcpu->kvm->arch.flags));
+> +
+> +	/*
+> +	 * In addition to userspace opt-in, SIGBUS only makes sense if the
+> +	 * abort is NOT about translation table walk and NOT about hardware
+> +	 * update of translation table.
+> +	 */
+> +	sigbus_on_sea &= (fsc == ESR_ELx_FSC_EXTABT || fsc == ESR_ELx_FSC_SECC);
+
+Is this because we potentially can't determine a valid HVA for the
+fault? Maybe these should go out to userspace still with si_addr = 0.
+
 -- 
-2.47.0
-
+Thanks,
+Oliver
 
