@@ -4,152 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A1AD767F9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB7D767F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 19:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=; b=L+ENcEl1tNX5Ae42mX8oxWs1yX
-	ANtjtzYitoCPK68z5mnCVaw3omhO0RhJpIgQzZNqfEVCw11SQi5RRV5FnpcliClONA9a53+Li3Wx7
-	xCSN4nQDoAWj+svFf/tt3UZKev4XgphMn2ZPcBAa+VI7cs/G4R7rBT/66ry4vi4WJaeKMMz3iWWjT
-	CVc87QtWOXzq5211x8FTn9YJU0C0lX62iCLKYEJKANtdZxRDdNvDLUTZ0fItKXW23pn+Fgpvu+lQD
-	jGXU7qA5GmStcnPF4wtOQ/EP+IvvwS+7/QglbXc+ZgJPwGrFPqkasf7CuO+huVakWUFkcKChrGhcF
-	29/oPqLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cN8Xg10U0hJwzdbYn0VLyyefwmZ46aiJ79KkG/dl5eA=; b=hbzx9LoIk7YRR7Uno64/Wwh1Yb
+	jSKZxoiQsUGUd9FP/hC4qJwGQLrfy7aS4/EYx1Y9N2BWdfOYqbmzbJx6TUTMc9Dh+Nns4uYNhPSds
+	hkqXgpfVpKkn0YGL+0NtiSPfFPO3il0oVhc+0Hn9l2GAo2+JYI7/DP/Ahg1PfdVGE25sEkkjd9bs5
+	PtDvKxBIk+lAirhQV3Ek5KfSSOyhO7Vg27pA96K9wHFrUCHvvZjwKIZ2Cv6enwhSWMxO0jXtUn3mN
+	tyJQaj1tpr7ew/1eFmUCDcBYacgVQ3bBmSbzCa5rBMcDMQQegMru9NF1jdncxb3R2XYyVovYB5hdr
+	/6Rzx6DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aTR-00000004a10-09g4;
-	Thu, 31 Oct 2024 19:04:49 +0000
-Received: from mail-am7eur03on2060e.outbound.protection.outlook.com ([2a01:111:f403:260e::60e] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aRm-00000004ZnY-09ua
+	id 1t6aW0-00000004aOu-3vGf;
+	Thu, 31 Oct 2024 19:07:28 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6aUK-00000004a6H-2Bpe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 19:03:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OfInTj48WfZtnipDF5aUeyHe2SU82ytJ6FZnsuEt/lsnaSYMSLFtOi6NEUuVHUIkEDbpyEujMcs8QX/jSykcfpWdBTEn3ItYYfqmjWyS038UKbonmjv+KedLFwPk2iJqYtDi0WHh/GpGNEVfctR+gsJdZqYhc8awf+XW+lXhyKnu2xFyAmj6VFeeHRiSSbGPUfHW8n7FPlIOJvFGm5Enq7smDnI20CQ4VkFwq4o8sh434KQUB1c8EFjW3h4VBTLHnjRzZGkGgqpnl7RGdHjW9UqoltA79DbkOkH6lnf/L6gscm3SGm8YvNhIwA0yhO4yqrymwRWpqa8U/EtrUL0aAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=;
- b=yT6jwVr1j0DwUYrth2JSAS2tA/XnB8YULfjwUIcikvPYf5dkwWZBWnED6McCzODM3MhUyy4A7vIDwY/i9wARBsaYc2BYx1WV3DrSNslRuRgMpJmU1YgLN0JKrFW5GKI6ZGrfFN9vUV/LLr80S1suYZlm8sEGzM/KOaJ3VFzqMYVocOIC9UMFYPsowE6XKQlclVm7oy/DCrIcGg20c3KraWy3xMcXjlwhT9TjBIspyTWfr+1gD0rSODboagohVszLeeOLO61zGl7rYh1rQqsgGFMsTVT/zjhk45X5PswMtcrtv3ONVJbg7xeRgOVrt/eMH3Ncwr1FJqA7kNo969o1IQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wmwEDjEhky1npU0l52dn++FA8KIwOqeSnDkn9tc0g/I=;
- b=UWPD2vE8kmFVIh00swXwa8xzLGs9EnGjGX5hVXplLhehXlgTVE/1od0BaaioBdh6IOQQFPbIuQ9DsTQdfgwOjBMk3chSLRTwAPhGNAhENJd496U7LKl5JACl9kvCnBc7O55ZMyDwTq8JHhUFjHwcWoYKEDKqJvE+k5a5GEpdGYN5wpFhiKrdd7hmpht947GcJJjOWgtQbdx1IcehbFlAI21cBmD4DYjIt/O/KZCPtmDRhrKPWz21x3kJBgsVrlZIG1fhvGCsobI4zkS0bW7RcYbjBdLyEaiXGZfaP8hwPw3N/SVnNtCkYEDr5CURB6PEXfGC4ihKRfXIoHfa+nmxtQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB9475.eurprd04.prod.outlook.com (2603:10a6:10:367::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.29; Thu, 31 Oct
- 2024 19:02:59 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Thu, 31 Oct 2024
- 19:02:59 +0000
-Date: Thu, 31 Oct 2024 15:02:49 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx-wdt: Add missing
- 'big-endian' property
-Message-ID: <ZyPUWaINgupm7dZ3@lizhi-Precision-Tower-5810>
-References: <20241007212434.895521-1-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241007212434.895521-1-Frank.Li@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0357.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 31 Oct 2024 19:05:45 +0000
+Received: from [192.168.35.166] (c-73-118-245-227.hsd1.wa.comcast.net [73.118.245.227])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 88002206941B;
+	Thu, 31 Oct 2024 12:05:41 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 88002206941B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1730401542;
+	bh=cN8Xg10U0hJwzdbYn0VLyyefwmZ46aiJ79KkG/dl5eA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=hpo6SU0afc10BLlq+7xOtaqNTlNryyZQ1hVTr2+F0JZkMwx6tqTL8xrReF0N6K2rS
+	 vHSMJHOSxp9ExDGq/GZb95dKbKIUW276jmEdymGvMLyCodqFAUiZhHl17EitlPUL5+
+	 XN7PgRReK+aW6PF7Bcp7ugC2kCaxM5XtYbtJB7r4=
+Message-ID: <fc47d535-ed52-4ca5-80cc-30003efdd464@linux.microsoft.com>
+Date: Thu, 31 Oct 2024 12:05:39 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9475:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8be4432-7d86-4059-e4cc-08dcf9dea2c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aDMaxoXx3aFwlC6T+x4Wendc9MJ8kgi1NZXIdPgU662nqrPpNwgHayXodHMd?=
- =?us-ascii?Q?nptBb/IVDS+IuLDauLBt+PurT9vuFhRKouZLEe0/5fupQGRhJ4EyEPTll8eO?=
- =?us-ascii?Q?xOYADFHc2XpA6YoFqNSsmA/inI+Lcnr4bLi88VKoalL98dUvk5xFNG2fsSt3?=
- =?us-ascii?Q?yp5RpUbYmMeKVhxL5C240UyW6LYuSMcxEwBYnmUf94clN4LKxttEKO5sKNfU?=
- =?us-ascii?Q?mvQGYJJnHUVe90c6g/PwYk4lu+UJVNFbCYolrj7Mu7LaFXhZx/KipSBgUNbK?=
- =?us-ascii?Q?SvVBAuH5Ck1h5nnb6GSDQLk8KxpV9JQcKqaNDeNKwATbe9uBevCi45LUST9d?=
- =?us-ascii?Q?ucURc0QcAljmN2P3UjglehGACsMxHmrsFRlPyo58tntS+p7s2DU2ypLMX8Fk?=
- =?us-ascii?Q?vMaEQf+iEJqgPaRSd7M9mC29S+1pw0p9OdYs0i7VJXBWRDieuhgI2s7Tllqq?=
- =?us-ascii?Q?auL3UCklXlA6Arb7VLC2ZkVMVyeuYrDctYfhZj+Hzn5wRhpqyAHQgLfo0uiO?=
- =?us-ascii?Q?nQsAW+y3Z5WEga/9yK6cUv5knrJyPaUJtjR/sf2hQ5VmaH9oVjdODqD/gyXZ?=
- =?us-ascii?Q?fq9EMSxcJO8DsvKQaRWIFjPArLhpTmllFspGttdbQFNa2WjTevGBrHoyH+d+?=
- =?us-ascii?Q?d71kbLBwqCXzRuaf9LZx4TyxIImMZgKlh4jEoRe/V8Q5ez8SWlopygwU5C/j?=
- =?us-ascii?Q?SGgLThu1kO808rl8xVKDOMP/wetQ6Isb73kd9K9CWjve4BmGpTXmjZyEfujt?=
- =?us-ascii?Q?2jv3zgOuxgHjBGeEGZrEz00EBOtnVaVCXdpvqHtjc7z41S22Vc7WXxvWPYAu?=
- =?us-ascii?Q?Lq90hQrbfbt1Ma7JRH1YwaftLnmzkqFc9Z712yiYQ6ZRpK0a8xEfMgjpvS+L?=
- =?us-ascii?Q?124t+pGhn1gtNgHLoP6lxG9EDc6qwW0mTdvtc2Vcpnh/fj77EvemridaLFH6?=
- =?us-ascii?Q?KHBFOjIM9eTY7sgtejZRBnXI84aSCEOxO6AeSdxg9/TtXKW8ie4j0VItYNIP?=
- =?us-ascii?Q?1e2c+aXvyaDR9/DURfcFbp8+OUsQIpbIvcxGUOqq7NAcQ8fUbHM96Xs2U3YE?=
- =?us-ascii?Q?8+EXaKZjmSXUrgdgYybsgH5Qb7kqzVDwQioQULV4x+h3jGhvE5s6Hnp5OZJh?=
- =?us-ascii?Q?8bzOGpM6tKZFC8pSTFlE7KvT0qUjUfLd5ffVIROo6x9KErHuxbkNQh6h0mrh?=
- =?us-ascii?Q?+2qdnvbMiXdBQ3oX394PcEPm10DL2kJRH53zwjnYZew2OosVs3q69Z1HfSoA?=
- =?us-ascii?Q?gqa9qCKtSUF25gV+6WM5MXR6BlKyadoUisKEbJ8s8rVIQHit2J8oUaoozh2/?=
- =?us-ascii?Q?t8JYCIDlzN/wqxbZRIvci88oRKkF4015USZkkJfIX8V3FrzXUq3Yvp5VybD9?=
- =?us-ascii?Q?l8gR/xAL3RoTQbfB/Qku61bZCmPXNFFWR6Q9jKtiKonJ4Gjduw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sVl5Q40X4NHKbj63XJrnjRgZ3Z5Dxc67IDxWJwMVlo19LSeu3LaQ0Ufi5Xye?=
- =?us-ascii?Q?jeNKN7ujFOvAmzHxG2n31ydZoJqkJNbsaAo3KstRr5JUaql2TG8dd7+L960m?=
- =?us-ascii?Q?GRpEkP3N4UvVBtLdFQUnbt/IFTcPgn9mITpgS2zjCEW1LxpTaC8gNRNBZRIo?=
- =?us-ascii?Q?OjkfChzWWeY+P7tXkBW2k8U9WGucLT7C3hsZVkaiDXuR/MO5AdsPmpHg2EaF?=
- =?us-ascii?Q?AnWz31nJ3q5rEbjUXtY9H9EwJHWEc2wnAnOqcIDNUx+75+TH9Fab11dQaAMa?=
- =?us-ascii?Q?NY7F+VMPc1mhe6beErJa6f7dWs5GC7pXnY4yorOjr+qvRPjPwN+G4CYVEvPn?=
- =?us-ascii?Q?3hWhKAiTQl9Q60/VALhq1wXs3Vk/sF5M/hoY6cJm5UKzUzdM4wqdmnvxEPdd?=
- =?us-ascii?Q?2VdggDwz5/Mcy478r1qLxi/NUy7oUtquMpBdnCO+icHh/oeoSdoxq7N2/1o2?=
- =?us-ascii?Q?a4kGDZ/hHZWLQ0hD/zRmcxsetp8qOfuBP3kR/VQPlDXEyeL0xrNmbBGl9jcP?=
- =?us-ascii?Q?adJy6VEOJWoC9TlunS3O3KsLe5tmP/gdHfSiEuzHTrcBGcN8D57bVdBXqdid?=
- =?us-ascii?Q?TRkkkQgT0jG5NWbvUimDHkkCJ9W9pBfs/zMLFp/I44ygMJjenIDYWzMXViZ7?=
- =?us-ascii?Q?vJipWz4Y+oVQ2IDhS+fn3DIu5U5Zzj2rmSwcszhkLishtAyFIOTuyw+C+Yjs?=
- =?us-ascii?Q?5NMnNxUBmSw5Ng97lAKdpHXIzmEmSGr239BuGOf0SEN07nD4p8pjKTdLBgw6?=
- =?us-ascii?Q?21H7k4fwseieuW4ldPjXYOjIxtWR7ssUQiyA2/Nmq5f/Tu4ciZSscY483YVE?=
- =?us-ascii?Q?dg5xdeR8bjHYba/uXPRIstyJdHxIW05q7JewTT7uTdNNd+2HiqS9/vIP0eRB?=
- =?us-ascii?Q?4ghEFpecl8t93unIdUrXoTM+BdFGIaC9dUJXIZ3VdyVxeRPzZ3IEPE+cN7a6?=
- =?us-ascii?Q?355zOrPlZ+yH+olH/wmf64IVzt38aedqFrQSY4pC1GBzaP0hHGWckmmDhY+l?=
- =?us-ascii?Q?CjuGoAZw/BFuNxR0kQpHbx7/z07ihluYD8S1+zDsQzHZPesdjYskW6cwNEN0?=
- =?us-ascii?Q?/GIYSnbwV1H4fVamKav7tIqRKoJeox07l9ZBR3T/iYZANyRI4IAkRkrleYAX?=
- =?us-ascii?Q?5I41dZ15cFlpUObYkTHuTKB4Io1XVIFzSNgD6B6LwAcFl+jqwZVJ8mXLwW8a?=
- =?us-ascii?Q?ZNgfcOatT6ohMA1xXgfp/lqB+7p9AaBHQFOBBGi3y19VN0406nyWfskXU4Db?=
- =?us-ascii?Q?ftDMBUQDN6dksV2HfJY/P8XBbTE4ivWS6iD0uC9gIzk8b9qZQ/iAKd91uKXs?=
- =?us-ascii?Q?SgVu/f12K9lvINFfnLFH7IQ/Jk5nvnn/FayO0Cv+Tvsb05oDo6Inpt4cRQws?=
- =?us-ascii?Q?sUISyUcH+8YCTQ0at2dZnzQHfrZOK2swqRvonWZDDdATQ6lYs1eh07x5vVTZ?=
- =?us-ascii?Q?8qgrsej8W65aF93Gw9nEo+6OeRbP5m6mlVkuQFp8F1vOx8bBeP1sPmr4S5ms?=
- =?us-ascii?Q?dhnxei0j0ttJY3kk4XeQiKrHRGsDEVrbt/q1Dg/5/WiXJI3MdgEfuNbgOMKp?=
- =?us-ascii?Q?izdcaimJuYSkQ2JWsQk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8be4432-7d86-4059-e4cc-08dcf9dea2c8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 19:02:59.0182
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w5ylSS8m+Ga1iasC6O67givPs6+UCN1gZkTQR+Ft2gcQo+MuB3QdthY4+FiizggShnmTGr/SjhfyUDLOooz+2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9475
+User-Agent: Mozilla Thunderbird
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Subject: Re: [PATCH 0/5] Add new headers for Hyper-V Dom0
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, iommu@lists.linux.dev,
+ netdev@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-arch@vger.kernel.org, virtualization@lists.linux.dev
+Cc: eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, catalin.marinas@arm.com,
+ will@kernel.org, luto@kernel.org, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ seanjc@google.com, pbonzini@redhat.com, peterz@infradead.org,
+ daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+ bhelgaas@google.com, arnd@arndb.de, sgarzare@redhat.com,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com,
+ tyhicks@linux.microsoft.com
+References: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_120306_127381_D64B9696 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20241031_120544_648480_8C753C11 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,84 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 07, 2024 at 05:24:33PM -0400, Frank Li wrote:
-> From: Animesh Agarwal <animeshagarwal28@gmail.com>
+On 10/3/2024 12:50 PM, Nuno Das Neves wrote:
+> To support Hyper-V Dom0 (aka Linux as root partition), many new
+> definitions are required.
+> 
+> The plan going forward is to directly import headers from
+> Hyper-V. This is a more maintainable way to import definitions
+> rather than via the TLFS doc. This patch series introduces
+> new headers (hvhdk.h, hvgdk.h, etc, see patch #3) directly
+> derived from Hyper-V code.
+> 
+> This patch series replaces hyperv-tlfs.h with hvhdk.h, but only
+> in Microsoft-maintained Hyper-V code where they are needed. This
+> leaves the existing hyperv-tlfs.h in use elsewhere - notably for
+> Hyper-V enlightenments on KVM guests.
+> 
+> An intermediary header "hv_defs.h" is introduced to conditionally
+> include either hyperv-tlfs.h or hvhdk.h. This is required because
+> several headers which today include hyperv-tlfs.h, are shared
+> between Hyper-V and KVM code (e.g. mshyperv.h).
+> 
+> Summary:
+> Patch 1-2: Cleanup patches
+> Patch 3: Add the new headers (hvhdk.h, etc..) in include/hyperv/
+> Patch 4: Add hv_defs.h and use it in mshyperv.h, svm.h,
+>          hyperv_timer.h
+> Patch 5: Switch to the new headers, only in Hyper-V code
+> 
+> Nuno Das Neves (5):
+>   hyperv: Move hv_connection_id to hyperv-tlfs.h
+>   hyperv: Remove unnecessary #includes
+>   hyperv: Add new Hyper-V headers
+>   hyperv: Add hv_defs.h to conditionally include hyperv-tlfs.h or
+>     hvhdk.h
+>   hyperv: Use hvhdk.h instead of hyperv-tlfs.h in Hyper-V code
 >
-> Add missing big-endian property in watchdog/fsl-imx-wdt.yaml schema. Only
-> allow big-endian property for ls1012a and ls1043a.
->
-> Fix dtbs_check errors.
-> arch/arm64/boot/dts/freescale/fsl-ls1012a-frwy.dtb: watchdog@2ad0000:
->     Unevaluated properties are not allowed ('big-endian' was unexpected)
->
-> Cc: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Animesh Agarwal <animeshagarwal28@gmail.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
 
-Wim Van Sebroeck:
+What is the model for Hyper-V code that has both guest and host roles
+where the corresponding hypercalls are available for both? As I
+understand it, those are supposed to be in hvgdk*.h.
 
-	Any update this patch? Kyzy already acked.
+For a specific example, IOMMU hypercalls can operate on stage 2 or stage
+1 translations depending on the role of the (hyper) caller and the input
+values provided. Should a driver using these hypercalls import both
+hvhdk* and hvgdk*? What about hyperv-tlfs?
 
+Patches 4 and 5 seem to draw a bright line between host and guest roles
+while the reality is more gray. Please do correct me if I'm wrong here,
+perhaps the picture would be clearer if Stas' suggestion of a new header
+file is implemented.
 
-Frank
-
-
->
-> Change from v1 to v2:
->   only allow big endian for layerscape platform.
->
-> previous post at:
-> https://lore.kernel.org/imx/20240806103819.10890-1-animeshagarwal28@gmail.com/
->
-> check spec, and dump watch dog reset value
-> at ls1043a platform.
->
-> 0x02A80000:  00 30 00 00 00 10 00 04 00 01 00 00 00 00 00 0
->
-> It is big-endian. imx2_wdt.c use regmap which call regmap_get_val_endian()
-> to handle endian.
->
-> So this change is corret.
->
-> big-endian for wdt is necessary
-> ---
->  .../devicetree/bindings/watchdog/fsl-imx-wdt.yaml  | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> index 36b836d0620c9..0da953cb71272 100644
-> --- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> @@ -48,6 +48,8 @@ properties:
->    clocks:
->      maxItems: 1
->
-> +  big-endian: true
-> +
->    fsl,ext-reset-output:
->      $ref: /schemas/types.yaml#/definitions/flag
->      description: |
-> @@ -93,6 +95,18 @@ allOf:
->        properties:
->          fsl,suspend-in-wait: false
->
-> +  - if:
-> +      not:
-> +        properties:
-> +          compatible:
-> +            contains:
-> +              enum:
-> +                - fsl,ls1012a-wdt
-> +                - fsl,ls1043a-wdt
-> +    then:
-> +      properties:
-> +        big-endian: false
-> +
->  unevaluatedProperties: false
->
->  examples:
-> --
-> 2.34.1
->
+Thanks,
+Easwar
 
