@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC45E68961
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 09:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E58E68960
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 09:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pw+x48pnfLzdgml028gQLcQYntFplT5q/PBhAfq+CoM=; b=J++cCVRi4A7D1CRMg80gX7ckzN
-	3Y+de+kGWVGBgaUFQtsepke6VsVpWEB25A8QjA9eSRs8qxaN2NHkmG05vPDtbCpa4ood225t3FMAV
-	NIZ723zJfgGY765zzouF/aQvhJYq0UZ40yBQEqGLlxmifYH8NxTT8hADY4N5rozG9Cyymgqptdc/b
-	Q+ef6IPVyKHljullPxX6gKMv9CelJWgc0f/VHRbinTlp8PvBrTObHPkdwrsof2ASBUa09r0CugbIk
-	tVzSJpcKzGK3kQy6Nu7bQb8EWzkF/U5FLudk3MttY9WAcaTHpHIlI9P3O/Mupx3VOEA6cWxN+MFw3
-	zNWPAR7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrD0ZfuHoa6x/lqplhytCjOw0Xel3ZOQUIA62v3IfKk=; b=cAYkhFQetuE5XuGShLI5ttHqrn
+	U6/ohmds9hyj2IomBeZt0htcjK4AiL51+av8TSunI57AKzwoPg6f4iQgE3RpDCL8YJxBlOF1o7v7t
+	jJJnDTstgBxPqhmIHUwzDH8GiPno9JOR3rRiAhqh5RwE8Y6mNNNPZzN7ZSOR7e62ovbixYxzahxdl
+	2ELzAiPZLeNa3OLy0qUHRH7RD7FldyBH+yoqacB5SaJ6cI7YBV2IivVhayiP8y04afxKJ1vw0wH5Y
+	XMzOXctRJezLRQgMX1ISZm3LmSZleNJ7ve+BS1jcGiJrz17NsjHWj263CFBcWd8QMTCfznQNdkYxY
+	cVJ1xM0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6RAU-000000031nW-2tgO;
-	Thu, 31 Oct 2024 09:08:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6RHN-000000032fr-2T0m;
+	Thu, 31 Oct 2024 09:15:45 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6R8q-000000031ZX-0MVC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 09:06:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E1EDA40209;
-	Thu, 31 Oct 2024 09:04:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67AC9C4CEC3;
-	Thu, 31 Oct 2024 09:06:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730365615;
-	bh=jRK9phKHkchO0mnknTshDeyU8PEHorjApsaAP1BtGM8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WsngxzJC4E1+qV9IM631Ja9WXQOHWGKm2xL8Rp6W52SS963iSAacmobvKtFsy9Zm1
-	 L8gfMhAMdZqkInyy8xdsDvI6Ivof++6lcv7y2rbFWTVKsWW1hCqyi2lp/5Tip/wYkq
-	 AUKTb++jTVCPBfnk0DW1A6yhMSBx0HtKLAbRUvQ9WPE8s63xn0qmcmGzp96/DemFGI
-	 wWxGFXs1pWgBAvt0sZfQZhsP5j5TZY/5x1lXfCsILvdQpI/cyqKbZJUWkYc/PSnzDS
-	 6c+KaMDXBzphi1Xi33xXbVkCVjfW2cOQfLLKtuC8nWM6SzcuZy4JAONzh9Ne+pYmOP
-	 5PyVpooPRm6lQ==
-Message-ID: <cd120c6b-e469-46d9-95b5-71a8cc6513cf@kernel.org>
-Date: Thu, 31 Oct 2024 11:06:50 +0200
+	id 1t6RFf-000000032JK-0FCV;
+	Thu, 31 Oct 2024 09:14:02 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1730366034;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DrD0ZfuHoa6x/lqplhytCjOw0Xel3ZOQUIA62v3IfKk=;
+	b=3cXMAKP9i9urmv40oh5aOvpiqjxr5tJ38d79UA5I636s3QeCC16+tHval5Nk0DSaNZCiJl
+	T8Z+RcZg8ciKTwXFm8lx/+KLg6t9af1W52MV7T8sXgZs49TMkcT/ax8VczQ/iEjfUWwigA
+	Mz6X/UV489Kg3iKgYFLBGTuTmBph7jXddgS721mzVgFIdzaotaQCSVt/v48VKFRBQ6AZh7
+	1K0UU6n6Ps1K67S0aMzPUl7vSW2sZwfc3Zdi9WIw0UGw9s79hVzIL5rgFgKQuwSj4AU5lJ
+	1bYpuo+LZRywXWAeNLvXlO/hsCWbf9IvO6PkEWe5Z1p0sQ9rbmxSyQ7Xmsss/w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1730366034;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DrD0ZfuHoa6x/lqplhytCjOw0Xel3ZOQUIA62v3IfKk=;
+	b=CKko7n5TAyXddi94osYz3Z1LksU9iEockc/SoL53s5olauKZSw6RBCaZD7sFQX1qqSo+eh
+	MU9CYrJuxciUi2Ag==
+To: Jiri Slaby <jirislaby@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
+Cc: Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Esben Haabendal <esben@geanix.com>,
+ linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, "Paul E. McKenney"
+ <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Stefan Wahren
+ <wahrenst@gmx.net>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, Kevin
+ Hilman <khilman@baylibre.com>, Markus Schneider-Pargmann
+ <msp@baylibre.com>, Ronald Wahl <ronald.wahl@raritan.com>, Udit Kumar
+ <u-kumar1@ti.com>, Griffin Kroah-Hartman <griffin@kroah.com>, Rengarajan S
+ <rengarajan.s@microchip.com>, Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+In-Reply-To: <91303556-2632-49ca-be5d-9105c75b8a63@kernel.org>
+References: <20241025105728.602310-1-john.ogness@linutronix.de>
+ <20241025105728.602310-5-john.ogness@linutronix.de>
+ <91303556-2632-49ca-be5d-9105c75b8a63@kernel.org>
+Date: Thu, 31 Oct 2024 10:19:53 +0106
+Message-ID: <84plngljn2.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: BeagleBone Black Ethernet PHY issues
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: ext Tony Lindgren <tony@atomide.com>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>,
- netdev <netdev@vger.kernel.org>, Matti Vaittinen <mazziesaccount@gmail.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-References: <CAMuHMdX-1bBphfFmEy708MeBePb2pF6rWj0xOjR4d9S-KVgA3A@mail.gmail.com>
- <1f927944-30aa-4298-9bd0-d9d3ace3fc78@kernel.org>
- <CAMuHMdVN_xNLTvy9u6FvK=agSAUzSHxEuyBS37sOA7jpGLwddw@mail.gmail.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <CAMuHMdVN_xNLTvy9u6FvK=agSAUzSHxEuyBS37sOA7jpGLwddw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_020656_275213_83292270 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20241031_021359_265797_BF0192A8 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2024-10-30, Jiri Slaby <jirislaby@kernel.org> wrote:
+>> -void serial8250_em485_start_tx(struct uart_8250_port *up)
+>> +void serial8250_em485_start_tx(struct uart_8250_port *up, bool in_con)
+>>   {
+>>   	unsigned char mcr = serial8250_in_MCR(up);
+>>   
+>> -	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX))
+>> -		serial8250_stop_rx(&up->port);
+>> +	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
+>> +		/*
+>> +		 * In console context, caller handles interrupt disabling. So
+>> +		 * only LSR_DR masking is needed.
+>> +		 */
+>> +		if (in_con)
+>> +			__serial8250_stop_rx_mask_dr(&up->port);
+>> +		else
+>> +			serial8250_stop_rx(&up->port);
+>
+> Would it make sense to propagate in_con into serial8250_stop_rx() and do 
+> the logic there? That would effectively eliminate patch 2/6.
 
+I considered this, however:
 
-On 30/10/2024 17:08, Geert Uytterhoeven wrote:
-> Hi Roger,
-> 
-> On Wed, Oct 30, 2024 at 1:58 PM Roger Quadros <rogerq@kernel.org> wrote:
->> On 29/10/2024 19:18, Geert Uytterhoeven wrote:
->>> During the last few months, booting kernels on BeagleBone Black
->>> sometimes fails with:
->>>
->>>     +SMSC LAN8710/LAN8720 4a101000.mdio:00: probe with driver SMSC
->>> LAN8710/LAN8720 failed with error -5
-> 
-> [...]
-> 
->> Just wondering if the Reset is happening correctly and it has settled
->> before PHY access.
->>
->> From arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
->>
->> &davinci_mdio_sw {
->>         pinctrl-names = "default", "sleep";
->>         pinctrl-0 = <&davinci_mdio_default>;
->>         pinctrl-1 = <&davinci_mdio_sleep>;
->>
->>         ethphy0: ethernet-phy@0 {
->>                 reg = <0>;
->>                 /* Support GPIO reset on revision C3 boards */
->>                 reset-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
->>                 reset-assert-us = <300>;
->>                 reset-deassert-us = <13000>;
->>         };
->> };
->>
->> Do we need to increase reset-deassert-us for some reason?
-> 
-> Thanks for the hint!
-> 
-> This is indeed on Rev. C3 (my other boards are Rev. A5C or C, but
-> I don't test boot recent kernels on them, as they are in active use).
-> 
-> Multiplying reset-deassert-us by 10 gives me a booting board.
-> More experiments reveal that I need a delay of 14 ms to boot
-> successfully, and 15 ms to avoid the early __mdiobus_read()
-> failure, too.
-> 
->> I couldn't find MII ready time after reset de-assert information form the
->> PHY datasheet. except the following line [1].
->> "For the first 16us after coming out of reset, the MII/RMII interface will run at 2.5 MHz. After this time, it will
->> switch to 25 MHz if auto-negotiation is enabled"
->>
->> [1] 3.8.5 RESETS
->> https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/LAN8710A-LAN8710Ai-Data-Sheet-DS00002164.pdf
-> 
-> 3.8.5.1 Hardware Reset
-> "A Hardware reset is asserted by driving the nRST input pin low. When
->  driven, nRST should be held low for the minimum time detailed in
->  Section 5.6.3, "Power-On nRST & Configuration Strap Timing," on page
->  60 to ensure a proper transceiver reset."
-> 
-> 5.6.3 POWER-ON NRST & CONFIGURATION STRAP TIMING
-> "For proper operation, nRST must be asserted for no less than trstia."
-> 
-> TABLE 5-8: POWER-ON NRST & CONFIGURATION STRAP TIMING VALUES
-> "trstia nRST input assertion time min. 100 µS"
-> 
-> On Rev. C3, ETH_RESETn is controlled by an open-drain AND gate.
-> It is pulled high by a 10K resistor, and has a 4.7µF capacitor to
-> ground.  That gives an RC constant of 47ms.  As you need 0.7RC to charge
-> the capacitor above the threshold voltage of a CMOS input (VDD/2),
-> reset-deassert-us should be at least 33ms. Considering the typical
-> tolerance of 20% on capacitors, 40ms would be safer. Or perhaps
-> even 50ms?
+1. The whole idea of stopping RX in order to do TX is an RS485
+issue. Modifying the general ->stop_rx() callback for this purpose is
+kind of out of place.
 
-Super! Yes, I agree 50ms would be a good setting.
+2. The ->stop_rx() callback is a general uart_ops callback. Changing its
+prototype would literally affect all serial drivers. OTOH the
+->rs485_start_tx() callback is specific to the 8250 driver. (It seems
+each driver has implemented their own method for handling the RS485
+hacks.)
 
-> 
-> If you agree, I can send a patch.
-> Thanks!
+So I would prefer to keep the necessary RS485 changes 8250-specific for
+now.
 
-Much appreciated, thanks!
-
--- 
-cheers,
--roger
+John
 
