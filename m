@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC6E2D767DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EBDD767DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CYEngcINh3YznzU5GG7+Z6paSZSCs5bVmStIlkx+/U=; b=U6y9T8NSSzlXNz2oNMXvogxcT9
-	gi+u5VYDydss9zD1WGqCJcOPxssINIRSzI1wI69brEJeusqFBm3/lMAFHGG+z5z5DHBPkpb6YEbcK
-	qPhJ7DUCay4+V3LS4XfiJQfdvgeJiZuDUTJEvaM6kTkM8aRCbh6nyEFSIsAkCUiPoeIXaK89lpuuJ
-	619um4FfRkEMeE67h/fsVqUxwCAWVSrMOB/SJ6kqfkqUCnwUGCdiIaoaUk8c17zaIDn4ZJRu0vhLv
-	rQcYiXkfEG5tqabAsk1hHY+hFTJexjWbeMgjKnmB3HACnW60YO4YlCRQpYQP94z9J+2DeyE0DAO28
-	Ps+HUn1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LM1+WsafnKkfeROALqH5BTD103VV7dOo3P/ZG+WIGVc=; b=nHCd9WGrHd7TS9A3KF8MDn5nZJ
+	653QnDFGJDNwkSS5A+jmqJShVQSljVWwWb6ZxdXUJuRMtXSih56ubd9Ox13BCew5gTkTcOhD4Fadf
+	I3JB2FFLbyUhtrCeYIo7GRdY/HKUwPN/Tx8fzfDzDyl4DTMcizut5Ki8yfIFuYxddpyIEaE95w9Xy
+	s8bqnjd+JKmxgh4IS/97phAE4SBlsnhKoc4+5du7cgViD0rW0zpJnS61UaXLCLMr2HIs8DDJ6uvRl
+	iNqVkj1fZao7RP+krRhOkqQ45cidOBKyF36gLSk+pVNInC+7sAZ2eYJh9VN5mBtLpQ0sPNKCx8eJF
+	y9GVFLdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6XLF-000000043NY-3YBa;
-	Thu, 31 Oct 2024 15:44:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t6XMu-000000043q2-1ADo;
+	Thu, 31 Oct 2024 15:45:52 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Whq-00000003uN4-1imj;
-	Thu, 31 Oct 2024 15:03:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=3CYEngcINh3YznzU5GG7+Z6paSZSCs5bVmStIlkx+/U=; b=rc4NufGuoGCNzo1emNKloaPtTl
-	RnqRqVGPJrF8i4rlyw/MO1cy7zYdQo2CvWc9459VI33q2XoehubNv+67F8aw8NL0xy/TnHe97V55s
-	eYPbES3obNDPiw9TrCtqZ2uyhuj0I8GIrBXwcJjN1jVHirckHnZcfcr7b4hjCGa7HtQA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t6Whp-00BnPZ-2z; Thu, 31 Oct 2024 16:03:25 +0100
-Date: Thu, 31 Oct 2024 16:03:25 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCk=?= <SkyLake.Huang@mediatek.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"horms@kernel.org" <horms@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"dqfext@gmail.com" <dqfext@gmail.com>,
-	Steven Liu =?utf-8?B?KOWKieS6uuixqik=?= <steven.liu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	"daniel@makrotopia.org" <daniel@makrotopia.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH net-next 2/5] net: phy: mediatek: Move LED helper
- functions into mtk phy lib
-Message-ID: <1b9e9b1a-cc12-44b8-bbdd-6e6777adfb13@lunn.ch>
-References: <20241030103554.29218-1-SkyLake.Huang@mediatek.com>
- <20241030103554.29218-3-SkyLake.Huang@mediatek.com>
- <7cb014a6-ec64-4482-b85c-44f29760d186@lunn.ch>
- <29352dda1b5c647c30e48fbb31e7781fdab43d9f.camel@mediatek.com>
+	id 1t6Wqy-00000003w17-0Edk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Oct 2024 15:12:53 +0000
+Received: from localhost.localdomain (89-186-114-4.pool.digikabel.hu [89.186.114.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: hs@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 4C89A88F48;
+	Thu, 31 Oct 2024 16:12:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1730387567;
+	bh=LM1+WsafnKkfeROALqH5BTD103VV7dOo3P/ZG+WIGVc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IhzO+4gKZr3u3GehPzi0opVPoUdKOHh0Q8+VMz1YdmWnF5Gn51PAgptcSETJZ9aot
+	 WruroA1+WmNh19u2KhFsiPvACXWWNxrc/geeHUGMQ7+6ScCnSOkNGchiwjtIHYJGBD
+	 xDZZ4sA5haZsshdlV76FN68wGQN4qVU8mf0kfj/ACleLuSMHO2a2WZYJWxFhjJcSDn
+	 OWkHOaQ3A9EgNd754MkYe5AR2uKGIYERook9hjvLI0TyRmhi5n0ahfcHHdADpcPX6B
+	 UnWwZGNByLFroTnNPN/kq/oekvXkLY4wOeWUcf7dk43H+7EOD9X+gwRU8Bda5if8ve
+	 OCZlUbaUh2XwQ==
+From: Heiko Schocher <hs@denx.de>
+To: linux-kernel@vger.kernel.org
+Cc: Heiko Schocher <hs@denx.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Gregor Herburger <gregor.herburger@ew.tq-group.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Joao Paulo Goncalves <joao.goncalves@toradex.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mathieu Othacehe <m.othacehe@gmail.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH v2 0/3] arm64: dts: imx8mp: add support for the ABB SoM and carrier
+Date: Thu, 31 Oct 2024 16:12:34 +0100
+Message-Id: <20241031151238.67753-1-hs@denx.de>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <29352dda1b5c647c30e48fbb31e7781fdab43d9f.camel@mediatek.com>
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_080326_471686_4436D36B 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_081252_430448_BCF2FCAD 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +96,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I think I got your point. In a follow up patch, I'll do the following
-> change:
-> 
-> [Psuedo code]
-> /* Currently */
-> mtk_phy_led_hw_ctrl_get() {
-> 	get_led_hw_settings(); //on & blink
-> 
-> 	set/clear &priv->led_state according to led_hw_settings
-> 
-> 	get *rules according to led_hw_settings
-> }
-> 
-> /* Change into */
-> get_led_hw_settings()
-> 
-> mtk_phy_leds_state_init() { /* Actual led_state init code */
-> 	get_led_hw_settings(); //on & blink
-> 
-> 	set/clear &priv->led_state according to led_hw_settings
-> }
-> 
-> mtk_phy_led_hw_ctrl_get() {
-> 	get_led_hw_settings() in register; //on & blink
-> 
-> 	get *rules according to led_hw_settings
-> }
+The board uses an ABB specific SoM from ADLink, based on NXP
+i.MX8MP SoC. The SoM is used on 3 different carrier boards,
+with small differences.
 
-This looks about right. I will review the real patch when it is sent.
+series is based on:
+819837584309 - (tag: v6.12-rc5, origin/master, origin/HEAD) Linux 6.12-rc5
 
-	Andrew
+patches are now checked with
+
+make W=1 dt_binding_check
+make W=1 dtbs_check
+make W=1 CHECK_DTBS=y {for each dtb introduced in this series)
+
+as Krzysztof suggested.
+
+Changes in v2:
+- worked in comments from Krzysztof
+  - reworked the compatible strings for ABB imx8mp based boards
+  - removed unneeded dtbos and build now dtbs for each
+    carrierboard.
+  - removed user spidev entries, as I do not know the
+    real spi devices connected to...
+  - call dtb check targets as described in cover letter
+    and fixed warnings except warnings see below:
+not fixed dtb check warnings
+- pci (warning pops up for each new dtb from this patch, but
+  also for a lot of other boards, which are already in tree)
+imx8mp-aristainetos3-adpismarc.dtb: pcie-ep@33800000: reg: [[864026624, 4194304], [402653184, 134217728]] is too short
+        from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+imx8mp-aristainetos3-adpismarc.dtb: pcie-ep@33800000: reg-names: ['dbi', 'addr_space'] is too short
+        from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+- proton2s dtb specific:
+  - rs485
+    imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: rs485-rts-delay:0: 0 is not of type 'array'
+        from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
+    imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: rs485-rts-delay:1: 0 is not of type 'array'
+        from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
+    imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: Unevaluated properties are not allowed ('linux,rs485-enabled-at-boot-time', 'rs485-rts-active-low', 'rs485-rts-delay' were unexpected)
+        from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
+    do not see, what I am doing wrong, also rs485 works fine
+  - led driver
+    imx8mp-aristainetos3-proton2s.dtb: /soc@0/bus@30800000/i2c@30a30000/tlc59108@40: failed to match any schema with compatible: ['ti,tlc59108']
+    I use the comaptible entry used in drivers/leds/leds-tlc591xx.c
+    Ah, may because file
+    Documentation/devicetree/bindings/leds/leds-tlc591xx.txt
+    is not converted to yaml?
+  - pinctrl driver
+    adding 'gpio-line-names' leads in a warning as this property
+    is not checked yet (and so a warning is dropped).
+    add this check in new patch
+    dt-bindings: pinctrl: sx150xq: allow gpio line naming
+    in v2
+
+Heiko Schocher (3):
+  dt-bindings: arm: fsl: Add ABB SoM and carrier
+  dt-bindings: pinctrl: sx150xq: allow gpio line naming
+  arm64: dts: imx8mp: add aristainetos3 board support
+
+ .../devicetree/bindings/arm/fsl.yaml          |    9 +
+ .../bindings/pinctrl/semtech,sx1501q.yaml     |    4 +
+ arch/arm64/boot/dts/freescale/Makefile        |    5 +
+ .../imx8mp-aristainetos3-adpismarc.dts        |   38 +
+ .../imx8mp-aristainetos3-helios-lvds.dtso     |  115 ++
+ .../freescale/imx8mp-aristainetos3-helios.dts |   99 ++
+ .../imx8mp-aristainetos3-proton2s.dts         |  162 +++
+ .../imx8mp-aristainetos3a-som-v1.dtsi         | 1116 +++++++++++++++++
+ 8 files changed, 1548 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
+
+-- 
+2.20.1
+
 
