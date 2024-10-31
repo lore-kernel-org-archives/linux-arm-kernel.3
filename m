@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC741E6F064
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D007E6F066
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/DE0DbUg8M7Q/DJxS90r+0tog95n4HSr4HfODo/BC0=; b=ZSMhCVRR+LQKCoUo5YDvsT0Ac2
-	xunEvcc5XREflbnXSUKvwM2+7yJFO3i2MHRil4LlouhsRPVf1XlH9nkId7s++FPIcLvwMwYuQQIZu
-	uWK1IfrKsUgnlRawHkX2Fi71CHCGJIgIXsugMfsxjTb2C++dwnTf89xSqMJDs1OjmO2pJ0s9LCFWQ
-	Pgpm2mNinWZkVauzHds7cPSKmwv0h7Wcz5ZLy9e07EBNWeFikXxYhSbe9mpUgJl+5liUaKZtGawr/
-	rLNw21P9aydJz/Cu0fUE7AeFEBnMjKC6t1mBeja0lijlxY3AyA9DVvqGdEdL6acjf/x6KChp9sLPN
-	iF/rIaDA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JXGC5sgLSBQJo3VzEJ0OWTxEJu40rA+0BkW00qi2Rlw=; b=NFwx2Pr8BSpZsdPJisUJWvwM95
+	iQ4oeU4hUrMYoL1SLZz55lI4zUNyK35XU95T9be3p0pk0i+ni47cnRlkIYULK48bnyUBHuPdUYczX
+	sYlrFH+nFx9Ja/NtH/PJgBxlQbpM54d8GqLaKWmMB06ux6t14VNNKfAAUkMBQB4BIwy5VOR3+QRcF
+	1QwPffI3jDt5FB7Qm71QE4XX5zC1dVtDrYNYGHimDeVZBTkLSAn27N04nyAJGnAx50anQ3jYXLOB/
+	YNUPGCucvvPwB3I2qGrtELxEBVXBwEidrePD8O15E6narEMVxyHeWuZJ4YOy9IO3nU5SL4nqCAVpp
+	j25NBkbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6szQ-00000007Oul-3CX4;
-	Fri, 01 Nov 2024 14:51:04 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1t6t9J-00000007Qwx-14Ax;
+	Fri, 01 Nov 2024 15:01:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6swV-00000007OHk-3YYC
+	id 1t6s4t-00000007ErO-089J
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 01 Nov 2024 13:52:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JXGC5sgLSBQJo3VzEJ0OWTxEJu40rA+0BkW00qi2Rlw=; b=MpRWtvZ43Bl7/DgrAkFrx2VA7T
+	VyfqWeKQ/dZiIe+CTMbFeCTHR5euv1e8zWPd4OujW3D7xYk2PldzB5lcteMZx72vpBfNHfCRPPE3K
+	dHPToEsYGd7V2Bsq/iuscS4fpWT7sW6ze6J71TcXVbvO4O2L0hnVpvLYw0wrUxJGAQBnTQF1PS0/R
+	svTASN3kJdEW+IoHw4nHSDIfM0S1+8NWMmajYWRqLr6WZRt2FnOO5BSedACHa7xAzCJ0+PhGKsRVS
+	qX9sjPFjA+3NCz224H1SFyjwKEWnfMYKUtnDKpKgvy+R97MK1wqZOfaVIfJdSb3iNBOaNo8fZbu+l
+	Oe1KSKsw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6s4q-0000000AhC4-0dN5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 14:48:05 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-7eb0a32fc5aso1949244a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 07:48:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730472482; x=1731077282; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G/DE0DbUg8M7Q/DJxS90r+0tog95n4HSr4HfODo/BC0=;
-        b=uIfBkFwPo7Pm7HapRUguHhvH1e/htc6TBMkyypFvi4J1TiCz+ylRdncdkmMkzr7794
-         FT4HpJmhWuWNyXd1+7nqQq48PWZw70MMmQE9Byyg55skmXxwZLTsTwXjogdkI7yitiyR
-         v8vcX18bOkLYwNhJ6hDrjuoS7uRSuVAsSmo5lOazEGOOys2I+jC4uIh2W3i30C9/XkmW
-         fRStryX3V356K4WSpKc3YGfmHhH7oPCywyjjqVPH84EjqGnAcEmM6XHaZb43e+w/h0ju
-         5B07WRi4aVWR2Yxh3PPemjkZ+Vxb3RzmavepWb8i2J3ybbwdjEOXx5LhqxwgWOflUHMp
-         Y9BA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730472482; x=1731077282;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=G/DE0DbUg8M7Q/DJxS90r+0tog95n4HSr4HfODo/BC0=;
-        b=W3TpHKoQmwfFr4QebFuX48uA38j4wvp7St4A0BWtMiIunyZczYaU6z1hDGMXzYB8gN
-         67Lxgxzjsjo/604MO1uYnd5SRkVaVeE0ZaO/PWTHH91X76s4XiGVe4RZUoRaJE9BhG13
-         JawTBYEWMG0ptU8nFlpnYAjmZ5+pwIaXOxvwK6PjhckbVZnppq/mfzJPh/ajqSzrChTM
-         cq6uU1bjJYTi3xu2ain4HHJ/hGyqpQcJiOX/qR0+pC8milmCBLeDe3hYpF8Uef3EEgFW
-         VaMyV8C+8rUrGg1iaf7RWiyk+dI7QdDAIC0uYUltF3ofGLOivEAmu/lz7n13dNzXtN3A
-         rTKA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxdENwjM9dNRa55GG/aWsC9leFw2IEm8eUSQucD3+4n3hJRH3VnQwzU/oHGvRBhNG+RAPR9XIFon9M59DcvQYe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAxBrt2vgY9t5Z+vNptE68E9zcPW3gaU/4PhZhsieOrbJHenk8
-	Z/4/UPhMZiMT6E1A8aZgpn+15C2Eep/EVAcssNALiFCUyUrf+7rBW4VxwcXYcflEU4JigL1CC9N
-	ycg==
-X-Google-Smtp-Source: AGHT+IHIf47dwb0nbkXT8QGaJrWq+fHjP6RSYp5sBCxZxmiVg/IHgboRnjvSBKMyLIM+q34Z1vnYxW9f4KA=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a63:fa55:0:b0:7ea:83fc:1f0c with SMTP id
- 41be03b00d2f7-7edd7c3149dmr31512a12.5.1730472481723; Fri, 01 Nov 2024
- 07:48:01 -0700 (PDT)
-Date: Fri, 1 Nov 2024 07:48:00 -0700
-In-Reply-To: <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk>
-Mime-Version: 1.0
-References: <20241009154953.1073471-1-seanjc@google.com> <20241009154953.1073471-4-seanjc@google.com>
- <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk>
-Message-ID: <ZyTpwwm0s89iU9Pk@google.com>
-Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
- vcpu_get_reg() instead of using an out-param
-From: Sean Christopherson <seanjc@google.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
-	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 01 Nov 2024 13:52:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EC5285C8E24;
+	Thu, 31 Oct 2024 08:35:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 932BDC4CEC3;
+	Thu, 31 Oct 2024 08:35:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730363750;
+	bh=+FzpCGPLbvdqhl1sCnZuiJbbI6lkLMa9iXpMXwi139o=;
+	h=From:To:Cc:Subject:Date:From;
+	b=o/Xigo8pno5nttMto3H3k4SyBYHzd2izIgk8zqUjKffgjfTHEXMZ1JdfSF7E1VnQe
+	 Ia8hnvbAY6pGXyWG60M2cx2tW3dshWIZjnmomMCeCtLka34YLpy4BM/5T5tPbDP/rT
+	 tHPbs6AAVEv8POF6WjDVJL6yf3XlGP+AgDf97S0yKZnEFcOkYNO3EaRKxpC2OEyUO1
+	 0+uf2wvhRsQcHFfaL9rgHDsf6yCkyHzHS8kXwU+91Zrdi1GyXqk1mMg9GgGsCuZMv+
+	 LVQVGfCNY8bl6qViSYGR4LSlTuxuXQ9R8x8Q8UoQpqkvq8vzj+sCkNNTSRgi2YU6Zp
+	 Jv/8sj06ri7lg==
+Received: from 82-132-232-68.dab.02.net ([82.132.232.68] helo=localhost.localdomain)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t6Qeh-008VPB-CQ;
+	Thu, 31 Oct 2024 08:35:48 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] arm64: Expose ID_AA64ISAR1_EL1.XS to sanitised feature consumers
+Date: Thu, 31 Oct 2024 08:35:19 +0000
+Message-ID: <20241031083519.364313-1-maz@kernel.org>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 82.132.232.68
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_074803_925547_34FE6463 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20241101_135236_451921_186AFC26 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024, Mark Brown wrote:
-> On Wed, Oct 09, 2024 at 08:49:42AM -0700, Sean Christopherson wrote:
-> > Return a uint64_t from vcpu_get_reg() instead of having the caller prov=
-ide
-> > a pointer to storage, as none of the vcpu_get_reg() usage in KVM selfte=
-sts
-> > accesses a register larger than 64 bits, and vcpu_set_reg() only accept=
-s a
-> > 64-bit value.  If a use case comes along that needs to get a register t=
-hat
-> > is larger than 64 bits, then a utility can be added to assert success a=
-nd
-> > take a void pointer, but until then, forcing an out param yields ugly c=
-ode
-> > and prevents feeding the output of vcpu_get_reg() into vcpu_set_reg().
->=20
-> This commit, which is in today's -next as 5c6c7b71a45c9c, breaks the
-> build on arm64:
->=20
-> aarch64/psci_test.c: In function =E2=80=98host_test_system_off2=E2=80=99:
-> aarch64/psci_test.c:247:9: error: too many arguments to function =E2=80=
-=98vcpu_get_reg=E2=80=99
->   247 |         vcpu_get_reg(target, KVM_REG_ARM_PSCI_VERSION, &psci_vers=
-ion);
->       |         ^~~~~~~~~~~~
-> In file included from aarch64/psci_test.c:18:
-> include/kvm_util.h:705:24: note: declared here
->   705 | static inline uint64_t vcpu_get_reg(struct kvm_vcpu *vcpu, uint64=
-_t id)
->       |                        ^~~~~~~~~~~~
-> At top level:
-> cc1: note: unrecognized command-line option =E2=80=98-Wno-gnu-variable-si=
-zed-type-not-at
-> -end=E2=80=99 may have been intended to silence earlier diagnostics
->=20
-> since the updates done to that file did not take account of 72be5aa6be4
-> ("KVM: selftests: Add test for PSCI SYSTEM_OFF2") which has been merged
-> in the kvm-arm64 tree.
+Despite KVM now being able to deal with XS-tagged TLBIs, we still don't
+expose these feature bits to KVM.
 
-Bugger.  In hindsight, it's obvious that of course arch selftests would add=
- usage
-of vcpu_get_reg().
+Plumb in the feature in ID_AA64ISAR1_EL1.
 
-Unless someone has a better idea, I'll drop the series from kvm-x86, post a=
- new
-version that applies on linux-next, and then re-apply the series just befor=
-e the
-v6.13 merge window (rinse and repeat as needed if more vcpu_get_reg() users=
- come
-along).
+Fixes: 0feec7769a63 ("KVM: arm64: nv: Add handling of NXS-flavoured TLBI operations")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kernel/cpufeature.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-That would be a good oppurtunity to do the $(ARCH) directory switch[*] too,=
- e.g.
-have a "selftests_late" or whatever topic branch.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 718728a85430..db994d1fd97e 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -228,6 +228,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar0[] = {
+ };
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64isar1[] = {
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_XS_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_I8MM_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_DGH_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_BF16_SHIFT, 4, 0),
+-- 
+2.43.0
 
-Sorry for the pain Mark, you've been playing janitor for us too much lately=
-.
-
-[*] https://lore.kernel.org/all/20240826190116.145945-1-seanjc@google.com
 
