@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C280D767D8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03312D767D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 15:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HABtOu8vBnUR430AFYIUSUDi3ELEcFC5jVUmm0tB11Y=; b=UNkII3bXXV3gMxeqXuzKoRjJf6
-	ygWzBnv0gg71+3FUoPQ4buS5/5Wxg7amS8nt71WY0qyvrX0szLrsIIGufF8BjByoOf5Rnym47zzKi
-	TvwdgtOKeR9DcAmBDTRIO63E8nVLLUIOeU5XgepwwVCb7i5A45y3buN1/3qnISyL5DZr7fIFC4G8B
-	GwIvqDBI2ossk8XI6FptftO0IfbONRT7ZpoEKjYivr9Cr9OaD0L2XcvZrR0g7IwQo5czNkB5ls5h3
-	iSOWfimW3Zf4b3s2h2IL+jCodHOaGsctOef0tl3JGVOEuSnIP/6KaUhCIv1FG5Qcv1Zf/0NssNbRS
-	TlURnO6w==;
+	bh=EGlRIDiWOIW/oUdNVyUFBt1pPENWr+qbw5BPnPtDdZA=; b=M+Ec+eVg0hdgP4NGt19DH8QTKk
+	KJ/QoqDrtQnw1iewi6qSPrVOep1QUfdUF0fumNVb0HLWclIrn69kuZdMM+pXopSqGvr/kF6i2HtoX
+	jUOxyqb+e45BQpGWMMbA2woHWCI+YDjtsg738jBhu/laNmtTRGvmoEqoD3HFiXF25+/oIWqLBwghn
+	rjyM1Hi7+Iw+nKdDebYa1LqDrQGcSj03spH7/x2aVUsy9fxAA/5TECD9NkbXhJC6nzppuRyWSho/M
+	JQHgMfFRNdQDTRWtN3RKiintpes5u2jQkznk2uVbQWXANUQDHdi5RjBsx0xfLZ/Ku5F+FbI1pBeqE
+	e8YFJAhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Wqi-00000003vzZ-0CnP;
-	Thu, 31 Oct 2024 15:12:36 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1t6WsO-00000003wRL-2jbf;
+	Thu, 31 Oct 2024 15:14:20 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6WfG-00000003tde-0iHZ
+	id 1t6WfI-00000003teu-2shu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 15:00:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so9262725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:00:46 -0700 (PDT)
+	Thu, 31 Oct 2024 15:00:50 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53a097aa3daso1007884e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 08:00:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730386845; x=1730991645; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730386846; x=1730991646; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HABtOu8vBnUR430AFYIUSUDi3ELEcFC5jVUmm0tB11Y=;
-        b=GRAfvvc+NiEOGxjNcc4vdWmBRuCyYPUEXsP+Nk5EDdr1tIaq048hnUWjMng0w1sXta
-         hVk93acq5A5gIEJ/9kDTUYCiADgraA248sGgeXoR5faOynOxLkrPJSJd/B6OudC+kTYt
-         OBNIzBc11cEo64EV9PU3ZZT5IbtHxy2/VbHHI2N4xguPxxqaQ668nFCeMUxed7legRXk
-         gkWtBJMkODRMBUjDNTeRGxUup+YHV2L2VR3NN47vK5KETiJ9CS26WkcdxkaXc7Lr7XgA
-         SdrQF1RtxZc1zBMtlKEuIuAWNkA1nKibFvH12FKvv4hsXSfVrltVoD2Ml20s3LKA7us6
-         1q4A==
+        bh=EGlRIDiWOIW/oUdNVyUFBt1pPENWr+qbw5BPnPtDdZA=;
+        b=kyIyesYUtMeO1hNufFR2zWhFlYPfaU/XTE4zp+WWpJje3OTcCl+1hTa8XbiIcQ1q5X
+         I4TZYZEQWceuZuipKnUssEJCsOHzasxiJ0t4RJOVlumI3xYT94+Fb9Vv6dHbzOP9Xhpt
+         GEKaV9X4Lutm2fkxKp/xiWxM7axwIc+pe98NOZj9iUIw4PWrHi5cBzqd7obqJaRC7NCr
+         gX3vnAjatpvA/zv05Ci9RAWJEndoUgYlLLebskB0a3DuGRRkT9p3o2fm3VzriAslh5Vm
+         xrDrp5RjIOm4m4/FMcUSBQABWJ1VeV0gMm0y37ks5ioUfnH2+kYBK67Eg0e6U9P9QaWD
+         qi9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730386845; x=1730991645;
+        d=1e100.net; s=20230601; t=1730386846; x=1730991646;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HABtOu8vBnUR430AFYIUSUDi3ELEcFC5jVUmm0tB11Y=;
-        b=ddSiFzwUZdQSF5rJMVnokaBlK2WDC9RpEkRQ4EKOHUkoQOiH3E+dE9Uk06vpnXW512
-         itzXta1b//+MfSitmDuZ7VGt9ENZbXB/WIBs2NzeFx4ALwXfHkh53bltD6HDrn1JZy3q
-         LydELphxnsTv8kzFdRtA0v5yxCSB5OTWBPaBhdfYvHAmwGpPvG1edS7r5M9b/oqiL6u0
-         YKDbKLzt3+4Dra9526fzlchhFXbOSQtp24Ic7sKaUuMoJshTa2U17asYCGAbiEuWBySM
-         r7SgKTfMSWxC5kUZWuPkY+Y2ir1r3cks0FsJetSqG+gRCSsm1Kf8PRqPsOajgJNXnlcf
-         9pOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqy9Vaa4tOUCkoEA7DFU9KFZ+IVUX20ErB2Z7+uhnemVIBR/2iws0+FbQ9RKp+0DiRBZ9BcLB7VI72i2MdordD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3z5hjBU6CK5orgoY0jOODUrtl47ICEOrs6oOlrPJQ76VY9Uty
-	dcp2ng/aYSswM/glWmfmdfI/DpaYs5HylYNahXkaLQS6iTVjGvvbsEVIhfQLv68=
-X-Google-Smtp-Source: AGHT+IHrOUYyAxFC1VJUc6y5oX3ddkyV0eSXyUdqL+WEdAPlUpCNJwf8n2c1O5ZakYFeCDJkSDGQIQ==
-X-Received: by 2002:a5d:64a1:0:b0:37d:4fe9:b6a7 with SMTP id ffacd0b85a97d-381bea1c1f4mr3210183f8f.36.1730386844715;
-        Thu, 31 Oct 2024 08:00:44 -0700 (PDT)
+        bh=EGlRIDiWOIW/oUdNVyUFBt1pPENWr+qbw5BPnPtDdZA=;
+        b=YHiDid9uHkNI9BmyedRfV6lOT7ks1VURg3+COQ6cv3NVrbDnzQUKy6M/maFDbCFIS+
+         qhKU76dND95hRwvXVMvE0L2/BYEH9cg7GAr3XHyUkoycQdOYu9H32JFUJgk8FFyWO563
+         AIJo1bkdms/eZy8kzQNb04Rnc6a412ms6/OnGlMkZ8BXJqTXFHPLHuLoNyraJvsPG+1b
+         67sRNOZv6BfFV8IvxxauOPmtLdlH62M/HMkvyqlmZCLABmUyNIDakqu0j0Eop4x/It2x
+         /FigheVReNiTzCd7Hs9If3R99rQhirDe22tXUxPFSou2ytBKLX4+wT8TEAWmg6BflgPa
+         3fIg==
+X-Forwarded-Encrypted: i=1; AJvYcCVZGo2F/5vvEYOVzs3tm49u93+6ML59x04DGn9Ht199iEjcugwn+3RGSi6gZ2+CfYzv8j8spMrMcR+N/pjF/qxB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+M3TaZED05eLkfXOfS2NiSYUe7eWqZ9RrIliDNYJV5NKRVJz9
+	7otxyTofCe9JMmMTuiovM6b0T0D+S5INnFnkUwLTgeXyVxbjCZNLX1zts0fXntA=
+X-Google-Smtp-Source: AGHT+IEXzbBlOP0V8hZQy8KaxBb5hcC2ucoOBrtqsnAW7CPkAU8t5qtuC/NhFTjTUjwZ36RRBVibJA==
+X-Received: by 2002:a05:6512:32ca:b0:539:93e8:7eca with SMTP id 2adb3069b0e04-53d65e02513mr162912e87.35.1730386845937;
+        Thu, 31 Oct 2024 08:00:45 -0700 (PDT)
 Received: from gpeter-l.lan ([145.224.65.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd8e8524sm59163225e9.5.2024.10.31.08.00.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd8e8524sm59163225e9.5.2024.10.31.08.00.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 08:00:44 -0700 (PDT)
+        Thu, 31 Oct 2024 08:00:45 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -80,17 +80,18 @@ Cc: tudor.ambarus@linaro.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v3 06/14] scsi: ufs: exynos: Add EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR check
-Date: Thu, 31 Oct 2024 15:00:25 +0000
-Message-ID: <20241031150033.3440894-7-peter.griffin@linaro.org>
+Subject: [PATCH v3 07/14] scsi: ufs: exynos: gs101: remove unused phy attribute fields
+Date: Thu, 31 Oct 2024 15:00:26 +0000
+Message-ID: <20241031150033.3440894-8-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
 In-Reply-To: <20241031150033.3440894-1-peter.griffin@linaro.org>
 References: <20241031150033.3440894-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_080046_236868_E79501DF 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20241031_080048_751579_DD3D24AA 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The values calculated in exynos_ufs_specify_phy_time_attr() are only
-used in exynos_ufs_config_phy_time_attr() which is only called if the
-EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag is not set.
-
-Add a check for this flag to exynos_ufs_specify_phy_time_attr() and
-return for platforms that don't set it.
+Now that exynos_ufs_specify_phy_time_attr() checks the appropriate
+EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag. Remove the unused fields
+in gs101_uic_attr.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-v3: update commit message (Tudor)
----
- drivers/ufs/host/ufs-exynos.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/ufs/host/ufs-exynos.c | 20 --------------------
+ 1 file changed, 20 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 2c2fed691b95..0ac940690a15 100644
+index 0ac940690a15..e477ab86e3c1 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -541,6 +541,9 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
- 	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
- 	struct ufs_phy_time_cfg *t_cfg = &ufs->t_cfg;
+@@ -2064,26 +2064,6 @@ static const struct exynos_ufs_drv_data exynos_ufs_drvs = {
  
-+	if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)
-+		return;
-+
- 	t_cfg->tx_linereset_p =
- 		exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
- 	t_cfg->tx_linereset_n =
+ static struct exynos_ufs_uic_attr gs101_uic_attr = {
+ 	.tx_trailingclks		= 0xff,
+-	.tx_dif_p_nsec			= 3000000,	/* unit: ns */
+-	.tx_dif_n_nsec			= 1000000,	/* unit: ns */
+-	.tx_high_z_cnt_nsec		= 20000,	/* unit: ns */
+-	.tx_base_unit_nsec		= 100000,	/* unit: ns */
+-	.tx_gran_unit_nsec		= 4000,		/* unit: ns */
+-	.tx_sleep_cnt			= 1000,		/* unit: ns */
+-	.tx_min_activatetime		= 0xa,
+-	.rx_filler_enable		= 0x2,
+-	.rx_dif_p_nsec			= 1000000,	/* unit: ns */
+-	.rx_hibern8_wait_nsec		= 4000000,	/* unit: ns */
+-	.rx_base_unit_nsec		= 100000,	/* unit: ns */
+-	.rx_gran_unit_nsec		= 4000,		/* unit: ns */
+-	.rx_sleep_cnt			= 1280,		/* unit: ns */
+-	.rx_stall_cnt			= 320,		/* unit: ns */
+-	.rx_hs_g1_sync_len_cap		= SYNC_LEN_COARSE(0xf),
+-	.rx_hs_g2_sync_len_cap		= SYNC_LEN_COARSE(0xf),
+-	.rx_hs_g3_sync_len_cap		= SYNC_LEN_COARSE(0xf),
+-	.rx_hs_g1_prep_sync_len_cap	= PREP_LEN(0xf),
+-	.rx_hs_g2_prep_sync_len_cap	= PREP_LEN(0xf),
+-	.rx_hs_g3_prep_sync_len_cap	= PREP_LEN(0xf),
+ 	.pa_dbg_opt_suite1_val		= 0x90913C1C,
+ 	.pa_dbg_opt_suite1_off		= PA_GS101_DBG_OPTION_SUITE1,
+ 	.pa_dbg_opt_suite2_val		= 0xE01C115F,
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
