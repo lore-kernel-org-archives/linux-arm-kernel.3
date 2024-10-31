@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F316CD6B6DF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0851CD74958
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BVVyLjJdR6me74k/F+Ot1blbg2/epRtk+d2HKjKdKo=; b=fkylukNICYPUNEwKEqbuIzEPdP
-	2EROYeJ85CNXdCps5/RoquJzGkbYUDA8a+LY5eVQYqfeNgDoAoabsinMLlayWFrW9BxoX88yVWpR7
-	aKUko+gj+gUFsaS2uoTT6HsvONqANDr2e8YyVgyylPRjSMu4yAqhbO20yH7dDuhNaAUz7UYojK6kV
-	nzCUq6U3vISnYripDJxi70dEbcFn03CRGP36L/BKV3XoN6n2o/Kd7Lbyo6gnlPD5Pb6IhrZF0Cw3A
-	ZJ02gh9Z2+Ir1ulPrH5vGEXvcUFAuP6PFtMz3aUBW+SGqZeOSRTkJ+apD9ii0WRK8+Haxy32sS4Gw
-	jFxZgLbw==;
+	bh=J0TfKIJhJzBxEoeio8uyUm+I+RQoIvnhme6u8bHSaZ0=; b=m8AhUhDCNNJjDJVGpuu8rcMstv
+	1m50yiaeFPmhTI3zEPRS7BXaxLJONvsNAJ0456iHfzb9yvJGklAMd3dZy5Bz/gDoK44RGZ0lmFg9x
+	4Si1A6Eb8Ch9MB2voTdujNyeFSWl4GMucJ9mT9MyKk0sBlVMYYMbdZapRN712zrcD21azvuZVq6zE
+	2JY4l/HxagNpzDDtzKYhSs08wNngypO7Avnmws4KLuS46G8bYMHrdyD+hH1P4D9T/Dp+zr2IVrs3N
+	cFxMf/NO3mQt4oOL/VtM9FO843pZsind2xoWLdCLQxtYsfojXyhSrguuaNkBLdj4XaD+Qvj5eyEiV
+	6vGCKVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Ubo-00000003asq-3LH7;
-	Thu, 31 Oct 2024 12:49:04 +0000
+	id 1t6UdS-00000003bAS-0RGm;
+	Thu, 31 Oct 2024 12:50:46 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6UPi-00000003XlX-4A83
+	id 1t6UPk-00000003XmY-3el2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 12:36:36 +0000
+	Thu, 31 Oct 2024 12:36:38 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id A810FA10C1;
-	Thu, 31 Oct 2024 13:36:33 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 90C44A0E1A;
+	Thu, 31 Oct 2024 13:36:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=6BVVyLjJdR6me74k/F+O
-	t1blbg2/epRtk+d2HKjKdKo=; b=LQ68MGVIC86SMlJjtvg5Jee/xNZrERR5EiYQ
-	3NT0ILBjt4JY89V3DYQD3RjZhrBhNOheZlrFBtOnK9sHYWyfwM60lA3GuJ376jUZ
-	/JGKbIjU3GEaYwZ3v+lzfEBHTVvFZ3htqepE75CiVMROfg+v/TxgLRrdiE14mZ00
-	MuPtu6uuJMu8f34Ec5D4vAuR6utaO/GXARNnThKmZNbKPjJF64ElUwBJhD1m19Zk
-	mDs7tkjD0zaKi3/NRsxIcbYKPxC8kjfytyO6dyqaPnKKLcWEFdUTU+U0BlnO1h/G
-	r1XMBHBReC/ld+IQEh7gSJELcT39Wr2MOqkftotQcDa0E3aNNVvrUbiCyyS9GJ4d
-	/AaEP6wy6u61kzKIIQ4eJrjlyrx6beH+cb6afvbBoTQtOXBipHoZ/8W/BcyczzQV
-	hicB2vGhnAQjuf1K2SmZ/eeG5lNmNrKlmGWynUqBOdz0gvFqqzsqOAFEAB7geALE
-	3r8NzkPhbjqnJzI17aCeY80HSYF6Tm6WDIcFY4E8r5xlS5MxpJeLr6NkkRWv2rPU
-	N0gNVz0KpscDu2D6hgQ0JZssOeW/87fCMA1JlYoCu4B+3p2rcFQLhdghjEQiicEa
-	TXKEtvWSEv5Iw4wD0X4h3REHN8nUx7kqHb309oIwnzPThk262BZjaTDo9NooSpyh
-	7hFTojk=
+	:reply-to:subject:subject:to:to; s=mail; bh=J0TfKIJhJzBxEoeio8uy
+	Um+I+RQoIvnhme6u8bHSaZ0=; b=GB+Rf7nebvz+E7tlkHBg5DQFDa8CMcF3/5c9
+	vC5hLQJq0hAjMgltfYlM+3jntLqj9YQr7w+/5rlyDbkjFSfFb9hwGcA7H6jJx8Fy
+	HqsZDYCpWiJvXsmBXpQDJhQMXe1nI8DR7nTnYe5r3SrtQWLiwUtW1OMD4rRCbY5+
+	2uMgBTX7HqzjCHRRm/kcyPebsdK7L8+BvN7CFM+4H1s27+1u4Bb1ZR2eCy7VB7WR
+	BD5pzKjE8qXm6wPnMvMsvb+zsd9IPVo6LckquWcHxmrIYQE117dgTbFpAyYBMUHO
+	Xg/lRR45SJkT2htDIPulZEX99MCTURD9PxR0Ph8OVw/ID239Z6rsKaC/55FAmuRm
+	lGU7LUCfqOUODmrab0Fe/JZz1ZxDuswwS1yQGCRENgMswrn47DtDeb+pYRNLspmR
+	2RxKTq4qEEYe6v/uRwbxAKEhRFcg2qSctEjl0Rk8vToqWaz5xeK2H5VG/qU1psuB
+	/Op+Kh3zdZL8HK1x1ITRkb7LQ47jIGfGA2+Fkhaqdo5A/mJ8ltcQJGtlICX9G37m
+	phO+UNX2eMGWQlmwGMuvQfrD4wnWswqgXPED+ggKoUJVe1Aeb0d98wADty2w1YG7
+	ddoYzZjhesKtBfPqxGJCNdyVm6OaCamMXVK5SntzotpVIM3jHTyGPBKK2kX6BukO
+	BFxt++Y=
 From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <mripard@kernel.org>,
-	<linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, "Liam
- Girdwood" <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring
+To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Mesih Kilinc <mesihkilinc@gmail.com>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>
-Subject: [PATCH v4 07/10] dt-bindings: sound: Add Allwinner suniv F1C100s Audio Codec
-Date: Thu, 31 Oct 2024 13:35:33 +0100
-Message-ID: <20241031123538.2582675-7-csokas.bence@prolan.hu>
+	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v4 09/10] ARM: dts: suniv: f1c100s: Add support for Audio Codec
+Date: Thu, 31 Oct 2024 13:35:35 +0100
+Message-ID: <20241031123538.2582675-9-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241031123538.2582675-1-csokas.bence@prolan.hu>
 References: <20241031123538.2582675-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730378193;VERSION=7979;MC=1610445493;ID=207187;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730378194;VERSION=7979;MC=1362339620;ID=207189;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A2980D94855667667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_053635_208679_17B8996C 
-X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-CacheID: sfid-20241031_053637_089455_E93F152B 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,77 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Allwinner suniv F1C100s audio codec.
+From: Mesih Kilinc <mesihkilinc@gmail.com>
 
-[ csokas.bence: Reimplement Mesih Kilinc's binding in YAML ]
+Allwinner suniv F1C100s now has basic audio codec support. Enable it
+under device tree.
+
+Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+[ csokas.bence: Rebased on current master ]
 Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
 ---
- .../sound/allwinner,sun4i-a10-codec.yaml      | 31 +++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-index 78273647f766..16f4f7a40d9d 100644
---- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-+++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-@@ -22,6 +22,7 @@ properties:
-       - allwinner,sun8i-a23-codec
-       - allwinner,sun8i-h3-codec
-       - allwinner,sun8i-v3s-codec
-+      - allwinner,suniv-f1c100s-codec
- 
-   reg:
-     maxItems: 1
-@@ -70,6 +71,7 @@ properties:
-         - MIC1
-         - MIC2
-         - MIC3
-+        - MIC
- 
-         # Microphone Biases from the SoC
-         - HBIAS
-@@ -80,6 +82,8 @@ properties:
-         - Headset Mic
-         - Line In
-         - Line Out
-+        - Right FM In
-+        - Left FM In
-         - Mic
-         - Speaker
- 
-@@ -229,6 +233,33 @@ allOf:
-               - Mic
-               - Speaker
- 
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - allwinner,suniv-f1c100s-codec
+diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+index 290efe026ceb..e4b41bc93852 100644
+--- a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
++++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+@@ -336,5 +336,19 @@ uart2: serial@1c25800 {
+ 			resets = <&ccu RST_BUS_UART2>;
+ 			status = "disabled";
+ 		};
 +
-+    then:
-+      properties:
-+        allwinner,audio-routing:
-+          items:
-+            enum:
-+              - HP
-+              - HPCOM
-+              - LINEIN
-+              - LINEOUT
-+              - MIC
-+              - HBIAS
-+              - MBIAS
-+              - Headphone
-+              - Headset Mic
-+              - Line In
-+              - Line Out
-+              - Right FM In
-+              - Left FM In
-+              - Mic
-+              - Speaker
-+
- unevaluatedProperties: false
- 
- examples:
++		codec: codec@1c23c00 {
++			#sound-dai-cells = <0>;
++			compatible = "allwinner,suniv-f1c100s-codec";
++			reg = <0x01c23c00 0x400>;
++			interrupts = <21>;
++			clocks = <&ccu CLK_BUS_CODEC>, <&ccu CLK_CODEC>;
++			clock-names = "apb", "codec";
++			dmas = <&dma SUN4I_DMA_NORMAL 12>,
++			       <&dma SUN4I_DMA_NORMAL 12>;
++			dma-names = "rx", "tx";
++			resets = <&ccu RST_BUS_CODEC>;
++			status = "disabled";
++		};
+ 	};
+ };
 -- 
 2.34.1
 
