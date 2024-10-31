@@ -4,83 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313C2D767FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 20:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF1EE67482
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 20:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RD5TkR246EsKLWEa1qebyIvoAMqqwjYwsx4rtMlmzqs=; b=J1CoEufudMjCHXa/VtM+kq6uCb
-	HTyAgi5V+4dLuLGlQ0y1wehPB8ok0tUfGMYobi85CcFmFywU0+ysr18dDKfQ+pXofXw1xQWn67yC9
-	kVcxb1y9Q0nuYBNuS+3fFsmy8O14ZHdFBZxD9kjBABSqkuBOh7RciuS8biH+IhyjmZYZO5LKx+ZhY
-	lElbVKw5ozGkfhplSZXBrQNwnW3TUugo7GUwJSXIgT+6Uzeq3luT+8xUPhCw7N7SOT77N9RCMEEjX
-	nz2v31vy0blmrSNXxW7mCZuzjlibrHKihSw6qrsbaZ4vXZTFKJl+n4z0jGFpEScd4MN3gORcBKqlw
-	uj67OhKg==;
+	bh=8ZDQn7AFePZJtH3DTQJAOVefeUvsFO4c+D327S305po=; b=F+OQ+jtb60GcxuVyBIMEwafJVG
+	XiER06Y0oOrM7KCwMNLM4Y/8+aMKTJhtXJmpiVcgyAOheB0aQZyiZnNrtMork5XnpuXb0NEczjTgF
+	KBTQ4b4B1S9OaSxbxYHNhEwxRC+kmn6HHwolZ5bTa4lS6Tc8Bs4eIzzKd0GQEfNqL0VnqDVQFwaQF
+	VPXA3MzmV5s6rFnMvLyfOjvoo/jKQO1eIJjlDee/oIxH/x+QF15P6DdpMq6SZLO76FzCjcCnt6jfJ
+	eW16lvtUD3n6fPLoBG8q+wUEJkFgdKirnvoRCCK7q41obV3xHRav+WNGV1Mgkk7YdS8UzVIyD1Sl4
+	CpoN4daQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6bLv-00000004iyb-3CRE;
-	Thu, 31 Oct 2024 20:01:07 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1t6bxD-00000004nLr-0GGc;
+	Thu, 31 Oct 2024 20:39:39 +0000
+Received: from mail-am6eur05on20705.outbound.protection.outlook.com ([2a01:111:f403:2612::705] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6bJ2-00000004iMW-0nch
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 19:58:09 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-7d1fe1dd173so1119504a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 12:58:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730404687; x=1731009487; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RD5TkR246EsKLWEa1qebyIvoAMqqwjYwsx4rtMlmzqs=;
-        b=KWa/P8bTjur3oK4KzeFhjYytIhcaImQMqy1Mbv5V6J0cYKLCAAFP613ANBuMX8OcyV
-         rzh43bXbGtLNfK1FS08+Z+b93WLYcQbsoRMymkyCTXrVnt7aVWLBWdgL8OAvG/16Oc5S
-         i5uV65a9KsfiFaU72m4o8bFJokdHmAyCxvlOjasQp/G7oIFX7A/OLZV4q3kSNnJTzVpZ
-         mSHuQVS840jYOuWHxBjYb4OlKnK0IZK7wAjbOiy5fPshnj1GkezDHDkex72LEZAocs2t
-         OGiZkf6EOhjzA5KQRl9WYZytRFiK/L4zbaXnJyHgkK48ibyRglaXi62A3qIpTPqeK0V+
-         +lSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730404687; x=1731009487;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RD5TkR246EsKLWEa1qebyIvoAMqqwjYwsx4rtMlmzqs=;
-        b=p6iBQymgo1Q64GMvdFDZPPDIEBfUXA+9HO0i3Vg08UW17BblHVfbOTPU3LbsfdEagl
-         wjKuss64fCL/CdaEFzPJpNbSSISqluuvSXlx+aOI6CzBKepOFyig7254bYAiCZgPypbl
-         r2cBgSV7mW4ZM8Fa2RlI5u7ssPMTe6ZH2FkBEEQjTOuZgkSoeFFMCGP8R4lzvOBmdq1F
-         pjNPKXH7cajU67vuj6fdLvg1RqvBbzAURqiZXPOGJVGtSJKXpQJNQMG+0OdzYlKT9MkI
-         R/VD9LuQA0ABeqMwhKEH5hGJEXQ6AaAB5tWgQepnmLk6jWXBzrdsvALgkIsKGDqGXTG2
-         tpPQ==
-X-Gm-Message-State: AOJu0YxldzgQrWVIfyZc8lQEF+8rLFKIUrQwxyRNh0ZH8EMx1ME+whqh
-	o2jRvKdn7PAdwR2Uw9Iw1HoGw5nwocbdR1gGqIJh956dmtv0lmCvWhNv5Y8uYHIRLyZvQYNrDOp
-	6Xw==
-X-Google-Smtp-Source: AGHT+IF7vPMCnsf289NsrnjjyCJ2jg68bo1NjMnBqv1ndlVw/EyDldgRRbbWWMUr551ln7/BYp8yDv7S73k=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a17:90a:2c4a:b0:2e2:d3dc:d3ca with SMTP id
- 98e67ed59e1d1-2e8f0d4bd47mr35478a91.0.1730404686850; Thu, 31 Oct 2024
- 12:58:06 -0700 (PDT)
-Date: Thu, 31 Oct 2024 12:51:56 -0700
-In-Reply-To: <20241009154953.1073471-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20241009154953.1073471-1-seanjc@google.com>
-X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
-Message-ID: <173039503553.1508387.3074658713815866060.b4-ty@google.com>
-Subject: Re: [PATCH v3 00/14] KVM: selftests: Morph max_guest_mem to mmu_stress
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>
-Content-Type: text/plain; charset="utf-8"
+	id 1t6bvX-00000004nC6-2fP4;
+	Thu, 31 Oct 2024 20:37:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m9sjLMgm2YSlg3kWaAbRMH6GjBAyOUAnPjxkOlzRxer/hhze0w25BdbJM7+Y9Wkt0oQrW4J+BBFAlTE08awx5h90pG2EhBtIYpzJch7ejELl6/G7ccvSKAup468l4/oZLu0fuTIv7Rv/n7tf3Lf9EowLu9jA9MhzPek0Jav7nrHAGVV0/1PhwxNi61WnArzBMwI0aYBCoMTxrPBqOnQFyd7yW7lWuLYGCBWnXzXrxYgFPdPMxCymWDho41ri+GCM4ou7wa7Rx0gF0kK5yHvLkxVi1bE3Tkm7EKH/HO06tj9p7oJgfO3qaGmF25nAlb0FrJFNmfkBR+1IqfMA1BJlsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8ZDQn7AFePZJtH3DTQJAOVefeUvsFO4c+D327S305po=;
+ b=MJmxyjF8A3gKXNOawG2jiJwqWDitwwB2Fes3LxqZFKyhGxMefEA9mywLEAHHV8OIhIDwukB4KUb+oLzlcDq8FXDBA42B6OERmQHjC5t8gPKt8V30oeMAEUNjRsEPb1CnfSxgGhVr+D492oLW84Yp5UMBse2TfYJ1/Nub1a4UWvpt8pKz//WKlLzyYn+NDtvReDZyGugCY+EgDq5A1H442TotiATVOWTRH+8pGO787tD6/iXPuI6uz+sPEPcY2OJ8PCng3nvC983euEfDMj8yIukVYkuvFuF/flWupbnh545y1ZeFxycHuBq2ANUaX0aFqY9i6EIC4fhE1oshE7gqUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
+ dkim=pass header.d=genexis.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8ZDQn7AFePZJtH3DTQJAOVefeUvsFO4c+D327S305po=;
+ b=VGPCXsltvOkVO5iGhPobnUm860hc8L0DGhb7QWhQidWpETQmmDjG+2wb6D5qKIZcnJSAsdmoD2FV04dZdvqO0bG3Ezfury98MgSRuFj8O4J3wwvt2Jeqn4JcxdkFAifzXIMdl6N7t2ufGOQNS+cEz2vBJGW7FYJ3wXEvaYqRr1Y=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=genexis.eu;
+Received: from AM9PR08MB6034.eurprd08.prod.outlook.com (2603:10a6:20b:2db::18)
+ by PAXPR08MB7350.eurprd08.prod.outlook.com (2603:10a6:102:227::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Thu, 31 Oct
+ 2024 20:37:43 +0000
+Received: from AM9PR08MB6034.eurprd08.prod.outlook.com
+ ([fe80::9ead:b6bc:10eb:ef35]) by AM9PR08MB6034.eurprd08.prod.outlook.com
+ ([fe80::9ead:b6bc:10eb:ef35%6]) with mapi id 15.20.8093.027; Thu, 31 Oct 2024
+ 20:37:42 +0000
+Message-ID: <bc8af1b2-7537-4abf-962a-32e95e9dc3fc@genexis.eu>
+Date: Thu, 31 Oct 2024 21:37:40 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 6/6] pwm: airoha: Add support for EN7581 SoC
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Lee Jones <lee@kernel.org>, linux-mediatek@lists.infradead.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+ ansuelsmth@gmail.com, linux-pwm@vger.kernel.org
+References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
+ <20241023-en7581-pinctrl-v9-6-afb0cbcab0ec@kernel.org>
+ <bf5lpb3dwfywzgnbcel6de57ick7hfzxfaovyqrt7juif6tgp7@sdmugrua6t3c>
+ <184f8707-0b4b-474a-b2d4-b54a3438f4a3@genexis.eu>
+ <ljpgey6oqeisnhnf3zojnmczxvpduabj6cgf3utef3oic2k27e@r5sbpdxwzghs>
+Content-Language: en-US
+From: Benjamin Larsson <benjamin.larsson@genexis.eu>
+In-Reply-To: <ljpgey6oqeisnhnf3zojnmczxvpduabj6cgf3utef3oic2k27e@r5sbpdxwzghs>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: GVX0EPF00014AF1.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:401::305) To AM9PR08MB6034.eurprd08.prod.outlook.com
+ (2603:10a6:20b:2db::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR08MB6034:EE_|PAXPR08MB7350:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0a0164b-bfe4-4fd8-c6e6-08dcf9ebde8a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dUI3NEhCVmFveEc2bC85clQ5L0NRUzFLTzlWTHJvWndNYm03Q0xNMkZkVGor?=
+ =?utf-8?B?L2lNUXJ4ZVRtZVlyMVVmRllSdzVpMU0yTEtUbEFvZ1hiSTU0QVdWTVZSM3RW?=
+ =?utf-8?B?YW1NMU1pcENoSC9NRVRHQmVFSzVlNTlWWGlwZFh2UnVsQWVLVmRERENwcWs2?=
+ =?utf-8?B?RWZKRjl1dkZ1NnlwMVdENU5QeGZZWHFqN1ozOE1UY0ZyZGZqUmNRdXVpNnJU?=
+ =?utf-8?B?VnRkZXlHS0o1UzJlbHE3V1lqSFZWSFI3cUdOVW1jTmlnS09JamJkYTJsYyta?=
+ =?utf-8?B?ekcwQkpYdkpVaTBKT1VPNit1eVB0c3FQcHlQK3NKZnQySkpSSW1zTlVwNWNr?=
+ =?utf-8?B?OFN6bEZaZFBBK3ErdEQzZGRrSTZ4REVNSngyckxCaXM1S2NnS2FBVVArWDFC?=
+ =?utf-8?B?MFlkd1F5c05paFZBWXFEUFlzZC9mVms1cC83WVN3ODZpWGgxcnE5Y2tKMUNj?=
+ =?utf-8?B?YW5yQ2tQV3JFbVZOUkdyUk1sQVhDamdKeDZDcWh0djZzR25Id05Pb3pLalpN?=
+ =?utf-8?B?N3lTeVJ5eFNIdkhJNks0d2F4bEE5R25vaU9IOGk1WitjSzNRWmRMVzRnY2hX?=
+ =?utf-8?B?SXR0eTdHUkVHS0ZsZXk2eUxMc1FYMmF2dTVOU09lNVFtMERYZnF0amcrR2pG?=
+ =?utf-8?B?TnF2bXlRVElzNGFWYmJIajMwY3dNM21rSFZYV3hYQW0vVmFFV2tUa1lRVG0r?=
+ =?utf-8?B?TUtuNjM0UllrZjRnSzArdUJOTXVndmdTbk95Rjk4K2NITW91eTE4ZGExV1la?=
+ =?utf-8?B?Q0RwbFdnaStzb3VrQ1JIVUxwL2lSNjlSZU1HeVEwSEVyUHNjck9yQmNXUmdY?=
+ =?utf-8?B?WnB3d2VvalVEZUE1ekxiVkhoZityU3dqMFJmSkZSZm5BbXEvQ2E4K2NOVUdp?=
+ =?utf-8?B?aXBEenJDQ1ducVducjd3N2JZc0U5a1JXZ2Y1T05NOG1CdnNzMzdLTVhqRVRz?=
+ =?utf-8?B?UUlZeWU3NHlxa1Zya0NNb3d2ZmVTYmFndk5FMkFES0hEaTlsZEZVQk5MQzhK?=
+ =?utf-8?B?MVdIT0pWZnFmZC9WanJLSnNKdCtjTzJwQXRMOXVaRFQ1Ym9pWDE4SlJtc2Ew?=
+ =?utf-8?B?L25WaVUwWmpRMjUybytZSktKL2JwTzJLVWc2RmQ2SGgyZ2l3UHhwWUpFajRS?=
+ =?utf-8?B?R0NBZktIWDFvMEo3RDAzdGp4NUNYbHREcnlESHRFdXZRZXhnUHcvUzFGSnky?=
+ =?utf-8?B?UGdTSzdCSXpGWTdSdTRMRm5BSXhXekp6SEpRdFZlUGxHNlJSR0J2V0hPZ1Rz?=
+ =?utf-8?B?NWZpSkl0akhGUElHY2FFbGgwc1ZwcHNXNFJNOTlIaDBuSlRkWHV1OEhnM2FK?=
+ =?utf-8?B?SmRFQy9xVmhvZFhUMjVEekpoM3N2V2pTSm9TWHhqZVArYUhBb2VxUE9PYllE?=
+ =?utf-8?B?Q1VaSldHaUp2Sk5QV2FuQ1YvdzJ1M0Fmckp3b1N6MTkwOHVCNCtENWJvODlk?=
+ =?utf-8?B?cFNjTGpEZHlWNXc4VEJUUndZYkZRNG8wanN1dFlhbFZKNGF2b0tHZjhhZ29Y?=
+ =?utf-8?B?Y1REVDNGMytKd3BPMFkvdkhhOU5YSXZGVU9YdjNBMlBkcjN0Y3h3ZTFTVE1H?=
+ =?utf-8?B?cjhVYnJTbkxEVE9oT1JVcGlBM0I5M2JLSE5xdDhnM0tZZlBmb0h5SnpZdzBZ?=
+ =?utf-8?B?TTZwYkFteEJoWi8zZktUemRrZkc2RDJQUmtIc0QvK2k3NjZoMVgzWXFzczVt?=
+ =?utf-8?B?SEJtM3JTcDhVclBTcFE3Z1FHT0cvZUEydUkxSjlpUmdFM3RZV2dIRjVHU241?=
+ =?utf-8?Q?+Vk7JfBLAnE6vdQFwTUzQXGg7mFyPAmOWe4XZWf?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB6034.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KytMQzVpam9QM0RLZE4rZW50dTBiTVVFZHRIa3ZQS3ZYR2JNbFY4UFoxbXBB?=
+ =?utf-8?B?dWNBemswdkFlRVViZmlvSk8xWWlHU2x4Vy9nOEF1WHROc2dybG9oaVNWVkNo?=
+ =?utf-8?B?blpiZ29aUHNLejFxblZkbG9TbmNaQzAxKzAxYW8wNzd1bHhtMSt2d2pnQVYz?=
+ =?utf-8?B?d0lqRnBqNG1WdVZRSUNSa0VxQlBVN0tPOEI2UXc5N3JLdCtGUzN0Y2o1UEFa?=
+ =?utf-8?B?SjZYMGJIeFBnQm41UHRsMGo0eXVxS1F6eGcyTUZQbWt4SnJ2cnp5eGMxT3F2?=
+ =?utf-8?B?VVNmQ3BxSTY2LzFxbkltL0h0ekZIU0dCL0lRbXowWVVNaC9DS0IzUnNFS3VF?=
+ =?utf-8?B?TUJvemdpWmpUTjBpNEVSRnRMZllEMUhoUDBPbUlBOFBjWllBeGc1MXJRWEo4?=
+ =?utf-8?B?RW5JU1BBZ2llem9XeXpzY3V3R2NKWTc5L001SFprNzJuM1BPc2ZMbGlzQ0hj?=
+ =?utf-8?B?ZzI1NzAxdEhBQk1EcHBxSit2cGdjQXZSeHRHSVJPQmN4Sk82WWdqeU92bHgy?=
+ =?utf-8?B?amxIK1pIV1l3Sng0cWF0YkFGRHAwNnlDa0RNaFdzRXBHQS9JbzR4a3ZSbmVO?=
+ =?utf-8?B?TzRVbGdQVC9Xc3djMkZuOEpmaFRSZ0l2TlEyd1JMYW5nRWRVQ1pnanpoTU5P?=
+ =?utf-8?B?bWhRbWk2a3ZqM3hGOFVlbTczSFdSdUNXZ2NTaEMxMkRlRlZUMEU2R3ZLTkVV?=
+ =?utf-8?B?V3Jja3ZmbElzbFg2T2piUFljaEY2d1RWd3k5bFpmR2YwTmxJNFl0WEd3elo2?=
+ =?utf-8?B?N1orY1o0OFJOaEtkUGdjd0w0RmdRWDlyLzlZNXA3SXhscGoyRzhOMFdvSUR3?=
+ =?utf-8?B?RkR3TG5KMWlGcmxOQjJhRjgwT3NsNzBCOHhJUStleEhHMHBxYVpMOExMeDI1?=
+ =?utf-8?B?NVNEcHhiSE8wMnRrN25CU1lwclZna3FmQTdjZzNhSUNiOHVWMzk5VGxTNEdn?=
+ =?utf-8?B?NHNZeC83Q0g5TjhGSE1VdWwvVmFyWGRONFpBQTdaVjRSaERuZUdkTHlJaXMz?=
+ =?utf-8?B?UjljdmtSMDViRFFjSTg3SStSY3RFWitadHlkM1o4R1BiQ0JJNFpoMDB2KzdN?=
+ =?utf-8?B?MVd5QlJOSGxrZllMbUIwbnByalI0VFhxNyt4Z3JWMld4U25GSEpSZlJhNTNC?=
+ =?utf-8?B?T1B4a2twdXVMMkkxTU1mL2wwTDRibVhWcHRiVzdmeExtU2cvaWFGYWdVS3Nz?=
+ =?utf-8?B?dndNQ0drQ0xCWkNaWVlFY0lIZEs4TlhRTktGQm9WckpVa0hWakcvV1NvTWFI?=
+ =?utf-8?B?eHZNM0UwMERKM3ZOVldkZkpPWGJtMUhEU2lROUZROHRyWXNmbFV3Z1hzYlR6?=
+ =?utf-8?B?cnl6UGJEVWhkeUFHai9ab3R4S01melhoT01jVFBrTUpjKzhLNkxtVGNtcGk2?=
+ =?utf-8?B?N1c3aVUxZzl5UmJKNXFkTjQ1amczU3hrempRZTQxWS94cWhOOW1KK2l3U3Q4?=
+ =?utf-8?B?WmN5WWRCMmRRT0VIaWZqVmthVEdYZ054Rk5ySVBCR0Uxcm15UEhML3AyNEo1?=
+ =?utf-8?B?dUtmeVBNM2hhMWU5N2M0M1NYek4rS29QakRGRzV2UUs5TXI5WFhacmVqcUpa?=
+ =?utf-8?B?K0k5S0xiUDFRcXpQd21ab0hmVUpSbmFGQ0Y2djM4RTc5L1kreVdCUnJKVjRE?=
+ =?utf-8?B?TjRpd1REMzMyRWpkV1Zmd3lndGJzSHpzSUpJbFdpd0xLT2IrS1d4aDFMK0kz?=
+ =?utf-8?B?L2ZrN3dscm90T0lwcHlmbjFQTnlvc3NTZXI4UTFnb3VlcUVKaGEyUlBJeXFV?=
+ =?utf-8?B?M1FZY2hUMldyM1lNd0svYVFLM2gxTHVZN1k3TEVQa2NDdS81RHlHRURQOEpn?=
+ =?utf-8?B?RVR3QVJDZk5meHB5Q1Q2ZzVHY1N4NGVwdHd2Z21ma2hkQUZBbnRpTGk3Uity?=
+ =?utf-8?B?WENFK21NdEJDeGp6Mno2VTdvUEk1MW95VXh5UTU0dWc3ZUdIUFkzNjU5NXI4?=
+ =?utf-8?B?ZEU2R3FSZE1IdmdyTHVQcStkUm5md29SdnZXRE5MWVFYbnN6SFNtZG5MMDlk?=
+ =?utf-8?B?czZsb2dFdVRvVkhUUnNqZUFsY0hyb2haWitHUXZObjUzbXQ3UTJHQVdObXhY?=
+ =?utf-8?B?Vmw2c2FmbS9xdDUxQlhOdVhTZzc2WkpoNXZvdW9jL2V2YjdheWJTNVkyS0Vn?=
+ =?utf-8?B?QlVIMkVHM212dm56SllKb0VLZndLd1dCUHBZRGxZM0JGTzV4R0t3L1JYTlQw?=
+ =?utf-8?B?T0E9PQ==?=
+X-OriginatorOrg: genexis.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0a0164b-bfe4-4fd8-c6e6-08dcf9ebde8a
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR08MB6034.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 20:37:42.7948
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7uUMc/vcmaSIHpLFtxIfBq2c78CtsYDiQ6ixZE/6XFDY03Yp+UmPwoLpbC6MXTdTYz0eAUWiI3qbrKBEbIdBlns3hG49wAx+Wj11WHf/FZs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB7350
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_125808_256786_B6F975F6 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20241031_133756_014403_7DE392F0 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +184,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Oct 2024 08:49:39 -0700, Sean Christopherson wrote:
-> The main purpose of this series is to convert the max_guest_memory_test
-> into a more generic mmu_stress_test.  The basic gist of the "conversion"
-> is to have the test do mprotect() on guest memory while vCPUs are
-> accessing said memory, e.g. to verify KVM and mmu_notifiers are working
-> as intended.
-> 
-> Patches 1-4 are a somewhat unexpected side quest.  The original plan was
-> that patch 3 would be a single patch, but things snowballed.
-> 
-> [...]
+On 31/10/2024 11:53, Uwe Kleine-König wrote:
+> Hello Benjamin,
+>
+> On Wed, Oct 30, 2024 at 11:14:41AM +0100, Benjamin Larsson wrote:
+>> On 2024-10-30 08:32, Uwe Kleine-König wrote:
+>>>> +	/* Configure frequency divisor */
+>>>> +	mask = WAVE_GEN_CYCLE_MASK(index % 4);
+>>>> +	val = (period << __ffs(mask)) & mask;
+>>> FIELD_PREP please.
+>> Per my understanding FIELD_PREP only work on compile time constants.
+> Then please create an alternative macro with the same semantic that also
+> works when the mask isn't known at compile time instead of open coding
+> the same concept several times.
+>
+> Best regards
+> Uwe
 
-Applied to kvm-x86 selftests, with the typo fixup pointed out by James.  Thanks!
+Hi, someone did but the code never got merged.
 
-[01/14] KVM: Move KVM_REG_SIZE() definition to common uAPI header
-        https://github.com/kvm-x86/linux/commit/5e07fd0bf516
-[02/14] KVM: selftests: Disable strict aliasing
-        https://github.com/kvm-x86/linux/commit/d1ce2bcd8d2e
-[03/14] KVM: selftests: Return a value from vcpu_get_reg() instead of using an out-param
-        https://github.com/kvm-x86/linux/commit/5c6c7b71a45c
-[04/14] KVM: selftests: Assert that vcpu_{g,s}et_reg() won't truncate
-        https://github.com/kvm-x86/linux/commit/6aa2df3eb90b
-[05/14] KVM: selftests: Check for a potential unhandled exception iff KVM_RUN succeeded
-        https://github.com/kvm-x86/linux/commit/be9f2746d20b
-[06/14] KVM: selftests: Rename max_guest_memory_test to mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/06694f27cfcc
-[07/14] KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/8556ce365a07
-[08/14] KVM: selftests: Compute number of extra pages needed in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/c7b7876ac5d4
-[09/14] KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
-        https://github.com/kvm-x86/linux/commit/a657856469e1
-[10/14] KVM: selftests: Enable mmu_stress_test on arm64
-        https://github.com/kvm-x86/linux/commit/1e53cde06102
-[11/14] KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/8630563012b9
-[12/14] KVM: selftests: Precisely limit the number of guest loops in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/3d4585c220dc
-[13/14] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/eaafeebca75a
-[14/14] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
-        https://github.com/kvm-x86/linux/commit/a3cd5c187742
+https://lkml.org/lkml/2021/11/22/532
 
---
-https://github.com/kvm-x86/linux/tree/next
+So the current way of doing it seems to be to open coding.
+
+Are you proposing macros like these are added?
+
+#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
+#define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
+
+MvH
+
+Benjamin Larsson
+
 
