@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AACE68975
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE77E68976
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=; b=l42txpkREhHczOn8euRXZ7oU68
-	yWFFakvbBYBkGHojaKr8ApZHifvXYwCH/au2NLnBiRgi29lPyIUBeBaFFZq3ErcEzel3jKqFBtqGo
-	XZNwVn8um9CXTjXuawTjSJe6sAdPsYwJUE08MwS7fLtsXmC2WyJ+IZ6IGMPKArqgnwuMgaSmMFnsc
-	tA4uZvtVf8TI2JAKEXTYacjTrhD5EN600WoiUhyd7nlYG6Rd6LF+Vswer5dxXdDzb0WcMsAcm7frQ
-	k2TSn8KE5uaMk+sE0lKOUhwxGxYyxDIOmQasxTUtPUSPWkMsJcKdXila6Begggv+4733vRXldiMxE
-	+eacc+WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=; b=ugJZBwmaGBjwmvdOl0W5EMWw0u
+	mDynM1zqnyz6ikZnFH9OzXSdDcNAUeMVf00NGNZeyfm7XwXmPXJI64vp7zdvmwuoHEhIV/JsV8vMp
+	EOe20wdCv+i4v5O7zHJucnJye6MZ2MYH860DcM/4JXudbuD24it+ziT0KTKzMQn8qCWU0vCxfKNpQ
+	tnTorvQaDlffVJeOHWOqLPPY6HHRoohFQMJyXQsR6tFJ8PUMHNgPTjvrWA0h5Jq55rsyqlctsIpGI
+	mLhSf9w3VG46ztmA/wfQc4/VpFydc0i94uZSDsTOUBl9vOXhJEmHzW8FvnFTTuPC8ZNCYwyuDCgpM
+	kD9FFR/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TE9-00000003NWf-0u3z;
-	Thu, 31 Oct 2024 11:20:33 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1t6TGK-00000003NpM-0GEB;
+	Thu, 31 Oct 2024 11:22:48 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TCS-00000003NJl-35wK
+	id 1t6TEe-00000003NbD-173f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 11:18:49 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5eb73ec1e1aso411948eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:18:47 -0700 (PDT)
+	Thu, 31 Oct 2024 11:21:07 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-207115e3056so7348305ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:21:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730373527; x=1730978327; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=;
-        b=scALhf1peQuZWETSquCMTTJpD09XInrkK01A8P/OOaqRS4A4pjyQIyUYzj11uLzZPK
-         kFtwyudaJjUdmtDiEVobEoS8Frjj6mS4Rq8N/qMncr/Pn/08AkT7naxymJB+RnHld4dx
-         ysT6VpaAhTIFhEkvLqF9q3Sa5xrP9MYhrx/SJCLjQOkUz5scU53dXs6awFIzRS7Ev72x
-         BBpgBXGhD5mlc34tAZrDGXwj4oBqBmGiDOTH5MgsSwJzK4FN82y2o62TOrjH6PQD9xBl
-         wg6dy2f2Z3n1wmizmILKDCNSbYwVyOEs1wTPWXZ0gv4LEGjpGUBVM5PI6oybPm1DfXhl
-         EwLg==
+        d=bytedance.com; s=google; t=1730373663; x=1730978463; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=;
+        b=lbtkfcIzhckBs6Q6Yl7C/Y6z+14gxxy73vQIk2xUqSblvbvNNxTcpxJPyycYClFtq5
+         efPTuNeKtzWIF7iuAX4DOsbJRM1VBN3Mi41xnDdR1akMxQx8SrzRRzViTVhc26jUJkcN
+         isQ+Z0tmoWuwUPipYayQsUnLknA/GKv9yzeG7ymZaWocDVdYX3DDrQAhryoZWNsv+7+S
+         i1WXgZ3zHRHCIb2knUq5G1chwxE7bq94k64KX6wX8ac3uRNQkUWH0/617vckg+CL/yDP
+         okmFaUMFr83pxEGWbuEBPtSsmc8JVXmzl8J8vYVWzODXEXYNrS0mmGSYyJbEPxZukP4+
+         hozQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730373527; x=1730978327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=;
-        b=QGA5DIYy8Dsu4O3R5cfHW91OIqJtEsFRDuHwEF1A6aICzCjaj+XRuaVc2pOXq4epx6
-         gEXOvr6b0HDdDhQ//FSb8wQa4PNagDVz+ERGTSYJHgU2Kl/rgjMiMwSJzp8Sjj2xYleW
-         dCxNfdCQQ+jUsf+evuFaDEbPnxIkoRP95bNajW+mBBqwnkPBIn6fnPIHLCYtjapkMyCD
-         2nkWkC1Qc3aXChOKp4QWH/Ipyv50Ovrj8m6+5KZbud3v4HJhIu5+gbT+fcZHQ2W+Ub7V
-         cUQdUxpjlDl4LfNDRhFWJnevM8FzkFugySolzWFNi0Vgi26HpGZ3D08EmAj2gpBYol6P
-         EaFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUzLCOkgHmR529mbyOr5Z4Et37ur44KFmsWG+fTUumElWxGRPST9QL/cdI9A/OFfEFSwB30XCd3naDzR13ma45X@lists.infradead.org
-X-Gm-Message-State: AOJu0YxumGSPxKYO8Y25wcH0HgT2fEfmRV+eUd+toG2c6mz0P1xU8gGR
-	+0SxacWGgs7V+cWCqFd+sI7wZ+EKH/BvwGb7nSiu6Dcuj60ZzVWDcoDgpxtRj0OJ7GTJCj1gqcQ
-	LiM+DAMMbNk5H6Uw1HxyCuhy/WH5A+3lQlK5UhA==
-X-Google-Smtp-Source: AGHT+IFQY0jyd6E8l4ZVxaxh5x5SVk1SxFaa6tSUf7REkjjSQjNyJIZv7P8E7RYon6B3a5PLGcKeZNWF/nmdRTVbnGc=
-X-Received: by 2002:a4a:a701:0:b0:5ec:5922:ddb with SMTP id
- 006d021491bc7-5ec592219f4mr4806888eaf.2.1730373527001; Thu, 31 Oct 2024
- 04:18:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730373663; x=1730978463;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SgD3pKPtdFzcz4t1a0u04lcW4uB7d9j6oqT5niate0A=;
+        b=AdcCzTiUHAOjVDhpD4fuOkLcnxEX8B0OJQKfXtBLI/+HwqfUTpU6mAWRyp+wA3fO5X
+         uSJy7JV2P9FP8LwxfYxfXm+agFi22T07r/iU5DIbRj1BqdsyFD1+HpqNrnEyfzGdtQiY
+         rXX2a9CZPWH9L/qe1yEM6TA2dlpejOIxQ0r/gmuyO+PgAACKP5RkkwNCWlfatn/YulIO
+         4VVOxWVEwPqwvO49endcdVSWYKpKcmU4L4puQnkir2Lslg22OeyrcHvErIBp4Yn6HctA
+         hTqYT6w8Z9IHAjf9GZM+BNqu1T5mJHUT05WGbtIVd1dF03G9yk+BK0kPhi2XcGHEL7EQ
+         RhPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXDOdoshM8lwGehVgXbIrT/NxTX1D4bRU2mhgtPRer11F1RU8ns75xiN4i7JuyL94rEj+DT4+7eltEbuFDszJOb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTviog2PGADAjYRyELKIlUobUQ5F0WenO5BaF8RXD/d6kJvAsT
+	gCB8QyKuTQPTbkI5k9jefFHU0tqi5HBAaQaJf3/HHUUWHjRImcVytOm2rWVJQ9U=
+X-Google-Smtp-Source: AGHT+IF6rCp8uA7CIfzXSTYHLrzQK+lu+COWzmT52riKYUQh7Yt9+TYvl4AYGhI2GgQcWukgSatRcQ==
+X-Received: by 2002:a17:902:da82:b0:20c:cccd:17a3 with SMTP id d9443c01a7336-210c6c346a9mr224734955ad.46.1730373662606;
+        Thu, 31 Oct 2024 04:21:02 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.227])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056efd01sm7513455ad.52.2024.10.31.04.20.52
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 31 Oct 2024 04:21:02 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: punit.agrawal@bytedance.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	rafael@kernel.org,
+	lenb@kernel.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	sudeep.holla@arm.com,
+	guohanjun@huawei.com,
+	prarit@redhat.com,
+	gshan@redhat.com,
+	cuiyunhui@bytedance.com,
+	dwmw@amazon.co.uk,
+	Jonathan.Cameron@huawei.com,
+	liuwei09@cestc.cn,
+	maobibo@loongson.cn,
+	sunilvl@ventanamicro.com,
+	alexghiti@rivosinc.com,
+	haibo1.xu@intel.com,
+	jeeheng.sia@starfivetech.com,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org
+Subject: [PATCH] ACPI: fix the warning reported by the sparse
+Date: Thu, 31 Oct 2024 19:20:30 +0800
+Message-Id: <20241031112030.72647-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-References: <20241025131442.112862-1-peter.griffin@linaro.org>
- <20241025131442.112862-5-peter.griffin@linaro.org> <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
-In-Reply-To: <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 31 Oct 2024 11:18:36 +0000
-Message-ID: <CADrjBPpYQQNdYya_95KXRYBrfSD91E-rfYcw6Q-ZNOgh5-4VJw@mail.gmail.com>
-Subject: Re: [PATCH v2 04/11] scsi: ufs: exynos: Add EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR
- check
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com, 
-	martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org, 
-	krzk@kernel.org, andre.draszik@linaro.org, kernel-team@android.com, 
-	willmcvicker@google.com, linux-scsi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ebiggers@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_041848_799361_9C473735 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20241031_042104_337231_7EB9E230 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +119,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+All architectures use early_memremap() instead of early_ioremap().
+Therefore, to solve the warning detected by sparse:
+../arch/riscv/kernel/acpi.c:213:30: warning: incorrect type in return expression (different address spaces)
+../arch/riscv/kernel/acpi.c:213:30:    expected void [noderef] __iomem *
+../arch/riscv/kernel/acpi.c:213:30:    got void *
+../arch/riscv/kernel/acpi.c:221:24: warning: incorrect type in argument 1 (different address spaces)
+../arch/riscv/kernel/acpi.c:221:24:    expected void *addr
+../arch/riscv/kernel/acpi.c:221:24:    got void [noderef] __iomem *map
+The __iomem attribute of __acpi_map_table() is removed.
 
-On Wed, 30 Oct 2024 at 08:56, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
->
->
->
-> On 10/25/24 2:14 PM, Peter Griffin wrote:
-> > The values calculated in exynos_ufs_specify_phy_time_attr() are only used
-> > in exynos_ufs_config_phy_time_attr() and exynos_ufs_config_phy_cap_attr()
->
-> all values set in exynos_ufs_specify_phy_time_attr() are used *only* in
-> exynos_ufs_config_phy_time_attr(). Or did I miss something?
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/arm64/kernel/acpi.c     | 6 +++---
+ arch/loongarch/kernel/acpi.c | 2 +-
+ arch/riscv/kernel/acpi.c     | 6 +++---
+ arch/x86/kernel/acpi/boot.c  | 2 +-
+ drivers/acpi/osl.c           | 2 +-
+ include/linux/acpi.h         | 2 +-
+ 6 files changed, 10 insertions(+), 10 deletions(-)
 
-Yes you're right, I'll update the commit message.
+diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+index e6f66491fbe9..69017dadb82d 100644
+--- a/arch/arm64/kernel/acpi.c
++++ b/arch/arm64/kernel/acpi.c
+@@ -88,10 +88,10 @@ static bool __init dt_is_stub(void)
+ }
+ 
+ /*
+- * __acpi_map_table() will be called before page_init(), so early_ioremap()
+- * or early_memremap() should be called here to for ACPI table mapping.
++ * __acpi_map_table() will be called before page_init(), so early_memremap()
++ * should be called here to for ACPI table mapping.
+  */
+-void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
++void __init *__acpi_map_table(unsigned long phys, unsigned long size)
+ {
+ 	if (!size)
+ 		return NULL;
+diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+index f1a74b80f22c..a29c1d86e274 100644
+--- a/arch/loongarch/kernel/acpi.c
++++ b/arch/loongarch/kernel/acpi.c
+@@ -34,7 +34,7 @@ u64 acpi_saved_sp;
+ 
+ struct acpi_madt_core_pic acpi_core_pic[MAX_CORE_PIC];
+ 
+-void __init __iomem * __acpi_map_table(unsigned long phys, unsigned long size)
++void __init *__acpi_map_table(unsigned long phys, unsigned long size)
+ {
+ 
+ 	if (!phys || !size)
+diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+index 2fd29695a788..861ab56962a2 100644
+--- a/arch/riscv/kernel/acpi.c
++++ b/arch/riscv/kernel/acpi.c
+@@ -202,10 +202,10 @@ struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+ }
+ 
+ /*
+- * __acpi_map_table() will be called before paging_init(), so early_ioremap()
+- * or early_memremap() should be called here to for ACPI table mapping.
++ * __acpi_map_table() will be called before paging_init(), so early_memremap()
++ * should be called here to for ACPI table mapping.
+  */
+-void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
++void __init *__acpi_map_table(unsigned long phys, unsigned long size)
+ {
+ 	if (!size)
+ 		return NULL;
+diff --git a/arch/x86/kernel/acpi/boot.c b/arch/x86/kernel/acpi/boot.c
+index 3a44a9dc3fb7..e1ed297552e7 100644
+--- a/arch/x86/kernel/acpi/boot.c
++++ b/arch/x86/kernel/acpi/boot.c
+@@ -105,7 +105,7 @@ static u32 isa_irq_to_gsi[NR_IRQS_LEGACY] __read_mostly = {
+  * This is just a simple wrapper around early_memremap(),
+  * with sanity checks for phys == 0 and size == 0.
+  */
+-void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
++void __init *__acpi_map_table(unsigned long phys, unsigned long size)
+ {
+ 
+ 	if (!phys || !size)
+diff --git a/drivers/acpi/osl.c b/drivers/acpi/osl.c
+index 70af3fbbebe5..a36486b59bca 100644
+--- a/drivers/acpi/osl.c
++++ b/drivers/acpi/osl.c
+@@ -334,7 +334,7 @@ void __iomem __ref
+ 	}
+ 
+ 	if (!acpi_permanent_mmap)
+-		return __acpi_map_table((unsigned long)phys, size);
++		return (void __iomem __force *)__acpi_map_table((unsigned long)phys, size);
+ 
+ 	mutex_lock(&acpi_ioremap_lock);
+ 	/* Check if there's a suitable mapping already. */
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 4d5ee84c468b..d4627d96c13b 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -207,7 +207,7 @@ static inline int acpi_debugger_notify_command_complete(void)
+ 		(!entry) || (unsigned long)entry + sizeof(*entry) > end ||  \
+ 		((struct acpi_subtable_header *)entry)->length < sizeof(*entry))
+ 
+-void __iomem *__acpi_map_table(unsigned long phys, unsigned long size);
++void *__acpi_map_table(unsigned long phys, unsigned long size);
+ void __acpi_unmap_table(void __iomem *map, unsigned long size);
+ int early_acpi_boot_init(void);
+ int acpi_boot_init (void);
+-- 
+2.39.2
 
->
-> > if EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag is not set.
->
-> yep, wonderful.
->
-> >
-> > Add a check for this flag to exynos_ufs_specify_phy_time_attr() and
-> > return for platforms that don't set it.
-> >
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> >  drivers/ufs/host/ufs-exynos.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-> > index d685d3e93ea1..a1a2fdcb8a40 100644
-> > --- a/drivers/ufs/host/ufs-exynos.c
-> > +++ b/drivers/ufs/host/ufs-exynos.c
-> > @@ -546,6 +546,9 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
-> >       struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
-> >       struct ufs_phy_time_cfg *t_cfg = &ufs->t_cfg;
-> >
-> > +     if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)
-> > +             return;
-> > +
-> >       t_cfg->tx_linereset_p =
-> >               exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
-> >       t_cfg->tx_linereset_n =
->
-> tx_linereset_n, rx_hibern8_wait is set but not used anywhere. Can we
-> remove it? Not related to this patch though.
-
-Yes they can be removed if they are unused.
-
-Peter
 
