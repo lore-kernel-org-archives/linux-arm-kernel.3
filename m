@@ -4,113 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCB3D74959
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C428D767C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=; b=SG+GaIUu3KZN4L
-	QvAUgz/ecdFCjbF6eEr5NK9x2nzCuHao2uM3ZAmsC06DO+4ECbZ3+7Apv3gLW7RoYd3LoOGv+hJ6E
-	sU4yBt8od1Am6jceZ+bXlOdA1VTUCINBRa2+iEaw2zepfIHEap80rrtcsN/1PFy2tkT+pwhTWkTZL
-	nI7xABIGAXSU97cCkFIzFLoocyF3ARpcP5SyeF+1kbNmXGiP9xfEFkz/urec3gkY9hOEusIby2bZq
-	Q1SGleRgcwqgw/PYdoV3sZ7XOX6o46G1NaR5d+r89DLK6KymzbM/YZCY97wd27vjp4kLRRL6cZiuZ
-	yN8p7UjvvsCfKV5yWprA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G0xq6I3sjzz91t2odTGsh/XAHWma7BPt/V2d6kS19z8=; b=WjrXON+9u0TP6E2oMEruT9qvzx
+	5zst2FBUyw7I+ndHUUtymuchv2Q4DuWwjA8UEg8sqOQheOXPCwxclcGQZwL98xzX5b7qNcd1UI0wh
+	IcCU/f0j8Avi25RZ4TW37+8xd2/0xQGtiwaABvfTQbxO8zHnagMeHbQ79zHJY70bYicB7H2gwsMSM
+	cUfC6+FbaF5mKvuZAhDWCZRHJY0Bwa+F2XyyI1/aNI2EIbarpjN7tWTDIf7Yt1KrlPZLQNPyJvl6V
+	HPj2/tER0asKWxH/4DpmNo893ucZxBzMICkAIoCW5SqY9uQZz9/BsdrXlmsL3ABM536WNxbEd4eqq
+	y0UJiKAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6VN0-00000003hPS-2A8x;
-	Thu, 31 Oct 2024 13:37:50 +0000
-Received: from cheetah.ash.relay.mailchannels.net ([23.83.222.34])
+	id 1t6VVi-00000003j16-0Fxf;
+	Thu, 31 Oct 2024 13:46:50 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6VL0-00000003h71-3Yr6
+	id 1t6VTx-00000003ib5-3XuS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 13:35:48 +0000
-X-Sender-Id: hostingeremail|x-authuser|arinc.unal@arinc9.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 6D89982EA9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 13:35:44 +0000 (UTC)
-Received: from uk-fast-smtpout9.hostinger.io (trex-13.trex.outbound.svc.cluster.local [100.103.175.141])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id A74A982C00
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 13:35:43 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1730381743; a=rsa-sha256;
-	cv=none;
-	b=miTxGnrZ9Jvp8YxNgAOtAiwYNRzqfUhHuc1jF0s1FXA3xAFYBK1310neFMjxhokazG9fxs
-	1lLrSSkIoIP1VLoCQXyMVKcO/VRUXrEyg+V90vHAiTNV+1rkYNmyS5T3FxdLFXdIpMBWI0
-	ypcFJ2VPbgln8L2FfnKjbraE2XxvZ6kSeq+tJ1km7ag1gQyT14Fw1KmLxZJEYxVJgJqd28
-	STDMwAkMAkGdNiW9pdyaJO0fH/DuuiGj/TDrV07VhPrpDl8IuELoY1/s0s17r30ry9hzmw
-	HafN03AaQ36rm9I3g3oOYmNxUBhZr1n9yVMT7XPQpXY5RhHuaPVVCBES4M48jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1730381743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=;
-	b=Xm9oiRyWzzju5a3XgqtIELxw0cwjqKIgMb5D9BJmEkHWFXxyyEMfPH/hlLLCNTZ6Kz1wzw
-	amhkdaFkR4an6VUpxxz9qmtq4LxCXgjymMgic+3T8cQVMK3KoVeZO4ZEfgoy742K6zDJwN
-	KjMCgzy95XDqrkOmwJejXX9nczQ9YjblAlOsiJbBxFDpdYfqhzrsKiBcVLviaBoCAiEJm2
-	09zCrUtWp6q4SZMW94JQqj1xzRW7TqmbcRhU2NbbfVyaSPf9aHFxkC66xTA/6NUy7iREMU
-	taRdsBNxuGTPn4B5gqYJ+VvxWEP8GTk4rjFdgbKtbITnTC2FC849+J8dFVaKpg==
-ARC-Authentication-Results: i=1;
-	rspamd-77cfccfb8-2nmmb;
-	auth=pass smtp.auth=hostingeremail smtp.mailfrom=arinc.unal@arinc9.com
-X-Sender-Id: hostingeremail|x-authuser|arinc.unal@arinc9.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|arinc.unal@arinc9.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Sponge-Illegal: 56a423e32c90bee5_1730381744171_3147655827
-X-MC-Loop-Signature: 1730381744171:1689136246
-X-MC-Ingress-Time: 1730381744171
-Received: from uk-fast-smtpout9.hostinger.io (uk-fast-smtpout9.hostinger.io
- [31.220.23.89])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.103.175.141 (trex/7.0.2);
-	Thu, 31 Oct 2024 13:35:44 +0000
-Message-ID: <d2776a19-5176-4ce4-9306-273ec7cda0a6@arinc9.com>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
-	s=hostingermail-a; t=1730381741;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VA2D/3s3T/BEXi5y4Fa4JGpA6vR01kfLSIvpX9EDjM0=;
-	b=XZ93d0EpvzYzHqsXjJbn3ujqnNXJ6i58bnSgHu+5Vj7mGJdKWQxTLBlxpOs+cHwM2O/Q9v
-	GcaVm8Ha71r5FMWxOUY13wv3gKPvU7eeGaSKfCmNZA9CT6PfodxwJoJryqNRu+eSwXld8e
-	naB/9gn4qYMM4MqG6oYcZBEuxVVIJvWpZ3rAI6LXHHCG3EmPMxYkUqT8cISnd4z1E2ynMI
-	R367UCo5Y0YcG2k+KtUa4K5dslTBvxIZpbjk7HzRAIVIl1YxHKgmPBDchgwnJKHGcUyk/2
-	+yWH3IjIhcuHu/8+/OAxAZBQEvg3ml71p3YbcKHVqNsjSsq3JvICJC85i/SBRw==
+	Thu, 31 Oct 2024 13:45:04 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49VCSkg2000477;
+	Thu, 31 Oct 2024 14:44:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	G0xq6I3sjzz91t2odTGsh/XAHWma7BPt/V2d6kS19z8=; b=zLPDE7OOvTFz7zKj
+	mfnYxZX9RN1KgCj0upr9I3Kut1pLOr6bf2W916VyLxPZtJkh4MoM9zeKP/zAv/+7
+	hOx6G5BCbZd+wh3Q0qzDVtD8957nGJbqE1qWMLesM5ldbnkl7WQjDab27IrNXy/I
+	mkx1t0LJ47LhfditdSrgmPB7mFLAnzvDOPW9S2VgMvuGZCbYZudmP23cYUlFgpxr
+	xa7cu5myHDUGoyx9aTOFonheG51Z/sJuzgr6wU4O8TSlyC31Thi8UOJ/Ft/adxYA
+	occTk4WmRQq1ako7zjKoS9XW20vhESzHDQYXgKRVqfpCELQEqkOaCo5M18kt4g9d
+	rWMO0Q==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42kgwbenvj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Oct 2024 14:44:41 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 63B8340053;
+	Thu, 31 Oct 2024 14:43:30 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D677E2721DF;
+	Thu, 31 Oct 2024 14:42:39 +0100 (CET)
+Received: from [192.168.8.15] (10.48.87.33) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 31 Oct
+ 2024 14:42:38 +0100
+Message-ID: <df12289dc65c21496d4f9818a53d9797406e2663.camel@foss.st.com>
+Subject: Re: [PATCH 07/14] dt-bindings: pinctrl: stm32: support IO
+ synchronization parameters
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        =?ISO-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
+        Stephane
+ Danieau <stephane.danieau@foss.st.com>,
+        Amelie Delaunay
+	<amelie.delaunay@foss.st.com>,
+        Fabien Dessenne <fabien.dessenne@foss.st.com>,
+        Valentin Caron <valentin.caron@foss.st.com>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Cheick Traore <cheick.traore@foss.st.com>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+Date: Thu, 31 Oct 2024 14:42:35 +0100
+In-Reply-To: <CACRpkdZKimfE_00kxa_qAf+jjwxBtuKizDTd3RvOS_PDuZ_JKg@mail.gmail.com>
+References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
+	 <20241022155658.1647350-8-antonio.borneo@foss.st.com>
+	 <CACRpkdZKimfE_00kxa_qAf+jjwxBtuKizDTd3RvOS_PDuZ_JKg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: dsa: mt7530: Add TBF qdisc offload support
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
- Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
- <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20241030-mt7530-tc-offload-v1-1-f7eeffaf3d9e@kernel.org>
- <a66528bd-37cb-46b2-90e5-37b10dfa9c78@arinc9.com>
- <ZyM5CPfQYHc_Eolh@lore-desk>
-Content-Language: en-US
-From: =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>
-In-Reply-To: <ZyM5CPfQYHc_Eolh@lore-desk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-Date: Thu, 31 Oct 2024 13:35:39 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=ZLWFmm7b c=1 sm=1 tr=0 ts=672387ad a=aGj/nXfi4qz2iMxz7h0kJQ==:117 a=aGj/nXfi4qz2iMxz7h0kJQ==:17 a=IkcTkHD0fZMA:10 a=M51BFTxLslgA:10 a=LYXDv5rQIZ189asnIbQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-CM-Envelope: MS4xfCfguuhZl9jj8TTlQ0BBGoVE4NCQHUKSMlnIjPUdQpeXnVRPJJIzY/PL1QnOcPwa9fEB9GoRLsmv6tlPeU1OUnQUyhOnssZj8K/3Jqf/y8j6GvIWThU9 6tNuW6h+uxTgOqQnS9GrVdB0FQUTsyIRpdf9//BYkD3Y1DubfPHmlWJBH+B9NeMUgXZdGlyryRWRtK1p2x2iUK/NRGLEK3MVHixjsSzi6BVTJ9oFC7Bymcnp jRStttJLp7W4KlV1OGSmqHM1vr5MxOGbxKKPaTQ7ErI60Tv2+vEYZDk+QXMAqzZs3VFeUUNxuydKwCv98dbMhdFdFr7Qv1xXDWlP/oncRWURJrBh7vhy77Qy 64jbcJph/3Lypl+8Y3Xh4pQE2igSoIQyyK3m6f18gUb1g/ReIlLXMvh59y8cXe6NYCgAnoALEgrX9Z0x5cYvsdqifryrK9jYPjYHJJud/dLJWyb2YnqswX8a SJD4+BitVvWpeMuzq+P3wQzAZMmFAHvJVGHmRb+QsSXW5re1D7GbTgoX3vvXBSnprKM5RQf8iSZBFbQPFN6OAHRH7vnkTf9C7mCu3gm7sNL9QlR8z6HEsCFV PwZ8JaOcXr/qVujUKBsqlZI5sl8aAwyrPfdJ99rCtAqMY5hU7GYRzGotqr6ZPHh7a0AWjGSpWfuVNJpPRRLjEcqRusArVz2Tj5uRtSBdqZP4ecpV96ueywVV 0zhzQK/Uzk8=
-X-AuthUser: arinc.unal@arinc9.com
+X-Originating-IP: [10.48.87.33]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_063547_268893_0D71ACC4 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20241031_064502_830220_FFF6A3CA 
+X-CRM114-Status: GOOD (  38.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,55 +111,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2024 11:00, Lorenzo Bianconi wrote:
->> On 30/10/2024 22:29, Lorenzo Bianconi wrote:
->>> Introduce port_setup_tc callback in mt7530 dsa driver in order to enable
->>> dsa ports rate shaping via hw Token Bucket Filter (TBF) for hw switched
->>> traffic. Enable hw TBF just for EN7581 SoC for the moment.
->>
->> Is this because you didn't test it on the other models? Let me know if
->> that's the case and I'll test it.
-> 
-> yep, exactly. I have tested it just on EN7581 since I do not have any other
-> boards for testing at the moment. If you confirm it works on other SoCs too,
-> I can remove the limitation.
+On Fri, 2024-10-25 at 00:38 +0200, Linus Walleij wrote:
+> Hi Antonio/Fabien,
+>=20
+> thanks for your patch!
+>=20
+> On Tue, Oct 22, 2024 at 5:59=E2=80=AFPM Antonio Borneo
+> <antonio.borneo@foss.st.com> wrote:
+>=20
+> > From: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> >=20
+> > Support the following IO synchronization parameters:
+> > - Delay (in ns)
+> > - Delay path (input / output)
+> > - Clock edge (single / double edge)
+> > - Clock inversion
+> > - Retiming
+> >=20
+> > Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> > Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+> (...)
+>=20
+> I want to check if we already have some of these properties
+> and if we don't, if they could and should be made generic,
+> i.e. will we see more of them, also from other vendors?
 
-Seems to be working fine on MT7530. As we have tested this on the oldest
-and newest models that use this switching IP, I'm going to assume it will
-work on the other models as well. You can remove the limitation. Also,
-please change MT7530_ERLCR_P and MT7530_GERLCR to MT753X_ERLCR_P and
-MT753X_GERLCR.
+Hi Linus,
 
-tc qdisc add dev lan4 root tbf rate 10mbit burst 10kb latency 50ms
+Thanks for your review.
 
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-5.00   sec  5.88 MBytes  9.85 Mbits/sec    4             sender
-[  5]   0.00-5.00   sec  5.50 MBytes  9.23 Mbits/sec                  receiver
+Apart for the generic property 'skew-delay' that you mentioned below, I can=
+not find other I can re-use here.
 
-tc qdisc del dev lan4 root
+I'm preparing a V2 taking care of the observation from Krzysztof and you.
 
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-5.00   sec   469 MBytes   786 Mbits/sec    0             sender
-[  5]   0.00-5.00   sec   468 MBytes   785 Mbits/sec                  receiver
+I will surely take 'skew-delay' in place of 'st,io-delay'.
 
-tc qdisc add dev lan4 root tbf rate 11mbit burst 10kb latency 50ms
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st,io-delay-pat=
+h:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 des=
+cription: |
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 IO synchronization delay path location
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 0: Delay switched into the output path
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 1: Delay switched into the input path
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $re=
+f: /schemas/types.yaml#/definitions/uint32
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enu=
+m: [0, 1]
+>=20
+> This looks related to the st,io-delay below so please keep those
+> properties together.
+>=20
+> Is this path identification really needed in practice, isn't it
+> implicit from other pin config properties if the pin is used as
+> input or output, and in that case where the delay applies?
+>=20
+> Do you really have - in practice - pins that change between
+> input and output and need different delays at runtime (i.e. not
+> at startup)?
+>=20
+> Otherwise I would say that just checking if the line is in input
+> or output from other properties should be enough to configure
+> this? input-enable, output-enable to name the obvious.
 
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-5.00   sec  6.38 MBytes  10.7 Mbits/sec    6             sender
-[  5]   0.00-5.00   sec  6.00 MBytes  10.1 Mbits/sec                  receiver
+On STM32MP25x there is a 'skew-delay' HW block on each pin, but it's applie=
+d independently on each pin either only on the input direction OR only on t=
+he output direction.
+There is no automatic way to switch it between input and output path. This =
+property assigns the delay to one path.
+The generic property 'skew-delay' does not considers this case.
 
-tc qdisc del dev lan4 root
+While I could extend the pinctrl driver to include the info about direction=
+, that is trivial for example for UART or SPI, it will fail for bidirection=
+al pins like I2C's SDA; some use case could
+require the skew-delay on SDA input path, other on the output path.
+Also the idea of assigning the direction at startup (e.g. in the bootloader=
+) is not feasible as the delay depends on the functionality that can change=
+ at runtime e.g. by loading modules.
+I prefer having this "direction" path explicitly selected through a DT prop=
+erty.
 
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-5.00   sec   467 MBytes   783 Mbits/sec    0             sender
-[  5]   0.00-5.00   sec   466 MBytes   783 Mbits/sec                  receiver
+The existing properties 'input-enable' and=C2=A0'output-enable' are not spe=
+cific for the skew-delay.
+And I think it would be confusing having 'input-enable' or 'output-enable' =
+associated with a bidirectional pins like I2C's SDA.
 
-tc qdisc add dev lan4 root tbf rate 11mbit burst 10kb latency 50ms
-tc qdisc replace dev lan4 root tbf rate 10mbit burst 10kb latency 50ms
+I propose to change it as, e.g.
+  st,skew-delay-on-input:
+    type: boolean
+    description: |
+      If this property is present, then skew-delay applies to input path on=
+ly,
+      otherwise it applies to output patch only.
 
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-5.00   sec  5.88 MBytes  9.85 Mbits/sec    4             sender
-[  5]   0.00-5.00   sec  5.50 MBytes  9.23 Mbits/sec                  receiver
+Or, it could be a new generic property (keeping backward compatibility), e.=
+g.:
+  skew-delay-direction:
+    enum [0, 1, 2]
+    default: 0
+    description: |
+      0: skew-delay applies to both input and output path, or it switches a=
+utomatically
+         between the two direction
+      1: skew-delay applies only to input path
+      2: skew-delay applies only to output path
 
-Arınç
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st,io-clk-edge:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 des=
+cription: |
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 IO synchronization clock edge
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 0: Data single-edge (changing on rising or falling clock edge)
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 1: Data double-edge (changing on both clock edges)
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $re=
+f: /schemas/types.yaml#/definitions/uint32
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enu=
+m: [0, 1]
+>=20
+> This looks like it should be made into a generic property,
+
+I believe it is too specific to ST implementation.
+I see already some 'retime' mentioned in old ST bindings bindings/pinctrl/p=
+inctrl-st.txt and bindings/net/sti-dwmac.txt, but the control looks quite d=
+ifferent; I don't plan to reuse them.
+
+I will fuse in V2 this property together with the next two in a more meanin=
+gful one, partially acknowledging your proposal below.
+
+> it seems to be about how the logic is used rather than something
+> electronic but arguable fits in pin config.
+>=20
+> Isn't this usually called DDR (double data rate) in tech speak?
+>=20
+> What about a generic property "double-data-rate"?
+>=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st,io-clk-type:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 des=
+cription: |
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 IO synchronization clock inversion
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 0: IO clocks not inverted. Data retimed to rising clock edge
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 1: IO clocks inverted. Data retimed to falling clock edge
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $re=
+f: /schemas/types.yaml#/definitions/uint32
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enu=
+m: [0, 1]
+>=20
+> Doesn't this require st,io-retime to be specified at the same time?
+>=20
+> Then we should add some YAML magic (if we can) to make sure
+> that happens.
+>=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st,io-retime:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 des=
+cription: |
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 IO synchronization data retime
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 0: Data not synchronized or retimed on clock edges
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 1: Data retimed to either rising or falling clock edge
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $re=
+f: /schemas/types.yaml#/definitions/uint32
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enu=
+m: [0, 1]
+>=20
+> Can't these two be merged into one (generic) property:
+>=20
+> io-retime
+>=20
+> enum [0, 1, 2]
+>=20
+> 0=3Dnone
+> 1=3Drising retime
+> 2=3Dfalling retime
+>=20
+> Retiming seems like a very generic concept so I think it should
+> be made into a generic property.
+>=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st,io-delay:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 des=
+cription: |
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 IO synchronization delay applied to the input or output path
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 0: No delay
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 1: Delay 0.30 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 2: Delay 0.50 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 3: Delay 0.75 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 4: Delay 1.00 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 5: Delay 1.25 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 6: Delay 1.50 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 7: Delay 1.75 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 8: Delay 2.00 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 9: Delay 2.25 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 10: Delay 2.50 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 11: Delay 2.75 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 12: Delay 3.00 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 13: Delay 3.25 ns
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $re=
+f: /schemas/types.yaml#/definitions/uint32
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 min=
+imum: 0
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 max=
+imum: 13
+>=20
+> This looks very similar to the existing "skew-delay" property:
+>=20
+> =C2=A0 skew-delay:
+> =C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/uint32
+> =C2=A0=C2=A0=C2=A0 description:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 this affects the expected clock skew on in=
+put pins
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 and the delay before latching a value to a=
+n output
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pin. Typically indicates how many double-i=
+nverters are
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 used to delay the signal.
+>=20
+> can't we just use that?
+>=20
+> Feel free to edit the text for it in
+> Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+> if that is too clock-specific.
+
+I find that text already accurate; I don't plan to change it.
+But adding a generic 'skew-delay-direction' could eventually require a ment=
+ion in the description of 'skew-delay'.
+
+Best Regards,
+Antonio
 
