@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2830ED74959
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE4AD74958
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=; b=BE3HaQ43TPrdaaTecT2lMp4e8Z
-	4B5pyMijm2hLD9qqKCUHIaEnA3y2tsNcH9MKRrZfjhIIn8KpHQrPwZySXzlXMlz7cVYfpQ0GSrIpV
-	mUDXEuvt/mqZm738ajT67Zdh5hspeeXjTHDWXVqFd2JJBZPhADxxUIIrN3YjUfz3E232rX8kgaTJu
-	W1r/Jy5UXLn9ijv+8OOZnMEFeqrl4u/AhuNQluYAOjCW0eKTYdX65N0hk8iuDWGQGf2Ye/CHVcv8i
-	c9tSQBQ75ut1n0tc823Mw//ZUqqLgrN9b1hD2JFIuM5X0VM07bZWclZwmQPuFNeCMteYxqi6p2m0P
-	RU91vZTw==;
+	bh=rEZ3WAdK/kOGgzHGx9bh509zo56x8Bp/oGEk2s9V5Io=; b=t3EndFzXKs9uHDmn1bavsdPTlU
+	qViqwWnpVbED6R6NaPLlnABX3QzmhtugdjK9Wq3JjXHOeyMkr4JUH/EHar4Z6EEjrHrw0HjksQoun
+	C1EwX7VGJCKchDYi0P+vXg44/MDlbtcx6PaSyRTlPPH+x5EKd2uAi+Y5sQtWvPoEu1H5A7Zg/MgUt
+	wC+SHkHsIBgryhDs2irVBmkf5856hgsq7Fd0efBCvmfOM8aAav30Xtb6wvoJ6lAoXsXQspFOcwRPv
+	Wi0/sEZgRLVCMPi6e9BEmn6s2wOHEdj78oyA8x8MBIpvfh/QYKV91H7noiDeOoFdqoTtxMhZ0sHoC
+	8HJ+PtZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6UvI-00000003dQY-0y9F;
-	Thu, 31 Oct 2024 13:09:12 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6USP-00000003YWK-1I9Y
+	id 1t6Ux7-00000003e6b-2jR6;
+	Thu, 31 Oct 2024 13:11:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6Uma-00000003cFe-2i1n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 12:39:22 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-71e983487a1so671655b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 05:39:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730378360; x=1730983160; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=;
-        b=Vv9yOc870cXXdVInjCc1s8nDsVKa/8ewPr0l5tGv/5LjpvvFPA+Tw4ZuXGPdr0tbl3
-         Hn4tcOMViM1nrX06ttXDhubRDm6cQlq8rLP3HbMsE969h0BZPD+UNEdhQDCk+MjSkO8F
-         Ggx7FMlj6MkvpRTJw1MAyt79NWjLkLyV94CGpZ1YyzAGZDuhFIEf0QixelaI24zcqsaR
-         IxkQlBHCrU+npode486n6sVyDdHqqr642vlhYz+SIyKWJguoKxXOxqZw7Vfeq6k4XpRQ
-         8u1XG5vNUlknr+3Ozb9a4fc/tw76hdZimf04RFg5m4KhlgRMt0E+FKhp2kWIHSPJ1wjS
-         64DQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730378360; x=1730983160;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=;
-        b=uUamCnRJUAjSnN35SWOxvymbWMVNWvijNHQDBgdBpYvGYY1pH4P2m8lfbWuy5dtPoI
-         yzvvbxvnv9HKLPtLUbF2GGKEgAD2Z5eXdR207koSEdnmNb8oOjuD8V10mUnvMhC2C+Dj
-         +RT3hjZr/KPD0Htp8tKB1qOV0UwOtycuBL04lDb71qjVUNMDA4Qw37T7eVC/QUngkU//
-         mi+GsFFjn+m09fEVOueqSqT0ejKubRaCpr3FlUf3Zzra5Mz0h45UQsUvybNxKfHdYu0X
-         7i/GxI5bg0rHhVku+70ggtYa7CzYD1EOfbXwr8Y8NCRGifHxvWwWkOqXGGB1BcJaVitW
-         DMXg==
-X-Forwarded-Encrypted: i=1; AJvYcCWLqudpCnQAqDmuhpA+iz4I7p1FjfnZZoT8uDM3wllWimhgVRFwUOpfF5VZPA7S1LVZaIEG/urDtB5GLOuYHptx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI2tO8Tber/yDFyJRAhPM7gxvzR46GeOU98wAmMTYC1xqKTV0f
-	koHJe88XPPPFpBD5r+feQIyfUs/UhxuX0jevrmmr8muJuS0KRXf0
-X-Google-Smtp-Source: AGHT+IEYepYTbWzaNjZB6/WykZo7JXNjSOPeC4faI93w6dXeeMLicqGen6Mz6ACbQEadzKBbhQtzhg==
-X-Received: by 2002:a05:6a00:1397:b0:714:15ff:a2a4 with SMTP id d2e1a72fcca58-720b9c96d0emr4011140b3a.13.1730378360174;
-        Thu, 31 Oct 2024 05:39:20 -0700 (PDT)
-Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-720bc20f50esm1075931b3a.94.2024.10.31.05.39.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Oct 2024 05:39:19 -0700 (PDT)
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v7 8/8] net: stmmac: xgmac: Enable FPE for tc-mqprio/tc-taprio
-Date: Thu, 31 Oct 2024 20:38:02 +0800
-Message-Id: <527799d9e4e28fbd51eb37754f130b037bc0f6ea.1730376866.git.0x1207@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1730376866.git.0x1207@gmail.com>
-References: <cover.1730376866.git.0x1207@gmail.com>
+	Thu, 31 Oct 2024 13:00:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 771CA1063;
+	Thu, 31 Oct 2024 06:00:41 -0700 (PDT)
+Received: from [10.44.160.105] (e126510-lin.lund.arm.com [10.44.160.105])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98ACC3F528;
+	Thu, 31 Oct 2024 06:00:06 -0700 (PDT)
+Message-ID: <8dcc7e49-ec95-4d7d-8ded-d4f7202d623d@arm.com>
+Date: Thu, 31 Oct 2024 14:00:04 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/5] Improve arm64 pkeys handling in signal delivery
+To: Jeff Xu <jeffxu@chromium.org>
+Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
+ anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org,
+ catalin.marinas@arm.com, dave.hansen@linux.intel.com, Dave.Martin@arm.com,
+ joey.gouly@arm.com, keith.lucas@oracle.com, pierre.langlois@arm.com,
+ shuah@kernel.org, sroettger@google.com, tglx@linutronix.de, will@kernel.org,
+ yury.khrustalev@arm.com, linux-kselftest@vger.kernel.org, x86@kernel.org,
+ Kees Cook <keescook@chromium.org>,
+ Jorge Lucangeli Obes <jorgelo@chromium.org>, Jann Horn <jannh@google.com>
+References: <20241029144539.111155-1-kevin.brodsky@arm.com>
+ <CABi2SkW4Utuo3qGKodTQn7VuFrRa4hpwrik7WaorS4=wm_cS2g@mail.gmail.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <CABi2SkW4Utuo3qGKodTQn7VuFrRa4hpwrik7WaorS4=wm_cS2g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_053921_372485_9172D524 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20241031_060012_882234_87AF2C01 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +71,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FPE on XGMAC is ready, it is time to update dwxgmac_tc_ops to
-let user configure FPE via tc-mqprio/tc-taprio.
+On 30/10/2024 22:59, Jeff Xu wrote:
+> Apologize in advance that I'm unfamiliar with ARM's POR, up to review
+> this patch series, so I might ask silly questions or based on wrong
+> understanding.
 
-Signed-off-by: Furong Xu <0x1207@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+That's no problem, your input is very welcome! There is no fundamental
+difference between POR and PKRU AFAIK - the encoding is different, but
+the principle is the same. The main thing to keep in mind is that POE
+(the arm64 extension) allows restricting execution in addition to
+read/write.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 75ad2da1a37f..6a79e6a111ed 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -1290,8 +1290,8 @@ const struct stmmac_tc_ops dwxgmac_tc_ops = {
- 	.setup_cls_u32 = tc_setup_cls_u32,
- 	.setup_cbs = tc_setup_cbs,
- 	.setup_cls = tc_setup_cls,
--	.setup_taprio = tc_setup_taprio_without_fpe,
-+	.setup_taprio = tc_setup_taprio,
- 	.setup_etf = tc_setup_etf,
- 	.query_caps = tc_query_caps,
--	.setup_mqprio = tc_setup_mqprio_unimplemented,
-+	.setup_mqprio = tc_setup_dwmac510_mqprio,
- };
--- 
-2.34.1
+> It seems that the patch has the same logic as Aruna Ramakrishna
+> proposed for X86, is this correct ?
+
+Yes, patch 1 aims at aligning arm64 with x86 (same behaviour). Going
+forward I think we should try and keep the arm64 and x86 handling of
+pkeys as consistent as possible.
+
+> In the latest version of x86 change [1], I have a comment if we want
+> to consider adding a new flag SS_PKEYALTSTACK (see SS_AUTODISARM as an
+> example) in sigaltstack, and restrict this mechanism (overwriting
+> PKRU/POR_EL0 and sigframe)  to sigaltstack() with SS_PKEYALTSTACK.
+> There is a subtle difference if we do that, i.e. the existing
+> signaling handling user might not care or do not use PKEY/POE, and
+> overwriting PKRU/POR_EL0 and  sigframe every time will add extra CPU
+> time on the signaling delivery, which could be real-time sensitive.
+
+From a purely functional perspective, resetting POR to allow access to
+all pkeys before writing the signal frame should be safe in any context,
+and allows keeping the handling simple (no conditional code). The
+performance aspect is a fair point though, as we are adding an ISB
+(synchronisation barrier) on the signal delivery path if POE is supported.
+
+> Since I raised this comment on X86, I think raising it for ARM for
+> discussion would be ok,
+> it might make sense to have consistent API experience for arm/x86 here.
+
+And indeed this is what I think is most important at this point.
+Considering that Aruna's series resets PKRU unconditionally (sigaltstack
+or not) and has already been pulled into mainline during 6.12-rc1 [2], I
+still believe that patch 1 is doing the right thing, i.e. aligning arm64
+with x86. If the concern with performance is confirmed, and there is an
+agreement to reset POR/PKRU less eagerly on both architectures, this
+could potentially be revisited.
+
+- Kevin
+
+[2]
+https://lore.kernel.org/lkml/172656199227.2471820.13578261908219597067.tglx@xen13/
+
+> [1] https://lore.kernel.org/lkml/CABi2SkWjF2Sicrr71=a6H8XJyf9q9L_Nd5FPp0CJ2mvB46Rrrg@mail.gmail.com/
 
 
