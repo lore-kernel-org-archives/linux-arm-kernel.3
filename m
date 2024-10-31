@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3C3E68960
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 08:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53158E6895E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 08:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yRVDQpV+hUXvvZ+d81+vLy4HFzH/pZtNnyV5rKLdBNk=; b=miRqp5lTZB6g2ooRGYYlVyHRi2
-	1ORpBQjq6dGE731nqV4Nv6lpcQ0tgz6SK4h0fdtj5r6Ut38X+acQaiJ1EJ8Go9rrv3BF90cKSIsaE
-	Tk6fdANJGnP3tRbntcjcH9r73Adfa7WMeo98udOm6UEXUIDxCaYk7wrr+9a4H/DDrNpnmQlAAF9ZI
-	SI0ahGbpxlMRhhhCA3HSoL/tFL6yrNB/eTtpOXFNigiLp7n/pCcGzPqkQPzq3f4wyqih1qcos3rnL
-	JwP46Dq3f19B8L/SYHr8MlGwrcksGa6/zJ6il6HxwJ+N78qhXHd4UtwYWN9LdG2GpS8VulNhHoDfv
-	xxpxO3+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rUf8sVySlFXtIwIpX4FQb/2dElNvL9W3CW51tvMc/4Y=; b=WC0plPLA4TlGDvZQvTMAIc63hl
+	Sp3dhf/o8LbzVqmf6LPZP8SZYR8bpbioXfKX1fYszaZVZl2zwRBVcWYMm8HJ3zW27m1NyQqsL8gWg
+	JPrIrMcbbDoH29NQLC8ovv42tBigl9IE91oYmnHSKegLNiDVb0+J/zEFft/Ymo849Tlv9Cxt6fH68
+	IoIGI3EbOx5p5/N9WFFzUHejq0hoPs9udwR8MnUCPJtJwMEjHKoVGNv3usfmknsnRiK9QxF/PHIeX
+	4KcQKAKsPY/l0aLy4x53huzi32eHMLSc+vCtGxX7SrbtquiQH1Y6FcSF5Bg8s3Hov2FCBUWcpbCME
+	J1dPtSlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Qor-00000002yrz-42xo;
-	Thu, 31 Oct 2024 08:46:17 +0000
-Received: from mail-vk1-xa33.google.com ([2607:f8b0:4864:20::a33])
+	id 1t6QqW-00000002zBO-2VUC;
+	Thu, 31 Oct 2024 08:48:00 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6QjD-00000002yDD-3B42
+	id 1t6QlN-00000002yOn-0gHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 08:40:29 +0000
-Received: by mail-vk1-xa33.google.com with SMTP id 71dfb90a1353d-50d4780a24eso256135e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 01:40:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730364026; x=1730968826; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=yRVDQpV+hUXvvZ+d81+vLy4HFzH/pZtNnyV5rKLdBNk=;
-        b=Wb1eC9quDo2LESOLRT+bnpnT74yK6XtRMuHAJRiD4t8CyWXTIwtTV5LGCkWoorQfx3
-         2dsCGY/fVTOXy+vNcV6dISqr9yYei+cR79E5apO24xn0k8oGsuw/wQsWx0i/EJGBfNvR
-         dQS4rDL57IK2XGqaQd2o3HaZ/olLc5rbNq4rKQjH3wjUeExx1Ga0RitWLDvCDhj0glOc
-         5QdBAmPyuLAyGlX+Nrc8U++A9XR3WjcWtqFx/W93fyfv3i7YiJiuiGxPke357FBvma2U
-         Iui7LzUe8T+wv2vDFpOD/88DRRcBz0+APkN7NFoFiUPPUIW9y5i9Fbj/7fm/7XDHaEFo
-         grag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730364026; x=1730968826;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yRVDQpV+hUXvvZ+d81+vLy4HFzH/pZtNnyV5rKLdBNk=;
-        b=E5z+rhJb6vP9rsF3rSDzHegqF1DM0MsZz6nV/BnDkLrSp4xJ1wKLbI4GVuxnQU0EXl
-         2iLpoiaRR2EdLbhXt23PWptshgcnGZ1CbyeLV2hVlL9HrRDMWLs5Muun3zszuV/rJ2kx
-         6KSREmXq6006cHAn8qMpdowwwD9nkk8m3+7D0DvJRhmvNpw8no3XtDOxF2x5h9t3qQvH
-         Hcme0nnQcIXFUnolbWS5YLXn/vQf2scfbdwtSLghP6mBde49dDBJNwI64MCCsUdY3lVp
-         JIrxbF+/fQdwVIKlCO7mAvHP2YAz/qE1rbnhlMFpOZFbhCvVl8nUQ+hZDMUJKsdC9Um8
-         xsTw==
-X-Gm-Message-State: AOJu0YyHUFCcSIhRax+IRV1eHunMERNRx2RWdKOXGA0b6ikDmIPMPOse
-	ZiTa9ezjUfIXbVS2V0x5AyK0RKtDMgTFmJMedFhyhBEBB9aHl//OJ81AEneqIbB4hlTWXroX2fz
-	ys7on8qM+vAwS7Ggq0Ql6h+ZD1/HZb1DidyDdrMScHCeNTKw/VDM=
-X-Google-Smtp-Source: AGHT+IGR/MPyH3IolNU4N1H3KPOJfa7bE8GqUDT765g/usV3v7bfC6kWkOhjTjRmP547kzqlXxsbmIBpPjVVnaUU3uw=
-X-Received: by 2002:a05:6122:891:b0:50a:caec:70a2 with SMTP id
- 71dfb90a1353d-5101501c00bmr17269880e0c.4.1730364025759; Thu, 31 Oct 2024
- 01:40:25 -0700 (PDT)
+	Thu, 31 Oct 2024 08:42:43 +0000
+Received: from wsk (85-222-111-42.dynamic.chello.pl [85.222.111.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: lukma@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 9534688B64;
+	Thu, 31 Oct 2024 09:42:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1730364158;
+	bh=rUf8sVySlFXtIwIpX4FQb/2dElNvL9W3CW51tvMc/4Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=URIetSzykmpN7JTWWY2TT331rqL0n5p+sdKmugWGqBl5K51AG+FWwO4Yj2Vc3VK2T
+	 n0wCXeP8Mc5Z7w8X4ADw1gJ07NNzKUh9d5Td7tPe82MwzVg9gVSV/rAjxMDAYEQocV
+	 80ACsDKnVOR/rnfFSXmNcOpvTC5ojpg37RZOMGyrbW+XEy64NOk5ZOyplMw9jEqtdO
+	 aodlp3KYdeNPp/ruAfCaBnv/aK4hUil5UPosRRseh0pncLz58ufkdjvuDCdkpnfhHf
+	 ciuw4mah0u8t5j4Lr8oVH/10foLBMw5njq6FrWjjEaoKM9xs+R2kVNC/FG9rQe9xzE
+	 ZdOA9XecdQ1Sw==
+Date: Thu, 31 Oct 2024 09:42:36 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
+ Wahren <wahrenst@gmx.net>
+Subject: Re: [PATCH v10 4/4] ARM: dts: mxs: Add descriptions for imx287
+ based btt3-[012] devices
+Message-ID: <20241031094236.17ed927d@wsk>
+In-Reply-To: <20241022133040.686562-4-lukma@denx.de>
+References: <20241022133040.686562-1-lukma@denx.de>
+	<20241022133040.686562-4-lukma@denx.de>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 31 Oct 2024 14:10:14 +0530
-Message-ID: <CA+G9fYtb5vAnEiHupwsnaeZ7uzdko_WAcjw9ZAFkHNXBVhi1EA@mail.gmail.com>
-Subject: next-20241031: kernel/time/clockevents.c:455 clockevents_register_device
-To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	Linux Regressions <regressions@lists.linux.dev>, rcu <rcu@vger.kernel.org>, 
-	linux-clk <linux-clk@vger.kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	=?UTF-8?B?QWxleCBCZW5uw6ll?= <alex.bennee@linaro.org>, 
-	Peter Maydell <peter.maydell@linaro.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
-	Aishwarya TCV <aishwarya.tcv@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; boundary="Sig_/UO.QAaBk=Q4=wHeRgRVaSKf";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_014027_856292_5BEC4209 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241031_014241_555090_7B749165 
+X-CRM114-Status: GOOD (  34.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,310 +82,523 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QEMU-ARM64 boot has failed with the Linux next-20241031 tag.
-The boot log shows warnings at clockevents_register_device and followed
-by rcu_preempt detected stalls.
+--Sig_/UO.QAaBk=Q4=wHeRgRVaSKf
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-However, the system did not proceed far enough to reach the login prompt.
-The fvp-aemva, Qemu-arm64, Qemu-armv7 and Qemu-riscv64 boot failed.
+Dear Community,
 
-Please find the incomplete boot log links below for your reference.
-The Qemu version is 9.0.2.
+> The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
+> some extend similar to already upstreamed XEA devices, hence are
+> using common imx28-lwe.dtsi file.
+>=20
+> New, imx28-btt3.dtsi has been added to embrace common DTS
+> properties for different HW revisions for this device.
+>=20
+> As a result - changes introduced in imx28-btt3-[012].dts are
+> minimal.
+>=20
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+>=20
+> ---
+> Changes for v2:
+> - Rename dts file from btt3-[012] to imx28-btt3-[012] to match current
+>   linux kernel naming convention
+> - Remove 'wlf,wm8974' from compatible for codec@1a
+>=20
+> Changes for v3:
+> - Keep alphabethical order for Makefile entries
+>=20
+> Changes for v4:
+> - Change compatible for btt3 board (to 'lwn,imx28-btt3')
+>=20
+> Changes for v5:
+> - Combine patch, which adds btt3-[012] with one adding board entry to
+>   fsl.yaml
+>=20
+> Changes for v6:
+> - Make the patch series for adding entry in fsl.yaml and btt3
+>=20
+> Changes for v7:
+> - Use "panel" property as suggested by the community
+> - Use panel-timing to specify the display parameters
+> - Update subject line with correct tags
+>=20
+> Changes for v8:
+> - Use GPIO_ACTIVE_HIGH instead of '0'
+> - Add the comment regarding mac address specification
+> - Remove superfluous comment
+> - Change wifi-en-pin node name
+>=20
+> Changes for v9:
+> - Remove not used 'pm-ignore-notify'
+> - Add display names for 'panel-dpi' compatible to avoid Schema
+> warnings
+>=20
+> Changes for v10:
+> - Drop new line with panel-timing definitions
+> - Add new lines with 'sound' node
+> - Change 'codec' to 'audio-codec'
+> - Change order of properties for saif1 node
 
-This is always reproducible.
-First seen on Linux next-20241031 tag.
-  Good: next-20241030
-  Good: next-20241031
+Are there any more comments regarding this patch?
 
-qemu-arm64:
-  boot:
-    * clang-19-lkftconfig
-    * gcc-13-lkftconfig
-    * clang-nightly-lkftconfig
+> ---
+>  arch/arm/boot/dts/nxp/mxs/Makefile         |   3 +
+>  arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts |  12 +
+>  arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts |   8 +
+>  arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts |  39 +++
+>  arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi  | 313
+> +++++++++++++++++++++ 5 files changed, 375 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
+>=20
+> diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile
+> b/arch/arm/boot/dts/nxp/mxs/Makefile index a430d04f9c69..96dd31ea19ba
+> 100644 --- a/arch/arm/boot/dts/nxp/mxs/Makefile
+> +++ b/arch/arm/boot/dts/nxp/mxs/Makefile
+> @@ -8,6 +8,9 @@ dtb-$(CONFIG_ARCH_MXS) +=3D \
+>  	imx28-apf28.dtb \
+>  	imx28-apf28dev.dtb \
+>  	imx28-apx4devkit.dtb \
+> +	imx28-btt3-0.dtb \
+> +	imx28-btt3-1.dtb \
+> +	imx28-btt3-2.dtb \
+>  	imx28-cfa10036.dtb \
+>  	imx28-cfa10037.dtb \
+>  	imx28-cfa10049.dtb \
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts new file mode 100644
+> index 000000000000..6ac46e4b21bb
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+> @@ -0,0 +1,12 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2024
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include "imx28-btt3.dtsi"
+> +
+> +&hog_pins_rev {
+> +	fsl,pull-up =3D <MXS_PULL_ENABLE>;
+> +};
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts new file mode 100644
+> index 000000000000..213fe931c58b
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+> @@ -0,0 +1,8 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2024
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include "imx28-btt3.dtsi"
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts new file mode 100644
+> index 000000000000..4bccd784d065
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+> @@ -0,0 +1,39 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2024
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include "imx28-btt3.dtsi"
+> +
+> +/ {
+> +	panel {
+> +		compatible =3D "powertip,st7272", "panel-dpi";
+> +		power-supply =3D <&reg_3v3>;
+> +		width-mm =3D <70>;
+> +		height-mm =3D <52>;
+> +
+> +		panel-timing {
+> +			clock-frequency =3D <6500000>;
+> +			hactive =3D <320>;
+> +			vactive =3D <240>;
+> +			hfront-porch =3D <20>;
+> +			hback-porch =3D <68>;
+> +			hsync-len =3D <30>;
+> +			vfront-porch =3D <4>;
+> +			vback-porch =3D <14>;
+> +			vsync-len =3D <4>;
+> +			hsync-active =3D <0>;
+> +			vsync-active =3D <0>;
+> +			de-active =3D <1>;
+> +			pixelclk-active =3D <1>;
+> +		};
+> +
+> +		port {
+> +			panel_in: endpoint {
+> +				remote-endpoint =3D <&display_out>;
+> +			};
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
+> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi new file mode 100644
+> index 000000000000..2c52e67e5c14
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
+> @@ -0,0 +1,313 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2024
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +/dts-v1/;
+> +#include "imx28-lwe.dtsi"
+> +
+> +/ {
+> +	model =3D "BTT3";
+> +
+> +	compatible =3D "lwn,imx28-btt3", "fsl,imx28";
+> +
+> +	chosen {
+> +	       bootargs =3D "root=3D/dev/mmcblk0p2 rootfstype=3Dext4 ro
+> rootwait console=3DttyAMA0,115200 panic=3D1 quiet";
+> +	};
+> +
+> +	memory@40000000 {
+> +		reg =3D <0x40000000 0x10000000>;
+> +		device_type =3D "memory";
+> +	};
+> +
+> +	panel {
+> +		compatible =3D "powertip,hx8238a", "panel-dpi";
+> +		power-supply =3D <&reg_3v3>;
+> +		width-mm =3D <70>;
+> +		height-mm =3D <52>;
+> +
+> +		panel-timing {
+> +			clock-frequency =3D <6500000>;
+> +			hactive =3D <320>;
+> +			vactive =3D <240>;
+> +			hfront-porch =3D <20>;
+> +			hback-porch =3D <38>;
+> +			hsync-len =3D <30>;
+> +			vfront-porch =3D <4>;
+> +			vback-porch =3D <14>;
+> +			vsync-len =3D <4>;
+> +			hsync-active =3D <0>;
+> +			vsync-active =3D <0>;
+> +			de-active =3D <0>;
+> +			pixelclk-active =3D <1>;
+> +		};
+> +
+> +		port {
+> +			panel_in: endpoint {
+> +				remote-endpoint =3D <&display_out>;
+> +			};
+> +		};
+> +	};
+> +
+> +	poweroff {
+> +		compatible =3D "gpio-poweroff";
+> +		gpios =3D <&gpio0 24 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	sound {
+> +		compatible =3D "simple-audio-card";
+> +		simple-audio-card,name =3D "BTTC Audio";
+> +		simple-audio-card,widgets =3D "Speaker", "BTTC
+> Speaker";
+> +		simple-audio-card,routing =3D "BTTC Speaker",
+> "SPKOUTN", "BTTC Speaker", "SPKOUTP"; +
+> +		simple-audio-card,dai-link@0 {
+> +			format =3D "left_j";
+> +			bitclock-master =3D <&dai0_master>;
+> +			frame-master =3D <&dai0_master>;
+> +			mclk-fs =3D <256>;
+> +
+> +			dai0_master: cpu {
+> +				sound-dai =3D <&saif0>;
+> +			};
+> +
+> +			codec {
+> +				sound-dai =3D <&wm89xx>;
+> +				clocks =3D <&saif0>;
+> +			};
+> +		};
+> +	};
+> +
+> +	wifi_pwrseq: sdio-pwrseq {
+> +		compatible =3D "mmc-pwrseq-simple";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&wifi_en_pin_bttc>;
+> +		reset-gpios =3D <&gpio0 27 GPIO_ACTIVE_LOW>;
+> +		/* W1-163 needs 60us for WL_EN to be low and */
+> +		/* 150ms after high before downloading FW is
+> possible */
+> +		post-power-on-delay-ms =3D <200>;
+> +		power-off-delay-us =3D <100>;
+> +	};
+> +};
+> +
+> +&auart0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&auart0_2pins_a>;
+> +	status =3D "okay";
+> +};
+> +
+> +&auart3 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&auart3_pins_a>;
+> +	uart-has-rtscts;
+> +	status =3D "okay";
+> +};
+> +
+> +&i2c0 {
+> +	wm89xx: audio-codec@1a {
+> +		compatible =3D "wlf,wm8940";
+> +		reg =3D <0x1a>;
+> +		#sound-dai-cells =3D <0>;
+> +	};
+> +};
+> +
+> +&lcdif {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&lcdif_24bit_pins_a>, <&lcdif_sync_pins_bttc>,
+> +		    <&lcdif_reset_pins_bttc>;
+> +	status =3D "okay";
+> +
+> +	port {
+> +		display_out: endpoint {
+> +			remote-endpoint =3D <&panel_in>;
+> +		};
+> +	};
+> +};
+> +
+> +&mac0 {
+> +	clocks =3D <&clks 57>, <&clks 57>, <&clks 64>;
+> +	clock-names =3D "ipg", "ahb", "enet_out";
+> +	phy-handle =3D <&mac0_phy>;
+> +	phy-mode =3D "rmii";
+> +	phy-supply =3D <&reg_3v3>;
+> +	/*
+> +	 * This MAC address is adjusted during production.
+> +	 * Value specified below is used as a fallback during
+> recovery.
+> +	 */
+> +	local-mac-address =3D [ 00 11 B8 00 BF 8A ];
+> +	status =3D "okay";
+> +
+> +	mdio {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +
+> +		mac0_phy: ethernet-phy@0 {
+> +			/* LAN8720Ai - PHY ID */
+> +			compatible =3D
+> "ethernet-phy-id0007.c0f0","ethernet-phy-ieee802.3-c22";
+> +			reg =3D <0>;
+> +			smsc,disable-energy-detect;
+> +			max-speed =3D <100>;
+> +			reset-gpios =3D <&gpio4 12 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us =3D <1000>;
+> +			reset-deassert-us =3D <1000>;
+> +		};
+> +	};
+> +};
+> +
+> +&pinctrl {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&hog_pins_a>, <&hog_pins_rev>;
+> +
+> +	hog_pins_a: hog@0 {
+> +		reg =3D <0>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_GPMI_RDY2__GPIO_0_22
+> +			MX28_PAD_GPMI_RDY3__GPIO_0_23
+> +			MX28_PAD_GPMI_RDN__GPIO_0_24
+> +			MX28_PAD_LCD_VSYNC__GPIO_1_28
+> +			MX28_PAD_SSP2_SS1__GPIO_2_20
+> +			MX28_PAD_SSP2_SS2__GPIO_2_21
+> +			MX28_PAD_AUART2_CTS__GPIO_3_10
+> +			MX28_PAD_AUART2_RTS__GPIO_3_11
+> +			MX28_PAD_GPMI_WRN__GPIO_0_25
+> +			MX28_PAD_ENET0_RXD2__GPIO_4_9
+> +			MX28_PAD_ENET0_TXD2__GPIO_4_11
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	hog_pins_rev: hog@1 {
+> +		reg =3D <1>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_ENET0_RXD3__GPIO_4_10
+> +			MX28_PAD_ENET0_TX_CLK__GPIO_4_5
+> +			MX28_PAD_ENET0_COL__GPIO_4_14
+> +			MX28_PAD_ENET0_CRS__GPIO_4_15
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	keypad_pins_bttc: keypad-bttc@0 {
+> +		reg =3D <0>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_GPMI_D00__GPIO_0_0
+> +			MX28_PAD_AUART0_CTS__GPIO_3_2
+> +			MX28_PAD_AUART0_RTS__GPIO_3_3
+> +			MX28_PAD_GPMI_D03__GPIO_0_3
+> +			MX28_PAD_GPMI_D04__GPIO_0_4
+> +			MX28_PAD_GPMI_D05__GPIO_0_5
+> +			MX28_PAD_GPMI_D06__GPIO_0_6
+> +			MX28_PAD_GPMI_D07__GPIO_0_7
+> +			MX28_PAD_GPMI_CE1N__GPIO_0_17
+> +			MX28_PAD_GPMI_CE2N__GPIO_0_18
+> +			MX28_PAD_GPMI_CE3N__GPIO_0_19
+> +			MX28_PAD_GPMI_RDY0__GPIO_0_20
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	lcdif_sync_pins_bttc: lcdif-bttc@0 {
+> +		reg =3D <0>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_LCD_DOTCLK__LCD_DOTCLK
+> +			MX28_PAD_LCD_ENABLE__LCD_ENABLE
+> +			MX28_PAD_LCD_HSYNC__LCD_HSYNC
+> +			MX28_PAD_LCD_RD_E__LCD_VSYNC
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	lcdif_reset_pins_bttc: lcdif-bttc@1 {
+> +		reg =3D <1>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_LCD_RESET__GPIO_3_30
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
+> +	};
+> +
+> +	ssp1_sdio_pins_a: ssp1-sdio@0 {
+> +		reg =3D <0>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_SSP1_DATA0__SSP1_D0
+> +			MX28_PAD_GPMI_D01__SSP1_D1
+> +			MX28_PAD_GPMI_D02__SSP1_D2
+> +			MX28_PAD_SSP1_DATA3__SSP1_D3
+> +			MX28_PAD_SSP1_CMD__SSP1_CMD
+> +			MX28_PAD_SSP1_SCK__SSP1_SCK
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_8mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
+> +	};
+> +
+> +	wifi_en_pin_bttc: wifi-en-pin@0 {
+> +		reg =3D <0>;
+> +		fsl,pinmux-ids =3D <
+> +			MX28_PAD_GPMI_CLE__GPIO_0_27
+> +		>;
+> +		fsl,drive-strength =3D <MXS_DRIVE_8mA>;
+> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
+> +	};
+> +};
+> +
+> +&pwm {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pwm3_pins_a>;
+> +	status =3D "okay";
+> +};
+> +
+> +&reg_usb_5v {
+> +	gpio =3D <&gpio1 28 GPIO_ACTIVE_HIGH>;
+> +};
+> +
+> +&saif0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&saif0_pins_a>;
+> +	#sound-dai-cells =3D <0>;
+> +	assigned-clocks =3D <&clks 53>;
+> +	assigned-clock-rates =3D <12000000>;
+> +	status =3D "okay";
+> +};
+> +
+> +&saif1 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&saif1_pins_a>;
+> +	#sound-dai-cells =3D <0>;
+> +	fsl,saif-master =3D <&saif0>;
+> +	status =3D "okay";
+> +};
+> +
+> +&ssp1 {
+> +	compatible =3D "fsl,imx28-mmc";
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&ssp1_sdio_pins_a>;
+> +	bus-width =3D <4>;
+> +	no-1-8-v;       /* force 3.3V VIO */
+> +	non-removable;
+> +	vmmc-supply =3D <&reg_3v3>;
+> +	mmc-pwrseq =3D <&wifi_pwrseq>;
+> +	keep-power-in-suspend;
+> +	status =3D "okay";
+> +
+> +	wlan@1 {
+> +		reg =3D <1>;
+> +		compatible =3D "brcm,bcm4329-fmac";
+> +	};
+> +};
+> +
+> +&ssp2 {
+> +	compatible =3D "fsl,imx28-spi";
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&spi2_pins_a>;
+> +	status =3D "okay";
+> +};
 
-qemu-armv7:
-  boot:
-    * clang-19-lkftconfig
-    * gcc-13-lkftconfig
-    * clang-nightly-lkftconfig
-
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-Boot log:
--------
-[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-    0.000000] Linux version 6.12.0-rc5-next-20241031 (tuxmake@tuxmake)
-(aarch64-linux-gnu-gcc (Debian 13.3.0-5) 13.3.0, GNU ld (GNU Binutils
-for Debian) 2.43.1) #1 SMP PREEMPT @1730356841
-[    0.000000] KASLR enabled
-[    0.000000] random: crng init done
-[    0.000000] Machine model: linux,dummy-virt
-<trim>
-<6>[    0.216503] GICv3: CPU1: found redistributor 1 region 0:0x00000000080c0000
-<6>[    0.218511] GICv3: CPU1: using allocated LPI pending table
-@0x0000000100250000
-<4>[    0.220528] ------------[ cut here ]------------
-<4>[ 0.220657] WARNING: CPU: 1 PID: 0 at kernel/time/clockevents.c:455
-clockevents_register_device (kernel/time/clockevents.c:455
-(discriminator 1))
-<4>[    0.221897] Modules linked in:
-<4>[    0.222659] CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Not tainted
-6.12.0-rc5-next-20241031 #1
-<4>[    0.223100] Hardware name: linux,dummy-virt (DT)
-<4>[    0.223480] pstate: 200003c9 (nzCv DAIF -PAN -UAO -TCO -DIT
--SSBS BTYPE=--)
-<4>[ 0.223815] pc : clockevents_register_device
-(kernel/time/clockevents.c:455 (discriminator 1))
-<4>[ 0.223899] lr : clockevents_config_and_register
-(kernel/time/clockevents.c:523)
-<4>[    0.223951] sp : ffff800080103cd0
-<4>[    0.223985] x29: ffff800080103cd0 x28: 0000000000000091 x27:
-0000000000000000
-<4>[    0.224143] x26: fff06d7e11c1b000 x25: fff00000ff4d7108 x24:
-00000000000000ee
-<4>[    0.224221] x23: 01ffffffffffffff x22: ffff9282ed4e66c8 x21:
-ffff9282ed8ce940
-<4>[    0.224296] x20: fff00000ff4ef000 x19: fff00000ff4ef000 x18:
-0000000000000010
-<4>[    0.224376] x17: 3030353230303130 x16: 3030303030307830 x15:
-4020656c62617420
-<4>[    0.224450] x14: 676e69646e657020 x13: 3030303035323030 x12:
-3130303030303030
-<4>[    0.224522] x11: 78304020656c6261 x10: ffff9282eda4de88 x9 :
-ffff9282eb3b161c
-<4>[    0.224621] x8 : 000000001dcd6500 x7 : 000000003b9aca00 x6 :
-00000000007fffff
-<4>[    0.224693] x5 : 000000000000001b x4 : 0000000000800000 x3 :
-000001ffffffffff
-<4>[    0.224771] x2 : 0000000000000001 x1 : ffff9282ed9ced40 x0 :
-0000000000000000
-<4>[    0.225007] Call trace:
-<4>[ 0.225218] clockevents_register_device+0x170/0x188 P
-<4>[ 0.225367] clockevents_config_and_register+0x34/0x50 L
-<4>[ 0.225487] clockevents_config_and_register (kernel/time/clockevents.c:523)
-<4>[ 0.225553] arch_timer_starting_cpu
-(drivers/clocksource/arm_arch_timer.c:1034)
-<4>[ 0.225602] cpuhp_invoke_callback (kernel/cpu.c:194)
-<4>[ 0.225649] __cpuhp_invoke_callback_range (kernel/cpu.c:965)
-<4>[ 0.225691] notify_cpu_starting (kernel/cpu.c:1604)
-<4>[ 0.225733] secondary_start_kernel (arch/arm64/kernel/smp.c:251)
-<4>[ 0.225809] __secondary_switched (arch/arm64/kernel/head.S:421)
-<4>[    0.226244] ---[ end trace 0000000000000000 ]---
-<6>[    0.228186] CPU1: Booted secondary processor 0x0000000001 [0x000f0510]
-<6>[    0.237749] smp: Brought up 1 node, 2 CPUs
-<6>[    0.253976] SMP: Total of 2 processors activated.
-<6>[    0.254658] CPU: All CPU(s) started at EL2
-<trim>
-<3>[   21.732871] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[   21.734120] rcu: 1-...!: (0 ticks this GP) idle=0ca0/0/0x0
-softirq=0/0 fqs=0 (false positive?)
-<3>[   21.735202] rcu: (detected by 0, t=5252 jiffies, g=-1179, q=28 ncpus=2)
-<6>[   21.736404] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 21.737195] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[   21.741361] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 5251 jiffies! g-1179 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[   21.742143] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[   21.742724] rcu: rcu_preempt kthread starved for 5252 jiffies!
-g-1179 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[   21.743583] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[   21.744154] rcu: RCU grace-period kthread stack dump:
-<6>[   21.744678] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[   21.746801] Call trace:
-<6>[ 21.747336] __switch_to+0x104/0x180 T
-<6>[ 21.747990] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 21.748380] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 21.748717] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 21.749159] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 21.749600] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 21.749966] kthread (kernel/kthread.c:389)
-<6>[ 21.750256] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<3>[   84.752681] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[   84.753221] rcu: 1-...!: (0 ticks this GP) idle=0cd8/0/0x0
-softirq=0/0 fqs=1 (false positive?)
-<3>[   84.753702] rcu: (detected by 0, t=21007 jiffies, g=-1179, q=28 ncpus=2)
-<6>[   84.754154] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 84.754746] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[   84.756511] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 15749 jiffies! g-1179 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[   84.757462] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[   84.757880] rcu: rcu_preempt kthread starved for 15750 jiffies!
-g-1179 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[   84.758538] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[   84.759136] rcu: RCU grace-period kthread stack dump:
-<6>[   84.759609] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[   84.760175] Call trace:
-<6>[ 84.760454] __switch_to+0x104/0x180 T
-<6>[ 84.760810] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 84.761218] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 84.761528] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 84.761846] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 84.762304] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 84.762751] kthread (kernel/kthread.c:389)
-<6>[ 84.763168] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<3>[  105.768683] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[  105.769169] rcu: 1-...!: (0 ticks this GP) idle=0ce8/0/0x0
-softirq=0/0 fqs=0 (false positive?)
-<3>[  105.769749] rcu: (detected by 0, t=5252 jiffies, g=-1175, q=27 ncpus=2)
-<6>[  105.770219] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 105.770939] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[  105.771924] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 5250 jiffies! g-1175 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[  105.772727] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[  105.773193] rcu: rcu_preempt kthread starved for 5251 jiffies!
-g-1175 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[  105.773892] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[  105.774494] rcu: RCU grace-period kthread stack dump:
-<6>[  105.775006] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[  105.775929] Call trace:
-<6>[ 105.776238] __switch_to+0x104/0x180 T
-<6>[ 105.776702] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 105.777169] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 105.777571] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 105.778041] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 105.778507] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 105.778968] kthread (kernel/kthread.c:389)
-<6>[ 105.779365] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<3>[  168.788676] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[  168.789211] rcu: 1-...!: (0 ticks this GP) idle=0cf8/0/0x0
-softirq=0/0 fqs=1 (false positive?)
-<3>[  168.789696] rcu: (detected by 0, t=21007 jiffies, g=-1175, q=27 ncpus=2)
-<6>[  168.790176] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 168.790347] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[  168.791281] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 15752 jiffies! g-1175 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[  168.791959] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[  168.792586] rcu: rcu_preempt kthread starved for 15753 jiffies!
-g-1175 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[  168.793343] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[  168.793928] rcu: RCU grace-period kthread stack dump:
-<6>[  168.794213] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[  168.794719] Call trace:
-<6>[ 168.794925] __switch_to+0x104/0x180 T
-<6>[ 168.795202] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 168.795454] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 168.795690] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 168.795977] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 168.796250] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 168.796606] kthread (kernel/kthread.c:389)
-<6>[ 168.797039] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<3>[  189.804686] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[  189.805214] rcu: 1-...!: (0 ticks this GP) idle=0d08/0/0x0
-softirq=0/0 fqs=0 (false positive?)
-<3>[  189.805791] rcu: (detected by 0, t=5252 jiffies, g=-1171, q=27 ncpus=2)
-<6>[  189.806325] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 189.807068] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[  189.808147] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 5251 jiffies! g-1171 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[  189.808872] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[  189.809344] rcu: rcu_preempt kthread starved for 5252 jiffies!
-g-1171 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[  189.809965] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[  189.810600] rcu: RCU grace-period kthread stack dump:
-<6>[  189.811112] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[  189.811623] Call trace:
-<6>[ 189.811852] __switch_to+0x104/0x180 T
-<6>[ 189.812287] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 189.812584] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 189.812932] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 189.813394] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 189.813685] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 189.813993] kthread (kernel/kthread.c:389)
-<6>[ 189.814240] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<3>[  252.824675] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-<3>[  252.825201] rcu: 1-...!: (0 ticks this GP) idle=0d18/0/0x0
-softirq=0/0 fqs=1 (false positive?)
-<3>[  252.825675] rcu: (detected by 0, t=21007 jiffies, g=-1171, q=27 ncpus=2)
-<6>[  252.826077] Sending NMI from CPU 0 to CPUs 1:
-<4>[ 252.826332] NMI backtrace for cpu 1 skipped: idling at
-default_idle_call (kernel/sched/idle.c:126)
-<3>[  252.827295] rcu: rcu_preempt kthread timer wakeup didn't happen
-for 15752 jiffies! g-1171 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
-<3>[  252.828099] rcu: Possible timer handling issue on cpu=1 timer-softirq=0
-<3>[  252.828632] rcu: rcu_preempt kthread starved for 15753 jiffies!
-g-1171 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=1
-<3>[  252.829561] rcu: Unless rcu_preempt kthread gets sufficient CPU
-time, OOM is now expected behavior.
-<3>[  252.830012] rcu: RCU grace-period kthread stack dump:
-<6>[  252.830503] task:rcu_preempt     state:I stack:0     pid:18
-tgid:18    ppid:2      flags:0x00000008
-<6>[  252.831137] Call trace:
-<6>[ 252.831328] __switch_to+0x104/0x180 T
-<6>[ 252.831619] __schedule (kernel/sched/core.c:5330 kernel/sched/core.c:6707)
-<6>[ 252.832041] schedule (kernel/sched/core.c:6785 kernel/sched/core.c:6799)
-<6>[ 252.832413] schedule_timeout (include/linux/timer.h:185
-kernel/time/sleep_timeout.c:100)
-<6>[ 252.832689] rcu_gp_fqs_loop (kernel/rcu/tree.c:2045 (discriminator 15))
-<6>[ 252.832991] rcu_gp_kthread (kernel/rcu/tree.c:2250 (discriminator 2))
-<6>[ 252.833264] kthread (kernel/kthread.c:389)
-<6>[ 252.833511] ret_from_fork (arch/arm64/kernel/entry.S:863)
-<struck>
-
-Boot log link,
------
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241031/testrun/25617342/suite/boot/test/gcc-13-lkftconfig-debug/log
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241031/testrun/25617342/suite/boot/test/gcc-13-lkftconfig-debug/details/
-
-Build images:
-------
- - https://storage.tuxsuite.com/public/linaro/lkft/builds/2oBwuVtvQdiUyZ16JGOe1JsS6KY/
- - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2oBwvKQrvbVwqhTKdkXN0BXivv2
-
-Steps to reproduce via qemu:
-----------------
-/usr/bin/qemu-system-aarch64 -cpu max,pauth-impdef=on \
-   -machine virt,virtualization=on,gic-version=3,mte=on \
-   -nographic -nic none -m 4G -monitor none -no-reboot \
-   -smp 2 -kernel kernel/Image -append \"console=ttyAMA0,115200
-rootwait root=/dev/vda debug verbose console_msg_format=syslog
-systemd.log_level=warning rw earlycon\" \
-   -drive file=rootfs.ext4,if=none,format=raw,id=hd0 \
-   -device virtio-blk-device,drive=hd0
 
 
-Steps to reproduce with tuxrun reproducer:
----------------
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2oBwvKQrvbVwqhTKdkXN0BXivv2/reproducer
 
-Boot history compare link:
-------------------------
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241031/testrun/25617515/suite/boot/test/gcc-13-lkftconfig-kselftest/history/
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241031/testrun/25616350/suite/boot/test/clang-19-lkftconfig/history/
+Best regards,
 
-metadata:
----------
-  git describe: next-20241031
-  git repo: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-  git sha: f9f24ca362a4d84dd8aeb4b8f3ec28cb6c43dd06
-  kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2oBwuVtvQdiUyZ16JGOe1JsS6KY/config
-  build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2oBwuVtvQdiUyZ16JGOe1JsS6KY/
-  toolchain: gcc-13, gcc-8 and clang-19
-  config: defconfig+lkftconfig
-  arch: arm64
-
-Please let me know if you need more information.
+Lukasz Majewski
 
 --
-Linaro LKFT
-https://lkft.linaro.org
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/UO.QAaBk=Q4=wHeRgRVaSKf
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmcjQvwACgkQAR8vZIA0
+zr2XHQgA2OtA0FiEHKCg3dxjOlRGRFKbrZLhWVvsRWh3Ai4Kwxi1yl4uuSqin8vG
+JYFA9B7LQlDHJowR19czGe/jsS3g875iVmeGiXOUYaGcfdxl2nDuGRrXrZd9Otqd
+kz28a6oYguIi1SiacuJ0LDvZ8rKz2X0FaecP84sRNk+TI7v9LEjvJYVJj6zpN1Tm
+1rtcfUnyDivov7zdDquV5FJwoqfXsSWIqKYT/CA362/SXyyzmFdvEzJ6R/+cePFk
+WooAQHyVCTE+06Yw3ASt4LmzLlZzSTPABUbA45NpNX9yuS6Ss6JD1j+eCNhPFDlR
+zLXYPYgX0kyTM3Kdb5raD2j2+Bgq8Q==
+=PRU/
+-----END PGP SIGNATURE-----
+
+--Sig_/UO.QAaBk=Q4=wHeRgRVaSKf--
 
