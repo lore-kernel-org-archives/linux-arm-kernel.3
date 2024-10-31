@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9E0E68958
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1DEE68956
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 07:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQ/ptAux2C1Ckr1rD4QjN4VarsdBjNZAcL2h8MuBPUM=; b=0W8uD9XHgf+ojT+8SmvFT8n9eE
-	25fCava7gQG4cTBV3IcUB6uxkW0U6qAWWDoGUXnJ275kSbOkgXA7X6Cy6jYQGs9+BuDAcgV4mgqb/
-	WEOTqH/KpeJQIZEXx4KMBgs/7os31i+t8J+Be1RS9YzigGpQPnd4oqiBH1mjy2sBEc7UriFaCqswR
-	XAGdsbl5W+5GvMHpn8Hv8GlzRLh+1NCQw2EpgXywDBsXxoRUQR61Ax6vlBOhvemI37LNP+StlQ0w3
-	/lQDqXSnESZ1M6NW4lHkgchdUKKg9ZlvCzcH5ZXERPe5+gOkeLqCeJ81I1h65T92yI1T3q1HxTUqD
-	9PBL38eA==;
+	bh=zBDCI11+XOgB7ImpJa/QEyG1X/TrtVKRaX2Yf6u7Hc0=; b=auq6KUeIXpeKNMHsVvkgoHldGV
+	5g/HV/QVXShlQOmOin9vh3tMFzEkDXhHT/44wTQ5oFKVmQfWL1Hd+3h2VLZAZ+mazqzuqMP42gkln
+	8w+P0FP8W6T4BrjNKw0MrI1DwSVBm8bVKwPuyLL+oC3OOykR4R26mjytJdlSJaPnKo4bR+JAdf4tZ
+	Nq7869RrN26ApkjbrXMKIz8Wx7w4hp+Sbe0R8LJqFczF/dX0w3h+SckxKM6/G1SsGsgAFv61P7OZZ
+	1sXSbczkZr8rT0kg+Y9IMjcCYSOrjRpzGZuyrvNvdXBdUHNvAIrWzhW14pNs1RO6utZlEh5KDB6i2
+	1PilZjqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PF9-00000002l3A-2xlP;
-	Thu, 31 Oct 2024 07:05:19 +0000
+	id 1t6PGn-00000002lS3-1vZd;
+	Thu, 31 Oct 2024 07:07:01 +0000
 Received: from thales.epochal.quest ([51.222.15.28])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6PDK-00000002kSK-1I45;
+	id 1t6PDK-00000002kSD-1M76
+	for linux-arm-kernel@lists.infradead.org;
 	Thu, 31 Oct 2024 07:03:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
 	s=default; t=1730358202;
-	bh=Os/2HAMdT7ukejERWbP8Yp9xeT6KhRyx6c3PHQ0aWEI=;
+	bh=c6mAFMfMnzUCM/bRTvKysE72zxNJKIHReq/xcIwXjco=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gFcok4reqrQOlsc4g8NJc8TQjsUCpiSjgreTa+ZqAuh+0YrcGbuXQKhT3igIykUz0
-	 Eyaa7RaLFbO0d3M+cyLw0koMvJB65WLf7zAAvvn9na/OckpChpJ+yOT5jPyZtL81V3
-	 6QCSsmeaxE3NGWGBTWEFz58w0JZ4oA8D/I6FVgL8fUuCDC7WuCwq2NNj1lQVcQWTa1
-	 B7GD6TnS7r9rR1d0QZpjI+WHNZ9zqPDWo/lXTdQqqNUpsRZZnu5R3vRhAEPt8PceTi
-	 zwPr9MSiYwBDoKZcXhm2geD6AYvXk67+k6b48fNrlTmFnRMgziER6z8+Q6qFzwpae8
-	 UtXapdSmZABlA==
+	b=KoXk0zKgSRD6rk7O1qpLi4KfKia0zDyEIgURK//B54b1dkGB4gPm864D9daazG6TL
+	 H1YvKFix+yllhhFpcsmA19NadDcIvWb3WNei0P8mj3LkEZL+L6ugI9YJAeFy26SCaH
+	 5EjJ2Gu2NHYpQVvlzI/QPXNhFCTEdxM41HoNyP9ViLCsuPTAT/gf6EKRnn4iRyVyw+
+	 rJjB9hwO0h3X094JLD1xlsuCv333sp3LOeGNGAT74lFbEPK3EZbbTai2VvrlpE6ijK
+	 7DUOsqI+MEFb73MPTW/MOvMW1vpLNHMNSnU3OL2kXvZyZNtWVEctEWCcy1jx9Z16SO
+	 pEf02r4JButVA==
 X-Virus-Scanned: by epochal.quest
 From: Cody Eksal <masterr3c0rd@epochal.quest>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>
+	Samuel Holland <samuel@sholland.org>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Nishanth Menon <nm@ti.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
 	Viresh Kumar <vireshk@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
 	Yangtao Li <tiny.windzz@gmail.com>,
 	Parthiban <parthiban@linumiz.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Cody Eksal <masterr3c0rd@epochal.quest>,
-	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 03/13] dt-bindings: phy: sun50i-a64: add a100 compatible
-Date: Thu, 31 Oct 2024 04:02:16 -0300
-Message-ID: <20241031070232.1793078-4-masterr3c0rd@epochal.quest>
+Subject: [PATCH v2 02/13] arm64: dts: allwinner: a100: add watchdog node
+Date: Thu, 31 Oct 2024 04:02:15 -0300
+Message-ID: <20241031070232.1793078-3-masterr3c0rd@epochal.quest>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
 References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_000326_473148_4837102A 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20241031_000326_488360_BC5F67E6 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,39 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The USB PHY found in the A100 is similar to that found in the D1. Add a
-compatible for the A100.
+From: Yangtao Li <frank@allwinnertech.com>
 
+Declare A100's watchdog in the device-tree.
+
+Signed-off-by: Yangtao Li <frank@allwinnertech.com>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in V2:
- - Update binding to allow using the D1 as a compatible.
+ arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- .../bindings/phy/allwinner,sun50i-a64-usb-phy.yaml     | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-index f557feca9763..21209126ed00 100644
---- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-@@ -15,9 +15,13 @@ properties:
-     const: 1
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+index 1eca7c220ede..adb11b26045f 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+@@ -144,6 +144,14 @@ ths_calibration: calib@14 {
+ 			};
+ 		};
  
-   compatible:
--    enum:
--      - allwinner,sun20i-d1-usb-phy
--      - allwinner,sun50i-a64-usb-phy
-+    oneOf:
-+      - enum:
-+          - allwinner,sun20i-d1-usb-phy
-+          - allwinner,sun50i-a64-usb-phy
-+      - items:
-+          - const: allwinner,sun50i-a100-usb-phy
-+          - const: allwinner,sun20i-d1-usb-phy
- 
-   reg:
-     items:
++		watchdog@30090a0 {
++			compatible = "allwinner,sun50i-a100-wdt",
++				     "allwinner,sun6i-a31-wdt";
++			reg = <0x030090a0 0x20>;
++			interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&dcxo24M>;
++		};
++
+ 		pio: pinctrl@300b000 {
+ 			compatible = "allwinner,sun50i-a100-pinctrl";
+ 			reg = <0x0300b000 0x400>;
 -- 
 2.47.0
 
