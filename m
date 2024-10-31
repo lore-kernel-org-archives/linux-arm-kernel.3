@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8978AE68946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79CAE68946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=512vM9eEPojhDbBC2R+UB6fp2hTFX8GZ6IpU19z7uHo=; b=USOlBy4eEyc/46FU494mHOFF5M
-	yKCrXOjSFVFHsMUZymU8v/BN8RBWwdw4tmo4tYyR1IFmM0fxWUBbKA3zspgsnM0PujTdvfSpSA56C
-	K9qysGDfQcaTbc9dDmeh9jBLp/znA8Siq4d+Kz7eslt2TGomYt4GtdUQnhjEYk7XKHfjbTxVwAiNF
-	o3ET3X/y1plC8I3ZvR2MYFWVFQ1wLcky6YmqjDDMl9DjPWDzgEhXfKieaJmUJ8Y742/OTUnZniDzW
-	oxzquMx191/2j/2eh4UAJdG+n3Zu3QbDH1/+An4Fbl5rTbCWrbvS4uoRKp1k//s8IVUY3cGtZRkiG
-	lDwWE/Cg==;
+	bh=28U+nh8FVrgKSuKmcrwPvhNybP+FrYOipupVGrWsW+0=; b=uSWzI41JVNX67BYl1SRUnwlgL/
+	lIEhUC2ZkH2Se36cD1FMABdTCBkRtbpf76Hupe1nvpHt5QWMpXYRa/2DV0UkaI7NCHbgm4FdKI2LK
+	qnB622lshaLmQZRGlqswMLVxAeq+mGTC9VIQplJq+3vYbrqeBHs2i4SBAcoTGC/gbEkp26RPzscio
+	fWSxBbK8Vriwr7zg88aSpCILngIM3LU95N2p2/78C3S/yXc7E1JXfXx8GdincJyqNzg1t7OnAzYRe
+	qVJpcTCF093rzNX7TaQ+s71nIiVteTOMoNh7xKJ5yix/s2/VYapz3iFE5yQXLnh38wVbITyHRQFRA
+	Wvxyb1OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Kod-00000002LHo-1SGD;
-	Thu, 31 Oct 2024 02:21:39 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1t6Kwd-00000002M6d-2Dcl;
+	Thu, 31 Oct 2024 02:29:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Kmy-00000002L4g-1PTZ
+	id 1t6Kuy-00000002Lut-06Ui
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 02:19:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730341197; x=1761877197;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YH+r+Dbnbl3Hh+y/hm/qgXZvFD8Qdh/Re1nEgUi7fU8=;
-  b=CQwDDjPRaWKF3jXvI2r7DRKdvi54tmzHXY7IS+LSn9NAYP5Y4RuSUd38
-   TR5FvIIc1o/BE0JGNLouX59/QRFoaUZHxA2ViktxejvujrKRQOEXPt0GB
-   8+Ptj31nHRn4AgkLvV3dN58fPgyfnvAPyvR63axLpJEcWHKFmEs6pgl+0
-   lcftHsjw2V5F+4KgwQPL2ds/NHO/8Ss6n31AvBCbqIk1niasvOiayK97W
-   DSx7oj4C8sX6TswepLPWIQjHUXOYyfled79GbeIYzwr/m0YS8+L2HhWbx
-   BmIR2bf8O38Bc5wwZF7nNc/DnPS95E2CzGoJotgZTAbgO4OIP4wW/DNaC
-   A==;
-X-CSE-ConnectionGUID: rVfvk25ZRvCvZbw/7TTGEg==
-X-CSE-MsgGUID: NoIpkGCRSIuVztJarjKC9A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="47528335"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="47528335"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2024 19:19:50 -0700
-X-CSE-ConnectionGUID: mI53XOwBRq+BGEaUiyP8pg==
-X-CSE-MsgGUID: Ce3NF40AQsq8i8qE4BOJKA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,246,1725346800"; 
-   d="scan'208";a="82039774"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 30 Oct 2024 19:19:47 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t6Kmm-000fY8-1k;
-	Thu, 31 Oct 2024 02:19:44 +0000
-Date: Thu, 31 Oct 2024 10:19:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
-	wahrenst@gmx.net, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
-Subject: Re: [PATCH v3] soc: imx: Add SoC device register for i.MX9
-Message-ID: <202410311056.PBPPOYmg-lkp@intel.com>
-References: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
+	Thu, 31 Oct 2024 02:28:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2A898A43D45;
+	Thu, 31 Oct 2024 02:26:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8722FC4CED0;
+	Thu, 31 Oct 2024 02:28:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730341690;
+	bh=01Uc3zvzqd3XKCvxftrNCCaSDMkTv/ZTi6vvS6fRpeY=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=okt6lcuP7P1d7jmgXkcOoALiR2Qq6T0WCVjJEb1Ie7vKAJ3py6myNBfdF/crgzJKE
+	 Cm6vTMJYsSuekDKMBaVTxZomno4RguNyGaPzsvEOrWbeXWoY04q8t/bvdJnBhN9N5y
+	 tfyd0G0HO0BSQvfJptBJ0EUGQLwNARtO/fm5HthF/l4E53Aru6ZPZIu5j87Wz0c5oi
+	 B6AY1b+mPNGGgAhHkqSrAVJLIlqY6XhLm2Vy7GFGQw9QEbnKYZ8nQ7A+qaROFcFNz+
+	 qMtUU+4WJnrNSnBHfhrPPj6DkFmMAfLsIW/Ya8y2f9egrzGiWKaR7bvU+uc8t9XeGm
+	 ACqA0UYVQhhKg==
+Date: Wed, 30 Oct 2024 21:28:09 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241030091336.3901440-1-alice.guo@oss.nxp.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>
+In-Reply-To: <20241030232746.2644502-1-andreas@kemnade.info>
+References: <20241030232746.2644502-1-andreas@kemnade.info>
+Message-Id: <173034159281.3087396.381274219122389189.robh@kernel.org>
+Subject: Re: [PATCH v3 0/3] ARM: dts: add Kobo Clara 2E
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_191956_479739_A5E11112 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20241030_192812_223612_0B370275 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +76,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-kernel test robot noticed the following build warnings:
+On Thu, 31 Oct 2024 00:27:43 +0100, Andreas Kemnade wrote:
+> Add a basic device tree for the Kobo Clara 2E Ebook reader.
+> It is equipped with an i.MX6SLL SoC. EPDC PMIC drivers
+> are not ready for mainline yet.
+> 
+> Changes in V3:
+> - removed 30MegaOhm current sense resistor nonsense
+> 
+> Changes in V2:
+> - improved commit message about devices without binding
+> 
+> Andreas Kemnade (3):
+>   dt-bindings: arm: fsl: add compatible strings for Kobo Clara 2E
+>   ARM: dts: imx: Add devicetree for Kobo Clara 2E
+>   ARM: imx_v6_v7_defconfig: Enable drivers for Kobo Clara 2E
+> 
+>  .../devicetree/bindings/arm/fsl.yaml          |   8 +
+>  arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
+>  .../dts/nxp/imx/imx6sll-kobo-clara2e-a.dts    |  23 +
+>  .../dts/nxp/imx/imx6sll-kobo-clara2e-b.dts    |  23 +
+>  .../nxp/imx/imx6sll-kobo-clara2e-common.dtsi  | 514 ++++++++++++++++++
+>  arch/arm/configs/imx_v6_v7_defconfig          |   2 +
+>  6 files changed, 572 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi
+> 
+> --
+> 2.39.5
+> 
+> 
+> 
 
-[auto build test WARNING on shawnguo/for-next]
-[also build test WARNING on linus/master v6.12-rc5 next-20241030]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/alice-guo-oss-nxp-com/soc-imx-Add-SoC-device-register-for-i-MX9/20241030-171525
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241030091336.3901440-1-alice.guo%40oss.nxp.com
-patch subject: [PATCH v3] soc: imx: Add SoC device register for i.MX9
-config: hexagon-randconfig-001-20241031 (https://download.01.org/0day-ci/archive/20241031/202410311056.PBPPOYmg-lkp@intel.com/config)
-compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project f28c006a5895fc0e329fe15fead81e37457cb1d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241031/202410311056.PBPPOYmg-lkp@intel.com/reproduce)
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202410311056.PBPPOYmg-lkp@intel.com/
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-All warnings (new ones prefixed by >>):
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
->> drivers/soc/imx/soc-imx9.c:84:34: warning: unused variable 'imx9_soc_match' [-Wunused-const-variable]
-   static const struct of_device_id imx9_soc_match[] = {
-                                    ^
-   1 warning generated.
+  pip3 install dtschema --upgrade
 
 
-vim +/imx9_soc_match +84 drivers/soc/imx/soc-imx9.c
+New warnings running 'make CHECK_DTBS=y nxp/imx/imx6sll-kobo-clara2e-a.dtb nxp/imx/imx6sll-kobo-clara2e-b.dtb' for 20241030232746.2644502-1-andreas@kemnade.info:
 
-    83	
-  > 84	static const struct of_device_id imx9_soc_match[] = {
-    85		{ .compatible = "fsl,imx93", },
-    86		{ .compatible = "fsl,imx95", },
-    87		{ }
-    88	};
-    89	
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: spdif@2004000: compatible:0: 'fsl,imx6sl-spdif' is not one of ['fsl,imx35-spdif', 'fsl,vf610-spdif', 'fsl,imx6sx-spdif', 'fsl,imx8qm-spdif', 'fsl,imx8qxp-spdif', 'fsl,imx8mq-spdif', 'fsl,imx8mm-spdif', 'fsl,imx8mn-spdif', 'fsl,imx8ulp-spdif']
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: spdif@2004000: compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif'] is too long
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: spdif@2004000: clock-names:9: 'spba' was expected
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/spba-bus@2000000/spdif@2004000: failed to match any schema with compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: serial@2034000: dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: timer@2098000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sl-gpt'] is too short
+	'fsl,imx1-gpt' was expected
+	'fsl,imx21-gpt' was expected
+	'fsl,imx27-gpt' was expected
+	'fsl,imx31-gpt' was expected
+	'fsl,imx6sl-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,imx51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
+	'fsl,imx6dl-gpt' was expected
+	'fsl,imx6sl-gpt' is not one of ['fsl,imx6ul-gpt', 'fsl,imx7d-gpt']
+	from schema $id: http://devicetree.org/schemas/timer/fsl,imxgpt.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: anatop@20c8000: '#address-cells', '#size-cells', 'regulator-3p0@20c8120' do not match any of the regexes: 'pinctrl-[0-9]+', 'regulator-((1p1)|(2p5)|(3p0)|(vddcore)|(vddpu)|(vddsoc))$'
+	from schema $id: http://devicetree.org/schemas/soc/imx/fsl,imx-anatop.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: regulator-3p0@20c8120: Unevaluated properties are not allowed ('reg' was unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/anatop-regulator.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: interrupt-controller@20dc000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sll-gpc', 'fsl,imx6q-gpc'] is too long
+	'fsl,imx6sll-gpc' is not one of ['fsl,imx6q-gpc']
+	'fsl,imx6sll-gpc' is not one of ['fsl,imx6qp-gpc', 'fsl,imx6sl-gpc', 'fsl,imx6sx-gpc', 'fsl,imx6ul-gpc']
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: interrupt-controller@20dc000: 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: interrupt-controller@20dc000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: interrupt-controller@20dc000: 'pgc' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/interrupt-controller@20dc000: failed to match any schema with compatible: ['fsl,imx6sll-gpc', 'fsl,imx6q-gpc']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: pinctrl@20e0000: 'uart2grp-sleep' does not match any of the regexes: 'grp$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/pinctrl/fsl,imx35-pinctrl.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
+	'fsl,imx6sll-lcdif' is not one of ['fsl,imx23-lcdif', 'fsl,imx28-lcdif', 'fsl,imx6sx-lcdif', 'fsl,imx8mp-lcdif', 'fsl,imx93-lcdif']
+	'fsl,imx6sx-lcdif' was expected
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: clocks: [[2, 129], [2, 123], [2, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: clock-names: ['pix', 'axi', 'disp_axi'] is too long
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: spdif@2004000: compatible:0: 'fsl,imx6sl-spdif' is not one of ['fsl,imx35-spdif', 'fsl,vf610-spdif', 'fsl,imx6sx-spdif', 'fsl,imx8qm-spdif', 'fsl,imx8qxp-spdif', 'fsl,imx8mq-spdif', 'fsl,imx8mm-spdif', 'fsl,imx8mn-spdif', 'fsl,imx8ulp-spdif']
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: spdif@2004000: compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif'] is too long
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: spdif@2004000: clock-names:9: 'spba' was expected
+	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/spba-bus@2000000/spdif@2004000: failed to match any schema with compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: serial@2034000: dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: timer@2098000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sl-gpt'] is too short
+	'fsl,imx1-gpt' was expected
+	'fsl,imx21-gpt' was expected
+	'fsl,imx27-gpt' was expected
+	'fsl,imx31-gpt' was expected
+	'fsl,imx6sl-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,imx51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
+	'fsl,imx6dl-gpt' was expected
+	'fsl,imx6sl-gpt' is not one of ['fsl,imx6ul-gpt', 'fsl,imx7d-gpt']
+	from schema $id: http://devicetree.org/schemas/timer/fsl,imxgpt.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: anatop@20c8000: '#address-cells', '#size-cells', 'regulator-3p0@20c8120' do not match any of the regexes: 'pinctrl-[0-9]+', 'regulator-((1p1)|(2p5)|(3p0)|(vddcore)|(vddpu)|(vddsoc))$'
+	from schema $id: http://devicetree.org/schemas/soc/imx/fsl,imx-anatop.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: regulator-3p0@20c8120: Unevaluated properties are not allowed ('reg' was unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/anatop-regulator.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: interrupt-controller@20dc000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sll-gpc', 'fsl,imx6q-gpc'] is too long
+	'fsl,imx6sll-gpc' is not one of ['fsl,imx6q-gpc']
+	'fsl,imx6sll-gpc' is not one of ['fsl,imx6qp-gpc', 'fsl,imx6sl-gpc', 'fsl,imx6sx-gpc', 'fsl,imx6ul-gpc']
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: interrupt-controller@20dc000: 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: interrupt-controller@20dc000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: interrupt-controller@20dc000: 'pgc' is a required property
+	from schema $id: http://devicetree.org/schemas/power/fsl,imx-gpc.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/interrupt-controller@20dc000: failed to match any schema with compatible: ['fsl,imx6sll-gpc', 'fsl,imx6q-gpc']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: pinctrl@20e0000: 'uart2grp-sleep' does not match any of the regexes: 'grp$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/pinctrl/fsl,imx35-pinctrl.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
+	'fsl,imx6sll-lcdif' is not one of ['fsl,imx23-lcdif', 'fsl,imx28-lcdif', 'fsl,imx6sx-lcdif', 'fsl,imx8mp-lcdif', 'fsl,imx93-lcdif']
+	'fsl,imx6sx-lcdif' was expected
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: clocks: [[2, 129], [2, 123], [2, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: clock-names: ['pix', 'axi', 'disp_axi'] is too long
+	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+
+
+
 
