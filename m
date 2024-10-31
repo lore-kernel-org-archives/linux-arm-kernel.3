@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E894E68958
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 08:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95FAE68958
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 08:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8cJuVE5Oe+ZUPDPWv61QsRWeGGpZuNOJWUAEqPFt9ig=; b=s+N6NCW1pAHLeMhde/ISuQLf+x
-	4tJ3x1hXIgAqOiJFIB+7yJFA6gk/p1SAIEZY9cB5efQMn3s9rXYf/ppcjQ59aQdcFuQ2piRhY3oxe
-	lJef2BVO8uLIYH7Hyyutn3WI3jPI20FFTgU5SQGHwsRLt3HgwTzNOmKCGBnluEmnT6wLqiCpA0yIW
-	yvFOKACw03Me9T1+S7pibE7HLiOtTGVPulJIc9nKqFgO8HKiji/d8YEGSsiRyrNSfzwUNE5y3SNHx
-	fN+xmlM0O+L5tMymat0ZjH7S5LAW+7Qbk3p8kSc63F4xRneClSgFhedoAKplJjWD0ow7cXmulEjNm
-	fdEhaihg==;
+	bh=2x8nh85QHQ0gLLkdmuNiEltCwvMvKZrkBbGJybKd5og=; b=qjP+XIuG73pNYiFB82OxKwOHY3
+	jWY1oIObUJDHzrFh/TZduWcNewO4TuFP7HsVcCQC0izERur3W/XmBycWlBp2JWg5Kp2X89bFKZRY/
+	6uwYzPlpTHeV0m8cWx7YavZje9dHYvYFB+7KAlqVtq72LPcWmvCA+RKOz/KD2bX/mJU4TXL0jGdyE
+	amFRSBp7zvPv2Xsrf0f08ut1NdWb976j2VzodRg9xb5f6Dodl+lZ7DUyyemKfebWOuzryR8fobyBY
+	py92JCNVuO7dySjuLXisK2oGAJ/8mahC4ESueqYYRcLrzXVW9teBna4iss0iAmINO50MiFpaoECLZ
+	LzmpQ0Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6QGu-00000002tvj-49jg;
-	Thu, 31 Oct 2024 08:11:12 +0000
-Received: from mail-am0eur02on20618.outbound.protection.outlook.com ([2a01:111:f403:2606::618] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1t6QIX-00000002u4h-0eLO;
+	Thu, 31 Oct 2024 08:12:53 +0000
+Received: from mail-vi1eur02on20615.outbound.protection.outlook.com ([2a01:111:f403:2607::615] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Q3a-00000002rsE-4Art
+	id 1t6Q3s-00000002rxI-3JqK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 07:57:28 +0000
+	Thu, 31 Oct 2024 07:57:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rUO1A+sTIzFVcyjY52OvUypIqcLFk6ZlXWe3seYIyODQSs2Yxgp6EGYVV3kMnKyk+XaMwKGlR4kJKoAQ9nJGQElXaDTFmxYXqym96m6lJriz78J69ewBLAJKmjPPMOARhpSpImLdpEgSSswsKF16TbbQJoBMx4RP9EP7SRTaiG9XBKw9tTS+o69l7YTkCqVotKmT0ytUHHc0xF0hJqDeZykm5pAulHPQScpUYVbb0m+lNK1+GeRO4+rPpbZk7iJ+mlqTN+MJ3Jm9TSm/Sxm5Ksq1K9gPgsuAYiG7UJEpPfGeSElIRtqKyUYkfmSEk6NzU4wI0urMSz3CzNhWS5Iu3g==
+ b=bJ22O+HmrezJnvxvXPJwp7lEhlQCYwIYCFw2zCCIqcyZH4nUxbcZ8pqpn+9cPUs0zsI/rRpMvDrf9vmfGTHrYbc1iqYAuDi/yDY23aQB0WZcPqx8YSEZidOmw28wOLavAa8Sti2DOYF6NB+wO63NcmeZGrn+Ee2rvlYppzBI7VbTmrKUZLPgs6Jyk8K69CVqOXl27NkDeUIdS4BxSXt43pPIdmNk8NQzI1Vb6U7i8i+KHnF7EPTdVyucjSmazLNFaxxGDvwHBOkfCN3edemTN3YC/1KytChIUzy+/7keZFJnSDa5rpx8eAU1183p7bA7QKFvQg8ghjj+4ykrb/jsIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8cJuVE5Oe+ZUPDPWv61QsRWeGGpZuNOJWUAEqPFt9ig=;
- b=R+XIO3BhpFfy/J2h4m71q1xHHiOJUkDUZHVQVtKYWpLMoyYGTGzexhUISrIRM66WJlW4oqCH67dK94VVGSaDY0kfPJhOoUM7yNUCuDWIHM50QEJQfWwEMAfQLpX/vyLtuiH6yoKpJqyFVoFGv759pSRIrWzfCioZ86yV9KUqF+AIJaMEdVQ2ryjyNn3oyjCbeoucAccrTC2bSyPd3c4AUkimCpWtdRFs2NogOCcTvW6XbG94DQIYHpRl0NVYnGJBOG/aTK4JYp7lIIRwZUNZ3dEHY1xqb0Pezl3vO9pndJYua28MMzK60iDaU/vtkO+t4T2lHpsIQLBCBrd13EA5ng==
+ bh=2x8nh85QHQ0gLLkdmuNiEltCwvMvKZrkBbGJybKd5og=;
+ b=PfR9Lf26Et/GtPH0MLBovmxa4Juy2BvySIY2emOC/r70iTpvftmpwso8jiGlemmWVFKBuO6Y3cK7eRQLJOkMFOAJeUPpp0hSqLlMDGPHFdwlpRQyrHvVueivXwFSjYXxZ6N+F0+Qe6zBBD82M70GWgYJSEdpSyIuJho0g9c2WFtZDPB+RlPKRTHFmUbUp6oM0tENWh0jsn02Z/fJDS1MYI/p1Opoj8L2WAf+GHjbmCZalH+HdAyWeheRlvAlpBoYlvPLiolH6qO0Q1y/ZCKs1dGulDsVyEmZ8HFkdGlIBElAgyBwvxCHDRTxecH+IBP/nDupBtlIoOaY2yihkVWj9g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8cJuVE5Oe+ZUPDPWv61QsRWeGGpZuNOJWUAEqPFt9ig=;
- b=de9UF1f91dsrJJ8zbR4Hm2NBIWyeiyNsGZIiNN55bgRHeVo0cNkAxz6A46F4wa4QrrUEvpES4sV63jksI1GsI9PTKLYwqpDgdTpO/AydloOJHOS6A7EBb+iHQlGOFhg9KkSmv3xQDxbQe0+BBE5ojFRr6hC+xBy4rtzRiROblPF+7M52iYfJhuGJZqeLrJSi03nmXF/5646vmtb38sv608Kacjmc7LlFcWLqCx01yFCuhW0318nIgTDg/T7jPfgTOzjhlc8+2GPQk68a09OQVumalH1HQRZMSEkM5eNTBoF3gDOAacK5SborwfrR6EvyPUDLgZF+X9TSIOlh/0gdkg==
+ bh=2x8nh85QHQ0gLLkdmuNiEltCwvMvKZrkBbGJybKd5og=;
+ b=jBZ2GizhmhkNjqtEFReazZesP38M4h5iGXSBpwnL3aoyQrBQHqM0pGZS2ScB5laIETlH/qNJwFzBaJAyMKEniXe+iYu5+tb999yaDM+oBK+B/xdbaKCUmkrBSDS9Dp5ChCgrbN1MoRu2+FAv1cyGNEvJ2KnrUklQtJH0k+nP9+G+FrAxmE/545QxWC2XaTcVT3IGeZu0JwuX+PVTv7T3RPgwysn5anv5DRbXjoDbg/jI3q1+g7A/07s2kYbybWpJR7RqLr0txmHI1dW0lrrNKcZ1WVzPx+HntGOu+hmv5zOOIx+295koVB3XkmMAaAhQxoymhhxFOGuo4JnozLJkTQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
  by DB9PR04MB8139.eurprd04.prod.outlook.com (2603:10a6:10:248::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Thu, 31 Oct
- 2024 07:57:23 +0000
+ 2024 07:57:41 +0000
 Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
  ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
  ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.015; Thu, 31 Oct 2024
- 07:57:23 +0000
+ 07:57:41 +0000
 From: Richard Zhu <hongxing.zhu@nxp.com>
 To: l.stach@pengutronix.de,
 	bhelgaas@google.com,
@@ -71,11 +71,11 @@ Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v5 05/10] PCI: imx6: Make core reset assertion deassertion symmetric
-Date: Thu, 31 Oct 2024 16:06:50 +0800
-Message-Id: <20241031080655.3879139-6-hongxing.zhu@nxp.com>
+	Frank Li <Frank.Li@nxp.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v5 08/10] PCI: imx6: Use dwc common suspend resume method
+Date: Thu, 31 Oct 2024 16:06:53 +0800
+Message-Id: <20241031080655.3879139-9-hongxing.zhu@nxp.com>
 X-Mailer: git-send-email 2.37.1
 In-Reply-To: <20241031080655.3879139-1-hongxing.zhu@nxp.com>
 References: <20241031080655.3879139-1-hongxing.zhu@nxp.com>
@@ -87,77 +87,77 @@ X-ClientProxiedBy: SG2PR04CA0184.apcprd04.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|DB9PR04MB8139:EE_
-X-MS-Office365-Filtering-Correlation-Id: 386763df-00ac-40e6-76e0-08dcf981a748
+X-MS-Office365-Filtering-Correlation-Id: dcf341c7-0648-4fbb-e6c4-08dcf981b205
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wpNjrIKRQdRVRuVpOTFDeR1Sm4YYI6jijwd9W0D7rIGsnfgsAiLDOYUbJjHu?=
- =?us-ascii?Q?UisOuzTej2x1IFth1hP1jtSkc89e/uT1vBeEdA98YCJIvNSYbdtlbcDI7xTj?=
- =?us-ascii?Q?nA/5iTC0KmYYsZyw8P1NcqK4fNjgy/3Kq64geUr69F9zrcxuBPWfm9OPSuKd?=
- =?us-ascii?Q?ISicEVrpH95gBgnt9uEeaKAYGG7cHjOVT7OxZFzuXDezntVh/7/PVvTKUlb6?=
- =?us-ascii?Q?WhL/jzPQCykNVbBHez3xGhG772jyhnPzA44kdjnj3Z64pBX1ZtgcfYbsGztu?=
- =?us-ascii?Q?Joeb0dfYw3Yb9/AfCTZEZQPHkbGh4XoXfsEdfBy5UAPJ9aqoAjl8ulE8kZMn?=
- =?us-ascii?Q?BWWZqFYrrLM/CzkI8AsgfpWeyKH7gHaX7qoZILGgXylI5r3gELp4UV4ebHpl?=
- =?us-ascii?Q?6/Dvnb0/UvUkXsL/HTqtqNS18zOOsFELKjiA2yy6vA9TYZvA3+0FxSlsMX+p?=
- =?us-ascii?Q?Em7QGjU+Qd5yJ8UJd/2XwRZzILjJYjiiAjAa/RS5fqIkZ7xgIW+CVQzBK0r7?=
- =?us-ascii?Q?ocvsSxV3FwlqCaQ6qneyRG4iMoR9+8VOouflNvb2ALBkkkXQ1HLxN/jqduNZ?=
- =?us-ascii?Q?02e8dKx4EY0lM4U1rKZqw34hItNOsUMBLyCMp2lOzhy4RWEFDUbjRdILONLl?=
- =?us-ascii?Q?TrS3tkK3M+DdnFCCDND09JGpzrwDeTyCCfOoKWvhUIPyLM3Ge8AyTl3ewTW2?=
- =?us-ascii?Q?V8Bqh3IpIISm6Qlm31MvKa/j9mTVJvqyI6nCwkFzotOIzdJdhRQc3gBn8km/?=
- =?us-ascii?Q?aoi5gtHV3IUzWFX/qG9/wDNPRMCSfL2N3u3GRTZ4MPAzer3pUWg6hwbMGzdu?=
- =?us-ascii?Q?hKCp1Fx5a5BHxtuolyLbKmR+BgJVgm3gp1SwCMdZIy6ryxfCaWPcqbVGohhI?=
- =?us-ascii?Q?+dlJwPGn5Hw0U1F2jozAd4pmD5yC0JO7Q3SDCb4okoO/NhoDxUKq8lltNMfE?=
- =?us-ascii?Q?ujXUN+SXHDTJuqIsUEWk+CPqs2Pf2xMPhpdCpB4gwUqmlKftMYU7IdJu0X/u?=
- =?us-ascii?Q?hg3rU5/8kuZP5U7ut2U70FH9HEtjaQr/6emrCF7qIudRdzYmrMd+bpBkOf7k?=
- =?us-ascii?Q?EPQnQ8bb0zNGWuZp9VlrlqrBde4RrnicBZXOnUIJmSQnLKfoRY20YNugizrZ?=
- =?us-ascii?Q?j7JCFy2MK/q04h1vB08G4aqP5Vo4vhg4c1R56Ir2ehTjlua7jFJEIHO6gqNM?=
- =?us-ascii?Q?Li4UaZA3YPf4njUzn8R6Jmg2zOju65MerTMDOV7YTbBeXZBGYKtydu8DgjSV?=
- =?us-ascii?Q?psOMgeWoSDt6vQ/ms2s+ivev1iBHJr8F2oCpwKYyuWlala+Qg/ZHXeya/wcB?=
- =?us-ascii?Q?V4Vh3V+k9y1SQqK0+1jVCwvI/Q2PD/ckUSEJV9uAnZ88GlyJNTtBuq+k2faX?=
- =?us-ascii?Q?oEPfT5ex3lkiOcahRwVWC6UdefID?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OXWnsfpL3U0TkUvy5O5VIH/utxvVYCT55T8yLB2Bbbynapqal43sd460IFhq?=
+ =?us-ascii?Q?pBJxgiH3lxueTms5meLpUjGh8btrLOFMDvg3/IH0OF/ilCUE7m8T+6Kv+hPu?=
+ =?us-ascii?Q?ES8YsdRaYcWkp3CMnQShXvE64whkFlUxLxO5Zg2Z7W+N/4aD1SuPtDOR2YUb?=
+ =?us-ascii?Q?7nT8xI6xXsRkwNQ6arrVaW5atlPKTiH3+Wij6g4x9bvUAPodaulZun5k9BCt?=
+ =?us-ascii?Q?/DdGakzxsajKyMqipS/fNE8Cpa4nVv6YZSRhH0ZFXCc1pIdiqbo1iY050EfU?=
+ =?us-ascii?Q?URG9OjnmxQ+D2qavstv45D9oLw27Ys53V2AvMHsJCv64WSkIRVBzwQ+8Y7B3?=
+ =?us-ascii?Q?2PZVt/COt6fhen09WY385ELetB2A4Kl9wiev1ijlGLBYMkxQY8xeTVMCKYi1?=
+ =?us-ascii?Q?F4duKuxQuSx4/HuvlhTklPlj9RaWWxGj/+iYmH8FQngTLvCq0lusi5IHO4lS?=
+ =?us-ascii?Q?o8b+6pX6xE2opsERQ5ohjz7uljz9dxf9Q1MlGI/ze9ETKqJ+aqcWj4vzmke6?=
+ =?us-ascii?Q?wRP7SY5mvLzuskQhWlqkkzSKRu9biP/+PT4yMCXxCdEcbh1oRtHAKDi5A+6n?=
+ =?us-ascii?Q?AwBGXkWTdEAeGbmLg/lTXHco1Gp2fhksXINUU3unDCWIR/m0eUk6HwPdrMUl?=
+ =?us-ascii?Q?03kLFAiRi/mC4gImQWeLgqLdoTfa4iYCamJhhgPvGYGx2LaGY4pWa9j3qEpb?=
+ =?us-ascii?Q?HvxvYDySyfQFL/5wfAQCo5HEHN1WkRyrUG3aoDqStOJ2KPJ/p/cXcV5asUOZ?=
+ =?us-ascii?Q?S1z1jUr0KW54YYp3VLBrgjcr6TLlE6De9lKAzpy9L9c+kN50lqMQhQWZTdSX?=
+ =?us-ascii?Q?FqMa51ig4VgE39ZI9vOiMfpPg0gPYeZAYr2aNJwExIA8aueJl2Qrjz/Y6lT0?=
+ =?us-ascii?Q?LJqx9FgJiSpJHxAhuU1hpgXFiTOxwVDQEPX17IbBT5oum1xV1ouCAB4O55pW?=
+ =?us-ascii?Q?qpMcokWm71JSP10qvlogiS6U+UiRUt5kaH0/3HHVTQ0DZE3KP9KP/FpGclp0?=
+ =?us-ascii?Q?6m1SHv6sZ5hUoR379fgdT0bH1vFzvLMZ8cp2sytdQrb1fX7ROSb5KJP0y5L6?=
+ =?us-ascii?Q?IaevaHVXKBxPY+V4cR1HijYb8tmuKWNXYigkkwmRUvyPX2+1mUWhberx+gWK?=
+ =?us-ascii?Q?29POSfLm2lkzPEpGxU8fgsPDfamm4laVk9wadHsklr9YgsWCRtiiuRFZMRiA?=
+ =?us-ascii?Q?wITxHGq9vt22S7kRr0fqgN0B/eMdMSPqBZGgV4J3xWOhixkkMN9RgO6E+g6s?=
+ =?us-ascii?Q?scrwywDFQASw1qOibyNJcGFWXK/DiQ1nfXSarVEns3aYKUnGBPH9jiRqISci?=
+ =?us-ascii?Q?AGFKmCV++DiYSxWuy5VGIzxkMCQAf2PECGZ8nNPwv3/mBX7PGcmMVZfJ1ABQ?=
+ =?us-ascii?Q?E6uPENoTr4l6Zfb0MzMCwg8RRzMt?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?P9C629F2pPWTO91wfggqjM56IcqPlppp6VCByDQA5Hk8usI7mmVMfwDBPb6M?=
- =?us-ascii?Q?/2OTN1qAFDBaFwn8WMZ7P8q75glDykROOvNMSHke83d3eIz//h7Uac1DwR44?=
- =?us-ascii?Q?v26Im7UxysPMPsN1gQ3wKM1rrK2T5YOBDBAIAsphdyEpcRAl96MqrRzQ9ITT?=
- =?us-ascii?Q?9xjWhD3Yhn3S4vAo9cSMYR2YXkUIxSolnl1Hy2fZKmVLQyu9ya4VM3eaWN1Z?=
- =?us-ascii?Q?JUPwDtsPCHSoKE14ByEhyqKpeoYTsRXLNh9PFftGydNgyHXvaAjK1Ok63Voj?=
- =?us-ascii?Q?vMApoDKGG5k+VRvPFZBXWX3j6q7k+N41ebEzcoRXGvPQAebgHZwHxOx2s+GT?=
- =?us-ascii?Q?h7l4ohISyvUJaSNhHDgTKpLuABmYUotkfm9AZYXt7xXW/aENT3cuxzkN4FGN?=
- =?us-ascii?Q?elcUK0PXpcxsZpDU9UbmiJzU6HCu+YQWEx5BqKzAccSpHGcg2FDI8nGS5pK6?=
- =?us-ascii?Q?VlMNbrc5hBZNzHuU8ITRfrsryN/x0hxLLwhpYm/aN65KZK8af2Rlkdn4Wh3y?=
- =?us-ascii?Q?yBb5F88nyVt9WBvJb3jM+e0W3A24uu8nUSowil3FVpBuCAha5sWvbWJB/2Bw?=
- =?us-ascii?Q?xvUmsSqCN0wwhVatgLWCr2/zpIUH6keu0Ch1TcPSNY+C3x/HxVeLFIlq42/P?=
- =?us-ascii?Q?fFwZWHdTC8JaYSBs1svuI2W87HYZYcpg59OLw8ni5sRLCeh50t3lKoLVryLE?=
- =?us-ascii?Q?RoQiAw7J2BSp1ctuon2Gy+lbaAvbdzWC87yC1rp3lkWBVz2mIcTTJx+79452?=
- =?us-ascii?Q?juEZriJUqNY/Q+bHGwqFYjhn34T6eIMuGr1zDG2MoG/IdMfxCbS62bUidZ/L?=
- =?us-ascii?Q?5RHiEqPP9t3t+OJOeQpbkyyTkAGpgCRFwOFiAEFOcn6CM38WcMRLW7jRefXN?=
- =?us-ascii?Q?7PH8aWyeyebPodvO76etx5gGQzAUATw6xHl6uZmSbAmSwTRHVyIfnoCWlMyS?=
- =?us-ascii?Q?muHiSEssgzmIdYNx3dmy6OZzad3wxOOfET5zB+dw7x+SjlMx9hpJng2SSXYR?=
- =?us-ascii?Q?pNxC8lOJI7ezDS9+GFmGVIsFf5I8gXLb0yuledLlImZjVwqP1tXQ+k3qwgFE?=
- =?us-ascii?Q?BV3pMC3ICly1AZgbshh7qCmhoYJqqxzzLeLivkG9en/mQnm5BT9HzAY5lK8R?=
- =?us-ascii?Q?DJ3naME2fB/DoYczfP6q+kQ8R22A4e/J+13XqUNjY00MyiCGQIWcfkUYLsRN?=
- =?us-ascii?Q?cMalFI8B7ibOzH02FA4qQjAMfVFL9punlPvvzkqJhftc8/xvAY7o12indDVC?=
- =?us-ascii?Q?cTKKFNJA2BPJzc21PjlH6eKyJ+v4UwrFZgLLGpfc+M/EI/UCQeeAL9LofAmh?=
- =?us-ascii?Q?JNVTwoWUb3TC5ngOyeeCUKi8mvoozdPQqlo8gxPZJNS5du3kb8UPoVNVA4vn?=
- =?us-ascii?Q?uQ7VRiSivAqO0lLr8foeIvX2T9vFM6EISyE8lRWqhk1PXkRcPUPO9F67wn89?=
- =?us-ascii?Q?Fcqz/Gle8TWS4P2liJKkhL06u0BlcL2O/H20F8CJCI8+Wknt+kEKX9SMkUkH?=
- =?us-ascii?Q?T8naNH+Au1M9bXojiygLV6feBFCeJa7YTNt1TBqr5nZVxmPyMJ9u5DOHbuGL?=
- =?us-ascii?Q?kb2nTq/ZKbeDRUz6mVcojGTOFdSfMv3Tbz4SrtBA?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fjRY7+qEKYHPtnsY9J4pqOG4OSpEl+0q5Ejrq1wLcfXFkj7ysqzrrXVjoIiz?=
+ =?us-ascii?Q?8+ePIMcF3s46dDBeOk0sNhoHgNhgJ2J1yhHRSCo0RKO7KYdOSEzh04CX+pvz?=
+ =?us-ascii?Q?24fOnzjd3W/ThCpZRLU3tmB/Z9evhdWtTnveJWjVrHFLkn3Xbu9WWEpLAh2W?=
+ =?us-ascii?Q?I9fOEzgsBENvGfiXjs5Fxr4zTNP6YiWGDYRnq3lRAKyz2k5iJkZ4wlNmQQue?=
+ =?us-ascii?Q?PNdE61l8HGxy8B22m0w3DJQD+QDuEmF/QeMLkl2WSUlPo2Cz3/mS9lNRXHVS?=
+ =?us-ascii?Q?dF/EyDo6CFeNvmiYrUG0348lY0w2rcKzxXDofmeAPKQIqY72zCyfBU79UnnW?=
+ =?us-ascii?Q?5fYX9RyCxoPZX72YPe/n5AToQDgkdclXB6G0K9+5PcqarueQmuL2rgEZLpQp?=
+ =?us-ascii?Q?mD7OBmvQrZ7opbyK7H+r6/5axrGMJ+Szbr5Z7dXDX96Xht9XzTdYNHe1SFNg?=
+ =?us-ascii?Q?Wjpm8H+T0UzinoYFOZLOXckaDWCEwi8x7fFCUuORbfO7oZl1W3DYzRmdyFCW?=
+ =?us-ascii?Q?H5gi6RfLQkhdptok53Ogy+S9c+2sH0vQ+Kr03rjYhMd12Toc7aatyGrxPBSO?=
+ =?us-ascii?Q?surJAOv52DEL2ryjK/Xv4MxjQmT8FatG5wRSbaL254G73Nq3ZQhZJMuEKafV?=
+ =?us-ascii?Q?rOWXLPXLHySeqdhKq6TZVpm7v78RxFNjqUr6Lr7NphhMuU6B06KksobaeN+y?=
+ =?us-ascii?Q?EcAtNW/HtRQs5m6ErBFh5DC78PljwNLOKsdDPYpB6HBjLt/3KAmtdU6gU3LM?=
+ =?us-ascii?Q?q31pZA88M58cWpiF1wzAVVzsI0yBlYKRrgPZx/N7wYaDilOXDvmQxR77pJv+?=
+ =?us-ascii?Q?Ap6shDJRCpegURtPLjYmpnTQL2Lvvfe8ktZWSUf3tnGTEbOLoczY+PUCIyVE?=
+ =?us-ascii?Q?Db33S8MK8i16IRm26vMJrKsZY6eNckwhCkar2lv1rgo2qFK5NTmnhdGX4433?=
+ =?us-ascii?Q?GxdEFHp4+B2Sorp8S/2OgRLcLZa3bnXaML6jhladDMq5vM2+l7T9QtvOQBJJ?=
+ =?us-ascii?Q?PB4sb9qMPCJijlx1jdw1cl6Nfw+vCo/+6nQNGFKqgWsDcFrkpX08YbGFJYpO?=
+ =?us-ascii?Q?f4G6utgTMxj3rD+/HwCRBCs9GIRHZHgeJpZG+M/qVY+C1GCOLE94AhwH+XdM?=
+ =?us-ascii?Q?LJXkE9ep9skIsNQ4k4lal/yWNm5AT/p6YY1G7is2bScwsUlMhXxL2S04U+Tx?=
+ =?us-ascii?Q?eZGmth5T7PPMbE/zgKQhK7cSMu1pB5HMqef8MnQFgNjbrxpDjsEvuI5s5Udv?=
+ =?us-ascii?Q?Y79it6sRjpKvahcSHy0on1TWpdfGEDIB7KxlSQ4Hqg3nErkGi6t/MAD75Y+H?=
+ =?us-ascii?Q?UFxhxXUYNVTXih5oDSqcHjZJAO+aLeuKII/AeJQiTMj8lccpyRL3yioVkcWK?=
+ =?us-ascii?Q?qfuo3cqbZEkUAQEZCuC8lKRfT5ZNW+tJjX0HaHamwBtMPDCN9XVzEIzHEx0k?=
+ =?us-ascii?Q?Uu2X4uSAVP6zLPNaLMHnca9IcX/lnMMAl1Bt6JweLyOdgoNrvUVJJm3V5zrn?=
+ =?us-ascii?Q?Lev8Tam12w307fGRXwlvdcOv0pG7zbwaHzNTkbGrX+yFYPkFRbxmPeXl3qYV?=
+ =?us-ascii?Q?jlH+sYLt5yqTr0CfBTan91UPwpxlSGNBYU2iKdTG?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 386763df-00ac-40e6-76e0-08dcf981a748
+X-MS-Exchange-CrossTenant-Network-Message-Id: dcf341c7-0648-4fbb-e6c4-08dcf981b205
 X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 07:57:23.5763
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 07:57:41.4990
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JYVtaSf6C6h8vEjdk7juLdS//FcFxpOki8A3wQMI27kSKgBjCXTFZ+VEVhGQbCpbuMtcSJSzoQqpu75vzjvOEw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: DtXLmAZzonssS/YwtKdLvTnNnY4TQ2ZdLIP+p2aWjyrIqzDgXl1uVJ+B4/7zjTgCHk9hxHEnbP+LQC7FAE4CVg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_005727_064908_23500AFA 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20241031_005745_043665_766F72F0 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,35 +172,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add apps_reset deassertion in the imx_pcie_deassert_core_reset(). Let it be
-symmetric with imx_pcie_assert_core_reset().
+From: Frank Li <Frank.Li@nxp.com>
 
-In the commit first introduced apps_reset, apps_reset is asserted in
-imx6_pcie_assert_core_reset(), but it is de-asserted in another place, in
-stead of the according symmetric function imx6_pcie_deassert_core_reset().
+Call common dwc suspend/resume function. Use dwc common iATU method to
+send out PME_TURN_OFF message. In Old DWC implementations,
+PCIE_ATU_INHIBIT_PAYLOAD bit in iATU Ctrl2 register is reserved. So the
+generic DWC implementation of sending the PME_Turn_Off message using a
+dummy MMIO write cannot be used. Use previouse method to kick off
+PME_TURN_OFF MSG for these platforms.
 
-Use this patch to fix it, and make core reset assertion deasertion
-symmetric.
+Replace the imx_pcie_stop_link() and imx_pcie_host_exit() by
+dw_pcie_suspend_noirq() in imx_pcie_suspend_noirq().
 
-Fixes: 9b3fe6796d7c ("PCI: imx6: Add code to support i.MX7D")
+dw_pcie_suspend_noirq()
+  dw_pcie_stop_link();
+  pci->pp.ops->deinit();
+    imx_pcie_host_exit();
+
+Replace the imx_pcie_host_init(), dw_pcie_setup_rc() and
+imx_pcie_start_link() by dw_pcie_resume_noirq() in
+imx_pcie_resume_noirq().
+
+dw_pcie_resume_noirq()
+  pci->pp.ops->init();
+    imx_pcie_host_init();
+  dw_pcie_setup_rc();
+  dw_pcie_start_link();
+    imx_pcie_start_link();
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pci/controller/dwc/pci-imx6.c | 96 ++++++++++-----------------
+ 1 file changed, 35 insertions(+), 61 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 7479d3253f20..92f2d2536ffc 100644
+index dbcf22e440e2..410a31e5f82a 100644
 --- a/drivers/pci/controller/dwc/pci-imx6.c
 +++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -771,6 +771,7 @@ static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
- static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
- {
- 	reset_control_deassert(imx_pcie->pciephy_reset);
-+	reset_control_deassert(imx_pcie->apps_reset);
+@@ -33,6 +33,7 @@
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
  
- 	if (imx_pcie->drvdata->core_reset)
- 		imx_pcie->drvdata->core_reset(imx_pcie, false);
++#include "../../pci.h"
+ #include "pcie-designware.h"
+ 
+ #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
+@@ -83,6 +84,7 @@ enum imx_pcie_variants {
+ #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
+ #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
+ #define IMX_PCIE_FLAG_CLOCKS_OPTIONAL		BIT(9)
++#define IMX_PCIE_FLAG_CUSTOM_PME_TURNOFF	BIT(10)
+ 
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+@@ -107,19 +109,18 @@ struct imx_pcie_drvdata {
+ 	int (*init_phy)(struct imx_pcie *pcie);
+ 	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+ 	int (*core_reset)(struct imx_pcie *pcie, bool assert);
++	const struct dw_pcie_host_ops *ops;
+ };
+ 
+ struct imx_pcie {
+ 	struct dw_pcie		*pci;
+ 	struct gpio_desc	*reset_gpiod;
+-	bool			link_is_up;
+ 	struct clk_bulk_data	clks[IMX_PCIE_MAX_CLKS];
+ 	struct regmap		*iomuxc_gpr;
+ 	u16			msi_ctrl;
+ 	u32			controller_id;
+ 	struct reset_control	*pciephy_reset;
+ 	struct reset_control	*apps_reset;
+-	struct reset_control	*turnoff_reset;
+ 	u32			tx_deemph_gen1;
+ 	u32			tx_deemph_gen2_3p5db;
+ 	u32			tx_deemph_gen2_6db;
+@@ -898,13 +899,11 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+ 		dev_info(dev, "Link: Only Gen1 is enabled\n");
+ 	}
+ 
+-	imx_pcie->link_is_up = true;
+ 	tmp = dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKSTA);
+ 	dev_info(dev, "Link up, Gen%i\n", tmp & PCI_EXP_LNKSTA_CLS);
+ 	return 0;
+ 
+ err_reset_phy:
+-	imx_pcie->link_is_up = false;
+ 	dev_dbg(dev, "PHY DEBUG_R0=0x%08x DEBUG_R1=0x%08x\n",
+ 		dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG0),
+ 		dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG1));
+@@ -1023,9 +1022,32 @@ static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
+ 	return cpu_addr - entry->offset;
+ }
+ 
++/*
++ * In Old DWC implementations, PCIE_ATU_INHIBIT_PAYLOAD bit in iATU Ctrl2
++ * register is reserved. So the generic DWC implementation of sending the
++ * PME_Turn_Off message using a dummy MMIO write cannot be used.
++ */
++static void imx_pcie_pme_turn_off(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
++
++	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12, IMX6SX_GPR12_PCIE_PM_TURN_OFF);
++	regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12, IMX6SX_GPR12_PCIE_PM_TURN_OFF);
++
++	usleep_range(PCIE_PME_TO_L2_TIMEOUT_US/10, PCIE_PME_TO_L2_TIMEOUT_US);
++}
++
++
+ static const struct dw_pcie_host_ops imx_pcie_host_ops = {
+ 	.init = imx_pcie_host_init,
+ 	.deinit = imx_pcie_host_exit,
++	.pme_turn_off = imx_pcie_pme_turn_off,
++};
++
++static const struct dw_pcie_host_ops imx_pcie_host_dw_pme_ops = {
++	.init = imx_pcie_host_init,
++	.deinit = imx_pcie_host_exit,
+ };
+ 
+ static const struct dw_pcie_ops dw_pcie_ops = {
+@@ -1146,43 +1168,6 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
+ 	return 0;
+ }
+ 
+-static void imx_pcie_pm_turnoff(struct imx_pcie *imx_pcie)
+-{
+-	struct device *dev = imx_pcie->pci->dev;
+-
+-	/* Some variants have a turnoff reset in DT */
+-	if (imx_pcie->turnoff_reset) {
+-		reset_control_assert(imx_pcie->turnoff_reset);
+-		reset_control_deassert(imx_pcie->turnoff_reset);
+-		goto pm_turnoff_sleep;
+-	}
+-
+-	/* Others poke directly at IOMUXC registers */
+-	switch (imx_pcie->drvdata->variant) {
+-	case IMX6SX:
+-	case IMX6QP:
+-		regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+-				IMX6SX_GPR12_PCIE_PM_TURN_OFF,
+-				IMX6SX_GPR12_PCIE_PM_TURN_OFF);
+-		regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+-				IMX6SX_GPR12_PCIE_PM_TURN_OFF, 0);
+-		break;
+-	default:
+-		dev_err(dev, "PME_Turn_Off not implemented\n");
+-		return;
+-	}
+-
+-	/*
+-	 * Components with an upstream port must respond to
+-	 * PME_Turn_Off with PME_TO_Ack but we can't check.
+-	 *
+-	 * The standard recommends a 1-10ms timeout after which to
+-	 * proceed anyway as if acks were received.
+-	 */
+-pm_turnoff_sleep:
+-	usleep_range(1000, 10000);
+-}
+-
+ static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
+ {
+ 	u8 offset;
+@@ -1206,36 +1191,26 @@ static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
+ static int imx_pcie_suspend_noirq(struct device *dev)
+ {
+ 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
+-	struct dw_pcie_rp *pp = &imx_pcie->pci->pp;
+ 
+ 	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
+ 		return 0;
+ 
+ 	imx_pcie_msi_save_restore(imx_pcie, true);
+-	imx_pcie_pm_turnoff(imx_pcie);
+-	imx_pcie_stop_link(imx_pcie->pci);
+-	imx_pcie_host_exit(pp);
+-
+-	return 0;
++	return dw_pcie_suspend_noirq(imx_pcie->pci);
+ }
+ 
+ static int imx_pcie_resume_noirq(struct device *dev)
+ {
+ 	int ret;
+ 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
+-	struct dw_pcie_rp *pp = &imx_pcie->pci->pp;
+ 
+ 	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
+ 		return 0;
+ 
+-	ret = imx_pcie_host_init(pp);
++	ret = dw_pcie_resume_noirq(imx_pcie->pci);
+ 	if (ret)
+ 		return ret;
+ 	imx_pcie_msi_save_restore(imx_pcie, false);
+-	dw_pcie_setup_rc(pp);
+-
+-	if (imx_pcie->link_is_up)
+-		imx_pcie_start_link(imx_pcie->pci);
+ 
+ 	return 0;
+ }
+@@ -1267,11 +1242,14 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 
+ 	pci->dev = dev;
+ 	pci->ops = &dw_pcie_ops;
+-	pci->pp.ops = &imx_pcie_host_ops;
+ 
+ 	imx_pcie->pci = pci;
+ 	imx_pcie->drvdata = of_device_get_match_data(dev);
+ 
++	pci->pp.ops = &imx_pcie_host_dw_pme_ops;
++	if (imx_pcie->drvdata->ops)
++		pci->pp.ops = imx_pcie->drvdata->ops;
++
+ 	/* Find the PHY if one is defined, only imx7d uses it */
+ 	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
+ 	if (np) {
+@@ -1345,13 +1323,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		break;
+ 	}
+ 
+-	/* Grab turnoff reset */
+-	imx_pcie->turnoff_reset = devm_reset_control_get_optional_exclusive(dev, "turnoff");
+-	if (IS_ERR(imx_pcie->turnoff_reset)) {
+-		dev_err(dev, "Failed to get TURNOFF reset control\n");
+-		return PTR_ERR(imx_pcie->turnoff_reset);
+-	}
+-
+ 	if (imx_pcie->drvdata->gpr) {
+ 	/* Grab GPR config register range */
+ 		imx_pcie->iomuxc_gpr =
+@@ -1430,6 +1401,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		if (ret < 0)
+ 			return ret;
+ 	} else {
++		pci->pp.use_atu_msg = true;
+ 		ret = dw_pcie_host_init(&pci->pp);
+ 		if (ret < 0)
+ 			return ret;
+@@ -1494,6 +1466,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.init_phy = imx6sx_pcie_init_phy,
+ 		.enable_ref_clk = imx6sx_pcie_enable_ref_clk,
+ 		.core_reset = imx6sx_pcie_core_reset,
++		.ops = &imx_pcie_host_ops,
+ 	},
+ 	[IMX6QP] = {
+ 		.variant = IMX6QP,
+@@ -1511,6 +1484,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.init_phy = imx_pcie_init_phy,
+ 		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
+ 		.core_reset = imx6qp_pcie_core_reset,
++		.ops = &imx_pcie_host_ops,
+ 	},
+ 	[IMX7D] = {
+ 		.variant = IMX7D,
 -- 
 2.37.1
 
