@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492C5D767F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F99D767F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 18:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9pkCMrlG+6d8KDFXYWlMBHxdGI2r5U3tUuEXE09VQM=; b=Qe5GNJ/JFCn8Z49xYBmUXFOBiJ
-	MbMCLAQl4WiPvUxdZAqSaPBf8ucZlejYQIUsIAgPNdLNJYmfIEYhtsCPffjhqVGCGStolJ/nKKrGG
-	S8NfkYI/clsB/5HLzpxWjWCFhhtHXKGIvs+Ng2wSwigeKjbvgo7efRj/QyKInsodhvEHVUwY3rPJv
-	zudEVryn3Z67RjMz8Wt0vTk1phzSla0HxI0i+Jlox4koQ1rwk1OFMRuWUNVn1GlSaGbI/z/3qb9Ll
-	ZBvMYOHX+eyBkeC8QnscgaLebiHBUIqKjfe0QrWrmtWq21qAKJb3RRU5EkYvDYEOsqgTIuLr/PnIu
-	GIcdHUpQ==;
+	bh=nff/hc36DIoTlMOGJ09z8nvWVNZRYH5gfv3Ti6i/dfw=; b=Srt18mIu3T3CYGI7Thoq8bnlpu
+	/3hQUuZiksW+JssnJe4tpvf3yAExGk5YoPZuS+wKlI6Tne2ZYy6uVBmESsN45myO2XZPFBWxC7LYc
+	4m2LQ4cQiaf93GSu+imjMQ2OKL4oXPF6tbDflwvcWhjsVOTSD+6iYp1GGrGpa6xoxHebpXTyEK7Z+
+	R1dVWWL/iufTbcJDYzGeBJ0lBpf+ozStS5Q5ln7LzZUioB6laBvL1TWpiVvZWQfdkcUFCeB0P2JqP
+	g3ni/4yMNynCBdgaMmJIxXwNPWIXtD1l7kgA+QtqMuG0CqhN+A5navMQ6rW/gTbspDRQJZyCnXMOM
+	GGNyKcdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6aB5-00000004XPz-239W;
-	Thu, 31 Oct 2024 18:45:51 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6a8n-00000004Wlv-1Snt
+	id 1t6aEQ-00000004YII-2VVE;
+	Thu, 31 Oct 2024 18:49:18 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6aCk-00000004Xgc-0EQO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 18:43:31 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2888bcc0f15so214942fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 11:43:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730400208; x=1731005008; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m9pkCMrlG+6d8KDFXYWlMBHxdGI2r5U3tUuEXE09VQM=;
-        b=Pc8NqmmMcRV4hLJ7CNzJqprm7MmhB36ITdMIlzh4IeGVzVYz7SC6SOkaXUpzpcFG+E
-         AQbxbsqPfxLiBqMY5duKoUld8swzI2kQJwjkwxFIGWP5B1jhGpho2wppv1rtv8U0iJFk
-         VUgT34mls1mCmzab82eyIdme4DmU272Xkv+lM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730400208; x=1731005008;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m9pkCMrlG+6d8KDFXYWlMBHxdGI2r5U3tUuEXE09VQM=;
-        b=K/P8zDzKBxMC+PpRBjwKrfW6x91gM1+SDC5ePlDJbjoICIPHXxg/Vh99OG5NFOm+gp
-         uc3a+NSQmmSQGLlXaR4NJarWuOLsjQGP5wkhmctf0K2Octi+OuyeNmqYinPrUJoEnnB1
-         rL4sIg5U+r0EyXJOFUVjhdLuJbwHZzO4OQG7c/iZmzJbzqysyZ72Lgvkc9mtpRzbTGuh
-         g5zMn/C8088EfQ5Nvdim4N9vB9Raz5o1dDmbAg3xe8RVBOO/QpfNJK9yA4dOajCcdkk6
-         iMCzGJCyQwjhUIbRP+5t/DVxxXiIeqP2x+5C6DDZ1rC0YCbcMyouqysIUAKY5YMPbYWW
-         S9ww==
-X-Gm-Message-State: AOJu0YydXN9YCsWkzfiSTc8/zv7t8+8v82o0lDSTMqaus9US2uB+GLLG
-	DmO2wO246DwBJyEdRvyiFZCtfiLeOEHbN/3OGi2779T9beL92VYZqjRf9d8qsC866jd4FgIh5+F
-	YanB1azd4PmKAWoRLoy83znSJBB2mJP4ebYxQ
-X-Google-Smtp-Source: AGHT+IFGIJKLWI/BUm9W6oX5BAu9UJongzEp3ksTnogYOtUiu9chLn5n70BL50s4fYBWdm9xYpy2QybIo/hGZpLsz+c=
-X-Received: by 2002:a05:6870:7311:b0:288:2955:3efb with SMTP id
- 586e51a60fabf-29051c4e8a4mr4891117fac.8.1730400207786; Thu, 31 Oct 2024
- 11:43:27 -0700 (PDT)
+	Thu, 31 Oct 2024 18:47:36 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B32BE20C5D6F;
+	Thu, 31 Oct 2024 11:47:30 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B32BE20C5D6F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1730400451;
+	bh=nff/hc36DIoTlMOGJ09z8nvWVNZRYH5gfv3Ti6i/dfw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eC1OCMqT39nv4qeMrmizrUxVULbAWTY3YorJekiK1jSbbjQdno99pAOLs96SQ5QX4
+	 KUeN6CwYJHVOkiCVev37eGfclzakwJpvbR/7WUMc2+5sLmJpwU7b5N8wnYgzwyfk1v
+	 425UI9/AN5eE4TYcNONqfQr5yQ9dYLkgir2QvEYE=
+Message-ID: <90364f44-98e7-4a9a-af57-881cae8e81a7@linux.microsoft.com>
+Date: Thu, 31 Oct 2024 11:47:30 -0700
 MIME-Version: 1.0
-References: <20241029144539.111155-1-kevin.brodsky@arm.com>
- <20241029144539.111155-2-kevin.brodsky@arm.com> <CABi2SkUTSuk_PS9==_czM=64FGWK_5DyUe5QELxiFHtPFsKaHw@mail.gmail.com>
- <cd0e114d-57eb-4c90-bb6f-9abf0cc8920f@arm.com>
-In-Reply-To: <cd0e114d-57eb-4c90-bb6f-9abf0cc8920f@arm.com>
-From: Jeff Xu <jeffxu@chromium.org>
-Date: Thu, 31 Oct 2024 11:43:16 -0700
-Message-ID: <CABi2SkW6_CACjYheaEMuCYGnwnXKoVGuACtnCyDb8Zjfac6Wog@mail.gmail.com>
-Subject: Re: [PATCH v3 1/5] arm64: signal: Improve POR_EL0 handling to avoid
- uaccess failures
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org, 
-	anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com, broonie@kernel.org, 
-	catalin.marinas@arm.com, dave.hansen@linux.intel.com, Dave.Martin@arm.com, 
-	joey.gouly@arm.com, keith.lucas@oracle.com, pierre.langlois@arm.com, 
-	shuah@kernel.org, sroettger@google.com, tglx@linutronix.de, will@kernel.org, 
-	yury.khrustalev@arm.com, linux-kselftest@vger.kernel.org, x86@kernel.org, 
-	Kees Cook <keescook@chromium.org>, Jorge Lucangeli Obes <jorgelo@chromium.org>, 
-	Jann Horn <jannh@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] hyperv: Remove unnecessary #includes
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "seanjc@google.com" <seanjc@google.com>,
+ "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
+ <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
+References: <1727985064-18362-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1727985064-18362-3-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB41576686E491F8EEA9FDB5F3D4782@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB41576686E491F8EEA9FDB5F3D4782@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_114329_429951_62901841 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20241031_114734_193058_4220F4FC 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,101 +106,318 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 1:45=E2=80=AFAM Kevin Brodsky <kevin.brodsky@arm.co=
-m> wrote:
->
-> On 30/10/2024 23:01, Jeff Xu wrote:
-> >> -static int restore_poe_context(struct user_ctxs *user)
-> >> +static int restore_poe_context(struct user_ctxs *user,
-> >> +                              struct user_access_state *ua_state)
-> >>  {
-> >>         u64 por_el0;
-> >>         int err =3D 0;
-> >> @@ -282,7 +338,7 @@ static int restore_poe_context(struct user_ctxs *u=
-ser)
-> >>
-> >>         __get_user_error(por_el0, &(user->poe->por_el0), err);
-> >>         if (!err)
-> >> -               write_sysreg_s(por_el0, SYS_POR_EL0);
-> >> +               ua_state->por_el0 =3D por_el0;
-> >>
-> >>         return err;
-> >>  }
-> >> @@ -850,7 +906,8 @@ static int parse_user_sigframe(struct user_ctxs *u=
-ser,
-> >>  }
-> >>
-> >>  static int restore_sigframe(struct pt_regs *regs,
-> >> -                           struct rt_sigframe __user *sf)
-> >> +                           struct rt_sigframe __user *sf,
-> >> +                           struct user_access_state *ua_state)
-> >>  {
-> >>         sigset_t set;
-> >>         int i, err;
-> >> @@ -899,7 +956,7 @@ static int restore_sigframe(struct pt_regs *regs,
-> >>                 err =3D restore_zt_context(&user);
-> >>
-> >>         if (err =3D=3D 0 && system_supports_poe() && user.poe)
-> >> -               err =3D restore_poe_context(&user);
-> >> +               err =3D restore_poe_context(&user, ua_state);
-> >>
-> >>         return err;
-> >>  }
-> >> @@ -908,6 +965,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
-> >>  {
-> >>         struct pt_regs *regs =3D current_pt_regs();
-> >>         struct rt_sigframe __user *frame;
-> >> +       struct user_access_state ua_state;
-> >>
-> >>         /* Always make any pending restarted system calls return -EINT=
-R */
-> >>         current->restart_block.fn =3D do_no_restart_syscall;
-> >> @@ -924,12 +982,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
-> >>         if (!access_ok(frame, sizeof (*frame)))
-> >>                 goto badframe;
-> >>
-> >> -       if (restore_sigframe(regs, frame))
-> >> +       if (restore_sigframe(regs, frame, &ua_state))
-> >>                 goto badframe;
-> >>
-> >>         if (restore_altstack(&frame->uc.uc_stack))
-> >>                 goto badframe;
-> >>
-> > Do you need to move restore_altstack ahead of restore_sigframe?
->
-> This is not necessary because restore_sigframe() no longer writes to
-> POR_EL0. restore_poe_context() (above) now saves the original POR_EL0
-> value into ua_state, and it is restore_user_access_state() (called below
-> just before returning to userspace) that actually writes to POR_EL0,
-> after all uaccess is completed.
->
-Got it, thanks for the explanation.
+On 10/10/2024 11:21 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, October 3, 2024 12:51 PM
+>>
+>> asm/hyperv-tlfs.h is already included implicitly wherever mshyperv.h
+>> or linux/hyperv.h is included. Remove those redundancies.
+> 
+> I've been under the impression that it is preferable to directly include
+> .h files for all definitions that a source code file uses, even if the
+> needed .h file is indirectly included by some other .h file. I looked through
 
--Jeff
+I've also heard this idea, and generally try to stick to it. I myself
+haven't yet encountered a situation where doing this or not has greatly
+impacted the readability of the code.
 
-> Having said that, I somehow missed the call to restore_altstack() when
-> writing the commit message, so these changes in sys_rt_sigreturn are in
-> fact necessary. Good catch! At least the patch itself should be doing
-> the right thing.
->
-> - Kevin
->
-> > similar as x86 change [1],
-> > the discussion for this  happened  in [2] [3]
-> >
-> > [1] https://lore.kernel.org/lkml/20240802061318.2140081-5-aruna.ramakri=
-shna@oracle.com/
-> > [2] https://lore.kernel.org/lkml/20240425210540.3265342-1-jeffxu@chromi=
-um.org/
-> > [3] https://lore.kernel.org/lkml/d0162c76c25bc8e1c876aebe8e243ff2e68623=
-59.camel@intel.com/
-> >
-> > Thanks
-> > -Jeff
-> >
-> >
-> >> +       restore_user_access_state(&ua_state);
-> >> +
-> >>         return regs->regs[0];
->
+> the coding style documentation, and didn't find anything addressing
+> this topic, so maybe I'm wrong. But I know I've seen patches to other
+> parts of the kernel that were changes to follow the direct inclusion
+> approach.  Direct inclusion is less fragile if the #include file nesting
+> structure changes (and perhaps removes the indirect inclusion).
+> 
+> The mshyperv.h and linux/hyperv.h dependency on hyperv-tlfs.h is
+> highly unlikely to change, so the chance of breakage is minimal. But
+
+You probably already understood this after seeing the later patches, but
+it's worth pointing out that the goal of this series is to change that
+dependency (situationally), which is exactly why I created this precursor
+patch.
+
+> I wonder if your approach is going the wrong direction vs. preferred
+> kernel practices.
+> 
+
+I could replace <asm/hyperv-tlfs.h> with <hyperv/hvhdk.h> in most of these
+cases (in v2), to preserve the explicit include of the definitions before
+mshyperv.h or linux/hyperv.h. I will give it a try in v2.
+
+Thanks,
+Nuno
+
+> Michael
+> 
+>>
+>> Remove includes of linux/hyperv.h and mshyperv.h where they are not
+>> needed.
+>>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> ---
+>>  arch/arm64/hyperv/hv_core.c        | 2 --
+>>  arch/x86/hyperv/hv_apic.c          | 1 -
+>>  arch/x86/hyperv/hv_init.c          | 2 --
+>>  arch/x86/hyperv/hv_proc.c          | 1 -
+>>  arch/x86/hyperv/ivm.c              | 1 -
+>>  arch/x86/hyperv/mmu.c              | 1 -
+>>  arch/x86/hyperv/nested.c           | 1 -
+>>  arch/x86/include/asm/kvm_host.h    | 1 -
+>>  arch/x86/include/asm/mshyperv.h    | 1 -
+>>  arch/x86/kernel/cpu/mshyperv.c     | 1 -
+>>  arch/x86/kvm/vmx/vmx_onhyperv.h    | 1 -
+>>  arch/x86/mm/pat/set_memory.c       | 2 --
+>>  drivers/clocksource/hyperv_timer.c | 1 -
+>>  drivers/hv/hv_balloon.c            | 2 --
+>>  drivers/hv/hv_common.c             | 1 -
+>>  drivers/hv/hv_kvp.c                | 1 -
+>>  drivers/hv/hv_snapshot.c           | 1 -
+>>  drivers/hv/hyperv_vmbus.h          | 1 -
+>>  net/vmw_vsock/hyperv_transport.c   | 1 -
+>>  19 files changed, 23 deletions(-)
+>>
+>> diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
+>> index f1ebc025e1df..9d1969b875e9 100644
+>> --- a/arch/arm64/hyperv/hv_core.c
+>> +++ b/arch/arm64/hyperv/hv_core.c
+>> @@ -11,11 +11,9 @@
+>>  #include <linux/types.h>
+>>  #include <linux/export.h>
+>>  #include <linux/mm.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/arm-smccc.h>
+>>  #include <linux/module.h>
+>>  #include <asm-generic/bug.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>
+>>  /*
+>> diff --git a/arch/x86/hyperv/hv_apic.c b/arch/x86/hyperv/hv_apic.c
+>> index 0569f579338b..f022d5f64fb6 100644
+>> --- a/arch/x86/hyperv/hv_apic.c
+>> +++ b/arch/x86/hyperv/hv_apic.c
+>> @@ -23,7 +23,6 @@
+>>  #include <linux/vmalloc.h>
+>>  #include <linux/mm.h>
+>>  #include <linux/clockchips.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/cpuhotplug.h>
+>>  #include <asm/hypervisor.h>
+>> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+>> index 17a71e92a343..fc3c3d76c181 100644
+>> --- a/arch/x86/hyperv/hv_init.c
+>> +++ b/arch/x86/hyperv/hv_init.c
+>> @@ -19,7 +19,6 @@
+>>  #include <asm/sev.h>
+>>  #include <asm/ibt.h>
+>>  #include <asm/hypervisor.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>  #include <asm/idtentry.h>
+>>  #include <asm/set_memory.h>
+>> @@ -27,7 +26,6 @@
+>>  #include <linux/version.h>
+>>  #include <linux/vmalloc.h>
+>>  #include <linux/mm.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/cpuhotplug.h>
+>> diff --git a/arch/x86/hyperv/hv_proc.c b/arch/x86/hyperv/hv_proc.c
+>> index 3fa1f2ee7b0d..b74c06c04ff1 100644
+>> --- a/arch/x86/hyperv/hv_proc.c
+>> +++ b/arch/x86/hyperv/hv_proc.c
+>> @@ -3,7 +3,6 @@
+>>  #include <linux/vmalloc.h>
+>>  #include <linux/mm.h>
+>>  #include <linux/clockchips.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/cpuhotplug.h>
+>>  #include <linux/minmax.h>
+>> diff --git a/arch/x86/hyperv/ivm.c b/arch/x86/hyperv/ivm.c
+>> index 60fc3ed72830..b56d70612734 100644
+>> --- a/arch/x86/hyperv/ivm.c
+>> +++ b/arch/x86/hyperv/ivm.c
+>> @@ -7,7 +7,6 @@
+>>   */
+>>
+>>  #include <linux/bitfield.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/types.h>
+>>  #include <linux/slab.h>
+>>  #include <asm/svm.h>
+>> diff --git a/arch/x86/hyperv/mmu.c b/arch/x86/hyperv/mmu.c
+>> index 1cc113200ff5..cc8c3bd0e7c2 100644
+>> --- a/arch/x86/hyperv/mmu.c
+>> +++ b/arch/x86/hyperv/mmu.c
+>> @@ -1,6 +1,5 @@
+>>  #define pr_fmt(fmt)  "Hyper-V: " fmt
+>>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/log2.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/types.h>
+>> diff --git a/arch/x86/hyperv/nested.c b/arch/x86/hyperv/nested.c
+>> index 9dc259fa322e..ee06d0315c24 100644
+>> --- a/arch/x86/hyperv/nested.c
+>> +++ b/arch/x86/hyperv/nested.c
+>> @@ -11,7 +11,6 @@
+>>
+>>
+>>  #include <linux/types.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>  #include <asm/tlbflush.h>
+>>
+>> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+>> index 4a68cb3eba78..3627eab994a3 100644
+>> --- a/arch/x86/include/asm/kvm_host.h
+>> +++ b/arch/x86/include/asm/kvm_host.h
+>> @@ -24,7 +24,6 @@
+>>  #include <linux/pvclock_gtod.h>
+>>  #include <linux/clocksource.h>
+>>  #include <linux/irqbypass.h>
+>> -#include <linux/hyperv.h>
+>>  #include <linux/kfifo.h>
+>>
+>>  #include <asm/apic.h>
+>> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+>> index 390c4d13956d..47ca48062547 100644
+>> --- a/arch/x86/include/asm/mshyperv.h
+>> +++ b/arch/x86/include/asm/mshyperv.h
+>> @@ -9,7 +9,6 @@
+>>  #include <asm/hyperv-tlfs.h>
+>>  #include <asm/nospec-branch.h>
+>>  #include <asm/paravirt.h>
+>> -#include <asm/mshyperv.h>
+>>
+>>  /*
+>>   * Hyper-V always provides a single IO-APIC at this MMIO address.
+>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+>> index e0fd57a8ba84..8e8fd23b1439 100644
+>> --- a/arch/x86/kernel/cpu/mshyperv.c
+>> +++ b/arch/x86/kernel/cpu/mshyperv.c
+>> @@ -20,7 +20,6 @@
+>>  #include <linux/random.h>
+>>  #include <asm/processor.h>
+>>  #include <asm/hypervisor.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>  #include <asm/desc.h>
+>>  #include <asm/idtentry.h>
+>> diff --git a/arch/x86/kvm/vmx/vmx_onhyperv.h
+>> b/arch/x86/kvm/vmx/vmx_onhyperv.h
+>> index eb48153bfd73..f4b081eb6521 100644
+>> --- a/arch/x86/kvm/vmx/vmx_onhyperv.h
+>> +++ b/arch/x86/kvm/vmx/vmx_onhyperv.h
+>> @@ -3,7 +3,6 @@
+>>  #ifndef __ARCH_X86_KVM_VMX_ONHYPERV_H__
+>>  #define __ARCH_X86_KVM_VMX_ONHYPERV_H__
+>>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>
+>>  #include <linux/jump_label.h>
+>> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+>> index 44f7b2ea6a07..85fa0d4509f0 100644
+>> --- a/arch/x86/mm/pat/set_memory.c
+>> +++ b/arch/x86/mm/pat/set_memory.c
+>> @@ -32,8 +32,6 @@
+>>  #include <asm/pgalloc.h>
+>>  #include <asm/proto.h>
+>>  #include <asm/memtype.h>
+>> -#include <asm/hyperv-tlfs.h>
+>> -#include <asm/mshyperv.h>
+>>
+>>  #include "../mm_internal.h"
+>>
+>> diff --git a/drivers/clocksource/hyperv_timer.c b/drivers/clocksource/hyperv_timer.c
+>> index b2a080647e41..1b7de45a7185 100644
+>> --- a/drivers/clocksource/hyperv_timer.c
+>> +++ b/drivers/clocksource/hyperv_timer.c
+>> @@ -23,7 +23,6 @@
+>>  #include <linux/acpi.h>
+>>  #include <linux/hyperv.h>
+>>  #include <clocksource/hyperv_timer.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>
+>>  static struct clock_event_device __percpu *hv_clock_event;
+>> diff --git a/drivers/hv/hv_balloon.c b/drivers/hv/hv_balloon.c
+>> index c38dcdfcb914..a120e9b80ded 100644
+>> --- a/drivers/hv/hv_balloon.c
+>> +++ b/drivers/hv/hv_balloon.c
+>> @@ -28,8 +28,6 @@
+>>  #include <linux/sizes.h>
+>>
+>>  #include <linux/hyperv.h>
+>> -#include <asm/hyperv-tlfs.h>
+>> -
+>>  #include <asm/mshyperv.h>
+>>
+>>  #define CREATE_TRACE_POINTS
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index 9c452bfbd571..a5217f837237 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -28,7 +28,6 @@
+>>  #include <linux/slab.h>
+>>  #include <linux/dma-map-ops.h>
+>>  #include <linux/set_memory.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <asm/mshyperv.h>
+>>
+>>  /*
+>> diff --git a/drivers/hv/hv_kvp.c b/drivers/hv/hv_kvp.c
+>> index d35b60c06114..68e73ec7ab28 100644
+>> --- a/drivers/hv/hv_kvp.c
+>> +++ b/drivers/hv/hv_kvp.c
+>> @@ -27,7 +27,6 @@
+>>  #include <linux/connector.h>
+>>  #include <linux/workqueue.h>
+>>  #include <linux/hyperv.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>
+>>  #include "hyperv_vmbus.h"
+>>  #include "hv_utils_transport.h"
+>> diff --git a/drivers/hv/hv_snapshot.c b/drivers/hv/hv_snapshot.c
+>> index 0d2184be1691..90fc935e89bd 100644
+>> --- a/drivers/hv/hv_snapshot.c
+>> +++ b/drivers/hv/hv_snapshot.c
+>> @@ -12,7 +12,6 @@
+>>  #include <linux/connector.h>
+>>  #include <linux/workqueue.h>
+>>  #include <linux/hyperv.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>
+>>  #include "hyperv_vmbus.h"
+>>  #include "hv_utils_transport.h"
+>> diff --git a/drivers/hv/hyperv_vmbus.h b/drivers/hv/hyperv_vmbus.h
+>> index 76ac5185a01a..321770d7ce25 100644
+>> --- a/drivers/hv/hyperv_vmbus.h
+>> +++ b/drivers/hv/hyperv_vmbus.h
+>> @@ -15,7 +15,6 @@
+>>  #include <linux/list.h>
+>>  #include <linux/bitops.h>
+>>  #include <asm/sync_bitops.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>  #include <linux/atomic.h>
+>>  #include <linux/hyperv.h>
+>>  #include <linux/interrupt.h>
+>> diff --git a/net/vmw_vsock/hyperv_transport.c b/net/vmw_vsock/hyperv_transport.c
+>> index e2157e387217..f77f0ea1ddad 100644
+>> --- a/net/vmw_vsock/hyperv_transport.c
+>> +++ b/net/vmw_vsock/hyperv_transport.c
+>> @@ -13,7 +13,6 @@
+>>  #include <linux/hyperv.h>
+>>  #include <net/sock.h>
+>>  #include <net/af_vsock.h>
+>> -#include <asm/hyperv-tlfs.h>
+>>
+>>  /* Older (VMBUS version 'VERSION_WIN10' or before) Windows hosts have some
+>>   * stricter requirements on the hv_sock ring buffer size of six 4K pages.
+>> --
+>> 2.34.1
+>>
+
 
