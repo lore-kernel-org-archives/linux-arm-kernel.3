@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B896D5CCAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9D3D6B6A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 12:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJDEPXTChMKrpdGhvAdJvqibkp4cmd3gs/U830lsVoU=; b=aMSkTdy8DZ585B0kSxWRdSY1x5
-	UyW56CIl65xFLgIB52KMrUOrJ9MZSVewDIYX3a3M8iGVaXmHZ/2qekkVdpko77vl00a3TaPA7Myxx
-	emSD88nepmeDb7qBkWr+N/t4bFdDpmLQSI3pW/TRJkLglAbD7T3wcMq3PKcjLipDvEgjiqqQR+jwP
-	P2G4WIp788Ml0ak5LYgngAh2honN0hthVG/90/HDOVD6jqox1J+JyshJbkxEwwyrgjxOaLC1DlVIb
-	lxZBXHpbdBfXm4sZYljb9CcT6klxEsFpy+AnPnxRFtCYVCFZW1cwtgD28vq5XD4p7GafYF7mulemc
-	69IDESTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PZFHYS3RLQVBCEyFhBjpblkzuBhfsjCvMeSCBEdE1Kg=; b=1Boa0Xn7ytKshIpKSbVJlak7pb
+	F30os94abNJC/E07Lvf70x21xVLkEfQmyhgCaSwGYbAy07nxWs5LxaOVq2cNLuet5OGpnaw2OGl0N
+	ZM+r3rjZVncgXt7L9UMYmykHZ52ijInaGN7fkb9uhql+ATfkSA/CX4YL7wPegW0YgmK1j0JHHLS4Z
+	+xwZSqMvjqs8EjBqpP4l4SRZM072P4fwmkHmlvpQd1+GLgjDtOi1ON4Urwg956zqrKYTuv18t0Lc8
+	mkepMefXoz6YiiFI/eIbNjMN50cG9zZ3WjQYwxTMpae7sIZYh+eLgycPzDQvH4ckaeopY/p8XRUTL
+	tvKhZRDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6U92-00000003VWC-1DeU;
-	Thu, 31 Oct 2024 12:19:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6UAe-00000003Vf8-20np;
+	Thu, 31 Oct 2024 12:21:00 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6U6B-00000003V5t-2nOt
+	id 1t6U7q-00000003VMk-3ypC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 12:16:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 37B8CA44131;
-	Thu, 31 Oct 2024 12:14:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 573A1C4CEF5;
-	Thu, 31 Oct 2024 12:16:18 +0000 (UTC)
-Date: Thu, 31 Oct 2024 12:16:16 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@ucw.cz>, Len Brown <len.brown@intel.com>,
-	Shuah Khan <shuah@kernel.org>, David Woodhouse <dwmw@amazon.co.uk>,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Francesco Lavra <francescolavra.fl@gmail.com>,
-	Miguel Luis <miguel.luis@oracle.com>
-Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for
- hibernate
-Message-ID: <ZyN1EMPCjdX7zZSB@arm.com>
-References: <20241019172459.2241939-1-dwmw2@infradead.org>
- <20241019172459.2241939-7-dwmw2@infradead.org>
+	Thu, 31 Oct 2024 12:18:08 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XfNHJ4SqXzdkPl;
+	Thu, 31 Oct 2024 20:15:24 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id B2FC918009B;
+	Thu, 31 Oct 2024 20:17:58 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Thu, 31 Oct 2024 20:17:57 +0800
+CC: <yangyicong@hisilicon.com>, <linuxppc-dev@lists.ozlabs.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>
+Subject: Re: [PATCH v7 1/4] cpu/SMT: Provide a default
+ topology_is_primary_thread()
+To: Thomas Gleixner <tglx@linutronix.de>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <sudeep.holla@arm.com>, <peterz@infradead.org>,
+	<mpe@ellerman.id.au>, <linux-arm-kernel@lists.infradead.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<pierre.gondois@arm.com>, <dietmar.eggemann@arm.com>
+References: <20241030125415.18994-1-yangyicong@huawei.com>
+ <20241030125415.18994-2-yangyicong@huawei.com> <87ttcty71m.ffs@tglx>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <488d8289-b538-01cb-5de7-d691f49c0d7b@huawei.com>
+Date: Thu, 31 Oct 2024 20:17:57 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241019172459.2241939-7-dwmw2@infradead.org>
+In-Reply-To: <87ttcty71m.ffs@tglx>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_051623_789551_56713F4E 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20241031_051807_169126_DE0DE359 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 19, 2024 at 06:15:47PM +0100, David Woodhouse wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
+On 2024/10/30 22:55, Thomas Gleixner wrote:
+> On Wed, Oct 30 2024 at 20:54, Yicong Yang wrote:
+>>  
+>> +#ifndef topology_is_primary_thread
+>> +#define topology_is_primary_thread topology_is_primary_thread
 > 
-> The PSCI v1.3 specification adds support for a SYSTEM_OFF2 function
-> which is analogous to ACPI S4 state. This will allow hosting
-> environments to determine that a guest is hibernated rather than just
-> powered off, and handle that state appropriately on subsequent launches.
+> Please do not glue defines and functions together w/o a newline in between.
 > 
-> Since commit 60c0d45a7f7a ("efi/arm64: use UEFI for system reset and
-> poweroff") the EFI shutdown method is deliberately preferred over PSCI
-> or other methods. So register a SYS_OFF_MODE_POWER_OFF handler which
-> *only* handles the hibernation, leaving the original PSCI SYSTEM_OFF as
-> a last resort via the legacy pm_power_off function pointer.
-> 
-> The hibernation code already exports a system_entering_hibernation()
-> function which is be used by the higher-priority handler to check for
-> hibernation. That existing function just returns the value of a static
-> boolean variable from hibernate.c, which was previously only set in the
-> hibernation_platform_enter() code path. Set the same flag in the simpler
-> code path around the call to kernel_power_off() too.
-> 
-> An alternative way to hook SYSTEM_OFF2 into the hibernation code would
-> be to register a platform_hibernation_ops structure with an ->enter()
-> method which makes the new SYSTEM_OFF2 call. But that would have the
-> unwanted side-effect of making hibernation take a completely different
-> code path in hibernation_platform_enter(), invoking a lot of special dpm
-> callbacks.
-> 
-> Another option might be to add a new SYS_OFF_MODE_HIBERNATE mode, with
-> fallback to SYS_OFF_MODE_POWER_OFF. Or to use the sys_off_data to
-> indicate whether the power off is for hibernation.
-> 
-> But this version works and is relatively simple.
-> 
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> Acked-by: Rafael J. Wysocki <rafael@kernel.org>
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+sure, will add a newline here.
+
+>> +static inline bool topology_is_primary_thread(unsigned int cpu)
+>> +{
+>> +	/*
+>> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
+>> +	 * Architectures do have a special primary thread (e.g. x86) need
+>> +	 * to override this function. Otherwise just make the first thread
+>> +	 * in the SMT as the primary thread.
+>> +	 */
+>> +	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
+> 
+> How is that supposed to work? Assume both siblings are offline, then the
+> sibling mask is empty and you can't boot the CPU anymore.
+> 
+
+For architectures' using arch_topology, topology_sibling_cpumask() will at least
+contain the tested CPU itself. This is initialized in
+drivers/base/arch_topology.c:reset_cpu_topology(). So it won't be empty here.
+
+Besides we don't need to check topology_is_primary_thread() at boot time:
+-> cpu_up(cpu)
+     cpu_bootable()
+       if (cpu_smt_control == CPU_SMT_ENABLED &&
+           cpu_smt_thread_allowed(cpu)) // will always return true if !CONFIG_SMT_NUM_THREADS_DYNAMIC
+         return true; // we'll always return here and @cpu is always bootable
+
+Also tested fine in practice.
+
+Thanks.
+
+
 
