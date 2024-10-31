@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8B6E68974
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87ABBE68974
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 10:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Zsd4kiBU2YpC+iJsCqrLrYZ2gPww2XFa+jXFzH6dxM=; b=raykT6QKrWjgWS49bMeW0CBhf4
-	YX3pkfCByJRn1ooDa/yFJIaa9rmOH3eAguq81SyM6+exSwtRntVCwNmoX270V8R3nFWDXohuaSY+7
-	SY4zE3WGjQl6dzPtJIOD3cjdrLQ4yDphLMU0hRZumSxM9aJveFPXDNCBI5IwhTXw8U6t7fyhzUwbZ
-	iNnT7tuV+bfZBz6nA97nTgIK8QbSvjlr0xG/uSZc4GtpZqGS8uRboy8XrIZi2cYK827w89A6FFFMu
-	a0D26d7+3AR85GlW/loMz9cptDNtwqvPQN0m1nJfZ6ACsHYR6qzAVgqkOf9xLl+W38bz63wERxmlX
-	LAZlFS6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jLBk51EGz2mRl44PbXhv//RbEwrtj5WIQrbJQUSWqaw=; b=EuJyVR3MXI+/iWCGX91ArZK/xI
+	MycmVgnpgJW49iqrISn0v7a5+gXemLtzY+jqtowwyIIcfkV4hbbYBT2UyA/eJ59fS3dEYvYvVVbjc
+	OOucwOs4uhlU6O/MT/e3U11qCwbT8AaEhIzj3nvvGqpLQFNPUZ4hhDaI4aVhsfEP0tM/raV77A2zK
+	wS7gHUnfVbl7ULPOzI1nTf1dTBSIShGVfi/JnUtmpUZaBgkVua3Ex15vN1c23LTwShsgRDObzrEN7
+	nG/+rcZ8agXmy20S9UgMNtlOyaFXUgkOMS8oMjF5dZhEHadebCjTst5VZvXl7hNGzWwE6oTBjbyqj
+	jlpNEwHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Sr1-00000003KAh-1VgK;
-	Thu, 31 Oct 2024 10:56:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t6StC-00000003KV1-02SI;
+	Thu, 31 Oct 2024 10:58:54 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6Snm-00000003JYz-2IDy
+	id 1t6SrW-00000003KFx-0LAM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 10:53:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25350A43F0E;
-	Thu, 31 Oct 2024 10:51:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4A4C4CEDA;
-	Thu, 31 Oct 2024 10:53:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730371997;
-	bh=mAxfxUq37TjY7+usTzDlC//ggB576dB9RkyHZdE9q7c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gN9F16lUWheK53dPv9wvKhpDs5otDtps9Ff2NQI+ymvptQfA/heA7p0q+3M2MTOZk
-	 luUPbNgcL92RwiWUbrP8fwPWnY2+oFDQobZRTsfPL9CJUzrZzk1XXhWEDGYXaXcbcf
-	 Iiz3GoPcUOl+vYRbdt4IPRLtLPTTiA7/Zn6t9YN8IFMUgg6NDD2YP9x44giSWgV795
-	 VJOaS1+JQLloROviC7NTvZDgEOizaYKJ0QD+NUPffpzaGYReHuOp7NsgNPHCQY4IRl
-	 t3+nRP1MdNMsjS0oS3tZkuhnBvxyLP+R3zhlo8ZKu4eaBEoit3dsp2CDB+gj/WRTZU
-	 zj9gGzRR2o0kA==
-Message-ID: <1d38d2c7-e1e7-4bc2-a760-a1321cbe0e16@kernel.org>
-Date: Thu, 31 Oct 2024 12:53:12 +0200
+	Thu, 31 Oct 2024 10:57:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730372230; x=1761908230;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tVuyw/2mK57aTALxTRXWhHaWAaydpe9xSAAGsUudOsk=;
+  b=hKvZ12SPrlf9Jouyf2UaWC89vO9Dw4G44ZkjBfavM5n3m3Yb6rNtRog+
+   TS9AhKEHYGt+789f8adKj81euFUe668bGbcIp3x8GdoXoemPtjoPvispj
+   9UKRPzMGK5On4IPtahZZc2Jw1wYWo+jlQ1yyROqHTF89ErD8JvLUDarqk
+   lCVtp/EDM6JMoaMFrtXc/DWKX2PhAH6GvLgk/pade0aWVF8ydiGXUSKYa
+   MwUR8cvrA/IClzmhHQWgG/o1+DL5MLY/qnIhEhKEUzMjijhjG9U3qbzxg
+   JIkEfppT3eOFJ2Adcfy1NF8Y6rJlFFbFYYhIur9sE8I8iDA8v6aVEB7O/
+   g==;
+X-CSE-ConnectionGUID: W3iwO4RfQi+9V/EUu5tz7Q==
+X-CSE-MsgGUID: U3Hhk44SQNynNB7D3ieqcA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11241"; a="40714319"
+X-IronPort-AV: E=Sophos;i="6.11,247,1725346800"; 
+   d="scan'208";a="40714319"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 03:57:09 -0700
+X-CSE-ConnectionGUID: H+bgwwtSSsiF/gliVd+ZGw==
+X-CSE-MsgGUID: 7CjK28aHSzCapN3igqZRyw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,247,1725346800"; 
+   d="scan'208";a="82698733"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 03:57:07 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1t6SrQ-00000009cBm-2eBN;
+	Thu, 31 Oct 2024 12:57:04 +0200
+Date: Thu, 31 Oct 2024 12:57:04 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Vinod Koul <vkoul@kernel.org>, Paul Cercueil <paul@crapouillou.net>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v2 0/4] dmaengine: dma_request_chan*() amendments
+Message-ID: <ZyNigG_hoFFArNii@smile.fi.intel.com>
+References: <20241008173351.2246796-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am642-evm: Add dt overlay to disable
- icssg for Linux
-To: MD Danish Anwar <danishanwar@ti.com>, vigneshr@ti.com, nm@ti.com
-Cc: conor+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- robh+dt@kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kristo@kernel.org, srk@ti.com
-References: <20241030114458.1358800-1-danishanwar@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20241030114458.1358800-1-danishanwar@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241008173351.2246796-1-andriy.shevchenko@linux.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_035318_759883_C25ECADB 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20241031_035710_151963_CBFA4EA0 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,126 +91,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Danish,
-
-On 30/10/2024 13:44, MD Danish Anwar wrote:
-> Add k3-am642-evm-icssg1-disable.dtso overlay file that disables
-> icssg1-eth from Linux so that icssg peripherals can be used by
-> RTOS or some other OS running on R5 core.
+On Tue, Oct 08, 2024 at 08:27:43PM +0300, Andy Shevchenko wrote:
+> Reduce the scope of the use of some rarely used DMA request channel APIs
+> in order to make the step of their removal or making static in the
+> future. No functional changes intended.
 > 
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/Makefile               |  7 +--
->  .../dts/ti/k3-am642-evm-icssg1-disable.dtso   | 49 +++++++++++++++++++
->  2 files changed, 53 insertions(+), 3 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index 6bd06bd76b68..0fd95b7df5a8 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -76,6 +76,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-nand.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac-mii.dtbo
-> +dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-disable.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-pcie0-ep.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-rdk.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-sk.dtb
-> @@ -235,8 +236,8 @@ k3-am62p5-sk-microtips-mf103hie-lcd2-dtbs := k3-am62p5-sk.dtb \
->  	k3-am62p5-sk-microtips-mf103hie-lcd2.dtbo
->  k3-am642-evm-icssg1-dualemac-dtbs := \
->  	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac.dtbo
-> -k3-am642-evm-icssg1-dualemac-mii-dtbs := \
-> -	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac-mii.dtbo
-> +k3-am642-evm-icssg1-disable-dtbs := \
-> +	k3-am642-evm.dtb k3-am642-evm-icssg1-disable.dtbo
->  k3-am642-evm-pcie0-ep-dtbs := \
->  	k3-am642-evm.dtb k3-am642-evm-pcie0-ep.dtbo
->  k3-am642-tqma64xxl-mbax4xxl-sdcard-dtbs := \
-> @@ -323,7 +324,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
->  	k3-am62p5-sk-microtips-mf101hie-panel.dtb \
->  	k3-am62p5-sk-microtips-mf103hie-lcd2.dtb \
->  	k3-am642-evm-icssg1-dualemac.dtb \
-> -	k3-am642-evm-icssg1-dualemac-mii.dtb \
-> +	k3-am642-evm-icssg1-disable.dtb \
->  	k3-am642-evm-pcie0-ep.dtb \
->  	k3-am642-tqma64xxl-mbax4xxl-sdcard.dtb \
->  	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
-> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
-> new file mode 100644
-> index 000000000000..dc04e2999e97
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg1-disable.dtso
-> @@ -0,0 +1,49 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/**
-> + * DT overlay for enabling 2nd ICSSG1 port on AM642 EVM
-> + *
-> + * Copyright (C) 2020-2024 Texas Instruments Incorporated - https://www.ti.com/
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include "k3-pinctrl.h"
-> +
-> +&oc_sram {
-> +	#address-cells = <1>;
-> +	#size-cells = <1>;
-> +
-> +	r5f0_0_sram: r5f0_0_sram@0 {
-> +		reg = <0x0 0x180000>;
-> +	};
-> +};> +
-> +&main_r5fss0_core0 {
-> +	sram = <&r5f0_0_sram>;
-> +};
-> +
+> In v2:
+> - updated the commit messages (Frank)
 
-You need to mention why this change is done, in the commit log.
-
-> +&cpsw_port2 {
-> +	status = "disabled";
-> +};
-> +
-> +&icssg0 {
-> +	status = "disabled";
-> +};
-
-dtso name says icssg1-disabel but you are disabling icssg0 as well?
-
-> +
-> +&icssg1 {
-> +	status = "disabled";
-> +};
-> +
-> +&ospi0 {
-> +	status = "disabled";
-> +};
-
-and ospi0?
-
-> +
-> +&mdio_mux_1 {
-> +	status = "disabled";
-> +};
-> +
-> +&icssg1_eth {
-> +	status = "disabled";
-> +};
-
-Maybe the dtso is poorly named and should be called something else so that is correctly reflects the use case?
-I suppose it has something to do with peripherals reserved for R5 core?
-
-e.g.
-
-k3-am642-evm-r5-reserved.dtso?
-
-How is this dtso applied at boot?
+Hmm, any comments on this?
 
 -- 
-cheers,
--roger
+With Best Regards,
+Andy Shevchenko
+
+
 
