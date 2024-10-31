@@ -4,61 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B3BE68948
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8ECEE68946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 02:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g4SWEots0xlx10lLgo/CdaPxF6EJK3d8uGUzYbN09y4=; b=iUNBI3uHgXuvCofOP9mHvi0XoA
-	fOvBjymhKqQnzNYZUIvMYrVrSp/Mt+PQKCK9tX94zPQqQpFy3Tu+2dBNvaw66Lh3TTsIT+qUPplEX
-	mPk1szk09i+Hl98vPO8uVFHCskX4YTc/aGk1UPf4MGV6zWtDjhk9ll8FV0d8cKRzmO1/tGCcoG693
-	EEbyH+YKWRvlGkyLCQK4UO7S+Go+ak1O7fNoKBUY7BSegxVlBTlCY1y334et9ie5aMH9pTJdoQB6x
-	nDaL7X8RCyDFxh7kcF6HplBl6pIvDmDFQW4YseHWLroHWuBdFnpcmwY/bFZyZ3vUaTkxmgaB9SahU
-	ERXVU7Rg==;
+	bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=; b=zkF2EwAG7Q2OGEM4b72iaZMApB
+	dKl//9x28dXFxr4gUfNBlxUlsHq8JhBipz6HAxCbqnphxkFORsKck2YHzxR3Ry5w4peVhjB879mhs
+	K+Z5q0VxFUMRLkmMG7rrnXIED7xKcTZBJTrRZ/FlIB3ukeiO/+MFQe85wP3QVQ5FniGBu9bpS1xzV
+	9WNMNfaCSXZSuudefsizWpVuWQICeZEJ4qrm+K3alGZQDri+708EOBEwMmd0uVDTHKaCwNMuLsPYJ
+	QmVMPO81vD1BFXl4YkhPMbSFmGJB/fHayOuWK9yKNNvdp5arbRKYP+BAOvdyg3z9N7JzYktmXJWX8
+	g2QM1GKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6L74-00000002Mva-1O6f;
-	Thu, 31 Oct 2024 02:40:42 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1t6L93-00000002N87-0GdH;
+	Thu, 31 Oct 2024 02:42:45 +0000
+Received: from mail-am6eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2612::61b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6L4s-00000002MhE-2OpF
+	id 1t6L73-00000002Mv9-0UgE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 02:38:28 +0000
-Date: Wed, 30 Oct 2024 19:38:15 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1730342303;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g4SWEots0xlx10lLgo/CdaPxF6EJK3d8uGUzYbN09y4=;
-	b=dkeeX5TZ0DEv7nA3oF5JKE5ZflsOWunTNrvPxKunpVHbLQ/3ZSrBvoOdZ6g3jNSDSPug/u
-	vTh8Gqf9d2bRw1IJaoXznhDIrgWOfZIAhj/ru0Kyj9/yO7qBFI6aWbiq631c0QPDhYQ0w8
-	l0s7Q5eNV5bUoZFDJ/HIFP8ePAPmzjA=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	anshuman.khandual@arm.com, gshan@redhat.com, james.morse@arm.com,
-	shameerali.kolothum.thodi@huawei.com, Marc Zyngier <maz@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v6 0/7] KVM: arm64: Hide unsupported MPAM from the guest
-Message-ID: <ZyLtl6lLSEczqHjF@linux.dev>
-References: <20241030160317.2528209-1-joey.gouly@arm.com>
+	Thu, 31 Oct 2024 02:40:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uUpmfia7Hgs5hB09/GIVq/1aloUXGXOqgbXfJh/Lf9MVttogAWuI6lGhMW/3i9K6VoSojiqWnIzFJVXmTFQ7spzUDqOx7wdG1rueVPExyulSat4rB5gVNeCuWeajv802aQ2jwU1fb2LEb+98C5HArU0eVPUTryryzlv3YabBxWo5HMnH1nPKqNRNFcP4486cWfPF/Rt77REN50PIw8lce0WcmkByi1LX2oUL5vIPMk1VAk50UZI9FNUg14KGwH1sH/P+TAnrgs3kJhXcgKZ75ePskogQVErXCz42whQz0ALMN/1K6LXQ71nvINHP5T0jwq2iiGnWFyhO6z0FDWcUAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=;
+ b=eYX32wxigGS0V3tKi3a0+K+IjdQI1kMqj9/+0EoPgAaMmfCUPz4xPB28ZqgkjgimisyO3Ga/eA0UTLV2y7aUDYCyRrhGidZiiWgrHz1yeXtZJwfrKoMjiyreeeWiCwQZKx9ZnpoSgF7Qz5M1if3O9XabaACA/WDZ1XkSggBdT5qyIgGibgEdcQi7Njb3TiZY+BsFw8Mgfhj6O8hjerzOd346zS10wvdExESpGq4EdopRUo+IooWSqliIOyNzfTq7Jc9IKAW38yoLX100to9CUvy9hlt2R6SrzJy1LJgZK4HHFKcLRwAONzFxvfmv4Yrrts8MpwGQNUvl2Jo+zN+47A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kZjtl/8s8GfeQGvuo/Pnjpdys6FfixXhPlE6XSuEKn8=;
+ b=klxOd0xtOnXxMsXMPQGJbhxVcdj2eurF/bV2fhNpbHjInRw3eWvVAZpinG2qEtf+4zHQATvR4A9y1dcPoER+Z7XV7f+PKMJcj7ZHD8A0zrgMWpSRYVVMkwWOPApG4R458s8O8UYfOLFdg6zDde1rzROnJTfM07S15sjy9g83SQAtMj7oowYmXlo23oge+XQfMFA1zxkjVIuBCGhuQsGTVnpzEsXgCwAR5JTRKUaGCRB54Rc2vZ8ROSNvtreBBKb4slmCuAMEONRXJt5Mg82BA+DYpRUyE9pAJLi4zK8uvWnNzlVLL8Apvga8fF6Lg+Ca89CVtPwXP8LKSO8xfEEsVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DU4PR04MB10459.eurprd04.prod.outlook.com (2603:10a6:10:56b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Thu, 31 Oct
+ 2024 02:40:37 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8093.023; Thu, 31 Oct 2024
+ 02:40:37 +0000
+Message-ID: <9a438c25-5d37-444b-b3aa-9a081eaf30df@nxp.com>
+Date: Thu, 31 Oct 2024 10:40:58 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/13] drm/bridge: fsl-ldb: Use clk_round_rate() to
+ validate "ldb" clock rate
+To: Maxime Ripard <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, quic_jesszhan@quicinc.com,
+ mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, sakari.ailus@linux.intel.com, hverkuil@xs4all.nl,
+ tomi.valkeinen@ideasonboard.com, quic_bjorande@quicinc.com,
+ geert+renesas@glider.be, dmitry.baryshkov@linaro.org, arnd@arndb.de,
+ nfraprado@collabora.com, thierry.reding@gmail.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de,
+ biju.das.jz@bp.renesas.com
+References: <20241028023740.19732-1-victor.liu@nxp.com>
+ <20241028023740.19732-4-victor.liu@nxp.com>
+ <20241030-hypersonic-tremendous-tuatara-2bbeb0@houat>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20241030-hypersonic-tremendous-tuatara-2bbeb0@houat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG3P274CA0015.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::27)
+ To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241030160317.2528209-1-joey.gouly@arm.com>
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU4PR04MB10459:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c9eb4bc-e245-4c17-ed05-08dcf95566e4
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VG9KYVRYK2lyb3VobXlpaU1BbGcwNVdyQWd2MnMyQnZwb2VvZUI1dFNCZ29D?=
+ =?utf-8?B?RktZRndmaHRrZW1zWW9MYlhSelp0Ulk5Z3RFd0syWW9RYWl4bm1tMUdwY2wz?=
+ =?utf-8?B?ZWZZcjNkVWlTcU9EZ2ZZcS8rampFQXRzUHc2ZGlKZDRLSFlHb2l6b1VHVGRT?=
+ =?utf-8?B?QmdpbnJXd0dxZWlvajQ3MGl5TnhIQUtpTzMzdHJJTmFmU3ZCZHZ4cWVyZGVn?=
+ =?utf-8?B?dFNaYlBKTXE1TVFFdW13S0FrT1JyQ3NHZVQ2aitEdE83TmsweVpCM1JVZzFo?=
+ =?utf-8?B?aEdkeFhPQy9WT0o2ZHpGYW5KRUNDK0Q0MGppTkI5WnZDWXZ0NktXWHRWVVpI?=
+ =?utf-8?B?dnRZRGhSRWJ0aC84OFJHTkdwVXBqWlNPYndES1BmUTdvRWxWb3RBTUo4TSsv?=
+ =?utf-8?B?TEZCWklxem45RHNhMndYN2JyVUFSbkdoSWVadDJmMmFCR2tkMEJ2TmU5Rzdq?=
+ =?utf-8?B?eEJBWmRjdGUwOWVyM0c1eG81Z3ZkbVc2QzQxaUVtdjRDWDhFdk11eW5HRU1u?=
+ =?utf-8?B?U3RRdFVHT05mWjZ1OFVYV3RLZlFSYURNTkR5RHYvZkhsZVZYQ2NacnROTG1i?=
+ =?utf-8?B?aWlublFEWTBEVXpwWXZzd0grcmtJV0svQUpwMXgvbWx3Q3FrQkJwRzc4aVFZ?=
+ =?utf-8?B?TmR3UE1UcWYyRitFRFEraHpiVURtVzZVbExwYWxaRXZWckZwaDdWNlJleGh2?=
+ =?utf-8?B?c1F6YXJYQmFZUVJRdTRkZWVwbzlaZkpSKzlURkdkcFhrT3hNcjV0UXFtQWVr?=
+ =?utf-8?B?SHlNS3dsK21TZVVmUW5NdVRsZXByRUJkeEhuS0xSaWtWMjgyUXUzb1doL3hx?=
+ =?utf-8?B?czUrM0ozMEIvNWFIcVNwNzFBY0ZwT3cyQ0FBNWxHM1dEbHpQMm1xWjFoWVdY?=
+ =?utf-8?B?Z0JEVEUvRVpoWTFwcXM2RG1rYTZKU2VNS3VzZkt3QnZMY1VwMy85dXFUYkp0?=
+ =?utf-8?B?Z0E3eWdTb1hNTE1CUExQd1ovRDcxODBWYzhwRXc2L25GVWcrTm9yK01qdUhz?=
+ =?utf-8?B?TlY0T3dObk9icEdoVlF5WE82Y0p0Y1NydWdyT2wyaW82YlZFVHlkWWZwSWlI?=
+ =?utf-8?B?QU54bjlWaFk4SFA3KzdFemJxM1UvVjgwQUV5dWtqZlh4NytmbisxZkk5YTBv?=
+ =?utf-8?B?K0p4YklqZklRODBrZ2hvaW1mcG95L3lZQnV5b1RzVk5mMUVMUmlPY2hpcEpu?=
+ =?utf-8?B?WHhobm0xWk95YlZpL2I3SXdBZ3RyZnUyTXYxbDBrM3JTYkFrdXBmd1BUSjRp?=
+ =?utf-8?B?cXA4WThuMGFSOWExV2syWVRpWEJCQUlpbEdsWkJ0TFc2VzJDbjhlKysyZm80?=
+ =?utf-8?B?bUlzdWdPNlpMYmx2N3h3bEZ6cm1MeWpydGFRd3IyakxwejJjc3JrbXkydlBi?=
+ =?utf-8?B?L0FjQUJCNEJFRXFDVVdJSFBZeW1OOUpvS2xVK3h3M0RYZCtoV2J3eGhiSXd6?=
+ =?utf-8?B?OWl4U2thYXBiRjBKejhKU0lPTlZiZVhxSXZid21URk9WRUhwRCtycUgwTTdn?=
+ =?utf-8?B?QnJ5MjhVUkpRZW91YVZ5ZDdWSTEzM01pRWNPMHB6Mm9XMC9mQW1OZTNSRXF5?=
+ =?utf-8?B?WklFV0xVbUQ5UVhJZndNSkJsbHFiUEh5cnkzZ2gwTEVqQnVTK2JZclV5dnhE?=
+ =?utf-8?B?OXFZRFVYZ2JJcUh3OE4vZHArM09KOUF3WnVaUFNianNPSzkzNW1FSUtJNDlQ?=
+ =?utf-8?B?WFdMZXQ3bXp1QlJWS3pzNHR1SFdhYVluZFNGSGFVdjV4cjlqSTlrTnkrUTRC?=
+ =?utf-8?Q?qyZ6q68werXxEI81whmymhECESLOIv5NFEjs86K?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SjJpR2NDb054UlhwdWovblRyRVk1NzF3czRWeE5IeWY2cnpNOGJIRzY3UnNz?=
+ =?utf-8?B?Yk1QcFZoUkU2QVR2WitxZ0oyNzUxZ2lwaWZxZ2JScDdrUndDVWcyQXVoYzUv?=
+ =?utf-8?B?Vm04d3VmQlBEUE82TWpLYzV0UWhCTnJ1YWVpbGJNaEdTcmovM3dlMnR1U09u?=
+ =?utf-8?B?bWlkVGtoN29MaFNEOEE1RldXeWVIYW96bVAvTXpCNTZHcklwZFZ2QXI1SE84?=
+ =?utf-8?B?UVVINEs2ZmViM2k4dlFUVHQ4RHJrYS9nSXU2ZWRHaDBNUEloQ3ZDMThvRUZF?=
+ =?utf-8?B?YXpRTEFvaXRXVW5rNFh4WDVhbkY1YjhJOW8rMWRrSUF3ejE1UFlGT0tSMGRy?=
+ =?utf-8?B?aG5XZWpNU0diZFo0MDZ6Y1Z5S01kWEhwM1JWODQ3eXo2S1VmdXc5YVQ4Z2Jm?=
+ =?utf-8?B?R0s4R2l3TGliTVZQZC9uRDNGOVhnbXVrZlZUTXh2bDl3U1JuZzFsWW1BakhX?=
+ =?utf-8?B?WTRtd2ZxbGpoUGxPRk9reUJ2U3lQRnlmNE5hcUU2aEttbzluWWZ2MVdOME85?=
+ =?utf-8?B?cFJsdi9VSFpIR1FsQUxIRnoydFA0SmhqZEZhZG9ra0ZnNzlUQ3ZnbndiNEI2?=
+ =?utf-8?B?N0lqTHdtTTlyK2x4QWdoc0Nxb0ZuZHBnTHJ5RGlLamU0V3oyTmNUU0d1MXpZ?=
+ =?utf-8?B?MERmMDBBRkdqTUtwdHc1cVNiVWpIRWtrWlR3U01jZ0g1K1dUdkFiaWRncit0?=
+ =?utf-8?B?WU9zQWJmSUJSbURJWCsvZXRGTXN0a3pjemNTRVE2S0h1N2J1TnErMmVYdUY4?=
+ =?utf-8?B?VFRXUDArU0JjQktRUzYvaDhSeXoxVFh3MEpUNzRSWkdrQXcrQlhJTUJORko3?=
+ =?utf-8?B?d3ppWERpODVlN0R4bUJITEE0bVUvWHZCWkpRU3FYSkRTS1h2YzF2NEJBMHA2?=
+ =?utf-8?B?NWZ0a0k3V0h4SWpZZDMvWDNkNkphazY5ZGpLSklUd0h1cEhHU3NtVjYrbmtk?=
+ =?utf-8?B?NW42Y3lLSmlwUVNrWWE2cmJ2Q2g2MHp6VFhyMDZONFZ3UkhUUjZLYUtPMXpR?=
+ =?utf-8?B?d2FESjRQLy85dlpwU3NVbWIvZEVuWDVwUkRJaTBZN2xzUUpKdlFHNU01ZFpk?=
+ =?utf-8?B?WEgyVllpK05LcHZjblpVNWZkdkhKMlBjMEUvNmNwc201WGlVc2FEL0V2Tzky?=
+ =?utf-8?B?NWNpa1E3Ykd3aGhUeDVwQkF0dUNnY05Ibi84bFB4Ymp0eHg1ZS9rd3ZwbjJh?=
+ =?utf-8?B?dHlQVXA0U2dYRHc2bFBLN2tBa2pyaThMTGVkemFickJsTk9rd0ZHTUdWK0xR?=
+ =?utf-8?B?UjBQSVJWNFYvajc4V3NLMldSTVdWSlZMN09PUi9Hb1F5aitXWEpUajA5Y29P?=
+ =?utf-8?B?MlBwWDFIbGJ5L1pUUzl6Uzd2dzNUcll0MzVBcVdVR3BKQXF5WUxJYVpBSUFz?=
+ =?utf-8?B?RnJoWGxVaDRBcVNzNnIzVGUvUGEwa1lqSU1naTRNN3F3Ymk1ZTBSVU15RDFK?=
+ =?utf-8?B?d3Q0djUyWU5IT0FKYXZpMUtvNU1hcVZCcm9Pc2daUG5OWVA3RFNRSmhyeGJj?=
+ =?utf-8?B?YXBQemppR0RVcGkzeGJhcitZNExjY2lrNUZ0K1hvbVl0OFF5VjJYWDd5ZURa?=
+ =?utf-8?B?R2c3UEtQYzljeGdxS1NFM1F4c3duZTM5QWdROFZNQVl6NE1IQkdLbkdJcHQr?=
+ =?utf-8?B?bWRLWjlFR0dVdis3WEF5U3d6Y0xVVXdjOEZYV0FHS2hONjNndlQwN0kwWXNh?=
+ =?utf-8?B?VHUzN0tNSCtYRHk5UmtDay9DTXViU3prT0R4VjNwejBrOEFOUEpTeTJPYnl0?=
+ =?utf-8?B?MW1RTnlBNnVoZzBaSVoxZkltNG94MUphYXJGZFBOWnhWd0NpelRTMHRFWU95?=
+ =?utf-8?B?YmNrUE9sSDIxQXJCOTJ6U3hXbTc5RG50N1pZbXhBWGJXTjB5OXRhN0pMSW1W?=
+ =?utf-8?B?MnV4cDBuV1IxcEFhQ3RROEZZdVVGaFJ3VW94S3pyTHl3cnAxR3lIRVhZL3A3?=
+ =?utf-8?B?M0F0Y2xRQkRDN016TThQMmwvZ2V6bnlTNFNCOE0rSXgxTVU1aVFpSitMNzgr?=
+ =?utf-8?B?ek5rNWM5SndRekowcDBodTd1eWRCZU0zLzhYUDJTMDRCVC9UdDRBSU13K0wv?=
+ =?utf-8?B?dDh0bjdidnBKK2tKd1A2dEZnL1RneXNQZDhvQWlncTNzdGJFQisvNjZVT01q?=
+ =?utf-8?Q?olnYe0WWG8VVoZKlp3DCcW8Qk?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c9eb4bc-e245-4c17-ed05-08dcf95566e4
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2024 02:40:37.5328
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F7YtU9/APqoxHDlg4Gq574kaFJExaxDDidmpLZwKHiBsVdmqK6nBV7mtnZRuZWx2MmnEqGOnu8DVKsMMAD3XNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241030_193827_120850_EA06E551 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20241030_194041_200269_6C089178 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +188,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Maxime,
 
-Thanks for respinning this Joey.
-
-On Wed, Oct 30, 2024 at 04:03:10PM +0000, Joey Gouly wrote:
-> Hi,
+On 10/30/2024, Maxime Ripard wrote:
+> On Mon, Oct 28, 2024 at 10:37:30AM +0800, Liu Ying wrote:
+>> Multiple display modes could be read from a display device's EDID.
+>> Use clk_round_rate() to validate the "ldb" clock rate for each mode
+>> in drm_bridge_funcs::mode_valid() to filter unsupported modes out.
+>>
+>> Also, since this driver doesn't directly reference pixel clock, use
+>> clk_round_rate() to validate the pixel clock rate against the "ldb"
+>> clock if the "ldb" clock and the pixel clock are sibling in clock
+>> tree.  This is not done in display controller driver because
+>> drm_crtc_helper_funcs::mode_valid() may not decide to do the
+>> validation or not if multiple encoders are connected to the CRTC,
+>> e.g., i.MX93 LCDIF may connect with MIPI DSI controller, LDB and
+>> parallel display output simultaneously.
+>>
+>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>> ---
+>> Note that this patch depends on a patch in shawnguo/imx/fixes:
+>> https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241017031146.157996-1-marex@denx.de/
 > 
-> changes since v5 [1]:
-> 	- Removed Kconfig option, the KVM traps shouldn't rely on host kernel support
-> 	- Renamed cpus_support_* to system_supports_* since that matches other functions
-> 	- Replace static branch arm64_mpam_has_hcr with a normal cpufeature capability
-> 	- Add MPAM*_EL2 regs to KVM (undef_access)
-> 	- Use constants in the test, instead of hardcoded values
-> 	- Added R-b and T-b tags
-> 	- Rebased on v6.12-rc5
->
-> James wrote:
-> 	This series fixes up a long standing bug where MPAM was accidentally exposed
-> 	to a guest, but the feature was not otherwise trapped or context switched.
-> 	This could result in KVM warning about unexpected traps, and injecting an
-> 	undef into the guest contradicting the ID registers.
-> 	This would prevent an MPAM aware kernel from booting - fortunately, there
-> 	aren't any of those.
-> 
-> 	Ideally, we'd take the MPAM feature away from the ID registers, but that
-> 	would leave existing guests unable to migrate to a newer kernel. Instead,
-> 	just ignore that field when it matches the hardware. KVM wasn't going to
-> 	expose MPAM anyway. The guest will not see MPAM in the id registers.
-> 
-> 	This series includes the head.S and KVM changes to enable/disable traps. If
-> 	MPAM is neither enabled nor emulated by EL3 firmware, these system register
-> 	accesses will trap to EL3.
-> 	If your kernel doesn't boot, and the problem bisects here - please update
-> 	your firmware. MPAM has been supported by trusted firmware since v1.6 in
-> 	2018. (also noted on patch 3).
+> I still believe that the root cause of this issue is your clock tree and
+> driver setup, and since I've asked for explanations and didn't get any,
+> I don't really see how we can move forward here.
 
-This is looking pretty good to me, and I'd really like to have it in for
-6.13.
+Since you asked for a description at *somewhere* in another thread[1],
+can you please suggest a place where this could happen?
 
-Will/Catalin, first 3 patches look OK to you?
+[1] https://lore.kernel.org/imx/47d92ae0-c71a-4c18-9ad7-432c0f70a31f@nxp.com/T/#m587e6a25bdab542d5d99abbf01caaca89495b1d5
+
+> 
+> Maxime
 
 -- 
-Thanks,
-Oliver
+Regards,
+Liu Ying
 
