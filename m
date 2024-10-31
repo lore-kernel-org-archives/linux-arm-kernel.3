@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700E0D74959
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E86D74959
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 13:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZt4248Xr+mK1uGXInWk0qtIq4noEBsMMZcX4IL0cV8=; b=lcJYNxxnCJ4mjRcaxxgNfIf15D
-	NkKo7A25E5T7hsXL1fztlW6FZS7hEkOv4caP0UAVYl3h42oZBp2LHGWNTcjtZNRJWwAlNQK1Eb5vF
-	j5pihvflHwq2qwAFwme7drheeqf9zM3VIJZhmRz+CvjBlEcnG1ey92+jRS9kTFIsS3KGxCPyKZK1X
-	H8DSk5Due5zNO+KTbddMA1a+KcsE9ZuXLwhMoMjChpetMBBHMrPivC6mPVuBZruze46PAIKsC/f7N
-	Tf97bNM+HI+A8kXbsid0DhpS/+givJ6GFv90aIH6PHOGiQZPspEhm3Ikd0zR5ofBl8zsBuLu2ATkN
-	TqWeAFeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vxcIQ04/XdDQ7orCmY+lTbq38V7NFd9mE1O9OVc4100=; b=kauZDcYkmnn35aKPevU0aD9MRj
+	Aior6YdUYuO+e53VmZbTQAq3G6gXn5ZyA3BzXkQ1fdYUCRzt+GYWqyM2J6IU5jZIdsuDj5hN4o0E3
+	K3OdA9PMAazwt518miCNfcfgAwFThaWpt4qUGYqgs7YrDnhOsimfqQCUf86Wi8i/vwuFTgZ1xFdWq
+	CcIGnbPSgogfwRnTCb02gY/eT7YIyarMRMEDsfoD5gsEpo3rGV7ARZSo1o/1cDEkHmiWCdXxQp8hI
+	DNI+bYuuwNoL5rvbpzcr4XeF9vH9NpY8RoPKXwGrt7R9d45zsHC3Q4AHV2f1umTG/C+JaY5vRtzV0
+	eYU/OBOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6V9S-00000003fWO-2IMG;
-	Thu, 31 Oct 2024 13:23:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t6VEv-00000003gI8-22RA;
+	Thu, 31 Oct 2024 13:29:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6V7o-00000003fOg-1ei5
+	id 1t6VDF-00000003g4a-2dGU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 13:22:10 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49VBdjJF021342;
-	Thu, 31 Oct 2024 13:21:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cZt4248Xr+mK1uGXInWk0qtIq4noEBsMMZcX4IL0cV8=; b=b3eR2NzHbbrmBZdl
-	SReYd3nsIkQipF7SqdxH0ratiqM4/wQPrdlj1aBGz9Ha4Ri08BYJQXK9fItBd37T
-	knmE5IP7on+yIzAz4GvPP8ZcA8KhkO1xB5yugTLNX1nrKDv9pyfDz3AMIJ70R5kE
-	1621XXnks4/9dW5FXvfdQV/jVIUsAtKLu8ys1AV0lX+LDLc3+tQjUugrNpv6jvtM
-	pDAONJiIA+TvHty7SiSq26Sw866FA9rmaazWTQLz0/JLpOpmM3z7EWqLbzdnNmcd
-	zdo8mcgzMof3L6neIwdIz+FJCytyX5IWJR3HdWzdbJ2WRQpAEN2fL97CPRmNLk3X
-	9cnosw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m1rphqgt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 31 Oct 2024 13:21:53 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 49VDLqFj004290
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 31 Oct 2024 13:21:52 GMT
-Received: from [10.131.33.37] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 31 Oct
- 2024 06:21:47 -0700
-Message-ID: <e759ecad-9533-a294-9ee0-1b42effe5b82@quicinc.com>
-Date: Thu, 31 Oct 2024 18:51:45 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH V6 1/1] cpufreq: scmi: Register for limit change
- notifications
-Content-Language: en-US
-To: Vincent Guittot <vincent.guittot@linaro.org>
-CC: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
-        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
-        <pierre.gondois@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <quic_mdtipton@quicinc.com>, <linux-arm-msm@vger.kernel.org>
-References: <20241030133133.2932722-1-quic_sibis@quicinc.com>
- <20241030133133.2932722-2-quic_sibis@quicinc.com>
- <CAKfTPtDY965+8wbF-fgFyD4Br-2obQQjJTONwJoPpyYBrdN_VA@mail.gmail.com>
-From: Sibi Sankar <quic_sibis@quicinc.com>
-In-Reply-To: <CAKfTPtDY965+8wbF-fgFyD4Br-2obQQjJTONwJoPpyYBrdN_VA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: LwaUcYsn0WYh8vch3bW6wAVW8n5eR-0S
-X-Proofpoint-ORIG-GUID: LwaUcYsn0WYh8vch3bW6wAVW8n5eR-0S
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 mlxlogscore=999 clxscore=1015 suspectscore=0 spamscore=0
- adultscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- phishscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2410310102
+	Thu, 31 Oct 2024 13:27:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4455CA437AF;
+	Thu, 31 Oct 2024 13:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46ABFC4FEBF;
+	Thu, 31 Oct 2024 13:11:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730380319;
+	bh=iCWUb0yTk/t00TGKYUJLDN0jzPFmg7+JQOY1ZCT+zIQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ARA9s0gfVmCEI+wHwNi7zuLNsoL5njRAFWv9Rm5aiHer/K3KYeyHKza654xfyjzaD
+	 AH/GNRE3FrS+P1DjOkjwaEWoulBDkk5o9b2LmIfpiEOTuO/rC0XDKxWDYWsF4Y1rEg
+	 NPod8GySXU4V9odEYa8+gIOOtIdUFwpRlJHxikZLc7fYwePO8XqSrOLz6S/wL//tRc
+	 joYNCOoDEbTO48n1RvhrufC4q/uIi87nVaKYTb4THgYWjus3wnwsm02aaJPPvV7RsU
+	 PHYc+MzLGBaONzQubspVFQ0p2Bm61lVz2r1w1WJTCS1HZvGgxbd+DRi83YWTCO0eqB
+	 z5rhBhqr+Y+nA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t6Uxx-008ZQh-Ck;
+	Thu, 31 Oct 2024 13:11:57 +0000
+Date: Thu, 31 Oct 2024 13:11:56 +0000
+Message-ID: <86sesc1ko3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	anshuman.khandual@arm.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	shameerali.kolothum.thodi@huawei.com,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v6 0/7] KVM: arm64: Hide unsupported MPAM from the guest
+In-Reply-To: <20241030160317.2528209-1-joey.gouly@arm.com>
+References: <20241030160317.2528209-1-joey.gouly@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, anshuman.khandual@arm.com, gshan@redhat.com, james.morse@arm.com, shameerali.kolothum.thodi@huawei.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, jingzhangos@google.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_062208_505341_E642C0BD 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20241031_062745_814964_35B4569E 
+X-CRM114-Status: GOOD (  27.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,140 +93,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 30 Oct 2024 16:03:10 +0000,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> Hi,
+> 
+> changes since v5 [1]:
+> 	- Removed Kconfig option, the KVM traps shouldn't rely on host kernel support
+> 	- Renamed cpus_support_* to system_supports_* since that matches other functions
+> 	- Replace static branch arm64_mpam_has_hcr with a normal cpufeature capability
+> 	- Add MPAM*_EL2 regs to KVM (undef_access)
+> 	- Use constants in the test, instead of hardcoded values
+> 	- Added R-b and T-b tags
+> 	- Rebased on v6.12-rc5
+> 
+> James wrote:
+> 	This series fixes up a long standing bug where MPAM was accidentally exposed
+> 	to a guest, but the feature was not otherwise trapped or context switched.
+> 	This could result in KVM warning about unexpected traps, and injecting an
+> 	undef into the guest contradicting the ID registers.
+> 	This would prevent an MPAM aware kernel from booting - fortunately, there
+> 	aren't any of those.
+> 
+> 	Ideally, we'd take the MPAM feature away from the ID registers, but that
+> 	would leave existing guests unable to migrate to a newer kernel. Instead,
+> 	just ignore that field when it matches the hardware. KVM wasn't going to
+> 	expose MPAM anyway. The guest will not see MPAM in the id registers.
+> 
+> 	This series includes the head.S and KVM changes to enable/disable traps. If
+> 	MPAM is neither enabled nor emulated by EL3 firmware, these system register
+> 	accesses will trap to EL3.
+> 	If your kernel doesn't boot, and the problem bisects here - please update
+> 	your firmware. MPAM has been supported by trusted firmware since v1.6 in
+> 	2018. (also noted on patch 3).
+> 
+> Thanks,
+> Joey
+> 
+> [1] https://lore.kernel.org/kvmarm/20241015133923.3910916-1-joey.gouly@arm.com/
+> 
+> James Morse (7):
+>   arm64/sysreg: Convert existing MPAM sysregs and add the remaining
+>     entries
+>   arm64: head.S: Initialise MPAM EL2 registers and disable traps
+>   arm64: cpufeature: discover CPU support for MPAM
+>   KVM: arm64: Fix missing traps of guest accesses to the MPAM registers
+>   KVM: arm64: Add a macro for creating filtered sys_reg_descs entries
+>   KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
+>   KVM: arm64: selftests: Test ID_AA64PFR0.MPAM isn't completely ignored
+> 
+>  .../arch/arm64/cpu-feature-registers.rst      |   2 +
+>  arch/arm64/include/asm/cpu.h                  |   1 +
+>  arch/arm64/include/asm/cpucaps.h              |   5 +
+>  arch/arm64/include/asm/cpufeature.h           |  17 ++
+>  arch/arm64/include/asm/el2_setup.h            |  14 ++
+>  arch/arm64/include/asm/kvm_arm.h              |   1 +
+>  arch/arm64/include/asm/sysreg.h               |  12 --
+>  arch/arm64/kernel/cpufeature.c                |  96 +++++++++++
+>  arch/arm64/kernel/cpuinfo.c                   |   3 +
+>  arch/arm64/kvm/hyp/include/hyp/switch.h       |  31 ++++
+>  arch/arm64/kvm/sys_regs.c                     | 121 +++++++++----
+>  arch/arm64/tools/cpucaps                      |   2 +
+>  arch/arm64/tools/sysreg                       | 161 ++++++++++++++++++
+>  .../selftests/kvm/aarch64/set_id_regs.c       |  99 ++++++++++-
+>  14 files changed, 523 insertions(+), 42 deletions(-)
 
+For the series:
 
-On 10/30/24 20:17, Vincent Guittot wrote:
-> On Wed, 30 Oct 2024 at 14:32, Sibi Sankar <quic_sibis@quicinc.com> wrote:
->>
->> Register for limit change notifications if supported and use the throttled
->> frequency from the notification to apply HW pressure.
->>
->> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
->> Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
->> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
->> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
->> ---
->>
->> v6:
->> * Unregister the notifier in the exit path to make sure
->>    the cpus work across suspend/resume cycles.
->>
->>   drivers/cpufreq/scmi-cpufreq.c | 38 ++++++++++++++++++++++++++++++++++
->>   1 file changed, 38 insertions(+)
->>
->> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
->> index 5892c73e129d..fb3534eae722 100644
->> --- a/drivers/cpufreq/scmi-cpufreq.c
->> +++ b/drivers/cpufreq/scmi-cpufreq.c
->> @@ -16,6 +16,7 @@
->>   #include <linux/export.h>
->>   #include <linux/module.h>
->>   #include <linux/pm_opp.h>
->> +#include <linux/pm_qos.h>
->>   #include <linux/slab.h>
->>   #include <linux/scmi_protocol.h>
->>   #include <linux/types.h>
->> @@ -25,7 +26,9 @@ struct scmi_data {
->>          int domain_id;
->>          int nr_opp;
->>          struct device *cpu_dev;
->> +       struct cpufreq_policy *policy;
->>          cpumask_var_t opp_shared_cpus;
->> +       struct notifier_block limit_notify_nb;
->>   };
->>
->>   static struct scmi_protocol_handle *ph;
->> @@ -174,6 +177,25 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
->>          NULL,
->>   };
->>
->> +static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
->> +{
->> +       struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
->> +       struct scmi_perf_limits_report *limit_notify = data;
->> +       struct cpufreq_policy *policy = priv->policy;
->> +       unsigned int limit_freq_khz;
->> +       int ret;
->> +
->> +       limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
->> +
->> +       policy->max = clamp(limit_freq_khz, policy->cpuinfo.min_freq, policy->cpuinfo.max_freq);
->> +
->> +       ret = freq_qos_update_request(policy->max_freq_req, policy->max);
-> 
-> If I don't get it wrong, you are using policy->max_freq_req which is
-> also used by the sysfs scaling_max_freq
-> 
-> This means that your request will be overwritten by the next write
-> into scaling_max_freq and/or you will overwrite a constraint set by
-> userspace.
-> 
-> You have to create your own freq_qos_request and add it to the list of
-> cpufreq qos request
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Thanks for catching this. Will get it fixed in the next re-spin.
+	M.
 
--Sibi
-
-> 
-> 
-> 
->> +       if (ret < 0)
->> +               pr_warn("failed to update freq constraint: %d\n", ret);
->> +
->> +       return NOTIFY_OK;
->> +}
->> +
->>   static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->>   {
->>          int ret, nr_opp, domain;
->> @@ -181,6 +203,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->>          struct device *cpu_dev;
->>          struct scmi_data *priv;
->>          struct cpufreq_frequency_table *freq_table;
->> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->>
->>          cpu_dev = get_cpu_device(policy->cpu);
->>          if (!cpu_dev) {
->> @@ -294,6 +317,17 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->>                  }
->>          }
->>
->> +       priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
->> +       ret = sdev->handle->notify_ops->devm_event_notifier_register(sdev, SCMI_PROTOCOL_PERF,
->> +                                                       SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
->> +                                                       &domain,
->> +                                                       &priv->limit_notify_nb);
->> +       if (ret)
->> +               dev_warn(&sdev->dev,
->> +                        "failed to register for limits change notifier for domain %d\n", domain);
->> +
->> +       priv->policy = policy;
->> +
->>          return 0;
->>
->>   out_free_opp:
->> @@ -310,8 +344,10 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->>
->>   static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
->>   {
->> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->>          struct scmi_data *priv = policy->driver_data;
->>
->> +       sdev->handle->notify_ops->devm_event_notifier_unregister(sdev, &priv->limit_notify_nb);
->>          dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
->>          dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
->>          free_cpumask_var(priv->opp_shared_cpus);
->> @@ -370,6 +406,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
->>          if (!handle)
->>                  return -ENODEV;
->>
->> +       scmi_cpufreq_driver.driver_data = sdev;
->> +
->>          perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
->>          if (IS_ERR(perf_ops))
->>                  return PTR_ERR(perf_ops);
->> --
->> 2.34.1
->>
+-- 
+Without deviation from the norm, progress is not possible.
 
