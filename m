@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255D4D767D8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E816CD767D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 14:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SOPKYmdMnIizXZz0zOfPGEy5Rjj28lW3e433p3NbgE=; b=dAJXjkNDEWtxg1fspv4dFsp2gQ
-	TRlS33Z6/JIoVV9cB5Hg8I8tLXE2n6igEdFSwqMPVAGeKuBt/keWUFCI8SB97ImEwpECTUx0vJx7Z
-	wgse6f2W9LHluK3eb+DwrfPEBZRrC/ehlVAsHte1N5kGECU07bztJ3GEbhOKcMr7qvErJwsfvCmVZ
-	+rkj2t+ODlGwXWi/5CeZUJzwF4kkzidN0PfBS6kPcquQUv1mBu3BODoZj+H/rU6kGg3NdfZ1RqLFB
-	Uao9nhu0PG2OjqWJ/JKukuGr4SMEOUz8NVwcAPJY09uZcSJXGwrJrmf2sxi9TKVb5xf01fMHUeYsG
-	OADWd06w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oeula+DtfhgaWzx5M6Nob2ysji59Y5ECNtbv0GomXHw=; b=jzHzZ1QFl8iG1iOVxgWAxeI1W0
+	vSGStA4KsUY/4eISKhUtCfC+0Bn1RYpjiJOvrpYeeH+2WCzkR+kaGQg+oGk7RbDAB0jj8vc9FhWVb
+	my8c5CTFAmRoasxbNG+M5XJwUB1KbMmt1Z8TxShMMqKGQnqy7felUx+JHMAbrF4imtud/9u/Ee2na
+	i7FmjLLFFu7NstxwVxqCXX3sIJNBQY0o1IcI23ZLU4PSbm0VjGJm0qVdysDwlnfODMaHKyHGzcjjN
+	Bkt6oq+ofvk8vMxv6hmZwCpUMb+4pP8dLcuZMPQcyn7P26EzodbaVoiQGCwoAbCCRHfjJlZaWyo2a
+	6NXGMDjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6WGa-00000003pRo-2i33;
-	Thu, 31 Oct 2024 14:35:16 +0000
+	id 1t6WIE-00000003pnB-443e;
+	Thu, 31 Oct 2024 14:36:58 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6W9I-00000003o6i-0B7E
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 14:27:46 +0000
+	id 1t6WAA-00000003oHi-2zfg;
+	Thu, 31 Oct 2024 14:28:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 92722A44208;
-	Thu, 31 Oct 2024 14:25:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A4AC4CECF;
-	Thu, 31 Oct 2024 14:27:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5A2B7A44218;
+	Thu, 31 Oct 2024 14:26:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D6A1C4CED3;
+	Thu, 31 Oct 2024 14:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730384862;
-	bh=0VFKeI1RdtsenUvtom72hXjYrfUswcH7nHkImzR9QY8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SMSdNMD+U58gioJZAobamXIL4QOVQC/TammrC2vS9MsmHXrB8wAQcdF5HXTuWm0Bd
-	 GsgF6jUW5jN9BdIHHrUJ2H7UbF6aFNsFf/Xxbo+ybbDumCPu55HSNJ+/v57e1lYPqw
-	 RJpp2wriW7qsdZF/N35UDTI6bekcS/aS6+VsPun3peJiyM1zEKr4rwUkw6afMLSiWD
-	 2KBSivQr3XWHUh4yUAUyxoMj9Lt4oyn9HaUB4yXZVzf2xwY2JBVh7zF8pia91sZU3G
-	 HtX6q1zvkAw///hleArznfjVKan3w0PrwyIXMpxVS5Dzstqj4n5zCV/+6UTyuS/tXY
-	 r/Um/BCGySChA==
-Date: Thu, 31 Oct 2024 14:27:37 +0000
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Mesih Kilinc <mesihkilinc@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH v4 06/10] ASoC: sun4i-codec: Add DMA Max Burst field
-Message-ID: <33f8c68a-d21a-4c04-b7be-adeab520d5c5@sirena.org.uk>
-References: <20241031123538.2582675-1-csokas.bence@prolan.hu>
- <20241031123538.2582675-6-csokas.bence@prolan.hu>
+	s=k20201202; t=1730384917;
+	bh=CaYEF7X5I1GwZVHjJ3svy21SD6o+b4obPuUVTVBlPB8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=OdDIYEW5Q9ZFcC3DhB2TkUXh8M7gBaaMmyD6SSXalM5rdbslk3tn5R2NgJUBWCD+x
+	 07FV/uL/IsERrmYXog4SEg3HTScus/Gtd3s/eFvQs4R5ug8b5Sc/3hUEN3usXDT3yj
+	 6alDSnZxp1hGU7OQ4QtjfDAFFXfW96+pJFwHr9spiUqfkix7A2uwPieNdJI0BniWXZ
+	 fWutmBAsH+6tNdN9lRYVDF7YcqdEfLsO74IDh/+Er5DkM8fRXwwTZlwEuETSrNRnPN
+	 4dvgaZ9JoCeEP8Q0PUr/eV0GiGRsaVd0o4KK9oTW++3jpDl1jmBawFH1F1jUdPk5Cv
+	 q9Q4ZrBpwkBug==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 31 Oct 2024 15:28:18 +0100
+Subject: [PATCH net-next v2] net: dsa: mt7530: Add TBF qdisc offload
+ support
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="558g04AZnavlqknE"
-Content-Disposition: inline
-In-Reply-To: <20241031123538.2582675-6-csokas.bence@prolan.hu>
-X-Cookie: Make a wish, it might come true.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241031-mt7530-tc-offload-v2-1-cb242ad954a0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAGUI2cC/32NQQrDIBBFrxJmXctolNCueo+ShcSZRJrGoiItw
+ bvX5gBdfd6H//4OiaKnBNduh0jFJx+2BurUwbTYbSbhXWNQqLTEHsUzD6ZFnkRgXoN1Ag0p1Fp
+ Lgwht94rE/n0472Pjxacc4ue4KPLX/rMVKaTggYjZcu8udHtQ3Gg9hzjDWGv9AiyW6Y2zAAAA
+X-Change-ID: 20241030-mt7530-tc-offload-05e204441500
+To: =?utf-8?q?Ar=C4=B1n=C3=A7_=C3=9CNAL?= <arinc.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Florian Fainelli <f.fainelli@gmail.com>, 
+ Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_072744_171304_D5D48551 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20241031_072838_899582_D1278175 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +82,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Introduce port_setup_tc callback in mt7530 dsa driver in order to enable
+dsa ports rate shaping via hw Token Bucket Filter (TBF) for hw switched
+traffic.
 
---558g04AZnavlqknE
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Tested-by: Arınç ÜNAL <arinc.unal@arinc9.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- remove device id limitation and allow tbf qdisc configuration on each mt7530
+  compliant devices
+- rename MT7530_ERLCR_P in MT753X_ERLCR_P and MT7530_GERLCR in
+  MT753X_GERLCR
+- Link to v1: https://lore.kernel.org/r/20241030-mt7530-tc-offload-v1-1-f7eeffaf3d9e@kernel.org
+---
+ drivers/net/dsa/mt7530.c | 49 ++++++++++++++++++++++++++++++++++++++++++++++++
+ drivers/net/dsa/mt7530.h | 12 ++++++++++++
+ 2 files changed, 61 insertions(+)
 
-On Thu, Oct 31, 2024 at 01:35:32PM +0100, Cs=F3k=E1s, Bence wrote:
-> From: Mesih Kilinc <mesihkilinc@gmail.com>
->=20
-> Allwinner suniv F1C100s has similar DMA engine to sun4i but it has
-> smaller max burst size compared to sun4i. Add a quirk field to
-> differantitate between them.
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index d84ee1b419a614dda5f440e6571cff5f4f27bf21..086b8b3d5b40f776815967492914bd46a04b6886 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -21,6 +21,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+ #include <net/dsa.h>
++#include <net/pkt_cls.h>
+ 
+ #include "mt7530.h"
+ 
+@@ -3146,6 +3147,53 @@ mt753x_conduit_state_change(struct dsa_switch *ds,
+ 	mt7530_rmw(priv, MT753X_MFC, MT7530_CPU_EN | MT7530_CPU_PORT_MASK, val);
+ }
+ 
++static int mt753x_tc_setup_qdisc_tbf(struct dsa_switch *ds, int port,
++				     struct tc_tbf_qopt_offload *qopt)
++{
++	struct tc_tbf_qopt_offload_replace_params *p = &qopt->replace_params;
++	struct mt7530_priv *priv = ds->priv;
++	u32 rate = 0;
++
++	switch (qopt->command) {
++	case TC_TBF_REPLACE:
++		rate = div_u64(p->rate.rate_bytes_ps, 1000) << 3; /* kbps */
++		fallthrough;
++	case TC_TBF_DESTROY: {
++		u32 val, tick;
++
++		mt7530_rmw(priv, MT753X_GERLCR, EGR_BC_MASK,
++			   EGR_BC_CRC_IPG_PREAMBLE);
++
++		/* if rate is greater than 10Mbps tick is 1/32 ms,
++		 * 1ms otherwise
++		 */
++		tick = rate > 10000 ? 2 : 7;
++		val = FIELD_PREP(ERLCR_CIR_MASK, (rate >> 5)) |
++		      FIELD_PREP(ERLCR_EN_MASK, !!rate) |
++		      FIELD_PREP(ERLCR_EXP_MASK, tick) |
++		      ERLCR_TBF_MODE_MASK |
++		      FIELD_PREP(ERLCR_MANT_MASK, 0xf);
++		mt7530_write(priv, MT753X_ERLCR_P(port), val);
++		break;
++	}
++	default:
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
++static int mt753x_setup_tc(struct dsa_switch *ds, int port,
++			   enum tc_setup_type type, void *type_data)
++{
++	switch (type) {
++	case TC_SETUP_QDISC_TBF:
++		return mt753x_tc_setup_qdisc_tbf(ds, port, type_data);
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
+ static int mt7988_setup(struct dsa_switch *ds)
+ {
+ 	struct mt7530_priv *priv = ds->priv;
+@@ -3193,6 +3241,7 @@ const struct dsa_switch_ops mt7530_switch_ops = {
+ 	.get_mac_eee		= mt753x_get_mac_eee,
+ 	.set_mac_eee		= mt753x_set_mac_eee,
+ 	.conduit_state_change	= mt753x_conduit_state_change,
++	.port_setup_tc		= mt753x_setup_tc,
+ };
+ EXPORT_SYMBOL_GPL(mt7530_switch_ops);
+ 
+diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+index 6ad33a9f6b1dff3a423baa668a8a2ca158f72b91..448200689f492dcb73ef056d7284090c1c662e67 100644
+--- a/drivers/net/dsa/mt7530.h
++++ b/drivers/net/dsa/mt7530.h
+@@ -248,6 +248,18 @@ enum mt7530_vlan_egress_attr {
+ #define  AGE_UNIT_MAX			0xfff
+ #define  AGE_UNIT(x)			(AGE_UNIT_MASK & (x))
+ 
++#define MT753X_ERLCR_P(x)		(0x1040 + ((x) * 0x100))
++#define  ERLCR_CIR_MASK			GENMASK(31, 16)
++#define  ERLCR_EN_MASK			BIT(15)
++#define  ERLCR_EXP_MASK			GENMASK(11, 8)
++#define  ERLCR_TBF_MODE_MASK		BIT(7)
++#define  ERLCR_MANT_MASK		GENMASK(6, 0)
++
++#define MT753X_GERLCR			0x10e0
++#define  EGR_BC_MASK			GENMASK(7, 0)
++#define  EGR_BC_CRC			0x4	/* crc */
++#define  EGR_BC_CRC_IPG_PREAMBLE	0x18	/* crc + ipg + preamble */
++
+ /* Register for port STP state control */
+ #define MT7530_SSP_P(x)			(0x2000 + ((x) * 0x100))
+ #define  FID_PST(fid, state)		(((state) & 0x3) << ((fid) * 2))
 
-You've not copied me on the rest of the series so I don't know what's
-going on with dependencies.  When sending a patch series it is important
-to ensure that all the various maintainers understand what the
-relationship between the patches as the expecation is that there will be
-interdependencies.  Either copy everyone on the whole series or at least
-copy them on the cover letter and explain what's going on.  If there are
-no strong interdependencies then it's generally simplest to just send
-the patches separately to avoid any possible confusion.
+---
+base-commit: 157a4881225bd0af5444aab9510e7b6da28f2469
+change-id: 20241030-mt7530-tc-offload-05e204441500
 
---558g04AZnavlqknE
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcjk9gACgkQJNaLcl1U
-h9DFuwf/WrEXxsnAh3sDyS+Or2fX9sOWwQ1iCN/IUpg+CS4mWAHnkn8vSvAKQEvk
-YIztm/llMpt5Nb4AmUz0BIMECSiIRlBcsT9FhQEdFvR8JFI98AHUfpwkZ/WWihyP
-DGLqbnD3tIIU9ZO82mrVY7YS7Mz2meMjPtkhJndkMaWuyV6/65J1HTYn0cySykAZ
-wyZtt8fCVufFlcSBO7cH0I5jSxr2dQscSIhjzO9ltJOuVvNgh6eEwH1jiwiRzBXW
-uHtoSmqP4a8kutz5pOTatCs6mgBt/zud8Fa0Pf0RjHUk7IVqVYCNo4PDx/bDs9aC
-JGaKxTuvIPu1SsxpxRpGJyQAKivOgA==
-=uZWg
------END PGP SIGNATURE-----
-
---558g04AZnavlqknE--
 
