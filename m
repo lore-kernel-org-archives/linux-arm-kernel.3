@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D77E68975
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AACE68975
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 11:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PozbzDh8fynP/sDrQGC3kD4ausHypQY0l1L7spYdSv4=; b=QhD6y5JrDqXkPN/huqgOWoWhh4
-	4ebZtllAIOp1W1237UD+2YkO7zkbKjcI4GTVkdxTy5wVW3JLlXVT/ULn9qvOboJi2m6x7L0fHsnkh
-	ykpnbdxylw+aven8BOo2YE1HiZUNNBjMh6B8oRv+4VdpAPgsot9sM15zyPTEUnM5DplLBc8Z31mbO
-	cSpz8bNzm15fq4/j535TKk/kUc9m8+xtjW1/eLciAncG6gKOJVp/z9Gji8EJ7FVBB071YKiWX5qvQ
-	l7tbsax2DzowZ7vGtmbZdQZ+YwrEMyZ1xCBic3WtCYMbAe1N1JckU5X9jzRHB82G68y1BoqfkjnsA
-	qMLEfH2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=; b=l42txpkREhHczOn8euRXZ7oU68
+	yWFFakvbBYBkGHojaKr8ApZHifvXYwCH/au2NLnBiRgi29lPyIUBeBaFFZq3ErcEzel3jKqFBtqGo
+	XZNwVn8um9CXTjXuawTjSJe6sAdPsYwJUE08MwS7fLtsXmC2WyJ+IZ6IGMPKArqgnwuMgaSmMFnsc
+	tA4uZvtVf8TI2JAKEXTYacjTrhD5EN600WoiUhyd7nlYG6Rd6LF+Vswer5dxXdDzb0WcMsAcm7frQ
+	k2TSn8KE5uaMk+sE0lKOUhwxGxYyxDIOmQasxTUtPUSPWkMsJcKdXila6Begggv+4733vRXldiMxE
+	+eacc+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6TAH-00000003MrW-3EF9;
-	Thu, 31 Oct 2024 11:16:33 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1t6TE9-00000003NWf-0u3z;
+	Thu, 31 Oct 2024 11:20:33 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6T8d-00000003Mcb-03sA
+	id 1t6TCS-00000003NJl-35wK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 11:14:52 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4319399a411so6962875e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:14:50 -0700 (PDT)
+	Thu, 31 Oct 2024 11:18:49 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5eb73ec1e1aso411948eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 04:18:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730373289; x=1730978089; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PozbzDh8fynP/sDrQGC3kD4ausHypQY0l1L7spYdSv4=;
-        b=dCQmxxwBYrbGJKmWEdWoCyZ7r/B5Nc2AFkO9yto8IwFTW3zlhUTuakaJb9FN9yj4ac
-         hqIHjKeDRSkspo3YneKFggiHoxWrooe76U1v8qBtTshBMlrplVZF4pExIl4Z4AGZvPqU
-         563F+9w3xeTo+TqghbDKr7xIHe4Z57T2a6binfgJuPIHrt1sOEFqkVqe+y8sDMyIT+bF
-         +snz15R21KnDPvUUBrBgNf32c35Rj2z3/PUCUgqwfthidnouJ9NDagVt1hIQYn0ndazg
-         VVyWJhMxIONPAokctOdOsiJJzRRtvU8PY3zqiQHo9AteWp+lhtHbn6J2ZizZgPP3Almw
-         pf/g==
+        d=linaro.org; s=google; t=1730373527; x=1730978327; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=;
+        b=scALhf1peQuZWETSquCMTTJpD09XInrkK01A8P/OOaqRS4A4pjyQIyUYzj11uLzZPK
+         kFtwyudaJjUdmtDiEVobEoS8Frjj6mS4Rq8N/qMncr/Pn/08AkT7naxymJB+RnHld4dx
+         ysT6VpaAhTIFhEkvLqF9q3Sa5xrP9MYhrx/SJCLjQOkUz5scU53dXs6awFIzRS7Ev72x
+         BBpgBXGhD5mlc34tAZrDGXwj4oBqBmGiDOTH5MgsSwJzK4FN82y2o62TOrjH6PQD9xBl
+         wg6dy2f2Z3n1wmizmILKDCNSbYwVyOEs1wTPWXZ0gv4LEGjpGUBVM5PI6oybPm1DfXhl
+         EwLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730373289; x=1730978089;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PozbzDh8fynP/sDrQGC3kD4ausHypQY0l1L7spYdSv4=;
-        b=mN/nn8Q+Mi5u6iQTw28hzcN9LIoOg9YukVhjzhFPmIlQa8p8iMcN7WZiZVdsDvA/zI
-         EJm8mLzN5pvD1bd3k5Px09KSeu19yKPzJyGYbprdbfj+3lwZ8j6XADNPiSDBoop9Rszl
-         QL5jMCNm9yHqC4BZQRpfmxrvxujeDvppe29+dSShQsW6aa6Iga1tGQn0QCWbYRAN03Pn
-         HlsqQwjKwroA8lwsidnM342lDEeWfKXVBl85nhoBiOEBUJPSnral3oM7P+/eCFisvg9e
-         gspD7WTc6UljMbMvtzWV+qc/qEKzt7e7VTzBDqsijBCUZPVg9SvweYr5MBUCUuIV9N4r
-         wu9Q==
-X-Gm-Message-State: AOJu0YyyzhewkPTzZjoudNGW3RcaIVb6oea+ZgGUs196Bgblcni9a8mc
-	iV+b6jb/0c+hE1rTih+sQjQ7cWLTipEyl4CQMBKkZ0tII9VWcXhu
-X-Google-Smtp-Source: AGHT+IGfEhgylwo9HDbgpkO/tkKXN2QtV74TWAjukaY+u8rp50OfYjIiD1MnYUAdd0nzH218OKjcjg==
-X-Received: by 2002:a05:600c:3b9c:b0:42c:bb10:7292 with SMTP id 5b1f17b1804b1-4319ac70754mr181762525e9.1.1730373288597;
-        Thu, 31 Oct 2024 04:14:48 -0700 (PDT)
-Received: from ?IPV6:2a02:8389:41cf:e200:d7b9:afdb:c541:d023? (2a02-8389-41cf-e200-d7b9-afdb-c541-d023.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:d7b9:afdb:c541:d023])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd9ca8eesm52772575e9.43.2024.10.31.04.14.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 31 Oct 2024 04:14:48 -0700 (PDT)
-Message-ID: <99b12dee-43c3-4007-9c55-e2a884fc662b@gmail.com>
-Date: Thu, 31 Oct 2024 12:14:46 +0100
+        d=1e100.net; s=20230601; t=1730373527; x=1730978327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6tOVqDGIVkJ6VSlfAnQKasdgXF9e/3uyEUG7DpZuXhY=;
+        b=QGA5DIYy8Dsu4O3R5cfHW91OIqJtEsFRDuHwEF1A6aICzCjaj+XRuaVc2pOXq4epx6
+         gEXOvr6b0HDdDhQ//FSb8wQa4PNagDVz+ERGTSYJHgU2Kl/rgjMiMwSJzp8Sjj2xYleW
+         dCxNfdCQQ+jUsf+evuFaDEbPnxIkoRP95bNajW+mBBqwnkPBIn6fnPIHLCYtjapkMyCD
+         2nkWkC1Qc3aXChOKp4QWH/Ipyv50Ovrj8m6+5KZbud3v4HJhIu5+gbT+fcZHQ2W+Ub7V
+         cUQdUxpjlDl4LfNDRhFWJnevM8FzkFugySolzWFNi0Vgi26HpGZ3D08EmAj2gpBYol6P
+         EaFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUzLCOkgHmR529mbyOr5Z4Et37ur44KFmsWG+fTUumElWxGRPST9QL/cdI9A/OFfEFSwB30XCd3naDzR13ma45X@lists.infradead.org
+X-Gm-Message-State: AOJu0YxumGSPxKYO8Y25wcH0HgT2fEfmRV+eUd+toG2c6mz0P1xU8gGR
+	+0SxacWGgs7V+cWCqFd+sI7wZ+EKH/BvwGb7nSiu6Dcuj60ZzVWDcoDgpxtRj0OJ7GTJCj1gqcQ
+	LiM+DAMMbNk5H6Uw1HxyCuhy/WH5A+3lQlK5UhA==
+X-Google-Smtp-Source: AGHT+IFQY0jyd6E8l4ZVxaxh5x5SVk1SxFaa6tSUf7REkjjSQjNyJIZv7P8E7RYon6B3a5PLGcKeZNWF/nmdRTVbnGc=
+X-Received: by 2002:a4a:a701:0:b0:5ec:5922:ddb with SMTP id
+ 006d021491bc7-5ec592219f4mr4806888eaf.2.1730373527001; Thu, 31 Oct 2024
+ 04:18:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] drivers: soc: atmel: use automatic cleanup for
- device_node in atmel_soc_device_init()
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241030-soc-atmel-soc-cleanup-v1-0-32b9e0773b14@gmail.com>
- <20241030-soc-atmel-soc-cleanup-v1-2-32b9e0773b14@gmail.com>
- <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
-Content-Language: en-US, de-AT
-From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
-In-Reply-To: <dfa83464-4632-45cf-a257-b9d9739d37e2@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241025131442.112862-1-peter.griffin@linaro.org>
+ <20241025131442.112862-5-peter.griffin@linaro.org> <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
+In-Reply-To: <f5ac07e3-3fde-4ac8-8cfc-fb7918ffb2a7@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 31 Oct 2024 11:18:36 +0000
+Message-ID: <CADrjBPpYQQNdYya_95KXRYBrfSD91E-rfYcw6Q-ZNOgh5-4VJw@mail.gmail.com>
+Subject: Re: [PATCH v2 04/11] scsi: ufs: exynos: Add EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR
+ check
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com, 
+	martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org, 
+	krzk@kernel.org, andre.draszik@linaro.org, kernel-team@android.com, 
+	willmcvicker@google.com, linux-scsi@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ebiggers@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_041451_089387_E4131183 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20241031_041848_799361_9C473735 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +95,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2024 12:07, Krzysztof Kozlowski wrote:
-> On 30/10/2024 18:10, Javier Carrasco wrote:
->> Switch to a more robust approach to automatically release the node when
->> it goes out of scope, dropping the need for explicit calls to
->> of_node_put().
-> 
-> Please use subject prefixes matching the subsystem. You can get them for
-> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-> your patch is touching. For bindings, the preferred subjects are
-> explained here:
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-> 
-> There is never a "drivers" prefix. Especially not first (because as
-> middle appears for FEW subsystems, not for SoC though).
-> 
+Hi Tudor,
 
-Thanks, I added that by mistake. I will fix that for v2.
+On Wed, 30 Oct 2024 at 08:56, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+>
+>
+>
+> On 10/25/24 2:14 PM, Peter Griffin wrote:
+> > The values calculated in exynos_ufs_specify_phy_time_attr() are only used
+> > in exynos_ufs_config_phy_time_attr() and exynos_ufs_config_phy_cap_attr()
+>
+> all values set in exynos_ufs_specify_phy_time_attr() are used *only* in
+> exynos_ufs_config_phy_time_attr(). Or did I miss something?
 
->>
->> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
->> ---
->>  drivers/soc/atmel/soc.c | 7 ++-----
->>  1 file changed, 2 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
->> index 64b1ad063073..298b542dd1c0 100644
->> --- a/drivers/soc/atmel/soc.c
->> +++ b/drivers/soc/atmel/soc.c
->> @@ -399,15 +399,12 @@ static const struct of_device_id at91_soc_allowed_list[] __initconst = {
->>  
->>  static int __init atmel_soc_device_init(void)
->>  {
->> -	struct device_node *np = of_find_node_by_path("/");
->> +	struct device_node *np __free(device_node) = of_find_node_by_path("/");
->>  
->> -	if (!of_match_node(at91_soc_allowed_list, np)) {
->> -		of_node_put(np);
-> 
-> You just added this code. Don't add code which immediately you remove.
-> Squash two patches.
-> 
-> Best regards,
-> Krzysztof
-> 
+Yes you're right, I'll update the commit message.
 
+>
+> > if EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR flag is not set.
+>
+> yep, wonderful.
+>
+> >
+> > Add a check for this flag to exynos_ufs_specify_phy_time_attr() and
+> > return for platforms that don't set it.
+> >
+> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > ---
+> >  drivers/ufs/host/ufs-exynos.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+> > index d685d3e93ea1..a1a2fdcb8a40 100644
+> > --- a/drivers/ufs/host/ufs-exynos.c
+> > +++ b/drivers/ufs/host/ufs-exynos.c
+> > @@ -546,6 +546,9 @@ static void exynos_ufs_specify_phy_time_attr(struct exynos_ufs *ufs)
+> >       struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
+> >       struct ufs_phy_time_cfg *t_cfg = &ufs->t_cfg;
+> >
+> > +     if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)
+> > +             return;
+> > +
+> >       t_cfg->tx_linereset_p =
+> >               exynos_ufs_calc_time_cntr(ufs, attr->tx_dif_p_nsec);
+> >       t_cfg->tx_linereset_n =
+>
+> tx_linereset_n, rx_hibern8_wait is set but not used anywhere. Can we
+> remove it? Not related to this patch though.
 
-As I said in another thread, I split the solution into a first one to be
-applied to stable kernels, and a second one that uses a more robust
-approach that is not supported by all stable kernels.
+Yes they can be removed if they are unused.
 
-Best regards,
-Javier Carrasco
+Peter
 
